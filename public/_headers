@@ -1,0 +1,7 @@
+# AMARA staging search protection
+# Staging must remain non-indexable during the migration period.
+# This avoids duplicate indexable AMARA systems while Lodgify remains live.
+# This is a staging-only safeguard, not the final live-state policy.
+
+/*
+  X-Robots-Tag: noindex, nofollow
