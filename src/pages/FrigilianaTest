@@ -1,0 +1,406 @@
+---
+/**
+ * AMARA Frigiliana Destination Guide (Navy & Gold Edition)
+ * 
+ * Architectural Intent:
+ * Delivers a high-end, visually striking editorial experience using ONLY static HTML 
+ * and advanced CSS. This version uses the Navy/Gold/Cream palette provided in the 
+ * second design iteration.
+ * 
+ * Integration Decisions:
+ * - Uses the authoritative `BaseLayout`.
+ * - Uses `resolveLink` for internal routing where applicable.
+ * - Extracts inline Tailwind config into standard Tailwind classes with arbitrary values.
+ * - Maintains the complex grid layouts, sticky TOC, and image treatments.
+ */
+
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { resolveLink } from '../lib/linkResolver';
+import { normalizeLanguage } from '../lib/seo/resolve-seo-head';
+import type { AmaraAuthoringSeo, AmaraLanguage } from '../types/seo';
+
+// 1. Derive routing and language context
+const pathname = Astro.url.pathname;
+const currentLang = normalizeLanguage(pathname.split('/')[1] || 'en') as AmaraLanguage;
+
+// 2. Resolve internal links
+const links = {
+  book: resolveLink('book', currentLang),
+  explore: resolveLink('explore_hub', currentLang),
+};
+
+// 3. Define the page-level SEO object
+const seo: AmaraAuthoringSeo = {
+  title: "Frigiliana | The Authority Guide",
+  description: "Step into a world where white-washed walls meet the azure sky. Discover the curated soul of Spain's most beautiful village.",
+  pageType: 'A',
+  canonical: 'auto',
+  robots: 'index, follow',
+  ogImage: 'https://lh3.googleusercontent.com/aida-public/AB6AXuCPbPNz9wcXxbpalfLS10Rvb8sxJI-L3RhPVk3VayfkF7_orwTcZUqfyW-MB-cCEck3hWjB_JIEjdFxKYl4p48HX_ty2T4jmcLaPDaqdZdwyk9ovHbrRDwVyVW3xutagIwJsBjK63frDAr_uIsziXG60t6YTI7zNvlo8GGu-7M8dfkgE8gMa2dQzC8qqgQV8IxN5VGXQzZt2vDMXrC5N5kg4ubsjmNMv4KGcVHG_w34hqwf21gu7ypmYo9TU9zXp8yIZkN9nXjVFN3I',
+};
+---
+
+<BaseLayout seo={seo}>
+  {/* 
+    NAVY & GOLD PALETTE DEFINITION:
+    Background: #fbf9f4 (Surface)
+    Text: #1b1c19 (On Surface)
+    Primary: #031632 (Navy)
+    Secondary: #775927 (Gold)
+  */}
+  <div class="bg-[#fbf9f4] text-[#1b1c19] font-sans selection:bg-[#fdd495] selection:text-[#785a27] scroll-smooth">
+    
+    {/* TopNavBar */}
+    <nav class="fixed top-0 w-full z-50 bg-[#fbf9f4]/80 backdrop-blur-xl flex justify-between items-center px-6 md:px-8 py-4 max-w-full mx-auto shadow-sm transition-transform duration-300">
+      <div class="text-2xl font-serif italic text-[#031632]">Frigiliana</div>
+      <div class="hidden md:flex items-center gap-8 font-serif font-medium text-sm tracking-wide">
+        <a class="text-[#031632] opacity-80 hover:text-[#775927] transition-colors duration-300" href="#stay">Where to stay</a>
+        <a class="text-[#031632] opacity-80 hover:text-[#775927] transition-colors duration-300" href="#walk">Village Walk</a>
+        <a class="text-[#031632] opacity-80 hover:text-[#775927] transition-colors duration-300" href="#weather">Weather</a>
+        <a class="text-[#031632] opacity-80 hover:text-[#775927] transition-colors duration-300" href="#restaurants">Restaurants</a>
+        <a class="text-[#031632] opacity-80 hover:text-[#775927] transition-colors duration-300" href="#things-to-do">Things to do</a>
+        <a class="text-[#031632] opacity-80 hover:text-[#775927] transition-colors duration-300" href="#planning">Planning</a>
+      </div>
+      <a href={links.book} class="bg-gradient-to-br from-[#031632] to-[#1a2b48] text-white px-6 py-2 rounded-xl text-sm font-medium hover:scale-105 transition-transform shadow-md">
+        Plan Trip
+      </a>
+    </nav>
+
+    {/* Hero Section */}
+    <header class="relative h-screen flex items-center justify-center overflow-hidden">
+      <div class="absolute inset-0 z-0">
+        <img class="w-full h-full object-cover" alt="Sun-drenched white village streets of Frigiliana Spain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCPbPNz9wcXxbpalfLS10Rvb8sxJI-L3RhPVk3VayfkF7_orwTcZUqfyW-MB-cCEck3hWjB_JIEjdFxKYl4p48HX_ty2T4jmcLaPDaqdZdwyk9ovHbrRDwVyVW3xutagIwJsBjK63frDAr_uIsziXG60t6YTI7zNvlo8GGu-7M8dfkgE8gMa2dQzC8qqgQV8IxN5VGXQzZt2vDMXrC5N5kg4ubsjmNMv4KGcVHG_w34hqwf21gu7ypmYo9TU9zXp8yIZkN9nXjVFN3I" referrerpolicy="no-referrer" />
+        <div class="absolute inset-0 bg-[#031632]/30 mix-blend-multiply"></div>
+      </div>
+      <div class="relative z-10 text-center px-6 max-w-4xl mt-16">
+        <span class="inline-block text-[#ffdead] bg-[#031632]/40 backdrop-blur-md px-4 py-1 rounded-full text-xs font-bold tracking-widest uppercase mb-6">The Jewel of Andalusia</span>
+        <h1 class="text-6xl md:text-8xl font-serif text-white mb-8 leading-tight">Experience Frigiliana</h1>
+        <p class="text-xl md:text-2xl text-white/90 font-light leading-relaxed max-w-2xl mx-auto">
+          Step into a world where white-washed walls meet the azure sky. Discover the curated soul of Spain's most beautiful village.
+        </p>
+      </div>
+      <div class="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce">
+        <span class="material-symbols-outlined text-white text-4xl">keyboard_double_arrow_down</span>
+      </div>
+    </header>
+
+    {/* Sticky TOC */}
+    <div class="sticky top-[68px] md:top-[72px] z-40 bg-[#f5f3ee]/95 backdrop-blur-md border-b border-[#c5c6ce]/20 py-3 overflow-x-auto">
+      <div class="max-w-7xl mx-auto px-6 md:px-8 flex gap-8 whitespace-nowrap text-xs font-sans uppercase tracking-widest text-[#44474d]">
+        <a class="hover:text-[#775927] transition-colors" href="#intro">Where is Frigiliana?</a>
+        <a class="hover:text-[#775927] transition-colors" href="#walk">Village Walk</a>
+        <a class="hover:text-[#775927] transition-colors" href="#weather">Weather</a>
+        <a class="hover:text-[#775927] transition-colors" href="#restaurants">Restaurants</a>
+        <a class="hover:text-[#775927] transition-colors" href="#things-to-do">Things to do</a>
+        <a class="hover:text-[#775927] transition-colors" href="#stay">Where to stay</a>
+        <a class="hover:text-[#775927] transition-colors" href="#nerja-vs">Nerja vs Frigiliana</a>
+        <a class="hover:text-[#775927] transition-colors" href="#planning">Planning</a>
+        <a class="hover:text-[#775927] transition-colors" href="#faq">FAQ</a>
+      </div>
+    </div>
+
+    <main class="max-w-7xl mx-auto px-6 py-20 space-y-32">
+      
+      {/* Bento Grid & Intro */}
+      <section class="grid grid-cols-1 md:grid-cols-12 gap-6 items-start" id="intro">
+        <div class="md:col-span-7 space-y-8">
+          <h2 class="text-4xl md:text-5xl font-serif text-[#031632] leading-tight">Why Frigiliana Feels the Way It Does</h2>
+          <div class="prose prose-lg text-[#44474d] font-sans leading-relaxed max-w-none">
+            <p>Frigiliana isn't just a location; it's a sensory experience. Nestled in the foothills of the Sierra de Enmedio, its Moorish heritage is etched into every pebble-mosaic street. The air carries the scent of mountain rosemary and sea salt, creating an atmosphere of timeless tranquility that has captivated artists and travelers for centuries.</p>
+          </div>
+          
+          {/* Arrival Widget */}
+          <div class="bg-[#eae8e3] rounded-xl p-8 flex flex-col md:flex-row gap-8 items-center justify-between">
+            <div class="flex items-center gap-6">
+              <div class="bg-[#1a2b48] p-4 rounded-full">
+                <span class="material-symbols-outlined text-[#ffdead] text-3xl">flight_takeoff</span>
+              </div>
+              <div>
+                <h4 class="text-sm font-sans uppercase tracking-widest text-[#775927] font-bold">Arrival Times</h4>
+                <p class="text-[#031632] font-medium">45m from Málaga Airport</p>
+              </div>
+            </div>
+            <a class="text-[#031632] font-bold border-b-2 border-[#775927] pb-1 flex items-center gap-2 group" href={links.explore}>
+              Book your flight
+              <span class="material-symbols-outlined group-hover:translate-x-1 transition-transform">arrow_forward</span>
+            </a>
+          </div>
+        </div>
+        
+        <div class="md:col-span-5 grid grid-cols-2 gap-4 h-full">
+          <div class="col-span-2 aspect-[4/3] rounded-xl overflow-hidden shadow-sm">
+            <img class="w-full h-full object-cover hover:scale-105 transition-transform duration-300" alt="Narrow cobbled street in Frigiliana with blue doors" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCr73JAp1wSHHSE6rTJXtqEVZHRwGmuc_hbPwudRevKeRP8se3i0MazAu5aLfrNYkyD1G9dlsuCjBjf_aIg1_v8325BCWrRT1XNSuWlXVgEi_kXY1DVr7TpPNcsO8vj86625vIhqUK5tNVybNBktBjgjdKnqF7cFY7_hfnI6zjI0U29_Wf1_iC-q5U0fxLKRQbuaLsXZjjP4BP46l3nVMa84LL6Qgz2YDFQG6nH2TseVh9EVVT070Ir_54h02H2uG16iwvoFZG0AEhw" referrerpolicy="no-referrer" />
+          </div>
+          <div class="aspect-square rounded-xl overflow-hidden shadow-sm">
+            <img class="w-full h-full object-cover hover:scale-105 transition-transform duration-300" alt="Traditional Spanish pottery in a window" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDAdimtpcWBpUCMRO7nGOU6-WBXG7HddX2EGSQUnE9X9Sif4c4no5TmO1OkCQtJD1-ODxzXIubsewTR4jeR9OEoIeK_fls7SYxD4YNG52sh2xuhhbS_9fV1KhhYeiiq36_5UuaPNlNKykIJqdZ8xHOqig9J8JCwDx3lzDk9BzNu1MVj1odM4HIF-Pvm_iJQdoRlBGwL7F84hiusK1nROapn_YVjH45QlIKBvRbgWRkIotTZbXBrUUOC2eHKxaum6mxShsdli44w-zFl" referrerpolicy="no-referrer" />
+          </div>
+          <div class="bg-[#e4e2dd] rounded-xl flex items-center justify-center p-4 relative overflow-hidden group">
+            <div class="text-center z-10">
+              <span class="material-symbols-outlined text-[#031632] text-4xl mb-2">map</span>
+              <p class="text-xs font-sans text-[#031632] font-bold uppercase tracking-tighter">Interactive View</p>
+            </div>
+            <div class="absolute inset-0 opacity-20 grayscale transition-all group-hover:scale-110">
+              <img class="w-full h-full object-cover" alt="Stylized map of Spain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBJ7wZmM_QDohgUdIdUT9BqUUIa8vDm_K3BndBNUMCruAV7OLO2pZOjNCcIvN5P3UapMNHEzwW8P5-g3sxMqj0vGjCIIH3K12ROp4tUCcKUk9oDRTjBg6yMbHQtx8buARRiTJ33yNIUghF_Oyy2-qcBbHpw8zsqhBKf6obHVcSQVTsyXbry-PJVhARAN-YOSa30rkEkA6Z4Oe53B1piy7o1Be5_QLnDbENZd3RC92gzRcjGq8zVRJOnSsVZZvmelg86g7oP4iMqPdjN" referrerpolicy="no-referrer" />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Weather Section */}
+      <section class="bg-[#f5f3ee] rounded-[2rem] p-8 md:p-12 overflow-hidden relative" id="weather">
+        <div class="absolute top-0 right-0 p-10 md:p-20 opacity-10">
+          <span class="material-symbols-outlined text-[8rem] md:text-[12rem] text-[#775927]">sunny</span>
+        </div>
+        <div class="max-w-3xl relative z-10">
+          <h2 class="text-3xl font-serif text-[#031632] mb-6">A Microclimate of Eternal Spring</h2>
+          <p class="text-[#44474d] mb-10 text-lg">Protected by the mountains and facing the Mediterranean, Frigiliana enjoys over 300 days of sunshine a year.</p>
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
+            <div class="bg-white p-6 rounded-xl shadow-sm">
+              <p class="text-xs font-sans text-[#775927] font-bold uppercase mb-2">Summer Avg</p>
+              <p class="text-3xl font-serif text-[#031632]">29°C</p>
+            </div>
+            <div class="bg-white p-6 rounded-xl shadow-sm">
+              <p class="text-xs font-sans text-[#775927] font-bold uppercase mb-2">Winter Avg</p>
+              <p class="text-3xl font-serif text-[#031632]">16°C</p>
+            </div>
+            <div class="bg-white p-6 rounded-xl shadow-sm border border-[#fdd495]">
+              <div class="flex justify-between items-start">
+                <div>
+                  <p class="text-xs font-sans text-[#775927] font-bold uppercase mb-2">Current</p>
+                  <p class="text-3xl font-serif text-[#031632]">22°C</p>
+                </div>
+                <span class="material-symbols-outlined text-[#775927]" style="font-variation-settings: 'FILL' 1;">partly_cloudy_day</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Where to Stay */}
+      <section class="space-y-12" id="stay">
+        <div class="text-center max-w-2xl mx-auto">
+          <h2 class="text-4xl font-serif text-[#031632] mb-4">Where to Stay</h2>
+          <p class="text-[#44474d]">From boutique hotels in restored palazzos to secluded mountain villas, choose your sanctuary.</p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          
+          {/* Card 1 */}
+          <a href={links.book} class="group cursor-pointer block">
+            <div class="aspect-[3/4] rounded-xl overflow-hidden mb-6 relative">
+              <img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" alt="Luxury boutique hotel interior with white stone walls" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCI8Z2ob2CbICPuzIXS7gaqj-qtBvdRDjh0ZuK2TOY_uCjNh-No3w-L-iXUR-6qVZDOyJv2kRxBK2pkNGoBOPNPFLbOiK86KmO1zjMAZrk7M0end9gK27LaQteZbskfE7aGb6mVovDOcVPCWOGoH7gcW_gCbaLMuOmVIzVTRGerSGT7I0tleRrpHzhT9OGY9-poWh4ISjUmJOweygrCaEf6htK0o1oCMqgFL9M1JuFYcbzkzN5qiUqSVfxrie9gasZJDbShcVJsXJQU" referrerpolicy="no-referrer" />
+              <div class="absolute top-4 left-4">
+                <span class="bg-[#fdd495] text-[#785a27] px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-widest">Heritage</span>
+              </div>
+            </div>
+            <h3 class="text-xl font-serif text-[#031632] mb-2">The Historic Quarter</h3>
+            <p class="text-sm text-[#44474d] mb-4">Immerse yourself in the ancient streets. Best for couples seeking romance.</p>
+            <span class="text-xs font-sans text-[#775927] font-bold group-hover:translate-x-2 inline-block transition-transform">EXPLORE OPTIONS &rarr;</span>
+          </a>
+          
+          {/* Card 2 */}
+          <a href={links.book} class="group cursor-pointer block">
+            <div class="aspect-[3/4] rounded-xl overflow-hidden mb-6 relative">
+              <img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" alt="Swimming pool overlooking mountain range" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCaQvpjea8jG1TTPfZFFN2HgtgGaFa6hLma71L-WferkFTeEK5OK8qk6EcqkWrkuxQu725-J9VdF0JPMdQ3-rwDhxe9SFXsZiseVUuDDMoWlaK7BQoILPx07l694ZJcFF4REAl_qPtmIC_A8xJGJGXLuIMIEZHv_A42j-5tC7u6ElRFX3Lk4_ayXa0cBHM5PyFzaiOz6xSy6cBzO0JrE7SChK6ekuSiVCIL5kL0QQrFH0CeI65o_GcVtwHZBSkjFCg8Jo8XGZQHa695" referrerpolicy="no-referrer" />
+              <div class="absolute top-4 left-4">
+                <span class="bg-[#fdd495] text-[#785a27] px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-widest">Luxury</span>
+              </div>
+            </div>
+            <h3 class="text-xl font-serif text-[#031632] mb-2">Sierra Foothills</h3>
+            <p class="text-sm text-[#44474d] mb-4">Private villas with infinity pools and panoramic mountain views.</p>
+            <span class="text-xs font-sans text-[#775927] font-bold group-hover:translate-x-2 inline-block transition-transform">VIEW VILLAS &rarr;</span>
+          </a>
+          
+          {/* Card 3 */}
+          <a href={links.book} class="group cursor-pointer block">
+            <div class="aspect-[3/4] rounded-xl overflow-hidden mb-6 relative">
+              <img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" alt="Modern minimalist hotel terrace at sunset" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDJvxEnu6GgBvi8fmexMF3XXL7zNE3fXQYxoEyVTFlOZNzZyv2edIQ2OGfiA_GBho7So1aFFnSyoRV83QAGfJAKk6-73sMR2hhCAeI4fqOFWFu9PffbK4EyO-uuIr5XXR7PLhomssZIyKCwO-jXAmcyEWT2rjVQaDNJ47bGsENrf7skoXkNlJPOO32WnWtRNhjX7G-Isp1IaLQc5afeBAN3NdZH0XOkP6hhqnso6KOeQLd_qSOQ3gxJ_EdNrCBOPW2vSJSD1La6ZU2_" referrerpolicy="no-referrer" />
+              <div class="absolute top-4 left-4">
+                <span class="bg-[#fdd495] text-[#785a27] px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-widest">Contemporary</span>
+              </div>
+            </div>
+            <h3 class="text-xl font-serif text-[#031632] mb-2">New Town Edge</h3>
+            <p class="text-sm text-[#44474d] mb-4">Modern amenities with easy access and breathtaking sea views.</p>
+            <span class="text-xs font-sans text-[#775927] font-bold group-hover:translate-x-2 inline-block transition-transform">SEE MODERN STAYS &rarr;</span>
+          </a>
+          
+        </div>
+      </section>
+
+      {/* Comparison Section */}
+      <section class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center" id="nerja-vs">
+        <div class="order-2 md:order-1 space-y-8">
+          <h2 class="text-4xl font-serif text-[#031632]">Nerja vs Frigiliana</h2>
+          <p class="text-[#44474d]">The eternal question for visitors to the Costa del Sol. While Nerja offers the vibrant energy of the coast, Frigiliana provides the silent contemplation of the peaks.</p>
+          <div class="space-y-4">
+            <div class="flex items-start gap-4 p-6 bg-[#f5f3ee] rounded-xl">
+              <span class="material-symbols-outlined text-[#775927]" style="font-variation-settings: 'FILL' 1;">landscape</span>
+              <div>
+                <h4 class="font-bold text-[#031632]">Frigiliana: The Escapist</h4>
+                <p class="text-sm text-[#44474d]">Quiet, artisanal, steep alleys, focus on gastronomy and crafts. Perfect for slow travel.</p>
+              </div>
+            </div>
+            <div class="flex items-start gap-4 p-6 bg-[#f5f3ee] rounded-xl">
+              <span class="material-symbols-outlined text-[#775927]" style="font-variation-settings: 'FILL' 1;">beach_access</span>
+              <div>
+                <h4 class="font-bold text-[#031632]">Nerja: The Explorer</h4>
+                <p class="text-sm text-[#44474d]">Beaches, nightlife, caves, and the Balcón de Europa. Best for families and sun-seekers.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="order-1 md:order-2 grid grid-cols-2 gap-4">
+          <div class="h-64 rounded-xl overflow-hidden mt-12">
+            <img class="w-full h-full object-cover" alt="Blue sea of Nerja coastal town" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD6SgRW6SBI9DDEueNrO2oK3imbDFMA2l4vEG7xw7KDsanyA5LHu-Qm4HEHSAPG6S7YhkeuezqBABt2TJ9krqApwhPvnCxliV55fzgqkxck-UsG3KF9fQpXFc-3WEIwA2EwJGVzBCIKN_EqyGIIeZ5JhAwgO5ZtTEMDiZqXCGBTefyLvdovdmNsHJSKU4Lfvzi0GAi-A2wyHTYZRCZJ9UgBxlxFLvHQtfskDTD3yqOqIjz6tDpDO_Ai42LCRs617FkzPLK_LX6R47gx" referrerpolicy="no-referrer" />
+          </div>
+          <div class="h-64 rounded-xl overflow-hidden">
+            <img class="w-full h-full object-cover" alt="White village houses in Frigiliana mountains" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB-PPCFvmLRtl9ehoIQrCwfQSZ6yrmE290DJLoqYP_wvsrbbVnIN1_G90rs8Ea8WSmIBJ65_nEWOfZg7076cufWULQufcncA_ST0FePe_Qzu_PhkqyC9O4GAP031V2hmyDRs0HNz2gh1rU0FdDFLT6Zsq5TbG60BW1GmERHmlxqTigY6c11IJHkPL_ucAjnsNnxrP1JxbSkMEN5A9paFpDXcmgB-gD6maE9JqEdxCIIJJRcxk6DgJ9VSCALhVkp3PKLKTGr-eAzAauM" referrerpolicy="no-referrer" />
+          </div>
+        </div>
+      </section>
+
+      {/* Things To Do & Tip */}
+      <section class="space-y-16" id="things-to-do">
+        <div class="flex flex-col md:flex-row justify-between items-end gap-6">
+          <div class="max-w-xl">
+            <h2 class="text-4xl font-serif text-[#031632] mb-4">Curated Experiences</h2>
+            <p class="text-[#44474d]">Beyond the white walls lie hidden trails, ancient sugar mills, and the finest honey in Andalusia.</p>
+          </div>
+          <a href={links.explore} class="bg-[#031632] text-white px-8 py-4 rounded-xl font-bold hover:scale-105 transition-all shadow-xl inline-block">
+            Explore Guide
+          </a>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+          <div class="md:col-span-2 row-span-2 bg-[#031632] text-white p-10 rounded-[2rem] flex flex-col justify-end relative overflow-hidden group min-h-[400px]">
+            <img class="absolute inset-0 w-full h-full object-cover opacity-40 group-hover:scale-110 transition-transform duration-1000" alt="Hiking trail in the Spanish mountains" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAR2RGbnoRsycXYpksxp2wX9RjKKg1HEakwy2y5OHqMwSJrLVDYJIL8kdH0FNC0zelz7JWOM198nyEVVqjtvm2X8ZKDrZzlw5CBGeawsQv5KCQM2njR4eapOPvyiV6awDKDkEeKvJ3rgQ_aQqUi7yXljonSK3cttP-ZzNkZ2H8VcDo9Mrp4gmaW3sGXVTgfXZSz1s2bMcCKPhD2SA3PIMYZJi8E0uClG84nG30Yr8MTSVYwAjfc2wspkkQ7ALA-3Hn8CdsKttBj1RzW" referrerpolicy="no-referrer" />
+            <div class="relative z-10">
+              <h4 class="text-2xl font-serif mb-2">The Acequia Hike</h4>
+              <p class="text-white/80 mb-6">A watercourse path that winds through the valley with dramatic drop-offs and lush greenery.</p>
+              <span class="material-symbols-outlined">north_east</span>
+            </div>
+          </div>
+          <div class="bg-[#eae8e3] p-8 rounded-[2rem] flex flex-col justify-between">
+            <div>
+              <span class="material-symbols-outlined text-[#775927] mb-4">restaurant</span>
+              <h4 class="font-bold text-[#031632]">Sugar Mill Tour</h4>
+              <p class="text-sm text-[#44474d]">Visit the only working molasses factory in Europe.</p>
+            </div>
+            <span class="text-xs font-sans text-[#775927] font-bold mt-4">LOCAL ICON</span>
+          </div>
+          <div class="bg-[#fdd495] p-8 rounded-[2rem] flex flex-col justify-between">
+            <div>
+              <span class="material-symbols-outlined text-[#785a27] mb-4">palette</span>
+              <h4 class="font-bold text-[#031632]">Artisan Crawl</h4>
+              <p class="text-sm text-[#785a27]">Discover leather craft and ceramics in the hidden ateliers.</p>
+            </div>
+            <span class="text-xs font-sans text-[#785a27] font-bold mt-4">CULTURAL</span>
+          </div>
+          <div class="md:col-span-2 bg-[#f5f3ee] p-8 rounded-[2rem] flex items-center gap-8">
+            <div class="flex-1">
+              <div class="bg-[#1a2b48] inline-block p-2 rounded-lg mb-4 text-[#8293b5] text-[10px] font-bold uppercase tracking-widest">Secret Spotlight</div>
+              <h4 class="text-xl font-serif text-[#031632] mb-2">The Plaza de las Tres Culturas</h4>
+              <p class="text-sm text-[#44474d]">A symbolic space celebrating the peaceful coexistence of Christian, Muslim, and Jewish traditions.</p>
+            </div>
+            <div class="w-24 h-24 rounded-full overflow-hidden flex-shrink-0">
+              <img class="w-full h-full object-cover" alt="Detail of Spanish architecture" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBwZqBqQiO-LtV__rZ1Nab82OhJaTEUUlSAA2lLIfRVVB6Z1XN-2EFUvulMkusGx1B2Vq8Bf_YAiCUB3B7k4n3GC9BA2Tms7tMIFKbOGzASnP6AswYKxKoGj_OAVpCVVnQVtHcKhDEZGuvsLkp5scW9AHLCo0-ItL7xhbzzlLNjagzM34lzg15T4YXKIaktKDPpoWl1SAB8skC2uthDYqOcAt6HamwxhNfPfCVeet7eRjyU_AIWZ3OMojm48cJBx_duJU1NgaaPltF8" referrerpolicy="no-referrer" />
+            </div>
+          </div>
+        </div>
+
+        {/* Local Tip Card */}
+        <div class="bg-[#1a2b48] text-white p-12 rounded-3xl relative overflow-hidden">
+          <div class="absolute -top-10 -right-10 opacity-20 rotate-12">
+            <span class="material-symbols-outlined text-[15rem]">lightbulb</span>
+          </div>
+          <div class="max-w-2xl relative z-10">
+            <h3 class="text-2xl font-serif mb-4">The Digital Curator's Tip</h3>
+            <p class="text-lg text-[#8293b5] leading-relaxed mb-6">"Most visitors stay only for lunch. For the true soul of Frigiliana, book a stay for at least two nights. When the day-trippers leave at 5 PM, the village exhales, and you have the golden-hour streets all to yourself."</p>
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 rounded-full bg-[#775927]"></div>
+              <span class="text-sm font-sans uppercase tracking-widest">Village Concierge</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Planning Grid */}
+      <section class="space-y-12" id="planning">
+        <h2 class="text-4xl font-serif text-[#031632] text-center">Travel Planning</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <a class="group bg-white p-8 rounded-2xl shadow-sm hover:shadow-xl transition-all block" href={links.explore}>
+            <div class="flex justify-between items-start mb-6">
+              <span class="material-symbols-outlined text-[#775927] text-3xl">directions_car</span>
+              <span class="material-symbols-outlined opacity-0 group-hover:opacity-100 transition-opacity">arrow_outward</span>
+            </div>
+            <h4 class="text-xl font-bold text-[#031632] mb-2">Getting Here</h4>
+            <p class="text-sm text-[#44474d]">Bus schedules from Nerja, taxi rates, and scenic driving routes from Málaga.</p>
+          </a>
+          <a class="group bg-white p-8 rounded-2xl shadow-sm hover:shadow-xl transition-all block" href={links.explore}>
+            <div class="flex justify-between items-start mb-6">
+              <span class="material-symbols-outlined text-[#775927] text-3xl">local_parking</span>
+              <span class="material-symbols-outlined opacity-0 group-hover:opacity-100 transition-opacity">arrow_outward</span>
+            </div>
+            <h4 class="text-xl font-bold text-[#031632] mb-2">Parking Secrets</h4>
+            <p class="text-sm text-[#44474d]">Where to find space in a car-free village and the best times to arrive.</p>
+          </a>
+          <a class="group bg-white p-8 rounded-2xl shadow-sm hover:shadow-xl transition-all block" href={links.explore}>
+            <div class="flex justify-between items-start mb-6">
+              <span class="material-symbols-outlined text-[#775927] text-3xl">stairs</span>
+              <span class="material-symbols-outlined opacity-0 group-hover:opacity-100 transition-opacity">arrow_outward</span>
+            </div>
+            <h4 class="text-xl font-bold text-[#031632] mb-2">Village Structure</h4>
+            <p class="text-sm text-[#44474d]">Navigating the Barribarto and the differences between the 'New' and 'Old' quarters.</p>
+          </a>
+        </div>
+      </section>
+
+      {/* FAQ */}
+      <section class="max-w-3xl mx-auto space-y-12" id="faq">
+        <h2 class="text-4xl font-serif text-[#031632] text-center">Frequently Asked</h2>
+        <div class="space-y-4">
+          <details class="group bg-[#f5f3ee] rounded-xl p-6 open:bg-[#eae8e3] transition-colors [&_summary::-webkit-details-marker]:hidden">
+            <summary class="flex justify-between items-center cursor-pointer font-bold text-[#031632] outline-none">
+              Is Frigiliana accessible for those with mobility issues?
+              <span class="material-symbols-outlined group-open:rotate-180 transition-transform">expand_more</span>
+            </summary>
+            <p class="mt-4 text-[#44474d] leading-relaxed">The historic center is very steep with many steps. However, the lower part of the village and the newer section are quite flat and accessible.</p>
+          </details>
+          <details class="group bg-[#f5f3ee] rounded-xl p-6 open:bg-[#eae8e3] transition-colors [&_summary::-webkit-details-marker]:hidden">
+            <summary class="flex justify-between items-center cursor-pointer font-bold text-[#031632] outline-none">
+              When is the best time to visit?
+              <span class="material-symbols-outlined group-open:rotate-180 transition-transform">expand_more</span>
+            </summary>
+            <p class="mt-4 text-[#44474d] leading-relaxed">Late spring (May/June) and early autumn (September/October) offer perfect temperatures and fewer crowds than August.</p>
+          </details>
+          <details class="group bg-[#f5f3ee] rounded-xl p-6 open:bg-[#eae8e3] transition-colors [&_summary::-webkit-details-marker]:hidden">
+            <summary class="flex justify-between items-center cursor-pointer font-bold text-[#031632] outline-none">
+              Do I need a car in the village?
+              <span class="material-symbols-outlined group-open:rotate-180 transition-transform">expand_more</span>
+            </summary>
+            <p class="mt-4 text-[#44474d] leading-relaxed">While not needed for the village itself (it's mostly pedestrianized), a car is highly recommended for exploring the surrounding national park and coastal towns.</p>
+          </details>
+        </div>
+      </section>
+    </main>
+
+    {/* Footer */}
+    <footer class="bg-[#031632] text-[#fbf9f4] w-full py-12 px-8 flex flex-col md:flex-row justify-between items-center gap-6 mt-32">
+      <div class="text-xl font-serif text-[#fbf9f4]">Frigiliana</div>
+      <div class="flex flex-wrap justify-center gap-8 font-sans text-xs uppercase tracking-widest">
+        <a class="text-[#fbf9f4]/60 hover:text-[#ffdead] transition-all opacity-80 hover:opacity-100" href="#">Privacy Policy</a>
+        <a class="text-[#fbf9f4]/60 hover:text-[#ffdead] transition-all opacity-80 hover:opacity-100" href="#">Terms of Service</a>
+        <a class="text-[#fbf9f4]/60 hover:text-[#ffdead] transition-all opacity-80 hover:opacity-100" href={links.explore}>Contact Us</a>
+        <a class="text-[#fbf9f4]/60 hover:text-[#ffdead] transition-all opacity-80 hover:opacity-100" href={links.explore}>About Frigiliana</a>
+      </div>
+      <div class="text-[#fbf9f4]/60 font-sans text-[10px] uppercase tracking-widest">
+        © 2026 AMARA Lodging. All rights reserved.
+      </div>
+    </footer>
+  </div>
+</BaseLayout>
+
+<style>
+  .material-symbols-outlined {
+    font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+  }
+</style>

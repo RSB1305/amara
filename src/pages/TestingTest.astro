@@ -1,0 +1,517 @@
+---
+/**
+ * AMARA Frigiliana Destination Guide
+ * * Architectural Intent:
+ * Delivers a high-end, visually striking editorial experience using ONLY static HTML 
+ * and advanced CSS. This page is adapted from the provided HTML template, integrating
+ * it into the Astro project structure while maintaining the warm, editorial design language.
+ * * Integration Decisions:
+ * - Uses the authoritative `BaseLayout`.
+ * - Uses `resolveLink` for internal routing where applicable.
+ * - Extracts inline Tailwind config into standard Tailwind classes.
+ * - Maintains the complex grid layouts, typography, and image treatments.
+ */
+
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { resolveLink } from '../lib/linkResolver';
+import { normalizeLanguage } from '../lib/seo/resolve-seo-head';
+import type { AmaraAuthoringSeo, AmaraLanguage } from '../types/seo';
+
+// 1. Derive routing and language context
+const pathname = Astro.url.pathname;
+const currentLang = normalizeLanguage(pathname.split('/')[1] || 'en') as AmaraLanguage;
+
+// 2. Resolve internal links
+const links = {
+  book: resolveLink('book', currentLang),
+  explore: resolveLink('explore_hub', currentLang),
+};
+
+// 3. Define the page-level SEO object
+const seo: AmaraAuthoringSeo = {
+  version: '2026-03-22-v1.0',
+  pageType: 'A',
+  languages: {
+    en: {
+      title: 'Experience Frigiliana | AMARA',
+      description:
+        "Frigiliana is the rare kind of place that feels unreal in photos. A curated guide to Frigiliana's Mudejar heritage, architecture, and slow living.",
+      canonical: 'auto',
+      robots: 'index, follow'
+    },
+    de: {
+      title: 'Frigiliana erleben | AMARA',
+      description:
+        'Frigiliana ist einer dieser seltenen Orte, die auf Fotos unwirklich wirken. Ein kuratierter Guide zu Mudéjar-Erbe, Architektur und entschleunigtem Leben.',
+      canonical: 'auto',
+      robots: 'index, follow'
+    },
+    es: {
+      title: 'Descubrir Frigiliana | AMARA',
+      description:
+        'Frigiliana es uno de esos lugares raros que parecen irreales en fotos. Una guía curada sobre su herencia mudéjar, arquitectura y ritmo pausado.',
+      canonical: 'auto',
+      robots: 'index, follow'
+    },
+    nl: {
+      title: 'Frigiliana beleven | AMARA',
+      description:
+        'Frigiliana is zo’n zeldzame plek die op foto’s bijna onwerkelijk lijkt. Een samengestelde gids over Mudéjar-erfgoed, architectuur en slow living.',
+      canonical: 'auto',
+      robots: 'index, follow'
+    },
+    sv: {
+      title: 'Upplev Frigiliana | AMARA',
+      description:
+        'Frigiliana är en sådan sällsynt plats som nästan känns overklig på bild. En kurerad guide till stadens mudéjar-arv, arkitektur och långsamma rytm.',
+      canonical: 'auto',
+      robots: 'index, follow'
+    }
+  },
+  ogImage:
+    'https://lh3.googleusercontent.com/aida-public/AB6AXuDabuNn72a5ins1YuJEtzQiL2HfQhqvACy9mcQH7h-kUXeyVUD-rXSPMstsBVoivkX0sNtFNSYIQvEOfgBSNda8fd6d-RiyU1Dp45SUzaeBOCt55JnPAg9vAqGEBw9QXte5cyPH7rLx_UtrTLCoTD1TOyZ-tMVtZaNSkISBv6vTMFYpHLCsziO5SURAi5BrF45NQmugbAq6D_S2zJJ5Hk-pedZ99NWNdgF21z2hVnLptkK0E-ecJWBH2DpKY0ItzlmE9jeSasIWxg3r'
+};
+---
+
+<BaseLayout seo={seo}>
+  {/* WARM PALETTE DEFINITION (Adapted from provided HTML):
+    Background: #fbf9f5 (Surface Bright)
+    Text: #1b1c1a (On Surface)
+    Primary/Accent: #785611
+    Secondary Backgrounds: #efeeea, #f5f3ef
+  */}
+  <div class="bg-[#fbf9f5] text-[#1b1c1a] selection:bg-[#ffdeaa] selection:text-[#271900] font-sans relative">
+    
+    {/* Grain Overlay */}
+    <div class="fixed inset-0 z-[100] opacity-[0.03] pointer-events-none" style="background-image: url('data:image/svg+xml,%3Csvg viewBox=\'0 0 200 200\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cfilter id=\'noiseFilter\'%3E%3CfeTurbulence type=\'fractalNoise\' baseFrequency=\'0.65\' numOctaves=\'3\' stitchTiles=\'stitch\'/%3E%3C/filter%3E%3Crect width=\'100%25\' height=\'100%25\' filter=\'url(%23noiseFilter)\'/%3E%3C/svg%3E');"></div>
+
+    {/* TopAppBar (Simplified for integration, assuming main Navbar handles global nav) */}
+    <nav class="fixed top-0 w-full z-50 bg-[#fbf9f5]/80 backdrop-blur-md border-b border-[#d2c5b3]/20">
+      <div class="flex justify-between items-center px-6 md:px-12 py-6 max-w-[120rem] mx-auto">
+        <div class="text-3xl font-serif tracking-tighter text-[#1a1714]">Frigiliana</div>
+        <div class="hidden md:flex gap-10">
+          <a class="text-[#785611] font-medium border-b border-[#785611] uppercase tracking-widest text-[11px]" href="#stay">Stay</a>
+          <a class="text-[#4e4538] hover:text-[#785611] uppercase tracking-widest text-[11px] transition-colors duration-300" href="#walk">Walk</a>
+          <a class="text-[#4e4538] hover:text-[#785611] uppercase tracking-widest text-[11px] transition-colors duration-300" href="#weather">Weather</a>
+          <a class="text-[#4e4538] hover:text-[#785611] uppercase tracking-widest text-[11px] transition-colors duration-300" href="#dining">Dining</a>
+          <a class="text-[#4e4538] hover:text-[#785611] uppercase tracking-widest text-[11px] transition-colors duration-300" href="#plan">Plan</a>
+        </div>
+        <a href={links.book} class="bg-[#785611] text-white px-8 py-3 text-[11px] uppercase tracking-[0.2em] font-medium hover:bg-[#936e29] transition-all active:opacity-70">
+          Book Stay
+        </a>
+      </div>
+    </nav>
+
+    <main class="pt-32">
+      
+      {/* Hero Section */}
+      <section class="max-w-[120rem] mx-auto px-6 md:px-12 mb-32 animate-fade-in-up">
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-16 items-center">
+          <div class="md:col-span-7">
+            <span class="uppercase tracking-[0.3em] text-[12px] text-[#785611] mb-6 block font-bold">Welcome to Andalusia</span>
+            <h1 class="text-[clamp(3.5rem,10vw,6rem)] leading-[0.9] font-serif font-light italic text-[#1b1c1a] mb-8 tracking-tighter">
+              Experience <br/> Frigiliana
+            </h1>
+            <div class="pl-8 border-l-2 border-[#edbf71] max-w-lg mb-12">
+              <p class="text-[#4e4538] text-lg leading-relaxed mb-4">
+                Frigiliana is the rare kind of place that feels unreal in photos — and even more rewarding when you wake up inside it.
+              </p>
+              <p class="text-[#4e4538] text-lg leading-relaxed">
+                This is Andalusia at its most accessible and authentic. You live among Moorish alleys, viewpoints, and centuries of history — while the coast remains close and effortless.
+              </p>
+            </div>
+            <div class="flex flex-col sm:flex-row gap-6">
+              <a href="#walk" class="bg-[#785611] text-white px-10 py-4 text-[12px] uppercase tracking-[0.2em] font-semibold text-center hover:bg-[#936e29] transition-colors">
+                Village Walk
+              </a>
+              <a href={links.explore} class="border border-[#d2c5b3] text-[#785611] px-10 py-4 text-[12px] uppercase tracking-[0.2em] font-semibold text-center hover:bg-[#f5f3ef] transition-colors">
+                Things to do
+              </a>
+            </div>
+          </div>
+          <div class="md:col-span-5 relative mt-16 md:mt-0">
+            <div class="aspect-[3/4] bg-[#eae8e4] overflow-hidden shadow-2xl">
+              <img alt="Frigiliana streets" class="w-full h-full object-cover hover:scale-105 transition-transform duration-[2000ms] ease-out" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDabuNn72a5ins1YuJEtzQiL2HfQhqvACy9mcQH7h-kUXeyVUD-rXSPMstsBVoivkX0sNtFNSYIQvEOfgBSNda8fd6d-RiyU1Dp45SUzaeBOCt55JnPAg9vAqGEBw9QXte5cyPH7rLx_UtrTLCoTD1TOyZ-tMVtZaNSkISBv6vTMFYpHLCsziO5SURAi5BrF45NQmugbAq6D_S2zJJ5Hk-pedZ99NWNdgF21z2hVnLptkK0E-ecJWBH2DpKY0ItzlmE9jeSasIWxg3r" referrerpolicy="no-referrer" />
+            </div>
+            <div class="absolute -bottom-8 -left-8 bg-[#fbf9f5] p-6 hidden md:block max-w-[200px] shadow-lg">
+              <p class="text-[10px] uppercase tracking-widest text-[#807667] leading-tight">One of Spain’s Most Beautiful Villages</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Bento Grid: Why Frigiliana */}
+      <section id="walk" class="bg-[#f5f3ef] py-32 px-6 md:px-12">
+        <div class="max-w-[120rem] mx-auto">
+          <h2 class="font-serif text-5xl md:text-6xl mb-16 text-center italic text-[#1b1c1a]">Why it feels the way it does</h2>
+          <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+            
+            {/* Tall Image Card */}
+            <div class="md:col-span-1 md:row-span-2 relative group overflow-hidden bg-black">
+              <img alt="Vista Panorámica" class="w-full h-full object-cover opacity-80 group-hover:scale-105 transition-transform duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDWZV880wCGwk6mW0M0AvkmVZlfQPCXK47tvIXNHX8pN91jvf_BSBk6i2dg-YDjWaNrNKwqPXodIqxfLL7_LkJhCFQHmccFBuwOnBnsdYTZyBOao7jqlemqUGmWoo6xWr_pGeqPthuw54G3Eb6y4seJsfV6YqLm_o1JGgRHfX7aBSUCFEjkyOCjBi23JwR9McDs_K-S0YpvCgBlAmCyvxDpfQ-2wmMQl0U3w-isKS_vx8DdewtpAoPuztT2j8jc2S2YyzVe5T2RQ1tA" referrerpolicy="no-referrer" />
+              <div class="absolute inset-0 p-8 flex flex-col justify-end bg-gradient-to-t from-black/80 to-transparent">
+                <span class="text-white/60 text-[10px] uppercase tracking-widest mb-2">Perspective</span>
+                <h3 class="text-white font-serif text-2xl italic">Vista Panorámica</h3>
+              </div>
+            </div>
+            
+            {/* Dark Card */}
+            <div class="md:col-span-2 bg-[#30312e] p-12 flex flex-col justify-between text-[#f2f0ed]">
+              <div class="text-[#edbf71] text-4xl mb-8">☀</div>
+              <div>
+                <h3 class="font-serif text-4xl mb-4 italic">The Rhythm</h3>
+                <p class="text-[#f2f0ed]/70 font-light leading-relaxed">
+                  Frigiliana grew over centuries, shaped by daily life and by the land itself. That is why the village feels so intimate today — winding alleys, quiet corners, and unexpected viewpoints that invite you to slow down.
+                </p>
+              </div>
+            </div>
+            
+            {/* Gold Card */}
+            <div class="md:col-span-1 bg-[#936e29] p-12 flex flex-col justify-between text-[#fffbff]">
+              <div>
+                <span class="text-[10px] uppercase tracking-widest block mb-4 text-[#fffbff]/80">Living Heritage</span>
+                <h3 class="font-serif text-3xl italic mb-6">El Ingenio</h3>
+              </div>
+              <p class="text-[12px] leading-relaxed opacity-90 uppercase tracking-wider">
+                Europe’s last traditional cane honey factory still stands as a living link between past and present at the village entrance.
+              </p>
+            </div>
+            
+            {/* Text Card */}
+            <div class="md:col-span-1 bg-white p-12 flex flex-col justify-center">
+              <h4 class="font-serif text-2xl italic mb-4 text-[#1b1c1a]">Barrio Mudéjar</h4>
+              <p class="text-sm text-[#807667] leading-loose">
+                The Moorish influence is tangible. Unlike other Pueblos Blancos, Frigiliana has preserved its distinctive cobblestone patterns.
+              </p>
+            </div>
+            
+            {/* Medium Image Card */}
+            <div class="md:col-span-2 relative overflow-hidden h-64 group">
+              <img alt="Tres Culturas" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBwZL8mAtzSGNHuhnDIt5qHn7DfPxF6JQrHFs05BsQXAUUoork9BJg5d_nBuuE-74rQsS7ULK5ReJwaVuEOKwvM7P9G8xlnGF6JtJzdrNAb-HZ-h6b5_YdZNLxqvkUYHvlt4Kp1evO0K77ljAzrnR_2C9nMGVmbAJ__iPCcbnfHJL5-mEQOfRMphU9SKtTis0UCLgAdpBB160hs0_s3bIJCFH8j_5Jf7fkw6xzsgmJVNq37_LQPLPZoCAkyDECP7Q5wDqsubTjycc8L" referrerpolicy="no-referrer" />
+              <div class="absolute inset-0 bg-[#785611]/30 flex items-center justify-center">
+                <span class="text-white text-[12px] uppercase tracking-[0.4em] font-bold text-center px-4">Festival de las Tres Culturas</span>
+              </div>
+            </div>
+            
+          </div>
+        </div>
+      </section>
+
+      {/* Pullquote */}
+      <section class="bg-[#1b1c1a] text-[#fbf9f5] py-40 px-6 md:px-12 text-center">
+        <div class="max-w-4xl mx-auto">
+          <div class="text-[#edbf71] text-6xl mb-8 font-serif">"</div>
+          <blockquote class="font-serif text-4xl md:text-5xl italic font-light leading-tight mb-12">
+            Most day-trippers visit Frigiliana between 11 AM and 4 PM. The real magic happens after sunset.
+          </blockquote>
+          <cite class="uppercase tracking-[0.3em] text-[11px] text-[#d2c5b3] not-italic font-semibold">— Rob, Local Guide & Consultant</cite>
+        </div>
+      </section>
+
+      {/* Weather */}
+      <section id="weather" class="grid grid-cols-1 md:grid-cols-2">
+        <div class="bg-[#eae8e4] p-12 md:p-20 flex flex-col justify-center items-center text-center">
+          <span class="text-[11px] uppercase tracking-[0.3em] text-[#807667] mb-8 font-semibold">Climate Context</span>
+          <div class="flex items-baseline gap-4 mb-6">
+            <span class="text-8xl md:text-9xl font-serif font-light text-[#785611]">320</span>
+            <span class="text-4xl font-serif italic text-[#785611]">Days</span>
+          </div>
+          <p class="text-[#807667] uppercase tracking-widest text-[12px] font-medium">Of reliable sunshine a year</p>
+        </div>
+        <div class="bg-[#fbf9f5] p-12 md:p-20 flex flex-col justify-center">
+          <h3 class="font-serif text-4xl italic mb-8 text-[#1b1c1a]">The Natural Rhythm</h3>
+          <p class="text-[#4e4538] text-lg leading-relaxed font-light mb-12 italic">
+            At AMARA, the weather defines your rhythm. The thick, 800-year-old stone walls provide a natural, cooling retreat during the heat of the day, supported by modern air conditioning whenever you need it.
+          </p>
+          <div class="grid grid-cols-2 gap-8 border-t border-[#d2c5b3]/30 pt-8">
+            <div>
+              <span class="text-[10px] uppercase tracking-widest text-[#807667] font-semibold">Morning</span>
+              <p class="text-xl mt-2 text-[#1b1c1a]">Coffee in the sun</p>
+            </div>
+            <div>
+              <span class="text-[10px] uppercase tracking-widest text-[#807667] font-semibold">Evening</span>
+              <p class="text-xl mt-2 text-[#1b1c1a]">Outdoor showers</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Stays Section */}
+      <section id="stay" class="py-32 px-6 md:px-12 max-w-[120rem] mx-auto">
+        <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-20 gap-8">
+          <div>
+            <span class="uppercase tracking-[0.3em] text-[12px] text-[#785611] mb-4 block font-bold">The AMARA Advantage</span>
+            <h2 class="font-serif text-5xl italic text-[#1b1c1a]">Where to Stay</h2>
+            <p class="text-[#4e4538] max-w-xl mt-6 leading-relaxed">
+              Quiet evenings, unhurried mornings, and a sense of space are what make Frigiliana especially meaningful for overnight guests. We offer a rare combination directly in the historic core.
+            </p>
+          </div>
+          <a class="text-[#785611] uppercase tracking-[0.2em] text-[12px] font-bold border-b border-[#785611] pb-2 hover:text-[#1b1c1a] hover:border-[#1b1c1a] transition-colors" href={links.book}>
+            Check Availability
+          </a>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+          {/* Stay Feature 1 */}
+          <a href={links.book} class="group block">
+            <div class="aspect-[4/5] bg-[#efeeea] overflow-hidden mb-8 relative">
+              <img alt="Location" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA0Sd1lG2amKLBpWxdq4qBDumCseT-Nw5LSOf6cXUlGe1wYtIK1FQAQCPag_JLGYTVFkx3DSehCt0nf4jtGq3nHyENU0QbeonahEFT3rZvrp7FfRme94pooCdQVitB1QPCEY0y0fzifYpWJywZFKlLS71_KYS0qx4A_kAcd0yXVZ3wpz1CHAX2DrSHOtDl2Kv1R2-HHPnM_-HXDgK7_xaZtFskICoXCTpVK3jWsSRFqC-BGWReSTlHHcHZF8C6xWlRCKey6HRJAmcCa" referrerpolicy="no-referrer" />
+              <span class="absolute top-6 left-6 bg-[#785611] text-white px-4 py-1 text-[10px] uppercase tracking-widest font-bold">Arrival</span>
+            </div>
+            <h3 class="font-serif text-2xl italic mb-2 text-[#1b1c1a]">Location</h3>
+            <p class="text-[#807667] text-sm mb-6 uppercase tracking-widest">Historic core, near church square</p>
+            <span class="inline-flex items-center gap-2 text-[#785611] font-bold text-[11px] uppercase tracking-[0.2em] group-hover:gap-4 transition-all">
+              Easy access →
+            </span>
+          </a>
+          
+          {/* Stay Feature 2 */}
+          <a href={links.book} class="group block">
+            <div class="aspect-[4/5] bg-[#efeeea] overflow-hidden mb-8 relative">
+              <img alt="Terraces" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAuVNfwqiQ1Gi3qykc4Q3mKVDrHQV0dhvnsuZk4aINMaIt3KqhqRtFz1Ps4-QAe8xe0ufiX9zJZSTQ7Cpgtdg64fDOxtG5mfEm38iF7SUnwOLRP2QCS409JTHIVWKW9FrdC0QBeVEZV-UC9oLUSOTuAzGJ4n_s6LJcoxD3CHx3QWeEMIT3IF5WgvD9k9KGMbRjQSCjZ5zuvsNU2mHZXTRj1IxpoUaQJX1KidO9leFNc6Q8hEhZs3BxOsjmOhiKh7tS6R8xoF-_eFDfi" referrerpolicy="no-referrer" />
+            </div>
+            <h3 class="font-serif text-2xl italic mb-2 text-[#1b1c1a]">Private Terraces</h3>
+            <p class="text-[#807667] text-sm mb-6 uppercase tracking-widest">Quiet space with open views</p>
+            <span class="inline-flex items-center gap-2 text-[#785611] font-bold text-[11px] uppercase tracking-[0.2em] group-hover:gap-4 transition-all">
+              Mornings & Evenings →
+            </span>
+          </a>
+          
+          {/* Stay Feature 3 */}
+          <a href={links.book} class="group block">
+            <div class="aspect-[4/5] bg-[#efeeea] overflow-hidden mb-8 relative">
+              <img alt="Comfort" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA7GGl3ckzt2jivMmcKu61czTGEqkr-_agYFlHZLuNuVzn-3U75wwTccL30HXASw1zxKpLcv89u5jtvSCaVCN5UxCu6ptXhVqX8XltpOmJssPhBRhzaqu9iCqxFaGwaaLvTXvANHwOkEF3feU4T7wuxget5JxaiQwXDo6xyx9GuvIy2JKZPblZXPp5TkN1cc4vqw9nwrNgb_ah7YkpQeXDKSVqWvnkSyJBevtWroV6OqJWv3XoaMh-TRrpzFPOhhqujG5IWk8Pdinzg" referrerpolicy="no-referrer" />
+              <span class="absolute top-6 left-6 bg-[#785611] text-white px-4 py-1 text-[10px] uppercase tracking-widest font-bold">Standard</span>
+            </div>
+            <h3 class="font-serif text-2xl italic mb-2 text-[#1b1c1a]">Comfort & Details</h3>
+            <p class="text-[#807667] text-sm mb-6 uppercase tracking-widest">High-quality beds, spacious baths</p>
+            <span class="inline-flex items-center gap-2 text-[#785611] font-bold text-[11px] uppercase tracking-[0.2em] group-hover:gap-4 transition-all">
+              Designed for rest →
+            </span>
+          </a>
+        </div>
+      </section>
+
+      {/* Comparison 'Nerja or Frigiliana' */}
+      <section class="py-32 bg-[#f5f3ef] overflow-hidden">
+        <div class="max-w-[120rem] mx-auto px-6 md:px-12">
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+            <div class="relative h-[400px] md:h-[600px] w-full max-w-2xl mx-auto">
+              <div class="absolute top-0 right-0 w-4/5 h-4/5 bg-[#efeeea] shadow-2xl z-10 overflow-hidden">
+                <img alt="Nerja" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD5KkHeUUlP4BLom9py5Akwv7_phCV4h8j9EOmyWqeZd67clIgOvZBI3q2Zuq26jz-OOzi2ktdNf68vegm25XNxmLNAx83RWNXxNMwgqOeXOl0xYO6fzBi0YvXAyj7i4nKtmIRGjOq3OBDvskJE6CAGR1YBKI0TBXdNWH_sqBJSgu-flO7v1DrHOcM4Su_J8d-ZzdNf36d_0tZIJIzX8VBnbTQMmJLao4IkmWzhRrCOenIfowi5kj0BY33SKrTrXeUZ2D2hNGa9lqYA" referrerpolicy="no-referrer" />
+                <div class="absolute bottom-6 right-6 bg-[#fbf9f5] px-6 py-2">
+                  <span class="text-[10px] uppercase tracking-widest font-bold text-[#1b1c1a]">Nerja Beach Life</span>
+                </div>
+              </div>
+              <div class="absolute bottom-0 left-0 w-3/4 h-3/4 bg-[#eae8e4] shadow-xl z-20 overflow-hidden border-[8px] md:border-[12px] border-[#fbf9f5]">
+                <img alt="Frigiliana" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAMED_RTYd_IRHtHSeo3laRz-OQy46wny57CiqTi9xEuj-IjzPTGzQmMVgV23VoSENeBY2SNhbwaHnp5H6mq-nNgtg70UaxDFNM5CQ_BjJaPvcGJNdG4rZs-rXW73i-Gx-g611Q1xigCajJJa-0WXJwnyzND6DDDFHJ010K6YbYVPmUOjFAJpJ-9THk46IaLl4tIH-GB0xZ6J6Z4Y8DViE8OQzpRdHEc7w46VMKQ7YURmh9xCZM-GzgSIg9aJhv6VXPZjFwS4_XBgt3" referrerpolicy="no-referrer" />
+                <div class="absolute bottom-6 right-6 bg-[#785611] text-white px-6 py-2">
+                  <span class="text-[10px] uppercase tracking-widest font-bold">Frigiliana Evenings</span>
+                </div>
+              </div>
+            </div>
+            
+            <div>
+              <h2 class="font-serif text-5xl italic mb-12 text-[#1b1c1a]">Nerja or Frigiliana?</h2>
+              <p class="text-[#4e4538] mb-12 text-lg">
+                Both places are closely connected. The difference lies less in distance — and more in how you want your stay to feel.
+              </p>
+              <ul class="space-y-12">
+                <li class="flex gap-6 items-start">
+                  <span class="text-[#936e29] font-serif text-3xl italic">A</span>
+                  <div>
+                    <h4 class="font-bold text-sm uppercase tracking-widest mb-2 text-[#1b1c1a]">Frigiliana is right for you if…</h4>
+                    <p class="text-[#4e4538] leading-relaxed">
+                      You seek quiet lanes, lantern light, and terrace calm in the evenings. You enjoy an unhurried village pace, elevated views, mountain air, and having the beach accessible when you want it, avoiding the all-day noise.
+                    </p>
+                  </div>
+                </li>
+                <li class="flex gap-6 items-start">
+                  <span class="text-[#936e29] font-serif text-3xl italic">B</span>
+                  <div>
+                    <h4 class="font-bold text-sm uppercase tracking-widest mb-2 text-[#1b1c1a]">Nerja may suit you better if…</h4>
+                    <p class="text-[#4e4538] leading-relaxed">
+                      You want the sea at your absolute doorstep. You prefer more movement, promenade energy, and a busier town feel with less vertical, flat walking.
+                    </p>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Experiences (Z-Layout) */}
+      <section class="py-32 px-6 md:px-12 max-w-[120rem] mx-auto space-y-32 md:space-y-40">
+        
+        {/* Row 1 */}
+        <div class="flex flex-col md:flex-row gap-12 md:gap-20 items-center">
+          <div class="w-full md:w-1/2">
+            <div class="aspect-video bg-[#efeeea] overflow-hidden">
+              <img alt="Explore Frigiliana" class="w-full h-full object-cover hover:scale-105 transition-transform duration-[2000ms] ease-out" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB43fPRNXVlYif9zkcJK0JrEtKV8UJhulteGv2aleiEGvQXl100th2KJs24-nVISPJnNER7G60rMGVEzzaRgJcs2HFTIWwjJ2tVTWrPryEUOQlabqooOY4aEUI_jXZEoL1xP6twe249HIbfX30G2IVJ1rWbPSmDRetKT32_Bhove2AsNaIHcRIfjA89r5Ojx2F6nNxBwE9wmBIwZtkomvONDnQ3t0D8AJM3MRo1SXw0GVAit6Ztw_wen9gBe_Mgl1DEKvqAAeFWXNTp" referrerpolicy="no-referrer" />
+            </div>
+          </div>
+          <div class="w-full md:w-1/2">
+            <span class="uppercase tracking-[0.3em] text-[12px] text-[#785611] mb-4 block font-bold">Things to do</span>
+            <h3 class="font-serif text-4xl md:text-5xl italic mb-8 text-[#1b1c1a]">Explore Frigiliana</h3>
+            <p class="text-lg text-[#4e4538] leading-loose mb-8">
+              Frigiliana works especially well as a base for exploring this part of Andalusia. Enjoy coastal days, scenic drives, cultural landmarks like the Alhambra (about 1h 15m away), and hiking trails in the Sierras de Tejeda Natural Park.
+            </p>
+          </div>
+        </div>
+        
+        {/* Row 2 */}
+        <div id="dining" class="flex flex-col md:flex-row-reverse gap-12 md:gap-20 items-center">
+          <div class="w-full md:w-1/2">
+            <div class="aspect-video bg-[#efeeea] overflow-hidden">
+              <img alt="The Walk" class="w-full h-full object-cover hover:scale-105 transition-transform duration-[2000ms] ease-out" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD9cTCwhDWXgLWH08CoMX1vfYM-8a8vah5l0H1q7IFuOykVvn3Vvh-3Tt9BeXebgVSvyS0d5z7CusLTHOVQAx_q_p5lOWcABaoLevikG-eRFcv7tB1981rG5FL7v3fzWpuWIekqGEstjaybCEBjPCnciDV3FLZicnCAjofXjONG0BTL1ehYAgnMpCviAuKKikR2l7bkDOFgje76d5kXbGoFKWaHD4merrwZ6FuYBBZ_h9hEq-5jrHBuvFVgXfS4a80sjhbpl8xD5qDn" referrerpolicy="no-referrer" />
+            </div>
+          </div>
+          <div class="w-full md:w-1/2 text-left md:text-right">
+            <span class="uppercase tracking-[0.3em] text-[12px] text-[#785611] mb-4 block font-bold">Deep Dive & Details</span>
+            <h3 class="font-serif text-4xl md:text-5xl italic mb-8 text-[#1b1c1a]">Everything for Your Planning</h3>
+            <p class="text-lg text-[#4e4538] leading-loose mb-8">
+              From the pristine beaches of Maro to the culinary highlights of the region. Understand the village structure, steps, and how location changes daily comfort. Arrival, parking, and finding your way effortlessly.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Planning & FAQ */}
+      <section id="plan" class="py-32 bg-white px-6 md:px-12 border-t border-[#d2c5b3]/20">
+        <div class="max-w-[120rem] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-20 lg:gap-32">
+          
+          <div>
+            <h2 class="font-serif text-5xl italic mb-12 text-[#1b1c1a]">Key Facts</h2>
+            <div class="space-y-12">
+              <div class="flex gap-8">
+                <span class="text-5xl font-serif italic text-[#d2c5b3]">01</span>
+                <div>
+                  <h4 class="font-bold text-sm uppercase tracking-widest mb-2 text-[#1b1c1a]">Nerja & Beaches</h4>
+                  <p class="text-[#4e4538] leading-relaxed">Around 6 km away — easy coastal access whenever you wish. Just 10-12 minutes to drive to beaches like Burriana.</p>
+                </div>
+              </div>
+              <div class="flex gap-8">
+                <span class="text-5xl font-serif italic text-[#d2c5b3]">02</span>
+                <div>
+                  <h4 class="font-bold text-sm uppercase tracking-widest mb-2 text-[#1b1c1a]">Granada (Alhambra)</h4>
+                  <p class="text-[#4e4538] leading-relaxed">About 1 h 15 min — a highly rewarding cultural day trip from your base in the village.</p>
+                </div>
+              </div>
+              <div class="flex gap-8">
+                <span class="text-5xl font-serif italic text-[#d2c5b3]">03</span>
+                <div>
+                  <h4 class="font-bold text-sm uppercase tracking-widest mb-2 text-[#1b1c1a]">Airport (AGP)</h4>
+                  <p class="text-[#4e4538] leading-relaxed">Malaga Airport is about 70 km away — roughly a 1-hour drive for a smooth and familiar arrival route.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div>
+            <h2 class="font-serif text-5xl italic mb-12 text-[#1b1c1a]">Quick Questions & Local Details</h2>
+            <div class="space-y-0">
+              
+              {/* FAQ 1 */}
+              <details class="group border-b border-[#d2c5b3]/30 py-6 cursor-pointer [&_summary::-webkit-details-marker]:hidden">
+                <summary class="flex justify-between items-center font-bold text-sm uppercase tracking-widest text-[#1b1c1a] outline-none">
+                  Can I store luggage in the village?
+                  <span class="text-[#785611] text-xl group-open:rotate-45 transition-transform duration-300">+</span>
+                </summary>
+                <p class="text-[#4e4538] text-sm leading-loose mt-4 pr-8">
+                  No, Frigiliana does not have lockers. If arriving early, please store luggage at the ALSA station in Nerja or in Málaga city before heading up.
+                </p>
+              </details>
+              
+              {/* FAQ 2 */}
+              <details class="group border-b border-[#d2c5b3]/30 py-6 cursor-pointer [&_summary::-webkit-details-marker]:hidden">
+                <summary class="flex justify-between items-center font-bold text-sm uppercase tracking-widest text-[#1b1c1a] outline-none">
+                  Can I drink the tap water?
+                  <span class="text-[#785611] text-xl group-open:rotate-45 transition-transform duration-300">+</span>
+                </summary>
+                <p class="text-[#4e4538] text-sm leading-loose mt-4 pr-8">
+                  The public water supply is standard. Uniquely in Frigiliana, AMARA has a central water softening system, making the water much more pleasant for showering and washing. For drinking, however, many guests still prefer the taste of bottled water.
+                </p>
+              </details>
+              
+              {/* FAQ 3 */}
+              <details class="group border-b border-[#d2c5b3]/30 py-6 cursor-pointer [&_summary::-webkit-details-marker]:hidden">
+                <summary class="flex justify-between items-center font-bold text-sm uppercase tracking-widest text-[#1b1c1a] outline-none">
+                  Do I need a car in Frigiliana?
+                  <span class="text-[#785611] text-xl group-open:rotate-45 transition-transform duration-300">+</span>
+                </summary>
+                <p class="text-[#4e4538] text-sm leading-loose mt-4 pr-8">
+                  While not strictly necessary, we recommend a car for the flexibility to explore Andalusia. Important to know: The historic core (where AMARA is located) is pedestrian-only. You will park at the public parking garage at the village entrance and walk up.
+                </p>
+              </details>
+              
+              {/* FAQ 4 */}
+              <details class="group border-b border-[#d2c5b3]/30 py-6 cursor-pointer [&_summary::-webkit-details-marker]:hidden">
+                <summary class="flex justify-between items-center font-bold text-sm uppercase tracking-widest text-[#1b1c1a] outline-none">
+                  How far is the beach?
+                  <span class="text-[#785611] text-xl group-open:rotate-45 transition-transform duration-300">+</span>
+                </summary>
+                <p class="text-[#4e4538] text-sm leading-loose mt-4 pr-8">
+                  Frigiliana offers the best of both worlds: mountain calm and coastal access. The village is about 6–7 km from the sea. It takes roughly 10–12 minutes to drive to the beaches of Nerja. There is also a regular bus service connecting the village to the coast.
+                </p>
+              </details>
+
+              {/* FAQ 5 */}
+              <details class="group border-b border-[#d2c5b3]/30 py-6 cursor-pointer [&_summary::-webkit-details-marker]:hidden">
+                <summary class="flex justify-between items-center font-bold text-sm uppercase tracking-widest text-[#1b1c1a] outline-none">
+                  Are shops open on Sundays?
+                  <span class="text-[#785611] text-xl group-open:rotate-45 transition-transform duration-300">+</span>
+                </summary>
+                <p class="text-[#4e4538] text-sm leading-loose mt-4 pr-8">
+                  Tourist shops and restaurants remain open. Standard grocery stores and pharmacies are usually closed or have reduced hours.
+                </p>
+              </details>
+
+              {/* FAQ 6 */}
+              <details class="group border-b border-[#d2c5b3]/30 py-6 cursor-pointer [&_summary::-webkit-details-marker]:hidden">
+                <summary class="flex justify-between items-center font-bold text-sm uppercase tracking-widest text-[#1b1c1a] outline-none">
+                  Gluten-free or vegan options?
+                  <span class="text-[#785611] text-xl group-open:rotate-45 transition-transform duration-300">+</span>
+                </summary>
+                <p class="text-[#4e4538] text-sm leading-loose mt-4 pr-8">
+                  Yes. Gluten-Free: "El Casino" & "El Adarve". Vegan: "The Garden" & "Albi Urban Cafe" offer specific menus.
+                </p>
+              </details>
+
+              {/* FAQ 7 */}
+              <details class="group border-b border-[#d2c5b3]/30 py-6 cursor-pointer [&_summary::-webkit-details-marker]:hidden">
+                <summary class="flex justify-between items-center font-bold text-sm uppercase tracking-widest text-[#1b1c1a] outline-none">
+                  Do you have a swimming pool?
+                  <span class="text-[#785611] text-xl group-open:rotate-45 transition-transform duration-300">+</span>
+                </summary>
+                <p class="text-[#4e4538] text-sm leading-loose mt-4 pr-8">
+                  We do not have a shared pool. However, our apartments Lounis, Zaid, and Maha feature private outdoor showers for immediate refreshment on your terrace. For swimming, guests love the Piscina Municipal (public pool), located nearby with stunning mountain views.
+                </p>
+              </details>
+
+            </div>
+          </div>
+          
+        </div>
+      </section>
+
+    </main>
+  </div>
+</BaseLayout>
+
+<style>
+  /* * CSS-Only Entrance Animation
+   */
+  .animate-fade-in-up {
+    animation: fadeInUp 1.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  @keyframes fadeInUp {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+</style>

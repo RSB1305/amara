@@ -1,0 +1,113 @@
+---
+// src/components/Navigation.astro
+/**
+ * AMARA v3 Navigation - High Contrast Version
+ * Governance: Sichtbarkeit auf hellem Grund sichergestellt.
+ */
+import { resolveLink } from '../lib/linkResolver';
+import type { AmaraLanguage } from '../types/seo';
+
+interface NavLink {
+  token: string;
+  label: string;
+}
+
+interface Props {
+  currentLang: AmaraLanguage;
+  brandName: string;
+  links: NavLink[];
+}
+
+const { currentLang, brandName, links } = Astro.props;
+
+const languages: { code: AmaraLanguage; label: string }[] = [
+  { code: 'en', label: 'EN' },
+  { code: 'de', label: 'DE' },
+  { code: 'es', label: 'ES' },
+  { code: 'nl', label: 'NL' },
+  { code: 'sv', label: 'SV' }
+];
+
+const getLangPath = (code: string) => {
+  return code === 'en' ? '/' : `/${code}/`;
+};
+---
+
+<header class="fixed top-0 left-0 w-full z-[100] px-12 py-10 bg-surface/80 backdrop-blur-md border-b border-outline-variant/5">
+  <nav class="max-w-screen-2xl mx-auto flex justify-between items-center">
+    
+    <a href={getLangPath(currentLang)} class="group flex flex-col">
+      <span class="font-headline italic text-2xl text-on-surface tracking-tighter group-hover:text-primary transition-colors">
+        {brandName}
+      </span>
+      <span class="text-[8px] uppercase tracking-[0.5em] text-on-surface/40 -mt-1 font-bold">Guest Guide</span>
+    </a>
+
+<div class="justify-self-center">
+  <ul class="hidden md:flex items-center gap-10">
+    {links.map((link) => (
+      <li>
+        <a 
+          href={resolveLink(link.token, currentLang)} 
+          class="text-[10px] uppercase tracking-[0.2em] font-bold text-on-surface/60 hover:text-on-surface transition-colors"
+        >
+          {link.label}
+        </a>
+      </li>
+    ))}
+  </ul>
+</div>
+
+<div class="justify-self-end flex items-center gap-12">
+<div class="relative group border-l border-outline-variant/20 pl-10">
+  <button
+    type="button"
+    class="flex items-center justify-center text-on-surface/30 hover:text-on-surface/60 transition-colors"
+    aria-label="Select language"
+  >
+    <svg 
+      xmlns="http://www.w3.org/2000/svg" 
+      width="14" 
+      height="14" 
+      viewBox="0 0 24 24" 
+      fill="none" 
+      stroke="currentColor" 
+      stroke-width="1.5" 
+      stroke-linecap="round" 
+      stroke-linejoin="round"
+    >
+      <circle cx="12" cy="12" r="10"></circle>
+      <line x1="2" y1="12" x2="22" y2="12"></line>
+      <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+    </svg>
+  </button>
+
+  <div class="absolute right-0 top-full pt-4 opacity-0 invisible translate-y-2 group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 transition-all duration-200">
+    <div class="min-w-[92px] bg-surface/95 backdrop-blur-md border border-outline-variant/15 rounded-[14px] shadow-lg shadow-black/5 py-3 px-3">
+      <div class="flex flex-col gap-2">
+        {languages.map((lang) => (
+          <a 
+            href={getLangPath(lang.code)} 
+            class={`text-[10px] font-bold tracking-[0.18em] uppercase transition-colors px-2 py-1 rounded-md ${
+              currentLang === lang.code
+                ? 'text-primary bg-primary/5'
+                : 'text-on-surface/45 hover:text-on-surface hover:bg-surface-container-low'
+            }`}
+          >
+            {lang.label}
+          </a>
+        ))}
+      </div>
+    </div>
+  </div>
+</div>
+
+  <a 
+    href={resolveLink('book', currentLang)} 
+    class="bg-on-surface text-surface px-8 py-4 text-[9px] uppercase tracking-[0.2em] font-bold hover:bg-primary transition-all hidden sm:block"
+  >
+    Book Stay
+  </a>
+</div>
+  </nav>
+</header>

@@ -1,0 +1,55 @@
+@import "@fontsource/newsreader/300.css";
+@import "@fontsource/newsreader/300-italic.css";
+@import "@fontsource/newsreader/400.css";
+@import "@fontsource/newsreader/400-italic.css";
+@import "@fontsource/newsreader/700.css";
+@import "@fontsource/plus-jakarta-sans/300.css";
+@import "@fontsource/plus-jakarta-sans/400.css";
+@import "@fontsource/plus-jakarta-sans/500.css";
+@import "@fontsource/plus-jakarta-sans/600.css";
+@import "@fontsource/plus-jakarta-sans/700.css";
+@import "material-symbols/outlined.css";
+@import "tailwindcss";
+
+@theme {
+  /* Frigiliana Gold & Stone Palette */
+  --color-primary: #785611;
+  --color-primary-container: #936e29;
+  --color-on-primary: #ffffff;
+  
+  /* HIER: Die fehlende Farbe hinzugefügt, damit der Fehler verschwindet */
+  --color-on-primary-fixed: #271900; 
+
+  --color-surface: #fbf9f5;
+  --color-on-surface: #1b1c1a;
+  --color-on-surface-variant: #4e4538;
+  --color-outline: #807667;
+  --color-outline-variant: #d2c5b3;
+  --color-inverse-surface: #30312e;
+  --color-inverse-on-surface: #f2f0ed;
+  --color-primary-fixed-dim: #edbf71;
+  --color-surface-container-low: #f5f3ef;
+  --color-surface-container-high: #eae8e4;
+
+  /* Typografie */
+  --font-headline: "Newsreader", serif;
+  --font-body: "Plus Jakarta Sans", sans-serif;
+  --font-label: "Plus Jakarta Sans", sans-serif;
+}
+
+@layer base {
+  body {
+    /* Jetzt findet Tailwind die Variable --color-on-primary-fixed wieder */
+    @apply bg-surface text-on-surface font-body selection:bg-primary-fixed-dim selection:text-on-primary-fixed;
+  }
+
+  .grain-overlay {
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+    opacity: 0.03;
+    pointer-events: none;
+  }
+
+  .material-symbols-outlined {
+    font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+  }
+}

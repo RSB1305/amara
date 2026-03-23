@@ -1,0 +1,30 @@
+---
+// src/components/Hero.astro
+/**
+ * AMARA v3 Hero Authority
+ * Regel: Absolut rahmenlos. Kein bg-container, kein Shadow, keine Card-Optik.
+ */
+interface Props {
+  imageSrc: string;
+  imageAlt: string;
+}
+
+const { imageSrc, imageAlt } = Astro.props;
+---
+<section class="max-w-screen-2xl mx-auto px-12 mb-32 pt-12">
+  <div class="grid grid-cols-1 md:grid-cols-12 gap-16 items-center">
+    <div class="md:col-span-7">
+      <slot />
+    </div>
+
+    <div class="md:col-span-5">
+      <img 
+        src={imageSrc} 
+        alt={imageAlt} 
+        class="w-full h-auto aspect-[3/4] object-cover grayscale-[20%] hover:grayscale-0 transition-all duration-1000 ease-out" 
+        loading="eager" 
+        fetchpriority="high" 
+      />
+    </div>
+  </div>
+</section>

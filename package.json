@@ -12,6 +12,18 @@
     "astro": "astro"
   },
   "dependencies": {
-    "astro": "^6.0.8"
+    "@astrojs/react": "^5.0.1",
+    "@fontsource/newsreader": "^5.2.10",
+    "@fontsource/plus-jakarta-sans": "^5.2.8",
+    "@tailwindcss/vite": "^4.2.2",
+    "@types/react": "^19.2.14",
+    "@types/react-dom": "^19.2.3",
+    "astro": "^6.0.8",
+    "lucide-react": "^0.577.0",
+    "material-symbols": "^0.42.3",
+    "motion": "^12.38.0",
+    "react": "^19.2.4",
+    "react-dom": "^19.2.4",
+    "tailwindcss": "^4.2.2"
   }
 }

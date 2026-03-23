@@ -1,0 +1,46 @@
+---
+// src/components/Footer.astro
+import { resolveLink } from '../lib/linkResolver';
+import type { AmaraLanguage } from '../types/seo';
+
+interface FooterLink {
+  token: string;
+  label: string;
+}
+
+interface Props {
+  lang: AmaraLanguage;
+  brandName: string;
+  rightsLabel: string;
+  links: FooterLink[];
+}
+
+const { lang, brandName, rightsLabel, links } = Astro.props;
+const currentYear = new Date().getFullYear();
+---
+
+<footer class="bg-surface-container-lowest w-full py-24 px-12 border-t border-outline-variant/10 mt-40">
+  <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-12 max-w-screen-2xl mx-auto">
+    
+    <div class="flex flex-col gap-2">
+      <div class="text-2xl font-headline italic text-on-surface">
+        {brandName}
+      </div>
+      <p class="font-label uppercase tracking-[0.2em] text-[10px] text-outline">
+        © {currentYear} {brandName}. {rightsLabel}
+      </p>
+    </div>
+
+    <div class="flex flex-wrap gap-x-12 gap-y-6">
+      {links.map((link) => (
+        <a 
+          href={resolveLink(link.token, lang)} 
+          class="font-label uppercase tracking-[0.3em] text-[10px] text-on-surface-variant hover:text-primary transition-colors duration-300"
+        >
+          {link.label}
+        </a>
+      ))}
+    </div>
+
+  </div>
+</footer>

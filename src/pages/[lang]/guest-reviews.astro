@@ -1,0 +1,601 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { resolveLink } from '../../lib/linkResolver';
+import { normalizeLanguage } from '../../lib/seo/resolve-seo-head';
+import type { AmaraAuthoringSeo, AmaraLanguage } from '../../types/seo';
+
+export function getStaticPaths() {
+  return [
+    { params: { lang: 'en' } },
+    { params: { lang: 'de' } },
+    { params: { lang: 'es' } },
+    { params: { lang: 'nl' } },
+    { params: { lang: 'sv' } }
+  ];
+}
+
+const { lang } = Astro.params;
+const currentLang = normalizeLanguage(lang as AmaraLanguage);
+
+const seo: AmaraAuthoringSeo = {
+  version: '2026-03-23-reviews-v1.0-C',
+  pageType: 'C',
+  entityKey: 'amara-brand',
+  languages: {
+    en: {
+      title: 'AMARA | Verified Guest Reviews',
+      description: 'Verified guest reviews, award proof, and trust signals for AMARA holiday apartments in Frigiliana, Nerja, and Tarifa.',
+      robots: 'index, follow',
+      canonical: 'auto'
+    },
+    de: {
+      title: 'AMARA | Verifizierte Gaestebewertungen',
+      description: 'Verifizierte Gaestebewertungen, Auszeichnungen und Vertrauenssignale fuer AMARA Ferienwohnungen in Frigiliana, Nerja und Tarifa.',
+      robots: 'index, follow',
+      canonical: 'auto'
+    },
+    es: {
+      title: 'AMARA | Resenas verificadas de huespedes',
+      description: 'Resenas verificadas, premios y senales de confianza para los apartamentos vacacionales AMARA en Frigiliana, Nerja y Tarifa.',
+      robots: 'index, follow',
+      canonical: 'auto'
+    },
+    nl: {
+      title: 'AMARA | Geverifieerde gastbeoordelingen',
+      description: 'Geverifieerde gastbeoordelingen, awards en vertrouwenssignalen voor AMARA vakantieappartementen in Frigiliana, Nerja en Tarifa.',
+      robots: 'index, follow',
+      canonical: 'auto'
+    },
+    sv: {
+      title: 'AMARA | Verifierade gastrecensioner',
+      description: 'Verifierade gastrecensioner, utmaerkelser och trygghetssignaler foer AMARA semesterlaegenheter i Frigiliana, Nerja och Tarifa.',
+      robots: 'index, follow',
+      canonical: 'auto'
+    }
+  },
+  ogImage: '/images/hero-frigiliana.jpg'
+};
+
+const proofPoints = [
+  'Exceptional cleanliness — Spotless preparation, consistently confirmed.',
+  'Quiet nights & deep sleep — Sleep comfort guests notice immediately.',
+  'Comfort details that feel “easy” — Practical design choices, not show-room styling.',
+  'Fast, clear communication — Direct answers, reliable coordination.',
+  'Space, light & terraces — A stay that feels calm to inhabit.'
+];
+
+const reviews = [
+  {
+    meta: '🇪🇸 Lina — Madrid, Spain',
+    copy:
+      '“Robert’s place is one of the most amazing stays I’ve ever had! The home is magical, the cleanliness is impeccable, and Frigiliana is in the top three most beautiful villages I’ve ever visited. The apartment has the comfort of a 5-star stay ⭐️ and the terrace left us speechless. We had an unforgettable time — thank you, Robert! We can’t wait to come back soon.”'
+  },
+  {
+    meta: '🇨🇦 Scott & Michelle — Vancouver, Canada',
+    copy:
+      '“This is not just a place to stay — it’s a refuge that invites calm, connection, and gratitude. We carry this experience in our hearts and know we will return one day. Truly, it felt like paradise.”'
+  },
+  {
+    meta: '🇩🇪 Linda — Rösrath, Germany',
+    copy:
+      '“The special aesthetic and atmosphere of the apartment and terrace — combined with real functionality — made it feel like a true home away from home. Robert’s communication was always immediate, proactive, and extremely friendly. We would love to come back!”'
+  }
+];
+
+const frigilianaAwards = [
+  'La AMARA Lounis — ★ 9.9 / 10',
+  'La AMARA Maha — ★ 9.7 / 10',
+  'La AMARA Zaid — ★ 9.7 / 10'
+];
+
+const coastAwards = [
+  'AMARA Nerja Beachside — ★ 9.3 / 10',
+  'AMARA Family & Surf — ★ 9.9 / 10'
+];
+---
+
+<BaseLayout seo={seo}>
+  <div class="am-reviews-page">
+    <!-- Editorial hero keeps the same page-entry choreography as the About page. -->
+    <header class="am-reviews-hero">
+      <div class="am-reviews-hero__meta">
+        <span class="am-kicker">Reviews</span>
+        <span class="am-kicker">Proof focus: Frigiliana, Nerja and Tarifa. (Last updated: Jan 2026)</span>
+      </div>
+      <h1 class="am-reviews-hero__title">500+ Verified Guest Reviews</h1>
+      <p class="am-reviews-hero__lead">
+        AMARA is built like a well-run home: quiet nights, spotless spaces, and clear communication. This page is a calm summary of what guests consistently confirm.
+      </p>
+      <div class="am-reviews-hero__links">
+        <a href={resolveLink('book', currentLang)} class="am-reviews-link">Check availability</a>
+        <span class="am-reviews-hero__dot">&middot;</span>
+        <a href={resolveLink('direct_booking_benefits', currentLang)} class="am-reviews-link">Direct booking benefits</a>
+      </div>
+    </header>
+
+    <main>
+      <!-- The opening split mirrors the About page: one anchored title, one dense proof column. -->
+      <section class="am-reviews-section">
+        <div class="am-reviews-split">
+          <div class="am-reviews-split__left">
+            <h2 class="am-section-title">A simple proof summary</h2>
+          </div>
+          <div class="am-reviews-split__right">
+            <p class="am-body am-reviews-text-large">&#9733; 4.95 / 5 &bull; 500+ verified guest reviews</p>
+            <p class="am-body">
+              We keep it simple: strong sleep comfort, reliable cleanliness, and small details that make a stay feel easy.
+            </p>
+            <p class="am-body">
+              We reference third-party platforms as verification sources only. Bookings stay direct with AMARA.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="am-reviews-section am-reviews-quote-block">
+        <blockquote class="am-reviews-quote">
+          “This is not just a place to stay — it’s a refuge that invites calm, connection, and gratitude.”
+        </blockquote>
+      </section>
+
+      <section class="am-reviews-section">
+        <div class="am-reviews-section-header">
+          <h2 class="am-section-title">Three original Airbnb reviews</h2>
+          <p class="am-body am-reviews-section-note">Shown as third-party verification only. Bookings stay direct with AMARA. (Translated for clarity).</p>
+        </div>
+
+        <div class="am-reviews-grid">
+          {reviews.map((review) => (
+            <article class="am-reviews-card">
+              <p class="am-kicker am-reviews-card__meta">{review.meta}</p>
+              <p class="am-body am-reviews-card__copy">{review.copy}</p>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section class="am-reviews-section am-reviews-proof">
+        <div class="am-reviews-proof__header">
+          <h2 class="am-section-title">What guests repeatedly mention</h2>
+          <p class="am-body am-reviews-proof__note">Calm is not a claim — it’s the result of many small decisions done consistently.</p>
+        </div>
+
+        <div class="am-reviews-list">
+          {proofPoints.map((item) => (
+            <div class="am-reviews-list__item">
+              <p class="am-body am-reviews-list__copy">{item}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <!-- Awards are grouped clearly, but kept editorial rather than widget-like. -->
+      <section class="am-reviews-section am-reviews-awards">
+        <div class="am-reviews-awards__header">
+          <h2 class="am-section-title am-reviews-awards__title">Booking.com Traveller Review Awards 2025</h2>
+          <p class="am-body">Verification images are shown for transparency only. Bookings stay direct with AMARA.</p>
+          <p class="am-body am-reviews-awards__source">Award source: Booking.com Traveller Review Awards 2025 (based on verified guest reviews).</p>
+        </div>
+
+        <div class="am-reviews-awards__grid">
+          <div class="am-reviews-awards__group">
+            <h3 class="am-reviews-awards__label">Frigiliana</h3>
+            <ul class="am-body am-reviews-ul">
+              {frigilianaAwards.map((award) => (
+                <li>{award}</li>
+              ))}
+            </ul>
+          </div>
+
+          <div class="am-reviews-awards__group">
+            <h3 class="am-reviews-awards__label">Nerja & Tarifa</h3>
+            <ul class="am-body am-reviews-ul">
+              {coastAwards.map((award) => (
+                <li>{award}</li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="am-reviews-section am-reviews-locations">
+        <div class="am-reviews-locations__header">
+          <h2 class="am-section-title">Choose your location</h2>
+          <p class="am-body">For locally relevant proof and awards, pick the place you’re considering.</p>
+        </div>
+
+        <div class="am-reviews-locations__trio">
+          <a href={resolveLink('location_frigiliana', currentLang)} class="am-reviews-location">
+            <div class="am-reviews-location__image"><span>Frigiliana</span></div>
+            <div class="am-reviews-location__caption">
+              <h3 class="am-reviews-location__title">Frigiliana</h3>
+              <p class="am-body">Design apartments in the old village. Quiet, romantic stays with terraces and calm details.</p>
+            </div>
+          </a>
+
+          <a href={resolveLink('location_nerja', currentLang)} class="am-reviews-location">
+            <div class="am-reviews-location__image"><span>Nerja</span></div>
+            <div class="am-reviews-location__caption">
+              <h3 class="am-reviews-location__title">Nerja</h3>
+              <p class="am-body">Beachside stay, easy access. Coastal days, comfortable nights — simple and well-organised.</p>
+            </div>
+          </a>
+
+          <a href={resolveLink('location_tarifa', currentLang)} class="am-reviews-location">
+            <div class="am-reviews-location__image"><span>Tarifa</span></div>
+            <div class="am-reviews-location__caption">
+              <h3 class="am-reviews-location__title">Tarifa</h3>
+              <p class="am-body">Wide horizons, wind and light. Active outdoors, calm indoors — family & surf rhythm.</p>
+            </div>
+          </a>
+        </div>
+      </section>
+
+      <section class="am-reviews-section am-reviews-cta">
+        <h2 class="am-reviews-cta__title">Next step</h2>
+        <p class="am-body am-reviews-cta__lead">
+          Next: explore the apartments — and use the availability button when you’re ready.
+        </p>
+
+        <div class="am-reviews-cta__links">
+          <a href={resolveLink('book', currentLang)} class="am-reviews-link">Explore apartments</a>
+          <span class="am-reviews-cta__dot">&middot;</span>
+          <a href={resolveLink('locations_hub', currentLang)} class="am-reviews-link">Explore locations</a>
+          <span class="am-reviews-cta__dot">&middot;</span>
+          <a href={resolveLink('direct_booking_benefits', currentLang)} class="am-reviews-link">Direct booking benefits</a>
+        </div>
+      </section>
+    </main>
+  </div>
+</BaseLayout>
+
+<style>
+  .am-kicker {
+    display: inline-block;
+    font-family: "Plus Jakarta Sans", sans-serif;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: rgba(0, 0, 0, 0.58);
+  }
+
+  .am-section-title {
+    font-family: "Newsreader", serif;
+    font-size: clamp(2.5rem, 4.5vw, 4rem);
+    line-height: 1.08;
+    font-weight: 300;
+    color: #111;
+    margin: 0;
+  }
+
+  .am-body {
+    font-family: "Plus Jakarta Sans", sans-serif;
+    font-size: 1rem;
+    line-height: 1.8;
+    color: #444;
+  }
+
+  .am-reviews-page {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 5vw;
+    background-color: #ffffff;
+  }
+
+  .am-reviews-section {
+    margin-bottom: clamp(8rem, 15vw, 14rem);
+  }
+
+  .am-reviews-text-large {
+    font-size: clamp(1.25rem, 2vw, 1.5rem);
+    line-height: 1.5;
+    color: #111;
+    margin-bottom: 2rem;
+  }
+
+  .am-reviews-link {
+    font-family: "Plus Jakarta Sans", sans-serif;
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: #111;
+    text-decoration: none;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    padding-bottom: 4px;
+    transition: border-color 0.3s ease;
+  }
+
+  .am-reviews-link:hover {
+    border-color: #111;
+  }
+
+  .am-reviews-hero {
+    padding: clamp(6rem, 12vw, 10rem) 0 clamp(4rem, 8vw, 8rem);
+    max-width: 1100px;
+  }
+
+  .am-reviews-hero__meta {
+    display: flex;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    margin-bottom: 3rem;
+    opacity: 0.6;
+  }
+
+  .am-reviews-hero__title {
+    font-family: "Newsreader", serif;
+    font-size: clamp(3.25rem, 7vw, 5.75rem);
+    line-height: 1.04;
+    font-weight: 300;
+    letter-spacing: -0.02em;
+    color: #111;
+    margin: 0 0 2.5rem 0;
+    max-width: 14ch;
+  }
+
+  .am-reviews-hero__lead {
+    font-family: "Plus Jakarta Sans", sans-serif;
+    font-size: clamp(1.2rem, 2vw, 1.45rem);
+    line-height: 1.6;
+    color: #444;
+    max-width: 42ch;
+    margin-bottom: 2rem;
+  }
+
+  .am-reviews-hero__links,
+  .am-reviews-cta__links {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+  }
+
+  .am-reviews-hero__dot,
+  .am-reviews-cta__dot {
+    color: #ccc;
+  }
+
+  .am-reviews-split {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: clamp(4rem, 8vw, 8rem);
+  }
+
+  .am-reviews-split__left .am-section-title {
+    position: sticky;
+    top: 2rem;
+  }
+
+  .am-reviews-split__right {
+    max-width: 65ch;
+  }
+
+  .am-reviews-split__right p {
+    margin-bottom: 1.5rem;
+  }
+
+  .am-reviews-quote-block {
+    padding: clamp(4rem, 8vw, 8rem) 0;
+    text-align: center;
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .am-reviews-quote {
+    font-family: "Newsreader", serif;
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    line-height: 1.15;
+    font-style: italic;
+    font-weight: 300;
+    color: #111;
+    margin: 0;
+  }
+
+  .am-reviews-section-header,
+  .am-reviews-proof__header,
+  .am-reviews-awards__header,
+  .am-reviews-locations__header {
+    text-align: center;
+    max-width: 760px;
+    margin: 0 auto 4rem;
+  }
+
+  .am-reviews-section-note,
+  .am-reviews-proof__note,
+  .am-reviews-awards__source {
+    color: #666;
+    font-style: italic;
+  }
+
+  .am-reviews-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: clamp(2rem, 4vw, 3rem);
+  }
+
+  .am-reviews-card {
+    padding: clamp(2rem, 3vw, 2.5rem);
+    background: #fcfbf9;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+  }
+
+  .am-reviews-card__meta {
+    margin-bottom: 1.5rem;
+    opacity: 0.75;
+  }
+
+  .am-reviews-card__copy {
+    color: #222;
+    line-height: 1.85;
+  }
+
+  .am-reviews-proof {
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .am-reviews-list {
+    border-top: 2px solid #111;
+  }
+
+  .am-reviews-list__item {
+    display: grid;
+    grid-template-columns: 1fr;
+    padding: 1.8rem 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  }
+
+  .am-reviews-list__copy {
+    margin: 0;
+    color: #222;
+  }
+
+  .am-reviews-awards {
+    background-color: #fcfbf9;
+    padding: clamp(4rem, 8vw, 8rem) clamp(2rem, 5vw, 5rem);
+    margin-left: -5vw;
+    margin-right: -5vw;
+  }
+
+  .am-reviews-awards__title {
+    margin-bottom: 1.5rem;
+  }
+
+  .am-reviews-awards__grid {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: clamp(2rem, 4vw, 4rem);
+  }
+
+  .am-reviews-awards__group {
+    background: #fff;
+    padding: clamp(2rem, 4vw, 3rem);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.02);
+  }
+
+  .am-reviews-awards__label {
+    font-family: "Plus Jakarta Sans", sans-serif;
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: #888;
+    margin-bottom: 1.5rem;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    padding-bottom: 0.6rem;
+  }
+
+  .am-reviews-ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .am-reviews-ul li {
+    margin-bottom: 1rem;
+    position: relative;
+    padding-left: 1.25rem;
+    color: #111;
+  }
+
+  .am-reviews-ul li::before {
+    content: "—";
+    position: absolute;
+    left: 0;
+    color: rgba(0, 0, 0, 0.35);
+  }
+
+  .am-reviews-locations__trio {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: clamp(2rem, 4vw, 4rem);
+  }
+
+  .am-reviews-location {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+  }
+
+  .am-reviews-location__image {
+    aspect-ratio: 3 / 4;
+    background-color: rgba(0, 0, 0, 0.03);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+    transition: background-color 0.2s ease;
+  }
+
+  .am-reviews-location:hover .am-reviews-location__image {
+    background-color: rgba(0, 0, 0, 0.05);
+  }
+
+  .am-reviews-location__image span {
+    font-family: "Newsreader", serif;
+    font-style: italic;
+    color: rgba(0, 0, 0, 0.3);
+  }
+
+  .am-reviews-location__title {
+    font-family: "Newsreader", serif;
+    font-size: 1.75rem;
+    font-weight: 300;
+    margin-bottom: 0.5rem;
+    color: #111;
+  }
+
+  .am-reviews-cta {
+    text-align: center;
+    max-width: 850px;
+    margin: 0 auto;
+    padding-bottom: 4rem;
+  }
+
+  .am-reviews-cta__title {
+    font-family: "Newsreader", serif;
+    font-size: clamp(2.5rem, 4vw, 3.5rem);
+    line-height: 1.1;
+    font-weight: 300;
+    color: #111;
+    margin-bottom: 1.5rem;
+  }
+
+  .am-reviews-cta__lead {
+    font-size: clamp(1.125rem, 2vw, 1.25rem);
+    color: #444;
+    margin-bottom: 3rem;
+  }
+
+  @media (max-width: 1000px) {
+    .am-reviews-grid,
+    .am-reviews-locations__trio,
+    .am-reviews-awards__grid,
+    .am-reviews-split {
+      grid-template-columns: 1fr;
+    }
+
+    .am-reviews-split__left .am-section-title {
+      position: static;
+    }
+  }
+
+  @media (max-width: 600px) {
+    .am-reviews-hero__links,
+    .am-reviews-cta__links {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 1rem;
+    }
+
+    .am-reviews-hero__dot,
+    .am-reviews-cta__dot {
+      display: none;
+    }
+  }
+</style>

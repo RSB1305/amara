@@ -1,0 +1,125 @@
+---
+// src/components/PhotoShow.astro
+import { normalizeLanguage } from '../lib/seo/resolve-seo-head';
+
+interface ImageItem {
+  src: string;
+  alt: string;
+  caption?: string;
+}
+
+interface Props {
+  eyebrow?: string;
+  title: string;
+  images: ImageItem[];
+}
+
+const { eyebrow, title, images } = Astro.props;
+
+const pathname = Astro.url.pathname;
+const rawLang = pathname.split('/')[1] || 'en';
+const lang = normalizeLanguage(rawLang);
+
+const translations = {
+  en: { defaultEyebrow: "Visual Archive", prev: "Previous", next: "Next", counter: "of" },
+  de: { defaultEyebrow: "Visuelles Archiv", prev: "Zurück", next: "Weiter", counter: "von" },
+  es: { defaultEyebrow: "Archivo Visual", prev: "Anterior", next: "Siguiente", counter: "de" },
+  nl: { defaultEyebrow: "Visueel Archief", prev: "Vorige", next: "Volgende", counter: "van" },
+  sv: { defaultEyebrow: "Visuellt Arkiv", prev: "Föregående", next: "Nästa", counter: "av" }
+};
+
+const t = translations[lang] || translations.en;
+---
+
+<amara-photoshow 
+  class="block py-40 bg-surface-container-low overflow-hidden border-y border-outline-variant/5"
+  data-lang={lang}
+>
+  <div class="max-w-screen-2xl mx-auto px-12">
+    <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-20 gap-8">
+      <div>
+        <span class="text-[10px] uppercase tracking-[0.4em] text-primary font-bold block mb-4">
+          {eyebrow || t.defaultEyebrow}
+        </span>
+        <h2 class="font-headline text-5xl md:text-6xl italic text-on-surface tracking-tight">
+          {title}
+        </h2>
+      </div>
+      
+      <div class="flex items-center gap-10">
+        <div class="photoshow-counter font-label uppercase tracking-[0.2em] text-[10px] text-outline">
+          <span class="current">1</span> <span class="mx-1">{t.counter}</span> {images.length}
+        </div>
+        <div class="flex gap-4">
+          <button class="btn-prev p-5 border border-outline-variant/20 hover:bg-surface transition-all disabled:opacity-20" aria-label={t.prev}>
+            <span class="material-symbols-outlined text-base">west</span>
+          </button>
+          <button class="btn-next p-5 border border-outline-variant/20 hover:bg-surface transition-all disabled:opacity-20" aria-label={t.next}>
+            <span class="material-symbols-outlined text-base">east</span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="photoshow-viewport relative">
+      <div class="photoshow-track flex gap-12 transition-transform duration-1000 ease-[cubic-bezier(0.23, 1, 0.32, 1)]">
+        {images.map((img) => (
+          <div class="photoshow-slide flex-none w-full md:w-[75%] group">
+            <div class="aspect-[16/10] bg-surface-container overflow-hidden mb-8">
+              <img 
+                src={img.src} 
+                alt={img.alt} 
+                class="w-full h-full object-cover scale-105 group-hover:scale-100 transition-transform duration-1000 ease-out"
+                loading="lazy"
+              />
+            </div>
+            {img.caption && (
+              <p class="font-headline text-2xl italic text-on-surface-variant/80 border-l border-primary/30 pl-6 py-1">
+                {img.caption}
+              </p>
+            )}
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</amara-photoshow>
+
+<script>
+  class AmaraPhotoShow extends HTMLElement {
+    private isInitialized = false;
+
+    connectedCallback() {
+      if (this.isInitialized) return;
+      
+      const track = this.querySelector('.photoshow-track') as HTMLElement;
+      const btnPrev = this.querySelector('.btn-prev') as HTMLButtonElement;
+      const btnNext = this.querySelector('.btn-next') as HTMLButtonElement;
+      const counter = this.querySelector('.photoshow-counter .current');
+      const slides = this.querySelectorAll('.photoshow-slide');
+      
+      if (!track || slides.length === 0) return;
+
+      let currentIndex = 0;
+      const total = slides.length;
+
+      const update = () => {
+        const offset = currentIndex * -78.5; 
+        track.style.transform = `translateX(${offset}%)`;
+        if (counter) counter.textContent = (currentIndex + 1).toString();
+        if (btnPrev) btnPrev.disabled = currentIndex === 0;
+        if (btnNext) btnNext.disabled = currentIndex === total - 1;
+      };
+
+      btnPrev?.addEventListener('click', () => { if (currentIndex > 0) { currentIndex--; update(); } });
+      btnNext?.addEventListener('click', () => { if (currentIndex < total - 1) { currentIndex++; update(); } });
+
+      update();
+      this.isInitialized = true;
+    }
+  }
+
+  if (!customElements.get('amara-photoshow')) {
+    customElements.define('amara-photoshow', AmaraPhotoShow);
+  }
+</script>

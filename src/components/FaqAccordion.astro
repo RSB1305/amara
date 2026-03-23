@@ -1,0 +1,92 @@
+---
+// src/components/FaqAccordion.astro
+interface Props {
+  arrivalTitle?: string;
+  steps?: Array<{ num: string; headline: string; text: string }>;
+  faqTitle?: string;
+  items?: Array<{ question: string; answer: string }>;
+}
+
+const { 
+  arrivalTitle = "The Arrival", 
+  steps = [], 
+  faqTitle = "Dispatches & FAQ", 
+  items = [] 
+} = Astro.props;
+---
+
+<section class="py-32 bg-[#fcfbf9] px-12 border-t border-black/10">
+  <div class="max-w-screen-2xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-x-32 gap-y-20">
+    
+    <div>
+      <h2 class="font-headline text-[56px] italic font-light text-on-surface mb-20 tracking-tight leading-tight">
+        {arrivalTitle}
+      </h2>
+      <div class="space-y-20">
+        {steps && steps.length > 0 ? steps.map((step) => (
+          <div class="flex gap-12 items-start group">
+            <span class="text-[64px] font-headline italic leading-none text-[#d2c5b3] opacity-40 select-none">
+              {step.num}
+            </span>
+            <div class="pt-3">
+              <h4 class="font-label font-bold text-[11px] uppercase tracking-[0.2em] text-on-surface mb-3">
+                {step.headline}
+              </h4>
+              <p class="font-body text-on-surface-variant leading-relaxed text-[15px] max-w-sm">
+                {step.text}
+              </p>
+            </div>
+          </div>
+        )) : <p class="italic text-outline">Informationen zur Anreise folgen.</p>}
+      </div>
+    </div>
+
+    <div>
+      <h2 class="font-headline text-[56px] italic font-light text-on-surface mb-20 tracking-tight leading-tight">
+        {faqTitle}
+      </h2>
+      <div class="divide-y divide-black/10 border-t border-black/10">
+        {items && items.length > 0 ? items.map((item) => (
+          <details class="group py-10 cursor-pointer outline-none">
+            <summary class="flex justify-between items-center list-none outline-none">
+              <h4 class="font-label font-bold text-[11px] uppercase tracking-[0.2em] text-on-surface group-hover:text-primary transition-colors">
+                {item.question}
+              </h4>
+              <span class="material-symbols-outlined text-[#785611] font-light transition-transform duration-500">
+                <span class="group-open:hidden">+</span>
+                <span class="hidden group-open:inline">−</span>
+              </span>
+            </summary>
+            <div class="overflow-hidden transition-all duration-500">
+              <p class="pt-8 font-body text-on-surface-variant text-[15px] leading-relaxed max-w-md italic">
+                {item.answer}
+              </p>
+            </div>
+          </details>
+        )) : <p class="py-10 italic text-outline">Häufig gestellte Fragen werden bald ergänzt.</p>}
+        <div class="border-b border-black/10"></div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<style>
+  /* Versteckt den Standard-Pfeil im Safari/Chrome/Firefox */
+  summary::-webkit-details-marker {
+    display: none;
+  }
+  summary {
+    list-style: none;
+  }
+  
+  /* Sanftes Einblenden der Antwort */
+  details[open] div {
+    animation: fadeIn 0.6s ease-out;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+</style>

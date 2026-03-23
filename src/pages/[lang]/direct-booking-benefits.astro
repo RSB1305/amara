@@ -1,0 +1,447 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { resolveLink } from '../../lib/linkResolver';
+import { normalizeLanguage } from '../../lib/seo/resolve-seo-head';
+import type { AmaraAuthoringSeo, AmaraLanguage } from '../../types/seo';
+
+export function getStaticPaths() {
+  return [
+    { params: { lang: 'en' } },
+    { params: { lang: 'de' } },
+    { params: { lang: 'es' } },
+    { params: { lang: 'nl' } },
+    { params: { lang: 'sv' } }
+  ];
+}
+
+const { lang } = Astro.params;
+const currentLang = normalizeLanguage(lang as AmaraLanguage);
+
+const seo: AmaraAuthoringSeo = {
+  version: '2026-03-23-direct-booking-benefits-v1.0-C',
+  pageType: 'C',
+  entityKey: 'amara-brand',
+  languages: {
+    en: {
+      title: 'AMARA | Direct Booking Benefits',
+      description: 'Best price guarantee, direct host support, and guest-first benefits when booking directly with AMARA.',
+      robots: 'index, follow',
+      canonical: 'auto'
+    },
+    de: {
+      title: 'AMARA | Vorteile der Direktbuchung',
+      description: 'Bestpreis-Garantie, direkter Gastgeberkontakt und gaestefokussierte Vorteile bei einer Direktbuchung mit AMARA.',
+      robots: 'index, follow',
+      canonical: 'auto'
+    },
+    es: {
+      title: 'AMARA | Ventajas de reservar directamente',
+      description: 'Mejor precio garantizado, contacto directo con el anfitrion y ventajas pensadas para el huesped al reservar con AMARA.',
+      robots: 'index, follow',
+      canonical: 'auto'
+    },
+    nl: {
+      title: 'AMARA | Voordelen van direct boeken',
+      description: 'Besteprijsgarantie, direct contact met de host en gastgerichte voordelen bij rechtstreeks boeken bij AMARA.',
+      robots: 'index, follow',
+      canonical: 'auto'
+    },
+    sv: {
+      title: 'AMARA | Foerdelar med direktbokning',
+      description: 'Basta pris-garanti, direkt kontakt med vaerden och gaestfoerdelar naer du bokar direkt med AMARA.',
+      robots: 'index, follow',
+      canonical: 'auto'
+    }
+  },
+  ogImage: '/images/hero-frigiliana.jpg'
+};
+
+const benefits = [
+  {
+    title: 'Best price guarantee',
+    copy: 'You always get our best available price when booking directly — no hidden fees.'
+  },
+  {
+    title: 'Priority early check-in / late check-out',
+    copy: 'When availability allows, we prioritize complimentary early check-in or late check-out.'
+  },
+  {
+    title: 'Welcome detail',
+    copy: 'A small local welcome detail on arrival — simple, thoughtful, seasonal.'
+  },
+  {
+    title: 'Direct line to host',
+    copy: 'A simpler route for questions and coordination before and during your stay.'
+  },
+  {
+    title: 'Flexible arrival guidance',
+    copy: 'Clear check-in steps, parking tips, and help choosing the right apartment.'
+  },
+  {
+    title: 'Clear & transparent terms',
+    copy: 'No surprises.'
+  }
+];
+---
+
+<BaseLayout seo={seo}>
+  <div class="am-direct-page">
+    <!-- The hero deliberately mirrors the trust-page entry pattern: calm intro, support line, and restrained CTAs. -->
+    <header class="am-direct-hero">
+      <div class="am-direct-hero__meta">
+        <span class="am-kicker">Direct booking benefits</span>
+      </div>
+      <h1 class="am-direct-hero__title">Book Direct with AMARA — receive Exclusive Guest Benefits</h1>
+      <p class="am-direct-hero__lead">
+        When you book directly with AMARA, you get the same beautiful stay — plus a few extras that make arrival easier and the experience more personal.
+      </p>
+      <p class="am-body am-direct-hero__support">Transparent, calm, and guest-first — without gimmicks.</p>
+      <div class="am-direct-hero__links">
+        <a href={resolveLink('book', currentLang)} class="am-direct-link">Check availability</a>
+        <span class="am-direct-hero__dot">&middot;</span>
+        <a href={resolveLink('locations_hub', currentLang)} class="am-direct-link">Explore apartments</a>
+      </div>
+    </header>
+
+    <main>
+      <!-- A split title/content layout keeps the benefits section editorial rather than template-like. -->
+      <section class="am-direct-section">
+        <div class="am-direct-split">
+          <div class="am-direct-split__left">
+            <h2 class="am-section-title">What you get when you book direct</h2>
+          </div>
+          <div class="am-direct-split__right">
+            <div class="am-direct-list">
+              {benefits.map((benefit) => (
+                <div class="am-direct-list__item">
+                  <h3 class="am-direct-list__title">{benefit.title}</h3>
+                  <p class="am-body">{benefit.copy}</p>
+                </div>
+              ))}
+            </div>
+            <p class="am-body am-direct-note">
+              Tip: If you&rsquo;re not sure which apartment fits best, message us first — we&rsquo;ll guide you calmly and honestly.
+            </p>
+            <div class="am-direct-inline-links">
+              <a href={resolveLink('reviews_hub', currentLang)} class="am-direct-link">Guest reviews</a>
+              <span class="am-direct-inline-links__dot">&middot;</span>
+              <a href={resolveLink('about', currentLang)} class="am-direct-link">About AMARA</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="am-direct-section am-direct-quote-block">
+        <blockquote class="am-direct-quote">
+          &ldquo;Direct bookings let us invest more into the details you actually feel.&rdquo;
+        </blockquote>
+      </section>
+
+      <section class="am-direct-section">
+        <div class="am-direct-split">
+          <div class="am-direct-split__left">
+            <h2 class="am-section-title">Why we prefer direct bookings</h2>
+          </div>
+          <div class="am-direct-split__right">
+            <p class="am-body am-direct-text-large">
+              Direct bookings let us invest more into the details you actually feel: quieter operations, better upkeep, and personal support.
+            </p>
+            <p class="am-body">
+              It also keeps AMARA independent — designed around guests who value calm.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- The promise block uses the same restrained callout logic as the existing About page. -->
+      <section class="am-direct-section am-direct-promise-wrap">
+        <div class="am-direct-promise">
+          <h2 class="am-direct-promise__title">A simple promise</h2>
+          <div class="am-direct-promise__content">
+            <p class="am-body">
+              If you find the exact same dates and conditions for a lower price elsewhere, tell us. We&rsquo;ll check it with you and do our best to match it fairly.
+            </p>
+            <p class="am-body">
+              Since we do not offer artificial discounts on other platforms, the direct price is simply the fair, lower baseline.
+            </p>
+            <p class="am-body am-direct-promise__note">Same dates &middot; same apartment &middot; same cancellation terms.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="am-direct-section am-direct-cta">
+        <h2 class="am-direct-cta__title">Next step</h2>
+        <p class="am-body am-direct-cta__lead">
+          Ready to plan your stay? Check availability directly — calm, transparent, and guest-first.
+        </p>
+
+        <div class="am-direct-cta__links">
+          <a href={resolveLink('book', currentLang)} class="am-direct-link">Check availability</a>
+          <span class="am-direct-cta__dot">&middot;</span>
+          <a href={resolveLink('about', currentLang)} class="am-direct-link">About AMARA</a>
+          <span class="am-direct-cta__dot">&middot;</span>
+          <a href={resolveLink('locations_hub', currentLang)} class="am-direct-link">Explore apartments</a>
+        </div>
+      </section>
+    </main>
+  </div>
+</BaseLayout>
+
+<style>
+  .am-kicker {
+    display: inline-block;
+    font-family: "Plus Jakarta Sans", sans-serif;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: rgba(0, 0, 0, 0.58);
+  }
+
+  .am-section-title {
+    font-family: "Newsreader", serif;
+    font-size: clamp(2.5rem, 4.5vw, 4rem);
+    line-height: 1.08;
+    font-weight: 300;
+    color: #111;
+    margin: 0;
+  }
+
+  .am-body {
+    font-family: "Plus Jakarta Sans", sans-serif;
+    font-size: 1rem;
+    line-height: 1.8;
+    color: #444;
+  }
+
+  .am-direct-page {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 5vw;
+    background-color: #ffffff;
+  }
+
+  .am-direct-section {
+    margin-bottom: clamp(8rem, 15vw, 14rem);
+  }
+
+  .am-direct-text-large {
+    font-size: clamp(1.25rem, 2vw, 1.5rem);
+    line-height: 1.5;
+    color: #111;
+    margin-bottom: 2rem;
+  }
+
+  .am-direct-link {
+    font-family: "Plus Jakarta Sans", sans-serif;
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: #111;
+    text-decoration: none;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    padding-bottom: 4px;
+    transition: border-color 0.3s ease;
+  }
+
+  .am-direct-link:hover {
+    border-color: #111;
+  }
+
+  .am-direct-hero {
+    padding: clamp(6rem, 12vw, 10rem) 0 clamp(4rem, 8vw, 8rem);
+    max-width: 1100px;
+  }
+
+  .am-direct-hero__meta {
+    display: flex;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    margin-bottom: 3rem;
+    opacity: 0.6;
+  }
+
+  .am-direct-hero__title {
+    font-family: "Newsreader", serif;
+    font-size: clamp(3.25rem, 7vw, 5.75rem);
+    line-height: 1.04;
+    font-weight: 300;
+    letter-spacing: -0.02em;
+    color: #111;
+    margin: 0 0 2.5rem 0;
+    max-width: 14ch;
+  }
+
+  .am-direct-hero__lead {
+    font-family: "Plus Jakarta Sans", sans-serif;
+    font-size: clamp(1.2rem, 2vw, 1.45rem);
+    line-height: 1.6;
+    color: #444;
+    max-width: 42ch;
+    margin-bottom: 1rem;
+  }
+
+  .am-direct-hero__support {
+    color: #666;
+    font-style: italic;
+    margin-bottom: 2rem;
+  }
+
+  .am-direct-hero__links,
+  .am-direct-cta__links,
+  .am-direct-inline-links {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+  }
+
+  .am-direct-hero__dot,
+  .am-direct-cta__dot,
+  .am-direct-inline-links__dot {
+    color: #ccc;
+  }
+
+  .am-direct-split {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: clamp(4rem, 8vw, 8rem);
+  }
+
+  .am-direct-split__left .am-section-title {
+    position: sticky;
+    top: 2rem;
+  }
+
+  .am-direct-split__right {
+    max-width: 68ch;
+  }
+
+  .am-direct-quote-block {
+    padding: clamp(4rem, 8vw, 8rem) 0;
+    text-align: center;
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .am-direct-quote {
+    font-family: "Newsreader", serif;
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    line-height: 1.15;
+    font-style: italic;
+    font-weight: 300;
+    color: #111;
+    margin: 0;
+  }
+
+  .am-direct-list {
+    border-top: 2px solid #111;
+    margin-bottom: 2.5rem;
+  }
+
+  .am-direct-list__item {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    padding: 2rem 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  }
+
+  .am-direct-list__title {
+    font-family: "Plus Jakarta Sans", sans-serif;
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: #111;
+    margin: 0;
+  }
+
+  .am-direct-note {
+    color: #666;
+    font-style: italic;
+    margin-bottom: 2rem;
+  }
+
+  .am-direct-promise-wrap {
+    background-color: #fcfbf9;
+    padding: clamp(4rem, 8vw, 8rem) clamp(2rem, 5vw, 5rem);
+    margin-left: -5vw;
+    margin-right: -5vw;
+  }
+
+  .am-direct-promise {
+    max-width: 820px;
+    margin: 0 auto;
+    background: #fff;
+    padding: clamp(3rem, 6vw, 5rem);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.02);
+  }
+
+  .am-direct-promise__title {
+    font-family: "Newsreader", serif;
+    font-size: 2rem;
+    font-weight: 300;
+    margin: 0 0 2rem 0;
+    color: #111;
+  }
+
+  .am-direct-promise__content p {
+    margin-bottom: 1.25rem;
+  }
+
+  .am-direct-promise__note {
+    color: #666;
+    font-style: italic;
+    margin-top: 2rem;
+  }
+
+  .am-direct-cta {
+    text-align: center;
+    max-width: 850px;
+    margin: 0 auto;
+    padding-bottom: 4rem;
+  }
+
+  .am-direct-cta__title {
+    font-family: "Newsreader", serif;
+    font-size: clamp(2.5rem, 4vw, 3.5rem);
+    line-height: 1.1;
+    font-weight: 300;
+    color: #111;
+    margin-bottom: 1.5rem;
+  }
+
+  .am-direct-cta__lead {
+    font-size: clamp(1.125rem, 2vw, 1.25rem);
+    color: #444;
+    margin-bottom: 3rem;
+  }
+
+  @media (max-width: 1000px) {
+    .am-direct-split,
+    .am-direct-list__item {
+      grid-template-columns: 1fr;
+    }
+
+    .am-direct-split__left .am-section-title {
+      position: static;
+    }
+  }
+
+  @media (max-width: 600px) {
+    .am-direct-hero__links,
+    .am-direct-cta__links,
+    .am-direct-inline-links {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 1rem;
+    }
+
+    .am-direct-hero__dot,
+    .am-direct-cta__dot,
+    .am-direct-inline-links__dot {
+      display: none;
+    }
+  }
+</style>

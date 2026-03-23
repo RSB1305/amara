@@ -1,0 +1,325 @@
+---
+// src/pages/[lang]/arrival.astro
+/**
+ * AMARA v3 Arrival Guide (Type D Utility)
+ * Governance: Rein funktionale Seite für Logik und Anreise-Details.
+ */
+import UtilityLayout from '../../layouts/UtilityLayout.astro';
+import Navigation from '../../components/Navigation.astro';
+import FaqAccordion from '../../components/FaqAccordion.astro';
+import Footer from '../../components/Footer.astro';
+import { resolveLink } from '../../lib/linkResolver';
+import { normalizeLanguage } from '../../lib/seo/resolve-seo-head';
+import type { AmaraAuthoringSeo, AmaraLanguage } from '../../types/seo';
+
+export function getStaticPaths() {
+  return [
+    { params: { lang: 'en' } },
+    { params: { lang: 'de' } },
+    { params: { lang: 'es' } },
+    { params: { lang: 'nl' } },
+    { params: { lang: 'sv' } }
+  ];
+}
+
+const { lang } = Astro.params;
+const currentLang = normalizeLanguage(lang as AmaraLanguage);
+
+const seo: AmaraAuthoringSeo = {
+  version: "2026-03-21-v3.0-D",
+  pageType: "D",
+  languages: {
+    en: { title: "Frigiliana Arrival & Parking Guide", description: "How to reach the village and where to park.", robots: "index, follow", canonical: "auto" },
+    de: { title: "Frigiliana Anreise- & Parkguide", description: "So erreichen Sie das Dorf und finden Parkplätze.", robots: "index, follow", canonical: "auto" },
+    es: { title: "Guía de llegada y aparcamiento en Frigiliana", description: "Cómo llegar al pueblo und dónde aparcar.", robots: "index, follow", canonical: "auto" },
+    nl: { title: "Frigiliana aankomst- en parkeergids", description: "Hoe het dorp te bereiken.", robots: "index, follow", canonical: "auto" },
+    sv: { title: "Frigiliana ankomst- och parkeringsguide", description: "Hur man tar sig till byn.", robots: "index, follow", canonical: "auto" }
+  },
+  ogImage: "/images/arrival-og.jpg"
+};
+
+const copy = {
+  nav: {
+    brand: { en: "Frigiliana", de: "Frigiliana", es: "Frigiliana", nl: "Frigiliana", sv: "Frigiliana" },
+    links: [
+      { token: "explore_hub", label: { en: "Explore", de: "Entdecken", es: "Explorar", nl: "Ontdekken", sv: "Utforska" } },
+      { token: "home", label: { en: "Home", de: "Start", es: "Inicio", nl: "Home", sv: "Hem" } }
+    ]
+  },
+  header: {
+    title: { en: "Arrival & Logistics", de: "Anreise & Logistik", es: "Llegada y Logística", nl: "Aankomst & Logistiek", sv: "Ankomst & Logistik" },
+    subtitle: { 
+      en: "Essential information for navigating the vertical streets of the Mudejar quarter.", 
+      de: "Wichtige Informationen zur Navigation in den vertikalen Gassen des maurischen Viertels.",
+      es: "Información esencial para navegar por las calles del barrio mudéjar.",
+      nl: "Essentiële informatie voor het navigeren door de straten van de Moorse wijk.",
+      sv: "Viktig information för att navigera på gatorna i det mauriska kvarteret."
+    }
+  },
+  content: {
+    parking: {
+      title: { en: "Arriving at La AMARA", de: "Die Parksituation", es: "El aparcamiento", nl: "Parkeren", sv: "Parkering" },
+      text: { 
+        en: "La AMARA is located in the historic center of Frigiliana. Because the streets in the old village are narrow and vehicle access is limited, the easiest arrival is usually to stop a little below the house and continue on foot.",
+        de: "Frigiliana ist weitgehend fußläufig. Wir empfehlen das große Parkhaus am Dorfeingang (Plaza de las Tres Culturas). Es ist die sicherste und bequemste Option.",
+        es: "Frigiliana es mayoritariamente peatonal. Recomendamos el gran aparcamiento subterráneo a la entrada del pueblo.",
+        nl: "Frigiliana is grotendeels voetgangersgebied. Wij raden de grote ondergrondse parkeergarage bij de ingang van het dorp aan.",
+        sv: "Frigiliana är till stor del gågata. Vi rekommenderar det stora underjordiska parkeringshuset vid ingången till byn."
+      }
+    },
+    walkingAccess: {
+      title: { en: "Walking & Access", de: "Zu Fuß & Zugang", es: "A pie y acceso", nl: "Lopen & Toegang", sv: "Till fots & Tillgång" },
+      text: {
+        en: "La AMARA is located in the historic center, so a short walk is part of the arrival experience in most cases. Please expect cobbled streets, inclines, and depending on your route, some steps. Comfortable shoes are recommended, especially if you arrive with luggage.",
+        de: "Die Altstadt von Frigiliana ist wunderschön, aber steil. Rechnen Sie mit Treppen, engen Gassen und begrenztem Fahrzeugzugang. Bequeme Schuhe sind besonders empfehlenswert, vor allem wenn Sie mit Gepäck anreisen.",
+        es: "El casco antiguo de Frigiliana es precioso, pero empinado. Hay escaleras, calles estrechas y acceso limitado para vehículos. Se recomienda llevar calzado cómodo, especialmente si llega con equipaje.",
+        nl: "De oude binnenstad van Frigiliana is prachtig maar steil. Reken op trappen, smalle straten en beperkte toegang voor voertuigen. Comfortabele schoenen zijn sterk aan te raden, vooral als u met bagage aankomt.",
+        sv: "Frigilianas gamla stad är vacker men brant. Räkna med trappor, smala gator och begränsad tillgång för fordon. Bekväma skor rekommenderas starkt, särskilt om du anländer med bagage."
+      }
+    },
+    arrivalTip: {
+      title: { en: "Arrival by Car or Taxi", de: "Anreisetipp", es: "Consejo de llegada", nl: "Aankomsttip", sv: "Ankomsttips" },
+      text: {
+        en: "For most guests, the easiest arrival point is Avenida Carlos Cano 42. From there, it is approximately 4 minutes on foot (150 m) uphill to La AMARA.\n\nTo reach the house, take the staircase on the left-hand side of the urbanization La Fuente at Avenida Carlos Cano 42. Pass the well-known La Fuente Vieja fountain and continue for around 15 meters. At Bar El Señor, turn right and continue uphill. After approximately 40 more meters, you will see La AMARA on the right-hand side — a green door with small windows and a black keypad on the left side of the entrance.",
+        de: "Wenn Sie zum ersten Mal im Dorf sind, parken Sie am besten zuerst und gehen dann zu Fuß weiter. Direkt in die Altstadt zu fahren, ist oft nicht möglich und kann schnell stressig werden.",
+        es: "Si es su primera vez en el pueblo, aparque primero y continúe a pie. Intentar conducir directamente hasta el casco antiguo puede ser estresante y muchas veces no es posible.",
+        nl: "Als dit uw eerste keer in het dorp is, parkeer dan eerst en ga daarna te voet verder. Proberen direct de oude binnenstad in te rijden kan stressvol zijn en is vaak niet mogelijk.",
+        sv: "Om det är ditt första besök i byn, parkera först och fortsätt sedan till fots. Att försöka köra direkt in i gamla stan kan vara stressigt och är ofta inte möjligt."
+      },
+      taxiNote: {
+        en: "If you arrive by taxi from Málaga, this is usually the best and simplest drop-off point, especially for drivers who do not know the village well. In some cases, when the village is quieter and the driver knows Frigiliana very well, they may decide to drive closer to the house. This decision should always be left to the taxi driver."
+      }
+    },
+    arrivalByBus: {
+      title: { en: "Arrival by Bus" },
+      text: {
+        en: "If you arrive by bus, the bus stops at Parada de Autobús – C. Real, Frigiliana.\n\nFrom there, you can choose between two walking routes to reach La AMARA:\n\nShorter route – via Calle Real\nApprox. 8 minutes (550 m)\nThis is the shorter route through the old village. It is slightly uphill and follows cobbled streets, but it does not include steps.\n\nLonger route – via the main road\nApprox. 12 minutes (750 m)\nThis route is mostly flat until La Fuente. At the end, there are several steps and a short final ascent of around 25 meters elevation."
+      }
+    },
+    arrivalSection: {
+      title: {
+        en: "The Arrival",
+        de: "Die Ankunft",
+        es: "La llegada",
+        nl: "De aankomst",
+        sv: "Ankomsten"
+      }
+    },
+    luggageAdvice: {
+      title: { en: "Luggage Advice", de: "Gepäckhinweis", es: "Consejo sobre equipaje", nl: "Bagageadvies", sv: "Bagageråd" },
+      text: {
+        en: "If possible, we recommend travelling light and using manageable luggage. In the historic center, even short walking distances can feel more demanding because of the slope and uneven ground.",
+        de: "Reisen Sie nach Möglichkeit mit leichtem Gepäck. In vielen Teilen des Dorfes müssen Sie Ihr Gepäck einige Minuten durch enge Gassen oder über kurze Treppenabschnitte tragen.",
+        es: "Viaje ligero si puede. En muchas partes del pueblo tendrá que llevar el equipaje durante unos minutos por calles estrechas o pequeños tramos de escaleras.",
+        nl: "Reis licht als het kan. In veel delen van het dorp moet u uw bagage enkele minuten dragen door smalle straten of over kleine trapgedeelten.",
+        sv: "Res lätt om du kan. I många delar av byn kan du behöva bära ditt bagage några minuter genom smala gator eller uppför mindre trappor."
+      }
+    },
+    faq: {
+      title: { en: "Logistics FAQ", de: "Logistik-FAQ", es: "FAQ de llegada", nl: "Logistieke FAQ", sv: "Logistikfrågor" },
+      items: {
+        en: [
+          { question: "Can I drive directly into the old town?", answer: "Usually not in a practical way. Most visitors find it easier to park near the entrance of the village and continue on foot." },
+          { question: "Is Frigiliana suitable if I have heavy luggage?", answer: "It depends on your accommodation location, but you should expect some walking, stairs, or uneven streets. Packing light is always a good idea." },
+          { question: "Where should I park when arriving for the first time?", answer: "The main underground parking near the village entrance is usually the easiest and least stressful option." },
+          { question: "What if I need urgent local help?", answer: "Use the quick contact information on this page for local taxi support or emergency services if needed." }
+        ],
+        de: [
+          { question: "Kann ich direkt in die Altstadt fahren?", answer: "In der Praxis meist nicht sinnvoll. Die meisten Besucher parken besser am Dorfeingang und gehen den Rest zu Fuß." },
+          { question: "Ist Frigiliana geeignet, wenn ich schweres Gepäck habe?", answer: "Das hängt von der Lage Ihrer Unterkunft ab, aber rechnen Sie mit Fußwegen, Treppen oder unebenen Gassen. Leicht zu packen ist immer eine gute Idee." },
+          { question: "Wo sollte ich beim ersten Besuch parken?", answer: "Das große unterirdische Parkhaus am Dorfeingang ist in der Regel die einfachste und entspannteste Wahl." },
+          { question: "Was ist, wenn ich dringend lokale Hilfe brauche?", answer: "Nutzen Sie bei Bedarf die Schnellkontakt-Informationen auf dieser Seite für ein lokales Taxi oder den Notruf." }
+        ],
+        es: [
+          { question: "¿Puedo conducir directamente hasta el casco antiguo?", answer: "Normalmente no de una manera práctica. A la mayoría de los visitantes les resulta más fácil aparcar cerca de la entrada del pueblo y continuar a pie." },
+          { question: "¿Es Frigiliana adecuada si llevo equipaje pesado?", answer: "Depende de la ubicación de su alojamiento, pero debe contar con algo de caminata, escaleras o calles irregulares. Viajar ligero siempre ayuda." },
+          { question: "¿Dónde debería aparcar si llego por primera vez?", answer: "El aparcamiento subterráneo principal cerca de la entrada del pueblo suele ser la opción más fácil y menos estresante." },
+          { question: "¿Y si necesito ayuda local urgente?", answer: "Use la información de contacto rápido de esta página para taxi local o servicios de emergencia si lo necesita." }
+        ],
+        nl: [
+          { question: "Kan ik direct de oude binnenstad in rijden?", answer: "Meestal niet op een praktische manier. De meeste bezoekers parkeren liever bij de ingang van het dorp en gaan daarna te voet verder." },
+          { question: "Is Frigiliana geschikt als ik zware bagage heb?", answer: "Dat hangt af van de ligging van uw accommodatie, maar houd rekening met lopen, trappen of ongelijke straatjes. Licht inpakken is altijd verstandig." },
+          { question: "Waar moet ik parkeren als ik hier voor het eerst aankom?", answer: "De hoofdparkeergarage bij de dorpsingang is meestal de makkelijkste en minst stressvolle optie." },
+          { question: "Wat als ik dringend lokale hulp nodig heb?", answer: "Gebruik dan de snelle contactinformatie op deze pagina voor een lokale taxi of hulpdiensten." }
+        ],
+        sv: [
+          { question: "Kan jag köra direkt in i gamla stan?", answer: "Vanligtvis inte på ett praktiskt sätt. De flesta besökare tycker att det är enklare att parkera vid byns infart och fortsätta till fots." },
+          { question: "Passar Frigiliana om jag har tungt bagage?", answer: "Det beror på var ditt boende ligger, men räkna med promenader, trappor eller ojämna gator. Att packa lätt är alltid en bra idé." },
+          { question: "Var ska jag parkera när jag kommer hit första gången?", answer: "Det stora underjordiska parkeringshuset vid byns entré är oftast det enklaste och minst stressiga alternativet." },
+          { question: "Vad gör jag om jag behöver snabb lokal hjälp?", answer: "Använd snabbkontaktinformationen på den här sidan för lokal taxi eller nödtjänster vid behov." }
+        ]
+      }
+    }
+  },
+  sidebar: {
+    taxi: { en: "Local Taxi", de: "Lokales Taxi", es: "Taxi Local", nl: "Lokale Taxi", sv: "Lokal Taxi" },
+    emergency: { en: "Emergency", de: "Notfall", es: "Emergencia", nl: "Noodgeval", sv: "Nödfall" }
+  },
+  footer: {
+    brand: { en: "Frigiliana Editorial", de: "Frigiliana Editorial", es: "Editorial Frigiliana", nl: "Frigiliana Redactie", sv: "Frigiliana Redaktion" },
+    rights: { en: "All rights reserved.", de: "Alle Rechte vorbehalten.", es: "Reservados", nl: "Voorbehouden", sv: "Förbehållna" }
+  }
+};
+
+const c = {
+  nav: { brand: copy.nav.brand[currentLang], links: copy.nav.links.map(l => ({ token: l.token, label: l.label[currentLang] })) },
+  header: { title: copy.header.title[currentLang], subtitle: copy.header.subtitle[currentLang] },
+  parking: { title: copy.content.parking.title[currentLang], text: copy.content.parking.text[currentLang] },
+  walkingAccess: { title: copy.content.walkingAccess.title[currentLang], text: copy.content.walkingAccess.text[currentLang] },
+  arrivalTip: { title: copy.content.arrivalTip.title[currentLang], text: copy.content.arrivalTip.text[currentLang], taxiNote: currentLang === 'en' ? copy.content.arrivalTip.taxiNote.en : undefined },
+  arrivalByBus: currentLang === 'en' ? { title: copy.content.arrivalByBus.title.en, text: copy.content.arrivalByBus.text.en } : null,
+  arrivalSection: {
+    title: copy.content.arrivalSection.title[currentLang],
+    steps: [
+      {
+        num: '01',
+        headline: currentLang === 'en'
+          ? copy.content.arrivalByBus.title.en
+          : currentLang === 'de'
+            ? 'Anreise mit dem Bus'
+            : currentLang === 'es'
+              ? 'Llegada en autobús'
+              : currentLang === 'nl'
+                ? 'Aankomst met de bus'
+                : 'Ankomst med buss',
+        text: currentLang === 'en'
+          ? 'Two walking routes are possible from Parada de Autobús – C. Real, depending on whether you prefer the shorter village route or the flatter approach via the main road.'
+          : copy.content.arrivalByBus.text.en
+      },
+      {
+        num: '02',
+        headline: copy.content.walkingAccess.title[currentLang],
+        text: copy.content.walkingAccess.text[currentLang]
+      },
+      {
+        num: '03',
+        headline: copy.content.luggageAdvice.title[currentLang],
+        text: copy.content.luggageAdvice.text[currentLang]
+      }
+    ]
+  },
+  luggageAdvice: { title: copy.content.luggageAdvice.title[currentLang], text: copy.content.luggageAdvice.text[currentLang] },
+  faq: { title: copy.content.faq.title[currentLang], items: copy.content.faq.items[currentLang] },
+  sidebar: { taxi: copy.sidebar.taxi[currentLang], emergency: copy.sidebar.emergency[currentLang] },
+  footer: { brand: copy.footer.brand[currentLang], rights: copy.footer.rights[currentLang] }
+};
+---
+
+<UtilityLayout seo={seo} title="Arrival & Logistics" subtitle={c.header.subtitle}>
+  
+  <Navigation 
+    currentLang={currentLang} 
+    brandName={c.nav.brand} 
+    links={c.nav.links} 
+  />
+
+  <div class="space-y-20">
+    <section>
+      <h2 class="text-3xl font-headline italic mb-8 text-on-surface">{c.parking.title}</h2>
+      <div class="prose prose-neutral max-w-none">
+        <p class="font-body text-on-surface-variant text-lg leading-relaxed italic">
+          {c.parking.text}
+        </p>
+      </div>
+    </section>
+
+    <section>
+      <h2 class="text-3xl font-headline italic mb-8 text-on-surface">{c.arrivalTip.title}</h2>
+      <div class="prose prose-neutral max-w-none">
+        <p class="font-body text-on-surface-variant text-lg leading-relaxed italic whitespace-pre-line">
+          {c.arrivalTip.text}
+        </p>
+        {c.arrivalTip.taxiNote && (
+          <p class="font-body text-on-surface-variant text-lg leading-relaxed italic mt-8">
+            <strong class="text-on-surface not-italic">Taxi note:</strong> {c.arrivalTip.taxiNote}
+          </p>
+        )}
+      </div>
+    </section>
+
+    {c.arrivalByBus && (
+      <section>
+        <h2 class="text-3xl font-headline italic mb-8 text-on-surface">{c.arrivalByBus.title}</h2>
+        <div class="prose prose-neutral max-w-none">
+          <p class="font-body text-on-surface-variant text-lg leading-relaxed italic whitespace-pre-line">
+            {c.arrivalByBus.text}
+          </p>
+        </div>
+      </section>
+    )}
+
+  </div>
+
+  <div slot="sidebar">
+    <div class="mb-10">
+      <div class="p-8 bg-[#fcfbf9] border border-black/5">
+        <h3 class="font-headline italic text-2xl text-on-surface mb-8">La AMARA Arrival Summary</h3>
+        <div class="space-y-6">
+          <div class="border-b border-black/10 pb-4">
+            <span class="font-label text-[10px] uppercase tracking-[0.18em] opacity-50 mb-2 block">Address</span>
+            <p class="font-body text-on-surface leading-relaxed">Calle Chorruelo 5<br />29788 Frigiliana</p>
+          </div>
+          <div class="border-b border-black/10 pb-4">
+            <span class="font-label text-[10px] uppercase tracking-[0.18em] opacity-50 mb-2 block">Recommended drop-off</span>
+            <p class="font-body text-on-surface leading-relaxed">Avenida Carlos Cano 42</p>
+          </div>
+          <div class="border-b border-black/10 pb-4">
+            <span class="font-label text-[10px] uppercase tracking-[0.18em] opacity-50 mb-2 block">Walking distance</span>
+            <p class="font-body text-on-surface leading-relaxed">approx. 4 min · 150 m uphill</p>
+          </div>
+          <div>
+            <span class="font-label text-[10px] uppercase tracking-[0.18em] opacity-50 mb-2 block">Bus stop</span>
+            <p class="font-body text-on-surface leading-relaxed">Parada de Autobús – C. Real</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="mb-10">
+      <div class="aspect-[4/3] overflow-hidden rounded-[24px] bg-[#fcfbf9] border border-black/5">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m28!1m12!1m3!1d399.3819689214106!2d-3.899669413335943!3d36.79321366611666!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m13!3e2!4m5!1s0xd7224b1c34f3d35%3A0x11238dc7b1b48fe1!2sAv.%20Carlos%20Cano%2C%2042%2C%2029788%20Frigiliana%2C%20M%C3%A1laga%2C%20Spanien!3m2!1d36.7929336!2d-3.8996280999999997!4m5!1s0xd722515aad72c57%3A0xca1cc65d15b58cf3!2sLa%20AMARA%20-%20Quiet%20romantic%20stays%20in%20Frigiliana%2C%20C.%20Chorruelo%2C%205%2C%2029788%20Frigiliana%2C%20M%C3%A1laga%2C%20Spanien!3m2!1d36.7931609!2d-3.8991032!5e0!3m2!1sde!2sde!4v1774253231178!5m2!1sde!2sde"
+          width="600"
+          height="450"
+          style="border:0;"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          title="Recommended drop-off point and walking route to La AMARA"
+          class="h-full w-full"
+        ></iframe>
+      </div>
+    </div>
+
+    <div class="p-8 bg-[#fcfbf9] border border-black/5">
+      <h3 class="label-md font-label mb-8 text-primary">{currentLang === 'de' ? 'Schnellkontakt' : 'Quick Contact'}</h3>
+      <ul class="space-y-6">
+        <li class="flex flex-col border-b border-black/10 pb-4">
+          <span class="font-label text-[10px] uppercase opacity-50 mb-1">{c.sidebar.taxi}</span>
+          <span class="font-body font-bold text-on-surface">+34 952 533 131</span>
+        </li>
+        <li class="flex flex-col">
+          <span class="font-label text-[10px] uppercase opacity-50 mb-1">{c.sidebar.emergency}</span>
+          <span class="font-body font-bold text-primary">112</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <Footer 
+    slot="closing"
+    lang={currentLang} 
+    brandName={c.footer.brand} 
+    rightsLabel={c.footer.rights} 
+    links={[]} 
+  />
+
+  <FaqAccordion 
+    slot="bottom"
+    arrivalTitle={c.arrivalSection.title}
+    steps={c.arrivalSection.steps}
+    faqTitle={c.faq.title}
+    items={c.faq.items}
+  />
+
+</UtilityLayout>

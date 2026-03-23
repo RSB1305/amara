@@ -1,0 +1,17 @@
+---
+// src/layouts/LocationAuthorityLayout.astro
+import BaseLayout from './BaseLayout.astro';
+import type { AmaraAuthoringSeo } from '../types/seo';
+
+interface Props {
+  seo: AmaraAuthoringSeo;
+}
+
+const { seo } = Astro.props;
+---
+
+<BaseLayout seo={seo}>
+  <main>
+    <slot />
+  </main>
+</BaseLayout>
