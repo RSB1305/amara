@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import Navigation from '../../components/Navigation.astro';
 import { resolveLink } from '../../lib/linkResolver';
 import { normalizeLanguage } from '../../lib/seo/resolve-seo-head';
 import type { AmaraAuthoringSeo, AmaraLanguage } from '../../types/seo';
@@ -92,9 +93,22 @@ const coastAwards = [
   'AMARA Nerja Beachside — ★ 9.3 / 10',
   'AMARA Family & Surf — ★ 9.9 / 10'
 ];
+
+const trustLinks = [
+  { token: 'about', label: 'About AMARA' },
+  { token: 'reviews_hub', label: 'Guest Reviews' },
+  { token: 'direct_booking_benefits', label: 'Direct Booking Benefits' }
+];
 ---
 
 <BaseLayout seo={seo}>
+  <Navigation
+    currentLang={currentLang}
+    brandName="AMARA"
+    links={trustLinks}
+    variant="trust"
+    languageToken="reviews_hub"
+  />
   <div class="am-reviews-page">
     <!-- Editorial hero keeps the same page-entry choreography as the About page. -->
     <header class="am-reviews-hero">
@@ -107,7 +121,7 @@ const coastAwards = [
         AMARA is built like a well-run home: quiet nights, spotless spaces, and clear communication. This page is a calm summary of what guests consistently confirm.
       </p>
       <div class="am-reviews-hero__links">
-        <a href={resolveLink('book', currentLang)} class="am-reviews-link">Check availability</a>
+        <a href={resolveLink('book', currentLang)} class="am-reviews-link">Check Availability</a>
         <span class="am-reviews-hero__dot">&middot;</span>
         <a href={resolveLink('direct_booking_benefits', currentLang)} class="am-reviews-link">Direct booking benefits</a>
       </div>
@@ -238,7 +252,7 @@ const coastAwards = [
         </p>
 
         <div class="am-reviews-cta__links">
-          <a href={resolveLink('book', currentLang)} class="am-reviews-link">Explore apartments</a>
+          <a href={resolveLink('book', currentLang)} class="am-reviews-link">Check Availability</a>
           <span class="am-reviews-cta__dot">&middot;</span>
           <a href={resolveLink('locations_hub', currentLang)} class="am-reviews-link">Explore locations</a>
           <span class="am-reviews-cta__dot">&middot;</span>

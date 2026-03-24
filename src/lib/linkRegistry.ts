@@ -26,7 +26,7 @@ export const linkRegistry = {
     ========================================================= */
     home: { en: '/en/', de: '/de/', es: '/es/', nl: '/nl/', sv: '/sv/' },
     book: { en: '/en/book/', de: '/de/book/', es: '/es/book/', nl: '/nl/book/', sv: '/sv/book/' },
-    about: { en: '/en/about', de: '/de/about', es: '/es/about', nl: '/nl/about', sv: '/sv/about' },
+    about: { en: '/amara-about-us', de: '/de/amara-about-us', es: '/es/amara-about-us', nl: '/nl/amara-about-us', sv: '/sv/amara-about-us' },
     amenities: { en: '/en/comfort-amenities', de: '/de/comfort-amenities', es: '/es/comfort-amenities', nl: '/nl/comfort-amenities', sv: '/sv/comfort-amenities' },
     arrival_guide: { en: '/en/directions-arrival-guide', de: '/de/directions-arrival-guide', es: '/es/directions-arrival-guide', nl: '/nl/directions-arrival-guide', sv: '/sv/directions-arrival-guide' },
     direct_booking_benefits: { en: '/en/direct-booking-benefits', de: '/de/direct-booking-benefits', es: '/es/direct-booking-benefits', nl: '/nl/direct-booking-benefits', sv: '/sv/direct-booking-benefits' },
@@ -40,7 +40,7 @@ export const linkRegistry = {
 journal: { en: '/journal/', de: '/de/journal/', es: '/es/diario/', nl: '/nl/journal/', sv: '/sv/journal/' },
 contact: { en: '/contact/', de: '/de/kontakt/', es: '/es/contacto/', nl: '/nl/contact/', sv: '/sv/kontakt/' },
 archive: { en: '/archive/', de: '/de/archiv/', es: '/es/archivo/', nl: '/nl/archief/', sv: '/sv/arkiv/' },
-privacy: { en: '/privacy/', de: '/de/datenschutz/', es: '/es/privacidad/', nl: '/nl/privacy/', sv: '/sv/integritet/' },
+legal_notice: { en: '/legal-notice/', de: '/de/legal-notice/', es: '/es/legal-notice/', nl: '/nl/legal-notice/', sv: '/sv/legal-notice/' },
 
 /* =========================================================
        EXPLORE
@@ -210,11 +210,11 @@ privacy: { en: '/privacy/', de: '/de/datenschutz/', es: '/es/privacidad/', nl: '
     /* =========================================================
        CANONICALS (SSOT)
     ========================================================= */
-    about_canonical_en: 'https://amara-lodging.es/en/about',
-    about_canonical_de: 'https://amara-lodging.es/de/ueber-amara',
-    about_canonical_es: 'https://amara-lodging.es/es/sobre-amara',
-    about_canonical_nl: 'https://amara-lodging.es/nl/over-amara',
-    about_canonical_sv: 'https://amara-lodging.es/sv/om-amara',
+    about_canonical_en: 'https://amara-lodging.es/amara-about-us',
+    about_canonical_de: 'https://amara-lodging.es/de/amara-about-us',
+    about_canonical_es: 'https://amara-lodging.es/es/amara-about-us',
+    about_canonical_nl: 'https://amara-lodging.es/nl/amara-about-us',
+    about_canonical_sv: 'https://amara-lodging.es/sv/amara-about-us',
 
     reviews_canonical_en: 'https://amara-lodging.es/en/guest-reviews',
     reviews_canonical_de: 'https://amara-lodging.es/de/guest-reviews',

@@ -7,7 +7,6 @@
 import UtilityLayout from '../../layouts/UtilityLayout.astro';
 import Navigation from '../../components/Navigation.astro';
 import FaqAccordion from '../../components/FaqAccordion.astro';
-import Footer from '../../components/Footer.astro';
 import { resolveLink } from '../../lib/linkResolver';
 import { normalizeLanguage } from '../../lib/seo/resolve-seo-head';
 import type { AmaraAuthoringSeo, AmaraLanguage } from '../../types/seo';
@@ -305,14 +304,6 @@ const c = {
       </ul>
     </div>
   </div>
-
-  <Footer 
-    slot="closing"
-    lang={currentLang} 
-    brandName={c.footer.brand} 
-    rightsLabel={c.footer.rights} 
-    links={[]} 
-  />
 
   <FaqAccordion 
     slot="bottom"

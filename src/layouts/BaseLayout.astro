@@ -1,6 +1,7 @@
 ---
 // src/layouts/BaseLayout.astro
 import type { AmaraAuthoringSeo, AmaraLanguage } from '../types/seo';
+import Footer from '../components/Footer.astro';
 import { normalizeLanguage, resolveSeoHead } from '../lib/seo/resolve-seo-head';
 import { resolveStructuredData } from '../lib/seo/resolve-structured-data';
 import '../styles/global.css';
@@ -57,6 +58,7 @@ const ldJson = resolveStructuredData(seo, head.canonicalUrl, currentLang, origin
 
     <div class="relative z-[10]">
       <slot />
+      <Footer />
     </div>
   </body>
 </html>

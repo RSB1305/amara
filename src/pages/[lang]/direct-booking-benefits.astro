@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import Navigation from '../../components/Navigation.astro';
 import { resolveLink } from '../../lib/linkResolver';
 import { normalizeLanguage } from '../../lib/seo/resolve-seo-head';
 import type { AmaraAuthoringSeo, AmaraLanguage } from '../../types/seo';
@@ -82,9 +83,22 @@ const benefits = [
     copy: 'No surprises.'
   }
 ];
+
+const trustLinks = [
+  { token: 'about', label: 'About AMARA' },
+  { token: 'reviews_hub', label: 'Guest Reviews' },
+  { token: 'direct_booking_benefits', label: 'Direct Booking Benefits' }
+];
 ---
 
 <BaseLayout seo={seo}>
+  <Navigation
+    currentLang={currentLang}
+    brandName="AMARA"
+    links={trustLinks}
+    variant="trust"
+    languageToken="direct_booking_benefits"
+  />
   <div class="am-direct-page">
     <!-- The hero deliberately mirrors the trust-page entry pattern: calm intro, support line, and restrained CTAs. -->
     <header class="am-direct-hero">
@@ -97,9 +111,9 @@ const benefits = [
       </p>
       <p class="am-body am-direct-hero__support">Transparent, calm, and guest-first — without gimmicks.</p>
       <div class="am-direct-hero__links">
-        <a href={resolveLink('book', currentLang)} class="am-direct-link">Check availability</a>
+        <a href={resolveLink('book', currentLang)} class="am-direct-link">Check Availability</a>
         <span class="am-direct-hero__dot">&middot;</span>
-        <a href={resolveLink('locations_hub', currentLang)} class="am-direct-link">Explore apartments</a>
+        <a href={resolveLink('locations_hub', currentLang)} class="am-direct-link">Check Availability</a>
       </div>
     </header>
 
@@ -176,11 +190,11 @@ const benefits = [
         </p>
 
         <div class="am-direct-cta__links">
-          <a href={resolveLink('book', currentLang)} class="am-direct-link">Check availability</a>
+          <a href={resolveLink('book', currentLang)} class="am-direct-link">Check Availability</a>
           <span class="am-direct-cta__dot">&middot;</span>
           <a href={resolveLink('about', currentLang)} class="am-direct-link">About AMARA</a>
           <span class="am-direct-cta__dot">&middot;</span>
-          <a href={resolveLink('locations_hub', currentLang)} class="am-direct-link">Explore apartments</a>
+          <a href={resolveLink('locations_hub', currentLang)} class="am-direct-link">Check Availability</a>
         </div>
       </section>
     </main>

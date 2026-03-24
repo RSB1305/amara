@@ -1,0 +1,430 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Navigation from '../../components/Navigation.astro';
+import { normalizeLanguage } from '../../lib/seo/resolve-seo-head';
+import type { AmaraAuthoringSeo, AmaraLanguage } from '../../types/seo';
+
+export function getStaticPaths() {
+  return [
+    { params: { lang: 'en' } },
+    { params: { lang: 'de' } },
+    { params: { lang: 'es' } },
+    { params: { lang: 'nl' } },
+    { params: { lang: 'sv' } }
+  ];
+}
+
+const { lang } = Astro.params;
+const currentLang = normalizeLanguage(lang as AmaraLanguage);
+
+const BOOKING_URL = '__BOOKING_URL__';
+const AMENITIES_URL = '__AMENITIES_URL__';
+
+const seo: AmaraAuthoringSeo = {
+  version: '2026-03-24-amara-faq-general-shell-v1.0',
+  pageType: 'C',
+  entityKey: 'amara-brand',
+  languages: {
+    en: {
+      title: 'AMARA | FAQ',
+      description: 'Placeholder AMARA FAQ shell for booking, payment, stay comfort, house rules, trust, and pets.',
+      robots: 'index, follow',
+      canonical: 'auto'
+    },
+    de: {
+      title: 'AMARA | FAQ',
+      description: 'Platzhalter AMARA FAQ-Shell fuer Buchung, Zahlung, Aufenthalt, Hausregeln, Vertrauen und Haustiere.',
+      robots: 'index, follow',
+      canonical: 'auto'
+    },
+    es: {
+      title: 'AMARA | FAQ',
+      description: 'Shell FAQ provisional de AMARA para reserva, pago, estancia, normas, confianza y mascotas.',
+      robots: 'index, follow',
+      canonical: 'auto'
+    },
+    nl: {
+      title: 'AMARA | FAQ',
+      description: 'Placeholder AMARA FAQ-shell voor boeken, betaling, verblijf, huisregels, vertrouwen en huisdieren.',
+      robots: 'index, follow',
+      canonical: 'auto'
+    },
+    sv: {
+      title: 'AMARA | FAQ',
+      description: 'AMARA FAQ-platsmall foer bokning, betalning, vistelse, husregler, husdjur och trygghet.',
+      robots: 'index, follow',
+      canonical: 'auto'
+    }
+  },
+  ogImage: '/images/robert-amara-founder-host.jpg'
+};
+
+const trustLinks = [
+  { token: 'about', label: 'About AMARA' },
+  { token: 'reviews_hub', label: 'Guest Reviews' },
+  { token: 'direct_booking_benefits', label: 'Direct Booking Benefits' }
+];
+
+const copy = {
+  hero: {
+    kicker: {
+      en: 'Frequently Asked Questions',
+      de: 'AMARA FAQ',
+      es: 'AMARA FAQ',
+      nl: 'AMARA FAQ',
+      sv: 'AMARA FAQ'
+    },
+    title: {
+      en: 'Stay FAQ: Booking, Check-in & Policies',
+      de: 'Allgemeine FAQ-Shell',
+      es: 'Shell FAQ General',
+      nl: 'Algemene FAQ-shell',
+      sv: 'Allmaen FAQ-skal'
+    },
+    lead: {
+      en: 'Decision-first answers to help you book with clarity — covering payment, cancellation, arrival, and house rules.',
+      de: 'Eine allgemeine AMARA FAQ-Seitenstruktur fuer Buchung, Zahlung, Aufenthalt, Hausregeln, Vertrauen und Haustiere.',
+      es: 'Una estructura FAQ general de AMARA para reserva, pago, estancia, normas, confianza y mascotas.',
+      nl: 'Een algemene AMARA FAQ-paginastructuur voor boeken, betaling, verblijf, huisregels, vertrouwen en huisdieren.',
+      sv: 'En allmaen AMARA FAQ-skalstruktur foer bokning, betalning, vistelse, husregler, trygghet och husdjur.'
+    },
+    ctaBooking: {
+      en: 'Check availability',
+      de: 'Buchungs-Platzhalter',
+      es: 'Placeholder reserva',
+      nl: 'Boekings-placeholder',
+      sv: 'Boknings-placeholder'
+    },
+    ctaAmenities: {
+      en: 'Amenities & policies',
+      de: 'Ausstattungs-Platzhalter',
+      es: 'Placeholder amenities',
+      nl: 'Voorzieningen-placeholder',
+      sv: 'Bekvaemligheter-placeholder'
+    }
+  },
+  sections: [
+    {
+      topic: {
+        en: 'Booking & Payment',
+        de: 'Buchung & Zahlung',
+        es: 'Reserva y pago',
+        nl: 'Boeking en betaling',
+        sv: 'Bokning och betalning'
+      },
+      image: '/images/robert-amara-founder-host.jpg',
+      alt: {
+        en: 'AMARA booking placeholder image',
+        de: 'AMARA Buchungs-Platzhalterbild',
+        es: 'Imagen placeholder de reserva de AMARA',
+        nl: 'AMARA boekings-placeholderbeeld',
+        sv: 'AMARA boknings-placeholderbild'
+      },
+      items: [
+        {
+          q: { en: 'How does the booking process work?', de: 'Platzhalter Buchungsfrage', es: 'Pregunta placeholder de reserva', nl: 'Placeholder boekingsvraag', sv: 'Placeholder bokningsfraga' },
+          a: { en: 'Choose your dates, review the final price and minimum stay, and complete your reservation securely online.', de: 'Platzhalter-Antwort.', es: 'Respuesta placeholder.', nl: 'Placeholder antwoord.', sv: 'Placeholder-svar.' }
+        },
+        {
+          q: { en: 'Is my booking confirmed instantly?', de: 'Platzhalter Zahlungsfrage', es: 'Pregunta placeholder de pago', nl: 'Placeholder betalingsvraag', sv: 'Placeholder betalningsfraga' },
+          a: { en: 'If your dates are available and the booking is completed successfully, you’ll receive a confirmation email right away. If anything requires review, we’ll contact you promptly.', de: 'Platzhalter-Antwort.', es: 'Respuesta placeholder.', nl: 'Placeholder antwoord.', sv: 'Placeholder-svar.' }
+        },
+        {
+          q: { en: 'Which payment methods are accepted?', de: 'Platzhalter Zahlungsfrage', es: 'Pregunta placeholder de pago', nl: 'Placeholder betalingsvraag', sv: 'Placeholder betalningsfraga' },
+          a: { en: 'Available payment methods depend on your country and the booking setup. You’ll always see the available options before confirming.', de: 'Platzhalter-Antwort.', es: 'Respuesta placeholder.', nl: 'Placeholder antwoord.', sv: 'Placeholder-svar.' }
+        },
+        {
+          q: { en: 'When will my payment be charged?', de: 'Platzhalter Zahlungsfrage', es: 'Pregunta placeholder de pago', nl: 'Placeholder betalingsvraag', sv: 'Placeholder betalningsfraga' },
+          a: { en: 'The exact timing is shown during checkout and in your confirmation. Some bookings are charged immediately, while others follow a scheduled payment plan.', de: 'Platzhalter-Antwort.', es: 'Respuesta placeholder.', nl: 'Placeholder antwoord.', sv: 'Placeholder-svar.' }
+        },
+        {
+          q: { en: 'What is your cancellation policy?', de: 'Platzhalter Zahlungsfrage', es: 'Pregunta placeholder de pago', nl: 'Placeholder betalingsvraag', sv: 'Placeholder betalningsfraga' },
+          a: { en: 'Free cancellation is available up to 7 days before arrival. After that, the booking is non-refundable. The final policy shown during booking always applies.', de: 'Platzhalter-Antwort.', es: 'Respuesta placeholder.', nl: 'Placeholder antwoord.', sv: 'Placeholder-svar.' }
+        }
+      ]
+    },
+    {
+      topic: {
+        en: 'Stay & Comfort',
+        de: 'Aufenthalt & Komfort',
+        es: 'Estancia y confort',
+        nl: 'Verblijf en comfort',
+        sv: 'Vistelse och komfort'
+      },
+      image: '/images/robert-amara-founder-host.jpg',
+      alt: {
+        en: 'AMARA stay placeholder image',
+        de: 'AMARA Aufenthalts-Platzhalterbild',
+        es: 'Imagen placeholder de estancia de AMARA',
+        nl: 'AMARA verblijfs-placeholderbeeld',
+        sv: 'AMARA vistelse-placeholderbild'
+      },
+      items: [
+        {
+          q: { en: 'What kind of accommodation is AMARA?', de: 'Platzhalter Komfortfrage', es: 'Pregunta placeholder de confort', nl: 'Placeholder comfortvraag', sv: 'Placeholder komfortfraga' },
+          a: { en: 'AMARA offers carefully curated self-catered apartments, not hotel rooms. The collection is designed for calm, comfortable stays, especially for couples and adults seeking quiet.', de: 'Platzhalter-Antwort.', es: 'Respuesta placeholder.', nl: 'Placeholder antwoord.', sv: 'Placeholder-svar.' }
+        },
+        {
+          q: { en: 'Is AMARA suitable for parties or celebrations?', de: 'Platzhalter Check-in-Frage', es: 'Pregunta placeholder de check-in', nl: 'Placeholder check-in-vraag', sv: 'Placeholder incheckningsfraga' },
+          a: { en: 'No. AMARA is intentionally quiet and not suitable for parties, events, or large groups.', de: 'Platzhalter-Antwort.', es: 'Respuesta placeholder.', nl: 'Placeholder antwoord.', sv: 'Placeholder-svar.' }
+        },
+        {
+          q: { en: 'Do you provide daily cleaning?', de: 'Platzhalter Check-in-Frage', es: 'Pregunta placeholder de check-in', nl: 'Placeholder check-in-vraag', sv: 'Placeholder incheckningsfraga' },
+          a: { en: 'No daily hotel-style service is included. Your apartment is professionally prepared for your stay, and any optional services are communicated separately.', de: 'Platzhalter-Antwort.', es: 'Respuesta placeholder.', nl: 'Placeholder antwoord.', sv: 'Placeholder-svar.' }
+        },
+        {
+          q: { en: 'Are linens and towels included?', de: 'Platzhalter Check-in-Frage', es: 'Pregunta placeholder de check-in', nl: 'Placeholder check-in-vraag', sv: 'Placeholder incheckningsfraga' },
+          a: { en: 'Yes. Bed linen and towels are provided. Exact details may vary slightly by apartment and are listed in the unit information.', de: 'Platzhalter-Antwort.', es: 'Respuesta placeholder.', nl: 'Placeholder antwoord.', sv: 'Placeholder-svar.' }
+        },
+        {
+          q: { en: 'Is Wi-Fi available?', de: 'Platzhalter Check-in-Frage', es: 'Pregunta placeholder de check-in', nl: 'Placeholder check-in-vraag', sv: 'Placeholder incheckningsfraga' },
+          a: { en: 'Yes, Wi-Fi is available. If you plan to work remotely, we recommend checking the unit details or contacting us with any specific requirements.', de: 'Platzhalter-Antwort.', es: 'Respuesta placeholder.', nl: 'Placeholder antwoord.', sv: 'Placeholder-svar.' }
+        }
+      ]
+    },
+    {
+      topic: {
+        en: 'House Rules & Policies',
+        de: 'Hausregeln',
+        es: 'Normas de la casa',
+        nl: 'Huisregels',
+        sv: 'Husregler'
+      },
+      image: '/images/robert-amara-founder-host.jpg',
+      alt: {
+        en: 'AMARA house rules placeholder image',
+        de: 'AMARA Hausregeln-Platzhalterbild',
+        es: 'Imagen placeholder de normas de AMARA',
+        nl: 'AMARA huisregels-placeholderbeeld',
+        sv: 'AMARA husregels-placeholderbild'
+      },
+      items: [
+        {
+          q: { en: 'What are check-in and check-out times?', de: 'Platzhalter Regelfrage', es: 'Pregunta placeholder de normas', nl: 'Placeholder regelvraag', sv: 'Placeholder regel-fraga' },
+          a: { en: 'Check-in is from 15:00 and check-out is by 11:00. If you need a special arrangement, please ask in advance — it depends on availability.', de: 'Platzhalter-Antwort.', es: 'Respuesta placeholder.', nl: 'Placeholder antwoord.', sv: 'Placeholder-svar.' }
+        },
+        {
+          q: { en: 'Is smoking allowed?', de: 'Platzhalter Ankunftsfrage', es: 'Pregunta placeholder de llegada', nl: 'Placeholder aankomstvraag', sv: 'Placeholder ankomstfraga' },
+          a: { en: 'No. All AMARA homes are strictly non-smoking.', de: 'Platzhalter-Antwort.', es: 'Respuesta placeholder.', nl: 'Placeholder antwoord.', sv: 'Placeholder-svar.' }
+        },
+        {
+          q: { en: 'Are visitors allowed?', de: 'Platzhalter Ankunftsfrage', es: 'Pregunta placeholder de llegada', nl: 'Placeholder aankomstvraag', sv: 'Placeholder ankomstfraga' },
+          a: { en: 'Only registered guests are allowed. This helps keep the stay calm and secure for everyone.', de: 'Platzhalter-Antwort.', es: 'Respuesta placeholder.', nl: 'Placeholder antwoord.', sv: 'Placeholder-svar.' }
+        },
+        {
+          q: { en: 'What is the minimum stay?', de: 'Platzhalter Ankunftsfrage', es: 'Pregunta placeholder de llegada', nl: 'Placeholder aankomstvraag', sv: 'Placeholder ankomstfraga' },
+          a: { en: 'Minimum stay requirements vary by season and apartment. The exact requirement is always shown during booking.', de: 'Platzhalter-Antwort.', es: 'Respuesta placeholder.', nl: 'Placeholder antwoord.', sv: 'Placeholder-svar.' }
+        }
+      ]
+    },
+    {
+      topic: {
+        en: 'Trust & Pets',
+        de: 'Vertrauen & Haustiere',
+        es: 'Confianza y mascotas',
+        nl: 'Vertrouwen en huisdieren',
+        sv: 'Trygghet och husdjur'
+      },
+      image: '/images/robert-amara-founder-host.jpg',
+      alt: {
+        en: 'AMARA trust placeholder image',
+        de: 'AMARA Vertrauens-Platzhalterbild',
+        es: 'Imagen placeholder de confianza de AMARA',
+        nl: 'AMARA vertrouwens-placeholderbeeld',
+        sv: 'AMARA trygghets-placeholderbild'
+      },
+      items: [
+        {
+          q: { en: 'Are pets allowed?', de: 'Platzhalter Vertrauensfrage', es: 'Pregunta placeholder de confianza', nl: 'Placeholder vertrouwensvraag', sv: 'Placeholder trygghetsfraga' },
+          a: { en: 'Pets are welcome in selected apartments, usually on request, for €15 per day. The final rule is shown during booking and in the unit details.', de: 'Platzhalter-Antwort.', es: 'Respuesta placeholder.', nl: 'Placeholder antwoord.', sv: 'Placeholder-svar.' }
+        },
+        {
+          q: { en: 'Is AMARA legally registered?', de: 'Platzhalter Haustierfrage', es: 'Pregunta placeholder de mascotas', nl: 'Placeholder huisdiervraag', sv: 'Placeholder husdjursfraga' },
+          a: { en: 'Yes. License numbers are listed on our Amenities & Policies page where required.', de: 'Platzhalter-Antwort.', es: 'Respuesta placeholder.', nl: 'Placeholder antwoord.', sv: 'Placeholder-svar.' }
+        },
+        {
+          q: { en: 'Who can I contact during my stay?', de: 'Platzhalter Haustierfrage', es: 'Pregunta placeholder de mascotas', nl: 'Placeholder huisdiervraag', sv: 'Placeholder husdjursfraga' },
+          a: { en: 'You’ll receive clear contact details as part of your arrival information. For urgent matters, please use the primary contact channel provided.', de: 'Platzhalter-Antwort.', es: 'Respuesta placeholder.', nl: 'Placeholder antwoord.', sv: 'Placeholder-svar.' }
+        },
+        {
+          q: { en: 'Why book directly?', de: 'Platzhalter Haustierfrage', es: 'Pregunta placeholder de mascotas', nl: 'Placeholder huisdiervraag', sv: 'Placeholder husdjursfraga' },
+          a: { en: 'Direct booking gives you the clearest availability, the most accurate rules, and the final price without intermediaries.', de: 'Platzhalter-Antwort.', es: 'Respuesta placeholder.', nl: 'Placeholder antwoord.', sv: 'Placeholder-svar.' }
+        }
+      ]
+    }
+  ],
+} as const;
+
+const hero = {
+  kicker: copy.hero.kicker[currentLang],
+  title: copy.hero.title[currentLang],
+  lead: copy.hero.lead[currentLang],
+  ctaBooking: copy.hero.ctaBooking[currentLang],
+  ctaAmenities: copy.hero.ctaAmenities[currentLang]
+};
+
+const sections = copy.sections.map((section, index) => ({
+  topic: section.topic[currentLang],
+  image: section.image,
+  alt: section.alt[currentLang],
+  reverse: index % 2 === 1,
+  items: section.items.map((item) => ({
+    question: item.q[currentLang],
+    answer: item.a[currentLang]
+  }))
+}));
+---
+
+<BaseLayout seo={seo}>
+  <Navigation
+    currentLang={currentLang}
+    brandName="AMARA"
+    links={trustLinks}
+    variant="trust"
+  />
+
+  <div class="bg-white" data-lang={currentLang}>
+    <div class="max-w-screen-2xl mx-auto px-12 pt-40 pb-20">
+      <header class="border-b border-outline-variant/10 pb-16 mb-20 max-w-5xl" data-lang={currentLang}>
+        <span class="label-md text-primary mb-6 block">{hero.kicker}</span>
+        <h1 class="font-headline text-[clamp(3.25rem,8vw,5.75rem)] leading-[0.94] tracking-tight italic text-on-surface font-light max-w-4xl mb-8">
+          {hero.title}
+        </h1>
+        <p class="text-on-surface-variant text-xl leading-relaxed max-w-2xl mb-10">
+          {hero.lead}
+        </p>
+        <div class="flex flex-wrap gap-6">
+          <a href={BOOKING_URL} class="bg-on-surface text-surface px-10 py-4 text-[10px] uppercase tracking-[0.2em] font-bold hover:bg-primary transition-colors">
+            {hero.ctaBooking}
+          </a>
+          <a href={AMENITIES_URL} class="border border-outline-variant/25 text-on-surface px-10 py-4 text-[10px] uppercase tracking-[0.2em] font-bold hover:bg-surface-container-low transition-colors">
+            {hero.ctaAmenities}
+          </a>
+        </div>
+      </header>
+
+      <main class="space-y-16">
+        {sections.map((section) => (
+          <section
+            class="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-20 items-start border-t border-outline-variant/10 pt-16"
+            data-lang={currentLang}
+          >
+            {section.reverse ? (
+              <>
+                <div class="min-w-0 self-start">
+                  <figure class="border border-outline-variant/10 bg-surface-container-low overflow-hidden">
+                    <div class="aspect-[16/10]">
+                      <img
+                        src={section.image}
+                        alt={section.alt}
+                        class="w-full h-full object-cover"
+                        loading="lazy"
+                        decoding="async"
+                      />
+                    </div>
+                    <figcaption class="px-8 py-6 border-t border-outline-variant/10 bg-surface/90">
+                      <span class="text-[10px] uppercase tracking-[0.3em] text-outline font-bold block mb-2">
+                        Placeholder Image
+                      </span>
+                      <p class="text-on-surface-variant leading-relaxed">
+                        {section.topic}
+                      </p>
+                    </figcaption>
+                  </figure>
+                </div>
+
+                <div class="min-w-0 self-start">
+                  <div class="border border-outline-variant/10 bg-surface-container-lowest p-8 md:p-10 lg:p-12">
+                    <div class="mb-6">
+                      <span class="text-[10px] uppercase tracking-[0.3em] text-primary font-bold block mb-3">
+                        FAQ Shell
+                      </span>
+                      <h2 class="font-headline text-4xl md:text-5xl italic tracking-tight text-on-surface max-w-[14ch]">
+                        {section.topic}
+                      </h2>
+                    </div>
+
+                    <div class="divide-y divide-outline-variant/15 border-y border-outline-variant/15">
+                      {section.items.map((item) => (
+                        <details class="group py-6">
+                          <summary class="list-none cursor-pointer flex items-start justify-between gap-6">
+                            <span class="min-w-0 font-label font-bold text-[11px] uppercase tracking-[0.18em] text-on-surface group-hover:text-primary transition-colors leading-relaxed">
+                              {item.question}
+                            </span>
+                            <span class="material-symbols-outlined shrink-0 text-primary/80 leading-none mt-0.5">
+                              <span class="group-open:hidden">add</span>
+                              <span class="hidden group-open:inline">remove</span>
+                            </span>
+                          </summary>
+                          <p class="pt-4 text-on-surface-variant leading-relaxed max-w-2xl">
+                            {item.answer}
+                          </p>
+                        </details>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </>
+            ) : (
+              <>
+                <div class="min-w-0 self-start">
+                  <div class="border border-outline-variant/10 bg-surface-container-lowest p-8 md:p-10 lg:p-12">
+                    <div class="mb-6">
+                      <span class="text-[10px] uppercase tracking-[0.3em] text-primary font-bold block mb-3">
+                        FAQ Shell
+                      </span>
+                      <h2 class="font-headline text-4xl md:text-5xl italic tracking-tight text-on-surface max-w-[14ch]">
+                        {section.topic}
+                      </h2>
+                    </div>
+
+                    <div class="divide-y divide-outline-variant/15 border-y border-outline-variant/15">
+                      {section.items.map((item) => (
+                        <details class="group py-6">
+                          <summary class="list-none cursor-pointer flex items-start justify-between gap-6">
+                            <span class="min-w-0 font-label font-bold text-[11px] uppercase tracking-[0.18em] text-on-surface group-hover:text-primary transition-colors leading-relaxed">
+                              {item.question}
+                            </span>
+                            <span class="material-symbols-outlined shrink-0 text-primary/80 leading-none mt-0.5">
+                              <span class="group-open:hidden">add</span>
+                              <span class="hidden group-open:inline">remove</span>
+                            </span>
+                          </summary>
+                          <p class="pt-4 text-on-surface-variant leading-relaxed max-w-2xl">
+                            {item.answer}
+                          </p>
+                        </details>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+
+                <div class="min-w-0 self-start">
+                  <figure class="border border-outline-variant/10 bg-surface-container-low overflow-hidden">
+                    <div class="aspect-[16/10]">
+                      <img
+                        src={section.image}
+                        alt={section.alt}
+                        class="w-full h-full object-cover"
+                        loading="lazy"
+                        decoding="async"
+                      />
+                    </div>
+                    <figcaption class="px-8 py-6 border-t border-outline-variant/10 bg-surface/90">
+                      <span class="text-[10px] uppercase tracking-[0.3em] text-outline font-bold block mb-2">
+                        Placeholder Image
+                      </span>
+                      <p class="text-on-surface-variant leading-relaxed">
+                        {section.topic}
+                      </p>
+                    </figcaption>
+                  </figure>
+                </div>
+              </>
+            )}
+          </section>
+        ))}
+      </main>
+    </div>
+  </div>
+</BaseLayout>

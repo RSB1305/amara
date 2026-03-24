@@ -1,8 +1,12 @@
 ---
 // src/components/Navigation.astro
 /**
- * AMARA v3 Navigation - High Contrast Version
- * Governance: Sichtbarkeit auf hellem Grund sichergestellt.
+ * AMARA canonical shared navigation
+ *
+ * Architectural intent:
+ * All page types render the same header geometry. Content may vary by variant,
+ * but the logo position, right rail, language switch slot, and CTA slot remain
+ * structurally fixed across the system.
  */
 import { resolveLink } from '../lib/linkResolver';
 import type { AmaraLanguage } from '../types/seo';
@@ -16,9 +20,11 @@ interface Props {
   currentLang: AmaraLanguage;
   brandName: string;
   links: NavLink[];
+  variant?: 'default' | 'trust';
+  languageToken?: string;
 }
 
-const { currentLang, brandName, links } = Astro.props;
+const { currentLang, brandName, links, variant = 'default', languageToken } = Astro.props;
 
 const languages: { code: AmaraLanguage; label: string }[] = [
   { code: 'en', label: 'EN' },
@@ -28,86 +34,263 @@ const languages: { code: AmaraLanguage; label: string }[] = [
   { code: 'sv', label: 'SV' }
 ];
 
+const isTrust = variant === 'trust';
+const contextLink = null;
+const ctaLink = !isTrust
+  ? { href: resolveLink('book', currentLang), label: 'Check Availability' }
+  : null;
+const currentPath = Astro.url.pathname;
+
 const getLangPath = (code: string) => {
   return code === 'en' ? '/' : `/${code}/`;
+};
+
+const normalizePath = (path: string) => {
+  if (path === '/') return '/';
+  return path.endsWith('/') ? path.slice(0, -1) : path;
+};
+
+/**
+ * Language switching stays inside the canonical registry flow whenever a
+ * page-specific token is available.
+ */
+const getLanguageHref = (code: AmaraLanguage) => {
+  return languageToken ? resolveLink(languageToken, code) : getLangPath(code);
+};
+
+const getIsActive = (token: string, href: string) => {
+  if (languageToken) {
+    return token === languageToken;
+  }
+
+  return normalizePath(currentPath) === normalizePath(href);
 };
 ---
 
 <header class="fixed top-0 left-0 w-full z-[100] px-12 py-10 bg-surface/80 backdrop-blur-md border-b border-outline-variant/5">
-  <nav class="max-w-screen-2xl mx-auto flex justify-between items-center">
-    
-    <a href={getLangPath(currentLang)} class="group flex flex-col">
-      <span class="font-headline italic text-2xl text-on-surface tracking-tighter group-hover:text-primary transition-colors">
-        {brandName}
-      </span>
-      <span class="text-[8px] uppercase tracking-[0.5em] text-on-surface/40 -mt-1 font-bold">Guest Guide</span>
-    </a>
+  <nav class="am-nav max-w-screen-2xl mx-auto">
+    <div class="am-nav__brand">
+      <a href={getLanguageHref(currentLang)} class="group flex flex-col">
+        <span class="font-headline italic text-2xl text-on-surface tracking-tighter group-hover:text-primary transition-colors">
+          {brandName}
+        </span>
+        <span class="text-[8px] uppercase tracking-[0.5em] text-on-surface/40 -mt-1 font-bold">
+          Guest Guide
+        </span>
+      </a>
+    </div>
 
-<div class="justify-self-center">
-  <ul class="hidden md:flex items-center gap-10">
-    {links.map((link) => (
-      <li>
-        <a 
-          href={resolveLink(link.token, currentLang)} 
-          class="text-[10px] uppercase tracking-[0.2em] font-bold text-on-surface/60 hover:text-on-surface transition-colors"
-        >
-          {link.label}
-        </a>
-      </li>
-    ))}
-  </ul>
-</div>
+    <div class="am-nav__center">
+      <ul class="hidden md:flex items-center gap-10">
+        {links.map((link) => {
+          const href = resolveLink(link.token, currentLang);
+          const isActive = getIsActive(link.token, href);
 
-<div class="justify-self-end flex items-center gap-12">
-<div class="relative group border-l border-outline-variant/20 pl-10">
-  <button
-    type="button"
-    class="flex items-center justify-center text-on-surface/30 hover:text-on-surface/60 transition-colors"
-    aria-label="Select language"
-  >
-    <svg 
-      xmlns="http://www.w3.org/2000/svg" 
-      width="14" 
-      height="14" 
-      viewBox="0 0 24 24" 
-      fill="none" 
-      stroke="currentColor" 
-      stroke-width="1.5" 
-      stroke-linecap="round" 
-      stroke-linejoin="round"
-    >
-      <circle cx="12" cy="12" r="10"></circle>
-      <line x1="2" y1="12" x2="22" y2="12"></line>
-      <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
-    </svg>
-  </button>
+          return (
+            <li>
+              <a
+                href={href}
+                aria-current={isActive ? 'page' : undefined}
+                class="am-nav__link text-[11px] uppercase tracking-[0.2em] font-bold text-on-surface/60 hover:text-on-surface transition-colors"
+              >
+                {link.label}
+              </a>
+            </li>
+          );
+        })}
+      </ul>
+    </div>
 
-  <div class="absolute right-0 top-full pt-4 opacity-0 invisible translate-y-2 group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 transition-all duration-200">
-    <div class="min-w-[92px] bg-surface/95 backdrop-blur-md border border-outline-variant/15 rounded-[14px] shadow-lg shadow-black/5 py-3 px-3">
-      <div class="flex flex-col gap-2">
-        {languages.map((lang) => (
-          <a 
-            href={getLangPath(lang.code)} 
-            class={`text-[10px] font-bold tracking-[0.18em] uppercase transition-colors px-2 py-1 rounded-md ${
-              currentLang === lang.code
-                ? 'text-primary bg-primary/5'
-                : 'text-on-surface/45 hover:text-on-surface hover:bg-surface-container-low'
-            }`}
+    <div class="am-nav__rail">
+      <div class="am-nav__slot am-nav__slot--context">
+        {contextLink && (
+          <a
+            href={contextLink.href}
+            class="hidden sm:block text-[10px] uppercase tracking-[0.2em] font-bold text-on-surface/60 hover:text-on-surface transition-colors"
           >
-            {lang.label}
+            {contextLink.label}
           </a>
-        ))}
+        )}
+      </div>
+
+      <div class="am-nav__slot am-nav__slot--language">
+        <div class="am-nav__language relative group">
+          <button
+            type="button"
+            class="flex items-center justify-center text-on-surface/30 hover:text-on-surface/60 transition-colors"
+            aria-label="Select language"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="22"
+              height="22"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <circle cx="12" cy="12" r="10"></circle>
+              <line x1="2" y1="12" x2="22" y2="12"></line>
+              <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+            </svg>
+          </button>
+
+          <div class="absolute right-0 top-full pt-4 opacity-0 invisible translate-y-2 group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 transition-all duration-200">
+            <div class="min-w-[92px] bg-surface/95 backdrop-blur-md border border-outline-variant/15 rounded-[14px] shadow-lg shadow-black/5 py-3 px-3">
+              <div class="flex flex-col gap-2">
+                {languages.map((lang) => (
+                  <a
+                    href={getLanguageHref(lang.code)}
+                    class={`text-[10px] font-bold tracking-[0.18em] uppercase transition-colors px-2 py-1 rounded-md ${
+                      currentLang === lang.code
+                        ? 'text-primary bg-primary/5'
+                        : 'text-on-surface/45 hover:text-on-surface hover:bg-surface-container-low'
+                    }`}
+                  >
+                    {lang.label}
+                  </a>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="am-nav__slot am-nav__slot--cta">
+        {ctaLink && (
+          <a
+            href={ctaLink.href}
+            class="hidden sm:flex items-center justify-center bg-on-surface text-surface px-8 py-4 text-[9px] leading-none uppercase tracking-[0.2em] font-bold hover:bg-primary transition-all"
+          >
+            {ctaLink.label}
+          </a>
+        )}
       </div>
     </div>
-  </div>
-</div>
-
-  <a 
-    href={resolveLink('book', currentLang)} 
-    class="bg-on-surface text-surface px-8 py-4 text-[9px] uppercase tracking-[0.2em] font-bold hover:bg-primary transition-all hidden sm:block"
-  >
-    Book Stay
-  </a>
-</div>
   </nav>
 </header>
+
+<style>
+  .am-nav {
+    display: grid;
+    grid-template-columns: 16rem minmax(0, 1fr) 25rem;
+    align-items: center;
+    column-gap: 2rem;
+    min-height: 3.5rem;
+  }
+
+  .am-nav__brand {
+    width: 16rem;
+    min-width: 16rem;
+    display: flex;
+    align-items: center;
+  }
+
+  .am-nav__center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 0;
+  }
+
+  /**
+   * The right rail is the canonical action geometry.
+   * Optional content may disappear, but slot coordinates remain reserved.
+   */
+  .am-nav__rail {
+    width: 25rem;
+    justify-self: end;
+    display: grid;
+    grid-template-columns: 9.5rem 4.5rem 10rem;
+    align-items: center;
+    column-gap: 2rem;
+  }
+
+  .am-nav__slot {
+    min-width: 0;
+    display: flex;
+    align-items: center;
+  }
+
+  .am-nav__slot--context {
+    justify-content: flex-end;
+  }
+
+  .am-nav__slot--language {
+    justify-content: center;
+  }
+
+  .am-nav__slot--cta {
+    justify-content: flex-start;
+  }
+
+  .am-nav__language {
+    width: 4.5rem;
+    position: relative;
+    display: grid;
+    place-items: center;
+    padding-left: 2.5rem;
+  }
+
+  .am-nav__language::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 50%;
+    width: 1px;
+    height: 1.5rem;
+    background-color: rgb(210 197 179 / 0.2);
+    transform: translateY(-50%);
+  }
+
+  .am-nav__link {
+    position: relative;
+    display: inline-block;
+    padding-bottom: 0.35rem;
+  }
+
+  .am-nav__link::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 1px;
+    background: rgb(17 17 17 / 0.9);
+    opacity: 0;
+    transition: opacity 160ms ease;
+  }
+
+  .am-nav__link:hover::after,
+  .am-nav__link[aria-current="page"]::after {
+    opacity: 1;
+  }
+
+  .am-nav__link[aria-current="page"] {
+    color: rgb(23 23 23 / 1);
+  }
+
+  @media (max-width: 767px) {
+    .am-nav {
+      grid-template-columns: minmax(0, 1fr) 4.5rem;
+      column-gap: 1rem;
+    }
+
+    .am-nav__center {
+      display: none;
+    }
+
+    .am-nav__brand {
+      width: auto;
+      min-width: 0;
+    }
+
+    .am-nav__rail {
+      width: 4.5rem;
+      grid-template-columns: 0 4.5rem 0;
+      column-gap: 0;
+    }
+  }
+</style>

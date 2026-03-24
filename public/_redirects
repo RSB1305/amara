@@ -1,1 +1,16 @@
 / /en/ 302
+/en/amara-about-us /amara-about-us 301
+/about /amara-about-us 301
+/en/about /amara-about-us 301
+/de/about /de/amara-about-us 301
+/es/about /es/amara-about-us 301
+/nl/about /nl/amara-about-us 301
+/sv/about /sv/amara-about-us 301
+/privacy/ /legal-notice/ 301
+/de/privacy/ /de/legal-notice/ 301
+/es/privacy/ /es/legal-notice/ 301
+/nl/privacy/ /nl/legal-notice/ 301
+/sv/privacy/ /sv/legal-notice/ 301
+/de/datenschutz/ /de/legal-notice/ 301
+/es/privacidad/ /es/legal-notice/ 301
+/sv/integritet/ /sv/legal-notice/ 301

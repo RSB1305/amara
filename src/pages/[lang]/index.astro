@@ -8,7 +8,6 @@ import EssenceGrid from '../../components/EssenceGrid.astro';
 import PhotoShow from '../../components/PhotoShow.astro';
 import StayDecision from '../../components/StayDecision.astro';
 import FaqAccordion from '../../components/FaqAccordion.astro';
-import Footer from '../../components/Footer.astro';
 import { resolveLink } from '../../lib/linkResolver';
 import { normalizeLanguage } from '../../lib/seo/resolve-seo-head';
 import type { AmaraAuthoringSeo, AmaraLanguage } from '../../types/seo';
@@ -116,7 +115,7 @@ const copy = {
       { token: 'journal', label: { en: "Journal", de: "Journal", es: "Diario", nl: "Journal", sv: "Journal" } },
       { token: 'contact', label: { en: "Contact", de: "Kontakt", es: "Contacto", nl: "Contact", sv: "Kontakt" } },
       { token: 'archive', label: { en: "Archive", de: "Archiv", es: "Archivo", nl: "Archief", sv: "Arkiv" } },
-      { token: 'privacy', label: { en: "Privacy", de: "Datenschutz", es: "Privacidad", nl: "Privacy", sv: "Integritet" } }
+      { token: 'legal_notice', label: { en: "Privacy", de: "Datenschutz", es: "Privacidad", nl: "Privacy", sv: "Integritet" } }
     ]
   }
 };
@@ -186,6 +185,4 @@ faq: {
     items={c.faq.items} 
   />
   
-  <Footer lang={currentLang} brandName={c.footer.brand} rightsLabel={c.footer.rights} links={c.footer.links} />
-
 </LocationAuthorityLayout>
