@@ -143,6 +143,28 @@ faq: {
 },
   footer: { brand: copy.footer.brand[currentLang], rights: copy.footer.rights[currentLang], links: copy.footer.nav.map(link => ({ token: link.token, label: link.label[currentLang] })) }
 };
+
+/**
+ * The homepage hero is the mobile LCP candidate, so the page defines a
+ * responsive asset set here and lets the canonical Hero component render it.
+ */
+const heroImage = {
+  src: '/images/hero-frigiliana-960.jpg',
+  alt: 'Frigiliana hillside homes in afternoon light',
+  width: 960,
+  height: 641,
+  sizes: '(max-width: 767px) calc(100vw - 3rem), (max-width: 1023px) 60vw, 40vw',
+  sources: {
+    webp: [
+      { src: '/images/hero-frigiliana-640.webp', width: 640 },
+      { src: '/images/hero-frigiliana-960.webp', width: 960 }
+    ],
+    fallback: [
+      { src: '/images/hero-frigiliana-640.jpg', width: 640 },
+      { src: '/images/hero-frigiliana-960.jpg', width: 960 }
+    ]
+  }
+};
 ---
 
 <LocationAuthorityLayout seo={seo}>
@@ -153,7 +175,14 @@ faq: {
     links={c.nav.links} 
   />
 
-  <Hero imageSrc="/images/hero-frigiliana.jpg" imageAlt={c.hero.h1}>
+  <Hero
+    imageSrc={heroImage.src}
+    imageAlt={heroImage.alt}
+    imageWidth={heroImage.width}
+    imageHeight={heroImage.height}
+    imageSizes={heroImage.sizes}
+    imageSources={heroImage.sources}
+  >
     <span class="label-md text-primary mb-8 block font-bold">{c.hero.eyebrow}</span>
     <h1 class="text-[clamp(3.5rem,9vw,6rem)] leading-[0.9] font-headline font-light italic text-on-surface mb-10 tracking-tighter" set:html={c.hero.h1} />
     <div class="pl-10 border-l border-primary/20 max-w-lg mb-14"><p class="text-on-surface-variant text-lg leading-relaxed font-body">{c.hero.body}</p></div>

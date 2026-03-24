@@ -1,0 +1,51 @@
+---
+interface Props {
+  name: 'plus' | 'minus' | 'chevron-left' | 'chevron-right';
+  class?: string;
+  title?: string;
+}
+
+const { name, class: className = '', title } = Astro.props;
+
+/**
+ * Architectural intent:
+ * This keeps the shared UI glyph set in markup instead of a global icon font,
+ * so layout-critical pages do not inherit a multi-megabyte font dependency.
+ */
+const icons = {
+  plus: {
+    viewBox: '0 0 24 24',
+    paths: ['M12 5v14', 'M5 12h14']
+  },
+  minus: {
+    viewBox: '0 0 24 24',
+    paths: ['M5 12h14']
+  },
+  'chevron-left': {
+    viewBox: '0 0 24 24',
+    paths: ['m15 18-6-6 6-6']
+  },
+  'chevron-right': {
+    viewBox: '0 0 24 24',
+    paths: ['m9 18 6-6-6-6']
+  }
+} as const;
+
+const icon = icons[name];
+---
+
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  viewBox={icon.viewBox}
+  fill="none"
+  stroke="currentColor"
+  stroke-width="1.75"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+  class={className}
+  aria-hidden={title ? undefined : 'true'}
+  role={title ? 'img' : undefined}
+>
+  {title && <title>{title}</title>}
+  {icon.paths.map((path) => <path d={path} />)}
+</svg>

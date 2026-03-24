@@ -7,9 +7,31 @@
 interface Props {
   imageSrc: string;
   imageAlt: string;
+  imageSources?: {
+    webp: Array<{ src: string; width: number }>;
+    fallback?: Array<{ src: string; width: number }>;
+  };
+  imageWidth?: number;
+  imageHeight?: number;
+  imageSizes?: string;
 }
 
-const { imageSrc, imageAlt } = Astro.props;
+const {
+  imageSrc,
+  imageAlt,
+  imageSources,
+  imageWidth = 1080,
+  imageHeight = 721,
+  imageSizes = '(max-width: 767px) calc(100vw - 3rem), (max-width: 1023px) 60vw, 40vw'
+} = Astro.props;
+
+const webpSrcSet = imageSources?.webp
+  ?.map((source) => `${source.src} ${source.width}w`)
+  .join(', ');
+
+const fallbackSrcSet = imageSources?.fallback
+  ?.map((source) => `${source.src} ${source.width}w`)
+  .join(', ');
 ---
 <section class="max-w-screen-2xl mx-auto px-12 mb-32 pt-12">
   <div class="grid grid-cols-1 md:grid-cols-12 gap-16 items-center">
@@ -18,13 +40,27 @@ const { imageSrc, imageAlt } = Astro.props;
     </div>
 
     <div class="md:col-span-5">
-      <img 
-        src={imageSrc} 
-        alt={imageAlt} 
-        class="w-full h-auto aspect-[3/4] object-cover grayscale-[20%] hover:grayscale-0 transition-all duration-1000 ease-out" 
-        loading="eager" 
-        fetchpriority="high" 
-      />
+      <picture>
+        {webpSrcSet && (
+          <source
+            type="image/webp"
+            srcset={webpSrcSet}
+            sizes={imageSizes}
+          />
+        )}
+        <img
+          src={imageSrc}
+          srcset={fallbackSrcSet}
+          sizes={fallbackSrcSet ? imageSizes : undefined}
+          alt={imageAlt}
+          width={imageWidth}
+          height={imageHeight}
+          class="w-full h-auto aspect-[3/4] object-cover grayscale-[20%] hover:grayscale-0 transition-all duration-1000 ease-out"
+          loading="eager"
+          decoding="async"
+          fetchpriority="high"
+        />
+      </picture>
     </div>
   </div>
 </section>

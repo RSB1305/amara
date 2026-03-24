@@ -1,5 +1,7 @@
 ---
 // src/components/FaqAccordion.astro
+import SymbolIcon from './icons/SymbolIcon.astro';
+
 interface Props {
   arrivalTitle?: string;
   steps?: Array<{ num: string; headline: string; text: string }>;
@@ -7,17 +9,16 @@ interface Props {
   items?: Array<{ question: string; answer: string }>;
 }
 
-const { 
-  arrivalTitle = "The Arrival", 
-  steps = [], 
-  faqTitle = "Dispatches & FAQ", 
-  items = [] 
+const {
+  arrivalTitle = "The Arrival",
+  steps = [],
+  faqTitle = "Dispatches & FAQ",
+  items = []
 } = Astro.props;
 ---
 
 <section class="py-32 bg-[#fcfbf9] px-12 border-t border-black/10">
   <div class="max-w-screen-2xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-x-32 gap-y-20">
-    
     <div>
       <h2 class="font-headline text-[56px] italic font-light text-on-surface mb-20 tracking-tight leading-tight">
         {arrivalTitle}
@@ -52,9 +53,9 @@ const {
               <h4 class="font-label font-bold text-[11px] uppercase tracking-[0.2em] text-on-surface group-hover:text-primary transition-colors">
                 {item.question}
               </h4>
-              <span class="material-symbols-outlined text-[#785611] font-light transition-transform duration-500">
-                <span class="group-open:hidden">+</span>
-                <span class="hidden group-open:inline">−</span>
+              <span class="text-[#785611] transition-transform duration-500">
+                <SymbolIcon name="plus" class="h-5 w-5 group-open:hidden" title="Expand answer" />
+                <SymbolIcon name="minus" class="hidden h-5 w-5 group-open:inline-flex" title="Collapse answer" />
               </span>
             </summary>
             <div class="overflow-hidden transition-all duration-500">
@@ -67,26 +68,31 @@ const {
         <div class="border-b border-black/10"></div>
       </div>
     </div>
-
   </div>
 </section>
 
 <style>
-  /* Versteckt den Standard-Pfeil im Safari/Chrome/Firefox */
   summary::-webkit-details-marker {
     display: none;
   }
+
   summary {
     list-style: none;
   }
-  
-  /* Sanftes Einblenden der Antwort */
+
   details[open] div {
     animation: fadeIn 0.6s ease-out;
   }
 
   @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(-10px); }
-    to { opacity: 1; transform: translateY(0); }
+    from {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
 </style>
