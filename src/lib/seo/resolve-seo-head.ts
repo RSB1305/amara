@@ -3,12 +3,14 @@ import type {
   AmaraLanguage,
   AmaraSeoLanguageEntry
 } from '../../types/seo';
-
-const SUPPORTED_LANGUAGES: AmaraLanguage[] = ['en', 'de', 'es', 'nl', 'sv'];
+import {
+  getOwnedLanguagesForSlug,
+  SUPPORTED_LANGUAGES
+} from '../routeOwnership';
 
 export function normalizeLanguage(lang: string): AmaraLanguage {
-  const clean = lang.toLowerCase().split('-')[0] as AmaraLanguage;
-  return SUPPORTED_LANGUAGES.includes(clean) ? clean : 'en';
+  const clean = (lang || '').toLowerCase().split('-')[0] as AmaraLanguage;
+  return SUPPORTED_LANGUAGES.includes(clean) ? clean : 'es';
 }
 
 function getSlugFromPathname(pathname: string): string {
@@ -27,12 +29,12 @@ function buildLocalizedUrl(
   const normalizedOrigin = origin.replace(/\/+$/, '');
 
   if (!slug) {
-    return lang === 'en'
+    return lang === 'es'
       ? `${normalizedOrigin}/`
       : `${normalizedOrigin}/${lang}/`;
   }
 
-  return lang === 'en'
+  return lang === 'es'
     ? `${normalizedOrigin}/${slug}`
     : `${normalizedOrigin}/${lang}/${slug}`;
 }
@@ -66,26 +68,56 @@ function toAbsoluteUrl(url: string | undefined, origin: string): string {
   return new URL(url, origin).href;
 }
 
+function normalizeBrandTitle(rawTitle: string | undefined): string {
+  const title = (rawTitle ?? '').trim();
+
+  if (!title) {
+    return 'AMARA';
+  }
+
+  if (/^AMARA$/i.test(title)) {
+    return 'AMARA';
+  }
+
+  const stripBrandPrefix = title.replace(
+    /^AMARA(?:\s*(?:\||-|–|—|:)\s*|\s+)/i,
+    ''
+  ).trim();
+
+  if (!stripBrandPrefix) {
+    return 'AMARA';
+  }
+
+  return `AMARA | ${stripBrandPrefix}`;
+}
+
 export function resolveSeoHead(
   seo: AmaraAuthoringSeo | undefined,
   origin: string,
   pathname: string,
   currentLang: AmaraLanguage
 ) {
-  const current = resolveLanguageEntry(seo, currentLang);
+  const languageEntry = resolveLanguageEntry(seo, currentLang);
+  const current = {
+    ...languageEntry,
+    title: normalizeBrandTitle(languageEntry.title)
+  };
   const slug = getSlugFromPathname(pathname);
+  const ownedLanguages = getOwnedLanguagesForSlug(slug, currentLang);
 
   const canonicalUrl = buildLocalizedUrl(origin, slug, currentLang);
 
-  const hreflangs = SUPPORTED_LANGUAGES.map((lang) => ({
+  const hreflangs = ownedLanguages.map((lang) => ({
     hreflang: lang,
     href: buildLocalizedUrl(origin, slug, lang)
   }));
 
-  hreflangs.push({
-    hreflang: 'x-default',
-    href: buildLocalizedUrl(origin, slug, 'en')
-  });
+  if (ownedLanguages.includes('es')) {
+    hreflangs.push({
+      hreflang: 'x-default',
+      href: buildLocalizedUrl(origin, slug, 'es')
+    });
+  }
 
   return {
     current,

@@ -8,23 +8,38 @@
  * but the logo position, right rail, language switch slot, and CTA slot remain
  * structurally fixed across the system.
  */
-import { resolveLink } from '../lib/linkResolver';
+import { resolveLink, resolveOptionalLink } from '../lib/linkResolver';
 import type { AmaraLanguage } from '../types/seo';
 
 interface NavLink {
   token: string;
-  label: string;
+  label?: string;
 }
+
 
 interface Props {
   currentLang: AmaraLanguage;
   brandName: string;
+  brandLabel?: string;
   links: NavLink[];
   variant?: 'default' | 'trust';
+  currentToken?: string;
   languageToken?: string;
+  brandVariant?: 'default' | 'lodging';
+  ctaLabel?: string;
 }
 
-const { currentLang, brandName, links, variant = 'default', languageToken } = Astro.props;
+const {
+  currentLang,
+  brandName,
+  brandLabel,
+  links,
+  variant = 'default',
+  currentToken,
+  languageToken,
+  brandVariant = 'default',
+  ctaLabel
+} = Astro.props;
 
 const languages: { code: AmaraLanguage; label: string }[] = [
   { code: 'en', label: 'EN' },
@@ -34,29 +49,96 @@ const languages: { code: AmaraLanguage; label: string }[] = [
   { code: 'sv', label: 'SV' }
 ];
 
-const isTrust = variant === 'trust';
-const contextLink = null;
-const ctaLink = !isTrust
-  ? { href: resolveLink('book', currentLang), label: 'Check Availability' }
-  : null;
-const currentPath = Astro.url.pathname;
-
-const getLangPath = (code: string) => {
-  return code === 'en' ? '/' : `/${code}/`;
+const defaultBrandLabels: Record<AmaraLanguage, string> = {
+  en: 'Guest Guide',
+  de: 'Gästeguide',
+  es: 'Guía huésped',
+  nl: 'Gastgids',
+  sv: 'Gästguide'
 };
+
+const defaultCtaLabels: Record<AmaraLanguage, string> = {
+  en: 'Check Availability',
+  de: 'Verfügbarkeit prüfen',
+  es: 'Consultar disponibilidad',
+  nl: 'Beschikbaarheid checken',
+  sv: 'Se tillgänglighet'
+};
+
+const localizedNavLabels: Partial<Record<string, Record<AmaraLanguage, string>>> = {
+  about: {
+    en: 'About AMARA',
+    de: 'Über AMARA',
+    es: 'Sobre AMARA',
+    nl: 'Over AMARA',
+    sv: 'Om AMARA'
+  },
+  reviews_hub: {
+    en: 'Guest Reviews',
+    de: 'Gästebewertungen',
+    es: 'Reseñas de huéspedes',
+    nl: 'Gastbeoordelingen',
+    sv: 'Gästrecensioner'
+  },
+  direct_booking_benefits: {
+    en: 'Direct Booking Benefits',
+    de: 'Vorteile der Direktbuchung',
+    es: 'Ventajas de reserva directa',
+    nl: 'Voordelen van direct boeken',
+    sv: 'Fördelar med direktbokning'
+  },
+  amenities: {
+    en: 'Amenities',
+    de: 'Ausstattung',
+    es: 'Servicios',
+    nl: 'Voorzieningen',
+    sv: 'Bekvämligheter'
+  },
+  faq_general: {
+    en: 'Stay FAQ',
+    de: 'Aufenthalts-FAQ',
+    es: 'FAQ de la estancia',
+    nl: 'Verblijfs-FAQ',
+    sv: 'FAQ för vistelsen'
+  }
+};
+
+const resolvedCtaLabel = ctaLabel ?? defaultCtaLabels[currentLang];
+const ctaLink = { href: resolveLink('book', currentLang), label: resolvedCtaLabel };
+const currentPath = Astro.url.pathname;
+const languageSwitchToken = currentToken ?? languageToken ?? 'home';
 
 const normalizePath = (path: string) => {
   if (path === '/') return '/';
   return path.endsWith('/') ? path.slice(0, -1) : path;
 };
 
-/**
- * Language switching stays inside the canonical registry flow whenever a
- * page-specific token is available.
- */
-const getLanguageHref = (code: AmaraLanguage) => {
-  return languageToken ? resolveLink(languageToken, code) : getLangPath(code);
+function getLanguageHref(token: string, code: AmaraLanguage) {
+  try {
+    return resolveOptionalLink(token, code, { suppressMissing: true });
+  } catch {
+    return null;
+  }
+}
+
+const languageOptions = languages
+  .map((lang) => {
+    const href = getLanguageHref(languageSwitchToken, lang.code);
+    return href ? { ...lang, href } : null;
+  })
+  .filter((option): option is { code: AmaraLanguage; label: string; href: string } => Boolean(option));
+
+const currentLanguageHref =
+  getLanguageHref(languageSwitchToken, currentLang) ??
+  resolveLink('home', currentLang);
+
+const getBrandHref = () => {
+  return currentLanguageHref;
 };
+
+const resolvedBrandLabel =
+  brandLabel ??
+  (brandVariant === 'lodging' ? 'Lodging' : defaultBrandLabels[currentLang]);
 
 const getIsActive = (token: string, href: string) => {
   if (languageToken) {
@@ -65,17 +147,28 @@ const getIsActive = (token: string, href: string) => {
 
   return normalizePath(currentPath) === normalizePath(href);
 };
+
+const getResolvedNavLabel = (link: NavLink) => {
+  if (variant === 'trust') {
+    const localized = localizedNavLabels[link.token]?.[currentLang];
+    if (localized) {
+      return localized;
+    }
+  }
+
+  return link.label ?? link.token;
+};
 ---
 
 <header class="fixed top-0 left-0 w-full z-[100] px-12 py-10 bg-surface/80 backdrop-blur-md border-b border-outline-variant/5">
   <nav class="am-nav max-w-screen-2xl mx-auto">
     <div class="am-nav__brand">
-      <a href={getLanguageHref(currentLang)} class="group flex flex-col">
+      <a href={getBrandHref()} class="group inline-flex flex-col items-center text-center">
         <span class="font-headline italic text-2xl text-on-surface tracking-tighter group-hover:text-primary transition-colors">
           {brandName}
         </span>
-        <span class="text-[8px] uppercase tracking-[0.5em] text-on-surface/40 -mt-1 font-bold">
-          Guest Guide
+        <span class="mt-[-0.25rem] block text-center text-[8px] uppercase tracking-[0.5em] text-on-surface/40 font-bold">
+          {resolvedBrandLabel}
         </span>
       </a>
     </div>
@@ -93,7 +186,7 @@ const getIsActive = (token: string, href: string) => {
                 aria-current={isActive ? 'page' : undefined}
                 class="am-nav__link text-[11px] uppercase tracking-[0.2em] font-bold text-on-surface/60 hover:text-on-surface transition-colors"
               >
-                {link.label}
+                {getResolvedNavLabel(link)}
               </a>
             </li>
           );
@@ -102,16 +195,7 @@ const getIsActive = (token: string, href: string) => {
     </div>
 
     <div class="am-nav__rail">
-      <div class="am-nav__slot am-nav__slot--context">
-        {contextLink && (
-          <a
-            href={contextLink.href}
-            class="hidden sm:block text-[10px] uppercase tracking-[0.2em] font-bold text-on-surface/60 hover:text-on-surface transition-colors"
-          >
-            {contextLink.label}
-          </a>
-        )}
-      </div>
+      <div class="am-nav__slot am-nav__slot--context"></div>
 
       <div class="am-nav__slot am-nav__slot--language">
         <div class="am-nav__language relative group">
@@ -140,9 +224,9 @@ const getIsActive = (token: string, href: string) => {
           <div class="absolute right-0 top-full pt-4 opacity-0 invisible translate-y-2 group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 transition-all duration-200">
             <div class="min-w-[92px] bg-surface/95 backdrop-blur-md border border-outline-variant/15 rounded-[14px] shadow-lg shadow-black/5 py-3 px-3">
               <div class="flex flex-col gap-2">
-                {languages.map((lang) => (
+                {languageOptions.map((lang) => (
                   <a
-                    href={getLanguageHref(lang.code)}
+                    href={lang.href}
                     class={`text-[10px] font-bold tracking-[0.18em] uppercase transition-colors px-2 py-1 rounded-md ${
                       currentLang === lang.code
                         ? 'text-primary bg-primary/5'
@@ -162,7 +246,7 @@ const getIsActive = (token: string, href: string) => {
         {ctaLink && (
           <a
             href={ctaLink.href}
-            class="hidden sm:flex items-center justify-center bg-on-surface text-surface px-8 py-4 text-[9px] leading-none uppercase tracking-[0.2em] font-bold hover:bg-primary transition-all"
+            class="am-btn am-btn--primary hidden sm:inline-flex"
           >
             {ctaLink.label}
           </a>
@@ -177,7 +261,7 @@ const getIsActive = (token: string, href: string) => {
     display: grid;
     grid-template-columns: 16rem minmax(0, 1fr) 25rem;
     align-items: center;
-    column-gap: 2rem;
+    column-gap: 3.5rem;
     min-height: 3.5rem;
   }
 
@@ -196,16 +280,17 @@ const getIsActive = (token: string, href: string) => {
   }
 
   /**
-   * The right rail is the canonical action geometry.
-   * Optional content may disappear, but slot coordinates remain reserved.
+   * The right rail is the dedicated utility + conversion cluster.
+   * It stays visually detached from the editorial nav so the CTA reads as an
+   * intentional action anchor instead of another navigation item.
    */
   .am-nav__rail {
-    width: 25rem;
+    width: 27.5rem;
     justify-self: end;
     display: grid;
-    grid-template-columns: 9.5rem 4.5rem 10rem;
+    grid-template-columns: minmax(7.5rem, 1fr) auto minmax(12.5rem, max-content);
     align-items: center;
-    column-gap: 2rem;
+    column-gap: 1.35rem;
   }
 
   .am-nav__slot {
@@ -223,15 +308,15 @@ const getIsActive = (token: string, href: string) => {
   }
 
   .am-nav__slot--cta {
-    justify-content: flex-start;
+    justify-content: flex-end;
   }
 
   .am-nav__language {
-    width: 4.5rem;
+    width: auto;
     position: relative;
     display: grid;
     place-items: center;
-    padding-left: 2.5rem;
+    padding-left: 1.8rem;
   }
 
   .am-nav__language::before {

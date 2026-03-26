@@ -1,6 +1,8 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Navigation from '../../components/Navigation.astro';
+import TrustHero from '../../components/hero/TrustHero.astro';
+import { resolveLink } from '../../lib/linkResolver';
 import { normalizeLanguage } from '../../lib/seo/resolve-seo-head';
 import type { AmaraAuthoringSeo, AmaraLanguage } from '../../types/seo';
 
@@ -8,7 +10,6 @@ export function getStaticPaths() {
   return [
     { params: { lang: 'en' } },
     { params: { lang: 'de' } },
-    { params: { lang: 'es' } },
     { params: { lang: 'nl' } },
     { params: { lang: 'sv' } }
   ];
@@ -17,9 +18,6 @@ export function getStaticPaths() {
 const { lang } = Astro.params;
 const currentLang = normalizeLanguage(lang as AmaraLanguage);
 
-const BOOKING_URL = '__BOOKING_URL__';
-const AMENITIES_URL = '__AMENITIES_URL__';
-
 const seo: AmaraAuthoringSeo = {
   version: '2026-03-24-amara-faq-general-shell-v1.0',
   pageType: 'C',
@@ -27,31 +25,31 @@ const seo: AmaraAuthoringSeo = {
   languages: {
     en: {
       title: 'AMARA | FAQ',
-      description: 'Placeholder AMARA FAQ shell for booking, payment, stay comfort, house rules, trust, and pets.',
+      description: 'Answers about booking, payment, arrival, house rules, trust, and pets before you stay with AMARA.',
       robots: 'index, follow',
       canonical: 'auto'
     },
     de: {
       title: 'AMARA | FAQ',
-      description: 'Platzhalter AMARA FAQ-Shell fuer Buchung, Zahlung, Aufenthalt, Hausregeln, Vertrauen und Haustiere.',
+      description: 'Antworten zu Buchung, Zahlung, Anreise, Hausregeln, Vertrauen und Haustieren vor eurem Aufenthalt bei AMARA.',
       robots: 'index, follow',
       canonical: 'auto'
     },
     es: {
       title: 'AMARA | FAQ',
-      description: 'Shell FAQ provisional de AMARA para reserva, pago, estancia, normas, confianza y mascotas.',
+      description: 'Respuestas sobre reserva, pago, llegada, normas, confianza y mascotas antes de vuestra estancia en AMARA.',
       robots: 'index, follow',
       canonical: 'auto'
     },
     nl: {
       title: 'AMARA | FAQ',
-      description: 'Placeholder AMARA FAQ-shell voor boeken, betaling, verblijf, huisregels, vertrouwen en huisdieren.',
+      description: 'Antwoorden over boeken, betalen, aankomst, huisregels, vertrouwen en huisdieren voor jullie verblijf bij AMARA.',
       robots: 'index, follow',
       canonical: 'auto'
     },
     sv: {
       title: 'AMARA | FAQ',
-      description: 'AMARA FAQ-platsmall foer bokning, betalning, vistelse, husregler, husdjur och trygghet.',
+      description: 'Svar om bokning, betalning, ankomst, husregler, trygghet och husdjur innan er vistelse hos AMARA.',
       robots: 'index, follow',
       canonical: 'auto'
     }
@@ -65,42 +63,102 @@ const trustLinks = [
   { token: 'direct_booking_benefits', label: 'Direct Booking Benefits' }
 ];
 
+const trustFooterLabels = {
+  amenities: {
+    en: 'Amenities',
+    de: 'Ausstattung',
+    es: 'Servicios',
+    nl: 'Voorzieningen',
+    sv: 'Bekvämligheter'
+  },
+  reviews_hub: {
+    en: 'Guest Reviews',
+    de: 'Gästebewertungen',
+    es: 'Resenas de huespedes',
+    nl: 'Gastbeoordelingen',
+    sv: 'Gastrecensioner'
+  },
+  instagram: {
+    en: 'Instagram',
+    de: 'Instagram',
+    es: 'Instagram',
+    nl: 'Instagram',
+    sv: 'Instagram'
+  }
+} as const;
+
+const footerHighlights = [
+  { token: 'amenities', label: trustFooterLabels.amenities[currentLang] },
+  { token: 'reviews_hub', label: trustFooterLabels.reviews_hub[currentLang] },
+  { token: 'instagram', label: trustFooterLabels.instagram[currentLang] }
+];
+
 const copy = {
   hero: {
     kicker: {
       en: 'Frequently Asked Questions',
-      de: 'AMARA FAQ',
-      es: 'AMARA FAQ',
-      nl: 'AMARA FAQ',
-      sv: 'AMARA FAQ'
+      de: 'Häufige Fragen',
+      es: 'Preguntas frecuentes',
+      nl: 'Veelgestelde vragen',
+      sv: 'Vanliga fragor'
     },
     title: {
       en: 'Stay FAQ: Booking, Check-in & Policies',
-      de: 'Allgemeine FAQ-Shell',
-      es: 'Shell FAQ General',
-      nl: 'Algemene FAQ-shell',
-      sv: 'Allmaen FAQ-skal'
+      de: 'FAQ zu Buchung, Anreise und Regeln',
+      es: 'FAQ sobre reserva, llegada y normas',
+      nl: 'FAQ over boeken, aankomst en huisregels',
+      sv: 'FAQ om bokning, ankomst och regler'
     },
     lead: {
-      en: 'Decision-first answers to help you book with clarity — covering payment, cancellation, arrival, and house rules.',
-      de: 'Eine allgemeine AMARA FAQ-Seitenstruktur fuer Buchung, Zahlung, Aufenthalt, Hausregeln, Vertrauen und Haustiere.',
-      es: 'Una estructura FAQ general de AMARA para reserva, pago, estancia, normas, confianza y mascotas.',
-      nl: 'Een algemene AMARA FAQ-paginastructuur voor boeken, betaling, verblijf, huisregels, vertrouwen en huisdieren.',
-      sv: 'En allmaen AMARA FAQ-skalstruktur foer bokning, betalning, vistelse, husregler, trygghet och husdjur.'
+      en: 'Decision-first answers to help you book with clarity - covering payment, cancellation, arrival, and house rules.',
+      de: 'Klare Antworten zuerst, damit ihr mit gutem Gefühl buchen könnt - zu Zahlung, Stornierung, Anreise und Hausregeln.',
+      es: 'Respuestas claras primero para que podais reservar con tranquilidad: pago, cancelacion, llegada y normas de la casa.',
+      nl: 'Eerst duidelijke antwoorden, zodat jullie met een gerust gevoel kunnen boeken - over betaling, annulering, aankomst en huisregels.',
+      sv: 'Tydliga svar forst, sa att ni kan boka med lugn och klarhet - om betalning, avbokning, ankomst och husregler.'
     },
     ctaBooking: {
       en: 'Check availability',
-      de: 'Buchungs-Platzhalter',
-      es: 'Placeholder reserva',
-      nl: 'Boekings-placeholder',
-      sv: 'Boknings-placeholder'
+      de: 'Verfügbarkeit prüfen',
+      es: 'Ver disponibilidad',
+      nl: 'Beschikbaarheid bekijken',
+      sv: 'Se tillganglighet'
     },
     ctaAmenities: {
       en: 'Amenities & policies',
-      de: 'Ausstattungs-Platzhalter',
-      es: 'Placeholder amenities',
-      nl: 'Voorzieningen-placeholder',
-      sv: 'Bekvaemligheter-placeholder'
+      de: 'Ausstattung & Regeln',
+      es: 'Servicios y normas',
+      nl: 'Voorzieningen en regels',
+      sv: 'Bekvamligheter och regler'
+    }
+  },
+  shared: {
+    supportText: {
+      en: 'Clear answers first, so decisions stay calm and simple.',
+      de: 'Zuerst klare Antworten, damit Entscheidungen ruhig und einfach bleiben.',
+      es: 'Respuestas claras primero, para que decidir sea sencillo y tranquilo.',
+      nl: 'Eerst duidelijke antwoorden, zodat beslissen rustig en eenvoudig blijft.',
+      sv: 'Tydliga svar forst, sa att besluten kanns lugna och enkla.'
+    },
+    ctaAbout: {
+      en: 'About Us',
+      de: 'Über uns',
+      es: 'Sobre nosotros',
+      nl: 'Over ons',
+      sv: 'Om oss'
+    },
+    ctaReviews: {
+      en: 'Guest Reviews',
+      de: 'Gästebewertungen',
+      es: 'Opiniones de huespedes',
+      nl: 'Gastbeoordelingen',
+      sv: 'Gastomdomen'
+    },
+    sectionBadge: {
+      en: 'Stay FAQ',
+      de: 'Aufenthalts-FAQ',
+      es: 'FAQ de la estancia',
+      nl: 'Verblijfs-FAQ',
+      sv: 'FAQ for vistelsen'
     }
   },
   sections: [
@@ -112,34 +170,34 @@ const copy = {
         nl: 'Boeking en betaling',
         sv: 'Bokning och betalning'
       },
-      image: '/images/robert-amara-founder-host.jpg',
+      image: '/images/amara-entrada/casa-amara-frigiliana-entrada-iii.jpg',
       alt: {
-        en: 'AMARA booking placeholder image',
-        de: 'AMARA Buchungs-Platzhalterbild',
-        es: 'Imagen placeholder de reserva de AMARA',
-        nl: 'AMARA boekings-placeholderbeeld',
-        sv: 'AMARA boknings-placeholderbild'
+        en: 'AMARA booking and arrival image',
+        de: 'AMARA Bild zu Buchung und Anreise',
+        es: 'Imagen de AMARA sobre reserva y llegada',
+        nl: 'AMARA beeld over boeken en aankomst',
+        sv: 'AMARA bild for bokning och ankomst'
       },
       items: [
         {
-          q: { en: 'How does the booking process work?', de: 'Platzhalter Buchungsfrage', es: 'Pregunta placeholder de reserva', nl: 'Placeholder boekingsvraag', sv: 'Placeholder bokningsfraga' },
-          a: { en: 'Choose your dates, review the final price and minimum stay, and complete your reservation securely online.', de: 'Platzhalter-Antwort.', es: 'Respuesta placeholder.', nl: 'Placeholder antwoord.', sv: 'Placeholder-svar.' }
+          q: { en: 'How does the booking process work?', de: 'Wie läuft die Buchung ab?', es: 'Como funciona la reserva?', nl: 'Hoe werkt het boeken?', sv: 'Hur fungerar bokningen?' },
+          a: { en: 'Choose your dates, review the final price and minimum stay, and complete your reservation securely online.', de: 'Wählt eure Reisedaten, prüft den Endpreis und den Mindestaufenthalt und schließt eure Buchung sicher online ab.', es: 'Elegid vuestras fechas, revisad el precio final y la estancia minima, y completad la reserva de forma segura online.', nl: 'Kies jullie data, bekijk de eindprijs en de minimale verblijfsduur, en rond jullie boeking veilig online af.', sv: 'Valj era datum, kontrollera slutpriset och minsta vistelsetid och genomfor bokningen tryggt online.' }
         },
         {
-          q: { en: 'Is my booking confirmed instantly?', de: 'Platzhalter Zahlungsfrage', es: 'Pregunta placeholder de pago', nl: 'Placeholder betalingsvraag', sv: 'Placeholder betalningsfraga' },
-          a: { en: 'If your dates are available and the booking is completed successfully, you’ll receive a confirmation email right away. If anything requires review, we’ll contact you promptly.', de: 'Platzhalter-Antwort.', es: 'Respuesta placeholder.', nl: 'Placeholder antwoord.', sv: 'Placeholder-svar.' }
+          q: { en: 'Is my booking confirmed instantly?', de: 'Ist meine Buchung sofort bestätigt?', es: 'Se confirma mi reserva al momento?', nl: 'Is mijn boeking meteen bevestigd?', sv: 'Bekraftas min bokning direkt?' },
+          a: { en: 'If your dates are available and the booking is completed successfully, you’ll receive a confirmation email right away. If anything requires review, we’ll contact you promptly.', de: 'Wenn eure Daten verfügbar sind und die Buchung erfolgreich abgeschlossen wurde, erhaltet ihr sofort eine Bestätigungs-E-Mail. Falls etwas geprüft werden muss, melden wir uns schnell bei euch.', es: 'Si vuestras fechas estan disponibles y la reserva se completa correctamente, recibireis enseguida un correo de confirmacion. Si algo requiere revision, os contactaremos sin demora.', nl: 'Als jullie data beschikbaar zijn en de boeking succesvol is afgerond, ontvangen jullie direct een bevestigingsmail. Als iets gecontroleerd moet worden, nemen we snel contact met jullie op.', sv: 'Om era datum ar tillgangliga och bokningen genomfors utan problem far ni en bokningsbekraftelse direkt via e-post. Om nagot behover granskas kontaktar vi er snabbt.' }
         },
         {
-          q: { en: 'Which payment methods are accepted?', de: 'Platzhalter Zahlungsfrage', es: 'Pregunta placeholder de pago', nl: 'Placeholder betalingsvraag', sv: 'Placeholder betalningsfraga' },
-          a: { en: 'Available payment methods depend on your country and the booking setup. You’ll always see the available options before confirming.', de: 'Platzhalter-Antwort.', es: 'Respuesta placeholder.', nl: 'Placeholder antwoord.', sv: 'Placeholder-svar.' }
+          q: { en: 'Which payment methods are accepted?', de: 'Welche Zahlungsarten werden akzeptiert?', es: 'Que metodos de pago aceptais?', nl: 'Welke betaalmethoden accepteren jullie?', sv: 'Vilka betalningssatt accepterar ni?' },
+          a: { en: 'Available payment methods depend on your country and the booking setup. You’ll always see the available options before confirming.', de: 'Welche Zahlungsarten verfügbar sind, hängt von eurem Land und der jeweiligen Buchung ab. Vor der Bestätigung seht ihr immer genau, welche Optionen verfügbar sind.', es: 'Los metodos de pago disponibles dependen de vuestro pais y de la configuracion de la reserva. Antes de confirmar vereis siempre las opciones disponibles.', nl: 'Welke betaalmethoden beschikbaar zijn, hangt af van jullie land en de boekingsopzet. Voor jullie bevestigen, zien jullie altijd welke opties beschikbaar zijn.', sv: 'Tillgangliga betalningssatt beror pa ert land och hur bokningen ar upplagd. Innan ni bekraftar ser ni alltid vilka alternativ som finns.' }
         },
         {
-          q: { en: 'When will my payment be charged?', de: 'Platzhalter Zahlungsfrage', es: 'Pregunta placeholder de pago', nl: 'Placeholder betalingsvraag', sv: 'Placeholder betalningsfraga' },
-          a: { en: 'The exact timing is shown during checkout and in your confirmation. Some bookings are charged immediately, while others follow a scheduled payment plan.', de: 'Platzhalter-Antwort.', es: 'Respuesta placeholder.', nl: 'Placeholder antwoord.', sv: 'Placeholder-svar.' }
+          q: { en: 'When will my payment be charged?', de: 'Wann wird meine Zahlung belastet?', es: 'Cuando se cobra el pago?', nl: 'Wanneer wordt mijn betaling afgeschreven?', sv: 'Nar dras betalningen?' },
+          a: { en: 'The exact timing is shown during checkout and in your confirmation. Some bookings are charged immediately, while others follow a scheduled payment plan.', de: 'Der genaue Zeitpunkt wird im Checkout und in eurer Bestätigung angezeigt. Manche Buchungen werden sofort belastet, andere folgen einem festgelegten Zahlungsplan.', es: 'El momento exacto aparece durante el proceso de reserva y en vuestra confirmacion. Algunas reservas se cobran al momento y otras siguen un calendario de pagos.', nl: 'Het exacte moment zien jullie tijdens het afrekenen en in jullie bevestiging. Sommige boekingen worden direct afgeschreven, andere volgen een vast betaalschema.', sv: 'Den exakta tidpunkten visas i bokningsflodet och i er bekraftelse. Vissa bokningar debiteras direkt medan andra foljer en bestamd betalningsplan.' }
         },
         {
-          q: { en: 'What is your cancellation policy?', de: 'Platzhalter Zahlungsfrage', es: 'Pregunta placeholder de pago', nl: 'Placeholder betalingsvraag', sv: 'Placeholder betalningsfraga' },
-          a: { en: 'Free cancellation is available up to 7 days before arrival. After that, the booking is non-refundable. The final policy shown during booking always applies.', de: 'Platzhalter-Antwort.', es: 'Respuesta placeholder.', nl: 'Placeholder antwoord.', sv: 'Placeholder-svar.' }
+          q: { en: 'What is your cancellation policy?', de: 'Wie sind eure Stornierungsbedingungen?', es: 'Cual es vuestra politica de cancelacion?', nl: 'Wat is jullie annuleringsbeleid?', sv: 'Vad ar er avbokningspolicy?' },
+          a: { en: 'Free cancellation is available up to 7 days before arrival. After that, the booking is non-refundable. The final policy shown during booking always applies.', de: 'Kostenfreie Stornierung ist bis 7 Tage vor der Anreise möglich. Danach ist die Buchung nicht erstattbar. Es gilt immer die finale Regelung, die euch während der Buchung angezeigt wird.', es: 'La cancelacion gratuita esta disponible hasta 7 dias antes de la llegada. Despues, la reserva no es reembolsable. Siempre se aplica la politica final que aparece durante la reserva.', nl: 'Gratis annuleren is mogelijk tot 7 dagen voor aankomst. Daarna is de boeking niet restitueerbaar. Het definitieve beleid dat tijdens het boeken wordt getoond, is altijd leidend.', sv: 'Fri avbokning ar mojlig fram till 7 dagar fore ankomst. Efter det ar bokningen inte aterbetalningsbar. Den slutliga policy som visas under bokningen galler alltid.' }
         }
       ]
     },
@@ -151,34 +209,34 @@ const copy = {
         nl: 'Verblijf en comfort',
         sv: 'Vistelse och komfort'
       },
-      image: '/images/robert-amara-founder-host.jpg',
+      image: '/images/amara-lounis/104-amara-frigiliana.jpg',
       alt: {
-        en: 'AMARA stay placeholder image',
-        de: 'AMARA Aufenthalts-Platzhalterbild',
-        es: 'Imagen placeholder de estancia de AMARA',
-        nl: 'AMARA verblijfs-placeholderbeeld',
-        sv: 'AMARA vistelse-placeholderbild'
+        en: 'AMARA stay image',
+        de: 'AMARA Bild zum Aufenthalt',
+        es: 'Imagen de AMARA sobre la estancia',
+        nl: 'AMARA verblijfsbeeld',
+        sv: 'AMARA bild for vistelsen'
       },
       items: [
         {
-          q: { en: 'What kind of accommodation is AMARA?', de: 'Platzhalter Komfortfrage', es: 'Pregunta placeholder de confort', nl: 'Placeholder comfortvraag', sv: 'Placeholder komfortfraga' },
-          a: { en: 'AMARA offers carefully curated self-catered apartments, not hotel rooms. The collection is designed for calm, comfortable stays, especially for couples and adults seeking quiet.', de: 'Platzhalter-Antwort.', es: 'Respuesta placeholder.', nl: 'Placeholder antwoord.', sv: 'Placeholder-svar.' }
+          q: { en: 'What kind of accommodation is AMARA?', de: 'Was für eine Unterkunft ist AMARA?', es: 'Que tipo de alojamiento es AMARA?', nl: 'Wat voor accommodatie is AMARA?', sv: 'Vilken typ av boende ar AMARA?' },
+          a: { en: 'AMARA offers carefully curated self-catered apartments, not hotel rooms. The collection is designed for calm, comfortable stays, especially for couples and adults seeking quiet.', de: 'AMARA bietet sorgfältig zusammengestellte Apartments zur Selbstversorgung, keine Hotelzimmer. Die Häuser sind für ruhige und komfortable Aufenthalte gedacht, besonders für Paare und Erwachsene, die Ruhe suchen.', es: 'AMARA ofrece apartamentos con cocina propia cuidadosamente seleccionados, no habitaciones de hotel. La coleccion esta pensada para estancias tranquilas y comodas, especialmente para parejas y adultos que buscan calma.', nl: 'AMARA biedt zorgvuldig samengestelde appartementen met eigen voorzieningen, geen hotelkamers. De collectie is bedoeld voor rustige en comfortabele verblijven, vooral voor stellen en volwassenen die stilte zoeken.', sv: 'AMARA erbjuder noggrant utvalda lagenheter med egen hushallning, inte hotellrum. Samlingen ar utformad for lugna och bekvama vistelser, sarskilt for par och vuxna som soker ro.' }
         },
         {
-          q: { en: 'Is AMARA suitable for parties or celebrations?', de: 'Platzhalter Check-in-Frage', es: 'Pregunta placeholder de check-in', nl: 'Placeholder check-in-vraag', sv: 'Placeholder incheckningsfraga' },
-          a: { en: 'No. AMARA is intentionally quiet and not suitable for parties, events, or large groups.', de: 'Platzhalter-Antwort.', es: 'Respuesta placeholder.', nl: 'Placeholder antwoord.', sv: 'Placeholder-svar.' }
+          q: { en: 'Is AMARA suitable for parties or celebrations?', de: 'Ist AMARA für Partys oder Feiern geeignet?', es: 'Es AMARA adecuado para fiestas o celebraciones?', nl: 'Is AMARA geschikt voor feesten of vieringen?', sv: 'Passar AMARA for fester eller firanden?' },
+          a: { en: 'No. AMARA is intentionally quiet and not suitable for parties, events, or large groups.', de: 'Nein. AMARA ist bewusst ruhig gehalten und nicht für Partys, Veranstaltungen oder große Gruppen geeignet.', es: 'No. AMARA esta pensado para ser un lugar tranquilo y no es adecuado para fiestas, eventos ni grupos grandes.', nl: 'Nee. AMARA is bewust rustig gehouden en niet geschikt voor feesten, evenementen of grote groepen.', sv: 'Nej. AMARA ar medvetet lugnt och passar inte for fester, evenemang eller stora grupper.' }
         },
         {
-          q: { en: 'Do you provide daily cleaning?', de: 'Platzhalter Check-in-Frage', es: 'Pregunta placeholder de check-in', nl: 'Placeholder check-in-vraag', sv: 'Placeholder incheckningsfraga' },
-          a: { en: 'No daily hotel-style service is included. Your apartment is professionally prepared for your stay, and any optional services are communicated separately.', de: 'Platzhalter-Antwort.', es: 'Respuesta placeholder.', nl: 'Placeholder antwoord.', sv: 'Placeholder-svar.' }
+          q: { en: 'Do you provide daily cleaning?', de: 'Gibt es tägliches Housekeeping?', es: 'Ofreceis housekeeping diario?', nl: 'Bieden jullie dagelijkse housekeeping aan?', sv: 'Erbjuder ni daglig housekeeping?' },
+          a: { en: 'No daily hotel-style service is included. Your apartment is professionally prepared for your stay, and any optional services are communicated separately.', de: 'Ein täglicher Hotelservice ist nicht enthalten. Euer Apartment wird professionell für euren Aufenthalt vorbereitet, und optionale Leistungen teilen wir euch separat mit.', es: 'No se incluye un servicio diario de hotel. Vuestro apartamento se prepara profesionalmente para la estancia y cualquier servicio opcional se comunica por separado.', nl: 'Dagelijkse hotelservice is niet inbegrepen. Jullie appartement wordt professioneel voorbereid voor jullie verblijf en eventuele extra services worden apart gecommuniceerd.', sv: 'Daglig hotellservice ingar inte. Er lagenhet forbereds professionellt for er vistelse och eventuella tillval kommuniceras separat.' }
         },
         {
-          q: { en: 'Are linens and towels included?', de: 'Platzhalter Check-in-Frage', es: 'Pregunta placeholder de check-in', nl: 'Placeholder check-in-vraag', sv: 'Placeholder incheckningsfraga' },
-          a: { en: 'Yes. Bed linen and towels are provided. Exact details may vary slightly by apartment and are listed in the unit information.', de: 'Platzhalter-Antwort.', es: 'Respuesta placeholder.', nl: 'Placeholder antwoord.', sv: 'Placeholder-svar.' }
+          q: { en: 'Are linens and towels included?', de: 'Sind Bettwäsche und Handtücher inklusive?', es: 'Se incluyen sabanas y toallas?', nl: 'Zijn beddengoed en handdoeken inbegrepen?', sv: 'Ingar sanglakan och handdukar?' },
+          a: { en: 'Yes. Bed linen and towels are provided. Exact details may vary slightly by apartment and are listed in the unit information.', de: 'Ja. Bettwäsche und Handtücher sind vorhanden. Die genauen Details können je nach Apartment leicht variieren und stehen in den Unterkunftsinformationen.', es: 'Si. Se incluyen sabanas y toallas. Los detalles exactos pueden variar ligeramente segun el apartamento y figuran en la informacion de la unidad.', nl: 'Ja. Beddengoed en handdoeken zijn aanwezig. De exacte details kunnen per appartement licht verschillen en staan bij de informatie van de accommodatie.', sv: 'Ja. Sanglakan och handdukar finns. Exakta detaljer kan skilja sig lite mellan lagenheterna och anges i informationen for respektive boende.' }
         },
         {
-          q: { en: 'Is Wi-Fi available?', de: 'Platzhalter Check-in-Frage', es: 'Pregunta placeholder de check-in', nl: 'Placeholder check-in-vraag', sv: 'Placeholder incheckningsfraga' },
-          a: { en: 'Yes, Wi-Fi is available. If you plan to work remotely, we recommend checking the unit details or contacting us with any specific requirements.', de: 'Platzhalter-Antwort.', es: 'Respuesta placeholder.', nl: 'Placeholder antwoord.', sv: 'Placeholder-svar.' }
+          q: { en: 'Is Wi-Fi available?', de: 'Gibt es WLAN?', es: 'Hay wifi?', nl: 'Is er wifi beschikbaar?', sv: 'Finns wifi?' },
+          a: { en: 'Yes, Wi-Fi is available. If you plan to work remotely, we recommend checking the unit details or contacting us with any specific requirements.', de: 'Ja, WLAN ist verfügbar. Wenn ihr remote arbeiten möchtet, schaut bitte in die Details des Apartments oder meldet euch mit euren konkreten Anforderungen bei uns.', es: 'Si, hay wifi. Si pensais trabajar a distancia, os recomendamos revisar los detalles del apartamento o escribirnos si teneis alguna necesidad concreta.', nl: 'Ja, er is wifi. Als jullie op afstand willen werken, raden we aan om de details van het appartement te bekijken of ons te contacteren met specifieke wensen.', sv: 'Ja, wifi finns. Om ni planerar att arbeta pa distans rekommenderar vi att ni kontrollerar detaljerna for lagenheten eller kontaktar oss med specifika behov.' }
         }
       ]
     },
@@ -190,30 +248,30 @@ const copy = {
         nl: 'Huisregels',
         sv: 'Husregler'
       },
-      image: '/images/robert-amara-founder-host.jpg',
+      image: '/images/amara-maha/91-amara-frigiliana.jpg',
       alt: {
-        en: 'AMARA house rules placeholder image',
-        de: 'AMARA Hausregeln-Platzhalterbild',
-        es: 'Imagen placeholder de normas de AMARA',
-        nl: 'AMARA huisregels-placeholderbeeld',
-        sv: 'AMARA husregels-placeholderbild'
+        en: 'AMARA house rules image',
+        de: 'AMARA Bild zu den Hausregeln',
+        es: 'Imagen de AMARA sobre las normas de la casa',
+        nl: 'AMARA beeld over de huisregels',
+        sv: 'AMARA bild for husregler'
       },
       items: [
         {
-          q: { en: 'What are check-in and check-out times?', de: 'Platzhalter Regelfrage', es: 'Pregunta placeholder de normas', nl: 'Placeholder regelvraag', sv: 'Placeholder regel-fraga' },
-          a: { en: 'Check-in is from 15:00 and check-out is by 11:00. If you need a special arrangement, please ask in advance — it depends on availability.', de: 'Platzhalter-Antwort.', es: 'Respuesta placeholder.', nl: 'Placeholder antwoord.', sv: 'Placeholder-svar.' }
+          q: { en: 'What are check-in and check-out times?', de: 'Wann sind Check-in und Check-out?', es: 'Cuales son los horarios de check-in y check-out?', nl: 'Wat zijn de tijden voor inchecken en uitchecken?', sv: 'Vilka tider galler for incheckning och utcheckning?' },
+          a: { en: 'Check-in is from 15:00 and check-out is by 11:00. If you need a special arrangement, please ask in advance - it depends on availability.', de: 'Der Check-in ist ab 15:00 Uhr möglich und der Check-out bis 11:00 Uhr. Wenn ihr eine besondere Lösung braucht, fragt bitte vorher nach - das hängt von der Verfügbarkeit ab.', es: 'El check-in es a partir de las 15:00 y el check-out hasta las 11:00. Si necesitais algo especial, pedidlo con antelacion: depende de la disponibilidad.', nl: 'Inchecken kan vanaf 15:00 en uitchecken is uiterlijk om 11:00. Als jullie iets afwijkends nodig hebben, laat het vooraf weten - het hangt af van de beschikbaarheid.', sv: 'Incheckning ar fran 15.00 och utcheckning senast 11.00. Om ni behover en sarskild losning, fraga garna i forvag - det beror pa tillganglighet.' }
         },
         {
-          q: { en: 'Is smoking allowed?', de: 'Platzhalter Ankunftsfrage', es: 'Pregunta placeholder de llegada', nl: 'Placeholder aankomstvraag', sv: 'Placeholder ankomstfraga' },
-          a: { en: 'No. All AMARA homes are strictly non-smoking.', de: 'Platzhalter-Antwort.', es: 'Respuesta placeholder.', nl: 'Placeholder antwoord.', sv: 'Placeholder-svar.' }
+          q: { en: 'Is smoking allowed?', de: 'Ist Rauchen erlaubt?', es: 'Se permite fumar?', nl: 'Is roken toegestaan?', sv: 'Ar rokning tillaten?' },
+          a: { en: 'No. All AMARA homes are strictly non-smoking.', de: 'Nein. In allen AMARA Häusern ist Rauchen im Innenbereich verboten.', es: 'No. No se permite fumar en el interior de ninguno de los alojamientos de AMARA.', nl: 'Nee. Alle AMARA woningen zijn strikt rookvrij binnenshuis.', sv: 'Nej. Alla AMARA-boenden ar helt rokfria inomhus.' }
         },
         {
-          q: { en: 'Are visitors allowed?', de: 'Platzhalter Ankunftsfrage', es: 'Pregunta placeholder de llegada', nl: 'Placeholder aankomstvraag', sv: 'Placeholder ankomstfraga' },
-          a: { en: 'Only registered guests are allowed. This helps keep the stay calm and secure for everyone.', de: 'Platzhalter-Antwort.', es: 'Respuesta placeholder.', nl: 'Placeholder antwoord.', sv: 'Placeholder-svar.' }
+          q: { en: 'Are visitors allowed?', de: 'Sind Besucher erlaubt?', es: 'Se permiten visitas?', nl: 'Zijn bezoekers toegestaan?', sv: 'Ar besokare tillatna?' },
+          a: { en: 'Only registered guests are allowed. This helps keep the stay calm and secure for everyone.', de: 'Erlaubt sind nur angemeldete Gäste. So bleibt der Aufenthalt für alle ruhig und sicher.', es: 'Solo se permiten huespedes registrados. Asi mantenemos una estancia tranquila y segura para todos.', nl: 'Alleen geregistreerde gasten zijn toegestaan. Zo blijft het verblijf rustig en veilig voor iedereen.', sv: 'Endast registrerade gaster ar tillatna. Det hjalper till att halla vistelsen lugn och trygg for alla.' }
         },
         {
-          q: { en: 'What is the minimum stay?', de: 'Platzhalter Ankunftsfrage', es: 'Pregunta placeholder de llegada', nl: 'Placeholder aankomstvraag', sv: 'Placeholder ankomstfraga' },
-          a: { en: 'Minimum stay requirements vary by season and apartment. The exact requirement is always shown during booking.', de: 'Platzhalter-Antwort.', es: 'Respuesta placeholder.', nl: 'Placeholder antwoord.', sv: 'Placeholder-svar.' }
+          q: { en: 'What is the minimum stay?', de: 'Wie lang ist der Mindestaufenthalt?', es: 'Cual es la estancia minima?', nl: 'Wat is de minimale verblijfsduur?', sv: 'Vad ar minsta vistelse?' },
+          a: { en: 'Minimum stay requirements vary by season and apartment. The exact requirement is always shown during booking.', de: 'Der Mindestaufenthalt variiert je nach Saison und Apartment. Die genaue Vorgabe wird euch immer während der Buchung angezeigt.', es: 'La estancia minima varia segun la temporada y el apartamento. El requisito exacto aparece siempre durante la reserva.', nl: 'De minimale verblijfsduur verschilt per seizoen en appartement. De exacte voorwaarde wordt altijd tijdens het boeken getoond.', sv: 'Minsta vistelse varierar beroende pa sasong och lagenhet. Det exakta kravet visas alltid under bokningen.' }
         }
       ]
     },
@@ -225,30 +283,30 @@ const copy = {
         nl: 'Vertrouwen en huisdieren',
         sv: 'Trygghet och husdjur'
       },
-      image: '/images/robert-amara-founder-host.jpg',
+      image: '/images/amara-zaid/cara-rural-frigiliana-amara-said-terraza-5.jpg',
       alt: {
-        en: 'AMARA trust placeholder image',
-        de: 'AMARA Vertrauens-Platzhalterbild',
-        es: 'Imagen placeholder de confianza de AMARA',
-        nl: 'AMARA vertrouwens-placeholderbeeld',
-        sv: 'AMARA trygghets-placeholderbild'
+        en: 'AMARA trust image',
+        de: 'AMARA Bild zum Thema Vertrauen',
+        es: 'Imagen de AMARA sobre confianza',
+        nl: 'AMARA beeld over vertrouwen',
+        sv: 'AMARA bild for trygghet'
       },
       items: [
         {
-          q: { en: 'Are pets allowed?', de: 'Platzhalter Vertrauensfrage', es: 'Pregunta placeholder de confianza', nl: 'Placeholder vertrouwensvraag', sv: 'Placeholder trygghetsfraga' },
-          a: { en: 'Pets are welcome in selected apartments, usually on request, for €15 per day. The final rule is shown during booking and in the unit details.', de: 'Platzhalter-Antwort.', es: 'Respuesta placeholder.', nl: 'Placeholder antwoord.', sv: 'Placeholder-svar.' }
+          q: { en: 'Are pets allowed?', de: 'Sind Haustiere erlaubt?', es: 'Se admiten mascotas?', nl: 'Zijn huisdieren toegestaan?', sv: 'Ar husdjur tillatna?' },
+          a: { en: 'Pets are welcome in selected apartments, usually on request, for €15 per day. The final rule is shown during booking and in the unit details.', de: 'Haustiere sind in ausgewählten Apartments willkommen, meist auf Anfrage, für 15 EUR pro Tag. Die endgültige Regelung steht immer in der Buchung und in den Wohnungsdetails.', es: 'Las mascotas son bienvenidas en apartamentos seleccionados, normalmente bajo peticion previa, por 15 EUR al dia. La norma final aparece siempre durante la reserva y en los detalles del alojamiento.', nl: 'Huisdieren zijn welkom in geselecteerde appartementen, meestal op aanvraag, voor 15 EUR per dag. De definitieve regel staat altijd bij de boeking en in de accommodatiedetails.', sv: 'Husdjur ar valkomna i utvalda lagenheter, vanligtvis pa forfragan, for 15 EUR per dag. Den slutliga regeln visas alltid under bokningen och i boendeinformationen.' }
         },
         {
-          q: { en: 'Is AMARA legally registered?', de: 'Platzhalter Haustierfrage', es: 'Pregunta placeholder de mascotas', nl: 'Placeholder huisdiervraag', sv: 'Placeholder husdjursfraga' },
-          a: { en: 'Yes. License numbers are listed on our Amenities & Policies page where required.', de: 'Platzhalter-Antwort.', es: 'Respuesta placeholder.', nl: 'Placeholder antwoord.', sv: 'Placeholder-svar.' }
+          q: { en: 'Is AMARA legally registered?', de: 'Ist AMARA rechtlich registriert?', es: 'Esta AMARA legalmente registrada?', nl: 'Is AMARA wettelijk geregistreerd?', sv: 'Ar AMARA lagligt registrerat?' },
+          a: { en: 'Yes. License numbers are listed on our Amenities & Policies page where required.', de: 'Ja. Wo es vorgeschrieben ist, findet ihr die Lizenznummern auf unserer Seite zu Ausstattung und Regeln.', es: 'Si. Cuando es obligatorio, los numeros de licencia aparecen en nuestra pagina de servicios y normas.', nl: 'Ja. Waar dat verplicht is, staan de licentienummers op onze pagina over voorzieningen en regels.', sv: 'Ja. Dar det kravs finns licensnumren pa var sida om bekvamligheter och regler.' }
         },
         {
-          q: { en: 'Who can I contact during my stay?', de: 'Platzhalter Haustierfrage', es: 'Pregunta placeholder de mascotas', nl: 'Placeholder huisdiervraag', sv: 'Placeholder husdjursfraga' },
-          a: { en: 'You’ll receive clear contact details as part of your arrival information. For urgent matters, please use the primary contact channel provided.', de: 'Platzhalter-Antwort.', es: 'Respuesta placeholder.', nl: 'Placeholder antwoord.', sv: 'Placeholder-svar.' }
+          q: { en: 'Who can I contact during my stay?', de: 'Wen kann ich während meines Aufenthalts kontaktieren?', es: 'Con quien puedo contactar durante la estancia?', nl: 'Met wie kan ik tijdens mijn verblijf contact opnemen?', sv: 'Vem kan jag kontakta under vistelsen?' },
+          a: { en: 'You’ll receive clear contact details as part of your arrival information. For urgent matters, please use the primary contact channel provided.', de: 'Ihr erhaltet klare Kontaktdaten zusammen mit euren Anreiseinformationen. Für dringende Anliegen nutzt bitte den angegebenen Hauptkontakt.', es: 'Recibireis unos datos de contacto claros como parte de vuestra informacion de llegada. Para asuntos urgentes, utilizad el canal principal indicado.', nl: 'Jullie ontvangen duidelijke contactgegevens als onderdeel van jullie aankomstinformatie. Gebruik bij urgente zaken het opgegeven hoofdcontact.', sv: 'Ni far tydliga kontaktuppgifter som en del av er ankomstinformation. For bradskande arenden, anvand den huvudsakliga kontaktvag som ni fatt.' }
         },
         {
-          q: { en: 'Why book directly?', de: 'Platzhalter Haustierfrage', es: 'Pregunta placeholder de mascotas', nl: 'Placeholder huisdiervraag', sv: 'Placeholder husdjursfraga' },
-          a: { en: 'Direct booking gives you the clearest availability, the most accurate rules, and the final price without intermediaries.', de: 'Platzhalter-Antwort.', es: 'Respuesta placeholder.', nl: 'Placeholder antwoord.', sv: 'Placeholder-svar.' }
+          q: { en: 'Why book directly?', de: 'Warum direkt buchen?', es: 'Por que reservar directamente?', nl: 'Waarom direct boeken?', sv: 'Varfor boka direkt?' },
+          a: { en: 'Direct booking gives you the clearest availability, the most accurate rules, and the final price without intermediaries.', de: 'Bei einer Direktbuchung seht ihr die klarste Verfügbarkeit, die genauesten Regeln und den Endpreis ohne Zwischenhändler.', es: 'La reserva directa os da la disponibilidad mas clara, las normas mas precisas y el precio final sin intermediarios.', nl: 'Direct boeken geeft jullie de duidelijkste beschikbaarheid, de meest nauwkeurige regels en de eindprijs zonder tussenpartijen.', sv: 'Direktbokning ger er tydligast tillganglighet, de mest korrekta reglerna och slutpriset utan mellanhander.' }
         }
       ]
     }
@@ -275,35 +333,27 @@ const sections = copy.sections.map((section, index) => ({
 }));
 ---
 
-<BaseLayout seo={seo}>
+<BaseLayout seo={seo} pageLang={currentLang} footerHighlights={footerHighlights}>
   <Navigation
     currentLang={currentLang}
     brandName="AMARA"
     links={trustLinks}
     variant="trust"
+    currentToken="faq_general"
   />
 
-  <div class="bg-white" data-lang={currentLang}>
-    <div class="max-w-screen-2xl mx-auto px-12 pt-40 pb-20">
-      <header class="border-b border-outline-variant/10 pb-16 mb-20 max-w-5xl" data-lang={currentLang}>
-        <span class="label-md text-primary mb-6 block">{hero.kicker}</span>
-        <h1 class="font-headline text-[clamp(3.25rem,8vw,5.75rem)] leading-[0.94] tracking-tight italic text-on-surface font-light max-w-4xl mb-8">
-          {hero.title}
-        </h1>
-        <p class="text-on-surface-variant text-xl leading-relaxed max-w-2xl mb-10">
-          {hero.lead}
-        </p>
-        <div class="flex flex-wrap gap-6">
-          <a href={BOOKING_URL} class="bg-on-surface text-surface px-10 py-4 text-[10px] uppercase tracking-[0.2em] font-bold hover:bg-primary transition-colors">
-            {hero.ctaBooking}
-          </a>
-          <a href={AMENITIES_URL} class="border border-outline-variant/25 text-on-surface px-10 py-4 text-[10px] uppercase tracking-[0.2em] font-bold hover:bg-surface-container-low transition-colors">
-            {hero.ctaAmenities}
-          </a>
-        </div>
-      </header>
-
-      <main class="space-y-16">
+  <div class="am-exp-page" data-lang={currentLang}>
+    <TrustHero
+      subtitle={hero.kicker}
+      title={hero.title}
+      lead={hero.lead}
+      supportText={copy.shared.supportText[currentLang]}
+      ctaLinks={[
+        { href: resolveLink('about', currentLang), label: copy.shared.ctaAbout[currentLang] },
+        { href: resolveLink('reviews_hub', currentLang), label: copy.shared.ctaReviews[currentLang] }
+      ]}
+    />
+      <main class="am-faq-main space-y-16">
         {sections.map((section) => (
           <section
             class="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-20 items-start border-t border-outline-variant/10 pt-16"
@@ -322,24 +372,16 @@ const sections = copy.sections.map((section, index) => ({
                         decoding="async"
                       />
                     </div>
-                    <figcaption class="px-8 py-6 border-t border-outline-variant/10 bg-surface/90">
-                      <span class="text-[10px] uppercase tracking-[0.3em] text-outline font-bold block mb-2">
-                        Placeholder Image
-                      </span>
-                      <p class="text-on-surface-variant leading-relaxed">
-                        {section.topic}
-                      </p>
-                    </figcaption>
                   </figure>
                 </div>
 
                 <div class="min-w-0 self-start">
-                  <div class="border border-outline-variant/10 bg-surface-container-lowest p-8 md:p-10 lg:p-12">
+                  <div class="border border-outline-variant/10 bg-surface-container-lowest px-8 pb-8 pt-4 md:px-10 md:pb-10 md:pt-5 lg:px-12 lg:pb-12 lg:pt-6">
                     <div class="mb-6">
                       <span class="text-[10px] uppercase tracking-[0.3em] text-primary font-bold block mb-3">
-                        FAQ Shell
+                        {copy.shared.sectionBadge[currentLang]}
                       </span>
-                      <h2 class="font-headline text-4xl md:text-5xl italic tracking-tight text-on-surface max-w-[14ch]">
+                      <h2 class="font-headline text-4xl md:text-5xl italic tracking-tight text-on-surface">
                         {section.topic}
                       </h2>
                     </div>
@@ -347,13 +389,13 @@ const sections = copy.sections.map((section, index) => ({
                     <div class="divide-y divide-outline-variant/15 border-y border-outline-variant/15">
                       {section.items.map((item) => (
                         <details class="group py-6">
-                          <summary class="list-none cursor-pointer flex items-start justify-between gap-6">
+                          <summary class="am-accordion__trigger">
                             <span class="min-w-0 font-label font-bold text-[11px] uppercase tracking-[0.18em] text-on-surface group-hover:text-primary transition-colors leading-relaxed">
                               {item.question}
                             </span>
-                            <span class="material-symbols-outlined shrink-0 text-primary/80 leading-none mt-0.5">
-                              <span class="group-open:hidden">add</span>
-                              <span class="hidden group-open:inline">remove</span>
+                            <span class="am-accordion__indicator" aria-hidden="true">
+                              <span class="group-open:hidden">+</span>
+                              <span class="hidden group-open:inline">-</span>
                             </span>
                           </summary>
                           <p class="pt-4 text-on-surface-variant leading-relaxed max-w-2xl">
@@ -368,12 +410,12 @@ const sections = copy.sections.map((section, index) => ({
             ) : (
               <>
                 <div class="min-w-0 self-start">
-                  <div class="border border-outline-variant/10 bg-surface-container-lowest p-8 md:p-10 lg:p-12">
+                  <div class="border border-outline-variant/10 bg-surface-container-lowest px-8 pb-8 pt-4 md:px-10 md:pb-10 md:pt-5 lg:px-12 lg:pb-12 lg:pt-6">
                     <div class="mb-6">
                       <span class="text-[10px] uppercase tracking-[0.3em] text-primary font-bold block mb-3">
-                        FAQ Shell
+                        {copy.shared.sectionBadge[currentLang]}
                       </span>
-                      <h2 class="font-headline text-4xl md:text-5xl italic tracking-tight text-on-surface max-w-[14ch]">
+                      <h2 class="font-headline text-4xl md:text-5xl italic tracking-tight text-on-surface">
                         {section.topic}
                       </h2>
                     </div>
@@ -381,13 +423,13 @@ const sections = copy.sections.map((section, index) => ({
                     <div class="divide-y divide-outline-variant/15 border-y border-outline-variant/15">
                       {section.items.map((item) => (
                         <details class="group py-6">
-                          <summary class="list-none cursor-pointer flex items-start justify-between gap-6">
+                          <summary class="am-accordion__trigger">
                             <span class="min-w-0 font-label font-bold text-[11px] uppercase tracking-[0.18em] text-on-surface group-hover:text-primary transition-colors leading-relaxed">
                               {item.question}
                             </span>
-                            <span class="material-symbols-outlined shrink-0 text-primary/80 leading-none mt-0.5">
-                              <span class="group-open:hidden">add</span>
-                              <span class="hidden group-open:inline">remove</span>
+                            <span class="am-accordion__indicator" aria-hidden="true">
+                              <span class="group-open:hidden">+</span>
+                              <span class="hidden group-open:inline">-</span>
                             </span>
                           </summary>
                           <p class="pt-4 text-on-surface-variant leading-relaxed max-w-2xl">
@@ -410,14 +452,6 @@ const sections = copy.sections.map((section, index) => ({
                         decoding="async"
                       />
                     </div>
-                    <figcaption class="px-8 py-6 border-t border-outline-variant/10 bg-surface/90">
-                      <span class="text-[10px] uppercase tracking-[0.3em] text-outline font-bold block mb-2">
-                        Placeholder Image
-                      </span>
-                      <p class="text-on-surface-variant leading-relaxed">
-                        {section.topic}
-                      </p>
-                    </figcaption>
                   </figure>
                 </div>
               </>
@@ -425,6 +459,21 @@ const sections = copy.sections.map((section, index) => ({
           </section>
         ))}
       </main>
-    </div>
   </div>
 </BaseLayout>
+
+<style>
+  .am-exp-page {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 5vw;
+    background-color: #ffffff;
+  }
+
+  .am-faq-main {
+    padding-bottom: 5rem;
+  }
+
+  @media (max-width: 600px) {
+  }
+</style>

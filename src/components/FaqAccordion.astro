@@ -1,6 +1,5 @@
 ---
 // src/components/FaqAccordion.astro
-import SymbolIcon from './icons/SymbolIcon.astro';
 
 interface Props {
   arrivalTitle?: string;
@@ -26,7 +25,7 @@ const {
       <div class="space-y-20">
         {steps && steps.length > 0 ? steps.map((step) => (
           <div class="flex gap-12 items-start group">
-            <span class="text-[64px] font-headline italic leading-none text-[#d2c5b3] opacity-40 select-none">
+            <span class="text-[64px] font-headline italic leading-none text-outline select-none">
               {step.num}
             </span>
             <div class="pt-3">
@@ -49,13 +48,13 @@ const {
       <div class="divide-y divide-black/10 border-t border-black/10">
         {items && items.length > 0 ? items.map((item) => (
           <details class="group py-10 cursor-pointer outline-none">
-            <summary class="flex justify-between items-center list-none outline-none">
+            <summary class="am-accordion__trigger items-center">
               <h4 class="font-label font-bold text-[11px] uppercase tracking-[0.2em] text-on-surface group-hover:text-primary transition-colors">
                 {item.question}
               </h4>
-              <span class="text-[#785611] transition-transform duration-500">
-                <SymbolIcon name="plus" class="h-5 w-5 group-open:hidden" title="Expand answer" />
-                <SymbolIcon name="minus" class="hidden h-5 w-5 group-open:inline-flex" title="Collapse answer" />
+              <span class="am-accordion__indicator" aria-hidden="true">
+                <span class="group-open:hidden">+</span>
+                <span class="hidden group-open:inline">−</span>
               </span>
             </summary>
             <div class="overflow-hidden transition-all duration-500">

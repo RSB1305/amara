@@ -1,3 +1,5 @@
+import { buildOwnedLocalizedPath, buildSecondaryOnlyLocalizedPaths } from './routeOwnership';
+
 // src/lib/linkRegistry.ts
 /**
  * AMARA Link Registry — Astro SSOT
@@ -24,23 +26,54 @@ export const linkRegistry = {
     /* =========================================================
        CORE
     ========================================================= */
-    home: { en: '/en/', de: '/de/', es: '/es/', nl: '/nl/', sv: '/sv/' },
-    book: { en: '/en/book/', de: '/de/book/', es: '/es/book/', nl: '/nl/book/', sv: '/sv/book/' },
-    about: { en: '/amara-about-us', de: '/de/amara-about-us', es: '/es/amara-about-us', nl: '/nl/amara-about-us', sv: '/sv/amara-about-us' },
-    amenities: { en: '/en/comfort-amenities', de: '/de/comfort-amenities', es: '/es/comfort-amenities', nl: '/nl/comfort-amenities', sv: '/sv/comfort-amenities' },
-    arrival_guide: { en: '/en/directions-arrival-guide', de: '/de/directions-arrival-guide', es: '/es/directions-arrival-guide', nl: '/nl/directions-arrival-guide', sv: '/sv/directions-arrival-guide' },
-    direct_booking_benefits: { en: '/en/direct-booking-benefits', de: '/de/direct-booking-benefits', es: '/es/direct-booking-benefits', nl: '/nl/direct-booking-benefits', sv: '/sv/direct-booking-benefits' },
-    reviews_hub: {
-      en: '/en/guest-reviews',
-      de: '/de/guest-reviews',
-      es: '/es/guest-reviews',
-      nl: '/nl/guest-reviews',
-      sv: '/sv/guest-reviews'
+    home: {
+      en: buildOwnedLocalizedPath('', 'en'),
+      de: buildOwnedLocalizedPath('', 'de'),
+      es: buildOwnedLocalizedPath('', 'es'),
+      nl: buildOwnedLocalizedPath('', 'nl'),
+      sv: buildOwnedLocalizedPath('', 'sv')
     },
+    book: { en: '/en/book/', de: '/de/book/', es: '/es/book/', nl: '/nl/book/', sv: '/sv/book/' },
+    about: {
+      en: buildOwnedLocalizedPath('amara-about-us', 'en'),
+      de: buildOwnedLocalizedPath('amara-about-us', 'de'),
+      es: buildOwnedLocalizedPath('amara-about-us', 'es'),
+      nl: buildOwnedLocalizedPath('amara-about-us', 'nl'),
+      sv: buildOwnedLocalizedPath('amara-about-us', 'sv')
+    },
+    amenities: {
+      en: buildOwnedLocalizedPath('comfort-amenities', 'en'),
+      de: buildOwnedLocalizedPath('comfort-amenities', 'de'),
+      es: buildOwnedLocalizedPath('comfort-amenities', 'es'),
+      nl: buildOwnedLocalizedPath('comfort-amenities', 'nl'),
+      sv: buildOwnedLocalizedPath('comfort-amenities', 'sv')
+    },
+    arrival_guide: buildSecondaryOnlyLocalizedPaths('directions-arrival-guide'),
+    direct_booking_benefits: {
+      en: buildOwnedLocalizedPath('direct-booking-benefits', 'en'),
+      de: buildOwnedLocalizedPath('direct-booking-benefits', 'de'),
+      es: buildOwnedLocalizedPath('direct-booking-benefits', 'es'),
+      nl: buildOwnedLocalizedPath('direct-booking-benefits', 'nl'),
+      sv: buildOwnedLocalizedPath('direct-booking-benefits', 'sv')
+    },
+    reviews_hub: {
+      en: buildOwnedLocalizedPath('guest-reviews', 'en'),
+      de: buildOwnedLocalizedPath('guest-reviews', 'de'),
+      es: buildOwnedLocalizedPath('guest-reviews', 'es'),
+      nl: buildOwnedLocalizedPath('guest-reviews', 'nl'),
+      sv: buildOwnedLocalizedPath('guest-reviews', 'sv')
+    },
+instagram: 'https://www.instagram.com/amaralodging/',
 journal: { en: '/journal/', de: '/de/journal/', es: '/es/diario/', nl: '/nl/journal/', sv: '/sv/journal/' },
 contact: { en: '/contact/', de: '/de/kontakt/', es: '/es/contacto/', nl: '/nl/contact/', sv: '/sv/kontakt/' },
 archive: { en: '/archive/', de: '/de/archiv/', es: '/es/archivo/', nl: '/nl/archief/', sv: '/sv/arkiv/' },
-legal_notice: { en: '/legal-notice/', de: '/de/legal-notice/', es: '/es/legal-notice/', nl: '/nl/legal-notice/', sv: '/sv/legal-notice/' },
+legal_notice: {
+  en: buildOwnedLocalizedPath('legal-notice', 'en'),
+  de: buildOwnedLocalizedPath('legal-notice', 'de'),
+  es: buildOwnedLocalizedPath('legal-notice', 'es'),
+  nl: buildOwnedLocalizedPath('legal-notice', 'nl'),
+  sv: buildOwnedLocalizedPath('legal-notice', 'sv')
+},
 
 /* =========================================================
        EXPLORE
@@ -85,6 +118,13 @@ legal_notice: { en: '/legal-notice/', de: '/de/legal-notice/', es: '/es/legal-no
     /* =========================================================
        FRIGILIANA — (NEW)
     ========================================================= */
+    faq_general: {
+      en: buildOwnedLocalizedPath('faq-general', 'en'),
+      de: buildOwnedLocalizedPath('faq-general', 'de'),
+      es: buildOwnedLocalizedPath('faq-general', 'es'),
+      nl: buildOwnedLocalizedPath('faq-general', 'nl'),
+      sv: buildOwnedLocalizedPath('faq-general', 'sv')
+    },
     frigiliana_faq: { en: '/en/frigiliana-faq', de: '/de/frigiliana-faq', es: '/es/frigiliana-faq', nl: '/nl/frigiliana-faq', sv: '/sv/frigiliana-faq' },
     frigiliana_parking: { en: '/en/frigiliana-parking', de: '/de/frigiliana-parking', es: '/es/frigiliana-parking', nl: '/nl/frigiliana-parking', sv: '/sv/frigiliana-parking' },
     frigiliana_stairs: { en: '/en/frigiliana-village-structure-stairs', de: '/de/frigiliana-village-structure-stairs', es: '/es/frigiliana-village-structure-stairs', nl: '/nl/frigiliana-village-structure-stairs', sv: '/sv/frigiliana-village-structure-stairs' },
@@ -205,7 +245,13 @@ legal_notice: { en: '/legal-notice/', de: '/de/legal-notice/', es: '/es/legal-no
        ROMANTIC (LEGACY MAPPING)
     ========================================================= */
     romantic_andalusia: { en: '/en/book/', de: '/de/book/', es: '/es/book/', nl: '/nl/book/', sv: '/sv/book/' },
-    comfort_amenities: { en: '/en/comfort-amenities', de: '/de/comfort-amenities', es: '/es/comfort-amenities', nl: '/nl/comfort-amenities', sv: '/sv/comfort-amenities' },
+    comfort_amenities: {
+      en: buildOwnedLocalizedPath('comfort-amenities', 'en'),
+      de: buildOwnedLocalizedPath('comfort-amenities', 'de'),
+      es: buildOwnedLocalizedPath('comfort-amenities', 'es'),
+      nl: buildOwnedLocalizedPath('comfort-amenities', 'nl'),
+      sv: buildOwnedLocalizedPath('comfort-amenities', 'sv')
+    },
 
     /* =========================================================
        CANONICALS (SSOT)
