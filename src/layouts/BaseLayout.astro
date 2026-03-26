@@ -1,6 +1,7 @@
 ---
 // src/layouts/BaseLayout.astro
 import type { AmaraAuthoringSeo, AmaraLanguage } from '../types/seo';
+import BackToTop from '../components/BackToTop.astro';
 import Footer from '../components/Footer.astro';
 import { normalizeLanguage, resolveSeoHead } from '../lib/seo/resolve-seo-head';
 import { resolveStructuredData } from '../lib/seo/resolve-structured-data';
@@ -8,9 +9,12 @@ import '../styles/global.css';
 
 interface Props {
   seo: AmaraAuthoringSeo;
+  pageLang?: AmaraLanguage;
+  footerHighlights?: { token: string; label: string }[];
+  footerVariant?: 'default' | 'trust';
 }
 
-const { seo } = Astro.props;
+const { seo, pageLang, footerHighlights, footerVariant } = Astro.props;
 
 /**
  * Layout owns the document shell.
@@ -18,8 +22,8 @@ const { seo } = Astro.props;
  * so pages do not emit parallel SEO logic.
  */
 const pathname = Astro.url.pathname;
-const rawLang = pathname.split('/')[1] || 'en';
-const currentLang: AmaraLanguage = normalizeLanguage(rawLang);
+const rawLang = pathname.split('/')[1] || 'es';
+const currentLang: AmaraLanguage = pageLang ?? normalizeLanguage(rawLang);
 
 const origin = Astro.url.origin;
 
@@ -33,6 +37,7 @@ const ldJson = resolveStructuredData(seo, head.canonicalUrl, currentLang, origin
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="generator" content={Astro.generator} />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
 
     <title>{head.current.title}</title>
     <meta name="description" content={head.current.description} />
@@ -56,9 +61,10 @@ const ldJson = resolveStructuredData(seo, head.canonicalUrl, currentLang, origin
   <body class="bg-surface text-on-surface font-body selection:bg-primary/10 antialiased">
     <div class="grain-overlay fixed inset-0 z-[0] pointer-events-none opacity-[0.03]"></div>
 
-    <div class="relative z-[10]">
+    <div class="relative z-[10] pt-[136px]">
       <slot />
-      <Footer />
+      <BackToTop />
+      <Footer highlights={footerHighlights} variant={footerVariant} />
     </div>
   </body>
 </html>

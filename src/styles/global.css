@@ -37,6 +37,106 @@
     @apply bg-surface text-on-surface font-body selection:bg-primary-fixed-dim selection:text-on-primary-fixed;
   }
 
+  .am-kicker {
+    font-family: var(--font-body);
+    font-size: 1rem;
+    font-weight: 400;
+    letter-spacing: normal;
+    text-transform: none;
+    line-height: inherit;
+    color: inherit;
+  }
+
+  .am-gold {
+    color: #b08d55;
+  }
+
+  .am-kicker--strong {
+    font-weight: 600;
+  }
+
+  .am-cta-link {
+    font-family: "Plus Jakarta Sans", sans-serif;
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: #111;
+    text-decoration: none;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    padding-bottom: 4px;
+    transition: border-color 0.3s ease;
+  }
+
+  .am-cta-link:hover {
+    border-color: #111;
+  }
+
+  .am-cta-group {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+  }
+
+  .am-cta-group--left {
+    justify-content: flex-start;
+  }
+
+  .am-exp-cta__dot {
+    color: #ccc;
+  }
+
+  .am-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 9.85rem;
+    min-height: 2.5rem;
+    padding: 0.72rem 1.3rem;
+    border-radius: 0.94rem;
+    line-height: 1;
+    letter-spacing: 0.14em;
+    white-space: nowrap;
+    text-rendering: geometricPrecision;
+    font-family: "Plus Jakarta Sans", sans-serif;
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    transition:
+      background-color 180ms ease,
+      opacity 180ms ease;
+  }
+
+  .am-btn--primary {
+    background-color: #1b1c1a;
+    color: #fbf9f5;
+  }
+
+  .am-btn--primary:hover {
+    opacity: 0.92;
+  }
+
+  .am-accordion__trigger {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 1.5rem;
+    list-style: none;
+    cursor: pointer;
+    outline: none;
+  }
+
+  .am-accordion__indicator {
+    flex-shrink: 0;
+    margin-top: 0.125rem;
+    font-family: "Plus Jakarta Sans", sans-serif;
+    font-size: 1.25rem;
+    line-height: 1;
+    font-weight: 400;
+    color: rgb(120 86 17 / 0.8);
+  }
+
   /**
    * The grain layer is part of the AMARA shell language, so it remains global.
    * Keeping it here avoids re-declaring the same texture in page components.

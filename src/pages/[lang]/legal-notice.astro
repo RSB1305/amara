@@ -7,7 +7,7 @@ import type { AmaraAuthoringSeo, AmaraLanguage } from '../../types/seo';
 export function getStaticPaths() {
   return [
     { params: { lang: 'de' } },
-    { params: { lang: 'es' } },
+    { params: { lang: 'en' } },
     { params: { lang: 'nl' } },
     { params: { lang: 'sv' } }
   ];
@@ -21,6 +21,12 @@ const seo: AmaraAuthoringSeo = {
   pageType: 'C',
   entityKey: 'amara-brand',
   languages: {
+    en: {
+      title: 'AMARA Legal Notice & Privacy Policy',
+      description: 'Legal notice, rental licenses, and privacy policy. Including compliance information for Andalusia and GDPR.',
+      robots: 'index, follow',
+      canonical: 'auto'
+    },
     de: {
       title: 'AMARA Impressum & Datenschutzerklärung',
       description: 'Impressum, Lizenzen und Datenschutz. Inklusive Pflichtangaben nach TMG/DDG und andalusischem Tourismusrecht.',
@@ -54,7 +60,7 @@ const specsItemClass = 'grid gap-2 md:grid-cols-[minmax(0,18rem)_1fr]';
 const cardClass = 'bg-surface-container-lowest border border-outline-variant/10 px-8 py-8 md:px-10 md:py-10';
 ---
 
-<BaseLayout seo={seo}>
+<BaseLayout seo={seo} pageLang={currentLang}>
   <Navigation
     currentLang={currentLang}
     brandName="AMARA"

@@ -4,21 +4,16 @@ import { resolveLink } from '../lib/linkResolver';
 import type { AmaraLanguage } from '../types/seo';
 
 const pathname = Astro.url.pathname;
-const rawLang = pathname.split('/')[1] || 'en';
+const rawLang = pathname.split('/')[1] || 'es';
 const currentLang: AmaraLanguage = normalizeLanguage(rawLang);
-const currentYear = new Date().getFullYear();
 ---
 
 <footer class="footer-core border-t border-outline-variant/10 bg-surface-container-lowest px-12 py-12">
   <div class="max-w-screen-2xl mx-auto">
     <div class="footer-core__utility flex flex-wrap items-start justify-between gap-8 border-b border-outline-variant/10 pb-8">
-      <div class="footer-core__social flex flex-wrap items-center gap-x-8 gap-y-3">
-        <a href="https://www.instagram.com/" class="font-label text-[10px] font-bold uppercase tracking-[0.2em] text-on-surface-variant hover:text-primary transition-colors">
-          Instagram
-        </a>
-        <a href="https://www.facebook.com/" class="font-label text-[10px] font-bold uppercase tracking-[0.2em] text-on-surface-variant hover:text-primary transition-colors">
-          Facebook
-        </a>
+      <div class="footer-core__social flex flex-wrap items-center gap-x-4 gap-y-2 text-sm leading-relaxed text-on-surface-variant">
+        <span>&copy; 2026 AMARA</span>
+        <span>Frigiliana, Malaga &middot; Spain</span>
       </div>
 
       <div class="footer-core__contact flex flex-wrap items-center gap-x-8 gap-y-3">
@@ -38,13 +33,6 @@ const currentYear = new Date().getFullYear();
         <a href={resolveLink('legal_notice', currentLang)} class="font-label text-[10px] font-bold uppercase tracking-[0.2em] text-on-surface-variant hover:text-primary transition-colors">
           Privacy
         </a>
-      </div>
-    </div>
-
-    <div class="footer-core__bottom flex flex-wrap items-start justify-between gap-8 pt-8">
-      <div class="footer-core__left flex flex-wrap items-center gap-x-4 gap-y-2 text-sm leading-relaxed text-on-surface-variant">
-        <span>&copy; {currentYear} AMARA</span>
-        <span>Frigiliana, Malaga &middot; Spain</span>
       </div>
     </div>
   </div>

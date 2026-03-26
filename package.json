@@ -9,7 +9,9 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "check:link-policy": "node scripts/check-shared-link-policy.mjs",
+    "check:fallback-policy": "node scripts/check-fallback-policy.mjs"
   },
   "dependencies": {
     "@astrojs/react": "^5.0.1",

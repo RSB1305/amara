@@ -1,16 +1,17 @@
 ---
 // src/layouts/LocationAuthorityLayout.astro
 import BaseLayout from './BaseLayout.astro';
-import type { AmaraAuthoringSeo } from '../types/seo';
+import type { AmaraAuthoringSeo, AmaraLanguage } from '../types/seo';
 
 interface Props {
   seo: AmaraAuthoringSeo;
+  pageLang?: AmaraLanguage;
 }
 
-const { seo } = Astro.props;
+const { seo, pageLang } = Astro.props;
 ---
 
-<BaseLayout seo={seo}>
+<BaseLayout seo={seo} pageLang={pageLang}>
   <main>
     <slot />
   </main>

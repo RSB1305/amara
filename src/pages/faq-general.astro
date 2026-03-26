@@ -1,0 +1,316 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Navigation from '../components/Navigation.astro';
+import TrustHero from '../components/hero/TrustHero.astro';
+import { resolveLink } from '../lib/linkResolver';
+import type { AmaraAuthoringSeo, AmaraLanguage } from '../types/seo';
+
+const currentLang: AmaraLanguage = 'es';
+
+const seo: AmaraAuthoringSeo = {
+  version: '2026-03-26-amara-faq-general-es-root-v2.0',
+  pageType: 'C',
+  entityKey: 'amara-brand',
+  languages: {
+    en: {
+      title: 'AMARA | FAQ',
+      description: 'Answers about booking, payment, arrival, house rules, trust, and pets before you stay with AMARA.',
+      robots: 'index, follow',
+      canonical: 'auto'
+    },
+    de: {
+      title: 'AMARA | FAQ',
+      description: 'Antworten zu Buchung, Zahlung, Anreise, Hausregeln, Vertrauen und Haustieren vor eurem Aufenthalt bei AMARA.',
+      robots: 'index, follow',
+      canonical: 'auto'
+    },
+    es: {
+      title: 'AMARA | FAQ',
+      description: 'Respuestas sobre reserva, pago, llegada, normas, confianza y mascotas antes de vuestra estancia en AMARA.',
+      robots: 'index, follow',
+      canonical: 'auto'
+    },
+    nl: {
+      title: 'AMARA | FAQ',
+      description: 'Antwoorden over boeken, betalen, aankomst, huisregels, vertrouwen en huisdieren voor jullie verblijf bij AMARA.',
+      robots: 'index, follow',
+      canonical: 'auto'
+    },
+    sv: {
+      title: 'AMARA | FAQ',
+      description: 'Svar om bokning, betalning, ankomst, husregler, trygghet och husdjur innan er vistelse hos AMARA.',
+      robots: 'index, follow',
+      canonical: 'auto'
+    }
+  },
+  ogImage: '/images/robert-amara-founder-host.jpg'
+};
+
+const trustLinks = [
+  { token: 'about', label: 'Sobre AMARA' },
+  { token: 'reviews_hub', label: 'Opiniones de huéspedes' },
+  { token: 'direct_booking_benefits', label: 'Ventajas de reserva directa' }
+];
+
+const footerHighlights = [
+  { token: 'amenities', label: 'Servicios' },
+  { token: 'reviews_hub', label: 'Opiniones de huéspedes' },
+  { token: 'instagram', label: 'Instagram' }
+];
+
+const hero = {
+  kicker: 'Preguntas frecuentes',
+  title: 'FAQ de la estancia: reserva, llegada y normas',
+  lead: 'Respuestas claras y orientadas a la decisión para que podáis reservar con tranquilidad: pago, cancelación, llegada y normas de la casa.',
+  supportText: 'Primero la claridad, para que decidir sea fácil, sereno y seguro.'
+};
+
+const sections = [
+  {
+    topic: 'Reserva y pago',
+    image: '/images/amara-entrada/casa-amara-frigiliana-entrada-iii.jpg',
+    alt: 'Imagen de AMARA sobre reserva y llegada',
+    items: [
+      {
+        question: '¿Cómo funciona el proceso de reserva?',
+        answer:
+          'Elegid vuestras fechas, revisad el precio final y la estancia mínima, y completad la reserva de forma segura online.'
+      },
+      {
+        question: '¿La reserva queda confirmada al instante?',
+        answer:
+          'Si las fechas están disponibles y la reserva se completa correctamente, recibiréis enseguida un correo de confirmación. Si algún dato requiere revisión, os contactaremos con rapidez.'
+      },
+      {
+        question: '¿Qué métodos de pago aceptáis?',
+        answer:
+          'Los métodos disponibles dependen de vuestro país y de la configuración de la reserva. Antes de confirmar veréis siempre las opciones concretas que tenéis disponibles.'
+      },
+      {
+        question: '¿Cuándo se realiza el cobro?',
+        answer:
+          'El momento exacto se muestra durante el proceso de reserva y en vuestra confirmación. Algunas reservas se cobran al instante y otras siguen un calendario de pagos.'
+      },
+      {
+        question: '¿Cuál es la política de cancelación?',
+        answer:
+          'La cancelación gratuita está disponible hasta 7 días antes de la llegada. Después, la reserva no es reembolsable. Siempre prevalece la política final que aparece durante la reserva.'
+      }
+    ]
+  },
+  {
+    topic: 'Estancia y confort',
+    image: '/images/amara-lounis/104-amara-frigiliana.jpg',
+    alt: 'Imagen de AMARA sobre la estancia',
+    items: [
+      {
+        question: '¿Qué tipo de alojamiento es AMARA?',
+        answer:
+          'AMARA ofrece apartamentos independientes cuidadosamente seleccionados; no operamos como hotel clásico. La colección está pensada para estancias serenas y cómodas, especialmente para parejas y adultos que valoran el descanso.'
+      },
+      {
+        question: '¿AMARA es adecuado para fiestas o celebraciones?',
+        answer:
+          'No. AMARA está concebido para una experiencia tranquila y no es adecuado para fiestas, eventos ni grupos grandes.'
+      },
+      {
+        question: '¿Incluís limpieza diaria?',
+        answer:
+          'No incluimos servicio diario de estilo hotelero. El apartamento se prepara profesionalmente para vuestra estancia y cualquier servicio opcional se comunica por separado.'
+      },
+      {
+        question: '¿Se incluyen sábanas y toallas?',
+        answer:
+          'Sí. Se incluyen sábanas y toallas. Los detalles exactos pueden variar ligeramente según el apartamento y figuran en la información de cada unidad.'
+      },
+      {
+        question: '¿Hay wifi?',
+        answer:
+          'Sí, hay wifi. Si necesitáis trabajar en remoto, os recomendamos revisar los detalles de la unidad o escribirnos con vuestros requisitos concretos.'
+      }
+    ]
+  },
+  {
+    topic: 'Normas de la casa y políticas',
+    image: '/images/amara-maha/91-amara-frigiliana.jpg',
+    alt: 'Imagen de AMARA sobre normas de la casa',
+    items: [
+      {
+        question: '¿Cuál es el horario de check-in y check-out?',
+        answer:
+          'El check-in es a partir de las 15:00 y el check-out hasta las 11:00. Si necesitáis una excepción, solicitadla con antelación: depende de la disponibilidad.'
+      },
+      {
+        question: '¿Se permite fumar?',
+        answer:
+          'No. Todas las propiedades AMARA son estrictamente libres de humo en interiores.'
+      },
+      {
+        question: '¿Se permiten visitas?',
+        answer:
+          'Solo se permiten huéspedes registrados. Esta medida ayuda a mantener una estancia tranquila y segura para todos.'
+      },
+      {
+        question: '¿Cuál es la estancia mínima?',
+        answer:
+          'La estancia mínima varía según temporada y apartamento. El requisito exacto se muestra siempre durante el proceso de reserva.'
+      }
+    ]
+  },
+  {
+    topic: 'Confianza y mascotas',
+    image: '/images/amara-zaid/cara-rural-frigiliana-amara-said-terraza-5.jpg',
+    alt: 'Imagen de AMARA sobre confianza',
+    items: [
+      {
+        question: '¿Se admiten mascotas?',
+        answer:
+          'Las mascotas son bienvenidas en apartamentos seleccionados, normalmente bajo solicitud previa, por 15 EUR al día. La norma final aparece siempre durante la reserva y en la ficha de la unidad.'
+      },
+      {
+        question: '¿AMARA está legalmente registrado?',
+        answer:
+          'Sí. Cuando aplica, los números de licencia figuran en nuestra página de servicios y políticas.'
+      },
+      {
+        question: '¿Con quién contacto durante la estancia?',
+        answer:
+          'Recibiréis datos de contacto claros dentro de la información de llegada. Para asuntos urgentes, utilizad el canal principal indicado en vuestra confirmación.'
+      },
+      {
+        question: '¿Por qué reservar directamente?',
+        answer:
+          'La reserva directa os ofrece disponibilidad más clara, condiciones más precisas y precio final sin intermediarios.'
+      }
+    ]
+  }
+] as const;
+---
+
+<BaseLayout seo={seo} pageLang={currentLang} footerHighlights={footerHighlights}>
+  <Navigation
+    currentLang={currentLang}
+    brandName="AMARA"
+    links={trustLinks}
+    variant="trust"
+    currentToken="faq_general"
+  />
+
+  <div class="am-exp-page" data-lang={currentLang}>
+    <TrustHero
+      subtitle={hero.kicker}
+      title={hero.title}
+      lead={hero.lead}
+      supportText={hero.supportText}
+      ctaLinks={[
+        { href: resolveLink('about', currentLang), label: 'Sobre nosotros' },
+        { href: resolveLink('reviews_hub', currentLang), label: 'Opiniones de huéspedes' }
+      ]}
+    />
+
+    <main class="am-faq-main space-y-16">
+      {sections.map((section, index) => (
+        <section class="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-20 items-start border-t border-outline-variant/10 pt-16">
+          {index % 2 === 1 ? (
+            <>
+              <div class="min-w-0 self-start">
+                <figure class="border border-outline-variant/10 bg-surface-container-low overflow-hidden">
+                  <div class="aspect-[16/10]">
+                    <img
+                      src={section.image}
+                      alt={section.alt}
+                      class="w-full h-full object-cover"
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  </div>
+                </figure>
+              </div>
+
+              <div class="min-w-0 self-start">
+                <div class="border border-outline-variant/10 bg-surface-container-lowest px-8 pb-8 pt-4 md:px-10 md:pb-10 md:pt-5 lg:px-12 lg:pb-12 lg:pt-6">
+                  <div class="mb-6">
+                    <span class="text-[10px] uppercase tracking-[0.3em] text-primary font-bold block mb-3">Stay FAQ</span>
+                    <h2 class="font-headline text-4xl md:text-5xl italic tracking-tight text-on-surface">{section.topic}</h2>
+                  </div>
+
+                  <div class="divide-y divide-outline-variant/15 border-y border-outline-variant/15">
+                    {section.items.map((item) => (
+                      <details class="group py-6">
+                        <summary class="am-accordion__trigger">
+                          <span class="min-w-0 font-label font-bold text-[11px] uppercase tracking-[0.18em] text-on-surface group-hover:text-primary transition-colors leading-relaxed">
+                            {item.question}
+                          </span>
+                          <span class="am-accordion__indicator" aria-hidden="true">
+                            <span class="group-open:hidden">+</span>
+                            <span class="hidden group-open:inline">-</span>
+                          </span>
+                        </summary>
+                        <p class="pt-4 text-on-surface-variant leading-relaxed max-w-2xl">{item.answer}</p>
+                      </details>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </>
+          ) : (
+            <>
+              <div class="min-w-0 self-start">
+                <div class="border border-outline-variant/10 bg-surface-container-lowest px-8 pb-8 pt-4 md:px-10 md:pb-10 md:pt-5 lg:px-12 lg:pb-12 lg:pt-6">
+                  <div class="mb-6">
+                    <span class="text-[10px] uppercase tracking-[0.3em] text-primary font-bold block mb-3">Stay FAQ</span>
+                    <h2 class="font-headline text-4xl md:text-5xl italic tracking-tight text-on-surface">{section.topic}</h2>
+                  </div>
+
+                  <div class="divide-y divide-outline-variant/15 border-y border-outline-variant/15">
+                    {section.items.map((item) => (
+                      <details class="group py-6">
+                        <summary class="am-accordion__trigger">
+                          <span class="min-w-0 font-label font-bold text-[11px] uppercase tracking-[0.18em] text-on-surface group-hover:text-primary transition-colors leading-relaxed">
+                            {item.question}
+                          </span>
+                          <span class="am-accordion__indicator" aria-hidden="true">
+                            <span class="group-open:hidden">+</span>
+                            <span class="hidden group-open:inline">-</span>
+                          </span>
+                        </summary>
+                        <p class="pt-4 text-on-surface-variant leading-relaxed max-w-2xl">{item.answer}</p>
+                      </details>
+                    ))}
+                  </div>
+                </div>
+              </div>
+
+              <div class="min-w-0 self-start">
+                <figure class="border border-outline-variant/10 bg-surface-container-low overflow-hidden">
+                  <div class="aspect-[16/10]">
+                    <img
+                      src={section.image}
+                      alt={section.alt}
+                      class="w-full h-full object-cover"
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  </div>
+                </figure>
+              </div>
+            </>
+          )}
+        </section>
+      ))}
+    </main>
+  </div>
+</BaseLayout>
+
+<style>
+  .am-exp-page {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 5vw;
+    background-color: #ffffff;
+  }
+
+  .am-faq-main {
+    padding-bottom: 5rem;
+  }
+</style>

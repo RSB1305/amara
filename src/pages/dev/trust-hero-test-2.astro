@@ -1,0 +1,82 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Navigation from '../../components/Navigation.astro';
+import TrustHero from '../../components/hero/TrustHero.astro';
+import { resolveLink } from '../../lib/linkResolver';
+import type { AmaraAuthoringSeo, AmaraLanguage } from '../../types/seo';
+
+const currentLang: AmaraLanguage = 'en';
+
+const seo: AmaraAuthoringSeo = {
+  version: '2026-03-25-trust-hero-test-2',
+  pageType: 'C',
+  entityKey: 'amara-brand',
+  languages: {
+    en: {
+      title: 'AMARA | Trust Hero Test 2',
+      description: 'Second standalone TrustHero test page.',
+      robots: 'noindex, nofollow',
+      canonical: 'auto'
+    },
+    de: {
+      title: 'AMARA | Trust Hero Test 2',
+      description: 'Second standalone TrustHero test page.',
+      robots: 'noindex, nofollow',
+      canonical: 'auto'
+    },
+    es: {
+      title: 'AMARA | Trust Hero Test 2',
+      description: 'Second standalone TrustHero test page.',
+      robots: 'noindex, nofollow',
+      canonical: 'auto'
+    },
+    nl: {
+      title: 'AMARA | Trust Hero Test 2',
+      description: 'Second standalone TrustHero test page.',
+      robots: 'noindex, nofollow',
+      canonical: 'auto'
+    },
+    sv: {
+      title: 'AMARA | Trust Hero Test 2',
+      description: 'Second standalone TrustHero test page.',
+      robots: 'noindex, nofollow',
+      canonical: 'auto'
+    }
+  }
+};
+
+const trustLinks = [
+  { token: 'about', label: 'About AMARA' },
+  { token: 'reviews_hub', label: 'Guest Reviews' },
+  { token: 'direct_booking_benefits', label: 'Direct Booking Benefits' }
+];
+---
+
+<BaseLayout seo={seo}>
+  <Navigation
+    currentLang={currentLang}
+    brandName="AMARA"
+    links={trustLinks}
+    variant="trust"
+    languageToken="about"
+  />
+
+  <div class="max-w-[1400px] mx-auto px-[5vw] bg-white">
+    <TrustHero
+      subtitle="AMARA · Coastal Calm · Slow Arrival"
+      title="A stay that settles<br/>the room immediately"
+      lead="Light, order, and quiet should be felt before they are noticed. The first minute tells you whether a place is carefully run."
+      supportText="Clear, composed, and ready from the moment you arrive."
+      ctaLinks={[
+        { href: resolveLink('book', currentLang), label: 'Check Availability' },
+        { href: resolveLink('reviews_hub', currentLang), label: 'Guest Reviews' }
+      ]}
+    />
+
+    <section class="pb-20">
+      <p class="max-w-2xl text-base leading-8 text-on-surface/70">
+        Placeholder content below the hero for visual validation in a second Trust context.
+      </p>
+    </section>
+  </div>
+</BaseLayout>

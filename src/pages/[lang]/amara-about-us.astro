@@ -1,14 +1,16 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Navigation from '../../components/Navigation.astro';
+import TrustHero from '../../components/TrustHero.astro';
+import { getAboutUsPageData } from '../../content/aboutUsContent';
 import { resolveLink } from '../../lib/linkResolver';
 import { normalizeLanguage } from '../../lib/seo/resolve-seo-head';
-import type { AmaraAuthoringSeo, AmaraLanguage } from '../../types/seo';
+import type { AmaraLanguage } from '../../types/seo';
 
 export function getStaticPaths() {
   return [
     { params: { lang: 'de' } },
-    { params: { lang: 'es' } },
+    { params: { lang: 'en' } },
     { params: { lang: 'nl' } },
     { params: { lang: 'sv' } }
   ];
@@ -16,338 +18,184 @@ export function getStaticPaths() {
 
 const { lang } = Astro.params;
 const currentLang = normalizeLanguage(lang as AmaraLanguage);
-
-const seo: AmaraAuthoringSeo = {
-  version: '2026-03-23-amara-about-us',
-  pageType: 'C',
-  entityKey: 'amara-brand',
-  languages: {
-    en: {
-      title: 'AMARA | About Us',
-      description: 'Learn about the AMARA philosophy, hosting standards, quality principles, and the people behind the brand.',
-      robots: 'index, follow',
-      canonical: 'auto'
-    },
-    de: {
-      title: 'AMARA | About Us',
-      description: 'Learn about the AMARA philosophy, hosting standards, quality principles, and the people behind the brand.',
-      robots: 'index, follow',
-      canonical: 'auto'
-    },
-    es: {
-      title: 'AMARA | About Us',
-      description: 'Learn about the AMARA philosophy, hosting standards, quality principles, and the people behind the brand.',
-      robots: 'index, follow',
-      canonical: 'auto'
-    },
-    nl: {
-      title: 'AMARA | About Us',
-      description: 'Learn about the AMARA philosophy, hosting standards, quality principles, and the people behind the brand.',
-      robots: 'index, follow',
-      canonical: 'auto'
-    },
-    sv: {
-      title: 'AMARA | About Us',
-      description: 'Learn about the AMARA philosophy, hosting standards, quality principles, and the people behind the brand.',
-      robots: 'index, follow',
-      canonical: 'auto'
-    }
-  }
-};
-
-const trustLinks = [
-  { token: 'about', label: 'About AMARA' },
-  { token: 'reviews_hub', label: 'Guest Reviews' },
-  { token: 'direct_booking_benefits', label: 'Direct Booking Benefits' }
-];
+const page = getAboutUsPageData(currentLang);
+const content = page.content;
 ---
 
-<BaseLayout seo={seo}>
+<BaseLayout seo={page.seo} pageLang={currentLang} footerHighlights={page.footerHighlights}>
   <Navigation
     currentLang={currentLang}
     brandName="AMARA"
-    links={trustLinks}
+    brandLabel={page.brandLabel}
+    links={page.navigationLinks}
     variant="trust"
     languageToken="about"
+    ctaLabel={page.navCtaLabel}
   />
   <div class="am-exp-page">
-    <!-- 1. EDITORIAL HERO -->
-    <header class="am-exp-hero">
-      <div class="am-exp-hero__meta">
-        <span class="am-kicker">AMARA</span>
-        <span class="am-kicker">Frigiliana &middot; Nerja &middot; Tarifa</span>
-      </div>
-      <h1 class="am-exp-hero__title">Holiday Apartments<br/>in Andalusia</h1>
-      <p class="am-exp-hero__lead">
-        You arrive, open the door, and feel immediate relief. Everything is prepared. Nothing asks for attention.
-      </p>
-    </header>
+    <TrustHero
+      subtitle={page.hero.subtitle}
+      title={page.hero.titleHtml}
+      lead={page.hero.lead}
+      supportText={page.hero.supportText}
+      ctaLinks={page.hero.ctaLinks.map((link) => ({
+        href: resolveLink(link.token, currentLang),
+        label: link.label
+      }))}
+    />
 
     <main>
-      <!-- 2. MANIFESTO / PHILOSOPHY -->
       <section class="am-exp-section am-exp-philosophy">
         <div class="am-exp-grid-split">
           <div class="am-exp-grid-split__left">
-            <h2 class="am-section-title">AMARA means love</h2>
+            <h2 class="am-section-title">{content.philosophy.title[currentLang]}</h2>
           </div>
           <div class="am-exp-grid-split__right">
-            <p class="am-body am-exp-text-large">
-              Love for the details. Love for what we do. A kind of love that stays &mdash; because it's consistent, not loud.
-            </p>
-            <p class="am-body">
-              AMARA was built from years of travel and hosting experience &mdash; professional and personal &mdash; with one clear goal: a stay that feels effortless from the first minute.
-            </p>
-            <p class="am-body">
-              This name is not a promise for a moment. It is a promise for what remains afterwards: trust, return guests, and the feeling of having truly arrived.
-            </p>
-
+            <p class="am-body am-exp-text-large">{content.philosophy.lead[currentLang]}</p>
+            {content.philosophy.paragraphs?.map((paragraph) => (
+              <p class="am-body">{paragraph[currentLang]}</p>
+            ))}
             <div class="am-exp-spacer"></div>
-
-            <h3 class="am-exp-subtitle">About us? Actually: about you.</h3>
-            <p class="am-body">
-              Everything at AMARA is built around the guest. Not around trends. Not around platform logic. Not around short-term optimisation.
-            </p>
-            <p class="am-body">
-              Hosting here is a matter of trust. The guiding question is always: <em>What makes this stay genuinely better for the guest?</em>
-            </p>
-            <p class="am-body">
-              That question guides every decision &mdash; consistency, responsibility, and long-term guest satisfaction.
-            </p>
+            <h3 class="am-exp-subtitle">{content.philosophy.subtitle?.[currentLang]}</h3>
+            {content.philosophy.items?.map((item) => (
+              <p class="am-body">{item.copy[currentLang]}</p>
+            ))}
           </div>
         </div>
       </section>
 
-      <!-- 3. PULLQUOTE -->
       <section class="am-exp-section am-exp-quote-block">
-        <blockquote class="am-exp-quote">
-          &ldquo;Everything was exactly as described &mdash; even better when we arrived.&rdquo;
-        </blockquote>
+        <blockquote class="am-exp-quote">&ldquo;{content.quote[currentLang]}&rdquo;</blockquote>
       </section>
 
-      <!-- 4. TRUST PRINCIPLES BLOCK -->
       <section class="am-exp-section am-exp-principles">
         <div class="am-exp-principles__header">
-          <h2 class="am-section-title">What we do differently</h2>
-          <p class="am-body am-exp-principles__note">These choices are intentional. They are also not for everyone &mdash; and that is exactly the point.</p>
+          <h2 class="am-section-title">{content.principles.title?.[currentLang]}</h2>
+          <p class="am-body am-exp-principles__note">{content.principles.note?.[currentLang]}</p>
         </div>
-        
         <div class="am-exp-list">
-          <div class="am-exp-list__item">
-            <h3 class="am-exp-list__title">Prepared for real stays</h3>
-            <p class="am-body">Comfort and daily usefulness first &mdash; not staged for photos.</p>
-          </div>
-          <div class="am-exp-list__item">
-            <h3 class="am-exp-list__title">Consistency over promises</h3>
-            <p class="am-body">What you see is what you find &mdash; every season, every stay.</p>
-          </div>
-          <div class="am-exp-list__item">
-            <h3 class="am-exp-list__title">Calm, not stimulation</h3>
-            <p class="am-body">Design supports rest &mdash; not visual noise.</p>
-          </div>
-          <div class="am-exp-list__item">
-            <h3 class="am-exp-list__title">Direct responsibility</h3>
-            <p class="am-body">You communicate with the people responsible for your stay.</p>
-          </div>
-          <div class="am-exp-list__item">
-            <h3 class="am-exp-list__title">Privacy respected</h3>
-            <p class="am-body">Present when needed, invisible otherwise.</p>
-          </div>
+          {content.principles.items?.map((item) => (
+            <div class="am-exp-list__item">
+              <h3 class="am-exp-list__title">{item.title[currentLang]}</h3>
+              <p class="am-body">{item.copy[currentLang]}</p>
+            </div>
+          ))}
         </div>
       </section>
 
-      <!-- 5. QUALITY STANDARDS GRID & PRICING MANIFESTO -->
       <section class="am-exp-section am-exp-quality">
-        <h2 class="am-section-title am-exp-quality__title">Honest quality in every AMARA home</h2>
-        
+        <h2 class="am-section-title am-exp-quality__title">{content.quality.title?.[currentLang]}</h2>
         <div class="am-exp-quality__grid">
-          <div class="am-exp-quality__card">
-            <div class="am-exp-quality__header">
-              <h3 class="am-exp-quality__label">Deep sleep</h3>
+          {content.quality.cards.map((card) => (
+            <div class="am-exp-quality__card">
+              <div class="am-exp-quality__header">
+                <h3 class="am-exp-quality__label">
+                  <span class="am-exp-quality__label-main">{card.title[currentLang]}</span>
+                  {card.subline && <span class="am-exp-muted am-exp-quality__subline">{card.subline[currentLang]}</span>}
+                </h3>
+              </div>
+              <p class="am-body">{card.copy[currentLang]}</p>
             </div>
-            <p class="am-body">High-quality mattresses, crisp linens, quiet nights.</p>
-          </div>
-          <div class="am-exp-quality__card">
-            <div class="am-exp-quality__header">
-              <h3 class="am-exp-quality__label">
-                <span class="am-exp-quality__label-main">Cleanliness</span>
-                <span class="am-exp-muted am-exp-quality__subline">(non-negotiable)</span>
-              </h3>
-            </div>
-            <p class="am-body">Thorough preparation &mdash; never rushed, never &ldquo;good enough&rdquo;.</p>
-          </div>
-          <div class="am-exp-quality__card">
-            <div class="am-exp-quality__header">
-              <h3 class="am-exp-quality__label">Materials that age well</h3>
-            </div>
-            <p class="am-body">Durable choices instead of quick fixes.</p>
-          </div>
-          <div class="am-exp-quality__card">
-            <div class="am-exp-quality__header">
-              <h3 class="am-exp-quality__label">Reliable equipment</h3>
-            </div>
-            <p class="am-body">Useful details, not showroom gimmicks.</p>
-          </div>
+          ))}
         </div>
-        <p class="am-body am-exp-quality__footer">
-          If something no longer meets our standards, it is replaced &mdash; quietly, consistently, without discussion.
-        </p>
-
+        <p class="am-body am-exp-quality__footer">{content.quality.note?.[currentLang]}</p>
         <div class="am-exp-statement">
-          <h3 class="am-exp-statement__title">Stable pricing. No discounts.</h3>
+          <h3 class="am-exp-statement__title">{content.quality.statementTitle[currentLang]}</h3>
           <div class="am-exp-statement__content">
-            <p class="am-body">
-              AMARA is not the cheapest option &mdash; and it is not designed to be. Reliable quality, care, and continuous reinvestment have real costs.
-            </p>
-            <p class="am-body">
-              Pricing is stable, transparent, and intentional &mdash; without flash deals or artificial promotions.
-            </p>
-            <p class="am-body am-exp-statement__strong">
-              If you are looking for the lowest price, AMARA is not the right fit.
-            </p>
+            {content.quality.statementParagraphs.map((paragraph) => (
+              <p class="am-body">{paragraph[currentLang]}</p>
+            ))}
+            <p class="am-body am-exp-statement__strong">{content.quality.statementStrong[currentLang]}</p>
           </div>
         </div>
       </section>
 
-      <!-- 6. LOCATIONS TRIO -->
       <section class="am-exp-section am-exp-locations">
         <div class="am-exp-locations__header">
-          <h2 class="am-section-title">Our locations in Andalusia</h2>
-          <p class="am-body">Each AMARA location is chosen for atmosphere, rhythm, and the kind of stay it makes possible.</p>
+          <h2 class="am-section-title">{content.locations.title?.[currentLang]}</h2>
+          <p class="am-body">{content.locations.lead?.[currentLang]}</p>
         </div>
-        
         <div class="am-exp-locations__trio">
-          <figure class="am-exp-location">
-            <div class="am-exp-location__image"><span>Frigiliana</span></div>
-            <figcaption class="am-exp-location__caption">
-              <h3 class="am-exp-location__title">Frigiliana</h3>
-              <p class="am-body">Quiet depth, white village calm, and a sense of time.</p>
-            </figcaption>
-          </figure>
-          <figure class="am-exp-location">
-            <div class="am-exp-location__image"><span>Nerja</span></div>
-            <figcaption class="am-exp-location__caption">
-              <h3 class="am-exp-location__title">Nerja</h3>
-              <p class="am-body">Sea rhythm, authentic energy &mdash; with balance and ease.</p>
-            </figcaption>
-          </figure>
-          <figure class="am-exp-location">
-            <div class="am-exp-location__image"><span>Tarifa</span></div>
-            <figcaption class="am-exp-location__caption">
-              <h3 class="am-exp-location__title">Tarifa</h3>
-              <p class="am-body">Wide horizons, light and wind &mdash; active outdoors, calm indoors.</p>
-            </figcaption>
-          </figure>
+          {content.locations.locations?.map((location) => (
+            <figure class="am-exp-location">
+              <div class="am-exp-location__image"><span>{location.name}</span></div>
+              <figcaption class="am-exp-location__caption">
+                <h3 class="am-exp-location__title">{location.name}</h3>
+                <p class="am-body">{location.copy[currentLang]}</p>
+              </figcaption>
+            </figure>
+          ))}
         </div>
       </section>
 
-      <!-- 7. FOUNDER PROFILE & TEAM -->
       <section class="am-exp-section am-exp-host">
         <div class="am-exp-host__split">
           <div class="am-exp-host__visual">
             <div class="am-exp-host__portrait">
-              <img
-                src="/images/robert-amara-founder-host.jpg"
-                alt="Robert, founder and host of AMARA"
-                loading="lazy"
-                decoding="async"
-              />
+              <img src="/images/robert-amara-founder-host.jpg" alt={content.host.imageAlt[currentLang]} loading="lazy" decoding="async" />
             </div>
           </div>
           <div class="am-exp-host__content">
-            <h2 class="am-section-title">Your host</h2>
-            <p class="am-kicker am-exp-host__role">Robert &mdash; Founder & Host</p>
-            
+            <h2 class="am-section-title">{content.host.title?.[currentLang]}</h2>
+            <p class="am-kicker am-exp-host__role">{content.host.role[currentLang]}</p>
             <dl class="am-exp-stats">
-              <div class="am-exp-stats__item">
-                <dt class="am-exp-stats__label">Fast replies</dt>
-                <dd class="am-body am-exp-stats__value">Clear, direct, reliable communication.</dd>
-              </div>
-              <div class="am-exp-stats__item">
-                <dt class="am-exp-stats__label">Present, not intrusive</dt>
-                <dd class="am-body am-exp-stats__value">Reachable when needed, invisible otherwise.</dd>
-              </div>
-              <div class="am-exp-stats__item">
-                <dt class="am-exp-stats__label">Languages</dt>
-                <dd class="am-body am-exp-stats__value">DE &middot; EN &middot; ES</dd>
-              </div>
-              <div class="am-exp-stats__item">
-                <dt class="am-exp-stats__label">Insider guidance</dt>
-                <dd class="am-body am-exp-stats__value">Curated recommendations for calm, authentic experiences.</dd>
-              </div>
+              {content.host.stats?.map((stat) => (
+                <div class="am-exp-stats__item">
+                  <dt class="am-exp-stats__label">{stat.label[currentLang]}</dt>
+                  <dd class="am-body am-exp-stats__value">{stat.value[currentLang]}</dd>
+                </div>
+              ))}
             </dl>
-
             <div class="am-exp-team">
-              <h3 class="am-exp-subtitle">A small team. One standard.</h3>
+              <h3 class="am-exp-subtitle">{content.host.subtitle?.[currentLang]}</h3>
               <div class="am-exp-team__grid">
-                <div>
-                  <h4 class="am-exp-team__label">Small and trusted</h4>
-                  <p class="am-body">A team that shares the same standards.</p>
-                </div>
-                <div>
-                  <h4 class="am-exp-team__label">The same every stay</h4>
-                  <p class="am-body">Care applied consistently &mdash; not selectively.</p>
-                </div>
-                <div>
-                  <h4 class="am-exp-team__label">Quiet execution</h4>
-                  <p class="am-body">Quality happens in the background &mdash; so the stay feels effortless.</p>
-                </div>
+                {content.host.teamItems?.map((item) => (
+                  <div>
+                    <h4 class="am-exp-team__label">{item.title[currentLang]}</h4>
+                    <p class="am-body">{item.copy[currentLang]}</p>
+                  </div>
+                ))}
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      <!-- 8. SUSTAINABILITY BLOCK -->
       <section class="am-exp-section am-exp-sustainability">
         <div class="am-exp-sustainability__inner">
           <div class="am-exp-sustainability__header">
-            <h2 class="am-section-title">AMARA Earth</h2>
-            <p class="am-kicker">Sustainable by choice.</p>
+            <h2 class="am-section-title">{content.sustainability.title?.[currentLang]}</h2>
+            <p class="am-kicker">{content.sustainability.subtitle?.[currentLang]}</p>
           </div>
           <div class="am-exp-sustainability__content">
-            <p class="am-body am-exp-text-large">
-              Sustainability at AMARA means practical decisions that reduce impact without reducing comfort.
-            </p>
+            <p class="am-body am-exp-text-large">{content.sustainability.lead?.[currentLang]}</p>
             <div class="am-exp-sustainability__lists">
-              <div class="am-exp-sustainability__list">
-                <h3 class="am-exp-sustainability__label">Energy</h3>
-                <ul class="am-body am-exp-ul">
-                  <li>Solar hot water</li>
-                  <li>Renewable electricity</li>
-                  <li>LED lighting</li>
-                  <li>Efficient appliances</li>
-                </ul>
-              </div>
-              <div class="am-exp-sustainability__list">
-                <h3 class="am-exp-sustainability__label">Water & Waste</h3>
-                <ul class="am-body am-exp-ul">
-                  <li>Low-flow showers</li>
-                  <li>Recycling</li>
-                  <li>Refillable amenities</li>
-                  <li>No capsule coffee systems</li>
-                </ul>
-              </div>
+              {content.sustainability.listColumns?.map((column) => (
+                <div class="am-exp-sustainability__list">
+                  <h3 class="am-exp-sustainability__label">{column.label[currentLang]}</h3>
+                  <ul class="am-body am-exp-ul">
+                    {column.items.map((item) => (
+                      <li>{item[currentLang]}</li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
             </div>
           </div>
         </div>
       </section>
 
-      <!-- 9. CLOSING TRUST CTA -->
       <section class="am-exp-section am-exp-cta">
-        <h2 class="am-exp-cta__title">If you value reliability, you'll feel at home here</h2>
-        <p class="am-body am-exp-cta__lead">
-          AMARA is for guests who appreciate calm execution, honest communication, and places that feel considered rather than staged.
-        </p>
-        <p class="am-body am-exp-cta__sub">
-          Many guests return &mdash; because expectations are met, quietly and consistently.
-        </p>
-        
-        <div class="am-exp-cta__links">
-          <a href={resolveLink('book', currentLang)} class="am-exp-link">Check Availability</a>
-          <span class="am-exp-cta__dot">&middot;</span>
-          <a href={resolveLink('reviews_hub', currentLang)} class="am-exp-link">Guest reviews</a>
-          <span class="am-exp-cta__dot">&middot;</span>
-          <a href={resolveLink('direct_booking_benefits', currentLang)} class="am-exp-link">Direct booking benefits</a>
+        <h2 class="am-exp-cta__title">{content.closingCta.title?.[currentLang]}</h2>
+        <p class="am-body am-exp-cta__lead">{content.closingCta.lead?.[currentLang]}</p>
+        <p class="am-body am-exp-cta__sub">{content.closingCta.note?.[currentLang]}</p>
+        <div class="am-cta-group">
+          {content.closingCta.links.map((link, index) => (
+            <>
+              {index > 0 && <span class="am-exp-cta__dot">&middot;</span>}
+              <a href={resolveLink(link.token, currentLang)} class="am-cta-link">{link.label[currentLang]}</a>
+            </>
+          ))}
         </div>
       </section>
     </main>
@@ -361,488 +209,75 @@ const trustLinks = [
     padding: 0 5vw;
     background-color: #ffffff;
   }
-
-  .am-exp-section {
-    margin-bottom: clamp(8rem, 15vw, 14rem);
-  }
-
-  .am-exp-text-large {
-    font-size: clamp(1.25rem, 2vw, 1.5rem);
-    line-height: 1.5;
-    color: #111;
-    margin-bottom: 2rem;
-  }
-
-  .am-exp-subtitle {
-    font-family: "Plus Jakarta Sans", sans-serif;
-    font-size: 1.25rem;
-    font-weight: 600;
-    color: #111;
-    margin-bottom: 1rem;
-  }
-
-  .am-exp-muted {
-    color: #888;
-    font-weight: 400;
-  }
-
-  .am-exp-link {
-    font-family: "Plus Jakarta Sans", sans-serif;
-    font-size: 0.875rem;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    color: #111;
-    text-decoration: none;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
-    padding-bottom: 4px;
-    transition: border-color 0.3s ease;
-  }
-
-  .am-exp-link:hover {
-    border-color: #111;
-  }
-
-  .am-exp-spacer {
-    height: 4rem;
-  }
-
-  .am-exp-hero {
-    padding: clamp(6rem, 12vw, 10rem) 0 clamp(4rem, 8vw, 8rem);
-    max-width: 1000px;
-  }
-
-  .am-exp-hero__meta {
-    display: flex;
-    gap: 1.5rem;
-    margin-bottom: 3rem;
-    opacity: 0.6;
-  }
-
-  .am-exp-hero__title {
-    font-family: "Newsreader", serif;
-    font-size: clamp(3.5rem, 7vw, 6rem);
-    line-height: 1.05;
-    font-weight: 300;
-    letter-spacing: -0.02em;
-    color: #111;
-    margin: 0 0 2.5rem 0;
-  }
-
-  .am-exp-hero__lead {
-    font-family: "Plus Jakarta Sans", sans-serif;
-    font-size: clamp(1.25rem, 2vw, 1.5rem);
-    line-height: 1.6;
-    color: #444;
-    max-width: 35ch;
-  }
-
-  .am-exp-grid-split {
-    display: grid;
-    grid-template-columns: 1fr 2fr;
-    gap: clamp(4rem, 8vw, 8rem);
-  }
-
-  .am-exp-grid-split__left {
-    position: relative;
-  }
-
-  .am-exp-grid-split__left .am-section-title {
-    position: sticky;
-    top: 2rem;
-  }
-
-  .am-exp-grid-split__right {
-    max-width: 65ch;
-  }
-
-  .am-exp-grid-split__right p {
-    margin-bottom: 1.5rem;
-  }
-
-  .am-exp-quote-block {
-    padding: clamp(4rem, 8vw, 8rem) 0;
-    text-align: center;
-    max-width: 1000px;
-    margin-left: auto;
-    margin-right: auto;
-  }
-
-  .am-exp-quote {
-    font-family: "Newsreader", serif;
-    font-size: clamp(2.5rem, 5vw, 4rem);
-    line-height: 1.15;
-    font-style: italic;
-    font-weight: 300;
-    color: #111;
-    margin: 0;
-  }
-
-  .am-exp-principles {
-    max-width: 800px;
-    margin-left: auto;
-    margin-right: auto;
-  }
-
-  .am-exp-principles__header {
-    margin-bottom: 4rem;
-    text-align: center;
-  }
-
-  .am-exp-principles__note {
-    font-style: italic;
-    color: #666;
-  }
-
-  .am-exp-list {
-    border-top: 2px solid #111;
-  }
-
-  .am-exp-list__item {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 2rem;
-    padding: 2rem 0;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-  }
-
-  .am-exp-list__title {
-    font-family: "Plus Jakarta Sans", sans-serif;
-    font-size: 1.125rem;
-    font-weight: 600;
-    color: #111;
-    margin: 0;
-  }
-
-  .am-exp-quality {
-    background-color: #fcfbf9;
-    padding: clamp(4rem, 8vw, 8rem) clamp(2rem, 5vw, 5rem);
-    margin-left: -5vw;
-    margin-right: -5vw;
-  }
-
-  .am-exp-quality__title {
-    text-align: center;
-    margin-bottom: 5rem;
-  }
-
-  .am-exp-quality__grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 4rem 3rem;
-    max-width: 1200px;
-    margin: 0 auto 4rem;
-  }
-
-  .am-exp-quality__header {
-    min-height: 3.6rem;
-    margin-bottom: 1rem;
-    padding-bottom: 0.5rem;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-    display: flex;
-    align-items: flex-start;
-  }
-
-  .am-exp-quality__label {
-    font-family: "Plus Jakarta Sans", sans-serif;
-    font-size: 1rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    line-height: 1.05;
-    margin: 0;
-  }
-
-  .am-exp-quality__subline {
-    display: block;
-    margin-top: 0.08rem;
-    line-height: 1.05;
-  }
-
-  .am-exp-quality__footer {
-    text-align: center;
-    font-style: italic;
-    color: #666;
-    margin-bottom: 6rem;
-  }
-
-  .am-exp-statement {
-    max-width: 800px;
-    margin: 0 auto;
-    background: #fff;
-    padding: clamp(3rem, 6vw, 5rem);
-    border: 1px solid rgba(0, 0, 0, 0.05);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.02);
-  }
-
-  .am-exp-statement__title {
-    font-family: "Newsreader", serif;
-    font-size: 2rem;
-    font-weight: 300;
-    margin-bottom: 2rem;
-    color: #111;
-  }
-
-  .am-exp-statement__content p {
-    margin-bottom: 1.25rem;
-  }
-
-  .am-exp-statement__strong {
-    font-weight: 600;
-    color: #111;
-    margin-top: 2rem;
-  }
-
-  .am-exp-locations__header {
-    text-align: center;
-    max-width: 600px;
-    margin: 0 auto 5rem;
-  }
-
-  .am-exp-locations__trio {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: clamp(2rem, 4vw, 4rem);
-  }
-
-  .am-exp-location {
-    margin: 0;
-  }
-
-  .am-exp-location__image {
-    aspect-ratio: 3/4;
-    background-color: rgba(0, 0, 0, 0.03);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 1.5rem;
-  }
-
-  .am-exp-location__image span {
-    font-family: "Newsreader", serif;
-    font-style: italic;
-    color: rgba(0, 0, 0, 0.3);
-  }
-
-  .am-exp-location__title {
-    font-family: "Newsreader", serif;
-    font-size: 1.75rem;
-    font-weight: 300;
-    margin-bottom: 0.5rem;
-  }
-
-  .am-exp-host__split {
-    display: grid;
-    grid-template-columns: 4fr 6fr;
-    gap: clamp(4rem, 8vw, 8rem);
-    align-items: start;
-  }
-
-  .am-exp-host__portrait {
-    aspect-ratio: 4/5;
-    background-color: rgba(0, 0, 0, 0.03);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
-  }
-
-  .am-exp-host__portrait img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center;
-    display: block;
-  }
-
-  .am-exp-host__role {
-    margin-bottom: 3rem;
-  }
-
-  .am-exp-stats {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 3rem 2rem;
-    margin-bottom: 5rem;
-  }
-
-  .am-exp-stats__label {
-    font-family: "Plus Jakarta Sans", sans-serif;
-    font-size: 0.75rem;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    color: #888;
-    margin-bottom: 0.5rem;
-  }
-
-  .am-exp-stats__value {
-    margin: 0;
-    color: #111;
-  }
-
-  .am-exp-team {
-    border-top: 1px solid rgba(0, 0, 0, 0.1);
-    padding-top: 3rem;
-  }
-
-  .am-exp-team__grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 2rem;
-    margin-top: 2rem;
-  }
-
-  .am-exp-team__label {
-    font-family: "Plus Jakarta Sans", sans-serif;
-    font-size: 1rem;
-    font-weight: 600;
-    margin-bottom: 0.5rem;
-  }
-
-  .am-exp-sustainability {
-    background-color: #dcefe6;
-    color: #1d3128;
-    padding: clamp(4rem, 8vw, 8rem) clamp(2rem, 5vw, 5rem);
-    margin-left: -5vw;
-    margin-right: -5vw;
-  }
-
-  .am-exp-sustainability__inner {
-    max-width: 1200px;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: 1fr 2fr;
-    gap: clamp(4rem, 8vw, 8rem);
-  }
-
-  .am-exp-sustainability .am-section-title,
-  .am-exp-sustainability .am-body,
-  .am-exp-sustainability .am-exp-text-large {
-    color: #1d3128;
-  }
-
-  .am-exp-sustainability .am-kicker {
-    color: rgba(29, 49, 40, 0.72);
-  }
-
-  .am-exp-sustainability__lists {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 3rem;
-    margin-top: 4rem;
-  }
-
-  .am-exp-sustainability__label {
-    font-family: "Plus Jakarta Sans", sans-serif;
-    font-size: 0.875rem;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    color: rgba(29, 49, 40, 0.68);
-    margin-bottom: 1.5rem;
-    border-bottom: 1px solid rgba(29, 49, 40, 0.18);
-    padding-bottom: 0.5rem;
-  }
-
-  .am-exp-ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-  }
-
-  .am-exp-ul li {
-    margin-bottom: 0.75rem;
-    position: relative;
-    padding-left: 1.25rem;
-  }
-
-  .am-exp-ul li::before {
-    content: "-";
-    position: absolute;
-    left: 0;
-    color: rgba(29, 49, 40, 0.42);
-  }
-
-  .am-exp-cta {
-    text-align: center;
-    max-width: 800px;
-    margin: 0 auto;
-    padding-bottom: 4rem;
-  }
-
-  .am-exp-cta__title {
-    font-family: "Newsreader", serif;
-    font-size: clamp(2.5rem, 4vw, 3.5rem);
-    line-height: 1.1;
-    font-weight: 300;
-    color: #111;
-    margin-bottom: 2rem;
-  }
-
-  .am-exp-cta__lead {
-    font-size: clamp(1.125rem, 2vw, 1.25rem);
-    color: #444;
-    margin-bottom: 1rem;
-  }
-
-  .am-exp-cta__sub {
-    font-style: italic;
-    color: #666;
-    margin-bottom: 4rem;
-  }
-
-  .am-exp-cta__links {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 1.5rem;
-  }
-
-  .am-exp-cta__dot {
-    color: #ccc;
-  }
-
+  .am-exp-section { margin-bottom: clamp(8rem, 15vw, 14rem); }
+  .am-exp-text-large { font-size: clamp(1.25rem, 2vw, 1.5rem); line-height: 1.5; color: #111; margin-bottom: 2rem; }
+  .am-exp-subtitle { font-family: "Plus Jakarta Sans", sans-serif; font-size: 1.25rem; font-weight: 600; color: #111; margin-bottom: 1rem; }
+  .am-exp-muted { color: #888; font-weight: 400; }
+  .am-exp-spacer { height: 4rem; }
+  .am-exp-grid-split { display: grid; grid-template-columns: 1.2fr 1.8fr; gap: clamp(4rem, 8vw, 8rem); }
+  .am-exp-grid-split__left { position: relative; }
+  .am-exp-grid-split__left .am-section-title { position: sticky; top: 2rem; }
+  .am-exp-grid-split__right { max-width: 65ch; }
+  .am-exp-grid-split__right p { margin-bottom: 1.5rem; }
+  .am-exp-quote-block { padding: clamp(4rem, 8vw, 8rem) 0; text-align: center; max-width: 1000px; margin-left: auto; margin-right: auto; }
+  .am-exp-quote { font-family: "Newsreader", serif; font-size: clamp(2.5rem, 5vw, 4rem); line-height: 1.15; font-style: italic; font-weight: 300; color: #111; margin: 0; }
+  .am-exp-principles { max-width: 800px; margin-left: auto; margin-right: auto; }
+  .am-exp-principles__header { margin-bottom: 4rem; text-align: center; }
+  .am-exp-principles__note { font-style: italic; color: #666; }
+  .am-exp-list { border-top: 2px solid #111; }
+  .am-exp-list__item { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; padding: 2rem 0; border-bottom: 1px solid rgba(0,0,0,0.1); }
+  .am-exp-list__title { font-family: "Plus Jakarta Sans", sans-serif; font-size: 1.125rem; font-weight: 600; color: #111; margin: 0; }
+  .am-exp-quality { background-color: #fcfbf9; padding: clamp(4rem, 8vw, 8rem) clamp(2rem, 5vw, 5rem); margin-left: -5vw; margin-right: -5vw; }
+  .am-exp-quality__title { text-align: center; margin-bottom: 5rem; }
+  .am-exp-quality__grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 4rem 3rem; max-width: 1200px; margin: 0 auto 4rem; }
+  .am-exp-quality__header { min-height: 3.6rem; margin-bottom: 1rem; padding-bottom: 0.5rem; border-bottom: 1px solid rgba(0,0,0,0.1); display: flex; align-items: flex-start; }
+  .am-exp-quality__label { font-family: "Plus Jakarta Sans", sans-serif; font-size: 1rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; line-height: 1.05; margin: 0; }
+  .am-exp-quality__subline { display: block; margin-top: 0.08rem; line-height: 1.05; }
+  .am-exp-quality__footer { text-align: center; font-style: italic; color: #666; margin-bottom: 6rem; }
+  .am-exp-statement { max-width: 800px; margin: 0 auto; background: #fff; padding: clamp(3rem, 6vw, 5rem); border: 1px solid rgba(0,0,0,0.05); box-shadow: 0 20px 40px rgba(0,0,0,0.02); }
+  .am-exp-statement__title { font-family: "Newsreader", serif; font-size: 2rem; font-weight: 300; margin-bottom: 2rem; color: #111; }
+  .am-exp-statement__content p { margin-bottom: 1.25rem; }
+  .am-exp-statement__strong { font-weight: 600; color: #111; margin-top: 2rem; }
+  .am-exp-locations__header { text-align: center; max-width: 600px; margin: 0 auto 5rem; }
+  .am-exp-locations__trio { display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(2rem, 4vw, 4rem); }
+  .am-exp-location { margin: 0; }
+  .am-exp-location__image { aspect-ratio: 3/4; background-color: rgba(0,0,0,0.03); display: flex; align-items: center; justify-content: center; margin-bottom: 1.5rem; }
+  .am-exp-location__image span { font-family: "Newsreader", serif; font-style: italic; color: rgba(0,0,0,0.3); }
+  .am-exp-location__title { font-family: "Newsreader", serif; font-size: 1.75rem; font-weight: 300; margin-bottom: 0.5rem; }
+  .am-exp-host__split { display: grid; grid-template-columns: 4fr 6fr; gap: clamp(4rem, 8vw, 8rem); align-items: start; }
+  .am-exp-host__portrait { aspect-ratio: 4/5; background-color: rgba(0,0,0,0.03); display: flex; align-items: center; justify-content: center; overflow: hidden; }
+  .am-exp-host__portrait img { width: 100%; height: 100%; object-fit: cover; object-position: center; display: block; }
+  .am-exp-host__role { margin-bottom: 3rem; }
+  .am-exp-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem 2rem; margin-bottom: 5rem; }
+  .am-exp-stats__label { font-family: "Plus Jakarta Sans", sans-serif; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em; color: #888; margin-bottom: 0.5rem; }
+  .am-exp-stats__value { margin: 0; color: #111; }
+  .am-exp-team { border-top: 1px solid rgba(0,0,0,0.1); padding-top: 3rem; }
+  .am-exp-team__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; margin-top: 2rem; }
+  .am-exp-team__label { font-family: "Plus Jakarta Sans", sans-serif; font-size: 1rem; font-weight: 600; margin-bottom: 0.5rem; }
+  .am-exp-sustainability { background-color: #dcefe6; color: #1d3128; padding: clamp(4rem, 8vw, 8rem) clamp(2rem, 5vw, 5rem); margin-left: -5vw; margin-right: -5vw; }
+  .am-exp-sustainability__inner { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr 2fr; gap: clamp(4rem, 8vw, 8rem); }
+  .am-exp-sustainability .am-section-title, .am-exp-sustainability .am-body, .am-exp-sustainability .am-exp-text-large { color: #1d3128; }
+  .am-exp-sustainability .am-kicker { color: rgba(29,49,40,0.72); }
+  .am-exp-sustainability__lists { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; margin-top: 4rem; }
+  .am-exp-sustainability__label { font-family: "Plus Jakarta Sans", sans-serif; font-size: 0.875rem; text-transform: uppercase; letter-spacing: 0.1em; color: rgba(29,49,40,0.68); margin-bottom: 1.5rem; border-bottom: 1px solid rgba(29,49,40,0.18); padding-bottom: 0.5rem; }
+  .am-exp-ul { list-style: none; padding: 0; margin: 0; }
+  .am-exp-ul li { margin-bottom: 0.75rem; position: relative; padding-left: 1.25rem; }
+  .am-exp-ul li::before { content: "—"; position: absolute; left: 0; color: rgba(29,49,40,0.42); }
+  .am-exp-cta { text-align: center; max-width: 800px; margin: 0 auto; padding-bottom: 4rem; }
+  .am-exp-cta__title { font-family: "Newsreader", serif; font-size: clamp(2.5rem, 4vw, 3.5rem); line-height: 1.1; font-weight: 300; color: #111; margin-bottom: 2rem; }
+  .am-exp-cta__lead { font-size: clamp(1.125rem, 2vw, 1.25rem); color: #444; margin-bottom: 1rem; }
+  .am-exp-cta__sub { font-style: italic; color: #666; margin-bottom: 4rem; }
+  .am-exp-cta__dot { color: #ccc; }
   @media (max-width: 900px) {
-    .am-exp-grid-split,
-    .am-exp-host__split,
-    .am-exp-sustainability__inner {
-      grid-template-columns: 1fr;
-      gap: 3rem;
-    }
-
-    .am-exp-grid-split__left .am-section-title {
-      position: static;
-    }
-
-    .am-exp-locations__trio {
-      grid-template-columns: 1fr;
-    }
-
-    .am-exp-list__item {
-      grid-template-columns: 1fr;
-      gap: 0.5rem;
-    }
-
-    .am-exp-host__visual {
-      order: -1;
-      max-width: 400px;
-    }
+    .am-exp-grid-split, .am-exp-host__split, .am-exp-sustainability__inner { grid-template-columns: 1fr; gap: 3rem; }
+    .am-exp-grid-split__left .am-section-title { position: static; }
+    .am-exp-locations__trio { grid-template-columns: 1fr; }
+    .am-exp-list__item { grid-template-columns: 1fr; gap: 0.5rem; }
+    .am-exp-host__visual { order: -1; max-width: 400px; }
   }
-
   @media (max-width: 600px) {
-    .am-exp-stats,
-    .am-exp-team__grid,
-    .am-exp-sustainability__lists {
-      grid-template-columns: 1fr;
-      gap: 2rem;
-    }
-
-    .am-exp-cta__links {
-      flex-direction: column;
-      gap: 1rem;
-    }
-
-    .am-exp-cta__dot {
-      display: none;
-    }
+    .am-exp-stats, .am-exp-team__grid, .am-exp-sustainability__lists { grid-template-columns: 1fr; gap: 2rem; }
+    .am-cta-group { flex-direction: column; gap: 1rem; }
+    .am-exp-cta__dot { display: none; }
   }
 </style>

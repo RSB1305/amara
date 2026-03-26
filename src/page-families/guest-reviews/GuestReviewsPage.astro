@@ -1,0 +1,844 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Navigation from '../../components/Navigation.astro';
+import TrustHero from '../../components/hero/TrustHero.astro';
+import { resolveLink } from '../../lib/linkResolver';
+import type { AmaraAuthoringSeo, AmaraLanguage } from '../../types/seo';
+
+interface Props {
+  currentLang: AmaraLanguage;
+}
+
+const { currentLang } = Astro.props;
+
+const seo: AmaraAuthoringSeo = {
+  version: '2026-03-23-reviews-v1.0-C',
+  pageType: 'C',
+  entityKey: 'amara-brand',
+  languages: {
+    en: {
+      title: 'AMARA | Verified Guest Reviews',
+      description: 'Verified guest reviews, award proof, and trust signals for AMARA holiday apartments in Frigiliana, Nerja, and Tarifa.',
+      robots: 'index, follow',
+      canonical: 'auto'
+    },
+    de: {
+      title: 'AMARA | Verifizierte Gästebewertungen',
+      description: 'Verifizierte Gästebewertungen, Auszeichnungen und Vertrauenssignale für AMARA Ferienwohnungen in Frigiliana, Nerja und Tarifa.',
+      robots: 'index, follow',
+      canonical: 'auto'
+    },
+    es: {
+      title: 'AMARA | Resenas verificadas de huespedes',
+      description: 'Resenas verificadas, premios y senales de confianza para los apartamentos vacacionales AMARA en Frigiliana, Nerja y Tarifa.',
+      robots: 'index, follow',
+      canonical: 'auto'
+    },
+    nl: {
+      title: 'AMARA | Geverifieerde gastbeoordelingen',
+      description: 'Geverifieerde gastbeoordelingen, awards en vertrouwenssignalen voor AMARA vakantieappartementen in Frigiliana, Nerja en Tarifa.',
+      robots: 'index, follow',
+      canonical: 'auto'
+    },
+    sv: {
+      title: 'AMARA | Verifierade gastrecensioner',
+      description: 'Verifierade gästrecensioner, utmärkelser och trygghetssignaler för AMARA semesterlägenheter i Frigiliana, Nerja och Tarifa.',
+      robots: 'index, follow',
+      canonical: 'auto'
+    }
+  },
+  ogImage: '/images/hero-frigiliana.jpg'
+};
+
+const copy = {
+  hero: {
+    subtitle: {
+      en: 'Reviews · Proof focus: Frigiliana, Nerja and Tarifa. (Last updated: Jan 2026)',
+      de: 'Bewertungen · Fokus auf Nachweise: Frigiliana, Nerja und Tarifa. (Stand: Jan 2026)',
+      es: 'Reseñas · Enfoque de prueba: Frigiliana, Nerja y Tarifa. (Actualizado: ene 2026)',
+      nl: "Reviews · Bewijsfocus: Frigiliana, Nerja en Tarifa. (Laatst bijgewerkt: jan 2026)",
+      sv: 'Recensioner · Verifieringsfokus: Frigiliana, Nerja och Tarifa. (Senast uppdaterad: jan 2026)'
+    },
+    title: {
+      en: '500+ Verified Guest Reviews',
+      de: '500+ verifizierte Gästebewertungen',
+      es: '500+ reseñas verificadas de huéspedes',
+      nl: '500+ geverifieerde gastbeoordelingen',
+      sv: '500+ verifierade gästrecensioner'
+    },
+    lead: {
+      en: 'AMARA is built like a well-run home: quiet nights, spotless spaces, and clear communication. This page is a calm summary of what guests consistently confirm.',
+      de: 'AMARA funktioniert wie ein hervorragend geführtes Zuhause: ruhige Nächte, makellose Räume und klare Kommunikation. Diese Seite fasst ruhig zusammen, was Gäste immer wieder bestätigen.',
+      es: 'AMARA está diseñado como un hogar impecablemente gestionado: noches tranquilas, espacios impecables y comunicación clara. Esta página resume con calma lo que los huéspedes confirman de forma constante.',
+      nl: 'AMARA is opgezet als een uitstekend georganiseerd thuis: rustige nachten, onberispelijke ruimtes en heldere communicatie. Deze pagina vat rustig samen wat gasten steeds opnieuw bevestigen.',
+      sv: 'AMARA är uppbyggt som ett välskött hem: lugna nätter, skinande rena miljöer och tydlig kommunikation. Den här sidan sammanfattar lugnt det som gäster konsekvent bekräftar.'
+    },
+    supportText: {
+      en: 'Third-party platform proof, distilled into one calm overview.',
+      de: 'Nachweise von Drittplattformen, verdichtet zu einer ruhigen Gesamtübersicht.',
+      es: 'Pruebas de plataformas externas, condensadas en una visión clara y serena.',
+      nl: 'Bewijs van externe platforms, samengebracht in één rustige totaalweergave.',
+      sv: 'Verifiering från tredjepartsplattformar, samlad i en lugn helhetsöversikt.'
+    },
+    ctaAbout: { en: 'About Us', de: 'Über uns', es: 'Sobre nosotros', nl: 'Over ons', sv: 'Om oss' },
+    ctaBenefits: {
+      en: 'Direct Booking Benefits',
+      de: 'Vorteile der Direktbuchung',
+      es: 'Ventajas de reserva directa',
+      nl: 'Voordelen van direct boeken',
+      sv: 'Fördelar med direktbokning'
+    }
+  },
+  sections: {
+    summaryTitle: {
+      en: 'A simple proof summary',
+      de: 'Eine klare Zusammenfassung der Nachweise',
+      es: 'Un resumen claro de las pruebas',
+      nl: 'Een heldere samenvatting van het bewijs',
+      sv: 'En tydlig sammanfattning av bevisen'
+    },
+    summaryLead: {
+      en: '★ 4.95 / 5 • 500+ verified guest reviews',
+      de: '★ 4.95 / 5 • 500+ verifizierte Gästebewertungen',
+      es: '★ 4.95 / 5 • 500+ reseñas verificadas de huéspedes',
+      nl: '★ 4.95 / 5 • 500+ geverifieerde gastbeoordelingen',
+      sv: '★ 4.95 / 5 • 500+ verifierade gästrecensioner'
+    },
+    summaryBodyOne: {
+      en: 'We keep it simple: strong sleep comfort, reliable cleanliness, and small details that make a stay feel easy.',
+      de: 'Wir halten es bewusst einfach: hoher Schlafkomfort, verlässliche Sauberkeit und kleine Details, die den Aufenthalt leicht wirken lassen.',
+      es: 'Lo mantenemos simple: gran confort de descanso, limpieza fiable y pequeños detalles que hacen la estancia fácil.',
+      nl: 'We houden het bewust eenvoudig: sterk slaapcomfort, betrouwbare netheid en kleine details die een verblijf moeiteloos maken.',
+      sv: 'Vi håller det medvetet enkelt: hög sovkomfort, pålitlig renlighet och små detaljer som gör vistelsen enkel.'
+    },
+    summaryBodyTwo: {
+      en: 'We reference third-party platforms as verification sources only. Bookings stay direct with AMARA.',
+      de: 'Wir nutzen Drittplattformen ausschließlich als Verifizierungsquelle. Gebucht wird weiterhin direkt bei AMARA.',
+      es: 'Usamos plataformas externas solo como fuente de verificación. Las reservas siguen siendo directas con AMARA.',
+      nl: 'We gebruiken externe platforms uitsluitend als verificatiebron. Boeken blijft direct bij AMARA.',
+      sv: 'Vi använder tredjepartsplattformar enbart som verifieringskälla. Bokningar sker fortsatt direkt med AMARA.'
+    },
+    quote: {
+      en: "This is not just a place to stay - it's a refuge that invites calm, connection, and gratitude.",
+      de: 'Das ist nicht nur ein Ort zum Übernachten - es ist ein Rückzugsort, der Ruhe, Nähe und Dankbarkeit entstehen lässt.',
+      es: 'Esto no es solo un lugar para alojarse: es un refugio que invita a la calma, la conexión y la gratitud.',
+      nl: 'Dit is niet alleen een plek om te verblijven - het is een toevluchtsoord dat rust, verbondenheid en dankbaarheid brengt.',
+      sv: 'Det här är inte bara en plats att bo på - det är en fristad som bjuder in till lugn, närhet och tacksamhet.'
+    },
+    reviewsTitle: {
+      en: 'Three original Airbnb reviews',
+      de: 'Drei originale Airbnb-Bewertungen',
+      es: 'Tres reseñas originales de Airbnb',
+      nl: 'Drie originele Airbnb-reviews',
+      sv: 'Tre originalrecensioner från Airbnb'
+    },
+    reviewsNote: {
+      en: 'Shown as third-party verification only. Bookings stay direct with AMARA. (Translated for clarity).',
+      de: 'Gezeigt ausschließlich als Drittanbieter-Nachweis. Gebucht wird weiterhin direkt bei AMARA. (Für Klarheit übersetzt).',
+      es: 'Mostradas solo como verificación externa. Las reservas siguen siendo directas con AMARA. (Traducidas para mayor claridad).',
+      nl: 'Getoond uitsluitend als verificatie van derden. Boeken blijft direct bij AMARA. (Vertaald voor duidelijkheid).',
+      sv: 'Visas endast som tredjepartsverifiering. Bokningar sker fortsatt direkt med AMARA. (Översatt för tydlighet).'
+    },
+    mentionsTitle: {
+      en: 'What guests repeatedly mention',
+      de: 'Was Gäste immer wieder hervorheben',
+      es: 'Lo que los huéspedes mencionan una y otra vez',
+      nl: 'Wat gasten steeds opnieuw benoemen',
+      sv: 'Det som gäster återkommande lyfter fram'
+    },
+    mentionsNote: {
+      en: "Calm is not a claim - it's the result of many small decisions done consistently.",
+      de: 'Ruhe ist kein Werbeversprechen - sie ist das Ergebnis vieler kleiner, konsequent umgesetzter Entscheidungen.',
+      es: 'La calma no es una promesa vacía: es el resultado de muchas pequeñas decisiones aplicadas con constancia.',
+      nl: 'Rust is geen claim - het is het resultaat van veel kleine keuzes die consequent worden uitgevoerd.',
+      sv: 'Lugn är inget påstående - det är resultatet av många små beslut som genomförs konsekvent.'
+    },
+    awardsTitle: {
+      en: 'Booking.com Traveller Review Awards 2025',
+      de: 'Booking.com Traveller Review Awards 2025',
+      es: 'Booking.com Traveller Review Awards 2025',
+      nl: 'Booking.com Traveller Review Awards 2025',
+      sv: 'Booking.com Traveller Review Awards 2025'
+    },
+    awardsBody: {
+      en: 'Verification images are shown for transparency only. Bookings stay direct with AMARA.',
+      de: 'Die Verifizierungsbilder dienen ausschließlich der Transparenz. Gebucht wird weiterhin direkt bei AMARA.',
+      es: 'Las imágenes de verificación se muestran solo por transparencia. Las reservas siguen siendo directas con AMARA.',
+      nl: 'De verificatieafbeeldingen worden alleen getoond voor transparantie. Boeken blijft direct bij AMARA.',
+      sv: 'Verifieringsbilderna visas enbart för transparens. Bokningar sker fortsatt direkt med AMARA.'
+    },
+    awardsSource: {
+      en: 'Award source: Booking.com Traveller Review Awards 2025 (based on verified guest reviews).',
+      de: 'Auszeichnungsquelle: Booking.com Traveller Review Awards 2025 (auf Basis verifizierter Gästebewertungen).',
+      es: 'Fuente del reconocimiento: Booking.com Traveller Review Awards 2025 (basado en reseñas verificadas de huéspedes).',
+      nl: 'Bron van de award: Booking.com Traveller Review Awards 2025 (gebaseerd op geverifieerde gastbeoordelingen).',
+      sv: 'Källa för utmärkelsen: Booking.com Traveller Review Awards 2025 (baserat på verifierade gästrecensioner).'
+    },
+    locationTitle: {
+      en: 'Choose your location',
+      de: 'Wählt euren Standort',
+      es: 'Elegid vuestra ubicación',
+      nl: 'Kies jullie locatie',
+      sv: 'Välj er plats'
+    },
+    locationLead: {
+      en: "For locally relevant proof and awards, pick the place you're considering.",
+      de: 'Für lokal relevante Nachweise und Auszeichnungen wählt den Ort, den ihr gerade in Betracht zieht.',
+      es: 'Para ver pruebas y reconocimientos relevantes por zona, elegid el lugar que estáis valorando.',
+      nl: 'Kies de locatie die jullie overwegen voor lokaal relevant bewijs en bijbehorende awards.',
+      sv: 'Välj den plats ni överväger för lokalt relevanta verifieringar och utmärkelser.'
+    },
+    locationFrigiliana: {
+      en: 'Design apartments in the old village. Quiet, romantic stays with terraces and calm details.',
+      de: 'Design-Apartments im alten Dorf. Ruhige, romantische Aufenthalte mit Terrassen und liebevollen Details.',
+      es: 'Apartamentos de diseño en el casco histórico. Estancias tranquilas y románticas con terrazas y detalles cuidados.',
+      nl: 'Designappartementen in het oude dorp. Rustige, romantische verblijven met terrassen en verfijnde details.',
+      sv: 'Designlägenheter i den gamla byn. Lugna, romantiska vistelser med terrasser och omsorgsfulla detaljer.'
+    },
+    locationNerja: {
+      en: 'Beachside stay, easy access. Coastal days, comfortable nights - simple and well-organised.',
+      de: 'Aufenthalt am Meer, unkompliziert erreichbar. Küstentage, komfortable Nächte - einfach und gut organisiert.',
+      es: 'Estancia junto al mar, acceso fácil. Días de costa y noches cómodas: simple, claro y bien organizado.',
+      nl: 'Verblijf aan zee, makkelijk bereikbaar. Kustdagen en comfortabele nachten - eenvoudig en goed georganiseerd.',
+      sv: 'Boende nära stranden med enkel access. Dagar vid kusten och bekväma nätter - enkelt och välorganiserat.'
+    },
+    locationTarifa: {
+      en: 'Wide horizons, wind and light. Active outdoors, calm indoors - family & surf rhythm.',
+      de: 'Weite Horizonte, Wind und Licht. Draußen aktiv, drinnen ruhig - im Family-&-Surf-Rhythmus.',
+      es: 'Horizontes abiertos, viento y luz. Activo fuera, sereno dentro: ritmo Family & Surf.',
+      nl: 'Wijde horizonten, wind en licht. Buiten actief, binnen rustig - het Family & Surf-ritme.',
+      sv: 'Vida horisonter, vind och ljus. Aktivt utomhus, lugnt inomhus - Family & Surf-rytmen.'
+    },
+    nextTitle: { en: 'Next step', de: 'Nächster Schritt', es: 'Siguiente paso', nl: 'Volgende stap', sv: 'Nästa steg' },
+    nextLead: {
+      en: "Next: explore the apartments - and use the availability button when you're ready.",
+      de: 'Als Nächstes: entdeckt die Apartments - und nutzt den Verfügbarkeits-Button, wenn ihr bereit seid.',
+      es: 'Siguiente paso: explorad los apartamentos y usad el botón de disponibilidad cuando estéis listos.',
+      nl: 'Volgende stap: verken de appartementen en gebruik de beschikbaarheidsknop zodra jullie klaar zijn.',
+      sv: 'Nästa steg: utforska lägenheterna och använd tillgänglighetsknappen när ni är redo.'
+    },
+    ctaBook: {
+      en: 'Check Availability',
+      de: 'Verfügbarkeit prüfen',
+      es: 'Consultar disponibilidad',
+      nl: 'Beschikbaarheid checken',
+      sv: 'Se tillgänglighet'
+    },
+    ctaExplore: {
+      en: 'Explore locations',
+      de: 'Standorte entdecken',
+      es: 'Explorar ubicaciones',
+      nl: 'Locaties ontdekken',
+      sv: 'Utforska platser'
+    },
+    ctaBenefits: {
+      en: 'Direct booking benefits',
+      de: 'Vorteile der Direktbuchung',
+      es: 'Ventajas de reserva directa',
+      nl: 'Voordelen van direct boeken',
+      sv: 'Fördelar med direktbokning'
+    }
+  },
+  reviews: [
+    {
+      meta: {
+        en: 'Lina - Madrid, Spain',
+        de: 'Lina - Madrid, Spanien',
+        es: 'Lina - Madrid, España',
+        nl: 'Lina - Madrid, Spanje',
+        sv: 'Lina - Madrid, Spanien'
+      },
+      copy: {
+        en: "Robert's place is one of the most amazing stays I've ever had! The home is magical, the cleanliness is impeccable, and Frigiliana is in the top three most beautiful villages I've ever visited. The apartment has the comfort of a 5-star stay and the terrace left us speechless. We had an unforgettable time - thank you, Robert! We can't wait to come back soon.",
+        de: 'Roberts Unterkunft war einer der beeindruckendsten Aufenthalte, die ich je hatte. Das Zuhause ist magisch, die Sauberkeit makellos, und Frigiliana gehört zu den drei schönsten Dörfern, die ich je besucht habe. Das Apartment bietet den Komfort eines 5-Sterne-Aufenthalts, und die Terrasse hat uns sprachlos gemacht. Es war unvergesslich - danke, Robert! Wir kommen sehr gern bald zurück.',
+        es: '¡El alojamiento de Robert ha sido una de las estancias más increíbles que hemos vivido! La casa es mágica, la limpieza impecable y Frigiliana está entre los tres pueblos más bonitos que he visitado. El apartamento tiene confort de cinco estrellas y la terraza nos dejó sin palabras. Fue inolvidable. ¡Gracias, Robert! Estamos deseando volver pronto.',
+        nl: 'De plek van Robert was een van de meest bijzondere verblijven die ik ooit heb gehad. Het huis is magisch, de netheid onberispelijk en Frigiliana behoort tot de drie mooiste dorpen die ik ooit heb bezocht. Het appartement voelt als een vijfsterrenverblijf en het terras maakte ons sprakeloos. We hadden een onvergetelijke tijd - dank je, Robert! We komen graag snel terug.',
+        sv: 'Roberts boende är en av de mest fantastiska vistelser jag någonsin haft. Hemmet är magiskt, städningen är oklanderlig och Frigiliana är en av de tre vackraste byar jag har besökt. Lägenheten har femstjärnig komfort och terrassen gjorde oss mållösa. Vi hade en oförglömlig tid - tack, Robert! Vi längtar redan efter att komma tillbaka.'
+      }
+    },
+    {
+      meta: {
+        en: 'Scott & Michelle - Vancouver, Canada',
+        de: 'Scott & Michelle - Vancouver, Kanada',
+        es: 'Scott y Michelle - Vancouver, Canadá',
+        nl: 'Scott & Michelle - Vancouver, Canada',
+        sv: 'Scott & Michelle - Vancouver, Kanada'
+      },
+      copy: {
+        en: 'This is not just a place to stay - it is a refuge that invites calm, connection, and gratitude. We carry this experience in our hearts and know we will return one day. Truly, it felt like paradise.',
+        de: 'Das ist nicht nur ein Ort zum Übernachten - es ist ein Rückzugsort, der Ruhe, Verbundenheit und Dankbarkeit entstehen lässt. Wir tragen diese Erfahrung im Herzen und wissen, dass wir eines Tages zurückkehren werden. Es fühlte sich wirklich wie ein kleines Paradies an.',
+        es: 'Esto no es solo un lugar para quedarse: es un refugio que invita a la calma, la conexión y la gratitud. Nos llevamos esta experiencia en el corazón y sabemos que volveremos algún día. De verdad, se sintió como un paraíso.',
+        nl: 'Dit is niet zomaar een plek om te overnachten - het is een toevluchtsoord dat rust, verbinding en dankbaarheid oproept. We dragen deze ervaring in ons hart en weten dat we ooit terugkomen. Het voelde echt als een paradijs.',
+        sv: 'Det här är inte bara en plats att bo på - det är en fristad som bjuder in till lugn, samhörighet och tacksamhet. Vi bär med oss upplevelsen i hjärtat och vet att vi kommer tillbaka en dag. Det kändes verkligen som ett paradis.'
+      }
+    },
+    {
+      meta: {
+        en: 'Linda - Rosrath, Germany',
+        de: 'Linda - Rösrath, Deutschland',
+        es: 'Linda - Rösrath, Alemania',
+        nl: 'Linda - Rösrath, Duitsland',
+        sv: 'Linda - Rösrath, Tyskland'
+      },
+      copy: {
+        en: "The special aesthetic and atmosphere of the apartment and terrace - combined with real functionality - made it feel like a true home away from home. Robert's communication was always immediate, proactive, and extremely friendly. We would love to come back!",
+        de: 'Die besondere Ästhetik und Atmosphäre von Apartment und Terrasse - kombiniert mit echter Funktionalität - machten den Aufenthalt zu einem zweiten Zuhause. Roberts Kommunikation war jederzeit schnell, proaktiv und außergewöhnlich freundlich. Wir kommen sehr gern wieder.',
+        es: 'La estética y la atmósfera del apartamento y la terraza, combinadas con una funcionalidad real, hicieron que todo se sintiera como un hogar fuera de casa. La comunicación de Robert fue siempre inmediata, proactiva y muy amable. Nos encantaría volver.',
+        nl: 'De bijzondere esthetiek en sfeer van appartement en terras, gecombineerd met echte functionaliteit, gaf het gevoel van een tweede thuis. Roberts communicatie was altijd snel, proactief en ontzettend vriendelijk. We komen heel graag terug.',
+        sv: 'Den särskilda estetiken och atmosfären i lägenheten och på terrassen, i kombination med verklig funktionalitet, gjorde att det kändes som ett andra hem. Roberts kommunikation var alltid snabb, proaktiv och mycket vänlig. Vi kommer gärna tillbaka.'
+      }
+    }
+  ],
+  proofPoints: {
+    en: [
+      'Exceptional cleanliness - Spotless preparation, consistently confirmed.',
+      'Quiet nights & deep sleep - Sleep comfort guests notice immediately.',
+      'Comfort details that feel "easy" - Practical design choices, not show-room styling.',
+      'Fast, clear communication - Direct answers, reliable coordination.',
+      'Space, light & terraces - A stay that feels calm to inhabit.'
+    ],
+    de: [
+      'Außergewöhnliche Sauberkeit - Makellose Vorbereitung, immer wieder bestätigt.',
+      'Ruhige Nächte & tiefer Schlaf - Schlafkomfort, den Gäste sofort spüren.',
+      'Komfortdetails, die sich leicht anfühlen - Praktische Entscheidungen statt Showroom-Inszenierung.',
+      'Schnelle, klare Kommunikation - Direkte Antworten und verlässliche Abstimmung.',
+      'Raum, Licht & Terrassen - Ein Aufenthalt, der spürbar Ruhe vermittelt.'
+    ],
+    es: [
+      'Limpieza excepcional - Preparación impecable, confirmada de forma constante.',
+      'Noches tranquilas y descanso profundo - Un confort de sueño que se percibe enseguida.',
+      'Detalles de confort que hacen todo fácil - Decisiones prácticas, no decoración de escaparate.',
+      'Comunicación rápida y clara - Respuestas directas y coordinación fiable.',
+      'Espacio, luz y terrazas - Una estancia que se vive con calma.'
+    ],
+    nl: [
+      'Uitzonderlijke netheid - Onberispelijke voorbereiding, keer op keer bevestigd.',
+      'Stille nachten en diepe slaap - Slaapcomfort dat gasten direct opmerken.',
+      'Comfortdetails die moeiteloos aanvoelen - Praktische keuzes, geen show-roomstyling.',
+      'Snelle, heldere communicatie - Directe antwoorden en betrouwbare afstemming.',
+      'Ruimte, licht en terrassen - Een verblijf dat merkbaar rust geeft.'
+    ],
+    sv: [
+      'Exceptionell renlighet - Skinande förberedelse, konsekvent bekräftad.',
+      'Lugna nätter och djup sömn - Sovkomfort som gäster märker direkt.',
+      'Komfortdetaljer som känns enkla - Praktiska val, inte show-roomstyling.',
+      'Snabb och tydlig kommunikation - Direkta svar och pålitlig samordning.',
+      'Rymd, ljus och terrasser - En vistelse som präglas av lugn.'
+    ]
+  },
+  awards: {
+    frigiliana: ['La AMARA Lounis - 9.9 / 10', 'La AMARA Maha - 9.7 / 10', 'La AMARA Zaid - 9.7 / 10'],
+    coast: ['AMARA Nerja Beachside - 9.3 / 10', 'AMARA Family & Surf - 9.9 / 10']
+  }
+} as const;
+
+const trustLinks = [
+  { token: 'about', label: 'About AMARA' },
+  { token: 'reviews_hub', label: 'Guest Reviews' },
+  { token: 'direct_booking_benefits', label: 'Direct Booking Benefits' }
+];
+
+const trustFooterLabels = {
+  amenities: {
+    en: 'Amenities',
+    de: 'Ausstattung',
+    es: 'Servicios',
+    nl: 'Voorzieningen',
+    sv: 'Bekvämligheter'
+  },
+  faq_general: {
+    en: 'Stay FAQ',
+    de: 'Aufenthalts-FAQ',
+    es: 'FAQ de la estancia',
+    nl: 'Verblijfs-FAQ',
+    sv: 'FAQ för vistelsen'
+  },
+  instagram: {
+    en: 'Instagram',
+    de: 'Instagram',
+    es: 'Instagram',
+    nl: 'Instagram',
+    sv: 'Instagram'
+  }
+} as const;
+
+const footerHighlights = [
+  { token: 'amenities', label: trustFooterLabels.amenities[currentLang] },
+  { token: 'faq_general', label: trustFooterLabels.faq_general[currentLang] },
+  { token: 'instagram', label: trustFooterLabels.instagram[currentLang] }
+];
+---
+
+<BaseLayout seo={seo} footerHighlights={footerHighlights}>
+  <Navigation
+    currentLang={currentLang}
+    brandName="AMARA"
+    links={trustLinks}
+    variant="trust"
+    languageToken="reviews_hub"
+  />
+  <div class="am-exp-page">
+    <TrustHero
+      subtitle={copy.hero.subtitle[currentLang]}
+      title={copy.hero.title[currentLang]}
+      lead={copy.hero.lead[currentLang]}
+      supportText={copy.hero.supportText[currentLang]}
+      ctaLinks={[
+        { href: resolveLink('about', currentLang), label: copy.hero.ctaAbout[currentLang] },
+        { href: resolveLink('direct_booking_benefits', currentLang), label: copy.hero.ctaBenefits[currentLang] }
+      ]}
+    />
+
+    <main>
+      <!-- The opening split mirrors the About page: one anchored title, one dense proof column. -->
+      <section class="am-reviews-section">
+        <div class="am-reviews-split">
+          <div class="am-reviews-split__left">
+            <h2 class="am-section-title">{copy.sections.summaryTitle[currentLang]}</h2>
+          </div>
+          <div class="am-reviews-split__right">
+            <p class="am-body am-reviews-text-large">{copy.sections.summaryLead[currentLang]}</p>
+            <p class="am-body">
+              {copy.sections.summaryBodyOne[currentLang]}
+            </p>
+            <p class="am-body">
+              {copy.sections.summaryBodyTwo[currentLang]}
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="am-reviews-section am-reviews-quote-block">
+        <blockquote class="am-reviews-quote">
+          &ldquo;{copy.sections.quote[currentLang]}&rdquo;
+        </blockquote>
+      </section>
+
+      <section class="am-reviews-section">
+        <div class="am-reviews-section-header">
+          <h2 class="am-section-title">{copy.sections.reviewsTitle[currentLang]}</h2>
+          <p class="am-body am-reviews-section-note">{copy.sections.reviewsNote[currentLang]}</p>
+        </div>
+
+        <div class="am-reviews-grid">
+          {copy.reviews.map((review) => (
+            <article class="am-reviews-card">
+              <p class="am-kicker am-reviews-card__meta">{review.meta[currentLang]}</p>
+              <p class="am-body am-reviews-card__copy">&ldquo;{review.copy[currentLang]}&rdquo;</p>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section class="am-reviews-section am-reviews-proof">
+        <div class="am-reviews-proof__header">
+          <h2 class="am-section-title">{copy.sections.mentionsTitle[currentLang]}</h2>
+          <p class="am-body am-reviews-proof__note">{copy.sections.mentionsNote[currentLang]}</p>
+        </div>
+
+        <div class="am-reviews-list">
+          {copy.proofPoints[currentLang].map((item) => (
+            <div class="am-reviews-list__item">
+              <p class="am-body am-reviews-list__copy">{item}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <!-- Awards are grouped clearly, but kept editorial rather than widget-like. -->
+      <section class="am-reviews-section am-reviews-awards">
+        <div class="am-reviews-awards__header">
+          <h2 class="am-section-title am-reviews-awards__title">{copy.sections.awardsTitle[currentLang]}</h2>
+          <p class="am-body">{copy.sections.awardsBody[currentLang]}</p>
+          <p class="am-body am-reviews-awards__source">{copy.sections.awardsSource[currentLang]}</p>
+        </div>
+
+        <div class="am-reviews-awards__grid">
+          <div class="am-reviews-awards__group">
+            <h3 class="am-reviews-awards__label">Frigiliana</h3>
+            <ul class="am-body am-reviews-ul">
+              {copy.awards.frigiliana.map((award) => (
+                <li>{award}</li>
+              ))}
+            </ul>
+          </div>
+
+          <div class="am-reviews-awards__group">
+            <h3 class="am-reviews-awards__label">Nerja & Tarifa</h3>
+            <ul class="am-body am-reviews-ul">
+              {copy.awards.coast.map((award) => (
+                <li>{award}</li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="am-reviews-section am-reviews-locations">
+        <div class="am-reviews-locations__header">
+          <h2 class="am-section-title">{copy.sections.locationTitle[currentLang]}</h2>
+          <p class="am-body">{copy.sections.locationLead[currentLang]}</p>
+        </div>
+
+        <div class="am-reviews-locations__trio">
+          <a href={resolveLink('location_frigiliana', currentLang)} class="am-reviews-location">
+            <div class="am-reviews-location__image"><span>Frigiliana</span></div>
+            <div class="am-reviews-location__caption">
+              <h3 class="am-reviews-location__title">Frigiliana</h3>
+              <p class="am-body">{copy.sections.locationFrigiliana[currentLang]}</p>
+            </div>
+          </a>
+
+          <a href={resolveLink('location_nerja', currentLang)} class="am-reviews-location">
+            <div class="am-reviews-location__image"><span>Nerja</span></div>
+            <div class="am-reviews-location__caption">
+              <h3 class="am-reviews-location__title">Nerja</h3>
+              <p class="am-body">{copy.sections.locationNerja[currentLang]}</p>
+            </div>
+          </a>
+
+          <a href={resolveLink('location_tarifa', currentLang)} class="am-reviews-location">
+            <div class="am-reviews-location__image"><span>Tarifa</span></div>
+            <div class="am-reviews-location__caption">
+              <h3 class="am-reviews-location__title">Tarifa</h3>
+              <p class="am-body">{copy.sections.locationTarifa[currentLang]}</p>
+            </div>
+          </a>
+        </div>
+      </section>
+
+      <section class="am-reviews-section am-reviews-cta">
+        <h2 class="am-reviews-cta__title">{copy.sections.nextTitle[currentLang]}</h2>
+        <p class="am-body am-reviews-cta__lead">
+          {copy.sections.nextLead[currentLang]}
+        </p>
+
+        <div class="am-reviews-cta__links">
+          <a href={resolveLink('book', currentLang)} class="am-reviews-link">{copy.sections.ctaBook[currentLang]}</a>
+          <span class="am-reviews-cta__dot">&middot;</span>
+          <a href={resolveLink('locations_hub', currentLang)} class="am-reviews-link">{copy.sections.ctaExplore[currentLang]}</a>
+          <span class="am-reviews-cta__dot">&middot;</span>
+          <a href={resolveLink('direct_booking_benefits', currentLang)} class="am-reviews-link">{copy.sections.ctaBenefits[currentLang]}</a>
+        </div>
+      </section>
+    </main>
+  </div>
+</BaseLayout>
+
+<style>
+  .am-kicker {
+    display: inline-block;
+    font-family: "Plus Jakarta Sans", sans-serif;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: rgba(0, 0, 0, 0.58);
+  }
+
+  .am-section-title {
+    font-family: "Newsreader", serif;
+    font-size: clamp(2.5rem, 4.5vw, 4rem);
+    line-height: 1.08;
+    font-weight: 300;
+    color: #111;
+    margin: 0;
+  }
+
+  .am-body {
+    font-family: "Plus Jakarta Sans", sans-serif;
+    font-size: 1rem;
+    line-height: 1.8;
+    color: #444;
+  }
+
+  .am-exp-page {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 5vw;
+    background-color: #ffffff;
+  }
+
+  .am-reviews-section {
+    margin-bottom: clamp(8rem, 15vw, 14rem);
+  }
+
+  .am-reviews-text-large {
+    font-size: clamp(1.25rem, 2vw, 1.5rem);
+    line-height: 1.5;
+    color: #111;
+    margin-bottom: 2rem;
+  }
+
+  .am-reviews-link {
+    font-family: "Plus Jakarta Sans", sans-serif;
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: #111;
+    text-decoration: none;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    padding-bottom: 4px;
+    transition: border-color 0.3s ease;
+  }
+
+  .am-reviews-link:hover {
+    border-color: #111;
+  }
+
+  .am-reviews-cta__links {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+  }
+
+  .am-reviews-cta__dot {
+    color: #ccc;
+  }
+
+  .am-reviews-split {
+    display: grid;
+    grid-template-columns: 1.2fr 1.8fr;
+    gap: clamp(4rem, 8vw, 8rem);
+  }
+
+  .am-reviews-split__left .am-section-title {
+    position: sticky;
+    top: 2rem;
+  }
+
+  .am-reviews-split__right {
+    max-width: 65ch;
+  }
+
+  .am-reviews-split__right p {
+    margin-bottom: 1.5rem;
+  }
+
+  .am-reviews-quote-block {
+    padding: clamp(4rem, 8vw, 8rem) 0;
+    text-align: center;
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .am-reviews-quote {
+    font-family: "Newsreader", serif;
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    line-height: 1.15;
+    font-style: italic;
+    font-weight: 300;
+    color: #111;
+    margin: 0;
+  }
+
+  .am-reviews-section-header,
+  .am-reviews-proof__header,
+  .am-reviews-awards__header,
+  .am-reviews-locations__header {
+    text-align: center;
+    max-width: 760px;
+    margin: 0 auto 4rem;
+  }
+
+  .am-reviews-section-note,
+  .am-reviews-proof__note,
+  .am-reviews-awards__source {
+    color: #666;
+    font-style: italic;
+  }
+
+  .am-reviews-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: clamp(2rem, 4vw, 3rem);
+  }
+
+  .am-reviews-card {
+    padding: clamp(2rem, 3vw, 2.5rem);
+    background: #fcfbf9;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+  }
+
+  .am-reviews-card__meta {
+    margin-bottom: 1.5rem;
+    opacity: 0.75;
+  }
+
+  .am-reviews-card__copy {
+    color: #222;
+    line-height: 1.85;
+  }
+
+  .am-reviews-proof {
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .am-reviews-list {
+    border-top: 2px solid #111;
+  }
+
+  .am-reviews-list__item {
+    display: grid;
+    grid-template-columns: 1fr;
+    padding: 1.8rem 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  }
+
+  .am-reviews-list__copy {
+    margin: 0;
+    color: #222;
+  }
+
+  .am-reviews-awards {
+    background-color: #fcfbf9;
+    padding: clamp(4rem, 8vw, 8rem) clamp(2rem, 5vw, 5rem);
+    margin-left: -5vw;
+    margin-right: -5vw;
+  }
+
+  .am-reviews-awards__title {
+    margin-bottom: 1.5rem;
+  }
+
+  .am-reviews-awards__grid {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: clamp(2rem, 4vw, 4rem);
+  }
+
+  .am-reviews-awards__group {
+    background: #fff;
+    padding: clamp(2rem, 4vw, 3rem);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.02);
+  }
+
+  .am-reviews-awards__label {
+    font-family: "Plus Jakarta Sans", sans-serif;
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: #888;
+    margin-bottom: 1.5rem;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    padding-bottom: 0.6rem;
+  }
+
+  .am-reviews-ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .am-reviews-ul li {
+    margin-bottom: 1rem;
+    position: relative;
+    padding-left: 1.25rem;
+    color: #111;
+  }
+
+  .am-reviews-ul li::before {
+    content: "-";
+    position: absolute;
+    left: 0;
+    color: rgba(0, 0, 0, 0.35);
+  }
+
+  .am-reviews-locations__trio {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: clamp(2rem, 4vw, 4rem);
+  }
+
+  .am-reviews-location {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+  }
+
+  .am-reviews-location__image {
+    aspect-ratio: 3 / 4;
+    background-color: rgba(0, 0, 0, 0.03);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+    transition: background-color 0.2s ease;
+  }
+
+  .am-reviews-location:hover .am-reviews-location__image {
+    background-color: rgba(0, 0, 0, 0.05);
+  }
+
+  .am-reviews-location__image span {
+    font-family: "Newsreader", serif;
+    font-style: italic;
+    color: rgba(0, 0, 0, 0.3);
+  }
+
+  .am-reviews-location__title {
+    font-family: "Newsreader", serif;
+    font-size: 1.75rem;
+    font-weight: 300;
+    margin-bottom: 0.5rem;
+    color: #111;
+  }
+
+  .am-reviews-cta {
+    text-align: center;
+    max-width: 850px;
+    margin: 0 auto;
+    padding-bottom: 4rem;
+  }
+
+  .am-reviews-cta__title {
+    font-family: "Newsreader", serif;
+    font-size: clamp(2.5rem, 4vw, 3.5rem);
+    line-height: 1.1;
+    font-weight: 300;
+    color: #111;
+    margin-bottom: 1.5rem;
+  }
+
+  .am-reviews-cta__lead {
+    font-size: clamp(1.125rem, 2vw, 1.25rem);
+    color: #444;
+    margin-bottom: 3rem;
+  }
+
+  @media (max-width: 1000px) {
+    .am-reviews-grid,
+    .am-reviews-locations__trio,
+    .am-reviews-awards__grid,
+    .am-reviews-split {
+      grid-template-columns: 1fr;
+    }
+
+    .am-reviews-split__left .am-section-title {
+      position: static;
+    }
+  }
+
+  @media (max-width: 600px) {
+    .am-reviews-hero__links,
+    .am-reviews-cta__links {
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+      justify-content: center;
+    }
+
+    .am-reviews-hero__dot,
+    .am-reviews-cta__dot {
+      display: none;
+    }
+  }
+</style>

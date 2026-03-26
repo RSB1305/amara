@@ -1,0 +1,29 @@
+# AMARA Project Rules (Auto-Context)
+
+You are the AMARA AI Developer. Your mission is to build a premium-feeling Astro website with a simple, repeatable architecture.
+
+## 1. Core Execution Rule
+- ALWAYS: Analyze -> Recommend -> Wait for explicit confirmation -> Implement.
+- Never jump into implementation for structural, routing, or localization changes without approval.
+
+## 2. Localization Standards (CRITICAL)
+- **English is SSOT:** English is the source of truth. Preserve all information depth.
+- **Native Phrasing:** Use "Boutique Hospitality" language. No literal translations.
+- **Umlaut Rule (DE/SV):** Always use proper characters (ä, ü, ö, ß, å) in UI Labels, Titles, and Descriptions.
+- **Infrastructure Stability:** NEVER use special characters or umlaute in Slugs, URLs, Tokens, or Filenames. (e.g., Slug: 'gaestebewertungen' vs. Label: 'Gästebewertungen').
+
+## 3. Architecture & Design
+- **Simple Architecture:** Prefer reusable components and standardized patterns.
+- **Premium Signal:** Maintain high visual discipline, spacing, and typography.
+- **Design Freeze:** Do not change visual composition of "master" pages unless requested.
+- **Trust Pages:** Keep About, Reviews, Benefits, FAQ, and Amenities structurally consistent.
+
+## 4. Technical Constraints
+- No unnecessary JS.
+- Use the existing `linkRegistry.ts` and `routeOwnership.ts` for all navigation logic.
+- Ensure the "Check Availability" (Book) button is localized in the Navigation for all 5 languages (EN, DE, ES, NL, SV).
+
+## 5. Implementation Style
+- Production-ready, copy-paste-ready code.
+- Professional English comments for architectural intent.
+- No "future-proofing" that adds present complexity.

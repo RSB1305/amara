@@ -1,9 +1,16 @@
 ---
 import FooterMinimal from './FooterMinimal.astro';
 import FooterCore from './FooterCore.astro';
+
+interface Props {
+  highlights?: { token: string; label: string }[];
+  variant?: 'default' | 'trust';
+}
+
+const { highlights, variant = 'default' } = Astro.props;
 ---
 
 <div class="footer">
-  <FooterMinimal />
-  <FooterCore />
+  <FooterMinimal links={highlights} />
+  {variant !== 'trust' && <FooterCore />}
 </div>

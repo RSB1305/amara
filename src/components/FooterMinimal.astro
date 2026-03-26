@@ -1,31 +1,46 @@
 ---
 import { normalizeLanguage } from '../lib/seo/resolve-seo-head';
-import { resolveLink } from '../lib/linkResolver';
+import { resolveOptionalLink } from '../lib/linkResolver';
 import type { AmaraLanguage } from '../types/seo';
 
+interface FooterLink {
+  token: string;
+  label: string;
+}
+
+interface Props {
+  links?: FooterLink[];
+}
+
 const pathname = Astro.url.pathname;
-const rawLang = pathname.split('/')[1] || 'en';
+const rawLang = pathname.split('/')[1] || 'es';
 const currentLang: AmaraLanguage = normalizeLanguage(rawLang);
+
+const defaultLinks: FooterLink[] = [
+  { token: 'reviews_hub', label: 'Guest Reviews' },
+  { token: 'direct_booking_benefits', label: 'Direct Booking Benefits' },
+  { token: 'book', label: 'Check Availability' }
+];
+
+const { links = defaultLinks } = Astro.props;
+const resolvedLinks = links
+  .map((link) => {
+    const href = resolveOptionalLink(link.token, currentLang, { suppressMissing: true });
+    return href ? { ...link, href } : null;
+  })
+  .filter((link): link is FooterLink & { href: string } => Boolean(link));
 ---
 
 <section class="footer-minimal border-t border-outline-variant/10 bg-surface px-12 py-10">
   <nav class="footer-minimal__nav max-w-screen-2xl mx-auto" aria-label="Footer highlights">
     <ul class="footer-minimal__list flex flex-wrap items-center justify-center gap-x-10 gap-y-4">
-      <li>
-        <a href={resolveLink('reviews_hub', currentLang)} class="text-[11px] font-bold uppercase tracking-[0.2em] text-on-surface-variant hover:text-primary transition-colors">
-          Guest Reviews
-        </a>
-      </li>
-      <li>
-        <a href={resolveLink('direct_booking_benefits', currentLang)} class="text-[11px] font-bold uppercase tracking-[0.2em] text-on-surface-variant hover:text-primary transition-colors">
-          Direct Booking Benefits
-        </a>
-      </li>
-      <li>
-        <a href={resolveLink('book', currentLang)} class="text-[11px] font-bold uppercase tracking-[0.2em] text-on-surface-variant hover:text-primary transition-colors">
-          Check Availability
-        </a>
-      </li>
+      {resolvedLinks.map((link) => (
+        <li>
+          <a href={link.href} class="text-[11px] font-bold uppercase tracking-[0.2em] text-on-surface-variant hover:text-primary transition-colors">
+            {link.label}
+          </a>
+        </li>
+      ))}
     </ul>
   </nav>
 </section>

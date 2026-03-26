@@ -1,18 +1,19 @@
 ---
 // src/layouts/UtilityLayout.astro
 import BaseLayout from './BaseLayout.astro';
-import type { AmaraAuthoringSeo } from '../types/seo';
+import type { AmaraAuthoringSeo, AmaraLanguage } from '../types/seo';
 
 interface Props {
   seo: AmaraAuthoringSeo;
+  pageLang?: AmaraLanguage;
   title: string;
   subtitle?: string;
 }
 
-const { seo, title, subtitle } = Astro.props;
+const { seo, pageLang, title, subtitle } = Astro.props;
 ---
 
-<BaseLayout seo={seo}>
+<BaseLayout seo={seo} pageLang={pageLang}>
   <div class="max-w-screen-xl mx-auto px-12 pt-40 pb-20">
     <header class="mb-20 border-b border-black/10 pb-12">
       <span class="label-md font-label text-primary mb-4 block">Utility / Guide</span>

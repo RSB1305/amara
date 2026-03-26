@@ -1,0 +1,383 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Navigation from '../components/Navigation.astro';
+import TrustHero from '../components/hero/TrustHero.astro';
+import { resolveLink } from '../lib/linkResolver';
+import type { AmaraAuthoringSeo, AmaraLanguage } from '../types/seo';
+
+const currentLang: AmaraLanguage = 'es';
+
+const seo: AmaraAuthoringSeo = {
+  version: '2026-03-26-comfort-amenities-es-root-v1.0',
+  pageType: 'C',
+  entityKey: 'amara-brand',
+  languages: {
+    en: { title: 'AMARA Amenities & Policies', description: 'Amenities, policies and practical details for AMARA stays.', robots: 'index, follow', canonical: 'auto' },
+    de: { title: 'AMARA Ausstattung & Regeln', description: 'Ausstattung, Regeln und praktische Details für AMARA Aufenthalte.', robots: 'index, follow', canonical: 'auto' },
+    es: { title: 'AMARA Servicios y normas', description: 'Servicios, normas y detalles prácticos para vuestra estancia con AMARA.', robots: 'index, follow', canonical: 'auto' },
+    nl: { title: 'AMARA Voorzieningen en regels', description: 'Voorzieningen, regels en praktische details voor jullie AMARA verblijf.', robots: 'index, follow', canonical: 'auto' },
+    sv: { title: 'AMARA Bekvämligheter och regler', description: 'Bekvämligheter, regler och praktiska detaljer för er AMARA-vistelse.', robots: 'index, follow', canonical: 'auto' }
+  },
+  ogImage: '/images/hero-frigiliana.jpg'
+};
+
+const trustLinks = [
+  { token: 'about', label: 'Sobre AMARA' },
+  { token: 'reviews_hub', label: 'Opiniones de huéspedes' },
+  { token: 'direct_booking_benefits', label: 'Ventajas de reserva directa' }
+];
+
+const footerHighlights = [
+  { token: 'reviews_hub', label: 'Opiniones de huéspedes' },
+  { token: 'faq_general', label: 'FAQ de la estancia' },
+  { token: 'instagram', label: 'Instagram' }
+];
+---
+
+<BaseLayout seo={seo} pageLang={currentLang} footerHighlights={footerHighlights}>
+  <Navigation
+    currentLang={currentLang}
+    brandName="AMARA"
+    links={trustLinks}
+    variant="trust"
+    languageToken="amenities"
+  />
+
+  <div id="am-page-amenities" class="am-root" data-am-page="amenities" data-current-lang={currentLang}>
+    <div class="am-exp-page">
+    <TrustHero
+      subtitle="Servicios y normas"
+      title="Datos claros para huéspedes y asistentes de viaje"
+      lead="Alojamientos independientes (no somos un hotel), diseñados para la tranquilidad y con detalles prácticos en los que podéis confiar."
+      supportText="Inventario, normas y detalles operativos en una única vista clara y serena."
+      ctaLinks={[
+        { href: resolveLink('about', currentLang), label: 'Sobre AMARA' },
+        { href: resolveLink('reviews_hub', currentLang), label: 'Opiniones de huéspedes' }
+      ]}
+    />
+    </div>
+
+    <div class="am-wrap">
+      <section class="am-section" aria-label="Concepto de alojamiento">
+        <h2 class="am-h2">Nuestro concepto de alojamiento</h2>
+
+        <div class="am-grid">
+          <article class="am-card">
+            <div class="am-card-body">
+              <h3 class="am-h2">Colección principal: Frigiliana y Nerja</h3>
+              <div class="am-elist is-tight">
+                <div class="am-elist-item">
+                  <div class="am-elist-body">
+                    <p class="am-elist-title">Estancias tranquilas</p>
+                    <p class="am-elist-desc">Pensadas para parejas y adultos que buscan descanso.</p>
+                  </div>
+                </div>
+                <div class="am-elist-item">
+                  <div class="am-elist-body">
+                    <p class="am-elist-title">Sin fiestas</p>
+                    <p class="am-elist-desc">Aplicación estricta para preservar el ambiente de la casa.</p>
+                  </div>
+                </div>
+                <div class="am-elist-item">
+                  <div class="am-elist-body">
+                    <p class="am-elist-title">Estancia independiente</p>
+                    <p class="am-elist-desc">Apartamentos privados, no hotel con servicios diarios.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article class="am-card">
+            <div class="am-card-body">
+              <h3 class="am-h2">Oferta separada: Family & Surf</h3>
+              <div class="am-elist is-tight">
+                <div class="am-elist-item">
+                  <div class="am-elist-body">
+                    <p class="am-elist-title">Apto para familias</p>
+                    <p class="am-elist-desc">Más espacio, otro ritmo, piscina incluida.</p>
+                  </div>
+                </div>
+                <div class="am-elist-item">
+                  <div class="am-elist-body">
+                    <p class="am-elist-title">Ubicación en Tarifa</p>
+                    <p class="am-elist-desc">Aproximadamente 2 horas en coche desde Frigiliana. Costa atlántica.</p>
+                  </div>
+                </div>
+                <div class="am-elist-item">
+                  <div class="am-elist-body">
+                    <p class="am-elist-title">Casa completa</p>
+                    <p class="am-elist-desc">Se reserva la vivienda íntegra.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="am-section" aria-label="Inventario de propiedades">
+        <h2 class="am-h2">Encontrad vuestro espacio</h2>
+
+        <div class="am-grid">
+          <article class="am-card" data-rental-id="408326">
+            <div class="am-card-body">
+              <h3 class="am-h2">AMARA Farah</h3>
+              <p class="am-body"><a class="am-inline-link" href="https://amara-lodging.es/es/la-amara-farah-habitacion-doble-romantica">Ver detalles (ES canónica)</a></p>
+              <ul class="am-list-specs">
+                <li><strong>Licencia (VFT)</strong> <span>A/MA/01767</span></li>
+                <li><strong>Capacidad máxima</strong> <span>2 huéspedes</span></li>
+                <li><strong>Cama</strong> <span>160×200</span></li>
+                <li><strong>Precio</strong> <span>75 € - 120 €</span></li>
+                <li><strong>Acceso</strong> <span>1 escalón en la entrada</span></li>
+                <li><strong>Mascotas</strong> <span>No permitidas</span></li>
+                <li><strong>Vistas</strong> <span>Calle del pueblo (sin vistas al mar)</span></li>
+                <li><strong>Exterior</strong> <span>Sin espacio exterior privado</span></li>
+                <li><strong>Cocina</strong> <span>Solo estación de té/café</span></li>
+              </ul>
+              <div class="am-btn-row"><a href="https://amara-lodging.es/es/la-amara-farah-habitacion-doble-romantica" class="am-btn am-btn--primary">Reserva directa</a></div>
+            </div>
+          </article>
+
+          <article class="am-card" data-rental-id="408324">
+            <div class="am-card-body">
+              <h3 class="am-h2">AMARA Lounis</h3>
+              <p class="am-body"><a class="am-inline-link" href="https://amara-lodging.es/es/la-amara-lounis-apartamento-historico">Ver detalles (ES canónica)</a></p>
+              <ul class="am-list-specs">
+                <li><strong>Licencia (VFT)</strong> <span>A/MA/01767</span></li>
+                <li><strong>Capacidad máxima</strong> <span>2 huéspedes</span></li>
+                <li><strong>Cama</strong> <span>160×200</span></li>
+                <li><strong>Precio</strong> <span>90 € - 200 €</span></li>
+                <li><strong>Acceso</strong> <span>Requiere escaleras</span></li>
+                <li><strong>Mascotas</strong> <span>Bajo solicitud (15 €/día)</span></li>
+                <li><strong>Vistas</strong> <span>Vistas lejanas al mar</span></li>
+                <li><strong>Exterior</strong> <span>Terraza privada</span></li>
+                <li><strong>Cocina</strong> <span>Cocina interior completa</span></li>
+              </ul>
+              <div class="am-btn-row"><a href="https://amara-lodging.es/es/la-amara-lounis-apartamento-historico" class="am-btn am-btn--primary">Reserva directa</a></div>
+            </div>
+          </article>
+
+          <article class="am-card" data-rental-id="408323">
+            <div class="am-card-body">
+              <h3 class="am-h2">AMARA Zaid</h3>
+              <p class="am-body"><a class="am-inline-link" href="https://amara-lodging.es/es/la-amara-zaid-refugio-romantico-con-terraza">Ver detalles (ES canónica)</a></p>
+              <ul class="am-list-specs">
+                <li><strong>Licencia (VFT)</strong> <span>A/MA/01767</span></li>
+                <li><strong>Capacidad máxima</strong> <span>2 huéspedes</span></li>
+                <li><strong>Cama</strong> <span>180×200</span></li>
+                <li><strong>Precio</strong> <span>90 € - 180 €</span></li>
+                <li><strong>Acceso</strong> <span>Requiere escaleras</span></li>
+                <li><strong>Mascotas</strong> <span>No permitidas</span></li>
+                <li><strong>Vistas</strong> <span>Vistas lejanas al mar</span></li>
+                <li><strong>Exterior</strong> <span>Terraza privada</span></li>
+                <li><strong>Cocina</strong> <span>Cocina interior completa</span></li>
+              </ul>
+              <div class="am-btn-row"><a href="https://amara-lodging.es/es/la-amara-zaid-refugio-romantico-con-terraza" class="am-btn am-btn--primary">Reserva directa</a></div>
+            </div>
+          </article>
+
+          <article class="am-card" data-rental-id="408325">
+            <div class="am-card-body">
+              <h3 class="am-h2">AMARA Maha</h3>
+              <p class="am-body"><a class="am-inline-link" href="https://amara-lodging.es/es/la-amara-maha-apartamento-con-gran-terraza">Ver detalles (ES canónica)</a></p>
+              <ul class="am-list-specs">
+                <li><strong>Licencia (VFT)</strong> <span>A/MA/01767</span></li>
+                <li><strong>Capacidad máxima</strong> <span>2 huéspedes</span></li>
+                <li><strong>Cama</strong> <span>150×200</span></li>
+                <li><strong>Precio</strong> <span>90 € - 180 €</span></li>
+                <li><strong>Acceso</strong> <span>Requiere escaleras</span></li>
+                <li><strong>Mascotas</strong> <span>Bajo solicitud (15 €/día)</span></li>
+                <li><strong>Vistas</strong> <span>Vistas lejanas al mar</span></li>
+                <li><strong>Exterior</strong> <span>Gran terraza privada</span></li>
+                <li><strong>Cocina</strong> <span>Cocina interior completa</span></li>
+              </ul>
+              <div class="am-btn-row"><a href="https://amara-lodging.es/es/la-amara-maha-apartamento-con-gran-terraza" class="am-btn am-btn--primary">Reserva directa</a></div>
+            </div>
+          </article>
+
+          <article class="am-card" data-rental-id="408327">
+            <div class="am-card-body">
+              <h3 class="am-h2">AMARA Playa (Nerja)</h3>
+              <p class="am-body"><a class="am-inline-link" href="https://amara-lodging.es/es/la-amara-playa-apartamento-nerja">Ver detalles (ES canónica)</a></p>
+              <ul class="am-list-specs">
+                <li><strong>Licencia (VFT)</strong> <span>VFT/MA/19212</span></li>
+                <li><strong>Capacidad máxima</strong> <span>2 huéspedes</span></li>
+                <li><strong>Cama</strong> <span>200×200</span></li>
+                <li><strong>Precio</strong> <span>90 € - 200 €</span></li>
+                <li><strong>Acceso</strong> <span>Requiere escaleras</span></li>
+                <li><strong>Mascotas</strong> <span>No permitidas</span></li>
+                <li><strong>Vistas</strong> <span>Vistas al mar</span></li>
+                <li><strong>Exterior</strong> <span>Balcón</span></li>
+                <li><strong>Cocina</strong> <span>Cocina interior completa</span></li>
+              </ul>
+              <div class="am-btn-row"><a href="https://amara-lodging.es/es/la-amara-playa-apartamento-nerja" class="am-btn am-btn--primary">Reserva directa</a></div>
+            </div>
+          </article>
+
+          <article class="am-card" data-rental-id="544478">
+            <div class="am-card-body">
+              <h3 class="am-h2">AMARA Family & Surf (Tarifa)</h3>
+              <p class="am-body"><a class="am-inline-link" href="https://amara-lodging.es/es/amara-casa-familiar-con-vista-al-mar-y-piscina">Ver detalles (ES canónica)</a></p>
+              <ul class="am-list-specs">
+                <li><strong>Licencia (VFT)</strong> <span>VFT/CA/17038</span></li>
+                <li><strong>Capacidad máxima</strong> <span>4 huéspedes</span></li>
+                <li><strong>Camas</strong> <span>150 + litera</span></li>
+                <li><strong>Precio</strong> <span>120 € - 350 €</span></li>
+                <li><strong>Acceso</strong> <span>Probablemente con escaleras</span></li>
+                <li><strong>Mascotas</strong> <span>No permitidas</span></li>
+                <li><strong>Piscina</strong> <span>Sí (compartida)</span></li>
+                <li><strong>Vistas</strong> <span>Vistas al mar</span></li>
+                <li><strong>Exterior</strong> <span>Terraza</span></li>
+                <li><strong>Cocina</strong> <span>Cocina interior completa</span></li>
+              </ul>
+              <div class="am-btn-row"><a href="https://amara-lodging.es/es/amara-casa-familiar-con-vista-al-mar-y-piscina" class="am-btn am-btn--primary">Reserva directa</a></div>
+            </div>
+          </article>
+        </div>
+
+        <p class="am-small">
+          <strong>Nota:</strong> Los rangos de precio por temporada son orientativos. El precio final y la estancia mínima siempre se muestran durante el proceso de reserva.
+        </p>
+      </section>
+    </div>
+  </div>
+</BaseLayout>
+
+<style>
+  .am-exp-page {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 5vw;
+    background-color: #ffffff;
+  }
+
+  .am-wrap {
+    width: min(100%, 76rem);
+    margin: 0 auto;
+    padding: 0 1.5rem 5rem;
+  }
+
+  .am-section {
+    margin-bottom: 3rem;
+  }
+
+  .am-grid {
+    display: block;
+  }
+
+  .am-h2 {
+    margin: 0 0 1rem;
+    font-family: var(--font-display, var(--font-body));
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    font-weight: 500;
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+  }
+
+  .am-card {
+    margin: 0 0 2.5rem;
+  }
+
+  .am-card-body {
+    padding: 0;
+  }
+
+  .am-elist-item {
+    display: block;
+    margin-bottom: 1rem;
+  }
+
+  .am-elist-title {
+    margin: 0 0 0.2rem;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: rgba(0, 0, 0, 0.84);
+  }
+
+  .am-elist-desc {
+    margin: 0;
+    font-size: 0.95rem;
+    line-height: 1.65;
+    color: rgba(0, 0, 0, 0.68);
+  }
+
+  .am-list-specs {
+    margin: 1rem 0 0;
+    padding: 0;
+    list-style: none;
+    display: grid;
+    gap: 0.55rem;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: rgba(0, 0, 0, 0.76);
+  }
+
+  .am-list-specs li {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    padding-bottom: 0.55rem;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+  }
+
+  .am-list-specs strong {
+    font-weight: 600;
+    color: rgba(0, 0, 0, 0.88);
+  }
+
+  .am-list-specs span {
+    text-align: right;
+  }
+
+  .am-inline-link {
+    color: rgba(0, 0, 0, 0.72);
+    text-decoration: underline;
+    text-underline-offset: 0.18em;
+  }
+
+  .am-btn-row {
+    margin-top: 1.25rem;
+  }
+
+  .am-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 2.9rem;
+    padding: 0.8rem 1.2rem;
+    border-radius: 0.95rem;
+    text-decoration: none;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+
+  .am-btn--primary {
+    background: #111;
+    color: #fff;
+  }
+
+  .am-small {
+    margin: 1rem 0 0;
+    font-size: 0.95rem;
+    line-height: 1.7;
+    color: rgba(0, 0, 0, 0.64);
+  }
+
+  @media (max-width: 720px) {
+    .am-wrap {
+      padding-inline: 1rem;
+    }
+
+    .am-list-specs li {
+      flex-direction: column;
+      gap: 0.2rem;
+    }
+
+    .am-list-specs span {
+      text-align: left;
+    }
+  }
+</style>

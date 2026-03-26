@@ -16,7 +16,6 @@ export function getStaticPaths() {
   return [
     { params: { lang: 'en' } },
     { params: { lang: 'de' } },
-    { params: { lang: 'es' } },
     { params: { lang: 'nl' } },
     { params: { lang: 'sv' } }
   ];
@@ -167,7 +166,7 @@ const heroImage = {
 };
 ---
 
-<LocationAuthorityLayout seo={seo}>
+<LocationAuthorityLayout seo={seo} pageLang={currentLang}>
   
   <Navigation 
     currentLang={currentLang} 

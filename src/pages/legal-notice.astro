@@ -3,16 +3,16 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import Navigation from '../components/Navigation.astro';
 import type { AmaraAuthoringSeo, AmaraLanguage } from '../types/seo';
 
-const currentLang: AmaraLanguage = 'en';
+const currentLang: AmaraLanguage = 'es';
 
 const seo: AmaraAuthoringSeo = {
   version: '2026-03-24-legal-content-v1.0-C',
   pageType: 'C',
   entityKey: 'amara-brand',
   languages: {
-    en: {
-      title: 'AMARA Legal Notice & Privacy Policy',
-      description: 'Legal notice, rental licenses, and privacy policy for amara-lodging.es. Including compliance info for Andalusia and GDPR.',
+    es: {
+      title: 'AMARA Aviso legal y politica de privacidad',
+      description: 'Aviso legal, licencias de alojamiento y politica de privacidad para amara-lodging.es. Incluye informacion de cumplimiento para Andalucia y GDPR.',
       robots: 'index, follow',
       canonical: 'auto'
     }
@@ -25,7 +25,7 @@ const specsItemClass = 'grid gap-2 md:grid-cols-[minmax(0,18rem)_1fr]';
 const cardClass = 'bg-surface-container-lowest border border-outline-variant/10 px-8 py-8 md:px-10 md:py-10';
 ---
 
-<BaseLayout seo={seo}>
+<BaseLayout seo={seo} pageLang={currentLang}>
   <Navigation
     currentLang={currentLang}
     brandName="AMARA"
@@ -36,13 +36,13 @@ const cardClass = 'bg-surface-container-lowest border border-outline-variant/10 
 
   <div class="bg-white">
     <div class="max-w-screen-lg mx-auto px-12 pt-40 pb-28">
-      <main lang="en" aria-label="Legal and privacy" class="legal-notice-formal-headings space-y-16">
+      <main lang="es" aria-label="Aviso legal y privacidad" class="legal-notice-formal-headings space-y-16">
         <header class="border-b border-outline-variant/10 pb-16 space-y-6">
           <span class="label-md text-primary block">Legal</span>
           <h1 class="font-headline text-[clamp(3.25rem,8vw,5.75rem)] leading-[0.94] tracking-tight text-on-surface font-light">
-            Legal Notice &amp; Privacy Policy
+            Aviso legal &amp; Politica de privacidad
           </h1>
-          <p class="text-on-surface-variant text-xl leading-relaxed max-w-2xl">Applies to amara-lodging.es and related subpages.</p>
+          <p class="text-on-surface-variant text-xl leading-relaxed max-w-2xl">Aplica a amara-lodging.es y a sus subpaginas relacionadas.</p>
         </header>
 
         <section class="space-y-6" aria-label="Responsible for this website">
