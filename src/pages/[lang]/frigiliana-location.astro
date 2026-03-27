@@ -1,0 +1,147 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Navigation from '../../components/Navigation.astro';
+import { normalizeLanguage } from '../../lib/seo/resolve-seo-head';
+import type { AmaraAuthoringSeo, AmaraLanguage } from '../../types/seo';
+
+export function getStaticPaths() {
+  return [
+    { params: { lang: 'de' } },
+    { params: { lang: 'en' } },
+    { params: { lang: 'es' } },
+    { params: { lang: 'nl' } },
+    { params: { lang: 'sv' } }
+  ];
+}
+
+const { lang } = Astro.params;
+const currentLang = normalizeLanguage(lang as AmaraLanguage);
+
+const seo: AmaraAuthoringSeo = {
+  version: '2026-03-27-frigiliana-loc-v1.0-A',
+  pageType: 'A',
+  entityKey: 'frigiliana-location',
+  languages: {
+    en: {
+      title: 'Explore Frigiliana | The White Village of Andalusia',
+      description: 'Discover Frigiliana, the most beautiful white village in Spain. Travel guide, local tips, and premium stays by AMARA.',
+      robots: 'index, follow',
+      canonical: 'auto'
+    },
+    de: {
+      title: 'Entdecke Frigiliana | Das weiße Dorf Andalusiens',
+      description: 'Erlebe Frigiliana, das schönste weiße Dorf Spaniens. Reiseführer, Insider-Tipps und exklusive Unterkünfte von AMARA.',
+      robots: 'index, follow',
+      canonical: 'auto'
+    },
+    es: {
+      title: 'Explora Frigiliana | El pueblo blanco de Andalucía',
+      description: 'Descubre Frigiliana, el pueblo más bonito de España. Guía de viaje, consejos locales y estancias premium de AMARA.',
+      robots: 'index, follow',
+      canonical: 'auto'
+    },
+    nl: {
+      title: 'Ontdek Frigiliana | Het witte dorp van Andalusië',
+      description: 'Ontdek Frigiliana, het mooiste witte dorp van Spanje. Reisgids, lokale tips en luxe verblijven van AMARA.',
+      robots: 'index, follow',
+      canonical: 'auto'
+    },
+    sv: {
+      title: 'Utforska Frigiliana | Andalusiens vita by',
+      description: 'Upptäck Frigiliana, Spaniens vackraste vita by. Reseguide, lokala tips och exklusivt boende från AMARA.',
+      robots: 'index, follow',
+      canonical: 'auto'
+    }
+  }
+};
+---
+
+<BaseLayout seo={seo} pageLang={currentLang}>
+  <Navigation
+    currentLang={currentLang}
+    brandName="AMARA"
+    links={[
+      { label: 'Guest Reviews', href: '#reviews' },
+      { label: 'Location Tips', href: '#tips' },
+      { label: 'Check Availability', href: '#booking' }
+    ]}
+    variant="primary"
+    languageToken="frigiliana-location"
+  />
+
+  <main class="am-root bg-white">
+    <div class="am-wrap">
+      
+      {/* HERO SECTION */}
+      <section class="pt-40 pb-20 border-b border-outline-variant/10">
+        <div class="max-w-screen-xl mx-auto px-6 lg:px-12">
+          <span class="label-md text-primary mb-6 block tracking-widest uppercase">Location Guide</span>
+          <h1 class="font-headline text-[clamp(3.5rem,10vw,8rem)] leading-[0.9] tracking-tighter italic font-light text-on-surface">
+            {currentLang === 'de' ? 'Frigiliana: Wo die Zeit stillsteht' : 'Frigiliana: Where Time Stands Still'}
+          </h1>
+          <p class="mt-8 text-xl md:text-2xl text-on-surface-variant max-w-2xl leading-relaxed">
+            {currentLang === 'de' 
+              ? 'Zwischen dem Blau des Meeres und dem Weiß der Berge liegt das Herz Andalusiens. Willkommen im schönsten Dorf Spaniens.' 
+              : 'Perched between the blue of the sea and the white of the mountains lies the heart of Andalusia. Welcome to Spain’s most beautiful village.'}
+          </p>
+        </div>
+      </section>
+
+      {/* CONTENT GRID */}
+      <section id="tips" class="py-24">
+        <div class="max-w-screen-xl mx-auto px-6 lg:px-12 grid md:grid-cols-2 gap-16 items-start">
+          <div class="space-y-8">
+            <h2 class="font-headline text-5xl italic tracking-tight text-on-surface">
+              {currentLang === 'de' ? 'Das authentische Erlebnis' : 'The Authentic Experience'}
+            </h2>
+            <p class="text-lg text-on-surface-variant leading-relaxed">
+              {currentLang === 'de' 
+                ? 'Schlendere durch die kopfsteingepflasterten Gassen des Mudéjar-Viertels. Frigiliana ist nicht nur ein Ort zum Besuchen, sondern ein Ort zum Fühlen.' 
+                : 'Stroll through the cobblestone streets of the Mudéjar quarter. Frigiliana is not just a place to visit, but a place to feel.'}
+            </p>
+          </div>
+          <div class="bg-surface-container-lowest border border-outline-variant/20 p-8 md:p-12">
+            <h3 class="font-headline text-3xl mb-6">Local Highlights</h3>
+            <ul class="space-y-4 text-on-surface-variant">
+              <li class="flex items-center gap-4 border-b border-outline-variant/10 pb-4">
+                <span class="text-primary font-bold">01</span>
+                <span>Calle Real & El Zacatin</span>
+              </li>
+              <li class="flex items-center gap-4 border-b border-outline-variant/10 pb-4">
+                <span class="text-primary font-bold">02</span>
+                <span>Plaza de las Tres Culturas</span>
+              </li>
+              <li class="flex items-center gap-4">
+                <span class="text-primary font-bold">03</span>
+                <span>Sierra de Almijara Views</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      {/* CALL TO ACTION */}
+      <section id="booking" class="py-24 bg-surface-container-lowest border-t border-outline-variant/10">
+        <div class="max-w-screen-xl mx-auto px-6 lg:px-12 text-center">
+          <h2 class="font-headline text-6xl md:text-8xl italic tracking-tight mb-12">
+            {currentLang === 'de' ? 'Bereit für Frigiliana?' : 'Ready for Frigiliana?'}
+          </h2>
+          <a 
+            href="/en/booking" 
+            class="inline-block bg-primary text-on-primary px-12 py-6 text-xl hover:bg-primary-container hover:text-on-primary-container transition-all"
+          >
+            {currentLang === 'de' ? 'Verfügbarkeit prüfen' : 'Check Availability'}
+          </a>
+        </div>
+      </section>
+
+    </div>
+  </main>
+</BaseLayout>
+
+<style>
+  /* Local adjustments for Typography Authority */
+  .am-root {
+    --am-line-height-tight: 0.9;
+  }
+</style>

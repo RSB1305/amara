@@ -1,10 +1,5 @@
 ---
-import DirectBookingBenefitsLocalizedPage from './[lang]/direct-booking-benefits.astro';
-
-const lang = 'es';
+import DirectBookingBenefitsPage from '../page-families/direct-booking-benefits/DirectBookingBenefitsPage.astro';
 ---
 
-<div data-lang={lang}>
-  {/* @ts-ignore - Reuse localized page implementation for root Spanish route */}
-  <DirectBookingBenefitsLocalizedPage lang={lang} />
-</div>
+<DirectBookingBenefitsPage lang="es" />

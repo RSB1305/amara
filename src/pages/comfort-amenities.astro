@@ -1,10 +1,5 @@
 ---
-import LocalizedPage from './[lang]/comfort-amenities.astro';
-
-const lang = 'es';
+import ComfortAmenitiesPage from '../page-families/comfort-amenities/ComfortAmenitiesPage.astro';
 ---
 
-<div data-lang={lang}>
-  {/* @ts-ignore - Reuse localized page implementation for root Spanish route */}
-  <LocalizedPage lang={lang} />
-</div>
+<ComfortAmenitiesPage lang="es" />

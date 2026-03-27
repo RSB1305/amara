@@ -1,10 +1,5 @@
 ---
-import LegalNoticeLocalizedPage from './[lang]/legal-notice.astro';
-
-const lang = 'es';
+import LegalNoticePage from '../page-families/legal-notice/LegalNoticePage.astro';
 ---
 
-<div data-lang={lang}>
-  {/* @ts-ignore - Reuse localized page implementation for root Spanish route */}
-  <LegalNoticeLocalizedPage lang={lang} />
-</div>
+<LegalNoticePage lang="es" />
