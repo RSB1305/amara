@@ -16,7 +16,6 @@ export function getStaticPaths() {
   return [
     { params: { lang: 'de' } },
     { params: { lang: 'en' } },
-    { params: { lang: 'es' } },
     { params: { lang: 'nl' } },
     { params: { lang: 'sv' } }
   ];
@@ -24,6 +23,17 @@ export function getStaticPaths() {
 
 const { lang } = Astro.params;
 const currentLang = normalizeLanguage(lang as AmaraLanguage);
+const DISABLED_ROUTE_TOKENS = new Set([
+  'book',
+  'explore_hub',
+  'location_nerja',
+  'location_tarifa',
+  'locations_hub',
+  'weather_frigiliana',
+  'journal',
+  'contact',
+  'archive'
+]);
 
 const seo: AmaraAuthoringSeo = {
   version: "2026-03-21-v3.0",
@@ -123,7 +133,7 @@ const copy = {
 const c = {
   nav: { brand: copy.nav.brand[currentLang], links: copy.nav.links.map(l => ({ token: l.token, label: l.label[currentLang] })) },
   hero: { eyebrow: copy.hero.eyebrow[currentLang], h1: copy.hero.h1[currentLang], body: copy.hero.body[currentLang], ctaMain: copy.hero.ctaMain[currentLang], ctaAlt: copy.hero.ctaAlt[currentLang] },
-  essence: { eyebrow: copy.essence.eyebrow[currentLang], title: copy.essence.title[currentLang], intro: copy.essence.intro[currentLang], items: copy.essence.items.map(item => ({ kicker: item.kicker[currentLang], headline: item.headline[currentLang], text: item.text[currentLang], imageSrc: item.imageSrc, imageAlt: item.headline[currentLang], href: item.token ? resolveLink(item.token, currentLang) : undefined, linkLabel: item.linkLabel ? item.linkLabel[currentLang] : undefined })) },
+  essence: { eyebrow: copy.essence.eyebrow[currentLang], title: copy.essence.title[currentLang], intro: copy.essence.intro[currentLang], items: copy.essence.items.map(item => ({ kicker: item.kicker[currentLang], headline: item.headline[currentLang], text: item.text[currentLang], imageSrc: item.imageSrc, imageAlt: item.headline[currentLang], href: item.token && !DISABLED_ROUTE_TOKENS.has(item.token) ? resolveLink(item.token, currentLang) : undefined, linkLabel: item.linkLabel ? item.linkLabel[currentLang] : undefined })) },
   climate: { h2: copy.climate.h2[currentLang], text: copy.climate.text[currentLang] },
   gallery: { eyebrow: copy.gallery.eyebrow[currentLang], title: copy.gallery.title[currentLang], images: copy.gallery.items.map(img => ({ src: img.src, alt: img.alt[currentLang] || img.alt.en, caption: img.caption[currentLang] || img.caption.en })) },
   decision: { eyebrow: copy.decision.eyebrow[currentLang], title: copy.decision.title[currentLang], profiles: copy.decision.profiles.map(p => ({ title: p.title[currentLang], description: p.description[currentLang], suitability: p.suitability[currentLang] })) },
@@ -187,7 +197,7 @@ const heroImage = {
     <h1 class="text-[clamp(3.5rem,9vw,6rem)] leading-[0.9] font-headline font-light italic text-on-surface mb-10 tracking-tighter" set:html={c.hero.h1} />
     <div class="pl-10 border-l border-primary/20 max-w-lg mb-14"><p class="text-on-surface-variant text-lg leading-relaxed font-body">{c.hero.body}</p></div>
     <div class="flex flex-wrap gap-8">
-      <a href={resolveLink('explore_hub', currentLang)} class="bg-primary text-on-primary px-12 py-5 text-[11px] uppercase tracking-[0.2em] font-bold hover:bg-primary-container transition-all">{c.hero.ctaMain}</a>
+      <span class="am-link-disabled bg-primary text-on-primary px-12 py-5 text-[11px] uppercase tracking-[0.2em] font-bold transition-all">{c.hero.ctaMain}</span>
       <a href={resolveLink('arrival_guide', currentLang)} class="border border-outline-variant/30 text-on-surface px-12 py-5 text-[11px] uppercase tracking-[0.2em] font-bold hover:bg-surface-container-low transition-all">{c.hero.ctaAlt}</a>
     </div>
   </Hero>
@@ -215,3 +225,11 @@ const heroImage = {
   />
   
 </LocationAuthorityLayout>
+
+<style>
+  .am-link-disabled {
+    pointer-events: none;
+    cursor: default;
+    opacity: 0.6;
+  }
+</style>

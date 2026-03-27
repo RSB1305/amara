@@ -9,7 +9,8 @@ const ROOT_SPANISH_PUBLIC_SLUGS = new Set([
   'guest-reviews',
   'comfort-amenities',
   'faq-general',
-  'legal-notice'
+  'legal-notice',
+  'frigiliana-location'
 ]);
 
 const SECONDARY_LANGUAGE_ONLY_SLUGS = new Set([

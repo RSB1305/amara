@@ -1,5 +1,30 @@
 import { buildOwnedLocalizedPath, buildSecondaryOnlyLocalizedPaths } from './routeOwnership';
 
+function normalizeInternalSpanishPath(path: string): string {
+  return path.replace(/^\/es\//, '/');
+}
+
+function normalizeRegistrySpanishPaths<T>(value: T): T {
+  if (typeof value === 'string') {
+    // Normalize only internal route paths. Absolute URLs stay untouched.
+    return (value.startsWith('/') ? normalizeInternalSpanishPath(value) : value) as T;
+  }
+
+  if (Array.isArray(value)) {
+    return value.map((item) => normalizeRegistrySpanishPaths(item)) as T;
+  }
+
+  if (value && typeof value === 'object') {
+    const normalized: Record<string, unknown> = {};
+    for (const [key, child] of Object.entries(value as Record<string, unknown>)) {
+      normalized[key] = normalizeRegistrySpanishPaths(child);
+    }
+    return normalized as T;
+  }
+
+  return value;
+}
+
 // src/lib/linkRegistry.ts
 /**
  * AMARA Link Registry — Astro SSOT
@@ -18,7 +43,7 @@ import { buildOwnedLocalizedPath, buildSecondaryOnlyLocalizedPaths } from './rou
  *   resolveLink(...) will throw only when that alias is actually used.
  */
 
-export const linkRegistry = {
+export const linkRegistry = normalizeRegistrySpanishPaths({
   version: '2026-02-26-registry-v4.0',
   updated_at: '2026-02-26',
   base: '/',
@@ -91,7 +116,7 @@ legal_notice: {
        LOCATIONS
     ========================================================= */
     locations_hub: { en: '/en/locations', de: '/de/locations', es: '/es/locations', nl: '/nl/locations', sv: '/sv/locations' },
-    location_frigiliana: { en: '/en/frigiliana-location', de: '/de/frigiliana-location', es: '/es/frigiliana-location', nl: '/nl/frigiliana-location', sv: '/sv/frigiliana-location' },
+    location_frigiliana: { en: '/en/frigiliana-location', de: '/de/frigiliana-location', es: '/frigiliana-location', nl: '/nl/frigiliana-location', sv: '/sv/frigiliana-location' },
     location_nerja: { en: '/en/nerja-location', de: '/de/nerja-location', es: '/es/nerja-location', nl: '/nl/nerja-location', sv: '/sv/nerja-location' },
     location_tarifa: { en: '/en/tarifa-location', de: '/de/tarifa-location', es: '/es/tarifa-location', nl: '/nl/tarifa-location', sv: '/sv/tarifa-location' },
 
@@ -545,4 +570,4 @@ legal_notice: {
     __MAP_EMBED_URL__: { lang: 'auto', key: 'map_embed_url' },
     __FLIGHTS_LINK__: { lang: 'auto', key: 'flights_link' }
   }
-} as const;
+} as const);

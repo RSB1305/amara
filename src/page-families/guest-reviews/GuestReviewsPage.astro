@@ -489,21 +489,21 @@ const footerHighlights = [
             </div>
           </a>
 
-          <a href={resolveLink('location_nerja', currentLang)} class="am-reviews-location">
+          <span class="am-reviews-location am-link-disabled">
             <div class="am-reviews-location__image"><span>Nerja</span></div>
             <div class="am-reviews-location__caption">
               <h3 class="am-reviews-location__title">Nerja</h3>
               <p class="am-body">{copy.sections.locationNerja[currentLang]}</p>
             </div>
-          </a>
+          </span>
 
-          <a href={resolveLink('location_tarifa', currentLang)} class="am-reviews-location">
+          <span class="am-reviews-location am-link-disabled">
             <div class="am-reviews-location__image"><span>Tarifa</span></div>
             <div class="am-reviews-location__caption">
               <h3 class="am-reviews-location__title">Tarifa</h3>
               <p class="am-body">{copy.sections.locationTarifa[currentLang]}</p>
             </div>
-          </a>
+          </span>
         </div>
       </section>
 
@@ -514,9 +514,9 @@ const footerHighlights = [
         </p>
 
         <div class="am-reviews-cta__links">
-          <a href={resolveLink('book', currentLang)} class="am-reviews-link">{copy.sections.ctaBook[currentLang]}</a>
+          <span class="am-reviews-link am-link-disabled">{copy.sections.ctaBook[currentLang]}</span>
           <span class="am-reviews-cta__dot">&middot;</span>
-          <a href={resolveLink('locations_hub', currentLang)} class="am-reviews-link">{copy.sections.ctaExplore[currentLang]}</a>
+          <span class="am-reviews-link am-link-disabled">{copy.sections.ctaExplore[currentLang]}</span>
           <span class="am-reviews-cta__dot">&middot;</span>
           <a href={resolveLink('direct_booking_benefits', currentLang)} class="am-reviews-link">{copy.sections.ctaBenefits[currentLang]}</a>
         </div>
@@ -550,6 +550,12 @@ const footerHighlights = [
     font-size: 1rem;
     line-height: 1.8;
     color: #444;
+  }
+
+  .am-link-disabled {
+    pointer-events: none;
+    cursor: default;
+    opacity: 0.6;
   }
 
   .am-exp-page {

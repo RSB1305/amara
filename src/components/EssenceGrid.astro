@@ -54,10 +54,16 @@ const { eyebrow, title, intro, items } = Astro.props;
             <span class="text-[10px] uppercase tracking-[0.3em] text-primary font-bold block mb-4">{items[0].kicker}</span>
             <h3 class="text-4xl font-headline italic text-on-surface mb-6 leading-tight">{items[0].headline}</h3>
             <p class="text-on-surface-variant text-base leading-relaxed max-w-md mb-8">{items[0].text}</p>
-            {items[0].href && (
+            {items[0].linkLabel && (
+              items[0].href ? (
               <a href={items[0].href} class="inline-block text-[10px] uppercase tracking-[0.3em] font-bold text-primary border-b border-primary/30 pb-1 hover:border-primary transition-colors">
                 {items[0].linkLabel}
               </a>
+              ) : (
+              <span class="am-link-disabled inline-block text-[10px] uppercase tracking-[0.3em] font-bold text-primary border-b border-primary/30 pb-1 transition-colors">
+                {items[0].linkLabel}
+              </span>
+              )
             )}
           </div>
         </div>
@@ -93,3 +99,11 @@ const { eyebrow, title, intro, items } = Astro.props;
     )}
   </div>
 </section>
+
+<style>
+  .am-link-disabled {
+    pointer-events: none;
+    cursor: default;
+    opacity: 0.6;
+  }
+</style>

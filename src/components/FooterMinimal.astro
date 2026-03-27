@@ -22,13 +22,28 @@ const defaultLinks: FooterLink[] = [
   { token: 'book', label: 'Check Availability' }
 ];
 
+const DISABLED_ROUTE_TOKENS = new Set([
+  'book',
+  'explore_hub',
+  'location_nerja',
+  'location_tarifa',
+  'locations_hub',
+  'weather_frigiliana',
+  'journal',
+  'contact',
+  'archive'
+]);
+
 const { links = defaultLinks } = Astro.props;
 const resolvedLinks = links
   .map((link) => {
+    if (DISABLED_ROUTE_TOKENS.has(link.token)) {
+      return { ...link, href: null };
+    }
     const href = resolveOptionalLink(link.token, currentLang, { suppressMissing: true });
     return href ? { ...link, href } : null;
   })
-  .filter((link): link is FooterLink & { href: string } => Boolean(link));
+  .filter((link): link is FooterLink & { href: string | null } => Boolean(link));
 ---
 
 <section class="footer-minimal border-t border-outline-variant/10 bg-surface px-12 py-10">
@@ -36,11 +51,25 @@ const resolvedLinks = links
     <ul class="footer-minimal__list flex flex-wrap items-center justify-center gap-x-10 gap-y-4">
       {resolvedLinks.map((link) => (
         <li>
-          <a href={link.href} class="text-[11px] font-bold uppercase tracking-[0.2em] text-on-surface-variant hover:text-primary transition-colors">
-            {link.label}
-          </a>
+          {link.href ? (
+            <a href={link.href} class="text-[11px] font-bold uppercase tracking-[0.2em] text-on-surface-variant hover:text-primary transition-colors">
+              {link.label}
+            </a>
+          ) : (
+            <span class="am-link-disabled text-[11px] font-bold uppercase tracking-[0.2em] text-on-surface-variant transition-colors">
+              {link.label}
+            </span>
+          )}
         </li>
       ))}
     </ul>
   </nav>
 </section>
+
+<style>
+  .am-link-disabled {
+    pointer-events: none;
+    cursor: default;
+    opacity: 0.6;
+  }
+</style>

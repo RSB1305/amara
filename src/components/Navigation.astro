@@ -103,8 +103,20 @@ const localizedNavLabels: Partial<Record<string, Record<AmaraLanguage, string>>>
   }
 };
 
+const DISABLED_ROUTE_TOKENS = new Set([
+  'book',
+  'explore_hub',
+  'location_nerja',
+  'location_tarifa',
+  'locations_hub',
+  'weather_frigiliana',
+  'journal',
+  'contact',
+  'archive'
+]);
+
 const resolvedCtaLabel = ctaLabel ?? defaultCtaLabels[currentLang];
-const ctaLink = { href: resolveLink('book', currentLang), label: resolvedCtaLabel };
+const ctaLink = { token: 'book', label: resolvedCtaLabel };
 const currentPath = Astro.url.pathname;
 const languageSwitchToken = currentToken ?? languageToken ?? 'home';
 
@@ -176,18 +188,25 @@ const getResolvedNavLabel = (link: NavLink) => {
     <div class="am-nav__center">
       <ul class="hidden md:flex items-center gap-10">
         {links.map((link) => {
-          const href = resolveLink(link.token, currentLang);
-          const isActive = getIsActive(link.token, href);
+          const isDisabled = DISABLED_ROUTE_TOKENS.has(link.token);
+          const href = isDisabled ? null : resolveLink(link.token, currentLang);
+          const isActive = href ? getIsActive(link.token, href) : false;
 
           return (
             <li>
-              <a
-                href={href}
-                aria-current={isActive ? 'page' : undefined}
-                class="am-nav__link text-[11px] uppercase tracking-[0.2em] font-bold text-on-surface/60 hover:text-on-surface transition-colors"
-              >
-                {getResolvedNavLabel(link)}
-              </a>
+              {isDisabled ? (
+                <span class="am-nav__link am-link-disabled text-[11px] uppercase tracking-[0.2em] font-bold text-on-surface/60 transition-colors">
+                  {getResolvedNavLabel(link)}
+                </span>
+              ) : (
+                <a
+                  href={href!}
+                  aria-current={isActive ? 'page' : undefined}
+                  class="am-nav__link text-[11px] uppercase tracking-[0.2em] font-bold text-on-surface/60 hover:text-on-surface transition-colors"
+                >
+                  {getResolvedNavLabel(link)}
+                </a>
+              )}
             </li>
           );
         })}
@@ -244,12 +263,18 @@ const getResolvedNavLabel = (link: NavLink) => {
 
       <div class="am-nav__slot am-nav__slot--cta">
         {ctaLink && (
-          <a
-            href={ctaLink.href}
-            class="am-btn am-btn--primary hidden sm:inline-flex"
-          >
-            {ctaLink.label}
-          </a>
+          DISABLED_ROUTE_TOKENS.has(ctaLink.token) ? (
+            <span class="am-btn am-btn--primary hidden sm:inline-flex am-link-disabled">
+              {ctaLink.label}
+            </span>
+          ) : (
+            <a
+              href={resolveLink(ctaLink.token, currentLang)}
+              class="am-btn am-btn--primary hidden sm:inline-flex"
+            >
+              {ctaLink.label}
+            </a>
+          )
         )}
       </div>
     </div>
@@ -355,6 +380,12 @@ const getResolvedNavLabel = (link: NavLink) => {
 
   .am-nav__link[aria-current="page"] {
     color: rgb(23 23 23 / 1);
+  }
+
+  .am-link-disabled {
+    pointer-events: none;
+    cursor: default;
+    opacity: 0.6;
   }
 
   @media (max-width: 767px) {

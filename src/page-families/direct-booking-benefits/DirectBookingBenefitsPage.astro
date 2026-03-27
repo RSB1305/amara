@@ -892,7 +892,7 @@ const copy = {
 
         <div class="am-direct-cta__links">
 
-          <a href={resolveLink('book', currentLang)} class="am-direct-link">{copy.sections.ctaAvailability[currentLang]}</a>
+          <span class="am-direct-link am-link-disabled">{copy.sections.ctaAvailability[currentLang]}</span>
 
           <span class="am-direct-cta__dot">&middot;</span>
 
@@ -900,7 +900,7 @@ const copy = {
 
           <span class="am-direct-cta__dot">&middot;</span>
 
-          <a href={resolveLink('locations_hub', currentLang)} class="am-direct-link">{copy.sections.ctaExplore[currentLang]}</a>
+          <span class="am-direct-link am-link-disabled">{copy.sections.ctaExplore[currentLang]}</span>
 
         </div>
 
@@ -932,6 +932,12 @@ const copy = {
 
     color: rgba(0, 0, 0, 0.58);
 
+  }
+
+  .am-link-disabled {
+    pointer-events: none;
+    cursor: default;
+    opacity: 0.6;
   }
 
 
