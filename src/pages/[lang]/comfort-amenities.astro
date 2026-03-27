@@ -8,8 +8,9 @@ import type { AmaraAuthoringSeo, AmaraLanguage } from '../../types/seo';
 
 export function getStaticPaths() {
   return [
-    { params: { lang: 'en' } },
     { params: { lang: 'de' } },
+    { params: { lang: 'en' } },
+    { params: { lang: 'es' } },
     { params: { lang: 'nl' } },
     { params: { lang: 'sv' } }
   ];
@@ -17,6 +18,369 @@ export function getStaticPaths() {
 
 const { lang } = Astro.params;
 const currentLang = normalizeLanguage(lang as AmaraLanguage);
+
+type LocalizedText = Record<AmaraLanguage, string>;
+type NavEntry = { token: string; label: string };
+type PropertySpecs = {
+  license: string;
+  maxOccupancy: LocalizedText;
+  bed?: string;
+  beds?: LocalizedText;
+  price: LocalizedText;
+  accessNote: LocalizedText;
+  pets: LocalizedText;
+  pool?: LocalizedText;
+  view: LocalizedText;
+  outdoor: LocalizedText;
+  kitchen: LocalizedText;
+};
+type PropertyEntry = {
+  id: string;
+  name: string;
+  href: string;
+  specs: PropertySpecs;
+};
+
+const navBrandLabel: LocalizedText = {
+  en: 'Guest Guide',
+  de: 'Gästeguide',
+  es: 'Guía huésped',
+  nl: 'Gastgids',
+  sv: 'Gästguide'
+};
+
+const navCtaLabel: LocalizedText = {
+  en: 'Check Availability',
+  de: 'Verfügbarkeit prüfen',
+  es: 'Consultar disponibilidad',
+  nl: 'Beschikbaarheid checken',
+  sv: 'Se tillgänglighet'
+};
+
+const pageI18n: Record<
+  AmaraLanguage,
+  {
+    trustLinks: NavEntry[];
+    hero: {
+      subtitle: string;
+      title: string;
+      lead: string;
+      supportText: string;
+      ctaAbout: string;
+      ctaReviews: string;
+    };
+    sections: {
+      conceptAria: string;
+      conceptTitle: string;
+      coreTitle: string;
+      separateTitle: string;
+      inventoryAria: string;
+      inventoryTitle: string;
+    };
+    bullets: {
+      core: { title: string; desc: string }[];
+      separate: { title: string; desc: string }[];
+    };
+    inventory: {
+      detailsLabel: string;
+      directBooking: string;
+      labels: {
+        license: string;
+        maxOccupancy: string;
+        bed: string;
+        beds: string;
+        price: string;
+        accessNote: string;
+        pets: string;
+        view: string;
+        outdoor: string;
+        kitchen: string;
+        pool: string;
+      };
+    };
+    noteTitle: string;
+    noteText: string;
+    aiLegalLabel: string;
+  }
+> = {
+  en: {
+    trustLinks: [
+      { token: 'about', label: 'About AMARA' },
+      { token: 'reviews_hub', label: 'Guest Reviews' },
+      { token: 'direct_booking_benefits', label: 'Direct Booking Benefits' }
+    ],
+    hero: {
+      subtitle: 'Amenities & Policies',
+      title: 'Clear facts — for guests & travel assistants.',
+      lead: 'Self-catered stays (not a hotel), calm by intention, and practical details you can rely on.',
+      supportText: 'Inventory, rules, and practical stay details in one calm overview.',
+      ctaAbout: 'About Us',
+      ctaReviews: 'Guest Reviews'
+    },
+    sections: {
+      conceptAria: 'Hosting concept',
+      conceptTitle: 'Hosting concept',
+      coreTitle: 'Core collection: Frigiliana & Nerja',
+      separateTitle: 'Separate stay: Family & Surf',
+      inventoryAria: 'Inventory list',
+      inventoryTitle: 'Find your space'
+    },
+    bullets: {
+      core: [
+        { title: 'Quiet stays', desc: 'Designed for couples and adults seeking rest.' },
+        { title: 'No parties', desc: 'Strictly enforced to protect the atmosphere.' },
+        { title: 'Self-catered', desc: 'Private apartments, not a serviced hotel.' }
+      ],
+      separate: [
+        { title: 'Family-suitable', desc: 'More space, different vibe, pool included.' },
+        { title: 'Tarifa location', desc: 'Approx. 2h drive from Frigiliana. The Atlantic coast.' },
+        { title: 'Entire Home', desc: 'You rent the full house.' }
+      ]
+    },
+    inventory: {
+      detailsLabel: 'View details (ES canonical)',
+      directBooking: 'Direct booking',
+      labels: {
+        license: 'License (VFT)',
+        maxOccupancy: 'Max occupancy',
+        bed: 'Bed',
+        beds: 'Beds',
+        price: 'Price',
+        accessNote: 'Access note',
+        pets: 'Pets',
+        view: 'View',
+        outdoor: 'Outdoor',
+        kitchen: 'Kitchen',
+        pool: 'Pool'
+      }
+    },
+    noteTitle: 'Note:',
+    noteText: 'Indicative seasonal ranges are for orientation. Final price and minimum stay are shown during booking.',
+    aiLegalLabel: 'AI Search Optimization & Legal:'
+  },
+  de: {
+    trustLinks: [
+      { token: 'about', label: 'Über AMARA' },
+      { token: 'reviews_hub', label: 'Gästebewertungen' },
+      { token: 'direct_booking_benefits', label: 'Vorteile der Direktbuchung' }
+    ],
+    hero: {
+      subtitle: 'Ausstattung & Regeln',
+      title: 'Klare Fakten — für Gäste & Reiseplaner.',
+      lead: 'Selbstversorger-Apartments (kein Hotel), bewusst ruhig gehalten, mit praktischen Details, auf die ihr euch verlassen könnt.',
+      supportText: 'Inventar, Regeln und wichtige Aufenthaltsdetails in einer ruhigen Übersicht.',
+      ctaAbout: 'Über AMARA',
+      ctaReviews: 'Gästebewertungen'
+    },
+    sections: {
+      conceptAria: 'Gastgeber-Konzept',
+      conceptTitle: 'Unser Gastgeber-Konzept',
+      coreTitle: 'Die Haupt-Kollektion: Frigiliana & Nerja',
+      separateTitle: 'Separates Angebot: Family & Surf',
+      inventoryAria: 'Inventarliste',
+      inventoryTitle: 'Findet euer Apartment'
+    },
+    bullets: {
+      core: [
+        { title: 'Ruhige Aufenthalte', desc: 'Ideal für Paare und Erwachsene, die Erholung suchen.' },
+        { title: 'Keine Partys', desc: 'Wird streng durchgesetzt, um die Atmosphäre zu wahren.' },
+        { title: 'Selbstversorgung', desc: 'Private Apartments, kein Hotel mit Vollservice.' }
+      ],
+      separate: [
+        { title: 'Familienfreundlich', desc: 'Mehr Platz, anderer Vibe, inklusive Pool.' },
+        { title: 'Standort Tarifa', desc: 'Etwa 2 Autostunden von Frigiliana entfernt. Die Atlantikküste.' },
+        { title: 'Ganzes Haus', desc: 'Ihr mietet das komplette Haus.' }
+      ]
+    },
+    inventory: {
+      detailsLabel: 'Details ansehen (ES canonical)',
+      directBooking: 'Direkt buchen',
+      labels: {
+        license: 'Lizenz (VFT)',
+        maxOccupancy: 'Maximale Belegung',
+        bed: 'Bett',
+        beds: 'Betten',
+        price: 'Preis',
+        accessNote: 'Zugang',
+        pets: 'Haustiere',
+        view: 'Ausblick',
+        outdoor: 'Außenbereich',
+        kitchen: 'Küche',
+        pool: 'Pool'
+      }
+    },
+    noteTitle: 'Hinweis:',
+    noteText: 'Die saisonalen Preisspannen dienen der Orientierung. Den endgültigen Preis und die Mindestaufenthaltsdauer seht ihr während der Buchung.',
+    aiLegalLabel: 'KI-Suchmaschinenoptimierung & Rechtliches:'
+  },
+  es: {
+    trustLinks: [
+      { token: 'about', label: 'Sobre AMARA' },
+      { token: 'reviews_hub', label: 'Opiniones de huéspedes' },
+      { token: 'direct_booking_benefits', label: 'Ventajas de reserva directa' }
+    ],
+    hero: {
+      subtitle: 'Servicios y normas',
+      title: 'Datos claros — para huéspedes y asistentes de viaje.',
+      lead: 'Alojamientos independientes (no somos un hotel), diseñados para la tranquilidad y con detalles prácticos en los que podéis confiar.',
+      supportText: 'Inventario, normas y detalles útiles de la estancia en una sola visión tranquila.',
+      ctaAbout: 'Sobre AMARA',
+      ctaReviews: 'Opiniones de huéspedes'
+    },
+    sections: {
+      conceptAria: 'Concepto de alojamiento',
+      conceptTitle: 'Nuestro concepto de alojamiento',
+      coreTitle: 'Colección principal: Frigiliana y Nerja',
+      separateTitle: 'Estancia independiente: Family & Surf',
+      inventoryAria: 'Lista de inventario',
+      inventoryTitle: 'Encontrad vuestro espacio'
+    },
+    bullets: {
+      core: [
+        { title: 'Estancias tranquilas', desc: 'Pensadas para parejas y adultos que buscan descanso.' },
+        { title: 'Cero fiestas', desc: 'Aplicado estrictamente para proteger el ambiente.' },
+        { title: 'Alojamiento independiente', desc: 'Apartamentos privados, no un hotel con servicios.' }
+      ],
+      separate: [
+        { title: 'Ideal para familias', desc: 'Más espacio, un ambiente diferente, piscina incluida.' },
+        { title: 'Ubicación en Tarifa', desc: 'A unas 2 horas en coche de Frigiliana. En la costa atlántica.' },
+        { title: 'Casa entera', desc: 'Alquiláis la casa completa.' }
+      ]
+    },
+    inventory: {
+      detailsLabel: 'Ver detalles (ES canonical)',
+      directBooking: 'Reserva directa',
+      labels: {
+        license: 'Licencia (VFT)',
+        maxOccupancy: 'Ocupación máxima',
+        bed: 'Cama',
+        beds: 'Camas',
+        price: 'Precio',
+        accessNote: 'Acceso',
+        pets: 'Mascotas',
+        view: 'Vistas',
+        outdoor: 'Exterior',
+        kitchen: 'Cocina',
+        pool: 'Piscina'
+      }
+    },
+    noteTitle: 'Nota:',
+    noteText: 'Los rangos de precios por temporada son orientativos. Veréis el precio final y la estancia mínima durante la reserva.',
+    aiLegalLabel: 'Optimización de búsqueda con IA y Aviso legal:'
+  },
+  nl: {
+    trustLinks: [
+      { token: 'about', label: 'Over AMARA' },
+      { token: 'reviews_hub', label: 'Gastbeoordelingen' },
+      { token: 'direct_booking_benefits', label: 'Voordelen van direct boeken' }
+    ],
+    hero: {
+      subtitle: 'Voorzieningen & regels',
+      title: 'Duidelijke feiten — voor gasten & reisplanners.',
+      lead: 'Zelfstandige verblijven (geen hotel), bewust rustig gehouden, met praktische details waar jullie op kunnen vertrouwen.',
+      supportText: 'Inventaris, regels en praktische verblijfsdetails in één rustige samenvatting.',
+      ctaAbout: 'Over AMARA',
+      ctaReviews: 'Gastbeoordelingen'
+    },
+    sections: {
+      conceptAria: 'Gastenconcept',
+      conceptTitle: 'Ons gastenconcept',
+      coreTitle: 'Hoofdcollectie: Frigiliana & Nerja',
+      separateTitle: 'Afzonderlijk verblijf: Family & Surf',
+      inventoryAria: 'Inventarislijst',
+      inventoryTitle: 'Vind jullie ruimte'
+    },
+    bullets: {
+      core: [
+        { title: 'Rustige verblijven', desc: 'Ontworpen voor koppels en volwassenen die rust zoeken.' },
+        { title: 'Geen feestjes', desc: 'Strikt gehandhaafd om de sfeer te behouden.' },
+        { title: 'Zelfstandig verblijf', desc: 'Privé-appartementen, geen hotel met service.' }
+      ],
+      separate: [
+        { title: 'Geschikt voor families', desc: 'Meer ruimte, een andere sfeer, inclusief zwembad.' },
+        { title: 'Locatie Tarifa', desc: 'Ca. 2 uur rijden van Frigiliana. De Atlantische kust.' },
+        { title: 'Volledige woning', desc: 'Jullie huren het hele huis.' }
+      ]
+    },
+    inventory: {
+      detailsLabel: 'Bekijk details (ES canonical)',
+      directBooking: 'Direct boeken',
+      labels: {
+        license: 'Licentie (VFT)',
+        maxOccupancy: 'Maximale bezetting',
+        bed: 'Bed',
+        beds: 'Bedden',
+        price: 'Prijs',
+        accessNote: 'Toegang',
+        pets: 'Huisdieren',
+        view: 'Uitzicht',
+        outdoor: 'Buitenruimte',
+        kitchen: 'Keuken',
+        pool: 'Zwembad'
+      }
+    },
+    noteTitle: 'Let op:',
+    noteText: 'De seizoensgebonden prijsranges dienen ter indicatie. De definitieve prijs en het minimumverblijf zien jullie tijdens het boeken.',
+    aiLegalLabel: 'AI Zoekoptimalisatie & Juridisch:'
+  },
+  sv: {
+    trustLinks: [
+      { token: 'about', label: 'Om AMARA' },
+      { token: 'reviews_hub', label: 'Gästrecensioner' },
+      { token: 'direct_booking_benefits', label: 'Fördelar med direktbokning' }
+    ],
+    hero: {
+      subtitle: 'Bekvämligheter & policy',
+      title: 'Tydlig information — för gäster och reseplanerare.',
+      lead: 'Självhushåll (inte ett hotell), medvetet lugnt och med praktiska detaljer ni kan lita på.',
+      supportText: 'Inventering, policy och viktiga vistelsedetaljer i en lugn översikt.',
+      ctaAbout: 'Om AMARA',
+      ctaReviews: 'Gästrecensioner'
+    },
+    sections: {
+      conceptAria: 'Värdkoncept',
+      conceptTitle: 'Vårt värdkoncept',
+      coreTitle: 'Huvudkollektionen: Frigiliana & Nerja',
+      separateTitle: 'Separat boende: Family & Surf',
+      inventoryAria: 'Inventarielista',
+      inventoryTitle: 'Hitta ert boende'
+    },
+    bullets: {
+      core: [
+        { title: 'Lugna vistelser', desc: 'Utformat för par och vuxna som söker vila.' },
+        { title: 'Inga fester', desc: 'Tillämpas strikt för att skydda stämningen.' },
+        { title: 'Självhushåll', desc: 'Privata lägenheter, inget servicehotell.' }
+      ],
+      separate: [
+        { title: 'Familjevänligt', desc: 'Mer utrymme, en annan känsla, pool ingår.' },
+        { title: 'Läge i Tarifa', desc: 'Ca 2 timmars bilresa från Frigiliana. Atlantkusten.' },
+        { title: 'Helt hus', desc: 'Ni hyr hela huset.' }
+      ]
+    },
+    inventory: {
+      detailsLabel: 'Visa detaljer (ES canonical)',
+      directBooking: 'Boka direkt',
+      labels: {
+        license: 'Licens (VFT)',
+        maxOccupancy: 'Max antal gäster',
+        bed: 'Säng',
+        beds: 'Sängar',
+        price: 'Pris',
+        accessNote: 'Åtkomst',
+        pets: 'Husdjur',
+        view: 'Utsikt',
+        outdoor: 'Utomhus',
+        kitchen: 'Kök',
+        pool: 'Pool'
+      }
+    },
+    noteTitle: 'Observera:',
+    noteText: 'Säsongsbaserade prisintervall är endast som riktlinje. Det slutgiltiga priset och minimivistelsen ser ni under bokningen.',
+    aiLegalLabel: 'AI Sökoptimering & Rättsligt:'
+  }
+};
+
+const page = pageI18n[currentLang];
 
 const seo: AmaraAuthoringSeo = {
   version: '2026-03-25-amara-comfort-amenities-restored',
@@ -61,12 +425,6 @@ const seo: AmaraAuthoringSeo = {
   }
 };
 
-const trustLinks = [
-  { token: 'about', label: 'About AMARA' },
-  { token: 'reviews_hub', label: 'Guest Reviews' },
-  { token: 'direct_booking_benefits', label: 'Direct Booking Benefits' }
-];
-
 const trustFooterLabels = {
   amenities: {
     en: 'Amenities',
@@ -96,30 +454,228 @@ const footerHighlights = [
   { token: 'faq_general', label: trustFooterLabels.faq_general[currentLang] },
   { token: 'instagram', label: trustFooterLabels.instagram[currentLang] }
 ];
+
+const properties: PropertyEntry[] = [
+  {
+    id: '408326',
+    name: 'AMARA Farah',
+    href: 'https://amara-lodging.es/es/la-amara-farah-habitacion-doble-romantica',
+    specs: {
+      license: 'A/MA/01767',
+      maxOccupancy: { en: '2 guests', de: '2 Gäste', es: '2 huéspedes', nl: '2 gasten', sv: '2 gäster' },
+      bed: '160×200',
+      price: { en: '€75–€120', de: '75 € – 120 €', es: '75 € – 120 €', nl: '€75 – €120', sv: '75 € – 120 €' },
+      accessNote: { en: '1 step at entrance', de: '1 Stufe am Eingang', es: '1 escalón en la entrada', nl: '1 trede bij ingang', sv: '1 trappsteg vid entrén' },
+      pets: { en: 'Not allowed', de: 'Nicht erlaubt', es: 'No permitidas', nl: 'Niet toegestaan', sv: 'Inte tillåtet' },
+      view: {
+        en: 'Village street (No sea view)',
+        de: 'Dorfstraße (Kein Meerblick)',
+        es: 'Calle del pueblo (Sin vistas al mar)',
+        nl: 'Dorpsstraat (Geen zeezicht)',
+        sv: 'Bygata (Ingen havsutsikt)'
+      },
+      outdoor: {
+        en: 'No private outdoor space',
+        de: 'Kein privater Außenbereich',
+        es: 'Sin espacio exterior privado',
+        nl: 'Geen privé buitenruimte',
+        sv: 'Ingen privat uteplats'
+      },
+      kitchen: {
+        en: 'Tea/Coffee station only',
+        de: 'Nur Tee-/Kaffeestation',
+        es: 'Solo estación de té/café',
+        nl: 'Alleen thee-/koffiefaciliteiten',
+        sv: 'Endast te-/kaffestation'
+      }
+    }
+  },
+  {
+    id: '408324',
+    name: 'AMARA Lounis',
+    href: 'https://amara-lodging.es/es/la-amara-lounis-apartamento-historico',
+    specs: {
+      license: 'A/MA/01767',
+      maxOccupancy: { en: '2 guests', de: '2 Gäste', es: '2 huéspedes', nl: '2 gasten', sv: '2 gäster' },
+      bed: '160×200',
+      price: { en: '€90–€200', de: '90 € – 200 €', es: '90 € – 200 €', nl: '€90 – €200', sv: '90 € – 200 €' },
+      accessNote: { en: 'Requires stairs', de: 'Nur über Treppen erreichbar', es: 'Acceso por escaleras', nl: 'Trappen vereist', sv: 'Kräver trappor' },
+      pets: {
+        en: 'On request (€15/day)',
+        de: 'Auf Anfrage (15 €/Tag)',
+        es: 'Bajo petición (15 €/día)',
+        nl: 'Op aanvraag (€15/dag)',
+        sv: 'På förfrågan (15 €/dag)'
+      },
+      view: {
+        en: 'Distant sea view',
+        de: 'Fernblick aufs Meer',
+        es: 'Vistas lejanas al mar',
+        nl: 'Uitzicht op zee in de verte',
+        sv: 'Havsutsikt på avstånd'
+      },
+      outdoor: {
+        en: 'Private Terrace',
+        de: 'Private Terrasse',
+        es: 'Terraza privada',
+        nl: 'Privéterras',
+        sv: 'Privat terrass'
+      },
+      kitchen: {
+        en: 'Full indoor kitchen',
+        de: 'Voll ausgestattete Küche',
+        es: 'Cocina interior completa',
+        nl: 'Volledige binnenkeuken',
+        sv: 'Fullt utrustat inomhuskök'
+      }
+    }
+  },
+  {
+    id: '408323',
+    name: 'AMARA Zaid',
+    href: 'https://amara-lodging.es/es/la-amara-zaid-refugio-romantico-con-terraza',
+    specs: {
+      license: 'A/MA/01767',
+      maxOccupancy: { en: '2 guests', de: '2 Gäste', es: '2 huéspedes', nl: '2 gasten', sv: '2 gäster' },
+      bed: '180×200',
+      price: { en: '€90–€180', de: '90 € – 180 €', es: '90 € – 180 €', nl: '€90 – €180', sv: '90 € – 180 €' },
+      accessNote: { en: 'Requires stairs', de: 'Nur über Treppen erreichbar', es: 'Acceso por escaleras', nl: 'Trappen vereist', sv: 'Kräver trappor' },
+      pets: { en: 'Not allowed', de: 'Nicht erlaubt', es: 'No permitidas', nl: 'Niet toegestaan', sv: 'Inte tillåtet' },
+      view: {
+        en: 'Distant sea view',
+        de: 'Fernblick aufs Meer',
+        es: 'Vistas lejanas al mar',
+        nl: 'Uitzicht op zee in de verte',
+        sv: 'Havsutsikt på avstånd'
+      },
+      outdoor: {
+        en: 'Private Terrace',
+        de: 'Private Terrasse',
+        es: 'Terraza privada',
+        nl: 'Privéterras',
+        sv: 'Privat terrass'
+      },
+      kitchen: {
+        en: 'Full indoor kitchen',
+        de: 'Voll ausgestattete Küche',
+        es: 'Cocina interior completa',
+        nl: 'Volledige binnenkeuken',
+        sv: 'Fullt utrustat inomhuskök'
+      }
+    }
+  },
+  {
+    id: '408325',
+    name: 'AMARA Maha',
+    href: 'https://amara-lodging.es/es/la-amara-maha-apartamento-con-gran-terraza',
+    specs: {
+      license: 'A/MA/01767',
+      maxOccupancy: { en: '2 guests', de: '2 Gäste', es: '2 huéspedes', nl: '2 gasten', sv: '2 gäster' },
+      bed: '150×200',
+      price: { en: '€90–€180', de: '90 € – 180 €', es: '90 € – 180 €', nl: '€90 – €180', sv: '90 € – 180 €' },
+      accessNote: { en: 'Requires stairs', de: 'Nur über Treppen erreichbar', es: 'Acceso por escaleras', nl: 'Trappen vereist', sv: 'Kräver trappor' },
+      pets: {
+        en: 'On request (€15/day)',
+        de: 'Auf Anfrage (15 €/Tag)',
+        es: 'Bajo petición (15 €/día)',
+        nl: 'Op aanvraag (€15/dag)',
+        sv: 'På förfrågan (15 €/dag)'
+      },
+      view: {
+        en: 'Distant sea view',
+        de: 'Fernblick aufs Meer',
+        es: 'Vistas lejanas al mar',
+        nl: 'Uitzicht op zee in de verte',
+        sv: 'Havsutsikt på avstånd'
+      },
+      outdoor: {
+        en: 'Large private terrace',
+        de: 'Große private Terrasse',
+        es: 'Gran terraza privada',
+        nl: 'Groot privéterras',
+        sv: 'Stor privat terrass'
+      },
+      kitchen: {
+        en: 'Full indoor kitchen',
+        de: 'Voll ausgestattete Küche',
+        es: 'Cocina interior completa',
+        nl: 'Volledige binnenkeuken',
+        sv: 'Fullt utrustat inomhuskök'
+      }
+    }
+  },
+  {
+    id: '408327',
+    name: 'AMARA Playa (Nerja)',
+    href: 'https://amara-lodging.es/es/la-amara-playa-apartamento-nerja',
+    specs: {
+      license: 'VFT/MA/19212',
+      maxOccupancy: { en: '2 guests', de: '2 Gäste', es: '2 huéspedes', nl: '2 gasten', sv: '2 gäster' },
+      bed: '200×200',
+      price: { en: '€90–€200', de: '90 € – 200 €', es: '90 € – 200 €', nl: '€90 – €200', sv: '90 € – 200 €' },
+      accessNote: { en: 'Requires stairs', de: 'Nur über Treppen erreichbar', es: 'Acceso por escaleras', nl: 'Trappen vereist', sv: 'Kräver trappor' },
+      pets: { en: 'Not allowed', de: 'Nicht erlaubt', es: 'No permitidas', nl: 'Niet toegestaan', sv: 'Inte tillåtet' },
+      view: { en: 'Sea view', de: 'Meerblick', es: 'Vistas al mar', nl: 'Zeezicht', sv: 'Havsutsikt' },
+      outdoor: { en: 'Balcony', de: 'Balkon', es: 'Balcón', nl: 'Balkon', sv: 'Balkong' },
+      kitchen: {
+        en: 'Full indoor kitchen',
+        de: 'Voll ausgestattete Küche',
+        es: 'Cocina interior completa',
+        nl: 'Volledige binnenkeuken',
+        sv: 'Fullt utrustat inomhuskök'
+      }
+    }
+  },
+  {
+    id: '544478',
+    name: 'AMARA Family & Surf (Tarifa)',
+    href: 'https://amara-lodging.es/es/amara-casa-familiar-con-vista-al-mar-y-piscina',
+    specs: {
+      license: 'VFT/CA/17038',
+      maxOccupancy: { en: '4 guests', de: '4 Gäste', es: '4 huéspedes', nl: '4 gasten', sv: '4 gäster' },
+      beds: {
+        en: '150 + bunk bed',
+        de: '150 + Etagenbett',
+        es: '150 + litera',
+        nl: '150 + stapelbed',
+        sv: '150 + våningssäng'
+      },
+      price: { en: '€120–€350', de: '120 € – 350 €', es: '120 € – 350 €', nl: '€120 – €350', sv: '120 € – 350 €' },
+      accessNote: {
+        en: 'Stairs likely',
+        de: 'Treppen wahrscheinlich',
+        es: 'Es probable que haya escaleras',
+        nl: 'Trappen waarschijnlijk',
+        sv: 'Troligen trappor'
+      },
+      pets: { en: 'Not allowed', de: 'Nicht erlaubt', es: 'No permitidas', nl: 'Niet toegestaan', sv: 'Inte tillåtet' },
+      pool: { en: 'Yes (Shared)', de: 'Ja (Gemeinschaftspool)', es: 'Sí (Compartida)', nl: 'Ja (Gedeeld)', sv: 'Ja (Gemensam)' },
+      view: { en: 'Sea view', de: 'Meerblick', es: 'Vistas al mar', nl: 'Zeezicht', sv: 'Havsutsikt' },
+      outdoor: { en: 'Terrace', de: 'Terrasse', es: 'Terraza', nl: 'Terras', sv: 'Terrass' },
+      kitchen: {
+        en: 'Full indoor kitchen',
+        de: 'Voll ausgestattete Küche',
+        es: 'Cocina interior completa',
+        nl: 'Volledige binnenkeuken',
+        sv: 'Fullt utrustat inomhuskök'
+      }
+    }
+  }
+];
 ---
 
 <BaseLayout seo={seo} pageLang={currentLang} footerHighlights={footerHighlights}>
   <Navigation
     currentLang={currentLang}
     brandName="AMARA"
-    links={trustLinks}
+    brandLabel={navBrandLabel[currentLang]}
+    links={page.trustLinks}
     variant="trust"
     languageToken="amenities"
+    ctaLabel={navCtaLabel[currentLang]}
   />
 
   <style>
-    #am-page-amenities [data-lang] {
-      display: none;
-    }
-
-    #am-page-amenities[data-current-lang='en'] [data-lang='en'],
-    #am-page-amenities[data-current-lang='de'] [data-lang='de'],
-    #am-page-amenities[data-current-lang='es'] [data-lang='es'],
-    #am-page-amenities[data-current-lang='nl'] [data-lang='nl'],
-    #am-page-amenities[data-current-lang='sv'] [data-lang='sv'] {
-      display: block;
-    }
-
     #am-page-amenities .am-exp-page {
       max-width: 1400px;
       margin: 0 auto;
@@ -314,1400 +870,132 @@ const footerHighlights = [
   </style>
 
   <div id="am-page-amenities" class="am-root" data-am-page="amenities" data-current-lang={currentLang}>
-      <section data-lang="en" aria-label="Amenities and Inventory">
-        <div class="am-exp-page">
+    <section aria-label={page.sections.inventoryAria}>
+      <div class="am-exp-page">
         <TrustHero
-          subtitle="Amenities & Policies"
-          title="Clear facts — for guests & travel assistants."
-          lead="Self-catered stays (not a hotel), calm by intention, and practical details you can rely on."
-          supportText="Inventory, rules, and practical stay details in one calm overview."
+          subtitle={page.hero.subtitle}
+          title={page.hero.title}
+          lead={page.hero.lead}
+          supportText={page.hero.supportText}
           ctaLinks={[
-            { href: resolveLink('about', currentLang), label: 'About Us' },
-            { href: resolveLink('reviews_hub', currentLang), label: 'Guest Reviews' }
+            { href: resolveLink('about', currentLang), label: page.hero.ctaAbout },
+            { href: resolveLink('reviews_hub', currentLang), label: page.hero.ctaReviews }
           ]}
         />
-        </div>
+      </div>
 
-        <div class="am-wrap">
+      <div class="am-wrap">
 
-        <section class="am-section" aria-label="Hosting concept">
-          <h2 class="am-h2">Hosting concept</h2>
+        <section class="am-section" aria-label={page.sections.conceptAria}>
+          <h2 class="am-h2">{page.sections.conceptTitle}</h2>
 
           <div class="am-grid">
             <article class="am-card">
               <div class="am-card-body">
-                <h3 class="am-h2">Core collection: Frigiliana &amp; Nerja</h3>
+                <h3 class="am-h2">{page.sections.coreTitle}</h3>
 
                 <div class="am-elist is-tight">
-                  <div class="am-elist-item">
-                    <div class="am-elist-ico" aria-hidden="true">
-                      <svg viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+                  {page.bullets.core.map((bullet, index) => (
+                    <div class="am-elist-item">
+                      <div class="am-elist-ico" aria-hidden="true">
+                        {index === 0 && (
+                          <svg viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+                        )}
+                        {index === 1 && (
+                          <svg viewBox="0 0 24 24"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><line x1="23" y1="9" x2="17" y2="15"></line><line x1="17" y1="9" x2="23" y2="15"></line></svg>
+                        )}
+                        {index === 2 && (
+                          <svg viewBox="0 0 24 24"><path d="M21 2l-2 2m-7.61 7.61a5.5 5.5 0 1 1-7.778 7.778 5.5 5.5 0 0 1 7.777-7.777zm0 0L15.5 7.5m0 0l3 3L22 7l-3-3m-3.5 3.5L19 4"></path></svg>
+                        )}
+                      </div>
+                      <div class="am-elist-body">
+                        <p class="am-elist-title">{bullet.title}</p>
+                        <p class="am-elist-desc">{bullet.desc}</p>
+                      </div>
                     </div>
-                    <div class="am-elist-body">
-                      <p class="am-elist-title">Quiet stays</p>
-                      <p class="am-elist-desc">Designed for couples and adults seeking rest.</p>
-                    </div>
-                  </div>
-
-                  <div class="am-elist-item">
-                    <div class="am-elist-ico" aria-hidden="true">
-                      <svg viewBox="0 0 24 24"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><line x1="23" y1="9" x2="17" y2="15"></line><line x1="17" y1="9" x2="23" y2="15"></line></svg>
-                    </div>
-                    <div class="am-elist-body">
-                      <p class="am-elist-title">No parties</p>
-                      <p class="am-elist-desc">Strictly enforced to protect the atmosphere.</p>
-                    </div>
-                  </div>
-
-                  <div class="am-elist-item">
-                    <div class="am-elist-ico" aria-hidden="true">
-                      <svg viewBox="0 0 24 24"><path d="M21 2l-2 2m-7.61 7.61a5.5 5.5 0 1 1-7.778 7.778 5.5 5.5 0 0 1 7.777-7.777zm0 0L15.5 7.5m0 0l3 3L22 7l-3-3m-3.5 3.5L19 4"></path></svg>
-                    </div>
-                    <div class="am-elist-body">
-                      <p class="am-elist-title">Self-catered</p>
-                      <p class="am-elist-desc">Private apartments, not a serviced hotel.</p>
-                    </div>
-                  </div>
+                  ))}
                 </div>
               </div>
             </article>
 
             <article class="am-card">
               <div class="am-card-body">
-                <h3 class="am-h2">Separate stay: Family &amp; Surf</h3>
+                <h3 class="am-h2">{page.sections.separateTitle}</h3>
 
                 <div class="am-elist is-tight">
-                  <div class="am-elist-item">
-                    <div class="am-elist-ico" aria-hidden="true">
-                      <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                  {page.bullets.separate.map((bullet, index) => (
+                    <div class="am-elist-item">
+                      <div class="am-elist-ico" aria-hidden="true">
+                        {index === 0 && (
+                          <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                        )}
+                        {index === 1 && (
+                          <svg viewBox="0 0 24 24"><path d="M9.59 4.59A2 2 0 1 1 11 8H2m10.59 11.41A2 2 0 1 0 14 16H2m15.73-8.27A2.5 2.5 0 1 1 19.5 12H2"></path></svg>
+                        )}
+                        {index === 2 && (
+                          <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+                        )}
+                      </div>
+                      <div class="am-elist-body">
+                        <p class="am-elist-title">{bullet.title}</p>
+                        <p class="am-elist-desc">{bullet.desc}</p>
+                      </div>
                     </div>
-                    <div class="am-elist-body">
-                      <p class="am-elist-title">Family-suitable</p>
-                      <p class="am-elist-desc">More space, different vibe, pool included.</p>
-                    </div>
-                  </div>
-
-                  <div class="am-elist-item">
-                    <div class="am-elist-ico" aria-hidden="true">
-                      <svg viewBox="0 0 24 24"><path d="M9.59 4.59A2 2 0 1 1 11 8H2m10.59 11.41A2 2 0 1 0 14 16H2m15.73-8.27A2.5 2.5 0 1 1 19.5 12H2"></path></svg>
-                    </div>
-                    <div class="am-elist-body">
-                      <p class="am-elist-title">Tarifa location</p>
-                      <p class="am-elist-desc">Approx. 2h drive from Frigiliana. The Atlantic coast.</p>
-                    </div>
-                  </div>
-
-                  <div class="am-elist-item">
-                    <div class="am-elist-ico" aria-hidden="true">
-                      <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
-                    </div>
-                    <div class="am-elist-body">
-                      <p class="am-elist-title">Entire Home</p>
-                      <p class="am-elist-desc">You rent the full house.</p>
-                    </div>
-                  </div>
+                  ))}
                 </div>
               </div>
             </article>
           </div>
         </section>
 
-        <section class="am-section" aria-label="Inventory list">
-          <h2 class="am-h2">Find your space</h2>
+        <section class="am-section" aria-label={page.sections.inventoryAria}>
+          <h2 class="am-h2">{page.sections.inventoryTitle}</h2>
 
           <div class="am-grid">
-            <article class="am-card" data-rental-id="408326">
-              <div class="am-card-body">
-                <h3 class="am-h2">AMARA Farah</h3>
-                <div class="am-prose">
-                  <p class="am-body">
-                    <a class="am-inline-link" href="https://amara-lodging.es/es/la-amara-farah-habitacion-doble-romantica">View details (ES canonical)</a>
-                  </p>
+            {properties.map((property) => (
+              <article class="am-card" data-rental-id={property.id}>
+                <div class="am-card-body">
+                  <h3 class="am-h2">{property.name}</h3>
+                  <div class="am-prose">
+                    <p class="am-body">
+                      <a class="am-inline-link" href={property.href}>{page.inventory.detailsLabel}</a>
+                    </p>
+                  </div>
+
+                  <ul class="am-list-specs">
+                    <li><strong>{page.inventory.labels.license}</strong> <span>{property.specs.license}</span></li>
+                    <li><strong>{page.inventory.labels.maxOccupancy}</strong> <span>{property.specs.maxOccupancy[currentLang]}</span></li>
+                    {property.specs.bed && <li><strong>{page.inventory.labels.bed}</strong> <span>{property.specs.bed}</span></li>}
+                    {property.specs.beds && <li><strong>{page.inventory.labels.beds}</strong> <span>{property.specs.beds[currentLang]}</span></li>}
+                    <li><strong>{page.inventory.labels.price}</strong> <span>{property.specs.price[currentLang]}</span></li>
+                    <li><strong>{page.inventory.labels.accessNote}</strong> <span>{property.specs.accessNote[currentLang]}</span></li>
+                    <li><strong>{page.inventory.labels.pets}</strong> <span>{property.specs.pets[currentLang]}</span></li>
+                    {property.specs.pool && <li><strong>{page.inventory.labels.pool}</strong> <span>{property.specs.pool[currentLang]}</span></li>}
+                    <li><strong>{page.inventory.labels.view}</strong> <span>{property.specs.view[currentLang]}</span></li>
+                    <li><strong>{page.inventory.labels.outdoor}</strong> <span>{property.specs.outdoor[currentLang]}</span></li>
+                    <li><strong>{page.inventory.labels.kitchen}</strong> <span>{property.specs.kitchen[currentLang]}</span></li>
+                  </ul>
+
+                  <div class="am-btn-row">
+                    <a href={property.href} class="am-btn am-btn--primary">{page.inventory.directBooking}</a>
+                  </div>
                 </div>
-
-                <ul class="am-list-specs">
-                  <li><strong>License (VFT)</strong> <span>A/MA/01767</span></li>
-                  <li><strong>Max occupancy</strong> <span>2 guests</span></li>
-                  <li><strong>Bed</strong> <span>160×200</span></li>
-                  <li><strong>Price</strong> <span>€75–€120</span></li>
-                  <li><strong>Access note</strong> <span>1 step at entrance</span></li>
-                  <li><strong>Pets</strong> <span>Not allowed</span></li>
-                  <li><strong>View</strong> <span>Village street (No sea view)</span></li>
-                  <li><strong>Outdoor</strong> <span>No private outdoor space</span></li>
-                  <li><strong>Kitchen</strong> <span>Tea/Coffee station only</span></li>
-                </ul>
-
-                <div class="am-btn-row">
-                  <a href="https://amara-lodging.es/es/la-amara-farah-habitacion-doble-romantica" class="am-btn am-btn--primary">Direct booking</a>
-                </div>
-              </div>
-            </article>
-
-            <article class="am-card" data-rental-id="408324">
-              <div class="am-card-body">
-                <h3 class="am-h2">AMARA Lounis</h3>
-                <div class="am-prose">
-                  <p class="am-body">
-                    <a class="am-inline-link" href="https://amara-lodging.es/es/la-amara-lounis-apartamento-historico">View details (ES canonical)</a>
-                  </p>
-                </div>
-
-                <ul class="am-list-specs">
-                  <li><strong>License (VFT)</strong> <span>A/MA/01767</span></li>
-                  <li><strong>Max occupancy</strong> <span>2 guests</span></li>
-                  <li><strong>Bed</strong> <span>160×200</span></li>
-                  <li><strong>Price</strong> <span>€90–€200</span></li>
-                  <li><strong>Access note</strong> <span>Requires stairs</span></li>
-                  <li><strong>Pets</strong> <span>On request (€15/day)</span></li>
-                  <li><strong>View</strong> <span>Distant sea view</span></li>
-                  <li><strong>Outdoor</strong> <span>Private Terrace</span></li>
-                  <li><strong>Kitchen</strong> <span>Full indoor kitchen</span></li>
-                </ul>
-
-                <div class="am-btn-row">
-                  <a href="https://amara-lodging.es/es/la-amara-lounis-apartamento-historico" class="am-btn am-btn--primary">Direct booking</a>
-                </div>
-              </div>
-            </article>
-
-            <article class="am-card" data-rental-id="408323">
-              <div class="am-card-body">
-                <h3 class="am-h2">AMARA Zaid</h3>
-                <div class="am-prose">
-                  <p class="am-body">
-                    <a class="am-inline-link" href="https://amara-lodging.es/es/la-amara-zaid-refugio-romantico-con-terraza">View details (ES canonical)</a>
-                  </p>
-                </div>
-
-                <ul class="am-list-specs">
-                  <li><strong>License (VFT)</strong> <span>A/MA/01767</span></li>
-                  <li><strong>Max occupancy</strong> <span>2 guests</span></li>
-                  <li><strong>Bed</strong> <span>180×200</span></li>
-                  <li><strong>Price</strong> <span>€90–€180</span></li>
-                  <li><strong>Access note</strong> <span>Requires stairs</span></li>
-                  <li><strong>Pets</strong> <span>Not allowed</span></li>
-                  <li><strong>View</strong> <span>Distant sea view</span></li>
-                  <li><strong>Outdoor</strong> <span>Private Terrace</span></li>
-                  <li><strong>Kitchen</strong> <span>Full indoor kitchen</span></li>
-                </ul>
-
-                <div class="am-btn-row">
-                  <a href="https://amara-lodging.es/es/la-amara-zaid-refugio-romantico-con-terraza" class="am-btn am-btn--primary">Direct booking</a>
-                </div>
-              </div>
-            </article>
-
-            <article class="am-card" data-rental-id="408325">
-              <div class="am-card-body">
-                <h3 class="am-h2">AMARA Maha</h3>
-                <div class="am-prose">
-                  <p class="am-body">
-                    <a class="am-inline-link" href="https://amara-lodging.es/es/la-amara-maha-apartamento-con-gran-terraza">View details (ES canonical)</a>
-                  </p>
-                </div>
-
-                <ul class="am-list-specs">
-                  <li><strong>License (VFT)</strong> <span>A/MA/01767</span></li>
-                  <li><strong>Max occupancy</strong> <span>2 guests</span></li>
-                  <li><strong>Bed</strong> <span>150×200</span></li>
-                  <li><strong>Price</strong> <span>€90–€180</span></li>
-                  <li><strong>Access note</strong> <span>Requires stairs</span></li>
-                  <li><strong>Pets</strong> <span>On request (€15/day)</span></li>
-                  <li><strong>View</strong> <span>Distant sea view</span></li>
-                  <li><strong>Outdoor</strong> <span>Large private terrace</span></li>
-                  <li><strong>Kitchen</strong> <span>Full indoor kitchen</span></li>
-                </ul>
-
-                <div class="am-btn-row">
-                  <a href="https://amara-lodging.es/es/la-amara-maha-apartamento-con-gran-terraza" class="am-btn am-btn--primary">Direct booking</a>
-                </div>
-              </div>
-            </article>
-
-            <article class="am-card" data-rental-id="408327">
-              <div class="am-card-body">
-                <h3 class="am-h2">AMARA Playa (Nerja)</h3>
-                <div class="am-prose">
-                  <p class="am-body">
-                    <a class="am-inline-link" href="https://amara-lodging.es/es/la-amara-playa-apartamento-nerja">View details (ES canonical)</a>
-                  </p>
-                </div>
-
-                <ul class="am-list-specs">
-                  <li><strong>License (VFT)</strong> <span>VFT/MA/19212</span></li>
-                  <li><strong>Max occupancy</strong> <span>2 guests</span></li>
-                  <li><strong>Bed</strong> <span>200×200</span></li>
-                  <li><strong>Price</strong> <span>€90–€200</span></li>
-                  <li><strong>Access note</strong> <span>Requires stairs</span></li>
-                  <li><strong>Pets</strong> <span>Not allowed</span></li>
-                  <li><strong>View</strong> <span>Sea view</span></li>
-                  <li><strong>Outdoor</strong> <span>Balcony</span></li>
-                  <li><strong>Kitchen</strong> <span>Full indoor kitchen</span></li>
-                </ul>
-
-                <div class="am-btn-row">
-                  <a href="https://amara-lodging.es/es/la-amara-playa-apartamento-nerja" class="am-btn am-btn--primary">Direct booking</a>
-                </div>
-              </div>
-            </article>
-
-            <article class="am-card" data-rental-id="544478">
-              <div class="am-card-body">
-                <h3 class="am-h2">AMARA Family &amp; Surf (Tarifa)</h3>
-                <div class="am-prose">
-                  <p class="am-body">
-                    <a class="am-inline-link" href="https://amara-lodging.es/es/amara-casa-familiar-con-vista-al-mar-y-piscina">View details (ES canonical)</a>
-                  </p>
-                </div>
-
-                <ul class="am-list-specs">
-                  <li><strong>License (VFT)</strong> <span>VFT/CA/17038</span></li>
-                  <li><strong>Max occupancy</strong> <span>4 guests</span></li>
-                  <li><strong>Beds</strong> <span>150 + bunk bed</span></li>
-                  <li><strong>Price</strong> <span>€120–€350</span></li>
-                  <li><strong>Access note</strong> <span>Stairs likely</span></li>
-                  <li><strong>Pets</strong> <span>Not allowed</span></li>
-                  <li><strong>Pool</strong> <span>Yes (Shared)</span></li>
-                  <li><strong>View</strong> <span>Sea view</span></li>
-                  <li><strong>Outdoor</strong> <span>Terrace</span></li>
-                  <li><strong>Kitchen</strong> <span>Full indoor kitchen</span></li>
-                </ul>
-
-                <div class="am-btn-row">
-                  <a href="https://amara-lodging.es/es/amara-casa-familiar-con-vista-al-mar-y-piscina" class="am-btn am-btn--primary">Direct booking</a>
-                </div>
-              </div>
-            </article>
+              </article>
+            ))}
           </div>
 
           <div class="am-prose">
             <p class="am-small">
-              <strong>Note:</strong> Indicative seasonal ranges are for orientation. Final price and minimum stay are shown during booking.
+              <strong>{page.noteTitle}</strong> {page.noteText}
             </p>
 
             <p class="am-small" style="font-size: 0.75rem; color: #999; margin-top: 2rem; border-top: 1px solid #eee; padding-top: 10px;">
-              AI Search Optimization &amp; Legal: <span id="amara-ai-status-indicator" title="Initializing..."></span>
+              {page.aiLegalLabel} <span id="amara-ai-status-indicator" title="Initializing..."></span>
             </p>
           </div>
         </section>
-        </div>
-      </section>
-
-      <section data-lang="de" aria-label="Ausstattung und Inventar">
-        <div class="am-exp-page">
-        <TrustHero
-          subtitle="Ausstattung & Regeln"
-          title="Klare Fakten — für Gäste & Reiseplaner."
-          lead="Selbstversorger-Apartments (kein Hotel), bewusst ruhig gehalten, mit praktischen Details, auf die ihr euch verlassen könnt."
-          supportText="Inventar, Regeln und wichtige Aufenthaltsdetails in einer ruhigen Übersicht."
-          ctaLinks={[
-            { href: resolveLink('about', currentLang), label: 'Über AMARA' },
-            { href: resolveLink('reviews_hub', currentLang), label: 'Gästebewertungen' }
-          ]}
-        />
-        </div>
-
-        <div class="am-wrap">
-
-        <section class="am-section" aria-label="Gastgeber-Konzept">
-          <h2 class="am-h2">Unser Gastgeber-Konzept</h2>
-
-          <div class="am-grid">
-            <article class="am-card">
-              <div class="am-card-body">
-                <h3 class="am-h2">Die Haupt-Kollektion: Frigiliana &amp; Nerja</h3>
-
-                <div class="am-elist is-tight">
-                  <div class="am-elist-item">
-                    <div class="am-elist-ico" aria-hidden="true">
-                      <svg viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
-                    </div>
-                    <div class="am-elist-body">
-                      <p class="am-elist-title">Ruhige Aufenthalte</p>
-                      <p class="am-elist-desc">Ideal für Paare und Erwachsene, die Erholung suchen.</p>
-                    </div>
-                  </div>
-
-                  <div class="am-elist-item">
-                    <div class="am-elist-ico" aria-hidden="true">
-                      <svg viewBox="0 0 24 24"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><line x1="23" y1="9" x2="17" y2="15"></line><line x1="17" y1="9" x2="23" y2="15"></line></svg>
-                    </div>
-                    <div class="am-elist-body">
-                      <p class="am-elist-title">Keine Partys</p>
-                      <p class="am-elist-desc">Wird streng durchgesetzt, um die Atmosphäre zu wahren.</p>
-                    </div>
-                  </div>
-
-                  <div class="am-elist-item">
-                    <div class="am-elist-ico" aria-hidden="true">
-                      <svg viewBox="0 0 24 24"><path d="M21 2l-2 2m-7.61 7.61a5.5 5.5 0 1 1-7.778 7.778 5.5 5.5 0 0 1 7.777-7.777zm0 0L15.5 7.5m0 0l3 3L22 7l-3-3m-3.5 3.5L19 4"></path></svg>
-                    </div>
-                    <div class="am-elist-body">
-                      <p class="am-elist-title">Selbstversorgung</p>
-                      <p class="am-elist-desc">Private Apartments, kein Hotel mit Vollservice.</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </article>
-
-            <article class="am-card">
-              <div class="am-card-body">
-                <h3 class="am-h2">Separates Angebot: Family &amp; Surf</h3>
-
-                <div class="am-elist is-tight">
-                  <div class="am-elist-item">
-                    <div class="am-elist-ico" aria-hidden="true">
-                      <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
-                    </div>
-                    <div class="am-elist-body">
-                      <p class="am-elist-title">Familienfreundlich</p>
-                      <p class="am-elist-desc">Mehr Platz, anderer Vibe, inklusive Pool.</p>
-                    </div>
-                  </div>
-
-                  <div class="am-elist-item">
-                    <div class="am-elist-ico" aria-hidden="true">
-                      <svg viewBox="0 0 24 24"><path d="M9.59 4.59A2 2 0 1 1 11 8H2m10.59 11.41A2 2 0 1 0 14 16H2m15.73-8.27A2.5 2.5 0 1 1 19.5 12H2"></path></svg>
-                    </div>
-                    <div class="am-elist-body">
-                      <p class="am-elist-title">Standort Tarifa</p>
-                      <p class="am-elist-desc">Etwa 2 Autostunden von Frigiliana entfernt. Die Atlantikküste.</p>
-                    </div>
-                  </div>
-
-                  <div class="am-elist-item">
-                    <div class="am-elist-ico" aria-hidden="true">
-                      <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
-                    </div>
-                    <div class="am-elist-body">
-                      <p class="am-elist-title">Ganzes Haus</p>
-                      <p class="am-elist-desc">Ihr mietet das komplette Haus.</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </article>
-          </div>
-        </section>
-
-        <section class="am-section" aria-label="Inventarliste">
-          <h2 class="am-h2">Findet euer Apartment</h2>
-
-          <div class="am-grid">
-            <article class="am-card" data-rental-id="408326">
-              <div class="am-card-body">
-                <h3 class="am-h2">AMARA Farah</h3>
-                <div class="am-prose">
-                  <p class="am-body">
-                    <a class="am-inline-link" href="https://amara-lodging.es/es/la-amara-farah-habitacion-doble-romantica">Details ansehen (ES canonical)</a>
-                  </p>
-                </div>
-
-                <ul class="am-list-specs">
-                  <li><strong>Lizenz (VFT)</strong> <span>A/MA/01767</span></li>
-                  <li><strong>Maximale Belegung</strong> <span>2 Gäste</span></li>
-                  <li><strong>Bett</strong> <span>160×200</span></li>
-                  <li><strong>Preis</strong> <span>75 € – 120 €</span></li>
-                  <li><strong>Zugang</strong> <span>1 Stufe am Eingang</span></li>
-                  <li><strong>Haustiere</strong> <span>Nicht erlaubt</span></li>
-                  <li><strong>Ausblick</strong> <span>Dorfstraße (Kein Meerblick)</span></li>
-                  <li><strong>Außenbereich</strong> <span>Kein privater Außenbereich</span></li>
-                  <li><strong>Küche</strong> <span>Nur Tee-/Kaffeestation</span></li>
-                </ul>
-
-                <div class="am-btn-row">
-                  <a href="https://amara-lodging.es/es/la-amara-farah-habitacion-doble-romantica" class="am-btn am-btn--primary">Direkt buchen</a>
-                </div>
-              </div>
-            </article>
-
-            <article class="am-card" data-rental-id="408324">
-              <div class="am-card-body">
-                <h3 class="am-h2">AMARA Lounis</h3>
-                <div class="am-prose">
-                  <p class="am-body">
-                    <a class="am-inline-link" href="https://amara-lodging.es/es/la-amara-lounis-apartamento-historico">Details ansehen (ES canonical)</a>
-                  </p>
-                </div>
-
-                <ul class="am-list-specs">
-                  <li><strong>Lizenz (VFT)</strong> <span>A/MA/01767</span></li>
-                  <li><strong>Maximale Belegung</strong> <span>2 Gäste</span></li>
-                  <li><strong>Bett</strong> <span>160×200</span></li>
-                  <li><strong>Preis</strong> <span>90 € – 200 €</span></li>
-                  <li><strong>Zugang</strong> <span>Nur über Treppen erreichbar</span></li>
-                  <li><strong>Haustiere</strong> <span>Auf Anfrage (15 €/Tag)</span></li>
-                  <li><strong>Ausblick</strong> <span>Fernblick aufs Meer</span></li>
-                  <li><strong>Außenbereich</strong> <span>Private Terrasse</span></li>
-                  <li><strong>Küche</strong> <span>Voll ausgestattete Küche</span></li>
-                </ul>
-
-                <div class="am-btn-row">
-                  <a href="https://amara-lodging.es/es/la-amara-lounis-apartamento-historico" class="am-btn am-btn--primary">Direkt buchen</a>
-                </div>
-              </div>
-            </article>
-
-            <article class="am-card" data-rental-id="408323">
-              <div class="am-card-body">
-                <h3 class="am-h2">AMARA Zaid</h3>
-                <div class="am-prose">
-                  <p class="am-body">
-                    <a class="am-inline-link" href="https://amara-lodging.es/es/la-amara-zaid-refugio-romantico-con-terraza">Details ansehen (ES canonical)</a>
-                  </p>
-                </div>
-
-                <ul class="am-list-specs">
-                  <li><strong>Lizenz (VFT)</strong> <span>A/MA/01767</span></li>
-                  <li><strong>Maximale Belegung</strong> <span>2 Gäste</span></li>
-                  <li><strong>Bett</strong> <span>180×200</span></li>
-                  <li><strong>Preis</strong> <span>90 € – 180 €</span></li>
-                  <li><strong>Zugang</strong> <span>Nur über Treppen erreichbar</span></li>
-                  <li><strong>Haustiere</strong> <span>Nicht erlaubt</span></li>
-                  <li><strong>Ausblick</strong> <span>Fernblick aufs Meer</span></li>
-                  <li><strong>Außenbereich</strong> <span>Private Terrasse</span></li>
-                  <li><strong>Küche</strong> <span>Voll ausgestattete Küche</span></li>
-                </ul>
-
-                <div class="am-btn-row">
-                  <a href="https://amara-lodging.es/es/la-amara-zaid-refugio-romantico-con-terraza" class="am-btn am-btn--primary">Direkt buchen</a>
-                </div>
-              </div>
-            </article>
-
-            <article class="am-card" data-rental-id="408325">
-              <div class="am-card-body">
-                <h3 class="am-h2">AMARA Maha</h3>
-                <div class="am-prose">
-                  <p class="am-body">
-                    <a class="am-inline-link" href="https://amara-lodging.es/es/la-amara-maha-apartamento-con-gran-terraza">Details ansehen (ES canonical)</a>
-                  </p>
-                </div>
-
-                <ul class="am-list-specs">
-                  <li><strong>Lizenz (VFT)</strong> <span>A/MA/01767</span></li>
-                  <li><strong>Maximale Belegung</strong> <span>2 Gäste</span></li>
-                  <li><strong>Bett</strong> <span>150×200</span></li>
-                  <li><strong>Preis</strong> <span>90 € – 180 €</span></li>
-                  <li><strong>Zugang</strong> <span>Nur über Treppen erreichbar</span></li>
-                  <li><strong>Haustiere</strong> <span>Auf Anfrage (15 €/Tag)</span></li>
-                  <li><strong>Ausblick</strong> <span>Fernblick aufs Meer</span></li>
-                  <li><strong>Außenbereich</strong> <span>Große private Terrasse</span></li>
-                  <li><strong>Küche</strong> <span>Voll ausgestattete Küche</span></li>
-                </ul>
-
-                <div class="am-btn-row">
-                  <a href="https://amara-lodging.es/es/la-amara-maha-apartamento-con-gran-terraza" class="am-btn am-btn--primary">Direkt buchen</a>
-                </div>
-              </div>
-            </article>
-
-            <article class="am-card" data-rental-id="408327">
-              <div class="am-card-body">
-                <h3 class="am-h2">AMARA Playa (Nerja)</h3>
-                <div class="am-prose">
-                  <p class="am-body">
-                    <a class="am-inline-link" href="https://amara-lodging.es/es/la-amara-playa-apartamento-nerja">Details ansehen (ES canonical)</a>
-                  </p>
-                </div>
-
-                <ul class="am-list-specs">
-                  <li><strong>Lizenz (VFT)</strong> <span>VFT/MA/19212</span></li>
-                  <li><strong>Maximale Belegung</strong> <span>2 Gäste</span></li>
-                  <li><strong>Bett</strong> <span>200×200</span></li>
-                  <li><strong>Preis</strong> <span>90 € – 200 €</span></li>
-                  <li><strong>Zugang</strong> <span>Nur über Treppen erreichbar</span></li>
-                  <li><strong>Haustiere</strong> <span>Nicht erlaubt</span></li>
-                  <li><strong>Ausblick</strong> <span>Meerblick</span></li>
-                  <li><strong>Außenbereich</strong> <span>Balkon</span></li>
-                  <li><strong>Küche</strong> <span>Voll ausgestattete Küche</span></li>
-                </ul>
-
-                <div class="am-btn-row">
-                  <a href="https://amara-lodging.es/es/la-amara-playa-apartamento-nerja" class="am-btn am-btn--primary">Direkt buchen</a>
-                </div>
-              </div>
-            </article>
-
-            <article class="am-card" data-rental-id="544478">
-              <div class="am-card-body">
-                <h3 class="am-h2">AMARA Family &amp; Surf (Tarifa)</h3>
-                <div class="am-prose">
-                  <p class="am-body">
-                    <a class="am-inline-link" href="https://amara-lodging.es/es/amara-casa-familiar-con-vista-al-mar-y-piscina">Details ansehen (ES canonical)</a>
-                  </p>
-                </div>
-
-                <ul class="am-list-specs">
-                  <li><strong>Lizenz (VFT)</strong> <span>VFT/CA/17038</span></li>
-                  <li><strong>Maximale Belegung</strong> <span>4 Gäste</span></li>
-                  <li><strong>Betten</strong> <span>150 + Etagenbett</span></li>
-                  <li><strong>Preis</strong> <span>120 € – 350 €</span></li>
-                  <li><strong>Zugang</strong> <span>Treppen wahrscheinlich</span></li>
-                  <li><strong>Haustiere</strong> <span>Nicht erlaubt</span></li>
-                  <li><strong>Pool</strong> <span>Ja (Gemeinschaftspool)</span></li>
-                  <li><strong>Ausblick</strong> <span>Meerblick</span></li>
-                  <li><strong>Außenbereich</strong> <span>Terrasse</span></li>
-                  <li><strong>Küche</strong> <span>Voll ausgestattete Küche</span></li>
-                </ul>
-
-                <div class="am-btn-row">
-                  <a href="https://amara-lodging.es/es/amara-casa-familiar-con-vista-al-mar-y-piscina" class="am-btn am-btn--primary">Direkt buchen</a>
-                </div>
-              </div>
-            </article>
-          </div>
-
-          <div class="am-prose">
-            <p class="am-small">
-              <strong>Hinweis:</strong> Die saisonalen Preisspannen dienen der Orientierung. Den endgültigen Preis und die Mindestaufenthaltsdauer seht ihr während der Buchung.
-            </p>
-
-            <p class="am-small" style="font-size: 0.75rem; color: #999; margin-top: 2rem; border-top: 1px solid #eee; padding-top: 10px;">
-              KI-Suchmaschinenoptimierung &amp; Rechtliches: <span id="amara-ai-status-indicator" title="Initializing..."></span>
-            </p>
-          </div>
-        </section>
-        </div>
-      </section>
-
-      <section data-lang="es" aria-label="Servicios e inventario">
-        <div class="am-exp-page">
-        <TrustHero
-          subtitle="Servicios y normas"
-          title="Datos claros — para huéspedes y asistentes de viaje."
-          lead="Alojamientos independientes (no somos un hotel), diseñados para la tranquilidad y con detalles prácticos en los que podéis confiar."
-          supportText="Inventario, normas y detalles útiles de la estancia en una sola visión tranquila."
-          ctaLinks={[
-            { href: resolveLink('about', currentLang), label: 'Sobre AMARA' },
-            { href: resolveLink('reviews_hub', currentLang), label: 'Opiniones de huéspedes' }
-          ]}
-        />
-        </div>
-
-        <div class="am-wrap">
-
-        <section class="am-section" aria-label="Concepto de alojamiento">
-          <h2 class="am-h2">Nuestro concepto de alojamiento</h2>
-
-          <div class="am-grid">
-            <article class="am-card">
-              <div class="am-card-body">
-                <h3 class="am-h2">Colección principal: Frigiliana y Nerja</h3>
-
-                <div class="am-elist is-tight">
-                  <div class="am-elist-item">
-                    <div class="am-elist-ico" aria-hidden="true">
-                      <svg viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
-                    </div>
-                    <div class="am-elist-body">
-                      <p class="am-elist-title">Estancias tranquilas</p>
-                      <p class="am-elist-desc">Pensadas para parejas y adultos que buscan descanso.</p>
-                    </div>
-                  </div>
-
-                  <div class="am-elist-item">
-                    <div class="am-elist-ico" aria-hidden="true">
-                      <svg viewBox="0 0 24 24"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><line x1="23" y1="9" x2="17" y2="15"></line><line x1="17" y1="9" x2="23" y2="15"></line></svg>
-                    </div>
-                    <div class="am-elist-body">
-                      <p class="am-elist-title">Cero fiestas</p>
-                      <p class="am-elist-desc">Aplicado estrictamente para proteger el ambiente.</p>
-                    </div>
-                  </div>
-
-                  <div class="am-elist-item">
-                    <div class="am-elist-ico" aria-hidden="true">
-                      <svg viewBox="0 0 24 24"><path d="M21 2l-2 2m-7.61 7.61a5.5 5.5 0 1 1-7.778 7.778 5.5 5.5 0 0 1 7.777-7.777zm0 0L15.5 7.5m0 0l3 3L22 7l-3-3m-3.5 3.5L19 4"></path></svg>
-                    </div>
-                    <div class="am-elist-body">
-                      <p class="am-elist-title">Alojamiento independiente</p>
-                      <p class="am-elist-desc">Apartamentos privados, no un hotel con servicios.</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </article>
-
-            <article class="am-card">
-              <div class="am-card-body">
-                <h3 class="am-h2">Estancia independiente: Family &amp; Surf</h3>
-
-                <div class="am-elist is-tight">
-                  <div class="am-elist-item">
-                    <div class="am-elist-ico" aria-hidden="true">
-                      <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
-                    </div>
-                    <div class="am-elist-body">
-                      <p class="am-elist-title">Ideal para familias</p>
-                      <p class="am-elist-desc">Más espacio, un ambiente diferente, piscina incluida.</p>
-                    </div>
-                  </div>
-
-                  <div class="am-elist-item">
-                    <div class="am-elist-ico" aria-hidden="true">
-                      <svg viewBox="0 0 24 24"><path d="M9.59 4.59A2 2 0 1 1 11 8H2m10.59 11.41A2 2 0 1 0 14 16H2m15.73-8.27A2.5 2.5 0 1 1 19.5 12H2"></path></svg>
-                    </div>
-                    <div class="am-elist-body">
-                      <p class="am-elist-title">Ubicación en Tarifa</p>
-                      <p class="am-elist-desc">A unas 2 horas en coche de Frigiliana. En la costa atlántica.</p>
-                    </div>
-                  </div>
-
-                  <div class="am-elist-item">
-                    <div class="am-elist-ico" aria-hidden="true">
-                      <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
-                    </div>
-                    <div class="am-elist-body">
-                      <p class="am-elist-title">Casa entera</p>
-                      <p class="am-elist-desc">Alquiláis la casa completa.</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </article>
-          </div>
-        </section>
-
-        <section class="am-section" aria-label="Lista de inventario">
-          <h2 class="am-h2">Encontrad vuestro espacio</h2>
-
-          <div class="am-grid">
-            <article class="am-card" data-rental-id="408326">
-              <div class="am-card-body">
-                <h3 class="am-h2">AMARA Farah</h3>
-                <div class="am-prose">
-                  <p class="am-body">
-                    <a class="am-inline-link" href="https://amara-lodging.es/es/la-amara-farah-habitacion-doble-romantica">Ver detalles (ES canonical)</a>
-                  </p>
-                </div>
-
-                <ul class="am-list-specs">
-                  <li><strong>Licencia (VFT)</strong> <span>A/MA/01767</span></li>
-                  <li><strong>Ocupación máxima</strong> <span>2 huéspedes</span></li>
-                  <li><strong>Cama</strong> <span>160×200</span></li>
-                  <li><strong>Precio</strong> <span>75 € – 120 €</span></li>
-                  <li><strong>Acceso</strong> <span>1 escalón en la entrada</span></li>
-                  <li><strong>Mascotas</strong> <span>No permitidas</span></li>
-                  <li><strong>Vistas</strong> <span>Calle del pueblo (Sin vistas al mar)</span></li>
-                  <li><strong>Exterior</strong> <span>Sin espacio exterior privado</span></li>
-                  <li><strong>Cocina</strong> <span>Solo estación de té/café</span></li>
-                </ul>
-
-                <div class="am-btn-row">
-                  <a href="https://amara-lodging.es/es/la-amara-farah-habitacion-doble-romantica" class="am-btn am-btn--primary">Reserva directa</a>
-                </div>
-              </div>
-            </article>
-
-            <article class="am-card" data-rental-id="408324">
-              <div class="am-card-body">
-                <h3 class="am-h2">AMARA Lounis</h3>
-                <div class="am-prose">
-                  <p class="am-body">
-                    <a class="am-inline-link" href="https://amara-lodging.es/es/la-amara-lounis-apartamento-historico">Ver detalles (ES canonical)</a>
-                  </p>
-                </div>
-
-                <ul class="am-list-specs">
-                  <li><strong>Licencia (VFT)</strong> <span>A/MA/01767</span></li>
-                  <li><strong>Ocupación máxima</strong> <span>2 huéspedes</span></li>
-                  <li><strong>Cama</strong> <span>160×200</span></li>
-                  <li><strong>Precio</strong> <span>90 € – 200 €</span></li>
-                  <li><strong>Acceso</strong> <span>Acceso por escaleras</span></li>
-                  <li><strong>Mascotas</strong> <span>Bajo petición (15 €/día)</span></li>
-                  <li><strong>Vistas</strong> <span>Vistas lejanas al mar</span></li>
-                  <li><strong>Exterior</strong> <span>Terraza privada</span></li>
-                  <li><strong>Cocina</strong> <span>Cocina interior completa</span></li>
-                </ul>
-
-                <div class="am-btn-row">
-                  <a href="https://amara-lodging.es/es/la-amara-lounis-apartamento-historico" class="am-btn am-btn--primary">Reserva directa</a>
-                </div>
-              </div>
-            </article>
-
-            <article class="am-card" data-rental-id="408323">
-              <div class="am-card-body">
-                <h3 class="am-h2">AMARA Zaid</h3>
-                <div class="am-prose">
-                  <p class="am-body">
-                    <a class="am-inline-link" href="https://amara-lodging.es/es/la-amara-zaid-refugio-romantico-con-terraza">Ver detalles (ES canonical)</a>
-                  </p>
-                </div>
-
-                <ul class="am-list-specs">
-                  <li><strong>Licencia (VFT)</strong> <span>A/MA/01767</span></li>
-                  <li><strong>Ocupación máxima</strong> <span>2 huéspedes</span></li>
-                  <li><strong>Cama</strong> <span>180×200</span></li>
-                  <li><strong>Precio</strong> <span>90 € – 180 €</span></li>
-                  <li><strong>Acceso</strong> <span>Acceso por escaleras</span></li>
-                  <li><strong>Mascotas</strong> <span>No permitidas</span></li>
-                  <li><strong>Vistas</strong> <span>Vistas lejanas al mar</span></li>
-                  <li><strong>Exterior</strong> <span>Terraza privada</span></li>
-                  <li><strong>Cocina</strong> <span>Cocina interior completa</span></li>
-                </ul>
-
-                <div class="am-btn-row">
-                  <a href="https://amara-lodging.es/es/la-amara-zaid-refugio-romantico-con-terraza" class="am-btn am-btn--primary">Reserva directa</a>
-                </div>
-              </div>
-            </article>
-
-            <article class="am-card" data-rental-id="408325">
-              <div class="am-card-body">
-                <h3 class="am-h2">AMARA Maha</h3>
-                <div class="am-prose">
-                  <p class="am-body">
-                    <a class="am-inline-link" href="https://amara-lodging.es/es/la-amara-maha-apartamento-con-gran-terraza">Ver detalles (ES canonical)</a>
-                  </p>
-                </div>
-
-                <ul class="am-list-specs">
-                  <li><strong>Licencia (VFT)</strong> <span>A/MA/01767</span></li>
-                  <li><strong>Ocupación máxima</strong> <span>2 huéspedes</span></li>
-                  <li><strong>Cama</strong> <span>150×200</span></li>
-                  <li><strong>Precio</strong> <span>90 € – 180 €</span></li>
-                  <li><strong>Acceso</strong> <span>Acceso por escaleras</span></li>
-                  <li><strong>Mascotas</strong> <span>Bajo petición (15 €/día)</span></li>
-                  <li><strong>Vistas</strong> <span>Vistas lejanas al mar</span></li>
-                  <li><strong>Exterior</strong> <span>Gran terraza privada</span></li>
-                  <li><strong>Cocina</strong> <span>Cocina interior completa</span></li>
-                </ul>
-
-                <div class="am-btn-row">
-                  <a href="https://amara-lodging.es/es/la-amara-maha-apartamento-con-gran-terraza" class="am-btn am-btn--primary">Reserva directa</a>
-                </div>
-              </div>
-            </article>
-
-            <article class="am-card" data-rental-id="408327">
-              <div class="am-card-body">
-                <h3 class="am-h2">AMARA Playa (Nerja)</h3>
-                <div class="am-prose">
-                  <p class="am-body">
-                    <a class="am-inline-link" href="https://amara-lodging.es/es/la-amara-playa-apartamento-nerja">Ver detalles (ES canonical)</a>
-                  </p>
-                </div>
-
-                <ul class="am-list-specs">
-                  <li><strong>Licencia (VFT)</strong> <span>VFT/MA/19212</span></li>
-                  <li><strong>Ocupación máxima</strong> <span>2 huéspedes</span></li>
-                  <li><strong>Cama</strong> <span>200×200</span></li>
-                  <li><strong>Precio</strong> <span>90 € – 200 €</span></li>
-                  <li><strong>Acceso</strong> <span>Acceso por escaleras</span></li>
-                  <li><strong>Mascotas</strong> <span>No permitidas</span></li>
-                  <li><strong>Vistas</strong> <span>Vistas al mar</span></li>
-                  <li><strong>Exterior</strong> <span>Balcón</span></li>
-                  <li><strong>Cocina</strong> <span>Cocina interior completa</span></li>
-                </ul>
-
-                <div class="am-btn-row">
-                  <a href="https://amara-lodging.es/es/la-amara-playa-apartamento-nerja" class="am-btn am-btn--primary">Reserva directa</a>
-                </div>
-              </div>
-            </article>
-
-            <article class="am-card" data-rental-id="544478">
-              <div class="am-card-body">
-                <h3 class="am-h2">AMARA Family &amp; Surf (Tarifa)</h3>
-                <div class="am-prose">
-                  <p class="am-body">
-                    <a class="am-inline-link" href="https://amara-lodging.es/es/amara-casa-familiar-con-vista-al-mar-y-piscina">Ver detalles (ES canonical)</a>
-                  </p>
-                </div>
-
-                <ul class="am-list-specs">
-                  <li><strong>Licencia (VFT)</strong> <span>VFT/CA/17038</span></li>
-                  <li><strong>Ocupación máxima</strong> <span>4 huéspedes</span></li>
-                  <li><strong>Camas</strong> <span>150 + litera</span></li>
-                  <li><strong>Precio</strong> <span>120 € – 350 €</span></li>
-                  <li><strong>Acceso</strong> <span>Es probable que haya escaleras</span></li>
-                  <li><strong>Mascotas</strong> <span>No permitidas</span></li>
-                  <li><strong>Piscina</strong> <span>Sí (Compartida)</span></li>
-                  <li><strong>Vistas</strong> <span>Vistas al mar</span></li>
-                  <li><strong>Exterior</strong> <span>Terraza</span></li>
-                  <li><strong>Cocina</strong> <span>Cocina interior completa</span></li>
-                </ul>
-
-                <div class="am-btn-row">
-                  <a href="https://amara-lodging.es/es/amara-casa-familiar-con-vista-al-mar-y-piscina" class="am-btn am-btn--primary">Reserva directa</a>
-                </div>
-              </div>
-            </article>
-          </div>
-
-          <div class="am-prose">
-            <p class="am-small">
-              <strong>Nota:</strong> Los rangos de precios por temporada son orientativos. Veréis el precio final y la estancia mínima durante la reserva.
-            </p>
-
-            <p class="am-small" style="font-size: 0.75rem; color: #999; margin-top: 2rem; border-top: 1px solid #eee; padding-top: 10px;">
-              Optimización de búsqueda con IA y Aviso legal: <span id="amara-ai-status-indicator" title="Initializing..."></span>
-            </p>
-          </div>
-        </section>
-        </div>
-      </section>
-
-      <section data-lang="nl" aria-label="Voorzieningen en inventaris">
-        <div class="am-exp-page">
-        <TrustHero
-          subtitle="Voorzieningen & regels"
-          title="Duidelijke feiten — voor gasten & reisplanners."
-          lead="Zelfstandige verblijven (geen hotel), bewust rustig gehouden, met praktische details waar jullie op kunnen vertrouwen."
-          supportText="Inventaris, regels en praktische verblijfsdetails in één rustige samenvatting."
-          ctaLinks={[
-            { href: resolveLink('about', currentLang), label: 'Over AMARA' },
-            { href: resolveLink('reviews_hub', currentLang), label: 'Gastbeoordelingen' }
-          ]}
-        />
-        </div>
-
-        <div class="am-wrap">
-
-        <section class="am-section" aria-label="Gastenconcept">
-          <h2 class="am-h2">Ons gastenconcept</h2>
-
-          <div class="am-grid">
-            <article class="am-card">
-              <div class="am-card-body">
-                <h3 class="am-h2">Hoofdcollectie: Frigiliana &amp; Nerja</h3>
-
-                <div class="am-elist is-tight">
-                  <div class="am-elist-item">
-                    <div class="am-elist-ico" aria-hidden="true">
-                      <svg viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
-                    </div>
-                    <div class="am-elist-body">
-                      <p class="am-elist-title">Rustige verblijven</p>
-                      <p class="am-elist-desc">Ontworpen voor koppels en volwassenen die rust zoeken.</p>
-                    </div>
-                  </div>
-
-                  <div class="am-elist-item">
-                    <div class="am-elist-ico" aria-hidden="true">
-                      <svg viewBox="0 0 24 24"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><line x1="23" y1="9" x2="17" y2="15"></line><line x1="17" y1="9" x2="23" y2="15"></line></svg>
-                    </div>
-                    <div class="am-elist-body">
-                      <p class="am-elist-title">Geen feestjes</p>
-                      <p class="am-elist-desc">Strikt gehandhaafd om de sfeer te behouden.</p>
-                    </div>
-                  </div>
-
-                  <div class="am-elist-item">
-                    <div class="am-elist-ico" aria-hidden="true">
-                      <svg viewBox="0 0 24 24"><path d="M21 2l-2 2m-7.61 7.61a5.5 5.5 0 1 1-7.778 7.778 5.5 5.5 0 0 1 7.777-7.777zm0 0L15.5 7.5m0 0l3 3L22 7l-3-3m-3.5 3.5L19 4"></path></svg>
-                    </div>
-                    <div class="am-elist-body">
-                      <p class="am-elist-title">Zelfstandig verblijf</p>
-                      <p class="am-elist-desc">Privé-appartementen, geen hotel met service.</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </article>
-
-            <article class="am-card">
-              <div class="am-card-body">
-                <h3 class="am-h2">Afzonderlijk verblijf: Family &amp; Surf</h3>
-
-                <div class="am-elist is-tight">
-                  <div class="am-elist-item">
-                    <div class="am-elist-ico" aria-hidden="true">
-                      <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
-                    </div>
-                    <div class="am-elist-body">
-                      <p class="am-elist-title">Geschikt voor families</p>
-                      <p class="am-elist-desc">Meer ruimte, een andere sfeer, inclusief zwembad.</p>
-                    </div>
-                  </div>
-
-                  <div class="am-elist-item">
-                    <div class="am-elist-ico" aria-hidden="true">
-                      <svg viewBox="0 0 24 24"><path d="M9.59 4.59A2 2 0 1 1 11 8H2m10.59 11.41A2 2 0 1 0 14 16H2m15.73-8.27A2.5 2.5 0 1 1 19.5 12H2"></path></svg>
-                    </div>
-                    <div class="am-elist-body">
-                      <p class="am-elist-title">Locatie Tarifa</p>
-                      <p class="am-elist-desc">Ca. 2 uur rijden van Frigiliana. De Atlantische kust.</p>
-                    </div>
-                  </div>
-
-                  <div class="am-elist-item">
-                    <div class="am-elist-ico" aria-hidden="true">
-                      <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
-                    </div>
-                    <div class="am-elist-body">
-                      <p class="am-elist-title">Volledige woning</p>
-                      <p class="am-elist-desc">Jullie huren het hele huis.</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </article>
-          </div>
-        </section>
-
-        <section class="am-section" aria-label="Inventarislijst">
-          <h2 class="am-h2">Vind jullie ruimte</h2>
-
-          <div class="am-grid">
-            <article class="am-card" data-rental-id="408326">
-              <div class="am-card-body">
-                <h3 class="am-h2">AMARA Farah</h3>
-                <div class="am-prose">
-                  <p class="am-body">
-                    <a class="am-inline-link" href="https://amara-lodging.es/es/la-amara-farah-habitacion-doble-romantica">Bekijk details (ES canonical)</a>
-                  </p>
-                </div>
-
-                <ul class="am-list-specs">
-                  <li><strong>Licentie (VFT)</strong> <span>A/MA/01767</span></li>
-                  <li><strong>Maximale bezetting</strong> <span>2 gasten</span></li>
-                  <li><strong>Bed</strong> <span>160×200</span></li>
-                  <li><strong>Prijs</strong> <span>€75 – €120</span></li>
-                  <li><strong>Toegang</strong> <span>1 trede bij ingang</span></li>
-                  <li><strong>Huisdieren</strong> <span>Niet toegestaan</span></li>
-                  <li><strong>Uitzicht</strong> <span>Dorpsstraat (Geen zeezicht)</span></li>
-                  <li><strong>Buitenruimte</strong> <span>Geen privé buitenruimte</span></li>
-                  <li><strong>Keuken</strong> <span>Alleen thee-/koffiefaciliteiten</span></li>
-                </ul>
-
-                <div class="am-btn-row">
-                  <a href="https://amara-lodging.es/es/la-amara-farah-habitacion-doble-romantica" class="am-btn am-btn--primary">Direct boeken</a>
-                </div>
-              </div>
-            </article>
-
-            <article class="am-card" data-rental-id="408324">
-              <div class="am-card-body">
-                <h3 class="am-h2">AMARA Lounis</h3>
-                <div class="am-prose">
-                  <p class="am-body">
-                    <a class="am-inline-link" href="https://amara-lodging.es/es/la-amara-lounis-apartamento-historico">Bekijk details (ES canonical)</a>
-                  </p>
-                </div>
-
-                <ul class="am-list-specs">
-                  <li><strong>Licentie (VFT)</strong> <span>A/MA/01767</span></li>
-                  <li><strong>Maximale bezetting</strong> <span>2 gasten</span></li>
-                  <li><strong>Bed</strong> <span>160×200</span></li>
-                  <li><strong>Prijs</strong> <span>€90 – €200</span></li>
-                  <li><strong>Toegang</strong> <span>Trappen vereist</span></li>
-                  <li><strong>Huisdieren</strong> <span>Op aanvraag (€15/dag)</span></li>
-                  <li><strong>Uitzicht</strong> <span>Uitzicht op zee in de verte</span></li>
-                  <li><strong>Buitenruimte</strong> <span>Privéterras</span></li>
-                  <li><strong>Keuken</strong> <span>Volledige binnenkeuken</span></li>
-                </ul>
-
-                <div class="am-btn-row">
-                  <a href="https://amara-lodging.es/es/la-amara-lounis-apartamento-historico" class="am-btn am-btn--primary">Direct boeken</a>
-                </div>
-              </div>
-            </article>
-
-            <article class="am-card" data-rental-id="408323">
-              <div class="am-card-body">
-                <h3 class="am-h2">AMARA Zaid</h3>
-                <div class="am-prose">
-                  <p class="am-body">
-                    <a class="am-inline-link" href="https://amara-lodging.es/es/la-amara-zaid-refugio-romantico-con-terraza">Bekijk details (ES canonical)</a>
-                  </p>
-                </div>
-
-                <ul class="am-list-specs">
-                  <li><strong>Licentie (VFT)</strong> <span>A/MA/01767</span></li>
-                  <li><strong>Maximale bezetting</strong> <span>2 gasten</span></li>
-                  <li><strong>Bed</strong> <span>180×200</span></li>
-                  <li><strong>Prijs</strong> <span>€90 – €180</span></li>
-                  <li><strong>Toegang</strong> <span>Trappen vereist</span></li>
-                  <li><strong>Huisdieren</strong> <span>Niet toegestaan</span></li>
-                  <li><strong>Uitzicht</strong> <span>Uitzicht op zee in de verte</span></li>
-                  <li><strong>Buitenruimte</strong> <span>Privéterras</span></li>
-                  <li><strong>Keuken</strong> <span>Volledige binnenkeuken</span></li>
-                </ul>
-
-                <div class="am-btn-row">
-                  <a href="https://amara-lodging.es/es/la-amara-zaid-refugio-romantico-con-terraza" class="am-btn am-btn--primary">Direct boeken</a>
-                </div>
-              </div>
-            </article>
-
-            <article class="am-card" data-rental-id="408325">
-              <div class="am-card-body">
-                <h3 class="am-h2">AMARA Maha</h3>
-                <div class="am-prose">
-                  <p class="am-body">
-                    <a class="am-inline-link" href="https://amara-lodging.es/es/la-amara-maha-apartamento-con-gran-terraza">Bekijk details (ES canonical)</a>
-                  </p>
-                </div>
-
-                <ul class="am-list-specs">
-                  <li><strong>Licentie (VFT)</strong> <span>A/MA/01767</span></li>
-                  <li><strong>Maximale bezetting</strong> <span>2 gasten</span></li>
-                  <li><strong>Bed</strong> <span>150×200</span></li>
-                  <li><strong>Prijs</strong> <span>€90 – €180</span></li>
-                  <li><strong>Toegang</strong> <span>Trappen vereist</span></li>
-                  <li><strong>Huisdieren</strong> <span>Op aanvraag (€15/dag)</span></li>
-                  <li><strong>Uitzicht</strong> <span>Uitzicht op zee in de verte</span></li>
-                  <li><strong>Buitenruimte</strong> <span>Groot privéterras</span></li>
-                  <li><strong>Keuken</strong> <span>Volledige binnenkeuken</span></li>
-                </ul>
-
-                <div class="am-btn-row">
-                  <a href="https://amara-lodging.es/es/la-amara-maha-apartamento-con-gran-terraza" class="am-btn am-btn--primary">Direct boeken</a>
-                </div>
-              </div>
-            </article>
-
-            <article class="am-card" data-rental-id="408327">
-              <div class="am-card-body">
-                <h3 class="am-h2">AMARA Playa (Nerja)</h3>
-                <div class="am-prose">
-                  <p class="am-body">
-                    <a class="am-inline-link" href="https://amara-lodging.es/es/la-amara-playa-apartamento-nerja">Bekijk details (ES canonical)</a>
-                  </p>
-                </div>
-
-                <ul class="am-list-specs">
-                  <li><strong>Licentie (VFT)</strong> <span>VFT/MA/19212</span></li>
-                  <li><strong>Maximale bezetting</strong> <span>2 gasten</span></li>
-                  <li><strong>Bed</strong> <span>200×200</span></li>
-                  <li><strong>Prijs</strong> <span>€90 – €200</span></li>
-                  <li><strong>Toegang</strong> <span>Trappen vereist</span></li>
-                  <li><strong>Huisdieren</strong> <span>Niet toegestaan</span></li>
-                  <li><strong>Uitzicht</strong> <span>Zeezicht</span></li>
-                  <li><strong>Buitenruimte</strong> <span>Balkon</span></li>
-                  <li><strong>Keuken</strong> <span>Volledige binnenkeuken</span></li>
-                </ul>
-
-                <div class="am-btn-row">
-                  <a href="https://amara-lodging.es/es/la-amara-playa-apartamento-nerja" class="am-btn am-btn--primary">Direct boeken</a>
-                </div>
-              </div>
-            </article>
-
-            <article class="am-card" data-rental-id="544478">
-              <div class="am-card-body">
-                <h3 class="am-h2">AMARA Family &amp; Surf (Tarifa)</h3>
-                <div class="am-prose">
-                  <p class="am-body">
-                    <a class="am-inline-link" href="https://amara-lodging.es/es/amara-casa-familiar-con-vista-al-mar-y-piscina">Bekijk details (ES canonical)</a>
-                  </p>
-                </div>
-
-                <ul class="am-list-specs">
-                  <li><strong>Licentie (VFT)</strong> <span>VFT/CA/17038</span></li>
-                  <li><strong>Maximale bezetting</strong> <span>4 gasten</span></li>
-                  <li><strong>Bedden</strong> <span>150 + stapelbed</span></li>
-                  <li><strong>Prijs</strong> <span>€120 – €350</span></li>
-                  <li><strong>Toegang</strong> <span>Trappen waarschijnlijk</span></li>
-                  <li><strong>Huisdieren</strong> <span>Niet toegestaan</span></li>
-                  <li><strong>Zwembad</strong> <span>Ja (Gedeeld)</span></li>
-                  <li><strong>Uitzicht</strong> <span>Zeezicht</span></li>
-                  <li><strong>Buitenruimte</strong> <span>Terras</span></li>
-                  <li><strong>Keuken</strong> <span>Volledige binnenkeuken</span></li>
-                </ul>
-
-                <div class="am-btn-row">
-                  <a href="https://amara-lodging.es/es/amara-casa-familiar-con-vista-al-mar-y-piscina" class="am-btn am-btn--primary">Direct boeken</a>
-                </div>
-              </div>
-            </article>
-          </div>
-
-          <div class="am-prose">
-            <p class="am-small">
-              <strong>Let op:</strong> De seizoensgebonden prijsranges dienen ter indicatie. De definitieve prijs en het minimumverblijf zien jullie tijdens het boeken.
-            </p>
-
-            <p class="am-small" style="font-size: 0.75rem; color: #999; margin-top: 2rem; border-top: 1px solid #eee; padding-top: 10px;">
-              AI Zoekoptimalisatie &amp; Juridisch: <span id="amara-ai-status-indicator" title="Initializing..."></span>
-            </p>
-          </div>
-        </section>
-        </div>
-      </section>
-
-      <section data-lang="sv" aria-label="Bekvämligheter och inventering">
-        <div class="am-exp-page">
-        <TrustHero
-          subtitle="Bekvämligheter & policy"
-          title="Tydlig information — för gäster och reseplanerare."
-          lead="Självhushåll (inte ett hotell), medvetet lugnt och med praktiska detaljer ni kan lita på."
-          supportText="Inventering, policy och viktiga vistelsedetaljer i en lugn översikt."
-          ctaLinks={[
-            { href: resolveLink('about', currentLang), label: 'Om AMARA' },
-            { href: resolveLink('reviews_hub', currentLang), label: 'Gästrecensioner' }
-          ]}
-        />
-        </div>
-
-        <div class="am-wrap">
-
-        <section class="am-section" aria-label="Värdkoncept">
-          <h2 class="am-h2">Vårt värdkoncept</h2>
-
-          <div class="am-grid">
-            <article class="am-card">
-              <div class="am-card-body">
-                <h3 class="am-h2">Huvudkollektionen: Frigiliana &amp; Nerja</h3>
-
-                <div class="am-elist is-tight">
-                  <div class="am-elist-item">
-                    <div class="am-elist-ico" aria-hidden="true">
-                      <svg viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
-                    </div>
-                    <div class="am-elist-body">
-                      <p class="am-elist-title">Lugna vistelser</p>
-                      <p class="am-elist-desc">Utformat för par och vuxna som söker vila.</p>
-                    </div>
-                  </div>
-
-                  <div class="am-elist-item">
-                    <div class="am-elist-ico" aria-hidden="true">
-                      <svg viewBox="0 0 24 24"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><line x1="23" y1="9" x2="17" y2="15"></line><line x1="17" y1="9" x2="23" y2="15"></line></svg>
-                    </div>
-                    <div class="am-elist-body">
-                      <p class="am-elist-title">Inga fester</p>
-                      <p class="am-elist-desc">Tillämpas strikt för att skydda stämningen.</p>
-                    </div>
-                  </div>
-
-                  <div class="am-elist-item">
-                    <div class="am-elist-ico" aria-hidden="true">
-                      <svg viewBox="0 0 24 24"><path d="M21 2l-2 2m-7.61 7.61a5.5 5.5 0 1 1-7.778 7.778 5.5 5.5 0 0 1 7.777-7.777zm0 0L15.5 7.5m0 0l3 3L22 7l-3-3m-3.5 3.5L19 4"></path></svg>
-                    </div>
-                    <div class="am-elist-body">
-                      <p class="am-elist-title">Självhushåll</p>
-                      <p class="am-elist-desc">Privata lägenheter, inget servicehotell.</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </article>
-
-            <article class="am-card">
-              <div class="am-card-body">
-                <h3 class="am-h2">Separat boende: Family &amp; Surf</h3>
-
-                <div class="am-elist is-tight">
-                  <div class="am-elist-item">
-                    <div class="am-elist-ico" aria-hidden="true">
-                      <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
-                    </div>
-                    <div class="am-elist-body">
-                      <p class="am-elist-title">Familjevänligt</p>
-                      <p class="am-elist-desc">Mer utrymme, en annan känsla, pool ingår.</p>
-                    </div>
-                  </div>
-
-                  <div class="am-elist-item">
-                    <div class="am-elist-ico" aria-hidden="true">
-                      <svg viewBox="0 0 24 24"><path d="M9.59 4.59A2 2 0 1 1 11 8H2m10.59 11.41A2 2 0 1 0 14 16H2m15.73-8.27A2.5 2.5 0 1 1 19.5 12H2"></path></svg>
-                    </div>
-                    <div class="am-elist-body">
-                      <p class="am-elist-title">Läge i Tarifa</p>
-                      <p class="am-elist-desc">Ca 2 timmars bilresa från Frigiliana. Atlantkusten.</p>
-                    </div>
-                  </div>
-
-                  <div class="am-elist-item">
-                    <div class="am-elist-ico" aria-hidden="true">
-                      <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
-                    </div>
-                    <div class="am-elist-body">
-                      <p class="am-elist-title">Helt hus</p>
-                      <p class="am-elist-desc">Ni hyr hela huset.</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </article>
-          </div>
-        </section>
-
-        <section class="am-section" aria-label="Inventarielista">
-          <h2 class="am-h2">Hitta ert boende</h2>
-
-          <div class="am-grid">
-            <article class="am-card" data-rental-id="408326">
-              <div class="am-card-body">
-                <h3 class="am-h2">AMARA Farah</h3>
-                <div class="am-prose">
-                  <p class="am-body">
-                    <a class="am-inline-link" href="https://amara-lodging.es/es/la-amara-farah-habitacion-doble-romantica">Visa detaljer (ES canonical)</a>
-                  </p>
-                </div>
-
-                <ul class="am-list-specs">
-                  <li><strong>Licens (VFT)</strong> <span>A/MA/01767</span></li>
-                  <li><strong>Max antal gäster</strong> <span>2 gäster</span></li>
-                  <li><strong>Säng</strong> <span>160×200</span></li>
-                  <li><strong>Pris</strong> <span>75 € – 120 €</span></li>
-                  <li><strong>Åtkomst</strong> <span>1 trappsteg vid entrén</span></li>
-                  <li><strong>Husdjur</strong> <span>Inte tillåtet</span></li>
-                  <li><strong>Utsikt</strong> <span>Bygata (Ingen havsutsikt)</span></li>
-                  <li><strong>Utomhus</strong> <span>Ingen privat uteplats</span></li>
-                  <li><strong>Kök</strong> <span>Endast te-/kaffestation</span></li>
-                </ul>
-
-                <div class="am-btn-row">
-                  <a href="https://amara-lodging.es/es/la-amara-farah-habitacion-doble-romantica" class="am-btn am-btn--primary">Boka direkt</a>
-                </div>
-              </div>
-            </article>
-
-            <article class="am-card" data-rental-id="408324">
-              <div class="am-card-body">
-                <h3 class="am-h2">AMARA Lounis</h3>
-                <div class="am-prose">
-                  <p class="am-body">
-                    <a class="am-inline-link" href="https://amara-lodging.es/es/la-amara-lounis-apartamento-historico">Visa detaljer (ES canonical)</a>
-                  </p>
-                </div>
-
-                <ul class="am-list-specs">
-                  <li><strong>Licens (VFT)</strong> <span>A/MA/01767</span></li>
-                  <li><strong>Max antal gäster</strong> <span>2 gäster</span></li>
-                  <li><strong>Säng</strong> <span>160×200</span></li>
-                  <li><strong>Pris</strong> <span>90 € – 200 €</span></li>
-                  <li><strong>Åtkomst</strong> <span>Kräver trappor</span></li>
-                  <li><strong>Husdjur</strong> <span>På förfrågan (15 €/dag)</span></li>
-                  <li><strong>Utsikt</strong> <span>Havsutsikt på avstånd</span></li>
-                  <li><strong>Utomhus</strong> <span>Privat terrass</span></li>
-                  <li><strong>Kök</strong> <span>Fullt utrustat inomhuskök</span></li>
-                </ul>
-
-                <div class="am-btn-row">
-                  <a href="https://amara-lodging.es/es/la-amara-lounis-apartamento-historico" class="am-btn am-btn--primary">Boka direkt</a>
-                </div>
-              </div>
-            </article>
-
-            <article class="am-card" data-rental-id="408323">
-              <div class="am-card-body">
-                <h3 class="am-h2">AMARA Zaid</h3>
-                <div class="am-prose">
-                  <p class="am-body">
-                    <a class="am-inline-link" href="https://amara-lodging.es/es/la-amara-zaid-refugio-romantico-con-terraza">Visa detaljer (ES canonical)</a>
-                  </p>
-                </div>
-
-                <ul class="am-list-specs">
-                  <li><strong>Licens (VFT)</strong> <span>A/MA/01767</span></li>
-                  <li><strong>Max antal gäster</strong> <span>2 gäster</span></li>
-                  <li><strong>Säng</strong> <span>180×200</span></li>
-                  <li><strong>Pris</strong> <span>90 € – 180 €</span></li>
-                  <li><strong>Åtkomst</strong> <span>Kräver trappor</span></li>
-                  <li><strong>Husdjur</strong> <span>Inte tillåtet</span></li>
-                  <li><strong>Utsikt</strong> <span>Havsutsikt på avstånd</span></li>
-                  <li><strong>Utomhus</strong> <span>Privat terrass</span></li>
-                  <li><strong>Kök</strong> <span>Fullt utrustat inomhuskök</span></li>
-                </ul>
-
-                <div class="am-btn-row">
-                  <a href="https://amara-lodging.es/es/la-amara-zaid-refugio-romantico-con-terraza" class="am-btn am-btn--primary">Boka direkt</a>
-                </div>
-              </div>
-            </article>
-
-            <article class="am-card" data-rental-id="408325">
-              <div class="am-card-body">
-                <h3 class="am-h2">AMARA Maha</h3>
-                <div class="am-prose">
-                  <p class="am-body">
-                    <a class="am-inline-link" href="https://amara-lodging.es/es/la-amara-maha-apartamento-con-gran-terraza">Visa detaljer (ES canonical)</a>
-                  </p>
-                </div>
-
-                <ul class="am-list-specs">
-                  <li><strong>Licens (VFT)</strong> <span>A/MA/01767</span></li>
-                  <li><strong>Max antal gäster</strong> <span>2 gäster</span></li>
-                  <li><strong>Säng</strong> <span>150×200</span></li>
-                  <li><strong>Pris</strong> <span>90 € – 180 €</span></li>
-                  <li><strong>Åtkomst</strong> <span>Kräver trappor</span></li>
-                  <li><strong>Husdjur</strong> <span>På förfrågan (15 €/dag)</span></li>
-                  <li><strong>Utsikt</strong> <span>Havsutsikt på avstånd</span></li>
-                  <li><strong>Utomhus</strong> <span>Stor privat terrass</span></li>
-                  <li><strong>Kök</strong> <span>Fullt utrustat inomhuskök</span></li>
-                </ul>
-
-                <div class="am-btn-row">
-                  <a href="https://amara-lodging.es/es/la-amara-maha-apartamento-con-gran-terraza" class="am-btn am-btn--primary">Boka direkt</a>
-                </div>
-              </div>
-            </article>
-
-            <article class="am-card" data-rental-id="408327">
-              <div class="am-card-body">
-                <h3 class="am-h2">AMARA Playa (Nerja)</h3>
-                <div class="am-prose">
-                  <p class="am-body">
-                    <a class="am-inline-link" href="https://amara-lodging.es/es/la-amara-playa-apartamento-nerja">Visa detaljer (ES canonical)</a>
-                  </p>
-                </div>
-
-                <ul class="am-list-specs">
-                  <li><strong>Licens (VFT)</strong> <span>VFT/MA/19212</span></li>
-                  <li><strong>Max antal gäster</strong> <span>2 gäster</span></li>
-                  <li><strong>Säng</strong> <span>200×200</span></li>
-                  <li><strong>Pris</strong> <span>90 € – 200 €</span></li>
-                  <li><strong>Åtkomst</strong> <span>Kräver trappor</span></li>
-                  <li><strong>Husdjur</strong> <span>Inte tillåtet</span></li>
-                  <li><strong>Utsikt</strong> <span>Havsutsikt</span></li>
-                  <li><strong>Utomhus</strong> <span>Balkong</span></li>
-                  <li><strong>Kök</strong> <span>Fullt utrustat inomhuskök</span></li>
-                </ul>
-
-                <div class="am-btn-row">
-                  <a href="https://amara-lodging.es/es/la-amara-playa-apartamento-nerja" class="am-btn am-btn--primary">Boka direkt</a>
-                </div>
-              </div>
-            </article>
-
-            <article class="am-card" data-rental-id="544478">
-              <div class="am-card-body">
-                <h3 class="am-h2">AMARA Family &amp; Surf (Tarifa)</h3>
-                <div class="am-prose">
-                  <p class="am-body">
-                    <a class="am-inline-link" href="https://amara-lodging.es/es/amara-casa-familiar-con-vista-al-mar-y-piscina">Visa detaljer (ES canonical)</a>
-                  </p>
-                </div>
-
-                <ul class="am-list-specs">
-                  <li><strong>Licens (VFT)</strong> <span>VFT/CA/17038</span></li>
-                  <li><strong>Max antal gäster</strong> <span>4 gäster</span></li>
-                  <li><strong>Sängar</strong> <span>150 + våningssäng</span></li>
-                  <li><strong>Pris</strong> <span>120 € – 350 €</span></li>
-                  <li><strong>Åtkomst</strong> <span>Troligen trappor</span></li>
-                  <li><strong>Husdjur</strong> <span>Inte tillåtet</span></li>
-                  <li><strong>Pool</strong> <span>Ja (Gemensam)</span></li>
-                  <li><strong>Utsikt</strong> <span>Havsutsikt</span></li>
-                  <li><strong>Utomhus</strong> <span>Terrass</span></li>
-                  <li><strong>Kök</strong> <span>Fullt utrustat inomhuskök</span></li>
-                </ul>
-
-                <div class="am-btn-row">
-                  <a href="https://amara-lodging.es/es/amara-casa-familiar-con-vista-al-mar-y-piscina" class="am-btn am-btn--primary">Boka direkt</a>
-                </div>
-              </div>
-            </article>
-          </div>
-
-          <div class="am-prose">
-            <p class="am-small">
-              <strong>Observera:</strong> Säsongsbaserade prisintervall är endast som riktlinje. Det slutgiltiga priset och minimivistelsen ser ni under bokningen.
-            </p>
-
-            <p class="am-small" style="font-size: 0.75rem; color: #999; margin-top: 2rem; border-top: 1px solid #eee; padding-top: 10px;">
-              AI Sökoptimering &amp; Rättsligt: <span id="amara-ai-status-indicator" title="Initializing..."></span>
-            </p>
-          </div>
-        </section>
-        </div>
-      </section>
+      </div>
+    </section>
 
       <script id="amara-inventory-data" type="application/json">
       [
@@ -1717,18 +1005,18 @@ const footerHighlights = [
           "license_number": "A/MA/01767",
           "type": "PRIVATE_ROOM",
           "sub_type": "GUEST_SUITE",
-          "description": "Gemütliche Guest-Suite mit privatem Eingang und Bad. Ideal für Paare. Keine Küche.",
+          "description": "Cozy guest suite with private entrance and bathroom. Ideal for couples. No full kitchen.",
           "geo_location": { "latitude": 36.793167, "longitude": -3.899100, "precision": "APPROXIMATE" },
           "capacity": { "max_total": 2, "max_adults": 2, "max_children": 0 },
           "bedrooms": [{ "id": "room_1", "type": "BEDROOM", "beds": [{ "type": "QUEEN", "width_cm": 160, "count": 1 }] }],
           "amenities": { "wifi": { "available": true, "speed_mbps": 500 }, "ac": false, "kitchen": false, "bbq_outdoor_kitchen": false, "parking": "STREET_FREE", "pool": false },
           "media_assets": [
-            { "url": "https://l.icdbcdn.com/oh/3c79ee18-d231-4066-bbce-1b20c4732057.jpg", "category": "BEDROOM", "caption": "Hauptschlafzimmer" },
-            { "url": "https://l.icdbcdn.com/oh/70aa180a-e374-4fae-bf3c-4fc3f8a34be3.jpg", "category": "BEDROOM", "caption": "Schlafzimmer Detail" },
-            { "url": "https://l.icdbcdn.com/oh/0078664c-92e5-45b6-a880-3997e27e7243.jpg", "category": "BATHROOM", "caption": "Badezimmer 1" },
-            { "url": "https://l.icdbcdn.com/oh/48656e4c-12b1-44e4-bac7-2a92d7c2abff.jpg", "category": "BATHROOM", "caption": "Badezimmer 2" },
-            { "url": "https://l.icdbcdn.com/oh/61d8a042-5fe3-44d0-b179-98c027004a53.jpg", "category": "INTERIOR", "caption": "Schreibtisch / Kaffee & Tee" },
-            { "url": "https://l.icdbcdn.com/oh/049f9acb-4f04-4300-97d8-43f63124e7bb.jpg", "category": "FACADE", "caption": "Eingangsbereich Außenansicht" }
+            { "url": "https://l.icdbcdn.com/oh/3c79ee18-d231-4066-bbce-1b20c4732057.jpg", "category": "BEDROOM", "caption": "Main bedroom" },
+            { "url": "https://l.icdbcdn.com/oh/70aa180a-e374-4fae-bf3c-4fc3f8a34be3.jpg", "category": "BEDROOM", "caption": "Bedroom detail" },
+            { "url": "https://l.icdbcdn.com/oh/0078664c-92e5-45b6-a880-3997e27e7243.jpg", "category": "BATHROOM", "caption": "Bathroom 1" },
+            { "url": "https://l.icdbcdn.com/oh/48656e4c-12b1-44e4-bac7-2a92d7c2abff.jpg", "category": "BATHROOM", "caption": "Bathroom 2" },
+            { "url": "https://l.icdbcdn.com/oh/61d8a042-5fe3-44d0-b179-98c027004a53.jpg", "category": "INTERIOR", "caption": "Desk / coffee & tea" },
+            { "url": "https://l.icdbcdn.com/oh/049f9acb-4f04-4300-97d8-43f63124e7bb.jpg", "category": "FACADE", "caption": "Entrance exterior" }
           ],
           "policies": { "currency": "EUR", "min_stay_nights": 2, "checkin_start": "15:00", "checkout_time": "11:00", "price_min": 75, "price_max": 120 }
         },
@@ -1738,7 +1026,7 @@ const footerHighlights = [
           "license_number": "A/MA/01767",
           "type": "ENTIRE_HOME",
           "sub_type": "APARTMENT",
-          "description": "Historisches Apartment mit Aussicht und Terrasse.",
+          "description": "Historic apartment with sea-facing outlook and private terrace.",
           "geo_location": { "latitude": 36.793167, "longitude": -3.899100, "precision": "APPROXIMATE" },
           "capacity": { "max_total": 2, "max_adults": 2, "max_children": 0 },
           "bedrooms": [{ "id": "room_1", "type": "BEDROOM", "beds": [{ "type": "QUEEN", "width_cm": 160, "count": 1 }] }],
@@ -1761,7 +1049,7 @@ const footerHighlights = [
           "license_number": "A/MA/01767",
           "type": "ENTIRE_HOME",
           "sub_type": "APARTMENT",
-          "description": "Refugio Romantico mit privater Terrasse.",
+          "description": "Romantic retreat with private terrace.",
           "geo_location": { "latitude": 36.793167, "longitude": -3.899100, "precision": "APPROXIMATE" },
           "capacity": { "max_total": 2, "max_adults": 2, "max_children": 0 },
           "bedrooms": [{ "id": "room_1", "type": "BEDROOM", "beds": [{ "type": "KING", "width_cm": 180, "count": 1 }] }],
@@ -1784,7 +1072,7 @@ const footerHighlights = [
           "license_number": "A/MA/01767",
           "type": "ENTIRE_HOME",
           "sub_type": "APARTMENT",
-          "description": "Apartment mit großer privater Terrasse und Meerblick.",
+          "description": "Apartment with large private terrace and sea view.",
           "geo_location": { "latitude": 36.793167, "longitude": -3.899100, "precision": "APPROXIMATE" },
           "capacity": { "max_total": 2, "max_adults": 2, "max_children": 0 },
           "bedrooms": [{ "id": "room_1", "type": "BEDROOM", "beds": [{ "type": "DOUBLE", "width_cm": 150, "count": 1 }] }],
@@ -1807,7 +1095,7 @@ const footerHighlights = [
           "license_number": "VFT/MA/19212",
           "type": "ENTIRE_HOME",
           "sub_type": "APARTMENT",
-          "description": "Apartment in Nerja direkt am Meer mit Balkon.",
+          "description": "Apartment in Nerja by the sea with balcony.",
           "geo_location": { "latitude": 36.743558, "longitude": -3.880520, "precision": "APPROXIMATE" },
           "capacity": { "max_total": 2, "max_adults": 2, "max_children": 0 },
           "bedrooms": [{ "id": "room_1", "type": "BEDROOM", "beds": [{ "type": "KING", "width_cm": 200, "count": 1 }] }],
@@ -1830,7 +1118,7 @@ const footerHighlights = [
           "license_number": "VFT/CA/17038",
           "type": "ENTIRE_HOME",
           "sub_type": "HOUSE",
-          "description": "Familienhaus in Tarifa mit Meerblick und Pool.",
+          "description": "Family house in Tarifa with sea view and pool.",
           "geo_location": { "latitude": 36.023810, "longitude": -5.611906, "precision": "APPROXIMATE" },
           "capacity": { "max_total": 4, "max_adults": 4, "max_children": 2 },
           "bedrooms": [

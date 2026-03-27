@@ -5,8 +5,9 @@ import type { AmaraLanguage } from '../../types/seo';
 
 export function getStaticPaths() {
   return [
-    { params: { lang: 'en' } },
     { params: { lang: 'de' } },
+    { params: { lang: 'en' } },
+    { params: { lang: 'es' } },
     { params: { lang: 'nl' } },
     { params: { lang: 'sv' } }
   ];

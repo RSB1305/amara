@@ -25,7 +25,7 @@ export function getOwnedLanguagesForSlug(
   }
 
   if (SECONDARY_LANGUAGE_ONLY_SLUGS.has(slug)) {
-    return SUPPORTED_LANGUAGES.filter((lang) => lang !== 'es');
+    return SUPPORTED_LANGUAGES;
   }
 
   return [currentLang];
@@ -46,6 +46,7 @@ export function buildSecondaryOnlyLocalizedPaths(slug: string) {
   return {
     en: buildOwnedLocalizedPath(slug, 'en'),
     de: buildOwnedLocalizedPath(slug, 'de'),
+    es: buildOwnedLocalizedPath(slug, 'es'),
     nl: buildOwnedLocalizedPath(slug, 'nl'),
     sv: buildOwnedLocalizedPath(slug, 'sv')
   };

@@ -13,6 +13,13 @@ const siteOrigin =
 // https://astro.build/config
 export default defineConfig({
   site: siteOrigin,
+  i18n: {
+    defaultLocale: 'es',
+    locales: ['de', 'en', 'es', 'nl', 'sv'],
+    routing: {
+      prefixDefaultLocale: false
+    }
+  },
   vite: {
     plugins: [tailwindcss()]
   },
