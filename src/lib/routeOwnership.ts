@@ -10,10 +10,7 @@ const ROOT_SPANISH_PUBLIC_SLUGS = new Set([
   'comfort-amenities',
   'faq-general',
   'legal-notice',
-  'frigiliana-location'
-]);
-
-const SECONDARY_LANGUAGE_ONLY_SLUGS = new Set([
+  'frigiliana-location',
   'directions-arrival-guide'
 ]);
 
@@ -22,10 +19,6 @@ export function getOwnedLanguagesForSlug(
   currentLang: AmaraLanguage
 ): AmaraLanguage[] {
   if (ROOT_SPANISH_PUBLIC_SLUGS.has(slug)) {
-    return SUPPORTED_LANGUAGES;
-  }
-
-  if (SECONDARY_LANGUAGE_ONLY_SLUGS.has(slug)) {
     return SUPPORTED_LANGUAGES;
   }
 
@@ -41,14 +34,4 @@ export function buildOwnedLocalizedPath(
   }
 
   return lang === 'es' ? `/${slug}` : `/${lang}/${slug}`;
-}
-
-export function buildSecondaryOnlyLocalizedPaths(slug: string) {
-  return {
-    en: buildOwnedLocalizedPath(slug, 'en'),
-    de: buildOwnedLocalizedPath(slug, 'de'),
-    es: buildOwnedLocalizedPath(slug, 'es'),
-    nl: buildOwnedLocalizedPath(slug, 'nl'),
-    sv: buildOwnedLocalizedPath(slug, 'sv')
-  };
 }

@@ -1,4 +1,4 @@
-import { buildOwnedLocalizedPath, buildSecondaryOnlyLocalizedPaths } from './routeOwnership';
+import { buildOwnedLocalizedPath } from './routeOwnership';
 
 function normalizeInternalSpanishPath(path: string): string {
   return path.replace(/^\/es\//, '/');
@@ -73,7 +73,13 @@ export const linkRegistry = normalizeRegistrySpanishPaths({
       nl: buildOwnedLocalizedPath('comfort-amenities', 'nl'),
       sv: buildOwnedLocalizedPath('comfort-amenities', 'sv')
     },
-    arrival_guide: buildSecondaryOnlyLocalizedPaths('directions-arrival-guide'),
+    arrival_guide: {
+      en: buildOwnedLocalizedPath('directions-arrival-guide', 'en'),
+      de: buildOwnedLocalizedPath('directions-arrival-guide', 'de'),
+      es: buildOwnedLocalizedPath('directions-arrival-guide', 'es'),
+      nl: buildOwnedLocalizedPath('directions-arrival-guide', 'nl'),
+      sv: buildOwnedLocalizedPath('directions-arrival-guide', 'sv')
+    },
     direct_booking_benefits: {
       en: buildOwnedLocalizedPath('direct-booking-benefits', 'en'),
       de: buildOwnedLocalizedPath('direct-booking-benefits', 'de'),
@@ -283,19 +289,19 @@ legal_notice: {
     ========================================================= */
     about_canonical_en: 'https://amara-lodging.es/amara-about-us',
     about_canonical_de: 'https://amara-lodging.es/de/amara-about-us',
-    about_canonical_es: 'https://amara-lodging.es/es/amara-about-us',
+    about_canonical_es: 'https://amara-lodging.es/amara-about-us',
     about_canonical_nl: 'https://amara-lodging.es/nl/amara-about-us',
     about_canonical_sv: 'https://amara-lodging.es/sv/amara-about-us',
 
     reviews_canonical_en: 'https://amara-lodging.es/en/guest-reviews',
     reviews_canonical_de: 'https://amara-lodging.es/de/guest-reviews',
-    reviews_canonical_es: 'https://amara-lodging.es/es/guest-reviews',
+    reviews_canonical_es: 'https://amara-lodging.es/guest-reviews',
     reviews_canonical_nl: 'https://amara-lodging.es/nl/guest-reviews',
     reviews_canonical_sv: 'https://amara-lodging.es/sv/guest-reviews',
 
     direct_booking_canonical_en: 'https://amara-lodging.es/en/direct-booking-benefits',
     direct_booking_canonical_de: 'https://amara-lodging.es/de/direct-booking-benefits',
-    direct_booking_canonical_es: 'https://amara-lodging.es/es/direct-booking-benefits',
+    direct_booking_canonical_es: 'https://amara-lodging.es/direct-booking-benefits',
     direct_booking_canonical_nl: 'https://amara-lodging.es/nl/direct-booking-benefits',
     direct_booking_canonical_sv: 'https://amara-lodging.es/sv/direct-booking-benefits',
 
