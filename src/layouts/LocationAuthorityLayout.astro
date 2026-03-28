@@ -6,12 +6,13 @@ import type { AmaraAuthoringSeo, AmaraLanguage } from '../types/seo';
 interface Props {
   seo: AmaraAuthoringSeo;
   pageLang?: AmaraLanguage;
+  bodyBackgroundClass?: string;
 }
 
-const { seo, pageLang } = Astro.props;
+const { seo, pageLang, bodyBackgroundClass } = Astro.props;
 ---
 
-<BaseLayout seo={seo} pageLang={pageLang}>
+<BaseLayout seo={seo} pageLang={pageLang} bodyBackgroundClass={bodyBackgroundClass}>
   <main>
     <slot />
   </main>

@@ -13,8 +13,8 @@ interface Props {
 const { seo, pageLang, title, subtitle } = Astro.props;
 ---
 
-<BaseLayout seo={seo} pageLang={pageLang}>
-  <div class="max-w-screen-xl mx-auto px-12 pt-40 pb-20">
+<BaseLayout seo={seo} pageLang={pageLang} bodyBackgroundClass="bg-white">
+  <div class="max-w-screen-xl mx-auto px-12 pt-20 pb-20">
     <header class="mb-20 border-b border-black/10 pb-12">
       <span class="label-md font-label text-primary mb-4 block">Utility / Guide</span>
       <h1 class="text-6xl font-headline italic text-on-surface mb-6">{title}</h1>

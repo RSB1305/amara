@@ -12,9 +12,11 @@ interface Props {
   pageLang?: AmaraLanguage;
   footerHighlights?: { token: string; label: string }[];
   footerVariant?: 'default' | 'trust';
+  /** Page canvas behind content; default matches design token surface. */
+  bodyBackgroundClass?: string;
 }
 
-const { seo, pageLang, footerHighlights, footerVariant } = Astro.props;
+const { seo, pageLang, footerHighlights, footerVariant, bodyBackgroundClass = 'bg-surface' } = Astro.props;
 
 /**
  * Layout owns the document shell.
@@ -58,7 +60,7 @@ const ldJson = resolveStructuredData(seo, head.canonicalUrl, currentLang, origin
 
   </head>
 
-  <body class="bg-surface text-on-surface font-body selection:bg-primary/10 antialiased">
+  <body class:list={[bodyBackgroundClass, 'text-on-surface font-body selection:bg-primary/10 antialiased']}>
     <div class="grain-overlay fixed inset-0 z-[0] pointer-events-none opacity-[0.03]"></div>
 
     <div class="relative z-[10] pt-[136px]">
