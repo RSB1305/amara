@@ -1,0 +1,767 @@
+---
+import LocationAuthorityLayout from '../../layouts/LocationAuthorityLayout.astro';
+import Navigation from '../../components/Navigation.astro';
+import Hero from '../../components/Hero.astro';
+import EssenceGrid from '../../components/EssenceGrid.astro';
+import ClimateExperienceSection from '../../components/location/ClimateExperienceSection.astro';
+import VillageStructureInsight from '../../components/location/VillageStructureInsight.astro';
+import PhotoShow from '../../components/PhotoShow.astro';
+import StayDecision from '../../components/StayDecision.astro';
+import FaqAccordion from '../../components/FaqAccordion.astro';
+import LocationEditorialComparison from '../../components/location/LocationEditorialComparison.astro';
+import SectionAnchorNav from '../../components/navigation/SectionAnchorNav.astro';
+import { resolveLink } from '../../lib/linkResolver';
+import { getWeatherWithFallback } from '../../lib/weather/weatherService';
+import { normalizeLanguage } from '../../lib/seo/resolve-seo-head';
+import type { AmaraAuthoringSeo, AmaraLanguage } from '../../types/seo';
+
+interface Props {
+  lang?: string;
+}
+
+const { lang = 'es' } = Astro.props;
+const currentLang = normalizeLanguage(lang as AmaraLanguage);
+const DISABLED_ROUTE_TOKENS = new Set([
+  'book',
+  'explore_hub',
+  'location_nerja',
+  'location_tarifa',
+  'locations_hub',
+  'weather_frigiliana',
+  'journal',
+  'contact',
+  'archive'
+]);
+
+const seo: AmaraAuthoringSeo = {
+  version: '2026-03-27-frigiliana-loc-v1.0-A',
+  pageType: 'A',
+  entityKey: 'amara-brand',
+  languages: {
+    en: {
+      title: 'Explore Frigiliana | The White Village of Andalusia',
+      description: 'Discover Frigiliana, the most beautiful white village in Spain. Travel guide, local tips, and premium stays by AMARA.',
+      robots: 'index, follow',
+      canonical: 'auto'
+    },
+    de: {
+      title: 'Entdecke Frigiliana | Das weiße Dorf Andalusiens',
+      description: 'Erlebe Frigiliana, das schönste weiße Dorf Spaniens. Reiseführer, Insider-Tipps und exklusive Unterkünfte von AMARA.',
+      robots: 'index, follow',
+      canonical: 'auto'
+    },
+    es: {
+      title: 'Explora Frigiliana | El pueblo blanco de Andalucía',
+      description: 'Descubre Frigiliana, el pueblo más bonito de España. Guía de viaje, consejos locales y estancias premium de AMARA.',
+      robots: 'index, follow',
+      canonical: 'auto'
+    },
+    nl: {
+      title: 'Ontdek Frigiliana | Het witte dorp van Andalusië',
+      description: 'Ontdek Frigiliana, het mooiste witte dorp van Spanje. Reisgids, lokale tips en luxe verblijven van AMARA.',
+      robots: 'index, follow',
+      canonical: 'auto'
+    },
+    sv: {
+      title: 'Utforska Frigiliana | Andalusiens vita by',
+      description: 'Upptäck Frigiliana, Spaniens vackraste vita by. Reseguide, lokala tips och exklusivt boende från AMARA.',
+      robots: 'index, follow',
+      canonical: 'auto'
+    }
+  }
+};
+
+const copy = {
+  nav: {
+    brand: { en: "Frigiliana", de: "Frigiliana", es: "Frigiliana", nl: "Frigiliana", sv: "Frigiliana" },
+    links: [
+      { token: "location_frigiliana", label: { en: "Frigiliana", de: "Frigiliana", es: "Frigiliana", nl: "Frigiliana", sv: "Frigiliana" } },
+      { token: "location_nerja", label: { en: "Nerja", de: "Nerja", es: "Nerja", nl: "Nerja", sv: "Nerja" } },
+      {
+        token: "explore_hub",
+        label: {
+          en: "Experiences",
+          de: "Erlebnisse",
+          es: "Experiencias",
+          nl: "Ervaringen",
+          sv: "Upplevelser"
+        }
+      }
+    ]
+  },
+  hero: {
+    eyebrow: { en: "The Axarquía Jewel", de: "Das Juwel der Axarquía", es: "La joya de la Axarquía", nl: "Het juweel van Axarquía", sv: "Axarquías juvel" },
+    h1: { en: "The Soul of <br/> White Villages", de: "Die Seele der <br/> weißen Dörfer", es: "El alma de los <br/> pueblos blancos", nl: "De ziel van de <br/> witte dorpen", sv: "De vita byarnas <br/> själ" },
+    body: { en: "Nestled in the folds of the Almijara mountains, Frigiliana exists as a timeless dialogue between Moorish geometry and Mediterranean light.", de: "In den Falten des Almijara-Gebirges gelegen, ist Frigiliana ein zeitloser Dialog zwischen maurischer Geometrie und mediterranem Licht.", es: "Enclavada en los pliegues de la sierra Almijara, Frigiliana es un diálogo atemporal entre la geometría morisca y la luz mediterránea.", nl: "Gelegen in de plooien van het Almijara-gebergte, is Frigiliana een tijdloze dialoog zwischen Moorse geometrie en mediterraan licht.", sv: "Inbäddat i Almijara-bergens veck är Frigiliana en zeitlös dialog mellan maurisk geometri och medelhavsljus." },
+    ctaMain: { en: "Explore The Barrio", de: "Das Viertel erkunden", es: "Explorar el Barrio", nl: "Verken de Barrio", sv: "Utforska kvarteret" },
+    ctaAlt: { en: "The Guide", de: "Zum Guide", es: "La Guía", nl: "De Gids", sv: "Guiden" }
+  },
+  essence: {
+    eyebrow: { en: "At a Glance", de: "Auf einen Blick", es: "De un vistazo", nl: "In het kort", sv: "På ett ögonkast" },
+    title: { en: "Frigiliana — Key Facts", de: "Frigiliana — die wichtigsten Fakten", es: "Frigiliana — datos clave", nl: "Frigiliana — kernfeiten", sv: "Frigiliana — viktiga fakta" },
+    intro: {
+      en: "Frigiliana is one of Andalusia’s most beautiful white villages — but it is not a typical easy-access base. Understanding its structure and setting is key to deciding whether it fits your stay.",
+      de: "Frigiliana zählt zu den schönsten weißen Dörfern Andalusiens — ist aber kein typischer, leicht erreichbarer Ausgangspunkt. Wer Struktur und Lage versteht, entscheidet besser, ob der Ort zum Aufenthalt passt.",
+      es: "Frigiliana es uno de los pueblos blancos más bellos de Andalucía, pero no es una base de acceso fácil por excelencia. Comprender su estructura y su entorno es clave para decidir si encaja en su estancia.",
+      nl: "Frigiliana hoort bij de mooiste witte dorpen van Andalusië — maar is geen typisch gemakkelijk bereikbare uitvalsbasis. Inzicht in de opbouw en de ligging helpt u te bepalen of het bij uw verblijf past.",
+      sv: "Frigiliana räknas bland de vackraste vita byarna i Andalusien — men är inte en typisk lättillgänglig bas. Att förstå dess struktur och läge är avgörande för att avgöra om det passar er vistelse."
+    },
+    items: [
+      {
+        kicker: { en: "Setting", de: "Lage", es: "Entorno", nl: "Ligging", sv: "Läge" },
+        headline: { en: "Hilltop White Village", de: "Weißes Dorf auf dem Hügel", es: "Pueblo blanco en la colina", nl: "Wit dorp op de heuvel", sv: "Vit by på höjden" },
+        text: {
+          en: "Perched above the coast in the Axarquía hills, Frigiliana offers panoramic views but comes with elevation and steep terrain.",
+          de: "Hoch über der Küste in den Hügeln der Axarquía gelegen, bietet Frigiliana weite Ausblicke — dazu Höhenlage und steiles Gelände.",
+          es: "En lo alto de la Axarquía, sobre la costa, Frigiliana ofrece vistas panorámicas, pero también desnivel y terreno empinado.",
+          nl: "Hoog boven de kust in de heuvels van de Axarquía: Frigiliana biedt ver uitzicht, maar ook hoogteverschil en steile hellingen.",
+          sv: "Högt över kusten i Axarquías kullar ger Frigiliana vidsträckt utsikt — men också höjdskillnader och brant terräng."
+        },
+        imageSrc: "/images/essence-1.jpg",
+        token: "explore_hub",
+        linkLabel: { en: "Explore", de: "Erkunden", es: "Explorar", nl: "Ontdek", sv: "Utforska" }
+      },
+      {
+        kicker: { en: "Location", de: "Standort", es: "Ubicación", nl: "Locatie", sv: "Placering" },
+        headline: { en: "Close to Nerja, Not Coastal", de: "Nahe Nerja, nicht am Meer", es: "Cerca de Nerja, sin playa en el pueblo", nl: "Dicht bij Nerja, niet aan zee", sv: "Nära Nerja, inte vid kusten" },
+        text: {
+          en: "The beaches of Nerja are just a short drive away, but Frigiliana itself is a mountain village, not a seaside town.",
+          de: "Die Strände von Nerja sind nur eine kurze Fahrt entfernt — Frigiliana selbst ist jedoch ein Bergdorf, kein Küstenort.",
+          es: "Las playas de Nerja están a un corto trayecto en coche, pero Frigiliana en sí es un pueblo de montaña, no un pueblo costero.",
+          nl: "De stranden van Nerja liggen dichtbij met de auto, maar Frigiliana zelf is een bergdorp, geen badplaats.",
+          sv: "Nerjas stränder ligger en kort bilresa bort, men Frigiliana är en bergsby — inte en kustort."
+        },
+        imageSrc: "/images/essence-2.jpg"
+      },
+      {
+        kicker: { en: "Movement", de: "Fortbewegung", es: "Desplazamiento", nl: "Verplaatsen", sv: "Rörelse" },
+        headline: { en: "Slopes, Steps & Narrow Lanes", de: "Steigungen, Stufen & enge Gassen", es: "Cuestas, escaleras y calles estrechas", nl: "Hellingen, trappen en smalle steegjes", sv: "Lutningar, trappor och smala gränder" },
+        text: {
+          en: "The old town is defined by steep paths and stairs. Walking is beautiful but requires effort and mobility.",
+          de: "Die Altstadt lebt von steilen Wegen und Treppen. Zu Fuß ist es wunderschön — aber anstrengend und körperlich anspruchsvoll.",
+          es: "El casco antiguo son cuestas y escaleras. Caminar es precioso, pero exige esfuerzo y buena movilidad.",
+          nl: "De oude stad bestaat uit steile paden en trappen. Lopen is prachtig, maar vraagt inspanning en mobiliteit.",
+          sv: "Gamla stan kantas av branta vägar och trappor. Att gå är vackert men kräver ork och rörlighet."
+        }
+      },
+      {
+        kicker: { en: "Atmosphere", de: "Atmosphäre", es: "Ambiente", nl: "Sfeer", sv: "Stämning" },
+        headline: { en: "Calm, Scenic, Unhurried", de: "Ruhig, landschaftlich, entspannt", es: "Tranquilo, pintoresco, sin prisas", nl: "Rustig, schilderachtig, ontspannen", sv: "Lugnt, vackert, lugnt tempo" },
+        text: {
+          en: "Frigiliana is known for its quiet rhythm, visual beauty and slower pace of life.",
+          de: "Frigiliana steht für ruhigen Rhythmus, visuelle Schönheit und ein langsameres Lebenstempo.",
+          es: "Frigiliana destaca por su ritmo tranquilo, su belleza visual y un ritmo de vida más pausado.",
+          nl: "Frigiliana staat bekend om rust, schoonheid en een langzamer levenstempo.",
+          sv: "Frigiliana är känt för lugnt tempo, vacker miljö och ett långsammare vardagsliv."
+        },
+        imageSrc: "/images/essence-3.jpg"
+      },
+      {
+        kicker: { en: "Practicality", de: "Alltag", es: "Practicidad", nl: "Praktisch", sv: "Praktiskt" },
+        headline: { en: "Less About Convenience", de: "Weniger reine Bequemlichkeit", es: "Menos comodidad absoluta", nl: "Minder puur gemak", sv: "Mindre ren bekvämlighet" },
+        text: {
+          en: "Shops, restaurants and parking are available, but not always immediately accessible from every location.",
+          de: "Geschäfte, Restaurants und Parkplätze gibt es — aber nicht von jedem Punkt aus gleich griffbereit.",
+          es: "Hay comercios, restaurantes y aparcamiento, pero no siempre al alcance inmediato desde cualquier punto.",
+          nl: "Winkels, restaurants en parkeren zijn er — maar niet overal direct voor de deur.",
+          sv: "Butiker, restauranger och parkering finns — men inte alltid nära var du än befinner dig."
+        }
+      },
+      {
+        kicker: { en: "Best For", de: "Ideal für", es: "Ideal para", nl: "Het beste voor", sv: "Bäst för" },
+        headline: { en: "Couples & Relaxed Stays", de: "Paare & entspannte Aufenthalte", es: "Parejas y estancias relajadas", nl: "Koppels en ontspannen verblijven", sv: "Par och avslappnade vistelser" },
+        text: {
+          en: "Ideal for guests who value atmosphere, views and character over absolute ease of movement.",
+          de: "Ideal für Gäste, die Atmosphäre, Ausblick und Charakter über absolute Bewegungsleichtigkeit stellen.",
+          es: "Ideal para quienes priorizan ambiente, vistas y encanto frente a la máxima comodidad al moverse.",
+          nl: "Ideaal voor wie sfeer, uitzicht en karakter belangrijker vindt dan maximale loopgemak.",
+          sv: "Idealiskt för gäster som värdesätter stämning, utsikt och karaktär framför maximal rörelsekomfort."
+        }
+      }
+    ]
+  },
+  climate: {
+    eyebrowCurrent: {
+      en: "Current Conditions",
+      de: "Aktuelle Bedingungen",
+      es: "Condiciones actuales",
+      nl: "Huidige omstandigheden",
+      sv: "Aktuella förhållanden"
+    },
+    heroTemp: { en: "24°", de: "24°", es: "24°", nl: "24°", sv: "24°" },
+    heroTagline: {
+      en: "More breathable than the coast",
+      de: "Luftiger als an der Küste",
+      es: "Más respirable que la costa",
+      nl: "Luchtiger dan aan de kust",
+      sv: "Lättare att andas än vid kusten"
+    },
+    headline: {
+      en: "A Climate That Shapes Your Stay",
+      de: "Ein Klima, das Ihren Aufenthalt prägt",
+      es: "Un clima que moldea su estancia",
+      nl: "Een klimaat dat uw verblijf bepaalt",
+      sv: "Ett klimat som formar er vistelse"
+    },
+    body: {
+      en: "Frigiliana sits between sea and mountains, and that changes how the day feels. While the coast can turn intense in summer, the village often stays more breathable thanks to elevation and airflow. It is not only about temperature — it is about when you move, rest, and enjoy the village.",
+      de: "Frigiliana liegt zwischen Meer und Bergen — und das verändert, wie sich der Tag anfühlt. Während die Küste im Sommer oft drückend wirken kann, bleibt das Dorf dank Höhenlage und Luftstrom meist spürbar angenehmer. Es geht nicht nur um die Temperatur — es geht darum, wann Sie sich bewegen, ruhen und das Dorf genießen.",
+      es: "Frigiliana está entre mar y montaña, y eso cambia cómo se siente el día. En verano la costa puede volverse intensa, pero el pueblo suele seguir más respirable gracias a la altitud y el paso del aire. No se trata solo de la temperatura: se trata de cuándo moverse, descansar y disfrutar del pueblo.",
+      nl: "Frigiliana ligt tussen zee en bergen, en dat verandert hoe de dag aanvoelt. In de zomer kan de kust zwaar aanvoelen, maar het dorp blijft dankzij hoogte en luchtstroming vaak prettiger om in te leven. Het gaat niet alleen om temperatuur — het gaat om wanneer u zich beweegt, uitrust en van het dorp geniet.",
+      sv: "Frigiliana ligger mellan hav och berg, och det förändrar hur dagen känns. Medan kusten på sommaren kan bli tryckande, är byn ofta behagligare tack vare höjd och luftflöde. Det handlar inte bara om temperatur — det handlar om när du rör dig, vilar och njuter av byn."
+    },
+    metricHumidity: {
+      en: "Humidity · 58%",
+      de: "Feuchte · 58 %",
+      es: "Humedad · 58 %",
+      nl: "Vochtigheid · 58%",
+      sv: "Luftfuktighet · 58 %"
+    },
+    metricWind: {
+      en: "Wind · NW 12 km/h",
+      de: "Wind · NW 12 km/h",
+      es: "Viento · NO 12 km/h",
+      nl: "Wind · NW 12 km/h",
+      sv: "Vind · NV 12 km/h"
+    },
+    metricUv: {
+      en: "UV · Moderate",
+      de: "UV · Mittel",
+      es: "UV · Moderado",
+      nl: "UV · Matig",
+      sv: "UV · Måttlig"
+    },
+    metricSunset: {
+      en: "Sunset · 21:12",
+      de: "Sonnenuntergang · 21:12",
+      es: "Atardecer · 21:12",
+      nl: "Zonsondergang · 21:12",
+      sv: "Solnedgång · 21:12"
+    },
+    factSunDays: {
+      en: "300+ days of sun",
+      de: "300+ Sonnentage",
+      es: "Más de 300 días de sol",
+      nl: "300+ zonnige dagen",
+      sv: "300+ soldagar"
+    },
+    factCoolerVsCoast: {
+      en: "5°C cooler than the coast",
+      de: "5 °C kühler als an der Küste",
+      es: "5 °C menos que en la costa",
+      nl: "5 °C koeler dan aan de kust",
+      sv: "5 °C svalare än vid kusten"
+    },
+    cta: {
+      en: "See how climate shapes your stay",
+      de: "Sehen Sie, wie das Klima Ihren Aufenthalt prägt",
+      es: "Vea cómo el clima moldea su estancia",
+      nl: "Ontdek hoe het klimaat uw verblijf bepaalt",
+      sv: "Se hur klimatet formar er vistelse"
+    }
+  },
+  comparison: {
+    eyebrow: {
+      en: "The Dual Experience",
+      de: "Zwei Aufenthaltswelten",
+      es: "Dos formas de estancia",
+      nl: "Twee verblijfswerelden",
+      sv: "Två sätt att bo"
+    },
+    title: {
+      en: "Coast or Hillside?",
+      de: "Küste oder Hanglage?",
+      es: "¿Costa o ladera?",
+      nl: "Kust of heuvel?",
+      sv: "Kust eller höjd?"
+    },
+    intro: {
+      en: "Frigiliana and Nerja are close in distance, but they create very different stay experiences. The better fit depends on whether you value village character or coastal convenience more.",
+      de: "Frigiliana und Nerja liegen nah beieinander, bieten aber sehr unterschiedliche Aufenthaltsgefühle. Welche Basis besser passt, hängt davon ab, ob Dorfcharakter oder Küstenkomfort wichtiger ist.",
+      es: "Frigiliana y Nerja están cerca, pero ofrecen experiencias de estancia muy distintas. La mejor opción depende de si valoras más el carácter del pueblo o la comodidad de la costa.",
+      nl: "Frigiliana en Nerja liggen dicht bij elkaar, maar voelen als verblijf heel verschillend aan. Welke plek beter past, hangt af van de vraag of je meer waarde hecht aan dorpskarakter of kustgemak.",
+      sv: "Frigiliana och Nerja ligger nära varandra, men ger två tydligt olika vistelser. Vad som passar bäst beror på om du värdesätter bykaraktär eller kustnära bekvämlighet mest."
+    },
+    items: {
+      en: [
+        {
+          kicker: "15m",
+          title: "The Proximity",
+          text: "Frigiliana sits only a short drive above Nerja, yet the two places feel fundamentally different as a base for several days."
+        },
+        {
+          kicker: "5°C",
+          title: "The Microclimate",
+          text: "The hillside setting is often noticeably cooler than the coast, especially in warmer months."
+        },
+        {
+          title: "Movement",
+          text: "Frigiliana means slopes, steps and a more vertical daily rhythm, while Nerja is generally flatter and easier to navigate."
+        },
+        {
+          title: "Stay Experience",
+          text: "Frigiliana suits calm, scenic stays with character, while Nerja offers beach access, variety and greater day-to-day convenience."
+        }
+      ],
+      de: [
+        {
+          kicker: "15 Min.",
+          title: "Die Nähe",
+          text: "Frigiliana liegt nur eine kurze Fahrt oberhalb von Nerja, fühlt sich als Basis für mehrere Tage aber grundlegend anders an."
+        },
+        {
+          kicker: "5°C",
+          title: "Das Mikroklima",
+          text: "Die Hanglage ist vor allem in den wärmeren Monaten oft spürbar kühler als die Küste."
+        },
+        {
+          title: "Bewegung",
+          text: "Frigiliana bedeutet Steigungen, Treppen und einen vertikaleren Tagesrhythmus, während Nerja meist flacher und leichter zugänglich ist."
+        },
+        {
+          title: "Aufenthaltsgefühl",
+          text: "Frigiliana passt zu ruhigen, malerischen Aufenthalten mit Charakter, während Nerja Strandnähe, Vielfalt und mehr Alltagskomfort bietet."
+        }
+      ],
+      es: [
+        {
+          kicker: "15 min",
+          title: "La cercanía",
+          text: "Frigiliana está a pocos minutos en coche sobre Nerja, pero como base para varios días se siente claramente distinta."
+        },
+        {
+          kicker: "5°C",
+          title: "El microclima",
+          text: "La ladera suele ser notablemente más fresca que la costa, especialmente en los meses cálidos."
+        },
+        {
+          title: "Movimiento",
+          text: "Frigiliana implica cuestas, escaleras y un ritmo diario más vertical, mientras que Nerja suele ser más llana y fácil de recorrer."
+        },
+        {
+          title: "Experiencia de estancia",
+          text: "Frigiliana encaja mejor con estancias tranquilas y con carácter; Nerja ofrece playa, variedad y mayor comodidad diaria."
+        }
+      ],
+      nl: [
+        {
+          kicker: "15 min",
+          title: "De nabijheid",
+          text: "Frigiliana ligt maar een korte rit boven Nerja, maar voelt als uitvalsbasis voor meerdere dagen heel anders aan."
+        },
+        {
+          kicker: "5°C",
+          title: "Het microklimaat",
+          text: "De heuvels zijn vaak merkbaar koeler dan de kust, vooral in warmere maanden."
+        },
+        {
+          title: "Beweging",
+          text: "Frigiliana betekent hellingen, trappen en een verticaler dagritme, terwijl Nerja meestal vlakker en makkelijker te verkennen is."
+        },
+        {
+          title: "Verblijfsgevoel",
+          text: "Frigiliana past beter bij rustige, karaktervolle verblijven; Nerja biedt strandtoegang, afwisseling en meer dagelijks gemak."
+        }
+      ],
+      sv: [
+        {
+          kicker: "15 min",
+          title: "Närheten",
+          text: "Frigiliana ligger bara en kort bilresa ovanför Nerja, men känns som vistelsebas tydligt annorlunda över flera dagar."
+        },
+        {
+          kicker: "5°C",
+          title: "Mikroklimatet",
+          text: "Läget på höjden är ofta märkbart svalare än kusten, särskilt under varmare månader."
+        },
+        {
+          title: "Rörelse",
+          text: "Frigiliana innebär backar, trappor och en mer vertikal vardagsrytm, medan Nerja i allmänhet är flackare och lättare att ta sig runt i."
+        },
+        {
+          title: "Vistelsekänsla",
+          text: "Frigiliana passar lugna, natursköna vistelser med karaktär, medan Nerja ger strandnärhet, variation och större vardagsbekvämlighet."
+        }
+      ]
+    },
+    imagePrimary: {
+      src: "/images/nerja-coast.jpg",
+      alt: {
+        en: "View of the Nerja coastline",
+        de: "Blick auf die Küste von Nerja",
+        es: "Vista de la costa de Nerja",
+        nl: "Uitzicht op de kust van Nerja",
+        sv: "Utsikt över Nerjas kust"
+      }
+    },
+    imageSecondary: {
+      src: "/images/frigiliana-hillside.jpg",
+      alt: {
+        en: "Hillside view above Frigiliana",
+        de: "Hanglage oberhalb von Frigiliana",
+        es: "Vista en ladera sobre Frigiliana",
+        nl: "Heuvelzicht boven Frigiliana",
+        sv: "Vy över sluttningen ovanför Frigiliana"
+      }
+    }
+  },
+  villageStructure: {
+    imageSrc: "/images/frigiliana-steps.jpg",
+    imageAlt: {
+      en: "Steep steps in Frigiliana old town",
+      de: "Steile Stufen in der Altstadt von Frigiliana",
+      es: "Escaleras empinadas en el casco antiguo de Frigiliana",
+      nl: "Steile trappen in het oude centrum van Frigiliana",
+      sv: "Branta trappor i gamla stan i Frigiliana"
+    },
+    eyebrow: {
+      en: "Village structure",
+      de: "Dorfstruktur",
+      es: "Estructura del pueblo",
+      nl: "Dorpsstructuur",
+      sv: "Bystruktur"
+    },
+    headline: {
+      en: "A Village of Steps",
+      de: "Ein Dorf voller Stufen",
+      es: "Un pueblo de escaleras",
+      nl: "Een dorp van trappen",
+      sv: "En by av trappor"
+    },
+    supporting: {
+      en: "Frigiliana is carved into the mountainside. Expect steep inclines, narrow alleys, and rewarding views along the way.",
+      de: "Frigiliana liegt am Berghang, in die Landschaft eingebettet. Rechnen Sie mit steilen Steigungen, engen Gassen und Ausblicken, die sich unterwegs lohnen.",
+      es: "Frigiliana está labrada en la ladera. Espere cuestas pronunciadas, callejuelas estrechas y vistas que compensan el esfuerzo.",
+      nl: "Frigiliana ligt tegen de bergwand. Reken op steile hellingen, smalle steegjes en onderweg uitzichten die de moeite lonen.",
+      sv: "Frigiliana är uthuggen i bergssluttningen. Räkna med branta lutningar, smala gränder och utsikter som belönar vägen."
+    },
+    signal: {
+      en: "Steps · Elevation · Narrow ways",
+      de: "Stufen · Höhenlage · Enge Gassen",
+      es: "Escalones · Desnivel · Calles estrechas",
+      nl: "Trappen · Hoogte · Smalle steegjes",
+      sv: "Trappor · Höjd · Smala gränder"
+    },
+    cta: {
+      en: "Understand how the village layout shapes your stay",
+      de: "Verstehen Sie, wie die Dorfanlage Ihren Aufenthalt prägt",
+      es: "Comprenda cómo la disposición del pueblo marca su estancia",
+      nl: "Begrijp hoe de dorpsindeling uw verblijf beïnvloedt",
+      sv: "Förstå hur byns utformning formar er vistelse"
+    }
+  },
+  gallery: {
+    eyebrow: { en: "Architectural Study", de: "Architekturstudie", es: "Estudio Arquitectónico", nl: "Architecturale Studie", sv: "Arkitektonisk Studie" },
+    title: { en: "Mudejar Geometry", de: "Maurische Geometrie", es: "Geometría Mudéjar", nl: "Moorse Geometrie", sv: "Maurisk Geometri" },
+    items: [
+      { src: '/images/gallery-1.jpg', alt: { en: "Indigo", de: "Indigo", es: "Índigo", nl: "Indigo", sv: "Indigo" }, caption: { en: "Blue doors of Calle Real", de: "Die blauen Türen der Calle Real", es: "Las puertas azules", nl: "De blauwe deuren", sv: "De blå dörrarna" } },
+      { src: '/images/gallery-2.jpg', alt: { en: "Sierra", de: "Sierra", es: "Sierra", nl: "Sierra", sv: "Sierra" }, caption: { en: "Sierra Almijara", de: "Sierra Almijara", es: "Sierra Almijara", nl: "Sierra Almijara", sv: "Sierra Almijara" } }
+    ]
+  },
+  decision: {
+    eyebrow: { en: "Stay Decision", de: "Entscheidungshilfe", es: "Decisión", nl: "Beslissing", sv: "Beslut" },
+    title: { en: "Is Frigiliana for you?", de: "Ist Frigiliana richtig für Sie?", es: "¿Para usted?", nl: "Iets voor jou?", sv: "För dig?" },
+    profiles: [
+      { title: { en: "Couples", de: "Paare", es: "Parejas", nl: "Koppels", sv: "Par" }, description: { en: "Architectural silence.", de: "Architektonische Stille.", es: "Silencio.", nl: "Stilte.", sv: "Tystnad." }, suitability: { en: "Highest", de: "Exzellent", es: "Máxima", nl: "Hoogste", sv: "Högsta" } }
+    ]
+  },
+  faq: {
+    arrivalTitle: { en: "The Arrival", de: "Die Ankunft", es: "La Llegada", nl: "De Aankomst", sv: "Ankomsten" },
+    steps: [
+      { num: "01", h: { en: "Gateways", de: "Anreise", es: "Puertas", nl: "Poorten", sv: "Portar" }, t: { en: "Malaga Airport (AGP) is the primary gateway, located 50 minutes to the West via the A-7.", de: "Der Flughafen Malaga (AGP) ist das Haupttor, 50 Minuten westlich über die A-7.", es: "El aeropuerto de Málaga (AGP) es la puerta principal, a 50 minutos.", nl: "Luchthaven Malaga (AGP) is de belangrijkste poort.", sv: "Malaga flygplats (AGP) är huvudporten." } },
+      { num: "02", h: { en: "Transportation", de: "Transport", es: "Transporte", nl: "Vervoer", sv: "Transport" }, t: { en: "While public buses run frequently, a private vehicle is essential for exploring the Axarquía.", de: "Busse fahren oft, aber ein Auto ist für die Axarquía unerlässlich.", es: "Los autobuses funcionan, aber un coche es esencial.", nl: "Bussen rijden, maar een auto is essentieel.", sv: "Bussar går, men bil är nödvändigt." } },
+      { num: "03", h: { en: "The Ascent", de: "Der Aufstieg", es: "El Ascenso", nl: "De Klim", sv: "Klättringen" }, t: { en: "Frigiliana is divided into Barrio Nuevo and Alto. Prepare for steep inclines.", de: "Frigiliana ist geteilt. Stellen Sie sich auf steile Gassen ein.", es: "Frigiliana está dividida. Prepárate para las cuestas.", nl: "Frigiliana is verdeeld. Bereid je voor op hellingen.", sv: "Frigiliana är uppdelad. Förbered dig på backar." } }
+    ],
+    faqTitle: { en: "Dispatches & FAQ", de: "Depeschen & FAQ", es: "Despachos y FAQ", nl: "Berichten & FAQ", sv: "Meddelanden & FAQ" },
+    items: [
+      { q: { en: "When is the best time to visit?", de: "Beste Reisezeit?", es: "¿Mejor época?", nl: "Beste reistijd?", sv: "Bästa tiden?" }, a: { en: "Late May and early October offer perfect light.", de: "Ende Mai und Anfang Oktober bieten perfektes Licht.", es: "Mayo y octubre son perfectos.", nl: "Mei en oktober zijn perfect.", sv: "Maj och oktober är perfekta." } }
+    ]
+  },
+  footer: {
+    brand: { en: "Frigiliana Editorial", de: "Frigiliana Editorial", es: "Editorial", nl: "Redactie", sv: "Redaktion" },
+    rights: { en: "All rights reserved.", de: "Alle Rechte vorbehalten.", es: "Reservados", nl: "Voorbehouden", sv: "Förbehållna" },
+    nav: [
+      { token: 'journal', label: { en: "Journal", de: "Journal", es: "Diario", nl: "Journal", sv: "Journal" } },
+      { token: 'contact', label: { en: "Contact", de: "Kontakt", es: "Contacto", nl: "Contact", sv: "Kontakt" } },
+      { token: 'archive', label: { en: "Archive", de: "Archiv", es: "Archivo", nl: "Archief", sv: "Arkiv" } },
+      { token: 'legal_notice', label: { en: "Privacy", de: "Datenschutz", es: "Privacidad", nl: "Privacy", sv: "Integritet" } }
+    ]
+  }
+};
+
+const c = {
+  nav: {
+    brand: copy.nav.brand[currentLang],
+    links: copy.nav.links.map((l) => ({ token: l.token, label: l.label[currentLang] }))
+  },
+  hero: { eyebrow: copy.hero.eyebrow[currentLang], h1: copy.hero.h1[currentLang], body: copy.hero.body[currentLang], ctaMain: copy.hero.ctaMain[currentLang], ctaAlt: copy.hero.ctaAlt[currentLang] },
+  essence: { eyebrow: copy.essence.eyebrow[currentLang], title: copy.essence.title[currentLang], intro: copy.essence.intro[currentLang], items: copy.essence.items.map(item => ({ kicker: item.kicker[currentLang], headline: item.headline[currentLang], text: item.text[currentLang], imageSrc: item.imageSrc, imageAlt: item.headline[currentLang], href: item.token && !DISABLED_ROUTE_TOKENS.has(item.token) ? resolveLink(item.token, currentLang) : undefined, linkLabel: item.linkLabel ? item.linkLabel[currentLang] : undefined })) },
+  climate: {
+    eyebrowCurrent: copy.climate.eyebrowCurrent[currentLang],
+    heroTemp: copy.climate.heroTemp[currentLang],
+    heroTagline: copy.climate.heroTagline[currentLang],
+    headline: copy.climate.headline[currentLang],
+    body: copy.climate.body[currentLang],
+    metricHumidity: copy.climate.metricHumidity[currentLang],
+    metricWind: copy.climate.metricWind[currentLang],
+    metricUv: copy.climate.metricUv[currentLang],
+    metricSunset: copy.climate.metricSunset[currentLang],
+    factSunDays: copy.climate.factSunDays[currentLang],
+    factCoolerVsCoast: copy.climate.factCoolerVsCoast[currentLang],
+    cta: copy.climate.cta[currentLang]
+  },
+  comparison: {
+    eyebrow: copy.comparison.eyebrow[currentLang],
+    title: copy.comparison.title[currentLang],
+    intro: copy.comparison.intro[currentLang],
+    items: copy.comparison.items[currentLang],
+    imagePrimary: {
+      src: copy.comparison.imagePrimary.src,
+      alt: copy.comparison.imagePrimary.alt[currentLang]
+    },
+    imageSecondary: {
+      src: copy.comparison.imageSecondary.src,
+      alt: copy.comparison.imageSecondary.alt[currentLang]
+    }
+  },
+  villageStructure: {
+    imageSrc: copy.villageStructure.imageSrc,
+    imageAlt: copy.villageStructure.imageAlt[currentLang],
+    eyebrow: copy.villageStructure.eyebrow[currentLang],
+    headline: copy.villageStructure.headline[currentLang],
+    supporting: copy.villageStructure.supporting[currentLang],
+    signal: copy.villageStructure.signal[currentLang],
+    cta: copy.villageStructure.cta[currentLang]
+  },
+  gallery: { eyebrow: copy.gallery.eyebrow[currentLang], title: copy.gallery.title[currentLang], images: copy.gallery.items.map(img => ({ src: img.src, alt: img.alt[currentLang] || img.alt.en, caption: img.caption[currentLang] || img.caption.en })) },
+  decision: { eyebrow: copy.decision.eyebrow[currentLang], title: copy.decision.title[currentLang], profiles: copy.decision.profiles.map(p => ({ title: p.title[currentLang], description: p.description[currentLang], suitability: p.suitability[currentLang] })) },
+  faq: { arrivalTitle: copy.faq.arrivalTitle[currentLang], steps: copy.faq.steps.map(s => ({ num: s.num, headline: s.h[currentLang], text: s.t[currentLang] })), faqTitle: copy.faq.faqTitle[currentLang], items: copy.faq.items.map(item => ({ question: item.q[currentLang], answer: item.a[currentLang] })) },
+  footer: { brand: copy.footer.brand[currentLang], rights: copy.footer.rights[currentLang], links: copy.footer.nav.map(link => ({ token: link.token, label: link.label[currentLang] })) }
+};
+
+/** Live snapshot for the climate band (Open-Meteo + cache + safe default — never throws). */
+const weatherSnapshot = await getWeatherWithFallback();
+
+const climateMetricLabels: Record<
+  AmaraLanguage,
+  { humidity: string; wind: string; uv: string; sunset: string }
+> = {
+  en: { humidity: 'Humidity', wind: 'Wind', uv: 'UV', sunset: 'Sunset' },
+  de: { humidity: 'Feuchte', wind: 'Wind', uv: 'UV', sunset: 'Sonnenuntergang' },
+  es: { humidity: 'Humedad', wind: 'Viento', uv: 'UV', sunset: 'Atardecer' },
+  nl: { humidity: 'Vochtigheid', wind: 'Wind', uv: 'UV', sunset: 'Zonsondergang' },
+  sv: { humidity: 'Luftfuktighet', wind: 'Vind', uv: 'UV', sunset: 'Solnedgång' }
+};
+
+const ml = climateMetricLabels[currentLang] ?? climateMetricLabels.en;
+
+const liveClimate = {
+  heroTemp: Number.isFinite(weatherSnapshot.temperature)
+    ? `${Math.round(weatherSnapshot.temperature)}°`
+    : '—',
+  metricHumidity: `${ml.humidity} · ${weatherSnapshot.humidity}%`,
+  metricWind: `${ml.wind} · ${weatherSnapshot.wind}`,
+  metricUv: `${ml.uv} · ${weatherSnapshot.uv}`,
+  metricSunset: `${ml.sunset} · ${weatherSnapshot.sunset}`
+};
+
+const heroImage = {
+  src: '/images/hero-frigiliana-960.jpg',
+  alt: 'Frigiliana hillside homes in afternoon light',
+  width: 960,
+  height: 641,
+  sizes: '(max-width: 767px) calc(100vw - 3rem), (max-width: 1023px) 60vw, 40vw',
+  sources: {
+    webp: [
+      { src: '/images/hero-frigiliana-640.webp', width: 640 },
+      { src: '/images/hero-frigiliana-960.webp', width: 960 }
+    ],
+    fallback: [
+      { src: '/images/hero-frigiliana-640.jpg', width: 640 },
+      { src: '/images/hero-frigiliana-960.jpg', width: 960 }
+    ]
+  }
+};
+
+const sectionNavSpec: { href: string; label: Record<AmaraLanguage, string> }[] = [
+  { href: '#intro', label: { en: 'Intro', de: 'Intro', es: 'Intro', nl: 'Intro', sv: 'Intro' } },
+  { href: '#photo', label: { en: 'Photo', de: 'Foto', es: 'Fotografía', nl: 'Foto', sv: 'Foto' } },
+  {
+    href: '#key-facts',
+    label: {
+      en: 'Key Facts',
+      de: 'Kurzüberblick',
+      es: 'Datos clave',
+      nl: 'Kernfeiten',
+      sv: 'Snabb fakta'
+    }
+  },
+  {
+    href: '#weather-climate',
+    label: {
+      en: 'Weather & Climate',
+      de: 'Wetter & Klima',
+      es: 'Tiempo y clima',
+      nl: 'Weer & klimaat',
+      sv: 'Väder & klimat'
+    }
+  },
+  {
+    href: '#comparison',
+    label: {
+      en: 'Frigiliana vs Nerja',
+      de: 'Frigiliana vs Nerja',
+      es: 'Frigiliana vs Nerja',
+      nl: 'Frigiliana vs Nerja',
+      sv: 'Frigiliana vs Nerja'
+    }
+  },
+  {
+    href: '#where-to-stay',
+    label: {
+      en: 'Where to Stay',
+      de: 'Unterkunft',
+      es: 'Dónde alojarse',
+      nl: 'Overnachten',
+      sv: 'Boende'
+    }
+  },
+  {
+    href: '#experiences',
+    label: {
+      en: 'Experiences',
+      de: 'Erlebnisse',
+      es: 'Experiencias',
+      nl: 'Ervaringen',
+      sv: 'Upplevelser'
+    }
+  },
+  {
+    href: '#arrival',
+    label: {
+      en: 'Arrival Guide',
+      de: 'Anreise',
+      es: 'Llegada',
+      nl: 'Aankomst',
+      sv: 'Ankomst'
+    }
+  },
+  { href: '#faq', label: { en: 'FAQ', de: 'FAQ', es: 'FAQ', nl: 'FAQ', sv: 'FAQ' } }
+];
+
+const sectionNavItems = sectionNavSpec.map((row) => ({
+  href: row.href,
+  label: row.label[currentLang]
+}));
+---
+
+<LocationAuthorityLayout seo={seo} pageLang={currentLang}>
+  <Navigation
+    currentLang={currentLang}
+    brandName={c.nav.brand}
+    links={c.nav.links}
+    languageToken="location_frigiliana"
+    locationAuthorityNav={true}
+  />
+  <SectionAnchorNav items={sectionNavItems} />
+  <div id="intro">
+  <Hero imageSrc={heroImage.src} imageAlt={heroImage.alt} imageWidth={heroImage.width} imageHeight={heroImage.height} imageSizes={heroImage.sizes} imageSources={heroImage.sources}>
+    <span class="label-md text-primary mb-8 block font-bold">{c.hero.eyebrow}</span>
+    <h1 class="text-[clamp(3.5rem,9vw,6rem)] leading-[0.9] font-headline font-light italic text-on-surface mb-10 tracking-tighter" set:html={c.hero.h1} />
+    <div class="pl-10 border-l border-primary/20 max-w-lg mb-14"><p class="text-on-surface-variant text-lg leading-relaxed font-body">{c.hero.body}</p></div>
+    <div class="flex flex-wrap gap-8">
+      <span class="am-link-disabled bg-primary text-on-primary px-12 py-5 text-[11px] uppercase tracking-[0.2em] font-bold transition-all">{c.hero.ctaMain}</span>
+      <a href={resolveLink('arrival_guide', currentLang)} class="border border-outline-variant/30 text-on-surface px-12 py-5 text-[11px] uppercase tracking-[0.2em] font-bold hover:bg-surface-container-low transition-all">{c.hero.ctaAlt}</a>
+    </div>
+  </Hero>
+  </div>
+  <section id="photo" class="am-section am-section--plain w-full max-w-none !mx-0 !border-t-0 !px-0 !py-0">
+    <PhotoShow eyebrow={c.gallery.eyebrow} title={c.gallery.title} images={c.gallery.images} />
+  </section>
+  <section id="key-facts" class="am-section am-section--tint w-full max-w-none !mx-0 !border-t-0 !px-0 !py-0">
+    <EssenceGrid eyebrow={c.essence.eyebrow} title={c.essence.title} intro={c.essence.intro} items={c.essence.items} />
+  </section>
+  <section id="weather-climate" class="am-section am-section--plain">
+    <ClimateExperienceSection
+      eyebrowCurrent={c.climate.eyebrowCurrent}
+      heroTemperature={liveClimate.heroTemp}
+      heroTagline={c.climate.heroTagline}
+      headline={c.climate.headline}
+      body={c.climate.body}
+      metricHumidity={liveClimate.metricHumidity}
+      metricWind={liveClimate.metricWind}
+      metricUv={liveClimate.metricUv}
+      metricSunset={liveClimate.metricSunset}
+      factSunDays={c.climate.factSunDays}
+      factCoolerVsCoast={c.climate.factCoolerVsCoast}
+      ctaLabel={c.climate.cta}
+      ctaHref={resolveLink('weather_frigiliana', currentLang)}
+    />
+  </section>
+  <section id="comparison" class="am-section am-section--tint w-full max-w-none !mx-0 !border-t-0 !px-0 !py-0">
+    <LocationEditorialComparison
+      eyebrow={c.comparison.eyebrow}
+      title={c.comparison.title}
+      intro={c.comparison.intro}
+      items={c.comparison.items}
+      imagePrimary={c.comparison.imagePrimary}
+      imageSecondary={c.comparison.imageSecondary}
+    />
+  </section>
+  <div id="experiences">
+  <VillageStructureInsight
+    eyebrow={c.villageStructure.eyebrow}
+    headline={c.villageStructure.headline}
+    supporting={c.villageStructure.supporting}
+    signal={c.villageStructure.signal}
+    ctaLabel={c.villageStructure.cta}
+    ctaHref={resolveLink('arrival_guide', currentLang)}
+    imageSrc={c.villageStructure.imageSrc}
+    imageAlt={c.villageStructure.imageAlt}
+  />
+  </div>
+  <section id="where-to-stay" class="am-section am-section--plain w-full max-w-none !mx-0 !border-t-0 !px-0 !py-0">
+    <StayDecision eyebrow={c.decision.eyebrow} title={c.decision.title} profiles={c.decision.profiles} />
+  </section>
+  <section class="am-section am-section--tint w-full max-w-none !mx-0 !border-t-0 !px-0 !py-0">
+    <FaqAccordion
+      arrivalTitle={c.faq.arrivalTitle}
+      steps={c.faq.steps}
+      faqTitle={c.faq.faqTitle}
+      items={c.faq.items}
+      anchorArrivalId="arrival"
+      anchorFaqId="faq"
+    />
+  </section>
+</LocationAuthorityLayout>
+
+<style>
+  .am-link-disabled {
+    pointer-events: none;
+    cursor: default;
+    opacity: 0.6;
+  }
+
+  /**
+   * Two-tone shell (surface + surface-container-low only): child sections use band color from parent.
+   * Components keep their own layout; backgrounds are not edited in component files.
+   */
+  .am-section--plain > :global(section),
+  .am-section--tint > :global(section) {
+    background-color: transparent !important;
+  }
+
+  /** PhotoShow: shell + slide wells use approved tokens only */
+  .am-section--plain :global(amara-photoshow) {
+    background-color: var(--color-surface) !important;
+  }
+
+  .am-section--plain :global(amara-photoshow .bg-surface-container) {
+    background-color: var(--color-surface-container-low) !important;
+  }
+
+  /** EssenceGrid: replace disallowed container greys with surface or tint token */
+  .am-section--tint :global(.bg-surface-container) {
+    background-color: var(--color-surface) !important;
+  }
+</style>

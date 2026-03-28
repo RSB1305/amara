@@ -18,60 +18,132 @@ const lang = normalizeLanguage(rawLang);
  * Vollständiges Mapping ALLER UI-Labels (Chrome + Data-States)
  */
 const translations = {
-  en: { 
-    chrome: { title: "Climate Control", live: "Live Data" },
-    humidity: "Humidity", wind: "Wind", today: "Today", tomorrow: "Tomorrow", 
-    loading: "Loading local climate...", offline: "Offline", 
-    codes: { 0: "Clear Sky", 1: "Mainly Clear", 2: "Partly Cloudy", 3: "Overcast", 45: "Foggy", 51: "Drizzle", 61: "Rainy", 80: "Showers", 95: "Stormy" } 
+  en: {
+    chrome: { title: 'Climate Control', live: 'Live Data' },
+    humidity: 'Humidity',
+    wind: 'Wind',
+    today: 'Today',
+    tomorrow: 'Tomorrow',
+    loading: 'Loading local climate...',
+    offline: 'Offline',
+    codes: {
+      0: 'Clear Sky',
+      1: 'Mainly Clear',
+      2: 'Partly Cloudy',
+      3: 'Overcast',
+      45: 'Foggy',
+      51: 'Drizzle',
+      61: 'Rainy',
+      80: 'Showers',
+      95: 'Stormy',
+    },
   },
-  de: { 
-    chrome: { title: "Klimakontrolle", live: "Live-Daten" },
-    humidity: "Feuchte", wind: "Wind", today: "Heute", tomorrow: "Morgen", 
-    loading: "Klima wird geladen...", offline: "Offline", 
-    codes: { 0: "Klarer Himmel", 1: "Meist klar", 2: "Teils wolkig", 3: "Bewölkt", 45: "Neblig", 51: "Nieselregen", 61: "Regnerisch", 80: "Regenschauer", 95: "Gewitter" } 
+  de: {
+    chrome: { title: 'Klimakontrolle', live: 'Live-Daten' },
+    humidity: 'Feuchte',
+    wind: 'Wind',
+    today: 'Heute',
+    tomorrow: 'Morgen',
+    loading: 'Klima wird geladen...',
+    offline: 'Offline',
+    codes: {
+      0: 'Klarer Himmel',
+      1: 'Meist klar',
+      2: 'Teils wolkig',
+      3: 'Bewölkt',
+      45: 'Neblig',
+      51: 'Nieselregen',
+      61: 'Regnerisch',
+      80: 'Regenschauer',
+      95: 'Gewitter',
+    },
   },
-  es: { 
-    chrome: { title: "Control Climático", live: "Datos en vivo" },
-    humidity: "Humedad", wind: "Viento", today: "Hoy", tomorrow: "Mañana", 
-    loading: "Cargando clima...", offline: "Sin conexión", 
-    codes: { 0: "Despejado", 1: "Mayormente claro", 2: "Parcialmente nublado", 3: "Nublado", 45: "Niebla", 51: "Llovizna", 61: "Lluvioso", 80: "Chubascos", 95: "Tormentoso" } 
+  es: {
+    chrome: { title: 'Control Climático', live: 'Datos en vivo' },
+    humidity: 'Humedad',
+    wind: 'Viento',
+    today: 'Hoy',
+    tomorrow: 'Mañana',
+    loading: 'Cargando clima...',
+    offline: 'Sin conexión',
+    codes: {
+      0: 'Despejado',
+      1: 'Mayormente claro',
+      2: 'Parcialmente nublado',
+      3: 'Nublado',
+      45: 'Niebla',
+      51: 'Llovizna',
+      61: 'Lluvioso',
+      80: 'Chubascos',
+      95: 'Tormentoso',
+    },
   },
-  nl: { 
-    chrome: { title: "Klimaatbeheersing", live: "Live-gegevens" },
-    humidity: "Vochtigheid", wind: "Wind", today: "Vandaag", tomorrow: "Morgen", 
-    loading: "Klimaat laden...", offline: "Offline", 
-    codes: { 0: "Onbewolkt", 1: "Heldere hemel", 2: "Licht bewolkt", 3: "Bewolkt", 45: "Mist", 51: "Motregen", 61: "Regen", 80: "Buien", 95: "Onweer" } 
+  nl: {
+    chrome: { title: 'Klimaatbeheersing', live: 'Live-gegevens' },
+    humidity: 'Vochtigheid',
+    wind: 'Wind',
+    today: 'Vandaag',
+    tomorrow: 'Morgen',
+    loading: 'Klimaat laden...',
+    offline: 'Offline',
+    codes: {
+      0: 'Onbewolkt',
+      1: 'Heldere hemel',
+      2: 'Licht bewolkt',
+      3: 'Bewolkt',
+      45: 'Mist',
+      51: 'Motregen',
+      61: 'Regen',
+      80: 'Buien',
+      95: 'Onweer',
+    },
   },
-  sv: { 
-    chrome: { title: "Klimatkontroll", live: "Live-data" },
-    humidity: "Fuktighet", wind: "Vind", today: "Idag", tomorrow: "Imorgon", 
-    loading: "Laddar klimat...", offline: "Offline", 
-    codes: { 0: "Klart", 1: "Mest klart", 2: "Halvklart", 3: "Mulet", 45: "Dimma", 51: "Duggregn", 61: "Regnigt", 80: "Skurar", 95: "Åska" } 
-  }
+  sv: {
+    chrome: { title: 'Klimatkontroll', live: 'Live-data' },
+    humidity: 'Fuktighet',
+    wind: 'Vind',
+    today: 'Idag',
+    tomorrow: 'Imorgon',
+    loading: 'Laddar klimat...',
+    offline: 'Offline',
+    codes: {
+      0: 'Klart',
+      1: 'Mest klart',
+      2: 'Halvklart',
+      3: 'Mulet',
+      45: 'Dimma',
+      51: 'Duggregn',
+      61: 'Regnigt',
+      80: 'Skurar',
+      95: 'Åska',
+    },
+  },
 };
 
 const t = translations[lang] || translations.en;
 ---
 
-<amara-weather 
+<amara-weather
   class="block bg-surface-container-lowest border border-outline-variant/10 p-8 shadow-sm hover:-translate-y-1 transition-transform duration-500 group"
   data-lat={lat}
   data-lon={lon}
   data-lang={lang}
   data-t={JSON.stringify(t)}
 >
-  <div class="flex justify-between items-start mb-12">
-    <div>
+  <!-- Status is out of flow so the title stack can center in the full card width (not biased by a sibling column). -->
+  <div class="relative mb-12 flex min-h-[4.5rem] w-full items-center justify-center">
+    <div class="inline-flex max-w-full flex-col items-start">
       <span class="text-[10px] uppercase tracking-[0.3em] text-primary font-bold block mb-2">{t.chrome.title}</span>
       <h3 class="font-headline text-3xl italic text-on-surface">{locationName}</h3>
     </div>
-    <div class="weather-status flex items-center gap-2 opacity-0 transition-opacity duration-700">
-        <span class="relative flex h-2 w-2">
-            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
-            <span class="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
-        </span>
-        <span class="text-[9px] uppercase tracking-widest font-bold text-primary">{t.chrome.live}</span>
+    <div
+      class="weather-status pointer-events-none absolute top-1/2 right-0 flex -translate-y-1/2 items-center gap-2 opacity-0 transition-opacity duration-700"
+    >
+      <span class="relative flex h-2 w-2">
+        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
+        <span class="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
+      </span>
+      <span class="text-[9px] uppercase tracking-widest font-bold text-primary">{t.chrome.live}</span>
     </div>
   </div>
-
-  </amara-weather>
+</amara-weather>

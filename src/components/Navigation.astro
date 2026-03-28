@@ -27,6 +27,11 @@ interface Props {
   languageToken?: string;
   brandVariant?: 'default' | 'lodging';
   ctaLabel?: string;
+  /**
+   * Type A location authority pages: allow Frigiliana / Nerja / experiences hub links in the center
+   * row even when those tokens are globally gated as disabled elsewhere.
+   */
+  locationAuthorityNav?: boolean;
 }
 
 const {
@@ -38,7 +43,8 @@ const {
   currentToken,
   languageToken,
   brandVariant = 'default',
-  ctaLabel
+  ctaLabel,
+  locationAuthorityNav = false
 } = Astro.props;
 
 const languages: { code: AmaraLanguage; label: string }[] = [
@@ -115,6 +121,20 @@ const DISABLED_ROUTE_TOKENS = new Set([
   'archive'
 ]);
 
+/** Tokens allowed as real links when `locationAuthorityNav` is set (override global disable list). */
+const LOCATION_AUTHORITY_CENTER_TOKENS = new Set([
+  'location_frigiliana',
+  'location_nerja',
+  'explore_hub'
+]);
+
+const isNavLinkDisabled = (token: string) => {
+  if (locationAuthorityNav && LOCATION_AUTHORITY_CENTER_TOKENS.has(token)) {
+    return false;
+  }
+  return DISABLED_ROUTE_TOKENS.has(token);
+};
+
 const resolvedCtaLabel = ctaLabel ?? defaultCtaLabels[currentLang];
 const ctaLink = { token: 'book', label: resolvedCtaLabel };
 const currentPath = Astro.url.pathname;
@@ -188,7 +208,7 @@ const getResolvedNavLabel = (link: NavLink) => {
     <div class="am-nav__center">
       <ul class="hidden md:flex items-center gap-10">
         {links.map((link) => {
-          const isDisabled = DISABLED_ROUTE_TOKENS.has(link.token);
+          const isDisabled = isNavLinkDisabled(link.token);
           const href = isDisabled ? null : resolveLink(link.token, currentLang);
           const isActive = href ? getIsActive(link.token, href) : false;
 

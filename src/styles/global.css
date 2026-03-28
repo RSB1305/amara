@@ -146,4 +146,22 @@
     opacity: 0.03;
     pointer-events: none;
   }
+
+  /** Type A Location Authority: shared section shell + alternating backgrounds */
+  .am-section {
+    @apply max-w-screen-2xl mx-auto px-12 py-40 border-t border-outline-variant/5;
+  }
+
+  .am-section--plain {
+    @apply bg-white;
+  }
+
+  /** Type A insight modules (image-led split); same band tone as plain */
+  .am-section--insight {
+    @apply bg-white;
+  }
+
+  .am-section--tint {
+    @apply bg-surface;
+  }
 }

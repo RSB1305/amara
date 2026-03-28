@@ -6,19 +6,25 @@ interface Props {
   steps?: Array<{ num: string; headline: string; text: string }>;
   faqTitle?: string;
   items?: Array<{ question: string; answer: string }>;
+  /** Optional in-page anchor id for the arrival column (e.g. Frigiliana section nav). */
+  anchorArrivalId?: string;
+  /** Optional in-page anchor id for the FAQ column. */
+  anchorFaqId?: string;
 }
 
 const {
   arrivalTitle = "The Arrival",
   steps = [],
   faqTitle = "Dispatches & FAQ",
-  items = []
+  items = [],
+  anchorArrivalId,
+  anchorFaqId
 } = Astro.props;
 ---
 
 <section class="py-32 bg-[#fcfbf9] px-12 border-t border-black/10">
   <div class="max-w-screen-2xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-x-32 gap-y-20">
-    <div>
+    <div {...(anchorArrivalId ? { id: anchorArrivalId } : {})}>
       <h2 class="font-headline text-[56px] italic font-light text-on-surface mb-20 tracking-tight leading-tight">
         {arrivalTitle}
       </h2>
@@ -41,7 +47,7 @@ const {
       </div>
     </div>
 
-    <div>
+    <div {...(anchorFaqId ? { id: anchorFaqId } : {})}>
       <h2 class="font-headline text-[56px] italic font-light text-on-surface mb-20 tracking-tight leading-tight">
         {faqTitle}
       </h2>
