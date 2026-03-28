@@ -1,0 +1,16 @@
+---
+import InstagramPage from '../../page-families/instagram/InstagramPage.astro';
+
+export function getStaticPaths() {
+  return [
+    { params: { lang: 'de' } },
+    { params: { lang: 'en' } },
+    { params: { lang: 'nl' } },
+    { params: { lang: 'sv' } }
+  ];
+}
+
+const { lang } = Astro.params;
+---
+
+<InstagramPage lang={lang} />
