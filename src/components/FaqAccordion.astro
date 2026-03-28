@@ -10,6 +10,10 @@ interface Props {
   anchorArrivalId?: string;
   /** Optional in-page anchor id for the FAQ column. */
   anchorFaqId?: string;
+  /** Optional onward link below arrival steps (resolved href + label from parent). */
+  arrivalDetailCta?: { href: string; label: string };
+  /** Optional onward link below the FAQ accordion list. */
+  allFaqsCta?: { href: string; label: string };
 }
 
 const {
@@ -18,59 +22,75 @@ const {
   faqTitle = "Dispatches & FAQ",
   items = [],
   anchorArrivalId,
-  anchorFaqId
+  anchorFaqId,
+  arrivalDetailCta,
+  allFaqsCta
 } = Astro.props;
 ---
 
 <section class="py-32 bg-[#fcfbf9] px-12 border-t border-black/10">
-  <div class="max-w-screen-2xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-x-32 gap-y-20">
-    <div {...(anchorArrivalId ? { id: anchorArrivalId } : {})}>
-      <h2 class="font-headline text-[56px] italic font-light text-on-surface mb-20 tracking-tight leading-tight">
+  <div class="max-w-screen-2xl mx-auto grid grid-cols-1 md:grid-cols-2 md:items-stretch gap-x-32 gap-y-20">
+    <div class="flex flex-col md:h-full min-h-0" {...(anchorArrivalId ? { id: anchorArrivalId } : {})}>
+      <h2 class="font-headline text-[56px] italic font-light text-on-surface mb-20 tracking-tight leading-tight shrink-0">
         {arrivalTitle}
       </h2>
-      <div class="space-y-20">
-        {steps && steps.length > 0 ? steps.map((step) => (
-          <div class="flex gap-12 items-start group">
-            <span class="text-[64px] font-headline italic leading-none text-outline select-none">
-              {step.num}
-            </span>
-            <div class="pt-3">
-              <h4 class="font-label font-bold text-[11px] uppercase tracking-[0.2em] text-on-surface mb-3">
-                {step.headline}
-              </h4>
-              <p class="font-body text-on-surface-variant leading-relaxed text-[15px] max-w-sm">
-                {step.text}
-              </p>
+      <div class="flex flex-col gap-10 md:flex-1 md:min-h-0 md:justify-between">
+        <div class="space-y-20">
+          {steps && steps.length > 0 ? steps.map((step) => (
+            <div class="flex gap-12 items-start group">
+              <span class="text-[64px] font-headline italic leading-none text-outline select-none">
+                {step.num}
+              </span>
+              <div class="pt-3">
+                <h4 class="font-label font-bold text-[11px] uppercase tracking-[0.2em] text-on-surface mb-3">
+                  {step.headline}
+                </h4>
+                <p class="font-body text-on-surface-variant leading-relaxed text-[15px] max-w-sm">
+                  {step.text}
+                </p>
+              </div>
             </div>
-          </div>
-        )) : <p class="italic text-outline">Informationen zur Anreise folgen.</p>}
+          )) : <p class="italic text-outline">Informationen zur Anreise folgen.</p>}
+        </div>
+        {arrivalDetailCta && (
+          <a href={arrivalDetailCta.href} class="am-cta-link inline-block w-fit self-start shrink-0 md:pt-4">
+            {arrivalDetailCta.label}
+          </a>
+        )}
       </div>
     </div>
 
-    <div {...(anchorFaqId ? { id: anchorFaqId } : {})}>
-      <h2 class="font-headline text-[56px] italic font-light text-on-surface mb-20 tracking-tight leading-tight">
+    <div class="flex flex-col md:h-full min-h-0" {...(anchorFaqId ? { id: anchorFaqId } : {})}>
+      <h2 class="font-headline text-[56px] italic font-light text-on-surface mb-20 tracking-tight leading-tight shrink-0">
         {faqTitle}
       </h2>
-      <div class="divide-y divide-black/10 border-t border-black/10">
-        {items && items.length > 0 ? items.map((item) => (
-          <details class="group py-10 cursor-pointer outline-none">
-            <summary class="am-accordion__trigger items-center">
-              <h4 class="font-label font-bold text-[11px] uppercase tracking-[0.2em] text-on-surface group-hover:text-primary transition-colors">
-                {item.question}
-              </h4>
-              <span class="am-accordion__indicator" aria-hidden="true">
-                <span class="group-open:hidden">+</span>
-                <span class="hidden group-open:inline">−</span>
-              </span>
-            </summary>
-            <div class="overflow-hidden transition-all duration-500">
-              <p class="pt-8 font-body text-on-surface-variant text-[15px] leading-relaxed max-w-md italic">
-                {item.answer}
-              </p>
-            </div>
-          </details>
-        )) : <p class="py-10 italic text-outline">Häufig gestellte Fragen werden bald ergänzt.</p>}
-        <div class="border-b border-black/10"></div>
+      <div class="flex flex-col gap-10 md:flex-1 md:min-h-0 md:justify-between">
+        <div class="divide-y divide-black/10 border-t border-black/10">
+          {items && items.length > 0 ? items.map((item) => (
+            <details class="group py-10 cursor-pointer outline-none">
+              <summary class="am-accordion__trigger items-center">
+                <h4 class="font-label font-bold text-[11px] uppercase tracking-[0.2em] text-on-surface group-hover:text-primary transition-colors">
+                  {item.question}
+                </h4>
+                <span class="am-accordion__indicator" aria-hidden="true">
+                  <span class="group-open:hidden">+</span>
+                  <span class="hidden group-open:inline">−</span>
+                </span>
+              </summary>
+              <div class="overflow-hidden transition-all duration-500">
+                <p class="pt-8 font-body text-on-surface-variant text-[15px] leading-relaxed max-w-md italic">
+                  {item.answer}
+                </p>
+              </div>
+            </details>
+          )) : <p class="py-10 italic text-outline">Häufig gestellte Fragen werden bald ergänzt.</p>}
+          <div class="border-b border-black/10"></div>
+        </div>
+        {allFaqsCta && (
+          <a href={allFaqsCta.href} class="am-cta-link inline-block w-fit self-start shrink-0 md:pt-4">
+            {allFaqsCta.label}
+          </a>
+        )}
       </div>
     </div>
   </div>

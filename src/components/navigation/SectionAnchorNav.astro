@@ -1,0 +1,40 @@
+---
+/**
+ * On-page section anchor navigation (Type A and similar long pages).
+ * Local content nav only — not a substitute for the global main navigation.
+ */
+export interface SectionAnchorNavItem {
+  label: string;
+  href: string;
+}
+
+interface Props {
+  items: SectionAnchorNavItem[];
+}
+
+const { items } = Astro.props;
+---
+
+<nav
+  class="border-b border-outline-variant/10 bg-surface"
+  aria-label="On this page"
+>
+  <div class="max-w-screen-2xl mx-auto px-12 py-6">
+    <ul
+      class="-mx-1 flex flex-nowrap items-center gap-x-6 gap-y-2 overflow-x-auto overscroll-x-contain pb-1 md:flex-wrap md:justify-center md:overflow-visible md:pb-0"
+    >
+      {
+        items.map((item) => (
+          <li class="shrink-0">
+            <a
+              href={item.href}
+              class="font-label block whitespace-nowrap px-1 py-1 text-[10px] font-bold uppercase tracking-[0.2em] text-on-surface-variant transition-colors hover:text-primary"
+            >
+              {item.label}
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</nav>
