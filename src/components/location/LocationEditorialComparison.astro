@@ -1,0 +1,84 @@
+---
+/**
+ * Editorial comparison block for Type A Location Authority pages.
+ * Presentational only: overlapping imagery + stacked copy (no table layout).
+ */
+export interface LocationEditorialComparisonItem {
+  kicker?: string;
+  title: string;
+  text: string;
+}
+
+interface ImageField {
+  src: string;
+  alt: string;
+}
+
+interface Props {
+  eyebrow: string;
+  title: string;
+  intro?: string;
+  items: LocationEditorialComparisonItem[];
+  imagePrimary: ImageField;
+  imageSecondary: ImageField;
+}
+
+const { eyebrow, title, intro, items, imagePrimary, imageSecondary } = Astro.props;
+---
+
+<section class="max-w-screen-2xl mx-auto px-12 py-40 border-t border-outline-variant/5">
+  <div class="grid grid-cols-1 md:grid-cols-12 gap-24 items-center">
+    <div class="md:col-span-6 relative h-[500px] min-h-[280px]">
+      <div class="absolute top-0 left-0 z-20 h-4/5 w-4/5 overflow-hidden">
+        <img
+          src={imagePrimary.src}
+          alt={imagePrimary.alt}
+          class="h-full w-full object-cover"
+          loading="lazy"
+          decoding="async"
+        />
+      </div>
+      <div class="absolute right-0 bottom-0 z-10 h-4/5 w-4/5 overflow-hidden opacity-80">
+        <img
+          src={imageSecondary.src}
+          alt={imageSecondary.alt}
+          class="h-full w-full object-cover"
+          loading="lazy"
+          decoding="async"
+        />
+      </div>
+    </div>
+
+    <div class="md:col-span-6">
+      <span class="mb-6 block text-[10px] font-bold uppercase tracking-[0.4em] text-primary">
+        {eyebrow}
+      </span>
+
+      <h2 class="mb-10 font-headline text-5xl italic tracking-tight text-on-surface md:text-6xl">
+        {title}
+      </h2>
+
+      {
+        intro && (
+          <p class="mb-12 max-w-lg font-body leading-relaxed text-on-surface-variant">{intro}</p>
+        )
+      }
+
+      <div class="space-y-12">
+        {
+          items.map((item) => (
+            <div class="flex gap-8 border-b border-outline-variant/20 pb-8 last:border-b-0 last:pb-0">
+              {item.kicker && (
+                <div class="min-w-[60px] font-headline text-3xl italic text-primary">{item.kicker}</div>
+              )}
+              <div class={item.kicker ? '' : 'w-full'}>
+                <h3 class="mb-2 font-headline text-xl text-on-surface">{item.title}</h3>
+                <p class="font-body leading-relaxed text-on-surface-variant">{item.text}</p>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+</section>
