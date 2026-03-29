@@ -526,6 +526,8 @@ const footerHighlights = [
 </BaseLayout>
 
 <style>
+  @reference "../../styles/global.css";
+
   .am-kicker {
     display: inline-block;
     font-family: "Plus Jakarta Sans", sans-serif;
@@ -541,7 +543,7 @@ const footerHighlights = [
     font-size: clamp(2.5rem, 4.5vw, 4rem);
     line-height: 1.08;
     font-weight: 300;
-    color: #111;
+    @apply text-on-surface;
     margin: 0;
   }
 
@@ -549,7 +551,7 @@ const footerHighlights = [
     font-family: "Plus Jakarta Sans", sans-serif;
     font-size: 1rem;
     line-height: 1.8;
-    color: #444;
+    @apply text-subtle;
   }
 
   .am-link-disabled {
@@ -559,10 +561,10 @@ const footerHighlights = [
   }
 
   .am-exp-page {
+    @apply bg-white;
     max-width: 1400px;
     margin: 0 auto;
     padding: 0 5vw;
-    background-color: #ffffff;
   }
 
   .am-reviews-section {
@@ -572,7 +574,7 @@ const footerHighlights = [
   .am-reviews-text-large {
     font-size: clamp(1.25rem, 2vw, 1.5rem);
     line-height: 1.5;
-    color: #111;
+    @apply text-on-surface;
     margin-bottom: 2rem;
   }
 
@@ -581,7 +583,7 @@ const footerHighlights = [
     font-size: 0.875rem;
     text-transform: uppercase;
     letter-spacing: 0.1em;
-    color: #111;
+    @apply text-on-surface;
     text-decoration: none;
     border-bottom: 1px solid rgba(0, 0, 0, 0.2);
     padding-bottom: 4px;
@@ -637,7 +639,7 @@ const footerHighlights = [
     line-height: 1.15;
     font-style: italic;
     font-weight: 300;
-    color: #111;
+    @apply text-on-surface;
     margin: 0;
   }
 
@@ -653,7 +655,7 @@ const footerHighlights = [
   .am-reviews-section-note,
   .am-reviews-proof__note,
   .am-reviews-awards__source {
-    color: #666;
+    @apply text-muted;
     font-style: italic;
   }
 
@@ -664,8 +666,8 @@ const footerHighlights = [
   }
 
   .am-reviews-card {
+    @apply bg-surface;
     padding: clamp(2rem, 3vw, 2.5rem);
-    background: #fcfbf9;
     border: 1px solid rgba(0, 0, 0, 0.05);
   }
 
@@ -675,7 +677,7 @@ const footerHighlights = [
   }
 
   .am-reviews-card__copy {
-    color: #222;
+    @apply text-strong;
     line-height: 1.85;
   }
 
@@ -698,11 +700,11 @@ const footerHighlights = [
 
   .am-reviews-list__copy {
     margin: 0;
-    color: #222;
+    @apply text-strong;
   }
 
   .am-reviews-awards {
-    background-color: #fcfbf9;
+    @apply bg-surface;
     padding: clamp(4rem, 8vw, 8rem) clamp(2rem, 5vw, 5rem);
     margin-left: -5vw;
     margin-right: -5vw;
@@ -721,7 +723,7 @@ const footerHighlights = [
   }
 
   .am-reviews-awards__group {
-    background: #fff;
+    @apply bg-white;
     padding: clamp(2rem, 4vw, 3rem);
     border: 1px solid rgba(0, 0, 0, 0.05);
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.02);
@@ -732,7 +734,7 @@ const footerHighlights = [
     font-size: 0.875rem;
     text-transform: uppercase;
     letter-spacing: 0.1em;
-    color: #888;
+    @apply text-hint;
     margin-bottom: 1.5rem;
     border-bottom: 1px solid rgba(0, 0, 0, 0.1);
     padding-bottom: 0.6rem;
@@ -748,7 +750,7 @@ const footerHighlights = [
     margin-bottom: 1rem;
     position: relative;
     padding-left: 1.25rem;
-    color: #111;
+    @apply text-on-surface;
   }
 
   .am-reviews-ul li::before {
@@ -795,7 +797,7 @@ const footerHighlights = [
     font-size: 1.75rem;
     font-weight: 300;
     margin-bottom: 0.5rem;
-    color: #111;
+    @apply text-on-surface;
   }
 
   .am-reviews-cta {
@@ -810,13 +812,13 @@ const footerHighlights = [
     font-size: clamp(2.5rem, 4vw, 3.5rem);
     line-height: 1.1;
     font-weight: 300;
-    color: #111;
+    @apply text-on-surface;
     margin-bottom: 1.5rem;
   }
 
   .am-reviews-cta__lead {
     font-size: clamp(1.125rem, 2vw, 1.25rem);
-    color: #444;
+    @apply text-subtle;
     margin-bottom: 3rem;
   }
 

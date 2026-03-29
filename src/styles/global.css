@@ -15,7 +15,8 @@
   /* HIER: Die fehlende Farbe hinzugefügt, damit der Fehler verschwindet */
   --color-on-primary-fixed: #271900; 
 
-  --color-surface: #fbf9f5;
+  --color-surface: #F5F2ED;
+  --color-surface-white: #ffffff;
   --color-on-surface: #1b1c1a;
   --color-on-surface-variant: #4e4538;
   --color-outline: #807667;
@@ -25,6 +26,12 @@
   --color-primary-fixed-dim: #edbf71;
   --color-surface-container-low: #f5f3ef;
   --color-surface-container-high: #eae8e4;
+
+  --color-muted: #666666;
+  --color-hint: #888888;
+  --color-subtle: #444444;
+  --color-strong: #222222;
+  --color-faint: #A0A0A0;
 
   /* Typografie */
   --font-headline: "Newsreader", serif;
@@ -56,11 +63,11 @@
   }
 
   .am-cta-link {
+    @apply text-on-surface;
     font-family: "Plus Jakarta Sans", sans-serif;
     font-size: 0.875rem;
     text-transform: uppercase;
     letter-spacing: 0.1em;
-    color: #111;
     text-decoration: none;
     border-bottom: 1px solid rgba(0, 0, 0, 0.2);
     padding-bottom: 4px;

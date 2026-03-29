@@ -458,11 +458,13 @@ const sections = copy.sections.map((section, index) => ({
 </BaseLayout>
 
 <style>
+  @reference "../../styles/global.css";
+
   .am-exp-page {
+    @apply bg-white;
     max-width: 1400px;
     margin: 0 auto;
     padding: 0 5vw;
-    background-color: #ffffff;
   }
 
   .am-faq-main {

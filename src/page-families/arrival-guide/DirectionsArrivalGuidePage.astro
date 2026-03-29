@@ -1,10 +1,18 @@
 ---
 /**
- * AMARA v3 Arrival Guide (Type D Utility)
- * Governance: Rein funktionale Seite für Logik und Anreise-Details.
+ * AMARA v3 Arrival Guide
+ * Guest-facing operational arrival page for La AMARA.
+ *
+ * Architectural intent:
+ * - This page is treated as a practical utility page for existing or arriving guests.
+ * - It must remain operational, calm, and easy to scan.
+ * - It is intentionally not positioned as a Typ D conversion page.
+ * - SEO still runs through the global resolver contract already used by UtilityLayout.
  */
 import UtilityLayout from '../../layouts/UtilityLayout.astro';
 import Navigation from '../../components/Navigation.astro';
+import SmartBackButton from '../../components/navigation/SmartBackButton.astro';
+import { resolveLink } from '../../lib/linkResolver';
 import FaqAccordion from '../../components/FaqAccordion.astro';
 import { normalizeLanguage } from '../../lib/seo/resolve-seo-head';
 import type { AmaraAuthoringSeo, AmaraLanguage } from '../../types/seo';
@@ -17,7 +25,7 @@ const { lang = 'es' } = Astro.props;
 const currentLang = normalizeLanguage(lang as AmaraLanguage);
 
 const seo: AmaraAuthoringSeo = {
-  version: "2026-03-21-v3.0-D",
+  version: "2026-03-21-v3.1-arrival-utility",
   pageType: "D",
   languages: {
     en: { title: "Frigiliana Arrival & Parking Guide", description: "How to reach the village and where to park.", robots: "index, follow", canonical: "auto" },
@@ -38,7 +46,7 @@ const copy = {
     ]
   },
   header: {
-    title: { en: "Arrival & Logistics", de: "Anreise & Grundlagen", es: "Llegada y lo esencial", nl: "Aankomst & basisinformatie", sv: "Ankomst & grunderna" },
+    title: { en: "Guest Arrival Guide", de: "Anreiseguide für Gäste", es: "Guia de llegada para huespedes", nl: "Aankomstgids voor gasten", sv: "Ankomstguide for gaster" },
     subtitle: {
       en: "Essential information for navigating the vertical streets of the Mudejar quarter.",
       de: "Alles Wichtige, damit ihr euch in den steilen Gassen des Mudejar-Viertels gut zurechtfindet.",
@@ -49,7 +57,7 @@ const copy = {
   },
   content: {
     parking: {
-      title: { en: "Arriving at La AMARA", de: "Ankunft bei La AMARA", es: "Llegar a La AMARA", nl: "Aankomen bij La AMARA", sv: "Att komma fram till La AMARA" },
+      title: { en: "Arriving at La AMARA Frigiliana", de: "Ankunft bei La AMARA in Frigiliana", es: "Llegar a La AMARA en Frigiliana", nl: "Aankomen bij La AMARA in Frigiliana", sv: "Att komma fram till La AMARA i Frigiliana" },
       text: {
         en: "La AMARA is located in the historic center of Frigiliana. Because the streets in the old village are narrow and vehicle access is limited, the easiest arrival is usually to stop a little below the house and continue on foot.",
         de: "La AMARA liegt im historischen Zentrum von Frigiliana. Weil die Gassen im alten Dorf eng sind und die Zufahrt für Fahrzeuge eingeschränkt ist, ist es meist am einfachsten, etwas unterhalb des Hauses anzuhalten und den Rest zu Fuß weiterzugehen.",
@@ -107,7 +115,7 @@ const copy = {
         en: "Two walking routes are possible from Parada de Autobus - C. Real, depending on whether you prefer the shorter village route or the flatter approach via the main road.",
         de: "Ab Parada de Autobus - C. Real habt ihr zwei Fußwege zur Auswahl - je nachdem, ob ihr lieber den kürzeren Weg durchs Dorf oder den flacheren Weg über die Hauptstraße nehmt.",
         es: "Desde Parada de Autobus - C. Real teneis dos caminos posibles, segun prefirais el recorrido mas corto por el pueblo o la opcion mas llana por la carretera principal.",
-        nl: "Vanaf Parada de Autobus - C. Real zijn er twee looproutes mogelijk, afhankelijk van of jullie liever de kortere dorpsroute of de vlakkere route via de hoofdweg nemen.",
+        nl: "Vanaf Parada de Autobus - C. Real zijn er zwei looproutes mogelijk, afhankelijk van of jullie liever de kortere dorpsroute of de vlakkere route via de hoofdweg nemen.",
         sv: "Fran Parada de Autobus - C. Real finns tva mojliga gangvagar, beroende pa om ni foredrar den kortare vagen genom byn eller den flackare vagen via huvudvagen."
       }
     },
@@ -118,7 +126,7 @@ const copy = {
         de: "Wenn möglich, reist mit leichtem und gut handhabbarem Gepäck. Im historischen Zentrum können selbst kurze Fußwege durch die Steigung und den unebenen Boden anstrengender wirken.",
         es: "Si podeis, os recomendamos viajar ligeros y con equipaje facil de manejar. En el centro historico, incluso los trayectos cortos a pie pueden sentirse mas exigentes por la pendiente y el suelo irregular.",
         nl: "Als het kan, raden we aan om licht te reizen en bagage mee te nemen die makkelijk te hanteren is. In het historische centrum kunnen zelfs korte stukken lopen zwaarder aanvoelen door de helling en de ongelijke ondergrond.",
-        sv: "Om det gar rekommenderar vi att ni reser latt och med bagage som ar enkel att hantera. I den historiska delen kan till och med korta promenader kannas mer krävande pa grund av lutningen och den ojämna marken."
+        sv: "Om det gar rekommenderar vi att ni reser latt och med bagage som ar enkel att hantera. I den historiska delen kan till och med korta promenader kannas mer kravande pa grund av lutningen och den ojämna marken."
       }
     },
     faq: {
@@ -174,7 +182,8 @@ const copy = {
       nl: "Aanbevolen afzetpunt en looproute naar La AMARA",
       sv: "Rekommenderad avlamningsplats och gangvag till La AMARA"
     },
-    taxiNoteLabel: { en: "Taxi note", de: "Taxihinweis", es: "Nota sobre el taxi", nl: "Taxitip", sv: "Taxitips" }
+    taxiNoteLabel: { en: "Taxi note", de: "Taxihinweis", es: "Nota sobre el taxi", nl: "Taxitip", sv: "Taxitips" },
+    routeTitle: { en: "Recommended route", de: "Empfohlener Ablauf", es: "Recorrido recomendado", nl: "Aanbevolen route", sv: "Rekommenderad rutt" }
   },
   footer: {
     brand: { en: "Frigiliana Editorial", de: "Frigiliana Editorial", es: "Editorial Frigiliana", nl: "Frigiliana Redactie", sv: "Frigiliana Redaktion" },
@@ -221,9 +230,128 @@ const c = {
   sidebar: copy.sidebar,
   footer: { brand: copy.footer.brand[currentLang], rights: copy.footer.rights[currentLang] }
 };
+
+const arrivalSteps = {
+  en: [
+    "Stop at Avenida Carlos Cano 42.",
+    "Take the staircase at La Fuente on the left-hand side.",
+    "Pass La Fuente Vieja and continue for around 15 meters.",
+    "Turn right at Bar El Senor and continue uphill.",
+    "Look for the green door of La AMARA on the right."
+  ],
+  de: [
+    "Haltet zuerst an der Avenida Carlos Cano 42 an.",
+    "Nehmt links bei La Fuente die Treppe.",
+    "Geht an La Fuente Vieja vorbei und noch etwa 15 Meter weiter.",
+    "Biegt am Bar El Senor rechts ab und geht weiter bergauf.",
+    "Sucht rechts nach der grünen Tür von La AMARA."
+  ],
+  es: [
+    "Parad primero en Avenida Carlos Cano 42.",
+    "Tomad la escalera a la izquierda en La Fuente.",
+    "Pasad la fuente La Fuente Vieja y seguid unos 15 metros mas.",
+    "Girad a la derecha en Bar El Senor y continuad cuesta arriba.",
+    "Buscad a la derecha la puerta verde de La AMARA."
+  ],
+  nl: [
+    "Stop eerst bij Avenida Carlos Cano 42.",
+    "Neem links de trap bij La Fuente.",
+    "Loop langs La Fuente Vieja en ga nog ongeveer 15 meter verder.",
+    "Sla bij Bar El Senor rechtsaf en loop verder omhoog.",
+    "Zoek rechts naar de groene deur van La AMARA."
+  ],
+  sv: [
+    "Stanna forst vid Avenida Carlos Cano 42.",
+    "Ta trappan till vanster vid La Fuente.",
+    "Ga forbi La Fuente Vieja och fortsatt cirka 15 meter till.",
+    "Sväng hoger vid Bar El Senor och fortsatt uppfor.",
+    "Titta efter La AMARAs gröna dorr pa hoger sida."
+  ]
+};
+
+const busRoutes = {
+  en: [
+    {
+      title: "Shorter route — via Calle Real",
+      meta: "Approx. 8 minutes · 550 m",
+      text: "This is the shorter route through the old village. It is slightly uphill and follows cobbled streets, but it does not include steps."
+    },
+    {
+      title: "Longer route — via the main road",
+      meta: "Approx. 12 minutes · 750 m",
+      text: "This route is mostly flat until La Fuente. At the end, there are several steps and a short final ascent of around 25 meters elevation."
+    }
+  ],
+  de: [
+    {
+      title: "Kürzerer Weg — über Calle Real",
+      meta: "Ca. 8 Minuten · 550 m",
+      text: "Das ist der kürzere Weg durch das alte Dorf. Er geht leicht bergauf über Kopfsteinpflaster, hat aber keine Stufen."
+    },
+    {
+      title: "Längerer Weg — über die Hauptstraße",
+      meta: "Ca. 12 Minuten · 750 m",
+      text: "Dieser Weg ist bis La Fuente größtenteils flach. Am Ende gibt es mehrere Stufen und einen kurzen letzten Anstieg von etwa 25 Höhenmetern."
+    }
+  ],
+  es: [
+    {
+      title: "Camino mas corto — por Calle Real",
+      meta: "Aprox. 8 minutos · 550 m",
+      text: "Es el recorrido mas corto por el casco antiguo. Tiene una ligera subida y va por calles empedradas, pero no incluye escalones."
+    },
+    {
+      title: "Camino mas largo — por la carretera principal",
+      meta: "Aprox. 12 minutos · 750 m",
+      text: "Este recorrido es casi llano hasta La Fuente. Al final hay varios escalones y una ultima subida corta de unos 25 metros de desnivel."
+    }
+  ],
+  nl: [
+    {
+      title: "Kortere route — via Calle Real",
+      meta: "Ongeveer 8 minuten · 550 m",
+      text: "Dit is de kortere route door het oude dorp. De weg loopt licht omhoog over kinderkopjes, maar er zijn geen trappen."
+    },
+    {
+      title: "Langere route — via de hoofdweg",
+      meta: "Ongeveer 12 minuten · 750 m",
+      text: "Deze route is grotendeels vlak tot aan La Fuente. Aan het einde zijn er meerdere treden en een laatste korte klim van ongeveer 25 hoogtemeters."
+    }
+  ],
+  sv: [
+    {
+      title: "Kortare vag — via Calle Real",
+      meta: "Ca 8 minuter · 550 m",
+      text: "Detta ar den kortare vagen genom gamla byn. Den lutar svagt uppat och gar over kullersten, men innehaller inga trappsteg."
+    },
+    {
+      title: "Langre vag — via huvudvagen",
+      meta: "Ca 12 minuter · 750 m",
+      text: "Den har vagen ar mestadels plan fram till La Fuente. Mot slutet finns flera trappsteg och en kort sista stigning pa omkring 25 hojdmetrar."
+    }
+  ]
+};
+
+const ui = {
+  stepLabel: {
+    en: "Recommended arrival step by step",
+    de: "Empfohlene Ankunft Schritt für Schritt",
+    es: "Llegada recomendada paso a paso",
+    nl: "Aanbevolen aankomst stap voor stap",
+    sv: "Rekommenderad ankomst steg for steg"
+  },
+  routeChoice: {
+    en: "Choose the route that fits you best",
+    de: "Wählt den Weg, der am besten zu euch passt",
+    es: "Elegid la ruta que mejor os encaje",
+    nl: "Kies de route die het beste past",
+    sv: "Valj den vag som passar er bast"
+  }
+};
 ---
 
 <UtilityLayout seo={seo} pageLang={currentLang} title={c.header.title} subtitle={c.header.subtitle}>
+  <SmartBackButton fallbackHref={resolveLink('location_frigiliana', currentLang)} />
   <Navigation
     currentLang={currentLang}
     brandName={c.nav.brand}
@@ -232,56 +360,119 @@ const c = {
   />
 
   <div class="space-y-20">
-    <section>
-      <h2 class="text-3xl font-headline italic mb-8 text-on-surface">{c.parking.title}</h2>
-      <div class="prose prose-neutral max-w-none">
-        <p class="font-body text-on-surface-variant text-lg leading-relaxed italic">
-          {c.parking.text}
+    <section class="space-y-6">
+      <h2 class="text-3xl font-headline italic text-on-surface">{c.parking.title}</h2>
+      <p class="font-body text-on-surface-variant text-lg leading-relaxed italic max-w-3xl">
+        {c.parking.text}
+      </p>
+    </section>
+
+    <section class="space-y-8">
+      <h2 class="text-3xl font-headline italic text-on-surface">{c.arrivalTip.title}</h2>
+
+      <div class="space-y-6">
+        <p class="font-body text-on-surface-variant text-lg leading-relaxed italic max-w-3xl">
+          {c.arrivalTip.text.split('\n\n')[0]}
+        </p>
+
+        <div class="rounded-[24px] border border-black/5 bg-surface p-8">
+          <h3 class="font-label text-[10px] uppercase tracking-[0.18em] text-primary mb-5">
+            {ui.stepLabel[currentLang]}
+          </h3>
+          <ol class="space-y-4">
+            {arrivalSteps[currentLang].map((step, index) => (
+              <li class="flex gap-4">
+                <span class="mt-0.5 shrink-0 font-label text-[10px] uppercase tracking-[0.18em] text-primary/70">
+                  {String(index + 1).padStart(2, '0')}
+                </span>
+                <span class="font-body text-on-surface leading-relaxed">{step}</span>
+              </li>
+            ))}
+          </ol>
+        </div>
+
+        <p class="font-body text-on-surface-variant text-base leading-relaxed">
+          <strong class="text-on-surface">{c.sidebar.taxiNoteLabel[currentLang]}:</strong> {c.arrivalTip.taxiNote}
         </p>
       </div>
     </section>
 
-    <section>
-      <h2 class="text-3xl font-headline italic mb-8 text-on-surface">{c.arrivalTip.title}</h2>
-      <div class="prose prose-neutral max-w-none">
-        <p class="font-body text-on-surface-variant text-lg leading-relaxed italic whitespace-pre-line">
-          {c.arrivalTip.text}
+    <section class="space-y-8">
+      <h2 class="text-3xl font-headline italic text-on-surface">{c.arrivalByBus.title}</h2>
+
+      <div class="space-y-6">
+        <p class="font-body text-on-surface-variant text-lg leading-relaxed italic max-w-3xl">
+          {c.arrivalByBus.text.split('\n\n')[0]}
         </p>
-        <p class="font-body text-on-surface-variant text-lg leading-relaxed italic mt-8">
-          <strong class="text-on-surface not-italic">{c.sidebar.taxiNoteLabel[currentLang]}:</strong> {c.arrivalTip.taxiNote}
-        </p>
+
+        <div class="rounded-[24px] border border-black/5 bg-surface p-8">
+          <h3 class="font-label text-[10px] uppercase tracking-[0.18em] text-primary mb-6">
+            {ui.routeChoice[currentLang]}
+          </h3>
+
+          <div class="space-y-6">
+            {busRoutes[currentLang].map((route) => (
+              <article class="border-b border-black/10 pb-6 last:border-b-0 last:pb-0">
+                <h3 class="font-body text-on-surface text-lg font-semibold leading-snug">{route.title}</h3>
+                <p class="font-label text-[10px] uppercase tracking-[0.18em] opacity-50 mt-2 mb-3">
+                  {route.meta}
+                </p>
+                <p class="font-body text-on-surface-variant leading-relaxed">
+                  {route.text}
+                </p>
+              </article>
+            ))}
+          </div>
+        </div>
       </div>
     </section>
 
-    <section>
-      <h2 class="text-3xl font-headline italic mb-8 text-on-surface">{c.arrivalByBus.title}</h2>
-      <div class="prose prose-neutral max-w-none">
-        <p class="font-body text-on-surface-variant text-lg leading-relaxed italic whitespace-pre-line">
-          {c.arrivalByBus.text}
-        </p>
-      </div>
+    <section class="space-y-6">
+      <h2 class="text-3xl font-headline italic text-on-surface">{c.walkingAccess.title}</h2>
+      <p class="font-body text-on-surface-variant text-lg leading-relaxed italic max-w-3xl">
+        {c.walkingAccess.text}
+      </p>
+    </section>
+
+    <section class="space-y-6">
+      <h2 class="text-3xl font-headline italic text-on-surface">{c.luggageAdvice.title}</h2>
+      <p class="font-body text-on-surface-variant text-lg leading-relaxed italic max-w-3xl">
+        {c.luggageAdvice.text}
+      </p>
     </section>
   </div>
 
   <div slot="sidebar">
     <div class="mb-10">
-      <div class="p-8 bg-[#fcfbf9] border border-black/5">
+      <div class="p-8 bg-surface border border-black/5 rounded-[24px]">
         <h3 class="font-headline italic text-2xl text-on-surface mb-8">{c.sidebar.title[currentLang]}</h3>
+
         <div class="space-y-6">
           <div class="border-b border-black/10 pb-4">
-            <span class="font-label text-[10px] uppercase tracking-[0.18em] opacity-50 mb-2 block">{c.sidebar.address[currentLang]}</span>
+            <span class="font-label text-[10px] uppercase tracking-[0.18em] opacity-50 mb-2 block">
+              {c.sidebar.address[currentLang]}
+            </span>
             <p class="font-body text-on-surface leading-relaxed">Calle Chorruelo 5<br />29788 Frigiliana</p>
           </div>
+
           <div class="border-b border-black/10 pb-4">
-            <span class="font-label text-[10px] uppercase tracking-[0.18em] opacity-50 mb-2 block">{c.sidebar.dropOff[currentLang]}</span>
+            <span class="font-label text-[10px] uppercase tracking-[0.18em] opacity-50 mb-2 block">
+              {c.sidebar.dropOff[currentLang]}
+            </span>
             <p class="font-body text-on-surface leading-relaxed">Avenida Carlos Cano 42</p>
           </div>
+
           <div class="border-b border-black/10 pb-4">
-            <span class="font-label text-[10px] uppercase tracking-[0.18em] opacity-50 mb-2 block">{c.sidebar.walkingDistance[currentLang]}</span>
+            <span class="font-label text-[10px] uppercase tracking-[0.18em] opacity-50 mb-2 block">
+              {c.sidebar.walkingDistance[currentLang]}
+            </span>
             <p class="font-body text-on-surface leading-relaxed">{c.sidebar.walkingValue[currentLang]}</p>
           </div>
+
           <div>
-            <span class="font-label text-[10px] uppercase tracking-[0.18em] opacity-50 mb-2 block">{c.sidebar.busStop[currentLang]}</span>
+            <span class="font-label text-[10px] uppercase tracking-[0.18em] opacity-50 mb-2 block">
+              {c.sidebar.busStop[currentLang]}
+            </span>
             <p class="font-body text-on-surface leading-relaxed">Parada de Autobus - C. Real</p>
           </div>
         </div>
@@ -289,22 +480,32 @@ const c = {
     </div>
 
     <div class="mb-10">
-      <div class="aspect-[4/3] overflow-hidden rounded-[24px] bg-[#fcfbf9] border border-black/5">
-        <iframe
-          src="https://www.google.com/maps/embed?pb=!1m28!1m12!1m3!1d399.3819689214106!2d-3.899669413335943!3d36.79321366611666!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m13!3e2!4m5!1s0xd7224b1c34f3d35%3A0x11238dc7b1b48fe1!2sAv.%20Carlos%20Cano%2C%2042%2C%2029788%20Frigiliana%2C%20M%C3%A1laga%2C%20Spanien!3m2!1d36.7929336!2d-3.8996280999999997!4m5!1s0xd722515aad72c57%3A0xca1cc65d15b58cf3!2sLa%20AMARA%20-%20Quiet%20romantic%20stays%20in%20Frigiliana%2C%20C.%20Chorruelo%2C%205%2C%2029788%20Frigiliana%2C%20M%C3%A1laga%2C%20Spanien!3m2!1d36.7931609!2d-3.8991032!5e0!3m2!1sde!2sde!4v1774253231178!5m2!1sde!2sde"
-          width="600"
-          height="450"
-          style="border:0;"
-          allowfullscreen=""
-          loading="lazy"
-          referrerpolicy="no-referrer-when-downgrade"
-          title={c.sidebar.mapTitle[currentLang]}
-          class="h-full w-full"
-        ></iframe>
-      </div>
+      <section class="space-y-6">
+        <div class="rounded-[24px] overflow-hidden border border-black/5 bg-surface">
+          <button type="button" class="block w-full" onclick="document.getElementById('map-overlay').classList.remove('hidden')">
+            <img
+              src="/images/arrival-map.jpg"
+              alt="Walking route from Avenida Carlos Cano 42 to La AMARA Frigiliana"
+              class="w-full h-auto"
+              loading="lazy"
+            />
+          </button>
+        </div>
+
+        <div>
+          <a
+            href="https://maps.app.goo.gl/S7AzRNc2QMCRyBBN6"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="am-cta-link"
+          >
+            Open route in Google Maps
+          </a>
+        </div>
+      </section>
     </div>
 
-    <div class="p-8 bg-[#fcfbf9] border border-black/5">
+    <div class="p-8 bg-surface border border-black/5 rounded-[24px]">
       <h3 class="label-md font-label mb-8 text-primary">{c.sidebar.quickContact[currentLang]}</h3>
       <ul class="space-y-6">
         <li class="flex flex-col border-b border-black/10 pb-4">
@@ -326,4 +527,39 @@ const c = {
     faqTitle={c.faq.title}
     items={c.faq.items}
   />
+
+  <div
+    id="map-overlay"
+    class="fixed inset-0 z-[999] hidden bg-black/70"
+    onclick="this.classList.add('hidden')"
+  >
+    <div class="min-h-full flex items-center justify-center p-6">
+      <div class="relative max-w-4xl w-full" onclick="event.stopPropagation()">
+        <button
+          type="button"
+          class="absolute top-4 right-4 text-white text-xl"
+          onclick="document.getElementById('map-overlay').classList.add('hidden')"
+        >
+          ✕
+        </button>
+
+        <img
+          src="/images/arrival-map.jpg"
+          alt="Expanded route map"
+          class="w-full h-auto rounded-[16px]"
+        />
+
+        <div class="mt-4 text-center">
+          <a
+            href="https://www.google.com/maps/dir/Avenida+Carlos+Cano+42,+Frigiliana/Calle+Chorruelo+5,+Frigiliana"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="am-cta-link text-white"
+          >
+            Open route in Google Maps
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
 </UtilityLayout>
