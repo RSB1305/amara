@@ -6,6 +6,10 @@ import EditorialQuote from '../../components/editorial/EditorialQuote.astro';
 import EditorialSplit from '../../components/editorial/EditorialSplit.astro';
 import EditorialStatement from '../../components/editorial/EditorialStatement.astro';
 import EditorialDefinitionList from '../../components/editorial/EditorialDefinitionList.astro';
+import EditorialFeatureGrid from '../../components/editorial/EditorialFeatureGrid.astro';
+import SustainabilityBand from '../../components/editorial/SustainabilityBand.astro';
+import EditorialHostProfile from '../../components/editorial/EditorialHostProfile.astro';
+import EditorialClosingCta from '../../components/editorial/EditorialClosingCta.astro';
 import { getAboutUsPageData } from '../../content/aboutUsContent';
 import { resolveLink } from '../../lib/linkResolver';
 import { normalizeLanguage } from '../../lib/seo/resolve-seo-head';
@@ -20,6 +24,29 @@ const principlesDefinitionItems = (content.principles.items ?? []).map((item) =>
   title: item.title[currentLang],
   description: item.copy[currentLang]
 }));
+
+const qualityFeatureCards = content.quality.cards.map((card) => ({
+  title: card.title[currentLang],
+  ...(card.subline ? { subline: card.subline[currentLang] } : {}),
+  copy: card.copy[currentLang]
+}));
+
+const sustainabilityListColumns =
+  content.sustainability.listColumns?.map((column) => ({
+    label: column.label[currentLang],
+    items: column.items.map((item) => item[currentLang])
+  })) ?? [];
+
+const hostStats =
+  content.host.stats?.map((stat) => ({
+    label: stat.label[currentLang],
+    value: stat.value[currentLang]
+  })) ?? [];
+
+const closingCtaLinks = content.closingCta.links.map((link) => ({
+  token: link.token,
+  label: link.label[currentLang]
+}));
 ---
 
 <BaseLayout seo={page.seo} pageLang={currentLang} footerHighlights={page.footerHighlights}>
@@ -32,7 +59,7 @@ const principlesDefinitionItems = (content.principles.items ?? []).map((item) =>
     languageToken="about"
     ctaLabel={page.navCtaLabel}
   />
-  <div class="am-exp-page">
+  <div class="bg-white max-w-[1400px] mx-auto px-[5vw]">
     <TrustHero
       subtitle={page.hero.subtitle}
       title={page.hero.titleHtml}
@@ -45,48 +72,42 @@ const principlesDefinitionItems = (content.principles.items ?? []).map((item) =>
     />
 
     <main>
-      <section class="am-exp-section am-exp-philosophy">
+      <section class="mb-[clamp(8rem,15vw,14rem)]">
         <EditorialSplit title={content.philosophy.title?.[currentLang] ?? ''}>
-          <p class="am-body am-exp-text-large">{content.philosophy.lead?.[currentLang]}</p>
+          <p class="am-body text-[clamp(1.25rem,2vw,1.5rem)] leading-[1.5] text-on-surface mb-8">
+            {content.philosophy.lead?.[currentLang]}
+          </p>
           {content.philosophy.paragraphs?.map((paragraph) => (
             <p class="am-body">{paragraph[currentLang]}</p>
           ))}
-          <div class="am-exp-spacer"></div>
-          <h3 class="am-exp-subtitle">{content.philosophy.subtitle?.[currentLang]}</h3>
+          <div class="h-16 w-full shrink-0" aria-hidden="true"></div>
+          <h3 class="font-body text-xl font-semibold text-on-surface mb-4">{content.philosophy.subtitle?.[currentLang]}</h3>
           {content.philosophy.items?.map((item) => (
             <p class="am-body">{item.copy[currentLang]}</p>
           ))}
         </EditorialSplit>
       </section>
 
-      <div class="am-exp-section">
+      <div class="mb-[clamp(8rem,15vw,14rem)]">
         <EditorialQuote quote={content.quote[currentLang]} />
       </div>
 
-      <section class="am-exp-section am-exp-principles">
-        <div class="am-exp-principles__header">
+      <section class="mb-[clamp(8rem,15vw,14rem)] max-w-[800px] mx-auto">
+        <div class="mb-16 text-center">
           <h2 class="am-section-title">{content.principles.title?.[currentLang]}</h2>
-          <p class="am-body am-exp-principles__note">{content.principles.note?.[currentLang]}</p>
+          <p class="am-body italic text-muted">{content.principles.note?.[currentLang]}</p>
         </div>
         <EditorialDefinitionList items={principlesDefinitionItems} />
       </section>
 
-      <section class="am-exp-section am-exp-quality">
-        <h2 class="am-section-title am-exp-quality__title">{content.quality.title?.[currentLang]}</h2>
-        <div class="am-exp-quality__grid">
-          {content.quality.cards.map((card) => (
-            <div class="am-exp-quality__card">
-              <div class="am-exp-quality__header">
-                <h3 class="am-exp-quality__label">
-                  <span class="am-exp-quality__label-main">{card.title[currentLang]}</span>
-                  {card.subline && <span class="am-exp-muted am-exp-quality__subline">{card.subline[currentLang]}</span>}
-                </h3>
-              </div>
-              <p class="am-body">{card.copy[currentLang]}</p>
-            </div>
-          ))}
+      <section
+        class="mb-[clamp(8rem,15vw,14rem)] bg-surface py-[clamp(4rem,8vw,8rem)] px-[clamp(2rem,5vw,5rem)] -mx-[5vw]"
+      >
+        <h2 class="am-section-title text-center mb-20">{content.quality.title?.[currentLang]}</h2>
+        <div class="max-w-[1200px] mx-auto mb-16">
+          <EditorialFeatureGrid cards={qualityFeatureCards} />
         </div>
-        <p class="am-body am-exp-quality__footer">{content.quality.note?.[currentLang]}</p>
+        <p class="am-body text-center italic text-muted mb-24">{content.quality.note?.[currentLang]}</p>
         <EditorialStatement title={content.quality.statementTitle[currentLang]}>
           {content.quality.statementParagraphs.map((paragraph) => (
             <p class="am-body">{paragraph[currentLang]}</p>
@@ -95,17 +116,21 @@ const principlesDefinitionItems = (content.principles.items ?? []).map((item) =>
         </EditorialStatement>
       </section>
 
-      <section class="am-exp-section am-exp-locations">
-        <div class="am-exp-locations__header">
+      <section class="mb-[clamp(8rem,15vw,14rem)]">
+        <div class="text-center max-w-[600px] mx-auto mb-20">
           <h2 class="am-section-title">{content.locations.title?.[currentLang]}</h2>
           <p class="am-body">{content.locations.lead?.[currentLang]}</p>
         </div>
-        <div class="am-exp-locations__trio">
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-[clamp(2rem,4vw,4rem)]">
           {content.locations.locations?.map((location) => (
-            <figure class="am-exp-location">
-              <div class="am-exp-location__image"><span>{location.name}</span></div>
-              <figcaption class="am-exp-location__caption">
-                <h3 class="am-exp-location__title">{location.name}</h3>
+            <figure class="m-0">
+              <div
+                class="aspect-[3/4] bg-black/[0.03] flex items-center justify-center mb-6"
+              >
+                <span class="font-headline italic text-on-surface/30">{location.name}</span>
+              </div>
+              <figcaption>
+                <h3 class="font-headline text-[1.75rem] font-light text-on-surface mb-2">{location.name}</h3>
                 <p class="am-body">{location.copy[currentLang]}</p>
               </figcaption>
             </figure>
@@ -113,142 +138,40 @@ const principlesDefinitionItems = (content.principles.items ?? []).map((item) =>
         </div>
       </section>
 
-      <section class="am-exp-section am-exp-host">
-        <div class="am-exp-host__split">
-          <div class="am-exp-host__visual">
-            <div class="am-exp-host__portrait">
-              <img src="/images/robert-amara-founder-host.jpg" alt={content.host.imageAlt[currentLang]} loading="lazy" decoding="async" />
-            </div>
-          </div>
-          <div class="am-exp-host__content">
-            <h2 class="am-section-title">{content.host.title?.[currentLang]}</h2>
-            <p class="am-kicker am-exp-host__role">{content.host.role[currentLang]}</p>
-            <dl class="am-exp-stats">
-              {content.host.stats?.map((stat) => (
-                <div class="am-exp-stats__item">
-                  <dt class="am-exp-stats__label">{stat.label[currentLang]}</dt>
-                  <dd class="am-body am-exp-stats__value">{stat.value[currentLang]}</dd>
-                </div>
-              ))}
-            </dl>
-            <div class="am-exp-team">
-              <h3 class="am-exp-subtitle">{content.host.subtitle?.[currentLang]}</h3>
-              <div class="am-exp-team__grid">
-                {content.host.teamItems?.map((item) => (
-                  <div>
-                    <h4 class="am-exp-team__label">{item.title[currentLang]}</h4>
-                    <p class="am-body">{item.copy[currentLang]}</p>
-                  </div>
-                ))}
+      <EditorialHostProfile
+        imageSrc="/images/robert-amara-founder-host.jpg"
+        imageAlt={content.host.imageAlt[currentLang]}
+        title={content.host.title?.[currentLang] ?? ''}
+        role={content.host.role[currentLang]}
+        stats={hostStats}
+      >
+        <div class="pt-12">
+          <h3 class="font-body text-xl font-semibold text-on-surface mb-4">{content.host.subtitle?.[currentLang]}</h3>
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-8 mt-8">
+            {content.host.teamItems?.map((item) => (
+              <div>
+                <h4 class="font-body text-base font-semibold text-on-surface mb-2 m-0">{item.title[currentLang]}</h4>
+                <p class="am-body m-0">{item.copy[currentLang]}</p>
               </div>
-            </div>
+            ))}
           </div>
         </div>
-      </section>
+      </EditorialHostProfile>
 
-      <section class="am-exp-section am-exp-sustainability">
-        <div class="am-exp-sustainability__inner">
-          <div class="am-exp-sustainability__header">
-            <h2 class="am-section-title">{content.sustainability.title?.[currentLang]}</h2>
-            <p class="am-kicker">{content.sustainability.subtitle?.[currentLang]}</p>
-          </div>
-          <div class="am-exp-sustainability__content">
-            <p class="am-body am-exp-text-large">{content.sustainability.lead?.[currentLang]}</p>
-            <div class="am-exp-sustainability__lists">
-              {content.sustainability.listColumns?.map((column) => (
-                <div class="am-exp-sustainability__list">
-                  <h3 class="am-exp-sustainability__label">{column.label[currentLang]}</h3>
-                  <ul class="am-body am-exp-ul">
-                    {column.items.map((item) => (
-                      <li>{item[currentLang]}</li>
-                    ))}
-                  </ul>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
+      <SustainabilityBand
+        title={content.sustainability.title?.[currentLang] ?? ''}
+        subtitle={content.sustainability.subtitle?.[currentLang] ?? ''}
+        lead={content.sustainability.lead?.[currentLang] ?? ''}
+        listColumns={sustainabilityListColumns}
+      />
 
-      <section class="am-exp-section am-exp-cta">
-        <h2 class="am-exp-cta__title">{content.closingCta.title?.[currentLang]}</h2>
-        <p class="am-body am-exp-cta__lead">{content.closingCta.lead?.[currentLang]}</p>
-        <p class="am-body am-exp-cta__sub">{content.closingCta.note?.[currentLang]}</p>
-        <div class="am-cta-group">
-          {content.closingCta.links.map((link, index) => (
-            <>
-              {index > 0 && <span class="am-exp-cta__dot">&middot;</span>}
-              <a href={resolveLink(link.token, currentLang)} class="am-cta-link">{link.label[currentLang]}</a>
-            </>
-          ))}
-        </div>
-      </section>
+      <EditorialClosingCta
+        title={content.closingCta.title?.[currentLang] ?? ''}
+        lead={content.closingCta.lead?.[currentLang] ?? ''}
+        note={content.closingCta.note?.[currentLang]}
+        links={closingCtaLinks}
+        lang={currentLang}
+      />
     </main>
   </div>
 </BaseLayout>
-
-<style>
-  @reference "../../styles/global.css";
-
-  .am-exp-page {
-    @apply bg-white;
-    max-width: 1400px;
-    margin: 0 auto;
-    padding: 0 5vw;
-  }
-  .am-exp-section { margin-bottom: clamp(8rem, 15vw, 14rem); }
-  .am-exp-text-large { font-size: clamp(1.25rem, 2vw, 1.5rem); line-height: 1.5; @apply text-on-surface; margin-bottom: 2rem; }
-  .am-exp-subtitle { font-family: "Plus Jakarta Sans", sans-serif; font-size: 1.25rem; font-weight: 600; @apply text-on-surface; margin-bottom: 1rem; }
-  .am-exp-muted { @apply text-hint; font-weight: 400; }
-  .am-exp-spacer { height: 4rem; }
-  .am-exp-principles { max-width: 800px; margin-left: auto; margin-right: auto; }
-  .am-exp-principles__header { margin-bottom: 4rem; text-align: center; }
-  .am-exp-principles__note { font-style: italic; @apply text-muted; }
-  .am-exp-quality { @apply bg-surface; padding: clamp(4rem, 8vw, 8rem) clamp(2rem, 5vw, 5rem); margin-left: -5vw; margin-right: -5vw; }
-  .am-exp-quality__title { text-align: center; margin-bottom: 5rem; }
-  .am-exp-quality__grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 4rem 3rem; max-width: 1200px; margin: 0 auto 4rem; }
-  .am-exp-quality__header { min-height: 3.6rem; margin-bottom: 1rem; padding-bottom: 0.5rem; border-bottom: 1px solid rgba(0,0,0,0.1); display: flex; align-items: flex-start; }
-  .am-exp-quality__label { font-family: "Plus Jakarta Sans", sans-serif; font-size: 1rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; line-height: 1.05; margin: 0; }
-  .am-exp-quality__subline { display: block; margin-top: 0.08rem; line-height: 1.05; }
-  .am-exp-quality__footer { text-align: center; font-style: italic; @apply text-muted; margin-bottom: 6rem; }
-  .am-exp-locations__header { text-align: center; max-width: 600px; margin: 0 auto 5rem; }
-  .am-exp-locations__trio { display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(2rem, 4vw, 4rem); }
-  .am-exp-location { margin: 0; }
-  .am-exp-location__image { aspect-ratio: 3/4; background-color: rgba(0,0,0,0.03); display: flex; align-items: center; justify-content: center; margin-bottom: 1.5rem; }
-  .am-exp-location__image span { font-family: "Newsreader", serif; font-style: italic; color: rgba(0,0,0,0.3); }
-  .am-exp-location__title { font-family: "Newsreader", serif; font-size: 1.75rem; font-weight: 300; margin-bottom: 0.5rem; }
-  .am-exp-host__split { display: grid; grid-template-columns: 4fr 6fr; gap: clamp(4rem, 8vw, 8rem); align-items: start; }
-  .am-exp-host__portrait { aspect-ratio: 4/5; background-color: rgba(0,0,0,0.03); display: flex; align-items: center; justify-content: center; overflow: hidden; }
-  .am-exp-host__portrait img { width: 100%; height: 100%; object-fit: cover; object-position: center; display: block; }
-  .am-exp-host__role { margin-bottom: 3rem; }
-  .am-exp-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem 2rem; margin-bottom: 5rem; }
-  .am-exp-stats__label { font-family: "Plus Jakarta Sans", sans-serif; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em; @apply text-hint; margin-bottom: 0.5rem; }
-  .am-exp-stats__value { margin: 0; @apply text-on-surface; }
-  .am-exp-team { border-top: 1px solid rgba(0,0,0,0.1); padding-top: 3rem; }
-  .am-exp-team__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; margin-top: 2rem; }
-  .am-exp-team__label { font-family: "Plus Jakarta Sans", sans-serif; font-size: 1rem; font-weight: 600; margin-bottom: 0.5rem; }
-  .am-exp-sustainability { background-color: #dcefe6; color: #1d3128; padding: clamp(4rem, 8vw, 8rem) clamp(2rem, 5vw, 5rem); margin-left: -5vw; margin-right: -5vw; }
-  .am-exp-sustainability__inner { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr 2fr; gap: clamp(4rem, 8vw, 8rem); }
-  .am-exp-sustainability .am-section-title, .am-exp-sustainability .am-body, .am-exp-sustainability .am-exp-text-large { color: #1d3128; }
-  .am-exp-sustainability .am-kicker { color: rgba(29,49,40,0.72); }
-  .am-exp-sustainability__lists { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; margin-top: 4rem; }
-  .am-exp-sustainability__label { font-family: "Plus Jakarta Sans", sans-serif; font-size: 0.875rem; text-transform: uppercase; letter-spacing: 0.1em; color: rgba(29,49,40,0.68); margin-bottom: 1.5rem; border-bottom: 1px solid rgba(29,49,40,0.18); padding-bottom: 0.5rem; }
-  .am-exp-ul { list-style: none; padding: 0; margin: 0; }
-  .am-exp-ul li { margin-bottom: 0.75rem; position: relative; padding-left: 1.25rem; }
-  .am-exp-ul li::before { content: "—"; position: absolute; left: 0; color: rgba(29,49,40,0.42); }
-  .am-exp-cta { text-align: center; max-width: 800px; margin: 0 auto; padding-bottom: 4rem; }
-  .am-exp-cta__title { font-family: "Newsreader", serif; font-size: clamp(2.5rem, 4vw, 3.5rem); line-height: 1.1; font-weight: 300; @apply text-on-surface; margin-bottom: 2rem; }
-  .am-exp-cta__lead { font-size: clamp(1.125rem, 2vw, 1.25rem); @apply text-subtle; margin-bottom: 1rem; }
-  .am-exp-cta__sub { font-style: italic; @apply text-muted; margin-bottom: 4rem; }
-  .am-exp-cta__dot { color: #ccc; }
-  @media (max-width: 900px) {
-    .am-exp-host__split, .am-exp-sustainability__inner { grid-template-columns: 1fr; gap: 3rem; }
-    .am-exp-locations__trio { grid-template-columns: 1fr; }
-    .am-exp-host__visual { order: -1; max-width: 400px; }
-  }
-  @media (max-width: 600px) {
-    .am-exp-stats, .am-exp-team__grid, .am-exp-sustainability__lists { grid-template-columns: 1fr; gap: 2rem; }
-    .am-cta-group { flex-direction: column; gap: 1rem; }
-    .am-exp-cta__dot { display: none; }
-  }
-</style>

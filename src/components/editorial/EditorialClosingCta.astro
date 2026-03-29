@@ -1,0 +1,51 @@
+---
+/**
+ * EditorialClosingCta
+ *
+ * Centered closing headline, lead, optional note, and token-resolved CTA links.
+ */
+import { resolveLink } from '../../lib/linkResolver';
+import type { AmaraLanguage } from '../../types/seo';
+
+export interface EditorialClosingCtaLink {
+  label: string;
+  token: string;
+}
+
+interface Props {
+  title: string;
+  lead: string;
+  note?: string;
+  links: EditorialClosingCtaLink[];
+  lang: AmaraLanguage;
+}
+
+const { title, lead, note, links, lang } = Astro.props;
+
+const linkClass =
+  'font-body text-sm uppercase tracking-[0.1em] text-on-surface border-b border-on-surface/20 pb-1 no-underline transition-colors hover:border-on-surface';
+---
+
+<section class="mb-[clamp(8rem,15vw,14rem)]">
+  <div class="text-center max-w-[800px] mx-auto pb-16">
+    <h2 class="font-headline text-[clamp(2.5rem,4vw,3.5rem)] leading-[1.1] font-light text-on-surface mb-8">
+      {title}
+    </h2>
+    <p class={`text-[clamp(1.125rem,2vw,1.25rem)] text-subtle ${note ? 'mb-4' : 'mb-16'}`}>
+      {lead}
+    </p>
+    {note ? <p class="italic text-muted mb-16">{note}</p> : null}
+    <div class="flex flex-col sm:flex-row flex-wrap items-center justify-center gap-4 sm:gap-6">
+      {
+        links.map((link, index) => (
+          <>
+            {index > 0 && <span class="hidden sm:inline text-[#ccc]">&middot;</span>}
+            <a href={resolveLink(link.token, lang)} class={linkClass}>
+              {link.label}
+            </a>
+          </>
+        ))
+      }
+    </div>
+  </div>
+</section>
