@@ -40,8 +40,15 @@
   --color-border-subtle: rgba(0, 0, 0, 0.2);
   --color-border-hover: #111111;
   --color-dot-indicator: #cccccc;
+  /** Sustainability editorial band (About Us); paired surface + on-surface */
+  --color-sustainability-surface: #dcefe6;
+  --color-sustainability-on-surface: #1d3128;
   --color-btn-primary-text: #fbf9f5;
   --color-primary-alpha-80: rgb(120 86 17 / 0.8);
+
+  /** Editorial elevation + vertical rhythm (shared across page families) */
+  --shadow-editorial-card: 0 20px 40px rgba(0, 0, 0, 0.02);
+  --spacing-section-y: clamp(8rem, 15vw, 14rem);
 
   /* Typografie */
   --font-headline: "Newsreader", serif;

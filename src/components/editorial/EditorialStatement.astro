@@ -1,0 +1,21 @@
+---
+/**
+ * EditorialStatement
+ *
+ * Centered white “statement” card with soft shadow (quality / promise blocks).
+ */
+interface Props {
+  title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<div
+  class="bg-white max-w-[800px] mx-auto p-[clamp(2rem,6vw,5rem)] border border-on-surface/5 shadow-[var(--shadow-editorial-card)]"
+>
+  <h3 class="font-headline text-3xl md:text-4xl font-light mb-8 text-on-surface">{title}</h3>
+  <div class="flex flex-col gap-5">
+    <slot />
+  </div>
+</div>
