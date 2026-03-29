@@ -53,7 +53,7 @@ const { title, subtitle, lead, ctaLinks = [], supportText } = Astro.props;
   }
 
   .am-exp-hero__title {
-    font-family: "Newsreader", serif;
+    font-family: var(--font-headline);
     font-size: clamp(3.5rem, 7vw, 6rem);
     line-height: 1.05;
     font-weight: 300;
@@ -70,7 +70,7 @@ const { title, subtitle, lead, ctaLinks = [], supportText } = Astro.props;
   }
 
   .am-exp-hero__lead {
-    font-family: "Plus Jakarta Sans", sans-serif;
+    font-family: var(--font-body);
     font-size: clamp(1.25rem, 2vw, 1.5rem);
     line-height: 1.6;
     @apply text-subtle;
@@ -79,7 +79,7 @@ const { title, subtitle, lead, ctaLinks = [], supportText } = Astro.props;
 
   .am-hero-support {
     margin-top: 1.5rem;
-    font-family: "Plus Jakarta Sans", sans-serif;
+    font-family: var(--font-body);
     font-size: 0.95rem;
     line-height: 1.6;
     @apply text-muted;

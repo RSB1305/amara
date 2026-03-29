@@ -32,7 +32,7 @@ const { title, intro, frictionLabel, carAccessLabel, left, center, right } = Ast
 <section class="py-16 px-6 md:px-12 lg:px-24 max-w-[1600px] mx-auto">
   <div class="mb-12 flex flex-col md:flex-row md:items-end justify-between gap-6">
     <div>
-      <h2 class="font-serif text-3xl md:text-5xl mb-4">{title}</h2>
+      <h2 class="font-headline text-3xl md:text-5xl mb-4">{title}</h2>
       <p class="text-on-surface-variant font-light text-lg max-w-xl">
         {intro}
       </p>
@@ -40,58 +40,58 @@ const { title, intro, frictionLabel, carAccessLabel, left, center, right } = Ast
   </div>
 
   <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-    <div class="border border-[#E5E5E5] bg-white p-8 flex flex-col h-full">
+    <div class="border border-surface-container-high bg-surface-white p-8 flex flex-col h-full">
       <div class="mb-8">
         <Mountain className="w-6 h-6 text-on-surface mb-4" strokeWidth={1.5} />
-        <h3 class="font-serif text-2xl mb-2">{left.title}</h3>
+        <h3 class="font-headline text-2xl mb-2">{left.title}</h3>
         <p class="text-on-surface-variant font-light text-sm">{left.description}</p>
       </div>
       <div class="mt-auto space-y-4">
-        <div class="flex justify-between items-center border-t border-[#E5E5E5] pt-4">
-          <span class="text-[11px] uppercase tracking-wider text-muted">{frictionLabel}</span>
+        <div class="flex justify-between items-center border-t border-surface-container-high pt-4">
+          <span class="text-xs uppercase tracking-wider text-muted">{frictionLabel}</span>
           <span class="text-sm font-medium">{left.frictionValue}</span>
         </div>
-        <div class="flex justify-between items-center border-t border-[#E5E5E5] pt-4">
-          <span class="text-[11px] uppercase tracking-wider text-muted">{carAccessLabel}</span>
+        <div class="flex justify-between items-center border-t border-surface-container-high pt-4">
+          <span class="text-xs uppercase tracking-wider text-muted">{carAccessLabel}</span>
           <span class="text-sm font-medium">{left.carAccessValue}</span>
         </div>
       </div>
     </div>
 
-    <div class="border border-[#1A1A1A] bg-[#1A1A1A] text-white p-8 flex flex-col h-full relative overflow-hidden">
-      <div class="absolute top-0 right-0 bg-white text-on-surface text-[10px] font-bold uppercase tracking-widest px-3 py-1 m-4">
+    <div class="border border-on-surface bg-on-surface text-surface-white p-8 flex flex-col h-full relative overflow-hidden">
+      <div class="absolute top-0 right-0 bg-surface-white text-on-surface text-xs font-bold uppercase tracking-widest px-3 py-1 m-4">
         {center.balanceBadge}
       </div>
       <div class="mb-8">
-        <Home className="w-6 h-6 text-white mb-4" strokeWidth={1.5} />
-        <h3 class="font-serif text-2xl mb-2">{center.title}</h3>
+        <Home className="w-6 h-6 text-surface-white mb-4" strokeWidth={1.5} />
+        <h3 class="font-headline text-2xl mb-2">{center.title}</h3>
         <p class="text-faint font-light text-sm">{center.description}</p>
       </div>
       <div class="mt-auto space-y-4">
-        <div class="flex justify-between items-center border-t border-white/20 pt-4">
-          <span class="text-[11px] uppercase tracking-wider text-faint">{frictionLabel}</span>
+        <div class="flex justify-between items-center border-t border-surface-white/20 pt-4">
+          <span class="text-xs uppercase tracking-wider text-faint">{frictionLabel}</span>
           <span class="text-sm font-medium">{center.frictionValue}</span>
         </div>
-        <div class="flex justify-between items-center border-t border-white/20 pt-4">
-          <span class="text-[11px] uppercase tracking-wider text-faint">{carAccessLabel}</span>
+        <div class="flex justify-between items-center border-t border-surface-white/20 pt-4">
+          <span class="text-xs uppercase tracking-wider text-faint">{carAccessLabel}</span>
           <span class="text-sm font-medium">{center.carAccessValue}</span>
         </div>
       </div>
     </div>
 
-    <div class="border border-[#E5E5E5] bg-white p-8 flex flex-col h-full">
+    <div class="border border-surface-container-high bg-surface-white p-8 flex flex-col h-full">
       <div class="mb-8">
         <Car className="w-6 h-6 text-on-surface mb-4" strokeWidth={1.5} />
-        <h3 class="font-serif text-2xl mb-2">{right.title}</h3>
+        <h3 class="font-headline text-2xl mb-2">{right.title}</h3>
         <p class="text-on-surface-variant font-light text-sm">{right.description}</p>
       </div>
       <div class="mt-auto space-y-4">
-        <div class="flex justify-between items-center border-t border-[#E5E5E5] pt-4">
-          <span class="text-[11px] uppercase tracking-wider text-muted">{frictionLabel}</span>
+        <div class="flex justify-between items-center border-t border-surface-container-high pt-4">
+          <span class="text-xs uppercase tracking-wider text-muted">{frictionLabel}</span>
           <span class="text-sm font-medium">{right.frictionValue}</span>
         </div>
-        <div class="flex justify-between items-center border-t border-[#E5E5E5] pt-4">
-          <span class="text-[11px] uppercase tracking-wider text-muted">{carAccessLabel}</span>
+        <div class="flex justify-between items-center border-t border-surface-container-high pt-4">
+          <span class="text-xs uppercase tracking-wider text-muted">{carAccessLabel}</span>
           <span class="text-sm font-medium">{right.carAccessValue}</span>
         </div>
       </div>

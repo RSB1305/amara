@@ -665,205 +665,9 @@ const properties: PropertyEntry[] = [
     ctaLabel={navCtaLabel[currentLang]}
   />
 
-  <style>
-    @reference "../../styles/global.css";
-
-    #am-page-amenities .am-exp-page {
-      @apply bg-white;
-      max-width: 1400px;
-      margin: 0 auto;
-      padding: 0 5vw;
-    }
-
-    #am-page-amenities .am-wrap {
-      width: min(100%, 76rem);
-      margin: 0 auto;
-      padding: 0 1.5rem 5rem;
-    }
-
-    #am-page-amenities .am-section {
-      margin-bottom: 3rem;
-    }
-
-    #am-page-amenities .am-prose {
-      max-width: 46rem;
-    }
-
-    #am-page-amenities .am-body,
-    #am-page-amenities .am-small,
-    #am-page-amenities .am-elist-title,
-    #am-page-amenities .am-elist-desc,
-    #am-page-amenities .am-list-specs,
-    #am-page-amenities .am-inline-link,
-    #am-page-amenities .am-btn {
-      font-family: var(--font-body);
-    }
-
-    #am-page-amenities .am-h2 {
-      margin: 0 0 1rem;
-      font-family: var(--font-display, var(--font-body));
-      font-size: clamp(1.5rem, 3vw, 2rem);
-      font-weight: 500;
-      line-height: 1.05;
-      letter-spacing: -0.02em;
-    }
-
-    #am-page-amenities .am-grid {
-      display: block;
-    }
-
-    #am-page-amenities .am-card {
-      margin: 0 0 2.5rem;
-      border: 0;
-      border-radius: 0;
-      background: none;
-      box-shadow: none;
-    }
-
-    #am-page-amenities .am-card-body {
-      padding: 0;
-    }
-
-    #am-page-amenities .am-elist {
-      display: block;
-    }
-
-    #am-page-amenities .am-elist-item {
-      display: block;
-      margin-bottom: 1rem;
-    }
-
-    #am-page-amenities .am-elist-title {
-      margin: 0 0 0.2rem;
-      font-size: 0.95rem;
-      font-weight: 600;
-      color: rgba(0, 0, 0, 0.84);
-    }
-
-    #am-page-amenities .am-elist-desc {
-      margin: 0;
-      font-size: 0.95rem;
-      line-height: 1.65;
-      color: rgba(0, 0, 0, 0.68);
-    }
-
-    #am-page-amenities .am-list-specs {
-      margin: 1rem 0 0;
-      padding: 0;
-      list-style: none;
-      display: grid;
-      gap: 0.55rem;
-      font-size: 0.95rem;
-      line-height: 1.6;
-      color: rgba(0, 0, 0, 0.76);
-    }
-
-    #am-page-amenities .am-list-specs li {
-      display: flex;
-      justify-content: space-between;
-      gap: 1rem;
-      padding-bottom: 0.55rem;
-      border-bottom: 1px solid rgba(0, 0, 0, 0.06);
-    }
-
-    #am-page-amenities .am-list-specs strong {
-      font-weight: 600;
-      color: rgba(0, 0, 0, 0.88);
-    }
-
-    #am-page-amenities .am-list-specs span {
-      text-align: right;
-    }
-
-    #am-page-amenities .am-inline-link {
-      color: rgba(0, 0, 0, 0.72);
-      text-decoration: underline;
-      text-underline-offset: 0.18em;
-    }
-
-    #am-page-amenities .am-btn-row {
-      margin-top: 1.25rem;
-    }
-
-    #am-page-amenities .am-btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 2.9rem;
-      padding: 0.8rem 1.2rem;
-      border-radius: 0.95rem;
-      text-decoration: none;
-      font-size: 0.78rem;
-      font-weight: 700;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-    }
-
-    #am-page-amenities .am-btn--primary {
-      background: #111;
-      color: #fff;
-    }
-
-    #am-page-amenities .am-small {
-      margin: 1rem 0 0;
-      font-size: 0.95rem;
-      line-height: 1.7;
-      color: rgba(0, 0, 0, 0.64);
-    }
-
-    /* =========================================================
-       PAGE-LOCAL SAFETY ONLY (NO language logic)
-       - AI status indicator
-       - Icon safety fix if global CSS fails
-       ========================================================= */
-
-    /* AI Data Protection & Status Light */
-    #amara-ai-status-indicator {
-      display: inline-block;
-      width: 12px;
-      height: 12px;
-      border-radius: 50%;
-      background-color: #e74c3c;
-      margin-left: 10px;
-      opacity: 0.8;
-      cursor: help;
-      transition: all 0.3s ease;
-      vertical-align: middle;
-    }
-
-    #amara-ai-status-indicator.status-ok {
-      background-color: #2ecc71 !important;
-      box-shadow: 0 0 8px #2ecc71;
-    }
-
-    /* ICON SAFETY FIX (forces icons small & gold if global CSS fails) */
-    .am-root .am-elist-ico {
-      display: none !important;
-    }
-
-    .am-root .am-elist-ico svg {
-      display: none !important;
-    }
-
-    @media (max-width: 720px) {
-      #am-page-amenities .am-wrap {
-        padding-inline: 1rem;
-      }
-
-      #am-page-amenities .am-list-specs li {
-        flex-direction: column;
-        gap: 0.2rem;
-      }
-
-      #am-page-amenities .am-list-specs span {
-        text-align: left;
-      }
-    }
-  </style>
-
-  <div id="am-page-amenities" class="am-root" data-am-page="amenities" data-current-lang={currentLang}>
+  <div id="am-page-amenities" class="am-root font-body bg-white text-on-surface" data-am-page="amenities" data-current-lang={currentLang}>
     <section aria-label={page.sections.inventoryAria}>
-      <div class="am-exp-page">
+      <div class="am-exp-page bg-white max-w-[1400px] mx-auto px-[5vw]">
         <TrustHero
           subtitle={page.hero.subtitle}
           title={page.hero.title}
@@ -876,20 +680,20 @@ const properties: PropertyEntry[] = [
         />
       </div>
 
-      <div class="am-wrap">
+      <div class="am-wrap w-full max-w-[76rem] mx-auto px-6 pb-20 max-md:px-4">
 
-        <section class="am-section" aria-label={page.sections.conceptAria}>
-          <h2 class="am-h2">{page.sections.conceptTitle}</h2>
+        <section class="am-section mb-12" aria-label={page.sections.conceptAria}>
+          <h2 class="am-h2 mb-4 font-headline text-2xl md:text-3xl font-medium leading-tight tracking-tight text-on-surface">{page.sections.conceptTitle}</h2>
 
-          <div class="am-grid">
-            <article class="am-card">
-              <div class="am-card-body">
-                <h3 class="am-h2">{page.sections.coreTitle}</h3>
+          <div class="am-grid block">
+            <article class="am-card mb-10 border-0 rounded-none bg-transparent shadow-none">
+              <div class="am-card-body p-0">
+                <h3 class="am-h2 mb-4 font-headline text-2xl md:text-3xl font-medium leading-tight tracking-tight text-on-surface">{page.sections.coreTitle}</h3>
 
-                <div class="am-elist is-tight">
+                <div class="am-elist is-tight block">
                   {page.bullets.core.map((bullet, index) => (
-                    <div class="am-elist-item">
-                      <div class="am-elist-ico" aria-hidden="true">
+                    <div class="am-elist-item block mb-4">
+                      <div class="am-elist-ico hidden" aria-hidden="true">
                         {index === 0 && (
                           <svg viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
                         )}
@@ -901,8 +705,8 @@ const properties: PropertyEntry[] = [
                         )}
                       </div>
                       <div class="am-elist-body">
-                        <p class="am-elist-title">{bullet.title}</p>
-                        <p class="am-elist-desc">{bullet.desc}</p>
+                        <p class="am-elist-title mb-0.5 text-sm font-semibold text-on-surface">{bullet.title}</p>
+                        <p class="am-elist-desc m-0 text-sm leading-relaxed text-on-surface-variant">{bullet.desc}</p>
                       </div>
                     </div>
                   ))}
@@ -910,14 +714,14 @@ const properties: PropertyEntry[] = [
               </div>
             </article>
 
-            <article class="am-card">
-              <div class="am-card-body">
-                <h3 class="am-h2">{page.sections.separateTitle}</h3>
+            <article class="am-card mb-10 border-0 rounded-none bg-transparent shadow-none">
+              <div class="am-card-body p-0">
+                <h3 class="am-h2 mb-4 font-headline text-2xl md:text-3xl font-medium leading-tight tracking-tight text-on-surface">{page.sections.separateTitle}</h3>
 
-                <div class="am-elist is-tight">
+                <div class="am-elist is-tight block">
                   {page.bullets.separate.map((bullet, index) => (
-                    <div class="am-elist-item">
-                      <div class="am-elist-ico" aria-hidden="true">
+                    <div class="am-elist-item block mb-4">
+                      <div class="am-elist-ico hidden" aria-hidden="true">
                         {index === 0 && (
                           <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
                         )}
@@ -929,8 +733,8 @@ const properties: PropertyEntry[] = [
                         )}
                       </div>
                       <div class="am-elist-body">
-                        <p class="am-elist-title">{bullet.title}</p>
-                        <p class="am-elist-desc">{bullet.desc}</p>
+                        <p class="am-elist-title mb-0.5 text-sm font-semibold text-on-surface">{bullet.title}</p>
+                        <p class="am-elist-desc m-0 text-sm leading-relaxed text-on-surface-variant">{bullet.desc}</p>
                       </div>
                     </div>
                   ))}
@@ -940,35 +744,35 @@ const properties: PropertyEntry[] = [
           </div>
         </section>
 
-        <section class="am-section" aria-label={page.sections.inventoryAria}>
-          <h2 class="am-h2">{page.sections.inventoryTitle}</h2>
+        <section class="am-section mb-12" aria-label={page.sections.inventoryAria}>
+          <h2 class="am-h2 mb-4 font-headline text-2xl md:text-3xl font-medium leading-tight tracking-tight text-on-surface">{page.sections.inventoryTitle}</h2>
 
-          <div class="am-grid">
+          <div class="am-grid block">
             {properties.map((property) => (
-              <article class="am-card" data-rental-id={property.id}>
-                <div class="am-card-body">
-                  <h3 class="am-h2">{property.name}</h3>
-                  <div class="am-prose">
-                    <p class="am-body">
-                      <a class="am-inline-link" href={property.href}>{page.inventory.detailsLabel}</a>
+              <article class="am-card mb-10 border-0 rounded-none bg-transparent shadow-none" data-rental-id={property.id}>
+                <div class="am-card-body p-0">
+                  <h3 class="am-h2 mb-4 font-headline text-2xl md:text-3xl font-medium leading-tight tracking-tight text-on-surface">{property.name}</h3>
+                  <div class="am-prose max-w-[46rem]">
+                    <p class="am-body font-body">
+                      <a class="am-inline-link text-on-surface/80 underline underline-offset-[0.18em]" href={property.href}>{page.inventory.detailsLabel}</a>
                     </p>
                   </div>
 
-                  <ul class="am-list-specs">
-                    <li><strong>{page.inventory.labels.license}</strong> <span>{property.specs.license}</span></li>
-                    <li><strong>{page.inventory.labels.maxOccupancy}</strong> <span>{property.specs.maxOccupancy[currentLang]}</span></li>
-                    {property.specs.bed && <li><strong>{page.inventory.labels.bed}</strong> <span>{property.specs.bed}</span></li>}
-                    {property.specs.beds && <li><strong>{page.inventory.labels.beds}</strong> <span>{property.specs.beds[currentLang]}</span></li>}
-                    <li><strong>{page.inventory.labels.price}</strong> <span>{property.specs.price[currentLang]}</span></li>
-                    <li><strong>{page.inventory.labels.accessNote}</strong> <span>{property.specs.accessNote[currentLang]}</span></li>
-                    <li><strong>{page.inventory.labels.pets}</strong> <span>{property.specs.pets[currentLang]}</span></li>
-                    {property.specs.pool && <li><strong>{page.inventory.labels.pool}</strong> <span>{property.specs.pool[currentLang]}</span></li>}
-                    <li><strong>{page.inventory.labels.view}</strong> <span>{property.specs.view[currentLang]}</span></li>
-                    <li><strong>{page.inventory.labels.outdoor}</strong> <span>{property.specs.outdoor[currentLang]}</span></li>
-                    <li><strong>{page.inventory.labels.kitchen}</strong> <span>{property.specs.kitchen[currentLang]}</span></li>
+                  <ul class="am-list-specs mt-4 m-0 p-0 list-none grid gap-y-[0.55rem] text-sm leading-relaxed text-on-surface-variant">
+                    <li class="flex justify-between gap-4 pb-[0.55rem] border-b border-outline-variant/20 max-md:flex-col max-md:gap-0.5 max-md:items-start"><strong class="font-semibold text-on-surface">{page.inventory.labels.license}</strong> <span class="text-right max-md:text-left">{property.specs.license}</span></li>
+                    <li class="flex justify-between gap-4 pb-[0.55rem] border-b border-outline-variant/20 max-md:flex-col max-md:gap-0.5 max-md:items-start"><strong class="font-semibold text-on-surface">{page.inventory.labels.maxOccupancy}</strong> <span class="text-right max-md:text-left">{property.specs.maxOccupancy[currentLang]}</span></li>
+                    {property.specs.bed && <li class="flex justify-between gap-4 pb-[0.55rem] border-b border-outline-variant/20 max-md:flex-col max-md:gap-0.5 max-md:items-start"><strong class="font-semibold text-on-surface">{page.inventory.labels.bed}</strong> <span class="text-right max-md:text-left">{property.specs.bed}</span></li>}
+                    {property.specs.beds && <li class="flex justify-between gap-4 pb-[0.55rem] border-b border-outline-variant/20 max-md:flex-col max-md:gap-0.5 max-md:items-start"><strong class="font-semibold text-on-surface">{page.inventory.labels.beds}</strong> <span class="text-right max-md:text-left">{property.specs.beds[currentLang]}</span></li>}
+                    <li class="flex justify-between gap-4 pb-[0.55rem] border-b border-outline-variant/20 max-md:flex-col max-md:gap-0.5 max-md:items-start"><strong class="font-semibold text-on-surface">{page.inventory.labels.price}</strong> <span class="text-right max-md:text-left">{property.specs.price[currentLang]}</span></li>
+                    <li class="flex justify-between gap-4 pb-[0.55rem] border-b border-outline-variant/20 max-md:flex-col max-md:gap-0.5 max-md:items-start"><strong class="font-semibold text-on-surface">{page.inventory.labels.accessNote}</strong> <span class="text-right max-md:text-left">{property.specs.accessNote[currentLang]}</span></li>
+                    <li class="flex justify-between gap-4 pb-[0.55rem] border-b border-outline-variant/20 max-md:flex-col max-md:gap-0.5 max-md:items-start"><strong class="font-semibold text-on-surface">{page.inventory.labels.pets}</strong> <span class="text-right max-md:text-left">{property.specs.pets[currentLang]}</span></li>
+                    {property.specs.pool && <li class="flex justify-between gap-4 pb-[0.55rem] border-b border-outline-variant/20 max-md:flex-col max-md:gap-0.5 max-md:items-start"><strong class="font-semibold text-on-surface">{page.inventory.labels.pool}</strong> <span class="text-right max-md:text-left">{property.specs.pool[currentLang]}</span></li>}
+                    <li class="flex justify-between gap-4 pb-[0.55rem] border-b border-outline-variant/20 max-md:flex-col max-md:gap-0.5 max-md:items-start"><strong class="font-semibold text-on-surface">{page.inventory.labels.view}</strong> <span class="text-right max-md:text-left">{property.specs.view[currentLang]}</span></li>
+                    <li class="flex justify-between gap-4 pb-[0.55rem] border-b border-outline-variant/20 max-md:flex-col max-md:gap-0.5 max-md:items-start"><strong class="font-semibold text-on-surface">{page.inventory.labels.outdoor}</strong> <span class="text-right max-md:text-left">{property.specs.outdoor[currentLang]}</span></li>
+                    <li class="flex justify-between gap-4 pb-[0.55rem] border-b border-outline-variant/20 max-md:flex-col max-md:gap-0.5 max-md:items-start"><strong class="font-semibold text-on-surface">{page.inventory.labels.kitchen}</strong> <span class="text-right max-md:text-left">{property.specs.kitchen[currentLang]}</span></li>
                   </ul>
 
-                  <div class="am-btn-row">
+                  <div class="am-btn-row mt-5">
                     <a href={property.href} class="am-btn am-btn--primary">{page.inventory.directBooking}</a>
                   </div>
                 </div>
@@ -976,13 +780,18 @@ const properties: PropertyEntry[] = [
             ))}
           </div>
 
-          <div class="am-prose">
-            <p class="am-small">
+          <div class="am-prose max-w-[46rem]">
+            <p class="am-small mt-4 text-sm leading-relaxed text-on-surface-variant">
               <strong>{page.noteTitle}</strong> {page.noteText}
             </p>
 
-            <p class="am-small" style="font-size: 0.75rem; color: #999; margin-top: 2rem; border-top: 1px solid #eee; padding-top: 10px;">
-              {page.aiLegalLabel} <span id="amara-ai-status-indicator" title="Initializing..."></span>
+            <p class="am-small mt-8 border-t border-outline-variant/20 pt-2.5 text-xs text-muted font-body">
+              {page.aiLegalLabel}{' '}
+              <span
+                id="amara-ai-status-indicator"
+                class="inline-block size-3 rounded-full bg-red-600 align-middle ml-2.5 opacity-80 cursor-help transition-all duration-300 [&.status-ok]:bg-emerald-500 [&.status-ok]:shadow-[0_0_8px_rgb(16_185_129_/_0.65)]"
+                title="Initializing..."
+              />
             </p>
           </div>
         </section>

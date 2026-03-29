@@ -2,6 +2,10 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Navigation from '../../components/Navigation.astro';
 import TrustHero from '../../components/hero/TrustHero.astro';
+import EditorialQuote from '../../components/editorial/EditorialQuote.astro';
+import EditorialSplit from '../../components/editorial/EditorialSplit.astro';
+import EditorialStatement from '../../components/editorial/EditorialStatement.astro';
+import EditorialDefinitionList from '../../components/editorial/EditorialDefinitionList.astro';
 import { getAboutUsPageData } from '../../content/aboutUsContent';
 import { resolveLink } from '../../lib/linkResolver';
 import { normalizeLanguage } from '../../lib/seo/resolve-seo-head';
@@ -11,6 +15,11 @@ const { lang = 'es' } = Astro.props;
 const currentLang = normalizeLanguage(lang as AmaraLanguage);
 const page = getAboutUsPageData(currentLang);
 const content = page.content;
+
+const principlesDefinitionItems = (content.principles.items ?? []).map((item) => ({
+  title: item.title[currentLang],
+  description: item.copy[currentLang]
+}));
 ---
 
 <BaseLayout seo={page.seo} pageLang={currentLang} footerHighlights={page.footerHighlights}>
@@ -37,41 +46,29 @@ const content = page.content;
 
     <main>
       <section class="am-exp-section am-exp-philosophy">
-        <div class="am-exp-grid-split">
-          <div class="am-exp-grid-split__left">
-            <h2 class="am-section-title">{content.philosophy.title?.[currentLang]}</h2>
-          </div>
-          <div class="am-exp-grid-split__right">
-            <p class="am-body am-exp-text-large">{content.philosophy.lead?.[currentLang]}</p>
-            {content.philosophy.paragraphs?.map((paragraph) => (
-              <p class="am-body">{paragraph[currentLang]}</p>
-            ))}
-            <div class="am-exp-spacer"></div>
-            <h3 class="am-exp-subtitle">{content.philosophy.subtitle?.[currentLang]}</h3>
-            {content.philosophy.items?.map((item) => (
-              <p class="am-body">{item.copy[currentLang]}</p>
-            ))}
-          </div>
-        </div>
+        <EditorialSplit title={content.philosophy.title?.[currentLang] ?? ''}>
+          <p class="am-body am-exp-text-large">{content.philosophy.lead?.[currentLang]}</p>
+          {content.philosophy.paragraphs?.map((paragraph) => (
+            <p class="am-body">{paragraph[currentLang]}</p>
+          ))}
+          <div class="am-exp-spacer"></div>
+          <h3 class="am-exp-subtitle">{content.philosophy.subtitle?.[currentLang]}</h3>
+          {content.philosophy.items?.map((item) => (
+            <p class="am-body">{item.copy[currentLang]}</p>
+          ))}
+        </EditorialSplit>
       </section>
 
-      <section class="am-exp-section am-exp-quote-block">
-        <blockquote class="am-exp-quote">&ldquo;{content.quote[currentLang]}&rdquo;</blockquote>
-      </section>
+      <div class="am-exp-section">
+        <EditorialQuote quote={content.quote[currentLang]} />
+      </div>
 
       <section class="am-exp-section am-exp-principles">
         <div class="am-exp-principles__header">
           <h2 class="am-section-title">{content.principles.title?.[currentLang]}</h2>
           <p class="am-body am-exp-principles__note">{content.principles.note?.[currentLang]}</p>
         </div>
-        <div class="am-exp-list">
-          {content.principles.items?.map((item) => (
-            <div class="am-exp-list__item">
-              <h3 class="am-exp-list__title">{item.title[currentLang]}</h3>
-              <p class="am-body">{item.copy[currentLang]}</p>
-            </div>
-          ))}
-        </div>
+        <EditorialDefinitionList items={principlesDefinitionItems} />
       </section>
 
       <section class="am-exp-section am-exp-quality">
@@ -90,15 +87,12 @@ const content = page.content;
           ))}
         </div>
         <p class="am-body am-exp-quality__footer">{content.quality.note?.[currentLang]}</p>
-        <div class="am-exp-statement">
-          <h3 class="am-exp-statement__title">{content.quality.statementTitle[currentLang]}</h3>
-          <div class="am-exp-statement__content">
-            {content.quality.statementParagraphs.map((paragraph) => (
-              <p class="am-body">{paragraph[currentLang]}</p>
-            ))}
-            <p class="am-body am-exp-statement__strong">{content.quality.statementStrong[currentLang]}</p>
-          </div>
-        </div>
+        <EditorialStatement title={content.quality.statementTitle[currentLang]}>
+          {content.quality.statementParagraphs.map((paragraph) => (
+            <p class="am-body">{paragraph[currentLang]}</p>
+          ))}
+          <p class="am-body font-semibold text-on-surface mt-8">{content.quality.statementStrong[currentLang]}</p>
+        </EditorialStatement>
       </section>
 
       <section class="am-exp-section am-exp-locations">
@@ -207,19 +201,9 @@ const content = page.content;
   .am-exp-subtitle { font-family: "Plus Jakarta Sans", sans-serif; font-size: 1.25rem; font-weight: 600; @apply text-on-surface; margin-bottom: 1rem; }
   .am-exp-muted { @apply text-hint; font-weight: 400; }
   .am-exp-spacer { height: 4rem; }
-  .am-exp-grid-split { display: grid; grid-template-columns: 1.2fr 1.8fr; gap: clamp(4rem, 8vw, 8rem); }
-  .am-exp-grid-split__left { position: relative; }
-  .am-exp-grid-split__left .am-section-title { position: sticky; top: 2rem; }
-  .am-exp-grid-split__right { max-width: 65ch; }
-  .am-exp-grid-split__right p { margin-bottom: 1.5rem; }
-  .am-exp-quote-block { padding: clamp(4rem, 8vw, 8rem) 0; text-align: center; max-width: 1000px; margin-left: auto; margin-right: auto; }
-  .am-exp-quote { font-family: "Newsreader", serif; font-size: clamp(2.5rem, 5vw, 4rem); line-height: 1.15; font-style: italic; font-weight: 300; @apply text-on-surface; margin: 0; }
   .am-exp-principles { max-width: 800px; margin-left: auto; margin-right: auto; }
   .am-exp-principles__header { margin-bottom: 4rem; text-align: center; }
   .am-exp-principles__note { font-style: italic; @apply text-muted; }
-  .am-exp-list { border-top: 2px solid #111; }
-  .am-exp-list__item { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; padding: 2rem 0; border-bottom: 1px solid rgba(0,0,0,0.1); }
-  .am-exp-list__title { font-family: "Plus Jakarta Sans", sans-serif; font-size: 1.125rem; font-weight: 600; @apply text-on-surface; margin: 0; }
   .am-exp-quality { @apply bg-surface; padding: clamp(4rem, 8vw, 8rem) clamp(2rem, 5vw, 5rem); margin-left: -5vw; margin-right: -5vw; }
   .am-exp-quality__title { text-align: center; margin-bottom: 5rem; }
   .am-exp-quality__grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 4rem 3rem; max-width: 1200px; margin: 0 auto 4rem; }
@@ -227,10 +211,6 @@ const content = page.content;
   .am-exp-quality__label { font-family: "Plus Jakarta Sans", sans-serif; font-size: 1rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; line-height: 1.05; margin: 0; }
   .am-exp-quality__subline { display: block; margin-top: 0.08rem; line-height: 1.05; }
   .am-exp-quality__footer { text-align: center; font-style: italic; @apply text-muted; margin-bottom: 6rem; }
-  .am-exp-statement { @apply bg-white; max-width: 800px; margin: 0 auto; padding: clamp(3rem, 6vw, 5rem); border: 1px solid rgba(0,0,0,0.05); box-shadow: 0 20px 40px rgba(0,0,0,0.02); }
-  .am-exp-statement__title { font-family: "Newsreader", serif; font-size: 2rem; font-weight: 300; margin-bottom: 2rem; @apply text-on-surface; }
-  .am-exp-statement__content p { margin-bottom: 1.25rem; }
-  .am-exp-statement__strong { font-weight: 600; @apply text-on-surface; margin-top: 2rem; }
   .am-exp-locations__header { text-align: center; max-width: 600px; margin: 0 auto 5rem; }
   .am-exp-locations__trio { display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(2rem, 4vw, 4rem); }
   .am-exp-location { margin: 0; }
@@ -262,10 +242,8 @@ const content = page.content;
   .am-exp-cta__sub { font-style: italic; @apply text-muted; margin-bottom: 4rem; }
   .am-exp-cta__dot { color: #ccc; }
   @media (max-width: 900px) {
-    .am-exp-grid-split, .am-exp-host__split, .am-exp-sustainability__inner { grid-template-columns: 1fr; gap: 3rem; }
-    .am-exp-grid-split__left .am-section-title { position: static; }
+    .am-exp-host__split, .am-exp-sustainability__inner { grid-template-columns: 1fr; gap: 3rem; }
     .am-exp-locations__trio { grid-template-columns: 1fr; }
-    .am-exp-list__item { grid-template-columns: 1fr; gap: 0.5rem; }
     .am-exp-host__visual { order: -1; max-width: 400px; }
   }
   @media (max-width: 600px) {
