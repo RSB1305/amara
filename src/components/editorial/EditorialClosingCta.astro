@@ -9,7 +9,10 @@ import type { AmaraLanguage } from '../../types/seo';
 
 export interface EditorialClosingCtaLink {
   label: string;
-  token: string;
+  /** When set, label resolves via `resolveLink`. Omit when `disabled` is true. */
+  token?: string;
+  /** Renders a non-interactive label with the same typographic treatment as links. */
+  disabled?: boolean;
 }
 
 interface Props {
@@ -24,10 +27,13 @@ const { title, lead, note, links, lang } = Astro.props;
 
 const linkClass =
   'font-body text-sm uppercase tracking-[0.1em] text-on-surface border-b border-on-surface/20 pb-1 no-underline transition-colors hover:border-on-surface';
+
+const disabledClass =
+  'font-body text-sm uppercase tracking-[0.1em] text-on-surface border-b border-on-surface/20 pb-1 opacity-60 cursor-default pointer-events-none';
 ---
 
-<section class="mb-[clamp(8rem,15vw,14rem)]">
-  <div class="text-center max-w-[800px] mx-auto pb-16">
+<section>
+  <div class="text-center max-w-[800px] mx-auto pb-20">
     <h2 class="font-headline text-[clamp(2.5rem,4vw,3.5rem)] leading-[1.1] font-light text-on-surface mb-8">
       {title}
     </h2>
@@ -37,14 +43,21 @@ const linkClass =
     {note ? <p class="italic text-muted mb-16">{note}</p> : null}
     <div class="flex flex-col sm:flex-row flex-wrap items-center justify-center gap-4 sm:gap-6">
       {
-        links.map((link, index) => (
-          <>
-            {index > 0 && <span class="hidden sm:inline text-[#ccc]">&middot;</span>}
-            <a href={resolveLink(link.token, lang)} class={linkClass}>
-              {link.label}
-            </a>
-          </>
-        ))
+        links.map((link, index) => {
+          const isDisabled = link.disabled === true || !link.token;
+          return (
+            <>
+              {index > 0 && <span class="hidden sm:inline text-[#ccc]">&middot;</span>}
+              {isDisabled ? (
+                <span class={disabledClass}>{link.label}</span>
+              ) : (
+                <a href={resolveLink(link.token!, lang)} class={linkClass}>
+                  {link.label}
+                </a>
+              )}
+            </>
+          );
+        })
       }
     </div>
   </div>

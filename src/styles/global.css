@@ -33,6 +33,16 @@
   --color-strong: #222222;
   --color-faint: #A0A0A0;
 
+  /* * NEW TOKENS: Extrahierte Werte aus ehemals hartcodierten Klassen.
+   * Architektonische Absicht: Lückenloses Token-System; kein Hex-Code darf außerhalb dieses Blocks existieren.
+   */
+  --color-gold: #b08d55;
+  --color-border-subtle: rgba(0, 0, 0, 0.2);
+  --color-border-hover: #111111;
+  --color-dot-indicator: #cccccc;
+  --color-btn-primary-text: #fbf9f5;
+  --color-primary-alpha-80: rgb(120 86 17 / 0.8);
+
   /* Typografie */
   --font-headline: "Newsreader", serif;
   --font-body: "Plus Jakarta Sans", sans-serif;
@@ -55,27 +65,35 @@
   }
 
   .am-gold {
-    color: #b08d55;
+    color: var(--color-gold);
   }
 
-  .am-kicker--strong {
-    font-weight: 600;
+  /**
+   * Shared editorial / trust section titles (About, Guest Reviews, Sustainability band, etc.).
+   * Single source of truth for headline scale across page families.
+   */
+  .am-section-title {
+    @apply font-headline text-on-surface;
+    font-size: clamp(2.5rem, 4.5vw, 4rem);
+    line-height: 1.08;
+    font-weight: 300;
+    margin: 0;
   }
 
   .am-cta-link {
     @apply text-on-surface;
-    font-family: "Plus Jakarta Sans", sans-serif;
+    font-family: var(--font-body);
     font-size: 0.875rem;
     text-transform: uppercase;
     letter-spacing: 0.1em;
     text-decoration: none;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    border-bottom: 1px solid var(--color-border-subtle);
     padding-bottom: 4px;
     transition: border-color 0.3s ease;
   }
 
   .am-cta-link:hover {
-    border-color: #111;
+    border-color: var(--color-border-hover);
   }
 
   .am-cta-group {
@@ -91,7 +109,7 @@
   }
 
   .am-exp-cta__dot {
-    color: #ccc;
+    color: var(--color-dot-indicator);
   }
 
   .am-btn {
@@ -106,7 +124,7 @@
     letter-spacing: 0.14em;
     white-space: nowrap;
     text-rendering: geometricPrecision;
-    font-family: "Plus Jakarta Sans", sans-serif;
+    font-family: var(--font-body);
     font-size: 10px;
     font-weight: 700;
     text-transform: uppercase;
@@ -116,8 +134,9 @@
   }
 
   .am-btn--primary {
-    background-color: #1b1c1a;
-    color: #fbf9f5;
+    /* bg-color matched #1b1c1a, which is exactly our --color-on-surface token */
+    background-color: var(--color-on-surface);
+    color: var(--color-btn-primary-text);
   }
 
   .am-btn--primary:hover {
@@ -137,11 +156,11 @@
   .am-accordion__indicator {
     flex-shrink: 0;
     margin-top: 0.125rem;
-    font-family: "Plus Jakarta Sans", sans-serif;
+    font-family: var(--font-body);
     font-size: 1.25rem;
     line-height: 1;
     font-weight: 400;
-    color: rgb(120 86 17 / 0.8);
+    color: var(--color-primary-alpha-80);
   }
 
   /**

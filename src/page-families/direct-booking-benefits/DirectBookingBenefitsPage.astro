@@ -9,6 +9,9 @@ import TrustHero from '../../components/hero/TrustHero.astro';
 import EditorialQuote from '../../components/editorial/EditorialQuote.astro';
 
 import EditorialDefinitionList from '../../components/editorial/EditorialDefinitionList.astro';
+import EditorialSplit from '../../components/editorial/EditorialSplit.astro';
+import EditorialStatement from '../../components/editorial/EditorialStatement.astro';
+import EditorialClosingCta from '../../components/editorial/EditorialClosingCta.astro';
 
 import { resolveLink } from '../../lib/linkResolver';
 
@@ -97,60 +100,6 @@ const seo: AmaraAuthoringSeo = {
   ogImage: '/images/hero-frigiliana.jpg'
 
 };
-
-
-
-const benefits = [
-
-  {
-
-    title: 'Best price guarantee',
-
-    copy: 'You always get our best available price when booking directly — no hidden fees.'
-
-  },
-
-  {
-
-    title: 'Priority early check-in / late check-out',
-
-    copy: 'When availability allows, we prioritize complimentary early check-in or late check-out.'
-
-  },
-
-  {
-
-    title: 'Welcome detail',
-
-    copy: 'A small local welcome detail on arrival — simple, thoughtful, seasonal.'
-
-  },
-
-  {
-
-    title: 'Direct line to host',
-
-    copy: 'A simpler route for questions and coordination before and during your stay.'
-
-  },
-
-  {
-
-    title: 'Flexible arrival guidance',
-
-    copy: 'Clear check-in steps, parking tips, and help choosing the right apartment.'
-
-  },
-
-  {
-
-    title: 'Clear & transparent terms',
-
-    copy: 'No surprises.'
-
-  }
-
-];
 
 
 
@@ -711,6 +660,12 @@ const directBookingDefinitionItems = copy.benefits.map((benefit) => ({
   description: benefit.copy[currentLang]
 }));
 
+const closingCtaLinks = [
+  { label: copy.sections.ctaAvailability[currentLang], disabled: true },
+  { label: copy.sections.inlineAbout[currentLang], token: 'about' },
+  { label: copy.sections.ctaExplore[currentLang], disabled: true }
+];
+
 ---
 
 
@@ -731,7 +686,7 @@ const directBookingDefinitionItems = copy.benefits.map((benefit) => ({
 
   />
 
-  <div class="am-exp-page">
+  <div class="bg-white max-w-[1400px] mx-auto px-[5vw]">
 
     <TrustHero
 
@@ -757,529 +712,133 @@ const directBookingDefinitionItems = copy.benefits.map((benefit) => ({
 
     <main>
 
-      <!-- A split title/content layout keeps the benefits section editorial rather than template-like. -->
+      <section class="mb-[clamp(8rem,15vw,14rem)]">
 
-      <section class="am-direct-section">
+        <EditorialSplit title={copy.sections.benefitsTitle[currentLang]}>
 
-        <div class="am-direct-split">
+          <div class="mb-10">
 
-          <div class="am-direct-split__left">
-
-            <h2 class="am-section-title">{copy.sections.benefitsTitle[currentLang]}</h2>
+            <EditorialDefinitionList items={directBookingDefinitionItems} />
 
           </div>
 
-          <div class="am-direct-split__right">
+          <p class="font-body text-base leading-[1.8] text-muted italic mb-8">
 
-            <div class="mb-10">
+            {copy.sections.tip[currentLang]}
 
-              <EditorialDefinitionList items={directBookingDefinitionItems} />
+          </p>
 
-            </div>
+          <div class="flex flex-col sm:flex-row flex-wrap items-center justify-center gap-4 sm:gap-6">
 
-            <p class="am-body am-direct-note">
+            <a
 
-              {copy.sections.tip[currentLang]}
+              href={resolveLink('reviews_hub', currentLang)}
 
-            </p>
+              class="font-body text-sm uppercase tracking-[0.1em] text-on-surface border-b border-on-surface/20 pb-1 no-underline transition-colors hover:border-on-surface"
 
-            <div class="am-direct-inline-links">
+            >
 
-              <a href={resolveLink('reviews_hub', currentLang)} class="am-direct-link">{copy.sections.inlineReviews[currentLang]}</a>
+              {copy.sections.inlineReviews[currentLang]}
 
-              <span class="am-direct-inline-links__dot">&middot;</span>
+            </a>
 
-              <a href={resolveLink('about', currentLang)} class="am-direct-link">{copy.sections.inlineAbout[currentLang]}</a>
+            <span class="hidden sm:inline text-[#ccc]">&middot;</span>
 
-            </div>
+            <a
+
+              href={resolveLink('about', currentLang)}
+
+              class="font-body text-sm uppercase tracking-[0.1em] text-on-surface border-b border-on-surface/20 pb-1 no-underline transition-colors hover:border-on-surface"
+
+            >
+
+              {copy.sections.inlineAbout[currentLang]}
+
+            </a>
 
           </div>
 
-        </div>
+        </EditorialSplit>
 
       </section>
 
 
 
-      <EditorialQuote quote={copy.sections.quote[currentLang]} />
+      <div class="mb-[clamp(8rem,15vw,14rem)]">
+
+        <EditorialQuote quote={copy.sections.quote[currentLang]} />
+
+      </div>
 
 
 
-      <section class="am-direct-section">
+      <section class="mb-[clamp(8rem,15vw,14rem)]">
 
-        <div class="am-direct-split">
+        <EditorialSplit title={copy.sections.whyTitle[currentLang]}>
 
-          <div class="am-direct-split__left">
+          <p class="font-body text-[clamp(1.25rem,2vw,1.5rem)] leading-[1.5] text-on-surface mb-8">
 
-            <h2 class="am-section-title">{copy.sections.whyTitle[currentLang]}</h2>
+            {copy.sections.whyLead[currentLang]}
 
-          </div>
+          </p>
 
-          <div class="am-direct-split__right">
+          <p class="font-body text-base leading-[1.8] text-subtle">
 
-            <p class="am-body am-direct-text-large">
+            {copy.sections.whyBody[currentLang]}
 
-              {copy.sections.whyLead[currentLang]}
+          </p>
 
-            </p>
-
-            <p class="am-body">
-
-              {copy.sections.whyBody[currentLang]}
-
-            </p>
-
-          </div>
-
-        </div>
+        </EditorialSplit>
 
       </section>
 
 
 
-      <!-- The promise block uses the same restrained callout logic as the existing About page. -->
+      <section class="mb-[clamp(8rem,15vw,14rem)] bg-surface py-[clamp(4rem,8vw,8rem)] px-[clamp(2rem,5vw,5rem)] -mx-[5vw]">
 
-      <section class="am-direct-section am-direct-promise-wrap">
+        <EditorialStatement title={copy.sections.promiseTitle[currentLang]}>
 
-        <div class="am-direct-promise">
+          <p class="font-body text-base leading-[1.8] text-subtle">
 
-          <h2 class="am-direct-promise__title">{copy.sections.promiseTitle[currentLang]}</h2>
+            {copy.sections.promiseP1[currentLang]}
 
-          <div class="am-direct-promise__content">
+          </p>
 
-            <p class="am-body">
+          <p class="font-body text-base leading-[1.8] text-subtle">
 
-              {copy.sections.promiseP1[currentLang]}
+            {copy.sections.promiseP2[currentLang]}
 
-            </p>
+          </p>
 
-            <p class="am-body">
+          <p class="font-body text-base leading-[1.8] text-muted italic mt-8">
 
-              {copy.sections.promiseP2[currentLang]}
+            {copy.sections.promiseNote[currentLang]}
 
-            </p>
+          </p>
 
-            <p class="am-body am-direct-promise__note">{copy.sections.promiseNote[currentLang]}</p>
-
-          </div>
-
-        </div>
+        </EditorialStatement>
 
       </section>
 
 
 
-      <section class="am-direct-section am-direct-cta">
+      <EditorialClosingCta
 
-        <h2 class="am-direct-cta__title">{copy.sections.ctaTitle[currentLang]}</h2>
+        title={copy.sections.ctaTitle[currentLang]}
 
-        <p class="am-body am-direct-cta__lead">
+        lead={copy.sections.ctaLead[currentLang]}
 
-          {copy.sections.ctaLead[currentLang]}
+        links={closingCtaLinks}
 
-        </p>
+        lang={currentLang}
 
-
-
-        <div class="am-direct-cta__links">
-
-          <span class="am-direct-link am-link-disabled">{copy.sections.ctaAvailability[currentLang]}</span>
-
-          <span class="am-direct-cta__dot">&middot;</span>
-
-          <a href={resolveLink('about', currentLang)} class="am-direct-link">{copy.sections.inlineAbout[currentLang]}</a>
-
-          <span class="am-direct-cta__dot">&middot;</span>
-
-          <span class="am-direct-link am-link-disabled">{copy.sections.ctaExplore[currentLang]}</span>
-
-        </div>
-
-      </section>
+      />
 
     </main>
 
   </div>
 
 </BaseLayout>
-
-
-
-<style>
-
-  @reference "../../styles/global.css";
-
-  .am-kicker {
-
-    display: inline-block;
-
-    font-family: "Plus Jakarta Sans", sans-serif;
-
-    font-size: 0.75rem;
-
-    font-weight: 600;
-
-    text-transform: uppercase;
-
-    letter-spacing: 0.12em;
-
-    color: rgba(0, 0, 0, 0.58);
-
-  }
-
-  .am-link-disabled {
-    pointer-events: none;
-    cursor: default;
-    opacity: 0.6;
-  }
-
-
-
-  .am-section-title {
-
-    font-family: "Newsreader", serif;
-
-    font-size: clamp(2.5rem, 4.5vw, 4rem);
-
-    line-height: 1.08;
-
-    font-weight: 300;
-
-    @apply text-on-surface;
-
-    margin: 0;
-
-  }
-
-
-
-  .am-body {
-
-    font-family: "Plus Jakarta Sans", sans-serif;
-
-    font-size: 1rem;
-
-    line-height: 1.8;
-
-    @apply text-subtle;
-
-  }
-
-
-
-  .am-exp-page {
-
-  @apply bg-white;
-
-  max-width: 1400px;
-
-  margin: 0 auto;
-
-  padding: 0 5vw;
-
-}
-
-
-
-  .am-direct-section {
-
-    margin-bottom: clamp(8rem, 15vw, 14rem);
-
-  }
-
-
-
-  .am-direct-text-large {
-
-    font-size: clamp(1.25rem, 2vw, 1.5rem);
-
-    line-height: 1.5;
-
-    @apply text-on-surface;
-
-    margin-bottom: 2rem;
-
-  }
-
-
-
-  .am-direct-link {
-
-    font-family: "Plus Jakarta Sans", sans-serif;
-
-    font-size: 0.875rem;
-
-    text-transform: uppercase;
-
-    letter-spacing: 0.1em;
-
-    @apply text-on-surface;
-
-    text-decoration: none;
-
-    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
-
-    padding-bottom: 4px;
-
-    transition: border-color 0.3s ease;
-
-  }
-
-
-
-  .am-direct-link:hover {
-
-    border-color: #111;
-
-  }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  .am-direct-cta__links,
-
-  .am-direct-inline-links {
-
-    display: flex;
-
-    align-items: center;
-
-    justify-content: center;
-
-    gap: 1.5rem;
-
-  }
-
-
-
-  .am-direct-inline-links__dot,
-
-  .am-direct-cta__dot {
-
-    color: #ccc;
-
-  }
-
-
-
-  .am-direct-split {
-
-    display: grid;
-
-    grid-template-columns: 1.2fr 1.8fr;
-
-    gap: clamp(4rem, 8vw, 8rem);
-
-  }
-
-
-
-  .am-direct-split__left .am-section-title {
-
-    position: sticky;
-
-    top: 2rem;
-
-  }
-
-
-
-  .am-direct-split__right {
-
-    max-width: 68ch;
-
-  }
-
-
-
-  .am-direct-note {
-
-    @apply text-muted;
-
-    font-style: italic;
-
-    margin-bottom: 2rem;
-
-  }
-
-
-
-  .am-direct-promise-wrap {
-
-    @apply bg-surface;
-
-    padding: clamp(4rem, 8vw, 8rem) clamp(2rem, 5vw, 5rem);
-
-    margin-left: -5vw;
-
-    margin-right: -5vw;
-
-  }
-
-
-
-  .am-direct-promise {
-
-    max-width: 820px;
-
-    margin: 0 auto;
-
-    @apply bg-white;
-
-    padding: clamp(3rem, 6vw, 5rem);
-
-    border: 1px solid rgba(0, 0, 0, 0.05);
-
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.02);
-
-  }
-
-
-
-  .am-direct-promise__title {
-
-    font-family: "Newsreader", serif;
-
-    font-size: 2rem;
-
-    font-weight: 300;
-
-    margin: 0 0 2rem 0;
-
-    @apply text-on-surface;
-
-  }
-
-
-
-  .am-direct-promise__content p {
-
-    margin-bottom: 1.25rem;
-
-  }
-
-
-
-  .am-direct-promise__note {
-
-    @apply text-muted;
-
-    font-style: italic;
-
-    margin-top: 2rem;
-
-  }
-
-
-
-  .am-direct-cta {
-
-    text-align: center;
-
-    max-width: 850px;
-
-    margin: 0 auto;
-
-    padding-bottom: 4rem;
-
-  }
-
-
-
-  .am-direct-cta__title {
-
-    font-family: "Newsreader", serif;
-
-    font-size: clamp(2.5rem, 4vw, 3.5rem);
-
-    line-height: 1.1;
-
-    font-weight: 300;
-
-    @apply text-on-surface;
-
-    margin-bottom: 1.5rem;
-
-  }
-
-
-
-  .am-direct-cta__lead {
-
-    font-size: clamp(1.125rem, 2vw, 1.25rem);
-
-    @apply text-subtle;
-
-    margin-bottom: 3rem;
-
-  }
-
-
-
-  @media (max-width: 1000px) {
-
-    .am-direct-split {
-
-      grid-template-columns: 1fr;
-
-    }
-
-
-
-    .am-direct-split__left .am-section-title {
-
-      position: static;
-
-    }
-
-  }
-
-
-
-  @media (max-width: 600px) {
-
-    .am-direct-inline-links,
-
-    .am-direct-cta__links {
-
-      flex-direction: column;
-
-      align-items: center;
-
-      justify-content: center;
-
-      gap: 1rem;
-
-    }
-
-
-
-    .am-direct-inline-links__dot,
-
-    .am-direct-cta__dot {
-
-      display: none;
-
-    }
-
-  }
-
-</style>
 
 
 
