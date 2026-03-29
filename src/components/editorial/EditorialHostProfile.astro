@@ -1,0 +1,46 @@
+---
+/**
+ * EditorialHostProfile
+ *
+ * Split portrait + bio with stats and optional slot (e.g. team grid).
+ */
+export interface EditorialHostStat {
+  label: string;
+  value: string;
+}
+
+interface Props {
+  imageSrc: string;
+  imageAlt: string;
+  title: string;
+  role: string;
+  stats: EditorialHostStat[];
+}
+
+const { imageSrc, imageAlt, title, role, stats } = Astro.props;
+---
+
+<div
+  class="grid grid-cols-1 lg:grid-cols-[4fr_6fr] gap-[clamp(4rem,8vw,8rem)] items-start mb-[clamp(8rem,15vw,14rem)]"
+>
+  <div class="w-full max-w-[400px] mx-auto lg:mx-0 lg:max-w-none">
+    <div class="aspect-[4/5] bg-surface-container-low overflow-hidden flex items-center justify-center">
+      <img src={imageSrc} alt={imageAlt} class="w-full h-full object-cover" loading="lazy" decoding="async" />
+    </div>
+  </div>
+  <div>
+    <h2 class="am-section-title">{title}</h2>
+    <p class="am-kicker mt-4 mb-0">{role}</p>
+    <dl class="grid grid-cols-2 gap-x-8 gap-y-12 my-12 pb-12 border-b border-on-surface/10">
+      {
+        stats.map((stat) => (
+          <div>
+            <dt class="text-[0.75rem] uppercase tracking-[0.1em] text-hint mb-2">{stat.label}</dt>
+            <dd class="font-body text-on-surface m-0">{stat.value}</dd>
+          </div>
+        ))
+      }
+    </dl>
+    <slot />
+  </div>
+</div>
