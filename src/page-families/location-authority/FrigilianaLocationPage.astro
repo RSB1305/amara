@@ -11,6 +11,7 @@ import FaqAccordion from '../../components/FaqAccordion.astro';
 import LocationEditorialComparison from '../../components/location/LocationEditorialComparison.astro';
 import SectionAnchorNav from '../../components/navigation/SectionAnchorNav.astro';
 import { resolveLink } from '../../lib/linkResolver';
+import { getFrigilianaAuthoritySubnav } from '../../lib/frigiliana/frigilianaAuthoritySubnav';
 import { getWeatherWithFallback } from '../../lib/weather/weatherService';
 import { normalizeLanguage } from '../../lib/seo/resolve-seo-head';
 import type { AmaraAuthoringSeo, AmaraLanguage } from '../../types/seo';
@@ -92,7 +93,35 @@ const copy = {
   hero: {
     eyebrow: { en: "The Axarquía Jewel", de: "Das Juwel der Axarquía", es: "La joya de la Axarquía", nl: "Het juweel van Axarquía", sv: "Axarquías juvel" },
     h1: { en: "The Soul of <br/> White Villages", de: "Die Seele der <br/> weißen Dörfer", es: "El alma de los <br/> pueblos blancos", nl: "De ziel van de <br/> witte dorpen", sv: "De vita byarnas <br/> själ" },
-    body: { en: "Nestled in the folds of the Almijara mountains, Frigiliana exists as a timeless dialogue between Moorish geometry and Mediterranean light.", de: "In den Falten des Almijara-Gebirges gelegen, ist Frigiliana ein zeitloser Dialog zwischen maurischer Geometrie und mediterranem Licht.", es: "Enclavada en los pliegues de la sierra Almijara, Frigiliana es un diálogo atemporal entre la geometría morisca y la luz mediterránea.", nl: "Gelegen in de plooien van het Almijara-gebergte, is Frigiliana een tijdloze dialoog zwischen Moorse geometrie en mediterraan licht.", sv: "Inbäddat i Almijara-bergens veck är Frigiliana en zeitlös dialog mellan maurisk geometri och medelhavsljus." },
+    body: { en: "Nestled in the folds of the Almijara mountains, Frigiliana exists as a timeless dialogue between Moorish geometry and Mediterranean light.", de: "In den Falten des Almijara-Gebirges gelegen, ist Frigiliana ein zeitloser Dialog zwischen maurischer Geometrie und mediterranem Licht.", es: "Enclavada en los pliegues de la sierra Almijara, Frigiliana es un diálogo atemporal entre la geometría morisca y la luz mediterránea.", nl: "Gelegen in de plooien van het Almijara-gebergte, is Frigiliana een tijdloze dialoog tussen Moorse geometrie en mediterraan licht.", sv: "Inbäddat i Almijara-bergens veck är Frigiliana en zeitlös dialog mellan maurisk geometri och medelhavsljus." },
+    /** Second hero paragraph — inline editorial link (structure / movement reality) → parking authority */
+    introLead: {
+      en: {
+        before: "Understanding ",
+        linkLabel: "its structure and setting",
+        after: " is key to deciding whether it fits your stay."
+      },
+      de: {
+        before: "Wer ",
+        linkLabel: "Struktur und Lage",
+        after: " versteht, entscheidet besser, ob der Ort zum Aufenthalt passt."
+      },
+      es: {
+        before: "Comprender ",
+        linkLabel: "su estructura y su entorno",
+        after: " es clave para decidir si encaja en su estancia."
+      },
+      nl: {
+        before: "Inzicht in ",
+        linkLabel: "de opbouw en de ligging",
+        after: " helpt u te bepalen of het bij uw verblijf past."
+      },
+      sv: {
+        before: "Att förstå ",
+        linkLabel: "dess struktur och läge",
+        after: " är avgörande för att avgöra om det passar er vistelse."
+      }
+    },
     ctaMain: { en: "Explore The Barrio", de: "Das Viertel erkunden", es: "Explorar el Barrio", nl: "Verken de Barrio", sv: "Utforska kvarteret" },
     ctaAlt: { en: "The Guide", de: "Zum Guide", es: "La Guía", nl: "De Gids", sv: "Guiden" }
   },
@@ -100,11 +129,11 @@ const copy = {
     eyebrow: { en: "At a Glance", de: "Auf einen Blick", es: "De un vistazo", nl: "In het kort", sv: "På ett ögonkast" },
     title: { en: "Frigiliana — Key Facts", de: "Frigiliana — die wichtigsten Fakten", es: "Frigiliana — datos clave", nl: "Frigiliana — kernfeiten", sv: "Frigiliana — viktiga fakta" },
     intro: {
-      en: "Frigiliana is one of Andalusia’s most beautiful white villages — but it is not a typical easy-access base. Understanding its structure and setting is key to deciding whether it fits your stay.",
-      de: "Frigiliana zählt zu den schönsten weißen Dörfern Andalusiens — ist aber kein typischer, leicht erreichbarer Ausgangspunkt. Wer Struktur und Lage versteht, entscheidet besser, ob der Ort zum Aufenthalt passt.",
-      es: "Frigiliana es uno de los pueblos blancos más bellos de Andalucía, pero no es una base de acceso fácil por excelencia. Comprender su estructura y su entorno es clave para decidir si encaja en su estancia.",
-      nl: "Frigiliana hoort bij de mooiste witte dorpen van Andalusië — maar is geen typisch gemakkelijk bereikbare uitvalsbasis. Inzicht in de opbouw en de ligging helpt u te bepalen of het bij uw verblijf past.",
-      sv: "Frigiliana räknas bland de vackraste vita byarna i Andalusien — men är inte en typisk lättillgänglig bas. Att förstå dess struktur och läge är avgörande för att avgöra om det passar er vistelse."
+      en: "Frigiliana is one of Andalusia's most beautiful white villages — but it is not a typical easy-access base.",
+      de: "Frigiliana zählt zu den schönsten weißen Dörfern Andalusiens — ist aber kein typischer, leicht erreichbarer Ausgangspunkt.",
+      es: "Frigiliana es uno de los pueblos blancos más bellos de Andalucía, pero no es una base de acceso fácil por excelencia.",
+      nl: "Frigiliana hoort bij de mooiste witte dorpen van Andalusië — maar is geen typisch gemakkelijk bereikbare uitvalsbasis.",
+      sv: "Frigiliana räknas bland de vackraste vita byarna i Andalusien — men är inte en typisk lättillgänglig bas."
     },
     items: [
       {
@@ -565,7 +594,16 @@ const c = {
     brand: copy.nav.brand[currentLang],
     links: copy.nav.links.map((l) => ({ token: l.token, label: l.label[currentLang] }))
   },
-  hero: { eyebrow: copy.hero.eyebrow[currentLang], h1: copy.hero.h1[currentLang], body: copy.hero.body[currentLang], ctaMain: copy.hero.ctaMain[currentLang], ctaAlt: copy.hero.ctaAlt[currentLang] },
+  hero: {
+    eyebrow: copy.hero.eyebrow[currentLang],
+    h1: copy.hero.h1[currentLang],
+    body: copy.hero.body[currentLang],
+    introLeadBefore: copy.hero.introLead[currentLang].before,
+    introLeadLinkLabel: copy.hero.introLead[currentLang].linkLabel,
+    introLeadAfter: copy.hero.introLead[currentLang].after,
+    ctaMain: copy.hero.ctaMain[currentLang],
+    ctaAlt: copy.hero.ctaAlt[currentLang]
+  },
   essence: { eyebrow: copy.essence.eyebrow[currentLang], title: copy.essence.title[currentLang], intro: copy.essence.intro[currentLang], items: copy.essence.items.map(item => ({ kicker: item.kicker[currentLang], headline: item.headline[currentLang], text: item.text[currentLang], imageSrc: item.imageSrc, imageAlt: item.headline[currentLang], href: item.token && !DISABLED_ROUTE_TOKENS.has(item.token) ? resolveLink(item.token, currentLang) : undefined, linkLabel: item.linkLabel ? item.linkLabel[currentLang] : undefined })) },
   climate: {
     eyebrowCurrent: copy.climate.eyebrowCurrent[currentLang],
@@ -661,74 +699,7 @@ const heroImage = {
   }
 };
 
-const sectionNavSpec: { href: string; label: Record<AmaraLanguage, string> }[] = [
-  {
-    href: '#intro',
-    label: {
-      en: 'Highlights & Orientation',
-      de: 'Überblick & Orientierung',
-      es: 'Lo esencial y orientación',
-      nl: 'Hoogtepunten & oriëntatie',
-      sv: 'Höjdpunkter & orientering'
-    }
-  },
-  {
-    href: '#weather-climate',
-    label: {
-      en: 'Weather & Climate',
-      de: 'Wetter & Klima',
-      es: 'Tiempo y clima',
-      nl: 'Weer & klimaat',
-      sv: 'Väder & klimat'
-    }
-  },
-  {
-    href: '#comparison',
-    label: {
-      en: 'Frigiliana vs Nerja',
-      de: 'Frigiliana vs Nerja',
-      es: 'Frigiliana vs Nerja',
-      nl: 'Frigiliana vs Nerja',
-      sv: 'Frigiliana vs Nerja'
-    }
-  },
-  {
-    href: '#experiences',
-    label: {
-      en: 'Village Structure',
-      de: 'Dorfstruktur',
-      es: 'Estructura del pueblo',
-      nl: 'Dorpsstructuur',
-      sv: 'Bystruktur'
-    }
-  },
-  {
-    href: '#where-to-stay',
-    label: {
-      en: 'Where to Stay',
-      de: 'Unterkunft',
-      es: 'Dónde alojarse',
-      nl: 'Overnachten',
-      sv: 'Boende'
-    }
-  },
-  {
-    href: '#arrival',
-    label: {
-      en: 'Arrival Guide',
-      de: 'Anreise',
-      es: 'Llegada',
-      nl: 'Aankomst',
-      sv: 'Ankomst'
-    }
-  },
-  { href: '#faq', label: { en: 'FAQ', de: 'FAQ', es: 'FAQ', nl: 'FAQ', sv: 'FAQ' } }
-];
-
-const sectionNavItems = sectionNavSpec.map((row) => ({
-  href: row.href,
-  label: row.label[currentLang]
-}));
+const sectionNavItems = getFrigilianaAuthoritySubnav(currentLang);
 ---
 
 <LocationAuthorityLayout seo={seo} pageLang={currentLang}>
@@ -739,12 +710,19 @@ const sectionNavItems = sectionNavSpec.map((row) => ({
     languageToken="location_frigiliana"
     locationAuthorityNav={true}
   />
-  <SectionAnchorNav items={sectionNavItems} />
+  <SectionAnchorNav items={sectionNavItems} activeId="intro" />
   <div id="intro">
   <Hero imageSrc={heroImage.src} imageAlt={heroImage.alt} imageWidth={heroImage.width} imageHeight={heroImage.height} imageSizes={heroImage.sizes} imageSources={heroImage.sources}>
     <span class="label-md text-primary mb-8 block font-bold">{c.hero.eyebrow}</span>
-    <h1 class="text-[clamp(3.5rem,9vw,6rem)] leading-[0.9] font-headline font-light italic text-on-surface mb-10 tracking-tighter" set:html={c.hero.h1} />
-    <div class="pl-10 border-l border-primary/20 max-w-lg mb-14"><p class="text-on-surface-variant text-lg leading-relaxed font-body">{c.hero.body}</p></div>
+    <h1 class="am-display-xl italic text-on-surface mb-10 tracking-tighter" set:html={c.hero.h1} />
+    <div class="pl-10 border-l border-primary/20 max-w-lg mb-14">
+      <p class="text-on-surface-variant text-lg leading-relaxed font-body">{c.hero.body}</p>
+      <p class="text-on-surface-variant text-lg leading-relaxed font-body mt-6">
+        {c.hero.introLeadBefore}
+        <a href={resolveLink('frigiliana_parking', currentLang)} class="am-inline-link">{c.hero.introLeadLinkLabel}</a>
+        {c.hero.introLeadAfter}
+      </p>
+    </div>
     <div class="flex flex-wrap gap-8">
       <span class="am-link-disabled bg-primary text-on-primary px-12 py-5 text-[11px] uppercase tracking-[0.2em] font-bold transition-all">{c.hero.ctaMain}</span>
       <a href={resolveLink('arrival_guide', currentLang)} class="border border-outline-variant/30 text-on-surface px-12 py-5 text-[11px] uppercase tracking-[0.2em] font-bold hover:bg-surface-container-low transition-all">{c.hero.ctaAlt}</a>

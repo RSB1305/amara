@@ -11,8 +11,10 @@
  */
 import LocationAuthorityLayout from '../../layouts/LocationAuthorityLayout.astro';
 import Navigation from '../../components/Navigation.astro';
+import SectionAnchorNav from '../../components/navigation/SectionAnchorNav.astro';
 import SmartBackButton from '../../components/navigation/SmartBackButton.astro';
 import { resolveLink } from '../../lib/linkResolver';
+import { getFrigilianaAuthoritySubnav } from '../../lib/frigiliana/frigilianaAuthoritySubnav';
 import FaqAccordion from '../../components/FaqAccordion.astro';
 import { normalizeLanguage } from '../../lib/seo/resolve-seo-head';
 import type { AmaraAuthoringSeo, AmaraLanguage } from '../../types/seo';
@@ -23,6 +25,7 @@ interface Props {
 
 const { lang = 'es' } = Astro.props;
 const currentLang = normalizeLanguage(lang as AmaraLanguage);
+const sectionNavItems = getFrigilianaAuthoritySubnav(currentLang);
 
 const seo: AmaraAuthoringSeo = {
   version: "2026-03-21-v3.1-arrival-utility",
@@ -378,6 +381,7 @@ const ui = {
     languageToken="arrival_guide"
     locationAuthorityNav={true}
   />
+  <SectionAnchorNav items={sectionNavItems} activeId="arrival" />
 
   <div class="am-root" data-am-page="frigiliana-arrival-guide">
     <div class="am-wrap w-full max-w-screen-2xl mx-auto px-12 pt-20 pb-20">

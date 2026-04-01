@@ -33,7 +33,7 @@
   </svg>
 </button>
 
-<script>
+<script is:inline>
   /**
    * AMARA — shared visibility + scroll behavior
    *
@@ -43,25 +43,25 @@
    * interaction. The control stays hidden until the user has scrolled
    * enough for the action to become useful.
    */
-  document.addEventListener('DOMContentLoaded', () => {
-    const button = document.querySelector('[data-am-back-to-top]');
-    if (!button) return;
+  (function () {
+    if (typeof window === 'undefined') return;
+    document.addEventListener('DOMContentLoaded', function () {
+      var button = document.querySelector('[data-am-back-to-top]');
+      if (!button) return;
 
-    const toggleVisibility = () => {
-      const shouldShow = window.scrollY > 500;
-      button.classList.toggle('is-visible', shouldShow);
-    };
+      var toggleVisibility = function () {
+        var shouldShow = window.scrollY > 500;
+        button.classList.toggle('is-visible', shouldShow);
+      };
 
-    button.addEventListener('click', () => {
-      window.scrollTo({
-        top: 0,
-        behavior: 'smooth'
+      button.addEventListener('click', function () {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
       });
-    });
 
-    toggleVisibility();
-    window.addEventListener('scroll', toggleVisibility, { passive: true });
-  });
+      toggleVisibility();
+      window.addEventListener('scroll', toggleVisibility, { passive: true });
+    });
+  })();
 </script>
 
 <style>
