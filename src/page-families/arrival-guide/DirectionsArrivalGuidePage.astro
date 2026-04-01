@@ -9,7 +9,7 @@
  * - It is intentionally not positioned as a Typ D conversion page.
  * - SEO still runs through the global resolver contract already used by UtilityLayout.
  */
-import UtilityLayout from '../../layouts/UtilityLayout.astro';
+import LocationAuthorityLayout from '../../layouts/LocationAuthorityLayout.astro';
 import Navigation from '../../components/Navigation.astro';
 import SmartBackButton from '../../components/navigation/SmartBackButton.astro';
 import { resolveLink } from '../../lib/linkResolver';
@@ -26,7 +26,7 @@ const currentLang = normalizeLanguage(lang as AmaraLanguage);
 
 const seo: AmaraAuthoringSeo = {
   version: "2026-03-21-v3.1-arrival-utility",
-  pageType: "D",
+  pageType: "A",
   languages: {
     en: { title: "Frigiliana Arrival & Parking Guide", description: "How to reach the village and where to park.", robots: "index, follow", canonical: "auto" },
     de: { title: "Frigiliana Anreise- & Parkguide", description: "So erreicht ihr das Dorf und wisst, wo ihr am besten parkt.", robots: "index, follow", canonical: "auto" },
@@ -41,11 +41,19 @@ const copy = {
   nav: {
     brand: { en: "Frigiliana", de: "Frigiliana", es: "Frigiliana", nl: "Frigiliana", sv: "Frigiliana" },
     links: [
-      { token: "explore_hub", label: { en: "Explore", de: "Entdecken", es: "Explorar", nl: "Ontdekken", sv: "Utforska" } },
-      { token: "home", label: { en: "Home", de: "Start", es: "Inicio", nl: "Home", sv: "Hem" } }
+      { token: "location_frigiliana", label: { en: "Frigiliana", de: "Frigiliana", es: "Frigiliana", nl: "Frigiliana", sv: "Frigiliana" } },
+      { token: "location_nerja", label: { en: "Nerja", de: "Nerja", es: "Nerja", nl: "Nerja", sv: "Nerja" } },
+      { token: "explore_hub", label: { en: "Experiences", de: "Erlebnisse", es: "Experiencias", nl: "Ervaringen", sv: "Upplevelser" } }
     ]
   },
   header: {
+    eyebrow: {
+      en: 'Location guide · Frigiliana',
+      de: 'Ortsguide · Frigiliana',
+      es: 'Guía de entorno · Frigiliana',
+      nl: 'Locatiegids · Frigiliana',
+      sv: 'Platsguide · Frigiliana'
+    },
     title: { en: "Guest Arrival Guide", de: "Anreiseguide für Gäste", es: "Guia de llegada para huespedes", nl: "Aankomstgids voor gasten", sv: "Ankomstguide for gaster" },
     subtitle: {
       en: "Essential information for navigating the vertical streets of the Mudejar quarter.",
@@ -53,6 +61,13 @@ const copy = {
       es: "La informacion esencial para moveros bien por las calles empinadas del barrio mudejar.",
       nl: "De belangrijkste informatie om vlot door de steile straten van de Mudejar-wijk te komen.",
       sv: "Det viktigaste for att ni enkelt ska hitta genom de branta gatorna i Mudejar-kvarteret."
+    },
+    backLinkWord: {
+      en: 'Back',
+      de: 'Zurück',
+      es: 'Volver',
+      nl: 'Terug',
+      sv: 'Tillbaka'
     }
   },
   content: {
@@ -193,7 +208,12 @@ const copy = {
 
 const c = {
   nav: { brand: copy.nav.brand[currentLang], links: copy.nav.links.map((l) => ({ token: l.token, label: l.label[currentLang] })) },
-  header: { title: copy.header.title[currentLang], subtitle: copy.header.subtitle[currentLang] },
+  header: {
+    eyebrow: copy.header.eyebrow[currentLang],
+    title: copy.header.title[currentLang],
+    subtitle: copy.header.subtitle[currentLang],
+    backLinkWord: copy.header.backLinkWord[currentLang]
+  },
   parking: { title: copy.content.parking.title[currentLang], text: copy.content.parking.text[currentLang] },
   walkingAccess: { title: copy.content.walkingAccess.title[currentLang], text: copy.content.walkingAccess.text[currentLang] },
   arrivalTip: {
@@ -350,194 +370,219 @@ const ui = {
 };
 ---
 
-<UtilityLayout seo={seo} pageLang={currentLang} title={c.header.title} subtitle={c.header.subtitle}>
-  <SmartBackButton fallbackHref={resolveLink('location_frigiliana', currentLang)} />
+<LocationAuthorityLayout seo={seo} pageLang={currentLang} bodyBackgroundClass="bg-white">
   <Navigation
     currentLang={currentLang}
     brandName={c.nav.brand}
     links={c.nav.links}
-    currentToken="arrival_guide"
+    languageToken="arrival_guide"
+    locationAuthorityNav={true}
   />
 
-  <div class="space-y-20">
-    <section class="space-y-6">
-      <h2 class="text-3xl font-headline italic text-on-surface">{c.parking.title}</h2>
-      <p class="font-body text-on-surface-variant text-lg leading-relaxed italic max-w-3xl">
-        {c.parking.text}
-      </p>
-    </section>
+  <div class="am-root" data-am-page="frigiliana-arrival-guide">
+    <div class="am-wrap w-full max-w-screen-2xl mx-auto px-12 pt-20 pb-20">
+      <SmartBackButton
+        variant="link"
+        label={c.header.backLinkWord}
+        fallbackHref={resolveLink('location_frigiliana', currentLang)}
+      />
 
-    <section class="space-y-8">
-      <h2 class="text-3xl font-headline italic text-on-surface">{c.arrivalTip.title}</h2>
+      <header class="mb-20 border-b border-black/10 pb-12">
+        <span class="label-md font-label text-primary mb-4 block">{c.header.eyebrow}</span>
+        <h1 class="text-6xl font-headline italic text-on-surface mb-6">{c.header.title}</h1>
+        <p class="font-body text-on-surface-variant text-xl italic opacity-70 max-w-2xl">{c.header.subtitle}</p>
+      </header>
 
-      <div class="space-y-6">
-        <p class="font-body text-on-surface-variant text-lg leading-relaxed italic max-w-3xl">
-          {c.arrivalTip.text.split('\n\n')[0]}
-        </p>
+      <div class="pt-8 space-y-20">
+        {/* Operational orientation start (Arrival Guide): intro + step-by-step module */}
+        <section class="grid gap-10 lg:grid-cols-12 items-start">
+          <div class="lg:col-span-8 space-y-6">
+            <h2 class="text-3xl font-headline italic text-on-surface">{c.parking.title}</h2>
 
-        <div class="rounded-[24px] border border-black/5 bg-surface p-8">
-          <h3 class="font-label text-[10px] uppercase tracking-[0.18em] text-primary mb-5">
-            {ui.stepLabel[currentLang]}
-          </h3>
-          <ol class="space-y-4">
-            {arrivalSteps[currentLang].map((step, index) => (
-              <li class="flex gap-4">
-                <span class="mt-0.5 shrink-0 font-label text-[10px] uppercase tracking-[0.18em] text-primary/70">
-                  {String(index + 1).padStart(2, '0')}
-                </span>
-                <span class="font-body text-on-surface leading-relaxed">{step}</span>
-              </li>
-            ))}
-          </ol>
-        </div>
+            <p class="font-body text-on-surface-variant text-lg leading-relaxed italic max-w-3xl">
+              {c.parking.text}
+            </p>
 
-        <p class="font-body text-on-surface-variant text-base leading-relaxed">
-          <strong class="text-on-surface">{c.sidebar.taxiNoteLabel[currentLang]}:</strong> {c.arrivalTip.taxiNote}
-        </p>
-      </div>
-    </section>
+            <div class="rounded-[24px] border border-outline-variant/5 bg-surface p-8">
+              <h3 class="font-label text-[10px] uppercase tracking-[0.18em] text-primary mb-5">
+                {ui.stepLabel[currentLang]}
+              </h3>
+              <ol class="space-y-4">
+                {arrivalSteps[currentLang].map((step, index) => (
+                  <li class="flex gap-4">
+                    <span class="mt-0.5 shrink-0 font-label text-[10px] uppercase tracking-[0.18em] text-primary/70">
+                      {String(index + 1).padStart(2, '0')}
+                    </span>
+                    <span class="font-body text-on-surface leading-relaxed">{step}</span>
+                  </li>
+                ))}
+              </ol>
+            </div>
 
-    <section class="space-y-8">
-      <h2 class="text-3xl font-headline italic text-on-surface">{c.arrivalByBus.title}</h2>
+            <section class="space-y-6 pt-10">
+              <h2 class="text-3xl font-headline italic text-on-surface">{c.arrivalTip.title}</h2>
 
-      <div class="space-y-6">
-        <p class="font-body text-on-surface-variant text-lg leading-relaxed italic max-w-3xl">
-          {c.arrivalByBus.text.split('\n\n')[0]}
-        </p>
-
-        <div class="rounded-[24px] border border-black/5 bg-surface p-8">
-          <h3 class="font-label text-[10px] uppercase tracking-[0.18em] text-primary mb-6">
-            {ui.routeChoice[currentLang]}
-          </h3>
-
-          <div class="space-y-6">
-            {busRoutes[currentLang].map((route) => (
-              <article class="border-b border-black/10 pb-6 last:border-b-0 last:pb-0">
-                <h3 class="font-body text-on-surface text-lg font-semibold leading-snug">{route.title}</h3>
-                <p class="font-label text-[10px] uppercase tracking-[0.18em] opacity-50 mt-2 mb-3">
-                  {route.meta}
+              <div class="space-y-6">
+                <p class="font-body text-on-surface-variant text-lg leading-relaxed italic max-w-3xl">
+                  {c.arrivalTip.text.split('\n\n')[0]}
                 </p>
-                <p class="font-body text-on-surface-variant leading-relaxed">
-                  {route.text}
+
+                <p class="font-body text-on-surface-variant text-base leading-relaxed max-w-3xl">
+                  {c.arrivalTip.text.split('\n\n').slice(1).join('\n\n')}
                 </p>
-              </article>
-            ))}
+
+                <p class="font-body text-on-surface-variant text-base leading-relaxed max-w-3xl">
+                  <strong class="text-on-surface">{c.sidebar.taxiNoteLabel[currentLang]}:</strong> {c.arrivalTip.taxiNote}
+                </p>
+              </div>
+            </section>
+
+            <section class="space-y-8 pt-10">
+              <h2 class="text-3xl font-headline italic text-on-surface">{c.arrivalByBus.title}</h2>
+
+              <div class="space-y-6">
+                <p class="font-body text-on-surface-variant text-lg leading-relaxed italic max-w-3xl">
+                  {c.arrivalByBus.text.split('\n\n')[0]}
+                </p>
+
+                <div class="rounded-[24px] border border-outline-variant/5 bg-surface p-8 max-w-3xl">
+                  <h3 class="font-label text-[10px] uppercase tracking-[0.18em] text-primary mb-6">
+                    {ui.routeChoice[currentLang]}
+                  </h3>
+
+                  <div class="space-y-6">
+                    {busRoutes[currentLang].map((route) => (
+                      <article class="border-b border-outline-variant/10 pb-6 last:border-b-0 last:pb-0">
+                        <h3 class="font-body text-on-surface text-lg font-semibold leading-snug">{route.title}</h3>
+                        <p class="font-label text-[10px] uppercase tracking-[0.18em] opacity-50 mt-2 mb-3">
+                          {route.meta}
+                        </p>
+                        <p class="font-body text-on-surface-variant leading-relaxed">
+                          {route.text}
+                        </p>
+                      </article>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </section>
           </div>
-        </div>
+
+          <div class="lg:col-span-4">
+            <div class="space-y-6">
+              <div class="p-8 bg-surface border border-outline-variant/5 rounded-[24px]">
+                <h3 class="font-headline italic text-2xl text-on-surface mb-8">{c.sidebar.title[currentLang]}</h3>
+
+                <div class="space-y-6">
+                  <div class="border-b border-outline-variant/10 pb-4">
+                    <span class="font-label text-[10px] uppercase tracking-[0.18em] opacity-50 mb-2 block">
+                      {c.sidebar.address[currentLang]}
+                    </span>
+                    <p class="font-body text-on-surface leading-relaxed">Calle Chorruelo 5<br />29788 Frigiliana</p>
+                  </div>
+
+                  <div class="border-b border-outline-variant/10 pb-4">
+                    <span class="font-label text-[10px] uppercase tracking-[0.18em] opacity-50 mb-2 block">
+                      {c.sidebar.dropOff[currentLang]}
+                    </span>
+                    <p class="font-body text-on-surface leading-relaxed">Avenida Carlos Cano 42</p>
+                  </div>
+
+                  <div class="border-b border-outline-variant/10 pb-4">
+                    <span class="font-label text-[10px] uppercase tracking-[0.18em] opacity-50 mb-2 block">
+                      {c.sidebar.walkingDistance[currentLang]}
+                    </span>
+                    <p class="font-body text-on-surface leading-relaxed">{c.sidebar.walkingValue[currentLang]}</p>
+                  </div>
+
+                  <div>
+                    <span class="font-label text-[10px] uppercase tracking-[0.18em] opacity-50 mb-2 block">
+                      {c.sidebar.busStop[currentLang]}
+                    </span>
+                    <p class="font-body text-on-surface leading-relaxed">Parada de Autobus - C. Real</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="space-y-6">
+                <div class="rounded-[24px] overflow-hidden border border-outline-variant/5 bg-surface">
+                  <button
+                    type="button"
+                    class="block w-full"
+                    onclick="document.getElementById('map-overlay').classList.remove('hidden')"
+                  >
+                    <img
+                      src="/images/arrival-map.jpg"
+                      alt="Walking route from Avenida Carlos Cano 42 to La AMARA Frigiliana"
+                      class="w-full h-auto"
+                      loading="lazy"
+                    />
+                  </button>
+                </div>
+
+                <div>
+                  <a
+                    href="https://maps.app.goo.gl/S7AzRNc2QMCRyBBN6"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="am-cta-link"
+                  >
+                    Open route in Google Maps
+                  </a>
+                </div>
+              </div>
+
+              <div class="p-8 bg-surface border border-outline-variant/5 rounded-[24px] max-w-xl">
+                <h3 class="label-md font-label mb-8 text-primary">{c.sidebar.quickContact[currentLang]}</h3>
+                <ul class="space-y-6">
+                  <li class="flex flex-col border-b border-outline-variant/10 pb-4">
+                    <span class="font-label text-[10px] uppercase opacity-50 mb-1">{c.sidebar.taxi[currentLang]}</span>
+                    <span class="font-body font-bold text-on-surface">+34 952 533 131</span>
+                  </li>
+                  <li class="flex flex-col">
+                    <span class="font-label text-[10px] uppercase opacity-50 mb-1">{c.sidebar.emergency[currentLang]}</span>
+                    <span class="font-body font-bold text-primary">112</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="space-y-6">
+          <h2 class="text-3xl font-headline italic text-on-surface">{c.walkingAccess.title}</h2>
+          <p class="font-body text-on-surface-variant text-lg leading-relaxed italic max-w-3xl">
+            {c.walkingAccess.text}
+          </p>
+        </section>
+
+        <section class="space-y-6">
+          <h2 class="text-3xl font-headline italic text-on-surface">{c.luggageAdvice.title}</h2>
+          <p class="font-body text-on-surface-variant text-lg leading-relaxed italic max-w-3xl">
+            {c.luggageAdvice.text}
+          </p>
+        </section>
+
+        <FaqAccordion
+          arrivalTitle={c.arrivalSection.title}
+          steps={c.arrivalSection.steps}
+          faqTitle={c.faq.title}
+          items={c.faq.items}
+        />
       </div>
-    </section>
-
-    <section class="space-y-6">
-      <h2 class="text-3xl font-headline italic text-on-surface">{c.walkingAccess.title}</h2>
-      <p class="font-body text-on-surface-variant text-lg leading-relaxed italic max-w-3xl">
-        {c.walkingAccess.text}
-      </p>
-    </section>
-
-    <section class="space-y-6">
-      <h2 class="text-3xl font-headline italic text-on-surface">{c.luggageAdvice.title}</h2>
-      <p class="font-body text-on-surface-variant text-lg leading-relaxed italic max-w-3xl">
-        {c.luggageAdvice.text}
-      </p>
-    </section>
-  </div>
-
-  <div slot="sidebar">
-    <div class="mb-10">
-      <div class="p-8 bg-surface border border-black/5 rounded-[24px]">
-        <h3 class="font-headline italic text-2xl text-on-surface mb-8">{c.sidebar.title[currentLang]}</h3>
-
-        <div class="space-y-6">
-          <div class="border-b border-black/10 pb-4">
-            <span class="font-label text-[10px] uppercase tracking-[0.18em] opacity-50 mb-2 block">
-              {c.sidebar.address[currentLang]}
-            </span>
-            <p class="font-body text-on-surface leading-relaxed">Calle Chorruelo 5<br />29788 Frigiliana</p>
-          </div>
-
-          <div class="border-b border-black/10 pb-4">
-            <span class="font-label text-[10px] uppercase tracking-[0.18em] opacity-50 mb-2 block">
-              {c.sidebar.dropOff[currentLang]}
-            </span>
-            <p class="font-body text-on-surface leading-relaxed">Avenida Carlos Cano 42</p>
-          </div>
-
-          <div class="border-b border-black/10 pb-4">
-            <span class="font-label text-[10px] uppercase tracking-[0.18em] opacity-50 mb-2 block">
-              {c.sidebar.walkingDistance[currentLang]}
-            </span>
-            <p class="font-body text-on-surface leading-relaxed">{c.sidebar.walkingValue[currentLang]}</p>
-          </div>
-
-          <div>
-            <span class="font-label text-[10px] uppercase tracking-[0.18em] opacity-50 mb-2 block">
-              {c.sidebar.busStop[currentLang]}
-            </span>
-            <p class="font-body text-on-surface leading-relaxed">Parada de Autobus - C. Real</p>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="mb-10">
-      <section class="space-y-6">
-        <div class="rounded-[24px] overflow-hidden border border-black/5 bg-surface">
-          <button type="button" class="block w-full" onclick="document.getElementById('map-overlay').classList.remove('hidden')">
-            <img
-              src="/images/arrival-map.jpg"
-              alt="Walking route from Avenida Carlos Cano 42 to La AMARA Frigiliana"
-              class="w-full h-auto"
-              loading="lazy"
-            />
-          </button>
-        </div>
-
-        <div>
-          <a
-            href="https://maps.app.goo.gl/S7AzRNc2QMCRyBBN6"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="am-cta-link"
-          >
-            Open route in Google Maps
-          </a>
-        </div>
-      </section>
-    </div>
-
-    <div class="p-8 bg-surface border border-black/5 rounded-[24px]">
-      <h3 class="label-md font-label mb-8 text-primary">{c.sidebar.quickContact[currentLang]}</h3>
-      <ul class="space-y-6">
-        <li class="flex flex-col border-b border-black/10 pb-4">
-          <span class="font-label text-[10px] uppercase opacity-50 mb-1">{c.sidebar.taxi[currentLang]}</span>
-          <span class="font-body font-bold text-on-surface">+34 952 533 131</span>
-        </li>
-        <li class="flex flex-col">
-          <span class="font-label text-[10px] uppercase opacity-50 mb-1">{c.sidebar.emergency[currentLang]}</span>
-          <span class="font-body font-bold text-primary">112</span>
-        </li>
-      </ul>
     </div>
   </div>
-
-  <FaqAccordion
-    slot="bottom"
-    arrivalTitle={c.arrivalSection.title}
-    steps={c.arrivalSection.steps}
-    faqTitle={c.faq.title}
-    items={c.faq.items}
-  />
 
   <div
     id="map-overlay"
-    class="fixed inset-0 z-[999] hidden bg-black/70"
+    class="fixed inset-0 z-[999] hidden bg-on-surface/70"
     onclick="this.classList.add('hidden')"
   >
     <div class="min-h-full flex items-center justify-center p-6">
       <div class="relative max-w-4xl w-full" onclick="event.stopPropagation()">
         <button
           type="button"
-          class="absolute top-4 right-4 text-white text-xl"
+          class="absolute top-4 right-4 text-on-primary text-xl"
           onclick="document.getElementById('map-overlay').classList.add('hidden')"
         >
           ✕
@@ -554,7 +599,7 @@ const ui = {
             href="https://www.google.com/maps/dir/Avenida+Carlos+Cano+42,+Frigiliana/Calle+Chorruelo+5,+Frigiliana"
             target="_blank"
             rel="noopener noreferrer"
-            class="am-cta-link text-white"
+            class="am-cta-link text-on-primary"
           >
             Open route in Google Maps
           </a>
@@ -562,4 +607,4 @@ const ui = {
       </div>
     </div>
   </div>
-</UtilityLayout>
+</LocationAuthorityLayout>

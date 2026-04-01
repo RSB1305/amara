@@ -192,14 +192,14 @@ const getResolvedNavLabel = (link: NavLink) => {
 };
 ---
 
-<header class="fixed top-0 left-0 w-full z-[100] px-12 py-10 bg-surface/80 backdrop-blur-md border-b border-outline-variant/5">
+<header class="fixed top-0 left-0 w-full z-[100] px-12 py-9 bg-surface/80 backdrop-blur-md border-b border-outline-variant/5">
   <nav class="am-nav max-w-screen-2xl mx-auto">
     <div class="am-nav__brand">
       <a href={getBrandHref()} class="group inline-flex flex-col items-center text-center">
         <span class="font-headline italic text-2xl text-on-surface tracking-tighter group-hover:text-primary transition-colors">
           {brandName}
         </span>
-        <span class="mt-[-0.25rem] block text-center text-[8px] uppercase tracking-[0.5em] text-on-surface/40 font-bold">
+        <span class="-mt-1 block text-center text-[8px] uppercase tracking-[0.5em] text-on-surface/40 font-bold">
           {resolvedBrandLabel}
         </span>
       </a>
@@ -307,7 +307,7 @@ const getResolvedNavLabel = (link: NavLink) => {
     grid-template-columns: 16rem minmax(0, 1fr) 25rem;
     align-items: center;
     column-gap: 3.5rem;
-    min-height: 3.5rem;
+    min-height: 4rem;
   }
 
   .am-nav__brand {
@@ -371,7 +371,7 @@ const getResolvedNavLabel = (link: NavLink) => {
     top: 50%;
     width: 1px;
     height: 1.5rem;
-    background-color: rgb(210 197 179 / 0.2);
+    background-color: var(--color-nav-border);
     transform: translateY(-50%);
   }
 
@@ -388,7 +388,7 @@ const getResolvedNavLabel = (link: NavLink) => {
     right: 0;
     bottom: 0;
     height: 1px;
-    background: rgb(17 17 17 / 0.9);
+    background: var(--color-nav-scrim);
     opacity: 0;
     transition: opacity 160ms ease;
   }
@@ -399,7 +399,7 @@ const getResolvedNavLabel = (link: NavLink) => {
   }
 
   .am-nav__link[aria-current="page"] {
-    color: rgb(23 23 23 / 1);
+    color: var(--color-nav-panel);
   }
 
   .am-link-disabled {
