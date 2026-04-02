@@ -1,0 +1,37 @@
+---
+interface Props {
+  label: string;
+  value: string;
+  /** Short explanatory line below the value. */
+  description?: string;
+  /** Alignment hint for stats rows/grids. */
+  align?: 'left' | 'center';
+  /** Slightly stronger emphasis for key facts. */
+  emphasize?: boolean;
+
+  /** Back-compat: older prop name used in early drafts. */
+  note?: string;
+}
+
+const { label, value, description, note, align = 'left', emphasize = false } = Astro.props;
+const resolvedDescription = description ?? note;
+const isCenter = align === 'center';
+---
+
+<article class="px-0 py-0">
+  <div class:list={['flex flex-col', isCenter ? 'items-center text-center' : 'items-start text-left']}>
+    <div class="h-px w-10 bg-outline-variant/25"></div>
+    <div class="mt-4 font-label text-[10px] font-bold uppercase tracking-[0.18em] text-on-surface-variant/70">
+      {label}
+    </div>
+    <div class:list={['mt-2 font-headline tracking-tight', emphasize ? 'text-[28px] text-on-surface' : 'text-2xl text-on-surface']}>
+      {value}
+    </div>
+    {resolvedDescription && (
+      <p class="mt-3 font-body text-sm leading-relaxed text-on-surface-variant/80 max-w-[44ch]">
+        {resolvedDescription}
+      </p>
+    )}
+  </div>
+</article>
+

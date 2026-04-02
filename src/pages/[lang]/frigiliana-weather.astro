@@ -1,0 +1,14 @@
+---
+import FrigilianaWeatherPage from '../../page-families/location-authority/FrigilianaWeatherPage.astro';
+
+export function getStaticPaths() {
+  return ['en', 'de', 'nl', 'sv'].map((lang) => ({
+    params: { lang }
+  }));
+}
+
+const { lang } = Astro.params;
+---
+
+<FrigilianaWeatherPage lang={lang} />
+
