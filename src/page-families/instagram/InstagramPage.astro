@@ -1,0 +1,100 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { resolveLink } from '../../lib/linkResolver';
+import { normalizeLanguage } from '../../lib/seo/resolve-seo-head';
+import type { AmaraAuthoringSeo, AmaraLanguage } from '../../types/seo';
+
+interface Props {
+  lang?: string;
+}
+
+const { lang = 'es' } = Astro.props;
+const currentLang = normalizeLanguage(lang as AmaraLanguage);
+
+const seo: AmaraAuthoringSeo = {
+  version: '2026-03-28-instagram-test-v1.0-C',
+  pageType: 'C',
+  languages: {
+    en: {
+      title: 'Instagram | AMARA',
+      description: 'Placeholder test page for AMARA on Instagram.',
+      robots: 'index, follow',
+      canonical: 'auto'
+    },
+    de: {
+      title: 'Instagram | AMARA',
+      description: 'Platzhalter-Testseite für AMARA auf Instagram.',
+      robots: 'index, follow',
+      canonical: 'auto'
+    },
+    es: {
+      title: 'Instagram | AMARA',
+      description: 'Página de prueba provisional de AMARA en Instagram.',
+      robots: 'index, follow',
+      canonical: 'auto'
+    },
+    nl: {
+      title: 'Instagram | AMARA',
+      description: 'Tijdelijke testpagina voor AMARA op Instagram.',
+      robots: 'index, follow',
+      canonical: 'auto'
+    },
+    sv: {
+      title: 'Instagram | AMARA',
+      description: 'Tillfällig testsida för AMARA på Instagram.',
+      robots: 'index, follow',
+      canonical: 'auto'
+    }
+  }
+};
+
+const copy = {
+  heading: {
+    en: 'Instagram',
+    de: 'Instagram',
+    es: 'Instagram',
+    nl: 'Instagram',
+    sv: 'Instagram'
+  },
+  lead: {
+    en: 'Minimal test page. Follow AMARA on Instagram (external link).',
+    de: 'Minimale Testseite. Folgen Sie AMARA auf Instagram (externer Link).',
+    es: 'Página de prueba mínima. Sigue a AMARA en Instagram (enlace externo).',
+    nl: 'Minimale testpagina. Volg AMARA op Instagram (externe link).',
+    sv: 'Minimal testsida. Följ AMARA på Instagram (extern länk).'
+  },
+  back: {
+    en: 'Back to home',
+    de: 'Zur Startseite',
+    es: 'Volver al inicio',
+    nl: 'Terug naar home',
+    sv: 'Tillbaka till startsidan'
+  },
+  externalLabel: {
+    en: 'Open Instagram',
+    de: 'Instagram öffnen',
+    es: 'Abrir Instagram',
+    nl: 'Instagram openen',
+    sv: 'Öppna Instagram'
+  }
+};
+
+const instagramUrl = 'https://www.instagram.com/';
+---
+
+<BaseLayout seo={seo} pageLang={currentLang} footerVariant="trust">
+  <main class="mx-auto max-w-2xl px-6 pb-24">
+    <h1 class="font-display text-3xl tracking-tight text-on-surface md:text-4xl">{copy.heading[currentLang]}</h1>
+    <p class="mt-6 am-body text-on-surface/80">{copy.lead[currentLang]}</p>
+    <p class="mt-8">
+      <a
+        href={instagramUrl}
+        class="am-body text-primary underline underline-offset-4 hover:opacity-90"
+        target="_blank"
+        rel="noopener noreferrer">{copy.externalLabel[currentLang]}</a>
+    </p>
+    <p class="mt-10">
+      <a href={resolveLink('home', currentLang)} class="am-body text-on-surface/90 underline underline-offset-4 hover:text-primary">{copy.back[currentLang]}</a>
+    </p>
+  </main>
+</BaseLayout>

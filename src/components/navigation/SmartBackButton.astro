@@ -1,0 +1,76 @@
+---
+/**
+ * Smart back: history.back() when history.length > 1, else navigates to fallbackHref.
+ * `icon` — circular control (default). `link` — editorial text “← {label}”.
+ * Event delegation + single init guard so multiple instances do not duplicate listeners.
+ */
+interface Props {
+  fallbackHref: string;
+  label?: string;
+  variant?: 'icon' | 'link';
+}
+
+const { fallbackHref, label = 'Back', variant = 'icon' } = Astro.props;
+const isLink = variant === 'link';
+---
+
+<div class={isLink ? 'mb-5' : 'mb-6'}>
+  {
+    isLink ? (
+      <button
+        type="button"
+        class="cursor-pointer border-0 bg-transparent p-0 text-left font-body text-sm text-on-surface-variant/90 transition-opacity duration-200 hover:opacity-65 focus-visible:rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/25 focus-visible:ring-offset-2"
+        data-smart-back
+        data-fallback-href={fallbackHref}
+      >
+        ← {label}
+      </button>
+    ) : (
+      <button
+        type="button"
+        class="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-outline-variant/10 bg-surface text-on-surface-variant transition-[background-color,opacity] duration-200 hover:bg-on-surface/5 hover:opacity-90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/30 focus-visible:ring-offset-2"
+        data-smart-back
+        data-fallback-href={fallbackHref}
+        aria-label={label}
+      >
+        <span class="sr-only">{label}</span>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="20"
+          height="20"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          class="shrink-0"
+          aria-hidden="true"
+        >
+          <path d="M19 12H5M12 19l-7-7 7-7" />
+        </svg>
+      </button>
+    )
+  }
+</div>
+
+<script is:inline>
+  (function () {
+    if (typeof window === 'undefined') return;
+    if (window.__amaraSmartBackBound) return;
+    window.__amaraSmartBackBound = true;
+    document.addEventListener('click', function (e) {
+      var t = e.target;
+      if (!t || !t.closest) return;
+      var el = t.closest('[data-smart-back]');
+      if (!el) return;
+      e.preventDefault();
+      var fallback = el.getAttribute('data-fallback-href') || '/';
+      if (window.history.length > 1) {
+        window.history.back();
+      } else {
+        window.location.assign(fallback);
+      }
+    });
+  })();
+</script>

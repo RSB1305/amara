@@ -1,0 +1,466 @@
+---
+// src/pages/tools/converter/index.astro
+// AMARA Internal Tool — AI Studio → Astro Converter
+// Nur lokal verfügbar, niemals deployen (robots: noindex)
+export const prerender = true;
+---
+
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>AMARA Converter — AI Studio → Astro</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: #F5F2ED;
+      color: #1A1A1A;
+      min-height: 100vh;
+    }
+
+    header {
+      background: #1A1A1A;
+      color: white;
+      padding: 16px 32px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    header h1 { font-size: 14px; font-weight: 500; letter-spacing: .05em; }
+    header span { font-size: 11px; color: #888; letter-spacing: .1em; text-transform: uppercase; }
+
+    .main { padding: 24px 32px; display: grid; gap: 20px; max-width: 1600px; margin: 0 auto; }
+
+    .options-bar {
+      background: white;
+      border: 1px solid #E5E5E5;
+      border-radius: 12px;
+      padding: 16px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .chips { display: flex; gap: 8px; flex-wrap: wrap; }
+
+    .chip {
+      font-size: 12px;
+      padding: 5px 12px;
+      border-radius: 99px;
+      border: 1px solid #E5E5E5;
+      cursor: pointer;
+      user-select: none;
+      color: #666;
+      background: white;
+      transition: all .15s;
+    }
+    .chip.active { background: #1A1A1A; color: white; border-color: #1A1A1A; }
+
+    .actions { display: flex; gap: 8px; }
+
+    .btn {
+      padding: 8px 20px;
+      font-size: 13px;
+      font-weight: 500;
+      border-radius: 8px;
+      border: 1px solid #E5E5E5;
+      background: white;
+      color: #1A1A1A;
+      cursor: pointer;
+      transition: background .15s;
+    }
+    .btn:hover { background: #F5F2ED; }
+    .btn-primary { background: #1A1A1A; color: white; border-color: #1A1A1A; }
+    .btn-primary:hover { opacity: .85; background: #1A1A1A; }
+
+    .panels {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    @media (max-width: 900px) { .panels { grid-template-columns: 1fr; } }
+
+    .panel {
+      background: white;
+      border: 1px solid #E5E5E5;
+      border-radius: 12px;
+      overflow: hidden;
+    }
+
+    .panel-head {
+      padding: 10px 16px;
+      border-bottom: 1px solid #E5E5E5;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: #FAFAFA;
+    }
+
+    .panel-label { font-size: 11px; font-weight: 600; color: #666; letter-spacing: .06em; text-transform: uppercase; }
+
+    .btn-sm {
+      padding: 4px 10px;
+      font-size: 11px;
+      border-radius: 6px;
+      border: 1px solid #E5E5E5;
+      background: white;
+      cursor: pointer;
+    }
+    .btn-sm:hover { background: #F5F2ED; }
+
+    textarea {
+      width: 100%;
+      height: 360px;
+      background: #FAFAFA;
+      border: none;
+      padding: 14px 16px;
+      font-family: 'SF Mono', 'Fira Code', monospace;
+      font-size: 12px;
+      color: #1A1A1A;
+      resize: none;
+      outline: none;
+      line-height: 1.6;
+    }
+
+    .output-area {
+      width: 100%;
+      height: 360px;
+      background: #FAFAFA;
+      padding: 14px 16px;
+      font-family: 'SF Mono', 'Fira Code', monospace;
+      font-size: 12px;
+      color: #1A1A1A;
+      overflow: auto;
+      line-height: 1.6;
+      white-space: pre;
+      word-break: break-all;
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+    }
+
+    .stat {
+      background: white;
+      border: 1px solid #E5E5E5;
+      border-radius: 10px;
+      padding: 14px 16px;
+      text-align: center;
+    }
+
+    .stat-n { font-size: 22px; font-weight: 500; }
+    .stat-l { font-size: 11px; color: #888; margin-top: 2px; }
+
+    .log {
+      background: white;
+      border: 1px solid #E5E5E5;
+      border-radius: 12px;
+      padding: 12px 16px;
+      font-family: 'SF Mono', 'Fira Code', monospace;
+      font-size: 12px;
+      min-height: 70px;
+      max-height: 130px;
+      overflow: auto;
+      line-height: 1.8;
+    }
+
+    .log-item { display: flex; gap: 8px; }
+    .ok { color: #2D7D46; }
+    .warn { color: #B45309; }
+    .err { color: #B91C1C; }
+    .info { color: #888; }
+
+    .section-label {
+      font-size: 11px;
+      font-weight: 600;
+      color: #888;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+
+    .hint {
+      background: #1A1A1A;
+      color: #A0A0A0;
+      border-radius: 10px;
+      padding: 14px 20px;
+      font-size: 12px;
+      line-height: 1.7;
+    }
+    .hint strong { color: white; }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>AMARA Converter</h1>
+  <span>AI Studio → Astro · Internes Tool</span>
+</header>
+
+<div class="main">
+
+  <div class="options-bar">
+    <div class="chips">
+      <span class="chip active" data-opt="amroot">+ .am-root / .am-wrap</span>
+      <span class="chip active" data-opt="hex">Hex-Codes → CSS Vars</span>
+      <span class="chip active" data-opt="seo">SEO JSON-LD</span>
+      <span class="chip active" data-opt="props">Props-Interface</span>
+      <span class="chip active" data-opt="style">Inline Styles markieren</span>
+      <span class="chip active" data-opt="react">React → Astro</span>
+    </div>
+    <div class="actions">
+      <button class="btn" onclick="loadDemo()">Demo</button>
+      <button class="btn" onclick="clearAll()">Leeren</button>
+      <button class="btn btn-primary" onclick="transform()">Transformieren →</button>
+    </div>
+  </div>
+
+  <div class="panels">
+    <div class="panel">
+      <div class="panel-head">
+        <span class="panel-label">Input — AI Studio Code</span>
+        <button class="btn-sm" onclick="document.getElementById('input').value=''">✕ Leeren</button>
+      </div>
+      <textarea id="input" spellcheck="false" placeholder="HTML oder React/JSX Code aus dem AI Studio Code-Tab hier einfügen (Ctrl+A → Ctrl+C im Code-Tab)..."></textarea>
+    </div>
+    <div class="panel">
+      <div class="panel-head">
+        <span class="panel-label">Output — Astro Komponente</span>
+        <button class="btn-sm" onclick="copyOutput()">Kopieren</button>
+      </div>
+      <div class="output-area" id="output">Warte auf Input...</div>
+    </div>
+  </div>
+
+  <div class="stats">
+    <div class="stat"><div class="stat-n" id="s-hex">—</div><div class="stat-l">Hex-Codes gefunden</div></div>
+    <div class="stat"><div class="stat-n" id="s-inline">—</div><div class="stat-l">Inline Styles</div></div>
+    <div class="stat"><div class="stat-n" id="s-props">—</div><div class="stat-l">Props erkannt</div></div>
+    <div class="stat"><div class="stat-n" id="s-lines">—</div><div class="stat-l">Zeilen Output</div></div>
+  </div>
+
+  <div>
+    <div class="section-label">Validierungs-Log</div>
+    <div class="log" id="log"><span class="info">Bereit. Code einfügen und "Transformieren" klicken.</span></div>
+  </div>
+
+  <div class="hint">
+    <strong>Workflow:</strong> AI Studio → Code-Tab → Ctrl+A → Ctrl+C → hier einfügen → Transformieren → Output kopieren → in VS Code in deine
+    <strong>.astro</strong> Datei einfügen (Ctrl+A → Ctrl+V → Ctrl+S). Fertig.
+    <br><br>
+    <strong>Tipp:</strong> Füge in AI Studio <code>data-prop="variablenname"</code> zu dynamischen Elementen hinzu — das Tool erkennt sie automatisch als TypeScript Props.
+  </div>
+
+</div>
+
+<script>
+  const opts = { amroot: true, hex: true, seo: true, props: true, style: true, react: true }
+
+  document.querySelectorAll('.chip[data-opt]').forEach(c => {
+    c.addEventListener('click', () => {
+      const k = c.dataset.opt
+      opts[k] = !opts[k]
+      c.classList.toggle('active', opts[k])
+    })
+  })
+
+  function addLog(msg, type = 'info') {
+    const el = document.getElementById('log')
+    if (el.innerHTML.includes('Bereit')) el.innerHTML = ''
+    const d = document.createElement('div')
+    d.className = 'log-item'
+    const icon = type === 'ok' ? '✓' : type === 'warn' ? '⚠' : type === 'err' ? '✗' : '·'
+    d.innerHTML = `<span class="${type}">${icon}</span><span class="${type}">${msg}</span>`
+    el.appendChild(d)
+    el.scrollTop = el.scrollHeight
+  }
+
+  function copyOutput() {
+    navigator.clipboard.writeText(document.getElementById('output').textContent).catch(() => {})
+  }
+
+  function clearAll() {
+    document.getElementById('input').value = ''
+    document.getElementById('output').textContent = 'Warte auf Input...'
+    document.getElementById('log').innerHTML = '<span class="info">Bereit. Code einfügen und "Transformieren" klicken.</span>'
+    ;['s-hex','s-inline','s-props','s-lines'].forEach(id => document.getElementById(id).textContent = '—')
+  }
+
+  function isReact(code) {
+    return code.includes('className=') || code.includes('import React') || code.includes('export default function')
+  }
+
+  function reactToAstro(code) {
+    return code
+      .replace(/className=/g, 'class=')
+      .replace(/htmlFor=/g, 'for=')
+      .replace(/strokeWidth=/g, 'stroke-width=')
+      .replace(/strokeLinecap=/g, 'stroke-linecap=')
+      .replace(/strokeLinejoin=/g, 'stroke-linejoin=')
+      .replace(/fillOpacity=/g, 'fill-opacity=')
+      .replace(/viewBox=/g, 'viewBox=')
+      .replace(/\{\/\*[\s\S]*?\*\/\}/g, '')
+      .replace(/import React from ['"]react['"];?\n?/g, '')
+      .replace(/import \{[^}]+\} from ['"]lucide-react['"];?\n?/g, '')
+      .replace(/export default function \w+\(\) \{/g, '')
+      .replace(/^\s*return \(\s*/m, '')
+      .replace(/^\s*\);\s*\}?\s*$/m, '')
+      .replace(/<(\w+)[^>]*\/>/g, (m) => m)
+  }
+
+  function extractBody(html) {
+    const bodyMatch = html.match(/<body[^>]*>([\s\S]*?)<\/body>/i)
+    if (bodyMatch) return bodyMatch[1].trim()
+    return html
+      .replace(/<!DOCTYPE[^>]*>/i, '')
+      .replace(/<html[^>]*>/i, '').replace(/<\/html>/i, '')
+      .replace(/<head>[\s\S]*?<\/head>/i, '')
+      .replace(/<body[^>]*>/i, '').replace(/<\/body>/i, '')
+      .trim()
+  }
+
+  function countHex(html) {
+    return (html.match(/#[0-9A-Fa-f]{3,8}\b/g) || []).length
+  }
+
+  function countInline(html) {
+    return (html.match(/style\s*=\s*["']/g) || []).length
+  }
+
+  function replaceKnownHex(html) {
+    const map = {
+      '#F9F5EE': 'var(--am-color-surface)',
+      '#F5F0E8': 'var(--am-color-surface)',
+      '#F5F2ED': 'var(--am-color-surface)',
+      '#F9F8F6': 'var(--am-color-surface-alt)',
+      '#1A2B3C': 'var(--am-color-deep-blue)',
+      '#C9A96E': 'var(--am-color-gold)',
+      '#1A1A1A': 'var(--am-color-text-primary)',
+      '#ffffff': 'var(--am-color-white)',
+      '#FFFFFF': 'var(--am-color-white)',
+      '#4A4A4A': 'var(--am-color-text-secondary)',
+      '#666':    'var(--am-color-text-muted)',
+      '#666666': 'var(--am-color-text-muted)',
+      '#888':    'var(--am-color-text-hint)',
+      '#888888': 'var(--am-color-text-hint)',
+      '#E5E5E5': 'var(--am-color-border)',
+      '#A0A0A0': 'var(--am-color-text-on-dark)',
+    }
+    let out = html
+    for (const [hex, v] of Object.entries(map)) out = out.split(hex).join(v)
+    return out
+  }
+
+  function inferProps(html) {
+    const props = []
+    for (const m of html.matchAll(/data-prop="([^"]+)"/g)) {
+      if (!props.includes(m[1])) props.push(m[1])
+    }
+    return props
+  }
+
+  function buildFrontmatter(props) {
+    if (!props.length) return `---\n---`
+    return `---\ninterface Props {\n${props.map(p => `  ${p}: string`).join('\n')}\n}\nconst { ${props.join(', ')} } = Astro.props\n---`
+  }
+
+  function buildSEO() {
+    return `\n<script type="application/ld+json">\n{\n  "@context": "https://schema.org",\n  "@type": "WebPage",\n  "name": "",\n  "description": "",\n  "url": "",\n  "inLanguage": ["en","de","es","nl","sv"],\n  "canonical": "auto"\n}\n<\/script>`
+  }
+
+  function wrapAMARA(inner) {
+    const lines = inner.split('\n').map(l => '    ' + l).join('\n')
+    return `<div class="am-root">\n  <div class="am-wrap">\n${lines}\n  </div>\n</div>`
+  }
+
+  function transform() {
+    const raw = document.getElementById('input').value.trim()
+    if (!raw) { addLog('Kein Input.', 'err'); return }
+    document.getElementById('log').innerHTML = ''
+
+    let html = raw
+
+    if (opts.react && isReact(html)) {
+      html = reactToAstro(html)
+      addLog('React/JSX → Astro HTML konvertiert', 'ok')
+    }
+
+    html = extractBody(html)
+    addLog('Content extrahiert — ' + html.length + ' Zeichen')
+
+    const hexCount = countHex(html)
+    const inlineCount = countInline(html)
+
+    if (opts.hex) {
+      html = replaceKnownHex(html)
+      const remaining = countHex(html)
+      if (remaining > 0) addLog(remaining + ' Hex-Codes nicht gemappt — manuell prüfen', 'warn')
+      else addLog(hexCount + ' Hex-Codes → CSS-Variablen', 'ok')
+    }
+
+    if (opts.style && inlineCount > 0) {
+      addLog(inlineCount + ' Inline Styles gefunden — manuell in Tailwind übersetzen', 'warn')
+    }
+
+    const props = opts.props ? inferProps(html) : []
+    if (opts.props) {
+      if (props.length > 0) addLog(props.length + ' Props: ' + props.join(', '), 'ok')
+      else addLog('Keine data-prop Attribute — Props-Interface leer', 'info')
+    }
+
+    if (opts.amroot && !html.includes('am-root')) {
+      html = wrapAMARA(html)
+      addLog('.am-root + .am-wrap injiziert', 'ok')
+    } else if (html.includes('am-root')) {
+      addLog('.am-root bereits vorhanden', 'info')
+    }
+
+    const fm = buildFrontmatter(props)
+    const seo = opts.seo ? buildSEO() : ''
+    const output = fm + '\n\n' + html + (seo ? '\n' + seo : '')
+
+    document.getElementById('output').textContent = output
+    document.getElementById('s-hex').textContent = hexCount
+    document.getElementById('s-inline').textContent = inlineCount
+    document.getElementById('s-props').textContent = props.length
+    document.getElementById('s-lines').textContent = output.split('\n').length
+
+    addLog('Fertig — ' + output.split('\n').length + ' Zeilen', 'ok')
+  }
+
+  function loadDemo() {
+    document.getElementById('input').value = `import React from 'react';
+import { MapPin, Clock } from 'lucide-react';
+
+export default function FrigilianaParking() {
+  return (
+    <div className="min-h-screen bg-[#F5F2ED]">
+      <section className="pt-32 pb-16 px-6 lg:px-24 max-w-[1600px] mx-auto">
+        <span className="text-[11px] uppercase tracking-[0.15em] text-[#666] mb-6 block">
+          Location Authority • Frigiliana
+        </span>
+        <h1 data-prop="headline" className="font-serif text-7xl leading-[0.95]">
+          The Reality of Arrival
+        </h1>
+        <p data-prop="lead" className="text-[#4A4A4A] font-light text-lg mt-6">
+          Frigiliana is not a flat coastal resort.
+        </p>
+      </section>
+    </div>
+  );
+}`
+    addLog('Demo geladen', 'info')
+  }
+</script>
+
+</body>
+</html>

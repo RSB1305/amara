@@ -1,5 +1,5 @@
 ---
-import FrigilianaLocationPage from '../../page-families/location-authority/FrigilianaLocationPage.astro';
+import HomePage from '../../page-families/home/HomePage.astro';
 
 export function getStaticPaths() {
   return ['de', 'en', 'nl', 'sv'].map((lang) => ({
@@ -10,4 +10,4 @@ export function getStaticPaths() {
 const { lang } = Astro.params;
 ---
 
-<FrigilianaLocationPage lang={lang} />
+<HomePage lang={lang} />

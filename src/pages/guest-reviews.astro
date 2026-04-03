@@ -1,10 +1,7 @@
 ---
-import GuestReviewsLocalizedPage from './[lang]/guest-reviews.astro';
+import GuestReviewsPage from '../page-families/guest-reviews/GuestReviewsPage.astro';
 
-const lang = 'es';
+const currentLang = 'es';
 ---
 
-<div data-lang={lang}>
-  {/* @ts-ignore - Reuse localized page implementation for root Spanish route */}
-  <GuestReviewsLocalizedPage lang={lang} />
-</div>
+<GuestReviewsPage currentLang={currentLang} />

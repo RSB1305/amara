@@ -1,0 +1,31 @@
+---
+/**
+ * EditorialQuote
+ *
+ * Centered pull-quote for trust/editorial pages. Visual parity with legacy
+ * .am-direct-quote-block / .am-direct-quote (Direct Booking benefits).
+ */
+interface Props {
+  quote: string;
+  /** Optional attribution line (e.g. speaker). */
+  author?: string;
+  /** Optional source label; used when `author` is not set. */
+  source?: string;
+}
+
+const { quote, author, source } = Astro.props;
+const attribution = author ?? source;
+---
+
+<section class="am-direct-section py-[clamp(4rem,8vw,8rem)] text-center max-w-[1000px] mx-auto">
+  <blockquote class="font-headline text-[clamp(2.5rem,5vw,4rem)] leading-[1.15] italic font-light text-on-surface m-0">
+    &ldquo;{quote}&rdquo;
+    {
+      attribution && (
+        <footer class="mt-6 block font-body text-base not-italic font-normal text-muted">
+          &mdash; {attribution}
+        </footer>
+      )
+    }
+  </blockquote>
+</section>

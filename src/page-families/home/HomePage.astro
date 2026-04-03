@@ -1,0 +1,90 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Navigation from '../../components/Navigation.astro';
+import { normalizeLanguage } from '../../lib/seo/resolve-seo-head';
+import type { AmaraAuthoringSeo, AmaraLanguage } from '../../types/seo';
+
+interface Props {
+  lang?: string;
+}
+
+const { lang = 'es' } = Astro.props;
+const currentLang = normalizeLanguage(lang as AmaraLanguage);
+
+const seo: AmaraAuthoringSeo = {
+  version: '2026-03-27-amara-home-shell-v1.0-A',
+  pageType: 'A',
+  languages: {
+    en: {
+      title: 'AMARA | Boutique Holiday Apartments in Frigiliana & Nerja',
+      description:
+        'Premium holiday homes in Andalusia. Quiet stays, direct host contact, and curated comfort in Frigiliana and Nerja.',
+      robots: 'index, follow',
+      canonical: 'auto'
+    },
+    de: {
+      title: 'AMARA | Boutique-Ferienwohnungen in Frigiliana & Nerja',
+      description:
+        'Premium-Unterkünfte in Andalusien: ruhige Aufenthalte, direkter Gastgeberkontakt und kuratierte Ausstattung in Frigiliana und Nerja.',
+      robots: 'index, follow',
+      canonical: 'auto'
+    },
+    es: {
+      title: 'AMARA | Apartamentos boutique en Frigiliana y Nerja',
+      description:
+        'Casas de vacaciones premium en Andalucía: estancias tranquilas, contacto directo con el anfitrión y confort cuidado en Frigiliana y Nerja.',
+      robots: 'index, follow',
+      canonical: 'auto'
+    },
+    nl: {
+      title: 'AMARA | Boutique vakantieappartementen in Frigiliana & Nerja',
+      description:
+        'Premium vakantieverblijven in Andalusië: rustige verblijven, direct contact met de gastheer en zorgvuldig comfort in Frigiliana en Nerja.',
+      robots: 'index, follow',
+      canonical: 'auto'
+    },
+    sv: {
+      title: 'AMARA | Boutique-lägenheter i Frigiliana & Nerja',
+      description:
+        'Premium semesterboenden i Andalusien: lugna vistelser, direkt kontakt med värden och omsorgsfullt komfort i Frigiliana och Nerja.',
+      robots: 'index, follow',
+      canonical: 'auto'
+    }
+  }
+};
+
+const headline: Record<AmaraLanguage, string> = {
+  en: 'Welcome to AMARA',
+  de: 'Willkommen bei AMARA',
+  es: 'Bienvenidos a AMARA',
+  nl: 'Welkom bij AMARA',
+  sv: 'Välkommen till AMARA'
+};
+
+const lead: Record<AmaraLanguage, string> = {
+  en: 'Boutique holiday apartments in Frigiliana and Nerja — calm stays, thoughtful comfort, and hosts you can reach directly.',
+  de: 'Boutique-Ferienwohnungen in Frigiliana und Nerja — ruhige Aufenthalte, durchdachte Ausstattung und Gastgeber, die ihr direkt erreicht.',
+  es: 'Apartamentos boutique en Frigiliana y Nerja: estancias tranquilas, confort cuidado y anfitriones a los que podéis contactar directamente.',
+  nl: 'Boutique vakantieappartementen in Frigiliana en Nerja — rustige verblijven, zorgvuldig comfort en hosts die je direct bereikt.',
+  sv: 'Boutique-lägenheter i Frigiliana och Nerja — lugna vistelser, genomtänkt komfort och värdar ni når direkt.'
+};
+---
+
+<BaseLayout seo={seo} pageLang={currentLang}>
+  <Navigation
+    currentLang={currentLang}
+    brandName="AMARA"
+    links={[]}
+    variant="default"
+    languageToken="home"
+  />
+  <main class="max-w-screen-lg mx-auto px-12 py-24 md:py-32">
+    <p class="font-label text-[10px] font-bold uppercase tracking-[0.2em] text-primary mb-6">AMARA</p>
+    <h1 class="font-headline text-4xl md:text-5xl font-light text-on-surface tracking-tight mb-8">
+      {headline[currentLang]}
+    </h1>
+    <p class="font-body text-lg text-on-surface-variant leading-relaxed max-w-2xl">
+      {lead[currentLang]}
+    </p>
+  </main>
+</BaseLayout>

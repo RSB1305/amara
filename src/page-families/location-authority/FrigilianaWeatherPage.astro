@@ -1,0 +1,525 @@
+---
+import LocationAuthorityLayout from '../../layouts/LocationAuthorityLayout.astro';
+import Navigation from '../../components/Navigation.astro';
+import SectionAnchorNav from '../../components/navigation/SectionAnchorNav.astro';
+import SmartBackButton from '../../components/navigation/SmartBackButton.astro';
+import HairlineStatCard from '../../components/location/HairlineStatCard.astro';
+import SeasonalPillar from '../../components/location/SeasonalPillar.astro';
+import { resolveLink } from '../../lib/linkResolver';
+import { getFrigilianaAuthoritySubnav } from '../../lib/frigiliana/frigilianaAuthoritySubnav';
+import { normalizeLanguage } from '../../lib/seo/resolve-seo-head';
+import type { AmaraAuthoringSeo, AmaraLanguage } from '../../types/seo';
+
+interface Props {
+  lang?: string;
+}
+
+const { lang = 'es' } = Astro.props;
+const currentLang = normalizeLanguage(lang as AmaraLanguage);
+const sectionNavItems = getFrigilianaAuthoritySubnav(currentLang);
+const locationBase = resolveLink('location_frigiliana', currentLang);
+
+const seo: AmaraAuthoringSeo = {
+  version: '2026-04-01-frigiliana-weather-v1.0-A',
+  pageType: 'A',
+  entityKey: 'amara-brand',
+  languages: {
+    en: {
+      title: 'Weather & Climate in Frigiliana | AMARA Location Guide',
+      description:
+        'How Frigiliana’s hillside microclimate changes evenings, sleep comfort, and walking rhythm — and when it feels especially breathable.',
+      robots: 'index, follow',
+      canonical: 'auto'
+    },
+    de: {
+      title: 'Wetter & Klima in Frigiliana | AMARA Ortsguide',
+      description:
+        'Wie Frigilianas Hanglage Abende, Schlafkomfort und Gehrhythmus prägt — und wann es sich besonders angenehm anfühlt.',
+      robots: 'index, follow',
+      canonical: 'auto'
+    },
+    es: {
+      title: 'Tiempo y clima en Frigiliana | Guía AMARA',
+      description:
+        'Cómo el microclima en ladera cambia las tardes, el descanso nocturno y el ritmo de caminar — y cuándo se siente más respirable.',
+      robots: 'index, follow',
+      canonical: 'auto'
+    },
+    nl: {
+      title: 'Weer & klimaat in Frigiliana | AMARA locatiegids',
+      description:
+        'Hoe Frigiliana’s microklimaat op de heuvel avonden, slaapcomfort en loopritme beïnvloedt — en wanneer het extra aangenaam voelt.',
+      robots: 'index, follow',
+      canonical: 'auto'
+    },
+    sv: {
+      title: 'Väder & klimat i Frigiliana | AMARA platsguide',
+      description:
+        'Hur Frigilianas microklimat på höjden påverkar kvällar, sömnkomfort och promenadrytm — och när det känns extra behagligt.',
+      robots: 'index, follow',
+      canonical: 'auto'
+    }
+  }
+};
+
+const copy = {
+  nav: {
+    brand: { en: 'Frigiliana', de: 'Frigiliana', es: 'Frigiliana', nl: 'Frigiliana', sv: 'Frigiliana' },
+    links: [
+      { token: 'location_frigiliana', label: { en: 'Frigiliana', de: 'Frigiliana', es: 'Frigiliana', nl: 'Frigiliana', sv: 'Frigiliana' } },
+      { token: 'location_nerja', label: { en: 'Nerja', de: 'Nerja', es: 'Nerja', nl: 'Nerja', sv: 'Nerja' } },
+      {
+        token: 'explore_hub',
+        label: { en: 'Experiences', de: 'Erlebnisse', es: 'Experiencias', nl: 'Ervaringen', sv: 'Upplevelser' }
+      }
+    ]
+  },
+  header: {
+    back: { en: 'Back', de: 'Zurück', es: 'Volver', nl: 'Terug', sv: 'Tillbaka' },
+    eyebrow: {
+      en: 'Weather & Climate · Frigiliana',
+      de: 'Wetter & Klima · Frigiliana',
+      es: 'Tiempo y clima · Frigiliana',
+      nl: 'Weer & klimaat · Frigiliana',
+      sv: 'Väder & klimat · Frigiliana'
+    },
+    h1: {
+      en: 'Weather in Frigiliana',
+      de: 'Wetter in Frigiliana',
+      es: 'El tiempo en Frigiliana',
+      nl: 'Het weer in Frigiliana',
+      sv: 'Vädret i Frigiliana'
+    },
+    lead: {
+      en: 'Frigiliana can feel warm by day — but the hillside setting often brings a more breathable evening rhythm. For overnight stays, the difference is less about forecasts and more about how terraces, sleep, and walking feel after sunset.',
+      de: 'Frigiliana kann tagsüber warm sein — doch die Hanglage bringt abends oft einen spürbar angenehmeren Rhythmus. Für Übernachtungsgäste geht es weniger um Prognosen als darum, wie sich Terrasse, Schlaf und Wege nach Sonnenuntergang anfühlen.',
+      es: 'Frigiliana puede sentirse cálida durante el día, pero su ladera suele aportar tardes más respirables. Para estancias con noche, importa menos la predicción y más cómo se sienten la terraza, el descanso y los paseos después del atardecer.',
+      nl: 'Overdag kan Frigiliana warm aanvoelen, maar door de ligging op de heuvel is het ’s avonds vaak merkbaar beter uit te houden. Bij overnachtingen gaat het minder om de voorspelling en meer om hoe terras, slaap en lopen voelen na zonsondergang.',
+      sv: 'Frigiliana kan kännas varmt på dagen — men läget på höjden ger ofta en mer behaglig kvällsrytm. För övernattningar handlar det mindre om prognoser och mer om hur terrass, sömn och promenader känns efter solnedgång.'
+    }
+  },
+  glance: {
+    title: {
+      en: 'Weather at a Glance',
+      de: 'Wetter auf einen Blick',
+      es: 'El clima de un vistazo',
+      nl: 'Weer in het kort',
+      sv: 'Vädret i korthet'
+    },
+    intro: {
+      en: 'Frigiliana sits above the coast, and that subtle elevation changes the day. Coastal heat can linger, while the village often releases it sooner — especially once the sun drops behind the ridge.',
+      de: 'Frigiliana liegt über der Küste — und diese leichte Höhenlage verändert den Tag. Küstenhitze kann lange stehen, während das Dorf sie oft früher loslässt — besonders wenn die Sonne hinter dem Grat verschwindet.',
+      es: 'Frigiliana está por encima de la costa, y esa altura sutil cambia la sensación del día. En la costa el calor se queda, mientras que el pueblo suele soltarlo antes — sobre todo cuando el sol cae tras la sierra.',
+      nl: 'Frigiliana ligt boven de kust, en dat hoogteverschil verandert hoe de dag aanvoelt. Aan de kust blijft warmte hangen, terwijl het dorp die vaak eerder loslaat — zeker zodra de zon achter de kam verdwijnt.',
+      sv: 'Frigiliana ligger ovanför kusten, och den höjdskillnaden förändrar upplevelsen. Vid kusten kan värmen ligga kvar, medan byn ofta släpper den tidigare — särskilt när solen går ner bakom bergsryggen.'
+    },
+    stats: {
+      sun: {
+        label: { en: 'Sun', de: 'Sonne', es: 'Sol', nl: 'Zon', sv: 'Sol' },
+        value: { en: '300+ days', de: '300+ Tage', es: '300+ días', nl: '300+ dagen', sv: '300+ dagar' },
+        note: {
+          en: 'Bright light is a constant — plan shade for midday walks.',
+          de: 'Helles Licht ist konstant — für Mittagswege Schatten einplanen.',
+          es: 'La luz es constante: buscad sombra para caminar al mediodía.',
+          nl: 'Fel licht is constant — plan schaduw voor wandelingen rond de middag.',
+          sv: 'Ljuset är ofta starkt — planera skugga mitt på dagen.'
+        }
+      },
+      evening: {
+        label: { en: 'Evenings', de: 'Abende', es: 'Tardes', nl: 'Avonden', sv: 'Kvällar' },
+        value: {
+          en: 'Breathable',
+          de: 'Angenehm',
+          es: 'Más suave',
+          nl: 'Aangenamer',
+          sv: 'Behagliga'
+        },
+        note: {
+          en: 'Cooling tends to arrive earlier than directly on the coast.',
+          de: 'Abkühlung kommt oft früher als direkt an der Küste.',
+          es: 'Suele refrescar antes que en la costa.',
+          nl: 'Het koelt vaak eerder af dan direct aan zee.',
+          sv: 'Det svalnar ofta tidigare än vid kusten.'
+        }
+      },
+      nights: {
+        label: { en: 'Nights', de: 'Nächte', es: 'Noches', nl: 'Nachten', sv: 'Nätter' },
+        value: {
+          en: 'Better sleep',
+          de: 'Besserer Schlaf',
+          es: 'Mejor descanso',
+          nl: 'Beter slapen',
+          sv: 'Bättre sömn'
+        },
+        note: {
+          en: 'For many guests, the key comfort difference is nighttime air.',
+          de: 'Für viele Gäste ist der Komfortunterschied die Nachtluft.',
+          es: 'Para muchos, la diferencia clave es el aire nocturno.',
+          nl: 'Voor veel gasten zit het verschil in de nachtlucht.',
+          sv: 'För många är skillnaden främst nattluften.'
+        }
+      }
+    }
+  },
+  pattern: {
+    title: {
+      en: 'The Frigiliana Pattern',
+      de: 'Das Frigiliana-Muster',
+      es: 'El patrón de Frigiliana',
+      nl: 'Het Frigiliana-patroon',
+      sv: 'Frigiliana-mönstret'
+    },
+    body: {
+      en: 'Warm Mediterranean days paired with cool mountain evenings. Subtle altitude creates a microclimate that often feels better for terraces, walking, and deep sleep.',
+      de: 'Warme mediterrane Tage, kombiniert mit kühleren Bergabenden. Eine leichte Höhenlage schafft ein Mikroklima, das sich oft besser für Terrassen, Wege und tiefen Schlaf anfühlt.',
+      es: 'Días mediterráneos cálidos y tardes de montaña más frescas. La altura sutil crea un microclima que suele sentirse mejor para terraza, paseos y descanso.',
+      nl: 'Warme mediterrane dagen met koelere bergavonden. Een subtiele hoogte zorgt voor een microklimaat dat vaak prettiger is voor terras, wandelen en slapen.',
+      sv: 'Varma medelhavsdagar med svalare bergskvällar. Den lilla höjdskillnaden skapar ett microklimat som ofta känns bättre för terrasser, promenader och sömn.'
+    },
+    facts: {
+      title: {
+        en: [
+          { label: 'Altitude', value: '320m', description: 'Above sea level, providing natural evening cooling.', emphasize: false },
+          { label: 'Sunny Days', value: '300+', description: 'Clear skies almost year‑round.', emphasize: true },
+          { label: 'Summer Nights', value: '19°C', description: 'Comfortable sleeping temperatures.', emphasize: false },
+          { label: 'Distance to Coast', value: '7 km', description: 'A short drive to the beaches of Nerja.', emphasize: false }
+        ],
+        de: [
+          { label: 'Höhenlage', value: '320 m', description: 'Über dem Meeresspiegel — das bringt abends natürliche Abkühlung.', emphasize: false },
+          { label: 'Sonnentage', value: '300+', description: 'Meist klarer Himmel über das Jahr hinweg.', emphasize: true },
+          { label: 'Sommernächte', value: '19°C', description: 'Oft angenehmere Temperaturen zum Schlafen.', emphasize: false },
+          { label: 'Zur Küste', value: '7 km', description: 'Kurze Fahrt zu Nerjas Stränden.', emphasize: false }
+        ],
+        es: [
+          { label: 'Altitud', value: '320 m', description: 'Sobre el nivel del mar: refresca antes por la tarde.', emphasize: false },
+          { label: 'Días de sol', value: '300+', description: 'Cielos despejados casi todo el año.', emphasize: true },
+          { label: 'Noches de verano', value: '19°C', description: 'Temperaturas más cómodas para dormir.', emphasize: false },
+          { label: 'A la costa', value: '7 km', description: 'A un corto trayecto de las playas de Nerja.', emphasize: false }
+        ],
+        nl: [
+          { label: 'Hoogte', value: '320 m', description: 'Boven zeeniveau — dat helpt met natuurlijke avondkoelte.', emphasize: false },
+          { label: 'Zonnige dagen', value: '300+', description: 'Bijna het hele jaar door heldere lucht.', emphasize: true },
+          { label: 'Zomernachten', value: '19°C', description: 'Vaker comfortabel om te slapen.', emphasize: false },
+          { label: 'Naar de kust', value: '7 km', description: 'Korte rit naar de stranden van Nerja.', emphasize: false }
+        ],
+        sv: [
+          { label: 'Höjd', value: '320 m', description: 'Över havsnivån — ger naturlig kvällssvalka.', emphasize: false },
+          { label: 'Soliga dagar', value: '300+', description: 'Klart väder nästan året runt.', emphasize: true },
+          { label: 'Sommarnätter', value: '19°C', description: 'Ofta behagligare temperaturer för sömn.', emphasize: false },
+          { label: 'Till kusten', value: '7 km', description: 'Kort bilresa till Nerjas stränder.', emphasize: false }
+        ]
+      }
+    }
+  },
+  seasons: {
+    title: {
+      en: 'Best Time to Stay',
+      de: 'Beste Reisezeit für den Aufenthalt',
+      es: 'Mejor época para alojarse',
+      nl: 'Beste periode om te verblijven',
+      sv: 'Bästa tiden att bo'
+    },
+    intro: {
+      en: 'Compare the seasons to find your perfect rhythm.',
+      de: 'Vergleichen Sie die Jahreszeiten und finden Sie Ihren Rhythmus.',
+      es: 'Comparad las estaciones y encontrad vuestro ritmo.',
+      nl: 'Vergelijk de seizoenen en vind uw ritme.',
+      sv: 'Jämför säsongerna och hitta er rytm.'
+    }
+  },
+  notice: {
+    title: {
+      en: 'What Overnight Guests Actually Notice',
+      de: 'Was Übernachtungsgäste wirklich merken',
+      es: 'Lo que se nota al pasar la noche',
+      nl: 'Wat u echt merkt bij overnachting',
+      sv: 'Det man faktiskt märker vid övernattning'
+    },
+    body: {
+      en: 'The village rewards evening life: terraces stay pleasant later, the air shifts faster after sunset, and sleep can feel easier than on the coast. The trade‑off is that layers matter — especially in winter and in shaded lanes.',
+      de: 'Das Dorf belohnt das Abendleben: Terrassen bleiben länger angenehm, die Luft kippt nach Sonnenuntergang schneller, und Schlaf kann leichter sein als an der Küste. Der Kompromiss: Schichten zählen — besonders im Winter und in schattigen Gassen.',
+      es: 'El pueblo se disfruta por la tarde: la terraza aguanta más, refresca antes tras el atardecer y dormir puede ser más fácil que en la costa. La contrapartida: las capas importan — sobre todo en invierno y en calles con sombra.',
+      nl: 'Het dorp komt ’s avonds tot zijn recht: terrassen blijven langer prettig, het koelt sneller af na zonsondergang en slapen kan makkelijker zijn dan aan de kust. Keerzijde: laagjes zijn belangrijk — vooral in de winter en in schaduwrijke steegjes.',
+      sv: 'Byn belönar kvällsliv: terrasser fungerar längre, luften skiftar snabbare efter solnedgång och sömn kan kännas lättare än vid kusten. Nackdelen: lager på lager är viktigt — särskilt vintertid och i skuggiga gränder.'
+    }
+  },
+  interpretation: {
+    title: {
+      en: 'Practical Interpretation',
+      de: 'Praktische Einordnung',
+      es: 'Interpretación práctica',
+      nl: 'Praktische duiding',
+      sv: 'Praktisk tolkning'
+    },
+    body: {
+      en: 'Frigiliana suits guests who value breathable evenings, walking comfort, and terrace time. If you are sensitive to hot nights, shoulder seasons and hillside bases can feel especially balanced.',
+      de: 'Frigiliana passt zu Gästen, die angenehme Abende, Gehkultur und Terrassenzeit schätzen. Wenn Sie empfindlich auf heiße Nächte reagieren, können die Übergangszeiten und die Hanglage besonders ausgewogen wirken.',
+      es: 'Frigiliana encaja con quien prioriza tardes respirables, caminar con comodidad y tiempo de terraza. Si os afectan las noches calurosas, las temporadas intermedias y la ladera suelen sentirse muy equilibradas.',
+      nl: 'Frigiliana past bij gasten die fijne avonden, loopcomfort en terrastijd waarderen. Bent u gevoelig voor warme nachten, dan voelen het voor- en naseizoen en een verblijf op de heuvel vaak extra in balans.',
+      sv: 'Frigiliana passar gäster som värdesätter behagliga kvällar, promenadkomfort och terrassliv. Om ni är känsliga för heta nätter kan mellan­säsonger och boende på höjden kännas särskilt balanserat.'
+    }
+  },
+  related: {
+    title: {
+      en: 'Related Frigiliana Topics',
+      de: 'Verwandte Frigiliana-Themen',
+      es: 'Temas relacionados en Frigiliana',
+      nl: 'Gerelateerde Frigiliana-thema’s',
+      sv: 'Relaterade Frigiliana-ämnen'
+    },
+    links: {
+      structure: { en: 'Village Structure', de: 'Dorfstruktur', es: 'Estructura del pueblo', nl: 'Dorpsstructuur', sv: 'Bystruktur' },
+      arrival: { en: 'Arrival Guide', de: 'Anreise', es: 'Llegada', nl: 'Aankomst', sv: 'Ankomst' },
+      faq: { en: 'FAQ', de: 'FAQ', es: 'FAQ', nl: 'FAQ', sv: 'FAQ' },
+      comparison: { en: 'Frigiliana vs Nerja', de: 'Frigiliana vs Nerja', es: 'Frigiliana vs Nerja', nl: 'Frigiliana vs Nerja', sv: 'Frigiliana vs Nerja' }
+    }
+  }
+};
+
+const t = <T extends Record<AmaraLanguage, string>>(row: T) => row[currentLang] ?? row.en;
+---
+
+<LocationAuthorityLayout seo={seo} pageLang={currentLang} bodyBackgroundClass="bg-white">
+  <Navigation
+    currentLang={currentLang}
+    brandName={t(copy.nav.brand)}
+    links={copy.nav.links.map((l) => ({ token: l.token, label: t(l.label) }))}
+    languageToken="weather_frigiliana"
+    locationAuthorityNav={true}
+  />
+
+  <SectionAnchorNav items={sectionNavItems} activeId="weather" />
+
+  <div class="am-root" data-am-page="frigiliana-weather">
+    <div class="am-wrap w-full max-w-screen-2xl mx-auto px-12 pt-20 pb-20">
+      <SmartBackButton
+        variant="link"
+        label={t(copy.header.back)}
+        fallbackHref={resolveLink('location_frigiliana', currentLang)}
+      />
+
+      <header class="mb-20 border-b border-black/10 pb-12">
+        <span class="label-md font-label text-primary mb-4 block">{t(copy.header.eyebrow)}</span>
+        <h1 class="text-6xl font-headline italic text-on-surface mb-6">{t(copy.header.h1)}</h1>
+        <p class="font-body text-on-surface-variant text-xl italic opacity-70 max-w-2xl">{t(copy.header.lead)}</p>
+      </header>
+
+      <div class="pt-8 space-y-20">
+        {/* 1) Weather at a Glance */}
+        <section class="grid gap-10 lg:grid-cols-12 items-start">
+          <div class="lg:col-span-8 space-y-6">
+            <h2 class="text-3xl font-headline italic text-on-surface">{t(copy.glance.title)}</h2>
+            <p class="font-body text-on-surface-variant text-lg leading-relaxed italic max-w-3xl">
+              {t(copy.glance.intro)}
+            </p>
+          </div>
+          <div class="lg:col-span-4 space-y-4">
+            <HairlineStatCard
+              label={t(copy.glance.stats.sun.label)}
+              value={t(copy.glance.stats.sun.value)}
+              description={t(copy.glance.stats.sun.note)}
+            />
+            <HairlineStatCard
+              label={t(copy.glance.stats.evening.label)}
+              value={t(copy.glance.stats.evening.value)}
+              description={t(copy.glance.stats.evening.note)}
+            />
+            <HairlineStatCard
+              label={t(copy.glance.stats.nights.label)}
+              value={t(copy.glance.stats.nights.value)}
+              description={t(copy.glance.stats.nights.note)}
+            />
+          </div>
+        </section>
+
+        {/* 2) The Frigiliana Pattern (AI Studio composition) */}
+        <section>
+          <div class="mb-12 max-w-2xl">
+            <h2 class="text-3xl font-headline text-on-surface mb-4">{t(copy.pattern.title)}</h2>
+            <p class="text-lg text-on-surface-variant leading-relaxed">
+              {t(copy.pattern.body)}
+            </p>
+          </div>
+
+          <div class="grid grid-cols-2 md:grid-cols-4 gap-10 md:gap-16">
+            {(copy.pattern.facts.title[currentLang] ?? copy.pattern.facts.title.en).map((item) => (
+              <div>
+                <div class="h-px w-10 bg-outline-variant/25"></div>
+                <div class="mt-4 font-label text-[10px] font-bold uppercase tracking-[0.18em] text-on-surface-variant/70">
+                  {item.label}
+                </div>
+                <div class:list={[
+                  'mt-2 font-headline tracking-tight text-on-surface',
+                  item.emphasize ? 'text-[28px] font-semibold' : 'text-2xl'
+                ]}>
+                  {item.value}
+                </div>
+                <p class="mt-3 font-body text-sm leading-relaxed text-on-surface-variant/80 max-w-[44ch]">
+                  {item.description}
+                </p>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* 3) Best Time to Stay (AI Studio composition) */}
+        <section>
+          <div class="mb-12 max-w-2xl">
+            <h2 class="text-3xl font-headline text-on-surface mb-4">{t(copy.seasons.title)}</h2>
+            <p class="text-lg text-on-surface-variant leading-relaxed">
+              {t(copy.seasons.intro)}
+            </p>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <SeasonalPillar
+              eyebrow={currentLang === 'de' ? 'März – Mai' : currentLang === 'es' ? 'Marzo – mayo' : currentLang === 'nl' ? 'Maart – mei' : currentLang === 'sv' ? 'Mars – maj' : 'March - May'}
+              title={currentLang === 'de' ? 'Frühling' : currentLang === 'es' ? 'Primavera' : currentLang === 'nl' ? 'Lente' : currentLang === 'sv' ? 'Vår' : 'Spring'}
+              subtitle={currentLang === 'de' ? 'Erwachen & Wildblumen' : currentLang === 'es' ? 'Despertar y flores' : currentLang === 'nl' ? 'Ontwaken & wilde bloemen' : currentLang === 'sv' ? 'Uppvaknande & vildblommor' : 'Awakening & Wildflowers'}
+              highTemp="22°C"
+              lowTemp="12°C"
+              vibe={currentLang === 'de'
+                ? 'Kühle Morgen und warme, helle Nachmittage. Das Tal ist grün — ideal für lange Wanderungen im Naturpark, bevor Sie den Abend auf der Terrasse ausklingen lassen.'
+                : currentLang === 'es'
+                  ? 'Mañanas frescas y tardes cálidas y luminosas. El valle está verde: ideal para caminatas largas antes de volver a la terraza.'
+                  : currentLang === 'nl'
+                    ? 'Frisse ochtenden en warme, heldere middagen. De vallei is groen: perfect voor lange wandelingen en daarna ontspanning op het terras.'
+                    : currentLang === 'sv'
+                      ? 'Krispiga morgnar och varma, ljusa eftermiddagar. Dalen är grön — perfekt för långa vandringar innan terrassen.'
+                      : 'Crisp mornings and warm, bright afternoons. The valley turns lush — perfect for long hikes before relaxing on the terrace.'}
+              hint={currentLang === 'de'
+                ? 'Schichten einpacken; abends liegt noch ein leichter Bergkühlhauch in der Luft.'
+                : currentLang === 'es'
+                  ? 'Capas: por la noche aún refresca un poco.'
+                  : currentLang === 'nl'
+                    ? 'Laagjes: ’s avonds zit er nog een lichte bergkoelte.'
+                    : currentLang === 'sv'
+                      ? 'Packa lager; kvällar kan fortfarande vara svala.'
+                      : 'Pack layers; evenings still carry a slight mountain chill.'}
+            />
+            <SeasonalPillar
+              eyebrow={currentLang === 'de' ? 'Juni – August' : currentLang === 'es' ? 'Junio – agosto' : currentLang === 'nl' ? 'Juni – augustus' : currentLang === 'sv' ? 'Juni – augusti' : 'June - August'}
+              title={currentLang === 'de' ? 'Sommer' : currentLang === 'es' ? 'Verano' : currentLang === 'nl' ? 'Zomer' : currentLang === 'sv' ? 'Sommar' : 'Summer'}
+              subtitle={currentLang === 'de' ? 'Lange Sonne & kühle Nächte' : currentLang === 'es' ? 'Sol largo y noches frescas' : currentLang === 'nl' ? 'Lange zon & koelere nachten' : currentLang === 'sv' ? 'Lång sol & svala nätter' : 'Long Sun & Cool Nights'}
+              highTemp="31°C"
+              lowTemp="19°C"
+              vibe={currentLang === 'de'
+                ? 'Echte mediterrane Wärme am Tag — doch die Höhenlage bringt am Abend oft eine leichte Brise, die an der Küste fehlt. Ideal für langsame Morgen und späte Abendessen.'
+                : currentLang === 'es'
+                  ? 'Calor mediterráneo de día, pero al atardecer suele llegar una brisa suave que en la costa se nota menos. Perfecto para mañanas lentas y cenas tardías.'
+                  : currentLang === 'nl'
+                    ? 'Echte mediterrane warmte overdag, maar door de hoogte komt ’s avonds vaak een zachte bries. Ideaal voor langzame ochtenden en late diners.'
+                    : currentLang === 'sv'
+                      ? 'Äkta medelhavsvärme på dagen, men höjden ger ofta en mild kvällsbris. Perfekt för långsamma morgnar och sena middagar.'
+                      : 'True Mediterranean heat by day, but the altitude often brings a gentle evening breeze. Ideal for slow mornings and late dinners.'}
+              hint={currentLang === 'de'
+                ? 'Dicke Steinwände helfen, Innenräume natürlich kühler zu halten.'
+                : currentLang === 'es'
+                  ? 'Las paredes de piedra ayudan a mantener el interior más fresco.'
+                  : currentLang === 'nl'
+                    ? 'Dikke stenen muren helpen het binnen koeler te houden.'
+                    : currentLang === 'sv'
+                      ? 'Tjocka stenväggar hjälper interiören att hålla sig sval.'
+                      : 'Thick stone walls help keep interiors naturally cooler.'}
+            />
+            <SeasonalPillar
+              eyebrow={currentLang === 'de' ? 'Sept – Nov' : currentLang === 'es' ? 'Sept – nov' : currentLang === 'nl' ? 'Sep – nov' : currentLang === 'sv' ? 'Sep – nov' : 'Sept - Nov'}
+              title={currentLang === 'de' ? 'Herbst' : currentLang === 'es' ? 'Otoño' : currentLang === 'nl' ? 'Herfst' : currentLang === 'sv' ? 'Höst' : 'Autumn'}
+              subtitle={currentLang === 'de' ? 'Ernte & goldenes Licht' : currentLang === 'es' ? 'Cosecha y luz dorada' : currentLang === 'nl' ? 'Oogst & gouden licht' : currentLang === 'sv' ? 'Skörd & gyllene ljus' : 'Harvest & Golden Light'}
+              highTemp="26°C"
+              lowTemp="15°C"
+              isHighlighted={true}
+              vibe={currentLang === 'de'
+                ? 'Die Hitze wird weicher, das Licht goldener — und die Mango- und Avocadoernte beginnt. Das Meer bleibt oft bis Ende Oktober warm genug zum Schwimmen.'
+                : currentLang === 'es'
+                  ? 'Baja el calor, la luz se vuelve dorada y llega la cosecha de mango y aguacate. El mar suele estar agradable hasta finales de octubre.'
+                  : currentLang === 'nl'
+                    ? 'De hitte zakt, het licht wordt goud en de mango- en avocado-oogst begint. De zee blijft vaak tot eind oktober warm genoeg om te zwemmen.'
+                    : currentLang === 'sv'
+                      ? 'Värmen mildras, ljuset blir gyllene och skörden av mango och avokado börjar. Havet är ofta varmt nog för bad till slutet av oktober.'
+                      : 'Heat softens, light turns golden, and mango and avocado harvests begin. The sea often stays swimmable until late October.'}
+              hint={currentLang === 'de'
+                ? 'Beste Saison, um Strandtage und Wandern zu kombinieren.'
+                : currentLang === 'es'
+                  ? 'La mejor estación para combinar playa y senderismo.'
+                  : currentLang === 'nl'
+                    ? 'De beste periode om stranddagen met wandelen te combineren.'
+                    : currentLang === 'sv'
+                      ? 'Bästa säsongen för att kombinera strand och vandring.'
+                      : 'The best season for combining beach days with hiking.'}
+            />
+            <SeasonalPillar
+              eyebrow={currentLang === 'de' ? 'Dez – Feb' : currentLang === 'es' ? 'Dic – feb' : currentLang === 'nl' ? 'Dec – feb' : currentLang === 'sv' ? 'Dec – feb' : 'Dec - Feb'}
+              title={currentLang === 'de' ? 'Winter' : currentLang === 'es' ? 'Invierno' : currentLang === 'nl' ? 'Winter' : currentLang === 'sv' ? 'Vinter' : 'Winter'}
+              subtitle={currentLang === 'de' ? 'Ruhig & klarer Himmel' : currentLang === 'es' ? 'Tranquilo y cielo claro' : currentLang === 'nl' ? 'Rustig & heldere lucht' : currentLang === 'sv' ? 'Lugnt & klar himmel' : 'Quiet & Clear Skies'}
+              highTemp="16°C"
+              lowTemp="8°C"
+              vibe={currentLang === 'de'
+                ? 'Friedlich und erstaunlich hell. Abends braucht es Wärme, doch tagsüber ist es oft mild genug für ein Mittagessen draußen in der Wintersonne.'
+                : currentLang === 'es'
+                  ? 'Paz y mucha luz. Por la noche hace falta calor, pero a mediodía a menudo se puede comer fuera al sol.'
+                  : currentLang === 'nl'
+                    ? 'Rustig en opmerkelijk helder. ’s Avonds is warmte nodig, maar overdag is lunch buiten in de winterzon vaak mogelijk.'
+                    : currentLang === 'sv'
+                      ? 'Stillhet och förvånansvärt ljust. Kvällar kräver värme, men dagar kan räcka för lunch ute i vintersolen.'
+                      : 'Peaceful and remarkably bright. Evenings call for warmth, but days can be mild enough for lunch outside under winter sun.'}
+              hint={currentLang === 'de'
+                ? 'Perfekt zum Schreiben, Lesen und tiefen Entspannen.'
+                : currentLang === 'es'
+                  ? 'Perfecto para escribir, leer y desconectar.'
+                  : currentLang === 'nl'
+                    ? 'Perfect om te schrijven, lezen en diep te ontspannen.'
+                    : currentLang === 'sv'
+                      ? 'Perfekt för skrivande, läsning och djup vila.'
+                      : 'Perfect for writing, reading, and deep relaxation.'}
+            />
+          </div>
+        </section>
+
+        {/* 4) What Overnight Guests Actually Notice */}
+        <section class="rounded-[24px] border border-outline-variant/10 bg-surface px-10 py-10">
+          <h2 class="text-3xl font-headline italic text-on-surface">{t(copy.notice.title)}</h2>
+          <p class="mt-6 font-body text-on-surface-variant text-lg leading-relaxed italic max-w-3xl">
+            {t(copy.notice.body)}
+          </p>
+        </section>
+
+        {/* 5) Practical Interpretation */}
+        <section class="space-y-6">
+          <h2 class="text-3xl font-headline italic text-on-surface">{t(copy.interpretation.title)}</h2>
+          <p class="font-body text-on-surface-variant text-lg leading-relaxed italic max-w-3xl">
+            {t(copy.interpretation.body)}
+          </p>
+        </section>
+
+        {/* 6) Related Frigiliana Topics */}
+        <section class="space-y-6">
+          <h2 class="text-3xl font-headline italic text-on-surface">{t(copy.related.title)}</h2>
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            <a href={`${locationBase}#experiences`} class="rounded-[20px] border border-outline-variant/10 bg-surface/40 px-6 py-5 hover:bg-surface/70 transition-colors">
+              <div class="font-label text-[10px] font-bold uppercase tracking-[0.18em] text-on-surface-variant/70">
+                {t(copy.related.links.structure)}
+              </div>
+            </a>
+            <a href={resolveLink('arrival_guide', currentLang)} class="rounded-[20px] border border-outline-variant/10 bg-surface/40 px-6 py-5 hover:bg-surface/70 transition-colors">
+              <div class="font-label text-[10px] font-bold uppercase tracking-[0.18em] text-on-surface-variant/70">
+                {t(copy.related.links.arrival)}
+              </div>
+            </a>
+            <a href={`${locationBase}#comparison`} class="rounded-[20px] border border-outline-variant/10 bg-surface/40 px-6 py-5 hover:bg-surface/70 transition-colors">
+              <div class="font-label text-[10px] font-bold uppercase tracking-[0.18em] text-on-surface-variant/70">
+                {t(copy.related.links.comparison)}
+              </div>
+            </a>
+            <a href={`${locationBase}#faq`} class="rounded-[20px] border border-outline-variant/10 bg-surface/40 px-6 py-5 hover:bg-surface/70 transition-colors">
+              <div class="font-label text-[10px] font-bold uppercase tracking-[0.18em] text-on-surface-variant/70">
+                {t(copy.related.links.faq)}
+              </div>
+            </a>
+          </div>
+        </section>
+      </div>
+    </div>
+  </div>
+</LocationAuthorityLayout>
+

@@ -1,0 +1,945 @@
+---
+// src/pages/tools/component-library/index.astro
+// AMARA Component Library — Internes Tool
+// Nur lokal verfügbar · robots: noindex · niemals deployen
+---
+
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>AMARA Component Library</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --color-surface: #F5F2ED;
+      --color-surface-white: #ffffff;
+      --color-surface-container-low: #f5f3ef;
+      --color-surface-container: #f2ede6;
+      --color-surface-container-high: #eae8e4;
+      --color-on-surface: #1b1c1a;
+      --color-on-surface-variant: #4e4538;
+      --color-primary: #8B6F47;
+      --color-primary-container: #f0e6d3;
+      --color-outline: #8c7b6b;
+      --color-outline-variant: #d2c5b3;
+      --color-muted: #666666;
+      --color-hint: #888888;
+      --color-gold: #C9A96E;
+      --font-headline: 'Cormorant Garamond', serif;
+      --font-body: 'DM Sans', sans-serif;
+      --font-mono: 'SF Mono', 'Fira Code', monospace;
+    }
+    body { font-family: var(--font-body); background: var(--color-surface); color: var(--color-on-surface); font-size: 14px; line-height: 1.6; }
+
+    .shell { display: grid; grid-template-columns: 240px 1fr; min-height: 100vh; }
+
+    /* Sidebar */
+    .sidebar { background: var(--color-on-surface); color: #fff; padding: 28px 20px; position: sticky; top: 0; height: 100vh; overflow-y: auto; }
+    .sidebar-logo { font-family: var(--font-headline); font-size: 20px; color: var(--color-gold); margin-bottom: 4px; }
+    .sidebar-sub { font-size: 10px; letter-spacing: .1em; text-transform: uppercase; color: #666; margin-bottom: 28px; }
+    .sidebar-cat { font-size: 10px; letter-spacing: .1em; text-transform: uppercase; color: #555; margin: 20px 0 8px; }
+    .sidebar a { display: flex; align-items: center; justify-content: space-between; font-size: 12px; color: rgba(255,255,255,0.65); text-decoration: none; padding: 4px 0; transition: color .15s; }
+    .sidebar a:hover { color: #fff; }
+    .sidebar a .badge { font-size: 9px; padding: 1px 6px; border-radius: 99px; }
+    .badge-active { background: rgba(201,169,110,0.2); color: var(--color-gold); }
+    .badge-orphan { background: rgba(255,100,100,0.15); color: #ff8888; }
+    .badge-internal { background: rgba(255,255,255,0.08); color: #888; }
+
+    /* Main */
+    .main { padding: 40px 48px; }
+
+    /* Stats bar */
+    .stats { display: grid; grid-template-columns: repeat(5, 1fr); gap: 12px; margin-bottom: 48px; }
+    .stat { background: var(--color-surface-white); border: 1px solid var(--color-outline-variant); border-radius: 10px; padding: 16px; text-align: center; }
+    .stat-n { font-size: 28px; font-weight: 500; font-family: var(--font-headline); }
+    .stat-l { font-size: 11px; color: var(--color-muted); margin-top: 2px; }
+
+    /* Search */
+    .search-bar { background: var(--color-surface-white); border: 1px solid var(--color-outline-variant); border-radius: 8px; padding: 10px 16px; width: 100%; font-family: var(--font-body); font-size: 13px; color: var(--color-on-surface); outline: none; margin-bottom: 32px; }
+    .search-bar:focus { border-color: var(--color-outline); }
+
+    /* Category heading */
+    .cat-heading { font-family: var(--font-headline); font-size: 28px; font-weight: 300; margin-bottom: 20px; padding-bottom: 12px; border-bottom: 1px solid var(--color-outline-variant); margin-top: 48px; }
+    .cat-heading:first-of-type { margin-top: 0; }
+
+    /* Component card */
+    .comp-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 16px; margin-bottom: 16px; }
+    .comp-card { background: var(--color-surface-white); border: 1px solid var(--color-outline-variant); border-radius: 12px; overflow: hidden; transition: box-shadow .2s; }
+    .comp-card:hover { box-shadow: 0 8px 24px rgba(0,0,0,0.06); }
+    .comp-card-head { padding: 16px 20px; border-bottom: 1px solid var(--color-surface-container-high); display: flex; align-items: center; justify-content: space-between; }
+    .comp-name { font-size: 13px; font-weight: 500; }
+    .comp-path { font-size: 10px; font-family: var(--font-mono); color: var(--color-muted); margin-top: 2px; }
+    .comp-status { font-size: 9px; font-weight: 500; padding: 2px 8px; border-radius: 99px; text-transform: uppercase; letter-spacing: .06em; }
+    .status-active { background: #EAF3DE; color: #27500A; }
+    .status-orphan { background: #FCEBEB; color: #791F1F; }
+    .status-internal { background: var(--color-surface-container-high); color: var(--color-muted); }
+    .comp-body { padding: 16px 20px; }
+    .comp-purpose { font-size: 12px; color: var(--color-on-surface-variant); line-height: 1.6; margin-bottom: 12px; }
+    .comp-props { margin-bottom: 12px; }
+    .comp-props-label { font-size: 10px; letter-spacing: .08em; text-transform: uppercase; color: var(--color-hint); margin-bottom: 6px; }
+    .comp-prop { display: inline-flex; align-items: center; gap: 4px; font-size: 10px; font-family: var(--font-mono); background: var(--color-surface-container-low); color: var(--color-primary); padding: 2px 7px; border-radius: 4px; margin: 2px; }
+    .comp-prop.required { background: var(--color-primary-container); }
+    .comp-used { font-size: 10px; color: var(--color-hint); }
+    .comp-used strong { color: var(--color-on-surface-variant); }
+    .comp-footer { padding: 10px 20px; background: var(--color-surface-container-low); border-top: 1px solid var(--color-surface-container-high); display: flex; justify-content: space-between; align-items: center; }
+    .copy-btn { font-size: 10px; font-family: var(--font-mono); background: none; border: 1px solid var(--color-outline-variant); border-radius: 4px; padding: 3px 10px; cursor: pointer; color: var(--color-primary); transition: all .15s; }
+    .copy-btn:hover { background: var(--color-primary-container); }
+    .comp-card.hidden { display: none; }
+
+    code { font-family: var(--font-mono); font-size: 10px; background: var(--color-surface-container-high); padding: 1px 5px; border-radius: 3px; color: var(--color-primary); }
+  </style>
+</head>
+<body>
+<div class="shell">
+
+  <!-- Sidebar -->
+  <nav class="sidebar">
+    <div class="sidebar-logo">AMARA</div>
+    <div class="sidebar-sub">Component Library</div>
+
+    <div class="sidebar-cat">Navigation</div>
+    <a href="#navigation"><span>Navigation</span><span class="badge badge-active">Active</span></a>
+    <a href="#smartbackbutton"><span>SmartBackButton</span><span class="badge badge-active">Active</span></a>
+    <a href="#sectionanchornav"><span>SectionAnchorNav</span><span class="badge badge-active">Active</span></a>
+
+    <div class="sidebar-cat">Layout</div>
+    <a href="#footer"><span>Footer</span><span class="badge badge-active">Active</span></a>
+    <a href="#footerminimal"><span>FooterMinimal</span><span class="badge badge-internal">Internal</span></a>
+    <a href="#footercore"><span>FooterCore</span><span class="badge badge-internal">Internal</span></a>
+    <a href="#backtotop"><span>BackToTop</span><span class="badge badge-active">Active</span></a>
+
+    <div class="sidebar-cat">Hero</div>
+    <a href="#trusthero"><span>TrustHero</span><span class="badge badge-active">Active</span></a>
+    <a href="#hero"><span>Hero</span><span class="badge badge-active">Active</span></a>
+
+    <div class="sidebar-cat">Editorial</div>
+    <a href="#editorialstatement"><span>EditorialStatement</span><span class="badge badge-active">Active</span></a>
+    <a href="#editorialsplit"><span>EditorialSplit</span><span class="badge badge-active">Active</span></a>
+    <a href="#editorialquote"><span>EditorialQuote</span><span class="badge badge-active">Active</span></a>
+    <a href="#editorialfeaturegrid"><span>EditorialFeatureGrid</span><span class="badge badge-active">Active</span></a>
+    <a href="#editorialdefinitionlist"><span>EditorialDefinitionList</span><span class="badge badge-active">Active</span></a>
+    <a href="#editorialhostprofile"><span>EditorialHostProfile</span><span class="badge badge-active">Active</span></a>
+    <a href="#editorialclosingcta"><span>EditorialClosingCta</span><span class="badge badge-active">Active</span></a>
+    <a href="#sustainabilityband"><span>SustainabilityBand</span><span class="badge badge-active">Active</span></a>
+
+    <div class="sidebar-cat">Location</div>
+    <a href="#parkingrealiypillars"><span>ParkingRealityPillars</span><span class="badge badge-active">Active</span></a>
+    <a href="#staymodels"><span>StayModels</span><span class="badge badge-active">Active</span></a>
+    <a href="#climateexperience"><span>ClimateExperienceSection</span><span class="badge badge-active">Active</span></a>
+    <a href="#villagestructure"><span>VillageStructureInsight</span><span class="badge badge-active">Active</span></a>
+    <a href="#locationeditorial"><span>LocationEditorialComparison</span><span class="badge badge-active">Active</span></a>
+    <a href="#staydecision"><span>StayDecision</span><span class="badge badge-active">Active</span></a>
+
+    <div class="sidebar-cat">Media</div>
+    <a href="#essencegrid"><span>EssenceGrid</span><span class="badge badge-active">Active</span></a>
+    <a href="#photoshow"><span>PhotoShow</span><span class="badge badge-active">Active</span></a>
+
+    <div class="sidebar-cat">Utility</div>
+    <a href="#faqaccordion"><span>FaqAccordion</span><span class="badge badge-active">Active</span></a>
+    <a href="#symbolicon"><span>SymbolIcon</span><span class="badge badge-internal">Internal</span></a>
+    <a href="#weather"><span>Weather</span><span class="badge badge-orphan">Orphan</span></a>
+    <a href="#villagemap"><span>VillageMap</span><span class="badge badge-orphan">Orphan</span></a>
+
+    <div class="sidebar-cat">Page Families</div>
+    <a href="#pagefamilies"><span>11 Page Families</span><span class="badge badge-active">Active</span></a>
+  </nav>
+
+  <!-- Main -->
+  <main class="main">
+
+    <!-- Stats -->
+    <div class="stats">
+      <div class="stat"><div class="stat-n" style="color:var(--color-primary)">40</div><div class="stat-l">Total Komponenten</div></div>
+      <div class="stat"><div class="stat-n" style="color:#2D7D46">24</div><div class="stat-l">Active</div></div>
+      <div class="stat"><div class="stat-n" style="color:var(--color-muted)">3</div><div class="stat-l">Internal only</div></div>
+      <div class="stat"><div class="stat-n" style="color:#B91C1C">2</div><div class="stat-l">Orphans</div></div>
+      <div class="stat"><div class="stat-n" style="color:var(--color-on-surface)">11</div><div class="stat-l">Page Families</div></div>
+    </div>
+
+    <!-- Search -->
+    <input class="search-bar" type="text" id="search" placeholder="Komponente suchen... z.B. Navigation, Hero, Editorial" oninput="filterCards(this.value)" />
+
+    <!-- NAVIGATION COMPONENTS -->
+    <h2 class="cat-heading">Navigation</h2>
+    <div class="comp-grid">
+
+      <div class="comp-card" id="navigation" data-name="navigation">
+        <div class="comp-card-head">
+          <div><div class="comp-name">Navigation</div><div class="comp-path">src/components/Navigation.astro</div></div>
+          <span class="comp-status status-active">Active</span>
+        </div>
+        <div class="comp-body">
+          <div class="comp-purpose">Fixed site header mit Brand, Nav-Links, Language-Switcher und CTA. Verwendet auf allen Seiten außer Instagram.</div>
+          <div class="comp-props">
+            <div class="comp-props-label">Props</div>
+            <span class="comp-prop required">currentLang*</span>
+            <span class="comp-prop required">brandName*</span>
+            <span class="comp-prop required">links*</span>
+            <span class="comp-prop">brandLabel?</span>
+            <span class="comp-prop">variant?</span>
+            <span class="comp-prop">languageToken?</span>
+            <span class="comp-prop">locationAuthorityNav?</span>
+            <span class="comp-prop">ctaLabel?</span>
+          </div>
+          <div class="comp-used"><strong>Genutzt in:</strong> Alle Page Families (außer Instagram) · test.astro</div>
+        </div>
+        <div class="comp-footer">
+          <code>&lt;Navigation currentLang="en" brandName="Frigiliana" links=&#123;[...]&#125; /&gt;</code>
+          <button
+            class="copy-btn"
+            data-copy="import Navigation from '../components/Navigation.astro'"
+            onclick="copyCode(this, this.dataset.copy)"
+          >
+            Import kopieren
+          </button>
+        </div>
+      </div>
+
+      <div class="comp-card" id="smartbackbutton" data-name="smartbackbutton smart back button">
+        <div class="comp-card-head">
+          <div><div class="comp-name">SmartBackButton</div><div class="comp-path">src/components/navigation/SmartBackButton.astro</div></div>
+          <span class="comp-status status-active">Active</span>
+        </div>
+        <div class="comp-body">
+          <div class="comp-purpose">Zurück-Button: nutzt history.back() wenn möglich, sonst Fallback-URL.</div>
+          <div class="comp-props">
+            <div class="comp-props-label">Props</div>
+            <span class="comp-prop required">fallbackHref*</span>
+            <span class="comp-prop">label?</span>
+            <span class="comp-prop">variant? (icon|link)</span>
+          </div>
+          <div class="comp-used"><strong>Genutzt in:</strong> FrigilianaParkingPage · DirectionsArrivalGuidePage</div>
+        </div>
+        <div class="comp-footer">
+          <code>&lt;SmartBackButton fallbackHref="/en/frigiliana-location" /&gt;</code>
+          <button
+            class="copy-btn"
+            data-copy="import SmartBackButton from '../components/navigation/SmartBackButton.astro'"
+            onclick="copyCode(this, this.dataset.copy)"
+          >
+            Import kopieren
+          </button>
+        </div>
+      </div>
+
+      <div class="comp-card" id="sectionanchornav" data-name="sectionanchornav anchor nav">
+        <div class="comp-card-head">
+          <div><div class="comp-name">SectionAnchorNav</div><div class="comp-path">src/components/navigation/SectionAnchorNav.astro</div></div>
+          <span class="comp-status status-active">Active</span>
+        </div>
+        <div class="comp-body">
+          <div class="comp-purpose">Horizontale In-Page Anker-Navigation für lange Seiten.</div>
+          <div class="comp-props">
+            <div class="comp-props-label">Props</div>
+            <span class="comp-prop required">items* (SectionAnchorNavItem[])</span>
+          </div>
+          <div class="comp-used"><strong>Genutzt in:</strong> FrigilianaLocationPage</div>
+        </div>
+        <div class="comp-footer">
+          <code>&lt;SectionAnchorNav items=&#123;[&#123;label, href&#125;]&#125; /&gt;</code>
+          <button
+            class="copy-btn"
+            data-copy="import SectionAnchorNav from '../components/navigation/SectionAnchorNav.astro'"
+            onclick="copyCode(this, this.dataset.copy)"
+          >
+            Import kopieren
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- HERO -->
+    <h2 class="cat-heading">Hero</h2>
+    <div class="comp-grid">
+
+      <div class="comp-card" id="trusthero" data-name="trusthero trust hero">
+        <div class="comp-card-head">
+          <div><div class="comp-name">TrustHero</div><div class="comp-path">src/components/hero/TrustHero.astro</div></div>
+          <span class="comp-status status-active">Active</span>
+        </div>
+        <div class="comp-body">
+          <div class="comp-purpose">Trust-Family Hero: Kicker, HTML-Titel, Lead-Text und optionale CTA-Links. Für alle Vertrauens-Seiten.</div>
+          <div class="comp-props">
+            <div class="comp-props-label">Props</div>
+            <span class="comp-prop required">title*</span>
+            <span class="comp-prop required">lead*</span>
+            <span class="comp-prop">subtitle?</span>
+            <span class="comp-prop">ctaLinks?</span>
+            <span class="comp-prop">supportText?</span>
+          </div>
+          <div class="comp-used"><strong>Genutzt in:</strong> GuestReviews · DirectBooking · AboutUs · ComfortAmenities · FaqGeneral</div>
+        </div>
+        <div class="comp-footer">
+          <code>&lt;TrustHero title="..." lead="..." /&gt;</code>
+          <button
+            class="copy-btn"
+            data-copy="import TrustHero from '../components/hero/TrustHero.astro'"
+            onclick="copyCode(this, this.dataset.copy)"
+          >
+            Import kopieren
+          </button>
+        </div>
+      </div>
+
+      <div class="comp-card" id="hero" data-name="hero image hero">
+        <div class="comp-card-head">
+          <div><div class="comp-name">Hero</div><div class="comp-path">src/components/Hero.astro</div></div>
+          <span class="comp-status status-active">Active</span>
+        </div>
+        <div class="comp-body">
+          <div class="comp-purpose">Bild-geführter Hero ohne Card-Chrome. Slot für Headline/Content. Für Location Authority Seiten.</div>
+          <div class="comp-props">
+            <div class="comp-props-label">Props</div>
+            <span class="comp-prop required">imageSrc*</span>
+            <span class="comp-prop required">imageAlt*</span>
+            <span class="comp-prop">imageSources?</span>
+            <span class="comp-prop">imageWidth?</span>
+            <span class="comp-prop">imageHeight?</span>
+            <span class="comp-prop">imageSizes?</span>
+          </div>
+          <div class="comp-used"><strong>Genutzt in:</strong> FrigilianaLocationPage</div>
+        </div>
+        <div class="comp-footer">
+          <code>&lt;Hero imageSrc="..." imageAlt="..." /&gt;</code>
+          <button
+            class="copy-btn"
+            data-copy="import Hero from '../components/Hero.astro'"
+            onclick="copyCode(this, this.dataset.copy)"
+          >
+            Import kopieren
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- EDITORIAL -->
+    <h2 class="cat-heading">Editorial</h2>
+    <div class="comp-grid">
+
+      <div class="comp-card" id="editorialstatement" data-name="editorial statement">
+        <div class="comp-card-head">
+          <div><div class="comp-name">EditorialStatement</div><div class="comp-path">src/components/editorial/EditorialStatement.astro</div></div>
+          <span class="comp-status status-active">Active</span>
+        </div>
+        <div class="comp-body">
+          <div class="comp-purpose">Zentrierte weiße Statement-Card mit Shadow. Slot für Body-Content.</div>
+          <div class="comp-props">
+            <div class="comp-props-label">Props</div>
+            <span class="comp-prop required">title*</span>
+          </div>
+          <div class="comp-used"><strong>Genutzt in:</strong> DirectBookingBenefits · AboutUs</div>
+        </div>
+        <div class="comp-footer">
+          <code>&lt;EditorialStatement title="..."&gt;...&lt;/EditorialStatement&gt;</code>
+          <button
+            class="copy-btn"
+            data-copy="import EditorialStatement from '../components/editorial/EditorialStatement.astro'"
+            onclick="copyCode(this, this.dataset.copy)"
+          >
+            Import kopieren
+          </button>
+        </div>
+      </div>
+
+      <div class="comp-card" id="editorialsplit" data-name="editorial split">
+        <div class="comp-card-head">
+          <div><div class="comp-name">EditorialSplit</div><div class="comp-path">src/components/editorial/EditorialSplit.astro</div></div>
+          <span class="comp-status status-active">Active</span>
+        </div>
+        <div class="comp-body">
+          <div class="comp-purpose">Sticky Headline-Spalte links + Prose-Slot rechts. Editorial Split-Layout.</div>
+          <div class="comp-props">
+            <div class="comp-props-label">Props</div>
+            <span class="comp-prop required">title*</span>
+          </div>
+          <div class="comp-used"><strong>Genutzt in:</strong> DirectBookingBenefits · AboutUs</div>
+        </div>
+        <div class="comp-footer">
+          <code>&lt;EditorialSplit title="..."&gt;...&lt;/EditorialSplit&gt;</code>
+          <button
+            class="copy-btn"
+            data-copy="import EditorialSplit from '../components/editorial/EditorialSplit.astro'"
+            onclick="copyCode(this, this.dataset.copy)"
+          >
+            Import kopieren
+          </button>
+        </div>
+      </div>
+
+      <div class="comp-card" id="editorialquote" data-name="editorial quote zitat">
+        <div class="comp-card-head">
+          <div><div class="comp-name">EditorialQuote</div><div class="comp-path">src/components/editorial/EditorialQuote.astro</div></div>
+          <span class="comp-status status-active">Active</span>
+        </div>
+        <div class="comp-body">
+          <div class="comp-purpose">Zentriertes Pull-Quote mit optionaler Quellenangabe.</div>
+          <div class="comp-props">
+            <div class="comp-props-label">Props</div>
+            <span class="comp-prop required">quote*</span>
+            <span class="comp-prop">author?</span>
+            <span class="comp-prop">source?</span>
+          </div>
+          <div class="comp-used"><strong>Genutzt in:</strong> DirectBookingBenefits · AboutUs</div>
+        </div>
+        <div class="comp-footer">
+          <code>&lt;EditorialQuote quote="..." author="..." /&gt;</code>
+          <button
+            class="copy-btn"
+            data-copy="import EditorialQuote from '../components/editorial/EditorialQuote.astro'"
+            onclick="copyCode(this, this.dataset.copy)"
+          >
+            Import kopieren
+          </button>
+        </div>
+      </div>
+
+      <div class="comp-card" id="editorialfeaturegrid" data-name="editorial feature grid">
+        <div class="comp-card-head">
+          <div><div class="comp-name">EditorialFeatureGrid</div><div class="comp-path">src/components/editorial/EditorialFeatureGrid.astro</div></div>
+          <span class="comp-status status-active">Active</span>
+        </div>
+        <div class="comp-body">
+          <div class="comp-purpose">Responsives Grid aus Feature-Cards (Titel, optionaler Subline, Copy).</div>
+          <div class="comp-props">
+            <div class="comp-props-label">Props</div>
+            <span class="comp-prop required">cards* (EditorialFeatureCard[])</span>
+          </div>
+          <div class="comp-used"><strong>Genutzt in:</strong> AboutUs</div>
+        </div>
+        <div class="comp-footer">
+          <code>&lt;EditorialFeatureGrid cards=&#123;[...]&#125; /&gt;</code>
+          <button
+            class="copy-btn"
+            data-copy="import EditorialFeatureGrid from '../components/editorial/EditorialFeatureGrid.astro'"
+            onclick="copyCode(this, this.dataset.copy)"
+          >
+            Import kopieren
+          </button>
+        </div>
+      </div>
+
+      <div class="comp-card" id="editorialdefinitionlist" data-name="editorial definition list">
+        <div class="comp-card-head">
+          <div><div class="comp-name">EditorialDefinitionList</div><div class="comp-path">src/components/editorial/EditorialDefinitionList.astro</div></div>
+          <span class="comp-status status-active">Active</span>
+        </div>
+        <div class="comp-body">
+          <div class="comp-purpose">Zweispaltige Definition-Liste mit Trennlinien. Für Fakten und Spezifikationen.</div>
+          <div class="comp-props">
+            <div class="comp-props-label">Props</div>
+            <span class="comp-prop required">items* (EditorialDefinitionListItem[])</span>
+          </div>
+          <div class="comp-used"><strong>Genutzt in:</strong> DirectBookingBenefits · AboutUs</div>
+        </div>
+        <div class="comp-footer">
+          <code>&lt;EditorialDefinitionList items=&#123;[...]&#125; /&gt;</code>
+          <button
+            class="copy-btn"
+            data-copy="import EditorialDefinitionList from '../components/editorial/EditorialDefinitionList.astro'"
+            onclick="copyCode(this, this.dataset.copy)"
+          >
+            Import kopieren
+          </button>
+        </div>
+      </div>
+
+      <div class="comp-card" id="editorialhostprofile" data-name="editorial host profile">
+        <div class="comp-card-head">
+          <div><div class="comp-name">EditorialHostProfile</div><div class="comp-path">src/components/editorial/EditorialHostProfile.astro</div></div>
+          <span class="comp-status status-active">Active</span>
+        </div>
+        <div class="comp-body">
+          <div class="comp-purpose">Portrait + Bio + Stat-Grid mit optionalem Slot. Für Host/Team-Vorstellung.</div>
+          <div class="comp-props">
+            <div class="comp-props-label">Props</div>
+            <span class="comp-prop required">imageSrc*</span>
+            <span class="comp-prop required">imageAlt*</span>
+            <span class="comp-prop required">title*</span>
+            <span class="comp-prop required">role*</span>
+            <span class="comp-prop required">stats*</span>
+          </div>
+          <div class="comp-used"><strong>Genutzt in:</strong> AboutUs</div>
+        </div>
+        <div class="comp-footer">
+          <code>&lt;EditorialHostProfile imageSrc="..." title="..." /&gt;</code>
+          <button
+            class="copy-btn"
+            data-copy="import EditorialHostProfile from '../components/editorial/EditorialHostProfile.astro'"
+            onclick="copyCode(this, this.dataset.copy)"
+          >
+            Import kopieren
+          </button>
+        </div>
+      </div>
+
+      <div class="comp-card" id="editorialclosingcta" data-name="editorial closing cta">
+        <div class="comp-card-head">
+          <div><div class="comp-name">EditorialClosingCta</div><div class="comp-path">src/components/editorial/EditorialClosingCta.astro</div></div>
+          <span class="comp-status status-active">Active</span>
+        </div>
+        <div class="comp-body">
+          <div class="comp-purpose">Abschluss-Block: Headline, Lead, optionale Note und Token-basierte CTA-Links.</div>
+          <div class="comp-props">
+            <div class="comp-props-label">Props</div>
+            <span class="comp-prop required">title*</span>
+            <span class="comp-prop required">lead*</span>
+            <span class="comp-prop required">links*</span>
+            <span class="comp-prop required">lang*</span>
+            <span class="comp-prop">note?</span>
+          </div>
+          <div class="comp-used"><strong>Genutzt in:</strong> DirectBookingBenefits · AboutUs</div>
+        </div>
+        <div class="comp-footer">
+          <code>&lt;EditorialClosingCta title="..." lead="..." links=&#123;[...]&#125; lang="en" /&gt;</code>
+          <button
+            class="copy-btn"
+            data-copy="import EditorialClosingCta from '../components/editorial/EditorialClosingCta.astro'"
+            onclick="copyCode(this, this.dataset.copy)"
+          >
+            Import kopieren
+          </button>
+        </div>
+      </div>
+
+      <div class="comp-card" id="sustainabilityband" data-name="sustainability band">
+        <div class="comp-card-head">
+          <div><div class="comp-name">SustainabilityBand</div><div class="comp-path">src/components/editorial/SustainabilityBand.astro</div></div>
+          <span class="comp-status status-active">Active</span>
+        </div>
+        <div class="comp-body">
+          <div class="comp-purpose">Full-Bleed Sustainability-Band mit Headline und zweispaltigen Checklisten.</div>
+          <div class="comp-props">
+            <div class="comp-props-label">Props</div>
+            <span class="comp-prop required">title*</span>
+            <span class="comp-prop required">subtitle*</span>
+            <span class="comp-prop required">lead*</span>
+            <span class="comp-prop required">listColumns*</span>
+          </div>
+          <div class="comp-used"><strong>Genutzt in:</strong> AboutUs</div>
+        </div>
+        <div class="comp-footer">
+          <code>&lt;SustainabilityBand title="..." listColumns=&#123;[...]&#125; /&gt;</code>
+          <button
+            class="copy-btn"
+            data-copy="import SustainabilityBand from '../components/editorial/SustainabilityBand.astro'"
+            onclick="copyCode(this, this.dataset.copy)"
+          >
+            Import kopieren
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- LOCATION -->
+    <h2 class="cat-heading">Location</h2>
+    <div class="comp-grid">
+
+      <div class="comp-card" id="parkingrealiypillars" data-name="parking reality pillars">
+        <div class="comp-card-head">
+          <div><div class="comp-name">ParkingRealityPillars</div><div class="comp-path">src/components/location/ParkingRealityPillars.astro</div></div>
+          <span class="comp-status status-active">Active</span>
+        </div>
+        <div class="comp-body">
+          <div class="comp-purpose">Drei-Säulen Editorial-Block mit Icons, Titeln und Copy für Parking/Bewegungs-Realität.</div>
+          <div class="comp-props">
+            <div class="comp-props-label">Props</div>
+            <span class="comp-prop">title?</span>
+            <span class="comp-prop">intro?</span>
+            <span class="comp-prop">items? (mit icon)</span>
+          </div>
+          <div class="comp-used"><strong>Genutzt in:</strong> FrigilianaParkingPage</div>
+        </div>
+        <div class="comp-footer">
+          <code>&lt;ParkingRealityPillars title="..." items=&#123;[...]&#125; /&gt;</code>
+          <button
+            class="copy-btn"
+            data-copy="import ParkingRealityPillars from '../components/location/ParkingRealityPillars.astro'"
+            onclick="copyCode(this, this.dataset.copy)"
+          >
+            Import kopieren
+          </button>
+        </div>
+      </div>
+
+      <div class="comp-card" id="staymodels" data-name="stay models vergleich">
+        <div class="comp-card-head">
+          <div><div class="comp-name">StayModels</div><div class="comp-path">src/components/location/StayModels.astro</div></div>
+          <span class="comp-status status-active">Active</span>
+        </div>
+        <div class="comp-body">
+          <div class="comp-purpose">Dreispaltige Aufenthalts-Vergleich (inkl. dunkle "Balance"-Card) mit Lucide Icons.</div>
+          <div class="comp-props">
+            <div class="comp-props-label">Props</div>
+            <span class="comp-prop required">title*</span>
+            <span class="comp-prop required">intro*</span>
+            <span class="comp-prop required">left*</span>
+            <span class="comp-prop required">center*</span>
+            <span class="comp-prop required">right*</span>
+            <span class="comp-prop required">frictionLabel*</span>
+            <span class="comp-prop required">carAccessLabel*</span>
+          </div>
+          <div class="comp-used"><strong>Genutzt in:</strong> FrigilianaParkingPage</div>
+        </div>
+        <div class="comp-footer">
+          <code>&lt;StayModels title="..." left=&#123;...&#125; center=&#123;...&#125; right=&#123;...&#125; /&gt;</code>
+          <button
+            class="copy-btn"
+            data-copy="import StayModels from '../components/location/StayModels.astro'"
+            onclick="copyCode(this, this.dataset.copy)"
+          >
+            Import kopieren
+          </button>
+        </div>
+      </div>
+
+      <div class="comp-card" id="climateexperience" data-name="climate experience klima">
+        <div class="comp-card-head">
+          <div><div class="comp-name">ClimateExperienceSection</div><div class="comp-path">src/components/location/ClimateExperienceSection.astro</div></div>
+          <span class="comp-status status-active">Active</span>
+        </div>
+        <div class="comp-body">
+          <div class="comp-purpose">Type A Band: "Current Feel" Metriken (Temp, Humidity, Wind, UV) mit Klima-Copy und CTA. Meiste Props im System.</div>
+          <div class="comp-props">
+            <div class="comp-props-label">Props — 11 required</div>
+            <span class="comp-prop required">eyebrowCurrent*</span>
+            <span class="comp-prop required">heroTemperature*</span>
+            <span class="comp-prop required">headline*</span>
+            <span class="comp-prop required">metricHumidity*</span>
+            <span class="comp-prop required">metricWind*</span>
+            <span class="comp-prop required">ctaHref*</span>
+            <span class="comp-prop">+ 5 weitere</span>
+          </div>
+          <div class="comp-used"><strong>Genutzt in:</strong> FrigilianaLocationPage</div>
+        </div>
+        <div class="comp-footer">
+          <code>&lt;ClimateExperienceSection eyebrowCurrent="..." ... /&gt;</code>
+          <button
+            class="copy-btn"
+            data-copy="import ClimateExperienceSection from '../components/location/ClimateExperienceSection.astro'"
+            onclick="copyCode(this, this.dataset.copy)"
+          >
+            Import kopieren
+          </button>
+        </div>
+      </div>
+
+      <div class="comp-card" id="villagestructure" data-name="village structure insight">
+        <div class="comp-card-head">
+          <div><div class="comp-name">VillageStructureInsight</div><div class="comp-path">src/components/location/VillageStructureInsight.astro</div></div>
+          <span class="comp-status status-active">Active</span>
+        </div>
+        <div class="comp-body">
+          <div class="comp-purpose">Bild-geführte Split-Insight-Section über die Dorfstruktur mit CTA.</div>
+          <div class="comp-props">
+            <div class="comp-props-label">Props</div>
+            <span class="comp-prop required">eyebrow*</span>
+            <span class="comp-prop required">headline*</span>
+            <span class="comp-prop required">imageSrc*</span>
+            <span class="comp-prop required">imageAlt*</span>
+            <span class="comp-prop required">ctaHref*</span>
+            <span class="comp-prop required">supporting*</span>
+            <span class="comp-prop required">signal*</span>
+            <span class="comp-prop required">ctaLabel*</span>
+          </div>
+          <div class="comp-used"><strong>Genutzt in:</strong> FrigilianaLocationPage</div>
+        </div>
+        <div class="comp-footer">
+          <code>&lt;VillageStructureInsight eyebrow="..." imageSrc="..." /&gt;</code>
+          <button
+            class="copy-btn"
+            data-copy="import VillageStructureInsight from '../components/location/VillageStructureInsight.astro'"
+            onclick="copyCode(this, this.dataset.copy)"
+          >
+            Import kopieren
+          </button>
+        </div>
+      </div>
+
+      <div class="comp-card" id="locationeditorial" data-name="location editorial comparison">
+        <div class="comp-card-head">
+          <div><div class="comp-name">LocationEditorialComparison</div><div class="comp-path">src/components/location/LocationEditorialComparison.astro</div></div>
+          <span class="comp-status status-active">Active</span>
+        </div>
+        <div class="comp-body">
+          <div class="comp-purpose">Überlappende Bilder + gestapelte Vergleichs-Copy für Location Authority.</div>
+          <div class="comp-props">
+            <div class="comp-props-label">Props</div>
+            <span class="comp-prop required">eyebrow*</span>
+            <span class="comp-prop required">title*</span>
+            <span class="comp-prop required">items*</span>
+            <span class="comp-prop required">imagePrimary*</span>
+            <span class="comp-prop required">imageSecondary*</span>
+            <span class="comp-prop">intro?</span>
+          </div>
+          <div class="comp-used"><strong>Genutzt in:</strong> FrigilianaLocationPage</div>
+        </div>
+        <div class="comp-footer">
+          <code>&lt;LocationEditorialComparison title="..." items=&#123;[...]&#125; /&gt;</code>
+          <button
+            class="copy-btn"
+            data-copy="import LocationEditorialComparison from '../components/location/LocationEditorialComparison.astro'"
+            onclick="copyCode(this, this.dataset.copy)"
+          >
+            Import kopieren
+          </button>
+        </div>
+      </div>
+
+      <div class="comp-card" id="staydecision" data-name="stay decision profil">
+        <div class="comp-card-head">
+          <div><div class="comp-name">StayDecision</div><div class="comp-path">src/components/StayDecision.astro</div></div>
+          <span class="comp-status status-active">Active</span>
+        </div>
+        <div class="comp-body">
+          <div class="comp-purpose">Vierspaltige Eignungs-/Aufenthalts-Profil-Vergleich für Type A Authority.</div>
+          <div class="comp-props">
+            <div class="comp-props-label">Props</div>
+            <span class="comp-prop required">eyebrow*</span>
+            <span class="comp-prop required">title*</span>
+            <span class="comp-prop required">profiles* (Profile[])</span>
+          </div>
+          <div class="comp-used"><strong>Genutzt in:</strong> FrigilianaLocationPage</div>
+        </div>
+        <div class="comp-footer">
+          <code>&lt;StayDecision eyebrow="..." profiles=&#123;[...]&#125; /&gt;</code>
+          <button
+            class="copy-btn"
+            data-copy="import StayDecision from '../components/StayDecision.astro'"
+            onclick="copyCode(this, this.dataset.copy)"
+          >
+            Import kopieren
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- MEDIA -->
+    <h2 class="cat-heading">Media</h2>
+    <div class="comp-grid">
+
+      <div class="comp-card" id="essencegrid" data-name="essence grid bento">
+        <div class="comp-card-head">
+          <div><div class="comp-name">EssenceGrid</div><div class="comp-path">src/components/EssenceGrid.astro</div></div>
+          <span class="comp-status status-active">Active</span>
+        </div>
+        <div class="comp-body">
+          <div class="comp-purpose">Bento-Style Editorial-Grid aus Brand-"Essence"-Tiles.</div>
+          <div class="comp-props">
+            <div class="comp-props-label">Props</div>
+            <span class="comp-prop required">eyebrow*</span>
+            <span class="comp-prop required">title*</span>
+            <span class="comp-prop required">intro*</span>
+            <span class="comp-prop required">items* (GridItem[])</span>
+          </div>
+          <div class="comp-used"><strong>Genutzt in:</strong> FrigilianaLocationPage</div>
+        </div>
+        <div class="comp-footer">
+          <code>&lt;EssenceGrid eyebrow="..." items=&#123;[...]&#125; /&gt;</code>
+          <button
+            class="copy-btn"
+            data-copy="import EssenceGrid from '../components/EssenceGrid.astro'"
+            onclick="copyCode(this, this.dataset.copy)"
+          >
+            Import kopieren
+          </button>
+        </div>
+      </div>
+
+      <div class="comp-card" id="photoshow" data-name="photoshow photo carousel">
+        <div class="comp-card-head">
+          <div><div class="comp-name">PhotoShow</div><div class="comp-path">src/components/PhotoShow.astro</div></div>
+          <span class="comp-status status-active">Active</span>
+        </div>
+        <div class="comp-body">
+          <div class="comp-purpose">Custom-Element Foto-Karussell mit Prev/Next und Bildunterschriften.</div>
+          <div class="comp-props">
+            <div class="comp-props-label">Props</div>
+            <span class="comp-prop required">title*</span>
+            <span class="comp-prop required">images* (ImageItem[])</span>
+            <span class="comp-prop">eyebrow?</span>
+          </div>
+          <div class="comp-used"><strong>Genutzt in:</strong> FrigilianaLocationPage</div>
+        </div>
+        <div class="comp-footer">
+          <code>&lt;PhotoShow title="..." images=&#123;[...]&#125; /&gt;</code>
+          <button
+            class="copy-btn"
+            data-copy="import PhotoShow from '../components/PhotoShow.astro'"
+            onclick="copyCode(this, this.dataset.copy)"
+          >
+            Import kopieren
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- UTILITY -->
+    <h2 class="cat-heading">Utility</h2>
+    <div class="comp-grid">
+
+      <div class="comp-card" id="faqaccordion" data-name="faq accordion">
+        <div class="comp-card-head">
+          <div><div class="comp-name">FaqAccordion</div><div class="comp-path">src/components/FaqAccordion.astro</div></div>
+          <span class="comp-status status-active">Active</span>
+        </div>
+        <div class="comp-body">
+          <div class="comp-purpose">Zweispaltig: Ankunfts-Schritte + FAQ-Accordion mit optionalen CTAs.</div>
+          <div class="comp-props">
+            <div class="comp-props-label">Props — alle optional</div>
+            <span class="comp-prop">arrivalTitle?</span>
+            <span class="comp-prop">steps?</span>
+            <span class="comp-prop">faqTitle?</span>
+            <span class="comp-prop">items?</span>
+            <span class="comp-prop">anchorArrivalId?</span>
+            <span class="comp-prop">anchorFaqId?</span>
+            <span class="comp-prop">arrivalDetailCta?</span>
+            <span class="comp-prop">allFaqsCta?</span>
+          </div>
+          <div class="comp-used"><strong>Genutzt in:</strong> DirectionsArrivalGuidePage · FrigilianaLocationPage</div>
+        </div>
+        <div class="comp-footer">
+          <code>&lt;FaqAccordion faqTitle="..." items=&#123;[...]&#125; /&gt;</code>
+          <button
+            class="copy-btn"
+            data-copy="import FaqAccordion from '../components/FaqAccordion.astro'"
+            onclick="copyCode(this, this.dataset.copy)"
+          >
+            Import kopieren
+          </button>
+        </div>
+      </div>
+
+      <div class="comp-card" id="weather" data-name="weather wetter">
+        <div class="comp-card-head">
+          <div><div class="comp-name">Weather</div><div class="comp-path">src/components/Weather.astro</div></div>
+          <span class="comp-status status-orphan">Orphan</span>
+        </div>
+        <div class="comp-body">
+          <div class="comp-purpose">Lokales Wetter-UI mit übersetztem Chrome und Forecast-States. Aktuell nicht in Produktion eingebunden.</div>
+          <div class="comp-props">
+            <div class="comp-props-label">Props</div>
+            <span class="comp-prop required">lat*</span>
+            <span class="comp-prop required">lon*</span>
+            <span class="comp-prop required">locationName*</span>
+          </div>
+          <div class="comp-used"><strong>Status:</strong> Bereit aber nicht importiert — kann sofort eingebaut werden</div>
+        </div>
+        <div class="comp-footer">
+          <code>&lt;Weather lat=&#123;36.78&#125; lon=&#123;-3.89&#125; locationName="Frigiliana" /&gt;</code>
+          <button
+            class="copy-btn"
+            data-copy="import Weather from '../components/Weather.astro'"
+            onclick="copyCode(this, this.dataset.copy)"
+          >
+            Import kopieren
+          </button>
+        </div>
+      </div>
+
+      <div class="comp-card" id="villagemap" data-name="village map karte">
+        <div class="comp-card-head">
+          <div><div class="comp-name">VillageMap</div><div class="comp-path">src/components/VillageMap.tsx</div></div>
+          <span class="comp-status status-orphan">Orphan</span>
+        </div>
+        <div class="comp-body">
+          <div class="comp-purpose">Interaktive "Village Explorer" Karte mit POI-Pins und Detail-Panel. React-Komponente, aktuell nicht eingebunden.</div>
+          <div class="comp-props">
+            <div class="comp-props-label">Props</div>
+            <span class="comp-prop">keine Props (internal state)</span>
+          </div>
+          <div class="comp-used"><strong>Status:</strong> POC — braucht client:load Island für Hydration</div>
+        </div>
+        <div class="comp-footer">
+          <code>&lt;VillageMap client:load /&gt;</code>
+          <button
+            class="copy-btn"
+            data-copy="import VillageMap from '../components/VillageMap.tsx'"
+            onclick="copyCode(this, this.dataset.copy)"
+          >
+            Import kopieren
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- PAGE FAMILIES -->
+    <h2 class="cat-heading" id="pagefamilies">Page Families</h2>
+    <div class="comp-grid">
+      <div class="comp-card" data-name="homepage">
+        <div class="comp-card-head"><div><div class="comp-name">HomePage</div><div class="comp-path">src/page-families/home/HomePage.astro</div></div><span class="comp-status status-active">Active</span></div>
+        <div class="comp-body"><div class="comp-purpose">Marketing Home Shell mit Nav und Welcome-Copy. Aktuell thin — braucht Content-Ausbau.</div><div class="comp-used"><strong>Route:</strong> / · /de/ · /en/ · /nl/ · /sv/</div></div>
+      </div>
+      <div class="comp-card" data-name="frigilianalocationpage location">
+        <div class="comp-card-head"><div><div class="comp-name">FrigilianaLocationPage</div><div class="comp-path">src/page-families/location-authority/</div></div><span class="comp-status status-active">Active</span></div>
+        <div class="comp-body"><div class="comp-purpose">Größte Seite: Hero, Gallery, Anchor-Nav, Essence-Grid, Climate, Comparison, Stay-Decision, FAQ.</div><div class="comp-used"><strong>Route:</strong> /frigiliana-location · /en/ etc.</div></div>
+      </div>
+      <div class="comp-card" data-name="frigilianaparkingpage parking">
+        <div class="comp-card-head"><div><div class="comp-name">FrigilianaParkingPage</div><div class="comp-path">src/page-families/location-authority/</div></div><span class="comp-status status-active">Active</span></div>
+        <div class="comp-body"><div class="comp-purpose">Location Authority: Pillars, Stay Models, AMARA CTA. Template für neue Location-Seiten.</div><div class="comp-used"><strong>Route:</strong> /frigiliana-parking · /en/ etc.</div></div>
+      </div>
+      <div class="comp-card" data-name="directionsarrival guide ankunft">
+        <div class="comp-card-head"><div><div class="comp-name">DirectionsArrivalGuidePage</div><div class="comp-path">src/page-families/arrival-guide/</div></div><span class="comp-status status-active">Active</span></div>
+        <div class="comp-body"><div class="comp-purpose">Utility Ankunfts-Guide mit Nav, Schritten, Sidebar, FAQ-Accordion und Karten-Overlay.</div><div class="comp-used"><strong>Route:</strong> /directions-arrival-guide · /en/ etc.</div></div>
+      </div>
+      <div class="comp-card" data-name="aboutus about us über uns">
+        <div class="comp-card-head"><div><div class="comp-name">AboutUsPage</div><div class="comp-path">src/page-families/amara-about-us/</div></div><span class="comp-status status-active">Active</span></div>
+        <div class="comp-body"><div class="comp-purpose">About / Prinzipien / Sustainability / Host-Profil. Meiste Editorial-Komponenten im Einsatz.</div><div class="comp-used"><strong>Route:</strong> /amara-about-us · /en/ etc.</div></div>
+      </div>
+      <div class="comp-card" data-name="guestreviews reviews bewertungen">
+        <div class="comp-card-head"><div><div class="comp-name">GuestReviewsPage</div><div class="comp-path">src/page-families/guest-reviews/</div></div><span class="comp-status status-active">Active</span></div>
+        <div class="comp-body"><div class="comp-purpose">Gäste-Bewertungen Trust-Seite mit Hero, Grids, Awards und Location-Cards.</div><div class="comp-used"><strong>Route:</strong> /guest-reviews · /en/ etc.</div></div>
+      </div>
+      <div class="comp-card" data-name="directbooking direct booking vorteile">
+        <div class="comp-card-head"><div><div class="comp-name">DirectBookingBenefitsPage</div><div class="comp-path">src/page-families/direct-booking-benefits/</div></div><span class="comp-status status-active">Active</span></div>
+        <div class="comp-body"><div class="comp-purpose">Direct-Booking Vorteile mit Quotes, Splits und CTAs.</div><div class="comp-used"><strong>Route:</strong> /direct-booking-benefits · /en/ etc.</div></div>
+      </div>
+      <div class="comp-card" data-name="comfortamenities comfort amenities ausstattung">
+        <div class="comp-card-head"><div><div class="comp-name">ComfortAmenitiesPage</div><div class="comp-path">src/page-families/comfort-amenities/</div></div><span class="comp-status status-active">Active</span></div>
+        <div class="comp-body"><div class="comp-purpose">Ausstattungs-Inventar und Property-Specs.</div><div class="comp-used"><strong>Route:</strong> /comfort-amenities · /en/ etc.</div></div>
+      </div>
+      <div class="comp-card" data-name="faqgeneral faq allgemein">
+        <div class="comp-card-head"><div><div class="comp-name">FaqGeneralPage</div><div class="comp-path">src/page-families/faq-general/</div></div><span class="comp-status status-active">Active</span></div>
+        <div class="comp-body"><div class="comp-purpose">Allgemeine FAQ mit Trust-Hero und Accordion-Content.</div><div class="comp-used"><strong>Route:</strong> /faq-general · /en/ etc.</div></div>
+      </div>
+      <div class="comp-card" data-name="legalnotice impressum datenschutz">
+        <div class="comp-card-head"><div><div class="comp-name">LegalNoticePage</div><div class="comp-path">src/page-families/legal-notice/</div></div><span class="comp-status status-active">Active</span></div>
+        <div class="comp-body"><div class="comp-purpose">Impressum und Datenschutz. Vollständig in allen 5 Sprachen.</div><div class="comp-used"><strong>Route:</strong> /legal-notice · /en/ etc.</div></div>
+      </div>
+      <div class="comp-card" data-name="instagram social">
+        <div class="comp-card-head"><div><div class="comp-name">InstagramPage</div><div class="comp-path">src/page-families/instagram/</div></div><span class="comp-status status-active">Active</span></div>
+        <div class="comp-body"><div class="comp-purpose">Minimaler Instagram-Placeholder mit externem Link. Braucht Navigation-Ergänzung.</div><div class="comp-used"><strong>Route:</strong> /instagram · /en/ etc.</div></div>
+      </div>
+    </div>
+
+  </main>
+</div>
+
+<script>
+function filterCards(query) {
+  const q = query.toLowerCase().trim()
+  document.querySelectorAll('.comp-card').forEach(card => {
+    const name = card.dataset.name || ''
+    card.classList.toggle('hidden', q.length > 0 && !name.includes(q))
+  })
+}
+
+function copyCode(btn, text) {
+  navigator.clipboard.writeText(text).then(() => {
+    const orig = btn.textContent
+    btn.textContent = 'Kopiert ✓'
+    btn.style.color = '#2D7D46'
+    setTimeout(() => {
+      btn.textContent = orig
+      btn.style.color = ''
+    }, 2000)
+  })
+}
+</script>
+
+</body>
+</html>

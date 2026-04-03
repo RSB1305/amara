@@ -1,10 +1,7 @@
 ---
-import HomeLocalizedPage from './[lang]/index.astro';
+import HomePage from '../page-families/home/HomePage.astro';
 
 const lang = 'es';
 ---
 
-<div data-lang={lang}>
-  {/* @ts-ignore - Reuse localized page implementation for root Spanish route */}
-  <HomeLocalizedPage lang={lang} />
-</div>
+<HomePage lang={lang} />

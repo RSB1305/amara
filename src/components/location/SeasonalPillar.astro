@@ -1,0 +1,102 @@
+---
+interface Props {
+  /** Small eyebrow (e.g., months/date range). */
+  eyebrow?: string;
+  /** Primary title (e.g., Spring). */
+  title: string;
+  subtitle?: string;
+  /** Optional temperature guidance; keep optional to avoid dashboard feel. */
+  highTemp?: string;
+  lowTemp?: string;
+  vibe?: string;
+  hint?: string;
+  isHighlighted?: boolean;
+
+  /** Back-compat: older prop names used in early drafts. */
+  season?: string;
+  feel?: string;
+  practicalHint?: string;
+}
+
+const {
+  eyebrow,
+  title,
+  subtitle,
+  highTemp,
+  lowTemp,
+  vibe,
+  hint,
+  isHighlighted = false,
+  season,
+  feel,
+  practicalHint
+} = Astro.props;
+
+const resolvedTitle = title ?? season ?? '';
+const resolvedVibe = vibe ?? feel ?? '';
+const resolvedHint = hint ?? practicalHint ?? '';
+---
+
+<article class:list={[
+  'rounded-[24px] border bg-surface px-8 py-8 flex flex-col',
+  isHighlighted ? 'border-outline-variant/20 shadow-sm' : 'border-outline-variant/40'
+]}>
+  <header class="space-y-3">
+    {eyebrow && (
+      <div class="font-label text-[10px] font-bold uppercase tracking-[0.18em] text-on-surface-variant/70 mb-2">
+        {eyebrow}
+      </div>
+    )}
+    <h3 class="font-headline text-2xl text-on-surface">{resolvedTitle}</h3>
+    {subtitle && (
+      <p class="font-body text-sm leading-relaxed text-on-surface-variant/80 italic max-w-[56ch]">
+        {subtitle}
+      </p>
+    )}
+  </header>
+
+  {(highTemp || lowTemp) && (
+    <div class="mt-6 flex items-start gap-8">
+      {highTemp && (
+        <div class="flex flex-col gap-1">
+          <span class="font-label text-[10px] font-bold uppercase tracking-[0.18em] text-on-surface-variant/70">
+            HIGH
+          </span>
+          <span class="font-body text-base font-normal text-on-surface">
+            {highTemp}
+          </span>
+        </div>
+      )}
+      {lowTemp && (
+        <div class="flex flex-col gap-1">
+          <span class="font-label text-[10px] font-bold uppercase tracking-[0.18em] text-on-surface-variant/70">
+            LOW
+          </span>
+          <span class="font-body text-base font-normal text-on-surface">
+            {lowTemp}
+          </span>
+        </div>
+      )}
+    </div>
+  )}
+
+  {resolvedVibe && (
+    <p class="mt-6 font-body text-on-surface leading-relaxed">
+      {resolvedVibe}
+    </p>
+  )}
+
+  {resolvedHint && (
+    <div class="mt-auto pt-8">
+      <div class="border-t border-outline-variant/10 pt-5">
+        <div class="font-label text-[10px] font-bold uppercase tracking-[0.18em] text-primary/80">
+          Practical note
+        </div>
+        <p class="mt-2 font-body text-on-surface-variant leading-relaxed">
+          {resolvedHint}
+        </p>
+      </div>
+    </div>
+  )}
+</article>
+

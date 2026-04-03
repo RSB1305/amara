@@ -23,9 +23,16 @@
   --color-outline-variant: #d2c5b3;
   --color-inverse-surface: #30312e;
   --color-inverse-on-surface: #f2f0ed;
+
+  /** Inverted band (editorial / dark cards) — derived from inverse palette, no separate dark mode */
+  --color-inverted-surface: var(--color-inverse-surface);
+  --color-inverted-on-surface: var(--color-inverse-on-surface);
+  --color-inverted-on-surface-muted: color-mix(in srgb, var(--color-inverse-on-surface) 68%, var(--color-inverse-surface));
   --color-primary-fixed-dim: #edbf71;
   --color-surface-container-low: #f5f3ef;
   --color-surface-container-high: #eae8e4;
+  --color-surface-container-lowest: #faf8f4;
+  --color-surface-container: #f2ede6;
 
   --color-muted: #666666;
   --color-hint: #888888;
@@ -46,14 +53,29 @@
   --color-btn-primary-text: #fbf9f5;
   --color-primary-alpha-80: rgb(120 86 17 / 0.8);
 
+  /** Navigation rail (link underline, divider, current-page ink) */
+  --color-nav-scrim: rgb(17 17 17 / 0.9);
+  --color-nav-panel: rgb(23 23 23 / 1);
+  --color-nav-border: rgb(210 197 179 / 0.2);
+
   /** Editorial elevation + vertical rhythm (shared across page families) */
   --shadow-editorial-card: 0 20px 40px rgba(0, 0, 0, 0.02);
   --spacing-section-y: clamp(8rem, 15vw, 14rem);
+  /** Macro vertical rhythm (hero bands, editorial gaps) — extends Tailwind scale */
+  --spacing-macro-120: clamp(5rem, 12vw, 7.5rem);
+  --spacing-macro-160: clamp(6.5rem, 16vw, 10rem);
 
   /* Typografie */
   --font-headline: "Newsreader", serif;
   --font-body: "Plus Jakarta Sans", sans-serif;
   --font-label: "Plus Jakarta Sans", sans-serif;
+  /** Display XL — one step above am-section-title; editorial, tight */
+  --font-size-display-xl: clamp(3.5rem, 6.5vw, 5.75rem);
+  --line-height-display-xl: 1.02;
+  --letter-spacing-display-xl: -0.025em;
+
+  /** Primary solid button hover — surface shift (replaces opacity-only hover) */
+  --color-btn-primary-hover-bg: color-mix(in srgb, var(--color-on-surface) 90%, white);
 }
 
 @layer base {
@@ -137,7 +159,9 @@
     text-transform: uppercase;
     transition:
       background-color 180ms ease,
-      opacity 180ms ease;
+      border-color 180ms ease,
+      color 180ms ease,
+      transform 180ms ease;
   }
 
   .am-btn--primary {
@@ -147,7 +171,61 @@
   }
 
   .am-btn--primary:hover {
-    opacity: 0.92;
+    background-color: var(--color-btn-primary-hover-bg);
+    transform: translateY(-1px);
+  }
+
+  /** Secondary patterns (styleguide + future UI) — same motion language, no opacity fades */
+  .am-btn--outline {
+    background-color: transparent;
+    color: var(--color-on-surface);
+    border-color: var(--color-on-surface);
+  }
+
+  .am-btn--outline:hover {
+    background-color: var(--color-on-surface);
+    color: var(--color-btn-primary-text);
+    transform: translateY(-1px);
+  }
+
+  .am-btn--ghost {
+    background-color: transparent;
+    color: var(--color-primary);
+    border: 1px solid var(--color-outline-variant);
+  }
+
+  .am-btn--ghost:hover {
+    background-color: var(--color-primary-container);
+    border-color: color-mix(in srgb, var(--color-outline-variant) 80%, var(--color-primary));
+    transform: translateY(-1px);
+  }
+
+  /**
+   * Inline editorial links (body copy): offset underline, token ink, hover pulls underline toward text.
+   */
+  .am-inline-link {
+    color: var(--color-on-surface);
+    text-decoration: underline;
+    text-decoration-color: var(--color-outline-variant);
+    text-underline-offset: 0.22em;
+    transition:
+      color 160ms ease,
+      text-decoration-color 160ms ease;
+  }
+
+  .am-inline-link:hover {
+    text-decoration-color: var(--color-on-surface);
+  }
+
+  /** Display XL — use for rare hero/editorial one-liners only */
+  .am-display-xl {
+    font-family: var(--font-headline);
+    font-size: var(--font-size-display-xl);
+    line-height: var(--line-height-display-xl);
+    letter-spacing: var(--letter-spacing-display-xl);
+    font-weight: 300;
+    margin: 0;
+    color: var(--color-on-surface);
   }
 
   .am-accordion__trigger {

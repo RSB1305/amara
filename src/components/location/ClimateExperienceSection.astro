@@ -1,0 +1,94 @@
+---
+/**
+ * ClimateExperienceSection — Type A Location Authority
+ *
+ * Single editorial band merging “current feel” (left) with climate meaning (right).
+ * Presentational only: all copy and the CTA href come from the parent page so
+ * localization and routing stay centralized in the page family.
+ *
+ * Intentionally does not embed the legacy Weather widget: that component targets a
+ * utility-style chrome; this layout prioritizes whitespace and hierarchy instead.
+ */
+interface Props {
+  eyebrowCurrent: string;
+  heroTemperature: string;
+  heroTagline: string;
+  headline: string;
+  body: string;
+  metricHumidity: string;
+  metricWind: string;
+  metricUv: string;
+  metricSunset: string;
+  factSunDays: string;
+  factCoolerVsCoast: string;
+  ctaLabel: string;
+  ctaHref: string;
+}
+
+const {
+  eyebrowCurrent,
+  heroTemperature,
+  heroTagline,
+  headline,
+  body,
+  metricHumidity,
+  metricWind,
+  metricUv,
+  metricSunset,
+  factSunDays,
+  factCoolerVsCoast,
+  ctaLabel,
+  ctaHref
+} = Astro.props;
+---
+
+<div class="grid grid-cols-1 gap-20 md:grid-cols-12 md:gap-16 lg:gap-24">
+  <!-- Left: weather hero — inner stack is a natural-width block, centered in this column on md+ -->
+  <div
+    class="md:col-span-5 border-b border-outline-variant/10 pb-16 md:flex md:flex-col md:items-center md:justify-center md:border-b-0 md:pb-0"
+  >
+    <div class="flex w-full max-w-full flex-col items-center text-center md:w-max md:max-w-full">
+      <span class="mb-10 block text-[10px] font-bold uppercase tracking-[0.35em] text-primary">
+        {eyebrowCurrent}
+      </span>
+      <p
+        class="font-headline text-[clamp(3.5rem,10vw,6.5rem)] font-light leading-none tracking-tight text-on-surface italic"
+        aria-label={heroTemperature}
+      >
+        {heroTemperature}
+      </p>
+      <p class="mt-10 max-w-sm font-body text-base leading-relaxed text-on-surface-variant md:text-lg">
+        {heroTagline}
+      </p>
+    </div>
+  </div>
+
+  <!-- Right: meaning, subtle metrics, facts, one CTA — one integrated editorial block -->
+  <div class="md:col-span-7">
+    <h2 class="mb-8 font-headline text-4xl italic tracking-tight text-on-surface md:text-5xl">
+      {headline}
+    </h2>
+    <p class="max-w-xl font-body text-lg leading-relaxed text-on-surface-variant">
+      {body}
+    </p>
+
+    <div
+      class="mt-10 flex flex-wrap gap-x-10 gap-y-3 border-t border-outline-variant/10 pt-10 font-label text-[10px] uppercase tracking-[0.2em] text-on-surface-variant/70"
+      aria-label="Current conditions snapshot"
+    >
+      <span>{metricHumidity}</span>
+      <span>{metricWind}</span>
+      <span>{metricUv}</span>
+      <span>{metricSunset}</span>
+    </div>
+
+    <div class="mt-10 space-y-5 border-l border-primary/25 pl-6">
+      <p class="font-body text-sm leading-snug text-on-surface-variant md:text-base">{factSunDays}</p>
+      <p class="font-body text-sm leading-snug text-on-surface-variant md:text-base">{factCoolerVsCoast}</p>
+    </div>
+
+    <a href={ctaHref} class="am-cta-link mt-12 inline-block">
+      {ctaLabel}
+    </a>
+  </div>
+</div>

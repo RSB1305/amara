@@ -1,0 +1,61 @@
+---
+/**
+ * VillageStructureInsight
+ *
+ * Purpose:
+ * Editorial, image-led split section for Type A pages.
+ * Communicates spatial reality (vertical movement) with minimal copy — not a text block.
+ *
+ * Architectural role:
+ * Mid-page insight module; reusable where “physical structure of place” must land quickly.
+ *
+ * Constraints:
+ * - No client JS
+ * - No new color tokens
+ * - Shell uses global `am-section` + `am-section--insight`; typography/spacing via Tailwind + existing globals (`am-cta-link`, `am-cta-group`).
+ */
+interface Props {
+  eyebrow: string;
+  headline: string;
+  supporting: string;
+  signal: string;
+  ctaLabel: string;
+  ctaHref: string;
+  imageSrc: string;
+  imageAlt: string;
+}
+
+const { eyebrow, headline, supporting, signal, ctaLabel, ctaHref, imageSrc, imageAlt } = Astro.props;
+---
+
+<section class="am-section am-section--insight">
+  <div class="grid grid-cols-1 items-center gap-12 md:grid-cols-[1.2fr_1fr] md:gap-12 lg:gap-16">
+    <div class="aspect-[4/5] w-full overflow-hidden">
+      <img src={imageSrc} alt={imageAlt} class="block h-full w-full object-cover" loading="lazy" decoding="async" />
+    </div>
+
+    <div class="max-w-[520px] md:max-w-[520px]">
+      <span class="mb-3 block text-[10px] font-bold uppercase tracking-[0.4em] text-primary">
+        {eyebrow}
+      </span>
+
+      <h2 class="mb-4 font-headline text-4xl italic tracking-tight text-on-surface md:text-5xl">
+        {headline}
+      </h2>
+
+      <p class="mb-4 font-body text-lg leading-relaxed text-on-surface-variant">
+        {supporting}
+      </p>
+
+      <p class="mb-6 font-body text-base leading-relaxed text-on-surface-variant opacity-80">
+        {signal}
+      </p>
+
+      <div class="am-cta-group am-cta-group--left">
+        <a href={ctaHref} class="am-cta-link">
+          {ctaLabel}
+        </a>
+      </div>
+    </div>
+  </div>
+</section>

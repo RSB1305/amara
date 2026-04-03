@@ -1,0 +1,151 @@
+---
+/**
+ * ParkingRealityPillars
+ *
+ * Reusable Type-A content block for practical parking / movement reality.
+ * This component isolates the three-pillar decision pattern from the
+ * AI Studio parking import so the page no longer owns this structure inline.
+ *
+ * Intent:
+ * - practical clarification
+ * - calm editorial presentation
+ * - reusable across parking / movement-related authority pages
+ *
+ * Icons use explicit width/height on SVG (not class-only sizing inside HTML strings)
+ * so they cannot render at browser-default oversized dimensions.
+ */
+
+type PillarIcon = 'map-pin' | 'clock' | 'footprints';
+
+interface PillarItem {
+  title: string;
+  text: string;
+  icon: PillarIcon;
+}
+
+interface Props {
+  title?: string;
+  intro?: string;
+  items?: PillarItem[];
+}
+
+const {
+  title = 'What Matters Most',
+  intro = 'Forget the mythology of "impossible parking." Focus on these three practical realities instead.',
+  items = [
+    {
+      title: 'Position Over Proximity',
+      text: 'The absolute nearest parking space matters less than the steepness of the walk. A slightly longer flat walk is always better than a short, vertical climb with luggage.',
+      icon: 'map-pin',
+    },
+    {
+      title: 'The Daily Rhythm',
+      text: 'Midday is dense with day-trippers. Early mornings and evenings are calm. If your stay is a base for constant midday in-and-out driving, you will feel more friction.',
+      icon: 'clock',
+    },
+    {
+      title: 'The Walking Reality',
+      text: 'You will walk. You will climb stairs. Frigiliana is a pedestrian-first environment. Embrace this as part of the charm, not a logistical failure.',
+      icon: 'footprints',
+    },
+  ],
+} = Astro.props;
+
+/** Logical px — duplicated on SVG attributes + style for reliable rendering */
+const ICON_PX = 20;
+---
+
+<section class="rounded-[24px] border border-outline-variant/5 bg-surface px-8 py-10 md:px-12 md:py-14">
+  <div class="mx-auto mb-12 max-w-2xl text-center md:mb-16">
+    <h2 class="text-3xl font-headline italic leading-tight text-on-surface md:text-5xl">
+      {title}
+    </h2>
+    <p class="mx-auto mt-4 max-w-2xl text-base font-light leading-relaxed text-on-surface/70 md:text-lg">
+      {intro}
+    </p>
+  </div>
+
+  <div class="am-parking-pillars-grid grid grid-cols-1 gap-10 md:gap-12">
+    {items.map((item) => (
+      <article class="min-w-0 space-y-4">
+        <div class="mb-6 flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-on-surface/5 text-on-surface/80">
+          {item.icon === 'map-pin' && (
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width={ICON_PX}
+              height={ICON_PX}
+              viewBox="0 0 24 24"
+              aria-hidden="true"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.7"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              style={`width:${ICON_PX}px;height:${ICON_PX}px;max-width:${ICON_PX}px;max-height:${ICON_PX}px;display:block;flex-shrink:0;`}
+            >
+              <path d="M12 21s-6-5.2-6-11a6 6 0 1 1 12 0c0 5.8-6 11-6 11Z" />
+              <circle cx="12" cy="10" r="2.5" />
+            </svg>
+          )}
+          {item.icon === 'clock' && (
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width={ICON_PX}
+              height={ICON_PX}
+              viewBox="0 0 24 24"
+              aria-hidden="true"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.7"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              style={`width:${ICON_PX}px;height:${ICON_PX}px;max-width:${ICON_PX}px;max-height:${ICON_PX}px;display:block;flex-shrink:0;`}
+            >
+              <circle cx="12" cy="12" r="9" />
+              <path d="M12 7v5l3 2" />
+            </svg>
+          )}
+          {item.icon === 'footprints' && (
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width={ICON_PX}
+              height={ICON_PX}
+              viewBox="0 0 24 24"
+              aria-hidden="true"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.7"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              style={`width:${ICON_PX}px;height:${ICON_PX}px;max-width:${ICON_PX}px;max-height:${ICON_PX}px;display:block;flex-shrink:0;`}
+            >
+              <path d="M6 4v6" />
+              <path d="M10 4v6" />
+              <path d="M6 8h4" />
+              <path d="M18 4v8" />
+              <path d="M15 12h6" />
+              <path d="M8 20v-6" />
+              <path d="M16 20v-4" />
+            </svg>
+          )}
+        </div>
+
+        <h3 class="text-xl font-medium leading-snug text-on-surface">
+          {item.title}
+        </h3>
+
+        <p class="text-sm font-light leading-8 text-on-surface/70 md:text-base">
+          {item.text}
+        </p>
+      </article>
+    ))}
+  </div>
+</section>
+
+<style>
+  @media (min-width: 768px) {
+    .am-parking-pillars-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+  }
+</style>

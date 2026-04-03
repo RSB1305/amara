@@ -28,7 +28,7 @@ const {
 } = Astro.props;
 ---
 
-<section class="py-32 bg-surface px-12 border-t border-black/10">
+<section class="py-32 bg-surface px-12 border-t border-outline-variant/10">
   <div class="max-w-screen-2xl mx-auto grid grid-cols-1 md:grid-cols-2 md:items-stretch gap-x-32 gap-y-20">
     <div class="flex flex-col md:h-full min-h-0" {...(anchorArrivalId ? { id: anchorArrivalId } : {})}>
       <h2 class="font-headline text-[56px] italic font-light text-on-surface mb-20 tracking-tight leading-tight shrink-0">
@@ -65,7 +65,7 @@ const {
         {faqTitle}
       </h2>
       <div class="flex flex-col gap-10 md:flex-1 md:min-h-0 md:justify-between">
-        <div class="divide-y divide-black/10 border-t border-black/10">
+        <div class="divide-y divide-outline-variant/10 border-t border-outline-variant/10">
           {items && items.length > 0 ? items.map((item) => (
             <details class="group py-10 cursor-pointer outline-none">
               <summary class="am-accordion__trigger items-center">
@@ -84,7 +84,7 @@ const {
               </div>
             </details>
           )) : <p class="py-10 italic text-outline">Häufig gestellte Fragen werden bald ergänzt.</p>}
-          <div class="border-b border-black/10"></div>
+          <div class="border-b border-outline-variant/10"></div>
         </div>
         {allFaqsCta && (
           <a href={allFaqsCta.href} class="am-cta-link inline-block w-fit self-start shrink-0 md:pt-4">

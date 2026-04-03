@@ -8,6 +8,7 @@
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
+    "postbuild": "node --input-type=commonjs -e \"const fs=require('fs'); const p=require('path').join(process.cwd(),'dist','tools'); if(fs.existsSync(p)) fs.rmSync(p,{recursive:true,force:true});\"",
     "preview": "astro preview",
     "astro": "astro",
     "check:link-policy": "node scripts/check-shared-link-policy.mjs",

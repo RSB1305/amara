@@ -1,0 +1,385 @@
+---
+// src/pages/tools/styleguide/index.astro
+// AMARA Living Styleguide — Internes Tool
+// Nur lokal verfügbar · robots: noindex · niemals deployen
+import '../../../styles/global.css';
+---
+
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>AMARA Styleguide</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    /* Layout shell only — color/type tokens come from global.css @theme */
+    .sg-shell { display: grid; grid-template-columns: 220px 1fr; min-height: 100vh; }
+    .sg-nav { background: var(--color-nav-panel); color: var(--color-inverse-on-surface); padding: 32px 20px; position: sticky; top: 0; height: 100vh; overflow-y: auto; }
+    .sg-nav-logo { font-family: var(--font-headline); font-size: 22px; font-weight: 300; letter-spacing: .08em; color: var(--color-gold); margin-bottom: 8px; }
+    .sg-nav-sub { font-size: 10px; letter-spacing: .12em; text-transform: uppercase; color: var(--color-faint); margin-bottom: 32px; }
+    .sg-nav-section { font-size: 10px; letter-spacing: .1em; text-transform: uppercase; color: var(--color-faint); margin: 20px 0 8px; }
+    .sg-nav a { display: block; font-size: 13px; color: color-mix(in srgb, var(--color-inverse-on-surface) 70%, transparent); text-decoration: none; padding: 5px 0; transition: color .15s; }
+    .sg-nav a:hover { color: var(--color-inverse-on-surface); }
+
+    .sg-main { padding: 48px 56px; max-width: 1100px; }
+    .sg-section { margin-bottom: 72px; }
+    .sg-section-title { font-family: var(--font-headline); font-size: 32px; font-weight: 300; color: var(--color-on-surface); margin-bottom: 6px; padding-bottom: 16px; border-bottom: 1px solid var(--color-outline-variant); margin-bottom: 32px; }
+    .sg-label { font-size: 10px; letter-spacing: .12em; text-transform: uppercase; color: var(--color-muted); margin-bottom: 16px; display: block; }
+    .sg-subsection { margin-bottom: 40px; }
+
+    /* Color swatches */
+    .sg-swatches { display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 12px; }
+    .sg-swatch { border-radius: 10px; overflow: hidden; border: 1px solid var(--color-outline-variant); }
+    .sg-swatch-color { height: 72px; }
+    .sg-swatch-info { padding: 10px 12px; background: var(--color-surface-white); }
+    .sg-swatch-name { font-size: 11px; font-weight: 500; color: var(--color-on-surface); margin-bottom: 2px; }
+    .sg-swatch-value { font-size: 10px; font-family: monospace; color: var(--color-muted); }
+    .sg-swatch-class { font-size: 10px; font-family: monospace; color: var(--color-primary); margin-top: 2px; }
+
+    /* Typography specimens */
+    .sg-type-specimen { background: var(--color-surface-white); border: 1px solid var(--color-outline-variant); border-radius: 10px; padding: 24px 28px; margin-bottom: 12px; display: grid; grid-template-columns: 1fr auto; gap: 16px; align-items: center; }
+    .sg-type-meta { text-align: right; }
+    .sg-type-meta-name { font-size: 11px; font-weight: 500; color: var(--color-muted); }
+    .sg-type-meta-detail { font-size: 10px; font-family: monospace; color: var(--color-hint); margin-top: 2px; }
+
+    /* Spacing */
+    .sg-spacing-row { display: flex; align-items: center; gap: 16px; margin-bottom: 10px; }
+    .sg-spacing-bar { background: var(--color-primary-container); height: 20px; border-radius: 4px; max-width: 100%; }
+    .sg-spacing-label { font-size: 11px; font-family: monospace; color: var(--color-muted); min-width: 120px; }
+
+    /* Components */
+    .sg-component-frame { background: var(--color-surface-white); border: 1px solid var(--color-outline-variant); border-radius: 12px; padding: 32px; margin-bottom: 12px; }
+    .sg-component-label { font-size: 10px; letter-spacing: .1em; text-transform: uppercase; color: var(--color-hint); margin-top: 12px; }
+
+    /* Badges */
+    .sg-badge { display: inline-flex; align-items: center; padding: 3px 10px; border-radius: 99px; font-size: 10px; font-weight: 500; letter-spacing: .08em; text-transform: uppercase; }
+    .sg-badge--primary { background: var(--color-primary-container); color: var(--color-primary); }
+    .sg-badge--surface { background: var(--color-surface-container-high); color: var(--color-on-surface-variant); }
+    .sg-badge--gold { background: var(--color-gold); color: var(--color-on-primary); }
+
+    /* Cards */
+    .sg-card { background: var(--color-surface-white); border: 1px solid var(--color-outline-variant); border-radius: 12px; padding: 24px; box-shadow: var(--shadow-editorial-card); }
+    .sg-card-label { font-size: 10px; letter-spacing: .12em; text-transform: uppercase; color: var(--color-primary); margin-bottom: 8px; display: block; }
+    .sg-card-title { font-family: var(--font-headline); font-size: 22px; font-weight: 300; margin-bottom: 8px; }
+    .sg-card-body { font-size: 13px; color: var(--color-on-surface-variant); line-height: 1.7; }
+
+    .sg-card--inverted {
+      background: var(--color-inverted-surface);
+      border-color: color-mix(in srgb, var(--color-outline-variant) 35%, var(--color-inverted-surface));
+    }
+    .sg-card--inverted .sg-card-label { color: var(--color-primary-fixed-dim); }
+    .sg-card--inverted .sg-card-title { color: var(--color-inverted-on-surface); }
+    .sg-card--inverted .sg-card-body { color: var(--color-inverted-on-surface-muted); }
+
+    /* Structure demo */
+    .sg-structure { background: var(--color-surface-container-low); border: 2px dashed var(--color-outline-variant); border-radius: 12px; padding: 20px; }
+    .sg-structure-label { font-size: 10px; font-family: monospace; color: var(--color-primary); margin-bottom: 12px; display: block; font-weight: 500; }
+    .sg-structure-inner { background: var(--color-surface-white); border: 2px dashed var(--color-outline-variant); border-radius: 8px; padding: 16px; margin-top: 8px; }
+
+    /* Dividers */
+    .sg-row { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
+    .sg-code { font-family: monospace; font-size: 11px; background: var(--color-surface-container-high); padding: 2px 7px; border-radius: 4px; color: var(--color-primary); }
+
+    .sg-inline-demo { font-family: var(--font-body); font-size: 16px; line-height: 1.75; color: var(--color-on-surface-variant); max-width: 42rem; }
+  </style>
+</head>
+<body>
+
+<div class="sg-shell">
+
+  <!-- Sidebar Nav -->
+  <nav class="sg-nav">
+    <div class="sg-nav-logo">AMARA</div>
+    <div class="sg-nav-sub">Living Styleguide</div>
+    <div class="sg-nav-section">Foundations</div>
+    <a href="#colors">Colors & Tokens</a>
+    <a href="#typography">Typography</a>
+    <a href="#spacing">Spacing</a>
+    <a href="#structure">Page Structure</a>
+    <div class="sg-nav-section">Components</div>
+    <a href="#buttons">Buttons</a>
+    <a href="#badges">Badges</a>
+    <a href="#cards">Cards</a>
+    <a href="#inline-links">Inline Links</a>
+    <div class="sg-nav-section">Utilities</div>
+    <a href="#borders">Borders & Dividers</a>
+    <a href="#shadows">Shadows</a>
+  </nav>
+
+  <!-- Main Content -->
+  <main class="sg-main">
+
+    <!-- COLORS -->
+    <section class="sg-section" id="colors">
+      <h2 class="sg-section-title">Colors & Tokens</h2>
+
+      <div class="sg-subsection">
+        <span class="sg-label">Surface — Hintergründe</span>
+        <div class="sg-swatches">
+          <div class="sg-swatch">
+            <div class="sg-swatch-color" style="background:var(--color-surface)"></div>
+            <div class="sg-swatch-info"><div class="sg-swatch-name">surface</div><div class="sg-swatch-value">@theme --color-surface</div><div class="sg-swatch-class">bg-surface</div></div>
+          </div>
+          <div class="sg-swatch">
+            <div class="sg-swatch-color" style="background:var(--color-surface-white)"></div>
+            <div class="sg-swatch-info"><div class="sg-swatch-name">surface-white</div><div class="sg-swatch-value">@theme --color-surface-white</div><div class="sg-swatch-class">bg-surface-white</div></div>
+          </div>
+          <div class="sg-swatch">
+            <div class="sg-swatch-color" style="background:var(--color-surface-container-lowest)"></div>
+            <div class="sg-swatch-info"><div class="sg-swatch-name">container-lowest</div><div class="sg-swatch-value">@theme --color-surface-container-lowest</div><div class="sg-swatch-class">bg-surface-container-lowest</div></div>
+          </div>
+          <div class="sg-swatch">
+            <div class="sg-swatch-color" style="background:var(--color-surface-container-low)"></div>
+            <div class="sg-swatch-info"><div class="sg-swatch-name">container-low</div><div class="sg-swatch-value">@theme --color-surface-container-low</div><div class="sg-swatch-class">bg-surface-container-low</div></div>
+          </div>
+          <div class="sg-swatch">
+            <div class="sg-swatch-color" style="background:var(--color-surface-container)"></div>
+            <div class="sg-swatch-info"><div class="sg-swatch-name">container</div><div class="sg-swatch-value">@theme --color-surface-container</div><div class="sg-swatch-class">bg-surface-container</div></div>
+          </div>
+          <div class="sg-swatch">
+            <div class="sg-swatch-color" style="background:var(--color-surface-container-high)"></div>
+            <div class="sg-swatch-info"><div class="sg-swatch-name">container-high</div><div class="sg-swatch-value">@theme --color-surface-container-high</div><div class="sg-swatch-class">bg-surface-container-high</div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="sg-subsection">
+        <span class="sg-label">Inverted — editorial / dunkle Karten</span>
+        <div class="sg-swatches">
+          <div class="sg-swatch">
+            <div class="sg-swatch-color" style="background:var(--color-inverted-surface)"></div>
+            <div class="sg-swatch-info"><div class="sg-swatch-name">inverted-surface</div><div class="sg-swatch-value">@theme --color-inverted-surface</div><div class="sg-swatch-class">bg-inverted-surface</div></div>
+          </div>
+          <div class="sg-swatch">
+            <div class="sg-swatch-color" style="background:var(--color-inverted-on-surface)"></div>
+            <div class="sg-swatch-info"><div class="sg-swatch-name">inverted-on-surface</div><div class="sg-swatch-value">@theme --color-inverted-on-surface</div><div class="sg-swatch-class">text-inverted-on-surface</div></div>
+          </div>
+          <div class="sg-swatch">
+            <div class="sg-swatch-color" style="background:var(--color-inverted-on-surface-muted)"></div>
+            <div class="sg-swatch-info"><div class="sg-swatch-name">inverted-on-surface-muted</div><div class="sg-swatch-value">@theme --color-inverted-on-surface-muted</div><div class="sg-swatch-class">text-inverted-on-surface-muted</div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="sg-subsection">
+        <span class="sg-label">Brand — Primärfarben</span>
+        <div class="sg-swatches">
+          <div class="sg-swatch">
+            <div class="sg-swatch-color" style="background:var(--color-primary)"></div>
+            <div class="sg-swatch-info"><div class="sg-swatch-name">primary</div><div class="sg-swatch-value">@theme --color-primary</div><div class="sg-swatch-class">text-primary / bg-primary</div></div>
+          </div>
+          <div class="sg-swatch">
+            <div class="sg-swatch-color" style="background:var(--color-primary-container)"></div>
+            <div class="sg-swatch-info"><div class="sg-swatch-name">primary-container</div><div class="sg-swatch-value">@theme --color-primary-container</div><div class="sg-swatch-class">bg-primary-container</div></div>
+          </div>
+          <div class="sg-swatch">
+            <div class="sg-swatch-color" style="background:var(--color-gold)"></div>
+            <div class="sg-swatch-info"><div class="sg-swatch-name">gold</div><div class="sg-swatch-value">@theme --color-gold</div><div class="sg-swatch-class">text-gold / bg-gold</div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="sg-subsection">
+        <span class="sg-label">Text — Schriftfarben</span>
+        <div class="sg-swatches">
+          <div class="sg-swatch">
+            <div class="sg-swatch-color" style="background:var(--color-on-surface)"></div>
+            <div class="sg-swatch-info"><div class="sg-swatch-name">on-surface</div><div class="sg-swatch-value">@theme --color-on-surface</div><div class="sg-swatch-class">text-on-surface</div></div>
+          </div>
+          <div class="sg-swatch">
+            <div class="sg-swatch-color" style="background:var(--color-on-surface-variant)"></div>
+            <div class="sg-swatch-info"><div class="sg-swatch-name">on-surface-variant</div><div class="sg-swatch-value">@theme --color-on-surface-variant</div><div class="sg-swatch-class">text-on-surface-variant</div></div>
+          </div>
+          <div class="sg-swatch">
+            <div class="sg-swatch-color" style="background:var(--color-muted)"></div>
+            <div class="sg-swatch-info"><div class="sg-swatch-name">muted</div><div class="sg-swatch-value">@theme --color-muted</div><div class="sg-swatch-class">text-muted</div></div>
+          </div>
+          <div class="sg-swatch">
+            <div class="sg-swatch-color" style="background:var(--color-hint)"></div>
+            <div class="sg-swatch-info"><div class="sg-swatch-name">hint</div><div class="sg-swatch-value">@theme --color-hint</div><div class="sg-swatch-class">text-hint</div></div>
+          </div>
+          <div class="sg-swatch">
+            <div class="sg-swatch-color" style="background:var(--color-faint)"></div>
+            <div class="sg-swatch-info"><div class="sg-swatch-name">faint</div><div class="sg-swatch-value">@theme --color-faint</div><div class="sg-swatch-class">text-faint</div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="sg-subsection">
+        <span class="sg-label">Outline — Borders & Divider</span>
+        <div class="sg-swatches">
+          <div class="sg-swatch">
+            <div class="sg-swatch-color" style="background:var(--color-outline)"></div>
+            <div class="sg-swatch-info"><div class="sg-swatch-name">outline</div><div class="sg-swatch-value">@theme --color-outline</div><div class="sg-swatch-class">border-outline</div></div>
+          </div>
+          <div class="sg-swatch">
+            <div class="sg-swatch-color" style="background:var(--color-outline-variant)"></div>
+            <div class="sg-swatch-info"><div class="sg-swatch-name">outline-variant</div><div class="sg-swatch-value">@theme --color-outline-variant</div><div class="sg-swatch-class">border-outline-variant</div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TYPOGRAPHY -->
+    <section class="sg-section" id="typography">
+      <h2 class="sg-section-title">Typography</h2>
+
+      <div class="sg-type-specimen">
+        <div class="am-display-xl">The Reality of Arrival</div>
+        <div class="sg-type-meta"><div class="sg-type-meta-name">Display XL</div><div class="sg-type-meta-detail">.am-display-xl · clamp + lh 1.02 · tracking -0.025em</div></div>
+      </div>
+      <div class="sg-type-specimen">
+        <div style="font-family:var(--font-headline);font-size:52px;font-weight:300;line-height:1">The Reality of Arrival</div>
+        <div class="sg-type-meta"><div class="sg-type-meta-name">Display</div><div class="sg-type-meta-detail">font-headline · 52px · 300</div></div>
+      </div>
+      <div class="sg-type-specimen">
+        <div style="font-family:var(--font-headline);font-size:36px;font-weight:300;font-style:italic">Frigiliana Parking Guide</div>
+        <div class="sg-type-meta"><div class="sg-type-meta-name">Headline italic</div><div class="sg-type-meta-detail">font-headline · 36px · italic</div></div>
+      </div>
+      <div class="sg-type-specimen">
+        <div style="font-family:var(--font-headline);font-size:24px;font-weight:400">What Matters Most</div>
+        <div class="sg-type-meta"><div class="sg-type-meta-name">H2</div><div class="sg-type-meta-detail">font-headline · 24px · 400</div></div>
+      </div>
+      <div class="sg-type-specimen">
+        <div style="font-family:var(--font-body);font-size:16px;font-weight:400;line-height:1.7;color:var(--color-on-surface-variant)">Frigiliana is not a flat coastal resort. It is vertical, stepped, and historic. Here, the parking question is really a question about your daily movement rhythm.</div>
+        <div class="sg-type-meta"><div class="sg-type-meta-name">Body</div><div class="sg-type-meta-detail">font-body · 16px · 400</div></div>
+      </div>
+      <div class="sg-type-specimen">
+        <div style="font-family:var(--font-label);font-size:10px;font-weight:500;letter-spacing:.15em;text-transform:uppercase;color:var(--color-primary)">Location Authority · Frigiliana</div>
+        <div class="sg-type-meta"><div class="sg-type-meta-name">Eyebrow / Label</div><div class="sg-type-meta-detail">font-label · 10px · 500 · tracking</div></div>
+      </div>
+    </section>
+
+    <!-- SPACING -->
+    <section class="sg-section" id="spacing">
+      <h2 class="sg-section-title">Spacing</h2>
+      <span class="sg-label">Macro — @theme (vertikale Editorial-Abstände)</span>
+      <div class="sg-spacing-row"><div class="sg-spacing-label">--spacing-macro-120</div><div class="sg-spacing-bar" style="width:var(--spacing-macro-120)"></div></div>
+      <div class="sg-spacing-row"><div class="sg-spacing-label">--spacing-macro-160</div><div class="sg-spacing-bar" style="width:var(--spacing-macro-160)"></div></div>
+      <span class="sg-label" style="margin-top:24px">Tailwind Scale — häufig genutzte Werte</span>
+      <div class="sg-spacing-row"><div class="sg-spacing-label">4px · p-1 / m-1</div><div class="sg-spacing-bar" style="width:4px"></div></div>
+      <div class="sg-spacing-row"><div class="sg-spacing-label">8px · p-2 / m-2</div><div class="sg-spacing-bar" style="width:8px"></div></div>
+      <div class="sg-spacing-row"><div class="sg-spacing-label">16px · p-4 / m-4</div><div class="sg-spacing-bar" style="width:16px"></div></div>
+      <div class="sg-spacing-row"><div class="sg-spacing-label">24px · p-6 / m-6</div><div class="sg-spacing-bar" style="width:24px"></div></div>
+      <div class="sg-spacing-row"><div class="sg-spacing-label">32px · p-8 / m-8</div><div class="sg-spacing-bar" style="width:32px"></div></div>
+      <div class="sg-spacing-row"><div class="sg-spacing-label">48px · p-12 / m-12</div><div class="sg-spacing-bar" style="width:48px"></div></div>
+      <div class="sg-spacing-row"><div class="sg-spacing-label">64px · p-16 / m-16</div><div class="sg-spacing-bar" style="width:64px"></div></div>
+      <div class="sg-spacing-row"><div class="sg-spacing-label">80px · pt-20 (section)</div><div class="sg-spacing-bar" style="width:80px"></div></div>
+    </section>
+
+    <!-- PAGE STRUCTURE -->
+    <section class="sg-section" id="structure">
+      <h2 class="sg-section-title">Page Structure</h2>
+      <span class="sg-label">AMARA Pflicht-Struktur — jede Seite</span>
+      <div class="sg-structure">
+        <span class="sg-structure-label">.am-root (1× pro Seite — auf Layout-Ebene)</span>
+        <div class="sg-structure-inner">
+          <span class="sg-structure-label">.am-wrap (direktes Kind von .am-root)</span>
+          <div style="background:var(--color-primary-container);border-radius:6px;padding:12px 16px;margin-top:8px;">
+            <span style="font-size:11px;font-family:monospace;color:var(--color-primary)">→ dein Seiteninhalt hier</span>
+          </div>
+        </div>
+      </div>
+      <div style="margin-top:16px;font-size:12px;color:var(--color-muted);line-height:1.7">
+        <span class="sg-code">.am-root</span> existiert genau 1× pro Seite · gesetzt auf Layout-Ebene<br>
+        <span class="sg-code">.am-wrap</span> ist direktes Kind von <span class="sg-code">.am-root</span> · kein Code außerhalb<br>
+        Kein <span class="sg-code">style=""</span> inline · kein <span class="sg-code">!important</span> außer SSOT-dokumentiert
+      </div>
+    </section>
+
+    <!-- BUTTONS -->
+    <section class="sg-section" id="buttons">
+      <h2 class="sg-section-title">Buttons</h2>
+      <div class="sg-component-frame">
+        <div class="sg-row">
+          <button type="button" class="am-btn am-btn--primary">Explore AMARA Stays</button>
+          <button type="button" class="am-btn am-btn--outline">Check Availability</button>
+          <button type="button" class="am-btn am-btn--ghost">Learn More</button>
+        </div>
+        <div class="sg-component-label" style="margin-top:20px">
+          <span class="sg-code">.am-btn--primary</span> · Hover: <span class="sg-code">--color-btn-primary-hover-bg</span> + <span class="sg-code">translateY(-1px)</span><br />
+          <span class="sg-code">.am-btn--outline</span> ·
+          <span class="sg-code">.am-btn--ghost</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- BADGES -->
+    <section class="sg-section" id="badges">
+      <h2 class="sg-section-title">Badges</h2>
+      <div class="sg-component-frame">
+        <div class="sg-row">
+          <span class="sg-badge sg-badge--primary">Location Authority</span>
+          <span class="sg-badge sg-badge--surface">The Balance</span>
+          <span class="sg-badge sg-badge--gold">AMARA Select</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- CARDS -->
+    <section class="sg-section" id="cards">
+      <h2 class="sg-section-title">Cards</h2>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px">
+        <div class="sg-card">
+          <span class="sg-card-label">Location Authority · Frigiliana</span>
+          <div class="sg-card-title">The Reality of Arrival</div>
+          <div class="sg-card-body">Frigiliana is not a flat coastal resort. It is vertical, stepped, and historic.</div>
+        </div>
+        <div class="sg-card sg-card--inverted">
+          <span class="sg-card-label">The AMARA Approach</span>
+          <div class="sg-card-title">We select stays that balance village charm.</div>
+          <div class="sg-card-body">Manageable daily movement, maximum atmosphere.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- INLINE LINKS -->
+    <section class="sg-section" id="inline-links">
+      <h2 class="sg-section-title">Inline Links</h2>
+      <div class="sg-component-frame">
+        <p class="sg-inline-demo">
+          Frigiliana is not a flat coastal resort. Read the
+          <a class="am-inline-link" href="#inline-links">arrival guide</a>
+          before you book, or explore
+          <a class="am-inline-link" href="#spacing">macro spacing</a>
+          for vertical rhythm.
+        </p>
+        <div class="sg-component-label" style="margin-top:16px">
+          <span class="sg-code">.am-inline-link</span> · underline + offset · <span class="sg-code">text-decoration-color: var(--color-outline-variant)</span> · hover → <span class="sg-code">var(--color-on-surface)</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- BORDERS -->
+    <section class="sg-section" id="borders">
+      <h2 class="sg-section-title">Borders & Dividers</h2>
+      <div class="sg-component-frame">
+        <div style="border-bottom:1px solid var(--color-outline-variant);padding-bottom:12px;margin-bottom:12px;font-size:13px">border-outline-variant — Standard Divider</div>
+        <div style="border-bottom:1px solid var(--color-outline);padding-bottom:12px;margin-bottom:12px;font-size:13px">border-outline — Stärker</div>
+        <div style="border-bottom:2px solid var(--color-on-surface);padding-bottom:12px;margin-bottom:12px;font-size:13px">border-on-surface — Stark / Akzent</div>
+        <div style="border-bottom:1px solid var(--color-border-subtle);padding-bottom:12px;font-size:13px;color:var(--color-muted)">border-subtle — Sehr fein</div>
+      </div>
+    </section>
+
+    <!-- SHADOWS -->
+    <section class="sg-section" id="shadows">
+      <h2 class="sg-section-title">Shadows</h2>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px">
+        <div style="background:var(--color-surface-white);border-radius:10px;padding:24px;box-shadow:var(--shadow-editorial-card)">
+          <div style="font-size:12px;font-family:monospace;color:var(--color-primary)">--shadow-editorial-card</div>
+          <div style="font-size:11px;color:var(--color-muted);margin-top:4px">@theme</div>
+        </div>
+        <div style="background:var(--color-surface-white);border-radius:10px;padding:24px;border:1px solid var(--color-outline-variant)">
+          <div style="font-size:12px;font-family:monospace;color:var(--color-primary)">border-outline-variant</div>
+          <div style="font-size:11px;color:var(--color-muted);margin-top:4px">Kein Shadow — nur Border</div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+</body>
+</html>

@@ -112,11 +112,31 @@ const copy = {
       sv: 'Vi håller det medvetet enkelt: hög sovkomfort, pålitlig renlighet och små detaljer som gör vistelsen enkel.'
     },
     summaryBodyTwo: {
-      en: 'We reference third-party platforms as verification sources only. Bookings stay direct with AMARA.',
-      de: 'Wir nutzen Drittplattformen ausschließlich als Verifizierungsquelle. Gebucht wird weiterhin direkt bei AMARA.',
-      es: 'Usamos plataformas externas solo como fuente de verificación. Las reservas siguen siendo directas con AMARA.',
-      nl: 'We gebruiken externe platforms uitsluitend als verificatiebron. Boeken blijft direct bij AMARA.',
-      sv: 'Vi använder tredjepartsplattformar enbart som verifieringskälla. Bokningar sker fortsatt direkt med AMARA.'
+      en: {
+        before: 'We reference third-party platforms as verification sources only. ',
+        linkLabel: 'Bookings stay direct with AMARA.',
+        after: ''
+      },
+      de: {
+        before: 'Wir nutzen Drittplattformen ausschließlich als Verifizierungsquelle. ',
+        linkLabel: 'Gebucht wird weiterhin direkt bei AMARA.',
+        after: ''
+      },
+      es: {
+        before: 'Usamos plataformas externas solo como fuente de verificación. ',
+        linkLabel: 'Las reservas siguen siendo directas con AMARA.',
+        after: ''
+      },
+      nl: {
+        before: 'We gebruiken externe platforms uitsluitend als verificatiebron. ',
+        linkLabel: 'Boeken blijft direct bij AMARA.',
+        after: ''
+      },
+      sv: {
+        before: 'Vi använder tredjepartsplattformar enbart som verifieringskälla. ',
+        linkLabel: 'Bokningar sker fortsatt direkt med AMARA.',
+        after: ''
+      }
     },
     quote: {
       en: "This is not just a place to stay - it's a refuge that invites calm, connection, and gratitude.",
@@ -394,7 +414,7 @@ const footerHighlights = [
       <section class="am-reviews-section">
         <div class="am-reviews-split">
           <div class="am-reviews-split__left">
-            <h2 class="am-section-title">{copy.sections.summaryTitle[currentLang]}</h2>
+            <h2 class="am-display-xl">{copy.sections.summaryTitle[currentLang]}</h2>
           </div>
           <div class="am-reviews-split__right">
             <p class="am-body am-reviews-text-large">{copy.sections.summaryLead[currentLang]}</p>
@@ -402,7 +422,9 @@ const footerHighlights = [
               {copy.sections.summaryBodyOne[currentLang]}
             </p>
             <p class="am-body">
-              {copy.sections.summaryBodyTwo[currentLang]}
+              {copy.sections.summaryBodyTwo[currentLang].before}
+              <a href={resolveLink('direct_booking_benefits', currentLang)} class="am-inline-link">{copy.sections.summaryBodyTwo[currentLang].linkLabel}</a>
+              {copy.sections.summaryBodyTwo[currentLang].after}
             </p>
           </div>
         </div>
@@ -530,16 +552,16 @@ const footerHighlights = [
 
   .am-kicker {
     display: inline-block;
-    font-family: "Plus Jakarta Sans", sans-serif;
+    font-family: var(--font-body);
     font-size: 0.75rem;
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.12em;
-    color: rgba(0, 0, 0, 0.58);
+    @apply text-on-surface/60;
   }
 
   .am-body {
-    font-family: "Plus Jakarta Sans", sans-serif;
+    font-family: var(--font-body);
     font-size: 1rem;
     line-height: 1.8;
     @apply text-subtle;
@@ -570,19 +592,19 @@ const footerHighlights = [
   }
 
   .am-reviews-link {
-    font-family: "Plus Jakarta Sans", sans-serif;
+    font-family: var(--font-body);
     font-size: 0.875rem;
     text-transform: uppercase;
     letter-spacing: 0.1em;
     @apply text-on-surface;
     text-decoration: none;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    border-bottom: 1px solid var(--color-border-subtle);
     padding-bottom: 4px;
     transition: border-color 0.3s ease;
   }
 
   .am-reviews-link:hover {
-    border-color: #111;
+    @apply border-on-surface;
   }
 
   .am-reviews-cta__links {
@@ -594,7 +616,7 @@ const footerHighlights = [
   }
 
   .am-reviews-cta__dot {
-    color: #ccc;
+    @apply text-dot-indicator;
   }
 
   .am-reviews-split {
@@ -603,7 +625,7 @@ const footerHighlights = [
     gap: clamp(4rem, 8vw, 8rem);
   }
 
-  .am-reviews-split__left .am-section-title {
+  .am-reviews-split__left .am-display-xl {
     position: sticky;
     top: 2rem;
   }
@@ -625,7 +647,7 @@ const footerHighlights = [
   }
 
   .am-reviews-quote {
-    font-family: "Newsreader", serif;
+    font-family: var(--font-headline);
     font-size: clamp(2.5rem, 5vw, 4rem);
     line-height: 1.15;
     font-style: italic;
@@ -657,9 +679,8 @@ const footerHighlights = [
   }
 
   .am-reviews-card {
-    @apply bg-surface;
+    @apply bg-surface border border-on-surface/5;
     padding: clamp(2rem, 3vw, 2.5rem);
-    border: 1px solid rgba(0, 0, 0, 0.05);
   }
 
   .am-reviews-card__meta {
@@ -679,14 +700,14 @@ const footerHighlights = [
   }
 
   .am-reviews-list {
-    border-top: 2px solid #111;
+    border-top: 2px solid var(--color-on-surface);
   }
 
   .am-reviews-list__item {
     display: grid;
     grid-template-columns: 1fr;
     padding: 1.8rem 0;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    @apply border-b border-on-surface/10;
   }
 
   .am-reviews-list__copy {
@@ -714,20 +735,18 @@ const footerHighlights = [
   }
 
   .am-reviews-awards__group {
-    @apply bg-white;
+    @apply bg-white border border-on-surface/5;
     padding: clamp(2rem, 4vw, 3rem);
-    border: 1px solid rgba(0, 0, 0, 0.05);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.02);
+    box-shadow: var(--shadow-editorial-card);
   }
 
   .am-reviews-awards__label {
-    font-family: "Plus Jakarta Sans", sans-serif;
+    font-family: var(--font-body);
     font-size: 0.875rem;
     text-transform: uppercase;
     letter-spacing: 0.1em;
-    @apply text-hint;
+    @apply text-hint border-b border-on-surface/10;
     margin-bottom: 1.5rem;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
     padding-bottom: 0.6rem;
   }
 
@@ -748,7 +767,7 @@ const footerHighlights = [
     content: "-";
     position: absolute;
     left: 0;
-    color: rgba(0, 0, 0, 0.35);
+    @apply text-on-surface/35;
   }
 
   .am-reviews-locations__trio {
@@ -765,7 +784,7 @@ const footerHighlights = [
 
   .am-reviews-location__image {
     aspect-ratio: 3 / 4;
-    background-color: rgba(0, 0, 0, 0.03);
+    @apply bg-on-surface/[0.03];
     display: flex;
     align-items: center;
     justify-content: center;
@@ -774,17 +793,17 @@ const footerHighlights = [
   }
 
   .am-reviews-location:hover .am-reviews-location__image {
-    background-color: rgba(0, 0, 0, 0.05);
+    @apply bg-on-surface/5;
   }
 
   .am-reviews-location__image span {
-    font-family: "Newsreader", serif;
+    font-family: var(--font-headline);
     font-style: italic;
-    color: rgba(0, 0, 0, 0.3);
+    @apply text-on-surface/30;
   }
 
   .am-reviews-location__title {
-    font-family: "Newsreader", serif;
+    font-family: var(--font-headline);
     font-size: 1.75rem;
     font-weight: 300;
     margin-bottom: 0.5rem;
@@ -799,7 +818,7 @@ const footerHighlights = [
   }
 
   .am-reviews-cta__title {
-    font-family: "Newsreader", serif;
+    font-family: var(--font-headline);
     font-size: clamp(2.5rem, 4vw, 3.5rem);
     line-height: 1.1;
     font-weight: 300;

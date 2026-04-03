@@ -1,0 +1,553 @@
+---
+/**
+ * Frigiliana Parking & movement (Type A / Location Authority)
+ *
+ * Uses ParkingRealityPillars + StayModels from components/location for the
+ * “What Matters Most” and stay-model blocks (same structure as src/pages/test.astro inline block). Shell: single .am-root / .am-wrap.
+ */
+import LocationAuthorityLayout from '../../layouts/LocationAuthorityLayout.astro';
+import Navigation from '../../components/Navigation.astro';
+import SectionAnchorNav from '../../components/navigation/SectionAnchorNav.astro';
+import SmartBackButton from '../../components/navigation/SmartBackButton.astro';
+import ParkingRealityPillars from '../../components/location/ParkingRealityPillars.astro';
+import StayModels from '../../components/location/StayModels.astro';
+import { resolveLink } from '../../lib/linkResolver';
+import { getFrigilianaAuthoritySubnav } from '../../lib/frigiliana/frigilianaAuthoritySubnav';
+import { normalizeLanguage } from '../../lib/seo/resolve-seo-head';
+import type { AmaraAuthoringSeo, AmaraLanguage } from '../../types/seo';
+
+interface Props {
+  lang?: string;
+}
+
+const { lang = 'es' } = Astro.props;
+const currentLang = normalizeLanguage(lang as AmaraLanguage);
+const sectionNavItems = getFrigilianaAuthoritySubnav(currentLang);
+
+function t(row: Record<AmaraLanguage, string>): string {
+  return row[currentLang] ?? row.en;
+}
+
+const seo: AmaraAuthoringSeo = {
+  version: '2026-03-28-frigiliana-parking-v4.0-A',
+  pageType: 'A',
+  entityKey: 'amara-brand',
+  languages: {
+    en: {
+      title: 'Parking & movement in Frigiliana | AMARA Location Guide',
+      description:
+        'How parking and walking really work in a vertical hill village — and how your choice of base shapes daily rhythm.',
+      robots: 'index, follow',
+      canonical: 'auto'
+    },
+    de: {
+      title: 'Parken und Bewegung in Frigiliana | AMARA Ortsguide',
+      description:
+        'Wie Parken und Gehen in einem steilen Bergdorf wirklich funktionieren — und wie Ihre Basis den Tagesrhythmus prägt.',
+      robots: 'index, follow',
+      canonical: 'auto'
+    },
+    es: {
+      title: 'Aparcamiento y movimiento en Frigiliana | Guía AMARA',
+      description:
+        'Cómo funcionan de verdad aparcar y caminar en un pueblo en cuesta — y cómo vuestra base marca el ritmo del día.',
+      robots: 'index, follow',
+      canonical: 'auto'
+    },
+    nl: {
+      title: 'Parkeren en bewegen in Frigiliana | AMARA locatiegids',
+      description:
+        'Hoe parkeren en lopen in een hellend dorp echt werkt — en hoe uw uitvalsbasis het dagritme bepaalt.',
+      robots: 'index, follow',
+      canonical: 'auto'
+    },
+    sv: {
+      title: 'Parkering och rörelse i Frigiliana | AMARA platsguide',
+      description:
+        'Hur parkering och promenader verkligen fungerar i en brant by — och hur er bas formar vardagsrytmen.',
+      robots: 'index, follow',
+      canonical: 'auto'
+    }
+  }
+};
+
+/** Mirrors authoring SEO for consumers that read data-amara="seo" (in addition to BaseLayout data-amara-system). */
+const seoAmaraJson = JSON.stringify(seo);
+
+const copy = {
+  nav: {
+    brand: { en: 'Frigiliana', de: 'Frigiliana', es: 'Frigiliana', nl: 'Frigiliana', sv: 'Frigiliana' },
+    links: [
+      { token: 'location_frigiliana', label: { en: 'Frigiliana', de: 'Frigiliana', es: 'Frigiliana', nl: 'Frigiliana', sv: 'Frigiliana' } },
+      { token: 'location_nerja', label: { en: 'Nerja', de: 'Nerja', es: 'Nerja', nl: 'Nerja', sv: 'Nerja' } },
+      {
+        token: 'explore_hub',
+        label: {
+          en: 'Experiences',
+          de: 'Erlebnisse',
+          es: 'Experiencias',
+          nl: 'Ervaringen',
+          sv: 'Upplevelser'
+        }
+      }
+    ]
+  },
+  header: {
+    eyebrow: {
+      en: 'Location guide · Frigiliana',
+      de: 'Ortsguide · Frigiliana',
+      es: 'Guía de entorno · Frigiliana',
+      nl: 'Locatiegids · Frigiliana',
+      sv: 'Platsguide · Frigiliana'
+    },
+    h1Html: {
+      en: 'Frigiliana Parking',
+      de: 'Parken in Frigiliana',
+      es: 'Aparcamiento en Frigiliana',
+      nl: 'Parkeren in Frigiliana',
+      sv: 'Parkering i Frigiliana'
+    },
+    lead: {
+      en: 'Frigiliana is not a flat coastal resort. It is vertical, stepped, and historic. Here, the parking question is really a question about your daily movement rhythm.',
+      de: 'Frigiliana ist kein flaches Küstenresort. Es ist steil, versetzt und historisch. Beim Parken geht es hier vor allem um Ihren täglichen Bewegungsrhythmus.',
+      es: 'Frigiliana no es un resort costero llano. Es vertical, escalonada e histórica. Aquí la duda del aparcamiento es en el fondo una duda sobre vuestro ritmo diario al movernos.',
+      nl: 'Frigiliana is geen vlak kustresort. Het is verticaal, met niveaus en historisch. De parkeervraag is hier vooral een vraag over uw dagelijkse bewegingsritme.',
+      sv: 'Frigiliana är inte en platt kustort. Det är brant, i nivåer och historiskt. Parkeringsfrågan handlar här i grunden om er vardagsrytm för hur ni rör er.'
+    },
+    backLinkWord: {
+      en: 'Back',
+      de: 'Zurück',
+      es: 'Volver',
+      nl: 'Terug',
+      sv: 'Tillbaka'
+    }
+  },
+  decision: {
+    title: {
+      en: 'Is it difficult with a car?',
+      de: 'Ist es mit dem Auto schwierig?',
+      es: '¿Es complicado ir en coche?',
+      nl: 'Is het lastig met de auto?',
+      sv: 'Är det krångligt med bil?'
+    },
+    shortLabel: {
+      en: 'The short answer',
+      de: 'Die kurze Antwort',
+      es: 'La respuesta breve',
+      nl: 'Het korte antwoord',
+      sv: 'Det korta svaret'
+    },
+    shortBody: {
+      en: 'It is not inherently difficult, but it is different. Frigiliana rewards those who prioritize atmosphere over zero-friction, door-to-door car access.',
+      de: 'Es ist nicht von Grund auf schwierig, aber anders. Frigiliana belohnt alle, die Atmosphäre höher gewichten als maximal reibungslosen, tür-zu-Tür-Autozugang.',
+      es: 'No es intrínsecamente difícil, pero es distinto. Frigiliana encaja mejor con quienes priorizan la atmósfera frente a un acceso en coche sin fricción puerta a puerta.',
+      nl: 'Het is niet van nature moeilijk, maar wel anders. Frigiliana beloont wie sfeer belangrijker vindt dan volledig wrijvingsloze auto-toegang tot de deur.',
+      sv: 'Det är inte i sig svårt, men det är annorlunda. Frigiliana passar dem som värdesätter atmosfär högre än helt friktionsfri bil ända till dörren.'
+    },
+    variableLabel: {
+      en: 'The real variable',
+      de: 'Die eigentliche Variable',
+      es: 'La variable real',
+      nl: 'De echte variabele',
+      sv: 'Den verkliga variabeln'
+    },
+    variableBody: {
+      en: 'The experience depends entirely on where you stay. A house at the very top of the old town feels completely different from a stay in the lower village.',
+      de: 'Das Erlebnis hängt vollständig davon ab, wo Sie wohnen. Ganz oben in der Altstadt fühlt sich ein Haus völlig anders an als eine Unterkunft tiefer im Ort.',
+      es: 'La experiencia depende por completo de dónde os alojéis. Una casa arriba del todo en el casco se vive de forma muy distinta a un alojamiento en la zona baja.',
+      nl: 'De ervaring hangt volledig af van waar u verblijft. Helemaal bovenin de oude stad voelt fundamenteel anders dan lager in het dorp.',
+      sv: 'Upplevelsen beror helt på var ni bor. Högst upp i gamla stan känns det helt annorlunda än längre ner i byn.'
+    }
+  },
+  parkingGrid: {
+    title: {
+      en: 'What Matters Most',
+      de: 'Was am meisten zählt',
+      es: 'Lo que más importa',
+      nl: 'Wat het meest telt',
+      sv: 'Det som spelar mest roll'
+    },
+    intro: {
+      en: 'Forget the mythology of "impossible parking." Focus on these three practical realities instead.',
+      de: 'Vergessen Sie die Mythologie vom „unmöglichen Parken“. Konzentrieren Sie sich stattdessen auf diese drei praktischen Realitäten.',
+      es: 'Olvidad el mito del “aparcamiento imposible”. Centraos en estas tres realidades prácticas.',
+      nl: 'Vergeet de mythe van “onmogelijk parkeren”. Focus op deze drie praktische realiteiten.',
+      sv: 'Glöm myten om “omöjlig parkering”. Fokusera i stället på dessa tre praktiska verkligheter.'
+    },
+    columns: [
+      {
+        title: {
+          en: 'Position Over Proximity',
+          de: 'Lage vor Nähe',
+          es: 'Posición antes que proximidad',
+          nl: 'Positie boven nabijheid',
+          sv: 'Läge före närhet'
+        },
+        body: {
+          en: 'The absolute nearest parking space matters less than the steepness of the walk. A slightly longer flat walk is always better than a short, vertical climb with luggage.',
+          de: 'Der absolut nächste Stellplatz zählt weniger als die Steilheit des Wegs. Ein etwas längerer flacher Weg ist mit Gepäck immer besser als ein kurzer, steiler Aufstieg.',
+          es: 'Importa menos la plaza más cercana que lo empinado del camino. Un paseo llano un poco más largo suele ser mejor que una subida corta y vertical con equipaje.',
+          nl: 'De allerdichtstbijzijnde plek telt minder dan hoe steil het pad is. Iets langer vlak lopen is met bagage altijd beter dan een korte, steile klim.',
+          sv: 'Den allra närmaste platsen spelar mindre roll än hur brant det är att gå. Något längre på plant underlag är med bagage alltid bättre än en kort, brant stigning.'
+        }
+      },
+      {
+        title: {
+          en: 'The Daily Rhythm',
+          de: 'Der Tagesrhythmus',
+          es: 'El ritmo del día',
+          nl: 'Het dagritme',
+          sv: 'Dygnsrytmen'
+        },
+        body: {
+          en: 'Midday is dense with day-trippers. Early mornings and evenings are calm. If your stay is a base for constant midday in-and-out driving, you will feel more friction.',
+          de: 'Mittags ist es dicht mit Tagesgästen. Früh morgens und abends ist es ruhig. Wenn Ihre Unterkunft ein Stützpunkt für ständiges Mittags-Hin-und-Her mit dem Auto ist, spüren Sie mehr Reibung.',
+          es: 'A mediodía hay mucho turismo de día. Por la mañana temprano y al atardecer se respira calma. Si vuestra base implica entrar y salir en coche a mediodía sin parar, notaréis más fricción.',
+          nl: 'Rond het middaguur is het druk met dagjesmensen. Vroeg op de dag en ’s avonds is het rustig. Als uw verblijf een hub is voor voortdurend heen-en-weer rijden rond lunchtijd, voelt u meer wrijving.',
+          sv: 'Lunchtid är tät med dagsbesökare. Tidig morgon och kväll är lugnt. Om boendet blir en nav för ständiga lunchtidsbilresor märker ni mer friktion.'
+        }
+      },
+      {
+        title: {
+          en: 'The Walking Reality',
+          de: 'Die Geh-Realität',
+          es: 'La realidad de caminar',
+          nl: 'De looprealiteit',
+          sv: 'Promenadverkligheten'
+        },
+        body: {
+          en: 'You will walk. You will climb stairs. Frigiliana is a pedestrian-first environment. Embrace this as part of the charm, not a logistical failure.',
+          de: 'Sie werden gehen. Sie werden Treppen steigen. Frigiliana ist fußläufig geprägt. Nehmen Sie das als Teil des Charakters — nicht als Planungsfehler.',
+          es: 'Caminaréis. Subiréis escalones. Frigiliana está pensada para el peatón. Tomadlo como parte del encanto, no como un fallo logístico.',
+          nl: 'U loopt. U neemt trappen. Frigiliana is voetganger-first. Zie het als deel van de charme, niet als een logistieke mislukking.',
+          sv: 'Ni går. Ni tar trappor. Frigiliana är byggd för fotgängare. Ta det som en del av charmen — inte som ett logistikfel.'
+        }
+      }
+    ]
+  },
+  stayModels: {
+    title: {
+      en: 'The Stay Models',
+      de: 'Die Aufenthaltsmodelle',
+      es: 'Los modelos de estancia',
+      nl: 'De verblijfsmodellen',
+      sv: 'Boendemodellerna'
+    },
+    intro: {
+      en: 'How your choice of location dictates your daily movement.',
+      de: 'Wie Ihre Standortwahl Ihre tägliche Bewegung bestimmt.',
+      es: 'Cómo la ubicación que elijáis marca vuestro movimiento diario.',
+      nl: 'Hoe uw locatiekeuze uw dagelijkse beweging bepaalt.',
+      sv: 'Hur ert val av läge styr er dagliga rörelse.'
+    },
+    frictionLabel: {
+      en: 'Friction',
+      de: 'Reibung',
+      es: 'Fricción',
+      nl: 'Wrijving',
+      sv: 'Friktion'
+    },
+    carAccessLabel: {
+      en: 'Car Access',
+      de: 'Auto-Zugang',
+      es: 'Acceso en coche',
+      nl: 'Auto-toegang',
+      sv: 'Biltillgång'
+    },
+    left: {
+      title: {
+        en: 'High Old Town',
+        de: 'Obere Altstadt',
+        es: 'Casco alto',
+        nl: 'Bovenste oude stad',
+        sv: 'Övre gamla stan'
+      },
+      description: {
+        en: 'Maximum atmosphere, maximum effort.',
+        de: 'Maximale Atmosphäre, maximaler Aufwand.',
+        es: 'Máxima atmósfera, máximo esfuerzo.',
+        nl: 'Maximale sfeer, maximale inspanning.',
+        sv: 'Mest atmosfär, mest ansträngning.'
+      },
+      frictionValue: {
+        en: 'High',
+        de: 'Hoch',
+        es: 'Alto',
+        nl: 'Hoog',
+        sv: 'Hög'
+      },
+      carAccessValue: {
+        en: 'None (Walk only)',
+        de: 'Keiner (nur zu Fuß)',
+        es: 'Ninguno (solo a pie)',
+        nl: 'Geen (alleen lopen)',
+        sv: 'Ingen (endast till fots)'
+      }
+    },
+    center: {
+      balanceBadge: {
+        en: 'The Balance',
+        de: 'Die Balance',
+        es: 'El equilibrio',
+        nl: 'De balans',
+        sv: 'Balansen'
+      },
+      title: {
+        en: 'Lower Village',
+        de: 'Unterer Ort',
+        es: 'Zona baja del pueblo',
+        nl: 'Lagere kern',
+        sv: 'Lägre del av byn'
+      },
+      description: {
+        en: 'Historic character without the extreme climb.',
+        de: 'Historischer Charakter ohne den extremen Aufstieg.',
+        es: 'Carácter histórico sin la subida extrema.',
+        nl: 'Historisch karakter zonder de extreme klim.',
+        sv: 'Historisk karaktär utan extrem stigning.'
+      },
+      frictionValue: {
+        en: 'Moderate',
+        de: 'Moderat',
+        es: 'Moderado',
+        nl: 'Gematigd',
+        sv: 'Måttlig'
+      },
+      carAccessValue: {
+        en: 'Nearby / Drop-off',
+        de: 'Nahe / Absetzen',
+        es: 'Cercano / acercamiento',
+        nl: 'Dichtbij / uitstappen',
+        sv: 'Nära / avlämning'
+      }
+    },
+    right: {
+      title: {
+        en: 'Countryside Edge',
+        de: 'Land / Dorfrand',
+        es: 'Afueras del pueblo',
+        nl: 'Buitengebied / rand',
+        sv: 'Landsbygd / kant'
+      },
+      description: {
+        en: 'Space and ease, but disconnected from the core.',
+        de: 'Platz und Leichtigkeit — aber entkoppelt vom Kern.',
+        es: 'Espacio y comodidad, pero más alejado del núcleo.',
+        nl: 'Ruimte en gemak, maar verder van de kern.',
+        sv: 'Utrymme och enkelhet, men längre från kärnan.'
+      },
+      frictionValue: {
+        en: 'Low',
+        de: 'Gering',
+        es: 'Bajo',
+        nl: 'Laag',
+        sv: 'Låg'
+      },
+      carAccessValue: {
+        en: 'Direct',
+        de: 'Direkt',
+        es: 'Directo',
+        nl: 'Direct',
+        sv: 'Direkt'
+      }
+    }
+  },
+  amara: {
+    eyebrow: {
+      en: 'The AMARA approach',
+      de: 'Der AMARA-Ansatz',
+      es: 'El enfoque AMARA',
+      nl: 'De AMARA-benadering',
+      sv: 'AMARAs förhållningssätt'
+    },
+    title: {
+      en: 'We select stays that balance village charm with manageable daily movement.',
+      de: 'Wir wählen Unterkünfte, die Dorfcharakter mit gut machbarem Tagesrhythmus verbinden.',
+      es: 'Elegimos alojamientos que equilibran el encanto del pueblo con un movimiento diario razonable.',
+      nl: 'We kiezen verblijven die dorpscharme combineren met een haalbaar dagelijks bewegingspatroon.',
+      sv: 'Vi väljer boenden som balanserar bycharm med hanterbar vardagsrörelse.'
+    },
+    body: {
+      en: 'If you want the beauty of Frigiliana without the extreme logistical friction, explore our collection in the lower village.',
+      de: 'Wenn Sie Frigilianas Schönheit ohne extreme logistische Reibung suchen, entdecken Sie unsere Auswahl im unteren Ort.',
+      es: 'Si queréis la belleza de Frigiliana sin la fricción logística extrema, explorad nuestra oferta en la zona baja.',
+      nl: 'Wilt u Frigilianas schoonheid zonder extreme logistieke wrijving, bekijk dan ons aanbod in de lagere kern.',
+      sv: 'Vill ni ha Frigilianas skönhet utan extrem logistikfriktion — utforska vårt utbud i den lägre delen av byn.'
+    },
+    cta: {
+      en: 'Explore AMARA stays',
+      de: 'AMARA-Unterkünfte entdecken',
+      es: 'Descubrir estancias AMARA',
+      nl: 'AMARA-verblijven bekijken',
+      sv: 'Utforska AMARA-boenden'
+    }
+  }
+};
+
+const c = {
+  nav: {
+    brand: copy.nav.brand[currentLang],
+    links: copy.nav.links.map((l) => ({
+      token: l.token,
+      label: l.label[currentLang]
+    }))
+  },
+  header: {
+    eyebrow: t(copy.header.eyebrow),
+    h1Html: t(copy.header.h1Html),
+    lead: t(copy.header.lead),
+    backLinkWord: t(copy.header.backLinkWord)
+  },
+  decision: {
+    title: t(copy.decision.title),
+    shortLabel: t(copy.decision.shortLabel),
+    shortBody: t(copy.decision.shortBody),
+    variableLabel: t(copy.decision.variableLabel),
+    variableBody: t(copy.decision.variableBody)
+  },
+  parkingGrid: {
+    title: t(copy.parkingGrid.title),
+    intro: t(copy.parkingGrid.intro),
+    columns: [
+      {
+        title: t(copy.parkingGrid.columns[0].title),
+        body: t(copy.parkingGrid.columns[0].body)
+      },
+      {
+        title: t(copy.parkingGrid.columns[1].title),
+        body: t(copy.parkingGrid.columns[1].body)
+      },
+      {
+        title: t(copy.parkingGrid.columns[2].title),
+        body: t(copy.parkingGrid.columns[2].body)
+      }
+    ] as [
+      { title: string; body: string },
+      { title: string; body: string },
+      { title: string; body: string }
+    ]
+  },
+  stayModels: {
+    title: t(copy.stayModels.title),
+    intro: t(copy.stayModels.intro),
+    frictionLabel: t(copy.stayModels.frictionLabel),
+    carAccessLabel: t(copy.stayModels.carAccessLabel),
+    left: {
+      title: t(copy.stayModels.left.title),
+      description: t(copy.stayModels.left.description),
+      frictionValue: t(copy.stayModels.left.frictionValue),
+      carAccessValue: t(copy.stayModels.left.carAccessValue)
+    },
+    center: {
+      balanceBadge: t(copy.stayModels.center.balanceBadge),
+      title: t(copy.stayModels.center.title),
+      description: t(copy.stayModels.center.description),
+      frictionValue: t(copy.stayModels.center.frictionValue),
+      carAccessValue: t(copy.stayModels.center.carAccessValue)
+    },
+    right: {
+      title: t(copy.stayModels.right.title),
+      description: t(copy.stayModels.right.description),
+      frictionValue: t(copy.stayModels.right.frictionValue),
+      carAccessValue: t(copy.stayModels.right.carAccessValue)
+    }
+  },
+  amara: {
+    eyebrow: t(copy.amara.eyebrow),
+    title: t(copy.amara.title),
+    body: t(copy.amara.body),
+    cta: t(copy.amara.cta)
+  }
+};
+
+const sectionLead = 'font-body text-on-surface-variant text-lg leading-relaxed italic max-w-3xl';
+---
+
+<LocationAuthorityLayout seo={seo} pageLang={currentLang} bodyBackgroundClass="bg-white">
+  <Navigation
+    currentLang={currentLang}
+    brandName={c.nav.brand}
+    links={c.nav.links}
+    languageToken="frigiliana_parking"
+    locationAuthorityNav={true}
+  />
+  <SectionAnchorNav items={sectionNavItems} activeId="arrival" />
+
+  <div class="am-root" data-am-page="frigiliana-parking">
+    <script type="application/json" data-amara="seo" set:html={seoAmaraJson} />
+
+    <div class="am-wrap w-full max-w-screen-2xl mx-auto px-12 pt-20 pb-20">
+      <SmartBackButton
+        variant="link"
+        label={c.header.backLinkWord}
+        fallbackHref={resolveLink('location_frigiliana', currentLang)}
+      />
+      <header class="mb-20 border-b border-black/10 pb-12">
+        <span class="label-md font-label text-primary mb-4 block">{c.header.eyebrow}</span>
+        <h1 class="text-6xl font-headline italic text-on-surface mb-6" set:html={c.header.h1Html} />
+        <p class="font-body text-on-surface-variant text-xl italic opacity-70 max-w-2xl">{c.header.lead}</p>
+      </header>
+
+      <div class="pt-8 space-y-20">
+        <section class="space-y-8">
+          <h2 class="text-3xl font-headline italic text-on-surface">{c.decision.title}</h2>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-label text-[10px] uppercase tracking-[0.18em] text-primary mb-4">
+                {c.decision.shortLabel}
+              </h3>
+              <p class={`${sectionLead} mb-0`}>{c.decision.shortBody}</p>
+            </div>
+            <div>
+              <h3 class="font-label text-[10px] uppercase tracking-[0.18em] text-primary mb-4">
+                {c.decision.variableLabel}
+              </h3>
+              <p class={`${sectionLead} mb-0`}>{c.decision.variableBody}</p>
+            </div>
+          </div>
+        </section>
+
+        <ParkingRealityPillars
+          title={c.parkingGrid.title}
+          intro={c.parkingGrid.intro}
+          items={[
+            {
+              title: c.parkingGrid.columns[0].title,
+              text: c.parkingGrid.columns[0].body,
+              icon: 'map-pin'
+            },
+            {
+              title: c.parkingGrid.columns[1].title,
+              text: c.parkingGrid.columns[1].body,
+              icon: 'clock'
+            },
+            {
+              title: c.parkingGrid.columns[2].title,
+              text: c.parkingGrid.columns[2].body,
+              icon: 'footprints'
+            }
+          ]}
+        />
+
+        <StayModels
+          title={c.stayModels.title}
+          intro={c.stayModels.intro}
+          frictionLabel={c.stayModels.frictionLabel}
+          carAccessLabel={c.stayModels.carAccessLabel}
+          left={c.stayModels.left}
+          center={c.stayModels.center}
+          right={c.stayModels.right}
+        />
+
+        <section class="space-y-6">
+          <span class="font-label text-[10px] uppercase tracking-[0.18em] text-primary block">{c.amara.eyebrow}</span>
+          <h2 class="text-3xl font-headline italic text-on-surface">{c.amara.title}</h2>
+          <p class={sectionLead}>{c.amara.body}</p>
+          <p class="pt-2">
+            <a href={resolveLink('book', currentLang)} class="am-cta-link">{c.amara.cta}</a>
+          </p>
+        </section>
+      </div>
+    </div>
+  </div>
+</LocationAuthorityLayout>
