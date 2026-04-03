@@ -49,7 +49,7 @@ const { title, subtitle, lead, ctaLinks = [], supportText } = Astro.props;
     display: flex;
     gap: 1.5rem;
     margin-bottom: 3rem;
-    opacity: 0.6;
+    /* opacity: 0.6; Removed to ensure WCAG 4.5:1 contrast for the golden kicker */
   }
 
   .am-exp-hero__title {
@@ -85,5 +85,4 @@ const { title, subtitle, lead, ctaLinks = [], supportText } = Astro.props;
     @apply text-muted;
     font-style: italic;
   }
-
 </style>
