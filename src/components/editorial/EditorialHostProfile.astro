@@ -35,7 +35,7 @@ const { imageSrc, imageAlt, title, role, stats } = Astro.props;
       {
         stats.map((stat) => (
           <div>
-            <dt class="text-[0.75rem] uppercase tracking-[0.1em] text-hint mb-2">{stat.label}</dt>
+            <dt class="text-[0.75rem] uppercase tracking-[0.1em] text-on-surface/70 mb-2">{stat.label}</dt>
             <dd class="font-body text-on-surface m-0">{stat.value}</dd>
           </div>
         ))
