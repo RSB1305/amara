@@ -8,14 +8,13 @@
  * but the logo position, right rail, language switch slot, and CTA slot remain
  * structurally fixed across the system.
  */
-import { resolveLink, resolveOptionalLink } from '../lib/linkResolver';
+ import { resolveLink, resolveOptionalLink } from '../lib/linkResolver';
 import type { AmaraLanguage } from '../types/seo';
 
 interface NavLink {
   token: string;
   label?: string;
 }
-
 
 interface Props {
   currentLang: AmaraLanguage;
@@ -269,7 +268,7 @@ const getResolvedNavLabel = (link: NavLink) => {
                     class={`text-[10px] font-bold tracking-[0.18em] uppercase transition-colors px-2 py-1 rounded-md ${
                       currentLang === lang.code
                         ? 'text-primary bg-primary/5'
-                        : 'text-on-surface/45 hover:text-on-surface hover:bg-surface-container-low'
+                        : 'text-on-surface/70 hover:text-on-surface hover:bg-surface-container-low'
                     }`}
                   >
                     {lang.label}

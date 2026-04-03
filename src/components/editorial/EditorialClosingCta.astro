@@ -4,7 +4,7 @@
  *
  * Centered closing headline, lead, optional note, and token-resolved CTA links.
  */
-import { resolveLink } from '../../lib/linkResolver';
+ import { resolveLink } from '../../lib/linkResolver';
 import type { AmaraLanguage } from '../../types/seo';
 
 export interface EditorialClosingCtaLink {
@@ -47,7 +47,7 @@ const disabledClass =
           const isDisabled = link.disabled === true || !link.token;
           return (
             <>
-              {index > 0 && <span class="hidden sm:inline text-[#ccc]">&middot;</span>}
+              {index > 0 && <span class="hidden sm:inline text-on-surface/60">&middot;</span>}
               {isDisabled ? (
                 <span class={disabledClass}>{link.label}</span>
               ) : (
