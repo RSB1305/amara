@@ -52,7 +52,7 @@ const ldJson = resolveStructuredData(seo, head.canonicalUrl, currentLang, origin
 
     {head.ogImage && <meta property="og:image" content={head.ogImage} />}
     <meta property="og:title" content={head.current.title} />
-    <meta property="og:description" content={head.current.description} />
+    <meta property="og:description" content={head.current.description} /
     <meta property="og:url" content={head.canonicalUrl} />
 
     {ldJson && <script type="application/ld+json" set:html={ldJson} />}
