@@ -1,0 +1,6 @@
+# Architectural Intent: Explicitly prevent all web crawlers from indexing the staging environment.
+# This static file ensures no fallback or edge-layer robots.txt is generated, preventing the 31 syntax errors.
+# Must be replaced with a permissive version (Allow: /) on production deployment.
+
+User-agent: *
+Disallow: /
