@@ -124,10 +124,6 @@ export function resolveSeoHead(
     canonicalUrl,
     hreflangs,
     ogImage: toAbsoluteUrl(seo?.ogImage, origin),
-    systemBlock: JSON.stringify({
-      version: seo?.version,
-      pageType: seo?.pageType,
-      lang: currentLang
-    })
+    seoBlock: JSON.stringify(seo || {})
   };
 }
