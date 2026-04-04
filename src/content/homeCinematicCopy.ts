@@ -164,7 +164,7 @@ export const cinematicApartments: CinematicAptDef[] = [
   {
     id: 'farah',
     token: 'farah',
-    img: 'https://l.icdbcdn.com/oh/3c79ee18-d231-4066-bbce-1b20c4732057.jpg',
+    img: '/images/amara-farah/67-amara-frigiliana.jpg',
     name: 'Farah',
     subtitle: {
       en: 'Boutique Retreat',
@@ -198,7 +198,7 @@ export const cinematicApartments: CinematicAptDef[] = [
   {
     id: 'lounis',
     token: 'lounis',
-    img: 'https://l.icdbcdn.com/oh/882b7732-0b8a-4d00-b9af-16271f78d09e.jpg',
+    img: '/images/amara-lounis/17-amara-frigiliana.jpg',
     name: 'Lounis',
     subtitle: {
       en: 'Historic Apartment',
@@ -232,7 +232,7 @@ export const cinematicApartments: CinematicAptDef[] = [
   {
     id: 'zaid',
     token: 'zaid',
-    img: 'https://l.icdbcdn.com/oh/392c7773-50bf-4814-955d-da26457f6440.jpg',
+    img: '/images/amara-zaid/cara-rural-frigiliana-amara-said-terraza-5.jpg',
     name: 'Zaid',
     subtitle: {
       en: 'Terrace Apartment',
@@ -266,7 +266,7 @@ export const cinematicApartments: CinematicAptDef[] = [
   {
     id: 'maha',
     token: 'maha',
-    img: 'https://l.icdbcdn.com/oh/3e9884fa-4453-4aa8-8dae-fb54d6a87456.jpg',
+    img: '/images/amara-maha/29-amara-frigiliana.jpg',
     name: 'Maha',
     subtitle: {
       en: 'Old Town Apartment',
@@ -300,7 +300,7 @@ export const cinematicApartments: CinematicAptDef[] = [
   {
     id: 'playa',
     token: 'playa',
-    img: 'https://l.icdbcdn.com/oh/46e112f1-729d-4a76-9c7a-df53cb2e2626.jpg',
+    img: '/images/amara-playa/apartment/chaparril-13.webp',
     name: 'Playa',
     subtitle: {
       en: 'Nerja Beach Apartment',
@@ -334,7 +334,7 @@ export const cinematicApartments: CinematicAptDef[] = [
   {
     id: 'casa',
     token: 'casa',
-    img: 'https://l.icdbcdn.com/oh/aa11c018-1653-4e74-9bcc-831dc0f8a3e7.jpg',
+    img: '/images/amara-tarifa/amara-tarifa-apartment01.webp',
     name: 'Ocean View',
     subtitle: {
       en: 'Penthouse',

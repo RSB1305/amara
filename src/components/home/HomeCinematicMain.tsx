@@ -115,8 +115,11 @@ export default function HomeCinematicMain(props: HomeCinematicMainProps) {
             src={heroImageSrc}
             alt=""
             className="h-full w-full object-cover opacity-60"
-            width={1920}
-            height={1080}
+            width={1536}
+            height={1024}
+            loading="eager"
+            fetchPriority="high"
+            decoding="async"
           />
           <div className="absolute inset-0 bg-gradient-to-b from-inverse-surface/20 via-transparent to-inverse-surface/80" />
         </motion.div>
@@ -272,7 +275,15 @@ export default function HomeCinematicMain(props: HomeCinematicMainProps) {
       {/* Trust — inverse */}
       <section className="relative z-[2] overflow-hidden bg-inverse-surface py-32 text-inverted-on-surface md:py-48">
         <div className="pointer-events-none absolute left-0 top-0 h-full w-full opacity-10">
-          <img src={trustBgSrc} alt="" className="h-full w-full object-cover grayscale" width={1200} height={800} />
+          <img
+            src={trustBgSrc}
+            alt=""
+            className="h-full w-full object-cover grayscale"
+            width={1920}
+            height={1282}
+            loading="lazy"
+            decoding="async"
+          />
         </div>
 
         <div className="relative z-10 mx-auto max-w-screen-xl px-6 text-center md:px-12">
