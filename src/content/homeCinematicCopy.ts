@@ -152,7 +152,6 @@ export type CinematicAptToken = 'farah' | 'lounis' | 'zaid' | 'maha' | 'playa' |
 export interface CinematicAptDef {
   id: string;
   token: CinematicAptToken;
-  img: string;
   name: string;
   subtitle: CopyRow;
   meta: CopyRow;
@@ -164,7 +163,6 @@ export const cinematicApartments: CinematicAptDef[] = [
   {
     id: 'farah',
     token: 'farah',
-    img: '/images/amara-farah/67-amara-frigiliana.jpg',
     name: 'Farah',
     subtitle: {
       en: 'Boutique Retreat',
@@ -198,7 +196,6 @@ export const cinematicApartments: CinematicAptDef[] = [
   {
     id: 'lounis',
     token: 'lounis',
-    img: '/images/amara-lounis/17-amara-frigiliana.jpg',
     name: 'Lounis',
     subtitle: {
       en: 'Historic Apartment',
@@ -232,7 +229,6 @@ export const cinematicApartments: CinematicAptDef[] = [
   {
     id: 'zaid',
     token: 'zaid',
-    img: '/images/amara-zaid/cara-rural-frigiliana-amara-said-terraza-5.jpg',
     name: 'Zaid',
     subtitle: {
       en: 'Terrace Apartment',
@@ -266,7 +262,6 @@ export const cinematicApartments: CinematicAptDef[] = [
   {
     id: 'maha',
     token: 'maha',
-    img: '/images/amara-maha/29-amara-frigiliana.jpg',
     name: 'Maha',
     subtitle: {
       en: 'Old Town Apartment',
@@ -300,7 +295,6 @@ export const cinematicApartments: CinematicAptDef[] = [
   {
     id: 'playa',
     token: 'playa',
-    img: '/images/amara-playa/apartment/chaparril-13.webp',
     name: 'Playa',
     subtitle: {
       en: 'Nerja Beach Apartment',
@@ -334,7 +328,6 @@ export const cinematicApartments: CinematicAptDef[] = [
   {
     id: 'casa',
     token: 'casa',
-    img: '/images/amara-tarifa/amara-tarifa-apartment01.webp',
     name: 'Ocean View',
     subtitle: {
       en: 'Penthouse',

@@ -1,4 +1,5 @@
 ---
+import { getImage } from 'astro:assets';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Navigation from '../../components/Navigation.astro';
 import HomeCinematicMain from '../../components/home/HomeCinematicMain.tsx';
@@ -7,6 +8,7 @@ import { normalizeLanguage } from '../../lib/seo/resolve-seo-head';
 import type { AmaraAuthoringSeo, AmaraLanguage } from '../../types/seo';
 import {
   cinematicApartments,
+  type CinematicAptToken,
   cinematicHeroKicker,
   cinematicHeroLead,
   cinematicScrollHint,
@@ -27,9 +29,26 @@ import {
   navExperiences,
   navSoonBadge
 } from '../../content/homeCinematicCopy';
+import imgHeroLounis from '../../assets/images/home/amara-lounis-17-amara-frigiliana.jpg';
+import imgFarah from '../../assets/images/home/amara-farah-67-amara-frigiliana.jpg';
+import imgZaid from '../../assets/images/home/amara-zaid-terraza-5.jpg';
+import imgMaha from '../../assets/images/home/amara-maha-29-amara-frigiliana.jpg';
+import imgPlaya from '../../assets/images/home/amara-playa-chaparril-13.webp';
+import imgCasa from '../../assets/images/home/amara-tarifa-apartment01.webp';
 
-const HERO_IMG = '/images/amara-lounis/17-amara-frigiliana.jpg';
-const TRUST_BG = '/images/amara-zaid/cara-rural-frigiliana-amara-said-terraza-5.jpg';
+const homeImageByToken: Record<CinematicAptToken, typeof imgHeroLounis> = {
+  farah: imgFarah,
+  lounis: imgHeroLounis,
+  zaid: imgZaid,
+  maha: imgMaha,
+  playa: imgPlaya,
+  casa: imgCasa
+};
+
+const webp = 'webp' as const;
+
+const heroImage = await getImage({ src: imgHeroLounis, width: 1536, format: webp });
+const trustImage = await getImage({ src: imgZaid, width: 1200, format: webp });
 
 interface Props {
   lang?: string;
@@ -89,16 +108,28 @@ const homeNavLinks = [
   { token: 'explore_hub', label: t(navExperiences), forceEnabled: true }
 ];
 
-const cinematicApartmentsProps = cinematicApartments.map((apt) => ({
-  id: apt.id,
-  name: apt.name,
-  subtitle: t(apt.subtitle),
-  meta: t(apt.meta),
-  desc: t(apt.desc),
-  img: apt.img,
-  exploreHref: resolveLink(apt.token, currentLang),
-  exploreLabel: t(apt.exploreLabel)
-}));
+const cinematicApartmentsProps = await Promise.all(
+  cinematicApartments.map(async (apt) => {
+    const optimized = await getImage({
+      src: homeImageByToken[apt.token],
+      width: 600,
+      format: webp
+    });
+    return {
+      id: apt.id,
+      name: apt.name,
+      subtitle: t(apt.subtitle),
+      meta: t(apt.meta),
+      desc: t(apt.desc),
+      img: optimized.src,
+      imgWidth: optimized.attributes.width as number,
+      imgHeight: optimized.attributes.height as number,
+      imgSrcSet: optimized.srcSet.attribute,
+      exploreHref: resolveLink(apt.token, currentLang),
+      exploreLabel: t(apt.exploreLabel)
+    };
+  })
+);
 ---
 
 <BaseLayout seo={seo} pageLang={currentLang}>
@@ -114,7 +145,10 @@ const cinematicApartmentsProps = cinematicApartments.map((apt) => ({
     <div class="am-wrap w-full max-w-screen-2xl mx-auto px-6 md:px-12 pb-20">
       <HomeCinematicMain
         client:load
-        heroImageSrc={HERO_IMG}
+        heroImageSrc={heroImage.src}
+        heroImageSrcSet={heroImage.srcSet.attribute}
+        heroImageWidth={heroImage.attributes.width as number}
+        heroImageHeight={heroImage.attributes.height as number}
         heroKicker={t(cinematicHeroKicker)}
         heroLead={t(cinematicHeroLead)}
         scrollHint={t(cinematicScrollHint)}
@@ -130,7 +164,10 @@ const cinematicApartmentsProps = cinematicApartments.map((apt) => ({
         collectionEyebrow={t(cinematicCollectionEyebrow)}
         collectionTitle={t(cinematicCollectionTitle)}
         apartments={cinematicApartmentsProps}
-        trustBgSrc={TRUST_BG}
+        trustBgSrc={trustImage.src}
+        trustBgSrcSet={trustImage.srcSet.attribute}
+        trustImageWidth={trustImage.attributes.width as number}
+        trustImageHeight={trustImage.attributes.height as number}
         trustQuote={t(cinematicTrustQuote)}
         trustChips={cinematicTrustChips[currentLang]}
         trustCta={t(cinematicTrustCta)}

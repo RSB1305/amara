@@ -8,12 +8,18 @@ export interface CinematicApartment {
   meta: string;
   desc: string;
   img: string;
+  imgWidth: number;
+  imgHeight: number;
+  imgSrcSet?: string;
   exploreHref: string;
   exploreLabel: string;
 }
 
 export interface HomeCinematicMainProps {
   heroImageSrc: string;
+  heroImageSrcSet?: string;
+  heroImageWidth: number;
+  heroImageHeight: number;
   heroKicker: string;
   heroLead: string;
   scrollHint: string;
@@ -30,6 +36,9 @@ export interface HomeCinematicMainProps {
   collectionTitle: string;
   apartments: CinematicApartment[];
   trustBgSrc: string;
+  trustBgSrcSet?: string;
+  trustImageWidth: number;
+  trustImageHeight: number;
   trustQuote: string;
   trustChips: string[];
   trustCta: string;
@@ -59,6 +68,9 @@ const FadeIn = ({
 export default function HomeCinematicMain(props: HomeCinematicMainProps) {
   const {
     heroImageSrc,
+    heroImageSrcSet,
+    heroImageWidth,
+    heroImageHeight,
     heroKicker,
     heroLead,
     scrollHint,
@@ -75,6 +87,9 @@ export default function HomeCinematicMain(props: HomeCinematicMainProps) {
     collectionTitle,
     apartments,
     trustBgSrc,
+    trustBgSrcSet,
+    trustImageWidth,
+    trustImageHeight,
     trustQuote,
     trustChips,
     trustCta,
@@ -113,10 +128,11 @@ export default function HomeCinematicMain(props: HomeCinematicMainProps) {
         >
           <img
             src={heroImageSrc}
+            srcSet={heroImageSrcSet || undefined}
             alt=""
             className="h-full w-full object-cover opacity-60"
-            width={1536}
-            height={1024}
+            width={heroImageWidth}
+            height={heroImageHeight}
             loading="eager"
             fetchPriority="high"
             decoding="async"
@@ -229,10 +245,13 @@ export default function HomeCinematicMain(props: HomeCinematicMainProps) {
                         whileHover={reduceMotion ? undefined : { scale: 1.03 }}
                         transition={{ duration: 1.5, ease: 'easeOut' }}
                         src={apt.img}
+                        srcSet={apt.imgSrcSet || undefined}
                         alt=""
                         className="h-full w-full object-cover"
-                        width={800}
-                        height={1000}
+                        width={apt.imgWidth}
+                        height={apt.imgHeight}
+                        loading="lazy"
+                        decoding="async"
                       />
                       <div className="absolute inset-0 bg-inverse-surface/10 transition-colors duration-700 group-hover:bg-transparent" />
                     </FadeIn>
@@ -277,10 +296,11 @@ export default function HomeCinematicMain(props: HomeCinematicMainProps) {
         <div className="pointer-events-none absolute left-0 top-0 h-full w-full opacity-10">
           <img
             src={trustBgSrc}
+            srcSet={trustBgSrcSet || undefined}
             alt=""
             className="h-full w-full object-cover grayscale"
-            width={1920}
-            height={1282}
+            width={trustImageWidth}
+            height={trustImageHeight}
             loading="lazy"
             decoding="async"
           />
