@@ -94,6 +94,13 @@ export const linkRegistry = normalizeRegistrySpanishPaths({
       nl: buildOwnedLocalizedPath('guest-reviews', 'nl'),
       sv: buildOwnedLocalizedPath('guest-reviews', 'sv')
     },
+    romantic_hideaways: {
+      en: buildOwnedLocalizedPath('romantic-hideaways', 'en'),
+      de: buildOwnedLocalizedPath('romantic-hideaways', 'de'),
+      es: buildOwnedLocalizedPath('romantic-hideaways', 'es'),
+      nl: buildOwnedLocalizedPath('romantic-hideaways', 'nl'),
+      sv: buildOwnedLocalizedPath('romantic-hideaways', 'sv')
+    },
 instagram: 'https://www.instagram.com/amaralodging/',
 journal: { en: '/journal/', de: '/de/journal/', es: '/es/diario/', nl: '/nl/journal/', sv: '/sv/journal/' },
 contact: { en: '/contact/', de: '/de/kontakt/', es: '/es/contacto/', nl: '/nl/contact/', sv: '/sv/kontakt/' },
@@ -309,46 +316,56 @@ legal_notice: {
        APARTMENTS
     ========================================================= */
     farah: {
-      es: 'https://amara-lodging.es/es/la-amara-farah-habitacion-doble-romantica',
-      en: 'https://amara-lodging.es/en/la-amara-farah-romantic-double-retreat',
-      de: 'https://amara-lodging.es/de/la-amara-farah-casa-rural-frigiliana',
-      nl: 'https://amara-lodging.es/nl/la-amara-farah-romantic-double-retreat',
-      sv: 'https://amara-lodging.es/sv/la-amara-farah-casa-rural-frigiliana'
+      es: 'https://amara-lodging.es/es/la-amara-farah',
+      en: 'https://amara-lodging.es/en/la-amara-farah',
+      de: 'https://amara-lodging.es/de/la-amara-farah',
+      nl: 'https://amara-lodging.es/nl/la-amara-farah',
+      sv: 'https://amara-lodging.es/sv/la-amara-farah'
     },
     lounis: {
-      es: 'https://amara-lodging.es/es/la-amara-lounis-apartamento-historico',
-      de: 'https://amara-lodging.es/de/la-amara-lounis-casa-rural-in-frigiliana',
-      en: 'https://amara-lodging.es/en/la-amara-lounis-historic-romantic-stay',
-      nl: 'https://amara-lodging.es/nl/la-amara-lounis-historic-romantic-stay',
-      sv: 'https://amara-lodging.es/sv/la-amara-lounis-casa-rural-frigiliana'
+      es: 'https://amara-lodging.es/es/la-amara-lounis',
+      de: 'https://amara-lodging.es/de/la-amara-lounis',
+      en: 'https://amara-lodging.es/en/la-amara-lounis',
+      nl: 'https://amara-lodging.es/nl/la-amara-lounis',
+      sv: 'https://amara-lodging.es/sv/la-amara-lounis'
     },
     zaid: {
-      en: 'https://amara-lodging.es/en/la-amara-zaid-romantic-retreat-with-terrace',
-      es: 'https://amara-lodging.es/es/la-amara-zaid-refugio-romantico-con-terraza',
-      de: 'https://amara-lodging.es/de/la-amara-zaid-casa-rural-frigiliana',
-      nl: 'https://amara-lodging.es/nl/de-amara-zaid-romantisch-toevluchtsoord-met-terras---appartement-in-frigiliana',
-      sv: 'https://amara-lodging.es/sv/la-amara-zaid-casa-rural-frigiliana'
+      en: 'https://amara-lodging.es/en/la-amara-zaid',
+      es: 'https://amara-lodging.es/es/la-amara-zaid',
+      de: 'https://amara-lodging.es/de/la-amara-zaid',
+      nl: 'https://amara-lodging.es/nl/de-amara-zaid',
+      sv: 'https://amara-lodging.es/sv/la-amara-zaid'
     },
     maha: {
-      en: 'https://amara-lodging.es/en/la-amara-maha-romantic-terrace-retreat',
-      de: 'https://amara-lodging.es/de/la-amara-maha-casa-rural-frigiliana',
-      es: 'https://amara-lodging.es/es/la-amara-maha-apartamento-con-gran-terraza',
-      nl: 'https://amara-lodging.es/nl/la-amara-maha-romantic-terrace-retreat',
-      sv: 'https://amara-lodging.es/sv/la-amara-maha-casa-rural-frigiliana'
+      en: 'https://amara-lodging.es/en/la-amara-maha',
+      de: 'https://amara-lodging.es/de/la-amara-maha',
+      es: 'https://amara-lodging.es/es/la-amara-maha',
+      nl: 'https://amara-lodging.es/nl/la-amara-maha',
+      sv: 'https://amara-lodging.es/sv/la-amara-maha'
     },
     playa: {
-      en: 'https://amara-lodging.es/en/la-amara-playa-apartment-nerja',
-      de: 'https://amara-lodging.es/de/la-amara-playa-apartment-nerja',
-      es: 'https://amara-lodging.es/es/la-amara-playa-apartamento-nerja',
-      nl: 'https://amara-lodging.es/nl/la-amara-playa-apartment-nerja',
-      sv: 'https://amara-lodging.es/sv/la-amara-beach-apartment-nerja'
+      en: 'https://amara-lodging.es/en/la-amara-playa',
+      de: 'https://amara-lodging.es/de/la-amara-playa',
+      es: 'https://amara-lodging.es/es/la-amara-playa',
+      nl: 'https://amara-lodging.es/nl/la-amara-playa',
+      sv: 'https://amara-lodging.es/sv/la-amara-playa '
     },
     casa: {
-      en: 'https://amara-lodging.es/en/la-amara-family-surf-with-oceanview-and-pool',
-      de: 'https://amara-lodging.es/de/la-amara-family-home-with-oceanview-and-pool',
-      es: 'https://amara-lodging.es/es/la-amara-casa-familiar-con-vista-al-mar-y-piscina',
-      nl: 'https://amara-lodging.es/en/la-amara-family-surf-with-oceanview-and-pool',
-      sv: 'https://amara-lodging.es/sv/amara-family-surf-with-oceanview-and-pool'
+      en: 'https://amara-lodging.es/en/la-amara-family-and-surf',
+      de: 'https://amara-lodging.es/de/la-amara-family-and-surf',
+      es: 'https://amara-lodging.es/es/lla-amara-family-and-surf',
+      nl: 'https://amara-lodging.es/en/la-amara-family-and-surf',
+      sv: 'https://amara-lodging.es/sv/la-amara-family-and-surf'
+    },
+    /**
+     * Featured editorial “Aura” home — same canonical listing as Farah until a dedicated Aura URL exists.
+     */
+    lodging_aura: {
+      es: 'https://amara-lodging.es/es/la-amara-farah',
+      en: 'https://amara-lodging.es/en/la-amara-farah',
+      de: 'https://amara-lodging.es/de/la-amara-farah',
+      nl: 'https://amara-lodging.es/nl/la-amara-farah',
+      sv: 'https://amara-lodging.es/sv/la-amara-farah'
     },
 
 

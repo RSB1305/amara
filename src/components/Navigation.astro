@@ -14,6 +14,10 @@ import type { AmaraLanguage } from '../types/seo';
 interface NavLink {
   token: string;
   label?: string;
+  /** Non-interactive “coming soon” row (span + badge); checked before global token disable rules. */
+  disabled?: boolean;
+  /** Resolves a link even when the token is globally gated (e.g. explore_hub on the homepage). */
+  forceEnabled?: boolean;
 }
 
 interface Props {
@@ -31,6 +35,8 @@ interface Props {
    * row even when those tokens are globally gated as disabled elsewhere.
    */
   locationAuthorityNav?: boolean;
+  /** Short label for the coming-soon chip next to disabled nav items (homepage). */
+  comingSoonBadge?: string;
 }
 
 const {
@@ -43,7 +49,8 @@ const {
   languageToken,
   brandVariant = 'default',
   ctaLabel,
-  locationAuthorityNav = false
+  locationAuthorityNav = false,
+  comingSoonBadge
 } = Astro.props;
 
 const languages: { code: AmaraLanguage; label: string }[] = [
@@ -159,13 +166,10 @@ const languageOptions = languages
   })
   .filter((option): option is { code: AmaraLanguage; label: string; href: string } => Boolean(option));
 
-const currentLanguageHref =
-  getLanguageHref(languageSwitchToken, currentLang) ??
-  resolveLink('home', currentLang);
-
-const getBrandHref = () => {
-  return currentLanguageHref;
-};
+/** Brand always targets the locale homepage, not the current page’s language-switch canonical. */
+const getBrandHref = () =>
+  resolveOptionalLink('home', currentLang, { suppressMissing: true }) ??
+  (currentLang === 'es' ? '/' : `/${currentLang}/`);
 
 const resolvedBrandLabel =
   brandLabel ??
@@ -207,24 +211,36 @@ const getResolvedNavLabel = (link: NavLink) => {
     <div class="am-nav__center">
       <ul class="hidden md:flex items-center gap-10">
         {links.map((link) => {
-          const isDisabled = isNavLinkDisabled(link.token);
-          const href = isDisabled ? null : resolveLink(link.token, currentLang);
+          const globallyDisabled = isNavLinkDisabled(link.token);
+          const canResolve =
+            !link.disabled && (link.forceEnabled === true || !globallyDisabled);
+          const href = canResolve ? resolveLink(link.token, currentLang) : null;
           const isActive = href ? getIsActive(link.token, href) : false;
+          const label = getResolvedNavLabel(link);
 
           return (
             <li>
-              {isDisabled ? (
-                <span class="am-nav__link am-link-disabled text-[11px] uppercase tracking-[0.2em] font-bold text-on-surface/60 transition-colors">
-                  {getResolvedNavLabel(link)}
+              {link.disabled ? (
+                <span class="inline-flex items-center gap-2 max-w-full">
+                  <span class="text-[11px] uppercase tracking-[0.2em] font-bold text-on-surface-variant/40">
+                    {label}
+                  </span>
+                  <span class="font-label text-[9px] uppercase tracking-widest text-on-surface-variant/50">
+                    {comingSoonBadge ?? 'Soon'}
+                  </span>
                 </span>
-              ) : (
+              ) : href ? (
                 <a
-                  href={href!}
+                  href={href}
                   aria-current={isActive ? 'page' : undefined}
                   class="am-nav__link text-[11px] uppercase tracking-[0.2em] font-bold text-on-surface/60 hover:text-on-surface transition-colors"
                 >
-                  {getResolvedNavLabel(link)}
+                  {label}
                 </a>
+              ) : (
+                <span class="am-nav__link am-link-disabled text-[11px] uppercase tracking-[0.2em] font-bold text-on-surface/60 transition-colors">
+                  {label}
+                </span>
               )}
             </li>
           );

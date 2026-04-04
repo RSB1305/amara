@@ -13,7 +13,8 @@ const ROOT_SPANISH_PUBLIC_SLUGS = new Set([
   'frigiliana-location',
   'frigiliana-parking',
   'instagram',
-  'directions-arrival-guide'
+  'directions-arrival-guide',
+  'romantic-hideaways'
 ]);
 
 export function getOwnedLanguagesForSlug(

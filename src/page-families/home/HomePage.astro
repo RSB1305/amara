@@ -1,8 +1,35 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Navigation from '../../components/Navigation.astro';
+import HomeCinematicMain from '../../components/home/HomeCinematicMain.tsx';
+import { resolveLink } from '../../lib/linkResolver';
 import { normalizeLanguage } from '../../lib/seo/resolve-seo-head';
 import type { AmaraAuthoringSeo, AmaraLanguage } from '../../types/seo';
+import {
+  cinematicApartments,
+  cinematicHeroKicker,
+  cinematicHeroLead,
+  cinematicScrollHint,
+  cinematicPhilosophyPart1,
+  cinematicPhilosophyAccent,
+  cinematicPhilosophyLabel,
+  cinematicPhilosophyP1,
+  cinematicPhilosophyP2,
+  cinematicCollectionEyebrow,
+  cinematicCollectionTitle,
+  cinematicTrustQuote,
+  cinematicTrustCta,
+  cinematicTrustChips,
+  cinematicStatReviewsValue,
+  cinematicStatRatingValue,
+  cinematicStatReviewsLabel,
+  cinematicStatRatingLabel,
+  navExperiences,
+  navSoonBadge
+} from '../../content/homeCinematicCopy';
+
+const HERO_IMG = 'https://l.icdbcdn.com/oh/882b7732-0b8a-4d00-b9af-16271f78d09e.jpg';
+const TRUST_BG = 'https://l.icdbcdn.com/oh/392c7773-50bf-4814-955d-da26457f6440.jpg';
 
 interface Props {
   lang?: string;
@@ -11,8 +38,10 @@ interface Props {
 const { lang = 'es' } = Astro.props;
 const currentLang = normalizeLanguage(lang as AmaraLanguage);
 
+const t = <T extends Record<AmaraLanguage, string>>(row: T) => row[currentLang] ?? row.en;
+
 const seo: AmaraAuthoringSeo = {
-  version: '2026-03-27-amara-home-shell-v1.0-A',
+  version: '2026-04-04-amara-home-cinematic-v3.0-A',
   pageType: 'A',
   languages: {
     en: {
@@ -53,38 +82,58 @@ const seo: AmaraAuthoringSeo = {
   }
 };
 
-const headline: Record<AmaraLanguage, string> = {
-  en: 'Welcome to AMARA',
-  de: 'Willkommen bei AMARA',
-  es: 'Bienvenidos a AMARA',
-  nl: 'Welkom bij AMARA',
-  sv: 'Välkommen till AMARA'
-};
+const homeNavLinks = [
+  { token: 'location_frigiliana', label: 'Frigiliana' },
+  { token: 'location_nerja', label: 'Nerja', disabled: true },
+  { token: 'location_tarifa', label: 'Tarifa', disabled: true },
+  { token: 'explore_hub', label: t(navExperiences), forceEnabled: true }
+];
 
-const lead: Record<AmaraLanguage, string> = {
-  en: 'Boutique holiday apartments in Frigiliana and Nerja — calm stays, thoughtful comfort, and hosts you can reach directly.',
-  de: 'Boutique-Ferienwohnungen in Frigiliana und Nerja — ruhige Aufenthalte, durchdachte Ausstattung und Gastgeber, die ihr direkt erreicht.',
-  es: 'Apartamentos boutique en Frigiliana y Nerja: estancias tranquilas, confort cuidado y anfitriones a los que podéis contactar directamente.',
-  nl: 'Boutique vakantieappartementen in Frigiliana en Nerja — rustige verblijven, zorgvuldig comfort en hosts die je direct bereikt.',
-  sv: 'Boutique-lägenheter i Frigiliana och Nerja — lugna vistelser, genomtänkt komfort och värdar ni når direkt.'
-};
+const cinematicApartmentsProps = cinematicApartments.map((apt) => ({
+  id: apt.id,
+  name: apt.name,
+  subtitle: t(apt.subtitle),
+  meta: t(apt.meta),
+  desc: t(apt.desc),
+  img: apt.img,
+  exploreHref: resolveLink(apt.token, currentLang),
+  exploreLabel: t(apt.exploreLabel)
+}));
 ---
 
 <BaseLayout seo={seo} pageLang={currentLang}>
   <Navigation
     currentLang={currentLang}
     brandName="AMARA"
-    links={[]}
+    links={homeNavLinks}
     variant="default"
     languageToken="home"
+    comingSoonBadge={t(navSoonBadge)}
   />
-  <main class="max-w-screen-lg mx-auto px-12 py-24 md:py-32">
-    <p class="font-label text-[10px] font-bold uppercase tracking-[0.2em] text-primary mb-6">AMARA</p>
-    <h1 class="font-headline text-4xl md:text-5xl font-light text-on-surface tracking-tight mb-8">
-      {headline[currentLang]}
-    </h1>
-    <p class="font-body text-lg text-on-surface-variant leading-relaxed max-w-2xl">
-      {lead[currentLang]}
-    </p>
-  </main>
+  <div class="am-root" data-am-page="home">
+    <HomeCinematicMain
+      client:load
+      heroImageSrc={HERO_IMG}
+      heroKicker={t(cinematicHeroKicker)}
+      heroLead={t(cinematicHeroLead)}
+      scrollHint={t(cinematicScrollHint)}
+      philosophyHeadlinePart1={t(cinematicPhilosophyPart1)}
+      philosophyHeadlineAccent={t(cinematicPhilosophyAccent)}
+      philosophyLabel={t(cinematicPhilosophyLabel)}
+      philosophyP1={t(cinematicPhilosophyP1)}
+      philosophyP2={t(cinematicPhilosophyP2)}
+      statReviewsValue={cinematicStatReviewsValue}
+      statRatingValue={cinematicStatRatingValue}
+      statReviewsLabel={t(cinematicStatReviewsLabel)}
+      statRatingLabel={t(cinematicStatRatingLabel)}
+      collectionEyebrow={t(cinematicCollectionEyebrow)}
+      collectionTitle={t(cinematicCollectionTitle)}
+      apartments={cinematicApartmentsProps}
+      trustBgSrc={TRUST_BG}
+      trustQuote={t(cinematicTrustQuote)}
+      trustChips={cinematicTrustChips[currentLang]}
+      trustCta={t(cinematicTrustCta)}
+      trustReviewsHref={resolveLink('reviews_hub', currentLang)}
+    />
+  </div>
 </BaseLayout>
