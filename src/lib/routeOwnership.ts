@@ -12,6 +12,7 @@ const ROOT_SPANISH_PUBLIC_SLUGS = new Set([
   'legal-notice',
   'frigiliana-location',
   'frigiliana-parking',
+  'frigiliana-weather',
   'instagram',
   'directions-arrival-guide',
   'romantic-hideaways'
