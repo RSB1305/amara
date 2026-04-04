@@ -52,11 +52,11 @@ const resolvedLinks = links
       {resolvedLinks.map((link) => (
         <li>
           {link.href ? (
-            <a href={link.href} class="text-[11px] font-bold uppercase tracking-[0.2em] text-on-surface-variant hover:text-primary transition-colors">
+            <a href={link.href} class="font-label text-[11px] font-bold uppercase tracking-[0.14em] text-on-surface-variant hover:text-primary transition-colors">
               {link.label}
             </a>
           ) : (
-            <span class="am-link-disabled text-[11px] font-bold uppercase tracking-[0.2em] text-on-surface-variant transition-colors">
+            <span class="am-link-disabled font-label text-[11px] font-bold uppercase tracking-[0.14em] text-on-surface-variant transition-colors">
               {link.label}
             </span>
           )}

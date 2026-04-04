@@ -26,18 +26,18 @@ interface Props {
 const { title, lead, note, links, lang } = Astro.props;
 
 const linkClass =
-  'font-body text-sm uppercase tracking-[0.1em] text-on-surface border-b border-on-surface/20 pb-1 no-underline transition-colors hover:border-on-surface';
+  'am-text-caption uppercase tracking-[0.1em] text-on-surface border-b border-on-surface/20 pb-1 no-underline transition-colors hover:border-on-surface';
 
 const disabledClass =
-  'font-body text-sm uppercase tracking-[0.1em] text-on-surface border-b border-on-surface/20 pb-1 opacity-60 cursor-default pointer-events-none';
+  'am-text-caption uppercase tracking-[0.1em] text-on-surface border-b border-on-surface/20 pb-1 opacity-60 cursor-default pointer-events-none';
 ---
 
 <section>
   <div class="text-center max-w-[800px] mx-auto pb-20">
-    <h2 class="font-headline text-[clamp(2.5rem,4vw,3.5rem)] leading-[1.1] font-light text-on-surface mb-8">
+    <h2 class="am-text-title text-on-surface mb-8">
       {title}
     </h2>
-    <p class={`text-[clamp(1.125rem,2vw,1.25rem)] text-subtle ${note ? 'mb-4' : 'mb-16'}`}>
+    <p class={`am-text-body text-subtle ${note ? 'mb-4' : 'mb-16'}`}>
       {lead}
     </p>
     {note ? <p class="italic text-muted mb-16">{note}</p> : null}

@@ -7,6 +7,10 @@
  * All page types render the same header geometry. Content may vary by variant,
  * but the logo position, right rail, language switch slot, and CTA slot remain
  * structurally fixed across the system.
+ *
+ * Typography: This component does not use `am-text-*` for structural copy. The brand
+ * wordmark, subline, center nav links, and language dropdown use explicit Tailwind
+ * font/size utilities (see `<style>` comment). The CTA remains `.am-btn`.
  */
  import { resolveLink, resolveOptionalLink } from '../lib/linkResolver';
 import type { AmaraLanguage } from '../types/seo';
@@ -199,10 +203,10 @@ const getResolvedNavLabel = (link: NavLink) => {
   <nav class="am-nav max-w-screen-2xl mx-auto">
     <div class="am-nav__brand">
       <a href={getBrandHref()} class="group inline-flex flex-col items-center text-center">
-        <span class="font-headline italic text-2xl text-on-surface tracking-tighter group-hover:text-primary transition-colors">
+        <span class="font-headline italic text-xl text-on-surface tracking-tighter">
           {brandName}
         </span>
-        <span class="-mt-1 block text-center text-[8px] uppercase tracking-[0.5em] text-on-surface/40 font-bold">
+        <span class="-mt-1 block text-center font-label text-[8px] uppercase tracking-[0.5em] text-on-surface/40">
           {resolvedBrandLabel}
         </span>
       </a>
@@ -222,10 +226,10 @@ const getResolvedNavLabel = (link: NavLink) => {
             <li>
               {link.disabled ? (
                 <span class="inline-flex items-center gap-2 max-w-full">
-                  <span class="text-[11px] uppercase tracking-[0.2em] font-bold text-on-surface-variant/40">
+                  <span class="font-label text-[11px] font-bold uppercase tracking-[0.14em] text-on-surface-variant/40">
                     {label}
                   </span>
-                  <span class="font-label text-[9px] uppercase tracking-widest text-on-surface-variant/50">
+                  <span class="font-label text-[11px] font-bold uppercase tracking-[0.14em] text-on-surface-variant/50">
                     {comingSoonBadge ?? 'Soon'}
                   </span>
                 </span>
@@ -233,12 +237,12 @@ const getResolvedNavLabel = (link: NavLink) => {
                 <a
                   href={href}
                   aria-current={isActive ? 'page' : undefined}
-                  class="am-nav__link text-[11px] uppercase tracking-[0.2em] font-bold text-on-surface/60 hover:text-on-surface transition-colors"
+                  class="am-nav__link font-label text-[11px] font-bold uppercase tracking-[0.14em] text-on-surface transition-colors"
                 >
                   {label}
                 </a>
               ) : (
-                <span class="am-nav__link am-link-disabled text-[11px] uppercase tracking-[0.2em] font-bold text-on-surface/60 transition-colors">
+                <span class="am-nav__link am-link-disabled font-label text-[11px] font-bold uppercase tracking-[0.14em] text-on-surface transition-colors">
                   {label}
                 </span>
               )}
@@ -281,7 +285,7 @@ const getResolvedNavLabel = (link: NavLink) => {
                 {languageOptions.map((lang) => (
                   <a
                     href={lang.href}
-                    class={`text-[10px] font-bold tracking-[0.18em] uppercase transition-colors px-2 py-1 rounded-md ${
+                    class={`font-label text-[11px] font-bold uppercase tracking-[0.14em] transition-colors px-2 py-1 rounded-md ${
                       currentLang === lang.code
                         ? 'text-primary bg-primary/5'
                         : 'text-on-surface/70 hover:text-on-surface hover:bg-surface-container-low'
@@ -317,6 +321,14 @@ const getResolvedNavLabel = (link: NavLink) => {
 </header>
 
 <style>
+  /*
+   * Navigation typography: intentional exceptions to the global `am-text-*` system.
+   * — Brand wordmark: font-headline italic text-xl
+   * — Subline (e.g. Gästeguide): font-label text-[8px] uppercase tracking-[0.5em]
+   * — Center nav links + language menu: font-label text-[11px] font-bold uppercase tracking-[0.14em]
+   * — CTA: .am-btn (unchanged)
+   */
+
   .am-nav {
     display: grid;
     grid-template-columns: 16rem minmax(0, 1fr) 25rem;

@@ -22,14 +22,14 @@ const { cards } = Astro.props;
     cards.map((card) => (
       <div>
         <div class="min-h-[4rem] mb-4 pb-2 border-b border-on-surface/10 flex items-start">
-          <h3 class="font-body font-semibold text-base uppercase tracking-wider leading-tight text-on-surface m-0">
+          <h3 class="am-text-caption font-semibold uppercase tracking-wider leading-tight text-on-surface m-0">
             {card.title}
             {card.subline ? (
               <span class="block text-hint font-normal normal-case tracking-normal mt-1">{card.subline}</span>
             ) : null}
           </h3>
         </div>
-        <p class="font-body text-on-surface-variant m-0">{card.copy}</p>
+        <p class="am-text-body text-on-surface-variant m-0">{card.copy}</p>
       </div>
     ))
   }

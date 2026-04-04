@@ -460,7 +460,7 @@ const c = {
   }
 };
 
-const sectionLead = 'font-body text-on-surface-variant text-lg leading-relaxed italic max-w-3xl';
+const sectionLead = 'am-text-body text-on-surface-variant leading-relaxed italic max-w-3xl';
 ---
 
 <LocationAuthorityLayout seo={seo} pageLang={currentLang} bodyBackgroundClass="bg-white">
@@ -483,23 +483,23 @@ const sectionLead = 'font-body text-on-surface-variant text-lg leading-relaxed i
         fallbackHref={resolveLink('location_frigiliana', currentLang)}
       />
       <header class="mb-20 border-b border-black/10 pb-12">
-        <span class="label-md font-label text-primary mb-4 block">{c.header.eyebrow}</span>
-        <h1 class="text-6xl font-headline italic text-on-surface mb-6" set:html={c.header.h1Html} />
-        <p class="font-body text-on-surface-variant text-xl italic opacity-70 max-w-2xl">{c.header.lead}</p>
+        <span class="am-text-caption text-primary mb-4 block">{c.header.eyebrow}</span>
+        <h1 class="am-text-display italic text-on-surface mb-6" set:html={c.header.h1Html} />
+        <p class="am-text-body text-on-surface-variant italic opacity-70 max-w-2xl">{c.header.lead}</p>
       </header>
 
       <div class="pt-8 space-y-20">
         <section class="space-y-8">
-          <h2 class="text-3xl font-headline italic text-on-surface">{c.decision.title}</h2>
+          <h2 class="am-text-title italic text-on-surface">{c.decision.title}</h2>
           <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
             <div>
-              <h3 class="font-label text-[10px] uppercase tracking-[0.18em] text-primary mb-4">
+              <h3 class="am-text-caption uppercase tracking-[0.18em] text-primary mb-4">
                 {c.decision.shortLabel}
               </h3>
               <p class={`${sectionLead} mb-0`}>{c.decision.shortBody}</p>
             </div>
             <div>
-              <h3 class="font-label text-[10px] uppercase tracking-[0.18em] text-primary mb-4">
+              <h3 class="am-text-caption uppercase tracking-[0.18em] text-primary mb-4">
                 {c.decision.variableLabel}
               </h3>
               <p class={`${sectionLead} mb-0`}>{c.decision.variableBody}</p>
@@ -540,8 +540,8 @@ const sectionLead = 'font-body text-on-surface-variant text-lg leading-relaxed i
         />
 
         <section class="space-y-6">
-          <span class="font-label text-[10px] uppercase tracking-[0.18em] text-primary block">{c.amara.eyebrow}</span>
-          <h2 class="text-3xl font-headline italic text-on-surface">{c.amara.title}</h2>
+          <span class="am-text-caption uppercase tracking-[0.18em] text-primary block">{c.amara.eyebrow}</span>
+          <h2 class="am-text-title italic text-on-surface">{c.amara.title}</h2>
           <p class={sectionLead}>{c.amara.body}</p>
           <p class="pt-2">
             <a href={resolveLink('book', currentLang)} class="am-cta-link">{c.amara.cta}</a>

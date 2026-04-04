@@ -29,14 +29,14 @@ const { imageSrc, imageAlt, title, role, stats } = Astro.props;
     </div>
   </div>
   <div>
-    <h2 class="am-section-title">{title}</h2>
+    <h2 class="am-text-title">{title}</h2>
     <p class="am-kicker mt-4 mb-0">{role}</p>
     <dl class="grid grid-cols-2 gap-x-8 gap-y-12 my-12 pb-12 border-b border-on-surface/10">
       {
         stats.map((stat) => (
           <div>
-            <dt class="text-[0.75rem] uppercase tracking-[0.1em] text-on-surface/70 mb-2">{stat.label}</dt>
-            <dd class="font-body text-on-surface m-0">{stat.value}</dd>
+            <dt class="am-text-caption uppercase tracking-[0.1em] text-on-surface/70 mb-2">{stat.label}</dt>
+            <dd class="am-text-body text-on-surface m-0">{stat.value}</dd>
           </div>
         ))
       }

@@ -415,14 +415,14 @@ const footerHighlights = [
       <section class="am-reviews-section">
         <div class="am-reviews-split">
           <div class="am-reviews-split__left">
-            <h2 class="am-display-xl">{copy.sections.summaryTitle[currentLang]}</h2>
+            <h2 class="am-text-title">{copy.sections.summaryTitle[currentLang]}</h2>
           </div>
           <div class="am-reviews-split__right">
-            <p class="am-body am-reviews-text-large">{copy.sections.summaryLead[currentLang]}</p>
-            <p class="am-body">
+            <p class="am-text-subtitle text-on-surface mb-8">{copy.sections.summaryLead[currentLang]}</p>
+            <p class="am-text-body text-subtle">
               {copy.sections.summaryBodyOne[currentLang]}
             </p>
-            <p class="am-body">
+            <p class="am-text-body text-subtle">
               {copy.sections.summaryBodyTwo[currentLang].before}
               <a href={resolveLink('direct_booking_benefits', currentLang)} class="am-inline-link">{copy.sections.summaryBodyTwo[currentLang].linkLabel}</a>
               {copy.sections.summaryBodyTwo[currentLang].after}
@@ -432,22 +432,22 @@ const footerHighlights = [
       </section>
 
       <section class="am-reviews-section am-reviews-quote-block">
-        <blockquote class="am-reviews-quote">
+        <blockquote class="am-text-title italic am-reviews-quote">
           &ldquo;{copy.sections.quote[currentLang]}&rdquo;
         </blockquote>
       </section>
 
       <section class="am-reviews-section">
         <div class="am-reviews-section-header">
-          <h2 class="am-section-title">{copy.sections.reviewsTitle[currentLang]}</h2>
-          <p class="am-body am-reviews-section-note">{copy.sections.reviewsNote[currentLang]}</p>
+          <h2 class="am-text-title">{copy.sections.reviewsTitle[currentLang]}</h2>
+          <p class="am-text-body text-muted italic am-reviews-section-note">{copy.sections.reviewsNote[currentLang]}</p>
         </div>
 
         <div class="am-reviews-grid">
           {copy.reviews.map((review) => (
             <article class="am-reviews-card">
-              <p class="am-kicker am-reviews-card__meta">{review.meta[currentLang]}</p>
-              <p class="am-body am-reviews-card__copy">&ldquo;{review.copy[currentLang]}&rdquo;</p>
+              <p class="am-text-caption text-on-surface/60 am-reviews-card__meta">{review.meta[currentLang]}</p>
+              <p class="am-text-body text-strong am-reviews-card__copy">&ldquo;{review.copy[currentLang]}&rdquo;</p>
             </article>
           ))}
         </div>
@@ -455,14 +455,14 @@ const footerHighlights = [
 
       <section class="am-reviews-section am-reviews-proof">
         <div class="am-reviews-proof__header">
-          <h2 class="am-section-title">{copy.sections.mentionsTitle[currentLang]}</h2>
-          <p class="am-body am-reviews-proof__note">{copy.sections.mentionsNote[currentLang]}</p>
+          <h2 class="am-text-title">{copy.sections.mentionsTitle[currentLang]}</h2>
+          <p class="am-text-body text-muted italic am-reviews-proof__note">{copy.sections.mentionsNote[currentLang]}</p>
         </div>
 
         <div class="am-reviews-list">
           {copy.proofPoints[currentLang].map((item) => (
             <div class="am-reviews-list__item">
-              <p class="am-body am-reviews-list__copy">{item}</p>
+              <p class="am-text-body text-strong am-reviews-list__copy">{item}</p>
             </div>
           ))}
         </div>
@@ -471,15 +471,15 @@ const footerHighlights = [
       <!-- Awards are grouped clearly, but kept editorial rather than widget-like. -->
       <section class="am-reviews-section am-reviews-awards">
         <div class="am-reviews-awards__header">
-          <h2 class="am-section-title am-reviews-awards__title">{copy.sections.awardsTitle[currentLang]}</h2>
-          <p class="am-body">{copy.sections.awardsBody[currentLang]}</p>
-          <p class="am-body am-reviews-awards__source">{copy.sections.awardsSource[currentLang]}</p>
+          <h2 class="am-text-title am-reviews-awards__title">{copy.sections.awardsTitle[currentLang]}</h2>
+          <p class="am-text-body text-subtle">{copy.sections.awardsBody[currentLang]}</p>
+          <p class="am-text-body text-muted italic am-reviews-awards__source">{copy.sections.awardsSource[currentLang]}</p>
         </div>
 
         <div class="am-reviews-awards__grid">
           <div class="am-reviews-awards__group">
-            <h3 class="am-reviews-awards__label">Frigiliana</h3>
-            <ul class="am-body am-reviews-ul">
+            <h3 class="am-text-caption am-reviews-awards__label">Frigiliana</h3>
+            <ul class="am-text-body text-on-surface am-reviews-ul">
               {copy.awards.frigiliana.map((award) => (
                 <li>{award}</li>
               ))}
@@ -487,8 +487,8 @@ const footerHighlights = [
           </div>
 
           <div class="am-reviews-awards__group">
-            <h3 class="am-reviews-awards__label">Nerja & Tarifa</h3>
-            <ul class="am-body am-reviews-ul">
+            <h3 class="am-text-caption am-reviews-awards__label">Nerja & Tarifa</h3>
+            <ul class="am-text-body text-on-surface am-reviews-ul">
               {copy.awards.coast.map((award) => (
                 <li>{award}</li>
               ))}
@@ -499,40 +499,40 @@ const footerHighlights = [
 
       <section class="am-reviews-section am-reviews-locations">
         <div class="am-reviews-locations__header">
-          <h2 class="am-section-title">{copy.sections.locationTitle[currentLang]}</h2>
-          <p class="am-body">{copy.sections.locationLead[currentLang]}</p>
+          <h2 class="am-text-title">{copy.sections.locationTitle[currentLang]}</h2>
+          <p class="am-text-body text-subtle">{copy.sections.locationLead[currentLang]}</p>
         </div>
 
         <div class="am-reviews-locations__trio">
           <a href={resolveLink('location_frigiliana', currentLang)} class="am-reviews-location">
             <div class="am-reviews-location__image"><span>Frigiliana</span></div>
             <div class="am-reviews-location__caption">
-              <h3 class="am-reviews-location__title">Frigiliana</h3>
-              <p class="am-body">{copy.sections.locationFrigiliana[currentLang]}</p>
+              <h3 class="am-text-subtitle am-reviews-location__title">Frigiliana</h3>
+              <p class="am-text-body text-subtle">{copy.sections.locationFrigiliana[currentLang]}</p>
             </div>
           </a>
 
           <span class="am-reviews-location am-link-disabled">
             <div class="am-reviews-location__image"><span>Nerja</span></div>
             <div class="am-reviews-location__caption">
-              <h3 class="am-reviews-location__title">Nerja</h3>
-              <p class="am-body">{copy.sections.locationNerja[currentLang]}</p>
+              <h3 class="am-text-subtitle am-reviews-location__title">Nerja</h3>
+              <p class="am-text-body text-subtle">{copy.sections.locationNerja[currentLang]}</p>
             </div>
           </span>
 
           <span class="am-reviews-location am-link-disabled">
             <div class="am-reviews-location__image"><span>Tarifa</span></div>
             <div class="am-reviews-location__caption">
-              <h3 class="am-reviews-location__title">Tarifa</h3>
-              <p class="am-body">{copy.sections.locationTarifa[currentLang]}</p>
+              <h3 class="am-text-subtitle am-reviews-location__title">Tarifa</h3>
+              <p class="am-text-body text-subtle">{copy.sections.locationTarifa[currentLang]}</p>
             </div>
           </span>
         </div>
       </section>
 
       <section class="am-reviews-section am-reviews-cta">
-        <h2 class="am-reviews-cta__title">{copy.sections.nextTitle[currentLang]}</h2>
-        <p class="am-body am-reviews-cta__lead">
+        <h2 class="am-text-title am-reviews-cta__title">{copy.sections.nextTitle[currentLang]}</h2>
+        <p class="am-text-body text-subtle am-reviews-cta__lead">
           {copy.sections.nextLead[currentLang]}
         </p>
 
@@ -552,23 +552,6 @@ const footerHighlights = [
 <style>
   @reference "../../styles/global.css";
 
-  .am-kicker {
-    display: inline-block;
-    font-family: var(--font-body);
-    font-size: 0.75rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.12em;
-    @apply text-on-surface/60;
-  }
-
-  .am-body {
-    font-family: var(--font-body);
-    font-size: 1rem;
-    line-height: 1.8;
-    @apply text-subtle;
-  }
-
   .am-link-disabled {
     pointer-events: none;
     cursor: default;
@@ -577,13 +560,6 @@ const footerHighlights = [
 
   .am-reviews-section {
     margin-bottom: clamp(8rem, 15vw, 14rem);
-  }
-
-  .am-reviews-text-large {
-    font-size: clamp(1.25rem, 2vw, 1.5rem);
-    line-height: 1.5;
-    @apply text-on-surface;
-    margin-bottom: 2rem;
   }
 
   .am-reviews-link {
@@ -620,7 +596,7 @@ const footerHighlights = [
     gap: clamp(4rem, 8vw, 8rem);
   }
 
-  .am-reviews-split__left .am-display-xl {
+  .am-reviews-split__left .am-text-title {
     position: sticky;
     top: 2rem;
   }
@@ -642,11 +618,8 @@ const footerHighlights = [
   }
 
   .am-reviews-quote {
-    font-family: var(--font-headline);
-    font-size: clamp(2.5rem, 5vw, 4rem);
     line-height: 1.15;
-    font-style: italic;
-    font-weight: 300;
+    letter-spacing: -0.02em;
     @apply text-on-surface;
     margin: 0;
   }
@@ -736,10 +709,6 @@ const footerHighlights = [
   }
 
   .am-reviews-awards__label {
-    font-family: var(--font-body);
-    font-size: 0.875rem;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
     @apply text-hint border-b border-on-surface/10;
     margin-bottom: 1.5rem;
     padding-bottom: 0.6rem;
@@ -798,9 +767,6 @@ const footerHighlights = [
   }
 
   .am-reviews-location__title {
-    font-family: var(--font-headline);
-    font-size: 1.75rem;
-    font-weight: 300;
     margin-bottom: 0.5rem;
     @apply text-on-surface;
   }
@@ -813,17 +779,10 @@ const footerHighlights = [
   }
 
   .am-reviews-cta__title {
-    font-family: var(--font-headline);
-    font-size: clamp(2.5rem, 4vw, 3.5rem);
-    line-height: 1.1;
-    font-weight: 300;
-    @apply text-on-surface;
     margin-bottom: 1.5rem;
   }
 
   .am-reviews-cta__lead {
-    font-size: clamp(1.125rem, 2vw, 1.25rem);
-    @apply text-subtle;
     margin-bottom: 3rem;
   }
 
@@ -835,7 +794,7 @@ const footerHighlights = [
       grid-template-columns: 1fr;
     }
 
-    .am-reviews-split__left .am-section-title {
+    .am-reviews-split__left .am-text-title {
       position: static;
     }
   }

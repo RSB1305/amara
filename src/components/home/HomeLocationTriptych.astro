@@ -21,7 +21,7 @@ const { title, liveLabel, comingSoonLabel, locations } = Astro.props;
 ---
 
 <section class="am-home-triptych border-t border-outline-variant/10 py-16 md:py-24" aria-labelledby="home-locations-heading">
-  <h2 id="home-locations-heading" class="am-section-title mb-12 md:mb-16">
+  <h2 id="home-locations-heading" class="am-text-title mb-12 md:mb-16">
     {title}
   </h2>
   <div class="am-home-triptych__grid">
@@ -39,14 +39,14 @@ const { title, liveLabel, comingSoonLabel, locations } = Astro.props;
               <h3 class="am-home-triptych__name">{loc.name}</h3>
               <span
                 class:list={[
-                  'am-home-triptych__status',
+                  'am-home-triptych__status am-text-micro',
                   loc.status === 'live' ? 'am-home-triptych__status--live' : 'am-home-triptych__status--soon'
                 ]}
               >
                 {loc.status === 'live' ? liveLabel : comingSoonLabel}
               </span>
             </div>
-            <p class="am-home-triptych__desc">{loc.description}</p>
+            <p class="am-home-triptych__desc am-text-body text-on-surface-variant">{loc.description}</p>
             {loc.status === 'live' && loc.href && loc.ctaLabel ? (
               <div class="am-home-triptych__cta-wrap">
                 <a href={loc.href} class="am-btn am-btn--primary">
@@ -121,20 +121,11 @@ const { title, liveLabel, comingSoonLabel, locations } = Astro.props;
   }
 
   .am-home-triptych__name {
-    font-family: var(--font-headline);
-    font-size: 1.5rem;
-    line-height: 1.2;
-    font-weight: 300;
-    color: var(--color-on-surface);
     margin: 0;
   }
 
   .am-home-triptych__status {
-    font-family: var(--font-label);
-    font-size: 0.625rem;
-    font-weight: 700;
     letter-spacing: 0.2em;
-    text-transform: uppercase;
     flex-shrink: 0;
   }
 
@@ -147,10 +138,7 @@ const { title, liveLabel, comingSoonLabel, locations } = Astro.props;
   }
 
   .am-home-triptych__desc {
-    font-family: var(--font-body);
-    font-size: 0.875rem;
     line-height: 1.625;
-    color: var(--color-on-surface-variant);
     margin: 0 0 1.25rem 0;
     flex: 1;
   }

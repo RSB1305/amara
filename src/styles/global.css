@@ -83,6 +83,61 @@
     @apply bg-surface text-on-surface font-body selection:bg-primary-fixed-dim selection:text-on-primary-fixed;
   }
 
+  /* === AMARA TYPOGRAPHY SYSTEM ===
+   * Single source of truth for all text sizes.
+   * Use ONLY these classes for typography across all pages and components.
+   * Never use raw Tailwind text-* scale or arbitrary text-[px] for these roles.
+   * Italic is applied in markup, not in these classes.
+   * ================================ */
+
+  .am-text-display {
+    font-family: var(--font-headline);
+    font-size: clamp(3.5rem, 10vw, 7.5rem);
+    font-weight: 300;
+    line-height: 1.02;
+    letter-spacing: -0.025em;
+  }
+
+  .am-text-title {
+    font-family: var(--font-headline);
+    font-size: clamp(2.5rem, 5vw, 4.25rem);
+    font-weight: 300;
+    line-height: 1.08;
+    letter-spacing: -0.02em;
+  }
+
+  .am-text-subtitle {
+    font-family: var(--font-headline);
+    font-size: clamp(1.5rem, 2.75vw, 2.75rem);
+    font-weight: 300;
+    line-height: 1.15;
+    letter-spacing: -0.01em;
+  }
+
+  .am-text-body {
+    font-family: var(--font-body);
+    font-size: clamp(1rem, 0.95rem + 0.35vw, 1.125rem);
+    font-weight: 400;
+    line-height: 1.65;
+    letter-spacing: normal;
+  }
+
+  .am-text-caption {
+    font-family: var(--font-label);
+    font-size: clamp(0.6875rem, 0.62rem + 0.35vw, 0.8125rem);
+    font-weight: 700;
+    line-height: 1.3;
+    letter-spacing: 0.14em;
+  }
+
+  .am-text-micro {
+    font-family: var(--font-label);
+    font-size: clamp(0.5rem, 0.45rem + 0.25vw, 0.6875rem);
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: 0.16em;
+  }
+
   .am-kicker {
     font-family: var(--font-body);
     font-size: 1rem;
@@ -98,6 +153,7 @@
   }
 
   /**
+   * @deprecated Use `.am-text-title` from the AMARA Typography System. Kept for backward compatibility.
    * Shared editorial / trust section titles (About, Guest Reviews, Sustainability band, etc.).
    * Single source of truth for headline scale across page families.
    */
@@ -217,6 +273,7 @@
     text-decoration-color: var(--color-on-surface);
   }
 
+  /** @deprecated Use `.am-text-title` or `.am-text-display` from the AMARA Typography System. Kept for backward compatibility. */
   /** Display XL — use for rare hero/editorial one-liners only */
   .am-display-xl {
     font-family: var(--font-headline);

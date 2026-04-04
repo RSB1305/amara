@@ -73,6 +73,32 @@
 - `.am-section`: Type A insight section shell: `max-w-screen-2xl mx-auto px-12 py-40 border-t ...`
 - `.am-section--plain`, `.am-section--insight`, `.am-section--tint`: background variants for `am-section`.
 
+## Typography Classes (Single Source of Truth)
+
+Never use raw Tailwind `text-*` scale or arbitrary `text-[px]` for these roles.
+Italic is applied in markup (`<h2 class="am-text-title italic">`), not in the class.
+
+| Class | Font | Size | Weight | Usage |
+|---|---|---|---|---|
+| `.am-text-display` | Newsreader | clamp(3.5rem, 10vw, 7.5rem) | 300 | Homepage hero H1 only |
+| `.am-text-title` | Newsreader | clamp(2.5rem, 5vw, 4.25rem) | 300 | All section H2 |
+| `.am-text-subtitle` | Newsreader | clamp(1.5rem, 2.75vw, 2.75rem) | 300 | H3, card titles |
+| `.am-text-body` | Plus Jakarta | clamp(1rem, 0.95rem + 0.35vw, 1.125rem) | 400 | All body/prose |
+| `.am-text-caption` | Plus Jakarta | clamp(0.6875rem, 0.62rem + 0.35vw, 0.8125rem) | 700 | Labels, kickers, eyebrows |
+| `.am-text-micro` | Plus Jakarta | clamp(0.5rem, 0.45rem + 0.25vw, 0.6875rem) | 700 | Tiny UI: nav pills, badges |
+
+### Migration status
+- [x] LegalNoticePage
+- [x] InstagramPage  
+- [x] FaqGeneralPage / FaqAccordion
+- [x] DirectBookingBenefitsPage
+- [x] AboutUsPage
+- [x] GuestReviewsPage
+- [x] ComfortAmenitiesPage
+- [x] FrigilianaWeatherPage
+- [x] FrigilianaLocationPage
+- [x] HomeCinematicMain
+
 ## Available Layouts (from `src/layouts/`)
 
 ### `BaseLayout.astro`

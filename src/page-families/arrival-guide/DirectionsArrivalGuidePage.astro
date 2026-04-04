@@ -392,76 +392,76 @@ const ui = {
       />
 
       <header class="mb-20 border-b border-black/10 pb-12">
-        <span class="label-md font-label text-primary mb-4 block">{c.header.eyebrow}</span>
-        <h1 class="text-6xl font-headline italic text-on-surface mb-6">{c.header.title}</h1>
-        <p class="font-body text-on-surface-variant text-xl italic opacity-70 max-w-2xl">{c.header.subtitle}</p>
+        <span class="am-text-caption text-primary mb-4 block">{c.header.eyebrow}</span>
+        <h1 class="am-text-display italic text-on-surface mb-6">{c.header.title}</h1>
+        <p class="am-text-body text-on-surface-variant italic opacity-70 max-w-2xl">{c.header.subtitle}</p>
       </header>
 
       <div class="pt-8 space-y-20">
         {/* Operational orientation start (Arrival Guide): intro + step-by-step module */}
         <section class="grid gap-10 lg:grid-cols-12 items-start">
           <div class="lg:col-span-8 space-y-6">
-            <h2 class="text-3xl font-headline italic text-on-surface">{c.parking.title}</h2>
+            <h2 class="am-text-title italic text-on-surface">{c.parking.title}</h2>
 
-            <p class="font-body text-on-surface-variant text-lg leading-relaxed italic max-w-3xl">
+            <p class="am-text-body text-on-surface-variant leading-relaxed italic max-w-3xl">
               {c.parking.text}
             </p>
 
             <div class="rounded-[24px] border border-outline-variant/5 bg-surface p-8">
-              <h3 class="font-label text-[10px] uppercase tracking-[0.18em] text-primary mb-5">
+              <h3 class="am-text-caption uppercase tracking-[0.18em] text-primary mb-5">
                 {ui.stepLabel[currentLang]}
               </h3>
               <ol class="space-y-4">
                 {arrivalSteps[currentLang].map((step, index) => (
                   <li class="flex gap-4">
-                    <span class="mt-0.5 shrink-0 font-label text-[10px] uppercase tracking-[0.18em] text-primary/70">
+                    <span class="mt-0.5 shrink-0 am-text-caption uppercase tracking-[0.18em] text-primary/70">
                       {String(index + 1).padStart(2, '0')}
                     </span>
-                    <span class="font-body text-on-surface leading-relaxed">{step}</span>
+                    <span class="am-text-body text-on-surface leading-relaxed">{step}</span>
                   </li>
                 ))}
               </ol>
             </div>
 
             <section class="space-y-6 pt-10">
-              <h2 class="text-3xl font-headline italic text-on-surface">{c.arrivalTip.title}</h2>
+              <h2 class="am-text-title italic text-on-surface">{c.arrivalTip.title}</h2>
 
               <div class="space-y-6">
-                <p class="font-body text-on-surface-variant text-lg leading-relaxed italic max-w-3xl">
+                <p class="am-text-body text-on-surface-variant leading-relaxed italic max-w-3xl">
                   {c.arrivalTip.text.split('\n\n')[0]}
                 </p>
 
-                <p class="font-body text-on-surface-variant text-base leading-relaxed max-w-3xl">
+                <p class="am-text-body text-on-surface-variant leading-relaxed max-w-3xl">
                   {c.arrivalTip.text.split('\n\n').slice(1).join('\n\n')}
                 </p>
 
-                <p class="font-body text-on-surface-variant text-base leading-relaxed max-w-3xl">
+                <p class="am-text-body text-on-surface-variant leading-relaxed max-w-3xl">
                   <strong class="text-on-surface">{c.sidebar.taxiNoteLabel[currentLang]}:</strong> {c.arrivalTip.taxiNote}
                 </p>
               </div>
             </section>
 
             <section class="space-y-8 pt-10">
-              <h2 class="text-3xl font-headline italic text-on-surface">{c.arrivalByBus.title}</h2>
+              <h2 class="am-text-title italic text-on-surface">{c.arrivalByBus.title}</h2>
 
               <div class="space-y-6">
-                <p class="font-body text-on-surface-variant text-lg leading-relaxed italic max-w-3xl">
+                <p class="am-text-body text-on-surface-variant leading-relaxed italic max-w-3xl">
                   {c.arrivalByBus.text.split('\n\n')[0]}
                 </p>
 
                 <div class="rounded-[24px] border border-outline-variant/5 bg-surface p-8 max-w-3xl">
-                  <h3 class="font-label text-[10px] uppercase tracking-[0.18em] text-primary mb-6">
+                  <h3 class="am-text-caption uppercase tracking-[0.18em] text-primary mb-6">
                     {ui.routeChoice[currentLang]}
                   </h3>
 
                   <div class="space-y-6">
                     {busRoutes[currentLang].map((route) => (
                       <article class="border-b border-outline-variant/10 pb-6 last:border-b-0 last:pb-0">
-                        <h3 class="font-body text-on-surface text-lg font-semibold leading-snug">{route.title}</h3>
-                        <p class="font-label text-[10px] uppercase tracking-[0.18em] opacity-50 mt-2 mb-3">
+                        <h3 class="am-text-subtitle text-on-surface font-semibold leading-snug">{route.title}</h3>
+                        <p class="am-text-caption uppercase tracking-[0.18em] opacity-50 mt-2 mb-3">
                           {route.meta}
                         </p>
-                        <p class="font-body text-on-surface-variant leading-relaxed">
+                        <p class="am-text-body text-on-surface-variant leading-relaxed">
                           {route.text}
                         </p>
                       </article>
@@ -475,35 +475,35 @@ const ui = {
           <div class="lg:col-span-4">
             <div class="space-y-6">
               <div class="p-8 bg-surface border border-outline-variant/5 rounded-[24px]">
-                <h3 class="font-headline italic text-2xl text-on-surface mb-8">{c.sidebar.title[currentLang]}</h3>
+                <h3 class="am-text-subtitle italic text-on-surface mb-8">{c.sidebar.title[currentLang]}</h3>
 
                 <div class="space-y-6">
                   <div class="border-b border-outline-variant/10 pb-4">
-                    <span class="font-label text-[10px] uppercase tracking-[0.18em] opacity-50 mb-2 block">
+                    <span class="am-text-caption uppercase tracking-[0.18em] opacity-50 mb-2 block">
                       {c.sidebar.address[currentLang]}
                     </span>
-                    <p class="font-body text-on-surface leading-relaxed">Calle Chorruelo 5<br />29788 Frigiliana</p>
+                    <p class="am-text-body text-on-surface leading-relaxed">Calle Chorruelo 5<br />29788 Frigiliana</p>
                   </div>
 
                   <div class="border-b border-outline-variant/10 pb-4">
-                    <span class="font-label text-[10px] uppercase tracking-[0.18em] opacity-50 mb-2 block">
+                    <span class="am-text-caption uppercase tracking-[0.18em] opacity-50 mb-2 block">
                       {c.sidebar.dropOff[currentLang]}
                     </span>
-                    <p class="font-body text-on-surface leading-relaxed">Avenida Carlos Cano 42</p>
+                    <p class="am-text-body text-on-surface leading-relaxed">Avenida Carlos Cano 42</p>
                   </div>
 
                   <div class="border-b border-outline-variant/10 pb-4">
-                    <span class="font-label text-[10px] uppercase tracking-[0.18em] opacity-50 mb-2 block">
+                    <span class="am-text-caption uppercase tracking-[0.18em] opacity-50 mb-2 block">
                       {c.sidebar.walkingDistance[currentLang]}
                     </span>
-                    <p class="font-body text-on-surface leading-relaxed">{c.sidebar.walkingValue[currentLang]}</p>
+                    <p class="am-text-body text-on-surface leading-relaxed">{c.sidebar.walkingValue[currentLang]}</p>
                   </div>
 
                   <div>
-                    <span class="font-label text-[10px] uppercase tracking-[0.18em] opacity-50 mb-2 block">
+                    <span class="am-text-caption uppercase tracking-[0.18em] opacity-50 mb-2 block">
                       {c.sidebar.busStop[currentLang]}
                     </span>
-                    <p class="font-body text-on-surface leading-relaxed">Parada de Autobus - C. Real</p>
+                    <p class="am-text-body text-on-surface leading-relaxed">Parada de Autobus - C. Real</p>
                   </div>
                 </div>
               </div>
@@ -537,15 +537,15 @@ const ui = {
               </div>
 
               <div class="p-8 bg-surface border border-outline-variant/5 rounded-[24px] max-w-xl">
-                <h3 class="label-md font-label mb-8 text-primary">{c.sidebar.quickContact[currentLang]}</h3>
+                <h3 class="am-text-caption mb-8 text-primary">{c.sidebar.quickContact[currentLang]}</h3>
                 <ul class="space-y-6">
                   <li class="flex flex-col border-b border-outline-variant/10 pb-4">
-                    <span class="font-label text-[10px] uppercase opacity-50 mb-1">{c.sidebar.taxi[currentLang]}</span>
-                    <span class="font-body font-bold text-on-surface">+34 952 533 131</span>
+                    <span class="am-text-caption uppercase opacity-50 mb-1">{c.sidebar.taxi[currentLang]}</span>
+                    <span class="am-text-body font-bold text-on-surface">+34 952 533 131</span>
                   </li>
                   <li class="flex flex-col">
-                    <span class="font-label text-[10px] uppercase opacity-50 mb-1">{c.sidebar.emergency[currentLang]}</span>
-                    <span class="font-body font-bold text-primary">112</span>
+                    <span class="am-text-caption uppercase opacity-50 mb-1">{c.sidebar.emergency[currentLang]}</span>
+                    <span class="am-text-body font-bold text-primary">112</span>
                   </li>
                 </ul>
               </div>
@@ -554,15 +554,15 @@ const ui = {
         </section>
 
         <section class="space-y-6">
-          <h2 class="text-3xl font-headline italic text-on-surface">{c.walkingAccess.title}</h2>
-          <p class="font-body text-on-surface-variant text-lg leading-relaxed italic max-w-3xl">
+          <h2 class="am-text-title italic text-on-surface">{c.walkingAccess.title}</h2>
+          <p class="am-text-body text-on-surface-variant leading-relaxed italic max-w-3xl">
             {c.walkingAccess.text}
           </p>
         </section>
 
         <section class="space-y-6">
-          <h2 class="text-3xl font-headline italic text-on-surface">{c.luggageAdvice.title}</h2>
-          <p class="font-body text-on-surface-variant text-lg leading-relaxed italic max-w-3xl">
+          <h2 class="am-text-title italic text-on-surface">{c.luggageAdvice.title}</h2>
+          <p class="am-text-body text-on-surface-variant leading-relaxed italic max-w-3xl">
             {c.luggageAdvice.text}
           </p>
         </section>
@@ -586,7 +586,7 @@ const ui = {
       <div class="relative max-w-4xl w-full" onclick="event.stopPropagation()">
         <button
           type="button"
-          class="absolute top-4 right-4 text-on-primary text-xl"
+          class="absolute top-4 right-4 text-on-primary am-text-subtitle"
           onclick="document.getElementById('map-overlay').classList.add('hidden')"
         >
           ✕

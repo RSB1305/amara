@@ -65,16 +65,16 @@ export default function VillageMap() {
     <section className="max-w-screen-2xl mx-auto px-12 py-24 border-t border-outline-variant/10">
       <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-8 mb-14">
         <div className="max-w-3xl">
-          <span className="label-md text-primary mb-5 block font-bold uppercase tracking-[0.18em]">
+          <span className="am-text-caption text-primary mb-5 block uppercase tracking-[0.18em]">
             Spatial Narrative
           </span>
 
-          <h2 className="font-headline italic text-4xl md:text-5xl leading-[1.02] tracking-tight text-on-surface">
+          <h2 className="am-text-title italic leading-[1.02] tracking-tight text-on-surface">
             Village Explorer
           </h2>
         </div>
 
-        <p className="text-sm uppercase tracking-[0.18em] text-on-surface-variant leading-relaxed max-w-md">
+        <p className="am-text-caption uppercase tracking-[0.18em] text-on-surface-variant leading-relaxed max-w-md">
           Navigate the vertical rhythm of Frigiliana and discover a few of the
           places that quietly shape its story.
         </p>
@@ -145,7 +145,7 @@ export default function VillageMap() {
 
             <div className="absolute bottom-7 right-7 opacity-40 flex flex-col items-center pointer-events-none">
               <Navigation className="text-primary mb-2" size={26} />
-              <span className="text-[10px] uppercase tracking-[0.32em] font-bold text-on-surface-variant">
+              <span className="am-text-caption uppercase tracking-[0.32em] text-on-surface-variant">
                 Tramontana
               </span>
             </div>
@@ -154,11 +154,11 @@ export default function VillageMap() {
 
         <div className="lg:col-span-4">
           <div className="rounded-[24px] border border-outline-variant/15 bg-surface-container-low p-8 md:p-10 shadow-sm">
-            <span className="text-[11px] uppercase tracking-[0.18em] text-primary font-bold mb-4 block">
+            <span className="am-text-caption uppercase tracking-[0.18em] text-primary mb-4 block">
               {activePoi.category}
             </span>
 
-            <h3 className="font-headline italic text-3xl md:text-4xl leading-[1.05] tracking-tight text-on-surface mb-6">
+            <h3 className="am-text-subtitle italic leading-[1.05] tracking-tight text-on-surface mb-6">
               {activePoi.name}
             </h3>
 
@@ -170,13 +170,13 @@ export default function VillageMap() {
               />
             </div>
 
-            <p className="text-on-surface-variant leading-relaxed mb-8">
+            <p className="am-text-body text-on-surface-variant leading-relaxed mb-8">
               {activePoi.description}
             </p>
 
             <button
               type="button"
-              className="w-full border border-primary/30 text-primary px-8 py-4 text-[11px] uppercase tracking-[0.2em] font-bold hover:bg-primary hover:text-on-primary transition-all flex items-center justify-center gap-3"
+              className="w-full border border-primary/30 text-primary px-8 py-4 am-text-caption uppercase tracking-[0.2em] hover:bg-primary hover:text-on-primary transition-all flex items-center justify-center gap-3"
             >
               <Info size={14} />
               View Historical Context

@@ -682,21 +682,11 @@ const liveClimate = {
 };
 
 const heroImage = {
-  src: '/images/hero-frigiliana-960.jpg',
+  src: '/images/amara-lounis/15-amara-frigiliana.jpg',
   alt: 'Frigiliana hillside homes in afternoon light',
-  width: 960,
-  height: 641,
-  sizes: '(max-width: 767px) calc(100vw - 3rem), (max-width: 1023px) 60vw, 40vw',
-  sources: {
-    webp: [
-      { src: '/images/hero-frigiliana-640.webp', width: 640 },
-      { src: '/images/hero-frigiliana-960.webp', width: 960 }
-    ],
-    fallback: [
-      { src: '/images/hero-frigiliana-640.jpg', width: 640 },
-      { src: '/images/hero-frigiliana-960.jpg', width: 960 }
-    ]
-  }
+  width: 1920,
+  height: 1282,
+  sizes: '(max-width: 767px) calc(100vw - 3rem), (max-width: 1023px) 60vw, 40vw'
 };
 
 const sectionNavItems = getFrigilianaAuthoritySubnav(currentLang);
@@ -714,20 +704,20 @@ const sectionNavItems = getFrigilianaAuthoritySubnav(currentLang);
   <div class="am-root" data-am-page="frigiliana-location">
     <div class="am-wrap w-full">
   <div id="intro">
-  <Hero imageSrc={heroImage.src} imageAlt={heroImage.alt} imageWidth={heroImage.width} imageHeight={heroImage.height} imageSizes={heroImage.sizes} imageSources={heroImage.sources}>
-    <span class="label-md text-primary mb-8 block font-bold">{c.hero.eyebrow}</span>
-    <h1 class="am-display-xl italic text-on-surface mb-10 tracking-tighter" set:html={c.hero.h1} />
+  <Hero imageSrc={heroImage.src} imageAlt={heroImage.alt} imageWidth={heroImage.width} imageHeight={heroImage.height} imageSizes={heroImage.sizes}>
+    <span class="am-text-caption text-primary mb-8 block">{c.hero.eyebrow}</span>
+    <h1 class="am-text-display italic text-on-surface mb-10 tracking-tighter" set:html={c.hero.h1} />
     <div class="pl-10 border-l border-primary/20 max-w-lg mb-14">
-      <p class="text-on-surface-variant text-lg leading-relaxed font-body">{c.hero.body}</p>
-      <p class="text-on-surface-variant text-lg leading-relaxed font-body mt-6">
+      <p class="am-text-body text-on-surface-variant leading-relaxed">{c.hero.body}</p>
+      <p class="am-text-body text-on-surface-variant leading-relaxed mt-6">
         {c.hero.introLeadBefore}
         <a href={resolveLink('frigiliana_parking', currentLang)} class="am-inline-link">{c.hero.introLeadLinkLabel}</a>
         {c.hero.introLeadAfter}
       </p>
     </div>
     <div class="flex flex-wrap gap-8">
-      <span class="am-link-disabled bg-primary text-on-primary px-12 py-5 text-[11px] uppercase tracking-[0.2em] font-bold transition-all">{c.hero.ctaMain}</span>
-      <a href={resolveLink('arrival_guide', currentLang)} class="border border-outline-variant/30 text-on-surface px-12 py-5 text-[11px] uppercase tracking-[0.2em] font-bold hover:bg-surface-container-low transition-all">{c.hero.ctaAlt}</a>
+      <span class="am-link-disabled bg-primary text-on-primary px-12 py-5 am-text-caption uppercase tracking-[0.2em] transition-all">{c.hero.ctaMain}</span>
+      <a href={resolveLink('arrival_guide', currentLang)} class="border border-outline-variant/30 text-on-surface px-12 py-5 am-text-caption uppercase tracking-[0.2em] hover:bg-surface-container-low transition-all">{c.hero.ctaAlt}</a>
     </div>
   </Hero>
   </div>

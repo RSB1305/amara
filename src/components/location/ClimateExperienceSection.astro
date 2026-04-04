@@ -48,16 +48,16 @@ const {
     class="md:col-span-5 border-b border-outline-variant/10 pb-16 md:flex md:flex-col md:items-center md:justify-center md:border-b-0 md:pb-0"
   >
     <div class="flex w-full max-w-full flex-col items-center text-center md:w-max md:max-w-full">
-      <span class="mb-10 block text-[10px] font-bold uppercase tracking-[0.35em] text-primary">
+      <span class="mb-10 block am-text-caption uppercase tracking-[0.35em] text-primary">
         {eyebrowCurrent}
       </span>
       <p
-        class="font-headline text-[clamp(3.5rem,10vw,6.5rem)] font-light leading-none tracking-tight text-on-surface italic"
+        class="am-text-display leading-none tracking-tight text-on-surface italic"
         aria-label={heroTemperature}
       >
         {heroTemperature}
       </p>
-      <p class="mt-10 max-w-sm font-body text-base leading-relaxed text-on-surface-variant md:text-lg">
+      <p class="mt-10 max-w-sm am-text-body leading-relaxed text-on-surface-variant">
         {heroTagline}
       </p>
     </div>
@@ -65,15 +65,15 @@ const {
 
   <!-- Right: meaning, subtle metrics, facts, one CTA — one integrated editorial block -->
   <div class="md:col-span-7">
-    <h2 class="mb-8 font-headline text-4xl italic tracking-tight text-on-surface md:text-5xl">
+    <h2 class="mb-8 am-text-title italic tracking-tight text-on-surface">
       {headline}
     </h2>
-    <p class="max-w-xl font-body text-lg leading-relaxed text-on-surface-variant">
+    <p class="max-w-xl am-text-body leading-relaxed text-on-surface-variant">
       {body}
     </p>
 
     <div
-      class="mt-10 flex flex-wrap gap-x-10 gap-y-3 border-t border-outline-variant/10 pt-10 font-label text-[10px] uppercase tracking-[0.2em] text-on-surface-variant/70"
+      class="mt-10 flex flex-wrap gap-x-10 gap-y-3 border-t border-outline-variant/10 pt-10 am-text-caption uppercase tracking-[0.2em] text-on-surface-variant/70"
       aria-label="Current conditions snapshot"
     >
       <span>{metricHumidity}</span>
@@ -83,8 +83,8 @@ const {
     </div>
 
     <div class="mt-10 space-y-5 border-l border-primary/25 pl-6">
-      <p class="font-body text-sm leading-snug text-on-surface-variant md:text-base">{factSunDays}</p>
-      <p class="font-body text-sm leading-snug text-on-surface-variant md:text-base">{factCoolerVsCoast}</p>
+      <p class="am-text-body leading-snug text-on-surface-variant">{factSunDays}</p>
+      <p class="am-text-body leading-snug text-on-surface-variant">{factCoolerVsCoast}</p>
     </div>
 
     <a href={ctaHref} class="am-cta-link mt-12 inline-block">

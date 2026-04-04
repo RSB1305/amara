@@ -22,23 +22,23 @@ const { eyebrow, headline, body, reviewsHref, reviewsCtaLabel, features } = Astr
 <section id="am-trust-badge" class="am-guest-reviews-summary" aria-label="Guest reviews summary">
   <div class="am-guest-reviews-summary__inner">
     <div class="am-guest-reviews-summary__copy">
-      <p class="am-guest-reviews-summary__eyebrow">{eyebrow}</p>
-      <h2 class="am-guest-reviews-summary__headline">
+      <p class="am-guest-reviews-summary__eyebrow am-text-caption text-on-surface-variant">{eyebrow}</p>
+      <h2 class="am-guest-reviews-summary__headline am-text-title text-on-surface">
         <span class="am-guest-reviews-summary__star am-gold" aria-hidden="true">★</span>
         {headline}
       </h2>
-      <p class="am-guest-reviews-summary__body">{body}</p>
+      <p class="am-guest-reviews-summary__body am-text-body text-on-surface-variant">{body}</p>
       <div class="am-guest-reviews-summary__cta-wrap">
-        <a class="am-guest-reviews-summary__cta" href={reviewsHref}>{reviewsCtaLabel}</a>
+        <a class="am-guest-reviews-summary__cta am-text-body font-medium" href={reviewsHref}>{reviewsCtaLabel}</a>
       </div>
     </div>
 
     <div class="am-guest-reviews-summary__chips" aria-label="Highlighted guest features">
       {
         features.map((feature) => (
-          <span class="am-guest-reviews-summary__chip">
+          <span class="am-guest-reviews-summary__chip am-text-body">
             {feature.label}
-            {feature.note && <span class="am-guest-reviews-summary__chip-note">{feature.note}</span>}
+            {feature.note && <span class="am-guest-reviews-summary__chip-note am-text-caption text-muted">{feature.note}</span>}
           </span>
         ))
       }
@@ -86,21 +86,11 @@ const { eyebrow, headline, body, reviewsHref, reviewsCtaLabel, features } = Astr
   }
 
   .am-guest-reviews-summary__eyebrow {
-    font-family: var(--font-label);
-    font-size: 0.875rem;
-    line-height: 1.5;
     letter-spacing: 0.05em;
-    text-transform: uppercase;
-    color: var(--color-on-surface-variant);
     margin: 0 0 1.5rem 0;
   }
 
   .am-guest-reviews-summary__headline {
-    font-family: var(--font-headline);
-    font-size: clamp(1.875rem, 3vw, 2.25rem);
-    line-height: 1.15;
-    font-weight: 300;
-    color: var(--color-on-surface);
     margin: 0 0 1.5rem 0;
   }
 
@@ -109,10 +99,7 @@ const { eyebrow, headline, body, reviewsHref, reviewsCtaLabel, features } = Astr
   }
 
   .am-guest-reviews-summary__body {
-    font-family: var(--font-body);
-    font-size: 1.125rem;
     line-height: 1.625;
-    color: var(--color-on-surface-variant);
     margin: 0 0 0.5rem 0;
   }
 
@@ -125,9 +112,6 @@ const { eyebrow, headline, body, reviewsHref, reviewsCtaLabel, features } = Astr
     align-items: center;
     justify-content: center;
     padding: 0.75rem 1.5rem;
-    font-family: var(--font-body);
-    font-size: 0.875rem;
-    font-weight: 500;
     line-height: 1.25;
     border-radius: 9999px;
     border: 1px solid var(--color-outline);
@@ -165,16 +149,12 @@ const { eyebrow, headline, body, reviewsHref, reviewsCtaLabel, features } = Astr
     padding: 0.625rem 1.25rem;
     border: 1px solid var(--color-outline-variant);
     border-radius: 9999px;
-    font-family: var(--font-body);
-    font-size: 0.875rem;
     line-height: 1.4;
     color: var(--color-on-surface-variant);
     background-color: var(--color-surface-container-lowest);
   }
 
   .am-guest-reviews-summary__chip-note {
-    font-size: 0.75rem;
-    color: var(--color-muted);
     margin-left: 0.25rem;
   }
 </style>

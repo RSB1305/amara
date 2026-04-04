@@ -75,16 +75,16 @@ const closingCtaLinks = content.closingCta.links.map((link) => ({
     <main>
       <section class="mb-[clamp(8rem,15vw,14rem)]">
         <EditorialSplit title={content.philosophy.title?.[currentLang] ?? ''}>
-          <p class="am-body text-[clamp(1.25rem,2vw,1.5rem)] leading-[1.5] text-on-surface mb-8">
+          <p class="am-text-subtitle leading-[1.5] text-on-surface mb-8">
             {content.philosophy.lead?.[currentLang]}
           </p>
           {content.philosophy.paragraphs?.map((paragraph) => (
-            <p class="am-body">{paragraph[currentLang]}</p>
+            <p class="am-text-body text-subtle">{paragraph[currentLang]}</p>
           ))}
           <div class="h-16 w-full shrink-0" aria-hidden="true"></div>
-          <h3 class="font-body text-xl font-semibold text-on-surface mb-4">{content.philosophy.subtitle?.[currentLang]}</h3>
+          <h3 class="am-text-subtitle font-semibold text-on-surface mb-4">{content.philosophy.subtitle?.[currentLang]}</h3>
           {content.philosophy.items?.map((item) => (
-            <p class="am-body">{item.copy[currentLang]}</p>
+            <p class="am-text-body text-subtle">{item.copy[currentLang]}</p>
           ))}
         </EditorialSplit>
       </section>
@@ -95,8 +95,8 @@ const closingCtaLinks = content.closingCta.links.map((link) => ({
 
       <section class="mb-[clamp(8rem,15vw,14rem)] max-w-[800px] mx-auto">
         <div class="mb-16 text-center">
-          <h2 class="am-section-title">{content.principles.title?.[currentLang]}</h2>
-          <p class="am-body italic text-muted">{content.principles.note?.[currentLang]}</p>
+          <h2 class="am-text-title">{content.principles.title?.[currentLang]}</h2>
+          <p class="am-text-body italic text-muted">{content.principles.note?.[currentLang]}</p>
         </div>
         <EditorialDefinitionList items={principlesDefinitionItems} />
       </section>
@@ -104,23 +104,23 @@ const closingCtaLinks = content.closingCta.links.map((link) => ({
       <section
         class="mb-[clamp(8rem,15vw,14rem)] bg-surface py-[clamp(4rem,8vw,8rem)] px-[clamp(2rem,5vw,5rem)] -mx-[5vw]"
       >
-        <h2 class="am-section-title text-center mb-20">{content.quality.title?.[currentLang]}</h2>
+        <h2 class="am-text-title text-center mb-20">{content.quality.title?.[currentLang]}</h2>
         <div class="max-w-[1200px] mx-auto mb-16">
           <EditorialFeatureGrid cards={qualityFeatureCards} />
         </div>
-        <p class="am-body text-center italic text-muted mb-24">{content.quality.note?.[currentLang]}</p>
+        <p class="am-text-body text-center italic text-muted mb-24">{content.quality.note?.[currentLang]}</p>
         <EditorialStatement title={content.quality.statementTitle[currentLang]}>
           {content.quality.statementParagraphs.map((paragraph) => (
-            <p class="am-body">{paragraph[currentLang]}</p>
+            <p class="am-text-body text-subtle">{paragraph[currentLang]}</p>
           ))}
-          <p class="am-body font-semibold text-on-surface mt-8">{content.quality.statementStrong[currentLang]}</p>
+          <p class="am-text-body font-semibold text-on-surface mt-8">{content.quality.statementStrong[currentLang]}</p>
         </EditorialStatement>
       </section>
 
       <section class="mb-[clamp(8rem,15vw,14rem)]">
         <div class="text-center max-w-[600px] mx-auto mb-20">
-          <h2 class="am-section-title">{content.locations.title?.[currentLang]}</h2>
-          <p class="am-body">{content.locations.lead?.[currentLang]}</p>
+          <h2 class="am-text-title">{content.locations.title?.[currentLang]}</h2>
+          <p class="am-text-body text-subtle">{content.locations.lead?.[currentLang]}</p>
         </div>
         <div class="grid grid-cols-1 lg:grid-cols-3 gap-[clamp(2rem,4vw,4rem)]">
           {content.locations.locations?.map((location) => (
@@ -128,11 +128,11 @@ const closingCtaLinks = content.closingCta.links.map((link) => ({
               <div
                 class="aspect-[3/4] bg-black/[0.03] flex items-center justify-center mb-6"
               >
-                <span class="font-headline italic text-on-surface/60">{location.name}</span>
+                <span class="am-text-subtitle italic text-on-surface/60">{location.name}</span>
               </div>
               <figcaption>
-                <h3 class="font-headline text-[1.75rem] font-light text-on-surface mb-2">{location.name}</h3>
-                <p class="am-body">{location.copy[currentLang]}</p>
+                <h3 class="am-text-subtitle font-light text-on-surface mb-2">{location.name}</h3>
+                <p class="am-text-body text-subtle">{location.copy[currentLang]}</p>
               </figcaption>
             </figure>
           ))}
@@ -147,12 +147,12 @@ const closingCtaLinks = content.closingCta.links.map((link) => ({
         stats={hostStats}
       >
         <div class="pt-12">
-          <h3 class="font-body text-xl font-semibold text-on-surface mb-4">{content.host.subtitle?.[currentLang]}</h3>
+          <h3 class="am-text-subtitle font-semibold text-on-surface mb-4">{content.host.subtitle?.[currentLang]}</h3>
           <div class="grid grid-cols-1 sm:grid-cols-3 gap-8 mt-8">
             {content.host.teamItems?.map((item) => (
               <div>
-                <h4 class="font-body text-base font-semibold text-on-surface mb-2 m-0">{item.title[currentLang]}</h4>
-                <p class="am-body m-0">{item.copy[currentLang]}</p>
+                <h4 class="am-text-body font-semibold text-on-surface mb-2 m-0">{item.title[currentLang]}</h4>
+                <p class="am-text-body text-subtle m-0">{item.copy[currentLang]}</p>
               </div>
             ))}
           </div>

@@ -683,12 +683,12 @@ const properties: PropertyEntry[] = [
       <div class="am-wrap w-full max-w-[76rem] mx-auto px-6 pb-20 max-md:px-4">
 
         <section class="am-section mb-12" aria-label={page.sections.conceptAria}>
-          <h2 class="am-h2 mb-4 font-headline text-2xl md:text-3xl font-medium leading-tight tracking-tight text-on-surface">{page.sections.conceptTitle}</h2>
+          <h2 class="am-h2 mb-4 am-text-title font-medium leading-tight tracking-tight text-on-surface">{page.sections.conceptTitle}</h2>
 
           <div class="am-grid block">
             <article class="am-card mb-10 border-0 rounded-none bg-transparent shadow-none">
               <div class="am-card-body p-0">
-                <h3 class="am-h2 mb-4 font-headline text-2xl md:text-3xl font-medium leading-tight tracking-tight text-on-surface">{page.sections.coreTitle}</h3>
+                <h3 class="am-h2 mb-4 am-text-subtitle font-medium leading-tight tracking-tight text-on-surface">{page.sections.coreTitle}</h3>
 
                 <div class="am-elist is-tight block">
                   {page.bullets.core.map((bullet, index) => (
@@ -705,8 +705,8 @@ const properties: PropertyEntry[] = [
                         )}
                       </div>
                       <div class="am-elist-body">
-                        <p class="am-elist-title mb-0.5 text-sm font-semibold text-on-surface">{bullet.title}</p>
-                        <p class="am-elist-desc m-0 text-sm leading-relaxed text-on-surface-variant">{bullet.desc}</p>
+                        <p class="am-elist-title mb-0.5 am-text-body font-semibold text-on-surface">{bullet.title}</p>
+                        <p class="am-elist-desc m-0 am-text-body leading-relaxed text-on-surface-variant">{bullet.desc}</p>
                       </div>
                     </div>
                   ))}
@@ -716,7 +716,7 @@ const properties: PropertyEntry[] = [
 
             <article class="am-card mb-10 border-0 rounded-none bg-transparent shadow-none">
               <div class="am-card-body p-0">
-                <h3 class="am-h2 mb-4 font-headline text-2xl md:text-3xl font-medium leading-tight tracking-tight text-on-surface">{page.sections.separateTitle}</h3>
+                <h3 class="am-h2 mb-4 am-text-subtitle font-medium leading-tight tracking-tight text-on-surface">{page.sections.separateTitle}</h3>
 
                 <div class="am-elist is-tight block">
                   {page.bullets.separate.map((bullet, index) => (
@@ -733,8 +733,8 @@ const properties: PropertyEntry[] = [
                         )}
                       </div>
                       <div class="am-elist-body">
-                        <p class="am-elist-title mb-0.5 text-sm font-semibold text-on-surface">{bullet.title}</p>
-                        <p class="am-elist-desc m-0 text-sm leading-relaxed text-on-surface-variant">{bullet.desc}</p>
+                        <p class="am-elist-title mb-0.5 am-text-body font-semibold text-on-surface">{bullet.title}</p>
+                        <p class="am-elist-desc m-0 am-text-body leading-relaxed text-on-surface-variant">{bullet.desc}</p>
                       </div>
                     </div>
                   ))}
@@ -745,20 +745,20 @@ const properties: PropertyEntry[] = [
         </section>
 
         <section class="am-section mb-12" aria-label={page.sections.inventoryAria}>
-          <h2 class="am-h2 mb-4 font-headline text-2xl md:text-3xl font-medium leading-tight tracking-tight text-on-surface">{page.sections.inventoryTitle}</h2>
+          <h2 class="am-h2 mb-4 am-text-title font-medium leading-tight tracking-tight text-on-surface">{page.sections.inventoryTitle}</h2>
 
           <div class="am-grid block">
             {properties.map((property) => (
               <article class="am-card mb-10 border-0 rounded-none bg-transparent shadow-none" data-rental-id={property.id}>
                 <div class="am-card-body p-0">
-                  <h3 class="am-h2 mb-4 font-headline text-2xl md:text-3xl font-medium leading-tight tracking-tight text-on-surface">{property.name}</h3>
+                  <h3 class="am-h2 mb-4 am-text-subtitle font-medium leading-tight tracking-tight text-on-surface">{property.name}</h3>
                   <div class="am-prose max-w-[46rem]">
-                    <p class="am-body font-body">
+                    <p class="am-body am-text-body">
                       <a class="am-inline-link text-on-surface/80 underline underline-offset-[0.18em]" href={property.href}>{page.inventory.detailsLabel}</a>
                     </p>
                   </div>
 
-                  <ul class="am-list-specs mt-4 m-0 p-0 list-none grid gap-y-[0.55rem] text-sm leading-relaxed text-on-surface-variant">
+                  <ul class="am-list-specs mt-4 m-0 p-0 list-none grid gap-y-[0.55rem] am-text-body leading-relaxed text-on-surface-variant">
                     <li class="flex justify-between gap-4 pb-[0.55rem] border-b border-outline-variant/20 max-md:flex-col max-md:gap-0.5 max-md:items-start"><strong class="font-semibold text-on-surface">{page.inventory.labels.license}</strong> <span class="text-right max-md:text-left">{property.specs.license}</span></li>
                     <li class="flex justify-between gap-4 pb-[0.55rem] border-b border-outline-variant/20 max-md:flex-col max-md:gap-0.5 max-md:items-start"><strong class="font-semibold text-on-surface">{page.inventory.labels.maxOccupancy}</strong> <span class="text-right max-md:text-left">{property.specs.maxOccupancy[currentLang]}</span></li>
                     {property.specs.bed && <li class="flex justify-between gap-4 pb-[0.55rem] border-b border-outline-variant/20 max-md:flex-col max-md:gap-0.5 max-md:items-start"><strong class="font-semibold text-on-surface">{page.inventory.labels.bed}</strong> <span class="text-right max-md:text-left">{property.specs.bed}</span></li>}
@@ -781,11 +781,11 @@ const properties: PropertyEntry[] = [
           </div>
 
           <div class="am-prose max-w-[46rem]">
-            <p class="am-small mt-4 text-sm leading-relaxed text-on-surface-variant">
+            <p class="am-small mt-4 am-text-body leading-relaxed text-on-surface-variant">
               <strong>{page.noteTitle}</strong> {page.noteText}
             </p>
 
-            <p class="am-small mt-8 border-t border-outline-variant/20 pt-2.5 text-xs text-muted font-body">
+            <p class="am-small mt-8 border-t border-outline-variant/20 pt-2.5 am-text-caption text-muted">
               {page.aiLegalLabel}{' '}
               <span
                 id="amara-ai-status-indicator"

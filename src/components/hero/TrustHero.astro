@@ -21,9 +21,9 @@ const { title, subtitle, lead, ctaLinks = [], supportText } = Astro.props;
       <span class="am-kicker am-gold">{subtitle}</span>
     </div>
   )}
-  <h1 class="am-exp-hero__title" set:html={title} />
-  <p class="am-exp-hero__lead">{lead}</p>
-  {supportText && <p class="am-hero-support">{supportText}</p>}
+  <h1 class="am-text-display am-exp-hero__title" set:html={title} />
+  <p class="am-text-body am-exp-hero__lead text-subtle">{lead}</p>
+  {supportText && <p class="am-text-body am-hero-support italic text-muted">{supportText}</p>}
   {ctaLinks.length > 0 && (
     <div class="am-cta-group am-cta-group--left mt-8">
       {ctaLinks.map((link, index) => (
@@ -49,18 +49,12 @@ const { title, subtitle, lead, ctaLinks = [], supportText } = Astro.props;
     display: flex;
     gap: 1.5rem;
     margin-bottom: 3rem;
-    /* opacity: 0.6; Removed to ensure WCAG 4.5:1 contrast for the golden kicker */
   }
 
   .am-exp-hero__title {
-    font-family: var(--font-headline);
-    font-size: clamp(3.5rem, 7vw, 6rem);
-    line-height: 1.05;
-    font-weight: 300;
-    letter-spacing: -0.02em;
-    @apply text-on-surface;
     max-width: 12ch;
     margin: 0 0 2.5rem 0;
+    @apply text-on-surface;
   }
 
   @media (min-width: 1024px) {
@@ -70,19 +64,10 @@ const { title, subtitle, lead, ctaLinks = [], supportText } = Astro.props;
   }
 
   .am-exp-hero__lead {
-    font-family: var(--font-body);
-    font-size: clamp(1.25rem, 2vw, 1.5rem);
-    line-height: 1.6;
-    @apply text-subtle;
     max-width: 35ch;
   }
 
   .am-hero-support {
     margin-top: 1.5rem;
-    font-family: var(--font-body);
-    font-size: 0.95rem;
-    line-height: 1.6;
-    @apply text-muted;
-    font-style: italic;
   }
 </style>

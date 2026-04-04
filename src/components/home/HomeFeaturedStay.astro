@@ -15,7 +15,7 @@ const { eyebrow, propertyName, locationTag, body, ctaLabel, ctaHref } = Astro.pr
 ---
 
 <section class="am-home-featured border-t border-outline-variant/10 py-16 md:py-24" aria-labelledby="home-featured-heading">
-  <p class="am-home-featured__eyebrow">{eyebrow}</p>
+  <p class="am-home-featured__eyebrow am-text-caption text-on-surface-variant">{eyebrow}</p>
   <div class="am-home-featured__grid">
     <div class="am-home-featured__media">
       <div class="am-home-featured__placeholder" aria-hidden="true" />
@@ -39,12 +39,7 @@ const { eyebrow, propertyName, locationTag, body, ctaLabel, ctaHref } = Astro.pr
   @reference "../../styles/global.css";
 
   .am-home-featured__eyebrow {
-    font-family: var(--font-label);
-    font-size: 0.6875rem;
-    font-weight: 700;
     letter-spacing: 0.22em;
-    text-transform: uppercase;
-    color: var(--color-on-surface-variant);
     margin: 0 0 2rem 0;
   }
 
@@ -75,29 +70,16 @@ const { eyebrow, propertyName, locationTag, body, ctaLabel, ctaHref } = Astro.pr
   }
 
   .am-home-featured__title {
-    font-family: var(--font-headline);
-    font-size: clamp(2rem, 3.5vw, 2.75rem);
-    line-height: 1.12;
-    font-weight: 300;
-    letter-spacing: -0.02em;
-    color: var(--color-on-surface);
     margin: 0 0 0.75rem 0;
   }
 
   .am-home-featured__tag {
-    font-family: var(--font-label);
-    font-size: 0.8125rem;
     letter-spacing: 0.06em;
-    text-transform: uppercase;
-    color: var(--color-muted);
     margin: 0 0 1.5rem 0;
   }
 
   .am-home-featured__body {
-    font-family: var(--font-body);
-    font-size: 1.0625rem;
     line-height: 1.7;
-    color: var(--color-on-surface-variant);
     margin: 0 0 2rem 0;
     max-width: 38ch;
   }

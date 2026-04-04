@@ -130,7 +130,7 @@ export default function HomeCinematicMain(props: HomeCinematicMainProps) {
             src={heroImageSrc}
             srcSet={heroImageSrcSet || undefined}
             alt=""
-            className="h-full w-full object-cover opacity-60"
+            className="h-full w-full object-cover"
             width={heroImageWidth}
             height={heroImageHeight}
             loading="eager"
@@ -145,7 +145,7 @@ export default function HomeCinematicMain(props: HomeCinematicMainProps) {
             initial={reduceMotion ? false : { opacity: 0, letterSpacing: '0em' }}
             animate={{ opacity: 1, letterSpacing: '0.3em' }}
             transition={{ duration: 1.5, delay: 0.2, ease: 'easeOut' }}
-            className="mb-6 font-body text-xs uppercase tracking-[0.3em] text-inverted-on-surface-muted md:text-sm"
+            className="mb-6 am-text-caption uppercase tracking-[0.3em] text-inverted-on-surface-muted"
           >
             {heroKicker}
           </motion.span>
@@ -154,7 +154,7 @@ export default function HomeCinematicMain(props: HomeCinematicMainProps) {
             initial={reduceMotion ? false : { opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1.2, delay: 0.5, ease: [0.21, 0.47, 0.32, 0.98] }}
-            className="mb-8 font-headline text-6xl font-light leading-none tracking-tight md:text-8xl lg:text-9xl"
+            className="mb-8 am-text-display"
           >
             AMARA
           </motion.h1>
@@ -163,7 +163,7 @@ export default function HomeCinematicMain(props: HomeCinematicMainProps) {
             initial={reduceMotion ? false : { opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 1, delay: 1.2 }}
-            className="max-w-xl font-headline text-lg italic text-inverted-on-surface-muted md:text-2xl"
+            className="max-w-xl am-text-body italic text-inverted-on-surface-muted"
           >
             {heroLead}
           </motion.p>
@@ -175,7 +175,7 @@ export default function HomeCinematicMain(props: HomeCinematicMainProps) {
           transition={{ delay: 2, duration: 1 }}
           className="absolute bottom-12 left-1/2 z-10 flex -translate-x-1/2 flex-col items-center gap-2 text-inverted-on-surface-muted"
         >
-          <span className="font-body text-xs uppercase tracking-widest">{scrollHint}</span>
+          <span className="am-text-caption uppercase tracking-widest">{scrollHint}</span>
           <div className="h-12 w-px bg-gradient-to-b from-inverted-on-surface-muted to-transparent" />
         </motion.div>
       </section>
@@ -185,7 +185,7 @@ export default function HomeCinematicMain(props: HomeCinematicMainProps) {
         <div className="grid grid-cols-1 items-center gap-16 lg:grid-cols-12 lg:gap-8">
           <div className="lg:col-span-5">
             <FadeIn>
-              <h2 className="mb-8 font-headline text-4xl leading-[1.1] text-on-surface md:text-6xl">
+              <h2 className="mb-8 am-text-title text-on-surface">
                 {philosophyHeadlinePart1}{' '}
                 <span className="italic text-primary">{philosophyHeadlineAccent}</span>
               </h2>
@@ -193,12 +193,12 @@ export default function HomeCinematicMain(props: HomeCinematicMainProps) {
             <FadeIn delay={0.2}>
               <div className="mb-8 flex items-center gap-4">
                 <div className="h-px w-12 bg-outline-variant" />
-                <span className="font-body text-sm uppercase tracking-widest text-on-surface-variant">{philosophyLabel}</span>
+                <span className="am-text-caption uppercase tracking-widest text-on-surface-variant">{philosophyLabel}</span>
               </div>
             </FadeIn>
           </div>
 
-          <div className="flex flex-col gap-8 font-body text-lg font-light leading-relaxed text-on-surface-variant md:text-xl lg:col-span-6 lg:col-start-7">
+          <div className="flex flex-col gap-8 am-text-body text-on-surface-variant lg:col-span-6 lg:col-start-7">
             <FadeIn delay={0.3}>
               <p>{philosophyP1}</p>
             </FadeIn>
@@ -208,12 +208,12 @@ export default function HomeCinematicMain(props: HomeCinematicMainProps) {
             <FadeIn delay={0.5}>
               <div className="flex gap-8 border-t border-outline-variant/30 pt-8">
                 <div>
-                  <span className="mb-1 block font-headline text-3xl text-on-surface">{statReviewsValue}</span>
-                  <span className="font-body text-xs uppercase tracking-wider text-on-surface-variant">{statReviewsLabel}</span>
+                  <span className="mb-1 block am-text-subtitle text-on-surface">{statReviewsValue}</span>
+                  <span className="am-text-caption uppercase tracking-wider text-on-surface-variant">{statReviewsLabel}</span>
                 </div>
                 <div>
-                  <span className="mb-1 block font-headline text-3xl text-on-surface">{statRatingValue}</span>
-                  <span className="font-body text-xs uppercase tracking-wider text-on-surface-variant">{statRatingLabel}</span>
+                  <span className="mb-1 block am-text-subtitle text-on-surface">{statRatingValue}</span>
+                  <span className="am-text-caption uppercase tracking-wider text-on-surface-variant">{statRatingLabel}</span>
                 </div>
               </div>
             </FadeIn>
@@ -226,8 +226,8 @@ export default function HomeCinematicMain(props: HomeCinematicMainProps) {
         <div className="mx-auto max-w-screen-2xl px-6 md:px-12">
           <FadeIn>
             <div className="mb-32 text-center">
-              <span className="mb-4 block font-body text-sm uppercase tracking-widest text-primary">{collectionEyebrow}</span>
-              <h2 className="font-headline text-5xl text-on-surface md:text-7xl">{collectionTitle}</h2>
+              <span className="mb-4 block am-text-caption uppercase tracking-widest text-primary">{collectionEyebrow}</span>
+              <h2 className="am-text-title text-on-surface">{collectionTitle}</h2>
             </div>
           </FadeIn>
 
@@ -259,14 +259,14 @@ export default function HomeCinematicMain(props: HomeCinematicMainProps) {
 
                   <div className="flex w-full flex-col justify-center lg:w-1/2">
                     <FadeIn delay={0.2}>
-                      <span className="mb-4 block font-body text-xs uppercase tracking-widest text-on-surface-variant">{apt.meta}</span>
-                      <h3 className="mb-2 font-headline text-5xl text-on-surface md:text-6xl">{apt.name}</h3>
-                      <h4 className="mb-8 font-headline text-2xl italic text-primary">{apt.subtitle}</h4>
-                      <p className="mb-10 max-w-md font-body text-lg font-light leading-relaxed text-on-surface-variant">{apt.desc}</p>
+                      <span className="mb-4 block am-text-caption uppercase tracking-widest text-on-surface-variant">{apt.meta}</span>
+                      <h3 className="mb-2 am-text-title text-on-surface">{apt.name}</h3>
+                      <h4 className="mb-8 am-text-subtitle italic text-primary">{apt.subtitle}</h4>
+                      <p className="mb-10 max-w-md am-text-body text-on-surface-variant">{apt.desc}</p>
 
                       <a
                         href={apt.exploreHref}
-                        className="group inline-flex items-center gap-4 font-body text-sm uppercase tracking-widest text-on-surface"
+                        className="group inline-flex items-center gap-4 am-text-caption uppercase tracking-widest text-on-surface"
                       >
                         <span className="relative overflow-hidden pb-1">
                           {apt.exploreLabel}
@@ -308,10 +308,10 @@ export default function HomeCinematicMain(props: HomeCinematicMainProps) {
 
         <div className="relative z-10 mx-auto max-w-screen-xl px-6 text-center md:px-12">
           <FadeIn>
-            <span className="am-gold mb-8 block text-2xl" aria-hidden="true">
+            <span className="am-gold mb-8 block am-text-subtitle" aria-hidden="true">
               ★★★★★
             </span>
-            <h2 className="mx-auto mb-12 max-w-4xl font-headline text-4xl font-light leading-tight md:text-6xl lg:text-7xl">
+            <h2 className="mx-auto mb-12 max-w-4xl am-text-title text-inverted-on-surface">
               <span aria-hidden="true">&ldquo;</span>
               {trustQuote}
               <span aria-hidden="true">&rdquo;</span>
@@ -321,7 +321,7 @@ export default function HomeCinematicMain(props: HomeCinematicMainProps) {
               {trustChips.map((feature, i) => (
                 <span
                   key={i}
-                  className="rounded-full border border-inverted-on-surface-muted px-6 py-2 font-body text-sm font-light tracking-wide md:text-base"
+                  className="rounded-full border border-inverted-on-surface-muted px-6 py-2 am-text-body tracking-wide text-inverted-on-surface"
                 >
                   {feature}
                 </span>
@@ -330,7 +330,7 @@ export default function HomeCinematicMain(props: HomeCinematicMainProps) {
 
             <a
               href={trustReviewsHref}
-              className="inline-flex items-center justify-center bg-surface px-8 py-4 font-body text-sm uppercase tracking-widest text-on-surface transition-colors hover:bg-surface-container-high"
+              className="inline-flex items-center justify-center bg-surface px-8 py-4 am-text-caption uppercase tracking-widest text-on-surface transition-colors hover:bg-surface-container-high"
             >
               {trustCta}
             </a>

@@ -133,8 +133,8 @@ const t = translations[lang] || translations.en;
   <!-- Status is out of flow so the title stack can center in the full card width (not biased by a sibling column). -->
   <div class="relative mb-12 flex min-h-[4.5rem] w-full items-center justify-center">
     <div class="inline-flex max-w-full flex-col items-start">
-      <span class="text-[10px] uppercase tracking-[0.3em] text-primary font-bold block mb-2">{t.chrome.title}</span>
-      <h3 class="font-headline text-3xl italic text-on-surface">{locationName}</h3>
+      <span class="am-text-caption uppercase tracking-[0.3em] text-primary block mb-2">{t.chrome.title}</span>
+      <h3 class="am-text-subtitle italic text-on-surface">{locationName}</h3>
     </div>
     <div
       class="weather-status pointer-events-none absolute top-1/2 right-0 flex -translate-y-1/2 items-center gap-2 opacity-0 transition-opacity duration-700"
@@ -143,7 +143,7 @@ const t = translations[lang] || translations.en;
         <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
         <span class="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
       </span>
-      <span class="text-[9px] uppercase tracking-widest font-bold text-primary">{t.chrome.live}</span>
+      <span class="am-text-micro uppercase tracking-widest text-primary">{t.chrome.live}</span>
     </div>
   </div>
 </amara-weather>

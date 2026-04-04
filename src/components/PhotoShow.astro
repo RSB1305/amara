@@ -39,16 +39,16 @@ const t = translations[lang] || translations.en;
   <div class="max-w-screen-2xl mx-auto px-12">
     <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-20 gap-8">
       <div>
-        <span class="text-[10px] uppercase tracking-[0.4em] text-primary font-bold block mb-4">
+        <span class="am-text-caption uppercase tracking-[0.4em] text-primary block mb-4">
           {eyebrow || t.defaultEyebrow}
         </span>
-        <h2 class="font-headline text-5xl md:text-6xl italic text-on-surface tracking-tight">
+        <h2 class="am-text-title italic text-on-surface tracking-tight">
           {title}
         </h2>
       </div>
       
       <div class="flex items-center gap-10">
-        <div class="photoshow-counter font-label uppercase tracking-[0.2em] text-[10px] text-on-surface-variant">
+        <div class="photoshow-counter am-text-caption uppercase tracking-[0.2em] text-on-surface-variant">
           <span class="current">1</span> <span class="mx-1">{t.counter}</span> {images.length}
         </div>
         <div class="flex gap-4">
@@ -75,7 +75,7 @@ const t = translations[lang] || translations.en;
               />
             </div>
             {img.caption && (
-              <p class="font-headline text-2xl italic text-on-surface-variant/80 border-l border-primary/30 pl-6 py-1">
+              <p class="am-text-subtitle italic text-on-surface-variant/80 border-l border-primary/30 pl-6 py-1">
                 {img.caption}
               </p>
             )}

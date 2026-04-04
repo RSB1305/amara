@@ -31,7 +31,7 @@ const { items, activeId } = Astro.props;
             <a
               href={item.href}
               class:list={[
-                'font-label inline-flex items-center whitespace-nowrap rounded-full border px-4 py-2 text-[10px] font-bold uppercase tracking-[0.18em] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/25 focus-visible:ring-offset-2',
+                'inline-flex items-center whitespace-nowrap rounded-full border px-4 py-2 text-[11px] font-label font-bold uppercase tracking-[0.14em] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/25 focus-visible:ring-offset-2',
                 item.id && activeId && item.id === activeId
                   ? 'border-outline-variant/20 bg-surface/80 text-on-surface'
                   : 'border-outline-variant/10 bg-surface/40 text-on-surface-variant hover:bg-surface/70 hover:text-on-surface'
