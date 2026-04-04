@@ -111,29 +111,31 @@ const cinematicApartmentsProps = cinematicApartments.map((apt) => ({
     comingSoonBadge={t(navSoonBadge)}
   />
   <div class="am-root" data-am-page="home">
-    <HomeCinematicMain
-      client:load
-      heroImageSrc={HERO_IMG}
-      heroKicker={t(cinematicHeroKicker)}
-      heroLead={t(cinematicHeroLead)}
-      scrollHint={t(cinematicScrollHint)}
-      philosophyHeadlinePart1={t(cinematicPhilosophyPart1)}
-      philosophyHeadlineAccent={t(cinematicPhilosophyAccent)}
-      philosophyLabel={t(cinematicPhilosophyLabel)}
-      philosophyP1={t(cinematicPhilosophyP1)}
-      philosophyP2={t(cinematicPhilosophyP2)}
-      statReviewsValue={cinematicStatReviewsValue}
-      statRatingValue={cinematicStatRatingValue}
-      statReviewsLabel={t(cinematicStatReviewsLabel)}
-      statRatingLabel={t(cinematicStatRatingLabel)}
-      collectionEyebrow={t(cinematicCollectionEyebrow)}
-      collectionTitle={t(cinematicCollectionTitle)}
-      apartments={cinematicApartmentsProps}
-      trustBgSrc={TRUST_BG}
-      trustQuote={t(cinematicTrustQuote)}
-      trustChips={cinematicTrustChips[currentLang]}
-      trustCta={t(cinematicTrustCta)}
-      trustReviewsHref={resolveLink('reviews_hub', currentLang)}
-    />
+    <div class="am-wrap w-full max-w-screen-2xl mx-auto px-6 md:px-12 pb-20">
+      <HomeCinematicMain
+        client:load
+        heroImageSrc={HERO_IMG}
+        heroKicker={t(cinematicHeroKicker)}
+        heroLead={t(cinematicHeroLead)}
+        scrollHint={t(cinematicScrollHint)}
+        philosophyHeadlinePart1={t(cinematicPhilosophyPart1)}
+        philosophyHeadlineAccent={t(cinematicPhilosophyAccent)}
+        philosophyLabel={t(cinematicPhilosophyLabel)}
+        philosophyP1={t(cinematicPhilosophyP1)}
+        philosophyP2={t(cinematicPhilosophyP2)}
+        statReviewsValue={cinematicStatReviewsValue}
+        statRatingValue={cinematicStatRatingValue}
+        statReviewsLabel={t(cinematicStatReviewsLabel)}
+        statRatingLabel={t(cinematicStatRatingLabel)}
+        collectionEyebrow={t(cinematicCollectionEyebrow)}
+        collectionTitle={t(cinematicCollectionTitle)}
+        apartments={cinematicApartmentsProps}
+        trustBgSrc={TRUST_BG}
+        trustQuote={t(cinematicTrustQuote)}
+        trustChips={cinematicTrustChips[currentLang]}
+        trustCta={t(cinematicTrustCta)}
+        trustReviewsHref={resolveLink('reviews_hub', currentLang)}
+      />
+    </div>
   </div>
 </BaseLayout>

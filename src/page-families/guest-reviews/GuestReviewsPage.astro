@@ -397,7 +397,8 @@ const footerHighlights = [
     variant="trust"
     languageToken="reviews_hub"
   />
-  <div class="am-exp-page">
+  <div class="am-root bg-white" data-am-page="guest-reviews">
+    <div class="am-wrap w-full max-w-[1400px] mx-auto px-[5vw]">
     <TrustHero
       subtitle={copy.hero.subtitle[currentLang]}
       title={copy.hero.title[currentLang]}
@@ -544,6 +545,7 @@ const footerHighlights = [
         </div>
       </section>
     </main>
+    </div>
   </div>
 </BaseLayout>
 
@@ -571,13 +573,6 @@ const footerHighlights = [
     pointer-events: none;
     cursor: default;
     opacity: 0.6;
-  }
-
-  .am-exp-page {
-    @apply bg-white;
-    max-width: 1400px;
-    margin: 0 auto;
-    padding: 0 5vw;
   }
 
   .am-reviews-section {

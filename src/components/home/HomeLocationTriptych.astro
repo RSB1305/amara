@@ -1,0 +1,161 @@
+---
+/**
+ * Home: three location cards — one live (Frigiliana), two coming soon (Nerja, Tarifa).
+ */
+interface LocationCard {
+  name: string;
+  description: string;
+  status: 'live' | 'coming_soon';
+  ctaLabel?: string;
+  href?: string;
+}
+
+interface Props {
+  title: string;
+  liveLabel: string;
+  comingSoonLabel: string;
+  locations: LocationCard[];
+}
+
+const { title, liveLabel, comingSoonLabel, locations } = Astro.props;
+---
+
+<section class="am-home-triptych border-t border-outline-variant/10 py-16 md:py-24" aria-labelledby="home-locations-heading">
+  <h2 id="home-locations-heading" class="am-section-title mb-12 md:mb-16">
+    {title}
+  </h2>
+  <div class="am-home-triptych__grid">
+    {
+      locations.map((loc) => (
+        <article
+          class:list={[
+            'am-home-triptych__card',
+            loc.status === 'live' ? 'am-home-triptych__card--live' : 'am-home-triptych__card--muted'
+          ]}
+        >
+          <div class="am-home-triptych__placeholder" aria-hidden="true" />
+          <div class="am-home-triptych__body">
+            <div class="am-home-triptych__row">
+              <h3 class="am-home-triptych__name">{loc.name}</h3>
+              <span
+                class:list={[
+                  'am-home-triptych__status',
+                  loc.status === 'live' ? 'am-home-triptych__status--live' : 'am-home-triptych__status--soon'
+                ]}
+              >
+                {loc.status === 'live' ? liveLabel : comingSoonLabel}
+              </span>
+            </div>
+            <p class="am-home-triptych__desc">{loc.description}</p>
+            {loc.status === 'live' && loc.href && loc.ctaLabel ? (
+              <div class="am-home-triptych__cta-wrap">
+                <a href={loc.href} class="am-btn am-btn--primary">
+                  {loc.ctaLabel}
+                </a>
+              </div>
+            ) : null}
+          </div>
+        </article>
+      ))
+    }
+  </div>
+</section>
+
+<style>
+  @reference "../../styles/global.css";
+
+  .am-home-triptych__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  @media (min-width: 1024px) {
+    .am-home-triptych__grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 2.5rem;
+    }
+  }
+
+  .am-home-triptych__card {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    border-radius: 0.125rem;
+    border-width: 1px;
+    border-style: solid;
+  }
+
+  .am-home-triptych__card--live {
+    border-color: color-mix(in srgb, var(--color-outline-variant) 50%, transparent);
+    background-color: var(--color-surface-white);
+    box-shadow: var(--shadow-editorial-card);
+  }
+
+  .am-home-triptych__card--muted {
+    border-color: color-mix(in srgb, var(--color-outline-variant) 25%, transparent);
+    background-color: var(--color-surface-container-low);
+    opacity: 0.92;
+  }
+
+  .am-home-triptych__placeholder {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    background-color: var(--color-surface-container-high);
+    flex-shrink: 0;
+  }
+
+  .am-home-triptych__body {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    padding: 2rem;
+  }
+
+  .am-home-triptych__row {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 0.75rem;
+    margin-bottom: 1rem;
+  }
+
+  .am-home-triptych__name {
+    font-family: var(--font-headline);
+    font-size: 1.5rem;
+    line-height: 1.2;
+    font-weight: 300;
+    color: var(--color-on-surface);
+    margin: 0;
+  }
+
+  .am-home-triptych__status {
+    font-family: var(--font-label);
+    font-size: 0.625rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    flex-shrink: 0;
+  }
+
+  .am-home-triptych__status--live {
+    color: var(--color-primary);
+  }
+
+  .am-home-triptych__status--soon {
+    color: var(--color-muted);
+  }
+
+  .am-home-triptych__desc {
+    font-family: var(--font-body);
+    font-size: 0.875rem;
+    line-height: 1.625;
+    color: var(--color-on-surface-variant);
+    margin: 0 0 1.25rem 0;
+    flex: 1;
+  }
+
+  .am-home-triptych__cta-wrap {
+    margin-top: auto;
+  }
+</style>

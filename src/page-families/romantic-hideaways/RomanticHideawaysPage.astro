@@ -1,0 +1,392 @@
+---
+/**
+ * AMARA Romantic Hideaways — collection landing (from AI Studio import).
+ * Shell: BaseLayout + Navigation + single .am-root > .am-wrap.
+ */
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Navigation from '../../components/Navigation.astro';
+import TrustHero from '../../components/hero/TrustHero.astro';
+import ApartmentCard from '../../components/location/ApartmentCard.astro';
+import ApartmentGrid from '../../components/location/ApartmentGrid.astro';
+import GuestReviewsSummary from '../../components/location/GuestReviewsSummary.astro';
+import { resolveLink } from '../../lib/linkResolver';
+import { normalizeLanguage } from '../../lib/seo/resolve-seo-head';
+import type { AmaraAuthoringSeo, AmaraLanguage } from '../../types/seo';
+
+interface Props {
+  lang?: string;
+}
+
+const { lang = 'es' } = Astro.props;
+const currentLang = normalizeLanguage(lang as AmaraLanguage);
+
+const seo: AmaraAuthoringSeo = {
+  version: '2026-04-04-romantic-hideaways-v1.0-C',
+  pageType: 'C',
+  entityKey: 'amara-brand',
+  languages: {
+    en: {
+      title: 'AMARA Romantic Hideaways | Boutique Stays in Frigiliana & Nerja',
+      description:
+        'Design-led boutique apartments for couples in Frigiliana and Nerja — curated hosting, verified guest love, direct booking.',
+      robots: 'index, follow',
+      canonical: 'auto'
+    },
+    de: {
+      title: 'AMARA Romantic Hideaways | Boutique-Unterkünfte in Frigiliana & Nerja',
+      description:
+        'Design-geführte Boutique-Apartments für Paare in Frigiliana und Nerja — kuratiertes Hosting, verifizierte Gästeliebe, Direktbuchung.',
+      robots: 'index, follow',
+      canonical: 'auto'
+    },
+    es: {
+      title: 'AMARA Romantic Hideaways | Estancias boutique en Frigiliana y Nerja',
+      description:
+        'Apartamentos boutique para parejas en Frigiliana y Nerja — hospitalidad curada, reseñas verificadas, reserva directa.',
+      robots: 'index, follow',
+      canonical: 'auto'
+    },
+    nl: {
+      title: 'AMARA Romantic Hideaways | Boutiqueverblijven in Frigiliana & Nerja',
+      description:
+        'Design-led boutique-appartementen voor koppels in Frigiliana en Nerja — gecureerde hosting, geverifieerde reviews, direct boeken.',
+      robots: 'index, follow',
+      canonical: 'auto'
+    },
+    sv: {
+      title: 'AMARA Romantic Hideaways | Boutiqueboenden i Frigiliana & Nerja',
+      description:
+        'Designledda boutiquelägenheter för par i Frigiliana och Nerja — kurerad värdskap, verifierade omdömen, direktbokning.',
+      robots: 'index, follow',
+      canonical: 'auto'
+    }
+  },
+  ogImage: '/images/hero-frigiliana.jpg'
+};
+
+type CopyRow = Record<AmaraLanguage, string>;
+
+const copy = {
+  heroSubtitle: {
+    en: 'AMARA Romantic Hideaways',
+    de: 'AMARA Romantic Hideaways',
+    es: 'AMARA Romantic Hideaways',
+    nl: 'AMARA Romantic Hideaways',
+    sv: 'AMARA Romantic Hideaways'
+  } satisfies CopyRow,
+  heroTitleHtml: {
+    en: 'Design-led stays for couples<br />Frigiliana &amp; Nerja, Andalusia',
+    de: 'Design-geführte Aufenthalte für Paare<br />Frigiliana &amp; Nerja, Andalusien',
+    es: 'Estancias con diseño para parejas<br />Frigiliana y Nerja, Andalucía',
+    nl: 'Designgedreven verblijven voor koppels<br />Frigiliana &amp; Nerja, Andalusië',
+    sv: 'Designledda vistelser för par<br />Frigiliana &amp; Nerja, Andalusien'
+  } satisfies CopyRow,
+  heroLead: {
+    en: 'A place to arrive, exhale, and truly stay — not just pass through.',
+    de: 'Ein Ort zum Ankommen, Durchatmen und wirklich Bleiben — nicht nur Durchreisen.',
+    es: 'Un lugar para llegar, exhalar y quedarse de verdad — no solo pasar.',
+    nl: 'Een plek om aan te komen, uit te ademen en echt te blijven — niet alleen door te reizen.',
+    sv: 'En plats att komma till, andas ut och verkligen stanna — inte bara passera.'
+  } satisfies CopyRow,
+  prose: {
+    en: [
+      'AMARA is a curated collection of private boutique apartments in the white village of Frigiliana, plus one calm seaside escape in Nerja. Created for guests who value privacy, atmosphere, and a slower rhythm of travel.',
+      'Casa AMARA in Frigiliana dates back more than 800 years and was carefully restored in 2022. Today, it stands as one of the village icons — quietly woven into the fabric of Frigiliana itself.',
+      'Award-winning. Consistently top-rated.<br />Direct booking available.'
+    ],
+    de: [
+      'AMARA ist eine kuratierte Sammlung privater Boutique-Apartments im weißen Dorf Frigiliana plus einem ruhigen Küstenort in Nerja. Für Gäste, die Privatsphäre, Atmosphäre und ein langsameres Reisetempo schätzen.',
+      'Casa AMARA in Frigiliana ist über 800 Jahre alt und wurde 2022 sorgfältig restauriert. Heute ist es eines der Dorfikonen — leise im Gefüge von Frigiliana verwoben.',
+      'Preisgekrönt. Dauerhaft top bewertet.<br />Direktbuchung möglich.'
+    ],
+    es: [
+      'AMARA es una colección curada de apartamentos boutique privados en el pueblo blanco de Frigiliana, más un refugio costero tranquilo en Nerja. Pensado para quienes valoran la privacidad, la atmósfera y un ritmo de viaje más pausado.',
+      'Casa AMARA en Frigiliana tiene más de 800 años y fue restaurada con mimo en 2022. Hoy es uno de los iconos del pueblo — tejida con discreción en la vida de Frigiliana.',
+      'Galardonada. Siempre muy valorada.<br />Reserva directa disponible.'
+    ],
+    nl: [
+      'AMARA is een gecureerde collectie privé boutique-appartementen in het witte dorp Frigiliana, plus één rustige kustontsnapping in Nerja. Voor gasten die privacy, sfeer en een langzamer reisritme waarderen.',
+      'Casa AMARA in Frigiliana is meer dan 800 jaar oud en werd in 2022 zorgvuldig gerestaureerd. Vandaag is het een van de dorpsiconen — onopvallend verweven met Frigiliana.',
+      'Bekroond. Steeds top beoordeeld.<br />Direct boeken mogelijk.'
+    ],
+    sv: [
+      'AMARA är en kurerad samling privata boutiquelägenheter i den vita byn Frigiliana, plus ett lugnt kustnära alternativ i Nerja. För gäster som värdesätter integritet, stämning och ett långsammare resande.',
+      'Casa AMARA i Frigiliana är mer än 800 år gammal och restaurerades omsorgsfullt 2022. Idag är det en av byns ikoner — diskret vävd in i Frigilianas väv.',
+      'Prisbelönt. Konsekvent topprankad.<br />Direktbokning finns.'
+    ]
+  } satisfies Record<AmaraLanguage, string[]>,
+  ctaBook: {
+    en: 'Check availability',
+    de: 'Verfügbarkeit prüfen',
+    es: 'Consultar disponibilidad',
+    nl: 'Beschikbaarheid bekijken',
+    sv: 'Se tillgänglighet'
+  } satisfies CopyRow,
+  ctaAmenities: {
+    en: 'Amenities & policies',
+    de: 'Ausstattung & Richtlinien',
+    es: 'Servicios y políticas',
+    nl: 'Voorzieningen en beleid',
+    sv: 'Bekvämligheter och policyer'
+  } satisfies CopyRow,
+  trustBooking: {
+    en: 'Booking.com Traveller Award',
+    de: 'Booking.com Traveller Award',
+    es: 'Booking.com Traveller Award',
+    nl: 'Booking.com Traveller Award',
+    sv: 'Booking.com Traveller Award'
+  } satisfies CopyRow,
+  trustAirbnb: {
+    en: '500+ verified Airbnb reviews',
+    de: '500+ verifizierte Airbnb-Bewertungen',
+    es: '500+ reseñas verificadas en Airbnb',
+    nl: '500+ geverifieerde Airbnb-reviews',
+    sv: '500+ verifierade Airbnb-recensioner'
+  } satisfies CopyRow,
+  trustDirect: {
+    en: 'Direct booking benefits',
+    de: 'Vorteile der Direktbuchung',
+    es: 'Ventajas de reserva directa',
+    nl: 'Voordelen van direct boeken',
+    sv: 'Fördelar med direktbokning'
+  } satisfies CopyRow,
+  collectionTitle: {
+    en: 'The AMARA collection',
+    de: 'Die AMARA-Kollektion',
+    es: 'La colección AMARA',
+    nl: 'De AMARA-collectie',
+    sv: 'AMARA-kollektionen'
+  } satisfies CopyRow,
+  collectionIntro: {
+    en: 'Each home follows the same hosting philosophy — they simply offer different ways to experience it.',
+    de: 'Jedes Zuhause folgt derselben Hosting-Philosophie — sie bieten nur unterschiedliche Arten, sie zu erleben.',
+    es: 'Cada hogar sigue la misma filosofía de acogida — solo ofrecen formas distintas de vivirla.',
+    nl: 'Elk huis volgt dezelfde hostingfilosofie — ze bieden slechts verschillende manieren om die te ervaren.',
+    sv: 'Varje hem följer samma värdskapsfilosofi — de erbjuder bara olika sätt att uppleva den.'
+  } satisfies CopyRow,
+  reviewsEyebrow: {
+    en: 'Guest-verified',
+    de: 'Gastverifiziert',
+    es: 'Verificado por huéspedes',
+    nl: 'Door gasten geverifieerd',
+    sv: 'Gästverifierat'
+  } satisfies CopyRow,
+  reviewsHeadline: {
+    en: 'Rated 4.95 out of 5 · 500+ verified guest reviews',
+    de: '4,95 von 5 · 500+ verifizierte Gästebewertungen',
+    es: '4,95 de 5 · 500+ reseñas verificadas',
+    nl: '4,95 van 5 · 500+ geverifieerde reviews',
+    sv: '4,95 av 5 · 500+ verifierade recensioner'
+  } satisfies CopyRow,
+  reviewsBody: {
+    en: 'Calm stays, terrace mornings, quiet nights, deep sleep — thoughtfully hosted.',
+    de: 'Ruhige Aufenthalte, Terrassenmorgen, leise Nächte, tiefer Schlaf — durchdacht betreut.',
+    es: 'Estancias tranquilas, mañanas en la terraza, noches en silencio, sueño profundo — con un cuidado meditado.',
+    nl: 'Rustige verblijven, terrasochtenden, stille nachten, diepe slaap — doordacht gehost.',
+    sv: 'Lugna vistelser, terrassmorgnar, tysta nätter, djup sömn — omsorgsfullt värdskap.'
+  } satisfies CopyRow,
+  reviewsCta: {
+    en: 'Read all guest reviews',
+    de: 'Alle Gästebewertungen lesen',
+    es: 'Leer todas las reseñas',
+    nl: 'Alle gastbeoordelingen lezen',
+    sv: 'Läs alla gästrecensioner'
+  } satisfies CopyRow
+};
+
+const t = <T extends Record<AmaraLanguage, string>>(row: T) => row[currentLang] ?? row.en;
+const tArr = (row: Record<AmaraLanguage, string[]>) => row[currentLang] ?? row.en;
+
+const trustLinks = [
+  { token: 'about', label: 'About AMARA' },
+  { token: 'reviews_hub', label: 'Guest Reviews' },
+  { token: 'direct_booking_benefits', label: 'Direct Booking Benefits' }
+];
+
+const footerHighlights = [
+  { token: 'amenities', label: t({ en: 'Amenities', de: 'Ausstattung', es: 'Servicios', nl: 'Voorzieningen', sv: 'Bekvämligheter' }) },
+  { token: 'faq_general', label: t({ en: 'Stay FAQ', de: 'Aufenthalts-FAQ', es: 'FAQ de la estancia', nl: 'Verblijfs-FAQ', sv: 'FAQ för vistelsen' }) },
+  { token: 'instagram', label: t({ en: 'Instagram', de: 'Instagram', es: 'Instagram', nl: 'Instagram', sv: 'Instagram' }) }
+];
+
+const featureChipsByLang: Record<AmaraLanguage, { label: string; note?: string }[]> = {
+  en: [
+    { label: 'Sea views', note: '(selected)' },
+    { label: 'Large private terraces' },
+    { label: 'Quiet locations' },
+    { label: 'Premium bedding' },
+    { label: 'Fast fibre WiFi' },
+    { label: 'Climate control' }
+  ],
+  de: [
+    { label: 'Meerblick', note: '(ausgew.)' },
+    { label: 'Große private Terrassen' },
+    { label: 'Ruhige Lagen' },
+    { label: 'Premium-Bettwäsche' },
+    { label: 'Schnelles Glasfaser-WLAN' },
+    { label: 'Klimatisierung' }
+  ],
+  es: [
+    { label: 'Vistas al mar', note: '(en parte)' },
+    { label: 'Grandes terrazas privadas' },
+    { label: 'Ubicaciones tranquilas' },
+    { label: 'Ropa de cama premium' },
+    { label: 'WiFi de fibra rápida' },
+    { label: 'Climatización' }
+  ],
+  nl: [
+    { label: 'Zeezicht', note: '(selectie)' },
+    { label: 'Grote privéterrassen' },
+    { label: 'Rustige locaties' },
+    { label: 'Premium beddengoed' },
+    { label: 'Snelle glasvezel-WiFi' },
+    { label: 'Klimaatregeling' }
+  ],
+  sv: [
+    { label: 'Havsutsikt', note: '(utvalt)' },
+    { label: 'Stora privata terrasser' },
+    { label: 'Tysta lägen' },
+    { label: 'Premium sängkläder' },
+    { label: 'Snabbt fiber-WiFi' },
+    { label: 'Klimatkontroll' }
+  ]
+};
+
+const apartments = [
+  {
+    token: 'farah' as const,
+    imageSrc: 'https://l.icdbcdn.com/oh/3c79ee18-d231-4066-bbce-1b20c4732057.jpg',
+    imageAlt: 'AMARA Farah – Romantic Boutique Stay in Frigiliana for couples',
+    meta: 'Frigiliana • 2 guests',
+    title: 'AMARA Farah – Boutique Retreat',
+    description: 'A romantic boutique room with character — ideal for shorter trips.',
+    ctaLabel: 'Explore Farah'
+  },
+  {
+    token: 'lounis' as const,
+    imageSrc: 'https://l.icdbcdn.com/oh/882b7732-0b8a-4d00-b9af-16271f78d09e.jpg',
+    imageAlt: 'AMARA Lounis – Historic Frigiliana Apartment with terrace',
+    meta: 'Frigiliana • 2 guests',
+    title: 'AMARA Lounis – Historic Apartment',
+    description: 'Historic charm with terrace time and a sense of space.',
+    ctaLabel: 'Explore Apartment'
+  },
+  {
+    token: 'zaid' as const,
+    imageSrc: 'https://l.icdbcdn.com/oh/392c7773-50bf-4814-955d-da26457f6440.jpg',
+    imageAlt: 'AMARA Zaid – Frigiliana Apartment with private terrace',
+    meta: 'Frigiliana • 2 guests',
+    title: 'AMARA Zaid – Terrace Apartment',
+    description: 'A calm retreat with terrace — made for slow mornings.',
+    ctaLabel: 'Explore Apartment'
+  },
+  {
+    token: 'maha' as const,
+    imageSrc: 'https://l.icdbcdn.com/oh/3e9884fa-4453-4aa8-8dae-fb54d6a87456.jpg',
+    imageAlt: 'AMARA Maha – Romantic Penthouse Apartment in Frigiliana Old Town',
+    meta: 'Frigiliana • 2 guests',
+    title: 'AMARA Maha – Old Town Apartment',
+    description: 'A terrace apartment designed for lingering in the white village.',
+    ctaLabel: 'Explore Apartment'
+  },
+  {
+    token: 'playa' as const,
+    imageSrc: 'https://l.icdbcdn.com/oh/46e112f1-729d-4a76-9c7a-df53cb2e2626.jpg',
+    imageAlt: 'AMARA Playa – Coastal Nerja Apartment near the beach with sea view',
+    meta: 'Nerja • 2 guests',
+    title: 'AMARA Playa – Nerja Beach Apartment',
+    description: 'A relaxed seaside base for couples who want the sea close by.',
+    ctaLabel: 'Explore Apartment'
+  },
+  {
+    token: 'casa' as const,
+    imageSrc: 'https://l.icdbcdn.com/oh/aa11c018-1653-4e74-9bcc-831dc0f8a3e7.jpg',
+    imageAlt: 'AMARA Ocean View Penthouse – Family & Surf holiday rental Tarifa',
+    meta: 'Tarifa • family stay',
+    title: 'AMARA Ocean View Penthouse',
+    description: 'A spacious home for surfers and families — intentionally different.',
+    ctaLabel: 'Explore Penthouse'
+  }
+];
+---
+
+<BaseLayout seo={seo} pageLang={currentLang} footerHighlights={footerHighlights}>
+  <Navigation
+    currentLang={currentLang}
+    brandName="AMARA"
+    links={trustLinks}
+    variant="trust"
+    languageToken="romantic_hideaways"
+  />
+
+  <div class="am-root bg-surface min-h-screen relative overflow-hidden" data-am-page="romantic-hideaways">
+    <div class="am-wrap w-full max-w-screen-2xl mx-auto px-6 md:px-12 pb-20">
+      <section class="pt-8 pb-16 md:pb-24 relative z-10">
+        <TrustHero
+          subtitle={t(copy.heroSubtitle)}
+          title={t(copy.heroTitleHtml)}
+          lead={t(copy.heroLead)}
+          ctaLinks={[]}
+        />
+
+        <div class="max-w-2xl space-y-5 mt-8 font-body text-lg text-on-surface-variant leading-relaxed">
+          {
+            tArr(copy.prose).map((html) => (
+              <p set:html={html} />
+            ))
+          }
+        </div>
+
+        <div class="flex flex-wrap items-center gap-4 mt-8">
+          <a class="am-btn am-btn--primary" href={resolveLink('book', currentLang)}>{t(copy.ctaBook)}</a>
+          <a class="am-btn am-btn--ghost" href={resolveLink('amenities', currentLang)}>{t(copy.ctaAmenities)}</a>
+        </div>
+
+        <div
+          class="flex flex-wrap items-center gap-x-8 gap-y-4 mt-12 pt-8 border-t border-border-subtle text-sm font-body text-on-surface-variant"
+          id="direct-booking"
+        >
+          <span>{t(copy.trustBooking)}</span>
+          <span>{t(copy.trustAirbnb)}</span>
+          <a class="am-inline-link" href={resolveLink('direct_booking_benefits', currentLang)}>{t(copy.trustDirect)}</a>
+        </div>
+      </section>
+
+      <section
+        id="booking"
+        class="py-16 md:py-24 border-t border-border-subtle relative z-10"
+        aria-labelledby="collection-title"
+      >
+        <div class="flex flex-col gap-6 max-w-3xl">
+          <h2 id="collection-title" class="am-section-title tracking-tight">{t(copy.collectionTitle)}</h2>
+          <p class="text-lg font-body text-on-surface-variant">{t(copy.collectionIntro)}</p>
+        </div>
+
+        <ApartmentGrid>
+          {
+            apartments.map((apt) => (
+              <ApartmentCard
+                href={resolveLink(apt.token, currentLang)}
+                imageSrc={apt.imageSrc}
+                imageAlt={apt.imageAlt}
+                meta={apt.meta}
+                title={apt.title}
+                description={apt.description}
+                ctaLabel={apt.ctaLabel}
+              />
+            ))
+          }
+        </ApartmentGrid>
+      </section>
+
+      <GuestReviewsSummary
+        eyebrow={t(copy.reviewsEyebrow)}
+        headline={t(copy.reviewsHeadline)}
+        body={t(copy.reviewsBody)}
+        reviewsHref={resolveLink('reviews_hub', currentLang)}
+        reviewsCtaLabel={t(copy.reviewsCta)}
+        features={featureChipsByLang[currentLang]}
+      />
+    </div>
+  </div>
+</BaseLayout>

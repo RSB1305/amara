@@ -59,7 +59,8 @@ const closingCtaLinks = content.closingCta.links.map((link) => ({
     languageToken="about"
     ctaLabel={page.navCtaLabel}
   />
-  <div class="bg-white max-w-[1400px] mx-auto px-[5vw]">
+  <div class="am-root bg-white" data-am-page="about">
+    <div class="am-wrap w-full max-w-[1400px] mx-auto px-[5vw]">
     <TrustHero
       subtitle={page.hero.subtitle}
       title={page.hero.titleHtml}
@@ -173,5 +174,6 @@ const closingCtaLinks = content.closingCta.links.map((link) => ({
         lang={currentLang}
       />
     </main>
+    </div>
   </div>
 </BaseLayout>

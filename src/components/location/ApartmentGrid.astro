@@ -1,0 +1,32 @@
+---
+/**
+ * Responsive grid shell for property cards (AMARA collection listings).
+ */
+---
+
+<div class="am-apartment-grid">
+  <slot />
+</div>
+
+<style>
+  @reference "../../styles/global.css";
+
+  .am-apartment-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 4rem 2rem;
+    margin-top: 4rem;
+  }
+
+  @media (min-width: 768px) {
+    .am-apartment-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .am-apartment-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+  }
+</style>

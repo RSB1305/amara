@@ -711,6 +711,8 @@ const sectionNavItems = getFrigilianaAuthoritySubnav(currentLang);
     locationAuthorityNav={true}
   />
   <SectionAnchorNav items={sectionNavItems} activeId="intro" />
+  <div class="am-root" data-am-page="frigiliana-location">
+    <div class="am-wrap w-full">
   <div id="intro">
   <Hero imageSrc={heroImage.src} imageAlt={heroImage.alt} imageWidth={heroImage.width} imageHeight={heroImage.height} imageSizes={heroImage.sizes} imageSources={heroImage.sources}>
     <span class="label-md text-primary mb-8 block font-bold">{c.hero.eyebrow}</span>
@@ -789,6 +791,8 @@ const sectionNavItems = getFrigilianaAuthoritySubnav(currentLang);
       allFaqsCta={c.faq.allFaqsCta}
     />
   </section>
+    </div>
+  </div>
 </LocationAuthorityLayout>
 
 <style>

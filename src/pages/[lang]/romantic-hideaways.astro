@@ -1,0 +1,19 @@
+---
+import RomanticHideawaysPage from '../../page-families/romantic-hideaways/RomanticHideawaysPage.astro';
+import { normalizeLanguage } from '../../lib/seo/resolve-seo-head';
+import type { AmaraLanguage } from '../../types/seo';
+
+export function getStaticPaths() {
+  return [
+    { params: { lang: 'en' } },
+    { params: { lang: 'de' } },
+    { params: { lang: 'nl' } },
+    { params: { lang: 'sv' } }
+  ];
+}
+
+const { lang } = Astro.params;
+const currentLang = normalizeLanguage(lang as AmaraLanguage);
+---
+
+<RomanticHideawaysPage lang={currentLang} />

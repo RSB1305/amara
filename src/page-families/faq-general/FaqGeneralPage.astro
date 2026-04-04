@@ -337,7 +337,8 @@ const sections = copy.sections.map((section, index) => ({
     currentToken="faq_general"
   />
 
-  <div class="am-exp-page" data-lang={currentLang}>
+  <div class="am-root bg-white" data-am-page="faq-general">
+    <div class="am-wrap w-full max-w-[1400px] mx-auto px-[5vw]" data-lang={currentLang}>
     <TrustHero
       subtitle={hero.kicker}
       title={hero.title}
@@ -454,18 +455,12 @@ const sections = copy.sections.map((section, index) => ({
           </section>
         ))}
       </main>
+    </div>
   </div>
 </BaseLayout>
 
 <style>
   @reference "../../styles/global.css";
-
-  .am-exp-page {
-    @apply bg-white;
-    max-width: 1400px;
-    margin: 0 auto;
-    padding: 0 5vw;
-  }
 
   .am-faq-main {
     padding-bottom: 5rem;
