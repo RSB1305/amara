@@ -172,6 +172,20 @@ function resolveOgImage(seo: AmaraAuthoringSeo | undefined, origin: string): str
   return seo?.ogImage ? new URL(seo.ogImage, origin).href : undefined;
 }
 
+function buildWebSiteNode(origin: string, defaultLang: string) {
+  const base = origin.replace(/\/+$/, '');
+  const supported: AmaraLanguage[] = ['en', 'de', 'es', 'nl', 'sv'];
+  const inLanguage = [defaultLang, ...supported.filter((code) => code !== defaultLang)];
+
+  return {
+    '@type': 'WebSite',
+    '@id': `${base}/#website`,
+    url: `${base}/`,
+    name: 'AMARA Lodging',
+    inLanguage
+  };
+}
+
 function buildWebPageNode(
   canonicalUrl: string,
   title: string,
@@ -194,14 +208,14 @@ function buildWebPageNode(
 
 function buildBrandNode(
   entity: BrandEntity,
-  canonicalUrl: string,
   origin: string
 ) {
   const sameAs = [entity.airbnbProfile].filter(Boolean);
+  const base = origin.replace(/\/+$/, '');
 
   return {
     '@type': 'Organization',
-    '@id': `${canonicalUrl}#organization`,
+    '@id': `${base}/#organization`,
     name: entity.name,
     url: entity.url,
     telephone: entity.telephone,
@@ -210,7 +224,7 @@ function buildBrandNode(
       '@type': 'Brand',
       name: entity.name
     },
-    logo: `${origin.replace(/\/+$/, '')}/favicon.svg`
+    logo: `${base}/favicon.svg`
   };
 }
 
@@ -242,20 +256,16 @@ function buildLodgingNode(
       longitude: entity.longitude
     },
     sameAs,
-    containsPlace: {
-      '@type': 'Accommodation',
-      name: entity.name,
-      numberOfBedrooms: entity.bedrooms,
-      occupancy: {
-        '@type': 'QuantitativeValue',
-        value: entity.occupancy
-      },
-      amenityFeature: (entity.amenities ?? []).map((amenity) => ({
-        '@type': 'LocationFeatureSpecification',
-        name: amenity,
-        value: true
-      }))
-    }
+    numberOfBedrooms: entity.bedrooms,
+    occupancy: {
+      '@type': 'QuantitativeValue',
+      value: entity.occupancy
+    },
+    amenityFeature: (entity.amenities ?? []).map((amenity) => ({
+      '@type': 'LocationFeatureSpecification',
+      name: amenity,
+      value: true
+    }))
   };
 }
 
@@ -280,6 +290,7 @@ export function resolveStructuredData(
   const ogImage = resolveOgImage(seo, origin);
 
   const graph: Array<Record<string, unknown>> = [
+    buildWebSiteNode(origin, 'es'),
     buildWebPageNode(
       canonicalUrl,
       current.title,
@@ -306,9 +317,9 @@ export function resolveStructuredData(
   if (seo?.pageType === 'C' && seo?.entityKey === 'amara-brand') {
     const brandEntity = ENTITY_REGISTRY['amara-brand'];
 
-if (brandEntity.kind === 'brand') {
-  graph.push(buildBrandNode(brandEntity, canonicalUrl, origin));
-}
+    if (brandEntity.kind === 'brand') {
+      graph.push(buildBrandNode(brandEntity, origin));
+    }
     return JSON.stringify({
       '@context': 'https://schema.org',
       '@graph': graph

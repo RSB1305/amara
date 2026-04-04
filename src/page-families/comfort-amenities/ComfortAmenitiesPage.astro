@@ -786,12 +786,7 @@ const properties: PropertyEntry[] = [
             </p>
 
             <p class="am-small mt-8 border-t border-outline-variant/20 pt-2.5 am-text-caption text-muted">
-              {page.aiLegalLabel}{' '}
-              <span
-                id="amara-ai-status-indicator"
-                class="inline-block size-3 rounded-full bg-primary align-middle ml-2.5 opacity-80 cursor-help transition-all duration-300 [&.status-ok]:bg-outline-variant [&.status-ok]:shadow-[var(--shadow-editorial-card)]"
-                title="Initializing..."
-              />
+              {page.aiLegalLabel}
             </p>
           </div>
         </section>
@@ -942,103 +937,5 @@ const properties: PropertyEntry[] = [
       ]
       </script>
 
-      <script is:inline>
-        /**
-         * AMARA LOCAL PATCH V3: Refined Inventory to CollectionPage/ItemList
-         * Logic: Scrapes canonical URLs from DOM elements with ID-matching.
-         * Safety: No hardcoded slugs, strict URL validation, includes identifiers.
-         */
-        (function () {
-          function initAmaraRefinedCollectionSchema() {
-            var indicator = document.getElementById('amara-ai-status-indicator');
-            var sourceDataScript = document.getElementById('amara-inventory-data');
-
-            if (!sourceDataScript) {
-              if (indicator) indicator.title = 'Waiting: Source JSON not found';
-              return false;
-            }
-
-            try {
-              var jsonContent = sourceDataScript.textContent.replace(/\u00A0/g, ' ').trim();
-              if (!jsonContent || jsonContent.length < 10) return false;
-
-              var internalData = JSON.parse(jsonContent);
-              var listItems = [];
-              var counter = 1;
-
-              internalData.forEach(function (item) {
-                var card = document.querySelector('[data-rental-id="' + item.property_id + '"]');
-                if (!card) return;
-
-                var linkElement =
-                  card.querySelector('.am-inline-link') ||
-                  card.querySelector('.am-btn--primary') ||
-                  card.querySelector('a[href]');
-
-                if (linkElement && linkElement.href) {
-                  listItems.push({
-                    '@type': 'ListItem',
-                    position: counter++,
-                    name: item.internal_name,
-                    identifier: item.property_id,
-                    url: linkElement.href
-                  });
-                }
-              });
-
-              if (listItems.length === 0) return false;
-
-              var collectionSchema = {
-                '@context': 'https://schema.org',
-                '@type': 'CollectionPage',
-                '@id': window.location.href.split('?')[0] + '#collection',
-                name: 'AMARA Lodging | Amenities & Property Inventory',
-                description: 'Comprehensive technical inventory and amenities overview of all AMARA holiday homes in Frigiliana, Nerja and Tarifa.',
-                mainEntity: {
-                  '@type': 'ItemList',
-                  numberOfItems: listItems.length,
-                  itemListElement: listItems
-                }
-              };
-
-              var oldScript = document.getElementById('amara-schema-json');
-              if (oldScript) oldScript.remove();
-
-              var scriptBlock = document.createElement('script');
-              scriptBlock.id = 'amara-schema-json';
-              scriptBlock.type = 'application/ld+json';
-              scriptBlock.text = JSON.stringify(collectionSchema);
-              (document.head || document.documentElement).appendChild(scriptBlock);
-
-              if (indicator) {
-                indicator.classList.add('status-ok');
-                indicator.title = 'AI Hub Mode: Precise Collection Schema Active';
-              }
-
-              return true;
-            } catch (e) {
-              if (indicator) indicator.title = 'Patch Error: ' + e.message;
-              return false;
-            }
-          }
-
-          function runFinalPatch() {
-            var tries = 0;
-            var timer = setInterval(function () {
-              tries++;
-              var cardsReady = document.querySelector('[data-rental-id] .am-btn--primary');
-              if ((cardsReady && initAmaraRefinedCollectionSchema()) || tries >= 25) {
-                clearInterval(timer);
-              }
-            }, 250);
-          }
-
-          if (document.readyState === 'loading') {
-            document.addEventListener('DOMContentLoaded', runFinalPatch, { once: true });
-          } else {
-            runFinalPatch();
-          }
-        })();
-      </script>
   </div>
 </BaseLayout>

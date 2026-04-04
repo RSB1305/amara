@@ -8,6 +8,14 @@ import {
   SUPPORTED_LANGUAGES
 } from '../routeOwnership';
 
+export const OG_LOCALES: Record<AmaraLanguage, string> = {
+  en: 'en_US',
+  de: 'de_DE',
+  es: 'es_ES',
+  nl: 'nl_NL',
+  sv: 'sv_SE'
+};
+
 export function normalizeLanguage(lang: string): AmaraLanguage {
   const clean = (lang || '').toLowerCase().split('-')[0] as AmaraLanguage;
   return SUPPORTED_LANGUAGES.includes(clean) ? clean : 'es';
@@ -107,10 +115,11 @@ export function resolveSeoHead(
 
   const canonicalUrl = buildLocalizedUrl(origin, slug, currentLang);
 
-  const hreflangs = ownedLanguages.map((lang) => ({
-    hreflang: lang,
-    href: buildLocalizedUrl(origin, slug, lang)
-  }));
+  const hreflangs: Array<{ hreflang: AmaraLanguage | 'x-default'; href: string }> =
+    ownedLanguages.map((lang) => ({
+      hreflang: lang,
+      href: buildLocalizedUrl(origin, slug, lang)
+    }));
 
   if (ownedLanguages.includes('es')) {
     hreflangs.push({

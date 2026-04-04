@@ -3,7 +3,11 @@
 import type { AmaraAuthoringSeo, AmaraLanguage } from '../types/seo';
 import BackToTop from '../components/BackToTop.astro';
 import Footer from '../components/Footer.astro';
-import { normalizeLanguage, resolveSeoHead } from '../lib/seo/resolve-seo-head';
+import {
+  normalizeLanguage,
+  OG_LOCALES,
+  resolveSeoHead
+} from '../lib/seo/resolve-seo-head';
 import { resolveStructuredData } from '../lib/seo/resolve-structured-data';
 import '../styles/global.css';
 
@@ -52,8 +56,25 @@ const ldJson = resolveStructuredData(seo, head.canonicalUrl, currentLang, origin
 
     {head.ogImage && <meta property="og:image" content={head.ogImage} />}
     <meta property="og:title" content={head.current.title} />
-    <meta property="og:description" content={head.current.description} /
+    <meta property="og:description" content={head.current.description} />
     <meta property="og:url" content={head.canonicalUrl} />
+    <meta property="og:locale" content={OG_LOCALES[currentLang]} />
+    {head.hreflangs
+      .filter((item) => item.hreflang !== 'x-default' && item.hreflang !== currentLang)
+      .map((item) => (
+        <meta
+          property="og:locale:alternate"
+          content={OG_LOCALES[item.hreflang as AmaraLanguage]}
+        />
+      ))}
+
+    <meta
+      name="twitter:card"
+      content={head.ogImage ? 'summary_large_image' : 'summary'}
+    />
+    <meta name="twitter:title" content={head.current.title} />
+    <meta name="twitter:description" content={head.current.description} />
+    {head.ogImage && <meta name="twitter:image" content={head.ogImage} />}
 
     {ldJson && <script type="application/ld+json" set:html={ldJson} />}
     <script type="application/json" data-amara="seo" set:html={head.seoBlock} />
