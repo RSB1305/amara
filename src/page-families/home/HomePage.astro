@@ -3,7 +3,7 @@ import { getImage } from 'astro:assets';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Navigation from '../../components/Navigation.astro';
 import HomeCinematicMain from '../../components/home/HomeCinematicMain.tsx';
-import { resolveLink } from '../../lib/linkResolver';
+import { resolveOptionalLink } from '../../lib/linkResolver';
 import { normalizeLanguage } from '../../lib/seo/resolve-seo-head';
 import type { AmaraAuthoringSeo, AmaraLanguage } from '../../types/seo';
 import {
@@ -108,8 +108,14 @@ const homeNavLinks = [
   { token: 'explore_hub', label: t(navExperiences), forceEnabled: true }
 ];
 
-const cinematicApartmentsProps = await Promise.all(
+const cinematicApartmentsProps = (
+  await Promise.all(
   cinematicApartments.map(async (apt) => {
+    const exploreHref = resolveOptionalLink(apt.token, currentLang, { suppressMissing: true });
+    if (!exploreHref) {
+      return null;
+    }
+
     const optimized = await getImage({
       src: homeImageByToken[apt.token],
       width: 600,
@@ -125,11 +131,14 @@ const cinematicApartmentsProps = await Promise.all(
       imgWidth: optimized.attributes.width as number,
       imgHeight: optimized.attributes.height as number,
       imgSrcSet: optimized.srcSet.attribute,
-      exploreHref: resolveLink(apt.token, currentLang),
+      exploreHref,
       exploreLabel: t(apt.exploreLabel)
     };
   })
-);
+  )
+).filter((apt): apt is NonNullable<typeof apt> => Boolean(apt));
+
+const trustReviewsHref = resolveOptionalLink('reviews_hub', currentLang, { suppressMissing: true });
 ---
 
 <BaseLayout seo={seo} pageLang={currentLang}>
@@ -171,7 +180,7 @@ const cinematicApartmentsProps = await Promise.all(
         trustQuote={t(cinematicTrustQuote)}
         trustChips={cinematicTrustChips[currentLang]}
         trustCta={t(cinematicTrustCta)}
-        trustReviewsHref={resolveLink('reviews_hub', currentLang)}
+        trustReviewsHref={trustReviewsHref}
       />
     </div>
   </div>

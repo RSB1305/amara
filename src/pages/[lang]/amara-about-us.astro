@@ -1,16 +1,13 @@
 ---
 import AboutUsPage from '../../page-families/amara-about-us/AboutUsPage.astro';
+import { getOwnedPageStaticPaths } from '../../lib/routeOwnership';
+import type { AmaraLanguage } from '../../types/seo';
 
 export function getStaticPaths() {
-  return [
-    { params: { lang: 'en' } },
-    { params: { lang: 'de' } },
-    { params: { lang: 'nl' } },
-    { params: { lang: 'sv' } }
-  ];
+  return getOwnedPageStaticPaths();
 }
 
-const { lang } = Astro.params;
+const { lang } = Astro.params as { lang: AmaraLanguage };
 ---
 
 <AboutUsPage lang={lang} />

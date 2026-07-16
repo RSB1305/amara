@@ -1,10 +1,6 @@
 ---
-import FaqGeneralLocalizedPage from './[lang]/faq-general.astro';
-
-const lang = 'es';
+import FaqGeneralPage from '../page-families/faq-general/FaqGeneralPage.astro';
+import { DEFAULT_LANGUAGE } from '../lib/routeOwnership';
 ---
 
-<div data-lang={lang}>
-  {/* @ts-ignore - Reuse localized page implementation for root Spanish route */}
-  <FaqGeneralLocalizedPage lang={lang} />
-</div>
+<FaqGeneralPage lang={DEFAULT_LANGUAGE} />

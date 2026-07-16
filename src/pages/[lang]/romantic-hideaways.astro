@@ -1,19 +1,13 @@
 ---
 import RomanticHideawaysPage from '../../page-families/romantic-hideaways/RomanticHideawaysPage.astro';
-import { normalizeLanguage } from '../../lib/seo/resolve-seo-head';
+import { getOwnedPageStaticPaths } from '../../lib/routeOwnership';
 import type { AmaraLanguage } from '../../types/seo';
 
 export function getStaticPaths() {
-  return [
-    { params: { lang: 'en' } },
-    { params: { lang: 'de' } },
-    { params: { lang: 'nl' } },
-    { params: { lang: 'sv' } }
-  ];
+  return getOwnedPageStaticPaths();
 }
 
-const { lang } = Astro.params;
-const currentLang = normalizeLanguage(lang as AmaraLanguage);
+const { lang } = Astro.params as { lang: AmaraLanguage };
 ---
 
-<RomanticHideawaysPage lang={currentLang} />
+<RomanticHideawaysPage lang={lang} />

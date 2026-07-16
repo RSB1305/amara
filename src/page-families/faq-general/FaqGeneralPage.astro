@@ -2,7 +2,7 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Navigation from '../../components/Navigation.astro';
 import TrustHero from '../../components/hero/TrustHero.astro';
-import { resolveLink } from '../../lib/linkResolver';
+import { resolveOptionalLink } from '../../lib/linkResolver';
 import { normalizeLanguage } from '../../lib/seo/resolve-seo-head';
 import type { AmaraAuthoringSeo, AmaraLanguage } from '../../types/seo';
 
@@ -316,6 +316,16 @@ const hero = {
   ctaAmenities: copy.hero.ctaAmenities[currentLang]
 };
 
+const heroCtaLinks = [
+  { token: 'about', label: copy.shared.ctaAbout[currentLang] },
+  { token: 'reviews_hub', label: copy.shared.ctaReviews[currentLang] }
+]
+  .map((link) => {
+    const href = resolveOptionalLink(link.token, currentLang, { suppressMissing: true });
+    return href ? { href, label: link.label } : null;
+  })
+  .filter((link): link is { href: string; label: string } => Boolean(link));
+
 const sections = copy.sections.map((section, index) => ({
   topic: section.topic[currentLang],
   image: section.image,
@@ -344,10 +354,7 @@ const sections = copy.sections.map((section, index) => ({
       title={hero.title}
       lead={hero.lead}
       supportText={copy.shared.supportText[currentLang]}
-      ctaLinks={[
-        { href: resolveLink('about', currentLang), label: copy.shared.ctaAbout[currentLang] },
-        { href: resolveLink('reviews_hub', currentLang), label: copy.shared.ctaReviews[currentLang] }
-      ]}
+      ctaLinks={heroCtaLinks}
     />
       <main class="am-faq-main space-y-16">
         {sections.map((section) => (

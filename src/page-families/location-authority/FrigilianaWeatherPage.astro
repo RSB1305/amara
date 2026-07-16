@@ -5,7 +5,7 @@ import SectionAnchorNav from '../../components/navigation/SectionAnchorNav.astro
 import SmartBackButton from '../../components/navigation/SmartBackButton.astro';
 import HairlineStatCard from '../../components/location/HairlineStatCard.astro';
 import SeasonalPillar from '../../components/location/SeasonalPillar.astro';
-import { resolveLink } from '../../lib/linkResolver';
+import { buildOwnedLocalizedPath } from '../../lib/routeOwnership';
 import { getFrigilianaAuthoritySubnav } from '../../lib/frigiliana/frigilianaAuthoritySubnav';
 import { normalizeLanguage } from '../../lib/seo/resolve-seo-head';
 import type { AmaraAuthoringSeo, AmaraLanguage } from '../../types/seo';
@@ -17,7 +17,8 @@ interface Props {
 const { lang = 'es' } = Astro.props;
 const currentLang = normalizeLanguage(lang as AmaraLanguage);
 const sectionNavItems = getFrigilianaAuthoritySubnav(currentLang);
-const locationBase = resolveLink('location_frigiliana', currentLang);
+const locationBase = buildOwnedLocalizedPath('frigiliana-location', currentLang);
+const arrivalGuideHref = buildOwnedLocalizedPath('directions-arrival-guide', currentLang);
 
 const seo: AmaraAuthoringSeo = {
   version: '2026-04-01-frigiliana-weather-v1.0-A',
@@ -295,7 +296,7 @@ const t = <T extends Record<AmaraLanguage, string>>(row: T) => row[currentLang] 
       <SmartBackButton
         variant="link"
         label={t(copy.header.back)}
-        fallbackHref={resolveLink('location_frigiliana', currentLang)}
+        fallbackHref={locationBase}
       />
 
       <header class="mb-20 border-b border-black/10 pb-12">
@@ -498,7 +499,7 @@ const t = <T extends Record<AmaraLanguage, string>>(row: T) => row[currentLang] 
                 {t(copy.related.links.structure)}
               </div>
             </a>
-            <a href={resolveLink('arrival_guide', currentLang)} class="rounded-[20px] border border-outline-variant/10 bg-surface/40 px-6 py-5 hover:bg-surface/70 transition-colors">
+            <a href={arrivalGuideHref} class="rounded-[20px] border border-outline-variant/10 bg-surface/40 px-6 py-5 hover:bg-surface/70 transition-colors">
               <div class="am-text-caption uppercase tracking-[0.18em] text-on-surface-variant/70">
                 {t(copy.related.links.arrival)}
               </div>
@@ -519,4 +520,3 @@ const t = <T extends Record<AmaraLanguage, string>>(row: T) => row[currentLang] 
     </div>
   </div>
 </LocationAuthorityLayout>
-

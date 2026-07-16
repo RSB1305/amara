@@ -1,5 +1,6 @@
 ---
-import LocalizedPage from './[lang]/directions-arrival-guide.astro';
-const lang = 'es';
+import DirectionsArrivalGuidePage from '../page-families/arrival-guide/DirectionsArrivalGuidePage.astro';
+import { DEFAULT_LANGUAGE } from '../lib/routeOwnership';
 ---
-<LocalizedPage lang={lang} />
+
+<DirectionsArrivalGuidePage lang={DEFAULT_LANGUAGE} />

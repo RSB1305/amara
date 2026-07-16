@@ -9,7 +9,8 @@ import TrustHero from '../../components/hero/TrustHero.astro';
 import ApartmentCard from '../../components/location/ApartmentCard.astro';
 import ApartmentGrid from '../../components/location/ApartmentGrid.astro';
 import GuestReviewsSummary from '../../components/location/GuestReviewsSummary.astro';
-import { resolveLink } from '../../lib/linkResolver';
+import { resolveOptionalLink } from '../../lib/linkResolver';
+import { isPublicLinkEnabled } from '../../lib/routeOwnership';
 import { normalizeLanguage } from '../../lib/seo/resolve-seo-head';
 import type { AmaraAuthoringSeo, AmaraLanguage } from '../../types/seo';
 
@@ -308,6 +309,20 @@ const apartments = [
     ctaLabel: 'Explore Penthouse'
   }
 ];
+
+const optionalLink = (token: string) =>
+  resolveOptionalLink(token, currentLang, { suppressMissing: true });
+const bookHref = isPublicLinkEnabled('book') ? optionalLink('book') : null;
+const amenitiesHref = optionalLink('amenities');
+const directBookingHref = optionalLink('direct_booking_benefits');
+const reviewsHref = optionalLink('reviews_hub');
+type ApartmentWithHref = (typeof apartments)[number] & { href: string };
+const apartmentsWithLinks: ApartmentWithHref[] = apartments
+  .map((apt) => {
+    const href = optionalLink(apt.token);
+    return href ? { ...apt, href } : null;
+  })
+  .filter((apt): apt is ApartmentWithHref => Boolean(apt));
 ---
 
 <BaseLayout seo={seo} pageLang={currentLang} footerHighlights={footerHighlights}>
@@ -338,8 +353,20 @@ const apartments = [
         </div>
 
         <div class="flex flex-wrap items-center gap-4 mt-8">
-          <a class="am-btn am-btn--primary" href={resolveLink('book', currentLang)}>{t(copy.ctaBook)}</a>
-          <a class="am-btn am-btn--ghost" href={resolveLink('amenities', currentLang)}>{t(copy.ctaAmenities)}</a>
+          {
+            bookHref ? (
+              <a class="am-btn am-btn--primary" href={bookHref}>{t(copy.ctaBook)}</a>
+            ) : (
+              <span class="am-btn am-btn--primary pointer-events-none opacity-60" aria-disabled="true">{t(copy.ctaBook)}</span>
+            )
+          }
+          {
+            amenitiesHref ? (
+              <a class="am-btn am-btn--ghost" href={amenitiesHref}>{t(copy.ctaAmenities)}</a>
+            ) : (
+              <span class="am-btn am-btn--ghost pointer-events-none opacity-60" aria-disabled="true">{t(copy.ctaAmenities)}</span>
+            )
+          }
         </div>
 
         <div
@@ -348,7 +375,13 @@ const apartments = [
         >
           <span>{t(copy.trustBooking)}</span>
           <span>{t(copy.trustAirbnb)}</span>
-          <a class="am-inline-link" href={resolveLink('direct_booking_benefits', currentLang)}>{t(copy.trustDirect)}</a>
+          {
+            directBookingHref ? (
+              <a class="am-inline-link" href={directBookingHref}>{t(copy.trustDirect)}</a>
+            ) : (
+              <span class="am-inline-link pointer-events-none opacity-60" aria-disabled="true">{t(copy.trustDirect)}</span>
+            )
+          }
         </div>
       </section>
 
@@ -364,9 +397,9 @@ const apartments = [
 
         <ApartmentGrid>
           {
-            apartments.map((apt) => (
+            apartmentsWithLinks.map((apt) => (
               <ApartmentCard
-                href={resolveLink(apt.token, currentLang)}
+                href={apt.href}
                 imageSrc={apt.imageSrc}
                 imageAlt={apt.imageAlt}
                 meta={apt.meta}
@@ -379,14 +412,18 @@ const apartments = [
         </ApartmentGrid>
       </section>
 
-      <GuestReviewsSummary
-        eyebrow={t(copy.reviewsEyebrow)}
-        headline={t(copy.reviewsHeadline)}
-        body={t(copy.reviewsBody)}
-        reviewsHref={resolveLink('reviews_hub', currentLang)}
-        reviewsCtaLabel={t(copy.reviewsCta)}
-        features={featureChipsByLang[currentLang]}
-      />
+      {
+        reviewsHref && (
+          <GuestReviewsSummary
+            eyebrow={t(copy.reviewsEyebrow)}
+            headline={t(copy.reviewsHeadline)}
+            body={t(copy.reviewsBody)}
+            reviewsHref={reviewsHref}
+            reviewsCtaLabel={t(copy.reviewsCta)}
+            features={featureChipsByLang[currentLang]}
+          />
+        )
+      }
     </div>
   </div>
 </BaseLayout>

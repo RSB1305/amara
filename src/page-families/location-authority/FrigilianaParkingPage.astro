@@ -11,7 +11,8 @@ import SectionAnchorNav from '../../components/navigation/SectionAnchorNav.astro
 import SmartBackButton from '../../components/navigation/SmartBackButton.astro';
 import ParkingRealityPillars from '../../components/location/ParkingRealityPillars.astro';
 import StayModels from '../../components/location/StayModels.astro';
-import { resolveLink } from '../../lib/linkResolver';
+import { resolveOptionalLink } from '../../lib/linkResolver';
+import { buildOwnedLocalizedPath, isPublicLinkEnabled } from '../../lib/routeOwnership';
 import { getFrigilianaAuthoritySubnav } from '../../lib/frigiliana/frigilianaAuthoritySubnav';
 import { normalizeLanguage } from '../../lib/seo/resolve-seo-head';
 import type { AmaraAuthoringSeo, AmaraLanguage } from '../../types/seo';
@@ -23,6 +24,10 @@ interface Props {
 const { lang = 'es' } = Astro.props;
 const currentLang = normalizeLanguage(lang as AmaraLanguage);
 const sectionNavItems = getFrigilianaAuthoritySubnav(currentLang);
+const locationFallbackHref = buildOwnedLocalizedPath('frigiliana-location', currentLang);
+const bookHref = isPublicLinkEnabled('book')
+  ? resolveOptionalLink('book', currentLang, { suppressMissing: true })
+  : null;
 
 function t(row: Record<AmaraLanguage, string>): string {
   return row[currentLang] ?? row.en;
@@ -480,7 +485,7 @@ const sectionLead = 'am-text-body text-on-surface-variant leading-relaxed italic
       <SmartBackButton
         variant="link"
         label={c.header.backLinkWord}
-        fallbackHref={resolveLink('location_frigiliana', currentLang)}
+        fallbackHref={locationFallbackHref}
       />
       <header class="mb-20 border-b border-black/10 pb-12">
         <span class="am-text-caption text-primary mb-4 block">{c.header.eyebrow}</span>
@@ -544,7 +549,13 @@ const sectionLead = 'am-text-body text-on-surface-variant leading-relaxed italic
           <h2 class="am-text-title italic text-on-surface">{c.amara.title}</h2>
           <p class={sectionLead}>{c.amara.body}</p>
           <p class="pt-2">
-            <a href={resolveLink('book', currentLang)} class="am-cta-link">{c.amara.cta}</a>
+            {
+              bookHref ? (
+                <a href={bookHref} class="am-cta-link">{c.amara.cta}</a>
+              ) : (
+                <span class="am-cta-link pointer-events-none opacity-60" aria-disabled="true">{c.amara.cta}</span>
+              )
+            }
           </p>
         </section>
       </div>

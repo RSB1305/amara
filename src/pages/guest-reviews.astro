@@ -1,7 +1,8 @@
 ---
 import GuestReviewsPage from '../page-families/guest-reviews/GuestReviewsPage.astro';
+import { DEFAULT_LANGUAGE } from '../lib/routeOwnership';
 
-const currentLang = 'es';
+const currentLang = DEFAULT_LANGUAGE;
 ---
 
 <GuestReviewsPage currentLang={currentLang} />

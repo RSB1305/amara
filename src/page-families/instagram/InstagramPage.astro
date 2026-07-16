@@ -1,6 +1,6 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import { resolveLink } from '../../lib/linkResolver';
+import { buildOwnedLocalizedPath } from '../../lib/routeOwnership';
 import { normalizeLanguage } from '../../lib/seo/resolve-seo-head';
 import type { AmaraAuthoringSeo, AmaraLanguage } from '../../types/seo';
 
@@ -81,6 +81,7 @@ const copy = {
 };
 
 const instagramUrl = 'https://www.instagram.com/';
+const homeHref = buildOwnedLocalizedPath('', currentLang);
 ---
 
 <BaseLayout seo={seo} pageLang={currentLang} footerVariant="trust">
@@ -95,7 +96,7 @@ const instagramUrl = 'https://www.instagram.com/';
         rel="noopener noreferrer">{copy.externalLabel[currentLang]}</a>
     </p>
     <p class="mt-10">
-      <a href={resolveLink('home', currentLang)} class="am-body text-on-surface/90 underline underline-offset-4 hover:text-primary">{copy.back[currentLang]}</a>
+      <a href={homeHref} class="am-body text-on-surface/90 underline underline-offset-4 hover:text-primary">{copy.back[currentLang]}</a>
     </p>
   </main>
 </BaseLayout>

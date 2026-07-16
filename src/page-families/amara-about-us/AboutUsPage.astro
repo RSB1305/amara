@@ -11,7 +11,7 @@ import SustainabilityBand from '../../components/editorial/SustainabilityBand.as
 import EditorialHostProfile from '../../components/editorial/EditorialHostProfile.astro';
 import EditorialClosingCta from '../../components/editorial/EditorialClosingCta.astro';
 import { getAboutUsPageData } from '../../content/aboutUsContent';
-import { resolveLink } from '../../lib/linkResolver';
+import { resolveOptionalLink } from '../../lib/linkResolver';
 import { normalizeLanguage } from '../../lib/seo/resolve-seo-head';
 import type { AmaraLanguage } from '../../types/seo';
 
@@ -47,6 +47,13 @@ const closingCtaLinks = content.closingCta.links.map((link) => ({
   token: link.token,
   label: link.label[currentLang]
 }));
+
+const heroCtaLinks = page.hero.ctaLinks
+  .map((link) => {
+    const href = resolveOptionalLink(link.token, currentLang, { suppressMissing: true });
+    return href ? { href, label: link.label } : null;
+  })
+  .filter((link): link is { href: string; label: string } => Boolean(link));
 ---
 
 <BaseLayout seo={page.seo} pageLang={currentLang} footerHighlights={page.footerHighlights}>
@@ -66,10 +73,7 @@ const closingCtaLinks = content.closingCta.links.map((link) => ({
       title={page.hero.titleHtml}
       lead={page.hero.lead}
       supportText={page.hero.supportText}
-      ctaLinks={page.hero.ctaLinks.map((link) => ({
-        href: resolveLink(link.token, currentLang),
-        label: link.label
-      }))}
+      ctaLinks={heroCtaLinks}
     />
 
     <main>

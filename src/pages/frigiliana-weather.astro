@@ -1,8 +1,6 @@
 ---
 import FrigilianaWeatherPage from '../page-families/location-authority/FrigilianaWeatherPage.astro';
-
-const lang = 'es';
+import { DEFAULT_LANGUAGE } from '../lib/routeOwnership';
 ---
 
-<FrigilianaWeatherPage lang={lang} />
-
+<FrigilianaWeatherPage lang={DEFAULT_LANGUAGE} />

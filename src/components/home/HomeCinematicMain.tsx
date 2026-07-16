@@ -42,7 +42,7 @@ export interface HomeCinematicMainProps {
   trustQuote: string;
   trustChips: string[];
   trustCta: string;
-  trustReviewsHref: string;
+  trustReviewsHref: string | null;
 }
 
 const FadeIn = ({
@@ -328,12 +328,14 @@ export default function HomeCinematicMain(props: HomeCinematicMainProps) {
               ))}
             </div>
 
-            <a
-              href={trustReviewsHref}
-              className="inline-flex items-center justify-center bg-surface px-8 py-4 am-text-caption uppercase tracking-widest text-on-surface transition-colors hover:bg-surface-container-high"
-            >
-              {trustCta}
-            </a>
+            {trustReviewsHref && (
+              <a
+                href={trustReviewsHref}
+                className="inline-flex items-center justify-center bg-surface px-8 py-4 am-text-caption uppercase tracking-widest text-on-surface transition-colors hover:bg-surface-container-high"
+              >
+                {trustCta}
+              </a>
+            )}
           </FadeIn>
         </div>
       </section>

@@ -4,7 +4,10 @@ import type {
   AmaraSeoLanguageEntry
 } from '../../types/seo';
 import {
+  buildOwnedLocalizedPath,
   getOwnedLanguagesForSlug,
+  getOwnedSlugFromPathname,
+  isSupportedLanguage,
   SUPPORTED_LANGUAGES
 } from '../routeOwnership';
 
@@ -18,33 +21,7 @@ export const OG_LOCALES: Record<AmaraLanguage, string> = {
 
 export function normalizeLanguage(lang: string): AmaraLanguage {
   const clean = (lang || '').toLowerCase().split('-')[0] as AmaraLanguage;
-  return SUPPORTED_LANGUAGES.includes(clean) ? clean : 'es';
-}
-
-function getSlugFromPathname(pathname: string): string {
-  const segments = pathname.split('/').filter(Boolean);
-  const first = segments[0];
-  const isLanguagePrefix = SUPPORTED_LANGUAGES.includes(first as AmaraLanguage);
-
-  return isLanguagePrefix ? segments.slice(1).join('/') : segments.join('/');
-}
-
-function buildLocalizedUrl(
-  origin: string,
-  slug: string,
-  lang: AmaraLanguage
-): string {
-  const normalizedOrigin = origin.replace(/\/+$/, '');
-
-  if (!slug) {
-    return lang === 'es'
-      ? `${normalizedOrigin}/`
-      : `${normalizedOrigin}/${lang}/`;
-  }
-
-  return lang === 'es'
-    ? `${normalizedOrigin}/${slug}`
-    : `${normalizedOrigin}/${lang}/${slug}`;
+  return isSupportedLanguage(clean) ? clean : 'es';
 }
 
 function resolveLanguageEntry(
@@ -110,21 +87,25 @@ export function resolveSeoHead(
     ...languageEntry,
     title: normalizeBrandTitle(languageEntry.title)
   };
-  const slug = getSlugFromPathname(pathname);
+  const slug = getOwnedSlugFromPathname(pathname);
   const ownedLanguages = getOwnedLanguagesForSlug(slug, currentLang);
+  const normalizedOrigin = origin.replace(/\/+$/, '');
 
-  const canonicalUrl = buildLocalizedUrl(origin, slug, currentLang);
+  const canonicalUrl = new URL(
+    buildOwnedLocalizedPath(slug, currentLang),
+    normalizedOrigin
+  ).href;
 
   const hreflangs: Array<{ hreflang: AmaraLanguage | 'x-default'; href: string }> =
     ownedLanguages.map((lang) => ({
       hreflang: lang,
-      href: buildLocalizedUrl(origin, slug, lang)
+      href: new URL(buildOwnedLocalizedPath(slug, lang), normalizedOrigin).href
     }));
 
   if (ownedLanguages.includes('es')) {
     hreflangs.push({
       hreflang: 'x-default',
-      href: buildLocalizedUrl(origin, slug, 'es')
+      href: new URL(buildOwnedLocalizedPath(slug, 'es'), normalizedOrigin).href
     });
   }
 

@@ -1,0 +1,613 @@
+import type { AmaraAuthoringSeo, AmaraLanguage } from '../types/seo';
+
+export const directBookingBenefitsSeo: AmaraAuthoringSeo = {
+
+  version: '2026-03-23-direct-booking-benefits-v1.0-C',
+
+  pageType: 'C',
+
+  entityKey: 'amara-brand',
+
+  languages: {
+
+    en: {
+
+      title: 'AMARA | Direct Booking Benefits',
+
+      description: 'Best price guarantee, direct host support, and guest-first benefits when booking directly with AMARA.',
+
+      robots: 'index, follow',
+
+      canonical: 'auto'
+
+    },
+
+    de: {
+
+      title: 'AMARA | Vorteile der Direktbuchung',
+
+      description: 'Bestpreis-Garantie, direkter Gastgeberkontakt und gästefokussierte Vorteile bei einer Direktbuchung mit AMARA.',
+
+      robots: 'index, follow',
+
+      canonical: 'auto'
+
+    },
+
+    es: {
+
+      title: 'AMARA | Ventajas de reservar directamente',
+
+      description: 'Mejor precio garantizado, contacto directo con el anfitrion y ventajas pensadas para el huesped al reservar con AMARA.',
+
+      robots: 'index, follow',
+
+      canonical: 'auto'
+
+    },
+
+    nl: {
+
+      title: 'AMARA | Voordelen van direct boeken',
+
+      description: 'Besteprijsgarantie, direct contact met de host en gastgerichte voordelen bij rechtstreeks boeken bij AMARA.',
+
+      robots: 'index, follow',
+
+      canonical: 'auto'
+
+    },
+
+    sv: {
+
+      title: 'AMARA | Fördelar med direktbokning',
+
+      description: 'Bästa pris-garanti, direkt kontakt med värden och gästfördelar när du bokar direkt med AMARA.',
+
+      robots: 'index, follow',
+
+      canonical: 'auto'
+
+    }
+
+  },
+
+  ogImage: '/images/hero-frigiliana.jpg'
+
+};
+
+export const directBookingBenefitsTrustLinks = [
+
+  { token: 'about', label: 'About AMARA' },
+
+  { token: 'reviews_hub', label: 'Guest Reviews' },
+
+  { token: 'direct_booking_benefits', label: 'Direct Booking Benefits' }
+
+];
+
+export const directBookingBenefitsFooterLabels = {
+
+  amenities: { en: 'Amenities', de: 'Ausstattung', es: 'Servicios', nl: 'Voorzieningen', sv: 'Bekvämligheter' },
+
+  faq_general: { en: 'Stay FAQ', de: 'Aufenthalts-FAQ', es: 'FAQ de la estancia', nl: 'Verblijfs-FAQ', sv: 'FAQ för vistelsen' },
+
+  instagram: { en: 'Instagram', de: 'Instagram', es: 'Instagram', nl: 'Instagram', sv: 'Instagram' }
+
+} as const;
+
+export const directBookingBenefitsCopy = {
+
+  hero: {
+
+    subtitle: {
+
+      en: 'Direct booking benefits',
+
+      de: 'Vorteile der Direktbuchung',
+
+      es: 'Ventajas de reservar directamente',
+
+      nl: 'Voordelen van direct boeken',
+
+      sv: 'Fördelar med direktbokning'
+
+    },
+
+    title: {
+
+      en: 'Book Direct with AMARA - receive exclusive guest benefits',
+
+      de: 'Direkt bei AMARA buchen - mit exklusiven Vorteilen für Gäste',
+
+      es: 'Reservad directamente con AMARA y disfrutad de ventajas exclusivas',
+
+      nl: 'Boek direct bij AMARA en ontvang exclusieve voordelen voor gasten',
+
+      sv: 'Boka direkt med AMARA och fa exklusiva gastfordelar'
+
+    },
+
+    lead: {
+
+      en: 'When you book directly with AMARA, you get the same beautiful stay - plus a few extras that make arrival easier and the experience more personal.',
+
+      de: 'Wenn ihr direkt bei AMARA bucht, bekommt ihr denselben schönen Aufenthalt - plus ein paar Extras, die die Anreise leichter und den Aufenthalt persönlicher machen.',
+
+      es: 'Cuando reservais directamente con AMARA, disfrutais de la misma estancia preciosa, con algunos extras que hacen la llegada mas facil y la experiencia mas personal.',
+
+      nl: 'Wanneer jullie direct bij AMARA boeken, krijgen jullie hetzelfde mooie verblijf - plus een paar extra\'s die de aankomst makkelijker en de ervaring persoonlijker maken.',
+
+      sv: 'Nar ni bokar direkt med AMARA far ni samma vackra vistelse - plus nagra extra detaljer som gor ankomsten enklare och upplevelsen mer personlig.'
+
+    },
+
+    supportText: {
+
+      en: 'Transparent, calm, and guest-first - without gimmicks.',
+
+      de: 'Transparent, ruhig und ganz auf euch als Gäste ausgerichtet - ohne Spielereien.',
+
+      es: 'Transparente, tranquilo y pensado para el huesped, sin artificios.',
+
+      nl: 'Transparant, rustig en helemaal gastgericht - zonder trucs.',
+
+      sv: 'Transparent, lugnt och helt gastfokuserat - utan gimmickar.'
+
+    },
+
+    ctaAbout: {
+
+      en: 'About Us',
+
+      de: 'Über uns',
+
+      es: 'Sobre nosotros',
+
+      nl: 'Over ons',
+
+      sv: 'Om oss'
+
+    },
+
+    ctaReviews: {
+
+      en: 'Guest Reviews',
+
+      de: 'Gästebewertungen',
+
+      es: 'Opiniones de huespedes',
+
+      nl: 'Gastbeoordelingen',
+
+      sv: 'Gastomdoemen'
+
+    }
+
+  },
+
+  benefits: [
+
+    {
+
+      title: {
+
+        en: 'Best price guarantee',
+
+        de: 'Bestpreis-Garantie',
+
+        es: 'Mejor precio garantizado',
+
+        nl: 'Besteprijsgarantie',
+
+        sv: 'Basta pris-garanti'
+
+      },
+
+      copy: {
+
+        en: 'You always get our best available price when booking directly - no hidden fees.',
+
+        de: 'Bei einer Direktbuchung bekommt ihr immer unseren besten verfügbaren Preis - ohne versteckte Gebühren.',
+
+        es: 'Al reservar directamente, siempre vereis nuestro mejor precio disponible, sin cargos ocultos.',
+
+        nl: 'Wanneer jullie direct boeken, krijgen jullie altijd onze beste beschikbare prijs - zonder verborgen kosten.',
+
+        sv: 'Nar ni bokar direkt far ni alltid vart basta tillgaengliga pris - utan dolda avgifter.'
+
+      }
+
+    },
+
+    {
+
+      title: {
+
+        en: 'Priority early check-in / late check-out',
+
+        de: 'Priorität für frühen Check-in / späten Check-out',
+
+        es: 'Prioridad para early check-in / late check-out',
+
+        nl: 'Voorrang voor vroege check-in / late check-out',
+
+        sv: 'Prioritet för tidig incheckning / sen utcheckning'
+
+      },
+
+      copy: {
+
+        en: 'When availability allows, we prioritize complimentary early check-in or late check-out.',
+
+        de: 'Wenn es die Verfügbarkeit zulässt, prüfen wir bevorzugt einen kostenfreien frühen Check-in oder späten Check-out.',
+
+        es: 'Cuando la disponibilidad lo permite, damos prioridad a un early check-in o late check-out sin coste.',
+
+        nl: 'Als de beschikbaarheid het toelaat, geven we voorrang aan een kosteloze vroege check-in of late check-out.',
+
+        sv: 'Nar tillgaengligheten tillater det prioriterar vi kostnadsfri tidig incheckning eller sen utcheckning.'
+
+      }
+
+    },
+
+    {
+
+      title: {
+
+        en: 'Welcome detail',
+
+        de: 'Kleine Aufmerksamkeit zur Begrüßung',
+
+        es: 'Detalle de bienvenida',
+
+        nl: 'Welkomstdetail',
+
+        sv: 'Vaelkomstdetalj'
+
+      },
+
+      copy: {
+
+        en: 'A small local welcome detail on arrival - simple, thoughtful, seasonal.',
+
+        de: 'Eine kleine lokale Aufmerksamkeit bei der Ankunft - schlicht, aufmerksam und saisonal gedacht.',
+
+        es: 'Un pequeno detalle local de bienvenida a la llegada: sencillo, cuidado y de temporada.',
+
+        nl: 'Een klein lokaal welkomstdetail bij aankomst - eenvoudig, attent en passend bij het seizoen.',
+
+        sv: 'En liten lokal vaelkomstgest vid ankomst - enkel, genomtaenkt och anpassad efter saesong.'
+
+      }
+
+    },
+
+    {
+
+      title: {
+
+        en: 'Direct line to host',
+
+        de: 'Direkter Kontakt zum Gastgeber',
+
+        es: 'Contacto directo con el anfitrion',
+
+        nl: 'Direct contact met de host',
+
+        sv: 'Direktkontakt med vaerden'
+
+      },
+
+      copy: {
+
+        en: 'A simpler route for questions and coordination before and during your stay.',
+
+        de: 'Ein direkter und unkomplizierter Weg für Fragen und Abstimmung vor und während eures Aufenthalts.',
+
+        es: 'Una via mas directa y sencilla para resolver dudas y coordinaros antes y durante la estancia.',
+
+        nl: 'Een directere en eenvoudigere manier voor vragen en afstemming voor en tijdens jullie verblijf.',
+
+        sv: 'En enklare och mer direkt kontaktväg för frågor och samordning före och under vistelsen.'
+
+      }
+
+    },
+
+    {
+
+      title: {
+
+        en: 'Flexible arrival guidance',
+
+        de: 'Flexible Anreisehilfe',
+
+        es: 'Ayuda flexible para la llegada',
+
+        nl: 'Flexibele aankomsthulp',
+
+        sv: 'Flexibel stoed vid ankomst'
+
+      },
+
+      copy: {
+
+        en: 'Clear check-in steps, parking tips, and help choosing the right apartment.',
+
+        de: 'Klare Schritte für den Check-in, Hinweise zum Parken und Hilfe bei der Wahl des passenden Apartments.',
+
+        es: 'Indicaciones claras para el check-in, consejos para aparcar y ayuda para elegir el apartamento adecuado.',
+
+        nl: 'Duidelijke stappen voor het inchecken, parkeertips en hulp bij het kiezen van het juiste appartement.',
+
+        sv: 'Tydliga steg för incheckning, tips om parkering och hjälp att välja rätt lägenhet.'
+
+      }
+
+    },
+
+    {
+
+      title: {
+
+        en: 'Clear & transparent terms',
+
+        de: 'Klare und transparente Bedingungen',
+
+        es: 'Condiciones claras y transparentes',
+
+        nl: 'Duidelijke en transparante voorwaarden',
+
+        sv: 'Tydliga och transparenta villkor'
+
+      },
+
+      copy: {
+
+        en: 'No surprises.',
+
+        de: 'Keine Überraschungen.',
+
+        es: 'Sin sorpresas.',
+
+        nl: 'Geen verrassingen.',
+
+        sv: 'Inga overaskningar.'
+
+      }
+
+    }
+
+  ],
+
+  sections: {
+
+    benefitsTitle: {
+
+      en: 'What you get when you book direct',
+
+      de: 'Was ihr bei einer Direktbuchung bekommt',
+
+      es: 'Que recibis al reservar directamente',
+
+      nl: 'Wat jullie krijgen als jullie direct boeken',
+
+      sv: 'Det ni far naer ni bokar direkt'
+
+    },
+
+    tip: {
+
+      en: "Tip: If you're not sure which apartment fits best, message us first - we'll guide you calmly and honestly.",
+
+      de: 'Tipp: Wenn ihr nicht sicher seid, welches Apartment am besten passt, schreibt uns zuerst - wir beraten euch ruhig und ehrlich.',
+
+      es: 'Consejo: si no teneis claro que apartamento os encaja mejor, escribidnos primero y os orientaremos con calma y honestidad.',
+
+      nl: 'Tip: als jullie niet zeker weten welk appartement het beste past, stuur ons eerst een bericht - we helpen jullie rustig en eerlijk verder.',
+
+      sv: 'Tips: om ni inte är säkra på vilken lägenhet som passar bäst, skriv till oss först - vi guidar er lugnt och ärligt.'
+
+    },
+
+    inlineReviews: {
+
+      en: 'Guest reviews',
+
+      de: 'Gästebewertungen',
+
+      es: 'Opiniones de huespedes',
+
+      nl: 'Gastbeoordelingen',
+
+      sv: 'Gastomdoemen'
+
+    },
+
+    inlineAbout: {
+
+      en: 'About AMARA',
+
+      de: 'Über AMARA',
+
+      es: 'Sobre AMARA',
+
+      nl: 'Over AMARA',
+
+      sv: 'Om AMARA'
+
+    },
+
+    quote: {
+
+      en: 'Direct bookings let us invest more into the details you actually feel.',
+
+      de: 'Direktbuchungen erlauben es uns, mehr in die Details zu investieren, die ihr wirklich spürt.',
+
+      es: 'Las reservas directas nos permiten invertir mas en los detalles que realmente se notan.',
+
+      nl: 'Met directe boekingen kunnen we meer investeren in de details die jullie echt voelen.',
+
+      sv: 'Direktbokningar laater oss investera mer i de detaljer som ni faktiskt kaenner.'
+
+    },
+
+    whyTitle: {
+
+      en: 'Why we prefer direct bookings',
+
+      de: 'Warum wir Direktbuchungen bevorzugen',
+
+      es: 'Por que preferimos las reservas directas',
+
+      nl: 'Waarom wij directe boekingen prefereren',
+
+      sv: 'Varför vi föredrar direktbokningar'
+
+    },
+
+    whyLead: {
+
+      en: 'Direct bookings let us invest more into the details you actually feel: quieter operations, better upkeep, and personal support.',
+
+      de: 'Direktbuchungen geben uns mehr Spielraum für die Details, die ihr wirklich merkt: ruhigere Abläufe, bessere Pflege und persönliche Unterstützung.',
+
+      es: 'Las reservas directas nos permiten invertir mas en los detalles que de verdad se notan: operaciones mas tranquilas, mejor mantenimiento y apoyo personal.',
+
+      nl: 'Directe boekingen geven ons meer ruimte om te investeren in de details die jullie echt merken: rustigere processen, beter onderhoud en persoonlijke ondersteuning.',
+
+      sv: 'Direktbokningar ger oss mer utrymme att investera i de detaljer som ni verkligen maerker: lugnare drift, baettre underhaall och personligt stoed.'
+
+    },
+
+    whyBody: {
+
+      en: 'It also keeps AMARA independent - designed around guests who value calm.',
+
+      de: 'So bleibt AMARA außerdem unabhängig - ausgerichtet auf Gäste, die Ruhe schätzen.',
+
+      es: 'Ademas, asi AMARA mantiene su independencia y sigue pensada para huespedes que valoran la calma.',
+
+      nl: 'Zo blijft AMARA ook onafhankelijk - ingericht rond gasten die rust waarderen.',
+
+      sv: 'Det håller också AMARA oberoende - utformat för gäster som värdesätter lugn.'
+
+    },
+
+    promiseTitle: {
+
+      en: 'A simple promise',
+
+      de: 'Ein einfaches Versprechen',
+
+      es: 'Una promesa sencilla',
+
+      nl: 'Een eenvoudige belofte',
+
+      sv: 'Ett enkelt loefte'
+
+    },
+
+    promiseP1: {
+
+      en: "If you find the exact same dates and conditions for a lower price elsewhere, tell us. We'll check it with you and do our best to match it fairly.",
+
+      de: 'Wenn ihr anderswo denselben Aufenthalt zu denselben Daten und Bedingungen günstiger findet, sagt uns Bescheid. Wir prüfen es mit euch und versuchen, den Preis fair anzugleichen.',
+
+      es: 'Si encontrais las mismas fechas y condiciones por un precio mas bajo en otro sitio, decidnoslo. Lo revisaremos con vosotros y haremos lo posible por igualarlo de forma justa.',
+
+      nl: 'Als jullie elders exact dezelfde data en voorwaarden voor een lagere prijs vinden, laat het ons weten. We kijken het samen met jullie na en doen ons best om dat eerlijk te evenaren.',
+
+      sv: 'Om ni hittar exakt samma datum och villkor till ett lägre pris någon annanstans, säg till oss. Vi går igenom det tillsammans med er och gör vårt bästa för att matcha det på ett schysst sätt.'
+
+    },
+
+    promiseP2: {
+
+      en: 'Since we do not offer artificial discounts on other platforms, the direct price is simply the fair, lower baseline.',
+
+      de: 'Da wir auf anderen Plattformen keine künstlichen Rabatte einsetzen, ist der Direktpreis einfach die faire, niedrigere Ausgangsbasis.',
+
+      es: 'Como no ofrecemos descuentos artificiales en otras plataformas, el precio directo es simplemente la base justa y mas baja.',
+
+      nl: 'Omdat we op andere platforms geen kunstmatige kortingen gebruiken, is de directe prijs gewoon het eerlijke, lagere uitgangspunt.',
+
+      sv: 'Eftersom vi inte arbetar med konstgjorda rabatter pa andra plattformar aor direktpriset helt enkelt den raettvisa, laegre utgaangspunkten.'
+
+    },
+
+    promiseNote: {
+
+      en: 'Same dates · same apartment · same cancellation terms.',
+
+      de: 'Gleiche Daten · gleiches Apartment · gleiche Stornierungsbedingungen.',
+
+      es: 'Mismas fechas · mismo apartamento · mismas condiciones de cancelacion.',
+
+      nl: 'Dezelfde data · hetzelfde appartement · dezelfde annuleringsvoorwaarden.',
+
+      sv: 'Samma datum · samma lägenhet · samma avbokningsvillkor.'
+
+    },
+
+    ctaTitle: {
+
+      en: 'Next step',
+
+      de: 'Nächster Schritt',
+
+      es: 'Siguiente paso',
+
+      nl: 'Volgende stap',
+
+      sv: 'Naesta steg'
+
+    },
+
+    ctaLead: {
+
+      en: 'Ready to plan your stay? Check availability directly - calm, transparent, and guest-first.',
+
+      de: 'Ihr möchtet euren Aufenthalt planen? Prüft die Verfügbarkeit direkt - ruhig, transparent und ganz auf euch als Gäste ausgerichtet.',
+
+      es: 'Listos para planear vuestra estancia? Consultad la disponibilidad directamente: con calma, transparencia y pensando en el huesped.',
+
+      nl: 'Klaar om jullie verblijf te plannen? Bekijk de beschikbaarheid direct - rustig, transparant en helemaal gastgericht.',
+
+      sv: 'Redo att planera vistelsen? Se tillgängligheten direkt - lugnt, transparent och helt med gästen i fokus.'
+
+    },
+
+    ctaAvailability: {
+
+      en: 'Check Availability',
+
+      de: 'Verfügbarkeit prüfen',
+
+      es: 'Ver disponibilidad',
+
+      nl: 'Beschikbaarheid bekijken',
+
+      sv: 'Se tillgaenglighet'
+
+    },
+
+    ctaExplore: {
+
+      en: 'Explore Locations',
+
+      de: 'Standorte entdecken',
+
+      es: 'Explorar destinos',
+
+      nl: 'Locaties ontdekken',
+
+      sv: 'Upptaeck platser'
+
+    }
+
+  }
+
+};
