@@ -7,13 +7,27 @@ interface Props {
   href: string;
   imageSrc: string;
   imageAlt: string;
+  imageWidth?: number;
+  imageHeight?: number;
+  loading?: 'eager' | 'lazy';
   meta: string;
   title: string;
   description: string;
   ctaLabel: string;
 }
 
-const { href, imageSrc, imageAlt, meta, title, description, ctaLabel } = Astro.props;
+const {
+  href,
+  imageSrc,
+  imageAlt,
+  imageWidth = 800,
+  imageHeight = 600,
+  loading = 'lazy',
+  meta,
+  title,
+  description,
+  ctaLabel
+} = Astro.props;
 ---
 
 <div class="am-apartment-card am-apartment-card--hover">
@@ -23,9 +37,9 @@ const { href, imageSrc, imageAlt, meta, title, description, ctaLabel } = Astro.p
         src={imageSrc}
         alt={imageAlt}
         class="am-apartment-card__image"
-        loading="lazy"
-        width="800"
-        height="600"
+        loading={loading}
+        width={imageWidth}
+        height={imageHeight}
       />
     </a>
   </figure>

@@ -88,32 +88,32 @@ export const aboutUsContent: AboutUsContent = {
     entityKey: 'amara-brand',
     languages: {
       en: {
-        title: 'AMARA | About Us',
-        description: 'Learn about the AMARA philosophy, hosting standards, quality principles, and the people behind the brand.',
+        title: 'About AMARA: Hosting Standards & Quality',
+        description: "Meet AMARA's hosting philosophy, quality standards, locations in Andalusia, and the people behind the apartments.",
         robots: 'index, follow',
         canonical: 'auto'
       },
       de: {
-        title: 'AMARA | Über uns',
-        description: 'Lernt die Philosophie von AMARA, unsere Gastgeberstandards, Qualitätsprinzipien und die Menschen hinter der Marke kennen.',
+        title: 'Über AMARA: Gastgeberstandard & Qualität',
+        description: 'Lernt AMARAs Philosophie, Qualitätsstandard, Standorte in Andalusien und die Menschen hinter den Apartments kennen.',
         robots: 'index, follow',
         canonical: 'auto'
       },
       es: {
-        title: 'AMARA | Sobre nosotros',
-        description: 'Conoce la filosofía de AMARA, sus estándares de alojamiento, principios de calidad y las personas detrás de la marca.',
+        title: 'Sobre AMARA: anfitrión, calidad y filosofía',
+        description: 'Conoce la filosofía de AMARA, su estándar de calidad, sus ubicaciones en Andalucía y las personas detrás de los apartamentos.',
         robots: 'index, follow',
         canonical: 'auto'
       },
       nl: {
-        title: 'AMARA | Over ons',
-        description: 'Leer de filosofie van AMARA, de hostingsstandaarden, kwaliteitsprincipes en de mensen achter het merk kennen.',
+        title: 'Over AMARA: hoststandaard & kwaliteit',
+        description: 'Leer AMARA kennen: onze filosofie, kwaliteitsstandaard, locaties in Andalusië en de mensen achter de appartementen.',
         robots: 'index, follow',
         canonical: 'auto'
       },
       sv: {
-        title: 'AMARA | Om oss',
-        description: 'Lär känna AMARAs filosofi, värdskapsstandarder, kvalitetsprinciper och människorna bakom varumärket.',
+        title: 'Om AMARA: värdskap, kvalitet & filosofi',
+        description: 'Lär känna AMARAs filosofi, kvalitetsstandard, platser i Andalusien och människorna bakom lägenheterna.',
         robots: 'index, follow',
         canonical: 'auto'
       }

@@ -3,14 +3,22 @@
  * AMARA Romantic Hideaways — collection landing (from AI Studio import).
  * Shell: BaseLayout + Navigation + single .am-root > .am-wrap.
  */
+import { getImage } from 'astro:assets';
+import type { ImageMetadata } from 'astro';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Navigation from '../../components/Navigation.astro';
 import TrustHero from '../../components/hero/TrustHero.astro';
 import ApartmentCard from '../../components/location/ApartmentCard.astro';
 import ApartmentGrid from '../../components/location/ApartmentGrid.astro';
 import GuestReviewsSummary from '../../components/location/GuestReviewsSummary.astro';
+import imgFarah from '../../assets/images/home/amara-farah-67-amara-frigiliana.jpg';
+import imgLounisMain from '../../assets/images/home/amara-lounis-15-amara-frigiliana.jpg';
+import imgLounisTerrace from '../../assets/images/home/amara-lounis-17-amara-frigiliana.jpg';
+import imgMaha from '../../assets/images/home/amara-maha-29-amara-frigiliana.jpg';
+import imgPlaya from '../../assets/images/home/amara-playa-chaparril-13.webp';
+import imgTarifa from '../../assets/images/home/amara-tarifa-apartment01.webp';
 import { resolveOptionalLink } from '../../lib/linkResolver';
-import { isPublicLinkEnabled } from '../../lib/routeOwnership';
+import { buildOwnedLocalizedPath } from '../../lib/routeOwnership';
 import { normalizeLanguage } from '../../lib/seo/resolve-seo-head';
 import type { AmaraAuthoringSeo, AmaraLanguage } from '../../types/seo';
 
@@ -27,37 +35,37 @@ const seo: AmaraAuthoringSeo = {
   entityKey: 'amara-brand',
   languages: {
     en: {
-      title: 'AMARA Romantic Hideaways | Boutique Stays in Frigiliana & Nerja',
+      title: 'Boutique Apartments for Couples in Frigiliana & Nerja',
       description:
-        'Design-led boutique apartments for couples in Frigiliana and Nerja — curated hosting, verified guest love, direct booking.',
+        'Private apartments for couples in Frigiliana and Nerja, with quiet locations, terraces, verified reviews, and direct host contact.',
       robots: 'index, follow',
       canonical: 'auto'
     },
     de: {
-      title: 'AMARA Romantic Hideaways | Boutique-Unterkünfte in Frigiliana & Nerja',
+      title: 'Apartments für Paare in Frigiliana & Nerja',
       description:
-        'Design-geführte Boutique-Apartments für Paare in Frigiliana und Nerja — kuratiertes Hosting, verifizierte Gästeliebe, Direktbuchung.',
+        'Private Apartments für Paare in Frigiliana und Nerja, mit ruhigen Lagen, Terrassen, geprüften Bewertungen und direktem Gastgeberkontakt.',
       robots: 'index, follow',
       canonical: 'auto'
     },
     es: {
-      title: 'AMARA Romantic Hideaways | Estancias boutique en Frigiliana y Nerja',
+      title: 'Apartamentos para parejas en Frigiliana y Nerja',
       description:
-        'Apartamentos boutique para parejas en Frigiliana y Nerja — hospitalidad curada, reseñas verificadas, reserva directa.',
+        'Apartamentos privados para parejas en Frigiliana y Nerja, con terrazas, ubicaciones tranquilas, reseñas verificadas y contacto directo.',
       robots: 'index, follow',
       canonical: 'auto'
     },
     nl: {
-      title: 'AMARA Romantic Hideaways | Boutiqueverblijven in Frigiliana & Nerja',
+      title: 'Appartementen voor koppels in Frigiliana & Nerja',
       description:
-        'Design-led boutique-appartementen voor koppels in Frigiliana en Nerja — gecureerde hosting, geverifieerde reviews, direct boeken.',
+        'Private appartementen voor koppels in Frigiliana en Nerja, met rustige liggingen, terrassen, geverifieerde reviews en direct hostcontact.',
       robots: 'index, follow',
       canonical: 'auto'
     },
     sv: {
-      title: 'AMARA Romantic Hideaways | Boutiqueboenden i Frigiliana & Nerja',
+      title: 'Lägenheter för par i Frigiliana & Nerja',
       description:
-        'Designledda boutiquelägenheter för par i Frigiliana och Nerja — kurerad värdskap, verifierade omdömen, direktbokning.',
+        'Privata lägenheter för par i Frigiliana och Nerja, med lugna lägen, terrasser, verifierade omdömen och direkt kontakt med värden.',
       robots: 'index, follow',
       canonical: 'auto'
     }
@@ -66,54 +74,63 @@ const seo: AmaraAuthoringSeo = {
 };
 
 type CopyRow = Record<AmaraLanguage, string>;
+type DecisionItem = {
+  kicker: string;
+  title: string;
+  body: string;
+};
+type FaqItem = {
+  question: string;
+  answer: string;
+};
 
 const copy = {
   heroSubtitle: {
-    en: 'AMARA Romantic Hideaways',
-    de: 'AMARA Romantic Hideaways',
-    es: 'AMARA Romantic Hideaways',
-    nl: 'AMARA Romantic Hideaways',
-    sv: 'AMARA Romantic Hideaways'
+    en: 'AMARA boutique apartments',
+    de: 'AMARA Boutique-Ferienwohnungen',
+    es: 'Apartamentos boutique AMARA',
+    nl: 'AMARA boutique-appartementen',
+    sv: 'AMARA boutiquelägenheter'
   } satisfies CopyRow,
   heroTitleHtml: {
-    en: 'Design-led stays for couples<br />Frigiliana &amp; Nerja, Andalusia',
-    de: 'Design-geführte Aufenthalte für Paare<br />Frigiliana &amp; Nerja, Andalusien',
-    es: 'Estancias con diseño para parejas<br />Frigiliana y Nerja, Andalucía',
-    nl: 'Designgedreven verblijven voor koppels<br />Frigiliana &amp; Nerja, Andalusië',
-    sv: 'Designledda vistelser för par<br />Frigiliana &amp; Nerja, Andalusien'
+    en: 'Boutique apartments for couples <br />Frigiliana &amp; Nerja',
+    de: 'Boutique-Ferienwohnungen für Paare <br />Frigiliana &amp; Nerja',
+    es: 'Apartamentos boutique para parejas <br />Frigiliana y Nerja',
+    nl: 'Boutique appartementen voor koppels <br />Frigiliana &amp; Nerja',
+    sv: 'Boutiquelägenheter för par <br />Frigiliana &amp; Nerja'
   } satisfies CopyRow,
   heroLead: {
-    en: 'A place to arrive, exhale, and truly stay — not just pass through.',
-    de: 'Ein Ort zum Ankommen, Durchatmen und wirklich Bleiben — nicht nur Durchreisen.',
-    es: 'Un lugar para llegar, exhalar y quedarse de verdad — no solo pasar.',
-    nl: 'Een plek om aan te komen, uit te ademen en echt te blijven — niet alleen door te reizen.',
-    sv: 'En plats att komma till, andas ut och verkligen stanna — inte bara passera.'
+    en: 'Private, design-led stays with calm locations, verified guest love, and direct host contact.',
+    de: 'Private, designgeführte Aufenthalte mit ruhigen Lagen, verifizierter Gästeliebe und direktem Gastgeberkontakt.',
+    es: 'Estancias privadas con diseño, ubicaciones tranquilas, cariño verificado de los huéspedes y contacto directo con el anfitrión.',
+    nl: 'Private designverblijven met rustige locaties, geverifieerde gastwaardering en direct contact met de host.',
+    sv: 'Privata, designledda vistelser med lugna lägen, verifierad gästuppskattning och direkt kontakt med värden.'
   } satisfies CopyRow,
   prose: {
     en: [
-      'AMARA is a curated collection of private boutique apartments in the white village of Frigiliana, plus one calm seaside escape in Nerja. Created for guests who value privacy, atmosphere, and a slower rhythm of travel.',
-      'Casa AMARA in Frigiliana dates back more than 800 years and was carefully restored in 2022. Today, it stands as one of the village icons — quietly woven into the fabric of Frigiliana itself.',
-      'Award-winning. Consistently top-rated.<br />Direct booking available.'
+      'AMARA is a curated collection of private boutique apartments in Frigiliana, with one calm seaside apartment in nearby Nerja. Each stay is designed for couples who want privacy, atmosphere, and a slower rhythm of travel.',
+      'Casa AMARA sits in the historic heart of Frigiliana. The house dates back more than 800 years and was carefully restored in 2022, balancing old village character with quiet, modern comfort.',
+      'Award-winning. Consistently top-rated. <br />Direct host contact available.'
     ],
     de: [
-      'AMARA ist eine kuratierte Sammlung privater Boutique-Apartments im weißen Dorf Frigiliana plus einem ruhigen Küstenort in Nerja. Für Gäste, die Privatsphäre, Atmosphäre und ein langsameres Reisetempo schätzen.',
-      'Casa AMARA in Frigiliana ist über 800 Jahre alt und wurde 2022 sorgfältig restauriert. Heute ist es eines der Dorfikonen — leise im Gefüge von Frigiliana verwoben.',
-      'Preisgekrönt. Dauerhaft top bewertet.<br />Direktbuchung möglich.'
+      'AMARA ist eine kuratierte Auswahl privater Boutique-Ferienwohnungen in Frigiliana, ergänzt durch ein ruhiges Apartment am Meer im nahen Nerja. Jede Unterkunft ist für Paare gestaltet, die Privatsphäre, Atmosphäre und ein langsameres Reisetempo schätzen.',
+      'Casa AMARA liegt im historischen Herzen von Frigiliana. Das Haus ist über 800 Jahre alt und wurde 2022 sorgfältig restauriert, mit altem Dorfcharakter und ruhigem, modernem Komfort.',
+      'Preisgekrönt. Dauerhaft top bewertet. <br />Direkter Gastgeberkontakt möglich.'
     ],
     es: [
-      'AMARA es una colección curada de apartamentos boutique privados en el pueblo blanco de Frigiliana, más un refugio costero tranquilo en Nerja. Pensado para quienes valoran la privacidad, la atmósfera y un ritmo de viaje más pausado.',
-      'Casa AMARA en Frigiliana tiene más de 800 años y fue restaurada con mimo en 2022. Hoy es uno de los iconos del pueblo — tejida con discreción en la vida de Frigiliana.',
-      'Galardonada. Siempre muy valorada.<br />Reserva directa disponible.'
+      'AMARA es una colección cuidada de apartamentos boutique privados en Frigiliana, con un apartamento tranquilo junto al mar en la cercana Nerja. Cada estancia está pensada para parejas que buscan privacidad, atmósfera y un ritmo de viaje más pausado.',
+      'Casa AMARA se encuentra en el corazón histórico de Frigiliana. La casa tiene más de 800 años y fue restaurada con mimo en 2022, combinando carácter de pueblo blanco y confort actual.',
+      'Galardonada. Siempre muy valorada. <br />Contacto directo con el anfitrión.'
     ],
     nl: [
-      'AMARA is een gecureerde collectie privé boutique-appartementen in het witte dorp Frigiliana, plus één rustige kustontsnapping in Nerja. Voor gasten die privacy, sfeer en een langzamer reisritme waarderen.',
-      'Casa AMARA in Frigiliana is meer dan 800 jaar oud en werd in 2022 zorgvuldig gerestaureerd. Vandaag is het een van de dorpsiconen — onopvallend verweven met Frigiliana.',
-      'Bekroond. Steeds top beoordeeld.<br />Direct boeken mogelijk.'
+      'AMARA is een zorgvuldig samengestelde collectie private boutique-appartementen in Frigiliana, met één rustig appartement aan zee in het nabijgelegen Nerja. Elke stay is ontworpen voor koppels die privacy, sfeer en een langzamer reistempo waarderen.',
+      'Casa AMARA ligt in het historische hart van Frigiliana. Het huis is meer dan 800 jaar oud en werd in 2022 zorgvuldig gerestaureerd, met dorpskarakter en rustig modern comfort.',
+      'Bekroond. Steeds top beoordeeld. <br />Direct contact met de host mogelijk.'
     ],
     sv: [
-      'AMARA är en kurerad samling privata boutiquelägenheter i den vita byn Frigiliana, plus ett lugnt kustnära alternativ i Nerja. För gäster som värdesätter integritet, stämning och ett långsammare resande.',
-      'Casa AMARA i Frigiliana är mer än 800 år gammal och restaurerades omsorgsfullt 2022. Idag är det en av byns ikoner — diskret vävd in i Frigilianas väv.',
-      'Prisbelönt. Konsekvent topprankad.<br />Direktbokning finns.'
+      'AMARA är en omsorgsfullt utvald samling privata boutiquelägenheter i Frigiliana, med en lugn havsnära lägenhet i närliggande Nerja. Varje vistelse är skapad för par som vill ha integritet, stämning och ett långsammare resande.',
+      'Casa AMARA ligger i Frigilianas historiska hjärta. Huset är mer än 800 år gammalt och restaurerades omsorgsfullt 2022, med bykaraktär och lugn modern komfort.',
+      'Prisbelönt. Konsekvent topprankad. <br />Direkt kontakt med värden finns.'
     ]
   } satisfies Record<AmaraLanguage, string[]>,
   ctaBook: {
@@ -122,6 +139,20 @@ const copy = {
     es: 'Consultar disponibilidad',
     nl: 'Beschikbaarheid bekijken',
     sv: 'Se tillgänglighet'
+  } satisfies CopyRow,
+  ctaCollection: {
+    en: 'View apartments',
+    de: 'Apartments ansehen',
+    es: 'Ver apartamentos',
+    nl: 'Appartementen bekijken',
+    sv: 'Visa lägenheter'
+  } satisfies CopyRow,
+  ctaReviews: {
+    en: 'Read reviews',
+    de: 'Bewertungen lesen',
+    es: 'Leer reseñas',
+    nl: 'Reviews lezen',
+    sv: 'Läs recensioner'
   } satisfies CopyRow,
   ctaAmenities: {
     en: 'Amenities & policies',
@@ -159,11 +190,161 @@ const copy = {
     sv: 'AMARA-kollektionen'
   } satisfies CopyRow,
   collectionIntro: {
-    en: 'Each home follows the same hosting philosophy — they simply offer different ways to experience it.',
-    de: 'Jedes Zuhause folgt derselben Hosting-Philosophie — sie bieten nur unterschiedliche Arten, sie zu erleben.',
-    es: 'Cada hogar sigue la misma filosofía de acogida — solo ofrecen formas distintas de vivirla.',
-    nl: 'Elk huis volgt dezelfde hostingfilosofie — ze bieden slechts verschillende manieren om die te ervaren.',
-    sv: 'Varje hem följer samma värdskapsfilosofi — de erbjuder bara olika sätt att uppleva den.'
+    en: 'Choose between white-village calm in Frigiliana, a beachside base in Nerja, and a larger Tarifa penthouse for guests who want more space.',
+    de: 'Wählen Sie zwischen ruhiger Weißdorf-Atmosphäre in Frigiliana, einem Apartment nahe am Strand in Nerja und einem größeren Penthouse in Tarifa für Gäste, die mehr Raum wünschen.',
+    es: 'Elige entre la calma de pueblo blanco en Frigiliana, una base junto al mar en Nerja y un ático más amplio en Tarifa para quienes buscan más espacio.',
+    nl: 'Kies tussen de rust van het witte dorp Frigiliana, een appartement bij zee in Nerja en een ruimer penthouse in Tarifa voor gasten die meer ruimte willen.',
+    sv: 'Välj mellan lugnet i den vita byn Frigiliana, ett havsnära boende i Nerja och en större penthouse i Tarifa för gäster som vill ha mer utrymme.'
+  } satisfies CopyRow,
+  decisionEyebrow: {
+    en: 'Choose the right base',
+    de: 'Die passende Basis wählen',
+    es: 'Elegid la base adecuada',
+    nl: 'Kies de juiste basis',
+    sv: 'Välj rätt bas'
+  } satisfies CopyRow,
+  decisionTitle: {
+    en: 'Which AMARA stay fits your trip?',
+    de: 'Welche AMARA-Unterkunft passt zu eurer Reise?',
+    es: '¿Qué estancia AMARA encaja con vuestro viaje?',
+    nl: 'Welke AMARA-stay past bij jullie reis?',
+    sv: 'Vilken AMARA-vistelse passar er resa?'
+  } satisfies CopyRow,
+  decisionIntro: {
+    en: 'Most couples compare atmosphere first, then walking, parking, terrace time, and beach access. This is the calm way to choose.',
+    de: 'Die meisten Paare vergleichen zuerst Atmosphäre, dann Wege, Parken, Terrassenzeit und Strandnähe. So bleibt die Auswahl ruhig.',
+    es: 'La mayoría de las parejas compara primero la atmósfera y después caminos, aparcamiento, terraza y playa. Así la elección se vuelve clara.',
+    nl: 'De meeste koppels vergelijken eerst sfeer, daarna lopen, parkeren, terrastijd en strandtoegang. Zo blijft kiezen rustig.',
+    sv: 'De flesta par jämför först känsla, sedan promenader, parkering, terrassliv och strandnära läge. Så blir valet lugnt.'
+  } satisfies CopyRow,
+  decisionItems: {
+    en: [
+      {
+        kicker: 'Frigiliana old town',
+        title: 'Best for atmosphere and slow evenings',
+        body: 'Choose Farah, Lounis, Zaid, or Maha if you want white-village character, quiet nights, terrace moments, and Nerja close enough for beach days.'
+      },
+      {
+        kicker: 'Nerja coast',
+        title: 'Best for beach-first stays',
+        body: 'Choose Playa if you want the sea nearby, easier beach routines, restaurants within reach, and a lighter coastal rhythm.'
+      },
+      {
+        kicker: 'Tarifa space',
+        title: 'Best when the trip is not only for two',
+        body: 'Choose Ocean View Penthouse when you need more room, surf energy, and a different base from the quiet couple apartments.'
+      }
+    ],
+    de: [
+      {
+        kicker: 'Altstadt Frigiliana',
+        title: 'Am besten für Atmosphäre und ruhige Abende',
+        body: 'Wählt Farah, Lounis, Zaid oder Maha, wenn ihr Weißdorf-Charakter, leise Nächte, Terrassenmomente und Nerja nah genug für Strandtage möchtet.'
+      },
+      {
+        kicker: 'Küste Nerja',
+        title: 'Am besten, wenn Strand wichtig ist',
+        body: 'Wählt Playa, wenn ihr das Meer nah haben möchtet, einfachere Strandtage plant, Restaurants erreichbar sein sollen und der Rhythmus leichter sein darf.'
+      },
+      {
+        kicker: 'Mehr Raum in Tarifa',
+        title: 'Am besten, wenn die Reise nicht nur zu zweit ist',
+        body: 'Wählt Ocean View Penthouse, wenn ihr mehr Platz, Surf-Energie und eine andere Basis als die ruhigen Apartments für Paare sucht.'
+      }
+    ],
+    es: [
+      {
+        kicker: 'Casco antiguo de Frigiliana',
+        title: 'Ideal para atmósfera y noches tranquilas',
+        body: 'Elegid Farah, Lounis, Zaid o Maha si buscáis carácter de pueblo blanco, noches silenciosas, terraza y Nerja lo bastante cerca para días de playa.'
+      },
+      {
+        kicker: 'Costa de Nerja',
+        title: 'Ideal si la playa es prioridad',
+        body: 'Elegid Playa si queréis tener el mar cerca, días de playa más sencillos, restaurantes a mano y un ritmo costero más ligero.'
+      },
+      {
+        kicker: 'Más espacio en Tarifa',
+        title: 'Ideal cuando el viaje no es solo para dos',
+        body: 'Elegid Ocean View Penthouse si necesitáis más espacio, energía de surf y una base distinta a los apartamentos tranquilos para parejas.'
+      }
+    ],
+    nl: [
+      {
+        kicker: 'Oude kern van Frigiliana',
+        title: 'Het best voor sfeer en rustige avonden',
+        body: 'Kies Farah, Lounis, Zaid of Maha als jullie wit dorpskarakter, stille nachten, terrasmomenten en Nerja dichtbij genoeg voor stranddagen willen.'
+      },
+      {
+        kicker: 'Kust van Nerja',
+        title: 'Het best als strand voorop staat',
+        body: 'Kies Playa als jullie de zee dichtbij willen, eenvoudige stranddagen plannen, restaurants binnen bereik willen en een lichter kustritme zoeken.'
+      },
+      {
+        kicker: 'Meer ruimte in Tarifa',
+        title: 'Het best als de reis niet alleen voor twee is',
+        body: 'Kies Ocean View Penthouse als jullie meer ruimte, surfenergie en een andere basis zoeken dan de rustige appartementen voor koppels.'
+      }
+    ],
+    sv: [
+      {
+        kicker: 'Frigilianas gamla stad',
+        title: 'Bäst för atmosfär och lugna kvällar',
+        body: 'Välj Farah, Lounis, Zaid eller Maha om ni vill ha vit bykänsla, tysta nätter, terrassliv och Nerja nära nog för stranddagar.'
+      },
+      {
+        kicker: 'Nerjas kust',
+        title: 'Bäst när stranden är viktigast',
+        body: 'Välj Playa om ni vill ha havet nära, enklare stranddagar, restauranger inom räckhåll och en lättare kustrytm.'
+      },
+      {
+        kicker: 'Mer utrymme i Tarifa',
+        title: 'Bäst när resan inte bara är för två',
+        body: 'Välj Ocean View Penthouse om ni behöver mer utrymme, surfenergi och en annan bas än de lugna lägenheterna för par.'
+      }
+    ]
+  } satisfies Record<AmaraLanguage, DecisionItem[]>,
+  locationBridgeEyebrow: {
+    en: 'Plan the stay',
+    de: 'Aufenthalt planen',
+    es: 'Planificar la estancia',
+    nl: 'Verblijf plannen',
+    sv: 'Planera vistelsen'
+  } satisfies CopyRow,
+  locationBridgeTitle: {
+    en: 'Frigiliana first, Nerja close by',
+    de: 'Frigiliana zuerst, Nerja ganz nah',
+    es: 'Frigiliana primero, Nerja muy cerca',
+    nl: 'Eerst Frigiliana, Nerja vlakbij',
+    sv: 'Frigiliana först, Nerja nära'
+  } satisfies CopyRow,
+  locationBridgeBody: {
+    en: 'Most AMARA stays are in Frigiliana, one of Andalusia’s most beautiful white villages. Nerja, beaches, parking guidance, and seasonal weather planning are close enough to keep the trip simple.',
+    de: 'Die meisten AMARA-Unterkünfte liegen in Frigiliana, einem der schönsten weißen Dörfer Andalusiens. Nerja, Strände, Parkhinweise und saisonale Wetterplanung bleiben nah genug, damit die Reise unkompliziert bleibt.',
+    es: 'La mayoría de las estancias AMARA están en Frigiliana, uno de los pueblos blancos más bonitos de Andalucía. Nerja, las playas, la información de aparcamiento y la planificación del clima quedan lo bastante cerca para que el viaje sea sencillo.',
+    nl: 'De meeste AMARA-verblijven liggen in Frigiliana, een van de mooiste witte dorpen van Andalusië. Nerja, stranden, parkeerinformatie en seizoensweer blijven dichtbij genoeg om de reis eenvoudig te houden.',
+    sv: 'De flesta AMARA-vistelser ligger i Frigiliana, en av Andalusiens vackraste vita byar. Nerja, stränder, parkeringsråd och säsongsväder finns tillräckligt nära för att resan ska kännas enkel.'
+  } satisfies CopyRow,
+  locationFrigiliana: {
+    en: 'Frigiliana guide',
+    de: 'Frigiliana-Guide',
+    es: 'Guía de Frigiliana',
+    nl: 'Frigiliana-gids',
+    sv: 'Guide till Frigiliana'
+  } satisfies CopyRow,
+  locationParking: {
+    en: 'Parking guide',
+    de: 'Parkguide',
+    es: 'Guía de aparcamiento',
+    nl: 'Parkeergids',
+    sv: 'Parkeringsguide'
+  } satisfies CopyRow,
+  locationWeather: {
+    en: 'Weather by month',
+    de: 'Wetter nach Monat',
+    es: 'Clima por mes',
+    nl: 'Weer per maand',
+    sv: 'Väder per månad'
   } satisfies CopyRow,
   reviewsEyebrow: {
     en: 'Guest-verified',
@@ -192,6 +373,126 @@ const copy = {
     es: 'Leer todas las reseñas',
     nl: 'Alle gastbeoordelingen lezen',
     sv: 'Läs alla gästrecensioner'
+  } satisfies CopyRow,
+  faqEyebrow: {
+    en: 'Before you book',
+    de: 'Vor der Buchung',
+    es: 'Antes de reservar',
+    nl: 'Voor het boeken',
+    sv: 'Innan ni bokar'
+  } satisfies CopyRow,
+  faqTitle: {
+    en: 'Questions couples usually ask',
+    de: 'Fragen, die Paare oft stellen',
+    es: 'Preguntas habituales de parejas',
+    nl: 'Vragen die koppels vaak stellen',
+    sv: 'Frågor som par ofta ställer'
+  } satisfies CopyRow,
+  faqIntro: {
+    en: 'Short answers for the practical decisions that matter before choosing an apartment.',
+    de: 'Kurze Antworten auf die praktischen Entscheidungen, die vor der Apartmentwahl wichtig sind.',
+    es: 'Respuestas breves para las decisiones prácticas antes de elegir apartamento.',
+    nl: 'Korte antwoorden op praktische keuzes die tellen voordat je een appartement kiest.',
+    sv: 'Korta svar på de praktiska val som spelar roll innan ni väljer lägenhet.'
+  } satisfies CopyRow,
+  faqItems: {
+    en: [
+      {
+        question: 'Is Frigiliana a good place for a romantic stay?',
+        answer: 'Yes. Frigiliana suits couples who want white-village atmosphere, quiet evenings, terrace time, and easy access to Nerja without staying directly on the coast.'
+      },
+      {
+        question: 'Should we choose Frigiliana or Nerja?',
+        answer: 'Choose Frigiliana for calm, views, and old-town character. Choose Nerja if beach access and a coastal routine are the main priority.'
+      },
+      {
+        question: 'Do the apartments suit longer stays?',
+        answer: 'Several AMARA apartments are designed for slow stays with private space, strong WiFi, thoughtful bedding, and practical self-catering comfort.'
+      },
+      {
+        question: 'What should we know about parking?',
+        answer: 'Frigiliana is a hillside village, so walking routes and luggage matter. The dedicated parking guide explains how to choose a comfortable base.'
+      }
+    ],
+    de: [
+      {
+        question: 'Ist Frigiliana gut für einen romantischen Aufenthalt?',
+        answer: 'Ja. Frigiliana passt zu Paaren, die Weißdorf-Atmosphäre, ruhige Abende, Terrassenzeit und Nähe zu Nerja möchten, ohne direkt an der Küste zu wohnen.'
+      },
+      {
+        question: 'Sollten wir Frigiliana oder Nerja wählen?',
+        answer: 'Wählt Frigiliana für Ruhe, Aussicht und Altstadtcharakter. Wählt Nerja, wenn Strandnähe und ein Küstenrhythmus wichtiger sind.'
+      },
+      {
+        question: 'Eignen sich die Apartments für längere Aufenthalte?',
+        answer: 'Mehrere AMARA Apartments sind für langsame Aufenthalte gedacht: privater Raum, starkes WLAN, gute Betten und praktischer Komfort zur Selbstversorgung.'
+      },
+      {
+        question: 'Was sollten wir über Parken wissen?',
+        answer: 'Frigiliana ist ein Hangdorf, deshalb zählen Wege und Gepäck. Der Parkguide erklärt, wie ihr eine komfortable Basis wählt.'
+      }
+    ],
+    es: [
+      {
+        question: '¿Frigiliana es buena para una escapada romántica?',
+        answer: 'Sí. Frigiliana encaja con parejas que buscan ambiente de pueblo blanco, noches tranquilas, terraza y Nerja cerca sin dormir directamente en la costa.'
+      },
+      {
+        question: '¿Conviene elegir Frigiliana o Nerja?',
+        answer: 'Elegid Frigiliana para calma, vistas y carácter de casco antiguo. Elegid Nerja si la playa y el ritmo costero son la prioridad.'
+      },
+      {
+        question: '¿Los apartamentos sirven para estancias más largas?',
+        answer: 'Varios apartamentos AMARA están pensados para estancias pausadas, con espacio privado, buen WiFi, camas cuidadas y comodidad para cocinar.'
+      },
+      {
+        question: '¿Qué hay que saber sobre el aparcamiento?',
+        answer: 'Frigiliana está en ladera, así que importan los caminos y el equipaje. La guía de aparcamiento explica cómo elegir una base cómoda.'
+      }
+    ],
+    nl: [
+      {
+        question: 'Is Frigiliana goed voor een romantisch verblijf?',
+        answer: 'Ja. Frigiliana past bij koppels die wit dorpsgevoel, rustige avonden, terrastijd en Nerja dichtbij willen zonder direct aan de kust te slapen.'
+      },
+      {
+        question: 'Kiezen we beter Frigiliana of Nerja?',
+        answer: 'Kies Frigiliana voor rust, uitzicht en oude dorpssfeer. Kies Nerja als strandtoegang en een kustritme belangrijker zijn.'
+      },
+      {
+        question: 'Zijn de appartementen geschikt voor langere verblijven?',
+        answer: 'Meerdere AMARA-appartementen zijn ontworpen voor langzame verblijven, met privéruimte, sterke WiFi, goed beddengoed en praktisch comfort.'
+      },
+      {
+        question: 'Wat moeten we weten over parkeren?',
+        answer: 'Frigiliana ligt op een helling, dus looproutes en bagage zijn belangrijk. De parkeergids helpt bij het kiezen van een comfortabele basis.'
+      }
+    ],
+    sv: [
+      {
+        question: 'Är Frigiliana bra för en romantisk vistelse?',
+        answer: 'Ja. Frigiliana passar par som vill ha vit bykänsla, lugna kvällar, terrassliv och Nerja nära utan att bo direkt vid kusten.'
+      },
+      {
+        question: 'Ska vi välja Frigiliana eller Nerja?',
+        answer: 'Välj Frigiliana för lugn, utsikt och gammal bykaraktär. Välj Nerja om strandläge och kustrytm är viktigast.'
+      },
+      {
+        question: 'Passar lägenheterna för längre vistelser?',
+        answer: 'Flera AMARA-lägenheter är gjorda för långsamma vistelser med privat utrymme, starkt WiFi, bra sängkomfort och praktisk självhushållning.'
+      },
+      {
+        question: 'Vad behöver vi veta om parkering?',
+        answer: 'Frigiliana ligger på en sluttning, så gångvägar och bagage spelar roll. Parkeringsguiden hjälper er att välja en bekväm bas.'
+      }
+    ]
+  } satisfies Record<AmaraLanguage, FaqItem[]>,
+  faqCta: {
+    en: 'Open full stay FAQ',
+    de: 'Alle Aufenthaltsfragen öffnen',
+    es: 'Ver FAQ completa',
+    nl: 'Open volledige verblijfs-FAQ',
+    sv: 'Öppna hela vistelse-FAQ'
   } satisfies CopyRow
 };
 
@@ -215,41 +516,31 @@ const featureChipsByLang: Record<AmaraLanguage, { label: string; note?: string }
     { label: 'Sea views', note: '(selected)' },
     { label: 'Large private terraces' },
     { label: 'Quiet locations' },
-    { label: 'Premium bedding' },
-    { label: 'Fast fibre WiFi' },
-    { label: 'Climate control' }
+    { label: 'Premium bedding' }
   ],
   de: [
     { label: 'Meerblick', note: '(ausgew.)' },
     { label: 'Große private Terrassen' },
     { label: 'Ruhige Lagen' },
-    { label: 'Premium-Bettwäsche' },
-    { label: 'Schnelles Glasfaser-WLAN' },
-    { label: 'Klimatisierung' }
+    { label: 'Premium-Bettwäsche' }
   ],
   es: [
     { label: 'Vistas al mar', note: '(en parte)' },
     { label: 'Grandes terrazas privadas' },
     { label: 'Ubicaciones tranquilas' },
-    { label: 'Ropa de cama premium' },
-    { label: 'WiFi de fibra rápida' },
-    { label: 'Climatización' }
+    { label: 'Ropa de cama premium' }
   ],
   nl: [
     { label: 'Zeezicht', note: '(selectie)' },
     { label: 'Grote privéterrassen' },
     { label: 'Rustige locaties' },
-    { label: 'Premium beddengoed' },
-    { label: 'Snelle glasvezel-WiFi' },
-    { label: 'Klimaatregeling' }
+    { label: 'Premium beddengoed' }
   ],
   sv: [
     { label: 'Havsutsikt', note: '(utvalt)' },
     { label: 'Stora privata terrasser' },
     { label: 'Tysta lägen' },
-    { label: 'Premium sängkläder' },
-    { label: 'Snabbt fiber-WiFi' },
-    { label: 'Klimatkontroll' }
+    { label: 'Premium sängkläder' }
   ]
 };
 
@@ -310,19 +601,296 @@ const apartments = [
   }
 ];
 
+type ApartmentToken = (typeof apartments)[number]['token'];
+
+interface LocalizedApartmentCopy {
+  imageAlt: CopyRow;
+  meta: CopyRow;
+  title: CopyRow;
+  description: CopyRow;
+  ctaLabel: CopyRow;
+}
+
+const apartmentImages: Record<ApartmentToken, ImageMetadata> = {
+  farah: imgFarah,
+  lounis: imgLounisMain,
+  zaid: imgLounisTerrace,
+  maha: imgMaha,
+  playa: imgPlaya,
+  casa: imgTarifa
+};
+
+const apartmentCopy: Record<ApartmentToken, LocalizedApartmentCopy> = {
+  farah: {
+    imageAlt: {
+      en: 'AMARA Farah boutique apartment in Frigiliana for couples',
+      de: 'AMARA Farah Boutique-Ferienwohnung in Frigiliana für Paare',
+      es: 'Apartamento boutique AMARA Farah en Frigiliana para parejas',
+      nl: 'AMARA Farah boutique-appartement in Frigiliana voor koppels',
+      sv: 'AMARA Farah boutiquelägenhet i Frigiliana för par'
+    },
+    meta: {
+      en: 'Frigiliana · 2 guests',
+      de: 'Frigiliana · 2 Gäste',
+      es: 'Frigiliana · 2 huéspedes',
+      nl: 'Frigiliana · 2 gasten',
+      sv: 'Frigiliana · 2 gäster'
+    },
+    title: {
+      en: 'AMARA Farah · Boutique Retreat',
+      de: 'AMARA Farah · Boutique-Retreat',
+      es: 'AMARA Farah · Refugio boutique',
+      nl: 'AMARA Farah · Boutique retreat',
+      sv: 'AMARA Farah · Boutiqueretreat'
+    },
+    description: {
+      en: 'A romantic boutique room with quiet character, ideal for shorter stays in Frigiliana.',
+      de: 'Ein romantisches Boutique-Zimmer mit ruhigem Charakter, ideal für kürzere Aufenthalte in Frigiliana.',
+      es: 'Una habitación boutique romántica y tranquila, ideal para estancias más cortas en Frigiliana.',
+      nl: 'Een romantische boutique-kamer met rustige uitstraling, ideaal voor kortere verblijven in Frigiliana.',
+      sv: 'Ett romantiskt boutiquerum med lugn karaktär, perfekt för kortare vistelser i Frigiliana.'
+    },
+    ctaLabel: {
+      en: 'Explore Farah',
+      de: 'Farah ansehen',
+      es: 'Ver Farah',
+      nl: 'Farah bekijken',
+      sv: 'Visa Farah'
+    }
+  },
+  lounis: {
+    imageAlt: {
+      en: 'AMARA Lounis historic apartment in Frigiliana with terrace',
+      de: 'AMARA Lounis historische Ferienwohnung in Frigiliana mit Terrasse',
+      es: 'Apartamento histórico AMARA Lounis en Frigiliana con terraza',
+      nl: 'AMARA Lounis historisch appartement in Frigiliana met terras',
+      sv: 'AMARA Lounis historisk lägenhet i Frigiliana med terrass'
+    },
+    meta: {
+      en: 'Frigiliana · 2 guests',
+      de: 'Frigiliana · 2 Gäste',
+      es: 'Frigiliana · 2 huéspedes',
+      nl: 'Frigiliana · 2 gasten',
+      sv: 'Frigiliana · 2 gäster'
+    },
+    title: {
+      en: 'AMARA Lounis · Historic Apartment',
+      de: 'AMARA Lounis · Historisches Apartment',
+      es: 'AMARA Lounis · Apartamento histórico',
+      nl: 'AMARA Lounis · Historisch appartement',
+      sv: 'AMARA Lounis · Historisk lägenhet'
+    },
+    description: {
+      en: 'Historic village character with terrace time and a generous sense of space.',
+      de: 'Historischer Dorfcharakter mit Terrasse und angenehm großzügigem Raumgefühl.',
+      es: 'Carácter histórico de pueblo blanco, terraza y una agradable sensación de amplitud.',
+      nl: 'Historisch dorpskarakter met terrastijd en een ruimtelijk gevoel.',
+      sv: 'Historisk bykänsla med terrassliv och en generös rymd.'
+    },
+    ctaLabel: {
+      en: 'Explore Lounis',
+      de: 'Lounis ansehen',
+      es: 'Ver Lounis',
+      nl: 'Lounis bekijken',
+      sv: 'Visa Lounis'
+    }
+  },
+  zaid: {
+    imageAlt: {
+      en: 'AMARA Zaid apartment in Frigiliana with private terrace',
+      de: 'AMARA Zaid Ferienwohnung in Frigiliana mit privater Terrasse',
+      es: 'Apartamento AMARA Zaid en Frigiliana con terraza privada',
+      nl: 'AMARA Zaid appartement in Frigiliana met privéterras',
+      sv: 'AMARA Zaid lägenhet i Frigiliana med privat terrass'
+    },
+    meta: {
+      en: 'Frigiliana · 2 guests',
+      de: 'Frigiliana · 2 Gäste',
+      es: 'Frigiliana · 2 huéspedes',
+      nl: 'Frigiliana · 2 gasten',
+      sv: 'Frigiliana · 2 gäster'
+    },
+    title: {
+      en: 'AMARA Zaid · Terrace Apartment',
+      de: 'AMARA Zaid · Terrassenapartment',
+      es: 'AMARA Zaid · Apartamento con terraza',
+      nl: 'AMARA Zaid · Appartement met terras',
+      sv: 'AMARA Zaid · Lägenhet med terrass'
+    },
+    description: {
+      en: 'A calm terrace retreat for slow mornings, village walks, and quiet evenings.',
+      de: 'Ein ruhiger Terrassen-Rückzugsort für langsame Morgen, Spaziergänge im Dorf und leise Abende.',
+      es: 'Un refugio tranquilo con terraza para mañanas lentas, paseos por el pueblo y noches en calma.',
+      nl: 'Een rustig terrasverblijf voor langzame ochtenden, dorpswandelingen en stille avonden.',
+      sv: 'En lugn terrassvistelse för långsamma morgnar, bypromenader och stilla kvällar.'
+    },
+    ctaLabel: {
+      en: 'Explore Zaid',
+      de: 'Zaid ansehen',
+      es: 'Ver Zaid',
+      nl: 'Zaid bekijken',
+      sv: 'Visa Zaid'
+    }
+  },
+  maha: {
+    imageAlt: {
+      en: 'AMARA Maha romantic old town apartment in Frigiliana',
+      de: 'AMARA Maha romantische Altstadt-Ferienwohnung in Frigiliana',
+      es: 'Apartamento romántico AMARA Maha en el casco antiguo de Frigiliana',
+      nl: 'AMARA Maha romantisch appartement in de oude kern van Frigiliana',
+      sv: 'AMARA Maha romantisk lägenhet i Frigilianas gamla stad'
+    },
+    meta: {
+      en: 'Frigiliana · 2 guests',
+      de: 'Frigiliana · 2 Gäste',
+      es: 'Frigiliana · 2 huéspedes',
+      nl: 'Frigiliana · 2 gasten',
+      sv: 'Frigiliana · 2 gäster'
+    },
+    title: {
+      en: 'AMARA Maha · Old Town Apartment',
+      de: 'AMARA Maha · Altstadt-Apartment',
+      es: 'AMARA Maha · Apartamento en el casco antiguo',
+      nl: 'AMARA Maha · Appartement in de oude kern',
+      sv: 'AMARA Maha · Lägenhet i gamla stan'
+    },
+    description: {
+      en: 'A village apartment designed for lingering, terrace moments, and slow evenings.',
+      de: 'Ein Dorfapartment für längere Momente, Terrassenzeit und ruhige Abende.',
+      es: 'Un apartamento de pueblo pensado para quedarse, disfrutar la terraza y bajar el ritmo.',
+      nl: 'Een dorpsappartement om te blijven hangen, met terrasmomenten en rustige avonden.',
+      sv: 'En bylägenhet för att dröja kvar, njuta av terrassen och ta kvällen långsamt.'
+    },
+    ctaLabel: {
+      en: 'Explore Maha',
+      de: 'Maha ansehen',
+      es: 'Ver Maha',
+      nl: 'Maha bekijken',
+      sv: 'Visa Maha'
+    }
+  },
+  playa: {
+    imageAlt: {
+      en: 'AMARA Playa Nerja apartment near the beach with sea view',
+      de: 'AMARA Playa Apartment in Nerja nahe am Strand mit Meerblick',
+      es: 'Apartamento AMARA Playa en Nerja cerca de la playa con vistas al mar',
+      nl: 'AMARA Playa appartement in Nerja bij het strand met zeezicht',
+      sv: 'AMARA Playa lägenhet i Nerja nära stranden med havsutsikt'
+    },
+    meta: {
+      en: 'Nerja · 2 guests',
+      de: 'Nerja · 2 Gäste',
+      es: 'Nerja · 2 huéspedes',
+      nl: 'Nerja · 2 gasten',
+      sv: 'Nerja · 2 gäster'
+    },
+    title: {
+      en: 'AMARA Playa · Nerja Beach Apartment',
+      de: 'AMARA Playa · Strandapartment in Nerja',
+      es: 'AMARA Playa · Apartamento junto al mar en Nerja',
+      nl: 'AMARA Playa · Strandappartement in Nerja',
+      sv: 'AMARA Playa · Strandlägenhet i Nerja'
+    },
+    description: {
+      en: 'A relaxed seaside base for couples who want Nerja, beaches, and the sea close by.',
+      de: 'Ein entspannter Ausgangspunkt am Meer für Paare, die Nerja, Strände und Meer nah haben möchten.',
+      es: 'Una base relajada junto al mar para parejas que quieren tener Nerja, playas y mar muy cerca.',
+      nl: 'Een ontspannen uitvalsbasis aan zee voor koppels die Nerja, stranden en zee dichtbij willen.',
+      sv: 'En avslappnad bas vid havet för par som vill ha Nerja, stränder och hav nära.'
+    },
+    ctaLabel: {
+      en: 'Explore Playa',
+      de: 'Playa ansehen',
+      es: 'Ver Playa',
+      nl: 'Playa bekijken',
+      sv: 'Visa Playa'
+    }
+  },
+  casa: {
+    imageAlt: {
+      en: 'AMARA Ocean View Penthouse in Tarifa for families and surf stays',
+      de: 'AMARA Ocean View Penthouse in Tarifa für Familien und Surf-Aufenthalte',
+      es: 'Ático AMARA Ocean View en Tarifa para familias y estancias de surf',
+      nl: 'AMARA Ocean View Penthouse in Tarifa voor gezinnen en surfverblijven',
+      sv: 'AMARA Ocean View Penthouse i Tarifa för familjer och surfvistelser'
+    },
+    meta: {
+      en: 'Tarifa · family stay',
+      de: 'Tarifa · Familienaufenthalt',
+      es: 'Tarifa · estancia familiar',
+      nl: 'Tarifa · gezinsverblijf',
+      sv: 'Tarifa · familjevistelse'
+    },
+    title: {
+      en: 'AMARA Ocean View Penthouse',
+      de: 'AMARA Ocean View Penthouse',
+      es: 'AMARA Ocean View Penthouse',
+      nl: 'AMARA Ocean View Penthouse',
+      sv: 'AMARA Ocean View Penthouse'
+    },
+    description: {
+      en: 'A larger ocean-view home for families and surf stays, intentionally different from the couple apartments.',
+      de: 'Ein größeres Zuhause mit Meerblick für Familien und Surf-Aufenthalte, bewusst anders als die Apartments für Paare.',
+      es: 'Una casa más amplia con vistas al mar para familias y viajes de surf, distinta a los apartamentos para parejas.',
+      nl: 'Een ruimer huis met zeezicht voor gezinnen en surfverblijven, bewust anders dan de appartementen voor koppels.',
+      sv: 'Ett större hem med havsutsikt för familjer och surfresor, medvetet annorlunda än parlägenheterna.'
+    },
+    ctaLabel: {
+      en: 'Explore Penthouse',
+      de: 'Penthouse ansehen',
+      es: 'Ver ático',
+      nl: 'Penthouse bekijken',
+      sv: 'Visa penthouse'
+    }
+  }
+};
+
 const optionalLink = (token: string) =>
   resolveOptionalLink(token, currentLang, { suppressMissing: true });
-const bookHref = isPublicLinkEnabled('book') ? optionalLink('book') : null;
-const amenitiesHref = optionalLink('amenities');
+const collectionHref = '#booking';
 const directBookingHref = optionalLink('direct_booking_benefits');
 const reviewsHref = optionalLink('reviews_hub');
-type ApartmentWithHref = (typeof apartments)[number] & { href: string };
-const apartmentsWithLinks: ApartmentWithHref[] = apartments
-  .map((apt) => {
+const faqHref = optionalLink('faq_general');
+const decisionItems = copy.decisionItems[currentLang] ?? copy.decisionItems.en;
+const faqItems = copy.faqItems[currentLang] ?? copy.faqItems.en;
+
+const locationBridgeLinks = [
+  { href: buildOwnedLocalizedPath('frigiliana-location', currentLang), label: t(copy.locationFrigiliana) },
+  { href: buildOwnedLocalizedPath('frigiliana-parking', currentLang), label: t(copy.locationParking) },
+  { href: buildOwnedLocalizedPath('frigiliana-weather', currentLang), label: t(copy.locationWeather) }
+];
+
+type ApartmentBase = Omit<
+  (typeof apartments)[number],
+  'imageSrc' | 'imageAlt' | 'meta' | 'title' | 'description' | 'ctaLabel'
+>;
+type ApartmentWithHref = ApartmentBase &
+  LocalizedApartmentCopy & {
+    href: string;
+    optimizedImage: Awaited<ReturnType<typeof getImage>>;
+  };
+const apartmentRows = await Promise.all(
+  apartments.map(async (apt) => {
     const href = optionalLink(apt.token);
-    return href ? { ...apt, href } : null;
+    if (!href) return null;
+
+    const optimizedImage = await getImage({
+      src: apartmentImages[apt.token],
+      width: 900,
+      format: 'webp'
+    });
+
+    return {
+      token: apt.token,
+      ...apartmentCopy[apt.token],
+      href,
+      optimizedImage
+    };
   })
-  .filter((apt): apt is ApartmentWithHref => Boolean(apt));
+);
+const apartmentsWithLinks: ApartmentWithHref[] = apartmentRows.filter(
+  (apt): apt is ApartmentWithHref => Boolean(apt)
+);
 ---
 
 <BaseLayout seo={seo} pageLang={currentLang} footerHighlights={footerHighlights}>
@@ -332,6 +900,8 @@ const apartmentsWithLinks: ApartmentWithHref[] = apartments
     links={trustLinks}
     variant="trust"
     languageToken="romantic_hideaways"
+    ctaLabel={t(copy.ctaCollection)}
+    ctaHref={collectionHref}
   />
 
   <div class="am-root bg-surface min-h-screen relative overflow-hidden" data-am-page="romantic-hideaways">
@@ -353,18 +923,12 @@ const apartmentsWithLinks: ApartmentWithHref[] = apartments
         </div>
 
         <div class="flex flex-wrap items-center gap-4 mt-8">
+          <a class="am-btn am-btn--primary" href={collectionHref}>{t(copy.ctaCollection)}</a>
           {
-            bookHref ? (
-              <a class="am-btn am-btn--primary" href={bookHref}>{t(copy.ctaBook)}</a>
+            reviewsHref ? (
+              <a class="am-btn am-btn--ghost" href={reviewsHref}>{t(copy.ctaReviews)}</a>
             ) : (
-              <span class="am-btn am-btn--primary pointer-events-none opacity-60" aria-disabled="true">{t(copy.ctaBook)}</span>
-            )
-          }
-          {
-            amenitiesHref ? (
-              <a class="am-btn am-btn--ghost" href={amenitiesHref}>{t(copy.ctaAmenities)}</a>
-            ) : (
-              <span class="am-btn am-btn--ghost pointer-events-none opacity-60" aria-disabled="true">{t(copy.ctaAmenities)}</span>
+              <span class="am-btn am-btn--ghost pointer-events-none opacity-60" aria-disabled="true">{t(copy.ctaReviews)}</span>
             )
           }
         </div>
@@ -386,8 +950,45 @@ const apartmentsWithLinks: ApartmentWithHref[] = apartments
       </section>
 
       <section
+        class="py-14 md:py-20 border-t border-border-subtle relative z-10"
+        aria-labelledby="decision-title"
+      >
+        <div class="grid gap-10 lg:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)] lg:items-start">
+          <div class="max-w-2xl">
+            <p class="font-label text-[11px] font-bold uppercase tracking-[0.14em] text-on-surface-variant">
+              {t(copy.decisionEyebrow)}
+            </p>
+            <h2 id="decision-title" class="am-text-title tracking-tight mt-4">
+              {t(copy.decisionTitle)}
+            </h2>
+            <p class="am-text-body text-on-surface-variant mt-5 leading-relaxed">
+              {t(copy.decisionIntro)}
+            </p>
+          </div>
+
+          <div class="grid gap-8 md:grid-cols-3">
+            {
+              decisionItems.map((item) => (
+                <article class="border-t border-border-subtle pt-5">
+                  <p class="font-label text-[11px] font-bold uppercase tracking-[0.14em] text-primary">
+                    {item.kicker}
+                  </p>
+                  <h3 class="am-text-subtitle text-on-surface mt-4">
+                    {item.title}
+                  </h3>
+                  <p class="am-text-body text-on-surface-variant mt-3 leading-relaxed">
+                    {item.body}
+                  </p>
+                </article>
+              ))
+            }
+          </div>
+        </div>
+      </section>
+
+      <section
         id="booking"
-        class="py-16 md:py-24 border-t border-border-subtle relative z-10"
+        class="scroll-mt-36 md:scroll-mt-40 py-16 md:py-24 border-t border-border-subtle relative z-10"
         aria-labelledby="collection-title"
       >
         <div class="flex flex-col gap-6 max-w-3xl">
@@ -400,16 +1001,86 @@ const apartmentsWithLinks: ApartmentWithHref[] = apartments
             apartmentsWithLinks.map((apt) => (
               <ApartmentCard
                 href={apt.href}
-                imageSrc={apt.imageSrc}
-                imageAlt={apt.imageAlt}
-                meta={apt.meta}
-                title={apt.title}
-                description={apt.description}
-                ctaLabel={apt.ctaLabel}
+                imageSrc={apt.optimizedImage.src}
+                imageAlt={t(apt.imageAlt)}
+                imageWidth={apt.optimizedImage.attributes.width}
+                imageHeight={apt.optimizedImage.attributes.height}
+                loading={['farah', 'lounis', 'zaid'].includes(apt.token) ? 'eager' : 'lazy'}
+                meta={t(apt.meta)}
+                title={t(apt.title)}
+                description={t(apt.description)}
+                ctaLabel={t(apt.ctaLabel)}
               />
             ))
           }
         </ApartmentGrid>
+      </section>
+
+      <section class="py-14 md:py-20 border-t border-border-subtle relative z-10" aria-labelledby="location-bridge-title">
+        <div class="max-w-3xl">
+          <p class="font-label text-[11px] font-bold uppercase tracking-[0.14em] text-on-surface-variant">
+            {t(copy.locationBridgeEyebrow)}
+          </p>
+          <h2 id="location-bridge-title" class="am-text-title tracking-tight mt-4">
+            {t(copy.locationBridgeTitle)}
+          </h2>
+          <p class="am-text-body text-on-surface-variant mt-5 leading-relaxed">
+            {t(copy.locationBridgeBody)}
+          </p>
+          <div class="flex flex-wrap gap-3 mt-7">
+            {
+              locationBridgeLinks.map((link) => (
+                <a class="am-btn am-btn--ghost" href={link.href}>{link.label}</a>
+              ))
+            }
+          </div>
+        </div>
+      </section>
+
+      <section
+        class="am-romantic-faq py-14 md:py-20 border-t border-border-subtle relative z-10"
+        aria-labelledby="romantic-faq-title"
+      >
+        <div class="max-w-3xl">
+          <p class="font-label text-[11px] font-bold uppercase tracking-[0.14em] text-on-surface-variant">
+            {t(copy.faqEyebrow)}
+          </p>
+          <h2 id="romantic-faq-title" class="am-text-title tracking-tight mt-4">
+            {t(copy.faqTitle)}
+          </h2>
+          <p class="am-text-body text-on-surface-variant mt-5 leading-relaxed">
+            {t(copy.faqIntro)}
+          </p>
+        </div>
+
+        <div class="mt-10 divide-y divide-border-subtle border-t border-border-subtle">
+          {
+            faqItems.map((item) => (
+              <details class="group py-6">
+                <summary class="flex cursor-pointer list-none items-center justify-between gap-6">
+                  <h3 class="am-text-subtitle text-on-surface">
+                    {item.question}
+                  </h3>
+                  <span class="text-on-surface-variant text-xl leading-none" aria-hidden="true">
+                    <span class="group-open:hidden">+</span>
+                    <span class="hidden group-open:inline">-</span>
+                  </span>
+                </summary>
+                <p class="am-text-body text-on-surface-variant mt-4 max-w-3xl leading-relaxed">
+                  {item.answer}
+                </p>
+              </details>
+            ))
+          }
+        </div>
+
+        {
+          faqHref && (
+            <a class="am-btn am-btn--ghost mt-8" href={faqHref}>
+              {t(copy.faqCta)}
+            </a>
+          )
+        }
       </section>
 
       {
@@ -427,3 +1098,9 @@ const apartmentsWithLinks: ApartmentWithHref[] = apartments
     </div>
   </div>
 </BaseLayout>
+
+<style>
+  .am-romantic-faq summary::-webkit-details-marker {
+    display: none;
+  }
+</style>

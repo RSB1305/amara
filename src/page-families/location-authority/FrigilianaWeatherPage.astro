@@ -19,6 +19,8 @@ const currentLang = normalizeLanguage(lang as AmaraLanguage);
 const sectionNavItems = getFrigilianaAuthoritySubnav(currentLang);
 const locationBase = buildOwnedLocalizedPath('frigiliana-location', currentLang);
 const arrivalGuideHref = buildOwnedLocalizedPath('directions-arrival-guide', currentLang);
+const parkingHref = buildOwnedLocalizedPath('frigiliana-parking', currentLang);
+const staysHref = buildOwnedLocalizedPath('romantic-hideaways', currentLang);
 
 const seo: AmaraAuthoringSeo = {
   version: '2026-04-01-frigiliana-weather-v1.0-A',
@@ -26,37 +28,37 @@ const seo: AmaraAuthoringSeo = {
   entityKey: 'amara-brand',
   languages: {
     en: {
-      title: 'Weather & Climate in Frigiliana | AMARA Location Guide',
+      title: 'Frigiliana Weather: Climate & Best Months',
       description:
-        'How Frigiliana’s hillside microclimate changes evenings, sleep comfort, and walking rhythm — and when it feels especially breathable.',
+        'Plan around Frigiliana weather, hillside microclimate, summer evenings, walking comfort, and the best months for a relaxed stay.',
       robots: 'index, follow',
       canonical: 'auto'
     },
     de: {
-      title: 'Wetter & Klima in Frigiliana | AMARA Ortsguide',
+      title: 'Wetter in Frigiliana: Klima & beste Reisezeit',
       description:
-        'Wie Frigilianas Hanglage Abende, Schlafkomfort und Gehrhythmus prägt — und wann es sich besonders angenehm anfühlt.',
+        'Plant mit Wetter, Mikroklima, Sommerabenden, Gehkomfort und der besten Reisezeit für einen ruhigen Aufenthalt in Frigiliana.',
       robots: 'index, follow',
       canonical: 'auto'
     },
     es: {
-      title: 'Tiempo y clima en Frigiliana | Guía AMARA',
+      title: 'Tiempo en Frigiliana: clima y mejores meses',
       description:
-        'Cómo el microclima en ladera cambia las tardes, el descanso nocturno y el ritmo de caminar — y cuándo se siente más respirable.',
+        'Planificad según el tiempo en Frigiliana, su microclima en ladera, las tardes de verano y los mejores meses para alojarse.',
       robots: 'index, follow',
       canonical: 'auto'
     },
     nl: {
-      title: 'Weer & klimaat in Frigiliana | AMARA locatiegids',
+      title: 'Weer in Frigiliana: klimaat & beste maanden',
       description:
-        'Hoe Frigiliana’s microklimaat op de heuvel avonden, slaapcomfort en loopritme beïnvloedt — en wanneer het extra aangenaam voelt.',
+        'Plan rond het weer in Frigiliana, het microklimaat op de heuvel, zomeravonden, wandelcomfort en de beste maanden voor verblijf.',
       robots: 'index, follow',
       canonical: 'auto'
     },
     sv: {
-      title: 'Väder & klimat i Frigiliana | AMARA platsguide',
+      title: 'Väder i Frigiliana: klimat & bästa månader',
       description:
-        'Hur Frigilianas microklimat på höjden påverkar kvällar, sömnkomfort och promenadrytm — och när det känns extra behagligt.',
+        'Planera efter vädret i Frigiliana, mikroklimatet på höjden, sommarkvällar, promenadkomfort och bästa månaderna för vistelse.',
       robots: 'index, follow',
       canonical: 'auto'
     }
@@ -68,14 +70,24 @@ const copy = {
     brand: { en: 'Frigiliana', de: 'Frigiliana', es: 'Frigiliana', nl: 'Frigiliana', sv: 'Frigiliana' },
     links: [
       { token: 'location_frigiliana', label: { en: 'Frigiliana', de: 'Frigiliana', es: 'Frigiliana', nl: 'Frigiliana', sv: 'Frigiliana' } },
-      { token: 'location_nerja', label: { en: 'Nerja', de: 'Nerja', es: 'Nerja', nl: 'Nerja', sv: 'Nerja' } },
       {
-        token: 'explore_hub',
-        label: { en: 'Experiences', de: 'Erlebnisse', es: 'Experiencias', nl: 'Ervaringen', sv: 'Upplevelser' }
+        token: 'frigiliana_parking',
+        label: { en: 'Parking', de: 'Parken', es: 'Aparcamiento', nl: 'Parkeren', sv: 'Parkering' }
+      },
+      {
+        token: 'arrival_guide',
+        label: { en: 'Arrival', de: 'Anreise', es: 'Llegada', nl: 'Aankomst', sv: 'Ankomst' }
       }
     ]
   },
   header: {
+    cta: {
+      en: 'View apartments',
+      de: 'Apartments ansehen',
+      es: 'Ver apartamentos',
+      nl: 'Appartementen bekijken',
+      sv: 'Se lägenheter'
+    },
     back: { en: 'Back', de: 'Zurück', es: 'Volver', nl: 'Terug', sv: 'Tillbaka' },
     eyebrow: {
       en: 'Weather & Climate · Frigiliana',
@@ -269,10 +281,10 @@ const copy = {
       sv: 'Relaterade Frigiliana-ämnen'
     },
     links: {
-      structure: { en: 'Village Structure', de: 'Dorfstruktur', es: 'Estructura del pueblo', nl: 'Dorpsstructuur', sv: 'Bystruktur' },
-      arrival: { en: 'Arrival Guide', de: 'Anreise', es: 'Llegada', nl: 'Aankomst', sv: 'Ankomst' },
-      faq: { en: 'FAQ', de: 'FAQ', es: 'FAQ', nl: 'FAQ', sv: 'FAQ' },
-      comparison: { en: 'Frigiliana vs Nerja', de: 'Frigiliana vs Nerja', es: 'Frigiliana vs Nerja', nl: 'Frigiliana vs Nerja', sv: 'Frigiliana vs Nerja' }
+      stay: { en: 'Where to stay', de: 'Unterkunft', es: 'Dónde alojarse', nl: 'Waar overnachten', sv: 'Var du bor' },
+      parking: { en: 'Parking & arrival', de: 'Parken & Anreise', es: 'Aparcamiento y llegada', nl: 'Parkeren & aankomst', sv: 'Parkering & ankomst' },
+      arrival: { en: 'Arrival Guide', de: 'Anreise-Guide', es: 'Guía de llegada', nl: 'Aankomstgids', sv: 'Ankomstguide' },
+      apartments: { en: 'Apartments for couples', de: 'Apartments für Paare', es: 'Apartamentos para parejas', nl: 'Appartementen voor koppels', sv: 'Lägenheter för par' }
     }
   }
 };
@@ -287,6 +299,8 @@ const t = <T extends Record<AmaraLanguage, string>>(row: T) => row[currentLang] 
     links={copy.nav.links.map((l) => ({ token: l.token, label: t(l.label) }))}
     languageToken="weather_frigiliana"
     locationAuthorityNav={true}
+    ctaLabel={t(copy.header.cta)}
+    ctaHref={staysHref}
   />
 
   <SectionAnchorNav items={sectionNavItems} activeId="weather" />
@@ -494,9 +508,14 @@ const t = <T extends Record<AmaraLanguage, string>>(row: T) => row[currentLang] 
         <section class="space-y-6">
           <h2 class="am-text-title italic text-on-surface">{t(copy.related.title)}</h2>
           <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            <a href={`${locationBase}#experiences`} class="rounded-[20px] border border-outline-variant/10 bg-surface/40 px-6 py-5 hover:bg-surface/70 transition-colors">
+            <a href={`${locationBase}#where-to-stay`} class="rounded-[20px] border border-outline-variant/10 bg-surface/40 px-6 py-5 hover:bg-surface/70 transition-colors">
               <div class="am-text-caption uppercase tracking-[0.18em] text-on-surface-variant/70">
-                {t(copy.related.links.structure)}
+                {t(copy.related.links.stay)}
+              </div>
+            </a>
+            <a href={parkingHref} class="rounded-[20px] border border-outline-variant/10 bg-surface/40 px-6 py-5 hover:bg-surface/70 transition-colors">
+              <div class="am-text-caption uppercase tracking-[0.18em] text-on-surface-variant/70">
+                {t(copy.related.links.parking)}
               </div>
             </a>
             <a href={arrivalGuideHref} class="rounded-[20px] border border-outline-variant/10 bg-surface/40 px-6 py-5 hover:bg-surface/70 transition-colors">
@@ -504,14 +523,9 @@ const t = <T extends Record<AmaraLanguage, string>>(row: T) => row[currentLang] 
                 {t(copy.related.links.arrival)}
               </div>
             </a>
-            <a href={`${locationBase}#comparison`} class="rounded-[20px] border border-outline-variant/10 bg-surface/40 px-6 py-5 hover:bg-surface/70 transition-colors">
+            <a href={staysHref} class="rounded-[20px] border border-outline-variant/10 bg-surface/40 px-6 py-5 hover:bg-surface/70 transition-colors">
               <div class="am-text-caption uppercase tracking-[0.18em] text-on-surface-variant/70">
-                {t(copy.related.links.comparison)}
-              </div>
-            </a>
-            <a href={`${locationBase}#faq`} class="rounded-[20px] border border-outline-variant/10 bg-surface/40 px-6 py-5 hover:bg-surface/70 transition-colors">
-              <div class="am-text-caption uppercase tracking-[0.18em] text-on-surface-variant/70">
-                {t(copy.related.links.faq)}
+                {t(copy.related.links.apartments)}
               </div>
             </a>
           </div>

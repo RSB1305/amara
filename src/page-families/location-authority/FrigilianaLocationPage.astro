@@ -34,7 +34,10 @@ const optionalLink = (token: string) =>
 const arrivalGuideHref = buildOwnedLocalizedPath('directions-arrival-guide', currentLang);
 const parkingHref = buildOwnedLocalizedPath('frigiliana-parking', currentLang);
 const weatherHref = buildOwnedLocalizedPath('frigiliana-weather', currentLang);
-const allFaqsHref = optionalLink('frigiliana_faq');
+const romanticHideawaysHref = optionalLink('romantic_hideaways') ?? '#where-to-stay';
+const reviewsHref = optionalLink('reviews_hub');
+const amenitiesHref = optionalLink('amenities');
+const allFaqsHref = null;
 
 const c = {
   nav: {
@@ -91,6 +94,51 @@ const c = {
   },
   gallery: { eyebrow: copy.gallery.eyebrow[currentLang], title: copy.gallery.title[currentLang], images: copy.gallery.items.map(img => ({ src: img.src, alt: img.alt[currentLang] || img.alt.en, caption: img.caption[currentLang] || img.caption.en })) },
   decision: { eyebrow: copy.decision.eyebrow[currentLang], title: copy.decision.title[currentLang], profiles: copy.decision.profiles.map(p => ({ title: p.title[currentLang], description: p.description[currentLang], suitability: p.suitability[currentLang] })) },
+  planning: {
+    eyebrow: copy.planning.eyebrow[currentLang],
+    title: copy.planning.title[currentLang],
+    intro: copy.planning.intro[currentLang],
+    links: [
+      {
+        href: romanticHideawaysHref,
+        label: copy.planning.links.apartments.label[currentLang],
+        text: copy.planning.links.apartments.text[currentLang]
+      },
+      {
+        href: parkingHref,
+        label: copy.planning.links.parking.label[currentLang],
+        text: copy.planning.links.parking.text[currentLang]
+      },
+      {
+        href: weatherHref,
+        label: copy.planning.links.weather.label[currentLang],
+        text: copy.planning.links.weather.text[currentLang]
+      },
+      {
+        href: arrivalGuideHref,
+        label: copy.planning.links.arrival.label[currentLang],
+        text: copy.planning.links.arrival.text[currentLang]
+      },
+      ...(reviewsHref
+        ? [
+            {
+              href: reviewsHref,
+              label: copy.planning.links.reviews.label[currentLang],
+              text: copy.planning.links.reviews.text[currentLang]
+            }
+          ]
+        : []),
+      ...(amenitiesHref
+        ? [
+            {
+              href: amenitiesHref,
+              label: copy.planning.links.amenities.label[currentLang],
+              text: copy.planning.links.amenities.text[currentLang]
+            }
+          ]
+        : [])
+    ]
+  },
   faq: {
     arrivalTitle: copy.faq.arrivalTitle[currentLang],
     steps: copy.faq.steps.map((s) => ({ num: s.num, headline: s.h[currentLang], text: s.t[currentLang] })),
@@ -102,7 +150,40 @@ const c = {
   footer: { brand: copy.footer.brand[currentLang], rights: copy.footer.rights[currentLang], links: copy.footer.nav.map(link => ({ token: link.token, label: link.label[currentLang] })) }
 };
 
-/** Live snapshot for the climate band (Open-Meteo + cache + safe default â€” never throws). */
+const footerHighlights = [
+  {
+    token: 'romantic_hideaways',
+    label: {
+      en: 'Apartments for couples',
+      de: 'Apartments für Paare',
+      es: 'Apartamentos para parejas',
+      nl: 'Appartementen voor koppels',
+      sv: 'Lägenheter för par'
+    }[currentLang]
+  },
+  {
+    token: 'frigiliana_parking',
+    label: {
+      en: 'Parking guide',
+      de: 'Parkguide',
+      es: 'Guía de aparcamiento',
+      nl: 'Parkeergids',
+      sv: 'Parkeringsguide'
+    }[currentLang]
+  },
+  {
+    token: 'arrival_guide',
+    label: {
+      en: 'Arrival guide',
+      de: 'Anreise-Guide',
+      es: 'Guía de llegada',
+      nl: 'Aankomstgids',
+      sv: 'Ankomstguide'
+    }[currentLang]
+  }
+];
+
+/** Live snapshot for the climate band (Open-Meteo + cache + safe default — never throws). */
 const weatherSnapshot = await getWeatherWithFallback();
 
 const climateMetricLabels: Record<
@@ -113,19 +194,19 @@ const climateMetricLabels: Record<
   de: { humidity: 'Feuchte', wind: 'Wind', uv: 'UV', sunset: 'Sonnenuntergang' },
   es: { humidity: 'Humedad', wind: 'Viento', uv: 'UV', sunset: 'Atardecer' },
   nl: { humidity: 'Vochtigheid', wind: 'Wind', uv: 'UV', sunset: 'Zonsondergang' },
-  sv: { humidity: 'Luftfuktighet', wind: 'Vind', uv: 'UV', sunset: 'SolnedgÃ¥ng' }
+  sv: { humidity: 'Luftfuktighet', wind: 'Vind', uv: 'UV', sunset: 'Solnedgång' }
 };
 
 const ml = climateMetricLabels[currentLang] ?? climateMetricLabels.en;
 
 const liveClimate = {
   heroTemp: Number.isFinite(weatherSnapshot.temperature)
-    ? `${Math.round(weatherSnapshot.temperature)}Â°`
-    : 'â€”',
-  metricHumidity: `${ml.humidity} Â· ${weatherSnapshot.humidity}%`,
-  metricWind: `${ml.wind} Â· ${weatherSnapshot.wind}`,
-  metricUv: `${ml.uv} Â· ${weatherSnapshot.uv}`,
-  metricSunset: `${ml.sunset} Â· ${weatherSnapshot.sunset}`
+    ? `${Math.round(weatherSnapshot.temperature)}°`
+    : '—',
+  metricHumidity: `${ml.humidity} · ${weatherSnapshot.humidity}%`,
+  metricWind: `${ml.wind} · ${weatherSnapshot.wind}`,
+  metricUv: `${ml.uv} · ${weatherSnapshot.uv}`,
+  metricSunset: `${ml.sunset} · ${weatherSnapshot.sunset}`
 };
 
 const heroImage = {
@@ -139,13 +220,15 @@ const heroImage = {
 const sectionNavItems = getFrigilianaAuthoritySubnav(currentLang);
 ---
 
-<LocationAuthorityLayout seo={seo} pageLang={currentLang}>
+<LocationAuthorityLayout seo={seo} pageLang={currentLang} footerHighlights={footerHighlights}>
   <Navigation
     currentLang={currentLang}
     brandName={c.nav.brand}
     links={c.nav.links}
     languageToken="location_frigiliana"
     locationAuthorityNav={true}
+    ctaLabel={c.hero.ctaMain}
+    ctaHref={romanticHideawaysHref}
   />
   <SectionAnchorNav items={sectionNavItems} activeId="intro" />
   <div class="am-root" data-am-page="frigiliana-location">
@@ -163,7 +246,7 @@ const sectionNavItems = getFrigilianaAuthoritySubnav(currentLang);
       </p>
     </div>
     <div class="flex flex-wrap gap-8">
-      <span class="am-link-disabled bg-primary text-on-primary px-12 py-5 am-text-caption uppercase tracking-[0.2em] transition-all">{c.hero.ctaMain}</span>
+      <a href={romanticHideawaysHref} class="bg-primary text-on-primary px-12 py-5 am-text-caption uppercase tracking-[0.2em] transition-all hover:opacity-90">{c.hero.ctaMain}</a>
       <a href={arrivalGuideHref} class="border border-outline-variant/30 text-on-surface px-12 py-5 am-text-caption uppercase tracking-[0.2em] hover:bg-surface-container-low transition-all">{c.hero.ctaAlt}</a>
     </div>
   </Hero>
@@ -215,6 +298,32 @@ const sectionNavItems = getFrigilianaAuthoritySubnav(currentLang);
   </div>
   <section id="where-to-stay" class="am-section am-section--plain w-full max-w-none !mx-0 !border-t-0 !px-0 !py-0">
     <StayDecision eyebrow={c.decision.eyebrow} title={c.decision.title} profiles={c.decision.profiles} />
+  </section>
+  <section id="stay-planning" class="am-section am-section--tint w-full max-w-none !mx-0 !border-t-0 !px-0">
+    <div class="max-w-screen-2xl mx-auto px-12 py-32 border-t border-outline-variant/5">
+      <div class="max-w-3xl mb-16">
+        <span class="am-text-caption uppercase tracking-[0.4em] text-primary block mb-6">{c.planning.eyebrow}</span>
+        <h2 class="am-text-title italic text-on-surface tracking-tight mb-6">{c.planning.title}</h2>
+        <p class="am-text-body text-on-surface-variant leading-relaxed">{c.planning.intro}</p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-12 gap-y-10">
+        {
+          c.planning.links.map((link) => (
+            <a
+              href={link.href}
+              class="group border-l border-outline-variant/20 pl-6 py-2 transition-colors hover:border-primary"
+            >
+              <span class="am-text-caption uppercase tracking-[0.24em] text-primary block mb-3">
+                {link.label}
+              </span>
+              <p class="am-text-body text-on-surface-variant leading-relaxed group-hover:text-on-surface">
+                {link.text}
+              </p>
+            </a>
+          ))
+        }
+      </div>
+    </div>
   </section>
   <section class="am-section am-section--tint w-full max-w-none !mx-0 !border-t-0 !px-0 !py-0">
     <FaqAccordion

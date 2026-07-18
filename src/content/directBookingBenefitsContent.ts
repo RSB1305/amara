@@ -12,9 +12,9 @@ export const directBookingBenefitsSeo: AmaraAuthoringSeo = {
 
     en: {
 
-      title: 'AMARA | Direct Booking Benefits',
+      title: 'Direct Booking: Benefits for Your Stay',
 
-      description: 'Best price guarantee, direct host support, and guest-first benefits when booking directly with AMARA.',
+      description: 'Book AMARA directly for best-price clarity, direct host contact, and guest-first benefits before your stay in Frigiliana or Nerja.',
 
       robots: 'index, follow',
 
@@ -24,9 +24,9 @@ export const directBookingBenefitsSeo: AmaraAuthoringSeo = {
 
     de: {
 
-      title: 'AMARA | Vorteile der Direktbuchung',
+      title: 'Direktbuchung: Vorteile für euren Aufenthalt',
 
-      description: 'Bestpreis-Garantie, direkter Gastgeberkontakt und gästefokussierte Vorteile bei einer Direktbuchung mit AMARA.',
+      description: 'Bucht AMARA direkt mit klarer Bestpreis-Orientierung, direktem Gastgeberkontakt und Vorteilen für euren Aufenthalt.',
 
       robots: 'index, follow',
 
@@ -36,9 +36,9 @@ export const directBookingBenefitsSeo: AmaraAuthoringSeo = {
 
     es: {
 
-      title: 'AMARA | Ventajas de reservar directamente',
+      title: 'Reserva directa: precio y ventajas',
 
-      description: 'Mejor precio garantizado, contacto directo con el anfitrion y ventajas pensadas para el huesped al reservar con AMARA.',
+      description: 'Reservad directamente con AMARA: mejor precio, contacto con el anfitrión y ventajas para vuestra estancia en Frigiliana o Nerja.',
 
       robots: 'index, follow',
 
@@ -48,9 +48,9 @@ export const directBookingBenefitsSeo: AmaraAuthoringSeo = {
 
     nl: {
 
-      title: 'AMARA | Voordelen van direct boeken',
+      title: 'Direct boeken: voordelen voor je verblijf',
 
-      description: 'Besteprijsgarantie, direct contact met de host en gastgerichte voordelen bij rechtstreeks boeken bij AMARA.',
+      description: 'Boek AMARA direct met duidelijke prijsvoordelen, rechtstreeks hostcontact en voordelen voor je verblijf in Frigiliana of Nerja.',
 
       robots: 'index, follow',
 
@@ -60,9 +60,9 @@ export const directBookingBenefitsSeo: AmaraAuthoringSeo = {
 
     sv: {
 
-      title: 'AMARA | Fördelar med direktbokning',
+      title: 'Direktbokning: fördelar för vistelsen',
 
-      description: 'Bästa pris-garanti, direkt kontakt med värden och gästfördelar när du bokar direkt med AMARA.',
+      description: 'Boka AMARA direkt med tydlig prisfördel, direkt kontakt med värden och fördelar inför vistelsen i Frigiliana eller Nerja.',
 
       robots: 'index, follow',
 

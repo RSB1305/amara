@@ -121,6 +121,99 @@ export const cinematicStatRatingLabel: CopyRow = {
   sv: 'Genomsnittligt betyg'
 };
 
+export const cinematicGuideEyebrow: CopyRow = {
+  en: 'Plan your stay',
+  de: 'Aufenthalt planen',
+  es: 'Planificar la estancia',
+  nl: 'Verblijf plannen',
+  sv: 'Planera vistelsen'
+};
+
+export const cinematicGuideTitle: CopyRow = {
+  en: 'Useful guides before you choose.',
+  de: 'Nützliche Guides vor der Auswahl.',
+  es: 'Guías útiles antes de elegir.',
+  nl: 'Handige gidsen voordat je kiest.',
+  sv: 'Användbara guider innan ni väljer.'
+};
+
+export interface CinematicGuideLinkDef {
+  token: string;
+  label: CopyRow;
+  text: CopyRow;
+}
+
+export const cinematicGuideLinks: CinematicGuideLinkDef[] = [
+  {
+    token: 'romantic_hideaways',
+    label: {
+      en: 'Apartments for couples',
+      de: 'Apartments für Paare',
+      es: 'Apartamentos para parejas',
+      nl: 'Appartementen voor koppels',
+      sv: 'Lägenheter för par'
+    },
+    text: {
+      en: 'Compare the AMARA stays in Frigiliana and Nerja.',
+      de: 'Vergleicht die AMARA-Unterkünfte in Frigiliana und Nerja.',
+      es: 'Comparar las estancias AMARA en Frigiliana y Nerja.',
+      nl: 'Vergelijk de AMARA-verblijven in Frigiliana en Nerja.',
+      sv: 'Jämför AMARA-boenden i Frigiliana och Nerja.'
+    }
+  },
+  {
+    token: 'location_frigiliana',
+    label: {
+      en: 'Frigiliana guide',
+      de: 'Frigiliana-Guide',
+      es: 'Guía de Frigiliana',
+      nl: 'Frigiliana-gids',
+      sv: 'Frigiliana-guide'
+    },
+    text: {
+      en: 'Understand the village, Nerja access, and where to stay.',
+      de: 'Versteht Dorfstruktur, Nähe zu Nerja und die beste Lage.',
+      es: 'Entender el pueblo, la conexión con Nerja y dónde alojarse.',
+      nl: 'Begrijp het dorp, Nerja en waar je het best verblijft.',
+      sv: 'Förstå byn, Nerja-kopplingen och var ni bor bäst.'
+    }
+  },
+  {
+    token: 'frigiliana_parking',
+    label: {
+      en: 'Parking & arrival',
+      de: 'Parken & Anreise',
+      es: 'Aparcamiento y llegada',
+      nl: 'Parkeren & aankomst',
+      sv: 'Parkering & ankomst'
+    },
+    text: {
+      en: 'Plan the last metres, stairs, and daily movement.',
+      de: 'Plant die letzten Meter, Treppen und Wege im Alltag.',
+      es: 'Planificar el último tramo, escaleras y movimiento diario.',
+      nl: 'Plan de laatste meters, trappen en dagelijkse beweging.',
+      sv: 'Planera sista biten, trappor och dagliga rörelser.'
+    }
+  },
+  {
+    token: 'weather_frigiliana',
+    label: {
+      en: 'Weather & seasons',
+      de: 'Wetter & Saison',
+      es: 'Clima y temporadas',
+      nl: 'Weer & seizoenen',
+      sv: 'Väder & säsonger'
+    },
+    text: {
+      en: 'See how hillside weather shapes terraces and sleep.',
+      de: 'Seht, wie die Hanglage Terrassenzeit und Schlaf prägt.',
+      es: 'Ver cómo la ladera influye en terrazas y descanso.',
+      nl: 'Zie hoe het heuvellandschap terras en slaap beïnvloedt.',
+      sv: 'Se hur läget på höjden påverkar terrass och sömn.'
+    }
+  }
+];
+
 /** Navigation (shared with homepage Navigation.astro) */
 export const navExperiences: CopyRow = {
   en: 'Experiences',
@@ -128,6 +221,22 @@ export const navExperiences: CopyRow = {
   es: 'Experiencias',
   nl: 'Ervaringen',
   sv: 'Upplevelser'
+};
+
+export const navApartments: CopyRow = {
+  en: 'Apartments',
+  de: 'Apartments',
+  es: 'Apartamentos',
+  nl: 'Appartementen',
+  sv: 'Lägenheter'
+};
+
+export const navReviews: CopyRow = {
+  en: 'Reviews',
+  de: 'Bewertungen',
+  es: 'Reseñas',
+  nl: 'Reviews',
+  sv: 'Recensioner'
 };
 
 export const navSoonBadge: CopyRow = {

@@ -6,13 +6,21 @@ import type { AmaraAuthoringSeo, AmaraLanguage } from '../types/seo';
 interface Props {
   seo: AmaraAuthoringSeo;
   pageLang?: AmaraLanguage;
+  footerHighlights?: { token: string; label: string }[];
+  footerVariant?: 'default' | 'trust';
   bodyBackgroundClass?: string;
 }
 
-const { seo, pageLang, bodyBackgroundClass } = Astro.props;
+const { seo, pageLang, footerHighlights, footerVariant, bodyBackgroundClass } = Astro.props;
 ---
 
-<BaseLayout seo={seo} pageLang={pageLang} bodyBackgroundClass={bodyBackgroundClass}>
+<BaseLayout
+  seo={seo}
+  pageLang={pageLang}
+  footerHighlights={footerHighlights}
+  footerVariant={footerVariant}
+  bodyBackgroundClass={bodyBackgroundClass}
+>
   <main>
     <slot />
   </main>

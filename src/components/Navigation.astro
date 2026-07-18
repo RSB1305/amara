@@ -35,6 +35,7 @@ interface Props {
   languageToken?: string;
   brandVariant?: 'default' | 'lodging';
   ctaLabel?: string;
+  ctaHref?: string;
   /**
    * Type A location authority pages: allow Frigiliana / Nerja / experiences hub links in the center
    * row even when those tokens are globally gated as disabled elsewhere.
@@ -54,6 +55,7 @@ const {
   languageToken,
   brandVariant = 'default',
   ctaLabel,
+  ctaHref,
   locationAuthorityNav = false,
   comingSoonBadge
 } = Astro.props;
@@ -121,7 +123,7 @@ const localizedNavLabels: Partial<Record<string, Record<AmaraLanguage, string>>>
 };
 
 const resolvedCtaLabel = ctaLabel ?? defaultCtaLabels[currentLang];
-const ctaLink = { token: 'book', label: resolvedCtaLabel };
+const ctaLink = { token: 'book', label: resolvedCtaLabel, href: ctaHref };
 const currentPath = Astro.url.pathname;
 const languageSwitchToken = currentToken ?? languageToken ?? 'home';
 
@@ -279,7 +281,14 @@ const getResolvedNavLabel = (link: NavLink) => {
 
       <div class="am-nav__slot am-nav__slot--cta">
         {ctaLink && (
-          !isPublicLinkEnabled(ctaLink.token) ? (
+          ctaLink.href ? (
+            <a
+              href={ctaLink.href}
+              class="am-btn am-btn--primary hidden sm:inline-flex"
+            >
+              {ctaLink.label}
+            </a>
+          ) : !isPublicLinkEnabled(ctaLink.token) ? (
             <span class="am-btn am-btn--primary hidden sm:inline-flex am-link-disabled">
               {ctaLink.label}
             </span>

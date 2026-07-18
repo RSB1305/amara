@@ -1,0 +1,449 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Navigation from '../../components/Navigation.astro';
+import {
+  buildVacationRentalSeo,
+  type VacationRentalAmenityFeature,
+  type VacationRentalEntity
+} from '../../content/vacationRentalEntities';
+import { resolveOptionalLink } from '../../lib/linkResolver';
+import { buildOwnedLocalizedPath } from '../../lib/routeOwnership';
+import { normalizeLanguage } from '../../lib/seo/resolve-seo-head';
+import type { AmaraLanguage } from '../../types/seo';
+
+interface Props {
+  rental: VacationRentalEntity;
+  lang?: string;
+}
+
+type LocalizedText = Record<AmaraLanguage, string>;
+
+const { rental, lang = 'es' } = Astro.props;
+const currentLang = normalizeLanguage(lang as AmaraLanguage);
+const seo = buildVacationRentalSeo(rental);
+
+const ui = {
+  navApartments: {
+    en: 'Apartments',
+    de: 'Apartments',
+    es: 'Apartamentos',
+    nl: 'Appartementen',
+    sv: 'Lägenheter'
+  },
+  checkAvailability: {
+    en: 'Check availability',
+    de: 'Verfügbarkeit prüfen',
+    es: 'Consultar disponibilidad',
+    nl: 'Beschikbaarheid bekijken',
+    sv: 'Se tillgänglighet'
+  },
+  backToCollection: {
+    en: 'Back to apartment overview',
+    de: 'Zur Apartment-Übersicht',
+    es: 'Volver a la vista de apartamentos',
+    nl: 'Terug naar het appartementenoverzicht',
+    sv: 'Till lägenhetsöversikten'
+  },
+  readReviews: {
+    en: 'Read guest reviews',
+    de: 'Gästebewertungen lesen',
+    es: 'Leer resenas',
+    nl: 'Gastbeoordelingen lezen',
+    sv: 'Las recensioner'
+  },
+  factsTitle: {
+    en: 'Key facts',
+    de: 'Eckdaten',
+    es: 'Datos clave',
+    nl: 'Kerngegevens',
+    sv: 'Fakta'
+  },
+  detailsTitle: {
+    en: 'Stay details',
+    de: 'Details zum Aufenthalt',
+    es: 'Detalles de la estancia',
+    nl: 'Verblijfsdetails',
+    sv: 'Detaljer om vistelsen'
+  },
+  galleryTitle: {
+    en: 'Apartment images',
+    de: 'Apartmentbilder',
+    es: 'Imágenes del alojamiento',
+    nl: 'Beelden van het verblijf',
+    sv: 'Bilder fran boendet'
+  },
+  amenitiesTitle: {
+    en: 'Amenities in schema',
+    de: 'Ausstattung im Schema',
+    es: 'Servicios en el marcado',
+    nl: 'Voorzieningen in schema',
+    sv: 'Bekvämligheter i schema'
+  },
+  locationTitle: {
+    en: 'Plan the location',
+    de: 'Lage planen',
+    es: 'Planificar la ubicación',
+    nl: 'Locatie plannen',
+    sv: 'Planera laget'
+  },
+  locationBody: {
+    en: 'Use the AMARA local guides to understand arrival, parking, weather, and the rhythm of the surrounding area before choosing dates.',
+    de: 'Nutze die AMARA-Guides, um Anreise, Parken, Wetter und den Rhythmus der Umgebung vor der Terminwahl einzuordnen.',
+    es: 'Usa las guias AMARA para entender llegada, aparcamiento, clima y ritmo de la zona antes de elegir fechas.',
+    nl: 'Gebruik de AMARA-gidsen om aankomst, parkeren, weer en het ritme van de omgeving te begrijpen voordat je data kiest.',
+    sv: 'Anvand AMARA-guiderna for att forsta ankomst, parkering, vader och omradets rytm innan ni valjer datum.'
+  },
+  labels: {
+    propertyId: {
+      en: 'Property ID',
+      de: 'Property-ID',
+      es: 'ID del alojamiento',
+      nl: 'Property-ID',
+      sv: 'Property-ID'
+    },
+    license: {
+      en: 'License',
+      de: 'Lizenz',
+      es: 'Licencia',
+      nl: 'Licentie',
+      sv: 'Licens'
+    },
+    guests: {
+      en: 'Guests',
+      de: 'Gäste',
+      es: 'Huéspedes',
+      nl: 'Gasten',
+      sv: 'Gäster'
+    },
+    bedrooms: {
+      en: 'Bedrooms',
+      de: 'Schlafzimmer',
+      es: 'Dormitorios',
+      nl: 'Slaapkamers',
+      sv: 'Sovrum'
+    },
+    bathrooms: {
+      en: 'Bathrooms',
+      de: 'Badezimmer',
+      es: 'Baños',
+      nl: 'Badkamers',
+      sv: 'Badrum'
+    },
+    beds: {
+      en: 'Beds',
+      de: 'Betten',
+      es: 'Camas',
+      nl: 'Bedden',
+      sv: 'Sangar'
+    },
+    price: {
+      en: 'Indicative price',
+      de: 'Orientierungspreis',
+      es: 'Precio orientativo',
+      nl: 'Indicatieve prijs',
+      sv: 'Riktpris'
+    },
+    checkin: {
+      en: 'Check-in',
+      de: 'Check-in',
+      es: 'Entrada',
+      nl: 'Check-in',
+      sv: 'Incheckning'
+    },
+    checkout: {
+      en: 'Check-out',
+      de: 'Check-out',
+      es: 'Salida',
+      nl: 'Check-out',
+      sv: 'Utcheckning'
+    },
+    access: {
+      en: 'Access',
+      de: 'Zugang',
+      es: 'Acceso',
+      nl: 'Toegang',
+      sv: 'Tilltrade'
+    },
+    pets: {
+      en: 'Pets',
+      de: 'Haustiere',
+      es: 'Mascotas',
+      nl: 'Huisdieren',
+      sv: 'Husdjur'
+    },
+    kitchen: {
+      en: 'Kitchen',
+      de: 'Küche',
+      es: 'Cocina',
+      nl: 'Keuken',
+      sv: 'Kök'
+    },
+    outdoor: {
+      en: 'Outdoor',
+      de: 'Außenbereich',
+      es: 'Exterior',
+      nl: 'Buitenruimte',
+      sv: 'Utomhus'
+    },
+    view: {
+      en: 'View',
+      de: 'Ausblick',
+      es: 'Vistas',
+      nl: 'Uitzicht',
+      sv: 'Utsikt'
+    }
+  }
+} satisfies Record<string, unknown>;
+
+const amenityLabels: Record<string, LocalizedText> = {
+  ac: { en: 'Air conditioning', de: 'Klimaanlage', es: 'Aire acondicionado', nl: 'Airconditioning', sv: 'Luftkonditionering' },
+  balcony: { en: 'Balcony', de: 'Balkon', es: 'Balcón', nl: 'Balkon', sv: 'Balkong' },
+  beachAccess: { en: 'Beach access nearby', de: 'Strand in der Nähe', es: 'Playa cercana', nl: 'Strand dichtbij', sv: 'Strand nära' },
+  childFriendly: { en: 'Child friendly', de: 'Familienfreundlich', es: 'Apto para ninos', nl: 'Kindvriendelijk', sv: 'Barnvanligt' },
+  heating: { en: 'Heating', de: 'Heizung', es: 'Calefaccion', nl: 'Verwarming', sv: 'Varme' },
+  internetType: { en: 'Internet', de: 'Internet', es: 'Internet', nl: 'Internet', sv: 'Internet' },
+  kitchen: { en: 'Kitchen', de: 'Küche', es: 'Cocina', nl: 'Keuken', sv: 'Kök' },
+  licenseNum: { en: 'License number', de: 'Lizenznummer', es: 'Numero de licencia', nl: 'Licentienummer', sv: 'Licensnummer' },
+  outdoorGrill: { en: 'Outdoor grill', de: 'Outdoor-Grill', es: 'Barbacoa exterior', nl: 'Buitengrill', sv: 'Utomhusgrill' },
+  parkingType: { en: 'Parking', de: 'Parken', es: 'Aparcamiento', nl: 'Parkeren', sv: 'Parkering' },
+  patio: { en: 'Patio or terrace', de: 'Patio oder Terrasse', es: 'Patio o terraza', nl: 'Patio of terras', sv: 'Uteplats eller terrass' },
+  petsAllowed: { en: 'Pets allowed', de: 'Haustiere erlaubt', es: 'Mascotas permitidas', nl: 'Huisdieren toegestaan', sv: 'Husdjur tillatna' },
+  pool: { en: 'Pool', de: 'Pool', es: 'Piscina', nl: 'Zwembad', sv: 'Pool' },
+  poolType: { en: 'Pool type', de: 'Pooltyp', es: 'Tipo de piscina', nl: 'Zwembadtype', sv: 'Pooltyp' },
+  selfCheckinCheckout: { en: 'Self check-in', de: 'Self Check-in', es: 'Entrada autónoma', nl: 'Zelf inchecken', sv: 'Självincheckning' },
+  tv: { en: 'TV', de: 'TV', es: 'TV', nl: 'TV', sv: 'TV' },
+  wifi: { en: 'WiFi', de: 'WLAN', es: 'WiFi', nl: 'Wifi', sv: 'WiFi' }
+};
+
+const t = (value: LocalizedText) => value[currentLang] ?? value.en;
+const formatCount = (count: number, singular: string, plural: string) =>
+  count === 1 ? `1 ${singular}` : `${count} ${plural}`;
+const formatAmenity = (feature: VacationRentalAmenityFeature) => {
+  if (feature.value === false || feature.name === 'licenseNum') {
+    return null;
+  }
+
+  const label = t(amenityLabels[feature.name] ?? {
+    en: feature.name,
+    de: feature.name,
+    es: feature.name,
+    nl: feature.name,
+    sv: feature.name
+  });
+
+  return feature.value === true ? label : `${label}: ${feature.value}`;
+};
+
+const localizedGuests = {
+  en: formatCount(rental.occupancy, 'guest', 'guests'),
+  de: formatCount(rental.occupancy, 'Gast', 'Gäste'),
+  es: formatCount(rental.occupancy, 'huésped', 'huéspedes'),
+  nl: formatCount(rental.occupancy, 'gast', 'gasten'),
+  sv: formatCount(rental.occupancy, 'gäst', 'gäster')
+} satisfies LocalizedText;
+
+const factRows = [
+  { label: t(ui.labels.guests as LocalizedText), value: t(localizedGuests) },
+  { label: t(ui.labels.bedrooms as LocalizedText), value: String(rental.bedrooms) },
+  { label: t(ui.labels.bathrooms as LocalizedText), value: String(rental.bathrooms) },
+  { label: t(ui.labels.beds as LocalizedText), value: rental.bed.map((bed) => `${bed.numberOfBeds} x ${bed.label}`).join(', ') },
+  { label: t(ui.labels.price as LocalizedText), value: rental.priceLabel[currentLang] },
+  { label: t(ui.labels.license as LocalizedText), value: rental.license }
+];
+
+const detailRows = [
+  { label: t(ui.labels.propertyId as LocalizedText), value: rental.propertyId },
+  { label: t(ui.labels.checkin as LocalizedText), value: rental.checkinTime.slice(0, 5) },
+  { label: t(ui.labels.checkout as LocalizedText), value: rental.checkoutTime.slice(0, 5) },
+  { label: t(ui.labels.access as LocalizedText), value: t(rental.accessNote) },
+  { label: t(ui.labels.pets as LocalizedText), value: t(rental.petsNote) },
+  { label: t(ui.labels.kitchen as LocalizedText), value: t(rental.kitchenNote) },
+  { label: t(ui.labels.outdoor as LocalizedText), value: t(rental.outdoorNote) },
+  { label: t(ui.labels.view as LocalizedText), value: t(rental.viewNote) }
+];
+
+const visibleAmenities = rental.amenityFeatures
+  .map(formatAmenity)
+  .filter((item): item is string => Boolean(item));
+
+const navLinks = [
+  { token: 'romantic_hideaways', label: t(ui.navApartments as LocalizedText) },
+  { token: 'amenities' },
+  { token: 'reviews_hub' },
+  { token: 'direct_booking_benefits' }
+];
+const footerHighlights = [
+  { token: 'romantic_hideaways', label: t(ui.navApartments as LocalizedText) },
+  { token: 'amenities', label: 'Amenities' },
+  { token: 'faq_general', label: 'FAQ' }
+];
+const collectionHref = resolveOptionalLink('romantic_hideaways', currentLang, { suppressMissing: true });
+const reviewsHref = resolveOptionalLink('reviews_hub', currentLang, { suppressMissing: true });
+const locationLinks = [
+  { href: buildOwnedLocalizedPath('frigiliana-location', currentLang), label: 'Frigiliana' },
+  { href: buildOwnedLocalizedPath('frigiliana-parking', currentLang), label: 'Parking' },
+  { href: buildOwnedLocalizedPath('frigiliana-weather', currentLang), label: 'Weather' }
+];
+---
+
+<BaseLayout seo={seo} pageLang={currentLang} footerHighlights={footerHighlights}>
+  <Navigation
+    currentLang={currentLang}
+    brandName="AMARA"
+    links={navLinks}
+    variant="trust"
+    languageToken={rental.token}
+    ctaLabel={t(ui.checkAvailability as LocalizedText)}
+    ctaHref={rental.bookingUrl}
+  />
+
+  <main class="am-root bg-surface min-h-screen" data-am-page="vacation-rental" data-rental-id={rental.propertyId}>
+    <div class="am-wrap w-full max-w-screen-2xl mx-auto px-6 md:px-12 pb-24">
+      <section class="pt-8 pb-14 md:pb-20 border-b border-border-subtle">
+        <div class="max-w-4xl">
+          <p class="font-label text-[11px] font-bold uppercase tracking-[0.14em] text-on-surface-variant">
+            {t(rental.eyebrow)}
+          </p>
+          <h1 class="am-text-display text-on-surface mt-5 max-w-4xl">
+            {rental.name}
+          </h1>
+          <p class="am-text-title text-on-surface mt-5 max-w-4xl">
+            {t(rental.headline)}
+          </p>
+          <p class="am-text-body text-on-surface-variant mt-6 max-w-2xl leading-relaxed">
+            {t(rental.lead)}
+          </p>
+          <div class="flex flex-wrap gap-3 mt-8">
+            <a class="am-btn am-btn--primary" href={rental.bookingUrl} target="_blank" rel="noopener noreferrer">
+              {t(ui.checkAvailability as LocalizedText)}
+            </a>
+            {collectionHref && (
+              <a class="am-btn am-btn--ghost" href={collectionHref}>
+                {t(ui.backToCollection as LocalizedText)}
+              </a>
+            )}
+          </div>
+        </div>
+
+        <figure class="mt-12 aspect-[16/9] max-h-[720px] overflow-hidden bg-surface-container-low">
+          <img
+            src={rental.images[0]}
+            alt={t(rental.imageAlt)}
+            class="h-full w-full object-cover"
+            loading="eager"
+            fetchpriority="high"
+          />
+        </figure>
+      </section>
+
+      <section class="py-12 md:py-16 border-b border-border-subtle" aria-labelledby="rental-facts-title">
+        <div class="flex flex-col gap-8">
+          <h2 id="rental-facts-title" class="am-text-title text-on-surface">
+            {t(ui.factsTitle as LocalizedText)}
+          </h2>
+          <dl class="grid gap-x-8 gap-y-6 sm:grid-cols-2 lg:grid-cols-3">
+            {factRows.map((row) => (
+              <div class="border-t border-border-subtle pt-4">
+                <dt class="font-label text-[11px] font-bold uppercase tracking-[0.14em] text-on-surface-variant">
+                  {row.label}
+                </dt>
+                <dd class="am-text-subtitle text-on-surface mt-2">
+                  {row.value}
+                </dd>
+              </div>
+            ))}
+          </dl>
+        </div>
+      </section>
+
+      <section class="py-12 md:py-16 border-b border-border-subtle" aria-labelledby="rental-details-title">
+        <div class="grid gap-12 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)]">
+          <div>
+            <h2 id="rental-details-title" class="am-text-title text-on-surface">
+              {t(ui.detailsTitle as LocalizedText)}
+            </h2>
+            <p class="am-text-body text-on-surface-variant mt-6 max-w-2xl leading-relaxed">
+              {t(rental.description)}
+            </p>
+            <ul class="grid gap-3 mt-8">
+              {rental.highlights[currentLang].map((item) => (
+                <li class="am-text-body text-on-surface border-t border-border-subtle pt-3">
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <dl class="grid gap-4">
+            {detailRows.map((row) => (
+              <div class="grid gap-2 border-t border-border-subtle pt-4 sm:grid-cols-[12rem_minmax(0,1fr)]">
+                <dt class="font-label text-[11px] font-bold uppercase tracking-[0.14em] text-on-surface-variant">
+                  {row.label}
+                </dt>
+                <dd class="am-text-body text-on-surface">
+                  {row.value}
+                </dd>
+              </div>
+            ))}
+          </dl>
+        </div>
+      </section>
+
+      <section class="py-12 md:py-16 border-b border-border-subtle" aria-labelledby="rental-gallery-title">
+        <h2 id="rental-gallery-title" class="am-text-title text-on-surface">
+          {t(ui.galleryTitle as LocalizedText)}
+        </h2>
+        <div class="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+          {rental.images.map((image, index) => (
+            <figure class="aspect-[4/3] overflow-hidden bg-surface-container-low">
+              <img
+                src={image}
+                alt={`${t(rental.imageAlt)} ${index + 1}`}
+                class="h-full w-full object-cover"
+                loading={index < 2 ? 'eager' : 'lazy'}
+              />
+            </figure>
+          ))}
+        </div>
+      </section>
+
+      <section class="py-12 md:py-16 border-b border-border-subtle" aria-labelledby="rental-amenities-title">
+        <div class="grid gap-10 lg:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)]">
+          <h2 id="rental-amenities-title" class="am-text-title text-on-surface">
+            {t(ui.amenitiesTitle as LocalizedText)}
+          </h2>
+          <ul class="grid gap-x-8 gap-y-4 sm:grid-cols-2">
+            {visibleAmenities.map((item) => (
+              <li class="am-text-body text-on-surface border-t border-border-subtle pt-3">
+                {item}
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
+
+      <section class="py-12 md:py-16" aria-labelledby="rental-location-title">
+        <div class="max-w-3xl">
+          <h2 id="rental-location-title" class="am-text-title text-on-surface">
+            {t(ui.locationTitle as LocalizedText)}
+          </h2>
+          <p class="am-text-body text-on-surface-variant mt-5 leading-relaxed">
+            {t(ui.locationBody as LocalizedText)}
+          </p>
+          <div class="flex flex-wrap gap-3 mt-7">
+            {locationLinks.map((link) => (
+              <a class="am-btn am-btn--ghost" href={link.href}>
+                {link.label}
+              </a>
+            ))}
+            {reviewsHref && (
+              <a class="am-btn am-btn--ghost" href={reviewsHref}>
+                {t(ui.readReviews as LocalizedText)}
+              </a>
+            )}
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+</BaseLayout>

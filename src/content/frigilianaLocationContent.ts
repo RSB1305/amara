@@ -1,36 +1,36 @@
 import type { AmaraAuthoringSeo, AmaraLanguage } from '../types/seo';
 export const frigilianaLocationSeo: AmaraAuthoringSeo = {
-  version: '2026-03-27-frigiliana-loc-v1.0-A',
+  version: '2026-07-17-frigiliana-loc-v1.1-pillar',
   pageType: 'A',
   entityKey: 'amara-brand',
   languages: {
     en: {
-      title: 'Explore Frigiliana | The White Village of Andalusia',
-      description: 'Discover Frigiliana, the most beautiful white village in Spain. Travel guide, local tips, and premium stays by AMARA.',
+      title: 'Frigiliana: Where to Stay, Parking & Weather',
+      description: 'Choose where to stay in Frigiliana with practical guidance on parking, weather, Nerja access, the old town, and AMARA apartments.',
       robots: 'index, follow',
       canonical: 'auto'
     },
     de: {
-      title: 'Entdecke Frigiliana | Das weiße Dorf Andalusiens',
-      description: 'Erlebe Frigiliana, das schönste weiße Dorf Spaniens. Reiseführer, Insider-Tipps und exklusive Unterkünfte von AMARA.',
+      title: 'Frigiliana: Unterkunft, Parken & Wetter',
+      description: 'Frigiliana-Guide zur Unterkunftswahl mit Parken, Wetter, Nerja, Altstadtwegen und AMARA Boutique-Apartments.',
       robots: 'index, follow',
       canonical: 'auto'
     },
     es: {
-      title: 'Explora Frigiliana | El pueblo blanco de Andalucía',
-      description: 'Descubre Frigiliana, el pueblo más bonito de España. Guía de viaje, consejos locales y estancias premium de AMARA.',
+      title: 'Frigiliana: dónde alojarse, aparcamiento y clima',
+      description: 'Elegid dónde alojaros en Frigiliana con claves sobre aparcamiento, clima, Nerja, casco antiguo y apartamentos AMARA.',
       robots: 'index, follow',
       canonical: 'auto'
     },
     nl: {
-      title: 'Ontdek Frigiliana | Het witte dorp van Andalusië',
-      description: 'Ontdek Frigiliana, het mooiste witte dorp van Spanje. Reisgids, lokale tips en luxe verblijven van AMARA.',
+      title: 'Frigiliana: overnachten, parkeren & weer',
+      description: 'Kies waar je verblijft in Frigiliana met uitleg over parkeren, weer, Nerja, de oude kern en AMARA boutique-appartementen.',
       robots: 'index, follow',
       canonical: 'auto'
     },
     sv: {
-      title: 'Utforska Frigiliana | Andalusiens vita by',
-      description: 'Upptäck Frigiliana, Spaniens vackraste vita by. Reseguide, lokala tips och exklusivt boende från AMARA.',
+      title: 'Frigiliana: boende, parkering & väder',
+      description: 'Välj var du bor i Frigiliana med vägledning om parkering, väder, Nerja, gamla stan och AMARA boutiquelägenheter.',
       robots: 'index, follow',
       canonical: 'auto'
     }
@@ -42,63 +42,63 @@ export const frigilianaLocationCopy = {
     brand: { en: "Frigiliana", de: "Frigiliana", es: "Frigiliana", nl: "Frigiliana", sv: "Frigiliana" },
     links: [
       { token: "location_frigiliana", label: { en: "Frigiliana", de: "Frigiliana", es: "Frigiliana", nl: "Frigiliana", sv: "Frigiliana" } },
-      { token: "location_nerja", label: { en: "Nerja", de: "Nerja", es: "Nerja", nl: "Nerja", sv: "Nerja" } },
+      { token: "frigiliana_parking", label: { en: "Parking", de: "Parken", es: "Aparcamiento", nl: "Parkeren", sv: "Parkering" } },
       {
-        token: "explore_hub",
+        token: "arrival_guide",
         label: {
-          en: "Experiences",
-          de: "Erlebnisse",
-          es: "Experiencias",
-          nl: "Ervaringen",
-          sv: "Upplevelser"
+          en: "Arrival",
+          de: "Anreise",
+          es: "Llegada",
+          nl: "Aankomst",
+          sv: "Ankomst"
         }
       }
     ]
   },
   hero: {
-    eyebrow: { en: "The Axarquía Jewel", de: "Das Juwel der Axarquía", es: "La joya de la Axarquía", nl: "Het juweel van Axarquía", sv: "Axarquías juvel" },
-    h1: { en: "The Soul of <br/> White Villages", de: "Die Seele der <br/> weißen Dörfer", es: "El alma de los <br/> pueblos blancos", nl: "De ziel van de <br/> witte dorpen", sv: "De vita byarnas <br/> själ" },
-    body: { en: "Nestled in the folds of the Almijara mountains, Frigiliana exists as a timeless dialogue between Moorish geometry and Mediterranean light.", de: "In den Falten des Almijara-Gebirges gelegen, ist Frigiliana ein zeitloser Dialog zwischen maurischer Geometrie und mediterranem Licht.", es: "Enclavada en los pliegues de la sierra Almijara, Frigiliana es un diálogo atemporal entre la geometría morisca y la luz mediterránea.", nl: "Gelegen in de plooien van het Almijara-gebergte, is Frigiliana een tijdloze dialoog tussen Moorse geometrie en mediterraan licht.", sv: "Inbäddat i Almijara-bergens veck är Frigiliana en zeitlös dialog mellan maurisk geometri och medelhavsljus." },
+    eyebrow: { en: "Frigiliana travel guide", de: "Frigiliana Reiseguide", es: "Guía de Frigiliana", nl: "Frigiliana reisgids", sv: "Frigiliana reseguide" },
+    h1: { en: "Frigiliana Guide <br/> Where to Stay", de: "Frigiliana-Guide <br/> Unterkunft & Orientierung", es: "Guía de Frigiliana <br/> Dónde alojarse", nl: "Frigiliana-gids <br/> Waar overnachten", sv: "Frigiliana-guide <br/> Var du bor" },
+    body: { en: "A practical guide to Frigiliana for guests choosing where to stay: village character, parking, weather, Nerja access, and AMARA's boutique apartments.", de: "Ein praktischer Frigiliana-Guide für Gäste, die die passende Unterkunft suchen: Dorfcharakter, Parken, Wetter, Nerja-Anbindung und AMARA Boutique-Apartments.", es: "Una guía práctica de Frigiliana para elegir dónde alojarse: carácter del pueblo, aparcamiento, clima, conexión con Nerja y los apartamentos boutique de AMARA.", nl: "Een praktische gids voor Frigiliana voor gasten die willen kiezen waar ze overnachten: dorpskarakter, parkeren, weer, Nerja en AMARA boutique-appartementen.", sv: "En praktisk guide till Frigiliana för gäster som väljer var de ska bo: bykaraktär, parkering, väder, Nerja och AMARA:s boutiquelägenheter." },
     /** Second hero paragraph — inline editorial link (structure / movement reality) → parking authority */
     introLead: {
       en: {
         before: "Understanding ",
         linkLabel: "its structure and setting",
-        after: " is key to deciding whether it fits your stay."
+        after: " is key before choosing an apartment, especially if parking or daily walking matters."
       },
       de: {
         before: "Wer ",
         linkLabel: "Struktur und Lage",
-        after: " versteht, entscheidet besser, ob der Ort zum Aufenthalt passt."
+        after: " versteht, wählt die Unterkunft besser — besonders wenn Parken oder tägliche Wege wichtig sind."
       },
       es: {
         before: "Comprender ",
         linkLabel: "su estructura y su entorno",
-        after: " es clave para decidir si encaja en su estancia."
+        after: " es clave antes de elegir apartamento, sobre todo si importan el aparcamiento o los paseos diarios."
       },
       nl: {
         before: "Inzicht in ",
         linkLabel: "de opbouw en de ligging",
-        after: " helpt u te bepalen of het bij uw verblijf past."
+        after: " helpt bij het kiezen van een appartement, vooral als parkeren of dagelijks lopen belangrijk is."
       },
       sv: {
         before: "Att förstå ",
         linkLabel: "dess struktur och läge",
-        after: " är avgörande för att avgöra om det passar er vistelse."
+        after: " hjälper er att välja rätt lägenhet, särskilt om parkering eller dagliga promenader spelar roll."
       }
     },
-    ctaMain: { en: "Explore The Barrio", de: "Das Viertel erkunden", es: "Explorar el Barrio", nl: "Verken de Barrio", sv: "Utforska kvarteret" },
-    ctaAlt: { en: "The Guide", de: "Zum Guide", es: "La Guía", nl: "De Gids", sv: "Guiden" }
+    ctaMain: { en: "View apartments", de: "Apartments ansehen", es: "Ver apartamentos", nl: "Appartementen bekijken", sv: "Visa lägenheter" },
+    ctaAlt: { en: "Arrival guide", de: "Anreise-Guide", es: "Guía de llegada", nl: "Aankomstgids", sv: "Ankomstguide" }
   },
   essence: {
     eyebrow: { en: "At a Glance", de: "Auf einen Blick", es: "De un vistazo", nl: "In het kort", sv: "På ett ögonkast" },
-    title: { en: "Frigiliana — Key Facts", de: "Frigiliana — die wichtigsten Fakten", es: "Frigiliana — datos clave", nl: "Frigiliana — kernfeiten", sv: "Frigiliana — viktiga fakta" },
+    title: { en: "Frigiliana — Key Facts for Staying", de: "Frigiliana — die wichtigsten Fakten zum Übernachten", es: "Frigiliana — datos clave para alojarse", nl: "Frigiliana — kernfeiten voor verblijf", sv: "Frigiliana — viktiga fakta för boende" },
     intro: {
-      en: "Frigiliana is one of Andalusia's most beautiful white villages — but it is not a typical easy-access base.",
-      de: "Frigiliana zählt zu den schönsten weißen Dörfern Andalusiens — ist aber kein typischer, leicht erreichbarer Ausgangspunkt.",
-      es: "Frigiliana es uno de los pueblos blancos más bellos de Andalucía, pero no es una base de acceso fácil por excelencia.",
-      nl: "Frigiliana hoort bij de mooiste witte dorpen van Andalusië — maar is geen typisch gemakkelijk bereikbare uitvalsbasis.",
-      sv: "Frigiliana räknas bland de vackraste vita byarna i Andalusien — men är inte en typisk lättillgänglig bas."
+      en: "Frigiliana is one of Andalusia's most beautiful white villages. For overnight stays, the key question is how its beauty, elevation, parking, and Nerja access fit your travel rhythm.",
+      de: "Frigiliana zählt zu den schönsten weißen Dörfern Andalusiens. Für Übernachtungen zählt vor allem, wie Schönheit, Höhenlage, Parken und die Nähe zu Nerja zu Ihrem Reiserhythmus passen.",
+      es: "Frigiliana es uno de los pueblos blancos más bonitos de Andalucía. Para alojarse, lo importante es cómo encajan su belleza, el desnivel, el aparcamiento y la cercanía a Nerja con vuestro ritmo de viaje.",
+      nl: "Frigiliana hoort bij de mooiste witte dorpen van Andalusië. Voor een verblijf draait het om hoe schoonheid, hoogteverschil, parkeren en Nerja passen bij uw reisritme.",
+      sv: "Frigiliana är en av Andalusiens vackraste vita byar. För övernattning handlar valet om hur skönheten, höjdskillnaderna, parkering och Nerja passar er resrytm."
     },
     items: [
       {
@@ -111,9 +111,7 @@ export const frigilianaLocationCopy = {
           nl: "Hoog boven de kust in de heuvels van de Axarquía: Frigiliana biedt ver uitzicht, maar ook hoogteverschil en steile hellingen.",
           sv: "Högt över kusten i Axarquías kullar ger Frigiliana vidsträckt utsikt — men också höjdskillnader och brant terräng."
         },
-        imageSrc: "/images/essence-1.jpg",
-        token: "explore_hub",
-        linkLabel: { en: "Explore", de: "Erkunden", es: "Explorar", nl: "Ontdek", sv: "Utforska" }
+        imageSrc: "/images/amara-frigiliana-pueblo/JPG_Frigiliana_Pueblo/2000px_72dpi_sRGB/01-frigiliana-pueblo.jpg"
       },
       {
         kicker: { en: "Location", de: "Standort", es: "Ubicación", nl: "Locatie", sv: "Placering" },
@@ -125,7 +123,7 @@ export const frigilianaLocationCopy = {
           nl: "De stranden van Nerja liggen dichtbij met de auto, maar Frigiliana zelf is een bergdorp, geen badplaats.",
           sv: "Nerjas stränder ligger en kort bilresa bort, men Frigiliana är en bergsby — inte en kustort."
         },
-        imageSrc: "/images/essence-2.jpg"
+        imageSrc: "/images/amara-playa/apartment/chaparril-13.webp"
       },
       {
         kicker: { en: "Movement", de: "Fortbewegung", es: "Desplazamiento", nl: "Verplaatsen", sv: "Rörelse" },
@@ -148,7 +146,7 @@ export const frigilianaLocationCopy = {
           nl: "Frigiliana staat bekend om rust, schoonheid en een langzamer levenstempo.",
           sv: "Frigiliana är känt för lugnt tempo, vacker miljö och ett långsammare vardagsliv."
         },
-        imageSrc: "/images/essence-3.jpg"
+        imageSrc: "/images/amara-frigiliana-pueblo/JPG_Frigiliana_Pueblo/2000px_72dpi_sRGB/03-frigiliana-pueblo.jpg"
       },
       {
         kicker: { en: "Practicality", de: "Alltag", es: "Practicidad", nl: "Praktisch", sv: "Praktiskt" },
@@ -379,7 +377,7 @@ export const frigilianaLocationCopy = {
       ]
     },
     imagePrimary: {
-      src: "/images/nerja-coast.jpg",
+      src: "/images/amara-playa/apartment/chaparril-15.webp",
       alt: {
         en: "View of the Nerja coastline",
         de: "Blick auf die Küste von Nerja",
@@ -389,7 +387,7 @@ export const frigilianaLocationCopy = {
       }
     },
     imageSecondary: {
-      src: "/images/frigiliana-hillside.jpg",
+      src: "/images/amara-frigiliana-pueblo/JPG_Frigiliana_Pueblo/2000px_72dpi_sRGB/06-frigiliana-pueblo.jpg",
       alt: {
         en: "Hillside view above Frigiliana",
         de: "Hanglage oberhalb von Frigiliana",
@@ -400,7 +398,7 @@ export const frigilianaLocationCopy = {
     }
   },
   villageStructure: {
-    imageSrc: "/images/frigiliana-steps.jpg",
+    imageSrc: "/images/amara-frigiliana-pueblo/JPG_Frigiliana_Pueblo/2000px_72dpi_sRGB/08-frigiliana-pueblo.jpg",
     imageAlt: {
       en: "Steep steps in Frigiliana old town",
       de: "Steile Stufen in der Altstadt von Frigiliana",
@@ -448,25 +446,113 @@ export const frigilianaLocationCopy = {
     eyebrow: { en: "Architectural Study", de: "Architekturstudie", es: "Estudio Arquitectónico", nl: "Architecturale Studie", sv: "Arkitektonisk Studie" },
     title: { en: "Mudejar Geometry", de: "Maurische Geometrie", es: "Geometría Mudéjar", nl: "Moorse Geometrie", sv: "Maurisk Geometri" },
     items: [
-      { src: '/images/gallery-1.jpg', alt: { en: "Indigo", de: "Indigo", es: "Índigo", nl: "Indigo", sv: "Indigo" }, caption: { en: "Blue doors of Calle Real", de: "Die blauen Türen der Calle Real", es: "Las puertas azules", nl: "De blauwe deuren", sv: "De blå dörrarna" } },
-      { src: '/images/gallery-2.jpg', alt: { en: "Sierra", de: "Sierra", es: "Sierra", nl: "Sierra", sv: "Sierra" }, caption: { en: "Sierra Almijara", de: "Sierra Almijara", es: "Sierra Almijara", nl: "Sierra Almijara", sv: "Sierra Almijara" } }
+      { src: '/images/amara-frigiliana-pueblo/JPG_Frigiliana_Pueblo/2000px_72dpi_sRGB/04-frigiliana-pueblo.jpg', alt: { en: "Indigo", de: "Indigo", es: "Índigo", nl: "Indigo", sv: "Indigo" }, caption: { en: "Blue doors of Calle Real", de: "Die blauen Türen der Calle Real", es: "Las puertas azules", nl: "De blauwe deuren", sv: "De blå dörrarna" } },
+      { src: '/images/amara-frigiliana-pueblo/JPG_Frigiliana_Pueblo/2000px_72dpi_sRGB/07-frigiliana-pueblo.jpg', alt: { en: "Sierra", de: "Sierra", es: "Sierra", nl: "Sierra", sv: "Sierra" }, caption: { en: "Sierra Almijara", de: "Sierra Almijara", es: "Sierra Almijara", nl: "Sierra Almijara", sv: "Sierra Almijara" } }
     ]
   },
   decision: {
-    eyebrow: { en: "Stay Decision", de: "Entscheidungshilfe", es: "Decisión", nl: "Beslissing", sv: "Beslut" },
-    title: { en: "Is Frigiliana for you?", de: "Ist Frigiliana richtig für Sie?", es: "¿Para usted?", nl: "Iets voor jou?", sv: "För dig?" },
+    eyebrow: { en: "Where to stay", de: "Wo übernachten", es: "Dónde alojarse", nl: "Waar overnachten", sv: "Var du bor" },
+    title: { en: "Is Frigiliana the right base?", de: "Ist Frigiliana die richtige Basis?", es: "¿Frigiliana es la base adecuada?", nl: "Is Frigiliana de juiste uitvalsbasis?", sv: "Är Frigiliana rätt bas?" },
     profiles: [
-      { title: { en: "Couples", de: "Paare", es: "Parejas", nl: "Koppels", sv: "Par" }, description: { en: "Architectural silence.", de: "Architektonische Stille.", es: "Silencio.", nl: "Stilte.", sv: "Tystnad." }, suitability: { en: "Highest", de: "Exzellent", es: "Máxima", nl: "Hoogste", sv: "Högsta" } }
+      { title: { en: "Couples", de: "Paare", es: "Parejas", nl: "Koppels", sv: "Par" }, description: { en: "A strong fit if you want quiet evenings, village character, terraces, and a slower rhythm close to Nerja.", de: "Sehr passend, wenn Sie ruhige Abende, Dorfcharakter, Terrassen und einen langsameren Rhythmus nahe Nerja suchen.", es: "Muy buena opción si buscáis noches tranquilas, carácter de pueblo, terrazas y un ritmo más pausado cerca de Nerja.", nl: "Sterk passend als u rustige avonden, dorpskarakter, terrassen en een langzamer ritme dicht bij Nerja zoekt.", sv: "Mycket passande om ni vill ha lugna kvällar, bykaraktär, terrasser och ett långsammare tempo nära Nerja." }, suitability: { en: "Best fit", de: "Sehr passend", es: "Ideal", nl: "Beste match", sv: "Bäst match" } },
+      { title: { en: "Drivers", de: "Mit Auto", es: "Con coche", nl: "Met auto", sv: "Med bil" }, description: { en: "Good if you are comfortable parking nearby and walking the final stretch through a stepped village.", de: "Gut, wenn Sie in der Nähe parken und das letzte Stück durch ein gestuftes Dorf gehen können.", es: "Buena opción si os parece bien aparcar cerca y caminar el último tramo por un pueblo con escaleras.", nl: "Goed als parkeren in de buurt en het laatste stuk lopen door een dorp met trappen geen probleem is.", sv: "Bra om ni kan parkera i närheten och gå sista biten genom en by med trappor." }, suitability: { en: "Plan ahead", de: "Planen", es: "Planificar", nl: "Plan vooruit", sv: "Planera" } },
+      { title: { en: "Beach-first guests", de: "Strand zuerst", es: "Playa primero", nl: "Strand eerst", sv: "Strand först" }, description: { en: "Nerja may suit better if daily beach access, flat walking, and door-to-door convenience matter most.", de: "Nerja passt besser, wenn täglicher Strandzugang, flache Wege und maximale Bequemlichkeit wichtiger sind.", es: "Nerja puede encajar mejor si priorizáis playa diaria, paseos llanos y máxima comodidad puerta a puerta.", nl: "Nerja past mogelijk beter als dagelijks strand, vlak lopen en direct gemak het belangrijkst zijn.", sv: "Nerja kan passa bättre om daglig strand, flacka promenader och enkel bekvämlighet är viktigast." }, suitability: { en: "Compare", de: "Vergleichen", es: "Comparar", nl: "Vergelijk", sv: "Jämför" } },
+      { title: { en: "Limited mobility", de: "Eingeschränkte Mobilität", es: "Movilidad reducida", nl: "Beperkte mobiliteit", sv: "Nedsatt rörlighet" }, description: { en: "Check access carefully. Frigiliana is beautiful but steep, with stairs, narrow lanes, and uneven surfaces.", de: "Zugang genau prüfen. Frigiliana ist wunderschön, aber steil, mit Treppen, engen Gassen und unebenem Boden.", es: "Conviene revisar el acceso con cuidado. Frigiliana es preciosa, pero empinada, con escaleras, calles estrechas y suelo irregular.", nl: "Controleer de toegang goed. Frigiliana is prachtig maar steil, met trappen, smalle straten en ongelijke ondergrond.", sv: "Kontrollera tillgänglighet noggrant. Frigiliana är vackert men brant, med trappor, smala gränder och ojämna ytor." }, suitability: { en: "Check access", de: "Zugang prüfen", es: "Revisar acceso", nl: "Check toegang", sv: "Kontrollera" } }
     ]
+  },
+  planning: {
+    eyebrow: {
+      en: "Plan the stay",
+      de: "Aufenthalt planen",
+      es: "Planificar la estancia",
+      nl: "Verblijf plannen",
+      sv: "Planera vistelsen"
+    },
+    title: {
+      en: "Useful next steps for Frigiliana",
+      de: "Nächste sinnvolle Schritte für Frigiliana",
+      es: "Próximos pasos útiles para Frigiliana",
+      nl: "Handige volgende stappen voor Frigiliana",
+      sv: "Användbara nästa steg för Frigiliana"
+    },
+    intro: {
+      en: "Use these guides to move from inspiration to a realistic stay plan: apartment choice, arrival, parking, weather, reviews, and comfort details.",
+      de: "Diese Guides führen von Inspiration zu einer realistischen Aufenthaltsplanung: Apartmentwahl, Anreise, Parken, Wetter, Bewertungen und Komfortdetails.",
+      es: "Estos enlaces convierten la inspiración en un plan realista: elección de apartamento, llegada, aparcamiento, clima, reseñas y detalles de confort.",
+      nl: "Deze gidsen helpen van inspiratie naar een realistisch verblijfsplan: appartementkeuze, aankomst, parkeren, weer, reviews en comfortdetails.",
+      sv: "Dessa guider tar er från inspiration till en realistisk vistelseplan: lägenhetsval, ankomst, parkering, väder, omdömen och komfortdetaljer."
+    },
+    links: {
+      apartments: {
+        label: { en: "Apartments for couples", de: "Apartments für Paare", es: "Apartamentos para parejas", nl: "Appartementen voor koppels", sv: "Lägenheter för par" },
+        text: {
+          en: "Compare AMARA stays in Frigiliana and Nerja.",
+          de: "AMARA-Unterkünfte in Frigiliana und Nerja vergleichen.",
+          es: "Comparar estancias AMARA en Frigiliana y Nerja.",
+          nl: "Vergelijk AMARA-verblijven in Frigiliana en Nerja.",
+          sv: "Jämför AMARA-vistelser i Frigiliana och Nerja."
+        }
+      },
+      parking: {
+        label: { en: "Parking in Frigiliana", de: "Parken in Frigiliana", es: "Aparcamiento en Frigiliana", nl: "Parkeren in Frigiliana", sv: "Parkering i Frigiliana" },
+        text: {
+          en: "Understand arrival, stairs, and the final walk.",
+          de: "Anreise, Stufen und den letzten Weg verstehen.",
+          es: "Entender llegada, escaleras y el último tramo a pie.",
+          nl: "Begrijp aankomst, trappen en het laatste stuk lopen.",
+          sv: "Förstå ankomst, trappor och sista biten till fots."
+        }
+      },
+      weather: {
+        label: { en: "Weather by month", de: "Wetter nach Monat", es: "Clima por mes", nl: "Weer per maand", sv: "Väder per månad" },
+        text: {
+          en: "Plan terraces, walking hours, and season choice.",
+          de: "Terrassenzeit, Gehzeiten und Saisonwahl planen.",
+          es: "Planificar terrazas, horas de paseo y temporada.",
+          nl: "Plan terrassen, wandeltijden en seizoen.",
+          sv: "Planera terrasser, promenadtider och säsong."
+        }
+      },
+      arrival: {
+        label: { en: "Arrival guide", de: "Anreise-Guide", es: "Guía de llegada", nl: "Aankomstgids", sv: "Ankomstguide" },
+        text: {
+          en: "Know the address, route, and arrival rhythm.",
+          de: "Adresse, Route und Ankunftsrhythmus kennen.",
+          es: "Conocer dirección, ruta y ritmo de llegada.",
+          nl: "Ken adres, route en aankomstritme.",
+          sv: "Se adress, rutt och ankomstrytm."
+        }
+      },
+      reviews: {
+        label: { en: "Guest reviews", de: "Gästebewertungen", es: "Reseñas de huéspedes", nl: "Gastbeoordelingen", sv: "Gästrecensioner" },
+        text: {
+          en: "Read what guests mention after staying.",
+          de: "Lesen, was Gäste nach dem Aufenthalt erwähnen.",
+          es: "Leer qué destacan los huéspedes después de alojarse.",
+          nl: "Lees wat gasten noemen na hun verblijf.",
+          sv: "Läs vad gäster nämner efter vistelsen."
+        }
+      },
+      amenities: {
+        label: { en: "Amenities & policies", de: "Ausstattung & Richtlinien", es: "Servicios y políticas", nl: "Voorzieningen en beleid", sv: "Bekvämligheter och policyer" },
+        text: {
+          en: "Check comfort details before booking.",
+          de: "Komfortdetails vor der Buchung prüfen.",
+          es: "Revisar detalles de confort antes de reservar.",
+          nl: "Controleer comfortdetails vóór het boeken.",
+          sv: "Kontrollera komfortdetaljer före bokning."
+        }
+      }
+    }
   },
   faq: {
     arrivalTitle: { en: "The Arrival", de: "Die Ankunft", es: "La Llegada", nl: "De Aankomst", sv: "Ankomsten" },
     steps: [
       { num: "01", h: { en: "Gateways", de: "Anreise", es: "Puertas", nl: "Poorten", sv: "Portar" }, t: { en: "Malaga Airport (AGP) is the primary gateway, located 50 minutes to the West via the A-7.", de: "Der Flughafen Malaga (AGP) ist das Haupttor, 50 Minuten westlich über die A-7.", es: "El aeropuerto de Málaga (AGP) es la puerta principal, a 50 minutos.", nl: "Luchthaven Malaga (AGP) is de belangrijkste poort.", sv: "Malaga flygplats (AGP) är huvudporten." } },
-      { num: "02", h: { en: "Transportation", de: "Transport", es: "Transporte", nl: "Vervoer", sv: "Transport" }, t: { en: "While public buses run frequently, a private vehicle is essential for exploring the Axarquía.", de: "Busse fahren oft, aber ein Auto ist für die Axarquía unerlässlich.", es: "Los autobuses funcionan, aber un coche es esencial.", nl: "Bussen rijden, maar een auto is essentieel.", sv: "Bussar går, men bil är nödvändigt." } },
+      { num: "02", h: { en: "Transportation", de: "Transport", es: "Transporte", nl: "Vervoer", sv: "Transport" }, t: { en: "While public buses run frequently, a private vehicle is essential for exploring the Axarquía.", de: "Busse fahren oft, aber ein Auto ist für die Axarquía unerlässlich.", es: "Hay autobuses, pero un coche es esencial para explorar la Axarquía.", nl: "Bussen rijden, maar een auto is essentieel.", sv: "Bussar går, men bil är nödvändigt." } },
       { num: "03", h: { en: "The Ascent", de: "Der Aufstieg", es: "El Ascenso", nl: "De Klim", sv: "Klättringen" }, t: { en: "Frigiliana is divided into Barrio Nuevo and Alto. Prepare for steep inclines.", de: "Frigiliana ist geteilt. Stellen Sie sich auf steile Gassen ein.", es: "Frigiliana está dividida. Prepárate para las cuestas.", nl: "Frigiliana is verdeeld. Bereid je voor op hellingen.", sv: "Frigiliana är uppdelad. Förbered dig på backar." } }
     ],
-    faqTitle: { en: "Dispatches & FAQ", de: "Depeschen & FAQ", es: "Despachos y FAQ", nl: "Berichten & FAQ", sv: "Meddelanden & FAQ" },
+    faqTitle: { en: "Frigiliana stay FAQ", de: "Frigiliana Aufenthalts-FAQ", es: "FAQ para alojarse en Frigiliana", nl: "Frigiliana verblijfs-FAQ", sv: "Frigiliana boende-FAQ" },
     arrivalDetailCta: {
       en: "Detailed Arrival Guide",
       de: "Ausführlicher Anreise-Guide",
@@ -483,61 +569,83 @@ export const frigilianaLocationCopy = {
     },
     items: [
       {
-        q: { en: "When is the best time to visit?", de: "Beste Reisezeit?", es: "¿Mejor época?", nl: "Beste reistijd?", sv: "Bästa tiden?" },
+        q: {
+          en: "Is Frigiliana worth staying in?",
+          de: "Lohnt es sich, in Frigiliana zu übernachten?",
+          es: "¿Merece la pena alojarse en Frigiliana?",
+          nl: "Is Frigiliana de moeite waard om te verblijven?",
+          sv: "Är Frigiliana värt att bo i?"
+        },
         a: {
-          en: "Late spring and early autumn usually bring pleasant temperatures and softer light for walking the lanes. Mid-summer can be warm, but the hillside setting often feels more breathable than the coast.",
-          de: "Spätfrühling und Frühherbst bringen meist angenehme Temperaturen und weiches Licht für Spaziergänge. Hochsommer kann warm sein — die Hanglage wirkt oft luftiger als an der Küste.",
-          es: "Primavera tardía y principios de otoño suelen ofrecer temperaturas agradables y luz suave para recorrer callejuelas. En pleno verano puede hacer calor, pero la ladera suele sentirse más respirable que la costa.",
-          nl: "Laat voorjaar en vroeg najaar leveren meest aangename temperaturen en zacht licht om door de steegjes te wandelen. Midden in de zomer kan het warm zijn, maar de helling voelt vaak luchtiger aan dan aan zee.",
-          sv: "Sen vår och tidig höst ger ofta behagliga temperaturer och mjukare ljus för promenader i gränderna. Högsommar kan bli varmt, men läget på höjden känns ofta lättare än vid kusten."
+          en: "Yes, if you want atmosphere, views, quiet evenings, and a village rhythm rather than a flat beach base. Frigiliana works especially well for couples who want character and still want Nerja within easy reach.",
+          de: "Ja, wenn Sie Atmosphäre, Aussicht, ruhige Abende und Dorfrhythmus statt einer flachen Strandbasis suchen. Frigiliana passt besonders gut für Paare, die Charakter möchten und Nerja trotzdem schnell erreichen wollen.",
+          es: "Sí, si buscáis atmósfera, vistas, noches tranquilas y ritmo de pueblo en lugar de una base plana de playa. Frigiliana funciona especialmente bien para parejas que quieren carácter y tener Nerja cerca.",
+          nl: "Ja, als u sfeer, uitzicht, rustige avonden en dorpsritme zoekt in plaats van een vlakke strandbasis. Frigiliana werkt vooral goed voor koppels die karakter willen en Nerja dichtbij willen houden.",
+          sv: "Ja, om ni vill ha atmosfär, utsikt, lugna kvällar och byrytm snarare än en platt strandbas. Frigiliana passar särskilt bra för par som vill ha karaktär och ändå ha Nerja nära."
         }
       },
       {
         q: {
-          en: "Is the old town realistic with limited mobility?",
-          de: "Ist die Altstadt mit eingeschränkter Mobilität realistisch?",
-          es: "¿Es viable el casco antiguo con movilidad reducida?",
-          nl: "Is de oude stad haalbaar met beperkte mobiliteit?",
-          sv: "Fungerar gamla stan med nedsatt rörlighet?"
+          en: "Do you need a car in Frigiliana?",
+          de: "Braucht man in Frigiliana ein Auto?",
+          es: "¿Hace falta coche en Frigiliana?",
+          nl: "Heb je een auto nodig in Frigiliana?",
+          sv: "Behöver man bil i Frigiliana?"
         },
         a: {
-          en: "Frigiliana’s historic core is steep, with steps and uneven surfaces. Guests who rely on level access or short walks may find it demanding. If mobility is a concern, check access details for your specific accommodation before booking.",
-          de: "Der historische Kern ist steil, mit Stufen und unebenem Untergrund. Wer ebene Wege oder kurze Strecken braucht, kann es als anstrengend empfinden. Bei Mobilitätseinschränkungen vor der Buchung die Zugänglichkeit Ihrer Unterkunft klären.",
-          es: "El casco histórico es empinado, con escalones y superficies irregulares. Quien necesite accesos planos o trayectos cortos puede encontrarlo exigente. Si la movilidad es un factor, revise el acceso concreto de su alojamiento antes de reservar.",
-          nl: "Het historische centrum is steil, met trappen en oneffen ondergrond. Wie vlakke paden of korte afstanden nodig heeft, kan het zwaar vinden. Bij beperkte mobiliteit: controleer vóór boeking de toegang van uw accommodatie.",
-          sv: "Gamla stadskärnan är brant, med trappor och ojämnt underlag. Den som behöver plana sträckor eller korta promenader kan tycka att det är krävande. Vid rörelsenedsättning: kontrollera tillgängligheten för just ert boende innan bokning."
+          en: "A car is strongly recommended if you want beaches, villages, groceries, and flexible arrival times. You can stay without one, but the trip becomes more dependent on buses, taxis, and careful planning.",
+          de: "Ein Auto ist sehr empfehlenswert, wenn Sie Strände, Dörfer, Einkäufe und flexible Ankunftszeiten möchten. Ohne Auto ist es möglich, aber stärker von Bussen, Taxis und genauer Planung abhängig.",
+          es: "El coche es muy recomendable si queréis playas, pueblos, compras y horarios flexibles de llegada. Se puede estar sin coche, pero el viaje depende más de autobuses, taxis y planificación.",
+          nl: "Een auto is sterk aan te raden als u stranden, dorpen, boodschappen en flexibele aankomsttijden wilt. Zonder auto kan het, maar de reis hangt meer af van bussen, taxi's en planning.",
+          sv: "Bil rekommenderas starkt om ni vill nå stränder, byar, matinköp och ha flexibla ankomsttider. Det går utan bil, men resan blir mer beroende av bussar, taxi och planering."
         }
       },
       {
         q: {
-          en: "Where can I park near the historic centre?",
-          de: "Wo kann ich nahe am historischen Zentrum parken?",
-          es: "¿Dónde aparcar cerca del casco histórico?",
-          nl: "Waar kan ik parkeren bij het oude centrum?",
-          sv: "Var kan jag parkera nära gamla stan?"
+          en: "Frigiliana or Nerja: which is better for a stay?",
+          de: "Frigiliana oder Nerja: Was ist besser zum Übernachten?",
+          es: "Frigiliana o Nerja: ¿qué es mejor para alojarse?",
+          nl: "Frigiliana of Nerja: wat is beter om te verblijven?",
+          sv: "Frigiliana eller Nerja: vad är bäst att bo i?"
         },
         a: {
-          en: "Parking in the tight lanes is limited. Many guests use peripheral or signed parking areas and walk the last stretch. Allow a few extra minutes for the final approach, especially in high season.",
-          de: "Parken in den engen Gassen ist begrenzt. Viele Gäste nutzen Randparkplätze oder ausgewiesene Flächen und gehen den letzten Abschnitt zu Fuß. Rechnen Sie mit etwas Zeit für die letzte Etappe — vor allem in der Hochsaison.",
-          es: "El aparcamiento en calles estrechas es limitado. Muchos huéspedes usan aparcamientos periféricos o señalizados y caminan el tramo final. Reserve unos minutos extra en la aproximación, sobre todo en temporada alta.",
-          nl: "Parkeren in de smalle straten is beperkt. Veel gasten gebruiken randzones of aangegeven plekken en lopen het laatste stuk. Reken op extra minuten voor de laatste aanloop, vooral in het hoogseizoen.",
-          sv: "Parkering i de smala gränderna är begränsad. Många gäster använder ytterligare eller skyltade ytor och går sista biten. Räkna med några extra minuter nära centrum, särskilt under högsäsong."
+          en: "Choose Frigiliana for calm, scenery, historic lanes, and a slower stay. Choose Nerja if daily beach access, flat walking, and more immediate convenience matter more.",
+          de: "Wählen Sie Frigiliana für Ruhe, Ausblicke, historische Gassen und einen langsameren Aufenthalt. Wählen Sie Nerja, wenn täglicher Strandzugang, flache Wege und direkte Bequemlichkeit wichtiger sind.",
+          es: "Elegid Frigiliana para calma, paisaje, callejuelas históricas y una estancia más pausada. Elegid Nerja si pesan más la playa diaria, los paseos llanos y la comodidad inmediata.",
+          nl: "Kies Frigiliana voor rust, landschap, historische straatjes en een langzamer verblijf. Kies Nerja als dagelijks strand, vlak lopen en directe voorzieningen belangrijker zijn.",
+          sv: "Välj Frigiliana för lugn, utsikt, historiska gränder och en långsammare vistelse. Välj Nerja om daglig strand, flacka promenader och omedelbar bekvämlighet är viktigare."
         }
       },
       {
         q: {
-          en: "Is a day trip to Nerja realistic from Frigiliana?",
-          de: "Ist ein Tagesausflug nach Nerja von Frigiliana aus realistisch?",
-          es: "¿Es viable un día en Nerja desde Frigiliana?",
-          nl: "Is een dagtrip naar Nerja vanuit Frigiliana haalbaar?",
-          sv: "Går det att göra en dagsutflykt till Nerja från Frigiliana?"
+          en: "Where to stay in Frigiliana as a couple?",
+          de: "Wo übernachtet man in Frigiliana als Paar?",
+          es: "¿Dónde alojarse en Frigiliana en pareja?",
+          nl: "Waar verblijf je als koppel in Frigiliana?",
+          sv: "Var bor man som par i Frigiliana?"
         },
         a: {
-          en: "Yes. The drive is short, so many guests combine hill-village calm with time on the coast. Plan around parking in Nerja at busy times and leave flexibility for the return uphill.",
-          de: "Ja. Die Fahrt ist kurz — viele kombinieren Ruhe im Bergdorf mit Zeit an der Küste. In Nerja zur Stoßzeit mit Parken rechnen und für die Rückfahrt den Anstieg einplanen.",
-          es: "Sí. El trayecto es corto; muchos combinan la calma del pueblo de montaña con horas en la costa. Tenga en cuenta el aparcamiento en Nerja en horas punta y margen para la vuelta cuesta arriba.",
-          nl: "Ja. De rit is kort; veel gasten combineren rust in het bergdorp met tijd aan zee. Houd rekening met parkeren in Nerja op drukke momenten en met de terugrit omhoog.",
-          sv: "Ja. Bilresan är kort; många kombinerar lugn i bergsbyn med tid vid kusten. Planera för parkering i Nerja vid rusning och lite marginal för hemresan uppför."
+          en: "For couples, a calm lower-village base can be a strong balance: close to the character of Frigiliana, easier for arrival, and practical for trips to Nerja. AMARA focuses on private boutique apartments with this kind of stay rhythm.",
+          de: "Für Paare ist eine ruhige Lage im unteren Dorf oft ein guter Ausgleich: nah am Charakter Frigilianas, einfacher bei der Ankunft und praktisch für Fahrten nach Nerja. AMARA fokussiert private Boutique-Apartments mit genau diesem Aufenthaltsrhythmus.",
+          es: "Para parejas, una base tranquila en la zona baja del pueblo suele equilibrar bien: cerca del carácter de Frigiliana, más cómoda para llegar y práctica para ir a Nerja. AMARA se centra en apartamentos boutique privados con ese ritmo de estancia.",
+          nl: "Voor koppels is een rustige basis in het lagere dorp vaak een sterk evenwicht: dicht bij het karakter van Frigiliana, eenvoudiger bij aankomst en praktisch voor Nerja. AMARA richt zich op private boutique-appartementen met dat ritme.",
+          sv: "För par är en lugn bas i den lägre delen av byn ofta en bra balans: nära Frigilianas karaktär, enklare vid ankomst och praktiskt för Nerja. AMARA fokuserar på privata boutiquelägenheter med just den rytmen."
+        }
+      },
+      {
+        q: {
+          en: "Is parking difficult in Frigiliana?",
+          de: "Ist Parken in Frigiliana schwierig?",
+          es: "¿Es difícil aparcar en Frigiliana?",
+          nl: "Is parkeren in Frigiliana moeilijk?",
+          sv: "Är parkering svårt i Frigiliana?"
+        },
+        a: {
+          en: "Parking is not impossible, but it is different from a coastal resort. Expect signed or peripheral parking, narrow streets, and some walking. In high season, allow extra time and avoid assuming door-to-door car access.",
+          de: "Parken ist nicht unmöglich, aber anders als in einem Küstenort. Rechnen Sie mit ausgewiesenen oder randnahen Parkplätzen, engen Straßen und etwas Fußweg. In der Hochsaison sollten Sie zusätzliche Zeit einplanen.",
+          es: "Aparcar no es imposible, pero es distinto a un destino costero. Contad con aparcamientos señalizados o periféricos, calles estrechas y algo de camino a pie. En temporada alta conviene dejar margen.",
+          nl: "Parkeren is niet onmogelijk, maar anders dan in een kustplaats. Reken op aangegeven of randparkeren, smalle straten en wat lopen. In het hoogseizoen is extra tijd verstandig.",
+          sv: "Parkering är inte omöjligt, men annorlunda än vid kusten. Räkna med skyltade eller yttre parkeringsytor, smala gator och en bit till fots. Under högsäsong bör ni ha extra tid."
         }
       }
     ]

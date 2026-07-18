@@ -15,6 +15,12 @@ export interface CinematicApartment {
   exploreLabel: string;
 }
 
+export interface CinematicGuideLink {
+  href: string;
+  label: string;
+  text: string;
+}
+
 export interface HomeCinematicMainProps {
   heroImageSrc: string;
   heroImageSrcSet?: string;
@@ -32,6 +38,9 @@ export interface HomeCinematicMainProps {
   statRatingValue: string;
   statReviewsLabel: string;
   statRatingLabel: string;
+  guideEyebrow: string;
+  guideTitle: string;
+  guideLinks: CinematicGuideLink[];
   collectionEyebrow: string;
   collectionTitle: string;
   apartments: CinematicApartment[];
@@ -83,6 +92,9 @@ export default function HomeCinematicMain(props: HomeCinematicMainProps) {
     statRatingValue,
     statReviewsLabel,
     statRatingLabel,
+    guideEyebrow,
+    guideTitle,
+    guideLinks,
     collectionEyebrow,
     collectionTitle,
     apartments,
@@ -220,6 +232,34 @@ export default function HomeCinematicMain(props: HomeCinematicMainProps) {
           </div>
         </div>
       </section>
+
+      {guideLinks.length > 0 && (
+        <section id="stay-guides" className="relative z-[2] scroll-mt-[136px] border-y border-outline-variant/10 bg-surface py-12 md:py-16">
+          <div className="mx-auto grid max-w-screen-xl gap-10 px-6 md:px-12 lg:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)] lg:items-start">
+            <FadeIn>
+              <span className="mb-4 block am-text-caption uppercase tracking-widest text-primary">{guideEyebrow}</span>
+              <h2 className="max-w-lg am-text-title text-on-surface">{guideTitle}</h2>
+            </FadeIn>
+
+            <FadeIn delay={0.15}>
+              <div className="grid gap-x-10 gap-y-8 sm:grid-cols-2">
+                {guideLinks.map((link) => (
+                  <a
+                    key={link.href}
+                    href={link.href}
+                    className="group border-l border-outline-variant/25 py-1 pl-6 transition-colors hover:border-primary"
+                  >
+                    <span className="block am-text-caption uppercase tracking-widest text-primary">{link.label}</span>
+                    <span className="mt-3 block max-w-sm am-text-body leading-relaxed text-on-surface-variant transition-colors group-hover:text-on-surface">
+                      {link.text}
+                    </span>
+                  </a>
+                ))}
+              </div>
+            </FadeIn>
+          </div>
+        </section>
+      )}
 
       {/* Collection */}
       <section className="relative z-[2] bg-surface-container-low py-24">

@@ -1,0 +1,230 @@
+- generic [active] [ref=f3e1]:
+  - generic [ref=f3e2]:
+    - main [ref=f3e3]:
+      - navigation [ref=f3e5]:
+        - link "Frigiliana Guía huésped" [ref=f3e7] [cursor=pointer]:
+          - /url: /
+          - generic [ref=f3e8]: Frigiliana
+          - generic [ref=f3e9]: Guía huésped
+        - button "Select language" [ref=f3e13]
+      - navigation "On this page" [ref=f3e17]:
+        - list [ref=f3e19]:
+          - listitem [ref=f3e20]:
+            - link "Lo esencial y orientación" [ref=f3e21] [cursor=pointer]:
+              - /url: /frigiliana-location#intro
+          - listitem [ref=f3e22]:
+            - link "Tiempo y clima" [ref=f3e23] [cursor=pointer]:
+              - /url: /frigiliana-weather
+          - listitem [ref=f3e24]:
+            - link "Frigiliana vs Nerja" [ref=f3e25] [cursor=pointer]:
+              - /url: /frigiliana-location#comparison
+          - listitem [ref=f3e26]:
+            - link "Estructura del pueblo" [ref=f3e27] [cursor=pointer]:
+              - /url: /frigiliana-location#experiences
+          - listitem [ref=f3e28]:
+            - link "Dónde alojarse" [ref=f3e29] [cursor=pointer]:
+              - /url: /frigiliana-location#where-to-stay
+          - listitem [ref=f3e30]:
+            - link "Llegada" [ref=f3e31] [cursor=pointer]:
+              - /url: /directions-arrival-guide
+          - listitem [ref=f3e32]:
+            - link "FAQ" [ref=f3e33] [cursor=pointer]:
+              - /url: /frigiliana-location#faq
+      - generic [ref=f3e35]:
+        - generic [ref=f3e38]:
+          - generic [ref=f3e39]:
+            - generic [ref=f3e40]: La joya de la Axarquía
+            - heading "El alma de los pueblos blancos" [level=1] [ref=f3e41]
+            - generic [ref=f3e42]:
+              - paragraph [ref=f3e43]: Enclavada en los pliegues de la sierra Almijara, Frigiliana es un diálogo atemporal entre la geometría morisca y la luz mediterránea.
+              - paragraph [ref=f3e44]:
+                - text: Comprender
+                - link "su estructura y su entorno" [ref=f3e45] [cursor=pointer]:
+                  - /url: /frigiliana-parking
+                - text: es clave para decidir si encaja en su estancia.
+            - generic [ref=f3e46]:
+              - link "Ver apartamentos" [ref=f3e47] [cursor=pointer]:
+                - /url: /romantic-hideaways
+              - link "La Guía" [ref=f3e48] [cursor=pointer]:
+                - /url: /directions-arrival-guide
+          - img "Frigiliana hillside homes in afternoon light" [ref=f3e51]
+        - generic [ref=f3e54]:
+          - generic [ref=f3e55]:
+            - generic [ref=f3e56]:
+              - generic [ref=f3e57]: Estudio Arquitectónico
+              - heading "Geometría Mudéjar" [level=2] [ref=f3e58]
+            - generic [ref=f3e59]:
+              - generic [ref=f3e60]: 1 de 2
+              - generic [ref=f3e61]:
+                - button "Anterior" [disabled] [ref=f3e62]:
+                  - img "Anterior" [ref=f3e63]
+                - button "Siguiente" [ref=f3e65]:
+                  - img "Siguiente" [ref=f3e66]
+          - generic [ref=f3e69]:
+            - generic [ref=f3e70]:
+              - img "Índigo" [ref=f3e72]
+              - paragraph [ref=f3e73]: Las puertas azules
+            - generic [ref=f3e74]:
+              - img "Sierra" [ref=f3e76]
+              - paragraph [ref=f3e77]: Sierra Almijara
+        - generic [ref=f3e79]:
+          - generic [ref=f3e80]:
+            - generic [ref=f3e81]: De un vistazo
+            - heading "Frigiliana — datos clave" [level=2] [ref=f3e82]
+            - paragraph [ref=f3e83]: Frigiliana es uno de los pueblos blancos más bellos de Andalucía, pero no es una base de acceso fácil por excelencia.
+          - generic [ref=f3e84]:
+            - generic [ref=f3e85]:
+              - img "Pueblo blanco en la colina" [ref=f3e86]
+              - generic [ref=f3e87]:
+                - generic [ref=f3e88]: Entorno
+                - heading "Pueblo blanco en la colina" [level=3] [ref=f3e89]
+                - paragraph [ref=f3e90]: En lo alto de la Axarquía, sobre la costa, Frigiliana ofrece vistas panorámicas, pero también desnivel y terreno empinado.
+            - generic [ref=f3e91]:
+              - generic [ref=f3e92]: Ubicación
+              - heading "Cerca de Nerja, sin playa en el pueblo" [level=3] [ref=f3e93]
+              - paragraph [ref=f3e94]: Las playas de Nerja están a un corto trayecto en coche, pero Frigiliana en sí es un pueblo de montaña, no un pueblo costero.
+            - generic [ref=f3e95]:
+              - generic [ref=f3e96]:
+                - generic [ref=f3e97]: Desplazamiento
+                - heading "Cuestas, escaleras y calles estrechas" [level=3] [ref=f3e98]
+              - paragraph [ref=f3e99]: El casco antiguo son cuestas y escaleras. Caminar es precioso, pero exige esfuerzo y buena movilidad.
+            - generic [ref=f3e100]:
+              - img "Tranquilo, pintoresco, sin prisas" [ref=f3e101]
+              - generic [ref=f3e102]:
+                - heading "Tranquilo, pintoresco, sin prisas" [level=3] [ref=f3e103]
+                - paragraph [ref=f3e104]: Frigiliana destaca por su ritmo tranquilo, su belleza visual y un ritmo de vida más pausado.
+        - generic [ref=f3e106]:
+          - generic [ref=f3e108]:
+            - generic [ref=f3e109]: Condiciones actuales
+            - paragraph [ref=f3e110]: 29°
+            - paragraph [ref=f3e111]: Más respirable que la costa
+          - generic [ref=f3e112]:
+            - heading "Un clima que moldea su estancia" [level=2] [ref=f3e113]
+            - paragraph [ref=f3e114]: "Frigiliana está entre mar y montaña, y eso cambia cómo se siente el día. En verano la costa puede volverse intensa, pero el pueblo suele seguir más respirable gracias a la altitud y el paso del aire. No se trata solo de la temperatura: se trata de cuándo moverse, descansar y disfrutar del pueblo."
+            - generic "Current conditions snapshot" [ref=f3e115]:
+              - generic [ref=f3e116]: Humedad · 57%
+              - generic [ref=f3e117]: Viento · 5 km/h
+              - generic [ref=f3e118]: UV · 8.2
+              - generic [ref=f3e119]: Atardecer · 21:33
+            - generic [ref=f3e120]:
+              - paragraph [ref=f3e121]: Más de 300 días de sol
+              - paragraph [ref=f3e122]: 5 °C menos que en la costa
+            - link "Vea cómo el clima moldea su estancia" [ref=f3e123] [cursor=pointer]:
+              - /url: /frigiliana-weather
+        - generic [ref=f3e126]:
+          - generic [ref=f3e127]:
+            - img "Vista de la costa de Nerja" [ref=f3e129]
+            - img "Vista en ladera sobre Frigiliana" [ref=f3e131]
+          - generic [ref=f3e132]:
+            - generic [ref=f3e133]: Dos formas de estancia
+            - heading "¿Costa o ladera?" [level=2] [ref=f3e134]
+            - paragraph [ref=f3e135]: Frigiliana y Nerja están cerca, pero ofrecen experiencias de estancia muy distintas. La mejor opción depende de si valoras más el carácter del pueblo o la comodidad de la costa.
+            - generic [ref=f3e136]:
+              - generic [ref=f3e137]:
+                - generic [ref=f3e138]: 15 min
+                - generic [ref=f3e139]:
+                  - heading "La cercanía" [level=3] [ref=f3e140]
+                  - paragraph [ref=f3e141]: Frigiliana está a pocos minutos en coche sobre Nerja, pero como base para varios días se siente claramente distinta.
+              - generic [ref=f3e142]:
+                - generic [ref=f3e143]: 5°C
+                - generic [ref=f3e144]:
+                  - heading "El microclima" [level=3] [ref=f3e145]
+                  - paragraph [ref=f3e146]: La ladera suele ser notablemente más fresca que la costa, especialmente en los meses cálidos.
+              - generic [ref=f3e148]:
+                - heading "Movimiento" [level=3] [ref=f3e149]
+                - paragraph [ref=f3e150]: Frigiliana implica cuestas, escaleras y un ritmo diario más vertical, mientras que Nerja suele ser más llana y fácil de recorrer.
+              - generic [ref=f3e152]:
+                - heading "Experiencia de estancia" [level=3] [ref=f3e153]
+                - paragraph [ref=f3e154]: Frigiliana encaja mejor con estancias tranquilas y con carácter; Nerja ofrece playa, variedad y mayor comodidad diaria.
+        - generic [ref=f3e157]:
+          - img "Escaleras empinadas en el casco antiguo de Frigiliana" [ref=f3e159]
+          - generic [ref=f3e160]:
+            - generic [ref=f3e161]: Estructura del pueblo
+            - heading "Un pueblo de escaleras" [level=2] [ref=f3e162]
+            - paragraph [ref=f3e163]: Frigiliana está labrada en la ladera. Espere cuestas pronunciadas, callejuelas estrechas y vistas que compensan el esfuerzo.
+            - paragraph [ref=f3e164]: Escalones · Desnivel · Calles estrechas
+            - link "Comprenda cómo la disposición del pueblo marca su estancia" [ref=f3e166] [cursor=pointer]:
+              - /url: /directions-arrival-guide
+        - generic [ref=f3e168]:
+          - generic [ref=f3e169]:
+            - generic [ref=f3e170]: Decisión
+            - heading "¿Para usted?" [level=2] [ref=f3e171]
+          - generic [ref=f3e173]:
+            - generic [ref=f3e174]:
+              - heading "Parejas" [level=3] [ref=f3e175]
+              - generic [ref=f3e176]: Máxima
+            - paragraph [ref=f3e177]: Silencio.
+        - generic [ref=f3e180]:
+          - generic [ref=f3e181]:
+            - heading "La Llegada" [level=2] [ref=f3e182]
+            - generic [ref=f3e183]:
+              - generic [ref=f3e184]:
+                - generic [ref=f3e185]:
+                  - generic [ref=f3e186]: "01"
+                  - generic [ref=f3e187]:
+                    - heading "Puertas" [level=4] [ref=f3e188]
+                    - paragraph [ref=f3e189]: El aeropuerto de Málaga (AGP) es la puerta principal, a 50 minutos.
+                - generic [ref=f3e190]:
+                  - generic [ref=f3e191]: "02"
+                  - generic [ref=f3e192]:
+                    - heading "Transporte" [level=4] [ref=f3e193]
+                    - paragraph [ref=f3e194]: Hay autobuses, pero un coche es esencial para explorar la Axarquía.
+                - generic [ref=f3e195]:
+                  - generic [ref=f3e196]: "03"
+                  - generic [ref=f3e197]:
+                    - heading "El Ascenso" [level=4] [ref=f3e198]
+                    - paragraph [ref=f3e199]: Frigiliana está dividida. Prepárate para las cuestas.
+              - link "Guía detallada de llegada" [ref=f3e200] [cursor=pointer]:
+                - /url: /directions-arrival-guide
+          - generic [ref=f3e201]:
+            - heading "Despachos y FAQ" [level=2] [ref=f3e202]
+            - generic [ref=f3e204]:
+              - group [ref=f3e205] [cursor=pointer]:
+                - generic [ref=f3e206]:
+                  - heading "¿Mejor época?" [level=4] [ref=f3e207]
+                  - generic [ref=f3e208]: +
+              - group [ref=f3e209] [cursor=pointer]:
+                - generic [ref=f3e210]:
+                  - heading "¿Es viable el casco antiguo con movilidad reducida?" [level=4] [ref=f3e211]
+                  - generic [ref=f3e212]: +
+              - group [ref=f3e213] [cursor=pointer]:
+                - generic [ref=f3e214]:
+                  - heading "¿Dónde aparcar cerca del casco histórico?" [level=4] [ref=f3e215]
+                  - generic [ref=f3e216]: +
+              - group [ref=f3e217] [cursor=pointer]:
+                - generic [ref=f3e218]:
+                  - heading "¿Es viable un día en Nerja desde Frigiliana?" [level=4] [ref=f3e219]
+                  - generic [ref=f3e220]: +
+    - generic [ref=f3e222]:
+      - navigation "Footer highlights" [ref=f3e224]:
+        - list [ref=f3e225]:
+          - listitem [ref=f3e226]:
+            - link "Apartamentos para parejas" [ref=f3e227] [cursor=pointer]:
+              - /url: /romantic-hideaways
+          - listitem [ref=f3e228]:
+            - link "Guía de aparcamiento" [ref=f3e229] [cursor=pointer]:
+              - /url: /frigiliana-parking
+          - listitem [ref=f3e230]:
+            - link "Guía de llegada" [ref=f3e231] [cursor=pointer]:
+              - /url: /directions-arrival-guide
+      - contentinfo [ref=f3e232]:
+        - generic [ref=f3e234]:
+          - generic [ref=f3e235]:
+            - generic [ref=f3e236]: © 2026 AMARA
+            - generic [ref=f3e237]: Frigiliana, Málaga · España
+          - generic [ref=f3e238]:
+            - link "+34 604 440 964" [ref=f3e239] [cursor=pointer]:
+              - /url: tel:+34604440964
+            - link "hola@amara-lodging.es" [ref=f3e240] [cursor=pointer]:
+              - /url: mailto:hola@amara-lodging.es
+          - generic [ref=f3e241]:
+            - link "Aviso legal" [ref=f3e242] [cursor=pointer]:
+              - /url: /legal-notice
+            - generic [ref=f3e243]: ·
+            - link "Privacidad" [ref=f3e244] [cursor=pointer]:
+              - /url: /legal-notice
+  - generic [ref=f3e247]:
+    - button [ref=f3e248]
+    - button [ref=f3e254]
+    - button [ref=f3e258]
+    - button [ref=f3e263]

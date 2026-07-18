@@ -11,8 +11,7 @@ import SectionAnchorNav from '../../components/navigation/SectionAnchorNav.astro
 import SmartBackButton from '../../components/navigation/SmartBackButton.astro';
 import ParkingRealityPillars from '../../components/location/ParkingRealityPillars.astro';
 import StayModels from '../../components/location/StayModels.astro';
-import { resolveOptionalLink } from '../../lib/linkResolver';
-import { buildOwnedLocalizedPath, isPublicLinkEnabled } from '../../lib/routeOwnership';
+import { buildOwnedLocalizedPath } from '../../lib/routeOwnership';
 import { getFrigilianaAuthoritySubnav } from '../../lib/frigiliana/frigilianaAuthoritySubnav';
 import { normalizeLanguage } from '../../lib/seo/resolve-seo-head';
 import type { AmaraAuthoringSeo, AmaraLanguage } from '../../types/seo';
@@ -25,9 +24,9 @@ const { lang = 'es' } = Astro.props;
 const currentLang = normalizeLanguage(lang as AmaraLanguage);
 const sectionNavItems = getFrigilianaAuthoritySubnav(currentLang);
 const locationFallbackHref = buildOwnedLocalizedPath('frigiliana-location', currentLang);
-const bookHref = isPublicLinkEnabled('book')
-  ? resolveOptionalLink('book', currentLang, { suppressMissing: true })
-  : null;
+const staysHref = buildOwnedLocalizedPath('romantic-hideaways', currentLang);
+const weatherHref = buildOwnedLocalizedPath('frigiliana-weather', currentLang);
+const arrivalGuideHref = buildOwnedLocalizedPath('directions-arrival-guide', currentLang);
 
 function t(row: Record<AmaraLanguage, string>): string {
   return row[currentLang] ?? row.en;
@@ -39,37 +38,37 @@ const seo: AmaraAuthoringSeo = {
   entityKey: 'amara-brand',
   languages: {
     en: {
-      title: 'Parking & movement in Frigiliana | AMARA Location Guide',
+      title: 'Frigiliana Parking: Where to Park & Walk',
       description:
-        'How parking and walking really work in a vertical hill village — and how your choice of base shapes daily rhythm.',
+        'Understand parking in Frigiliana, walking routes, luggage reality, and why your apartment location shapes daily comfort.',
       robots: 'index, follow',
       canonical: 'auto'
     },
     de: {
-      title: 'Parken und Bewegung in Frigiliana | AMARA Ortsguide',
+      title: 'Parken in Frigiliana: Wege & Lage',
       description:
-        'Wie Parken und Gehen in einem steilen Bergdorf wirklich funktionieren — und wie Ihre Basis den Tagesrhythmus prägt.',
+        'So funktionieren Parken, Wege und Gepäck in Frigiliana, und warum die Lage eurer Unterkunft den Alltag prägt.',
       robots: 'index, follow',
       canonical: 'auto'
     },
     es: {
-      title: 'Aparcamiento y movimiento en Frigiliana | Guía AMARA',
+      title: 'Aparcamiento en Frigiliana: dónde aparcar',
       description:
-        'Cómo funcionan de verdad aparcar y caminar en un pueblo en cuesta — y cómo vuestra base marca el ritmo del día.',
+        'Entended cómo funcionan el aparcamiento, los caminos con equipaje y la ubicación ideal para alojarse en Frigiliana.',
       robots: 'index, follow',
       canonical: 'auto'
     },
     nl: {
-      title: 'Parkeren en bewegen in Frigiliana | AMARA locatiegids',
+      title: 'Parkeren in Frigiliana: lopen & ligging',
       description:
-        'Hoe parkeren en lopen in een hellend dorp echt werkt — en hoe uw uitvalsbasis het dagritme bepaalt.',
+        'Begrijp parkeren in Frigiliana, looproutes met bagage en waarom de ligging van je appartement het dagritme bepaalt.',
       robots: 'index, follow',
       canonical: 'auto'
     },
     sv: {
-      title: 'Parkering och rörelse i Frigiliana | AMARA platsguide',
+      title: 'Parkering i Frigiliana: läge & gångvägar',
       description:
-        'Hur parkering och promenader verkligen fungerar i en brant by — och hur er bas formar vardagsrytmen.',
+        'Förstå parkering i Frigiliana, gångvägar med bagage och varför läget på boendet formar vardagsrytmen.',
       robots: 'index, follow',
       canonical: 'auto'
     }
@@ -84,15 +83,24 @@ const copy = {
     brand: { en: 'Frigiliana', de: 'Frigiliana', es: 'Frigiliana', nl: 'Frigiliana', sv: 'Frigiliana' },
     links: [
       { token: 'location_frigiliana', label: { en: 'Frigiliana', de: 'Frigiliana', es: 'Frigiliana', nl: 'Frigiliana', sv: 'Frigiliana' } },
-      { token: 'location_nerja', label: { en: 'Nerja', de: 'Nerja', es: 'Nerja', nl: 'Nerja', sv: 'Nerja' } },
       {
-        token: 'explore_hub',
+        token: 'frigiliana_parking',
         label: {
-          en: 'Experiences',
-          de: 'Erlebnisse',
-          es: 'Experiencias',
-          nl: 'Ervaringen',
-          sv: 'Upplevelser'
+          en: 'Parking',
+          de: 'Parken',
+          es: 'Aparcamiento',
+          nl: 'Parkeren',
+          sv: 'Parkering'
+        }
+      },
+      {
+        token: 'arrival_guide',
+        label: {
+          en: 'Arrival',
+          de: 'Anreise',
+          es: 'Llegada',
+          nl: 'Aankomst',
+          sv: 'Ankomst'
         }
       }
     ]
@@ -386,6 +394,68 @@ const copy = {
       nl: 'AMARA-verblijven bekijken',
       sv: 'Utforska AMARA-boenden'
     }
+  },
+  related: {
+    title: {
+      en: 'Plan the rest of your Frigiliana stay',
+      de: 'Den restlichen Frigiliana-Aufenthalt planen',
+      es: 'Planificar el resto de la estancia en Frigiliana',
+      nl: 'Plan de rest van je verblijf in Frigiliana',
+      sv: 'Planera resten av vistelsen i Frigiliana'
+    },
+    links: [
+      {
+        href: locationFallbackHref,
+        label: {
+          en: 'Frigiliana guide',
+          de: 'Frigiliana-Guide',
+          es: 'Guía de Frigiliana',
+          nl: 'Frigiliana-gids',
+          sv: 'Frigiliana-guide'
+        },
+        text: {
+          en: 'Compare village structure, Nerja access, and where to stay.',
+          de: 'Dorfstruktur, Nähe zu Nerja und passende Lagen vergleichen.',
+          es: 'Comparar estructura del pueblo, Nerja y dónde alojarse.',
+          nl: 'Vergelijk dorpsstructuur, Nerja en waar je verblijft.',
+          sv: 'Jämför bystruktur, Nerja och var ni bor.'
+        }
+      },
+      {
+        href: weatherHref,
+        label: {
+          en: 'Weather & seasons',
+          de: 'Wetter & Saison',
+          es: 'Clima y temporadas',
+          nl: 'Weer & seizoenen',
+          sv: 'Väder & säsonger'
+        },
+        text: {
+          en: 'Match walking, terraces, and sleep to the season.',
+          de: 'Wege, Terrassenzeit und Schlaf zur Saison passend planen.',
+          es: 'Ajustar paseos, terrazas y descanso a la temporada.',
+          nl: 'Stem wandelen, terras en slaap af op het seizoen.',
+          sv: 'Anpassa promenader, terrass och sömn efter säsong.'
+        }
+      },
+      {
+        href: arrivalGuideHref,
+        label: {
+          en: 'Arrival guide',
+          de: 'Anreise-Guide',
+          es: 'Guía de llegada',
+          nl: 'Aankomstgids',
+          sv: 'Ankomstguide'
+        },
+        text: {
+          en: 'Check the route, address, and arrival rhythm before travelling.',
+          de: 'Route, Adresse und Ankunftsrhythmus vor der Reise prüfen.',
+          es: 'Revisar ruta, dirección y ritmo de llegada antes de viajar.',
+          nl: 'Bekijk route, adres en aankomstritme voor vertrek.',
+          sv: 'Kontrollera rutt, adress och ankomstrytm före resan.'
+        }
+      }
+    ]
   }
 };
 
@@ -462,6 +532,14 @@ const c = {
     title: t(copy.amara.title),
     body: t(copy.amara.body),
     cta: t(copy.amara.cta)
+  },
+  related: {
+    title: t(copy.related.title),
+    links: copy.related.links.map((link) => ({
+      href: link.href,
+      label: t(link.label),
+      text: t(link.text)
+    }))
   }
 };
 
@@ -475,6 +553,8 @@ const sectionLead = 'am-text-body text-on-surface-variant leading-relaxed italic
     links={c.nav.links}
     languageToken="frigiliana_parking"
     locationAuthorityNav={true}
+    ctaLabel={c.amara.cta}
+    ctaHref={staysHref}
   />
   <SectionAnchorNav items={sectionNavItems} activeId="arrival" />
 
@@ -549,14 +629,22 @@ const sectionLead = 'am-text-body text-on-surface-variant leading-relaxed italic
           <h2 class="am-text-title italic text-on-surface">{c.amara.title}</h2>
           <p class={sectionLead}>{c.amara.body}</p>
           <p class="pt-2">
-            {
-              bookHref ? (
-                <a href={bookHref} class="am-cta-link">{c.amara.cta}</a>
-              ) : (
-                <span class="am-cta-link pointer-events-none opacity-60" aria-disabled="true">{c.amara.cta}</span>
-              )
-            }
+            <a href={staysHref} class="am-cta-link">{c.amara.cta}</a>
           </p>
+        </section>
+
+        <section class="space-y-8">
+          <h2 class="am-text-title italic text-on-surface">{c.related.title}</h2>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-x-10 gap-y-8">
+            {c.related.links.map((link) => (
+              <a href={link.href} class="group border-l border-outline-variant/20 pl-6 py-1 transition-colors hover:border-primary">
+                <span class="block am-text-caption uppercase tracking-[0.18em] text-primary">{link.label}</span>
+                <span class="mt-3 block am-text-body leading-relaxed text-on-surface-variant group-hover:text-on-surface transition-colors">
+                  {link.text}
+                </span>
+              </a>
+            ))}
+          </div>
         </section>
       </div>
     </div>

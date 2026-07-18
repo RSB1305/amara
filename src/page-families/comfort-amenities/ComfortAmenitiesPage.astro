@@ -9,7 +9,9 @@ import {
   comfortAmenitiesProperties,
   comfortAmenitiesSeo
 } from '../../content/comfortAmenitiesContent';
+import { vacationRentalEntities } from '../../content/vacationRentalEntities';
 import { resolveOptionalLink } from '../../lib/linkResolver';
+import { buildOwnedLocalizedPath } from '../../lib/routeOwnership';
 import { normalizeLanguage } from '../../lib/seo/resolve-seo-head';
 import type { AmaraLanguage } from '../../types/seo';
 
@@ -24,7 +26,16 @@ const footerHighlights = [
   { token: 'faq_general', label: comfortAmenitiesFooterLabels.faq_general[currentLang] },
   { token: 'instagram', label: comfortAmenitiesFooterLabels.instagram[currentLang] }
 ];
-const properties = comfortAmenitiesProperties;
+const rentalHrefByPropertyId = Object.fromEntries(
+  vacationRentalEntities.map((rental) => [
+    rental.propertyId,
+    buildOwnedLocalizedPath(rental.slug, currentLang)
+  ])
+);
+const properties = comfortAmenitiesProperties.map((property) => ({
+  ...property,
+  href: rentalHrefByPropertyId[property.id] ?? property.href
+}));
 const heroCtaLinks = [
   { token: 'about', label: page.hero.ctaAbout },
   { token: 'reviews_hub', label: page.hero.ctaReviews }

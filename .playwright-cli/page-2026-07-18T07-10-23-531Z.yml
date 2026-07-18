@@ -1,0 +1,203 @@
+- generic [active] [ref=f59e1]:
+  - generic [ref=f59e2]:
+    - banner [ref=f59e3]:
+      - navigation [ref=f59e4]:
+        - link "AMARA Guía huésped" [ref=f59e6] [cursor=pointer]:
+          - /url: /
+          - generic [ref=f59e7]: AMARA
+          - generic [ref=f59e8]: Guía huésped
+        - button "Select language" [ref=f59e12]
+    - generic [ref=f59e17]:
+      - generic [ref=f59e18]:
+        - generic [ref=f59e19]:
+          - generic [ref=f59e20]: Apartamentos boutique AMARA
+          - heading "Apartamentos boutique para parejas Frigiliana y Nerja" [level=1] [ref=f59e22]
+          - paragraph [ref=f59e23]: Estancias privadas con diseño, ubicaciones tranquilas, cariño verificado de los huéspedes y contacto directo con el anfitrión.
+        - generic [ref=f59e24]:
+          - paragraph [ref=f59e25]: AMARA es una colección cuidada de apartamentos boutique privados en Frigiliana, con un apartamento tranquilo junto al mar en la cercana Nerja. Cada estancia está pensada para parejas que buscan privacidad, atmósfera y un ritmo de viaje más pausado.
+          - paragraph [ref=f59e26]: Casa AMARA se encuentra en el corazón histórico de Frigiliana. La casa tiene más de 800 años y fue restaurada con mimo en 2022, combinando carácter de pueblo blanco y confort actual.
+          - paragraph [ref=f59e27]: Galardonada. Siempre muy valorada. Contacto directo con el anfitrión.
+        - generic [ref=f59e28]:
+          - link "Ver apartamentos" [ref=f59e29] [cursor=pointer]:
+            - /url: "#booking"
+          - link "Leer reseñas" [ref=f59e30] [cursor=pointer]:
+            - /url: /guest-reviews
+        - generic [ref=f59e31]:
+          - generic [ref=f59e32]: Booking.com Traveller Award
+          - generic [ref=f59e33]: 500+ reseñas verificadas en Airbnb
+          - link "Ventajas de reserva directa" [ref=f59e34] [cursor=pointer]:
+            - /url: /direct-booking-benefits
+      - region [ref=f59e35]:
+        - generic [ref=f59e36]:
+          - generic [ref=f59e37]:
+            - paragraph [ref=f59e38]: Elegid la base adecuada
+            - heading "¿Qué estancia AMARA encaja con vuestro viaje?" [level=2] [ref=f59e39]
+            - paragraph [ref=f59e40]: La mayoría de las parejas compara primero la atmósfera y después caminos, aparcamiento, terraza y playa. Así la elección se vuelve clara.
+          - generic [ref=f59e41]:
+            - article [ref=f59e42]:
+              - paragraph [ref=f59e43]: Casco antiguo de Frigiliana
+              - heading "Ideal para atmósfera y noches tranquilas" [level=3] [ref=f59e44]
+              - paragraph [ref=f59e45]: Elegid Farah, Lounis, Zaid o Maha si buscáis carácter de pueblo blanco, noches silenciosas, terraza y Nerja lo bastante cerca para días de playa.
+            - article [ref=f59e46]:
+              - paragraph [ref=f59e47]: Costa de Nerja
+              - heading "Ideal si la playa es prioridad" [level=3] [ref=f59e48]
+              - paragraph [ref=f59e49]: Elegid Playa si queréis tener el mar cerca, días de playa más sencillos, restaurantes a mano y un ritmo costero más ligero.
+            - article [ref=f59e50]:
+              - paragraph [ref=f59e51]: Más espacio en Tarifa
+              - heading "Ideal cuando el viaje no es solo para dos" [level=3] [ref=f59e52]
+              - paragraph [ref=f59e53]: Elegid Ocean View Penthouse si necesitáis más espacio, energía de surf y una base distinta a los apartamentos tranquilos para parejas.
+      - region [ref=f59e54]:
+        - generic [ref=f59e55]:
+          - heading "La colección AMARA" [level=2] [ref=f59e56]
+          - paragraph [ref=f59e57]: Elige entre la calma de pueblo blanco en Frigiliana, una base junto al mar en Nerja y un ático más amplio en Tarifa para quienes buscan más espacio.
+        - generic [ref=f59e58]:
+          - generic [ref=f59e59]:
+            - figure [ref=f59e60]:
+              - link "View AMARA Farah · Refugio boutique" [ref=f59e61] [cursor=pointer]:
+                - /url: https://amara-lodging.es/es/la-amara-farah
+                - img "Apartamento boutique AMARA Farah en Frigiliana para parejas" [ref=f59e62]
+            - generic [ref=f59e63]:
+              - generic [ref=f59e64]: Frigiliana · 2 huéspedes
+              - heading "AMARA Farah · Refugio boutique" [level=3] [ref=f59e65]
+              - paragraph [ref=f59e66]: Una habitación boutique romántica y tranquila, ideal para estancias más cortas en Frigiliana.
+              - link "Ver Farah" [ref=f59e68] [cursor=pointer]:
+                - /url: https://amara-lodging.es/es/la-amara-farah
+          - generic [ref=f59e69]:
+            - figure [ref=f59e70]:
+              - link "View AMARA Lounis · Apartamento histórico" [ref=f59e71] [cursor=pointer]:
+                - /url: https://amara-lodging.es/es/la-amara-lounis
+                - img "Apartamento histórico AMARA Lounis en Frigiliana con terraza" [ref=f59e72]
+            - generic [ref=f59e73]:
+              - generic [ref=f59e74]: Frigiliana · 2 huéspedes
+              - heading "AMARA Lounis · Apartamento histórico" [level=3] [ref=f59e75]
+              - paragraph [ref=f59e76]: Carácter histórico de pueblo blanco, terraza y una agradable sensación de amplitud.
+              - link "Ver Lounis" [ref=f59e78] [cursor=pointer]:
+                - /url: https://amara-lodging.es/es/la-amara-lounis
+          - generic [ref=f59e79]:
+            - figure [ref=f59e80]:
+              - link "View AMARA Zaid · Apartamento con terraza" [ref=f59e81] [cursor=pointer]:
+                - /url: https://amara-lodging.es/es/la-amara-zaid
+                - img "Apartamento AMARA Zaid en Frigiliana con terraza privada" [ref=f59e82]
+            - generic [ref=f59e83]:
+              - generic [ref=f59e84]: Frigiliana · 2 huéspedes
+              - heading "AMARA Zaid · Apartamento con terraza" [level=3] [ref=f59e85]
+              - paragraph [ref=f59e86]: Un refugio tranquilo con terraza para mañanas lentas, paseos por el pueblo y noches en calma.
+              - link "Ver Zaid" [ref=f59e88] [cursor=pointer]:
+                - /url: https://amara-lodging.es/es/la-amara-zaid
+          - generic [ref=f59e89]:
+            - figure [ref=f59e90]:
+              - link "View AMARA Maha · Apartamento en el casco antiguo" [ref=f59e91] [cursor=pointer]:
+                - /url: https://amara-lodging.es/es/la-amara-maha
+                - img "Apartamento romántico AMARA Maha en el casco antiguo de Frigiliana" [ref=f59e92]
+            - generic [ref=f59e93]:
+              - generic [ref=f59e94]: Frigiliana · 2 huéspedes
+              - heading "AMARA Maha · Apartamento en el casco antiguo" [level=3] [ref=f59e95]
+              - paragraph [ref=f59e96]: Un apartamento de pueblo pensado para quedarse, disfrutar la terraza y bajar el ritmo.
+              - link "Ver Maha" [ref=f59e98] [cursor=pointer]:
+                - /url: https://amara-lodging.es/es/la-amara-maha
+          - generic [ref=f59e99]:
+            - figure [ref=f59e100]:
+              - link "View AMARA Playa · Apartamento junto al mar en Nerja" [ref=f59e101] [cursor=pointer]:
+                - /url: https://amara-lodging.es/es/la-amara-playa
+                - img "Apartamento AMARA Playa en Nerja cerca de la playa con vistas al mar" [ref=f59e102]
+            - generic [ref=f59e103]:
+              - generic [ref=f59e104]: Nerja · 2 huéspedes
+              - heading "AMARA Playa · Apartamento junto al mar en Nerja" [level=3] [ref=f59e105]
+              - paragraph [ref=f59e106]: Una base relajada junto al mar para parejas que quieren tener Nerja, playas y mar muy cerca.
+              - link "Ver Playa" [ref=f59e108] [cursor=pointer]:
+                - /url: https://amara-lodging.es/es/la-amara-playa
+          - generic [ref=f59e109]:
+            - figure [ref=f59e110]:
+              - link "View AMARA Ocean View Penthouse" [ref=f59e111] [cursor=pointer]:
+                - /url: https://amara-lodging.es/es/lla-amara-family-and-surf
+                - img "Ático AMARA Ocean View en Tarifa para familias y estancias de surf" [ref=f59e112]
+            - generic [ref=f59e113]:
+              - generic [ref=f59e114]: Tarifa · estancia familiar
+              - heading "AMARA Ocean View Penthouse" [level=3] [ref=f59e115]
+              - paragraph [ref=f59e116]: Una casa más amplia con vistas al mar para familias y viajes de surf, distinta a los apartamentos para parejas.
+              - link "Ver ático" [ref=f59e118] [cursor=pointer]:
+                - /url: https://amara-lodging.es/es/lla-amara-family-and-surf
+      - region [ref=f59e119]:
+        - generic [ref=f59e120]:
+          - paragraph [ref=f59e121]: Planificar la estancia
+          - heading "Frigiliana primero, Nerja muy cerca" [level=2] [ref=f59e122]
+          - paragraph [ref=f59e123]: La mayoría de las estancias AMARA están en Frigiliana, uno de los pueblos blancos más bonitos de Andalucía. Nerja, las playas, la información de aparcamiento y la planificación del clima quedan lo bastante cerca para que el viaje sea sencillo.
+          - generic [ref=f59e124]:
+            - link "Guía de Frigiliana" [ref=f59e125] [cursor=pointer]:
+              - /url: /frigiliana-location
+            - link "Guía de aparcamiento" [ref=f59e126] [cursor=pointer]:
+              - /url: /frigiliana-parking
+            - link "Clima por mes" [ref=f59e127] [cursor=pointer]:
+              - /url: /frigiliana-weather
+      - region [ref=f59e128]:
+        - generic [ref=f59e129]:
+          - paragraph [ref=f59e130]: Antes de reservar
+          - heading "Preguntas habituales de parejas" [level=2] [ref=f59e131]
+          - paragraph [ref=f59e132]: Respuestas breves para las decisiones prácticas antes de elegir apartamento.
+        - generic [ref=f59e133]:
+          - group [ref=f59e134]:
+            - generic [ref=f59e135] [cursor=pointer]:
+              - heading "¿Frigiliana es buena para una escapada romántica?" [level=3] [ref=f59e136]
+              - generic [ref=f59e137]: +
+          - group [ref=f59e138]:
+            - generic [ref=f59e139] [cursor=pointer]:
+              - heading "¿Conviene elegir Frigiliana o Nerja?" [level=3] [ref=f59e140]
+              - generic [ref=f59e141]: +
+          - group [ref=f59e142]:
+            - generic [ref=f59e143] [cursor=pointer]:
+              - heading "¿Los apartamentos sirven para estancias más largas?" [level=3] [ref=f59e144]
+              - generic [ref=f59e145]: +
+          - group [ref=f59e146]:
+            - generic [ref=f59e147] [cursor=pointer]:
+              - heading "¿Qué hay que saber sobre el aparcamiento?" [level=3] [ref=f59e148]
+              - generic [ref=f59e149]: +
+        - link "Ver FAQ completa" [ref=f59e150] [cursor=pointer]:
+          - /url: /faq-general
+      - region "Guest reviews summary" [ref=f59e151]:
+        - generic [ref=f59e152]:
+          - generic [ref=f59e153]:
+            - paragraph [ref=f59e154]: Verificado por huéspedes
+            - heading "4,95 de 5 · 500+ reseñas verificadas" [level=2] [ref=f59e155]: ★ 4,95 de 5 · 500+ reseñas verificadas
+            - paragraph [ref=f59e156]: Estancias tranquilas, mañanas en la terraza, noches en silencio, sueño profundo — con un cuidado meditado.
+            - link "Leer todas las reseñas" [ref=f59e158] [cursor=pointer]:
+              - /url: /guest-reviews
+          - generic "Highlighted guest features" [ref=f59e159]:
+            - generic [ref=f59e160]:
+              - text: Vistas al mar
+              - generic [ref=f59e161]: (en parte)
+            - generic [ref=f59e162]: Grandes terrazas privadas
+            - generic [ref=f59e163]: Ubicaciones tranquilas
+            - generic [ref=f59e164]: Ropa de cama premium
+    - generic [ref=f59e165]:
+      - navigation "Footer highlights" [ref=f59e167]:
+        - list [ref=f59e168]:
+          - listitem [ref=f59e169]:
+            - link "Servicios" [ref=f59e170] [cursor=pointer]:
+              - /url: /comfort-amenities
+          - listitem [ref=f59e171]:
+            - link "FAQ de la estancia" [ref=f59e172] [cursor=pointer]:
+              - /url: /faq-general
+          - listitem [ref=f59e173]:
+            - link "Instagram" [ref=f59e174] [cursor=pointer]:
+              - /url: https://www.instagram.com/amaralodging/
+      - contentinfo [ref=f59e175]:
+        - generic [ref=f59e177]:
+          - generic [ref=f59e178]:
+            - generic [ref=f59e179]: © 2026 AMARA
+            - generic [ref=f59e180]: Frigiliana, Málaga · España
+          - generic [ref=f59e181]:
+            - link "+34 604 440 964" [ref=f59e182] [cursor=pointer]:
+              - /url: tel:+34604440964
+            - link "hola@amara-lodging.es" [ref=f59e183] [cursor=pointer]:
+              - /url: mailto:hola@amara-lodging.es
+          - generic [ref=f59e184]:
+            - link "Aviso legal" [ref=f59e185] [cursor=pointer]:
+              - /url: /legal-notice
+            - generic [ref=f59e186]: ·
+            - link "Privacidad" [ref=f59e187] [cursor=pointer]:
+              - /url: /legal-notice
+  - generic [ref=f59e190]:
+    - button [ref=f59e191]
+    - button [ref=f59e197]
+    - button [ref=f59e201]
+    - button [ref=f59e206]

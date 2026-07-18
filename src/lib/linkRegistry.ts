@@ -316,56 +316,56 @@ legal_notice: {
        APARTMENTS
     ========================================================= */
     farah: {
-      es: 'https://amara-lodging.es/es/la-amara-farah',
-      en: 'https://amara-lodging.es/en/la-amara-farah',
-      de: 'https://amara-lodging.es/de/la-amara-farah',
-      nl: 'https://amara-lodging.es/nl/la-amara-farah',
-      sv: 'https://amara-lodging.es/sv/la-amara-farah'
+      es: buildOwnedLocalizedPath('la-amara-farah', 'es'),
+      en: buildOwnedLocalizedPath('la-amara-farah', 'en'),
+      de: buildOwnedLocalizedPath('la-amara-farah', 'de'),
+      nl: buildOwnedLocalizedPath('la-amara-farah', 'nl'),
+      sv: buildOwnedLocalizedPath('la-amara-farah', 'sv')
     },
     lounis: {
-      es: 'https://amara-lodging.es/es/la-amara-lounis',
-      de: 'https://amara-lodging.es/de/la-amara-lounis',
-      en: 'https://amara-lodging.es/en/la-amara-lounis',
-      nl: 'https://amara-lodging.es/nl/la-amara-lounis',
-      sv: 'https://amara-lodging.es/sv/la-amara-lounis'
+      es: buildOwnedLocalizedPath('la-amara-lounis', 'es'),
+      de: buildOwnedLocalizedPath('la-amara-lounis', 'de'),
+      en: buildOwnedLocalizedPath('la-amara-lounis', 'en'),
+      nl: buildOwnedLocalizedPath('la-amara-lounis', 'nl'),
+      sv: buildOwnedLocalizedPath('la-amara-lounis', 'sv')
     },
     zaid: {
-      en: 'https://amara-lodging.es/en/la-amara-zaid',
-      es: 'https://amara-lodging.es/es/la-amara-zaid',
-      de: 'https://amara-lodging.es/de/la-amara-zaid',
-      nl: 'https://amara-lodging.es/nl/de-amara-zaid',
-      sv: 'https://amara-lodging.es/sv/la-amara-zaid'
+      en: buildOwnedLocalizedPath('la-amara-zaid', 'en'),
+      es: buildOwnedLocalizedPath('la-amara-zaid', 'es'),
+      de: buildOwnedLocalizedPath('la-amara-zaid', 'de'),
+      nl: buildOwnedLocalizedPath('la-amara-zaid', 'nl'),
+      sv: buildOwnedLocalizedPath('la-amara-zaid', 'sv')
     },
     maha: {
-      en: 'https://amara-lodging.es/en/la-amara-maha',
-      de: 'https://amara-lodging.es/de/la-amara-maha',
-      es: 'https://amara-lodging.es/es/la-amara-maha',
-      nl: 'https://amara-lodging.es/nl/la-amara-maha',
-      sv: 'https://amara-lodging.es/sv/la-amara-maha'
+      en: buildOwnedLocalizedPath('la-amara-maha', 'en'),
+      de: buildOwnedLocalizedPath('la-amara-maha', 'de'),
+      es: buildOwnedLocalizedPath('la-amara-maha', 'es'),
+      nl: buildOwnedLocalizedPath('la-amara-maha', 'nl'),
+      sv: buildOwnedLocalizedPath('la-amara-maha', 'sv')
     },
     playa: {
-      en: 'https://amara-lodging.es/en/la-amara-playa',
-      de: 'https://amara-lodging.es/de/la-amara-playa',
-      es: 'https://amara-lodging.es/es/la-amara-playa',
-      nl: 'https://amara-lodging.es/nl/la-amara-playa',
-      sv: 'https://amara-lodging.es/sv/la-amara-playa '
+      en: buildOwnedLocalizedPath('la-amara-playa', 'en'),
+      de: buildOwnedLocalizedPath('la-amara-playa', 'de'),
+      es: buildOwnedLocalizedPath('la-amara-playa', 'es'),
+      nl: buildOwnedLocalizedPath('la-amara-playa', 'nl'),
+      sv: buildOwnedLocalizedPath('la-amara-playa', 'sv')
     },
     casa: {
-      en: 'https://amara-lodging.es/en/la-amara-family-and-surf',
-      de: 'https://amara-lodging.es/de/la-amara-family-and-surf',
-      es: 'https://amara-lodging.es/es/lla-amara-family-and-surf',
-      nl: 'https://amara-lodging.es/en/la-amara-family-and-surf',
-      sv: 'https://amara-lodging.es/sv/la-amara-family-and-surf'
+      en: buildOwnedLocalizedPath('la-amara-family-and-surf', 'en'),
+      de: buildOwnedLocalizedPath('la-amara-family-and-surf', 'de'),
+      es: buildOwnedLocalizedPath('la-amara-family-and-surf', 'es'),
+      nl: buildOwnedLocalizedPath('la-amara-family-and-surf', 'nl'),
+      sv: buildOwnedLocalizedPath('la-amara-family-and-surf', 'sv')
     },
     /**
      * Featured editorial “Aura” home — same canonical listing as Farah until a dedicated Aura URL exists.
      */
     lodging_aura: {
-      es: 'https://amara-lodging.es/es/la-amara-farah',
-      en: 'https://amara-lodging.es/en/la-amara-farah',
-      de: 'https://amara-lodging.es/de/la-amara-farah',
-      nl: 'https://amara-lodging.es/nl/la-amara-farah',
-      sv: 'https://amara-lodging.es/sv/la-amara-farah'
+      es: buildOwnedLocalizedPath('la-amara-farah', 'es'),
+      en: buildOwnedLocalizedPath('la-amara-farah', 'en'),
+      de: buildOwnedLocalizedPath('la-amara-farah', 'de'),
+      nl: buildOwnedLocalizedPath('la-amara-farah', 'nl'),
+      sv: buildOwnedLocalizedPath('la-amara-farah', 'sv')
     },
 
 

@@ -26,8 +26,11 @@ import {
   cinematicStatRatingValue,
   cinematicStatReviewsLabel,
   cinematicStatRatingLabel,
-  navExperiences,
-  navSoonBadge
+  cinematicGuideEyebrow,
+  cinematicGuideTitle,
+  cinematicGuideLinks,
+  navApartments,
+  navReviews
 } from '../../content/homeCinematicCopy';
 import imgHeroLounis from '../../assets/images/home/amara-lounis-15-amara-frigiliana.jpg';
 import imgFarah from '../../assets/images/home/amara-farah-67-amara-frigiliana.jpg';
@@ -62,6 +65,7 @@ const t = <T extends Record<AmaraLanguage, string>>(row: T) => row[currentLang] 
 const seo: AmaraAuthoringSeo = {
   version: '2026-04-04-amara-home-cinematic-v3.0-A',
   pageType: 'A',
+  entityKey: 'amara-brand',
   languages: {
     en: {
       title: 'AMARA | Boutique Holiday Apartments in Frigiliana & Nerja',
@@ -103,9 +107,8 @@ const seo: AmaraAuthoringSeo = {
 
 const homeNavLinks = [
   { token: 'location_frigiliana', label: 'Frigiliana' },
-  { token: 'location_nerja', label: 'Nerja', disabled: true },
-  { token: 'location_tarifa', label: 'Tarifa', disabled: true },
-  { token: 'explore_hub', label: t(navExperiences), forceEnabled: true }
+  { token: 'romantic_hideaways', label: t(navApartments) },
+  { token: 'reviews_hub', label: t(navReviews) }
 ];
 
 const cinematicApartmentsProps = (
@@ -139,6 +142,19 @@ const cinematicApartmentsProps = (
 ).filter((apt): apt is NonNullable<typeof apt> => Boolean(apt));
 
 const trustReviewsHref = resolveOptionalLink('reviews_hub', currentLang, { suppressMissing: true });
+const homeCtaHref = resolveOptionalLink('romantic_hideaways', currentLang, { suppressMissing: true });
+const guideLinks = cinematicGuideLinks
+  .map((link) => {
+    const href = resolveOptionalLink(link.token, currentLang, { suppressMissing: true });
+    return href
+      ? {
+          href,
+          label: t(link.label),
+          text: t(link.text)
+        }
+      : null;
+  })
+  .filter((link): link is { href: string; label: string; text: string } => Boolean(link));
 ---
 
 <BaseLayout seo={seo} pageLang={currentLang}>
@@ -148,7 +164,8 @@ const trustReviewsHref = resolveOptionalLink('reviews_hub', currentLang, { suppr
     links={homeNavLinks}
     variant="default"
     languageToken="home"
-    comingSoonBadge={t(navSoonBadge)}
+    ctaLabel={t(navApartments)}
+    ctaHref={homeCtaHref ?? undefined}
   />
   <div class="am-root" data-am-page="home">
     <div class="am-wrap w-full max-w-screen-2xl mx-auto px-6 md:px-12 pb-20">
@@ -170,6 +187,9 @@ const trustReviewsHref = resolveOptionalLink('reviews_hub', currentLang, { suppr
         statRatingValue={cinematicStatRatingValue}
         statReviewsLabel={t(cinematicStatReviewsLabel)}
         statRatingLabel={t(cinematicStatRatingLabel)}
+        guideEyebrow={t(cinematicGuideEyebrow)}
+        guideTitle={t(cinematicGuideTitle)}
+        guideLinks={guideLinks}
         collectionEyebrow={t(cinematicCollectionEyebrow)}
         collectionTitle={t(cinematicCollectionTitle)}
         apartments={cinematicApartmentsProps}

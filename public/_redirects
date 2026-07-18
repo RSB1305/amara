@@ -1,15 +1,244 @@
-/en/amara-about-us /amara-about-us 301
+# AMARA canonical route redirects
+#
+# Rules:
+# - Spanish is the default locale and has no /es prefix.
+# - Non-default locales stay in their own locale.
+# - Current live canonical routes must not redirect to another locale.
+# - Legacy topic pages consolidate to the closest current authority page.
+
+# Locale normalization
+/es / 301
+/es/ / 301
+
+# Current Spanish canonical equivalents
+/es/amara-about-us /amara-about-us 301
+/es/comfort-amenities /comfort-amenities 301
+/es/direct-booking-benefits /direct-booking-benefits 301
+/es/faq-general /faq-general 301
+/es/frigiliana-location /frigiliana-location 301
+/es/frigiliana-parking /frigiliana-parking 301
+/es/frigiliana-weather /frigiliana-weather 301
+/es/guest-reviews /guest-reviews 301
+/es/legal-notice /legal-notice 301
+/es/romantic-hideaways /romantic-hideaways 301
+/es/directions-arrival-guide /directions-arrival-guide 301
+/es/instagram /instagram 301
+/es/la-amara-farah /la-amara-farah 301
+/es/la-amara-lounis /la-amara-lounis 301
+/es/la-amara-zaid /la-amara-zaid 301
+/es/la-amara-maha /la-amara-maha 301
+/es/la-amara-playa /la-amara-playa 301
+/es/la-amara-family-and-surf /la-amara-family-and-surf 301
+/es/lla-amara-family-and-surf /la-amara-family-and-surf 301
+/nl/de-amara-zaid /nl/la-amara-zaid 301
+/sv/la-amara-playa%20 /sv/la-amara-playa 301
+
+# Apartment listing legacy URLs
+/es/la-amara-farah-habitacion-doble-romantica /la-amara-farah 301
+/es/la-amara-lounis-apartamento-historico /la-amara-lounis 301
+/es/la-amara-zaid-refugio-romantico-con-terraza /la-amara-zaid 301
+/es/la-amara-maha-apartamento-con-gran-terraza /la-amara-maha 301
+/es/la-amara-playa-apartamento-nerja /la-amara-playa 301
+/es/amara-casa-familiar-con-vista-al-mar-y-piscina /la-amara-family-and-surf 301
+
+# About / brand trust
 /about /amara-about-us 301
-/en/about /amara-about-us 301
+/en/about /en/amara-about-us 301
 /de/about /de/amara-about-us 301
 /es/about /amara-about-us 301
 /nl/about /nl/amara-about-us 301
 /sv/about /sv/amara-about-us 301
-/privacy/ /legal-notice/ 301
-/de/privacy/ /de/legal-notice/ 301
-/es/privacy/ /legal-notice/ 301
-/nl/privacy/ /nl/legal-notice/ 301
-/sv/privacy/ /sv/legal-notice/ 301
-/de/datenschutz/ /de/legal-notice/ 301
-/es/privacidad/ /legal-notice/ 301
-/sv/integritet/ /sv/legal-notice/ 301
+
+# Contact legacy paths consolidate to brand trust until a real contact page exists.
+/en/contact /en/amara-about-us 301
+/de/kontaktiere-uns /de/amara-about-us 301
+/es/contacto-amara-lodging /amara-about-us 301
+/nl/contact /nl/amara-about-us 301
+/sv/kontakta-oss /sv/amara-about-us 301
+
+# Legal and privacy
+/privacy /legal-notice 301
+/privacy/ /legal-notice 301
+/en/privacy /en/legal-notice 301
+/en/privacy/ /en/legal-notice 301
+/de/privacy /de/legal-notice 301
+/de/privacy/ /de/legal-notice 301
+/es/privacy /legal-notice 301
+/es/privacy/ /legal-notice 301
+/nl/privacy /nl/legal-notice 301
+/nl/privacy/ /nl/legal-notice 301
+/sv/privacy /sv/legal-notice 301
+/sv/privacy/ /sv/legal-notice 301
+/de/datenschutz /de/legal-notice 301
+/de/datenschutz/ /de/legal-notice 301
+/es/privacidad /legal-notice 301
+/es/privacidad/ /legal-notice 301
+/sv/integritet /sv/legal-notice 301
+/sv/integritet/ /sv/legal-notice 301
+/de/impressum-rechtliche-hinweise /de/legal-notice 301
+/es/aviso-legal /legal-notice 301
+/nl/impressum-juridische-mededeling /nl/legal-notice 301
+/sv/impressum-rattsligt-meddelande /sv/legal-notice 301
+
+# FAQ
+/en/frigiliana-faq /en/faq-general 301
+/de/faq---allgemeine-fragen /de/faq-general 301
+/de/haufig-gestellte-fragen /de/faq-general 301
+/es/preguntas-frecuentes1 /faq-general 301
+/es/preguntas-frecuentes /faq-general 301
+/nl/veelgestelde-vragen1 /nl/faq-general 301
+/nl/veelgestelde-vragen /nl/faq-general 301
+/sv/vanliga-fragor1 /sv/faq-general 301
+/sv/vanliga-fragor /sv/faq-general 301
+
+# Guest arrival utility
+/en/arrival-parking-guide /en/directions-arrival-guide 301
+/de/frigiliana-arrival-parking-guide /de/directions-arrival-guide 301
+/es/frigiliana-arrival-parking-guide /directions-arrival-guide 301
+/nl/frigiliana-arrival-parking-guide /nl/directions-arrival-guide 301
+/sv/frigiliana-arrival-parking-guide /sv/directions-arrival-guide 301
+
+# Frigiliana authority duplicates
+/en/frigiliana-location-amara /en/frigiliana-location 301
+/de/frigi-standort-evo /de/frigiliana-location 301
+/de/standort-amara /de/frigiliana-location 301
+/es/frigi-ubicacion-evo /frigiliana-location 301
+/es/ubicacion-amara /frigiliana-location 301
+/nl/frigi-locatie-evo /nl/frigiliana-location 301
+/nl/locatie-amara /nl/frigiliana-location 301
+/sv/frigi-location-evo /sv/frigiliana-location 301
+/sv/plats-amara /sv/frigiliana-location 301
+
+# Frigiliana structure and comparison topics
+/en/frigiliana-stairs-layout /en/frigiliana-location 301
+/de/frigiliana-ort-struktur-und-treppen /de/frigiliana-location 301
+/es/estructura-y-escaleras-del-sitio-de-frigiliana /frigiliana-location 301
+/nl/structuur-en-trappen-van-de-frigiliana-site /nl/frigiliana-location 301
+/sv/frigiliana-tomtens-struktur-och-trappor /sv/frigiliana-location 301
+/en/frigiliana-near-nerja /en/frigiliana-location 301
+/de/nerja /de/frigiliana-location 301
+/es/nerja /frigiliana-location 301
+/nl/nerja /nl/frigiliana-location 301
+/sv/nerja /sv/frigiliana-location 301
+
+# Frigiliana weather legacy slugs
+/de/wetter-in-frigiliana /de/frigiliana-weather 301
+/es/el-tiempo-en-frigiliana /frigiliana-weather 301
+/nl/het-weer-in-frigiliana /nl/frigiliana-weather 301
+/sv/frigiliana-vader /sv/frigiliana-weather 301
+/en/winter-stay-frigiliana /en/frigiliana-weather 301
+/de/winter-in-frigiliana /de/frigiliana-weather 301
+/es/invierno-en-frigiliana /frigiliana-weather 301
+/nl/de-winter-in-frigiliana /nl/frigiliana-weather 301
+/sv/vinter-i-frigiliana /sv/frigiliana-weather 301
+
+# Frigiliana guide topics without current standalone pages
+/en/beaches-nerja-frigiliana /en/frigiliana-location 301
+/de/strande1 /de/frigiliana-location 301
+/es/playas1 /frigiliana-location 301
+/nl/stranden1 /nl/frigiliana-location 301
+/sv/strander1 /sv/frigiliana-location 301
+/en/restaurants-frigiliana-nerja /en/frigiliana-location 301
+/de/frigiliana-restaurants /de/frigiliana-location 301
+/es/comida-de-frigiliana /frigiliana-location 301
+/nl/frigiliana-food /nl/frigiliana-location 301
+/sv/frigiliana-mat /sv/frigiliana-location 301
+/en/hiking-frigiliana-nerja /en/frigiliana-location 301
+/de/wandern-in-frigiliana /de/frigiliana-location 301
+/es/senderismo-en-frigiliana /frigiliana-location 301
+/nl/wandelen-in-frigiliana /nl/frigiliana-location 301
+/sv/vandring-i-frigiliana /sv/frigiliana-location 301
+/en/day-trips-from-frigiliana /en/frigiliana-location 301
+/de/day-trips-from-frigiliana /de/frigiliana-location 301
+/es/excursiones-desde-frigiliana /frigiliana-location 301
+/nl/day-trips-from-frigiliana /nl/frigiliana-location 301
+/sv/day-trips-from-frigiliana /sv/frigiliana-location 301
+/en/culture-frigiliana-nerja /en/frigiliana-location 301
+/de/festivals1 /de/frigiliana-location 301
+/es/festivales /frigiliana-location 301
+/nl/festivals /nl/frigiliana-location 301
+/sv/festivaler /sv/frigiliana-location 301
+/en/sightseeing-frigiliana-nerja /en/frigiliana-location 301
+/de/sehen /de/frigiliana-location 301
+/es/senalizacion /frigiliana-location 301
+/nl/sigtseeing /nl/frigiliana-location 301
+/sv/sightseeing-frigiliana-nerja /sv/frigiliana-location 301
+/en/frigiliana-at-night /en/frigiliana-location 301
+/de/frigiliana-bei-nacht /de/frigiliana-location 301
+/es/frigiliana-de-noche /frigiliana-location 301
+/nl/frigiliana-s-nachts /nl/frigiliana-location 301
+/sv/frigiliana-pa-natten /sv/frigiliana-location 301
+/en/frigiliana-market /en/frigiliana-location 301
+/de/frigiliana-markt /de/frigiliana-location 301
+/es/mercado-de-frigiliana /frigiliana-location 301
+/nl/frigiliana-markt /nl/frigiliana-location 301
+/sv/frigiliana-marknaden /sv/frigiliana-location 301
+/en/frigiliana-supermarkets /en/frigiliana-location 301
+/de/supermarkte /de/frigiliana-location 301
+/es/supermercados /frigiliana-location 301
+/nl/supermarkten /nl/frigiliana-location 301
+/sv/stormarknader /sv/frigiliana-location 301
+/en/frigiliana-netflix-series-dos-tumbas /en/frigiliana-location 301
+/de/frigiliana-netflix-serie-dos-tumbas /de/frigiliana-location 301
+/es/frigiliana-y-netflix-serie-dos-tumbas /frigiliana-location 301
+/nl/frigiliana-netflix-serie-dos-tumbas /nl/frigiliana-location 301
+/sv/frigiliana-netflix-serien-dos-tumbas /sv/frigiliana-location 301
+/en/village-icon-sale /en/frigiliana-location 301
+/de/village-icon-sale /de/frigiliana-location 301
+/es/village-icon-sale /frigiliana-location 301
+/nl/village-icon-sale /nl/frigiliana-location 301
+/sv/village-icon-sale /sv/frigiliana-location 301
+
+# Accommodation and product-intent legacy topics
+/en/apartment-frigiliana /en/romantic-hideaways 301
+/de/apartment-frigiliana /de/romantic-hideaways 301
+/es/apartamento-frigiliana /romantic-hideaways 301
+/nl/appartement-frigiliana /nl/romantic-hideaways 301
+/sv/lagenhet-frigiliana /sv/romantic-hideaways 301
+/en/where-to-stay-frigiliana /en/romantic-hideaways 301
+/de/wo-man-in-frigiliana-ubernachten-kann /de/romantic-hideaways 301
+/es/donde-alojarse-en-frigiliana /romantic-hideaways 301
+/nl/waar-te-verblijven-in-frigiliana /nl/romantic-hideaways 301
+/sv/var-man-kan-bo-i-frigiliana /sv/romantic-hideaways 301
+/en/hotels-in-frigiliana /en/romantic-hideaways 301
+/de/hotels-in-frigiliana /de/romantic-hideaways 301
+/es/hoteles-en-frigiliana /romantic-hideaways 301
+/nl/hotels-in-frigiliana /nl/romantic-hideaways 301
+/sv/hotell-i-frigiliana /sv/romantic-hideaways 301
+/en/staying-in-frigiliana-hotels-vs-apartments /en/romantic-hideaways 301
+/de/ubernachtung-in-frigiliana-hotels-vs-apartments /de/romantic-hideaways 301
+/es/alojarse-en-frigiliana-hoteles-vs-apartamentos /romantic-hideaways 301
+/nl/verblijf-in-frigiliana-hotels-versus-appartementen /nl/romantic-hideaways 301
+/sv/boende-i-frigiliana-hotell-kontra-lagenheter /sv/romantic-hideaways 301
+/en/wellness-slow-living /en/romantic-hideaways 301
+/de/wellness /de/romantic-hideaways 301
+/es/bienestar /romantic-hideaways 301
+/nl/welzijn /nl/romantic-hideaways 301
+/sv/valbefinnande /sv/romantic-hideaways 301
+
+# Nerja and Tarifa legacy topics without current standalone authority pages
+/en/torrecilla-beachfront-living /en/romantic-hideaways 301
+/de/wohnen-am-strand-von-torrecilla /de/romantic-hideaways 301
+/es/vida-frente-a-la-playa-en-torrecilla /romantic-hideaways 301
+/nl/wonen-aan-het-strand-in-torrecilla /nl/romantic-hideaways 301
+/sv/torrecilla-strandnara-boende /sv/romantic-hideaways 301
+/en/insider-restaurants-nerja /en/romantic-hideaways 301
+/de/insider-restaurants-nerja /de/romantic-hideaways 301
+/es/restaurantes-insider-nerja /romantic-hideaways 301
+/nl/insider-restaurants-nerja /nl/romantic-hideaways 301
+/sv/insiderrestauranger-nerja /sv/romantic-hideaways 301
+/en/nerja-nightlife /en/romantic-hideaways 301
+/de/nachtleben-in-nerja /de/romantic-hideaways 301
+/es/vida-nocturna-en-nerja /romantic-hideaways 301
+/nl/nachtleven-in-nerja /nl/romantic-hideaways 301
+/sv/nerjas-nattliv /sv/romantic-hideaways 301
+/en/nerja-nightlife-ii /en/romantic-hideaways 301
+/de/nachtleben-in-nerja-ii /de/romantic-hideaways 301
+/es/vida-nocturna-de-nerja-ii /romantic-hideaways 301
+/nl/nachtleven-van-nerja-ii /nl/romantic-hideaways 301
+/sv/nerjas-nattliv-ii /sv/romantic-hideaways 301
+/en/tarifa-beaches-extended /en/romantic-hideaways 301
+/de/strande-von-tarifa /de/romantic-hideaways 301
+/es/playas-de-tarifa /romantic-hideaways 301
+/nl/stranden-van-tarifa /nl/romantic-hideaways 301
+/sv/tarifas-strander /sv/romantic-hideaways 301

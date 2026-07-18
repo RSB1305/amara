@@ -123,7 +123,7 @@ export const comfortAmenitiesCopy: Record<
       ]
     },
     inventory: {
-      detailsLabel: 'View details (ES canonical)',
+      detailsLabel: 'View details',
       directBooking: 'Direct booking',
       labels: {
         license: 'License (VFT)',
@@ -178,7 +178,7 @@ export const comfortAmenitiesCopy: Record<
       ]
     },
     inventory: {
-      detailsLabel: 'Details ansehen (ES canonical)',
+      detailsLabel: 'Details ansehen',
       directBooking: 'Direkt buchen',
       labels: {
         license: 'Lizenz (VFT)',
@@ -233,7 +233,7 @@ export const comfortAmenitiesCopy: Record<
       ]
     },
     inventory: {
-      detailsLabel: 'Ver detalles (ES canonical)',
+      detailsLabel: 'Ver detalles',
       directBooking: 'Reserva directa',
       labels: {
         license: 'Licencia (VFT)',
@@ -288,7 +288,7 @@ export const comfortAmenitiesCopy: Record<
       ]
     },
     inventory: {
-      detailsLabel: 'Bekijk details (ES canonical)',
+      detailsLabel: 'Bekijk details',
       directBooking: 'Direct boeken',
       labels: {
         license: 'Licentie (VFT)',
@@ -343,7 +343,7 @@ export const comfortAmenitiesCopy: Record<
       ]
     },
     inventory: {
-      detailsLabel: 'Visa detaljer (ES canonical)',
+      detailsLabel: 'Visa detaljer',
       directBooking: 'Boka direkt',
       labels: {
         license: 'Licens (VFT)',
@@ -372,37 +372,37 @@ export const comfortAmenitiesSeo: AmaraAuthoringSeo = {
   entityKey: 'amara-brand',
   languages: {
     en: {
-      title: 'AMARA Amenities & Policies – Inventory, Licenses & Property Details',
+      title: 'Amenities & Policies: Licenses and Details',
       description:
-        'AMARA amenities, policies and property inventory for Frigiliana, Nerja and Tarifa. Licenses, prices (ranges), occupancy and key features per home.',
+        'AMARA amenities, policies, licenses, price ranges, occupancy, and key apartment details for Frigiliana, Nerja, and Tarifa.',
       robots: 'index, follow',
       canonical: 'auto'
     },
     de: {
-      title: 'AMARA Ausstattung & Regeln – Inventar, Lizenzen & Objektdetails',
+      title: 'Ausstattung & Regeln: Lizenzen und Details',
       description:
-        'AMARA Ausstattung, Regeln und Inventar für Frigiliana, Nerja und Tarifa: Lizenzen, Preis-Spannen, Belegung und zentrale Merkmale je Unterkunft.',
+        'AMARA Ausstattung, Regeln, Lizenzen, Preis-Spannen, Belegung und Details je Unterkunft in Frigiliana, Nerja und Tarifa.',
       robots: 'index, follow',
       canonical: 'auto'
     },
     es: {
-      title: 'AMARA Servicios y normas – Inventario, licencias y detalles',
+      title: 'Servicios y normas: licencias y detalles',
       description:
-        'Servicios, normas e inventario AMARA para Frigiliana, Nerja y Tarifa: licencias, rangos de precio, ocupación y características por alojamiento.',
+        'Servicios, normas, licencias, precios orientativos, ocupación y detalles de cada alojamiento AMARA en Frigiliana, Nerja y Tarifa.',
       robots: 'index, follow',
       canonical: 'auto'
     },
     nl: {
-      title: 'AMARA Voorzieningen & regels – Inventaris, licenties & details',
+      title: 'Voorzieningen & regels: licenties en details',
       description:
-        'AMARA voorzieningen, regels en inventaris voor Frigiliana, Nerja en Tarifa: licenties, prijsranges, bezetting en kenmerken per verblijf.',
+        'AMARA voorzieningen, regels, licenties, prijsindicaties, bezetting en verblijfsdetails voor Frigiliana, Nerja en Tarifa.',
       robots: 'index, follow',
       canonical: 'auto'
     },
     sv: {
-      title: 'AMARA Bekvämligheter & policy – Inventering, licenser & detaljer',
+      title: 'Bekvämligheter & policy: licenser och detaljer',
       description:
-        'AMARA bekvämligheter, policy och inventering för Frigiliana, Nerja och Tarifa: licenser, prisintervall, kapacitet och nyckelfunktioner per boende.',
+        'AMARA bekvämligheter, policy, licenser, prisintervall, kapacitet och boendedetaljer för Frigiliana, Nerja och Tarifa.',
       robots: 'index, follow',
       canonical: 'auto'
     }
@@ -437,7 +437,7 @@ export const comfortAmenitiesProperties: PropertyEntry[] = [
   {
     id: '408326',
     name: 'AMARA Farah',
-    href: 'https://amara-lodging.es/es/la-amara-farah-habitacion-doble-romantica',
+    href: '/la-amara-farah',
     specs: {
       license: 'A/MA/01767',
       maxOccupancy: { en: '2 guests', de: '2 Gäste', es: '2 huéspedes', nl: '2 gasten', sv: '2 gäster' },
@@ -471,7 +471,7 @@ export const comfortAmenitiesProperties: PropertyEntry[] = [
   {
     id: '408324',
     name: 'AMARA Lounis',
-    href: 'https://amara-lodging.es/es/la-amara-lounis-apartamento-historico',
+    href: '/la-amara-lounis',
     specs: {
       license: 'A/MA/01767',
       maxOccupancy: { en: '2 guests', de: '2 Gäste', es: '2 huéspedes', nl: '2 gasten', sv: '2 gäster' },
@@ -511,7 +511,7 @@ export const comfortAmenitiesProperties: PropertyEntry[] = [
   {
     id: '408323',
     name: 'AMARA Zaid',
-    href: 'https://amara-lodging.es/es/la-amara-zaid-refugio-romantico-con-terraza',
+    href: '/la-amara-zaid',
     specs: {
       license: 'A/MA/01767',
       maxOccupancy: { en: '2 guests', de: '2 Gäste', es: '2 huéspedes', nl: '2 gasten', sv: '2 gäster' },
@@ -545,7 +545,7 @@ export const comfortAmenitiesProperties: PropertyEntry[] = [
   {
     id: '408325',
     name: 'AMARA Maha',
-    href: 'https://amara-lodging.es/es/la-amara-maha-apartamento-con-gran-terraza',
+    href: '/la-amara-maha',
     specs: {
       license: 'A/MA/01767',
       maxOccupancy: { en: '2 guests', de: '2 Gäste', es: '2 huéspedes', nl: '2 gasten', sv: '2 gäster' },
@@ -585,7 +585,7 @@ export const comfortAmenitiesProperties: PropertyEntry[] = [
   {
     id: '408327',
     name: 'AMARA Playa (Nerja)',
-    href: 'https://amara-lodging.es/es/la-amara-playa-apartamento-nerja',
+    href: '/la-amara-playa',
     specs: {
       license: 'VFT/MA/19212',
       maxOccupancy: { en: '2 guests', de: '2 Gäste', es: '2 huéspedes', nl: '2 gasten', sv: '2 gäster' },
@@ -607,7 +607,7 @@ export const comfortAmenitiesProperties: PropertyEntry[] = [
   {
     id: '544478',
     name: 'AMARA Family & Surf (Tarifa)',
-    href: 'https://amara-lodging.es/es/amara-casa-familiar-con-vista-al-mar-y-piscina',
+    href: '/la-amara-family-and-surf',
     specs: {
       license: 'VFT/CA/17038',
       maxOccupancy: { en: '4 guests', de: '4 Gäste', es: '4 huéspedes', nl: '4 gasten', sv: '4 gäster' },

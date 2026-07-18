@@ -16,7 +16,13 @@ const ROOT_SPANISH_PUBLIC_SLUGS = new Set([
   'frigiliana-weather',
   'instagram',
   'directions-arrival-guide',
-  'romantic-hideaways'
+  'romantic-hideaways',
+  'la-amara-farah',
+  'la-amara-lounis',
+  'la-amara-zaid',
+  'la-amara-maha',
+  'la-amara-playa',
+  'la-amara-family-and-surf'
 ]);
 
 const DISABLED_PUBLIC_ROUTE_TOKENS = new Set([

@@ -5,31 +5,31 @@ export const guestReviewsSeo: AmaraAuthoringSeo = {
   entityKey: 'amara-brand',
   languages: {
     en: {
-      title: 'AMARA | Verified Guest Reviews',
+      title: 'Verified Guest Reviews',
       description: 'Verified guest reviews, award proof, and trust signals for AMARA holiday apartments in Frigiliana, Nerja, and Tarifa.',
       robots: 'index, follow',
       canonical: 'auto'
     },
     de: {
-      title: 'AMARA | Verifizierte Gästebewertungen',
+      title: 'Verifizierte Gästebewertungen',
       description: 'Verifizierte Gästebewertungen, Auszeichnungen und Vertrauenssignale für AMARA Ferienwohnungen in Frigiliana, Nerja und Tarifa.',
       robots: 'index, follow',
       canonical: 'auto'
     },
     es: {
-      title: 'AMARA | Resenas verificadas de huespedes',
-      description: 'Resenas verificadas, premios y senales de confianza para los apartamentos vacacionales AMARA en Frigiliana, Nerja y Tarifa.',
+      title: 'Reseñas verificadas de huéspedes',
+      description: 'Reseñas verificadas, premios y señales de confianza para los apartamentos vacacionales AMARA en Frigiliana, Nerja y Tarifa.',
       robots: 'index, follow',
       canonical: 'auto'
     },
     nl: {
-      title: 'AMARA | Geverifieerde gastbeoordelingen',
+      title: 'Geverifieerde gastbeoordelingen',
       description: 'Geverifieerde gastbeoordelingen, awards en vertrouwenssignalen voor AMARA vakantieappartementen in Frigiliana, Nerja en Tarifa.',
       robots: 'index, follow',
       canonical: 'auto'
     },
     sv: {
-      title: 'AMARA | Verifierade gastrecensioner',
+      title: 'Verifierade gästrecensioner',
       description: 'Verifierade gästrecensioner, utmärkelser och trygghetssignaler för AMARA semesterlägenheter i Frigiliana, Nerja och Tarifa.',
       robots: 'index, follow',
       canonical: 'auto'
