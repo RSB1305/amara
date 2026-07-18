@@ -148,15 +148,15 @@ export const vacationRentalEntities: VacationRentalEntity[] = [
     },
     lead: {
       en: 'A compact, romantic AMARA stay with private entrance, private bathroom, coffee and tea station, and the old village just outside the door.',
-      de: 'Ein kompaktes, romantisches AMARA-Zimmer mit eigenem Eingang, eigenem Bad, Kaffee- und Teestation und dem alten Dorf direkt vor der Tuer.',
+      de: 'Ein kompaktes, romantisches AMARA-Zimmer mit eigenem Eingang, eigenem Bad, Kaffee- und Teestation und dem alten Dorf direkt vor der Tür.',
       es: 'Una estancia AMARA compacta y romántica, con entrada privada, baño privado, zona de café y té y el pueblo antiguo a pocos pasos.',
       nl: 'Een compacte, romantische AMARA-stay met eigen ingang, eigen badkamer, koffie- en theefaciliteiten en het oude dorp direct buiten.',
-      sv: 'En kompakt och romantisk AMARA-vistelse med egen ingang, eget badrum, kaffe- och tehorna och den gamla byn utanfor dorren.'
+      sv: 'En kompakt och romantisk AMARA-vistelse med egen ingång, eget badrum, kaffe- och tehörna och den gamla byn utanför dörren.'
     },
     description: {
       en: 'Farah suits couples who want the AMARA atmosphere without needing a full apartment kitchen or terrace. It is designed for easy arrivals, quiet nights, and simple village days.',
       de: 'Farah passt zu Paaren, die die AMARA-Atmosphäre suchen, aber keine voll ausgestattete Apartmentküche oder Terrasse brauchen. Ideal für einfache Anreise, ruhige Nächte und entspannte Dorftage.',
-      es: 'Farah encaja con parejas que buscan la atmosfera AMARA sin necesitar una cocina completa ni terraza privada. Es ideal para llegar facil, dormir tranquilo y disfrutar del pueblo.',
+      es: 'Farah encaja con parejas que buscan la atmósfera AMARA sin necesitar una cocina completa ni terraza privada. Es ideal para llegar fácil, dormir tranquilo y disfrutar del pueblo.',
       nl: 'Farah past bij koppels die de AMARA-sfeer zoeken zonder volledige keuken of terras nodig te hebben. Ideaal voor eenvoudige aankomst, stille nachten en rustige dorpsdagen.',
       sv: 'Farah passar par som vill ha AMARA-känslan utan att behöva fullt kök eller privat terrass. Perfekt för enkel ankomst, lugna nätter och stilla dagar i byn.'
     },
@@ -170,9 +170,9 @@ export const vacationRentalEntities: VacationRentalEntity[] = [
     accessNote: {
       en: '1 step at entrance',
       de: '1 Stufe am Eingang',
-      es: '1 escalon en la entrada',
+      es: '1 escalón en la entrada',
       nl: '1 trede bij de ingang',
-      sv: '1 trappsteg vid entren'
+      sv: '1 trappsteg vid entrén'
     },
     petsNote: {
       en: 'Pets are not allowed',
@@ -184,9 +184,9 @@ export const vacationRentalEntities: VacationRentalEntity[] = [
     kitchenNote: {
       en: 'Coffee and tea station only',
       de: 'Nur Kaffee- und Teestation',
-      es: 'Solo zona de cafe y te',
+      es: 'Solo zona de café y té',
       nl: 'Alleen koffie- en theefaciliteiten',
-      sv: 'Endast kaffe- och tehorna'
+      sv: 'Endast kaffe- och tehörna'
     },
     outdoorNote: {
       en: 'No private outdoor space',
@@ -197,7 +197,7 @@ export const vacationRentalEntities: VacationRentalEntity[] = [
     },
     viewNote: {
       en: 'Village street',
-      de: 'Dorfstrasse',
+      de: 'Dorfstraße',
       es: 'Calle del pueblo',
       nl: 'Dorpsstraat',
       sv: 'Bygata'
@@ -290,7 +290,7 @@ export const vacationRentalEntities: VacationRentalEntity[] = [
     lead: {
       en: 'A full private apartment in Casa AMARA with village character, kitchen, terrace moments, and a distant sea-facing outlook.',
       de: 'Ein vollwertiges privates Apartment in Casa AMARA mit Dorfcharakter, Küche, Terrassenmomenten und Blick Richtung Meer.',
-      es: 'Un apartamento privado completo en Casa AMARA, con caracter de pueblo, cocina, terraza y vistas hacia el mar.',
+      es: 'Un apartamento privado completo en Casa AMARA, con carácter de pueblo, cocina, terraza y vistas hacia el mar.',
       nl: 'Een volledig prive-appartement in Casa AMARA met dorpskarakter, keuken, terrasmomenten en uitzicht richting zee.',
       sv: 'En hel privat lägenhet i Casa AMARA med bykaraktär, kök, terrassliv och blick mot havet.'
     },
