@@ -1,0 +1,165 @@
+- generic [ref=e1]:
+  - generic [ref=e2]:
+    - banner [ref=e3]:
+      - navigation [ref=e4]:
+        - link "AMARA Gästeguide" [ref=e6] [cursor=pointer]:
+          - /url: /de/
+          - generic [ref=e7]: AMARA
+          - generic [ref=e8]: Gästeguide
+        - list [ref=e10]:
+          - listitem [ref=e11]:
+            - button "Locations" [ref=e12] [cursor=pointer]
+          - listitem [ref=e13]:
+            - button "Unterkünfte" [ref=e14] [cursor=pointer]
+          - listitem [ref=e15]:
+            - button "Über AMARA" [active] [ref=e16] [cursor=pointer]
+            - generic [ref=e247]:
+              - link "Über AMARA" [ref=e248] [cursor=pointer]:
+                - /url: /de/amara-about-us
+              - link "Gästebewertungen" [ref=e249] [cursor=pointer]:
+                - /url: /de/guest-reviews
+              - link "Vorteile der Direktbuchung" [ref=e250] [cursor=pointer]:
+                - /url: /de/direct-booking-benefits
+              - link "Ausstattung" [ref=e251] [cursor=pointer]:
+                - /url: /de/comfort-amenities
+              - link "Aufenthalts-FAQ" [ref=e252] [cursor=pointer]:
+                - /url: /de/faq-general
+        - generic [ref=e17]:
+          - button "Select language" [ref=e20]
+          - link "Verfügbarkeit prüfen" [ref=e25] [cursor=pointer]:
+            - /url: https://amara-lodging.es/de/book/
+    - main [ref=e29]:
+      - generic [ref=e30]:
+        - generic [ref=e33]:
+          - generic [ref=e34]: Romantische Hideaways
+          - heading "AMARA" [level=1] [ref=e35]
+          - paragraph [ref=e36]: Ein Ort zum Ankommen, Durchatmen und wirklich Bleiben.
+        - generic [ref=e37]: Scrollen zum Entdecken
+      - generic [ref=e41]:
+        - generic [ref=e42]:
+          - heading "Nicht nur Durchreisen, sondern Zugehörigkeit." [level=2] [ref=e44]
+          - generic [ref=e45]: Die Philosophie
+        - generic [ref=e49]:
+          - paragraph [ref=e51]: AMARA ist eine kuratierte Sammlung privater Boutique-Apartments im weißen Dorf Frigiliana plus einem ruhigen Küstenort in Nerja. Für Gäste, die Privatsphäre, Atmosphäre und ein langsameres Reisetempo schätzen.
+          - paragraph [ref=e53]: Casa AMARA in Frigiliana ist über 800 Jahre alt und wurde 2022 sorgfältig restauriert. Heute ist es eines der Dorfikonen — leise im Gefüge von Frigiliana verwoben.
+          - generic [ref=e55]:
+            - generic [ref=e56]:
+              - generic [ref=e57]: 500+
+              - text: Verifizierte Bewertungen
+            - generic [ref=e58]:
+              - generic [ref=e59]: "4.95"
+              - text: Durchschnittsnote
+      - generic [ref=e61]:
+        - generic [ref=e62]:
+          - generic [ref=e63]: Aufenthalt planen
+          - heading "Nützliche Guides vor der Auswahl." [level=2] [ref=e64]
+        - generic [ref=e66]:
+          - link "Apartments für Paare Vergleicht die AMARA-Unterkünfte in Frigiliana und Nerja." [ref=e67] [cursor=pointer]:
+            - /url: /de/romantic-hideaways
+            - generic [ref=e68]: Apartments für Paare
+            - generic [ref=e69]: Vergleicht die AMARA-Unterkünfte in Frigiliana und Nerja.
+          - link "Frigiliana-Guide Versteht Dorfstruktur, Nähe zu Nerja und die beste Lage." [ref=e70] [cursor=pointer]:
+            - /url: /de/frigiliana-location
+            - generic [ref=e71]: Frigiliana-Guide
+            - generic [ref=e72]: Versteht Dorfstruktur, Nähe zu Nerja und die beste Lage.
+          - link "Parken & Anreise Plant die letzten Meter, Treppen und Wege im Alltag." [ref=e73] [cursor=pointer]:
+            - /url: /de/frigiliana-parking
+            - generic [ref=e74]: Parken & Anreise
+            - generic [ref=e75]: Plant die letzten Meter, Treppen und Wege im Alltag.
+          - link "Wetter & Saison Seht, wie die Hanglage Terrassenzeit und Schlaf prägt." [ref=e76] [cursor=pointer]:
+            - /url: /de/frigiliana-weather
+            - generic [ref=e77]: Wetter & Saison
+            - generic [ref=e78]: Seht, wie die Hanglage Terrassenzeit und Schlaf prägt.
+      - generic [ref=e80]:
+        - generic [ref=e82]:
+          - generic [ref=e83]: Die Kollektion
+          - heading "Räume zum Atmen." [level=2] [ref=e84]
+        - generic [ref=e85]:
+          - generic [ref=e91]:
+            - generic [ref=e92]: Frigiliana • 2 Gäste
+            - heading "Farah" [level=3] [ref=e93]
+            - heading "Boutique-Refugium" [level=4] [ref=e94]
+            - paragraph [ref=e95]: Ein romantisches Boutique-Zimmer mit Charakter — ideal für kürzere Aufenthalte. Entworfen mit tiefem Respekt für die maurische Geschichte des Dorfes.
+            - link [ref=e96] [cursor=pointer]:
+              - /url: /de/la-amara-farah
+          - generic [ref=e105]:
+            - generic [ref=e106]: Frigiliana • 2 Gäste
+            - heading "Lounis" [level=3] [ref=e107]
+            - heading "Historisches Apartment" [level=4] [ref=e108]
+            - paragraph [ref=e109]: Historischer Charme mit Terrassenzeit und Raumgefühl. Hohe Decken und alte Balken erzählen von vergangenen Jahrhunderten.
+            - link [ref=e110] [cursor=pointer]:
+              - /url: /de/la-amara-lounis
+          - generic [ref=e119]:
+            - generic [ref=e120]: Frigiliana • 2 Gäste
+            - heading "Zaid" [level=3] [ref=e121]
+            - heading "Terrassen-Apartment" [level=4] [ref=e122]
+            - paragraph [ref=e123]: Ein ruhiges Refugium mit privater Terrasse — für langsame Morgen, Kaffee in der Sonne und zusehen, wie das Dorf erwacht.
+            - link [ref=e124] [cursor=pointer]:
+              - /url: /de/la-amara-zaid
+          - generic [ref=e133]:
+            - generic [ref=e134]: Frigiliana • 2 Gäste
+            - heading "Maha" [level=3] [ref=e135]
+            - heading "Altstadt-Apartment" [level=4] [ref=e136]
+            - paragraph [ref=e137]: Ein Terrassen-Apartment zum Verweilen im weißen Dorf. Erhöhte Aussicht und ein nahtloses Zusammenspiel von innen und außen.
+            - link [ref=e138] [cursor=pointer]:
+              - /url: /de/la-amara-maha
+          - generic [ref=e147]:
+            - generic [ref=e148]: Nerja • 2 Gäste
+            - heading "Playa" [level=3] [ref=e149]
+            - heading "Strand-Apartment Nerja" [level=4] [ref=e150]
+            - paragraph [ref=e151]: Eine entspannte Küstenbasis für Paare, die das Meer nah haben wollen. Das Rauschen der Wellen ist euer ständiger Begleiter.
+            - link [ref=e152] [cursor=pointer]:
+              - /url: /de/la-amara-playa
+          - generic [ref=e161]:
+            - generic [ref=e162]: Tarifa • Familienaufenthalt
+            - heading "Ocean View" [level=3] [ref=e163]
+            - heading "Penthouse" [level=4] [ref=e164]
+            - paragraph [ref=e165]: Ein geräumiges Zuhause für Surfer und Familien — bewusst anders. Wo Mittelmeer und Atlantik aufeinandertreffen.
+            - link [ref=e166] [cursor=pointer]:
+              - /url: /de/la-amara-family-and-surf
+      - generic [ref=e172]:
+        - generic [ref=e173]: ★★★★★
+        - heading "Ruhige Aufenthalte, Terrassenmorgen, leise Nächte, tiefer Schlaf — durchdacht betreut." [level=2] [ref=e174]: “Ruhige Aufenthalte, Terrassenmorgen, leise Nächte, tiefer Schlaf — durchdacht betreut.”
+        - generic [ref=e175]:
+          - generic [ref=e176]: Meerblick
+          - generic [ref=e177]: Große private Terrassen
+          - generic [ref=e178]: Ruhige Lagen
+          - generic [ref=e179]: Premium-Bettwäsche
+        - link "Alle 500+ Bewertungen lesen" [ref=e180] [cursor=pointer]:
+          - /url: /de/guest-reviews
+    - generic [ref=e181]:
+      - navigation "Footer highlights" [ref=e183]:
+        - list [ref=e184]:
+          - listitem [ref=e185]:
+            - link "Apartments für Paare" [ref=e186] [cursor=pointer]:
+              - /url: /de/romantic-hideaways
+          - listitem [ref=e187]:
+            - link "Frigiliana-Guide" [ref=e188] [cursor=pointer]:
+              - /url: /de/frigiliana-location
+          - listitem [ref=e189]:
+            - link "Gästebewertungen" [ref=e190] [cursor=pointer]:
+              - /url: /de/guest-reviews
+          - listitem [ref=e191]:
+            - link "Vorteile der Direktbuchung" [ref=e192] [cursor=pointer]:
+              - /url: /de/direct-booking-benefits
+      - contentinfo [ref=e193]:
+        - generic [ref=e195]:
+          - generic [ref=e196]:
+            - generic [ref=e197]: © 2026 AMARA
+            - generic [ref=e198]: Frigiliana, Málaga · Spanien
+          - generic [ref=e199]:
+            - link "+34 604 440 964" [ref=e200] [cursor=pointer]:
+              - /url: tel:+34604440964
+            - link "hola@amara-lodging.es" [ref=e201] [cursor=pointer]:
+              - /url: mailto:hola@amara-lodging.es
+          - generic [ref=e202]:
+            - link "Impressum" [ref=e203] [cursor=pointer]:
+              - /url: /de/legal-notice
+            - generic [ref=e204]: ·
+            - link "Datenschutz" [ref=e205] [cursor=pointer]:
+              - /url: /de/legal-notice
+  - generic [ref=e208]:
+    - button [ref=e209]
+    - button [ref=e215]
+    - button [ref=e219]
+    - button [ref=e227]

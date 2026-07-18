@@ -58,7 +58,13 @@ export const linkRegistry = normalizeRegistrySpanishPaths({
       nl: buildOwnedLocalizedPath('', 'nl'),
       sv: buildOwnedLocalizedPath('', 'sv')
     },
-    book: { en: '/en/book/', de: '/de/book/', es: '/es/book/', nl: '/nl/book/', sv: '/sv/book/' },
+    book: {
+      en: 'https://amara-lodging.es/en/book/',
+      de: 'https://amara-lodging.es/de/book/',
+      es: 'https://amara-lodging.es/es/book/',
+      nl: 'https://amara-lodging.es/nl/book/',
+      sv: 'https://amara-lodging.es/sv/book/'
+    },
     about: {
       en: buildOwnedLocalizedPath('amara-about-us', 'en'),
       de: buildOwnedLocalizedPath('amara-about-us', 'de'),
@@ -282,7 +288,13 @@ legal_notice: {
     /* =========================================================
        ROMANTIC (LEGACY MAPPING)
     ========================================================= */
-    romantic_andalusia: { en: '/en/book/', de: '/de/book/', es: '/es/book/', nl: '/nl/book/', sv: '/sv/book/' },
+    romantic_andalusia: {
+      en: 'https://amara-lodging.es/en/book/',
+      de: 'https://amara-lodging.es/de/book/',
+      es: 'https://amara-lodging.es/es/book/',
+      nl: 'https://amara-lodging.es/nl/book/',
+      sv: 'https://amara-lodging.es/sv/book/'
+    },
     comfort_amenities: {
       en: buildOwnedLocalizedPath('comfort-amenities', 'en'),
       de: buildOwnedLocalizedPath('comfort-amenities', 'de'),

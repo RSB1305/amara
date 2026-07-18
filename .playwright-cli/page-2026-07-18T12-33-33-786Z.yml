@@ -1,0 +1,154 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e2]:
+    - banner [ref=e3]:
+      - navigation [ref=e4]:
+        - link "AMARA Guest Guide" [ref=e6] [cursor=pointer]:
+          - /url: /en/
+          - generic [ref=e7]: AMARA
+          - generic [ref=e8]: Guest Guide
+        - list [ref=e10]:
+          - listitem [ref=e11]:
+            - button "Locations" [ref=e12] [cursor=pointer]
+          - listitem [ref=e13]:
+            - button "Stays" [ref=e14] [cursor=pointer]
+          - listitem [ref=e15]:
+            - button "About AMARA" [ref=e16] [cursor=pointer]
+        - generic [ref=e17]:
+          - button "Select language" [ref=e20]
+          - link "Check Availability" [ref=e25] [cursor=pointer]:
+            - /url: https://amara-lodging.es/en/book/
+    - main [ref=e29]:
+      - generic [ref=e30]:
+        - generic [ref=e33]:
+          - generic [ref=e34]: Romantic Hideaways
+          - heading "AMARA" [level=1] [ref=e35]
+          - paragraph [ref=e36]: A place to arrive, exhale, and truly stay.
+        - generic [ref=e37]: Scroll to discover
+      - generic [ref=e41]:
+        - generic [ref=e42]:
+          - heading "Not just passing through, but belonging." [level=2] [ref=e44]
+          - generic [ref=e45]: The Philosophy
+        - generic [ref=e49]:
+          - paragraph [ref=e51]: AMARA is a curated collection of private boutique apartments in the white village of Frigiliana, plus one calm seaside escape in Nerja. Created for guests who value privacy, atmosphere, and a slower rhythm of travel.
+          - paragraph [ref=e53]: Casa AMARA in Frigiliana dates back more than 800 years and was carefully restored in 2022. Today, it stands as one of the village icons — quietly woven into the fabric of Frigiliana itself.
+          - generic [ref=e55]:
+            - generic [ref=e56]:
+              - generic [ref=e57]: 500+
+              - text: Verified Reviews
+            - generic [ref=e58]:
+              - generic [ref=e59]: "4.95"
+              - text: Average Rating
+      - generic [ref=e61]:
+        - generic [ref=e62]:
+          - generic [ref=e63]: Plan your stay
+          - heading "Useful guides before you choose." [level=2] [ref=e64]
+        - generic [ref=e66]:
+          - link "Apartments for couples Compare the AMARA stays in Frigiliana and Nerja." [ref=e67] [cursor=pointer]:
+            - /url: /en/romantic-hideaways
+            - generic [ref=e68]: Apartments for couples
+            - generic [ref=e69]: Compare the AMARA stays in Frigiliana and Nerja.
+          - link "Frigiliana guide Understand the village, Nerja access, and where to stay." [ref=e70] [cursor=pointer]:
+            - /url: /en/frigiliana-location
+            - generic [ref=e71]: Frigiliana guide
+            - generic [ref=e72]: Understand the village, Nerja access, and where to stay.
+          - link "Parking & arrival Plan the last metres, stairs, and daily movement." [ref=e73] [cursor=pointer]:
+            - /url: /en/frigiliana-parking
+            - generic [ref=e74]: Parking & arrival
+            - generic [ref=e75]: Plan the last metres, stairs, and daily movement.
+          - link "Weather & seasons See how hillside weather shapes terraces and sleep." [ref=e76] [cursor=pointer]:
+            - /url: /en/frigiliana-weather
+            - generic [ref=e77]: Weather & seasons
+            - generic [ref=e78]: See how hillside weather shapes terraces and sleep.
+      - generic [ref=e80]:
+        - generic [ref=e82]:
+          - generic [ref=e83]: The Collection
+          - heading "Spaces to breathe." [level=2] [ref=e84]
+        - generic [ref=e85]:
+          - generic [ref=e91]:
+            - generic [ref=e92]: Frigiliana • 2 guests
+            - heading "Farah" [level=3] [ref=e93]
+            - heading "Boutique Retreat" [level=4] [ref=e94]
+            - paragraph [ref=e95]: A romantic boutique room with character — ideal for shorter trips. Designed with a deep respect for the village's Moorish past.
+            - link [ref=e96] [cursor=pointer]:
+              - /url: /en/la-amara-farah
+          - generic [ref=e105]:
+            - generic [ref=e106]: Frigiliana • 2 guests
+            - heading "Lounis" [level=3] [ref=e107]
+            - heading "Historic Apartment" [level=4] [ref=e108]
+            - paragraph [ref=e109]: Historic charm with terrace time and a sense of space. High ceilings and original beams tell stories of centuries past.
+            - link [ref=e110] [cursor=pointer]:
+              - /url: /en/la-amara-lounis
+          - generic [ref=e119]:
+            - generic [ref=e120]: Frigiliana • 2 guests
+            - heading "Zaid" [level=3] [ref=e121]
+            - heading "Terrace Apartment" [level=4] [ref=e122]
+            - paragraph [ref=e123]: A calm retreat with a private terrace — made for slow mornings, coffee in the sun, and watching the village wake up.
+            - link [ref=e124] [cursor=pointer]:
+              - /url: /en/la-amara-zaid
+          - generic [ref=e133]:
+            - generic [ref=e134]: Frigiliana • 2 guests
+            - heading "Maha" [level=3] [ref=e135]
+            - heading "Old Town Apartment" [level=4] [ref=e136]
+            - paragraph [ref=e137]: A terrace apartment designed for lingering in the white village. Elevated views and a seamless blend of indoor and outdoor living.
+            - link [ref=e138] [cursor=pointer]:
+              - /url: /en/la-amara-maha
+          - generic [ref=e147]:
+            - generic [ref=e148]: Nerja • 2 guests
+            - heading "Playa" [level=3] [ref=e149]
+            - heading "Nerja Beach Apartment" [level=4] [ref=e150]
+            - paragraph [ref=e151]: A relaxed seaside base for couples who want the sea close by. The sound of the waves is your constant companion.
+            - link [ref=e152] [cursor=pointer]:
+              - /url: /en/la-amara-playa
+          - generic [ref=e161]:
+            - generic [ref=e162]: Tarifa • Family stay
+            - heading "Ocean View" [level=3] [ref=e163]
+            - heading "Penthouse" [level=4] [ref=e164]
+            - paragraph [ref=e165]: A spacious home for surfers and families — intentionally different. Where the Mediterranean meets the Atlantic.
+            - link [ref=e166] [cursor=pointer]:
+              - /url: /en/la-amara-family-and-surf
+      - generic [ref=e172]:
+        - generic [ref=e173]: ★★★★★
+        - heading "Calm stays, terrace mornings, quiet nights, deep sleep — thoughtfully hosted." [level=2] [ref=e174]: “Calm stays, terrace mornings, quiet nights, deep sleep — thoughtfully hosted.”
+        - generic [ref=e175]:
+          - generic [ref=e176]: Sea views
+          - generic [ref=e177]: Large private terraces
+          - generic [ref=e178]: Quiet locations
+          - generic [ref=e179]: Premium bedding
+        - link "Read all 500+ reviews" [ref=e180] [cursor=pointer]:
+          - /url: /en/guest-reviews
+    - generic [ref=e181]:
+      - navigation "Footer highlights" [ref=e183]:
+        - list [ref=e184]:
+          - listitem [ref=e185]:
+            - link "Apartments for couples" [ref=e186] [cursor=pointer]:
+              - /url: /en/romantic-hideaways
+          - listitem [ref=e187]:
+            - link "Frigiliana guide" [ref=e188] [cursor=pointer]:
+              - /url: /en/frigiliana-location
+          - listitem [ref=e189]:
+            - link "Guest Reviews" [ref=e190] [cursor=pointer]:
+              - /url: /en/guest-reviews
+          - listitem [ref=e191]:
+            - link "Direct Booking Benefits" [ref=e192] [cursor=pointer]:
+              - /url: /en/direct-booking-benefits
+      - contentinfo [ref=e193]:
+        - generic [ref=e195]:
+          - generic [ref=e196]:
+            - generic [ref=e197]: © 2026 AMARA
+            - generic [ref=e198]: Frigiliana, Malaga · Spain
+          - generic [ref=e199]:
+            - link "+34 604 440 964" [ref=e200] [cursor=pointer]:
+              - /url: tel:+34604440964
+            - link "hola@amara-lodging.es" [ref=e201] [cursor=pointer]:
+              - /url: mailto:hola@amara-lodging.es
+          - generic [ref=e202]:
+            - link "Legal Notice" [ref=e203] [cursor=pointer]:
+              - /url: /en/legal-notice
+            - generic [ref=e204]: ·
+            - link "Privacy" [ref=e205] [cursor=pointer]:
+              - /url: /en/legal-notice
+  - generic [ref=e208]:
+    - button [ref=e209]
+    - button [ref=e215]
+    - button [ref=e219]
+    - button [ref=e227]

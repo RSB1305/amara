@@ -299,8 +299,6 @@ const t = <T extends Record<AmaraLanguage, string>>(row: T) => row[currentLang] 
     links={copy.nav.links.map((l) => ({ token: l.token, label: t(l.label) }))}
     languageToken="weather_frigiliana"
     locationAuthorityNav={true}
-    ctaLabel={t(copy.header.cta)}
-    ctaHref={staysHref}
   />
 
   <SectionAnchorNav items={sectionNavItems} activeId="weather" />

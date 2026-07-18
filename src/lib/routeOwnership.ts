@@ -26,7 +26,6 @@ const ROOT_SPANISH_PUBLIC_SLUGS = new Set([
 ]);
 
 const DISABLED_PUBLIC_ROUTE_TOKENS = new Set([
-  'book',
   'explore_hub',
   'location_nerja',
   'location_tarifa',

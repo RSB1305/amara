@@ -4,9 +4,8 @@
  * AMARA canonical shared navigation
  *
  * Architectural intent:
- * All page types render the same header geometry. Content may vary by variant,
- * but the logo position, right rail, language switch slot, and CTA slot remain
- * structurally fixed across the system.
+ * All page types render the same header geometry. The center navigation and
+ * CTA are global so guests see one stable route structure across the site.
  *
  * Typography: This component does not use `am-text-*` for structural copy. The brand
  * wordmark, subline, center nav links, and language dropdown use explicit Tailwind
@@ -29,35 +28,28 @@ interface Props {
   currentLang: AmaraLanguage;
   brandName: string;
   brandLabel?: string;
-  links: NavLink[];
+  /** Deprecated compatibility input; the global shell ignores page-specific center links. */
+  links?: NavLink[];
+  /** Deprecated compatibility input; visual variants no longer change the global center navigation. */
   variant?: 'default' | 'trust';
   currentToken?: string;
   languageToken?: string;
   brandVariant?: 'default' | 'lodging';
-  ctaLabel?: string;
-  ctaHref?: string;
   /**
    * Type A location authority pages: allow Frigiliana / Nerja / experiences hub links in the center
    * row even when those tokens are globally gated as disabled elsewhere.
    */
   locationAuthorityNav?: boolean;
-  /** Short label for the coming-soon chip next to disabled nav items (homepage). */
-  comingSoonBadge?: string;
 }
 
 const {
   currentLang,
   brandName,
   brandLabel,
-  links,
-  variant = 'default',
   currentToken,
   languageToken,
   brandVariant = 'default',
-  ctaLabel,
-  ctaHref,
-  locationAuthorityNav = false,
-  comingSoonBadge
+  locationAuthorityNav = false
 } = Astro.props;
 
 const languages: { code: AmaraLanguage; label: string }[] = [
@@ -83,6 +75,58 @@ const defaultCtaLabels: Record<AmaraLanguage, string> = {
   nl: 'Beschikbaarheid checken',
   sv: 'Se tillgänglighet'
 };
+
+const globalNavLabels = {
+  locations: {
+    en: 'Locations',
+    de: 'Locations',
+    es: 'Ubicaciones',
+    nl: 'Locaties',
+    sv: 'Platser'
+  },
+  stays: {
+    en: 'Stays',
+    de: 'Unterkünfte',
+    es: 'Alojamientos',
+    nl: 'Verblijven',
+    sv: 'Boenden'
+  },
+  aboutAmara: {
+    en: 'About AMARA',
+    de: 'Über AMARA',
+    es: 'Sobre AMARA',
+    nl: 'Over AMARA',
+    sv: 'Om AMARA'
+  },
+  locationFrigiliana: {
+    en: 'Frigiliana',
+    de: 'Frigiliana',
+    es: 'Frigiliana',
+    nl: 'Frigiliana',
+    sv: 'Frigiliana'
+  },
+  locationNerja: {
+    en: 'Nerja',
+    de: 'Nerja',
+    es: 'Nerja',
+    nl: 'Nerja',
+    sv: 'Nerja'
+  },
+  locationTarifa: {
+    en: 'Tarifa',
+    de: 'Tarifa',
+    es: 'Tarifa',
+    nl: 'Tarifa',
+    sv: 'Tarifa'
+  },
+  allStays: {
+    en: 'All Stays',
+    de: 'Alle Unterkünfte',
+    es: 'Todos los alojamientos',
+    nl: 'Alle verblijven',
+    sv: 'Alla boenden'
+  }
+} satisfies Record<string, Record<AmaraLanguage, string>>;
 
 const localizedNavLabels: Partial<Record<string, Record<AmaraLanguage, string>>> = {
   about: {
@@ -122,8 +166,7 @@ const localizedNavLabels: Partial<Record<string, Record<AmaraLanguage, string>>>
   }
 };
 
-const resolvedCtaLabel = ctaLabel ?? defaultCtaLabels[currentLang];
-const ctaLink = { token: 'book', label: resolvedCtaLabel, href: ctaHref };
+const ctaLink = { token: 'book', label: defaultCtaLabels[currentLang] };
 const currentPath = Astro.url.pathname;
 const languageSwitchToken = currentToken ?? languageToken ?? 'home';
 
@@ -164,16 +207,79 @@ const getIsActive = (token: string, href: string) => {
   return normalizePath(currentPath) === normalizePath(href);
 };
 
-const getResolvedNavLabel = (link: NavLink) => {
-  if (variant === 'trust') {
-    const localized = localizedNavLabels[link.token]?.[currentLang];
-    if (localized) {
-      return localized;
-    }
-  }
-
-  return link.label ?? link.token;
+type GlobalNavItem = {
+  token: string;
+  label: string;
 };
+
+type GlobalNavGroup = {
+  id: 'locations' | 'stays' | 'aboutAmara';
+  label: string;
+  items: GlobalNavItem[];
+};
+
+const tGlobal = (key: keyof typeof globalNavLabels) =>
+  globalNavLabels[key][currentLang] ?? globalNavLabels[key].en;
+
+const globalNavGroups: GlobalNavGroup[] = [
+  {
+    id: 'locations',
+    label: tGlobal('locations'),
+    items: [
+      { token: 'location_frigiliana', label: tGlobal('locationFrigiliana') },
+      { token: 'playa', label: tGlobal('locationNerja') },
+      { token: 'casa', label: tGlobal('locationTarifa') }
+    ]
+  },
+  {
+    id: 'stays',
+    label: tGlobal('stays'),
+    items: [
+      { token: 'romantic_hideaways', label: tGlobal('allStays') },
+      { token: 'farah', label: 'AMARA Farah' },
+      { token: 'lounis', label: 'AMARA Lounis' },
+      { token: 'zaid', label: 'AMARA Zaid' },
+      { token: 'maha', label: 'AMARA Maha' },
+      { token: 'playa', label: 'AMARA Playa' },
+      { token: 'casa', label: 'AMARA Family & Surf' }
+    ]
+  },
+  {
+    id: 'aboutAmara',
+    label: tGlobal('aboutAmara'),
+    items: [
+      { token: 'about', label: localizedNavLabels.about?.[currentLang] ?? 'About AMARA' },
+      { token: 'reviews_hub', label: localizedNavLabels.reviews_hub?.[currentLang] ?? 'Guest Reviews' },
+      { token: 'direct_booking_benefits', label: localizedNavLabels.direct_booking_benefits?.[currentLang] ?? 'Direct Booking Benefits' },
+      { token: 'amenities', label: localizedNavLabels.amenities?.[currentLang] ?? 'Amenities' },
+      { token: 'faq_general', label: localizedNavLabels.faq_general?.[currentLang] ?? 'Stay FAQ' }
+    ]
+  }
+];
+
+const resolveGlobalNavItem = (item: GlobalNavItem) => {
+  const canResolve = isPublicLinkEnabled(item.token, {
+    forceEnabled: ['location_frigiliana', 'playa', 'casa'].includes(item.token),
+    locationAuthorityNav
+  });
+  const href = canResolve ? resolveLink(item.token, currentLang) : null;
+
+  return {
+    ...item,
+    href,
+    isActive: href ? getIsActive(item.token, href) : false
+  };
+};
+
+const resolvedGlobalNavGroups = globalNavGroups.map((group) => {
+  const items = group.items.map(resolveGlobalNavItem);
+
+  return {
+    ...group,
+    items,
+    isActive: items.some((item) => item.isActive)
+  };
+});
 ---
 
 <header class="fixed top-0 left-0 w-full z-[100] px-12 py-9 bg-surface/80 backdrop-blur-md border-b border-outline-variant/5">
@@ -191,43 +297,38 @@ const getResolvedNavLabel = (link: NavLink) => {
 
     <div class="am-nav__center">
       <ul class="hidden md:flex items-center gap-10">
-        {links.map((link) => {
-          const canResolve = isPublicLinkEnabled(link.token, {
-            disabled: link.disabled,
-            forceEnabled: link.forceEnabled,
-            locationAuthorityNav
-          });
-          const href = canResolve ? resolveLink(link.token, currentLang) : null;
-          const isActive = href ? getIsActive(link.token, href) : false;
-          const label = getResolvedNavLabel(link);
+        {resolvedGlobalNavGroups.map((group) => (
+          <li class="am-nav__group">
+            <button
+              type="button"
+              class="am-nav__link am-nav__group-trigger font-label text-[11px] font-bold uppercase tracking-[0.14em] text-on-surface transition-colors"
+              aria-haspopup="true"
+              aria-current={group.isActive ? 'page' : undefined}
+            >
+              {group.label}
+            </button>
 
-          return (
-            <li>
-              {link.disabled ? (
-                <span class="inline-flex items-center gap-2 max-w-full">
-                  <span class="font-label text-[11px] font-bold uppercase tracking-[0.14em] text-on-surface-variant/40">
-                    {label}
-                  </span>
-                  <span class="font-label text-[11px] font-bold uppercase tracking-[0.14em] text-on-surface-variant/50">
-                    {comingSoonBadge ?? 'Soon'}
-                  </span>
-                </span>
-              ) : href ? (
-                <a
-                  href={href}
-                  aria-current={isActive ? 'page' : undefined}
-                  class="am-nav__link font-label text-[11px] font-bold uppercase tracking-[0.14em] text-on-surface transition-colors"
-                >
-                  {label}
-                </a>
-              ) : (
-                <span class="am-nav__link am-link-disabled font-label text-[11px] font-bold uppercase tracking-[0.14em] text-on-surface transition-colors">
-                  {label}
-                </span>
-              )}
-            </li>
-          );
-        })}
+            <div class="am-nav__dropdown">
+              <div class="am-nav__dropdown-panel">
+                {group.items.map((item) => (
+                  item.href ? (
+                    <a
+                      href={item.href}
+                      class="am-nav__dropdown-link font-label text-[11px] font-bold uppercase tracking-[0.12em]"
+                      aria-current={item.isActive ? 'page' : undefined}
+                    >
+                      {item.label}
+                    </a>
+                  ) : (
+                    <span class="am-nav__dropdown-link am-link-disabled font-label text-[11px] font-bold uppercase tracking-[0.12em]">
+                      {item.label}
+                    </span>
+                  )
+                ))}
+              </div>
+            </div>
+          </li>
+        ))}
       </ul>
     </div>
 
@@ -281,14 +382,7 @@ const getResolvedNavLabel = (link: NavLink) => {
 
       <div class="am-nav__slot am-nav__slot--cta">
         {ctaLink && (
-          ctaLink.href ? (
-            <a
-              href={ctaLink.href}
-              class="am-btn am-btn--primary hidden sm:inline-flex"
-            >
-              {ctaLink.label}
-            </a>
-          ) : !isPublicLinkEnabled(ctaLink.token) ? (
+          !isPublicLinkEnabled(ctaLink.token) ? (
             <span class="am-btn am-btn--primary hidden sm:inline-flex am-link-disabled">
               {ctaLink.label}
             </span>
@@ -392,6 +486,9 @@ const getResolvedNavLabel = (link: NavLink) => {
     position: relative;
     display: inline-block;
     padding-bottom: 0.35rem;
+    background: transparent;
+    border: 0;
+    cursor: pointer;
   }
 
   .am-nav__link::after {
@@ -413,6 +510,66 @@ const getResolvedNavLabel = (link: NavLink) => {
 
   .am-nav__link[aria-current="page"] {
     color: var(--color-nav-panel);
+  }
+
+  .am-nav__group {
+    position: relative;
+  }
+
+  .am-nav__group-trigger {
+    white-space: nowrap;
+  }
+
+  .am-nav__dropdown {
+    position: absolute;
+    left: 50%;
+    top: 100%;
+    min-width: 15rem;
+    padding-top: 1.15rem;
+    opacity: 0;
+    visibility: hidden;
+    transform: translate(-50%, 0.4rem);
+    transition:
+      opacity 160ms ease,
+      transform 160ms ease,
+      visibility 160ms ease;
+    pointer-events: none;
+  }
+
+  .am-nav__group:hover .am-nav__dropdown,
+  .am-nav__group:focus-within .am-nav__dropdown {
+    opacity: 1;
+    visibility: visible;
+    transform: translate(-50%, 0);
+    pointer-events: auto;
+  }
+
+  .am-nav__dropdown-panel {
+    display: grid;
+    gap: 0.2rem;
+    padding: 0.8rem;
+    border: 1px solid var(--color-nav-border);
+    border-radius: 8px;
+    background: color-mix(in srgb, var(--color-surface) 96%, transparent);
+    box-shadow: 0 18px 42px rgba(0, 0, 0, 0.08);
+    backdrop-filter: blur(16px);
+  }
+
+  .am-nav__dropdown-link {
+    display: block;
+    padding: 0.65rem 0.75rem;
+    color: var(--color-on-surface-variant);
+    text-align: left;
+    text-decoration: none;
+    transition:
+      background-color 140ms ease,
+      color 140ms ease;
+  }
+
+  .am-nav__dropdown-link:hover,
+  .am-nav__dropdown-link[aria-current="page"] {
+    color: var(--color-on-surface);
+    background-color: var(--color-surface-container-low);
   }
 
   .am-link-disabled {

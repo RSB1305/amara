@@ -142,7 +142,6 @@ const cinematicApartmentsProps = (
 ).filter((apt): apt is NonNullable<typeof apt> => Boolean(apt));
 
 const trustReviewsHref = resolveOptionalLink('reviews_hub', currentLang, { suppressMissing: true });
-const homeCtaHref = resolveOptionalLink('romantic_hideaways', currentLang, { suppressMissing: true });
 const guideLinks = cinematicGuideLinks
   .map((link) => {
     const href = resolveOptionalLink(link.token, currentLang, { suppressMissing: true });
@@ -164,8 +163,6 @@ const guideLinks = cinematicGuideLinks
     links={homeNavLinks}
     variant="default"
     languageToken="home"
-    ctaLabel={t(navApartments)}
-    ctaHref={homeCtaHref ?? undefined}
   />
   <div class="am-root" data-am-page="home">
     <div class="am-wrap w-full max-w-screen-2xl mx-auto px-6 md:px-12 pb-20">

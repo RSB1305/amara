@@ -705,3 +705,77 @@ Possible dynamic routes being matched: src/pages/[lang]/index.astro.
 [2m09:52:11[22m [34m[200][39m /romantic-hideaways [2m171ms[22m
 [2m09:52:11[22m [34m[200][39m /romantic-hideaways [2m172ms[22m
 [2m09:53:30[22m [34m[200][39m /la-amara-farah [2m52ms[22m
+[2m09:54:53[22m [34m[200][39m /la-amara-farah [2m4ms[22m
+[2m09:57:52[22m [34m[200][39m /de/la-amara-farah [2m94ms[22m
+[2m09:57:55[22m [34m[200][39m /la-amara-farah [2m5ms[22m
+[2m09:57:58[22m [34m[200][39m /de/romantic-hideaways [2m77ms[22m
+[2m09:57:58[22m [34m[200][39m /_image [2m281ms[22m
+[2m09:57:58[22m [34m[200][39m /_image [2m313ms[22m
+[2m09:57:58[22m [34m[200][39m /_image [2m316ms[22m
+[2m09:57:58[22m [34m[200][39m /_image [2m219ms[22m
+[2m09:57:58[22m [34m[200][39m /_image [2m186ms[22m
+[2m09:57:59[22m [34m[200][39m /_image [2m197ms[22m
+[2m09:58:38[22m [34m[200][39m /de/amara-about-us [2m69ms[22m
+[2m09:58:44[22m [34m[200][39m /de/amara-about-us [2m5ms[22m
+[2m09:58:46[22m [34m[200][39m /de/guest-reviews [2m64ms[22m
+[2m09:58:48[22m [34m[200][39m /de/direct-booking-benefits [2m74ms[22m
+[2m09:59:08[22m [34m[200][39m /de/amara-about-us [2m4ms[22m
+[2m09:59:53[22m [34m[200][39m /la-amara-farah [2m6ms[22m
+[2m10:00:03[22m [34m[200][39m /de/ [2m93ms[22m
+[2m10:00:06[22m [34m[200][39m /de/romantic-hideaways [2m8ms[22m
+[2m10:00:25[22m [34m[200][39m /de/ [2m3ms[22m
+[2m10:00:36[22m [34m[200][39m /la-amara-farah [2m5ms[22m
+[2m10:01:24[22m [34m[200][39m /de/romantic-hideaways [2m6ms[22m
+[2m10:01:32[22m [34m[200][39m /de/la-amara-lounis [2m6ms[22m
+[2m10:02:30[22m [34m[200][39m /de/comfort-amenities [2m107ms[22m
+[2m10:02:48[22m [34m[200][39m /de/ [2m3ms[22m
+[2m10:06:48[22m [34m[200][39m /la-amara-farah [2m10ms[22m
+[2m10:06:52[22m [34m[200][39m /la-amara-lounis [2m6ms[22m
+[2m10:06:52[22m [34m[200][39m /de/ [2m5ms[22m
+[2m10:06:56[22m [34m[200][39m /la-amara-zaid [2m10ms[22m
+[2m10:07:00[22m [34m[200][39m /la-amara-maha [2m10ms[22m
+[2m10:07:04[22m [34m[200][39m /la-amara-playa [2m7ms[22m
+[2m10:07:08[22m [34m[200][39m /la-amara-family-and-surf [2m14ms[22m
+[2m10:07:12[22m [34m[200][39m /la-amara-farah [2m8ms[22m
+[2m10:07:12[22m [34m[200][39m /de/legal-notice [2m141ms[22m
+[2m10:07:15[22m [34m[200][39m /la-amara-lounis [2m7ms[22m
+[2m10:07:18[22m [34m[200][39m /la-amara-zaid [2m5ms[22m
+[2m10:07:21[22m [34m[200][39m /la-amara-maha [2m5ms[22m
+[2m10:07:24[22m [34m[200][39m /la-amara-playa [2m5ms[22m
+[2m10:07:27[22m [34m[200][39m /la-amara-family-and-surf [2m7ms[22m
+[2m10:07:39[22m [34m[200][39m /de/ [2m6ms[22m
+[2m10:09:15[22m [34m[200][39m /nl/ [2m3ms[22m
+[2m10:09:23[22m [34m[watch][39m /src/styles/global.css
+[2m10:09:24[22m [34m[200][39m /frigiliana-location [2m57ms[22m
+[2m10:09:24[22m [34m[200][39m /frigiliana-location [2m57ms[22m
+[2m10:09:24[22m [34m[200][39m /frigiliana-location [2m57ms[22m
+[2m10:09:24[22m [34m[200][39m / [2m66ms[22m
+[2m10:09:24[22m [34m[200][39m /nl/ [2m66ms[22m
+[2m10:09:24[22m [34m[200][39m /romantic-hideaways [2m277ms[22m
+[2m10:09:24[22m [34m[200][39m /romantic-hideaways [2m278ms[22m
+[2m10:09:26[22m [34m[200][39m /la-amara-family-and-surf [2m1020ms[22m
+[2m10:09:33[22m [34m[watch][39m /src/styles/global.css
+[2m10:09:35[22m [34m[200][39m /frigiliana-location [2m52ms[22m
+[2m10:09:35[22m [34m[200][39m /frigiliana-location [2m52ms[22m
+[2m10:09:35[22m [34m[200][39m /frigiliana-location [2m52ms[22m
+[2m10:09:35[22m [34m[200][39m / [2m65ms[22m
+[2m10:09:35[22m [34m[200][39m /nl/ [2m65ms[22m
+[2m10:09:35[22m [34m[200][39m /romantic-hideaways [2m539ms[22m
+[2m10:09:35[22m [34m[200][39m /romantic-hideaways [2m541ms[22m
+[2m10:09:38[22m [34m[200][39m /la-amara-family-and-surf [2m164ms[22m
+[2m10:09:47[22m [34m[watch][39m /src/styles/global.css
+[2m10:09:49[22m [34m[200][39m /la-amara-family-and-surf [2m241ms[22m
+[2m10:09:49[22m [34m[200][39m /frigiliana-location [2m462ms[22m
+[2m10:09:49[22m [34m[200][39m /frigiliana-location [2m462ms[22m
+[2m10:09:49[22m [34m[200][39m /frigiliana-location [2m462ms[22m
+[2m10:09:50[22m [34m[200][39m /nl/ [2m651ms[22m
+[2m10:09:50[22m [34m[200][39m / [2m928ms[22m
+[2m10:09:50[22m [34m[200][39m /romantic-hideaways [2m1265ms[22m
+[2m10:09:50[22m [34m[200][39m /romantic-hideaways [2m1266ms[22m
+[2m10:09:53[22m [34m[200][39m /de/ [2m5ms[22m
+[2m10:11:14[22m [34m[200][39m /la-amara-farah [2m4ms[22m
+[33m[1m10:11:19[22m [WARN] [router][39m A `getStaticPaths()` route pattern was matched, but no matching static path was found for requested path `/internal/ops`.
+
+Possible dynamic routes being matched: src/pages/[lang]/[rentalSlug].astro.
+[2m10:11:19[22m [33m[404][39m /internal/ops [2m2ms[22m
+[2m10:11:27[22m [34m[200][39m /la-amara-farah [2m5ms[22m

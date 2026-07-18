@@ -20,7 +20,6 @@ const currentLang = normalizeLanguage(lang as AmaraLanguage);
 const page = comfortAmenitiesCopy[currentLang];
 const seo = comfortAmenitiesSeo;
 const navBrandLabel = comfortAmenitiesNav.brandLabel[currentLang];
-const navCtaLabel = comfortAmenitiesNav.ctaLabel[currentLang];
 const footerHighlights = [
   { token: 'amenities', label: comfortAmenitiesFooterLabels.amenities[currentLang] },
   { token: 'faq_general', label: comfortAmenitiesFooterLabels.faq_general[currentLang] },
@@ -55,7 +54,6 @@ const heroCtaLinks = [
     links={page.trustLinks}
     variant="trust"
     languageToken="amenities"
-    ctaLabel={navCtaLabel}
   />
 
   <div id="am-page-amenities" class="am-root font-body bg-white text-on-surface" data-am-page="amenities" data-current-lang={currentLang}>
