@@ -136,7 +136,13 @@ legal_notice: {
     ========================================================= */
     locations_hub: { en: '/en/locations', de: '/de/locations', es: '/es/locations', nl: '/nl/locations', sv: '/sv/locations' },
     location_frigiliana: { en: '/en/frigiliana-location', de: '/de/frigiliana-location', es: '/frigiliana-location', nl: '/nl/frigiliana-location', sv: '/sv/frigiliana-location' },
-    location_nerja: { en: '/en/nerja-location', de: '/de/nerja-location', es: '/es/nerja-location', nl: '/nl/nerja-location', sv: '/sv/nerja-location' },
+    location_nerja: {
+      en: buildOwnedLocalizedPath('nerja-location', 'en'),
+      de: buildOwnedLocalizedPath('nerja-location', 'de'),
+      es: buildOwnedLocalizedPath('nerja-location', 'es'),
+      nl: buildOwnedLocalizedPath('nerja-location', 'nl'),
+      sv: buildOwnedLocalizedPath('nerja-location', 'sv')
+    },
     location_tarifa: { en: '/en/tarifa-location', de: '/de/tarifa-location', es: '/es/tarifa-location', nl: '/nl/tarifa-location', sv: '/sv/tarifa-location' },
 
     /* =========================================================

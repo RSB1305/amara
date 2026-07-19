@@ -1,0 +1,354 @@
+---
+import LocationAuthorityLayout from '../../layouts/LocationAuthorityLayout.astro';
+import Navigation from '../../components/Navigation.astro';
+import Hero from '../../components/Hero.astro';
+import EssenceGrid from '../../components/EssenceGrid.astro';
+import PhotoShow from '../../components/PhotoShow.astro';
+import StayDecision from '../../components/StayDecision.astro';
+import FaqAccordion from '../../components/FaqAccordion.astro';
+import LocationEditorialComparison from '../../components/location/LocationEditorialComparison.astro';
+import SectionAnchorNav from '../../components/navigation/SectionAnchorNav.astro';
+import {
+  nerjaLocationCopy,
+  nerjaLocationSeo
+} from '../../content/nerjaLocationContent';
+import { resolveOptionalLink } from '../../lib/linkResolver';
+import { getNerjaAuthoritySubnav } from '../../lib/nerja/nerjaAuthoritySubnav';
+import { normalizeLanguage } from '../../lib/seo/resolve-seo-head';
+import type { AmaraLanguage } from '../../types/seo';
+
+interface Props {
+  lang?: string;
+}
+
+const { lang = 'es' } = Astro.props;
+const currentLang = normalizeLanguage(lang as AmaraLanguage);
+const seo = nerjaLocationSeo;
+const copy = nerjaLocationCopy;
+const optionalLink = (token: string) =>
+  resolveOptionalLink(token, currentLang, { suppressMissing: true });
+
+const playaHref = optionalLink('playa') ?? '#amara-playa';
+const frigilianaHref = optionalLink('location_frigiliana') ?? '#compare-frigiliana';
+
+const essenceItems = copy.essence.items.map((item) => {
+  const token = 'token' in item ? item.token : undefined;
+  const linkLabel = 'linkLabel' in item ? item.linkLabel : undefined;
+  const imageSrc = 'imageSrc' in item ? item.imageSrc : undefined;
+
+  return {
+    kicker: item.kicker[currentLang],
+    headline: item.headline[currentLang],
+    text: item.text[currentLang],
+    imageSrc,
+    imageAlt: item.headline[currentLang],
+    href: token ? optionalLink(token) : undefined,
+    linkLabel: linkLabel ? linkLabel[currentLang] : undefined
+  };
+});
+
+const c = {
+  nav: {
+    brand: copy.nav.brand[currentLang]
+  },
+  hero: {
+    eyebrow: copy.hero.eyebrow[currentLang],
+    h1: copy.hero.h1[currentLang],
+    body: copy.hero.body[currentLang],
+    introLeadBefore: copy.hero.introLead[currentLang].before,
+    introLeadLinkLabel: copy.hero.introLead[currentLang].linkLabel,
+    introLeadAfter: copy.hero.introLead[currentLang].after,
+    ctaMain: copy.hero.ctaMain[currentLang],
+    ctaAlt: copy.hero.ctaAlt[currentLang]
+  },
+  gallery: {
+    eyebrow: copy.gallery.eyebrow[currentLang],
+    title: copy.gallery.title[currentLang],
+    images: copy.gallery.items.map((image) => ({
+      src: image.src,
+      alt: image.alt[currentLang],
+      caption: image.caption[currentLang]
+    }))
+  },
+  essence: {
+    eyebrow: copy.essence.eyebrow[currentLang],
+    title: copy.essence.title[currentLang],
+    intro: copy.essence.intro[currentLang],
+    items: essenceItems
+  },
+  areas: {
+    eyebrow: copy.areas.eyebrow[currentLang],
+    title: copy.areas.title[currentLang],
+    intro: copy.areas.intro[currentLang],
+    items: copy.areas.items[currentLang],
+    imagePrimary: {
+      src: copy.areas.imagePrimary.src,
+      alt: copy.areas.imagePrimary.alt[currentLang]
+    },
+    imageSecondary: {
+      src: copy.areas.imageSecondary.src,
+      alt: copy.areas.imageSecondary.alt[currentLang]
+    }
+  },
+  beaches: {
+    eyebrow: copy.beaches.eyebrow[currentLang],
+    title: copy.beaches.title[currentLang],
+    intro: copy.beaches.intro[currentLang],
+    items: copy.beaches.items.map((item) => ({
+      title: item.title[currentLang],
+      text: item.text[currentLang]
+    }))
+  },
+  practical: {
+    eyebrow: copy.practical.eyebrow[currentLang],
+    title: copy.practical.title[currentLang],
+    intro: copy.practical.intro[currentLang],
+    cards: copy.practical.cards.map((card) => ({
+      kicker: card.kicker[currentLang],
+      title: card.title[currentLang],
+      bullets: card.bullets[currentLang]
+    }))
+  },
+  comparison: {
+    eyebrow: copy.comparison.eyebrow[currentLang],
+    title: copy.comparison.title[currentLang],
+    profiles: copy.comparison.profiles.map((profile) => ({
+      title: profile.title[currentLang],
+      description: profile.description[currentLang],
+      suitability: profile.suitability[currentLang]
+    }))
+  },
+  playa: {
+    eyebrow: copy.playa.eyebrow[currentLang],
+    title: copy.playa.title[currentLang],
+    text: copy.playa.text[currentLang],
+    cta: copy.playa.cta[currentLang]
+  },
+  faq: {
+    arrivalTitle: copy.faq.arrivalTitle[currentLang],
+    steps: copy.faq.steps.map((step) => ({
+      num: step.num,
+      headline: step.h[currentLang],
+      text: step.t[currentLang]
+    })),
+    faqTitle: copy.faq.faqTitle[currentLang],
+    items: copy.faq.items.map((item) => ({
+      question: item.q[currentLang],
+      answer: item.a[currentLang]
+    }))
+  }
+};
+
+const heroImage = {
+  src: '/images/amara-playa/apartment/chaparril-13.webp',
+  alt: c.gallery.images[0].alt,
+  width: 1600,
+  height: 1067,
+  sizes: '(max-width: 767px) calc(100vw - 3rem), (max-width: 1023px) 60vw, 40vw'
+};
+
+const footerHighlights = [
+  {
+    token: 'playa',
+    label: 'AMARA Playa'
+  },
+  {
+    token: 'location_frigiliana',
+    label: {
+      en: 'Frigiliana guide',
+      de: 'Frigiliana-Guide',
+      es: 'Guía de Frigiliana',
+      nl: 'Frigiliana-gids',
+      sv: 'Frigiliana-guide'
+    }[currentLang]
+  },
+  {
+    token: 'romantic_hideaways',
+    label: {
+      en: 'All stays',
+      de: 'Alle Unterkünfte',
+      es: 'Todos los alojamientos',
+      nl: 'Alle verblijven',
+      sv: 'Alla boenden'
+    }[currentLang]
+  }
+];
+
+const sectionNavItems = getNerjaAuthoritySubnav(currentLang);
+---
+
+<LocationAuthorityLayout seo={seo} pageLang={currentLang} footerHighlights={footerHighlights}>
+  <Navigation
+    currentLang={currentLang}
+    brandName={c.nav.brand}
+    languageToken="location_nerja"
+    locationAuthorityNav={true}
+  />
+  <SectionAnchorNav items={sectionNavItems} activeId="intro" />
+
+  <div class="am-root" data-am-page="nerja-location">
+    <div class="am-wrap w-full">
+      <div id="intro">
+        <Hero
+          imageSrc={heroImage.src}
+          imageAlt={heroImage.alt}
+          imageWidth={heroImage.width}
+          imageHeight={heroImage.height}
+          imageSizes={heroImage.sizes}
+        >
+          <span class="am-text-caption text-primary mb-8 block">{c.hero.eyebrow}</span>
+          <h1 class="am-text-display italic text-on-surface mb-10 tracking-tighter" set:html={c.hero.h1} />
+          <div class="pl-10 border-l border-primary/20 max-w-lg mb-14">
+            <p class="am-text-body text-on-surface-variant leading-relaxed">{c.hero.body}</p>
+            <p class="am-text-body text-on-surface-variant leading-relaxed mt-6">
+              {c.hero.introLeadBefore}
+              <a href={playaHref} class="am-inline-link">{c.hero.introLeadLinkLabel}</a>
+              {c.hero.introLeadAfter}
+            </p>
+          </div>
+          <div class="flex flex-wrap gap-8">
+            <a href={playaHref} class="bg-primary text-on-primary px-12 py-5 am-text-caption uppercase tracking-[0.2em] transition-all hover:opacity-90">
+              {c.hero.ctaMain}
+            </a>
+            <a href={frigilianaHref} class="border border-outline-variant/30 text-on-surface px-12 py-5 am-text-caption uppercase tracking-[0.2em] hover:bg-surface-container-low transition-all">
+              {c.hero.ctaAlt}
+            </a>
+          </div>
+        </Hero>
+      </div>
+
+      <section id="photo" class="am-section am-section--plain w-full max-w-none !mx-0 !border-t-0 !px-0 !py-0">
+        <PhotoShow eyebrow={c.gallery.eyebrow} title={c.gallery.title} images={c.gallery.images} />
+      </section>
+
+      <section id="key-facts" class="am-section am-section--tint w-full max-w-none !mx-0 !border-t-0 !px-0 !py-0">
+        <EssenceGrid
+          eyebrow={c.essence.eyebrow}
+          title={c.essence.title}
+          intro={c.essence.intro}
+          items={c.essence.items}
+        />
+      </section>
+
+      <section id="where-to-stay-in-nerja" class="am-section am-section--plain w-full max-w-none !mx-0 !border-t-0 !px-0 !py-0">
+        <LocationEditorialComparison
+          eyebrow={c.areas.eyebrow}
+          title={c.areas.title}
+          intro={c.areas.intro}
+          items={c.areas.items}
+          imagePrimary={c.areas.imagePrimary}
+          imageSecondary={c.areas.imageSecondary}
+        />
+      </section>
+
+      <section id="nerja-beaches" class="am-section am-section--tint w-full max-w-none !mx-0 !border-t-0 !px-0">
+        <div class="max-w-screen-2xl mx-auto px-12 py-40 border-t border-outline-variant/5">
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-16">
+            <div class="lg:col-span-5">
+              <span class="am-text-caption uppercase tracking-[0.4em] text-primary block mb-6">{c.beaches.eyebrow}</span>
+              <h2 class="am-text-title italic text-on-surface tracking-tight mb-8">{c.beaches.title}</h2>
+              <p class="am-text-body text-on-surface-variant leading-relaxed max-w-xl">{c.beaches.intro}</p>
+            </div>
+            <div class="lg:col-span-7 grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-10">
+              {
+                c.beaches.items.map((item) => (
+                  <article class="border-t border-outline-variant/20 pt-7">
+                    <h3 class="am-text-subtitle italic text-on-surface mb-4">{item.title}</h3>
+                    <p class="am-text-body text-on-surface-variant leading-relaxed">{item.text}</p>
+                  </article>
+                ))
+              }
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="practical-nerja" class="am-section am-section--plain w-full max-w-none !mx-0 !border-t-0 !px-0">
+        <div class="max-w-screen-2xl mx-auto px-12 py-40 border-t border-outline-variant/5">
+          <div class="max-w-3xl mb-20">
+            <span class="am-text-caption uppercase tracking-[0.4em] text-primary block mb-6">{c.practical.eyebrow}</span>
+            <h2 class="am-text-title italic text-on-surface tracking-tight mb-8">{c.practical.title}</h2>
+            <p class="am-text-body text-on-surface-variant leading-relaxed">{c.practical.intro}</p>
+          </div>
+          <div class="grid grid-cols-1 lg:grid-cols-3 gap-12">
+            {
+              c.practical.cards.map((card) => (
+                <article class="border-l border-outline-variant/20 pl-8 py-3">
+                  <span class="am-text-caption uppercase tracking-[0.28em] text-primary block mb-4">{card.kicker}</span>
+                  <h3 class="am-text-subtitle italic text-on-surface mb-8">{card.title}</h3>
+                  <ul class="space-y-5">
+                    {card.bullets.map((bullet) => (
+                      <li class="am-text-body text-on-surface-variant leading-relaxed">{bullet}</li>
+                    ))}
+                  </ul>
+                </article>
+              ))
+            }
+          </div>
+        </div>
+      </section>
+
+      <section id="compare-frigiliana" class="am-section am-section--tint w-full max-w-none !mx-0 !border-t-0 !px-0 !py-0">
+        <StayDecision
+          eyebrow={c.comparison.eyebrow}
+          title={c.comparison.title}
+          profiles={c.comparison.profiles}
+        />
+      </section>
+
+      <section id="amara-playa" class="am-section am-section--plain w-full max-w-none !mx-0 !border-t-0 !px-0">
+        <div class="max-w-screen-2xl mx-auto px-12 py-40 border-t border-outline-variant/5">
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
+            <div class="lg:col-span-7 overflow-hidden bg-surface-container-low">
+              <img
+                src="/images/amara-playa/apartment/chaparril-22.webp"
+                alt={c.gallery.images[2].alt}
+                class="w-full aspect-[16/10] object-cover"
+                loading="lazy"
+                decoding="async"
+              />
+            </div>
+            <div class="lg:col-span-5">
+              <span class="am-text-caption uppercase tracking-[0.4em] text-primary block mb-6">{c.playa.eyebrow}</span>
+              <h2 class="am-text-title italic text-on-surface tracking-tight mb-8">{c.playa.title}</h2>
+              <p class="am-text-body text-on-surface-variant leading-relaxed mb-10">{c.playa.text}</p>
+              <a href={playaHref} class="inline-flex bg-primary text-on-primary px-10 py-5 am-text-caption uppercase tracking-[0.2em] transition-all hover:opacity-90">
+                {c.playa.cta}
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="am-section am-section--tint w-full max-w-none !mx-0 !border-t-0 !px-0 !py-0">
+        <FaqAccordion
+          arrivalTitle={c.faq.arrivalTitle}
+          steps={c.faq.steps}
+          faqTitle={c.faq.faqTitle}
+          items={c.faq.items}
+          anchorArrivalId="nerja-planning-basics"
+          anchorFaqId="faq"
+        />
+      </section>
+    </div>
+  </div>
+</LocationAuthorityLayout>
+
+<style>
+  .am-section--plain > :global(section),
+  .am-section--tint > :global(section) {
+    background-color: transparent !important;
+  }
+
+  .am-section--plain :global(amara-photoshow) {
+    background-color: var(--color-surface) !important;
+  }
+
+  .am-section--plain :global(amara-photoshow .bg-surface-container) {
+    background-color: var(--color-surface-container-low) !important;
+  }
+
+  .am-section--tint :global(.bg-surface-container) {
+    background-color: var(--color-surface) !important;
+  }
+</style>

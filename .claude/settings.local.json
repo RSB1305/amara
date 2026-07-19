@@ -2,7 +2,8 @@
   "permissions": {
     "allow": [
       "Bash(npx astro:*)",
-      "Bash(npx tsc:*)"
+      "Bash(npx tsc:*)",
+      "WebFetch(domain:amara-lodging.es)"
     ]
   }
 }

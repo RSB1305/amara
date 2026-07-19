@@ -227,7 +227,7 @@ const globalNavGroups: GlobalNavGroup[] = [
     label: tGlobal('locations'),
     items: [
       { token: 'location_frigiliana', label: tGlobal('locationFrigiliana') },
-      { token: 'playa', label: tGlobal('locationNerja') },
+      { token: 'location_nerja', label: tGlobal('locationNerja') },
       { token: 'casa', label: tGlobal('locationTarifa') }
     ]
   },
@@ -259,7 +259,7 @@ const globalNavGroups: GlobalNavGroup[] = [
 
 const resolveGlobalNavItem = (item: GlobalNavItem) => {
   const canResolve = isPublicLinkEnabled(item.token, {
-    forceEnabled: ['location_frigiliana', 'playa', 'casa'].includes(item.token),
+    forceEnabled: ['location_frigiliana', 'location_nerja', 'casa'].includes(item.token),
     locationAuthorityNav
   });
   const href = canResolve ? resolveLink(item.token, currentLang) : null;

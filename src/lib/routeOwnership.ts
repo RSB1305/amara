@@ -12,6 +12,7 @@ const ROOT_SPANISH_PUBLIC_SLUGS = new Set([
   'faq-general',
   'legal-notice',
   'frigiliana-location',
+  'nerja-location',
   'frigiliana-parking',
   'frigiliana-weather',
   'instagram',
@@ -27,7 +28,6 @@ const ROOT_SPANISH_PUBLIC_SLUGS = new Set([
 
 const DISABLED_PUBLIC_ROUTE_TOKENS = new Set([
   'explore_hub',
-  'location_nerja',
   'location_tarifa',
   'locations_hub',
   'weather_frigiliana',
