@@ -132,7 +132,7 @@ export default function HomeCinematicMain(props: HomeCinematicMainProps) {
       {/* Hero — parallax (Motion) */}
       <section
         ref={heroRef}
-        className="relative z-[2] h-[calc(100svh-136px)] min-h-[28rem] w-full overflow-hidden bg-inverse-surface"
+        className="relative z-[2] h-[calc(100svh-104px)] min-h-[28rem] w-full overflow-hidden bg-inverse-surface lg:h-[calc(100svh-136px)]"
       >
         <motion.div
           style={reduceMotion ? undefined : ({ y, opacity } as React.CSSProperties)}
@@ -149,7 +149,8 @@ export default function HomeCinematicMain(props: HomeCinematicMainProps) {
             fetchPriority="high"
             decoding="async"
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-inverse-surface/20 via-transparent to-inverse-surface/80" />
+          <div className="absolute inset-0 bg-gradient-to-b from-inverse-surface/25 via-transparent to-inverse-surface/80" />
+          <div className="absolute left-1/2 top-1/2 h-[58%] w-[min(92%,52rem)] -translate-x-1/2 -translate-y-1/2 rounded-full bg-inverse-surface/45 blur-3xl" />
         </motion.div>
 
         <div className="absolute inset-0 z-10 flex flex-col items-center justify-center px-6 text-center text-inverted-on-surface">
@@ -157,7 +158,7 @@ export default function HomeCinematicMain(props: HomeCinematicMainProps) {
             initial={reduceMotion ? false : { opacity: 0, letterSpacing: '0em' }}
             animate={{ opacity: 1, letterSpacing: '0.3em' }}
             transition={{ duration: 1.5, delay: 0.2, ease: 'easeOut' }}
-            className="mb-6 am-text-caption uppercase tracking-[0.3em] text-inverted-on-surface-muted"
+            className="mb-6 am-text-caption uppercase tracking-[0.3em] text-inverted-on-surface/90"
           >
             {heroKicker}
           </motion.span>
@@ -175,7 +176,7 @@ export default function HomeCinematicMain(props: HomeCinematicMainProps) {
             initial={reduceMotion ? false : { opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 1, delay: 1.2 }}
-            className="max-w-xl am-text-body italic text-inverted-on-surface-muted"
+            className="max-w-xl am-text-body italic text-inverted-on-surface/90"
           >
             {heroLead}
           </motion.p>
@@ -185,7 +186,7 @@ export default function HomeCinematicMain(props: HomeCinematicMainProps) {
           initial={reduceMotion ? false : { opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 2, duration: 1 }}
-          className="absolute bottom-12 left-1/2 z-10 flex -translate-x-1/2 flex-col items-center gap-2 text-inverted-on-surface-muted"
+          className="absolute bottom-12 left-1/2 z-10 flex -translate-x-1/2 flex-col items-center gap-2 text-inverted-on-surface/80"
         >
           <span className="am-text-caption uppercase tracking-widest">{scrollHint}</span>
           <div className="h-12 w-px bg-gradient-to-b from-inverted-on-surface-muted to-transparent" />
@@ -234,7 +235,7 @@ export default function HomeCinematicMain(props: HomeCinematicMainProps) {
       </section>
 
       {guideLinks.length > 0 && (
-        <section id="stay-guides" className="relative z-[2] scroll-mt-[136px] border-y border-outline-variant/10 bg-surface py-12 md:py-16">
+        <section id="stay-guides" className="relative z-[2] scroll-mt-[104px] border-y border-outline-variant/10 bg-surface py-12 md:py-16 lg:scroll-mt-[136px]">
           <div className="mx-auto grid max-w-screen-xl gap-10 px-6 md:px-12 lg:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)] lg:items-start">
             <FadeIn>
               <span className="mb-4 block am-text-caption uppercase tracking-widest text-primary">{guideEyebrow}</span>

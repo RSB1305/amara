@@ -9,10 +9,18 @@ interface Props {
   subtitle?: string;
   lead: string;
   ctaLinks?: HeroLink[];
+  ctaVariant?: 'editorial' | 'conversion';
   supportText?: string;
 }
 
-const { title, subtitle, lead, ctaLinks = [], supportText } = Astro.props;
+const {
+  title,
+  subtitle,
+  lead,
+  ctaLinks = [],
+  ctaVariant = 'editorial',
+  supportText
+} = Astro.props;
 ---
 
 <header class="am-exp-hero">
@@ -24,7 +32,19 @@ const { title, subtitle, lead, ctaLinks = [], supportText } = Astro.props;
   <h1 class="am-text-display am-exp-hero__title" set:html={title} />
   <p class="am-text-body am-exp-hero__lead text-subtle">{lead}</p>
   {supportText && <p class="am-text-body am-hero-support italic text-muted">{supportText}</p>}
-  {ctaLinks.length > 0 && (
+  {ctaLinks.length > 0 && ctaVariant === 'conversion' && (
+    <div class="am-exp-hero__actions">
+      {ctaLinks.map((link, index) => (
+        <a
+          href={link.href}
+          class={`am-btn w-full justify-center sm:w-auto ${index === 0 ? 'am-btn--primary' : 'am-btn--ghost'}`}
+        >
+          {link.label}
+        </a>
+      ))}
+    </div>
+  )}
+  {ctaLinks.length > 0 && ctaVariant === 'editorial' && (
     <div class="am-cta-group am-cta-group--left mt-8">
       {ctaLinks.map((link, index) => (
         <>
@@ -54,6 +74,7 @@ const { title, subtitle, lead, ctaLinks = [], supportText } = Astro.props;
   .am-exp-hero__title {
     max-width: 12ch;
     margin: 0 0 2.5rem 0;
+    text-wrap: balance;
     @apply text-on-surface;
   }
 
@@ -69,5 +90,19 @@ const { title, subtitle, lead, ctaLinks = [], supportText } = Astro.props;
 
   .am-hero-support {
     margin-top: 1.5rem;
+    max-width: 42ch;
+  }
+
+  .am-exp-hero__actions {
+    display: grid;
+    gap: 0.75rem;
+    margin-top: 2rem;
+  }
+
+  @media (min-width: 640px) {
+    .am-exp-hero__actions {
+      display: flex;
+      flex-wrap: wrap;
+    }
   }
 </style>

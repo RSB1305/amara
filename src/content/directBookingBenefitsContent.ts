@@ -124,7 +124,7 @@ export const directBookingBenefitsCopy = {
 
       nl: 'Boek direct bij AMARA en ontvang exclusieve voordelen voor gasten',
 
-      sv: 'Boka direkt med AMARA och fa exklusiva gastfordelar'
+      sv: 'Boka direkt med AMARA och få exklusiva gästfördelar'
 
     },
 
@@ -134,11 +134,11 @@ export const directBookingBenefitsCopy = {
 
       de: 'Wenn ihr direkt bei AMARA bucht, bekommt ihr denselben schönen Aufenthalt - plus ein paar Extras, die die Anreise leichter und den Aufenthalt persönlicher machen.',
 
-      es: 'Cuando reservais directamente con AMARA, disfrutais de la misma estancia preciosa, con algunos extras que hacen la llegada mas facil y la experiencia mas personal.',
+      es: 'Cuando reserváis directamente con AMARA, disfrutáis de la misma estancia preciosa, con algunos extras que hacen la llegada más fácil y la experiencia más personal.',
 
       nl: 'Wanneer jullie direct bij AMARA boeken, krijgen jullie hetzelfde mooie verblijf - plus een paar extra\'s die de aankomst makkelijker en de ervaring persoonlijker maken.',
 
-      sv: 'Nar ni bokar direkt med AMARA far ni samma vackra vistelse - plus nagra extra detaljer som gor ankomsten enklare och upplevelsen mer personlig.'
+      sv: 'När ni bokar direkt med AMARA får ni samma vackra vistelse - plus några extra detaljer som gör ankomsten enklare och upplevelsen mer personlig.'
 
     },
 
@@ -148,11 +148,11 @@ export const directBookingBenefitsCopy = {
 
       de: 'Transparent, ruhig und ganz auf euch als Gäste ausgerichtet - ohne Spielereien.',
 
-      es: 'Transparente, tranquilo y pensado para el huesped, sin artificios.',
+      es: 'Transparente, tranquilo y pensado para el huésped, sin artificios.',
 
       nl: 'Transparant, rustig en helemaal gastgericht - zonder trucs.',
 
-      sv: 'Transparent, lugnt och helt gastfokuserat - utan gimmickar.'
+      sv: 'Transparent, lugnt och helt gästfokuserat - utan gimmickar.'
 
     },
 
@@ -176,11 +176,11 @@ export const directBookingBenefitsCopy = {
 
       de: 'Gästebewertungen',
 
-      es: 'Opiniones de huespedes',
+      es: 'Opiniones de huéspedes',
 
       nl: 'Gastbeoordelingen',
 
-      sv: 'Gastomdoemen'
+      sv: 'Gästomdömen'
 
     }
 
@@ -200,7 +200,7 @@ export const directBookingBenefitsCopy = {
 
         nl: 'Besteprijsgarantie',
 
-        sv: 'Basta pris-garanti'
+        sv: 'Bästa pris-garanti'
 
       },
 
@@ -210,11 +210,11 @@ export const directBookingBenefitsCopy = {
 
         de: 'Bei einer Direktbuchung bekommt ihr immer unseren besten verfügbaren Preis - ohne versteckte Gebühren.',
 
-        es: 'Al reservar directamente, siempre vereis nuestro mejor precio disponible, sin cargos ocultos.',
+        es: 'Al reservar directamente, siempre veréis nuestro mejor precio disponible, sin cargos ocultos.',
 
         nl: 'Wanneer jullie direct boeken, krijgen jullie altijd onze beste beschikbare prijs - zonder verborgen kosten.',
 
-        sv: 'Nar ni bokar direkt far ni alltid vart basta tillgaengliga pris - utan dolda avgifter.'
+        sv: 'När ni bokar direkt får ni alltid vårt bästa tillgängliga pris - utan dolda avgifter.'
 
       }
 
@@ -228,7 +228,7 @@ export const directBookingBenefitsCopy = {
 
         de: 'Priorität für frühen Check-in / späten Check-out',
 
-        es: 'Prioridad para early check-in / late check-out',
+        es: 'Prioridad para entrada anticipada o salida tardía',
 
         nl: 'Voorrang voor vroege check-in / late check-out',
 
@@ -242,11 +242,11 @@ export const directBookingBenefitsCopy = {
 
         de: 'Wenn es die Verfügbarkeit zulässt, prüfen wir bevorzugt einen kostenfreien frühen Check-in oder späten Check-out.',
 
-        es: 'Cuando la disponibilidad lo permite, damos prioridad a un early check-in o late check-out sin coste.',
+        es: 'Cuando la disponibilidad lo permite, damos prioridad a una entrada anticipada o una salida tardía sin coste.',
 
         nl: 'Als de beschikbaarheid het toelaat, geven we voorrang aan een kosteloze vroege check-in of late check-out.',
 
-        sv: 'Nar tillgaengligheten tillater det prioriterar vi kostnadsfri tidig incheckning eller sen utcheckning.'
+        sv: 'När tillgängligheten tillåter det prioriterar vi kostnadsfri tidig incheckning eller sen utcheckning.'
 
       }
 
@@ -264,7 +264,7 @@ export const directBookingBenefitsCopy = {
 
         nl: 'Welkomstdetail',
 
-        sv: 'Vaelkomstdetalj'
+        sv: 'Välkomstdetalj'
 
       },
 
@@ -274,11 +274,11 @@ export const directBookingBenefitsCopy = {
 
         de: 'Eine kleine lokale Aufmerksamkeit bei der Ankunft - schlicht, aufmerksam und saisonal gedacht.',
 
-        es: 'Un pequeno detalle local de bienvenida a la llegada: sencillo, cuidado y de temporada.',
+        es: 'Un pequeño detalle local de bienvenida a la llegada: sencillo, cuidado y de temporada.',
 
         nl: 'Een klein lokaal welkomstdetail bij aankomst - eenvoudig, attent en passend bij het seizoen.',
 
-        sv: 'En liten lokal vaelkomstgest vid ankomst - enkel, genomtaenkt och anpassad efter saesong.'
+        sv: 'En liten lokal välkomstgest vid ankomst - enkel, genomtänkt och anpassad efter säsong.'
 
       }
 
@@ -292,11 +292,11 @@ export const directBookingBenefitsCopy = {
 
         de: 'Direkter Kontakt zum Gastgeber',
 
-        es: 'Contacto directo con el anfitrion',
+        es: 'Contacto directo con el anfitrión',
 
         nl: 'Direct contact met de host',
 
-        sv: 'Direktkontakt med vaerden'
+        sv: 'Direktkontakt med värden'
 
       },
 
@@ -306,7 +306,7 @@ export const directBookingBenefitsCopy = {
 
         de: 'Ein direkter und unkomplizierter Weg für Fragen und Abstimmung vor und während eures Aufenthalts.',
 
-        es: 'Una via mas directa y sencilla para resolver dudas y coordinaros antes y durante la estancia.',
+        es: 'Una vía más directa y sencilla para resolver dudas y coordinaros antes y durante la estancia.',
 
         nl: 'Een directere en eenvoudigere manier voor vragen en afstemming voor en tijdens jullie verblijf.',
 
@@ -328,7 +328,7 @@ export const directBookingBenefitsCopy = {
 
         nl: 'Flexibele aankomsthulp',
 
-        sv: 'Flexibel stoed vid ankomst'
+        sv: 'Flexibelt stöd vid ankomst'
 
       },
 
@@ -374,7 +374,7 @@ export const directBookingBenefitsCopy = {
 
         nl: 'Geen verrassingen.',
 
-        sv: 'Inga overaskningar.'
+        sv: 'Inga överraskningar.'
 
       }
 
@@ -390,11 +390,11 @@ export const directBookingBenefitsCopy = {
 
       de: 'Was ihr bei einer Direktbuchung bekommt',
 
-      es: 'Que recibis al reservar directamente',
+      es: 'Qué recibís al reservar directamente',
 
       nl: 'Wat jullie krijgen als jullie direct boeken',
 
-      sv: 'Det ni far naer ni bokar direkt'
+      sv: 'Det ni får när ni bokar direkt'
 
     },
 
@@ -404,7 +404,7 @@ export const directBookingBenefitsCopy = {
 
       de: 'Tipp: Wenn ihr nicht sicher seid, welches Apartment am besten passt, schreibt uns zuerst - wir beraten euch ruhig und ehrlich.',
 
-      es: 'Consejo: si no teneis claro que apartamento os encaja mejor, escribidnos primero y os orientaremos con calma y honestidad.',
+      es: 'Consejo: si no tenéis claro qué apartamento os encaja mejor, escribidnos primero y os orientaremos con calma y honestidad.',
 
       nl: 'Tip: als jullie niet zeker weten welk appartement het beste past, stuur ons eerst een bericht - we helpen jullie rustig en eerlijk verder.',
 
@@ -418,11 +418,11 @@ export const directBookingBenefitsCopy = {
 
       de: 'Gästebewertungen',
 
-      es: 'Opiniones de huespedes',
+      es: 'Opiniones de huéspedes',
 
       nl: 'Gastbeoordelingen',
 
-      sv: 'Gastomdoemen'
+      sv: 'Gästomdömen'
 
     },
 
@@ -446,11 +446,11 @@ export const directBookingBenefitsCopy = {
 
       de: 'Direktbuchungen erlauben es uns, mehr in die Details zu investieren, die ihr wirklich spürt.',
 
-      es: 'Las reservas directas nos permiten invertir mas en los detalles que realmente se notan.',
+      es: 'Las reservas directas nos permiten invertir más en los detalles que realmente se notan.',
 
       nl: 'Met directe boekingen kunnen we meer investeren in de details die jullie echt voelen.',
 
-      sv: 'Direktbokningar laater oss investera mer i de detaljer som ni faktiskt kaenner.'
+      sv: 'Direktbokningar låter oss investera mer i de detaljer som ni faktiskt märker.'
 
     },
 
@@ -460,7 +460,7 @@ export const directBookingBenefitsCopy = {
 
       de: 'Warum wir Direktbuchungen bevorzugen',
 
-      es: 'Por que preferimos las reservas directas',
+      es: 'Por qué preferimos las reservas directas',
 
       nl: 'Waarom wij directe boekingen prefereren',
 
@@ -474,11 +474,11 @@ export const directBookingBenefitsCopy = {
 
       de: 'Direktbuchungen geben uns mehr Spielraum für die Details, die ihr wirklich merkt: ruhigere Abläufe, bessere Pflege und persönliche Unterstützung.',
 
-      es: 'Las reservas directas nos permiten invertir mas en los detalles que de verdad se notan: operaciones mas tranquilas, mejor mantenimiento y apoyo personal.',
+      es: 'Las reservas directas nos permiten invertir más en los detalles que de verdad se notan: operaciones más tranquilas, mejor mantenimiento y apoyo personal.',
 
       nl: 'Directe boekingen geven ons meer ruimte om te investeren in de details die jullie echt merken: rustigere processen, beter onderhoud en persoonlijke ondersteuning.',
 
-      sv: 'Direktbokningar ger oss mer utrymme att investera i de detaljer som ni verkligen maerker: lugnare drift, baettre underhaall och personligt stoed.'
+      sv: 'Direktbokningar ger oss mer utrymme att investera i de detaljer som ni verkligen märker: lugnare drift, bättre underhåll och personligt stöd.'
 
     },
 
@@ -488,7 +488,7 @@ export const directBookingBenefitsCopy = {
 
       de: 'So bleibt AMARA außerdem unabhängig - ausgerichtet auf Gäste, die Ruhe schätzen.',
 
-      es: 'Ademas, asi AMARA mantiene su independencia y sigue pensada para huespedes que valoran la calma.',
+      es: 'Además, así AMARA mantiene su independencia y sigue pensada para huéspedes que valoran la calma.',
 
       nl: 'Zo blijft AMARA ook onafhankelijk - ingericht rond gasten die rust waarderen.',
 
@@ -506,7 +506,7 @@ export const directBookingBenefitsCopy = {
 
       nl: 'Een eenvoudige belofte',
 
-      sv: 'Ett enkelt loefte'
+      sv: 'Ett enkelt löfte'
 
     },
 
@@ -516,7 +516,7 @@ export const directBookingBenefitsCopy = {
 
       de: 'Wenn ihr anderswo denselben Aufenthalt zu denselben Daten und Bedingungen günstiger findet, sagt uns Bescheid. Wir prüfen es mit euch und versuchen, den Preis fair anzugleichen.',
 
-      es: 'Si encontrais las mismas fechas y condiciones por un precio mas bajo en otro sitio, decidnoslo. Lo revisaremos con vosotros y haremos lo posible por igualarlo de forma justa.',
+      es: 'Si encontráis las mismas fechas y condiciones por un precio más bajo en otro sitio, decidnoslo. Lo revisaremos con vosotros y haremos lo posible por igualarlo de forma justa.',
 
       nl: 'Als jullie elders exact dezelfde data en voorwaarden voor een lagere prijs vinden, laat het ons weten. We kijken het samen met jullie na en doen ons best om dat eerlijk te evenaren.',
 
@@ -530,11 +530,11 @@ export const directBookingBenefitsCopy = {
 
       de: 'Da wir auf anderen Plattformen keine künstlichen Rabatte einsetzen, ist der Direktpreis einfach die faire, niedrigere Ausgangsbasis.',
 
-      es: 'Como no ofrecemos descuentos artificiales en otras plataformas, el precio directo es simplemente la base justa y mas baja.',
+      es: 'Como no ofrecemos descuentos artificiales en otras plataformas, el precio directo es simplemente la base justa y más baja.',
 
       nl: 'Omdat we op andere platforms geen kunstmatige kortingen gebruiken, is de directe prijs gewoon het eerlijke, lagere uitgangspunt.',
 
-      sv: 'Eftersom vi inte arbetar med konstgjorda rabatter pa andra plattformar aor direktpriset helt enkelt den raettvisa, laegre utgaangspunkten.'
+      sv: 'Eftersom vi inte arbetar med konstgjorda rabatter på andra plattformar är direktpriset helt enkelt den rättvisa, lägre utgångspunkten.'
 
     },
 
@@ -544,7 +544,7 @@ export const directBookingBenefitsCopy = {
 
       de: 'Gleiche Daten · gleiches Apartment · gleiche Stornierungsbedingungen.',
 
-      es: 'Mismas fechas · mismo apartamento · mismas condiciones de cancelacion.',
+      es: 'Mismas fechas · mismo apartamento · mismas condiciones de cancelación.',
 
       nl: 'Dezelfde data · hetzelfde appartement · dezelfde annuleringsvoorwaarden.',
 
@@ -562,7 +562,7 @@ export const directBookingBenefitsCopy = {
 
       nl: 'Volgende stap',
 
-      sv: 'Naesta steg'
+      sv: 'Nästa steg'
 
     },
 
@@ -572,7 +572,7 @@ export const directBookingBenefitsCopy = {
 
       de: 'Ihr möchtet euren Aufenthalt planen? Prüft die Verfügbarkeit direkt - ruhig, transparent und ganz auf euch als Gäste ausgerichtet.',
 
-      es: 'Listos para planear vuestra estancia? Consultad la disponibilidad directamente: con calma, transparencia y pensando en el huesped.',
+      es: '¿Listos para planear vuestra estancia? Consultad la disponibilidad directamente: con calma, transparencia y pensando en el huésped.',
 
       nl: 'Klaar om jullie verblijf te plannen? Bekijk de beschikbaarheid direct - rustig, transparant en helemaal gastgericht.',
 
@@ -590,7 +590,7 @@ export const directBookingBenefitsCopy = {
 
       nl: 'Beschikbaarheid bekijken',
 
-      sv: 'Se tillgaenglighet'
+      sv: 'Se tillgänglighet'
 
     },
 
@@ -604,7 +604,7 @@ export const directBookingBenefitsCopy = {
 
       nl: 'Locaties ontdekken',
 
-      sv: 'Upptaeck platser'
+      sv: 'Upptäck platser'
 
     }
 

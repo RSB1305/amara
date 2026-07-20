@@ -7,7 +7,6 @@ import {
   type VacationRentalEntity
 } from '../../content/vacationRentalEntities';
 import { resolveOptionalLink } from '../../lib/linkResolver';
-import { buildOwnedLocalizedPath } from '../../lib/routeOwnership';
 import { normalizeLanguage } from '../../lib/seo/resolve-seo-head';
 import type { AmaraLanguage } from '../../types/seo';
 
@@ -80,18 +79,32 @@ const ui = {
     sv: 'Bekvämligheter som ingår'
   },
   locationTitle: {
-    en: 'Plan the location',
-    de: 'Lage planen',
-    es: 'Planificar la ubicación',
-    nl: 'Locatie plannen',
-    sv: 'Planera läget'
+    en: 'Plan your stay',
+    de: 'Aufenthalt planen',
+    es: 'Planifica tu estancia',
+    nl: 'Plan je verblijf',
+    sv: 'Planera vistelsen'
   },
-  locationBody: {
-    en: 'Use the AMARA local guides to understand arrival, parking, weather, and the rhythm of the surrounding area before choosing dates.',
-    de: 'Nutze die AMARA-Guides, um Anreise, Parken, Wetter und den Rhythmus der Umgebung vor der Terminwahl einzuordnen.',
-    es: 'Usa las guías AMARA para entender llegada, aparcamiento, clima y ritmo de la zona antes de elegir fechas.',
-    nl: 'Gebruik de AMARA-gidsen om aankomst, parkeren, weer en het ritme van de omgeving te begrijpen voordat je data kiest.',
-    sv: 'Använd AMARA-guiderna för att förstå ankomst, parkering, väder och områdets rytm innan ni väljer datum.'
+  locationBodyWithGuides: {
+    en: 'Use the AMARA local guides and guest feedback to understand arrival, access, and the rhythm of the surrounding area before choosing dates.',
+    de: 'Nutze die AMARA-Ortsguides und Gästebewertungen, um Anreise, Zugang und den Rhythmus der Umgebung vor der Terminwahl einzuordnen.',
+    es: 'Consulta las guías locales de AMARA y las opiniones de huéspedes para entender la llegada, el acceso y el ritmo de la zona antes de elegir fechas.',
+    nl: 'Gebruik de lokale AMARA-gidsen en gastbeoordelingen om aankomst, toegang en het ritme van de omgeving te begrijpen voordat je data kiest.',
+    sv: 'Använd AMARAs lokala guider och gästomdömen för att förstå ankomst, tillgänglighet och områdets rytm innan ni väljer datum.'
+  },
+  locationBodyWithoutGuides: {
+    en: 'Compare the practical stay details with AMARA guest feedback to decide whether this stay fits your trip before choosing dates.',
+    de: 'Vergleiche die praktischen Aufenthaltsdetails mit den AMARA-Gästebewertungen, bevor du dich für Reisedaten entscheidest.',
+    es: 'Compara los detalles prácticos de la estancia con las opiniones de huéspedes de AMARA antes de elegir fechas.',
+    nl: 'Vergelijk de praktische verblijfsdetails met de AMARA-gastbeoordelingen voordat je data kiest.',
+    sv: 'Jämför de praktiska detaljerna med AMARAs gästomdömen innan ni väljer datum.'
+  },
+  parkingGuide: {
+    en: 'Parking guide',
+    de: 'Parkguide',
+    es: 'Guía de aparcamiento',
+    nl: 'Parkeergids',
+    sv: 'Parkeringsguide'
   },
   labels: {
     propertyId: {
@@ -215,6 +228,19 @@ const amenityLabels: Record<string, LocalizedText> = {
   wifi: { en: 'WiFi', de: 'WLAN', es: 'WiFi', nl: 'Wifi', sv: 'WiFi' }
 };
 
+const amenityValueLabels: Record<string, LocalizedText> = {
+  Free: { en: 'Included', de: 'Inklusive', es: 'Incluido', nl: 'Inbegrepen', sv: 'Ingår' },
+  Outdoor: { en: 'Outdoor', de: 'Im Freien', es: 'Exterior', nl: 'Buiten', sv: 'Utomhus' }
+};
+
+const bunkBedLabel: LocalizedText = {
+  en: 'Bunk bed (2 single beds)',
+  de: 'Etagenbett (2 Einzelbetten)',
+  es: 'Litera (2 camas individuales)',
+  nl: 'Stapelbed (2 eenpersoonsbedden)',
+  sv: 'Våningssäng (2 enkelsängar)'
+};
+
 const t = (value: LocalizedText) => value[currentLang] ?? value.en;
 const formatCount = (count: number, singular: string, plural: string) =>
   count === 1 ? `1 ${singular}` : `${count} ${plural}`;
@@ -231,8 +257,18 @@ const formatAmenity = (feature: VacationRentalAmenityFeature) => {
     sv: feature.name
   });
 
-  return feature.value === true ? label : `${label}: ${feature.value}`;
+  if (feature.value === true) {
+    return label;
+  }
+
+  const localizedValue = amenityValueLabels[feature.value]?.[currentLang] ?? feature.value;
+  return `${label}: ${localizedValue}`;
 };
+
+const formatBed = (bed: VacationRentalEntity['bed'][number]) =>
+  bed.label === 'Bunk bed'
+    ? t(bunkBedLabel)
+    : `${bed.numberOfBeds} × ${bed.label}`;
 
 const localizedGuests = {
   en: formatCount(rental.occupancy, 'guest', 'guests'),
@@ -246,7 +282,7 @@ const factRows = [
   { label: t(ui.labels.guests as LocalizedText), value: t(localizedGuests) },
   { label: t(ui.labels.bedrooms as LocalizedText), value: String(rental.bedrooms) },
   { label: t(ui.labels.bathrooms as LocalizedText), value: String(rental.bathrooms) },
-  { label: t(ui.labels.beds as LocalizedText), value: rental.bed.map((bed) => `${bed.numberOfBeds} x ${bed.label}`).join(', ') },
+  { label: t(ui.labels.beds as LocalizedText), value: rental.bed.map(formatBed).join(', ') },
   { label: t(ui.labels.price as LocalizedText), value: rental.priceLabel[currentLang] },
   { label: t(ui.labels.license as LocalizedText), value: rental.license }
 ];
@@ -274,16 +310,27 @@ const navLinks = [
 ];
 const footerHighlights = [
   { token: 'romantic_hideaways', label: t(ui.navApartments as LocalizedText) },
-  { token: 'amenities', label: 'Amenities' },
+  { token: 'amenities', label: t(ui.amenitiesTitle as LocalizedText) },
   { token: 'faq_general', label: 'FAQ' }
 ];
 const collectionHref = resolveOptionalLink('romantic_hideaways', currentLang, { suppressMissing: true });
 const reviewsHref = resolveOptionalLink('reviews_hub', currentLang, { suppressMissing: true });
-const locationLinks = [
-  { href: buildOwnedLocalizedPath('frigiliana-location', currentLang), label: 'Frigiliana' },
-  { href: buildOwnedLocalizedPath('frigiliana-parking', currentLang), label: 'Parking' },
-  { href: buildOwnedLocalizedPath('frigiliana-weather', currentLang), label: 'Weather' }
-];
+const locationLinkSpecs = rental.city === 'Frigiliana'
+  ? [
+      { token: 'location_frigiliana', label: 'Frigiliana' },
+      { token: 'frigiliana_parking', label: t(ui.parkingGuide as LocalizedText) }
+    ]
+  : rental.city === 'Nerja'
+    ? [{ token: 'location_nerja', label: 'Nerja' }]
+    : [];
+const locationLinks = locationLinkSpecs.flatMap(({ token, label }) => {
+  const href = resolveOptionalLink(token, currentLang, { suppressMissing: true });
+  return href ? [{ href, label }] : [];
+});
+const locationBody = locationLinks.length > 0
+  ? t(ui.locationBodyWithGuides as LocalizedText)
+  : t(ui.locationBodyWithoutGuides as LocalizedText);
+const galleryImages = rental.images.slice(1);
 ---
 
 <BaseLayout seo={seo} pageLang={currentLang} footerHighlights={footerHighlights}>
@@ -302,21 +349,21 @@ const locationLinks = [
           <p class="font-label text-[11px] font-bold uppercase tracking-[0.14em] text-on-surface-variant">
             {t(rental.eyebrow)}
           </p>
-          <h1 class="am-text-display text-on-surface mt-5 max-w-4xl">
+          <h1 class="am-text-display text-on-surface mt-5 max-w-4xl text-balance">
             {rental.name}
           </h1>
-          <p class="am-text-title text-on-surface mt-5 max-w-4xl">
+          <p class="am-text-title text-on-surface mt-5 max-w-4xl text-balance">
             {t(rental.headline)}
           </p>
           <p class="am-text-body text-on-surface-variant mt-6 max-w-2xl leading-relaxed">
             {t(rental.lead)}
           </p>
-          <div class="flex flex-wrap gap-3 mt-8">
-            <a class="am-btn am-btn--primary" href={rental.bookingUrl} target="_blank" rel="noopener noreferrer">
+          <div class="grid gap-3 mt-8 sm:flex sm:flex-wrap">
+            <a class="am-btn am-btn--primary w-full justify-center sm:w-auto" href={rental.bookingUrl} target="_blank" rel="noopener noreferrer">
               {t(ui.checkAvailability as LocalizedText)}
             </a>
             {collectionHref && (
-              <a class="am-btn am-btn--ghost" href={collectionHref}>
+              <a class="am-btn am-btn--ghost w-full justify-center sm:w-auto" href={collectionHref}>
                 {t(ui.backToCollection as LocalizedText)}
               </a>
             )}
@@ -330,6 +377,7 @@ const locationLinks = [
             class="h-full w-full object-cover"
             loading="eager"
             fetchpriority="high"
+            decoding="async"
           />
         </figure>
       </section>
@@ -392,13 +440,14 @@ const locationLinks = [
           {t(ui.galleryTitle as LocalizedText)}
         </h2>
         <div class="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
-          {rental.images.map((image, index) => (
+          {galleryImages.map((image, index) => (
             <figure class="aspect-[4/3] overflow-hidden bg-surface-container-low">
               <img
                 src={image}
-                alt={`${t(rental.imageAlt)} ${index + 1}`}
+                alt={`${t(rental.imageAlt)} ${index + 2}`}
                 class="h-full w-full object-cover"
-                loading={index < 2 ? 'eager' : 'lazy'}
+                loading="lazy"
+                decoding="async"
               />
             </figure>
           ))}
@@ -421,21 +470,26 @@ const locationLinks = [
       </section>
 
       <section class="py-12 md:py-16" aria-labelledby="rental-location-title">
-        <div class="max-w-3xl">
-          <h2 id="rental-location-title" class="am-text-title text-on-surface">
-            {t(ui.locationTitle as LocalizedText)}
-          </h2>
-          <p class="am-text-body text-on-surface-variant mt-5 leading-relaxed">
-            {t(ui.locationBody as LocalizedText)}
-          </p>
-          <div class="flex flex-wrap gap-3 mt-7">
+        <div class="grid gap-8 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] lg:items-end">
+          <div class="max-w-3xl">
+            <h2 id="rental-location-title" class="am-text-title text-on-surface">
+              {t(ui.locationTitle as LocalizedText)}
+            </h2>
+            <p class="am-text-body text-on-surface-variant mt-5 leading-relaxed">
+              {locationBody}
+            </p>
+          </div>
+          <div class="grid gap-3 sm:flex sm:flex-wrap lg:justify-end">
+            <a class="am-btn am-btn--primary w-full justify-center sm:w-auto" href={rental.bookingUrl} target="_blank" rel="noopener noreferrer">
+              {t(ui.checkAvailability as LocalizedText)}
+            </a>
             {locationLinks.map((link) => (
-              <a class="am-btn am-btn--ghost" href={link.href}>
+              <a class="am-btn am-btn--ghost w-full justify-center sm:w-auto" href={link.href}>
                 {link.label}
               </a>
             ))}
             {reviewsHref && (
-              <a class="am-btn am-btn--ghost" href={reviewsHref}>
+              <a class="am-btn am-btn--ghost w-full justify-center sm:w-auto" href={reviewsHref}>
                 {t(ui.readReviews as LocalizedText)}
               </a>
             )}

@@ -2,6 +2,7 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Navigation from '../../components/Navigation.astro';
 import TrustHero from '../../components/hero/TrustHero.astro';
+import EditorialClosingCta from '../../components/editorial/EditorialClosingCta.astro';
 import {
   comfortAmenitiesCopy,
   comfortAmenitiesFooterLabels,
@@ -35,8 +36,36 @@ const properties = comfortAmenitiesProperties.map((property) => ({
   ...property,
   href: rentalHrefByPropertyId[property.id] ?? property.href
 }));
+const closingCopy: Record<AmaraLanguage, { title: string; lead: string; explore: string }> = {
+  en: {
+    title: 'Choose your AMARA stay with clarity',
+    lead: 'Compare the practical details, then review availability or explore the complete apartment collection.',
+    explore: 'Explore apartments'
+  },
+  de: {
+    title: 'Wählt euren AMARA-Aufenthalt mit Klarheit',
+    lead: 'Vergleicht die praktischen Details und prüft anschließend die Verfügbarkeit oder entdeckt die gesamte Apartment-Kollektion.',
+    explore: 'Apartments entdecken'
+  },
+  es: {
+    title: 'Elegid vuestra estancia AMARA con claridad',
+    lead: 'Comparad los detalles prácticos y consultad después la disponibilidad o descubrid toda la colección de apartamentos.',
+    explore: 'Descubrir apartamentos'
+  },
+  nl: {
+    title: 'Kies jullie AMARA-verblijf met vertrouwen',
+    lead: 'Vergelijk de praktische details en bekijk daarna de beschikbaarheid of ontdek de volledige appartementencollectie.',
+    explore: 'Appartementen ontdekken'
+  },
+  sv: {
+    title: 'Välj er AMARA-vistelse med tydlig information',
+    lead: 'Jämför de praktiska detaljerna och kontrollera sedan tillgängligheten eller upptäck hela lägenhetskollektionen.',
+    explore: 'Upptäck lägenheterna'
+  }
+};
+const closing = closingCopy[currentLang];
 const heroCtaLinks = [
-  { token: 'about', label: page.hero.ctaAbout },
+  { token: 'book', label: page.inventory.directBooking },
   { token: 'reviews_hub', label: page.hero.ctaReviews }
 ]
   .map((link) => {
@@ -44,6 +73,11 @@ const heroCtaLinks = [
     return href ? { href, label: link.label } : null;
   })
   .filter((link): link is { href: string; label: string } => Boolean(link));
+const closingCtaLinks = [
+  { token: 'book', label: page.inventory.directBooking, style: 'primary' as const },
+  { token: 'romantic_hideaways', label: closing.explore, style: 'ghost' as const },
+  { token: 'faq_general', label: comfortAmenitiesFooterLabels.faq_general[currentLang], style: 'ghost' as const }
+];
 ---
 
 <BaseLayout seo={seo} pageLang={currentLang} footerHighlights={footerHighlights}>
@@ -57,7 +91,6 @@ const heroCtaLinks = [
   />
 
   <div id="am-page-amenities" class="am-root font-body bg-white text-on-surface" data-am-page="amenities" data-current-lang={currentLang}>
-    <section aria-label={page.sections.inventoryAria}>
       <div class="am-exp-page bg-white max-w-[1400px] mx-auto px-[5vw]">
         <TrustHero
           subtitle={page.hero.subtitle}
@@ -65,10 +98,11 @@ const heroCtaLinks = [
           lead={page.hero.lead}
           supportText={page.hero.supportText}
           ctaLinks={heroCtaLinks}
+          ctaVariant="conversion"
         />
       </div>
 
-      <div class="am-wrap w-full max-w-[76rem] mx-auto px-6 pb-20 max-md:px-4">
+      <main class="am-wrap w-full max-w-[76rem] mx-auto px-6 pb-20 max-md:px-4">
 
         <section class="am-section mb-12" aria-label={page.sections.conceptAria}>
           <h2 class="am-h2 mb-4 am-text-title font-medium leading-tight tracking-tight text-on-surface">{page.sections.conceptTitle}</h2>
@@ -140,12 +174,6 @@ const heroCtaLinks = [
               <article class="am-card mb-10 border-0 rounded-none bg-transparent shadow-none" data-rental-id={property.id}>
                 <div class="am-card-body p-0">
                   <h3 class="am-h2 mb-4 am-text-subtitle font-medium leading-tight tracking-tight text-on-surface">{property.name}</h3>
-                  <div class="am-prose max-w-[46rem]">
-                    <p class="am-body am-text-body">
-                      <a class="am-inline-link text-on-surface/80 underline underline-offset-[0.18em]" href={property.href}>{page.inventory.detailsLabel}</a>
-                    </p>
-                  </div>
-
                   <ul class="am-list-specs mt-4 m-0 p-0 list-none grid gap-y-[0.55rem] am-text-body leading-relaxed text-on-surface-variant">
                     <li class="flex justify-between gap-4 pb-[0.55rem] border-b border-outline-variant/20 max-md:flex-col max-md:gap-0.5 max-md:items-start"><strong class="font-semibold text-on-surface">{page.inventory.labels.license}</strong> <span class="text-right max-md:text-left">{property.specs.license}</span></li>
                     <li class="flex justify-between gap-4 pb-[0.55rem] border-b border-outline-variant/20 max-md:flex-col max-md:gap-0.5 max-md:items-start"><strong class="font-semibold text-on-surface">{page.inventory.labels.maxOccupancy}</strong> <span class="text-right max-md:text-left">{property.specs.maxOccupancy[currentLang]}</span></li>
@@ -161,7 +189,7 @@ const heroCtaLinks = [
                   </ul>
 
                   <div class="am-btn-row mt-5">
-                    <a href={property.href} class="am-btn am-btn--primary">{page.inventory.directBooking}</a>
+                    <a href={property.href} class="am-btn am-btn--ghost">{page.inventory.detailsLabel}</a>
                   </div>
                 </div>
               </article>
@@ -178,8 +206,14 @@ const heroCtaLinks = [
             </p>
           </div>
         </section>
-      </div>
-    </section>
+
+        <EditorialClosingCta
+          title={closing.title}
+          lead={closing.lead}
+          links={closingCtaLinks}
+          lang={currentLang}
+        />
+      </main>
 
       <script id="amara-inventory-data" type="application/json">
       [

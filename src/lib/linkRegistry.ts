@@ -44,8 +44,8 @@ function normalizeRegistrySpanishPaths<T>(value: T): T {
  */
 
 export const linkRegistry = normalizeRegistrySpanishPaths({
-  version: '2026-02-26-registry-v4.0',
-  updated_at: '2026-02-26',
+  version: '2026-07-19-registry-v4.1',
+  updated_at: '2026-07-19',
   base: '/',
   links: {
     /* =========================================================
@@ -99,6 +99,13 @@ export const linkRegistry = normalizeRegistrySpanishPaths({
       es: buildOwnedLocalizedPath('guest-reviews', 'es'),
       nl: buildOwnedLocalizedPath('guest-reviews', 'nl'),
       sv: buildOwnedLocalizedPath('guest-reviews', 'sv')
+    },
+    instagram_landing: {
+      en: buildOwnedLocalizedPath('instagram', 'en'),
+      de: buildOwnedLocalizedPath('instagram', 'de'),
+      es: buildOwnedLocalizedPath('instagram', 'es'),
+      nl: buildOwnedLocalizedPath('instagram', 'nl'),
+      sv: buildOwnedLocalizedPath('instagram', 'sv')
     },
     romantic_hideaways: {
       en: buildOwnedLocalizedPath('romantic-hideaways', 'en'),

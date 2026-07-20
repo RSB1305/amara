@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import { buildOwnedLocalizedPath } from '../../lib/routeOwnership';
+import Navigation from '../../components/Navigation.astro';
+import { resolveOptionalLink } from '../../lib/linkResolver';
 import { normalizeLanguage } from '../../lib/seo/resolve-seo-head';
 import type { AmaraAuthoringSeo, AmaraLanguage } from '../../types/seo';
 
@@ -12,37 +13,37 @@ const { lang = 'es' } = Astro.props;
 const currentLang = normalizeLanguage(lang as AmaraLanguage);
 
 const seo: AmaraAuthoringSeo = {
-  version: '2026-03-28-instagram-test-v1.0-C',
+  version: '2026-07-19-instagram-landing-v2.0-C',
   pageType: 'C',
   entityKey: 'amara-brand',
   languages: {
     en: {
       title: 'Instagram',
-      description: 'Placeholder test page for AMARA on Instagram.',
+      description: 'Follow AMARA for quiet stays, Andalusian light, and everyday moments from Frigiliana, Nerja, and Tarifa.',
       robots: 'noindex, follow',
       canonical: 'auto'
     },
     de: {
       title: 'Instagram',
-      description: 'Platzhalter-Testseite für AMARA auf Instagram.',
+      description: 'Folgen Sie AMARA für ruhige Aufenthalte, andalusisches Licht und Alltagsmomente aus Frigiliana, Nerja und Tarifa.',
       robots: 'noindex, follow',
       canonical: 'auto'
     },
     es: {
       title: 'Instagram',
-      description: 'Página de prueba provisional de AMARA en Instagram.',
+      description: 'Sigue a AMARA para descubrir estancias tranquilas, la luz de Andalucía y momentos cotidianos de Frigiliana, Nerja y Tarifa.',
       robots: 'noindex, follow',
       canonical: 'auto'
     },
     nl: {
       title: 'Instagram',
-      description: 'Tijdelijke testpagina voor AMARA op Instagram.',
+      description: 'Volg AMARA voor rustige verblijven, Andalusisch licht en alledaagse momenten uit Frigiliana, Nerja en Tarifa.',
       robots: 'noindex, follow',
       canonical: 'auto'
     },
     sv: {
       title: 'Instagram',
-      description: 'Tillfällig testsida för AMARA på Instagram.',
+      description: 'Följ AMARA för lugna vistelser, andalusiskt ljus och vardagsögonblick från Frigiliana, Nerja och Tarifa.',
       robots: 'noindex, follow',
       canonical: 'auto'
     }
@@ -50,53 +51,129 @@ const seo: AmaraAuthoringSeo = {
 };
 
 const copy = {
+  kicker: {
+    en: 'AMARA on Instagram',
+    de: 'AMARA auf Instagram',
+    es: 'AMARA en Instagram',
+    nl: 'AMARA op Instagram',
+    sv: 'AMARA på Instagram'
+  },
   heading: {
-    en: 'Instagram',
-    de: 'Instagram',
-    es: 'Instagram',
-    nl: 'Instagram',
-    sv: 'Instagram'
+    en: 'A slower side of Andalusia, day by day.',
+    de: 'Andalusien von seiner ruhigen Seite – Tag für Tag.',
+    es: 'La cara más pausada de Andalucía, día a día.',
+    nl: 'De rustige kant van Andalusië, van dag tot dag.',
+    sv: 'Andalusien i ett lugnare tempo, dag för dag.'
   },
   lead: {
-    en: 'Minimal test page. Follow AMARA on Instagram (external link).',
-    de: 'Minimale Testseite. Folgen Sie AMARA auf Instagram (externer Link).',
-    es: 'Página de prueba mínima. Sigue a AMARA en Instagram (enlace externo).',
-    nl: 'Minimale testpagina. Volg AMARA op Instagram (externe link).',
-    sv: 'Minimal testsida. Följ AMARA på Instagram (extern länk).'
+    en: 'Terrace mornings, white-village light, sea air, and the quiet details that shape an AMARA stay.',
+    de: 'Morgenstunden auf der Terrasse, das Licht der weißen Dörfer, Meeresluft und die stillen Details eines Aufenthalts bei AMARA.',
+    es: 'Mañanas en la terraza, la luz de los pueblos blancos, aire de mar y los pequeños detalles que dan forma a una estancia AMARA.',
+    nl: 'Ochtenden op het terras, het licht van de witte dorpen, zeelucht en de rustige details die een verblijf bij AMARA vormgeven.',
+    sv: 'Terrassmorgnar, ljuset i de vita byarna, havsluft och de stilla detaljerna som formar en vistelse hos AMARA.'
   },
-  back: {
-    en: 'Back to home',
-    de: 'Zur Startseite',
-    es: 'Volver al inicio',
-    nl: 'Terug naar home',
-    sv: 'Tillbaka till startsidan'
+  support: {
+    en: 'New stays, local perspectives, and moments behind the scenes from Frigiliana, Nerja, and Tarifa.',
+    de: 'Neue Unterkünfte, lokale Perspektiven und Einblicke hinter die Kulissen aus Frigiliana, Nerja und Tarifa.',
+    es: 'Nuevos alojamientos, miradas locales y momentos entre bastidores desde Frigiliana, Nerja y Tarifa.',
+    nl: 'Nieuwe verblijven, lokale perspectieven en momenten achter de schermen uit Frigiliana, Nerja en Tarifa.',
+    sv: 'Nya boenden, lokala perspektiv och ögonblick bakom kulisserna från Frigiliana, Nerja och Tarifa.'
   },
   externalLabel: {
-    en: 'Open Instagram',
-    de: 'Instagram öffnen',
-    es: 'Abrir Instagram',
-    nl: 'Instagram openen',
-    sv: 'Öppna Instagram'
+    en: 'Follow @amaralodging',
+    de: '@amaralodging folgen',
+    es: 'Seguir a @amaralodging',
+    nl: 'Volg @amaralodging',
+    sv: 'Följ @amaralodging'
+  },
+  apartmentsLabel: {
+    en: 'Explore the apartments',
+    de: 'Apartments entdecken',
+    es: 'Descubrir los apartamentos',
+    nl: 'Ontdek de appartementen',
+    sv: 'Upptäck lägenheterna'
   }
 };
 
-const instagramUrl = 'https://www.instagram.com/';
-const homeHref = buildOwnedLocalizedPath('', currentLang);
+const instagramUrl = resolveOptionalLink('instagram', currentLang, { suppressMissing: true });
+const apartmentsHref = resolveOptionalLink('romantic_hideaways', currentLang, { suppressMissing: true });
 ---
 
-<BaseLayout seo={seo} pageLang={currentLang} footerVariant="trust">
-  <main class="mx-auto max-w-2xl px-6 pb-24">
-    <h1 class="am-text-title tracking-tight text-on-surface">{copy.heading[currentLang]}</h1>
-    <p class="mt-6 am-body text-on-surface/80">{copy.lead[currentLang]}</p>
-    <p class="mt-8">
-      <a
-        href={instagramUrl}
-        class="am-body text-primary underline underline-offset-4 hover:opacity-90"
-        target="_blank"
-        rel="noopener noreferrer">{copy.externalLabel[currentLang]}</a>
-    </p>
-    <p class="mt-10">
-      <a href={homeHref} class="am-body text-on-surface/90 underline underline-offset-4 hover:text-primary">{copy.back[currentLang]}</a>
-    </p>
+<BaseLayout seo={seo} pageLang={currentLang}>
+  <Navigation
+    currentLang={currentLang}
+    brandName="AMARA"
+    currentToken="instagram_landing"
+  />
+
+  <main class="bg-white">
+    <section class="mx-auto max-w-screen-2xl px-6 py-16 md:px-12 md:py-24 lg:py-32">
+      <div class="grid grid-cols-1 gap-16 lg:grid-cols-12 lg:items-end lg:gap-12">
+        <header class="lg:col-span-7">
+          <span class="mb-8 block am-text-caption uppercase tracking-[0.14em] text-primary">
+            {copy.kicker[currentLang]}
+          </span>
+          <h1 class="max-w-[12ch] am-text-display text-on-surface">
+            {copy.heading[currentLang]}
+          </h1>
+        </header>
+
+        <div class="lg:col-span-5 lg:pb-3">
+          <p class="max-w-xl am-text-body text-on-surface-variant">
+            {copy.lead[currentLang]}
+          </p>
+          <p class="mt-6 max-w-xl am-text-body italic text-muted">
+            {copy.support[currentLang]}
+          </p>
+          <div class="mt-10 flex flex-col items-start gap-5 sm:flex-row sm:items-center sm:gap-8">
+            {instagramUrl && (
+              <a
+                href={instagramUrl}
+                class="am-btn am-btn--primary"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {copy.externalLabel[currentLang]}
+              </a>
+            )}
+            {apartmentsHref && (
+              <a href={apartmentsHref} class="am-cta-link">
+                {copy.apartmentsLabel[currentLang]}
+              </a>
+            )}
+          </div>
+        </div>
+      </div>
+
+      <div class="mt-20 grid grid-cols-3 gap-2 md:mt-28 md:gap-5" aria-hidden="true">
+        <img
+          src="/images/amara-insta-facebook/108-amara-frigiliana.jpg"
+          alt=""
+          width="1282"
+          height="1920"
+          class="aspect-[2/3] h-full w-full object-cover"
+          loading="eager"
+          decoding="async"
+        />
+        <img
+          src="/images/amara-insta-facebook/casa-amara-frigiliana-zaid-ducha-exterior.jpg"
+          alt=""
+          width="1282"
+          height="1920"
+          class="aspect-[2/3] h-full w-full object-cover"
+          loading="eager"
+          decoding="async"
+        />
+        <img
+          src="/images/amara-insta-facebook/casa-amara-frigiliana-maha-chimenea.jpg"
+          alt=""
+          width="1282"
+          height="1920"
+          class="aspect-[2/3] h-full w-full object-cover"
+          loading="lazy"
+          decoding="async"
+        />
+      </div>
+    </section>
   </main>
 </BaseLayout>

@@ -76,6 +76,44 @@ const defaultCtaLabels: Record<AmaraLanguage, string> = {
   sv: 'Se tillgänglighet'
 };
 
+const navigationUtilityLabels: Record<
+  AmaraLanguage,
+  { menu: string; closeMenu: string; selectLanguage: string; mobileNavigation: string }
+> = {
+  en: {
+    menu: 'Open menu',
+    closeMenu: 'Close menu',
+    selectLanguage: 'Select language',
+    mobileNavigation: 'Main navigation'
+  },
+  de: {
+    menu: 'Menü öffnen',
+    closeMenu: 'Menü schließen',
+    selectLanguage: 'Sprache auswählen',
+    mobileNavigation: 'Hauptnavigation'
+  },
+  es: {
+    menu: 'Abrir menú',
+    closeMenu: 'Cerrar menú',
+    selectLanguage: 'Seleccionar idioma',
+    mobileNavigation: 'Navegación principal'
+  },
+  nl: {
+    menu: 'Menu openen',
+    closeMenu: 'Menu sluiten',
+    selectLanguage: 'Taal selecteren',
+    mobileNavigation: 'Hoofdnavigatie'
+  },
+  sv: {
+    menu: 'Öppna meny',
+    closeMenu: 'Stäng meny',
+    selectLanguage: 'Välj språk',
+    mobileNavigation: 'Huvudnavigering'
+  }
+};
+
+const utilityLabels = navigationUtilityLabels[currentLang] ?? navigationUtilityLabels.en;
+
 const globalNavLabels = {
   locations: {
     en: 'Locations',
@@ -282,7 +320,10 @@ const resolvedGlobalNavGroups = globalNavGroups.map((group) => {
 });
 ---
 
-<header class="fixed top-0 left-0 w-full z-[100] px-12 py-9 bg-surface/80 backdrop-blur-md border-b border-outline-variant/5">
+<header
+  class="fixed top-0 left-0 w-full z-[100] px-6 py-5 lg:px-12 lg:py-9 bg-surface/90 backdrop-blur-md border-b border-outline-variant/5"
+  data-am-navigation
+>
   <nav class="am-nav max-w-screen-2xl mx-auto">
     <div class="am-nav__brand">
       <a href={getBrandHref()} class="group inline-flex flex-col items-center text-center">
@@ -296,7 +337,7 @@ const resolvedGlobalNavGroups = globalNavGroups.map((group) => {
     </div>
 
     <div class="am-nav__center">
-      <ul class="hidden md:flex items-center gap-10">
+      <ul class="hidden lg:flex items-center gap-10">
         {resolvedGlobalNavGroups.map((group) => (
           <li class="am-nav__group">
             <button
@@ -336,11 +377,14 @@ const resolvedGlobalNavGroups = globalNavGroups.map((group) => {
       <div class="am-nav__slot am-nav__slot--context"></div>
 
       <div class="am-nav__slot am-nav__slot--language">
-        <div class="am-nav__language relative group">
+        <div class="am-nav__language" data-am-language>
           <button
             type="button"
-            class="flex items-center justify-center text-on-surface/30 hover:text-on-surface/60 transition-colors"
-            aria-label="Select language"
+            class="am-nav__icon-button"
+            aria-label={utilityLabels.selectLanguage}
+            aria-haspopup="true"
+            aria-expanded="false"
+            data-am-language-trigger
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -359,7 +403,7 @@ const resolvedGlobalNavGroups = globalNavGroups.map((group) => {
             </svg>
           </button>
 
-          <div class="absolute right-0 top-full pt-4 opacity-0 invisible translate-y-2 group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 transition-all duration-200">
+          <div class="am-nav__language-popover" data-am-language-panel>
             <div class="min-w-[92px] bg-surface/95 backdrop-blur-md border border-outline-variant/15 rounded-[14px] shadow-lg shadow-black/5 py-3 px-3">
               <div class="flex flex-col gap-2">
                 {languageOptions.map((lang) => (
@@ -383,22 +427,163 @@ const resolvedGlobalNavGroups = globalNavGroups.map((group) => {
       <div class="am-nav__slot am-nav__slot--cta">
         {ctaLink && (
           !isPublicLinkEnabled(ctaLink.token) ? (
-            <span class="am-btn am-btn--primary hidden sm:inline-flex am-link-disabled">
+            <span class="am-btn am-btn--primary hidden lg:inline-flex am-link-disabled">
               {ctaLink.label}
             </span>
           ) : (
             <a
               href={resolveLink(ctaLink.token, currentLang)}
-              class="am-btn am-btn--primary hidden sm:inline-flex"
+              class="am-btn am-btn--primary hidden lg:inline-flex"
             >
               {ctaLink.label}
             </a>
           )
         )}
       </div>
+
+      <div class="am-nav__slot am-nav__slot--menu">
+        <button
+          type="button"
+          class="am-nav__icon-button am-nav__menu-trigger"
+          aria-label={utilityLabels.menu}
+          aria-expanded="false"
+          aria-controls="amara-mobile-menu"
+          data-label-open={utilityLabels.menu}
+          data-label-close={utilityLabels.closeMenu}
+          data-am-menu-trigger
+        >
+          <span class="am-nav__menu-lines" aria-hidden="true">
+            <span></span>
+            <span></span>
+          </span>
+        </button>
+      </div>
     </div>
   </nav>
+
+  <div id="amara-mobile-menu" class="am-nav-mobile" data-am-mobile-menu hidden>
+    <nav class="am-nav-mobile__inner" aria-label={utilityLabels.mobileNavigation}>
+      <div class="am-nav-mobile__groups">
+        {resolvedGlobalNavGroups.map((group) => (
+          <details class="am-nav-mobile__group" open={group.isActive}>
+            <summary class="am-nav-mobile__summary">
+              <span>{group.label}</span>
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path
+                  d="M6 9l6 6 6-6"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                ></path>
+              </svg>
+            </summary>
+            <div class="am-nav-mobile__links">
+              {group.items.map((item) => (
+                item.href ? (
+                  <a href={item.href} aria-current={item.isActive ? 'page' : undefined}>
+                    {item.label}
+                  </a>
+                ) : (
+                  <span class="am-link-disabled">{item.label}</span>
+                )
+              ))}
+            </div>
+          </details>
+        ))}
+      </div>
+
+      {ctaLink && (
+        !isPublicLinkEnabled(ctaLink.token) ? (
+          <span class="am-btn am-btn--primary am-nav-mobile__cta am-link-disabled">
+            {ctaLink.label}
+          </span>
+        ) : (
+          <a href={resolveLink(ctaLink.token, currentLang)} class="am-btn am-btn--primary am-nav-mobile__cta">
+            {ctaLink.label}
+          </a>
+        )
+      )}
+    </nav>
+  </div>
 </header>
+
+<script is:inline>
+  (function () {
+    var header = document.querySelector('[data-am-navigation]');
+    if (!header) return;
+
+    var menuTrigger = header.querySelector('[data-am-menu-trigger]');
+    var mobileMenu = header.querySelector('[data-am-mobile-menu]');
+    var language = header.querySelector('[data-am-language]');
+    var languageTrigger = header.querySelector('[data-am-language-trigger]');
+
+    var setLanguageOpen = function (open) {
+      if (!language || !languageTrigger) return;
+      language.setAttribute('data-open', open ? 'true' : 'false');
+      languageTrigger.setAttribute('aria-expanded', open ? 'true' : 'false');
+    };
+
+    var setMenuOpen = function (open) {
+      if (!menuTrigger || !mobileMenu) return;
+      mobileMenu.hidden = !open;
+      menuTrigger.setAttribute('aria-expanded', open ? 'true' : 'false');
+      menuTrigger.setAttribute(
+        'aria-label',
+        open ? menuTrigger.getAttribute('data-label-close') : menuTrigger.getAttribute('data-label-open')
+      );
+      document.documentElement.classList.toggle('am-nav-lock', open);
+      setLanguageOpen(false);
+
+      if (open) {
+        var firstControl = mobileMenu.querySelector('summary, a');
+        if (firstControl) firstControl.focus();
+      }
+    };
+
+    if (menuTrigger && mobileMenu) {
+      menuTrigger.addEventListener('click', function () {
+        setMenuOpen(menuTrigger.getAttribute('aria-expanded') !== 'true');
+      });
+
+      mobileMenu.addEventListener('click', function (event) {
+        var target = event.target;
+        if (target && target.closest && target.closest('a')) setMenuOpen(false);
+      });
+    }
+
+    if (language && languageTrigger) {
+      languageTrigger.addEventListener('click', function (event) {
+        event.stopPropagation();
+        setLanguageOpen(languageTrigger.getAttribute('aria-expanded') !== 'true');
+      });
+    }
+
+    document.addEventListener('click', function (event) {
+      var target = event.target;
+      if (language && target && language.contains(target)) return;
+      setLanguageOpen(false);
+    });
+
+    document.addEventListener('keydown', function (event) {
+      if (event.key !== 'Escape') return;
+      if (menuTrigger && menuTrigger.getAttribute('aria-expanded') === 'true') {
+        setMenuOpen(false);
+        menuTrigger.focus();
+        return;
+      }
+      setLanguageOpen(false);
+      if (languageTrigger) languageTrigger.focus();
+    });
+
+    var desktopQuery = window.matchMedia('(min-width: 1024px)');
+    var handleDesktopChange = function (event) {
+      if (event.matches) setMenuOpen(false);
+    };
+    if (desktopQuery.addEventListener) desktopQuery.addEventListener('change', handleDesktopChange);
+  })();
+</script>
 
 <style>
   /*
@@ -463,12 +648,72 @@ const resolvedGlobalNavGroups = globalNavGroups.map((group) => {
     justify-content: flex-end;
   }
 
+  .am-nav__slot--menu {
+    display: none;
+    justify-content: flex-end;
+  }
+
   .am-nav__language {
     width: auto;
     position: relative;
     display: grid;
     place-items: center;
     padding-left: 1.8rem;
+  }
+
+  .am-nav__icon-button {
+    display: inline-grid;
+    width: 2.75rem;
+    height: 2.75rem;
+    place-items: center;
+    border: 0;
+    border-radius: 999px;
+    background: transparent;
+    color: color-mix(in srgb, var(--color-on-surface) 68%, transparent);
+    cursor: pointer;
+    transition:
+      background-color 160ms ease,
+      color 160ms ease;
+  }
+
+  .am-nav__icon-button:hover,
+  .am-nav__icon-button:focus-visible,
+  .am-nav__language[data-open="true"] .am-nav__icon-button {
+    background-color: color-mix(in srgb, var(--color-on-surface) 5%, transparent);
+    color: var(--color-on-surface);
+  }
+
+  .am-nav__icon-button:focus-visible,
+  .am-nav__link:focus-visible,
+  .am-nav__dropdown-link:focus-visible,
+  .am-nav-mobile a:focus-visible,
+  .am-nav-mobile summary:focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 3px;
+  }
+
+  .am-nav__language-popover {
+    position: absolute;
+    right: 0;
+    top: 100%;
+    z-index: 2;
+    padding-top: 1rem;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(0.5rem);
+    pointer-events: none;
+    transition:
+      opacity 160ms ease,
+      transform 160ms ease,
+      visibility 160ms ease;
+  }
+
+  .am-nav__language:hover .am-nav__language-popover,
+  .am-nav__language[data-open="true"] .am-nav__language-popover {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+    pointer-events: auto;
   }
 
   .am-nav__language::before {
@@ -578,9 +823,138 @@ const resolvedGlobalNavGroups = globalNavGroups.map((group) => {
     opacity: 0.6;
   }
 
-  @media (max-width: 767px) {
+  .am-nav-mobile {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    left: 0;
+    height: calc(100svh - 6.5rem);
+    z-index: 1;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    border-top: 1px solid color-mix(in srgb, var(--color-outline-variant) 18%, transparent);
+    background: var(--color-surface);
+    backdrop-filter: blur(18px);
+  }
+
+  .am-nav-mobile__inner {
+    display: flex;
+    width: min(100%, 48rem);
+    min-height: 100%;
+    margin: 0 auto;
+    padding: 1.5rem 1.5rem 3rem;
+    flex-direction: column;
+  }
+
+  .am-nav-mobile__groups {
+    border-top: 1px solid color-mix(in srgb, var(--color-outline-variant) 28%, transparent);
+  }
+
+  .am-nav-mobile__group {
+    border-bottom: 1px solid color-mix(in srgb, var(--color-outline-variant) 28%, transparent);
+  }
+
+  .am-nav-mobile__summary {
+    display: flex;
+    min-height: 4.5rem;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    list-style: none;
+    cursor: pointer;
+    font-family: var(--font-label);
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--color-on-surface);
+  }
+
+  .am-nav-mobile__summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .am-nav-mobile__summary svg {
+    width: 1.125rem;
+    height: 1.125rem;
+    flex: none;
+    transition: transform 160ms ease;
+  }
+
+  .am-nav-mobile__group[open] .am-nav-mobile__summary svg {
+    transform: rotate(180deg);
+  }
+
+  .am-nav-mobile__links {
+    display: grid;
+    padding: 0 0 1.25rem 1rem;
+  }
+
+  .am-nav-mobile__links a,
+  .am-nav-mobile__links > span {
+    display: flex;
+    min-height: 2.75rem;
+    align-items: center;
+    font-family: var(--font-body);
+    font-size: 0.9375rem;
+    color: var(--color-on-surface-variant);
+    text-decoration: none;
+  }
+
+  .am-nav-mobile__links a:hover,
+  .am-nav-mobile__links a[aria-current="page"] {
+    color: var(--color-primary);
+  }
+
+  .am-nav-mobile__cta {
+    width: 100%;
+    margin-top: 2rem;
+    align-self: center;
+  }
+
+  .am-nav__menu-lines {
+    position: relative;
+    display: block;
+    width: 1.25rem;
+    height: 0.75rem;
+  }
+
+  .am-nav__menu-lines span {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background: currentColor;
+    transition:
+      top 160ms ease,
+      transform 160ms ease;
+  }
+
+  .am-nav__menu-lines span:first-child {
+    top: 0.125rem;
+  }
+
+  .am-nav__menu-lines span:last-child {
+    top: 0.625rem;
+  }
+
+  .am-nav__menu-trigger[aria-expanded="true"] .am-nav__menu-lines span:first-child {
+    top: 0.375rem;
+    transform: rotate(45deg);
+  }
+
+  .am-nav__menu-trigger[aria-expanded="true"] .am-nav__menu-lines span:last-child {
+    top: 0.375rem;
+    transform: rotate(-45deg);
+  }
+
+  :global(html.am-nav-lock) {
+    overflow: hidden;
+  }
+
+  @media (max-width: 1023px) {
     .am-nav {
-      grid-template-columns: minmax(0, 1fr) 4.5rem;
+      grid-template-columns: minmax(0, 1fr) auto;
       column-gap: 1rem;
     }
 
@@ -594,9 +968,40 @@ const resolvedGlobalNavGroups = globalNavGroups.map((group) => {
     }
 
     .am-nav__rail {
-      width: 4.5rem;
-      grid-template-columns: 0 4.5rem 0;
-      column-gap: 0;
+      width: auto;
+      grid-template-columns: auto auto;
+      column-gap: 0.25rem;
+    }
+
+    .am-nav__slot--context,
+    .am-nav__slot--cta {
+      display: none;
+    }
+
+    .am-nav__slot--menu {
+      display: flex;
+    }
+
+    .am-nav__language {
+      padding-left: 0;
+    }
+
+    .am-nav__language::before {
+      display: none;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .am-nav-mobile {
+      display: none;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .am-nav__language-popover,
+    .am-nav__menu-lines span,
+    .am-nav-mobile__summary svg {
+      transition: none;
     }
   }
 </style>

@@ -11,6 +11,8 @@ export interface EditorialClosingCtaLink {
   label: string;
   /** When set, label resolves via `resolveLink`. Omit when `disabled` is true. */
   token?: string;
+  /** Defaults to the existing editorial text-link treatment. */
+  style?: 'text' | 'primary' | 'ghost';
   /** Renders a non-interactive label with the same typographic treatment as links. */
   disabled?: boolean;
 }
@@ -30,6 +32,7 @@ const linkClass =
 
 const disabledClass =
   'am-text-caption uppercase tracking-[0.1em] text-on-surface border-b border-on-surface/20 pb-1 opacity-60 cursor-default pointer-events-none';
+const hasButtonLinks = links.some((link) => link.style === 'primary' || link.style === 'ghost');
 ---
 
 <section>
@@ -41,20 +44,25 @@ const disabledClass =
       {lead}
     </p>
     {note ? <p class="italic text-muted mb-16">{note}</p> : null}
-    <div class="flex flex-col sm:flex-row flex-wrap items-center justify-center gap-4 sm:gap-6">
+    <div class={`flex flex-col sm:flex-row flex-wrap items-center justify-center gap-3 ${hasButtonLinks ? '' : 'sm:gap-6'}`}>
       {
         links.map((link, index) => {
           const isDisabled = link.disabled === true || !link.token;
           const href = isDisabled
             ? null
             : resolveOptionalLink(link.token!, lang, { suppressMissing: true });
+          const resolvedClass = link.style === 'primary'
+            ? 'am-btn am-btn--primary w-full justify-center sm:w-auto'
+            : link.style === 'ghost'
+              ? 'am-btn am-btn--ghost w-full justify-center sm:w-auto'
+              : linkClass;
           return (
             <>
-              {index > 0 && <span class="hidden sm:inline text-on-surface/60">&middot;</span>}
+              {index > 0 && !hasButtonLinks && <span class="hidden sm:inline text-on-surface/60">&middot;</span>}
               {!href ? (
                 <span class={disabledClass}>{link.label}</span>
               ) : (
-                <a href={href} class={linkClass}>
+                <a href={href} class={resolvedClass}>
                   {link.label}
                 </a>
               )}

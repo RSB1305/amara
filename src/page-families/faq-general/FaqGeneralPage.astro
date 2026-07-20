@@ -2,6 +2,7 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Navigation from '../../components/Navigation.astro';
 import TrustHero from '../../components/hero/TrustHero.astro';
+import EditorialClosingCta from '../../components/editorial/EditorialClosingCta.astro';
 import { resolveOptionalLink } from '../../lib/linkResolver';
 import { normalizeLanguage } from '../../lib/seo/resolve-seo-head';
 import type { AmaraAuthoringSeo, AmaraLanguage } from '../../types/seo';
@@ -52,12 +53,6 @@ const seo: AmaraAuthoringSeo = {
   ogImage: '/images/robert-amara-founder-host.jpg'
 };
 
-const trustLinks = [
-  { token: 'about', label: 'About AMARA' },
-  { token: 'reviews_hub', label: 'Guest Reviews' },
-  { token: 'direct_booking_benefits', label: 'Direct Booking Benefits' }
-];
-
 const trustFooterLabels = {
   amenities: {
     en: 'Amenities',
@@ -69,9 +64,9 @@ const trustFooterLabels = {
   reviews_hub: {
     en: 'Guest Reviews',
     de: 'Gästebewertungen',
-    es: 'Resenas de huespedes',
+    es: 'Reseñas de huéspedes',
     nl: 'Gastbeoordelingen',
-    sv: 'Gastrecensioner'
+    sv: 'Gästrecensioner'
   },
   instagram: {
     en: 'Instagram',
@@ -95,7 +90,7 @@ const copy = {
       de: 'Häufige Fragen',
       es: 'Preguntas frecuentes',
       nl: 'Veelgestelde vragen',
-      sv: 'Vanliga fragor'
+      sv: 'Vanliga frågor'
     },
     title: {
       en: 'Stay FAQ: Booking, Check-in & Policies',
@@ -107,23 +102,23 @@ const copy = {
     lead: {
       en: 'Decision-first answers to help you book with clarity - covering payment, cancellation, arrival, and house rules.',
       de: 'Klare Antworten zuerst, damit ihr mit gutem Gefühl buchen könnt - zu Zahlung, Stornierung, Anreise und Hausregeln.',
-      es: 'Respuestas claras primero para que podais reservar con tranquilidad: pago, cancelacion, llegada y normas de la casa.',
+      es: 'Respuestas claras para que podáis reservar con tranquilidad: pago, cancelación, llegada y normas de la casa.',
       nl: 'Eerst duidelijke antwoorden, zodat jullie met een gerust gevoel kunnen boeken - over betaling, annulering, aankomst en huisregels.',
-      sv: 'Tydliga svar forst, sa att ni kan boka med lugn och klarhet - om betalning, avbokning, ankomst och husregler.'
+      sv: 'Tydliga svar först, så att ni kan boka lugnt och tryggt - om betalning, avbokning, ankomst och husregler.'
     },
     ctaBooking: {
       en: 'Check availability',
       de: 'Verfügbarkeit prüfen',
       es: 'Ver disponibilidad',
       nl: 'Beschikbaarheid bekijken',
-      sv: 'Se tillganglighet'
+      sv: 'Se tillgänglighet'
     },
     ctaAmenities: {
       en: 'Amenities & policies',
       de: 'Ausstattung & Regeln',
       es: 'Servicios y normas',
       nl: 'Voorzieningen en regels',
-      sv: 'Bekvamligheter och regler'
+      sv: 'Bekvämligheter och regler'
     }
   },
   shared: {
@@ -132,7 +127,7 @@ const copy = {
       de: 'Zuerst klare Antworten, damit Entscheidungen ruhig und einfach bleiben.',
       es: 'Respuestas claras primero, para que decidir sea sencillo y tranquilo.',
       nl: 'Eerst duidelijke antwoorden, zodat beslissen rustig en eenvoudig blijft.',
-      sv: 'Tydliga svar forst, sa att besluten kanns lugna och enkla.'
+      sv: 'Tydliga svar först, så att besluten känns lugna och enkla.'
     },
     ctaAbout: {
       en: 'About Us',
@@ -144,16 +139,37 @@ const copy = {
     ctaReviews: {
       en: 'Guest Reviews',
       de: 'Gästebewertungen',
-      es: 'Opiniones de huespedes',
+      es: 'Opiniones de huéspedes',
       nl: 'Gastbeoordelingen',
-      sv: 'Gastomdomen'
+      sv: 'Gästomdömen'
+    },
+    ctaDirectBenefits: {
+      en: 'Direct Booking Benefits',
+      de: 'Vorteile der Direktbuchung',
+      es: 'Ventajas de la reserva directa',
+      nl: 'Voordelen van direct boeken',
+      sv: 'Fördelar med direktbokning'
+    },
+    closingTitle: {
+      en: 'Ready to plan your AMARA stay?',
+      de: 'Bereit, euren AMARA-Aufenthalt zu planen?',
+      es: '¿Listos para planificar vuestra estancia AMARA?',
+      nl: 'Klaar om jullie AMARA-verblijf te plannen?',
+      sv: 'Redo att planera er AMARA-vistelse?'
+    },
+    closingLead: {
+      en: 'Check current availability or review the complete amenities and policies before choosing dates.',
+      de: 'Prüft die aktuelle Verfügbarkeit oder lest vor der Terminwahl alle Informationen zu Ausstattung und Regeln.',
+      es: 'Consultad la disponibilidad actual o revisad todos los servicios y normas antes de elegir fechas.',
+      nl: 'Bekijk de actuele beschikbaarheid of lees alle voorzieningen en regels voordat jullie data kiezen.',
+      sv: 'Kontrollera aktuell tillgänglighet eller läs om alla bekvämligheter och regler innan ni väljer datum.'
     },
     sectionBadge: {
       en: 'Stay FAQ',
       de: 'Aufenthalts-FAQ',
       es: 'FAQ de la estancia',
       nl: 'Verblijfs-FAQ',
-      sv: 'FAQ for vistelsen'
+      sv: 'FAQ för vistelsen'
     }
   },
   sections: [
@@ -171,28 +187,28 @@ const copy = {
         de: 'AMARA Bild zu Buchung und Anreise',
         es: 'Imagen de AMARA sobre reserva y llegada',
         nl: 'AMARA beeld over boeken en aankomst',
-        sv: 'AMARA bild for bokning och ankomst'
+        sv: 'AMARA-bild för bokning och ankomst'
       },
       items: [
         {
-          q: { en: 'How does the booking process work?', de: 'Wie läuft die Buchung ab?', es: 'Como funciona la reserva?', nl: 'Hoe werkt het boeken?', sv: 'Hur fungerar bokningen?' },
-          a: { en: 'Choose your dates, review the final price and minimum stay, and complete your reservation securely online.', de: 'Wählt eure Reisedaten, prüft den Endpreis und den Mindestaufenthalt und schließt eure Buchung sicher online ab.', es: 'Elegid vuestras fechas, revisad el precio final y la estancia minima, y completad la reserva de forma segura online.', nl: 'Kies jullie data, bekijk de eindprijs en de minimale verblijfsduur, en rond jullie boeking veilig online af.', sv: 'Valj era datum, kontrollera slutpriset och minsta vistelsetid och genomfor bokningen tryggt online.' }
+          q: { en: 'How does the booking process work?', de: 'Wie läuft die Buchung ab?', es: '¿Cómo funciona la reserva?', nl: 'Hoe werkt het boeken?', sv: 'Hur fungerar bokningen?' },
+          a: { en: 'Choose your dates, review the final price and minimum stay, and complete your reservation securely online.', de: 'Wählt eure Reisedaten, prüft den Endpreis und den Mindestaufenthalt und schließt eure Buchung sicher online ab.', es: 'Elegid vuestras fechas, revisad el precio final y la estancia mínima y completad la reserva de forma segura online.', nl: 'Kies jullie data, bekijk de eindprijs en de minimale verblijfsduur, en rond jullie boeking veilig online af.', sv: 'Välj era datum, kontrollera slutpriset och minsta vistelsetid och genomför bokningen tryggt online.' }
         },
         {
-          q: { en: 'Is my booking confirmed instantly?', de: 'Ist meine Buchung sofort bestätigt?', es: 'Se confirma mi reserva al momento?', nl: 'Is mijn boeking meteen bevestigd?', sv: 'Bekraftas min bokning direkt?' },
-          a: { en: 'If your dates are available and the booking is completed successfully, you’ll receive a confirmation email right away. If anything requires review, we’ll contact you promptly.', de: 'Wenn eure Daten verfügbar sind und die Buchung erfolgreich abgeschlossen wurde, erhaltet ihr sofort eine Bestätigungs-E-Mail. Falls etwas geprüft werden muss, melden wir uns schnell bei euch.', es: 'Si vuestras fechas estan disponibles y la reserva se completa correctamente, recibireis enseguida un correo de confirmacion. Si algo requiere revision, os contactaremos sin demora.', nl: 'Als jullie data beschikbaar zijn en de boeking succesvol is afgerond, ontvangen jullie direct een bevestigingsmail. Als iets gecontroleerd moet worden, nemen we snel contact met jullie op.', sv: 'Om era datum ar tillgangliga och bokningen genomfors utan problem far ni en bokningsbekraftelse direkt via e-post. Om nagot behover granskas kontaktar vi er snabbt.' }
+          q: { en: 'Is my booking confirmed instantly?', de: 'Ist meine Buchung sofort bestätigt?', es: '¿Se confirma mi reserva al momento?', nl: 'Is mijn boeking meteen bevestigd?', sv: 'Bekräftas min bokning direkt?' },
+          a: { en: 'If your dates are available and the booking is completed successfully, you’ll receive a confirmation email right away. If anything requires review, we’ll contact you promptly.', de: 'Wenn eure Daten verfügbar sind und die Buchung erfolgreich abgeschlossen wurde, erhaltet ihr sofort eine Bestätigungs-E-Mail. Falls etwas geprüft werden muss, melden wir uns schnell bei euch.', es: 'Si vuestras fechas están disponibles y la reserva se completa correctamente, recibiréis enseguida un correo de confirmación. Si algo requiere revisión, os contactaremos sin demora.', nl: 'Als jullie data beschikbaar zijn en de boeking succesvol is afgerond, ontvangen jullie direct een bevestigingsmail. Als iets gecontroleerd moet worden, nemen we snel contact met jullie op.', sv: 'Om era datum är tillgängliga och bokningen genomförs utan problem får ni en bokningsbekräftelse direkt via e-post. Om något behöver granskas kontaktar vi er snabbt.' }
         },
         {
-          q: { en: 'Which payment methods are accepted?', de: 'Welche Zahlungsarten werden akzeptiert?', es: 'Que metodos de pago aceptais?', nl: 'Welke betaalmethoden accepteren jullie?', sv: 'Vilka betalningssatt accepterar ni?' },
-          a: { en: 'Available payment methods depend on your country and the booking setup. You’ll always see the available options before confirming.', de: 'Welche Zahlungsarten verfügbar sind, hängt von eurem Land und der jeweiligen Buchung ab. Vor der Bestätigung seht ihr immer genau, welche Optionen verfügbar sind.', es: 'Los metodos de pago disponibles dependen de vuestro pais y de la configuracion de la reserva. Antes de confirmar vereis siempre las opciones disponibles.', nl: 'Welke betaalmethoden beschikbaar zijn, hangt af van jullie land en de boekingsopzet. Voor jullie bevestigen, zien jullie altijd welke opties beschikbaar zijn.', sv: 'Tillgangliga betalningssatt beror pa ert land och hur bokningen ar upplagd. Innan ni bekraftar ser ni alltid vilka alternativ som finns.' }
+          q: { en: 'Which payment methods are accepted?', de: 'Welche Zahlungsarten werden akzeptiert?', es: '¿Qué métodos de pago aceptáis?', nl: 'Welke betaalmethoden accepteren jullie?', sv: 'Vilka betalningssätt accepterar ni?' },
+          a: { en: 'Available payment methods depend on your country and the booking setup. You’ll always see the available options before confirming.', de: 'Welche Zahlungsarten verfügbar sind, hängt von eurem Land und der jeweiligen Buchung ab. Vor der Bestätigung seht ihr immer genau, welche Optionen verfügbar sind.', es: 'Los métodos de pago disponibles dependen de vuestro país y de la configuración de la reserva. Antes de confirmar veréis siempre las opciones disponibles.', nl: 'Welke betaalmethoden beschikbaar zijn, hangt af van jullie land en de boekingsopzet. Voor jullie bevestigen, zien jullie altijd welke opties beschikbaar zijn.', sv: 'Tillgängliga betalningssätt beror på ert land och hur bokningen är upplagd. Innan ni bekräftar ser ni alltid vilka alternativ som finns.' }
         },
         {
-          q: { en: 'When will my payment be charged?', de: 'Wann wird meine Zahlung belastet?', es: 'Cuando se cobra el pago?', nl: 'Wanneer wordt mijn betaling afgeschreven?', sv: 'Nar dras betalningen?' },
-          a: { en: 'The exact timing is shown during checkout and in your confirmation. Some bookings are charged immediately, while others follow a scheduled payment plan.', de: 'Der genaue Zeitpunkt wird im Checkout und in eurer Bestätigung angezeigt. Manche Buchungen werden sofort belastet, andere folgen einem festgelegten Zahlungsplan.', es: 'El momento exacto aparece durante el proceso de reserva y en vuestra confirmacion. Algunas reservas se cobran al momento y otras siguen un calendario de pagos.', nl: 'Het exacte moment zien jullie tijdens het afrekenen en in jullie bevestiging. Sommige boekingen worden direct afgeschreven, andere volgen een vast betaalschema.', sv: 'Den exakta tidpunkten visas i bokningsflodet och i er bekraftelse. Vissa bokningar debiteras direkt medan andra foljer en bestamd betalningsplan.' }
+          q: { en: 'When will my payment be charged?', de: 'Wann wird meine Zahlung belastet?', es: '¿Cuándo se cobra el pago?', nl: 'Wanneer wordt mijn betaling afgeschreven?', sv: 'När dras betalningen?' },
+          a: { en: 'The exact timing is shown during checkout and in your confirmation. Some bookings are charged immediately, while others follow a scheduled payment plan.', de: 'Der genaue Zeitpunkt wird im Checkout und in eurer Bestätigung angezeigt. Manche Buchungen werden sofort belastet, andere folgen einem festgelegten Zahlungsplan.', es: 'El momento exacto aparece durante el proceso de reserva y en vuestra confirmación. Algunas reservas se cobran al momento y otras siguen un calendario de pagos.', nl: 'Het exacte moment zien jullie tijdens het afrekenen en in jullie bevestiging. Sommige boekingen worden direct afgeschreven, andere volgen een vast betaalschema.', sv: 'Den exakta tidpunkten visas i bokningsflödet och i er bekräftelse. Vissa bokningar debiteras direkt medan andra följer en bestämd betalningsplan.' }
         },
         {
-          q: { en: 'What is your cancellation policy?', de: 'Wie sind eure Stornierungsbedingungen?', es: 'Cual es vuestra politica de cancelacion?', nl: 'Wat is jullie annuleringsbeleid?', sv: 'Vad ar er avbokningspolicy?' },
-          a: { en: 'Free cancellation is available up to 7 days before arrival. After that, the booking is non-refundable. The final policy shown during booking always applies.', de: 'Kostenfreie Stornierung ist bis 7 Tage vor der Anreise möglich. Danach ist die Buchung nicht erstattbar. Es gilt immer die finale Regelung, die euch während der Buchung angezeigt wird.', es: 'La cancelacion gratuita esta disponible hasta 7 dias antes de la llegada. Despues, la reserva no es reembolsable. Siempre se aplica la politica final que aparece durante la reserva.', nl: 'Gratis annuleren is mogelijk tot 7 dagen voor aankomst. Daarna is de boeking niet restitueerbaar. Het definitieve beleid dat tijdens het boeken wordt getoond, is altijd leidend.', sv: 'Fri avbokning ar mojlig fram till 7 dagar fore ankomst. Efter det ar bokningen inte aterbetalningsbar. Den slutliga policy som visas under bokningen galler alltid.' }
+          q: { en: 'What is your cancellation policy?', de: 'Wie sind eure Stornierungsbedingungen?', es: '¿Cuál es vuestra política de cancelación?', nl: 'Wat is jullie annuleringsbeleid?', sv: 'Vad är er avbokningspolicy?' },
+          a: { en: 'Free cancellation is available up to 7 days before arrival. After that, the booking is non-refundable. The final policy shown during booking always applies.', de: 'Kostenfreie Stornierung ist bis 7 Tage vor der Anreise möglich. Danach ist die Buchung nicht erstattbar. Es gilt immer die finale Regelung, die euch während der Buchung angezeigt wird.', es: 'La cancelación gratuita está disponible hasta 7 días antes de la llegada. Después, la reserva no es reembolsable. Siempre se aplica la política final que aparece durante la reserva.', nl: 'Gratis annuleren is mogelijk tot 7 dagen voor aankomst. Daarna is de boeking niet restitueerbaar. Het definitieve beleid dat tijdens het boeken wordt getoond, is altijd leidend.', sv: 'Fri avbokning är möjlig fram till 7 dagar före ankomst. Efter det är bokningen inte återbetalningsbar. Den slutliga policy som visas under bokningen gäller alltid.' }
         }
       ]
     },
@@ -210,28 +226,28 @@ const copy = {
         de: 'AMARA Bild zum Aufenthalt',
         es: 'Imagen de AMARA sobre la estancia',
         nl: 'AMARA verblijfsbeeld',
-        sv: 'AMARA bild for vistelsen'
+        sv: 'AMARA-bild för vistelsen'
       },
       items: [
         {
-          q: { en: 'What kind of accommodation is AMARA?', de: 'Was für eine Unterkunft ist AMARA?', es: 'Que tipo de alojamiento es AMARA?', nl: 'Wat voor accommodatie is AMARA?', sv: 'Vilken typ av boende ar AMARA?' },
-          a: { en: 'AMARA offers carefully curated self-catered apartments, not hotel rooms. The collection is designed for calm, comfortable stays, especially for couples and adults seeking quiet.', de: 'AMARA bietet sorgfältig zusammengestellte Apartments zur Selbstversorgung, keine Hotelzimmer. Die Häuser sind für ruhige und komfortable Aufenthalte gedacht, besonders für Paare und Erwachsene, die Ruhe suchen.', es: 'AMARA ofrece apartamentos con cocina propia cuidadosamente seleccionados, no habitaciones de hotel. La coleccion esta pensada para estancias tranquilas y comodas, especialmente para parejas y adultos que buscan calma.', nl: 'AMARA biedt zorgvuldig samengestelde appartementen met eigen voorzieningen, geen hotelkamers. De collectie is bedoeld voor rustige en comfortabele verblijven, vooral voor stellen en volwassenen die stilte zoeken.', sv: 'AMARA erbjuder noggrant utvalda lagenheter med egen hushallning, inte hotellrum. Samlingen ar utformad for lugna och bekvama vistelser, sarskilt for par och vuxna som soker ro.' }
+          q: { en: 'What kind of accommodation is AMARA?', de: 'Was für eine Unterkunft ist AMARA?', es: '¿Qué tipo de alojamiento es AMARA?', nl: 'Wat voor accommodatie is AMARA?', sv: 'Vilken typ av boende är AMARA?' },
+          a: { en: 'AMARA offers carefully curated self-catered apartments, not hotel rooms. The collection is designed for calm, comfortable stays, especially for couples and adults seeking quiet.', de: 'AMARA bietet sorgfältig zusammengestellte Apartments zur Selbstversorgung, keine Hotelzimmer. Die Häuser sind für ruhige und komfortable Aufenthalte gedacht, besonders für Paare und Erwachsene, die Ruhe suchen.', es: 'AMARA ofrece apartamentos con cocina propia cuidadosamente seleccionados, no habitaciones de hotel. La colección está pensada para estancias tranquilas y cómodas, especialmente para parejas y adultos que buscan calma.', nl: 'AMARA biedt zorgvuldig samengestelde appartementen met eigen voorzieningen, geen hotelkamers. De collectie is bedoeld voor rustige en comfortabele verblijven, vooral voor stellen en volwassenen die stilte zoeken.', sv: 'AMARA erbjuder noggrant utvalda lägenheter med självhushållning, inte hotellrum. Samlingen är utformad för lugna och bekväma vistelser, särskilt för par och vuxna som söker ro.' }
         },
         {
-          q: { en: 'Is AMARA suitable for parties or celebrations?', de: 'Ist AMARA für Partys oder Feiern geeignet?', es: 'Es AMARA adecuado para fiestas o celebraciones?', nl: 'Is AMARA geschikt voor feesten of vieringen?', sv: 'Passar AMARA for fester eller firanden?' },
-          a: { en: 'No. AMARA is intentionally quiet and not suitable for parties, events, or large groups.', de: 'Nein. AMARA ist bewusst ruhig gehalten und nicht für Partys, Veranstaltungen oder große Gruppen geeignet.', es: 'No. AMARA esta pensado para ser un lugar tranquilo y no es adecuado para fiestas, eventos ni grupos grandes.', nl: 'Nee. AMARA is bewust rustig gehouden en niet geschikt voor feesten, evenementen of grote groepen.', sv: 'Nej. AMARA ar medvetet lugnt och passar inte for fester, evenemang eller stora grupper.' }
+          q: { en: 'Is AMARA suitable for parties or celebrations?', de: 'Ist AMARA für Partys oder Feiern geeignet?', es: '¿Es AMARA adecuado para fiestas o celebraciones?', nl: 'Is AMARA geschikt voor feesten of vieringen?', sv: 'Passar AMARA för fester eller firanden?' },
+          a: { en: 'No. AMARA is intentionally quiet and not suitable for parties, events, or large groups.', de: 'Nein. AMARA ist bewusst ruhig gehalten und nicht für Partys, Veranstaltungen oder große Gruppen geeignet.', es: 'No. AMARA está pensado para ser un lugar tranquilo y no es adecuado para fiestas, eventos ni grupos grandes.', nl: 'Nee. AMARA is bewust rustig gehouden en niet geschikt voor feesten, evenementen of grote groepen.', sv: 'Nej. AMARA är medvetet lugnt och passar inte för fester, evenemang eller stora grupper.' }
         },
         {
-          q: { en: 'Do you provide daily cleaning?', de: 'Gibt es tägliches Housekeeping?', es: 'Ofreceis housekeeping diario?', nl: 'Bieden jullie dagelijkse housekeeping aan?', sv: 'Erbjuder ni daglig housekeeping?' },
-          a: { en: 'No daily hotel-style service is included. Your apartment is professionally prepared for your stay, and any optional services are communicated separately.', de: 'Ein täglicher Hotelservice ist nicht enthalten. Euer Apartment wird professionell für euren Aufenthalt vorbereitet, und optionale Leistungen teilen wir euch separat mit.', es: 'No se incluye un servicio diario de hotel. Vuestro apartamento se prepara profesionalmente para la estancia y cualquier servicio opcional se comunica por separado.', nl: 'Dagelijkse hotelservice is niet inbegrepen. Jullie appartement wordt professioneel voorbereid voor jullie verblijf en eventuele extra services worden apart gecommuniceerd.', sv: 'Daglig hotellservice ingar inte. Er lagenhet forbereds professionellt for er vistelse och eventuella tillval kommuniceras separat.' }
+          q: { en: 'Do you provide daily cleaning?', de: 'Gibt es tägliches Housekeeping?', es: '¿Ofrecéis servicio de limpieza diario?', nl: 'Bieden jullie dagelijkse housekeeping aan?', sv: 'Erbjuder ni daglig städning?' },
+          a: { en: 'No daily hotel-style service is included. Your apartment is professionally prepared for your stay, and any optional services are communicated separately.', de: 'Ein täglicher Hotelservice ist nicht enthalten. Euer Apartment wird professionell für euren Aufenthalt vorbereitet, und optionale Leistungen teilen wir euch separat mit.', es: 'No se incluye un servicio diario de hotel. Vuestro apartamento se prepara profesionalmente para la estancia y cualquier servicio opcional se comunica por separado.', nl: 'Dagelijkse hotelservice is niet inbegrepen. Jullie appartement wordt professioneel voorbereid voor jullie verblijf en eventuele extra services worden apart gecommuniceerd.', sv: 'Daglig hotellservice ingår inte. Er lägenhet förbereds professionellt inför vistelsen och eventuella tillval kommuniceras separat.' }
         },
         {
-          q: { en: 'Are linens and towels included?', de: 'Sind Bettwäsche und Handtücher inklusive?', es: 'Se incluyen sabanas y toallas?', nl: 'Zijn beddengoed en handdoeken inbegrepen?', sv: 'Ingar sanglakan och handdukar?' },
-          a: { en: 'Yes. Bed linen and towels are provided. Exact details may vary slightly by apartment and are listed in the unit information.', de: 'Ja. Bettwäsche und Handtücher sind vorhanden. Die genauen Details können je nach Apartment leicht variieren und stehen in den Unterkunftsinformationen.', es: 'Si. Se incluyen sabanas y toallas. Los detalles exactos pueden variar ligeramente segun el apartamento y figuran en la informacion de la unidad.', nl: 'Ja. Beddengoed en handdoeken zijn aanwezig. De exacte details kunnen per appartement licht verschillen en staan bij de informatie van de accommodatie.', sv: 'Ja. Sanglakan och handdukar finns. Exakta detaljer kan skilja sig lite mellan lagenheterna och anges i informationen for respektive boende.' }
+          q: { en: 'Are linens and towels included?', de: 'Sind Bettwäsche und Handtücher inklusive?', es: '¿Se incluyen sábanas y toallas?', nl: 'Zijn beddengoed en handdoeken inbegrepen?', sv: 'Ingår sängkläder och handdukar?' },
+          a: { en: 'Yes. Bed linen and towels are provided. Exact details may vary slightly by apartment and are listed in the unit information.', de: 'Ja. Bettwäsche und Handtücher sind vorhanden. Die genauen Details können je nach Apartment leicht variieren und stehen in den Unterkunftsinformationen.', es: 'Sí. Se incluyen sábanas y toallas. Los detalles exactos pueden variar ligeramente según el apartamento y figuran en la información del alojamiento.', nl: 'Ja. Beddengoed en handdoeken zijn aanwezig. De exacte details kunnen per appartement licht verschillen en staan bij de informatie van de accommodatie.', sv: 'Ja. Sängkläder och handdukar finns. Exakta detaljer kan skilja sig något mellan lägenheterna och anges i informationen för respektive boende.' }
         },
         {
-          q: { en: 'Is Wi-Fi available?', de: 'Gibt es WLAN?', es: 'Hay wifi?', nl: 'Is er wifi beschikbaar?', sv: 'Finns wifi?' },
-          a: { en: 'Yes, Wi-Fi is available. If you plan to work remotely, we recommend checking the unit details or contacting us with any specific requirements.', de: 'Ja, WLAN ist verfügbar. Wenn ihr remote arbeiten möchtet, schaut bitte in die Details des Apartments oder meldet euch mit euren konkreten Anforderungen bei uns.', es: 'Si, hay wifi. Si pensais trabajar a distancia, os recomendamos revisar los detalles del apartamento o escribirnos si teneis alguna necesidad concreta.', nl: 'Ja, er is wifi. Als jullie op afstand willen werken, raden we aan om de details van het appartement te bekijken of ons te contacteren met specifieke wensen.', sv: 'Ja, wifi finns. Om ni planerar att arbeta pa distans rekommenderar vi att ni kontrollerar detaljerna for lagenheten eller kontaktar oss med specifika behov.' }
+          q: { en: 'Is Wi-Fi available?', de: 'Gibt es WLAN?', es: '¿Hay wifi?', nl: 'Is er wifi beschikbaar?', sv: 'Finns wifi?' },
+          a: { en: 'Yes, Wi-Fi is available. If you plan to work remotely, we recommend checking the unit details or contacting us with any specific requirements.', de: 'Ja, WLAN ist verfügbar. Wenn ihr remote arbeiten möchtet, schaut bitte in die Details des Apartments oder meldet euch mit euren konkreten Anforderungen bei uns.', es: 'Sí, hay wifi. Si pensáis trabajar a distancia, os recomendamos revisar los detalles del apartamento o escribirnos si tenéis alguna necesidad concreta.', nl: 'Ja, er is wifi. Als jullie op afstand willen werken, raden we aan om de details van het appartement te bekijken of ons te contacteren met specifieke wensen.', sv: 'Ja, wifi finns. Om ni planerar att arbeta på distans rekommenderar vi att ni kontrollerar detaljerna för lägenheten eller kontaktar oss med specifika behov.' }
         }
       ]
     },
@@ -249,24 +265,24 @@ const copy = {
         de: 'AMARA Bild zu den Hausregeln',
         es: 'Imagen de AMARA sobre las normas de la casa',
         nl: 'AMARA beeld over de huisregels',
-        sv: 'AMARA bild for husregler'
+        sv: 'AMARA-bild för husregler'
       },
       items: [
         {
-          q: { en: 'What are check-in and check-out times?', de: 'Wann sind Check-in und Check-out?', es: 'Cuales son los horarios de check-in y check-out?', nl: 'Wat zijn de tijden voor inchecken en uitchecken?', sv: 'Vilka tider galler for incheckning och utcheckning?' },
-          a: { en: 'Check-in is from 15:00 and check-out is by 11:00. If you need a special arrangement, please ask in advance - it depends on availability.', de: 'Der Check-in ist ab 15:00 Uhr möglich und der Check-out bis 11:00 Uhr. Wenn ihr eine besondere Lösung braucht, fragt bitte vorher nach - das hängt von der Verfügbarkeit ab.', es: 'El check-in es a partir de las 15:00 y el check-out hasta las 11:00. Si necesitais algo especial, pedidlo con antelacion: depende de la disponibilidad.', nl: 'Inchecken kan vanaf 15:00 en uitchecken is uiterlijk om 11:00. Als jullie iets afwijkends nodig haben, laat het vooraf weten - het hangt af van de beschikbaarheid.', sv: 'Incheckning ar fran 15.00 och utcheckning senast 11.00. Om ni behover en sarskild losning, fraga garna i forvag - det beror pa tillganglighet.' }
+          q: { en: 'What are check-in and check-out times?', de: 'Wann sind Check-in und Check-out?', es: '¿Cuáles son los horarios de check-in y check-out?', nl: 'Wat zijn de tijden voor inchecken en uitchecken?', sv: 'Vilka tider gäller för incheckning och utcheckning?' },
+          a: { en: 'Check-in is from 15:00 and check-out is by 11:00. If you need a special arrangement, please ask in advance - it depends on availability.', de: 'Der Check-in ist ab 15:00 Uhr möglich und der Check-out bis 11:00 Uhr. Wenn ihr eine besondere Lösung braucht, fragt bitte vorher nach - das hängt von der Verfügbarkeit ab.', es: 'El check-in es a partir de las 15:00 y el check-out hasta las 11:00. Si necesitáis algo especial, pedidlo con antelación: depende de la disponibilidad.', nl: 'Inchecken kan vanaf 15:00 en uitchecken is uiterlijk om 11:00. Als jullie iets afwijkends nodig hebben, laat het vooraf weten - het hangt af van de beschikbaarheid.', sv: 'Incheckning är från 15.00 och utcheckning senast 11.00. Om ni behöver en särskild lösning, fråga gärna i förväg - det beror på tillgänglighet.' }
         },
         {
-          q: { en: 'Is smoking allowed?', de: 'Ist Rauchen erlaubt?', es: 'Se permite fumar?', nl: 'Is roken toegestaan?', sv: 'Ar rokning tillaten?' },
-          a: { en: 'No. All AMARA homes are strictly non-smoking.', de: 'Nein. In allen AMARA Häusern ist Rauchen im Innenbereich verboten.', es: 'No. No se permite fumar en el interior de ninguno de los alojamientos de AMARA.', nl: 'Nee. Alle AMARA woningen zijn strikt rookvrij binnenshuis.', sv: 'Nej. Alla AMARA-boenden ar helt rokfria inomhus.' }
+          q: { en: 'Is smoking allowed?', de: 'Ist Rauchen erlaubt?', es: '¿Se permite fumar?', nl: 'Is roken toegestaan?', sv: 'Är rökning tillåten?' },
+          a: { en: 'No. All AMARA homes are strictly non-smoking.', de: 'Nein. In allen AMARA Häusern ist Rauchen im Innenbereich verboten.', es: 'No. No se permite fumar en el interior de ninguno de los alojamientos de AMARA.', nl: 'Nee. Alle AMARA woningen zijn strikt rookvrij binnenshuis.', sv: 'Nej. Alla AMARA-boenden är helt rökfria inomhus.' }
         },
         {
-          q: { en: 'Are visitors allowed?', de: 'Sind Besucher erlaubt?', es: 'Se permiten visitas?', nl: 'Zijn bezoekers toegestaan?', sv: 'Ar besokare tillatna?' },
-          a: { en: 'Only registered guests are allowed. This helps keep the stay calm and secure for everyone.', de: 'Erlaubt sind nur angemeldete Gäste. So bleibt der Aufenthalt für alle ruhig und sicher.', es: 'Solo se permiten huespedes registrados. Asi mantenemos una estancia tranquila y segura para todos.', nl: 'Alleen geregistreerde gasten zijn toegestaan. Zo blijft het verblijf rustig en veilig voor iedereen.', sv: 'Endast registrerade gaster ar tillatna. Det hjalper till att halla vistelsen lugn och trygg for alla.' }
+          q: { en: 'Are visitors allowed?', de: 'Sind Besucher erlaubt?', es: '¿Se permiten visitas?', nl: 'Zijn bezoekers toegestaan?', sv: 'Är besökare tillåtna?' },
+          a: { en: 'Only registered guests are allowed. This helps keep the stay calm and secure for everyone.', de: 'Erlaubt sind nur angemeldete Gäste. So bleibt der Aufenthalt für alle ruhig und sicher.', es: 'Solo se permiten huéspedes registrados. Así mantenemos una estancia tranquila y segura para todos.', nl: 'Alleen geregistreerde gasten zijn toegestaan. Zo blijft het verblijf rustig en veilig voor iedereen.', sv: 'Endast registrerade gäster är tillåtna. Det hjälper till att hålla vistelsen lugn och trygg för alla.' }
         },
         {
-          q: { en: 'What is the minimum stay?', de: 'Wie lang ist der Mindestaufenthalt?', es: 'Cual es la estancia minima?', nl: 'Wat is de minimale verblijfsduur?', sv: 'Vad ar minsta vistelse?' },
-          a: { en: 'Minimum stay requirements vary by season and apartment. The exact requirement is always shown during booking.', de: 'Der Mindestaufenthalt variiert je nach Saison und Apartment. Die genaue Vorgabe wird euch immer während der Buchung angezeigt.', es: 'La estancia minima varia segun la temporada y el apartamento. El requisito exacto aparece siempre durante la reserva.', nl: 'De minimale verblijfsduur verschilt per seizoen en appartement. De exacte voorwaarde wordt altijd tijdens het boeken getoond.', sv: 'Minsta vistelse varierar beroende pa sasong och lagenhet. Det exakta kravet visas alltid under bokningen.' }
+          q: { en: 'What is the minimum stay?', de: 'Wie lang ist der Mindestaufenthalt?', es: '¿Cuál es la estancia mínima?', nl: 'Wat is de minimale verblijfsduur?', sv: 'Vad är minsta vistelse?' },
+          a: { en: 'Minimum stay requirements vary by season and apartment. The exact requirement is always shown during booking.', de: 'Der Mindestaufenthalt variiert je nach Saison und Apartment. Die genaue Vorgabe wird euch immer während der Buchung angezeigt.', es: 'La estancia mínima varía según la temporada y el apartamento. El requisito exacto aparece siempre durante la reserva.', nl: 'De minimale verblijfsduur verschilt per seizoen en appartement. De exacte voorwaarde wordt altijd tijdens het boeken getoond.', sv: 'Minsta vistelse varierar beroende på säsong och lägenhet. Det exakta kravet visas alltid under bokningen.' }
         }
       ]
     },
@@ -284,24 +300,24 @@ const copy = {
         de: 'AMARA Bild zum Thema Vertrauen',
         es: 'Imagen de AMARA sobre confianza',
         nl: 'AMARA beeld over vertrouwen',
-        sv: 'AMARA bild for trygghet'
+        sv: 'AMARA-bild för trygghet'
       },
       items: [
         {
-          q: { en: 'Are pets allowed?', de: 'Sind Haustiere erlaubt?', es: 'Se admiten mascotas?', nl: 'Zijn huisdieren toegestaan?', sv: 'Ar husdjur tillatna?' },
-          a: { en: 'Pets are welcome in selected apartments, usually on request, for €15 per day. The final rule is shown during booking and in the unit details.', de: 'Haustiere sind in ausgewählten Apartments willkommen, meist auf Anfrage, für 15 EUR pro Tag. Die endgültige Regelung steht immer in der Buchung und in den Wohnungsdetails.', es: 'Las mascotas son bienvenidas en apartamentos seleccionados, normalmente bajo peticion previa, por 15 EUR al dia. La norma final aparece siempre durante la reserva y en los detalles del alojamiento.', nl: 'Huisdieren zijn welkom in geselecteerde appartementen, meestal op aanvraag, voor 15 EUR per dag. De definitieve regel staat altijd bij de boeking en in de accommodatiedetails.', sv: 'Husdjur ar valkomna i utvalda lagenheter, vanligtvis pa forfragan, for 15 EUR per dag. Den slutliga regeln visas alltid under bokningen och i boendeinformationen.' }
+          q: { en: 'Are pets allowed?', de: 'Sind Haustiere erlaubt?', es: '¿Se admiten mascotas?', nl: 'Zijn huisdieren toegestaan?', sv: 'Är husdjur tillåtna?' },
+          a: { en: 'Pets are welcome in selected apartments, usually on request, for €15 per day. The final rule is shown during booking and in the unit details.', de: 'Haustiere sind in ausgewählten Apartments willkommen, meist auf Anfrage, für 15 EUR pro Tag. Die endgültige Regelung steht immer in der Buchung und in den Wohnungsdetails.', es: 'Las mascotas son bienvenidas en apartamentos seleccionados, normalmente bajo petición previa, por 15 EUR al día. La norma final aparece siempre durante la reserva y en los detalles del alojamiento.', nl: 'Huisdieren zijn welkom in geselecteerde appartementen, meestal op aanvraag, voor 15 EUR per dag. De definitieve regel staat altijd bij de boeking en in de accommodatiedetails.', sv: 'Husdjur är välkomna i utvalda lägenheter, vanligtvis på förfrågan, för 15 EUR per dag. Den slutliga regeln visas alltid under bokningen och i boendeinformationen.' }
         },
         {
-          q: { en: 'Is AMARA legally registered?', de: 'Ist AMARA rechtlich registriert?', es: 'Esta AMARA legalmente registrada?', nl: 'Is AMARA wettelijk geregistreerd?', sv: 'Ar AMARA lagligt registrerat?' },
-          a: { en: 'Yes. License numbers are listed on our Amenities & Policies page where required.', de: 'Ja. Wo es vorgeschrieben ist, findet ihr die Lizenznummern auf unserer Seite zu Ausstattung und Regeln.', es: 'Si. Cuando es obligatorio, los numeros de licencia aparecen en nuestra pagina de servicios y normas.', nl: 'Ja. Waar dat verplicht is, staan de licentienummers op onze pagina over voorzieningen en regels.', sv: 'Ja. Dar det kravs finns licensnumren pa var sida om bekvamligheter och regler.' }
+          q: { en: 'Is AMARA legally registered?', de: 'Ist AMARA rechtlich registriert?', es: '¿Está AMARA legalmente registrada?', nl: 'Is AMARA wettelijk geregistreerd?', sv: 'Är AMARA lagligt registrerat?' },
+          a: { en: 'Yes. License numbers are listed on our Amenities & Policies page where required.', de: 'Ja. Wo es vorgeschrieben ist, findet ihr die Lizenznummern auf unserer Seite zu Ausstattung und Regeln.', es: 'Sí. Cuando es obligatorio, los números de licencia aparecen en nuestra página de servicios y normas.', nl: 'Ja. Waar dat verplicht is, staan de licentienummers op onze pagina over voorzieningen en regels.', sv: 'Ja. Där det krävs finns licensnumren på vår sida om bekvämligheter och regler.' }
         },
         {
-          q: { en: 'Who can I contact during my stay?', de: 'Wen kann ich während meines Aufenthalts kontaktieren?', es: 'Con quien puedo contactar durante la estancia?', nl: 'Met wie kan ik tijdens mijn verblijf contact opnemen?', sv: 'Vem kan jag kontakta under vistelsen?' },
-          a: { en: 'You’ll receive clear contact details as part of your arrival information. For urgent matters, please use the primary contact channel provided.', de: 'Ihr erhaltet klare Kontaktdaten zusammen mit euren Anreiseinformationen. Für dringende Anliegen nutzt bitte den angegebenen Hauptkontakt.', es: 'Recibireis unos datos de contacto claros como parte de vuestra informacion de llegada. Para asuntos urgentes, utilizad el canal principal indicado.', nl: 'Jullie ontvangen duidelijke contactgegevens als onderdeel van jullie aankomstinformatie. Gebruik bij urgente zaken het opgegeven hoofdcontact.', sv: 'Ni far tydliga kontaktuppgifter som en del av er ankomstinformation. For bradskande arenden, anvand den huvudsakliga kontaktvag som ni fatt.' }
+          q: { en: 'Who can I contact during my stay?', de: 'Wen kann ich während meines Aufenthalts kontaktieren?', es: '¿Con quién puedo contactar durante la estancia?', nl: 'Met wie kan ik tijdens mijn verblijf contact opnemen?', sv: 'Vem kan jag kontakta under vistelsen?' },
+          a: { en: 'You’ll receive clear contact details as part of your arrival information. For urgent matters, please use the primary contact channel provided.', de: 'Ihr erhaltet klare Kontaktdaten zusammen mit euren Anreiseinformationen. Für dringende Anliegen nutzt bitte den angegebenen Hauptkontakt.', es: 'Recibiréis unos datos de contacto claros como parte de vuestra información de llegada. Para asuntos urgentes, utilizad el canal principal indicado.', nl: 'Jullie ontvangen duidelijke contactgegevens als onderdeel van jullie aankomstinformatie. Gebruik bij urgente zaken het opgegeven hoofdcontact.', sv: 'Ni får tydliga kontaktuppgifter som en del av er ankomstinformation. För brådskande ärenden, använd den huvudsakliga kontaktväg som ni har fått.' }
         },
         {
-          q: { en: 'Why book directly?', de: 'Warum direkt buchen?', es: 'Por que reservar directamente?', nl: 'Waarom direct boeken?', sv: 'Varfor boka direkt?' },
-          a: { en: 'Direct booking gives you the clearest availability, the most accurate rules, and the final price without intermediaries.', de: 'Bei einer Direktbuchung seht ihr die klarste Verfügbarkeit, die genauesten Regeln und den Endpreis ohne Zwischenhändler.', es: 'La reserva directa os da la disponibilidad mas clara, las normas mas precisas y el precio final sin intermediarios.', nl: 'Direct boeken geeft jullie de duidelijkste beschikbaarheid, de meest nauwkeurige regels en de eindprijs zonder tussenpartijen.', sv: 'Direktbokning ger er tydligast tillganglighet, de mest korrekta reglerna och slutpriset utan mellanhander.' }
+          q: { en: 'Why book directly?', de: 'Warum direkt buchen?', es: '¿Por qué reservar directamente?', nl: 'Waarom direct boeken?', sv: 'Varför boka direkt?' },
+          a: { en: 'Direct booking gives you the clearest availability, the most accurate rules, and the final price without intermediaries.', de: 'Bei einer Direktbuchung seht ihr die klarste Verfügbarkeit, die genauesten Regeln und den Endpreis ohne Zwischenhändler.', es: 'La reserva directa os ofrece la disponibilidad más clara, las normas más precisas y el precio final sin intermediarios.', nl: 'Direct boeken geeft jullie de duidelijkste beschikbaarheid, de meest nauwkeurige regels en de eindprijs zonder tussenpartijen.', sv: 'Direktbokning ger er tydligast tillgänglighet, de mest korrekta reglerna och slutpriset utan mellanhänder.' }
         }
       ]
     }
@@ -316,15 +332,24 @@ const hero = {
   ctaAmenities: copy.hero.ctaAmenities[currentLang]
 };
 
-const heroCtaLinks = [
+const trustLinks = [
   { token: 'about', label: copy.shared.ctaAbout[currentLang] },
-  { token: 'reviews_hub', label: copy.shared.ctaReviews[currentLang] }
+  { token: 'reviews_hub', label: copy.shared.ctaReviews[currentLang] },
+  { token: 'direct_booking_benefits', label: copy.shared.ctaDirectBenefits[currentLang] }
+];
+const heroCtaLinks = [
+  { token: 'book', label: hero.ctaBooking },
+  { token: 'amenities', label: hero.ctaAmenities }
 ]
   .map((link) => {
     const href = resolveOptionalLink(link.token, currentLang, { suppressMissing: true });
     return href ? { href, label: link.label } : null;
   })
   .filter((link): link is { href: string; label: string } => Boolean(link));
+const closingCtaLinks = [
+  { token: 'book', label: hero.ctaBooking, style: 'primary' as const },
+  { token: 'amenities', label: hero.ctaAmenities, style: 'ghost' as const }
+];
 
 const sections = copy.sections.map((section, index) => ({
   topic: section.topic[currentLang],
@@ -355,6 +380,7 @@ const sections = copy.sections.map((section, index) => ({
       lead={hero.lead}
       supportText={copy.shared.supportText[currentLang]}
       ctaLinks={heroCtaLinks}
+      ctaVariant="conversion"
     />
       <main class="am-faq-main space-y-16">
         {sections.map((section) => (
@@ -461,6 +487,13 @@ const sections = copy.sections.map((section, index) => ({
             )}
           </section>
         ))}
+
+        <EditorialClosingCta
+          title={copy.shared.closingTitle[currentLang]}
+          lead={copy.shared.closingLead[currentLang]}
+          links={closingCtaLinks}
+          lang={currentLang}
+        />
       </main>
     </div>
   </div>

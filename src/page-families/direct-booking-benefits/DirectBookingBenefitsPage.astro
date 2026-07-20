@@ -10,8 +10,7 @@ import EditorialClosingCta from '../../components/editorial/EditorialClosingCta.
 import {
   directBookingBenefitsCopy,
   directBookingBenefitsFooterLabels,
-  directBookingBenefitsSeo,
-  directBookingBenefitsTrustLinks
+  directBookingBenefitsSeo
 } from '../../content/directBookingBenefitsContent';
 import { resolveOptionalLink } from '../../lib/linkResolver';
 import { normalizeLanguage } from '../../lib/seo/resolve-seo-head';
@@ -20,8 +19,12 @@ import type { AmaraLanguage } from '../../types/seo';
 const { lang = 'es' } = Astro.props;
 const currentLang = normalizeLanguage(lang as AmaraLanguage);
 const seo = directBookingBenefitsSeo;
-const trustLinks = directBookingBenefitsTrustLinks;
 const copy = directBookingBenefitsCopy;
+const trustLinks = [
+  { token: 'about', label: copy.hero.ctaAbout[currentLang] },
+  { token: 'reviews_hub', label: copy.hero.ctaReviews[currentLang] },
+  { token: 'direct_booking_benefits', label: copy.hero.subtitle[currentLang] }
+];
 const footerHighlights = [
   { token: 'amenities', label: directBookingBenefitsFooterLabels.amenities[currentLang] },
   { token: 'faq_general', label: directBookingBenefitsFooterLabels.faq_general[currentLang] },
@@ -32,12 +35,12 @@ const directBookingDefinitionItems = copy.benefits.map((benefit) => ({
   description: benefit.copy[currentLang]
 }));
 const closingCtaLinks = [
-  { label: copy.sections.ctaAvailability[currentLang], disabled: true },
-  { label: copy.sections.inlineAbout[currentLang], token: 'about' },
-  { label: copy.sections.ctaExplore[currentLang], disabled: true }
+  { label: copy.sections.ctaAvailability[currentLang], token: 'book', style: 'primary' as const },
+  { label: copy.sections.inlineAbout[currentLang], token: 'about', style: 'ghost' as const },
+  { label: copy.sections.ctaExplore[currentLang], token: 'romantic_hideaways', style: 'ghost' as const }
 ];
 const heroCtaLinks = [
-  { token: 'about', label: copy.hero.ctaAbout[currentLang] },
+  { token: 'book', label: copy.sections.ctaAvailability[currentLang] },
   { token: 'reviews_hub', label: copy.hero.ctaReviews[currentLang] }
 ]
   .map((link) => {
@@ -86,6 +89,8 @@ const inlineLinks = [
       supportText={copy.hero.supportText[currentLang]}
 
       ctaLinks={heroCtaLinks}
+
+      ctaVariant="conversion"
 
     />
 
