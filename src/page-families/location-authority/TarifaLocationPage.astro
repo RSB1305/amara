@@ -1,0 +1,249 @@
+---
+import tarifaHeroImage from '../../assets/images/home/amara-tarifa-apartment01.webp';
+import EssenceGrid from '../../components/EssenceGrid.astro';
+import FaqAccordion from '../../components/FaqAccordion.astro';
+import Hero from '../../components/Hero.astro';
+import Navigation from '../../components/Navigation.astro';
+import PhotoShow from '../../components/PhotoShow.astro';
+import StayDecision from '../../components/StayDecision.astro';
+import SectionAnchorNav from '../../components/navigation/SectionAnchorNav.astro';
+import {
+  tarifaLocationCopy,
+  tarifaLocationSeo
+} from '../../content/tarifaLocationContent';
+import LocationAuthorityLayout from '../../layouts/LocationAuthorityLayout.astro';
+import { resolveOptionalLink } from '../../lib/linkResolver';
+import { normalizeLanguage } from '../../lib/seo/resolve-seo-head';
+import type { AmaraLanguage } from '../../types/seo';
+
+interface Props {
+  lang?: string;
+}
+
+const { lang = 'es' } = Astro.props;
+const currentLang = normalizeLanguage(lang as AmaraLanguage);
+const copy = tarifaLocationCopy;
+const optionalLink = (token: string) =>
+  resolveOptionalLink(token, currentLang, { suppressMissing: true });
+
+const familySurfHref = optionalLink('casa') ?? '#stay';
+const allStaysHref = optionalLink('romantic_hideaways') ?? '#key-facts';
+
+const c = {
+  hero: {
+    eyebrow: copy.hero.eyebrow[currentLang],
+    h1: copy.hero.h1[currentLang],
+    body: copy.hero.body[currentLang],
+    introLeadBefore: copy.hero.introLead[currentLang].before,
+    introLeadLinkLabel: copy.hero.introLead[currentLang].linkLabel,
+    introLeadAfter: copy.hero.introLead[currentLang].after,
+    ctaMain: copy.hero.ctaMain[currentLang],
+    ctaAlt: copy.hero.ctaAlt[currentLang]
+  },
+  gallery: {
+    eyebrow: copy.gallery.eyebrow[currentLang],
+    title: copy.gallery.title[currentLang],
+    images: copy.gallery.items.map((image) => ({
+      src: image.src,
+      alt: image.alt[currentLang],
+      caption: image.caption[currentLang]
+    }))
+  },
+  essence: {
+    eyebrow: copy.essence.eyebrow[currentLang],
+    title: copy.essence.title[currentLang],
+    intro: copy.essence.intro[currentLang],
+    items: copy.essence.items.map((item) => ({
+      kicker: item.kicker[currentLang],
+      headline: item.headline[currentLang],
+      text: item.text[currentLang],
+      imageSrc: 'imageSrc' in item ? item.imageSrc : undefined,
+      imageAlt: item.headline[currentLang]
+    }))
+  },
+  decision: {
+    eyebrow: copy.decision.eyebrow[currentLang],
+    title: copy.decision.title[currentLang],
+    profiles: copy.decision.profiles.map((profile) => ({
+      title: profile.title[currentLang],
+      description: profile.description[currentLang],
+      suitability: profile.suitability[currentLang]
+    }))
+  },
+  practical: {
+    arrivalTitle: copy.practical.arrivalTitle[currentLang],
+    steps: copy.practical.steps.map((step) => ({
+      num: step.num,
+      headline: step.headline[currentLang],
+      text: step.text[currentLang]
+    })),
+    faqTitle: copy.practical.faqTitle[currentLang],
+    items: copy.practical.items.map((item) => ({
+      question: item.question[currentLang],
+      answer: item.answer[currentLang]
+    }))
+  },
+  finalCta: {
+    eyebrow: copy.finalCta.eyebrow[currentLang],
+    title: copy.finalCta.title[currentLang],
+    body: copy.finalCta.body[currentLang]
+  }
+};
+
+const sectionNavItems = [
+  { id: 'intro', href: '#intro', label: copy.sectionNav.intro[currentLang] },
+  { id: 'gallery', href: '#gallery', label: copy.sectionNav.gallery[currentLang] },
+  { id: 'key-facts', href: '#key-facts', label: copy.sectionNav.keyFacts[currentLang] },
+  { id: 'travel-fit', href: '#travel-fit', label: copy.sectionNav.fit[currentLang] },
+  { id: 'practical', href: '#practical', label: copy.sectionNav.practical[currentLang] },
+  { id: 'stay', href: '#stay', label: copy.sectionNav.stay[currentLang] }
+];
+
+const faqHref = optionalLink('faq_general');
+const footerHighlights = [
+  { token: 'casa', label: 'AMARA Family & Surf' },
+  { token: 'location_frigiliana', label: 'Frigiliana' },
+  { token: 'location_nerja', label: 'Nerja' }
+];
+---
+
+<LocationAuthorityLayout
+  seo={tarifaLocationSeo}
+  pageLang={currentLang}
+  footerHighlights={footerHighlights}
+>
+  <Navigation
+    currentLang={currentLang}
+    brandName="Tarifa"
+    languageToken="location_tarifa"
+    locationAuthorityNav={true}
+  />
+  <SectionAnchorNav items={sectionNavItems} activeId="intro" />
+
+  <div class="am-root" data-am-page="tarifa-location">
+    <div class="am-wrap w-full">
+      <div id="intro">
+        <Hero
+          imageSrc={tarifaHeroImage.src}
+          imageAlt={c.gallery.images[0].alt}
+          imageWidth={tarifaHeroImage.width}
+          imageHeight={tarifaHeroImage.height}
+        >
+          <span class="am-text-caption text-primary mb-8 block">{c.hero.eyebrow}</span>
+          <h1
+            class="am-text-display italic text-on-surface mb-10 tracking-tighter"
+            set:html={c.hero.h1}
+          />
+          <div class="pl-10 border-l border-primary/20 max-w-lg mb-14">
+            <p class="am-text-body text-on-surface-variant leading-relaxed">{c.hero.body}</p>
+            <p class="am-text-body text-on-surface-variant leading-relaxed mt-6">
+              {c.hero.introLeadBefore}
+              <a href={familySurfHref} class="am-inline-link">{c.hero.introLeadLinkLabel}</a>
+              {c.hero.introLeadAfter}
+            </p>
+          </div>
+          <div class="flex flex-wrap gap-8">
+            <a
+              href={familySurfHref}
+              class="bg-primary text-on-primary px-12 py-5 am-text-caption uppercase tracking-[0.2em] transition-all hover:opacity-90"
+            >
+              {c.hero.ctaMain}
+            </a>
+            <a
+              href={allStaysHref}
+              class="border border-outline-variant/30 text-on-surface px-12 py-5 am-text-caption uppercase tracking-[0.2em] hover:bg-surface-container-low transition-all"
+            >
+              {c.hero.ctaAlt}
+            </a>
+          </div>
+        </Hero>
+      </div>
+
+      <section
+        id="gallery"
+        class="am-section am-section--plain w-full max-w-none !mx-0 !border-t-0 !px-0 !py-0"
+      >
+        <PhotoShow
+          eyebrow={c.gallery.eyebrow}
+          title={c.gallery.title}
+          images={c.gallery.images}
+        />
+      </section>
+
+      <section
+        id="key-facts"
+        class="am-section am-section--tint w-full max-w-none !mx-0 !border-t-0 !px-0 !py-0"
+      >
+        <EssenceGrid
+          eyebrow={c.essence.eyebrow}
+          title={c.essence.title}
+          intro={c.essence.intro}
+          items={c.essence.items}
+        />
+      </section>
+
+      <section
+        id="travel-fit"
+        class="am-section am-section--plain w-full max-w-none !mx-0 !border-t-0 !px-0 !py-0"
+      >
+        <StayDecision
+          eyebrow={c.decision.eyebrow}
+          title={c.decision.title}
+          profiles={c.decision.profiles}
+        />
+      </section>
+
+      <div id="practical">
+        <FaqAccordion
+          arrivalTitle={c.practical.arrivalTitle}
+          steps={c.practical.steps}
+          faqTitle={c.practical.faqTitle}
+          items={c.practical.items}
+          allFaqsCta={faqHref
+            ? {
+                href: faqHref,
+                label: {
+                  en: 'View all stay FAQs',
+                  de: 'Alle Aufenthalts-FAQs ansehen',
+                  es: 'Ver todas las preguntas de la estancia',
+                  nl: 'Bekijk alle verblijfs-FAQ’s',
+                  sv: 'Se alla frågor om vistelsen'
+                }[currentLang]
+              }
+            : undefined}
+        />
+      </div>
+
+      <section
+        id="stay"
+        class="relative overflow-hidden bg-inverse-surface px-6 py-28 text-center text-inverted-on-surface md:px-12 md:py-36"
+      >
+        <div class="relative z-10 mx-auto max-w-3xl">
+          <span class="mb-6 block am-text-caption uppercase tracking-[0.35em] text-primary-fixed-dim">
+            {c.finalCta.eyebrow}
+          </span>
+          <h2 class="mb-8 am-text-title italic text-inverted-on-surface">
+            {c.finalCta.title}
+          </h2>
+          <p class="mx-auto mb-12 max-w-2xl am-text-body text-inverted-on-surface/75">
+            {c.finalCta.body}
+          </p>
+          <div class="flex flex-wrap justify-center gap-5">
+            <a
+              href={familySurfHref}
+              class="bg-surface px-8 py-4 am-text-caption uppercase tracking-[0.18em] text-on-surface transition-colors hover:bg-surface-container-high"
+            >
+              {c.hero.ctaMain}
+            </a>
+            <a
+              href={allStaysHref}
+              class="border border-inverted-on-surface/30 px-8 py-4 am-text-caption uppercase tracking-[0.18em] text-inverted-on-surface transition-colors hover:bg-inverted-on-surface/10"
+            >
+              {c.hero.ctaAlt}
+            </a>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+</LocationAuthorityLayout>

@@ -150,7 +150,13 @@ legal_notice: {
       nl: buildOwnedLocalizedPath('nerja-location', 'nl'),
       sv: buildOwnedLocalizedPath('nerja-location', 'sv')
     },
-    location_tarifa: { en: '/en/tarifa-location', de: '/de/tarifa-location', es: '/es/tarifa-location', nl: '/nl/tarifa-location', sv: '/sv/tarifa-location' },
+    location_tarifa: {
+      en: buildOwnedLocalizedPath('tarifa-location', 'en'),
+      de: buildOwnedLocalizedPath('tarifa-location', 'de'),
+      es: buildOwnedLocalizedPath('tarifa-location', 'es'),
+      nl: buildOwnedLocalizedPath('tarifa-location', 'nl'),
+      sv: buildOwnedLocalizedPath('tarifa-location', 'sv')
+    },
 
     /* =========================================================
        TARIFA — AUTHORITY (PUBLIC)

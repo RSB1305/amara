@@ -224,6 +224,38 @@ export const directBookingBenefitsCopy = {
 
       title: {
 
+        en: 'Complimentary mid-stay cleaning',
+
+        de: 'Kostenlose Zwischenreinigung',
+
+        es: 'Limpieza gratuita a mitad de estancia',
+
+        nl: 'Gratis tussentijdse schoonmaak',
+
+        sv: 'Kostnadsfri mellanstädning'
+
+      },
+
+      copy: {
+
+        en: 'For direct stays of more than seven nights, one complimentary cleaning is included. It takes place at the midpoint of your stay.',
+
+        de: 'Bei direkt gebuchten Aufenthalten von mehr als sieben Nächten ist eine kostenlose Zwischenreinigung inklusive. Sie findet in der Mitte eures Aufenthalts statt.',
+
+        es: 'En las reservas directas de más de siete noches se incluye una limpieza gratuita, programada a mitad de la estancia.',
+
+        nl: 'Bij een rechtstreeks geboekt verblijf van meer dan zeven nachten is één gratis tussentijdse schoonmaak inbegrepen. Deze vindt halverwege jullie verblijf plaats.',
+
+        sv: 'Vid direktbokade vistelser på mer än sju nätter ingår en kostnadsfri mellanstädning. Den sker halvvägs genom vistelsen.'
+
+      }
+
+    },
+
+    {
+
+      title: {
+
         en: 'Priority early check-in / late check-out',
 
         de: 'Priorität für frühen Check-in / späten Check-out',
@@ -247,38 +279,6 @@ export const directBookingBenefitsCopy = {
         nl: 'Als de beschikbaarheid het toelaat, geven we voorrang aan een kosteloze vroege check-in of late check-out.',
 
         sv: 'När tillgängligheten tillåter det prioriterar vi kostnadsfri tidig incheckning eller sen utcheckning.'
-
-      }
-
-    },
-
-    {
-
-      title: {
-
-        en: 'Welcome detail',
-
-        de: 'Kleine Aufmerksamkeit zur Begrüßung',
-
-        es: 'Detalle de bienvenida',
-
-        nl: 'Welkomstdetail',
-
-        sv: 'Välkomstdetalj'
-
-      },
-
-      copy: {
-
-        en: 'A small local welcome detail on arrival - simple, thoughtful, seasonal.',
-
-        de: 'Eine kleine lokale Aufmerksamkeit bei der Ankunft - schlicht, aufmerksam und saisonal gedacht.',
-
-        es: 'Un pequeño detalle local de bienvenida a la llegada: sencillo, cuidado y de temporada.',
-
-        nl: 'Een klein lokaal welkomstdetail bij aankomst - eenvoudig, attent en passend bij het seizoen.',
-
-        sv: 'En liten lokal välkomstgest vid ankomst - enkel, genomtänkt och anpassad efter säsong.'
 
       }
 
@@ -320,61 +320,29 @@ export const directBookingBenefitsCopy = {
 
       title: {
 
-        en: 'Flexible arrival guidance',
+        en: 'Welcome detail',
 
-        de: 'Flexible Anreisehilfe',
+        de: 'Kleine Aufmerksamkeit zur Begrüßung',
 
-        es: 'Ayuda flexible para la llegada',
+        es: 'Detalle de bienvenida',
 
-        nl: 'Flexibele aankomsthulp',
+        nl: 'Welkomstdetail',
 
-        sv: 'Flexibelt stöd vid ankomst'
-
-      },
-
-      copy: {
-
-        en: 'Clear check-in steps, parking tips, and help choosing the right apartment.',
-
-        de: 'Klare Schritte für den Check-in, Hinweise zum Parken und Hilfe bei der Wahl des passenden Apartments.',
-
-        es: 'Indicaciones claras para el check-in, consejos para aparcar y ayuda para elegir el apartamento adecuado.',
-
-        nl: 'Duidelijke stappen voor het inchecken, parkeertips en hulp bij het kiezen van het juiste appartement.',
-
-        sv: 'Tydliga steg för incheckning, tips om parkering och hjälp att välja rätt lägenhet.'
-
-      }
-
-    },
-
-    {
-
-      title: {
-
-        en: 'Clear & transparent terms',
-
-        de: 'Klare und transparente Bedingungen',
-
-        es: 'Condiciones claras y transparentes',
-
-        nl: 'Duidelijke en transparante voorwaarden',
-
-        sv: 'Tydliga och transparenta villkor'
+        sv: 'Välkomstdetalj'
 
       },
 
       copy: {
 
-        en: 'No surprises.',
+        en: 'A small local welcome detail on arrival - simple, thoughtful, seasonal.',
 
-        de: 'Keine Überraschungen.',
+        de: 'Eine kleine lokale Aufmerksamkeit bei der Ankunft - schlicht, aufmerksam und saisonal gedacht.',
 
-        es: 'Sin sorpresas.',
+        es: 'Un pequeño detalle local de bienvenida a la llegada: sencillo, cuidado y de temporada.',
 
-        nl: 'Geen verrassingen.',
+        nl: 'Een klein lokaal welkomstdetail bij aankomst - eenvoudig, attent en passend bij het seizoen.',
 
-        sv: 'Inga överraskningar.'
+        sv: 'En liten lokal välkomstgest vid ankomst - enkel, genomtänkt och anpassad efter säsong.'
 
       }
 

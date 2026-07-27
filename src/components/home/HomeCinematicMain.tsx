@@ -64,7 +64,8 @@ const FadeIn = ({
   className?: string;
 }) => (
   <motion.div
-    initial={{ opacity: 0, y: 30 }}
+    // Keep meaningful homepage content visible when client hydration is unavailable.
+    initial={false}
     whileInView={{ opacity: 1, y: 0 }}
     viewport={{ once: true, margin: '-100px' }}
     transition={{ duration: 1, delay, ease: [0.21, 0.47, 0.32, 0.98] }}
@@ -155,7 +156,7 @@ export default function HomeCinematicMain(props: HomeCinematicMainProps) {
 
         <div className="absolute inset-0 z-10 flex flex-col items-center justify-center px-6 text-center text-inverted-on-surface">
           <motion.span
-            initial={reduceMotion ? false : { opacity: 0, letterSpacing: '0em' }}
+            initial={false}
             animate={{ opacity: 1, letterSpacing: '0.3em' }}
             transition={{ duration: 1.5, delay: 0.2, ease: 'easeOut' }}
             className="mb-6 am-text-caption uppercase tracking-[0.3em] text-inverted-on-surface/90"
@@ -164,7 +165,7 @@ export default function HomeCinematicMain(props: HomeCinematicMainProps) {
           </motion.span>
 
           <motion.h1
-            initial={reduceMotion ? false : { opacity: 0, y: 20 }}
+            initial={false}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1.2, delay: 0.5, ease: [0.21, 0.47, 0.32, 0.98] }}
             className="mb-8 am-text-display"
@@ -173,7 +174,7 @@ export default function HomeCinematicMain(props: HomeCinematicMainProps) {
           </motion.h1>
 
           <motion.p
-            initial={reduceMotion ? false : { opacity: 0 }}
+            initial={false}
             animate={{ opacity: 1 }}
             transition={{ duration: 1, delay: 1.2 }}
             className="max-w-xl am-text-body italic text-inverted-on-surface/90"
@@ -183,7 +184,7 @@ export default function HomeCinematicMain(props: HomeCinematicMainProps) {
         </div>
 
         <motion.div
-          initial={reduceMotion ? false : { opacity: 0 }}
+          initial={false}
           animate={{ opacity: 1 }}
           transition={{ delay: 2, duration: 1 }}
           className="absolute bottom-12 left-1/2 z-10 flex -translate-x-1/2 flex-col items-center gap-2 text-inverted-on-surface/80"

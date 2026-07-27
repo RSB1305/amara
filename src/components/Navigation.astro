@@ -116,11 +116,11 @@ const utilityLabels = navigationUtilityLabels[currentLang] ?? navigationUtilityL
 
 const globalNavLabels = {
   locations: {
-    en: 'Locations',
-    de: 'Locations',
-    es: 'Ubicaciones',
-    nl: 'Locaties',
-    sv: 'Platser'
+    en: 'Destinations',
+    de: 'Reiseziele',
+    es: 'Destinos',
+    nl: 'Bestemmingen',
+    sv: 'Resmål'
   },
   stays: {
     en: 'Stays',
@@ -130,11 +130,11 @@ const globalNavLabels = {
     sv: 'Boenden'
   },
   aboutAmara: {
-    en: 'About AMARA',
-    de: 'Über AMARA',
-    es: 'Sobre AMARA',
-    nl: 'Over AMARA',
-    sv: 'Om AMARA'
+    en: 'AMARA',
+    de: 'AMARA',
+    es: 'AMARA',
+    nl: 'AMARA',
+    sv: 'AMARA'
   },
   locationFrigiliana: {
     en: 'Frigiliana',
@@ -157,12 +157,110 @@ const globalNavLabels = {
     nl: 'Tarifa',
     sv: 'Tarifa'
   },
+  locationFrigilianaMeta: {
+    en: 'One of Andalusia’s most beautiful white villages.',
+    de: 'Eines der schönsten weißen Dörfer Andalusiens.',
+    es: 'Uno de los pueblos blancos más bonitos de Andalucía.',
+    nl: 'Een van de mooiste witte dorpen van Andalusië.',
+    sv: 'En av Andalusiens vackraste vita byar.'
+  },
+  locationNerjaMeta: {
+    en: 'Mediterranean coast, beaches and the Balcón de Europa.',
+    de: 'Mediterraner Küstenort mit Stränden und Balcón de Europa.',
+    es: 'Costa mediterránea, playas y el Balcón de Europa.',
+    nl: 'Mediterrane kust, stranden en het Balcón de Europa.',
+    sv: 'Medelhavskust, stränder och Balcón de Europa.'
+  },
+  locationTarifaMeta: {
+    en: 'Atlantic wind, wide horizons and kitesurfing.',
+    de: 'Atlantik-Hotspot für Wind, Weite und Kitesurfen.',
+    es: 'Viento atlántico, horizontes abiertos y kitesurf.',
+    nl: 'Atlantische wind, weidse horizonten en kitesurfen.',
+    sv: 'Atlantvindar, vida horisonter och kitesurfing.'
+  },
   allStays: {
-    en: 'All Stays',
-    de: 'Alle Unterkünfte',
-    es: 'Todos los alojamientos',
-    nl: 'Alle verblijven',
-    sv: 'Alla boenden'
+    en: 'View all stays',
+    de: 'Alle Unterkünfte ansehen',
+    es: 'Ver todos los alojamientos',
+    nl: 'Alle verblijven bekijken',
+    sv: 'Se alla boenden'
+  },
+  farahMeta: {
+    en: 'Private boutique room · 2 guests',
+    de: 'Privates Boutique-Zimmer · 2 Gäste',
+    es: 'Habitación boutique privada · 2 huéspedes',
+    nl: 'Private boutiquekamer · 2 gasten',
+    sv: 'Privat boutiquerum · 2 gäster'
+  },
+  lounisMeta: {
+    en: 'Historic apartment · 2 guests',
+    de: 'Altstadt-Apartment · 2 Gäste',
+    es: 'Apartamento histórico · 2 huéspedes',
+    nl: 'Historisch appartement · 2 gasten',
+    sv: 'Historisk lägenhet · 2 gäster'
+  },
+  zaidMeta: {
+    en: 'Terrace apartment · 2 guests',
+    de: 'Terrassen-Apartment · 2 Gäste',
+    es: 'Apartamento con terraza · 2 huéspedes',
+    nl: 'Terrasappartement · 2 gasten',
+    sv: 'Terrasslägenhet · 2 gäster'
+  },
+  mahaMeta: {
+    en: 'Apartment with large terrace · 2 guests',
+    de: 'Apartment mit großer Terrasse · 2 Gäste',
+    es: 'Apartamento con gran terraza · 2 huéspedes',
+    nl: 'Appartement met groot terras · 2 gasten',
+    sv: 'Lägenhet med stor terrass · 2 gäster'
+  },
+  playaMeta: {
+    en: 'Beach apartment · 2 guests',
+    de: 'Strandapartment · 2 Gäste',
+    es: 'Apartamento de playa · 2 huéspedes',
+    nl: 'Strandappartement · 2 gasten',
+    sv: 'Strandlägenhet · 2 gäster'
+  },
+  familySurfMeta: {
+    en: 'Holiday house · up to 4 guests',
+    de: 'Ferienhaus · bis 4 Gäste',
+    es: 'Casa vacacional · hasta 4 huéspedes',
+    nl: 'Vakantiehuis · tot 4 gasten',
+    sv: 'Semesterhus · upp till 4 gäster'
+  },
+  aboutMeta: {
+    en: 'Our story, values and way of hosting.',
+    de: 'Unsere Geschichte, Haltung und Art, Gastgeber zu sein.',
+    es: 'Nuestra historia, nuestros valores y nuestra forma de recibir.',
+    nl: 'Ons verhaal, onze waarden en onze manier van ontvangen.',
+    sv: 'Vår historia, våra värderingar och vårt värdskap.'
+  },
+  reviewsMeta: {
+    en: 'Verified experiences from AMARA guests.',
+    de: 'Verifizierte Erfahrungen von AMARA-Gästen.',
+    es: 'Experiencias verificadas de huéspedes de AMARA.',
+    nl: 'Geverifieerde ervaringen van AMARA-gasten.',
+    sv: 'Verifierade upplevelser från AMARA-gäster.'
+  },
+  directBookingMeta: {
+    en: 'Best rate, mid-stay cleaning and direct contact.',
+    de: 'Bestpreis, Zwischenreinigung und direkter Kontakt.',
+    es: 'Mejor precio, limpieza intermedia y contacto directo.',
+    nl: 'Beste prijs, tussentijdse schoonmaak en direct contact.',
+    sv: 'Bästa pris, mellanstädning och direktkontakt.'
+  },
+  amenitiesMeta: {
+    en: 'Comfort and services across all stays.',
+    de: 'Komfort und Leistungen aller Unterkünfte im Überblick.',
+    es: 'Comodidad y servicios de todos los alojamientos.',
+    nl: 'Comfort en services van alle verblijven.',
+    sv: 'Komfort och service i alla boenden.'
+  },
+  faqMeta: {
+    en: 'Answers about booking, arrival and your stay.',
+    de: 'Antworten zu Buchung, Anreise und Aufenthalt.',
+    es: 'Respuestas sobre reserva, llegada y estancia.',
+    nl: 'Antwoorden over boeken, aankomst en verblijf.',
+    sv: 'Svar om bokning, ankomst och vistelse.'
   }
 } satisfies Record<string, Record<AmaraLanguage, string>>;
 
@@ -248,6 +346,9 @@ const getIsActive = (token: string, href: string) => {
 type GlobalNavItem = {
   token: string;
   label: string;
+  description?: string;
+  sectionLabel?: string;
+  overview?: boolean;
 };
 
 type GlobalNavGroup = {
@@ -264,40 +365,87 @@ const globalNavGroups: GlobalNavGroup[] = [
     id: 'locations',
     label: tGlobal('locations'),
     items: [
-      { token: 'location_frigiliana', label: tGlobal('locationFrigiliana') },
-      { token: 'location_nerja', label: tGlobal('locationNerja') },
-      { token: 'casa', label: tGlobal('locationTarifa') }
+      {
+        token: 'location_frigiliana',
+        label: tGlobal('locationFrigiliana'),
+        description: tGlobal('locationFrigilianaMeta')
+      },
+      {
+        token: 'location_nerja',
+        label: tGlobal('locationNerja'),
+        description: tGlobal('locationNerjaMeta')
+      },
+      {
+        token: 'location_tarifa',
+        label: tGlobal('locationTarifa'),
+        description: tGlobal('locationTarifaMeta')
+      }
     ]
   },
   {
     id: 'stays',
     label: tGlobal('stays'),
     items: [
-      { token: 'romantic_hideaways', label: tGlobal('allStays') },
-      { token: 'farah', label: 'AMARA Farah' },
-      { token: 'lounis', label: 'AMARA Lounis' },
-      { token: 'zaid', label: 'AMARA Zaid' },
-      { token: 'maha', label: 'AMARA Maha' },
-      { token: 'playa', label: 'AMARA Playa' },
-      { token: 'casa', label: 'AMARA Family & Surf' }
+      { token: 'romantic_hideaways', label: tGlobal('allStays'), overview: true },
+      {
+        token: 'farah',
+        label: 'Farah',
+        description: tGlobal('farahMeta'),
+        sectionLabel: tGlobal('locationFrigiliana')
+      },
+      { token: 'lounis', label: 'Lounis', description: tGlobal('lounisMeta') },
+      { token: 'zaid', label: 'Zaid', description: tGlobal('zaidMeta') },
+      { token: 'maha', label: 'Maha', description: tGlobal('mahaMeta') },
+      {
+        token: 'playa',
+        label: 'Playa',
+        description: tGlobal('playaMeta'),
+        sectionLabel: tGlobal('locationNerja')
+      },
+      {
+        token: 'casa',
+        label: 'Family & Surf',
+        description: tGlobal('familySurfMeta'),
+        sectionLabel: tGlobal('locationTarifa')
+      }
     ]
   },
   {
     id: 'aboutAmara',
     label: tGlobal('aboutAmara'),
     items: [
-      { token: 'about', label: localizedNavLabels.about?.[currentLang] ?? 'About AMARA' },
-      { token: 'reviews_hub', label: localizedNavLabels.reviews_hub?.[currentLang] ?? 'Guest Reviews' },
-      { token: 'direct_booking_benefits', label: localizedNavLabels.direct_booking_benefits?.[currentLang] ?? 'Direct Booking Benefits' },
-      { token: 'amenities', label: localizedNavLabels.amenities?.[currentLang] ?? 'Amenities' },
-      { token: 'faq_general', label: localizedNavLabels.faq_general?.[currentLang] ?? 'Stay FAQ' }
+      {
+        token: 'about',
+        label: localizedNavLabels.about?.[currentLang] ?? 'About AMARA',
+        description: tGlobal('aboutMeta')
+      },
+      {
+        token: 'reviews_hub',
+        label: localizedNavLabels.reviews_hub?.[currentLang] ?? 'Guest Reviews',
+        description: tGlobal('reviewsMeta')
+      },
+      {
+        token: 'direct_booking_benefits',
+        label: localizedNavLabels.direct_booking_benefits?.[currentLang] ?? 'Direct Booking Benefits',
+        description: tGlobal('directBookingMeta')
+      },
+      {
+        token: 'amenities',
+        label: localizedNavLabels.amenities?.[currentLang] ?? 'Amenities',
+        description: tGlobal('amenitiesMeta')
+      },
+      {
+        token: 'faq_general',
+        label: localizedNavLabels.faq_general?.[currentLang] ?? 'Stay FAQ',
+        description: tGlobal('faqMeta')
+      }
     ]
   }
 ];
 
 const resolveGlobalNavItem = (item: GlobalNavItem) => {
   const canResolve = isPublicLinkEnabled(item.token, {
-    forceEnabled: ['location_frigiliana', 'location_nerja', 'casa'].includes(item.token),
+    forceEnabled: ['location_frigiliana', 'location_nerja', 'location_tarifa'].includes(item.token),
     locationAuthorityNav
   });
   const href = canResolve ? resolveLink(item.token, currentLang) : null;
@@ -349,22 +497,43 @@ const resolvedGlobalNavGroups = globalNavGroups.map((group) => {
               {group.label}
             </button>
 
-            <div class="am-nav__dropdown">
-              <div class="am-nav__dropdown-panel">
+            <div class:list={['am-nav__dropdown', group.items.some((item) => item.description) && 'am-nav__dropdown--detailed']}>
+              <div class:list={['am-nav__dropdown-panel', group.items.some((item) => item.description) && 'am-nav__dropdown-panel--detailed']}>
                 {group.items.map((item) => (
-                  item.href ? (
-                    <a
-                      href={item.href}
-                      class="am-nav__dropdown-link font-label text-[11px] font-bold uppercase tracking-[0.12em]"
-                      aria-current={item.isActive ? 'page' : undefined}
-                    >
-                      {item.label}
-                    </a>
-                  ) : (
-                    <span class="am-nav__dropdown-link am-link-disabled font-label text-[11px] font-bold uppercase tracking-[0.12em]">
-                      {item.label}
-                    </span>
-                  )
+                  <>
+                    {item.sectionLabel && (
+                      <span class="am-nav__dropdown-section">{item.sectionLabel}</span>
+                    )}
+                    {item.href ? (
+                      <a
+                        href={item.href}
+                        class:list={[
+                          'am-nav__dropdown-link font-label text-[11px] font-bold uppercase tracking-[0.12em]',
+                          item.description && 'am-nav__dropdown-link--detailed',
+                          item.overview && 'am-nav__dropdown-link--overview'
+                        ]}
+                        aria-current={item.isActive ? 'page' : undefined}
+                      >
+                        <span class="am-nav__dropdown-item-title">{item.label}</span>
+                        {item.description && (
+                          <span class="am-nav__dropdown-item-meta">{item.description}</span>
+                        )}
+                      </a>
+                    ) : (
+                      <span
+                        class:list={[
+                          'am-nav__dropdown-link am-link-disabled font-label text-[11px] font-bold uppercase tracking-[0.12em]',
+                          item.description && 'am-nav__dropdown-link--detailed',
+                          item.overview && 'am-nav__dropdown-link--overview'
+                        ]}
+                      >
+                        <span class="am-nav__dropdown-item-title">{item.label}</span>
+                        {item.description && (
+                          <span class="am-nav__dropdown-item-meta">{item.description}</span>
+                        )}
+                      </span>
+                    )}
+                  </>
                 ))}
               </div>
             </div>
@@ -481,13 +650,39 @@ const resolvedGlobalNavGroups = globalNavGroups.map((group) => {
             </summary>
             <div class="am-nav-mobile__links">
               {group.items.map((item) => (
-                item.href ? (
-                  <a href={item.href} aria-current={item.isActive ? 'page' : undefined}>
-                    {item.label}
-                  </a>
-                ) : (
-                  <span class="am-link-disabled">{item.label}</span>
-                )
+                <>
+                  {item.sectionLabel && (
+                    <span class="am-nav-mobile__section">{item.sectionLabel}</span>
+                  )}
+                  {item.href ? (
+                    <a
+                      href={item.href}
+                      class:list={[
+                        item.description && 'am-nav-mobile__detailed-link',
+                        item.overview && 'am-nav-mobile__overview-link'
+                      ]}
+                      aria-current={item.isActive ? 'page' : undefined}
+                    >
+                      <span class="am-nav-mobile__item-title">{item.label}</span>
+                      {item.description && (
+                        <span class="am-nav-mobile__item-meta">{item.description}</span>
+                      )}
+                    </a>
+                  ) : (
+                    <span
+                      class:list={[
+                        'am-link-disabled',
+                        item.description && 'am-nav-mobile__detailed-link',
+                        item.overview && 'am-nav-mobile__overview-link'
+                      ]}
+                    >
+                      <span class="am-nav-mobile__item-title">{item.label}</span>
+                      {item.description && (
+                        <span class="am-nav-mobile__item-meta">{item.description}</span>
+                      )}
+                    </span>
+                  )}
+                </>
               ))}
             </div>
           </details>
@@ -781,6 +976,10 @@ const resolvedGlobalNavGroups = globalNavGroups.map((group) => {
     pointer-events: none;
   }
 
+  .am-nav__dropdown--detailed {
+    min-width: 25rem;
+  }
+
   .am-nav__group:hover .am-nav__dropdown,
   .am-nav__group:focus-within .am-nav__dropdown {
     opacity: 1;
@@ -800,6 +999,23 @@ const resolvedGlobalNavGroups = globalNavGroups.map((group) => {
     backdrop-filter: blur(16px);
   }
 
+  .am-nav__dropdown-panel--detailed {
+    gap: 0.1rem;
+    padding: 1rem;
+  }
+
+  .am-nav__dropdown-section {
+    display: block;
+    padding: 0.9rem 0.75rem 0.25rem;
+    font-family: var(--font-label);
+    font-size: 0.625rem;
+    font-weight: 700;
+    line-height: 1.4;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: color-mix(in srgb, var(--color-on-surface) 45%, transparent);
+  }
+
   .am-nav__dropdown-link {
     display: block;
     padding: 0.65rem 0.75rem;
@@ -809,6 +1025,37 @@ const resolvedGlobalNavGroups = globalNavGroups.map((group) => {
     transition:
       background-color 140ms ease,
       color 140ms ease;
+  }
+
+  .am-nav__dropdown-link--detailed {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.15rem;
+    padding-top: 0.55rem;
+    padding-bottom: 0.55rem;
+  }
+
+  .am-nav__dropdown-link--overview {
+    margin-bottom: 0.1rem;
+    padding-bottom: 0.85rem;
+    border-bottom: 1px solid var(--color-nav-border);
+  }
+
+  .am-nav__dropdown-item-title,
+  .am-nav-mobile__item-title {
+    display: block;
+  }
+
+  .am-nav__dropdown-item-meta {
+    display: block;
+    font-family: var(--font-body);
+    font-size: 0.75rem;
+    font-weight: 400;
+    line-height: 1.4;
+    letter-spacing: normal;
+    text-transform: none;
+    color: color-mix(in srgb, var(--color-on-surface-variant) 78%, transparent);
   }
 
   .am-nav__dropdown-link:hover,
@@ -899,6 +1146,53 @@ const resolvedGlobalNavGroups = globalNavGroups.map((group) => {
     font-size: 0.9375rem;
     color: var(--color-on-surface-variant);
     text-decoration: none;
+  }
+
+  .am-nav-mobile__links > .am-nav-mobile__section {
+    display: block;
+    min-height: 0;
+    padding: 1rem 0 0.25rem;
+    font-family: var(--font-label);
+    font-size: 0.625rem;
+    font-weight: 700;
+    line-height: 1.4;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: color-mix(in srgb, var(--color-on-surface) 45%, transparent);
+  }
+
+  .am-nav-mobile__links .am-nav-mobile__detailed-link {
+    min-height: 3.5rem;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 0.15rem;
+    padding: 0.45rem 0;
+  }
+
+  .am-nav-mobile__overview-link {
+    margin-bottom: 0.1rem;
+    border-bottom: 1px solid color-mix(in srgb, var(--color-outline-variant) 28%, transparent);
+  }
+
+  .am-nav-mobile__item-title {
+    font-family: var(--font-label);
+    font-size: 0.75rem;
+    font-weight: 700;
+    line-height: 1.4;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  .am-nav-mobile__item-meta {
+    display: block;
+    font-family: var(--font-body);
+    font-size: 0.8125rem;
+    font-weight: 400;
+    line-height: 1.45;
+    letter-spacing: normal;
+    text-transform: none;
+    color: var(--color-on-surface-variant);
   }
 
   .am-nav-mobile__links a:hover,

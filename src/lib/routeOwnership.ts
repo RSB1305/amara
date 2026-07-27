@@ -13,6 +13,7 @@ const ROOT_SPANISH_PUBLIC_SLUGS = new Set([
   'legal-notice',
   'frigiliana-location',
   'nerja-location',
+  'tarifa-location',
   'frigiliana-parking',
   'frigiliana-weather',
   'instagram',
@@ -28,7 +29,6 @@ const ROOT_SPANISH_PUBLIC_SLUGS = new Set([
 
 const DISABLED_PUBLIC_ROUTE_TOKENS = new Set([
   'explore_hub',
-  'location_tarifa',
   'locations_hub',
   'weather_frigiliana',
   'journal',
@@ -39,6 +39,7 @@ const DISABLED_PUBLIC_ROUTE_TOKENS = new Set([
 const LOCATION_AUTHORITY_CENTER_TOKENS = new Set([
   'location_frigiliana',
   'location_nerja',
+  'location_tarifa',
   'explore_hub'
 ]);
 
