@@ -167,39 +167,77 @@
 
   .am-cta-link {
     @apply text-on-surface;
+    --am-cta-underline: var(--color-border-subtle);
+    position: relative;
+    display: inline-flex;
+    align-items: center;
     font-family: var(--font-body);
     font-size: 0.875rem;
     font-weight: 400;
     text-transform: uppercase;
     letter-spacing: 0.1em;
     text-decoration: none;
-    border-bottom: 1px solid var(--color-border-subtle);
     padding-bottom: 4px;
-    transition:
-      color 180ms ease,
-      border-color 180ms ease;
+    transition: color 180ms ease;
+  }
+
+  .am-cta-link::before {
+    content: "";
+    position: absolute;
+    inset-inline-start: 0;
+    bottom: 0;
+    width: 100%;
+    height: 1px;
+    background-color: var(--am-cta-underline);
+    transition: background-color 180ms ease;
+  }
+
+  .am-cta-link[href]::before {
+    width: calc(100% - 1.75rem);
+  }
+
+  .am-cta-link[href]::after {
+    content: "→";
+    display: inline-block;
+    margin-inline-start: 0.75rem;
+    font-size: 1rem;
+    line-height: 1;
+    letter-spacing: 0;
+    transition: transform 180ms ease;
+  }
+
+  .am-cta-link[target="_blank"]::after {
+    content: "↗";
   }
 
   .am-cta-link:hover {
-    border-color: var(--color-border-hover);
+    --am-cta-underline: var(--color-border-hover);
+  }
+
+  .am-cta-link[href]:hover::after {
+    transform: translateX(0.25rem);
+  }
+
+  .am-cta-link[target="_blank"]:hover::after {
+    transform: translate(0.15rem, -0.15rem);
   }
 
   .am-cta-link--accent {
     color: var(--color-primary);
-    border-color: color-mix(in srgb, var(--color-primary) 30%, transparent);
+    --am-cta-underline: color-mix(in srgb, var(--color-primary) 30%, transparent);
   }
 
   .am-cta-link--accent:hover {
-    border-color: var(--color-primary);
+    --am-cta-underline: var(--color-primary);
   }
 
   .am-cta-link--inverse {
     color: var(--color-inverted-on-surface);
-    border-color: color-mix(in srgb, var(--color-inverted-on-surface) 35%, transparent);
+    --am-cta-underline: color-mix(in srgb, var(--color-inverted-on-surface) 35%, transparent);
   }
 
   .am-cta-link--inverse:hover {
-    border-color: var(--color-inverted-on-surface);
+    --am-cta-underline: var(--color-inverted-on-surface);
   }
 
   .am-cta-group {
@@ -212,10 +250,6 @@
 
   .am-cta-group--left {
     justify-content: flex-start;
-  }
-
-  .am-exp-cta__dot {
-    color: var(--color-dot-indicator);
   }
 
   .am-btn {

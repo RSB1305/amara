@@ -3,7 +3,14 @@
     "allow": [
       "Bash(npx astro:*)",
       "Bash(npx tsc:*)",
-      "WebFetch(domain:amara-lodging.es)"
+      "WebFetch(domain:amara-lodging.es)",
+      "Bash(cat /tmp/astro-dev.log 2>/dev/null; echo \"---\"; ps aux | grep -i astro | grep -v grep; echo \"---\"; ps aux | grep -i node | grep -v grep)",
+      "Read(//tmp/**)",
+      "Bash(node -e \"console.log\\(require.resolve\\('playwright'\\)\\)\")",
+      "Read(//c/Users/marku/AppData/Local/ms-playwright/**)",
+      "Bash(command -v chromium-cli)",
+      "Read(//c//**)",
+      "Bash(npm ls *)"
     ]
   }
 }

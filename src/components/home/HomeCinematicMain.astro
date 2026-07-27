@@ -244,21 +244,9 @@ const {
 
                   <a
                     href={apt.exploreHref}
-                    class="am-card-link group inline-flex items-center gap-4 am-text-caption uppercase"
+                    class="am-cta-link am-cta-link--accent"
                   >
-                    <span class="relative overflow-hidden pb-1">
-                      {apt.exploreLabel}
-                      <span class="absolute bottom-0 left-0 h-px w-full origin-left scale-x-0 bg-on-surface transition-transform duration-500 group-hover:scale-x-100"></span>
-                    </span>
-                    <svg
-                      class="h-4 w-4 transition-transform duration-500 group-hover:translate-x-2"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                      aria-hidden="true"
-                    >
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
-                    </svg>
+                    {apt.exploreLabel}
                   </a>
                 </div>
               </div>

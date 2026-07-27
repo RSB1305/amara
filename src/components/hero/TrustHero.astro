@@ -46,13 +46,10 @@ const {
   )}
   {ctaLinks.length > 0 && ctaVariant === 'editorial' && (
     <div class="am-cta-group am-cta-group--left mt-8">
-      {ctaLinks.map((link, index) => (
-        <>
-          {index > 0 && <span class="am-exp-cta__dot">&middot;</span>}
-          <a href={link.href} class="am-cta-link">
-            {link.label}
-          </a>
-        </>
+      {ctaLinks.map((link) => (
+        <a href={link.href} class="am-cta-link">
+          {link.label}
+        </a>
       ))}
     </div>
   )}
