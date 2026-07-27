@@ -1,0 +1,13 @@
+---
+import GettingToFrigilianaPage from '../../page-families/location-authority/GettingToFrigilianaPage.astro';
+import { getOwnedPageStaticPaths } from '../../lib/routeOwnership';
+import type { AmaraLanguage } from '../../types/seo';
+
+export function getStaticPaths() {
+  return getOwnedPageStaticPaths();
+}
+
+const { lang } = Astro.params as { lang: AmaraLanguage };
+---
+
+<GettingToFrigilianaPage lang={lang} />

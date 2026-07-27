@@ -34,14 +34,14 @@ import '../../../styles/global.css';
     .sg-swatch { border-radius: 10px; overflow: hidden; border: 1px solid var(--color-outline-variant); }
     .sg-swatch-color { height: 72px; }
     .sg-swatch-info { padding: 10px 12px; background: var(--color-surface-white); }
-    .sg-swatch-name { font-size: 11px; font-weight: 500; color: var(--color-on-surface); margin-bottom: 2px; }
+    .sg-swatch-name { font-size: 11px; font-weight: 700; color: var(--color-on-surface); margin-bottom: 2px; }
     .sg-swatch-value { font-size: 10px; font-family: monospace; color: var(--color-muted); }
     .sg-swatch-class { font-size: 10px; font-family: monospace; color: var(--color-primary); margin-top: 2px; }
 
     /* Typography specimens */
     .sg-type-specimen { background: var(--color-surface-white); border: 1px solid var(--color-outline-variant); border-radius: 10px; padding: 24px 28px; margin-bottom: 12px; display: grid; grid-template-columns: 1fr auto; gap: 16px; align-items: center; }
     .sg-type-meta { text-align: right; }
-    .sg-type-meta-name { font-size: 11px; font-weight: 500; color: var(--color-muted); }
+    .sg-type-meta-name { font-size: 11px; font-weight: 700; color: var(--color-muted); }
     .sg-type-meta-detail { font-size: 10px; font-family: monospace; color: var(--color-hint); margin-top: 2px; }
 
     /* Spacing */
@@ -54,7 +54,7 @@ import '../../../styles/global.css';
     .sg-component-label { font-size: 10px; letter-spacing: .1em; text-transform: uppercase; color: var(--color-hint); margin-top: 12px; }
 
     /* Badges */
-    .sg-badge { display: inline-flex; align-items: center; padding: 3px 10px; border-radius: 99px; font-size: 10px; font-weight: 500; letter-spacing: .08em; text-transform: uppercase; }
+    .sg-badge { display: inline-flex; align-items: center; padding: 3px 10px; border-radius: 99px; font-size: 10px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; }
     .sg-badge--primary { background: var(--color-primary-container); color: var(--color-primary); }
     .sg-badge--surface { background: var(--color-surface-container-high); color: var(--color-on-surface-variant); }
     .sg-badge--gold { background: var(--color-gold); color: var(--color-on-primary); }
@@ -75,7 +75,7 @@ import '../../../styles/global.css';
 
     /* Structure demo */
     .sg-structure { background: var(--color-surface-container-low); border: 2px dashed var(--color-outline-variant); border-radius: 12px; padding: 20px; }
-    .sg-structure-label { font-size: 10px; font-family: monospace; color: var(--color-primary); margin-bottom: 12px; display: block; font-weight: 500; }
+    .sg-structure-label { font-size: 10px; font-family: monospace; color: var(--color-primary); margin-bottom: 12px; display: block; font-weight: 700; }
     .sg-structure-inner { background: var(--color-surface-white); border: 2px dashed var(--color-outline-variant); border-radius: 8px; padding: 16px; margin-top: 8px; }
 
     /* Dividers */
@@ -247,7 +247,7 @@ import '../../../styles/global.css';
         <div class="sg-type-meta"><div class="sg-type-meta-name">Body</div><div class="sg-type-meta-detail">font-body · 16px · 400</div></div>
       </div>
       <div class="sg-type-specimen">
-        <div style="font-family:var(--font-label);font-size:10px;font-weight:500;letter-spacing:.15em;text-transform:uppercase;color:var(--color-primary)">Location Authority · Frigiliana</div>
+        <div style="font-family:var(--font-label);font-size:10px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--color-primary)">Location Authority · Frigiliana</div>
         <div class="sg-type-meta"><div class="sg-type-meta-name">Eyebrow / Label</div><div class="sg-type-meta-detail">font-label · 10px · 500 · tracking</div></div>
       </div>
     </section>
@@ -295,13 +295,11 @@ import '../../../styles/global.css';
       <div class="sg-component-frame">
         <div class="sg-row">
           <button type="button" class="am-btn am-btn--primary">Explore AMARA Stays</button>
-          <button type="button" class="am-btn am-btn--outline">Check Availability</button>
-          <button type="button" class="am-btn am-btn--ghost">Learn More</button>
+          <button type="button" class="am-btn am-btn--secondary">Learn More</button>
         </div>
         <div class="sg-component-label" style="margin-top:20px">
           <span class="sg-code">.am-btn--primary</span> · Hover: <span class="sg-code">--color-btn-primary-hover-bg</span> + <span class="sg-code">translateY(-1px)</span><br />
-          <span class="sg-code">.am-btn--outline</span> ·
-          <span class="sg-code">.am-btn--ghost</span>
+          <span class="sg-code">.am-btn--secondary</span>
         </div>
       </div>
     </section>

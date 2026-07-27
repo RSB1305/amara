@@ -57,12 +57,12 @@ const { eyebrow, title, intro, items } = Astro.props;
               (items[0].href ? (
                 <a
                   href={items[0].href}
-                  class="inline-block am-text-caption uppercase tracking-[0.3em] text-primary border-b border-primary/30 pb-1 hover:border-primary transition-colors"
+                  class="am-cta-link am-cta-link--accent"
                 >
                   {items[0].linkLabel}
                 </a>
               ) : (
-                <span class="am-link-disabled inline-block am-text-caption uppercase tracking-[0.3em] text-primary border-b border-primary/30 pb-1 transition-colors">
+                <span class="am-cta-link am-cta-link--accent am-is-disabled" aria-disabled="true">
                   {items[0].linkLabel}
                 </span>
               ))}
@@ -100,11 +100,3 @@ const { eyebrow, title, intro, items } = Astro.props;
     )}
   </div>
 </section>
-
-<style>
-  .am-link-disabled {
-    pointer-events: none;
-    cursor: default;
-    opacity: 0.6;
-  }
-</style>

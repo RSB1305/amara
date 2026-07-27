@@ -249,7 +249,7 @@ export default function HomeCinematicMain(props: HomeCinematicMainProps) {
                   <a
                     key={link.href}
                     href={link.href}
-                    className="group border-l border-outline-variant/25 py-1 pl-6 transition-colors hover:border-primary"
+                    className="am-guide-link group"
                   >
                     <span className="block am-text-caption uppercase tracking-widest text-primary">{link.label}</span>
                     <span className="mt-3 block max-w-sm am-text-body leading-relaxed text-on-surface-variant transition-colors group-hover:text-on-surface">
@@ -308,7 +308,7 @@ export default function HomeCinematicMain(props: HomeCinematicMainProps) {
 
                       <a
                         href={apt.exploreHref}
-                        className="group inline-flex items-center gap-4 am-text-caption uppercase tracking-widest text-on-surface"
+                        className="am-card-link group inline-flex items-center gap-4 am-text-caption uppercase"
                       >
                         <span className="relative overflow-hidden pb-1">
                           {apt.exploreLabel}
@@ -373,7 +373,7 @@ export default function HomeCinematicMain(props: HomeCinematicMainProps) {
             {trustReviewsHref && (
               <a
                 href={trustReviewsHref}
-                className="inline-flex items-center justify-center bg-surface px-8 py-4 am-text-caption uppercase tracking-widest text-on-surface transition-colors hover:bg-surface-container-high"
+                className="am-btn am-btn--primary am-btn--inverse"
               >
                 {trustCta}
               </a>

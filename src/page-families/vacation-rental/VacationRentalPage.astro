@@ -363,7 +363,7 @@ const galleryImages = rental.images.slice(1);
               {t(ui.checkAvailability as LocalizedText)}
             </a>
             {collectionHref && (
-              <a class="am-btn am-btn--ghost w-full justify-center sm:w-auto" href={collectionHref}>
+              <a class="am-btn am-btn--secondary w-full justify-center sm:w-auto" href={collectionHref}>
                 {t(ui.backToCollection as LocalizedText)}
               </a>
             )}
@@ -484,12 +484,12 @@ const galleryImages = rental.images.slice(1);
               {t(ui.checkAvailability as LocalizedText)}
             </a>
             {locationLinks.map((link) => (
-              <a class="am-btn am-btn--ghost w-full justify-center sm:w-auto" href={link.href}>
+              <a class="am-btn am-btn--secondary w-full justify-center sm:w-auto" href={link.href}>
                 {link.label}
               </a>
             ))}
             {reviewsHref && (
-              <a class="am-btn am-btn--ghost w-full justify-center sm:w-auto" href={reviewsHref}>
+              <a class="am-btn am-btn--secondary w-full justify-center sm:w-auto" href={reviewsHref}>
                 {t(ui.readReviews as LocalizedText)}
               </a>
             )}

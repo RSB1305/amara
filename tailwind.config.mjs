@@ -15,8 +15,8 @@ export default {
         line:    '#d9d1c4',
       },
       fontFamily: {
-        display: ['"Cormorant Garamond"', 'Georgia', 'serif'],
-        body:    ['"DM Sans"', 'system-ui', 'sans-serif'],
+        display: ['"Newsreader"', 'Georgia', 'serif'],
+        body:    ['"Plus Jakarta Sans"', 'system-ui', 'sans-serif'],
       },
       fontSize: {
         'display-xl': ['clamp(4rem,7vw,7rem)',   { lineHeight: '0.96' }],

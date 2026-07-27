@@ -15,9 +15,12 @@
 /es/comfort-amenities /comfort-amenities 301
 /es/direct-booking-benefits /direct-booking-benefits 301
 /es/faq-general /faq-general 301
+/es/frigiliana-faq /frigiliana-faq 301
 /es/frigiliana-location /frigiliana-location 301
+/es/frigiliana-market /frigiliana-market 301
 /es/frigiliana-parking /frigiliana-parking 301
 /es/frigiliana-weather /frigiliana-weather 301
+/es/getting-to-frigiliana /getting-to-frigiliana 301
 /es/guest-reviews /guest-reviews 301
 /es/legal-notice /legal-notice 301
 /es/romantic-hideaways /romantic-hideaways 301
@@ -81,7 +84,6 @@
 /sv/impressum-rattsligt-meddelande /sv/legal-notice 301
 
 # FAQ
-/en/frigiliana-faq /en/faq-general 301
 /de/faq---allgemeine-fragen /de/faq-general 301
 /de/haufig-gestellte-fragen /de/faq-general 301
 /es/preguntas-frecuentes1 /faq-general 301
@@ -91,12 +93,18 @@
 /sv/vanliga-fragor1 /sv/faq-general 301
 /sv/vanliga-fragor /sv/faq-general 301
 
-# Guest arrival utility
-/en/arrival-parking-guide /en/directions-arrival-guide 301
-/de/frigiliana-arrival-parking-guide /de/directions-arrival-guide 301
-/es/frigiliana-arrival-parking-guide /directions-arrival-guide 301
-/nl/frigiliana-arrival-parking-guide /nl/directions-arrival-guide 301
-/sv/frigiliana-arrival-parking-guide /sv/directions-arrival-guide 301
+# Frigiliana arrival planning
+/arrival-parking-guide /getting-to-frigiliana 301
+/en/arrival-parking-guide /en/getting-to-frigiliana 301
+/de/arrival-parking-guide /de/getting-to-frigiliana 301
+/es/arrival-parking-guide /getting-to-frigiliana 301
+/nl/arrival-parking-guide /nl/getting-to-frigiliana 301
+/sv/arrival-parking-guide /sv/getting-to-frigiliana 301
+/en/frigiliana-arrival-parking-guide /en/getting-to-frigiliana 301
+/de/frigiliana-arrival-parking-guide /de/getting-to-frigiliana 301
+/es/frigiliana-arrival-parking-guide /getting-to-frigiliana 301
+/nl/frigiliana-arrival-parking-guide /nl/getting-to-frigiliana 301
+/sv/frigiliana-arrival-parking-guide /sv/getting-to-frigiliana 301
 
 # Frigiliana authority duplicates
 /en/frigiliana-location-amara /en/frigiliana-location 301
@@ -110,11 +118,22 @@
 /sv/plats-amara /sv/frigiliana-location 301
 
 # Frigiliana structure and comparison topics
-/en/frigiliana-stairs-layout /en/frigiliana-location 301
-/de/frigiliana-ort-struktur-und-treppen /de/frigiliana-location 301
-/es/estructura-y-escaleras-del-sitio-de-frigiliana /frigiliana-location 301
-/nl/structuur-en-trappen-van-de-frigiliana-site /nl/frigiliana-location 301
-/sv/frigiliana-tomtens-struktur-och-trappor /sv/frigiliana-location 301
+/frigiliana-stairs-layout /frigiliana-streets-stairs 301
+/es/frigiliana-stairs-layout /frigiliana-streets-stairs 301
+/de/frigiliana-stairs-layout /de/frigiliana-streets-stairs 301
+/en/frigiliana-stairs-layout /en/frigiliana-streets-stairs 301
+/nl/frigiliana-stairs-layout /nl/frigiliana-streets-stairs 301
+/sv/frigiliana-stairs-layout /sv/frigiliana-streets-stairs 301
+/frigiliana-village-structure-stairs /frigiliana-streets-stairs 301
+/es/frigiliana-village-structure-stairs /frigiliana-streets-stairs 301
+/de/frigiliana-village-structure-stairs /de/frigiliana-streets-stairs 301
+/en/frigiliana-village-structure-stairs /en/frigiliana-streets-stairs 301
+/nl/frigiliana-village-structure-stairs /nl/frigiliana-streets-stairs 301
+/sv/frigiliana-village-structure-stairs /sv/frigiliana-streets-stairs 301
+/de/frigiliana-ort-struktur-und-treppen /de/frigiliana-streets-stairs 301
+/es/estructura-y-escaleras-del-sitio-de-frigiliana /frigiliana-streets-stairs 301
+/nl/structuur-en-trappen-van-de-frigiliana-site /nl/frigiliana-streets-stairs 301
+/sv/frigiliana-tomtens-struktur-och-trappor /sv/frigiliana-streets-stairs 301
 /en/frigiliana-near-nerja /en/frigiliana-location 301
 /de/nerja /de/frigiliana-location 301
 /es/nerja /frigiliana-location 301
@@ -168,11 +187,11 @@
 /es/frigiliana-de-noche /frigiliana-location 301
 /nl/frigiliana-s-nachts /nl/frigiliana-location 301
 /sv/frigiliana-pa-natten /sv/frigiliana-location 301
-/en/frigiliana-market /en/frigiliana-location 301
-/de/frigiliana-markt /de/frigiliana-location 301
-/es/mercado-de-frigiliana /frigiliana-location 301
-/nl/frigiliana-markt /nl/frigiliana-location 301
-/sv/frigiliana-marknaden /sv/frigiliana-location 301
+/mercado-de-frigiliana /frigiliana-market 301
+/de/frigiliana-markt /de/frigiliana-market 301
+/es/mercado-de-frigiliana /frigiliana-market 301
+/nl/frigiliana-markt /nl/frigiliana-market 301
+/sv/frigiliana-marknaden /sv/frigiliana-market 301
 /en/frigiliana-supermarkets /en/frigiliana-location 301
 /de/supermarkte /de/frigiliana-location 301
 /es/supermercados /frigiliana-location 301
@@ -195,11 +214,16 @@
 /es/apartamento-frigiliana /romantic-hideaways 301
 /nl/appartement-frigiliana /nl/romantic-hideaways 301
 /sv/lagenhet-frigiliana /sv/romantic-hideaways 301
-/en/where-to-stay-frigiliana /en/romantic-hideaways 301
-/de/wo-man-in-frigiliana-ubernachten-kann /de/romantic-hideaways 301
-/es/donde-alojarse-en-frigiliana /romantic-hideaways 301
-/nl/waar-te-verblijven-in-frigiliana /nl/romantic-hideaways 301
-/sv/var-man-kan-bo-i-frigiliana /sv/romantic-hideaways 301
+/where-to-stay-frigiliana /frigiliana-location 301
+/en/where-to-stay-frigiliana /en/frigiliana-location 301
+/de/where-to-stay-frigiliana /de/frigiliana-location 301
+/es/where-to-stay-frigiliana /frigiliana-location 301
+/nl/where-to-stay-frigiliana /nl/frigiliana-location 301
+/sv/where-to-stay-frigiliana /sv/frigiliana-location 301
+/de/wo-man-in-frigiliana-ubernachten-kann /de/frigiliana-location 301
+/es/donde-alojarse-en-frigiliana /frigiliana-location 301
+/nl/waar-te-verblijven-in-frigiliana /nl/frigiliana-location 301
+/sv/var-man-kan-bo-i-frigiliana /sv/frigiliana-location 301
 /en/hotels-in-frigiliana /en/romantic-hideaways 301
 /de/hotels-in-frigiliana /de/romantic-hideaways 301
 /es/hoteles-en-frigiliana /romantic-hideaways 301

@@ -33,7 +33,7 @@ const { title, intro, frictionLabel, carAccessLabel, left, center, right } = Ast
   <div class="mb-12 flex flex-col md:flex-row md:items-end justify-between gap-6">
     <div>
       <h2 class="am-text-title mb-4">{title}</h2>
-      <p class="am-text-body text-on-surface-variant font-light max-w-xl">
+      <p class="am-text-body text-on-surface-variant max-w-xl">
         {intro}
       </p>
     </div>
@@ -44,16 +44,16 @@ const { title, intro, frictionLabel, carAccessLabel, left, center, right } = Ast
       <div class="mb-8">
         <Mountain className="w-6 h-6 text-on-surface mb-4" strokeWidth={1.5} />
         <h3 class="am-text-subtitle mb-2">{left.title}</h3>
-        <p class="am-text-body text-on-surface-variant font-light">{left.description}</p>
+        <p class="am-text-body text-on-surface-variant">{left.description}</p>
       </div>
       <div class="mt-auto space-y-4">
         <div class="flex justify-between items-center border-t border-surface-container-high pt-4">
           <span class="am-text-caption uppercase tracking-wider text-muted">{frictionLabel}</span>
-          <span class="am-text-body font-medium">{left.frictionValue}</span>
+          <span class="am-text-body font-bold">{left.frictionValue}</span>
         </div>
         <div class="flex justify-between items-center border-t border-surface-container-high pt-4">
           <span class="am-text-caption uppercase tracking-wider text-muted">{carAccessLabel}</span>
-          <span class="am-text-body font-medium">{left.carAccessValue}</span>
+          <span class="am-text-body font-bold">{left.carAccessValue}</span>
         </div>
       </div>
     </div>
@@ -65,16 +65,16 @@ const { title, intro, frictionLabel, carAccessLabel, left, center, right } = Ast
       <div class="mb-8">
         <Home className="w-6 h-6 text-surface-white mb-4" strokeWidth={1.5} />
         <h3 class="am-text-subtitle mb-2">{center.title}</h3>
-        <p class="am-text-body text-faint font-light">{center.description}</p>
+        <p class="am-text-body text-faint">{center.description}</p>
       </div>
       <div class="mt-auto space-y-4">
         <div class="flex justify-between items-center border-t border-surface-white/20 pt-4">
           <span class="am-text-caption uppercase tracking-wider text-faint">{frictionLabel}</span>
-          <span class="am-text-body font-medium">{center.frictionValue}</span>
+          <span class="am-text-body font-bold">{center.frictionValue}</span>
         </div>
         <div class="flex justify-between items-center border-t border-surface-white/20 pt-4">
           <span class="am-text-caption uppercase tracking-wider text-faint">{carAccessLabel}</span>
-          <span class="am-text-body font-medium">{center.carAccessValue}</span>
+          <span class="am-text-body font-bold">{center.carAccessValue}</span>
         </div>
       </div>
     </div>
@@ -83,16 +83,16 @@ const { title, intro, frictionLabel, carAccessLabel, left, center, right } = Ast
       <div class="mb-8">
         <Car className="w-6 h-6 text-on-surface mb-4" strokeWidth={1.5} />
         <h3 class="am-text-subtitle mb-2">{right.title}</h3>
-        <p class="am-text-body text-on-surface-variant font-light">{right.description}</p>
+        <p class="am-text-body text-on-surface-variant">{right.description}</p>
       </div>
       <div class="mt-auto space-y-4">
         <div class="flex justify-between items-center border-t border-surface-container-high pt-4">
           <span class="am-text-caption uppercase tracking-wider text-muted">{frictionLabel}</span>
-          <span class="am-text-body font-medium">{right.frictionValue}</span>
+          <span class="am-text-body font-bold">{right.frictionValue}</span>
         </div>
         <div class="flex justify-between items-center border-t border-surface-container-high pt-4">
           <span class="am-text-caption uppercase tracking-wider text-muted">{carAccessLabel}</span>
-          <span class="am-text-body font-medium">{right.carAccessValue}</span>
+          <span class="am-text-body font-bold">{right.carAccessValue}</span>
         </div>
       </div>
     </div>

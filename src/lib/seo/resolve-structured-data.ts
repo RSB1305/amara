@@ -84,6 +84,13 @@ const PUBLIC_ROUTE_LABELS: Partial<Record<string, Record<AmaraLanguage, string>>
     nl: 'Verblijfs-FAQ',
     sv: 'FAQ for vistelsen'
   },
+  'frigiliana-faq': {
+    en: 'Frigiliana FAQ',
+    de: 'Frigiliana-FAQ',
+    es: 'FAQ de Frigiliana',
+    nl: 'Frigiliana-FAQ',
+    sv: 'Frigiliana-FAQ'
+  },
   'frigiliana-location': {
     en: 'Frigiliana Guide',
     de: 'Frigiliana-Guide',

@@ -6,10 +6,10 @@ import EditorialClosingCta from '../../components/editorial/EditorialClosingCta.
 import HairlineStatCard from '../../components/location/HairlineStatCard.astro';
 import SectionAnchorNav from '../../components/navigation/SectionAnchorNav.astro';
 import {
-  frigilianaParkingCopy,
-  frigilianaParkingExternalLinks,
-  frigilianaParkingSeo
-} from '../../content/frigilianaParkingContent';
+  frigilianaMarketCopy,
+  frigilianaMarketExternalLinks,
+  frigilianaMarketSeo
+} from '../../content/frigilianaMarketContent';
 import LocationAuthorityLayout from '../../layouts/LocationAuthorityLayout.astro';
 import { getFrigilianaAuthoritySubnav } from '../../lib/frigiliana/frigilianaAuthoritySubnav';
 import { resolveOptionalLink } from '../../lib/linkResolver';
@@ -25,35 +25,24 @@ type LocalizedRow = { readonly [K in AmaraLanguage]: string };
 
 const { lang = 'es' } = Astro.props;
 const currentLang = normalizeLanguage(lang as AmaraLanguage);
-const copy = frigilianaParkingCopy;
+const copy = frigilianaMarketCopy;
 
 function t(row: LocalizedRow): string {
   return row[currentLang] ?? row.en;
 }
 
+const marketHref = buildOwnedLocalizedPath('frigiliana-market', currentLang);
 const parkingHref = buildOwnedLocalizedPath('frigiliana-parking', currentLang);
-const streetsHref = buildOwnedLocalizedPath('frigiliana-streets-stairs', currentLang);
 
-const sectionNavItems = getFrigilianaAuthoritySubnav(currentLang)
-  .map((item) => {
-    if (item.id === 'structure') {
-      return {
+const sectionNavItems = getFrigilianaAuthoritySubnav(currentLang).map((item) =>
+  item.id === 'comparison'
+    ? {
         ...item,
-        href: streetsHref,
-        label: t(copy.nav.links[2].label)
-      };
-    }
-
-    if (item.id === 'arrival') {
-      return {
-        ...item,
-        href: parkingHref,
+        href: marketHref,
         label: t(copy.nav.links[1].label)
-      };
-    }
-
-    return item;
-  });
+      }
+    : item
+);
 
 const navLinks = copy.nav.links.map((link) => ({
   token: link.token,
@@ -66,29 +55,29 @@ const facts = copy.facts.items.map((item) => ({
   note: t(item.note)
 }));
 
-const options = copy.options.items.map((item) => ({
+const stallTypes = copy.stalls.items.map((item) => ({
   number: item.number,
   title: t(item.title),
   summary: t(item.summary),
-  bestFor: t(item.bestFor),
+  expect: t(item.expect),
   remember: t(item.remember)
 }));
 
-const arrivalSteps = copy.arrival.steps.map((step) => ({
+const morningSteps = copy.morning.steps.map((step) => ({
   num: step.num,
   headline: t(step.title),
   text: t(step.text)
 }));
 
-const faqItems = copy.arrival.faq.map((item) => ({
+const faqItems = copy.morning.faq.map((item) => ({
   question: t(item.question),
   answer: t(item.answer)
 }));
 
 const liveInfoLinks = copy.liveInfo.links.map((link) => ({
   href:
-    frigilianaParkingExternalLinks[
-      link.key as keyof typeof frigilianaParkingExternalLinks
+    frigilianaMarketExternalLinks[
+      link.key as keyof typeof frigilianaMarketExternalLinks
     ],
   label: t(link.label),
   text: t(link.text)
@@ -104,34 +93,34 @@ const relatedLinks = copy.related.links.flatMap((link) => {
 
 const footerHighlights = [
   {
-    token: 'frigiliana_parking',
+    token: 'frigiliana_market',
     label: t(copy.nav.links[1].label)
   },
   {
-    token: 'frigiliana_stairs',
+    token: 'frigiliana_parking',
     label: t(copy.nav.links[2].label)
   },
   {
-    token: 'getting_to_frigiliana',
-    label: t(copy.related.links[1].label)
+    token: 'location_frigiliana',
+    label: t(copy.related.links[3].label)
   }
 ];
 
 const heroImage = {
-  src: '/images/amara-frigiliana-pueblo/JPG_Frigiliana_Pueblo/2000px_72dpi_sRGB/01-frigiliana-pueblo.jpg',
+  src: '/images/amara-frigiliana-pueblo/JPG_Frigiliana_Pueblo/2000px_72dpi_sRGB/06-frigiliana-pueblo.jpg',
   width: 2000,
   height: 1333
 };
 
-const timingImage = {
-  src: '/images/amara-frigiliana-pueblo/JPG_Frigiliana_Pueblo/2000px_72dpi_sRGB/03-frigiliana-pueblo.jpg',
+const ingenioImage = {
+  src: '/images/amara-frigiliana-pueblo/JPG_Frigiliana_Pueblo/2000px_72dpi_sRGB/05-frigiliana-pueblo.jpg',
   width: 2000,
   height: 1333
 };
 ---
 
 <LocationAuthorityLayout
-  seo={frigilianaParkingSeo}
+  seo={frigilianaMarketSeo}
   pageLang={currentLang}
   footerHighlights={footerHighlights}
 >
@@ -139,12 +128,12 @@ const timingImage = {
     currentLang={currentLang}
     brandName={t(copy.nav.brand)}
     links={navLinks}
-    languageToken="frigiliana_parking"
+    languageToken="frigiliana_market"
     locationAuthorityNav={true}
   />
-  <SectionAnchorNav items={sectionNavItems} activeId="arrival" />
+  <SectionAnchorNav items={sectionNavItems} activeId="comparison" />
 
-  <div class="am-root" data-am-page="frigiliana-parking">
+  <div class="am-root" data-am-page="frigiliana-market">
     <div class="am-wrap w-full">
       <Hero
         imageSrc={heroImage.src}
@@ -168,13 +157,13 @@ const timingImage = {
         </div>
         <div class="flex flex-wrap gap-4">
           <a
-            href="#parking-options"
+            href="#market-facts"
             class="am-btn am-btn--primary"
           >
             {t(copy.hero.primaryCta)}
           </a>
           <a
-            href={streetsHref}
+            href={parkingHref}
             class="am-btn am-btn--secondary"
           >
             {t(copy.hero.secondaryCta)}
@@ -182,13 +171,13 @@ const timingImage = {
         </div>
       </Hero>
 
-      <section class="max-w-screen-2xl mx-auto px-12 pb-32">
+      <section id="market-facts" class="max-w-screen-2xl mx-auto px-12 pb-32">
         <div class="max-w-3xl mb-14">
           <h2 class="am-text-title italic text-on-surface tracking-tight">
             {t(copy.facts.title)}
           </h2>
         </div>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-x-14 gap-y-12">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-12 gap-y-12">
           {
             facts.map((fact) => (
               <HairlineStatCard
@@ -201,54 +190,51 @@ const timingImage = {
         </div>
       </section>
 
-      <section
-        id="parking-options"
-        class="bg-surface-container-low border-y border-outline-variant/5"
-      >
+      <section class="bg-surface-container-low border-y border-outline-variant/5">
         <div class="max-w-screen-2xl mx-auto px-12 py-32">
           <div class="max-w-3xl mb-20">
             <span class="am-text-caption uppercase tracking-[0.35em] text-primary block mb-6">
-              {t(copy.options.eyebrow)}
+              {t(copy.stalls.eyebrow)}
             </span>
             <h2 class="am-text-title italic text-on-surface tracking-tight mb-8">
-              {t(copy.options.title)}
+              {t(copy.stalls.title)}
             </h2>
             <p class="am-text-body text-on-surface-variant leading-relaxed">
-              {t(copy.options.intro)}
+              {t(copy.stalls.intro)}
             </p>
           </div>
 
           <div class="grid grid-cols-1 lg:grid-cols-3 gap-x-12 gap-y-16">
             {
-              options.map((option) => (
+              stallTypes.map((stall) => (
                 <article class="border-t border-outline-variant/25 pt-8">
                   <div class="flex items-baseline justify-between gap-6 mb-10">
-                    <h3 class="am-text-subtitle text-on-surface">{option.title}</h3>
+                    <h3 class="am-text-subtitle text-on-surface">{stall.title}</h3>
                     <span
                       class="font-headline text-[clamp(2.5rem,5vw,4.75rem)] italic leading-none text-outline-variant/45"
                       aria-hidden="true"
                     >
-                      {option.number}
+                      {stall.number}
                     </span>
                   </div>
                   <p class="am-text-body text-on-surface-variant leading-relaxed">
-                    {option.summary}
+                    {stall.summary}
                   </p>
                   <dl class="mt-10 divide-y divide-outline-variant/10 border-y border-outline-variant/10">
                     <div class="py-6">
                       <dt class="am-text-caption uppercase tracking-[0.16em] text-primary mb-3">
-                        {t(copy.options.labels.bestFor)}
+                        {t(copy.stalls.labels.expect)}
                       </dt>
                       <dd class="am-text-body text-on-surface-variant leading-relaxed">
-                        {option.bestFor}
+                        {stall.expect}
                       </dd>
                     </div>
                     <div class="py-6">
                       <dt class="am-text-caption uppercase tracking-[0.16em] text-primary mb-3">
-                        {t(copy.options.labels.remember)}
+                        {t(copy.stalls.labels.remember)}
                       </dt>
                       <dd class="am-text-body text-on-surface-variant leading-relaxed">
-                        {option.remember}
+                        {stall.remember}
                       </dd>
                     </div>
                   </dl>
@@ -260,9 +246,9 @@ const timingImage = {
       </section>
 
       <FaqAccordion
-        arrivalTitle={t(copy.arrival.title)}
-        steps={arrivalSteps}
-        faqTitle={t(copy.arrival.faqTitle)}
+        arrivalTitle={t(copy.morning.title)}
+        steps={morningSteps}
+        faqTitle={t(copy.morning.faqTitle)}
         items={faqItems}
       />
 
@@ -271,10 +257,10 @@ const timingImage = {
           <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
             <div class="lg:col-span-6">
               <img
-                src={timingImage.src}
-                alt={t(copy.timing.imageAlt)}
-                width={timingImage.width}
-                height={timingImage.height}
+                src={ingenioImage.src}
+                alt={t(copy.ingenio.imageAlt)}
+                width={ingenioImage.width}
+                height={ingenioImage.height}
                 class="w-full aspect-[4/3] object-cover"
                 loading="lazy"
                 decoding="async"
@@ -282,14 +268,22 @@ const timingImage = {
             </div>
             <div class="lg:col-span-6 lg:pl-10">
               <span class="am-text-caption uppercase tracking-[0.35em] text-primary block mb-6">
-                {t(copy.timing.eyebrow)}
+                {t(copy.ingenio.eyebrow)}
               </span>
               <h2 class="am-text-title italic text-on-surface tracking-tight mb-8">
-                {t(copy.timing.title)}
+                {t(copy.ingenio.title)}
               </h2>
-              <p class="am-text-body text-on-surface-variant leading-relaxed max-w-xl">
-                {t(copy.timing.body)}
+              <p class="am-text-body text-on-surface-variant leading-relaxed max-w-xl mb-9">
+                {t(copy.ingenio.body)}
               </p>
+              <a
+                href={frigilianaMarketExternalLinks.officialIngenio}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="am-cta-link"
+              >
+                {t(copy.ingenio.cta)}
+              </a>
             </div>
           </div>
         </div>
@@ -297,15 +291,17 @@ const timingImage = {
 
       <section class="max-w-screen-2xl mx-auto px-12 py-28">
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
-          <h2 class="lg:col-span-5 am-text-title italic text-on-surface tracking-tight">
-            {t(copy.walk.title)}
-          </h2>
-          <div class="lg:col-span-6 lg:col-start-7">
-            <p class="am-text-body text-on-surface-variant leading-relaxed mb-8">
-              {t(copy.walk.body)}
-            </p>
-            <a href={streetsHref} class="am-cta-link">{t(copy.walk.cta)}</a>
+          <div class="lg:col-span-4">
+            <span class="am-text-caption uppercase tracking-[0.35em] text-primary block mb-6">
+              {t(copy.marketTypes.eyebrow)}
+            </span>
+            <h2 class="am-text-title italic text-on-surface tracking-tight">
+              {t(copy.marketTypes.title)}
+            </h2>
           </div>
+          <p class="lg:col-span-7 lg:col-start-6 am-text-body text-on-surface-variant leading-relaxed border-l border-primary/25 pl-8">
+            {t(copy.marketTypes.body)}
+          </p>
         </div>
       </section>
 
@@ -382,13 +378,13 @@ const timingImage = {
           lang={currentLang}
           links={[
             {
-              token: 'frigiliana_stairs',
-              label: t(copy.closing.streetsCta),
+              token: 'romantic_hideaways',
+              label: t(copy.closing.staysCta),
               style: 'primary'
             },
             {
-              token: 'getting_to_frigiliana',
-              label: t(copy.closing.gettingHereCta),
+              token: 'location_frigiliana',
+              label: t(copy.closing.guideCta),
               style: 'secondary'
             }
           ]}
@@ -400,7 +396,7 @@ const timingImage = {
 
 <style>
   @media (max-width: 767px) {
-    :global([data-am-page='frigiliana-parking'] .px-12) {
+    :global([data-am-page='frigiliana-market'] .px-12) {
       padding-left: 1.5rem;
       padding-right: 1.5rem;
     }

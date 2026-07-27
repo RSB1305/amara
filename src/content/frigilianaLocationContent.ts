@@ -453,6 +453,36 @@ export const frigilianaLocationCopy = {
   decision: {
     eyebrow: { en: "Where to stay", de: "Wo übernachten", es: "Dónde alojarse", nl: "Waar overnachten", sv: "Var du bor" },
     title: { en: "Is Frigiliana the right base?", de: "Ist Frigiliana die richtige Basis?", es: "¿Frigiliana es la base adecuada?", nl: "Is Frigiliana de juiste uitvalsbasis?", sv: "Är Frigiliana rätt bas?" },
+    detail: {
+      eyebrow: {
+        en: "Choose the exact position",
+        de: "Die genaue Lage wählen",
+        es: "Elegir la ubicación exacta",
+        nl: "Kies de exacte ligging",
+        sv: "Välj exakt läge"
+      },
+      title: {
+        en: "Lower, mid-slope or upper village?",
+        de: "Unterdorf, mittlere Hanglage oder Oberdorf?",
+        es: "¿Zona baja, media ladera o zona alta?",
+        nl: "Lager, midden op de helling of hoger in het dorp?",
+        sv: "Nedre byn, mitt på sluttningen eller högre upp?"
+      },
+      text: {
+        en: "These are planning levels, not official districts. Compare repeated daily routes, stairs, the final approach, and actual car access before choosing an address.",
+        de: "Das sind Planungsebenen, keine offiziellen Viertel. Vergleicht wiederkehrende Alltagswege, Treppen, den letzten Zugang und die tatsächliche Autozufahrt, bevor ihr eine Adresse wählt.",
+        es: "Son niveles para planificar, no barrios oficiales. Comparad los trayectos cotidianos, las escaleras, el último acceso y la llegada real en coche antes de elegir una dirección.",
+        nl: "Dit zijn planningsniveaus, geen officiële wijken. Vergelijk dagelijkse routes, trappen, het laatste toegangsstuk en de werkelijke bereikbaarheid met de auto voordat u een adres kiest.",
+        sv: "Det här är planeringsnivåer, inte officiella stadsdelar. Jämför vardagsvägar, trappor, den sista sträckan och den faktiska bilåtkomsten innan ni väljer adress."
+      },
+      cta: {
+        en: "Compare village levels",
+        de: "Höhenlagen vergleichen",
+        es: "Comparar los niveles del pueblo",
+        nl: "Vergelijk de niveaus in het dorp",
+        sv: "Jämför byns nivåer"
+      }
+    },
     profiles: [
       { title: { en: "Couples", de: "Paare", es: "Parejas", nl: "Koppels", sv: "Par" }, description: { en: "A strong fit if you want quiet evenings, village character, terraces, and a slower rhythm close to Nerja.", de: "Sehr passend, wenn Sie ruhige Abende, Dorfcharakter, Terrassen und einen langsameren Rhythmus nahe Nerja suchen.", es: "Muy buena opción si buscáis noches tranquilas, carácter de pueblo, terrazas y un ritmo más pausado cerca de Nerja.", nl: "Sterk passend als u rustige avonden, dorpskarakter, terrassen en een langzamer ritme dicht bij Nerja zoekt.", sv: "Mycket passande om ni vill ha lugna kvällar, bykaraktär, terrasser och ett långsammare tempo nära Nerja." }, suitability: { en: "Best fit", de: "Sehr passend", es: "Ideal", nl: "Beste match", sv: "Bäst match" } },
       { title: { en: "Drivers", de: "Mit Auto", es: "Con coche", nl: "Met auto", sv: "Med bil" }, description: { en: "Good if you are comfortable parking nearby and walking the final stretch through a stepped village.", de: "Gut, wenn Sie in der Nähe parken und das letzte Stück durch ein gestuftes Dorf gehen können.", es: "Buena opción si os parece bien aparcar cerca y caminar el último tramo por un pueblo con escaleras.", nl: "Goed als parkeren in de buurt en het laatste stuk lopen door een dorp met trappen geen probleem is.", sv: "Bra om ni kan parkera i närheten och gå sista biten genom en by med trappor." }, suitability: { en: "Plan ahead", de: "Planen", es: "Planificar", nl: "Plan vooruit", sv: "Planera" } },
@@ -483,6 +513,22 @@ export const frigilianaLocationCopy = {
       sv: "Dessa guider tar er från inspiration till en realistisk vistelseplan: lägenhetsval, ankomst, parkering, väder, omdömen och komfortdetaljer."
     },
     links: {
+      gettingHere: {
+        label: {
+          en: "Getting to Frigiliana",
+          de: "Anreise nach Frigiliana",
+          es: "Cómo llegar a Frigiliana",
+          nl: "Naar Frigiliana reizen",
+          sv: "Resa till Frigiliana"
+        },
+        text: {
+          en: "Compare rental car, private transfer, and bus connections via Nerja.",
+          de: "Mietwagen, privaten Transfer und Busverbindungen über Nerja vergleichen.",
+          es: "Comparar coche de alquiler, transfer privado y autobús vía Nerja.",
+          nl: "Vergelijk huurauto, privétransfer en busverbindingen via Nerja.",
+          sv: "Jämför hyrbil, privat transfer och bussförbindelser via Nerja."
+        }
+      },
       apartments: {
         label: { en: "Apartments for couples", de: "Apartments für Paare", es: "Apartamentos para parejas", nl: "Appartementen voor koppels", sv: "Lägenheter för par" },
         text: {
@@ -501,6 +547,16 @@ export const frigilianaLocationCopy = {
           es: "Entender llegada, escaleras y el último tramo a pie.",
           nl: "Begrijp aankomst, trappen en het laatste stuk lopen.",
           sv: "Förstå ankomst, trappor och sista biten till fots."
+        }
+      },
+      market: {
+        label: { en: "Thursday market", de: "Donnerstagsmarkt", es: "Mercado de los jueves", nl: "Donderdagmarkt", sv: "Torsdagsmarknad" },
+        text: {
+          en: "Plan the typical time, stalls, parking, and old-town walk.",
+          de: "Typische Uhrzeit, Stände, Parken und Altstadtrundgang planen.",
+          es: "Planificar horario habitual, puestos, aparcamiento y paseo por el casco antiguo.",
+          nl: "Plan de gebruikelijke tijd, kramen, parkeren en wandeling door de oude kern.",
+          sv: "Planera vanlig tid, stånd, parkering och promenad i gamla stan."
         }
       },
       weather: {

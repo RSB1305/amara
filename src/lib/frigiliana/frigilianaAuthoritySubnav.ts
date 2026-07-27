@@ -66,14 +66,13 @@ const labels: Record<
 };
 
 const locationAnchors: Record<
-  Exclude<FrigilianaAuthoritySubnavId, 'arrival' | 'weather'>,
+  Exclude<FrigilianaAuthoritySubnavId, 'arrival' | 'weather' | 'faq'>,
   string
 > = {
   intro: '#intro',
   comparison: '#comparison',
   structure: '#experiences',
-  stay: '#where-to-stay',
-  faq: '#faq'
+  stay: '#where-to-stay'
 };
 
 export function getFrigilianaAuthoritySubnav(
@@ -82,7 +81,9 @@ export function getFrigilianaAuthoritySubnav(
   const locationBase = resolveLink('location_frigiliana', currentLang);
 
   const locationItems: FrigilianaAuthoritySubnavItem[] = (
-    Object.keys(locationAnchors) as Array<Exclude<FrigilianaAuthoritySubnavId, 'arrival'>>
+    Object.keys(locationAnchors) as Array<
+      Exclude<FrigilianaAuthoritySubnavId, 'arrival' | 'weather' | 'faq'>
+    >
   ).map((id) => ({
     id,
     label: labels[id][currentLang],
@@ -101,6 +102,12 @@ export function getFrigilianaAuthoritySubnav(
     href: resolveLink('weather_frigiliana', currentLang)
   };
 
+  const faqItem: FrigilianaAuthoritySubnavItem = {
+    id: 'faq',
+    label: labels.faq[currentLang],
+    href: resolveLink('frigiliana_faq', currentLang)
+  };
+
   const ordered: FrigilianaAuthoritySubnavId[] = [
     'intro',
     'weather',
@@ -114,9 +121,9 @@ export function getFrigilianaAuthoritySubnav(
   const byId = new Map<FrigilianaAuthoritySubnavId, FrigilianaAuthoritySubnavItem>([
     ...locationItems.map((i) => [i.id, i] as const),
     ['arrival', arrivalItem],
-    ['weather', weatherItem]
+    ['weather', weatherItem],
+    ['faq', faqItem]
   ]);
 
   return ordered.map((id) => byId.get(id)!).filter(Boolean);
 }
-

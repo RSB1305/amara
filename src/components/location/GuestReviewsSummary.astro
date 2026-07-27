@@ -29,7 +29,7 @@ const { eyebrow, headline, body, reviewsHref, reviewsCtaLabel, features } = Astr
       </h2>
       <p class="am-guest-reviews-summary__body am-text-body text-on-surface-variant">{body}</p>
       <div class="am-guest-reviews-summary__cta-wrap">
-        <a class="am-guest-reviews-summary__cta am-text-body font-medium" href={reviewsHref}>{reviewsCtaLabel}</a>
+        <a class="am-btn am-btn--secondary" href={reviewsHref}>{reviewsCtaLabel}</a>
       </div>
     </div>
 
@@ -105,26 +105,6 @@ const { eyebrow, headline, body, reviewsHref, reviewsCtaLabel, features } = Astr
 
   .am-guest-reviews-summary__cta-wrap {
     margin-top: 0.5rem;
-  }
-
-  .am-guest-reviews-summary__cta {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    padding: 0.75rem 1.5rem;
-    line-height: 1.25;
-    border-radius: 9999px;
-    border: 1px solid var(--color-outline);
-    color: var(--color-on-surface);
-    text-decoration: none;
-    transition:
-      border-color 0.2s ease,
-      background-color 0.2s ease;
-  }
-
-  .am-guest-reviews-summary__cta:hover {
-    border-color: var(--color-border-hover);
-    background-color: var(--color-surface-container-low);
   }
 
   .am-guest-reviews-summary__chips {

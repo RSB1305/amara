@@ -75,8 +75,8 @@ const heroCtaLinks = [
   .filter((link): link is { href: string; label: string } => Boolean(link));
 const closingCtaLinks = [
   { token: 'book', label: page.inventory.directBooking, style: 'primary' as const },
-  { token: 'romantic_hideaways', label: closing.explore, style: 'ghost' as const },
-  { token: 'faq_general', label: comfortAmenitiesFooterLabels.faq_general[currentLang], style: 'ghost' as const }
+  { token: 'romantic_hideaways', label: closing.explore, style: 'secondary' as const },
+  { token: 'faq_general', label: comfortAmenitiesFooterLabels.faq_general[currentLang], style: 'secondary' as const }
 ];
 ---
 
@@ -105,12 +105,12 @@ const closingCtaLinks = [
       <main class="am-wrap w-full max-w-[76rem] mx-auto px-6 pb-20 max-md:px-4">
 
         <section class="am-section mb-12" aria-label={page.sections.conceptAria}>
-          <h2 class="am-h2 mb-4 am-text-title font-medium leading-tight tracking-tight text-on-surface">{page.sections.conceptTitle}</h2>
+          <h2 class="am-h2 mb-4 am-text-title font-normal leading-tight tracking-tight text-on-surface">{page.sections.conceptTitle}</h2>
 
           <div class="am-grid block">
             <article class="am-card mb-10 border-0 rounded-none bg-transparent shadow-none">
               <div class="am-card-body p-0">
-                <h3 class="am-h2 mb-4 am-text-subtitle font-medium leading-tight tracking-tight text-on-surface">{page.sections.coreTitle}</h3>
+                <h3 class="am-h2 mb-4 am-text-subtitle font-normal leading-tight tracking-tight text-on-surface">{page.sections.coreTitle}</h3>
 
                 <div class="am-elist is-tight block">
                   {page.bullets.core.map((bullet, index) => (
@@ -127,7 +127,7 @@ const closingCtaLinks = [
                         )}
                       </div>
                       <div class="am-elist-body">
-                        <p class="am-elist-title mb-0.5 am-text-body font-semibold text-on-surface">{bullet.title}</p>
+                        <p class="am-elist-title mb-0.5 am-text-body font-bold text-on-surface">{bullet.title}</p>
                         <p class="am-elist-desc m-0 am-text-body leading-relaxed text-on-surface-variant">{bullet.desc}</p>
                       </div>
                     </div>
@@ -138,7 +138,7 @@ const closingCtaLinks = [
 
             <article class="am-card mb-10 border-0 rounded-none bg-transparent shadow-none">
               <div class="am-card-body p-0">
-                <h3 class="am-h2 mb-4 am-text-subtitle font-medium leading-tight tracking-tight text-on-surface">{page.sections.separateTitle}</h3>
+                <h3 class="am-h2 mb-4 am-text-subtitle font-normal leading-tight tracking-tight text-on-surface">{page.sections.separateTitle}</h3>
 
                 <div class="am-elist is-tight block">
                   {page.bullets.separate.map((bullet, index) => (
@@ -155,7 +155,7 @@ const closingCtaLinks = [
                         )}
                       </div>
                       <div class="am-elist-body">
-                        <p class="am-elist-title mb-0.5 am-text-body font-semibold text-on-surface">{bullet.title}</p>
+                        <p class="am-elist-title mb-0.5 am-text-body font-bold text-on-surface">{bullet.title}</p>
                         <p class="am-elist-desc m-0 am-text-body leading-relaxed text-on-surface-variant">{bullet.desc}</p>
                       </div>
                     </div>
@@ -167,29 +167,29 @@ const closingCtaLinks = [
         </section>
 
         <section class="am-section mb-12" aria-label={page.sections.inventoryAria}>
-          <h2 class="am-h2 mb-4 am-text-title font-medium leading-tight tracking-tight text-on-surface">{page.sections.inventoryTitle}</h2>
+          <h2 class="am-h2 mb-4 am-text-title font-normal leading-tight tracking-tight text-on-surface">{page.sections.inventoryTitle}</h2>
 
           <div class="am-grid block">
             {properties.map((property) => (
               <article class="am-card mb-10 border-0 rounded-none bg-transparent shadow-none" data-rental-id={property.id}>
                 <div class="am-card-body p-0">
-                  <h3 class="am-h2 mb-4 am-text-subtitle font-medium leading-tight tracking-tight text-on-surface">{property.name}</h3>
+                  <h3 class="am-h2 mb-4 am-text-subtitle font-normal leading-tight tracking-tight text-on-surface">{property.name}</h3>
                   <ul class="am-list-specs mt-4 m-0 p-0 list-none grid gap-y-[0.55rem] am-text-body leading-relaxed text-on-surface-variant">
-                    <li class="flex justify-between gap-4 pb-[0.55rem] border-b border-outline-variant/20 max-md:flex-col max-md:gap-0.5 max-md:items-start"><strong class="font-semibold text-on-surface">{page.inventory.labels.license}</strong> <span class="text-right max-md:text-left">{property.specs.license}</span></li>
-                    <li class="flex justify-between gap-4 pb-[0.55rem] border-b border-outline-variant/20 max-md:flex-col max-md:gap-0.5 max-md:items-start"><strong class="font-semibold text-on-surface">{page.inventory.labels.maxOccupancy}</strong> <span class="text-right max-md:text-left">{property.specs.maxOccupancy[currentLang]}</span></li>
-                    {property.specs.bed && <li class="flex justify-between gap-4 pb-[0.55rem] border-b border-outline-variant/20 max-md:flex-col max-md:gap-0.5 max-md:items-start"><strong class="font-semibold text-on-surface">{page.inventory.labels.bed}</strong> <span class="text-right max-md:text-left">{property.specs.bed}</span></li>}
-                    {property.specs.beds && <li class="flex justify-between gap-4 pb-[0.55rem] border-b border-outline-variant/20 max-md:flex-col max-md:gap-0.5 max-md:items-start"><strong class="font-semibold text-on-surface">{page.inventory.labels.beds}</strong> <span class="text-right max-md:text-left">{property.specs.beds[currentLang]}</span></li>}
-                    <li class="flex justify-between gap-4 pb-[0.55rem] border-b border-outline-variant/20 max-md:flex-col max-md:gap-0.5 max-md:items-start"><strong class="font-semibold text-on-surface">{page.inventory.labels.price}</strong> <span class="text-right max-md:text-left">{property.specs.price[currentLang]}</span></li>
-                    <li class="flex justify-between gap-4 pb-[0.55rem] border-b border-outline-variant/20 max-md:flex-col max-md:gap-0.5 max-md:items-start"><strong class="font-semibold text-on-surface">{page.inventory.labels.accessNote}</strong> <span class="text-right max-md:text-left">{property.specs.accessNote[currentLang]}</span></li>
-                    <li class="flex justify-between gap-4 pb-[0.55rem] border-b border-outline-variant/20 max-md:flex-col max-md:gap-0.5 max-md:items-start"><strong class="font-semibold text-on-surface">{page.inventory.labels.pets}</strong> <span class="text-right max-md:text-left">{property.specs.pets[currentLang]}</span></li>
-                    {property.specs.pool && <li class="flex justify-between gap-4 pb-[0.55rem] border-b border-outline-variant/20 max-md:flex-col max-md:gap-0.5 max-md:items-start"><strong class="font-semibold text-on-surface">{page.inventory.labels.pool}</strong> <span class="text-right max-md:text-left">{property.specs.pool[currentLang]}</span></li>}
-                    <li class="flex justify-between gap-4 pb-[0.55rem] border-b border-outline-variant/20 max-md:flex-col max-md:gap-0.5 max-md:items-start"><strong class="font-semibold text-on-surface">{page.inventory.labels.view}</strong> <span class="text-right max-md:text-left">{property.specs.view[currentLang]}</span></li>
-                    <li class="flex justify-between gap-4 pb-[0.55rem] border-b border-outline-variant/20 max-md:flex-col max-md:gap-0.5 max-md:items-start"><strong class="font-semibold text-on-surface">{page.inventory.labels.outdoor}</strong> <span class="text-right max-md:text-left">{property.specs.outdoor[currentLang]}</span></li>
-                    <li class="flex justify-between gap-4 pb-[0.55rem] border-b border-outline-variant/20 max-md:flex-col max-md:gap-0.5 max-md:items-start"><strong class="font-semibold text-on-surface">{page.inventory.labels.kitchen}</strong> <span class="text-right max-md:text-left">{property.specs.kitchen[currentLang]}</span></li>
+                    <li class="flex justify-between gap-4 pb-[0.55rem] border-b border-outline-variant/20 max-md:flex-col max-md:gap-0.5 max-md:items-start"><strong class="font-bold text-on-surface">{page.inventory.labels.license}</strong> <span class="text-right max-md:text-left">{property.specs.license}</span></li>
+                    <li class="flex justify-between gap-4 pb-[0.55rem] border-b border-outline-variant/20 max-md:flex-col max-md:gap-0.5 max-md:items-start"><strong class="font-bold text-on-surface">{page.inventory.labels.maxOccupancy}</strong> <span class="text-right max-md:text-left">{property.specs.maxOccupancy[currentLang]}</span></li>
+                    {property.specs.bed && <li class="flex justify-between gap-4 pb-[0.55rem] border-b border-outline-variant/20 max-md:flex-col max-md:gap-0.5 max-md:items-start"><strong class="font-bold text-on-surface">{page.inventory.labels.bed}</strong> <span class="text-right max-md:text-left">{property.specs.bed}</span></li>}
+                    {property.specs.beds && <li class="flex justify-between gap-4 pb-[0.55rem] border-b border-outline-variant/20 max-md:flex-col max-md:gap-0.5 max-md:items-start"><strong class="font-bold text-on-surface">{page.inventory.labels.beds}</strong> <span class="text-right max-md:text-left">{property.specs.beds[currentLang]}</span></li>}
+                    <li class="flex justify-between gap-4 pb-[0.55rem] border-b border-outline-variant/20 max-md:flex-col max-md:gap-0.5 max-md:items-start"><strong class="font-bold text-on-surface">{page.inventory.labels.price}</strong> <span class="text-right max-md:text-left">{property.specs.price[currentLang]}</span></li>
+                    <li class="flex justify-between gap-4 pb-[0.55rem] border-b border-outline-variant/20 max-md:flex-col max-md:gap-0.5 max-md:items-start"><strong class="font-bold text-on-surface">{page.inventory.labels.accessNote}</strong> <span class="text-right max-md:text-left">{property.specs.accessNote[currentLang]}</span></li>
+                    <li class="flex justify-between gap-4 pb-[0.55rem] border-b border-outline-variant/20 max-md:flex-col max-md:gap-0.5 max-md:items-start"><strong class="font-bold text-on-surface">{page.inventory.labels.pets}</strong> <span class="text-right max-md:text-left">{property.specs.pets[currentLang]}</span></li>
+                    {property.specs.pool && <li class="flex justify-between gap-4 pb-[0.55rem] border-b border-outline-variant/20 max-md:flex-col max-md:gap-0.5 max-md:items-start"><strong class="font-bold text-on-surface">{page.inventory.labels.pool}</strong> <span class="text-right max-md:text-left">{property.specs.pool[currentLang]}</span></li>}
+                    <li class="flex justify-between gap-4 pb-[0.55rem] border-b border-outline-variant/20 max-md:flex-col max-md:gap-0.5 max-md:items-start"><strong class="font-bold text-on-surface">{page.inventory.labels.view}</strong> <span class="text-right max-md:text-left">{property.specs.view[currentLang]}</span></li>
+                    <li class="flex justify-between gap-4 pb-[0.55rem] border-b border-outline-variant/20 max-md:flex-col max-md:gap-0.5 max-md:items-start"><strong class="font-bold text-on-surface">{page.inventory.labels.outdoor}</strong> <span class="text-right max-md:text-left">{property.specs.outdoor[currentLang]}</span></li>
+                    <li class="flex justify-between gap-4 pb-[0.55rem] border-b border-outline-variant/20 max-md:flex-col max-md:gap-0.5 max-md:items-start"><strong class="font-bold text-on-surface">{page.inventory.labels.kitchen}</strong> <span class="text-right max-md:text-left">{property.specs.kitchen[currentLang]}</span></li>
                   </ul>
 
                   <div class="am-btn-row mt-5">
-                    <a href={property.href} class="am-btn am-btn--ghost">{page.inventory.detailsLabel}</a>
+                    <a href={property.href} class="am-btn am-btn--secondary">{page.inventory.detailsLabel}</a>
                   </div>
                 </div>
               </article>

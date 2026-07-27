@@ -12,7 +12,7 @@
   <title>AMARA Component Library</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,300;0,400;1,300;1,400&family=Plus+Jakarta+Sans:wght@400;700&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     :root {
@@ -30,8 +30,8 @@
       --color-muted: #666666;
       --color-hint: #888888;
       --color-gold: #C9A96E;
-      --font-headline: 'Cormorant Garamond', serif;
-      --font-body: 'DM Sans', sans-serif;
+      --font-headline: 'Newsreader', Georgia, serif;
+      --font-body: 'Plus Jakarta Sans', system-ui, sans-serif;
       --font-mono: 'SF Mono', 'Fira Code', monospace;
     }
     body { font-family: var(--font-body); background: var(--color-surface); color: var(--color-on-surface); font-size: 14px; line-height: 1.6; }
@@ -56,7 +56,7 @@
     /* Stats bar */
     .stats { display: grid; grid-template-columns: repeat(5, 1fr); gap: 12px; margin-bottom: 48px; }
     .stat { background: var(--color-surface-white); border: 1px solid var(--color-outline-variant); border-radius: 10px; padding: 16px; text-align: center; }
-    .stat-n { font-size: 28px; font-weight: 500; font-family: var(--font-headline); }
+    .stat-n { font-size: 28px; font-weight: 400; font-family: var(--font-headline); }
     .stat-l { font-size: 11px; color: var(--color-muted); margin-top: 2px; }
 
     /* Search */
@@ -72,9 +72,9 @@
     .comp-card { background: var(--color-surface-white); border: 1px solid var(--color-outline-variant); border-radius: 12px; overflow: hidden; transition: box-shadow .2s; }
     .comp-card:hover { box-shadow: 0 8px 24px rgba(0,0,0,0.06); }
     .comp-card-head { padding: 16px 20px; border-bottom: 1px solid var(--color-surface-container-high); display: flex; align-items: center; justify-content: space-between; }
-    .comp-name { font-size: 13px; font-weight: 500; }
+    .comp-name { font-size: 13px; font-weight: 700; }
     .comp-path { font-size: 10px; font-family: var(--font-mono); color: var(--color-muted); margin-top: 2px; }
-    .comp-status { font-size: 9px; font-weight: 500; padding: 2px 8px; border-radius: 99px; text-transform: uppercase; letter-spacing: .06em; }
+    .comp-status { font-size: 9px; font-weight: 700; padding: 2px 8px; border-radius: 99px; text-transform: uppercase; letter-spacing: .06em; }
     .status-active { background: #EAF3DE; color: #27500A; }
     .status-orphan { background: #FCEBEB; color: #791F1F; }
     .status-internal { background: var(--color-surface-container-high); color: var(--color-muted); }

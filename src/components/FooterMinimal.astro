@@ -73,7 +73,7 @@ const resolvedLinks = links
               {link.label}
             </a>
           ) : (
-            <span class="am-link-disabled font-label text-[11px] font-bold uppercase tracking-[0.14em] text-on-surface-variant transition-colors">
+            <span class="am-is-disabled font-label text-[11px] font-bold uppercase tracking-[0.14em] text-on-surface-variant transition-colors" aria-disabled="true">
               {link.label}
             </span>
           )}
@@ -82,11 +82,3 @@ const resolvedLinks = links
     </ul>
   </nav>
 </section>
-
-<style>
-  .am-link-disabled {
-    pointer-events: none;
-    cursor: default;
-    opacity: 0.6;
-  }
-</style>

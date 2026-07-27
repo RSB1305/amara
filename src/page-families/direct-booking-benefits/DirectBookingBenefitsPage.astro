@@ -36,8 +36,8 @@ const directBookingDefinitionItems = copy.benefits.map((benefit) => ({
 }));
 const closingCtaLinks = [
   { label: copy.sections.ctaAvailability[currentLang], token: 'book', style: 'primary' as const },
-  { label: copy.sections.inlineAbout[currentLang], token: 'about', style: 'ghost' as const },
-  { label: copy.sections.ctaExplore[currentLang], token: 'romantic_hideaways', style: 'ghost' as const }
+  { label: copy.sections.inlineAbout[currentLang], token: 'about', style: 'secondary' as const },
+  { label: copy.sections.ctaExplore[currentLang], token: 'romantic_hideaways', style: 'secondary' as const }
 ];
 const heroCtaLinks = [
   { token: 'book', label: copy.sections.ctaAvailability[currentLang] },
@@ -120,7 +120,7 @@ const inlineLinks = [
                 {index > 0 && <span class="hidden sm:inline text-outline-variant">&middot;</span>}
                 <a
                   href={link.href}
-                  class="am-text-caption uppercase tracking-[0.1em] text-on-surface border-b border-on-surface/20 pb-1 no-underline transition-colors hover:border-on-surface"
+                  class="am-cta-link"
                 >
                   {link.label}
                 </a>

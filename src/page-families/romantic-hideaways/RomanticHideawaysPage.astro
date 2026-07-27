@@ -924,9 +924,9 @@ const apartmentsWithLinks: ApartmentWithHref[] = apartmentRows.filter(
           <a class="am-btn am-btn--primary" href={collectionHref}>{t(copy.ctaCollection)}</a>
           {
             reviewsHref ? (
-              <a class="am-btn am-btn--ghost" href={reviewsHref}>{t(copy.ctaReviews)}</a>
+              <a class="am-btn am-btn--secondary" href={reviewsHref}>{t(copy.ctaReviews)}</a>
             ) : (
-              <span class="am-btn am-btn--ghost pointer-events-none opacity-60" aria-disabled="true">{t(copy.ctaReviews)}</span>
+              <span class="am-btn am-btn--secondary am-is-disabled" aria-disabled="true">{t(copy.ctaReviews)}</span>
             )
           }
         </div>
@@ -941,7 +941,7 @@ const apartmentsWithLinks: ApartmentWithHref[] = apartmentRows.filter(
             directBookingHref ? (
               <a class="am-inline-link" href={directBookingHref}>{t(copy.trustDirect)}</a>
             ) : (
-              <span class="am-inline-link pointer-events-none opacity-60" aria-disabled="true">{t(copy.trustDirect)}</span>
+              <span class="am-inline-link am-is-disabled" aria-disabled="true">{t(copy.trustDirect)}</span>
             )
           }
         </div>
@@ -1028,7 +1028,7 @@ const apartmentsWithLinks: ApartmentWithHref[] = apartmentRows.filter(
           <div class="flex flex-wrap gap-3 mt-7">
             {
               locationBridgeLinks.map((link) => (
-                <a class="am-btn am-btn--ghost" href={link.href}>{link.label}</a>
+                <a class="am-btn am-btn--secondary" href={link.href}>{link.label}</a>
               ))
             }
           </div>
@@ -1074,7 +1074,7 @@ const apartmentsWithLinks: ApartmentWithHref[] = apartmentRows.filter(
 
         {
           faqHref && (
-            <a class="am-btn am-btn--ghost mt-8" href={faqHref}>
+            <a class="am-btn am-btn--secondary mt-8" href={faqHref}>
               {t(copy.faqCta)}
             </a>
           )

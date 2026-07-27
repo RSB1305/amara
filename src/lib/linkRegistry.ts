@@ -188,13 +188,63 @@ legal_notice: {
       nl: buildOwnedLocalizedPath('faq-general', 'nl'),
       sv: buildOwnedLocalizedPath('faq-general', 'sv')
     },
-    frigiliana_faq: { en: '/en/frigiliana-faq', de: '/de/frigiliana-faq', es: '/es/frigiliana-faq', nl: '/nl/frigiliana-faq', sv: '/sv/frigiliana-faq' },
-    frigiliana_parking: { en: '/en/frigiliana-parking', de: '/de/frigiliana-parking', es: '/es/frigiliana-parking', nl: '/nl/frigiliana-parking', sv: '/sv/frigiliana-parking' },
-    frigiliana_stairs: { en: '/en/frigiliana-village-structure-stairs', de: '/de/frigiliana-village-structure-stairs', es: '/es/frigiliana-village-structure-stairs', nl: '/nl/frigiliana-village-structure-stairs', sv: '/sv/frigiliana-village-structure-stairs' },
-    frigiliana_stairs_layout: { en: '/en/frigiliana-stairs-layout', de: '/de/frigiliana-stairs-layout', es: '/es/frigiliana-stairs-layout', nl: '/nl/frigiliana-stairs-layout', sv: '/sv/frigiliana-stairs-layout' },
-    arrival_parking_guide: { en: '/en/arrival-parking-guide', de: '/de/arrival-parking-guide', es: '/es/arrival-parking-guide', nl: '/nl/arrival-parking-guide', sv: '/sv/arrival-parking-guide' },
+    frigiliana_faq: {
+      en: buildOwnedLocalizedPath('frigiliana-faq', 'en'),
+      de: buildOwnedLocalizedPath('frigiliana-faq', 'de'),
+      es: buildOwnedLocalizedPath('frigiliana-faq', 'es'),
+      nl: buildOwnedLocalizedPath('frigiliana-faq', 'nl'),
+      sv: buildOwnedLocalizedPath('frigiliana-faq', 'sv')
+    },
+    frigiliana_market: {
+      en: buildOwnedLocalizedPath('frigiliana-market', 'en'),
+      de: buildOwnedLocalizedPath('frigiliana-market', 'de'),
+      es: buildOwnedLocalizedPath('frigiliana-market', 'es'),
+      nl: buildOwnedLocalizedPath('frigiliana-market', 'nl'),
+      sv: buildOwnedLocalizedPath('frigiliana-market', 'sv')
+    },
+    frigiliana_parking: {
+      en: buildOwnedLocalizedPath('frigiliana-parking', 'en'),
+      de: buildOwnedLocalizedPath('frigiliana-parking', 'de'),
+      es: buildOwnedLocalizedPath('frigiliana-parking', 'es'),
+      nl: buildOwnedLocalizedPath('frigiliana-parking', 'nl'),
+      sv: buildOwnedLocalizedPath('frigiliana-parking', 'sv')
+    },
+    frigiliana_stairs: {
+      en: buildOwnedLocalizedPath('frigiliana-streets-stairs', 'en'),
+      de: buildOwnedLocalizedPath('frigiliana-streets-stairs', 'de'),
+      es: buildOwnedLocalizedPath('frigiliana-streets-stairs', 'es'),
+      nl: buildOwnedLocalizedPath('frigiliana-streets-stairs', 'nl'),
+      sv: buildOwnedLocalizedPath('frigiliana-streets-stairs', 'sv')
+    },
+    frigiliana_stairs_layout: {
+      en: buildOwnedLocalizedPath('frigiliana-streets-stairs', 'en'),
+      de: buildOwnedLocalizedPath('frigiliana-streets-stairs', 'de'),
+      es: buildOwnedLocalizedPath('frigiliana-streets-stairs', 'es'),
+      nl: buildOwnedLocalizedPath('frigiliana-streets-stairs', 'nl'),
+      sv: buildOwnedLocalizedPath('frigiliana-streets-stairs', 'sv')
+    },
+    getting_to_frigiliana: {
+      en: buildOwnedLocalizedPath('getting-to-frigiliana', 'en'),
+      de: buildOwnedLocalizedPath('getting-to-frigiliana', 'de'),
+      es: buildOwnedLocalizedPath('getting-to-frigiliana', 'es'),
+      nl: buildOwnedLocalizedPath('getting-to-frigiliana', 'nl'),
+      sv: buildOwnedLocalizedPath('getting-to-frigiliana', 'sv')
+    },
+    arrival_parking_guide: {
+      en: buildOwnedLocalizedPath('getting-to-frigiliana', 'en'),
+      de: buildOwnedLocalizedPath('getting-to-frigiliana', 'de'),
+      es: buildOwnedLocalizedPath('getting-to-frigiliana', 'es'),
+      nl: buildOwnedLocalizedPath('getting-to-frigiliana', 'nl'),
+      sv: buildOwnedLocalizedPath('getting-to-frigiliana', 'sv')
+    },
     nerja_vs_frigiliana: { en: '/en/frigiliana-near-nerja', de: '/de/frigiliana-near-nerja', es: '/es/frigiliana-near-nerja', nl: '/nl/frigiliana-near-nerja', sv: '/sv/frigiliana-near-nerja' },
-    weather_frigiliana: { en: '/en/frigiliana-weather', de: '/de/frigiliana-weather', es: '/es/frigiliana-weather', nl: '/nl/frigiliana-weather', sv: '/sv/frigiliana-weather' },
+    weather_frigiliana: {
+      en: buildOwnedLocalizedPath('frigiliana-weather', 'en'),
+      de: buildOwnedLocalizedPath('frigiliana-weather', 'de'),
+      es: buildOwnedLocalizedPath('frigiliana-weather', 'es'),
+      nl: buildOwnedLocalizedPath('frigiliana-weather', 'nl'),
+      sv: buildOwnedLocalizedPath('frigiliana-weather', 'sv')
+    },
 
     /* =========================================================
        FRIGILIANA — GUEST GUIDE (UTILITY LAYER)
@@ -302,7 +352,13 @@ legal_notice: {
     ========================================================= */
     parking_frigiliana_legacy: { en: '/en/frigiliana-parking-and-mobility', de: '/de/frigiliana-parking-and-mobility', es: '/es/frigiliana-parking-and-mobility', nl: '/nl/frigiliana-parking-and-mobility', sv: '/sv/frigiliana-parking-and-mobility' },
     winter_frigiliana: { en: '/en/winter-stay-frigiliana', de: '/de/winter-stay-frigiliana', es: '/es/winter-stay-frigiliana', nl: '/nl/winter-stay-frigiliana', sv: '/sv/winter-stay-frigiliana' },
-    where_to_stay_frigiliana: { en: '/en/where-to-stay-frigiliana', de: '/de/where-to-stay-frigiliana', es: '/es/where-to-stay-frigiliana', nl: '/nl/where-to-stay-frigiliana', sv: '/sv/where-to-stay-frigiliana' },
+    where_to_stay_frigiliana: {
+      en: buildOwnedLocalizedPath('frigiliana-location', 'en'),
+      de: buildOwnedLocalizedPath('frigiliana-location', 'de'),
+      es: buildOwnedLocalizedPath('frigiliana-location', 'es'),
+      nl: buildOwnedLocalizedPath('frigiliana-location', 'nl'),
+      sv: buildOwnedLocalizedPath('frigiliana-location', 'sv')
+    },
 
     /* =========================================================
        ROMANTIC (LEGACY MAPPING)
@@ -485,7 +541,7 @@ legal_notice: {
     __STAIRS_LINK__: { lang: 'auto', key: 'frigiliana_stairs_layout' },
     __FAQ_LINK__: { lang: 'auto', key: 'frigiliana_faq' },
     __WEATHER_URL__: { lang: 'auto', key: 'weather_frigiliana' },
-    __GETTING_TO_FRIGILIANA_LINK__: { lang: 'auto', key: 'arrival_parking_guide' },
+    __GETTING_TO_FRIGILIANA_LINK__: { lang: 'auto', key: 'getting_to_frigiliana' },
     __NERJA_VS_FRIGILIANA_URL__: { lang: 'auto', key: 'nerja_vs_frigiliana' },
 
     /* =========================================================

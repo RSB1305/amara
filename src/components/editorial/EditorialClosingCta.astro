@@ -12,7 +12,7 @@ export interface EditorialClosingCtaLink {
   /** When set, label resolves via `resolveLink`. Omit when `disabled` is true. */
   token?: string;
   /** Defaults to the existing editorial text-link treatment. */
-  style?: 'text' | 'primary' | 'ghost';
+  style?: 'text' | 'primary' | 'secondary';
   /** Renders a non-interactive label with the same typographic treatment as links. */
   disabled?: boolean;
 }
@@ -27,12 +27,9 @@ interface Props {
 
 const { title, lead, note, links, lang } = Astro.props;
 
-const linkClass =
-  'am-text-caption uppercase tracking-[0.1em] text-on-surface border-b border-on-surface/20 pb-1 no-underline transition-colors hover:border-on-surface';
-
-const disabledClass =
-  'am-text-caption uppercase tracking-[0.1em] text-on-surface border-b border-on-surface/20 pb-1 opacity-60 cursor-default pointer-events-none';
-const hasButtonLinks = links.some((link) => link.style === 'primary' || link.style === 'ghost');
+const linkClass = 'am-cta-link';
+const disabledClass = 'am-cta-link am-is-disabled';
+const hasButtonLinks = links.some((link) => link.style === 'primary' || link.style === 'secondary');
 ---
 
 <section>
@@ -53,14 +50,14 @@ const hasButtonLinks = links.some((link) => link.style === 'primary' || link.sty
             : resolveOptionalLink(link.token!, lang, { suppressMissing: true });
           const resolvedClass = link.style === 'primary'
             ? 'am-btn am-btn--primary w-full justify-center sm:w-auto'
-            : link.style === 'ghost'
-              ? 'am-btn am-btn--ghost w-full justify-center sm:w-auto'
+            : link.style === 'secondary'
+              ? 'am-btn am-btn--secondary w-full justify-center sm:w-auto'
               : linkClass;
           return (
             <>
               {index > 0 && !hasButtonLinks && <span class="hidden sm:inline text-on-surface/60">&middot;</span>}
               {!href ? (
-                <span class={disabledClass}>{link.label}</span>
+                <span class={disabledClass} aria-disabled="true">{link.label}</span>
               ) : (
                 <a href={href} class={resolvedClass}>
                   {link.label}

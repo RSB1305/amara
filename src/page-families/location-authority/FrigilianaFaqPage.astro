@@ -1,15 +1,14 @@
 ---
 import Hero from '../../components/Hero.astro';
-import FaqAccordion from '../../components/FaqAccordion.astro';
 import Navigation from '../../components/Navigation.astro';
 import EditorialClosingCta from '../../components/editorial/EditorialClosingCta.astro';
 import HairlineStatCard from '../../components/location/HairlineStatCard.astro';
 import SectionAnchorNav from '../../components/navigation/SectionAnchorNav.astro';
 import {
-  frigilianaParkingCopy,
-  frigilianaParkingExternalLinks,
-  frigilianaParkingSeo
-} from '../../content/frigilianaParkingContent';
+  frigilianaFaqCopy,
+  frigilianaFaqExternalLinks,
+  frigilianaFaqSeo
+} from '../../content/frigilianaFaqContent';
 import LocationAuthorityLayout from '../../layouts/LocationAuthorityLayout.astro';
 import { getFrigilianaAuthoritySubnav } from '../../lib/frigiliana/frigilianaAuthoritySubnav';
 import { resolveOptionalLink } from '../../lib/linkResolver';
@@ -25,70 +24,41 @@ type LocalizedRow = { readonly [K in AmaraLanguage]: string };
 
 const { lang = 'es' } = Astro.props;
 const currentLang = normalizeLanguage(lang as AmaraLanguage);
-const copy = frigilianaParkingCopy;
+const copy = frigilianaFaqCopy;
 
 function t(row: LocalizedRow): string {
   return row[currentLang] ?? row.en;
 }
 
-const parkingHref = buildOwnedLocalizedPath('frigiliana-parking', currentLang);
-const streetsHref = buildOwnedLocalizedPath('frigiliana-streets-stairs', currentLang);
-
-const sectionNavItems = getFrigilianaAuthoritySubnav(currentLang)
-  .map((item) => {
-    if (item.id === 'structure') {
-      return {
-        ...item,
-        href: streetsHref,
-        label: t(copy.nav.links[2].label)
-      };
-    }
-
-    if (item.id === 'arrival') {
-      return {
-        ...item,
-        href: parkingHref,
-        label: t(copy.nav.links[1].label)
-      };
-    }
-
-    return item;
-  });
+const gettingHereHref = buildOwnedLocalizedPath('getting-to-frigiliana', currentLang);
 
 const navLinks = copy.nav.links.map((link) => ({
   token: link.token,
   label: t(link.label)
 }));
 
-const facts = copy.facts.items.map((item) => ({
+const orientationFacts = copy.orientation.items.map((item) => ({
   label: t(item.label),
   value: t(item.value),
   note: t(item.note)
 }));
 
-const options = copy.options.items.map((item) => ({
-  number: item.number,
-  title: t(item.title),
-  summary: t(item.summary),
-  bestFor: t(item.bestFor),
-  remember: t(item.remember)
-}));
-
-const arrivalSteps = copy.arrival.steps.map((step) => ({
-  num: step.num,
-  headline: t(step.title),
-  text: t(step.text)
-}));
-
-const faqItems = copy.arrival.faq.map((item) => ({
-  question: t(item.question),
-  answer: t(item.answer)
+const faqSections = copy.sections.map((section) => ({
+  id: section.id,
+  number: section.number,
+  eyebrow: t(section.eyebrow),
+  title: t(section.title),
+  intro: t(section.intro),
+  items: section.items.map((item) => ({
+    question: t(item.q),
+    answer: t(item.a)
+  }))
 }));
 
 const liveInfoLinks = copy.liveInfo.links.map((link) => ({
   href:
-    frigilianaParkingExternalLinks[
-      link.key as keyof typeof frigilianaParkingExternalLinks
+    frigilianaFaqExternalLinks[
+      link.key as keyof typeof frigilianaFaqExternalLinks
     ],
   label: t(link.label),
   text: t(link.text)
@@ -104,34 +74,28 @@ const relatedLinks = copy.related.links.flatMap((link) => {
 
 const footerHighlights = [
   {
-    token: 'frigiliana_parking',
-    label: t(copy.nav.links[1].label)
-  },
-  {
-    token: 'frigiliana_stairs',
+    token: 'frigiliana_faq',
     label: t(copy.nav.links[2].label)
   },
   {
     token: 'getting_to_frigiliana',
-    label: t(copy.related.links[1].label)
+    label: t(copy.nav.links[1].label)
+  },
+  {
+    token: 'location_frigiliana',
+    label: t(copy.nav.links[0].label)
   }
 ];
 
 const heroImage = {
-  src: '/images/amara-frigiliana-pueblo/JPG_Frigiliana_Pueblo/2000px_72dpi_sRGB/01-frigiliana-pueblo.jpg',
-  width: 2000,
-  height: 1333
-};
-
-const timingImage = {
-  src: '/images/amara-frigiliana-pueblo/JPG_Frigiliana_Pueblo/2000px_72dpi_sRGB/03-frigiliana-pueblo.jpg',
+  src: '/images/amara-frigiliana-pueblo/JPG_Frigiliana_Pueblo/2000px_72dpi_sRGB/02-frigiliana-pueblo.jpg',
   width: 2000,
   height: 1333
 };
 ---
 
 <LocationAuthorityLayout
-  seo={frigilianaParkingSeo}
+  seo={frigilianaFaqSeo}
   pageLang={currentLang}
   footerHighlights={footerHighlights}
 >
@@ -139,12 +103,15 @@ const timingImage = {
     currentLang={currentLang}
     brandName={t(copy.nav.brand)}
     links={navLinks}
-    languageToken="frigiliana_parking"
+    languageToken="frigiliana_faq"
     locationAuthorityNav={true}
   />
-  <SectionAnchorNav items={sectionNavItems} activeId="arrival" />
+  <SectionAnchorNav
+    items={getFrigilianaAuthoritySubnav(currentLang)}
+    activeId="faq"
+  />
 
-  <div class="am-root" data-am-page="frigiliana-parking">
+  <div class="am-root" data-am-page="frigiliana-faq">
     <div class="am-wrap w-full">
       <Hero
         imageSrc={heroImage.src}
@@ -168,13 +135,13 @@ const timingImage = {
         </div>
         <div class="flex flex-wrap gap-4">
           <a
-            href="#parking-options"
+            href="#faq-sections"
             class="am-btn am-btn--primary"
           >
             {t(copy.hero.primaryCta)}
           </a>
           <a
-            href={streetsHref}
+            href={gettingHereHref}
             class="am-btn am-btn--secondary"
           >
             {t(copy.hero.secondaryCta)}
@@ -185,12 +152,12 @@ const timingImage = {
       <section class="max-w-screen-2xl mx-auto px-12 pb-32">
         <div class="max-w-3xl mb-14">
           <h2 class="am-text-title italic text-on-surface tracking-tight">
-            {t(copy.facts.title)}
+            {t(copy.orientation.title)}
           </h2>
         </div>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-x-14 gap-y-12">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-12 gap-y-12">
           {
-            facts.map((fact) => (
+            orientationFacts.map((fact) => (
               <HairlineStatCard
                 label={fact.label}
                 value={fact.value}
@@ -202,114 +169,67 @@ const timingImage = {
       </section>
 
       <section
-        id="parking-options"
-        class="bg-surface-container-low border-y border-outline-variant/5"
+        id="faq-sections"
+        class="border-t border-outline-variant/10"
+        aria-label={t(copy.hero.title)}
       >
-        <div class="max-w-screen-2xl mx-auto px-12 py-32">
-          <div class="max-w-3xl mb-20">
-            <span class="am-text-caption uppercase tracking-[0.35em] text-primary block mb-6">
-              {t(copy.options.eyebrow)}
-            </span>
-            <h2 class="am-text-title italic text-on-surface tracking-tight mb-8">
-              {t(copy.options.title)}
-            </h2>
-            <p class="am-text-body text-on-surface-variant leading-relaxed">
-              {t(copy.options.intro)}
-            </p>
-          </div>
-
-          <div class="grid grid-cols-1 lg:grid-cols-3 gap-x-12 gap-y-16">
-            {
-              options.map((option) => (
-                <article class="border-t border-outline-variant/25 pt-8">
-                  <div class="flex items-baseline justify-between gap-6 mb-10">
-                    <h3 class="am-text-subtitle text-on-surface">{option.title}</h3>
+        {
+          faqSections.map((section, index) => (
+            <article
+              id={section.id}
+              class:list={[
+                'border-b border-outline-variant/10',
+                index % 2 === 1 && 'bg-surface-container-low'
+              ]}
+            >
+              <div class="max-w-screen-2xl mx-auto px-12 py-28 grid grid-cols-1 lg:grid-cols-12 gap-x-20 gap-y-14">
+                <header class="lg:col-span-4 lg:pr-6">
+                  <div class="flex items-baseline justify-between gap-8 mb-8">
+                    <span class="am-text-caption uppercase tracking-[0.32em] text-primary">
+                      {section.eyebrow}
+                    </span>
                     <span
-                      class="font-headline text-[clamp(2.5rem,5vw,4.75rem)] italic leading-none text-outline-variant/45"
+                      class="font-headline text-[clamp(2.75rem,5vw,5rem)] italic leading-none text-outline-variant/45"
                       aria-hidden="true"
                     >
-                      {option.number}
+                      {section.number}
                     </span>
                   </div>
+                  <h2 class="am-text-title italic text-on-surface tracking-tight mb-8">
+                    {section.title}
+                  </h2>
                   <p class="am-text-body text-on-surface-variant leading-relaxed">
-                    {option.summary}
+                    {section.intro}
                   </p>
-                  <dl class="mt-10 divide-y divide-outline-variant/10 border-y border-outline-variant/10">
-                    <div class="py-6">
-                      <dt class="am-text-caption uppercase tracking-[0.16em] text-primary mb-3">
-                        {t(copy.options.labels.bestFor)}
-                      </dt>
-                      <dd class="am-text-body text-on-surface-variant leading-relaxed">
-                        {option.bestFor}
-                      </dd>
-                    </div>
-                    <div class="py-6">
-                      <dt class="am-text-caption uppercase tracking-[0.16em] text-primary mb-3">
-                        {t(copy.options.labels.remember)}
-                      </dt>
-                      <dd class="am-text-body text-on-surface-variant leading-relaxed">
-                        {option.remember}
-                      </dd>
-                    </div>
-                  </dl>
-                </article>
-              ))
-            }
-          </div>
-        </div>
+                </header>
+
+                <div class="lg:col-span-7 lg:col-start-6 border-t border-outline-variant/15">
+                  {section.items.map((item) => (
+                    <details class="group border-b border-outline-variant/15">
+                      <summary class="am-faq-summary py-9 cursor-pointer">
+                        <h3 class="am-text-subtitle text-on-surface pr-8 group-hover:text-primary transition-colors">
+                          {item.question}
+                        </h3>
+                        <span class="am-accordion__indicator shrink-0" aria-hidden="true">
+                          <span class="group-open:hidden">+</span>
+                          <span class="hidden group-open:inline">−</span>
+                        </span>
+                      </summary>
+                      <div class="pb-9 pr-14">
+                        <p class="am-text-body text-on-surface-variant leading-relaxed max-w-2xl">
+                          {item.answer}
+                        </p>
+                      </div>
+                    </details>
+                  ))}
+                </div>
+              </div>
+            </article>
+          ))
+        }
       </section>
 
-      <FaqAccordion
-        arrivalTitle={t(copy.arrival.title)}
-        steps={arrivalSteps}
-        faqTitle={t(copy.arrival.faqTitle)}
-        items={faqItems}
-      />
-
-      <section class="bg-surface-container-low border-y border-outline-variant/5">
-        <div class="max-w-screen-2xl mx-auto px-12 py-32">
-          <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
-            <div class="lg:col-span-6">
-              <img
-                src={timingImage.src}
-                alt={t(copy.timing.imageAlt)}
-                width={timingImage.width}
-                height={timingImage.height}
-                class="w-full aspect-[4/3] object-cover"
-                loading="lazy"
-                decoding="async"
-              />
-            </div>
-            <div class="lg:col-span-6 lg:pl-10">
-              <span class="am-text-caption uppercase tracking-[0.35em] text-primary block mb-6">
-                {t(copy.timing.eyebrow)}
-              </span>
-              <h2 class="am-text-title italic text-on-surface tracking-tight mb-8">
-                {t(copy.timing.title)}
-              </h2>
-              <p class="am-text-body text-on-surface-variant leading-relaxed max-w-xl">
-                {t(copy.timing.body)}
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section class="max-w-screen-2xl mx-auto px-12 py-28">
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
-          <h2 class="lg:col-span-5 am-text-title italic text-on-surface tracking-tight">
-            {t(copy.walk.title)}
-          </h2>
-          <div class="lg:col-span-6 lg:col-start-7">
-            <p class="am-text-body text-on-surface-variant leading-relaxed mb-8">
-              {t(copy.walk.body)}
-            </p>
-            <a href={streetsHref} class="am-cta-link">{t(copy.walk.cta)}</a>
-          </div>
-        </div>
-      </section>
-
-      <section class="bg-surface-container-low border-y border-outline-variant/5">
+      <section class="bg-surface-container-low border-b border-outline-variant/5">
         <div class="max-w-screen-2xl mx-auto px-12 py-32">
           <div class="grid grid-cols-1 lg:grid-cols-12 gap-16">
             <div class="lg:col-span-4">
@@ -361,7 +281,7 @@ const timingImage = {
         <h2 class="am-text-title italic text-on-surface tracking-tight mb-12">
           {t(copy.related.title)}
         </h2>
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {
             relatedLinks.map((link) => (
               <a
@@ -382,13 +302,13 @@ const timingImage = {
           lang={currentLang}
           links={[
             {
-              token: 'frigiliana_stairs',
-              label: t(copy.closing.streetsCta),
+              token: 'location_frigiliana',
+              label: t(copy.closing.guideCta),
               style: 'primary'
             },
             {
-              token: 'getting_to_frigiliana',
-              label: t(copy.closing.gettingHereCta),
+              token: 'romantic_hideaways',
+              label: t(copy.closing.stayCta),
               style: 'secondary'
             }
           ]}
@@ -399,8 +319,34 @@ const timingImage = {
 </LocationAuthorityLayout>
 
 <style>
+  .am-faq-summary {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    list-style: none;
+  }
+
+  .am-faq-summary::-webkit-details-marker {
+    display: none;
+  }
+
+  details[open] > div {
+    animation: am-faq-reveal 0.35s ease-out;
+  }
+
+  @keyframes am-faq-reveal {
+    from {
+      opacity: 0;
+      transform: translateY(-0.4rem);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
   @media (max-width: 767px) {
-    :global([data-am-page='frigiliana-parking'] .px-12) {
+    :global([data-am-page='frigiliana-faq'] .px-12) {
       padding-left: 1.5rem;
       padding-right: 1.5rem;
     }

@@ -32,7 +32,7 @@ const {
 
 <div class="am-apartment-card am-apartment-card--hover">
   <figure class="am-apartment-card__figure">
-    <a href={href} aria-label={`View ${title}`} class="am-apartment-card__image-link">
+    <a href={href} aria-label={`View ${title}`} class="am-card-link am-apartment-card__image-link">
       <img
         src={imageSrc}
         alt={imageAlt}
@@ -48,7 +48,7 @@ const {
     <h3 class="am-apartment-card__title am-text-subtitle text-on-surface">{title}</h3>
     <p class="am-apartment-card__description am-text-body text-on-surface-variant">{description}</p>
     <div class="am-apartment-card__cta-wrap">
-      <a class="am-apartment-card__cta am-text-body font-medium" href={href}>{ctaLabel}</a>
+      <a class="am-btn am-btn--secondary" href={href}>{ctaLabel}</a>
     </div>
   </div>
 </div>
@@ -108,23 +108,4 @@ const {
     margin-top: 0.75rem;
   }
 
-  .am-apartment-card__cta {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    padding: 0.75rem 1.5rem;
-    line-height: 1.25;
-    border-radius: 9999px;
-    border: 1px solid var(--color-outline);
-    color: var(--color-on-surface);
-    text-decoration: none;
-    transition:
-      border-color 0.2s ease,
-      background-color 0.2s ease;
-  }
-
-  .am-apartment-card__cta:hover {
-    border-color: var(--color-border-hover);
-    background-color: var(--color-surface-container-low);
-  }
 </style>

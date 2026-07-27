@@ -39,8 +39,8 @@ const heroCtaLinks = [
   .filter((link): link is { href: string; label: string } => Boolean(link));
 const closingCtaLinks = [
   { token: 'book', label: copy.sections.ctaBook[currentLang], style: 'primary' as const },
-  { token: 'romantic_hideaways', label: copy.sections.ctaExplore[currentLang], style: 'ghost' as const },
-  { token: 'direct_booking_benefits', label: copy.sections.ctaBenefits[currentLang], style: 'ghost' as const }
+  { token: 'romantic_hideaways', label: copy.sections.ctaExplore[currentLang], style: 'secondary' as const },
+  { token: 'direct_booking_benefits', label: copy.sections.ctaBenefits[currentLang], style: 'secondary' as const }
 ];
 ---
 
@@ -157,7 +157,7 @@ const closingCtaLinks = [
         </div>
 
         <div class="am-reviews-locations__trio">
-          <a href={resolveLink('location_frigiliana', currentLang)} class="am-reviews-location">
+          <a href={resolveLink('location_frigiliana', currentLang)} class="am-card-link am-reviews-location">
             <div class="am-reviews-location__image"><span>Frigiliana</span></div>
             <div class="am-reviews-location__caption">
               <h3 class="am-text-subtitle am-reviews-location__title">Frigiliana</h3>
@@ -165,7 +165,7 @@ const closingCtaLinks = [
             </div>
           </a>
 
-          <a href={resolveLink('location_nerja', currentLang)} class="am-reviews-location">
+          <a href={resolveLink('location_nerja', currentLang)} class="am-card-link am-reviews-location">
             <div class="am-reviews-location__image"><span>Nerja</span></div>
             <div class="am-reviews-location__caption">
               <h3 class="am-text-subtitle am-reviews-location__title">Nerja</h3>
@@ -173,7 +173,7 @@ const closingCtaLinks = [
             </div>
           </a>
 
-          <span class="am-reviews-location am-link-disabled">
+          <span class="am-card-link am-reviews-location am-is-disabled" aria-disabled="true">
             <div class="am-reviews-location__image"><span>Tarifa</span></div>
             <div class="am-reviews-location__caption">
               <h3 class="am-text-subtitle am-reviews-location__title">Tarifa</h3>
@@ -196,12 +196,6 @@ const closingCtaLinks = [
 
 <style>
   @reference "../../styles/global.css";
-
-  .am-link-disabled {
-    pointer-events: none;
-    cursor: default;
-    opacity: 0.6;
-  }
 
   .am-reviews-section {
     margin-bottom: clamp(8rem, 15vw, 14rem);

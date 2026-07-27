@@ -65,7 +65,7 @@
 - `.am-section-title`: headline scale for section headings (clamp(2.5rem, 4.5vw, 4rem), weight 300, tight line-height).
 - `.am-cta-link`: shared inline CTA link style (uppercase, letter spacing, token underline, hover border-color shift).
 - `.am-cta-group` + `.am-cta-group--left`: centered vs left-aligned CTA row.
-- `.am-btn`, `.am-btn--primary`, `.am-btn--outline`, `.am-btn--ghost`: shared button system.
+- `.am-btn`, `.am-btn--primary`, `.am-btn--secondary`: the only shared call-to-action button variants.
 - `.am-inline-link`: inline editorial links with underline offset.
 - `.am-display-xl`: display XL (rare hero/editorial one-liners).
 - `.am-accordion__trigger`, `.am-accordion__indicator`: shared FAQ typography.
@@ -423,4 +423,3 @@ Props:
 - `quote: string`
 - `author?: string`
 - `source?: string`
-

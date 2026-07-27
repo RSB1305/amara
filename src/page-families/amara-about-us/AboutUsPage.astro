@@ -85,7 +85,7 @@ const heroCtaLinks = page.hero.ctaLinks
             <p class="am-text-body text-subtle">{paragraph[currentLang]}</p>
           ))}
           <div class="h-16 w-full shrink-0" aria-hidden="true"></div>
-          <h3 class="am-text-subtitle font-semibold text-on-surface mb-4">{content.philosophy.subtitle?.[currentLang]}</h3>
+          <h3 class="am-text-subtitle font-normal text-on-surface mb-4">{content.philosophy.subtitle?.[currentLang]}</h3>
           {content.philosophy.items?.map((item) => (
             <p class="am-text-body text-subtle">{item.copy[currentLang]}</p>
           ))}
@@ -116,7 +116,7 @@ const heroCtaLinks = page.hero.ctaLinks
           {content.quality.statementParagraphs.map((paragraph) => (
             <p class="am-text-body text-subtle">{paragraph[currentLang]}</p>
           ))}
-          <p class="am-text-body font-semibold text-on-surface mt-8">{content.quality.statementStrong[currentLang]}</p>
+          <p class="am-text-body font-bold text-on-surface mt-8">{content.quality.statementStrong[currentLang]}</p>
         </EditorialStatement>
       </section>
 
@@ -134,7 +134,7 @@ const heroCtaLinks = page.hero.ctaLinks
                 <span class="am-text-subtitle italic text-on-surface/60">{location.name}</span>
               </div>
               <figcaption>
-                <h3 class="am-text-subtitle font-light text-on-surface mb-2">{location.name}</h3>
+                <h3 class="am-text-subtitle text-on-surface mb-2">{location.name}</h3>
                 <p class="am-text-body text-subtle">{location.copy[currentLang]}</p>
               </figcaption>
             </figure>
@@ -150,11 +150,11 @@ const heroCtaLinks = page.hero.ctaLinks
         stats={hostStats}
       >
         <div class="pt-12">
-          <h3 class="am-text-subtitle font-semibold text-on-surface mb-4">{content.host.subtitle?.[currentLang]}</h3>
+          <h3 class="am-text-subtitle font-normal text-on-surface mb-4">{content.host.subtitle?.[currentLang]}</h3>
           <div class="grid grid-cols-1 sm:grid-cols-3 gap-8 mt-8">
             {content.host.teamItems?.map((item) => (
               <div>
-                <h4 class="am-text-body font-semibold text-on-surface mb-2 m-0">{item.title[currentLang]}</h4>
+                <h4 class="am-text-body font-bold text-on-surface mb-2 m-0">{item.title[currentLang]}</h4>
                 <p class="am-text-body text-subtle m-0">{item.copy[currentLang]}</p>
               </div>
             ))}
