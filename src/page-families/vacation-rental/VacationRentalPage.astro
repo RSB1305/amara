@@ -6,6 +6,7 @@ import {
   type VacationRentalAmenityFeature,
   type VacationRentalEntity
 } from '../../content/vacationRentalEntities';
+import { getPublicImageDimensions } from '../../content/publicImageDimensions';
 import { resolveOptionalLink } from '../../lib/linkResolver';
 import { normalizeLanguage } from '../../lib/seo/resolve-seo-head';
 import type { AmaraLanguage } from '../../types/seo';
@@ -374,6 +375,8 @@ const galleryImages = rental.images.slice(1);
           <img
             src={rental.images[0]}
             alt={t(rental.imageAlt)}
+            width={getPublicImageDimensions(rental.images[0]).width}
+            height={getPublicImageDimensions(rental.images[0]).height}
             class="h-full w-full object-cover"
             loading="eager"
             fetchpriority="high"
@@ -445,6 +448,8 @@ const galleryImages = rental.images.slice(1);
               <img
                 src={image}
                 alt={`${t(rental.imageAlt)} ${index + 2}`}
+                width={getPublicImageDimensions(image).width}
+                height={getPublicImageDimensions(image).height}
                 class="h-full w-full object-cover"
                 loading="lazy"
                 decoding="async"

@@ -4,9 +4,10 @@ export const tarifaLocationSeo: AmaraAuthoringSeo = {
   version: '2026-07-27-tarifa-location-v1.0',
   pageType: 'A',
   entityKey: 'amara-brand',
+  ogImage: '/images/amara-tarifa/amara-tarifa-apartment03.webp',
   languages: {
     en: {
-      title: 'Tarifa: Atlantic Beaches, Kitesurfing & AMARA Family & Surf',
+      title: 'Tarifa: Atlantic Beaches & Kitesurfing',
       description:
         'A concise Tarifa guide to Atlantic beaches, wind, surf culture, the historic centre and AMARA Family & Surf for up to four guests.',
       robots: 'index, follow',
@@ -27,7 +28,7 @@ export const tarifaLocationSeo: AmaraAuthoringSeo = {
       canonical: 'auto'
     },
     nl: {
-      title: 'Tarifa: Atlantische stranden, kitesurfen & AMARA Family & Surf',
+      title: 'Tarifa: Atlantische stranden & kitesurfen',
       description:
         'Beknopte Tarifa-gids over Atlantische stranden, wind, surfcultuur, het historische centrum en AMARA Family & Surf voor maximaal vier gasten.',
       robots: 'index, follow',

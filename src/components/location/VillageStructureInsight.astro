@@ -14,6 +14,8 @@
  * - No new color tokens
  * - Shell uses global `am-section` + `am-section--insight`; typography/spacing via Tailwind + existing globals (`am-cta-link`, `am-cta-group`).
  */
+import { getPublicImageDimensions } from '../../content/publicImageDimensions';
+
 interface Props {
   eyebrow: string;
   headline: string;
@@ -26,12 +28,21 @@ interface Props {
 }
 
 const { eyebrow, headline, supporting, signal, ctaLabel, ctaHref, imageSrc, imageAlt } = Astro.props;
+const imageDimensions = getPublicImageDimensions(imageSrc);
 ---
 
 <section class="am-section am-section--insight">
   <div class="grid grid-cols-1 items-center gap-12 md:grid-cols-[1.2fr_1fr] md:gap-12 lg:gap-16">
     <div class="aspect-[4/5] w-full overflow-hidden">
-      <img src={imageSrc} alt={imageAlt} class="block h-full w-full object-cover" loading="lazy" decoding="async" />
+      <img
+        src={imageSrc}
+        alt={imageAlt}
+        width={imageDimensions.width}
+        height={imageDimensions.height}
+        class="block h-full w-full object-cover"
+        loading="lazy"
+        decoding="async"
+      />
     </div>
 
     <div class="max-w-[520px] md:max-w-[520px]">

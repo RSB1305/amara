@@ -51,7 +51,7 @@ const BRAND_ENTITY: BrandEntity = {
 const PUBLIC_ROUTE_LABELS: Partial<Record<string, Record<AmaraLanguage, string>>> = {
   'amara-about-us': {
     en: 'About AMARA',
-    de: 'Uber AMARA',
+    de: 'Über AMARA',
     es: 'Sobre AMARA',
     nl: 'Over AMARA',
     sv: 'Om AMARA'
@@ -61,19 +61,19 @@ const PUBLIC_ROUTE_LABELS: Partial<Record<string, Record<AmaraLanguage, string>>
     de: 'Ausstattung',
     es: 'Servicios',
     nl: 'Voorzieningen',
-    sv: 'Bekvamligheter'
+    sv: 'Bekvämligheter'
   },
   'direct-booking-benefits': {
     en: 'Direct Booking Benefits',
     de: 'Vorteile der Direktbuchung',
     es: 'Ventajas de reserva directa',
     nl: 'Voordelen van direct boeken',
-    sv: 'Fordelar med direktbokning'
+    sv: 'Fördelar med direktbokning'
   },
   'directions-arrival-guide': {
     en: 'Arrival Guide',
     de: 'Anreise-Guide',
-    es: 'Guia de llegada',
+    es: 'Guía de llegada',
     nl: 'Aankomstgids',
     sv: 'Ankomstguide'
   },
@@ -82,7 +82,7 @@ const PUBLIC_ROUTE_LABELS: Partial<Record<string, Record<AmaraLanguage, string>>
     de: 'Aufenthalts-FAQ',
     es: 'FAQ de la estancia',
     nl: 'Verblijfs-FAQ',
-    sv: 'FAQ for vistelsen'
+    sv: 'FAQ för vistelsen'
   },
   'frigiliana-faq': {
     en: 'Frigiliana FAQ',
@@ -94,7 +94,7 @@ const PUBLIC_ROUTE_LABELS: Partial<Record<string, Record<AmaraLanguage, string>>
   'frigiliana-location': {
     en: 'Frigiliana Guide',
     de: 'Frigiliana-Guide',
-    es: 'Guia de Frigiliana',
+    es: 'Guía de Frigiliana',
     nl: 'Frigiliana-gids',
     sv: 'Frigiliana-guide'
   },
@@ -110,14 +110,14 @@ const PUBLIC_ROUTE_LABELS: Partial<Record<string, Record<AmaraLanguage, string>>
     de: 'Wetter in Frigiliana',
     es: 'El tiempo en Frigiliana',
     nl: 'Het weer in Frigiliana',
-    sv: 'Vadret i Frigiliana'
+    sv: 'Vädret i Frigiliana'
   },
   'guest-reviews': {
     en: 'Guest Reviews',
-    de: 'Gastebewertungen',
-    es: 'Resenas de huespedes',
+    de: 'Gästebewertungen',
+    es: 'Reseñas de huéspedes',
     nl: 'Gastbeoordelingen',
-    sv: 'Gastrecensioner'
+    sv: 'Gästrecensioner'
   },
   instagram: {
     en: 'Instagram',
@@ -135,10 +135,10 @@ const PUBLIC_ROUTE_LABELS: Partial<Record<string, Record<AmaraLanguage, string>>
   },
   'romantic-hideaways': {
     en: 'Apartments for couples',
-    de: 'Apartments fur Paare',
+    de: 'Apartments für Paare',
     es: 'Apartamentos para parejas',
     nl: 'Appartementen voor koppels',
-    sv: 'Lagenheter for par'
+    sv: 'Lägenheter för par'
   },
   'la-amara-farah': {
     en: 'AMARA Farah',
@@ -489,8 +489,13 @@ export function resolveStructuredData(
     ? `${getBase(origin)}/#${lodgingEntity.identifier}`
     : undefined;
 
-  const graph: SchemaNode[] = [
-    buildWebSiteNode(origin, 'es'),
+  const graph: SchemaNode[] = [];
+
+  if (new URL(canonicalUrl).pathname === '/') {
+    graph.push(buildWebSiteNode(origin, 'es'));
+  }
+
+  graph.push(
     buildWebPageNode(
       canonicalUrl,
       current.title,
@@ -504,7 +509,7 @@ export function resolveStructuredData(
         image: ogImage
       }
     )
-  ];
+  );
 
   if (breadcrumbNode) {
     graph.push(breadcrumbNode);

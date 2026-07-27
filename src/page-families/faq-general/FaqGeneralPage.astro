@@ -3,6 +3,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import Navigation from '../../components/Navigation.astro';
 import TrustHero from '../../components/hero/TrustHero.astro';
 import EditorialClosingCta from '../../components/editorial/EditorialClosingCta.astro';
+import { getPublicImageDimensions } from '../../content/publicImageDimensions';
 import { resolveOptionalLink } from '../../lib/linkResolver';
 import { normalizeLanguage } from '../../lib/seo/resolve-seo-head';
 import type { AmaraAuthoringSeo, AmaraLanguage } from '../../types/seo';
@@ -396,6 +397,8 @@ const sections = copy.sections.map((section, index) => ({
                       <img
                         src={section.image}
                         alt={section.alt}
+                        width={getPublicImageDimensions(section.image).width}
+                        height={getPublicImageDimensions(section.image).height}
                         class="w-full h-full object-cover"
                         loading="lazy"
                         decoding="async"
@@ -476,6 +479,8 @@ const sections = copy.sections.map((section, index) => ({
                       <img
                         src={section.image}
                         alt={section.alt}
+                        width={getPublicImageDimensions(section.image).width}
+                        height={getPublicImageDimensions(section.image).height}
                         class="w-full h-full object-cover"
                         loading="lazy"
                         decoding="async"

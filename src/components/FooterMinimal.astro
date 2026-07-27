@@ -1,5 +1,4 @@
 ---
-import { normalizeLanguage } from '../lib/seo/resolve-seo-head';
 import { resolveOptionalLink } from '../lib/linkResolver';
 import { isPublicLinkEnabled } from '../lib/routeOwnership';
 import type { AmaraLanguage } from '../types/seo';
@@ -10,12 +9,9 @@ interface FooterLink {
 }
 
 interface Props {
+  currentLang: AmaraLanguage;
   links?: FooterLink[];
 }
-
-const pathname = Astro.url.pathname;
-const rawLang = pathname.split('/')[1] || 'es';
-const currentLang: AmaraLanguage = normalizeLanguage(rawLang);
 
 const defaultLinksByLang: Record<AmaraLanguage, FooterLink[]> = {
   en: [
@@ -49,9 +45,7 @@ const defaultLinksByLang: Record<AmaraLanguage, FooterLink[]> = {
     { token: 'direct_booking_benefits', label: 'Fördelar med direktbokning' }
   ]
 };
-const defaultLinks = defaultLinksByLang[currentLang] ?? defaultLinksByLang.en;
-
-const { links = defaultLinks } = Astro.props;
+const { currentLang, links = defaultLinksByLang[currentLang] ?? defaultLinksByLang.en } = Astro.props;
 const resolvedLinks = links
   .map((link) => {
     if (!isPublicLinkEnabled(link.token)) {

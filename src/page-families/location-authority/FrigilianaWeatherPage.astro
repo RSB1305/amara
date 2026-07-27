@@ -1,10 +1,15 @@
 ---
 import LocationAuthorityLayout from '../../layouts/LocationAuthorityLayout.astro';
 import Navigation from '../../components/Navigation.astro';
+import EditorialGuideLinkSection from '../../components/editorial/EditorialGuideLinkSection.astro';
 import SectionAnchorNav from '../../components/navigation/SectionAnchorNav.astro';
 import SmartBackButton from '../../components/navigation/SmartBackButton.astro';
 import HairlineStatCard from '../../components/location/HairlineStatCard.astro';
 import SeasonalPillar from '../../components/location/SeasonalPillar.astro';
+import {
+  frigilianaPreFooterCopy,
+  getFrigilianaPreFooterDescription
+} from '../../content/frigilianaPreFooterContent';
 import { buildOwnedLocalizedPath } from '../../lib/routeOwnership';
 import { getFrigilianaAuthoritySubnav } from '../../lib/frigiliana/frigilianaAuthoritySubnav';
 import { normalizeLanguage } from '../../lib/seo/resolve-seo-head';
@@ -290,6 +295,29 @@ const copy = {
 };
 
 const t = <T extends Record<AmaraLanguage, string>>(row: T) => row[currentLang] ?? row.en;
+
+const relatedLinks = [
+  {
+    href: `${locationBase}#where-to-stay`,
+    label: t(copy.related.links.stay),
+    text: getFrigilianaPreFooterDescription('location_frigiliana', currentLang)
+  },
+  {
+    href: parkingHref,
+    label: t(copy.related.links.parking),
+    text: getFrigilianaPreFooterDescription('frigiliana_parking', currentLang)
+  },
+  {
+    href: arrivalGuideHref,
+    label: t(copy.related.links.arrival),
+    text: getFrigilianaPreFooterDescription('arrival_guide', currentLang)
+  },
+  {
+    href: staysHref,
+    label: t(copy.related.links.apartments),
+    text: getFrigilianaPreFooterDescription('romantic_hideaways', currentLang)
+  }
+];
 ---
 
 <LocationAuthorityLayout seo={seo} pageLang={currentLang} bodyBackgroundClass="bg-white">
@@ -502,33 +530,14 @@ const t = <T extends Record<AmaraLanguage, string>>(row: T) => row[currentLang] 
           </p>
         </section>
 
-        {/* 6) Related Frigiliana Topics */}
-        <section class="space-y-6">
-          <h2 class="am-text-title italic text-on-surface">{t(copy.related.title)}</h2>
-          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            <a href={`${locationBase}#where-to-stay`} class="am-card-link rounded-[20px] border border-outline-variant/10 bg-surface/40 px-6 py-5 hover:bg-surface/70 transition-colors">
-              <div class="am-text-caption uppercase tracking-[0.18em] text-on-surface-variant/70">
-                {t(copy.related.links.stay)}
-              </div>
-            </a>
-            <a href={parkingHref} class="am-card-link rounded-[20px] border border-outline-variant/10 bg-surface/40 px-6 py-5 hover:bg-surface/70 transition-colors">
-              <div class="am-text-caption uppercase tracking-[0.18em] text-on-surface-variant/70">
-                {t(copy.related.links.parking)}
-              </div>
-            </a>
-            <a href={arrivalGuideHref} class="am-card-link rounded-[20px] border border-outline-variant/10 bg-surface/40 px-6 py-5 hover:bg-surface/70 transition-colors">
-              <div class="am-text-caption uppercase tracking-[0.18em] text-on-surface-variant/70">
-                {t(copy.related.links.arrival)}
-              </div>
-            </a>
-            <a href={staysHref} class="am-card-link rounded-[20px] border border-outline-variant/10 bg-surface/40 px-6 py-5 hover:bg-surface/70 transition-colors">
-              <div class="am-text-caption uppercase tracking-[0.18em] text-on-surface-variant/70">
-                {t(copy.related.links.apartments)}
-              </div>
-            </a>
-          </div>
-        </section>
       </div>
     </div>
+
+    <EditorialGuideLinkSection
+      eyebrow={frigilianaPreFooterCopy.eyebrow[currentLang]}
+      title={t(copy.related.title)}
+      intro={frigilianaPreFooterCopy.intro[currentLang]}
+      links={relatedLinks}
+    />
   </div>
 </LocationAuthorityLayout>

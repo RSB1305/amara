@@ -1,11 +1,12 @@
 ---
-import { normalizeLanguage } from '../lib/seo/resolve-seo-head';
 import { resolveLink } from '../lib/linkResolver';
 import type { AmaraLanguage } from '../types/seo';
 
-const pathname = Astro.url.pathname;
-const rawLang = pathname.split('/')[1] || 'es';
-const currentLang: AmaraLanguage = normalizeLanguage(rawLang);
+interface Props {
+  currentLang: AmaraLanguage;
+}
+
+const { currentLang } = Astro.props;
 
 const copy: Record<
   AmaraLanguage,

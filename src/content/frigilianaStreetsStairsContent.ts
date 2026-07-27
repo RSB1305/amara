@@ -6,6 +6,7 @@ export const frigilianaStreetsStairsSeo: AmaraAuthoringSeo = {
   version: '2026-07-27-frigiliana-streets-stairs-v1.0-A',
   pageType: 'A',
   entityKey: 'amara-brand',
+  ogImage: '/images/amara-frigiliana-pueblo/JPG_Frigiliana_Pueblo/2000px_72dpi_sRGB/08-frigiliana-pueblo.jpg',
   languages: {
     en: {
       title: 'Frigiliana Streets, Slopes & Stairs',
@@ -537,4 +538,3 @@ export const frigilianaStreetsStairsCopy = {
     } satisfies LocalizedText
   }
 } as const;
-

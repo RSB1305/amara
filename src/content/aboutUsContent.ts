@@ -86,6 +86,7 @@ export const aboutUsContent: AboutUsContent = {
     version: '2026-03-23-amara-about-us',
     pageType: 'C',
     entityKey: 'amara-brand',
+    ogImage: '/images/robert-amara-founder-host.jpg',
     languages: {
       en: {
         title: 'About AMARA: Hosting Standards & Quality',

@@ -9,6 +9,10 @@
 # Locale normalization
 /es / 301
 /es/ / 301
+/de/ /de 301
+/en/ /en 301
+/nl/ /nl 301
+/sv/ /sv 301
 
 # Current Spanish canonical equivalents
 /es/amara-about-us /amara-about-us 301
@@ -17,8 +21,11 @@
 /es/faq-general /faq-general 301
 /es/frigiliana-faq /frigiliana-faq 301
 /es/frigiliana-location /frigiliana-location 301
+/es/nerja-location /nerja-location 301
+/es/tarifa-location /tarifa-location 301
 /es/frigiliana-market /frigiliana-market 301
 /es/frigiliana-parking /frigiliana-parking 301
+/es/frigiliana-streets-stairs /frigiliana-streets-stairs 301
 /es/frigiliana-weather /frigiliana-weather 301
 /es/getting-to-frigiliana /getting-to-frigiliana 301
 /es/guest-reviews /guest-reviews 301

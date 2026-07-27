@@ -3,6 +3,7 @@ export const frigilianaLocationSeo: AmaraAuthoringSeo = {
   version: '2026-07-17-frigiliana-loc-v1.1-pillar',
   pageType: 'A',
   entityKey: 'amara-brand',
+  ogImage: '/images/amara-lounis/15-amara-frigiliana.jpg',
   languages: {
     en: {
       title: 'Frigiliana: Where to Stay, Parking & Weather',

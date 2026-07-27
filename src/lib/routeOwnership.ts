@@ -64,7 +64,10 @@ export function getOwnedPageStaticPaths() {
 }
 
 export function getOwnedSlugFromPathname(pathname: string): string {
-  const pathOnly = pathname.split(/[?#]/)[0] || '';
+  const rawPath = pathname.split(/[?#]/)[0] || '';
+  const pathOnly = rawPath
+    .replace(/\/index\.html$/i, '/')
+    .replace(/\.html$/i, '');
   const segments = pathOnly.split('/').filter(Boolean);
   const first = segments[0];
 
@@ -106,7 +109,7 @@ export function buildOwnedLocalizedPath(
   lang: AmaraLanguage
 ): string {
   if (!slug) {
-    return lang === 'es' ? '/' : `/${lang}/`;
+    return lang === 'es' ? '/' : `/${lang}`;
   }
 
   return lang === 'es' ? `/${slug}` : `/${lang}/${slug}`;

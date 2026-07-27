@@ -5,6 +5,8 @@
  * Governance: Rein visuelle Strukturkomponente.
  * Keine Logik, keine Sprache, kein Routing.
  */
+import { getPublicImageDimensions } from '../content/publicImageDimensions';
+
 interface GridItem {
   kicker: string;
   headline: string;
@@ -46,7 +48,11 @@ const { eyebrow, title, intro, items } = Astro.props;
             <img
               src={items[0].imageSrc}
               alt={items[0].imageAlt || ''}
+              width={getPublicImageDimensions(items[0].imageSrc).width}
+              height={getPublicImageDimensions(items[0].imageSrc).height}
               class="absolute inset-0 w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-1000 ease-out opacity-60"
+              loading="lazy"
+              decoding="async"
             />
           )}
           <div class="relative z-10">
@@ -88,7 +94,11 @@ const { eyebrow, title, intro, items } = Astro.props;
             <img
               src={items[3].imageSrc}
               alt={items[3].imageAlt || ''}
+              width={getPublicImageDimensions(items[3].imageSrc).width}
+              height={getPublicImageDimensions(items[3].imageSrc).height}
               class="absolute inset-0 w-full h-full object-cover opacity-20 group-hover:scale-110 transition-transform duration-1000"
+              loading="lazy"
+              decoding="async"
             />
           )}
           <div class="relative z-10">

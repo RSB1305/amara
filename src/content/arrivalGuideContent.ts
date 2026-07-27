@@ -10,7 +10,7 @@ export const arrivalGuideSeo: AmaraAuthoringSeo = {
     nl: { title: "Frigiliana aankomst- en parkeergids", description: "Hoe jullie het dorp bereiken en waar jullie het beste parkeren.", robots: "noindex, follow", canonical: "auto" },
     sv: { title: "Frigiliana ankomst- och parkeringsguide", description: "Hur ni tar er till byn och var det är bäst att parkera.", robots: "noindex, follow", canonical: "auto" }
   },
-  ogImage: "/images/arrival-og.jpg"
+  ogImage: "/images/amara-entrada/casa-amara-frigiliana-entrada.jpg"
 };
 
 export const arrivalGuideCopy = {

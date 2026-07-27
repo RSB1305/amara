@@ -76,6 +76,15 @@ const defaultCtaLabels: Record<AmaraLanguage, string> = {
   sv: 'Se tillgänglighet'
 };
 
+/** Compact label for the mobile header rail, where space next to the menu trigger is tight. */
+const defaultCtaShortLabels: Record<AmaraLanguage, string> = {
+  en: 'Book',
+  de: 'Buchen',
+  es: 'Reservar',
+  nl: 'Boeken',
+  sv: 'Boka'
+};
+
 const navigationUtilityLabels: Record<
   AmaraLanguage,
   { menu: string; closeMenu: string; selectLanguage: string; mobileNavigation: string }
@@ -302,7 +311,11 @@ const localizedNavLabels: Partial<Record<string, Record<AmaraLanguage, string>>>
   }
 };
 
-const ctaLink = { token: 'book', label: defaultCtaLabels[currentLang] };
+const ctaLink = {
+  token: 'book',
+  label: defaultCtaLabels[currentLang],
+  shortLabel: defaultCtaShortLabels[currentLang]
+};
 const currentPath = Astro.url.pathname;
 const languageSwitchToken = currentToken ?? languageToken ?? 'home';
 
@@ -597,15 +610,17 @@ const resolvedGlobalNavGroups = globalNavGroups.map((group) => {
       <div class="am-nav__slot am-nav__slot--cta">
         {ctaLink && (
           !isPublicLinkEnabled(ctaLink.token) ? (
-            <span class="am-btn am-btn--primary hidden lg:inline-flex am-is-disabled" aria-disabled="true">
-              {ctaLink.label}
+            <span class="am-btn am-btn--primary am-is-disabled" aria-disabled="true">
+              <span class="am-nav__cta-label-full">{ctaLink.label}</span>
+              <span class="am-nav__cta-label-short">{ctaLink.shortLabel}</span>
             </span>
           ) : (
             <a
               href={resolveLink(ctaLink.token, currentLang)}
-              class="am-btn am-btn--primary hidden lg:inline-flex"
+              class="am-btn am-btn--primary"
             >
-              {ctaLink.label}
+              <span class="am-nav__cta-label-full">{ctaLink.label}</span>
+              <span class="am-nav__cta-label-short">{ctaLink.shortLabel}</span>
             </a>
           )
         )}
@@ -844,6 +859,10 @@ const resolvedGlobalNavGroups = globalNavGroups.map((group) => {
 
   .am-nav__slot--cta {
     justify-content: flex-end;
+  }
+
+  .am-nav__cta-label-short {
+    display: none;
   }
 
   .am-nav__slot--menu {
@@ -1260,17 +1279,33 @@ const resolvedGlobalNavGroups = globalNavGroups.map((group) => {
 
     .am-nav__rail {
       width: auto;
-      grid-template-columns: auto auto;
-      column-gap: 0.25rem;
+      grid-template-columns: auto auto auto;
+      align-items: center;
+      column-gap: 0.5rem;
     }
 
-    .am-nav__slot--context,
-    .am-nav__slot--cta {
+    .am-nav__slot--context {
       display: none;
     }
 
+    .am-nav__slot--cta,
     .am-nav__slot--menu {
       display: flex;
+    }
+
+    /* Compact pill so the persistent booking CTA fits next to the menu trigger on phones. */
+    .am-nav__slot--cta .am-btn {
+      min-width: 0;
+      min-height: 2.75rem;
+      padding: 0.7rem 1.1rem;
+    }
+
+    .am-nav__cta-label-full {
+      display: none;
+    }
+
+    .am-nav__cta-label-short {
+      display: inline;
     }
 
     .am-nav__language {

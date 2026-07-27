@@ -3,6 +3,7 @@ import Hero from '../../components/Hero.astro';
 import FaqAccordion from '../../components/FaqAccordion.astro';
 import Navigation from '../../components/Navigation.astro';
 import EditorialClosingCta from '../../components/editorial/EditorialClosingCta.astro';
+import EditorialGuideLinkSection from '../../components/editorial/EditorialGuideLinkSection.astro';
 import HairlineStatCard from '../../components/location/HairlineStatCard.astro';
 import SectionAnchorNav from '../../components/navigation/SectionAnchorNav.astro';
 import {
@@ -10,6 +11,10 @@ import {
   frigilianaMarketExternalLinks,
   frigilianaMarketSeo
 } from '../../content/frigilianaMarketContent';
+import {
+  frigilianaPreFooterCopy,
+  getFrigilianaPreFooterDescription
+} from '../../content/frigilianaPreFooterContent';
 import LocationAuthorityLayout from '../../layouts/LocationAuthorityLayout.astro';
 import { getFrigilianaAuthoritySubnav } from '../../lib/frigiliana/frigilianaAuthoritySubnav';
 import { resolveOptionalLink } from '../../lib/linkResolver';
@@ -88,7 +93,13 @@ const relatedLinks = copy.related.links.flatMap((link) => {
     suppressMissing: true
   });
 
-  return href ? [{ href, label: t(link.label) }] : [];
+  return href
+    ? [{
+        href,
+        label: t(link.label),
+        text: getFrigilianaPreFooterDescription(link.token, currentLang)
+      }]
+    : [];
 });
 
 const footerHighlights = [
@@ -353,23 +364,12 @@ const ingenioImage = {
         </div>
       </section>
 
-      <section class="max-w-screen-2xl mx-auto px-12 py-28">
-        <h2 class="am-text-title italic text-on-surface tracking-tight mb-12">
-          {t(copy.related.title)}
-        </h2>
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {
-            relatedLinks.map((link) => (
-              <a
-                href={link.href}
-                class="am-guide-link am-text-caption uppercase"
-              >
-                {link.label}
-              </a>
-            ))
-          }
-        </div>
-      </section>
+      <EditorialGuideLinkSection
+        eyebrow={frigilianaPreFooterCopy.eyebrow[currentLang]}
+        title={t(copy.related.title)}
+        intro={frigilianaPreFooterCopy.intro[currentLang]}
+        links={relatedLinks}
+      />
 
       <section class="max-w-screen-2xl mx-auto px-12 pt-8">
         <EditorialClosingCta

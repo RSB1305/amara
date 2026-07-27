@@ -12,6 +12,7 @@ import {
   nerjaLocationCopy,
   nerjaLocationSeo
 } from '../../content/nerjaLocationContent';
+import { getPublicImageDimensions } from '../../content/publicImageDimensions';
 import { resolveOptionalLink } from '../../lib/linkResolver';
 import { getNerjaAuthoritySubnav } from '../../lib/nerja/nerjaAuthoritySubnav';
 import { normalizeLanguage } from '../../lib/seo/resolve-seo-head';
@@ -303,6 +304,8 @@ const sectionNavItems = getNerjaAuthoritySubnav(currentLang);
               <img
                 src="/images/amara-playa/apartment/chaparril-22.webp"
                 alt={c.gallery.images[2].alt}
+                width={getPublicImageDimensions('/images/amara-playa/apartment/chaparril-22.webp').width}
+                height={getPublicImageDimensions('/images/amara-playa/apartment/chaparril-22.webp').height}
                 class="w-full aspect-[16/10] object-cover"
                 loading="lazy"
                 decoding="async"

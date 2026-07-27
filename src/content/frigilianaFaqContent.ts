@@ -23,6 +23,7 @@ export const frigilianaFaqSeo: AmaraAuthoringSeo = {
   version: '2026-07-27-frigiliana-faq-v1.0-A',
   pageType: 'A',
   entityKey: 'amara-brand',
+  ogImage: '/images/amara-frigiliana-pueblo/JPG_Frigiliana_Pueblo/2000px_72dpi_sRGB/02-frigiliana-pueblo.jpg',
   languages: {
     en: {
       title: 'Frigiliana FAQ: Practical Answers for Your Visit',

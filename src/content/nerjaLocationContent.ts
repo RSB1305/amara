@@ -4,6 +4,7 @@ export const nerjaLocationSeo: AmaraAuthoringSeo = {
   version: '2026-07-18-nerja-location-v1.0',
   pageType: 'A',
   entityKey: 'amara-brand',
+  ogImage: '/images/amara-playa/apartment/chaparril-13.webp',
   languages: {
     en: {
       title: 'Nerja: Where to Stay, Beaches & AMARA Playa',

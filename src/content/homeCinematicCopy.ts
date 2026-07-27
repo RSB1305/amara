@@ -1,6 +1,6 @@
 /**
  * Homepage cinematic band — 5-language copy (SSOT per field).
- * Used by HomePage.astro + HomeCinematicMain.tsx props.
+ * Used by HomePage.astro + HomeCinematicMain.astro props.
  */
 import type { AmaraLanguage } from '../types/seo';
 
@@ -100,6 +100,15 @@ export const cinematicTrustCta: CopyRow = {
   es: 'Leer las más de 500 reseñas',
   nl: 'Lees alle 500+ beoordelingen',
   sv: 'Läs alla 500+ recensioner'
+};
+
+/** Primary action of the closing trust band — the site's strongest conversion moment. */
+export const cinematicTrustCtaPrimary: CopyRow = {
+  en: 'Check Availability',
+  de: 'Verfügbarkeit prüfen',
+  es: 'Consultar disponibilidad',
+  nl: 'Beschikbaarheid checken',
+  sv: 'Se tillgänglighet'
 };
 
 export const cinematicStatReviewsValue = '500+';

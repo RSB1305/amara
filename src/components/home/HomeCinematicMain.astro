@@ -1,0 +1,380 @@
+---
+export interface CinematicApartment {
+  id: string;
+  name: string;
+  subtitle: string;
+  meta: string;
+  desc: string;
+  img: string;
+  imgWidth: number;
+  imgHeight: number;
+  imgSrcSet?: string;
+  exploreHref: string;
+  exploreLabel: string;
+}
+
+export interface CinematicGuideLink {
+  href: string;
+  label: string;
+  text: string;
+}
+
+interface Props {
+  heroImageSrc: string;
+  heroImageSrcSet?: string;
+  heroImageWidth: number;
+  heroImageHeight: number;
+  heroKicker: string;
+  heroLead: string;
+  scrollHint: string;
+  philosophyHeadlinePart1: string;
+  philosophyHeadlineAccent: string;
+  philosophyLabel: string;
+  philosophyP1: string;
+  philosophyP2: string;
+  statReviewsValue: string;
+  statRatingValue: string;
+  statReviewsLabel: string;
+  statRatingLabel: string;
+  guideEyebrow: string;
+  guideTitle: string;
+  guideLinks: CinematicGuideLink[];
+  collectionEyebrow: string;
+  collectionTitle: string;
+  apartments: CinematicApartment[];
+  trustBgSrc: string;
+  trustBgSrcSet?: string;
+  trustImageWidth: number;
+  trustImageHeight: number;
+  trustQuote: string;
+  trustChips: string[];
+  trustCta: string;
+  trustReviewsHref: string | null;
+  trustCtaPrimary: string;
+  trustBookingHref: string | null;
+}
+
+const {
+  heroImageSrc,
+  heroImageSrcSet,
+  heroImageWidth,
+  heroImageHeight,
+  heroKicker,
+  heroLead,
+  scrollHint,
+  philosophyHeadlinePart1,
+  philosophyHeadlineAccent,
+  philosophyLabel,
+  philosophyP1,
+  philosophyP2,
+  statReviewsValue,
+  statRatingValue,
+  statReviewsLabel,
+  statRatingLabel,
+  guideEyebrow,
+  guideTitle,
+  guideLinks,
+  collectionEyebrow,
+  collectionTitle,
+  apartments,
+  trustBgSrc,
+  trustBgSrcSet,
+  trustImageWidth,
+  trustImageHeight,
+  trustQuote,
+  trustChips,
+  trustCta,
+  trustReviewsHref,
+  trustCtaPrimary,
+  trustBookingHref,
+} = Astro.props;
+---
+
+<main class="bg-surface relative min-h-screen selection:bg-primary-fixed-dim selection:text-on-primary-fixed">
+  <div
+    class="pointer-events-none fixed inset-0 z-[1] opacity-[0.04]"
+    aria-hidden="true"
+    style="background-image: url(&quot;data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E&quot;)"
+  ></div>
+
+  <amara-home-parallax class="contents">
+    <section
+      data-parallax-root
+      class="relative z-[2] h-[calc(100svh-104px)] min-h-[28rem] w-full overflow-hidden bg-inverse-surface lg:h-[calc(100svh-136px)]"
+    >
+      <div
+        data-parallax-layer
+        class="absolute inset-0 h-full w-full motion-safe:will-change-transform"
+      >
+        <img
+          src={heroImageSrc}
+          srcset={heroImageSrcSet}
+          alt=""
+          class="h-full w-full object-cover"
+          width={heroImageWidth}
+          height={heroImageHeight}
+          loading="eager"
+          fetchpriority="high"
+          decoding="async"
+        />
+        <div class="absolute inset-0 bg-gradient-to-b from-inverse-surface/25 via-transparent to-inverse-surface/80"></div>
+        <div class="absolute left-1/2 top-1/2 h-[58%] w-[min(92%,52rem)] -translate-x-1/2 -translate-y-1/2 rounded-full bg-inverse-surface/45 blur-3xl"></div>
+      </div>
+
+      <div class="absolute inset-0 z-10 flex flex-col items-center justify-center px-6 text-center text-inverted-on-surface">
+        <span class="mb-6 am-text-caption uppercase tracking-[0.3em] text-inverted-on-surface/90">
+          {heroKicker}
+        </span>
+        <h1 class="mb-8 am-text-display">AMARA</h1>
+        <p class="max-w-xl am-text-body italic text-inverted-on-surface/90">{heroLead}</p>
+      </div>
+
+      <div class="absolute bottom-12 left-1/2 z-10 flex -translate-x-1/2 flex-col items-center gap-2 text-inverted-on-surface/80">
+        <span class="am-text-caption uppercase tracking-widest">{scrollHint}</span>
+        <div class="h-12 w-px bg-gradient-to-b from-inverted-on-surface-muted to-transparent"></div>
+      </div>
+    </section>
+  </amara-home-parallax>
+
+  <section class="relative z-[2] mx-auto max-w-screen-xl px-6 py-32 md:px-12 md:py-48">
+    <div class="grid grid-cols-1 items-center gap-16 lg:grid-cols-12 lg:gap-8">
+      <div class="lg:col-span-5">
+        <div>
+          <h2 class="mb-8 am-text-title text-on-surface">
+            {philosophyHeadlinePart1}{' '}
+            <span class="italic text-primary">{philosophyHeadlineAccent}</span>
+          </h2>
+        </div>
+        <div>
+          <div class="mb-8 flex items-center gap-4">
+            <div class="h-px w-12 bg-outline-variant"></div>
+            <span class="am-text-caption uppercase tracking-widest text-on-surface-variant">{philosophyLabel}</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="flex flex-col gap-8 am-text-body text-on-surface-variant lg:col-span-6 lg:col-start-7">
+        <div><p>{philosophyP1}</p></div>
+        <div><p>{philosophyP2}</p></div>
+        <div>
+          <div class="flex gap-8 border-t border-outline-variant/30 pt-8">
+            <div>
+              <span class="mb-1 block am-text-subtitle text-on-surface">{statReviewsValue}</span>
+              <span class="am-text-caption uppercase tracking-wider text-on-surface-variant">{statReviewsLabel}</span>
+            </div>
+            <div>
+              <span class="mb-1 block am-text-subtitle text-on-surface">{statRatingValue}</span>
+              <span class="am-text-caption uppercase tracking-wider text-on-surface-variant">{statRatingLabel}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {
+    guideLinks.length > 0 && (
+      <section
+        id="stay-guides"
+        class="relative z-[2] scroll-mt-[104px] border-y border-outline-variant/10 bg-surface py-12 md:py-16 lg:scroll-mt-[136px]"
+      >
+        <div class="mx-auto grid max-w-screen-xl gap-10 px-6 md:px-12 lg:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)] lg:items-start">
+          <div>
+            <span class="mb-4 block am-text-caption uppercase tracking-widest text-primary">{guideEyebrow}</span>
+            <h2 class="max-w-lg am-text-title text-on-surface">{guideTitle}</h2>
+          </div>
+
+          <div>
+            <div class="grid gap-x-10 gap-y-8 sm:grid-cols-2">
+              {guideLinks.map((link) => (
+                <a href={link.href} class="am-guide-link group">
+                  <span class="block am-text-caption uppercase tracking-widest text-primary">{link.label}</span>
+                  <span class="mt-3 block max-w-sm am-text-body leading-relaxed text-on-surface-variant transition-colors group-hover:text-on-surface">
+                    {link.text}
+                  </span>
+                </a>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+    )
+  }
+
+  <section class="relative z-[2] bg-surface-container-low py-24">
+    <div class="mx-auto max-w-screen-2xl px-6 md:px-12">
+      <div>
+        <div class="mb-32 text-center">
+          <span class="mb-4 block am-text-caption uppercase tracking-widest text-primary">{collectionEyebrow}</span>
+          <h2 class="am-text-title text-on-surface">{collectionTitle}</h2>
+        </div>
+      </div>
+
+      <div class="flex flex-col gap-32 md:gap-48">
+        {
+          apartments.map((apt, index) => (
+            <div
+              class:list={[
+                'flex flex-col items-center gap-12 lg:gap-24',
+                index % 2 === 0 ? 'lg:flex-row' : 'lg:flex-row-reverse',
+              ]}
+            >
+              <div class="w-full lg:w-1/2">
+                <div class="group relative aspect-[4/5] w-full overflow-hidden">
+                  <img
+                    src={apt.img}
+                    srcset={apt.imgSrcSet}
+                    alt=""
+                    class="h-full w-full object-cover transition-transform duration-[1500ms] ease-out motion-safe:group-hover:scale-[1.03]"
+                    width={apt.imgWidth}
+                    height={apt.imgHeight}
+                    loading="lazy"
+                    decoding="async"
+                  />
+                  <div class="absolute inset-0 bg-inverse-surface/10 transition-colors duration-700 group-hover:bg-transparent"></div>
+                </div>
+              </div>
+
+              <div class="flex w-full flex-col justify-center lg:w-1/2">
+                <div>
+                  <span class="mb-4 block am-text-caption uppercase tracking-widest text-on-surface-variant">{apt.meta}</span>
+                  <h3 class="mb-2 am-text-title text-on-surface">{apt.name}</h3>
+                  <h4 class="mb-8 am-text-subtitle italic text-primary">{apt.subtitle}</h4>
+                  <p class="mb-10 max-w-md am-text-body text-on-surface-variant">{apt.desc}</p>
+
+                  <a
+                    href={apt.exploreHref}
+                    class="am-card-link group inline-flex items-center gap-4 am-text-caption uppercase"
+                  >
+                    <span class="relative overflow-hidden pb-1">
+                      {apt.exploreLabel}
+                      <span class="absolute bottom-0 left-0 h-px w-full origin-left scale-x-0 bg-on-surface transition-transform duration-500 group-hover:scale-x-100"></span>
+                    </span>
+                    <svg
+                      class="h-4 w-4 transition-transform duration-500 group-hover:translate-x-2"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                      aria-hidden="true"
+                    >
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                    </svg>
+                  </a>
+                </div>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="relative z-[2] overflow-hidden bg-inverse-surface py-32 text-inverted-on-surface md:py-48">
+    <div class="pointer-events-none absolute left-0 top-0 h-full w-full opacity-10">
+      <img
+        src={trustBgSrc}
+        srcset={trustBgSrcSet}
+        alt=""
+        class="h-full w-full object-cover grayscale"
+        width={trustImageWidth}
+        height={trustImageHeight}
+        loading="lazy"
+        decoding="async"
+      />
+    </div>
+
+    <div class="relative z-10 mx-auto max-w-screen-xl px-6 text-center md:px-12">
+      <div>
+        <span class="am-gold mb-8 block am-text-subtitle" aria-hidden="true">★★★★★</span>
+        <h2 class="mx-auto mb-12 max-w-4xl am-text-title text-inverted-on-surface">
+          <span aria-hidden="true">&ldquo;</span>
+          {trustQuote}
+          <span aria-hidden="true">&rdquo;</span>
+        </h2>
+
+        <div class="mb-16 flex flex-wrap justify-center gap-4 md:gap-8">
+          {
+            trustChips.map((feature) => (
+              <span class="rounded-full border border-inverted-on-surface-muted px-6 py-2 am-text-body tracking-wide text-inverted-on-surface">
+                {feature}
+              </span>
+            ))
+          }
+        </div>
+
+        <div class="flex flex-wrap justify-center gap-4">
+          {
+            trustBookingHref && (
+              <a href={trustBookingHref} class="am-btn am-btn--primary am-btn--inverse">
+                {trustCtaPrimary}
+              </a>
+            )
+          }
+          {
+            trustReviewsHref && (
+              <a href={trustReviewsHref} class="am-btn am-btn--secondary am-btn--inverse">
+                {trustCta}
+              </a>
+            )
+          }
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<script>
+  class AmaraHomeParallax extends HTMLElement {
+    private frameId: number | null = null;
+    private rootElement: HTMLElement | null = null;
+    private layerElement: HTMLElement | null = null;
+    private reducedMotionQuery: MediaQueryList | null = null;
+
+    private update = () => {
+      this.frameId = null;
+      if (!this.rootElement || !this.layerElement) return;
+
+      if (this.reducedMotionQuery?.matches) {
+        this.layerElement.style.removeProperty('transform');
+        this.layerElement.style.removeProperty('opacity');
+        return;
+      }
+
+      const bounds = this.rootElement.getBoundingClientRect();
+      const progress = Math.min(1, Math.max(0, -bounds.top / bounds.height));
+      this.layerElement.style.transform = `translate3d(0, ${progress * 30}%, 0)`;
+      this.layerElement.style.opacity = String(Math.max(0, 1 - progress / 0.8));
+    };
+
+    private scheduleUpdate = () => {
+      if (this.frameId === null) {
+        this.frameId = window.requestAnimationFrame(this.update);
+      }
+    };
+
+    connectedCallback() {
+      this.rootElement = this.querySelector('[data-parallax-root]');
+      this.layerElement = this.querySelector('[data-parallax-layer]');
+      this.reducedMotionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+
+      window.addEventListener('scroll', this.scheduleUpdate, { passive: true });
+      window.addEventListener('resize', this.scheduleUpdate);
+      this.reducedMotionQuery.addEventListener('change', this.scheduleUpdate);
+      this.scheduleUpdate();
+    }
+
+    disconnectedCallback() {
+      window.removeEventListener('scroll', this.scheduleUpdate);
+      window.removeEventListener('resize', this.scheduleUpdate);
+      this.reducedMotionQuery?.removeEventListener('change', this.scheduleUpdate);
+
+      if (this.frameId !== null) {
+        window.cancelAnimationFrame(this.frameId);
+      }
+    }
+  }
+
+  if (!customElements.get('amara-home-parallax')) {
+    customElements.define('amara-home-parallax', AmaraHomeParallax);
+  }
+</script>

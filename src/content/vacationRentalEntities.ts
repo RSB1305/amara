@@ -66,8 +66,6 @@ export interface VacationRentalEntity {
 }
 
 const languages: AmaraLanguage[] = ['en', 'de', 'es', 'nl', 'sv'];
-const airbnbProfile = 'https://www.airbnb.de/users/profile/1462887322087352320';
-
 const frigilianaAddress = {
   street: 'Calle Chorruelo 5',
   city: 'Frigiliana',
@@ -117,7 +115,7 @@ export const vacationRentalEntities: VacationRentalEntity[] = [
     checkinTime: '15:00:00',
     checkoutTime: '11:00:00',
     bookingUrl: 'https://www.booking.com/hotel/es/das-amara-farah-in-der-altstadt-von-frigiliana.de.html',
-    sameAs: [airbnbProfile, 'https://www.booking.com/hotel/es/das-amara-farah-in-der-altstadt-von-frigiliana.de.html'],
+    sameAs: ['https://www.booking.com/hotel/es/das-amara-farah-in-der-altstadt-von-frigiliana.de.html'],
     seoTitle: {
       en: 'AMARA Farah | Private Boutique Room in Frigiliana',
       de: 'AMARA Farah | Privates Boutique-Zimmer in Frigiliana',
@@ -258,7 +256,7 @@ export const vacationRentalEntities: VacationRentalEntity[] = [
     checkinTime: '15:00:00',
     checkoutTime: '11:00:00',
     bookingUrl: 'https://www.booking.com/hotel/es/das-amara-lounis-in-der-altstadt-von-frigiliana.de.html',
-    sameAs: [airbnbProfile, 'https://www.booking.com/hotel/es/das-amara-lounis-in-der-altstadt-von-frigiliana.de.html'],
+    sameAs: ['https://www.booking.com/hotel/es/das-amara-lounis-in-der-altstadt-von-frigiliana.de.html'],
     seoTitle: {
       en: 'AMARA Lounis | Historic Apartment in Frigiliana',
       de: 'AMARA Lounis | Historisches Apartment in Frigiliana',
@@ -401,7 +399,7 @@ export const vacationRentalEntities: VacationRentalEntity[] = [
     checkinTime: '15:00:00',
     checkoutTime: '11:00:00',
     bookingUrl: 'https://www.booking.com/hotel/es/das-amara-zaid-in-der-altstadt-von-frigiliana.de.html',
-    sameAs: [airbnbProfile, 'https://www.booking.com/hotel/es/das-amara-zaid-in-der-altstadt-von-frigiliana.de.html'],
+    sameAs: ['https://www.booking.com/hotel/es/das-amara-zaid-in-der-altstadt-von-frigiliana.de.html'],
     seoTitle: {
       en: 'AMARA Zaid | Romantic Terrace Apartment in Frigiliana',
       de: 'AMARA Zaid | Romantisches Terrassenapartment in Frigiliana',
@@ -544,7 +542,7 @@ export const vacationRentalEntities: VacationRentalEntity[] = [
     checkinTime: '15:00:00',
     checkoutTime: '11:00:00',
     bookingUrl: 'https://www.booking.com/hotel/es/das-amara-maha-in-der-altstadt-von-frigiliana.de.html',
-    sameAs: [airbnbProfile, 'https://www.booking.com/hotel/es/das-amara-maha-in-der-altstadt-von-frigiliana.de.html'],
+    sameAs: ['https://www.booking.com/hotel/es/das-amara-maha-in-der-altstadt-von-frigiliana.de.html'],
     seoTitle: {
       en: 'AMARA Maha | Apartment with Large Terrace in Frigiliana',
       de: 'AMARA Maha | Apartment mit großer Terrasse in Frigiliana',
@@ -694,7 +692,7 @@ export const vacationRentalEntities: VacationRentalEntity[] = [
     checkinTime: '15:00:00',
     checkoutTime: '11:00:00',
     bookingUrl: 'https://www.booking.com/hotel/es/cozy-apartment-next-to-the-beach-and-nerja-center.de.html',
-    sameAs: [airbnbProfile, 'https://www.booking.com/hotel/es/cozy-apartment-next-to-the-beach-and-nerja-center.de.html'],
+    sameAs: ['https://www.booking.com/hotel/es/cozy-apartment-next-to-the-beach-and-nerja-center.de.html'],
     seoTitle: {
       en: 'AMARA Playa | Nerja Beach Apartment with Sea View',
       de: 'AMARA Playa | Strandapartment in Nerja mit Meerblick',
@@ -847,7 +845,7 @@ export const vacationRentalEntities: VacationRentalEntity[] = [
     checkinTime: '15:00:00',
     checkoutTime: '11:00:00',
     bookingUrl: 'https://www.booking.com/hotel/es/surfers-home-with-oceanview-and-pool.de.html',
-    sameAs: [airbnbProfile, 'https://www.booking.com/hotel/es/surfers-home-with-oceanview-and-pool.de.html'],
+    sameAs: ['https://www.booking.com/hotel/es/surfers-home-with-oceanview-and-pool.de.html'],
     seoTitle: {
       en: 'AMARA Family & Surf | Ocean View House in Tarifa',
       de: 'AMARA Family & Surf | Haus mit Meerblick in Tarifa',

@@ -1,16 +1,18 @@
 ---
 import FooterMinimal from './FooterMinimal.astro';
 import FooterCore from './FooterCore.astro';
+import type { AmaraLanguage } from '../types/seo';
 
 interface Props {
+  currentLang: AmaraLanguage;
   highlights?: { token: string; label: string }[];
   variant?: 'default' | 'trust';
 }
 
-const { highlights, variant = 'default' } = Astro.props;
+const { currentLang, highlights, variant = 'default' } = Astro.props;
 ---
 
 <div class="footer">
-  <FooterMinimal links={highlights} />
-  {variant !== 'trust' && <FooterCore />}
+  <FooterMinimal currentLang={currentLang} links={highlights} />
+  {variant !== 'trust' && <FooterCore currentLang={currentLang} />}
 </div>

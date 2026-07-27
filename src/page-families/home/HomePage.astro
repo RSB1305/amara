@@ -2,7 +2,7 @@
 import { getImage } from 'astro:assets';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Navigation from '../../components/Navigation.astro';
-import HomeCinematicMain from '../../components/home/HomeCinematicMain.tsx';
+import HomeCinematicMain from '../../components/home/HomeCinematicMain.astro';
 import { resolveOptionalLink } from '../../lib/linkResolver';
 import { normalizeLanguage } from '../../lib/seo/resolve-seo-head';
 import type { AmaraAuthoringSeo, AmaraLanguage } from '../../types/seo';
@@ -21,6 +21,7 @@ import {
   cinematicCollectionTitle,
   cinematicTrustQuote,
   cinematicTrustCta,
+  cinematicTrustCtaPrimary,
   cinematicTrustChips,
   cinematicStatReviewsValue,
   cinematicStatRatingValue,
@@ -66,6 +67,7 @@ const seo: AmaraAuthoringSeo = {
   version: '2026-04-04-amara-home-cinematic-v3.0-A',
   pageType: 'A',
   entityKey: 'amara-brand',
+  ogImage: heroImage.src,
   languages: {
     en: {
       title: 'AMARA | Boutique Holiday Apartments in Frigiliana & Nerja',
@@ -142,6 +144,7 @@ const cinematicApartmentsProps = (
 ).filter((apt): apt is NonNullable<typeof apt> => Boolean(apt));
 
 const trustReviewsHref = resolveOptionalLink('reviews_hub', currentLang, { suppressMissing: true });
+const trustBookingHref = resolveOptionalLink('book', currentLang, { suppressMissing: true });
 const guideLinks = cinematicGuideLinks
   .map((link) => {
     const href = resolveOptionalLink(link.token, currentLang, { suppressMissing: true });
@@ -167,7 +170,6 @@ const guideLinks = cinematicGuideLinks
   <div class="am-root" data-am-page="home">
     <div class="am-wrap w-full max-w-screen-2xl mx-auto px-6 md:px-12 pb-20">
       <HomeCinematicMain
-        client:load
         heroImageSrc={heroImage.src}
         heroImageSrcSet={heroImage.srcSet.attribute}
         heroImageWidth={heroImage.attributes.width as number}
@@ -198,6 +200,8 @@ const guideLinks = cinematicGuideLinks
         trustChips={cinematicTrustChips[currentLang]}
         trustCta={t(cinematicTrustCta)}
         trustReviewsHref={trustReviewsHref}
+        trustCtaPrimary={t(cinematicTrustCtaPrimary)}
+        trustBookingHref={trustBookingHref}
       />
     </div>
   </div>

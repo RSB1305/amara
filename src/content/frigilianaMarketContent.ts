@@ -21,6 +21,7 @@ export const frigilianaMarketSeo: AmaraAuthoringSeo = {
   version: '2026-07-27-frigiliana-market-v1.0-A',
   pageType: 'A',
   entityKey: 'amara-brand',
+  ogImage: '/images/amara-frigiliana-pueblo/JPG_Frigiliana_Pueblo/2000px_72dpi_sRGB/06-frigiliana-pueblo.jpg',
   languages: {
     en: {
       title: 'Frigiliana Market: Day, Time & What to Expect',

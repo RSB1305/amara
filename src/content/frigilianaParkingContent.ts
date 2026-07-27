@@ -20,6 +20,7 @@ export const frigilianaParkingSeo: AmaraAuthoringSeo = {
   version: '2026-07-27-frigiliana-parking-v2.0-A',
   pageType: 'A',
   entityKey: 'amara-brand',
+  ogImage: '/images/amara-frigiliana-pueblo/JPG_Frigiliana_Pueblo/2000px_72dpi_sRGB/01-frigiliana-pueblo.jpg',
   languages: {
     en: {
       title: 'Parking in Frigiliana: Where to Park',

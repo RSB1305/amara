@@ -16,6 +16,7 @@ export const gettingToFrigilianaSeo: AmaraAuthoringSeo = {
   version: '2026-07-27-getting-to-frigiliana-v1.0-A',
   pageType: 'A',
   entityKey: 'amara-brand',
+  ogImage: '/images/amara-frigiliana-pueblo/JPG_Frigiliana_Pueblo/2000px_72dpi_sRGB/01-frigiliana-pueblo.jpg',
   languages: {
     en: {
       title: 'Getting to Frigiliana: Car, Transfer & Bus',
@@ -762,4 +763,3 @@ export const gettingToFrigilianaCopy = {
     } satisfies LocalizedText
   }
 } as const;
-

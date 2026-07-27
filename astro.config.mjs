@@ -47,7 +47,7 @@ const sitemapExcludedSlugs = new Set([
   'instagram',
   'test'
 ]);
-const sitemapHomePathnames = new Set(['/', '/de/', '/en/', '/nl/', '/sv/']);
+const sitemapHomePathnames = new Set(['/']);
 
 function getSitemapSlug(page) {
   const pathname = new URL(page).pathname;
@@ -99,6 +99,10 @@ function normalizeSitemapItem(item) {
 
 export default defineConfig({
   site: siteOrigin,
+  build: {
+    format: 'file'
+  },
+  trailingSlash: 'never',
   redirects: {
     '/arrival-parking-guide': '/getting-to-frigiliana',
     '/es/arrival-parking-guide': '/getting-to-frigiliana',
@@ -151,11 +155,11 @@ export default defineConfig({
       i18n: {
         defaultLocale: 'es',
         locales: {
-          de: 'de-DE',
-          en: 'en-US',
-          es: 'es-ES',
-          nl: 'nl-NL',
-          sv: 'sv-SE'
+          de: 'de',
+          en: 'en',
+          es: 'es',
+          nl: 'nl',
+          sv: 'sv'
         }
       },
       filter: isSitemapPageAllowed,

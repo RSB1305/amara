@@ -3,6 +3,8 @@
  * Editorial comparison block for Type A Location Authority pages.
  * Presentational only: overlapping imagery + stacked copy (no table layout).
  */
+import { getPublicImageDimensions } from '../../content/publicImageDimensions';
+
 export interface LocationEditorialComparisonItem {
   kicker?: string;
   title: string;
@@ -33,6 +35,8 @@ const { eyebrow, title, intro, items, imagePrimary, imageSecondary } = Astro.pro
         <img
           src={imagePrimary.src}
           alt={imagePrimary.alt}
+          width={getPublicImageDimensions(imagePrimary.src).width}
+          height={getPublicImageDimensions(imagePrimary.src).height}
           class="h-full w-full object-cover"
           loading="lazy"
           decoding="async"
@@ -42,6 +46,8 @@ const { eyebrow, title, intro, items, imagePrimary, imageSecondary } = Astro.pro
         <img
           src={imageSecondary.src}
           alt={imageSecondary.alt}
+          width={getPublicImageDimensions(imageSecondary.src).width}
+          height={getPublicImageDimensions(imageSecondary.src).height}
           class="h-full w-full object-cover"
           loading="lazy"
           decoding="async"
