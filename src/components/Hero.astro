@@ -4,13 +4,12 @@
  * AMARA v3 Hero Authority
  * Regel: Absolut rahmenlos. Kein bg-container, kein Shadow, keine Card-Optik.
  */
+import type { ImageMetadata } from 'astro';
+import AmaraImage from './AmaraImage.astro';
+
 interface Props {
-  imageSrc: string;
+  imageSrc: ImageMetadata | string;
   imageAlt: string;
-  imageSources?: {
-    webp: Array<{ src: string; width: number }>;
-    fallback?: Array<{ src: string; width: number }>;
-  };
   imageWidth?: number;
   imageHeight?: number;
   imageSizes?: string;
@@ -19,19 +18,9 @@ interface Props {
 const {
   imageSrc,
   imageAlt,
-  imageSources,
   imageWidth = 1080,
-  imageHeight = 721,
   imageSizes = '(max-width: 767px) calc(100vw - 3rem), (max-width: 1023px) 60vw, 40vw'
 } = Astro.props;
-
-const webpSrcSet = imageSources?.webp
-  ?.map((source) => `${source.src} ${source.width}w`)
-  .join(', ');
-
-const fallbackSrcSet = imageSources?.fallback
-  ?.map((source) => `${source.src} ${source.width}w`)
-  .join(', ');
 ---
 <section class="max-w-screen-2xl mx-auto px-12 mb-32 pt-12">
   <div class="grid grid-cols-1 md:grid-cols-12 gap-16 items-center">
@@ -40,27 +29,18 @@ const fallbackSrcSet = imageSources?.fallback
     </div>
 
     <div class="md:col-span-5">
-      <picture>
-        {webpSrcSet && (
-          <source
-            type="image/webp"
-            srcset={webpSrcSet}
-            sizes={imageSizes}
-          />
-        )}
-        <img
-          src={imageSrc}
-          srcset={fallbackSrcSet}
-          sizes={fallbackSrcSet ? imageSizes : undefined}
-          alt={imageAlt}
-          width={imageWidth}
-          height={imageHeight}
-          class="w-full h-auto aspect-[3/4] object-cover"
-          loading="eager"
-          decoding="async"
-          fetchpriority="high"
-        />
-      </picture>
+      <AmaraImage
+        src={imageSrc}
+        alt={imageAlt}
+        profile="hero"
+        width={imageWidth}
+        widths={[480, 640, 800, imageWidth]}
+        sizes={imageSizes}
+        class="w-full h-auto aspect-[3/4] object-cover"
+        loading="eager"
+        decoding="async"
+        fetchpriority="high"
+      />
     </div>
   </div>
 </section>

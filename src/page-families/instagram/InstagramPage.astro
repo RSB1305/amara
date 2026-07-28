@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Navigation from '../../components/Navigation.astro';
+import AmaraImage from '../../components/AmaraImage.astro';
 import { resolveOptionalLink } from '../../lib/linkResolver';
 import { normalizeLanguage } from '../../lib/seo/resolve-seo-head';
 import type { AmaraAuthoringSeo, AmaraLanguage } from '../../types/seo';
@@ -146,29 +147,26 @@ const apartmentsHref = resolveOptionalLink('romantic_hideaways', currentLang, { 
       </div>
 
       <div class="mt-20 grid grid-cols-3 gap-2 md:mt-28 md:gap-5" aria-hidden="true">
-        <img
+        <AmaraImage
           src="/images/amara-insta-facebook/108-amara-frigiliana.jpg"
           alt=""
-          width="1282"
-          height="1920"
+          profile="card"
           class="aspect-[2/3] h-full w-full object-cover"
           loading="eager"
           decoding="async"
         />
-        <img
+        <AmaraImage
           src="/images/amara-insta-facebook/casa-amara-frigiliana-zaid-ducha-exterior.jpg"
           alt=""
-          width="1282"
-          height="1920"
+          profile="card"
           class="aspect-[2/3] h-full w-full object-cover"
           loading="eager"
           decoding="async"
         />
-        <img
+        <AmaraImage
           src="/images/amara-insta-facebook/casa-amara-frigiliana-maha-chimenea.jpg"
           alt=""
-          width="1282"
-          height="1920"
+          profile="card"
           class="aspect-[2/3] h-full w-full object-cover"
           loading="lazy"
           decoding="async"

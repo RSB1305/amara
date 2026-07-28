@@ -1,12 +1,12 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Navigation from '../../components/Navigation.astro';
+import AmaraImage from '../../components/AmaraImage.astro';
 import {
   buildVacationRentalSeo,
   type VacationRentalAmenityFeature,
   type VacationRentalEntity
 } from '../../content/vacationRentalEntities';
-import { getPublicImageDimensions } from '../../content/publicImageDimensions';
 import { resolveOptionalLink } from '../../lib/linkResolver';
 import { normalizeLanguage } from '../../lib/seo/resolve-seo-head';
 import type { AmaraLanguage } from '../../types/seo';
@@ -372,11 +372,11 @@ const galleryImages = rental.images.slice(1);
         </div>
 
         <figure class="mt-12 aspect-[16/9] max-h-[720px] overflow-hidden bg-surface-container-low">
-          <img
+          <AmaraImage
             src={rental.images[0]}
             alt={t(rental.imageAlt)}
-            width={getPublicImageDimensions(rental.images[0]).width}
-            height={getPublicImageDimensions(rental.images[0]).height}
+            profile="hero"
+            sizes="(max-width: 1535px) calc(100vw - 3rem), 1440px"
             class="h-full w-full object-cover"
             loading="eager"
             fetchpriority="high"
@@ -445,11 +445,10 @@ const galleryImages = rental.images.slice(1);
         <div class="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
           {galleryImages.map((image, index) => (
             <figure class="aspect-[4/3] overflow-hidden bg-surface-container-low">
-              <img
+              <AmaraImage
                 src={image}
                 alt={`${t(rental.imageAlt)} ${index + 2}`}
-                width={getPublicImageDimensions(image).width}
-                height={getPublicImageDimensions(image).height}
+                profile="gallery"
                 class="h-full w-full object-cover"
                 loading="lazy"
                 decoding="async"

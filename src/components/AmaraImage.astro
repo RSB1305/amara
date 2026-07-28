@@ -1,0 +1,56 @@
+---
+import type { ImageMetadata } from 'astro';
+import { Image } from 'astro:assets';
+import {
+  getAmaraImageProfile,
+  type AmaraImageProfile
+} from '../lib/images/amaraImageProfiles';
+import { resolveAmaraImageSource } from '../lib/images/amaraImageRegistry';
+
+interface Props {
+  src: ImageMetadata | string;
+  alt: string;
+  profile?: AmaraImageProfile;
+  class?: string;
+  loading?: 'eager' | 'lazy';
+  decoding?: 'async' | 'sync' | 'auto';
+  fetchpriority?: 'high' | 'low' | 'auto';
+  width?: number;
+  widths?: number[];
+  sizes?: string;
+  quality?: number;
+}
+
+const {
+  src,
+  alt,
+  profile = 'card',
+  class: className,
+  loading = 'lazy',
+  decoding = 'async',
+  fetchpriority = 'auto',
+  width,
+  widths,
+  sizes,
+  quality
+} = Astro.props;
+
+const image = resolveAmaraImageSource(src);
+const preset = getAmaraImageProfile(profile);
+const outputWidth = width ?? preset.width;
+const outputWidths = widths ?? preset.widths;
+---
+
+<Image
+  src={image}
+  alt={alt}
+  width={outputWidth}
+  widths={outputWidths}
+  sizes={sizes ?? preset.sizes}
+  quality={quality ?? preset.quality}
+  format="webp"
+  class={className}
+  loading={loading}
+  decoding={decoding}
+  fetchpriority={fetchpriority}
+/>

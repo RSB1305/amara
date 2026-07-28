@@ -18,6 +18,11 @@ export interface FrigilianaOderNerjaPageCopy {
     title: string;
     text: string;
   };
+  decisionFactors: {
+    eyebrow: string;
+    title: string;
+    text: string;
+  };
   history: {
     eyebrow: string;
     title: string;
@@ -97,7 +102,81 @@ export const frigilianaOderNerjaContent: Record<
   AmaraLanguage,
   FrigilianaOderNerjaPageCopy | null
 > = {
-  en: null, // TODO: Translate from the approved German source.
+  en: {
+    hero: {
+      eyebrow: 'Decision Guide',
+      title: 'Frigiliana or Nerja – Where to Stay?',
+      lead: 'The honest answer from hosts who have apartments in both places.',
+      intro:
+        'Anyone planning a trip to Andalusia will soon face this question. The usual travel blogs offer a convenient answer: stay in Nerja, and just visit Frigiliana as a day trip. We see it differently – and we can be honest because we have places in both towns. Our goal is not to push you in one direction or the other, but to help you find the right place for your holiday. First off: the two towns are only a ten-minute drive apart. This is not a major life decision – it’s more a matter of nuance. And that nuance is: where do you want to be in the evening and at night?',
+      imageAlt: 'White houses and alleys in Frigiliana with a view towards the coast'
+    },
+    coreQuestion: {
+      eyebrow: 'The Real Question',
+      title: 'Is quiet enough – with the buzz of life ten minutes away?',
+      text:
+        'At its heart, the decision comes down to a single question: Are you happy with the beach, restaurants, and bustle being a ten-minute drive away, in exchange for peace and quiet in the evenings? Or do you want to be right in the middle of the action? For some, the tranquillity of the mountain village is the real holiday, with the sea comfortably within reach. For others, the vibrant life needs to be right on their doorstep. Both are valid – it just depends on what kind of person you are.'
+    },
+    decisionFactors: {
+      eyebrow: 'Decision Factors',
+      title: 'Calm, Beach Access, Climate: What Matters Most to You?',
+      text:
+        'Use this overview to quickly see which town better fits your priorities. Both places are only 10 minutes apart, so you can always enjoy the benefits of the other.'
+    },
+    evening: {
+      eyebrow: 'Frigiliana in the Evening',
+      title: 'In the evening, Frigiliana belongs to its guests',
+      text:
+        "Frigiliana is a mountain village in the truest sense of the word – steep alleys, stairs, hardly a car passing through. This changes everything as soon as the last day-trip buses leave the village. What remains is calm. A real, rare calm. Around 8 PM, the small restaurants slowly open. People sit at tables in the alleys, eating and talking – it feels less like tourism and more like being in the village with friends for the evening. All around are the white houses with their colourful doors, bougainvillea on the walls, and beyond, the view of the sea and the avocado and mango plantations of the Axarquía. This is the Frigiliana moment a day tourist never experiences. They are long back on the coast, while the village settles down and, for a few hours, belongs to those who stay."
+    },
+    history: {
+      eyebrow: '800 Years / Alhambra',
+      title: 'Sleeping in one of the oldest houses in the village',
+      text:
+        "Frigiliana's old town is considered one of the best-preserved Moorish-Mudéjar quarters in the province of Málaga – created by the same culture that built the Alhambra in Granada. The houses grew organically up the slope over centuries: narrow stepped alleys, no room with a right angle, each house expanded, sold, and rebuilt over time. When we carefully restored AMARA Lounis in 2022 and uncovered the old walls, our architect was visibly impressed: he recognised the same construction method as the Alhambra in Granada – the same Moorish signature that shaped this quarter centuries ago. Sleeping in a house with such roots is a different feeling than in any coastal hotel. Nerja, for all its liveliness, cannot offer that."
+    },
+    comparison: {
+      eyebrow: 'The Honest Comparison',
+      title: 'Two styles, no better or worse',
+      frigiliana: {
+        title: 'Frigiliana – Calm, Nature, History',
+        text:
+          'For couples who want peace and quiet at night, value village character and views, and enjoy being in nature. There are many hiking trails around Frigiliana into the Sierra. A bonus, especially in summer: it is often noticeably cooler up in the mountain village than on the coast – the nights are significantly more pleasant.'
+      },
+      nerja: {
+        title: 'Nerja – Sea, Vibrancy, Right Outside',
+        text:
+          'For guests who want the lively life right on their doorstep: the beach within walking distance, plenty of restaurants, and a buzz. Nerja became famous in Spain through the cult TV series "Verano Azul" (1980s) and has its own unique, summery pulse. If you are looking for proximity to the sea and the hustle and bustle, this is the place for you.'
+      },
+      conclusion:
+        "And the best part: you can always enjoy the other's style. Many guests sleep peacefully in Frigiliana's cooler climate – and still enjoy Nerja's beach and vibrancy during the day, or go hiking. You don't have to choose one type of holiday. Just where you lay your head at night."
+    },
+    transport: {
+      eyebrow: 'But how do I get to the sea?',
+      title: "You don't have to choose between calm and the coast",
+      beforeBusLink:
+        'The most common concern about Frigiliana is: can I still get to the sea? The answer is straightforward. The drive to Nerja takes about ten minutes. There are several large car parks before you enter Nerja; it gets tighter in the centre, but it’s manageable. If you are travelling without a car, you can use the ',
+      busLinkLabel: 'public bus',
+      afterBusLink:
+        ' (Grupo Fajardo) to get there and back: from Monday to Saturday, there are about a dozen connections in each direction during the day. The last regular bus from Frigiliana down to Nerja on weekdays is around 9:00 PM (until 10:00 PM in high summer), and back up from Nerja around 8:30 PM (with an additional service at 9:30 PM in July and August). Fewer buses run on Sundays and public holidays. So, a car is more convenient for late evenings – but during the day, you can be at the beach in ten minutes and back in your quiet retreat just as quickly.'
+    },
+    booking: {
+      eyebrow: 'Booking Fork',
+      title: 'Which place is right for you?',
+      frigiliana: {
+        title: 'You want calm, climate, and village character',
+        text:
+          'Then our boutique apartments in Frigiliana for couples are the right choice – with the sea just ten minutes away.',
+        collectionCta: 'View apartments'
+      },
+      nerja: {
+        title: 'You want to be in the heart of coastal life',
+        text:
+          'Then AMARA Playa in Nerja is your place – with the beach and vibrancy right on your doorstep.',
+        cta: 'View AMARA Playa'
+      }
+    }
+  },
   de: {
     hero: {
       eyebrow: 'Entscheidungshilfe',
@@ -115,6 +194,12 @@ export const frigilianaOderNerjaContent: Record<
         'Reicht euch Ruhe – mit dem lebendigen Leben zehn Minuten entfernt?',
       text:
         'Im Kern läuft die Entscheidung auf eine einzige Frage hinaus: Reicht es euch, dass Strand, Restaurants und Trubel zehn Autominuten entfernt sind – und ihr habt dafür abends eure Ruhe? Oder wollt ihr mitten im lebendigen Leben wohnen? Für die einen ist die Ruhe des Bergdorfs der eigentliche Urlaub, mit dem Meer bequem in Reichweite. Für die anderen muss das pulsierende Leben direkt vor der Tür sein. Beides ist richtig – es kommt nur darauf an, welcher Typ ihr seid.'
+    },
+    decisionFactors: {
+      eyebrow: 'Entscheidungsfaktoren',
+      title: 'Ruhe, Strandnähe, Klima: Was ist euch am wichtigsten?',
+      text:
+        'Nutzt diese Übersicht, um schnell zu sehen, welcher Ort besser zu euren Prioritäten passt. Beide Orte sind nur 10 Minuten voneinander entfernt, sodass ihr immer die Vorteile des anderen mitnutzen könnt.'
     },
     evening: {
       eyebrow: 'Frigiliana am Abend',

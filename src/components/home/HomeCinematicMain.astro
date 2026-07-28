@@ -9,6 +9,7 @@ export interface CinematicApartment {
   imgWidth: number;
   imgHeight: number;
   imgSrcSet?: string;
+  imgSizes?: string;
   exploreHref: string;
   exploreLabel: string;
 }
@@ -22,6 +23,7 @@ export interface CinematicGuideLink {
 interface Props {
   heroImageSrc: string;
   heroImageSrcSet?: string;
+  heroImageSizes?: string;
   heroImageWidth: number;
   heroImageHeight: number;
   heroKicker: string;
@@ -44,6 +46,7 @@ interface Props {
   apartments: CinematicApartment[];
   trustBgSrc: string;
   trustBgSrcSet?: string;
+  trustBgSizes?: string;
   trustImageWidth: number;
   trustImageHeight: number;
   trustQuote: string;
@@ -57,6 +60,7 @@ interface Props {
 const {
   heroImageSrc,
   heroImageSrcSet,
+  heroImageSizes,
   heroImageWidth,
   heroImageHeight,
   heroKicker,
@@ -79,6 +83,7 @@ const {
   apartments,
   trustBgSrc,
   trustBgSrcSet,
+  trustBgSizes,
   trustImageWidth,
   trustImageHeight,
   trustQuote,
@@ -109,6 +114,7 @@ const {
         <img
           src={heroImageSrc}
           srcset={heroImageSrcSet}
+          sizes={heroImageSizes}
           alt=""
           class="h-full w-full object-cover"
           width={heroImageWidth}
@@ -224,6 +230,7 @@ const {
                   <img
                     src={apt.img}
                     srcset={apt.imgSrcSet}
+                    sizes={apt.imgSizes}
                     alt=""
                     class="h-full w-full object-cover transition-transform duration-[1500ms] ease-out motion-safe:group-hover:scale-[1.03]"
                     width={apt.imgWidth}
@@ -262,6 +269,7 @@ const {
       <img
         src={trustBgSrc}
         srcset={trustBgSrcSet}
+        sizes={trustBgSizes}
         alt=""
         class="h-full w-full object-cover grayscale"
         width={trustImageWidth}

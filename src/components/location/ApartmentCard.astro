@@ -3,12 +3,13 @@
  * Property listing card: image, meta, title, description, CTA.
  * Styling uses design tokens only (no raw hex).
  */
+import type { ImageMetadata } from 'astro';
+import AmaraImage from '../AmaraImage.astro';
+
 interface Props {
   href: string;
-  imageSrc: string;
+  imageSrc: ImageMetadata | string;
   imageAlt: string;
-  imageWidth?: number;
-  imageHeight?: number;
   loading?: 'eager' | 'lazy';
   meta: string;
   title: string;
@@ -20,8 +21,6 @@ const {
   href,
   imageSrc,
   imageAlt,
-  imageWidth = 800,
-  imageHeight = 600,
   loading = 'lazy',
   meta,
   title,
@@ -33,13 +32,13 @@ const {
 <div class="am-apartment-card am-apartment-card--hover">
   <figure class="am-apartment-card__figure">
     <a href={href} aria-label={`View ${title}`} class="am-card-link am-apartment-card__image-link">
-      <img
+      <AmaraImage
         src={imageSrc}
         alt={imageAlt}
+        profile="card"
         class="am-apartment-card__image"
         loading={loading}
-        width={imageWidth}
-        height={imageHeight}
+        decoding="async"
       />
     </a>
   </figure>

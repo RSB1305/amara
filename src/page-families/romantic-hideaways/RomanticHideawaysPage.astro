@@ -3,7 +3,6 @@
  * AMARA Romantic Hideaways — collection landing (from AI Studio import).
  * Shell: BaseLayout + Navigation + single .am-root > .am-wrap.
  */
-import { getImage } from 'astro:assets';
 import type { ImageMetadata } from 'astro';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Navigation from '../../components/Navigation.astro';
@@ -852,27 +851,19 @@ type ApartmentBase = Omit<
 type ApartmentWithHref = ApartmentBase &
   LocalizedApartmentCopy & {
     href: string;
-    optimizedImage: Awaited<ReturnType<typeof getImage>>;
+    image: ImageMetadata;
   };
-const apartmentRows = await Promise.all(
-  apartments.map(async (apt) => {
+const apartmentRows = apartments.map((apt) => {
     const href = optionalLink(apt.token);
     if (!href) return null;
-
-    const optimizedImage = await getImage({
-      src: apartmentImages[apt.token],
-      width: 900,
-      format: 'webp'
-    });
 
     return {
       token: apt.token,
       ...apartmentCopy[apt.token],
       href,
-      optimizedImage
+      image: apartmentImages[apt.token]
     };
-  })
-);
+  });
 const apartmentsWithLinks: ApartmentWithHref[] = apartmentRows.filter(
   (apt): apt is ApartmentWithHref => Boolean(apt)
 );
@@ -1000,10 +991,8 @@ const apartmentsWithLinks: ApartmentWithHref[] = apartmentRows.filter(
             apartmentsWithLinks.map((apt) => (
               <ApartmentCard
                 href={apt.href}
-                imageSrc={apt.optimizedImage.src}
+                imageSrc={apt.image}
                 imageAlt={t(apt.imageAlt)}
-                imageWidth={apt.optimizedImage.attributes.width}
-                imageHeight={apt.optimizedImage.attributes.height}
                 loading={['farah', 'lounis', 'zaid'].includes(apt.token) ? 'eager' : 'lazy'}
                 meta={t(apt.meta)}
                 title={t(apt.title)}

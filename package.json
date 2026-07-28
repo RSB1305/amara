@@ -7,12 +7,14 @@
   },
   "scripts": {
     "dev": "astro dev",
+    "prebuild": "node scripts/check-image-policy.mjs",
     "build": "astro build",
-    "postbuild": "node scripts/postbuild.mjs",
+    "postbuild": "node scripts/postbuild.mjs && node scripts/check-image-policy.mjs --dist",
     "preview": "astro preview",
     "astro": "astro",
     "check:link-policy": "node scripts/check-shared-link-policy.mjs",
     "check:fallback-policy": "node scripts/check-fallback-policy.mjs",
+    "check:image-policy": "node scripts/check-image-policy.mjs",
     "check:structured-data": "node scripts/check-structured-data.mjs"
   },
   "dependencies": {

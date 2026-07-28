@@ -1,8 +1,8 @@
 ---
-import { getImage } from 'astro:assets';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Navigation from '../../components/Navigation.astro';
 import HomeCinematicMain from '../../components/home/HomeCinematicMain.astro';
+import { createAmaraImage } from '../../lib/images/amaraImageProfiles';
 import { resolveOptionalLink } from '../../lib/linkResolver';
 import { normalizeLanguage } from '../../lib/seo/resolve-seo-head';
 import type { AmaraAuthoringSeo, AmaraLanguage } from '../../types/seo';
@@ -49,10 +49,8 @@ const homeImageByToken: Record<CinematicAptToken, typeof imgHeroLounis> = {
   casa: imgCasa
 };
 
-const webp = 'webp' as const;
-
-const heroImage = await getImage({ src: imgHeroLounis, width: 1536, format: webp });
-const trustImage = await getImage({ src: imgZaid, width: 1200, format: webp });
+const heroImage = await createAmaraImage(imgHeroLounis, 'hero', { quality: 50 });
+const trustImage = await createAmaraImage(imgZaid, 'background', { quality: 55 });
 
 interface Props {
   lang?: string;
@@ -121,11 +119,7 @@ const cinematicApartmentsProps = (
       return null;
     }
 
-    const optimized = await getImage({
-      src: homeImageByToken[apt.token],
-      width: 600,
-      format: webp
-    });
+    const optimized = await createAmaraImage(homeImageByToken[apt.token], 'card', { quality: 60 });
     return {
       id: apt.id,
       name: apt.name,
@@ -136,6 +130,7 @@ const cinematicApartmentsProps = (
       imgWidth: optimized.attributes.width as number,
       imgHeight: optimized.attributes.height as number,
       imgSrcSet: optimized.srcSet.attribute,
+      imgSizes: optimized.attributes.sizes as string,
       exploreHref,
       exploreLabel: t(apt.exploreLabel)
     };
@@ -172,6 +167,7 @@ const guideLinks = cinematicGuideLinks
       <HomeCinematicMain
         heroImageSrc={heroImage.src}
         heroImageSrcSet={heroImage.srcSet.attribute}
+        heroImageSizes={heroImage.attributes.sizes as string}
         heroImageWidth={heroImage.attributes.width as number}
         heroImageHeight={heroImage.attributes.height as number}
         heroKicker={t(cinematicHeroKicker)}
@@ -194,6 +190,7 @@ const guideLinks = cinematicGuideLinks
         apartments={cinematicApartmentsProps}
         trustBgSrc={trustImage.src}
         trustBgSrcSet={trustImage.srcSet.attribute}
+        trustBgSizes={trustImage.attributes.sizes as string}
         trustImageWidth={trustImage.attributes.width as number}
         trustImageHeight={trustImage.attributes.height as number}
         trustQuote={t(cinematicTrustQuote)}

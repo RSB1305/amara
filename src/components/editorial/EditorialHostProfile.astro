@@ -4,7 +4,7 @@
  *
  * Split portrait + bio with stats and optional slot (e.g. team grid).
  */
-import { getPublicImageDimensions } from '../../content/publicImageDimensions';
+import AmaraImage from '../AmaraImage.astro';
 
 export interface EditorialHostStat {
   label: string;
@@ -20,7 +20,6 @@ interface Props {
 }
 
 const { imageSrc, imageAlt, title, role, stats } = Astro.props;
-const imageDimensions = getPublicImageDimensions(imageSrc);
 ---
 
 <div
@@ -28,11 +27,10 @@ const imageDimensions = getPublicImageDimensions(imageSrc);
 >
   <div class="w-full max-w-[400px] mx-auto lg:mx-0 lg:max-w-none">
     <div class="aspect-[4/5] bg-surface-container-low overflow-hidden flex items-center justify-center">
-      <img
+      <AmaraImage
         src={imageSrc}
         alt={imageAlt}
-        width={imageDimensions.width}
-        height={imageDimensions.height}
+        profile="card"
         class="w-full h-full object-cover"
         loading="lazy"
         decoding="async"

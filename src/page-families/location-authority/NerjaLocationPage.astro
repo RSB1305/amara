@@ -2,6 +2,7 @@
 import LocationAuthorityLayout from '../../layouts/LocationAuthorityLayout.astro';
 import Navigation from '../../components/Navigation.astro';
 import Hero from '../../components/Hero.astro';
+import AmaraImage from '../../components/AmaraImage.astro';
 import EssenceGrid from '../../components/EssenceGrid.astro';
 import PhotoShow from '../../components/PhotoShow.astro';
 import StayDecision from '../../components/StayDecision.astro';
@@ -12,7 +13,6 @@ import {
   nerjaLocationCopy,
   nerjaLocationSeo
 } from '../../content/nerjaLocationContent';
-import { getPublicImageDimensions } from '../../content/publicImageDimensions';
 import { resolveOptionalLink } from '../../lib/linkResolver';
 import { getNerjaAuthoritySubnav } from '../../lib/nerja/nerjaAuthoritySubnav';
 import { normalizeLanguage } from '../../lib/seo/resolve-seo-head';
@@ -326,11 +326,11 @@ const sectionNavItems = getNerjaAuthoritySubnav(currentLang);
         <div class="max-w-screen-2xl mx-auto px-12 py-40 border-t border-outline-variant/5">
           <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
             <div class="lg:col-span-7 overflow-hidden bg-surface-container-low">
-              <img
+              <AmaraImage
                 src="/images/amara-playa/apartment/chaparril-22.webp"
                 alt={c.gallery.images[2].alt}
-                width={getPublicImageDimensions('/images/amara-playa/apartment/chaparril-22.webp').width}
-                height={getPublicImageDimensions('/images/amara-playa/apartment/chaparril-22.webp').height}
+                profile="gallery"
+                sizes="(max-width: 1023px) calc(100vw - 6rem), 58vw"
                 class="w-full aspect-[16/10] object-cover"
                 loading="lazy"
                 decoding="async"

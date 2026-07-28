@@ -17,6 +17,7 @@ import {
   arrivalGuideUi
 } from '../../content/arrivalGuideContent';
 import FaqAccordion from '../../components/FaqAccordion.astro';
+import AmaraImage from '../../components/AmaraImage.astro';
 import Navigation from '../../components/Navigation.astro';
 import SectionAnchorNav from '../../components/navigation/SectionAnchorNav.astro';
 import SmartBackButton from '../../components/navigation/SmartBackButton.astro';
@@ -227,11 +228,11 @@ const c = {
                     class="block w-full"
                     onclick="document.getElementById('map-overlay').classList.remove('hidden')"
                   >
-                    <img
+                    <AmaraImage
                       src="/images/arrival-map.jpg"
                       alt="Walking route from Avenida Carlos Cano 42 to La AMARA Frigiliana"
-                      width="1065"
-                      height="765"
+                      profile="gallery"
+                      sizes="(max-width: 1023px) calc(100vw - 3rem), 50vw"
                       class="w-full h-auto"
                       loading="lazy"
                       decoding="async"
@@ -307,11 +308,11 @@ const c = {
           ✕
         </button>
 
-        <img
+        <AmaraImage
           src="/images/arrival-map.jpg"
           alt="Expanded route map"
-          width="1065"
-          height="765"
+          profile="gallery"
+          sizes="90vw"
           class="w-full h-auto rounded-[16px]"
           loading="lazy"
           decoding="async"

@@ -1,5 +1,6 @@
 ---
 import Hero from '../../components/Hero.astro';
+import AmaraImage from '../../components/AmaraImage.astro';
 import FaqAccordion from '../../components/FaqAccordion.astro';
 import Navigation from '../../components/Navigation.astro';
 import EditorialClosingCta from '../../components/editorial/EditorialClosingCta.astro';
@@ -303,11 +304,10 @@ const contextImage = {
         <div class="max-w-screen-2xl mx-auto px-12 py-32">
           <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
             <div class="lg:col-span-6">
-              <img
+              <AmaraImage
                 src={contextImage.src}
                 alt={t(copy.context.imageAlt)}
-                width={contextImage.width}
-                height={contextImage.height}
+                profile="card"
                 class="w-full aspect-[4/3] object-cover"
                 loading="lazy"
                 decoding="async"
