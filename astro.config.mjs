@@ -25,10 +25,23 @@ function removeToolsFromDist() {
   };
 }
 
-const siteOrigin =
-  process.env.PUBLIC_SITE_URL ||
-  process.env.CF_PAGES_URL ||
-  'https://amara-lodging.es';
+function requirePublicSiteUrlForProduction() {
+  return {
+    name: 'require-public-site-url-for-production',
+    hooks: {
+      'astro:config:setup': ({ command }) => {
+        if (command === 'build' && !process.env.PUBLIC_SITE_URL?.trim()) {
+          throw new Error(
+            '[AMARA] Production build aborted: PUBLIC_SITE_URL is required. ' +
+              'Set PUBLIC_SITE_URL=https://amara-lodging.es in the Cloudflare Pages Production environment.'
+          );
+        }
+      }
+    }
+  };
+}
+
+const siteOrigin = process.env.PUBLIC_SITE_URL?.trim() || 'https://amara-lodging.es';
 
 const sitemapLocalePrefixes = new Set(['de', 'en', 'es', 'nl', 'sv']);
 const sitemapExcludedSlugs = new Set([
@@ -150,6 +163,7 @@ export default defineConfig({
     plugins: [tailwindcss()]
   },
   integrations: [
+    requirePublicSiteUrlForProduction(),
     react(),
     sitemap({
       i18n: {

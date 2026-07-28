@@ -1,0 +1,5 @@
+https://amara-staging.pages.dev/*
+  X-Robots-Tag: noindex
+
+https://:version.amara-staging.pages.dev/*
+  X-Robots-Tag: noindex
