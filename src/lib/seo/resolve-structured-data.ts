@@ -27,6 +27,8 @@ interface BrandEntity {
   country: string;
   latitude: number;
   longitude: number;
+  image: string;
+  priceRange: string;
   airbnbProfile?: string;
   instagramProfile?: string;
 }
@@ -44,6 +46,8 @@ const BRAND_ENTITY: BrandEntity = {
   country: 'ES',
   latitude: 36.793171,
   longitude: -3.899107,
+  image: '/images/hero-frigiliana.jpg',
+  priceRange: 'EUR 75-350',
   airbnbProfile: 'https://www.airbnb.de/users/profile/1462887322087352320',
   instagramProfile: 'https://www.instagram.com/amaralodging/'
 };
@@ -363,7 +367,9 @@ function buildBrandNode(entity: BrandEntity, origin: string) {
       '@type': 'Brand',
       name: entity.name
     },
-    logo: `${base}/web-app-manifest-512x512.png`
+    logo: `${base}/web-app-manifest-512x512.png`,
+    image: new URL(entity.image, base).href,
+    priceRange: entity.priceRange
   };
 }
 

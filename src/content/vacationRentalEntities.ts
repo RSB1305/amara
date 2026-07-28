@@ -245,13 +245,13 @@ export const vacationRentalEntities: VacationRentalEntity[] = [
     rooms: 3,
     occupancy: 2,
     bed: [{ numberOfBeds: 1, typeOfBed: 'Queen', label: '160 x 200' }],
-    priceRange: 'EUR 90-200',
+    priceRange: 'EUR 90-180',
     priceLabel: {
-      en: 'EUR 90-200',
-      de: '90 EUR - 200 EUR',
-      es: '90 EUR - 200 EUR',
-      nl: 'EUR 90 - EUR 200',
-      sv: '90 EUR - 200 EUR'
+      en: 'EUR 90-180',
+      de: '90 EUR - 180 EUR',
+      es: '90 EUR - 180 EUR',
+      nl: 'EUR 90 - EUR 180',
+      sv: '90 EUR - 180 EUR'
     },
     checkinTime: '15:00:00',
     checkoutTime: '11:00:00',
@@ -681,13 +681,13 @@ export const vacationRentalEntities: VacationRentalEntity[] = [
     rooms: 3,
     occupancy: 2,
     bed: [{ numberOfBeds: 1, typeOfBed: 'King', label: '200 x 200' }],
-    priceRange: 'EUR 90-200',
+    priceRange: 'EUR 90-180',
     priceLabel: {
-      en: 'EUR 90-200',
-      de: '90 EUR - 200 EUR',
-      es: '90 EUR - 200 EUR',
-      nl: 'EUR 90 - EUR 200',
-      sv: '90 EUR - 200 EUR'
+      en: 'EUR 90-180',
+      de: '90 EUR - 180 EUR',
+      es: '90 EUR - 180 EUR',
+      nl: 'EUR 90 - EUR 180',
+      sv: '90 EUR - 180 EUR'
     },
     checkinTime: '15:00:00',
     checkoutTime: '11:00:00',
@@ -834,13 +834,13 @@ export const vacationRentalEntities: VacationRentalEntity[] = [
       { numberOfBeds: 1, typeOfBed: 'Double', label: '150 x 200' },
       { numberOfBeds: 2, typeOfBed: 'Single', label: 'Bunk bed' }
     ],
-    priceRange: 'EUR 120-350',
+    priceRange: 'EUR 140-350',
     priceLabel: {
-      en: 'EUR 120-350',
-      de: '120 EUR - 350 EUR',
-      es: '120 EUR - 350 EUR',
-      nl: 'EUR 120 - EUR 350',
-      sv: '120 EUR - 350 EUR'
+      en: 'EUR 140-350',
+      de: '140 EUR - 350 EUR',
+      es: '140 EUR - 350 EUR',
+      nl: 'EUR 140 - EUR 350',
+      sv: '140 EUR - 350 EUR'
     },
     checkinTime: '15:00:00',
     checkoutTime: '11:00:00',
