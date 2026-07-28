@@ -270,7 +270,7 @@ export const frigilianaLocationCopy = {
     },
     intro: {
       en: "Frigiliana and Nerja are close in distance, but they create very different stay experiences. The better fit depends on whether you value village character or coastal convenience more.",
-      de: "Frigiliana und Nerja liegen nah beieinander, bieten aber sehr unterschiedliche Aufenthaltsgefühle. Welche Basis besser passt, hängt davon ab, ob Dorfcharakter oder Küstenkomfort wichtiger ist.",
+      de: "Zwischen Frigiliana und Nerja entscheidet weniger die kurze Entfernung als das gewünschte Gefühl am Abend. Das Bergdorf steht für Ruhe und Altstadtatmosphäre, der Küstenort für Strandnähe und mehr Betrieb vor der Tür.",
       es: "Frigiliana y Nerja están cerca, pero ofrecen experiencias de estancia muy distintas. La mejor opción depende de si valoras más el carácter del pueblo o la comodidad de la costa.",
       nl: "Frigiliana en Nerja liggen dicht bij elkaar, maar voelen als verblijf heel verschillend aan. Welke plek beter past, hangt af van de vraag of je meer waarde hecht aan dorpskarakter of kustgemak.",
       sv: "Frigiliana och Nerja ligger nära varandra, men ger två tydligt olika vistelser. Vad som passar bäst beror på om du värdesätter bykaraktär eller kustnära bekvämlighet mest."
@@ -296,26 +296,7 @@ export const frigilianaLocationCopy = {
           text: "Frigiliana suits calm, scenic stays with character, while Nerja offers beach access, variety and greater day-to-day convenience."
         }
       ],
-      de: [
-        {
-          kicker: "15 Min.",
-          title: "Die Nähe",
-          text: "Frigiliana liegt nur eine kurze Fahrt oberhalb von Nerja, fühlt sich als Basis für mehrere Tage aber grundlegend anders an."
-        },
-        {
-          kicker: "5°C",
-          title: "Das Mikroklima",
-          text: "Die Hanglage ist vor allem in den wärmeren Monaten oft spürbar kühler als die Küste."
-        },
-        {
-          title: "Bewegung",
-          text: "Frigiliana bedeutet Steigungen, Treppen und einen vertikaleren Tagesrhythmus, während Nerja meist flacher und leichter zugänglich ist."
-        },
-        {
-          title: "Aufenthaltsgefühl",
-          text: "Frigiliana passt zu ruhigen, malerischen Aufenthalten mit Charakter, während Nerja Strandnähe, Vielfalt und mehr Alltagskomfort bietet."
-        }
-      ],
+      de: [],
       es: [
         {
           kicker: "15 min",
@@ -376,6 +357,13 @@ export const frigilianaLocationCopy = {
           text: "Frigiliana passar lugna, natursköna vistelser med karaktär, medan Nerja ger strandnärhet, variation och större vardagsbekvämlighet."
         }
       ]
+    },
+    cta: {
+      en: "",
+      de: "Ausführlicher Vergleich: Frigiliana oder Nerja",
+      es: "",
+      nl: "",
+      sv: ""
     },
     imagePrimary: {
       src: "/images/amara-playa/apartment/chaparril-15.webp",

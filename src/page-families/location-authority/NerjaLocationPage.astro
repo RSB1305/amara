@@ -31,6 +31,8 @@ const optionalLink = (token: string) =>
 
 const playaHref = optionalLink('playa') ?? '#amara-playa';
 const frigilianaHref = optionalLink('location_frigiliana') ?? '#compare-frigiliana';
+const comparisonHref =
+  optionalLink('nerja_vs_frigiliana') ?? '#compare-frigiliana';
 
 const essenceItems = copy.essence.items.map((item) => {
   const token = 'token' in item ? item.token : undefined;
@@ -113,6 +115,8 @@ const c = {
   comparison: {
     eyebrow: copy.comparison.eyebrow[currentLang],
     title: copy.comparison.title[currentLang],
+    teaser: copy.comparison.teaser[currentLang],
+    cta: copy.comparison.cta[currentLang],
     profiles: copy.comparison.profiles.map((profile) => ({
       title: profile.title[currentLang],
       description: profile.description[currentLang],
@@ -290,11 +294,32 @@ const sectionNavItems = getNerjaAuthoritySubnav(currentLang);
       </section>
 
       <section id="compare-frigiliana" class="am-section am-section--tint w-full max-w-none !mx-0 !border-t-0 !px-0 !py-0">
-        <StayDecision
-          eyebrow={c.comparison.eyebrow}
-          title={c.comparison.title}
-          profiles={c.comparison.profiles}
-        />
+        {
+          currentLang === 'de' ? (
+            <div class="max-w-screen-2xl mx-auto px-12 py-40 border-t border-outline-variant/5">
+              <div class="max-w-3xl">
+                <span class="am-text-caption uppercase tracking-[0.4em] text-primary block mb-6">
+                  {c.comparison.eyebrow}
+                </span>
+                <h2 class="am-text-title italic text-on-surface tracking-tight mb-8">
+                  {c.comparison.title}
+                </h2>
+                <p class="am-text-body text-on-surface-variant leading-relaxed mb-8">
+                  {c.comparison.teaser}
+                </p>
+                <a href={comparisonHref} class="am-cta-link">
+                  {c.comparison.cta}
+                </a>
+              </div>
+            </div>
+          ) : (
+            <StayDecision
+              eyebrow={c.comparison.eyebrow}
+              title={c.comparison.title}
+              profiles={c.comparison.profiles}
+            />
+          )
+        }
       </section>
 
       <section id="amara-playa" class="am-section am-section--plain w-full max-w-none !mx-0 !border-t-0 !px-0">

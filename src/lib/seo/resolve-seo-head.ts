@@ -64,6 +64,10 @@ function normalizeBrandTitle(rawTitle: string | undefined): string {
     return 'AMARA';
   }
 
+  if (/\s(?:\||-|–|—|:)\s*AMARA$/i.test(title)) {
+    return title;
+  }
+
   const stripBrandPrefix = title.replace(
     /^AMARA(?:\s*(?:\||-|–|—|:)\s*|\s+)/i,
     ''

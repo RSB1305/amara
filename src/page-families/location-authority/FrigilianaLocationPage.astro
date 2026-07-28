@@ -42,6 +42,7 @@ const romanticHideawaysHref = optionalLink('romantic_hideaways') ?? '#where-to-s
 const reviewsHref = optionalLink('reviews_hub');
 const amenitiesHref = optionalLink('amenities');
 const allFaqsHref = optionalLink('frigiliana_faq');
+const comparisonHref = optionalLink('nerja_vs_frigiliana') ?? '#comparison';
 
 const c = {
   nav: {
@@ -78,6 +79,7 @@ const c = {
     title: copy.comparison.title[currentLang],
     intro: copy.comparison.intro[currentLang],
     items: copy.comparison.items[currentLang],
+    cta: copy.comparison.cta[currentLang],
     imagePrimary: {
       src: copy.comparison.imagePrimary.src,
       alt: copy.comparison.imagePrimary.alt[currentLang]
@@ -309,6 +311,15 @@ const sectionNavItems = getFrigilianaAuthoritySubnav(currentLang);
       imagePrimary={c.comparison.imagePrimary}
       imageSecondary={c.comparison.imageSecondary}
     />
+    {
+      currentLang === 'de' && (
+        <div class="max-w-screen-2xl mx-auto px-12 pb-32 -mt-24">
+          <a href={comparisonHref} class="am-cta-link">
+            {c.comparison.cta}
+          </a>
+        </div>
+      )
+    }
   </section>
   <div id="experiences">
   <VillageStructureInsight

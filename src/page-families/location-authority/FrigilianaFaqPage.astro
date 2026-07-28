@@ -54,10 +54,28 @@ const faqSections = copy.sections.map((section) => ({
   eyebrow: t(section.eyebrow),
   title: t(section.title),
   intro: t(section.intro),
-  items: section.items.map((item) => ({
-    question: t(item.q),
-    answer: t(item.a)
-  }))
+  items: section.items.map((item) => {
+    const linkToken = 'linkToken' in item ? item.linkToken : undefined;
+    const linkLabel = 'linkLabel' in item ? item.linkLabel[currentLang] : '';
+    const linkHref =
+      linkToken && linkLabel
+        ? resolveOptionalLink(linkToken, currentLang, {
+            suppressMissing: true
+          })
+        : null;
+
+    return {
+      question: t(item.q),
+      answer: t(item.a),
+      link:
+        linkHref && linkLabel
+          ? {
+              href: linkHref,
+              label: linkLabel
+            }
+          : null
+    };
+  })
 }));
 
 const liveInfoLinks = copy.liveInfo.links.map((link) => ({
@@ -230,6 +248,13 @@ const heroImage = {
                         <p class="am-text-body text-on-surface-variant leading-relaxed max-w-2xl">
                           {item.answer}
                         </p>
+                        {
+                          item.link && (
+                            <a href={item.link.href} class="am-cta-link mt-6 inline-flex">
+                              {item.link.label}
+                            </a>
+                          )
+                        }
                       </div>
                     </details>
                   ))}

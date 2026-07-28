@@ -212,7 +212,7 @@ const copy = {
   } satisfies CopyRow,
   decisionIntro: {
     en: 'Most couples compare atmosphere first, then walking, parking, terrace time, and beach access. This is the calm way to choose.',
-    de: 'Die meisten Paare vergleichen zuerst Atmosphäre, dann Wege, Parken, Terrassenzeit und Strandnähe. So bleibt die Auswahl ruhig.',
+    de: 'Für Paare liegt der wichtigste Unterschied zwischen Frigiliana und Nerja im Rhythmus nach Sonnenuntergang. Entscheidend ist, ob ihr ruhige Dorfabende oder Strand und Küstenleben direkt vor der Tür bevorzugt.',
     es: 'La mayoría de las parejas compara primero la atmósfera y después caminos, aparcamiento, terraza y playa. Así la elección se vuelve clara.',
     nl: 'De meeste koppels vergelijken eerst sfeer, daarna lopen, parkeren, terrastijd en strandtoegang. Zo blijft kiezen rustig.',
     sv: 'De flesta par jämför först känsla, sedan promenader, parkering, terrassliv och strandnära läge. Så blir valet lugnt.'
@@ -235,23 +235,7 @@ const copy = {
         body: 'Choose Ocean View Penthouse when you need more room, surf energy, and a different base from the quiet couple apartments.'
       }
     ],
-    de: [
-      {
-        kicker: 'Altstadt Frigiliana',
-        title: 'Am besten für Atmosphäre und ruhige Abende',
-        body: 'Wählt Farah, Lounis, Zaid oder Maha, wenn ihr Weißdorf-Charakter, leise Nächte, Terrassenmomente und Nerja nah genug für Strandtage möchtet.'
-      },
-      {
-        kicker: 'Küste Nerja',
-        title: 'Am besten, wenn Strand wichtig ist',
-        body: 'Wählt Playa, wenn ihr das Meer nah haben möchtet, einfachere Strandtage plant, Restaurants erreichbar sein sollen und der Rhythmus leichter sein darf.'
-      },
-      {
-        kicker: 'Mehr Raum in Tarifa',
-        title: 'Am besten, wenn die Reise nicht nur zu zweit ist',
-        body: 'Wählt Ocean View Penthouse, wenn ihr mehr Platz, Surf-Energie und eine andere Basis als die ruhigen Apartments für Paare sucht.'
-      }
-    ],
+    de: [],
     es: [
       {
         kicker: 'Casco antiguo de Frigiliana',
@@ -851,6 +835,7 @@ const collectionHref = '#booking';
 const directBookingHref = optionalLink('direct_booking_benefits');
 const reviewsHref = optionalLink('reviews_hub');
 const faqHref = optionalLink('faq_general');
+const comparisonHref = optionalLink('nerja_vs_frigiliana');
 const decisionItems = copy.decisionItems[currentLang] ?? copy.decisionItems.en;
 const faqItems = copy.faqItems[currentLang] ?? copy.faqItems.en;
 
@@ -951,7 +936,14 @@ const apartmentsWithLinks: ApartmentWithHref[] = apartmentRows.filter(
         class="py-14 md:py-20 border-t border-border-subtle relative z-10"
         aria-labelledby="decision-title"
       >
-        <div class="grid gap-10 lg:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)] lg:items-start">
+        <div
+          class:list={[
+            'grid gap-10 lg:items-start',
+            currentLang === 'de'
+              ? 'lg:grid-cols-1'
+              : 'lg:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)]'
+          ]}
+        >
           <div class="max-w-2xl">
             <p class="font-label text-[11px] font-bold uppercase tracking-[0.14em] text-on-surface-variant">
               {t(copy.decisionEyebrow)}
@@ -962,25 +954,34 @@ const apartmentsWithLinks: ApartmentWithHref[] = apartmentRows.filter(
             <p class="am-text-body text-on-surface-variant mt-5 leading-relaxed">
               {t(copy.decisionIntro)}
             </p>
-          </div>
-
-          <div class="grid gap-8 md:grid-cols-3">
             {
-              decisionItems.map((item) => (
-                <article class="border-t border-border-subtle pt-5">
-                  <p class="font-label text-[11px] font-bold uppercase tracking-[0.14em] text-primary">
-                    {item.kicker}
-                  </p>
-                  <h3 class="am-text-subtitle text-on-surface mt-4">
-                    {item.title}
-                  </h3>
-                  <p class="am-text-body text-on-surface-variant mt-3 leading-relaxed">
-                    {item.body}
-                  </p>
-                </article>
-              ))
+              currentLang === 'de' && comparisonHref && (
+                <a class="am-cta-link mt-7 inline-flex" href={comparisonHref}>
+                  Ausführlicher Vergleich: Frigiliana oder Nerja
+                </a>
+              )
             }
           </div>
+
+          {
+            currentLang !== 'de' && (
+              <div class="grid gap-8 md:grid-cols-3">
+                {decisionItems.map((item) => (
+                  <article class="border-t border-border-subtle pt-5">
+                    <p class="font-label text-[11px] font-bold uppercase tracking-[0.14em] text-primary">
+                      {item.kicker}
+                    </p>
+                    <h3 class="am-text-subtitle text-on-surface mt-4">
+                      {item.title}
+                    </h3>
+                    <p class="am-text-body text-on-surface-variant mt-3 leading-relaxed">
+                      {item.body}
+                    </p>
+                  </article>
+                ))}
+              </div>
+            )
+          }
         </div>
       </section>
 

@@ -1,0 +1,12 @@
+---
+import FrigilianaOderNerjaPage from '../../page-families/location-authority/FrigilianaOderNerjaPage.astro';
+import type { AmaraLanguage } from '../../types/seo';
+
+export function getStaticPaths() {
+  return [{ params: { lang: 'de' } }];
+}
+
+const { lang } = Astro.params as { lang: AmaraLanguage };
+---
+
+<FrigilianaOderNerjaPage lang={lang} />

@@ -334,10 +334,18 @@ export const frigilianaFaqCopy = {
           ),
           a: l(
             'Choose Frigiliana for village atmosphere, hillside views, historic lanes, and a slower rhythm. Choose Nerja if daily beach access, flatter walking, and a larger concentration of services matter more. The two places are close enough to combine, but they create different daily routines.',
-            'Wählt Frigiliana für Dorfatmosphäre, Hangblicke, historische Gassen und einen langsameren Rhythmus. Wählt Nerja, wenn täglicher Strandzugang, flachere Wege und ein größeres Angebot wichtiger sind. Beide Orte lassen sich gut verbinden, erzeugen aber einen unterschiedlichen Tagesablauf.',
+            'Frigiliana ist die passendere Basis, wenn ihr Ruhe, Aussicht und historischen Dorfcharakter sucht. Nerja passt besser, wenn Strand, Restaurants und lebendiges Küstenleben direkt vor der Tür wichtiger sind.',
             'Elegid Frigiliana por el ambiente de pueblo, las vistas desde la ladera, las calles históricas y un ritmo más pausado. Elegid Nerja si importan más la playa diaria, los paseos llanos y una mayor concentración de servicios. Ambos lugares se combinan bien, pero ofrecen rutinas distintas.',
             'Kies Frigiliana voor dorpssfeer, uitzicht vanaf de helling, historische straten en een rustiger tempo. Kies Nerja als dagelijks strand, vlakker lopen en meer voorzieningen belangrijker zijn. Beide plaatsen zijn goed te combineren, maar geven een andere invulling aan de dag.',
             'Välj Frigiliana för bykänsla, utsikt från sluttningen, historiska gränder och ett lugnare tempo. Välj Nerja om daglig närhet till stranden, flackare promenader och ett större serviceutbud väger tyngre. Platserna går bra att kombinera men ger olika vardagsrytm.'
+          ),
+          linkToken: 'nerja_vs_frigiliana',
+          linkLabel: l(
+            '',
+            'Ausführlicher Vergleich: Frigiliana oder Nerja',
+            '',
+            '',
+            ''
           )
         }
       ]

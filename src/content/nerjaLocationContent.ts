@@ -815,6 +815,20 @@ export const nerjaLocationCopy = {
       nl: 'Basis aan zee of wit dorp?',
       sv: 'Bas vid havet eller vit by?'
     },
+    teaser: {
+      en: '',
+      de: 'Als Basis bietet Nerja kurze Wege zu Strand, Restaurants und Küstenleben. Wer den Tag am Meer verbringen, abends aber bewusster in die Ruhe zurückkehren möchte, sollte Frigiliana als Alternative prüfen.',
+      es: '',
+      nl: '',
+      sv: ''
+    },
+    cta: {
+      en: '',
+      de: 'Ausführlicher Vergleich: Frigiliana oder Nerja',
+      es: '',
+      nl: '',
+      sv: ''
+    },
     profiles: [
       {
         title: {

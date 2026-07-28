@@ -237,7 +237,13 @@ legal_notice: {
       nl: buildOwnedLocalizedPath('getting-to-frigiliana', 'nl'),
       sv: buildOwnedLocalizedPath('getting-to-frigiliana', 'sv')
     },
-    nerja_vs_frigiliana: { en: '/en/frigiliana-near-nerja', de: '/de/frigiliana-near-nerja', es: '/es/frigiliana-near-nerja', nl: '/nl/frigiliana-near-nerja', sv: '/sv/frigiliana-near-nerja' },
+    nerja_vs_frigiliana: {
+      en: `${buildOwnedLocalizedPath('frigiliana-location', 'en')}#comparison`,
+      de: buildOwnedLocalizedPath('frigiliana-oder-nerja', 'de'),
+      es: `${buildOwnedLocalizedPath('frigiliana-location', 'es')}#comparison`,
+      nl: `${buildOwnedLocalizedPath('frigiliana-location', 'nl')}#comparison`,
+      sv: `${buildOwnedLocalizedPath('frigiliana-location', 'sv')}#comparison`
+    },
     weather_frigiliana: {
       en: buildOwnedLocalizedPath('frigiliana-weather', 'en'),
       de: buildOwnedLocalizedPath('frigiliana-weather', 'de'),

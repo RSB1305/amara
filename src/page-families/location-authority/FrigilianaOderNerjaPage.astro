@@ -1,0 +1,316 @@
+---
+import Hero from '../../components/Hero.astro';
+import Navigation from '../../components/Navigation.astro';
+import SectionAnchorNav from '../../components/navigation/SectionAnchorNav.astro';
+import {
+  frigilianaOderNerjaContent,
+  frigilianaOderNerjaSeo
+} from '../../content/frigilianaOderNerjaContent';
+import { frigilianaLocationCopy } from '../../content/frigilianaLocationContent';
+import LocationAuthorityLayout from '../../layouts/LocationAuthorityLayout.astro';
+import { getFrigilianaAuthoritySubnav } from '../../lib/frigiliana/frigilianaAuthoritySubnav';
+import { resolveOptionalLink } from '../../lib/linkResolver';
+import { normalizeLanguage } from '../../lib/seo/resolve-seo-head';
+import type { AmaraLanguage } from '../../types/seo';
+
+interface Props {
+  lang?: string;
+}
+
+const { lang = 'de' } = Astro.props;
+const currentLang = normalizeLanguage(lang as AmaraLanguage);
+const copy = frigilianaOderNerjaContent[currentLang];
+
+if (!copy) {
+  throw new Error(
+    `[AMARA] Frigiliana-or-Nerja copy is not published for "${currentLang}".`
+  );
+}
+
+const navLinks = frigilianaLocationCopy.nav.links.map((link) => ({
+  token: link.token,
+  label: link.label[currentLang]
+}));
+
+function requiredLink(token: string): string {
+  const href = resolveOptionalLink(token, currentLang, {
+    suppressMissing: true
+  });
+
+  if (!href) {
+    throw new Error(
+      `[AMARA] Required link token "${token}" is missing for "${currentLang}".`
+    );
+  }
+
+  return href;
+}
+
+const links = {
+  frigilianaLocation: requiredLink('location_frigiliana'),
+  nerjaLocation: requiredLink('location_nerja'),
+  romanticHideaways: requiredLink('romantic_hideaways'),
+  farah: requiredLink('farah'),
+  lounis: requiredLink('lounis'),
+  zaid: requiredLink('zaid'),
+  maha: requiredLink('maha'),
+  playa: requiredLink('playa'),
+  gettingToFrigiliana: requiredLink('getting_to_frigiliana')
+};
+
+const footerHighlights = [
+  {
+    token: 'romantic_hideaways',
+    label: 'Apartments für Paare'
+  },
+  {
+    token: 'location_frigiliana',
+    label: 'Frigiliana-Guide'
+  },
+  {
+    token: 'location_nerja',
+    label: 'Nerja-Guide'
+  }
+];
+
+const heroImage = {
+  src: '/images/amara-frigiliana-pueblo/JPG_Frigiliana_Pueblo/2000px_72dpi_sRGB/02-frigiliana-pueblo.jpg',
+  width: 2000,
+  height: 1333
+};
+---
+
+<LocationAuthorityLayout
+  seo={frigilianaOderNerjaSeo}
+  pageLang={currentLang}
+  footerHighlights={footerHighlights}
+>
+  <Navigation
+    currentLang={currentLang}
+    brandName={frigilianaLocationCopy.nav.brand[currentLang]}
+    links={navLinks}
+    languageToken="nerja_vs_frigiliana"
+    locationAuthorityNav={true}
+  />
+  <SectionAnchorNav
+    items={getFrigilianaAuthoritySubnav(currentLang)}
+    activeId="comparison"
+  />
+
+  <div class="am-root" data-am-page="frigiliana-oder-nerja">
+    <div class="am-wrap w-full">
+      <div id="intro">
+        <Hero
+          imageSrc={heroImage.src}
+          imageAlt={copy.hero.imageAlt}
+          imageWidth={heroImage.width}
+          imageHeight={heroImage.height}
+        >
+          <span class="am-text-caption text-primary mb-8 block">
+            {copy.hero.eyebrow}
+          </span>
+          <h1 class="am-text-display italic text-on-surface mb-10 tracking-tighter">
+            {copy.hero.title}
+          </h1>
+          <div class="pl-10 border-l border-primary/20 max-w-2xl space-y-6">
+            <p class="am-text-subtitle italic text-on-surface leading-relaxed">
+              {copy.hero.lead}
+            </p>
+            <p class="am-text-body text-on-surface-variant leading-relaxed">
+              {copy.hero.intro}
+            </p>
+          </div>
+        </Hero>
+      </div>
+
+      <section
+        id="core-question"
+        class="am-section am-section--tint border-t border-outline-variant/5"
+      >
+        <div class="max-w-screen-2xl mx-auto px-12 py-32 grid grid-cols-1 lg:grid-cols-12 gap-16">
+          <div class="lg:col-span-4">
+            <span class="am-text-caption uppercase tracking-[0.4em] text-primary block mb-6">
+              {copy.coreQuestion.eyebrow}
+            </span>
+            <h2 class="am-text-title italic text-on-surface tracking-tight">
+              {copy.coreQuestion.title}
+            </h2>
+          </div>
+          <div class="lg:col-span-7 lg:col-start-6">
+            <p class="am-text-body text-on-surface-variant leading-relaxed">
+              {copy.coreQuestion.text}
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section
+        id="frigiliana-evening"
+        class="am-section am-section--plain border-t border-outline-variant/5"
+      >
+        <div class="max-w-screen-2xl mx-auto px-12 py-36 grid grid-cols-1 lg:grid-cols-12 gap-16">
+          <div class="lg:col-span-4">
+            <span class="am-text-caption uppercase tracking-[0.4em] text-primary block mb-6">
+              {copy.evening.eyebrow}
+            </span>
+            <h2 class="am-text-title italic text-on-surface tracking-tight">
+              {copy.evening.title}
+            </h2>
+          </div>
+          <div class="lg:col-span-7 lg:col-start-6">
+            <p class="am-text-body text-on-surface-variant leading-relaxed">
+              {copy.evening.text}
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section
+        id="history"
+        class="am-section am-section--tint border-t border-outline-variant/5"
+      >
+        <div class="max-w-screen-2xl mx-auto px-12 py-36 grid grid-cols-1 lg:grid-cols-12 gap-16">
+          <div class="lg:col-span-4">
+            <span class="am-text-caption uppercase tracking-[0.4em] text-primary block mb-6">
+              {copy.history.eyebrow}
+            </span>
+            <h2 class="am-text-title italic text-on-surface tracking-tight">
+              {copy.history.title}
+            </h2>
+          </div>
+          <div class="lg:col-span-7 lg:col-start-6">
+            <p class="am-text-body text-on-surface-variant leading-relaxed">
+              {copy.history.text}
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section
+        id="comparison"
+        class="am-section am-section--plain border-t border-outline-variant/5"
+      >
+        <div class="max-w-screen-2xl mx-auto px-12 py-36">
+          <div class="max-w-3xl mb-20">
+            <span class="am-text-caption uppercase tracking-[0.4em] text-primary block mb-6">
+              {copy.comparison.eyebrow}
+            </span>
+            <h2 class="am-text-title italic text-on-surface tracking-tight">
+              {copy.comparison.title}
+            </h2>
+          </div>
+
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+            <article class="border-l border-outline-variant/20 pl-8 py-4">
+              <h3 class="am-text-subtitle italic text-on-surface mb-6">
+                <a href={links.frigilianaLocation} class="hover:text-primary transition-colors">
+                  {copy.comparison.frigiliana.title}
+                </a>
+              </h3>
+              <p class="am-text-body text-on-surface-variant leading-relaxed">
+                {copy.comparison.frigiliana.text}
+              </p>
+            </article>
+
+            <article class="border-l border-outline-variant/20 pl-8 py-4">
+              <h3 class="am-text-subtitle italic text-on-surface mb-6">
+                <a href={links.nerjaLocation} class="hover:text-primary transition-colors">
+                  {copy.comparison.nerja.title}
+                </a>
+              </h3>
+              <p class="am-text-body text-on-surface-variant leading-relaxed">
+                {copy.comparison.nerja.text}
+              </p>
+            </article>
+          </div>
+
+          <p class="am-text-body text-on-surface-variant leading-relaxed max-w-4xl mt-16">
+            {copy.comparison.conclusion}
+          </p>
+        </div>
+      </section>
+
+      <section
+        id="getting-to-nerja"
+        class="am-section am-section--tint border-t border-outline-variant/5"
+      >
+        <div class="max-w-screen-2xl mx-auto px-12 py-36 grid grid-cols-1 lg:grid-cols-12 gap-16">
+          <div class="lg:col-span-4">
+            <span class="am-text-caption uppercase tracking-[0.4em] text-primary block mb-6">
+              {copy.transport.eyebrow}
+            </span>
+            <h2 class="am-text-title italic text-on-surface tracking-tight">
+              {copy.transport.title}
+            </h2>
+          </div>
+          <div class="lg:col-span-7 lg:col-start-6">
+            <p class="am-text-body text-on-surface-variant leading-relaxed">
+              {copy.transport.beforeBusLink}<a
+                href={links.gettingToFrigiliana}
+                class="am-inline-link"
+              >{copy.transport.busLinkLabel}</a>{copy.transport.afterBusLink}
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section
+        id="choose"
+        class="am-section am-section--plain border-t border-outline-variant/5"
+      >
+        <div class="max-w-screen-2xl mx-auto px-12 py-36">
+          <div class="max-w-3xl mb-20">
+            <span class="am-text-caption uppercase tracking-[0.4em] text-primary block mb-6">
+              {copy.booking.eyebrow}
+            </span>
+            <h2 class="am-text-title italic text-on-surface tracking-tight">
+              {copy.booking.title}
+            </h2>
+          </div>
+
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
+            <article class="border-t border-outline-variant/20 pt-8">
+              <h3 class="am-text-subtitle italic text-on-surface mb-6">
+                {copy.booking.frigiliana.title}
+              </h3>
+              <p class="am-text-body text-on-surface-variant leading-relaxed mb-8">
+                {copy.booking.frigiliana.text}
+              </p>
+              <a href={links.romanticHideaways} class="am-btn am-btn--primary">
+                {copy.booking.frigiliana.collectionCta}
+              </a>
+              <div class="flex flex-wrap gap-x-6 gap-y-3 mt-8">
+                <a href={links.farah} class="am-inline-link">AMARA Farah</a>
+                <a href={links.lounis} class="am-inline-link">AMARA Lounis</a>
+                <a href={links.zaid} class="am-inline-link">AMARA Zaid</a>
+                <a href={links.maha} class="am-inline-link">AMARA Maha</a>
+              </div>
+            </article>
+
+            <article class="border-t border-outline-variant/20 pt-8">
+              <h3 class="am-text-subtitle italic text-on-surface mb-6">
+                {copy.booking.nerja.title}
+              </h3>
+              <p class="am-text-body text-on-surface-variant leading-relaxed mb-8">
+                {copy.booking.nerja.text}
+              </p>
+              <a href={links.playa} class="am-btn am-btn--primary">
+                {copy.booking.nerja.cta}
+              </a>
+            </article>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+</LocationAuthorityLayout>
+
+<style>
+  .am-section--plain {
+    background-color: var(--color-surface);
+  }
+
+  .am-section--tint {
+    background-color: var(--color-surface-container-low);
+  }
+</style>

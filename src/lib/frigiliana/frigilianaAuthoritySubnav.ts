@@ -79,6 +79,7 @@ export function getFrigilianaAuthoritySubnav(
   currentLang: AmaraLanguage
 ): FrigilianaAuthoritySubnavItem[] {
   const locationBase = resolveLink('location_frigiliana', currentLang);
+  const comparisonHref = resolveLink('nerja_vs_frigiliana', currentLang);
 
   const locationItems: FrigilianaAuthoritySubnavItem[] = (
     Object.keys(locationAnchors) as Array<
@@ -87,7 +88,10 @@ export function getFrigilianaAuthoritySubnav(
   ).map((id) => ({
     id,
     label: labels[id][currentLang],
-    href: `${locationBase}${locationAnchors[id]}`
+    href:
+      id === 'comparison'
+        ? comparisonHref
+        : `${locationBase}${locationAnchors[id]}`
   }));
 
   const arrivalItem: FrigilianaAuthoritySubnavItem = {

@@ -94,7 +94,8 @@ The legacy sitemap has 37 URL groups per language, 185 URLs total. These should 
 | `frigiliana-market` | future local essentials page | future P3 | Likely guest-guide content |
 | `frigiliana-supermarkets` | future local essentials page | future P3 | Likely guest-guide content |
 | `frigiliana-at-night` | future local guide page | future P3 | Could merge with Frigiliana guide |
-| `frigiliana-near-nerja` | `/frigiliana-location` | redirect or future comparison | Current pillar already covers relationship |
+| `frigiliana-oder-nerja` | `/de/frigiliana-oder-nerja` | German comparison page live | Other languages remain in their existing location-page comparison sections until translated |
+| `frigiliana-near-nerja` | — | retired legacy placeholder | No new redirect; keep dead unless verified traffic requires one |
 | `apartment-frigiliana` | `/romantic-hideaways` | redirect now | Future product route should replace this |
 | `frigiliana-location-amara` | `/frigiliana-location` | redirect | Duplicate intent |
 | `contact` | future `/contact` | future P1 | Useful, but currently disabled |
