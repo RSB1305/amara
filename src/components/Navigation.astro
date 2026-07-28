@@ -587,7 +587,7 @@ const resolvedGlobalNavGroups = globalNavGroups.map((group) => {
           </button>
 
           <div class="am-nav__language-popover" data-am-language-panel>
-            <div class="min-w-[92px] bg-surface/95 backdrop-blur-md border border-outline-variant/15 rounded-[14px] shadow-lg shadow-black/5 py-3 px-3">
+            <div class="min-w-[92px] bg-surface/95 backdrop-blur-md border border-outline-variant/15 rounded-overlay shadow-lg shadow-black/5 py-3 px-3">
               <div class="flex flex-col gap-2">
                 {languageOptions.map((lang) => (
                   <a
@@ -884,7 +884,7 @@ const resolvedGlobalNavGroups = globalNavGroups.map((group) => {
     height: 2.75rem;
     place-items: center;
     border: 0;
-    border-radius: 999px;
+    border-radius: var(--radius-pill);
     background: transparent;
     color: color-mix(in srgb, var(--color-on-surface) 68%, transparent);
     cursor: pointer;
@@ -1015,7 +1015,7 @@ const resolvedGlobalNavGroups = globalNavGroups.map((group) => {
     gap: 0.2rem;
     padding: 0.8rem;
     border: 1px solid var(--color-nav-border);
-    border-radius: 8px;
+    border-radius: var(--radius-overlay);
     background: color-mix(in srgb, var(--color-surface) 96%, transparent);
     box-shadow: 0 18px 42px rgba(0, 0, 0, 0.08);
     backdrop-filter: blur(16px);

@@ -25,10 +25,10 @@ const { eyebrow, title, profiles } = Astro.props;
     <h2 class="am-text-title italic text-on-surface tracking-tight">{title}</h2>
   </div>
 
-  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+  <div class="stay-decision-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
     {profiles.map((profile) => (
-      <div class="flex flex-col border-l border-outline-variant/20 pl-8 py-4">
-        <div class="flex justify-between items-start mb-6">
+      <div class="stay-decision-profile flex flex-col border-l border-outline-variant/20 pl-8 py-4">
+        <div class="stay-decision-profile-header flex justify-between items-start mb-6 md:min-h-28">
           <h3 class="am-text-subtitle italic text-on-surface">{profile.title}</h3>
           <span class="am-text-micro uppercase tracking-widest text-primary bg-primary-container/20 px-2 py-1">
             {profile.suitability}
@@ -41,3 +41,22 @@ const { eyebrow, title, profiles } = Astro.props;
     ))}
   </div>
 </section>
+
+<style>
+  @media (min-width: 1024px) {
+    .stay-decision-grid {
+      row-gap: 1.5rem;
+    }
+
+    .stay-decision-profile {
+      display: grid;
+      grid-row: span 2;
+      grid-template-rows: subgrid;
+    }
+
+    .stay-decision-profile-header {
+      min-height: 0;
+      margin-bottom: 0;
+    }
+  }
+</style>

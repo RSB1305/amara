@@ -65,6 +65,12 @@
   --spacing-macro-120: clamp(5rem, 12vw, 7.5rem);
   --spacing-macro-160: clamp(6.5rem, 16vw, 10rem);
 
+  /** Shape roles: restrained editorial surfaces, clear controls, and true pills */
+  --radius-editorial: 0.125rem;
+  --radius-overlay: 0.5rem;
+  --radius-control: 0.875rem;
+  --radius-pill: 999px;
+
   /* Typografie */
   --font-headline: "Newsreader", serif;
   --font-body: "Plus Jakarta Sans", sans-serif;
@@ -260,7 +266,7 @@
     min-height: 2.75rem;
     padding: 0.8rem 1.5rem;
     border: 1px solid transparent;
-    border-radius: 0.875rem;
+    border-radius: var(--radius-control);
     line-height: 1;
     letter-spacing: 0.14em;
     white-space: nowrap;

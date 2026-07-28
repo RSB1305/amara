@@ -82,7 +82,7 @@ export default function VillageMap() {
 
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
         <div className="lg:col-span-8">
-          <div className="relative aspect-[16/10] overflow-hidden rounded-[24px] border border-outline-variant/15 bg-surface-container-low shadow-sm">
+          <div className="relative aspect-[16/10] overflow-hidden rounded-editorial border border-outline-variant/15 bg-surface-container-low shadow-sm">
             <svg
               className="absolute inset-0 w-full h-full opacity-[0.14] text-on-surface pointer-events-none"
               viewBox="0 0 1000 600"
@@ -153,7 +153,7 @@ export default function VillageMap() {
         </div>
 
         <div className="lg:col-span-4">
-          <div className="rounded-[24px] border border-outline-variant/15 bg-surface-container-low p-8 md:p-10 shadow-sm">
+          <div className="rounded-editorial border border-outline-variant/15 bg-surface-container-low p-8 md:p-10 shadow-sm">
             <span className="am-text-caption uppercase tracking-[0.18em] text-primary mb-4 block">
               {activePoi.category}
             </span>
@@ -162,7 +162,7 @@ export default function VillageMap() {
               {activePoi.name}
             </h3>
 
-            <div className="aspect-[4/3] overflow-hidden rounded-[18px] border border-outline-variant/10 mb-6 bg-white">
+            <div className="aspect-[4/3] overflow-hidden rounded-editorial border border-outline-variant/10 mb-6 bg-white">
               <img
                 src={activePoi.image}
                 alt={activePoi.name}
