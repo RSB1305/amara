@@ -5,7 +5,6 @@ import EditorialClosingCta from '../../components/editorial/EditorialClosingCta.
 import EditorialFeatureGrid from '../../components/editorial/EditorialFeatureGrid.astro';
 import ExperienceContextNav from '../../components/experience/ExperienceContextNav.astro';
 import ExperiencePreFooter from '../../components/experience/ExperiencePreFooter.astro';
-import SectionAnchorNav from '../../components/navigation/SectionAnchorNav.astro';
 import HikingRouteStatStrip from './HikingRouteStatStrip.astro';
 import {
   frigilianaHikingContent,
@@ -28,14 +27,6 @@ if (!copy) {
     `[AMARA] Frigiliana hiking copy is not published for "${currentLang}".`
   );
 }
-
-const sectionNavItems = [
-  { id: 'panorama', href: '#panorama', label: copy.sectionNav.panorama },
-  { id: 'gentle', href: '#gentle', label: copy.sectionNav.gentle },
-  { id: 'rivers', href: '#rivers', label: copy.sectionNav.rivers },
-  { id: 'summits', href: '#summits', label: copy.sectionNav.summits },
-  { id: 'practical', href: '#practical', label: copy.sectionNav.practical }
-];
 
 const footerHighlights = [
   {
@@ -64,7 +55,6 @@ const heroImage = {
     languageToken="frigiliana_hiking_authority"
     locationAuthorityNav={true}
   />
-  <SectionAnchorNav items={sectionNavItems} />
   <ExperienceContextNav currentId="hiking" lang={currentLang} />
 
   <div class="am-root" data-am-page="frigiliana-hiking">

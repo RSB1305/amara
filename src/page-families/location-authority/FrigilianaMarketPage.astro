@@ -7,14 +7,12 @@ import EditorialClosingCta from '../../components/editorial/EditorialClosingCta.
 import ExperienceContextNav from '../../components/experience/ExperienceContextNav.astro';
 import ExperiencePreFooter from '../../components/experience/ExperiencePreFooter.astro';
 import HairlineStatCard from '../../components/location/HairlineStatCard.astro';
-import SectionAnchorNav from '../../components/navigation/SectionAnchorNav.astro';
 import {
   frigilianaMarketCopy,
   frigilianaMarketExternalLinks,
   frigilianaMarketSeo
 } from '../../content/frigilianaMarketContent';
 import LocationAuthorityLayout from '../../layouts/LocationAuthorityLayout.astro';
-import { getFrigilianaAuthoritySubnav } from '../../lib/frigiliana/frigilianaAuthoritySubnav';
 import { buildOwnedLocalizedPath } from '../../lib/routeOwnership';
 import { normalizeLanguage } from '../../lib/seo/resolve-seo-head';
 import type { AmaraLanguage } from '../../types/seo';
@@ -33,18 +31,7 @@ function t(row: LocalizedRow): string {
   return row[currentLang] ?? row.en;
 }
 
-const marketHref = buildOwnedLocalizedPath('frigiliana-market', currentLang);
 const parkingHref = buildOwnedLocalizedPath('frigiliana-parking', currentLang);
-
-const sectionNavItems = getFrigilianaAuthoritySubnav(currentLang).map((item) =>
-  item.id === 'comparison'
-    ? {
-        ...item,
-        href: marketHref,
-        label: t(copy.nav.links[1].label)
-      }
-    : item
-);
 
 const navLinks = copy.nav.links.map((link) => ({
   token: link.token,
@@ -125,7 +112,6 @@ const ingenioImage = {
     languageToken="frigiliana_market"
     locationAuthorityNav={true}
   />
-  <SectionAnchorNav items={sectionNavItems} activeId="comparison" />
   <ExperienceContextNav currentId="market" lang={currentLang} />
 
   <div class="am-root" data-am-page="frigiliana-market">

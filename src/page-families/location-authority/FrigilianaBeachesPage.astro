@@ -5,7 +5,6 @@ import EditorialClosingCta from '../../components/editorial/EditorialClosingCta.
 import EditorialFeatureGrid from '../../components/editorial/EditorialFeatureGrid.astro';
 import ExperienceContextNav from '../../components/experience/ExperienceContextNav.astro';
 import ExperiencePreFooter from '../../components/experience/ExperiencePreFooter.astro';
-import SectionAnchorNav from '../../components/navigation/SectionAnchorNav.astro';
 import {
   frigilianaBeachesContent,
   frigilianaBeachesSeo
@@ -22,23 +21,6 @@ interface Props {
 const { lang = 'es' } = Astro.props;
 const currentLang = normalizeLanguage(lang as AmaraLanguage);
 const copy = frigilianaBeachesContent[currentLang];
-
-const sectionNavItems = [
-  { id: 'coast', href: '#coast', label: copy.sectionNav.coast },
-  { id: 'quiet', href: '#quiet', label: copy.sectionNav.quiet },
-  { id: 'nature', href: '#nature', label: copy.sectionNav.nature },
-  { id: 'nerja', href: '#nerja', label: copy.sectionNav.nerja },
-  {
-    id: 'conditions',
-    href: '#conditions',
-    label: copy.sectionNav.conditions
-  },
-  {
-    id: 'practical',
-    href: '#practical',
-    label: copy.sectionNav.practical
-  }
-];
 
 const footerHighlights = [
   {
@@ -77,7 +59,6 @@ const heroImage = {
     languageToken="frigiliana_beaches_authority"
     locationAuthorityNav={true}
   />
-  <SectionAnchorNav items={sectionNavItems} />
   <ExperienceContextNav currentId="beaches" lang={currentLang} />
 
   <div class="am-root" data-am-page="frigiliana-beaches">

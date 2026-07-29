@@ -5,7 +5,6 @@ import EditorialClosingCta from '../../components/editorial/EditorialClosingCta.
 import EditorialFeatureGrid from '../../components/editorial/EditorialFeatureGrid.astro';
 import ExperienceContextNav from '../../components/experience/ExperienceContextNav.astro';
 import ExperiencePreFooter from '../../components/experience/ExperiencePreFooter.astro';
-import SectionAnchorNav from '../../components/navigation/SectionAnchorNav.astro';
 import {
   frigilianaWellnessContent,
   frigilianaWellnessSeo
@@ -22,17 +21,6 @@ interface Props {
 const { lang = 'es' } = Astro.props;
 const currentLang = normalizeLanguage(lang as AmaraLanguage);
 const copy = frigilianaWellnessContent[currentLang];
-
-const sectionNavItems = [
-  { id: 'choose', href: '#choose', label: copy.sectionNav.choose },
-  {
-    id: 'providers',
-    href: '#providers',
-    label: copy.sectionNav.providers
-  },
-  { id: 'compare', href: '#compare', label: copy.sectionNav.compare },
-  { id: 'planning', href: '#planning', label: copy.sectionNav.planning }
-];
 
 const footerHighlights = [
   {
@@ -74,7 +62,6 @@ const heroImage = {
     languageToken="frigiliana_wellness_authority"
     locationAuthorityNav={true}
   />
-  <SectionAnchorNav items={sectionNavItems} />
   <ExperienceContextNav currentId="wellness" lang={currentLang} />
 
   <div class="am-root" data-am-page="frigiliana-wellness">

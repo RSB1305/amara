@@ -5,7 +5,6 @@ import EditorialClosingCta from '../../components/editorial/EditorialClosingCta.
 import EditorialFeatureGrid from '../../components/editorial/EditorialFeatureGrid.astro';
 import ExperienceContextNav from '../../components/experience/ExperienceContextNav.astro';
 import ExperiencePreFooter from '../../components/experience/ExperiencePreFooter.astro';
-import SectionAnchorNav from '../../components/navigation/SectionAnchorNav.astro';
 import {
   frigilianaDayTripsContent,
   frigilianaDayTripsSeo
@@ -22,19 +21,6 @@ interface Props {
 const { lang = 'es' } = Astro.props;
 const currentLang = normalizeLanguage(lang as AmaraLanguage);
 const copy = frigilianaDayTripsContent[currentLang];
-
-const sectionNavItems = [
-  { id: 'overview', href: '#overview', label: copy.sectionNav.overview },
-  { id: 'malaga', href: '#malaga', label: copy.sectionNav.malaga },
-  { id: 'granada', href: '#granada', label: copy.sectionNav.granada },
-  { id: 'caminito', href: '#caminito', label: copy.sectionNav.caminito },
-  { id: 'ronda', href: '#ronda', label: copy.sectionNav.ronda },
-  {
-    id: 'practical',
-    href: '#practical',
-    label: copy.sectionNav.practical
-  }
-];
 
 const footerHighlights = [
   {
@@ -80,7 +66,6 @@ const heroImage = {
     languageToken="frigiliana_daytrips_authority"
     locationAuthorityNav={true}
   />
-  <SectionAnchorNav items={sectionNavItems} />
   <ExperienceContextNav currentId="dayTrips" lang={currentLang} />
 
   <div class="am-root" data-am-page="frigiliana-day-trips">

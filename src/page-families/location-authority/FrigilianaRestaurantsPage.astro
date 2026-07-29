@@ -5,7 +5,6 @@ import EditorialClosingCta from '../../components/editorial/EditorialClosingCta.
 import EditorialFeatureGrid from '../../components/editorial/EditorialFeatureGrid.astro';
 import ExperienceContextNav from '../../components/experience/ExperienceContextNav.astro';
 import ExperiencePreFooter from '../../components/experience/ExperiencePreFooter.astro';
-import SectionAnchorNav from '../../components/navigation/SectionAnchorNav.astro';
 import {
   frigilianaRestaurantsContent,
   frigilianaRestaurantsSeo
@@ -22,35 +21,6 @@ interface Props {
 const { lang = 'es' } = Astro.props;
 const currentLang = normalizeLanguage(lang as AmaraLanguage);
 const copy = frigilianaRestaurantsContent[currentLang];
-
-const sectionNavItems = [
-  { id: 'choose', href: '#choose', label: copy.sectionNav.choose },
-  {
-    id: 'frigiliana',
-    href: '#frigiliana',
-    label: copy.sectionNav.frigiliana
-  },
-  {
-    id: 'special-nerja',
-    href: '#special-nerja',
-    label: copy.sectionNav.specialNerja
-  },
-  {
-    id: 'tapas-seafood',
-    href: '#tapas-seafood',
-    label: copy.sectionNav.tapasSeafood
-  },
-  {
-    id: 'acebuchal',
-    href: '#acebuchal',
-    label: copy.sectionNav.acebuchal
-  },
-  {
-    id: 'planning',
-    href: '#planning',
-    label: copy.sectionNav.planning
-  }
-];
 
 const footerHighlights = [
   {
@@ -92,7 +62,6 @@ const heroImage = {
     languageToken="frigiliana_food_authority"
     locationAuthorityNav={true}
   />
-  <SectionAnchorNav items={sectionNavItems} />
   <ExperienceContextNav currentId="restaurants" lang={currentLang} />
 
   <div class="am-root" data-am-page="frigiliana-restaurants">

@@ -5,7 +5,6 @@ import EditorialClosingCta from '../../components/editorial/EditorialClosingCta.
 import EditorialFeatureGrid from '../../components/editorial/EditorialFeatureGrid.astro';
 import ExperienceContextNav from '../../components/experience/ExperienceContextNav.astro';
 import ExperiencePreFooter from '../../components/experience/ExperiencePreFooter.astro';
-import SectionAnchorNav from '../../components/navigation/SectionAnchorNav.astro';
 import {
   nerjaNightlifeContent,
   nerjaNightlifeSeo
@@ -22,16 +21,6 @@ interface Props {
 const { lang = 'es' } = Astro.props;
 const currentLang = normalizeLanguage(lang as AmaraLanguage);
 const copy = nerjaNightlifeContent[currentLang];
-
-const sectionNavItems = [
-  { id: 'overview', href: '#overview', label: copy.sectionNav.overview },
-  { id: 'areas', href: '#areas', label: copy.sectionNav.areas },
-  { id: 'styles', href: '#styles', label: copy.sectionNav.styles },
-  { id: 'culture', href: '#culture', label: copy.sectionNav.culture },
-  { id: 'seasons', href: '#seasons', label: copy.sectionNav.seasons },
-  { id: 'planning', href: '#planning', label: copy.sectionNav.planning },
-  { id: 'faq', href: '#faq', label: copy.sectionNav.faq }
-];
 
 const footerHighlights = [
   {
@@ -75,7 +64,6 @@ const heroImage = {
     languageToken="nerja_nightlife_authority"
     locationAuthorityNav={true}
   />
-  <SectionAnchorNav items={sectionNavItems} />
   <ExperienceContextNav currentId="nightlife" lang={currentLang} />
 
   <div class="am-root" data-am-page="nerja-nightlife">
