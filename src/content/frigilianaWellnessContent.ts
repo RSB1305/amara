@@ -129,35 +129,35 @@ export const frigilianaWellnessSeo: AmaraAuthoringSeo = {
   ogImage: '/images/hero-frigiliana.jpg',
   languages: {
     en: {
-      title: 'Wellness & Spa in Frigiliana | AMARA Guide',
+      title: 'Wellness & Spa in Frigiliana',
       description:
         'Compare two carefully selected wellness experiences near Frigiliana: mobile spa treatments at your stay or a quiet countryside massage.',
       robots: 'index, follow',
       canonical: 'auto'
     },
     de: {
-      title: 'Wellness & Spa in Frigiliana | AMARA Guide',
+      title: 'Wellness & Spa bei Frigiliana',
       description:
         'Zwei ausgewählte Wellness-Erlebnisse bei Frigiliana im Vergleich: mobile Behandlungen in der Unterkunft oder eine ruhige Massage auf dem Land.',
       robots: 'index, follow',
       canonical: 'auto'
     },
     es: {
-      title: 'Bienestar y spa en Frigiliana | Guía AMARA',
+      title: 'Bienestar y spa en Frigiliana',
       description:
         'Compara dos experiencias de bienestar cerca de Frigiliana: tratamientos a domicilio o un masaje tranquilo en plena naturaleza.',
       robots: 'index, follow',
       canonical: 'auto'
     },
     nl: {
-      title: 'Wellness & spa in Frigiliana | AMARA-gids',
+      title: 'Wellness bij Frigiliana: spa en massage',
       description:
         'Vergelijk twee zorgvuldig gekozen wellnesservaringen bij Frigiliana: behandelingen in uw verblijf of een rustige massage buiten het dorp.',
       robots: 'index, follow',
       canonical: 'auto'
     },
     sv: {
-      title: 'Wellness & spa i Frigiliana | AMARA-guide',
+      title: 'Wellness & spa i Frigiliana',
       description:
         'Jämför två utvalda wellnessupplevelser nära Frigiliana: behandlingar i boendet eller en stillsam massage på landsbygden.',
       robots: 'index, follow',

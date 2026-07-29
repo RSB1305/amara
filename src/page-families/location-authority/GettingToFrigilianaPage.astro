@@ -6,7 +6,7 @@ import Navigation from '../../components/Navigation.astro';
 import EditorialClosingCta from '../../components/editorial/EditorialClosingCta.astro';
 import EditorialGuideLinkSection from '../../components/editorial/EditorialGuideLinkSection.astro';
 import HairlineStatCard from '../../components/location/HairlineStatCard.astro';
-import SectionAnchorNav from '../../components/navigation/SectionAnchorNav.astro';
+import LocationContextNav from '../../components/location/LocationContextNav.astro';
 import {
   gettingToFrigilianaCopy,
   gettingToFrigilianaExternalLinks,
@@ -152,7 +152,7 @@ const approachImage = {
     languageToken="getting_to_frigiliana"
     locationAuthorityNav={true}
   />
-  <SectionAnchorNav items={sectionNavItems} activeId="arrival" />
+  <LocationContextNav items={sectionNavItems} activeId="arrival" lang={currentLang} />
 
   <div class="am-root" data-am-page="getting-to-frigiliana">
     <div class="am-wrap w-full">

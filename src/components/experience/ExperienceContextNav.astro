@@ -6,6 +6,9 @@
  * page. The optional currentId creates the hub state without a redundant back
  * link; detail pages additionally identify the current guide.
  */
+import ContextNavigation, {
+  type ContextNavigationBreadcrumb
+} from '../navigation/ContextNavigation.astro';
 import {
   experienceCatalog,
   experienceHubContent,
@@ -54,91 +57,26 @@ const siblingLinks = edition.catalog.order
       label: string;
     } => Boolean(item)
   );
+
+const breadcrumbs: ContextNavigationBreadcrumb[] = [
+  {
+    label: 'AMARA',
+    href: homeHref ?? undefined
+  },
+  {
+    label: navigation.breadcrumbLabel,
+    href: currentId ? hubHref ?? undefined : undefined
+  },
+  ...(currentId && currentLabel ? [{ label: currentLabel }] : [])
+];
 ---
 
-<div
-  class="border-b border-outline-variant/10 bg-surface"
-  data-am-experience-context
->
-  <div class="mx-auto max-w-screen-2xl px-6 py-5 md:px-12">
-    <div class="flex flex-col gap-5 xl:flex-row xl:items-center xl:justify-between">
-      <div class="flex flex-wrap items-center justify-between gap-x-8 gap-y-3">
-        <nav aria-label={navigation.breadcrumbAriaLabel}>
-          <ol class="flex flex-wrap items-center gap-2 font-label text-[10px] font-semibold uppercase tracking-[0.14em] text-on-surface/55">
-            {
-              homeHref && (
-                <li>
-                  <a href={homeHref} class="transition-colors hover:text-primary">
-                    AMARA
-                  </a>
-                </li>
-              )
-            }
-            <li aria-hidden="true" class="text-outline-variant/60">/</li>
-            {
-              currentId ? (
-                <>
-                  {hubHref && (
-                    <li>
-                      <a href={hubHref} class="transition-colors hover:text-primary">
-                        {navigation.breadcrumbLabel}
-                      </a>
-                    </li>
-                  )}
-                  <li aria-hidden="true" class="text-outline-variant/60">/</li>
-                  <li aria-current="page" class="text-on-surface">
-                    {currentLabel}
-                  </li>
-                </>
-              ) : (
-                <li aria-current="page" class="text-on-surface">
-                  {navigation.breadcrumbLabel}
-                </li>
-              )
-            }
-          </ol>
-        </nav>
-
-        {
-          currentId && hubHref && (
-            <a
-              href={hubHref}
-              class="inline-flex min-h-11 items-center gap-2 font-label text-[10px] font-semibold uppercase tracking-[0.14em] text-primary transition-colors hover:text-on-surface"
-            >
-              <span aria-hidden="true">&larr;</span>
-              {navigation.backLabel}
-            </a>
-          )
-        }
-      </div>
-
-      <nav aria-label={navigation.switcherLabel} class="min-w-0">
-        <ul class="-mx-1 flex flex-nowrap items-center gap-1 overflow-x-auto overscroll-x-contain pb-1 xl:justify-end xl:overflow-visible xl:pb-0">
-          {
-            siblingLinks.map((item) => (
-              <li class="shrink-0" data-am-experience-sibling>
-                {
-                  currentId && item.id === currentId ? (
-                    <span
-                      aria-current="page"
-                      class="inline-flex min-h-11 items-center border-b border-primary px-3 font-label text-[11px] font-semibold uppercase tracking-[0.1em] text-on-surface"
-                    >
-                      {item.label}
-                    </span>
-                  ) : (
-                    <a
-                      href={item.href}
-                      class="inline-flex min-h-11 items-center border-b border-transparent px-3 font-label text-[11px] font-medium uppercase tracking-[0.1em] text-on-surface-variant transition-colors hover:border-primary/45 hover:text-on-surface focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/25"
-                    >
-                      {item.label}
-                    </a>
-                  )
-                }
-              </li>
-            ))
-          }
-        </ul>
-      </nav>
-    </div>
-  </div>
-</div>
+<ContextNavigation
+  activeId={currentId}
+  backLink={currentId && hubHref ? { href: hubHref, label: navigation.backLabel } : undefined}
+  breadcrumbAriaLabel={navigation.breadcrumbAriaLabel}
+  breadcrumbs={breadcrumbs}
+  context="experience"
+  items={siblingLinks}
+  switcherAriaLabel={navigation.switcherLabel}
+/>

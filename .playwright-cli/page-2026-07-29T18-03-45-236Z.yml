@@ -1,0 +1,311 @@
+- generic [ref=e2]:
+  - main [ref=e3]:
+    - navigation [ref=e5]:
+      - link "Frigiliana Guest Guide" [ref=e7] [cursor=pointer]:
+        - /url: /en
+        - generic [ref=e8]: Frigiliana
+        - generic [ref=e9]: Guest Guide
+      - list [ref=e11]:
+        - listitem [ref=e12]:
+          - button "Destinations" [ref=e13] [cursor=pointer]
+        - listitem [ref=e14]:
+          - button "Stays" [ref=e15] [cursor=pointer]
+        - listitem [ref=e16]:
+          - button "AMARA" [ref=e17] [cursor=pointer]
+      - generic [ref=e18]:
+        - button "Select language" [ref=e21] [cursor=pointer]
+        - link "Check Availability" [ref=e26] [cursor=pointer]:
+          - /url: https://amara-lodging.es/en/book/
+    - generic [ref=e30]:
+      - navigation "Breadcrumb" [ref=e32]:
+        - list [ref=e33]:
+          - listitem [ref=e34]:
+            - link "AMARA" [ref=e35] [cursor=pointer]:
+              - /url: /en
+          - listitem [ref=e36]: /
+          - listitem [ref=e37]: Destinations
+      - navigation "Frigiliana guide navigation" [ref=e38]:
+        - list [ref=e39]:
+          - listitem [ref=e40]:
+            - generic [ref=e41]: Highlights & Orientation
+          - listitem [ref=e42]:
+            - link "Weather & Climate" [ref=e43] [cursor=pointer]:
+              - /url: /en/frigiliana-weather
+          - listitem [ref=e44]:
+            - link "Frigiliana vs Nerja" [ref=e45] [cursor=pointer]:
+              - /url: /en/frigiliana-location#comparison
+          - listitem [ref=e46]:
+            - link "Village Structure" [ref=e47] [cursor=pointer]:
+              - /url: /en/frigiliana-location#experiences
+          - listitem [ref=e48]:
+            - link "Where to Stay" [ref=e49] [cursor=pointer]:
+              - /url: /en/frigiliana-location#where-to-stay
+          - listitem [ref=e50]:
+            - link "Arrival Guide" [ref=e51] [cursor=pointer]:
+              - /url: /en/directions-arrival-guide
+          - listitem [ref=e52]:
+            - link "FAQ" [ref=e53] [cursor=pointer]:
+              - /url: /en/frigiliana-faq
+    - generic [ref=e55]:
+      - generic [ref=e58]:
+        - generic [ref=e59]:
+          - generic [ref=e60]: Frigiliana travel guide
+          - heading "Frigiliana Guide Where to Stay" [level=1] [ref=e61]
+          - generic [ref=e62]:
+            - paragraph [ref=e63]: "A practical guide to Frigiliana for guests choosing where to stay: village character, parking, weather, Nerja access, and AMARA's boutique apartments."
+            - paragraph [ref=e64]:
+              - text: Understanding
+              - link "its structure and setting" [ref=e65] [cursor=pointer]:
+                - /url: /en/frigiliana-parking
+              - text: is key before choosing an apartment, especially if parking or daily walking matters.
+          - generic [ref=e66]:
+            - link "View apartments" [ref=e67] [cursor=pointer]:
+              - /url: /en/romantic-hideaways
+            - link "Arrival guide" [ref=e68] [cursor=pointer]:
+              - /url: /en/directions-arrival-guide
+        - img "Frigiliana hillside homes in afternoon light" [ref=e70]
+      - generic [ref=e73]:
+        - generic [ref=e74]:
+          - generic [ref=e75]:
+            - generic [ref=e76]: Architectural Study
+            - heading "Mudejar Geometry" [level=2] [ref=e77]
+          - generic [ref=e78]:
+            - generic [ref=e79]: 1 of 2
+            - generic [ref=e80]:
+              - button "Previous" [disabled] [ref=e81]:
+                - img "Previous" [ref=e82]
+              - button "Next" [ref=e84]:
+                - img "Next" [ref=e85]
+        - generic [ref=e88]:
+          - generic [ref=e89]:
+            - img "Indigo" [ref=e91]
+            - paragraph [ref=e92]: Blue doors of Calle Real
+          - generic [ref=e93]:
+            - img "Sierra" [ref=e95]
+            - paragraph [ref=e96]: Sierra Almijara
+      - generic [ref=e98]:
+        - generic [ref=e99]:
+          - generic [ref=e100]: At a Glance
+          - heading "Frigiliana — Key Facts for Staying" [level=2] [ref=e101]
+          - paragraph [ref=e102]: Frigiliana is one of Andalusia's most beautiful white villages. For overnight stays, the key question is how its beauty, elevation, parking, and Nerja access fit your travel rhythm.
+        - generic [ref=e103]:
+          - generic [ref=e104]:
+            - img "Hilltop White Village" [ref=e105]
+            - generic [ref=e106]:
+              - generic [ref=e107]: Setting
+              - heading "Hilltop White Village" [level=3] [ref=e108]
+              - paragraph [ref=e109]: Perched above the coast in the Axarquía hills, Frigiliana offers panoramic views but comes with elevation and steep terrain.
+          - generic [ref=e110]:
+            - generic [ref=e111]: Location
+            - heading "Close to Nerja, Not Coastal" [level=3] [ref=e112]
+            - paragraph [ref=e113]: The beaches of Nerja are just a short drive away, but Frigiliana itself is a mountain village, not a seaside town.
+          - generic [ref=e114]:
+            - generic [ref=e115]:
+              - generic [ref=e116]: Movement
+              - heading "Slopes, Steps & Narrow Lanes" [level=3] [ref=e117]
+            - paragraph [ref=e118]: The old town is defined by steep paths and stairs. Walking is beautiful but requires effort and mobility.
+          - generic [ref=e119]:
+            - img "Calm, Scenic, Unhurried" [ref=e120]
+            - generic [ref=e121]:
+              - heading "Calm, Scenic, Unhurried" [level=3] [ref=e122]
+              - paragraph [ref=e123]: Frigiliana is known for its quiet rhythm, visual beauty and slower pace of life.
+      - generic [ref=e125]:
+        - generic [ref=e127]:
+          - generic [ref=e128]: Current Conditions
+          - paragraph [ref=e129]: 26°
+          - paragraph [ref=e130]: More breathable than the coast
+        - generic [ref=e131]:
+          - heading "A Climate That Shapes Your Stay" [level=2] [ref=e132]
+          - paragraph [ref=e133]: Frigiliana sits between sea and mountains, and that changes how the day feels. While the coast can turn intense in summer, the village often stays more breathable thanks to elevation and airflow. It is not only about temperature — it is about when you move, rest, and enjoy the village.
+          - generic "Current conditions snapshot" [ref=e134]:
+            - generic [ref=e135]: Humidity · 69%
+            - generic [ref=e136]: Wind · 7 km/h
+            - generic [ref=e137]: UV · 6.8
+            - generic [ref=e138]: Sunset · 21:24
+          - generic [ref=e139]:
+            - paragraph [ref=e140]: 300+ days of sun
+            - paragraph [ref=e141]: 5°C cooler than the coast
+          - link "See how climate shapes your stay →" [ref=e142] [cursor=pointer]:
+            - /url: /en/frigiliana-weather
+      - generic [ref=e145]:
+        - generic [ref=e146]:
+          - img "View of the Nerja coastline" [ref=e148]
+          - img "Hillside view above Frigiliana" [ref=e150]
+        - generic [ref=e151]:
+          - generic [ref=e152]: The Dual Experience
+          - heading "Coast or Hillside?" [level=2] [ref=e153]
+          - paragraph [ref=e154]: Frigiliana and Nerja are close in distance, but they create very different stay experiences. The better fit depends on whether you value village character or coastal convenience more.
+          - generic [ref=e155]:
+            - generic [ref=e156]:
+              - generic [ref=e157]: 15m
+              - generic [ref=e158]:
+                - heading "The Proximity" [level=3] [ref=e159]
+                - paragraph [ref=e160]: Frigiliana sits only a short drive above Nerja, yet the two places feel fundamentally different as a base for several days.
+            - generic [ref=e161]:
+              - generic [ref=e162]: 5°C
+              - generic [ref=e163]:
+                - heading "The Microclimate" [level=3] [ref=e164]
+                - paragraph [ref=e165]: The hillside setting is often noticeably cooler than the coast, especially in warmer months.
+            - generic [ref=e167]:
+              - heading "Movement" [level=3] [ref=e168]
+              - paragraph [ref=e169]: Frigiliana means slopes, steps and a more vertical daily rhythm, while Nerja is generally flatter and easier to navigate.
+            - generic [ref=e171]:
+              - heading "Stay Experience" [level=3] [ref=e172]
+              - paragraph [ref=e173]: Frigiliana suits calm, scenic stays with character, while Nerja offers beach access, variety and greater day-to-day convenience.
+      - generic [ref=e176]:
+        - img "Steep steps in Frigiliana old town" [ref=e178]
+        - generic [ref=e179]:
+          - generic [ref=e180]: Village structure
+          - heading "A Village of Steps" [level=2] [ref=e181]
+          - paragraph [ref=e182]: Frigiliana is carved into the mountainside. Expect steep inclines, narrow alleys, and rewarding views along the way.
+          - paragraph [ref=e183]: Steps · Elevation · Narrow ways
+          - link "Understand how the village layout shapes your stay →" [ref=e185] [cursor=pointer]:
+            - /url: /en/frigiliana-streets-stairs
+      - generic [ref=e186]:
+        - generic [ref=e187]:
+          - generic [ref=e188]:
+            - generic [ref=e189]: Where to stay
+            - heading "Is Frigiliana the right base?" [level=2] [ref=e190]
+          - generic [ref=e191]:
+            - generic [ref=e192]:
+              - generic [ref=e193]:
+                - heading "Couples" [level=3] [ref=e194]
+                - generic [ref=e195]: Best fit
+              - paragraph [ref=e196]: A strong fit if you want quiet evenings, village character, terraces, and a slower rhythm close to Nerja.
+            - generic [ref=e197]:
+              - generic [ref=e198]:
+                - heading "Drivers" [level=3] [ref=e199]
+                - generic [ref=e200]: Plan ahead
+              - paragraph [ref=e201]: Good if you are comfortable parking nearby and walking the final stretch through a stepped village.
+            - generic [ref=e202]:
+              - generic [ref=e203]:
+                - heading "Beach-first guests" [level=3] [ref=e204]
+                - generic [ref=e205]: Compare
+              - paragraph [ref=e206]: Nerja may suit better if daily beach access, flat walking, and door-to-door convenience matter most.
+            - generic [ref=e207]:
+              - generic [ref=e208]:
+                - heading "Limited mobility" [level=3] [ref=e209]
+                - generic [ref=e210]: Check access
+              - paragraph [ref=e211]: Check access carefully. Frigiliana is beautiful but steep, with stairs, narrow lanes, and uneven surfaces.
+        - generic [ref=e213]:
+          - generic [ref=e214]:
+            - generic [ref=e215]: Choose the exact position
+            - heading "Lower, mid-slope or upper village?" [level=3] [ref=e216]
+          - generic [ref=e217]:
+            - paragraph [ref=e218]: These are planning levels, not official districts. Compare repeated daily routes, stairs, the final approach, and actual car access before choosing an address.
+            - link "Compare village levels →" [ref=e219] [cursor=pointer]:
+              - /url: /en/frigiliana-streets-stairs
+      - generic [ref=e221]:
+        - generic [ref=e222]:
+          - generic [ref=e223]: Plan the stay
+          - heading "Useful next steps for Frigiliana" [level=2] [ref=e224]
+          - paragraph [ref=e225]: "Use these guides to move from inspiration to a realistic stay plan: apartment choice, arrival, parking, weather, reviews, and comfort details."
+        - generic [ref=e226]:
+          - link "Getting to Frigiliana Compare rental car, private transfer, and bus connections via Nerja." [ref=e227] [cursor=pointer]:
+            - /url: /en/getting-to-frigiliana
+            - generic [ref=e228]: Getting to Frigiliana
+            - paragraph [ref=e229]: Compare rental car, private transfer, and bus connections via Nerja.
+          - link "Apartments for couples Compare AMARA stays in Frigiliana and Nerja." [ref=e230] [cursor=pointer]:
+            - /url: /en/romantic-hideaways
+            - generic [ref=e231]: Apartments for couples
+            - paragraph [ref=e232]: Compare AMARA stays in Frigiliana and Nerja.
+          - link "Parking in Frigiliana Understand arrival, stairs, and the final walk." [ref=e233] [cursor=pointer]:
+            - /url: /en/frigiliana-parking
+            - generic [ref=e234]: Parking in Frigiliana
+            - paragraph [ref=e235]: Understand arrival, stairs, and the final walk.
+          - link "Thursday market Plan the typical time, stalls, parking, and old-town walk." [ref=e236] [cursor=pointer]:
+            - /url: /en/frigiliana-market
+            - generic [ref=e237]: Thursday market
+            - paragraph [ref=e238]: Plan the typical time, stalls, parking, and old-town walk.
+          - link "Weather by month Plan terraces, walking hours, and season choice." [ref=e239] [cursor=pointer]:
+            - /url: /en/frigiliana-weather
+            - generic [ref=e240]: Weather by month
+            - paragraph [ref=e241]: Plan terraces, walking hours, and season choice.
+          - link "Arrival guide Know the address, route, and arrival rhythm." [ref=e242] [cursor=pointer]:
+            - /url: /en/directions-arrival-guide
+            - generic [ref=e243]: Arrival guide
+            - paragraph [ref=e244]: Know the address, route, and arrival rhythm.
+          - link "Guest reviews Read what guests mention after staying." [ref=e245] [cursor=pointer]:
+            - /url: /en/guest-reviews
+            - generic [ref=e246]: Guest reviews
+            - paragraph [ref=e247]: Read what guests mention after staying.
+          - link "Amenities & policies Check comfort details before booking." [ref=e248] [cursor=pointer]:
+            - /url: /en/comfort-amenities
+            - generic [ref=e249]: Amenities & policies
+            - paragraph [ref=e250]: Check comfort details before booking.
+      - generic [ref=e253]:
+        - generic [ref=e254]:
+          - heading "The Arrival" [level=2] [ref=e255]
+          - generic [ref=e256]:
+            - generic [ref=e257]:
+              - generic [ref=e258]:
+                - generic [ref=e259]: "01"
+                - generic [ref=e260]:
+                  - heading "Gateways" [level=3] [ref=e261]
+                  - paragraph [ref=e262]: Malaga Airport (AGP) is the primary gateway, located 50 minutes to the West via the A-7.
+              - generic [ref=e263]:
+                - generic [ref=e264]: "02"
+                - generic [ref=e265]:
+                  - heading "Transportation" [level=3] [ref=e266]
+                  - paragraph [ref=e267]: While public buses run frequently, a private vehicle is essential for exploring the Axarquía.
+              - generic [ref=e268]:
+                - generic [ref=e269]: "03"
+                - generic [ref=e270]:
+                  - heading "The Ascent" [level=3] [ref=e271]
+                  - paragraph [ref=e272]: Frigiliana is divided into Barrio Nuevo and Alto. Prepare for steep inclines.
+            - link "Detailed Arrival Guide →" [ref=e273] [cursor=pointer]:
+              - /url: /en/directions-arrival-guide
+        - generic [ref=e274]:
+          - heading "Frigiliana stay FAQ" [level=2] [ref=e275]
+          - generic [ref=e276]:
+            - generic [ref=e277]:
+              - group [ref=e278] [cursor=pointer]:
+                - generic [ref=e279]:
+                  - heading "Is Frigiliana worth staying in?" [level=3] [ref=e280]
+                  - generic [ref=e281]: +
+              - group [ref=e282] [cursor=pointer]:
+                - generic [ref=e283]:
+                  - heading "Do you need a car in Frigiliana?" [level=3] [ref=e284]
+                  - generic [ref=e285]: +
+              - group [ref=e286] [cursor=pointer]:
+                - generic [ref=e287]:
+                  - 'heading "Frigiliana or Nerja: which is better for a stay?" [level=3] [ref=e288]'
+                  - generic [ref=e289]: +
+              - group [ref=e290] [cursor=pointer]:
+                - generic [ref=e291]:
+                  - heading "Where to stay in Frigiliana as a couple?" [level=3] [ref=e292]
+                  - generic [ref=e293]: +
+              - group [ref=e294] [cursor=pointer]:
+                - generic [ref=e295]:
+                  - heading "Is parking difficult in Frigiliana?" [level=3] [ref=e296]
+                  - generic [ref=e297]: +
+            - link "All our Frigiliana FAQs →" [ref=e299] [cursor=pointer]:
+              - /url: /en/frigiliana-faq
+  - generic [ref=e300]:
+    - navigation "Footer highlights" [ref=e302]:
+      - list [ref=e303]:
+        - listitem [ref=e304]:
+          - link "Apartments for couples" [ref=e305] [cursor=pointer]:
+            - /url: /en/romantic-hideaways
+        - listitem [ref=e306]:
+          - link "Parking guide" [ref=e307] [cursor=pointer]:
+            - /url: /en/frigiliana-parking
+        - listitem [ref=e308]:
+          - link "Arrival guide" [ref=e309] [cursor=pointer]:
+            - /url: /en/directions-arrival-guide
+    - contentinfo [ref=e310]:
+      - generic [ref=e312]:
+        - generic [ref=e313]:
+          - generic [ref=e314]: © 2026 AMARA
+          - generic [ref=e315]: Frigiliana, Malaga · Spain
+        - generic [ref=e316]:
+          - link "+34 604 440 964" [ref=e317] [cursor=pointer]:
+            - /url: tel:+34604440964
+          - link "hola@amara-lodging.es" [ref=e318] [cursor=pointer]:
+            - /url: mailto:hola@amara-lodging.es
+        - generic [ref=e319]:
+          - link "Legal Notice" [ref=e320] [cursor=pointer]:
+            - /url: /en/legal-notice
+          - generic [ref=e321]: ·
+          - link "Privacy" [ref=e322] [cursor=pointer]:
+            - /url: /en/legal-notice

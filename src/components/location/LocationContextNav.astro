@@ -1,0 +1,97 @@
+---
+/**
+ * Frigiliana location-family wrapper for the shared AMARA context navigation.
+ */
+import ContextNavigation, {
+  type ContextNavigationBreadcrumb
+} from '../navigation/ContextNavigation.astro';
+import {
+  getFrigilianaAuthoritySubnav,
+  type FrigilianaAuthoritySubnavId,
+  type FrigilianaAuthoritySubnavItem
+} from '../../lib/frigiliana/frigilianaAuthoritySubnav';
+import { resolveOptionalLink } from '../../lib/linkResolver';
+import type { AmaraLanguage } from '../../types/seo';
+
+interface Props {
+  activeId: FrigilianaAuthoritySubnavId;
+  items?: FrigilianaAuthoritySubnavItem[];
+  lang: AmaraLanguage;
+}
+
+const { activeId, items, lang } = Astro.props;
+const navigationItems = items ?? getFrigilianaAuthoritySubnav(lang);
+const currentLabel = navigationItems.find((item) => item.id === activeId)?.label;
+const isOverview = activeId === 'intro';
+
+const labels: Record<
+  AmaraLanguage,
+  {
+    back: string;
+    breadcrumb: string;
+    destinations: string;
+    switcher: string;
+  }
+> = {
+  en: {
+    back: 'Back to Frigiliana guide',
+    breadcrumb: 'Breadcrumb',
+    destinations: 'Destinations',
+    switcher: 'Frigiliana guide navigation'
+  },
+  de: {
+    back: 'Zurück zum Frigiliana-Guide',
+    breadcrumb: 'Brotkrümelnavigation',
+    destinations: 'Reiseziele',
+    switcher: 'Navigation im Frigiliana-Guide'
+  },
+  es: {
+    back: 'Volver a la guía de Frigiliana',
+    breadcrumb: 'Migas de pan',
+    destinations: 'Destinos',
+    switcher: 'Navegación de la guía de Frigiliana'
+  },
+  nl: {
+    back: 'Terug naar de Frigiliana-gids',
+    breadcrumb: 'Broodkruimelnavigatie',
+    destinations: 'Bestemmingen',
+    switcher: 'Navigatie van de Frigiliana-gids'
+  },
+  sv: {
+    back: 'Tillbaka till Frigiliana-guiden',
+    breadcrumb: 'Brödsmulenavigering',
+    destinations: 'Resmål',
+    switcher: 'Navigering i Frigiliana-guiden'
+  }
+};
+
+const copy = labels[lang];
+const homeHref = resolveOptionalLink('home', lang, {
+  suppressMissing: true
+});
+const guideHref = resolveOptionalLink('location_frigiliana', lang, {
+  suppressMissing: true
+});
+
+const breadcrumbs: ContextNavigationBreadcrumb[] = [
+  {
+    label: 'AMARA',
+    href: homeHref ?? undefined
+  },
+  {
+    label: copy.destinations,
+    href: !isOverview ? guideHref ?? undefined : undefined
+  },
+  ...(!isOverview && currentLabel ? [{ label: currentLabel }] : [])
+];
+---
+
+<ContextNavigation
+  activeId={activeId}
+  backLink={!isOverview && guideHref ? { href: guideHref, label: copy.back } : undefined}
+  breadcrumbAriaLabel={copy.breadcrumb}
+  breadcrumbs={breadcrumbs}
+  context="location"
+  items={navigationItems}
+  switcherAriaLabel={copy.switcher}
+/>

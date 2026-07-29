@@ -142,7 +142,7 @@ export const vacationRentalEntities: VacationRentalEntity[] = [
       de: 'Privates Boutique-Zimmer für ruhige Kurzaufenthalte',
       es: 'Habitación boutique privada para estancias tranquilas',
       nl: 'Private boutiquekamer voor rustige korte verblijven',
-      sv: 'Privat boutiquerum for lugna kortare vistelser'
+      sv: 'Privat boutiquerum för lugna kortare vistelser'
     },
     lead: {
       en: 'A compact, romantic AMARA stay with private entrance, private bathroom, coffee and tea station, and the old village just outside the door.',
@@ -177,7 +177,7 @@ export const vacationRentalEntities: VacationRentalEntity[] = [
       de: 'Haustiere nicht erlaubt',
       es: 'No se admiten mascotas',
       nl: 'Huisdieren niet toegestaan',
-      sv: 'Husdjur ar inte tillatna'
+      sv: 'Husdjur är inte tillåtna'
     },
     kitchenNote: {
       en: 'Coffee and tea station only',
@@ -297,7 +297,7 @@ export const vacationRentalEntities: VacationRentalEntity[] = [
       de: 'Lounis ist für Paare gemacht, die das alte Dorf um sich herum spüren und zwischen Terrassenmorgen, Spaziergängen und ruhigen Abenden entschleunigen möchten.',
       es: 'Lounis esta pensado para parejas que quieren sentir el pueblo antiguo y bajar el ritmo entre mananas en la terraza, paseos y noches tranquilas.',
       nl: 'Lounis is gemaakt voor koppels die het oude dorp om zich heen willen voelen en willen vertragen tussen terrasochtenden, wandelingen en stille avonden.',
-      sv: 'Lounis ar skapad for par som vill kanna den gamla byn omkring sig och sakta ner mellan terrassmorgnar, promenader och lugna kvallar.'
+      sv: 'Lounis är skapad för par som vill känna den gamla byn omkring sig och sakta ner mellan terrassmorgnar, promenader och lugna kvällar.'
     },
     highlights: {
       en: ['Entire apartment for 2 guests', 'Private terrace', 'Full indoor kitchen'],
@@ -308,17 +308,17 @@ export const vacationRentalEntities: VacationRentalEntity[] = [
     },
     accessNote: {
       en: 'Requires stairs',
-      de: 'Nur ueber Treppen erreichbar',
+      de: 'Nur über Treppen erreichbar',
       es: 'Acceso por escaleras',
       nl: 'Trappen vereist',
-      sv: 'Kraver trappor'
+      sv: 'Kräver trappor'
     },
     petsNote: {
       en: 'Pets on request',
       de: 'Haustiere auf Anfrage',
-      es: 'Mascotas bajo peticion',
+      es: 'Mascotas bajo petición',
       nl: 'Huisdieren op aanvraag',
-      sv: 'Husdjur pa forfragan'
+      sv: 'Husdjur på förfrågan'
     },
     kitchenNote: {
       en: 'Full indoor kitchen',
@@ -331,7 +331,7 @@ export const vacationRentalEntities: VacationRentalEntity[] = [
       en: 'Private terrace',
       de: 'Private Terrasse',
       es: 'Terraza privada',
-      nl: 'Priveterras',
+      nl: 'Privéterras',
       sv: 'Privat terrass'
     },
     viewNote: {
@@ -339,7 +339,7 @@ export const vacationRentalEntities: VacationRentalEntity[] = [
       de: 'Fernblick aufs Meer',
       es: 'Vistas lejanas al mar',
       nl: 'Uitzicht op zee in de verte',
-      sv: 'Havsutsikt pa avstand'
+      sv: 'Havsutsikt på avstånd'
     },
     images: [
       '/images/amara-lounis/104-amara-frigiliana.jpg',
@@ -432,7 +432,7 @@ export const vacationRentalEntities: VacationRentalEntity[] = [
       en: 'A calm apartment for two with private terrace, full kitchen, king bed, and Frigiliana old-town rhythm.',
       de: 'Ein ruhiges Apartment für zwei mit privater Terrasse, voll ausgestatteter Küche, Kingsize-Bett und Altstadt-Rhythmus.',
       es: 'Un apartamento tranquilo para dos, con terraza privada, cocina completa, cama king size y ritmo de casco antiguo.',
-      nl: 'Een rustig appartement voor twee, met priveterras, volledige keuken, kingsize bed en het ritme van de oude kern.',
+      nl: 'Een rustig appartement voor twee, met privéterras, volledige keuken, kingsize bed en het ritme van de oude kern.',
       sv: 'En lugn lägenhet för två med privat terrass, fullt kök, kingsize-säng och den gamla byns rytm.'
     },
     description: {
@@ -440,7 +440,7 @@ export const vacationRentalEntities: VacationRentalEntity[] = [
       de: 'Zaid ist die Wahl, wenn Terrassenzeit wichtig ist: Frühstück draußen, Dorflicht, ruhige Abende und eine private Basis zwischen Frigiliana und Strandtagen bei Nerja.',
       es: 'Zaid es la elección cuando la terraza importa: desayunos al aire libre, luz de pueblo, noches tranquilas y una base privada entre Frigiliana y días de playa en Nerja.',
       nl: 'Zaid is de keuze wanneer terrastijd belangrijk is: ontbijt buiten, dorpslicht, stille avonden en een private basis tussen Frigiliana en stranddagen bij Nerja.',
-      sv: 'Zaid ar valet nar terrasslivet spelar roll: frukost ute, byljus, stilla kvallar och en privat bas mellan Frigiliana och stranddagar vid Nerja.'
+      sv: 'Zaid är valet när terrasslivet spelar roll: frukost ute, byljus, stilla kvällar och en privat bas mellan Frigiliana och stranddagar vid Nerja.'
     },
     highlights: {
       en: ['Entire apartment for 2 guests', 'Private terrace', 'King bed'],
@@ -451,17 +451,17 @@ export const vacationRentalEntities: VacationRentalEntity[] = [
     },
     accessNote: {
       en: 'Requires stairs',
-      de: 'Nur ueber Treppen erreichbar',
+      de: 'Nur über Treppen erreichbar',
       es: 'Acceso por escaleras',
       nl: 'Trappen vereist',
-      sv: 'Kraver trappor'
+      sv: 'Kräver trappor'
     },
     petsNote: {
       en: 'Pets are not allowed',
       de: 'Haustiere nicht erlaubt',
       es: 'No se admiten mascotas',
       nl: 'Huisdieren niet toegestaan',
-      sv: 'Husdjur ar inte tillatna'
+      sv: 'Husdjur är inte tillåtna'
     },
     kitchenNote: {
       en: 'Full indoor kitchen',
@@ -474,7 +474,7 @@ export const vacationRentalEntities: VacationRentalEntity[] = [
       en: 'Private terrace',
       de: 'Private Terrasse',
       es: 'Terraza privada',
-      nl: 'Priveterras',
+      nl: 'Privéterras',
       sv: 'Privat terrass'
     },
     viewNote: {
@@ -482,7 +482,7 @@ export const vacationRentalEntities: VacationRentalEntity[] = [
       de: 'Fernblick aufs Meer',
       es: 'Vistas lejanas al mar',
       nl: 'Uitzicht op zee in de verte',
-      sv: 'Havsutsikt pa avstand'
+      sv: 'Havsutsikt på avstånd'
     },
     images: [
       '/images/amara-zaid/cara-rural-frigiliana-amara-said-terraza-5.jpg',
@@ -561,7 +561,7 @@ export const vacationRentalEntities: VacationRentalEntity[] = [
       en: 'Large private terrace',
       de: 'Große private Terrasse',
       es: 'Gran terraza privada',
-      nl: 'Groot priveterras',
+      nl: 'Groot privéterras',
       sv: 'Stor privat terrass'
     },
     headline: {
@@ -594,17 +594,17 @@ export const vacationRentalEntities: VacationRentalEntity[] = [
     },
     accessNote: {
       en: 'Requires stairs',
-      de: 'Nur ueber Treppen erreichbar',
+      de: 'Nur über Treppen erreichbar',
       es: 'Acceso por escaleras',
       nl: 'Trappen vereist',
-      sv: 'Kraver trappor'
+      sv: 'Kräver trappor'
     },
     petsNote: {
       en: 'Pets on request',
       de: 'Haustiere auf Anfrage',
-      es: 'Mascotas bajo peticion',
+      es: 'Mascotas bajo petición',
       nl: 'Huisdieren op aanvraag',
-      sv: 'Husdjur pa forfragan'
+      sv: 'Husdjur på förfrågan'
     },
     kitchenNote: {
       en: 'Full indoor kitchen',
@@ -617,7 +617,7 @@ export const vacationRentalEntities: VacationRentalEntity[] = [
       en: 'Large private terrace',
       de: 'Große private Terrasse',
       es: 'Gran terraza privada',
-      nl: 'Groot priveterras',
+      nl: 'Groot privéterras',
       sv: 'Stor privat terrass'
     },
     viewNote: {
@@ -625,7 +625,7 @@ export const vacationRentalEntities: VacationRentalEntity[] = [
       de: 'Fernblick aufs Meer',
       es: 'Vistas lejanas al mar',
       nl: 'Uitzicht op zee in de verte',
-      sv: 'Havsutsikt pa avstand'
+      sv: 'Havsutsikt på avstånd'
     },
     images: [
       '/images/amara-maha/29-amara-frigiliana.jpg',
@@ -709,7 +709,7 @@ export const vacationRentalEntities: VacationRentalEntity[] = [
     },
     eyebrow: {
       en: 'Nerja coast',
-      de: 'Kuste von Nerja',
+      de: 'Küste von Nerja',
       es: 'Costa de Nerja',
       nl: 'Kust van Nerja',
       sv: 'Nerjas kust'
@@ -730,7 +730,7 @@ export const vacationRentalEntities: VacationRentalEntity[] = [
     },
     description: {
       en: 'Playa is the AMARA choice when the trip should start with the sea: beach walks, balcony moments, a full apartment setup, and Nerja close at hand.',
-      de: 'Playa ist die AMARA-Wahl, wenn die Reise mit dem Meer beginnen soll: Strandspaziergaenge, Balkonmomente, vollwertiges Apartment und Nerja direkt erreichbar.',
+      de: 'Playa ist die AMARA-Wahl, wenn die Reise mit dem Meer beginnen soll: Strandspaziergänge, Balkonmomente, vollwertiges Apartment und Nerja direkt erreichbar.',
       es: 'Playa es la opción AMARA cuando el viaje empieza por el mar: paseos por la playa, momentos en el balcón, apartamento completo y Nerja a mano.',
       nl: 'Playa is de AMARA-keuze wanneer de reis met de zee begint: strandwandelingen, balkonmomenten, een volledig appartement en Nerja dichtbij.',
       sv: 'Playa är AMARA-valet när resan ska börja vid havet: strandpromenader, balkongstunder, en hel lägenhet och Nerja nära.'
@@ -744,17 +744,17 @@ export const vacationRentalEntities: VacationRentalEntity[] = [
     },
     accessNote: {
       en: 'Requires stairs',
-      de: 'Nur ueber Treppen erreichbar',
+      de: 'Nur über Treppen erreichbar',
       es: 'Acceso por escaleras',
       nl: 'Trappen vereist',
-      sv: 'Kraver trappor'
+      sv: 'Kräver trappor'
     },
     petsNote: {
       en: 'Pets are not allowed',
       de: 'Haustiere nicht erlaubt',
       es: 'No se admiten mascotas',
       nl: 'Huisdieren niet toegestaan',
-      sv: 'Husdjur ar inte tillatna'
+      sv: 'Husdjur är inte tillåtna'
     },
     kitchenNote: {
       en: 'Full indoor kitchen',
@@ -865,7 +865,7 @@ export const vacationRentalEntities: VacationRentalEntity[] = [
       de: 'Tarifa für Familie und Surf',
       es: 'Tarifa para familia y surf',
       nl: 'Tarifa voor gezin en surf',
-      sv: 'Tarifa for familj och surf'
+      sv: 'Tarifa för familj och surf'
     },
     headline: {
       en: 'Ocean-view house with pool access',
@@ -907,7 +907,7 @@ export const vacationRentalEntities: VacationRentalEntity[] = [
       de: 'Haustiere nicht erlaubt',
       es: 'No se admiten mascotas',
       nl: 'Huisdieren niet toegestaan',
-      sv: 'Husdjur ar inte tillatna'
+      sv: 'Husdjur är inte tillåtna'
     },
     kitchenNote: {
       en: 'Full indoor kitchen',

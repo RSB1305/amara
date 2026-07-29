@@ -319,35 +319,35 @@ export const experienceHubSeo: AmaraAuthoringSeo = {
   ogImage: '/images/hero-frigiliana.jpg',
   languages: {
     en: {
-      title: 'Things to Do in Frigiliana & Nerja | AMARA Experiences',
+      title: 'Things to Do in Frigiliana & Nerja',
       description:
         'Explore beaches, food, culture, day trips, village life and evenings in Frigiliana and Nerja through AMARA’s locally edited experience guide.',
       robots: 'index, follow',
       canonical: 'auto'
     },
     de: {
-      title: 'Erlebnisse in Frigiliana & Nerja | AMARA Guide',
+      title: 'Erlebnisse in Frigiliana & Nerja',
       description:
         'Wandern, Strände, Kultur, Restaurants und Ausflüge: Entdecke Frigiliana und Nerja mit dem redaktionell kuratierten AMARA Experience Guide.',
       robots: 'index, follow',
       canonical: 'auto'
     },
     es: {
-      title: 'Qué hacer en Frigiliana y Nerja | Experiencias AMARA',
+      title: 'Qué hacer en Frigiliana y Nerja',
       description:
         'Gastronomía, fiestas, mercado, playas y noches en Nerja: una selección local para disfrutar Frigiliana y la Axarquía a vuestro ritmo.',
       robots: 'index, follow',
       canonical: 'auto'
     },
     nl: {
-      title: 'Wat te doen in Frigiliana & Nerja | AMARA Ervaringen',
+      title: 'Wat te doen in Frigiliana & Nerja',
       description:
         'Ontdek stranden, wandelingen, dagtochten, gastronomie en dorpsleven met de zelfstandig te plannen ervaringengids van AMARA.',
       robots: 'index, follow',
       canonical: 'auto'
     },
     sv: {
-      title: 'Att göra i Frigiliana & Nerja | AMARA Upplevelser',
+      title: 'Att göra i Frigiliana & Nerja',
       description:
         'Upptäck stränder, lugna dagar, mat, utflykter och byliv i Frigiliana och Nerja med AMARAs lokalt utvalda guide.',
       robots: 'index, follow',

@@ -80,10 +80,9 @@ export const frigilianaOderNerjaSeo: AmaraAuthoringSeo = {
   languages: {
     en: untranslatedSeo, // TODO: Translate before enabling an English route.
     de: {
-      title:
-        'Frigiliana oder Nerja: Wo übernachten? Ehrlicher Vergleich für Paare | AMARA',
+      title: 'Frigiliana oder Nerja: Wo übernachten? | AMARA',
       description:
-        'Frigiliana oder Nerja – wo übernachten? Ein ehrlicher Vergleich von den Gastgebern, die in beiden Orten vermieten. Ruhe vs. Meer, Klima, Anfahrt, Bus – mit Tipps für Paare.',
+        'Frigiliana oder Nerja – welcher Ort passt besser zu Paaren? Ehrlicher Gastgebervergleich zu Ruhe, Meer, Klima, Anreise und Ausflügen.',
       robots: 'index, follow',
       canonical: 'auto'
     },

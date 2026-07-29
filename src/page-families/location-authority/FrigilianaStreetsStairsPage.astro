@@ -6,7 +6,7 @@ import Navigation from '../../components/Navigation.astro';
 import EditorialClosingCta from '../../components/editorial/EditorialClosingCta.astro';
 import EditorialGuideLinkSection from '../../components/editorial/EditorialGuideLinkSection.astro';
 import HairlineStatCard from '../../components/location/HairlineStatCard.astro';
-import SectionAnchorNav from '../../components/navigation/SectionAnchorNav.astro';
+import LocationContextNav from '../../components/location/LocationContextNav.astro';
 import {
   frigilianaStreetsStairsCopy,
   frigilianaStreetsStairsSeo
@@ -138,7 +138,7 @@ const contextImage = {
     languageToken="frigiliana_stairs"
     locationAuthorityNav={true}
   />
-  <SectionAnchorNav items={sectionNavItems} activeId="structure" />
+  <LocationContextNav items={sectionNavItems} activeId="structure" lang={currentLang} />
 
   <div class="am-root" data-am-page="frigiliana-streets-stairs">
     <div class="am-wrap w-full">

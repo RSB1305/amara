@@ -4,7 +4,7 @@ import Navigation from '../../components/Navigation.astro';
 import EditorialClosingCta from '../../components/editorial/EditorialClosingCta.astro';
 import EditorialGuideLinkSection from '../../components/editorial/EditorialGuideLinkSection.astro';
 import HairlineStatCard from '../../components/location/HairlineStatCard.astro';
-import SectionAnchorNav from '../../components/navigation/SectionAnchorNav.astro';
+import LocationContextNav from '../../components/location/LocationContextNav.astro';
 import {
   frigilianaFaqCopy,
   frigilianaFaqExternalLinks,
@@ -15,7 +15,6 @@ import {
   getFrigilianaPreFooterDescription
 } from '../../content/frigilianaPreFooterContent';
 import LocationAuthorityLayout from '../../layouts/LocationAuthorityLayout.astro';
-import { getFrigilianaAuthoritySubnav } from '../../lib/frigiliana/frigilianaAuthoritySubnav';
 import { resolveOptionalLink } from '../../lib/linkResolver';
 import { buildOwnedLocalizedPath } from '../../lib/routeOwnership';
 import { normalizeLanguage } from '../../lib/seo/resolve-seo-head';
@@ -135,10 +134,7 @@ const heroImage = {
     languageToken="frigiliana_faq"
     locationAuthorityNav={true}
   />
-  <SectionAnchorNav
-    items={getFrigilianaAuthoritySubnav(currentLang)}
-    activeId="faq"
-  />
+  <LocationContextNav activeId="faq" lang={currentLang} />
 
   <div class="am-root" data-am-page="frigiliana-faq">
     <div class="am-wrap w-full">

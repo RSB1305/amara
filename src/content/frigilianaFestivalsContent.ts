@@ -125,35 +125,35 @@ export const frigilianaFestivalsSeo: AmaraAuthoringSeo = {
   ogImage: '/images/hero-frigiliana.jpg',
   languages: {
     en: {
-      title: 'Festivals in Frigiliana & Nerja | AMARA Guide',
+      title: 'Festivals in Frigiliana & Nerja',
       description:
         'Plan festivals in Frigiliana and Nerja with a seasonal calendar, confirmed 2026 dates and honest advice on crowds, parking and programmes.',
       robots: 'index, follow',
       canonical: 'auto'
     },
     de: {
-      title: 'Feste in Frigiliana & Nerja | AMARA Guide',
+      title: 'Feste in Frigiliana & Nerja',
       description:
         'Feste in Frigiliana und Nerja planen: Saisonkalender, bestätigte Termine 2026 und ehrliche Hinweise zu Andrang, Parken und Programmen.',
       robots: 'index, follow',
       canonical: 'auto'
     },
     es: {
-      title: 'Fiestas en Frigiliana y Nerja | Guía AMARA',
+      title: 'Fiestas en Frigiliana y Nerja',
       description:
         'Planificad las fiestas de Frigiliana y Nerja con calendario estacional, fechas confirmadas de 2026 y consejos sobre aforo, acceso y programas.',
       robots: 'index, follow',
       canonical: 'auto'
     },
     nl: {
-      title: 'Feesten in Frigiliana & Nerja | AMARA-gids',
+      title: 'Feesten in Frigiliana & Nerja',
       description:
         'Plan feesten in Frigiliana en Nerja met een seizoenskalender, bevestigde data voor 2026 en eerlijk advies over drukte, parkeren en programma’s.',
       robots: 'index, follow',
       canonical: 'auto'
     },
     sv: {
-      title: 'Festivaler i Frigiliana & Nerja | AMARA-guide',
+      title: 'Festivaler i Frigiliana & Nerja',
       description:
         'Planera festivaler i Frigiliana och Nerja med säsongskalender, bekräftade datum för 2026 och råd om trängsel, parkering och program.',
       robots: 'index, follow',

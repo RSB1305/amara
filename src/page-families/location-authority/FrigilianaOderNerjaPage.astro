@@ -1,14 +1,13 @@
 ---
 import Hero from '../../components/Hero.astro';
 import Navigation from '../../components/Navigation.astro';
-import SectionAnchorNav from '../../components/navigation/SectionAnchorNav.astro';
+import LocationContextNav from '../../components/location/LocationContextNav.astro';
 import {
   frigilianaOderNerjaContent,
   frigilianaOderNerjaSeo
 } from '../../content/frigilianaOderNerjaContent';
 import { frigilianaLocationCopy } from '../../content/frigilianaLocationContent';
 import LocationAuthorityLayout from '../../layouts/LocationAuthorityLayout.astro';
-import { getFrigilianaAuthoritySubnav } from '../../lib/frigiliana/frigilianaAuthoritySubnav';
 import { resolveOptionalLink } from '../../lib/linkResolver';
 import { normalizeLanguage } from '../../lib/seo/resolve-seo-head';
 import type { AmaraLanguage } from '../../types/seo';
@@ -92,10 +91,7 @@ const heroImage = {
     languageToken="nerja_vs_frigiliana"
     locationAuthorityNav={true}
   />
-  <SectionAnchorNav
-    items={getFrigilianaAuthoritySubnav(currentLang)}
-    activeId="comparison"
-  />
+  <LocationContextNav activeId="comparison" lang={currentLang} />
 
   <div class="am-root" data-am-page="frigiliana-oder-nerja">
     <div class="am-wrap w-full">

@@ -169,35 +169,35 @@ export const frigilianaRestaurantsSeo: AmaraAuthoringSeo = {
   ogImage: '/images/hero-frigiliana.jpg',
   languages: {
     en: {
-      title: 'Restaurants in Frigiliana & Nerja | AMARA Guide',
+      title: 'Restaurants in Frigiliana & Nerja',
       description:
         'Ten restaurants in Frigiliana and Nerja chosen by mood, with honest AMARA tips for terraces, special dinners, tapas, seafood and a destination lunch.',
       robots: 'index, follow',
       canonical: 'auto'
     },
     de: {
-      title: 'Restaurants in Frigiliana & Nerja | AMARA Guide',
+      title: 'Restaurant-Tipps für Frigiliana & Nerja',
       description:
         'Zehn Restaurants in Frigiliana und Nerja nach Anlass ausgewählt – mit ehrlichen AMARA-Tipps zu Terrassen, besonderen Abenden, Tapas und Fisch.',
       robots: 'index, follow',
       canonical: 'auto'
     },
     es: {
-      title: 'Restaurantes en Frigiliana y Nerja | Guía AMARA',
+      title: 'Restaurantes en Frigiliana y Nerja',
       description:
         'Diez restaurantes de Frigiliana y Nerja elegidos según el momento, con consejos sinceros sobre terrazas, cenas especiales, tapas, pescado y excursiones.',
       robots: 'index, follow',
       canonical: 'auto'
     },
     nl: {
-      title: 'Restaurants in Frigiliana & Nerja | AMARA-gids',
+      title: 'Restauranttips voor Frigiliana & Nerja',
       description:
         'Tien restaurants in Frigiliana en Nerja, gekozen per sfeer, met eerlijke AMARA-tips voor terrassen, bijzondere diners, tapas, vis en een lunchuitstap.',
       robots: 'index, follow',
       canonical: 'auto'
     },
     sv: {
-      title: 'Restauranger i Frigiliana & Nerja | AMARA-guide',
+      title: 'Restauranger i Frigiliana & Nerja',
       description:
         'Tio restauranger i Frigiliana och Nerja, valda efter tillfälle, med ärliga AMARA-tips om terrasser, speciella middagar, tapas, fisk och utflyktslunch.',
       robots: 'index, follow',

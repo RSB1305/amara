@@ -2,8 +2,7 @@
 import LocationAuthorityLayout from '../../layouts/LocationAuthorityLayout.astro';
 import Navigation from '../../components/Navigation.astro';
 import EditorialGuideLinkSection from '../../components/editorial/EditorialGuideLinkSection.astro';
-import SectionAnchorNav from '../../components/navigation/SectionAnchorNav.astro';
-import SmartBackButton from '../../components/navigation/SmartBackButton.astro';
+import LocationContextNav from '../../components/location/LocationContextNav.astro';
 import HairlineStatCard from '../../components/location/HairlineStatCard.astro';
 import SeasonalPillar from '../../components/location/SeasonalPillar.astro';
 import {
@@ -11,7 +10,6 @@ import {
   getFrigilianaPreFooterDescription
 } from '../../content/frigilianaPreFooterContent';
 import { buildOwnedLocalizedPath } from '../../lib/routeOwnership';
-import { getFrigilianaAuthoritySubnav } from '../../lib/frigiliana/frigilianaAuthoritySubnav';
 import { normalizeLanguage } from '../../lib/seo/resolve-seo-head';
 import type { AmaraAuthoringSeo, AmaraLanguage } from '../../types/seo';
 
@@ -21,7 +19,6 @@ interface Props {
 
 const { lang = 'es' } = Astro.props;
 const currentLang = normalizeLanguage(lang as AmaraLanguage);
-const sectionNavItems = getFrigilianaAuthoritySubnav(currentLang);
 const locationBase = buildOwnedLocalizedPath('frigiliana-location', currentLang);
 const arrivalGuideHref = buildOwnedLocalizedPath('directions-arrival-guide', currentLang);
 const parkingHref = buildOwnedLocalizedPath('frigiliana-parking', currentLang);
@@ -329,16 +326,10 @@ const relatedLinks = [
     locationAuthorityNav={true}
   />
 
-  <SectionAnchorNav items={sectionNavItems} activeId="weather" />
+  <LocationContextNav activeId="weather" lang={currentLang} />
 
   <div class="am-root" data-am-page="frigiliana-weather">
     <div class="am-wrap w-full max-w-screen-2xl mx-auto px-12 pt-20 pb-20">
-      <SmartBackButton
-        variant="link"
-        label={t(copy.header.back)}
-        fallbackHref={locationBase}
-      />
-
       <header class="mb-20 border-b border-black/10 pb-12">
         <span class="am-text-caption text-primary mb-4 block">{t(copy.header.eyebrow)}</span>
         <h1 class="am-text-display italic text-on-surface mb-6">{t(copy.header.h1)}</h1>

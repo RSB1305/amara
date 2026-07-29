@@ -10,14 +10,13 @@ import StayDecision from '../../components/StayDecision.astro';
 import FaqAccordion from '../../components/FaqAccordion.astro';
 import EditorialGuideLinkSection from '../../components/editorial/EditorialGuideLinkSection.astro';
 import LocationEditorialComparison from '../../components/location/LocationEditorialComparison.astro';
-import SectionAnchorNav from '../../components/navigation/SectionAnchorNav.astro';
+import LocationContextNav from '../../components/location/LocationContextNav.astro';
 import OrderedFrigilianaLocationSections from './OrderedFrigilianaLocationSections.astro';
 import {
   frigilianaLocationCopy,
   frigilianaLocationSeo
 } from '../../content/frigilianaLocationContent';
 import { resolveOptionalLink } from '../../lib/linkResolver';
-import { getFrigilianaAuthoritySubnav } from '../../lib/frigiliana/frigilianaAuthoritySubnav';
 import { getFrigilianaLocationSectionOrder } from '../../lib/frigiliana/frigilianaLocationSectionOrder';
 import { buildOwnedLocalizedPath, isPublicLinkEnabled } from '../../lib/routeOwnership';
 import { getWeatherWithFallback } from '../../lib/weather/weatherService';
@@ -260,7 +259,6 @@ const heroImage = {
   sizes: '(max-width: 767px) calc(100vw - 3rem), (max-width: 1023px) 60vw, 40vw'
 };
 
-const sectionNavItems = getFrigilianaAuthoritySubnav(currentLang);
 const sectionOrder = getFrigilianaLocationSectionOrder(currentLang);
 ---
 
@@ -272,7 +270,7 @@ const sectionOrder = getFrigilianaLocationSectionOrder(currentLang);
     languageToken="location_frigiliana"
     locationAuthorityNav={true}
   />
-  <SectionAnchorNav items={sectionNavItems} activeId="intro" />
+  <LocationContextNav activeId="intro" lang={currentLang} />
   <div class="am-root" data-am-page="frigiliana-location">
     <div class="am-wrap w-full">
       <OrderedFrigilianaLocationSections order={sectionOrder}>
