@@ -402,8 +402,8 @@ export const vacationRentalEntities: VacationRentalEntity[] = [
     sameAs: ['https://www.booking.com/hotel/es/das-amara-zaid-in-der-altstadt-von-frigiliana.de.html'],
     seoTitle: {
       en: 'AMARA Zaid | Romantic Terrace Apartment in Frigiliana',
-      de: 'AMARA Zaid | Romantisches Terrassenapartment in Frigiliana',
-      es: 'AMARA Zaid | Apartamento romántico con terraza en Frigiliana',
+      de: 'AMARA Zaid: Apartment mit Terrasse in Frigiliana',
+      es: 'AMARA Zaid: apartamento romántico con terraza, Frigiliana',
       nl: 'AMARA Zaid | Romantisch terrasappartement in Frigiliana',
       sv: 'AMARA Zaid | Romantisk terrasslägenhet i Frigiliana'
     },

@@ -14,14 +14,14 @@ export const tarifaLocationSeo: AmaraAuthoringSeo = {
       canonical: 'auto'
     },
     de: {
-      title: 'Tarifa: Atlantikstrände, Kitesurfen & AMARA Family & Surf',
+      title: 'Tarifa: Atlantikstrände & Kitesurfen',
       description:
         'Kompakter Tarifa-Guide zu Atlantikstränden, Wind, Surfkultur, Altstadt und AMARA Family & Surf für bis zu vier Gäste.',
       robots: 'index, follow',
       canonical: 'auto'
     },
     es: {
-      title: 'Tarifa: playas atlánticas, kitesurf y AMARA Family & Surf',
+      title: 'Tarifa: playas atlánticas y kitesurf',
       description:
         'Guía concisa de Tarifa sobre playas atlánticas, viento, cultura surfera, casco histórico y AMARA Family & Surf para hasta cuatro huéspedes.',
       robots: 'index, follow',
@@ -35,7 +35,7 @@ export const tarifaLocationSeo: AmaraAuthoringSeo = {
       canonical: 'auto'
     },
     sv: {
-      title: 'Tarifa: Atlantstränder, kitesurfing & AMARA Family & Surf',
+      title: 'Tarifa: Atlantstränder & kitesurfing',
       description:
         'En kort Tarifa-guide om Atlantstränder, vind, surfkultur, den historiska stadskärnan och AMARA Family & Surf för upp till fyra gäster.',
       robots: 'index, follow',

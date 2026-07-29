@@ -10,7 +10,15 @@
       "Read(//c/Users/marku/AppData/Local/ms-playwright/**)",
       "Bash(command -v chromium-cli)",
       "Read(//c//**)",
-      "Bash(npm ls *)"
+      "Bash(npm ls *)",
+      "Bash(node scripts/check-structured-data.mjs)",
+      "Bash(PUBLIC_SITE_URL=https://amara-lodging.es npm run build)",
+      "Bash(grep -oE '<h1[^>]*>.{0,200}' dist/romantic-hideaways.html)",
+      "Bash(node \"C:\\\\Users\\\\marku\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\c--Users-marku-Documents-Project-2030-plus-frigiliana\\\\e1bd7569-0c65-46b4-91f9-eeabbdd99cbd\\\\scratchpad\\\\seo-scan.mjs\")",
+      "Bash(grep -oE '<h1[^>]*>.{0,150}' dist/index.html)",
+      "Bash(grep -oE 'alt=\"[^\"]{0,80}\"' dist/frigiliana-location.html)",
+      "Bash(echo \"exit code: $?\")",
+      "Bash(node -e ' *)"
     ]
   }
 }

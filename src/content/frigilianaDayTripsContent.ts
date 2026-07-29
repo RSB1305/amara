@@ -99,28 +99,28 @@ export const frigilianaDayTripsSeo: AmaraAuthoringSeo = {
       canonical: 'auto'
     },
     de: {
-      title: 'Tagesausflüge ab Frigiliana: Málaga, Granada & Ronda',
+      title: 'Frigiliana: Tagesausflüge Málaga, Granada & Ronda',
       description:
         'Plant Tagesausflüge von Frigiliana nach Málaga, Granada, zum Caminito del Rey und nach Ronda – mit Fahrzeiten, Ticket-Tipps und ruhigen Routen.',
       robots: 'index, follow',
       canonical: 'auto'
     },
     es: {
-      title: 'Excursiones desde Frigiliana: Málaga, Granada y Ronda',
+      title: 'Frigiliana: excursiones a Málaga, Granada y Ronda',
       description:
         'Planificad excursiones desde Frigiliana a Málaga, Granada, Caminito del Rey y Ronda con tiempos orientativos, entradas y rutas sin prisas.',
       robots: 'index, follow',
       canonical: 'auto'
     },
     nl: {
-      title: 'Dagtochten vanuit Frigiliana: Málaga, Granada & Ronda',
+      title: 'Frigiliana: dagtochten naar Málaga, Granada & Ronda',
       description:
         'Plan dagtochten vanuit Frigiliana naar Málaga, Granada, Caminito del Rey en Ronda met rijtijden, ticketadvies en ontspannen routes.',
       robots: 'index, follow',
       canonical: 'auto'
     },
     sv: {
-      title: 'Dagsutflykter från Frigiliana: Málaga, Granada & Ronda',
+      title: 'Frigiliana: dagsutflykter Málaga, Granada & Ronda',
       description:
         'Planera dagsutflykter från Frigiliana till Málaga, Granada, Caminito del Rey och Ronda med körtider, biljettråd och lugna upplägg.',
       robots: 'index, follow',

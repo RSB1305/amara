@@ -33,21 +33,21 @@ export const frigilianaFaqSeo: AmaraAuthoringSeo = {
       canonical: 'auto'
     },
     de: {
-      title: 'Frigiliana FAQ: Praktische Antworten für euren Besuch',
+      title: 'Frigiliana FAQ: Antworten für euren Besuch',
       description:
         'Praktische Antworten zu Anreise, Parken, Dorfstruktur, Übernachten, Geschäften, Veranstaltungen, Wetter und Wandern in Frigiliana.',
       robots: 'index, follow',
       canonical: 'auto'
     },
     es: {
-      title: 'FAQ de Frigiliana: respuestas prácticas para la visita',
+      title: 'Frigiliana FAQ: respuestas prácticas para la visita',
       description:
         'Respuestas prácticas sobre cómo llegar a Frigiliana, aparcar, recorrer sus calles, alojarse, comprar, asistir a eventos y hacer senderismo.',
       robots: 'index, follow',
       canonical: 'auto'
     },
     nl: {
-      title: 'Frigiliana FAQ: praktische antwoorden voor uw bezoek',
+      title: 'Frigiliana FAQ: antwoorden voor uw bezoek',
       description:
         'Praktische antwoorden over reizen naar Frigiliana, parkeren, dorpsstraten, overnachten, winkels, evenementen, weer en wandelen.',
       robots: 'index, follow',

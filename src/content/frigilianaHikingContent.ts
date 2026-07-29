@@ -95,7 +95,7 @@ export const frigilianaHikingSeo: AmaraAuthoringSeo = {
       canonical: 'auto'
     },
     es: {
-      title: 'Senderismo en Frigiliana: rutas y guía de naturaleza',
+      title: 'Senderismo en Frigiliana: rutas y naturaleza',
       description:
         'Rutas de senderismo alrededor de Frigiliana: panorámicas, paseos suaves, recorridos fluviales y cumbres de la Sierra Almijara, con tiempos y consejos prácticos.',
       robots: 'index, follow',

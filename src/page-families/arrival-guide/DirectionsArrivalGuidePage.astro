@@ -19,10 +19,7 @@ import {
 import FaqAccordion from '../../components/FaqAccordion.astro';
 import AmaraImage from '../../components/AmaraImage.astro';
 import Navigation from '../../components/Navigation.astro';
-import SectionAnchorNav from '../../components/navigation/SectionAnchorNav.astro';
-import SmartBackButton from '../../components/navigation/SmartBackButton.astro';
-import { getFrigilianaAuthoritySubnav } from '../../lib/frigiliana/frigilianaAuthoritySubnav';
-import { buildOwnedLocalizedPath } from '../../lib/routeOwnership';
+import LocationContextNav from '../../components/location/LocationContextNav.astro';
 import { normalizeLanguage } from '../../lib/seo/resolve-seo-head';
 import LocationAuthorityLayout from '../../layouts/LocationAuthorityLayout.astro';
 import type { AmaraLanguage } from '../../types/seo';
@@ -33,8 +30,6 @@ interface Props {
 
 const { lang = 'es' } = Astro.props;
 const currentLang = normalizeLanguage(lang as AmaraLanguage);
-const sectionNavItems = getFrigilianaAuthoritySubnav(currentLang);
-const locationFallbackHref = buildOwnedLocalizedPath('frigiliana-location', currentLang);
 const seo = arrivalGuideSeo;
 const copy = arrivalGuideCopy;
 const arrivalSteps = arrivalGuideSteps;
@@ -94,16 +89,10 @@ const c = {
     languageToken="arrival_guide"
     locationAuthorityNav={true}
   />
-  <SectionAnchorNav items={sectionNavItems} activeId="arrival" />
+  <LocationContextNav activeId="arrival" lang={currentLang} />
 
   <div class="am-root" data-am-page="frigiliana-arrival-guide">
     <div class="am-wrap w-full max-w-screen-2xl mx-auto px-12 pt-20 pb-20">
-      <SmartBackButton
-        variant="link"
-        label={c.header.backLinkWord}
-        fallbackHref={locationFallbackHref}
-      />
-
       <header class="mb-20 border-b border-black/10 pb-12">
         <span class="am-text-caption text-primary mb-4 block">{c.header.eyebrow}</span>
         <h1 class="am-text-display italic text-on-surface mb-6">{c.header.title}</h1>
