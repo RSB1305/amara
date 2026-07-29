@@ -1,0 +1,21 @@
+---
+import type { FrigilianaLocationSectionId } from '../../lib/frigiliana/frigilianaLocationSectionOrder';
+
+interface Props {
+  order: FrigilianaLocationSectionId[];
+}
+
+const { order } = Astro.props;
+const renderedSections = await Promise.all(
+  order.map(async (sectionId) => ({
+    sectionId,
+    html: await Astro.slots.render(sectionId)
+  }))
+);
+---
+
+{
+  renderedSections.map(({ html }) => (
+    <Fragment set:html={html} />
+  ))
+}

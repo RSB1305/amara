@@ -1,0 +1,313 @@
+---
+import Hero from '../../components/Hero.astro';
+import Navigation from '../../components/Navigation.astro';
+import EditorialClosingCta from '../../components/editorial/EditorialClosingCta.astro';
+import EditorialFeatureGrid from '../../components/editorial/EditorialFeatureGrid.astro';
+import SectionAnchorNav from '../../components/navigation/SectionAnchorNav.astro';
+import {
+  frigilianaBeachesContent,
+  frigilianaBeachesSeo
+} from '../../content/frigilianaBeachesContent';
+import LocationAuthorityLayout from '../../layouts/LocationAuthorityLayout.astro';
+import { resolveOptionalLink } from '../../lib/linkResolver';
+import { normalizeLanguage } from '../../lib/seo/resolve-seo-head';
+import type { AmaraLanguage } from '../../types/seo';
+
+interface Props {
+  lang?: string;
+}
+
+const { lang = 'es' } = Astro.props;
+const currentLang = normalizeLanguage(lang as AmaraLanguage);
+const copy = frigilianaBeachesContent[currentLang];
+
+const sectionNavItems = [
+  { id: 'coast', href: '#coast', label: copy.sectionNav.coast },
+  { id: 'quiet', href: '#quiet', label: copy.sectionNav.quiet },
+  { id: 'nature', href: '#nature', label: copy.sectionNav.nature },
+  { id: 'nerja', href: '#nerja', label: copy.sectionNav.nerja },
+  {
+    id: 'conditions',
+    href: '#conditions',
+    label: copy.sectionNav.conditions
+  },
+  {
+    id: 'practical',
+    href: '#practical',
+    label: copy.sectionNav.practical
+  }
+];
+
+const footerHighlights = [
+  {
+    token: 'frigiliana_beaches_authority',
+    label: copy.footerHighlights.beaches
+  },
+  {
+    token: 'frigiliana_hiking_authority',
+    label: copy.footerHighlights.hiking
+  },
+  { token: 'romantic_hideaways', label: copy.footerHighlights.stays }
+];
+
+const combineItems = copy.combine.items.map((item) => ({
+  ...item,
+  href: resolveOptionalLink(item.linkToken, currentLang, {
+    suppressMissing: true
+  })
+}));
+
+const heroImage = {
+  src: '/images/amara-playa/apartment/chaparril-22.webp',
+  width: 1920,
+  height: 1279
+};
+---
+
+<LocationAuthorityLayout
+  seo={frigilianaBeachesSeo}
+  pageLang={currentLang}
+  footerHighlights={footerHighlights}
+>
+  <Navigation
+    currentLang={currentLang}
+    brandName="Frigiliana"
+    languageToken="frigiliana_beaches_authority"
+    locationAuthorityNav={true}
+  />
+  <SectionAnchorNav items={sectionNavItems} />
+
+  <div class="am-root" data-am-page="frigiliana-beaches">
+    <div class="am-wrap w-full">
+      <Hero
+        imageSrc={heroImage.src}
+        imageAlt={copy.hero.imageAlt}
+        imageWidth={heroImage.width}
+        imageHeight={heroImage.height}
+      >
+        <span class="am-text-caption text-primary mb-8 block">
+          {copy.hero.kicker}
+        </span>
+        <h1 class="am-text-display italic text-on-surface mb-10 tracking-tighter">
+          {copy.hero.title}
+        </h1>
+        <div class="pl-10 border-l border-primary/20 max-w-xl space-y-6">
+          {
+            copy.hero.paragraphs.map((paragraph) => (
+              <p class="am-text-body text-on-surface-variant leading-relaxed">
+                {paragraph}
+              </p>
+            ))
+          }
+        </div>
+      </Hero>
+
+      <section
+        id="coast"
+        class="am-section am-section--tint !px-6 md:!px-12"
+      >
+        <div class="max-w-3xl mb-16">
+          <h2 class="am-text-title italic text-on-surface tracking-tight mb-6">
+            {copy.overview.title}
+          </h2>
+          <p class="am-text-body text-on-surface-variant leading-relaxed">
+            {copy.overview.intro}
+          </p>
+        </div>
+        <EditorialFeatureGrid
+          cards={copy.overview.items.map((item) => ({
+            title: item.title,
+            copy: item.text
+          }))}
+        />
+      </section>
+
+      {
+        copy.beachSections.map((section, index) => (
+          <section
+            id={section.id}
+            class:list={[
+              'am-section !px-6 md:!px-12',
+              index % 2 === 0 ? 'am-section--plain' : 'am-section--tint'
+            ]}
+          >
+            <div class="max-w-3xl mb-16">
+              <h2 class="am-text-title italic text-on-surface tracking-tight mb-6">
+                {section.title}
+              </h2>
+              <p class="am-text-body text-on-surface-variant leading-relaxed">
+                {section.intro}
+              </p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-x-16 gap-y-14">
+              {section.beaches.map((beach, beachIndex) => {
+                const titleId = `${section.id}-beach-${beachIndex}`;
+
+                return (
+                  <article
+                    class="border-t border-outline-variant/25 pt-8 flex h-full flex-col"
+                    aria-labelledby={titleId}
+                  >
+                    <h3
+                      id={titleId}
+                      class="am-text-subtitle text-on-surface mb-5 lg:min-h-[2.3em]"
+                    >
+                      {beach.title}
+                    </h3>
+
+                    <div class="mb-6 flex flex-wrap lg:min-h-8">
+                      <span class="rounded-pill border border-outline-variant/30 bg-surface-container-lowest px-3 py-1 am-text-caption normal-case tracking-normal text-primary">
+                        <span class="font-bold">
+                          {copy.beachCardLabels.bestFor}:
+                        </span>{' '}
+                        {beach.bestFor}
+                      </span>
+                    </div>
+
+                    <p class="am-text-body text-on-surface-variant leading-relaxed">
+                      {beach.description}
+                    </p>
+
+                    <p class="mt-6 lg:mt-auto border-l border-primary/20 bg-surface-container-low px-4 py-3 am-text-body leading-relaxed text-on-surface-variant">
+                      <span class="font-bold text-primary">
+                        {copy.beachCardLabels.tip}:
+                      </span>{' '}
+                      {beach.tip}
+                    </p>
+
+                    <p class="mt-5 am-text-body">
+                      <a
+                        href={beach.mapHref}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="am-inline-link"
+                      >
+                        {copy.beachCardLabels.map}
+                        <span aria-hidden="true"> ↗</span>
+                      </a>
+                    </p>
+                  </article>
+                );
+              })}
+            </div>
+          </section>
+        ))
+      }
+
+      <section
+        id="conditions"
+        class="am-section am-section--tint !px-6 md:!px-12"
+      >
+        <div class="max-w-3xl mb-16">
+          <h2 class="am-text-title italic text-on-surface tracking-tight mb-6">
+            {copy.conditions.title}
+          </h2>
+          <p class="am-text-body text-on-surface-variant leading-relaxed">
+            {copy.conditions.intro}
+          </p>
+        </div>
+        <EditorialFeatureGrid
+          cards={copy.conditions.items.map((item) => ({
+            title: item.title,
+            copy: item.text
+          }))}
+        />
+      </section>
+
+      <section
+        id="practical"
+        class="am-section am-section--plain !px-6 md:!px-12"
+      >
+        <div class="max-w-3xl mb-16">
+          <h2 class="am-text-title italic text-on-surface tracking-tight mb-6">
+            {copy.practical.title}
+          </h2>
+          <p class="am-text-body text-on-surface-variant leading-relaxed">
+            {copy.practical.intro}
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-x-10 gap-y-12">
+          {
+            copy.practical.items.map((item) => (
+              <div>
+                <div class="min-h-[4rem] mb-4 pb-2 border-b border-on-surface/10 flex items-start">
+                  <h3 class="am-text-caption uppercase tracking-wider leading-tight text-on-surface m-0">
+                    {item.title}
+                  </h3>
+                </div>
+                <p class="am-text-body text-on-surface-variant m-0">
+                  {item.text}
+                </p>
+              </div>
+            ))
+          }
+        </div>
+
+        <p class="mt-12 border-l border-primary/20 bg-surface-container-low px-4 py-3 am-text-body leading-relaxed text-on-surface-variant max-w-3xl">
+          {copy.practical.accessNote.before}<a
+            href={copy.practical.accessNote.href}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="am-inline-link"
+          >{copy.practical.accessNote.label}</a>{copy.practical.accessNote.after}
+        </p>
+      </section>
+
+      <section class="am-section am-section--tint !px-6 md:!px-12">
+        <div class="max-w-3xl mb-16">
+          <h2 class="am-text-title italic text-on-surface tracking-tight mb-6">
+            {copy.combine.title}
+          </h2>
+          <p class="am-text-body text-on-surface-variant leading-relaxed">
+            {copy.combine.intro}
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-x-16 gap-y-14">
+          {
+            combineItems.map((item) => (
+              <article class="border-t border-outline-variant/25 pt-8">
+                <h3 class="am-text-subtitle text-on-surface mb-5">
+                  {item.title}
+                </h3>
+                <p class="am-text-body text-on-surface-variant leading-relaxed">
+                  {item.text}
+                </p>
+                {item.href && (
+                  <p class="mt-5 am-text-body">
+                    <a href={item.href} class="am-inline-link">
+                      {item.linkLabel}
+                      <span aria-hidden="true"> →</span>
+                    </a>
+                  </p>
+                )}
+              </article>
+            ))
+          }
+        </div>
+      </section>
+
+      <section class="max-w-screen-2xl mx-auto px-6 pt-24 md:px-12">
+        <EditorialClosingCta
+          title={copy.closing.title}
+          lead={copy.closing.lead}
+          lang={currentLang}
+          links={[
+            {
+              token: 'book',
+              label: copy.closing.availabilityCta,
+              style: 'primary'
+            },
+            {
+              token: 'romantic_hideaways',
+              label: copy.closing.apartmentsCta,
+              style: 'secondary'
+            }
+          ]}
+        />
+      </section>
+    </div>
+  </div>
+</LocationAuthorityLayout>

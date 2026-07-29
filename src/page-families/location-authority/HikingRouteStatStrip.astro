@@ -1,0 +1,92 @@
+---
+import { Clock, Mountain, Route } from 'lucide-react';
+
+interface Props {
+  duration?: string;
+  elevationGain?: string;
+  distance?: string;
+  difficulty?: string;
+  experience: string;
+  labels: {
+    statsAriaLabel: string;
+    duration: string;
+    elevationGain: string;
+    distance: string;
+    difficulty: string;
+    experience: string;
+  };
+}
+
+const {
+  duration,
+  elevationGain,
+  distance,
+  difficulty,
+  experience,
+  labels
+} = Astro.props;
+
+const stats = [
+  duration && { label: labels.duration, value: duration, icon: Clock },
+  elevationGain && {
+    label: labels.elevationGain,
+    value: elevationGain,
+    icon: Mountain
+  },
+  distance && { label: labels.distance, value: distance, icon: Route }
+].filter(Boolean);
+
+const hasStats = stats.length > 0 || Boolean(difficulty);
+---
+
+<div>
+  {
+    hasStats ? (
+      <div
+        class="flex flex-wrap items-center gap-x-5 gap-y-3 lg:min-h-6"
+        aria-label={labels.statsAriaLabel}
+      >
+        {stats.map((stat) => {
+          if (!stat) return null;
+          const Icon = stat.icon;
+
+          return (
+            <span
+              class="inline-flex items-center gap-2 whitespace-nowrap"
+              aria-label={`${stat.label}: ${stat.value}`}
+            >
+              <Icon
+                className="h-4 w-4 shrink-0 text-primary"
+                strokeWidth={1.5}
+                aria-hidden="true"
+              />
+              <span class="am-text-caption normal-case tracking-normal text-on-surface">
+                {stat.value}
+              </span>
+            </span>
+          );
+        })}
+
+        {difficulty && (
+          <span
+            class="rounded-pill border border-outline-variant/30 bg-surface-container-lowest px-3 py-1 am-text-caption normal-case tracking-normal text-primary"
+            aria-label={`${labels.difficulty}: ${difficulty}`}
+          >
+            {difficulty}
+          </span>
+        )}
+      </div>
+    ) : (
+      <div class="hidden lg:block lg:min-h-6" aria-hidden="true" />
+    )
+  }
+
+  <p
+    class:list={[
+      'border-l border-primary/20 bg-surface-container-low px-4 py-3 am-text-body leading-relaxed text-on-surface-variant lg:min-h-28',
+      hasStats ? 'mt-5' : 'lg:mt-5'
+    ]}
+  >
+    <span class="font-bold text-primary">{labels.experience}:</span> {experience}
+  </p>
+</div>

@@ -130,12 +130,30 @@ legal_notice: {
        EXPLORE
     ========================================================= */
     explore_hub: { en: '/en/explore-frigiliana-nerja', de: '/de/explore-frigiliana-nerja', es: '/es/explore-frigiliana-nerja', nl: '/nl/explore-frigiliana-nerja', sv: '/sv/explore-frigiliana-nerja' },
-    explore_beaches: { en: '/en/beaches-nerja-frigiliana', de: '/de/beaches-nerja-frigiliana', es: '/es/beaches-nerja-frigiliana', nl: '/nl/beaches-nerja-frigiliana', sv: '/sv/beaches-nerja-frigiliana' },
+    explore_beaches: {
+      en: buildOwnedLocalizedPath('frigiliana-beaches', 'en'),
+      de: buildOwnedLocalizedPath('frigiliana-beaches', 'de'),
+      es: buildOwnedLocalizedPath('frigiliana-beaches', 'es'),
+      nl: buildOwnedLocalizedPath('frigiliana-beaches', 'nl'),
+      sv: buildOwnedLocalizedPath('frigiliana-beaches', 'sv')
+    },
     explore_culture: { en: '/en/culture-frigiliana-nerja', de: '/de/culture-frigiliana-nerja', es: '/es/culture-frigiliana-nerja', nl: '/nl/culture-frigiliana-nerja', sv: '/sv/culture-frigiliana-nerja' },
     explore_daytrips: { en: '/en/day-trips-andalusia', de: '/de/day-trips-andalusia', es: '/es/day-trips-andalusia', nl: '/nl/day-trips-andalusia', sv: '/sv/day-trips-andalusia' },
-    explore_food: { en: '/en/restaurants-frigiliana-nerja', de: '/de/restaurants-frigiliana-nerja', es: '/es/restaurants-frigiliana-nerja', nl: '/nl/restaurants-frigiliana-nerja', sv: '/sv/restaurants-frigiliana-nerja' },
+    explore_food: {
+      en: buildOwnedLocalizedPath('frigiliana-restaurants', 'en'),
+      de: buildOwnedLocalizedPath('frigiliana-restaurants', 'de'),
+      es: buildOwnedLocalizedPath('frigiliana-restaurants', 'es'),
+      nl: buildOwnedLocalizedPath('frigiliana-restaurants', 'nl'),
+      sv: buildOwnedLocalizedPath('frigiliana-restaurants', 'sv')
+    },
     explore_hiking: { en: '/en/hiking-frigiliana-nerja', de: '/de/hiking-frigiliana-nerja', es: '/es/hiking-frigiliana-nerja', nl: '/nl/hiking-frigiliana-nerja', sv: '/sv/hiking-frigiliana-nerja' },
-    explore_water: { en: '/en/beaches-nerja-frigiliana', de: '/de/beaches-nerja-frigiliana', es: '/es/beaches-nerja-frigiliana', nl: '/nl/beaches-nerja-frigiliana', sv: '/sv/beaches-nerja-frigiliana' },
+    explore_water: {
+      en: buildOwnedLocalizedPath('frigiliana-beaches', 'en'),
+      de: buildOwnedLocalizedPath('frigiliana-beaches', 'de'),
+      es: buildOwnedLocalizedPath('frigiliana-beaches', 'es'),
+      nl: buildOwnedLocalizedPath('frigiliana-beaches', 'nl'),
+      sv: buildOwnedLocalizedPath('frigiliana-beaches', 'sv')
+    },
     explore_wellness: { en: '/en/wellness', de: '/de/wellness', es: '/es/wellness', nl: '/nl/wellness', sv: '/sv/wellness' },
 
     /* =========================================================
@@ -201,6 +219,13 @@ legal_notice: {
       es: buildOwnedLocalizedPath('frigiliana-market', 'es'),
       nl: buildOwnedLocalizedPath('frigiliana-market', 'nl'),
       sv: buildOwnedLocalizedPath('frigiliana-market', 'sv')
+    },
+    frigiliana_hiking_authority: {
+      en: buildOwnedLocalizedPath('frigiliana-hiking', 'en'),
+      de: buildOwnedLocalizedPath('frigiliana-hiking', 'de'),
+      es: buildOwnedLocalizedPath('frigiliana-hiking', 'es'),
+      nl: buildOwnedLocalizedPath('frigiliana-hiking', 'nl'),
+      sv: buildOwnedLocalizedPath('frigiliana-hiking', 'sv')
     },
     frigiliana_parking: {
       en: buildOwnedLocalizedPath('frigiliana-parking', 'en'),
@@ -351,7 +376,20 @@ legal_notice: {
     /* =========================================================
        FRIGILIANA — AUTHORITY (BRIDGED TO NERJA)
     ========================================================= */
-    frigiliana_beaches_authority: { en: '/en/beaches-nerja-frigiliana', de: '/de/beaches-nerja-frigiliana', es: '/es/beaches-nerja-frigiliana', nl: '/nl/beaches-nerja-frigiliana', sv: '/sv/beaches-nerja-frigiliana' },
+    frigiliana_beaches_authority: {
+      en: buildOwnedLocalizedPath('frigiliana-beaches', 'en'),
+      de: buildOwnedLocalizedPath('frigiliana-beaches', 'de'),
+      es: buildOwnedLocalizedPath('frigiliana-beaches', 'es'),
+      nl: buildOwnedLocalizedPath('frigiliana-beaches', 'nl'),
+      sv: buildOwnedLocalizedPath('frigiliana-beaches', 'sv')
+    },
+    frigiliana_food_authority: {
+      en: buildOwnedLocalizedPath('frigiliana-restaurants', 'en'),
+      de: buildOwnedLocalizedPath('frigiliana-restaurants', 'de'),
+      es: buildOwnedLocalizedPath('frigiliana-restaurants', 'es'),
+      nl: buildOwnedLocalizedPath('frigiliana-restaurants', 'nl'),
+      sv: buildOwnedLocalizedPath('frigiliana-restaurants', 'sv')
+    },
 
     /* =========================================================
        LOCATION SPOKES (LEGACY)

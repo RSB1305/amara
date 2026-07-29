@@ -548,6 +548,14 @@ export const frigilianaLocationCopy = {
           sv: "Planera vanlig tid, stånd, parkering och promenad i gamla stan."
         }
       },
+      hiking: {
+        label: {
+          de: "Wandern & Natur rund um Frigiliana"
+        },
+        text: {
+          de: "Panorama-Touren, sanfte Wege, Flusswanderungen und Gipfel in der Sierra Almijara."
+        }
+      },
       weather: {
         label: { en: "Weather by month", de: "Wetter nach Monat", es: "Clima por mes", nl: "Weer per maand", sv: "Väder per månad" },
         text: {

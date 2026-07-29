@@ -1,0 +1,340 @@
+---
+import Hero from '../../components/Hero.astro';
+import Navigation from '../../components/Navigation.astro';
+import EditorialClosingCta from '../../components/editorial/EditorialClosingCta.astro';
+import EditorialFeatureGrid from '../../components/editorial/EditorialFeatureGrid.astro';
+import SectionAnchorNav from '../../components/navigation/SectionAnchorNav.astro';
+import {
+  frigilianaRestaurantsContent,
+  frigilianaRestaurantsSeo
+} from '../../content/frigilianaRestaurantsContent';
+import LocationAuthorityLayout from '../../layouts/LocationAuthorityLayout.astro';
+import { resolveOptionalLink } from '../../lib/linkResolver';
+import { normalizeLanguage } from '../../lib/seo/resolve-seo-head';
+import type { AmaraLanguage } from '../../types/seo';
+
+interface Props {
+  lang?: string;
+}
+
+const { lang = 'es' } = Astro.props;
+const currentLang = normalizeLanguage(lang as AmaraLanguage);
+const copy = frigilianaRestaurantsContent[currentLang];
+
+const sectionNavItems = [
+  { id: 'choose', href: '#choose', label: copy.sectionNav.choose },
+  {
+    id: 'frigiliana',
+    href: '#frigiliana',
+    label: copy.sectionNav.frigiliana
+  },
+  {
+    id: 'special-nerja',
+    href: '#special-nerja',
+    label: copy.sectionNav.specialNerja
+  },
+  {
+    id: 'tapas-seafood',
+    href: '#tapas-seafood',
+    label: copy.sectionNav.tapasSeafood
+  },
+  {
+    id: 'acebuchal',
+    href: '#acebuchal',
+    label: copy.sectionNav.acebuchal
+  },
+  {
+    id: 'planning',
+    href: '#planning',
+    label: copy.sectionNav.planning
+  }
+];
+
+const footerHighlights = [
+  {
+    token: 'frigiliana_food_authority',
+    label: copy.footerHighlights.restaurants
+  },
+  {
+    token: 'frigiliana_beaches_authority',
+    label: copy.footerHighlights.beaches
+  },
+  {
+    token: 'frigiliana_hiking_authority',
+    label: copy.footerHighlights.hiking
+  }
+];
+
+const combineItems = copy.combine.items.map((item) => ({
+  ...item,
+  href: resolveOptionalLink(item.linkToken, currentLang, {
+    suppressMissing: true
+  })
+}));
+
+const heroImage = {
+  src: '/images/hero-frigiliana.jpg',
+  width: 1080,
+  height: 721
+};
+---
+
+<LocationAuthorityLayout
+  seo={frigilianaRestaurantsSeo}
+  pageLang={currentLang}
+  footerHighlights={footerHighlights}
+>
+  <Navigation
+    currentLang={currentLang}
+    brandName="Frigiliana"
+    languageToken="frigiliana_food_authority"
+    locationAuthorityNav={true}
+  />
+  <SectionAnchorNav items={sectionNavItems} />
+
+  <div class="am-root" data-am-page="frigiliana-restaurants">
+    <div class="am-wrap w-full">
+      <Hero
+        imageSrc={heroImage.src}
+        imageAlt={copy.hero.imageAlt}
+        imageWidth={heroImage.width}
+        imageHeight={heroImage.height}
+      >
+        <span class="am-text-caption text-primary mb-8 block">
+          {copy.hero.kicker}
+        </span>
+        <h1 class="am-text-display italic text-on-surface mb-10 tracking-tighter">
+          {copy.hero.title}
+        </h1>
+        <div class="pl-10 border-l border-primary/20 max-w-xl space-y-6">
+          {
+            copy.hero.paragraphs.map((paragraph) => (
+              <p class="am-text-body text-on-surface-variant leading-relaxed">
+                {paragraph}
+              </p>
+            ))
+          }
+        </div>
+      </Hero>
+
+      <section
+        id="choose"
+        class="am-section am-section--tint !px-6 md:!px-12"
+      >
+        <div class="max-w-3xl mb-16">
+          <h2 class="am-text-title italic text-on-surface tracking-tight mb-6">
+            {copy.overview.title}
+          </h2>
+          <p class="am-text-body text-on-surface-variant leading-relaxed">
+            {copy.overview.intro}
+          </p>
+          <p class="mt-6 am-text-caption normal-case tracking-normal text-on-surface-variant">
+            {copy.overview.reviewed}
+          </p>
+        </div>
+        <EditorialFeatureGrid
+          cards={copy.overview.items.map((item) => ({
+            title: item.title,
+            copy: item.text
+          }))}
+        />
+      </section>
+
+      {
+        copy.restaurantSections.map((section, sectionIndex) => (
+          <section
+            id={section.id}
+            class:list={[
+              'am-section !px-6 md:!px-12',
+              sectionIndex % 2 === 0
+                ? 'am-section--plain'
+                : 'am-section--tint'
+            ]}
+          >
+            <div class="max-w-3xl mb-16">
+              <h2 class="am-text-title italic text-on-surface tracking-tight mb-6">
+                {section.title}
+              </h2>
+              <p class="am-text-body text-on-surface-variant leading-relaxed">
+                {section.intro}
+              </p>
+            </div>
+
+            <div
+              class:list={[
+                section.restaurants.length === 1
+                  ? 'max-w-3xl'
+                  : 'grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-x-10 gap-y-14'
+              ]}
+            >
+              {section.restaurants.map((restaurant, restaurantIndex) => {
+                const titleId = `${section.id}-restaurant-${restaurantIndex}`;
+
+                return (
+                  <article
+                    class="border-t border-outline-variant/25 pt-8 flex h-full flex-col"
+                    aria-labelledby={titleId}
+                  >
+                    <h3
+                      id={titleId}
+                      class="am-text-subtitle text-on-surface mb-5 lg:min-h-[2.8em]"
+                    >
+                      {restaurant.title}
+                    </h3>
+
+                    <div class="mb-6 flex flex-wrap items-start lg:min-h-[4.25rem]">
+                      <span class="rounded-pill border border-outline-variant/30 bg-surface-container-lowest px-3 py-1 am-text-caption normal-case tracking-normal text-primary">
+                        <span class="font-bold">
+                          {copy.cardLabels.bestFor}:
+                        </span>{' '}
+                        {restaurant.bestFor}
+                      </span>
+                    </div>
+
+                    <p
+                      class:list={[
+                        'am-text-body text-on-surface-variant leading-relaxed',
+                        section.restaurants.length > 1 &&
+                          'lg:min-h-[8.5rem]'
+                      ]}
+                    >
+                      {restaurant.description}
+                    </p>
+
+                    <div class="mt-6">
+                      <p
+                        class:list={[
+                          'border-l border-primary/20 bg-surface-container-low px-4 py-3 am-text-body leading-relaxed text-on-surface-variant',
+                          section.restaurants.length > 1 &&
+                            'lg:min-h-[12rem]'
+                        ]}
+                      >
+                        <span class="font-bold text-primary">
+                          {copy.cardLabels.tip}:
+                        </span>{' '}
+                        {restaurant.tip}
+                      </p>
+
+                      <p
+                        class:list={[
+                          'mt-5 am-text-body leading-relaxed text-on-surface-variant',
+                          section.restaurants.length > 1 &&
+                            'lg:min-h-[9.5rem]'
+                        ]}
+                      >
+                        <span class="font-bold text-on-surface">
+                          {copy.cardLabels.goodToKnow}:
+                        </span>{' '}
+                        {restaurant.goodToKnow}
+                      </p>
+                    </div>
+
+                    <p class="mt-5 lg:mt-auto flex flex-wrap gap-x-5 gap-y-2 am-text-body">
+                      <a
+                        href={restaurant.mapHref}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="am-inline-link"
+                      >
+                        {copy.cardLabels.map}
+                        <span aria-hidden="true"> ↗</span>
+                      </a>
+                      <a
+                        href={restaurant.websiteHref}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="am-inline-link"
+                      >
+                        {copy.cardLabels.website}
+                        <span aria-hidden="true"> ↗</span>
+                      </a>
+                    </p>
+                  </article>
+                );
+              })}
+            </div>
+          </section>
+        ))
+      }
+
+      <section
+        id="planning"
+        class="am-section am-section--tint !px-6 md:!px-12"
+      >
+        <div class="max-w-3xl mb-16">
+          <h2 class="am-text-title italic text-on-surface tracking-tight mb-6">
+            {copy.planning.title}
+          </h2>
+          <p class="am-text-body text-on-surface-variant leading-relaxed">
+            {copy.planning.intro}
+          </p>
+        </div>
+
+        <EditorialFeatureGrid
+          cards={copy.planning.items.map((item) => ({
+            title: item.title,
+            copy: item.text
+          }))}
+        />
+
+        <p class="mt-12 border-l border-primary/20 bg-surface-container-low px-4 py-3 am-text-body leading-relaxed text-on-surface-variant max-w-3xl">
+          {copy.planning.note}
+        </p>
+      </section>
+
+      <section class="am-section am-section--plain !px-6 md:!px-12">
+        <div class="max-w-3xl mb-16">
+          <h2 class="am-text-title italic text-on-surface tracking-tight mb-6">
+            {copy.combine.title}
+          </h2>
+          <p class="am-text-body text-on-surface-variant leading-relaxed">
+            {copy.combine.intro}
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-x-16 gap-y-14">
+          {
+            combineItems.map((item) => (
+              <article class="border-t border-outline-variant/25 pt-8">
+                <h3 class="am-text-subtitle text-on-surface mb-5">
+                  {item.title}
+                </h3>
+                <p class="am-text-body text-on-surface-variant leading-relaxed">
+                  {item.text}
+                </p>
+                {item.href && (
+                  <p class="mt-5 am-text-body">
+                    <a href={item.href} class="am-inline-link">
+                      {item.linkLabel}
+                      <span aria-hidden="true"> →</span>
+                    </a>
+                  </p>
+                )}
+              </article>
+            ))
+          }
+        </div>
+      </section>
+
+      <section class="max-w-screen-2xl mx-auto px-6 pt-24 md:px-12">
+        <EditorialClosingCta
+          title={copy.closing.title}
+          lead={copy.closing.lead}
+          lang={currentLang}
+          links={[
+            {
+              token: 'book',
+              label: copy.closing.availabilityCta,
+              style: 'primary'
+            },
+            {
+              token: 'romantic_hideaways',
+              label: copy.closing.apartmentsCta,
+              style: 'secondary'
+            }
+          ]}
+        />
+      </section>
+    </div>
+  </div>
+</LocationAuthorityLayout>

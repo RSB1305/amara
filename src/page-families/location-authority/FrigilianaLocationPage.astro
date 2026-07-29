@@ -11,12 +11,14 @@ import FaqAccordion from '../../components/FaqAccordion.astro';
 import EditorialGuideLinkSection from '../../components/editorial/EditorialGuideLinkSection.astro';
 import LocationEditorialComparison from '../../components/location/LocationEditorialComparison.astro';
 import SectionAnchorNav from '../../components/navigation/SectionAnchorNav.astro';
+import OrderedFrigilianaLocationSections from './OrderedFrigilianaLocationSections.astro';
 import {
   frigilianaLocationCopy,
   frigilianaLocationSeo
 } from '../../content/frigilianaLocationContent';
 import { resolveOptionalLink } from '../../lib/linkResolver';
 import { getFrigilianaAuthoritySubnav } from '../../lib/frigiliana/frigilianaAuthoritySubnav';
+import { getFrigilianaLocationSectionOrder } from '../../lib/frigiliana/frigilianaLocationSectionOrder';
 import { buildOwnedLocalizedPath, isPublicLinkEnabled } from '../../lib/routeOwnership';
 import { getWeatherWithFallback } from '../../lib/weather/weatherService';
 import { normalizeLanguage } from '../../lib/seo/resolve-seo-head';
@@ -38,6 +40,8 @@ const marketHref = buildOwnedLocalizedPath('frigiliana-market', currentLang);
 const parkingHref = buildOwnedLocalizedPath('frigiliana-parking', currentLang);
 const streetsStairsHref = buildOwnedLocalizedPath('frigiliana-streets-stairs', currentLang);
 const weatherHref = buildOwnedLocalizedPath('frigiliana-weather', currentLang);
+const hikingHref =
+  currentLang === 'de' ? optionalLink('frigiliana_hiking_authority') : null;
 const romanticHideawaysHref = optionalLink('romantic_hideaways') ?? '#where-to-stay';
 const reviewsHref = optionalLink('reviews_hub');
 const amenitiesHref = optionalLink('amenities');
@@ -139,6 +143,15 @@ const c = {
         label: copy.planning.links.market.label[currentLang],
         text: copy.planning.links.market.text[currentLang]
       },
+      ...(hikingHref
+        ? [
+            {
+              href: hikingHref,
+              label: copy.planning.links.hiking.label.de,
+              text: copy.planning.links.hiking.text.de
+            }
+          ]
+        : []),
       {
         href: weatherHref,
         label: copy.planning.links.weather.label[currentLang],
@@ -248,6 +261,7 @@ const heroImage = {
 };
 
 const sectionNavItems = getFrigilianaAuthoritySubnav(currentLang);
+const sectionOrder = getFrigilianaLocationSectionOrder(currentLang);
 ---
 
 <LocationAuthorityLayout seo={seo} pageLang={currentLang} footerHighlights={footerHighlights}>
@@ -261,120 +275,148 @@ const sectionNavItems = getFrigilianaAuthoritySubnav(currentLang);
   <SectionAnchorNav items={sectionNavItems} activeId="intro" />
   <div class="am-root" data-am-page="frigiliana-location">
     <div class="am-wrap w-full">
-  <div id="intro">
-  <Hero imageSrc={heroImage.src} imageAlt={heroImage.alt} imageWidth={heroImage.width} imageHeight={heroImage.height} imageSizes={heroImage.sizes}>
-    <span class="am-text-caption text-primary mb-8 block">{c.hero.eyebrow}</span>
-    <h1 class="am-text-display italic text-on-surface mb-10 tracking-tighter" set:html={c.hero.h1} />
-    <div class="pl-10 border-l border-primary/20 max-w-lg mb-14">
-      <p class="am-text-body text-on-surface-variant leading-relaxed">{c.hero.body}</p>
-      <p class="am-text-body text-on-surface-variant leading-relaxed mt-6">
-        {c.hero.introLeadBefore}
-        <a href={parkingHref} class="am-inline-link">{c.hero.introLeadLinkLabel}</a>
-        {c.hero.introLeadAfter}
-      </p>
-    </div>
-    <div class="flex flex-wrap gap-8">
-      <a href={romanticHideawaysHref} class="am-btn am-btn--primary">{c.hero.ctaMain}</a>
-      <a href={arrivalGuideHref} class="am-btn am-btn--secondary">{c.hero.ctaAlt}</a>
-    </div>
-  </Hero>
-  </div>
-  <section id="photo" class="am-section am-section--plain w-full max-w-none !mx-0 !border-t-0 !px-0 !py-0">
-    <PhotoShow eyebrow={c.gallery.eyebrow} title={c.gallery.title} images={c.gallery.images} />
-  </section>
-  <section id="key-facts" class="am-section am-section--tint w-full max-w-none !mx-0 !border-t-0 !px-0 !py-0">
-    <EssenceGrid eyebrow={c.essence.eyebrow} title={c.essence.title} intro={c.essence.intro} items={c.essence.items} />
-  </section>
-  <section id="weather-climate" class="am-section am-section--plain">
-    <ClimateExperienceSection
-      eyebrowCurrent={c.climate.eyebrowCurrent}
-      heroTemperature={liveClimate.heroTemp}
-      heroTagline={c.climate.heroTagline}
-      headline={c.climate.headline}
-      body={c.climate.body}
-      metricHumidity={liveClimate.metricHumidity}
-      metricWind={liveClimate.metricWind}
-      metricUv={liveClimate.metricUv}
-      metricSunset={liveClimate.metricSunset}
-      factSunDays={c.climate.factSunDays}
-      factCoolerVsCoast={c.climate.factCoolerVsCoast}
-      ctaLabel={c.climate.cta}
-      ctaHref={weatherHref}
-    />
-  </section>
-  <section id="comparison" class="am-section am-section--tint w-full max-w-none !mx-0 !border-t-0 !px-0 !py-0">
-    <LocationEditorialComparison
-      eyebrow={c.comparison.eyebrow}
-      title={c.comparison.title}
-      intro={c.comparison.intro}
-      items={c.comparison.items}
-      imagePrimary={c.comparison.imagePrimary}
-      imageSecondary={c.comparison.imageSecondary}
-    />
-    {
-      currentLang === 'de' && (
-        <div class="max-w-screen-2xl mx-auto px-12 pb-32 -mt-24">
-          <a href={comparisonHref} class="am-cta-link">
-            {c.comparison.cta}
-          </a>
-        </div>
-      )
-    }
-  </section>
-  <div id="experiences">
-  <VillageStructureInsight
-    eyebrow={c.villageStructure.eyebrow}
-    headline={c.villageStructure.headline}
-    supporting={c.villageStructure.supporting}
-    signal={c.villageStructure.signal}
-    ctaLabel={c.villageStructure.cta}
-    ctaHref={streetsStairsHref}
-    imageSrc={c.villageStructure.imageSrc}
-    imageAlt={c.villageStructure.imageAlt}
-  />
-  </div>
-  <section id="where-to-stay" class="am-section am-section--plain w-full max-w-none !mx-0 !border-t-0 !px-0 !py-0">
-    <StayDecision eyebrow={c.decision.eyebrow} title={c.decision.title} profiles={c.decision.profiles} />
-    <div class="max-w-screen-2xl mx-auto px-12 pb-32 -mt-16">
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start border-t border-outline-variant/15 pt-10">
-        <div class="lg:col-span-4">
-          <span class="am-text-caption uppercase tracking-[0.3em] text-primary block mb-4">
-            {c.decision.detail.eyebrow}
-          </span>
-          <h3 class="am-text-subtitle text-on-surface">
-            {c.decision.detail.title}
-          </h3>
-        </div>
-        <div class="lg:col-span-7 lg:col-start-6">
-          <p class="am-text-body text-on-surface-variant leading-relaxed mb-7">
-            {c.decision.detail.text}
-          </p>
-          <a href={streetsStairsHref} class="am-cta-link">
-            {c.decision.detail.cta}
-          </a>
-        </div>
-      </div>
-    </div>
-  </section>
-  <EditorialGuideLinkSection
-    id="stay-planning"
-    eyebrow={c.planning.eyebrow}
-    title={c.planning.title}
-    intro={c.planning.intro}
-    links={c.planning.links}
-  />
-  <section class="am-section am-section--tint w-full max-w-none !mx-0 !border-t-0 !px-0 !py-0">
-    <FaqAccordion
-      arrivalTitle={c.faq.arrivalTitle}
-      steps={c.faq.steps}
-      faqTitle={c.faq.faqTitle}
-      items={c.faq.items}
-      anchorArrivalId="arrival"
-      anchorFaqId="faq"
-      arrivalDetailCta={c.faq.arrivalDetailCta}
-      allFaqsCta={c.faq.allFaqsCta}
-    />
-  </section>
+      <OrderedFrigilianaLocationSections order={sectionOrder}>
+        <Fragment slot="hero">
+          <div id="intro">
+            <Hero imageSrc={heroImage.src} imageAlt={heroImage.alt} imageWidth={heroImage.width} imageHeight={heroImage.height} imageSizes={heroImage.sizes}>
+              <span class="am-text-caption text-primary mb-8 block">{c.hero.eyebrow}</span>
+              <h1 class="am-text-display italic text-on-surface mb-10 tracking-tighter" set:html={c.hero.h1} />
+              <div class="pl-10 border-l border-primary/20 max-w-lg mb-14">
+                <p class="am-text-body text-on-surface-variant leading-relaxed">{c.hero.body}</p>
+                <p class="am-text-body text-on-surface-variant leading-relaxed mt-6">
+                  {c.hero.introLeadBefore}
+                  <a href={parkingHref} class="am-inline-link">{c.hero.introLeadLinkLabel}</a>
+                  {c.hero.introLeadAfter}
+                </p>
+              </div>
+              <div class="flex flex-wrap gap-8">
+                <a href={romanticHideawaysHref} class="am-btn am-btn--primary">{c.hero.ctaMain}</a>
+                <a href={arrivalGuideHref} class="am-btn am-btn--secondary">{c.hero.ctaAlt}</a>
+              </div>
+            </Hero>
+          </div>
+        </Fragment>
+
+        <Fragment slot="gallery">
+          <section id="photo" class="am-section am-section--plain w-full max-w-none !mx-0 !border-t-0 !px-0 !py-0">
+            <PhotoShow eyebrow={c.gallery.eyebrow} title={c.gallery.title} images={c.gallery.images} />
+          </section>
+        </Fragment>
+
+        <Fragment slot="essence">
+          <section id="key-facts" class="am-section am-section--tint w-full max-w-none !mx-0 !border-t-0 !px-0 !py-0">
+            <EssenceGrid eyebrow={c.essence.eyebrow} title={c.essence.title} intro={c.essence.intro} items={c.essence.items} />
+          </section>
+        </Fragment>
+
+        <Fragment slot="climate">
+          <section id="weather-climate" class="am-section am-section--plain">
+            <ClimateExperienceSection
+              eyebrowCurrent={c.climate.eyebrowCurrent}
+              heroTemperature={liveClimate.heroTemp}
+              heroTagline={c.climate.heroTagline}
+              headline={c.climate.headline}
+              body={c.climate.body}
+              metricHumidity={liveClimate.metricHumidity}
+              metricWind={liveClimate.metricWind}
+              metricUv={liveClimate.metricUv}
+              metricSunset={liveClimate.metricSunset}
+              factSunDays={c.climate.factSunDays}
+              factCoolerVsCoast={c.climate.factCoolerVsCoast}
+              ctaLabel={c.climate.cta}
+              ctaHref={weatherHref}
+            />
+          </section>
+        </Fragment>
+
+        <Fragment slot="comparison">
+          <section id="comparison" class="am-section am-section--tint w-full max-w-none !mx-0 !border-t-0 !px-0 !py-0">
+            <LocationEditorialComparison
+              eyebrow={c.comparison.eyebrow}
+              title={c.comparison.title}
+              intro={c.comparison.intro}
+              items={c.comparison.items}
+              imagePrimary={c.comparison.imagePrimary}
+              imageSecondary={c.comparison.imageSecondary}
+            />
+            {
+              currentLang === 'de' && (
+                <div class="max-w-screen-2xl mx-auto px-12 pb-32 -mt-24">
+                  <a href={comparisonHref} class="am-cta-link">
+                    {c.comparison.cta}
+                  </a>
+                </div>
+              )
+            }
+          </section>
+        </Fragment>
+
+        <Fragment slot="villageStructure">
+          <div id="experiences">
+            <VillageStructureInsight
+              eyebrow={c.villageStructure.eyebrow}
+              headline={c.villageStructure.headline}
+              supporting={c.villageStructure.supporting}
+              signal={c.villageStructure.signal}
+              ctaLabel={c.villageStructure.cta}
+              ctaHref={streetsStairsHref}
+              imageSrc={c.villageStructure.imageSrc}
+              imageAlt={c.villageStructure.imageAlt}
+            />
+          </div>
+        </Fragment>
+
+        <Fragment slot="whereToStay">
+          <section id="where-to-stay" class="am-section am-section--plain w-full max-w-none !mx-0 !border-t-0 !px-0 !py-0">
+            <StayDecision eyebrow={c.decision.eyebrow} title={c.decision.title} profiles={c.decision.profiles} />
+            <div class="max-w-screen-2xl mx-auto px-12 pb-32 -mt-16">
+              <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start border-t border-outline-variant/15 pt-10">
+                <div class="lg:col-span-4">
+                  <span class="am-text-caption uppercase tracking-[0.3em] text-primary block mb-4">
+                    {c.decision.detail.eyebrow}
+                  </span>
+                  <h3 class="am-text-subtitle text-on-surface">
+                    {c.decision.detail.title}
+                  </h3>
+                </div>
+                <div class="lg:col-span-7 lg:col-start-6">
+                  <p class="am-text-body text-on-surface-variant leading-relaxed mb-7">
+                    {c.decision.detail.text}
+                  </p>
+                  <a href={streetsStairsHref} class="am-cta-link">
+                    {c.decision.detail.cta}
+                  </a>
+                </div>
+              </div>
+            </div>
+          </section>
+        </Fragment>
+
+        <Fragment slot="planning">
+          <EditorialGuideLinkSection
+            id="stay-planning"
+            eyebrow={c.planning.eyebrow}
+            title={c.planning.title}
+            intro={c.planning.intro}
+            links={c.planning.links}
+          />
+        </Fragment>
+
+        <Fragment slot="arrivalFaq">
+          <section class="am-section am-section--tint w-full max-w-none !mx-0 !border-t-0 !px-0 !py-0">
+            <FaqAccordion
+              arrivalTitle={c.faq.arrivalTitle}
+              steps={c.faq.steps}
+              faqTitle={c.faq.faqTitle}
+              items={c.faq.items}
+              anchorArrivalId="arrival"
+              anchorFaqId="faq"
+              arrivalDetailCta={c.faq.arrivalDetailCta}
+              allFaqsCta={c.faq.allFaqsCta}
+            />
+          </section>
+        </Fragment>
+      </OrderedFrigilianaLocationSections>
     </div>
   </div>
 </LocationAuthorityLayout>

@@ -24,6 +24,8 @@
 /es/nerja-location /nerja-location 301
 /es/tarifa-location /tarifa-location 301
 /es/frigiliana-market /frigiliana-market 301
+/es/frigiliana-beaches /frigiliana-beaches 301
+/es/frigiliana-hiking /frigiliana-hiking 301
 /es/frigiliana-parking /frigiliana-parking 301
 /es/frigiliana-streets-stairs /frigiliana-streets-stairs 301
 /es/frigiliana-weather /frigiliana-weather 301
@@ -158,22 +160,36 @@
 /nl/de-winter-in-frigiliana /nl/frigiliana-weather 301
 /sv/vinter-i-frigiliana /sv/frigiliana-weather 301
 
-# Frigiliana guide topics without current standalone pages
-/en/beaches-nerja-frigiliana /en/frigiliana-location 301
-/de/strande1 /de/frigiliana-location 301
-/es/playas1 /frigiliana-location 301
-/nl/stranden1 /nl/frigiliana-location 301
-/sv/strander1 /sv/frigiliana-location 301
-/en/restaurants-frigiliana-nerja /en/frigiliana-location 301
-/de/frigiliana-restaurants /de/frigiliana-location 301
-/es/comida-de-frigiliana /frigiliana-location 301
-/nl/frigiliana-food /nl/frigiliana-location 301
-/sv/frigiliana-mat /sv/frigiliana-location 301
-/en/hiking-frigiliana-nerja /en/frigiliana-location 301
-/de/wandern-in-frigiliana /de/frigiliana-location 301
-/es/senderismo-en-frigiliana /frigiliana-location 301
-/nl/wandelen-in-frigiliana /nl/frigiliana-location 301
-/sv/vandring-i-frigiliana /sv/frigiliana-location 301
+# Frigiliana beaches legacy slugs
+/beaches-nerja-frigiliana /frigiliana-beaches 301
+/en/beaches-nerja-frigiliana /en/frigiliana-beaches 301
+/de/beaches-nerja-frigiliana /de/frigiliana-beaches 301
+/es/beaches-nerja-frigiliana /frigiliana-beaches 301
+/nl/beaches-nerja-frigiliana /nl/frigiliana-beaches 301
+/sv/beaches-nerja-frigiliana /sv/frigiliana-beaches 301
+/playas1 /frigiliana-beaches 301
+/de/strande1 /de/frigiliana-beaches 301
+/es/playas1 /frigiliana-beaches 301
+/nl/stranden1 /nl/frigiliana-beaches 301
+/sv/strander1 /sv/frigiliana-beaches 301
+
+# Frigiliana restaurants legacy slugs
+/en/restaurants-frigiliana-nerja /en/frigiliana-restaurants 301
+/de/restaurants-frigiliana-nerja /de/frigiliana-restaurants 301
+/es/restaurants-frigiliana-nerja /frigiliana-restaurants 301
+/nl/restaurants-frigiliana-nerja /nl/frigiliana-restaurants 301
+/sv/restaurants-frigiliana-nerja /sv/frigiliana-restaurants 301
+/es/comida-de-frigiliana /frigiliana-restaurants 301
+/nl/frigiliana-food /nl/frigiliana-restaurants 301
+/sv/frigiliana-mat /sv/frigiliana-restaurants 301
+# Frigiliana hiking legacy slugs
+/en/hiking-frigiliana-nerja /en/frigiliana-hiking 301
+/de/wandern-in-frigiliana /de/frigiliana-hiking 301
+/de/wandern-frigiliana /de/frigiliana-hiking 301
+/senderismo-en-frigiliana /frigiliana-hiking 301
+/es/senderismo-en-frigiliana /frigiliana-hiking 301
+/nl/wandelen-in-frigiliana /nl/frigiliana-hiking 301
+/sv/vandring-i-frigiliana /sv/frigiliana-hiking 301
 /en/day-trips-from-frigiliana /en/frigiliana-location 301
 /de/day-trips-from-frigiliana /de/frigiliana-location 301
 /es/excursiones-desde-frigiliana /frigiliana-location 301

@@ -1,0 +1,195 @@
+---
+import Hero from '../../components/Hero.astro';
+import Navigation from '../../components/Navigation.astro';
+import EditorialClosingCta from '../../components/editorial/EditorialClosingCta.astro';
+import EditorialFeatureGrid from '../../components/editorial/EditorialFeatureGrid.astro';
+import SectionAnchorNav from '../../components/navigation/SectionAnchorNav.astro';
+import HikingRouteStatStrip from './HikingRouteStatStrip.astro';
+import {
+  frigilianaHikingContent,
+  frigilianaHikingSeo
+} from '../../content/frigilianaHikingContent';
+import LocationAuthorityLayout from '../../layouts/LocationAuthorityLayout.astro';
+import { normalizeLanguage } from '../../lib/seo/resolve-seo-head';
+import type { AmaraLanguage } from '../../types/seo';
+
+interface Props {
+  lang?: string;
+}
+
+const { lang = 'de' } = Astro.props;
+const currentLang = normalizeLanguage(lang as AmaraLanguage);
+const copy = frigilianaHikingContent[currentLang];
+
+if (!copy) {
+  throw new Error(
+    `[AMARA] Frigiliana hiking copy is not published for "${currentLang}".`
+  );
+}
+
+const sectionNavItems = [
+  { id: 'panorama', href: '#panorama', label: copy.sectionNav.panorama },
+  { id: 'gentle', href: '#gentle', label: copy.sectionNav.gentle },
+  { id: 'rivers', href: '#rivers', label: copy.sectionNav.rivers },
+  { id: 'summits', href: '#summits', label: copy.sectionNav.summits },
+  { id: 'practical', href: '#practical', label: copy.sectionNav.practical }
+];
+
+const footerHighlights = [
+  {
+    token: 'frigiliana_hiking_authority',
+    label: copy.footerHighlights.hiking
+  },
+  { token: 'location_frigiliana', label: copy.footerHighlights.guide },
+  { token: 'romantic_hideaways', label: copy.footerHighlights.stays }
+];
+
+const heroImage = {
+  src: '/images/hero-frigiliana.jpg',
+  width: 1080,
+  height: 720
+};
+---
+
+<LocationAuthorityLayout
+  seo={frigilianaHikingSeo}
+  pageLang={currentLang}
+  footerHighlights={footerHighlights}
+>
+  <Navigation
+    currentLang={currentLang}
+    brandName="Frigiliana"
+    languageToken="frigiliana_hiking_authority"
+    locationAuthorityNav={true}
+  />
+  <SectionAnchorNav items={sectionNavItems} />
+
+  <div class="am-root" data-am-page="frigiliana-hiking">
+    <div class="am-wrap w-full">
+      <Hero
+        imageSrc={heroImage.src}
+        imageAlt={copy.hero.imageAlt}
+        imageWidth={heroImage.width}
+        imageHeight={heroImage.height}
+      >
+        <span class="am-text-caption text-primary mb-8 block">
+          {copy.hero.kicker}
+        </span>
+        <h1 class="am-text-display italic text-on-surface mb-10 tracking-tighter">
+          {copy.hero.title}
+        </h1>
+        <div class="pl-10 border-l border-primary/20 max-w-xl space-y-6">
+          {
+            copy.hero.paragraphs.map((paragraph) => (
+              <p class="am-text-body text-on-surface-variant leading-relaxed">
+                {paragraph}
+              </p>
+            ))
+          }
+        </div>
+      </Hero>
+
+      {
+        copy.routeSections.map((section, index) => (
+          <section
+            id={section.id}
+            class:list={[
+              'am-section !px-6 md:!px-12',
+              index % 2 === 0 ? 'am-section--tint' : 'am-section--plain'
+            ]}
+          >
+            <div class="max-w-3xl mb-16">
+              <h2 class="am-text-title italic text-on-surface tracking-tight mb-6">
+                {section.title}
+              </h2>
+              {section.intro && (
+                <p class="am-text-body text-on-surface-variant leading-relaxed">
+                  {section.intro}
+                </p>
+              )}
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-x-16 gap-y-14">
+              {section.routes.map((route) => (
+                <article class="border-t border-outline-variant/25 pt-8">
+                  <h3 class="am-text-subtitle text-on-surface mb-5 lg:min-h-[2.3em]">
+                    {route.title}
+                  </h3>
+                  <HikingRouteStatStrip
+                    duration={route.duration}
+                    elevationGain={route.elevationGain}
+                    distance={route.distance}
+                    difficulty={route.difficulty}
+                    experience={route.experience}
+                    labels={copy.routeCardLabels}
+                  />
+                  <p class="mt-6 am-text-body text-on-surface-variant leading-relaxed">
+                    {route.text}
+                  </p>
+                  {route.statusLink && (
+                    <p class="am-text-body text-on-surface-variant leading-relaxed mt-6">
+                      {route.statusLink.before}<a
+                        href={route.statusLink.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="am-inline-link"
+                      >{route.statusLink.label}</a>{route.statusLink.after}
+                    </p>
+                  )}
+                </article>
+              ))}
+            </div>
+          </section>
+        ))
+      }
+
+      <section
+        id="practical"
+        class="am-section am-section--tint !px-6 md:!px-12"
+      >
+        <h2 class="am-text-title italic text-on-surface tracking-tight mb-16">
+          {copy.practical.title}
+        </h2>
+        <EditorialFeatureGrid cards={copy.practical.items.map((item) => ({
+          title: item.title,
+          copy: item.text
+        }))} />
+      </section>
+
+      <section class="am-section am-section--plain !px-6 md:!px-12">
+        <div class="max-w-3xl mb-16">
+          <h2 class="am-text-title italic text-on-surface tracking-tight mb-6">
+            {copy.combine.title}
+          </h2>
+          <p class="am-text-body text-on-surface-variant leading-relaxed">
+            {copy.combine.intro}
+          </p>
+        </div>
+        <EditorialFeatureGrid cards={copy.combine.items.map((item) => ({
+          title: item.title,
+          copy: item.text
+        }))} />
+      </section>
+
+      <section class="max-w-screen-2xl mx-auto px-6 pt-24 md:px-12">
+        <EditorialClosingCta
+          title={copy.closing.title}
+          lead={copy.closing.lead}
+          lang={currentLang}
+          links={[
+            {
+              token: 'book',
+              label: copy.closing.availabilityCta,
+              style: 'primary'
+            },
+            {
+              token: 'romantic_hideaways',
+              label: copy.closing.apartmentsCta,
+              style: 'secondary'
+            }
+          ]}
+        />
+      </section>
+    </div>
+  </div>
+</LocationAuthorityLayout>
