@@ -3,7 +3,7 @@ import AmaraImage from '../../components/AmaraImage.astro';
 import Hero from '../../components/Hero.astro';
 import Navigation from '../../components/Navigation.astro';
 import EditorialClosingCta from '../../components/editorial/EditorialClosingCta.astro';
-import SectionAnchorNav from '../../components/navigation/SectionAnchorNav.astro';
+import ExperienceContextNav from '../../components/experience/ExperienceContextNav.astro';
 import {
   experienceCatalog,
   experienceHubContent,
@@ -39,17 +39,6 @@ const [leadId, ...secondaryIds] = copy.editorial.featuredIds;
 const leadStory = getExperience(leadId);
 const secondaryStories = secondaryIds.map(getExperience);
 const allExperiences = copy.catalog.order.map(getExperience);
-
-const sectionNavItems = [
-  {
-    id: 'editorial',
-    href: '#editorial',
-    label: copy.sectionNav.editorial
-  },
-  { id: 'moods', href: '#moods', label: copy.sectionNav.moods },
-  { id: 'all', href: '#all', label: copy.sectionNav.all },
-  { id: 'places', href: '#places', label: copy.sectionNav.places }
-];
 
 const footerHighlights = [
   { token: 'explore_hub', label: copy.footerHighlights.hub },
@@ -92,7 +81,7 @@ const heroImage = {
     languageToken="explore_hub"
     locationAuthorityNav={true}
   />
-  <SectionAnchorNav items={sectionNavItems} />
+  <ExperienceContextNav lang={currentLang} />
 
   <div class="am-root" data-am-page="experience-hub">
     <div class="am-wrap w-full">

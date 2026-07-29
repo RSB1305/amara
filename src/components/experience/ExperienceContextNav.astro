@@ -2,9 +2,9 @@
 /**
  * ExperienceContextNav
  *
- * Crawlable family navigation for all AMARA experience detail pages. It keeps
- * the hub, the current guide and every sibling guide connected with plain
- * anchors while preserving the existing page-section navigation below it.
+ * Crawlable family navigation for the AMARA experience hub and every detail
+ * page. The optional currentId creates the hub state without a redundant back
+ * link; detail pages additionally identify the current guide.
  */
 import {
   experienceCatalog,
@@ -16,14 +16,14 @@ import { resolveOptionalLink } from '../../lib/linkResolver';
 import type { AmaraLanguage } from '../../types/seo';
 
 interface Props {
-  currentId: ExperienceId;
+  currentId?: ExperienceId;
   lang: AmaraLanguage;
 }
 
 const { currentId, lang } = Astro.props;
 const edition = experienceHubContent[lang];
 const navigation = experienceNavigationContent[lang];
-const currentLabel = navigation.labels[currentId];
+const currentLabel = currentId ? navigation.labels[currentId] : null;
 
 const homeHref = resolveOptionalLink('home', lang, { suppressMissing: true });
 const hubHref = resolveOptionalLink('explore_hub', lang, {
@@ -76,23 +76,31 @@ const siblingLinks = edition.catalog.order
             }
             <li aria-hidden="true" class="text-outline-variant/60">/</li>
             {
-              hubHref && (
-                <li>
-                  <a href={hubHref} class="transition-colors hover:text-primary">
-                    {navigation.breadcrumbLabel}
-                  </a>
+              currentId ? (
+                <>
+                  {hubHref && (
+                    <li>
+                      <a href={hubHref} class="transition-colors hover:text-primary">
+                        {navigation.breadcrumbLabel}
+                      </a>
+                    </li>
+                  )}
+                  <li aria-hidden="true" class="text-outline-variant/60">/</li>
+                  <li aria-current="page" class="text-on-surface">
+                    {currentLabel}
+                  </li>
+                </>
+              ) : (
+                <li aria-current="page" class="text-on-surface">
+                  {navigation.breadcrumbLabel}
                 </li>
               )
             }
-            <li aria-hidden="true" class="text-outline-variant/60">/</li>
-            <li aria-current="page" class="text-on-surface">
-              {currentLabel}
-            </li>
           </ol>
         </nav>
 
         {
-          hubHref && (
+          currentId && hubHref && (
             <a
               href={hubHref}
               class="inline-flex min-h-11 items-center gap-2 font-label text-[10px] font-semibold uppercase tracking-[0.14em] text-primary transition-colors hover:text-on-surface"
@@ -110,7 +118,7 @@ const siblingLinks = edition.catalog.order
             siblingLinks.map((item) => (
               <li class="shrink-0" data-am-experience-sibling>
                 {
-                  item.id === currentId ? (
+                  currentId && item.id === currentId ? (
                     <span
                       aria-current="page"
                       class="inline-flex min-h-11 items-center border-b border-primary px-3 font-label text-[11px] font-semibold uppercase tracking-[0.1em] text-on-surface"
