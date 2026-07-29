@@ -1,0 +1,349 @@
+---
+import Hero from '../../components/Hero.astro';
+import Navigation from '../../components/Navigation.astro';
+import EditorialClosingCta from '../../components/editorial/EditorialClosingCta.astro';
+import EditorialFeatureGrid from '../../components/editorial/EditorialFeatureGrid.astro';
+import ExperienceContextNav from '../../components/experience/ExperienceContextNav.astro';
+import ExperiencePreFooter from '../../components/experience/ExperiencePreFooter.astro';
+import SectionAnchorNav from '../../components/navigation/SectionAnchorNav.astro';
+import {
+  frigilianaWellnessContent,
+  frigilianaWellnessSeo
+} from '../../content/frigilianaWellnessContent';
+import LocationAuthorityLayout from '../../layouts/LocationAuthorityLayout.astro';
+import { resolveOptionalLink } from '../../lib/linkResolver';
+import { normalizeLanguage } from '../../lib/seo/resolve-seo-head';
+import type { AmaraLanguage } from '../../types/seo';
+
+interface Props {
+  lang?: string;
+}
+
+const { lang = 'es' } = Astro.props;
+const currentLang = normalizeLanguage(lang as AmaraLanguage);
+const copy = frigilianaWellnessContent[currentLang];
+
+const sectionNavItems = [
+  { id: 'choose', href: '#choose', label: copy.sectionNav.choose },
+  {
+    id: 'providers',
+    href: '#providers',
+    label: copy.sectionNav.providers
+  },
+  { id: 'compare', href: '#compare', label: copy.sectionNav.compare },
+  { id: 'planning', href: '#planning', label: copy.sectionNav.planning }
+];
+
+const footerHighlights = [
+  {
+    token: 'frigiliana_wellness_authority',
+    label: copy.footerHighlights.wellness
+  },
+  {
+    token: 'frigiliana_food_authority',
+    label: copy.footerHighlights.restaurants
+  },
+  {
+    token: 'frigiliana_hiking_authority',
+    label: copy.footerHighlights.hiking
+  }
+];
+
+const combineItems = copy.combine.items.map((item) => ({
+  ...item,
+  href: resolveOptionalLink(item.linkToken, currentLang, {
+    suppressMissing: true
+  })
+}));
+
+const heroImage = {
+  src: '/images/hero-frigiliana.jpg',
+  width: 1080,
+  height: 721
+};
+---
+
+<LocationAuthorityLayout
+  seo={frigilianaWellnessSeo}
+  pageLang={currentLang}
+  footerHighlights={footerHighlights}
+>
+  <Navigation
+    currentLang={currentLang}
+    brandName="Frigiliana"
+    languageToken="frigiliana_wellness_authority"
+    locationAuthorityNav={true}
+  />
+  <SectionAnchorNav items={sectionNavItems} />
+  <ExperienceContextNav currentId="wellness" lang={currentLang} />
+
+  <div class="am-root" data-am-page="frigiliana-wellness">
+    <div class="am-wrap w-full">
+      <Hero
+        imageSrc={heroImage.src}
+        imageAlt={copy.hero.imageAlt}
+        imageWidth={heroImage.width}
+        imageHeight={heroImage.height}
+      >
+        <span class="am-text-caption text-primary mb-8 block">
+          {copy.hero.kicker}
+        </span>
+        <h1 class="am-text-display italic text-on-surface mb-10 tracking-tighter">
+          {copy.hero.title}
+        </h1>
+        <div class="pl-10 border-l border-primary/20 max-w-xl space-y-6">
+          {
+            copy.hero.paragraphs.map((paragraph) => (
+              <p class="am-text-body text-on-surface-variant leading-relaxed">
+                {paragraph}
+              </p>
+            ))
+          }
+        </div>
+      </Hero>
+
+      <section
+        id="choose"
+        class="am-section am-section--tint !px-6 md:!px-12"
+      >
+        <div class="max-w-3xl mb-16">
+          <h2 class="am-text-title italic text-on-surface tracking-tight mb-6">
+            {copy.overview.title}
+          </h2>
+          <p class="am-text-body text-on-surface-variant leading-relaxed">
+            {copy.overview.intro}
+          </p>
+          <p class="mt-6 am-text-caption normal-case tracking-normal text-on-surface-variant">
+            {copy.overview.reviewed}
+          </p>
+        </div>
+
+        <EditorialFeatureGrid
+          cards={copy.overview.items.map((item) => ({
+            title: item.title,
+            copy: item.text
+          }))}
+        />
+      </section>
+
+      <section
+        id="providers"
+        class="am-section am-section--plain !px-6 md:!px-12"
+      >
+        <div class="max-w-3xl mb-16">
+          <h2 class="am-text-title italic text-on-surface tracking-tight mb-6">
+            {copy.providers.title}
+          </h2>
+          <p class="am-text-body text-on-surface-variant leading-relaxed">
+            {copy.providers.intro}
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-x-16 gap-y-16">
+          {
+            copy.providers.items.map((provider) => {
+              const titleId = `provider-${provider.id}`;
+
+              return (
+                <article
+                  class="border-t border-outline-variant/25 pt-8 flex h-full flex-col"
+                  aria-labelledby={titleId}
+                >
+                  <p class="am-text-caption text-primary mb-3">
+                    {provider.name}
+                  </p>
+                  <h3
+                    id={titleId}
+                    class="am-text-subtitle text-on-surface mb-5 lg:min-h-[2.3em]"
+                  >
+                    {provider.title}
+                  </h3>
+
+                  <p class="am-text-body text-on-surface-variant leading-relaxed">
+                    {provider.summary}
+                  </p>
+
+                  <div class="mt-8 space-y-7">
+                    {provider.highlights.map((highlight) => (
+                      <div class="border-l border-primary/20 pl-5">
+                        <h4 class="am-text-body font-bold text-on-surface mb-2">
+                          {highlight.title}
+                        </h4>
+                        <p class="am-text-body text-on-surface-variant leading-relaxed">
+                          {highlight.text}
+                        </p>
+                      </div>
+                    ))}
+                  </div>
+
+                  <p class="mt-8 border-l border-primary/20 bg-surface-container-low px-4 py-3 am-text-body leading-relaxed text-on-surface-variant">
+                    <span class="font-bold text-primary">
+                      {copy.cardLabels.bestFor}:
+                    </span>{' '}
+                    {provider.bestFor}
+                  </p>
+
+                  <div class="mt-8 lg:mt-auto lg:pt-8 flex flex-col sm:flex-row flex-wrap gap-3">
+                    <a
+                      href={provider.websiteHref}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class="am-btn am-btn--primary w-full justify-center sm:w-auto"
+                    >
+                      {copy.cardLabels.website}
+                    </a>
+                    <a
+                      href={provider.whatsappHref}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class="am-btn am-btn--secondary w-full justify-center sm:w-auto"
+                    >
+                      {copy.cardLabels.whatsapp}
+                    </a>
+                  </div>
+                </article>
+              );
+            })
+          }
+        </div>
+      </section>
+
+      <section
+        id="compare"
+        class="am-section am-section--tint !px-6 md:!px-12"
+      >
+        <div class="max-w-3xl mb-16">
+          <h2 class="am-text-title italic text-on-surface tracking-tight mb-6">
+            {copy.comparison.title}
+          </h2>
+          <p class="am-text-body text-on-surface-variant leading-relaxed">
+            {copy.comparison.intro}
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-x-16 gap-y-14">
+          {
+            copy.comparison.items.map((item) => (
+              <article class="border-t border-outline-variant/25 pt-8">
+                <h3 class="am-text-subtitle text-on-surface mb-7">
+                  {item.name}
+                </h3>
+                <dl class="space-y-6">
+                  <div>
+                    <dt class="am-text-caption text-primary mb-2">
+                      {copy.comparison.labels.mood}
+                    </dt>
+                    <dd class="am-text-body text-on-surface-variant leading-relaxed">
+                      {item.mood}
+                    </dd>
+                  </div>
+                  <div>
+                    <dt class="am-text-caption text-primary mb-2">
+                      {copy.comparison.labels.logistics}
+                    </dt>
+                    <dd class="am-text-body text-on-surface-variant leading-relaxed">
+                      {item.logistics}
+                    </dd>
+                  </div>
+                  <div>
+                    <dt class="am-text-caption text-primary mb-2">
+                      {copy.comparison.labels.ideal}
+                    </dt>
+                    <dd class="am-text-body text-on-surface-variant leading-relaxed">
+                      {item.ideal}
+                    </dd>
+                  </div>
+                </dl>
+              </article>
+            ))
+          }
+        </div>
+
+        <p class="mt-12 border-l border-primary/20 bg-surface-container-lowest px-4 py-3 am-text-body leading-relaxed text-on-surface-variant max-w-3xl">
+          {copy.comparison.tip}
+        </p>
+      </section>
+
+      <section
+        id="planning"
+        class="am-section am-section--plain !px-6 md:!px-12"
+      >
+        <div class="max-w-3xl mb-16">
+          <h2 class="am-text-title italic text-on-surface tracking-tight mb-6">
+            {copy.planning.title}
+          </h2>
+          <p class="am-text-body text-on-surface-variant leading-relaxed">
+            {copy.planning.intro}
+          </p>
+        </div>
+
+        <EditorialFeatureGrid
+          cards={copy.planning.items.map((item) => ({
+            title: item.title,
+            copy: item.text
+          }))}
+        />
+
+        <p class="mt-12 border-l border-primary/20 bg-surface-container-low px-4 py-3 am-text-body leading-relaxed text-on-surface-variant max-w-3xl">
+          {copy.planning.note}
+        </p>
+      </section>
+
+      <section class="am-section am-section--tint !px-6 md:!px-12">
+        <div class="max-w-3xl mb-16">
+          <h2 class="am-text-title italic text-on-surface tracking-tight mb-6">
+            {copy.combine.title}
+          </h2>
+          <p class="am-text-body text-on-surface-variant leading-relaxed">
+            {copy.combine.intro}
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-x-16 gap-y-14">
+          {
+            combineItems.map((item) => (
+              <article class="border-t border-outline-variant/25 pt-8">
+                <h3 class="am-text-subtitle text-on-surface mb-5">
+                  {item.title}
+                </h3>
+                <p class="am-text-body text-on-surface-variant leading-relaxed">
+                  {item.text}
+                </p>
+                {item.href && (
+                  <p class="mt-5 am-text-body">
+                    <a href={item.href} class="am-inline-link">
+                      {item.linkLabel}
+                      <span aria-hidden="true"> →</span>
+                    </a>
+                  </p>
+                )}
+              </article>
+            ))
+          }
+        </div>
+      </section>
+
+      <ExperiencePreFooter currentId="wellness" lang={currentLang} />
+
+      <section class="max-w-screen-2xl mx-auto px-6 pt-24 md:px-12">
+        <EditorialClosingCta
+          title={copy.closing.title}
+          lead={copy.closing.lead}
+          lang={currentLang}
+          links={[
+            {
+              token: 'book',
+              label: copy.closing.availabilityCta,
+              style: 'primary'
+            },
+            {
+              token: 'romantic_hideaways',
+              label: copy.closing.apartmentsCta,
+              style: 'secondary'
+            }
+          ]}
+        />
+      </section>
+    </div>
+  </div>
+</LocationAuthorityLayout>

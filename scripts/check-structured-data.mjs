@@ -22,6 +22,37 @@ const KNOWN_BROKEN_BREADCRUMB_LABELS = new Set([
   'Lagenheter for par'
 ]);
 
+const EXPERIENCE_DETAIL_SLUGS = new Set([
+  'frigiliana-beaches',
+  'frigiliana-hiking',
+  'frigiliana-restaurants',
+  'frigiliana-festivals',
+  'frigiliana-market',
+  'frigiliana-day-trips',
+  'frigiliana-wellness',
+  'nerja-nightlife'
+]);
+
+const NON_DEFAULT_LANGUAGES = new Set(['de', 'en', 'nl', 'sv']);
+
+function getOwnedSlug(pathname) {
+  const segments = pathname.split('/').filter(Boolean);
+
+  if (NON_DEFAULT_LANGUAGES.has(segments[0])) {
+    segments.shift();
+  }
+
+  return segments.join('/');
+}
+
+function getExperienceHubPath(pathname) {
+  const language = pathname.split('/').filter(Boolean)[0];
+
+  return NON_DEFAULT_LANGUAGES.has(language)
+    ? `/${language}/explore-frigiliana-nerja`
+    : '/explore-frigiliana-nerja';
+}
+
 function walkHtmlFiles(directory) {
   const files = [];
 
@@ -170,6 +201,7 @@ export function runStructuredDataAudit({
 
     const breadcrumb = graph.find((node) => node?.['@type'] === 'BreadcrumbList');
     const pagePath = new URL(webPage.url).pathname;
+    const ownedSlug = getOwnedSlug(pagePath);
 
     if (!isHomePath(pagePath) && !breadcrumb) {
       report(file, 'non-home page is missing BreadcrumbList markup');
@@ -194,6 +226,51 @@ export function runStructuredDataAudit({
       const pageLabel = items.at(-1)?.name;
       if (KNOWN_BROKEN_BREADCRUMB_LABELS.has(pageLabel)) {
         report(file, `breadcrumb label is not properly localized: ${pageLabel}`);
+      }
+
+      if (EXPERIENCE_DETAIL_SLUGS.has(ownedSlug)) {
+        const expectedHubUrl = new URL(
+          getExperienceHubPath(pagePath),
+          pageOrigin
+        ).href;
+
+        if (items.length !== 3 || items[1]?.item !== expectedHubUrl) {
+          report(
+            file,
+            'experience detail breadcrumb must be Home > Experiences > current page'
+          );
+        }
+      }
+    }
+
+    if (EXPERIENCE_DETAIL_SLUGS.has(ownedSlug)) {
+      if (!html.includes('data-am-experience-context')) {
+        report(file, 'experience detail is missing its crawlable family navigation');
+      }
+
+      if (!html.includes('data-am-experience-prefooter')) {
+        report(file, 'experience detail is missing its related-guides pre-footer');
+      }
+
+      const siblingLinkCount = [
+        ...html.matchAll(/\bdata-am-experience-sibling\b/g)
+      ].length;
+      const recommendationCount = [
+        ...html.matchAll(/\bdata-am-experience-recommendation\b/g)
+      ].length;
+
+      if (siblingLinkCount !== EXPERIENCE_DETAIL_SLUGS.size) {
+        report(
+          file,
+          `experience family navigation contains ${siblingLinkCount} of ${EXPERIENCE_DETAIL_SLUGS.size} guides`
+        );
+      }
+
+      if (recommendationCount !== 3) {
+        report(
+          file,
+          `experience pre-footer contains ${recommendationCount} recommendations instead of 3`
+        );
       }
     }
 

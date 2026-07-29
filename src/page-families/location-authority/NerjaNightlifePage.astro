@@ -1,0 +1,436 @@
+---
+import Hero from '../../components/Hero.astro';
+import Navigation from '../../components/Navigation.astro';
+import EditorialClosingCta from '../../components/editorial/EditorialClosingCta.astro';
+import EditorialFeatureGrid from '../../components/editorial/EditorialFeatureGrid.astro';
+import ExperienceContextNav from '../../components/experience/ExperienceContextNav.astro';
+import ExperiencePreFooter from '../../components/experience/ExperiencePreFooter.astro';
+import SectionAnchorNav from '../../components/navigation/SectionAnchorNav.astro';
+import {
+  nerjaNightlifeContent,
+  nerjaNightlifeSeo
+} from '../../content/nerjaNightlifeContent';
+import LocationAuthorityLayout from '../../layouts/LocationAuthorityLayout.astro';
+import { resolveOptionalLink } from '../../lib/linkResolver';
+import { normalizeLanguage } from '../../lib/seo/resolve-seo-head';
+import type { AmaraLanguage } from '../../types/seo';
+
+interface Props {
+  lang?: string;
+}
+
+const { lang = 'es' } = Astro.props;
+const currentLang = normalizeLanguage(lang as AmaraLanguage);
+const copy = nerjaNightlifeContent[currentLang];
+
+const sectionNavItems = [
+  { id: 'overview', href: '#overview', label: copy.sectionNav.overview },
+  { id: 'areas', href: '#areas', label: copy.sectionNav.areas },
+  { id: 'styles', href: '#styles', label: copy.sectionNav.styles },
+  { id: 'culture', href: '#culture', label: copy.sectionNav.culture },
+  { id: 'seasons', href: '#seasons', label: copy.sectionNav.seasons },
+  { id: 'planning', href: '#planning', label: copy.sectionNav.planning },
+  { id: 'faq', href: '#faq', label: copy.sectionNav.faq }
+];
+
+const footerHighlights = [
+  {
+    token: 'nerja_nightlife_authority',
+    label: copy.footerHighlights.nightlife
+  },
+  {
+    token: 'location_nerja',
+    label: copy.footerHighlights.nerja
+  },
+  {
+    token: 'playa',
+    label: copy.footerHighlights.apartments
+  }
+];
+
+const combineItems = copy.combine.items.map((item) => ({
+  ...item,
+  href: resolveOptionalLink(item.linkToken, currentLang, {
+    suppressMissing: true
+  })
+}));
+
+const heroImage = {
+  src: '/images/amara-playa/apartment/chaparril-13.webp',
+  width: 1600,
+  height: 1067,
+  sizes:
+    '(max-width: 767px) calc(100vw - 3rem), (max-width: 1023px) 60vw, 40vw'
+};
+---
+
+<LocationAuthorityLayout
+  seo={nerjaNightlifeSeo}
+  pageLang={currentLang}
+  footerHighlights={footerHighlights}
+>
+  <Navigation
+    currentLang={currentLang}
+    brandName="Nerja"
+    languageToken="nerja_nightlife_authority"
+    locationAuthorityNav={true}
+  />
+  <SectionAnchorNav items={sectionNavItems} />
+  <ExperienceContextNav currentId="nightlife" lang={currentLang} />
+
+  <div class="am-root" data-am-page="nerja-nightlife">
+    <div class="am-wrap w-full">
+      <Hero
+        imageSrc={heroImage.src}
+        imageAlt={copy.hero.imageAlt}
+        imageWidth={heroImage.width}
+        imageHeight={heroImage.height}
+        imageSizes={heroImage.sizes}
+      >
+        <span class="am-text-caption text-primary mb-8 block">
+          {copy.hero.kicker}
+        </span>
+        <h1 class="am-text-display italic text-on-surface mb-10 tracking-tighter">
+          {copy.hero.title}
+        </h1>
+        <div class="pl-10 border-l border-primary/20 max-w-xl space-y-6">
+          {
+            copy.hero.paragraphs.map((paragraph) => (
+              <p class="am-text-body text-on-surface-variant leading-relaxed">
+                {paragraph}
+              </p>
+            ))
+          }
+        </div>
+      </Hero>
+
+      <section
+        id="overview"
+        class="am-section am-section--tint !px-6 md:!px-12"
+      >
+        <div class="max-w-3xl mb-16">
+          <p class="am-text-caption text-primary mb-5">
+            {copy.overview.kicker}
+          </p>
+          <h2 class="am-text-title italic text-on-surface tracking-tight mb-6">
+            {copy.overview.title}
+          </h2>
+          <p class="am-text-body text-on-surface-variant leading-relaxed">
+            {copy.overview.intro}
+          </p>
+          <p class="mt-6 am-text-caption normal-case tracking-normal text-on-surface-variant">
+            {copy.overview.reviewed}
+          </p>
+        </div>
+
+        <EditorialFeatureGrid
+          cards={copy.overview.items.map((item) => ({
+            title: item.title,
+            copy: item.text
+          }))}
+        />
+      </section>
+
+      <section
+        id="areas"
+        class="am-section am-section--plain !px-6 md:!px-12"
+      >
+        <div class="max-w-3xl mb-16">
+          <h2 class="am-text-title italic text-on-surface tracking-tight mb-6">
+            {copy.areas.title}
+          </h2>
+          <p class="am-text-body text-on-surface-variant leading-relaxed">
+            {copy.areas.intro}
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-x-10 gap-y-14">
+          {
+            copy.areas.items.map((area, index) => {
+              const titleId = `nightlife-area-${index + 1}`;
+
+              return (
+                <article
+                  class="border-t border-outline-variant/25 pt-8 flex h-full flex-col"
+                  aria-labelledby={titleId}
+                >
+                  <h3
+                    id={titleId}
+                    class="am-text-subtitle text-on-surface mb-6"
+                  >
+                    {area.title}
+                  </h3>
+                  <div class="space-y-5">
+                    {area.paragraphs.map((paragraph) => (
+                      <p class="am-text-body text-on-surface-variant leading-relaxed">
+                        {paragraph}
+                      </p>
+                    ))}
+                  </div>
+                  <p class="mt-8 border-l border-primary/20 bg-surface-container-low px-4 py-3 am-text-body leading-relaxed text-on-surface-variant">
+                    <span class="font-bold text-primary">
+                      {copy.cardLabels.bestFor}:
+                    </span>{' '}
+                    {area.bestFor}
+                  </p>
+                  <p class="mt-7 lg:mt-auto lg:pt-7 am-text-body">
+                    <a
+                      href={area.mapHref}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class="am-inline-link"
+                    >
+                      {copy.cardLabels.map}
+                      <span aria-hidden="true"> &rarr;</span>
+                    </a>
+                  </p>
+                </article>
+              );
+            })
+          }
+        </div>
+      </section>
+
+      <section
+        id="styles"
+        class="am-section am-section--tint !px-6 md:!px-12"
+      >
+        <div class="max-w-3xl mb-16">
+          <h2 class="am-text-title italic text-on-surface tracking-tight mb-6">
+            {copy.areaComparison.title}
+          </h2>
+          <p class="am-text-body text-on-surface-variant leading-relaxed">
+            {copy.areaComparison.intro}
+          </p>
+        </div>
+
+        <EditorialFeatureGrid
+          cards={copy.areaComparison.items.map((item) => ({
+            title: item.title,
+            copy: item.text
+          }))}
+        />
+
+        <div class="max-w-3xl mt-24 mb-16">
+          <h2 class="am-text-title italic text-on-surface tracking-tight mb-6">
+            {copy.eveningStyles.title}
+          </h2>
+          <p class="am-text-body text-on-surface-variant leading-relaxed">
+            {copy.eveningStyles.intro}
+          </p>
+        </div>
+
+        <EditorialFeatureGrid
+          cards={copy.eveningStyles.items.map((item) => ({
+            title: item.title,
+            copy: item.text
+          }))}
+        />
+      </section>
+
+      <section
+        id="culture"
+        class="am-section am-section--plain !px-6 md:!px-12"
+      >
+        <div class="max-w-3xl mb-16">
+          <h2 class="am-text-title italic text-on-surface tracking-tight mb-6">
+            {copy.culture.title}
+          </h2>
+          <div class="space-y-5">
+            {
+              copy.culture.paragraphs.map((paragraph) => (
+                <p class="am-text-body text-on-surface-variant leading-relaxed">
+                  {paragraph}
+                </p>
+              ))
+            }
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-x-16 gap-y-14">
+          {
+            copy.culture.items.map((item) => (
+              <article class="border-t border-outline-variant/25 pt-8 flex h-full flex-col">
+                <h3 class="am-text-subtitle text-on-surface mb-5">
+                  {item.title}
+                </h3>
+                <p class="am-text-body text-on-surface-variant leading-relaxed">
+                  {item.text}
+                </p>
+                <p class="mt-6 lg:mt-auto lg:pt-6 am-text-body">
+                  <a
+                    href={item.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="am-inline-link"
+                  >
+                    {item.linkLabel}
+                    <span aria-hidden="true"> &rarr;</span>
+                  </a>
+                </p>
+              </article>
+            ))
+          }
+        </div>
+      </section>
+
+      <section
+        id="seasons"
+        class="am-section am-section--tint !px-6 md:!px-12"
+      >
+        <div class="max-w-3xl mb-16">
+          <h2 class="am-text-title italic text-on-surface tracking-tight mb-6">
+            {copy.seasonality.title}
+          </h2>
+          <p class="am-text-body text-on-surface-variant leading-relaxed">
+            {copy.seasonality.intro}
+          </p>
+        </div>
+
+        <EditorialFeatureGrid
+          cards={copy.seasonality.items.map((item) => ({
+            title: item.title,
+            copy: item.text
+          }))}
+        />
+
+        <p class="mt-12 border-l border-primary/20 bg-surface-container-lowest px-4 py-3 am-text-body leading-relaxed text-on-surface-variant max-w-3xl">
+          {copy.seasonality.note}
+        </p>
+      </section>
+
+      <section class="am-section am-section--plain !px-6 md:!px-12">
+        <div class="max-w-3xl mb-16">
+          <h2 class="am-text-title italic text-on-surface tracking-tight mb-6">
+            {copy.travelerFit.title}
+          </h2>
+          <p class="am-text-body text-on-surface-variant leading-relaxed">
+            {copy.travelerFit.intro}
+          </p>
+        </div>
+
+        <EditorialFeatureGrid
+          cards={copy.travelerFit.items.map((item) => ({
+            title: item.title,
+            copy: item.text
+          }))}
+        />
+      </section>
+
+      <section
+        id="planning"
+        class="am-section am-section--tint !px-6 md:!px-12"
+      >
+        <div class="max-w-3xl mb-16">
+          <h2 class="am-text-title italic text-on-surface tracking-tight mb-6">
+            {copy.plans.title}
+          </h2>
+          <p class="am-text-body text-on-surface-variant leading-relaxed">
+            {copy.plans.intro}
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-x-10 gap-y-14">
+          {
+            copy.plans.items.map((item) => (
+              <article class="border-t border-outline-variant/25 pt-8">
+                <h3 class="am-text-subtitle text-on-surface mb-5">
+                  {item.title}
+                </h3>
+                <p class="am-text-body text-on-surface-variant leading-relaxed">
+                  {item.text}
+                </p>
+              </article>
+            ))
+          }
+        </div>
+
+        <p class="mt-12 border-l border-primary/20 bg-surface-container-lowest px-4 py-3 am-text-body leading-relaxed text-on-surface-variant max-w-3xl">
+          {copy.plans.transportNote}
+        </p>
+      </section>
+
+      <section
+        id="faq"
+        class="am-section am-section--plain !px-6 md:!px-12"
+      >
+        <div class="max-w-3xl mb-16">
+          <h2 class="am-text-title italic text-on-surface tracking-tight">
+            {copy.faq.title}
+          </h2>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-x-16 gap-y-14">
+          {
+            copy.faq.items.map((item) => (
+              <article class="border-t border-outline-variant/25 pt-8">
+                <h3 class="am-text-subtitle text-on-surface mb-5">
+                  {item.question}
+                </h3>
+                <p class="am-text-body text-on-surface-variant leading-relaxed">
+                  {item.answer}
+                </p>
+              </article>
+            ))
+          }
+        </div>
+      </section>
+
+      <section class="am-section am-section--tint !px-6 md:!px-12">
+        <div class="max-w-3xl mb-16">
+          <h2 class="am-text-title italic text-on-surface tracking-tight mb-6">
+            {copy.combine.title}
+          </h2>
+          <p class="am-text-body text-on-surface-variant leading-relaxed">
+            {copy.combine.intro}
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-x-16 gap-y-14">
+          {
+            combineItems.map((item) => (
+              <article class="border-t border-outline-variant/25 pt-8">
+                <h3 class="am-text-subtitle text-on-surface mb-5">
+                  {item.title}
+                </h3>
+                <p class="am-text-body text-on-surface-variant leading-relaxed">
+                  {item.text}
+                </p>
+                {item.href && (
+                  <p class="mt-5 am-text-body">
+                    <a href={item.href} class="am-inline-link">
+                      {item.linkLabel}
+                      <span aria-hidden="true"> &rarr;</span>
+                    </a>
+                  </p>
+                )}
+              </article>
+            ))
+          }
+        </div>
+      </section>
+
+      <ExperiencePreFooter currentId="nightlife" lang={currentLang} />
+
+      <section class="max-w-screen-2xl mx-auto px-6 pt-24 md:px-12">
+        <EditorialClosingCta
+          title={copy.closing.title}
+          lead={copy.closing.lead}
+          lang={currentLang}
+          links={[
+            {
+              token: 'book',
+              label: copy.closing.availabilityCta,
+              style: 'primary'
+            },
+            {
+              token: 'playa',
+              label: copy.closing.apartmentsCta,
+              style: 'secondary'
+            }
+          ]}
+        />
+      </section>
+    </div>
+  </div>
+</LocationAuthorityLayout>

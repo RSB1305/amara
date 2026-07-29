@@ -129,7 +129,13 @@ legal_notice: {
 /* =========================================================
        EXPLORE
     ========================================================= */
-    explore_hub: { en: '/en/explore-frigiliana-nerja', de: '/de/explore-frigiliana-nerja', es: '/es/explore-frigiliana-nerja', nl: '/nl/explore-frigiliana-nerja', sv: '/sv/explore-frigiliana-nerja' },
+    explore_hub: {
+      en: buildOwnedLocalizedPath('explore-frigiliana-nerja', 'en'),
+      de: buildOwnedLocalizedPath('explore-frigiliana-nerja', 'de'),
+      es: buildOwnedLocalizedPath('explore-frigiliana-nerja', 'es'),
+      nl: buildOwnedLocalizedPath('explore-frigiliana-nerja', 'nl'),
+      sv: buildOwnedLocalizedPath('explore-frigiliana-nerja', 'sv')
+    },
     explore_beaches: {
       en: buildOwnedLocalizedPath('frigiliana-beaches', 'en'),
       de: buildOwnedLocalizedPath('frigiliana-beaches', 'de'),
@@ -137,8 +143,20 @@ legal_notice: {
       nl: buildOwnedLocalizedPath('frigiliana-beaches', 'nl'),
       sv: buildOwnedLocalizedPath('frigiliana-beaches', 'sv')
     },
-    explore_culture: { en: '/en/culture-frigiliana-nerja', de: '/de/culture-frigiliana-nerja', es: '/es/culture-frigiliana-nerja', nl: '/nl/culture-frigiliana-nerja', sv: '/sv/culture-frigiliana-nerja' },
-    explore_daytrips: { en: '/en/day-trips-andalusia', de: '/de/day-trips-andalusia', es: '/es/day-trips-andalusia', nl: '/nl/day-trips-andalusia', sv: '/sv/day-trips-andalusia' },
+    explore_culture: {
+      en: buildOwnedLocalizedPath('frigiliana-festivals', 'en'),
+      de: buildOwnedLocalizedPath('frigiliana-festivals', 'de'),
+      es: buildOwnedLocalizedPath('frigiliana-festivals', 'es'),
+      nl: buildOwnedLocalizedPath('frigiliana-festivals', 'nl'),
+      sv: buildOwnedLocalizedPath('frigiliana-festivals', 'sv')
+    },
+    explore_daytrips: {
+      en: buildOwnedLocalizedPath('frigiliana-day-trips', 'en'),
+      de: buildOwnedLocalizedPath('frigiliana-day-trips', 'de'),
+      es: buildOwnedLocalizedPath('frigiliana-day-trips', 'es'),
+      nl: buildOwnedLocalizedPath('frigiliana-day-trips', 'nl'),
+      sv: buildOwnedLocalizedPath('frigiliana-day-trips', 'sv')
+    },
     explore_food: {
       en: buildOwnedLocalizedPath('frigiliana-restaurants', 'en'),
       de: buildOwnedLocalizedPath('frigiliana-restaurants', 'de'),
@@ -146,7 +164,13 @@ legal_notice: {
       nl: buildOwnedLocalizedPath('frigiliana-restaurants', 'nl'),
       sv: buildOwnedLocalizedPath('frigiliana-restaurants', 'sv')
     },
-    explore_hiking: { en: '/en/hiking-frigiliana-nerja', de: '/de/hiking-frigiliana-nerja', es: '/es/hiking-frigiliana-nerja', nl: '/nl/hiking-frigiliana-nerja', sv: '/sv/hiking-frigiliana-nerja' },
+    explore_hiking: {
+      en: buildOwnedLocalizedPath('frigiliana-hiking', 'en'),
+      de: buildOwnedLocalizedPath('frigiliana-hiking', 'de'),
+      es: buildOwnedLocalizedPath('frigiliana-hiking', 'es'),
+      nl: buildOwnedLocalizedPath('frigiliana-hiking', 'nl'),
+      sv: buildOwnedLocalizedPath('frigiliana-hiking', 'sv')
+    },
     explore_water: {
       en: buildOwnedLocalizedPath('frigiliana-beaches', 'en'),
       de: buildOwnedLocalizedPath('frigiliana-beaches', 'de'),
@@ -154,7 +178,13 @@ legal_notice: {
       nl: buildOwnedLocalizedPath('frigiliana-beaches', 'nl'),
       sv: buildOwnedLocalizedPath('frigiliana-beaches', 'sv')
     },
-    explore_wellness: { en: '/en/wellness', de: '/de/wellness', es: '/es/wellness', nl: '/nl/wellness', sv: '/sv/wellness' },
+    explore_wellness: {
+      en: buildOwnedLocalizedPath('frigiliana-wellness', 'en'),
+      de: buildOwnedLocalizedPath('frigiliana-wellness', 'de'),
+      es: buildOwnedLocalizedPath('frigiliana-wellness', 'es'),
+      nl: buildOwnedLocalizedPath('frigiliana-wellness', 'nl'),
+      sv: buildOwnedLocalizedPath('frigiliana-wellness', 'sv')
+    },
 
     /* =========================================================
        LOCATIONS
@@ -167,6 +197,13 @@ legal_notice: {
       es: buildOwnedLocalizedPath('nerja-location', 'es'),
       nl: buildOwnedLocalizedPath('nerja-location', 'nl'),
       sv: buildOwnedLocalizedPath('nerja-location', 'sv')
+    },
+    nerja_nightlife_authority: {
+      en: buildOwnedLocalizedPath('nerja-nightlife', 'en'),
+      de: buildOwnedLocalizedPath('nerja-nightlife', 'de'),
+      es: buildOwnedLocalizedPath('nerja-nightlife', 'es'),
+      nl: buildOwnedLocalizedPath('nerja-nightlife', 'nl'),
+      sv: buildOwnedLocalizedPath('nerja-nightlife', 'sv')
     },
     location_tarifa: {
       en: buildOwnedLocalizedPath('tarifa-location', 'en'),
@@ -284,10 +321,22 @@ legal_notice: {
     frigiliana_guest_beaches: { en: '/en/frigiliana-guest-beaches', de: '/de/frigiliana-guest-beaches', es: '/es/frigiliana-guest-beaches', nl: '/nl/frigiliana-guest-beaches', sv: '/sv/frigiliana-guest-beaches' },
     frigiliana_guest_food: { en: '/en/frigiliana-guest-restaurants', de: '/de/frigiliana-guest-restaurants', es: '/es/frigiliana-guest-restaurants', nl: '/nl/frigiliana-guest-restaurants', sv: '/sv/frigiliana-guest-restaurants' },
     frigiliana_guest_hiking: { en: '/en/frigiliana-guest-hiking', de: '/de/frigiliana-guest-hiking', es: '/es/frigiliana-guest-hiking', nl: '/nl/frigiliana-guest-hiking', sv: '/sv/frigiliana-guest-hiking' },
-    frigiliana_guest_day_trips: { en: '/en/frigiliana-guest-day-trips', de: '/de/frigiliana-guest-day-trips', es: '/es/frigiliana-guest-day-trips', nl: '/nl/frigiliana-guest-day-trips', sv: '/sv/frigiliana-guest-day-trips' },
+    frigiliana_guest_day_trips: {
+      en: buildOwnedLocalizedPath('frigiliana-day-trips', 'en'),
+      de: buildOwnedLocalizedPath('frigiliana-day-trips', 'de'),
+      es: buildOwnedLocalizedPath('frigiliana-day-trips', 'es'),
+      nl: buildOwnedLocalizedPath('frigiliana-day-trips', 'nl'),
+      sv: buildOwnedLocalizedPath('frigiliana-day-trips', 'sv')
+    },
     frigiliana_guest_sightseeing: { en: '/en/frigiliana-guest-sightseeing', de: '/de/frigiliana-guest-sightseeing', es: '/es/frigiliana-guest-sightseeing', nl: '/nl/frigiliana-guest-sightseeing', sv: '/sv/frigiliana-guest-sightseeing' },
     frigiliana_guest_events: { en: '/en/frigiliana-guest-festivals', de: '/de/frigiliana-guest-festivals', es: '/es/frigiliana-guest-festivals', nl: '/nl/frigiliana-guest-festivals', sv: '/sv/frigiliana-guest-festivals' },
-    frigiliana_guest_wellness: { en: '/en/frigiliana-guest-wellness', de: '/de/frigiliana-guest-wellness', es: '/es/frigiliana-guest-wellness', nl: '/nl/frigiliana-guest-wellness', sv: '/sv/frigiliana-guest-wellness' },
+    frigiliana_guest_wellness: {
+      en: buildOwnedLocalizedPath('frigiliana-wellness', 'en'),
+      de: buildOwnedLocalizedPath('frigiliana-wellness', 'de'),
+      es: buildOwnedLocalizedPath('frigiliana-wellness', 'es'),
+      nl: buildOwnedLocalizedPath('frigiliana-wellness', 'nl'),
+      sv: buildOwnedLocalizedPath('frigiliana-wellness', 'sv')
+    },
     frigiliana_guest_adventure: { en: '/en/frigiliana-guest-adventure', de: '/de/frigiliana-guest-adventure', es: '/es/frigiliana-guest-adventure', nl: '/nl/frigiliana-guest-adventure', sv: '/sv/frigiliana-guest-adventure' },
     frigiliana_guest_flamenco_bachata: {
       en: '/en/guestwelcome-nerja-flamenco-bachata',
@@ -303,7 +352,13 @@ legal_notice: {
 
     nerja_guest_restaurants: { en: '/en/nerja-guest-restaurants', de: '/de/nerja-guest-restaurants', es: '/es/nerja-guest-restaurants', nl: '/nl/nerja-guest-restaurants', sv: '/sv/nerja-guest-restaurants' },
     nerja_guest_breakfast: { en: '/en/nerja-guest-breakfast', de: '/de/nerja-guest-breakfast', es: '/es/nerja-guest-breakfast', nl: '/nl/nerja-guest-breakfast', sv: '/sv/nerja-guest-breakfast' },
-    nerja_guest_nightlife: { en: '/en/nerja-guest-nightlife', de: '/de/nerja-guest-nightlife', es: '/es/nerja-guest-nightlife', nl: '/nl/nerja-guest-nightlife', sv: '/sv/nerja-guest-nightlife' },
+    nerja_guest_nightlife: {
+      en: buildOwnedLocalizedPath('nerja-nightlife', 'en'),
+      de: buildOwnedLocalizedPath('nerja-nightlife', 'de'),
+      es: buildOwnedLocalizedPath('nerja-nightlife', 'es'),
+      nl: buildOwnedLocalizedPath('nerja-nightlife', 'nl'),
+      sv: buildOwnedLocalizedPath('nerja-nightlife', 'sv')
+    },
     frigiliana_guest_breakfast: { en: '/en/frigiliana-guest-breakfast', de: '/de/frigiliana-guest-breakfast', es: '/es/frigiliana-guest-breakfast', nl: '/nl/frigiliana-guest-breakfast', sv: '/sv/frigiliana-guest-breakfast' },
 
     /* =========================================================
@@ -389,6 +444,27 @@ legal_notice: {
       es: buildOwnedLocalizedPath('frigiliana-restaurants', 'es'),
       nl: buildOwnedLocalizedPath('frigiliana-restaurants', 'nl'),
       sv: buildOwnedLocalizedPath('frigiliana-restaurants', 'sv')
+    },
+    frigiliana_daytrips_authority: {
+      en: buildOwnedLocalizedPath('frigiliana-day-trips', 'en'),
+      de: buildOwnedLocalizedPath('frigiliana-day-trips', 'de'),
+      es: buildOwnedLocalizedPath('frigiliana-day-trips', 'es'),
+      nl: buildOwnedLocalizedPath('frigiliana-day-trips', 'nl'),
+      sv: buildOwnedLocalizedPath('frigiliana-day-trips', 'sv')
+    },
+    frigiliana_events_authority: {
+      en: buildOwnedLocalizedPath('frigiliana-festivals', 'en'),
+      de: buildOwnedLocalizedPath('frigiliana-festivals', 'de'),
+      es: buildOwnedLocalizedPath('frigiliana-festivals', 'es'),
+      nl: buildOwnedLocalizedPath('frigiliana-festivals', 'nl'),
+      sv: buildOwnedLocalizedPath('frigiliana-festivals', 'sv')
+    },
+    frigiliana_wellness_authority: {
+      en: buildOwnedLocalizedPath('frigiliana-wellness', 'en'),
+      de: buildOwnedLocalizedPath('frigiliana-wellness', 'de'),
+      es: buildOwnedLocalizedPath('frigiliana-wellness', 'es'),
+      nl: buildOwnedLocalizedPath('frigiliana-wellness', 'nl'),
+      sv: buildOwnedLocalizedPath('frigiliana-wellness', 'sv')
     },
 
     /* =========================================================
@@ -530,6 +606,7 @@ legal_notice: {
     __LOCATIONS_HUB_URL__: { lang: 'auto', key: 'locations_hub' },
     __LOCATION_FRIGILIANA_URL__: { lang: 'auto', key: 'location_frigiliana' },
     __LOCATION_NERJA_URL__: { lang: 'auto', key: 'location_nerja' },
+    __NERJA_NIGHTLIFE_AUTHORITY__: { lang: 'auto', key: 'nerja_nightlife_authority' },
     __LOCATION_TARIFA_URL__: { lang: 'auto', key: 'location_tarifa' },
 
     __FRIGILIANA_URL__: { lang: 'auto', key: 'location_frigiliana' },

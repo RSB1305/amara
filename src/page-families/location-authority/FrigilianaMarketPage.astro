@@ -4,7 +4,8 @@ import AmaraImage from '../../components/AmaraImage.astro';
 import FaqAccordion from '../../components/FaqAccordion.astro';
 import Navigation from '../../components/Navigation.astro';
 import EditorialClosingCta from '../../components/editorial/EditorialClosingCta.astro';
-import EditorialGuideLinkSection from '../../components/editorial/EditorialGuideLinkSection.astro';
+import ExperienceContextNav from '../../components/experience/ExperienceContextNav.astro';
+import ExperiencePreFooter from '../../components/experience/ExperiencePreFooter.astro';
 import HairlineStatCard from '../../components/location/HairlineStatCard.astro';
 import SectionAnchorNav from '../../components/navigation/SectionAnchorNav.astro';
 import {
@@ -12,13 +13,8 @@ import {
   frigilianaMarketExternalLinks,
   frigilianaMarketSeo
 } from '../../content/frigilianaMarketContent';
-import {
-  frigilianaPreFooterCopy,
-  getFrigilianaPreFooterDescription
-} from '../../content/frigilianaPreFooterContent';
 import LocationAuthorityLayout from '../../layouts/LocationAuthorityLayout.astro';
 import { getFrigilianaAuthoritySubnav } from '../../lib/frigiliana/frigilianaAuthoritySubnav';
-import { resolveOptionalLink } from '../../lib/linkResolver';
 import { buildOwnedLocalizedPath } from '../../lib/routeOwnership';
 import { normalizeLanguage } from '../../lib/seo/resolve-seo-head';
 import type { AmaraLanguage } from '../../types/seo';
@@ -89,20 +85,6 @@ const liveInfoLinks = copy.liveInfo.links.map((link) => ({
   text: t(link.text)
 }));
 
-const relatedLinks = copy.related.links.flatMap((link) => {
-  const href = resolveOptionalLink(link.token, currentLang, {
-    suppressMissing: true
-  });
-
-  return href
-    ? [{
-        href,
-        label: t(link.label),
-        text: getFrigilianaPreFooterDescription(link.token, currentLang)
-      }]
-    : [];
-});
-
 const footerHighlights = [
   {
     token: 'frigiliana_market',
@@ -144,6 +126,7 @@ const ingenioImage = {
     locationAuthorityNav={true}
   />
   <SectionAnchorNav items={sectionNavItems} activeId="comparison" />
+  <ExperienceContextNav currentId="market" lang={currentLang} />
 
   <div class="am-root" data-am-page="frigiliana-market">
     <div class="am-wrap w-full">
@@ -364,12 +347,7 @@ const ingenioImage = {
         </div>
       </section>
 
-      <EditorialGuideLinkSection
-        eyebrow={frigilianaPreFooterCopy.eyebrow[currentLang]}
-        title={t(copy.related.title)}
-        intro={frigilianaPreFooterCopy.intro[currentLang]}
-        links={relatedLinks}
-      />
+      <ExperiencePreFooter currentId="market" lang={currentLang} />
 
       <section class="max-w-screen-2xl mx-auto px-12 pt-8">
         <EditorialClosingCta

@@ -3,6 +3,8 @@ import Hero from '../../components/Hero.astro';
 import Navigation from '../../components/Navigation.astro';
 import EditorialClosingCta from '../../components/editorial/EditorialClosingCta.astro';
 import EditorialFeatureGrid from '../../components/editorial/EditorialFeatureGrid.astro';
+import ExperienceContextNav from '../../components/experience/ExperienceContextNav.astro';
+import ExperiencePreFooter from '../../components/experience/ExperiencePreFooter.astro';
 import SectionAnchorNav from '../../components/navigation/SectionAnchorNav.astro';
 import HikingRouteStatStrip from './HikingRouteStatStrip.astro';
 import {
@@ -63,6 +65,7 @@ const heroImage = {
     locationAuthorityNav={true}
   />
   <SectionAnchorNav items={sectionNavItems} />
+  <ExperienceContextNav currentId="hiking" lang={currentLang} />
 
   <div class="am-root" data-am-page="frigiliana-hiking">
     <div class="am-wrap w-full">
@@ -170,6 +173,8 @@ const heroImage = {
           copy: item.text
         }))} />
       </section>
+
+      <ExperiencePreFooter currentId="hiking" lang={currentLang} />
 
       <section class="max-w-screen-2xl mx-auto px-6 pt-24 md:px-12">
         <EditorialClosingCta

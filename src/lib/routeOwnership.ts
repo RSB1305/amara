@@ -14,11 +14,16 @@ const ROOT_SPANISH_PUBLIC_SLUGS = new Set([
   'frigiliana-faq',
   'frigiliana-location',
   'nerja-location',
+  'nerja-nightlife',
   'tarifa-location',
   'frigiliana-market',
   'frigiliana-beaches',
   'frigiliana-hiking',
   'frigiliana-restaurants',
+  'frigiliana-festivals',
+  'frigiliana-wellness',
+  'frigiliana-day-trips',
+  'explore-frigiliana-nerja',
   'frigiliana-parking',
   'frigiliana-streets-stairs',
   'frigiliana-weather',
@@ -35,7 +40,6 @@ const ROOT_SPANISH_PUBLIC_SLUGS = new Set([
 ]);
 
 const DISABLED_PUBLIC_ROUTE_TOKENS = new Set([
-  'explore_hub',
   'locations_hub',
   'weather_frigiliana',
   'journal',

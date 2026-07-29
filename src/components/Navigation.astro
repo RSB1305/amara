@@ -11,6 +11,11 @@
  * wordmark, subline, center nav links, and language dropdown use explicit Tailwind
  * font/size utilities (see `<style>` comment). The CTA remains `.am-btn`.
  */
+import {
+  experienceCatalog,
+  experienceHubContent,
+  experienceNavigationContent
+} from '../content/experienceHubContent';
 import { resolveLink, resolveOptionalLink } from '../lib/linkResolver';
 import { isPublicLinkEnabled } from '../lib/routeOwnership';
 import type { AmaraLanguage } from '../types/seo';
@@ -365,13 +370,29 @@ type GlobalNavItem = {
 };
 
 type GlobalNavGroup = {
-  id: 'locations' | 'stays' | 'aboutAmara';
+  id: 'locations' | 'experiences' | 'stays' | 'aboutAmara';
   label: string;
   items: GlobalNavItem[];
 };
 
 const tGlobal = (key: keyof typeof globalNavLabels) =>
   globalNavLabels[key][currentLang] ?? globalNavLabels[key].en;
+
+const experienceNavigation = experienceNavigationContent[currentLang];
+const experienceEdition = experienceHubContent[currentLang];
+
+const experienceNavItems: GlobalNavItem[] = [
+  {
+    token: 'explore_hub',
+    label: experienceNavigation.menuOverviewLabel,
+    description: experienceNavigation.menuOverviewDescription,
+    overview: true
+  },
+  ...experienceEdition.catalog.order.map((id) => ({
+    token: experienceCatalog[id].token,
+    label: experienceNavigation.labels[id]
+  }))
+];
 
 const globalNavGroups: GlobalNavGroup[] = [
   {
@@ -394,6 +415,11 @@ const globalNavGroups: GlobalNavGroup[] = [
         description: tGlobal('locationTarifaMeta')
       }
     ]
+  },
+  {
+    id: 'experiences',
+    label: experienceNavigation.menuLabel,
+    items: experienceNavItems
   },
   {
     id: 'stays',
@@ -498,7 +524,7 @@ const resolvedGlobalNavGroups = globalNavGroups.map((group) => {
     </div>
 
     <div class="am-nav__center">
-      <ul class="hidden lg:flex items-center gap-10">
+      <ul class="hidden lg:flex items-center gap-7 xl:gap-10">
         {resolvedGlobalNavGroups.map((group) => (
           <li class="am-nav__group">
             <button
@@ -787,7 +813,7 @@ const resolvedGlobalNavGroups = globalNavGroups.map((group) => {
       if (languageTrigger) languageTrigger.focus();
     });
 
-    var desktopQuery = window.matchMedia('(min-width: 1024px)');
+    var desktopQuery = window.matchMedia('(min-width: 1200px)');
     var handleDesktopChange = function (event) {
       if (event.matches) setMenuOpen(false);
     };
@@ -1256,7 +1282,7 @@ const resolvedGlobalNavGroups = globalNavGroups.map((group) => {
     overflow: hidden;
   }
 
-  @media (max-width: 1023px) {
+  @media (max-width: 1199px) {
     .am-nav {
       grid-template-columns: minmax(0, 1fr) auto;
       column-gap: 1rem;
@@ -1307,7 +1333,7 @@ const resolvedGlobalNavGroups = globalNavGroups.map((group) => {
     }
   }
 
-  @media (min-width: 1024px) {
+  @media (min-width: 1200px) {
     .am-nav-mobile {
       display: none;
     }

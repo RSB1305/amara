@@ -102,6 +102,69 @@ const PUBLIC_ROUTE_LABELS: Partial<Record<string, Record<AmaraLanguage, string>>
     nl: 'Frigiliana-gids',
     sv: 'Frigiliana-guide'
   },
+  'explore-frigiliana-nerja': {
+    en: 'Experiences',
+    de: 'Erlebnisse',
+    es: 'Experiencias',
+    nl: 'Ervaringen',
+    sv: 'Upplevelser'
+  },
+  'frigiliana-beaches': {
+    en: 'Beaches',
+    de: 'Strände',
+    es: 'Playas',
+    nl: 'Stranden',
+    sv: 'Stränder'
+  },
+  'frigiliana-hiking': {
+    en: 'Hiking',
+    de: 'Wandern',
+    es: 'Senderismo',
+    nl: 'Wandelen',
+    sv: 'Vandring'
+  },
+  'frigiliana-restaurants': {
+    en: 'Restaurants',
+    de: 'Restaurants',
+    es: 'Restaurantes',
+    nl: 'Restaurants',
+    sv: 'Restauranger'
+  },
+  'frigiliana-festivals': {
+    en: 'Festivals',
+    de: 'Feste',
+    es: 'Fiestas',
+    nl: 'Feesten',
+    sv: 'Festivaler'
+  },
+  'frigiliana-market': {
+    en: 'Market',
+    de: 'Markt',
+    es: 'Mercado',
+    nl: 'Markt',
+    sv: 'Marknad'
+  },
+  'frigiliana-day-trips': {
+    en: 'Day Trips',
+    de: 'Tagesausflüge',
+    es: 'Excursiones',
+    nl: 'Dagtochten',
+    sv: 'Utflykter'
+  },
+  'frigiliana-wellness': {
+    en: 'Wellness',
+    de: 'Wellness',
+    es: 'Bienestar',
+    nl: 'Wellness',
+    sv: 'Wellness'
+  },
+  'nerja-nightlife': {
+    en: 'Nerja Nightlife',
+    de: 'Nachtleben in Nerja',
+    es: 'Noche en Nerja',
+    nl: 'Uitgaan in Nerja',
+    sv: 'Kvällsliv i Nerja'
+  },
   'frigiliana-parking': {
     en: 'Frigiliana Parking',
     de: 'Parken in Frigiliana',
@@ -188,6 +251,17 @@ const PUBLIC_ROUTE_LABELS: Partial<Record<string, Record<AmaraLanguage, string>>
   }
 };
 
+const EXPERIENCE_DETAIL_SLUGS = new Set([
+  'frigiliana-beaches',
+  'frigiliana-hiking',
+  'frigiliana-restaurants',
+  'frigiliana-festivals',
+  'frigiliana-market',
+  'frigiliana-day-trips',
+  'frigiliana-wellness',
+  'nerja-nightlife'
+]);
+
 function getBase(origin: string): string {
   return origin.replace(/\/+$/, '');
 }
@@ -246,24 +320,41 @@ function buildBreadcrumbNode(
 
   const base = getBase(origin);
   const homeUrl = new URL(buildOwnedLocalizedPath('', currentLang), base).href;
+  const itemListElement: SchemaNode[] = [
+    {
+      '@type': 'ListItem',
+      position: 1,
+      name: 'AMARA',
+      item: homeUrl
+    }
+  ];
+
+  if (EXPERIENCE_DETAIL_SLUGS.has(slug)) {
+    const hubSlug = 'explore-frigiliana-nerja';
+    const hubUrl = new URL(
+      buildOwnedLocalizedPath(hubSlug, currentLang),
+      base
+    ).href;
+
+    itemListElement.push({
+      '@type': 'ListItem',
+      position: itemListElement.length + 1,
+      name: resolveRouteLabel(hubSlug, currentLang, 'Experiences'),
+      item: hubUrl
+    });
+  }
+
+  itemListElement.push({
+    '@type': 'ListItem',
+    position: itemListElement.length + 1,
+    name: resolveRouteLabel(slug, currentLang, title),
+    item: canonicalUrl
+  });
 
   return {
     '@type': 'BreadcrumbList',
     '@id': `${canonicalUrl}#breadcrumb`,
-    itemListElement: [
-      {
-        '@type': 'ListItem',
-        position: 1,
-        name: 'AMARA',
-        item: homeUrl
-      },
-      {
-        '@type': 'ListItem',
-        position: 2,
-        name: resolveRouteLabel(slug, currentLang, title),
-        item: canonicalUrl
-      }
-    ]
+    itemListElement
   };
 }
 

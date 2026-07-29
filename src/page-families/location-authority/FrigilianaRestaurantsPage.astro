@@ -3,6 +3,8 @@ import Hero from '../../components/Hero.astro';
 import Navigation from '../../components/Navigation.astro';
 import EditorialClosingCta from '../../components/editorial/EditorialClosingCta.astro';
 import EditorialFeatureGrid from '../../components/editorial/EditorialFeatureGrid.astro';
+import ExperienceContextNav from '../../components/experience/ExperienceContextNav.astro';
+import ExperiencePreFooter from '../../components/experience/ExperiencePreFooter.astro';
 import SectionAnchorNav from '../../components/navigation/SectionAnchorNav.astro';
 import {
   frigilianaRestaurantsContent,
@@ -91,6 +93,7 @@ const heroImage = {
     locationAuthorityNav={true}
   />
   <SectionAnchorNav items={sectionNavItems} />
+  <ExperienceContextNav currentId="restaurants" lang={currentLang} />
 
   <div class="am-root" data-am-page="frigiliana-restaurants">
     <div class="am-wrap w-full">
@@ -315,6 +318,8 @@ const heroImage = {
           }
         </div>
       </section>
+
+      <ExperiencePreFooter currentId="restaurants" lang={currentLang} />
 
       <section class="max-w-screen-2xl mx-auto px-6 pt-24 md:px-12">
         <EditorialClosingCta
