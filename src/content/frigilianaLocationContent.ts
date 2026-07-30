@@ -366,7 +366,7 @@ export const frigilianaLocationCopy = {
       sv: "Läs hela jämförelsen: Frigiliana eller Nerja"
     },
     imagePrimary: {
-      src: "/images/amara-playa/apartment/chaparril-15.webp",
+      src: "/images/amara-frigiliana-pueblo/nerja-coast-aerial.jpeg",
       alt: {
         en: "View of the Nerja coastline",
         de: "Blick auf die Küste von Nerja",
@@ -376,18 +376,18 @@ export const frigilianaLocationCopy = {
       }
     },
     imageSecondary: {
-      src: "/images/amara-frigiliana-pueblo/JPG_Frigiliana_Pueblo/2000px_72dpi_sRGB/06-frigiliana-pueblo.jpg",
+      src: "/images/amara-frigiliana-pueblo/frigiliana-blue-doors.jpeg",
       alt: {
-        en: "Hillside view above Frigiliana",
-        de: "Hanglage oberhalb von Frigiliana",
-        es: "Vista en ladera sobre Frigiliana",
-        nl: "Heuvelzicht boven Frigiliana",
-        sv: "Vy över sluttningen ovanför Frigiliana"
+        en: "Whitewashed houses and blue doors in Frigiliana",
+        de: "Weiß getünchte Häuser und blaue Türen in Frigiliana",
+        es: "Casas encaladas y puertas azules en Frigiliana",
+        nl: "Witgekalkte huizen en blauwe deuren in Frigiliana",
+        sv: "Vitkalkade hus och blå dörrar i Frigiliana"
       }
     }
   },
   villageStructure: {
-    imageSrc: "/images/amara-frigiliana-pueblo/JPG_Frigiliana_Pueblo/2000px_72dpi_sRGB/08-frigiliana-pueblo.jpg",
+    imageSrc: "/images/amara-frigiliana-pueblo/frigiliana-old-town-steps.jpeg",
     imageAlt: {
       en: "Steep steps in Frigiliana old town",
       de: "Steile Stufen in der Altstadt von Frigiliana",

@@ -42,6 +42,18 @@ const PUBLIC_IMAGE_DIMENSIONS: Record<string, PublicImageDimensions> = {
     width: 1920,
     height: 1282,
   },
+  "/images/amara-frigiliana-pueblo/frigiliana-old-town-steps.jpeg": {
+    width: 750,
+    height: 1000,
+  },
+  "/images/amara-frigiliana-pueblo/frigiliana-blue-doors.jpeg": {
+    width: 1000,
+    height: 929,
+  },
+  "/images/amara-frigiliana-pueblo/nerja-coast-aerial.jpeg": {
+    width: 666,
+    height: 1000,
+  },
   "/images/amara-insta-facebook/casa-amara-frigiliana-bonita-purta-de-madeira-farah.jpg": {
     width: 1282,
     height: 1920,

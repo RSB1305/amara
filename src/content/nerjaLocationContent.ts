@@ -359,13 +359,13 @@ export const nerjaLocationCopy = {
       sv: 'Det bästa området i Nerja beror mindre på en enskild sevärdhet och mer på hur dagen ska kännas: strand först, kvällar i gamla stan, lugna nätter eller natur mot Maro.'
     },
     imagePrimary: {
-      src: '/images/amara-playa/apartment/chaparril-13.webp',
+      src: '/images/amara-frigiliana-pueblo/nerja-coast-aerial.jpeg',
       alt: {
-        en: 'AMARA Playa as a Nerja apartment base',
-        de: 'AMARA Playa als Apartment-Basis in Nerja',
-        es: 'AMARA Playa como base de apartamento en Nerja',
-        nl: 'AMARA Playa als appartementbasis in Nerja',
-        sv: 'AMARA Playa som lägenhetsbas i Nerja'
+        en: 'Aerial view of Nerja, its coastline and the Mediterranean',
+        de: 'Luftaufnahme von Nerja, seiner Küste und dem Mittelmeer',
+        es: 'Vista aérea de Nerja, su costa y el Mediterráneo',
+        nl: 'Luchtfoto van Nerja, de kust en de Middellandse Zee',
+        sv: 'Flygvy över Nerja, kusten och Medelhavet'
       }
     },
     imageSecondary: {
