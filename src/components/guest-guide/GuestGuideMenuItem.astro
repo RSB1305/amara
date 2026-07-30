@@ -5,7 +5,7 @@ import type { GuestGuideIconName } from '../../types/guestGuide';
 interface Props {
   icon: GuestGuideIconName;
   title: string;
-  subtitle: string;
+  subtitle?: string;
   href: string;
 }
 
@@ -19,7 +19,7 @@ const { icon, title, subtitle, href } = Astro.props;
     </span>
     <span class="am-ios-item__text">
       <span class="am-ios-title">{title}</span>
-      <span class="am-ios-subtitle">{subtitle}</span>
+      {subtitle && <span class="am-ios-subtitle">{subtitle}</span>}
     </span>
   </span>
   <span class="am-ios-chevron" aria-hidden="true">&rsaquo;</span>

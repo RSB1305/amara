@@ -14,6 +14,7 @@
 import { experienceNavigationContent } from '../content/experienceHubContent';
 import { resolveLink, resolveOptionalLink } from '../lib/linkResolver';
 import { isPublicLinkEnabled } from '../lib/routeOwnership';
+import { AMARA_LANGUAGE_LABELS } from '../lib/languageLabels';
 import type { AmaraLanguage } from '../types/seo';
 
 interface NavLink {
@@ -54,11 +55,11 @@ const {
 } = Astro.props;
 
 const languages: { code: AmaraLanguage; label: string }[] = [
-  { code: 'en', label: 'EN' },
-  { code: 'de', label: 'DE' },
-  { code: 'es', label: 'ES' },
-  { code: 'nl', label: 'NL' },
-  { code: 'sv', label: 'SV' }
+  { code: 'en', label: AMARA_LANGUAGE_LABELS.en },
+  { code: 'de', label: AMARA_LANGUAGE_LABELS.de },
+  { code: 'es', label: AMARA_LANGUAGE_LABELS.es },
+  { code: 'nl', label: AMARA_LANGUAGE_LABELS.nl },
+  { code: 'sv', label: AMARA_LANGUAGE_LABELS.sv }
 ];
 
 const defaultBrandLabels: Record<AmaraLanguage, string> = {
@@ -603,14 +604,14 @@ const resolvedGlobalNavGroups = globalNavGroups.map((group) => {
           </button>
 
           <div class="am-nav__language-popover" data-am-language-panel>
-            <div class="min-w-[92px] bg-surface/95 backdrop-blur-md border border-outline-variant/15 rounded-overlay shadow-lg shadow-black/5 py-3 px-3">
-              <div class="flex flex-col gap-2">
+            <div class="min-w-[144px] bg-surface/95 backdrop-blur-md border border-outline-variant/15 rounded-overlay shadow-lg shadow-black/5 py-3 px-3">
+              <div class="flex flex-col gap-1">
                 {languageOptions.map((lang) => (
                   <a
                     href={lang.href}
-                    class={`font-label text-[11px] font-bold uppercase tracking-[0.14em] transition-colors px-2 py-1 rounded-md ${
+                    class={`font-label text-[13px] transition-colors px-2 py-1.5 rounded-md ${
                       currentLang === lang.code
-                        ? 'text-primary bg-primary/5'
+                        ? 'font-bold text-primary bg-primary/5'
                         : 'text-on-surface/70 hover:text-on-surface hover:bg-surface-container-low'
                     }`}
                   >

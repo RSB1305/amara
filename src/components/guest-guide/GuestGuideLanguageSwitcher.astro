@@ -1,6 +1,8 @@
 ---
+// Native <details>/<summary> dropdown — same no-JS technique as the accordion items.
 import { SUPPORTED_LANGUAGES } from '../../lib/routeOwnership';
 import { guideHref } from '../../lib/guestGuideHref';
+import { AMARA_LANGUAGE_LABELS } from '../../lib/languageLabels';
 import type { AmaraLanguage } from '../../types/seo';
 
 interface Props {
@@ -12,17 +14,23 @@ interface Props {
 const { slug, currentLang, variant = 'inline' } = Astro.props;
 ---
 
-<nav
-  class={`am-lang-switch ${variant === 'overlay' ? 'am-lang-switch--overlay' : ''}`}
-  aria-label="Language"
->
-  {SUPPORTED_LANGUAGES.map((lang) => (
-    <a
-      class="am-lang-switch__link"
-      href={guideHref(slug, lang)}
-      aria-current={lang === currentLang ? 'true' : undefined}
-    >
-      {lang.toUpperCase()}
-    </a>
-  ))}
-</nav>
+<details class={`am-lang-menu ${variant === 'overlay' ? 'am-lang-menu--overlay' : ''}`}>
+  <summary class="am-lang-menu__trigger" aria-label="Change language">
+    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <circle cx="12" cy="12" r="10"></circle>
+      <line x1="2" y1="12" x2="22" y2="12"></line>
+      <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+    </svg>
+  </summary>
+  <nav class="am-lang-menu__panel" aria-label="Language">
+    {SUPPORTED_LANGUAGES.map((lang) => (
+      <a
+        class="am-lang-menu__option"
+        href={guideHref(slug, lang)}
+        aria-current={lang === currentLang ? 'true' : undefined}
+      >
+        {AMARA_LANGUAGE_LABELS[lang]}
+      </a>
+    ))}
+  </nav>
+</details>

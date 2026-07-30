@@ -7,12 +7,15 @@ import type { GuestGuideIconName } from '../../types/guestGuide';
 interface Props {
   icon: GuestGuideIconName;
   title: string;
+  subtitle?: string;
   /** Trusted paragraph HTML (may contain <strong>/<a>), one entry per paragraph. */
   body: string[];
   image?: { src: string; alt: string; caption?: string };
+  images?: { src: string; alt: string; caption?: string }[];
+  actions?: { label: string; href: string; variant?: 'primary' | 'secondary' }[];
 }
 
-const { icon, title, body, image } = Astro.props;
+const { icon, title, subtitle, body, image, images, actions } = Astro.props;
 ---
 
 <details class="am-ios-details">
@@ -21,7 +24,14 @@ const { icon, title, body, image } = Astro.props;
       <span class="am-ios-icon" aria-hidden="true">
         <GuestGuideIcon name={icon} />
       </span>
-      <span class="am-ios-title">{title}</span>
+      {subtitle ? (
+        <span class="am-ios-item__text">
+          <span class="am-ios-title">{title}</span>
+          <span class="am-ios-subtitle">{subtitle}</span>
+        </span>
+      ) : (
+        <span class="am-ios-title">{title}</span>
+      )}
     </span>
     <span class="am-ios-chevron" aria-hidden="true">&rsaquo;</span>
   </summary>
@@ -32,6 +42,26 @@ const { icon, title, body, image } = Astro.props;
         <AmaraImage src={image.src} alt={image.alt} profile="gallery" />
         {image.caption && <figcaption class="am-muted">{image.caption}</figcaption>}
       </figure>
+    )}
+    {images && images.map((img) => (
+      <figure class="am-ios-figure">
+        <AmaraImage src={img.src} alt={img.alt} profile="gallery" />
+        {img.caption && <figcaption class="am-muted">{img.caption}</figcaption>}
+      </figure>
+    ))}
+    {actions && actions.length > 0 && (
+      <div class="am-actions">
+        {actions.map((action) => (
+          <a
+            class={`am-btn ${action.variant === 'secondary' ? 'am-btn--secondary' : 'am-btn--primary'}`}
+            href={action.href}
+            target="_blank"
+            rel="noopener"
+          >
+            {action.label}
+          </a>
+        ))}
+      </div>
     )}
   </div>
 </details>

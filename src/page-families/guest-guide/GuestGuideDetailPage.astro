@@ -3,9 +3,12 @@
 // all three share the same "back + intro + categorized accordion list" shape.
 import GuestGuideLayout from '../../layouts/GuestGuideLayout.astro';
 import GuestGuideAccordionItem from '../../components/guest-guide/GuestGuideAccordionItem.astro';
+import GuestGuideMenuItem from '../../components/guest-guide/GuestGuideMenuItem.astro';
+import GuestGuideWeatherWidget from '../../components/guest-guide/GuestGuideWeatherWidget.astro';
 import GuestGuideLanguageSwitcher from '../../components/guest-guide/GuestGuideLanguageSwitcher.astro';
 import SmartBackButton from '../../components/navigation/SmartBackButton.astro';
 import { guideHref } from '../../lib/guestGuideHref';
+import { buildOwnedLocalizedPath } from '../../lib/routeOwnership';
 import type { AmaraAuthoringSeo, AmaraLanguage } from '../../types/seo';
 import type { GuestGuideDetailEntry } from '../../types/guestGuide';
 
@@ -15,6 +18,22 @@ interface Props {
 }
 
 const { entry, lang } = Astro.props;
+
+const loadingLabel: Record<AmaraLanguage, string> = {
+  en: 'Loading live conditions…',
+  de: 'Live-Daten werden geladen…',
+  es: 'Cargando condiciones en directo…',
+  nl: 'Actuele gegevens laden…',
+  sv: 'Laddar aktuella förhållanden…'
+};
+
+const todayLabel: Record<AmaraLanguage, string> = {
+  en: 'Today',
+  de: 'Heute',
+  es: 'Hoy',
+  nl: 'Vandaag',
+  sv: 'Idag'
+};
 
 const seo: AmaraAuthoringSeo = {
   version: 'guest-guide-v1',
@@ -41,24 +60,76 @@ const seo: AmaraAuthoringSeo = {
       <span class="am-kicker">{entry.kicker[lang]}</span>
       <h1 class="am-hero-title">{entry.title[lang]}</h1>
       {entry.intro && <p>{entry.intro[lang]}</p>}
+      {entry.authorityLink && (
+        <p class="am-muted">
+          <a class="am-link" href={buildOwnedLocalizedPath(entry.authorityLink.targetSlug, lang)}>
+            {entry.authorityLink.label[lang]}
+          </a>
+        </p>
+      )}
     </section>
 
     {entry.categories.map((category) => (
       <Fragment>
         <h2 class="am-ios-category">{category.heading[lang]}</h2>
+        {category.intro && (
+          <div class="am-prose am-prose--category-intro">
+            {category.intro.map((paragraph) => <p set:html={paragraph[lang]} />)}
+          </div>
+        )}
         <section>
-          {category.items.map((item) => (
-            <GuestGuideAccordionItem
-              icon={item.icon}
-              title={item.title[lang]}
-              body={item.body.map((paragraph) => paragraph[lang])}
-              image={item.image && {
-                src: item.image.src,
-                alt: item.image.alt[lang],
-                caption: item.image.caption?.[lang]
-              }}
-            />
-          ))}
+          {category.items.map((item) => {
+            if (item.kind === 'link') {
+              return (
+                <GuestGuideMenuItem
+                  icon={item.icon}
+                  title={item.title[lang]}
+                  subtitle={item.subtitle?.[lang]}
+                  href={guideHref(item.targetSlug, lang)}
+                />
+              );
+            }
+
+            if (item.kind === 'weather') {
+              return (
+                <GuestGuideWeatherWidget
+                  icon={item.icon}
+                  title={item.title[lang]}
+                  loadingLabel={loadingLabel[lang]}
+                  todayLabel={todayLabel[lang]}
+                  lat={item.lat}
+                  lon={item.lon}
+                  locationName={item.locationName}
+                  lang={lang}
+                  introBody={item.introBody.map((paragraph) => paragraph[lang])}
+                />
+              );
+            }
+
+            return (
+              <GuestGuideAccordionItem
+                icon={item.icon}
+                title={item.title[lang]}
+                subtitle={item.subtitle?.[lang]}
+                body={item.body.map((paragraph) => paragraph[lang])}
+                image={item.image && {
+                  src: item.image.src,
+                  alt: item.image.alt[lang],
+                  caption: item.image.caption?.[lang]
+                }}
+                images={item.images?.map((img) => ({
+                  src: img.src,
+                  alt: img.alt[lang],
+                  caption: img.caption?.[lang]
+                }))}
+                actions={item.actions?.map((action) => ({
+                  label: action.label[lang],
+                  href: action.href,
+                  variant: action.variant
+                }))}
+              />
+            );
+          })}
         </section>
       </Fragment>
     ))}

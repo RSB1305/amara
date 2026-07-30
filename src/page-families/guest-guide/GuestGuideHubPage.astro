@@ -57,6 +57,11 @@ const seo: AmaraAuthoringSeo = {
 
       <div class="am-btn-row">
         <a href={entry.ctaHref} class="am-btn am-btn--primary">{entry.ctaLabel[lang]}</a>
+        {entry.secondaryCtaHref && entry.secondaryCtaLabel && (
+          <a href={entry.secondaryCtaHref} class="am-btn am-btn--secondary" target="_blank" rel="noopener">
+            {entry.secondaryCtaLabel[lang]}
+          </a>
+        )}
       </div>
 
       <p set:html={entry.signOff[lang]} />
