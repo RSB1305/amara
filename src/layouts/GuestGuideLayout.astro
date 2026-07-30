@@ -1,0 +1,51 @@
+---
+// Minimal shell for internal, noindex Guest Guide pages.
+// Deliberately does NOT use BaseLayout: no marketing Navigation/Footer/BackToTop,
+// no reserved top padding for the fixed nav — this is meant to feel like a small
+// native app, not a marketing page. Still reuses the shared SEO head resolver so
+// noindex/title/description/canonical logic stays centralized with the rest of the site.
+import type { AmaraAuthoringSeo, AmaraLanguage } from '../types/seo';
+import { normalizeLanguage, resolveSeoHead } from '../lib/seo/resolve-seo-head';
+import { resolveStructuredData } from '../lib/seo/resolve-structured-data';
+import GuestGuideSupportFloat from '../components/guest-guide/GuestGuideSupportFloat.astro';
+import '../styles/global.css';
+
+interface Props {
+  seo: AmaraAuthoringSeo;
+  pageLang: AmaraLanguage;
+  supportHref: string;
+  supportLabel: string;
+}
+
+const { seo, pageLang, supportHref, supportLabel } = Astro.props;
+
+const pathname = Astro.url.pathname;
+const currentLang = normalizeLanguage(pageLang);
+const origin = Astro.url.origin;
+const head = resolveSeoHead(seo, origin, pathname, currentLang);
+const ldJson = resolveStructuredData(seo, head.canonicalUrl, currentLang, origin);
+---
+
+<!DOCTYPE html>
+<html lang={currentLang} class="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="generator" content={Astro.generator} />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+
+    <title>{head.current.title}</title>
+    <meta name="description" content={head.current.description} />
+    <meta name="robots" content={head.current.robots} />
+    <link rel="canonical" href={head.canonicalUrl} />
+    {ldJson && <script type="application/ld+json" set:html={ldJson} />}
+  </head>
+
+  <body class="am-root bg-surface text-on-surface font-body antialiased">
+    <div class="am-wrap">
+      <slot />
+    </div>
+    <GuestGuideSupportFloat href={supportHref} label={supportLabel} />
+  </body>
+</html>

@@ -1,0 +1,66 @@
+---
+// Shared template for Accommodation / Essentials / Recommendations —
+// all three share the same "back + intro + categorized accordion list" shape.
+import GuestGuideLayout from '../../layouts/GuestGuideLayout.astro';
+import GuestGuideAccordionItem from '../../components/guest-guide/GuestGuideAccordionItem.astro';
+import GuestGuideLanguageSwitcher from '../../components/guest-guide/GuestGuideLanguageSwitcher.astro';
+import SmartBackButton from '../../components/navigation/SmartBackButton.astro';
+import { guideHref } from '../../lib/guestGuideHref';
+import type { AmaraAuthoringSeo, AmaraLanguage } from '../../types/seo';
+import type { GuestGuideDetailEntry } from '../../types/guestGuide';
+
+interface Props {
+  entry: GuestGuideDetailEntry;
+  lang: AmaraLanguage;
+}
+
+const { entry, lang } = Astro.props;
+
+const seo: AmaraAuthoringSeo = {
+  version: 'guest-guide-v1',
+  pageType: 'D',
+  entityKey: entry.entityKey,
+  languages: {
+    en: { title: entry.seoTitle.en, description: entry.seoDescription.en, robots: 'noindex, follow', canonical: 'auto' },
+    de: { title: entry.seoTitle.de, description: entry.seoDescription.de, robots: 'noindex, follow', canonical: 'auto' },
+    es: { title: entry.seoTitle.es, description: entry.seoDescription.es, robots: 'noindex, follow', canonical: 'auto' },
+    nl: { title: entry.seoTitle.nl, description: entry.seoDescription.nl, robots: 'noindex, follow', canonical: 'auto' },
+    sv: { title: entry.seoTitle.sv, description: entry.seoDescription.sv, robots: 'noindex, follow', canonical: 'auto' }
+  }
+};
+---
+
+<GuestGuideLayout seo={seo} pageLang={lang} supportHref={entry.supportHref} supportLabel={entry.supportLabel[lang]}>
+  <main class="am-main">
+    <div class="am-ios-back am-ios-back--row">
+      <SmartBackButton fallbackHref={guideHref(entry.backSlug, lang)} label="Back" variant="icon" />
+      <GuestGuideLanguageSwitcher slug={entry.slug} currentLang={lang} />
+    </div>
+
+    <section class="am-prose">
+      <span class="am-kicker">{entry.kicker[lang]}</span>
+      <h1 class="am-hero-title">{entry.title[lang]}</h1>
+      {entry.intro && <p>{entry.intro[lang]}</p>}
+    </section>
+
+    {entry.categories.map((category) => (
+      <Fragment>
+        <h2 class="am-ios-category">{category.heading[lang]}</h2>
+        <section>
+          {category.items.map((item) => (
+            <GuestGuideAccordionItem
+              icon={item.icon}
+              title={item.title[lang]}
+              body={item.body.map((paragraph) => paragraph[lang])}
+              image={item.image && {
+                src: item.image.src,
+                alt: item.image.alt[lang],
+                caption: item.image.caption?.[lang]
+              }}
+            />
+          ))}
+        </section>
+      </Fragment>
+    ))}
+  </main>
+</GuestGuideLayout>

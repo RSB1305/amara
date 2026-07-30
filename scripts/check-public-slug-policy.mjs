@@ -16,7 +16,10 @@ const approvedDynamicPageSlugs = new Set(DYNAMIC_CANONICAL_PUBLIC_SLUGS);
 const ignoredRouteFiles = new Set([
   '404.astro',
   'index.astro',
-  '[rentalSlug].astro'
+  '[rentalSlug].astro',
+  // Internal, noindex Guest Guide pages — governed by src/content/guestGuideEntries.ts,
+  // deliberately kept out of the canonical public slug allowlist.
+  '[guideSlug].astro'
 ]);
 const sourceExtensions = new Set(['.astro', '.ts', '.js', '.mjs']);
 const supportedLocalePrefixes = new Set(['de', 'en', 'es', 'nl', 'sv']);

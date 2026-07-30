@@ -1,0 +1,28 @@
+---
+import { SUPPORTED_LANGUAGES } from '../../lib/routeOwnership';
+import { guideHref } from '../../lib/guestGuideHref';
+import type { AmaraLanguage } from '../../types/seo';
+
+interface Props {
+  slug: string;
+  currentLang: AmaraLanguage;
+  variant?: 'overlay' | 'inline';
+}
+
+const { slug, currentLang, variant = 'inline' } = Astro.props;
+---
+
+<nav
+  class={`am-lang-switch ${variant === 'overlay' ? 'am-lang-switch--overlay' : ''}`}
+  aria-label="Language"
+>
+  {SUPPORTED_LANGUAGES.map((lang) => (
+    <a
+      class="am-lang-switch__link"
+      href={guideHref(slug, lang)}
+      aria-current={lang === currentLang ? 'true' : undefined}
+    >
+      {lang.toUpperCase()}
+    </a>
+  ))}
+</nav>

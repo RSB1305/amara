@@ -1,0 +1,17 @@
+---
+import GuestGuideHubPage from './GuestGuideHubPage.astro';
+import GuestGuideDetailPage from './GuestGuideDetailPage.astro';
+import type { AmaraLanguage } from '../../types/seo';
+import type { GuestGuideEntry } from '../../types/guestGuide';
+
+interface Props {
+  entry: GuestGuideEntry;
+  lang: AmaraLanguage;
+}
+
+const { entry, lang } = Astro.props;
+---
+
+{entry.type === 'hub'
+  ? <GuestGuideHubPage entry={entry} lang={lang} />
+  : <GuestGuideDetailPage entry={entry} lang={lang} />}

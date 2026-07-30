@@ -18,7 +18,16 @@
       "Bash(grep -oE '<h1[^>]*>.{0,150}' dist/index.html)",
       "Bash(grep -oE 'alt=\"[^\"]{0,80}\"' dist/frigiliana-location.html)",
       "Bash(echo \"exit code: $?\")",
-      "Bash(node -e ' *)"
+      "Bash(node -e ' *)",
+      "Bash(npm run *)",
+      "Bash(netstat -ano)",
+      "Bash(ls -la \"C:\\\\Users\\\\marku\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\C--Users-marku-Documents-Project-2030-plus-frigiliana\\\\87978deb-602c-4574-a0bb-1a15bfa63966\\\\scratchpad\" 2>/dev/null; echo \"---\"; find \"C:\\\\Users\\\\marku\\\\AppData\\\\Local\\\\Temp\\\\claude\" -newermt \"-10 minutes\" -type f 2>/dev/null | grep -iv scratchpad | head -50)",
+      "Read(//c/Users/marku/Downloads/**)",
+      "Read(//c/Users/marku/**)",
+      "Bash(curl -s \"http://localhost:4321/en/guesthome-frigiliana-farah\")",
+      "Bash(taskkill //PID 17868 //F)",
+      "Bash(git add *)",
+      "Bash(git commit -m ' *)"
     ]
   }
 }

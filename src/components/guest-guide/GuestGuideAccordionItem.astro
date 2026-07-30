@@ -1,0 +1,37 @@
+---
+// Native <details>/<summary> + Tailwind `group-open:` — same no-JS technique as FaqAccordion.astro.
+import GuestGuideIcon from './GuestGuideIcon.astro';
+import AmaraImage from '../AmaraImage.astro';
+import type { GuestGuideIconName } from '../../types/guestGuide';
+
+interface Props {
+  icon: GuestGuideIconName;
+  title: string;
+  /** Trusted paragraph HTML (may contain <strong>/<a>), one entry per paragraph. */
+  body: string[];
+  image?: { src: string; alt: string; caption?: string };
+}
+
+const { icon, title, body, image } = Astro.props;
+---
+
+<details class="am-ios-details">
+  <summary class="am-ios-item">
+    <span class="am-ios-item__left">
+      <span class="am-ios-icon" aria-hidden="true">
+        <GuestGuideIcon name={icon} />
+      </span>
+      <span class="am-ios-title">{title}</span>
+    </span>
+    <span class="am-ios-chevron" aria-hidden="true">&rsaquo;</span>
+  </summary>
+  <div class="am-ios-panel">
+    {body.map((paragraph) => <p set:html={paragraph} />)}
+    {image && (
+      <figure class="am-ios-figure">
+        <AmaraImage src={image.src} alt={image.alt} profile="gallery" />
+        {image.caption && <figcaption class="am-muted">{image.caption}</figcaption>}
+      </figure>
+    )}
+  </div>
+</details>

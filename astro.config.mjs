@@ -6,6 +6,7 @@ import { defineConfig } from 'astro/config';
 import tailwindcss from '@tailwindcss/vite';
 import react from '@astrojs/react';
 import sitemap from '@astrojs/sitemap';
+import { guestGuideEntries } from './src/content/guestGuideEntries.ts';
 
 function removeToolsFromDist() {
   return {
@@ -58,7 +59,9 @@ const sitemapExcludedSlugs = new Set([
   'structuur-en-trappen-van-de-frigiliana-site',
   'frigiliana-tomtens-struktur-och-trappor',
   'instagram',
-  'test'
+  'test',
+  // Internal, noindex Guest Guide pages must never appear in the sitemap.
+  ...guestGuideEntries.map((entry) => entry.slug)
 ]);
 const sitemapHomePathnames = new Set(['/']);
 

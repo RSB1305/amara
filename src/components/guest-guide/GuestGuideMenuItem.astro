@@ -1,0 +1,26 @@
+---
+import GuestGuideIcon from './GuestGuideIcon.astro';
+import type { GuestGuideIconName } from '../../types/guestGuide';
+
+interface Props {
+  icon: GuestGuideIconName;
+  title: string;
+  subtitle: string;
+  href: string;
+}
+
+const { icon, title, subtitle, href } = Astro.props;
+---
+
+<a class="am-ios-item" href={href}>
+  <span class="am-ios-item__left">
+    <span class="am-ios-icon" aria-hidden="true">
+      <GuestGuideIcon name={icon} />
+    </span>
+    <span class="am-ios-item__text">
+      <span class="am-ios-title">{title}</span>
+      <span class="am-ios-subtitle">{subtitle}</span>
+    </span>
+  </span>
+  <span class="am-ios-chevron" aria-hidden="true">&rsaquo;</span>
+</a>

@@ -1,0 +1,50 @@
+---
+import type { GuestGuideIconName } from '../../types/guestGuide';
+
+interface Props {
+  name: GuestGuideIconName;
+  class?: string;
+}
+
+const { name, class: className = '' } = Astro.props;
+
+/**
+ * Paths are ported verbatim from the source Guest Guide HTML so the ported
+ * pages stay pixel-identical to the icon set already designed for the app.
+ */
+const icons: Record<GuestGuideIconName, string[]> = {
+  accommodation: ['M3 11l9-8 9 8', 'M5 10v10h14V10', 'M9 20v-6h6v6'],
+  'location-pin': [
+    'M12 21s-6-4.4-6-10a6 6 0 1 1 12 0c0 5.6-6 10-6 10z',
+    'M12 11a2 2 0 1 0 0-4 2 2 0 0 0 0 4z'
+  ],
+  compass: ['M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18z', 'M14 10l2-2-3 5-5 3 2-2 3-5z'],
+  car: ['M3 16l1-5 2-4h12l2 4 1 5', 'M5 16v3', 'M19 16v3', 'M7 16h10', 'M7 11h10'],
+  wifi: ['M5 9c4.5-4 9.5-4 14 0', 'M8 12c3-2.7 5-2.7 8 0', 'M11 15c1.2-1 1.8-1 3 0', 'M12 18h0'],
+  climate: ['M12 2v20', 'M2 12h20', 'M4.9 4.9l14.2 14.2', 'M19.1 4.9L4.9 19.1'],
+  coffee: ['M6 8h10v6a4 4 0 0 1-4 4H10a4 4 0 0 1-4-4V8z', 'M16 10h2a2 2 0 0 1 0 4h-2', 'M6 20h10'],
+  sparkle: ['M12 3l1.5 3.5L17 8l-3.5 1.5L12 13l-1.5-3.5L7 8l3.5-1.5L12 3z', 'M19 14l1 2 2 1-2 1-1 2-1-2-2-1 2-1 1-2z'],
+  trash: ['M6 7h12', 'M9 7V5h6v2', 'M8 7l1 14h6l1-14', 'M10 11v6', 'M14 11v6'],
+  moon: ['M20 15.5A8 8 0 0 1 8.5 4a8 8 0 1 0 11.5 11.5z'],
+  'tap-water': ['M4 14h16', 'M12 2v8', 'M8 10h8', 'M6 18a6 6 0 0 0 12 0'],
+  'no-smoking': ['M3 12h18', 'M7 6l10 12', 'M18 6a2 2 0 1 0 0.001 0'],
+  ventilate: ['M3 12h6', 'M15 12h6', 'M12 3v6', 'M12 15v6'],
+  departure: ['M7 12v-1a2 2 0 1 1 4 0v1', 'M13 12v-2a2 2 0 1 1 4 0v4', 'M7 12v5a3 3 0 0 0 3 3h4a3 3 0 0 0 3-3v-3', 'M7 14l-2-2'],
+  'late-checkout': ['M12 7v5l3 2', 'M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18z']
+};
+
+const paths = icons[name];
+---
+
+<svg
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="1.75"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+  class={className}
+  aria-hidden="true"
+>
+  {paths.map((d) => <path d={d} />)}
+</svg>
