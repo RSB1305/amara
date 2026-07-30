@@ -359,11 +359,11 @@ export const frigilianaLocationCopy = {
       ]
     },
     cta: {
-      en: "",
+      en: "Read the full Frigiliana or Nerja comparison",
       de: "Ausführlicher Vergleich: Frigiliana oder Nerja",
-      es: "",
-      nl: "",
-      sv: ""
+      es: "Comparativa completa: Frigiliana o Nerja",
+      nl: "Uitgebreide vergelijking: Frigiliana of Nerja",
+      sv: "Läs hela jämförelsen: Frigiliana eller Nerja"
     },
     imagePrimary: {
       src: "/images/amara-playa/apartment/chaparril-15.webp",

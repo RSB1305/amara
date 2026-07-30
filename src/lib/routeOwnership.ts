@@ -1,43 +1,10 @@
 import type { AmaraLanguage } from '../types/seo';
+import { CANONICAL_PUBLIC_SLUGS } from './canonicalPublicSlugs.mjs';
 
 export const DEFAULT_LANGUAGE: AmaraLanguage = 'es';
 export const SUPPORTED_LANGUAGES: AmaraLanguage[] = ['en', 'de', 'es', 'nl', 'sv'];
 
-const ROOT_SPANISH_PUBLIC_SLUGS = new Set([
-  '',
-  'amara-about-us',
-  'direct-booking-benefits',
-  'guest-reviews',
-  'comfort-amenities',
-  'faq-general',
-  'legal-notice',
-  'frigiliana-faq',
-  'frigiliana-location',
-  'nerja-location',
-  'nerja-nightlife',
-  'tarifa-location',
-  'frigiliana-market',
-  'frigiliana-beaches',
-  'frigiliana-hiking',
-  'frigiliana-restaurants',
-  'frigiliana-festivals',
-  'frigiliana-wellness',
-  'frigiliana-day-trips',
-  'explore-frigiliana-nerja',
-  'frigiliana-parking',
-  'frigiliana-streets-stairs',
-  'frigiliana-weather',
-  'getting-to-frigiliana',
-  'instagram',
-  'directions-arrival-guide',
-  'romantic-hideaways',
-  'la-amara-farah',
-  'la-amara-lounis',
-  'la-amara-zaid',
-  'la-amara-maha',
-  'la-amara-playa',
-  'la-amara-family-and-surf'
-]);
+const ROOT_SPANISH_PUBLIC_SLUGS = new Set(CANONICAL_PUBLIC_SLUGS);
 
 const DISABLED_PUBLIC_ROUTE_TOKENS = new Set([
   'locations_hub',

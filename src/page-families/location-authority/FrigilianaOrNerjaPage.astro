@@ -3,9 +3,9 @@ import Hero from '../../components/Hero.astro';
 import Navigation from '../../components/Navigation.astro';
 import LocationContextNav from '../../components/location/LocationContextNav.astro';
 import {
-  frigilianaOderNerjaContent,
-  frigilianaOderNerjaSeo
-} from '../../content/frigilianaOderNerjaContent';
+  frigilianaOrNerjaContent,
+  frigilianaOrNerjaSeo
+} from '../../content/frigilianaOrNerjaContent';
 import { frigilianaLocationCopy } from '../../content/frigilianaLocationContent';
 import LocationAuthorityLayout from '../../layouts/LocationAuthorityLayout.astro';
 import { resolveOptionalLink } from '../../lib/linkResolver';
@@ -16,15 +16,9 @@ interface Props {
   lang?: string;
 }
 
-const { lang = 'de' } = Astro.props;
+const { lang = 'es' } = Astro.props;
 const currentLang = normalizeLanguage(lang as AmaraLanguage);
-const copy = frigilianaOderNerjaContent[currentLang];
-
-if (!copy) {
-  throw new Error(
-    `[AMARA] Frigiliana-or-Nerja copy is not published for "${currentLang}".`
-  );
-}
+const copy = frigilianaOrNerjaContent[currentLang];
 
 const navLinks = frigilianaLocationCopy.nav.links.map((link) => ({
   token: link.token,
@@ -57,18 +51,50 @@ const links = {
   gettingToFrigiliana: requiredLink('getting_to_frigiliana')
 };
 
+const footerLabels: Record<
+  AmaraLanguage,
+  { apartments: string; frigiliana: string; nerja: string }
+> = {
+  en: {
+    apartments: 'Apartments for couples',
+    frigiliana: 'Frigiliana guide',
+    nerja: 'Nerja guide'
+  },
+  de: {
+    apartments: 'Apartments für Paare',
+    frigiliana: 'Frigiliana-Guide',
+    nerja: 'Nerja-Guide'
+  },
+  es: {
+    apartments: 'Apartamentos para parejas',
+    frigiliana: 'Guía de Frigiliana',
+    nerja: 'Guía de Nerja'
+  },
+  nl: {
+    apartments: 'Appartementen voor stellen',
+    frigiliana: 'Frigiliana-gids',
+    nerja: 'Nerja-gids'
+  },
+  sv: {
+    apartments: 'Lägenheter för par',
+    frigiliana: 'Guide till Frigiliana',
+    nerja: 'Guide till Nerja'
+  }
+};
+
+const footer = footerLabels[currentLang];
 const footerHighlights = [
   {
     token: 'romantic_hideaways',
-    label: 'Apartments für Paare'
+    label: footer.apartments
   },
   {
     token: 'location_frigiliana',
-    label: 'Frigiliana-Guide'
+    label: footer.frigiliana
   },
   {
     token: 'location_nerja',
-    label: 'Nerja-Guide'
+    label: footer.nerja
   }
 ];
 
@@ -80,7 +106,7 @@ const heroImage = {
 ---
 
 <LocationAuthorityLayout
-  seo={frigilianaOderNerjaSeo}
+  seo={frigilianaOrNerjaSeo}
   pageLang={currentLang}
   footerHighlights={footerHighlights}
 >
@@ -93,7 +119,7 @@ const heroImage = {
   />
   <LocationContextNav activeId="comparison" lang={currentLang} />
 
-  <div class="am-root" data-am-page="frigiliana-oder-nerja">
+  <div class="am-root" data-am-page="frigiliana-or-nerja">
     <div class="am-wrap w-full">
       <div id="intro">
         <Hero

@@ -337,15 +337,11 @@ const sectionOrder = getFrigilianaLocationSectionOrder(currentLang);
               imagePrimary={c.comparison.imagePrimary}
               imageSecondary={c.comparison.imageSecondary}
             />
-            {
-              currentLang === 'de' && (
-                <div class="max-w-screen-2xl mx-auto px-12 pb-32 -mt-24">
-                  <a href={comparisonHref} class="am-cta-link">
-                    {c.comparison.cta}
-                  </a>
-                </div>
-              )
-            }
+            <div class="max-w-screen-2xl mx-auto px-12 pb-32 -mt-24">
+              <a href={comparisonHref} class="am-cta-link">
+                {c.comparison.cta}
+              </a>
+            </div>
           </section>
         </Fragment>
 

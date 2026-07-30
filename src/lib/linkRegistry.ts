@@ -300,11 +300,11 @@ legal_notice: {
       sv: buildOwnedLocalizedPath('getting-to-frigiliana', 'sv')
     },
     nerja_vs_frigiliana: {
-      en: `${buildOwnedLocalizedPath('frigiliana-location', 'en')}#comparison`,
-      de: buildOwnedLocalizedPath('frigiliana-oder-nerja', 'de'),
-      es: `${buildOwnedLocalizedPath('frigiliana-location', 'es')}#comparison`,
-      nl: `${buildOwnedLocalizedPath('frigiliana-location', 'nl')}#comparison`,
-      sv: `${buildOwnedLocalizedPath('frigiliana-location', 'sv')}#comparison`
+      en: buildOwnedLocalizedPath('frigiliana-or-nerja', 'en'),
+      de: buildOwnedLocalizedPath('frigiliana-or-nerja', 'de'),
+      es: buildOwnedLocalizedPath('frigiliana-or-nerja', 'es'),
+      nl: buildOwnedLocalizedPath('frigiliana-or-nerja', 'nl'),
+      sv: buildOwnedLocalizedPath('frigiliana-or-nerja', 'sv')
     },
     weather_frigiliana: {
       en: buildOwnedLocalizedPath('frigiliana-weather', 'en'),

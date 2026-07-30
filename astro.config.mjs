@@ -117,6 +117,7 @@ export default defineConfig({
   },
   trailingSlash: 'never',
   redirects: {
+    '/de/frigiliana-oder-nerja': '/de/frigiliana-or-nerja',
     '/arrival-parking-guide': '/getting-to-frigiliana',
     '/es/arrival-parking-guide': '/getting-to-frigiliana',
     '/es/frigiliana-arrival-parking-guide': '/getting-to-frigiliana',
