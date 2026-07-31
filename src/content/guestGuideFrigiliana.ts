@@ -6282,14 +6282,53 @@ const nerjaEssentials: GuestGuideEntry = {
       items: [
         {
           icon: 'warning',
-          title: { en: 'Emergency', de: 'Notfall', es: 'Emergencias', nl: 'Noodgeval', sv: 'Nödsituation' },
+          title: {
+            en: 'Emergency – Call 112',
+            de: 'Notfall – 112 anrufen',
+            es: 'Emergencias – Llamar al 112',
+            nl: 'Noodgeval – Bel 112',
+            sv: 'Nödsituation – Ring 112'
+          },
           body: [
             {
-              en: 'In any emergency, call <strong>112</strong> (Spain-wide emergency number).<br><br><strong>If the emergency happens while you are inside the house:</strong><br>Please share this address with emergency services:<br><strong>Calle Castilla Pérez 60<br>29780 Nerja</strong><br><br><strong>Medical Assistance</strong><br>The nearest 24-hour public health center is <a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Centro+de+Salud+Nerja" target="_blank" rel="noopener">Centro de Salud Nerja</a> (approx. 5 minutes on foot).<br><br>Pharmacies are marked with illuminated green crosses, and duty pharmacy information is posted on every pharmacy door.',
-              de: 'In jedem Notfall wählt die <strong>112</strong> (spanienweite Notrufnummer).<br><br><strong>Wenn der Notfall eintritt, während ihr im Haus seid:</strong><br>Bitte gebt den Rettungskräften diese Adresse durch:<br><strong>Calle Castilla Pérez 60<br>29780 Nerja</strong><br><br><strong>Medizinische Versorgung</strong><br>Das nächstgelegene öffentliche Gesundheitszentrum (24 Stunden geöffnet) ist das <a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Centro+de+Salud+Nerja" target="_blank" rel="noopener">Centro de Salud Nerja</a> (ca. 5 Minuten zu Fuß entfernt).<br><br>Apotheken erkennt ihr an den leuchtend grünen Kreuzen. Informationen zur Notdienstapotheke hängen an jeder Apothekentür aus.',
-              es: 'En caso de cualquier emergencia, llamad al <strong>112</strong> (número de emergencias de toda España).<br><br><strong>Si la emergencia ocurre mientras estáis dentro de la casa:</strong><br>Por favor, facilitad esta dirección a los servicios de emergencia:<br><strong>Calle Castilla Pérez 60<br>29780 Nerja</strong><br><br><strong>Asistencia médica</strong><br>El centro de salud público 24 horas más cercano es el <a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Centro+de+Salud+Nerja" target="_blank" rel="noopener">Centro de Salud Nerja</a> (aprox. 5 minutos a pie).<br><br>Las farmacias están señalizadas con cruces verdes luminosas, y la información sobre la farmacia de guardia está expuesta en la puerta de cada farmacia.',
-              nl: 'Bel in geval van nood <strong>112</strong> (het alarmnummer voor heel Spanje).<br><br><strong>Als het noodgeval plaatsvindt terwijl jullie in het huis zijn:</strong><br>Geef dit adres door aan de hulpdiensten:<br><strong>Calle Castilla Pérez 60<br>29780 Nerja</strong><br><br><strong>Medische hulp</strong><br>Het dichtstbijzijnde 24-uurs openbare gezondheidscentrum is <a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Centro+de+Salud+Nerja" target="_blank" rel="noopener">Centro de Salud Nerja</a> (ca. 5 minuten lopen).<br><br>Apotheken zijn te herkennen aan verlichte groene kruisen, en informatie over de dienstdoende apotheek hangt op de deur van elke apotheek.',
-              sv: 'Vid en nödsituation, ring <strong>112</strong> (larmnummer i hela Spanien).<br><br><strong>Om nödsituationen inträffar medan ni är i huset:</strong><br>Vänligen uppge den här adressen till räddningstjänsten:<br><strong>Calle Castilla Pérez 60<br>29780 Nerja</strong><br><br><strong>Sjukvård</strong><br>Närmaste dygnet runt-öppna offentliga vårdcentral är <a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Centro+de+Salud+Nerja" target="_blank" rel="noopener">Centro de Salud Nerja</a> (ca 5 minuter till fots).<br><br>Apotek är markerade med upplysta gröna kors, och information om jourhavande apotek sitter på varje apoteksdörr.'
+              en: '<strong>Emergency – Call 112</strong> (Spain-wide emergency number).',
+              de: '<strong>Notfall – 112 anrufen</strong> (spanienweite Notrufnummer).',
+              es: '<strong>Emergencias – Llamad al 112</strong> (número de emergencias de toda España).',
+              nl: '<strong>Noodgeval – Bel 112</strong> (het alarmnummer voor heel Spanje).',
+              sv: '<strong>Nödsituation – Ring 112</strong> (larmnummer i hela Spanien).'
+            },
+            {
+              en: '<strong>If the emergency happens while you are inside the house:</strong><br>Please share this address with emergency services:<br><strong>Calle Castilla Pérez 60<br>Apartment 5-2<br>29780 Nerja</strong>',
+              de: '<strong>Wenn der Notfall eintritt, während ihr im Haus seid:</strong><br>Bitte gebt den Rettungskräften diese Adresse durch:<br><strong>Calle Castilla Pérez 60<br>Apartment 5-2<br>29780 Nerja</strong>',
+              es: '<strong>Si la emergencia ocurre mientras estáis dentro de la casa:</strong><br>Facilitad esta dirección a los servicios de emergencia:<br><strong>Calle Castilla Pérez 60<br>Apartment 5-2<br>29780 Nerja</strong>',
+              nl: '<strong>Als het noodgeval plaatsvindt terwijl jullie in het huis zijn:</strong><br>Geef dit adres door aan de hulpdiensten:<br><strong>Calle Castilla Pérez 60<br>Apartment 5-2<br>29780 Nerja</strong>',
+              sv: '<strong>Om nödsituationen inträffar medan ni är i huset:</strong><br>Uppge den här adressen till räddningstjänsten:<br><strong>Calle Castilla Pérez 60<br>Apartment 5-2<br>29780 Nerja</strong>'
+            }
+          ]
+        },
+        {
+          icon: 'medical',
+          title: {
+            en: '24-Hour Medical Assistance',
+            de: '24-Stunden medizinische Versorgung',
+            es: 'Asistencia médica 24 horas',
+            nl: '24-uurs medische hulp',
+            sv: 'Medicinsk hjälp dygnet runt'
+          },
+          body: [
+            {
+              en: 'For non-emergency medical care, the nearest 24-hour public health center is <a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Centro+de+Salud+Nerja" target="_blank" rel="noopener"><strong>Centro de Salud Nerja</strong></a>, about <strong>5 minutes on foot</strong>.',
+              de: 'Für nicht akute medizinische Anliegen ist das nächstgelegene 24-Stunden-Gesundheitszentrum das <a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Centro+de+Salud+Nerja" target="_blank" rel="noopener"><strong>Centro de Salud Nerja</strong></a>, etwa <strong>5 Minuten zu Fuß entfernt</strong>.',
+              es: 'Para asuntos médicos que no sean una emergencia, el centro de salud público de 24 horas más cercano es el <a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Centro+de+Salud+Nerja" target="_blank" rel="noopener"><strong>Centro de Salud Nerja</strong></a>, a unos <strong>5 minutos a pie</strong>.',
+              nl: 'Voor niet-spoedeisende medische zaken is het dichtstbijzijnde 24-uurs gezondheidscentrum <a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Centro+de+Salud+Nerja" target="_blank" rel="noopener"><strong>Centro de Salud Nerja</strong></a>, op ongeveer <strong>5 minuten lopen</strong>.',
+              sv: 'För icke-akuta medicinska ärenden är närmaste dygnet-runt-öppna vårdcentral <a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Centro+de+Salud+Nerja" target="_blank" rel="noopener"><strong>Centro de Salud Nerja</strong></a>, cirka <strong>5 minuter till fots</strong>.'
+            },
+            {
+              en: '<strong>C. Carlos Millón, s/n<br>29780 Nerja, Málaga</strong>',
+              de: '<strong>C. Carlos Millón, s/n<br>29780 Nerja, Málaga</strong>',
+              es: '<strong>C. Carlos Millón, s/n<br>29780 Nerja, Málaga</strong>',
+              nl: '<strong>C. Carlos Millón, s/n<br>29780 Nerja, Málaga</strong>',
+              sv: '<strong>C. Carlos Millón, s/n<br>29780 Nerja, Málaga</strong>'
             }
           ]
         },
@@ -6303,6 +6342,13 @@ const nerjaEssentials: GuestGuideEntry = {
               es: 'Para medicinas básicas o pequeñas necesidades, os recomendamos empezar por la <a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Farmacia+Nerja" target="_blank" rel="noopener"><strong>farmacia de la Calle Castilla Pérez</strong></a>.<br><br>Si está cerrada, buscad el aviso <em>“Farmacia de guardia”</em>, donde se indica qué farmacia está de guardia en ese momento. Si parece algo más urgente, es mejor no esperar demasiado y usar asistencia médica.',
               nl: 'Voor gewone medicijnen of kleine benodigdheden raden we aan om eerst de <a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Farmacia+Nerja" target="_blank" rel="noopener"><strong>apotheek in Calle Castilla Pérez</strong></a> te proberen.<br><br>Als die gesloten is, let dan op de melding <em>“Farmacia de guardia”</em>; daar staat welke apotheek op dat moment dienst heeft. Als het dringender aanvoelt, is het beter niet te lang te wachten en medische hulp te gebruiken.',
               sv: 'För vanliga mediciner eller småsaker rekommenderar vi att ni börjar med <a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Farmacia+Nerja" target="_blank" rel="noopener"><strong>apoteket på Calle Castilla Pérez</strong></a>.<br><br>Om det är stängt ska ni leta efter skylten <em>“Farmacia de guardia”</em>; där står vilket apotek som har jour just då. Om något känns mer brådskande är det bättre att inte vänta för länge utan använda medicinsk hjälp.'
+            },
+            {
+              en: 'Pharmacies are marked with illuminated green crosses, and duty pharmacy information is posted on every pharmacy door.',
+              de: 'Apotheken erkennt ihr an den leuchtend grünen Kreuzen. Informationen zur Notdienstapotheke hängen an jeder Apothekentür aus.',
+              es: 'Las farmacias están señalizadas con cruces verdes luminosas, y la información sobre la farmacia de guardia está expuesta en la puerta de cada farmacia.',
+              nl: 'Apotheken zijn te herkennen aan verlichte groene kruisen, en informatie over de dienstdoende apotheek hangt op de deur van elke apotheek.',
+              sv: 'Apotek är markerade med upplysta gröna kors, och information om jourhavande apotek sitter på varje apoteksdörr.'
             }
           ]
         }
