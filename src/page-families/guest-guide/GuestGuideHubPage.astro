@@ -47,7 +47,7 @@ const seo: AmaraAuthoringSeo = {
           icon={link.icon}
           title={link.title[lang]}
           subtitle={link.subtitle[lang]}
-          href={guideHref(link.targetSlug, lang)}
+          href={guideHref(link.targetSlug, lang, entry.slug)}
         />
       ))}
     </nav>
@@ -56,7 +56,7 @@ const seo: AmaraAuthoringSeo = {
       {entry.closingParagraphs.map((paragraph) => <p set:html={paragraph[lang]} />)}
 
       <div class="am-btn-row">
-        <a href={entry.ctaHref} class="am-btn am-btn--primary">{entry.ctaLabel[lang]}</a>
+        <a href={entry.ctaHref[lang]} class="am-btn am-btn--primary">{entry.ctaLabel[lang]}</a>
         {entry.secondaryCtaHref && entry.secondaryCtaLabel && (
           <a href={entry.secondaryCtaHref} class="am-btn am-btn--secondary" target="_blank" rel="noopener">
             {entry.secondaryCtaLabel[lang]}

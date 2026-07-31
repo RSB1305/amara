@@ -34,3 +34,16 @@ const { slug, currentLang, variant = 'inline' } = Astro.props;
     ))}
   </nav>
 </details>
+
+<script is:inline>
+  (function () {
+    if (typeof window === 'undefined') return;
+    // Carry the `?from=` param (used by SmartBackButton) across a language switch,
+    // so switching DE -> ES on a shared detail page still returns to the correct hub.
+    var from = new URLSearchParams(window.location.search).get('from');
+    if (!from || !/^[a-z0-9-]+$/.test(from)) return;
+    document.querySelectorAll('.am-lang-menu__option').forEach(function (a) {
+      a.href = a.href.split('?')[0] + '?from=' + encodeURIComponent(from);
+    });
+  })();
+</script>

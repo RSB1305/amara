@@ -154,7 +154,8 @@ export interface GuestGuideHubEntry extends GuestGuideEntryBase {
   intro: LocalizedText;
   menuLinks: GuestGuideMenuLink[];
   closingParagraphs: LocalizedText[];
-  ctaHref: string;
+  /** Booking URL, localized — must stay on the same language route as the guide page itself. */
+  ctaHref: LocalizedText;
   ctaLabel: LocalizedText;
   /** Optional second button next to the primary CTA, e.g. a Google review link. */
   secondaryCtaHref?: string;

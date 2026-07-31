@@ -1,20 +1,26 @@
 ---
 /**
- * Smart back: always navigates to fallbackHref, which is built server-side with the
- * current page's active language. Deliberately does NOT use window.history.back() —
- * switching language via the language switcher pushes a new history entry, so back()
- * would land on the same page in the previously selected language instead of the
- * parent page in the language the user is currently viewing.
+ * Smart back: navigates to the hub given by the `?from=` query param (the entry that
+ * actually linked here — several hubs share the same detail pages, e.g. Essentials or
+ * Recommendations, so a single fixed target would send every guest to the same hub).
+ * Falls back to `fallbackHref` when `from` is absent or invalid. Both targets are built
+ * for the current page's active language, not window.history.back() — switching
+ * language via the language switcher pushes a new history entry, so back() would land
+ * on the same page in the previously selected language instead of the parent page in
+ * the language the user is currently viewing.
  * `icon` — circular control (default). `link` — editorial text “← {label}”.
  * Event delegation + single init guard so multiple instances do not duplicate listeners.
  */
+import type { AmaraLanguage } from '../../types/seo';
+
 interface Props {
   fallbackHref: string;
+  lang: AmaraLanguage;
   label?: string;
   variant?: 'icon' | 'link';
 }
 
-const { fallbackHref, label = 'Back', variant = 'icon' } = Astro.props;
+const { fallbackHref, lang, label = 'Back', variant = 'icon' } = Astro.props;
 const isLink = variant === 'link';
 ---
 
@@ -26,6 +32,7 @@ const isLink = variant === 'link';
         class="cursor-pointer border-0 bg-transparent p-0 text-left am-text-body text-on-surface-variant/90 transition-opacity duration-200 hover:opacity-65 focus-visible:rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/25 focus-visible:ring-offset-2"
         data-smart-back
         data-fallback-href={fallbackHref}
+        data-lang={lang}
       >
         ← {label}
       </button>
@@ -35,6 +42,7 @@ const isLink = variant === 'link';
         class="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-outline-variant/10 bg-surface text-on-surface-variant transition-[background-color,opacity] duration-200 hover:bg-on-surface/5 hover:opacity-90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/30 focus-visible:ring-offset-2"
         data-smart-back
         data-fallback-href={fallbackHref}
+        data-lang={lang}
         aria-label={label}
       >
         <span class="sr-only">{label}</span>
@@ -70,7 +78,13 @@ const isLink = variant === 'link';
       if (!el) return;
       e.preventDefault();
       var fallback = el.getAttribute('data-fallback-href') || '/';
-      window.location.assign(fallback);
+      var lang = el.getAttribute('data-lang');
+      var from = new URLSearchParams(window.location.search).get('from');
+      var target = fallback;
+      if (from && /^[a-z0-9-]+$/.test(from) && lang) {
+        target = lang === 'es' ? '/' + from : '/' + lang + '/' + from;
+      }
+      window.location.assign(target);
     });
   })();
 </script>

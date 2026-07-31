@@ -52,7 +52,7 @@ const seo: AmaraAuthoringSeo = {
 <GuestGuideLayout seo={seo} pageLang={lang} supportHref={entry.supportHref} supportLabel={entry.supportLabel[lang]}>
   <main class="am-main">
     <div class="am-ios-back am-ios-back--row">
-      <SmartBackButton fallbackHref={guideHref(entry.backSlug, lang)} label="Back" variant="icon" />
+      <SmartBackButton fallbackHref={guideHref(entry.backSlug, lang)} lang={lang} label="Back" variant="icon" />
       <GuestGuideLanguageSwitcher slug={entry.slug} currentLang={lang} />
     </div>
 
@@ -85,7 +85,7 @@ const seo: AmaraAuthoringSeo = {
                   icon={item.icon}
                   title={item.title[lang]}
                   subtitle={item.subtitle?.[lang]}
-                  href={guideHref(item.targetSlug, lang)}
+                  href={guideHref(item.targetSlug, lang, entry.slug)}
                 />
               );
             }
