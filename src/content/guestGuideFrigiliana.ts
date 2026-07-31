@@ -4088,6 +4088,244 @@ const frigilianaGuestBreakfast: GuestGuideEntry = {
   ]
 };
 
+// Structured migration of the former Lodgify guide; English remains the semantic source of truth.
+const nerjaGuestNightlife: GuestGuideEntry = {
+  "type": "detail",
+  "slug": "nerja-guest-nightlife",
+  "backSlug": "frigiliana-guest-recommendations",
+  "supportHref": FRIGILIANA_SUPPORT_WHATSAPP,
+  "supportLabel": NEED_HELP,
+  "seoTitle": {
+    "en": "Nightlife in Nerja | AMARA",
+    "de": "Nachtleben in Nerja | AMARA",
+    "es": "Vida nocturna en Nerja | AMARA",
+    "nl": "Nachtleven in Nerja | AMARA",
+    "sv": "Nattliv i Nerja | AMARA"
+  },
+  "seoDescription": {
+    "en": "Nerja is lively in the evenings, but it is not a full party town. That is exactly what many guests like about it. You can choose between sunset drinks with sea views, relaxed beach bars, a more social bar-hopping area, or a cultural evening with flamenco.",
+    "de": "Nerja ist abends lebendig, aber kein reiner Partyort. Genau das gefällt vielen Gästen daran. Ihr könnt zwischen Sunset-Drinks mit Meerblick, entspannten Strandbars, einer geselligeren Bar-Hopping-Zone oder einem kulturellen Abend mit Flamenco wählen.",
+    "es": "Nerja tiene ambiente por la noche, pero no es un destino puramente de fiesta. Precisamente eso es lo que muchos huéspedes valoran. Podéis elegir entre copas al atardecer con vistas al mar, beach bars relajados, una zona más social para ir de bar en bar o una noche cultural con flamenco.",
+    "nl": "Nerja is ’s avonds levendig, maar geen pure feestbestemming. Juist dat waarderen veel gasten. Jullie kunnen kiezen tussen sunset-drankjes met zeezicht, ontspannen beachbars, een socialere bar-hopping-zone of een culturele avond met flamenco.",
+    "sv": "Nerja är livligt på kvällarna, men ingen renodlad partyort. Det är just det många gäster uppskattar. Ni kan välja mellan drinkar i solnedgången med havsutsikt, avslappnade strandbarer, ett mer socialt område för bar-hopping eller en kulturell kväll med flamenco."
+  },
+  "kicker": RECOMMENDATIONS_KICKER,
+  "title": {
+    "en": "Nightlife in Nerja",
+    "de": "Nachtleben in Nerja",
+    "es": "Vida nocturna en Nerja",
+    "nl": "Nachtleven in Nerja",
+    "sv": "Nattliv i Nerja"
+  },
+  "intro": {
+    "en": "Nerja is lively in the evenings, but it is not a full party town. That is exactly what many guests like about it. You can choose between sunset drinks with sea views, relaxed beach bars, a more social bar-hopping area, or a cultural evening with flamenco. The easiest way to think about nightlife here is by area: the Balcón and old town are best for a beautiful early evening, Plaza Tutti Frutti is the liveliest zone later on, and Burriana works well for a softer beachside night in summer.",
+    "de": "Nerja ist abends lebendig, aber kein reiner Partyort. Genau das gefällt vielen Gästen daran. Ihr könnt zwischen Sunset-Drinks mit Meerblick, entspannten Strandbars, einer geselligeren Bar-Hopping-Zone oder einem kulturellen Abend mit Flamenco wählen. Am einfachsten lässt sich das Nachtleben hier nach Zonen verstehen: Balcón und Altstadt eignen sich am besten für einen schönen frühen Abend, Plaza Tutti Frutti ist später die lebhafteste Zone, und Burriana funktioniert im Sommer besonders gut für einen ruhigeren Strandabend.",
+    "es": "Nerja tiene ambiente por la noche, pero no es un destino puramente de fiesta. Precisamente eso es lo que muchos huéspedes valoran. Podéis elegir entre copas al atardecer con vistas al mar, beach bars relajados, una zona más social para ir de bar en bar o una noche cultural con flamenco. La forma más sencilla de entender la vida nocturna aquí es por zonas: el Balcón y el casco antiguo son ideales para una primera parte de la tarde-noche bonita, Plaza Tutti Frutti es la zona más animada más tarde, y Burriana funciona muy bien en verano para una noche más tranquila junto al mar.",
+    "nl": "Nerja is ’s avonds levendig, maar geen pure feestbestemming. Juist dat waarderen veel gasten. Jullie kunnen kiezen tussen sunset-drankjes met zeezicht, ontspannen beachbars, een socialere bar-hopping-zone of een culturele avond met flamenco. De makkelijkste manier om het nachtleven hier te begrijpen is per zone: de Balcón en de oude stad zijn het best voor een mooie vroege avond, Plaza Tutti Frutti is later de levendigste zone, en Burriana werkt in de zomer heel goed voor een zachtere avond aan zee.",
+    "sv": "Nerja är livligt på kvällarna, men ingen renodlad partyort. Det är just det många gäster uppskattar. Ni kan välja mellan drinkar i solnedgången med havsutsikt, avslappnade strandbarer, ett mer socialt område för bar-hopping eller en kulturell kväll med flamenco. Det enklaste sättet att förstå nattlivet här är att tänka i områden: Balcón och gamla stan passar bäst för en vacker tidig kväll, Plaza Tutti Frutti är det livligaste området senare på kvällen, och Burriana fungerar särskilt bra på sommaren för en lugnare kväll vid havet."
+  },
+  "categories": [
+    {
+      "heading": {
+        "en": "Nightlife Options",
+        "de": "Nightlife-Optionen",
+        "es": "Opciones para salir",
+        "nl": "Nightlife-opties",
+        "sv": "Alternativ för kvällsliv"
+      },
+      "items": [
+        {
+          "icon": "compass",
+          "title": {
+            "en": "Best Areas — where to go for which mood",
+            "de": "Beste Zonen — wohin für welche Stimmung",
+            "es": "Mejores zonas — adónde ir según el ambiente",
+            "nl": "Beste zones — waarheen voor welke sfeer",
+            "sv": "Bästa områden — vart ni går för rätt stämning"
+          },
+          "body": [
+            {
+              "en": "<strong>Balcón de Europa & Old Town</strong>",
+              "de": "<strong>Balcón de Europa & Altstadt</strong>",
+              "es": "<strong>Balcón de Europa y casco antiguo</strong>",
+              "nl": "<strong>Balcón de Europa & oude stad</strong>",
+              "sv": "<strong>Balcón de Europa & gamla stan</strong>"
+            },
+            {
+              "en": "Best for sunset drinks, a more elegant evening and couples. This is the prettiest part of Nerja at night and ideal if you want sea views, a stroll, and one or two good places rather than a loud bar circuit.",
+              "de": "Am besten für Sunset-Drinks, einen eleganteren Abend und Paare. Das ist nachts der schönste Teil von Nerja und ideal, wenn ihr Meerblick, einen Spaziergang und ein oder zwei gute Orte wollt statt einer lauten Bar-Runde.",
+              "es": "Lo mejor para copas al atardecer, una noche más elegante y parejas. Es la zona más bonita de Nerja por la noche e ideal si buscáis vistas al mar, un paseo y uno o dos buenos sitios en lugar de una ruta de bares ruidosa.",
+              "nl": "Het best voor sunset-drankjes, een elegantere avond en stellen. Dit is ’s avonds het mooiste deel van Nerja en ideaal als jullie zeezicht, een wandeling en één of twee goede plekken willen in plaats van een luidruchtige barronde.",
+              "sv": "Bäst för drinkar i solnedgången, en mer elegant kväll och par. Det här är den vackraste delen av Nerja på kvällen och perfekt om ni vill ha havsutsikt, en promenad och en eller två riktigt bra platser istället för en högljudd barrunda."
+            },
+            {
+              "en": "<strong>Plaza Tutti Frutti</strong>",
+              "de": "<strong>Plaza Tutti Frutti</strong>",
+              "es": "<strong>Plaza Tutti Frutti</strong>",
+              "nl": "<strong>Plaza Tutti Frutti</strong>",
+              "sv": "<strong>Plaza Tutti Frutti</strong>"
+            },
+            {
+              "en": "Best for a later and livelier night. If you want bar-hopping, a younger crowd and more energy after dinner, this is the main zone to aim for.",
+              "de": "Am besten für einen späteren und lebhafteren Abend. Wenn ihr Bar-Hopping, ein jüngeres Publikum und mehr Energie nach dem Essen mögt, ist das die wichtigste Zone.",
+              "es": "Lo mejor para una noche más tardía y animada. Si queréis ir de bar en bar, un ambiente más joven y más energía después de cenar, esta es la zona principal.",
+              "nl": "Het best voor een latere en levendigere avond. Als jullie bar-hopping, een jonger publiek en meer energie na het diner willen, is dit de belangrijkste zone.",
+              "sv": "Bäst för en senare och livligare kväll. Om ni vill ha bar-hopping, yngre publik och mer energi efter middagen är detta huvudområdet."
+            },
+            {
+              "en": "<strong>Burriana</strong>",
+              "de": "<strong>Burriana</strong>",
+              "es": "<strong>Burriana</strong>",
+              "nl": "<strong>Burriana</strong>",
+              "sv": "<strong>Burriana</strong>"
+            },
+            {
+              "en": "Best for a relaxed beachside evening, especially in summer. Good for dinner by the sea, warm air and a softer rhythm.",
+              "de": "Am besten für einen entspannten Strandabend, besonders im Sommer. Ideal für Abendessen am Meer, warme Luft und einen ruhigeren Rhythmus.",
+              "es": "Lo mejor para una noche relajada junto al mar, sobre todo en verano. Muy bien para cenar frente al mar, disfrutar del aire cálido y un ritmo más suave.",
+              "nl": "Het best voor een ontspannen avond aan zee, vooral in de zomer. Goed voor diner aan het strand, warme lucht en een zachter ritme.",
+              "sv": "Bäst för en avslappnad kväll vid stranden, särskilt på sommaren. Bra för middag vid havet, varm kvällsluft och ett lugnare tempo."
+            },
+            {
+              "en": "<ul><li><strong>Best for couples:</strong> Balcón / Old Town</li> <li><strong>Best for late drinks:</strong> Tutti Frutti</li> <li><strong>Best for summer beach mood:</strong> Burriana</li></ul>",
+              "de": "<ul><li><strong>Am besten für Paare:</strong> Balcón / Altstadt</li> <li><strong>Am besten für späte Drinks:</strong> Tutti Frutti</li> <li><strong>Am besten für Sommer-Strandstimmung:</strong> Burriana</li></ul>",
+              "es": "<ul><li><strong>Lo mejor para parejas:</strong> Balcón / casco antiguo</li> <li><strong>Lo mejor para copas tarde:</strong> Tutti Frutti</li> <li><strong>Lo mejor para ambiente veraniego de playa:</strong> Burriana</li></ul>",
+              "nl": "<ul><li><strong>Het best voor stellen:</strong> Balcón / oude stad</li> <li><strong>Het best voor late drankjes:</strong> Tutti Frutti</li> <li><strong>Het best voor zomerse beach-sfeer:</strong> Burriana</li></ul>",
+              "sv": "<ul><li><strong>Bäst för par:</strong> Balcón / gamla stan</li> <li><strong>Bäst för sena drinkar:</strong> Tutti Frutti</li> <li><strong>Bäst för somrig strandkänsla:</strong> Burriana</li></ul>"
+            }
+          ]
+        },
+        {
+          "icon": "goblet",
+          "title": {
+            "en": "Cocktails & Sunset Drinks",
+            "de": "Cocktails & Sunset-Drinks",
+            "es": "Cócteles y copas al atardecer",
+            "nl": "Cocktails & sunset-drankjes",
+            "sv": "Cocktails & drinkar i solnedgången"
+          },
+          "body": [
+            {
+              "en": "For a beautiful early evening, stay around the Balcón de Europa and the old town streets nearby. This is the best choice for sea views, a more polished mood and a slower night.",
+              "de": "Für einen schönen frühen Abend bleibt ihr am besten rund um den Balcón de Europa und die umliegenden Altstadtgassen. Das ist die beste Wahl für Meerblick, eine stilvollere Stimmung und einen langsameren Abend.",
+              "es": "Para una primera parte de la noche bonita, lo mejor es quedaros por la zona del Balcón de Europa y las calles del casco antiguo. Es la mejor opción para vistas al mar, un ambiente más cuidado y una noche más tranquila.",
+              "nl": "Voor een mooie vroege avond blijven jullie het best rond de Balcón de Europa en de omliggende straatjes van de oude stad. Dit is de beste keuze voor zeezicht, een verfijndere sfeer en een rustigere avond.",
+              "sv": "För en vacker tidig kväll är det bäst att hålla sig runt Balcón de Europa och de närliggande gatorna i gamla stan. Det är det bästa valet för havsutsikt, en mer elegant känsla och en lugnare kväll."
+            },
+            {
+              "en": "<ul><li><strong>Best for:</strong> couples, calm groups, date night</li> <li><strong>Best time:</strong> sunset to after dinner</li> <li><strong>Style:</strong> scenic, elegant, walkable</li></ul>",
+              "de": "<ul><li><strong>Am besten für:</strong> Paare, ruhige Gruppen, Date Night</li> <li><strong>Beste Zeit:</strong> Sonnenuntergang bis nach dem Essen</li> <li><strong>Stil:</strong> schön, elegant, gut zu Fuß</li></ul>",
+              "es": "<ul><li><strong>Ideal para:</strong> parejas, grupos tranquilos, cita</li> <li><strong>Mejor momento:</strong> atardecer y después de cenar</li> <li><strong>Estilo:</strong> bonito, elegante, fácil de recorrer a pie</li></ul>",
+              "nl": "<ul><li><strong>Het best voor:</strong> stellen, rustige groepen, date night</li> <li><strong>Beste tijd:</strong> zonsondergang tot na het diner</li> <li><strong>Stijl:</strong> sfeervol, elegant, goed te voet</li></ul>",
+              "sv": "<ul><li><strong>Bäst för:</strong> par, lugna grupper, date night</li> <li><strong>Bästa tid:</strong> solnedgång till efter middagen</li> <li><strong>Stil:</strong> vackert, elegant, promenadvänligt</li></ul>"
+            },
+            {
+              "en": "Google Maps shortcut: <a href=\"https://www.google.com/maps/search/?api=1&query=cocktail+bar+Nerja\" target=\"_blank\" rel=\"noopener noreferrer\">Cocktail bars in Nerja</a>",
+              "de": "Google-Maps-Shortcut: <a href=\"https://www.google.com/maps/search/?api=1&query=cocktail+bar+Nerja\" target=\"_blank\" rel=\"noopener noreferrer\">Cocktailbars in Nerja</a>",
+              "es": "Acceso rápido en Google Maps: <a href=\"https://www.google.com/maps/search/?api=1&query=cocktail+bar+Nerja\" target=\"_blank\" rel=\"noopener noreferrer\">Cocktail bars in Nerja</a>",
+              "nl": "Google Maps-snelkoppeling: <a href=\"https://www.google.com/maps/search/?api=1&query=cocktail+bar+Nerja\" target=\"_blank\" rel=\"noopener noreferrer\">Cocktailbars in Nerja</a>",
+              "sv": "Google Maps-genväg: <a href=\"https://www.google.com/maps/search/?api=1&query=cocktail+bar+Nerja\" target=\"_blank\" rel=\"noopener noreferrer\">Cocktailbarer i Nerja</a>"
+            }
+          ]
+        },
+        {
+          "icon": "music",
+          "title": {
+            "en": "Late Bars & Livelier Nights",
+            "de": "Späte Bars & lebhaftere Nächte",
+            "es": "Bares tardíos y noches más animadas",
+            "nl": "Late bars & levendigere avonden",
+            "sv": "Sena barer & livligare kvällar"
+          },
+          "body": [
+            {
+              "en": "If you want a later, louder and more social night, head to Plaza Tutti Frutti after dinner. This is the easiest area for bar-hopping and the clearest “nightlife zone” in Nerja.",
+              "de": "Wenn ihr einen späteren, lauteren und geselligeren Abend wollt, geht nach dem Essen zur Plaza Tutti Frutti. Das ist die einfachste Zone für Bar-Hopping und die klarste „Nightlife-Zone“ in Nerja.",
+              "es": "Si queréis una noche más tardía, más ruidosa y más social, id a Plaza Tutti Frutti después de cenar. Es la zona más fácil para ir de bar en bar y la “zona de marcha” más clara de Nerja.",
+              "nl": "Als jullie een latere, luidruchtigere en socialere avond willen, ga dan na het diner naar Plaza Tutti Frutti. Dit is de makkelijkste zone voor bar-hopping en de duidelijkste nightlife-zone van Nerja.",
+              "sv": "Om ni vill ha en senare, livligare och mer social kväll ska ni gå till Plaza Tutti Frutti efter middagen. Det här är det enklaste området för bar-hopping och den tydligaste nattlivszonen i Nerja."
+            },
+            {
+              "en": "<ul><li><strong>Best for:</strong> groups, later starts, casual fun</li> <li><strong>Best time:</strong> after dinner, especially later in summer</li> <li><strong>Atmosphere:</strong> younger, busier, more energetic</li></ul>",
+              "de": "<ul><li><strong>Am besten für:</strong> Gruppen, spätere Starts, lockeren Spaß</li> <li><strong>Beste Zeit:</strong> nach dem Essen, im Sommer besonders später</li> <li><strong>Atmosphäre:</strong> jünger, voller, energiegeladener</li></ul>",
+              "es": "<ul><li><strong>Ideal para:</strong> grupos, empezar más tarde, plan informal</li> <li><strong>Mejor momento:</strong> después de cenar, en verano incluso más tarde</li> <li><strong>Ambiente:</strong> más joven, más lleno, más enérgico</li></ul>",
+              "nl": "<ul><li><strong>Het best voor:</strong> groepen, later beginnen, informele fun</li> <li><strong>Beste tijd:</strong> na het diner, vooral later in de zomer</li> <li><strong>Sfeer:</strong> jonger, drukker, energieker</li></ul>",
+              "sv": "<ul><li><strong>Bäst för:</strong> grupper, sena starter, avslappnat nöje</li> <li><strong>Bästa tid:</strong> efter middagen, särskilt senare på sommaren</li> <li><strong>Atmosfär:</strong> yngre, livligare, mer energi</li></ul>"
+            },
+            {
+              "en": "Google Maps shortcut: <a href=\"https://www.google.com/maps/search/?api=1&query=Plaza+Tutti+Frutti+Nerja\" target=\"_blank\" rel=\"noopener noreferrer\">Plaza Tutti Frutti</a>",
+              "de": "Google-Maps-Shortcut: <a href=\"https://www.google.com/maps/search/?api=1&query=Plaza+Tutti+Frutti+Nerja\" target=\"_blank\" rel=\"noopener noreferrer\">Plaza Tutti Frutti</a>",
+              "es": "Acceso rápido en Google Maps: <a href=\"https://www.google.com/maps/search/?api=1&query=Plaza+Tutti+Frutti+Nerja\" target=\"_blank\" rel=\"noopener noreferrer\">Plaza Tutti Frutti</a>",
+              "nl": "Google Maps-snelkoppeling: <a href=\"https://www.google.com/maps/search/?api=1&query=Plaza+Tutti+Frutti+Nerja\" target=\"_blank\" rel=\"noopener noreferrer\">Plaza Tutti Frutti</a>",
+              "sv": "Google Maps-genväg: <a href=\"https://www.google.com/maps/search/?api=1&query=Plaza+Tutti+Frutti+Nerja\" target=\"_blank\" rel=\"noopener noreferrer\">Plaza Tutti Frutti</a>"
+            }
+          ]
+        },
+        {
+          "icon": "dance",
+          "title": {
+            "en": "Flamenco & Cultural Evenings",
+            "de": "Flamenco & kulturelle Abende",
+            "es": "Flamenco y noches culturales",
+            "nl": "Flamenco & culturele avonden",
+            "sv": "Flamenco & kulturella kvällar"
+          },
+          "body": [
+            {
+              "en": "If you want something more Andalusian and less bar-focused, look for a flamenco evening in Nerja. This is one of the nicest alternatives to a standard drinks night and often feels more memorable.",
+              "de": "Wenn ihr etwas Andalusischeres und weniger Bar-lastiges möchtet, schaut nach einem Flamenco-Abend in Nerja. Das ist eine der schönsten Alternativen zu einem normalen Drink-Abend und oft besonders erinnerungswürdig.",
+              "es": "Si buscáis algo más andaluz y menos centrado en bares, buscad una noche de flamenco en Nerja. Es una de las mejores alternativas a una noche de copas estándar y muchas veces resulta más memorable.",
+              "nl": "Als jullie iets Andalusischer en minder bar-gericht willen, zoek dan naar een flamenco-avond in Nerja. Dit is een van de mooiste alternatieven voor een standaard avondje drinken en voelt vaak memorabeler aan.",
+              "sv": "Om ni vill ha något mer andalusiskt och mindre fokuserat på barer, leta efter en flamencokväll i Nerja. Det är ett av de finaste alternativen till en vanlig drinkkväll och känns ofta mer minnesvärt."
+            },
+            {
+              "en": "<ul><li><strong>Best for:</strong> couples, culture lovers, a different kind of evening</li> <li><strong>Mood:</strong> intimate, local, atmospheric</li></ul>",
+              "de": "<ul><li><strong>Am besten für:</strong> Paare, Kulturinteressierte, einen anderen Abend</li> <li><strong>Stimmung:</strong> intim, lokal, atmosphärisch</li></ul>",
+              "es": "<ul><li><strong>Ideal para:</strong> parejas, amantes de la cultura, una noche distinta</li> <li><strong>Ambiente:</strong> íntimo, local, con mucha atmósfera</li></ul>",
+              "nl": "<ul><li><strong>Het best voor:</strong> stellen, cultuurliefhebbers, een andere avond</li> <li><strong>Sfeer:</strong> intiem, lokaal, sfeervol</li></ul>",
+              "sv": "<ul><li><strong>Bäst för:</strong> par, kulturintresserade, en annorlunda kväll</li> <li><strong>Känsla:</strong> intim, lokal, stämningsfull</li></ul>"
+            },
+            {
+              "en": "Google Maps shortcut: <a href=\"https://www.google.com/maps/search/?api=1&query=flamenco+Nerja\" target=\"_blank\" rel=\"noopener noreferrer\">Flamenco in Nerja</a>",
+              "de": "Google-Maps-Shortcut: <a href=\"https://www.google.com/maps/search/?api=1&query=flamenco+Nerja\" target=\"_blank\" rel=\"noopener noreferrer\">Flamenco in Nerja</a>",
+              "es": "Acceso rápido en Google Maps: <a href=\"https://www.google.com/maps/search/?api=1&query=flamenco+Nerja\" target=\"_blank\" rel=\"noopener noreferrer\">Flamenco en Nerja</a>",
+              "nl": "Google Maps-snelkoppeling: <a href=\"https://www.google.com/maps/search/?api=1&query=flamenco+Nerja\" target=\"_blank\" rel=\"noopener noreferrer\">Flamenco in Nerja</a>",
+              "sv": "Google Maps-genväg: <a href=\"https://www.google.com/maps/search/?api=1&query=flamenco+Nerja\" target=\"_blank\" rel=\"noopener noreferrer\">Flamenco i Nerja</a>"
+            }
+          ]
+        },
+        {
+          "icon": "info",
+          "title": {
+            "en": "Good to Know — timing & season",
+            "de": "Gut zu wissen — Timing & Saison",
+            "es": "Conviene saber — horario y temporada",
+            "nl": "Goed om te weten — timing & seizoen",
+            "sv": "Bra att veta — tid & säsong"
+          },
+          "body": [
+            {
+              "en": "Summer is the easiest season for nightlife in Nerja. Everything feels later, fuller and more naturally alive. In winter, the town is still pleasant, but the nightlife becomes more selective and quieter.",
+              "de": "Der Sommer ist die einfachste Saison für Nightlife in Nerja. Alles fühlt sich später, voller und natürlicher lebendig an. Im Winter ist die Stadt immer noch angenehm, aber das Nachtleben wird selektiver und ruhiger.",
+              "es": "El verano es la temporada más fácil para salir por Nerja. Todo se siente más tardío, más lleno y más vivo. En invierno, el pueblo sigue siendo agradable, pero la vida nocturna es más selectiva y tranquila.",
+              "nl": "De zomer is het makkelijkste seizoen voor nightlife in Nerja. Alles voelt later, voller en vanzelfsprekender levendig aan. In de winter is het stadje nog steeds prettig, maar wordt het avondleven selectiever en rustiger.",
+              "sv": "Sommaren är den enklaste säsongen för nattliv i Nerja. Allt känns senare, livligare och mer naturligt fullt av liv. På vintern är staden fortfarande trevlig, men nattlivet blir mer selektivt och lugnare."
+            },
+            {
+              "en": "<ul><li><strong>Summer:</strong> better for Burriana and later drinks</li> <li><strong>Winter:</strong> better to focus on the old town and a smaller number of good places</li> <li><strong>Simple strategy:</strong> start with sunset drinks, then decide if you want more energy afterwards</li></ul>",
+              "de": "<ul><li><strong>Sommer:</strong> besser für Burriana und spätere Drinks</li> <li><strong>Winter:</strong> besser auf die Altstadt und einige wenige gute Orte konzentrieren</li> <li><strong>Einfache Strategie:</strong> mit Sunset-Drinks starten und dann spontan entscheiden, ob ihr später noch mehr wollt</li></ul>",
+              "es": "<ul><li><strong>Verano:</strong> mejor para Burriana y copas más tarde</li> <li><strong>Invierno:</strong> mejor centrarse en el casco antiguo y en un número más pequeño de buenos sitios</li> <li><strong>Estrategia simple:</strong> empezar con copas al atardecer y luego decidir si queréis más ambiente</li></ul>",
+              "nl": "<ul><li><strong>Zomer:</strong> beter voor Burriana en latere drankjes</li> <li><strong>Winter:</strong> beter focussen op de oude stad en een kleiner aantal goede plekken</li> <li><strong>Eenvoudige strategie:</strong> begin met sunset-drankjes en beslis daarna of jullie meer energie willen</li></ul>",
+              "sv": "<ul><li><strong>Sommar:</strong> bättre för Burriana och senare drinkar</li> <li><strong>Vinter:</strong> bättre att fokusera på gamla stan och ett mindre antal riktigt bra ställen</li> <li><strong>Enkel strategi:</strong> börja med drinkar i solnedgången och bestäm sedan om ni vill ha mer liv senare</li></ul>"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+};
+
+
 const recommendationSubPages: GuestGuideEntry[] = [
   nerjaGuestBreakfast,
   frigilianaGuestBreakfast,
@@ -4101,9 +4339,7 @@ const recommendationSubPages: GuestGuideEntry[] = [
   createPlaceholderGuidePage('frigiliana-guest-flamenco-bachata', {
     en: 'Flamenco & Bachata', de: 'Flamenco & Bachata', es: 'Flamenco y Bachata', nl: 'Flamenco & Bachata', sv: 'Flamenco & Bachata'
   }),
-  createPlaceholderGuidePage('nerja-guest-nightlife', {
-    en: 'Nightlife in Nerja', de: 'Nachtleben in Nerja', es: 'Vida nocturna en Nerja', nl: 'Nachtleven in Nerja', sv: 'Nattliv i Nerja'
-  }),
+  nerjaGuestNightlife,
   frigilianaGuestWellness,
   nerjaGuestAdventure
 ];

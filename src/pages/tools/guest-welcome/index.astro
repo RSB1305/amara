@@ -1,0 +1,344 @@
+---
+import '@fontsource/newsreader/300.css';
+import '@fontsource/newsreader/400.css';
+import '@fontsource/plus-jakarta-sans/400.css';
+import '@fontsource/plus-jakarta-sans/600.css';
+
+const guestWelcomePages = [
+  {
+    name: 'Farah',
+    location: 'Frigiliana',
+    href: '/en/guestwelcome-frigiliana-farah',
+    image: '/images/amara-farah/67-amara-frigiliana.jpg'
+  },
+  {
+    name: 'Lounis',
+    location: 'Frigiliana',
+    href: '/en/guestwelcome-frigiliana-lounis',
+    image: '/images/amara-lounis/17-amara-frigiliana.jpg'
+  },
+  {
+    name: 'Zaid',
+    location: 'Frigiliana',
+    href: '/en/guestwelcome-frigiliana-zaid',
+    image: '/images/amara-zaid/cara-rural-frigiliana-amara-said-terraza-5.jpg'
+  },
+  {
+    name: 'Maha',
+    location: 'Frigiliana',
+    href: '/en/guestwelcome-frigiliana-maha',
+    image: '/images/amara-maha/29-amara-frigiliana.jpg'
+  },
+  {
+    name: 'Playa',
+    location: 'Nerja',
+    href: '/en/guestwelcome-nerja-playa',
+    image: '/images/amara-playa/apartment/chaparril-13.webp'
+  },
+  {
+    name: 'Family & Surf',
+    location: 'Tarifa',
+    href: '/en/tarifa-guest-guide',
+    image: '/images/amara-tarifa/amara-tarifa-apartment01.webp'
+  }
+];
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="robots" content="noindex, nofollow" />
+    <title>Guest Welcome Pages | AMARA Internal</title>
+  </head>
+  <body>
+    <main>
+      <header class="intro">
+        <div>
+          <p class="eyebrow">AMARA · Internal shortcut</p>
+          <h1>Guest Welcome Pages</h1>
+          <p class="lede">
+            Open any apartment’s English guest guide. Each page opens in a new tab so this overview stays available.
+          </p>
+        </div>
+
+        <div class="summary" aria-label="Overview details">
+          <span><strong>{guestWelcomePages.length}</strong> apartments</span>
+          <span><strong>EN</strong> language</span>
+        </div>
+      </header>
+
+      <section class="card-grid" aria-label="Guest Welcome pages">
+        {guestWelcomePages.map((page, index) => (
+          <a
+            class="card"
+            href={page.href}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label={`Open ${page.name} Guest Welcome page in a new tab`}
+          >
+            <div class="card-image">
+              <img
+                src={page.image}
+                alt=""
+                loading={index < 3 ? 'eager' : 'lazy'}
+                decoding="async"
+              />
+            </div>
+            <div class="card-body">
+              <p class="location">{page.location}</p>
+              <div class="card-title-row">
+                <h2>{page.name}</h2>
+                <span aria-hidden="true">↗</span>
+              </div>
+              <p class="path">{page.href}</p>
+            </div>
+          </a>
+        ))}
+      </section>
+
+      <footer>
+        Internal AMARA tool · This page is excluded from production builds.
+      </footer>
+    </main>
+  </body>
+</html>
+
+<style>
+  :root {
+    color-scheme: light;
+    --ink: #1b1c1a;
+    --muted: #71685d;
+    --canvas: #f4f0e9;
+    --paper: #fffdf9;
+    --line: #d8cdbf;
+    --accent: #8b6f47;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  body {
+    min-width: 320px;
+    margin: 0;
+    background: var(--canvas);
+    color: var(--ink);
+    font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+  }
+
+  main {
+    width: min(1180px, calc(100% - 40px));
+    margin: 0 auto;
+    padding: 72px 0 40px;
+  }
+
+  .intro {
+    display: flex;
+    align-items: end;
+    justify-content: space-between;
+    gap: 48px;
+    margin-bottom: 48px;
+    padding-bottom: 32px;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .eyebrow,
+  .location {
+    margin: 0 0 12px;
+    color: var(--accent);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+  }
+
+  h1,
+  h2 {
+    margin: 0;
+    font-family: 'Newsreader', Georgia, serif;
+    font-weight: 300;
+  }
+
+  h1 {
+    font-size: clamp(48px, 7vw, 82px);
+    line-height: 0.95;
+    letter-spacing: -0.035em;
+  }
+
+  .lede {
+    max-width: 650px;
+    margin: 24px 0 0;
+    color: var(--muted);
+    font-size: 15px;
+    line-height: 1.7;
+  }
+
+  .summary {
+    display: flex;
+    flex: 0 0 auto;
+    gap: 24px;
+    color: var(--muted);
+    font-size: 12px;
+    white-space: nowrap;
+  }
+
+  .summary strong {
+    margin-right: 5px;
+    color: var(--ink);
+    font-size: 15px;
+  }
+
+  .card-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 22px;
+  }
+
+  .card {
+    overflow: hidden;
+    border: 1px solid var(--line);
+    border-radius: 2px;
+    background: var(--paper);
+    color: inherit;
+    text-decoration: none;
+    transition: border-color 180ms ease, box-shadow 180ms ease, transform 180ms ease;
+  }
+
+  .card:hover {
+    border-color: #b8a58d;
+    box-shadow: 0 18px 40px rgb(67 52 32 / 10%);
+    transform: translateY(-3px);
+  }
+
+  .card:focus-visible {
+    outline: 3px solid rgb(139 111 71 / 35%);
+    outline-offset: 4px;
+  }
+
+  .card-image {
+    aspect-ratio: 16 / 10;
+    overflow: hidden;
+    background: #ddd5ca;
+  }
+
+  .card-image img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+    transition: transform 400ms ease;
+  }
+
+  .card:hover .card-image img {
+    transform: scale(1.025);
+  }
+
+  .card-body {
+    padding: 22px 24px 24px;
+  }
+
+  .location {
+    margin-bottom: 7px;
+    font-size: 9px;
+  }
+
+  .card-title-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+  }
+
+  h2 {
+    font-size: 34px;
+    line-height: 1.08;
+    letter-spacing: -0.02em;
+  }
+
+  .card-title-row span {
+    color: var(--accent);
+    font-size: 20px;
+    transition: transform 180ms ease;
+  }
+
+  .card:hover .card-title-row span {
+    transform: translate(2px, -2px);
+  }
+
+  .path {
+    overflow: hidden;
+    margin: 18px 0 0;
+    color: #8a8176;
+    font-size: 10px;
+    line-height: 1.4;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  footer {
+    margin-top: 48px;
+    padding-top: 20px;
+    border-top: 1px solid var(--line);
+    color: #8a8176;
+    font-size: 10px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  @media (max-width: 860px) {
+    main {
+      padding-top: 48px;
+    }
+
+    .intro {
+      display: block;
+    }
+
+    .summary {
+      margin-top: 28px;
+    }
+
+    .card-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  @media (max-width: 560px) {
+    main {
+      width: min(100% - 28px, 1180px);
+      padding-top: 36px;
+    }
+
+    .intro {
+      margin-bottom: 28px;
+      padding-bottom: 24px;
+    }
+
+    h1 {
+      font-size: clamp(44px, 15vw, 64px);
+    }
+
+    .summary {
+      gap: 18px;
+    }
+
+    .card-grid {
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
+
+    .card-body {
+      padding: 18px 20px 20px;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .card,
+    .card-image img,
+    .card-title-row span {
+      transition: none;
+    }
+  }
+</style>
