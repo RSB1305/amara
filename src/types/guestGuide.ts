@@ -47,7 +47,11 @@ export type GuestGuideIconName =
   | 'dish'
   | 'hotel'
   | 'arrow'
-  | 'flame';
+  | 'flame'
+  | 'gas-stove'
+  | 'watering-can'
+  | 'cutlery'
+  | 'shower';
 
 export interface GuestGuideAction {
   label: LocalizedText;
@@ -75,6 +79,16 @@ export interface GuestGuideAccordionItem {
     alt: LocalizedText;
     caption?: LocalizedText;
   }[];
+  /**
+   * Embedded how-to video. Set `src` for a self-hosted file (e.g. /videos/amara-playa/foo.mp4) —
+   * rendered as a plain, branding-free <video> element. Set `embedUrl` instead for an external
+   * player (e.g. YouTube), rendered as a responsive 16:9 iframe. `src` takes priority if both are set.
+   */
+  video?: {
+    src?: string;
+    embedUrl?: string;
+    title: LocalizedText;
+  };
   actions?: GuestGuideAction[];
 }
 

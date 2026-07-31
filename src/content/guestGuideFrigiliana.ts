@@ -19,6 +19,15 @@ const LEAVE_GOOGLE_REVIEW: LocalizedText = {
   sv: 'Lämna en Google-recension'
 };
 
+// Identical sign-off on every hub page across every apartment/location — single source.
+const AMARA_SIGN_OFF: LocalizedText = {
+  en: 'Warm regards,<br>Robert',
+  de: 'Herzliche Grüße,<br>Robert',
+  es: 'Un afectuoso saludo,<br>Robert',
+  nl: 'Hartelijke groeten,<br>Robert',
+  sv: 'Varma hälsningar,<br>Robert'
+};
+
 // Shared accordion items reused across every AMARA apartment that occupies the same
 // historic-center building (same address, same access route, same amenities). Editing
 // one of these updates every apartment page that references it — see MEMORY notes on
@@ -222,6 +231,448 @@ const sharedAmaraCoffeeMachineItem: GuestGuideAccordionItem = {
   }
 };
 
+// Shared across Lounis and Zaid (identical induction hob / pellet stove hardware); Farah has neither.
+const sharedAmaraInductionHobItem: GuestGuideAccordionItem = {
+  icon: 'dish',
+  title: { en: 'Induction Hob', de: 'Induktionsherd', es: 'Placa de inducción', nl: 'Inductiekookplaat', sv: 'Induktionshäll' },
+  body: [
+    {
+      en: 'The induction hob is simple and safe. Please note: it only activates when <strong>induction-compatible cookware</strong> is placed on the cooking zone.',
+      de: 'Der Induktionsherd ist einfach und sicher zu bedienen. Bitte beachtet: Er schaltet sich nur ein, wenn <strong>induktionsgeeignetes Kochgeschirr</strong> auf der Kochzone steht.',
+      es: 'La placa de inducción es sencilla y segura. Tened en cuenta que solo se activa cuando se coloca <strong>menaje apto para inducción</strong> sobre la zona de cocción.',
+      nl: 'De inductiekookplaat is eenvoudig en veilig in gebruik. Let op: hij wordt alleen geactiveerd als er <strong>inductiegeschikte pannen</strong> op de kookzone staan.',
+      sv: 'Induktionshällen är enkel och säker att använda. Vänligen observera: den aktiveras endast när <strong>induktionsanpassade kokkärl</strong> placeras på kokzonen.'
+    },
+    {
+      en: 'To cook: place a suitable pot or pan on the hob, press <strong>On/Off</strong>, select the cooking zone, then adjust the power level (1–9).',
+      de: 'Zum Kochen: Stellt einen passenden Topf oder eine Pfanne auf das Kochfeld, drückt <strong>On/Off</strong>, wählt die Kochzone aus und stellt dann die Leistungsstufe (1–9) ein.',
+      es: 'Para cocinar: colocad una olla o sartén adecuada en la placa, pulsad <strong>On/Off</strong>, seleccionad la zona de cocción y ajustad el nivel de potencia (1–9).',
+      nl: 'Om te koken: zet een geschikte pot of pan op de kookplaat, druk op <strong>On/Off</strong>, selecteer de kookzone en stel het vermogen in (1–9).',
+      sv: 'För att laga mat: ställ en lämplig kastrull eller stekpanna på hällen, tryck på <strong>On/Off</strong>, välj kokzon och ställ in effekten (1–9).'
+    },
+    {
+      en: 'If you see <strong>"Lo"</strong>, the child lock is active. Press and hold the <strong>Child Lock</strong> button for about 3 seconds to unlock.',
+      de: 'Wenn ihr <strong>„Lo"</strong> seht, ist die Kindersicherung aktiv. Haltet die Taste <strong>Kindersicherung</strong> für etwa 3 Sekunden gedrückt, um sie zu entsperren.',
+      es: 'Si veis <strong>"Lo"</strong>, el bloqueo infantil está activo. Mantened pulsado el botón de <strong>Bloqueo infantil</strong> durante unos 3 segundos para desbloquearlo.',
+      nl: 'Als jullie <strong>"Lo"</strong> zien, is het kinderslot geactiveerd. Houd de knop <strong>Kinderslot</strong> ongeveer 3 seconden ingedrukt om te ontgrendelen.',
+      sv: 'Om ni ser <strong>"Lo"</strong> är barnspärren aktiverad. Tryck och håll in knappen för <strong>Barnspärr</strong> i cirka 3 sekunder för att låsa upp.'
+    },
+    {
+      en: 'Lower levels are ideal for gentle simmering; higher levels are best for boiling water or searing.',
+      de: 'Niedrigere Stufen eignen sich hervorragend für sanftes Köcheln; höhere Stufen sind am besten, um Wasser zum Kochen zu bringen oder scharf anzubraten.',
+      es: 'Los niveles bajos son ideales para cocinar a fuego lento; los más altos son perfectos para hervir agua o marcar alimentos.',
+      nl: 'Lagere standen zijn ideaal om zachtjes te laten sudderen; hogere standen zijn het beste om water aan de kook te brengen of vlees dicht te schroeien.',
+      sv: 'Lägre nivåer är idealiska för att sjuda försiktigt; högre nivåer passar bäst för att koka upp vatten eller bryna maten.'
+    }
+  ],
+  images: [
+    {
+      src: '/images/amara-lounis/induction-hob-zones.jpg',
+      alt: {
+        en: 'Induction hob control panel showing zone selection and On/Off button',
+        de: 'Bedienfeld des Induktionsherds mit Kochzonenauswahl und Ein/Aus-Taste',
+        es: 'Panel de control de la placa de inducción con selección de zona y botón de encendido/apagado',
+        nl: 'Bedieningspaneel van de inductiekookplaat met zone-selectie en aan/uit-knop',
+        sv: 'Induktionshällens kontrollpanel med zonval och På/Av-knapp'
+      },
+      caption: {
+        en: 'Zone selection and On/Off button',
+        de: 'Kochzonenauswahl und Ein/Aus-Taste',
+        es: 'Selección de zona y botón de encendido/apagado',
+        nl: 'Zone-selectie en aan/uit-knop',
+        sv: 'Zonval och På/Av-knapp'
+      }
+    },
+    {
+      src: '/images/amara-lounis/induction-hob-child-lock.jpg',
+      alt: {
+        en: 'Induction hob control panel with the child lock button highlighted',
+        de: 'Bedienfeld des Induktionsherds mit hervorgehobener Kindersicherungstaste',
+        es: 'Panel de control de la placa de inducción con el botón de bloqueo infantil resaltado',
+        nl: 'Bedieningspaneel van de inductiekookplaat met de kinderslotknop gemarkeerd',
+        sv: 'Induktionshällens kontrollpanel med barnspärrsknappen markerad'
+      },
+      caption: {
+        en: 'Child lock button',
+        de: 'Kindersicherungstaste',
+        es: 'Botón de bloqueo infantil',
+        nl: 'Kinderslotknop',
+        sv: 'Barnspärrsknapp'
+      }
+    },
+    {
+      src: '/images/amara-lounis/induction-hob-power-levels.jpg',
+      alt: {
+        en: 'Induction hob control panel showing the power level slider (1-9)',
+        de: 'Bedienfeld des Induktionsherds mit dem Regler für die Leistungsstufen (1–9)',
+        es: 'Panel de control de la placa de inducción con el control deslizante de potencia (1-9)',
+        nl: 'Bedieningspaneel van de inductiekookplaat met de vermogensschuif (1-9)',
+        sv: 'Induktionshällens kontrollpanel med reglaget för effektnivå (1–9)'
+      },
+      caption: {
+        en: 'Power level (1–9)',
+        de: 'Leistungsstufe (1–9)',
+        es: 'Nivel de potencia (1–9)',
+        nl: 'Vermogensniveau (1–9)',
+        sv: 'Effektnivå (1–9)'
+      }
+    }
+  ]
+};
+
+const sharedAmaraPelletStoveItem: GuestGuideAccordionItem = {
+  icon: 'flame',
+  title: { en: 'Pellet Stove', de: 'Pelletofen', es: 'Estufa de pellets', nl: 'Pelletkachel', sv: 'Pelletskamin' },
+  body: [
+    {
+      en: 'Please use <strong>certified 6 mm wood pellets only</strong>. Keep the <strong>door closed</strong> while running.',
+      de: 'Bitte verwendet <strong>nur zertifizierte 6-mm-Holzpellets</strong>. Lasst die <strong>Tür geschlossen</strong>, während der Ofen in Betrieb ist.',
+      es: 'Por favor, utilizad <strong>solo pellets de madera certificados de 6 mm</strong>. Mantened la <strong>puerta cerrada</strong> mientras esté en funcionamiento.',
+      nl: 'Gebruik <strong>uitsluitend gecertificeerde houtpellets van 6 mm</strong>. Houd de <strong>deur gesloten</strong> terwijl de kachel aanstaat.',
+      sv: 'Vänligen använd <strong>endast certifierade 6 mm träpellets</strong>. Håll <strong>dörren stängd</strong> under drift.'
+    },
+    {
+      en: '<strong>Quick start</strong>',
+      de: '<strong>Kurzanleitung</strong>',
+      es: '<strong>Guía de inicio rápido</strong>',
+      nl: '<strong>Snel aan de slag</strong>',
+      sv: '<strong>Snabbstart</strong>'
+    },
+    {
+      en: '<ol><li>Check pellets in the hopper (top) and refill if needed.</li><li>Press and hold <strong>ON/OFF</strong> for ~3 seconds (auto ignition).</li><li>Give it a few minutes — the stove starts in phases automatically.</li></ol>',
+      de: '<ol><li>Prüft die Pellets im Tank (oben) und füllt sie bei Bedarf nach.</li><li>Haltet <strong>ON/OFF</strong> für ca. 3 Sekunden gedrückt (automatische Zündung).</li><li>Gebt dem Ofen ein paar Minuten – er startet ganz automatisch in verschiedenen Phasen.</li></ol>',
+      es: '<ol><li>Comprobad los pellets en el depósito (parte superior) y rellenadlo si es necesario.</li><li>Mantened pulsado <strong>ON/OFF</strong> durante unos 3 segundos (encendido automático).</li><li>Dadle unos minutos: la estufa se inicia sola por fases.</li></ol>',
+      nl: '<ol><li>Controleer de pellets in de voorraadbak (bovenop) en vul ze indien nodig bij.</li><li>Houd <strong>ON/OFF</strong> ongeveer 3 seconden ingedrukt (automatische ontsteking).</li><li>Geef de kachel even de tijd — hij start automatisch in verschillende fasen op.</li></ol>',
+      sv: '<ol><li>Kontrollera pelletsen i behållaren (ovanpå) och fyll på vid behov.</li><li>Tryck och håll in <strong>ON/OFF</strong> i ca 3 sekunder (automatisk tändning).</li><li>Ge den några minuter – kaminen startar automatiskt i olika faser.</li></ol>'
+    },
+    {
+      en: '<strong>Controls</strong><br><strong>Temperature:</strong> 1 / 2 &nbsp; <strong>More heat:</strong> 6 &nbsp; <strong>Less heat:</strong> 5',
+      de: '<strong>Bedienung</strong><br><strong>Temperatur:</strong> 1 / 2 &nbsp; <strong>Mehr Wärme:</strong> 6 &nbsp; <strong>Weniger Wärme:</strong> 5',
+      es: '<strong>Controles</strong><br><strong>Temperatura:</strong> 1 / 2 &nbsp; <strong>Más calor:</strong> 6 &nbsp; <strong>Menos calor:</strong> 5',
+      nl: '<strong>Bediening</strong><br><strong>Temperatuur:</strong> 1 / 2 &nbsp; <strong>Meer warmte:</strong> 6 &nbsp; <strong>Minder warmte:</strong> 5',
+      sv: '<strong>Kontroller</strong><br><strong>Temperatur:</strong> 1 / 2 &nbsp; <strong>Mer värme:</strong> 6 &nbsp; <strong>Mindre värme:</strong> 5'
+    },
+    {
+      en: '<strong>Turning off:</strong> press and hold <strong>ON/OFF</strong> for ~3 seconds. The fans may run briefly while cooling down.',
+      de: '<strong>Ausschalten:</strong> Haltet <strong>ON/OFF</strong> für ca. 3 Sekunden gedrückt. Die Lüfter können während des Abkühlens noch kurz nachlaufen.',
+      es: '<strong>Apagado:</strong> mantened pulsado <strong>ON/OFF</strong> durante unos 3 segundos. Es posible que los ventiladores sigan funcionando brevemente mientras se enfría.',
+      nl: '<strong>Uitschakelen:</strong> houd <strong>ON/OFF</strong> ongeveer 3 seconden ingedrukt. De ventilatoren kunnen tijdens het afkoelen nog even blijven draaien.',
+      sv: '<strong>Avstängning:</strong> tryck och håll in <strong>ON/OFF</strong> i ca 3 sekunder. Fläktarna kan fortsätta att gå en kort stund medan den svalnar.'
+    },
+    {
+      en: '<strong>Quick alarm help</strong><br><strong>AL-06 NO PELLET</strong> → Refill pellets and restart.<br><strong>AL-05 LIGHTING FAILURE</strong> → Let it cool down, then restart once.',
+      de: '<strong>Schnelle Hilfe bei Alarmen</strong><br><strong>AL-06 NO PELLET</strong> → Füllt Pellets nach und startet den Ofen neu.<br><strong>AL-05 LIGHTING FAILURE</strong> → Lasst den Ofen abkühlen und startet ihn dann einmal neu.',
+      es: '<strong>Ayuda rápida con alarmas</strong><br><strong>AL-06 NO PELLET</strong> → Rellenad los pellets y reiniciad.<br><strong>AL-05 LIGHTING FAILURE</strong> → Dejad que se enfríe y volved a iniciarlo una vez.',
+      nl: '<strong>Snelle hulp bij storingen</strong><br><strong>AL-06 NO PELLET</strong> → Vul de pellets bij en start opnieuw op.<br><strong>AL-05 LIGHTING FAILURE</strong> → Laat de kachel afkoelen en start hem daarna een keer opnieuw.',
+      sv: '<strong>Snabbhjälp vid larm</strong><br><strong>AL-06 NO PELLET</strong> → Fyll på pellets och starta om.<br><strong>AL-05 LIGHTING FAILURE</strong> → Låt den svalna och starta sedan om den en gång.'
+    },
+    {
+      en: 'Clean only when cold. If an alarm persists, please message us — we\'ll help immediately.',
+      de: 'Bitte reinigt den Ofen nur, wenn er kalt ist. Falls ein Alarm bestehen bleibt, schreibt uns einfach – wir helfen euch sofort weiter.',
+      es: 'Limpiadla solo cuando esté fría. Si persiste una alarma, escribidnos por favor: os ayudaremos de inmediato.',
+      nl: 'Reinig de kachel alleen als deze koud is. Mocht er een storing blijven aanhouden, stuur ons dan even een berichtje — we helpen jullie meteen verder.',
+      sv: 'Rengör endast när kaminen är kall. Om ett larm kvarstår, skicka gärna ett meddelande till oss – vi hjälper er direkt.'
+    }
+  ]
+};
+
+// Shared across all three Frigiliana apartments (Farah, Lounis, Zaid) — identical policy/facts.
+const sharedAmaraHousekeepingItem: GuestGuideAccordionItem = {
+  icon: 'sparkle',
+  title: { en: 'Housekeeping', de: 'Housekeeping', es: 'Servicio de limpieza', nl: 'Housekeeping', sv: 'Housekeeping' },
+  body: [
+    {
+      en: '<strong>Fresh linens</strong><br>For stays longer than 7 nights, we automatically change your bed linen and towels halfway through your stay.',
+      de: '<strong>Frische Wäsche</strong><br>Bei Aufenthalten von mehr als 7 Nächten wechseln wir zur Hälfte eures Aufenthalts automatisch die Bettwäsche und Handtücher für euch aus.',
+      es: '<strong>Ropa de cama limpia</strong><br>Para estancias superiores a 7 noches, cambiamos automáticamente la ropa de cama y las toallas a mitad de vuestra estancia.',
+      nl: '<strong>Schoon linnen</strong><br>Bij een verblijf van meer dan 7 nachten verschonen we halverwege jullie verblijf automatisch het beddengoed en de handdoeken.',
+      sv: '<strong>Rena sängkläder</strong><br>Vid vistelser längre än 7 nätter byter vi automatiskt sängkläder och handdukar halvvägs in i er vistelse.'
+    },
+    {
+      en: '<strong>Need anything else?</strong><br>Our housekeeping team is happy to help: <a class="am-link" href="' +
+        HOUSEKEEPING_WHATSAPP +
+        '" target="_blank" rel="noopener">Open WhatsApp</a>',
+      de: '<strong>Wenn ihr noch etwas braucht</strong><br>Unser Housekeeping-Team hilft euch sehr gerne weiter: <a class="am-link" href="' +
+        HOUSEKEEPING_WHATSAPP +
+        '" target="_blank" rel="noopener">WhatsApp öffnen</a>',
+      es: '<strong>¿Necesitáis cualquier otra cosa?</strong><br>Nuestro equipo de limpieza estará encantado de ayudaros: <a class="am-link" href="' +
+        HOUSEKEEPING_WHATSAPP +
+        '" target="_blank" rel="noopener">Abrir WhatsApp</a>',
+      nl: '<strong>Nog iets anders nodig?</strong><br>Ons housekeeping-team helpt jullie graag verder: <a class="am-link" href="' +
+        HOUSEKEEPING_WHATSAPP +
+        '" target="_blank" rel="noopener">Open WhatsApp</a>',
+      sv: '<strong>Behöver ni något annat?</strong><br>Vårt housekeeping-team hjälper er gärna: <a class="am-link" href="' +
+        HOUSEKEEPING_WHATSAPP +
+        '" target="_blank" rel="noopener">Öppna WhatsApp</a>'
+    }
+  ]
+};
+
+const sharedAmaraGarbageItem: GuestGuideAccordionItem = {
+  icon: 'trash',
+  title: { en: 'Garbage', de: 'Müllentsorgung', es: 'Gestión de residuos', nl: 'Afvalverwerking', sv: 'Avfallshantering' },
+  body: [
+    {
+      en: 'Please dispose of your rubbish in the container on Calle Carlos Cano, directly opposite the stairs leading up to the house.',
+      de: 'Bitte entsorgt euren Müll im Container auf der Calle Carlos Cano – genau gegenüber den Treppen, die zum Haus hinaufführen.',
+      es: 'Os pedimos que depositéis la basura en el contenedor de la Calle Carlos Cano, justo enfrente de las escaleras que suben a la casa.',
+      nl: 'Gooi het afval weg in de container in de Calle Carlos Cano, tegenover de trap die naar het huis leidt.',
+      sv: 'Vänligen släng era sopor i containern på Calle Carlos Cano, mittemot trapporna som leder upp till huset.'
+    },
+    {
+      en: 'Please avoid leaving food uncovered, as the warm climate can quickly attract ants — especially in summer.',
+      de: 'Bitte achtet darauf, keine offenen Lebensmittel stehen zu lassen, da das warme Klima schnell Ameisen anziehen kann – besonders im Sommer.',
+      es: 'Evitad dejar comida sin tapar, ya que el clima cálido puede atraer hormigas rápidamente, sobre todo en verano.',
+      nl: 'Laat eten niet onafgedekt staan — het warme klimaat kan snel mieren aantrekken, vooral in de zomer.',
+      sv: 'Undvik att lämna mat framme utan lock, eftersom det varma klimatet snabbt kan locka till sig myror – särskilt på sommaren.'
+    }
+  ]
+};
+
+const sharedAmaraQuietHoursItem: GuestGuideAccordionItem = {
+  icon: 'moon',
+  title: {
+    en: 'Quiet Hours from 11:00 PM',
+    de: 'Ruhezeit ab 23:00 Uhr',
+    es: 'Horario de silencio desde las 23:00',
+    nl: 'Nachtrust vanaf 23.00 uur',
+    sv: 'Nattro från kl. 23.00'
+  },
+  body: [
+    {
+      en: '<strong>Quiet hours begin at 11:00 PM.</strong> From then on, please use your physical key for the main entrance door at street level rather than the electronic lock, which is disabled overnight — so please always bring your key when returning late.',
+      de: '<strong>Ab 23:00 Uhr gilt im Haus Ruhezeit.</strong> Bitte verwendet ab dann euren normalen Schlüssel für die Haustür auf Straßenebene statt des elektronischen Türschlosses, das nachts deaktiviert wird – nehmt daher bitte immer euren Schlüssel mit, wenn ihr später zurückkehrt.',
+      es: '<strong>El horario de silencio comienza a las 23:00.</strong> A partir de esa hora, utilizad vuestra llave física para la puerta principal a nivel de calle en lugar de la cerradura electrónica, que se desactiva por la noche; llevad siempre la llave si vais a regresar tarde.',
+      nl: '<strong>Vanaf 23.00 uur geldt er nachtrust in het huis.</strong> Gebruik vanaf dat moment jullie gewone sleutel voor de hoofdingang aan de straat in plaats van het elektronische deurslot, dat \'s nachts wordt uitgeschakeld — neem daarom altijd de sleutel mee als jullie later terugkeren.',
+      sv: '<strong>Från kl. 23.00 gäller nattro i huset.</strong> Använd därefter er vanliga nyckel till huvudentrén på gatunivå i stället för det elektroniska dörrlåset, som stängs av nattetid — ta därför alltid med nyckeln om ni återvänder sent.'
+    },
+    {
+      en: 'During the day the electronic lock is there for your convenience — handy if you would rather leave your key safely in the key box while you visit the beach.',
+      de: 'Tagsüber könnt ihr das elektronische Türschloss gerne nutzen – praktisch, wenn ihr euren Schlüssel während eines Strandbesuchs sicher in der Schlüsselbox lassen möchtet.',
+      es: 'Durante el día podéis usar cómodamente la cerradura electrónica, por ejemplo si preferís dejar la llave a buen recaudo en la caja de llaves mientras vais a la playa.',
+      nl: 'Overdag kunnen jullie het elektronische deurslot gerust gebruiken — handig als jullie de sleutel tijdens een strandbezoek liever veilig in het sleutelkluisje laten.',
+      sv: 'Under dagen kan ni gärna använda det elektroniska dörrlåset — praktiskt om ni vill lämna nyckeln säkert i nyckelboxen medan ni är på stranden.'
+    },
+    {
+      en: 'Out of consideration for other guests, please also keep voices and noise low in the shared entrance and corridor after 11:00 PM. Thank you for your understanding.',
+      de: 'Aus Rücksicht auf die anderen Gäste bitten wir euch außerdem, euch ab 23:00 Uhr im gemeinsamen Eingangs- und Korridorbereich leise zu verhalten. Vielen Dank für euer Verständnis.',
+      es: 'Por consideración hacia los demás huéspedes, os pedimos también que habléis en voz baja y evitéis ruidos en las zonas comunes de entrada y pasillo después de las 23:00. Gracias por vuestra comprensión.',
+      nl: 'Uit respect voor de andere gasten vragen we jullie ook om na 23.00 uur rustig te zijn in de gemeenschappelijke entree en gangen. Hartelijk dank voor jullie begrip.',
+      sv: 'Av hänsyn till de andra gästerna ber vi er också att vara tysta i den gemensamma entrén och korridoren efter kl. 23.00. Tack för er förståelse.'
+    }
+  ]
+};
+
+const sharedAmaraTapWaterItem: GuestGuideAccordionItem = {
+  icon: 'tap-water',
+  title: { en: 'Tap Water', de: 'Leitungswasser', es: 'Agua del grifo', nl: 'Kraanwater', sv: 'Kranvatten' },
+  body: [
+    {
+      en: 'The tap water is <strong>softened and filtered</strong> for everyday comfort — the system reduces limescale and leaves skin and hair noticeably softer after showering.',
+      de: 'Das Leitungswasser im Haus ist für euren Komfort <strong>enthärtet und gefiltert</strong> – das System reduziert Kalk und sorgt nach dem Duschen für spürbar weichere Haut und Haare.',
+      es: 'El agua del grifo está <strong>descalcificada y filtrada</strong> para vuestra comodidad: el sistema reduce la cal y deja la piel y el pelo notablemente más suaves tras la ducha.',
+      nl: 'Het kraanwater is <strong>onthard en gefilterd</strong> voor extra comfort — het systeem vermindert kalkaanslag en zorgt voor merkbaar zachtere huid en haar na het douchen.',
+      sv: 'Kranvattnet är <strong>avhärdat och filtrerat</strong> för er komfort — systemet minskar kalkavlagringar och ger märkbart mjukare hud och hår efter duschen.'
+    },
+    {
+      en: 'It is generally safe to drink; if you have a sensitive stomach or prefer a more neutral taste, we recommend bottled water.',
+      de: 'Grundsätzlich ist es unbedenklich trinkbar. Falls ihr einen empfindlichen Magen habt oder einen geschmacksneutraleren Genuss bevorzugt, empfehlen wir Mineralwasser aus der Flasche.',
+      es: 'En general es segura para beber; si tenéis el estómago sensible o preferís un sabor más neutro, os recomendamos agua embotellada.',
+      nl: 'Het is over het algemeen veilig om te drinken. Hebben jullie een gevoelige maag of geven jullie de voorkeur aan een neutralere smaak, dan raden we flessenwater aan.',
+      sv: 'Det är i regel säkert att dricka. Har ni en känslig mage eller föredrar en mer neutral smak rekommenderar vi vatten på flaska.'
+    }
+  ]
+};
+
+const sharedAmaraNoSmokingItem: GuestGuideAccordionItem = {
+  icon: 'no-smoking',
+  title: {
+    en: 'No Smoking Indoors',
+    de: 'Rauchen im Innenbereich verboten',
+    es: 'No se permite fumar en el interior',
+    nl: 'Niet roken binnen',
+    sv: 'Rökning inomhus förbjuden'
+  },
+  body: [
+    {
+      en: 'Smoking is strictly prohibited indoors. Please smoke only outside and dispose of cigarette ends responsibly.',
+      de: 'Das Rauchen ist im Innenbereich strengstens untersagt. Bitte raucht nur draußen und entsorgt Zigarettenstummel verantwortungsvoll.',
+      es: 'Está terminantemente prohibido fumar en el interior. Por favor, fumad solo en el exterior y desechad las colillas de forma responsable.',
+      nl: 'Binnen roken is ten strengste verboden. Rook alstublieft alleen buiten en gooi sigarettenpeuken op een verantwoorde manier weg.',
+      sv: 'Rökning är strängt förbjuden inomhus. Vänligen rök endast utomhus och kasta fimpar på ett ansvarsfullt sätt.'
+    }
+  ]
+};
+
+const sharedAmaraVentilateItem: GuestGuideAccordionItem = {
+  icon: 'ventilate',
+  title: {
+    en: 'Ventilate Regularly',
+    de: 'Regelmäßig lüften',
+    es: 'Ventilad regularmente',
+    nl: 'Regelmatig ventileren',
+    sv: 'Vädra regelbundet'
+  },
+  body: [
+    {
+      en: 'This is a listed house over 800 years old, so we kindly ask you to ventilate it regularly — the traditional construction relies on fresh air circulation to keep a comfortable indoor climate.',
+      de: 'Da es sich um ein über 800 Jahre altes, denkmalgeschütztes Haus handelt, bitten wir euch, es regelmäßig zu lüften – die traditionelle Bauweise braucht die Zirkulation frischer Luft, um ein angenehmes Raumklima zu erhalten.',
+      es: 'Se trata de una casa catalogada con más de 800 años de antigüedad, así que os pedimos que la ventiléis con regularidad: la construcción tradicional necesita que circule aire fresco para mantener un ambiente interior agradable.',
+      nl: 'Dit is een monumentaal pand van meer dan 800 jaar oud, dus we vragen jullie vriendelijk om regelmatig te ventileren — de traditionele bouwwijze heeft frisse luchtcirculatie nodig voor een aangenaam binnenklimaat.',
+      sv: 'Detta är ett k-märkt hus, över 800 år gammalt, så vi ber er vänligen att vädra det regelbundet — den traditionella konstruktionen behöver frisk luftcirkulation för ett behagligt inomhusklimat.'
+    }
+  ]
+};
+
+const sharedAmaraDepartureInfoItem: GuestGuideAccordionItem = {
+  icon: 'departure',
+  title: {
+    en: 'Departure Information',
+    de: 'Abreise',
+    es: 'Salida',
+    nl: 'Vertrek',
+    sv: 'Avresa'
+  },
+  body: [
+    {
+      en: 'Check-out time is <strong>11:00 AM</strong>. Before you leave, please log out of any private TV or streaming accounts, and take one last calm look around the apartment.',
+      de: 'Check-out ist um <strong>11:00 Uhr</strong>. Bitte loggt euch vor der Abreise aus allen privaten TV- oder Streaming-Konten aus und werft noch einmal einen letzten ruhigen Blick durch das Apartment.',
+      es: 'La hora de check-out es a las <strong>11:00</strong>. Antes de salir, cerrad la sesión de cualquier cuenta privada de televisión o streaming y echad un último vistazo tranquilo al apartamento.',
+      nl: 'De check-out tijd is <strong>11:00 uur</strong>. Log voor vertrek uit alle privé tv- of streamingaccounts en werp nog één laatste rustige blik door het appartement.',
+      sv: 'Utcheckning är kl. <strong>11:00</strong>. Innan ni åker, logga ut från alla privata tv- eller streamingkonton och ta en sista lugn titt runt i lägenheten.'
+    },
+    {
+      en: 'Please check carefully that you have taken all your belongings — phone chargers, curling irons, jackets, EarPods or AirPods, jewellery, clothing, and charging cables are the items most often left behind.',
+      de: 'Bitte prüft sorgfältig, ob ihr wirklich alle persönlichen Gegenstände wieder mitgenommen habt. Typischerweise vergessen werden Handy-Ladegeräte, Lockenstäbe, Jacken, EarPods oder AirPods, Schmuck, Kleidung und Ladekabel.',
+      es: 'Comprobad con cuidado que os lleváis todas vuestras pertenencias: los objetos que más se olvidan son cargadores de móvil, rizadores, chaquetas, EarPods o AirPods, joyas, ropa y cables de carga.',
+      nl: 'Controleer goed of jullie echt alle persoonlijke spullen hebben meegenomen. Vaak vergeten: telefoonopladers, krultangen, jassen, EarPods of AirPods, sieraden, kleding en oplaadkabels.',
+      sv: 'Kontrollera noggrant att ni fått med er alla personliga tillhörigheter. Det som glöms oftast är mobilladdare, locktänger, jackor, EarPods eller AirPods, smycken, kläder och laddkablar.'
+    },
+    {
+      en: 'When you leave, please leave one set of keys inside the apartment, lock the door, and return the other key to the key box. Before heading out, please take your rubbish to the containers down on Avenida Carlos Cano, where you most likely also parked. Thank you very much for your help.',
+      de: 'Lasst beim Verlassen bitte ein Schlüsselset im Apartment liegen, schließt die Tür ab und legt den anderen Schlüssel zurück in die Schlüsselbox. Nehmt euren Müll bitte mit zu den Containern unten an der Avenida Carlos Cano, wo ihr vermutlich auch euer Auto geparkt habt. Vielen Dank für eure Hilfe.',
+      es: 'Al marcharos, dejad un juego de llaves dentro del apartamento, cerrad la puerta y devolved la otra llave a la caja de seguridad. Antes de salir, llevad la basura a los contenedores de abajo, en la Avenida Carlos Cano, donde probablemente también aparcasteis. Muchas gracias por vuestra ayuda.',
+      nl: 'Laat bij vertrek één sleutelset in het appartement achter, doe de deur op slot en leg de andere sleutel terug in het sleutelkastje. Breng het afval voor vertrek naar de containers beneden aan de Avenida Carlos Cano, waar jullie waarschijnlijk ook de auto hebben geparkeerd. Hartelijk dank voor jullie hulp.',
+      sv: 'Vid avfärd, lämna ett set nycklar inne i lägenheten, lås dörren och lägg tillbaka den andra nyckeln i nyckelboxen. Ta med soporna till containrarna nere på Avenida Carlos Cano, där ni troligen också parkerade, innan ni åker. Tack så mycket för hjälpen.'
+    }
+  ]
+};
+
+// Farah has a flat late check-out fee — Lounis and Zaid share seasonal pricing instead (see below).
+const sharedAmaraLateCheckoutSeasonalItem: GuestGuideAccordionItem = {
+  icon: 'late-checkout',
+  title: { en: 'Late Check-out', de: 'Late Check-out', es: 'Late check-out', nl: 'Late check-out', sv: 'Sen utcheckning' },
+  body: [
+    {
+      en: 'Like many apartments in Frigiliana, ours is prepared by a private cleaner rather than a hotel-style team, so we kindly ask you to respect the regular <strong>11:00 AM</strong> check-out time.',
+      de: 'Wie viele Apartments in Frigiliana wird auch unseres von einer privaten Reinigungskraft vorbereitet und nicht von einem hotelähnlichen Team. Deshalb bitten wir euch, die reguläre Check-out-Zeit um <strong>11:00 Uhr</strong> zu respektieren.',
+      es: 'Como muchos apartamentos en Frigiliana, el nuestro lo prepara una persona de limpieza privada y no un equipo tipo hotel, así que os pedimos que respetéis la hora habitual de check-out a las <strong>11:00</strong>.',
+      nl: 'Zoals veel appartementen in Frigiliana wordt ons appartement schoongemaakt door een particuliere schoonmaker en niet door een hotelachtig team. Daarom vragen we jullie de reguliere check-outtijd van <strong>11:00 uur</strong> te respecteren.',
+      sv: 'Precis som många lägenheter i Frigiliana städas vår av en privat städperson och inte av ett hotellteam. Vi ber er därför att respektera den ordinarie utcheckningstiden kl. <strong>11:00</strong>.'
+    },
+    {
+      en: 'If you would like to stay in the apartment until <strong>6:00 PM</strong>, this may be possible for <strong>€65</strong> from October to April and <strong>€90</strong> from May to September. Since this means holding the apartment back from a possible new arrival, late check-out must be arranged and confirmed with us in advance — please message us as early as possible if you would like to request it.',
+      de: 'Wenn ihr das Apartment bis <strong>18:00 Uhr</strong> nutzen möchtet, ist dies möglicherweise von Oktober bis April für <strong>65 €</strong> und von Mai bis September für <strong>90 €</strong> möglich. Da wir das Apartment dafür für eine mögliche neue Anreise freihalten müssen, muss ein Late Check-out vorab mit uns abgestimmt und von uns bestätigt werden – schreibt uns dafür bitte so früh wie möglich.',
+      es: 'Si queréis permanecer en el apartamento hasta las <strong>18:00</strong>, esto puede ser posible por <strong>65 €</strong> de octubre a abril y <strong>90 €</strong> de mayo a septiembre. Como esto implica mantener el apartamento no disponible para una posible nueva llegada, el late check-out debe acordarse y confirmarse con nosotros de antemano; escribidnos con la mayor antelación posible si queréis solicitarlo.',
+      nl: 'Als jullie het appartement tot <strong>18:00 uur</strong> willen blijven gebruiken, is dit mogelijk voor <strong>€65</strong> van oktober tot april en <strong>€90</strong> van mei tot september. Omdat we het appartement hiervoor niet beschikbaar houden voor een mogelijke nieuwe aankomst, moet een late check-out vooraf met ons worden afgestemd en bevestigd — stuur ons daarvoor zo vroeg mogelijk een bericht.',
+      sv: 'Om ni vill använda lägenheten fram till <strong>18:00</strong> kan detta vara möjligt för <strong>€65</strong> från oktober till april och <strong>€90</strong> från maj till september. Eftersom detta innebär att vi håller lägenheten otillgänglig för en eventuell ny ankomst måste sen utcheckning avtalas och bekräftas med oss i förväg — skicka gärna ett meddelande så tidigt som möjligt om ni vill begära det.'
+    }
+  ]
+};
+
+// Shared across Zaid and Maha (identical starter supplies, no dishwasher tablets); Lounis's list differs.
+const sharedAmaraStarterSuppliesItem: GuestGuideAccordionItem = {
+  icon: 'cart',
+  title: { en: 'Starter Supplies', de: 'Startausstattung', es: 'Suministros iniciales', nl: 'Startbenodigdheden', sv: 'Startförnödenheter' },
+  body: [
+    {
+      en: 'To make your arrival easy, we provide a thoughtful <strong>starter supply</strong> of everyday essentials — usually things like toilet paper, bin bags, and a few basic cleaning items.',
+      de: 'Damit ihr entspannt ankommen könnt, stellen wir euch eine sorgfältige <strong>Startausstattung</strong> mit den wichtigsten Verbrauchsmaterialien bereit – meist Dinge wie Toilettenpapier, Mülltüten und einige grundlegende Reinigungsartikel.',
+      es: 'Para que vuestra llegada sea cómoda, dejamos una <strong>dotación inicial</strong> con los artículos básicos más importantes: normalmente papel higiénico, bolsas de basura y algunos productos básicos de limpieza.',
+      nl: 'Om jullie aankomst zo makkelijk mogelijk te maken, zorgen we voor een fijne <strong>startvoorraad</strong> met de belangrijkste dagelijkse benodigdheden — meestal zaken zoals toiletpapier, vuilniszakken en enkele basis schoonmaakbenodigdheden.',
+      sv: 'För att göra ankomsten enkel erbjuder vi ett omtänksamt <strong>startpaket</strong> med de viktigaste vardagsartiklarna — vanligtvis saker som toalettpapper, soppåsar och några grundläggande rengöringsartiklar.'
+    },
+    {
+      en: 'As is common in holiday rentals, these supplies are intended for the <strong>start of your stay</strong>. If you need more, please purchase any additional items according to your personal needs.',
+      de: 'Wie in Ferienunterkünften üblich, ist diese Ausstattung für den <strong>Start eures Aufenthalts</strong> gedacht. Wenn ihr mehr benötigt, kauft bitte zusätzliche Artikel nach eurem persönlichen Bedarf.',
+      es: 'Como es habitual en los alojamientos vacacionales, estos artículos están pensados para el <strong>inicio de vuestra estancia</strong>. Si necesitáis más, podéis comprar lo adicional según vuestras necesidades personales.',
+      nl: 'Zoals gebruikelijk is bij vakantiewoningen, zijn deze benodigdheden bedoeld voor het <strong>begin van jullie verblijf</strong>. Als jullie meer nodig hebben, kunnen jullie dit zelf naar behoefte bijkopen.',
+      sv: 'Som vanligt i semesterboenden är dessa förnödenheter avsedda för <strong>början av er vistelse</strong>. Om ni behöver mer köper ni enkelt till det efter era egna behov.'
+    }
+  ]
+};
+
+// Shared across all Frigiliana apartments with an outdoor gas stove — currently Maha only.
+const sharedAmaraOutdoorGasStoveItem: GuestGuideAccordionItem = {
+  icon: 'gas-stove',
+  title: {
+    en: 'Outdoor Gas Stove',
+    de: 'Gasherd in der Außenküche',
+    es: 'Cocina de gas exterior',
+    nl: 'Gasfornuis buitenkeuken',
+    sv: 'Gasspis i uteköket'
+  },
+  body: [
+    {
+      en: 'The outdoor kitchen has a gas stove connected to a gas bottle. Before using it, push the black lever on top of the gas regulator fully down until it clicks into place — this opens the gas supply.',
+      de: 'Die Außenküche hat einen Gasherd, der mit einer Gasflasche verbunden ist. Drückt vor der Benutzung den schwarzen Hebel oben am Gasdruckregler vollständig nach unten, bis er einrastet – dadurch wird die Gaszufuhr geöffnet.',
+      es: 'La cocina exterior tiene una cocina de gas conectada a una bombona. Antes de usarla, bajad completamente la palanca negra situada encima del regulador de gas hasta que encaje — así se abre el suministro de gas.',
+      nl: 'De buitenkeuken heeft een gasfornuis dat is aangesloten op een gasfles. Duw vóór gebruik de zwarte hendel boven op de gasdrukregelaar helemaal omlaag totdat hij vastklikt — hiermee wordt de gastoevoer geopend.',
+      sv: 'Uteköket har en gasspis som är ansluten till en gasflaska. Tryck före användning den svarta spaken ovanpå gasregulatorn hela vägen ned tills den klickar fast — då öppnas gastillförseln.'
+    },
+    {
+      en: 'To light the stove, press the knob down and turn it slowly — this activates the electric spark and lets the gas flow. Keep it pressed for a few seconds until the flame appears, then release and adjust the heat as needed.',
+      de: 'Zum Anzünden drückt ihr den Drehknopf nach unten und dreht ihn langsam. Dadurch wird der elektrische Funke aktiviert und das Gas kann strömen. Haltet den Knopf einige Sekunden gedrückt, bis die Flamme erscheint, lasst ihn dann los und stellt die gewünschte Stärke ein.',
+      es: 'Para encenderla, presionad el mando hacia abajo y giradlo lentamente — así se activa la chispa eléctrica y empieza a salir el gas. Mantenedlo presionado unos segundos hasta que aparezca la llama, soltadlo y regulad la intensidad.',
+      nl: 'Om het fornuis aan te steken, druk je de knop naar beneden en draai je hem langzaam — hierdoor wordt de elektrische vonk geactiveerd en kan het gas stromen. Houd hem enkele seconden ingedrukt tot de vlam verschijnt, laat dan los en stel de gewenste warmte in.',
+      sv: 'För att tända spisen trycker ni ner vredet och vrider det långsamt — då aktiveras den elektriska gnistan och gasen börjar flöda. Håll det nedtryckt några sekunder tills lågan tänds, släpp sedan och justera värmen.'
+    },
+    {
+      en: 'If the electric spark does not ignite the gas, you may carefully use a long lighter while pressing and turning the knob.',
+      de: 'Falls der elektrische Funke das Gas nicht entzündet, könnt ihr vorsichtig ein langes Stabfeuerzeug verwenden, während ihr den Drehknopf gedrückt haltet und dreht.',
+      es: 'Si la chispa eléctrica no enciende el gas, podéis utilizar con cuidado un encendedor largo mientras presionáis y giráis el mando.',
+      nl: 'Als de elektrische vonk het gas niet ontsteekt, kunnen jullie voorzichtig een lange aansteker gebruiken terwijl jullie de knop ingedrukt houden en draaien.',
+      sv: 'Om den elektriska gnistan inte tänder gasen kan ni försiktigt använda en lång tändare samtidigt som ni håller vredet nedtryckt och vrider det.'
+    },
+    {
+      en: 'After cooking, turn the stove knob fully off, then lift the black lever on the gas regulator fully up to close the gas supply.',
+      de: 'Dreht den Herd nach dem Kochen vollständig aus. Hebt anschließend den schwarzen Hebel am Gasdruckregler vollständig nach oben, um die Gaszufuhr zu schließen.',
+      es: 'Después de cocinar, apagad completamente la cocina. A continuación, levantad del todo la palanca negra del regulador para cerrar el suministro de gas.',
+      nl: 'Draai het fornuis na het koken volledig uit. Til daarna de zwarte hendel op de gasdrukregelaar helemaal omhoog om de gastoevoer af te sluiten.',
+      sv: 'Stäng av spisen helt efter matlagningen. Lyft därefter den svarta spaken på gasregulatorn hela vägen upp för att stänga gastillförseln.'
+    },
+    {
+      en: '<strong>Important:</strong> if you smell gas or the flame does not ignite, turn everything off immediately, close the gas supply, and contact us. Please do not continue trying.',
+      de: '<strong>Wichtig:</strong> Falls ihr Gas riecht oder sich keine Flamme entzündet, schaltet bitte sofort alles aus, schließt die Gaszufuhr und kontaktiert uns. Bitte versucht es nicht weiter.',
+      es: '<strong>Importante:</strong> si oléis a gas o la llama no se enciende, apagad todo inmediatamente, cerrad el suministro de gas y contactad con nosotros. No sigáis intentándolo.',
+      nl: '<strong>Belangrijk:</strong> ruiken jullie gas of gaat de vlam niet aan, schakel dan onmiddellijk alles uit, sluit de gastoevoer en neem contact met ons op. Probeer het niet opnieuw.',
+      sv: '<strong>Viktigt:</strong> om ni känner gaslukt eller om lågan inte tänds, stäng omedelbart av allt, stäng gastillförseln och kontakta oss. Försök inte igen.'
+    }
+  ]
+};
+
+// Shared across Lounis and Playa (identical starter supplies, includes dishwasher tablets); Zaid/Maha's list differs.
+const sharedAmaraStarterSuppliesWithDishwasherTabletsItem: GuestGuideAccordionItem = {
+  icon: 'cart',
+  title: { en: 'Starter Supplies', de: 'Startausstattung', es: 'Suministros iniciales', nl: 'Startbenodigdheden', sv: 'Startförnödenheter' },
+  body: [
+    {
+      en: 'To make your arrival easy, we provide a thoughtful <strong>starter supply</strong> of everyday essentials — usually things like toilet paper, dishwasher tablets, bin bags, and a few basic cleaning items.',
+      de: 'Damit ihr entspannt ankommen könnt, stellen wir euch eine sorgfältige <strong>Startausstattung</strong> mit den wichtigsten Verbrauchsmaterialien bereit – meist Dinge wie Toilettenpapier, Spülmaschinentabs, Mülltüten und einige grundlegende Reinigungsartikel.',
+      es: 'Para que vuestra llegada sea cómoda, dejamos una <strong>dotación inicial</strong> con los artículos básicos más importantes: normalmente papel higiénico, pastillas para el lavavajillas, bolsas de basura y algunos productos básicos de limpieza.',
+      nl: 'Om jullie aankomst zo makkelijk mogelijk te maken, zorgen we voor een fijne <strong>startvoorraad</strong> met de belangrijkste dagelijkse benodigdheden — meestal zaken zoals toiletpapier, vaatwastabletten, vuilniszakken en enkele basis schoonmaakbenodigdheden.',
+      sv: 'För att göra ankomsten enkel erbjuder vi ett omtänksamt <strong>startpaket</strong> med de viktigaste vardagsartiklarna — vanligtvis saker som toalettpapper, diskmaskinstabletter, soppåsar och några grundläggande rengöringsartiklar.'
+    },
+    {
+      en: 'As is common in holiday rentals, these supplies are intended for the <strong>start of your stay</strong>. If you need more, please purchase any additional items according to your personal needs.',
+      de: 'Wie in Ferienunterkünften üblich, ist diese Ausstattung für den <strong>Start eures Aufenthalts</strong> gedacht. Wenn ihr mehr benötigt, kauft bitte zusätzliche Artikel nach eurem persönlichen Bedarf.',
+      es: 'Como es habitual en los alojamientos vacacionales, estos artículos están pensados para el <strong>inicio de vuestra estancia</strong>. Si necesitáis más, podéis comprar lo adicional según vuestras necesidades personales.',
+      nl: 'Zoals gebruikelijk is bij vakantiewoningen, zijn deze benodigdheden bedoeld voor het <strong>begin van jullie verblijf</strong>. Als jullie meer nodig hebben, kunnen jullie dit zelf naar behoefte bijkopen.',
+      sv: 'Som vanligt i semesterboenden är dessa förnödenheter avsedda för <strong>början av er vistelse</strong>. Om ni behöver mer köper ni enkelt till det efter era egna behov.'
+    }
+  ]
+};
+
 const frigilianaFarahHub: GuestGuideEntry = {
   type: 'hub',
   slug: 'guestwelcome-frigiliana-farah',
@@ -346,13 +797,7 @@ const frigilianaFarahHub: GuestGuideEntry = {
     nl: 'Beschikbaarheid bekijken',
     sv: 'Kontrollera tillgänglighet'
   },
-  signOff: {
-    en: 'Warm regards,<br>Robert',
-    de: 'Herzliche Grüße,<br>Robert',
-    es: 'Un afectuoso saludo,<br>Robert',
-    nl: 'Hartelijke groeten,<br>Robert',
-    sv: 'Varma hälsningar,<br>Robert'
-  }
+  signOff: AMARA_SIGN_OFF
 };
 
 const frigilianaFarahAccommodation: GuestGuideEntry = {
@@ -416,59 +861,7 @@ const frigilianaFarahAccommodation: GuestGuideEntry = {
         nl: 'Tijdens jullie verblijf',
         sv: 'Under er vistelse'
       },
-      items: [
-        sharedAmaraCoffeeMachineItem,
-        {
-          icon: 'sparkle',
-          title: { en: 'Housekeeping', de: 'Housekeeping', es: 'Servicio de limpieza', nl: 'Housekeeping', sv: 'Housekeeping' },
-          body: [
-            {
-              en: '<strong>Fresh linens</strong><br>For stays longer than 7 nights, we automatically change your bed linen and towels halfway through your stay.',
-              de: '<strong>Frische Wäsche</strong><br>Bei Aufenthalten von mehr als 7 Nächten wechseln wir zur Hälfte eures Aufenthalts automatisch die Bettwäsche und Handtücher für euch aus.',
-              es: '<strong>Ropa de cama limpia</strong><br>Para estancias superiores a 7 noches, cambiamos automáticamente la ropa de cama y las toallas a mitad de vuestra estancia.',
-              nl: '<strong>Schoon linnen</strong><br>Bij een verblijf van meer dan 7 nachten verschonen we halverwege jullie verblijf automatisch het beddengoed en de handdoeken.',
-              sv: '<strong>Rena sängkläder</strong><br>Vid vistelser längre än 7 nätter byter vi automatiskt sängkläder och handdukar halvvägs in i er vistelse.'
-            },
-            {
-              en: '<strong>Need anything else?</strong><br>Our housekeeping team is happy to help: <a class="am-link" href="' +
-                HOUSEKEEPING_WHATSAPP +
-                '" target="_blank" rel="noopener">Open WhatsApp</a>',
-              de: '<strong>Wenn ihr noch etwas braucht</strong><br>Unser Housekeeping-Team hilft euch sehr gerne weiter: <a class="am-link" href="' +
-                HOUSEKEEPING_WHATSAPP +
-                '" target="_blank" rel="noopener">WhatsApp öffnen</a>',
-              es: '<strong>¿Necesitáis cualquier otra cosa?</strong><br>Nuestro equipo de limpieza estará encantado de ayudaros: <a class="am-link" href="' +
-                HOUSEKEEPING_WHATSAPP +
-                '" target="_blank" rel="noopener">Abrir WhatsApp</a>',
-              nl: '<strong>Nog iets anders nodig?</strong><br>Ons housekeeping-team helpt jullie graag verder: <a class="am-link" href="' +
-                HOUSEKEEPING_WHATSAPP +
-                '" target="_blank" rel="noopener">Open WhatsApp</a>',
-              sv: '<strong>Behöver ni något annat?</strong><br>Vårt housekeeping-team hjälper er gärna: <a class="am-link" href="' +
-                HOUSEKEEPING_WHATSAPP +
-                '" target="_blank" rel="noopener">Öppna WhatsApp</a>'
-            }
-          ]
-        },
-        {
-          icon: 'trash',
-          title: { en: 'Garbage', de: 'Müllentsorgung', es: 'Gestión de residuos', nl: 'Afvalverwerking', sv: 'Avfallshantering' },
-          body: [
-            {
-              en: 'Please dispose of your rubbish in the container on Calle Carlos Cano, directly opposite the stairs leading up to the house.',
-              de: 'Bitte entsorgt euren Müll im Container auf der Calle Carlos Cano – genau gegenüber den Treppen, die zum Haus hinaufführen.',
-              es: 'Os pedimos que depositéis la basura en el contenedor de la Calle Carlos Cano, justo enfrente de las escaleras que suben a la casa.',
-              nl: 'Gooi het afval weg in de container in de Calle Carlos Cano, tegenover de trap die naar het huis leidt.',
-              sv: 'Vänligen släng era sopor i containern på Calle Carlos Cano, mittemot trapporna som leder upp till huset.'
-            },
-            {
-              en: 'Please avoid leaving food uncovered, as the warm climate can quickly attract ants — especially in summer.',
-              de: 'Bitte achtet darauf, keine offenen Lebensmittel stehen zu lassen, da das warme Klima schnell Ameisen anziehen kann – besonders im Sommer.',
-              es: 'Evitad dejar comida sin tapar, ya que el clima cálido puede atraer hormigas rápidamente, sobre todo en verano.',
-              nl: 'Laat eten niet onafgedekt staan — het warme klimaat kan snel mieren aantrekken, vooral in de zomer.',
-              sv: 'Undvik att lämna mat framme utan lock, eftersom det varma klimatet snabbt kan locka till sig myror – särskilt på sommaren.'
-            }
-          ]
-        }
-      ]
+      items: [sharedAmaraCoffeeMachineItem, sharedAmaraHousekeepingItem, sharedAmaraGarbageItem]
     },
     {
       heading: {
@@ -478,136 +871,12 @@ const frigilianaFarahAccommodation: GuestGuideEntry = {
         nl: 'Let op',
         sv: 'Vänligen observera'
       },
-      items: [
-        {
-          icon: 'moon',
-          title: {
-            en: 'Quiet Hours from 11:00 PM',
-            de: 'Ruhezeit ab 23:00 Uhr',
-            es: 'Horario de silencio desde las 23:00',
-            nl: 'Nachtrust vanaf 23.00 uur',
-            sv: 'Nattro från kl. 23.00'
-          },
-          body: [
-            {
-              en: '<strong>Quiet hours begin at 11:00 PM.</strong> From then on, please use your physical key for the main entrance door at street level rather than the electronic lock, which is disabled overnight — so please always bring your key when returning late.',
-              de: '<strong>Ab 23:00 Uhr gilt im Haus Ruhezeit.</strong> Bitte verwendet ab dann euren normalen Schlüssel für die Haustür auf Straßenebene statt des elektronischen Türschlosses, das nachts deaktiviert wird – nehmt daher bitte immer euren Schlüssel mit, wenn ihr später zurückkehrt.',
-              es: '<strong>El horario de silencio comienza a las 23:00.</strong> A partir de esa hora, utilizad vuestra llave física para la puerta principal a nivel de calle en lugar de la cerradura electrónica, que se desactiva por la noche; llevad siempre la llave si vais a regresar tarde.',
-              nl: '<strong>Vanaf 23.00 uur geldt er nachtrust in het huis.</strong> Gebruik vanaf dat moment jullie gewone sleutel voor de hoofdingang aan de straat in plaats van het elektronische deurslot, dat \'s nachts wordt uitgeschakeld — neem daarom altijd de sleutel mee als jullie later terugkeren.',
-              sv: '<strong>Från kl. 23.00 gäller nattro i huset.</strong> Använd därefter er vanliga nyckel till huvudentrén på gatunivå i stället för det elektroniska dörrlåset, som stängs av nattetid — ta därför alltid med nyckeln om ni återvänder sent.'
-            },
-            {
-              en: 'During the day the electronic lock is there for your convenience — handy if you would rather leave your key safely in the key box while you visit the beach.',
-              de: 'Tagsüber könnt ihr das elektronische Türschloss gerne nutzen – praktisch, wenn ihr euren Schlüssel während eines Strandbesuchs sicher in der Schlüsselbox lassen möchtet.',
-              es: 'Durante el día podéis usar cómodamente la cerradura electrónica, por ejemplo si preferís dejar la llave a buen recaudo en la caja de llaves mientras vais a la playa.',
-              nl: 'Overdag kunnen jullie het elektronische deurslot gerust gebruiken — handig als jullie de sleutel tijdens een strandbezoek liever veilig in het sleutelkluisje laten.',
-              sv: 'Under dagen kan ni gärna använda det elektroniska dörrlåset — praktiskt om ni vill lämna nyckeln säkert i nyckelboxen medan ni är på stranden.'
-            },
-            {
-              en: 'Out of consideration for other guests, please also keep voices and noise low in the shared entrance and corridor after 11:00 PM. Thank you for your understanding.',
-              de: 'Aus Rücksicht auf die anderen Gäste bitten wir euch außerdem, euch ab 23:00 Uhr im gemeinsamen Eingangs- und Korridorbereich leise zu verhalten. Vielen Dank für euer Verständnis.',
-              es: 'Por consideración hacia los demás huéspedes, os pedimos también que habléis en voz baja y evitéis ruidos en las zonas comunes de entrada y pasillo después de las 23:00. Gracias por vuestra comprensión.',
-              nl: 'Uit respect voor de andere gasten vragen we jullie ook om na 23.00 uur rustig te zijn in de gemeenschappelijke entree en gangen. Hartelijk dank voor jullie begrip.',
-              sv: 'Av hänsyn till de andra gästerna ber vi er också att vara tysta i den gemensamma entrén och korridoren efter kl. 23.00. Tack för er förståelse.'
-            }
-          ]
-        },
-        {
-          icon: 'tap-water',
-          title: { en: 'Tap Water', de: 'Leitungswasser', es: 'Agua del grifo', nl: 'Kraanwater', sv: 'Kranvatten' },
-          body: [
-            {
-              en: 'The tap water is <strong>softened and filtered</strong> for everyday comfort — the system reduces limescale and leaves skin and hair noticeably softer after showering.',
-              de: 'Das Leitungswasser im Haus ist für euren Komfort <strong>enthärtet und gefiltert</strong> – das System reduziert Kalk und sorgt nach dem Duschen für spürbar weichere Haut und Haare.',
-              es: 'El agua del grifo está <strong>descalcificada y filtrada</strong> para vuestra comodidad: el sistema reduce la cal y deja la piel y el pelo notablemente más suaves tras la ducha.',
-              nl: 'Het kraanwater is <strong>onthard en gefilterd</strong> voor extra comfort — het systeem vermindert kalkaanslag en zorgt voor merkbaar zachtere huid en haar na het douchen.',
-              sv: 'Kranvattnet är <strong>avhärdat och filtrerat</strong> för er komfort — systemet minskar kalkavlagringar och ger märkbart mjukare hud och hår efter duschen.'
-            },
-            {
-              en: 'It is generally safe to drink; if you have a sensitive stomach or prefer a more neutral taste, we recommend bottled water.',
-              de: 'Grundsätzlich ist es unbedenklich trinkbar. Falls ihr einen empfindlichen Magen habt oder einen geschmacksneutraleren Genuss bevorzugt, empfehlen wir Mineralwasser aus der Flasche.',
-              es: 'En general es segura para beber; si tenéis el estómago sensible o preferís un sabor más neutro, os recomendamos agua embotellada.',
-              nl: 'Het is over het algemeen veilig om te drinken. Hebben jullie een gevoelige maag of geven jullie de voorkeur aan een neutralere smaak, dan raden we flessenwater aan.',
-              sv: 'Det är i regel säkert att dricka. Har ni en känslig mage eller föredrar en mer neutral smak rekommenderar vi vatten på flaska.'
-            }
-          ]
-        },
-        {
-          icon: 'no-smoking',
-          title: {
-            en: 'No Smoking Indoors',
-            de: 'Rauchen im Innenbereich verboten',
-            es: 'No se permite fumar en el interior',
-            nl: 'Niet roken binnen',
-            sv: 'Rökning inomhus förbjuden'
-          },
-          body: [
-            {
-              en: 'Smoking is strictly prohibited indoors. Please smoke only outside and dispose of cigarette ends responsibly.',
-              de: 'Das Rauchen ist im Innenbereich strengstens untersagt. Bitte raucht nur draußen und entsorgt Zigarettenstummel verantwortungsvoll.',
-              es: 'Está terminantemente prohibido fumar en el interior. Por favor, fumad solo en el exterior y desechad las colillas de forma responsable.',
-              nl: 'Binnen roken is ten strengste verboden. Rook alstublieft alleen buiten en gooi sigarettenpeuken op een verantwoorde manier weg.',
-              sv: 'Rökning är strängt förbjuden inomhus. Vänligen rök endast utomhus och kasta fimpar på ett ansvarsfullt sätt.'
-            }
-          ]
-        },
-        {
-          icon: 'ventilate',
-          title: {
-            en: 'Ventilate Regularly',
-            de: 'Regelmäßig lüften',
-            es: 'Ventilad regularmente',
-            nl: 'Regelmatig ventileren',
-            sv: 'Vädra regelbundet'
-          },
-          body: [
-            {
-              en: 'This is a listed house over 800 years old, so we kindly ask you to ventilate it regularly — the traditional construction relies on fresh air circulation to keep a comfortable indoor climate.',
-              de: 'Da es sich um ein über 800 Jahre altes, denkmalgeschütztes Haus handelt, bitten wir euch, es regelmäßig zu lüften – die traditionelle Bauweise braucht die Zirkulation frischer Luft, um ein angenehmes Raumklima zu erhalten.',
-              es: 'Se trata de una casa catalogada con más de 800 años de antigüedad, así que os pedimos que la ventiléis con regularidad: la construcción tradicional necesita que circule aire fresco para mantener un ambiente interior agradable.',
-              nl: 'Dit is een monumentaal pand van meer dan 800 jaar oud, dus we vragen jullie vriendelijk om regelmatig te ventileren — de traditionele bouwwijze heeft frisse luchtcirculatie nodig voor een aangenaam binnenklimaat.',
-              sv: 'Detta är ett k-märkt hus, över 800 år gammalt, så vi ber er vänligen att vädra det regelbundet — den traditionella konstruktionen behöver frisk luftcirkulation för ett behagligt inomhusklimat.'
-            }
-          ]
-        }
-      ]
+      items: [sharedAmaraTapWaterItem, sharedAmaraNoSmokingItem, sharedAmaraVentilateItem, sharedAmaraQuietHoursItem]
     },
     {
       heading: { en: 'Check-out', de: 'Check-out', es: 'Check-out', nl: 'Check-out', sv: 'Check-out' },
       items: [
-        {
-          icon: 'departure',
-          title: {
-            en: 'Departure Information',
-            de: 'Abreise',
-            es: 'Salida',
-            nl: 'Vertrek',
-            sv: 'Avresa'
-          },
-          body: [
-            {
-              en: 'Check-out time is <strong>11:00 AM</strong>. Before you leave, please log out of any private TV or streaming accounts, and take one last calm look around the apartment.',
-              de: 'Check-out ist um <strong>11:00 Uhr</strong>. Bitte loggt euch vor der Abreise aus allen privaten TV- oder Streaming-Konten aus und werft noch einmal einen letzten ruhigen Blick durch das Apartment.',
-              es: 'La hora de check-out es a las <strong>11:00</strong>. Antes de salir, cerrad la sesión de cualquier cuenta privada de televisión o streaming y echad un último vistazo tranquilo al apartamento.',
-              nl: 'De check-out tijd is <strong>11:00 uur</strong>. Log voor vertrek uit alle privé tv- of streamingaccounts en werp nog één laatste rustige blik door het appartement.',
-              sv: 'Utcheckning är kl. <strong>11:00</strong>. Innan ni åker, logga ut från alla privata tv- eller streamingkonton och ta en sista lugn titt runt i lägenheten.'
-            },
-            {
-              en: 'Please check carefully that you have taken all your belongings — phone chargers, curling irons, jackets, EarPods or AirPods, jewellery, clothing, and charging cables are the items most often left behind.',
-              de: 'Bitte prüft sorgfältig, ob ihr wirklich alle persönlichen Gegenstände wieder mitgenommen habt. Typischerweise vergessen werden Handy-Ladegeräte, Lockenstäbe, Jacken, EarPods oder AirPods, Schmuck, Kleidung und Ladekabel.',
-              es: 'Comprobad con cuidado que os lleváis todas vuestras pertenencias: los objetos que más se olvidan son cargadores de móvil, rizadores, chaquetas, EarPods o AirPods, joyas, ropa y cables de carga.',
-              nl: 'Controleer goed of jullie echt alle persoonlijke spullen hebben meegenomen. Vaak vergeten: telefoonopladers, krultangen, jassen, EarPods of AirPods, sieraden, kleding en oplaadkabels.',
-              sv: 'Kontrollera noggrant att ni fått med er alla personliga tillhörigheter. Det som glöms oftast är mobilladdare, locktänger, jackor, EarPods eller AirPods, smycken, kläder och laddkablar.'
-            },
-            {
-              en: 'When you leave, please leave one set of keys inside the apartment, lock the door, and return the other key to the key box. Before heading out, please take your rubbish to the containers down on Avenida Carlos Cano, where you most likely also parked. Thank you very much for your help.',
-              de: 'Lasst beim Verlassen bitte ein Schlüsselset im Apartment liegen, schließt die Tür ab und legt den anderen Schlüssel zurück in die Schlüsselbox. Nehmt euren Müll bitte mit zu den Containern unten an der Avenida Carlos Cano, wo ihr vermutlich auch euer Auto geparkt habt. Vielen Dank für eure Hilfe.',
-              es: 'Al marcharos, dejad un juego de llaves dentro del apartamento, cerrad la puerta y devolved la otra llave a la caja de seguridad. Antes de salir, llevad la basura a los contenedores de abajo, en la Avenida Carlos Cano, donde probablemente también aparcasteis. Muchas gracias por vuestra ayuda.',
-              nl: 'Laat bij vertrek één sleutelset in het appartement achter, doe de deur op slot en leg de andere sleutel terug in het sleutelkastje. Breng het afval voor vertrek naar de containers beneden aan de Avenida Carlos Cano, waar jullie waarschijnlijk ook de auto hebben geparkeerd. Hartelijk dank voor jullie hulp.',
-              sv: 'Vid avfärd, lämna ett set nycklar inne i lägenheten, lås dörren och lägg tillbaka den andra nyckeln i nyckelboxen. Ta med soporna till containrarna nere på Avenida Carlos Cano, där ni troligen också parkerade, innan ni åker. Tack så mycket för hjälpen.'
-            }
-          ]
-        },
+        sharedAmaraDepartureInfoItem,
         {
           icon: 'late-checkout',
           title: { en: 'Late Check-out', de: 'Late Check-out', es: 'Late check-out', nl: 'Late check-out', sv: 'Sen utcheckning' },
@@ -827,18 +1096,11 @@ const frigilianaEssentials: GuestGuideEntry = {
           title: { en: 'Laundry', de: 'Wäsche', es: 'Lavandería', nl: 'Wasgoed', sv: 'Tvätt' },
           body: [
             {
-              en: 'For a normal stay, the easiest option is simply to use the washing machine at home.',
-              de: 'Für einen normalen Aufenthalt ist die einfachste Lösung ganz klar die Waschmaschine im Haus.',
-              es: 'Para una estancia normal, la opción más sencilla es simplemente usar la lavadora de la casa.',
-              nl: 'Voor een normaal verblijf is de makkelijkste oplossing gewoon de wasmachine in huis te gebruiken.',
-              sv: 'För en vanlig vistelse är det enklaste alternativet helt enkelt att använda tvättmaskinen hemma.'
-            },
-            {
-              en: 'If you prefer a <strong>drop-off service</strong>, <strong>Lavandería El Acebuchal</strong> is a practical option in Frigiliana and only about <strong>4 minutes from the house</strong>.<br><br>• <a class="am-link" href="https://maps.app.goo.gl/SGDiDiLSsXyMmUKY7" target="_blank" rel="noopener"><strong>Lavandería El Acebuchal</strong></a>',
-              de: 'Wenn ihr lieber einen <strong>Wäsche-Abgabe-Service</strong> möchtet, ist <strong>Lavandería El Acebuchal</strong> eine praktische Option in Frigiliana und nur etwa <strong>4 Minuten vom Haus entfernt</strong>.<br><br>• <a class="am-link" href="https://maps.app.goo.gl/SGDiDiLSsXyMmUKY7" target="_blank" rel="noopener"><strong>Lavandería El Acebuchal</strong></a>',
-              es: 'Si preferís un <strong>servicio para dejar la ropa</strong>, <strong>Lavandería El Acebuchal</strong> es una opción práctica en Frigiliana y está a solo unos <strong>4 minutos de la casa</strong>.<br><br>• <a class="am-link" href="https://maps.app.goo.gl/SGDiDiLSsXyMmUKY7" target="_blank" rel="noopener"><strong>Lavandería El Acebuchal</strong></a>',
-              nl: 'Als jullie liever een <strong>drop-off-service</strong> gebruiken, is <strong>Lavandería El Acebuchal</strong> een praktische optie in Frigiliana en slechts ongeveer <strong>4 minuten van het huis</strong> verwijderd.<br><br>• <a class="am-link" href="https://maps.app.goo.gl/SGDiDiLSsXyMmUKY7" target="_blank" rel="noopener"><strong>Lavandería El Acebuchal</strong></a>',
-              sv: 'Om ni föredrar en <strong>drop-off-tjänst</strong> är <strong>Lavandería El Acebuchal</strong> ett praktiskt alternativ i Frigiliana och ligger bara cirka <strong>4 minuter från huset</strong>.<br><br>• <a class="am-link" href="https://maps.app.goo.gl/SGDiDiLSsXyMmUKY7" target="_blank" rel="noopener"><strong>Lavandería El Acebuchal</strong></a>'
+              en: 'If you would like a <strong>drop-off service</strong>, <strong>Lavandería El Acebuchal</strong> is a practical option in Frigiliana and only about <strong>4 minutes from the house</strong>.<br><br>• <a class="am-link" href="https://maps.app.goo.gl/SGDiDiLSsXyMmUKY7" target="_blank" rel="noopener"><strong>Lavandería El Acebuchal</strong></a>',
+              de: 'Wenn ihr einen <strong>Wäsche-Abgabe-Service</strong> möchtet, ist <strong>Lavandería El Acebuchal</strong> eine praktische Option in Frigiliana und nur etwa <strong>4 Minuten vom Haus entfernt</strong>.<br><br>• <a class="am-link" href="https://maps.app.goo.gl/SGDiDiLSsXyMmUKY7" target="_blank" rel="noopener"><strong>Lavandería El Acebuchal</strong></a>',
+              es: 'Si queréis un <strong>servicio para dejar la ropa</strong>, <strong>Lavandería El Acebuchal</strong> es una opción práctica en Frigiliana y está a solo unos <strong>4 minutos de la casa</strong>.<br><br>• <a class="am-link" href="https://maps.app.goo.gl/SGDiDiLSsXyMmUKY7" target="_blank" rel="noopener"><strong>Lavandería El Acebuchal</strong></a>',
+              nl: 'Als jullie een <strong>drop-off-service</strong> willen, is <strong>Lavandería El Acebuchal</strong> een praktische optie in Frigiliana en slechts ongeveer <strong>4 minuten van het huis</strong> verwijderd.<br><br>• <a class="am-link" href="https://maps.app.goo.gl/SGDiDiLSsXyMmUKY7" target="_blank" rel="noopener"><strong>Lavandería El Acebuchal</strong></a>',
+              sv: 'Om ni vill ha en <strong>drop-off-tjänst</strong> är <strong>Lavandería El Acebuchal</strong> ett praktiskt alternativ i Frigiliana och ligger bara cirka <strong>4 minuter från huset</strong>.<br><br>• <a class="am-link" href="https://maps.app.goo.gl/SGDiDiLSsXyMmUKY7" target="_blank" rel="noopener"><strong>Lavandería El Acebuchal</strong></a>'
             },
             {
               en: 'If you prefer <strong>self-service laundry</strong>, the most practical external option is in <strong>Nerja</strong>:<br><br>• <a class="am-link" href="https://maps.app.goo.gl/MivMQoL7q7xPo2dD8" target="_blank" rel="noopener"><strong>Lavandería Autoservicio 24h CEPSA AXARQUIA</strong></a>',
@@ -3676,11 +3938,159 @@ const nerjaGuestAdventure: GuestGuideEntry = {
   ]
 };
 
+const frigilianaGuestBreakfast: GuestGuideEntry = {
+  type: 'detail',
+  slug: 'frigiliana-guest-breakfast',
+  backSlug: 'frigiliana-guest-recommendations',
+  supportHref: FRIGILIANA_SUPPORT_WHATSAPP,
+  supportLabel: NEED_HELP,
+  seoTitle: {
+    en: 'Frigiliana Guest Guide — Breakfast | AMARA',
+    de: 'Frigiliana Gästeguide — Frühstück | AMARA',
+    es: 'Guía para huéspedes en Frigiliana — Desayuno | AMARA',
+    nl: 'Frigiliana Guest Guide — Ontbijt | AMARA',
+    sv: 'Frigiliana Gästguide — Frukost | AMARA'
+  },
+  seoDescription: {
+    en: 'Practical breakfast overview for guests staying in Frigiliana — from churros and bakery stops to specialty coffee and late breakfast spots.',
+    de: 'Praktische Frühstücksübersicht für Gäste in Frigiliana — von Churros und Bäckerei bis zu Specialty Coffee und spätem Frühstück.',
+    es: 'Resumen práctico de desayunos para huéspedes en Frigiliana: desde churros y panadería hasta specialty coffee y opciones de desayuno tardío.',
+    nl: 'Praktisch ontbijt-overzicht voor gasten in Frigiliana — van churros en bakkerij tot specialty coffee en late ontbijtplekken.',
+    sv: 'Praktisk frukostöversikt för gäster i Frigiliana — från churros och bageri till specialty coffee och sena frukostställen.'
+  },
+  kicker: {
+    en: 'AMARA LOCAL GUIDE',
+    de: 'AMARA LOKALER GUIDE',
+    es: 'GUÍA LOCAL DE AMARA',
+    nl: 'AMARA LOKALE GIDS',
+    sv: 'AMARA LOKAL GUIDE'
+  },
+  title: { en: 'Breakfast in Frigiliana', de: 'Frühstück in Frigiliana', es: 'Desayuno en Frigiliana', nl: 'Ontbijt in Frigiliana', sv: 'Frukost i Frigiliana' },
+  intro: {
+    en: 'One of the small luxuries of staying in Frigiliana is having breakfast slowly on your own terrace, with the village waking up around you and the mountains catching the first morning light. But if you feel like stepping out for coffee, fresh bread or a more local breakfast, the village has some lovely options too. In Andalucía, breakfast is often beautifully simple: toasted bread with fresh tomato, good olive oil and sometimes avocado, plus a strong coffee on the side. And at least once, it is worth trying churros with hot chocolate — one of those classic morning rituals that feels very local very quickly.',
+    de: 'Einer der kleinen Luxusmomente in Frigiliana ist es, ganz entspannt auf der eigenen Terrasse zu frühstücken, während das Dorf langsam wach wird und die Berge das erste Morgenlicht auffangen. Wenn ihr aber Lust auf einen Kaffee im Dorf, frisches Brot oder ein lokaleres Frühstück habt, gibt es dafür ebenfalls sehr schöne Orte. In Andalusien ist Frühstück oft wunderbar schlicht: geröstetes Brot mit frischer Tomate, gutem Olivenöl und manchmal Avocado, dazu ein kräftiger Kaffee. Und mindestens einmal lohnt es sich, Churros mit heißer Schokolade zu probieren — eines dieser klassischen Morgenrituale, bei denen man sofort spürt, wie lokal es hier ist.',
+    es: 'Uno de los pequeños lujos de alojarse en Frigiliana es desayunar con calma en vuestra propia terraza, mientras el pueblo despierta poco a poco y las montañas reciben la primera luz de la mañana. Pero si os apetece salir a por un café, pan fresco o un desayuno más local, el pueblo también tiene opciones muy bonitas. En Andalucía, el desayuno suele ser maravillosamente sencillo: pan tostado con tomate fresco, buen aceite de oliva y a veces aguacate, acompañado de un café intenso. Y al menos una vez merece la pena probar churros con chocolate caliente, uno de esos rituales matinales que enseguida se sienten muy locales.',
+    nl: 'Een van de kleine luxe momenten in Frigiliana is rustig ontbijten op je eigen terras, terwijl het dorp langzaam ontwaakt en het eerste ochtendlicht op de bergen valt. Maar als jullie zin hebben om even de deur uit te gaan voor koffie, vers brood of een lokaler ontbijt, zijn er ook in het dorp fijne opties. In Andalusië is ontbijt vaak heerlijk eenvoudig: geroosterd brood met verse tomaat, goede olijfolie en soms avocado, met een stevige koffie erbij. En minstens één keer is het de moeite waard om churros met warme chocolademelk te proberen — zo\'n klassiek ochtendritueel dat meteen heel lokaal aanvoelt.',
+    sv: 'En av de små lyxerna med att bo i Frigiliana är att äta frukost långsamt på den egna terrassen medan byn vaknar och bergen får dagens första morgonljus. Men om ni känner för att gå ut för en kaffe, färskt bröd eller en mer lokal frukost finns det också väldigt fina alternativ i byn. I Andalusien är frukosten ofta vackert enkel: rostat bröd med färsk tomat, bra olivolja och ibland avokado, tillsammans med en stark kaffe. Och minst en gång är det värt att prova churros med varm choklad — en sådan klassisk morgonritual som snabbt känns väldigt lokal.'
+  },
+  categories: [
+    {
+      heading: {
+        en: 'Breakfast Recommendations',
+        de: 'Frühstücksempfehlungen',
+        es: 'Recomendaciones para desayunar',
+        nl: 'Ontbijtaanbevelingen',
+        sv: 'Frukostrekommendationer'
+      },
+      items: [
+        {
+          icon: 'tumbler',
+          title: { en: "Caravansar's Coffee", de: "Caravansar's Coffee", es: "Caravansar's Coffee", nl: "Caravansar's Coffee", sv: "Caravansar's Coffee" },
+          subtitle: {
+            en: 'Frigiliana · Modern breakfast & coffee · approx. 650 m',
+            de: 'Frigiliana · Modernes Frühstück & Kaffee · ca. 650 m',
+            es: 'Frigiliana · Desayuno moderno y café · aprox. 650 m',
+            nl: 'Frigiliana · Modern ontbijt & koffie · ca. 650 m',
+            sv: 'Frigiliana · Modern frukost & kaffe · ca 650 m'
+          },
+          body: [
+            {
+              en: 'This is the most natural pick if you feel like a slower, more modern breakfast with very good coffee and a slightly more curated atmosphere. Especially nice for avocado-based dishes, house-made touches and a peaceful start outside the busiest village flow.<br><br><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Caravansar%27s+Coffee+Frigiliana" target="_blank" rel="noopener">Open in Google Maps</a>',
+              de: 'Das ist die naheliegendste Wahl, wenn ihr Lust auf ein langsameres, moderneres Frühstück mit sehr gutem Kaffee und etwas kuratierter Atmosphäre habt. Besonders schön für Avocado-Gerichte, hausgemachte Details und einen ruhigen Start etwas abseits vom stärksten Dorftrubel.<br><br><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Caravansar%27s+Coffee+Frigiliana" target="_blank" rel="noopener">In Google Maps öffnen</a>',
+              es: 'Es la opción más natural si os apetece un desayuno más pausado y moderno, con muy buen café y un ambiente algo más cuidado. Especialmente bonito para platos con aguacate, detalles caseros y un comienzo tranquilo algo más alejado del flujo turístico principal.<br><br><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Caravansar%27s+Coffee+Frigiliana" target="_blank" rel="noopener">Abrir en Google Maps</a>',
+              nl: 'Dit is de meest logische keuze als jullie zin hebben in een rustiger, moderner ontbijt met heel goede koffie en een wat meer verzorgde sfeer. Vooral fijn voor avocado-gerechten, huisgemaakte accenten en een rustige start net buiten de drukste dorpsstroom.<br><br><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Caravansar%27s+Coffee+Frigiliana" target="_blank" rel="noopener">Openen in Google Maps</a>',
+              sv: 'Det här är det mest självklara valet om ni känner för en lugnare och modernare frukost med riktigt bra kaffe och en lite mer genomtänkt atmosfär. Särskilt trevligt för avokadorätter, hemlagade inslag och en rofylld start lite utanför den mest turisttäta delen av byn.<br><br><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Caravansar%27s+Coffee+Frigiliana" target="_blank" rel="noopener">Öppna i Google Maps</a>'
+            }
+          ]
+        },
+        {
+          icon: 'dish',
+          title: { en: 'Churreria Chocolateria Alexis', de: 'Churreria Chocolateria Alexis', es: 'Churreria Chocolateria Alexis', nl: 'Churreria Chocolateria Alexis', sv: 'Churreria Chocolateria Alexis' },
+          subtitle: {
+            en: 'Frigiliana · Churros & hot chocolate · approx. 500 m',
+            de: 'Frigiliana · Churros & heiße Schokolade · ca. 500 m',
+            es: 'Frigiliana · Churros y chocolate caliente · aprox. 500 m',
+            nl: 'Frigiliana · Churros & warme chocolademelk · ca. 500 m',
+            sv: 'Frigiliana · Churros & varm choklad · ca 500 m'
+          },
+          body: [
+            {
+              en: 'If you want to try one truly local breakfast ritual, this is the one. Fresh churros with thick hot chocolate are the reason to come here. Great for a classic Andalusian-style morning treat, especially when you want something simple, warm and unmistakably traditional.<br><br><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Churreria+Chocolateria+Alexis+Frigiliana" target="_blank" rel="noopener">Open in Google Maps</a>',
+              de: 'Wenn ihr ein wirklich lokales Frühstücksritual ausprobieren möchtet, dann dieses. Frische Churros mit dickflüssiger heißer Schokolade sind hier der eigentliche Grund zu kommen. Perfekt für einen klassischen andalusischen Morgenmoment, vor allem wenn ihr etwas Warmes, Einfaches und sehr Traditionelles möchtet.<br><br><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Churreria+Chocolateria+Alexis+Frigiliana" target="_blank" rel="noopener">In Google Maps öffnen</a>',
+              es: 'Si queréis probar un ritual de desayuno realmente local, este es el sitio. Los churros recién hechos con chocolate caliente espeso son el verdadero motivo para venir. Perfecto para un momento clásico andaluz por la mañana, sobre todo si os apetece algo cálido, sencillo y claramente tradicional.<br><br><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Churreria+Chocolateria+Alexis+Frigiliana" target="_blank" rel="noopener">Abrir en Google Maps</a>',
+              nl: 'Als jullie één echt lokaal ontbijtritueel willen proberen, dan is dit het. Verse churros met dikke warme chocolademelk zijn hier de reden om te komen. Perfect voor een klassiek Andalusisch ochtendmoment, vooral als jullie zin hebben in iets warms, eenvoudigs en heel traditioneels.<br><br><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Churreria+Chocolateria+Alexis+Frigiliana" target="_blank" rel="noopener">Openen in Google Maps</a>',
+              sv: 'Om ni vill prova en verkligt lokal frukosttradition är det här stället. Färska churros med tjock varm choklad är anledningen att komma hit. Perfekt för ett klassiskt andalusiskt morgonögonblick, särskilt när ni vill ha något varmt, enkelt och tydligt traditionellt.<br><br><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Churreria+Chocolateria+Alexis+Frigiliana" target="_blank" rel="noopener">Öppna i Google Maps</a>'
+            }
+          ]
+        },
+        {
+          icon: 'bread',
+          title: { en: 'La Tahona del Zaidín', de: 'La Tahona del Zaidín', es: 'La Tahona del Zaidín', nl: 'La Tahona del Zaidín', sv: 'La Tahona del Zaidín' },
+          subtitle: {
+            en: 'Frigiliana · Bakery & easy start · approx. 150 m',
+            de: 'Frigiliana · Bäckerei & einfacher Start · ca. 150 m',
+            es: 'Frigiliana · Panadería y desayuno fácil · aprox. 150 m',
+            nl: 'Frigiliana · Bakkerij & makkelijke start · ca. 150 m',
+            sv: 'Frigiliana · Bageri & enkel start · ca 150 m'
+          },
+          body: [
+            {
+              en: 'This is the practical bakery choice when you want something easy, central and uncomplicated. Very good for grabbing fresh pastries, bread or coffee before taking breakfast back home or starting a morning walk through the village.<br><br><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=La+Tahona+del+Zaidin+Frigiliana" target="_blank" rel="noopener">Open in Google Maps</a>',
+              de: 'Das ist die praktische Bäckerei-Wahl, wenn ihr etwas Zentrales, Einfaches und völlig Unkompliziertes möchtet. Sehr gut, um frisches Gebäck, Brot oder Kaffee mitzunehmen und anschließend zu Hause oder bei einem kleinen Morgenspaziergang durchs Dorf zu genießen.<br><br><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=La+Tahona+del+Zaidin+Frigiliana" target="_blank" rel="noopener">In Google Maps öffnen</a>',
+              es: 'Es la opción práctica de panadería cuando queréis algo céntrico, fácil y sin complicaciones. Muy buena para coger bollería, pan o café y luego desayunar en casa o seguir con un pequeño paseo por el pueblo.<br><br><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=La+Tahona+del+Zaidin+Frigiliana" target="_blank" rel="noopener">Abrir en Google Maps</a>',
+              nl: 'Dit is de praktische bakkerijkeuze als jullie iets centraals, makkelijks en zonder gedoe willen. Ideaal om vers gebak, brood of koffie mee te nemen en daarna thuis of tijdens een ochtendwandeling door het dorp te ontbijten.<br><br><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=La+Tahona+del+Zaidin+Frigiliana" target="_blank" rel="noopener">Openen in Google Maps</a>',
+              sv: 'Det här är det praktiska bagerivalet när ni vill ha något centralt, enkelt och okomplicerat. Väldigt bra för att köpa med färska bakverk, bröd eller kaffe och sedan äta frukost hemma eller på en lugn morgonpromenad genom byn.<br><br><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=La+Tahona+del+Zaidin+Frigiliana" target="_blank" rel="noopener">Öppna i Google Maps</a>'
+            }
+          ]
+        },
+        {
+          icon: 'coffee',
+          title: { en: 'Cafetería Faes', de: 'Cafetería Faes', es: 'Cafetería Faes', nl: 'Cafetería Faes', sv: 'Cafetería Faes' },
+          subtitle: {
+            en: 'Frigiliana · Late coffee stop · approx. 120 m',
+            de: 'Frigiliana · Später Kaffee-Stopp · ca. 120 m',
+            es: 'Frigiliana · Café para más tarde · aprox. 120 m',
+            nl: 'Frigiliana · Latere koffiestop · ca. 120 m',
+            sv: 'Frigiliana · Sen kaffestopp · ca 120 m'
+          },
+          body: [
+            {
+              en: 'A good option for late risers or for mornings that start more with coffee than with a full breakfast table. Best when you want a relaxed coffee-and-snack stop later in the morning rather than an early classic breakfast.<br><br><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Cafeteria+Faes+Frigiliana" target="_blank" rel="noopener">Open in Google Maps</a>',
+              de: 'Eine gute Wahl für Spätaufsteher oder für Morgen, die eher mit Kaffee als mit einem großen Frühstück beginnen. Am besten, wenn ihr später am Vormittag entspannt auf einen Kaffee und einen kleinen Snack einkehren möchtet, statt früh klassisch zu frühstücken.<br><br><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Cafeteria+Faes+Frigiliana" target="_blank" rel="noopener">In Google Maps öffnen</a>',
+              es: 'Una buena opción para quienes se levantan más tarde o para mañanas que empiezan más con café que con una mesa completa de desayuno. Ideal si queréis parar a media mañana para un café relajado y algo pequeño, en lugar de un desayuno clásico temprano.<br><br><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Cafeteria+Faes+Frigiliana" target="_blank" rel="noopener">Abrir en Google Maps</a>',
+              nl: 'Een goede keuze voor uitslapers of voor ochtenden die eerder met koffie beginnen dan met een uitgebreid ontbijt. Het fijnst als jullie later in de ochtend rustig willen stoppen voor koffie en een kleine snack, in plaats van vroeg klassiek te ontbijten.<br><br><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Cafeteria+Faes+Frigiliana" target="_blank" rel="noopener">Openen in Google Maps</a>',
+              sv: 'Ett bra val för er som vaknar lite senare eller för morgnar som börjar mer med kaffe än med ett stort frukostbord. Passar bäst när ni vill stanna till senare på förmiddagen för en lugn kaffe och något litet, snarare än en tidig klassisk frukost.<br><br><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Cafeteria+Faes+Frigiliana" target="_blank" rel="noopener">Öppna i Google Maps</a>'
+            }
+          ]
+        },
+        {
+          icon: 'landmark',
+          title: { en: 'Bar Virtudes', de: 'Bar Virtudes', es: 'Bar Virtudes', nl: 'Bar Virtudes', sv: 'Bar Virtudes' },
+          subtitle: {
+            en: 'Frigiliana · Late breakfast / brunch feel · approx. 260 m',
+            de: 'Frigiliana · Spätes Frühstück / Brunch-Gefühl · ca. 260 m',
+            es: 'Frigiliana · Desayuno tardío / ambiente brunch · aprox. 260 m',
+            nl: 'Frigiliana · Laat ontbijt / brunchgevoel · ca. 260 m',
+            sv: 'Frigiliana · Sen frukost / brunchkänsla · ca 260 m'
+          },
+          body: [
+            {
+              en: 'This is the one for days when breakfast turns naturally into a late morning stop, almost halfway between breakfast, brunch and an early lunch. Very well placed in the village center, with lovely views and a more social, open village feeling around it.<br><br><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Bar+Virtudes+Frigiliana" target="_blank" rel="noopener">Open in Google Maps</a>',
+              de: 'Das ist die richtige Wahl für Tage, an denen Frühstück ganz natürlich in einen späten Vormittagsstopp übergeht — irgendwo zwischen Frühstück, Brunch und frühem Lunch. Sehr schön im Dorfzentrum gelegen, mit herrlichen Blicken und einer offeneren, geselligen Dorfatmosphäre drum herum.<br><br><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Bar+Virtudes+Frigiliana" target="_blank" rel="noopener">In Google Maps öffnen</a>',
+              es: 'Es la opción para esos días en los que el desayuno se convierte de forma natural en una parada de media mañana, casi entre desayuno, brunch y primer almuerzo. Está muy bien situado en el centro del pueblo, con vistas bonitas y un ambiente más social y abierto alrededor.<br><br><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Bar+Virtudes+Frigiliana" target="_blank" rel="noopener">Abrir en Google Maps</a>',
+              nl: 'Dit is de juiste plek voor dagen waarop ontbijt vanzelf overgaat in een late ochtendstop, ergens tussen ontbijt, brunch en een vroege lunch in. Mooi gelegen in het dorpscentrum, met fijne uitzichten en een wat socialere, open dorpssfeer eromheen.<br><br><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Bar+Virtudes+Frigiliana" target="_blank" rel="noopener">Openen in Google Maps</a>',
+              sv: 'Det här är valet för dagar när frukosten naturligt glider över i ett sent förmiddagsstopp, någonstans mellan frukost, brunch och en tidig lunch. Väldigt fint beläget i byns centrum, med härliga utsikter och en mer social och öppen bykänsla runt omkring.<br><br><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Bar+Virtudes+Frigiliana" target="_blank" rel="noopener">Öppna i Google Maps</a>'
+            }
+          ]
+        }
+      ]
+    }
+  ]
+};
+
 const recommendationSubPages: GuestGuideEntry[] = [
   nerjaGuestBreakfast,
-  createPlaceholderGuidePage('frigiliana-guest-breakfast', {
-    en: 'Breakfast in Frigiliana', de: 'Frühstück in Frigiliana', es: 'Desayuno en Frigiliana', nl: 'Ontbijt in Frigiliana', sv: 'Frukost i Frigiliana'
-  }),
+  frigilianaGuestBreakfast,
   nerjaGuestRestaurants,
   frigilianaGuestRestaurants,
   frigilianaGuestBeaches,
@@ -4096,13 +4506,7 @@ const frigilianaLounisHub: GuestGuideEntry = {
   },
   secondaryCtaHref: FRIGILIANA_GOOGLE_REVIEW_URL,
   secondaryCtaLabel: LEAVE_GOOGLE_REVIEW,
-  signOff: {
-    en: 'Warm regards,<br>Robert',
-    de: 'Herzliche Grüße,<br>Robert',
-    es: 'Un afectuoso saludo,<br>Robert',
-    nl: 'Hartelijke groeten,<br>Robert',
-    sv: 'Varma hälsningar,<br>Robert'
-  }
+  signOff: AMARA_SIGN_OFF
 };
 
 const frigilianaLounisAccommodation: GuestGuideEntry = {
@@ -4166,151 +4570,7 @@ const frigilianaLounisAccommodation: GuestGuideEntry = {
         nl: 'Keuken & Woonkamer',
         sv: 'Kök & Vardagsrum'
       },
-      items: [
-        sharedAmaraCoffeeMachineItem,
-        {
-          icon: 'dish',
-          title: { en: 'Induction Hob', de: 'Induktionsherd', es: 'Placa de inducción', nl: 'Inductiekookplaat', sv: 'Induktionshäll' },
-          body: [
-            {
-              en: 'The induction hob is simple and safe. Please note: it only activates when <strong>induction-compatible cookware</strong> is placed on the cooking zone.',
-              de: 'Der Induktionsherd ist einfach und sicher zu bedienen. Bitte beachtet: Er schaltet sich nur ein, wenn <strong>induktionsgeeignetes Kochgeschirr</strong> auf der Kochzone steht.',
-              es: 'La placa de inducción es sencilla y segura. Tened en cuenta que solo se activa cuando se coloca <strong>menaje apto para inducción</strong> sobre la zona de cocción.',
-              nl: 'De inductiekookplaat is eenvoudig en veilig in gebruik. Let op: hij wordt alleen geactiveerd als er <strong>inductiegeschikte pannen</strong> op de kookzone staan.',
-              sv: 'Induktionshällen är enkel och säker att använda. Vänligen observera: den aktiveras endast när <strong>induktionsanpassade kokkärl</strong> placeras på kokzonen.'
-            },
-            {
-              en: 'To cook: place a suitable pot or pan on the hob, press <strong>On/Off</strong>, select the cooking zone, then adjust the power level (1–9).',
-              de: 'Zum Kochen: Stellt einen passenden Topf oder eine Pfanne auf das Kochfeld, drückt <strong>On/Off</strong>, wählt die Kochzone aus und stellt dann die Leistungsstufe (1–9) ein.',
-              es: 'Para cocinar: colocad una olla o sartén adecuada en la placa, pulsad <strong>On/Off</strong>, seleccionad la zona de cocción y ajustad el nivel de potencia (1–9).',
-              nl: 'Om te koken: zet een geschikte pot of pan op de kookplaat, druk op <strong>On/Off</strong>, selecteer de kookzone en stel het vermogen in (1–9).',
-              sv: 'För att laga mat: ställ en lämplig kastrull eller stekpanna på hällen, tryck på <strong>On/Off</strong>, välj kokzon och ställ in effekten (1–9).'
-            },
-            {
-              en: 'If you see <strong>"Lo"</strong>, the child lock is active. Press and hold the <strong>Child Lock</strong> button for about 3 seconds to unlock.',
-              de: 'Wenn ihr <strong>„Lo"</strong> seht, ist die Kindersicherung aktiv. Haltet die Taste <strong>Kindersicherung</strong> für etwa 3 Sekunden gedrückt, um sie zu entsperren.',
-              es: 'Si veis <strong>"Lo"</strong>, el bloqueo infantil está activo. Mantened pulsado el botón de <strong>Bloqueo infantil</strong> durante unos 3 segundos para desbloquearlo.',
-              nl: 'Als jullie <strong>"Lo"</strong> zien, is het kinderslot geactiveerd. Houd de knop <strong>Kinderslot</strong> ongeveer 3 seconden ingedrukt om te ontgrendelen.',
-              sv: 'Om ni ser <strong>"Lo"</strong> är barnspärren aktiverad. Tryck och håll in knappen för <strong>Barnspärr</strong> i cirka 3 sekunder för att låsa upp.'
-            },
-            {
-              en: 'Lower levels are ideal for gentle simmering; higher levels are best for boiling water or searing.',
-              de: 'Niedrigere Stufen eignen sich hervorragend für sanftes Köcheln; höhere Stufen sind am besten, um Wasser zum Kochen zu bringen oder scharf anzubraten.',
-              es: 'Los niveles bajos son ideales para cocinar a fuego lento; los más altos son perfectos para hervir agua o marcar alimentos.',
-              nl: 'Lagere standen zijn ideaal om zachtjes te laten sudderen; hogere standen zijn het beste om water aan de kook te brengen of vlees dicht te schroeien.',
-              sv: 'Lägre nivåer är idealiska för att sjuda försiktigt; högre nivåer passar bäst för att koka upp vatten eller bryna maten.'
-            }
-          ],
-          images: [
-            {
-              src: '/images/amara-lounis/induction-hob-zones.jpg',
-              alt: {
-                en: 'Induction hob control panel showing zone selection and On/Off button',
-                de: 'Bedienfeld des Induktionsherds mit Kochzonenauswahl und Ein/Aus-Taste',
-                es: 'Panel de control de la placa de inducción con selección de zona y botón de encendido/apagado',
-                nl: 'Bedieningspaneel van de inductiekookplaat met zone-selectie en aan/uit-knop',
-                sv: 'Induktionshällens kontrollpanel med zonval och På/Av-knapp'
-              },
-              caption: {
-                en: 'Zone selection and On/Off button',
-                de: 'Kochzonenauswahl und Ein/Aus-Taste',
-                es: 'Selección de zona y botón de encendido/apagado',
-                nl: 'Zone-selectie en aan/uit-knop',
-                sv: 'Zonval och På/Av-knapp'
-              }
-            },
-            {
-              src: '/images/amara-lounis/induction-hob-child-lock.jpg',
-              alt: {
-                en: 'Induction hob control panel with the child lock button highlighted',
-                de: 'Bedienfeld des Induktionsherds mit hervorgehobener Kindersicherungstaste',
-                es: 'Panel de control de la placa de inducción con el botón de bloqueo infantil resaltado',
-                nl: 'Bedieningspaneel van de inductiekookplaat met de kinderslotknop gemarkeerd',
-                sv: 'Induktionshällens kontrollpanel med barnspärrsknappen markerad'
-              },
-              caption: {
-                en: 'Child lock button',
-                de: 'Kindersicherungstaste',
-                es: 'Botón de bloqueo infantil',
-                nl: 'Kinderslotknop',
-                sv: 'Barnspärrsknapp'
-              }
-            },
-            {
-              src: '/images/amara-lounis/induction-hob-power-levels.jpg',
-              alt: {
-                en: 'Induction hob control panel showing the power level slider (1-9)',
-                de: 'Bedienfeld des Induktionsherds mit dem Regler für die Leistungsstufen (1–9)',
-                es: 'Panel de control de la placa de inducción con el control deslizante de potencia (1-9)',
-                nl: 'Bedieningspaneel van de inductiekookplaat met de vermogensschuif (1-9)',
-                sv: 'Induktionshällens kontrollpanel med reglaget för effektnivå (1–9)'
-              },
-              caption: {
-                en: 'Power level (1–9)',
-                de: 'Leistungsstufe (1–9)',
-                es: 'Nivel de potencia (1–9)',
-                nl: 'Vermogensniveau (1–9)',
-                sv: 'Effektnivå (1–9)'
-              }
-            }
-          ]
-        },
-        {
-          icon: 'flame',
-          title: { en: 'Pellet Stove', de: 'Pelletofen', es: 'Estufa de pellets', nl: 'Pelletkachel', sv: 'Pelletskamin' },
-          body: [
-            {
-              en: 'Please use <strong>certified 6 mm wood pellets only</strong>. Keep the <strong>door closed</strong> while running.',
-              de: 'Bitte verwendet <strong>nur zertifizierte 6-mm-Holzpellets</strong>. Lasst die <strong>Tür geschlossen</strong>, während der Ofen in Betrieb ist.',
-              es: 'Por favor, utilizad <strong>solo pellets de madera certificados de 6 mm</strong>. Mantened la <strong>puerta cerrada</strong> mientras esté en funcionamiento.',
-              nl: 'Gebruik <strong>uitsluitend gecertificeerde houtpellets van 6 mm</strong>. Houd de <strong>deur gesloten</strong> terwijl de kachel aanstaat.',
-              sv: 'Vänligen använd <strong>endast certifierade 6 mm träpellets</strong>. Håll <strong>dörren stängd</strong> under drift.'
-            },
-            {
-              en: '<strong>Quick start</strong>',
-              de: '<strong>Kurzanleitung</strong>',
-              es: '<strong>Guía de inicio rápido</strong>',
-              nl: '<strong>Snel aan de slag</strong>',
-              sv: '<strong>Snabbstart</strong>'
-            },
-            {
-              en: '<ol><li>Check pellets in the hopper (top) and refill if needed.</li><li>Press and hold <strong>ON/OFF</strong> for ~3 seconds (auto ignition).</li><li>Give it a few minutes — the stove starts in phases automatically.</li></ol>',
-              de: '<ol><li>Prüft die Pellets im Tank (oben) und füllt sie bei Bedarf nach.</li><li>Haltet <strong>ON/OFF</strong> für ca. 3 Sekunden gedrückt (automatische Zündung).</li><li>Gebt dem Ofen ein paar Minuten – er startet ganz automatisch in verschiedenen Phasen.</li></ol>',
-              es: '<ol><li>Comprobad los pellets en el depósito (parte superior) y rellenadlo si es necesario.</li><li>Mantened pulsado <strong>ON/OFF</strong> durante unos 3 segundos (encendido automático).</li><li>Dadle unos minutos: la estufa se inicia sola por fases.</li></ol>',
-              nl: '<ol><li>Controleer de pellets in de voorraadbak (bovenop) en vul ze indien nodig bij.</li><li>Houd <strong>ON/OFF</strong> ongeveer 3 seconden ingedrukt (automatische ontsteking).</li><li>Geef de kachel even de tijd — hij start automatisch in verschillende fasen op.</li></ol>',
-              sv: '<ol><li>Kontrollera pelletsen i behållaren (ovanpå) och fyll på vid behov.</li><li>Tryck och håll in <strong>ON/OFF</strong> i ca 3 sekunder (automatisk tändning).</li><li>Ge den några minuter – kaminen startar automatiskt i olika faser.</li></ol>'
-            },
-            {
-              en: '<strong>Controls</strong><br><strong>Temperature:</strong> 1 / 2 &nbsp; <strong>More heat:</strong> 6 &nbsp; <strong>Less heat:</strong> 5',
-              de: '<strong>Bedienung</strong><br><strong>Temperatur:</strong> 1 / 2 &nbsp; <strong>Mehr Wärme:</strong> 6 &nbsp; <strong>Weniger Wärme:</strong> 5',
-              es: '<strong>Controles</strong><br><strong>Temperatura:</strong> 1 / 2 &nbsp; <strong>Más calor:</strong> 6 &nbsp; <strong>Menos calor:</strong> 5',
-              nl: '<strong>Bediening</strong><br><strong>Temperatuur:</strong> 1 / 2 &nbsp; <strong>Meer warmte:</strong> 6 &nbsp; <strong>Minder warmte:</strong> 5',
-              sv: '<strong>Kontroller</strong><br><strong>Temperatur:</strong> 1 / 2 &nbsp; <strong>Mer värme:</strong> 6 &nbsp; <strong>Mindre värme:</strong> 5'
-            },
-            {
-              en: '<strong>Turning off:</strong> press and hold <strong>ON/OFF</strong> for ~3 seconds. The fans may run briefly while cooling down.',
-              de: '<strong>Ausschalten:</strong> Haltet <strong>ON/OFF</strong> für ca. 3 Sekunden gedrückt. Die Lüfter können während des Abkühlens noch kurz nachlaufen.',
-              es: '<strong>Apagado:</strong> mantened pulsado <strong>ON/OFF</strong> durante unos 3 segundos. Es posible que los ventiladores sigan funcionando brevemente mientras se enfría.',
-              nl: '<strong>Uitschakelen:</strong> houd <strong>ON/OFF</strong> ongeveer 3 seconden ingedrukt. De ventilatoren kunnen tijdens het afkoelen nog even blijven draaien.',
-              sv: '<strong>Avstängning:</strong> tryck och håll in <strong>ON/OFF</strong> i ca 3 sekunder. Fläktarna kan fortsätta att gå en kort stund medan den svalnar.'
-            },
-            {
-              en: '<strong>Quick alarm help</strong><br><strong>AL-06 NO PELLET</strong> → Refill pellets and restart.<br><strong>AL-05 LIGHTING FAILURE</strong> → Let it cool down, then restart once.',
-              de: '<strong>Schnelle Hilfe bei Alarmen</strong><br><strong>AL-06 NO PELLET</strong> → Füllt Pellets nach und startet den Ofen neu.<br><strong>AL-05 LIGHTING FAILURE</strong> → Lasst den Ofen abkühlen und startet ihn dann einmal neu.',
-              es: '<strong>Ayuda rápida con alarmas</strong><br><strong>AL-06 NO PELLET</strong> → Rellenad los pellets y reiniciad.<br><strong>AL-05 LIGHTING FAILURE</strong> → Dejad que se enfríe y volved a iniciarlo una vez.',
-              nl: '<strong>Snelle hulp bij storingen</strong><br><strong>AL-06 NO PELLET</strong> → Vul de pellets bij en start opnieuw op.<br><strong>AL-05 LIGHTING FAILURE</strong> → Laat de kachel afkoelen en start hem daarna een keer opnieuw.',
-              sv: '<strong>Snabbhjälp vid larm</strong><br><strong>AL-06 NO PELLET</strong> → Fyll på pellets och starta om.<br><strong>AL-05 LIGHTING FAILURE</strong> → Låt den svalna och starta sedan om den en gång.'
-            },
-            {
-              en: 'Clean only when cold. If an alarm persists, please message us — we\'ll help immediately.',
-              de: 'Bitte reinigt den Ofen nur, wenn er kalt ist. Falls ein Alarm bestehen bleibt, schreibt uns einfach – wir helfen euch sofort weiter.',
-              es: 'Limpiadla solo cuando esté fría. Si persiste una alarma, escribidnos por favor: os ayudaremos de inmediato.',
-              nl: 'Reinig de kachel alleen als deze koud is. Mocht er een storing blijven aanhouden, stuur ons dan even een berichtje — we helpen jullie meteen verder.',
-              sv: 'Rengör endast när kaminen är kall. Om ett larm kvarstår, skicka gärna ett meddelande till oss – vi hjälper er direkt.'
-            }
-          ]
-        }
-      ]
+      items: [sharedAmaraCoffeeMachineItem, sharedAmaraInductionHobItem, sharedAmaraPelletStoveItem]
     },
     {
       heading: {
@@ -4321,26 +4581,7 @@ const frigilianaLounisAccommodation: GuestGuideEntry = {
         sv: 'Under er vistelse'
       },
       items: [
-        {
-          icon: 'cart',
-          title: { en: 'Starter Supplies', de: 'Startausstattung', es: 'Suministros iniciales', nl: 'Startbenodigdheden', sv: 'Startförnödenheter' },
-          body: [
-            {
-              en: 'To make your arrival easy, we provide a thoughtful <strong>starter supply</strong> of everyday essentials — usually things like toilet paper, dishwasher tablets, bin bags, and a few basic cleaning items.',
-              de: 'Damit ihr entspannt ankommen könnt, stellen wir euch eine sorgfältige <strong>Startausstattung</strong> mit den wichtigsten Verbrauchsmaterialien bereit – meist Dinge wie Toilettenpapier, Spülmaschinentabs, Mülltüten und einige grundlegende Reinigungsartikel.',
-              es: 'Para que vuestra llegada sea cómoda, dejamos una <strong>dotación inicial</strong> con los artículos básicos más importantes: normalmente papel higiénico, pastillas para el lavavajillas, bolsas de basura y algunos productos básicos de limpieza.',
-              nl: 'Om jullie aankomst zo makkelijk mogelijk te maken, zorgen we voor een fijne <strong>startvoorraad</strong> met de belangrijkste dagelijkse benodigdheden — meestal zaken zoals toiletpapier, vaatwastabletten, vuilniszakken en enkele basis schoonmaakbenodigdheden.',
-              sv: 'För att göra ankomsten enkel erbjuder vi ett omtänksamt <strong>startpaket</strong> med de viktigaste vardagsartiklarna — vanligtvis saker som toalettpapper, diskmaskinstabletter, soppåsar och några grundläggande rengöringsartiklar.'
-            },
-            {
-              en: 'As is common in holiday rentals, these supplies are intended for the <strong>start of your stay</strong>. If you need more, please purchase any additional items according to your personal needs.',
-              de: 'Wie in Ferienunterkünften üblich, ist diese Ausstattung für den <strong>Start eures Aufenthalts</strong> gedacht. Wenn ihr mehr benötigt, kauft bitte zusätzliche Artikel nach eurem persönlichen Bedarf.',
-              es: 'Como es habitual en los alojamientos vacacionales, estos artículos están pensados para el <strong>inicio de vuestra estancia</strong>. Si necesitáis más, podéis comprar lo adicional según vuestras necesidades personales.',
-              nl: 'Zoals gebruikelijk is bij vakantiewoningen, zijn deze benodigdheden bedoeld voor het <strong>begin van jullie verblijf</strong>. Als jullie meer nodig hebben, kunnen jullie dit zelf naar behoefte bijkopen.',
-              sv: 'Som vanligt i semesterboenden är dessa förnödenheter avsedda för <strong>början av er vistelse</strong>. Om ni behöver mer köper ni enkelt till det efter era egna behov.'
-            }
-          ]
-        },
+        sharedAmaraStarterSuppliesWithDishwasherTabletsItem,
         {
           icon: 'laundry',
           title: { en: 'Laundry', de: 'Wäsche', es: 'Lavandería', nl: 'Wasgoed', sv: 'Tvätt' },
@@ -4361,53 +4602,923 @@ const frigilianaLounisAccommodation: GuestGuideEntry = {
             }
           ]
         },
+        sharedAmaraHousekeepingItem,
+        sharedAmaraGarbageItem
+      ]
+    },
+    {
+      heading: {
+        en: 'Please Note',
+        de: 'Bitte beachten',
+        es: 'A tener en cuenta',
+        nl: 'Let op',
+        sv: 'Vänligen observera'
+      },
+      items: [sharedAmaraTapWaterItem, sharedAmaraNoSmokingItem, sharedAmaraVentilateItem, sharedAmaraQuietHoursItem]
+    },
+    {
+      heading: { en: 'Check-out', de: 'Check-out', es: 'Check-out', nl: 'Check-out', sv: 'Check-out' },
+      items: [sharedAmaraDepartureInfoItem, sharedAmaraLateCheckoutSeasonalItem]
+    }
+  ]
+};
+
+const frigilianaZaidHub: GuestGuideEntry = {
+  type: 'hub',
+  slug: 'guestwelcome-frigiliana-zaid',
+  entityKey: 'amara-zaid',
+  supportHref: FRIGILIANA_SUPPORT_WHATSAPP,
+  supportLabel: NEED_HELP,
+  seoTitle: {
+    en: 'Frigiliana Guest Guide | AMARA',
+    de: 'Frigiliana Gästeguide | AMARA',
+    es: 'Guía para huéspedes en Frigiliana | AMARA',
+    nl: 'Frigiliana Guest Guide | AMARA',
+    sv: 'Frigiliana Guest Guide | AMARA'
+  },
+  seoDescription: {
+    en: 'Your calm, practical guide for an effortless stay in Frigiliana: house info, local recommendations, and essentials for a smooth arrival.',
+    de: 'Dein ruhiger, praktischer Guide für Frigiliana: Haus-Infos, lokale Empfehlungen und alles Wichtige für eine entspannte Anreise.',
+    es: 'Una guía práctica y tranquila para vuestra estancia en Frigiliana: información de la casa, recomendaciones locales y lo esencial para llegar sin estrés.',
+    nl: 'Een rustige, praktische gids voor jullie verblijf in Frigiliana: huisinfo, lokale tips en essentials voor een soepele aankomst.',
+    sv: 'En lugn och praktisk guide för er vistelse i Frigiliana: boendeinfo, lokala tips och det viktigaste för en smidig ankomst.'
+  },
+  heroImage: '/images/amara-zaid/cara-rural-frigiliana-amara-said-terraza-5.jpg',
+  heroAlt: {
+    en: 'AMARA Zaid terrace apartment in Frigiliana',
+    de: 'AMARA Zaid Terrassenapartment in Frigiliana',
+    es: 'Apartamento con terraza AMARA Zaid en Frigiliana',
+    nl: 'AMARA Zaid terrasappartement in Frigiliana',
+    sv: 'AMARA Zaid terrasslägenhet i Frigiliana'
+  },
+  kicker: { en: 'AMARA ZAID', de: 'AMARA ZAID', es: 'AMARA ZAID', nl: 'AMARA ZAID', sv: 'AMARA ZAID' },
+  title: {
+    en: 'Frigiliana Guest Guide',
+    de: 'Frigiliana Gästeguide',
+    es: 'Guía para huéspedes en Frigiliana',
+    nl: 'Frigiliana Guest Guide',
+    sv: 'Frigiliana Gästguide'
+  },
+  intro: {
+    en: 'A thoughtful guide to help you settle in, find your way, and enjoy Frigiliana with ease.',
+    de: 'Ein aufmerksamer Guide, der euch hilft anzukommen, euch schnell zurechtzufinden und Frigiliana mit Leichtigkeit zu genießen.',
+    es: 'Una guía pensada con cariño para ayudaros a instalaros, orientaros con facilidad y disfrutar de Frigiliana con calma.',
+    nl: 'Een zorgvuldige gids om jullie te helpen rustig aan te komen, gemakkelijk de weg te vinden en van Frigiliana te genieten.',
+    sv: 'En omtänksam guide som hjälper er att landa, hitta rätt och uppleva Frigiliana med lätthet.'
+  },
+  menuLinks: [
+    {
+      icon: 'accommodation',
+      targetSlug: 'guesthome-frigiliana-zaid',
+      title: {
+        en: 'Your Apartment Zaid',
+        de: 'Euer Apartment Zaid',
+        es: 'Vuestro apartamento Zaid',
+        nl: 'Jullie appartement Zaid',
+        sv: 'Lägenheten Zaid'
+      },
+      subtitle: {
+        en: 'Arrival · Instructions · Please note',
+        de: 'Anreise · Hinweise · Bitte beachten',
+        es: 'Llegada · Instrucciones · A tener en cuenta',
+        nl: 'Aankomst · Instructies · Let op',
+        sv: 'Ankomst · Instruktioner · Vänligen observera'
+      }
+    },
+    {
+      icon: 'location-pin',
+      targetSlug: 'frigiliana-guest-essentials',
+      title: {
+        en: 'Frigiliana Essentials',
+        de: 'Frigiliana kompakt',
+        es: 'Lo esencial de Frigiliana',
+        nl: 'Frigiliana essentials',
+        sv: 'Det viktigaste i Frigiliana'
+      },
+      subtitle: {
+        en: 'Mobility · Supermarket · Pharmacy',
+        de: 'Fortbewegung · Supermarkt · Apotheke',
+        es: 'Transporte · Supermercado · Farmacia',
+        nl: 'Vervoer · Supermarkt · Apotheek',
+        sv: 'Transport · Supermarket · Apotek'
+      }
+    },
+    {
+      icon: 'compass',
+      targetSlug: 'frigiliana-guest-recommendations',
+      title: {
+        en: 'Our Recommendations',
+        de: 'Unsere Empfehlungen',
+        es: 'Nuestras recomendaciones',
+        nl: 'Onze aanbevelingen',
+        sv: 'Våra rekommendationer'
+      },
+      subtitle: {
+        en: 'Restaurants · Walks · Viewpoints',
+        de: 'Restaurants · Spaziergänge · Aussichtspunkte',
+        es: 'Restaurantes · Paseos · Miradores',
+        nl: 'Restaurants · Wandelingen · Uitzichtpunten',
+        sv: 'Restauranger · Promenader · Utkiksplatser'
+      }
+    }
+  ],
+  closingParagraphs: [
+    {
+      en: 'We hope you feel completely at ease in Frigiliana — its calm streets, soft light, and quiet corners are made for slowing down. As a small welcome gift, you\'ll find a bottle of chilled white wine in the fridge. If you need anything at all during your stay, we are always happy to help: just send us a message via your booking platform, or use the help button below.',
+      de: 'Wir hoffen, dass ihr euch in Frigiliana rundum wohlfühlt – in den ruhigen Gassen, im weichen Licht und mit viel Raum, um die Seele baumeln zu lassen. Als kleines Willkommensgeschenk findet ihr eine Flasche gekühlten Weißwein im Kühlschrank. Solltet ihr während eures Aufenthalts irgendetwas brauchen, sind wir jederzeit gerne für euch da: Schreibt uns einfach über eure Buchungsplattform oder nutzt den Hilfe-Button unten.',
+      es: 'Esperamos que os sintáis completamente a gusto en Frigiliana, con sus calles tranquilas, su luz suave y sus rincones perfectos para desconectar. Como pequeño detalle de bienvenida, encontraréis una botella de vino blanco frío en la nevera. Si necesitáis cualquier cosa durante vuestra estancia, estaremos siempre encantados de ayudaros: escribidnos a través de vuestra plataforma de reservas o usad el botón de ayuda de abajo.',
+      nl: 'We hopen dat jullie je helemaal thuis voelen in Frigiliana — met de rustige straatjes, het zachte licht en alle ruimte om even tot rust te komen. Als klein welkomstgeschenk vinden jullie een fles gekoelde witte wijn in de koelkast. Hebben jullie tijdens jullie verblijf ergens hulp bij nodig? Stuur ons dan gerust een berichtje via jullie boekingsplatform, of gebruik de help-knop hieronder.',
+      sv: 'Vi hoppas att ni ska trivas riktigt bra i Frigiliana – bland lugna gränder, mjukt ljus och gott om utrymme att bara koppla av. Som en liten välkomstgåva hittar ni en flaska kylt vitt vin i kylskåpet. Om ni behöver hjälp med något under er vistelse finns vi alltid här för er: skicka ett meddelande via er bokningsplattform eller använd hjälp-knappen nedan.'
+    },
+    {
+      en: 'Should Frigiliana find a place in your heart and you would like to stay a little longer — now or on a future trip — we would be delighted to welcome you again. You can check our current and future availability online at any time.',
+      de: 'Sollte Frigiliana einen Platz in eurem Herzen finden und ihr euren Aufenthalt gerne verlängern möchtet – jetzt oder bei einer zukünftigen Reise –, würden wir uns sehr freuen, euch wieder bei uns zu begrüßen. Unsere aktuelle und zukünftige Verfügbarkeit könnt ihr jederzeit online einsehen.',
+      es: 'Si Frigiliana llega a ocuparos un rincón del corazón y os apetece quedaros un poco más —ahora o en un futuro viaje—, estaremos encantados de volver a recibiros. Podéis consultar en cualquier momento nuestra disponibilidad actual y futura online.',
+      nl: 'Krijgt Frigiliana een plekje in jullie hart en willen jullie wat langer blijven — nu of bij een volgende reis — dan verwelkomen we jullie graag opnieuw. Onze huidige en toekomstige beschikbaarheid kunnen jullie altijd online bekijken.',
+      sv: 'Om Frigiliana får en plats i ert hjärta och ni vill stanna lite längre – nu eller vid ett framtida besök – välkomnar vi er varmt tillbaka. Vår nuvarande och framtida tillgänglighet kan ni alltid se online.'
+    }
+  ],
+  ctaHref:
+    'https://amara-lodging.es/de/book/?adults=1&sort=price&selectedlocationid=0,67,0,1143,0,6306383&city=Frigiliana&children=0&infants=0&pets=0',
+  ctaLabel: {
+    en: 'Check Availability',
+    de: 'Verfügbarkeit prüfen',
+    es: 'Comprobar disponibilidad',
+    nl: 'Beschikbaarheid bekijken',
+    sv: 'Kontrollera tillgänglighet'
+  },
+  secondaryCtaHref: FRIGILIANA_GOOGLE_REVIEW_URL,
+  secondaryCtaLabel: LEAVE_GOOGLE_REVIEW,
+  signOff: AMARA_SIGN_OFF
+};
+
+const frigilianaZaidAccommodation: GuestGuideEntry = {
+  type: 'detail',
+  slug: 'guesthome-frigiliana-zaid',
+  entityKey: 'amara-zaid',
+  backSlug: 'guestwelcome-frigiliana-zaid',
+  supportHref: FRIGILIANA_SUPPORT_WHATSAPP,
+  supportLabel: NEED_HELP,
+  seoTitle: {
+    en: 'Your Apartment Zaid | AMARA',
+    de: 'Euer Apartment Zaid | AMARA',
+    es: 'Vuestro apartamento Zaid | AMARA',
+    nl: 'Jullie appartement Zaid | AMARA',
+    sv: 'Lägenheten Zaid | AMARA'
+  },
+  seoDescription: {
+    en: 'House details, arrival directions, and everything you need to know about staying at AMARA Zaid in Frigiliana.',
+    de: 'Haus-Infos, Anreisebeschreibung und alles Wichtige für euren Aufenthalt in der AMARA Zaid in Frigiliana.',
+    es: 'Detalles de la casa, indicaciones para llegar y todo lo que necesitáis saber sobre vuestra estancia en AMARA Zaid, Frigiliana.',
+    nl: 'Huisinfo, aankomstroute en alles wat jullie moeten weten over jullie verblijf in AMARA Zaid in Frigiliana.',
+    sv: 'Boendeinfo, ankomstväg och allt ni behöver veta om er vistelse i AMARA Zaid i Frigiliana.'
+  },
+  kicker: { en: 'AMARA ZAID', de: 'AMARA ZAID', es: 'AMARA ZAID', nl: 'AMARA ZAID', sv: 'AMARA ZAID' },
+  title: {
+    en: 'Your Apartment Zaid',
+    de: 'Euer Apartment Zaid',
+    es: 'Vuestro apartamento Zaid',
+    nl: 'Jullie appartement Zaid',
+    sv: 'Lägenheten Zaid'
+  },
+  intro: {
+    en: 'House details and essentials.',
+    de: 'Details und das Wichtigste zu eurem Haus.',
+    es: 'Detalles y lo esencial de vuestra casa.',
+    nl: 'Details en de belangrijkste informatie over jullie huis.',
+    sv: 'Detaljer och det viktigaste om ert hus.'
+  },
+  categories: [
+    {
+      heading: {
+        en: 'Arrival & Basics',
+        de: 'Anreise & Grundlagen',
+        es: 'Llegada y aspectos básicos',
+        nl: 'Aankomst & Basisinfo',
+        sv: 'Ankomst & Grundläggande info'
+      },
+      items: [sharedFrigilianaCenterArrivalItem, sharedFrigilianaCenterParkingItem, sharedAmaraWifiItem, sharedAmaraCoolingHeatingItem]
+    },
+    {
+      heading: {
+        en: 'Kitchen & Living',
+        de: 'Küche & Wohnbereich',
+        es: 'Cocina y salón',
+        nl: 'Keuken & Woonkamer',
+        sv: 'Kök & Vardagsrum'
+      },
+      items: [sharedAmaraCoffeeMachineItem, sharedAmaraInductionHobItem, sharedAmaraPelletStoveItem]
+    },
+    {
+      heading: {
+        en: 'During Your Stay',
+        de: 'Während eures Aufenthalts',
+        es: 'Durante vuestra estancia',
+        nl: 'Tijdens jullie verblijf',
+        sv: 'Under er vistelse'
+      },
+      items: [
+        sharedAmaraStarterSuppliesItem,
         {
-          icon: 'sparkle',
-          title: { en: 'Housekeeping', de: 'Housekeeping', es: 'Servicio de limpieza', nl: 'Housekeeping', sv: 'Housekeeping' },
+          icon: 'laundry',
+          title: { en: 'Laundry', de: 'Wäsche', es: 'Lavandería', nl: 'Wasgoed', sv: 'Tvätt' },
           body: [
             {
-              en: '<strong>Fresh linens</strong><br>For stays longer than 7 nights, we automatically change your bed linen and towels halfway through your stay.',
-              de: '<strong>Frische Wäsche</strong><br>Bei Aufenthalten von mehr als 7 Nächten wechseln wir zur Hälfte eures Aufenthalts automatisch die Bettwäsche und Handtücher für euch aus.',
-              es: '<strong>Ropa de cama limpia</strong><br>Para estancias superiores a 7 noches, cambiamos automáticamente la ropa de cama y las toallas a mitad de vuestra estancia.',
-              nl: '<strong>Schoon linnen</strong><br>Bij een verblijf van meer dan 7 nachten verschonen we halverwege jullie verblijf automatisch het beddengoed en de handdoeken.',
-              sv: '<strong>Rena sängkläder</strong><br>Vid vistelser längre än 7 nätter byter vi automatiskt sängkläder och handdukar halvvägs in i er vistelse.'
+              en: 'The <strong>washing machine</strong> is located on the terrace. Out of respect for our neighbors, please only run it between <strong>12:00 PM and 5:00 PM</strong>.',
+              de: 'Die <strong>Waschmaschine</strong> befindet sich auf der Terrasse. Aus Rücksicht auf unsere Nachbarn bitten wir euch, sie nur zwischen <strong>12:00 und 17:00 Uhr</strong> zu benutzen.',
+              es: 'La <strong>lavadora</strong> se encuentra en la terraza. Por respeto a nuestros vecinos, os pedimos que la utilicéis únicamente entre las <strong>12:00 y las 17:00</strong>.',
+              nl: 'De <strong>wasmachine</strong> staat op het terras. Uit respect voor onze buren vragen we jullie deze alleen te gebruiken tussen <strong>12.00 en 17.00 uur</strong>.',
+              sv: '<strong>Tvättmaskinen</strong> finns på terrassen. Av hänsyn till våra grannar ber vi er att endast använda den mellan kl. <strong>12:00 och 17:00</strong>.'
             },
             {
-              en: '<strong>Need anything else?</strong><br>Our housekeeping team is happy to help: <a class="am-link" href="' +
-                HOUSEKEEPING_WHATSAPP +
-                '" target="_blank" rel="noopener">Open WhatsApp</a>',
-              de: '<strong>Wenn ihr noch etwas braucht</strong><br>Unser Housekeeping-Team hilft euch sehr gerne weiter: <a class="am-link" href="' +
-                HOUSEKEEPING_WHATSAPP +
-                '" target="_blank" rel="noopener">WhatsApp öffnen</a>',
-              es: '<strong>¿Necesitáis cualquier otra cosa?</strong><br>Nuestro equipo de limpieza estará encantado de ayudaros: <a class="am-link" href="' +
-                HOUSEKEEPING_WHATSAPP +
-                '" target="_blank" rel="noopener">Abrir WhatsApp</a>',
-              nl: '<strong>Nog iets anders nodig?</strong><br>Ons housekeeping-team helpt jullie graag verder: <a class="am-link" href="' +
-                HOUSEKEEPING_WHATSAPP +
-                '" target="_blank" rel="noopener">Open WhatsApp</a>',
-              sv: '<strong>Behöver ni något annat?</strong><br>Vårt housekeeping-team hjälper er gärna: <a class="am-link" href="' +
-                HOUSEKEEPING_WHATSAPP +
-                '" target="_blank" rel="noopener">Öppna WhatsApp</a>'
+              en: 'Two <strong>clotheslines</strong> are available on the terrace — simply clip the line onto the hooks using the carabiner clasps at each end. The <strong>ironing board</strong> is stored under the bed.',
+              de: 'Auf der Terrasse stehen euch zwei <strong>Wäscheleinen</strong> zur Verfügung – hängt die Leine einfach mit den Karabinerhaken an den Enden in die vorgesehenen Ösen ein. Das <strong>Bügelbrett</strong> liegt griffbereit unter dem Bett.',
+              es: 'En la terraza hay dos <strong>tendederos</strong> disponibles: basta con enganchar la cuerda a los ganchos mediante los mosquetones de cada extremo. La <strong>tabla de planchar</strong> está guardada debajo de la cama.',
+              nl: 'Op het terras zijn twee <strong>waslijnen</strong> beschikbaar — haak de lijn simpelweg met de karabijnhaken aan beide uiteinden aan de haakjes vast. De <strong>strijkplank</strong> ligt opgeborgen onder het bed.',
+              sv: 'På terrassen finns två <strong>tvättlinor</strong> tillgängliga — haka helt enkelt fast linan i krokarna med karbinhakarna i respektive ände. <strong>Strykbrädan</strong> förvaras under sängen.'
             }
           ]
         },
+        sharedAmaraHousekeepingItem,
+        sharedAmaraGarbageItem
+      ]
+    },
+    {
+      heading: {
+        en: 'Please Note',
+        de: 'Bitte beachten',
+        es: 'A tener en cuenta',
+        nl: 'Let op',
+        sv: 'Vänligen observera'
+      },
+      items: [sharedAmaraTapWaterItem, sharedAmaraNoSmokingItem, sharedAmaraVentilateItem, sharedAmaraQuietHoursItem]
+    },
+    {
+      heading: { en: 'Check-out', de: 'Check-out', es: 'Check-out', nl: 'Check-out', sv: 'Check-out' },
+      items: [sharedAmaraDepartureInfoItem, sharedAmaraLateCheckoutSeasonalItem]
+    }
+  ]
+};
+
+const frigilianaMahaHub: GuestGuideEntry = {
+  type: 'hub',
+  slug: 'guestwelcome-frigiliana-maha',
+  entityKey: 'amara-maha',
+  supportHref: FRIGILIANA_SUPPORT_WHATSAPP,
+  supportLabel: NEED_HELP,
+  seoTitle: {
+    en: 'Frigiliana Guest Guide | AMARA',
+    de: 'Frigiliana Gästeguide | AMARA',
+    es: 'Guía para huéspedes en Frigiliana | AMARA',
+    nl: 'Frigiliana Guest Guide | AMARA',
+    sv: 'Frigiliana Guest Guide | AMARA'
+  },
+  seoDescription: {
+    en: 'Your calm, practical guide for an effortless stay in Frigiliana: house info, local recommendations, and essentials for a smooth arrival.',
+    de: 'Dein ruhiger, praktischer Guide für Frigiliana: Haus-Infos, lokale Empfehlungen und alles Wichtige für eine entspannte Anreise.',
+    es: 'Una guía práctica y tranquila para vuestra estancia en Frigiliana: información de la casa, recomendaciones locales y lo esencial para llegar sin estrés.',
+    nl: 'Een rustige, praktische gids voor jullie verblijf in Frigiliana: huisinfo, lokale tips en essentials voor een soepele aankomst.',
+    sv: 'En lugn och praktisk guide för er vistelse i Frigiliana: boendeinfo, lokala tips och det viktigaste för en smidig ankomst.'
+  },
+  heroImage: '/images/amara-maha/29-amara-frigiliana.jpg',
+  heroAlt: {
+    en: 'AMARA Maha apartment in Frigiliana',
+    de: 'AMARA Maha Apartment in Frigiliana',
+    es: 'Apartamento AMARA Maha en Frigiliana',
+    nl: 'AMARA Maha appartement in Frigiliana',
+    sv: 'AMARA Maha lägenhet i Frigiliana'
+  },
+  kicker: { en: 'AMARA MAHA', de: 'AMARA MAHA', es: 'AMARA MAHA', nl: 'AMARA MAHA', sv: 'AMARA MAHA' },
+  title: {
+    en: 'Frigiliana Guest Guide',
+    de: 'Frigiliana Gästeguide',
+    es: 'Guía para huéspedes en Frigiliana',
+    nl: 'Frigiliana Guest Guide',
+    sv: 'Frigiliana Gästguide'
+  },
+  intro: {
+    en: 'A thoughtful guide to help you settle in, find your way, and enjoy Frigiliana with ease.',
+    de: 'Ein aufmerksamer Guide, der euch hilft anzukommen, euch schnell zurechtzufinden und Frigiliana mit Leichtigkeit zu genießen.',
+    es: 'Una guía pensada con cariño para ayudaros a instalaros, orientaros con facilidad y disfrutar de Frigiliana con calma.',
+    nl: 'Een zorgvuldige gids om jullie te helpen rustig aan te komen, gemakkelijk de weg te vinden en Frigiliana ontspannen te beleven.',
+    sv: 'En omtänksam guide som hjälper er att landa, hitta rätt och uppleva Frigiliana med lätthet.'
+  },
+  menuLinks: [
+    {
+      icon: 'accommodation',
+      targetSlug: 'guesthome-frigiliana-maha',
+      title: {
+        en: 'Your Apartment Maha',
+        de: 'Euer Apartment Maha',
+        es: 'Vuestro apartamento Maha',
+        nl: 'Jullie appartement Maha',
+        sv: 'Lägenheten Maha'
+      },
+      subtitle: {
+        en: 'Arrival · Instructions · Please note',
+        de: 'Anreise · Hinweise · Bitte beachten',
+        es: 'Llegada · Instrucciones · A tener en cuenta',
+        nl: 'Aankomst · Instructies · Let op',
+        sv: 'Ankomst · Instruktioner · Vänligen observera'
+      }
+    },
+    {
+      icon: 'location-pin',
+      targetSlug: 'frigiliana-guest-essentials',
+      title: {
+        en: 'Frigiliana Essentials',
+        de: 'Frigiliana kompakt',
+        es: 'Lo esencial de Frigiliana',
+        nl: 'Frigiliana essentials',
+        sv: 'Det viktigaste i Frigiliana'
+      },
+      subtitle: {
+        en: 'Mobility · Supermarket · Pharmacy',
+        de: 'Fortbewegung · Supermarkt · Apotheke',
+        es: 'Transporte · Supermercado · Farmacia',
+        nl: 'Vervoer · Supermarkt · Apotheek',
+        sv: 'Transport · Supermarket · Apotek'
+      }
+    },
+    {
+      icon: 'compass',
+      targetSlug: 'frigiliana-guest-recommendations',
+      title: {
+        en: 'Our Recommendations',
+        de: 'Unsere Empfehlungen',
+        es: 'Nuestras recomendaciones',
+        nl: 'Onze aanbevelingen',
+        sv: 'Våra rekommendationer'
+      },
+      subtitle: {
+        en: 'Restaurants · Walks · Viewpoints',
+        de: 'Restaurants · Spaziergänge · Aussichtspunkte',
+        es: 'Restaurantes · Paseos · Miradores',
+        nl: 'Restaurants · Wandelingen · Uitzichtpunten',
+        sv: 'Restauranger · Promenader · Utkiksplatser'
+      }
+    }
+  ],
+  closingParagraphs: [
+    {
+      en: 'We hope you feel completely at ease in Frigiliana — its calm streets, soft light, and quiet corners are made for slowing down. As a small welcome gift, you\'ll find a bottle of chilled white wine in the fridge. If you need anything at all during your stay, we are always happy to help: just send us a message via your booking platform, or use the help button below.',
+      de: 'Wir hoffen, dass ihr euch in Frigiliana rundum wohlfühlt – in den ruhigen Gassen, im weichen Licht und mit viel Raum, um die Seele baumeln zu lassen. Als kleines Willkommensgeschenk findet ihr eine Flasche gekühlten Weißwein im Kühlschrank. Solltet ihr während eures Aufenthalts irgendetwas brauchen, sind wir jederzeit gerne für euch da: Schreibt uns einfach über eure Buchungsplattform oder nutzt den Hilfe-Button unten.',
+      es: 'Esperamos que os sintáis completamente a gusto en Frigiliana, con sus calles tranquilas, su luz suave y sus rincones perfectos para desconectar. Como pequeño detalle de bienvenida, encontraréis una botella de vino blanco frío en la nevera. Si necesitáis cualquier cosa durante vuestra estancia, estaremos siempre encantados de ayudaros: escribidnos a través de vuestra plataforma de reservas o usad el botón de ayuda de abajo.',
+      nl: 'We hopen dat jullie je helemaal thuis voelen in Frigiliana — met de rustige straatjes, het zachte licht en alle ruimte om even tot rust te komen. Als klein welkomstgeschenk vinden jullie een fles gekoelde witte wijn in de koelkast. Hebben jullie tijdens jullie verblijf ergens hulp bij nodig? Stuur ons dan gerust een berichtje via jullie boekingsplatform, of gebruik de help-knop hieronder.',
+      sv: 'Vi hoppas att ni ska trivas riktigt bra i Frigiliana – bland lugna gränder, mjukt ljus och gott om utrymme att bara koppla av. Som en liten välkomstgåva hittar ni en flaska kylt vitt vin i kylskåpet. Om ni behöver hjälp med något under er vistelse finns vi alltid här för er: skicka ett meddelande via er bokningsplattform eller använd hjälp-knappen nedan.'
+    },
+    {
+      en: 'Should Frigiliana find a place in your heart and you would like to stay a little longer — now or on a future trip — we would be delighted to welcome you again. You can check our current and future availability online at any time.',
+      de: 'Sollte Frigiliana einen Platz in eurem Herzen finden und ihr euren Aufenthalt gerne verlängern möchtet – jetzt oder bei einer zukünftigen Reise –, würden wir uns sehr freuen, euch wieder bei uns zu begrüßen. Unsere aktuelle und zukünftige Verfügbarkeit könnt ihr jederzeit online einsehen.',
+      es: 'Si Frigiliana llega a ocuparos un rincón del corazón y os apetece quedaros un poco más —ahora o en un futuro viaje—, estaremos encantados de volver a recibiros. Podéis consultar en cualquier momento nuestra disponibilidad actual y futura online.',
+      nl: 'Krijgt Frigiliana een plekje in jullie hart en willen jullie wat langer blijven — nu of bij een volgende reis — dan verwelkomen we jullie graag opnieuw. Onze huidige en toekomstige beschikbaarheid kunnen jullie altijd online bekijken.',
+      sv: 'Om Frigiliana får en plats i ert hjärta och ni vill stanna lite längre – nu eller vid ett framtida besök – välkomnar vi er varmt tillbaka. Vår nuvarande och framtida tillgänglighet kan ni alltid se online.'
+    }
+  ],
+  ctaHref:
+    'https://amara-lodging.es/de/book/?adults=1&sort=price&selectedlocationid=0,67,0,1143,0,6306383&city=Frigiliana&children=0&infants=0&pets=0',
+  ctaLabel: {
+    en: 'Check Availability',
+    de: 'Verfügbarkeit prüfen',
+    es: 'Comprobar disponibilidad',
+    nl: 'Beschikbaarheid bekijken',
+    sv: 'Kontrollera tillgänglighet'
+  },
+  secondaryCtaHref: FRIGILIANA_GOOGLE_REVIEW_URL,
+  secondaryCtaLabel: LEAVE_GOOGLE_REVIEW,
+  signOff: AMARA_SIGN_OFF
+};
+
+const frigilianaMahaAccommodation: GuestGuideEntry = {
+  type: 'detail',
+  slug: 'guesthome-frigiliana-maha',
+  entityKey: 'amara-maha',
+  backSlug: 'guestwelcome-frigiliana-maha',
+  supportHref: FRIGILIANA_SUPPORT_WHATSAPP,
+  supportLabel: NEED_HELP,
+  seoTitle: {
+    en: 'Your Apartment Maha | AMARA',
+    de: 'Euer Apartment Maha | AMARA',
+    es: 'Vuestro apartamento Maha | AMARA',
+    nl: 'Jullie appartement Maha | AMARA',
+    sv: 'Lägenheten Maha | AMARA'
+  },
+  seoDescription: {
+    en: 'House details, arrival directions, and everything you need to know about staying at AMARA Maha in Frigiliana.',
+    de: 'Haus-Infos, Anreisebeschreibung und alles Wichtige für euren Aufenthalt in der AMARA Maha in Frigiliana.',
+    es: 'Detalles de la casa, indicaciones para llegar y todo lo que necesitáis saber sobre vuestra estancia en AMARA Maha, Frigiliana.',
+    nl: 'Huisinfo, aankomstroute en alles wat jullie moeten weten over jullie verblijf in AMARA Maha in Frigiliana.',
+    sv: 'Boendeinfo, ankomstväg och allt ni behöver veta om er vistelse i AMARA Maha i Frigiliana.'
+  },
+  kicker: { en: 'AMARA MAHA', de: 'AMARA MAHA', es: 'AMARA MAHA', nl: 'AMARA MAHA', sv: 'AMARA MAHA' },
+  title: {
+    en: 'Your Apartment Maha',
+    de: 'Euer Apartment Maha',
+    es: 'Vuestro apartamento Maha',
+    nl: 'Jullie appartement Maha',
+    sv: 'Lägenheten Maha'
+  },
+  intro: {
+    en: 'House details and essentials.',
+    de: 'Details und das Wichtigste zu eurem Haus.',
+    es: 'Detalles y lo esencial de vuestra casa.',
+    nl: 'Details en de belangrijkste informatie over jullie huis.',
+    sv: 'Detaljer och det viktigaste om ert hus.'
+  },
+  categories: [
+    {
+      heading: {
+        en: 'Arrival & Basics',
+        de: 'Anreise & Grundlagen',
+        es: 'Llegada y aspectos básicos',
+        nl: 'Aankomst & Basisinfo',
+        sv: 'Ankomst & Grundläggande info'
+      },
+      items: [sharedFrigilianaCenterArrivalItem, sharedFrigilianaCenterParkingItem, sharedAmaraWifiItem, sharedAmaraCoolingHeatingItem]
+    },
+    {
+      heading: {
+        en: 'Kitchen & Living',
+        de: 'Küche & Wohnbereich',
+        es: 'Cocina y salón',
+        nl: 'Keuken & Woonkamer',
+        sv: 'Kök & Vardagsrum'
+      },
+      items: [sharedAmaraCoffeeMachineItem, sharedAmaraInductionHobItem, sharedAmaraOutdoorGasStoveItem, sharedAmaraPelletStoveItem]
+    },
+    {
+      heading: {
+        en: 'During Your Stay',
+        de: 'Während eures Aufenthalts',
+        es: 'Durante vuestra estancia',
+        nl: 'Tijdens jullie verblijf',
+        sv: 'Under er vistelse'
+      },
+      items: [sharedAmaraStarterSuppliesItem, sharedAmaraHousekeepingItem, sharedAmaraGarbageItem]
+    },
+    {
+      heading: {
+        en: 'Please Note',
+        de: 'Bitte beachten',
+        es: 'A tener en cuenta',
+        nl: 'Let op',
+        sv: 'Vänligen observera'
+      },
+      items: [
+        sharedAmaraTapWaterItem,
+        sharedAmaraNoSmokingItem,
+        {
+          icon: 'watering-can',
+          title: {
+            en: 'A Small Favour',
+            de: 'Eine kleine Bitte',
+            es: 'Un pequeño favor',
+            nl: 'Een klein verzoek',
+            sv: 'En liten tjänst'
+          },
+          body: [
+            {
+              en: 'If you happen to have a moment during your stay, we would be very grateful if you could give the plants on the terrace a little water. A white watering can is provided for you. Thank you so much for helping us care for them.',
+              de: 'Falls ihr während eures Aufenthalts einen Moment habt, würden wir uns sehr freuen, wenn ihr den Pflanzen auf der Terrasse etwas Wasser geben könntet. Eine weiße Gießkanne steht dafür bereit. Herzlichen Dank, dass ihr uns bei der Pflege unterstützt.',
+              es: 'Si tenéis un momento durante vuestra estancia, os agradeceríamos mucho que pudierais regar un poco las plantas de la terraza. Hemos dejado una regadera blanca para ello. Muchas gracias por ayudarnos a cuidarlas.',
+              nl: 'Als jullie tijdens het verblijf een momentje hebben, zouden we het erg waarderen als jullie de planten op het terras wat water zouden kunnen geven. Hiervoor staat een witte gieter klaar. Hartelijk dank dat jullie ons helpen om ze te verzorgen.',
+              sv: 'Om ni har en liten stund under er vistelse skulle vi vara mycket tacksamma om ni kunde ge växterna på terrassen lite vatten. Det finns en vit vattenkanna som ni kan använda. Tack så mycket för att ni hjälper oss att ta hand om dem.'
+            }
+          ]
+        },
+        sharedAmaraVentilateItem,
+        sharedAmaraQuietHoursItem
+      ]
+    },
+    {
+      heading: { en: 'Check-out', de: 'Check-out', es: 'Check-out', nl: 'Check-out', sv: 'Check-out' },
+      items: [sharedAmaraDepartureInfoItem, sharedAmaraLateCheckoutSeasonalItem]
+    }
+  ]
+};
+
+const nerjaPlayaHub: GuestGuideEntry = {
+  type: 'hub',
+  slug: 'guestwelcome-nerja-playa',
+  entityKey: 'amara-playa',
+  supportHref: FRIGILIANA_SUPPORT_WHATSAPP,
+  supportLabel: NEED_HELP,
+  seoTitle: {
+    en: 'Nerja Guest Guide | AMARA',
+    de: 'Nerja Gästeguide | AMARA',
+    es: 'Guía para huéspedes en Nerja | AMARA',
+    nl: 'Nerja Guest Guide | AMARA',
+    sv: 'Nerja Gästguide | AMARA'
+  },
+  seoDescription: {
+    en: 'Your calm, practical guide for an effortless stay in Nerja: house info, local recommendations, and essentials for a smooth arrival.',
+    de: 'Euer ruhiger, praktischer Guide für Nerja: Haus-Infos, lokale Empfehlungen und alles Wichtige für eine entspannte Anreise.',
+    es: 'Una guía práctica y tranquila para vuestra estancia en Nerja: información del alojamiento, recomendaciones locales y esenciales para llegar sin estrés.',
+    nl: 'Jullie rustige, praktische gids voor een ontspannen verblijf in Nerja: accommodatie-info, lokale tips en essentials voor een soepele aankomst.',
+    sv: 'Er lugna, praktiska guide för en smidig vistelse i Nerja: boendeinfo, lokala tips och det viktigaste för en enkel ankomst.'
+  },
+  heroImage: '/images/amara-playa/apartment/chaparril-13.webp',
+  heroAlt: {
+    en: 'AMARA Playa apartment in Nerja',
+    de: 'AMARA Playa Apartment in Nerja',
+    es: 'Apartamento AMARA Playa en Nerja',
+    nl: 'AMARA Playa appartement in Nerja',
+    sv: 'AMARA Playa-lägenhet i Nerja'
+  },
+  kicker: { en: 'AMARA PLAYA', de: 'AMARA PLAYA', es: 'AMARA PLAYA', nl: 'AMARA PLAYA', sv: 'AMARA PLAYA' },
+  title: {
+    en: 'Nerja Guest Guide',
+    de: 'Nerja Gästeguide',
+    es: 'Guía para huéspedes en Nerja',
+    nl: 'Nerja Guest Guide',
+    sv: 'Nerja Gästguide'
+  },
+  intro: {
+    en: 'A thoughtful guide to help you settle in, find your way, and enjoy Nerja with ease.',
+    de: 'Ein aufmerksamer Guide, der euch hilft anzukommen, euch schnell zurechtzufinden und Nerja mit Leichtigkeit zu genießen.',
+    es: 'Una guía pensada con cariño para ayudaros a instalaros, orientaros con facilidad y disfrutar de Nerja con calma.',
+    nl: 'Een zorgvuldige gids om jullie te helpen rustig aan te komen, gemakkelijk de weg te vinden en Nerja ontspannen te beleven.',
+    sv: 'En omtänksam guide som hjälper er att landa, hitta rätt och uppleva Nerja med lätthet.'
+  },
+  menuLinks: [
+    {
+      icon: 'accommodation',
+      targetSlug: 'guesthome-nerja-playa',
+      title: {
+        en: 'Your Accommodation AMARA Playa',
+        de: 'Eure Unterkunft AMARA Playa',
+        es: 'Vuestro alojamiento AMARA Playa',
+        nl: 'Jullie accommodatie AMARA Playa',
+        sv: 'Ert boende AMARA Playa'
+      },
+      subtitle: {
+        en: 'Arrival · Instructions · Please note',
+        de: 'Anreise · Hinweise · Bitte beachten',
+        es: 'Llegada · Instrucciones · A tener en cuenta',
+        nl: 'Aankomst · Instructies · Let op',
+        sv: 'Ankomst · Instruktioner · Vänligen observera'
+      }
+    },
+    {
+      icon: 'location-pin',
+      targetSlug: 'nerja-guest-essentials',
+      title: {
+        en: 'Nerja Essentials',
+        de: 'Nerja kompakt',
+        es: 'Lo esencial de Nerja',
+        nl: 'Nerja essentials',
+        sv: 'Det viktigaste i Nerja'
+      },
+      subtitle: {
+        en: 'Mobility · Supermarket · Pharmacy',
+        de: 'Fortbewegung · Supermarkt · Apotheke',
+        es: 'Transporte · Supermercado · Farmacia',
+        nl: 'Vervoer · Supermarkt · Apotheek',
+        sv: 'Transport · Supermarket · Apotek'
+      }
+    },
+    {
+      icon: 'compass',
+      targetSlug: 'frigiliana-guest-recommendations',
+      title: {
+        en: 'Our Recommendations',
+        de: 'Unsere Empfehlungen',
+        es: 'Nuestras recomendaciones',
+        nl: 'Onze aanbevelingen',
+        sv: 'Våra rekommendationer'
+      },
+      subtitle: {
+        en: 'Restaurants · Beaches · Walks',
+        de: 'Restaurants · Strände · Spaziergänge',
+        es: 'Restaurantes · Playas · Paseos',
+        nl: 'Restaurants · Stranden · Wandelingen',
+        sv: 'Restauranger · Stränder · Promenader'
+      }
+    }
+  ],
+  closingParagraphs: [
+    {
+      en: 'We hope you feel at ease in Nerja — with soft light, sea air, and space to slow down. If you need anything during your stay, we are always happy to help. You can simply send us a message via your booking platform or use the help button.',
+      de: 'Wir hoffen, dass ihr euch in Nerja rundum wohlfühlt – bei weichem Licht, Meeresluft und mit viel Raum, um die Seele baumeln zu lassen. Solltet ihr während eures Aufenthalts etwas brauchen, sind wir jederzeit gerne für euch da. Schreibt uns einfach über eure Buchungsplattform oder nutzt den Hilfe-Button.',
+      es: 'Esperamos que os sintáis a gusto en Nerja, disfrutando de su luz suave, del aire del mar y del espacio para desconectar. Si necesitáis cualquier cosa durante vuestra estancia, siempre estaremos encantados de ayudaros. Simplemente enviadnos un mensaje a través de vuestra plataforma de reservas o usad el botón de ayuda.',
+      nl: 'We hopen dat jullie je helemaal thuis voelen in Nerja — met zacht licht, zeelucht en de ruimte om even helemaal tot rust te komen. Als jullie tijdens jullie verblijf iets nodig hebben, helpen we jullie graag. Stuur ons gerust een berichtje via jullie boekingsplatform of gebruik de help-knop.',
+      sv: 'Vi hoppas att ni ska trivas riktigt bra i Nerja – med mjukt ljus, havsluft och utrymme att bara koppla av. Om ni behöver något under er vistelse hjälper vi er alltid gärna. Skicka bara ett meddelande via er bokningsplattform eller använd hjälp-knappen.'
+    },
+    {
+      en: 'Thank you for choosing AMARA. As a small welcome gift, we have placed a bottle of chilled white wine in the refrigerator for you.',
+      de: 'Danke, dass ihr euch für AMARA entschieden habt. Als kleine Begrüßung haben wir eine Flasche gekühlten Weißwein für euch in den Kühlschrank gestellt.',
+      es: 'Gracias por elegir AMARA. Como pequeño regalo de bienvenida, os hemos dejado una botella de vino blanco frío en la nevera.',
+      nl: 'Bedankt dat jullie voor AMARA hebben gekozen. Als klein welkomstgeschenk hebben we een fles gekoelde witte wijn voor jullie in de koelkast gezet.',
+      sv: 'Tack för att ni valde AMARA. Som en liten välkomstgåva har vi ställt en flaska kylt vitt vin till er i kylskåpet.'
+    },
+    {
+      en: 'Thinking of staying a little longer? You are very welcome to check our current availability online.',
+      de: 'Möchtet ihr euren Aufenthalt noch etwas verlängern? Dann schaut euch gerne unsere aktuelle Verfügbarkeit online an.',
+      es: '¿Os apetece quedaros un poco más? Podéis consultar en cualquier momento nuestra disponibilidad actual online.',
+      nl: 'Denken jullie erover om wat langer te blijven? Bekijk dan gerust onze actuele beschikbaarheid online.',
+      sv: 'Är ni sugna på att stanna lite längre? Då är ni varmt välkomna att se vår aktuella tillgänglighet online.'
+    },
+    {
+      en: 'Should Nerja find a place in your heart, we would be delighted to welcome you again. Our current and future availability can always be checked online.',
+      de: 'Sollte Nerja einen Platz in eurem Herzen finden, würden wir uns sehr freuen, euch wieder bei uns begrüßen zu dürfen. Unsere aktuelle und zukünftige Verfügbarkeit könnt ihr jederzeit online einsehen.',
+      es: 'Si Nerja llega a ocupar un lugar en vuestro corazón, estaremos encantados de volver a daros la bienvenida. Podéis consultar en cualquier momento nuestra disponibilidad actual y futura online.',
+      nl: 'Krijgt Nerja een plekje in jullie hart, dan verwelkomen we jullie graag opnieuw. Onze huidige en toekomstige beschikbaarheid kunnen jullie altijd online bekijken.',
+      sv: 'Om Nerja får en plats i ert hjärta, välkomnar vi er gärna tillbaka igen. Vår nuvarande och framtida tillgänglighet kan ni alltid se online.'
+    }
+  ],
+  ctaHref:
+    'https://amara-lodging.es/en/book/?adults=1&sort=price&selectedlocationid=0,67,0,1143,0,6306298&city=Nerja&children=0&infants=0&pets=0',
+  ctaLabel: {
+    en: 'Check Availability',
+    de: 'Verfügbarkeit prüfen',
+    es: 'Comprobar disponibilidad',
+    nl: 'Beschikbaarheid bekijken',
+    sv: 'Kontrollera tillgänglighet'
+  },
+  secondaryCtaHref: FRIGILIANA_GOOGLE_REVIEW_URL,
+  secondaryCtaLabel: LEAVE_GOOGLE_REVIEW,
+  signOff: AMARA_SIGN_OFF
+};
+
+const nerjaPlayaAccommodation: GuestGuideEntry = {
+  type: 'detail',
+  slug: 'guesthome-nerja-playa',
+  entityKey: 'amara-playa',
+  backSlug: 'guestwelcome-nerja-playa',
+  supportHref: FRIGILIANA_SUPPORT_WHATSAPP,
+  supportLabel: NEED_HELP,
+  seoTitle: {
+    en: 'Your Accommodation AMARA Playa | AMARA',
+    de: 'Eure Unterkunft AMARA Playa | AMARA',
+    es: 'Vuestro alojamiento AMARA Playa | AMARA',
+    nl: 'Jullie accommodatie AMARA Playa | AMARA',
+    sv: 'Ert boende AMARA Playa | AMARA'
+  },
+  seoDescription: {
+    en: 'Accommodation details, arrival directions, and everything you need to know about staying at AMARA Playa in Nerja.',
+    de: 'Details zur Unterkunft, Anreisebeschreibung und alles Wichtige für euren Aufenthalt in der AMARA Playa in Nerja.',
+    es: 'Detalles del alojamiento, indicaciones para llegar y todo lo que necesitáis saber sobre vuestra estancia en AMARA Playa, Nerja.',
+    nl: 'Accommodatie-info, aankomstroute en alles wat jullie moeten weten over jullie verblijf in AMARA Playa in Nerja.',
+    sv: 'Boendeinfo, ankomstväg och allt ni behöver veta om er vistelse i AMARA Playa i Nerja.'
+  },
+  kicker: { en: 'NERJA GUEST GUIDE', de: 'NERJA GÄSTEGUIDE', es: 'GUÍA PARA HUÉSPEDES EN NERJA', nl: 'NERJA GUEST GUIDE', sv: 'NERJA GÄSTGUIDE' },
+  title: {
+    en: 'Your Accommodation AMARA Playa in Nerja',
+    de: 'Eure Unterkunft AMARA Playa in Nerja',
+    es: 'Vuestro alojamiento AMARA Playa en Nerja',
+    nl: 'Jullie accommodatie AMARA Playa in Nerja',
+    sv: 'Ert boende AMARA Playa i Nerja'
+  },
+  intro: {
+    en: 'Accommodation details and essentials.',
+    de: 'Details und das Wichtigste zu eurer Unterkunft.',
+    es: 'Detalles y lo esencial de vuestro alojamiento.',
+    nl: 'Details en de belangrijkste informatie over jullie accommodatie.',
+    sv: 'Detaljer och det viktigaste om ert boende.'
+  },
+  categories: [
+    {
+      heading: {
+        en: 'Arrival & Basics',
+        de: 'Anreise & Grundlagen',
+        es: 'Llegada y aspectos básicos',
+        nl: 'Aankomst & Basisinfo',
+        sv: 'Ankomst & Grundläggande info'
+      },
+      items: [
+        {
+          icon: 'location-pin',
+          title: {
+            en: 'Address & Directions',
+            de: 'Adresse & Anfahrt',
+            es: 'Dirección & Cómo llegar',
+            nl: 'Adres & Route',
+            sv: 'Adress & Vägbeskrivning'
+          },
+          body: [
+            {
+              en: '<strong>By car:</strong> AMARA Playa is located at <a class="am-link" href="https://maps.app.goo.gl/E886L2Huw3fXBQTt9" target="_blank" rel="noopener">Calle Castilla Pérez, 60, Nerja</a>. You can drive up to the entrance and stop there briefly when you arrive.',
+              de: '<strong>Anreise mit dem Auto:</strong> La AMARA Playa befindet sich in der <a class="am-link" href="https://maps.app.goo.gl/E886L2Huw3fXBQTt9" target="_blank" rel="noopener">Calle Castilla Pérez, 60, Nerja</a>. Ihr könnt direkt bis zum Eingang fahren und dort bei eurer Ankunft kurz halten.',
+              es: '<strong>Llegada en coche:</strong> AMARA Playa se encuentra en <a class="am-link" href="https://maps.app.goo.gl/E886L2Huw3fXBQTt9" target="_blank" rel="noopener">Calle Castilla Pérez, 60, Nerja</a>. Podéis conducir hasta la entrada y parar allí brevemente al llegar.',
+              nl: '<strong>Aankomst met de auto:</strong> AMARA Playa bevindt zich aan de <a class="am-link" href="https://maps.app.goo.gl/E886L2Huw3fXBQTt9" target="_blank" rel="noopener">Calle Castilla Pérez, 60, Nerja</a>. Jullie kunnen tot aan de ingang rijden en daar bij aankomst even stoppen.',
+              sv: '<strong>Ankomst med bil:</strong> AMARA Playa ligger på <a class="am-link" href="https://maps.app.goo.gl/E886L2Huw3fXBQTt9" target="_blank" rel="noopener">Calle Castilla Pérez, 60, Nerja</a>. Ni kan köra fram till entrén och stanna där kort vid ankomst.'
+            },
+            {
+              en: 'We recommend unloading your luggage first and then using one of the public parking options around the apartment. As the apartment is very close to the beach and set in one of the most popular parts of Nerja, parking may take a little patience, especially during high season.',
+              de: 'Wir empfehlen euch, zuerst euer Gepäck auszuladen und anschließend einen der öffentlichen Parkplätze in der Nähe des Apartments zu nutzen. Da das Apartment sehr nah am Strand und in einem der beliebtesten Teile von Nerja liegt, braucht ihr beim Parken vor allem in der Hochsaison etwas Geduld.',
+              es: 'Os recomendamos descargar primero el equipaje y luego utilizar una de las opciones de aparcamiento público cerca del apartamento. Como el apartamento está muy cerca de la playa y en una de las zonas más concurridas de Nerja, aparcar puede requerir algo de paciencia, sobre todo en temporada alta.',
+              nl: 'We raden aan om eerst jullie bagage uit te laden en daarna gebruik te maken van een van de openbare parkeermogelijkheden rond het appartement. Omdat het appartement heel dicht bij het strand ligt en in een van de populairste delen van Nerja, kan parkeren wat geduld vergen, vooral in het hoogseizoen.',
+              sv: 'Vi rekommenderar att ni först lastar ur bagaget och sedan använder någon av de allmänna parkeringsmöjligheterna runt lägenheten. Eftersom lägenheten ligger mycket nära stranden och i en av de mest populära delarna av Nerja kan parkering kräva lite tålamod, särskilt under högsäsong.'
+            },
+            {
+              en: '<strong>By bus:</strong> Most buses from Málaga arrive at the <a class="am-link" href="https://maps.app.goo.gl/TVrcmzESK8RiyRYX8" target="_blank" rel="noopener">Nerja bus station</a>. From there, you can either take a taxi or walk to the apartment — the walk is around 1 km and takes approximately 15 minutes.',
+              de: '<strong>Anreise mit dem Bus:</strong> Die meisten Busse aus Málaga kommen am <a class="am-link" href="https://maps.app.goo.gl/TVrcmzESK8RiyRYX8" target="_blank" rel="noopener">Busbahnhof von Nerja</a> an. Von dort könnt ihr entweder ein Taxi nehmen oder zu Fuß zum Apartment gehen – der Weg ist etwa 1 km lang und dauert ungefähr 15 Minuten.',
+              es: '<strong>Llegada en autobús:</strong> La mayoría de los autobuses desde Málaga llegan a la <a class="am-link" href="https://maps.app.goo.gl/TVrcmzESK8RiyRYX8" target="_blank" rel="noopener">estación de autobuses de Nerja</a>. Desde allí podéis coger un taxi o ir andando al apartamento; el paseo es de aproximadamente 1 km y dura unos 15 minutos.',
+              nl: '<strong>Aankomst met de bus:</strong> De meeste bussen vanuit Málaga komen aan bij het <a class="am-link" href="https://maps.app.goo.gl/TVrcmzESK8RiyRYX8" target="_blank" rel="noopener">busstation van Nerja</a>. Vanaf daar kunnen jullie een taxi nemen of naar het appartement lopen — de wandeling is ongeveer 1 km en duurt ongeveer 15 minuten.',
+              sv: '<strong>Ankomst med buss:</strong> De flesta bussar från Málaga anländer till <a class="am-link" href="https://maps.app.goo.gl/TVrcmzESK8RiyRYX8" target="_blank" rel="noopener">Nerjas busstation</a>. Därifrån kan ni antingen ta en taxi eller promenera till lägenheten — promenaden är cirka 1 km och tar ungefär 15 minuter.'
+            }
+          ]
+        },
+        {
+          icon: 'car',
+          title: { en: 'Parking', de: 'Parken', es: 'Aparcamiento', nl: 'Parkeren', sv: 'Parkering' },
+          body: [
+            {
+              en: 'Parking near the apartment is usually possible, but in this area it can sometimes be a little more difficult than expected, especially in high season because of the beach proximity.',
+              de: 'In der Nähe des Apartments zu parken ist meist möglich, kann in dieser Gegend aber manchmal etwas schwieriger sein als erwartet – besonders in der Hochsaison aufgrund der Nähe zum Strand.',
+              es: 'Aparcar cerca del apartamento suele ser posible, pero en esta zona a veces puede ser un poco más difícil de lo esperado, especialmente en temporada alta por la cercanía a la playa.',
+              nl: 'Parkeren in de buurt van het appartement is meestal mogelijk, maar kan in deze omgeving soms wat lastiger zijn dan verwacht, vooral in het hoogseizoen vanwege de nabijheid van het strand.',
+              sv: 'Parkering nära lägenheten är oftast möjlig, men i det här området kan det ibland vara lite svårare än väntat, särskilt under högsäsong på grund av närheten till stranden.'
+            },
+            {
+              en: 'If you find a suitable parking space within around 200 metres before reaching the apartment, we recommend taking it and walking the short remaining distance rather than trying to stop directly in front of the building.',
+              de: 'Wenn ihr innerhalb von etwa 200 Metern vor dem Apartment einen passenden Parkplatz findet, empfehlen wir euch, diesen zu nehmen und die kurze restliche Strecke zu Fuß zu gehen, statt direkt vor dem Gebäude halten zu wollen.',
+              es: 'Si encontráis un sitio adecuado para aparcar a unos 200 metros antes de llegar al apartamento, os recomendamos aparcar ahí y caminar el corto trayecto restante, en lugar de intentar parar justo delante del edificio.',
+              nl: 'Als jullie binnen ongeveer 200 meter voor het appartement een geschikte parkeerplek vinden, raden we aan deze te nemen en het korte stukje resterende afstand te lopen, in plaats van te proberen direct voor het gebouw te stoppen.',
+              sv: 'Om ni hittar en lämplig parkeringsplats inom cirka 200 meter innan ni når lägenheten rekommenderar vi att ni tar den och promenerar den korta återstående sträckan, i stället för att försöka stanna direkt framför byggnaden.'
+            },
+            {
+              en: 'If you do not find a space straight away, continue past the apartment area, follow the street around, and check the nearby streets around the block. A little patience is often part of parking in Nerja, and we have usually had good luck finding something nearby.',
+              de: 'Falls ihr nicht sofort einen Platz findet, fahrt einfach am Apartment vorbei, folgt der Straße weiter und schaut in den umliegenden Straßen rund um den Block. Etwas Geduld gehört beim Parken in Nerja oft dazu, und meist hat es sich bisher gut gefügt, in der Nähe etwas zu finden.',
+              es: 'Si no encontráis sitio enseguida, continuad más allá de la zona del apartamento, seguid la calle y comprobad las calles cercanas alrededor de la manzana. Un poco de paciencia suele formar parte de aparcar en Nerja, y normalmente hemos tenido suerte encontrando algo cerca.',
+              nl: 'Als jullie niet meteen een plek vinden, rijd dan door voorbij het appartement, volg de straat verder en kijk in de omliggende straten rond het blok. Een beetje geduld hoort er bij het parkeren in Nerja vaak bij, en meestal hebben we goed geluk gehad om iets in de buurt te vinden.',
+              sv: 'Om ni inte hittar en plats direkt, fortsätt förbi lägenhetens område, följ gatan runt och kolla de närliggande gatorna runt kvarteret. Lite tålamod hör ofta till att parkera i Nerja, och vi har oftast haft tur att hitta något i närheten.'
+            },
+            {
+              en: 'Please only park where local signs and road markings clearly allow it. Avoid restricted areas and always check carefully before leaving your car.',
+              de: 'Bitte parkt nur dort, wo es die örtlichen Schilder und Markierungen eindeutig erlauben. Meidet Sperrzonen und prüft immer sorgfältig, bevor ihr euer Auto abstellt.',
+              es: 'Por favor, aparcad solo donde las señales y marcas viales locales lo permitan claramente. Evitad las zonas restringidas y comprobad siempre con cuidado antes de dejar el coche.',
+              nl: 'Parkeer alstublieft alleen waar plaatselijke borden en wegmarkeringen dit duidelijk toestaan. Vermijd verboden zones en controleer altijd zorgvuldig voordat jullie de auto achterlaten.',
+              sv: 'Vänligen parkera endast där lokala skyltar och vägmarkeringar tydligt tillåter det. Undvik förbjudna zoner och kontrollera alltid noga innan ni lämnar bilen.'
+            },
+            {
+              en: 'If nothing is available nearby, there are also two public parking options a little further away that may help as a fallback: <a class="am-link" href="https://maps.app.goo.gl/6BwXaUPAChZxwg3u9" target="_blank" rel="noopener">public parking option 1</a> and <a class="am-link" href="https://maps.app.goo.gl/jweJa9nodE2MAKuXA" target="_blank" rel="noopener">public parking option 2</a>. These are roughly 400 to 600 metres away and are best kept as a backup if nothing closer is available.',
+              de: 'Falls in der Nähe nichts frei ist, gibt es außerdem zwei etwas weiter entfernte öffentliche Parkmöglichkeiten, die als Ausweichoption dienen können: <a class="am-link" href="https://maps.app.goo.gl/6BwXaUPAChZxwg3u9" target="_blank" rel="noopener">öffentlicher Parkplatz 1</a> und <a class="am-link" href="https://maps.app.goo.gl/jweJa9nodE2MAKuXA" target="_blank" rel="noopener">öffentlicher Parkplatz 2</a>. Diese liegen etwa 400 bis 600 Meter entfernt und eignen sich am besten als Rückfalloption, falls in der Nähe nichts verfügbar ist.',
+              es: 'Si no hay nada disponible cerca, también hay dos opciones de aparcamiento público un poco más alejadas que pueden serviros como alternativa: <a class="am-link" href="https://maps.app.goo.gl/6BwXaUPAChZxwg3u9" target="_blank" rel="noopener">aparcamiento público 1</a> y <a class="am-link" href="https://maps.app.goo.gl/jweJa9nodE2MAKuXA" target="_blank" rel="noopener">aparcamiento público 2</a>. Están a unos 400–600 metros y es mejor guardarlos como opción de reserva si no hay nada más cerca.',
+              nl: 'Als er niets in de buurt beschikbaar is, zijn er ook twee openbare parkeeropties iets verder weg die als terugvaloptie kunnen dienen: <a class="am-link" href="https://maps.app.goo.gl/6BwXaUPAChZxwg3u9" target="_blank" rel="noopener">openbare parkeerplaats 1</a> en <a class="am-link" href="https://maps.app.goo.gl/jweJa9nodE2MAKuXA" target="_blank" rel="noopener">openbare parkeerplaats 2</a>. Deze liggen ongeveer 400 tot 600 meter verderop en zijn het beste te gebruiken als reserveoptie als er niets dichterbij beschikbaar is.',
+              sv: 'Om inget finns tillgängligt i närheten finns det även två offentliga parkeringsalternativ lite längre bort som kan fungera som reserv: <a class="am-link" href="https://maps.app.goo.gl/6BwXaUPAChZxwg3u9" target="_blank" rel="noopener">offentlig parkering 1</a> och <a class="am-link" href="https://maps.app.goo.gl/jweJa9nodE2MAKuXA" target="_blank" rel="noopener">offentlig parkering 2</a>. Dessa ligger cirka 400 till 600 meter bort och fungerar bäst som reserv om inget närmare finns tillgängligt.'
+            }
+          ]
+        },
+        {
+          icon: 'wifi',
+          title: { en: 'Wi-Fi', de: 'WLAN', es: 'Wi-Fi', nl: 'Wifi', sv: 'Wi-Fi' },
+          body: [
+            {
+              en: 'Stay connected with high-speed Wi-Fi during your stay.<br><br><strong>Network name:</strong><br>HUAWEI-2.4G-aB3Y<br><br><strong>Password:</strong><br>k46n9jF6',
+              de: 'Während eures Aufenthalts steht euch schnelles WLAN zur Verfügung.<br><br><strong>Netzwerkname:</strong><br>HUAWEI-2.4G-aB3Y<br><br><strong>Passwort:</strong><br>k46n9jF6',
+              es: 'Durante vuestra estancia tenéis acceso a Wi-Fi de alta velocidad.<br><br><strong>Nombre de la red:</strong><br>HUAWEI-2.4G-aB3Y<br><br><strong>Contraseña:</strong><br>k46n9jF6',
+              nl: 'Tijdens jullie verblijf is er snelle Wi-Fi beschikbaar.<br><br><strong>Netwerknaam:</strong><br>HUAWEI-2.4G-aB3Y<br><br><strong>Wachtwoord:</strong><br>k46n9jF6',
+              sv: 'Under er vistelse har ni tillgång till snabbt Wi-Fi.<br><br><strong>Nätverksnamn:</strong><br>HUAWEI-2.4G-aB3Y<br><br><strong>Lösenord:</strong><br>k46n9jF6'
+            },
+            {
+              en: '<em>Please note:</em> Passwords are case-sensitive.',
+              de: '<em>Bitte beachten:</em> Passwörter unterscheiden zwischen Groß- und Kleinschreibung.',
+              es: '<em>A tener en cuenta:</em> Las contraseñas distinguen entre mayúsculas y minúsculas.',
+              nl: '<em>Let op:</em> Wachtwoorden zijn hoofdlettergevoelig.',
+              sv: '<em>Observera:</em> Lösenord är känsliga för stora och små bokstäver.'
+            }
+          ]
+        },
+        sharedAmaraCoolingHeatingItem
+      ]
+    },
+    {
+      heading: {
+        en: 'Kitchen & Living',
+        de: 'Küche & Wohnbereich',
+        es: 'Cocina y salón',
+        nl: 'Keuken & Woonkamer',
+        sv: 'Kök & Vardagsrum'
+      },
+      items: [
+        {
+          icon: 'coffee',
+          title: { en: 'Nespresso Machine', de: 'Nespresso-Maschine', es: 'Máquina Nespresso', nl: 'Nespresso-machine', sv: 'Nespresso-maskin' },
+          body: [
+            {
+              en: 'For your first coffee at AMARA, you will find a <strong>Nespresso machine</strong> in the apartment. We provide a few capsules for your arrival, so you can settle in and enjoy a coffee straight away.',
+              de: 'Für euren ersten Kaffee bei AMARA findet ihr im Apartment eine <strong>Nespresso-Maschine</strong>. Für eure Ankunft stellen wir euch bereits einige Kapseln bereit, sodass ihr euch erst einmal in Ruhe einrichten und direkt einen Kaffee genießen könnt.',
+              es: 'Para vuestro primer café en AMARA encontraréis una <strong>máquina Nespresso</strong> en el apartamento. Hemos dejado algunas cápsulas para vuestra llegada, para que podáis instalaros tranquilamente y disfrutar de un café enseguida.',
+              nl: 'Voor jullie eerste koffie bij AMARA staat er in het appartement een <strong>Nespresso-machine</strong> klaar. Voor jullie aankomst hebben we alvast een paar capsules klaargelegd, zodat jullie rustig kunnen aankomen en meteen van een kopje koffie kunnen genieten.',
+              sv: 'För er första kaffe på AMARA finns en <strong>Nespresso-maskin</strong> i lägenheten. Vi har lämnat några kapslar till er vid ankomsten så att ni kan komma till ro och njuta av en kopp kaffe direkt.'
+            },
+            {
+              en: 'If you need more during your stay, Nespresso-compatible capsules are easy to find in most supermarkets in Nerja.',
+              de: 'Wenn ihr während eures Aufenthalts mehr benötigt, findet ihr Nespresso-kompatible Kapseln in den meisten Supermärkten in Nerja.',
+              es: 'Si necesitáis más durante vuestra estancia, podéis encontrar cápsulas compatibles con Nespresso en la mayoría de los supermercados de Nerja.',
+              nl: 'Als jullie tijdens het verblijf meer nodig hebben, zijn Nespresso-compatibele capsules in de meeste supermarkten in Nerja verkrijgbaar.',
+              sv: 'Om ni behöver fler under er vistelse finns Nespresso-kompatibla kapslar i de flesta stormarknader i Nerja.'
+            }
+          ]
+        },
+        {
+          icon: 'dish',
+          title: { en: 'Induction Hob', de: 'Induktionsherd', es: 'Placa de inducción', nl: 'Inductiekookplaat', sv: 'Induktionshäll' },
+          body: [
+            {
+              en: 'The induction hob is simple and safe to use. Please note: it only activates when <strong>induction-compatible cookware</strong> is placed on the cooking zone.',
+              de: 'Der Induktionsherd ist einfach und sicher zu benutzen. Bitte beachtet: Er funktioniert nur, wenn <strong>induktionsgeeignetes Kochgeschirr</strong> auf der Kochzone steht.',
+              es: 'La placa de inducción es fácil y segura de usar. Tened en cuenta que solo se activa cuando hay <strong>utensilios de cocina aptos para inducción</strong> colocados sobre la zona de cocción.',
+              nl: 'De inductiekookplaat is eenvoudig en veilig in gebruik. Let op: de kookplaat werkt alleen wanneer er <strong>inductiegeschikt kookgerei</strong> op de kookzone staat.',
+              sv: 'Induktionshällen är enkel och säker att använda. Observera: den aktiveras endast när <strong>induktionsanpassade kokkärl</strong> står på kokzonen.'
+            },
+            {
+              en: 'To cook, place a suitable pot or pan on the hob, press <strong>On/Off</strong>, select the cooking zone, then adjust the power level from <strong>1–9</strong>.',
+              de: 'Zum Kochen stellt ihr bitte einen geeigneten Topf oder eine geeignete Pfanne auf das Kochfeld, drückt <strong>On/Off</strong>, wählt die Kochzone aus und stellt anschließend die Leistungsstufe von <strong>1–9</strong> ein.',
+              es: 'Para cocinar, colocad una olla o sartén adecuada sobre la placa, pulsad <strong>On/Off</strong>, seleccionad la zona de cocción y ajustad el nivel de potencia de <strong>1–9</strong>.',
+              nl: 'Om te koken, plaats je een geschikte pan op de kookplaat, druk je op <strong>On/Off</strong>, selecteer je de kookzone en stel je vervolgens het vermogen in van <strong>1–9</strong>.',
+              sv: 'För att laga mat, placera en lämplig kastrull eller stekpanna på hällen, tryck på <strong>On/Off</strong>, välj kokzon och justera sedan effektnivån från <strong>1–9</strong>.'
+            },
+            {
+              en: 'If you see <strong>"Lo"</strong>, the child lock is active. Press and hold the <strong>Child Lock</strong> button with the lock symbol for about <strong>5 seconds</strong> to unlock it.',
+              de: 'Wenn <strong>„Lo"</strong> angezeigt wird, ist die Kindersicherung aktiv. Haltet die Taste <strong>Child Lock</strong> mit dem Schloss-Symbol etwa <strong>5 Sekunden</strong> gedrückt, um sie zu entsperren.',
+              es: 'Si aparece <strong>"Lo"</strong>, el bloqueo infantil está activado. Mantened pulsado el botón <strong>Child Lock</strong> con el símbolo del candado durante unos <strong>5 segundos</strong> para desbloquearlo.',
+              nl: 'Als je <strong>"Lo"</strong> ziet, is de kinderbeveiliging actief. Houd de knop <strong>Child Lock</strong> met het slotsymbool ongeveer <strong>5 seconden</strong> ingedrukt om te ontgrendelen.',
+              sv: 'Om du ser <strong>"Lo"</strong> är barnlåset aktiverat. Håll knappen <strong>Child Lock</strong> med låssymbolen intryckt i cirka <strong>5 sekunder</strong> för att låsa upp.'
+            }
+          ]
+        },
+        {
+          icon: 'cutlery',
+          title: { en: 'Cutlery', de: 'Besteck', es: 'Cubiertos', nl: 'Bestek', sv: 'Bestick' },
+          body: [
+            {
+              en: 'The cutlery is in the <strong>upper right kitchen drawer</strong>. It is placed in an <strong>inner drawer inside the top drawer</strong>.',
+              de: 'Das Besteck befindet sich in der <strong>rechten oberen Küchenschublade</strong>. Dort gibt es eine <strong>Innenschublade innerhalb der oberen Schublade</strong> – darin liegt das Besteck.',
+              es: 'Los cubiertos están en el <strong>cajón superior derecho de la cocina</strong>. Se encuentran en un <strong>cajón interior dentro del cajón superior</strong>.',
+              nl: 'Het bestek ligt in de <strong>rechter bovenste keukenschuif</strong>. Het bevindt zich in een <strong>binnenschuif in de bovenste lade</strong>.',
+              sv: 'Besticken finns i <strong>den övre högra kökslådan</strong>. De ligger i en <strong>innerlåda inuti den översta lådan</strong>.'
+            }
+          ]
+        },
+        {
+          icon: 'shower',
+          title: { en: 'Shower', de: 'Dusche', es: 'Ducha', nl: 'Douche', sv: 'Dusch' },
+          body: [
+            {
+              en: 'This short video shows how to switch between the rain shower and the hand shower.',
+              de: 'Dieses kurze Video zeigt euch, wie ihr zwischen Regendusche und Handbrause umstellt.',
+              es: 'Este breve vídeo os muestra cómo cambiar entre la ducha de lluvia y la ducha de mano.',
+              nl: 'Deze korte video laat zien hoe jullie kunnen wisselen tussen de regendouche en de handdouche.',
+              sv: 'Den här korta videon visar hur ni växlar mellan regnduschen och handduschen.'
+            }
+          ],
+          video: {
+            src: '/videos/amara-playa/shower-guide.mp4',
+            title: {
+              en: 'AMARA Playa Nerja Shower Guide',
+              de: 'AMARA Playa Nerja Dusch-Anleitung',
+              es: 'Guía de la ducha de AMARA Playa Nerja',
+              nl: 'AMARA Playa Nerja douche-instructie',
+              sv: 'AMARA Playa Nerja duschguide'
+            }
+          }
+        }
+      ]
+    },
+    {
+      heading: {
+        en: 'During Your Stay',
+        de: 'Während eures Aufenthalts',
+        es: 'Durante vuestra estancia',
+        nl: 'Tijdens jullie verblijf',
+        sv: 'Under er vistelse'
+      },
+      items: [
+        sharedAmaraStarterSuppliesWithDishwasherTabletsItem,
+        sharedAmaraHousekeepingItem,
         {
           icon: 'trash',
           title: { en: 'Garbage', de: 'Müllentsorgung', es: 'Gestión de residuos', nl: 'Afvalverwerking', sv: 'Avfallshantering' },
           body: [
             {
-              en: 'Please dispose of your rubbish in the container on Calle Carlos Cano, directly opposite the stairs leading up to the house.',
-              de: 'Bitte entsorgt euren Müll im Container auf der Calle Carlos Cano – genau gegenüber den Treppen, die zum Haus hinaufführen.',
-              es: 'Os pedimos que depositéis la basura en el contenedor de la Calle Carlos Cano, justo enfrente de las escaleras que suben a la casa.',
-              nl: 'Gooi het afval weg in de container in de Calle Carlos Cano, tegenover de trap die naar het huis leidt.',
-              sv: 'Vänligen släng era sopor i containern på Calle Carlos Cano, mittemot trapporna som leder upp till huset.'
+              en: 'The nearest public rubbish containers are around <strong>150 metres</strong> from the apartment.',
+              de: 'Die nächsten öffentlichen Müllcontainer sind ungefähr <strong>150 Meter</strong> vom Apartment entfernt.',
+              es: 'Los contenedores públicos más cercanos están a unos <strong>150 metros</strong> del apartamento.',
+              nl: 'De dichtstbijzijnde openbare afvalcontainers liggen op ongeveer <strong>150 meter</strong> van het appartement.',
+              sv: 'De närmaste offentliga sopcontainrarna ligger cirka <strong>150 meter</strong> från lägenheten.'
             },
             {
-              en: 'Please avoid leaving food uncovered, as the warm climate can quickly attract ants — especially in summer.',
-              de: 'Bitte achtet darauf, keine offenen Lebensmittel stehen zu lassen, da das warme Klima schnell Ameisen anziehen kann – besonders im Sommer.',
-              es: 'Evitad dejar comida sin tapar, ya que el clima cálido puede atraer hormigas rápidamente, sobre todo en verano.',
-              nl: 'Laat eten niet onafgedekt staan — het warme klimaat kan snel mieren aantrekken, vooral in de zomer.',
-              sv: 'Undvik att lämna mat framme utan lock, eftersom det varma klimatet snabbt kan locka till sig myror – särskilt på sommaren.'
+              en: 'The easiest way is to leave the building and go <strong>right down Calle Castilla Pérez</strong> for about <strong>50–60 metres</strong>. Then turn <strong>left uphill into Calle Málaga</strong>, and after another <strong>50 metres</strong> you will find the public containers on the <strong>right-hand side</strong>.',
+              de: 'Am einfachsten geht ihr vom Gebäude aus <strong>rechts die Calle Castilla Pérez hinunter</strong> für etwa <strong>50 bis 60 Meter</strong>. Dann biegt ihr <strong>links bergauf in die Calle Málaga</strong> ein, und nach weiteren ungefähr <strong>50 Metern</strong> findet ihr die öffentlichen Container auf der <strong>rechten Seite</strong>.',
+              es: 'La forma más sencilla es salir del edificio y bajar <strong>a la derecha por Calle Castilla Pérez</strong> durante unos <strong>50–60 metros</strong>. Después girad <strong>a la izquierda cuesta arriba hacia Calle Málaga</strong>, y tras otros <strong>50 metros</strong> encontraréis los contenedores públicos en el <strong>lado derecho</strong>.',
+              nl: 'De makkelijkste route is om het gebouw te verlaten en <strong>rechts naar beneden over Calle Castilla Pérez</strong> te lopen, ongeveer <strong>50 tot 60 meter</strong>. Sla daarna <strong>links omhoog af naar Calle Málaga</strong>, en na nog eens ongeveer <strong>50 meter</strong> vinden jullie de openbare containers aan de <strong>rechterkant</strong>.',
+              sv: 'Enklast är att gå ut från byggnaden och gå <strong>åt höger nedför Calle Castilla Pérez</strong> i cirka <strong>50–60 meter</strong>. Sväng sedan <strong>vänster uppför in på Calle Málaga</strong>, och efter ytterligare cirka <strong>50 meter</strong> hittar ni de offentliga containrarna på <strong>höger sida</strong>.'
+            },
+            {
+              en: '<a class="am-link" href="https://maps.app.goo.gl/B7ZejyiYWfKdy4HXA" target="_blank" rel="noopener">Open container location in Google Maps</a>',
+              de: '<a class="am-link" href="https://maps.app.goo.gl/B7ZejyiYWfKdy4HXA" target="_blank" rel="noopener">Container-Standort in Google Maps öffnen</a>',
+              es: '<a class="am-link" href="https://maps.app.goo.gl/B7ZejyiYWfKdy4HXA" target="_blank" rel="noopener">Abrir ubicación de los contenedores en Google Maps</a>',
+              nl: '<a class="am-link" href="https://maps.app.goo.gl/B7ZejyiYWfKdy4HXA" target="_blank" rel="noopener">Locatie van de containers openen in Google Maps</a>',
+              sv: '<a class="am-link" href="https://maps.app.goo.gl/B7ZejyiYWfKdy4HXA" target="_blank" rel="noopener">Öppna containerplatsen i Google Maps</a>'
+            },
+            {
+              en: 'We would kindly ask you to use these public containers for your rubbish during your stay. Thank you very much for helping us keep the apartment comfortable and tidy for everyone.',
+              de: 'Wir würden euch freundlich bitten, während eures Aufenthalts diese öffentlichen Container für euren Müll zu nutzen. Vielen Dank, dass ihr uns dabei helft, das Apartment für alle angenehm und ordentlich zu halten.',
+              es: 'Os agradeceríamos mucho que durante vuestra estancia utilicéis estos contenedores públicos para la basura. Muchas gracias por ayudarnos a mantener el apartamento agradable y ordenado para todos.',
+              nl: 'We willen jullie vriendelijk vragen om tijdens jullie verblijf deze openbare containers voor jullie afval te gebruiken. Hartelijk dank dat jullie meehelpen om het appartement voor iedereen prettig en netjes te houden.',
+              sv: 'Vi vill vänligen be er att använda dessa offentliga containrar för era sopor under vistelsen. Tack så mycket för att ni hjälper till att hålla lägenheten trivsam och välordnad för alla.'
             }
           ]
         }
@@ -4423,55 +5534,15 @@ const frigilianaLounisAccommodation: GuestGuideEntry = {
       },
       items: [
         {
-          icon: 'moon',
-          title: {
-            en: 'Quiet Hours from 11:00 PM',
-            de: 'Ruhezeit ab 23:00 Uhr',
-            es: 'Horario de silencio desde las 23:00',
-            nl: 'Nachtrust vanaf 23.00 uur',
-            sv: 'Nattro från kl. 23.00'
-          },
-          body: [
-            {
-              en: '<strong>Quiet hours begin at 11:00 PM.</strong> From then on, please use your physical key for the main entrance door at street level rather than the electronic lock, which is disabled overnight — so please always bring your key when returning late.',
-              de: '<strong>Ab 23:00 Uhr gilt im Haus Ruhezeit.</strong> Bitte verwendet ab dann euren normalen Schlüssel für die Haustür auf Straßenebene statt des elektronischen Türschlosses, das nachts deaktiviert wird – nehmt daher bitte immer euren Schlüssel mit, wenn ihr später zurückkehrt.',
-              es: '<strong>El horario de silencio comienza a las 23:00.</strong> A partir de esa hora, utilizad vuestra llave física para la puerta principal a nivel de calle en lugar de la cerradura electrónica, que se desactiva por la noche; llevad siempre la llave si vais a regresar tarde.',
-              nl: '<strong>Vanaf 23.00 uur geldt er nachtrust in het huis.</strong> Gebruik vanaf dat moment jullie gewone sleutel voor de hoofdingang aan de straat in plaats van het elektronische deurslot, dat \'s nachts wordt uitgeschakeld — neem daarom altijd de sleutel mee als jullie later terugkeren.',
-              sv: '<strong>Från kl. 23.00 gäller nattro i huset.</strong> Använd därefter er vanliga nyckel till huvudentrén på gatunivå i stället för det elektroniska dörrlåset, som stängs av nattetid — ta därför alltid med nyckeln om ni återvänder sent.'
-            },
-            {
-              en: 'During the day the electronic lock is there for your convenience — handy if you would rather leave your key safely in the key box while you visit the beach.',
-              de: 'Tagsüber könnt ihr das elektronische Türschloss gerne nutzen – praktisch, wenn ihr euren Schlüssel während eines Strandbesuchs sicher in der Schlüsselbox lassen möchtet.',
-              es: 'Durante el día podéis usar cómodamente la cerradura electrónica, por ejemplo si preferís dejar la llave a buen recaudo en la caja de llaves mientras vais a la playa.',
-              nl: 'Overdag kunnen jullie het elektronische deurslot gerust gebruiken — handig als jullie de sleutel tijdens een strandbezoek liever veilig in het sleutelkluisje laten.',
-              sv: 'Under dagen kan ni gärna använda det elektroniska dörrlåset — praktiskt om ni vill lämna nyckeln säkert i nyckelboxen medan ni är på stranden.'
-            },
-            {
-              en: 'Out of consideration for other guests, please also keep voices and noise low in the shared entrance and corridor after 11:00 PM. Thank you for your understanding.',
-              de: 'Aus Rücksicht auf die anderen Gäste bitten wir euch außerdem, euch ab 23:00 Uhr im gemeinsamen Eingangs- und Korridorbereich leise zu verhalten. Vielen Dank für euer Verständnis.',
-              es: 'Por consideración hacia los demás huéspedes, os pedimos también que habléis en voz baja y evitéis ruidos en las zonas comunes de entrada y pasillo después de las 23:00. Gracias por vuestra comprensión.',
-              nl: 'Uit respect voor de andere gasten vragen we jullie ook om na 23.00 uur rustig te zijn in de gemeenschappelijke entree en gangen. Hartelijk dank voor jullie begrip.',
-              sv: 'Av hänsyn till de andra gästerna ber vi er också att vara tysta i den gemensamma entrén och korridoren efter kl. 23.00. Tack för er förståelse.'
-            }
-          ]
-        },
-        {
           icon: 'tap-water',
           title: { en: 'Tap Water', de: 'Leitungswasser', es: 'Agua del grifo', nl: 'Kraanwater', sv: 'Kranvatten' },
           body: [
             {
-              en: 'The tap water is <strong>softened and filtered</strong> for everyday comfort — the system reduces limescale and leaves skin and hair noticeably softer after showering.',
-              de: 'Das Leitungswasser im Haus ist für euren Komfort <strong>enthärtet und gefiltert</strong> – das System reduziert Kalk und sorgt nach dem Duschen für spürbar weichere Haut und Haare.',
-              es: 'El agua del grifo está <strong>descalcificada y filtrada</strong> para vuestra comodidad: el sistema reduce la cal y deja la piel y el pelo notablemente más suaves tras la ducha.',
-              nl: 'Het kraanwater is <strong>onthard en gefilterd</strong> voor extra comfort — het systeem vermindert kalkaanslag en zorgt voor merkbaar zachtere huid en haar na het douchen.',
-              sv: 'Kranvattnet är <strong>avhärdat och filtrerat</strong> för er komfort — systemet minskar kalkavlagringar och ger märkbart mjukare hud och hår efter duschen.'
-            },
-            {
-              en: 'It is generally safe to drink; if you have a sensitive stomach or prefer a more neutral taste, we recommend bottled water.',
-              de: 'Grundsätzlich ist es unbedenklich trinkbar. Falls ihr einen empfindlichen Magen habt oder einen geschmacksneutraleren Genuss bevorzugt, empfehlen wir Mineralwasser aus der Flasche.',
-              es: 'En general es segura para beber; si tenéis el estómago sensible o preferís un sabor más neutro, os recomendamos agua embotellada.',
-              nl: 'Het is over het algemeen veilig om te drinken. Hebben jullie een gevoelige maag of geven jullie de voorkeur aan een neutralere smaak, dan raden we flessenwater aan.',
-              sv: 'Det är i regel säkert att dricka. Har ni en känslig mage eller föredrar en mer neutral smak rekommenderar vi vatten på flaska.'
+              en: '<strong>Tap water:</strong> Tap water in Nerja is generally safe according to European standards, but the taste can be quite strong due to minerals and chlorine. For drinking, many guests prefer bottled water.',
+              de: '<strong>Leitungswasser:</strong> Das Leitungswasser in Nerja ist nach europäischen Standards grundsätzlich sicher, geschmacklich aber durch Mineralien und Chlor oft recht intensiv. Zum Trinken bevorzugen viele Gäste daher stilles Wasser aus dem Supermarkt.',
+              es: '<strong>Agua del grifo:</strong> El agua del grifo en Nerja es en general segura según los estándares europeos, pero su sabor puede resultar bastante intenso debido a los minerales y al cloro. Para beber, muchos huéspedes prefieren agua embotellada.',
+              nl: '<strong>Kraanwater:</strong> Kraanwater in Nerja is volgens de Europese normen over het algemeen veilig, maar de smaak kan door mineralen en chloor vrij sterk zijn. Voor drinkwater geven veel gasten daarom de voorkeur aan flessenwater.',
+              sv: '<strong>Kranvatten:</strong> Kranvattnet i Nerja är generellt säkert enligt europeiska standarder, men smaken kan vara ganska stark på grund av mineraler och klor. För att dricka föredrar många gäster därför vatten på flaska.'
             }
           ]
         },
@@ -4486,30 +5557,11 @@ const frigilianaLounisAccommodation: GuestGuideEntry = {
           },
           body: [
             {
-              en: 'Smoking is strictly prohibited indoors. Please smoke only outside and dispose of cigarette ends responsibly.',
-              de: 'Das Rauchen ist im Innenbereich strengstens untersagt. Bitte raucht nur draußen und entsorgt Zigarettenstummel verantwortungsvoll.',
-              es: 'Está terminantemente prohibido fumar en el interior. Por favor, fumad solo en el exterior y desechad las colillas de forma responsable.',
-              nl: 'Binnen roken is ten strengste verboden. Rook alstublieft alleen buiten en gooi sigarettenpeuken op een verantwoorde manier weg.',
-              sv: 'Rökning är strängt förbjuden inomhus. Vänligen rök endast utomhus och kasta fimpar på ett ansvarsfullt sätt.'
-            }
-          ]
-        },
-        {
-          icon: 'ventilate',
-          title: {
-            en: 'Ventilate Regularly',
-            de: 'Regelmäßig lüften',
-            es: 'Ventilad regularmente',
-            nl: 'Regelmatig ventileren',
-            sv: 'Vädra regelbundet'
-          },
-          body: [
-            {
-              en: 'This is a listed house over 800 years old, so we kindly ask you to ventilate it regularly — the traditional construction relies on fresh air circulation to keep a comfortable indoor climate.',
-              de: 'Da es sich um ein über 800 Jahre altes, denkmalgeschütztes Haus handelt, bitten wir euch, es regelmäßig zu lüften – die traditionelle Bauweise braucht die Zirkulation frischer Luft, um ein angenehmes Raumklima zu erhalten.',
-              es: 'Se trata de una casa catalogada con más de 800 años de antigüedad, así que os pedimos que la ventiléis con regularidad: la construcción tradicional necesita que circule aire fresco para mantener un ambiente interior agradable.',
-              nl: 'Dit is een monumentaal pand van meer dan 800 jaar oud, dus we vragen jullie vriendelijk om regelmatig te ventileren — de traditionele bouwwijze heeft frisse luchtcirculatie nodig voor een aangenaam binnenklimaat.',
-              sv: 'Detta är ett k-märkt hus, över 800 år gammalt, så vi ber er vänligen att vädra det regelbundet — den traditionella konstruktionen behöver frisk luftcirkulation för ett behagligt inomhusklimat.'
+              en: '<strong>Non-smoking policy:</strong> All AMARA apartments are non-smoking apartments. We kindly ask all guests to respect this policy for the comfort and well-being of everyone.',
+              de: '<strong>Nichtraucherregelung:</strong> Alle AMARA Apartments sind Nichtraucher-Apartments. Wir bitten alle Gäste herzlich, diese Regelung zum Wohl und Komfort aller zu respektieren.',
+              es: '<strong>Política de no fumar:</strong> Todos los apartamentos de AMARA son apartamentos para no fumadores. Os agradecemos que respetéis esta norma por la comodidad y el bienestar de todos.',
+              nl: '<strong>Rookbeleid:</strong> Alle AMARA appartementen zijn rookvrije appartementen. Wij verzoeken alle gasten vriendelijk dit te respecteren voor het comfort en welzijn van iedereen.',
+              sv: '<strong>Rökpolicy:</strong> Alla AMARA-lägenheter är rökfria lägenheter. Vi ber alla gäster vänligen att respektera detta för allas komfort och trivsel.'
             }
           ]
         }
@@ -4528,26 +5580,14 @@ const frigilianaLounisAccommodation: GuestGuideEntry = {
             sv: 'Avresa'
           },
           body: [
+            sharedAmaraDepartureInfoItem.body[0],
+            sharedAmaraDepartureInfoItem.body[1],
             {
-              en: 'Check-out time is <strong>11:00 AM</strong>. Before you leave, please log out of any private TV or streaming accounts, and take one last calm look around the apartment.',
-              de: 'Check-out ist um <strong>11:00 Uhr</strong>. Bitte loggt euch vor der Abreise aus allen privaten TV- oder Streaming-Konten aus und werft noch einmal einen letzten ruhigen Blick durch das Apartment.',
-              es: 'La hora de check-out es a las <strong>11:00</strong>. Antes de salir, cerrad la sesión de cualquier cuenta privada de televisión o streaming y echad un último vistazo tranquilo al apartamento.',
-              nl: 'De check-out tijd is <strong>11:00 uur</strong>. Log voor vertrek uit alle privé tv- of streamingaccounts en werp nog één laatste rustige blik door het appartement.',
-              sv: 'Utcheckning är kl. <strong>11:00</strong>. Innan ni åker, logga ut från alla privata tv- eller streamingkonton och ta en sista lugn titt runt i lägenheten.'
-            },
-            {
-              en: 'Please check carefully that you have taken all your belongings — phone chargers, curling irons, jackets, EarPods or AirPods, jewellery, clothing, and charging cables are the items most often left behind.',
-              de: 'Bitte prüft sorgfältig, ob ihr wirklich alle persönlichen Gegenstände wieder mitgenommen habt. Typischerweise vergessen werden Handy-Ladegeräte, Lockenstäbe, Jacken, EarPods oder AirPods, Schmuck, Kleidung und Ladekabel.',
-              es: 'Comprobad con cuidado que os lleváis todas vuestras pertenencias: los objetos que más se olvidan son cargadores de móvil, rizadores, chaquetas, EarPods o AirPods, joyas, ropa y cables de carga.',
-              nl: 'Controleer goed of jullie echt alle persoonlijke spullen hebben meegenomen. Vaak vergeten: telefoonopladers, krultangen, jassen, EarPods of AirPods, sieraden, kleding en oplaadkabels.',
-              sv: 'Kontrollera noggrant att ni fått med er alla personliga tillhörigheter. Det som glöms oftast är mobilladdare, locktänger, jackor, EarPods eller AirPods, smycken, kläder och laddkablar.'
-            },
-            {
-              en: 'When you leave, please leave one set of keys inside the apartment, lock the door, and return the other key to the key box. Before heading out, please take your rubbish to the containers down on Avenida Carlos Cano, where you most likely also parked. Thank you very much for your help.',
-              de: 'Lasst beim Verlassen bitte ein Schlüsselset im Apartment liegen, schließt die Tür ab und legt den anderen Schlüssel zurück in die Schlüsselbox. Nehmt euren Müll bitte mit zu den Containern unten an der Avenida Carlos Cano, wo ihr vermutlich auch euer Auto geparkt habt. Vielen Dank für eure Hilfe.',
-              es: 'Al marcharos, dejad un juego de llaves dentro del apartamento, cerrad la puerta y devolved la otra llave a la caja de seguridad. Antes de salir, llevad la basura a los contenedores de abajo, en la Avenida Carlos Cano, donde probablemente también aparcasteis. Muchas gracias por vuestra ayuda.',
-              nl: 'Laat bij vertrek één sleutelset in het appartement achter, doe de deur op slot en leg de andere sleutel terug in het sleutelkastje. Breng het afval voor vertrek naar de containers beneden aan de Avenida Carlos Cano, waar jullie waarschijnlijk ook de auto hebben geparkeerd. Hartelijk dank voor jullie hulp.',
-              sv: 'Vid avfärd, lämna ett set nycklar inne i lägenheten, lås dörren och lägg tillbaka den andra nyckeln i nyckelboxen. Ta med soporna till containrarna nere på Avenida Carlos Cano, där ni troligen också parkerade, innan ni åker. Tack så mycket för hjälpen.'
+              en: 'When departing, please leave one set of keys inside the apartment, lock the door, and return the remaining key to the key box.',
+              de: 'Lasst beim Verlassen bitte ein Schlüsselset im Apartment liegen, schließt die Tür ab und legt den anderen Schlüssel zurück in die Schlüsselbox.',
+              es: 'Al marcharos, dejad por favor un juego de llaves dentro del apartamento, cerrad la puerta con llave y devolved la otra llave a la caja de seguridad.',
+              nl: 'Laat bij vertrek alstublieft één sleutelset in het appartement achter, doe de deur op slot en leg de andere sleutel terug in het sleutelkastje.',
+              sv: 'Vid avfärd, vänligen lämna ett set med nycklar inne i lägenheten, lås dörren och lägg tillbaka den andra nyckeln i nyckelboxen.'
             }
           ]
         },
@@ -4556,11 +5596,11 @@ const frigilianaLounisAccommodation: GuestGuideEntry = {
           title: { en: 'Late Check-out', de: 'Late Check-out', es: 'Late check-out', nl: 'Late check-out', sv: 'Sen utcheckning' },
           body: [
             {
-              en: 'Like many apartments in Frigiliana, ours is prepared by a private cleaner rather than a hotel-style team, so we kindly ask you to respect the regular <strong>11:00 AM</strong> check-out time.',
-              de: 'Wie viele Apartments in Frigiliana wird auch unseres von einer privaten Reinigungskraft vorbereitet und nicht von einem hotelähnlichen Team. Deshalb bitten wir euch, die reguläre Check-out-Zeit um <strong>11:00 Uhr</strong> zu respektieren.',
-              es: 'Como muchos apartamentos en Frigiliana, el nuestro lo prepara una persona de limpieza privada y no un equipo tipo hotel, así que os pedimos que respetéis la hora habitual de check-out a las <strong>11:00</strong>.',
-              nl: 'Zoals veel appartementen in Frigiliana wordt ons appartement schoongemaakt door een particuliere schoonmaker en niet door een hotelachtig team. Daarom vragen we jullie de reguliere check-outtijd van <strong>11:00 uur</strong> te respecteren.',
-              sv: 'Precis som många lägenheter i Frigiliana städas vår av en privat städperson och inte av ett hotellteam. Vi ber er därför att respektera den ordinarie utcheckningstiden kl. <strong>11:00</strong>.'
+              en: 'Like many apartments in Nerja, our apartment is prepared by a private cleaning person rather than a hotel-style cleaning company. We therefore kindly ask you to respect the regular <strong>11:00 AM</strong> check-out time.',
+              de: 'Wie viele Apartments in Nerja wird auch unser Apartment von einer privaten Reinigungsperson vorbereitet und nicht von einem hotelähnlichen Reinigungsteam. Deshalb bitten wir euch freundlich, die reguläre Check-out-Zeit um <strong>11:00 Uhr</strong> zu respektieren.',
+              es: 'Como muchos apartamentos en Nerja, nuestro apartamento lo prepara una persona privada de limpieza y no un equipo de limpieza tipo hotel. Por este motivo, os pedimos amablemente que respetéis la hora habitual de check-out a las <strong>11:00</strong>.',
+              nl: 'Zoals veel appartementen in Nerja wordt ons appartement schoongemaakt door een particuliere schoonmaakpersoon en niet door een hotelachtig schoonmaakteam. Daarom vragen wij jullie vriendelijk om de reguliere check-outtijd van <strong>11:00 uur</strong> te respecteren.',
+              sv: 'Precis som många lägenheter i Nerja förbereds vår lägenhet av en privat städperson och inte av ett hotell-liknande städteam. Därför ber vi er vänligen att respektera den ordinarie utcheckningstiden kl. <strong>11:00</strong>.'
             },
             {
               en: 'If you would like to stay in the apartment until <strong>6:00 PM</strong>, this may be possible for <strong>€65</strong> from October to April and <strong>€90</strong> from May to September. Since this means holding the apartment back from a possible new arrival, late check-out must be arranged and confirmed with us in advance — please message us as early as possible if you would like to request it.',
@@ -4576,11 +5616,43 @@ const frigilianaLounisAccommodation: GuestGuideEntry = {
   ]
 };
 
+const nerjaEssentialsPlaceholder: GuestGuideEntry = {
+  type: 'detail',
+  slug: 'nerja-guest-essentials',
+  backSlug: 'guestwelcome-nerja-playa',
+  supportHref: FRIGILIANA_SUPPORT_WHATSAPP,
+  supportLabel: NEED_HELP,
+  seoTitle: {
+    en: 'Nerja Essentials | AMARA',
+    de: 'Nerja kompakt | AMARA',
+    es: 'Lo esencial de Nerja | AMARA',
+    nl: 'Nerja essentials | AMARA',
+    sv: 'Det viktigaste i Nerja | AMARA'
+  },
+  seoDescription: placeholderBody,
+  kicker: { en: 'AMARA PLAYA', de: 'AMARA PLAYA', es: 'AMARA PLAYA', nl: 'AMARA PLAYA', sv: 'AMARA PLAYA' },
+  title: {
+    en: 'Nerja Essentials',
+    de: 'Nerja kompakt',
+    es: 'Lo esencial de Nerja',
+    nl: 'Nerja essentials',
+    sv: 'Det viktigaste i Nerja'
+  },
+  categories: [{ heading: placeholderCategory, items: [{ icon: 'compass', title: placeholderCategory, body: [placeholderBody] }] }]
+};
+
 export const guestGuideFrigiliana: GuestGuideEntry[] = [
   frigilianaFarahHub,
   frigilianaFarahAccommodation,
   frigilianaLounisHub,
   frigilianaLounisAccommodation,
+  frigilianaZaidHub,
+  frigilianaZaidAccommodation,
+  frigilianaMahaHub,
+  frigilianaMahaAccommodation,
+  nerjaPlayaHub,
+  nerjaPlayaAccommodation,
+  nerjaEssentialsPlaceholder,
   frigilianaEssentials,
   frigilianaRecommendations,
   ...recommendationSubPages

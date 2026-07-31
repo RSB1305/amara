@@ -42,8 +42,8 @@ const ldJson = resolveStructuredData(seo, head.canonicalUrl, currentLang, origin
     {ldJson && <script type="application/ld+json" set:html={ldJson} />}
   </head>
 
-  <body class="am-root bg-surface text-on-surface font-body antialiased">
-    <div class="am-wrap">
+  <body class="am-guide-root bg-surface text-on-surface font-body antialiased">
+    <div class="am-guide-wrap">
       <slot />
     </div>
     <GuestGuideSupportFloat href={supportHref} label={supportLabel} />

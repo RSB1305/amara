@@ -12,10 +12,11 @@ interface Props {
   body: string[];
   image?: { src: string; alt: string; caption?: string };
   images?: { src: string; alt: string; caption?: string }[];
+  video?: { src?: string; embedUrl?: string; title: string };
   actions?: { label: string; href: string; variant?: 'primary' | 'secondary' }[];
 }
 
-const { icon, title, subtitle, body, image, images, actions } = Astro.props;
+const { icon, title, subtitle, body, image, images, video, actions } = Astro.props;
 ---
 
 <details class="am-ios-details">
@@ -49,6 +50,22 @@ const { icon, title, subtitle, body, image, images, actions } = Astro.props;
         {img.caption && <figcaption class="am-muted">{img.caption}</figcaption>}
       </figure>
     ))}
+    {video && video.src && (
+      <video class="am-ios-video-native" controls playsinline preload="metadata" aria-label={video.title}>
+        <source src={video.src} type="video/mp4" />
+      </video>
+    )}
+    {video && !video.src && video.embedUrl && (
+      <div class="am-ios-video">
+        <iframe
+          src={video.embedUrl}
+          title={video.title}
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen
+          loading="lazy"
+        />
+      </div>
+    )}
     {actions && actions.length > 0 && (
       <div class="am-actions">
         {actions.map((action) => (

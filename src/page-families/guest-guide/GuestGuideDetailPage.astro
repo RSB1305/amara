@@ -122,6 +122,7 @@ const seo: AmaraAuthoringSeo = {
                   alt: img.alt[lang],
                   caption: img.caption?.[lang]
                 }))}
+                video={item.video && { src: item.video.src, embedUrl: item.video.embedUrl, title: item.video.title[lang] }}
                 actions={item.actions?.map((action) => ({
                   label: action.label[lang],
                   href: action.href,
