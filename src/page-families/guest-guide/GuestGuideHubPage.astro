@@ -28,7 +28,7 @@ const seo: AmaraAuthoringSeo = {
 };
 ---
 
-<GuestGuideLayout seo={seo} pageLang={lang} supportHref={entry.supportHref} supportLabel={entry.supportLabel[lang]}>
+<GuestGuideLayout seo={seo} pageLang={lang} supportHref={entry.supportHref} supportLabel={entry.supportLabel[lang]} currentSlug={entry.slug}>
   <header class="am-hero">
     <AmaraImage src={entry.heroImage} alt={entry.heroAlt[lang]} profile="hero" loading="eager" fetchpriority="high" />
     <GuestGuideLanguageSwitcher slug={entry.slug} currentLang={lang} variant="overlay" />
@@ -47,7 +47,7 @@ const seo: AmaraAuthoringSeo = {
           icon={link.icon}
           title={link.title[lang]}
           subtitle={link.subtitle[lang]}
-          href={guideHref(link.targetSlug, lang, entry.slug)}
+          href={guideHref(link.targetSlug, lang)}
         />
       ))}
     </nav>

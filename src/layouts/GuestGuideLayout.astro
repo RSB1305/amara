@@ -15,9 +15,11 @@ interface Props {
   pageLang: AmaraLanguage;
   supportHref: string;
   supportLabel: string;
+  /** This page's own guide slug — recorded to the nav stack when the guest follows a link onward, so SmartBackButton can retrace it regardless of how many pages deep they went. */
+  currentSlug: string;
 }
 
-const { seo, pageLang, supportHref, supportLabel } = Astro.props;
+const { seo, pageLang, supportHref, supportLabel, currentSlug } = Astro.props;
 
 const pathname = Astro.url.pathname;
 const currentLang = normalizeLanguage(pageLang);
@@ -42,10 +44,36 @@ const ldJson = resolveStructuredData(seo, head.canonicalUrl, currentLang, origin
     {ldJson && <script type="application/ld+json" set:html={ldJson} />}
   </head>
 
-  <body class="am-guide-root bg-surface text-on-surface font-body antialiased">
+  <body class="am-guide-root bg-surface text-on-surface font-body antialiased" data-guide-slug={currentSlug}>
     <div class="am-guide-wrap">
       <slot />
     </div>
     <GuestGuideSupportFloat href={supportHref} label={supportLabel} />
   </body>
 </html>
+
+<script is:inline>
+  (function () {
+    if (typeof window === 'undefined') return;
+    if (window.__amaraNavTrackBound) return;
+    window.__amaraNavTrackBound = true;
+    // Records the page the guest is leaving onto a sessionStorage stack whenever they
+    // follow a real guide link (not an accordion toggle, which shares the same class
+    // on its <summary>) — so SmartBackButton can retrace an arbitrarily deep path
+    // (hub -> shared recommendations -> a specific recommendation page -> ...).
+    document.addEventListener('click', function (e) {
+      var el = e.target && e.target.closest ? e.target.closest('a.am-ios-item') : null;
+      if (!el) return;
+      var slug = document.body.getAttribute('data-guide-slug');
+      if (!slug) return;
+      try {
+        var raw = sessionStorage.getItem('amGuideNavStack');
+        var stack = raw ? JSON.parse(raw) : [];
+        stack.push(slug);
+        sessionStorage.setItem('amGuideNavStack', JSON.stringify(stack));
+      } catch (err) {
+        /* sessionStorage unavailable (private mode etc.) — SmartBackButton falls back to its default target */
+      }
+    });
+  })();
+</script>
