@@ -110,6 +110,8 @@ export interface GuestGuideWeatherItem {
   lat: number;
   lon: number;
   locationName: string;
+  /** Adds live wind speed, knots, wind-aware summaries and wind values in the forecast. */
+  windMode?: boolean;
   /** Editorial intro paragraphs shown above the live widget. */
   introBody: LocalizedText[];
 }

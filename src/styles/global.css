@@ -822,6 +822,28 @@
     line-height: 1.2;
   }
 
+  .am-weather-badges {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+  }
+
+  .am-weather-badges .am-weather-uv {
+    margin-top: 0;
+  }
+
+  .am-weather-wind-badge {
+    display: inline-block;
+    background: rgb(255 255 255 / 0.16);
+    border: 1px solid rgb(255 255 255 / 0.18);
+    border-radius: var(--radius-pill);
+    padding: 0.375rem 0.625rem;
+    font-size: 0.75rem;
+    line-height: 1.2;
+  }
+
   .am-weather-section {
     background: rgb(255 255 255 / 0.14);
     border: 1px solid rgb(255 255 255 / 0.14);
@@ -869,6 +891,13 @@
     font-weight: 600;
   }
 
+  .am-weather-hour-wind {
+    margin-top: 0.25rem;
+    font-size: 0.6875rem;
+    line-height: 1.35;
+    opacity: 0.92;
+  }
+
   .am-weather-days {
     display: flex;
     flex-direction: column;
@@ -900,6 +929,18 @@
 
   .am-weather-day-temp {
     font-size: 0.875rem;
+    white-space: nowrap;
+  }
+
+  .am-weather-day-meta {
+    text-align: right;
+  }
+
+  .am-weather-day-wind {
+    margin-top: 0.125rem;
+    font-size: 0.6875rem;
+    line-height: 1.35;
+    opacity: 0.92;
     white-space: nowrap;
   }
 

@@ -1,9 +1,9 @@
 import { guestGuideFrigiliana } from './guestGuideFrigiliana';
+import { guestGuideTarifa } from './guestGuideTarifa';
 import type { GuestGuideEntry } from '../types/guestGuide';
 
-// Add guestGuideNerja.ts / guestGuideTarifa.ts here as that content is supplied —
-// no route files ever need to change, only this list.
-export const guestGuideEntries: GuestGuideEntry[] = [...guestGuideFrigiliana];
+// Guest-guide routes are generated from this list; content modules stay isolated by location.
+export const guestGuideEntries: GuestGuideEntry[] = [...guestGuideFrigiliana, ...guestGuideTarifa];
 
 export function getGuestGuideBySlug(slug: string): GuestGuideEntry | undefined {
   return guestGuideEntries.find((entry) => entry.slug === slug);
