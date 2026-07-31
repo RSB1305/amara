@@ -1,0 +1,328 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Navigation from '../../components/Navigation.astro';
+import AmaraImage from '../../components/AmaraImage.astro';
+import EditorialFeatureGrid from '../../components/editorial/EditorialFeatureGrid.astro';
+import {
+  propertySaleContent,
+  propertySaleImages,
+  propertySaleSeo
+} from '../../content/propertySaleContent';
+import { resolveOptionalLink } from '../../lib/linkResolver';
+import { normalizeLanguage } from '../../lib/seo/resolve-seo-head';
+import type { AmaraLanguage } from '../../types/seo';
+
+interface Props {
+  lang?: string;
+}
+
+const { lang = 'es' } = Astro.props;
+const currentLang = normalizeLanguage(lang as AmaraLanguage);
+const page = propertySaleContent[currentLang];
+const propertySaleBrandLabels: Record<AmaraLanguage, string> = {
+  en: 'Property for sale',
+  de: 'Immobilie zum Verkauf',
+  es: 'Propiedad en venta',
+  nl: 'Vastgoed te koop',
+  sv: 'Fastighet till salu'
+};
+const enquiryHref = resolveOptionalLink('property_sale_enquiry', currentLang, {
+  suppressMissing: true
+});
+---
+
+<BaseLayout
+  seo={propertySaleSeo}
+  pageLang={currentLang}
+  footerHighlights={[]}
+  footerVariant="trust"
+>
+  <Navigation
+    currentLang={currentLang}
+    brandName={page.navigation.brandName}
+    brandLabel={propertySaleBrandLabels[currentLang]}
+    variant="trust"
+    languageToken="property_sale"
+    showBookingCta={false}
+  />
+
+  <main
+    class="am-root bg-surface min-h-screen"
+    data-am-page="property-sale"
+    data-property="casa-amara"
+  >
+    <div class="am-wrap w-full max-w-screen-2xl mx-auto px-6 md:px-12 pb-24">
+      <section
+        class="pt-8 pb-14 md:pb-20 border-b border-border-subtle"
+        aria-labelledby="property-sale-hero-title"
+        data-property-sale-module="hero"
+      >
+        <div class="max-w-5xl">
+          <p class="font-label text-[11px] font-bold uppercase tracking-[0.14em] text-on-surface-variant">
+            {page.hero.kicker}
+          </p>
+          <h1
+            id="property-sale-hero-title"
+            class="am-text-display text-on-surface mt-5 max-w-5xl text-balance"
+          >
+            {page.hero.title}
+          </h1>
+          <p class="am-text-title text-on-surface mt-6 max-w-4xl text-balance">
+            {page.hero.lead}
+          </p>
+          <div class="mt-8 max-w-3xl border-l border-primary/40 pl-5">
+            <p class="am-text-body text-on-surface-variant leading-relaxed">
+              {page.hero.saleScope}
+            </p>
+            <p class="am-text-subtitle text-on-surface mt-3">
+              {page.hero.price}
+            </p>
+          </div>
+        </div>
+
+        <figure class="mt-12 aspect-[16/9] max-h-[720px] overflow-hidden bg-surface-container-low">
+          <AmaraImage
+            src={propertySaleImages.hero}
+            alt={page.hero.imageAlt}
+            profile="hero"
+            sizes="(max-width: 1535px) calc(100vw - 3rem), 1440px"
+            class="h-full w-full object-cover"
+            loading="eager"
+            fetchpriority="high"
+            decoding="async"
+          />
+        </figure>
+      </section>
+
+      <section
+        class="py-12 md:py-16 border-b border-border-subtle"
+        aria-labelledby="property-sale-snapshot-title"
+        data-property-sale-module="snapshot"
+      >
+        <div class="max-w-3xl">
+          <p class="font-label text-[11px] font-bold uppercase tracking-[0.14em] text-on-surface-variant">
+            {page.snapshot.kicker}
+          </p>
+          <h2 id="property-sale-snapshot-title" class="am-text-title text-on-surface mt-4">
+            {page.snapshot.title}
+          </h2>
+          <p class="am-text-body text-on-surface-variant mt-5 leading-relaxed">
+            {page.snapshot.intro}
+          </p>
+        </div>
+
+        <dl class="grid gap-x-8 gap-y-7 mt-10 sm:grid-cols-2 lg:grid-cols-3">
+          {
+            page.snapshot.facts.map((fact) => (
+              <div class="border-t border-border-subtle pt-4">
+                <dt class="font-label text-[11px] font-bold uppercase tracking-[0.14em] text-on-surface-variant">
+                  {fact.label}
+                </dt>
+                <dd class="am-text-subtitle text-on-surface mt-2">
+                  {fact.value}
+                </dd>
+              </div>
+            ))
+          }
+        </dl>
+      </section>
+
+      <section
+        class="py-12 md:py-16 border-b border-border-subtle"
+        aria-labelledby="property-sale-position-title"
+        data-property-sale-module="position"
+      >
+        <div class="grid gap-12 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)]">
+          <div>
+            <p class="font-label text-[11px] font-bold uppercase tracking-[0.14em] text-on-surface-variant">
+              {page.position.kicker}
+            </p>
+            <h2 id="property-sale-position-title" class="am-text-title text-on-surface mt-4">
+              {page.position.title}
+            </h2>
+            <div class="grid gap-5 mt-6 max-w-2xl">
+              {
+                page.position.paragraphs.map((paragraph) => (
+                  <p class="am-text-body text-on-surface-variant leading-relaxed">
+                    {paragraph}
+                  </p>
+                ))
+              }
+            </div>
+          </div>
+
+          <div>
+            <figure class="aspect-[16/10] overflow-hidden bg-surface-container-low">
+              <AmaraImage
+                src={propertySaleImages.position}
+                alt={page.position.imageAlt}
+                profile="gallery"
+                sizes="(max-width: 1023px) calc(100vw - 3rem), 52vw"
+                class="h-full w-full object-cover"
+                loading="lazy"
+                decoding="async"
+              />
+            </figure>
+            <dl class="grid gap-4 mt-7">
+              {
+                page.position.details.map((detail) => (
+                  <div class="grid gap-2 border-t border-border-subtle pt-4 sm:grid-cols-[10rem_minmax(0,1fr)]">
+                    <dt class="font-label text-[11px] font-bold uppercase tracking-[0.14em] text-on-surface-variant">
+                      {detail.title}
+                    </dt>
+                    <dd class="am-text-body text-on-surface">
+                      {detail.copy}
+                    </dd>
+                  </div>
+                ))
+              }
+            </dl>
+          </div>
+        </div>
+      </section>
+
+      <section
+        class="py-12 md:py-16 border-b border-border-subtle"
+        aria-labelledby="property-sale-units-title"
+        data-property-sale-module="units"
+      >
+        <div class="grid gap-8 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] lg:items-end">
+          <div>
+            <p class="font-label text-[11px] font-bold uppercase tracking-[0.14em] text-on-surface-variant">
+              {page.units.kicker}
+            </p>
+            <h2 id="property-sale-units-title" class="am-text-title text-on-surface mt-4">
+              {page.units.title}
+            </h2>
+          </div>
+          <div>
+            <p class="am-text-body text-on-surface-variant leading-relaxed">
+              {page.units.intro}
+            </p>
+            <p class="am-text-subtitle text-on-surface mt-4">
+              {page.units.saleNotice}
+            </p>
+          </div>
+        </div>
+
+        <div class="mt-12">
+          <EditorialFeatureGrid cards={page.units.items} />
+        </div>
+      </section>
+
+      <section
+        class="py-12 md:py-16 border-b border-border-subtle"
+        aria-labelledby="property-sale-use-cases-title"
+        data-property-sale-module="use-cases"
+      >
+        <div class="max-w-4xl">
+          <p class="font-label text-[11px] font-bold uppercase tracking-[0.14em] text-on-surface-variant">
+            {page.useCases.kicker}
+          </p>
+          <h2 id="property-sale-use-cases-title" class="am-text-title text-on-surface mt-4">
+            {page.useCases.title}
+          </h2>
+          <p class="am-text-body text-on-surface-variant mt-5 max-w-3xl leading-relaxed">
+            {page.useCases.intro}
+          </p>
+        </div>
+
+        <div class="grid gap-x-8 gap-y-10 mt-10 md:grid-cols-3">
+          {
+            page.useCases.items.map((item) => (
+              <article class="border-t border-border-subtle pt-5">
+                <h3 class="am-text-subtitle text-on-surface">
+                  {item.title}
+                </h3>
+                <p class="am-text-body text-on-surface-variant mt-4 leading-relaxed">
+                  {item.copy}
+                </p>
+              </article>
+            ))
+          }
+        </div>
+
+        <p class="am-text-body text-on-surface-variant mt-10 max-w-5xl border-l border-primary/40 pl-5 leading-relaxed">
+          {page.useCases.requirements}
+        </p>
+      </section>
+
+      <section
+        class="py-12 md:py-16"
+        aria-labelledby="property-sale-enquiry-title"
+        data-property-sale-module="enquiry"
+      >
+        <div class="grid gap-12 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)]">
+          <div>
+            <p class="font-label text-[11px] font-bold uppercase tracking-[0.14em] text-on-surface-variant">
+              {page.enquiry.kicker}
+            </p>
+            <h2 id="property-sale-enquiry-title" class="am-text-title text-on-surface mt-4">
+              {page.enquiry.title}
+            </h2>
+            <p class="am-text-body text-on-surface-variant mt-6 max-w-2xl leading-relaxed">
+              {page.enquiry.lead}
+            </p>
+
+            <div class="mt-10 border-t border-border-subtle pt-5">
+              <p class="am-text-body text-on-surface-variant leading-relaxed">
+                {page.enquiry.legalNotice}
+              </p>
+              <p class="am-text-subtitle text-on-surface mt-5">
+                {page.enquiry.viewingNotice}
+              </p>
+            </div>
+          </div>
+
+          <div class="grid gap-10">
+            <div>
+              <h3 class="am-text-subtitle text-on-surface">
+                {page.enquiry.confidentialTitle}
+              </h3>
+              <ul class="grid gap-x-8 gap-y-3 mt-5 sm:grid-cols-2">
+                {
+                  page.enquiry.confidentialItems.map((item) => (
+                    <li class="am-text-body text-on-surface border-t border-border-subtle pt-3">
+                      {item}
+                    </li>
+                  ))
+                }
+              </ul>
+            </div>
+
+            <div>
+              <h3 class="am-text-subtitle text-on-surface">
+                {page.enquiry.qualificationTitle}
+              </h3>
+              <ul class="grid gap-3 mt-5">
+                {
+                  page.enquiry.qualificationItems.map((item) => (
+                    <li class="am-text-body text-on-surface border-t border-border-subtle pt-3">
+                      {item}
+                    </li>
+                  ))
+                }
+              </ul>
+            </div>
+
+            <div class="border-t border-primary/40 pt-6">
+              {
+                enquiryHref && (
+                  <a
+                    href={enquiryHref}
+                    class="am-btn am-btn--primary w-full max-w-full justify-center whitespace-normal text-center sm:w-auto sm:whitespace-nowrap"
+                  >
+                    {page.enquiry.ctaLabel}
+                  </a>
+                )
+              }
+              <p class="am-text-body text-on-surface-variant mt-3 max-w-xl leading-relaxed">
+                {page.enquiry.ctaSupport}
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+</BaseLayout>

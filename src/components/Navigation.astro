@@ -37,6 +37,7 @@ interface Props {
   currentToken?: string;
   languageToken?: string;
   brandVariant?: 'default' | 'lodging';
+  showBookingCta?: boolean;
   /**
    * Type A location authority pages: allow Frigiliana / Nerja / experiences hub links in the center
    * row even when those tokens are globally gated as disabled elsewhere.
@@ -51,6 +52,7 @@ const {
   currentToken,
   languageToken,
   brandVariant = 'default',
+  showBookingCta = true,
   locationAuthorityNav = false
 } = Astro.props;
 
@@ -624,24 +626,26 @@ const resolvedGlobalNavGroups = globalNavGroups.map((group) => {
         </div>
       </div>
 
-      <div class="am-nav__slot am-nav__slot--cta">
-        {ctaLink && (
-          !isPublicLinkEnabled(ctaLink.token) ? (
-            <span class="am-btn am-btn--primary am-is-disabled" aria-disabled="true">
-              <span class="am-nav__cta-label-full">{ctaLink.label}</span>
-              <span class="am-nav__cta-label-short">{ctaLink.shortLabel}</span>
-            </span>
-          ) : (
-            <a
-              href={resolveLink(ctaLink.token, currentLang)}
-              class="am-btn am-btn--primary"
-            >
-              <span class="am-nav__cta-label-full">{ctaLink.label}</span>
-              <span class="am-nav__cta-label-short">{ctaLink.shortLabel}</span>
-            </a>
-          )
-        )}
-      </div>
+      {showBookingCta && (
+        <div class="am-nav__slot am-nav__slot--cta">
+          {ctaLink && (
+            !isPublicLinkEnabled(ctaLink.token) ? (
+              <span class="am-btn am-btn--primary am-is-disabled" aria-disabled="true">
+                <span class="am-nav__cta-label-full">{ctaLink.label}</span>
+                <span class="am-nav__cta-label-short">{ctaLink.shortLabel}</span>
+              </span>
+            ) : (
+              <a
+                href={resolveLink(ctaLink.token, currentLang)}
+                class="am-btn am-btn--primary"
+              >
+                <span class="am-nav__cta-label-full">{ctaLink.label}</span>
+                <span class="am-nav__cta-label-short">{ctaLink.shortLabel}</span>
+              </a>
+            )
+          )}
+        </div>
+      )}
 
       <div class="am-nav__slot am-nav__slot--menu">
         <button
@@ -730,7 +734,7 @@ const resolvedGlobalNavGroups = globalNavGroups.map((group) => {
         ))}
       </div>
 
-      {ctaLink && (
+      {showBookingCta && ctaLink && (
         !isPublicLinkEnabled(ctaLink.token) ? (
           <span class="am-btn am-btn--primary am-nav-mobile__cta am-is-disabled" aria-disabled="true">
             {ctaLink.label}

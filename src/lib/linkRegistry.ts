@@ -114,6 +114,13 @@ export const linkRegistry = normalizeRegistrySpanishPaths({
       nl: buildOwnedLocalizedPath('romantic-hideaways', 'nl'),
       sv: buildOwnedLocalizedPath('romantic-hideaways', 'sv')
     },
+    property_sale: {
+      en: buildOwnedLocalizedPath('frigiliana-hospitality-property-for-sale', 'en'),
+      de: buildOwnedLocalizedPath('frigiliana-hospitality-property-for-sale', 'de'),
+      es: buildOwnedLocalizedPath('frigiliana-hospitality-property-for-sale', 'es'),
+      nl: buildOwnedLocalizedPath('frigiliana-hospitality-property-for-sale', 'nl'),
+      sv: buildOwnedLocalizedPath('frigiliana-hospitality-property-for-sale', 'sv')
+    },
 instagram: 'https://www.instagram.com/amaralodging/',
 journal: { en: '/journal/', de: '/de/journal/', es: '/es/diario/', nl: '/nl/journal/', sv: '/sv/journal/' },
 contact: { en: '/contact/', de: '/de/kontakt/', es: '/es/contacto/', nl: '/nl/contact/', sv: '/sv/kontakt/' },
@@ -580,6 +587,13 @@ legal_notice: {
     /* =========================================================
        EXTERNAL UTILITY
     ========================================================= */
+    property_sale_enquiry: {
+      en: 'mailto:hola@amara-lodging.es?subject=Casa%20AMARA%20Property%20Enquiry',
+      de: 'mailto:hola@amara-lodging.es?subject=Casa%20AMARA%20Property%20Enquiry',
+      es: 'mailto:hola@amara-lodging.es?subject=Casa%20AMARA%20Property%20Enquiry',
+      nl: 'mailto:hola@amara-lodging.es?subject=Casa%20AMARA%20Property%20Enquiry',
+      sv: 'mailto:hola@amara-lodging.es?subject=Casa%20AMARA%20Property%20Enquiry'
+    },
     maps_link: 'https://goo.gl/maps/dKxJz8u1z8u1z8u1',
     map_embed_url: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12791.956660602495!2d-3.8960883!3d36.7907572!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd7226190a604245%3A0x673033575ca8650!2sFrigiliana%2C%20M%C3%A1laga%2C%20Spain!5e0!3m2!1sen!2ses!4v1708260000000!5m2!1sen!2ses',
     flights_link: 'https://www.google.com/travel/flights?tfs=CBwQARoaagwIAxIIL20vMDRncjISCjIwMjQtMDYtMTVAAUgBcAGCAQsI____________AZgBAg&tfu=KgIIAw'

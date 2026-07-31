@@ -15,6 +15,7 @@ export const STATIC_CANONICAL_PUBLIC_SLUGS = Object.freeze([
   'faq-general',
   'legal-notice',
   'frigiliana-faq',
+  'frigiliana-hospitality-property-for-sale',
   'frigiliana-location',
   'frigiliana-or-nerja',
   'nerja-location',

@@ -36,7 +36,15 @@
       "Bash(powershell -NoProfile -Command \"\\(Get-NetTCPConnection -LocalPort 4321 -ErrorAction SilentlyContinue\\).OwningProcess\")",
       "Bash(powershell -NoProfile -Command 'Stop-Process -Id 22356 -Force -Confirm:$false')",
       "Bash(curl -s -o /dev/null -w \"%{http_code}\\\\n\" http://localhost:4321/en/guestwelcome-frigiliana-lounis)",
-      "Bash(git status *)"
+      "Bash(git status *)",
+      "Bash(awk 'NR==934,NR==1426' src/content/guestGuideFrigiliana.ts)",
+      "Bash(grep -oE 'href=\\\\\\\\\"[^\\\\\\\\]*\\\\\\\\\"')",
+      "Bash(awk 'NR==5862,NR==6313' src/content/guestGuideFrigiliana.ts)",
+      "Read(//tmp/**)",
+      "Bash(awk 'NR==5862,NR==6320' src/content/guestGuideFrigiliana.ts)",
+      "Bash(git commit -m ' *)",
+      "Bash(awk 'NR==3641,NR==3951' src/content/guestGuideFrigiliana.ts)",
+      "WebSearch"
     ],
     "ask": [
       "Bash(git push*)",
