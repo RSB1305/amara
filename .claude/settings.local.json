@@ -27,7 +27,16 @@
       "Skill(update-config:*)",
       "Bash(PUBLIC_SITE_URL=https://amara-lodging.es npm run build)",
       "Bash(curl -s \"http://localhost:4321/en/guesthome-frigiliana-farah\")",
-      "Bash(curl -s \"http://localhost:4321/src/styles/global.css\")"
+      "Bash(curl -s \"http://localhost:4321/src/styles/global.css\")",
+      "Bash(npx astro *)",
+      "Bash(npx tsc *)",
+      "Bash(curl -s http://localhost:4321/en/guestwelcome-frigiliana-lounis)",
+      "Bash(node -e ' *)",
+      "Bash(npx --yes tsx -e ' *)",
+      "Bash(powershell -NoProfile -Command \"\\(Get-NetTCPConnection -LocalPort 4321 -ErrorAction SilentlyContinue\\).OwningProcess\")",
+      "Bash(powershell -NoProfile -Command 'Stop-Process -Id 22356 -Force -Confirm:$false')",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\\\\n\" http://localhost:4321/en/guestwelcome-frigiliana-lounis)",
+      "Bash(git status *)"
     ],
     "ask": [
       "Bash(git push*)",
