@@ -22,6 +22,13 @@ type ExperienceLinkToken =
   | 'frigiliana_wellness_authority'
   | 'nerja_nightlife_authority';
 
+type ExperienceDiscoveryLinkToken = 'romantic_hideaways';
+
+interface ExperienceDiscoveryLink {
+  label: string;
+  token: ExperienceDiscoveryLinkToken;
+}
+
 export interface ExperienceDefinition {
   id: ExperienceId;
   token: ExperienceLinkToken;
@@ -69,6 +76,7 @@ interface ExperienceHubPageCopy {
       label: string;
       id: ExperienceId;
     }[];
+    discoveryLinks: [ExperienceDiscoveryLink];
   };
   catalog: {
     kicker: string;
@@ -313,8 +321,8 @@ export const experienceNavigationContent: Record<
 };
 
 export const experienceHubSeo: AmaraAuthoringSeo = {
-  version: '2026-07-29-experience-hub-v1.0-A',
-  pageType: 'A',
+  version: '2026-07-29-experience-hub-v1.0-B',
+  pageType: 'B',
   entityKey: 'amara-brand',
   ogImage: '/images/hero-frigiliana.jpg',
   languages: {
@@ -404,6 +412,12 @@ export const experienceHubContent: Record<
         { label: 'A cultural detour', id: 'dayTrips' },
         { label: 'A memorable table', id: 'restaurants' },
         { label: 'An evening out', id: 'nightlife' }
+      ],
+      discoveryLinks: [
+        {
+          label: 'Romantic stays for two',
+          token: 'romantic_hideaways'
+        }
       ]
     },
     catalog: {
@@ -560,6 +574,12 @@ export const experienceHubContent: Record<
         { label: 'Kultur entdecken', id: 'dayTrips' },
         { label: 'Gut essen', id: 'restaurants' },
         { label: 'Ans Meer', id: 'beaches' }
+      ],
+      discoveryLinks: [
+        {
+          label: 'Romantische Auszeiten zu zweit',
+          token: 'romantic_hideaways'
+        }
       ]
     },
     catalog: {
@@ -715,6 +735,12 @@ export const experienceHubContent: Record<
         { label: 'Vivir el pueblo', id: 'festivals' },
         { label: 'Bajar a la playa', id: 'beaches' },
         { label: 'Salir por Nerja', id: 'nightlife' }
+      ],
+      discoveryLinks: [
+        {
+          label: 'Escapadas románticas para dos',
+          token: 'romantic_hideaways'
+        }
       ]
     },
     catalog: {
@@ -870,6 +896,12 @@ export const experienceHubContent: Record<
         { label: 'Actief naar buiten', id: 'hiking' },
         { label: 'Een dag op pad', id: 'dayTrips' },
         { label: 'Eten als een local', id: 'restaurants' }
+      ],
+      discoveryLinks: [
+        {
+          label: 'Romantische verblijven voor twee',
+          token: 'romantic_hideaways'
+        }
       ]
     },
     catalog: {
@@ -1025,6 +1057,12 @@ export const experienceHubContent: Record<
         { label: 'En riktigt lugn dag', id: 'wellness' },
         { label: 'God mat', id: 'restaurants' },
         { label: 'En utflykt', id: 'dayTrips' }
+      ],
+      discoveryLinks: [
+        {
+          label: 'Romantiska vistelser för två',
+          token: 'romantic_hideaways'
+        }
       ]
     },
     catalog: {

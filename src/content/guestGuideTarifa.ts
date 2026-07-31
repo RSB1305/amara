@@ -19,14 +19,6 @@ const LEAVE_GOOGLE_REVIEW: LocalizedText = {
   sv: 'Lämna en Google-recension'
 };
 
-const OPEN_IN_GOOGLE_MAPS: LocalizedText = {
-  en: 'Open in Google Maps',
-  de: 'In Google Maps öffnen',
-  es: 'Abrir en Google Maps',
-  nl: 'Openen in Google Maps',
-  sv: 'Öppna i Google Maps'
-};
-
 const AMARA_SIGN_OFF: LocalizedText = {
   en: 'Warm regards,<br>Robert',
   de: 'Herzliche Grüße,<br>Robert',
@@ -1752,13 +1744,87 @@ const tarifaFamilySurfLocalEssentials: GuestGuideEntry = {
     },
     {
       heading: tarifaText(
-        'Health & Emergency',
-        'Gesundheit & Notfälle',
-        'Salud y emergencias',
-        'Gezondheid & noodgevallen',
-        'Hälsa & nödsituationer'
+        'Medical',
+        'Medizinische Hilfe',
+        'Asistencia médica',
+        'Medisch',
+        'Sjukvård'
       ),
       items: [
+        {
+          icon: 'warning',
+          title: tarifaText(
+            'Emergency – Call 112',
+            'Notfall – 112 anrufen',
+            'Emergencias – Llamar al 112',
+            'Noodgeval – Bel 112',
+            'Nödsituation – Ring 112'
+          ),
+          body: tarifaParagraphs({
+            en: [
+              `In any emergency, please call <strong>112</strong>. This is the nationwide emergency number in Spain.`,
+              `<strong>If the emergency happens while you are inside the apartment:</strong>`,
+              `Please give emergency services the exact address:`,
+              `Mar Adriático 29, App. 433<br>11380 Tarifa`
+            ],
+            de: [
+              `In einem Notfall ruft bitte <strong>112</strong> an. Dies ist die landesweite Notrufnummer in Spanien.`,
+              `<strong>Falls der Notfall im Apartment auftritt:</strong>`,
+              `Bitte gebt den Rettungskräften die genaue Adresse durch:`,
+              `Mar Adriático 29, App. 433<br>11380 Tarifa`
+            ],
+            es: [
+              `En cualquier emergencia, llamad al <strong>112</strong>. Es el número de emergencias nacional en España.`,
+              `<strong>Si la emergencia sucede mientras estáis dentro del apartamento:</strong>`,
+              `Por favor, dad a los servicios de emergencia la dirección exacta:`,
+              `Mar Adriático 29, App. 433<br>11380 Tarifa`
+            ],
+            nl: [
+              `Bel bij een noodgeval <strong>112</strong>. Dit is het landelijke alarmnummer in Spanje.`,
+              `<strong>Als de noodsituatie zich voordoet in het appartement:</strong>`,
+              `Geef de hulpdiensten het exacte adres door:`,
+              `Mar Adriático 29, App. 433<br>11380 Tarifa`
+            ],
+            sv: [
+              `I nödsituationer, ring <strong>112</strong>. Detta är det nationella nödnumret i Spanien.`,
+              `<strong>Om nödsituationen uppstår när ni är i lägenheten:</strong>`,
+              `Vänligen ge räddningstjänsten den exakta adressen:`,
+              `Mar Adriático 29, App. 433<br>11380 Tarifa`
+            ]
+          })
+        },
+        {
+          icon: 'medical',
+          title: tarifaText(
+            '24-Hour Medical Assistance',
+            '24-Stunden medizinische Versorgung',
+            'Asistencia médica 24 horas',
+            '24-uurs medische hulp',
+            'Medicinsk hjälp dygnet runt'
+          ),
+          body: tarifaParagraphs({
+            en: [
+              `For non-emergency medical care, the nearest 24-hour public health centre is:`,
+              `<strong><a class="am-link" href="https://share.google/kThtXHL43CfcwzfDC" target="_blank" rel="noopener noreferrer">Centro de Salud Tarifa</a></strong><br>Calle Antonio Maura, s/n<br>11380 Tarifa<br>Tel. +34 956 01 20 07<br>Open 24 hours.`
+            ],
+            de: [
+              `Für nicht akute medizinische Anliegen ist das nächstgelegene öffentliche 24-Stunden-Gesundheitszentrum:`,
+              `<strong><a class="am-link" href="https://share.google/kThtXHL43CfcwzfDC" target="_blank" rel="noopener noreferrer">Centro de Salud Tarifa</a></strong><br>Calle Antonio Maura, s/n<br>11380 Tarifa<br>Tel. +34 956 01 20 07<br>24 Stunden geöffnet.`
+            ],
+            es: [
+              `Para asuntos médicos que no sean una emergencia, el centro de salud público de 24 horas más cercano es:`,
+              `<strong><a class="am-link" href="https://share.google/kThtXHL43CfcwzfDC" target="_blank" rel="noopener noreferrer">Centro de Salud Tarifa</a></strong><br>Calle Antonio Maura, s/n<br>11380 Tarifa<br>Tel. +34 956 01 20 07<br>Abierto 24 horas.`
+            ],
+            nl: [
+              `Voor niet-spoedeisende medische zorg is het dichtstbijzijnde openbare 24-uurs gezondheidscentrum:`,
+              `<strong><a class="am-link" href="https://share.google/kThtXHL43CfcwzfDC" target="_blank" rel="noopener noreferrer">Centro de Salud Tarifa</a></strong><br>Calle Antonio Maura, s/n<br>11380 Tarifa<br>Tel. +34 956 01 20 07<br>24 uur geopend.`
+            ],
+            sv: [
+              `För icke-akut medicinsk vård är närmaste offentliga vårdcentral med öppet dygnet runt:`,
+              `<strong><a class="am-link" href="https://share.google/kThtXHL43CfcwzfDC" target="_blank" rel="noopener noreferrer">Centro de Salud Tarifa</a></strong><br>Calle Antonio Maura, s/n<br>11380 Tarifa<br>Tel. +34 956 01 20 07<br>Öppet 24 timmar.`
+            ]
+          })
+        },
         {
           icon: 'pharmacy',
           title: tarifaText('Pharmacy', 'Apotheke', 'Farmacia', 'Apotheek', 'Apotek'),
@@ -1792,58 +1858,6 @@ const tarifaFamilySurfLocalEssentials: GuestGuideEntry = {
               `Det är ungefär 100 meter bort och cirka 2 minuters promenad från lägenheten.`,
               `Mar Adriatico 12<br>Måndag till lördag, 09:00 – 21:00.`,
               `Skulle den råka vara stängd, hittar ni även flera andra apotek runt om i Tarifa.`
-            ]
-          })
-        },
-        {
-          icon: 'warning',
-          title: tarifaText(
-            'Emergency',
-            'Notfall',
-            'Emergencias',
-            'Noodgevallen',
-            'Nödsituationer'
-          ),
-          body: tarifaParagraphs({
-            en: [
-              `In any emergency, please call <strong>112</strong>. This is the nationwide emergency number in Spain.`,
-              `<strong>If the emergency happens while you are inside the apartment:</strong>`,
-              `Please give emergency services the exact address:`,
-              `Mar Adriático 29, App. 433<br>11380 Tarifa`,
-              `The nearest public health centre is:`,
-              `<strong><a class="am-link" href="https://share.google/kThtXHL43CfcwzfDC" target="_blank" rel="noopener">Centro de Salud Tarifa</a></strong><br>Calle Antonio Maura, s/n<br>11380 Tarifa<br>Tel. +34 956 01 20 07<br>Open 24 hours.`
-            ],
-            de: [
-              `In einem Notfall ruft bitte <strong>112</strong> an. Dies ist die landesweite Notrufnummer in Spanien.`,
-              `<strong>Falls der Notfall im Apartment auftritt:</strong>`,
-              `Bitte gebt den Rettungskräften die genaue Adresse durch:`,
-              `Mar Adriático 29, App. 433<br>11380 Tarifa`,
-              `Das nächste öffentliche Gesundheitszentrum ist:`,
-              `<strong><a class="am-link" href="https://share.google/kThtXHL43CfcwzfDC" target="_blank" rel="noopener">Centro de Salud Tarifa</a></strong><br>Calle Antonio Maura, s/n<br>11380 Tarifa<br>Tel. +34 956 01 20 07<br>24 Stunden geöffnet.`
-            ],
-            es: [
-              `En cualquier emergencia, llamad al <strong>112</strong>. Es el número de emergencias nacional en España.`,
-              `<strong>Si la emergencia sucede mientras estáis dentro del apartamento:</strong>`,
-              `Por favor, dad a los servicios de emergencia la dirección exacta:`,
-              `Mar Adriático 29, App. 433<br>11380 Tarifa`,
-              `El centro de salud público más cercano es:`,
-              `<strong><a class="am-link" href="https://share.google/kThtXHL43CfcwzfDC" target="_blank" rel="noopener">Centro de Salud Tarifa</a></strong><br>Calle Antonio Maura, s/n<br>11380 Tarifa<br>Tel. +34 956 01 20 07<br>Abierto 24 horas.`
-            ],
-            nl: [
-              `Bel bij een noodgeval <strong>112</strong>. Dit is het landelijke alarmnummer in Spanje.`,
-              `<strong>Als de noodsituatie zich voordoet in het appartement:</strong>`,
-              `Geef de hulpdiensten het exacte adres door:`,
-              `Mar Adriático 29, App. 433<br>11380 Tarifa`,
-              `Het dichtstbijzijnde openbare gezondheidscentrum is:`,
-              `<strong><a class="am-link" href="https://share.google/kThtXHL43CfcwzfDC" target="_blank" rel="noopener">Centro de Salud Tarifa</a></strong><br>Calle Antonio Maura, s/n<br>11380 Tarifa<br>Tel. +34 956 01 20 07<br>24 uur geopend.`
-            ],
-            sv: [
-              `I nödsituationer, ring <strong>112</strong>. Detta är det nationella nödnumret i Spanien.`,
-              `<strong>Om nödsituationen uppstår när ni är i lägenheten:</strong>`,
-              `Vänligen ge räddningstjänsten den exakta adressen:`,
-              `Mar Adriático 29, App. 433<br>11380 Tarifa`,
-              `Närmaste allmänna vårdcentral är:`,
-              `<strong><a class="am-link" href="https://share.google/kThtXHL43CfcwzfDC" target="_blank" rel="noopener">Centro de Salud Tarifa</a></strong><br>Calle Antonio Maura, s/n<br>11380 Tarifa<br>Tel. +34 956 01 20 07<br>Öppet 24 timmar.`
             ]
           })
         }
@@ -2511,7 +2525,7 @@ const tarifaFamilySurfFoodDrink: GuestGuideEntry = {
                 name: 'Boccabuena Plaza',
                 href: 'https://www.google.com/maps/search/?api=1&query=Boccabuena+Plaza+Tarifa',
                 description: tarifaText(
-                  'Perfect for families in a safe plaza setting.',
+                  'Set on a car-free plaza in the heart of the old town, making it a relaxed choice for families with young children.',
                   'Perfekt für Familien an einer ruhigen, sicheren Plaza.',
                   'Perfecto para familias en una plaza tranquila y segura.',
                   'Perfect voor gezinnen aan een rustig en veilig plein.',
@@ -2622,32 +2636,26 @@ const tarifaFamilySurfBeaches: GuestGuideEntry = {
           ),
           body: tarifaParagraphs({
             en: [
-              'From here, Playa Los Lances is within walking distance, depending on the beach access point you choose.',
+              "From here, <a class=\"am-link\" href=\"https://www.google.com/maps/search/?api=1&query=Playa+Los+Lances+Tarifa\" target=\"_blank\" rel=\"noopener noreferrer\"><strong>Playa Los Lances</strong></a> is within walking distance, depending on the beach access point you choose.",
               'It is ideal for long walks and wide-open space. Afternoons can be windy — perfect for watching the kitesurfers.'
             ],
             de: [
-              'Von hier aus ist die Playa Los Lances gut zu Fuß erreichbar, je nachdem, welchen Strandzugang ihr wählt.',
+              "Von hier aus ist die <a class=\"am-link\" href=\"https://www.google.com/maps/search/?api=1&query=Playa+Los+Lances+Tarifa\" target=\"_blank\" rel=\"noopener noreferrer\"><strong>Playa Los Lances</strong></a> gut zu Fuß erreichbar, je nachdem, welchen Strandzugang ihr wählt.",
               'Ideal für lange Spaziergänge und viel Weite. Nachmittags kann es windig werden – perfekt, um den Kitesurfern zuzusehen.'
             ],
             es: [
-              'Desde aquí, la Playa Los Lances está a poca distancia a pie, dependiendo del acceso a la playa que elijáis.',
+              "Desde aquí, la <a class=\"am-link\" href=\"https://www.google.com/maps/search/?api=1&query=Playa+Los+Lances+Tarifa\" target=\"_blank\" rel=\"noopener noreferrer\"><strong>Playa Los Lances</strong></a> está a poca distancia a pie, dependiendo del acceso a la playa que elijáis.",
               'Es ideal para dar largos paseos y disfrutar de grandes espacios abiertos. Por las tardes puede hacer viento, lo que es perfecto para ver a los kitesurfistas.'
             ],
             nl: [
-              'Vanaf hier ligt Playa Los Lances op loopafstand, afhankelijk van de strandopgang die jullie kiezen.',
+              "Vanaf hier ligt <a class=\"am-link\" href=\"https://www.google.com/maps/search/?api=1&query=Playa+Los+Lances+Tarifa\" target=\"_blank\" rel=\"noopener noreferrer\"><strong>Playa Los Lances</strong></a> op loopafstand, afhankelijk van de strandopgang die jullie kiezen.",
               'Ideaal voor lange wandelingen en een weids gevoel. In de middag kan het winderig zijn — perfect om naar de kitesurfers te kijken.'
             ],
             sv: [
-              'Härifrån ligger Playa Los Lances inom gångavstånd, beroende på vilken nedgång till stranden ni väljer.',
+              "Härifrån ligger <a class=\"am-link\" href=\"https://www.google.com/maps/search/?api=1&query=Playa+Los+Lances+Tarifa\" target=\"_blank\" rel=\"noopener noreferrer\"><strong>Playa Los Lances</strong></a> inom gångavstånd, beroende på vilken nedgång till stranden ni väljer.",
               'Perfekt för långa promenader och stora öppna ytor. På eftermiddagen kan det bli blåsigt — perfekt för att titta på kitesurfare.'
             ]
           }),
-          actions: [
-            {
-              label: OPEN_IN_GOOGLE_MAPS,
-              href: 'https://www.google.com/maps/search/?api=1&query=Playa+Los+Lances+Tarifa'
-            }
-          ]
         },
         {
           icon: 'pool',
@@ -2667,32 +2675,26 @@ const tarifaFamilySurfBeaches: GuestGuideEntry = {
           ),
           body: tarifaParagraphs({
             en: [
-              'A short drive or bike ride from here, Playa Chica offers calmer water and a more sheltered setting.',
+              "A short drive or bike ride from here, <a class=\"am-link\" href=\"https://www.google.com/maps/search/?api=1&query=Playa+Chica+Tarifa\" target=\"_blank\" rel=\"noopener noreferrer\"><strong>Playa Chica</strong></a> offers calmer water and a more sheltered setting.",
               'It is often a good option when Los Lances feels too windy. Its location near the old town makes it easy to combine with lunch.'
             ],
             de: [
-              'Nur eine kurze Fahrt mit dem Auto oder Fahrrad entfernt bietet die Playa Chica ruhigeres Wasser und eine geschütztere Lage.',
+              "Nur eine kurze Fahrt mit dem Auto oder Fahrrad entfernt bietet die <a class=\"am-link\" href=\"https://www.google.com/maps/search/?api=1&query=Playa+Chica+Tarifa\" target=\"_blank\" rel=\"noopener noreferrer\"><strong>Playa Chica</strong></a> ruhigeres Wasser und eine geschütztere Lage.",
               'Oft eine gute Alternative, wenn es euch an der Playa Los Lances zu windig ist. Durch die Nähe zur Altstadt lässt sich der Strandbesuch gut mit einem Mittagessen verbinden.'
             ],
             es: [
-              'A un corto trayecto en coche o en bicicleta desde aquí, Playa Chica ofrece aguas más tranquilas y un entorno más resguardado.',
+              "A un corto trayecto en coche o en bicicleta desde aquí, <a class=\"am-link\" href=\"https://www.google.com/maps/search/?api=1&query=Playa+Chica+Tarifa\" target=\"_blank\" rel=\"noopener noreferrer\"><strong>Playa Chica</strong></a> ofrece aguas más tranquilas y un entorno más resguardado.",
               'Suele ser una buena opción cuando en Los Lances hace demasiado viento. Está cerca del casco antiguo, por lo que es fácil combinar la visita con una comida.'
             ],
             nl: [
-              'Op een korte rit met de auto of fiets vanaf hier biedt Playa Chica rustiger water en een meer beschutte ligging.',
+              "Op een korte rit met de auto of fiets vanaf hier biedt <a class=\"am-link\" href=\"https://www.google.com/maps/search/?api=1&query=Playa+Chica+Tarifa\" target=\"_blank\" rel=\"noopener noreferrer\"><strong>Playa Chica</strong></a> rustiger water en een meer beschutte ligging.",
               'Vaak een goed alternatief wanneer Los Lances te winderig aanvoelt. Het strand ligt dicht bij de oude stad en is daardoor makkelijk te combineren met een lunch.'
             ],
             sv: [
-              'En kort bil- eller cykeltur härifrån erbjuder Playa Chica lugnare vatten och ett mer skyddat läge.',
+              "En kort bil- eller cykeltur härifrån erbjuder <a class=\"am-link\" href=\"https://www.google.com/maps/search/?api=1&query=Playa+Chica+Tarifa\" target=\"_blank\" rel=\"noopener noreferrer\"><strong>Playa Chica</strong></a> lugnare vatten och ett mer skyddat läge.",
               'Ofta ett bra alternativ när Los Lances känns för blåsigt. Stranden ligger nära gamla stan och är enkel att kombinera med lunch.'
             ]
           }),
-          actions: [
-            {
-              label: OPEN_IN_GOOGLE_MAPS,
-              href: 'https://www.google.com/maps/search/?api=1&query=Playa+Chica+Tarifa'
-            }
-          ]
         },
         {
           icon: 'route',
@@ -2712,32 +2714,26 @@ const tarifaFamilySurfBeaches: GuestGuideEntry = {
           ),
           body: tarifaParagraphs({
             en: [
-              'About 10–15 minutes by car from here, Valdevaqueros is one of Tarifa’s most iconic beaches.',
+              "About 10–15 minutes by car from here, <a class=\"am-link\" href=\"https://www.google.com/maps/search/?api=1&query=Playa+de+Valdevaqueros+Tarifa\" target=\"_blank\" rel=\"noopener noreferrer\"><strong>Valdevaqueros</strong></a> is one of Tarifa’s most iconic beaches.",
               'It has a wide sandy shore and a lively atmosphere. Parking is usually straightforward but can fill up in peak season.'
             ],
             de: [
-              'Etwa 10–15 Autominuten von hier entfernt liegt Valdevaqueros, einer der bekanntesten Strände Tarifas.',
+              "Etwa 10–15 Autominuten von hier entfernt liegt <a class=\"am-link\" href=\"https://www.google.com/maps/search/?api=1&query=Playa+de+Valdevaqueros+Tarifa\" target=\"_blank\" rel=\"noopener noreferrer\"><strong>Valdevaqueros</strong></a>, einer der bekanntesten Strände Tarifas.",
               'Ein breiter Sandstrand und eine lebhafte Atmosphäre erwarten euch. Parken ist meist unkompliziert, in der Hochsaison kann es jedoch voll werden.'
             ],
             es: [
-              'A unos 10–15 minutos en coche desde aquí, Valdevaqueros es una de las playas más emblemáticas de Tarifa.',
+              "A unos 10–15 minutos en coche desde aquí, <a class=\"am-link\" href=\"https://www.google.com/maps/search/?api=1&query=Playa+de+Valdevaqueros+Tarifa\" target=\"_blank\" rel=\"noopener noreferrer\"><strong>Valdevaqueros</strong></a> es una de las playas más emblemáticas de Tarifa.",
               'Cuenta con una amplia playa de arena y un ambiente muy animado. Aparcar suele ser fácil, pero puede llenarse en temporada alta.'
             ],
             nl: [
-              'Op ongeveer 10–15 minuten rijden van hier ligt Valdevaqueros, een van de bekendste stranden van Tarifa.',
+              "Op ongeveer 10–15 minuten rijden van hier ligt <a class=\"am-link\" href=\"https://www.google.com/maps/search/?api=1&query=Playa+de+Valdevaqueros+Tarifa\" target=\"_blank\" rel=\"noopener noreferrer\"><strong>Valdevaqueros</strong></a>, een van de bekendste stranden van Tarifa.",
               'Het heeft een breed zandstrand en een levendige sfeer. Parkeren is meestal eenvoudig, maar in het hoogseizoen kan het vol raken.'
             ],
             sv: [
-              'Ungefär 10–15 minuter med bil härifrån ligger Valdevaqueros, en av Tarifas mest ikoniska stränder.',
+              "Ungefär 10–15 minuter med bil härifrån ligger <a class=\"am-link\" href=\"https://www.google.com/maps/search/?api=1&query=Playa+de+Valdevaqueros+Tarifa\" target=\"_blank\" rel=\"noopener noreferrer\"><strong>Valdevaqueros</strong></a>, en av Tarifas mest ikoniska stränder.",
               'Här väntar en bred sandstrand och en livlig atmosfär. Det brukar vara enkelt att parkera, men under högsäsong kan det bli fullt.'
             ]
           }),
-          actions: [
-            {
-              label: OPEN_IN_GOOGLE_MAPS,
-              href: 'https://www.google.com/maps/search/?api=1&query=Playa+de+Valdevaqueros+Tarifa'
-            }
-          ]
         },
         {
           icon: 'location-pin',
@@ -2757,32 +2753,26 @@ const tarifaFamilySurfBeaches: GuestGuideEntry = {
           ),
           body: tarifaParagraphs({
             en: [
-              'Around 10 km west of here, Punta Paloma feels more secluded and natural.',
+              "Around 10 km west of here, <a class=\"am-link\" href=\"https://www.google.com/maps/search/?api=1&query=Playa+Punta+Paloma+Tarifa\" target=\"_blank\" rel=\"noopener noreferrer\"><strong>Punta Paloma</strong></a> feels more secluded and natural.",
               'It is known for its dunes and turquoise water. Bring water and sun protection, as shade is limited.'
             ],
             de: [
-              'Etwa 10 km westlich von hier wirkt Punta Paloma deutlich abgeschiedener und natürlicher.',
+              "Etwa 10 km westlich von hier wirkt <a class=\"am-link\" href=\"https://www.google.com/maps/search/?api=1&query=Playa+Punta+Paloma+Tarifa\" target=\"_blank\" rel=\"noopener noreferrer\"><strong>Punta Paloma</strong></a> deutlich abgeschiedener und natürlicher.",
               'Der Strand ist für seine Dünen und das türkisfarbene Wasser bekannt. Bringt Wasser und Sonnenschutz mit, da es kaum Schatten gibt.'
             ],
             es: [
-              'A unos 10 km al oeste desde aquí, Punta Paloma se siente más aislada y natural.',
+              "A unos 10 km al oeste desde aquí, <a class=\"am-link\" href=\"https://www.google.com/maps/search/?api=1&query=Playa+Punta+Paloma+Tarifa\" target=\"_blank\" rel=\"noopener noreferrer\"><strong>Punta Paloma</strong></a> se siente más aislada y natural.",
               'Es conocida por sus dunas y sus aguas turquesas. Llevad agua y protección solar, ya que hay poca sombra.'
             ],
             nl: [
-              'Zo’n 10 km ten westen van hier voelt Punta Paloma een stuk meer afgelegen en natuurlijk aan.',
+              "Zo’n 10 km ten westen van hier voelt <a class=\"am-link\" href=\"https://www.google.com/maps/search/?api=1&query=Playa+Punta+Paloma+Tarifa\" target=\"_blank\" rel=\"noopener noreferrer\"><strong>Punta Paloma</strong></a> een stuk meer afgelegen en natuurlijk aan.",
               'Het strand staat bekend om de duinen en het turquoise water. Neem water en zonnebrandcrème mee, want er is weinig schaduw.'
             ],
             sv: [
-              'Cirka 10 km västerut härifrån känns Punta Paloma mer avskilt och naturnära.',
+              "Cirka 10 km västerut härifrån känns <a class=\"am-link\" href=\"https://www.google.com/maps/search/?api=1&query=Playa+Punta+Paloma+Tarifa\" target=\"_blank\" rel=\"noopener noreferrer\"><strong>Punta Paloma</strong></a> mer avskilt och naturnära.",
               'Stranden är känd för sina sanddyner och sitt turkosa vatten. Ta med vatten och solskydd, eftersom det finns ont om skugga.'
             ]
           }),
-          actions: [
-            {
-              label: OPEN_IN_GOOGLE_MAPS,
-              href: 'https://www.google.com/maps/search/?api=1&query=Playa+Punta+Paloma+Tarifa'
-            }
-          ]
         },
         {
           icon: 'star',
@@ -2802,32 +2792,27 @@ const tarifaFamilySurfBeaches: GuestGuideEntry = {
           ),
           body: tarifaParagraphs({
             en: [
-              'A 25–40 minute drive from here, Bolonia is ideal for a full beach day.',
+              "A 25–40 minute drive from here, <a class=\"am-link\" href=\"https://www.google.com/maps/search/?api=1&query=Playa+de+Bolonia+Tarifa\" target=\"_blank\" rel=\"noopener noreferrer\"><strong>Bolonia</strong></a> is ideal for a full beach day.",
               'Crystal-clear water, large dunes, and the Roman ruins of Baelo Claudia nearby create a beautiful combination of nature and history.'
             ],
             de: [
-              'Mit etwa 25–40 Minuten Fahrzeit ist Bolonia ideal für einen ganzen Strandtag.',
+              "Mit etwa 25–40 Minuten Fahrzeit ist <a class=\"am-link\" href=\"https://www.google.com/maps/search/?api=1&query=Playa+de+Bolonia+Tarifa\" target=\"_blank\" rel=\"noopener noreferrer\"><strong>Bolonia</strong></a> ideal für einen ganzen Strandtag.",
               'Kristallklares Wasser, große Dünen und die römischen Ruinen von Baelo Claudia direkt nebenan ergeben eine wunderschöne Kombination aus Natur und Geschichte.'
             ],
             es: [
-              'A unos 25–40 minutos en coche, Bolonia es ideal para pasar un día entero de playa.',
+              "A unos 25–40 minutos en coche, <a class=\"am-link\" href=\"https://www.google.com/maps/search/?api=1&query=Playa+de+Bolonia+Tarifa\" target=\"_blank\" rel=\"noopener noreferrer\"><strong>Bolonia</strong></a> es ideal para pasar un día entero de playa.",
               'Aguas cristalinas, grandes dunas y las cercanas ruinas romanas de Baelo Claudia forman una preciosa combinación de naturaleza e historia.'
             ],
             nl: [
-              'Op zo’n 25–40 minuten rijden hiervandaan is Bolonia ideaal voor een volledige stranddag.',
+              "Op zo’n 25–40 minuten rijden hiervandaan is <a class=\"am-link\" href=\"https://www.google.com/maps/search/?api=1&query=Playa+de+Bolonia+Tarifa\" target=\"_blank\" rel=\"noopener noreferrer\"><strong>Bolonia</strong></a> ideaal voor een volledige stranddag.",
               'Kraakhelder water, grote duinen en de Romeinse ruïnes van Baelo Claudia vlakbij vormen een prachtige combinatie van natuur en geschiedenis.'
             ],
             sv: [
-              'Med en bilresa på 25–40 minuter härifrån är Bolonia perfekt för en heldag på stranden.',
+              "Med en bilresa på 25–40 minuter härifrån är <a class=\"am-link\" href=\"https://www.google.com/maps/search/?api=1&query=Playa+de+Bolonia+Tarifa\" target=\"_blank\" rel=\"noopener noreferrer\"><strong>Bolonia</strong></a> perfekt för en heldag på stranden.",
               'Kristallklart vatten, stora sanddyner och de romerska ruinerna av Baelo Claudia alldeles intill skapar en vacker kombination av natur och historia.'
             ]
           }),
-          actions: [
-            {
-              label: OPEN_IN_GOOGLE_MAPS,
-              href: 'https://www.google.com/maps/search/?api=1&query=Playa+de+Bolonia+Tarifa'
-            }
-          ]
+
         }
       ]
     }
@@ -3374,37 +3359,31 @@ const tarifaFamilySurfSightseeing: GuestGuideEntry = {
           ),
           body: tarifaParagraphs({
             en: [
-              'At <strong>Isla de Las Palomas</strong>, also known as Punta Marroquí, the Mediterranean and Atlantic meet. It marks the southernmost point of mainland Spain and continental Europe.',
+              "At <strong><a class=\"am-link\" href=\"https://maps.google.com/?q=Isla+de+Las+Palomas+Tarifa\" target=\"_blank\" rel=\"noopener noreferrer\"><strong>Isla de Las Palomas</strong></a></strong>, also known as Punta Marroquí, the Mediterranean and Atlantic meet. It marks the southernmost point of mainland Spain and continental Europe.",
               'A beautiful walk leads between the two seas toward the island, where a 43-metre lighthouse rises above the Strait of Gibraltar. On clear days, Africa feels astonishingly close.',
               'Just beside it lies <strong>Balneario Beach</strong>, a favourite surf spot with powerful waves. Tarifa is the only place where you can swim in both the Atlantic and the Mediterranean on the same day.'
             ],
             de: [
-              'An der <strong>Isla de Las Palomas</strong>, auch Punta Marroquí genannt, treffen Mittelmeer und Atlantik aufeinander. Sie markiert den südlichsten Punkt des spanischen Festlands und des europäischen Kontinents.',
+              "An der <strong><a class=\"am-link\" href=\"https://maps.google.com/?q=Isla+de+Las+Palomas+Tarifa\" target=\"_blank\" rel=\"noopener noreferrer\"><strong>Isla de Las Palomas</strong></a></strong>, auch Punta Marroquí genannt, treffen Mittelmeer und Atlantik aufeinander. Sie markiert den südlichsten Punkt des spanischen Festlands und des europäischen Kontinents.",
               'Ein wunderschöner Spaziergang führt zwischen den beiden Meeren zur Insel, wo sich ein 43 Meter hoher Leuchtturm über der Straße von Gibraltar erhebt. An klaren Tagen wirkt Afrika erstaunlich nah.',
               'Direkt daneben liegt der <strong>Balneario Beach</strong>, ein beliebter Surfspot mit kraftvollen Wellen. Tarifa ist der einzige Ort, an dem ihr am selben Tag sowohl im Atlantik als auch im Mittelmeer baden könnt.'
             ],
             es: [
-              'En la <strong>Isla de Las Palomas</strong>, también conocida como Punta Marroquí, se unen el Mediterráneo y el Atlántico. Marca el punto más meridional de la España peninsular y de Europa continental.',
+              "En la <strong><a class=\"am-link\" href=\"https://maps.google.com/?q=Isla+de+Las+Palomas+Tarifa\" target=\"_blank\" rel=\"noopener noreferrer\"><strong>Isla de Las Palomas</strong></a></strong>, también conocida como Punta Marroquí, se unen el Mediterráneo y el Atlántico. Marca el punto más meridional de la España peninsular y de Europa continental.",
               'Un precioso paseo conduce entre los dos mares hacia la isla, donde un faro de 43 metros se alza sobre el Estrecho de Gibraltar. En días claros, África parece increíblemente cerca.',
               'Justo al lado está la <strong>Playa del Balneario</strong>, un popular spot de surf con olas potentes. Tarifa es el único lugar donde podéis bañaros en el Atlántico y el Mediterráneo el mismo día.'
             ],
             nl: [
-              'Bij <strong>Isla de Las Palomas</strong>, ook bekend als Punta Marroquí, komen de Middellandse Zee en de Atlantische Oceaan samen. Het is het zuidelijkste punt van het Spaanse vasteland en continentaal Europa.',
+              "Bij <strong><a class=\"am-link\" href=\"https://maps.google.com/?q=Isla+de+Las+Palomas+Tarifa\" target=\"_blank\" rel=\"noopener noreferrer\"><strong>Isla de Las Palomas</strong></a></strong>, ook bekend als Punta Marroquí, komen de Middellandse Zee en de Atlantische Oceaan samen. Het is het zuidelijkste punt van het Spaanse vasteland en continentaal Europa.",
               'Een prachtige wandeling voert tussen de twee zeeën naar het eiland, waar een 43 meter hoge vuurtoren boven de Straat van Gibraltar uitsteekt. Op heldere dagen voelt Afrika verrassend dichtbij.',
               'Vlak ernaast ligt <strong>Balneario Beach</strong>, een populaire surfspot met krachtige golven. Tarifa is de enige plek waar jullie op dezelfde dag in zowel de Atlantische Oceaan als de Middellandse Zee kunnen zwemmen.'
             ],
             sv: [
-              'Vid <strong>Isla de Las Palomas</strong>, även känd som Punta Marroquí, möts Medelhavet och Atlanten. Här ligger den sydligaste punkten på Spaniens fastland och på den europeiska kontinenten.',
+              "Vid <strong><a class=\"am-link\" href=\"https://maps.google.com/?q=Isla+de+Las+Palomas+Tarifa\" target=\"_blank\" rel=\"noopener noreferrer\"><strong>Isla de Las Palomas</strong></a></strong>, även känd som Punta Marroquí, möts Medelhavet och Atlanten. Här ligger den sydligaste punkten på Spaniens fastland och på den europeiska kontinenten.",
               'En vacker promenad leder mellan de två haven mot ön, där en 43 meter hög fyr reser sig över Gibraltarsund. Under klara dagar känns Afrika förvånansvärt nära.',
               'Alldeles intill ligger <strong>Balneario Beach</strong>, en populär surfspot med kraftfulla vågor. Tarifa är den enda platsen där ni kan bada i både Atlanten och Medelhavet under samma dag.'
             ]
           }),
-          actions: [
-            {
-              label: OPEN_IN_GOOGLE_MAPS,
-              href: 'https://maps.google.com/?q=Isla+de+Las+Palomas+Tarifa'
-            }
-          ]
         },
         {
           icon: 'landmark',
@@ -3417,42 +3396,36 @@ const tarifaFamilySurfSightseeing: GuestGuideEntry = {
           ),
           body: tarifaParagraphs({
             en: [
-              'Built by Caliph Abderramán III, the castle was designed as a strategic fortress controlling the Strait of Gibraltar.',
+              'Built by Caliph Abderramán III, <a class="am-link" href="https://maps.google.com/?q=Castillo+de+Guzman+el+Bueno+Tarifa" target="_blank" rel="noopener noreferrer"><strong>Guzmán el Bueno Castle</strong></a> was designed as a strategic fortress controlling the Strait of Gibraltar.',
               'In 1294, Guzmán “the Good” became legendary for choosing to protect Tarifa rather than surrender it in exchange for his captured son. The castle remains a symbol of loyalty and courage.',
               'Today you can walk its walls in the old town and enjoy spectacular views across the Strait toward Tangier.',
               '<strong>Opening hours:</strong><br>Tue–Sat: 11:00–14:00 & 18:00–20:00<br>Sun: 11:00–14:00<br>Mon: Closed<br><em>Opening times can change seasonally. Check again on the day of your visit.</em>'
             ],
             de: [
-              'Die von Kalif Abderramán III. erbaute Burg diente als strategische Festung zur Kontrolle der Straße von Gibraltar.',
+              'Das von Kalif Abderramán III. erbaute <a class="am-link" href="https://maps.google.com/?q=Castillo+de+Guzman+el+Bueno+Tarifa" target="_blank" rel="noopener noreferrer"><strong>Castillo de Guzmán el Bueno</strong></a> diente als strategische Festung zur Kontrolle der Straße von Gibraltar.',
               'Im Jahr 1294 wurde Guzmán „der Gute“ zur Legende, als er Tarifa verteidigte, anstatt die Stadt im Austausch für seinen gefangenen Sohn aufzugeben. Die Burg bleibt ein Symbol für Loyalität und Mut.',
               'Heute könnt ihr auf ihren Mauern in der Altstadt spazieren und einen spektakulären Blick über die Meerenge bis nach Tanger genießen.',
               '<strong>Öffnungszeiten:</strong><br>Di–Sa: 11:00–14:00 & 18:00–20:00 Uhr<br>So: 11:00–14:00 Uhr<br>Mo: geschlossen<br><em>Die Öffnungszeiten können saisonal variieren. Prüft sie am Besuchstag noch einmal.</em>'
             ],
             es: [
-              'Construido por el califa Abderramán III, el castillo fue concebido como una fortaleza estratégica para controlar el Estrecho de Gibraltar.',
+              'Construido por el califa Abderramán III, el <a class="am-link" href="https://maps.google.com/?q=Castillo+de+Guzman+el+Bueno+Tarifa" target="_blank" rel="noopener noreferrer"><strong>Castillo de Guzmán el Bueno</strong></a> fue concebido como una fortaleza estratégica para controlar el Estrecho de Gibraltar.',
               'En 1294, Guzmán “el Bueno” se convirtió en leyenda al elegir defender Tarifa en lugar de entregarla a cambio de su hijo capturado. El castillo sigue siendo un símbolo de lealtad y valentía.',
               'Hoy podéis pasear por sus murallas en el casco antiguo y disfrutar de vistas espectaculares del Estrecho hacia Tánger.',
               '<strong>Horarios:</strong><br>Mar–Sáb: 11:00–14:00 y 18:00–20:00<br>Dom: 11:00–14:00<br>Lun: cerrado<br><em>Los horarios pueden variar según la temporada. Comprobadlos el mismo día de la visita.</em>'
             ],
             nl: [
-              'Het kasteel werd gebouwd door kalief Abderramán III en was bedoeld als strategisch fort om de Straat van Gibraltar te bewaken.',
+              'Het <a class="am-link" href="https://maps.google.com/?q=Castillo+de+Guzman+el+Bueno+Tarifa" target="_blank" rel="noopener noreferrer"><strong>Kasteel van Guzmán el Bueno</strong></a> werd gebouwd door kalief Abderramán III en was bedoeld als strategisch fort om de Straat van Gibraltar te bewaken.',
               'In 1294 werd Guzmán “de Goede” een legende toen hij Tarifa verdedigde in plaats van de stad over te geven in ruil voor zijn gevangengenomen zoon. Het kasteel blijft een symbool van loyaliteit en moed.',
               'Tegenwoordig kunnen jullie over de muren in de oude stad wandelen en genieten van spectaculair uitzicht over de zeestraat richting Tanger.',
               '<strong>Openingstijden:</strong><br>Di–Za: 11:00–14:00 & 18:00–20:00 uur<br>Zo: 11:00–14:00 uur<br>Ma: gesloten<br><em>Openingstijden kunnen per seizoen verschillen. Controleer ze op de dag van jullie bezoek.</em>'
             ],
             sv: [
-              'Slottet byggdes av kalif Abderramán III som en strategisk fästning för att kontrollera Gibraltarsund.',
+              '<a class="am-link" href="https://maps.google.com/?q=Castillo+de+Guzman+el+Bueno+Tarifa" target="_blank" rel="noopener noreferrer"><strong>Guzmán el Bueno-slottet</strong></a> byggdes av kalif Abderramán III som en strategisk fästning för att kontrollera Gibraltarsund.',
               'År 1294 blev Guzmán “den Gode” legendarisk när han valde att försvara Tarifa i stället för att överlämna staden i utbyte mot sin tillfångatagne son. Slottet är fortfarande en symbol för lojalitet och mod.',
               'Idag kan ni promenera på murarna i gamla stan och njuta av spektakulära vyer över sundet mot Tanger.',
               '<strong>Öppettider:</strong><br>Tis–Lör: 11:00–14:00 & 18:00–20:00<br>Sön: 11:00–14:00<br>Mån: stängt<br><em>Öppettiderna kan variera med säsongen. Kontrollera dem samma dag som ni besöker platsen.</em>'
             ]
           }),
-          actions: [
-            {
-              label: OPEN_IN_GOOGLE_MAPS,
-              href: 'https://maps.google.com/?q=Castillo+de+Guzman+el+Bueno+Tarifa'
-            }
-          ]
         },
         {
           icon: 'landmark',
@@ -3465,32 +3438,26 @@ const tarifaFamilySurfSightseeing: GuestGuideEntry = {
           ),
           body: tarifaParagraphs({
             en: [
-              'Located in the heart of the old town, this 16th-century church combines late-Gothic architecture with a neoclassical façade. Stained-glass windows and expressive statues create a powerful interior atmosphere.',
+              'Located in the heart of the old town, <a class="am-link" href="https://maps.google.com/?q=Iglesia+de+San+Mateo+Tarifa" target="_blank" rel="noopener noreferrer"><strong>St. Matthew’s Church</strong></a>, dating from the 16th century, combines late-Gothic architecture with a neoclassical façade. Stained-glass windows and expressive statues create a powerful interior atmosphere.',
               'After the Catholic Monarchs reclaimed Tarifa, the church offered forgiveness to anyone who settled here for one year and one day — a historic gesture intended to repopulate what had been a dangerous frontier town.'
             ],
             de: [
-              'Diese Kirche aus dem 16. Jahrhundert liegt im Herzen der Altstadt und verbindet spätgotische Architektur mit einer neoklassizistischen Fassade. Buntglasfenster und ausdrucksstarke Statuen schaffen eine besondere Atmosphäre im Inneren.',
+              'Die <a class="am-link" href="https://maps.google.com/?q=Iglesia+de+San+Mateo+Tarifa" target="_blank" rel="noopener noreferrer"><strong>Iglesia de San Mateo</strong></a> aus dem 16. Jahrhundert liegt im Herzen der Altstadt und verbindet spätgotische Architektur mit einer neoklassizistischen Fassade. Buntglasfenster und ausdrucksstarke Statuen schaffen eine besondere Atmosphäre im Inneren.',
               'Nachdem die Katholischen Könige Tarifa zurückerobert hatten, bot die Kirche jedem Vergebung an, der sich für ein Jahr und einen Tag hier niederließ – eine historische Geste, um die einst gefährliche Grenzstadt wieder zu bevölkern.'
             ],
             es: [
-              'Situada en pleno casco antiguo, esta iglesia del siglo XVI combina la arquitectura del gótico tardío con una fachada neoclásica. Las vidrieras y las expresivas estatuas crean una atmósfera interior muy especial.',
+              'Situada en pleno casco antiguo, la <a class="am-link" href="https://maps.google.com/?q=Iglesia+de+San+Mateo+Tarifa" target="_blank" rel="noopener noreferrer"><strong>Iglesia de San Mateo</strong></a>, del siglo XVI, combina la arquitectura del gótico tardío con una fachada neoclásica. Las vidrieras y las expresivas estatuas crean una atmósfera interior muy especial.',
               'Tras la reconquista de Tarifa por los Reyes Católicos, la iglesia ofreció el perdón a quien se instalara aquí durante un año y un día, un gesto histórico para repoblar lo que había sido una peligrosa ciudad fronteriza.'
             ],
             nl: [
-              'Deze 16e-eeuwse kerk ligt in het hart van de oude stad en combineert laatgotische architectuur met een neoklassieke gevel. Glas-in-loodramen en expressieve beelden zorgen binnen voor een bijzondere sfeer.',
+              'De 16e-eeuwse <a class="am-link" href="https://maps.google.com/?q=Iglesia+de+San+Mateo+Tarifa" target="_blank" rel="noopener noreferrer"><strong>Sint-Mattheüskerk</strong></a> ligt in het hart van de oude stad en combineert laatgotische architectuur met een neoklassieke gevel. Glas-in-loodramen en expressieve beelden zorgen binnen voor een bijzondere sfeer.',
               'Nadat de Katholieke Koningen Tarifa hadden heroverd, bood de kerk vergeving aan iedereen die zich hier een jaar en een dag vestigde — een historisch gebaar om de ooit gevaarlijke grensstad opnieuw te bevolken.'
             ],
             sv: [
-              'Denna kyrka från 1500-talet ligger i hjärtat av gamla stan och förenar sengotisk arkitektur med en neoklassisk fasad. Målade glasfönster och uttrycksfulla statyer skapar en stark atmosfär inuti.',
+              '<a class="am-link" href="https://maps.google.com/?q=Iglesia+de+San+Mateo+Tarifa" target="_blank" rel="noopener noreferrer"><strong>San Mateo-kyrkan</strong></a> från 1500-talet ligger i hjärtat av gamla stan och förenar sengotisk arkitektur med en neoklassisk fasad. Målade glasfönster och uttrycksfulla statyer skapar en stark atmosfär inuti.',
               'Efter att de katolska monarkerna återerövrat Tarifa erbjöd kyrkan förlåtelse till den som bosatte sig här i ett år och en dag — en historisk gest för att återbefolka den tidigare farliga gränsstaden.'
             ]
           }),
-          actions: [
-            {
-              label: OPEN_IN_GOOGLE_MAPS,
-              href: 'https://maps.google.com/?q=Iglesia+de+San+Mateo+Tarifa'
-            }
-          ]
         },
         {
           icon: 'location-pin',
@@ -3503,32 +3470,27 @@ const tarifaFamilySurfSightseeing: GuestGuideEntry = {
           ),
           body: tarifaParagraphs({
             en: [
-              'From the old city wall on Calle Amargura, Mirador África offers one of the most impressive views in southern Spain.',
+              "From the old city wall on Calle Amargura, <a class=\"am-link\" href=\"https://maps.google.com/?q=Mirador+Africa+Tarifa\" target=\"_blank\" rel=\"noopener noreferrer\"><strong>Mirador África</strong></a> offers one of the most impressive views in southern Spain.",
               'At the narrowest point of the Strait of Gibraltar, Morocco lies only 14 km away. The view across two continents is peaceful and unforgettable. <em>Tip: Come for sunset.</em>'
             ],
             de: [
-              'Von der alten Stadtmauer an der Calle Amargura bietet der Mirador África einen der beeindruckendsten Ausblicke Südspaniens.',
+              "Von der alten Stadtmauer an der Calle Amargura bietet der <a class=\"am-link\" href=\"https://maps.google.com/?q=Mirador+Africa+Tarifa\" target=\"_blank\" rel=\"noopener noreferrer\"><strong>Mirador África</strong></a> einen der beeindruckendsten Ausblicke Südspaniens.",
               'An der engsten Stelle der Straße von Gibraltar ist Marokko nur 14 km entfernt. Der Blick über zwei Kontinente ist friedlich und unvergesslich. <em>Tipp: Kommt zum Sonnenuntergang.</em>'
             ],
             es: [
-              'Desde la antigua muralla de la Calle Amargura, el Mirador África ofrece una de las vistas más impresionantes del sur de España.',
+              "Desde la antigua muralla de la Calle Amargura, el <a class=\"am-link\" href=\"https://maps.google.com/?q=Mirador+Africa+Tarifa\" target=\"_blank\" rel=\"noopener noreferrer\"><strong>Mirador África</strong></a> ofrece una de las vistas más impresionantes del sur de España.",
               'En el punto más estrecho del Estrecho de Gibraltar, Marruecos está a solo 14 km. La vista entre dos continentes transmite paz y resulta inolvidable. <em>Consejo: Venid al atardecer.</em>'
             ],
             nl: [
-              'Vanaf de oude stadsmuur aan de Calle Amargura biedt Mirador África een van de indrukwekkendste uitzichten van Zuid-Spanje.',
+              "Vanaf de oude stadsmuur aan de Calle Amargura biedt <a class=\"am-link\" href=\"https://maps.google.com/?q=Mirador+Africa+Tarifa\" target=\"_blank\" rel=\"noopener noreferrer\"><strong>Mirador África</strong></a> een van de indrukwekkendste uitzichten van Zuid-Spanje.",
               'Op het smalste punt van de Straat van Gibraltar ligt Marokko slechts 14 km verderop. Het uitzicht over twee continenten is vredig en onvergetelijk. <em>Tip: Kom voor de zonsondergang.</em>'
             ],
             sv: [
-              'Från den gamla stadsmuren på Calle Amargura erbjuder Mirador África en av södra Spaniens mest imponerande utsikter.',
+              "Från den gamla stadsmuren på Calle Amargura erbjuder <a class=\"am-link\" href=\"https://maps.google.com/?q=Mirador+Africa+Tarifa\" target=\"_blank\" rel=\"noopener noreferrer\"><strong>Mirador África</strong></a> en av södra Spaniens mest imponerande utsikter.",
               'Vid Gibraltarsunds smalaste punkt ligger Marocko bara 14 km bort. Vyn över två kontinenter är fridfull och oförglömlig. <em>Tips: Kom vid solnedgången.</em>'
             ]
           }),
-          actions: [
-            {
-              label: OPEN_IN_GOOGLE_MAPS,
-              href: 'https://maps.google.com/?q=Mirador+Africa+Tarifa'
-            }
-          ]
+
         }
       ]
     },
@@ -3552,37 +3514,31 @@ const tarifaFamilySurfSightseeing: GuestGuideEntry = {
           ),
           body: tarifaParagraphs({
             en: [
-              'About 8 km from Tarifa toward Cádiz, near Punta Paloma, you will find one of Andalusia’s most spectacular dunes.',
+              'About 8 km from Tarifa toward Cádiz, near Punta Paloma, you will find the <a class="am-link" href="https://maps.google.com/?q=Duna+de+Valdevaqueros" target="_blank" rel="noopener noreferrer"><strong>Valdevaqueros Sand Dune</strong></a>, one of Andalusia’s most spectacular dunes.',
               'It is a protected nature reserve with untouched beaches and no buildings — only sea, wind, and wide horizons.',
               'From the top of the dune, the view of the African coastline is breathtaking.'
             ],
             de: [
-              'Etwa 8 km von Tarifa in Richtung Cádiz, nahe Punta Paloma, findet ihr eine der spektakulärsten Dünen Andalusiens.',
+              'Etwa 8 km von Tarifa in Richtung Cádiz, nahe Punta Paloma, findet ihr die <a class="am-link" href="https://maps.google.com/?q=Duna+de+Valdevaqueros" target="_blank" rel="noopener noreferrer"><strong>Sanddüne von Valdevaqueros</strong></a>, eine der spektakulärsten Dünen Andalusiens.',
               'Sie liegt in einem geschützten Naturreservat mit unberührten Stränden und ganz ohne Gebäude – nur Meer, Wind und weite Horizonte.',
               'Von der Düne aus ist der Blick auf die afrikanische Küste atemberaubend.'
             ],
             es: [
-              'A unos 8 km de Tarifa en dirección a Cádiz, cerca de Punta Paloma, encontraréis una de las dunas más espectaculares de Andalucía.',
+              'A unos 8 km de Tarifa en dirección a Cádiz, cerca de Punta Paloma, encontraréis la <a class="am-link" href="https://maps.google.com/?q=Duna+de+Valdevaqueros" target="_blank" rel="noopener noreferrer"><strong>Duna de Valdevaqueros</strong></a>, una de las dunas más espectaculares de Andalucía.',
               'Está en una reserva natural protegida con playas vírgenes y sin edificios: solo mar, viento y amplios horizontes.',
               'Desde lo alto de la duna, las vistas de la costa africana son impresionantes.'
             ],
             nl: [
-              'Op ongeveer 8 km van Tarifa richting Cádiz, bij Punta Paloma, vinden jullie een van de spectaculairste duinen van Andalusië.',
+              'Op ongeveer 8 km van Tarifa richting Cádiz, bij Punta Paloma, vinden jullie de <a class="am-link" href="https://maps.google.com/?q=Duna+de+Valdevaqueros" target="_blank" rel="noopener noreferrer"><strong>Zandduin van Valdevaqueros</strong></a>, een van de spectaculairste duinen van Andalusië.',
               'Het is een beschermd natuurgebied met ongerepte stranden en zonder bebouwing — alleen zee, wind en weidse horizonten.',
               'Vanaf de top van het duin is het uitzicht op de Afrikaanse kust adembenemend.'
             ],
             sv: [
-              'Cirka 8 km från Tarifa i riktning mot Cádiz, nära Punta Paloma, hittar ni en av Andalusiens mest spektakulära sanddyner.',
+              'Cirka 8 km från Tarifa i riktning mot Cádiz, nära Punta Paloma, hittar ni <a class="am-link" href="https://maps.google.com/?q=Duna+de+Valdevaqueros" target="_blank" rel="noopener noreferrer"><strong>Sanddynen i Valdevaqueros</strong></a>, en av Andalusiens mest spektakulära sanddyner.',
               'Den ligger i ett skyddat naturreservat med orörda stränder och helt utan byggnader — bara hav, vind och vida horisonter.',
               'Från dynens topp är utsikten över Afrikas kust hisnande.'
             ]
           }),
-          actions: [
-            {
-              label: OPEN_IN_GOOGLE_MAPS,
-              href: 'https://maps.google.com/?q=Duna+de+Valdevaqueros'
-            }
-          ]
         },
         {
           icon: 'landmark',
@@ -3595,42 +3551,37 @@ const tarifaFamilySurfSightseeing: GuestGuideEntry = {
           ),
           body: tarifaParagraphs({
             en: [
-              'Just 15 km from Tarifa lies the ancient Roman city of Baelo Claudia, more than 2,000 years old.',
+              "Just 15 km from Tarifa lies the ancient Roman city of <a class=\"am-link\" href=\"https://maps.google.com/?q=Baelo+Claudia+Bolonia\" target=\"_blank\" rel=\"noopener noreferrer\"><strong>Baelo Claudia</strong></a>, more than 2,000 years old.",
               'Once a prosperous trade centre, the city supplied the Roman Empire with garum, the famous fish-paste delicacy of its time.',
               'Today you can explore the theatre, basilica, Temple of Isis, aqueducts, thermal baths, and fish-salting factories.',
               '<strong>Opening hours:</strong> Vary by season. Closed Mondays.<br><em>Check the current hours on the day of your visit.</em>'
             ],
             de: [
-              'Nur 15 km von Tarifa entfernt liegt die mehr als 2.000 Jahre alte römische Stadt Baelo Claudia.',
+              "Nur 15 km von Tarifa entfernt liegt die mehr als 2.000 Jahre alte römische Stadt <a class=\"am-link\" href=\"https://maps.google.com/?q=Baelo+Claudia+Bolonia\" target=\"_blank\" rel=\"noopener noreferrer\"><strong>Baelo Claudia</strong></a>.",
               'Einst ein florierendes Handelszentrum, versorgte die Stadt das Römische Reich mit Garum, der berühmten Fischpasten-Delikatesse ihrer Zeit.',
               'Heute könnt ihr Theater, Basilika, Isis-Tempel, Aquädukte, Thermalbäder und die alten Fischsalzfabriken erkunden.',
               '<strong>Öffnungszeiten:</strong> Je nach Saison unterschiedlich. Montags geschlossen.<br><em>Prüft die aktuellen Zeiten am Besuchstag.</em>'
             ],
             es: [
-              'A solo 15 km de Tarifa se encuentra la antigua ciudad romana de Baelo Claudia, con más de 2.000 años de historia.',
+              "A solo 15 km de Tarifa se encuentra la antigua ciudad romana de <a class=\"am-link\" href=\"https://maps.google.com/?q=Baelo+Claudia+Bolonia\" target=\"_blank\" rel=\"noopener noreferrer\"><strong>Baelo Claudia</strong></a>, con más de 2.000 años de historia.",
               'Antiguo centro comercial próspero, la ciudad abastecía al Imperio romano de garum, la famosa pasta de pescado de la época.',
               'Hoy podéis explorar el teatro, la basílica, el templo de Isis, los acueductos, las termas y las fábricas de salazón.',
               '<strong>Horarios:</strong> Varían según la temporada. Cerrado los lunes.<br><em>Comprobad el horario actual el mismo día de la visita.</em>'
             ],
             nl: [
-              'Slechts 15 km van Tarifa ligt de meer dan 2.000 jaar oude Romeinse stad Baelo Claudia.',
+              "Slechts 15 km van Tarifa ligt de meer dan 2.000 jaar oude Romeinse stad <a class=\"am-link\" href=\"https://maps.google.com/?q=Baelo+Claudia+Bolonia\" target=\"_blank\" rel=\"noopener noreferrer\"><strong>Baelo Claudia</strong></a>.",
               'Ooit een welvarend handelscentrum voorzag de stad het Romeinse Rijk van garum, de beroemde vispasta uit die tijd.',
               'Tegenwoordig kunnen jullie het theater, de basiliek, de Isistempel, aquaducten, thermale baden en viszouterijen verkennen.',
               '<strong>Openingstijden:</strong> Verschillen per seizoen. Maandag gesloten.<br><em>Controleer de actuele tijden op de dag van jullie bezoek.</em>'
             ],
             sv: [
-              'Bara 15 km från Tarifa ligger den mer än 2 000 år gamla romerska staden Baelo Claudia.',
+              "Bara 15 km från Tarifa ligger den mer än 2 000 år gamla romerska staden <a class=\"am-link\" href=\"https://maps.google.com/?q=Baelo+Claudia+Bolonia\" target=\"_blank\" rel=\"noopener noreferrer\"><strong>Baelo Claudia</strong></a>.",
               'Som ett tidigare blomstrande handelscentrum försåg staden Romarriket med garum, den tidens berömda fiskpasta.',
               'Idag kan ni utforska teatern, basilikan, Isistemplet, akvedukterna, termalbaden och fabrikerna för fisksaltning.',
               '<strong>Öppettider:</strong> Varierar med säsongen. Stängt på måndagar.<br><em>Kontrollera aktuella tider samma dag som ni besöker platsen.</em>'
             ]
           }),
-          actions: [
-            {
-              label: OPEN_IN_GOOGLE_MAPS,
-              href: 'https://maps.google.com/?q=Baelo+Claudia+Bolonia'
-            }
-          ]
+
         }
       ]
     },
