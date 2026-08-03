@@ -28,7 +28,9 @@ interface NavLink {
 
 interface Props {
   currentLang: AmaraLanguage;
-  brandName: string;
+  /** Deprecated compatibility input; the wordmark is always "AMARA / Lodging" now that breadcrumbs carry location context. */
+  brandName?: string;
+  /** Deprecated compatibility input; see brandName. */
   brandLabel?: string;
   /** Deprecated compatibility input; the global shell ignores page-specific center links. */
   links?: NavLink[];
@@ -36,6 +38,7 @@ interface Props {
   variant?: 'default' | 'trust';
   currentToken?: string;
   languageToken?: string;
+  /** Deprecated compatibility input; see brandName. */
   brandVariant?: 'default' | 'lodging';
   showBookingCta?: boolean;
   /**
@@ -47,11 +50,8 @@ interface Props {
 
 const {
   currentLang,
-  brandName,
-  brandLabel,
   currentToken,
   languageToken,
-  brandVariant = 'default',
   showBookingCta = true,
   locationAuthorityNav = false
 } = Astro.props;
@@ -63,14 +63,6 @@ const languages: { code: AmaraLanguage; label: string }[] = [
   { code: 'nl', label: AMARA_LANGUAGE_LABELS.nl },
   { code: 'sv', label: AMARA_LANGUAGE_LABELS.sv }
 ];
-
-const defaultBrandLabels: Record<AmaraLanguage, string> = {
-  en: 'Guest Guide',
-  de: 'Gästeguide',
-  es: 'Guía huésped',
-  nl: 'Gastgids',
-  sv: 'Gästguide'
-};
 
 const defaultCtaLabels: Record<AmaraLanguage, string> = {
   en: 'Check Availability',
@@ -300,11 +292,11 @@ const localizedNavLabels: Partial<Record<string, Record<AmaraLanguage, string>>>
     sv: 'Fördelar med direktbokning'
   },
   amenities: {
-    en: 'Amenities',
-    de: 'Ausstattung',
-    es: 'Servicios',
-    nl: 'Voorzieningen',
-    sv: 'Bekvämligheter'
+    en: 'Comfort & Amenities',
+    de: 'Komfort & Ausstattung',
+    es: 'Confort y servicios',
+    nl: 'Comfort en voorzieningen',
+    sv: 'Komfort och bekvämligheter'
   },
   faq_general: {
     en: 'Stay FAQ',
@@ -347,10 +339,6 @@ const languageOptions = languages
 const getBrandHref = () =>
   resolveOptionalLink('home', currentLang, { suppressMissing: true }) ??
   (currentLang === 'es' ? '/' : `/${currentLang}/`);
-
-const resolvedBrandLabel =
-  brandLabel ??
-  (brandVariant === 'lodging' ? 'Lodging' : defaultBrandLabels[currentLang]);
 
 const getIsActive = (token: string, href: string) => {
   if (languageToken) {
@@ -458,7 +446,7 @@ const globalNavGroups: GlobalNavGroup[] = [
       },
       {
         token: 'amenities',
-        label: localizedNavLabels.amenities?.[currentLang] ?? 'Amenities',
+        label: localizedNavLabels.amenities?.[currentLang] ?? 'Comfort & Amenities',
         description: tGlobal('amenitiesMeta')
       },
       {
@@ -503,10 +491,10 @@ const resolvedGlobalNavGroups = globalNavGroups.map((group) => {
     <div class="am-nav__brand">
       <a href={getBrandHref()} class="group inline-flex flex-col items-center text-center">
         <span class="font-headline italic text-xl text-on-surface tracking-tighter">
-          {brandName}
+          AMARA
         </span>
         <span class="-mt-1 block text-center font-label text-[8px] uppercase tracking-[0.5em] text-on-surface/40">
-          {resolvedBrandLabel}
+          Lodging
         </span>
       </a>
     </div>

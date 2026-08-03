@@ -12,8 +12,9 @@ type PropertySpecs = {
   pets: LocalizedText;
   pool?: LocalizedText;
   view: LocalizedText;
-  outdoor: LocalizedText;
+  outdoor?: LocalizedText;
   kitchen: LocalizedText;
+  airCon: LocalizedText;
 };
 type PropertyEntry = {
   id: string;
@@ -81,6 +82,7 @@ export const comfortAmenitiesCopy: Record<
         outdoor: string;
         kitchen: string;
         pool: string;
+        airCon: string;
       };
     };
     noteTitle: string;
@@ -95,9 +97,9 @@ export const comfortAmenitiesCopy: Record<
       { token: 'direct_booking_benefits', label: 'Direct Booking Benefits' }
     ],
     hero: {
-      subtitle: 'Amenities & Policies',
-      title: 'Clear facts — for guests & travel assistants.',
-      lead: 'Self-catered stays (not a hotel), calm by intention, and practical details you can rely on.',
+      subtitle: 'Comfort & Amenities',
+      title: 'Everything a comfortable stay needs — thoughtfully in place.',
+      lead: 'Full kitchens, private terraces, quiet locations and the small details most guests never have to think about — because we already have.',
       supportText: 'Inventory, rules, and practical stay details in one calm overview.',
       ctaAbout: 'About Us',
       ctaReviews: 'Guest Reviews'
@@ -136,7 +138,8 @@ export const comfortAmenitiesCopy: Record<
         view: 'View',
         outdoor: 'Outdoor',
         kitchen: 'Kitchen',
-        pool: 'Pool'
+        pool: 'Pool',
+        airCon: 'Air Con'
       }
     },
     noteTitle: 'Note:',
@@ -150,9 +153,9 @@ export const comfortAmenitiesCopy: Record<
       { token: 'direct_booking_benefits', label: 'Vorteile der Direktbuchung' }
     ],
     hero: {
-      subtitle: 'Ausstattung & Regeln',
-      title: 'Klare Fakten — für Gäste & Reiseplaner.',
-      lead: 'Selbstversorger-Apartments (kein Hotel), bewusst ruhig gehalten, mit praktischen Details, auf die ihr euch verlassen könnt.',
+      subtitle: 'Komfort & Ausstattung',
+      title: 'Alles, was einen komfortablen Aufenthalt ausmacht — durchdacht bereitgestellt.',
+      lead: 'Voll ausgestattete Küchen, private Terrassen, ruhige Lagen und die kleinen Details, über die ihr euch keine Gedanken machen müsst — weil wir es längst getan haben.',
       supportText: 'Inventar, Regeln und wichtige Aufenthaltsdetails in einer ruhigen Übersicht.',
       ctaAbout: 'Über AMARA',
       ctaReviews: 'Gästebewertungen'
@@ -191,7 +194,8 @@ export const comfortAmenitiesCopy: Record<
         view: 'Ausblick',
         outdoor: 'Außenbereich',
         kitchen: 'Küche',
-        pool: 'Pool'
+        pool: 'Pool',
+        airCon: 'Klimaanlage'
       }
     },
     noteTitle: 'Hinweis:',
@@ -205,9 +209,9 @@ export const comfortAmenitiesCopy: Record<
       { token: 'direct_booking_benefits', label: 'Ventajas de reserva directa' }
     ],
     hero: {
-      subtitle: 'Servicios y normas',
-      title: 'Datos claros — para huéspedes y asistentes de viaje.',
-      lead: 'Alojamientos independientes (no somos un hotel), diseñados para la tranquilidad y con detalles prácticos en los que podéis confiar.',
+      subtitle: 'Confort y servicios',
+      title: 'Todo lo que hace falta para una estancia cómoda — ya pensado por vosotros.',
+      lead: 'Cocinas completas, terrazas privadas, ubicaciones tranquilas y los pequeños detalles en los que no tenéis que pensar — porque nosotros ya lo hemos hecho.',
       supportText: 'Inventario, normas y detalles útiles de la estancia en una sola visión tranquila.',
       ctaAbout: 'Sobre AMARA',
       ctaReviews: 'Opiniones de huéspedes'
@@ -246,7 +250,8 @@ export const comfortAmenitiesCopy: Record<
         view: 'Vistas',
         outdoor: 'Exterior',
         kitchen: 'Cocina',
-        pool: 'Piscina'
+        pool: 'Piscina',
+        airCon: 'Aire acondicionado'
       }
     },
     noteTitle: 'Nota:',
@@ -260,9 +265,9 @@ export const comfortAmenitiesCopy: Record<
       { token: 'direct_booking_benefits', label: 'Voordelen van direct boeken' }
     ],
     hero: {
-      subtitle: 'Voorzieningen & regels',
-      title: 'Duidelijke feiten — voor gasten & reisplanners.',
-      lead: 'Zelfstandige verblijven (geen hotel), bewust rustig gehouden, met praktische details waar jullie op kunnen vertrouwen.',
+      subtitle: 'Comfort en voorzieningen',
+      title: 'Alles voor een comfortabel verblijf — al voor je geregeld.',
+      lead: 'Volledig uitgeruste keukens, privéterrassen, rustige locaties en de kleine details waar je niet over hoeft na te denken — omdat wij dat al gedaan hebben.',
       supportText: 'Inventaris, regels en praktische verblijfsdetails in één rustige samenvatting.',
       ctaAbout: 'Over AMARA',
       ctaReviews: 'Gastbeoordelingen'
@@ -301,7 +306,8 @@ export const comfortAmenitiesCopy: Record<
         view: 'Uitzicht',
         outdoor: 'Buitenruimte',
         kitchen: 'Keuken',
-        pool: 'Zwembad'
+        pool: 'Zwembad',
+        airCon: 'Airconditioning'
       }
     },
     noteTitle: 'Let op:',
@@ -315,9 +321,9 @@ export const comfortAmenitiesCopy: Record<
       { token: 'direct_booking_benefits', label: 'Fördelar med direktbokning' }
     ],
     hero: {
-      subtitle: 'Bekvämligheter & policy',
-      title: 'Tydlig information — för gäster och reseplanerare.',
-      lead: 'Självhushåll (inte ett hotell), medvetet lugnt och med praktiska detaljer ni kan lita på.',
+      subtitle: 'Komfort och bekvämligheter',
+      title: 'Allt en bekväm vistelse behöver — redan på plats.',
+      lead: 'Fullt utrustade kök, privata terrasser, lugna lägen och de små detaljer ni aldrig behöver tänka på — för att vi redan har gjort det.',
       supportText: 'Inventering, policy och viktiga vistelsedetaljer i en lugn översikt.',
       ctaAbout: 'Om AMARA',
       ctaReviews: 'Gästrecensioner'
@@ -356,7 +362,8 @@ export const comfortAmenitiesCopy: Record<
         view: 'Utsikt',
         outdoor: 'Utomhus',
         kitchen: 'Kök',
-        pool: 'Pool'
+        pool: 'Pool',
+        airCon: 'Luftkonditionering'
       }
     },
     noteTitle: 'Observera:',
@@ -372,35 +379,35 @@ export const comfortAmenitiesSeo: AmaraAuthoringSeo = {
   entityKey: 'amara-brand',
   languages: {
     en: {
-      title: 'Amenities & Policies: Licenses and Details',
+      title: 'Comfort & Amenities: Licenses and Details',
       description:
         'AMARA amenities, policies, licenses, price ranges, occupancy, and key apartment details for Frigiliana, Nerja, and Tarifa.',
       robots: 'index, follow',
       canonical: 'auto'
     },
     de: {
-      title: 'Ausstattung & Regeln: Lizenzen und Details',
+      title: 'Komfort & Ausstattung: Lizenzen und Details',
       description:
         'AMARA Ausstattung, Regeln, Lizenzen, Preis-Spannen, Belegung und Details je Unterkunft in Frigiliana, Nerja und Tarifa.',
       robots: 'index, follow',
       canonical: 'auto'
     },
     es: {
-      title: 'Servicios y normas: licencias y detalles',
+      title: 'Confort y servicios: licencias y detalles',
       description:
         'Servicios, normas, licencias, precios orientativos, ocupación y detalles de cada alojamiento AMARA en Frigiliana, Nerja y Tarifa.',
       robots: 'index, follow',
       canonical: 'auto'
     },
     nl: {
-      title: 'Voorzieningen & regels: licenties en details',
+      title: 'Comfort en voorzieningen: licenties en details',
       description:
         'AMARA voorzieningen, regels, licenties, prijsindicaties, bezetting en verblijfsdetails voor Frigiliana, Nerja en Tarifa.',
       robots: 'index, follow',
       canonical: 'auto'
     },
     sv: {
-      title: 'Bekvämligheter & policy: licenser och detaljer',
+      title: 'Komfort & bekvämligheter: licenser och detaljer',
       description:
         'AMARA bekvämligheter, policy, licenser, prisintervall, kapacitet och boendedetaljer för Frigiliana, Nerja och Tarifa.',
       robots: 'index, follow',
@@ -444,28 +451,22 @@ export const comfortAmenitiesProperties: PropertyEntry[] = [
       bed: '160×200',
       price: { en: '€75–€120', de: '75 € – 120 €', es: '75 € – 120 €', nl: '€75 – €120', sv: '75 € – 120 €' },
       accessNote: { en: '1 step at entrance', de: '1 Stufe am Eingang', es: '1 escalón en la entrada', nl: '1 trede bij ingang', sv: '1 trappsteg vid entrén' },
-      pets: { en: 'Not allowed', de: 'Nicht erlaubt', es: 'No permitidas', nl: 'Niet toegestaan', sv: 'Inte tillåtet' },
+      pets: { en: 'Pet-free', de: 'Haustierfrei', es: 'Sin mascotas', nl: 'Huisdiervrij', sv: 'Husdjursfritt' },
       view: {
-        en: 'Village street (No sea view)',
-        de: 'Dorfstraße (Kein Meerblick)',
-        es: 'Calle del pueblo (Sin vistas al mar)',
-        nl: 'Dorpsstraat (Geen zeezicht)',
-        sv: 'Bygata (Ingen havsutsikt)'
-      },
-      outdoor: {
-        en: 'No private outdoor space',
-        de: 'Kein privater Außenbereich',
-        es: 'Sin espacio exterior privado',
-        nl: 'Geen privé buitenruimte',
-        sv: 'Ingen privat uteplats'
+        en: 'Village street',
+        de: 'Dorfstraße',
+        es: 'Calle del pueblo',
+        nl: 'Dorpsstraat',
+        sv: 'Bygata'
       },
       kitchen: {
-        en: 'Tea/Coffee station only',
-        de: 'Nur Tee-/Kaffeestation',
-        es: 'Solo estación de té/café',
-        nl: 'Alleen thee-/koffiefaciliteiten',
-        sv: 'Endast te-/kaffestation'
-      }
+        en: 'Tea & coffee station',
+        de: 'Tee-/Kaffeestation',
+        es: 'Estación de té/café',
+        nl: 'Thee-/koffiefaciliteiten',
+        sv: 'Te-/kaffestation'
+      },
+      airCon: { en: 'Yes', de: 'Ja', es: 'Sí', nl: 'Ja', sv: 'Ja' }
     }
   },
   {
@@ -477,7 +478,7 @@ export const comfortAmenitiesProperties: PropertyEntry[] = [
       maxOccupancy: { en: '2 guests', de: '2 Gäste', es: '2 huéspedes', nl: '2 gasten', sv: '2 gäster' },
       bed: '160×200',
       price: { en: '€90–€200', de: '90 € – 200 €', es: '90 € – 200 €', nl: '€90 – €200', sv: '90 € – 200 €' },
-      accessNote: { en: 'Requires stairs', de: 'Nur über Treppen erreichbar', es: 'Acceso por escaleras', nl: 'Trappen vereist', sv: 'Kräver trappor' },
+      accessNote: { en: 'Stair access', de: 'Zugang über Treppen', es: 'Acceso por escaleras', nl: 'Toegang via trappen', sv: 'Åtkomst via trappa' },
       pets: {
         en: 'On request (€15/day)',
         de: 'Auf Anfrage (15 €/Tag)',
@@ -505,7 +506,8 @@ export const comfortAmenitiesProperties: PropertyEntry[] = [
         es: 'Cocina interior completa',
         nl: 'Volledige binnenkeuken',
         sv: 'Fullt utrustat inomhuskök'
-      }
+      },
+      airCon: { en: 'Yes', de: 'Ja', es: 'Sí', nl: 'Ja', sv: 'Ja' }
     }
   },
   {
@@ -517,8 +519,8 @@ export const comfortAmenitiesProperties: PropertyEntry[] = [
       maxOccupancy: { en: '2 guests', de: '2 Gäste', es: '2 huéspedes', nl: '2 gasten', sv: '2 gäster' },
       bed: '180×200',
       price: { en: '€90–€180', de: '90 € – 180 €', es: '90 € – 180 €', nl: '€90 – €180', sv: '90 € – 180 €' },
-      accessNote: { en: 'Requires stairs', de: 'Nur über Treppen erreichbar', es: 'Acceso por escaleras', nl: 'Trappen vereist', sv: 'Kräver trappor' },
-      pets: { en: 'Not allowed', de: 'Nicht erlaubt', es: 'No permitidas', nl: 'Niet toegestaan', sv: 'Inte tillåtet' },
+      accessNote: { en: 'Stair access', de: 'Zugang über Treppen', es: 'Acceso por escaleras', nl: 'Toegang via trappen', sv: 'Åtkomst via trappa' },
+      pets: { en: 'Pet-free', de: 'Haustierfrei', es: 'Sin mascotas', nl: 'Huisdiervrij', sv: 'Husdjursfritt' },
       view: {
         en: 'Distant sea view',
         de: 'Fernblick aufs Meer',
@@ -539,7 +541,8 @@ export const comfortAmenitiesProperties: PropertyEntry[] = [
         es: 'Cocina interior completa',
         nl: 'Volledige binnenkeuken',
         sv: 'Fullt utrustat inomhuskök'
-      }
+      },
+      airCon: { en: 'Yes', de: 'Ja', es: 'Sí', nl: 'Ja', sv: 'Ja' }
     }
   },
   {
@@ -551,7 +554,7 @@ export const comfortAmenitiesProperties: PropertyEntry[] = [
       maxOccupancy: { en: '2 guests', de: '2 Gäste', es: '2 huéspedes', nl: '2 gasten', sv: '2 gäster' },
       bed: '150×200',
       price: { en: '€90–€180', de: '90 € – 180 €', es: '90 € – 180 €', nl: '€90 – €180', sv: '90 € – 180 €' },
-      accessNote: { en: 'Requires stairs', de: 'Nur über Treppen erreichbar', es: 'Acceso por escaleras', nl: 'Trappen vereist', sv: 'Kräver trappor' },
+      accessNote: { en: 'Stair access', de: 'Zugang über Treppen', es: 'Acceso por escaleras', nl: 'Toegang via trappen', sv: 'Åtkomst via trappa' },
       pets: {
         en: 'On request (€15/day)',
         de: 'Auf Anfrage (15 €/Tag)',
@@ -579,7 +582,8 @@ export const comfortAmenitiesProperties: PropertyEntry[] = [
         es: 'Cocina interior completa',
         nl: 'Volledige binnenkeuken',
         sv: 'Fullt utrustat inomhuskök'
-      }
+      },
+      airCon: { en: 'Yes', de: 'Ja', es: 'Sí', nl: 'Ja', sv: 'Ja' }
     }
   },
   {
@@ -591,8 +595,8 @@ export const comfortAmenitiesProperties: PropertyEntry[] = [
       maxOccupancy: { en: '2 guests', de: '2 Gäste', es: '2 huéspedes', nl: '2 gasten', sv: '2 gäster' },
       bed: '200×200',
       price: { en: '€90–€200', de: '90 € – 200 €', es: '90 € – 200 €', nl: '€90 – €200', sv: '90 € – 200 €' },
-      accessNote: { en: 'Requires stairs', de: 'Nur über Treppen erreichbar', es: 'Acceso por escaleras', nl: 'Trappen vereist', sv: 'Kräver trappor' },
-      pets: { en: 'Not allowed', de: 'Nicht erlaubt', es: 'No permitidas', nl: 'Niet toegestaan', sv: 'Inte tillåtet' },
+      accessNote: { en: 'Stair access', de: 'Zugang über Treppen', es: 'Acceso por escaleras', nl: 'Toegang via trappen', sv: 'Åtkomst via trappa' },
+      pets: { en: 'Pet-free', de: 'Haustierfrei', es: 'Sin mascotas', nl: 'Huisdiervrij', sv: 'Husdjursfritt' },
       view: { en: 'Sea view', de: 'Meerblick', es: 'Vistas al mar', nl: 'Zeezicht', sv: 'Havsutsikt' },
       outdoor: { en: 'Balcony', de: 'Balkon', es: 'Balcón', nl: 'Balkon', sv: 'Balkong' },
       kitchen: {
@@ -601,7 +605,8 @@ export const comfortAmenitiesProperties: PropertyEntry[] = [
         es: 'Cocina interior completa',
         nl: 'Volledige binnenkeuken',
         sv: 'Fullt utrustat inomhuskök'
-      }
+      },
+      airCon: { en: 'Yes', de: 'Ja', es: 'Sí', nl: 'Ja', sv: 'Ja' }
     }
   },
   {
@@ -620,13 +625,13 @@ export const comfortAmenitiesProperties: PropertyEntry[] = [
       },
       price: { en: '€120–€350', de: '120 € – 350 €', es: '120 € – 350 €', nl: '€120 – €350', sv: '120 € – 350 €' },
       accessNote: {
-        en: 'Stairs likely',
-        de: 'Treppen wahrscheinlich',
-        es: 'Es probable que haya escaleras',
-        nl: 'Trappen waarschijnlijk',
-        sv: 'Troligen trappor'
+        en: 'Likely stair access',
+        de: 'Voraussichtlich Treppenzugang',
+        es: 'Posible acceso por escaleras',
+        nl: 'Waarschijnlijk via trappen',
+        sv: 'Troligen via trappa'
       },
-      pets: { en: 'Not allowed', de: 'Nicht erlaubt', es: 'No permitidas', nl: 'Niet toegestaan', sv: 'Inte tillåtet' },
+      pets: { en: 'Pet-free', de: 'Haustierfrei', es: 'Sin mascotas', nl: 'Huisdiervrij', sv: 'Husdjursfritt' },
       pool: { en: 'Yes (Shared)', de: 'Ja (Gemeinschaftspool)', es: 'Sí (Compartida)', nl: 'Ja (Gedeeld)', sv: 'Ja (Gemensam)' },
       view: { en: 'Sea view', de: 'Meerblick', es: 'Vistas al mar', nl: 'Zeezicht', sv: 'Havsutsikt' },
       outdoor: { en: 'Terrace', de: 'Terrasse', es: 'Terraza', nl: 'Terras', sv: 'Terrass' },
@@ -636,7 +641,8 @@ export const comfortAmenitiesProperties: PropertyEntry[] = [
         es: 'Cocina interior completa',
         nl: 'Volledige binnenkeuken',
         sv: 'Fullt utrustat inomhuskök'
-      }
+      },
+      airCon: { en: 'Yes', de: 'Ja', es: 'Sí', nl: 'Ja', sv: 'Ja' }
     }
   }
 ];
