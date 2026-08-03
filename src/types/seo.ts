@@ -18,6 +18,11 @@ export interface AmaraAuthoringSeo {
   pageType: AmaraPageType;
   languages: Record<AmaraLanguage, AmaraSeoLanguageEntry>;
   ogImage?: string;
+  article?: {
+    datePublished: string;
+    dateModified: string;
+    authorName: string;
+  };
 
   /**
    * Explicit entity selection keeps schema assignment stable.

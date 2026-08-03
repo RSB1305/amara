@@ -1,0 +1,14 @@
+---
+import TarifaWindKitesurfingPage from '../../page-families/location-authority/TarifaWindKitesurfingPage.astro';
+import { getOwnedPageStaticPaths } from '../../lib/routeOwnership';
+import type { AmaraLanguage } from '../../types/seo';
+
+export function getStaticPaths() {
+  return getOwnedPageStaticPaths();
+}
+
+const { lang } = Astro.params as { lang: AmaraLanguage };
+---
+
+<TarifaWindKitesurfingPage lang={lang} />
+

@@ -14,10 +14,11 @@ import type { AmaraLanguage } from '../../types/seo';
 
 interface Props {
   activeId: TarifaAuthoritySubnavId;
+  currentLabel: string;
   lang: AmaraLanguage;
 }
 
-const { activeId, lang } = Astro.props;
+const { activeId, currentLabel, lang } = Astro.props;
 const navigationItems = getTarifaAuthoritySubnav(lang);
 
 const labels: Record<
@@ -59,6 +60,12 @@ const copy = labels[lang];
 const homeHref = resolveOptionalLink('home', lang, {
   suppressMissing: true
 });
+const destinationsHref = resolveOptionalLink('explore_hub', lang, {
+  suppressMissing: true
+});
+const tarifaHref = resolveOptionalLink('location_tarifa', lang, {
+  suppressMissing: true
+});
 
 const breadcrumbs: ContextNavigationBreadcrumb[] = [
   {
@@ -66,12 +73,18 @@ const breadcrumbs: ContextNavigationBreadcrumb[] = [
     href: homeHref ?? undefined
   },
   {
-    label: copy.destinations
+    label: copy.destinations,
+    href: destinationsHref ?? undefined
   },
   {
-    label: 'Tarifa'
+    label: 'Tarifa',
+    href: activeId === 'overview' ? undefined : tarifaHref ?? undefined
   }
 ];
+
+if (activeId !== 'overview') {
+  breadcrumbs.push({ label: currentLabel });
+}
 ---
 
 <ContextNavigation

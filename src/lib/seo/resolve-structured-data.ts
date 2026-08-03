@@ -165,6 +165,27 @@ const PUBLIC_ROUTE_LABELS: Partial<Record<string, Record<AmaraLanguage, string>>
     nl: 'Uitgaan in Nerja',
     sv: 'Kvällsliv i Nerja'
   },
+  'tarifa-location': {
+    en: 'Tarifa',
+    de: 'Tarifa',
+    es: 'Tarifa',
+    nl: 'Tarifa',
+    sv: 'Tarifa'
+  },
+  'tarifa-wind-kitesurfing': {
+    en: 'Wind & Kitesurfing',
+    de: 'Wind & Kitesurfen',
+    es: 'Viento y kitesurf',
+    nl: 'Wind & kitesurfen',
+    sv: 'Vind & kitesurfing'
+  },
+  'tarifa-beaches': {
+    en: 'Beaches',
+    de: 'Strände',
+    es: 'Playas',
+    nl: 'Stranden',
+    sv: 'Stränder'
+  },
   'frigiliana-parking': {
     en: 'Frigiliana Parking',
     de: 'Parken in Frigiliana',
@@ -262,6 +283,20 @@ const EXPERIENCE_DETAIL_SLUGS = new Set([
   'nerja-nightlife'
 ]);
 
+const TARIFA_GUIDE_SLUGS = new Set([
+  'tarifa-location',
+  'tarifa-wind-kitesurfing',
+  'tarifa-beaches'
+]);
+
+const DESTINATION_LABELS: Record<AmaraLanguage, string> = {
+  en: 'Destinations',
+  de: 'Reiseziele',
+  es: 'Destinos',
+  nl: 'Bestemmingen',
+  sv: 'Resmål'
+};
+
 function getBase(origin: string): string {
   return origin.replace(/\/+$/, '');
 }
@@ -330,7 +365,35 @@ function buildBreadcrumbNode(
     }
   ];
 
-  if (EXPERIENCE_DETAIL_SLUGS.has(slug)) {
+  if (TARIFA_GUIDE_SLUGS.has(slug)) {
+    const destinationsSlug = 'explore-frigiliana-nerja';
+    const destinationsUrl = new URL(
+      buildOwnedLocalizedPath(destinationsSlug, currentLang),
+      base
+    ).href;
+
+    itemListElement.push({
+      '@type': 'ListItem',
+      position: itemListElement.length + 1,
+      name: DESTINATION_LABELS[currentLang],
+      item: destinationsUrl
+    });
+
+    if (slug !== 'tarifa-location') {
+      const tarifaSlug = 'tarifa-location';
+      const tarifaUrl = new URL(
+        buildOwnedLocalizedPath(tarifaSlug, currentLang),
+        base
+      ).href;
+
+      itemListElement.push({
+        '@type': 'ListItem',
+        position: itemListElement.length + 1,
+        name: resolveRouteLabel(tarifaSlug, currentLang, 'Tarifa'),
+        item: tarifaUrl
+      });
+    }
+  } else if (EXPERIENCE_DETAIL_SLUGS.has(slug)) {
     const hubSlug = 'explore-frigiliana-nerja';
     const hubUrl = new URL(
       buildOwnedLocalizedPath(hubSlug, currentLang),
@@ -449,6 +512,45 @@ function buildWebPageNode(
       '@type': 'ImageObject',
       url: options.image
     };
+  }
+
+  return node;
+}
+
+function buildArticleNode(
+  seo: NonNullable<AmaraAuthoringSeo['article']>,
+  canonicalUrl: string,
+  title: string,
+  description: string,
+  currentLang: AmaraLanguage,
+  origin: string,
+  image?: string
+) {
+  const organizationId = `${getBase(origin)}/#organization`;
+  const node: SchemaNode = {
+    '@type': 'Article',
+    '@id': `${canonicalUrl}#article`,
+    headline: title,
+    description,
+    datePublished: seo.datePublished,
+    dateModified: seo.dateModified,
+    inLanguage: currentLang,
+    mainEntityOfPage: {
+      '@id': `${canonicalUrl}#webpage`
+    },
+    author: {
+      '@type': 'Organization',
+      '@id': organizationId,
+      name: seo.authorName,
+      url: `${getBase(origin)}/`
+    },
+    publisher: {
+      '@id': organizationId
+    }
+  };
+
+  if (image) {
+    node.image = [image];
   }
 
   return node;
@@ -680,7 +782,11 @@ export function resolveStructuredData(
     origin,
     lodgingEntity
   );
-  const includeBrand = seo?.entityKey === 'amara-brand' || Boolean(lodgingEntity);
+  const articleEntityId = seo?.article
+    ? `${canonicalUrl}#article`
+    : undefined;
+  const includeBrand =
+    seo?.entityKey === 'amara-brand' || Boolean(lodgingEntity) || Boolean(seo?.article);
   const publisherId = includeBrand
     ? `${getBase(origin)}/#organization`
     : undefined;
@@ -704,7 +810,7 @@ export function resolveStructuredData(
       {
         breadcrumbId: breadcrumbNode?.['@id'] as string | undefined,
         publisherId,
-        mainEntityId: lodgingEntityId,
+        mainEntityId: lodgingEntityId ?? articleEntityId,
         image: ogImage
       }
     )
@@ -716,6 +822,20 @@ export function resolveStructuredData(
 
   if (includeBrand) {
     graph.push(buildBrandNode(BRAND_ENTITY, origin));
+  }
+
+  if (seo?.article) {
+    graph.push(
+      buildArticleNode(
+        seo.article,
+        canonicalUrl,
+        current.title,
+        current.description,
+        currentLang,
+        origin,
+        ogImage
+      )
+    );
   }
 
   /**

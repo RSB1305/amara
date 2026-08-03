@@ -21,6 +21,8 @@ export const STATIC_CANONICAL_PUBLIC_SLUGS = Object.freeze([
   'nerja-location',
   'nerja-nightlife',
   'tarifa-location',
+  'tarifa-wind-kitesurfing',
+  'tarifa-beaches',
   'frigiliana-market',
   'frigiliana-beaches',
   'frigiliana-hiking',

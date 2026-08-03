@@ -230,7 +230,20 @@ legal_notice: {
     /* =========================================================
        TARIFA — AUTHORITY (PUBLIC)
     ========================================================= */
-    tarifa_beaches_authority: { en: '/en/tarifa-beaches', de: '/de/tarifa-beaches', es: '/es/tarifa-beaches', nl: '/nl/tarifa-beaches', sv: '/sv/tarifa-beaches' },
+    tarifa_wind_kitesurfing_authority: {
+      en: buildOwnedLocalizedPath('tarifa-wind-kitesurfing', 'en'),
+      de: buildOwnedLocalizedPath('tarifa-wind-kitesurfing', 'de'),
+      es: buildOwnedLocalizedPath('tarifa-wind-kitesurfing', 'es'),
+      nl: buildOwnedLocalizedPath('tarifa-wind-kitesurfing', 'nl'),
+      sv: buildOwnedLocalizedPath('tarifa-wind-kitesurfing', 'sv')
+    },
+    tarifa_beaches_authority: {
+      en: buildOwnedLocalizedPath('tarifa-beaches', 'en'),
+      de: buildOwnedLocalizedPath('tarifa-beaches', 'de'),
+      es: buildOwnedLocalizedPath('tarifa-beaches', 'es'),
+      nl: buildOwnedLocalizedPath('tarifa-beaches', 'nl'),
+      sv: buildOwnedLocalizedPath('tarifa-beaches', 'sv')
+    },
 
     /* =========================================================
        TARIFA — GUEST GUIDE (UTILITY)
@@ -638,6 +651,7 @@ legal_notice: {
        TARIFA — AUTHORITY (LEGACY TOKENS)
     ========================================================= */
     __TARIFA_BEACHES_AUTHORITY__: { lang: 'auto', key: 'tarifa_beaches_authority' },
+    __TARIFA_WIND_KITESURFING_AUTHORITY__: { lang: 'auto', key: 'tarifa_wind_kitesurfing_authority' },
 
     /* =========================================================
        TARIFA — GUEST (LEGACY TOKENS)
