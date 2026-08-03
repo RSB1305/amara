@@ -2,3 +2,4 @@ User-agent: *
 Allow: /
 
 Sitemap: https://amara-lodging.es/sitemap-index.xml
+Sitemap: https://amara-lodging.es/vacation-rentals-sitemap.xml

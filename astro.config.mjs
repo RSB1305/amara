@@ -13,6 +13,11 @@ function removeToolsFromDist() {
     name: 'remove-tools-from-dist',
     hooks: {
       'astro:build:done': ({ dir }) => {
+        // Internal tools remain excluded unless a local QA build explicitly opts in.
+        if (process.env.AMARA_INCLUDE_INTERNAL_TOOLS === 'true') {
+          return;
+        }
+
         const outRoot = fileURLToPath(dir);
         let toolsDir = join(outRoot, 'tools');
         if (!existsSync(toolsDir)) {
@@ -59,6 +64,7 @@ const sitemapExcludedSlugs = new Set([
   'structuur-en-trappen-van-de-frigiliana-site',
   'frigiliana-tomtens-struktur-och-trappor',
   'instagram',
+  'vacation-rentals-sitemap.xml',
   'test',
   // Internal, noindex Guest Guide pages must never appear in the sitemap.
   ...guestGuideEntries.map((entry) => entry.slug)

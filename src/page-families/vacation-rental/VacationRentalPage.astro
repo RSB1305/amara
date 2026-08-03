@@ -498,7 +498,11 @@ const locationLinks = locationLinkSpecs.flatMap(({ token, label }) => {
 const locationBody = locationLinks.length > 0
   ? t(ui.locationBodyWithGuides as LocalizedText)
   : t(ui.locationBodyWithoutGuides as LocalizedText);
-const galleryImages = rental.images.slice(1);
+// Keep the visible page calm while the complete image set remains available
+// to the Astro-owned VacationRental structured data.
+const visibleImages = rental.images.slice(0, 8);
+const heroImage = visibleImages[0];
+const galleryImages = visibleImages.slice(1);
 ---
 
 <BaseLayout seo={seo} pageLang={currentLang} footerHighlights={footerHighlights}>
@@ -540,7 +544,7 @@ const galleryImages = rental.images.slice(1);
 
         <figure class="mt-12 aspect-[16/9] max-h-[720px] overflow-hidden bg-surface-container-low">
           <AmaraImage
-            src={rental.images[0]}
+            src={heroImage}
             alt={t(rental.imageAlt)}
             profile="hero"
             sizes="(max-width: 1535px) calc(100vw - 3rem), 1440px"

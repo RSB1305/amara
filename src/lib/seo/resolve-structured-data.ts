@@ -464,6 +464,81 @@ function buildBrandNode(entity: BrandEntity, origin: string) {
   };
 }
 
+const GOOGLE_VACATION_RENTAL_BOOLEAN_AMENITIES = new Set([
+  'ac',
+  'airportShuttle',
+  'balcony',
+  'beachAccess',
+  'childFriendly',
+  'crib',
+  'elevator',
+  'fireplace',
+  'freeBreakfast',
+  'gymFitnessEquipment',
+  'heating',
+  'hotTub',
+  'instantBookable',
+  'ironingBoard',
+  'kitchen',
+  'microwave',
+  'outdoorGrill',
+  'ovenStove',
+  'patio',
+  'petsAllowed',
+  'pool',
+  'privateBeachAccess',
+  'selfCheckinCheckout',
+  'smokingAllowed',
+  'tv',
+  'washerDryer',
+  'wheelchairAccessible',
+  'wifi'
+]);
+
+const GOOGLE_VACATION_RENTAL_ENUM_AMENITIES: Record<string, Set<string>> = {
+  internetType: new Set(['Free', 'Paid', 'None']),
+  parkingType: new Set(['Free', 'Paid', 'None']),
+  poolType: new Set(['Indoor', 'Outdoor', 'None'])
+};
+
+function buildGoogleVacationRentalAmenities(
+  features: VacationRentalEntity['amenityFeatures']
+): SchemaNode[] {
+  const normalized = new Map<string, SchemaNode>();
+
+  for (const feature of features) {
+    let name = feature.name;
+    let value = feature.value;
+
+    // Preserve detailed guest copy while emitting only Google's documented taxonomy.
+    if (name === 'washingMachine') {
+      name = 'washerDryer';
+    } else if (name === 'privatePatio') {
+      name = 'patio';
+    } else if (name === 'parkingType' && value === 'ReservedUndergroundIncluded') {
+      value = 'Free';
+    }
+
+    const isSupportedBoolean =
+      typeof value === 'boolean' && GOOGLE_VACATION_RENTAL_BOOLEAN_AMENITIES.has(name);
+    const isSupportedEnum =
+      typeof value === 'string' && GOOGLE_VACATION_RENTAL_ENUM_AMENITIES[name]?.has(value);
+    const isLicense = name === 'licenseNum' && typeof value === 'string' && value.length > 0;
+
+    if (!isSupportedBoolean && !isSupportedEnum && !isLicense) {
+      continue;
+    }
+
+    normalized.set(`${name}:${String(value)}`, {
+      '@type': 'LocationFeatureSpecification',
+      name,
+      value
+    });
+  }
+
+  return [...normalized.values()];
+}
+
 function buildVacationRentalNode(
   entity: VacationRentalEntity,
   canonicalUrl: string,
@@ -486,11 +561,7 @@ function buildVacationRentalNode(
       '@type': 'QuantitativeValue',
       value: entity.occupancy
     },
-    amenityFeature: entity.amenityFeatures.map((feature) => ({
-      '@type': 'LocationFeatureSpecification',
-      name: feature.name,
-      value: feature.value
-    })),
+    amenityFeature: buildGoogleVacationRentalAmenities(entity.amenityFeatures),
     numberOfBathroomsTotal: entity.bathrooms,
     numberOfBedrooms: entity.bedrooms
   };

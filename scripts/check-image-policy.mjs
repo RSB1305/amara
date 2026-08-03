@@ -78,7 +78,11 @@ if (checkDist) {
     process.exit(1);
   }
 
-  const htmlFiles = walk(distRoot).filter((file) => extname(file) === '.html');
+  const htmlFiles = walk(distRoot).filter(
+    (file) =>
+      extname(file) === '.html' &&
+      relative(distRoot, file).split(sep)[0] !== 'tools'
+  );
   const distErrors = [];
 
   for (const file of htmlFiles) {

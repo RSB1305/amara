@@ -22,6 +22,21 @@ const KNOWN_BROKEN_BREADCRUMB_LABELS = new Set([
   'Lagenheter for par'
 ]);
 
+const GOOGLE_VACATION_RENTAL_BOOLEAN_AMENITIES = new Set([
+  'ac', 'airportShuttle', 'balcony', 'beachAccess', 'childFriendly', 'crib',
+  'elevator', 'fireplace', 'freeBreakfast', 'gymFitnessEquipment', 'heating',
+  'hotTub', 'instantBookable', 'ironingBoard', 'kitchen', 'microwave',
+  'outdoorGrill', 'ovenStove', 'patio', 'petsAllowed', 'pool',
+  'privateBeachAccess', 'selfCheckinCheckout', 'smokingAllowed', 'tv',
+  'washerDryer', 'wheelchairAccessible', 'wifi'
+]);
+
+const GOOGLE_VACATION_RENTAL_ENUM_AMENITIES = {
+  internetType: new Set(['Free', 'Paid', 'None']),
+  parkingType: new Set(['Free', 'Paid', 'None']),
+  poolType: new Set(['Indoor', 'Outdoor', 'None'])
+};
+
 const EXPERIENCE_DETAIL_SLUGS = new Set([
   'frigiliana-beaches',
   'frigiliana-hiking',
@@ -324,6 +339,19 @@ export function runStructuredDataAudit({
     for (const [field, value] of requiredRentalFields) {
       if (!value) {
         report(file, `VacationRental is missing required field: ${field}`);
+      }
+    }
+
+    for (const feature of vacationRental.containsPlace?.amenityFeature ?? []) {
+      const { name, value } = feature;
+      const isSupportedBoolean =
+        typeof value === 'boolean' && GOOGLE_VACATION_RENTAL_BOOLEAN_AMENITIES.has(name);
+      const isSupportedEnum =
+        typeof value === 'string' && GOOGLE_VACATION_RENTAL_ENUM_AMENITIES[name]?.has(value);
+      const isLicense = name === 'licenseNum' && typeof value === 'string' && value.length > 0;
+
+      if (!isSupportedBoolean && !isSupportedEnum && !isLicense) {
+        report(file, `VacationRental has unsupported Google amenity: ${name}=${value}`);
       }
     }
 
