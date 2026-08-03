@@ -42,6 +42,7 @@ export interface VacationRentalEntity {
   rooms?: number;
   occupancy: number;
   bed: VacationRentalBed[];
+  tvSizeInches: 40 | 50 | 60;
   priceRange: string;
   priceLabel: LocalizedText;
   checkinTime: string;
@@ -104,6 +105,7 @@ export const vacationRentalEntities: VacationRentalEntity[] = [
     rooms: 1,
     occupancy: 2,
     bed: [{ numberOfBeds: 1, typeOfBed: 'Queen', label: '160 x 200' }],
+    tvSizeInches: 40,
     priceRange: 'EUR 75-120',
     priceLabel: {
       en: 'EUR 75-120',
@@ -220,12 +222,13 @@ export const vacationRentalEntities: VacationRentalEntity[] = [
     amenityFeatures: withLicense('A/MA/01767', [
       { name: 'wifi', value: true },
       { name: 'internetType', value: 'Free' },
+      { name: 'ac', value: true },
+      { name: 'tv', value: true },
+      { name: 'rainShower', value: true },
       { name: 'selfCheckinCheckout', value: true },
       { name: 'heating', value: true },
-      { name: 'tv', value: true },
       { name: 'kitchen', value: false },
-      { name: 'petsAllowed', value: false },
-      { name: 'parkingType', value: 'Free' }
+      { name: 'petsAllowed', value: false }
     ])
   },
   {
@@ -245,6 +248,7 @@ export const vacationRentalEntities: VacationRentalEntity[] = [
     rooms: 3,
     occupancy: 2,
     bed: [{ numberOfBeds: 1, typeOfBed: 'Queen', label: '160 x 200' }],
+    tvSizeInches: 40,
     priceRange: 'EUR 90-180',
     priceLabel: {
       en: 'EUR 90-180',
@@ -362,13 +366,19 @@ export const vacationRentalEntities: VacationRentalEntity[] = [
       { name: 'wifi', value: true },
       { name: 'internetType', value: 'Free' },
       { name: 'ac', value: true },
+      { name: 'tv', value: true },
+      { name: 'doubleRainShower', value: true },
+      { name: 'washingMachine', value: true },
+      { name: 'pelletStove', value: true },
       { name: 'kitchen', value: true },
-      { name: 'patio', value: true },
+      { name: 'privatePatio', value: true },
+      { name: 'privateTerrace', value: true },
+      { name: 'sunLoungers', value: '2' },
+      { name: 'hammock', value: true },
+      { name: 'outdoorShower', value: true },
       { name: 'selfCheckinCheckout', value: true },
       { name: 'heating', value: true },
-      { name: 'tv', value: true },
-      { name: 'petsAllowed', value: true },
-      { name: 'parkingType', value: 'Free' }
+      { name: 'petsAllowed', value: true }
     ])
   },
   {
@@ -388,6 +398,7 @@ export const vacationRentalEntities: VacationRentalEntity[] = [
     rooms: 3,
     occupancy: 2,
     bed: [{ numberOfBeds: 1, typeOfBed: 'King', label: '180 x 200' }],
+    tvSizeInches: 40,
     priceRange: 'EUR 90-180',
     priceLabel: {
       en: 'EUR 90-180',
@@ -505,13 +516,18 @@ export const vacationRentalEntities: VacationRentalEntity[] = [
       { name: 'wifi', value: true },
       { name: 'internetType', value: 'Free' },
       { name: 'ac', value: true },
+      { name: 'tv', value: true },
+      { name: 'doubleRainShower', value: true },
+      { name: 'washingMachine', value: true },
+      { name: 'pelletStove', value: true },
       { name: 'kitchen', value: true },
-      { name: 'patio', value: true },
+      { name: 'privateTerrace', value: true },
+      { name: 'sunLoungers', value: '2' },
+      { name: 'hammock', value: true },
+      { name: 'outdoorShower', value: true },
       { name: 'selfCheckinCheckout', value: true },
       { name: 'heating', value: true },
-      { name: 'tv', value: true },
-      { name: 'petsAllowed', value: false },
-      { name: 'parkingType', value: 'Free' }
+      { name: 'petsAllowed', value: false }
     ])
   },
   {
@@ -531,6 +547,7 @@ export const vacationRentalEntities: VacationRentalEntity[] = [
     rooms: 3,
     occupancy: 2,
     bed: [{ numberOfBeds: 1, typeOfBed: 'Double', label: '150 x 200' }],
+    tvSizeInches: 40,
     priceRange: 'EUR 90-180',
     priceLabel: {
       en: 'EUR 90-180',
@@ -648,14 +665,18 @@ export const vacationRentalEntities: VacationRentalEntity[] = [
       { name: 'wifi', value: true },
       { name: 'internetType', value: 'Free' },
       { name: 'ac', value: true },
+      { name: 'tv', value: true },
+      { name: 'rainShower', value: true },
+      { name: 'pelletStove', value: true },
       { name: 'kitchen', value: true },
-      { name: 'patio', value: true },
+      { name: 'privateTerrace', value: true },
+      { name: 'sunLoungers', value: '2' },
+      { name: 'hammock', value: true },
+      { name: 'outdoorShower', value: true },
       { name: 'outdoorGrill', value: true },
       { name: 'selfCheckinCheckout', value: true },
       { name: 'heating', value: true },
-      { name: 'tv', value: true },
-      { name: 'petsAllowed', value: true },
-      { name: 'parkingType', value: 'Free' }
+      { name: 'petsAllowed', value: true }
     ])
   },
   {
@@ -681,6 +702,7 @@ export const vacationRentalEntities: VacationRentalEntity[] = [
     rooms: 3,
     occupancy: 2,
     bed: [{ numberOfBeds: 1, typeOfBed: 'King', label: '200 x 200' }],
+    tvSizeInches: 50,
     priceRange: 'EUR 90-180',
     priceLabel: {
       en: 'EUR 90-180',
@@ -798,14 +820,15 @@ export const vacationRentalEntities: VacationRentalEntity[] = [
       { name: 'wifi', value: true },
       { name: 'internetType', value: 'Free' },
       { name: 'ac', value: true },
+      { name: 'tv', value: true },
+      { name: 'rainShower', value: true },
+      { name: 'washingMachine', value: true },
       { name: 'kitchen', value: true },
       { name: 'balcony', value: true },
       { name: 'beachAccess', value: true },
       { name: 'selfCheckinCheckout', value: true },
       { name: 'heating', value: true },
-      { name: 'tv', value: true },
-      { name: 'petsAllowed', value: false },
-      { name: 'parkingType', value: 'Free' }
+      { name: 'petsAllowed', value: false }
     ])
   },
   {
@@ -834,6 +857,7 @@ export const vacationRentalEntities: VacationRentalEntity[] = [
       { numberOfBeds: 1, typeOfBed: 'Double', label: '150 x 200' },
       { numberOfBeds: 2, typeOfBed: 'Single', label: 'Bunk bed' }
     ],
+    tvSizeInches: 60,
     priceRange: 'EUR 140-350',
     priceLabel: {
       en: 'EUR 140-350',
@@ -896,11 +920,11 @@ export const vacationRentalEntities: VacationRentalEntity[] = [
       sv: ['Helt hus för upp till 4 gäster', 'Havsutsikt och terrass', 'Gemensam utomhuspool']
     },
     accessNote: {
-      en: 'Stairs likely',
-      de: 'Treppen wahrscheinlich',
-      es: 'Es probable que haya escaleras',
-      nl: 'Trappen waarschijnlijk',
-      sv: 'Troligen trappor'
+      en: 'Step-free entrance; internal steps within the apartment',
+      de: 'Stufenloser Zugang; Stufen innerhalb des Apartments',
+      es: 'Acceso sin escalones; hay escalones dentro del apartamento',
+      nl: 'Drempelvrije toegang; traptreden in het appartement',
+      sv: 'Stegfri entré; trappsteg inne i lägenheten'
     },
     petsNote: {
       en: 'Pets are not allowed',
@@ -951,6 +975,10 @@ export const vacationRentalEntities: VacationRentalEntity[] = [
       { name: 'wifi', value: true },
       { name: 'internetType', value: 'Free' },
       { name: 'ac', value: true },
+      { name: 'tv', value: true },
+      { name: 'rainShower', value: true },
+      { name: 'washingMachine', value: true },
+      { name: 'fireplace', value: true },
       { name: 'kitchen', value: true },
       { name: 'patio', value: true },
       { name: 'pool', value: true },
@@ -958,9 +986,8 @@ export const vacationRentalEntities: VacationRentalEntity[] = [
       { name: 'childFriendly', value: true },
       { name: 'selfCheckinCheckout', value: true },
       { name: 'heating', value: true },
-      { name: 'tv', value: true },
       { name: 'petsAllowed', value: false },
-      { name: 'parkingType', value: 'Free' }
+      { name: 'parkingType', value: 'ReservedUndergroundIncluded' }
     ])
   }
 ];

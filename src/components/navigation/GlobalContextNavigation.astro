@@ -23,13 +23,15 @@ const labels: Record<
   {
     breadcrumb: string;
     discover: string;
+    aboutUs: string;
     stays: string;
     switcher: string;
     destinations: string;
     allStays: string;
     amenities: string;
     reviews: string;
-    directBooking: string;
+    checkAvailability: string;
+    directBookingBenefits: string;
     faq: string;
     arrival: string;
   }
@@ -37,65 +39,75 @@ const labels: Record<
   en: {
     breadcrumb: 'Breadcrumb',
     discover: 'Discover AMARA',
+    aboutUs: 'About Us',
     stays: 'Stays',
     switcher: 'Explore AMARA',
     destinations: 'Destinations',
     allStays: 'All stays',
     amenities: 'Comfort & Amenities',
     reviews: 'Guest Reviews',
-    directBooking: 'Direct Booking',
+    checkAvailability: 'Check Availability',
+    directBookingBenefits: 'Direct Booking Benefits',
     faq: 'Stay FAQ',
     arrival: 'Arrival Guide'
   },
   de: {
     breadcrumb: 'Brotkrümelnavigation',
     discover: 'AMARA entdecken',
+    aboutUs: 'Über uns',
     stays: 'Unterkünfte',
     switcher: 'AMARA entdecken',
     destinations: 'Reiseziele',
     allStays: 'Alle Unterkünfte',
     amenities: 'Komfort & Ausstattung',
     reviews: 'Gästebewertungen',
-    directBooking: 'Direktbuchung',
+    checkAvailability: 'Verfügbarkeit prüfen',
+    directBookingBenefits: 'Vorteile der Direktbuchung',
     faq: 'Aufenthalts-FAQ',
     arrival: 'Anreise-Guide'
   },
   es: {
     breadcrumb: 'Migas de pan',
     discover: 'Descubrir AMARA',
+    aboutUs: 'Sobre nosotros',
     stays: 'Alojamientos',
     switcher: 'Descubrir AMARA',
     destinations: 'Destinos',
     allStays: 'Todos los alojamientos',
     amenities: 'Confort y servicios',
     reviews: 'Opiniones de huéspedes',
-    directBooking: 'Reserva directa',
+    checkAvailability: 'Ver disponibilidad',
+    directBookingBenefits: 'Ventajas de reserva directa',
     faq: 'FAQ de la estancia',
     arrival: 'Guía de llegada'
   },
   nl: {
     breadcrumb: 'Broodkruimelnavigatie',
     discover: 'AMARA ontdekken',
+    aboutUs: 'Over ons',
     stays: 'Verblijven',
     switcher: 'AMARA ontdekken',
     destinations: 'Bestemmingen',
     allStays: 'Alle verblijven',
     amenities: 'Comfort en voorzieningen',
     reviews: 'Gastbeoordelingen',
-    directBooking: 'Direct boeken',
+    checkAvailability: 'Beschikbaarheid bekijken',
+    directBookingBenefits: 'Voordelen van direct boeken',
     faq: 'Verblijfs-FAQ',
     arrival: 'Aankomstgids'
   },
   sv: {
     breadcrumb: 'Brödsmulenavigering',
     discover: 'Upptäck AMARA',
+    aboutUs: 'Om oss',
     stays: 'Boenden',
     switcher: 'Upptäck AMARA',
     destinations: 'Resmål',
     allStays: 'Alla boenden',
     amenities: 'Komfort och bekvämligheter',
     reviews: 'Gästrecensioner',
-    directBooking: 'Direktbokning',
+    checkAvailability: 'Se tillgänglighet',
+    directBookingBenefits: 'Fördelar med direktbokning',
     faq: 'FAQ för vistelsen',
     arrival: 'Ankomstguide'
   }
@@ -105,14 +117,26 @@ const copy = labels[lang];
 const normalizePath = (value: string) =>
   (value.replace(/\/index\.html$/i, '/').replace(/\.html$/i, '').replace(/\/$/, '') || '/');
 const currentPath = normalizePath(pathname);
+const homeHref = resolveLink('home', lang);
+const isHome = currentPath === normalizePath(homeHref);
 const cleanPageTitle = pageTitle.replace(/\s*[|–—-]\s*AMARA(?:\s+Lodging)?\s*$/i, '').trim();
+const isDirectBookingBenefits =
+  currentPath === normalizePath(resolveLink('direct_booking_benefits', lang));
+const breadcrumbSection = isDirectBookingBenefits
+  ? copy.aboutUs
+  : isStay
+    ? copy.stays
+    : copy.discover;
+const breadcrumbTitle = isDirectBookingBenefits
+  ? copy.directBookingBenefits
+  : cleanPageTitle || breadcrumbSection;
 
 const genericItems: ContextNavigationItem[] = [
   { id: 'destinations', href: resolveLink('explore_hub', lang), label: copy.destinations },
   { id: 'stays', href: resolveLink('romantic_hideaways', lang), label: copy.allStays },
   { id: 'amenities', href: resolveLink('amenities', lang), label: copy.amenities },
   { id: 'reviews', href: resolveLink('reviews_hub', lang), label: copy.reviews },
-  { id: 'direct-booking', href: resolveLink('direct_booking_benefits', lang), label: copy.directBooking },
+  { id: 'availability', href: resolveLink('book', lang), label: copy.checkAvailability },
   { id: 'faq', href: resolveLink('faq_general', lang), label: copy.faq }
 ];
 
@@ -120,23 +144,22 @@ const stayItems: ContextNavigationItem[] = [
   { id: 'stays', href: resolveLink('romantic_hideaways', lang), label: copy.allStays },
   { id: 'amenities', href: resolveLink('amenities', lang), label: copy.amenities },
   { id: 'reviews', href: resolveLink('reviews_hub', lang), label: copy.reviews },
-  { id: 'direct-booking', href: resolveLink('direct_booking_benefits', lang), label: copy.directBooking },
+  { id: 'availability', href: resolveLink('book', lang), label: copy.checkAvailability },
   { id: 'faq', href: resolveLink('faq_general', lang), label: copy.faq },
   { id: 'arrival', href: resolveLink('arrival_guide', lang), label: copy.arrival }
 ];
 
 const items = isStay ? stayItems : genericItems;
 const activeId = items.find((item) => normalizePath(item.href) === currentPath)?.id;
-const homeHref = resolveLink('home', lang);
 ---
 
 <ContextNavigation
   activeId={activeId}
   breadcrumbAriaLabel={copy.breadcrumb}
-  breadcrumbs={[
+  breadcrumbs={isHome ? [] : [
     { label: 'AMARA', href: homeHref },
-    { label: isStay ? copy.stays : copy.discover },
-    { label: cleanPageTitle || (isStay ? copy.stays : copy.discover) }
+    { label: breadcrumbSection },
+    { label: breadcrumbTitle }
   ]}
   context="experience"
   items={items}

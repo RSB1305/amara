@@ -54,6 +54,8 @@ const visibleItems = activeId
 >
   <div class="mx-auto max-w-screen-2xl px-6 py-5 md:px-12">
     <div class="flex flex-col gap-5 xl:flex-row xl:items-center xl:justify-between">
+      {
+        breadcrumbs.length > 0 && (
       <div class="flex flex-wrap items-center justify-between gap-x-8 gap-y-3">
         <nav aria-label={breadcrumbAriaLabel}>
           <ol class="flex flex-wrap items-center gap-2 font-label text-[10px] font-semibold uppercase tracking-[0.14em] text-on-surface/55">
@@ -102,6 +104,8 @@ const visibleItems = activeId
           )
         }
       </div>
+        )
+      }
 
       <nav aria-label={switcherAriaLabel} class="min-w-0">
         <ul class="-mx-1 flex flex-nowrap items-center gap-0.5 overflow-x-auto overscroll-x-contain pb-1 xl:justify-end xl:overflow-visible xl:pb-0">

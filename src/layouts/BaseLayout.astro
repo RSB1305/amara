@@ -4,6 +4,7 @@ import type { AmaraAuthoringSeo, AmaraLanguage } from '../types/seo';
 import BackToTop from '../components/BackToTop.astro';
 import Footer from '../components/Footer.astro';
 import GlobalContextNavigation from '../components/navigation/GlobalContextNavigation.astro';
+import { resolveLink } from '../lib/linkResolver';
 import {
   normalizeLanguage,
   OG_LOCALES,
@@ -40,7 +41,12 @@ const {
 const pathname = Astro.url.pathname;
 const rawLang = pathname.split('/')[1] || 'es';
 const currentLang: AmaraLanguage = pageLang ?? normalizeLanguage(rawLang);
-const shouldShowContextNavigation = showContextNavigation && !pathname.startsWith('/tools/');
+const normalizePath = (value: string) =>
+  value.replace(/\/index\.html$/i, '/').replace(/\.html$/i, '').replace(/\/$/, '') || '/';
+const isHomePage =
+  normalizePath(pathname) === normalizePath(resolveLink('home', currentLang));
+const shouldShowContextNavigation =
+  showContextNavigation && !isHomePage && !pathname.startsWith('/tools/');
 
 const origin = Astro.url.origin;
 

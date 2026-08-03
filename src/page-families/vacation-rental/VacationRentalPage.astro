@@ -4,6 +4,7 @@ import Navigation from '../../components/Navigation.astro';
 import AmaraImage from '../../components/AmaraImage.astro';
 import {
   buildVacationRentalSeo,
+  vacationRentalEntitiesByKey,
   type VacationRentalAmenityFeature,
   type VacationRentalEntity
 } from '../../content/vacationRentalEntities';
@@ -18,7 +19,8 @@ interface Props {
 
 type LocalizedText = Record<AmaraLanguage, string>;
 
-const { rental, lang = 'es' } = Astro.props;
+const { rental: rentalProp, lang = 'es' } = Astro.props;
+const rental = vacationRentalEntitiesByKey[rentalProp.key] ?? rentalProp;
 const currentLang = normalizeLanguage(lang as AmaraLanguage);
 const seo = buildVacationRentalSeo(rental);
 
@@ -59,11 +61,11 @@ const ui = {
     sv: 'Fakta'
   },
   detailsTitle: {
-    en: 'Stay details',
-    de: 'Details zum Aufenthalt',
-    es: 'Detalles de la estancia',
-    nl: 'Verblijfsdetails',
-    sv: 'Detaljer om vistelsen'
+    en: 'Practical details',
+    de: 'Praktische Details',
+    es: 'Detalles prácticos',
+    nl: 'Praktische details',
+    sv: 'Praktiska detaljer'
   },
   galleryTitle: {
     en: 'Apartment images',
@@ -100,21 +102,21 @@ const ui = {
     nl: 'Vergelijk de praktische verblijfsdetails met de AMARA-gastbeoordelingen voordat je data kiest.',
     sv: 'Jämför de praktiska detaljerna med AMARAs gästomdömen innan ni väljer datum.'
   },
-  parkingGuide: {
-    en: 'Parking guide',
-    de: 'Parkguide',
-    es: 'Guía de aparcamiento',
-    nl: 'Parkeergids',
-    sv: 'Parkeringsguide'
+  frigilianaLocationGuide: {
+    en: 'Frigiliana',
+    de: 'Frigiliana',
+    es: 'Frigiliana',
+    nl: 'Frigiliana',
+    sv: 'Frigiliana'
+  },
+  experiencesGuide: {
+    en: 'Experiences',
+    de: 'Erlebnisse',
+    es: 'Experiencias',
+    nl: 'Ervaringen',
+    sv: 'Upplevelser'
   },
   labels: {
-    propertyId: {
-      en: 'Property ID',
-      de: 'Property-ID',
-      es: 'ID del alojamiento',
-      nl: 'Property-ID',
-      sv: 'Property-ID'
-    },
     license: {
       en: 'License',
       de: 'Lizenz',
@@ -149,6 +151,62 @@ const ui = {
       es: 'Camas',
       nl: 'Bedden',
       sv: 'Sängar'
+    },
+    bedSize: {
+      en: 'Bed size',
+      de: 'Bettgröße',
+      es: 'Tamaño de cama',
+      nl: 'Bedmaat',
+      sv: 'Sängstorlek'
+    },
+    airConditioning: {
+      en: 'Air conditioning',
+      de: 'Klimaanlage',
+      es: 'Aire acondicionado',
+      nl: 'Airconditioning',
+      sv: 'Luftkonditionering'
+    },
+    pelletStove: {
+      en: 'Pellet stove',
+      de: 'Pelletofen',
+      es: 'Estufa de pellets',
+      nl: 'Pelletkachel',
+      sv: 'Pelletskamin'
+    },
+    hammock: {
+      en: 'Hammock',
+      de: 'Hängematte',
+      es: 'Hamaca',
+      nl: 'Hangmat',
+      sv: 'Hängmatta'
+    },
+    outdoorShower: {
+      en: 'Outdoor shower',
+      de: 'Außendusche',
+      es: 'Ducha exterior',
+      nl: 'Buitendouche',
+      sv: 'Utomhusdusch'
+    },
+    sunLoungers: {
+      en: 'Sun loungers',
+      de: 'Sonnenliegen',
+      es: 'Tumbonas',
+      nl: 'Ligbedden',
+      sv: 'Solstolar'
+    },
+    coolingHeating: {
+      en: 'Cooling & Heating',
+      de: 'Kühlen & Heizen',
+      es: 'Frío y calor',
+      nl: 'Koelen en verwarmen',
+      sv: 'Kyla och värme'
+    },
+    included: {
+      en: 'Included',
+      de: 'Inklusive',
+      es: 'Incluido',
+      nl: 'Inbegrepen',
+      sv: 'Ingår'
     },
     price: {
       en: 'Indicative price',
@@ -185,6 +243,34 @@ const ui = {
       nl: 'Huisdieren',
       sv: 'Husdjur'
     },
+    selfCheckin: {
+      en: 'Self check-in',
+      de: 'Self Check-in',
+      es: 'Entrada autónoma',
+      nl: 'Zelf inchecken',
+      sv: 'Självincheckning'
+    },
+    parking: {
+      en: 'Parking',
+      de: 'Parken',
+      es: 'Aparcamiento',
+      nl: 'Parkeren',
+      sv: 'Parkering'
+    },
+    available: {
+      en: 'Available',
+      de: 'Verfügbar',
+      es: 'Disponible',
+      nl: 'Beschikbaar',
+      sv: 'Tillgängligt'
+    },
+    freeParking: {
+      en: 'Free parking',
+      de: 'Kostenloses Parken',
+      es: 'Aparcamiento gratuito',
+      nl: 'Gratis parkeren',
+      sv: 'Gratis parkering'
+    },
     kitchen: {
       en: 'Kitchen',
       de: 'Küche',
@@ -217,21 +303,54 @@ const amenityLabels: Record<string, LocalizedText> = {
   heating: { en: 'Heating', de: 'Heizung', es: 'Calefacción', nl: 'Verwarming', sv: 'Värme' },
   internetType: { en: 'Internet', de: 'Internet', es: 'Internet', nl: 'Internet', sv: 'Internet' },
   kitchen: { en: 'Kitchen', de: 'Küche', es: 'Cocina', nl: 'Keuken', sv: 'Kök' },
+  rainShower: { en: 'Rain shower', de: 'Regendusche', es: 'Ducha de lluvia', nl: 'Regendouche', sv: 'Regndusch' },
+  doubleRainShower: { en: 'Double shower / Rain shower', de: 'Doppeldusche / Regendusche', es: 'Ducha doble / Ducha de lluvia', nl: 'Dubbele douche / Regendouche', sv: 'Dubbeldusch / Regndusch' },
+  washingMachine: { en: 'Washing machine', de: 'Waschmaschine', es: 'Lavadora', nl: 'Wasmachine', sv: 'Tvättmaskin' },
+  fireplace: { en: 'Fireplace', de: 'Kamin', es: 'Chimenea', nl: 'Open haard', sv: 'Eldstad' },
   licenseNum: { en: 'License number', de: 'Lizenznummer', es: 'Número de licencia', nl: 'Licentienummer', sv: 'Licensnummer' },
   outdoorGrill: { en: 'Outdoor grill', de: 'Outdoor-Grill', es: 'Barbacoa exterior', nl: 'Buitengrill', sv: 'Utomhusgrill' },
   parkingType: { en: 'Parking', de: 'Parken', es: 'Aparcamiento', nl: 'Parkeren', sv: 'Parkering' },
   patio: { en: 'Patio or terrace', de: 'Patio oder Terrasse', es: 'Patio o terraza', nl: 'Patio of terras', sv: 'Uteplats eller terrass' },
+  privatePatio: { en: 'Private patio', de: 'Privater Patio', es: 'Patio privado', nl: 'Privépatio', sv: 'Privat uteplats' },
+  privateTerrace: { en: 'Private terrace', de: 'Private Terrasse', es: 'Terraza privada', nl: 'Privéterras', sv: 'Privat terrass' },
+  pelletStove: { en: 'Pellet stove', de: 'Pelletofen', es: 'Estufa de pellets', nl: 'Pelletkachel', sv: 'Pelletskamin' },
   petsAllowed: { en: 'Pets allowed', de: 'Haustiere erlaubt', es: 'Mascotas permitidas', nl: 'Huisdieren toegestaan', sv: 'Husdjur tillatna' },
   pool: { en: 'Pool', de: 'Pool', es: 'Piscina', nl: 'Zwembad', sv: 'Pool' },
   poolType: { en: 'Pool type', de: 'Pooltyp', es: 'Tipo de piscina', nl: 'Zwembadtype', sv: 'Pooltyp' },
   selfCheckinCheckout: { en: 'Self check-in', de: 'Self Check-in', es: 'Entrada autónoma', nl: 'Zelf inchecken', sv: 'Självincheckning' },
+  hammock: { en: 'Hammock', de: 'Hängematte', es: 'Hamaca', nl: 'Hangmat', sv: 'Hängmatta' },
+  outdoorShower: { en: 'Outdoor shower', de: 'Außendusche', es: 'Ducha exterior', nl: 'Buitendouche', sv: 'Utomhusdusch' },
+  sunLoungers: { en: 'Sun loungers', de: 'Sonnenliegen', es: 'Tumbonas', nl: 'Ligbedden', sv: 'Solstolar' },
   tv: { en: 'TV', de: 'TV', es: 'TV', nl: 'TV', sv: 'TV' },
   wifi: { en: 'WiFi', de: 'WLAN', es: 'WiFi', nl: 'Wifi', sv: 'WiFi' }
 };
 
 const amenityValueLabels: Record<string, LocalizedText> = {
   Free: { en: 'Included', de: 'Inklusive', es: 'Incluido', nl: 'Inbegrepen', sv: 'Ingår' },
-  Outdoor: { en: 'Outdoor', de: 'Im Freien', es: 'Exterior', nl: 'Buiten', sv: 'Utomhus' }
+  Outdoor: { en: 'Outdoor', de: 'Im Freien', es: 'Exterior', nl: 'Buiten', sv: 'Utomhus' },
+  ReservedUndergroundIncluded: {
+    en: 'Reserved underground parking space included',
+    de: 'Reservierter Tiefgaragenstellplatz inklusive',
+    es: 'Plaza de aparcamiento subterráneo reservada incluida',
+    nl: 'Gereserveerde ondergrondse parkeerplaats inbegrepen',
+    sv: 'Reserverad garageplats under mark ingår'
+  }
+};
+
+const highSpeedFiberInternet: LocalizedText = {
+  en: 'High-speed fiber internet',
+  de: 'Highspeed-Glasfaser-Internet',
+  es: 'Internet de fibra de alta velocidad',
+  nl: 'Snel glasvezelinternet',
+  sv: 'Fiberinternet med hög hastighet'
+};
+
+const coolingAndHeating: LocalizedText = {
+  en: 'Air conditioning — Cooling & Heating',
+  de: 'Klimaanlage — Kühlen & Heizen',
+  es: 'Aire acondicionado — Frío y calor',
+  nl: 'Airconditioning — Koelen en verwarmen',
+  sv: 'Luftkonditionering — Kyla och värme'
 };
 
 const bunkBedLabel: LocalizedText = {
@@ -245,9 +364,46 @@ const bunkBedLabel: LocalizedText = {
 const t = (value: LocalizedText) => value[currentLang] ?? value.en;
 const formatCount = (count: number, singular: string, plural: string) =>
   count === 1 ? `1 ${singular}` : `${count} ${plural}`;
+const tvSizeInches = rental.tvSizeInches ?? (
+  rental.city === 'Nerja' ? 50 : rental.city === 'Tarifa' ? 60 : 40
+);
 const formatAmenity = (feature: VacationRentalAmenityFeature) => {
-  if (feature.value === false || feature.name === 'licenseNum') {
+  const practicalOnlyAmenities = new Set([
+    'internetType',
+    'licenseNum',
+    'parkingType',
+    'petsAllowed',
+    'selfCheckinCheckout'
+  ]);
+  const hasAirConditioning = rental.amenityFeatures.some(
+    (item) => item.name === 'ac' && item.value !== false
+  );
+
+  if (
+    feature.value === false ||
+    practicalOnlyAmenities.has(feature.name) ||
+    (feature.name === 'heating' && hasAirConditioning)
+  ) {
     return null;
+  }
+
+  if (feature.name === 'wifi') {
+    return t(highSpeedFiberInternet);
+  }
+
+  if (feature.name === 'ac') {
+    return t(coolingAndHeating);
+  }
+
+  if (feature.name === 'tv') {
+    const tvLabels: LocalizedText = {
+      en: `${tvSizeInches}″ Flat-screen TV`,
+      de: `${tvSizeInches}″ Flachbild-TV`,
+      es: `TV de pantalla plana de ${tvSizeInches}″`,
+      nl: `${tvSizeInches}″ flatscreen-tv`,
+      sv: `${tvSizeInches}″ platt-TV`
+    };
+    return t(tvLabels);
   }
 
   const label = t(amenityLabels[feature.name] ?? {
@@ -283,20 +439,31 @@ const factRows = [
   { label: t(ui.labels.guests as LocalizedText), value: t(localizedGuests) },
   { label: t(ui.labels.bedrooms as LocalizedText), value: String(rental.bedrooms) },
   { label: t(ui.labels.bathrooms as LocalizedText), value: String(rental.bathrooms) },
-  { label: t(ui.labels.beds as LocalizedText), value: rental.bed.map(formatBed).join(', ') },
   { label: t(ui.labels.price as LocalizedText), value: rental.priceLabel[currentLang] },
   { label: t(ui.labels.license as LocalizedText), value: rental.license }
 ];
 
+const amenityValue = (name: string) =>
+  rental.amenityFeatures.find((feature) => feature.name === name)?.value;
+const hasAmenity = (name: string) => Boolean(amenityValue(name));
+const parkingValue = amenityValue('parkingType');
+const localizedParking = parkingValue === 'ReservedUndergroundIncluded'
+  ? t(amenityValueLabels.ReservedUndergroundIncluded)
+  : t(ui.labels.freeParking as LocalizedText);
+
 const detailRows = [
-  { label: t(ui.labels.propertyId as LocalizedText), value: rental.propertyId },
+  { label: t(ui.labels.bedSize as LocalizedText), value: rental.bed.map(formatBed).join(', ') },
+  { label: t(ui.labels.view as LocalizedText), value: t(rental.viewNote) },
+  { label: t(ui.labels.access as LocalizedText), value: t(rental.accessNote) },
   { label: t(ui.labels.checkin as LocalizedText), value: rental.checkinTime.slice(0, 5) },
   { label: t(ui.labels.checkout as LocalizedText), value: rental.checkoutTime.slice(0, 5) },
-  { label: t(ui.labels.access as LocalizedText), value: t(rental.accessNote) },
+  ...(hasAmenity('selfCheckinCheckout')
+    ? [{ label: t(ui.labels.selfCheckin as LocalizedText), value: t(ui.labels.available as LocalizedText) }]
+    : []),
   { label: t(ui.labels.pets as LocalizedText), value: t(rental.petsNote) },
-  { label: t(ui.labels.kitchen as LocalizedText), value: t(rental.kitchenNote) },
-  { label: t(ui.labels.outdoor as LocalizedText), value: t(rental.outdoorNote) },
-  { label: t(ui.labels.view as LocalizedText), value: t(rental.viewNote) }
+  ...(parkingValue
+    ? [{ label: t(ui.labels.parking as LocalizedText), value: localizedParking }]
+    : [])
 ];
 
 const visibleAmenities = rental.amenityFeatures
@@ -318,8 +485,8 @@ const collectionHref = resolveOptionalLink('romantic_hideaways', currentLang, { 
 const reviewsHref = resolveOptionalLink('reviews_hub', currentLang, { suppressMissing: true });
 const locationLinkSpecs = rental.city === 'Frigiliana'
   ? [
-      { token: 'location_frigiliana', label: 'Frigiliana' },
-      { token: 'frigiliana_parking', label: t(ui.parkingGuide as LocalizedText) }
+      { token: 'location_frigiliana', label: t(ui.frigilianaLocationGuide as LocalizedText) },
+      { token: 'explore_hub', label: t(ui.experiencesGuide as LocalizedText) }
     ]
   : rental.city === 'Nerja'
     ? [{ token: 'location_nerja', label: 'Nerja' }]
@@ -343,7 +510,7 @@ const galleryImages = rental.images.slice(1);
     languageToken={rental.token}
   />
 
-  <main class="am-root bg-surface min-h-screen" data-am-page="vacation-rental" data-rental-id={rental.propertyId}>
+  <main class="am-root bg-surface min-h-screen" data-am-page="vacation-rental">
     <div class="am-wrap w-full max-w-screen-2xl mx-auto px-6 md:px-12 pb-24">
       <section class="pt-8 pb-14 md:pb-20 border-b border-border-subtle">
         <div class="max-w-4xl">
@@ -414,13 +581,6 @@ const galleryImages = rental.images.slice(1);
             <p class="am-text-body text-on-surface-variant mt-6 max-w-2xl leading-relaxed">
               {t(rental.description)}
             </p>
-            <ul class="grid gap-3 mt-8">
-              {rental.highlights[currentLang].map((item) => (
-                <li class="am-text-body text-on-surface border-t border-border-subtle pt-3">
-                  {item}
-                </li>
-              ))}
-            </ul>
           </div>
 
           <dl class="grid gap-4">

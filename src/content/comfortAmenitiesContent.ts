@@ -9,11 +9,14 @@ type PropertySpecs = {
   beds?: LocalizedText;
   price: LocalizedText;
   accessNote: LocalizedText;
+  parking?: LocalizedText;
   pets: LocalizedText;
   pool?: LocalizedText;
   view: LocalizedText;
   outdoor?: LocalizedText;
   sunLoungers?: LocalizedText;
+  hammock?: LocalizedText;
+  outdoorShower?: LocalizedText;
   kitchen: LocalizedText;
   washingMachine?: LocalizedText;
   pelletStove?: LocalizedText;
@@ -82,10 +85,13 @@ export const comfortAmenitiesCopy: Record<
         beds: string;
         price: string;
         accessNote: string;
+        parking: string;
         pets: string;
         view: string;
         outdoor: string;
         sunLoungers: string;
+        hammock: string;
+        outdoorShower: string;
         kitchen: string;
         washingMachine: string;
         pelletStove: string;
@@ -143,10 +149,13 @@ export const comfortAmenitiesCopy: Record<
         beds: 'Beds',
         price: 'Price',
         accessNote: 'Access note',
+        parking: 'Parking',
         pets: 'Pets',
         view: 'View',
         outdoor: 'Outdoor',
         sunLoungers: 'Sun Loungers',
+        hammock: 'Hammock',
+        outdoorShower: 'Outdoor Shower',
         kitchen: 'Kitchen',
         washingMachine: 'Washing Machine',
         pelletStove: 'Pellet Stove',
@@ -203,10 +212,13 @@ export const comfortAmenitiesCopy: Record<
         beds: 'Betten',
         price: 'Preis',
         accessNote: 'Zugang',
+        parking: 'Parken',
         pets: 'Haustiere',
         view: 'Ausblick',
         outdoor: 'Außenbereich',
         sunLoungers: 'Sonnenliegen',
+        hammock: 'Hängematte',
+        outdoorShower: 'Außendusche',
         kitchen: 'Küche',
         washingMachine: 'Waschmaschine',
         pelletStove: 'Pelletofen',
@@ -263,10 +275,13 @@ export const comfortAmenitiesCopy: Record<
         beds: 'Camas',
         price: 'Precio',
         accessNote: 'Acceso',
+        parking: 'Aparcamiento',
         pets: 'Mascotas',
         view: 'Vistas',
         outdoor: 'Exterior',
         sunLoungers: 'Tumbonas',
+        hammock: 'Hamaca',
+        outdoorShower: 'Ducha exterior',
         kitchen: 'Cocina',
         washingMachine: 'Lavadora',
         pelletStove: 'Estufa de pellets',
@@ -323,10 +338,13 @@ export const comfortAmenitiesCopy: Record<
         beds: 'Bedden',
         price: 'Prijs',
         accessNote: 'Toegang',
+        parking: 'Parkeren',
         pets: 'Huisdieren',
         view: 'Uitzicht',
         outdoor: 'Buitenruimte',
         sunLoungers: 'Ligbedden',
+        hammock: 'Hangmat',
+        outdoorShower: 'Buitendouche',
         kitchen: 'Keuken',
         washingMachine: 'Wasmachine',
         pelletStove: 'Pelletkachel',
@@ -383,10 +401,13 @@ export const comfortAmenitiesCopy: Record<
         beds: 'Sängar',
         price: 'Pris',
         accessNote: 'Åtkomst',
+        parking: 'Parkering',
         pets: 'Husdjur',
         view: 'Utsikt',
         outdoor: 'Utomhus',
         sunLoungers: 'Solstolar',
+        hammock: 'Hängmatta',
+        outdoorShower: 'Utomhusdusch',
         kitchen: 'Kök',
         washingMachine: 'Tvättmaskin',
         pelletStove: 'Pelletskamin',
@@ -472,7 +493,7 @@ export const comfortAmenitiesFooterLabels = {
 export const comfortAmenitiesProperties: PropertyEntry[] = [
   {
     id: '408326',
-    name: 'AMARA Farah',
+    name: 'AMARA Farah, Frigiliana',
     href: '/la-amara-farah',
     specs: {
       license: 'A/MA/01767',
@@ -501,7 +522,7 @@ export const comfortAmenitiesProperties: PropertyEntry[] = [
   },
   {
     id: '408324',
-    name: 'AMARA Lounis',
+    name: 'AMARA Lounis, Frigiliana',
     href: '/la-amara-lounis',
     specs: {
       license: 'A/MA/01767',
@@ -524,13 +545,15 @@ export const comfortAmenitiesProperties: PropertyEntry[] = [
         sv: 'Havsutsikt på avstånd'
       },
       outdoor: {
-        en: 'Private Terrace',
-        de: 'Private Terrasse',
-        es: 'Terraza privada',
-        nl: 'Privéterras',
-        sv: 'Privat terrass'
+        en: 'Private patio & private terrace',
+        de: 'Privater Patio & private Terrasse',
+        es: 'Patio privado y terraza privada',
+        nl: 'Privépatio en privéterras',
+        sv: 'Privat uteplats och privat terrass'
       },
       sunLoungers: { en: '2', de: '2', es: '2', nl: '2', sv: '2' },
+      hammock: { en: 'Yes', de: 'Ja', es: 'Sí', nl: 'Ja', sv: 'Ja' },
+      outdoorShower: { en: 'Yes', de: 'Ja', es: 'Sí', nl: 'Ja', sv: 'Ja' },
       kitchen: {
         en: 'Full indoor kitchen',
         de: 'Voll ausgestattete Küche',
@@ -546,7 +569,7 @@ export const comfortAmenitiesProperties: PropertyEntry[] = [
   },
   {
     id: '408323',
-    name: 'AMARA Zaid',
+    name: 'AMARA Zaid, Frigiliana',
     href: '/la-amara-zaid',
     specs: {
       license: 'A/MA/01767',
@@ -570,6 +593,8 @@ export const comfortAmenitiesProperties: PropertyEntry[] = [
         sv: 'Privat terrass'
       },
       sunLoungers: { en: '2', de: '2', es: '2', nl: '2', sv: '2' },
+      hammock: { en: 'Yes', de: 'Ja', es: 'Sí', nl: 'Ja', sv: 'Ja' },
+      outdoorShower: { en: 'Yes', de: 'Ja', es: 'Sí', nl: 'Ja', sv: 'Ja' },
       kitchen: {
         en: 'Full indoor kitchen',
         de: 'Voll ausgestattete Küche',
@@ -585,7 +610,7 @@ export const comfortAmenitiesProperties: PropertyEntry[] = [
   },
   {
     id: '408325',
-    name: 'AMARA Maha',
+    name: 'AMARA Maha, Frigiliana',
     href: '/la-amara-maha',
     specs: {
       license: 'A/MA/01767',
@@ -615,6 +640,8 @@ export const comfortAmenitiesProperties: PropertyEntry[] = [
         sv: 'Stor privat terrass'
       },
       sunLoungers: { en: '2', de: '2', es: '2', nl: '2', sv: '2' },
+      hammock: { en: 'Yes', de: 'Ja', es: 'Sí', nl: 'Ja', sv: 'Ja' },
+      outdoorShower: { en: 'Yes', de: 'Ja', es: 'Sí', nl: 'Ja', sv: 'Ja' },
       kitchen: {
         en: 'Full indoor kitchen',
         de: 'Voll ausgestattete Küche',
@@ -629,7 +656,7 @@ export const comfortAmenitiesProperties: PropertyEntry[] = [
   },
   {
     id: '408327',
-    name: 'AMARA Playa (Nerja)',
+    name: 'AMARA Playa, Nerja',
     href: '/la-amara-playa',
     specs: {
       license: 'VFT/MA/19212',
@@ -654,7 +681,7 @@ export const comfortAmenitiesProperties: PropertyEntry[] = [
   },
   {
     id: '544478',
-    name: 'AMARA Family & Surf (Tarifa)',
+    name: 'AMARA Family & Surf, Tarifa',
     href: '/la-amara-family-and-surf',
     specs: {
       license: 'VFT/CA/17038',
@@ -668,11 +695,18 @@ export const comfortAmenitiesProperties: PropertyEntry[] = [
       },
       price: { en: '€120–€350', de: '120 € – 350 €', es: '120 € – 350 €', nl: '€120 – €350', sv: '120 € – 350 €' },
       accessNote: {
-        en: 'Likely stair access',
-        de: 'Voraussichtlich Treppenzugang',
-        es: 'Posible acceso por escaleras',
-        nl: 'Waarschijnlijk via trappen',
-        sv: 'Troligen via trappa'
+        en: 'Step-free entrance; internal steps within the apartment',
+        de: 'Stufenloser Zugang; Stufen innerhalb des Apartments',
+        es: 'Acceso sin escalones; hay escalones dentro del apartamento',
+        nl: 'Drempelvrije toegang; traptreden in het appartement',
+        sv: 'Stegfri entré; trappsteg inne i lägenheten'
+      },
+      parking: {
+        en: 'Reserved underground parking space included',
+        de: 'Reservierter Tiefgaragenstellplatz inklusive',
+        es: 'Plaza de aparcamiento subterráneo reservada incluida',
+        nl: 'Gereserveerde ondergrondse parkeerplaats inbegrepen',
+        sv: 'Reserverad garageplats under mark ingår'
       },
       pets: { en: 'Pet-free', de: 'Haustierfrei', es: 'Sin mascotas', nl: 'Huisdiervrij', sv: 'Husdjursfritt' },
       pool: { en: 'Yes (Shared)', de: 'Ja (Gemeinschaftspool)', es: 'Sí (Compartida)', nl: 'Ja (Gedeeld)', sv: 'Ja (Gemensam)' },
