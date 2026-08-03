@@ -63,9 +63,6 @@ interface AboutUsContent {
       subline?: LocalizedText;
       copy: LocalizedText;
     }[];
-    statementTitle: LocalizedText;
-    statementParagraphs: LocalizedText[];
-    statementStrong: LocalizedText;
   };
   locations: AboutUsSection;
   host: AboutUsSection & {
@@ -354,24 +351,6 @@ export const aboutUsContent: AboutUsContent = {
       nl: 'Als iets niet langer aan onze normen voldoet, wordt het stil, consequent en zonder discussie vervangen.',
       sv: 'Om något inte längre uppfyller våra standarder byts det ut lugnt, konsekvent och utan diskussion.'
     },
-    statementTitle: { en: 'Stable pricing. No discounts.', de: 'Stabile Preise. Keine Rabatte.', es: 'Precios estables. Sin descuentos.', nl: 'Stabiele prijzen. Geen kortingen.', sv: 'Stabila priser. Inga rabatter.' },
-    statementParagraphs: [
-      {
-        en: 'AMARA is not the cheapest option, and it is not designed to be. Reliable quality, care, and continuous reinvestment have real costs.',
-        de: 'AMARA ist nicht die günstigste Option, und sie ist auch nicht dafür gedacht. Verlässliche Qualität, Sorgfalt und kontinuierliche Reinvestition haben reale Kosten.',
-        es: 'AMARA no es la opción más barata, ni pretende serlo. La calidad fiable, el cuidado y la reinversión continua tienen costes reales.',
-        nl: 'AMARA is niet de goedkoopste optie, en dat is ook niet het doel. Betrouwbare kwaliteit, zorg en voortdurende herinvestering hebben echte kosten.',
-        sv: 'AMARA är inte det billigaste alternativet, och det är inte heller avsikten. Pålitlig kvalitet, omsorg och kontinuerliga återinvesteringar har verkliga kostnader.'
-      },
-      {
-        en: 'Pricing is stable, transparent, and intentional, without flash deals or artificial promotions.',
-        de: 'Unsere Preise sind stabil, transparent und bewusst gesetzt, ohne Blitzangebote oder künstliche Aktionen.',
-        es: 'El precio es estable, transparente e intencionado, sin ofertas relámpago ni promociones artificiales.',
-        nl: 'De prijs is stabiel, transparant en bewust gekozen, zonder flitsdeals of kunstmatige promoties.',
-        sv: 'Prissättningen är stabil, transparent och genomtänkt, utan blixtkampanjer eller konstgjorda erbjudanden.'
-      }
-    ],
-    statementStrong: { en: 'If you are looking for the lowest price, AMARA is not the right fit.', de: 'Wenn ihr nach dem niedrigsten Preis sucht, passt AMARA nicht zu euch.', es: 'Si buscáis el precio más bajo, AMARA no es la opción adecuada.', nl: 'Als jullie op zoek zijn naar de laagste prijs, past AMARA niet bij jullie.', sv: 'Om ni letar efter det lägsta priset är AMARA inte rätt val.' }
   },
   locations: {
     title: { en: 'Our locations in Andalusia', de: 'Unsere Standorte in Andalusien', es: 'Nuestras ubicaciones en Andalucía', nl: 'Onze locaties in Andalusië', sv: 'Våra platser i Andalusien' },

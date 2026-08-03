@@ -143,11 +143,11 @@ const globalNavLabels = {
     sv: 'Boenden'
   },
   aboutAmara: {
-    en: 'AMARA',
-    de: 'AMARA',
-    es: 'AMARA',
-    nl: 'AMARA',
-    sv: 'AMARA'
+    en: 'About us',
+    de: 'Über uns',
+    es: 'Sobre nosotros',
+    nl: 'Over ons',
+    sv: 'Om oss'
   },
   locationFrigiliana: {
     en: 'Frigiliana',
@@ -279,11 +279,11 @@ const globalNavLabels = {
 
 const localizedNavLabels: Partial<Record<string, Record<AmaraLanguage, string>>> = {
   about: {
-    en: 'About AMARA',
-    de: 'Über AMARA',
-    es: 'Sobre AMARA',
-    nl: 'Over AMARA',
-    sv: 'Om AMARA'
+    en: 'Our Story',
+    de: 'Unsere Geschichte',
+    es: 'Nuestra historia',
+    nl: 'Ons verhaal',
+    sv: 'Vår historia'
   },
   reviews_hub: {
     en: 'Guest Reviews',
@@ -443,7 +443,7 @@ const globalNavGroups: GlobalNavGroup[] = [
     items: [
       {
         token: 'about',
-        label: localizedNavLabels.about?.[currentLang] ?? 'About AMARA',
+        label: localizedNavLabels.about?.[currentLang] ?? 'Our Story',
         description: tGlobal('aboutMeta')
       },
       {

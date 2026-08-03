@@ -4,7 +4,6 @@ import Navigation from '../../components/Navigation.astro';
 import TrustHero from '../../components/hero/TrustHero.astro';
 import EditorialQuote from '../../components/editorial/EditorialQuote.astro';
 import EditorialSplit from '../../components/editorial/EditorialSplit.astro';
-import EditorialStatement from '../../components/editorial/EditorialStatement.astro';
 import EditorialDefinitionList from '../../components/editorial/EditorialDefinitionList.astro';
 import EditorialFeatureGrid from '../../components/editorial/EditorialFeatureGrid.astro';
 import SustainabilityBand from '../../components/editorial/SustainabilityBand.astro';
@@ -111,13 +110,7 @@ const heroCtaLinks = page.hero.ctaLinks
         <div class="max-w-[1200px] mx-auto mb-16">
           <EditorialFeatureGrid cards={qualityFeatureCards} />
         </div>
-        <p class="am-text-body text-center italic text-muted mb-24">{content.quality.note?.[currentLang]}</p>
-        <EditorialStatement title={content.quality.statementTitle[currentLang]}>
-          {content.quality.statementParagraphs.map((paragraph) => (
-            <p class="am-text-body text-subtle">{paragraph[currentLang]}</p>
-          ))}
-          <p class="am-text-body font-bold text-on-surface mt-8">{content.quality.statementStrong[currentLang]}</p>
-        </EditorialStatement>
+        <p class="am-text-body text-center italic text-muted">{content.quality.note?.[currentLang]}</p>
       </section>
 
       <section class="mb-[clamp(8rem,15vw,14rem)]">
