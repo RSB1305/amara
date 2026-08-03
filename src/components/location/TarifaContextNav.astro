@@ -1,0 +1,84 @@
+---
+/**
+ * Tarifa location-family wrapper for the shared AMARA context navigation.
+ */
+import ContextNavigation, {
+  type ContextNavigationBreadcrumb
+} from '../navigation/ContextNavigation.astro';
+import {
+  getTarifaAuthoritySubnav,
+  type TarifaAuthoritySubnavId
+} from '../../lib/tarifa/tarifaAuthoritySubnav';
+import { resolveOptionalLink } from '../../lib/linkResolver';
+import type { AmaraLanguage } from '../../types/seo';
+
+interface Props {
+  activeId: TarifaAuthoritySubnavId;
+  lang: AmaraLanguage;
+}
+
+const { activeId, lang } = Astro.props;
+const navigationItems = getTarifaAuthoritySubnav(lang);
+
+const labels: Record<
+  AmaraLanguage,
+  {
+    breadcrumb: string;
+    destinations: string;
+    switcher: string;
+  }
+> = {
+  en: {
+    breadcrumb: 'Breadcrumb',
+    destinations: 'Destinations',
+    switcher: 'Tarifa guide navigation'
+  },
+  de: {
+    breadcrumb: 'Brotkrümelnavigation',
+    destinations: 'Reiseziele',
+    switcher: 'Navigation im Tarifa-Guide'
+  },
+  es: {
+    breadcrumb: 'Migas de pan',
+    destinations: 'Destinos',
+    switcher: 'Navegación de la guía de Tarifa'
+  },
+  nl: {
+    breadcrumb: 'Broodkruimelnavigatie',
+    destinations: 'Bestemmingen',
+    switcher: 'Navigatie van de Tarifa-gids'
+  },
+  sv: {
+    breadcrumb: 'Brödsmulenavigering',
+    destinations: 'Resmål',
+    switcher: 'Navigering i Tarifa-guiden'
+  }
+};
+
+const copy = labels[lang];
+const homeHref = resolveOptionalLink('home', lang, {
+  suppressMissing: true
+});
+
+const breadcrumbs: ContextNavigationBreadcrumb[] = [
+  {
+    label: 'AMARA',
+    href: homeHref ?? undefined
+  },
+  {
+    label: copy.destinations
+  },
+  {
+    label: 'Tarifa'
+  }
+];
+---
+
+<ContextNavigation
+  activeId={activeId}
+  breadcrumbAriaLabel={copy.breadcrumb}
+  breadcrumbs={breadcrumbs}
+  context="location"
+  items={navigationItems}
+  switcherAriaLabel={copy.switcher}
+/>

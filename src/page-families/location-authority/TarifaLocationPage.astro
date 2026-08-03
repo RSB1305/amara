@@ -6,7 +6,7 @@ import Hero from '../../components/Hero.astro';
 import Navigation from '../../components/Navigation.astro';
 import PhotoShow from '../../components/PhotoShow.astro';
 import StayDecision from '../../components/StayDecision.astro';
-import SectionAnchorNav from '../../components/navigation/SectionAnchorNav.astro';
+import TarifaContextNav from '../../components/location/TarifaContextNav.astro';
 import {
   tarifaLocationCopy,
   tarifaLocationSeo
@@ -90,15 +90,6 @@ const c = {
   }
 };
 
-const sectionNavItems = [
-  { id: 'intro', href: '#intro', label: copy.sectionNav.intro[currentLang] },
-  { id: 'gallery', href: '#gallery', label: copy.sectionNav.gallery[currentLang] },
-  { id: 'key-facts', href: '#key-facts', label: copy.sectionNav.keyFacts[currentLang] },
-  { id: 'travel-fit', href: '#travel-fit', label: copy.sectionNav.fit[currentLang] },
-  { id: 'practical', href: '#practical', label: copy.sectionNav.practical[currentLang] },
-  { id: 'stay', href: '#stay', label: copy.sectionNav.stay[currentLang] }
-];
-
 const faqHref = optionalLink('faq_general');
 const footerHighlights = [
   { token: 'casa', label: 'AMARA Family & Surf' },
@@ -118,7 +109,7 @@ const footerHighlights = [
     languageToken="location_tarifa"
     locationAuthorityNav={true}
   />
-  <SectionAnchorNav items={sectionNavItems} activeId="intro" />
+  <TarifaContextNav activeId="intro" lang={currentLang} />
 
   <div class="am-root" data-am-page="tarifa-location">
     <div class="am-wrap w-full">

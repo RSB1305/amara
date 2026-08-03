@@ -8,13 +8,12 @@ import PhotoShow from '../../components/PhotoShow.astro';
 import StayDecision from '../../components/StayDecision.astro';
 import FaqAccordion from '../../components/FaqAccordion.astro';
 import LocationEditorialComparison from '../../components/location/LocationEditorialComparison.astro';
-import SectionAnchorNav from '../../components/navigation/SectionAnchorNav.astro';
+import NerjaContextNav from '../../components/location/NerjaContextNav.astro';
 import {
   nerjaLocationCopy,
   nerjaLocationSeo
 } from '../../content/nerjaLocationContent';
 import { resolveOptionalLink } from '../../lib/linkResolver';
-import { getNerjaAuthoritySubnav } from '../../lib/nerja/nerjaAuthoritySubnav';
 import { normalizeLanguage } from '../../lib/seo/resolve-seo-head';
 import type { AmaraLanguage } from '../../types/seo';
 
@@ -179,7 +178,6 @@ const footerHighlights = [
   }
 ];
 
-const sectionNavItems = getNerjaAuthoritySubnav(currentLang);
 ---
 
 <LocationAuthorityLayout seo={seo} pageLang={currentLang} footerHighlights={footerHighlights}>
@@ -189,7 +187,7 @@ const sectionNavItems = getNerjaAuthoritySubnav(currentLang);
     languageToken="location_nerja"
     locationAuthorityNav={true}
   />
-  <SectionAnchorNav items={sectionNavItems} activeId="intro" />
+  <NerjaContextNav activeId="intro" lang={currentLang} />
 
   <div class="am-root" data-am-page="nerja-location">
     <div class="am-wrap w-full">

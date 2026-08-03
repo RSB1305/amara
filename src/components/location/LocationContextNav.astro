@@ -73,6 +73,9 @@ const guideHref = resolveOptionalLink('location_frigiliana', lang, {
   suppressMissing: true
 });
 
+/** Brand name is identical across all supported languages, so it needs no localization. */
+const frigilianaLabel = 'Frigiliana';
+
 const breadcrumbs: ContextNavigationBreadcrumb[] = [
   {
     label: 'AMARA',
@@ -82,7 +85,9 @@ const breadcrumbs: ContextNavigationBreadcrumb[] = [
     label: copy.destinations,
     href: !isOverview ? guideHref ?? undefined : undefined
   },
-  ...(!isOverview && currentLabel ? [{ label: currentLabel }] : [])
+  {
+    label: isOverview ? frigilianaLabel : currentLabel ?? frigilianaLabel
+  }
 ];
 ---
 

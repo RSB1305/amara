@@ -7,6 +7,7 @@ export type FrigilianaAuthoritySubnavId =
   | 'comparison'
   | 'structure'
   | 'stay'
+  | 'dosTumbas'
   | 'arrival'
   | 'faq';
 
@@ -54,6 +55,13 @@ const labels: Record<
     es: 'Dónde alojarse',
     nl: 'Overnachten',
     sv: 'Boende'
+  },
+  dosTumbas: {
+    en: 'Netflix Locations',
+    de: 'Netflix-Drehorte',
+    es: 'Localizaciones Netflix',
+    nl: 'Netflix-locaties',
+    sv: 'Netflix-platser'
   },
   arrival: {
     en: 'Arrival Guide',
@@ -112,12 +120,19 @@ export function getFrigilianaAuthoritySubnav(
     href: resolveLink('frigiliana_faq', currentLang)
   };
 
+  const dosTumbasItem: FrigilianaAuthoritySubnavItem = {
+    id: 'dosTumbas',
+    label: labels.dosTumbas[currentLang],
+    href: resolveLink('frigiliana_netflix_dos_tumbas', currentLang)
+  };
+
   const ordered: FrigilianaAuthoritySubnavId[] = [
     'intro',
     'weather',
     'comparison',
     'structure',
     'stay',
+    'dosTumbas',
     'arrival',
     'faq'
   ];
@@ -126,7 +141,8 @@ export function getFrigilianaAuthoritySubnav(
     ...locationItems.map((i) => [i.id, i] as const),
     ['arrival', arrivalItem],
     ['weather', weatherItem],
-    ['faq', faqItem]
+    ['faq', faqItem],
+    ['dosTumbas', dosTumbasItem]
   ]);
 
   return ordered.map((id) => byId.get(id)!).filter(Boolean);

@@ -1,0 +1,84 @@
+---
+/**
+ * Nerja location-family wrapper for the shared AMARA context navigation.
+ */
+import ContextNavigation, {
+  type ContextNavigationBreadcrumb
+} from '../navigation/ContextNavigation.astro';
+import {
+  getNerjaAuthoritySubnav,
+  type NerjaAuthoritySubnavId
+} from '../../lib/nerja/nerjaAuthoritySubnav';
+import { resolveOptionalLink } from '../../lib/linkResolver';
+import type { AmaraLanguage } from '../../types/seo';
+
+interface Props {
+  activeId: NerjaAuthoritySubnavId;
+  lang: AmaraLanguage;
+}
+
+const { activeId, lang } = Astro.props;
+const navigationItems = getNerjaAuthoritySubnav(lang);
+
+const labels: Record<
+  AmaraLanguage,
+  {
+    breadcrumb: string;
+    destinations: string;
+    switcher: string;
+  }
+> = {
+  en: {
+    breadcrumb: 'Breadcrumb',
+    destinations: 'Destinations',
+    switcher: 'Nerja guide navigation'
+  },
+  de: {
+    breadcrumb: 'Brotkrümelnavigation',
+    destinations: 'Reiseziele',
+    switcher: 'Navigation im Nerja-Guide'
+  },
+  es: {
+    breadcrumb: 'Migas de pan',
+    destinations: 'Destinos',
+    switcher: 'Navegación de la guía de Nerja'
+  },
+  nl: {
+    breadcrumb: 'Broodkruimelnavigatie',
+    destinations: 'Bestemmingen',
+    switcher: 'Navigatie van de Nerja-gids'
+  },
+  sv: {
+    breadcrumb: 'Brödsmulenavigering',
+    destinations: 'Resmål',
+    switcher: 'Navigering i Nerja-guiden'
+  }
+};
+
+const copy = labels[lang];
+const homeHref = resolveOptionalLink('home', lang, {
+  suppressMissing: true
+});
+
+const breadcrumbs: ContextNavigationBreadcrumb[] = [
+  {
+    label: 'AMARA',
+    href: homeHref ?? undefined
+  },
+  {
+    label: copy.destinations
+  },
+  {
+    label: 'Nerja'
+  }
+];
+---
+
+<ContextNavigation
+  activeId={activeId}
+  breadcrumbAriaLabel={copy.breadcrumb}
+  breadcrumbs={breadcrumbs}
+  context="location"
+  items={navigationItems}
+  switcherAriaLabel={copy.switcher}
+/>
