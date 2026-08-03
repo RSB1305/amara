@@ -36,6 +36,7 @@ const optionalLink = (token: string) =>
 const arrivalGuideHref = buildOwnedLocalizedPath('directions-arrival-guide', currentLang);
 const gettingToFrigilianaHref = buildOwnedLocalizedPath('getting-to-frigiliana', currentLang);
 const marketHref = buildOwnedLocalizedPath('frigiliana-market', currentLang);
+const dosTumbasHref = buildOwnedLocalizedPath('frigiliana-netflix-dos-tumbas', currentLang);
 const parkingHref = buildOwnedLocalizedPath('frigiliana-parking', currentLang);
 const streetsStairsHref = buildOwnedLocalizedPath('frigiliana-streets-stairs', currentLang);
 const weatherHref = buildOwnedLocalizedPath('frigiliana-weather', currentLang);
@@ -151,6 +152,11 @@ const c = {
             }
           ]
         : []),
+      {
+        href: dosTumbasHref,
+        label: copy.planning.links.dosTumbas.label[currentLang],
+        text: copy.planning.links.dosTumbas.text[currentLang]
+      },
       {
         href: weatherHref,
         label: copy.planning.links.weather.label[currentLang],

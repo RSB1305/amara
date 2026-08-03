@@ -556,6 +556,22 @@ export const frigilianaLocationCopy = {
           de: "Panorama-Touren, sanfte Wege, Flusswanderungen und Gipfel in der Sierra Almijara."
         }
       },
+      dosTumbas: {
+        label: {
+          en: "Frigiliana in Netflix's Dos Tumbas",
+          de: "Frigiliana in Dos Tumbas",
+          es: "Frigiliana en Dos Tumbas",
+          nl: "Frigiliana in Dos Tumbas",
+          sv: "Frigiliana i Dos Tumbas"
+        },
+        text: {
+          en: "Recognise the streets from the Netflix thriller filmed in the old town.",
+          de: "Die Drehorte des Netflix-Thrillers in der Altstadt wiedererkennen.",
+          es: "Reconocer las calles del thriller de Netflix rodado en el casco antiguo.",
+          nl: "Herken de straten uit de Netflix-thriller die in de oude kern is gefilmd.",
+          sv: "Känn igen gatorna från Netflix-thrillern som spelades in i gamla stan."
+        }
+      },
       weather: {
         label: { en: "Weather by month", de: "Wetter nach Monat", es: "Clima por mes", nl: "Weer per maand", sv: "Väder per månad" },
         text: {

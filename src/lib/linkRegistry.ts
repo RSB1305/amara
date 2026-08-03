@@ -192,6 +192,13 @@ legal_notice: {
       nl: buildOwnedLocalizedPath('frigiliana-wellness', 'nl'),
       sv: buildOwnedLocalizedPath('frigiliana-wellness', 'sv')
     },
+    frigiliana_netflix_dos_tumbas: {
+      en: buildOwnedLocalizedPath('frigiliana-netflix-dos-tumbas', 'en'),
+      de: buildOwnedLocalizedPath('frigiliana-netflix-dos-tumbas', 'de'),
+      es: buildOwnedLocalizedPath('frigiliana-netflix-dos-tumbas', 'es'),
+      nl: buildOwnedLocalizedPath('frigiliana-netflix-dos-tumbas', 'nl'),
+      sv: buildOwnedLocalizedPath('frigiliana-netflix-dos-tumbas', 'sv')
+    },
 
     /* =========================================================
        LOCATIONS

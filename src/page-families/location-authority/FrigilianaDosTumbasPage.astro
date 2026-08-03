@@ -1,0 +1,249 @@
+---
+import Hero from '../../components/Hero.astro';
+import Navigation from '../../components/Navigation.astro';
+import LocationContextNav from '../../components/location/LocationContextNav.astro';
+import EditorialClosingCta from '../../components/editorial/EditorialClosingCta.astro';
+import EditorialFeatureGrid from '../../components/editorial/EditorialFeatureGrid.astro';
+import {
+  frigilianaDosTumbasContent,
+  frigilianaDosTumbasSeo
+} from '../../content/frigilianaDosTumbasContent';
+import { frigilianaLocationCopy } from '../../content/frigilianaLocationContent';
+import LocationAuthorityLayout from '../../layouts/LocationAuthorityLayout.astro';
+import { resolveOptionalLink } from '../../lib/linkResolver';
+import { normalizeLanguage } from '../../lib/seo/resolve-seo-head';
+import type { AmaraLanguage } from '../../types/seo';
+
+interface Props {
+  lang?: string;
+}
+
+const { lang = 'es' } = Astro.props;
+const currentLang = normalizeLanguage(lang as AmaraLanguage);
+const copy = frigilianaDosTumbasContent[currentLang];
+
+const footerHighlights = [
+  {
+    token: 'frigiliana_netflix_dos_tumbas',
+    label: copy.footerHighlights.dosTumbas
+  },
+  {
+    token: 'frigiliana_events_authority',
+    label: copy.footerHighlights.festivals
+  },
+  {
+    token: 'frigiliana_food_authority',
+    label: copy.footerHighlights.restaurants
+  }
+];
+
+const combineItems = copy.combine.items.map((item) => ({
+  ...item,
+  href: resolveOptionalLink(item.linkToken, currentLang, {
+    suppressMissing: true
+  })
+}));
+
+const heroImage = {
+  src: '/images/amara-frigiliana-pueblo/JPG_Frigiliana_Pueblo/2000px_72dpi_sRGB/03-frigiliana-pueblo.jpg',
+  width: 2000,
+  height: 1333
+};
+---
+
+<LocationAuthorityLayout
+  seo={frigilianaDosTumbasSeo}
+  pageLang={currentLang}
+  footerHighlights={footerHighlights}
+>
+  <Navigation
+    currentLang={currentLang}
+    brandName={frigilianaLocationCopy.nav.brand[currentLang]}
+    languageToken="frigiliana_netflix_dos_tumbas"
+    locationAuthorityNav={true}
+  />
+  <LocationContextNav activeId="dosTumbas" lang={currentLang} />
+
+  <div class="am-root" data-am-page="frigiliana-netflix-dos-tumbas">
+    <div class="am-wrap w-full">
+      <div id="intro">
+        <Hero
+          imageSrc={heroImage.src}
+          imageAlt={copy.hero.imageAlt}
+          imageWidth={heroImage.width}
+          imageHeight={heroImage.height}
+        >
+          <span class="am-text-caption text-primary mb-8 block">
+            {copy.hero.kicker}
+          </span>
+          <h1 class="am-text-display italic text-on-surface mb-10 tracking-tighter">
+            {copy.hero.title}
+          </h1>
+          <div class="pl-10 border-l border-primary/20 max-w-xl space-y-6">
+            {
+              copy.hero.paragraphs.map((paragraph) => (
+                <p class="am-text-body text-on-surface-variant leading-relaxed">
+                  {paragraph}
+                </p>
+              ))
+            }
+          </div>
+        </Hero>
+      </div>
+
+      <section id="trailer" class="am-section am-section--plain !px-6 md:!px-12">
+        <div class="max-w-4xl mx-auto w-full">
+          <div class="aspect-video w-full border border-outline-variant/20 bg-black overflow-hidden">
+            <iframe
+              class="w-full h-full"
+              src="https://www.youtube-nocookie.com/embed/5Okt1G7_MAw"
+              title={copy.trailer.label}
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              loading="lazy"
+              allowfullscreen
+            ></iframe>
+          </div>
+        </div>
+      </section>
+
+      <section
+        id="about"
+        class="am-section am-section--tint !px-6 md:!px-12"
+      >
+        <div class="max-w-3xl mb-4">
+          <h2 class="am-text-title italic text-on-surface tracking-tight mb-6">
+            {copy.intro.title}
+          </h2>
+          <p class="am-text-body text-on-surface-variant leading-relaxed">
+            {copy.intro.text}
+          </p>
+          <p class="mt-6 am-text-caption normal-case tracking-normal text-on-surface-variant">
+            {copy.intro.reviewed}
+          </p>
+        </div>
+      </section>
+
+      <section
+        id="locations"
+        class="am-section am-section--plain !px-6 md:!px-12"
+      >
+        <div class="max-w-3xl mb-16">
+          <h2 class="am-text-title italic text-on-surface tracking-tight mb-6">
+            {copy.locations.title}
+          </h2>
+          <p class="am-text-body text-on-surface-variant leading-relaxed">
+            {copy.locations.intro}
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-x-12 gap-y-16">
+          {
+            copy.locations.items.map((item) => (
+              <article class="border-t border-outline-variant/25 pt-8">
+                <h3 class="am-text-subtitle text-on-surface mb-3">
+                  {item.title}
+                </h3>
+                <p class="am-text-caption normal-case tracking-normal text-primary mb-4">
+                  {item.subline}
+                </p>
+                <p class="am-text-body text-on-surface-variant leading-relaxed">
+                  {item.text}
+                </p>
+              </article>
+            ))
+          }
+        </div>
+      </section>
+
+      <section
+        id="production-notes"
+        class="am-section am-section--tint !px-6 md:!px-12"
+      >
+        <div class="max-w-3xl mb-16">
+          <h2 class="am-text-title italic text-on-surface tracking-tight mb-6">
+            {copy.production.title}
+          </h2>
+          <p class="am-text-body text-on-surface-variant leading-relaxed">
+            {copy.production.intro}
+          </p>
+        </div>
+
+        <EditorialFeatureGrid
+          cards={copy.production.items.map((item) => ({
+            title: item.title,
+            copy: item.text
+          }))}
+        />
+
+        <p class="mt-12 border-l border-primary/20 bg-surface-container-low px-4 py-3 am-text-body leading-relaxed text-on-surface-variant max-w-3xl">
+          <span class="font-bold text-primary">{copy.trust.title}:</span>{' '}
+          {copy.trust.text}
+        </p>
+      </section>
+
+      <section class="am-section am-section--plain !px-6 md:!px-12">
+        <div class="max-w-3xl mb-16">
+          <h2 class="am-text-title italic text-on-surface tracking-tight mb-6">
+            {copy.combine.title}
+          </h2>
+          <p class="am-text-body text-on-surface-variant leading-relaxed">
+            {copy.combine.intro}
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-x-16 gap-y-14">
+          {
+            combineItems.map((item) => (
+              <article class="border-t border-outline-variant/25 pt-8">
+                <h3 class="am-text-subtitle text-on-surface mb-5">
+                  {item.title}
+                </h3>
+                <p class="am-text-body text-on-surface-variant leading-relaxed">
+                  {item.text}
+                </p>
+                {item.href && (
+                  <p class="mt-5 am-text-body">
+                    <a href={item.href} class="am-inline-link">
+                      {item.linkLabel}
+                      <span aria-hidden="true"> &rarr;</span>
+                    </a>
+                  </p>
+                )}
+              </article>
+            ))
+          }
+        </div>
+      </section>
+
+      <section class="max-w-screen-2xl mx-auto px-6 pt-24 pb-24 md:px-12">
+        <EditorialClosingCta
+          title={copy.closing.title}
+          lead={copy.closing.lead}
+          lang={currentLang}
+          links={[
+            {
+              token: 'book',
+              label: copy.closing.availabilityCta,
+              style: 'primary'
+            },
+            {
+              token: 'romantic_hideaways',
+              label: copy.closing.apartmentsCta,
+              style: 'secondary'
+            }
+          ]}
+        />
+      </section>
+    </div>
+  </div>
+</LocationAuthorityLayout>
+
+<style>
+  .am-section--plain {
+    background-color: var(--color-surface);
+  }
+
+  .am-section--tint {
+    background-color: var(--color-surface-container-low);
+  }
+</style>
