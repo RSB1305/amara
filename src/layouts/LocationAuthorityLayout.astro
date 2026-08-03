@@ -8,10 +8,18 @@ interface Props {
   pageLang?: AmaraLanguage;
   footerHighlights?: { token: string; label: string }[];
   footerVariant?: 'default' | 'trust';
+  showContextNavigation?: boolean;
   bodyBackgroundClass?: string;
 }
 
-const { seo, pageLang, footerHighlights, footerVariant, bodyBackgroundClass } = Astro.props;
+const {
+  seo,
+  pageLang,
+  footerHighlights,
+  footerVariant,
+  showContextNavigation = false,
+  bodyBackgroundClass
+} = Astro.props;
 ---
 
 <BaseLayout
@@ -19,6 +27,7 @@ const { seo, pageLang, footerHighlights, footerVariant, bodyBackgroundClass } = 
   pageLang={pageLang}
   footerHighlights={footerHighlights}
   footerVariant={footerVariant}
+  showContextNavigation={showContextNavigation}
   bodyBackgroundClass={bodyBackgroundClass}
 >
   <main>

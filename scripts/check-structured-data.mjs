@@ -259,10 +259,12 @@ export function runStructuredDataAudit({
         ...html.matchAll(/\bdata-am-experience-recommendation\b/g)
       ].length;
 
-      if (siblingLinkCount !== EXPERIENCE_DETAIL_SLUGS.size) {
+      const expectedSiblingLinkCount = EXPERIENCE_DETAIL_SLUGS.size - 1;
+
+      if (siblingLinkCount !== expectedSiblingLinkCount) {
         report(
           file,
-          `experience family navigation contains ${siblingLinkCount} of ${EXPERIENCE_DETAIL_SLUGS.size} guides`
+          `experience family navigation contains ${siblingLinkCount} of ${expectedSiblingLinkCount} available guides`
         );
       }
 

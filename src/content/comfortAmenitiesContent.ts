@@ -13,6 +13,7 @@ type PropertySpecs = {
   pool?: LocalizedText;
   view: LocalizedText;
   outdoor?: LocalizedText;
+  sunLoungers?: LocalizedText;
   kitchen: LocalizedText;
   washingMachine?: LocalizedText;
   pelletStove?: LocalizedText;
@@ -84,6 +85,7 @@ export const comfortAmenitiesCopy: Record<
         pets: string;
         view: string;
         outdoor: string;
+        sunLoungers: string;
         kitchen: string;
         washingMachine: string;
         pelletStove: string;
@@ -144,6 +146,7 @@ export const comfortAmenitiesCopy: Record<
         pets: 'Pets',
         view: 'View',
         outdoor: 'Outdoor',
+        sunLoungers: 'Sun Loungers',
         kitchen: 'Kitchen',
         washingMachine: 'Washing Machine',
         pelletStove: 'Pellet Stove',
@@ -203,6 +206,7 @@ export const comfortAmenitiesCopy: Record<
         pets: 'Haustiere',
         view: 'Ausblick',
         outdoor: 'Außenbereich',
+        sunLoungers: 'Sonnenliegen',
         kitchen: 'Küche',
         washingMachine: 'Waschmaschine',
         pelletStove: 'Pelletofen',
@@ -262,6 +266,7 @@ export const comfortAmenitiesCopy: Record<
         pets: 'Mascotas',
         view: 'Vistas',
         outdoor: 'Exterior',
+        sunLoungers: 'Tumbonas',
         kitchen: 'Cocina',
         washingMachine: 'Lavadora',
         pelletStove: 'Estufa de pellets',
@@ -321,6 +326,7 @@ export const comfortAmenitiesCopy: Record<
         pets: 'Huisdieren',
         view: 'Uitzicht',
         outdoor: 'Buitenruimte',
+        sunLoungers: 'Ligbedden',
         kitchen: 'Keuken',
         washingMachine: 'Wasmachine',
         pelletStove: 'Pelletkachel',
@@ -380,6 +386,7 @@ export const comfortAmenitiesCopy: Record<
         pets: 'Husdjur',
         view: 'Utsikt',
         outdoor: 'Utomhus',
+        sunLoungers: 'Solstolar',
         kitchen: 'Kök',
         washingMachine: 'Tvättmaskin',
         pelletStove: 'Pelletskamin',
@@ -523,6 +530,7 @@ export const comfortAmenitiesProperties: PropertyEntry[] = [
         nl: 'Privéterras',
         sv: 'Privat terrass'
       },
+      sunLoungers: { en: '2', de: '2', es: '2', nl: '2', sv: '2' },
       kitchen: {
         en: 'Full indoor kitchen',
         de: 'Voll ausgestattete Küche',
@@ -561,6 +569,7 @@ export const comfortAmenitiesProperties: PropertyEntry[] = [
         nl: 'Privéterras',
         sv: 'Privat terrass'
       },
+      sunLoungers: { en: '2', de: '2', es: '2', nl: '2', sv: '2' },
       kitchen: {
         en: 'Full indoor kitchen',
         de: 'Voll ausgestattete Küche',
@@ -605,6 +614,7 @@ export const comfortAmenitiesProperties: PropertyEntry[] = [
         nl: 'Groot privéterras',
         sv: 'Stor privat terrass'
       },
+      sunLoungers: { en: '2', de: '2', es: '2', nl: '2', sv: '2' },
       kitchen: {
         en: 'Full indoor kitchen',
         de: 'Voll ausgestattete Küche',

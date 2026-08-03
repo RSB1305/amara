@@ -19,6 +19,7 @@ import imgTarifa from '../../assets/images/home/amara-tarifa-apartment01.webp';
 import { resolveOptionalLink } from '../../lib/linkResolver';
 import { buildOwnedLocalizedPath } from '../../lib/routeOwnership';
 import { normalizeLanguage } from '../../lib/seo/resolve-seo-head';
+import { comfortAmenitiesLinkLabel } from '../../content/comfortAmenitiesLinkLabel';
 import type { AmaraAuthoringSeo, AmaraLanguage } from '../../types/seo';
 
 interface Props {
@@ -154,11 +155,7 @@ const copy = {
     sv: 'Läs recensioner'
   } satisfies CopyRow,
   ctaAmenities: {
-    en: 'Amenities & policies',
-    de: 'Ausstattung & Richtlinien',
-    es: 'Servicios y políticas',
-    nl: 'Voorzieningen en beleid',
-    sv: 'Bekvämligheter och policyer'
+    ...comfortAmenitiesLinkLabel
   } satisfies CopyRow,
   trustBooking: {
     en: 'Booking.com Traveller Award',
@@ -489,7 +486,7 @@ const trustLinks = [
 ];
 
 const footerHighlights = [
-  { token: 'amenities', label: t({ en: 'Amenities', de: 'Ausstattung', es: 'Servicios', nl: 'Voorzieningen', sv: 'Bekvämligheter' }) },
+  { token: 'amenities', label: t(comfortAmenitiesLinkLabel) },
   { token: 'faq_general', label: t({ en: 'Stay FAQ', de: 'Aufenthalts-FAQ', es: 'FAQ de la estancia', nl: 'Verblijfs-FAQ', sv: 'FAQ för vistelsen' }) },
   { token: 'instagram', label: t({ en: 'Instagram', de: 'Instagram', es: 'Instagram', nl: 'Instagram', sv: 'Instagram' }) }
 ];

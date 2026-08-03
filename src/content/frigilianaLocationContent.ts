@@ -1,4 +1,5 @@
 import type { AmaraAuthoringSeo, AmaraLanguage } from '../types/seo';
+import { comfortAmenitiesLinkLabel } from './comfortAmenitiesLinkLabel';
 export const frigilianaLocationSeo: AmaraAuthoringSeo = {
   version: '2026-07-17-frigiliana-loc-v1.1-pillar',
   pageType: 'A',
@@ -603,7 +604,7 @@ export const frigilianaLocationCopy = {
         }
       },
       amenities: {
-        label: { en: "Amenities & policies", de: "Ausstattung & Richtlinien", es: "Servicios y políticas", nl: "Voorzieningen en beleid", sv: "Bekvämligheter och policyer" },
+        label: comfortAmenitiesLinkLabel,
         text: {
           en: "Check comfort details before booking.",
           de: "Komfortdetails vor der Buchung prüfen.",
@@ -730,5 +731,4 @@ export const frigilianaLocationCopy = {
     ]
   }
 };
-
 

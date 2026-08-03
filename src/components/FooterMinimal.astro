@@ -1,6 +1,7 @@
 ---
 import { resolveOptionalLink } from '../lib/linkResolver';
 import { isPublicLinkEnabled } from '../lib/routeOwnership';
+import { comfortAmenitiesLinkLabel } from '../content/comfortAmenitiesLinkLabel';
 import type { AmaraLanguage } from '../types/seo';
 
 interface FooterLink {
@@ -48,11 +49,16 @@ const defaultLinksByLang: Record<AmaraLanguage, FooterLink[]> = {
 const { currentLang, links = defaultLinksByLang[currentLang] ?? defaultLinksByLang.en } = Astro.props;
 const resolvedLinks = links
   .map((link) => {
+    const label =
+      link.token === 'amenities'
+        ? comfortAmenitiesLinkLabel[currentLang]
+        : link.label;
+
     if (!isPublicLinkEnabled(link.token)) {
-      return { ...link, href: null };
+      return { ...link, label, href: null };
     }
     const href = resolveOptionalLink(link.token, currentLang, { suppressMissing: true });
-    return href ? { ...link, href } : null;
+    return href ? { ...link, label, href } : null;
   })
   .filter((link): link is FooterLink & { href: string | null } => Boolean(link));
 ---

@@ -38,6 +38,12 @@ const {
   items,
   switcherAriaLabel
 } = Astro.props;
+
+// The breadcrumb already identifies the current page. Removing it from the
+// sibling switcher keeps the navigation focused on the available next steps.
+const visibleItems = activeId
+  ? items.filter((item) => item.id !== activeId)
+  : items;
 ---
 
 <div
@@ -100,30 +106,19 @@ const {
       <nav aria-label={switcherAriaLabel} class="min-w-0">
         <ul class="-mx-1 flex flex-nowrap items-center gap-0.5 overflow-x-auto overscroll-x-contain pb-1 xl:justify-end xl:overflow-visible xl:pb-0">
           {
-            items.map((item) => (
+            visibleItems.map((item) => (
               <li
                 class="shrink-0"
                 data-am-context-sibling
                 data-am-experience-sibling={context === 'experience' ? '' : undefined}
                 data-am-location-sibling={context === 'location' ? '' : undefined}
               >
-                {
-                  item.id === activeId ? (
-                    <span
-                      aria-current="page"
-                      class="inline-flex min-h-8 items-center border-b border-primary px-2 font-label text-[10px] font-semibold uppercase tracking-[0.06em] text-on-surface"
-                    >
-                      {item.label}
-                    </span>
-                  ) : (
-                    <a
-                      href={item.href}
-                      class="inline-flex min-h-8 items-center border-b border-transparent px-2 font-label text-[10px] font-medium uppercase tracking-[0.06em] text-on-surface-variant transition-colors hover:border-primary/45 hover:text-on-surface focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/25"
-                    >
-                      {item.label}
-                    </a>
-                  )
-                }
+                <a
+                  href={item.href}
+                  class="inline-flex min-h-8 items-center border-b border-transparent px-2 font-label text-[10px] font-medium uppercase tracking-[0.06em] text-on-surface-variant transition-colors hover:border-primary/45 hover:text-on-surface focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/25"
+                >
+                  {item.label}
+                </a>
               </li>
             ))
           }

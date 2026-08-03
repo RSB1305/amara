@@ -3,6 +3,7 @@
 import type { AmaraAuthoringSeo, AmaraLanguage } from '../types/seo';
 import BackToTop from '../components/BackToTop.astro';
 import Footer from '../components/Footer.astro';
+import GlobalContextNavigation from '../components/navigation/GlobalContextNavigation.astro';
 import {
   normalizeLanguage,
   OG_LOCALES,
@@ -16,11 +17,20 @@ interface Props {
   pageLang?: AmaraLanguage;
   footerHighlights?: { token: string; label: string }[];
   footerVariant?: 'default' | 'trust';
+  /** Disable only when a page family supplies its own location-specific context navigation. */
+  showContextNavigation?: boolean;
   /** Page canvas behind content; default matches design token surface. */
   bodyBackgroundClass?: string;
 }
 
-const { seo, pageLang, footerHighlights, footerVariant, bodyBackgroundClass = 'bg-surface' } = Astro.props;
+const {
+  seo,
+  pageLang,
+  footerHighlights,
+  footerVariant,
+  showContextNavigation = true,
+  bodyBackgroundClass = 'bg-surface'
+} = Astro.props;
 
 /**
  * Layout owns the document shell.
@@ -30,6 +40,7 @@ const { seo, pageLang, footerHighlights, footerVariant, bodyBackgroundClass = 'b
 const pathname = Astro.url.pathname;
 const rawLang = pathname.split('/')[1] || 'es';
 const currentLang: AmaraLanguage = pageLang ?? normalizeLanguage(rawLang);
+const shouldShowContextNavigation = showContextNavigation && !pathname.startsWith('/tools/');
 
 const origin = Astro.url.origin;
 
@@ -89,6 +100,17 @@ const ldJson = resolveStructuredData(seo, head.canonicalUrl, currentLang, origin
     <div class="grain-overlay fixed inset-0 z-[0] pointer-events-none opacity-[0.03]"></div>
 
     <div class="relative z-[10] pt-[104px] lg:pt-[112px]">
+      {shouldShowContextNavigation && (
+        <GlobalContextNavigation
+      lang={currentLang}
+      pageTitle={seo.languages[currentLang].title}
+      pathname={pathname}
+      isStay={
+        Boolean(seo.entityKey && seo.entityKey !== 'amara-brand') ||
+        pathname.includes('romantic-hideaways')
+      }
+    />
+      )}
       <slot />
       <BackToTop />
       <Footer currentLang={currentLang} highlights={footerHighlights} variant={footerVariant} />

@@ -10,32 +10,27 @@ const { currentLang } = Astro.props;
 
 const copy: Record<
   AmaraLanguage,
-  { location: string; legalNotice: string; privacy: string }
+  { location: string; legal: string }
 > = {
   en: {
     location: 'Frigiliana, Malaga · Spain',
-    legalNotice: 'Legal Notice',
-    privacy: 'Privacy'
+    legal: 'Legal Notice & Privacy'
   },
   de: {
     location: 'Frigiliana, Málaga · Spanien',
-    legalNotice: 'Impressum',
-    privacy: 'Datenschutz'
+    legal: 'Impressum & Datenschutz'
   },
   es: {
     location: 'Frigiliana, Málaga · España',
-    legalNotice: 'Aviso legal',
-    privacy: 'Privacidad'
+    legal: 'Aviso legal y privacidad'
   },
   nl: {
     location: 'Frigiliana, Málaga · Spanje',
-    legalNotice: 'Juridische kennisgeving',
-    privacy: 'Privacy'
+    legal: 'Juridische kennisgeving & privacy'
   },
   sv: {
     location: 'Frigiliana, Málaga · Spanien',
-    legalNotice: 'Juridisk information',
-    privacy: 'Integritet'
+    legal: 'Juridisk information & integritet'
   }
 };
 
@@ -61,11 +56,7 @@ const labels = copy[currentLang] ?? copy.en;
 
       <div class="footer-core__right flex flex-wrap items-center gap-x-4 gap-y-2">
         <a href={resolveLink('legal_notice', currentLang)} class="font-label text-[11px] font-bold uppercase tracking-[0.14em] text-on-surface-variant hover:text-primary transition-colors">
-          {labels.legalNotice}
-        </a>
-        <span class="font-label text-[11px] font-bold uppercase tracking-[0.14em] text-outline">&middot;</span>
-        <a href={resolveLink('legal_notice', currentLang)} class="font-label text-[11px] font-bold uppercase tracking-[0.14em] text-on-surface-variant hover:text-primary transition-colors">
-          {labels.privacy}
+          {labels.legal}
         </a>
       </div>
     </div>

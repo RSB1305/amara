@@ -1,0 +1,144 @@
+---
+/**
+ * Sitewide orientation rail for public AMARA pages outside the destination
+ * guides, which keep their own location-specific context navigation.
+ */
+import ContextNavigation, {
+  type ContextNavigationItem
+} from './ContextNavigation.astro';
+import { resolveLink } from '../../lib/linkResolver';
+import type { AmaraLanguage } from '../../types/seo';
+
+interface Props {
+  lang: AmaraLanguage;
+  pageTitle: string;
+  pathname: string;
+  isStay?: boolean;
+}
+
+const { lang, pageTitle, pathname, isStay = false } = Astro.props;
+
+const labels: Record<
+  AmaraLanguage,
+  {
+    breadcrumb: string;
+    discover: string;
+    stays: string;
+    switcher: string;
+    destinations: string;
+    allStays: string;
+    amenities: string;
+    reviews: string;
+    directBooking: string;
+    faq: string;
+    arrival: string;
+  }
+> = {
+  en: {
+    breadcrumb: 'Breadcrumb',
+    discover: 'Discover AMARA',
+    stays: 'Stays',
+    switcher: 'Explore AMARA',
+    destinations: 'Destinations',
+    allStays: 'All stays',
+    amenities: 'Comfort & Amenities',
+    reviews: 'Guest Reviews',
+    directBooking: 'Direct Booking',
+    faq: 'Stay FAQ',
+    arrival: 'Arrival Guide'
+  },
+  de: {
+    breadcrumb: 'Brotkrümelnavigation',
+    discover: 'AMARA entdecken',
+    stays: 'Unterkünfte',
+    switcher: 'AMARA entdecken',
+    destinations: 'Reiseziele',
+    allStays: 'Alle Unterkünfte',
+    amenities: 'Komfort & Ausstattung',
+    reviews: 'Gästebewertungen',
+    directBooking: 'Direktbuchung',
+    faq: 'Aufenthalts-FAQ',
+    arrival: 'Anreise-Guide'
+  },
+  es: {
+    breadcrumb: 'Migas de pan',
+    discover: 'Descubrir AMARA',
+    stays: 'Alojamientos',
+    switcher: 'Descubrir AMARA',
+    destinations: 'Destinos',
+    allStays: 'Todos los alojamientos',
+    amenities: 'Confort y servicios',
+    reviews: 'Opiniones de huéspedes',
+    directBooking: 'Reserva directa',
+    faq: 'FAQ de la estancia',
+    arrival: 'Guía de llegada'
+  },
+  nl: {
+    breadcrumb: 'Broodkruimelnavigatie',
+    discover: 'AMARA ontdekken',
+    stays: 'Verblijven',
+    switcher: 'AMARA ontdekken',
+    destinations: 'Bestemmingen',
+    allStays: 'Alle verblijven',
+    amenities: 'Comfort en voorzieningen',
+    reviews: 'Gastbeoordelingen',
+    directBooking: 'Direct boeken',
+    faq: 'Verblijfs-FAQ',
+    arrival: 'Aankomstgids'
+  },
+  sv: {
+    breadcrumb: 'Brödsmulenavigering',
+    discover: 'Upptäck AMARA',
+    stays: 'Boenden',
+    switcher: 'Upptäck AMARA',
+    destinations: 'Resmål',
+    allStays: 'Alla boenden',
+    amenities: 'Komfort och bekvämligheter',
+    reviews: 'Gästrecensioner',
+    directBooking: 'Direktbokning',
+    faq: 'FAQ för vistelsen',
+    arrival: 'Ankomstguide'
+  }
+};
+
+const copy = labels[lang];
+const normalizePath = (value: string) =>
+  (value.replace(/\/index\.html$/i, '/').replace(/\.html$/i, '').replace(/\/$/, '') || '/');
+const currentPath = normalizePath(pathname);
+const cleanPageTitle = pageTitle.replace(/\s*[|–—-]\s*AMARA(?:\s+Lodging)?\s*$/i, '').trim();
+
+const genericItems: ContextNavigationItem[] = [
+  { id: 'destinations', href: resolveLink('explore_hub', lang), label: copy.destinations },
+  { id: 'stays', href: resolveLink('romantic_hideaways', lang), label: copy.allStays },
+  { id: 'amenities', href: resolveLink('amenities', lang), label: copy.amenities },
+  { id: 'reviews', href: resolveLink('reviews_hub', lang), label: copy.reviews },
+  { id: 'direct-booking', href: resolveLink('direct_booking_benefits', lang), label: copy.directBooking },
+  { id: 'faq', href: resolveLink('faq_general', lang), label: copy.faq }
+];
+
+const stayItems: ContextNavigationItem[] = [
+  { id: 'stays', href: resolveLink('romantic_hideaways', lang), label: copy.allStays },
+  { id: 'amenities', href: resolveLink('amenities', lang), label: copy.amenities },
+  { id: 'reviews', href: resolveLink('reviews_hub', lang), label: copy.reviews },
+  { id: 'direct-booking', href: resolveLink('direct_booking_benefits', lang), label: copy.directBooking },
+  { id: 'faq', href: resolveLink('faq_general', lang), label: copy.faq },
+  { id: 'arrival', href: resolveLink('arrival_guide', lang), label: copy.arrival }
+];
+
+const items = isStay ? stayItems : genericItems;
+const activeId = items.find((item) => normalizePath(item.href) === currentPath)?.id;
+const homeHref = resolveLink('home', lang);
+---
+
+<ContextNavigation
+  activeId={activeId}
+  breadcrumbAriaLabel={copy.breadcrumb}
+  breadcrumbs={[
+    { label: 'AMARA', href: homeHref },
+    { label: isStay ? copy.stays : copy.discover },
+    { label: cleanPageTitle || (isStay ? copy.stays : copy.discover) }
+  ]}
+  context="experience"
+  items={items}
+  switcherAriaLabel={copy.switcher}
+/>
