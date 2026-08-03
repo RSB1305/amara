@@ -22,7 +22,7 @@ const page = comfortAmenitiesCopy[currentLang];
 const seo = comfortAmenitiesSeo;
 const navBrandLabel = comfortAmenitiesNav.brandLabel[currentLang];
 const footerHighlights = [
-  { token: 'amenities', label: comfortAmenitiesFooterLabels.amenities[currentLang] },
+  { token: 'reviews_hub', label: page.hero.ctaReviews },
   { token: 'faq_general', label: comfortAmenitiesFooterLabels.faq_general[currentLang] },
   { token: 'instagram', label: comfortAmenitiesFooterLabels.instagram[currentLang] }
 ];
@@ -75,8 +75,7 @@ const heroCtaLinks = [
   .filter((link): link is { href: string; label: string } => Boolean(link));
 const closingCtaLinks = [
   { token: 'book', label: page.inventory.directBooking, style: 'primary' as const },
-  { token: 'romantic_hideaways', label: closing.explore, style: 'secondary' as const },
-  { token: 'faq_general', label: comfortAmenitiesFooterLabels.faq_general[currentLang], style: 'secondary' as const }
+  { token: 'romantic_hideaways', label: closing.explore, style: 'secondary' as const }
 ];
 ---
 
@@ -185,6 +184,10 @@ const closingCtaLinks = [
                     <li class="flex justify-between gap-4 pb-[0.55rem] border-b border-outline-variant/20 max-md:flex-col max-md:gap-0.5 max-md:items-start"><strong class="font-bold text-on-surface">{page.inventory.labels.view}</strong> <span class="text-right max-md:text-left">{property.specs.view[currentLang]}</span></li>
                     {property.specs.outdoor && <li class="flex justify-between gap-4 pb-[0.55rem] border-b border-outline-variant/20 max-md:flex-col max-md:gap-0.5 max-md:items-start"><strong class="font-bold text-on-surface">{page.inventory.labels.outdoor}</strong> <span class="text-right max-md:text-left">{property.specs.outdoor[currentLang]}</span></li>}
                     <li class="flex justify-between gap-4 pb-[0.55rem] border-b border-outline-variant/20 max-md:flex-col max-md:gap-0.5 max-md:items-start"><strong class="font-bold text-on-surface">{page.inventory.labels.kitchen}</strong> <span class="text-right max-md:text-left">{property.specs.kitchen[currentLang]}</span></li>
+                    {property.specs.washingMachine && <li class="flex justify-between gap-4 pb-[0.55rem] border-b border-outline-variant/20 max-md:flex-col max-md:gap-0.5 max-md:items-start"><strong class="font-bold text-on-surface">{page.inventory.labels.washingMachine}</strong> <span class="text-right max-md:text-left">{property.specs.washingMachine[currentLang]}</span></li>}
+                    {property.specs.pelletStove && <li class="flex justify-between gap-4 pb-[0.55rem] border-b border-outline-variant/20 max-md:flex-col max-md:gap-0.5 max-md:items-start"><strong class="font-bold text-on-surface">{page.inventory.labels.pelletStove}</strong> <span class="text-right max-md:text-left">{property.specs.pelletStove[currentLang]}</span></li>}
+                    {property.specs.fireplace && <li class="flex justify-between gap-4 pb-[0.55rem] border-b border-outline-variant/20 max-md:flex-col max-md:gap-0.5 max-md:items-start"><strong class="font-bold text-on-surface">{page.inventory.labels.fireplace}</strong> <span class="text-right max-md:text-left">{property.specs.fireplace[currentLang]}</span></li>}
+                    {property.specs.shower && <li class="flex justify-between gap-4 pb-[0.55rem] border-b border-outline-variant/20 max-md:flex-col max-md:gap-0.5 max-md:items-start"><strong class="font-bold text-on-surface">{page.inventory.labels.shower}</strong> <span class="text-right max-md:text-left">{property.specs.shower[currentLang]}</span></li>}
                     <li class="flex justify-between gap-4 pb-[0.55rem] border-b border-outline-variant/20 max-md:flex-col max-md:gap-0.5 max-md:items-start"><strong class="font-bold text-on-surface">{page.inventory.labels.airCon}</strong> <span class="text-right max-md:text-left">{property.specs.airCon[currentLang]}</span></li>
                     <li class="flex justify-between gap-4 pb-[0.55rem] border-b border-outline-variant/20 max-md:flex-col max-md:gap-0.5 max-md:items-start"><strong class="font-bold text-on-surface">{page.inventory.labels.license}</strong> <span class="text-right max-md:text-left">{property.specs.license}</span></li>
                   </ul>
@@ -202,9 +205,6 @@ const closingCtaLinks = [
               <strong>{page.noteTitle}</strong> {page.noteText}
             </p>
 
-            <p class="am-small mt-8 border-t border-outline-variant/20 pt-2.5 am-text-caption text-muted">
-              {page.aiLegalLabel}
-            </p>
           </div>
         </section>
 

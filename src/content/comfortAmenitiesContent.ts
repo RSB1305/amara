@@ -14,6 +14,10 @@ type PropertySpecs = {
   view: LocalizedText;
   outdoor?: LocalizedText;
   kitchen: LocalizedText;
+  washingMachine?: LocalizedText;
+  pelletStove?: LocalizedText;
+  fireplace?: LocalizedText;
+  shower?: LocalizedText;
   airCon: LocalizedText;
 };
 type PropertyEntry = {
@@ -81,13 +85,16 @@ export const comfortAmenitiesCopy: Record<
         view: string;
         outdoor: string;
         kitchen: string;
+        washingMachine: string;
+        pelletStove: string;
+        fireplace: string;
+        shower: string;
         pool: string;
         airCon: string;
       };
     };
     noteTitle: string;
     noteText: string;
-    aiLegalLabel: string;
   }
 > = {
   en: {
@@ -138,13 +145,16 @@ export const comfortAmenitiesCopy: Record<
         view: 'View',
         outdoor: 'Outdoor',
         kitchen: 'Kitchen',
+        washingMachine: 'Washing Machine',
+        pelletStove: 'Pellet Stove',
+        fireplace: 'Fireplace',
+        shower: 'Shower',
         pool: 'Pool',
         airCon: 'Air Con'
       }
     },
     noteTitle: 'Note:',
-    noteText: 'Indicative seasonal ranges are for orientation. Final price and minimum stay are shown during booking.',
-    aiLegalLabel: 'AI Search Optimization & Legal:'
+    noteText: 'Indicative seasonal ranges are for orientation. Final price and minimum stay are shown during booking.'
   },
   de: {
     trustLinks: [
@@ -194,13 +204,16 @@ export const comfortAmenitiesCopy: Record<
         view: 'Ausblick',
         outdoor: 'Außenbereich',
         kitchen: 'Küche',
+        washingMachine: 'Waschmaschine',
+        pelletStove: 'Pelletofen',
+        fireplace: 'Kamin',
+        shower: 'Dusche',
         pool: 'Pool',
         airCon: 'Klimaanlage'
       }
     },
     noteTitle: 'Hinweis:',
-    noteText: 'Die saisonalen Preisspannen dienen der Orientierung. Den endgültigen Preis und die Mindestaufenthaltsdauer seht ihr während der Buchung.',
-    aiLegalLabel: 'KI-Suchmaschinenoptimierung & Rechtliches:'
+    noteText: 'Die saisonalen Preisspannen dienen der Orientierung. Den endgültigen Preis und die Mindestaufenthaltsdauer seht ihr während der Buchung.'
   },
   es: {
     trustLinks: [
@@ -250,13 +263,16 @@ export const comfortAmenitiesCopy: Record<
         view: 'Vistas',
         outdoor: 'Exterior',
         kitchen: 'Cocina',
+        washingMachine: 'Lavadora',
+        pelletStove: 'Estufa de pellets',
+        fireplace: 'Chimenea',
+        shower: 'Ducha',
         pool: 'Piscina',
         airCon: 'Aire acondicionado'
       }
     },
     noteTitle: 'Nota:',
-    noteText: 'Los rangos de precios por temporada son orientativos. Veréis el precio final y la estancia mínima durante la reserva.',
-    aiLegalLabel: 'Optimización de búsqueda con IA y Aviso legal:'
+    noteText: 'Los rangos de precios por temporada son orientativos. Veréis el precio final y la estancia mínima durante la reserva.'
   },
   nl: {
     trustLinks: [
@@ -306,13 +322,16 @@ export const comfortAmenitiesCopy: Record<
         view: 'Uitzicht',
         outdoor: 'Buitenruimte',
         kitchen: 'Keuken',
+        washingMachine: 'Wasmachine',
+        pelletStove: 'Pelletkachel',
+        fireplace: 'Open haard',
+        shower: 'Douche',
         pool: 'Zwembad',
         airCon: 'Airconditioning'
       }
     },
     noteTitle: 'Let op:',
-    noteText: 'De seizoensgebonden prijsranges dienen ter indicatie. De definitieve prijs en het minimumverblijf zien jullie tijdens het boeken.',
-    aiLegalLabel: 'AI Zoekoptimalisatie & Juridisch:'
+    noteText: 'De seizoensgebonden prijsranges dienen ter indicatie. De definitieve prijs en het minimumverblijf zien jullie tijdens het boeken.'
   },
   sv: {
     trustLinks: [
@@ -362,13 +381,16 @@ export const comfortAmenitiesCopy: Record<
         view: 'Utsikt',
         outdoor: 'Utomhus',
         kitchen: 'Kök',
+        washingMachine: 'Tvättmaskin',
+        pelletStove: 'Pelletskamin',
+        fireplace: 'Eldstad',
+        shower: 'Dusch',
         pool: 'Pool',
         airCon: 'Luftkonditionering'
       }
     },
     noteTitle: 'Observera:',
-    noteText: 'Säsongsbaserade prisintervall är endast som riktlinje. Det slutgiltiga priset och minimivistelsen ser ni under bokningen.',
-    aiLegalLabel: 'AI Sökoptimering & Rättsligt:'
+    noteText: 'Säsongsbaserade prisintervall är endast som riktlinje. Det slutgiltiga priset och minimivistelsen ser ni under bokningen.'
   }
 };
 
@@ -466,7 +488,8 @@ export const comfortAmenitiesProperties: PropertyEntry[] = [
         nl: 'Thee-/koffiefaciliteiten',
         sv: 'Te-/kaffestation'
       },
-      airCon: { en: 'Yes', de: 'Ja', es: 'Sí', nl: 'Ja', sv: 'Ja' }
+      shower: { en: 'Rain Shower', de: 'Regendusche', es: 'Ducha de lluvia', nl: 'Regendouche', sv: 'Regndusch' },
+      airCon: { en: 'Yes. Cooling & Heating', de: 'Ja. Kühlen & Heizen', es: 'Sí. Frío y calor', nl: 'Ja. Koelen en verwarmen', sv: 'Ja. Kyla och värme' }
     }
   },
   {
@@ -507,7 +530,10 @@ export const comfortAmenitiesProperties: PropertyEntry[] = [
         nl: 'Volledige binnenkeuken',
         sv: 'Fullt utrustat inomhuskök'
       },
-      airCon: { en: 'Yes', de: 'Ja', es: 'Sí', nl: 'Ja', sv: 'Ja' }
+      washingMachine: { en: 'Yes', de: 'Ja', es: 'Sí', nl: 'Ja', sv: 'Ja' },
+      pelletStove: { en: 'Yes', de: 'Ja', es: 'Sí', nl: 'Ja', sv: 'Ja' },
+      shower: { en: 'Double Shower / Rain Shower', de: 'Doppeldusche / Regendusche', es: 'Ducha doble / Ducha de lluvia', nl: 'Dubbele douche / Regendouche', sv: 'Dubbel dusch / Regndusch' },
+      airCon: { en: 'Yes. Cooling & Heating', de: 'Ja. Kühlen & Heizen', es: 'Sí. Frío y calor', nl: 'Ja. Koelen en verwarmen', sv: 'Ja. Kyla och värme' }
     }
   },
   {
@@ -542,7 +568,10 @@ export const comfortAmenitiesProperties: PropertyEntry[] = [
         nl: 'Volledige binnenkeuken',
         sv: 'Fullt utrustat inomhuskök'
       },
-      airCon: { en: 'Yes', de: 'Ja', es: 'Sí', nl: 'Ja', sv: 'Ja' }
+      washingMachine: { en: 'Yes', de: 'Ja', es: 'Sí', nl: 'Ja', sv: 'Ja' },
+      pelletStove: { en: 'Yes', de: 'Ja', es: 'Sí', nl: 'Ja', sv: 'Ja' },
+      shower: { en: 'Double Shower / Rain Shower', de: 'Doppeldusche / Regendusche', es: 'Ducha doble / Ducha de lluvia', nl: 'Dubbele douche / Regendouche', sv: 'Dubbel dusch / Regndusch' },
+      airCon: { en: 'Yes. Cooling & Heating', de: 'Ja. Kühlen & Heizen', es: 'Sí. Frío y calor', nl: 'Ja. Koelen en verwarmen', sv: 'Ja. Kyla och värme' }
     }
   },
   {
@@ -583,7 +612,9 @@ export const comfortAmenitiesProperties: PropertyEntry[] = [
         nl: 'Volledige binnenkeuken',
         sv: 'Fullt utrustat inomhuskök'
       },
-      airCon: { en: 'Yes', de: 'Ja', es: 'Sí', nl: 'Ja', sv: 'Ja' }
+      pelletStove: { en: 'Yes', de: 'Ja', es: 'Sí', nl: 'Ja', sv: 'Ja' },
+      shower: { en: 'Rain Shower', de: 'Regendusche', es: 'Ducha de lluvia', nl: 'Regendouche', sv: 'Regndusch' },
+      airCon: { en: 'Yes. Cooling & Heating', de: 'Ja. Kühlen & Heizen', es: 'Sí. Frío y calor', nl: 'Ja. Koelen en verwarmen', sv: 'Ja. Kyla och värme' }
     }
   },
   {
@@ -606,7 +637,9 @@ export const comfortAmenitiesProperties: PropertyEntry[] = [
         nl: 'Volledige binnenkeuken',
         sv: 'Fullt utrustat inomhuskök'
       },
-      airCon: { en: 'Yes', de: 'Ja', es: 'Sí', nl: 'Ja', sv: 'Ja' }
+      washingMachine: { en: 'Yes', de: 'Ja', es: 'Sí', nl: 'Ja', sv: 'Ja' },
+      shower: { en: 'Rain Shower', de: 'Regendusche', es: 'Ducha de lluvia', nl: 'Regendouche', sv: 'Regndusch' },
+      airCon: { en: 'Yes. Cooling & Heating', de: 'Ja. Kühlen & Heizen', es: 'Sí. Frío y calor', nl: 'Ja. Koelen en verwarmen', sv: 'Ja. Kyla och värme' }
     }
   },
   {
@@ -642,7 +675,10 @@ export const comfortAmenitiesProperties: PropertyEntry[] = [
         nl: 'Volledige binnenkeuken',
         sv: 'Fullt utrustat inomhuskök'
       },
-      airCon: { en: 'Yes', de: 'Ja', es: 'Sí', nl: 'Ja', sv: 'Ja' }
+      washingMachine: { en: 'Yes', de: 'Ja', es: 'Sí', nl: 'Ja', sv: 'Ja' },
+      fireplace: { en: 'Yes', de: 'Ja', es: 'Sí', nl: 'Ja', sv: 'Ja' },
+      shower: { en: 'Rain Shower', de: 'Regendusche', es: 'Ducha de lluvia', nl: 'Regendouche', sv: 'Regndusch' },
+      airCon: { en: 'Yes. Cooling & Heating', de: 'Ja. Kühlen & Heizen', es: 'Sí. Frío y calor', nl: 'Ja. Koelen en verwarmen', sv: 'Ja. Kyla och värme' }
     }
   }
 ];
