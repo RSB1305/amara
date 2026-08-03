@@ -225,6 +225,19 @@ Never introduce:
 
 Infrastructure stability overrides convenience.
 
+### Booking hosts are infrastructure too
+
+The Lodgify booking engine lives on its own host. All booking links derive from the single
+`DIRECT_BOOKING_ORIGIN` constant in `src/lib/directBooking.ts`.
+
+Do not:
+- hardcode a booking hostname anywhere else
+- point booking CTAs at an OTA
+- let the Lodgify API overwrite authored content — only price, minimum stay and availability
+  may come from it
+
+See `AMARA-BOOKING-ARCHITECTURE.md` for the full model and the cutover runbook.
+
 ---
 
 ## Trust Page Rules

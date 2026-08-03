@@ -50,3 +50,4 @@ Feel free to check [our documentation](https://docs.astro.build) or jump into ou
 - Never encode cross-language fallback as a hidden registry default.
 - Run `npm run check:link-policy` when shared components or page-family surfaces add new link resolution logic.
 - Run `npm run check:fallback-policy` when introducing any deliberate cross-language fallback exception.
+- Booking links are not registry links. Derive them from `src/lib/directBooking.ts` and never hardcode a booking hostname — see [AMARA-BOOKING-ARCHITECTURE.md](AMARA-BOOKING-ARCHITECTURE.md).

@@ -9,6 +9,7 @@ import {
   type VacationRentalEntity
 } from '../../content/vacationRentalEntities';
 import { resolveOptionalLink } from '../../lib/linkResolver';
+import { buildRentalBookingUrl } from '../../lib/directBooking';
 import { normalizeLanguage } from '../../lib/seo/resolve-seo-head';
 import type { AmaraLanguage } from '../../types/seo';
 
@@ -23,6 +24,7 @@ const { rental: rentalProp, lang = 'es' } = Astro.props;
 const rental = vacationRentalEntitiesByKey[rentalProp.key] ?? rentalProp;
 const currentLang = normalizeLanguage(lang as AmaraLanguage);
 const seo = buildVacationRentalSeo(rental);
+const bookingHref = buildRentalBookingUrl(rental.slug, currentLang);
 
 const ui = {
   navApartments: {
@@ -536,7 +538,7 @@ const galleryImages = visibleImages.slice(1);
             {t(rental.lead)}
           </p>
           <div class="grid gap-3 mt-8 sm:flex sm:flex-wrap">
-            <a class="am-btn am-btn--primary w-full justify-center sm:w-auto" href={rental.bookingUrl} target="_blank" rel="noopener noreferrer">
+            <a class="am-btn am-btn--primary w-full justify-center sm:w-auto" href={bookingHref}>
               {t(ui.checkAvailability as LocalizedText)}
             </a>
             {collectionHref && (
@@ -653,7 +655,7 @@ const galleryImages = visibleImages.slice(1);
             </p>
           </div>
           <div class="grid gap-3 sm:flex sm:flex-wrap lg:justify-end">
-            <a class="am-btn am-btn--primary w-full justify-center sm:w-auto" href={rental.bookingUrl} target="_blank" rel="noopener noreferrer">
+            <a class="am-btn am-btn--primary w-full justify-center sm:w-auto" href={bookingHref}>
               {t(ui.checkAvailability as LocalizedText)}
             </a>
             {locationLinks.map((link) => (

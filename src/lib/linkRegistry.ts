@@ -1,4 +1,5 @@
 import { buildOwnedLocalizedPath } from './routeOwnership';
+import { buildBookingLandingUrl } from './directBooking';
 
 function normalizeInternalSpanishPath(path: string): string {
   return path.replace(/^\/es\//, '/');
@@ -59,11 +60,11 @@ export const linkRegistry = normalizeRegistrySpanishPaths({
       sv: buildOwnedLocalizedPath('', 'sv')
     },
     book: {
-      en: 'https://amara-lodging.es/en/book/',
-      de: 'https://amara-lodging.es/de/book/',
-      es: 'https://amara-lodging.es/es/book/',
-      nl: 'https://amara-lodging.es/nl/book/',
-      sv: 'https://amara-lodging.es/sv/book/'
+      en: buildBookingLandingUrl('en'),
+      de: buildBookingLandingUrl('de'),
+      es: buildBookingLandingUrl('es'),
+      nl: buildBookingLandingUrl('nl'),
+      sv: buildBookingLandingUrl('sv')
     },
     about: {
       en: buildOwnedLocalizedPath('amara-about-us', 'en'),
