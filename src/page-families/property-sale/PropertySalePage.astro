@@ -80,12 +80,12 @@ const enquiryHref = resolveOptionalLink('property_sale_enquiry', currentLang, {
           </div>
         </div>
 
-        <figure class="mt-12 aspect-[16/9] max-h-[720px] overflow-hidden bg-surface-container-low">
+        <figure class="am-mobile-full-bleed mt-12 aspect-[16/9] max-h-[720px] overflow-hidden bg-surface-container-low">
           <AmaraImage
             src={propertySaleImages.hero}
             alt={page.hero.imageAlt}
             profile="hero"
-            sizes="(max-width: 1535px) calc(100vw - 3rem), 1440px"
+            sizes="(max-width: 639px) 100vw, (max-width: 767px) calc(100vw - 3rem), (max-width: 1535px) calc(100vw - 6rem), 1440px"
             class="h-full w-full object-cover"
             loading="eager"
             fetchpriority="high"
@@ -152,12 +152,12 @@ const enquiryHref = resolveOptionalLink('property_sale_enquiry', currentLang, {
           </div>
 
           <div>
-            <figure class="aspect-[16/10] overflow-hidden bg-surface-container-low">
+            <figure class="am-mobile-full-bleed aspect-[16/10] overflow-hidden bg-surface-container-low">
               <AmaraImage
                 src={propertySaleImages.position}
                 alt={page.position.imageAlt}
                 profile="gallery"
-                sizes="(max-width: 1023px) calc(100vw - 3rem), 52vw"
+                sizes="(max-width: 639px) 100vw, (max-width: 1023px) calc(100vw - 3rem), 52vw"
                 class="h-full w-full object-cover"
                 loading="lazy"
                 decoding="async"

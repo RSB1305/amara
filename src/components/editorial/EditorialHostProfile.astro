@@ -25,7 +25,7 @@ const { imageSrc, imageAlt, title, role, stats } = Astro.props;
 <div
   class="grid grid-cols-1 lg:grid-cols-[4fr_6fr] gap-[clamp(4rem,8vw,8rem)] items-start mb-[clamp(8rem,15vw,14rem)]"
 >
-  <div class="w-full max-w-[400px] mx-auto lg:mx-0 lg:max-w-none">
+  <div class="am-mobile-full-bleed am-mobile-full-bleed--fluid w-full max-w-[400px] mx-auto lg:mx-0 lg:max-w-none">
     <div class="aspect-[4/5] bg-surface-container-low overflow-hidden flex items-center justify-center">
       <AmaraImage
         src={imageSrc}

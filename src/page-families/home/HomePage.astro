@@ -130,7 +130,7 @@ const cinematicApartmentsProps = (
       imgWidth: optimized.attributes.width as number,
       imgHeight: optimized.attributes.height as number,
       imgSrcSet: optimized.srcSet.attribute,
-      imgSizes: optimized.attributes.sizes as string,
+      imgSizes: `(max-width: 639px) 100vw, ${optimized.attributes.sizes as string}`,
       exploreHref,
       exploreLabel: t(apt.exploreLabel)
     };
@@ -163,11 +163,11 @@ const guideLinks = cinematicGuideLinks
     languageToken="home"
   />
   <div class="am-root" data-am-page="home">
-    <div class="am-wrap w-full max-w-screen-2xl mx-auto px-6 md:px-12 pb-20">
+    <div class="am-wrap w-full max-w-screen-2xl mx-auto px-0 pb-20 sm:px-6 md:px-12">
       <HomeCinematicMain
         heroImageSrc={heroImage.src}
         heroImageSrcSet={heroImage.srcSet.attribute}
-        heroImageSizes={heroImage.attributes.sizes as string}
+        heroImageSizes={`(max-width: 639px) 100vw, ${heroImage.attributes.sizes as string}`}
         heroImageWidth={heroImage.attributes.width as number}
         heroImageHeight={heroImage.attributes.height as number}
         heroKicker={t(cinematicHeroKicker)}

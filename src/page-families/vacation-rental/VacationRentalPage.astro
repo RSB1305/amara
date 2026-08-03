@@ -547,12 +547,12 @@ const galleryImages = visibleImages.slice(1);
           </div>
         </div>
 
-        <figure class="mt-12 aspect-[16/9] max-h-[720px] overflow-hidden bg-surface-container-low">
+        <figure class="am-mobile-full-bleed mt-12 aspect-[16/9] max-h-[720px] overflow-hidden bg-surface-container-low">
           <AmaraImage
             src={heroImage}
             alt={t(rental.imageAlt)}
             profile="hero"
-            sizes="(max-width: 1535px) calc(100vw - 3rem), 1440px"
+            sizes="(max-width: 639px) 100vw, (max-width: 767px) calc(100vw - 3rem), (max-width: 1535px) calc(100vw - 6rem), 1440px"
             class="h-full w-full object-cover"
             loading="eager"
             fetchpriority="high"
@@ -611,7 +611,7 @@ const galleryImages = visibleImages.slice(1);
         <h2 id="rental-gallery-title" class="am-text-title text-on-surface">
           {t(ui.galleryTitle as LocalizedText)}
         </h2>
-        <div class="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+        <div class="am-mobile-full-bleed mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
           {galleryImages.map((image, index) => (
             <figure class="aspect-[4/3] overflow-hidden bg-surface-container-low">
               <AmaraImage

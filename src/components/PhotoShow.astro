@@ -63,7 +63,7 @@ const t = translations[lang] || translations.en;
       </div>
     </div>
 
-    <div class="photoshow-viewport relative">
+    <div class="photoshow-viewport am-mobile-full-bleed am-mobile-full-bleed--wide relative">
       <div class="photoshow-track flex gap-12 transition-transform duration-1000 ease-[cubic-bezier(0.23, 1, 0.32, 1)]">
         {images.map((img) => (
           <div class="photoshow-slide flex-none w-full md:w-[75%] group">
@@ -72,14 +72,14 @@ const t = translations[lang] || translations.en;
                 src={img.src} 
                 alt={img.alt} 
                 profile="gallery"
-                sizes="(max-width: 767px) calc(100vw - 6rem), 75vw"
+                sizes="(max-width: 639px) 100vw, (max-width: 767px) calc(100vw - 6rem), 75vw"
                 class="w-full h-full object-cover scale-105 group-hover:scale-100 transition-transform duration-1000 ease-out"
                 loading="lazy"
                 decoding="async"
               />
             </div>
             {img.caption && (
-              <p class="am-text-subtitle italic text-on-surface-variant/80 border-l border-primary/30 pl-6 py-1">
+              <p class="mx-12 border-l border-primary/30 py-1 pl-6 am-text-subtitle italic text-on-surface-variant/80 md:mx-0">
                 {img.caption}
               </p>
             )}

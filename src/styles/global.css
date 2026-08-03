@@ -84,6 +84,38 @@
   --color-btn-primary-hover-bg: color-mix(in srgb, var(--color-on-surface) 90%, white);
 }
 
+/**
+ * Mobile editorial media may use the complete viewport width while surrounding
+ * copy keeps its page-family gutter. Apply only to standalone photographic
+ * media, never to cards, logos, maps, controls, or decorative UI imagery.
+ */
+@media (max-width: 639px) {
+  .am-mobile-full-bleed {
+    --am-mobile-full-bleed-gutter: 1.5rem;
+    width: calc(100% + (var(--am-mobile-full-bleed-gutter) * 2));
+    max-width: none;
+    margin-inline: calc(var(--am-mobile-full-bleed-gutter) * -1);
+  }
+
+  .am-mobile-full-bleed--wide {
+    --am-mobile-full-bleed-gutter: var(--am-mobile-wide-gutter, 3rem);
+  }
+
+  .am-mobile-full-bleed--fluid {
+    --am-mobile-full-bleed-gutter: 5vw;
+  }
+
+  :is(
+    [data-am-page='frigiliana-faq'],
+    [data-am-page='frigiliana-market'],
+    [data-am-page='frigiliana-parking'],
+    [data-am-page='frigiliana-streets-stairs'],
+    [data-am-page='getting-to-frigiliana']
+  ) {
+    --am-mobile-wide-gutter: 1.5rem;
+  }
+}
+
 @layer base {
   body {
     @apply bg-surface text-on-surface font-body selection:bg-primary-fixed-dim selection:text-on-primary-fixed;
