@@ -18,6 +18,8 @@ interface Props {
   pageLang?: AmaraLanguage;
   footerHighlights?: { token: string; label: string }[];
   footerVariant?: 'default' | 'trust';
+  /** Optional compact label for the final item in the global breadcrumb. */
+  contextBreadcrumbTitle?: string;
   /** Disable only when a page family supplies its own location-specific context navigation. */
   showContextNavigation?: boolean;
   /** Page canvas behind content; default matches design token surface. */
@@ -29,6 +31,7 @@ const {
   pageLang,
   footerHighlights,
   footerVariant,
+  contextBreadcrumbTitle,
   showContextNavigation = true,
   bodyBackgroundClass = 'bg-surface'
 } = Astro.props;
@@ -110,6 +113,7 @@ const ldJson = resolveStructuredData(seo, head.canonicalUrl, currentLang, origin
         <GlobalContextNavigation
       lang={currentLang}
       pageTitle={seo.languages[currentLang].title}
+      breadcrumbTitle={contextBreadcrumbTitle}
       pathname={pathname}
       isStay={
         Boolean(seo.entityKey && seo.entityKey !== 'amara-brand') ||

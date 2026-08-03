@@ -310,7 +310,8 @@ function buildBreadcrumbNode(
   canonicalUrl: string,
   title: string,
   currentLang: AmaraLanguage,
-  origin: string
+  origin: string,
+  lodgingEntity?: VacationRentalEntity
 ): SchemaNode | null {
   const slug = resolveCanonicalSlug(canonicalUrl);
 
@@ -344,10 +345,34 @@ function buildBreadcrumbNode(
     });
   }
 
+  if (lodgingEntity) {
+    const staysSlug = 'romantic-hideaways';
+    const staysUrl = new URL(
+      buildOwnedLocalizedPath(staysSlug, currentLang),
+      base
+    ).href;
+    const staysLabels: Record<AmaraLanguage, string> = {
+      en: 'Stays',
+      de: 'Unterkünfte',
+      es: 'Alojamientos',
+      nl: 'Verblijven',
+      sv: 'Boenden'
+    };
+
+    itemListElement.push({
+      '@type': 'ListItem',
+      position: itemListElement.length + 1,
+      name: staysLabels[currentLang],
+      item: staysUrl
+    });
+  }
+
   itemListElement.push({
     '@type': 'ListItem',
     position: itemListElement.length + 1,
-    name: resolveRouteLabel(slug, currentLang, title),
+    name: lodgingEntity
+      ? `${lodgingEntity.name}, ${lodgingEntity.city}`
+      : resolveRouteLabel(slug, currentLang, title),
     item: canonicalUrl
   });
 
@@ -644,11 +669,17 @@ export function resolveStructuredData(
           description: ''
         }
       );
-  const ogImage = resolveOgImage(seo, origin);
-  const breadcrumbNode = buildBreadcrumbNode(canonicalUrl, current.title, currentLang, origin);
   const lodgingEntity = seo?.pageType === 'D'
     ? getVacationRentalEntity(seo.entityKey)
     : undefined;
+  const ogImage = resolveOgImage(seo, origin);
+  const breadcrumbNode = buildBreadcrumbNode(
+    canonicalUrl,
+    current.title,
+    currentLang,
+    origin,
+    lodgingEntity
+  );
   const includeBrand = seo?.entityKey === 'amara-brand' || Boolean(lodgingEntity);
   const publisherId = includeBrand
     ? `${getBase(origin)}/#organization`

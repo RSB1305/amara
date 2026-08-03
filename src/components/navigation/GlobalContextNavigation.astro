@@ -12,11 +12,18 @@ import type { AmaraLanguage } from '../../types/seo';
 interface Props {
   lang: AmaraLanguage;
   pageTitle: string;
+  breadcrumbTitle?: string;
   pathname: string;
   isStay?: boolean;
 }
 
-const { lang, pageTitle, pathname, isStay = false } = Astro.props;
+const {
+  lang,
+  pageTitle,
+  breadcrumbTitle: breadcrumbTitleOverride,
+  pathname,
+  isStay = false
+} = Astro.props;
 
 const labels: Record<
   AmaraLanguage,
@@ -127,9 +134,12 @@ const breadcrumbSection = isDirectBookingBenefits
   : isStay
     ? copy.stays
     : copy.discover;
-const breadcrumbTitle = isDirectBookingBenefits
+const resolvedBreadcrumbTitle = isDirectBookingBenefits
   ? copy.directBookingBenefits
-  : cleanPageTitle || breadcrumbSection;
+  : breadcrumbTitleOverride?.trim() || cleanPageTitle || breadcrumbSection;
+const breadcrumbSectionHref = isStay && breadcrumbTitleOverride
+  ? resolveLink('romantic_hideaways', lang)
+  : undefined;
 
 const genericItems: ContextNavigationItem[] = [
   { id: 'destinations', href: resolveLink('explore_hub', lang), label: copy.destinations },
@@ -158,8 +168,8 @@ const activeId = items.find((item) => normalizePath(item.href) === currentPath)?
   breadcrumbAriaLabel={copy.breadcrumb}
   breadcrumbs={isHome ? [] : [
     { label: 'AMARA', href: homeHref },
-    { label: breadcrumbSection },
-    { label: breadcrumbTitle }
+    { label: breadcrumbSection, href: breadcrumbSectionHref },
+    { label: resolvedBreadcrumbTitle }
   ]}
   context="experience"
   items={items}

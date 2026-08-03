@@ -505,7 +505,12 @@ const heroImage = visibleImages[0];
 const galleryImages = visibleImages.slice(1);
 ---
 
-<BaseLayout seo={seo} pageLang={currentLang} footerHighlights={footerHighlights}>
+<BaseLayout
+  seo={seo}
+  pageLang={currentLang}
+  footerHighlights={footerHighlights}
+  contextBreadcrumbTitle={`${rental.name}, ${rental.city}`}
+>
   <Navigation
     currentLang={currentLang}
     brandName="AMARA"
