@@ -44,7 +44,11 @@
       "Bash(awk 'NR==5862,NR==6320' src/content/guestGuideFrigiliana.ts)",
       "Bash(git commit -m ' *)",
       "Bash(awk 'NR==3641,NR==3951' src/content/guestGuideFrigiliana.ts)",
-      "WebSearch"
+      "WebSearch",
+      "WebFetch(domain:4filming.com)",
+      "WebFetch(domain:moviedelic.com)",
+      "WebFetch(domain:www.soapcentral.com)",
+      "Bash(npm run *)"
     ],
     "ask": [
       "Bash(git push*)",
