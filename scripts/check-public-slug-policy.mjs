@@ -154,7 +154,12 @@ for (const relativePath of walk('src')) {
   }
 }
 
-const astroConfig = readFileSync(join(workspaceRoot, 'astro.config.mjs'), 'utf8');
+// Normalize line endings: the redirect pattern below anchors on \n, and Git rewrites
+// checkouts to CRLF on Windows, which would otherwise fail the check on that platform only.
+const astroConfig = readFileSync(join(workspaceRoot, 'astro.config.mjs'), 'utf8').replace(
+  /\r\n/g,
+  '\n'
+);
 const redirectsBlock = astroConfig.match(
   /redirects:\s*\{([\s\S]*?)\n\s*\},\n\s*i18n:/
 );
