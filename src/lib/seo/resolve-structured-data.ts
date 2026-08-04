@@ -26,6 +26,8 @@ interface BrandEntity {
   zip: string;
   region: string;
   country: string;
+  latitude: number;
+  longitude: number;
   image: string;
   priceRange: string;
   airbnbProfile?: string;
@@ -43,6 +45,8 @@ const BRAND_ENTITY: BrandEntity = {
   zip: '29788',
   region: 'Andalusia',
   country: 'ES',
+  latitude: 36.793171,
+  longitude: -3.899107,
   image: '/images/hero-frigiliana.jpg',
   priceRange: 'EUR 75-350',
   airbnbProfile: airbnbReviewEvidence.sourceUrl,
@@ -579,6 +583,11 @@ function buildBrandNode(entity: BrandEntity, origin: string) {
       addressRegion: entity.region,
       addressCountry: entity.country
     },
+    geo: {
+      '@type': 'GeoCoordinates',
+      latitude: entity.latitude,
+      longitude: entity.longitude
+    },
     brand: {
       '@type': 'Brand',
       name: entity.name
@@ -711,6 +720,8 @@ function buildVacationRentalNode(
     telephone: BRAND_ENTITY.telephone,
     email: BRAND_ENTITY.email,
     image: images,
+    latitude: entity.latitude,
+    longitude: entity.longitude,
     address: {
       '@type': 'PostalAddress',
       streetAddress: entity.street,
@@ -718,6 +729,11 @@ function buildVacationRentalNode(
       postalCode: entity.zip,
       addressRegion: entity.region,
       addressCountry: entity.country
+    },
+    geo: {
+      '@type': 'GeoCoordinates',
+      latitude: entity.latitude,
+      longitude: entity.longitude
     },
     checkinTime: entity.checkinTime,
     checkoutTime: entity.checkoutTime,
