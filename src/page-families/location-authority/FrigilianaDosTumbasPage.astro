@@ -94,15 +94,25 @@ const heroImage = {
 
       <section id="trailer" class="am-section am-section--plain !px-6 md:!px-12">
         <div class="max-w-4xl mx-auto w-full">
-          <div class="aspect-video w-full border border-outline-variant/20 bg-black overflow-hidden">
-            <iframe
-              class="w-full h-full"
-              src="https://www.youtube-nocookie.com/embed/5Okt1G7_MAw"
-              title={copy.trailer.label}
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              loading="lazy"
-              allowfullscreen
-            ></iframe>
+          {/*
+            Click-to-load: YouTube is contacted only after the visitor asks for it,
+            so the page transfers nothing to Google on load. This keeps the one
+            embedded third party on the site consent-based without a site-wide banner.
+          */}
+          <div
+            class="relative aspect-video w-full border border-outline-variant/20 bg-black overflow-hidden"
+            data-trailer
+            data-trailer-src="https://www.youtube-nocookie.com/embed/5Okt1G7_MAw?autoplay=1"
+            data-trailer-title={copy.trailer.label}
+          >
+            <div class="absolute inset-0 flex flex-col items-center justify-center gap-5 px-6 text-center">
+              <p class="am-text-body text-white/75 max-w-md leading-relaxed">
+                {copy.trailer.privacyNote}
+              </p>
+              <button type="button" class="am-btn am-btn--inverse am-btn--primary" data-trailer-load>
+                {copy.trailer.loadAction}
+              </button>
+            </div>
           </div>
         </div>
       </section>
@@ -238,6 +248,31 @@ const heroImage = {
     </div>
   </div>
 </LocationAuthorityLayout>
+
+<script is:inline>
+  /*
+   * Swaps the consent placeholder for the real embed. Nothing is requested from
+   * YouTube until this runs, so a visitor who never clicks never reaches Google.
+   * autoplay=1 is on the embed URL so the click that grants consent also starts
+   * playback — one action, not two.
+   */
+  (function () {
+    var frame = document.querySelector('[data-trailer]');
+    var button = frame && frame.querySelector('[data-trailer-load]');
+    if (!frame || !button) return;
+
+    button.addEventListener('click', function () {
+      var iframe = document.createElement('iframe');
+      iframe.className = 'w-full h-full';
+      iframe.src = frame.dataset.trailerSrc;
+      iframe.title = frame.dataset.trailerTitle || '';
+      iframe.allow =
+        'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
+      iframe.allowFullscreen = true;
+      frame.replaceChildren(iframe);
+    });
+  })();
+</script>
 
 <style>
   .am-section--plain {

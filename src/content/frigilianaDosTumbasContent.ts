@@ -14,6 +14,9 @@ export interface FrigilianaDosTumbasPageCopy {
   };
   trailer: {
     label: string;
+    /** Shown before the embed loads — YouTube is only contacted after an explicit click. */
+    privacyNote: string;
+    loadAction: string;
   };
   intro: {
     title: string;
@@ -130,7 +133,10 @@ export const frigilianaDosTumbasContent: Record<
       imageAlt: 'Whitewashed lanes of Frigiliana’s old town in afternoon light'
     },
     trailer: {
-      label: 'Official trailer'
+      label: 'Official trailer',
+      privacyNote:
+        'The trailer is hosted on YouTube. Loading it transmits your IP address to Google, which may also store data on your device.',
+      loadAction: 'Load trailer'
     },
     intro: {
       title: 'What the series is, briefly',
@@ -231,7 +237,10 @@ export const frigilianaDosTumbasContent: Record<
       imageAlt: 'Weiße Gassen der Altstadt von Frigiliana im Nachmittagslicht'
     },
     trailer: {
-      label: 'Offizieller Trailer'
+      label: 'Offizieller Trailer',
+      privacyNote:
+        'Der Trailer liegt bei YouTube. Beim Laden wird die IP-Adresse an Google übertragen; Google kann dabei auch Daten auf dem Gerät speichern.',
+      loadAction: 'Trailer laden'
     },
     intro: {
       title: 'Worum es in der Serie geht, kurz gefasst',
@@ -332,7 +341,10 @@ export const frigilianaDosTumbasContent: Record<
       imageAlt: 'Callejuelas encaladas del casco antiguo de Frigiliana por la tarde'
     },
     trailer: {
-      label: 'Tráiler oficial'
+      label: 'Tráiler oficial',
+      privacyNote:
+        'El tráiler está alojado en YouTube. Al cargarlo se transmite la dirección IP a Google, que también puede almacenar datos en el dispositivo.',
+      loadAction: 'Cargar el tráiler'
     },
     intro: {
       title: 'De qué trata la serie, en pocas líneas',
@@ -433,7 +445,10 @@ export const frigilianaDosTumbasContent: Record<
       imageAlt: 'Witte straatjes van Frigiliana’s oude kern in het middaglicht'
     },
     trailer: {
-      label: 'Officiële trailer'
+      label: 'Officiële trailer',
+      privacyNote:
+        'De trailer staat op YouTube. Bij het laden wordt het IP-adres doorgegeven aan Google, dat ook gegevens op het apparaat kan opslaan.',
+      loadAction: 'Trailer laden'
     },
     intro: {
       title: 'Waar de serie kort over gaat',
@@ -534,7 +549,10 @@ export const frigilianaDosTumbasContent: Record<
       imageAlt: 'Vitkalkade gränder i Frigilianas gamla stad i eftermiddagsljus'
     },
     trailer: {
-      label: 'Officiell trailer'
+      label: 'Officiell trailer',
+      privacyNote:
+        'Trailern ligger hos YouTube. När den laddas överförs IP-adressen till Google, som även kan lagra data på enheten.',
+      loadAction: 'Ladda trailern'
     },
     intro: {
       title: 'Vad serien handlar om, kort',
