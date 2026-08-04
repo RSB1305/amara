@@ -26,8 +26,26 @@ Cloudflare's automatic import captured 11 of 14 records. The three missing ones 
 (`s1-ionos`, `s2-ionos`, `s42582890._domainkey`) and all six proxyable records defaulted to
 Proxied. Assume the same on any future zone import: the scan is a starting point, not a copy.
 
-Outstanding: inbound and outbound mail tests, and confirming Search Console still reports the
-domain as verified.
+Mail verified in both directions on 2026-08-04. Outbound from `hola@amara-lodging.es` to an
+external mailbox delivered in one second, straight to the inbox:
+
+```
+SPF    PASS   (217.72.192.75, IONOS)
+DKIM   PASS   d=amara-lodging.es; s=s1-ionos
+DMARC  PASS
+X-Spam-Flag: NO
+```
+
+The DKIM selector `s1-ionos` is one of the three records Cloudflare's import dropped and that
+were re-added by hand, so the signature passing is direct proof the manual fix took effect.
+
+**Phase 1 complete.** Outstanding: confirm Search Console still reports the domain as verified.
+
+Noted for later, unrelated to the migration: DMARC is published as `p=NONE`, i.e. monitoring
+only — receivers are told to take no action on spoofed mail. Tightening it to quarantine or
+reject is worth doing for a business that sends booking confirmations, but only once every
+legitimate sender is known to be aligned (IONOS mail, Lodgify, any OTA relay). Do not attempt it
+during the migration.
 
 ## Rollback — current IONOS nameservers
 
