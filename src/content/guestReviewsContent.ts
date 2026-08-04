@@ -1,4 +1,9 @@
 import type { AmaraAuthoringSeo, AmaraLanguage } from '../types/seo';
+import {
+  airbnbCheckedAtLabel,
+  airbnbRatingLabel,
+  airbnbReviewEvidence
+} from './reviewEvidence';
 export const guestReviewsSeo: AmaraAuthoringSeo = {
   version: '2026-03-23-reviews-v1.0-C',
   pageType: 'C',
@@ -41,18 +46,18 @@ export const guestReviewsSeo: AmaraAuthoringSeo = {
 export const guestReviewsCopy = {
   hero: {
     subtitle: {
-      en: 'Reviews · Proof focus: Frigiliana, Nerja and Tarifa. (Last updated: Jan 2026)',
-      de: 'Bewertungen · Fokus auf Nachweise: Frigiliana, Nerja und Tarifa. (Stand: Jan 2026)',
-      es: 'Reseñas · Enfoque de prueba: Frigiliana, Nerja y Tarifa. (Actualizado: ene 2026)',
-      nl: "Reviews · Bewijsfocus: Frigiliana, Nerja en Tarifa. (Laatst bijgewerkt: jan 2026)",
-      sv: 'Recensioner · Verifieringsfokus: Frigiliana, Nerja och Tarifa. (Senast uppdaterad: jan 2026)'
+      en: `Reviews · Airbnb evidence checked: ${airbnbCheckedAtLabel.en}`,
+      de: `Bewertungen · Airbnb-Nachweis geprüft: ${airbnbCheckedAtLabel.de}`,
+      es: `Reseñas · Datos de Airbnb comprobados: ${airbnbCheckedAtLabel.es}`,
+      nl: `Reviews · Airbnb-bewijs gecontroleerd: ${airbnbCheckedAtLabel.nl}`,
+      sv: `Recensioner · Airbnb-uppgifter kontrollerade: ${airbnbCheckedAtLabel.sv}`
     },
     title: {
-      en: '500+ Verified Guest Reviews',
-      de: '500+ verifizierte Gästebewertungen',
-      es: '500+ reseñas verificadas de huéspedes',
-      nl: '500+ geverifieerde gastbeoordelingen',
-      sv: '500+ verifierade gästrecensioner'
+      en: `${airbnbReviewEvidence.reviewCount} Airbnb Guest Reviews`,
+      de: `${airbnbReviewEvidence.reviewCount} Airbnb-Gästebewertungen`,
+      es: `${airbnbReviewEvidence.reviewCount} reseñas de huéspedes en Airbnb`,
+      nl: `${airbnbReviewEvidence.reviewCount} Airbnb-gastbeoordelingen`,
+      sv: `${airbnbReviewEvidence.reviewCount} gästrecensioner på Airbnb`
     },
     lead: {
       en: 'AMARA is built like a well-run home: quiet nights, spotless spaces, and clear communication. This page is a calm summary of what guests consistently confirm.',
@@ -86,11 +91,18 @@ export const guestReviewsCopy = {
       sv: 'En tydlig sammanfattning av bevisen'
     },
     summaryLead: {
-      en: '★ 4.95 / 5 • 500+ verified guest reviews',
-      de: '★ 4.95 / 5 • 500+ verifizierte Gästebewertungen',
-      es: '★ 4.95 / 5 • 500+ reseñas verificadas de huéspedes',
-      nl: '★ 4.95 / 5 • 500+ geverifieerde gastbeoordelingen',
-      sv: '★ 4.95 / 5 • 500+ verifierade gästrecensioner'
+      en: `★ ${airbnbRatingLabel.en} / 5 • ${airbnbReviewEvidence.reviewCount} Airbnb guest reviews`,
+      de: `★ ${airbnbRatingLabel.de} / 5 • ${airbnbReviewEvidence.reviewCount} Airbnb-Gästebewertungen`,
+      es: `★ ${airbnbRatingLabel.es} / 5 • ${airbnbReviewEvidence.reviewCount} reseñas de huéspedes en Airbnb`,
+      nl: `★ ${airbnbRatingLabel.nl} / 5 • ${airbnbReviewEvidence.reviewCount} Airbnb-gastbeoordelingen`,
+      sv: `★ ${airbnbRatingLabel.sv} / 5 • ${airbnbReviewEvidence.reviewCount} gästrecensioner på Airbnb`
+    },
+    evidenceSource: {
+      en: `Source: Airbnb host profile · checked ${airbnbCheckedAtLabel.en}`,
+      de: `Quelle: Airbnb-Gastgeberprofil · geprüft am ${airbnbCheckedAtLabel.de}`,
+      es: `Fuente: perfil de anfitrión en Airbnb · comprobado el ${airbnbCheckedAtLabel.es}`,
+      nl: `Bron: Airbnb-hostprofiel · gecontroleerd op ${airbnbCheckedAtLabel.nl}`,
+      sv: `Källa: värdprofil på Airbnb · kontrollerad ${airbnbCheckedAtLabel.sv}`
     },
     summaryBodyOne: {
       en: 'We keep it simple: strong sleep comfort, reliable cleanliness, and small details that make a stay feel easy.',
@@ -169,11 +181,11 @@ export const guestReviewsCopy = {
       sv: 'Booking.com Traveller Review Awards 2025'
     },
     awardsBody: {
-      en: 'Verification images are shown for transparency only. Bookings stay direct with AMARA.',
-      de: 'Die Verifizierungsbilder dienen ausschließlich der Transparenz. Gebucht wird weiterhin direkt bei AMARA.',
-      es: 'Las imágenes de verificación se muestran solo por transparencia. Las reservas siguen siendo directas con AMARA.',
-      nl: 'De verificatieafbeeldingen worden alleen getoond voor transparantie. Boeken blijft direct bij AMARA.',
-      sv: 'Verifieringsbilderna visas enbart för transparens. Bokningar sker fortsatt direkt med AMARA.'
+      en: 'The awards listed here document recognition on Booking.com. Bookings stay direct with AMARA.',
+      de: 'Die hier aufgeführten Auszeichnungen dokumentieren die Anerkennung auf Booking.com. Gebucht wird weiterhin direkt bei AMARA.',
+      es: 'Los premios aquí indicados documentan el reconocimiento en Booking.com. Las reservas siguen siendo directas con AMARA.',
+      nl: 'De hier vermelde awards documenteren de erkenning op Booking.com. Boeken blijft direct bij AMARA.',
+      sv: 'Utmärkelserna som listas här dokumenterar erkännandet på Booking.com. Bokningar sker fortsatt direkt med AMARA.'
     },
     awardsSource: {
       en: 'Award source: Booking.com Traveller Review Awards 2025 (based on verified guest reviews).',

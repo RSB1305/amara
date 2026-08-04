@@ -1,0 +1,29 @@
+---
+import type { AmaraLanguage } from '../../types/seo';
+
+interface Props {
+  lang: AmaraLanguage;
+  authorName: string;
+  authorHref: string;
+  updated: string;
+  note: string;
+}
+
+const { lang, authorName, authorHref, updated, note } = Astro.props;
+const authorLabel = {
+  en: `By ${authorName} · Founder and host at AMARA`,
+  de: `Von ${authorName} · Gründer und Gastgeber bei AMARA`,
+  es: `Por ${authorName} · Fundador y anfitrión de AMARA`,
+  nl: `Door ${authorName} · Oprichter en host bij AMARA`,
+  sv: `Av ${authorName} · Grundare och värd hos AMARA`
+} satisfies Record<AmaraLanguage, string>;
+---
+
+<div
+  class="mt-10 flex flex-wrap gap-x-8 gap-y-3 border-t border-border-subtle pt-6 font-label text-[10px] font-semibold uppercase tracking-[0.12em] text-on-surface-variant"
+  data-am-component="editorial-byline"
+>
+  <a class="am-link" href={authorHref} rel="author">{authorLabel[lang]}</a>
+  <span>{updated}</span>
+  <span class="normal-case tracking-normal">{note}</span>
+</div>

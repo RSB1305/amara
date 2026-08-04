@@ -147,6 +147,27 @@ const ui = {
       nl: 'Badkamers',
       sv: 'Badrum'
     },
+    rooms: {
+      en: 'Rooms (excluding bathrooms)',
+      de: 'Räume (ohne Badezimmer)',
+      es: 'Estancias (sin baños)',
+      nl: 'Kamers (exclusief badkamers)',
+      sv: 'Rum (exklusive badrum)'
+    },
+    hostLanguages: {
+      en: 'Guest communication',
+      de: 'Gästekommunikation',
+      es: 'Idiomas de atención',
+      nl: 'Gastcommunicatie',
+      sv: 'Gästkommunikation'
+    },
+    fullAddress: {
+      en: 'Full address',
+      de: 'Vollständige Adresse',
+      es: 'Dirección completa',
+      nl: 'Volledig adres',
+      sv: 'Fullständig adress'
+    },
     beds: {
       en: 'Beds',
       de: 'Betten',
@@ -155,11 +176,11 @@ const ui = {
       sv: 'Sängar'
     },
     bedSize: {
-      en: 'Bed size',
-      de: 'Bettgröße',
-      es: 'Tamaño de cama',
-      nl: 'Bedmaat',
-      sv: 'Sängstorlek'
+      en: 'Bed type and size',
+      de: 'Bettart und -größe',
+      es: 'Tipo y tamaño de cama',
+      nl: 'Bedtype en -maat',
+      sv: 'Sängtyp och storlek'
     },
     airConditioning: {
       en: 'Air conditioning',
@@ -363,6 +384,37 @@ const bunkBedLabel: LocalizedText = {
   sv: 'Våningssäng (2 enkelsängar)'
 };
 
+const bedTypeLabels: Record<VacationRentalEntity['bed'][number]['typeOfBed'], LocalizedText> = {
+  Queen: {
+    en: 'Queen-size bed',
+    de: 'Queensize-Bett',
+    es: 'Cama queen size',
+    nl: 'Queensizebed',
+    sv: 'Queensize-säng'
+  },
+  King: {
+    en: 'King-size bed',
+    de: 'Kingsize-Bett',
+    es: 'Cama king size',
+    nl: 'Kingsizebed',
+    sv: 'Kingsize-säng'
+  },
+  Double: {
+    en: 'Double bed',
+    de: 'Doppelbett',
+    es: 'Cama doble',
+    nl: 'Tweepersoonsbed',
+    sv: 'Dubbelsäng'
+  },
+  Single: {
+    en: 'Single bed',
+    de: 'Einzelbett',
+    es: 'Cama individual',
+    nl: 'Eenpersoonsbed',
+    sv: 'Enkelsäng'
+  }
+};
+
 const t = (value: LocalizedText) => value[currentLang] ?? value.en;
 const formatCount = (count: number, singular: string, plural: string) =>
   count === 1 ? `1 ${singular}` : `${count} ${plural}`;
@@ -424,10 +476,15 @@ const formatAmenity = (feature: VacationRentalAmenityFeature) => {
   return `${label}: ${localizedValue}`;
 };
 
-const formatBed = (bed: VacationRentalEntity['bed'][number]) =>
-  bed.label === 'Bunk bed'
-    ? t(bunkBedLabel)
-    : `${bed.numberOfBeds} × ${bed.label}`;
+const formatBed = (bed: VacationRentalEntity['bed'][number]) => {
+  if (bed.label === 'Bunk bed') {
+    return t(bunkBedLabel);
+  }
+
+  const count = bed.numberOfBeds > 1 ? `${bed.numberOfBeds} × ` : '';
+  const size = bed.label.replace(/\s+x\s+/i, ' × ');
+  return `${count}${t(bedTypeLabels[bed.typeOfBed])} · ${size} cm`;
+};
 
 const localizedGuests = {
   en: formatCount(rental.occupancy, 'guest', 'guests'),
@@ -437,10 +494,37 @@ const localizedGuests = {
   sv: formatCount(rental.occupancy, 'gäst', 'gäster')
 } satisfies LocalizedText;
 
+const localizedHostLanguages: LocalizedText = {
+  en: 'German, English and Spanish',
+  de: 'Deutsch, Englisch und Spanisch',
+  es: 'alemán, inglés y español',
+  nl: 'Duits, Engels en Spaans',
+  sv: 'tyska, engelska och spanska'
+};
+
+const localizedRegion: LocalizedText = {
+  en: 'Andalusia',
+  de: 'Andalusien',
+  es: 'Andalucía',
+  nl: 'Andalusië',
+  sv: 'Andalusien'
+};
+
+const localizedCountry: LocalizedText = {
+  en: 'Spain',
+  de: 'Spanien',
+  es: 'España',
+  nl: 'Spanje',
+  sv: 'Spanien'
+};
+
 const factRows = [
   { label: t(ui.labels.guests as LocalizedText), value: t(localizedGuests) },
   { label: t(ui.labels.bedrooms as LocalizedText), value: String(rental.bedrooms) },
   { label: t(ui.labels.bathrooms as LocalizedText), value: String(rental.bathrooms) },
+  ...(typeof rental.rooms === 'number'
+    ? [{ label: t(ui.labels.rooms as LocalizedText), value: String(rental.rooms) }]
+    : []),
   { label: t(ui.labels.price as LocalizedText), value: rental.priceLabel[currentLang] },
   { label: t(ui.labels.license as LocalizedText), value: rental.license }
 ];
@@ -457,6 +541,7 @@ const detailRows = [
   { label: t(ui.labels.bedSize as LocalizedText), value: rental.bed.map(formatBed).join(', ') },
   { label: t(ui.labels.view as LocalizedText), value: t(rental.viewNote) },
   { label: t(ui.labels.access as LocalizedText), value: t(rental.accessNote) },
+  { label: t(ui.labels.hostLanguages as LocalizedText), value: t(localizedHostLanguages) },
   { label: t(ui.labels.checkin as LocalizedText), value: rental.checkinTime.slice(0, 5) },
   { label: t(ui.labels.checkout as LocalizedText), value: rental.checkoutTime.slice(0, 5) },
   ...(hasAmenity('selfCheckinCheckout')
@@ -467,6 +552,10 @@ const detailRows = [
     ? [{ label: t(ui.labels.parking as LocalizedText), value: localizedParking }]
     : [])
 ];
+
+const visibleAddress = `${rental.street}, ${rental.zip} ${rental.city}, ${t(localizedRegion)}, ${t(localizedCountry)}`;
+const mapsQuery = `${rental.street}, ${rental.zip} ${rental.city}, ${rental.region}, Spain`;
+const mapsHref = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(mapsQuery)}`;
 
 const visibleAmenities = rental.amenityFeatures
   .map(formatAmenity)
@@ -500,8 +589,7 @@ const locationLinks = locationLinkSpecs.flatMap(({ token, label }) => {
 const locationBody = locationLinks.length > 0
   ? t(ui.locationBodyWithGuides as LocalizedText)
   : t(ui.locationBodyWithoutGuides as LocalizedText);
-// Keep the visible page calm while the complete image set remains available
-// to the Astro-owned VacationRental structured data.
+// The eight visible images are also the complete image set emitted in JSON-LD.
 const visibleImages = rental.images.slice(0, 8);
 const heroImage = visibleImages[0];
 const galleryImages = visibleImages.slice(1);
@@ -653,6 +741,18 @@ const galleryImages = visibleImages.slice(1);
             <p class="am-text-body text-on-surface-variant mt-5 leading-relaxed">
               {locationBody}
             </p>
+            <dl class="grid gap-4 mt-8">
+              <div class="border-t border-border-subtle pt-4">
+                <dt class="font-label text-[11px] font-bold uppercase tracking-[0.14em] text-on-surface-variant">
+                  {t(ui.labels.fullAddress as LocalizedText)}
+                </dt>
+                <dd class="am-text-body text-on-surface mt-2">
+                  <a class="am-link" href={mapsHref} target="_blank" rel="noopener noreferrer">
+                    {visibleAddress}
+                  </a>
+                </dd>
+              </div>
+            </dl>
           </div>
           <div class="grid gap-3 sm:flex sm:flex-wrap lg:justify-end">
             <a class="am-btn am-btn--primary w-full justify-center sm:w-auto" href={bookingHref}>

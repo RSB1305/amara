@@ -51,6 +51,8 @@ const homeImageByToken: Record<CinematicAptToken, typeof imgHeroLounis> = {
 
 const heroImage = await createAmaraImage(imgHeroLounis, 'hero', { quality: 50 });
 const trustImage = await createAmaraImage(imgZaid, 'background', { quality: 55 });
+const homeHeroSizes =
+  '(max-width: 639px) 100vw, (max-width: 767px) calc(100vw - 3rem), (max-width: 1535px) calc(100vw - 6rem), 1440px';
 
 interface Props {
   lang?: string;
@@ -167,7 +169,7 @@ const guideLinks = cinematicGuideLinks
       <HomeCinematicMain
         heroImageSrc={heroImage.src}
         heroImageSrcSet={heroImage.srcSet.attribute}
-        heroImageSizes={`(max-width: 639px) 100vw, ${heroImage.attributes.sizes as string}`}
+        heroImageSizes={homeHeroSizes}
         heroImageWidth={heroImage.attributes.width as number}
         heroImageHeight={heroImage.attributes.height as number}
         heroKicker={t(cinematicHeroKicker)}
@@ -179,7 +181,7 @@ const guideLinks = cinematicGuideLinks
         philosophyP1={t(cinematicPhilosophyP1)}
         philosophyP2={t(cinematicPhilosophyP2)}
         statReviewsValue={cinematicStatReviewsValue}
-        statRatingValue={cinematicStatRatingValue}
+        statRatingValue={t(cinematicStatRatingValue)}
         statReviewsLabel={t(cinematicStatReviewsLabel)}
         statRatingLabel={t(cinematicStatRatingLabel)}
         guideEyebrow={t(cinematicGuideEyebrow)}

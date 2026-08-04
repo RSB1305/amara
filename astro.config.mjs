@@ -123,7 +123,9 @@ export default defineConfig({
   site: siteOrigin,
   compressHTML: true,
   build: {
-    format: 'file'
+    format: 'file',
+    // Keep first-visit rendering free of separate, render-blocking CSS requests.
+    inlineStylesheets: 'always'
   },
   trailingSlash: 'never',
   redirects: {

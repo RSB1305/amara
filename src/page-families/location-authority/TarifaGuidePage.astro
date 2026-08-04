@@ -2,6 +2,7 @@
 import tarifaStayImage from '../../assets/images/home/amara-tarifa-apartment01.webp';
 import AmaraImage from '../../components/AmaraImage.astro';
 import Navigation from '../../components/Navigation.astro';
+import EditorialByline from '../../components/editorial/EditorialByline.astro';
 import TarifaContextNav from '../../components/location/TarifaContextNav.astro';
 import {
   tarifaGuideContent,
@@ -32,6 +33,7 @@ const requiredLink = (token: string) => {
 };
 const stayHref = requiredLink('casa');
 const bookHref = requiredLink('book');
+const aboutHref = requiredLink('about');
 const relatedGuides = content.related.map((id) => tarifaGuideContent[id]);
 
 const ui = {
@@ -166,11 +168,15 @@ const footerHighlights = [
           <p class="am-text-title mt-9 max-w-4xl text-balance leading-relaxed text-on-surface-variant">
             {t(content.hero.lead)}
           </p>
-          <div class="mt-10 flex flex-wrap gap-x-8 gap-y-3 border-t border-border-subtle pt-6 font-label text-[10px] font-semibold uppercase tracking-[0.12em] text-on-surface-variant">
-            <span>{content.seo.article?.authorName}</span>
-            <span>{t(content.hero.updated)}</span>
-            <span class="normal-case tracking-normal">{t(content.hero.editorialNote)}</span>
-          </div>
+          {content.seo.article && (
+            <EditorialByline
+              lang={currentLang}
+              authorName={content.seo.article.authorName}
+              authorHref={aboutHref}
+              updated={t(content.hero.updated)}
+              note={t(content.hero.editorialNote)}
+            />
+          )}
         </div>
       </div>
     </header>

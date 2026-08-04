@@ -51,7 +51,11 @@
       "Bash(npm run *)",
       "PowerShell($env:PUBLIC_SITE_URL = \"https://amara-lodging.es\"; npm run build)",
       "PowerShell(git -C \"C:\\\\Users\\\\marku\\\\Documents\\\\Project-2030-plus\\\\frigiliana\" status --short)",
-      "PowerShell(git -C \"C:\\\\Users\\\\marku\\\\Documents\\\\Project-2030-plus\\\\frigiliana\" diff --stat .claude/settings.local.json)"
+      "PowerShell(git -C \"C:\\\\Users\\\\marku\\\\Documents\\\\Project-2030-plus\\\\frigiliana\" diff --stat .claude/settings.local.json)",
+      "PowerShell(git -C \"C:\\\\Users\\\\marku\\\\Documents\\\\Project-2030-plus\\\\frigiliana\" status --short --branch)",
+      "PowerShell(git -C \"C:\\\\Users\\\\marku\\\\Documents\\\\Project-2030-plus\\\\frigiliana\" log --oneline origin/main..main)",
+      "PowerShell(git -C \"C:\\\\Users\\\\marku\\\\Documents\\\\Project-2030-plus\\\\frigiliana\" remote -v)",
+      "PowerShell(git -C \"C:\\\\Users\\\\marku\\\\Documents\\\\Project-2030-plus\\\\frigiliana\" branch -r)"
     ],
     "ask": [
       "Bash(git push*)",

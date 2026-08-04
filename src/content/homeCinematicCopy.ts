@@ -3,6 +3,7 @@
  * Used by HomePage.astro + HomeCinematicMain.astro props.
  */
 import type { AmaraLanguage } from '../types/seo';
+import { airbnbRatingLabel, airbnbReviewEvidence } from './reviewEvidence';
 
 export type CopyRow = Record<AmaraLanguage, string>;
 
@@ -95,11 +96,11 @@ export const cinematicTrustQuote: CopyRow = {
 };
 
 export const cinematicTrustCta: CopyRow = {
-  en: 'Read all 500+ reviews',
-  de: 'Alle 500+ Bewertungen lesen',
-  es: 'Leer las más de 500 reseñas',
-  nl: 'Lees alle 500+ beoordelingen',
-  sv: 'Läs alla 500+ recensioner'
+  en: `Read all ${airbnbReviewEvidence.reviewCount} reviews`,
+  de: `Alle ${airbnbReviewEvidence.reviewCount} Bewertungen lesen`,
+  es: `Leer las ${airbnbReviewEvidence.reviewCount} reseñas`,
+  nl: `Lees alle ${airbnbReviewEvidence.reviewCount} beoordelingen`,
+  sv: `Läs alla ${airbnbReviewEvidence.reviewCount} recensioner`
 };
 
 /** Primary action of the closing trust band — the site's strongest conversion moment. */
@@ -111,8 +112,8 @@ export const cinematicTrustCtaPrimary: CopyRow = {
   sv: 'Se tillgänglighet'
 };
 
-export const cinematicStatReviewsValue = '500+';
-export const cinematicStatRatingValue = '4.95';
+export const cinematicStatReviewsValue = String(airbnbReviewEvidence.reviewCount);
+export const cinematicStatRatingValue: CopyRow = airbnbRatingLabel;
 
 export const cinematicStatReviewsLabel: CopyRow = {
   en: 'Verified Reviews',
@@ -297,11 +298,11 @@ export const cinematicApartments: CinematicAptDef[] = [
       sv: 'Frigiliana • 2 gäster'
     },
     desc: {
-      en: "A romantic boutique room with character — ideal for shorter trips. Designed with a deep respect for the village's Moorish past.",
-      de: 'Ein romantisches Boutique-Zimmer mit Charakter — ideal für kürzere Aufenthalte. Entworfen mit tiefem Respekt für die maurische Geschichte des Dorfes.',
-      es: 'Una habitación boutique romántica con carácter — ideal para estancias cortas. Diseñada con profundo respeto por el pasado morisco del pueblo.',
-      nl: 'Een romantische boutiquekamer met karakter — ideaal voor kortere verblijven. Ontworpen met diep respect voor het Moorse verleden van het dorp.',
-      sv: 'Ett romantiskt boutiquerum med karaktär — idealiskt för kortare vistelser. Utformat med djup respekt för byns moriska förflutna.'
+      en: "A romantic, self-contained boutique suite with character — ideal for shorter trips. Designed with deep respect for the village's Moorish past.",
+      de: 'Eine romantische, abgeschlossene Boutique-Suite mit Charakter — ideal für kürzere Aufenthalte. Gestaltet mit tiefem Respekt für die maurische Geschichte des Dorfes.',
+      es: 'Una suite boutique independiente, romántica y con carácter — ideal para estancias cortas. Diseñada con profundo respeto por el pasado morisco del pueblo.',
+      nl: 'Een romantische, zelfstandige boutique-suite met karakter — ideaal voor kortere verblijven. Ontworpen met diep respect voor het Moorse verleden van het dorp.',
+      sv: 'En romantisk, självständig boutique-svit med karaktär — idealisk för kortare vistelser. Utformad med djup respekt för byns moriska förflutna.'
     },
     exploreLabel: {
       en: 'Explore Farah',

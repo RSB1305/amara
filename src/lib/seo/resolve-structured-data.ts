@@ -6,6 +6,7 @@ import {
   vacationRentalEntitiesByKey,
   type VacationRentalEntity
 } from '../../content/vacationRentalEntities';
+import { airbnbReviewEvidence } from '../../content/reviewEvidence';
 import {
   buildOwnedLocalizedPath,
   getOwnedSlugFromPathname,
@@ -25,8 +26,6 @@ interface BrandEntity {
   zip: string;
   region: string;
   country: string;
-  latitude: number;
-  longitude: number;
   image: string;
   priceRange: string;
   airbnbProfile?: string;
@@ -44,11 +43,9 @@ const BRAND_ENTITY: BrandEntity = {
   zip: '29788',
   region: 'Andalusia',
   country: 'ES',
-  latitude: 36.793171,
-  longitude: -3.899107,
   image: '/images/hero-frigiliana.jpg',
   priceRange: 'EUR 75-350',
-  airbnbProfile: 'https://www.airbnb.de/users/profile/1462887322087352320',
+  airbnbProfile: airbnbReviewEvidence.sourceUrl,
   instagramProfile: 'https://www.instagram.com/amaralodging/'
 };
 
@@ -527,6 +524,10 @@ function buildArticleNode(
   image?: string
 ) {
   const organizationId = `${getBase(origin)}/#organization`;
+  const authorIsPerson = seo.authorType === 'Person';
+  const authorUrl = seo.authorSlug
+    ? new URL(buildOwnedLocalizedPath(seo.authorSlug, currentLang), getBase(origin)).href
+    : `${getBase(origin)}/`;
   const node: SchemaNode = {
     '@type': 'Article',
     '@id': `${canonicalUrl}#article`,
@@ -539,10 +540,12 @@ function buildArticleNode(
       '@id': `${canonicalUrl}#webpage`
     },
     author: {
-      '@type': 'Organization',
-      '@id': organizationId,
+      '@type': authorIsPerson ? 'Person' : 'Organization',
+      '@id': authorIsPerson
+        ? `${getBase(origin)}/#robert-sebastian-bohmer`
+        : organizationId,
       name: seo.authorName,
-      url: `${getBase(origin)}/`
+      url: authorUrl
     },
     publisher: {
       '@id': organizationId
@@ -575,11 +578,6 @@ function buildBrandNode(entity: BrandEntity, origin: string) {
       postalCode: entity.zip,
       addressRegion: entity.region,
       addressCountry: entity.country
-    },
-    geo: {
-      '@type': 'GeoCoordinates',
-      latitude: entity.latitude,
-      longitude: entity.longitude
     },
     brand: {
       '@type': 'Brand',
@@ -638,9 +636,7 @@ function buildGoogleVacationRentalAmenities(
     let value = feature.value;
 
     // Preserve detailed guest copy while emitting only Google's documented taxonomy.
-    if (name === 'washingMachine') {
-      name = 'washerDryer';
-    } else if (name === 'privatePatio') {
+    if (name === 'privatePatio') {
       name = 'patio';
     } else if (name === 'parkingType' && value === 'ReservedUndergroundIncluded') {
       value = 'Free';
@@ -674,7 +670,7 @@ function buildVacationRentalNode(
 ) {
   const base = getBase(origin);
   const entityId = `${base}/#${entity.identifier}`;
-  const images = entity.images.map((image) => new URL(image, base).href);
+  const images = entity.images.slice(0, 8).map((image) => new URL(image, base).href);
   const petsFeature = entity.amenityFeatures.find((feature) => feature.name === 'petsAllowed');
   const containsPlace: SchemaNode = {
     '@type': 'Accommodation',
@@ -715,8 +711,6 @@ function buildVacationRentalNode(
     telephone: BRAND_ENTITY.telephone,
     email: BRAND_ENTITY.email,
     image: images,
-    latitude: entity.latitude,
-    longitude: entity.longitude,
     address: {
       '@type': 'PostalAddress',
       streetAddress: entity.street,
@@ -724,11 +718,6 @@ function buildVacationRentalNode(
       postalCode: entity.zip,
       addressRegion: entity.region,
       addressCountry: entity.country
-    },
-    geo: {
-      '@type': 'GeoCoordinates',
-      latitude: entity.latitude,
-      longitude: entity.longitude
     },
     checkinTime: entity.checkinTime,
     checkoutTime: entity.checkoutTime,
@@ -771,7 +760,7 @@ export function resolveStructuredData(
           description: ''
         }
       );
-  const lodgingEntity = seo?.pageType === 'D'
+  const lodgingEntity = seo?.schemaType === 'lodging'
     ? getVacationRentalEntity(seo.entityKey)
     : undefined;
   const ogImage = resolveOgImage(seo, origin);
@@ -839,9 +828,9 @@ export function resolveStructuredData(
   }
 
   /**
-   * Type D pages emit one complete VacationRental entity from the explicit
-   * AMARA rental registry. This keeps Google markup deterministic and avoids
-   * pathname heuristics.
+   * Only pages with an explicit lodging schema assignment emit a complete
+   * VacationRental entity. This keeps Google markup deterministic and prevents
+   * private guest-guide pages from inheriting public listing markup.
    */
   if (lodgingEntity) {
     graph.push(buildVacationRentalNode(lodgingEntity, canonicalUrl, currentLang, origin));

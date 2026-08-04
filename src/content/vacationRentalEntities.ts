@@ -97,12 +97,12 @@ export const vacationRentalEntities: VacationRentalEntity[] = [
     name: 'AMARA Farah',
     shortName: 'Farah',
     additionalType: 'VacationRental',
-    accommodationType: 'PrivateRoom',
+    accommodationType: 'EntirePlace',
     license: 'A/MA/01767',
     ...frigilianaAddress,
     bedrooms: 1,
     bathrooms: 1,
-    rooms: 1,
+    rooms: 2,
     occupancy: 2,
     bed: [{ numberOfBeds: 1, typeOfBed: 'Queen', label: '160 x 200' }],
     tvSizeInches: 40,
@@ -116,20 +116,23 @@ export const vacationRentalEntities: VacationRentalEntity[] = [
     },
     checkinTime: '15:00:00',
     checkoutTime: '11:00:00',
-    sameAs: ['https://www.booking.com/hotel/es/das-amara-farah-in-der-altstadt-von-frigiliana.de.html'],
+    sameAs: [
+      'https://www.booking.com/hotel/es/das-amara-farah-in-der-altstadt-von-frigiliana.de.html',
+      'https://www.airbnb.com/rooms/52229175'
+    ],
     seoTitle: {
-      en: 'AMARA Farah | Private Boutique Room in Frigiliana',
-      de: 'AMARA Farah | Privates Boutique-Zimmer in Frigiliana',
-      es: 'AMARA Farah | Habitación boutique privada en Frigiliana',
-      nl: 'AMARA Farah | Private boutiquekamer in Frigiliana',
-      sv: 'AMARA Farah | Privat boutiquerum i Frigiliana'
+      en: 'AMARA Farah | Self-Contained Boutique Suite in Frigiliana',
+      de: 'AMARA Farah | Abgeschlossene Boutique-Suite in Frigiliana',
+      es: 'AMARA Farah | Suite boutique independiente en Frigiliana',
+      nl: 'AMARA Farah | Zelfstandige boutique-suite in Frigiliana',
+      sv: 'AMARA Farah | Självständig boutique-svit i Frigiliana'
     },
     seoDescription: {
-      en: 'AMARA Farah is a private boutique room in historic Frigiliana for 2 guests, with private bathroom, calm village setting, and verified AMARA hosting.',
-      de: 'AMARA Farah ist ein privates Boutique-Zimmer in der Altstadt von Frigiliana für 2 Gäste, mit eigenem Bad und ruhiger AMARA-Gastlichkeit.',
-      es: 'AMARA Farah es una habitación boutique privada en Frigiliana para 2 huéspedes, con baño privado, ambiente tranquilo y hospitalidad AMARA.',
-      nl: 'AMARA Farah is een private boutiquekamer in historisch Frigiliana voor 2 gasten, met eigen badkamer en rustige AMARA-gastvrijheid.',
-      sv: 'AMARA Farah är ett privat boutiquerum i historiska Frigiliana för 2 gäster, med eget badrum och lugnt AMARA-värdskap.'
+      en: 'AMARA Farah is a self-contained boutique suite in historic Frigiliana for 2 guests, with its own entrance, bedroom, bathroom, and coffee and tea kitchenette.',
+      de: 'AMARA Farah ist eine abgeschlossene Boutique-Suite in der Altstadt von Frigiliana für 2 Gäste, mit eigenem Eingang, Schlafzimmer, Bad und Teeküche.',
+      es: 'AMARA Farah es una suite boutique independiente en Frigiliana para 2 huéspedes, con entrada, dormitorio, baño y zona de café y té propios.',
+      nl: 'AMARA Farah is een zelfstandige boutique-suite in historisch Frigiliana voor 2 gasten, met eigen ingang, slaapkamer, badkamer en koffie- en theefaciliteiten.',
+      sv: 'AMARA Farah är en självständig boutique-svit i historiska Frigiliana för 2 gäster, med egen ingång, sovrum, badrum samt kaffe- och tehörna.'
     },
     eyebrow: {
       en: 'Frigiliana old town',
@@ -139,15 +142,15 @@ export const vacationRentalEntities: VacationRentalEntity[] = [
       sv: 'Frigilianas gamla stad'
     },
     headline: {
-      en: 'Private boutique room for calm short stays',
-      de: 'Privates Boutique-Zimmer für ruhige Kurzaufenthalte',
-      es: 'Habitación boutique privada para estancias tranquilas',
-      nl: 'Private boutiquekamer voor rustige korte verblijven',
-      sv: 'Privat boutiquerum för lugna kortare vistelser'
+      en: 'Self-contained boutique suite for calm short stays',
+      de: 'Abgeschlossene Boutique-Suite für ruhige Kurzaufenthalte',
+      es: 'Suite boutique independiente para estancias tranquilas',
+      nl: 'Zelfstandige boutique-suite voor rustige korte verblijven',
+      sv: 'Självständig boutique-svit för lugna kortare vistelser'
     },
     lead: {
       en: 'A compact, romantic AMARA stay with private entrance, private bathroom, coffee and tea station, and the old village just outside the door.',
-      de: 'Ein kompaktes, romantisches AMARA-Zimmer mit eigenem Eingang, eigenem Bad, Kaffee- und Teestation und dem alten Dorf direkt vor der Tür.',
+      de: 'Eine kompakte, romantische AMARA-Suite mit eigenem Eingang, eigenem Bad, Teeküche und dem alten Dorf direkt vor der Tür.',
       es: 'Una estancia AMARA compacta y romántica, con entrada privada, baño privado, zona de café y té y el pueblo antiguo a pocos pasos.',
       nl: 'Een compacte, romantische AMARA-stay met eigen ingang, eigen badkamer, koffie- en theefaciliteiten en het oude dorp direct buiten.',
       sv: 'En kompakt och romantisk AMARA-vistelse med egen ingång, eget badrum, kaffe- och tehörna och den gamla byn utanför dörren.'
@@ -160,11 +163,11 @@ export const vacationRentalEntities: VacationRentalEntity[] = [
       sv: 'Farah passar par som vill ha AMARA-känslan utan att behöva fullt kök eller privat terrass. Perfekt för enkel ankomst, lugna nätter och stilla dagar i byn.'
     },
     highlights: {
-      en: ['Private room for 2 guests', 'Private bathroom', 'Coffee and tea station'],
-      de: ['Privates Zimmer für 2 Gäste', 'Eigenes Bad', 'Kaffee- und Teestation'],
-      es: ['Habitación privada para 2 huéspedes', 'Baño privado', 'Zona de café y té'],
-      nl: ['Private kamer voor 2 gasten', 'Eigen badkamer', 'Koffie- en theefaciliteiten'],
-      sv: ['Privat rum för 2 gäster', 'Eget badrum', 'Kaffe- och tehörna']
+      en: ['Self-contained suite for 2 guests', 'Private bathroom', 'Coffee and tea kitchenette'],
+      de: ['Abgeschlossene Suite für 2 Gäste', 'Eigenes Bad', 'Teeküche'],
+      es: ['Suite independiente para 2 huéspedes', 'Baño privado', 'Zona de café y té'],
+      nl: ['Zelfstandige suite voor 2 gasten', 'Eigen badkamer', 'Koffie- en theefaciliteiten'],
+      sv: ['Självständig svit för 2 gäster', 'Eget badrum', 'Kaffe- och tehörna']
     },
     accessNote: {
       en: '1 step at entrance',
@@ -218,11 +221,11 @@ export const vacationRentalEntities: VacationRentalEntity[] = [
       '/images/amara-entrada/casa-amara-frigiliana-guia-de-claves.jpg'
     ],
     imageAlt: {
-      en: 'AMARA Farah private boutique room in Frigiliana',
-      de: 'AMARA Farah privates Boutique-Zimmer in Frigiliana',
-      es: 'Habitación boutique privada AMARA Farah en Frigiliana',
-      nl: 'AMARA Farah private boutiquekamer in Frigiliana',
-      sv: 'AMARA Farah privat boutiquerum i Frigiliana'
+      en: 'AMARA Farah self-contained boutique suite in Frigiliana',
+      de: 'Abgeschlossene Boutique-Suite AMARA Farah in Frigiliana',
+      es: 'Suite boutique independiente AMARA Farah en Frigiliana',
+      nl: 'Zelfstandige boutique-suite AMARA Farah in Frigiliana',
+      sv: 'Självständig boutique-svit AMARA Farah i Frigiliana'
     },
     amenityFeatures: withLicense('A/MA/01767', [
       { name: 'wifi', value: true },
@@ -264,7 +267,10 @@ export const vacationRentalEntities: VacationRentalEntity[] = [
     },
     checkinTime: '15:00:00',
     checkoutTime: '11:00:00',
-    sameAs: ['https://www.booking.com/hotel/es/das-amara-lounis-in-der-altstadt-von-frigiliana.de.html'],
+    sameAs: [
+      'https://www.booking.com/hotel/es/das-amara-lounis-in-der-altstadt-von-frigiliana.de.html',
+      'https://www.airbnb.com/rooms/632415709742535474'
+    ],
     seoTitle: {
       en: 'AMARA Lounis | Historic Apartment in Frigiliana',
       de: 'AMARA Lounis | Historisches Apartment in Frigiliana',
@@ -429,7 +435,10 @@ export const vacationRentalEntities: VacationRentalEntity[] = [
     },
     checkinTime: '15:00:00',
     checkoutTime: '11:00:00',
-    sameAs: ['https://www.booking.com/hotel/es/das-amara-zaid-in-der-altstadt-von-frigiliana.de.html'],
+    sameAs: [
+      'https://www.booking.com/hotel/es/das-amara-zaid-in-der-altstadt-von-frigiliana.de.html',
+      'https://www.airbnb.com/rooms/643474398791611415'
+    ],
     seoTitle: {
       en: 'AMARA Zaid | Romantic Terrace Apartment in Frigiliana',
       de: 'AMARA Zaid: Apartment mit Terrasse in Frigiliana',
@@ -590,7 +599,10 @@ export const vacationRentalEntities: VacationRentalEntity[] = [
     },
     checkinTime: '15:00:00',
     checkoutTime: '11:00:00',
-    sameAs: ['https://www.booking.com/hotel/es/das-amara-maha-in-der-altstadt-von-frigiliana.de.html'],
+    sameAs: [
+      'https://www.booking.com/hotel/es/das-amara-maha-in-der-altstadt-von-frigiliana.de.html',
+      'https://www.airbnb.com/rooms/643486091667223317'
+    ],
     seoTitle: {
       en: 'AMARA Maha | Apartment with Large Terrace in Frigiliana',
       de: 'AMARA Maha | Apartment mit großer Terrasse in Frigiliana',
@@ -746,7 +758,7 @@ export const vacationRentalEntities: VacationRentalEntity[] = [
     longitude: -3.88052,
     bedrooms: 1,
     bathrooms: 1,
-    rooms: 3,
+    rooms: 2,
     occupancy: 2,
     bed: [{ numberOfBeds: 1, typeOfBed: 'King', label: '200 x 200' }],
     tvSizeInches: 50,
@@ -760,7 +772,10 @@ export const vacationRentalEntities: VacationRentalEntity[] = [
     },
     checkinTime: '15:00:00',
     checkoutTime: '11:00:00',
-    sameAs: ['https://www.booking.com/hotel/es/cozy-apartment-next-to-the-beach-and-nerja-center.de.html'],
+    sameAs: [
+      'https://www.booking.com/hotel/es/cozy-apartment-next-to-the-beach-and-nerja-center.de.html',
+      'https://www.airbnb.com/rooms/52215543'
+    ],
     seoTitle: {
       en: 'AMARA Playa | Nerja Beach Apartment with Sea View',
       de: 'AMARA Playa | Strandapartment in Nerja mit Meerblick',
@@ -912,7 +927,7 @@ export const vacationRentalEntities: VacationRentalEntity[] = [
     latitude: 36.02381,
     longitude: -5.611906,
     bedrooms: 2,
-    bathrooms: 1,
+    bathrooms: 2,
     rooms: 4,
     occupancy: 4,
     bed: [
@@ -930,7 +945,10 @@ export const vacationRentalEntities: VacationRentalEntity[] = [
     },
     checkinTime: '15:00:00',
     checkoutTime: '11:00:00',
-    sameAs: ['https://www.booking.com/hotel/es/surfers-home-with-oceanview-and-pool.de.html'],
+    sameAs: [
+      'https://www.booking.com/hotel/es/surfers-home-with-oceanview-and-pool.de.html',
+      'https://www.airbnb.com/rooms/803371111851036443'
+    ],
     seoTitle: {
       en: 'AMARA Family & Surf | Ocean View House in Tarifa',
       de: 'AMARA Family & Surf | Haus mit Meerblick in Tarifa',
@@ -1087,6 +1105,7 @@ export function buildVacationRentalSeo(entity: VacationRentalEntity): AmaraAutho
   return {
     version: `2026-07-18-${entity.slug}-vacation-rental-v1`,
     pageType: 'D',
+    schemaType: 'lodging',
     entityKey: entity.key,
     languages: Object.fromEntries(
       languages.map((lang) => [

@@ -20,6 +20,7 @@ import { resolveOptionalLink } from '../../lib/linkResolver';
 import { buildOwnedLocalizedPath } from '../../lib/routeOwnership';
 import { normalizeLanguage } from '../../lib/seo/resolve-seo-head';
 import { comfortAmenitiesLinkLabel } from '../../content/comfortAmenitiesLinkLabel';
+import { airbnbRatingLabel, airbnbReviewEvidence } from '../../content/reviewEvidence';
 import type { AmaraAuthoringSeo, AmaraLanguage } from '../../types/seo';
 
 interface Props {
@@ -165,11 +166,11 @@ const copy = {
     sv: 'Booking.com Traveller Award'
   } satisfies CopyRow,
   trustAirbnb: {
-    en: '500+ verified Airbnb reviews',
-    de: '500+ verifizierte Airbnb-Bewertungen',
-    es: '500+ reseñas verificadas en Airbnb',
-    nl: '500+ geverifieerde Airbnb-reviews',
-    sv: '500+ verifierade Airbnb-recensioner'
+    en: `${airbnbReviewEvidence.reviewCount} Airbnb guest reviews`,
+    de: `${airbnbReviewEvidence.reviewCount} Airbnb-Gästebewertungen`,
+    es: `${airbnbReviewEvidence.reviewCount} reseñas de huéspedes en Airbnb`,
+    nl: `${airbnbReviewEvidence.reviewCount} Airbnb-gastbeoordelingen`,
+    sv: `${airbnbReviewEvidence.reviewCount} gästrecensioner på Airbnb`
   } satisfies CopyRow,
   trustDirect: {
     en: 'Direct booking benefits',
@@ -334,11 +335,11 @@ const copy = {
     sv: 'Gästverifierat'
   } satisfies CopyRow,
   reviewsHeadline: {
-    en: 'Rated 4.95 out of 5 · 500+ verified guest reviews',
-    de: '4,95 von 5 · 500+ verifizierte Gästebewertungen',
-    es: '4,95 de 5 · 500+ reseñas verificadas',
-    nl: '4,95 van 5 · 500+ geverifieerde reviews',
-    sv: '4,95 av 5 · 500+ verifierade recensioner'
+    en: `Rated ${airbnbRatingLabel.en} out of 5 · ${airbnbReviewEvidence.reviewCount} Airbnb guest reviews`,
+    de: `${airbnbRatingLabel.de} von 5 · ${airbnbReviewEvidence.reviewCount} Airbnb-Gästebewertungen`,
+    es: `${airbnbRatingLabel.es} de 5 · ${airbnbReviewEvidence.reviewCount} reseñas de huéspedes en Airbnb`,
+    nl: `${airbnbRatingLabel.nl} van 5 · ${airbnbReviewEvidence.reviewCount} Airbnb-gastbeoordelingen`,
+    sv: `${airbnbRatingLabel.sv} av 5 · ${airbnbReviewEvidence.reviewCount} gästrecensioner på Airbnb`
   } satisfies CopyRow,
   reviewsBody: {
     en: 'Calm stays, terrace mornings, quiet nights, deep sleep — thoughtfully hosted.',
@@ -624,11 +625,11 @@ const apartmentCopy: Record<ApartmentToken, LocalizedApartmentCopy> = {
       sv: 'AMARA Farah · Boutiqueretreat'
     },
     description: {
-      en: 'A romantic boutique room with quiet character, ideal for shorter stays in Frigiliana.',
-      de: 'Ein romantisches Boutique-Zimmer mit ruhigem Charakter, ideal für kürzere Aufenthalte in Frigiliana.',
-      es: 'Una habitación boutique romántica y tranquila, ideal para estancias más cortas en Frigiliana.',
-      nl: 'Een romantische boutique-kamer met rustige uitstraling, ideaal voor kortere verblijven in Frigiliana.',
-      sv: 'Ett romantiskt boutiquerum med lugn karaktär, perfekt för kortare vistelser i Frigiliana.'
+      en: 'A romantic, self-contained boutique suite with quiet character, ideal for shorter stays in Frigiliana.',
+      de: 'Eine romantische, abgeschlossene Boutique-Suite mit ruhigem Charakter, ideal für kürzere Aufenthalte in Frigiliana.',
+      es: 'Una suite boutique independiente, romántica y tranquila, ideal para estancias más cortas en Frigiliana.',
+      nl: 'Een romantische, zelfstandige boutique-suite met rustige uitstraling, ideaal voor kortere verblijven in Frigiliana.',
+      sv: 'En romantisk, självständig boutique-svit med lugn karaktär, perfekt för kortare vistelser i Frigiliana.'
     },
     ctaLabel: {
       en: 'Explore Farah',

@@ -8,6 +8,7 @@ import {
   guestReviewsFooterLabels,
   guestReviewsSeo
 } from '../../content/guestReviewsContent';
+import { airbnbReviewEvidence } from '../../content/reviewEvidence';
 import { resolveLink, resolveOptionalLink } from '../../lib/linkResolver';
 import type { AmaraLanguage } from '../../types/seo';
 
@@ -72,6 +73,16 @@ const closingCtaLinks = [
           </div>
           <div class="am-reviews-split__right">
             <p class="am-text-subtitle text-on-surface mb-8">{copy.sections.summaryLead[currentLang]}</p>
+            <p class="am-text-caption text-on-surface-variant mb-6">
+              <a
+                class="am-inline-link"
+                href={airbnbReviewEvidence.sourceUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {copy.sections.evidenceSource[currentLang]}
+              </a>
+            </p>
             <p class="am-text-body text-subtle">
               {copy.sections.summaryBodyOne[currentLang]}
             </p>

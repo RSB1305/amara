@@ -87,31 +87,31 @@ export const aboutUsContent: AboutUsContent = {
     languages: {
       en: {
         title: 'About AMARA: Hosting Standards & Quality',
-        description: "Meet AMARA's hosting philosophy, quality standards, locations in Andalusia, and the people behind the apartments.",
+        description: "Meet Robert Sebastian Böhmer, AMARA's founder and host, and discover the standards behind six stays in Frigiliana, Nerja, and Tarifa.",
         robots: 'index, follow',
         canonical: 'auto'
       },
       de: {
         title: 'Über AMARA: Gastgeberstandard & Qualität',
-        description: 'Lernt AMARAs Philosophie, Qualitätsstandard, Standorte in Andalusien und die Menschen hinter den Apartments kennen.',
+        description: 'Lernt Robert Sebastian Böhmer, Gründer und Gastgeber von AMARA, und die Standards hinter sechs Unterkünften in Frigiliana, Nerja und Tarifa kennen.',
         robots: 'index, follow',
         canonical: 'auto'
       },
       es: {
         title: 'Sobre AMARA: anfitrión, calidad y filosofía',
-        description: 'Conoce la filosofía de AMARA, su estándar de calidad, sus ubicaciones en Andalucía y las personas detrás de los apartamentos.',
+        description: 'Conoce a Robert Sebastian Böhmer, fundador y anfitrión de AMARA, y los estándares de seis alojamientos en Frigiliana, Nerja y Tarifa.',
         robots: 'index, follow',
         canonical: 'auto'
       },
       nl: {
         title: 'Over AMARA: hoststandaard & kwaliteit',
-        description: 'Leer AMARA kennen: onze filosofie, kwaliteitsstandaard, locaties in Andalusië en de mensen achter de appartementen.',
+        description: 'Maak kennis met Robert Sebastian Böhmer, oprichter en host van AMARA, en de standaarden achter zes verblijven in Frigiliana, Nerja en Tarifa.',
         robots: 'index, follow',
         canonical: 'auto'
       },
       sv: {
         title: 'Om AMARA: värdskap, kvalitet & filosofi',
-        description: 'Lär känna AMARAs filosofi, kvalitetsstandard, platser i Andalusien och människorna bakom lägenheterna.',
+        description: 'Lär känna Robert Sebastian Böhmer, AMARAs grundare och värd, och standarderna bakom sex boenden i Frigiliana, Nerja och Tarifa.',
         robots: 'index, follow',
         canonical: 'auto'
       }
@@ -206,11 +206,11 @@ export const aboutUsContent: AboutUsContent = {
     },
     paragraphs: [
       {
-        en: 'AMARA was built from years of travel and hosting experience, both professional and personal, with one clear goal: a stay that feels effortless from the first minute.',
-        de: 'AMARA entstand aus Jahren des Reisens und der Gastgebererfahrung, beruflich wie privat, mit einem klaren Ziel: ein Aufenthalt, der sich von der ersten Minute an mühelos anfühlt.',
-        es: 'AMARA nació de años de viaje y experiencia como anfitriones, tanto profesional como personal, con un objetivo claro: una estancia que se sienta sencilla desde el primer minuto.',
-        nl: 'AMARA is ontstaan uit jaren van reis- en hostingervaring, professioneel én persoonlijk, met één helder doel: een verblijf dat vanaf de eerste minuut moeiteloos voelt.',
-        sv: 'AMARA byggdes ur många års resande och värdskapserfarenhet, både professionellt och personligt, med ett tydligt mål: en vistelse som känns enkel från första minuten.'
+        en: 'AMARA grows from Robert’s hands-on work across six stays in Frigiliana, Nerja, and Tarifa: answering guest questions, checking each stay, and turning recurring feedback into practical improvements.',
+        de: 'AMARA wächst aus Roberts täglicher Arbeit mit sechs Unterkünften in Frigiliana, Nerja und Tarifa: Gästefragen beantworten, Aufenthalte persönlich prüfen und wiederkehrendes Feedback in konkrete Verbesserungen übersetzen.',
+        es: 'AMARA nace del trabajo directo de Robert en seis alojamientos de Frigiliana, Nerja y Tarifa: responder a los huéspedes, revisar cada estancia y convertir sus comentarios recurrentes en mejoras concretas.',
+        nl: 'AMARA groeit vanuit Roberts dagelijkse werk met zes verblijven in Frigiliana, Nerja en Tarifa: vragen van gasten beantwoorden, elk verblijf controleren en terugkerende feedback omzetten in praktische verbeteringen.',
+        sv: 'AMARA växer ur Roberts praktiska arbete med sex boenden i Frigiliana, Nerja och Tarifa: att svara på gästfrågor, följa upp varje vistelse och omvandla återkommande feedback till konkreta förbättringar.'
       },
       {
         en: 'This name is not a promise for a moment. It is a promise for what remains afterwards: trust, returning guests, and the feeling of having truly arrived.',
@@ -369,7 +369,7 @@ export const aboutUsContent: AboutUsContent = {
   },
   host: {
     title: { en: 'Your host', de: 'Euer Gastgeber', es: 'Vuestro anfitrión', nl: 'Jullie host', sv: 'Er värd' },
-    role: { en: 'Robert — Founder & Host', de: 'Robert — Gründer & Gastgeber', es: 'Robert — Fundador y anfitrión', nl: 'Robert — Oprichter & host', sv: 'Robert — Grundare och värd' },
+    role: { en: 'Robert Sebastian Böhmer — Founder & Host', de: 'Robert Sebastian Böhmer — Gründer & Gastgeber', es: 'Robert Sebastian Böhmer — Fundador y anfitrión', nl: 'Robert Sebastian Böhmer — Oprichter & host', sv: 'Robert Sebastian Böhmer — Grundare och värd' },
     imageAlt: { en: 'Robert, founder and host of AMARA', de: 'Robert, Gründer und Gastgeber von AMARA', es: 'Robert, fundador y anfitrión de AMARA', nl: 'Robert, oprichter en host van AMARA', sv: 'Robert, grundare och värd för AMARA' },
     stats: [
       { label: { en: 'Fast replies', de: 'Schnelle Antworten', es: 'Respuestas rápidas', nl: 'Snelle reacties', sv: 'Snabba svar' }, value: { en: 'Clear, direct, reliable communication.', de: 'Klare, direkte und verlässliche Kommunikation.', es: 'Comunicación clara, directa y fiable.', nl: 'Duidelijke, directe en betrouwbare communicatie.', sv: 'Tydlig, direkt och pålitlig kommunikation.' } },

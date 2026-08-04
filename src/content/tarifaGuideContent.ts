@@ -64,7 +64,9 @@ const l = (
 const article = {
   datePublished: '2026-08-03',
   dateModified: '2026-08-03',
-  authorName: 'AMARA'
+  authorName: 'Robert Sebastian Böhmer',
+  authorType: 'Person' as const,
+  authorSlug: 'amara-about-us'
 };
 
 const buildSeo = (
@@ -436,4 +438,3 @@ export const tarifaGuideContent: Record<TarifaGuideId, TarifaGuideContent> = {
   wind,
   beaches
 };
-

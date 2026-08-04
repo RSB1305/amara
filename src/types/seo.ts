@@ -16,12 +16,15 @@ export interface AmaraSeoLanguageEntry {
 export interface AmaraAuthoringSeo {
   version: string;
   pageType: AmaraPageType;
+  schemaType?: AmaraSchemaType;
   languages: Record<AmaraLanguage, AmaraSeoLanguageEntry>;
   ogImage?: string;
   article?: {
     datePublished: string;
     dateModified: string;
     authorName: string;
+    authorType?: 'Person' | 'Organization';
+    authorSlug?: string;
   };
 
   /**
