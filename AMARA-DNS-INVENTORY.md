@@ -8,6 +8,27 @@ from IONOS to Cloudflare. Companion to [AMARA-BOOKING-ARCHITECTURE.md](AMARA-BOO
 - **Record count:** 14
 - **DNSSEC:** not active (no DS records at the `.es` registry) — nameserver change is safe
 
+## Status: nameservers moved 2026-08-04
+
+Authoritative nameservers are now `ollie.ns.cloudflare.com` and `achiel.ns.cloudflare.com`.
+Propagation completed within minutes, not the 48h IONOS warns about.
+
+Verified by live query after the switch:
+
+- All 14 records resolve with the expected values, including the three DKIM CNAMEs that
+  Cloudflare's automatic import had missed and that were added by hand
+- Both MX records carry priority 10
+- `amara-lodging.es`, `www`, and a rental page all return HTTP 200 over HTTPS with a valid
+  certificate — the Cloudflare-in-front-of-Cloudflare concern did not materialise, because every
+  record is DNS-only
+
+Cloudflare's automatic import captured 11 of 14 records. The three missing ones were all DKIM
+(`s1-ionos`, `s2-ionos`, `s42582890._domainkey`) and all six proxyable records defaulted to
+Proxied. Assume the same on any future zone import: the scan is a starting point, not a copy.
+
+Outstanding: inbound and outbound mail tests, and confirming Search Console still reports the
+domain as verified.
+
 ## Rollback — current IONOS nameservers
 
 If anything breaks after the switch, restore these at IONOS. Keep a copy somewhere reachable
