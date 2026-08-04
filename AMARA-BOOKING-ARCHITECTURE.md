@@ -116,10 +116,13 @@ the public site untouched; everything that actually changes what a visitor sees 
 in Phase 3.
 
 **Phase 1 — DNS control (site unaffected)**
-1. Screenshot all DNS records at IONOS, including MX, SPF, DKIM, DMARC and any verification TXT
-   records (Search Console, OTAs)
-2. Add the domain to Cloudflare and verify every record was imported. Set all records to
-   **DNS only (grey cloud)** — proxying would change the traffic path and can break Lodgify's SSL
+1. Inventory the IONOS records — done, see [AMARA-DNS-INVENTORY.md](AMARA-DNS-INVENTORY.md),
+   which also holds the rollback nameservers. DNSSEC is confirmed inactive, so the nameserver
+   change is safe; had it been active, switching without disabling it first would take the
+   domain fully offline
+2. Add the domain to Cloudflare and verify every record against the inventory. Set all records to
+   **DNS only (grey cloud)** — Lodgify already serves the site through Cloudflare for SaaS, so
+   proxying would route Cloudflare to Cloudflare and can break SSL
 3. Switch nameservers at IONOS to Cloudflare — registrar stays IONOS, no transfer, cancel nothing
 4. Send a test email to confirm mail still arrives — silent mail loss is the classic failure here
 5. Observe for a few days; the site still runs on Lodgify throughout
