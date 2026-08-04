@@ -27,13 +27,27 @@ Astro keeps the apex domain and inherits the indexed URLs. Lodgify moves to a su
 | Host | Serves | Indexed |
 | :--- | :--- | :--- |
 | `amara-lodging.es` | Astro — content, SEO, all languages | yes |
-| `book.amara-lodging.es` | Lodgify — availability, checkout | no |
+| **`amara.lodgify.com`** | **Lodgify — availability, checkout (in use)** | no |
 | `checkout.lodgify.com` | Lodgify — payment step, not configurable | no |
-| `amara.lodgify.com` | Lodgify — standby fallback host | no |
+| `book.amara-lodging.es` | intended custom host — rejected by Lodgify, see below | no |
 
 Nothing is renamed. Because the hosts differ, the paths stay identical:
-`amara-lodging.es/en/la-amara-lounis` for content, `book.amara-lodging.es/en/la-amara-lounis`
+`amara-lodging.es/en/la-amara-lounis` for content, `amara.lodgify.com/en/la-amara-lounis`
 for booking. Checkout pages carry no SEO value, so moving them costs nothing.
+
+### Why not the branded subdomain
+
+Lodgify rejects `book.amara-lodging.es` in "Use a domain you own" with *"This is on our list of
+unsupported domains"*, despite support confirming in writing (2026-08-03) that a subdomain is
+treated as its own domain and would work. The query is open with them.
+
+Not worth blocking the migration on, because the subdomain buys less than it first appears:
+Lodgify runs the final payment step on `checkout.lodgify.com` regardless of which domain fronts
+the site, so the guest sees a lodgify.com host either way. The subdomain would only keep the
+brand in the address bar for a few clicks longer.
+
+If Lodgify enables it later, change `DIRECT_BOOKING_ORIGIN` and every booking link follows. This
+is a reversible decision, which is exactly why it should not hold up the cutover.
 
 ---
 
@@ -131,32 +145,35 @@ During propagation some resolvers still answer from IONOS and some from Cloudfla
 harmless as long as both return identical records, which is what step 2 guarantees. There is no
 window in which the site "moves".
 
-**Phase 2 — Prepare the booking subdomain (site unaffected)**
-6. Lodgify → Website builder → Settings → Domain → "Use a domain you own" → `book.amara-lodging.es`
-7. Add the DNS records Lodgify displays; SSL is issued by Lodgify at no cost
-8. Let it validate and propagate — up to 48h
+**Phase 2 — nothing to do**
 
-Stop here. Do **not** set the subdomain as main domain yet: while the apex still points at
-Lodgify, doing so would redirect the live site to the subdomain and expose the indexed URLs to
-Google as 301s toward a new host.
+Originally this phase set up `book.amara-lodging.es`. Lodgify rejects it, so the checkout host is
+`amara.lodgify.com`, which already exists and is active. No domain to add, no DNS records, no
+48h propagation wait. Do **not** set it as main domain yet — that belongs in the cutover window,
+because while the apex still points at Lodgify it would redirect the live site to the new host
+and expose the indexed URLs to Google as 301s.
 
 **Phase 3 — Cutover (one tight window, low-traffic hour)**
-9. Set `book.amara-lodging.es` as Lodgify's main domain — the apex now redirects here, so the
-   clock is running
-10. Immediately complete a real test booking on the subdomain
-11. Point the apex at Cloudflare Pages — Astro goes live
-12. Remove `amara-lodging.es` from Lodgify so no redirect remains
-13. Redirect legacy `/{lang}/book/` URLs to the subdomain via `public/_redirects`
-14. Verify booking CTAs on live rental pages in all five languages
+6. Set `amara.lodgify.com` as Lodgify's main domain — the apex now redirects here, so the clock
+   is running
+7. Immediately complete a real test booking on that host
+8. Point the apex at Cloudflare Pages — Astro goes live
+9. Remove `amara-lodging.es` from Lodgify so no redirect remains
+10. Redirect legacy `/{lang}/book/` URLs to the checkout host via `public/_redirects`
+11. Verify booking CTAs on live rental pages in all five languages
 
-Never invert steps 9 and 11. With the apex on Astro while the subdomain is not yet main, the
-subdomain redirects to the apex, whose booking buttons point back at the subdomain — an infinite
-loop with no reachable checkout.
+Never invert steps 6 and 8. With the apex on Astro while the checkout host is not yet main, that
+host redirects to the apex, whose booking buttons point back at it — an infinite loop with no
+reachable checkout.
 
 ### Rollback
 
-Set `DIRECT_BOOKING_ORIGIN` to `https://amara.lodgify.com` and redeploy. Lodgify confirmed that
-host stays active and independent of any custom domain.
+Booking links are wrong or unreachable: change `DIRECT_BOOKING_ORIGIN` and redeploy. That is the
+whole rollback — every link derives from it.
+
+Cutover itself needs to be undone: point the apex back at Lodgify and restore
+`amara-lodging.es` as its main domain. DNS records for that state are in
+[AMARA-DNS-INVENTORY.md](AMARA-DNS-INVENTORY.md).
 
 ---
 
