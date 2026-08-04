@@ -19,14 +19,14 @@
     "check:structured-data": "node scripts/check-structured-data.mjs"
   },
   "dependencies": {
-    "@astrojs/react": "^5.0.1",
+    "@astrojs/react": "^6.0.2",
     "@astrojs/sitemap": "^3.7.3",
     "@fontsource/newsreader": "^5.2.10",
     "@fontsource/plus-jakarta-sans": "^5.2.8",
     "@tailwindcss/vite": "^4.2.2",
     "@types/react": "^19.2.14",
     "@types/react-dom": "^19.2.3",
-    "astro": "^6.0.8",
+    "astro": "^7.1.6",
     "lucide-react": "^0.577.0",
     "material-symbols": "^0.42.3",
     "motion": "^12.38.0",

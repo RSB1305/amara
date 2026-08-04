@@ -121,6 +121,7 @@ function normalizeSitemapItem(item) {
 
 export default defineConfig({
   site: siteOrigin,
+  compressHTML: true,
   build: {
     format: 'file'
   },

@@ -48,7 +48,10 @@
       "WebFetch(domain:4filming.com)",
       "WebFetch(domain:moviedelic.com)",
       "WebFetch(domain:www.soapcentral.com)",
-      "Bash(npm run *)"
+      "Bash(npm run *)",
+      "PowerShell($env:PUBLIC_SITE_URL = \"https://amara-lodging.es\"; npm run build)",
+      "PowerShell(git -C \"C:\\\\Users\\\\marku\\\\Documents\\\\Project-2030-plus\\\\frigiliana\" status --short)",
+      "PowerShell(git -C \"C:\\\\Users\\\\marku\\\\Documents\\\\Project-2030-plus\\\\frigiliana\" diff --stat .claude/settings.local.json)"
     ],
     "ask": [
       "Bash(git push*)",
