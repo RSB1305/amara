@@ -160,6 +160,32 @@ host stays active and independent of any custom domain.
 
 ---
 
+## Diagnosing a Lodgify outage
+
+Lodgify owns the checkout before, during and after this migration, so its outages will keep
+mattering. One occurred on 2026-08-04, roughly 09:47–10:03 CEST, the day after the nameserver
+move — close enough in time to look like our doing. It was not. The site recovered on its own
+with byte-identical content, so nothing was lost and no change was needed.
+
+Three checks separate "our DNS broke" from "Lodgify broke", in increasing order of certainty:
+
+1. **Fetch `/robots.txt`.** It is served without rendering. If it returns 200 while HTML pages
+   return 500, then DNS, TLS, routing and the custom-hostname mapping are all provably intact and
+   only Lodgify's rendering failed.
+2. **Click Publish in the Lodgify admin.** That runs entirely inside Lodgify and never touches
+   the customer's domain. If it fails there, the platform is broken.
+3. **Open the Lodgify preview host** (`npreview-<account>.lodgify.com`). It has no relationship
+   to the custom domain at all. If it also fails, the case is closed.
+
+During an outage, change nothing — not DNS, not nameservers, not Lodgify's domain settings.
+Reverting nameservers cannot help, because the old records pointed at the same address, and it
+adds a second variable plus up to 48h of propagation to an already confused picture.
+
+Note for support tickets: a Cloudflare-fronted Lodgify site will invite the assumption that a
+recent DNS change caused the fault. The three checks above pre-empt that.
+
+---
+
 ## Confirmed by Lodgify Support (2026-08-03, ticket via Michela)
 
 - A subdomain is treated as its own domain; the apex may point elsewhere
