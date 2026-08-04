@@ -110,28 +110,45 @@ runtime key, no rate-limit exposure. The site stays fully static.
 
 ## Cutover Runbook
 
-Order matters. DNS propagation for the subdomain takes up to 48h, so the subdomain must be live
-and tested well before the apex moves. Never do both on the same day.
+Order matters, and not in the obvious way. Lodgify redirects every non-main domain to its main
+domain, so *which* domain is main is a live switch that moves real traffic. Phases 1 and 2 leave
+the public site untouched; everything that actually changes what a visitor sees is concentrated
+in Phase 3.
 
-**Phase 1 — DNS control (safe, site unaffected)**
-1. Screenshot all DNS records at IONOS, including MX, SPF, DKIM, DMARC
-2. Add the domain to Cloudflare, verify every record was imported
-3. Switch nameservers at IONOS to Cloudflare — registrar stays IONOS, no transfer needed
+**Phase 1 — DNS control (site unaffected)**
+1. Screenshot all DNS records at IONOS, including MX, SPF, DKIM, DMARC and any verification TXT
+   records (Search Console, OTAs)
+2. Add the domain to Cloudflare and verify every record was imported. Set all records to
+   **DNS only (grey cloud)** — proxying would change the traffic path and can break Lodgify's SSL
+3. Switch nameservers at IONOS to Cloudflare — registrar stays IONOS, no transfer, cancel nothing
 4. Send a test email to confirm mail still arrives — silent mail loss is the classic failure here
 5. Observe for a few days; the site still runs on Lodgify throughout
 
-**Phase 2 — Booking subdomain (Lodgify live, Astro still staging)**
+During propagation some resolvers still answer from IONOS and some from Cloudflare. That is
+harmless as long as both return identical records, which is what step 2 guarantees. There is no
+window in which the site "moves".
+
+**Phase 2 — Prepare the booking subdomain (site unaffected)**
 6. Lodgify → Website builder → Settings → Domain → "Use a domain you own" → `book.amara-lodging.es`
 7. Add the DNS records Lodgify displays; SSL is issued by Lodgify at no cost
-8. **Set the subdomain as Lodgify's main domain.** Skipping this makes it redirect to the apex,
-   which after cutover is the Astro site — the booking flow dies silently while the site looks fine
-9. Wait for propagation, then complete a real test booking
+8. Let it validate and propagate — up to 48h
 
-**Phase 3 — Site cutover**
-10. Deploy Astro to Cloudflare Pages
-11. Point the apex at Cloudflare Pages
-12. Redirect legacy `/{lang}/book/` URLs to the subdomain via `public/_redirects`
-13. Verify booking CTAs on live rental pages in all five languages
+Stop here. Do **not** set the subdomain as main domain yet: while the apex still points at
+Lodgify, doing so would redirect the live site to the subdomain and expose the indexed URLs to
+Google as 301s toward a new host.
+
+**Phase 3 — Cutover (one tight window, low-traffic hour)**
+9. Set `book.amara-lodging.es` as Lodgify's main domain — the apex now redirects here, so the
+   clock is running
+10. Immediately complete a real test booking on the subdomain
+11. Point the apex at Cloudflare Pages — Astro goes live
+12. Remove `amara-lodging.es` from Lodgify so no redirect remains
+13. Redirect legacy `/{lang}/book/` URLs to the subdomain via `public/_redirects`
+14. Verify booking CTAs on live rental pages in all five languages
+
+Never invert steps 9 and 11. With the apex on Astro while the subdomain is not yet main, the
+subdomain redirects to the apex, whose booking buttons point back at the subdomain — an infinite
+loop with no reachable checkout.
 
 ### Rollback
 
