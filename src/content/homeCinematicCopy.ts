@@ -23,6 +23,14 @@ export const cinematicHeroLead: CopyRow = {
   sv: 'En plats att komma till, andas ut och verkligen stanna.'
 };
 
+export const cinematicHeroImageAlt: CopyRow = {
+  en: 'Whitewashed terraces and palm trees at AMARA Lounis in Frigiliana',
+  de: 'Weiß getünchte Terrassen und Palmen bei AMARA Lounis in Frigiliana',
+  es: 'Terrazas encaladas y palmeras en AMARA Lounis, Frigiliana',
+  nl: 'Witgekalkte terrassen en palmbomen bij AMARA Lounis in Frigiliana',
+  sv: 'Vitkalkade terrasser och palmer vid AMARA Lounis i Frigiliana'
+};
+
 export const cinematicScrollHint: CopyRow = {
   en: 'Scroll to discover',
   de: 'Scrollen zum Entdecken',
@@ -275,6 +283,7 @@ export interface CinematicAptDef {
   subtitle: CopyRow;
   meta: CopyRow;
   desc: CopyRow;
+  imageAlt: CopyRow;
   exploreLabel: CopyRow;
 }
 
@@ -303,6 +312,13 @@ export const cinematicApartments: CinematicAptDef[] = [
       es: 'Una suite boutique independiente, romántica y con carácter — ideal para estancias cortas. Diseñada con profundo respeto por el pasado morisco del pueblo.',
       nl: 'Een romantische, zelfstandige boutique-suite met karakter — ideaal voor kortere verblijven. Ontworpen met diep respect voor het Moorse verleden van het dorp.',
       sv: 'En romantisk, självständig boutique-svit med karaktär — idealisk för kortare vistelser. Utformad med djup respekt för byns moriska förflutna.'
+    },
+    imageAlt: {
+      en: 'Bright bedroom with a green wooden window and brick arches in AMARA Farah, Frigiliana',
+      de: 'Helles Schlafzimmer mit grünem Holzfenster und Backsteinbögen in AMARA Farah in Frigiliana',
+      es: 'Dormitorio luminoso con ventana de madera verde y arcos de ladrillo en AMARA Farah, Frigiliana',
+      nl: 'Lichte slaapkamer met groen houten raam en bakstenen bogen in AMARA Farah in Frigiliana',
+      sv: 'Ljust sovrum med grönt träfönster och tegelvalv i AMARA Farah i Frigiliana'
     },
     exploreLabel: {
       en: 'Explore Farah',
@@ -337,6 +353,13 @@ export const cinematicApartments: CinematicAptDef[] = [
       nl: 'Historische charme met terrastijd en ruimtegevoel. Hoge plafonds en originele balken vertellen verhalen uit vroeger.',
       sv: 'Historiskt charm med terrasstid och rymd. Höga tak och originalbalkar berättar om århundraden.'
     },
+    imageAlt: {
+      en: 'Whitewashed terraces and palm trees at AMARA Lounis in Frigiliana',
+      de: 'Weiß getünchte Terrassen und Palmen bei AMARA Lounis in Frigiliana',
+      es: 'Terrazas encaladas y palmeras en AMARA Lounis, Frigiliana',
+      nl: 'Witgekalkte terrassen en palmbomen bij AMARA Lounis in Frigiliana',
+      sv: 'Vitkalkade terrasser och palmer vid AMARA Lounis i Frigiliana'
+    },
     exploreLabel: {
       en: 'Explore Lounis',
       de: 'Lounis entdecken',
@@ -369,6 +392,13 @@ export const cinematicApartments: CinematicAptDef[] = [
       es: 'Un refugio tranquilo con terraza privada — para mañanas lentas, café al sol y ver despertar el pueblo.',
       nl: 'Een rustige plek met privéterras — voor trage ochtenden, koffie in de zon en het dorp dat ontwaakt.',
       sv: 'Ett lugnt tillflyktsort med privat terrass — för långsamma morgnar, kaffe i solen och byn som vaknar.'
+    },
+    imageAlt: {
+      en: 'Outdoor rain shower with handmade tiles on the private terrace of AMARA Zaid in Frigiliana',
+      de: 'Außendusche mit handgefertigten Fliesen auf der privaten Terrasse von AMARA Zaid in Frigiliana',
+      es: 'Ducha exterior con azulejos artesanales en la terraza privada de AMARA Zaid, Frigiliana',
+      nl: 'Buitendouche met handgemaakte tegels op het privéterras van AMARA Zaid in Frigiliana',
+      sv: 'Utomhusdusch med handgjorda kakelplattor på AMARA Zaids privata terrass i Frigiliana'
     },
     exploreLabel: {
       en: 'Explore Zaid',
@@ -403,6 +433,13 @@ export const cinematicApartments: CinematicAptDef[] = [
       nl: 'Een terrasappartement om te blijven hangen in het witte dorp. Verhoogd uitzicht en een naadloze mix van binnen en buiten.',
       sv: 'En terrasslägenhet för att dröja kvar i den vita byn. Höjd över byn och en sömlös blandning av inne och ute.'
     },
+    imageAlt: {
+      en: 'Shaded private terrace with an outdoor sofa at AMARA Maha in Frigiliana',
+      de: 'Beschattete private Terrasse mit Outdoor-Sofa bei AMARA Maha in Frigiliana',
+      es: 'Terraza privada con sombra y sofá exterior en AMARA Maha, Frigiliana',
+      nl: 'Beschaduwd privéterras met buitenbank bij AMARA Maha in Frigiliana',
+      sv: 'Skuggad privat terrass med utomhussoffa på AMARA Maha i Frigiliana'
+    },
     exploreLabel: {
       en: 'Explore Maha',
       de: 'Maha entdecken',
@@ -436,6 +473,13 @@ export const cinematicApartments: CinematicAptDef[] = [
       nl: 'Een ontspannen kustbasis voor koppels die de zee dichtbij willen. Het geluid van de golven is je constante metgezel.',
       sv: 'En avslappnad kustbas för par som vill ha havet nära. Vågornas brus är er ständiga följeslagare.'
     },
+    imageAlt: {
+      en: 'Blue-and-white living and dining room with balcony at AMARA Playa in Nerja',
+      de: 'Blau-weißer Wohn- und Essbereich mit Balkon bei AMARA Playa in Nerja',
+      es: 'Salón comedor en azul y blanco con balcón en AMARA Playa, Nerja',
+      nl: 'Blauw-witte woon- en eetkamer met balkon bij AMARA Playa in Nerja',
+      sv: 'Blåvitt vardagsrum och matplats med balkong på AMARA Playa i Nerja'
+    },
     exploreLabel: {
       en: 'Explore Playa',
       de: 'Playa entdecken',
@@ -468,6 +512,13 @@ export const cinematicApartments: CinematicAptDef[] = [
       es: 'Un hogar amplio para surfistas y familias — distinto a propósito. Donde el Mediterráneo se encuentra con el Atlántico.',
       nl: 'Een ruim thuis voor surfers en gezinnen — bewust anders. Waar de Middellandse Zee en de Atlantische Oceaan elkaar ontmoeten.',
       sv: 'Ett rymligt hem för surfare och familjer — medvetet annorlunda. Där Medelhavet möter Atlanten.'
+    },
+    imageAlt: {
+      en: 'Living room with colorful artwork and an open staircase at AMARA Family & Surf in Tarifa',
+      de: 'Wohnzimmer mit farbenfroher Kunst und offener Treppe bei AMARA Family & Surf in Tarifa',
+      es: 'Salón con obras de arte coloridas y escalera abierta en AMARA Family & Surf, Tarifa',
+      nl: 'Woonkamer met kleurrijke kunst en open trap bij AMARA Family & Surf in Tarifa',
+      sv: 'Vardagsrum med färgstark konst och öppen trappa på AMARA Family & Surf i Tarifa'
     },
     exploreLabel: {
       en: 'Explore Ocean View',

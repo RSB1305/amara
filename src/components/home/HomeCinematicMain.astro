@@ -5,6 +5,7 @@ export interface CinematicApartment {
   subtitle: string;
   meta: string;
   desc: string;
+  imgAlt: string;
   img: string;
   imgWidth: number;
   imgHeight: number;
@@ -26,6 +27,7 @@ interface Props {
   heroImageSizes?: string;
   heroImageWidth: number;
   heroImageHeight: number;
+  heroImageAlt: string;
   heroKicker: string;
   heroLead: string;
   scrollHint: string;
@@ -63,6 +65,7 @@ const {
   heroImageSizes,
   heroImageWidth,
   heroImageHeight,
+  heroImageAlt,
   heroKicker,
   heroLead,
   scrollHint,
@@ -115,7 +118,7 @@ const {
           src={heroImageSrc}
           srcset={heroImageSrcSet}
           sizes={heroImageSizes}
-          alt=""
+          alt={heroImageAlt}
           class="h-full w-full object-cover"
           width={heroImageWidth}
           height={heroImageHeight}
@@ -233,7 +236,7 @@ const {
                     src={apt.img}
                     srcset={apt.imgSrcSet}
                     sizes={apt.imgSizes}
-                    alt=""
+                    alt={apt.imgAlt}
                     class="h-full w-full object-cover transition-transform duration-[1500ms] ease-out motion-safe:group-hover:scale-[1.03]"
                     width={apt.imgWidth}
                     height={apt.imgHeight}

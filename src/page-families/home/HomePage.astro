@@ -11,6 +11,7 @@ import {
   type CinematicAptToken,
   cinematicHeroKicker,
   cinematicHeroLead,
+  cinematicHeroImageAlt,
   cinematicScrollHint,
   cinematicPhilosophyPart1,
   cinematicPhilosophyAccent,
@@ -128,6 +129,7 @@ const cinematicApartmentsProps = (
       subtitle: t(apt.subtitle),
       meta: t(apt.meta),
       desc: t(apt.desc),
+      imgAlt: t(apt.imageAlt),
       img: optimized.src,
       imgWidth: optimized.attributes.width as number,
       imgHeight: optimized.attributes.height as number,
@@ -172,6 +174,7 @@ const guideLinks = cinematicGuideLinks
         heroImageSizes={homeHeroSizes}
         heroImageWidth={heroImage.attributes.width as number}
         heroImageHeight={heroImage.attributes.height as number}
+        heroImageAlt={t(cinematicHeroImageAlt)}
         heroKicker={t(cinematicHeroKicker)}
         heroLead={t(cinematicHeroLead)}
         scrollHint={t(cinematicScrollHint)}
