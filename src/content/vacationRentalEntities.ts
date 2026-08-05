@@ -784,11 +784,11 @@ export const vacationRentalEntities: VacationRentalEntity[] = [
       sv: 'AMARA Playa | Strandlägenhet i Nerja med havsutsikt'
     },
     seoDescription: {
-      en: 'AMARA Playa in Nerja: 100 m to Torrecilla beach, 500 m to the Balcón de Europa, and still quiet. Small apartment for 2, balcony, kitchen, washing machine.',
-      de: 'AMARA Playa in Nerja: 100 m zum Strand Torrecilla, 500 m zum Balcón de Europa – und trotzdem ruhig. Kleines Apartment für 2, Balkon, Küche, Waschmaschine.',
-      es: 'AMARA Playa en Nerja: 100 m a la playa de Torrecilla, 500 m al Balcón de Europa y aun así tranquilo. Apartamento pequeño para 2, balcón, cocina, lavadora.',
-      nl: 'AMARA Playa in Nerja: 100 m naar het strand Torrecilla, 500 m naar het Balcón de Europa — en toch rustig. Klein appartement voor 2, balkon, keuken, wasmachine.',
-      sv: 'AMARA Playa i Nerja: 100 m till Torrecillastranden, 500 m till Balcón de Europa — och ändå tyst. Liten lägenhet för 2, balkong, kök, tvättmaskin.'
+      en: 'AMARA Playa in Nerja: 100 m to Torrecilla beach, 500 m to the Balcón de Europa, and still quiet. Small apartment for 2 on the fifth floor, with a lift.',
+      de: 'AMARA Playa in Nerja: 100 m zum Strand Torrecilla, 500 m zum Balcón de Europa – und trotzdem ruhig. Kleines Apartment für 2 im fünften Stock, mit Aufzug.',
+      es: 'AMARA Playa en Nerja: 100 m a la playa de Torrecilla, 500 m al Balcón de Europa y aun así tranquilo. Apartamento pequeño para 2 en la quinta planta, con ascensor.',
+      nl: 'AMARA Playa in Nerja: 100 m naar het strand Torrecilla, 500 m naar het Balcón de Europa — en toch rustig. Klein appartement voor 2 op de vijfde verdieping, met lift.',
+      sv: 'AMARA Playa i Nerja: 100 m till Torrecillastranden, 500 m till Balcón de Europa — och ändå tyst. Liten lägenhet för 2 på femte våningen, med hiss.'
     },
     eyebrow: {
       en: 'Nerja coast',
@@ -812,25 +812,25 @@ export const vacationRentalEntities: VacationRentalEntity[] = [
       sv: 'Till Torrecillastranden är det 100 meter, till Balcón de Europa 500. Och ändå är det tyst här — i Nerja är det kombinationen som är ovanlig.'
     },
     description: {
-      en: 'Playa is small, and that is exactly what guests come back to: it feels snug rather than tight. The sea view is a side one, not a panorama — but the sea itself really is at the door. Full kitchen, washing machine, balcony, a 50-inch screen, and at 200 × 200 the largest bed of any AMARA place.',
-      de: 'Playa ist klein, und genau das schätzen die Gäste: Es wirkt gemütlich, nicht knapp. Der Meerblick ist ein seitlicher, kein Panorama – dafür liegt das Meer wirklich vor der Tür. Komplette Küche, Waschmaschine, Balkon, ein 50-Zoll-Bildschirm und mit 200 × 200 das größte Bett aller AMARA-Unterkünfte.',
-      es: 'Playa es pequeño, y es justo lo que los huéspedes valoran: resulta acogedor, no estrecho. Las vistas al mar son laterales, no panorámicas, pero el mar está de verdad en la puerta. Cocina completa, lavadora, balcón, pantalla de 50 pulgadas y, con 200 × 200, la cama más grande de todos los alojamientos AMARA.',
-      nl: 'Playa is klein, en juist dat waarderen gasten: het voelt knus, niet krap. Het zeezicht is zijdelings, geen panorama — maar de zee ligt echt voor de deur. Volledige keuken, wasmachine, balkon, een scherm van 50 inch en met 200 × 200 het grootste bed van alle AMARA-adressen.',
-      sv: 'Playa är litet, och det är precis vad gästerna uppskattar: det känns ombonat, inte trångt. Havsutsikten är en sidoutsikt, inget panorama — men havet ligger verkligen utanför dörren. Fullt kök, tvättmaskin, balkong, en 50-tums skärm och med 200 × 200 den största sängen av alla AMARA-boenden.'
+      en: 'Playa is small, and that is exactly what guests come back to: it feels snug rather than tight. Fifth floor with a lift — which is where both the view and the quiet come from, a hundred metres from the beach. The sea view is a side one, not a panorama, but the sea itself really is at the door. Full kitchen, washing machine, balcony, a 50-inch screen, and at 200 × 200 the largest bed of any AMARA place.',
+      de: 'Playa ist klein, und genau das schätzen die Gäste: Es wirkt gemütlich, nicht knapp. Fünfter Stock mit Aufzug – daher kommen der Blick und die Ruhe, hundert Meter vom Strand entfernt. Der Meerblick ist ein seitlicher, kein Panorama, dafür liegt das Meer wirklich vor der Tür. Komplette Küche, Waschmaschine, Balkon, ein 50-Zoll-Bildschirm und mit 200 × 200 das größte Bett aller AMARA-Unterkünfte.',
+      es: 'Playa es pequeño, y es justo lo que los huéspedes valoran: resulta acogedor, no estrecho. Quinta planta con ascensor: de ahí vienen las vistas y la calma, a cien metros de la playa. Las vistas al mar son laterales, no panorámicas, pero el mar está de verdad en la puerta. Cocina completa, lavadora, balcón, pantalla de 50 pulgadas y, con 200 × 200, la cama más grande de todos los alojamientos AMARA.',
+      nl: 'Playa is klein, en juist dat waarderen gasten: het voelt knus, niet krap. Vijfde verdieping met lift — daar komen het uitzicht en de rust vandaan, op honderd meter van het strand. Het zeezicht is zijdelings, geen panorama, maar de zee ligt echt voor de deur. Volledige keuken, wasmachine, balkon, een scherm van 50 inch en met 200 × 200 het grootste bed van alle AMARA-adressen.',
+      sv: 'Playa är litet, och det är precis vad gästerna uppskattar: det känns ombonat, inte trångt. Femte våningen med hiss — därifrån kommer både utsikten och lugnet, hundra meter från stranden. Havsutsikten är en sidoutsikt, inget panorama, men havet ligger verkligen utanför dörren. Fullt kök, tvättmaskin, balkong, en 50-tums skärm och med 200 × 200 den största sängen av alla AMARA-boenden.'
     },
     highlights: {
-      en: ['100 m to the beach, 500 m to the Balcón de Europa', 'Quiet despite the central position', 'Largest AMARA bed, 200 × 200'],
-      de: ['100 m zum Strand, 500 m zum Balcón de Europa', 'Ruhig trotz zentraler Lage', 'Größtes AMARA-Bett, 200 × 200'],
-      es: ['100 m a la playa, 500 m al Balcón de Europa', 'Tranquilo pese a estar en el centro', 'La cama AMARA más grande, 200 × 200'],
-      nl: ['100 m naar het strand, 500 m naar het Balcón de Europa', 'Rustig ondanks de centrale ligging', 'Grootste AMARA-bed, 200 × 200'],
-      sv: ['100 m till stranden, 500 m till Balcón de Europa', 'Tyst trots det centrala läget', 'Största AMARA-sängen, 200 × 200']
+      en: ['100 m to the beach, 500 m to the Balcón de Europa', 'Quiet on the fifth floor, with a lift', 'Largest AMARA bed, 200 × 200'],
+      de: ['100 m zum Strand, 500 m zum Balcón de Europa', 'Ruhig im fünften Stock, mit Aufzug', 'Größtes AMARA-Bett, 200 × 200'],
+      es: ['100 m a la playa, 500 m al Balcón de Europa', 'Tranquilo en la quinta planta, con ascensor', 'La cama AMARA más grande, 200 × 200'],
+      nl: ['100 m naar het strand, 500 m naar het Balcón de Europa', 'Rustig op de vijfde verdieping, met lift', 'Grootste AMARA-bed, 200 × 200'],
+      sv: ['100 m till stranden, 500 m till Balcón de Europa', 'Tyst på femte våningen, med hiss', 'Största AMARA-sängen, 200 × 200']
     },
     accessNote: {
-      en: 'Requires stairs',
-      de: 'Nur über Treppen erreichbar',
-      es: 'Acceso por escaleras',
-      nl: 'Trappen vereist',
-      sv: 'Kräver trappor'
+      en: 'Lift to the fifth floor. Before it, three steps outside the door and four inside.',
+      de: 'Aufzug in den fünften Stock. Davor drei Stufen vor der Haustür und vier im Haus.',
+      es: 'Ascensor hasta la quinta planta. Antes, tres escalones en la calle y cuatro dentro de la casa.',
+      nl: 'Lift naar de vijfde verdieping. Daarvoor drie treden buiten en vier binnen.',
+      sv: 'Hiss till femte våningen. Dessförinnan tre trappsteg utanför porten och fyra inne.'
     },
     petsNote: {
       en: 'Pets are not allowed',
