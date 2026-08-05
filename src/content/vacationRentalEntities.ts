@@ -971,11 +971,11 @@ export const vacationRentalEntities: VacationRentalEntity[] = [
       sv: 'Tarifa för familj och surf'
     },
     headline: {
-      en: 'The top floor in Tarifa',
-      de: 'Die oberste Etage in Tarifa',
-      es: 'La última planta, en Tarifa',
-      nl: 'De bovenste verdieping in Tarifa',
-      sv: 'Översta våningen i Tarifa'
+      en: 'Sea view with unforgettable sunsets',
+      de: 'Meerblick mit unvergesslichen Sonnenuntergängen',
+      es: 'Vistas al mar con puestas de sol inolvidables',
+      nl: 'Zeezicht met onvergetelijke zonsondergangen',
+      sv: 'Havsutsikt med oförglömliga solnedgångar'
     },
     lead: {
       en: 'The lift goes right to the apartment door; inside, stairs lead up to the bedrooms. Two bedrooms, two bathrooms, room for four.',
@@ -985,18 +985,18 @@ export const vacationRentalEntities: VacationRentalEntity[] = [
       sv: 'Hissen går ända fram till dörren; inne leder trappor upp till sovrummen. Två sovrum, två badrum, plats för fyra.'
     },
     description: {
-      en: 'You enter on the third floor and climb to the fourth inside. The sea view is direct, and the sunsets are the reason guests stop going out in the evening. A very large kitchen for anyone who cooks on holiday, a fireplace, rain shower, 60-inch screen, fast internet, and a reserved space in the underground garage. It is not the right choice if stairs are difficult — the flight up to the bedrooms cannot be avoided.',
-      de: 'Man betritt die Wohnung im dritten Stock und geht innen hinauf in den vierten. Der Meerblick ist direkt, und die Sonnenuntergänge sind der Grund, warum Gäste abends nicht mehr weggehen. Eine sehr große Küche für alle, die im Urlaub kochen, dazu Kamin, Regendusche, 60-Zoll-Bildschirm, schnelles Internet und ein reservierter Platz in der Tiefgarage. Wer schlecht Treppen steigt, ist hier falsch – die Stufen zu den Schlafzimmern lassen sich nicht umgehen.',
-      es: 'Se entra en la tercera planta y se sube por dentro a la cuarta. Las vistas al mar son directas, y las puestas de sol son la razón por la que los huéspedes dejan de salir por la tarde. Una cocina muy grande para quien cocina en vacaciones, chimenea, ducha de lluvia, pantalla de 60 pulgadas, internet rápido y una plaza reservada en el garaje. No es la opción adecuada si las escaleras cuestan: los escalones hasta los dormitorios no se pueden evitar.',
-      nl: 'Je komt binnen op de derde verdieping en gaat binnendoor omhoog naar de vierde. Het zeezicht is direct, en de zonsondergangen zijn de reden dat gasten ’s avonds niet meer weggaan. Een zeer grote keuken voor wie op vakantie kookt, een haard, regendouche, scherm van 60 inch, snel internet en een gereserveerde plek in de parkeergarage. Niet geschikt als traplopen lastig is — de trap naar de slaapkamers is onvermijdelijk.',
-      sv: 'Man kliver in på tredje våningen och går inomhus upp till den fjärde. Havsutsikten är direkt, och solnedgångarna är skälet till att gästerna slutar gå ut på kvällen. Ett mycket stort kök för den som lagar mat på semestern, öppen spis, regndusch, 60-tums skärm, snabbt internet och en reserverad plats i garaget. Fel val om trappor är besvärliga — stegen upp till sovrummen går inte att undvika.'
+      en: 'You enter on the third floor and climb to the fourth inside. In the evening most guests stay up here rather than heading out again. A very large kitchen for anyone who cooks on holiday, a fireplace, rain shower, 60-inch screen, fast internet, and a reserved space in the underground garage. It is not the right choice if stairs are difficult — the flight up to the bedrooms cannot be avoided.',
+      de: 'Man betritt die Wohnung im dritten Stock und geht innen hinauf in den vierten. Abends bleiben die meisten Gäste oben, statt noch einmal loszuziehen. Eine sehr große Küche für alle, die im Urlaub kochen, dazu Kamin, Regendusche, 60-Zoll-Bildschirm, schnelles Internet und ein reservierter Platz in der Tiefgarage. Wer schlecht Treppen steigt, ist hier falsch – die Stufen zu den Schlafzimmern lassen sich nicht umgehen.',
+      es: 'Se entra en la tercera planta y se sube por dentro a la cuarta. Por la tarde, la mayoría de los huéspedes se queda arriba en lugar de volver a salir. Una cocina muy grande para quien cocina en vacaciones, chimenea, ducha de lluvia, pantalla de 60 pulgadas, internet rápido y una plaza reservada en el garaje. No es la opción adecuada si las escaleras cuestan: los escalones hasta los dormitorios no se pueden evitar.',
+      nl: 'Je komt binnen op de derde verdieping en gaat binnendoor omhoog naar de vierde. ’s Avonds blijven de meeste gasten boven in plaats van er nog op uit te gaan. Een zeer grote keuken voor wie op vakantie kookt, een haard, regendouche, scherm van 60 inch, snel internet en een gereserveerde plek in de parkeergarage. Niet geschikt als traplopen lastig is — de trap naar de slaapkamers is onvermijdelijk.',
+      sv: 'Man kliver in på tredje våningen och går inomhus upp till den fjärde. På kvällen stannar de flesta gäster kvar däruppe i stället för att gå ut igen. Ett mycket stort kök för den som lagar mat på semestern, öppen spis, regndusch, 60-tums skärm, snabbt internet och en reserverad plats i garaget. Fel val om trappor är besvärliga — stegen upp till sovrummen går inte att undvika.'
     },
     highlights: {
-      en: ['Penthouse across two floors', 'Direct sea view with unforgettable sunsets, and a pool', 'Reserved garage space included'],
-      de: ['Penthouse über zwei Etagen', 'Direkter Meerblick mit unvergesslichen Sonnenuntergängen, dazu Pool', 'Tiefgaragenplatz inklusive'],
-      es: ['Ático repartido en dos plantas', 'Vistas directas al mar con puestas de sol inolvidables, y piscina', 'Plaza de garaje incluida'],
-      nl: ['Penthouse over twee verdiepingen', 'Direct zeezicht met onvergetelijke zonsondergangen, plus zwembad', 'Garageplaats inbegrepen'],
-      sv: ['Takvåning över två plan', 'Direkt havsutsikt med oförglömliga solnedgångar, och pool', 'Garageplats ingår']
+      en: ['Penthouse across two floors', 'Large kitchen, fireplace and pool', 'Reserved garage space included'],
+      de: ['Penthouse über zwei Etagen', 'Große Küche, Kamin und Pool', 'Tiefgaragenplatz inklusive'],
+      es: ['Ático repartido en dos plantas', 'Cocina grande, chimenea y piscina', 'Plaza de garaje incluida'],
+      nl: ['Penthouse over twee verdiepingen', 'Grote keuken, haard en zwembad', 'Garageplaats inbegrepen'],
+      sv: ['Takvåning över två plan', 'Stort kök, öppen spis och pool', 'Garageplats ingår']
     },
     accessNote: {
       en: 'No steps outside or in the building — the lift reaches the apartment door. Inside, stairs lead up to the bedrooms.',
