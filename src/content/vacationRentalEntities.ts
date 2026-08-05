@@ -121,11 +121,11 @@ export const vacationRentalEntities: VacationRentalEntity[] = [
       'https://www.airbnb.com/rooms/52229175'
     ],
     seoTitle: {
-      en: 'AMARA Farah | Self-Contained Boutique Suite in Frigiliana',
-      de: 'AMARA Farah | Abgeschlossene Boutique-Suite in Frigiliana',
-      es: 'AMARA Farah | Suite boutique independiente en Frigiliana',
-      nl: 'AMARA Farah | Zelfstandige boutique-suite in Frigiliana',
-      sv: 'AMARA Farah | Självständig boutique-svit i Frigiliana'
+      en: 'Farah: Frigiliana suite, even for two nights | AMARA',
+      de: 'Farah: Suite in Frigiliana, auch für 2 Nächte | AMARA',
+      es: 'Farah: suite en Frigiliana, incluso 2 noches | AMARA',
+      nl: 'Farah: suite in Frigiliana, ook voor 2 nachten | AMARA',
+      sv: 'Farah: svit i Frigiliana, även för 2 nätter | AMARA'
     },
     seoDescription: {
       en: 'AMARA Farah in historic Frigiliana: a boutique suite for 2, bookable for one or two nights. One step at the entrance and none after that.',
@@ -272,18 +272,18 @@ export const vacationRentalEntities: VacationRentalEntity[] = [
       'https://www.airbnb.com/rooms/632415709742535474'
     ],
     seoTitle: {
-      en: 'AMARA Lounis | Historic Apartment in Frigiliana',
-      de: 'AMARA Lounis | Historisches Apartment in Frigiliana',
-      es: 'AMARA Lounis | Apartamento histórico en Frigiliana',
-      nl: 'AMARA Lounis | Historisch appartement in Frigiliana',
-      sv: 'AMARA Lounis | Historisk lägenhet i Frigiliana'
+      en: 'Lounis: Frigiliana apartment, step-free to town | AMARA',
+      de: 'Lounis: Ferienwohnung Frigiliana, stufenlos ins Dorf | AMARA',
+      es: 'Lounis: apartamento en Frigiliana sin escalones | AMARA',
+      nl: 'Lounis: appartement Frigiliana, trapvrij naar het dorp | AMARA',
+      sv: 'Lounis: lägenhet i Frigiliana, trappfritt till byn | AMARA'
     },
     seoDescription: {
-      en: 'AMARA Lounis is a historic Frigiliana apartment for 2 guests, with private terrace, kitchen, sea-facing outlook, and calm old-town character.',
-      de: 'AMARA Lounis ist ein historisches Apartment in Frigiliana für 2 Gäste, mit privater Terrasse, Küche und ruhigem Altstadtcharakter.',
-      es: 'AMARA Lounis es un apartamento histórico en Frigiliana para 2 huéspedes, con terraza privada, cocina y ambiente tranquilo de pueblo.',
-      nl: 'AMARA Lounis is een historisch appartement in Frigiliana voor 2 gasten, met privéterras, keuken en rustige dorpssfeer.',
-      sv: 'AMARA Lounis är en historisk lägenhet i Frigiliana för 2 gäster, med privat terrass, kök och lugn bykänsla.'
+      en: 'Step-free to the restaurants and the plaza: a Frigiliana old-town apartment for 2, terrace over the groves, Moorish walls, small dogs welcome.',
+      de: 'Stufenlos zu Restaurants und Plaza: Ferienwohnung in Frigilianas Altstadt für 2, Terrasse über den Plantagen, maurische Mauern, Hunde willkommen.',
+      es: 'Sin escalones hasta los restaurantes y la plaza: apartamento en el casco antiguo de Frigiliana para 2, terraza sobre el campo, muros andalusíes.',
+      nl: 'Trapvrij naar de restaurants en het plein: appartement in de oude kern van Frigiliana voor 2, terras boven de plantages, kleine honden welkom.',
+      sv: 'Trappfritt till restauranger och torget: lägenhet i gamla Frigiliana för 2, terrass över odlingarna, moriska murar, små hundar välkomna.'
     },
     eyebrow: {
       en: 'Historic apartment',
@@ -440,18 +440,18 @@ export const vacationRentalEntities: VacationRentalEntity[] = [
       'https://www.airbnb.com/rooms/643474398791611415'
     ],
     seoTitle: {
-      en: 'AMARA Zaid | Romantic Terrace Apartment in Frigiliana',
-      de: 'AMARA Zaid: Apartment mit Terrasse in Frigiliana',
-      es: 'AMARA Zaid: apartamento romántico con terraza, Frigiliana',
-      nl: 'AMARA Zaid | Romantisch terrasappartement in Frigiliana',
-      sv: 'AMARA Zaid | Romantisk terrasslägenhet i Frigiliana'
+      en: 'Zaid: Frigiliana old town apartment, king bed | AMARA',
+      de: 'Zaid: Altstadt-Apartment Frigiliana, Kingsize-Bett | AMARA',
+      es: 'Zaid: apartamento en el casco antiguo de Frigiliana | AMARA',
+      nl: 'Zaid: appartement oude kern Frigiliana, kingsize bed | AMARA',
+      sv: 'Zaid: lägenhet i gamla Frigiliana, kingsize-säng | AMARA'
     },
     seoDescription: {
-      en: 'AMARA Zaid is a romantic terrace apartment in Frigiliana for 2 guests, with kitchen, private terrace, bathroom, and quiet village atmosphere.',
-      de: 'AMARA Zaid ist ein romantisches Terrassenapartment in Frigiliana für 2 Gäste, mit Küche, privater Terrasse und ruhiger Dorfatmosphäre.',
-      es: 'AMARA Zaid es un apartamento romántico con terraza en Frigiliana para 2 huéspedes, con cocina, baño privado y ambiente tranquilo.',
-      nl: 'AMARA Zaid is een romantisch terrasappartement in Frigiliana voor 2 gasten, met keuken, badkamer en rustige dorpssfeer.',
-      sv: 'AMARA Zaid är en romantisk terrasslägenhet i Frigiliana för 2 gäster, med kök, badrum och lugn byatmosfär.'
+      en: 'Frigiliana old-town apartment for 2, one floor up: a wider view over the groves, private terrace, and a king bed at 180 × 200. Six steps from the door.',
+      de: 'Apartment in Frigilianas Altstadt für 2, eine Etage höher: weiter Blick über die Plantagen, Terrasse und Kingsize-Bett 180 × 200. Sechs Stufen.',
+      es: 'Apartamento en el casco antiguo de Frigiliana para 2, una planta más arriba: vistas más amplias, terraza y cama de 180 × 200. Seis escalones.',
+      nl: 'Appartement in de oude kern van Frigiliana voor 2, een verdieping hoger: ruimer uitzicht, terras en kingsize bed 180 × 200. Zes treden.',
+      sv: 'Lägenhet i gamla Frigiliana för 2, en våning upp: vidare utsikt över odlingarna, terrass och kingsize-säng 180 × 200. Sex trappsteg.'
     },
     eyebrow: {
       en: 'Romantic terrace retreat',
@@ -604,18 +604,18 @@ export const vacationRentalEntities: VacationRentalEntity[] = [
       'https://www.airbnb.com/rooms/643486091667223317'
     ],
     seoTitle: {
-      en: 'AMARA Maha | Apartment with Large Terrace in Frigiliana',
-      de: 'AMARA Maha | Apartment mit großer Terrasse in Frigiliana',
-      es: 'AMARA Maha | Apartamento con gran terraza en Frigiliana',
-      nl: 'AMARA Maha | Appartement met groot terras in Frigiliana',
-      sv: 'AMARA Maha | Lägenhet med stor terrass i Frigiliana'
+      en: 'Maha: Frigiliana apartment with a 60 m² terrace | AMARA',
+      de: 'Maha: Apartment mit 60 m² Terrasse, Frigiliana | AMARA',
+      es: 'Maha: apartamento en Frigiliana con terraza de 60 m² | AMARA',
+      nl: 'Maha: appartement Frigiliana met terras van 60 m² | AMARA',
+      sv: 'Maha: lägenhet i Frigiliana med 60 m² terrass | AMARA'
     },
     seoDescription: {
-      en: 'AMARA Maha is a private Frigiliana apartment for 2 guests, with large terrace, kitchen, bathroom, sea-facing outlook, and quiet AMARA hosting.',
-      de: 'AMARA Maha ist ein privates Apartment in Frigiliana für 2 Gäste, mit großer Terrasse, Küche, Bad und ruhiger AMARA-Gastlichkeit.',
-      es: 'AMARA Maha es un apartamento privado en Frigiliana para 2 huéspedes, con gran terraza, cocina, baño y ambiente tranquilo.',
-      nl: 'AMARA Maha is een privaat appartement in Frigiliana voor 2 gasten, met groot terras, keuken, badkamer en rustige AMARA-sfeer.',
-      sv: 'AMARA Maha är en privat lägenhet i Frigiliana för 2 gäster, med stor terrass, kök, badrum och lugnt AMARA-värdskap.'
+      en: 'A 60 m² terrace with an outdoor kitchen, highest in the house: a Frigiliana apartment for 2 with the widest view. Small dogs welcome.',
+      de: '60 m² Terrasse mit Außenküche, ganz oben im Haus: Ferienwohnung in Frigiliana für 2 mit der weitesten Aussicht. Hunde willkommen.',
+      es: 'Terraza de 60 m² con cocina exterior, en lo más alto de la casa: apartamento en Frigiliana para 2 con las vistas más amplias. Perros pequeños.',
+      nl: 'Terras van 60 m² met buitenkeuken, het hoogst in huis: appartement in Frigiliana voor 2 met het verste uitzicht. Kleine honden welkom.',
+      sv: '60 m² terrass med utekök, högst upp i huset: lägenhet i Frigiliana för 2 med den vidaste utsikten. Små hundar välkomna.'
     },
     eyebrow: {
       en: 'Large private terrace',
@@ -777,11 +777,11 @@ export const vacationRentalEntities: VacationRentalEntity[] = [
       'https://www.airbnb.com/rooms/52215543'
     ],
     seoTitle: {
-      en: 'AMARA Playa | Nerja Beach Apartment with Sea View',
-      de: 'AMARA Playa | Strandapartment in Nerja mit Meerblick',
-      es: 'AMARA Playa | Apartamento en Nerja con vistas al mar',
-      nl: 'AMARA Playa | Strandappartement in Nerja met zeezicht',
-      sv: 'AMARA Playa | Strandlägenhet i Nerja med havsutsikt'
+      en: 'Playa: Nerja apartment, 100 m from the beach | AMARA',
+      de: 'Playa: Apartment 100 m vom Strand, Nerja | AMARA',
+      es: 'Playa: apartamento en Nerja a 100 m de la playa | AMARA',
+      nl: 'Playa: appartement Nerja, 100 m van het strand | AMARA',
+      sv: 'Playa: lägenhet i Nerja, 100 m från stranden | AMARA'
     },
     seoDescription: {
       en: 'AMARA Playa in Nerja: 100 m to Torrecilla beach, 500 m to the Balcón de Europa, and still quiet. Small apartment for 2 on the fifth floor, with a lift.',
@@ -950,11 +950,11 @@ export const vacationRentalEntities: VacationRentalEntity[] = [
       'https://www.airbnb.com/rooms/803371111851036443'
     ],
     seoTitle: {
-      en: 'AMARA Family & Surf | Ocean View House in Tarifa',
-      de: 'AMARA Family & Surf | Haus mit Meerblick in Tarifa',
-      es: 'AMARA Family & Surf | Casa con vistas al mar en Tarifa',
-      nl: 'AMARA Family & Surf | Huis met zeezicht in Tarifa',
-      sv: 'AMARA Family & Surf | Hus med havsutsikt i Tarifa'
+      en: 'Family & Surf: Tarifa penthouse with pool | AMARA',
+      de: 'Family & Surf: Penthouse mit Pool in Tarifa | AMARA',
+      es: 'Family & Surf: ático en Tarifa con piscina | AMARA',
+      nl: 'Family & Surf: penthouse in Tarifa met zwembad | AMARA',
+      sv: 'Family & Surf: takvåning i Tarifa med pool | AMARA'
     },
     seoDescription: {
       en: 'AMARA Family & Surf in Tarifa: penthouse for up to 4, direct sea view, large kitchen, pool and reserved garage space. Lift right to the door.',
