@@ -461,46 +461,46 @@ export const vacationRentalEntities: VacationRentalEntity[] = [
       sv: 'Romantisk terrassvistelse'
     },
     headline: {
-      en: 'Terrace apartment for slow mornings',
-      de: 'Terrassenapartment für langsame Morgen',
-      es: 'Apartamento con terraza para mananas lentas',
-      nl: 'Terrasappartement voor langzame ochtenden',
-      sv: 'Terrasslägenhet för långsamma morgnar'
+      en: 'The upper floor above the groves',
+      de: 'Die obere Etage über den Plantagen',
+      es: 'La planta de arriba sobre el campo',
+      nl: 'De bovenverdieping boven de plantages',
+      sv: 'Övervåningen ovanför odlingarna'
     },
     lead: {
-      en: 'A calm apartment for two with private terrace, full kitchen, king bed, and Frigiliana old-town rhythm.',
-      de: 'Ein ruhiges Apartment für zwei mit privater Terrasse, voll ausgestatteter Küche, Kingsize-Bett und Altstadt-Rhythmus.',
-      es: 'Un apartamento tranquilo para dos, con terraza privada, cocina completa, cama king size y ritmo de casco antiguo.',
-      nl: 'Een rustig appartement voor twee, met privéterras, volledige keuken, kingsize bed en het ritme van de oude kern.',
-      sv: 'En lugn lägenhet för två med privat terrass, fullt kök, kingsize-säng och den gamla byns rytm.'
+      en: 'Zaid sits one floor above Lounis: the same view across the groves, only further. And the widest bed in the house, 180 × 200.',
+      de: 'Zaid liegt eine Etage über Lounis: derselbe Blick über die Plantagen, nur weiter. Dazu das breiteste Bett im Haus, 180 × 200.',
+      es: 'Zaid está una planta por encima de Lounis: la misma vista sobre el campo, solo que más lejos. Y la cama más ancha de la casa, 180 × 200.',
+      nl: 'Zaid ligt een verdieping boven Lounis: hetzelfde uitzicht over de plantages, alleen verder. En het breedste bed van het huis, 180 × 200.',
+      sv: 'Zaid ligger en våning ovanför Lounis: samma utsikt över odlingarna, fast längre. Och husets bredaste säng, 180 × 200.'
     },
     description: {
-      en: 'Zaid is the choice when terrace life matters: breakfast outside, village light, quiet evenings, and a private base between Frigiliana and beach days near Nerja.',
-      de: 'Zaid ist die Wahl, wenn Terrassenzeit wichtig ist: Frühstück draußen, Dorflicht, ruhige Abende und eine private Basis zwischen Frigiliana und Strandtagen bei Nerja.',
-      es: 'Zaid es la elección cuando la terraza importa: desayunos al aire libre, luz de pueblo, noches tranquilas y una base privada entre Frigiliana y días de playa en Nerja.',
-      nl: 'Zaid is de keuze wanneer terrastijd belangrijk is: ontbijt buiten, dorpslicht, stille avonden en een private basis tussen Frigiliana en stranddagen bij Nerja.',
-      sv: 'Zaid är valet när terrasslivet spelar roll: frukost ute, byljus, stilla kvällar och en privat bas mellan Frigiliana och stranddagar vid Nerja.'
+      en: 'From the terrace, the same view as the floor below, only further: the mango and avocado groves of Frigiliana Campo, the sea behind them. Sun arrives around midday and stays until evening — mornings the terrace is in shade. Zaid was built onto Lounis centuries later, and part of that older structure is still in its walls.',
+      de: 'Von der Terrasse derselbe Blick wie eine Etage tiefer, nur weiter: die Mango- und Avocadoplantagen des Frigiliana Campo, dahinter das Meer. Die Sonne kommt gegen zwölf und bleibt bis zum Abend – morgens liegt die Terrasse im Schatten. Zaid wurde Jahrhunderte nach Lounis auf dessen Mauern gesetzt; ein Teil der alten Bausubstanz steckt noch darin.',
+      es: 'Desde la terraza, la misma vista que un piso más abajo, solo que más lejos: las plantaciones de mango y aguacate del campo de Frigiliana, y el mar al fondo. El sol llega hacia el mediodía y se queda hasta la tarde; por la mañana la terraza está en sombra. Zaid se construyó sobre Lounis siglos después, y parte de aquella fábrica antigua sigue en sus muros.',
+      nl: 'Vanaf het terras hetzelfde uitzicht als een verdieping lager, alleen verder: de mango- en avocadoplantages van het Frigiliana Campo, met de zee daarachter. De zon komt rond het middaguur en blijft tot de avond; ’s ochtends ligt het terras in de schaduw. Zaid werd eeuwen later op Lounis gebouwd, en een deel van dat oude metselwerk zit nog in de muren.',
+      sv: 'Från terrassen samma utsikt som våningen under, fast längre: mango- och avokadoodlingarna i Frigiliana Campo, med havet bakom. Solen kommer vid tolvtiden och stannar till kvällen; på morgonen ligger terrassen i skugga. Zaid byggdes ovanpå Lounis århundraden senare, och en del av det gamla murverket finns kvar i väggarna.'
     },
     highlights: {
-      en: ['Entire apartment for 2 guests', 'Private terrace', 'King bed'],
-      de: ['Ganzes Apartment für 2 Gäste', 'Private Terrasse', 'Kingsize-Bett'],
-      es: ['Apartamento completo para 2 huéspedes', 'Terraza privada', 'Cama king size'],
-      nl: ['Volledig appartement voor 2 gasten', 'Privéterras', 'Kingsize bed'],
-      sv: ['Hel lägenhet för 2 gäster', 'Privat terrass', 'Kingsize-säng']
+      en: ['One floor up, further view', 'Widest bed in the house, 180 × 200', 'Terrace over the groves'],
+      de: ['Eine Etage höher, weiterer Blick', 'Breitestes Bett im Haus, 180 × 200', 'Terrasse über den Plantagen'],
+      es: ['Una planta más arriba, vista más amplia', 'La cama más ancha de la casa, 180 × 200', 'Terraza sobre el campo'],
+      nl: ['Een verdieping hoger, verder uitzicht', 'Breedste bed van het huis, 180 × 200', 'Terras boven de plantages'],
+      sv: ['En våning upp, vidare utsikt', 'Husets bredaste säng, 180 × 200', 'Terrass över odlingarna']
     },
     accessNote: {
-      en: 'Requires stairs',
-      de: 'Nur über Treppen erreichbar',
-      es: 'Acceso por escaleras',
-      nl: 'Trappen vereist',
-      sv: 'Kräver trappor'
+      en: 'One step at the house door, six more up to the apartment',
+      de: 'Eine Stufe an der Haustür, sechs weitere bis zur Wohnung',
+      es: 'Un escalón en la puerta y seis más hasta el apartamento',
+      nl: 'Eén trede bij de huisdeur, zes verder omhoog naar het appartement',
+      sv: 'Ett trappsteg vid porten, sex till upp till lägenheten'
     },
     petsNote: {
-      en: 'Pets are not allowed',
-      de: 'Haustiere nicht erlaubt',
-      es: 'No se admiten mascotas',
-      nl: 'Huisdieren niet toegestaan',
-      sv: 'Husdjur är inte tillåtna'
+      en: 'No pets — Lounis takes small dogs',
+      de: 'Keine Haustiere – dafür gibt es Lounis',
+      es: 'No se admiten mascotas; Lounis sí acepta perros pequeños',
+      nl: 'Geen huisdieren — bij Lounis kunnen kleine honden wel',
+      sv: 'Inga husdjur — men Lounis tar emot små hundar'
     },
     kitchenNote: {
       en: 'Full indoor kitchen',
@@ -517,11 +517,11 @@ export const vacationRentalEntities: VacationRentalEntity[] = [
       sv: 'Privat terrass'
     },
     viewNote: {
-      en: 'Distant sea view',
-      de: 'Fernblick aufs Meer',
-      es: 'Vistas lejanas al mar',
-      nl: 'Uitzicht op zee in de verte',
-      sv: 'Havsutsikt på avstånd'
+      en: 'Groves in front, sea beyond — from one floor higher',
+      de: 'Plantagen im Vordergrund, Meer dahinter – eine Etage höher',
+      es: 'Plantaciones delante, mar al fondo, desde una planta más alta',
+      nl: 'Plantages op de voorgrond, zee daarachter, een verdieping hoger',
+      sv: 'Odlingar närmast, havet bortom — från en våning högre'
     },
     images: [
       '/images/amara-zaid/cara-rural-frigiliana-amara-said-terraza-5.jpg',
