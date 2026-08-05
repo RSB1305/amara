@@ -128,11 +128,11 @@ export const vacationRentalEntities: VacationRentalEntity[] = [
       sv: 'AMARA Farah | Självständig boutique-svit i Frigiliana'
     },
     seoDescription: {
-      en: 'AMARA Farah is a self-contained boutique suite in historic Frigiliana for 2 guests, with its own entrance, bedroom, bathroom, and coffee and tea kitchenette.',
-      de: 'AMARA Farah ist eine abgeschlossene Boutique-Suite in der Altstadt von Frigiliana für 2 Gäste, mit eigenem Eingang, Schlafzimmer, Bad und Teeküche.',
-      es: 'AMARA Farah es una suite boutique independiente en Frigiliana para 2 huéspedes, con entrada, dormitorio, baño y zona de café y té propios.',
-      nl: 'AMARA Farah is een zelfstandige boutique-suite in historisch Frigiliana voor 2 gasten, met eigen ingang, slaapkamer, badkamer en koffie- en theefaciliteiten.',
-      sv: 'AMARA Farah är en självständig boutique-svit i historiska Frigiliana för 2 gäster, med egen ingång, sovrum, badrum samt kaffe- och tehörna.'
+      en: 'AMARA Farah in historic Frigiliana: a boutique suite for 2, bookable for one or two nights. One step at the entrance and none after that.',
+      de: 'AMARA Farah in der Altstadt von Frigiliana: Boutique-Suite für 2 Gäste, auch für ein oder zwei Nächte. Eine Stufe am Eingang, danach keine mehr.',
+      es: 'AMARA Farah en el casco antiguo de Frigiliana: suite boutique para 2, también para una o dos noches. Un escalón en la entrada y ninguno más.',
+      nl: 'AMARA Farah in het oude Frigiliana: boutique-suite voor 2, ook voor één of twee nachten. Eén trede bij de ingang en daarna geen meer.',
+      sv: 'AMARA Farah i gamla Frigiliana: boutique-svit för 2, även för en eller två nätter. Ett trappsteg vid entrén, inga fler därefter.'
     },
     eyebrow: {
       en: 'Frigiliana old town',
@@ -142,39 +142,39 @@ export const vacationRentalEntities: VacationRentalEntity[] = [
       sv: 'Frigilianas gamla stad'
     },
     headline: {
-      en: 'Self-contained boutique suite for calm short stays',
-      de: 'Abgeschlossene Boutique-Suite für ruhige Kurzaufenthalte',
-      es: 'Suite boutique independiente para estancias tranquilas',
-      nl: 'Zelfstandige boutique-suite voor rustige korte verblijven',
-      sv: 'Självständig boutique-svit för lugna kortare vistelser'
+      en: 'Made for short stays in the old town',
+      de: 'Für kurze Aufenthalte in der Altstadt',
+      es: 'Pensada para estancias cortas en el casco antiguo',
+      nl: 'Gemaakt voor korte verblijven in de oude kern',
+      sv: 'Gjord för korta vistelser i gamla byn'
     },
     lead: {
-      en: 'A compact, romantic AMARA stay with private entrance, private bathroom, coffee and tea station, and the old village just outside the door.',
-      de: 'Eine kompakte, romantische AMARA-Suite mit eigenem Eingang, eigenem Bad, Teeküche und dem alten Dorf direkt vor der Tür.',
-      es: 'Una estancia AMARA compacta y romántica, con entrada privada, baño privado, zona de café y té y el pueblo antiguo a pocos pasos.',
-      nl: 'Een compacte, romantische AMARA-stay met eigen ingang, eigen badkamer, koffie- en theefaciliteiten en het oude dorp direct buiten.',
-      sv: 'En kompakt och romantisk AMARA-vistelse med egen ingång, eget badrum, kaffe- och tehörna och den gamla byn utanför dörren.'
+      en: 'Most places in Frigiliana will not take a booking for one or two nights. Farah is built for exactly that — usually from two nights, at short notice sometimes one.',
+      de: 'Die meisten Unterkünfte in Frigiliana nehmen keine Gäste für ein oder zwei Nächte. Farah ist genau dafür gemacht – in der Regel ab zwei Nächten, kurzfristig auch für eine.',
+      es: 'La mayoría de los alojamientos de Frigiliana no aceptan reservas de una o dos noches. Farah está pensada justo para eso: normalmente desde dos noches y, si surge, también una.',
+      nl: 'De meeste adressen in Frigiliana nemen geen boeking aan voor één of twee nachten. Farah is daar juist voor gemaakt — meestal vanaf twee nachten, op korte termijn soms één.',
+      sv: 'De flesta boenden i Frigiliana tar inte emot bokningar på en eller två nätter. Farah är byggd för just det — vanligtvis från två nätter, med kort varsel ibland en.'
     },
     description: {
-      en: 'Farah suits couples who want the AMARA atmosphere without needing a full apartment kitchen or terrace. It is designed for easy arrivals, quiet nights, and simple village days.',
-      de: 'Farah passt zu Paaren, die die AMARA-Atmosphäre suchen, aber keine voll ausgestattete Apartmentküche oder Terrasse brauchen. Ideal für einfache Anreise, ruhige Nächte und entspannte Dorftage.',
-      es: 'Farah encaja con parejas que buscan la atmósfera AMARA sin necesitar una cocina completa ni terraza privada. Es ideal para llegar fácil, dormir tranquilo y disfrutar del pueblo.',
-      nl: 'Farah past bij koppels die de AMARA-sfeer zoeken zonder volledige keuken of terras nodig te hebben. Ideaal voor eenvoudige aankomst, stille nachten en rustige dorpsdagen.',
-      sv: 'Farah passar par som vill ha AMARA-känslan utan att behöva fullt kök eller privat terrass. Perfekt för enkel ankomst, lugna nätter och stilla dagar i byn.'
+      en: 'One step at the main entrance and none after it — of the four places in the house, Farah is the only one that needs no stairs at all. Two rooms: the bedroom, and a second with the tea kitchen, where a stool at the worktop doubles as a desk. There is no full kitchen and no terrace. For two nights you rarely miss either; for a week you would.',
+      de: 'Vom Haupteingang bis zur Wohnungstür führt eine einzige Stufe, danach keine mehr – als einzige der vier Unterkünfte im Haus kommt Farah ganz ohne Treppen aus. Zwei Räume: das Schlafzimmer und ein zweiter mit der Teeküche, dort steht ein Hocker an der Arbeitsplatte, die sich auch als Schreibtisch nutzen lässt. Eine richtige Küche und eine Terrasse gibt es nicht – für zwei Nächte fehlt beides selten, für eine Woche schon.',
+      es: 'Un escalón en la entrada principal y ninguno más: de los cuatro alojamientos de la casa, Farah es el único sin escaleras. Dos estancias: el dormitorio y otra con la zona de café y té, donde un taburete junto a la encimera sirve también de escritorio. No hay cocina completa ni terraza. Para dos noches rara vez se echan de menos; para una semana, sí.',
+      nl: 'Eén trede bij de hoofdingang en daarna geen enkele meer — van de vier adressen in het huis is Farah de enige zonder trappen. Twee kamers: de slaapkamer en een tweede met de theekeuken, waar een kruk aan het werkblad ook als bureau dient. Een volledige keuken en een terras zijn er niet. Voor twee nachten mis je ze zelden; voor een week wel.',
+      sv: 'Ett trappsteg vid huvudentrén och inga fler efter det — av husets fyra boenden är Farah det enda helt utan trappor. Två rum: sovrummet och ett andra med tekök, där en pall vid bänkskivan också fungerar som skrivbord. Fullt kök och terrass saknas. På två nätter märks det sällan; på en vecka gör det det.'
     },
     highlights: {
-      en: ['Self-contained suite for 2 guests', 'Private bathroom', 'Coffee and tea kitchenette'],
-      de: ['Abgeschlossene Suite für 2 Gäste', 'Eigenes Bad', 'Teeküche'],
-      es: ['Suite independiente para 2 huéspedes', 'Baño privado', 'Zona de café y té'],
-      nl: ['Zelfstandige suite voor 2 gasten', 'Eigen badkamer', 'Koffie- en theefaciliteiten'],
-      sv: ['Självständig svit för 2 gäster', 'Eget badrum', 'Kaffe- och tehörna']
+      en: ['One step, and no more', 'Takes one or two nights', 'Bedroom and tea kitchen'],
+      de: ['Nur eine Stufe, sonst keine', 'Auch für ein oder zwei Nächte', 'Schlafzimmer und Teeküche'],
+      es: ['Un escalón y ninguno más', 'Admite una o dos noches', 'Dormitorio y zona de café y té'],
+      nl: ['Eén trede, verder geen', 'Ook voor één of twee nachten', 'Slaapkamer en theekeuken'],
+      sv: ['Ett trappsteg, inga fler', 'Tar emot en eller två nätter', 'Sovrum och tekök']
     },
     accessNote: {
-      en: '1 step at entrance',
-      de: '1 Stufe am Eingang',
-      es: '1 escalón en la entrada',
-      nl: '1 trede bij de ingang',
-      sv: '1 trappsteg vid entrén'
+      en: 'One step at the main entrance, none after that. Vehicle access until 11:00 and from 17:00.',
+      de: 'Eine Stufe am Haupteingang, danach keine mehr. Zufahrt bis 11 und ab 17 Uhr.',
+      es: 'Un escalón en la entrada principal y ninguno más. Acceso en coche hasta las 11:00 y desde las 17:00.',
+      nl: 'Eén trede bij de hoofdingang, daarna geen meer. Met de auto tot 11.00 uur en vanaf 17.00 uur.',
+      sv: 'Ett trappsteg vid huvudentrén, inga fler därefter. Bilinfart fram till 11 och från 17.'
     },
     petsNote: {
       en: 'Pets are not allowed',
@@ -300,11 +300,11 @@ export const vacationRentalEntities: VacationRentalEntity[] = [
       sv: 'Lägenhet i gamla byn med utsikt över odlingarna'
     },
     lead: {
-      en: 'Calle Chorruelo is where Calle Real carries on. You can drive to the door and reach Frigiliana’s restaurants, bars and shops without a step — the Plaza de las Tres Culturas is about 400 metres away, and not one stair in between. In Frigiliana’s old town, that is rare.',
-      de: 'Die Calle Chorruelo ist die Verlängerung der Calle Real. Man kann bis vor die Tür fahren und die Restaurants, Bars und Geschäfte von Frigiliana stufenlos erkunden – bis zur Plaza de las Tres Culturas sind es rund 400 Meter, ohne eine einzige Treppe. In Frigilianas Altstadt ist das selten.',
-      es: 'La Calle Chorruelo es la continuación de la Calle Real. Se puede llegar en coche hasta la puerta y recorrer los restaurantes, bares y tiendas de Frigiliana sin un solo escalón: hasta la Plaza de las Tres Culturas hay unos 400 metros, todos llanos. En el casco antiguo de Frigiliana eso es poco común.',
-      nl: 'De Calle Chorruelo is het verlengde van de Calle Real. Je rijdt tot aan de deur en verkent de restaurants, bars en winkels van Frigiliana zonder één trede — naar de Plaza de las Tres Culturas is het zo’n 400 meter, volledig vlak. In de oude kern van Frigiliana is dat zeldzaam.',
-      sv: 'Calle Chorruelo är förlängningen av Calle Real. Du kan köra ända fram till dörren och utforska Frigilianas restauranger, barer och butiker utan ett enda trappsteg — till Plaza de las Tres Culturas är det ungefär 400 meter, hela vägen plant. I Frigilianas gamla by är det ovanligt.'
+      en: 'Calle Chorruelo is where Calle Real carries on, which is why the restaurants, bars and shops of Frigiliana are reachable from here without a step. The Plaza de las Tres Culturas is about 400 metres away, and not one stair in between. In Frigiliana’s old town, that is rare.',
+      de: 'Die Calle Chorruelo ist die Verlängerung der Calle Real – deshalb erreicht man von hier die Restaurants, Bars und Geschäfte von Frigiliana stufenlos. Bis zur Plaza de las Tres Culturas sind es rund 400 Meter, ohne eine einzige Treppe. In Frigilianas Altstadt ist das selten.',
+      es: 'La Calle Chorruelo es la continuación de la Calle Real, y por eso desde aquí se llega a los restaurantes, bares y tiendas de Frigiliana sin un solo escalón. Hasta la Plaza de las Tres Culturas hay unos 400 metros, todos llanos. En el casco antiguo de Frigiliana eso es poco común.',
+      nl: 'De Calle Chorruelo is het verlengde van de Calle Real, en daarom bereik je vanaf hier de restaurants, bars en winkels van Frigiliana zonder één trede. Naar de Plaza de las Tres Culturas is het zo’n 400 meter, volledig vlak. In de oude kern van Frigiliana is dat zeldzaam.',
+      sv: 'Calle Chorruelo är förlängningen av Calle Real, och därför når du restauranger, barer och butiker i Frigiliana härifrån utan ett enda trappsteg. Till Plaza de las Tres Culturas är det ungefär 400 meter, hela vägen plant. I Frigilianas gamla by är det ovanligt.'
     },
     description: {
       en: 'From the terrace you look across the mango and avocado groves of Frigiliana Campo, the sea behind them. Sun reaches it around midday and stays until evening — shaded in the morning, which keeps breakfast cool. Birds early, silence at night. Lounis stands beside the church, where the village’s oldest houses are: during the 2020 renovation the old walls came to light, and our architect recognised Moorish construction, the era that shaped Andalusia all the way to the Alhambra. The tiles from Málaga are what guests ask about most.',
@@ -321,11 +321,11 @@ export const vacationRentalEntities: VacationRentalEntity[] = [
       sv: ['Moriska murar, frilagda 2020', 'Trappfritt till kaféerna', 'Terrass över odlingarna']
     },
     accessNote: {
-      en: 'One step at the house door, then a few down inside the apartment',
-      de: 'Eine Stufe an der Haustür, im Apartment einige Stufen nach unten',
-      es: 'Un escalón en la puerta y algunos hacia abajo dentro del apartamento',
-      nl: 'Eén trede bij de huisdeur, binnen enkele naar beneden',
-      sv: 'Ett trappsteg vid porten, sedan några nedåt inne i lägenheten'
+      en: 'One step at the main entrance, then a few down inside the apartment. Vehicle access until 11:00 and from 17:00.',
+      de: 'Eine Stufe am Haupteingang, im Apartment einige Stufen nach unten. Zufahrt bis 11 und ab 17 Uhr.',
+      es: 'Un escalón en la entrada principal y algunos hacia abajo dentro del apartamento. Acceso en coche hasta las 11:00 y desde las 17:00.',
+      nl: 'Eén trede bij de hoofdingang, binnen enkele naar beneden. Met de auto tot 11.00 uur en vanaf 17.00 uur.',
+      sv: 'Ett trappsteg vid huvudentrén, sedan några nedåt inne i lägenheten. Bilinfart fram till 11 och från 17.'
     },
     petsNote: {
       en: 'Small dogs on request',
@@ -489,11 +489,11 @@ export const vacationRentalEntities: VacationRentalEntity[] = [
       sv: ['En våning upp, vidare utsikt', 'Husets bredaste säng, 180 × 200', 'Terrass över odlingarna']
     },
     accessNote: {
-      en: 'One step at the house door, six more up to the apartment',
-      de: 'Eine Stufe an der Haustür, sechs weitere bis zur Wohnung',
-      es: 'Un escalón en la puerta y seis más hasta el apartamento',
-      nl: 'Eén trede bij de huisdeur, zes verder omhoog naar het appartement',
-      sv: 'Ett trappsteg vid porten, sex till upp till lägenheten'
+      en: 'One step at the main entrance, six more up to the apartment. Vehicle access until 11:00 and from 17:00.',
+      de: 'Eine Stufe am Haupteingang, sechs weitere bis zur Wohnung. Zufahrt bis 11 und ab 17 Uhr.',
+      es: 'Un escalón en la entrada principal y seis más hasta el apartamento. Acceso en coche hasta las 11:00 y desde las 17:00.',
+      nl: 'Eén trede bij de hoofdingang, zes verder omhoog naar het appartement. Met de auto tot 11.00 uur en vanaf 17.00 uur.',
+      sv: 'Ett trappsteg vid huvudentrén, sex till upp till lägenheten. Bilinfart fram till 11 och från 17.'
     },
     petsNote: {
       en: 'No pets — Lounis and Maha take small dogs',
@@ -653,11 +653,11 @@ export const vacationRentalEntities: VacationRentalEntity[] = [
       sv: ['60 m² terrass under bar himmel', 'Utekök för matlagning utomhus', 'Husets vidaste utsikt']
     },
     accessNote: {
-      en: 'One step at the house door, six up to the apartment, a few more inside',
-      de: 'Eine Stufe an der Haustür, sechs bis zur Wohnung, einige weitere im Apartment',
-      es: 'Un escalón en la puerta, seis hasta el apartamento y algunos más dentro',
-      nl: 'Eén trede bij de huisdeur, zes tot het appartement en binnen nog enkele',
-      sv: 'Ett trappsteg vid porten, sex upp till lägenheten och några till inne'
+      en: 'One step at the main entrance, six up to the apartment, a few more inside. Vehicle access until 11:00 and from 17:00.',
+      de: 'Eine Stufe am Haupteingang, sechs bis zur Wohnung, einige weitere im Apartment. Zufahrt bis 11 und ab 17 Uhr.',
+      es: 'Un escalón en la entrada principal, seis hasta el apartamento y algunos más dentro. Acceso en coche hasta las 11:00 y desde las 17:00.',
+      nl: 'Eén trede bij de hoofdingang, zes tot het appartement en binnen nog enkele. Met de auto tot 11.00 uur en vanaf 17.00 uur.',
+      sv: 'Ett trappsteg vid huvudentrén, sex upp till lägenheten och några till inne. Bilinfart fram till 11 och från 17.'
     },
     petsNote: {
       en: 'Small dogs on request',
