@@ -978,11 +978,11 @@ export const vacationRentalEntities: VacationRentalEntity[] = [
       sv: 'Takvåning med Atlanten rakt fram'
     },
     lead: {
-      en: 'A penthouse across two floors. The lift goes right to the apartment door; inside, stairs lead up to the bedrooms. Nothing sits above it — only the view.',
-      de: 'Ein Penthouse über zwei Etagen. Der Aufzug fährt bis vor die Wohnungstür, drinnen führen Stufen hinauf zu den Schlafzimmern. Über der Wohnung ist nichts mehr – nur der Blick.',
-      es: 'Un ático repartido en dos plantas. El ascensor llega hasta la puerta; dentro, unas escaleras suben a los dormitorios. Encima no hay nada más: solo las vistas.',
-      nl: 'Een penthouse over twee verdiepingen. De lift gaat tot aan de voordeur; binnen leiden trappen omhoog naar de slaapkamers. Erboven ligt niets meer — alleen het uitzicht.',
-      sv: 'En takvåning över två plan. Hissen går ända fram till dörren; inne leder trappor upp till sovrummen. Ovanför finns ingenting — bara utsikten.'
+      en: 'A penthouse across two floors, with the Atlantic in front of it. The lift goes right to the apartment door; inside, stairs lead up to the bedrooms.',
+      de: 'Ein Penthouse über zwei Etagen, mit dem Atlantik davor. Der Aufzug fährt bis vor die Wohnungstür, drinnen führen Stufen hinauf zu den Schlafzimmern.',
+      es: 'Un ático repartido en dos plantas, con el Atlántico enfrente. El ascensor llega hasta la puerta; dentro, unas escaleras suben a los dormitorios.',
+      nl: 'Een penthouse over twee verdiepingen, met de Atlantische Oceaan ervoor. De lift gaat tot aan de voordeur; binnen leiden trappen omhoog naar de slaapkamers.',
+      sv: 'En takvåning över två plan, med Atlanten framför sig. Hissen går ända fram till dörren; inne leder trappor upp till sovrummen.'
     },
     description: {
       en: 'You enter on the third floor and climb to the fourth inside. The sea view is direct, and the sunsets are the reason guests stop going out in the evening. A very large kitchen for anyone who cooks on holiday, a fireplace, rain shower, 60-inch screen, fast internet, and a reserved space in the underground garage. It is not the right choice if stairs are difficult — the flight up to the bedrooms cannot be avoided.',
@@ -992,11 +992,11 @@ export const vacationRentalEntities: VacationRentalEntity[] = [
       sv: 'Man kliver in på tredje våningen och går inomhus upp till den fjärde. Havsutsikten är direkt, och solnedgångarna är skälet till att gästerna slutar gå ut på kvällen. Ett mycket stort kök för den som lagar mat på semestern, öppen spis, regndusch, 60-tums skärm, snabbt internet och en reserverad plats i garaget. Fel val om trappor är besvärliga — stegen upp till sovrummen går inte att undvika.'
     },
     highlights: {
-      en: ['Penthouse, nothing above it', 'Direct sea view and the sunsets', 'Reserved garage space included'],
-      de: ['Penthouse, nichts darüber', 'Direkter Meerblick und die Sonnenuntergänge', 'Tiefgaragenplatz inklusive'],
-      es: ['Ático, nada por encima', 'Vistas directas al mar y las puestas de sol', 'Plaza de garaje incluida'],
-      nl: ['Penthouse, niets erboven', 'Direct zeezicht en de zonsondergangen', 'Garageplaats inbegrepen'],
-      sv: ['Takvåning, inget ovanför', 'Direkt havsutsikt och solnedgångarna', 'Garageplats ingår']
+      en: ['Penthouse across two floors', 'Direct sea view and the sunsets', 'Reserved garage space included'],
+      de: ['Penthouse über zwei Etagen', 'Direkter Meerblick und die Sonnenuntergänge', 'Tiefgaragenplatz inklusive'],
+      es: ['Ático repartido en dos plantas', 'Vistas directas al mar y las puestas de sol', 'Plaza de garaje incluida'],
+      nl: ['Penthouse over twee verdiepingen', 'Direct zeezicht en de zonsondergangen', 'Garageplaats inbegrepen'],
+      sv: ['Takvåning över två plan', 'Direkt havsutsikt och solnedgångarna', 'Garageplats ingår']
     },
     accessNote: {
       en: 'No steps outside or in the building — the lift reaches the apartment door. Inside, stairs lead up to the bedrooms.',
