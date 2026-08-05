@@ -293,46 +293,46 @@ export const vacationRentalEntities: VacationRentalEntity[] = [
       sv: 'Historisk lägenhet'
     },
     headline: {
-      en: 'Old-town apartment with terrace time',
-      de: 'Altstadt-Apartment mit Terrassenzeit',
-      es: 'Apartamento de casco antiguo con terraza',
-      nl: 'Appartement in de oude kern met terrastijd',
-      sv: 'Lägenhet i gamla byn med terrassliv'
+      en: 'Old-town apartment facing the campo',
+      de: 'Altstadt-Apartment mit Blick ins Campo',
+      es: 'Apartamento en el casco antiguo frente al campo',
+      nl: 'Appartement in de oude kern met zicht op de plantages',
+      sv: 'Lägenhet i gamla byn med utsikt över odlingarna'
     },
     lead: {
-      en: 'A full private apartment in Casa AMARA with village character, kitchen, terrace moments, and a distant sea-facing outlook.',
-      de: 'Ein vollwertiges privates Apartment in Casa AMARA mit Dorfcharakter, Küche, Terrassenmomenten und Blick Richtung Meer.',
-      es: 'Un apartamento privado completo en Casa AMARA, con carácter de pueblo, cocina, terraza y vistas hacia el mar.',
-      nl: 'Een volledig prive-appartement in Casa AMARA met dorpskarakter, keuken, terrasmomenten en uitzicht richting zee.',
-      sv: 'En hel privat lägenhet i Casa AMARA med bykaraktär, kök, terrassliv och blick mot havet.'
+      en: 'Calle Chorruelo is where Calle Real carries on. You can drive to the door, and it is 300 metres to Bar Virtudes without a single step. In Frigiliana’s old town, that is rare.',
+      de: 'Die Calle Chorruelo ist die Verlängerung der Calle Real. Man kann bis vor die Tür fahren, und zur Bar Virtudes sind es 300 Meter – ohne eine einzige Treppe. In Frigilianas Altstadt ist das selten.',
+      es: 'La Calle Chorruelo es la continuación de la Calle Real. Se puede llegar en coche hasta la puerta, y hasta el Bar Virtudes hay 300 metros sin un solo escalón. En el casco antiguo de Frigiliana eso es poco común.',
+      nl: 'De Calle Chorruelo is het verlengde van de Calle Real. Je rijdt tot aan de deur, en naar Bar Virtudes is het 300 meter zonder één trede. In de oude kern van Frigiliana is dat zeldzaam.',
+      sv: 'Calle Chorruelo är förlängningen av Calle Real. Du kan köra ända fram till dörren, och till Bar Virtudes är det 300 meter utan ett enda trappsteg. I Frigilianas gamla by är det ovanligt.'
     },
     description: {
-      en: 'Lounis is made for couples who want the old village around them and a private place to slow down between terrace mornings, walks, and quiet evenings.',
-      de: 'Lounis ist für Paare gemacht, die das alte Dorf um sich herum spüren und zwischen Terrassenmorgen, Spaziergängen und ruhigen Abenden entschleunigen möchten.',
-      es: 'Lounis esta pensado para parejas que quieren sentir el pueblo antiguo y bajar el ritmo entre mananas en la terraza, paseos y noches tranquilas.',
-      nl: 'Lounis is gemaakt voor koppels die het oude dorp om zich heen willen voelen en willen vertragen tussen terrasochtenden, wandelingen en stille avonden.',
-      sv: 'Lounis är skapad för par som vill känna den gamla byn omkring sig och sakta ner mellan terrassmorgnar, promenader och lugna kvällar.'
+      en: 'From the terrace you look across the mango and avocado groves of Frigiliana Campo, the sea behind them. Sun reaches it around midday and stays until evening — shaded in the morning, which keeps breakfast cool. Birds early, silence at night. The house was restored from the ground up; the tiles from Málaga are what guests ask about most.',
+      de: 'Von der Terrasse geht der Blick über die Mango- und Avocadoplantagen des Frigiliana Campo, dahinter das Meer. Ab zwölf liegt sie in der Sonne und bleibt es bis zum Abend – morgens im Schatten, dafür kühl beim Frühstück. Morgens die Vögel, nachts Stille. Das Haus wurde von Grund auf restauriert; nach den Fliesen aus Málaga werden wir am häufigsten gefragt.',
+      es: 'Desde la terraza se ve el campo de Frigiliana, sus plantaciones de mango y aguacate, y el mar al fondo. El sol llega hacia el mediodía y se queda hasta la tarde; por la mañana hay sombra, que se agradece en el desayuno. Pájaros temprano, silencio de noche. La casa se restauró por completo, y por los azulejos de Málaga es por lo que más preguntan los huéspedes.',
+      nl: 'Vanaf het terras kijk je over de mango- en avocadoplantages van het Frigiliana Campo, met de zee daarachter. De zon komt er rond het middaguur en blijft tot de avond; ’s ochtends ligt het in de schaduw, wat het ontbijt aangenaam koel houdt. Vogels in de vroegte, stilte ’s nachts. Het huis is volledig gerestaureerd; naar de tegels uit Málaga wordt het vaakst gevraagd.',
+      sv: 'Från terrassen ser du ut över mango- och avokadoodlingarna i Frigiliana Campo, med havet bakom. Solen når den vid tolvtiden och stannar till kvällen; på morgonen ligger den i skugga, vilket håller frukosten sval. Fåglar tidigt, tystnad om natten. Huset är renoverat från grunden, och det är kaklet från Málaga som gästerna frågar mest om.'
     },
     highlights: {
-      en: ['Entire apartment for 2 guests', 'Private terrace', 'Full indoor kitchen'],
-      de: ['Ganzes Apartment für 2 Gäste', 'Private Terrasse', 'Voll ausgestattete Küche'],
-      es: ['Apartamento completo para 2 huéspedes', 'Terraza privada', 'Cocina completa'],
-      nl: ['Volledig appartement voor 2 gasten', 'Privéterras', 'Volledige keuken'],
-      sv: ['Hel lägenhet för 2 gäster', 'Privat terrass', 'Fullt kök']
+      en: ['Step-free to the cafés', 'Terrace over the groves', 'Pellet stove for cool evenings'],
+      de: ['Stufenlos zu den Cafés', 'Terrasse über den Plantagen', 'Pelletofen für kühle Abende'],
+      es: ['Sin escalones hasta los cafés', 'Terraza sobre el campo', 'Estufa de pellets para las noches frescas'],
+      nl: ['Zonder trap naar de cafés', 'Terras boven de plantages', 'Pelletkachel voor koele avonden'],
+      sv: ['Trappfritt till kaféerna', 'Terrass över odlingarna', 'Pelletskamin för svala kvällar']
     },
     accessNote: {
-      en: 'Requires stairs',
-      de: 'Nur über Treppen erreichbar',
-      es: 'Acceso por escaleras',
-      nl: 'Trappen vereist',
-      sv: 'Kräver trappor'
+      en: 'One step at the door, a few more inside',
+      de: 'Eine Stufe an der Haustür, weitere im Apartment',
+      es: 'Un escalón en la puerta, algunos más dentro',
+      nl: 'Eén trede bij de deur, binnen nog enkele',
+      sv: 'Ett trappsteg vid dörren, några fler inne'
     },
     petsNote: {
-      en: 'Pets on request',
-      de: 'Haustiere auf Anfrage',
-      es: 'Mascotas bajo petición',
-      nl: 'Huisdieren op aanvraag',
-      sv: 'Husdjur på förfrågan'
+      en: 'Small dogs on request',
+      de: 'Kleine Hunde auf Anfrage',
+      es: 'Perros pequeños bajo petición',
+      nl: 'Kleine honden op aanvraag',
+      sv: 'Små hundar på förfrågan'
     },
     kitchenNote: {
       en: 'Full indoor kitchen',
@@ -349,11 +349,11 @@ export const vacationRentalEntities: VacationRentalEntity[] = [
       sv: 'Privat terrass'
     },
     viewNote: {
-      en: 'Distant sea view',
-      de: 'Fernblick aufs Meer',
-      es: 'Vistas lejanas al mar',
-      nl: 'Uitzicht op zee in de verte',
-      sv: 'Havsutsikt på avstånd'
+      en: 'Groves in front, sea beyond',
+      de: 'Plantagen im Vordergrund, Meer dahinter',
+      es: 'Plantaciones delante, mar al fondo',
+      nl: 'Plantages op de voorgrond, zee daarachter',
+      sv: 'Odlingar närmast, havet bortom'
     },
     images: [
       '/images/amara-lounis/104-amara-frigiliana.jpg',
