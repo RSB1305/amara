@@ -416,6 +416,7 @@ const bedTypeLabels: Record<VacationRentalEntity['bed'][number]['typeOfBed'], Lo
 };
 
 const t = (value: LocalizedText) => value[currentLang] ?? value.en;
+const highlights = rental.highlights[currentLang] ?? rental.highlights.en ?? [];
 const formatCount = (count: number, singular: string, plural: string) =>
   count === 1 ? `1 ${singular}` : `${count} ${plural}`;
 const tvSizeInches = rental.tvSizeInches ?? (
@@ -625,6 +626,16 @@ const galleryImages = visibleImages.slice(1);
           <p class="am-text-body text-on-surface-variant mt-6 max-w-2xl leading-relaxed">
             {t(rental.lead)}
           </p>
+          {highlights.length > 0 && (
+            <ul class="mt-6 grid gap-2 max-w-2xl">
+              {highlights.map((highlight) => (
+                <li class="am-text-body text-on-surface flex gap-3 leading-relaxed">
+                  <span aria-hidden="true" class="text-on-surface-variant select-none">—</span>
+                  <span>{highlight}</span>
+                </li>
+              ))}
+            </ul>
+          )}
           <div class="grid gap-3 mt-8 sm:flex sm:flex-wrap">
             <a class="am-btn am-btn--primary w-full justify-center sm:w-auto" href={bookingHref}>
               {t(ui.checkAvailability as LocalizedText)}

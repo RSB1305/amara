@@ -314,11 +314,11 @@ export const vacationRentalEntities: VacationRentalEntity[] = [
       sv: 'Från terrassen ser du ut över mango- och avokadoodlingarna i Frigiliana Campo, med havet bakom. Solen når den vid tolvtiden och stannar till kvällen; på morgonen ligger den i skugga, vilket håller frukosten sval. Fåglar tidigt, tystnad om natten. Huset är renoverat från grunden, och det är kaklet från Málaga som gästerna frågar mest om.'
     },
     highlights: {
-      en: ['Step-free to the cafés', 'Terrace over the groves', 'Pellet stove for cool evenings'],
-      de: ['Stufenlos zu den Cafés', 'Terrasse über den Plantagen', 'Pelletofen für kühle Abende'],
-      es: ['Sin escalones hasta los cafés', 'Terraza sobre el campo', 'Estufa de pellets para las noches frescas'],
-      nl: ['Zonder trap naar de cafés', 'Terras boven de plantages', 'Pelletkachel voor koele avonden'],
-      sv: ['Trappfritt till kaféerna', 'Terrass över odlingarna', 'Pelletskamin för svala kvällar']
+      en: ['Walls 800 years old', 'Step-free to the cafés', 'Terrace over the groves'],
+      de: ['800 Jahre alte Mauern', 'Stufenlos zu den Cafés', 'Terrasse über den Plantagen'],
+      es: ['Muros de 800 años', 'Sin escalones hasta los cafés', 'Terraza sobre el campo'],
+      nl: ['Muren van 800 jaar oud', 'Zonder trap naar de cafés', 'Terras boven de plantages'],
+      sv: ['800 år gamla murar', 'Trappfritt till kaféerna', 'Terrass över odlingarna']
     },
     accessNote: {
       en: 'One step at the door, a few more inside',
