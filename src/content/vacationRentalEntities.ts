@@ -971,11 +971,11 @@ export const vacationRentalEntities: VacationRentalEntity[] = [
       sv: 'Tarifa för familj och surf'
     },
     headline: {
-      en: 'High above Tarifa',
-      de: 'Ganz oben über Tarifa',
-      es: 'En lo más alto de Tarifa',
-      nl: 'Hoog boven Tarifa',
-      sv: 'Högst upp över Tarifa'
+      en: 'The top floor in Tarifa',
+      de: 'Die oberste Etage in Tarifa',
+      es: 'La última planta, en Tarifa',
+      nl: 'De bovenste verdieping in Tarifa',
+      sv: 'Översta våningen i Tarifa'
     },
     lead: {
       en: 'The lift goes right to the apartment door; inside, stairs lead up to the bedrooms. Two bedrooms, two bathrooms, room for four.',
