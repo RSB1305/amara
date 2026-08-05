@@ -971,18 +971,18 @@ export const vacationRentalEntities: VacationRentalEntity[] = [
       sv: 'Tarifa för familj och surf'
     },
     headline: {
-      en: 'Penthouse with the Atlantic straight ahead',
-      de: 'Penthouse mit dem Atlantik vor der Tür',
-      es: 'Ático con el Atlántico enfrente',
-      nl: 'Penthouse met de Atlantische Oceaan recht vooruit',
-      sv: 'Takvåning med Atlanten rakt fram'
+      en: 'High above Tarifa',
+      de: 'Ganz oben über Tarifa',
+      es: 'En lo más alto de Tarifa',
+      nl: 'Hoog boven Tarifa',
+      sv: 'Högst upp över Tarifa'
     },
     lead: {
-      en: 'A penthouse across two floors, with the Atlantic in front of it. The lift goes right to the apartment door; inside, stairs lead up to the bedrooms.',
-      de: 'Ein Penthouse über zwei Etagen, mit dem Atlantik davor. Der Aufzug fährt bis vor die Wohnungstür, drinnen führen Stufen hinauf zu den Schlafzimmern.',
-      es: 'Un ático repartido en dos plantas, con el Atlántico enfrente. El ascensor llega hasta la puerta; dentro, unas escaleras suben a los dormitorios.',
-      nl: 'Een penthouse over twee verdiepingen, met de Atlantische Oceaan ervoor. De lift gaat tot aan de voordeur; binnen leiden trappen omhoog naar de slaapkamers.',
-      sv: 'En takvåning över två plan, med Atlanten framför sig. Hissen går ända fram till dörren; inne leder trappor upp till sovrummen.'
+      en: 'The lift goes right to the apartment door; inside, stairs lead up to the bedrooms. Two bedrooms, two bathrooms, room for four.',
+      de: 'Der Aufzug fährt bis vor die Wohnungstür, drinnen führen Stufen hinauf zu den Schlafzimmern. Zwei Schlafzimmer, zwei Bäder, Platz für vier.',
+      es: 'El ascensor llega hasta la puerta; dentro, unas escaleras suben a los dormitorios. Dos dormitorios, dos baños, sitio para cuatro.',
+      nl: 'De lift gaat tot aan de voordeur; binnen leiden trappen omhoog naar de slaapkamers. Twee slaapkamers, twee badkamers, plaats voor vier.',
+      sv: 'Hissen går ända fram till dörren; inne leder trappor upp till sovrummen. Två sovrum, två badrum, plats för fyra.'
     },
     description: {
       en: 'You enter on the third floor and climb to the fourth inside. The sea view is direct, and the sunsets are the reason guests stop going out in the evening. A very large kitchen for anyone who cooks on holiday, a fireplace, rain shower, 60-inch screen, fast internet, and a reserved space in the underground garage. It is not the right choice if stairs are difficult — the flight up to the bedrooms cannot be avoided.',
@@ -992,11 +992,11 @@ export const vacationRentalEntities: VacationRentalEntity[] = [
       sv: 'Man kliver in på tredje våningen och går inomhus upp till den fjärde. Havsutsikten är direkt, och solnedgångarna är skälet till att gästerna slutar gå ut på kvällen. Ett mycket stort kök för den som lagar mat på semestern, öppen spis, regndusch, 60-tums skärm, snabbt internet och en reserverad plats i garaget. Fel val om trappor är besvärliga — stegen upp till sovrummen går inte att undvika.'
     },
     highlights: {
-      en: ['Penthouse across two floors', 'Direct sea view and the sunsets', 'Reserved garage space included'],
-      de: ['Penthouse über zwei Etagen', 'Direkter Meerblick und die Sonnenuntergänge', 'Tiefgaragenplatz inklusive'],
-      es: ['Ático repartido en dos plantas', 'Vistas directas al mar y las puestas de sol', 'Plaza de garaje incluida'],
-      nl: ['Penthouse over twee verdiepingen', 'Direct zeezicht en de zonsondergangen', 'Garageplaats inbegrepen'],
-      sv: ['Takvåning över två plan', 'Direkt havsutsikt och solnedgångarna', 'Garageplats ingår']
+      en: ['Penthouse across two floors', 'Direct sea view with unforgettable sunsets, and a pool', 'Reserved garage space included'],
+      de: ['Penthouse über zwei Etagen', 'Direkter Meerblick mit unvergesslichen Sonnenuntergängen, dazu Pool', 'Tiefgaragenplatz inklusive'],
+      es: ['Ático repartido en dos plantas', 'Vistas directas al mar con puestas de sol inolvidables, y piscina', 'Plaza de garaje incluida'],
+      nl: ['Penthouse over twee verdiepingen', 'Direct zeezicht met onvergetelijke zonsondergangen, plus zwembad', 'Garageplaats inbegrepen'],
+      sv: ['Takvåning över två plan', 'Direkt havsutsikt med oförglömliga solnedgångar, och pool', 'Garageplats ingår']
     },
     accessNote: {
       en: 'No steps outside or in the building — the lift reaches the apartment door. Inside, stairs lead up to the bedrooms.',
@@ -1027,11 +1027,11 @@ export const vacationRentalEntities: VacationRentalEntity[] = [
       sv: 'Terrass och gemensam pool'
     },
     viewNote: {
-      en: 'Direct sea view, sunsets over the Atlantic',
-      de: 'Direkter Meerblick, Sonnenuntergänge über dem Atlantik',
-      es: 'Vistas directas al mar y puestas de sol sobre el Atlántico',
-      nl: 'Direct zeezicht, zonsondergangen boven de Atlantische Oceaan',
-      sv: 'Direkt havsutsikt, solnedgångar över Atlanten'
+      en: 'Direct view over the Atlantic',
+      de: 'Direkter Blick über den Atlantik',
+      es: 'Vistas directas sobre el Atlántico',
+      nl: 'Direct zicht over de Atlantische Oceaan',
+      sv: 'Direkt utsikt över Atlanten'
     },
     images: [
       '/images/amara-tarifa/amara-tarifa-apartment01.webp',
