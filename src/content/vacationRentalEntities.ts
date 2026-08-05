@@ -957,11 +957,11 @@ export const vacationRentalEntities: VacationRentalEntity[] = [
       sv: 'AMARA Family & Surf | Hus med havsutsikt i Tarifa'
     },
     seoDescription: {
-      en: 'AMARA Family & Surf is a Tarifa holiday house for up to 4 guests, with sea view, terrace, pool access, kitchen, and a surf-friendly rhythm.',
-      de: 'AMARA Family & Surf ist ein Ferienhaus in Tarifa für bis zu 4 Gäste, mit Meerblick, Terrasse, Poolzugang, Küche und Surf-Rhythmus.',
-      es: 'AMARA Family & Surf es una casa vacacional en Tarifa para hasta 4 huéspedes, con vistas al mar, terraza, piscina, cocina y ritmo de surf.',
-      nl: 'AMARA Family & Surf is een vakantiehuis in Tarifa voor maximaal 4 gasten, met zeezicht, terras, zwembad, keuken en surfsfeer.',
-      sv: 'AMARA Family & Surf är ett semesterhus i Tarifa för upp till 4 gäster, med havsutsikt, terrass, pool, kök och surfkänsla.'
+      en: 'AMARA Family & Surf in Tarifa: penthouse for up to 4, direct sea view, large kitchen, pool and reserved garage space. Lift right to the door.',
+      de: 'AMARA Family & Surf in Tarifa: Penthouse für bis zu 4 Gäste, direkter Meerblick, große Küche, Pool und Tiefgaragenplatz. Aufzug bis vor die Tür.',
+      es: 'AMARA Family & Surf en Tarifa: ático para hasta 4 huéspedes, vistas directas al mar, cocina grande, piscina y plaza de garaje. Ascensor hasta la puerta.',
+      nl: 'AMARA Family & Surf in Tarifa: penthouse voor maximaal 4 gasten, direct zeezicht, grote keuken, zwembad en garageplaats. Lift tot aan de deur.',
+      sv: 'AMARA Family & Surf i Tarifa: takvåning för upp till 4 gäster, direkt havsutsikt, stort kök, pool och garageplats. Hiss ända fram till dörren.'
     },
     eyebrow: {
       en: 'Tarifa family and surf stay',
@@ -971,39 +971,39 @@ export const vacationRentalEntities: VacationRentalEntity[] = [
       sv: 'Tarifa för familj och surf'
     },
     headline: {
-      en: 'Ocean-view house with pool access',
-      de: 'Haus mit Meerblick und Poolzugang',
-      es: 'Casa con vistas al mar y piscina',
-      nl: 'Huis met zeezicht en zwembad',
-      sv: 'Hus med havsutsikt och pool'
+      en: 'Penthouse with the Atlantic straight ahead',
+      de: 'Penthouse mit dem Atlantik vor der Tür',
+      es: 'Ático con el Atlántico enfrente',
+      nl: 'Penthouse met de Atlantische Oceaan recht vooruit',
+      sv: 'Takvåning med Atlanten rakt fram'
     },
     lead: {
-      en: 'A larger AMARA stay in Tarifa for guests who want more space, surf energy, sea views, terrace time, and a pool.',
-      de: 'Ein größerer AMARA-Aufenthalt in Tarifa für Gäste, die mehr Platz, Surf-Energie, Meerblick, Terrasse und Pool suchen.',
-      es: 'Una estancia AMARA más amplia en Tarifa para quienes buscan más espacio, energía de surf, vistas al mar, terraza y piscina.',
-      nl: 'Een ruimer AMARA-verblijf in Tarifa voor gasten die meer ruimte, surfenergie, zeezicht, terras en zwembad zoeken.',
-      sv: 'En större AMARA-vistelse i Tarifa för gäster som vill ha mer plats, surfenergi, havsutsikt, terrass och pool.'
+      en: 'A penthouse across two floors. The lift goes right to the apartment door; inside, stairs lead up to the bedrooms. Nothing sits above it — only the view.',
+      de: 'Ein Penthouse über zwei Etagen. Der Aufzug fährt bis vor die Wohnungstür, drinnen führen Stufen hinauf zu den Schlafzimmern. Über der Wohnung ist nichts mehr – nur der Blick.',
+      es: 'Un ático repartido en dos plantas. El ascensor llega hasta la puerta; dentro, unas escaleras suben a los dormitorios. Encima no hay nada más: solo las vistas.',
+      nl: 'Een penthouse over twee verdiepingen. De lift gaat tot aan de voordeur; binnen leiden trappen omhoog naar de slaapkamers. Erboven ligt niets meer — alleen het uitzicht.',
+      sv: 'En takvåning över två plan. Hissen går ända fram till dörren; inne leder trappor upp till sovrummen. Ovanför finns ingenting — bara utsikten.'
     },
     description: {
-      en: 'Family & Surf is intentionally different from the quiet couple apartments: more space, Atlantic light, pool access, and a practical setup for surf trips or small families.',
-      de: 'Family & Surf ist bewusst anders als die ruhigen Apartments für Paare: mehr Platz, Atlantiklicht, Poolzugang und ein praktisches Setup für Surfreisen oder kleine Familien.',
-      es: 'Family & Surf es diferente a los apartamentos tranquilos para parejas: más espacio, luz atlántica, piscina y una base práctica para surf o familias pequeñas.',
-      nl: 'Family & Surf is bewust anders dan de rustige appartementen voor koppels: meer ruimte, Atlantisch licht, zwembad en een praktische basis voor surftrips of kleine gezinnen.',
-      sv: 'Family & Surf är medvetet annorlunda än de lugna lägenheterna för par: mer plats, atlantljus, pool och en praktisk bas för surfresor eller små familjer.'
+      en: 'You enter on the third floor and climb to the fourth inside. The sea view is direct, and the sunsets are the reason guests stop going out in the evening. A very large kitchen for anyone who cooks on holiday, a fireplace, rain shower, 60-inch screen, fast internet, and a reserved space in the underground garage. It is not the right choice if stairs are difficult — the flight up to the bedrooms cannot be avoided.',
+      de: 'Man betritt die Wohnung im dritten Stock und geht innen hinauf in den vierten. Der Meerblick ist direkt, und die Sonnenuntergänge sind der Grund, warum Gäste abends nicht mehr weggehen. Eine sehr große Küche für alle, die im Urlaub kochen, dazu Kamin, Regendusche, 60-Zoll-Bildschirm, schnelles Internet und ein reservierter Platz in der Tiefgarage. Wer schlecht Treppen steigt, ist hier falsch – die Stufen zu den Schlafzimmern lassen sich nicht umgehen.',
+      es: 'Se entra en la tercera planta y se sube por dentro a la cuarta. Las vistas al mar son directas, y las puestas de sol son la razón por la que los huéspedes dejan de salir por la tarde. Una cocina muy grande para quien cocina en vacaciones, chimenea, ducha de lluvia, pantalla de 60 pulgadas, internet rápido y una plaza reservada en el garaje. No es la opción adecuada si las escaleras cuestan: los escalones hasta los dormitorios no se pueden evitar.',
+      nl: 'Je komt binnen op de derde verdieping en gaat binnendoor omhoog naar de vierde. Het zeezicht is direct, en de zonsondergangen zijn de reden dat gasten ’s avonds niet meer weggaan. Een zeer grote keuken voor wie op vakantie kookt, een haard, regendouche, scherm van 60 inch, snel internet en een gereserveerde plek in de parkeergarage. Niet geschikt als traplopen lastig is — de trap naar de slaapkamers is onvermijdelijk.',
+      sv: 'Man kliver in på tredje våningen och går inomhus upp till den fjärde. Havsutsikten är direkt, och solnedgångarna är skälet till att gästerna slutar gå ut på kvällen. Ett mycket stort kök för den som lagar mat på semestern, öppen spis, regndusch, 60-tums skärm, snabbt internet och en reserverad plats i garaget. Fel val om trappor är besvärliga — stegen upp till sovrummen går inte att undvika.'
     },
     highlights: {
-      en: ['Entire house for up to 4 guests', 'Sea view and terrace', 'Shared outdoor pool'],
-      de: ['Ganzes Haus für bis zu 4 Gäste', 'Meerblick und Terrasse', 'Gemeinschaftspool'],
-      es: ['Casa completa para hasta 4 huéspedes', 'Vistas al mar y terraza', 'Piscina compartida'],
-      nl: ['Volledig huis voor maximaal 4 gasten', 'Zeezicht en terras', 'Gedeeld buitenzwembad'],
-      sv: ['Helt hus för upp till 4 gäster', 'Havsutsikt och terrass', 'Gemensam utomhuspool']
+      en: ['Penthouse, nothing above it', 'Direct sea view and the sunsets', 'Reserved garage space included'],
+      de: ['Penthouse, nichts darüber', 'Direkter Meerblick und die Sonnenuntergänge', 'Tiefgaragenplatz inklusive'],
+      es: ['Ático, nada por encima', 'Vistas directas al mar y las puestas de sol', 'Plaza de garaje incluida'],
+      nl: ['Penthouse, niets erboven', 'Direct zeezicht en de zonsondergangen', 'Garageplaats inbegrepen'],
+      sv: ['Takvåning, inget ovanför', 'Direkt havsutsikt och solnedgångarna', 'Garageplats ingår']
     },
     accessNote: {
-      en: 'Step-free entrance; internal steps within the apartment',
-      de: 'Stufenloser Zugang; Stufen innerhalb des Apartments',
-      es: 'Acceso sin escalones; hay escalones dentro del apartamento',
-      nl: 'Drempelvrije toegang; traptreden in het appartement',
-      sv: 'Stegfri entré; trappsteg inne i lägenheten'
+      en: 'No steps outside or in the building — the lift reaches the apartment door. Inside, stairs lead up to the bedrooms.',
+      de: 'Keine Stufen draußen und keine im Haus – der Aufzug fährt bis vor die Wohnungstür. Drinnen führen Stufen hinauf zu den Schlafzimmern.',
+      es: 'Sin escalones fuera ni en el edificio: el ascensor llega hasta la puerta. Dentro, unas escaleras suben a los dormitorios.',
+      nl: 'Geen treden buiten of in het gebouw — de lift komt tot aan de voordeur. Binnen leiden trappen omhoog naar de slaapkamers.',
+      sv: 'Inga trappsteg ute eller i huset — hissen når fram till dörren. Inne leder trappor upp till sovrummen.'
     },
     petsNote: {
       en: 'Pets are not allowed',
@@ -1027,11 +1027,11 @@ export const vacationRentalEntities: VacationRentalEntity[] = [
       sv: 'Terrass och gemensam pool'
     },
     viewNote: {
-      en: 'Sea view',
-      de: 'Meerblick',
-      es: 'Vistas al mar',
-      nl: 'Zeezicht',
-      sv: 'Havsutsikt'
+      en: 'Direct sea view, sunsets over the Atlantic',
+      de: 'Direkter Meerblick, Sonnenuntergänge über dem Atlantik',
+      es: 'Vistas directas al mar y puestas de sol sobre el Atlántico',
+      nl: 'Direct zeezicht, zonsondergangen boven de Atlantische Oceaan',
+      sv: 'Direkt havsutsikt, solnedgångar över Atlanten'
     },
     images: [
       '/images/amara-tarifa/amara-tarifa-apartment01.webp',
