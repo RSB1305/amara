@@ -784,11 +784,11 @@ export const vacationRentalEntities: VacationRentalEntity[] = [
       sv: 'AMARA Playa | Strandlägenhet i Nerja med havsutsikt'
     },
     seoDescription: {
-      en: 'AMARA Playa is a Nerja beach apartment for 2 guests, with balcony, sea view, kitchen, bathroom, and a calm base near Torrecilla Beach.',
-      de: 'AMARA Playa ist ein Strandapartment in Nerja für 2 Gäste, mit Balkon, Meerblick, Küche, Bad und ruhiger Lage nahe Torrecilla.',
-      es: 'AMARA Playa es un apartamento en Nerja para 2 huéspedes, con balcón, vistas al mar, cocina, baño y base tranquila junto a Torrecilla.',
-      nl: 'AMARA Playa is een strandappartement in Nerja voor 2 gasten, met balkon, zeezicht, keuken, badkamer en rustige ligging bij Torrecilla.',
-      sv: 'AMARA Playa är en strandlägenhet i Nerja för 2 gäster, med balkong, havsutsikt, kök, badrum och lugnt läge nära Torrecilla.'
+      en: 'AMARA Playa in Nerja: 100 m to Torrecilla beach, 500 m to the Balcón de Europa, and still quiet. Small apartment for 2, balcony, kitchen, washing machine.',
+      de: 'AMARA Playa in Nerja: 100 m zum Strand Torrecilla, 500 m zum Balcón de Europa – und trotzdem ruhig. Kleines Apartment für 2, Balkon, Küche, Waschmaschine.',
+      es: 'AMARA Playa en Nerja: 100 m a la playa de Torrecilla, 500 m al Balcón de Europa y aun así tranquilo. Apartamento pequeño para 2, balcón, cocina, lavadora.',
+      nl: 'AMARA Playa in Nerja: 100 m naar het strand Torrecilla, 500 m naar het Balcón de Europa — en toch rustig. Klein appartement voor 2, balkon, keuken, wasmachine.',
+      sv: 'AMARA Playa i Nerja: 100 m till Torrecillastranden, 500 m till Balcón de Europa — och ändå tyst. Liten lägenhet för 2, balkong, kök, tvättmaskin.'
     },
     eyebrow: {
       en: 'Nerja coast',
@@ -798,32 +798,32 @@ export const vacationRentalEntities: VacationRentalEntity[] = [
       sv: 'Nerjas kust'
     },
     headline: {
-      en: 'Beach apartment near the sea',
-      de: 'Strandapartment nahe am Meer',
-      es: 'Apartamento de playa cerca del mar',
-      nl: 'Strandappartement dicht bij zee',
-      sv: 'Strandlägenhet nära havet'
+      en: 'A hundred metres from the beach, and still quiet',
+      de: 'Hundert Meter zum Strand, und trotzdem still',
+      es: 'A cien metros de la playa y aun así tranquilo',
+      nl: 'Honderd meter van het strand, en toch stil',
+      sv: 'Hundra meter från stranden, och ändå tyst'
     },
     lead: {
-      en: 'A relaxed coastal apartment for two, close to the sea, restaurants, Nerja center, and easy beach routines.',
-      de: 'Ein entspanntes Apartment an der Küste für zwei, nah am Meer, an Restaurants, am Zentrum von Nerja und einfachen Strandtagen.',
-      es: 'Un apartamento costero relajado para dos, cerca del mar, restaurantes, el centro de Nerja y días de playa sencillos.',
-      nl: 'Een ontspannen kustappartement voor twee, dicht bij zee, restaurants, het centrum van Nerja en eenvoudige stranddagen.',
-      sv: 'En avslappnad kustlägenhet för två, nära havet, restauranger, Nerjas centrum och enkla stranddagar.'
+      en: 'It is 100 metres to Torrecilla beach and 500 to the Balcón de Europa. And it is still quiet here — in Nerja, that combination is the rare part.',
+      de: 'Zum Strand Torrecilla sind es 100 Meter, zum Balcón de Europa 500. Und trotzdem ist es hier ruhig – in Nerja ist das die seltene Kombination.',
+      es: 'Hasta la playa de Torrecilla hay 100 metros; hasta el Balcón de Europa, 500. Y aun así aquí se está tranquilo: en Nerja, esa combinación es lo raro.',
+      nl: 'Naar het strand Torrecilla is het 100 meter, naar het Balcón de Europa 500. En toch is het hier rustig — in Nerja is dat de zeldzame combinatie.',
+      sv: 'Till Torrecillastranden är det 100 meter, till Balcón de Europa 500. Och ändå är det tyst här — i Nerja är det kombinationen som är ovanlig.'
     },
     description: {
-      en: 'Playa is the AMARA choice when the trip should start with the sea: beach walks, balcony moments, a full apartment setup, and Nerja close at hand.',
-      de: 'Playa ist die AMARA-Wahl, wenn die Reise mit dem Meer beginnen soll: Strandspaziergänge, Balkonmomente, vollwertiges Apartment und Nerja direkt erreichbar.',
-      es: 'Playa es la opción AMARA cuando el viaje empieza por el mar: paseos por la playa, momentos en el balcón, apartamento completo y Nerja a mano.',
-      nl: 'Playa is de AMARA-keuze wanneer de reis met de zee begint: strandwandelingen, balkonmomenten, een volledig appartement en Nerja dichtbij.',
-      sv: 'Playa är AMARA-valet när resan ska börja vid havet: strandpromenader, balkongstunder, en hel lägenhet och Nerja nära.'
+      en: 'Playa is small, and that is exactly what guests come back to: it feels snug rather than tight. The sea view is a side one, not a panorama — but the sea itself really is at the door. Full kitchen, washing machine, balcony, a 50-inch screen, and at 200 × 200 the largest bed of any AMARA place.',
+      de: 'Playa ist klein, und genau das schätzen die Gäste: Es wirkt gemütlich, nicht knapp. Der Meerblick ist ein seitlicher, kein Panorama – dafür liegt das Meer wirklich vor der Tür. Komplette Küche, Waschmaschine, Balkon, ein 50-Zoll-Bildschirm und mit 200 × 200 das größte Bett aller AMARA-Unterkünfte.',
+      es: 'Playa es pequeño, y es justo lo que los huéspedes valoran: resulta acogedor, no estrecho. Las vistas al mar son laterales, no panorámicas, pero el mar está de verdad en la puerta. Cocina completa, lavadora, balcón, pantalla de 50 pulgadas y, con 200 × 200, la cama más grande de todos los alojamientos AMARA.',
+      nl: 'Playa is klein, en juist dat waarderen gasten: het voelt knus, niet krap. Het zeezicht is zijdelings, geen panorama — maar de zee ligt echt voor de deur. Volledige keuken, wasmachine, balkon, een scherm van 50 inch en met 200 × 200 het grootste bed van alle AMARA-adressen.',
+      sv: 'Playa är litet, och det är precis vad gästerna uppskattar: det känns ombonat, inte trångt. Havsutsikten är en sidoutsikt, inget panorama — men havet ligger verkligen utanför dörren. Fullt kök, tvättmaskin, balkong, en 50-tums skärm och med 200 × 200 den största sängen av alla AMARA-boenden.'
     },
     highlights: {
-      en: ['Entire apartment for 2 guests', 'Balcony and sea view', 'Beach access nearby'],
-      de: ['Ganzes Apartment für 2 Gäste', 'Balkon und Meerblick', 'Strand in der Nähe'],
-      es: ['Apartamento completo para 2 huéspedes', 'Balcón y vistas al mar', 'Playa cercana'],
-      nl: ['Volledig appartement voor 2 gasten', 'Balkon en zeezicht', 'Strand dichtbij'],
-      sv: ['Hel lägenhet för 2 gäster', 'Balkong och havsutsikt', 'Strand nära']
+      en: ['100 m to the beach, 500 m to the Balcón de Europa', 'Quiet despite the central position', 'Largest AMARA bed, 200 × 200'],
+      de: ['100 m zum Strand, 500 m zum Balcón de Europa', 'Ruhig trotz zentraler Lage', 'Größtes AMARA-Bett, 200 × 200'],
+      es: ['100 m a la playa, 500 m al Balcón de Europa', 'Tranquilo pese a estar en el centro', 'La cama AMARA más grande, 200 × 200'],
+      nl: ['100 m naar het strand, 500 m naar het Balcón de Europa', 'Rustig ondanks de centrale ligging', 'Grootste AMARA-bed, 200 × 200'],
+      sv: ['100 m till stranden, 500 m till Balcón de Europa', 'Tyst trots det centrala läget', 'Största AMARA-sängen, 200 × 200']
     },
     accessNote: {
       en: 'Requires stairs',
@@ -854,11 +854,11 @@ export const vacationRentalEntities: VacationRentalEntity[] = [
       sv: 'Balkong'
     },
     viewNote: {
-      en: 'Sea view',
-      de: 'Meerblick',
-      es: 'Vistas al mar',
-      nl: 'Zeezicht',
-      sv: 'Havsutsikt'
+      en: 'Side sea view from the balcony',
+      de: 'Seitlicher Meerblick vom Balkon',
+      es: 'Vistas laterales al mar desde el balcón',
+      nl: 'Zijdelings zeezicht vanaf het balkon',
+      sv: 'Havsutsikt från sidan, från balkongen'
     },
     images: [
       '/images/amara-playa/apartment/chaparril-13.webp',
