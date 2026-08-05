@@ -321,11 +321,11 @@ export const vacationRentalEntities: VacationRentalEntity[] = [
       sv: ['Moriska murar, frilagda 2020', 'Trappfritt till kaféerna', 'Terrass över odlingarna']
     },
     accessNote: {
-      en: 'One step at the door, a few more inside',
-      de: 'Eine Stufe an der Haustür, weitere im Apartment',
-      es: 'Un escalón en la puerta, algunos más dentro',
-      nl: 'Eén trede bij de deur, binnen nog enkele',
-      sv: 'Ett trappsteg vid dörren, några fler inne'
+      en: 'One step at the house door, then a few down inside the apartment',
+      de: 'Eine Stufe an der Haustür, im Apartment einige Stufen nach unten',
+      es: 'Un escalón en la puerta y algunos hacia abajo dentro del apartamento',
+      nl: 'Eén trede bij de huisdeur, binnen enkele naar beneden',
+      sv: 'Ett trappsteg vid porten, sedan några nedåt inne i lägenheten'
     },
     petsNote: {
       en: 'Small dogs on request',
@@ -496,11 +496,11 @@ export const vacationRentalEntities: VacationRentalEntity[] = [
       sv: 'Ett trappsteg vid porten, sex till upp till lägenheten'
     },
     petsNote: {
-      en: 'No pets — Lounis takes small dogs',
-      de: 'Keine Haustiere – dafür gibt es Lounis',
-      es: 'No se admiten mascotas; Lounis sí acepta perros pequeños',
-      nl: 'Geen huisdieren — bij Lounis kunnen kleine honden wel',
-      sv: 'Inga husdjur — men Lounis tar emot små hundar'
+      en: 'No pets — Lounis and Maha take small dogs',
+      de: 'Keine Haustiere – dafür gibt es Lounis und Maha',
+      es: 'No se admiten mascotas; Lounis y Maha sí aceptan perros pequeños',
+      nl: 'Geen huisdieren — bij Lounis en Maha kunnen kleine honden wel',
+      sv: 'Inga husdjur — men Lounis och Maha tar emot små hundar'
     },
     kitchenNote: {
       en: 'Full indoor kitchen',
@@ -625,46 +625,46 @@ export const vacationRentalEntities: VacationRentalEntity[] = [
       sv: 'Stor privat terrass'
     },
     headline: {
-      en: 'Village apartment made for lingering',
-      de: 'Dorfapartment für längere Momente',
-      es: 'Apartamento de pueblo para quedarse',
-      nl: 'Dorpsappartement om te blijven hangen',
-      sv: 'Bylägenhet för att dröja kvar'
+      en: 'Sixty square metres of open-air terrace',
+      de: 'Sechzig Quadratmeter Terrasse unter freiem Himmel',
+      es: 'Sesenta metros cuadrados de terraza al aire libre',
+      nl: 'Zestig vierkante meter terras onder de blote hemel',
+      sv: 'Sextio kvadratmeter terrass under bar himmel'
     },
     lead: {
-      en: 'A full private apartment with a large terrace, quiet old-town setting, kitchen, and space to let the day unfold slowly.',
-      de: 'Ein privates Apartment mit großer Terrasse, ruhiger Altstadtlage, Küche und genug Raum, damit der Tag langsam werden darf.',
-      es: 'Un apartamento privado con gran terraza, ubicación tranquila en el casco antiguo, cocina y espacio para vivir el día despacio.',
-      nl: 'Een privaat appartement met groot terras, rustige ligging in de oude kern, keuken en ruimte om de dag langzaam te laten verlopen.',
-      sv: 'En privat lägenhet med stor terrass, lugnt läge i gamla byn, kök och utrymme för att låta dagen gå långsamt.'
+      en: 'Maha’s terrace measures 60 square metres, open to the sky, with parasols and partly shaded by sails. Plus a small outdoor kitchen — if you like cooking outside, this is where you can.',
+      de: 'Mahas Terrasse misst 60 Quadratmeter – offen zum Himmel, mit Sonnenschirmen und teilweise von Sonnensegeln beschattet. Dazu eine kleine Außenküche: Wer draußen kochen möchte, kann es hier.',
+      es: 'La terraza de Maha mide 60 metros cuadrados, abierta al cielo, con sombrillas y en parte cubierta por velas de sombra. Y una pequeña cocina exterior: quien quiera cocinar al aire libre, aquí puede.',
+      nl: 'Het terras van Maha meet 60 vierkante meter, open naar de hemel, met parasols en deels beschaduwd door schaduwdoeken. Plus een kleine buitenkeuken: wie graag buiten kookt, kan dat hier.',
+      sv: 'Mahas terrass mäter 60 kvadratmeter, öppen mot himlen, med parasoll och delvis skuggad av solsegel. Dessutom ett litet utekök: den som vill laga mat utomhus kan göra det här.'
     },
     description: {
-      en: 'Maha is for guests who want a stronger outdoor rhythm in Frigiliana: terrace breakfasts, sunset pauses, a full apartment setup, and the white village at walking pace.',
-      de: 'Maha ist für Gäste, die in Frigiliana stärker draußen leben möchten: Frühstück auf der Terrasse, Pausen im Abendlicht, vollwertiges Apartment und das weiße Dorf zu Fuß.',
-      es: 'Maha es para huéspedes que quieren vivir más al aire libre en Frigiliana: desayunos en la terraza, pausas al atardecer, apartamento completo y pueblo blanco a pie.',
-      nl: 'Maha is voor gasten die in Frigiliana meer buiten willen leven: ontbijt op het terras, pauzes in het avondlicht, een volledig appartement en het witte dorp te voet.',
-      sv: 'Maha är för gäster som vill leva mer ute i Frigiliana: frukost på terrassen, pauser i kvällsljuset, en hel lägenhet och den vita byn till fots.'
+      en: 'Here the terrace is the actual living room. Hammock, loungers and outdoor shower come with every AMARA apartment — but here with room to spread out, and an outdoor kitchen the others do not have. Maha sits highest in the house and has the widest view. In exchange the bed is 150 centimetres, narrower than in Lounis or Zaid, and there is no washing machine.',
+      de: 'Die Terrasse ist hier das eigentliche Wohnzimmer. Hängematte, Liegen und Außendusche gibt es in jeder AMARA-Wohnung – hier aber mit Platz, und dazu eine Außenküche, die es sonst nirgends gibt. Maha liegt am höchsten im Haus und hat die weiteste Aussicht. Dafür ist das Bett mit 150 Zentimetern schmaler als in Lounis oder Zaid, und eine Waschmaschine gibt es nicht.',
+      es: 'Aquí la terraza es el verdadero salón. Hamaca, tumbonas y ducha exterior las tienen todos los apartamentos AMARA, pero aquí con espacio de sobra, y además una cocina exterior que no hay en ningún otro. Maha es el más alto de la casa y el de vistas más amplias. A cambio, la cama mide 150 centímetros, más estrecha que en Lounis o Zaid, y no hay lavadora.',
+      nl: 'Hier is het terras de eigenlijke woonkamer. Hangmat, ligbedden en buitendouche heeft elk AMARA-appartement — hier alleen met ruimte, en met een buitenkeuken die de andere niet hebben. Maha ligt het hoogst in het huis en heeft het verste uitzicht. Daar staat tegenover dat het bed 150 centimeter breed is, smaller dan in Lounis of Zaid, en dat er geen wasmachine is.',
+      sv: 'Här är terrassen det egentliga vardagsrummet. Hängmatta, solsängar och utedusch finns i varje AMARA-lägenhet — men här med gott om plats, och dessutom ett utekök som ingen annan har. Maha ligger högst i huset och har den vidaste utsikten. I gengäld är sängen 150 centimeter, smalare än i Lounis och Zaid, och någon tvättmaskin finns inte.'
     },
     highlights: {
-      en: ['Entire apartment for 2 guests', 'Large private terrace', 'Outdoor kitchen detail'],
-      de: ['Ganzes Apartment für 2 Gäste', 'Große private Terrasse', 'Outdoor-Küchendetail'],
-      es: ['Apartamento completo para 2 huéspedes', 'Gran terraza privada', 'Detalle de cocina exterior'],
-      nl: ['Volledig appartement voor 2 gasten', 'Groot privéterras', 'Buitenkeukendetail'],
-      sv: ['Hel lägenhet för 2 gäster', 'Stor privat terrass', 'Detalj för utekök']
+      en: ['60 m² terrace, open to the sky', 'Outdoor kitchen for cooking outside', 'The widest view in the house'],
+      de: ['60 m² Terrasse unter freiem Himmel', 'Außenküche zum Kochen im Freien', 'Die weiteste Aussicht im Haus'],
+      es: ['Terraza de 60 m² abierta al cielo', 'Cocina exterior para cocinar fuera', 'Las vistas más amplias de la casa'],
+      nl: ['Terras van 60 m², open naar de hemel', 'Buitenkeuken om buiten te koken', 'Het verste uitzicht van het huis'],
+      sv: ['60 m² terrass under bar himmel', 'Utekök för matlagning utomhus', 'Husets vidaste utsikt']
     },
     accessNote: {
-      en: 'Requires stairs',
-      de: 'Nur über Treppen erreichbar',
-      es: 'Acceso por escaleras',
-      nl: 'Trappen vereist',
-      sv: 'Kräver trappor'
+      en: 'One step at the house door, six up to the apartment, a few more inside',
+      de: 'Eine Stufe an der Haustür, sechs bis zur Wohnung, einige weitere im Apartment',
+      es: 'Un escalón en la puerta, seis hasta el apartamento y algunos más dentro',
+      nl: 'Eén trede bij de huisdeur, zes tot het appartement en binnen nog enkele',
+      sv: 'Ett trappsteg vid porten, sex upp till lägenheten och några till inne'
     },
     petsNote: {
-      en: 'Pets on request',
-      de: 'Haustiere auf Anfrage',
-      es: 'Mascotas bajo petición',
-      nl: 'Huisdieren op aanvraag',
-      sv: 'Husdjur på förfrågan'
+      en: 'Small dogs on request',
+      de: 'Kleine Hunde auf Anfrage',
+      es: 'Perros pequeños bajo petición',
+      nl: 'Kleine honden op aanvraag',
+      sv: 'Små hundar på förfrågan'
     },
     kitchenNote: {
       en: 'Full indoor kitchen',
@@ -674,18 +674,18 @@ export const vacationRentalEntities: VacationRentalEntity[] = [
       sv: 'Fullt kök'
     },
     outdoorNote: {
-      en: 'Large private terrace',
-      de: 'Große private Terrasse',
-      es: 'Gran terraza privada',
-      nl: 'Groot privéterras',
-      sv: 'Stor privat terrass'
+      en: '60 m² terrace with outdoor kitchen',
+      de: '60 m² Terrasse mit Außenküche',
+      es: 'Terraza de 60 m² con cocina exterior',
+      nl: 'Terras van 60 m² met buitenkeuken',
+      sv: '60 m² terrass med utekök'
     },
     viewNote: {
-      en: 'Distant sea view',
-      de: 'Fernblick aufs Meer',
-      es: 'Vistas lejanas al mar',
-      nl: 'Uitzicht op zee in de verte',
-      sv: 'Havsutsikt på avstånd'
+      en: 'Groves and sea, from the top of the house',
+      de: 'Plantagen und Meer, von ganz oben im Haus',
+      es: 'Campo y mar, desde lo más alto de la casa',
+      nl: 'Plantages en zee, vanaf het hoogste punt van het huis',
+      sv: 'Odlingar och hav, från husets högsta punkt'
     },
     images: [
       '/images/amara-maha/29-amara-frigiliana.jpg',
