@@ -300,11 +300,11 @@ export const vacationRentalEntities: VacationRentalEntity[] = [
       sv: 'Lägenhet i gamla byn med utsikt över odlingarna'
     },
     lead: {
-      en: 'Calle Chorruelo is where Calle Real carries on. You can drive to the door, and it is 300 metres to Bar Virtudes without a single step. In Frigiliana’s old town, that is rare.',
-      de: 'Die Calle Chorruelo ist die Verlängerung der Calle Real. Man kann bis vor die Tür fahren, und zur Bar Virtudes sind es 300 Meter – ohne eine einzige Treppe. In Frigilianas Altstadt ist das selten.',
-      es: 'La Calle Chorruelo es la continuación de la Calle Real. Se puede llegar en coche hasta la puerta, y hasta el Bar Virtudes hay 300 metros sin un solo escalón. En el casco antiguo de Frigiliana eso es poco común.',
-      nl: 'De Calle Chorruelo is het verlengde van de Calle Real. Je rijdt tot aan de deur, en naar Bar Virtudes is het 300 meter zonder één trede. In de oude kern van Frigiliana is dat zeldzaam.',
-      sv: 'Calle Chorruelo är förlängningen av Calle Real. Du kan köra ända fram till dörren, och till Bar Virtudes är det 300 meter utan ett enda trappsteg. I Frigilianas gamla by är det ovanligt.'
+      en: 'Calle Chorruelo is where Calle Real carries on. You can drive to the door and reach Frigiliana’s restaurants, bars and shops without a step — the Plaza de las Tres Culturas is about 400 metres away, and not one stair in between. In Frigiliana’s old town, that is rare.',
+      de: 'Die Calle Chorruelo ist die Verlängerung der Calle Real. Man kann bis vor die Tür fahren und die Restaurants, Bars und Geschäfte von Frigiliana stufenlos erkunden – bis zur Plaza de las Tres Culturas sind es rund 400 Meter, ohne eine einzige Treppe. In Frigilianas Altstadt ist das selten.',
+      es: 'La Calle Chorruelo es la continuación de la Calle Real. Se puede llegar en coche hasta la puerta y recorrer los restaurantes, bares y tiendas de Frigiliana sin un solo escalón: hasta la Plaza de las Tres Culturas hay unos 400 metros, todos llanos. En el casco antiguo de Frigiliana eso es poco común.',
+      nl: 'De Calle Chorruelo is het verlengde van de Calle Real. Je rijdt tot aan de deur en verkent de restaurants, bars en winkels van Frigiliana zonder één trede — naar de Plaza de las Tres Culturas is het zo’n 400 meter, volledig vlak. In de oude kern van Frigiliana is dat zeldzaam.',
+      sv: 'Calle Chorruelo är förlängningen av Calle Real. Du kan köra ända fram till dörren och utforska Frigilianas restauranger, barer och butiker utan ett enda trappsteg — till Plaza de las Tres Culturas är det ungefär 400 meter, hela vägen plant. I Frigilianas gamla by är det ovanligt.'
     },
     description: {
       en: 'From the terrace you look across the mango and avocado groves of Frigiliana Campo, the sea behind them. Sun reaches it around midday and stays until evening — shaded in the morning, which keeps breakfast cool. Birds early, silence at night. Lounis stands beside the church, where the village’s oldest houses are: during the 2020 renovation the old walls came to light, and our architect recognised Moorish construction, the era that shaped Andalusia all the way to the Alhambra. The tiles from Málaga are what guests ask about most.',
