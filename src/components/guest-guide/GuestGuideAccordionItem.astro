@@ -17,6 +17,28 @@ interface Props {
 }
 
 const { icon, title, subtitle, body, image, images, video, actions } = Astro.props;
+
+/**
+ * Entries used to end with a "Open in Google Maps" link on its own line, repeated
+ * roughly sixty times per language. The label is lifted out of the copy here and
+ * shown as a pin in the row instead, so the map stays one tap away without the
+ * same sentence appearing on every entry.
+ *
+ * Only this exact trailing pattern is matched. Map links written into the middle
+ * of a sentence — of which the guides have many — are left alone.
+ */
+const TRAILING_MAP_LINK =
+  /<br><br><a class="am-link" href="([^"]+)" target="_blank" rel="noopener">(?:Open in Google Maps|In Google Maps öffnen|Abrir en Google Maps|Openen in Google Maps|Öppna i Google Maps)<\/a>\s*$/;
+
+let mapsUrl: string | undefined;
+const cleanedBody = body.map((paragraph) => {
+  const match = paragraph.match(TRAILING_MAP_LINK);
+  if (!match) return paragraph;
+  mapsUrl ??= match[1];
+  return paragraph.replace(TRAILING_MAP_LINK, '');
+});
+
+const mapLabel = `${title} — Google Maps`;
 ---
 
 <details class="am-ios-details">
@@ -34,10 +56,25 @@ const { icon, title, subtitle, body, image, images, video, actions } = Astro.pro
         <span class="am-ios-title">{title}</span>
       )}
     </span>
-    <span class="am-ios-chevron" aria-hidden="true">&rsaquo;</span>
+    <span class="am-ios-item__end">
+      {mapsUrl && (
+        <a
+          class="am-ios-map"
+          href={mapsUrl}
+          target="_blank"
+          rel="noopener"
+          aria-label={mapLabel}
+          title={mapLabel}
+          data-am-map-link
+        >
+          <GuestGuideIcon name="location-pin" />
+        </a>
+      )}
+      <span class="am-ios-chevron" aria-hidden="true">&rsaquo;</span>
+    </span>
   </summary>
   <div class="am-ios-panel">
-    {body.map((paragraph) => <p set:html={paragraph} />)}
+    {cleanedBody.map((paragraph) => <p set:html={paragraph} />)}
     {image && (
       <figure class="am-ios-figure">
         <AmaraImage src={image.src} alt={image.alt} profile="gallery" />

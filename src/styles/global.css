@@ -682,6 +682,38 @@
     color: var(--color-outline);
   }
 
+  .am-ios-item__end {
+    display: flex;
+    flex-shrink: 0;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  /* Map pin replacing the repeated "Open in Google Maps" line inside each entry. */
+  .am-ios-map {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    /* 44px keeps it a comfortable touch target on the phone this guide is read on. */
+    width: 2.75rem;
+    height: 2.75rem;
+    margin-right: -0.625rem;
+    border-radius: 999px;
+    color: var(--color-on-surface-variant);
+    transition: color 0.2s ease, background-color 0.2s ease;
+  }
+
+  .am-ios-map:hover,
+  .am-ios-map:focus-visible {
+    color: var(--color-on-surface);
+    background-color: var(--color-surface-container-low);
+  }
+
+  .am-ios-map svg {
+    width: 1.15rem;
+    height: 1.15rem;
+  }
+
   .am-ios-details summary.am-ios-item {
     outline: none;
   }
