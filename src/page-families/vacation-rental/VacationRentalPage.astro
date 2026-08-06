@@ -90,6 +90,13 @@ const ui = {
     nl: 'Plan je verblijf',
     sv: 'Planera vistelsen'
   },
+  arrivalGuide: {
+    en: 'Arrival guide',
+    de: 'Anreise-Guide',
+    es: 'Guía de llegada',
+    nl: 'Aankomstgids',
+    sv: 'Ankomstguide'
+  },
   locationBodyWithGuides: {
     en: 'Use the AMARA local guides and guest feedback to understand arrival, access, and the rhythm of the surrounding area before choosing dates.',
     de: 'Nutze die AMARA-Ortsguides und Gästebewertungen, um Anreise, Zugang und den Rhythmus der Umgebung vor der Terminwahl einzuordnen.',
@@ -575,14 +582,18 @@ const footerHighlights = [
 ];
 const collectionHref = resolveOptionalLink('romantic_hideaways', currentLang, { suppressMissing: true });
 const reviewsHref = resolveOptionalLink('reviews_hub', currentLang, { suppressMissing: true });
-const locationLinkSpecs = rental.city === 'Frigiliana'
-  ? [
-      { token: 'location_frigiliana', label: t(ui.frigilianaLocationGuide as LocalizedText) },
-      { token: 'explore_hub', label: t(ui.experiencesGuide as LocalizedText) }
-    ]
-  : rental.city === 'Nerja'
-    ? [{ token: 'location_nerja', label: 'Nerja' }]
-    : [];
+const locationLinkSpecs = [
+  ...(rental.city === 'Frigiliana'
+    ? [
+        { token: 'location_frigiliana', label: t(ui.frigilianaLocationGuide as LocalizedText) },
+        { token: 'explore_hub', label: t(ui.experiencesGuide as LocalizedText) }
+      ]
+    : rental.city === 'Nerja'
+      ? [{ token: 'location_nerja', label: 'Nerja' }]
+      : []),
+  // Moved here from the context navigation: arrival belongs with planning, not with site-wide links.
+  { token: 'arrival_guide', label: t(ui.arrivalGuide as LocalizedText) }
+];
 const locationLinks = locationLinkSpecs.flatMap(({ token, label }) => {
   const href = resolveOptionalLink(token, currentLang, { suppressMissing: true });
   return href ? [{ href, label }] : [];

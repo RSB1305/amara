@@ -150,14 +150,13 @@ const genericItems: ContextNavigationItem[] = [
   { id: 'faq', href: resolveLink('faq_general', lang), label: copy.faq }
 ];
 
-const stayItems: ContextNavigationItem[] = [
-  { id: 'stays', href: resolveLink('romantic_hideaways', lang), label: copy.allStays },
-  { id: 'amenities', href: resolveLink('amenities', lang), label: copy.amenities },
-  { id: 'reviews', href: resolveLink('reviews_hub', lang), label: copy.reviews },
-  { id: 'availability', href: resolveLink('book', lang), label: copy.checkAvailability },
-  { id: 'faq', href: resolveLink('faq_general', lang), label: copy.faq },
-  { id: 'arrival', href: resolveLink('arrival_guide', lang), label: copy.arrival }
-];
+/**
+ * Stay pages carry no context navigation. The row competed with the booking CTA
+ * directly beneath it and repeated links the footer already offers; the arrival
+ * guide now sits in the page's own "Plan your stay" section, where a guest looks
+ * for it. Breadcrumbs are unaffected — they render from `breadcrumbs`, not here.
+ */
+const stayItems: ContextNavigationItem[] = [];
 
 const items = isStay ? stayItems : genericItems;
 const activeId = items.find((item) => normalizePath(item.href) === currentPath)?.id;
