@@ -46,18 +46,18 @@ export const guestReviewsSeo: AmaraAuthoringSeo = {
 export const guestReviewsCopy = {
   hero: {
     subtitle: {
-      en: `Reviews · Airbnb evidence checked: ${airbnbCheckedAtLabel.en}`,
-      de: `Bewertungen · Airbnb-Nachweis geprüft: ${airbnbCheckedAtLabel.de}`,
-      es: `Reseñas · Datos de Airbnb comprobados: ${airbnbCheckedAtLabel.es}`,
-      nl: `Reviews · Airbnb-bewijs gecontroleerd: ${airbnbCheckedAtLabel.nl}`,
-      sv: `Recensioner · Airbnb-uppgifter kontrollerade: ${airbnbCheckedAtLabel.sv}`
+      en: `Reviews · evidence checked: ${airbnbCheckedAtLabel.en}`,
+      de: `Bewertungen · Nachweis geprüft: ${airbnbCheckedAtLabel.de}`,
+      es: `Reseñas · datos comprobados: ${airbnbCheckedAtLabel.es}`,
+      nl: `Reviews · bewijs gecontroleerd: ${airbnbCheckedAtLabel.nl}`,
+      sv: `Recensioner · uppgifter kontrollerade: ${airbnbCheckedAtLabel.sv}`
     },
     title: {
-      en: `${airbnbReviewEvidence.reviewCountLabel} Airbnb Guest Reviews`,
-      de: `${airbnbReviewEvidence.reviewCountLabel} Airbnb-Gästebewertungen`,
-      es: `${airbnbReviewEvidence.reviewCountLabel} reseñas de huéspedes en Airbnb`,
-      nl: `${airbnbReviewEvidence.reviewCountLabel} Airbnb-gastbeoordelingen`,
-      sv: `${airbnbReviewEvidence.reviewCountLabel} gästrecensioner på Airbnb`
+      en: `${airbnbReviewEvidence.reviewCountLabel} Guest Reviews`,
+      de: `${airbnbReviewEvidence.reviewCountLabel} Gästebewertungen`,
+      es: `${airbnbReviewEvidence.reviewCountLabel} reseñas de huéspedes`,
+      nl: `${airbnbReviewEvidence.reviewCountLabel} gastbeoordelingen`,
+      sv: `${airbnbReviewEvidence.reviewCountLabel} gästrecensioner`
     },
     lead: {
       en: 'AMARA is built like a well-run home: quiet nights, spotless spaces, and clear communication. This page is a calm summary of what guests consistently confirm.',
@@ -91,11 +91,11 @@ export const guestReviewsCopy = {
       sv: 'En tydlig sammanfattning av bevisen'
     },
     summaryLead: {
-      en: `★ ${airbnbRatingLabel.en} / 5 • ${airbnbReviewEvidence.reviewCountLabel} Airbnb guest reviews`,
-      de: `★ ${airbnbRatingLabel.de} / 5 • ${airbnbReviewEvidence.reviewCountLabel} Airbnb-Gästebewertungen`,
-      es: `★ ${airbnbRatingLabel.es} / 5 • ${airbnbReviewEvidence.reviewCountLabel} reseñas de huéspedes en Airbnb`,
-      nl: `★ ${airbnbRatingLabel.nl} / 5 • ${airbnbReviewEvidence.reviewCountLabel} Airbnb-gastbeoordelingen`,
-      sv: `★ ${airbnbRatingLabel.sv} / 5 • ${airbnbReviewEvidence.reviewCountLabel} gästrecensioner på Airbnb`
+      en: `★ ${airbnbRatingLabel.en} / 5 • ${airbnbReviewEvidence.reviewCountLabel} guest reviews`,
+      de: `★ ${airbnbRatingLabel.de} / 5 • ${airbnbReviewEvidence.reviewCountLabel} Gästebewertungen`,
+      es: `★ ${airbnbRatingLabel.es} / 5 • ${airbnbReviewEvidence.reviewCountLabel} reseñas de huéspedes`,
+      nl: `★ ${airbnbRatingLabel.nl} / 5 • ${airbnbReviewEvidence.reviewCountLabel} gastbeoordelingen`,
+      sv: `★ ${airbnbRatingLabel.sv} / 5 • ${airbnbReviewEvidence.reviewCountLabel} gästrecensioner`
     },
     evidenceSource: {
       en: `Source: Airbnb host profile · checked ${airbnbCheckedAtLabel.en}`,
@@ -111,33 +111,6 @@ export const guestReviewsCopy = {
       nl: 'We houden het bewust eenvoudig: sterk slaapcomfort, betrouwbare netheid en kleine details die een verblijf moeiteloos maken.',
       sv: 'Vi håller det medvetet enkelt: hög sovkomfort, pålitlig renlighet och små detaljer som gör vistelsen enkel.'
     },
-    summaryBodyTwo: {
-      en: {
-        before: 'We reference third-party platforms as verification sources only. ',
-        linkLabel: 'Bookings stay direct with AMARA.',
-        after: ''
-      },
-      de: {
-        before: 'Wir nutzen Drittplattformen ausschließlich als Verifizierungsquelle. ',
-        linkLabel: 'Gebucht wird weiterhin direkt bei AMARA.',
-        after: ''
-      },
-      es: {
-        before: 'Usamos plataformas externas solo como fuente de verificación. ',
-        linkLabel: 'Las reservas siguen siendo directas con AMARA.',
-        after: ''
-      },
-      nl: {
-        before: 'We gebruiken externe platforms uitsluitend als verificatiebron. ',
-        linkLabel: 'Boeken blijft direct bij AMARA.',
-        after: ''
-      },
-      sv: {
-        before: 'Vi använder tredjepartsplattformar enbart som verifieringskälla. ',
-        linkLabel: 'Bokningar sker fortsatt direkt med AMARA.',
-        after: ''
-      }
-    },
     quote: {
       en: "This is not just a place to stay - it's a refuge that invites calm, connection, and gratitude.",
       de: 'Das ist nicht nur ein Ort zum Übernachten - es ist ein Rückzugsort, der Ruhe, Nähe und Dankbarkeit entstehen lässt.',
@@ -146,18 +119,18 @@ export const guestReviewsCopy = {
       sv: 'Det här är inte bara en plats att bo på - det är en fristad som bjuder in till lugn, närhet och tacksamhet.'
     },
     reviewsTitle: {
-      en: 'Three original Airbnb reviews',
-      de: 'Drei originale Airbnb-Bewertungen',
-      es: 'Tres reseñas originales de Airbnb',
-      nl: 'Drie originele Airbnb-reviews',
-      sv: 'Tre originalrecensioner från Airbnb'
+      en: 'Three original guest reviews',
+      de: 'Drei originale Gästebewertungen',
+      es: 'Tres reseñas originales de huéspedes',
+      nl: 'Drie originele gastbeoordelingen',
+      sv: 'Tre originalrecensioner från gäster'
     },
     reviewsNote: {
-      en: 'Shown as third-party verification only. Bookings stay direct with AMARA. (Translated for clarity).',
-      de: 'Gezeigt ausschließlich als Drittanbieter-Nachweis. Gebucht wird weiterhin direkt bei AMARA. (Für Klarheit übersetzt).',
-      es: 'Mostradas solo como verificación externa. Las reservas siguen siendo directas con AMARA. (Traducidas para mayor claridad).',
-      nl: 'Getoond uitsluitend als verificatie van derden. Boeken blijft direct bij AMARA. (Vertaald voor duidelijkheid).',
-      sv: 'Visas endast som tredjepartsverifiering. Bokningar sker fortsatt direkt med AMARA. (Översatt för tydlighet).'
+      en: 'Translated for clarity.',
+      de: 'Für Klarheit übersetzt.',
+      es: 'Traducidas para mayor claridad.',
+      nl: 'Vertaald voor duidelijkheid.',
+      sv: 'Översatt för tydlighet.'
     },
     mentionsTitle: {
       en: 'What guests repeatedly mention',
@@ -181,11 +154,11 @@ export const guestReviewsCopy = {
       sv: 'Booking.com Traveller Review Awards 2025'
     },
     awardsBody: {
-      en: 'The awards listed here document recognition on Booking.com. Bookings stay direct with AMARA.',
-      de: 'Die hier aufgeführten Auszeichnungen dokumentieren die Anerkennung auf Booking.com. Gebucht wird weiterhin direkt bei AMARA.',
-      es: 'Los premios aquí indicados documentan el reconocimiento en Booking.com. Las reservas siguen siendo directas con AMARA.',
-      nl: 'De hier vermelde awards documenteren de erkenning op Booking.com. Boeken blijft direct bij AMARA.',
-      sv: 'Utmärkelserna som listas här dokumenterar erkännandet på Booking.com. Bokningar sker fortsatt direkt med AMARA.'
+      en: 'The awards listed here document recognition on Booking.com.',
+      de: 'Die hier aufgeführten Auszeichnungen dokumentieren die Anerkennung auf Booking.com.',
+      es: 'Los premios aquí indicados documentan el reconocimiento en Booking.com.',
+      nl: 'De hier vermelde awards documenteren de erkenning op Booking.com.',
+      sv: 'Utmärkelserna som listas här dokumenterar erkännandet på Booking.com.'
     },
     awardsSource: {
       en: 'Award source: Booking.com Traveller Review Awards 2025 (based on verified guest reviews).',
