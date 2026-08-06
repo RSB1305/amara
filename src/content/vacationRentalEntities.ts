@@ -978,11 +978,11 @@ export const vacationRentalEntities: VacationRentalEntity[] = [
       sv: 'Havsutsikt med oförglömliga solnedgångar'
     },
     lead: {
-      en: 'The lift goes right to the apartment door; inside, stairs lead up to the bedrooms. Two bedrooms, two bathrooms, room for four.',
-      de: 'Der Aufzug fährt bis vor die Wohnungstür, drinnen führen Stufen hinauf zu den Schlafzimmern. Zwei Schlafzimmer, zwei Bäder, Platz für vier.',
-      es: 'El ascensor llega hasta la puerta; dentro, unas escaleras suben a los dormitorios. Dos dormitorios, dos baños, sitio para cuatro.',
-      nl: 'De lift gaat tot aan de voordeur; binnen leiden trappen omhoog naar de slaapkamers. Twee slaapkamers, twee badkamers, plaats voor vier.',
-      sv: 'Hissen går ända fram till dörren; inne leder trappor upp till sovrummen. Två sovrum, två badrum, plats för fyra.'
+      en: '75 square metres over two floors: two bedrooms, two bathrooms, room for four. The lift goes right to the apartment door; inside, stairs lead up to the bedrooms.',
+      de: '75 Quadratmeter über zwei Etagen: zwei Schlafzimmer, zwei Bäder, Platz für vier. Der Aufzug fährt bis vor die Wohnungstür, drinnen führen Stufen hinauf zu den Schlafzimmern.',
+      es: '75 metros cuadrados en dos plantas: dos dormitorios, dos baños, sitio para cuatro. El ascensor llega hasta la puerta; dentro, unas escaleras suben a los dormitorios.',
+      nl: '75 vierkante meter over twee verdiepingen: twee slaapkamers, twee badkamers, plaats voor vier. De lift gaat tot aan de voordeur; binnen leiden trappen omhoog naar de slaapkamers.',
+      sv: '75 kvadratmeter över två plan: två sovrum, två badrum, plats för fyra. Hissen går ända fram till dörren; inne leder trappor upp till sovrummen.'
     },
     description: {
       en: 'You enter on the third floor and climb to the fourth inside. In the evening most guests stay up here rather than heading out again. A very large kitchen for anyone who cooks on holiday, a fireplace, rain shower, 60-inch screen, fast internet, and a reserved space in the underground garage.',
@@ -992,11 +992,11 @@ export const vacationRentalEntities: VacationRentalEntity[] = [
       sv: 'Man kliver in på tredje våningen och går inomhus upp till den fjärde. På kvällen stannar de flesta gäster kvar däruppe i stället för att gå ut igen. Ett mycket stort kök för den som lagar mat på semestern, öppen spis, regndusch, 60-tums skärm, snabbt internet och en reserverad plats i garaget.'
     },
     highlights: {
-      en: ['Penthouse across two floors', 'Large kitchen, fireplace and pool', 'Reserved garage space included'],
-      de: ['Penthouse über zwei Etagen', 'Große Küche, Kamin und Pool', 'Tiefgaragenplatz inklusive'],
-      es: ['Ático repartido en dos plantas', 'Cocina grande, chimenea y piscina', 'Plaza de garaje incluida'],
-      nl: ['Penthouse over twee verdiepingen', 'Grote keuken, haard en zwembad', 'Garageplaats inbegrepen'],
-      sv: ['Takvåning över två plan', 'Stort kök, öppen spis och pool', 'Garageplats ingår']
+      en: ['Penthouse, 75 m² over two floors', 'Large kitchen, fireplace and pool', 'Reserved garage space included'],
+      de: ['Penthouse, 75 m² über zwei Etagen', 'Große Küche, Kamin und Pool', 'Tiefgaragenplatz inklusive'],
+      es: ['Ático de 75 m² en dos plantas', 'Cocina grande, chimenea y piscina', 'Plaza de garaje incluida'],
+      nl: ['Penthouse, 75 m² over twee verdiepingen', 'Grote keuken, haard en zwembad', 'Garageplaats inbegrepen'],
+      sv: ['Takvåning, 75 m² över två plan', 'Stort kök, öppen spis och pool', 'Garageplats ingår']
     },
     accessNote: {
       en: 'No steps outside or in the building — the lift reaches the apartment door. Inside, stairs lead up to the bedrooms.',
