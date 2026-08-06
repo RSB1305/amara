@@ -1519,19 +1519,19 @@ const nerjaGuestBreakfast: GuestGuideEntry = {
           icon: 'tumbler',
           title: { en: 'Kafunè Specialty Coffee', de: 'Kafunè Specialty Coffee', es: 'Kafunè Specialty Coffee', nl: 'Kafunè Specialty Coffee', sv: 'Kafunè Specialty Coffee' },
           subtitle: {
-            en: 'Nerja · Specialty coffee',
-            de: 'Nerja · Specialty Coffee',
-            es: 'Nerja · Café de especialidad',
-            nl: 'Nerja · Specialty coffee',
-            sv: 'Nerja · Specialty coffee'
+            en: 'Nerja · Specialty coffee · approx. 800 m',
+            de: 'Nerja · Specialty Coffee · ca. 800 m',
+            es: 'Nerja · Café de especialidad · aprox. 800 m',
+            nl: 'Nerja · Specialty coffee · ca. 800 m',
+            sv: 'Nerja · Specialty coffee · ca 800 m'
           },
           body: [
             {
-              en: 'For anyone who takes their coffee seriously. Properly made espresso and filter, and a good stop if you want a real flat white before the beach rather than a hotel pot.<br><br><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Kafune+Specialty+Coffee+Nerja" target="_blank" rel="noopener">Open in Google Maps</a>',
-              de: 'Für alle, die Kaffee ernst nehmen. Sauber zubereiteter Espresso und Filterkaffee — die richtige Adresse, wenn ihr vor dem Strand einen echten Flat White möchtet statt Hotelkaffee.<br><br><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Kafune+Specialty+Coffee+Nerja" target="_blank" rel="noopener">In Google Maps öffnen</a>',
-              es: 'Para quienes se toman el café en serio. Espresso y filtrado bien hechos: la parada adecuada si queréis un buen flat white antes de la playa en lugar del café del hotel.<br><br><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Kafune+Specialty+Coffee+Nerja" target="_blank" rel="noopener">Abrir en Google Maps</a>',
-              nl: 'Voor wie koffie serieus neemt. Goed gezette espresso en filterkoffie — het juiste adres als jullie vóór het strand een echte flat white willen in plaats van hotelkoffie.<br><br><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Kafune+Specialty+Coffee+Nerja" target="_blank" rel="noopener">Openen in Google Maps</a>',
-              sv: 'För er som tar kaffet på allvar. Ordentligt bryggd espresso och filterkaffe — rätt adress om ni vill ha en riktig flat white före stranden i stället för hotellkaffe.<br><br><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Kafune+Specialty+Coffee+Nerja" target="_blank" rel="noopener">Öppna i Google Maps</a>'
+              en: 'For anyone who takes their coffee seriously. Properly made espresso and filter, and a good stop if you want a real flat white before the beach rather than a hotel pot.<br><br><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Kafune+Specialty+Coffee+Calle+San+Miguel+36+Nerja" target="_blank" rel="noopener">Open in Google Maps</a>',
+              de: 'Für alle, die Kaffee ernst nehmen. Sauber zubereiteter Espresso und Filterkaffee — die richtige Adresse, wenn ihr vor dem Strand einen echten Flat White möchtet statt Hotelkaffee.<br><br><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Kafune+Specialty+Coffee+Calle+San+Miguel+36+Nerja" target="_blank" rel="noopener">In Google Maps öffnen</a>',
+              es: 'Para quienes se toman el café en serio. Espresso y filtrado bien hechos: la parada adecuada si queréis un buen flat white antes de la playa en lugar del café del hotel.<br><br><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Kafune+Specialty+Coffee+Calle+San+Miguel+36+Nerja" target="_blank" rel="noopener">Abrir en Google Maps</a>',
+              nl: 'Voor wie koffie serieus neemt. Goed gezette espresso en filterkoffie — het juiste adres als jullie vóór het strand een echte flat white willen in plaats van hotelkoffie.<br><br><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Kafune+Specialty+Coffee+Calle+San+Miguel+36+Nerja" target="_blank" rel="noopener">Openen in Google Maps</a>',
+              sv: 'För er som tar kaffet på allvar. Ordentligt bryggd espresso och filterkaffe — rätt adress om ni vill ha en riktig flat white före stranden i stället för hotellkaffe.<br><br><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Kafune+Specialty+Coffee+Calle+San+Miguel+36+Nerja" target="_blank" rel="noopener">Öppna i Google Maps</a>'
             }
           ]
         },
