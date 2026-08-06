@@ -7,7 +7,13 @@ import type { AmaraLanguage } from '../types/seo';
 export const airbnbReviewEvidence = {
   platform: 'Airbnb',
   rating: 4.94,
+  /** The figure verified on `checkedAt`. Kept as the record; not shown as-is. */
   reviewCount: 568,
+  /**
+   * What the public pages display. Rounded down so the claim stays true as
+   * reviews accumulate, instead of going stale the week after it is written.
+   */
+  reviewCountLabel: '550+',
   checkedAt: '2026-08-04',
   sourceUrl: 'https://www.airbnb.com/rooms/52229175'
 } as const;

@@ -104,11 +104,11 @@ export const cinematicTrustQuote: CopyRow = {
 };
 
 export const cinematicTrustCta: CopyRow = {
-  en: `Read all ${airbnbReviewEvidence.reviewCount} reviews`,
-  de: `Alle ${airbnbReviewEvidence.reviewCount} Bewertungen lesen`,
-  es: `Leer las ${airbnbReviewEvidence.reviewCount} reseñas`,
-  nl: `Lees alle ${airbnbReviewEvidence.reviewCount} beoordelingen`,
-  sv: `Läs alla ${airbnbReviewEvidence.reviewCount} recensioner`
+  en: `Read all ${airbnbReviewEvidence.reviewCountLabel} reviews`,
+  de: `Alle ${airbnbReviewEvidence.reviewCountLabel} Bewertungen lesen`,
+  es: `Leer las ${airbnbReviewEvidence.reviewCountLabel} reseñas`,
+  nl: `Lees alle ${airbnbReviewEvidence.reviewCountLabel} beoordelingen`,
+  sv: `Läs alla ${airbnbReviewEvidence.reviewCountLabel} recensioner`
 };
 
 /** Primary action of the closing trust band — the site's strongest conversion moment. */
@@ -120,7 +120,7 @@ export const cinematicTrustCtaPrimary: CopyRow = {
   sv: 'Se tillgänglighet'
 };
 
-export const cinematicStatReviewsValue = String(airbnbReviewEvidence.reviewCount);
+export const cinematicStatReviewsValue = String(airbnbReviewEvidence.reviewCountLabel);
 export const cinematicStatRatingValue: CopyRow = airbnbRatingLabel;
 
 export const cinematicStatReviewsLabel: CopyRow = {

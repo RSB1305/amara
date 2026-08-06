@@ -53,11 +53,11 @@ export const guestReviewsCopy = {
       sv: `Recensioner · Airbnb-uppgifter kontrollerade: ${airbnbCheckedAtLabel.sv}`
     },
     title: {
-      en: `${airbnbReviewEvidence.reviewCount} Airbnb Guest Reviews`,
-      de: `${airbnbReviewEvidence.reviewCount} Airbnb-Gästebewertungen`,
-      es: `${airbnbReviewEvidence.reviewCount} reseñas de huéspedes en Airbnb`,
-      nl: `${airbnbReviewEvidence.reviewCount} Airbnb-gastbeoordelingen`,
-      sv: `${airbnbReviewEvidence.reviewCount} gästrecensioner på Airbnb`
+      en: `${airbnbReviewEvidence.reviewCountLabel} Airbnb Guest Reviews`,
+      de: `${airbnbReviewEvidence.reviewCountLabel} Airbnb-Gästebewertungen`,
+      es: `${airbnbReviewEvidence.reviewCountLabel} reseñas de huéspedes en Airbnb`,
+      nl: `${airbnbReviewEvidence.reviewCountLabel} Airbnb-gastbeoordelingen`,
+      sv: `${airbnbReviewEvidence.reviewCountLabel} gästrecensioner på Airbnb`
     },
     lead: {
       en: 'AMARA is built like a well-run home: quiet nights, spotless spaces, and clear communication. This page is a calm summary of what guests consistently confirm.',
@@ -91,11 +91,11 @@ export const guestReviewsCopy = {
       sv: 'En tydlig sammanfattning av bevisen'
     },
     summaryLead: {
-      en: `★ ${airbnbRatingLabel.en} / 5 • ${airbnbReviewEvidence.reviewCount} Airbnb guest reviews`,
-      de: `★ ${airbnbRatingLabel.de} / 5 • ${airbnbReviewEvidence.reviewCount} Airbnb-Gästebewertungen`,
-      es: `★ ${airbnbRatingLabel.es} / 5 • ${airbnbReviewEvidence.reviewCount} reseñas de huéspedes en Airbnb`,
-      nl: `★ ${airbnbRatingLabel.nl} / 5 • ${airbnbReviewEvidence.reviewCount} Airbnb-gastbeoordelingen`,
-      sv: `★ ${airbnbRatingLabel.sv} / 5 • ${airbnbReviewEvidence.reviewCount} gästrecensioner på Airbnb`
+      en: `★ ${airbnbRatingLabel.en} / 5 • ${airbnbReviewEvidence.reviewCountLabel} Airbnb guest reviews`,
+      de: `★ ${airbnbRatingLabel.de} / 5 • ${airbnbReviewEvidence.reviewCountLabel} Airbnb-Gästebewertungen`,
+      es: `★ ${airbnbRatingLabel.es} / 5 • ${airbnbReviewEvidence.reviewCountLabel} reseñas de huéspedes en Airbnb`,
+      nl: `★ ${airbnbRatingLabel.nl} / 5 • ${airbnbReviewEvidence.reviewCountLabel} Airbnb-gastbeoordelingen`,
+      sv: `★ ${airbnbRatingLabel.sv} / 5 • ${airbnbReviewEvidence.reviewCountLabel} gästrecensioner på Airbnb`
     },
     evidenceSource: {
       en: `Source: Airbnb host profile · checked ${airbnbCheckedAtLabel.en}`,
