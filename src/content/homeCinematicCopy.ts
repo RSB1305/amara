@@ -72,11 +72,11 @@ export const cinematicPhilosophyP1: CopyRow = {
 };
 
 export const cinematicPhilosophyP2: CopyRow = {
-  en: 'Casa AMARA in Frigiliana dates back more than 800 years and was carefully restored in 2022. Today, it stands as one of the village icons — quietly woven into the fabric of Frigiliana itself.',
-  de: 'Casa AMARA in Frigiliana ist über 800 Jahre alt und wurde 2022 sorgfältig restauriert. Heute ist es eines der Dorfikonen — leise im Gefüge von Frigiliana verwoben.',
-  es: 'Casa AMARA en Frigiliana tiene más de 800 años y fue restaurada con mimo en 2022. Hoy es uno de los iconos del pueblo — tejida con discreción en la vida de Frigiliana.',
-  nl: 'Casa AMARA in Frigiliana is meer dan 800 jaar oud en werd in 2022 zorgvuldig gerestaureerd. Vandaag is het een van de dorpsiconen — onopvallend verweven met Frigiliana.',
-  sv: 'Casa AMARA i Frigiliana är mer än 800 år gammal och restaurerades omsorgsfullt 2022. Idag är det en av byns ikoner — diskret vävd in i Frigilianas väv.'
+  en: 'Casa AMARA stands in Frigiliana’s protected old town, listed Spanish heritage. We restored it between 2020 and 2022; the old walls came to light in the process, and our architect recognised Moorish construction.',
+  de: 'Casa AMARA steht in Frigilianas denkmalgeschützter Altstadt, spanisches Kulturgut. Wir haben es von 2020 bis 2022 restauriert; dabei kamen die alten Mauern zum Vorschein, und unser Architekt erkannte die Bauweise der Mauren.',
+  es: 'Casa AMARA se encuentra en el casco antiguo protegido de Frigiliana, patrimonio cultural español. La restauramos entre 2020 y 2022; en el proceso aparecieron los muros originales y nuestro arquitecto reconoció la construcción andalusí.',
+  nl: 'Casa AMARA staat in de beschermde oude kern van Frigiliana, Spaans cultureel erfgoed. We hebben het tussen 2020 en 2022 gerestaureerd; daarbij kwamen de oude muren tevoorschijn en onze architect herkende Moorse bouwkunst.',
+  sv: 'Casa AMARA ligger i Frigilianas skyddade gamla by, spanskt kulturarv. Vi restaurerade huset mellan 2020 och 2022; då kom de gamla murarna fram, och vår arkitekt kände igen morisk byggnadsteknik.'
 };
 
 export const cinematicCollectionEyebrow: CopyRow = {

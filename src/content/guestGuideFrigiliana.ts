@@ -526,11 +526,11 @@ const sharedAmaraVentilateItem: GuestGuideAccordionItem = {
   },
   body: [
     {
-      en: 'This is a listed house over 800 years old, so we kindly ask you to ventilate it regularly — the traditional construction relies on fresh air circulation to keep a comfortable indoor climate.',
-      de: 'Da es sich um ein über 800 Jahre altes, denkmalgeschütztes Haus handelt, bitten wir euch, es regelmäßig zu lüften – die traditionelle Bauweise braucht die Zirkulation frischer Luft, um ein angenehmes Raumklima zu erhalten.',
-      es: 'Se trata de una casa catalogada con más de 800 años de antigüedad, así que os pedimos que la ventiléis con regularidad: la construcción tradicional necesita que circule aire fresco para mantener un ambiente interior agradable.',
-      nl: 'Dit is een monumentaal pand van meer dan 800 jaar oud, dus we vragen jullie vriendelijk om regelmatig te ventileren — de traditionele bouwwijze heeft frisse luchtcirculatie nodig voor een aangenaam binnenklimaat.',
-      sv: 'Detta är ett k-märkt hus, över 800 år gammalt, så vi ber er vänligen att vädra det regelbundet — den traditionella konstruktionen behöver frisk luftcirkulation för ett behagligt inomhusklimat.'
+      en: 'The house stands in Frigiliana’s protected old town and is built the traditional way, so we kindly ask you to ventilate it regularly — the old walls rely on fresh air circulation to keep a comfortable indoor climate.',
+      de: 'Das Haus steht in Frigilianas denkmalgeschützter Altstadt und ist in traditioneller Bauweise errichtet. Bitte lüftet regelmäßig – die alten Mauern brauchen die Zirkulation frischer Luft, um ein angenehmes Raumklima zu erhalten.',
+      es: 'La casa está en el casco antiguo protegido de Frigiliana y es de construcción tradicional, así que os pedimos que la ventiléis con regularidad: los muros antiguos necesitan que circule aire fresco para mantener un ambiente interior agradable.',
+      nl: 'Het huis staat in de beschermde oude kern van Frigiliana en is op traditionele wijze gebouwd, dus we vragen jullie vriendelijk om regelmatig te ventileren — de oude muren hebben frisse luchtcirculatie nodig voor een aangenaam binnenklimaat.',
+      sv: 'Huset ligger i Frigilianas skyddade gamla by och är byggt på traditionellt vis, så vi ber er vänligen att vädra regelbundet — de gamla murarna behöver frisk luftcirkulation för ett behagligt inomhusklimat.'
     }
   ]
 };
