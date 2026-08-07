@@ -158,7 +158,14 @@ const genericItems: ContextNavigationItem[] = [
  */
 const stayItems: ContextNavigationItem[] = [];
 
-const items = isStay ? stayItems : genericItems;
+/**
+ * The reviews hub drops the link row for the same reason stay pages do: it sat
+ * above a page whose job is to build confidence and offered five ways to leave.
+ * Its breadcrumb stays, so the trail back is intact.
+ */
+const isReviewsHub = currentPath === normalizePath(resolveLink('reviews_hub', lang));
+
+const items = isStay || isReviewsHub ? stayItems : genericItems;
 const activeId = items.find((item) => normalizePath(item.href) === currentPath)?.id;
 ---
 
