@@ -63,8 +63,8 @@ export interface FrigilianaDosTumbasPageCopy {
 }
 
 export const frigilianaDosTumbasSeo: AmaraAuthoringSeo = {
-  version: '2026-08-01-frigiliana-dos-tumbas-v1.0-A',
-  pageType: 'A',
+  version: '2026-08-01-frigiliana-dos-tumbas-v1.0-B',
+  pageType: 'B',
   entityKey: 'amara-brand',
   ogImage:
     '/images/amara-frigiliana-pueblo/JPG_Frigiliana_Pueblo/2000px_72dpi_sRGB/05-frigiliana-pueblo.jpg',

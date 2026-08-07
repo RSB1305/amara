@@ -75,8 +75,8 @@ export interface FrigilianaHikingPageCopy {
 }
 
 export const frigilianaHikingSeo: AmaraAuthoringSeo = {
-  version: '2026-07-29-frigiliana-hiking-v1.1-A',
-  pageType: 'A',
+  version: '2026-07-29-frigiliana-hiking-v1.1-B',
+  pageType: 'B',
   entityKey: 'amara-brand',
   ogImage: '/images/hero-frigiliana.jpg',
   languages: {

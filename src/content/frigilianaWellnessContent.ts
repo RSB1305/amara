@@ -123,8 +123,8 @@ function provider(
 }
 
 export const frigilianaWellnessSeo: AmaraAuthoringSeo = {
-  version: '2026-07-29-frigiliana-wellness-v1.0-A',
-  pageType: 'A',
+  version: '2026-07-29-frigiliana-wellness-v1.0-B',
+  pageType: 'B',
   entityKey: 'amara-brand',
   ogImage: '/images/hero-frigiliana.jpg',
   languages: {

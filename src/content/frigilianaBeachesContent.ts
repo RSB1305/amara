@@ -107,8 +107,8 @@ const cantarrijanAccessInfo =
   'https://www.juntadeandalucia.es/medioambiente/portal/web/ventanadelvisitante/detalle-buscador-mapa/-/asset_publisher/Jlbxh2qB3NwR/content/acantilados-de-maro-cerro-gordo-2/255035';
 
 export const frigilianaBeachesSeo: AmaraAuthoringSeo = {
-  version: '2026-07-29-frigiliana-beaches-v1.0-A',
-  pageType: 'A',
+  version: '2026-07-29-frigiliana-beaches-v1.0-B',
+  pageType: 'B',
   entityKey: 'amara-brand',
   ogImage: '/images/amara-playa/apartment/chaparril-22.webp',
   languages: {

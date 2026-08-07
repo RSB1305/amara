@@ -163,8 +163,8 @@ function restaurant(
 }
 
 export const frigilianaRestaurantsSeo: AmaraAuthoringSeo = {
-  version: '2026-07-29-frigiliana-restaurants-v1.0-A',
-  pageType: 'A',
+  version: '2026-07-29-frigiliana-restaurants-v1.0-B',
+  pageType: 'B',
   entityKey: 'amara-brand',
   ogImage: '/images/hero-frigiliana.jpg',
   languages: {

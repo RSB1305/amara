@@ -71,11 +71,12 @@ const article = {
 
 const buildSeo = (
   version: string,
+  pageType: AmaraAuthoringSeo['pageType'],
   titles: LocalizedText,
   descriptions: LocalizedText
 ): AmaraAuthoringSeo => ({
   version,
-  pageType: 'A',
+  pageType,
   entityKey: 'amara-brand',
   article,
   languages: {
@@ -155,7 +156,7 @@ const overviewDescriptions = l(
 const overview: TarifaGuideContent = {
   id: 'overview',
   token: 'location_tarifa',
-  seo: buildSeo('2026-08-03-tarifa-location-v2.0', overviewTitles, overviewDescriptions),
+  seo: buildSeo('2026-08-03-tarifa-location-v2.0', 'A', overviewTitles, overviewDescriptions),
   navLabel: l('Overview', 'Überblick', 'Visión general', 'Overzicht', 'Översikt'),
   breadcrumbLabel: l('Tarifa', 'Tarifa', 'Tarifa', 'Tarifa', 'Tarifa'),
   hero: {
@@ -287,7 +288,7 @@ const windDescriptions = l(
 const wind: TarifaGuideContent = {
   id: 'wind',
   token: 'tarifa_wind_kitesurfing_authority',
-  seo: buildSeo('2026-08-03-tarifa-wind-kitesurfing-v1.0', windTitles, windDescriptions),
+  seo: buildSeo('2026-08-03-tarifa-wind-kitesurfing-v1.0', 'B', windTitles, windDescriptions),
   navLabel: l('Wind & Kitesurfing', 'Wind & Kitesurfen', 'Viento y kitesurf', 'Wind & kitesurfen', 'Vind & kitesurfing'),
   breadcrumbLabel: l('Wind & Kitesurfing', 'Wind & Kitesurfen', 'Viento y kitesurf', 'Wind & kitesurfen', 'Vind & kitesurfing'),
   hero: {
@@ -369,7 +370,7 @@ const beachDescriptions = l(
 const beaches: TarifaGuideContent = {
   id: 'beaches',
   token: 'tarifa_beaches_authority',
-  seo: buildSeo('2026-08-03-tarifa-beaches-v1.0', beachTitles, beachDescriptions),
+  seo: buildSeo('2026-08-03-tarifa-beaches-v1.0', 'B', beachTitles, beachDescriptions),
   navLabel: l('Beaches', 'Strände', 'Playas', 'Stranden', 'Stränder'),
   breadcrumbLabel: l('Beaches', 'Strände', 'Playas', 'Stranden', 'Stränder'),
   hero: {

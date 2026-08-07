@@ -140,8 +140,8 @@ const maps = {
 const nerjaCultureProgramme = 'https://cultura.nerja.es/';
 
 export const nerjaNightlifeSeo: AmaraAuthoringSeo = {
-  version: '2026-07-29-nerja-nightlife-v1.0-A',
-  pageType: 'A',
+  version: '2026-07-29-nerja-nightlife-v1.0-B',
+  pageType: 'B',
   entityKey: 'amara-brand',
   ogImage: '/images/amara-playa/apartment/chaparril-13.webp',
   languages: {
