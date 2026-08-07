@@ -46,11 +46,11 @@ export const guestReviewsSeo: AmaraAuthoringSeo = {
 export const guestReviewsCopy = {
   hero: {
     subtitle: {
-      en: `Reviews · evidence checked: ${airbnbCheckedAtLabel.en}`,
-      de: `Bewertungen · Nachweis geprüft: ${airbnbCheckedAtLabel.de}`,
-      es: `Reseñas · datos comprobados: ${airbnbCheckedAtLabel.es}`,
-      nl: `Reviews · bewijs gecontroleerd: ${airbnbCheckedAtLabel.nl}`,
-      sv: `Recensioner · uppgifter kontrollerade: ${airbnbCheckedAtLabel.sv}`
+      en: `Reviews · checked ${airbnbCheckedAtLabel.en}`,
+      de: `Bewertungen · geprüft am ${airbnbCheckedAtLabel.de}`,
+      es: `Reseñas · comprobadas el ${airbnbCheckedAtLabel.es}`,
+      nl: `Reviews · gecontroleerd op ${airbnbCheckedAtLabel.nl}`,
+      sv: `Recensioner · kontrollerat ${airbnbCheckedAtLabel.sv}`
     },
     title: {
       en: `${airbnbReviewEvidence.reviewCountLabel} Guest Reviews`,
@@ -60,18 +60,18 @@ export const guestReviewsCopy = {
       sv: `${airbnbReviewEvidence.reviewCountLabel} gästrecensioner`
     },
     lead: {
-      en: 'AMARA is built like a well-run home: quiet nights, spotless spaces, and clear communication. This page is a calm summary of what guests consistently confirm.',
-      de: 'AMARA funktioniert wie ein hervorragend geführtes Zuhause: ruhige Nächte, makellose Räume und klare Kommunikation. Diese Seite fasst ruhig zusammen, was Gäste immer wieder bestätigen.',
-      es: 'AMARA está diseñado como un hogar impecablemente gestionado: noches tranquilas, espacios impecables y comunicación clara. Esta página resume con calma lo que los huéspedes confirman de forma constante.',
-      nl: 'AMARA is opgezet als een uitstekend georganiseerd thuis: rustige nachten, onberispelijke ruimtes en heldere communicatie. Deze pagina vat rustig samen wat gasten steeds opnieuw bevestigen.',
-      sv: 'AMARA är uppbyggt som ett välskött hem: lugna nätter, skinande rena miljöer och tydlig kommunikation. Den här sidan sammanfattar lugnt det som gäster konsekvent bekräftar.'
+      en: 'Quiet nights, spotless rooms, straight answers. Those are the three things guests keep coming back to — and that is what this page is about.',
+      de: 'Ruhige Nächte, saubere Räume, klare Absprachen. Das sind die drei Dinge, die Gäste immer wieder nennen – und darum geht es auf dieser Seite.',
+      es: 'Noches tranquilas, espacios limpios, respuestas claras. Son las tres cosas que los huéspedes repiten una y otra vez, y de eso trata esta página.',
+      nl: 'Rustige nachten, schone kamers, duidelijke afspraken. Dat zijn de drie dingen die gasten steeds opnieuw noemen — en daar gaat deze pagina over.',
+      sv: 'Lugna nätter, rena rum, tydliga besked. Det är de tre saker gästerna återkommer till — och det är vad den här sidan handlar om.'
     },
     supportText: {
-      en: 'Third-party platform proof, distilled into one calm overview.',
-      de: 'Nachweise von Drittplattformen, verdichtet zu einer ruhigen Gesamtübersicht.',
-      es: 'Pruebas de plataformas externas, condensadas en una visión clara y serena.',
-      nl: 'Bewijs van externe platforms, samengebracht in één rustige totaalweergave.',
-      sv: 'Verifiering från tredjepartsplattformar, samlad i en lugn helhetsöversikt.'
+      en: 'Every review here comes from a real guest, and you can check them yourself.',
+      de: 'Alle Bewertungen stammen von echten Gästen – und lassen sich nachprüfen.',
+      es: 'Todas las reseñas son de huéspedes reales y se pueden comprobar.',
+      nl: 'Alle beoordelingen komen van echte gasten en zijn na te kijken.',
+      sv: 'Alla omdömen kommer från riktiga gäster och går att kontrollera.'
     },
     ctaAbout: { en: 'About Us', de: 'Über uns', es: 'Sobre nosotros', nl: 'Over ons', sv: 'Om oss' },
     ctaBenefits: {
@@ -84,11 +84,11 @@ export const guestReviewsCopy = {
   },
   sections: {
     summaryTitle: {
-      en: 'A simple proof summary',
-      de: 'Eine klare Zusammenfassung der Nachweise',
-      es: 'Un resumen claro de las pruebas',
-      nl: 'Een heldere samenvatting van het bewijs',
-      sv: 'En tydlig sammanfattning av bevisen'
+      en: 'The short version',
+      de: 'Kurz zusammengefasst',
+      es: 'En resumen',
+      nl: 'Kort samengevat',
+      sv: 'Kort sammanfattat'
     },
     summaryLead: {
       en: `★ ${airbnbRatingLabel.en} / 5 • ${airbnbReviewEvidence.reviewCountLabel} guest reviews`,
@@ -105,11 +105,11 @@ export const guestReviewsCopy = {
       sv: `Källa: värdprofil på Airbnb · kontrollerad ${airbnbCheckedAtLabel.sv}`
     },
     summaryBodyOne: {
-      en: 'We keep it simple: strong sleep comfort, reliable cleanliness, and small details that make a stay feel easy.',
-      de: 'Wir halten es bewusst einfach: hoher Schlafkomfort, verlässliche Sauberkeit und kleine Details, die den Aufenthalt leicht wirken lassen.',
-      es: 'Lo mantenemos simple: gran confort de descanso, limpieza fiable y pequeños detalles que hacen la estancia fácil.',
-      nl: 'We houden het bewust eenvoudig: sterk slaapcomfort, betrouwbare netheid en kleine details die een verblijf moeiteloos maken.',
-      sv: 'Vi håller det medvetet enkelt: hög sovkomfort, pålitlig renlighet och små detaljer som gör vistelsen enkel.'
+      en: 'Guests write about three things most often: that they slept well, that everything was clean, and that the small things were right.',
+      de: 'Am häufigsten schreiben Gäste über drei Dinge: dass sie gut geschlafen haben, dass alles sauber war und dass die Kleinigkeiten stimmten.',
+      es: 'Los huéspedes hablan sobre todo de tres cosas: que durmieron bien, que todo estaba limpio y que los detalles estaban cuidados.',
+      nl: 'Gasten schrijven het vaakst over drie dingen: dat ze goed geslapen hebben, dat alles schoon was en dat de kleine dingen klopten.',
+      sv: 'Gästerna skriver oftast om tre saker: att de sov gott, att allt var rent och att detaljerna stämde.'
     },
     quote: {
       en: "This is not just a place to stay - it's a refuge that invites calm, connection, and gratitude.",
@@ -126,11 +126,11 @@ export const guestReviewsCopy = {
       sv: 'Tre originalrecensioner från gäster'
     },
     reviewsNote: {
-      en: 'Translated for clarity.',
-      de: 'Für Klarheit übersetzt.',
-      es: 'Traducidas para mayor claridad.',
-      nl: 'Vertaald voor duidelijkheid.',
-      sv: 'Översatt för tydlighet.'
+      en: 'Translated from the original.',
+      de: 'Aus dem Original übersetzt.',
+      es: 'Traducidas del original.',
+      nl: 'Vertaald uit het origineel.',
+      sv: 'Översatt från originalet.'
     },
     mentionsTitle: {
       en: 'What guests repeatedly mention',
@@ -140,11 +140,11 @@ export const guestReviewsCopy = {
       sv: 'Det som gäster återkommande lyfter fram'
     },
     mentionsNote: {
-      en: "Calm is not a claim - it's the result of many small decisions done consistently.",
-      de: 'Ruhe ist kein Werbeversprechen - sie ist das Ergebnis vieler kleiner, konsequent umgesetzter Entscheidungen.',
-      es: 'La calma no es una promesa vacía: es el resultado de muchas pequeñas decisiones aplicadas con constancia.',
-      nl: 'Rust is geen claim - het is het resultaat van veel kleine keuzes die consequent worden uitgevoerd.',
-      sv: 'Lugn är inget påstående - det är resultatet av många små beslut som genomförs konsekvent.'
+      en: 'You cannot claim calm. It comes from many small decisions, made the same way every time.',
+      de: 'Ruhe kann man nicht versprechen. Sie entsteht aus vielen kleinen Entscheidungen, die man jedes Mal wieder so trifft.',
+      es: 'La calma no se promete. Nace de muchas decisiones pequeñas, tomadas igual cada vez.',
+      nl: 'Rust kun je niet beloven. Die ontstaat uit veel kleine keuzes, elke keer opnieuw zo gemaakt.',
+      sv: 'Lugn kan man inte lova. Det uppstår ur många små beslut, tagna likadant varje gång.'
     },
     awardsTitle: {
       en: 'Booking.com Traveller Review Awards 2025',
@@ -154,61 +154,61 @@ export const guestReviewsCopy = {
       sv: 'Booking.com Traveller Review Awards 2025'
     },
     awardsBody: {
-      en: 'The awards listed here document recognition on Booking.com.',
-      de: 'Die hier aufgeführten Auszeichnungen dokumentieren die Anerkennung auf Booking.com.',
-      es: 'Los premios aquí indicados documentan el reconocimiento en Booking.com.',
-      nl: 'De hier vermelde awards documenteren de erkenning op Booking.com.',
-      sv: 'Utmärkelserna som listas här dokumenterar erkännandet på Booking.com.'
+      en: 'These awards come from Booking.com and are based on what our guests rated.',
+      de: 'Diese Auszeichnungen kommen von Booking.com und beruhen auf den Bewertungen unserer Gäste.',
+      es: 'Estos premios vienen de Booking.com y se basan en las valoraciones de nuestros huéspedes.',
+      nl: 'Deze awards komen van Booking.com en zijn gebaseerd op de beoordelingen van onze gasten.',
+      sv: 'Utmärkelserna kommer från Booking.com och bygger på våra gästers omdömen.'
     },
     awardsSource: {
-      en: 'Award source: Booking.com Traveller Review Awards 2025 (based on verified guest reviews).',
-      de: 'Auszeichnungsquelle: Booking.com Traveller Review Awards 2025 (auf Basis verifizierter Gästebewertungen).',
-      es: 'Fuente del reconocimiento: Booking.com Traveller Review Awards 2025 (basado en reseñas verificadas de huéspedes).',
-      nl: 'Bron van de award: Booking.com Traveller Review Awards 2025 (gebaseerd op geverifieerde gastbeoordelingen).',
-      sv: 'Källa för utmärkelsen: Booking.com Traveller Review Awards 2025 (baserat på verifierade gästrecensioner).'
+      en: 'Source: Booking.com Traveller Review Awards 2025.',
+      de: 'Quelle: Booking.com Traveller Review Awards 2025.',
+      es: 'Fuente: Booking.com Traveller Review Awards 2025.',
+      nl: 'Bron: Booking.com Traveller Review Awards 2025.',
+      sv: 'Källa: Booking.com Traveller Review Awards 2025.'
     },
     locationTitle: {
-      en: 'Choose your location',
-      de: 'Wählt euren Standort',
-      es: 'Elegid vuestra ubicación',
-      nl: 'Kies jullie locatie',
-      sv: 'Välj er plats'
+      en: 'Where are you heading?',
+      de: 'Wohin möchtet ihr?',
+      es: '¿Adónde queréis ir?',
+      nl: 'Waar willen jullie heen?',
+      sv: 'Vart vill ni?'
     },
     locationLead: {
-      en: "For locally relevant proof and awards, pick the place you're considering.",
-      de: 'Für lokal relevante Nachweise und Auszeichnungen wählt den Ort, den ihr gerade in Betracht zieht.',
-      es: 'Para ver pruebas y reconocimientos relevantes por zona, elegid el lugar que estáis valorando.',
-      nl: 'Kies de locatie die jullie overwegen voor lokaal relevant bewijs en bijbehorende awards.',
-      sv: 'Välj den plats ni överväger för lokalt relevanta verifieringar och utmärkelser.'
+      en: 'Each place has its own character — and its own reviews.',
+      de: 'Jeder Ort hat seinen eigenen Charakter – und seine eigenen Bewertungen.',
+      es: 'Cada sitio tiene su propio carácter y sus propias reseñas.',
+      nl: 'Elke plek heeft zijn eigen karakter — en zijn eigen beoordelingen.',
+      sv: 'Varje plats har sin egen karaktär — och sina egna omdömen.'
     },
     locationFrigiliana: {
-      en: 'Design apartments in the old village. Quiet, romantic stays with terraces and calm details.',
-      de: 'Design-Apartments im alten Dorf. Ruhige, romantische Aufenthalte mit Terrassen und liebevollen Details.',
-      es: 'Apartamentos de diseño en el casco histórico. Estancias tranquilas y románticas con terrazas y detalles cuidados.',
-      nl: 'Designappartementen in het oude dorp. Rustige, romantische verblijven met terrassen en verfijnde details.',
-      sv: 'Designlägenheter i den gamla byn. Lugna, romantiska vistelser med terrasser och omsorgsfulla detaljer.'
+      en: 'Design apartments in the old town. Quiet, romantic, with a terrace to sit out on.',
+      de: 'Design-Apartments in der Altstadt. Ruhig, romantisch, mit Terrasse zum Sitzenbleiben.',
+      es: 'Apartamentos de diseño en el casco antiguo. Tranquilos, románticos y con terraza para quedarse.',
+      nl: 'Designappartementen in de oude kern. Rustig, romantisch, met een terras om op te blijven zitten.',
+      sv: 'Designlägenheter i gamla byn. Lugnt, romantiskt, med terrass att bli sittande på.'
     },
     locationNerja: {
-      en: 'Beachside stay, easy access. Coastal days, comfortable nights - simple and well-organised.',
-      de: 'Aufenthalt am Meer, unkompliziert erreichbar. Küstentage, komfortable Nächte - einfach und gut organisiert.',
-      es: 'Estancia junto al mar, acceso fácil. Días de costa y noches cómodas: simple, claro y bien organizado.',
-      nl: 'Verblijf aan zee, makkelijk bereikbaar. Kustdagen en comfortabele nachten - eenvoudig en goed georganiseerd.',
-      sv: 'Boende nära stranden med enkel access. Dagar vid kusten och bekväma nätter - enkelt och välorganiserat.'
+      en: 'A hundred metres from the beach, and quiet all the same. Lift to the door.',
+      de: 'Hundert Meter zum Strand und trotzdem ruhig. Aufzug bis vor die Tür.',
+      es: 'A cien metros de la playa y aun así tranquilo. Ascensor hasta la puerta.',
+      nl: 'Honderd meter van het strand en toch rustig. Lift tot aan de deur.',
+      sv: 'Hundra meter från stranden och ändå tyst. Hiss ända fram till dörren.'
     },
     locationTarifa: {
-      en: 'Wide horizons, wind and light. Active outdoors, calm indoors - family & surf rhythm.',
-      de: 'Weite Horizonte, Wind und Licht. Draußen aktiv, drinnen ruhig - im Family-&-Surf-Rhythmus.',
-      es: 'Horizontes abiertos, viento y luz. Activo fuera, sereno dentro: ritmo Family & Surf.',
-      nl: 'Wijde horizonten, wind en licht. Buiten actief, binnen rustig - het Family & Surf-ritme.',
-      sv: 'Vida horisonter, vind och ljus. Aktivt utomhus, lugnt inomhus - Family & Surf-rytmen.'
+      en: 'Wind, wide horizons and light. Outdoors by day, quiet in the evening.',
+      de: 'Wind, Weite und Licht. Tagsüber draußen, abends zur Ruhe kommen.',
+      es: 'Viento, horizontes abiertos y luz. Fuera de día, calma por la tarde.',
+      nl: 'Wind, wijde horizonten en licht. Overdag buiten, ’s avonds tot rust komen.',
+      sv: 'Vind, vida horisonter och ljus. Ute på dagen, lugnt på kvällen.'
     },
-    nextTitle: { en: 'Next step', de: 'Nächster Schritt', es: 'Siguiente paso', nl: 'Volgende stap', sv: 'Nästa steg' },
+    nextTitle: { en: 'What next?', de: 'Wie geht es weiter?', es: '¿Y ahora?', nl: 'Hoe verder?', sv: 'Hur går vi vidare?' },
     nextLead: {
-      en: "Next: explore the apartments - and use the availability button when you're ready.",
-      de: 'Als Nächstes: entdeckt die Apartments - und nutzt den Verfügbarkeits-Button, wenn ihr bereit seid.',
-      es: 'Siguiente paso: explorad los apartamentos y usad el botón de disponibilidad cuando estéis listos.',
-      nl: 'Volgende stap: verken de appartementen en gebruik de beschikbaarheidsknop zodra jullie klaar zijn.',
-      sv: 'Nästa steg: utforska lägenheterna och använd tillgänglighetsknappen när ni är redo.'
+      en: 'Have a look at the apartments. When one feels right, check the dates.',
+      de: 'Schaut euch die Wohnungen an. Wenn eine passt, prüft einfach die Verfügbarkeit.',
+      es: 'Echad un vistazo a los apartamentos. Cuando uno os encaje, consultad las fechas.',
+      nl: 'Bekijk de appartementen. Als er een past, check dan gewoon de data.',
+      sv: 'Titta på lägenheterna. När en känns rätt, kolla datumen.'
     },
     ctaBook: {
       en: 'Check Availability',
