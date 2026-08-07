@@ -41,6 +41,7 @@ const labels: Record<
     directBookingBenefits: string;
     faq: string;
     arrival: string;
+    legal: string;
   }
 > = {
   en: {
@@ -56,7 +57,8 @@ const labels: Record<
     checkAvailability: 'Check Availability',
     directBookingBenefits: 'Direct Booking Benefits',
     faq: 'Stay FAQ',
-    arrival: 'Arrival Guide'
+    arrival: 'Arrival Guide',
+    legal: 'Legal Notice & Privacy'
   },
   de: {
     breadcrumb: 'Brotkrümelnavigation',
@@ -71,7 +73,8 @@ const labels: Record<
     checkAvailability: 'Verfügbarkeit prüfen',
     directBookingBenefits: 'Vorteile der Direktbuchung',
     faq: 'Aufenthalts-FAQ',
-    arrival: 'Anreise-Guide'
+    arrival: 'Anreise-Guide',
+    legal: 'Impressum & Datenschutz'
   },
   es: {
     breadcrumb: 'Migas de pan',
@@ -86,7 +89,8 @@ const labels: Record<
     checkAvailability: 'Ver disponibilidad',
     directBookingBenefits: 'Ventajas de reserva directa',
     faq: 'FAQ de la estancia',
-    arrival: 'Guía de llegada'
+    arrival: 'Guía de llegada',
+    legal: 'Aviso legal y privacidad'
   },
   nl: {
     breadcrumb: 'Broodkruimelnavigatie',
@@ -101,7 +105,8 @@ const labels: Record<
     checkAvailability: 'Beschikbaarheid bekijken',
     directBookingBenefits: 'Voordelen van direct boeken',
     faq: 'Verblijfs-FAQ',
-    arrival: 'Aankomstgids'
+    arrival: 'Aankomstgids',
+    legal: 'Juridische kennisgeving & privacy'
   },
   sv: {
     breadcrumb: 'Brödsmulenavigering',
@@ -116,7 +121,8 @@ const labels: Record<
     checkAvailability: 'Se tillgänglighet',
     directBookingBenefits: 'Fördelar med direktbokning',
     faq: 'FAQ för vistelsen',
-    arrival: 'Ankomstguide'
+    arrival: 'Ankomstguide',
+    legal: 'Juridisk information & integritet'
   }
 };
 
@@ -129,14 +135,33 @@ const isHome = currentPath === normalizePath(homeHref);
 const cleanPageTitle = pageTitle.replace(/\s*[|–—-]\s*AMARA(?:\s+Lodging)?\s*$/i, '').trim();
 const isDirectBookingBenefits =
   currentPath === normalizePath(resolveLink('direct_booking_benefits', lang));
-const breadcrumbSection = isDirectBookingBenefits
+const isReviewsHub = currentPath === normalizePath(resolveLink('reviews_hub', lang));
+const isCollection = currentPath === normalizePath(resolveLink('romantic_hideaways', lang));
+
+/**
+ * A breadcrumb should read like the navigation, not like the SEO title. Titles
+ * are written for search results — "Komfort & Ausstattung: Lizenzen und Details"
+ * — and make a poor trail. Pages that have a label in the nav use that label;
+ * the rest still fall back to the page title.
+ */
+const navLabelForPage =
+  isDirectBookingBenefits ? copy.directBookingBenefits
+  : isReviewsHub ? copy.reviews
+  : isCollection ? copy.allStays
+  : currentPath === normalizePath(resolveLink('amenities', lang)) ? copy.amenities
+  : currentPath === normalizePath(resolveLink('faq_general', lang)) ? copy.faq
+  : currentPath === normalizePath(resolveLink('about', lang)) ? copy.aboutUs
+  : currentPath === normalizePath(resolveLink('legal_notice', lang)) ? copy.legal
+  : undefined;
+
+const breadcrumbSection = isDirectBookingBenefits || isReviewsHub
   ? copy.aboutUs
-  : isStay
+  : isStay && !isCollection
     ? copy.stays
     : copy.discover;
-const resolvedBreadcrumbTitle = isDirectBookingBenefits
-  ? copy.directBookingBenefits
-  : breadcrumbTitleOverride?.trim() || cleanPageTitle || breadcrumbSection;
+
+const resolvedBreadcrumbTitle =
+  navLabelForPage || breadcrumbTitleOverride?.trim() || cleanPageTitle || breadcrumbSection;
 const breadcrumbSectionHref = isStay && breadcrumbTitleOverride
   ? resolveLink('romantic_hideaways', lang)
   : undefined;
@@ -163,8 +188,6 @@ const stayItems: ContextNavigationItem[] = [];
  * above a page whose job is to build confidence and offered five ways to leave.
  * Its breadcrumb stays, so the trail back is intact.
  */
-const isReviewsHub = currentPath === normalizePath(resolveLink('reviews_hub', lang));
-
 const items = isStay || isReviewsHub ? stayItems : genericItems;
 const activeId = items.find((item) => normalizePath(item.href) === currentPath)?.id;
 ---
