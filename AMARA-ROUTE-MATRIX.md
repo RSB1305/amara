@@ -1,177 +1,241 @@
-# AMARA Route Matrix
+# AMARA Route Matrix — Current State
 
-Status: draft for approval  
-Purpose: rebuild AMARA information architecture from the legacy sitemap without carrying legacy clutter into the new site.
+Status: factual current-state documentation  
+Repository state: `main` at `ef35a5cdd1df8b48a4907ff074e8df5e8e0cf8a1`  
+Scope: Astro marketing website only; Lodgify is outside this matrix.
 
-## Core Decision
+## Purpose
 
-AMARA should use one calm, standardized route system:
+This document records the routes that the current Astro routing and content sources actually define. It is an inventory, not a proposal for new pages, slugs, redirects, or architecture.
 
-- Spanish is the default locale and has no `/es` prefix.
-- Non-default locales use `/en`, `/de`, `/nl`, and `/sv`.
-- Canonical slugs stay standardized across languages.
-- Legacy localized slugs should redirect to the new canonical route.
-- Guest utility pages can exist, but should not be in the public XML sitemap unless they are public SEO pages.
+Primary sources of truth:
 
-This keeps architecture simple, hreflang stable, redirects predictable, and the visual site calmer.
+- `src/lib/canonicalPublicSlugs.mjs`: canonical public route families
+- `src/lib/routeOwnership.ts`: locales, default-locale ownership, and public route gating
+- `src/pages/`: Astro route generation
+- `src/content/`: localized content and authored SEO data
+- `src/page-families/`: page-family composition and inline SEO data
+- `astro.config.mjs`: sitemap filtering, URL serialization, i18n, and redirects
+- `src/pages/vacation-rentals-sitemap.xml.ts`: separate vacation-rental sitemap
 
-## Target Public Sitemap V1
+## Localization And URL Rules
 
-These are the pages that should be public, indexable, and visible to search engines now.
+- Supported languages: English (`en`), German (`de`), Spanish (`es`), Dutch (`nl`), and Swedish (`sv`).
+- Spanish is the default locale and has no `/es` prefix on canonical pages.
+- English, German, Dutch, and Swedish use `/en`, `/de`, `/nl`, and `/sv` prefixes.
+- Canonical slugs are language-neutral and remain identical across all five languages.
+- Every indexable family below has five generated localized URLs and a six-link hreflang set (`en`, `de`, `es`, `nl`, `sv`, `x-default`).
+- Unless noted otherwise, every route in the indexable matrix is `index, follow` and present in the main sitemap.
 
-| Family | Canonical slug | Role | Priority |
-|---|---|---:|---:|
-| Home | `/` | Brand and apartment entry | P0 |
-| Collection | `/romantic-hideaways` | Current apartment collection landing | P0 |
-| Trust | `/amara-about-us` | Brand trust | P0 |
-| Trust | `/guest-reviews` | Review trust | P0 |
-| Trust | `/direct-booking-benefits` | Direct booking trust | P0 |
-| Trust | `/comfort-amenities` | Stay quality and policies | P1 |
-| Trust | `/faq-general` | General stay FAQ | P1 |
-| Legal | `/legal-notice` | Legal and privacy | P2 |
-| Location authority | `/frigiliana-location` | Main Frigiliana pillar | P0 |
-| Location authority | `/frigiliana-parking` | Parking and movement | P1 |
-| Location authority | `/frigiliana-weather` | Weather and climate | P1 |
-| Apartment listing | `/la-amara-farah` | VacationRental detail page | P0 |
-| Apartment listing | `/la-amara-lounis` | VacationRental detail page | P0 |
-| Apartment listing | `/la-amara-zaid` | VacationRental detail page | P0 |
-| Apartment listing | `/la-amara-maha` | VacationRental detail page | P0 |
-| Apartment listing | `/la-amara-playa` | VacationRental detail page | P0 |
-| Apartment listing | `/la-amara-family-and-surf` | VacationRental detail page | P0 |
+## Current Indexable Route Matrix
 
-With 5 locales this creates 85 sitemap URLs:
+There are **36 indexable route families** and **180 localized indexable URLs**.
 
-- `/...` for Spanish default
-- `/en/...`
-- `/de/...`
-- `/nl/...`
-- `/sv/...`
+The `Technical pageType` column records the value currently authored in code. It does not change or reinterpret that value.
 
-Note: the six apartment listing pages are Type D pages. They carry one static
-Google `VacationRental` entity per page, from the Astro rental registry.
+| Canonical Spanish path | Locales | Page family | Technical `pageType` | Primary current intent | Indexing | Main sitemap | Primary source / content |
+|---|---|---|---:|---|---|---|---|
+| `/` | en, de, es, nl, sv | Home | A | AMARA brand and accommodation entry | `index, follow` | Yes; accepted root serialization note below | `src/page-families/home/HomePage.astro`, `src/content/homeCinematicCopy.ts` |
+| `/amara-about-us` | en, de, es, nl, sv | About AMARA | C | Brand, host, and quality trust | `index, follow` | Yes | `src/page-families/amara-about-us/AboutUsPage.astro`, `src/content/aboutUsContent.ts` |
+| `/comfort-amenities` | en, de, es, nl, sv | Comfort & Amenities | C | Stay comfort, amenities, and operating details | `index, follow` | Yes | `src/page-families/comfort-amenities/ComfortAmenitiesPage.astro`, `src/content/comfortAmenitiesContent.ts` |
+| `/direct-booking-benefits` | en, de, es, nl, sv | Direct Booking Benefits | C | Direct-booking trust and benefits | `index, follow` | Yes | `src/page-families/direct-booking-benefits/DirectBookingBenefitsPage.astro`, `src/content/directBookingBenefitsContent.ts` |
+| `/faq-general` | en, de, es, nl, sv | General FAQ | C | Booking, check-in, and general stay questions | `index, follow` | Yes | `src/page-families/faq-general/FaqGeneralPage.astro` |
+| `/guest-reviews` | en, de, es, nl, sv | Guest Reviews | C | Verified guest-review trust | `index, follow` | Yes | `src/page-families/guest-reviews/GuestReviewsPage.astro`, `src/content/guestReviewsContent.ts`, `src/content/reviewEvidence.ts` |
+| `/legal-notice` | en, de, es, nl, sv | Legal Notice | C | Legal, privacy, and operator transparency | `index, follow` | Yes | `src/page-families/legal-notice/LegalNoticePage.astro` |
+| `/romantic-hideaways` | en, de, es, nl, sv | Accommodation Collection | C | Apartments for couples in Frigiliana and Nerja | `index, follow` | Yes | `src/page-families/romantic-hideaways/RomanticHideawaysPage.astro` |
+| `/explore-frigiliana-nerja` | en, de, es, nl, sv | Explore Hub | B | Things to do in Frigiliana and Nerja | `index, follow` | Yes | `src/page-families/location-authority/ExperienceHubPage.astro`, `src/content/experienceHubContent.ts` |
+| `/frigiliana-location` | en, de, es, nl, sv | Frigiliana Location Authority | A | Frigiliana as a place to stay | `index, follow` | Yes | `src/page-families/location-authority/FrigilianaLocationPage.astro`, `src/content/frigilianaLocationContent.ts` |
+| `/frigiliana-or-nerja` | en, de, es, nl, sv | Location Comparison | A | Choosing Frigiliana or Nerja as a base | `index, follow` | Yes | `src/page-families/location-authority/FrigilianaOrNerjaPage.astro`, `src/content/frigilianaOrNerjaContent.ts` |
+| `/frigiliana-faq` | en, de, es, nl, sv | Frigiliana FAQ | A | Practical questions about visiting Frigiliana | `index, follow` | Yes | `src/page-families/location-authority/FrigilianaFaqPage.astro`, `src/content/frigilianaFaqContent.ts` |
+| `/frigiliana-parking` | en, de, es, nl, sv | Frigiliana Parking | A | Parking and arrival planning | `index, follow` | Yes | `src/page-families/location-authority/FrigilianaParkingPage.astro`, `src/content/frigilianaParkingContent.ts` |
+| `/frigiliana-streets-stairs` | en, de, es, nl, sv | Frigiliana Streets & Stairs | A | Streets, slopes, stairs, and mobility | `index, follow` | Yes | `src/page-families/location-authority/FrigilianaStreetsStairsPage.astro`, `src/content/frigilianaStreetsStairsContent.ts` |
+| `/frigiliana-weather` | en, de, es, nl, sv | Frigiliana Weather | A | Climate, weather, and travel timing | `index, follow` | Yes | `src/page-families/location-authority/FrigilianaWeatherPage.astro` |
+| `/getting-to-frigiliana` | en, de, es, nl, sv | Getting to Frigiliana | A | Arrival by car, transfer, and bus | `index, follow` | Yes | `src/page-families/location-authority/GettingToFrigilianaPage.astro`, `src/content/gettingToFrigilianaContent.ts` |
+| `/frigiliana-beaches` | en, de, es, nl, sv | Frigiliana Beaches | A | Beaches near Frigiliana and Nerja | `index, follow` | Yes | `src/page-families/location-authority/FrigilianaBeachesPage.astro`, `src/content/frigilianaBeachesContent.ts` |
+| `/frigiliana-day-trips` | en, de, es, nl, sv | Frigiliana Day Trips | A | Day trips from Frigiliana | `index, follow` | Yes | `src/page-families/location-authority/FrigilianaDayTripsPage.astro`, `src/content/frigilianaDayTripsContent.ts` |
+| `/frigiliana-festivals` | en, de, es, nl, sv | Frigiliana Festivals | A | Festivals and events | `index, follow` | Yes | `src/page-families/location-authority/FrigilianaFestivalsPage.astro`, `src/content/frigilianaFestivalsContent.ts` |
+| `/frigiliana-hiking` | en, de, es, nl, sv | Frigiliana Hiking | A | Hiking and nature | `index, follow` | Yes | `src/page-families/location-authority/FrigilianaHikingPage.astro`, `src/content/frigilianaHikingContent.ts` |
+| `/frigiliana-market` | en, de, es, nl, sv | Frigiliana Market | A | Market day, time, and visit planning | `index, follow` | Yes | `src/page-families/location-authority/FrigilianaMarketPage.astro`, `src/content/frigilianaMarketContent.ts` |
+| `/frigiliana-netflix-dos-tumbas` | en, de, es, nl, sv | Dos Tumbas Guide | A | Netflix filming locations in Frigiliana | `index, follow` | Yes | `src/page-families/location-authority/FrigilianaDosTumbasPage.astro`, `src/content/frigilianaDosTumbasContent.ts` |
+| `/frigiliana-restaurants` | en, de, es, nl, sv | Frigiliana Restaurants | A | Restaurants in Frigiliana and Nerja | `index, follow` | Yes | `src/page-families/location-authority/FrigilianaRestaurantsPage.astro`, `src/content/frigilianaRestaurantsContent.ts` |
+| `/frigiliana-wellness` | en, de, es, nl, sv | Frigiliana Wellness | A | Wellness and spa experiences | `index, follow` | Yes | `src/page-families/location-authority/FrigilianaWellnessPage.astro`, `src/content/frigilianaWellnessContent.ts` |
+| `/frigiliana-hospitality-property-for-sale` | en, de, es, nl, sv | Property Sale | D | Purchase of the Casa AMARA property and hospitality business | `index, follow` | Yes | `src/page-families/property-sale/PropertySalePage.astro`, `src/content/propertySaleContent.ts` |
+| `/nerja-location` | en, de, es, nl, sv | Nerja Location Authority | A | Nerja as a place to stay | `index, follow` | Yes | `src/page-families/location-authority/NerjaLocationPage.astro`, `src/content/nerjaLocationContent.ts` |
+| `/nerja-nightlife` | en, de, es, nl, sv | Nerja Nightlife | A | Nerja evening areas, bars, and atmosphere | `index, follow` | Yes | `src/page-families/location-authority/NerjaNightlifePage.astro`, `src/content/nerjaNightlifeContent.ts` |
+| `/tarifa-location` | en, de, es, nl, sv | Tarifa Location Authority | A | Tarifa as a destination | `index, follow` | Yes | `src/page-families/location-authority/TarifaLocationPage.astro`, `src/content/tarifaGuideContent.ts` |
+| `/tarifa-beaches` | en, de, es, nl, sv | Tarifa Beaches | A | Choosing beaches in Tarifa | `index, follow` | Yes | `src/page-families/location-authority/TarifaBeachesPage.astro`, `src/content/tarifaGuideContent.ts` |
+| `/tarifa-wind-kitesurfing` | en, de, es, nl, sv | Tarifa Wind & Kitesurfing | A | Wind, Levante, Poniente, and kitesurfing | `index, follow` | Yes | `src/page-families/location-authority/TarifaWindKitesurfingPage.astro`, `src/content/tarifaGuideContent.ts` |
+| `/la-amara-farah` | en, de, es, nl, sv | Vacation Rental — Farah | D | Property-specific accommodation conversion | `index, follow` | Yes | `src/page-families/vacation-rental/VacationRentalPage.astro`, `src/content/vacationRentalEntities.ts` |
+| `/la-amara-lounis` | en, de, es, nl, sv | Vacation Rental — Lounis | D | Property-specific accommodation conversion | `index, follow` | Yes | `src/page-families/vacation-rental/VacationRentalPage.astro`, `src/content/vacationRentalEntities.ts` |
+| `/la-amara-zaid` | en, de, es, nl, sv | Vacation Rental — Zaid | D | Property-specific accommodation conversion | `index, follow` | Yes | `src/page-families/vacation-rental/VacationRentalPage.astro`, `src/content/vacationRentalEntities.ts` |
+| `/la-amara-maha` | en, de, es, nl, sv | Vacation Rental — Maha | D | Property-specific accommodation conversion | `index, follow` | Yes | `src/page-families/vacation-rental/VacationRentalPage.astro`, `src/content/vacationRentalEntities.ts` |
+| `/la-amara-playa` | en, de, es, nl, sv | Vacation Rental — Playa | D | Property-specific accommodation conversion | `index, follow` | Yes | `src/page-families/vacation-rental/VacationRentalPage.astro`, `src/content/vacationRentalEntities.ts` |
+| `/la-amara-family-and-surf` | en, de, es, nl, sv | Vacation Rental — Family & Surf | D | Property-specific accommodation conversion | `index, follow` | Yes | `src/page-families/vacation-rental/VacationRentalPage.astro`, `src/content/vacationRentalEntities.ts` |
 
-## Utility Pages
+### Indexable Route Totals
 
-These may remain live, but should not be in the XML sitemap unless they become public SEO content.
+| Technical `pageType` | Route families | Localized URLs |
+|---:|---:|---:|
+| A | 21 | 105 |
+| B | 1 | 5 |
+| C | 7 | 35 |
+| D | 7 | 35 |
+| **Total** | **36** | **180** |
 
-| Route | Recommended robots | Reason |
-|---|---|---|
-| `/directions-arrival-guide` | `noindex, follow` | Guest-specific arrival information |
-| `/instagram` | `noindex, follow` | External-link placeholder |
-| `/tools/*` | no public sitemap | Internal tooling |
-| `/test` | no public sitemap | Internal test page |
+## Known And Accepted Root Serialization Difference
 
-## Legacy Sitemap Summary
+The current generated output intentionally remains documented as follows:
 
-The legacy sitemap has 37 URL groups per language, 185 URLs total. These should not all become public pages again.
+- Root canonical: `https://amara-lodging.es/`
+- Root sitemap entry: `https://amara-lodging.es`
+- The remaining 179 sitemap/canonical pairs match exactly.
 
-| Legacy EN slug group | New canonical target | Status | Notes |
-|---|---|---|---|
-| `about` | `/amara-about-us` | redirect | Already represented by stronger brand page |
-| `comfort-amenities` | `/comfort-amenities` | live | Keep |
-| `guest-reviews` | `/guest-reviews` | live | Keep |
-| `direct-booking-benefits` | `/direct-booking-benefits` | live | Keep |
-| `faq-general` | `/faq-general` | live | Keep |
-| `legal-notice` | `/legal-notice` | live | Keep |
-| `frigiliana-location` | `/frigiliana-location` | live | Keep |
-| `frigiliana-weather` | `/frigiliana-weather` | live | Keep |
-| `frigiliana-parking` | `/frigiliana-parking` | live | Keep |
-| `arrival-parking-guide` | `/directions-arrival-guide` | utility redirect | Keep out of sitemap if guest-specific |
-| `frigiliana-stairs-layout` | `/frigiliana-location` | redirect or future section | Fold into location pillar for now |
-| `where-to-stay-frigiliana` | future `/where-to-stay-frigiliana` | future P1 | Strong SEO topic, but needs calm page family |
-| `hotels-in-frigiliana` | future `/hotels-in-frigiliana` | future P2 | Could support comparison intent |
-| `staying-in-frigiliana-hotels-vs-apartments` | future comparison page | future P2 | Merge with hotels topic unless content is deep |
-| `frigiliana-faq` | `/faq-general` or future `/frigiliana-faq` | redirect/future | Decide whether location FAQ deserves its own page |
-| `restaurants-frigiliana-nerja` | future `/restaurants-frigiliana-nerja` | future P1 | High guest value, do not rush thin content |
-| `insider-restaurants-nerja` | future Nerja food page | future P2 | Later, when Nerja location layer exists |
-| `beaches-nerja-frigiliana` | future `/beaches-nerja-frigiliana` | future P1 | Strong regional topic |
-| `hiking-frigiliana-nerja` | future `/hiking-frigiliana-nerja` | future P1 | Strong regional topic |
-| `day-trips-from-frigiliana` | future `/day-trips-from-frigiliana` | future P2 | Useful cluster page |
-| `culture-frigiliana-nerja` | future culture/events page | future P2 | Merge festivals/culture |
-| `sightseeing-frigiliana-nerja` | future sightseeing page | future P2 | Needs clear intent |
-| `wellness-slow-living` | future slow travel page | future P3 | Brand-fit, lower search priority |
-| `winter-stay-frigiliana` | future seasonal page | future P2 | Good shoulder-season topic |
-| `frigiliana-market` | future local essentials page | future P3 | Likely guest-guide content |
-| `frigiliana-supermarkets` | future local essentials page | future P3 | Likely guest-guide content |
-| `frigiliana-at-night` | future local guide page | future P3 | Could merge with Frigiliana guide |
-| `frigiliana-oder-nerja` | `/de/frigiliana-oder-nerja` | German comparison page live | Other languages remain in their existing location-page comparison sections until translated |
-| `frigiliana-near-nerja` | — | retired legacy placeholder | No new redirect; keep dead unless verified traffic requires one |
-| `apartment-frigiliana` | `/romantic-hideaways` | redirect now | Future product route should replace this |
-| `frigiliana-location-amara` | `/frigiliana-location` | redirect | Duplicate intent |
-| `contact` | future `/contact` | future P1 | Useful, but currently disabled |
-| `torrecilla-beachfront-living` | future Nerja apartment page | future P2 | Product/location content not live yet |
-| `nerja-nightlife` | future Nerja guide | future P3 | Do not index before Nerja layer exists |
-| `nerja-nightlife-ii` | future Nerja guide | remove/redirect | Duplicate |
-| `tarifa-beaches-extended` | future Tarifa authority page | future P3 | Only if Tarifa becomes active again |
-| `village-icon-sale` | `/frigiliana-location` | redirect/remove | Off-brand unless sales campaign returns |
-| `frigiliana-netflix-series-dos-tumbas` | `/frigiliana-location` | redirect/remove | Topical legacy page, not core |
+This root-only slash difference is a **known and accepted current-state deviation**, not an open defect in this matrix. No URL, canonical, or sitemap change is proposed here.
 
-## Redirect Rules To Fix First
+## Noindex Route Layer
 
-The current redirect file is too small and contains one important issue:
+Noindex pages are generated but intentionally excluded from the main sitemap.
 
-| Current rule | Problem | Recommended action |
-|---|---|---|
-| `/en/amara-about-us -> /amara-about-us` | Sends English page to Spanish default route | Remove |
-| `/en/about -> /amara-about-us` | Sends English legacy URL to Spanish default route | Change to `/en/amara-about-us` |
-| `/es/about -> /amara-about-us` | Correct, because Spanish default has no `/es` prefix | Keep |
+### Public Utility Families
 
-Redirect principle:
+| Canonical Spanish path | Locales | Technical `pageType` | Robots | Main sitemap | Source |
+|---|---|---:|---|---|---|
+| `/directions-arrival-guide` | en, de, es, nl, sv | A | `noindex, follow` | No | `src/page-families/arrival-guide/DirectionsArrivalGuidePage.astro`, `src/content/arrivalGuideContent.ts` |
+| `/instagram` | en, de, es, nl, sv | C | `noindex, follow` | No | `src/page-families/instagram/InstagramPage.astro` |
 
-- Old `/es/...` URLs should redirect to root Spanish paths.
-- Old `/en/...`, `/de/...`, `/nl/...`, `/sv/...` URLs should redirect within the same language.
-- Do not silently redirect unavailable future content to unrelated commercial pages.
-- Duplicate or weak legacy pages should consolidate to the closest real authority page.
+These two families create 10 localized noindex URLs.
 
-## Recommended Future Sitemap V2
+### Guest Guide Families
 
-After the current site is visually calm, add only the strongest SEO clusters.
+Guest Guide routes are generated from `src/content/guestGuideEntries.ts`, which combines `src/content/guestGuideFrigiliana.ts` and `src/content/guestGuideTarifa.ts`. All use technical `pageType: 'D'`, `noindex, follow`, five languages, and exclusion from the main sitemap.
 
-| Future route | Reason | Priority |
-|---|---|---:|
-| `/frigiliana-apartments` or replacement for `/romantic-hideaways` | Stronger product search intent than "romantic hideaways" | P0 |
-| `/where-to-stay-frigiliana` | High-intent planning query | P1 |
-| `/beaches-nerja-frigiliana` | Regional discovery | P1 |
-| `/hiking-frigiliana-nerja` | Regional discovery | P1 |
-| `/restaurants-frigiliana-nerja` | Guest value and search demand | P1 |
-| `/contact` | Trust and conversion utility | P1 |
-| `/frigiliana-faq` | Only if it becomes location-specific and deep | P2 |
-| `/winter-stay-frigiliana` | Seasonal conversion | P2 |
+Frigiliana and Nerja Guest Guide slugs:
 
-Do not add all legacy topics at once. Add pages only when they have a reusable page family, complete multilingual content, and a calm visual pattern.
+- `guestwelcome-frigiliana-farah`
+- `guesthome-frigiliana-farah`
+- `guestwelcome-frigiliana-lounis`
+- `guesthome-frigiliana-lounis`
+- `guestwelcome-frigiliana-zaid`
+- `guesthome-frigiliana-zaid`
+- `guestwelcome-frigiliana-maha`
+- `guesthome-frigiliana-maha`
+- `guestwelcome-nerja-playa`
+- `guesthome-nerja-playa`
+- `frigiliana-guest-essentials`
+- `frigiliana-guest-recommendations`
+- `frigiliana-guest-beaches`
+- `frigiliana-guest-breakfast`
+- `frigiliana-guest-day-trips`
+- `frigiliana-guest-festivals`
+- `frigiliana-guest-flamenco-bachata`
+- `frigiliana-guest-hiking`
+- `frigiliana-guest-restaurants`
+- `frigiliana-guest-sightseeing`
+- `frigiliana-guest-wellness`
+- `nerja-guest-adventure`
+- `nerja-guest-breakfast`
+- `nerja-guest-essentials`
+- `nerja-guest-nightlife`
+- `nerja-guest-restaurants`
 
-## Design Implication
+Tarifa Guest Guide slugs:
 
-The sitemap should drive the interface:
+- `tarifa-guest-guide`
+- `tarifa-guest-apartment`
+- `tarifa-guest-local-essentials`
+- `tarifa-guest-local-guide`
+- `tarifa-guest-food-drink`
+- `tarifa-guest-beaches`
+- `tarifa-guest-activities`
+- `tarifa-guest-sightseeing`
+- `tarifa-nightlife`
+- `tarifa-guest-kitesurfing`
 
-- Primary navigation should expose only the P0/P1 pages a guest needs.
-- Content clusters should live through contextual internal links, not a crowded top nav.
-- Trust pages should share one visual family.
-- Location authority pages should share one visual family.
-- Utility pages should be quiet and functional.
+The 36 Guest Guide families create 180 localized noindex URLs. Together with the two public utility families, the noindex route layer contains **38 families and 190 localized URLs**. The generated 404 page is also noindex and is not a localized content family.
 
-## Implementation Order
+Internal `/tools/*` source pages are removed from normal production output unless a dedicated local QA build explicitly enables them. They are not public route families in this matrix.
 
-1. Approve this route matrix.
-2. Correct `public/_redirects` for existing live pages.
-3. Expand redirects for legacy URL groups.
-4. Keep current XML sitemap limited to approved live/indexable routes.
-5. Rename or replace `/romantic-hideaways` only after deciding the product architecture.
-6. Then calm the design family by family.
-7. Then optimize metadata, schema, internal links, and content depth.
+## Redirect Layer
 
-## Open Decisions
+`astro.config.mjs` currently defines **35 redirects**. Redirect output is separate from indexable content and excluded from the sitemap.
 
-These need explicit approval before implementation:
+| Redirect group | Count | Current canonical target behavior |
+|---|---:|---|
+| German Frigiliana/Nerja localized alias | 1 | `/de/frigiliana-oder-nerja` → `/de/frigiliana-or-nerja` |
+| Arrival and parking aliases | 11 | Root/default aliases → `/getting-to-frigiliana`; non-default aliases remain in their language |
+| Spanish-prefixed Frigiliana FAQ alias | 1 | `/es/frigiliana-faq` → `/frigiliana-faq` |
+| Localized and historical market aliases | 6 | Consolidate into the canonical `/frigiliana-market` family in the matching locale |
+| Streets, stairs, and village-structure aliases | 16 | Consolidate into the canonical `/frigiliana-streets-stairs` family in the matching locale |
+| **Total** | **35** | |
 
-1. Should `/romantic-hideaways` remain the collection URL for now, or should it become `/frigiliana-apartments` / `/boutique-apartments-andalusia`?
-2. Should `/directions-arrival-guide` stay noindex guest utility, or become a public SEO arrival guide?
-3. Should `/contact` be rebuilt as a real page in V1.1?
-4. Should we keep standardized slugs across languages, or intentionally build localized slugs per language?
+Redirects do not add indexable route families or sitemap URLs.
 
-Recommended answers:
+## Separate Vacation Rental Sitemap
 
-1. Keep `/romantic-hideaways` for now, plan a product route later.
-2. Keep `/directions-arrival-guide` as noindex utility.
-3. Add `/contact` soon, but not before route cleanup.
-4. Keep standardized slugs across languages for simplicity, stability, and lower maintenance risk.
+`src/pages/vacation-rentals-sitemap.xml.ts` generates `vacation-rentals-sitemap.xml` with the six default-locale rental URLs:
+
+- `/la-amara-farah`
+- `/la-amara-lounis`
+- `/la-amara-zaid`
+- `/la-amara-maha`
+- `/la-amara-playa`
+- `/la-amara-family-and-surf`
+
+The main sitemap independently contains all 30 localized rental URLs. `public/robots.txt` advertises both the main sitemap index and this separate rental sitemap.
+
+## Dormant Registry Entries
+
+The following tokens exist in `src/lib/linkRegistry.ts` but do not own or generate public pages. They are gated as disabled public route tokens by `src/lib/routeOwnership.ts` and must not be counted as live routes:
+
+- `locations_hub`
+- `journal`
+- `contact`
+- `archive`
+
+These are **dormant registry entries**, not missing pages and not sitemap candidates. This document makes no recommendation to activate, remove, or replace them.
+
+## Open Type Classification Review Points
+
+The matrix above records technical `pageType` values exactly as they exist. The following are open governance questions only; no type change is approved or implied:
+
+1. **Home:** technically Type A, while its metadata and primary journey also carry strong brand and accommodation-conversion intent.
+2. **Accommodation Collection:** `/romantic-hideaways` is technically Type C, while its current role is a commercial collection and conversion destination.
+3. **Explore spokes:** Frigiliana beaches, day trips, festivals, hiking, market, Dos Tumbas, restaurants and wellness; Nerja nightlife; and Tarifa beaches and wind/kitesurfing are technically Type A. Their topical discovery intent may warrant review against Type B governance.
+
+Any future decision must be handled as a separate architecture/governance task. This current-state document does not alter the technical assignments.
+
+## Intent Overlap And Cannibalization Watchlist
+
+The following are evidence-based overlaps in titles, page scope, or query intent. They indicate areas to monitor, not proven search cannibalization; no Search Console performance data is included in this inventory.
+
+### Highest Overlap
+
+- **Home vs `/romantic-hideaways`:** both target boutique/holiday apartments in Frigiliana and Nerja. Home is the brand entry; Romantic Hideaways is the accommodation collection, but their commercial query language remains close.
+- **Collection scope:** `/romantic-hideaways` targets apartments for couples in Frigiliana and Nerja while also presenting the Tarifa Family & Surf property. This is a scope distinction to monitor, not a route-change recommendation.
+
+### Location Authority Overlap
+
+- `/frigiliana-location` covers where to stay, parking, and weather while `/frigiliana-parking` and `/frigiliana-weather` own those topics in depth.
+- `/frigiliana-location`, `/frigiliana-or-nerja`, and `/nerja-location` all contain where-to-stay decision intent.
+- `/getting-to-frigiliana` and `/frigiliana-parking` share arrival-planning context. The guest-specific `/directions-arrival-guide` is noindex, which limits index-level competition.
+- `/nerja-location` includes beach context while `/frigiliana-beaches` owns the regional beach-selection topic.
+
+### Explore Hub/Spoke Overlap
+
+- `/explore-frigiliana-nerja` intentionally overlaps its beaches, hiking, restaurants, festivals, wellness, and day-trip spokes as a discovery hub.
+- `/tarifa-location` intentionally overlaps `/tarifa-beaches` and `/tarifa-wind-kitesurfing` as the Tarifa authority hub.
+- `/faq-general` and `/frigiliana-faq` have similar format but distinct intents: stay operations versus destination-specific practical questions.
+
+## Current-State Integrity Summary
+
+- 36 indexable route families
+- 180 localized indexable URLs
+- five complete language versions for every indexable family
+- 180 complete hreflang sets
+- 180 main-sitemap entries
+- 179 exact sitemap/canonical string matches plus one accepted root-slash difference
+- 38 noindex families and 190 localized noindex URLs
+- 35 redirects
+- four clearly marked dormant registry entries
+- no unregistered route family in the main sitemap
+- no new page, slug, URL, redirect, or architecture recommendation in this document
