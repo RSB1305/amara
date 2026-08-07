@@ -1,0 +1,191 @@
+---
+import {
+  AlarmSmoke,
+  Armchair,
+  BadgeEuro,
+  Baby,
+  Bath,
+  BedDouble,
+  BedSingle,
+  Blinds,
+  Bubbles,
+  Cable,
+  CarFront,
+  CircleAlert,
+  Coffee,
+  CookingPot,
+  Droplets,
+  Eye,
+  FileBadge2,
+  FireExtinguisher,
+  Flame,
+  Footprints,
+  GlassWater,
+  LampDesk,
+  Microwave,
+  PackageOpen,
+  PawPrint,
+  Refrigerator,
+  ShowerHead,
+  ShieldCheck,
+  Shirt,
+  Snowflake,
+  Sofa,
+  Sparkles,
+  Sun,
+  TableProperties,
+  Thermometer,
+  Trees,
+  Tv,
+  Users,
+  UtensilsCrossed,
+  WashingMachine,
+  Waves,
+  Wifi,
+  Wind
+} from 'lucide-react';
+
+export type AmenitySpecIcon =
+  | 'occupancy'
+  | 'bed'
+  | 'price'
+  | 'access'
+  | 'parking'
+  | 'pets'
+  | 'pool'
+  | 'view'
+  | 'outdoor'
+  | 'sun-loungers'
+  | 'hammock'
+  | 'outdoor-shower'
+  | 'kitchen'
+  | 'washing-machine'
+  | 'pellet-stove'
+  | 'fireplace'
+  | 'shower'
+  | 'air-conditioning'
+  | 'license'
+  | 'clothing-storage'
+  | 'crib'
+  | 'bed-linens'
+  | 'bathroom'
+  | 'iron'
+  | 'toiletries'
+  | 'first-aid'
+  | 'outdoor-dining'
+  | 'dining-table'
+  | 'ethernet'
+  | 'room-darkening'
+  | 'television'
+  | 'fire-extinguisher'
+  | 'hair-dryer'
+  | 'outdoor-furniture'
+  | 'refrigerator'
+  | 'dishes'
+  | 'essentials'
+  | 'cooking-basics'
+  | 'heating'
+  | 'stove'
+  | 'coffee'
+  | 'coffee-maker'
+  | 'safety-alarm'
+  | 'microwave'
+  | 'living-room'
+  | 'smoke-alarm'
+  | 'cleaning-products'
+  | 'workspace'
+  | 'toaster'
+  | 'hot-water'
+  | 'kettle'
+  | 'wine-glasses'
+  | 'wifi'
+  | 'drying-rack'
+  | 'extra-bedding';
+
+interface Props {
+  icon: AmenitySpecIcon;
+  label: string;
+  value?: string;
+  category?: string;
+  filterable?: boolean;
+}
+
+const { icon, label, value, category, filterable = false } = Astro.props;
+
+/** One stable icon vocabulary keeps every apartment inventory visually consistent. */
+const icons = {
+  occupancy: Users,
+  bed: BedDouble,
+  price: BadgeEuro,
+  access: Footprints,
+  parking: CarFront,
+  pets: PawPrint,
+  pool: Waves,
+  view: Eye,
+  outdoor: Trees,
+  'sun-loungers': Sun,
+  hammock: BedSingle,
+  'outdoor-shower': ShowerHead,
+  kitchen: CookingPot,
+  'washing-machine': WashingMachine,
+  'pellet-stove': Flame,
+  fireplace: Flame,
+  shower: ShowerHead,
+  'air-conditioning': Snowflake,
+  license: FileBadge2,
+  'clothing-storage': Shirt,
+  crib: Baby,
+  'bed-linens': BedSingle,
+  bathroom: Bath,
+  iron: Shirt,
+  toiletries: Bubbles,
+  'first-aid': ShieldCheck,
+  'outdoor-dining': UtensilsCrossed,
+  'dining-table': TableProperties,
+  ethernet: Cable,
+  'room-darkening': Blinds,
+  television: Tv,
+  'fire-extinguisher': FireExtinguisher,
+  'hair-dryer': Wind,
+  'outdoor-furniture': Armchair,
+  refrigerator: Refrigerator,
+  dishes: UtensilsCrossed,
+  essentials: PackageOpen,
+  'cooking-basics': CookingPot,
+  heating: Thermometer,
+  stove: CookingPot,
+  coffee: Coffee,
+  'coffee-maker': Coffee,
+  'safety-alarm': CircleAlert,
+  microwave: Microwave,
+  'living-room': Sofa,
+  'smoke-alarm': AlarmSmoke,
+  'cleaning-products': Sparkles,
+  workspace: LampDesk,
+  toaster: CookingPot,
+  'hot-water': Droplets,
+  kettle: CookingPot,
+  'wine-glasses': GlassWater,
+  wifi: Wifi,
+  'drying-rack': Shirt,
+  'extra-bedding': BedSingle
+} satisfies Record<AmenitySpecIcon, typeof Armchair>;
+
+const Icon = icons[icon];
+---
+
+<li
+  class="grid min-h-[5.5rem] grid-cols-[2rem_minmax(0,1fr)] items-start gap-4 border-t border-outline-variant/20 py-5"
+  data-amenity-row={filterable ? 'true' : undefined}
+  data-amenity-category={category}
+>
+  <Icon
+    className="mt-0.5 h-6 w-6 text-primary"
+    strokeWidth={1.5}
+    aria-hidden="true"
+  />
+  <div class="min-w-0">
+    <strong class="am-text-body block font-semibold text-on-surface">{label}</strong>
+    {value && <span class="am-text-body mt-1 block leading-relaxed text-on-surface-variant">{value}</span>}
+  </div>
+</li>

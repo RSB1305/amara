@@ -3,6 +3,16 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import Navigation from '../../components/Navigation.astro';
 import TrustHero from '../../components/hero/TrustHero.astro';
 import EditorialClosingCta from '../../components/editorial/EditorialClosingCta.astro';
+import AmenitySpecRow, {
+  type AmenitySpecIcon
+} from '../../components/amenities/AmenitySpecRow.astro';
+import {
+  comfortAmenityCategoryOptions,
+  comfortAmenityFilterCopy,
+  expandedComfortAmenities,
+  expandedComfortAmenityPropertyIds,
+  type ComfortAmenityCategory
+} from '../../content/comfortAmenityCatalog';
 import {
   comfortAmenitiesCopy,
   comfortAmenitiesFooterLabels,
@@ -36,6 +46,176 @@ const properties = comfortAmenitiesProperties.map((property) => ({
   ...property,
   href: rentalHrefByPropertyId[property.id] ?? property.href
 }));
+type Property = (typeof properties)[number];
+type AmenityRow = {
+  icon: AmenitySpecIcon;
+  label: string;
+  value?: string;
+  category?: ComfortAmenityCategory;
+};
+
+const buildExistingAmenityRows = (property: Property): AmenityRow[] => [
+  {
+    icon: 'occupancy',
+    label: page.inventory.labels.maxOccupancy,
+    value: property.specs.maxOccupancy[currentLang]
+  },
+  ...(property.specs.bed
+    ? [{ icon: 'bed' as const, label: page.inventory.labels.bed, value: property.specs.bed }]
+    : []),
+  ...(property.specs.beds
+    ? [{ icon: 'bed' as const, label: page.inventory.labels.beds, value: property.specs.beds[currentLang] }]
+    : []),
+  {
+    icon: 'price',
+    label: page.inventory.labels.price,
+    value: property.specs.price[currentLang]
+  },
+  {
+    icon: 'access',
+    label: page.inventory.labels.accessNote,
+    value: property.specs.accessNote[currentLang]
+  },
+  ...(property.specs.parking
+    ? [{ icon: 'parking' as const, label: page.inventory.labels.parking, value: property.specs.parking[currentLang] }]
+    : []),
+  {
+    icon: 'pets',
+    label: page.inventory.labels.pets,
+    value: property.specs.pets[currentLang]
+  },
+  ...(property.specs.pool
+    ? [{ icon: 'pool' as const, label: page.inventory.labels.pool, value: property.specs.pool[currentLang] }]
+    : []),
+  {
+    icon: 'view',
+    label: page.inventory.labels.view,
+    value: property.specs.view[currentLang]
+  },
+  ...(property.specs.outdoor
+    ? [{ icon: 'outdoor' as const, label: page.inventory.labels.outdoor, value: property.specs.outdoor[currentLang] }]
+    : []),
+  ...(property.specs.sunLoungers
+    ? [{ icon: 'sun-loungers' as const, label: page.inventory.labels.sunLoungers, value: property.specs.sunLoungers[currentLang] }]
+    : []),
+  ...(property.specs.hammock
+    ? [{ icon: 'hammock' as const, label: page.inventory.labels.hammock, value: property.specs.hammock[currentLang] }]
+    : []),
+  ...(property.specs.outdoorShower
+    ? [{ icon: 'outdoor-shower' as const, label: page.inventory.labels.outdoorShower, value: property.specs.outdoorShower[currentLang] }]
+    : []),
+  {
+    icon: 'kitchen',
+    label: page.inventory.labels.kitchen,
+    value: property.specs.kitchen[currentLang]
+  },
+  ...(property.specs.washingMachine
+    ? [{ icon: 'washing-machine' as const, label: page.inventory.labels.washingMachine, value: property.specs.washingMachine[currentLang] }]
+    : []),
+  ...(property.specs.pelletStove
+    ? [{ icon: 'pellet-stove' as const, label: page.inventory.labels.pelletStove, value: property.specs.pelletStove[currentLang] }]
+    : []),
+  ...(property.specs.fireplace
+    ? [{ icon: 'fireplace' as const, label: page.inventory.labels.fireplace, value: property.specs.fireplace[currentLang] }]
+    : []),
+  ...(property.specs.shower
+    ? [{ icon: 'shower' as const, label: page.inventory.labels.shower, value: property.specs.shower[currentLang] }]
+    : []),
+  {
+    icon: 'air-conditioning',
+    label: page.inventory.labels.airCon,
+    value: property.specs.airCon[currentLang]
+  },
+  {
+    icon: 'license',
+    label: page.inventory.labels.license,
+    value: property.specs.license
+  }
+];
+const buildKeyFactRows = (property: Property): AmenityRow[] => [
+  {
+    icon: 'occupancy',
+    label: page.inventory.labels.maxOccupancy,
+    value: property.specs.maxOccupancy[currentLang]
+  },
+  ...(property.specs.bed
+    ? [{ icon: 'bed' as const, label: page.inventory.labels.bed, value: property.specs.bed }]
+    : []),
+  ...(property.specs.beds
+    ? [{ icon: 'bed' as const, label: page.inventory.labels.beds, value: property.specs.beds[currentLang] }]
+    : []),
+  {
+    icon: 'price',
+    label: page.inventory.labels.price,
+    value: property.specs.price[currentLang]
+  },
+  {
+    icon: 'access',
+    label: page.inventory.labels.accessNote,
+    value: property.specs.accessNote[currentLang]
+  },
+  ...(property.specs.parking
+    ? [{ icon: 'parking' as const, label: page.inventory.labels.parking, value: property.specs.parking[currentLang] }]
+    : []),
+  {
+    icon: 'pets',
+    label: page.inventory.labels.pets,
+    value: property.specs.pets[currentLang]
+  },
+  ...(property.specs.pool
+    ? [{ icon: 'pool' as const, label: page.inventory.labels.pool, value: property.specs.pool[currentLang] }]
+    : []),
+  {
+    icon: 'view',
+    label: page.inventory.labels.view,
+    value: property.specs.view[currentLang]
+  },
+  {
+    icon: 'license',
+    label: page.inventory.labels.license,
+    value: property.specs.license
+  }
+];
+const buildFilterableAmenityRows = (property: Property): AmenityRow[] => {
+  if (!expandedComfortAmenityPropertyIds.has(property.id)) return [];
+
+  return [
+    ...expandedComfortAmenities.map((amenity) => ({
+      icon: amenity.icon,
+      label: amenity.title[currentLang],
+      value: amenity.description?.[currentLang],
+      category: amenity.category
+    })),
+    ...(property.specs.hammock
+      ? [{
+          icon: 'hammock' as const,
+          label: page.inventory.labels.hammock,
+          value: property.specs.hammock[currentLang],
+          category: 'outdoor' as const
+        }]
+      : []),
+    ...(property.specs.shower
+      ? [{
+          icon: 'shower' as const,
+          label: page.inventory.labels.shower,
+          value: property.specs.shower[currentLang],
+          category: 'bathroom' as const
+        }]
+      : [])
+  ];
+};
+const amenityFilterCopy = comfortAmenityFilterCopy[currentLang];
+const amenityFilters = comfortAmenityCategoryOptions.map((category) => ({
+  key: category.key,
+  label: category.label[currentLang]
+}));
+const propertyFilters = [
+  { key: 'all', label: amenityFilterCopy.allProperties },
+  ...properties.map((property) => ({
+    key: property.id,
+    label: property.name.replace(/^AMARA\s+/, '').replace(/,\s.*$/, '')
+  }))
+];
 const closingCopy: Record<AmaraLanguage, { title: string; lead: string; explore: string }> = {
   en: {
     title: 'Choose your AMARA stay with clarity',
@@ -103,105 +283,111 @@ const closingCtaLinks = [
 
       <main class="am-wrap w-full max-w-[76rem] mx-auto px-6 pb-20 max-md:px-4">
 
-        <section class="am-section mb-12" aria-label={page.sections.conceptAria}>
-          <h2 class="am-h2 mb-4 am-text-title font-normal leading-tight tracking-tight text-on-surface">{page.sections.conceptTitle}</h2>
-
-          <div class="am-grid block">
-            <article class="am-card mb-10 border-0 rounded-none bg-transparent shadow-none">
-              <div class="am-card-body p-0">
-                <h3 class="am-h2 mb-4 am-text-subtitle font-normal leading-tight tracking-tight text-on-surface">{page.sections.coreTitle}</h3>
-
-                <div class="am-elist is-tight block">
-                  {page.bullets.core.map((bullet, index) => (
-                    <div class="am-elist-item block mb-4">
-                      <div class="am-elist-ico hidden" aria-hidden="true">
-                        {index === 0 && (
-                          <svg viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
-                        )}
-                        {index === 1 && (
-                          <svg viewBox="0 0 24 24"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><line x1="23" y1="9" x2="17" y2="15"></line><line x1="17" y1="9" x2="23" y2="15"></line></svg>
-                        )}
-                        {index === 2 && (
-                          <svg viewBox="0 0 24 24"><path d="M21 2l-2 2m-7.61 7.61a5.5 5.5 0 1 1-7.778 7.778 5.5 5.5 0 0 1 7.777-7.777zm0 0L15.5 7.5m0 0l3 3L22 7l-3-3m-3.5 3.5L19 4"></path></svg>
-                        )}
-                      </div>
-                      <div class="am-elist-body">
-                        <p class="am-elist-title mb-0.5 am-text-body font-bold text-on-surface">{bullet.title}</p>
-                        <p class="am-elist-desc m-0 am-text-body leading-relaxed text-on-surface-variant">{bullet.desc}</p>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </article>
-
-            <article class="am-card mb-10 border-0 rounded-none bg-transparent shadow-none">
-              <div class="am-card-body p-0">
-                <h3 class="am-h2 mb-4 am-text-subtitle font-normal leading-tight tracking-tight text-on-surface">{page.sections.separateTitle}</h3>
-
-                <div class="am-elist is-tight block">
-                  {page.bullets.separate.map((bullet, index) => (
-                    <div class="am-elist-item block mb-4">
-                      <div class="am-elist-ico hidden" aria-hidden="true">
-                        {index === 0 && (
-                          <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
-                        )}
-                        {index === 1 && (
-                          <svg viewBox="0 0 24 24"><path d="M9.59 4.59A2 2 0 1 1 11 8H2m10.59 11.41A2 2 0 1 0 14 16H2m15.73-8.27A2.5 2.5 0 1 1 19.5 12H2"></path></svg>
-                        )}
-                        {index === 2 && (
-                          <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
-                        )}
-                      </div>
-                      <div class="am-elist-body">
-                        <p class="am-elist-title mb-0.5 am-text-body font-bold text-on-surface">{bullet.title}</p>
-                        <p class="am-elist-desc m-0 am-text-body leading-relaxed text-on-surface-variant">{bullet.desc}</p>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </article>
-          </div>
-        </section>
-
         <section class="am-section mb-12" aria-label={page.sections.inventoryAria}>
           <h2 class="am-h2 mb-4 am-text-title font-normal leading-tight tracking-tight text-on-surface">{page.sections.inventoryTitle}</h2>
 
-          <div class="am-grid block">
-            {properties.map((property) => (
-              <article class="am-card mb-10 border-0 rounded-none bg-transparent shadow-none" data-rental-id={property.id}>
+          <div class="mb-12 border-y border-outline-variant/30 py-6">
+            <p id="property-filter-label" class="am-text-caption mb-4 font-semibold text-on-surface">
+              {amenityFilterCopy.propertyLabel}
+            </p>
+            <div
+              class="amenity-filter-scroll flex flex-nowrap gap-2.5 overflow-x-auto border-b border-outline-variant/25 pb-6 md:flex-wrap md:overflow-visible"
+              role="group"
+              aria-labelledby="property-filter-label"
+              aria-controls="amenity-inventory"
+            >
+              {propertyFilters.map((filter) => (
+                <button
+                  type="button"
+                  class="filter-chip inline-flex min-h-11 shrink-0 items-center whitespace-nowrap rounded-full border border-outline-variant/50 bg-white px-4 py-2 am-text-caption font-medium text-on-surface transition-colors hover:border-primary hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/25 focus-visible:ring-offset-2"
+                  data-property-filter={filter.key}
+                  aria-pressed={filter.key === 'all' ? 'true' : 'false'}
+                >
+                  {filter.label}
+                </button>
+              ))}
+            </div>
+
+            <p id="amenity-filter-label" class="am-text-caption mb-4 mt-6 font-semibold text-on-surface">
+              {amenityFilterCopy.amenityLabel}
+            </p>
+            <div
+              class="amenity-filter-scroll flex flex-nowrap gap-2.5 overflow-x-auto pb-2 md:flex-wrap md:overflow-visible md:pb-0"
+              role="group"
+              aria-labelledby="amenity-filter-label"
+              aria-controls="amenity-inventory"
+            >
+              {amenityFilters.map((filter) => (
+                <button
+                  type="button"
+                  class="filter-chip inline-flex min-h-11 shrink-0 items-center whitespace-nowrap rounded-full border border-outline-variant/50 bg-white px-4 py-2 am-text-caption font-medium text-on-surface transition-colors hover:border-primary hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/25 focus-visible:ring-offset-2"
+                  data-amenity-filter={filter.key}
+                  aria-pressed={filter.key === 'all' ? 'true' : 'false'}
+                >
+                  {filter.label}
+                </button>
+              ))}
+            </div>
+          </div>
+
+          <div id="amenity-inventory" class="am-grid block" aria-live="polite">
+            <p
+              class="am-text-body mb-12 border-y border-outline-variant/30 py-8 text-on-surface-variant"
+              data-filter-empty
+              hidden
+            >
+              {amenityFilterCopy.noResults}
+            </p>
+            {properties.map((property) => {
+              const hasExpandedAmenities = expandedComfortAmenityPropertyIds.has(property.id);
+              const factRows = hasExpandedAmenities
+                ? buildKeyFactRows(property)
+                : buildExistingAmenityRows(property);
+              const amenityRows = buildFilterableAmenityRows(property);
+
+              return (
+              <article
+                class="am-card mb-14 border-0 rounded-none bg-transparent shadow-none"
+                data-rental-id={property.id}
+                data-expanded-amenities={hasExpandedAmenities ? 'true' : 'false'}
+              >
                 <div class="am-card-body p-0">
-                  <h3 class="am-h2 mb-4 am-text-subtitle font-normal leading-tight tracking-tight text-on-surface">{property.name}</h3>
-                  <ul class="am-list-specs mt-4 m-0 p-0 list-none grid gap-y-[0.55rem] am-text-body leading-relaxed text-on-surface-variant">
-                    <li class="flex justify-between gap-4 pb-[0.55rem] border-b border-outline-variant/20 max-md:flex-col max-md:gap-0.5 max-md:items-start"><strong class="font-bold text-on-surface">{page.inventory.labels.maxOccupancy}</strong> <span class="text-right max-md:text-left">{property.specs.maxOccupancy[currentLang]}</span></li>
-                    {property.specs.bed && <li class="flex justify-between gap-4 pb-[0.55rem] border-b border-outline-variant/20 max-md:flex-col max-md:gap-0.5 max-md:items-start"><strong class="font-bold text-on-surface">{page.inventory.labels.bed}</strong> <span class="text-right max-md:text-left">{property.specs.bed}</span></li>}
-                    {property.specs.beds && <li class="flex justify-between gap-4 pb-[0.55rem] border-b border-outline-variant/20 max-md:flex-col max-md:gap-0.5 max-md:items-start"><strong class="font-bold text-on-surface">{page.inventory.labels.beds}</strong> <span class="text-right max-md:text-left">{property.specs.beds[currentLang]}</span></li>}
-                    <li class="flex justify-between gap-4 pb-[0.55rem] border-b border-outline-variant/20 max-md:flex-col max-md:gap-0.5 max-md:items-start"><strong class="font-bold text-on-surface">{page.inventory.labels.price}</strong> <span class="text-right max-md:text-left">{property.specs.price[currentLang]}</span></li>
-                    <li class="flex justify-between gap-4 pb-[0.55rem] border-b border-outline-variant/20 max-md:flex-col max-md:gap-0.5 max-md:items-start"><strong class="font-bold text-on-surface">{page.inventory.labels.accessNote}</strong> <span class="text-right max-md:text-left">{property.specs.accessNote[currentLang]}</span></li>
-                    {property.specs.parking && <li class="flex justify-between gap-4 pb-[0.55rem] border-b border-outline-variant/20 max-md:flex-col max-md:gap-0.5 max-md:items-start"><strong class="font-bold text-on-surface">{page.inventory.labels.parking}</strong> <span class="text-right max-md:text-left">{property.specs.parking[currentLang]}</span></li>}
-                    <li class="flex justify-between gap-4 pb-[0.55rem] border-b border-outline-variant/20 max-md:flex-col max-md:gap-0.5 max-md:items-start"><strong class="font-bold text-on-surface">{page.inventory.labels.pets}</strong> <span class="text-right max-md:text-left">{property.specs.pets[currentLang]}</span></li>
-                    {property.specs.pool && <li class="flex justify-between gap-4 pb-[0.55rem] border-b border-outline-variant/20 max-md:flex-col max-md:gap-0.5 max-md:items-start"><strong class="font-bold text-on-surface">{page.inventory.labels.pool}</strong> <span class="text-right max-md:text-left">{property.specs.pool[currentLang]}</span></li>}
-                    <li class="flex justify-between gap-4 pb-[0.55rem] border-b border-outline-variant/20 max-md:flex-col max-md:gap-0.5 max-md:items-start"><strong class="font-bold text-on-surface">{page.inventory.labels.view}</strong> <span class="text-right max-md:text-left">{property.specs.view[currentLang]}</span></li>
-                    {property.specs.outdoor && <li class="flex justify-between gap-4 pb-[0.55rem] border-b border-outline-variant/20 max-md:flex-col max-md:gap-0.5 max-md:items-start"><strong class="font-bold text-on-surface">{page.inventory.labels.outdoor}</strong> <span class="text-right max-md:text-left">{property.specs.outdoor[currentLang]}</span></li>}
-                    {property.specs.sunLoungers && <li class="flex justify-between gap-4 pb-[0.55rem] border-b border-outline-variant/20 max-md:flex-col max-md:gap-0.5 max-md:items-start"><strong class="font-bold text-on-surface">{page.inventory.labels.sunLoungers}</strong> <span class="text-right max-md:text-left">{property.specs.sunLoungers[currentLang]}</span></li>}
-                    {property.specs.hammock && <li class="flex justify-between gap-4 pb-[0.55rem] border-b border-outline-variant/20 max-md:flex-col max-md:gap-0.5 max-md:items-start"><strong class="font-bold text-on-surface">{page.inventory.labels.hammock}</strong> <span class="text-right max-md:text-left">{property.specs.hammock[currentLang]}</span></li>}
-                    {property.specs.outdoorShower && <li class="flex justify-between gap-4 pb-[0.55rem] border-b border-outline-variant/20 max-md:flex-col max-md:gap-0.5 max-md:items-start"><strong class="font-bold text-on-surface">{page.inventory.labels.outdoorShower}</strong> <span class="text-right max-md:text-left">{property.specs.outdoorShower[currentLang]}</span></li>}
-                    <li class="flex justify-between gap-4 pb-[0.55rem] border-b border-outline-variant/20 max-md:flex-col max-md:gap-0.5 max-md:items-start"><strong class="font-bold text-on-surface">{page.inventory.labels.kitchen}</strong> <span class="text-right max-md:text-left">{property.specs.kitchen[currentLang]}</span></li>
-                    {property.specs.washingMachine && <li class="flex justify-between gap-4 pb-[0.55rem] border-b border-outline-variant/20 max-md:flex-col max-md:gap-0.5 max-md:items-start"><strong class="font-bold text-on-surface">{page.inventory.labels.washingMachine}</strong> <span class="text-right max-md:text-left">{property.specs.washingMachine[currentLang]}</span></li>}
-                    {property.specs.pelletStove && <li class="flex justify-between gap-4 pb-[0.55rem] border-b border-outline-variant/20 max-md:flex-col max-md:gap-0.5 max-md:items-start"><strong class="font-bold text-on-surface">{page.inventory.labels.pelletStove}</strong> <span class="text-right max-md:text-left">{property.specs.pelletStove[currentLang]}</span></li>}
-                    {property.specs.fireplace && <li class="flex justify-between gap-4 pb-[0.55rem] border-b border-outline-variant/20 max-md:flex-col max-md:gap-0.5 max-md:items-start"><strong class="font-bold text-on-surface">{page.inventory.labels.fireplace}</strong> <span class="text-right max-md:text-left">{property.specs.fireplace[currentLang]}</span></li>}
-                    {property.specs.shower && <li class="flex justify-between gap-4 pb-[0.55rem] border-b border-outline-variant/20 max-md:flex-col max-md:gap-0.5 max-md:items-start"><strong class="font-bold text-on-surface">{page.inventory.labels.shower}</strong> <span class="text-right max-md:text-left">{property.specs.shower[currentLang]}</span></li>}
-                    <li class="flex justify-between gap-4 pb-[0.55rem] border-b border-outline-variant/20 max-md:flex-col max-md:gap-0.5 max-md:items-start"><strong class="font-bold text-on-surface">{page.inventory.labels.airCon}</strong> <span class="text-right max-md:text-left">{property.specs.airCon[currentLang]}</span></li>
-                    <li class="flex justify-between gap-4 pb-[0.55rem] border-b border-outline-variant/20 max-md:flex-col max-md:gap-0.5 max-md:items-start"><strong class="font-bold text-on-surface">{page.inventory.labels.license}</strong> <span class="text-right max-md:text-left">{property.specs.license}</span></li>
+                  <h3 class="am-h2 mb-4 am-text-subtitle font-normal leading-tight tracking-tight text-on-surface">
+                    <a
+                      href={property.href}
+                      class="inline-flex transition-colors hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/25 focus-visible:ring-offset-4"
+                    >
+                      {property.name}
+                    </a>
+                  </h3>
+                  <ul class="mt-6 grid list-none gap-x-12 p-0 md:grid-cols-2">
+                    {factRows.map((row) => (
+                      <AmenitySpecRow icon={row.icon} label={row.label} value={row.value} />
+                    ))}
                   </ul>
 
-                  <div class="am-btn-row mt-5">
-                    <a href={property.href} class="am-btn am-btn--secondary">{page.inventory.detailsLabel}</a>
-                  </div>
+                  {amenityRows.length > 0 && (
+                    <section class="mt-9" data-amenity-section>
+                      <h4 class="am-text-subtitle font-normal leading-tight text-on-surface">
+                        {amenityFilterCopy.amenityHeading}
+                      </h4>
+                      <ul class="mt-4 grid list-none gap-x-12 p-0 md:grid-cols-2">
+                        {amenityRows.map((row) => (
+                          <AmenitySpecRow
+                            icon={row.icon}
+                            label={row.label}
+                            value={row.value}
+                            category={row.category}
+                            filterable={true}
+                          />
+                        ))}
+                      </ul>
+                    </section>
+                  )}
                 </div>
               </article>
-            ))}
+              );
+            })}
           </div>
 
           <div class="am-prose max-w-[46rem]">
@@ -366,3 +552,99 @@ const closingCtaLinks = [
 
   </div>
 </BaseLayout>
+
+<script>
+  const amenitiesPage = document.querySelector<HTMLElement>('#am-page-amenities');
+
+  if (amenitiesPage) {
+    const amenityFilterButtons = Array.from(
+      amenitiesPage.querySelectorAll<HTMLButtonElement>('[data-amenity-filter]')
+    );
+    const propertyFilterButtons = Array.from(
+      amenitiesPage.querySelectorAll<HTMLButtonElement>('[data-property-filter]')
+    );
+    const propertyCards = Array.from(
+      amenitiesPage.querySelectorAll<HTMLElement>('[data-rental-id]')
+    );
+    const emptyMessage = amenitiesPage.querySelector<HTMLElement>('[data-filter-empty]');
+    let selectedCategory = 'all';
+    let selectedProperty = 'all';
+
+    const applyCombinedFilters = () => {
+      amenityFilterButtons.forEach((button) => {
+        button.setAttribute(
+          'aria-pressed',
+          button.dataset.amenityFilter === selectedCategory ? 'true' : 'false'
+        );
+      });
+      propertyFilterButtons.forEach((button) => {
+        button.setAttribute(
+          'aria-pressed',
+          button.dataset.propertyFilter === selectedProperty ? 'true' : 'false'
+        );
+      });
+
+      let visiblePropertyCount = 0;
+      propertyCards.forEach((card) => {
+        const amenityRows = Array.from(
+          card.querySelectorAll<HTMLElement>('[data-amenity-row="true"]')
+        );
+        const showAll = selectedCategory === 'all';
+        const matchesProperty = selectedProperty === 'all'
+          || card.dataset.rentalId === selectedProperty;
+        const matchesAmenity = showAll || amenityRows.some(
+          (row) => row.dataset.amenityCategory === selectedCategory
+        );
+        const isVisible = matchesProperty && matchesAmenity;
+
+        card.hidden = !isVisible;
+        if (isVisible) visiblePropertyCount += 1;
+        amenityRows.forEach((row) => {
+          row.hidden = !showAll && row.dataset.amenityCategory !== selectedCategory;
+        });
+      });
+
+      if (emptyMessage) emptyMessage.hidden = visiblePropertyCount > 0;
+    };
+
+    amenityFilterButtons.forEach((button) => {
+      button.addEventListener('click', () => {
+        const category = button.dataset.amenityFilter;
+        if (!category) return;
+        selectedCategory = category;
+        applyCombinedFilters();
+      });
+    });
+
+    propertyFilterButtons.forEach((button) => {
+      button.addEventListener('click', () => {
+        const property = button.dataset.propertyFilter;
+        if (!property) return;
+        selectedProperty = property;
+        applyCombinedFilters();
+      });
+    });
+  }
+</script>
+
+<style>
+  .filter-chip[aria-pressed='true'] {
+    border-color: var(--color-primary);
+    background-color: var(--color-primary);
+    color: var(--color-on-primary);
+  }
+
+  .amenity-filter-scroll {
+    scrollbar-width: none;
+  }
+
+  .amenity-filter-scroll::-webkit-scrollbar {
+    display: none;
+  }
+
+  :global(#am-page-amenities [data-amenity-row][hidden]),
+  :global(#am-page-amenities [data-rental-id][hidden]),
+  :global(#am-page-amenities [data-filter-empty][hidden]) {
+    display: none !important;
+  }
+</style>

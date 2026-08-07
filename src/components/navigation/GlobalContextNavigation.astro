@@ -137,6 +137,7 @@ const isDirectBookingBenefits =
   currentPath === normalizePath(resolveLink('direct_booking_benefits', lang));
 const isReviewsHub = currentPath === normalizePath(resolveLink('reviews_hub', lang));
 const isCollection = currentPath === normalizePath(resolveLink('romantic_hideaways', lang));
+const isAmenities = currentPath === normalizePath(resolveLink('amenities', lang));
 
 /**
  * A breadcrumb should read like the navigation, not like the SEO title. Titles
@@ -148,7 +149,7 @@ const navLabelForPage =
   isDirectBookingBenefits ? copy.directBookingBenefits
   : isReviewsHub ? copy.reviews
   : isCollection ? copy.allStays
-  : currentPath === normalizePath(resolveLink('amenities', lang)) ? copy.amenities
+  : isAmenities ? copy.amenities
   : currentPath === normalizePath(resolveLink('faq_general', lang)) ? copy.faq
   : currentPath === normalizePath(resolveLink('about', lang)) ? copy.aboutUs
   : currentPath === normalizePath(resolveLink('legal_notice', lang)) ? copy.legal
@@ -188,7 +189,9 @@ const stayItems: ContextNavigationItem[] = [];
  * above a page whose job is to build confidence and offered five ways to leave.
  * Its breadcrumb stays, so the trail back is intact.
  */
-const items = isStay || isReviewsHub ? stayItems : genericItems;
+// The amenities index follows the same breadcrumb-only treatment so its
+// inventory begins without a competing row of sitewide exit links.
+const items = isStay || isReviewsHub || isAmenities ? stayItems : genericItems;
 const activeId = items.find((item) => normalizePath(item.href) === currentPath)?.id;
 ---
 

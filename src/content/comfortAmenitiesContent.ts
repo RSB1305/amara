@@ -64,19 +64,10 @@ export const comfortAmenitiesCopy: Record<
       ctaReviews: string;
     };
     sections: {
-      conceptAria: string;
-      conceptTitle: string;
-      coreTitle: string;
-      separateTitle: string;
       inventoryAria: string;
       inventoryTitle: string;
     };
-    bullets: {
-      core: { title: string; desc: string }[];
-      separate: { title: string; desc: string }[];
-    };
     inventory: {
-      detailsLabel: string;
       directBooking: string;
       labels: {
         license: string;
@@ -113,34 +104,17 @@ export const comfortAmenitiesCopy: Record<
     ],
     hero: {
       subtitle: 'Comfort & Amenities',
-      title: 'Everything a comfortable stay needs — thoughtfully in place.',
+      title: 'Everything for a comfortable stay.',
       lead: 'Full kitchens, private terraces, quiet locations and the small details most guests never have to think about — because we already have.',
       supportText: 'Inventory, rules, and practical stay details in one calm overview.',
       ctaAbout: 'About Us',
       ctaReviews: 'Guest Reviews'
     },
     sections: {
-      conceptAria: 'Hosting concept',
-      conceptTitle: 'Hosting concept',
-      coreTitle: 'Core collection: Frigiliana & Nerja',
-      separateTitle: 'Separate stay: Family & Surf',
       inventoryAria: 'Inventory list',
       inventoryTitle: 'Find your space'
     },
-    bullets: {
-      core: [
-        { title: 'Quiet stays', desc: 'Designed for couples and adults seeking rest.' },
-        { title: 'No parties', desc: 'Strictly enforced to protect the atmosphere.' },
-        { title: 'Self-catered', desc: 'Private apartments, not a serviced hotel.' }
-      ],
-      separate: [
-        { title: 'Family-suitable', desc: 'More space, different vibe, pool included.' },
-        { title: 'Tarifa location', desc: 'Approx. 2h drive from Frigiliana. The Atlantic coast.' },
-        { title: 'Entire Home', desc: 'You rent the full house.' }
-      ]
-    },
     inventory: {
-      detailsLabel: 'View details',
       directBooking: 'Direct booking',
       labels: {
         license: 'License (VFT)',
@@ -176,34 +150,17 @@ export const comfortAmenitiesCopy: Record<
     ],
     hero: {
       subtitle: 'Komfort & Ausstattung',
-      title: 'Alles, was einen komfortablen Aufenthalt ausmacht — durchdacht bereitgestellt.',
+      title: 'Alles für einen komfortablen Aufenthalt.',
       lead: 'Voll ausgestattete Küchen, private Terrassen, ruhige Lagen und die kleinen Details, über die ihr euch keine Gedanken machen müsst — weil wir es längst getan haben.',
       supportText: 'Inventar, Regeln und wichtige Aufenthaltsdetails in einer ruhigen Übersicht.',
       ctaAbout: 'Über AMARA',
       ctaReviews: 'Gästebewertungen'
     },
     sections: {
-      conceptAria: 'Gastgeber-Konzept',
-      conceptTitle: 'Unser Gastgeber-Konzept',
-      coreTitle: 'Die Haupt-Kollektion: Frigiliana & Nerja',
-      separateTitle: 'Separates Angebot: Family & Surf',
       inventoryAria: 'Inventarliste',
       inventoryTitle: 'Findet euer Apartment'
     },
-    bullets: {
-      core: [
-        { title: 'Ruhige Aufenthalte', desc: 'Ideal für Paare und Erwachsene, die Erholung suchen.' },
-        { title: 'Keine Partys', desc: 'Wird streng durchgesetzt, um die Atmosphäre zu wahren.' },
-        { title: 'Selbstversorgung', desc: 'Private Apartments, kein Hotel mit Vollservice.' }
-      ],
-      separate: [
-        { title: 'Familienfreundlich', desc: 'Mehr Platz, anderer Vibe, inklusive Pool.' },
-        { title: 'Standort Tarifa', desc: 'Etwa 2 Autostunden von Frigiliana entfernt. Die Atlantikküste.' },
-        { title: 'Ganzes Haus', desc: 'Ihr mietet das komplette Haus.' }
-      ]
-    },
     inventory: {
-      detailsLabel: 'Details ansehen',
       directBooking: 'Direkt buchen',
       labels: {
         license: 'Lizenz (VFT)',
@@ -239,34 +196,17 @@ export const comfortAmenitiesCopy: Record<
     ],
     hero: {
       subtitle: 'Confort y servicios',
-      title: 'Todo lo que hace falta para una estancia cómoda — ya pensado por vosotros.',
+      title: 'Todo para una estancia cómoda.',
       lead: 'Cocinas completas, terrazas privadas, ubicaciones tranquilas y los pequeños detalles en los que no tenéis que pensar — porque nosotros ya lo hemos hecho.',
       supportText: 'Inventario, normas y detalles útiles de la estancia en una sola visión tranquila.',
       ctaAbout: 'Sobre AMARA',
       ctaReviews: 'Opiniones de huéspedes'
     },
     sections: {
-      conceptAria: 'Concepto de alojamiento',
-      conceptTitle: 'Nuestro concepto de alojamiento',
-      coreTitle: 'Colección principal: Frigiliana y Nerja',
-      separateTitle: 'Estancia independiente: Family & Surf',
       inventoryAria: 'Lista de inventario',
       inventoryTitle: 'Encontrad vuestro espacio'
     },
-    bullets: {
-      core: [
-        { title: 'Estancias tranquilas', desc: 'Pensadas para parejas y adultos que buscan descanso.' },
-        { title: 'Cero fiestas', desc: 'Aplicado estrictamente para proteger el ambiente.' },
-        { title: 'Alojamiento independiente', desc: 'Apartamentos privados, no un hotel con servicios.' }
-      ],
-      separate: [
-        { title: 'Ideal para familias', desc: 'Más espacio, un ambiente diferente, piscina incluida.' },
-        { title: 'Ubicación en Tarifa', desc: 'A unas 2 horas en coche de Frigiliana. En la costa atlántica.' },
-        { title: 'Casa entera', desc: 'Alquiláis la casa completa.' }
-      ]
-    },
     inventory: {
-      detailsLabel: 'Ver detalles',
       directBooking: 'Reserva directa',
       labels: {
         license: 'Licencia (VFT)',
@@ -302,34 +242,17 @@ export const comfortAmenitiesCopy: Record<
     ],
     hero: {
       subtitle: 'Comfort en voorzieningen',
-      title: 'Alles voor een comfortabel verblijf — al voor je geregeld.',
+      title: 'Alles voor een comfortabel verblijf.',
       lead: 'Volledig uitgeruste keukens, privéterrassen, rustige locaties en de kleine details waar je niet over hoeft na te denken — omdat wij dat al gedaan hebben.',
       supportText: 'Inventaris, regels en praktische verblijfsdetails in één rustige samenvatting.',
       ctaAbout: 'Over AMARA',
       ctaReviews: 'Gastbeoordelingen'
     },
     sections: {
-      conceptAria: 'Gastenconcept',
-      conceptTitle: 'Ons gastenconcept',
-      coreTitle: 'Hoofdcollectie: Frigiliana & Nerja',
-      separateTitle: 'Afzonderlijk verblijf: Family & Surf',
       inventoryAria: 'Inventarislijst',
       inventoryTitle: 'Vind jullie ruimte'
     },
-    bullets: {
-      core: [
-        { title: 'Rustige verblijven', desc: 'Ontworpen voor koppels en volwassenen die rust zoeken.' },
-        { title: 'Geen feestjes', desc: 'Strikt gehandhaafd om de sfeer te behouden.' },
-        { title: 'Zelfstandig verblijf', desc: 'Privé-appartementen, geen hotel met service.' }
-      ],
-      separate: [
-        { title: 'Geschikt voor families', desc: 'Meer ruimte, een andere sfeer, inclusief zwembad.' },
-        { title: 'Locatie Tarifa', desc: 'Ca. 2 uur rijden van Frigiliana. De Atlantische kust.' },
-        { title: 'Volledige woning', desc: 'Jullie huren het hele huis.' }
-      ]
-    },
     inventory: {
-      detailsLabel: 'Bekijk details',
       directBooking: 'Direct boeken',
       labels: {
         license: 'Licentie (VFT)',
@@ -365,34 +288,17 @@ export const comfortAmenitiesCopy: Record<
     ],
     hero: {
       subtitle: 'Komfort och bekvämligheter',
-      title: 'Allt en bekväm vistelse behöver — redan på plats.',
+      title: 'Allt för en bekväm vistelse.',
       lead: 'Fullt utrustade kök, privata terrasser, lugna lägen och de små detaljer ni aldrig behöver tänka på — för att vi redan har gjort det.',
       supportText: 'Inventering, policy och viktiga vistelsedetaljer i en lugn översikt.',
       ctaAbout: 'Om AMARA',
       ctaReviews: 'Gästrecensioner'
     },
     sections: {
-      conceptAria: 'Värdkoncept',
-      conceptTitle: 'Vårt värdkoncept',
-      coreTitle: 'Huvudkollektionen: Frigiliana & Nerja',
-      separateTitle: 'Separat boende: Family & Surf',
       inventoryAria: 'Inventarielista',
       inventoryTitle: 'Hitta ert boende'
     },
-    bullets: {
-      core: [
-        { title: 'Lugna vistelser', desc: 'Utformat för par och vuxna som söker vila.' },
-        { title: 'Inga fester', desc: 'Tillämpas strikt för att skydda stämningen.' },
-        { title: 'Självhushåll', desc: 'Privata lägenheter, inget servicehotell.' }
-      ],
-      separate: [
-        { title: 'Familjevänligt', desc: 'Mer utrymme, en annan känsla, pool ingår.' },
-        { title: 'Läge i Tarifa', desc: 'Ca 2 timmars bilresa från Frigiliana. Atlantkusten.' },
-        { title: 'Helt hus', desc: 'Ni hyr hela huset.' }
-      ]
-    },
     inventory: {
-      detailsLabel: 'Visa detaljer',
       directBooking: 'Boka direkt',
       labels: {
         license: 'Licens (VFT)',

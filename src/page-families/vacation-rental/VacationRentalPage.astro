@@ -83,6 +83,13 @@ const ui = {
     nl: 'Inbegrepen voorzieningen',
     sv: 'Bekvämligheter som ingår'
   },
+  moreAmenities: {
+    en: 'More about Comfort & Amenities',
+    de: 'Mehr unter Komfort & Ausstattung',
+    es: 'Más sobre confort y servicios',
+    nl: 'Meer over comfort en voorzieningen',
+    sv: 'Läs mer om komfort och bekvämligheter'
+  },
   locationTitle: {
     en: 'Plan your stay',
     de: 'Aufenthalt planen',
@@ -580,6 +587,7 @@ const footerHighlights = [
   { token: 'faq_general', label: 'FAQ' }
 ];
 const collectionHref = resolveOptionalLink('romantic_hideaways', currentLang, { suppressMissing: true });
+const amenitiesHref = resolveOptionalLink('amenities', currentLang, { suppressMissing: true });
 const reviewsHref = resolveOptionalLink('reviews_hub', currentLang, { suppressMissing: true });
 const locationLinkSpecs = [
   ...(rental.city === 'Frigiliana'
@@ -743,13 +751,23 @@ const galleryImages = visibleImages.slice(1);
           <h2 id="rental-amenities-title" class="am-text-title text-on-surface">
             {t(ui.amenitiesTitle as LocalizedText)}
           </h2>
-          <ul class="grid gap-x-8 gap-y-4 sm:grid-cols-2">
-            {visibleAmenities.map((item) => (
-              <li class="am-text-body text-on-surface border-t border-border-subtle pt-3">
-                {item}
-              </li>
-            ))}
-          </ul>
+          <div>
+            <ul class="grid gap-x-8 gap-y-4 sm:grid-cols-2">
+              {visibleAmenities.map((item) => (
+                <li class="am-text-body text-on-surface border-t border-border-subtle pt-3">
+                  {item}
+                </li>
+              ))}
+            </ul>
+            {amenitiesHref && (
+              <p class="am-text-body mt-7">
+                <a class="am-inline-link" href={amenitiesHref}>
+                  {t(ui.moreAmenities as LocalizedText)}
+                  <span aria-hidden="true"> &rarr;</span>
+                </a>
+              </p>
+            )}
+          </div>
         </div>
       </section>
 

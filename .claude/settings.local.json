@@ -57,7 +57,11 @@
       "PowerShell(git -C \"C:\\\\Users\\\\marku\\\\Documents\\\\Project-2030-plus\\\\frigiliana\" remote -v)",
       "PowerShell(git -C \"C:\\\\Users\\\\marku\\\\Documents\\\\Project-2030-plus\\\\frigiliana\" branch -r)",
       "PowerShell(git -C \"C:\\\\Users\\\\marku\\\\Documents\\\\Project-2030-plus\\\\frigiliana\" show fdf1ca7 -- src/lib/seo/resolve-structured-data.ts)",
-      "PowerShell($env:PUBLIC_SITE_URL = \"https://amara-lodging.es\"; npm run build | Select-Object -Last 7)"
+      "PowerShell($env:PUBLIC_SITE_URL = \"https://amara-lodging.es\"; npm run build | Select-Object -Last 7)",
+      "PowerShell(git -C \"C:\\\\Users\\\\marku\\\\Documents\\\\Project-2030-plus\\\\frigiliana\" log --oneline -3)",
+      "PowerShell(git -C \"C:\\\\Users\\\\marku\\\\Documents\\\\Project-2030-plus\\\\frigiliana\" diff --stat -- src/page-families/vacation-rental/VacationRentalPage.astro)",
+      "PowerShell($env:PUBLIC_SITE_URL = \"https://amara-lodging.es\"; npm run build | Select-Object -Last 4)",
+      "PowerShell($env:PUBLIC_SITE_URL = \"https://amara-lodging.es\"; npm run build | Select-Object -Last 5)"
     ],
     "ask": [
       "Bash(git push*)",
