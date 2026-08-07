@@ -57,6 +57,7 @@ export interface VacationRentalEntity {
   description: LocalizedText;
   highlights: Record<AmaraLanguage, string[]>;
   accessNote: LocalizedText;
+  // Not rendered on the rental page — pets are shown on Comfort & Amenities only.
   petsNote: LocalizedText;
   kitchenNote: LocalizedText;
   outdoorNote: LocalizedText;

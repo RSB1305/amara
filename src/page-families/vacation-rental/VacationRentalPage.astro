@@ -434,6 +434,7 @@ const formatAmenity = (feature: VacationRentalAmenityFeature) => {
     'internetType',
     'licenseNum',
     'parkingType',
+    'petsAllowed',
     'selfCheckinCheckout'
   ]);
   const hasAirConditioning = rental.amenityFeatures.some(
@@ -450,13 +451,6 @@ const formatAmenity = (feature: VacationRentalAmenityFeature) => {
 
   if (feature.name === 'wifi') {
     return t(highSpeedFiberInternet);
-  }
-
-  // Pets appear only here, and as the entity phrases it — "small dogs on
-  // request" rather than a flat "pets allowed". Entities with the feature
-  // set to false already returned null above.
-  if (feature.name === 'petsAllowed') {
-    return t(rental.petsNote);
   }
 
   if (feature.name === 'ac') {
