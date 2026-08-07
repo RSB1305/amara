@@ -309,11 +309,11 @@ export const vacationRentalEntities: VacationRentalEntity[] = [
       sv: 'Lägenhet i gamla byn med utsikt över odlingarna'
     },
     lead: {
-      en: 'Small, old and quiet — and still right in the village. Room for two, a terrace in the afternoon sun, the pellet stove for cooler evenings.',
-      de: 'Klein, alt und ruhig – und trotzdem mitten im Dorf. Platz für zwei, eine Terrasse in der Nachmittagssonne, abends der Pelletofen.',
-      es: 'Pequeño, antiguo y tranquilo, y aun así en pleno pueblo. Sitio para dos, una terraza al sol de la tarde y la estufa de pellets para las noches frescas.',
-      nl: 'Klein, oud en rustig — en toch midden in het dorp. Plaats voor twee, een terras in de middagzon, ’s avonds de pelletkachel.',
-      sv: 'Litet, gammalt och lugnt — och ändå mitt i byn. Plats för två, en terrass i eftermiddagssolen, pelletskaminen på svalare kvällar.'
+      en: 'The largest of the four apartments in the house — and still just for two. Old, quiet, right in the village: a terrace in the afternoon sun, the pellet stove for cooler evenings.',
+      de: 'Die größte der vier Wohnungen im Haus – und trotzdem nur für zwei. Alt, ruhig, mitten im Dorf: Terrasse in der Nachmittagssonne, abends der Pelletofen.',
+      es: 'El más grande de los cuatro apartamentos de la casa, y aun así solo para dos. Antiguo, tranquilo, en pleno pueblo: terraza al sol de la tarde y estufa de pellets para las noches frescas.',
+      nl: 'Het grootste van de vier appartementen in het huis — en toch maar voor twee. Oud, rustig, midden in het dorp: een terras in de middagzon, ’s avonds de pelletkachel.',
+      sv: 'Den största av husets fyra lägenheter — och ändå bara för två. Gammal, lugn, mitt i byn: terrass i eftermiddagssolen, pelletskamin på kvällen.'
     },
     description: {
       en: 'From the terrace you look across the mango and avocado groves of Frigiliana Campo, the sea behind them. Sun reaches it around midday and stays until evening — shaded in the morning, which keeps breakfast cool. Birds early, silence at night. Lounis stands beside the church, where the village’s oldest houses are: during the 2020 renovation the old walls came to light, and our architect recognised Moorish construction, the era that shaped Andalusia all the way to the Alhambra. The tiles from Málaga are what guests ask about most.',
