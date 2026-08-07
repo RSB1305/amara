@@ -10,32 +10,32 @@ export const guestReviewsSeo: AmaraAuthoringSeo = {
   entityKey: 'amara-brand',
   languages: {
     en: {
-      title: 'Verified Guest Reviews',
-      description: 'Verified guest reviews, award proof, and trust signals for AMARA holiday apartments in Frigiliana, Nerja, and Tarifa.',
+      title: `${airbnbReviewEvidence.reviewCountLabel} Guest Reviews – Frigiliana, Nerja, Tarifa`,
+      description: `${airbnbReviewEvidence.reviewCountLabel} guest reviews for the AMARA holiday apartments in Frigiliana, Nerja and Tarifa — read them yourself, plus our Booking.com awards.`,
       robots: 'index, follow',
       canonical: 'auto'
     },
     de: {
-      title: 'Verifizierte Gästebewertungen',
-      description: 'Verifizierte Gästebewertungen, Auszeichnungen und Vertrauenssignale für AMARA Ferienwohnungen in Frigiliana, Nerja und Tarifa.',
+      title: `${airbnbReviewEvidence.reviewCountLabel} Gästebewertungen – Frigiliana, Nerja, Tarifa`,
+      description: `${airbnbReviewEvidence.reviewCountLabel} Gästebewertungen für die AMARA Ferienwohnungen in Frigiliana, Nerja und Tarifa – zum Nachlesen, dazu die Auszeichnungen von Booking.com.`,
       robots: 'index, follow',
       canonical: 'auto'
     },
     es: {
-      title: 'Reseñas verificadas de huéspedes',
-      description: 'Reseñas verificadas, premios y señales de confianza para los apartamentos vacacionales AMARA en Frigiliana, Nerja y Tarifa.',
+      title: `${airbnbReviewEvidence.reviewCountLabel} reseñas – Frigiliana, Nerja, Tarifa`,
+      description: `${airbnbReviewEvidence.reviewCountLabel} reseñas de los apartamentos AMARA en Frigiliana, Nerja y Tarifa: podéis leerlas vosotros mismos y ver los premios de Booking.com.`,
       robots: 'index, follow',
       canonical: 'auto'
     },
     nl: {
-      title: 'Geverifieerde gastbeoordelingen',
-      description: 'Geverifieerde gastbeoordelingen, awards en vertrouwenssignalen voor AMARA vakantieappartementen in Frigiliana, Nerja en Tarifa.',
+      title: `${airbnbReviewEvidence.reviewCountLabel} gastbeoordelingen – Frigiliana, Nerja, Tarifa`,
+      description: `${airbnbReviewEvidence.reviewCountLabel} gastbeoordelingen van de AMARA vakantieappartementen in Frigiliana, Nerja en Tarifa — zelf na te lezen, plus onze Booking.com-awards.`,
       robots: 'index, follow',
       canonical: 'auto'
     },
     sv: {
-      title: 'Verifierade gästrecensioner',
-      description: 'Verifierade gästrecensioner, utmärkelser och trygghetssignaler för AMARA semesterlägenheter i Frigiliana, Nerja och Tarifa.',
+      title: `${airbnbReviewEvidence.reviewCountLabel} gästrecensioner – Frigiliana, Nerja, Tarifa`,
+      description: `${airbnbReviewEvidence.reviewCountLabel} gästrecensioner om AMARA:s semesterlägenheter i Frigiliana, Nerja och Tarifa — läs dem själv, plus våra utmärkelser från Booking.com.`,
       robots: 'index, follow',
       canonical: 'auto'
     }
@@ -50,7 +50,7 @@ export const guestReviewsCopy = {
       de: `Bewertungen · geprüft am ${airbnbCheckedAtLabel.de}`,
       es: `Reseñas · comprobadas el ${airbnbCheckedAtLabel.es}`,
       nl: `Reviews · gecontroleerd op ${airbnbCheckedAtLabel.nl}`,
-      sv: `Recensioner · kontrollerat ${airbnbCheckedAtLabel.sv}`
+      sv: `Recensioner · kontrollerade ${airbnbCheckedAtLabel.sv}`
     },
     title: {
       en: `${airbnbReviewEvidence.reviewCountLabel} Guest Reviews`,
@@ -60,18 +60,18 @@ export const guestReviewsCopy = {
       sv: `${airbnbReviewEvidence.reviewCountLabel} gästrecensioner`
     },
     lead: {
-      en: 'Quiet nights, spotless rooms, straight answers. Those are the three things guests keep coming back to — and that is what this page is about.',
-      de: 'Ruhige Nächte, saubere Räume, klare Absprachen. Das sind die drei Dinge, die Gäste immer wieder nennen – und darum geht es auf dieser Seite.',
-      es: 'Noches tranquilas, espacios limpios, respuestas claras. Son las tres cosas que los huéspedes repiten una y otra vez, y de eso trata esta página.',
-      nl: 'Rustige nachten, schone kamers, duidelijke afspraken. Dat zijn de drie dingen die gasten steeds opnieuw noemen — en daar gaat deze pagina over.',
-      sv: 'Lugna nätter, rena rum, tydliga besked. Det är de tre saker gästerna återkommer till — och det är vad den här sidan handlar om.'
+      en: 'A good night’s sleep, spotless rooms, and someone who answers quickly. Those are the three things that keep coming up in our reviews.',
+      de: 'Gut geschlafen, alles sauber, und jemand, der schnell antwortet. Das sind die drei Dinge, die in unseren Bewertungen immer wieder auftauchen.',
+      es: 'Dormir bien, todo limpio y alguien que responde rápido. Son las tres cosas que más se repiten en nuestras reseñas.',
+      nl: 'Goed geslapen, alles schoon, en iemand die snel antwoordt. Dat zijn de drie dingen die steeds terugkomen in onze beoordelingen.',
+      sv: 'Sovit gott, allt rent, och någon som svarar snabbt. Det är de tre saker som återkommer i våra omdömen.'
     },
     supportText: {
-      en: 'Every review here comes from a real guest, and you can check them yourself.',
-      de: 'Alle Bewertungen stammen von echten Gästen – und lassen sich nachprüfen.',
-      es: 'Todas las reseñas son de huéspedes reales y se pueden comprobar.',
-      nl: 'Alle beoordelingen komen van echte gasten en zijn na te kijken.',
-      sv: 'Alla omdömen kommer från riktiga gäster och går att kontrollera.'
+      en: 'Every review comes from a real guest — you can read them yourself.',
+      de: 'Alle Bewertungen stammen von echten Gästen – ihr könnt sie selbst nachlesen.',
+      es: 'Todas las reseñas son de huéspedes reales: podéis leerlas vosotros mismos.',
+      nl: 'Alle beoordelingen komen van echte gasten — je kunt ze zelf nalezen.',
+      sv: 'Alla omdömen kommer från riktiga gäster — du kan läsa dem själv.'
     },
     ctaAbout: { en: 'About Us', de: 'Über uns', es: 'Sobre nosotros', nl: 'Over ons', sv: 'Om oss' },
     ctaBenefits: {
@@ -105,11 +105,11 @@ export const guestReviewsCopy = {
       sv: `Källa: värdprofil på Airbnb · kontrollerad ${airbnbCheckedAtLabel.sv}`
     },
     summaryBodyOne: {
-      en: 'Guests write about three things most often: that they slept well, that everything was clean, and that the small things were right.',
-      de: 'Am häufigsten schreiben Gäste über drei Dinge: dass sie gut geschlafen haben, dass alles sauber war und dass die Kleinigkeiten stimmten.',
-      es: 'Los huéspedes hablan sobre todo de tres cosas: que durmieron bien, que todo estaba limpio y que los detalles estaban cuidados.',
-      nl: 'Gasten schrijven het vaakst over drie dingen: dat ze goed geslapen hebben, dat alles schoon was en dat de kleine dingen klopten.',
-      sv: 'Gästerna skriver oftast om tre saker: att de sov gott, att allt var rent och att detaljerna stämde.'
+      en: 'That is usually the whole of it — and it seems to be enough.',
+      de: 'Mehr steht da meistens nicht – und mehr braucht es offenbar auch nicht.',
+      es: 'Rara vez dicen mucho más, y parece que no hace falta.',
+      nl: 'Veel meer staat er meestal niet — en meer blijkt niet nodig.',
+      sv: 'Mycket mer än så står det sällan — och mer verkar inte behövas.'
     },
     quote: {
       en: "This is not just a place to stay - it's a refuge that invites calm, connection, and gratitude.",
@@ -119,11 +119,11 @@ export const guestReviewsCopy = {
       sv: 'Det här är inte bara en plats att bo på - det är en fristad som bjuder in till lugn, närhet och tacksamhet.'
     },
     reviewsTitle: {
-      en: 'Three original guest reviews',
-      de: 'Drei originale Gästebewertungen',
-      es: 'Tres reseñas originales de huéspedes',
-      nl: 'Drie originele gastbeoordelingen',
-      sv: 'Tre originalrecensioner från gäster'
+      en: 'Three guest reviews',
+      de: 'Drei Gästebewertungen',
+      es: 'Tres reseñas de huéspedes',
+      nl: 'Drie gastbeoordelingen',
+      sv: 'Tre gästrecensioner'
     },
     reviewsNote: {
       en: 'Translated from the original.',
@@ -140,11 +140,11 @@ export const guestReviewsCopy = {
       sv: 'Det som gäster återkommande lyfter fram'
     },
     mentionsNote: {
-      en: 'You cannot claim calm. It comes from many small decisions, made the same way every time.',
-      de: 'Ruhe kann man nicht versprechen. Sie entsteht aus vielen kleinen Entscheidungen, die man jedes Mal wieder so trifft.',
-      es: 'La calma no se promete. Nace de muchas decisiones pequeñas, tomadas igual cada vez.',
-      nl: 'Rust kun je niet beloven. Die ontstaat uit veel kleine keuzes, elke keer opnieuw zo gemaakt.',
-      sv: 'Lugn kan man inte lova. Det uppstår ur många små beslut, tagna likadant varje gång.'
+      en: 'Calm is not something you can promise. It comes from many small decisions, made the same way every time.',
+      de: 'Ruhe kann man nicht versprechen. Sie entsteht aus vielen kleinen Entscheidungen – jedes Mal aufs Neue.',
+      es: 'La calma no se promete. Nace de muchas decisiones pequeñas, tomadas siempre de la misma manera.',
+      nl: 'Rust kun je niet beloven. Die ontstaat uit veel kleine keuzes, elke keer opnieuw.',
+      sv: 'Lugn kan man inte lova. Det växer fram ur många små beslut, varje gång på samma sätt.'
     },
     awardsTitle: {
       en: 'Booking.com Traveller Review Awards 2025',
@@ -182,23 +182,23 @@ export const guestReviewsCopy = {
       sv: 'Varje plats har sin egen karaktär — och sina egna omdömen.'
     },
     locationFrigiliana: {
-      en: 'Design apartments in the old town. Quiet, romantic, with a terrace to sit out on.',
-      de: 'Design-Apartments in der Altstadt. Ruhig, romantisch, mit Terrasse zum Sitzenbleiben.',
-      es: 'Apartamentos de diseño en el casco antiguo. Tranquilos, románticos y con terraza para quedarse.',
-      nl: 'Designappartementen in de oude kern. Rustig, romantisch, met een terras om op te blijven zitten.',
-      sv: 'Designlägenheter i gamla byn. Lugnt, romantiskt, med terrass att bli sittande på.'
+      en: 'Design apartments in the old town. Quiet, romantic, with a terrace made for long evenings.',
+      de: 'Design-Apartments in der Altstadt. Ruhig, romantisch, mit Terrasse für lange Abende.',
+      es: 'Apartamentos de diseño en el casco antiguo. Tranquilos, románticos y con terraza para las noches largas.',
+      nl: 'Designappartementen in de oude kern. Rustig, romantisch, met een terras voor lange avonden.',
+      sv: 'Designlägenheter i gamla byn. Lugnt, romantiskt, med terrass för långa kvällar.'
     },
     locationNerja: {
       en: 'A hundred metres from the beach, and quiet all the same. Lift to the door.',
       de: 'Hundert Meter zum Strand und trotzdem ruhig. Aufzug bis vor die Tür.',
       es: 'A cien metros de la playa y aun así tranquilo. Ascensor hasta la puerta.',
       nl: 'Honderd meter van het strand en toch rustig. Lift tot aan de deur.',
-      sv: 'Hundra meter från stranden och ändå tyst. Hiss ända fram till dörren.'
+      sv: 'Hundra meter från stranden och ändå lugnt. Hiss ända fram till dörren.'
     },
     locationTarifa: {
       en: 'Wind, wide horizons and light. Outdoors by day, quiet in the evening.',
       de: 'Wind, Weite und Licht. Tagsüber draußen, abends zur Ruhe kommen.',
-      es: 'Viento, horizontes abiertos y luz. Fuera de día, calma por la tarde.',
+      es: 'Viento, horizontes abiertos y luz. Fuera de día, calma al caer la tarde.',
       nl: 'Wind, wijde horizonten en licht. Overdag buiten, ’s avonds tot rust komen.',
       sv: 'Vind, vida horisonter och ljus. Ute på dagen, lugnt på kvällen.'
     },
@@ -218,11 +218,11 @@ export const guestReviewsCopy = {
       sv: 'Se tillgänglighet'
     },
     ctaExplore: {
-      en: 'Explore locations',
-      de: 'Standorte entdecken',
-      es: 'Explorar ubicaciones',
-      nl: 'Locaties ontdekken',
-      sv: 'Utforska platser'
+      en: 'Explore the places',
+      de: 'Orte entdecken',
+      es: 'Descubrir los destinos',
+      nl: 'Plekken ontdekken',
+      sv: 'Utforska platserna'
     },
     ctaBenefits: {
       en: 'Direct booking benefits',
@@ -284,39 +284,39 @@ export const guestReviewsCopy = {
   ],
   proofPoints: {
     en: [
-      'Exceptional cleanliness - Spotless preparation, consistently confirmed.',
-      'Quiet nights & deep sleep - Sleep comfort guests notice immediately.',
-      'Comfort details that feel "easy" - Practical design choices, not show-room styling.',
-      'Fast, clear communication - Direct answers, reliable coordination.',
-      'Space, light & terraces - A stay that feels calm to inhabit.'
+      'Cleanliness - The one thing that comes up most often in the reviews.',
+      'Quiet nights - Guests write again and again about how well they slept.',
+      'The small things - What you need is there. You do not have to go looking for it.',
+      'Quick answers - Ask a question and Robert replies himself, and soon.',
+      'Light, space and terraces - The reason people end up sitting outside longer than planned.'
     ],
     de: [
-      'Außergewöhnliche Sauberkeit - Makellose Vorbereitung, immer wieder bestätigt.',
-      'Ruhige Nächte & tiefer Schlaf - Schlafkomfort, den Gäste sofort spüren.',
-      'Komfortdetails, die sich leicht anfühlen - Praktische Entscheidungen statt Showroom-Inszenierung.',
-      'Schnelle, klare Kommunikation - Direkte Antworten und verlässliche Abstimmung.',
-      'Raum, Licht & Terrassen - Ein Aufenthalt, der spürbar Ruhe vermittelt.'
+      'Sauberkeit - Der Punkt, der in den Bewertungen am häufigsten auftaucht.',
+      'Ruhige Nächte - Gäste schreiben immer wieder, wie gut sie hier geschlafen haben.',
+      'Die kleinen Dinge - Was man braucht, ist da. Man muss nicht danach suchen.',
+      'Schnelle Antworten - Bei Fragen meldet sich Robert selbst, und zwar zügig.',
+      'Licht, Raum und Terrassen - Der Grund, warum viele länger draußen sitzen als geplant.'
     ],
     es: [
-      'Limpieza excepcional - Preparación impecable, confirmada de forma constante.',
-      'Noches tranquilas y descanso profundo - Un confort de sueño que se percibe enseguida.',
-      'Detalles de confort que hacen todo fácil - Decisiones prácticas, no decoración de escaparate.',
-      'Comunicación rápida y clara - Respuestas directas y coordinación fiable.',
-      'Espacio, luz y terrazas - Una estancia que se vive con calma.'
+      'Limpieza - Es lo que más se repite en las reseñas.',
+      'Noches tranquilas - Los huéspedes cuentan una y otra vez lo bien que han dormido.',
+      'Los pequeños detalles - Lo que hace falta está ahí. No hay que buscarlo.',
+      'Respuestas rápidas - Si preguntáis, contesta Robert en persona, y pronto.',
+      'Luz, espacio y terrazas - Por eso muchos se quedan fuera más tiempo del previsto.'
     ],
     nl: [
-      'Uitzonderlijke netheid - Onberispelijke voorbereiding, keer op keer bevestigd.',
-      'Stille nachten en diepe slaap - Slaapcomfort dat gasten direct opmerken.',
-      'Comfortdetails die moeiteloos aanvoelen - Praktische keuzes, geen show-roomstyling.',
-      'Snelle, heldere communicatie - Directe antwoorden en betrouwbare afstemming.',
-      'Ruimte, licht en terrassen - Een verblijf dat merkbaar rust geeft.'
+      'Schoon - Het punt dat het vaakst terugkomt in de beoordelingen.',
+      'Rustige nachten - Gasten schrijven keer op keer hoe goed ze geslapen hebben.',
+      'De kleine dingen - Wat je nodig hebt, is er. Je hoeft er niet naar te zoeken.',
+      'Snel antwoord - Wie iets vraagt, krijgt antwoord van Robert zelf, en snel.',
+      'Licht, ruimte en terrassen - Daarom blijven veel gasten langer buiten zitten dan gepland.'
     ],
     sv: [
-      'Exceptionell renlighet - Skinande förberedelse, konsekvent bekräftad.',
-      'Lugna nätter och djup sömn - Sovkomfort som gäster märker direkt.',
-      'Komfortdetaljer som känns enkla - Praktiska val, inte show-roomstyling.',
-      'Snabb och tydlig kommunikation - Direkta svar och pålitlig samordning.',
-      'Rymd, ljus och terrasser - En vistelse som präglas av lugn.'
+      'Rent - Det som återkommer oftast i omdömena.',
+      'Lugna nätter - Gästerna skriver gång på gång hur bra de har sovit.',
+      'De små sakerna - Det man behöver finns där. Man behöver inte leta.',
+      'Snabba svar - Den som frågar får svar av Robert själv, och det går fort.',
+      'Ljus, rymd och terrasser - Därför blir många sittande ute längre än de tänkt.'
     ]
   },
   awards: {
