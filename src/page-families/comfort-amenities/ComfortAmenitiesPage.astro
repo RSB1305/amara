@@ -7,6 +7,8 @@ import AmenitySpecRow, {
   type AmenitySpecIcon
 } from '../../components/amenities/AmenitySpecRow.astro';
 import {
+  comfortAmenityExclusionsByPropertyId,
+  comfortAmenityOverridesByPropertyId,
   comfortAmenityCategoryOptions,
   comfortAmenityFilterCopy,
   expandedComfortAmenities,
@@ -178,14 +180,26 @@ const buildKeyFactRows = (property: Property): AmenityRow[] => [
 ];
 const buildFilterableAmenityRows = (property: Property): AmenityRow[] => {
   if (!expandedComfortAmenityPropertyIds.has(property.id)) return [];
+  const exclusions = comfortAmenityExclusionsByPropertyId[property.id];
+  const overrides = comfortAmenityOverridesByPropertyId[property.id];
+  const amenities = expandedComfortAmenities.filter((amenity) => (
+    !exclusions?.categories?.includes(amenity.category)
+    && !exclusions?.keys?.includes(amenity.key)
+  ));
 
   return [
-    ...expandedComfortAmenities.map((amenity) => ({
-      icon: amenity.icon,
-      label: amenity.title[currentLang],
-      value: amenity.description?.[currentLang],
-      category: amenity.category
-    })),
+    ...amenities.map((amenity) => {
+      const override = overrides?.[amenity.key];
+
+      return {
+        icon: amenity.icon,
+        label: override?.title?.[currentLang] ?? amenity.title[currentLang],
+        value: override && 'description' in override
+          ? override.description?.[currentLang]
+          : amenity.description?.[currentLang],
+        category: amenity.category
+      };
+    }),
     ...(property.specs.hammock
       ? [{
           icon: 'hammock' as const,
@@ -216,31 +230,36 @@ const propertyFilters = [
     label: property.name.replace(/^AMARA\s+/, '').replace(/,\s.*$/, '')
   }))
 ];
-const closingCopy: Record<AmaraLanguage, { title: string; lead: string; explore: string }> = {
+const closingCopy: Record<AmaraLanguage, { title: string; lead: string; primary: string; explore: string }> = {
   en: {
-    title: 'Choose your AMARA stay with clarity',
-    lead: 'Compare the practical details, then review availability or explore the complete apartment collection.',
-    explore: 'Explore apartments'
+    title: 'Find the AMARA stay that suits you.',
+    lead: 'Compare the details that matter to you, then check availability or explore all AMARA stays.',
+    primary: 'Book direct',
+    explore: 'Explore all stays'
   },
   de: {
-    title: 'Wählt euren AMARA-Aufenthalt mit Klarheit',
-    lead: 'Vergleicht die praktischen Details und prüft anschließend die Verfügbarkeit oder entdeckt die gesamte Apartment-Kollektion.',
-    explore: 'Apartments entdecken'
+    title: 'Findet die AMARA-Unterkunft, die zu euch passt.',
+    lead: 'Vergleicht die Details, die euch wichtig sind, und prüft anschließend die Verfügbarkeit oder entdeckt alle AMARA-Unterkünfte.',
+    primary: 'Direkt buchen',
+    explore: 'Alle Unterkünfte entdecken'
   },
   es: {
-    title: 'Elegid vuestra estancia AMARA con claridad',
-    lead: 'Comparad los detalles prácticos y consultad después la disponibilidad o descubrid toda la colección de apartamentos.',
-    explore: 'Descubrir apartamentos'
+    title: 'Encontrad el alojamiento AMARA que mejor os encaja.',
+    lead: 'Comparad los detalles que más os importan y consultad después la disponibilidad o descubrid todos los alojamientos AMARA.',
+    primary: 'Reservar directamente',
+    explore: 'Descubrir todos los alojamientos'
   },
   nl: {
-    title: 'Kies jullie AMARA-verblijf met vertrouwen',
-    lead: 'Vergelijk de praktische details en bekijk daarna de beschikbaarheid of ontdek de volledige appartementencollectie.',
-    explore: 'Appartementen ontdekken'
+    title: 'Vind het AMARA-verblijf dat bij jullie past.',
+    lead: 'Vergelijk de details die voor jullie belangrijk zijn en bekijk daarna de beschikbaarheid of ontdek alle AMARA-verblijven.',
+    primary: 'Direct boeken',
+    explore: 'Alle verblijven ontdekken'
   },
   sv: {
-    title: 'Välj er AMARA-vistelse med tydlig information',
-    lead: 'Jämför de praktiska detaljerna och kontrollera sedan tillgängligheten eller upptäck hela lägenhetskollektionen.',
-    explore: 'Upptäck lägenheterna'
+    title: 'Hitta det AMARA-boende som passar er.',
+    lead: 'Jämför detaljerna som är viktiga för er och kontrollera sedan tillgängligheten eller upptäck alla AMARA-boenden.',
+    primary: 'Boka direkt',
+    explore: 'Upptäck alla boenden'
   }
 };
 const closing = closingCopy[currentLang];
@@ -254,7 +273,7 @@ const heroCtaLinks = [
   })
   .filter((link): link is { href: string; label: string } => Boolean(link));
 const closingCtaLinks = [
-  { token: 'book', label: page.inventory.directBooking, style: 'primary' as const },
+  { token: 'book', label: closing.primary, style: 'primary' as const },
   { token: 'romantic_hideaways', label: closing.explore, style: 'secondary' as const }
 ];
 ---
@@ -418,7 +437,7 @@ const closingCtaLinks = [
           "geo_location": { "latitude": 36.793167, "longitude": -3.899100, "precision": "APPROXIMATE" },
           "capacity": { "max_total": 2, "max_adults": 2, "max_children": 0 },
           "bedrooms": [{ "id": "room_1", "type": "BEDROOM", "beds": [{ "type": "QUEEN", "width_cm": 160, "count": 1 }] }],
-          "amenities": { "wifi": { "available": true, "speed_mbps": 500 }, "ac": false, "kitchen": false, "bbq_outdoor_kitchen": false, "parking": "STREET_FREE", "pool": false },
+          "amenities": { "wifi": { "available": true, "speed_mbps": 1000 }, "ac": true, "kitchen": false, "bbq_outdoor_kitchen": false, "parking": "STREET_FREE", "pool": false },
           "media_assets": [
             { "url": "https://l.icdbcdn.com/oh/3c79ee18-d231-4066-bbce-1b20c4732057.jpg", "category": "BEDROOM", "caption": "Main bedroom" },
             { "url": "https://l.icdbcdn.com/oh/70aa180a-e374-4fae-bf3c-4fc3f8a34be3.jpg", "category": "BEDROOM", "caption": "Bedroom detail" },
@@ -439,7 +458,7 @@ const closingCtaLinks = [
           "geo_location": { "latitude": 36.793167, "longitude": -3.899100, "precision": "APPROXIMATE" },
           "capacity": { "max_total": 2, "max_adults": 2, "max_children": 0 },
           "bedrooms": [{ "id": "room_1", "type": "BEDROOM", "beds": [{ "type": "QUEEN", "width_cm": 160, "count": 1 }] }],
-          "amenities": { "wifi": { "available": true, "speed_mbps": 500 }, "ac": true, "kitchen": true, "parking": "STREET_FREE", "pool": false },
+          "amenities": { "wifi": { "available": true, "speed_mbps": 1000 }, "ac": true, "kitchen": true, "parking": "STREET_FREE", "pool": false },
           "media_assets": [
             { "url": "https://l.icdbcdn.com/oh/882b7732-0b8a-4d00-b9af-16271f78d09e.jpg", "category": "LIVING_ROOM" },
             { "url": "https://l.icdbcdn.com/oh/dcfb565e-ce7b-4587-97e4-f79fa7a3316c.jpg", "category": "LIVING_ROOM" },
@@ -462,7 +481,7 @@ const closingCtaLinks = [
           "geo_location": { "latitude": 36.793167, "longitude": -3.899100, "precision": "APPROXIMATE" },
           "capacity": { "max_total": 2, "max_adults": 2, "max_children": 0 },
           "bedrooms": [{ "id": "room_1", "type": "BEDROOM", "beds": [{ "type": "KING", "width_cm": 180, "count": 1 }] }],
-          "amenities": { "wifi": { "available": true, "speed_mbps": 500 }, "ac": true, "kitchen": true, "parking": "STREET_FREE", "pool": false },
+          "amenities": { "wifi": { "available": true, "speed_mbps": 1000 }, "ac": true, "kitchen": true, "parking": "STREET_FREE", "pool": false },
           "media_assets": [
             { "url": "https://l.icdbcdn.com/oh/b0a643b5-8b96-49f2-85ce-03280234b6b5.jpg", "category": "KITCHEN" },
             { "url": "https://l.icdbcdn.com/oh/0c78445f-caaa-493d-b35b-e820306731d6.jpg", "category": "BEDROOM" },
@@ -485,7 +504,7 @@ const closingCtaLinks = [
           "geo_location": { "latitude": 36.793167, "longitude": -3.899100, "precision": "APPROXIMATE" },
           "capacity": { "max_total": 2, "max_adults": 2, "max_children": 0 },
           "bedrooms": [{ "id": "room_1", "type": "BEDROOM", "beds": [{ "type": "DOUBLE", "width_cm": 150, "count": 1 }] }],
-          "amenities": { "wifi": { "available": true, "speed_mbps": 500 }, "ac": true, "kitchen": true, "bbq_outdoor_kitchen": true, "parking": "STREET_FREE", "pool": false },
+          "amenities": { "wifi": { "available": true, "speed_mbps": 1000 }, "ac": true, "kitchen": true, "bbq_outdoor_kitchen": true, "parking": "STREET_FREE", "pool": false },
           "media_assets": [
             { "url": "https://l.icdbcdn.com/oh/3e9884fa-4453-4aa8-8dae-fb54d6a87456.jpg", "category": "LIVING_ROOM" },
             { "url": "https://l.icdbcdn.com/oh/eb415dfc-5dfd-465a-a01d-5d734ed443f0.jpg", "category": "BEDROOM" },
@@ -508,7 +527,7 @@ const closingCtaLinks = [
           "geo_location": { "latitude": 36.743558, "longitude": -3.880520, "precision": "APPROXIMATE" },
           "capacity": { "max_total": 2, "max_adults": 2, "max_children": 0 },
           "bedrooms": [{ "id": "room_1", "type": "BEDROOM", "beds": [{ "type": "KING", "width_cm": 200, "count": 1 }] }],
-          "amenities": { "wifi": { "available": true, "speed_mbps": 500 }, "ac": true, "kitchen": true, "parking": "STREET_FREE", "pool": false },
+          "amenities": { "wifi": { "available": true, "speed_mbps": 1000 }, "ac": true, "kitchen": true, "parking": "STREET_FREE", "pool": false },
           "media_assets": [
             { "url": "https://l.icdbcdn.com/oh/46e112f1-729d-4a76-9c7a-df53cb2e2626.jpg", "category": "LIVING_ROOM" },
             { "url": "https://l.icdbcdn.com/oh/1d30236b-db68-4a67-978b-2fb8e0471151.jpg", "category": "KITCHEN" },
@@ -534,7 +553,7 @@ const closingCtaLinks = [
             { "id": "room_1", "type": "BEDROOM", "beds": [{ "type": "DOUBLE", "width_cm": 150, "count": 1 }] },
             { "id": "room_2", "type": "BEDROOM", "beds": [{ "type": "BUNK", "width_cm": 90, "count": 1 }] }
           ],
-          "amenities": { "wifi": { "available": true, "speed_mbps": 500 }, "ac": true, "kitchen": true, "bbq_outdoor_kitchen": true, "parking": "PRIVATE_INCLUDED", "pool": true },
+          "amenities": { "wifi": { "available": true, "speed_mbps": 1000 }, "ac": true, "kitchen": true, "bbq_outdoor_kitchen": true, "parking": "PRIVATE_INCLUDED", "pool": true },
           "media_assets": [
             { "url": "https://l.icdbcdn.com/oh/aa11c018-1653-4e74-9bcc-831dc0f8a3e7.jpg", "category": "LIVING_ROOM" },
             { "url": "https://l.icdbcdn.com/oh/022e8835-f90b-4ac1-87ca-576ce3aecf74.jpg", "category": "LIVING_ROOM" },

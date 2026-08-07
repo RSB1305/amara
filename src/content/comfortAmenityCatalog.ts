@@ -28,6 +28,22 @@ export type ComfortAmenityDefinition = {
   description?: LocalizedText;
 };
 
+type ComfortAmenityOverride = {
+  title?: LocalizedText;
+  description?: LocalizedText | null;
+};
+
+const pelletStoveOverride: ComfortAmenityOverride = {
+  title: {
+    en: 'Pellet stove',
+    de: 'Pelletofen',
+    es: 'Estufa de pellets',
+    nl: 'Pelletkachel',
+    sv: 'Pelletskamin'
+  },
+  description: null
+};
+
 export const comfortAmenityFilterCopy: Record<
   AmaraLanguage,
   {
@@ -39,39 +55,39 @@ export const comfortAmenityFilterCopy: Record<
   }
 > = {
   en: {
-    propertyLabel: 'Filter by accommodation',
-    allProperties: 'All accommodations',
-    amenityLabel: 'Filter amenities',
+    propertyLabel: 'Choose a stay',
+    allProperties: 'All stays',
+    amenityLabel: 'Filter by amenity',
     amenityHeading: 'Amenities',
-    noResults: 'No amenities match this filter combination.'
+    noResults: 'No amenities match your current filters.'
   },
   de: {
-    propertyLabel: 'Unterkunft filtern',
+    propertyLabel: 'Unterkunft auswählen',
     allProperties: 'Alle Unterkünfte',
     amenityLabel: 'Ausstattung filtern',
     amenityHeading: 'Ausstattung',
-    noResults: 'Keine Ausstattung passt zu dieser Filterkombination.'
+    noResults: 'Keine Ausstattung entspricht der aktuellen Filterauswahl.'
   },
   es: {
-    propertyLabel: 'Filtrar por alojamiento',
+    propertyLabel: 'Elegid un alojamiento',
     allProperties: 'Todos los alojamientos',
-    amenityLabel: 'Filtrar servicios',
-    amenityHeading: 'Servicios',
-    noResults: 'Ningún servicio coincide con esta combinación de filtros.'
+    amenityLabel: 'Filtrar por equipamiento',
+    amenityHeading: 'Equipamiento',
+    noResults: 'Ningún elemento del equipamiento coincide con los filtros seleccionados.'
   },
   nl: {
-    propertyLabel: 'Accommodatie filteren',
-    allProperties: 'Alle accommodaties',
-    amenityLabel: 'Voorzieningen filteren',
+    propertyLabel: 'Kies een verblijf',
+    allProperties: 'Alle verblijven',
+    amenityLabel: 'Filter op voorziening',
     amenityHeading: 'Voorzieningen',
-    noResults: 'Geen voorzieningen passen bij deze filtercombinatie.'
+    noResults: 'Geen voorzieningen komen overeen met de geselecteerde filters.'
   },
   sv: {
-    propertyLabel: 'Filtrera boende',
+    propertyLabel: 'Välj boende',
     allProperties: 'Alla boenden',
-    amenityLabel: 'Filtrera bekvämligheter',
+    amenityLabel: 'Filtrera efter bekvämlighet',
     amenityHeading: 'Bekvämligheter',
-    noResults: 'Inga bekvämligheter matchar den här filterkombinationen.'
+    noResults: 'Inga bekvämligheter matchar de valda filtren.'
   }
 };
 
@@ -87,7 +103,7 @@ export const comfortAmenityCategoryOptions: ComfortAmenityCategoryOption[] = [
       de: 'Grundausstattung',
       es: 'Elementos básicos',
       nl: 'Basisvoorzieningen',
-      sv: 'Grundläggande bekvämligheter'
+      sv: 'Basutrustning'
     }
   },
   {
@@ -98,9 +114,9 @@ export const comfortAmenityCategoryOptions: ComfortAmenityCategoryOption[] = [
     key: 'bedroom-laundry',
     label: {
       en: 'Bedroom & laundry',
-      de: 'Schlafzimmer und Wäsche',
-      es: 'Dormitorio y lavandería',
-      nl: 'Slaapkamer en wasruimte',
+      de: 'Schlafzimmer & Wäsche',
+      es: 'Dormitorio y ropa',
+      nl: 'Slaapkamer & wasgoed',
       sv: 'Sovrum och tvätt'
     }
   },
@@ -118,7 +134,7 @@ export const comfortAmenityCategoryOptions: ComfortAmenityCategoryOption[] = [
     key: 'heating-cooling',
     label: {
       en: 'Heating & cooling',
-      de: 'Heizung und Klimaanlage',
+      de: 'Heizung & Klimaanlage',
       es: 'Calefacción y aire acondicionado',
       nl: 'Verwarming en airconditioning',
       sv: 'Värme och luftkonditionering'
@@ -128,7 +144,7 @@ export const comfortAmenityCategoryOptions: ComfortAmenityCategoryOption[] = [
     key: 'home-safety',
     label: {
       en: 'Home safety',
-      de: 'Sicheres Zuhause',
+      de: 'Sicherheit',
       es: 'Seguridad en el alojamiento',
       nl: 'Veiligheid in huis',
       sv: 'Säkerhet i boendet'
@@ -137,10 +153,10 @@ export const comfortAmenityCategoryOptions: ComfortAmenityCategoryOption[] = [
   {
     key: 'internet-office',
     label: {
-      en: 'Internet & office',
-      de: 'Internet und Büro',
+      en: 'Internet & workspace',
+      de: 'Internet & Arbeiten',
       es: 'Internet y espacio de trabajo',
-      nl: 'Internet en kantoor',
+      nl: 'Internet & werkplek',
       sv: 'Internet och arbetsplats'
     }
   },
@@ -148,7 +164,7 @@ export const comfortAmenityCategoryOptions: ComfortAmenityCategoryOption[] = [
     key: 'kitchen-dining',
     label: {
       en: 'Kitchen & dining',
-      de: 'Küche und Esszimmer',
+      de: 'Küche & Essbereich',
       es: 'Cocina y comedor',
       nl: 'Keuken en eetruimte',
       sv: 'Kök och matplats'
@@ -168,7 +184,7 @@ export const comfortAmenityCategoryOptions: ComfortAmenityCategoryOption[] = [
     key: 'facilities',
     label: {
       en: 'Facilities',
-      de: 'Ausstattung',
+      de: 'Weitere Ausstattung',
       es: 'Instalaciones',
       nl: 'Faciliteiten',
       sv: 'Faciliteter'
@@ -181,12 +197,64 @@ export const comfortAmenityCategoryOptions: ComfortAmenityCategoryOption[] = [
  * Farah is intentionally excluded because it retains its smaller, verified inventory.
  */
 export const expandedComfortAmenityPropertyIds = new Set([
+  '408326',
   '408324',
   '408323',
   '408325',
   '408327',
   '544478'
 ]);
+
+export const comfortAmenityExclusionsByPropertyId: Record<
+  string,
+  { categories?: ComfortAmenityCategory[]; keys?: string[] }
+> = {
+  '408326': {
+    categories: ['outdoor'],
+    keys: [
+      'washing-machine',
+      'fireplace',
+      'carbon-monoxide-alarm',
+      'stove',
+      'microwave',
+      'cooking-basics',
+      'kitchen'
+    ]
+  },
+  '408327': {
+    keys: ['outdoor-shower', 'fireplace', 'sun-loungers', 'carbon-monoxide-alarm']
+  },
+  '544478': {
+    keys: ['outdoor-shower', 'sun-loungers']
+  }
+};
+
+export const comfortAmenityOverridesByPropertyId: Record<
+  string,
+  Record<string, ComfortAmenityOverride>
+> = {
+  '408324': {
+    fireplace: pelletStoveOverride
+  },
+  '408323': {
+    fireplace: pelletStoveOverride
+  },
+  '408325': {
+    fireplace: pelletStoveOverride
+  },
+  '544478': {
+    fireplace: {
+      title: {
+        en: 'Wood-burning fireplace',
+        de: 'Scheitholzkamin',
+        es: 'Chimenea de leña',
+        nl: 'Houtgestookte open haard',
+        sv: 'Vedeldad eldstad'
+      },
+      description: null
+    }
+  }
+};
 
 export const expandedComfortAmenities: ComfortAmenityDefinition[] = [
   {
@@ -195,9 +263,9 @@ export const expandedComfortAmenities: ComfortAmenityDefinition[] = [
     icon: 'clothing-storage',
     title: {
       en: 'Clothing storage',
-      de: 'Aufbewahrung von Kleidung',
-      es: 'Espacio para guardar la ropa',
-      nl: 'Kledingopslag',
+      de: 'Stauraum für Kleidung',
+      es: 'Espacio para la ropa',
+      nl: 'Opbergruimte voor kleding',
       sv: 'Klädförvaring'
     }
   },
@@ -211,27 +279,13 @@ export const expandedComfortAmenities: ComfortAmenityDefinition[] = [
       es: 'Ducha exterior',
       nl: 'Buitendouche',
       sv: 'Utomhusdusch'
-    },
-    description: {
-      en: 'An outdoor place to bathe under a stream of water.',
-      de: 'Ein im Freien befindlicher Ort zum Baden unter einem Wasserstrahl.',
-      es: 'Un espacio al aire libre para ducharse bajo un chorro de agua.',
-      nl: 'Een plek buiten om onder een waterstraal te douchen.',
-      sv: 'En plats utomhus där du kan duscha under rinnande vatten.'
     }
   },
   {
     key: 'crib',
     category: 'bedroom-laundry',
     icon: 'crib',
-    title: { en: 'Crib', de: 'Babybett', es: 'Cuna', nl: 'Babybedje', sv: 'Spjälsäng' },
-    description: {
-      en: 'A small bed frame with a mattress and high sides for a baby or toddler.',
-      de: 'Ein kleines Bettgestell mit einer Matratze und hohen Seitenwänden für ein Baby oder Kleinkind.',
-      es: 'Una pequeña estructura de cama con colchón y laterales altos para un bebé o un niño pequeño.',
-      nl: 'Een klein bedframe met een matras en hoge zijkanten voor een baby of peuter.',
-      sv: 'En liten säng med madrass och höga sidor för ett spädbarn eller småbarn.'
-    }
+    title: { en: 'Crib', de: 'Babybett', es: 'Cuna', nl: 'Babybedje', sv: 'Spjälsäng' }
   },
   {
     key: 'bed-linens',
@@ -279,13 +333,6 @@ export const expandedComfortAmenities: ComfortAmenityDefinition[] = [
       es: 'Zona de comedor al aire libre',
       nl: 'Eethoek buiten',
       sv: 'Matplats utomhus'
-    },
-    description: {
-      en: 'An outdoor dining area.',
-      de: 'Ein Essbereich im Freien.',
-      es: 'Una zona de comedor al aire libre.',
-      nl: 'Een eethoek in de buitenlucht.',
-      sv: 'En matplats utomhus.'
     }
   },
   {
@@ -422,14 +469,7 @@ export const expandedComfortAmenities: ComfortAmenityDefinition[] = [
     key: 'heating',
     category: 'heating-cooling',
     icon: 'heating',
-    title: { en: 'Heating', de: 'Heizung', es: 'Calefacción', nl: 'Verwarming', sv: 'Uppvärmning' },
-    description: {
-      en: 'A device used to heat a room.',
-      de: 'Ein Gerät zur Beheizung eines Raumes.',
-      es: 'Un dispositivo para calentar una estancia.',
-      nl: 'Een apparaat om een ruimte te verwarmen.',
-      sv: 'En enhet som används för att värma upp ett rum.'
-    }
+    title: { en: 'Heating', de: 'Heizung', es: 'Calefacción', nl: 'Verwarming', sv: 'Uppvärmning' }
   },
   {
     key: 'stove',
@@ -505,27 +545,13 @@ export const expandedComfortAmenities: ComfortAmenityDefinition[] = [
       es: 'Detector de monóxido de carbono',
       nl: 'Koolmonoxidemelder',
       sv: 'Kolmonoxidlarm'
-    },
-    description: {
-      en: 'A device that sounds an alarm when it detects a dangerous concentration of carbon monoxide. Check your local laws, which may require a working carbon monoxide alarm in the accommodation.',
-      de: 'Ein Gerät, das einen Alarm auslöst, wenn es eine gefährliche Kohlenmonoxidkonzentration registriert. Prüft die örtlichen Vorschriften, die möglicherweise einen funktionierenden Kohlenmonoxidmelder in der Unterkunft vorschreiben.',
-      es: 'Un dispositivo que emite una alarma cuando detecta una concentración peligrosa de monóxido de carbono. Consultad la normativa local, que puede exigir un detector de monóxido de carbono operativo en el alojamiento.',
-      nl: 'Een apparaat dat alarm slaat wanneer het een gevaarlijke concentratie koolmonoxide detecteert. Controleer de plaatselijke wetgeving, die mogelijk een werkende koolmonoxidemelder in de accommodatie verplicht stelt.',
-      sv: 'En enhet som larmar när den registrerar en farlig koncentration av kolmonoxid. Kontrollera lokala regler, som kan kräva ett fungerande kolmonoxidlarm i boendet.'
     }
   },
   {
     key: 'kitchen',
     category: 'kitchen-dining',
     icon: 'kitchen',
-    title: { en: 'Kitchen', de: 'Küche', es: 'Cocina', nl: 'Keuken', sv: 'Kök' },
-    description: {
-      en: 'A room for preparing meals with at least a refrigerator, oven and cooktop.',
-      de: 'Ein Raum zum Kochen von Mahlzeiten, der mindestens einen Kühlschrank, einen Ofen und ein Kochfeld enthält.',
-      es: 'Una estancia para preparar comidas que incluye al menos frigorífico, horno y placa de cocina.',
-      nl: 'Een ruimte om maaltijden te bereiden met ten minste een koelkast, oven en kookplaat.',
-      sv: 'Ett rum för matlagning med minst kylskåp, ugn och spishäll.'
-    }
+    title: { en: 'Kitchen', de: 'Küche', es: 'Cocina', nl: 'Keuken', sv: 'Kök' }
   },
   {
     key: 'refrigerator',
@@ -537,7 +563,7 @@ export const expandedComfortAmenities: ComfortAmenityDefinition[] = [
     key: 'sun-loungers',
     category: 'outdoor',
     icon: 'sun-loungers',
-    title: { en: 'Sun loungers', de: 'Liegestühle', es: 'Tumbonas', nl: 'Ligstoelen', sv: 'Solstolar' }
+    title: { en: 'Sun loungers', de: 'Sonnenliegen', es: 'Tumbonas', nl: 'Ligstoelen', sv: 'Solstolar' }
   },
   {
     key: 'microwave',
@@ -573,13 +599,6 @@ export const expandedComfortAmenities: ComfortAmenityDefinition[] = [
       es: 'Detector de humo',
       nl: 'Rookmelder',
       sv: 'Brandvarnare'
-    },
-    description: {
-      en: 'A device that sounds an alarm when it detects smoke. Check your local laws, which may require a working smoke alarm in the accommodation.',
-      de: 'Ein Gerät, das einen Alarm auslöst, wenn es Rauch registriert. Prüft die örtlichen Vorschriften, die möglicherweise einen funktionierenden Rauchmelder in der Unterkunft vorschreiben.',
-      es: 'Un dispositivo que emite una alarma cuando detecta humo. Consultad la normativa local, que puede exigir un detector de humo operativo en el alojamiento.',
-      nl: 'Een apparaat dat alarm slaat wanneer het rook detecteert. Controleer de plaatselijke wetgeving, die mogelijk een werkende rookmelder in de accommodatie verplicht stelt.',
-      sv: 'En enhet som larmar när den registrerar rök. Kontrollera lokala regler, som kan kräva en fungerande brandvarnare i boendet.'
     }
   },
   {
@@ -618,12 +637,11 @@ export const expandedComfortAmenities: ComfortAmenityDefinition[] = [
     icon: 'workspace',
     title: {
       en: 'Dedicated workspace',
-      de: 'Spezieller Arbeitsplatz',
-      es: 'Zona de trabajo exclusiva',
-      nl: 'Speciale werkplek',
-      sv: 'Särskild arbetsplats'
-    },
-    description: { en: 'Private.', de: 'Privat.', es: 'Privada.', nl: 'Privé.', sv: 'Privat.' }
+      de: 'Eigener Arbeitsbereich',
+      es: 'Espacio de trabajo',
+      nl: 'Eigen werkplek',
+      sv: 'Egen arbetsplats'
+    }
   },
   {
     key: 'patio-balcony',
@@ -648,14 +666,7 @@ export const expandedComfortAmenities: ComfortAmenityDefinition[] = [
     key: 'hot-water',
     category: 'bathroom',
     icon: 'hot-water',
-    title: { en: 'Hot water', de: 'Warmwasser', es: 'Agua caliente', nl: 'Warm water', sv: 'Varmvatten' },
-    description: {
-      en: 'Water from the sink and shower or bathtub that is warm enough for washing.',
-      de: 'Wasser aus dem Waschbecken und der Dusche oder Badewanne, das warm genug zum Waschen ist.',
-      es: 'Agua del lavabo y de la ducha o bañera con una temperatura suficiente para lavarse.',
-      nl: 'Water uit de wastafel en douche of het bad dat warm genoeg is om je te wassen.',
-      sv: 'Vatten från handfatet och duschen eller badkaret som är tillräckligt varmt för att tvätta sig.'
-    }
+    title: { en: 'Hot water', de: 'Warmwasser', es: 'Agua caliente', nl: 'Warm water', sv: 'Varmvatten' }
   },
   {
     key: 'washing-machine',
@@ -663,11 +674,11 @@ export const expandedComfortAmenities: ComfortAmenityDefinition[] = [
     icon: 'washing-machine',
     title: { en: 'Washing machine', de: 'Waschmaschine', es: 'Lavadora', nl: 'Wasmachine', sv: 'Tvättmaskin' },
     description: {
-      en: 'Included with your stay · In the accommodation.',
-      de: 'Bei eurem Aufenthalt inbegriffen · In der Unterkunft.',
-      es: 'Incluida en la estancia · En el alojamiento.',
-      nl: 'Inbegrepen bij het verblijf · In de accommodatie.',
-      sv: 'Ingår i vistelsen · I boendet.'
+      en: 'In the accommodation.',
+      de: 'In der Unterkunft.',
+      es: 'En el alojamiento.',
+      nl: 'In de accommodatie.',
+      sv: 'I boendet.'
     }
   },
   {
@@ -687,7 +698,7 @@ export const expandedComfortAmenities: ComfortAmenityDefinition[] = [
     category: 'internet-office',
     icon: 'wifi',
     title: { en: 'Wi-Fi', de: 'WLAN', es: 'Wifi', nl: 'Wifi', sv: 'Wifi' },
-    description: { en: '356 Mbps.', de: '356 Mbit/s.', es: '356 Mbit/s.', nl: '356 Mbit/s.', sv: '356 Mbit/s.' }
+    description: { en: '1 Gbps.', de: '1 Gbit/s.', es: '1 Gbit/s.', nl: '1 Gbit/s.', sv: '1 Gbit/s.' }
   },
   {
     key: 'drying-rack',
@@ -695,10 +706,10 @@ export const expandedComfortAmenities: ComfortAmenityDefinition[] = [
     icon: 'drying-rack',
     title: {
       en: 'Clothes drying rack',
-      de: 'Wäscheständer für Kleidung',
-      es: 'Tendedero para ropa',
-      nl: 'Droogrek voor kleding',
-      sv: 'Torkställning för kläder'
+      de: 'Wäscheständer',
+      es: 'Tendedero',
+      nl: 'Droogrek',
+      sv: 'Torkställning'
     }
   },
   {
