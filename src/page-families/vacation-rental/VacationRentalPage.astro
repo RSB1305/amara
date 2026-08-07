@@ -773,6 +773,13 @@ const galleryImages = visibleImages.slice(1);
                     {visibleAddress}
                   </a>
                 </dd>
+                {
+                  rental.addressNote && (
+                    <dd class="am-text-body text-on-surface-variant mt-3 leading-relaxed">
+                      {t(rental.addressNote)}
+                    </dd>
+                  )
+                }
               </div>
             </dl>
           </div>

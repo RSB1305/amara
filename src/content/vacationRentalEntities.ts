@@ -61,6 +61,8 @@ export interface VacationRentalEntity {
   kitchenNote: LocalizedText;
   outdoorNote: LocalizedText;
   viewNote: LocalizedText;
+  /** Shown under the full address. Frigiliana only — the four apartments share one street. */
+  addressNote?: LocalizedText;
   images: string[];
   imageAlt: LocalizedText;
   amenityFeatures: VacationRentalAmenityFeature[];
@@ -74,7 +76,14 @@ const frigilianaAddress = {
   region: 'Andalusia',
   country: 'ES' as const,
   latitude: 36.793171,
-  longitude: -3.899107
+  longitude: -3.899107,
+  addressNote: {
+    en: 'Calle Chorruelo is where Calle Real carries on — the village’s main street, with its restaurants, bars and shops. From Casa AMARA you reach them without a step. The Plaza de las Tres Culturas is about 400 metres away, and not one stair in between. In Frigiliana’s old town, that is rare.',
+    de: 'Die Calle Chorruelo ist die Verlängerung der Calle Real – der Hauptstraße des Dorfes mit ihren Restaurants, Bars und Geschäften. Von der Casa AMARA erreicht man sie stufenlos. Bis zur Plaza de las Tres Culturas sind es rund 400 Meter, ohne eine einzige Treppe. In Frigilianas Altstadt ist das selten.',
+    es: 'La Calle Chorruelo es la continuación de la Calle Real, la calle principal del pueblo, con sus restaurantes, bares y tiendas. Desde la Casa AMARA se llega sin un solo escalón. Hasta la Plaza de las Tres Culturas hay unos 400 metros, todos llanos. En el casco antiguo de Frigiliana eso es poco común.',
+    nl: 'De Calle Chorruelo is het verlengde van de Calle Real, de hoofdstraat van het dorp met zijn restaurants, bars en winkels. Vanaf Casa AMARA bereik je die zonder één trede. Naar de Plaza de las Tres Culturas is het zo’n 400 meter, volledig vlak. In de oude kern van Frigiliana is dat zeldzaam.',
+    sv: 'Calle Chorruelo är förlängningen av Calle Real, byns huvudgata med restauranger, barer och butiker. Från Casa AMARA når du dem utan ett enda trappsteg. Till Plaza de las Tres Culturas är det ungefär 400 meter, hela vägen plant. I Frigilianas gamla by är det ovanligt.'
+  }
 };
 
 function withLicense(
@@ -300,11 +309,11 @@ export const vacationRentalEntities: VacationRentalEntity[] = [
       sv: 'Lägenhet i gamla byn med utsikt över odlingarna'
     },
     lead: {
-      en: 'Calle Chorruelo is where Calle Real carries on, which is why the restaurants, bars and shops of Frigiliana are reachable from here without a step. The Plaza de las Tres Culturas is about 400 metres away, and not one stair in between. In Frigiliana’s old town, that is rare.',
-      de: 'Die Calle Chorruelo ist die Verlängerung der Calle Real – deshalb erreicht man von hier die Restaurants, Bars und Geschäfte von Frigiliana stufenlos. Bis zur Plaza de las Tres Culturas sind es rund 400 Meter, ohne eine einzige Treppe. In Frigilianas Altstadt ist das selten.',
-      es: 'La Calle Chorruelo es la continuación de la Calle Real, y por eso desde aquí se llega a los restaurantes, bares y tiendas de Frigiliana sin un solo escalón. Hasta la Plaza de las Tres Culturas hay unos 400 metros, todos llanos. En el casco antiguo de Frigiliana eso es poco común.',
-      nl: 'De Calle Chorruelo is het verlengde van de Calle Real, en daarom bereik je vanaf hier de restaurants, bars en winkels van Frigiliana zonder één trede. Naar de Plaza de las Tres Culturas is het zo’n 400 meter, volledig vlak. In de oude kern van Frigiliana is dat zeldzaam.',
-      sv: 'Calle Chorruelo är förlängningen av Calle Real, och därför når du restauranger, barer och butiker i Frigiliana härifrån utan ett enda trappsteg. Till Plaza de las Tres Culturas är det ungefär 400 meter, hela vägen plant. I Frigilianas gamla by är det ovanligt.'
+      en: 'Small, old and quiet — and still right in the village. Room for two, a terrace in the afternoon sun, the pellet stove for cooler evenings. Small dogs on request.',
+      de: 'Klein, alt und ruhig – und trotzdem mitten im Dorf. Platz für zwei, eine Terrasse in der Nachmittagssonne, abends der Pelletofen. Kleine Hunde auf Anfrage.',
+      es: 'Pequeño, antiguo y tranquilo, y aun así en pleno pueblo. Sitio para dos, una terraza al sol de la tarde y la estufa de pellets para las noches frescas. Perros pequeños bajo petición.',
+      nl: 'Klein, oud en rustig — en toch midden in het dorp. Plaats voor twee, een terras in de middagzon, ’s avonds de pelletkachel. Kleine honden op aanvraag.',
+      sv: 'Litet, gammalt och lugnt — och ändå mitt i byn. Plats för två, en terrass i eftermiddagssolen, pelletskaminen på svalare kvällar. Små hundar på förfrågan.'
     },
     description: {
       en: 'From the terrace you look across the mango and avocado groves of Frigiliana Campo, the sea behind them. Sun reaches it around midday and stays until evening — shaded in the morning, which keeps breakfast cool. Birds early, silence at night. Lounis stands beside the church, where the village’s oldest houses are: during the 2020 renovation the old walls came to light, and our architect recognised Moorish construction, the era that shaped Andalusia all the way to the Alhambra. The tiles from Málaga are what guests ask about most.',
