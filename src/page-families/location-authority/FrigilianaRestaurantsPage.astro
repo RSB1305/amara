@@ -1,6 +1,7 @@
 ---
 import Hero from '../../components/Hero.astro';
 import Navigation from '../../components/Navigation.astro';
+import EditorialByline from '../../components/editorial/EditorialByline.astro';
 import EditorialClosingCta from '../../components/editorial/EditorialClosingCta.astro';
 import EditorialFeatureGrid from '../../components/editorial/EditorialFeatureGrid.astro';
 import ExperienceContextNav from '../../components/experience/ExperienceContextNav.astro';
@@ -21,6 +22,13 @@ interface Props {
 const { lang = 'es' } = Astro.props;
 const currentLang = normalizeLanguage(lang as AmaraLanguage);
 const copy = frigilianaRestaurantsContent[currentLang];
+const aboutHref = resolveOptionalLink('about', currentLang, {
+  suppressMissing: true
+});
+
+if (!aboutHref) {
+  throw new Error('[Frigiliana restaurants] Missing required link token: about');
+}
 
 const footerHighlights = [
   {
@@ -87,6 +95,15 @@ const heroImage = {
             ))
           }
         </div>
+        {frigilianaRestaurantsSeo.article && (
+          <EditorialByline
+            lang={currentLang}
+            authorName={frigilianaRestaurantsSeo.article.authorName}
+            authorHref={aboutHref}
+            updated={copy.overview.reviewed}
+            note={copy.planning.note}
+          />
+        )}
       </Hero>
 
       <section
@@ -99,9 +116,6 @@ const heroImage = {
           </h2>
           <p class="am-text-body text-on-surface-variant leading-relaxed">
             {copy.overview.intro}
-          </p>
-          <p class="mt-6 am-text-caption normal-case tracking-normal text-on-surface-variant">
-            {copy.overview.reviewed}
           </p>
         </div>
         <EditorialFeatureGrid
@@ -249,9 +263,6 @@ const heroImage = {
           }))}
         />
 
-        <p class="mt-12 border-l border-primary/20 bg-surface-container-low px-4 py-3 am-text-body leading-relaxed text-on-surface-variant max-w-3xl">
-          {copy.planning.note}
-        </p>
       </section>
 
       <section class="am-section am-section--plain !px-6 md:!px-12">

@@ -167,6 +167,13 @@ export const frigilianaRestaurantsSeo: AmaraAuthoringSeo = {
   pageType: 'B',
   entityKey: 'amara-brand',
   ogImage: '/images/hero-frigiliana.jpg',
+  article: {
+    datePublished: '2026-07-01',
+    dateModified: '2026-07-31',
+    authorName: 'Robert Sebastian Böhmer',
+    authorType: 'Person',
+    authorSlug: 'amara-about-us'
+  },
   languages: {
     en: {
       title: 'Restaurants in Frigiliana & Nerja',
