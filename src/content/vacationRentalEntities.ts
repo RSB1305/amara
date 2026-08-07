@@ -786,8 +786,8 @@ export const vacationRentalEntities: VacationRentalEntity[] = [
     seoDescription: {
       en: 'AMARA Playa in Nerja: 100 m to Torrecilla beach, 500 m to the Balcón de Europa, and still quiet. Small apartment for 2 on the fifth floor, with a lift.',
       de: 'AMARA Playa in Nerja: 100 m zum Strand Torrecilla, 500 m zum Balcón de Europa – und trotzdem ruhig. Kleines Apartment für 2 im fünften Stock, mit Aufzug.',
-      es: 'AMARA Playa en Nerja: 100 m a la playa de Torrecilla, 500 m al Balcón de Europa y aun así tranquilo. Apartamento pequeño para 2 en la quinta planta, con ascensor.',
-      nl: 'AMARA Playa in Nerja: 100 m naar het strand Torrecilla, 500 m naar het Balcón de Europa — en toch rustig. Klein appartement voor 2 op de vijfde verdieping, met lift.',
+      es: 'AMARA Playa en Nerja: a 100 m de la playa de Torrecilla y 500 m del Balcón de Europa. Apartamento tranquilo para 2 en la quinta planta, con ascensor.',
+      nl: 'AMARA Playa in Nerja: 100 m van het Torrecilla-strand en 500 m van het Balcón de Europa. Rustig appartement voor 2 op de vijfde verdieping, met lift.',
       sv: 'AMARA Playa i Nerja: 100 m till Torrecillastranden, 500 m till Balcón de Europa — och ändå tyst. Liten lägenhet för 2 på femte våningen, med hiss.'
     },
     eyebrow: {

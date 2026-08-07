@@ -85,35 +85,35 @@ export const propertySaleSeo: AmaraAuthoringSeo = {
   pageType: 'D',
   languages: {
     en: {
-      title: 'Historic Boutique Property for Sale in Frigiliana | Casa AMARA',
+      title: 'Historic Boutique Property for Sale in Frigiliana | AMARA',
       description:
         'Discover Casa AMARA, a complete historic property in Frigiliana with direct car access, three terraces, open views and an established hospitality operation.',
       robots: 'index, follow',
       canonical: 'auto'
     },
     de: {
-      title: 'Historische Boutique-Immobilie in Frigiliana zu verkaufen | Casa AMARA',
+      title: 'Historische Immobilie in Frigiliana zu verkaufen | AMARA',
       description:
-        'Entdecken Sie Casa AMARA, eine vollständige historische Immobilie in Frigiliana mit direkter Autozufahrt, drei Terrassen, freiem Blick und etabliertem Beherbergungsbetrieb.',
+        'Casa AMARA in Frigiliana: historische Immobilie mit direkter Autozufahrt, drei Terrassen, freiem Blick und etabliertem Beherbergungsbetrieb.',
       robots: 'index, follow',
       canonical: 'auto'
     },
     es: {
-      title: 'Propiedad boutique histórica en venta en Frigiliana | Casa AMARA',
+      title: 'Propiedad boutique histórica en venta en Frigiliana | AMARA',
       description:
-        'Descubra Casa AMARA, una propiedad histórica completa en Frigiliana con acceso directo en coche, tres terrazas, vistas abiertas y una actividad de alojamiento consolidada.',
+        'Casa AMARA en Frigiliana: propiedad histórica con acceso directo en coche, tres terrazas, vistas abiertas y actividad de alojamiento consolidada.',
       robots: 'index, follow',
       canonical: 'auto'
     },
     nl: {
-      title: 'Historisch boutiquepand te koop in Frigiliana | Casa AMARA',
+      title: 'Historisch boutiquepand te koop in Frigiliana | AMARA',
       description:
         'Ontdek Casa AMARA, een compleet historisch pand in Frigiliana met directe auto-toegang, drie terrassen, vrij uitzicht en een gevestigde logiesexploitatie.',
       robots: 'index, follow',
       canonical: 'auto'
     },
     sv: {
-      title: 'Historisk boutiquefastighet till salu i Frigiliana | Casa AMARA',
+      title: 'Historisk boutiquefastighet till salu i Frigiliana | AMARA',
       description:
         'Upptäck Casa AMARA, en komplett historisk fastighet i Frigiliana med direkt bilaccess, tre terrasser, fri utsikt och en etablerad logiverksamhet.',
       robots: 'index, follow',

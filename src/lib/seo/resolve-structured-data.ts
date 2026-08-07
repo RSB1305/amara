@@ -6,7 +6,6 @@ import {
   vacationRentalEntitiesByKey,
   type VacationRentalEntity
 } from '../../content/vacationRentalEntities';
-import { airbnbReviewEvidence } from '../../content/reviewEvidence';
 import {
   buildOwnedLocalizedPath,
   getOwnedSlugFromPathname,
@@ -30,7 +29,6 @@ interface BrandEntity {
   longitude: number;
   image: string;
   priceRange: string;
-  airbnbProfile?: string;
   instagramProfile?: string;
 }
 
@@ -49,7 +47,6 @@ const BRAND_ENTITY: BrandEntity = {
   longitude: -3.899107,
   image: '/images/hero-frigiliana.jpg',
   priceRange: 'EUR 75-350',
-  airbnbProfile: airbnbReviewEvidence.sourceUrl,
   instagramProfile: 'https://www.instagram.com/amaralodging/'
 };
 
@@ -564,7 +561,7 @@ function buildArticleNode(
 }
 
 function buildBrandNode(entity: BrandEntity, origin: string) {
-  const sameAs = [entity.airbnbProfile, entity.instagramProfile].filter(Boolean);
+  const sameAs = [entity.instagramProfile].filter(Boolean);
   const base = getBase(origin);
 
   return {

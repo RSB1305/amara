@@ -6,6 +6,7 @@ const sharedRoots = ['src/components', 'src/page-families'];
 const allowedStrictConsumers = new Set([
   'src/components/FooterCore.astro',
   'src/components/Navigation.astro',
+  'src/components/navigation/GlobalContextNavigation.astro',
   'src/page-families/guest-reviews/GuestReviewsPage.astro'
 ]);
 
