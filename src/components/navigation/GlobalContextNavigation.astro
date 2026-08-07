@@ -127,6 +127,14 @@ const labels: Record<
 };
 
 const copy = labels[lang];
+const aboutBreadcrumbLabels: Record<AmaraLanguage, { section: string; page: string }> = {
+  en: { section: 'About us', page: 'Our Story' },
+  de: { section: 'Über uns', page: 'Unsere Geschichte' },
+  es: { section: 'Sobre nosotros', page: 'Nuestra historia' },
+  nl: { section: 'Over ons', page: 'Ons verhaal' },
+  sv: { section: 'Om oss', page: 'Vår historia' }
+};
+const aboutBreadcrumb = aboutBreadcrumbLabels[lang];
 const normalizePath = (value: string) =>
   (value.replace(/\/index\.html$/i, '/').replace(/\.html$/i, '').replace(/\/$/, '') || '/');
 const currentPath = normalizePath(pathname);
@@ -138,6 +146,7 @@ const isDirectBookingBenefits =
 const isReviewsHub = currentPath === normalizePath(resolveLink('reviews_hub', lang));
 const isCollection = currentPath === normalizePath(resolveLink('romantic_hideaways', lang));
 const isAmenities = currentPath === normalizePath(resolveLink('amenities', lang));
+const isAbout = currentPath === normalizePath(resolveLink('about', lang));
 
 /**
  * A breadcrumb should read like the navigation, not like the SEO title. Titles
@@ -151,15 +160,17 @@ const navLabelForPage =
   : isCollection ? copy.allStays
   : isAmenities ? copy.amenities
   : currentPath === normalizePath(resolveLink('faq_general', lang)) ? copy.faq
-  : currentPath === normalizePath(resolveLink('about', lang)) ? copy.aboutUs
+  : isAbout ? aboutBreadcrumb.page
   : currentPath === normalizePath(resolveLink('legal_notice', lang)) ? copy.legal
   : undefined;
 
-const breadcrumbSection = isDirectBookingBenefits || isReviewsHub
-  ? copy.aboutUs
-  : isStay && !isCollection
-    ? copy.stays
-    : copy.discover;
+const breadcrumbSection = isAbout
+  ? aboutBreadcrumb.section
+  : isDirectBookingBenefits || isReviewsHub || (isAmenities && lang === 'en')
+    ? copy.aboutUs
+    : isStay && !isCollection
+      ? copy.stays
+      : copy.discover;
 
 const resolvedBreadcrumbTitle =
   navLabelForPage || breadcrumbTitleOverride?.trim() || cleanPageTitle || breadcrumbSection;
