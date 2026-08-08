@@ -99,53 +99,41 @@ const {
 ---
 
 <main class="bg-surface relative min-h-screen selection:bg-primary-fixed-dim selection:text-on-primary-fixed">
-  <div
-    class="pointer-events-none fixed inset-0 z-[1] opacity-[0.04]"
-    aria-hidden="true"
-    style="background-image: url(&quot;data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E&quot;)"
-  ></div>
+  <section
+    class="relative z-[2] h-[calc(100svh-104px)] min-h-[28rem] w-full overflow-hidden bg-inverse-surface lg:h-[calc(100svh-136px)]"
+  >
+    <div class="absolute inset-0 h-full w-full">
+      <img
+        src={heroImageSrc}
+        srcset={heroImageSrcSet}
+        sizes={heroImageSizes}
+        alt={heroImageAlt}
+        class="h-full w-full object-cover"
+        width={heroImageWidth}
+        height={heroImageHeight}
+        loading="eager"
+        fetchpriority="high"
+        decoding="async"
+      />
+      <div class="absolute inset-0 bg-gradient-to-b from-inverse-surface/25 via-transparent to-inverse-surface/80"></div>
+      <div class="absolute left-1/2 top-1/2 h-[58%] w-[min(92%,52rem)] -translate-x-1/2 -translate-y-1/2 rounded-full bg-inverse-surface/45 blur-3xl"></div>
+    </div>
 
-  <amara-home-parallax class="contents">
-    <section
-      data-parallax-root
-      class="relative z-[2] h-[calc(100svh-104px)] min-h-[28rem] w-full overflow-hidden bg-inverse-surface lg:h-[calc(100svh-136px)]"
-    >
-      <div
-        data-parallax-layer
-        class="absolute inset-0 h-full w-full motion-safe:will-change-transform"
-      >
-        <img
-          src={heroImageSrc}
-          srcset={heroImageSrcSet}
-          sizes={heroImageSizes}
-          alt={heroImageAlt}
-          class="h-full w-full object-cover"
-          width={heroImageWidth}
-          height={heroImageHeight}
-          loading="eager"
-          fetchpriority="high"
-          decoding="async"
-        />
-        <div class="absolute inset-0 bg-gradient-to-b from-inverse-surface/25 via-transparent to-inverse-surface/80"></div>
-        <div class="absolute left-1/2 top-1/2 h-[58%] w-[min(92%,52rem)] -translate-x-1/2 -translate-y-1/2 rounded-full bg-inverse-surface/45 blur-3xl"></div>
-      </div>
+    <div class="absolute inset-0 z-10 flex flex-col items-center justify-center px-6 text-center text-inverted-on-surface">
+      <span class="mb-6 am-text-caption uppercase tracking-[0.3em] text-inverted-on-surface/90">
+        {heroKicker}
+      </span>
+      <h1 class="mb-8 am-text-display">
+        AMARA<span class="sr-only"> — {heroKicker}</span>
+      </h1>
+      <p class="max-w-xl am-text-body italic text-inverted-on-surface/90">{heroLead}</p>
+    </div>
 
-      <div class="absolute inset-0 z-10 flex flex-col items-center justify-center px-6 text-center text-inverted-on-surface">
-        <span class="mb-6 am-text-caption uppercase tracking-[0.3em] text-inverted-on-surface/90">
-          {heroKicker}
-        </span>
-        <h1 class="mb-8 am-text-display">
-          AMARA<span class="sr-only"> — {heroKicker}</span>
-        </h1>
-        <p class="max-w-xl am-text-body italic text-inverted-on-surface/90">{heroLead}</p>
-      </div>
-
-      <div class="absolute bottom-12 left-1/2 z-10 flex -translate-x-1/2 flex-col items-center gap-2 text-inverted-on-surface/80">
-        <span class="am-text-caption uppercase tracking-widest">{scrollHint}</span>
-        <div class="h-12 w-px bg-gradient-to-b from-inverted-on-surface-muted to-transparent"></div>
-      </div>
-    </section>
-  </amara-home-parallax>
+    <div class="absolute bottom-12 left-1/2 z-10 flex -translate-x-1/2 flex-col items-center gap-2 text-inverted-on-surface/80">
+      <span class="am-text-caption uppercase tracking-widest">{scrollHint}</span>
+      <div class="h-12 w-px bg-gradient-to-b from-inverted-on-surface-muted to-transparent"></div>
+    </div>
+  </section>
 
   <section class="relative z-[2] mx-auto max-w-screen-xl px-6 py-32 md:px-12 md:py-48">
     <div class="grid grid-cols-1 items-center gap-16 lg:grid-cols-12 lg:gap-8">
@@ -323,59 +311,3 @@ const {
     </div>
   </section>
 </main>
-
-<script>
-  class AmaraHomeParallax extends HTMLElement {
-    private frameId: number | null = null;
-    private rootElement: HTMLElement | null = null;
-    private layerElement: HTMLElement | null = null;
-    private reducedMotionQuery: MediaQueryList | null = null;
-
-    private update = () => {
-      this.frameId = null;
-      if (!this.rootElement || !this.layerElement) return;
-
-      if (this.reducedMotionQuery?.matches) {
-        this.layerElement.style.removeProperty('transform');
-        this.layerElement.style.removeProperty('opacity');
-        return;
-      }
-
-      const bounds = this.rootElement.getBoundingClientRect();
-      const progress = Math.min(1, Math.max(0, -bounds.top / bounds.height));
-      this.layerElement.style.transform = `translate3d(0, ${progress * 30}%, 0)`;
-      this.layerElement.style.opacity = String(Math.max(0, 1 - progress / 0.8));
-    };
-
-    private scheduleUpdate = () => {
-      if (this.frameId === null) {
-        this.frameId = window.requestAnimationFrame(this.update);
-      }
-    };
-
-    connectedCallback() {
-      this.rootElement = this.querySelector('[data-parallax-root]');
-      this.layerElement = this.querySelector('[data-parallax-layer]');
-      this.reducedMotionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
-
-      window.addEventListener('scroll', this.scheduleUpdate, { passive: true });
-      window.addEventListener('resize', this.scheduleUpdate);
-      this.reducedMotionQuery.addEventListener('change', this.scheduleUpdate);
-      this.scheduleUpdate();
-    }
-
-    disconnectedCallback() {
-      window.removeEventListener('scroll', this.scheduleUpdate);
-      window.removeEventListener('resize', this.scheduleUpdate);
-      this.reducedMotionQuery?.removeEventListener('change', this.scheduleUpdate);
-
-      if (this.frameId !== null) {
-        window.cancelAnimationFrame(this.frameId);
-      }
-    }
-  }
-
-  if (!customElements.get('amara-home-parallax')) {
-    customElements.define('amara-home-parallax', AmaraHomeParallax);
-  }
-</script>
