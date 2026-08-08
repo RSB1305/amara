@@ -128,11 +128,11 @@ const labels: Record<
 
 const copy = labels[lang];
 const aboutBreadcrumbLabels: Record<AmaraLanguage, { section: string; page: string }> = {
-  en: { section: 'About us', page: 'Our Story' },
-  de: { section: 'Über uns', page: 'Unsere Geschichte' },
-  es: { section: 'Sobre nosotros', page: 'Nuestra historia' },
-  nl: { section: 'Over ons', page: 'Ons verhaal' },
-  sv: { section: 'Om oss', page: 'Vår historia' }
+  en: { section: 'About us', page: 'Philosophy' },
+  de: { section: 'Über uns', page: 'Unsere Haltung' },
+  es: { section: 'Sobre nosotros', page: 'Filosofía' },
+  nl: { section: 'Over ons', page: 'Onze visie' },
+  sv: { section: 'Om oss', page: 'Vår filosofi' }
 };
 const aboutBreadcrumb = aboutBreadcrumbLabels[lang];
 const normalizePath = (value: string) =>
@@ -202,7 +202,7 @@ const stayItems: ContextNavigationItem[] = [];
  */
 // The amenities index follows the same breadcrumb-only treatment so its
 // inventory begins without a competing row of sitewide exit links.
-const items = isStay || isReviewsHub || isAmenities ? stayItems : genericItems;
+const items = isStay || isReviewsHub || isAmenities || isAbout ? stayItems : genericItems;
 const activeId = items.find((item) => normalizePath(item.href) === currentPath)?.id;
 ---
 

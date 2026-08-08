@@ -164,25 +164,25 @@ export const aboutUsContent: AboutUsContent = {
   hero: {
     subtitle: { en: 'AMARA · Frigiliana · Nerja · Tarifa', de: 'AMARA · Frigiliana · Nerja · Tarifa', es: 'AMARA · Frigiliana · Nerja · Tarifa', nl: 'AMARA · Frigiliana · Nerja · Tarifa', sv: 'AMARA · Frigiliana · Nerja · Tarifa' },
     titleHtml: {
-      en: 'Holiday apartments <br /> in Andalusia',
-      de: 'Ferienapartments <br /> in Andalusien',
-      es: 'Apartamentos vacacionales <br /> en Andalucía',
-      nl: 'Vakantieappartementen <br /> in Andalusië',
-      sv: 'Semesterlägenheter <br /> i Andalusien'
+      en: 'A stay should feel effortless.',
+      de: 'Ankommen. Und einfach da sein.',
+      es: 'Llegar. Y sentir que todo encaja.',
+      nl: 'Aankomen. En meteen tot rust komen.',
+      sv: 'Kom fram. Och bara landa.'
     },
     lead: {
-      en: 'You arrive, open the door, and feel immediate relief. Everything is prepared. Nothing asks for attention.',
-      de: 'Ihr kommt an, öffnet die Tür und spürt sofort Erleichterung. Alles ist vorbereitet. Nichts fordert eure Aufmerksamkeit.',
-      es: 'Llegáis, abrís la puerta y sentís un alivio inmediato. Todo está preparado. Nada exige vuestra atención.',
-      nl: 'Jullie komen aan, openen de deur en voelen meteen opluchting. Alles is voorbereid. Niets vraagt om aandacht.',
-      sv: 'Ni kommer fram, öppnar dörren och känner omedelbar lättnad. Allt är förberett. Ingenting kräver uppmärksamhet.'
+      en: 'You arrive, open the door, and everything is ready. The space feels calm, considered and easy to settle into.',
+      de: 'Ihr öffnet die Tür, alles ist vorbereitet. Die Räume wirken ruhig, durchdacht und so, dass ihr euch sofort zurechtfindet.',
+      es: 'Abrís la puerta y todo está preparado. El espacio se siente sereno, cuidado y fácil de disfrutar desde el primer momento.',
+      nl: 'Jullie openen de deur en alles staat klaar. De ruimte voelt rustig, doordacht en vanzelfsprekend in gebruik.',
+      sv: 'Ni öppnar dörren och allt är förberett. Rummen känns lugna, genomtänkta och enkla att komma till rätta i.'
     },
     supportText: {
-      en: 'Transparent, calm, and designed for guests, without theatrics.',
-      de: 'Transparent, ruhig und ganz für Gäste gedacht, ohne Inszenierung.',
-      es: 'Transparente, sereno y pensado para el huésped, sin artificios.',
-      nl: 'Transparant, rustig en helemaal voor gasten ontworpen, zonder theater.',
-      sv: 'Transparent, lugnt och utformat för gäster, utan konstlade effekter.'
+      en: 'That simple feeling guides everything we do at AMARA.',
+      de: 'Genau dieses Gefühl ist der Maßstab für alles, was wir bei AMARA tun.',
+      es: 'Esa sensación sencilla guía todo lo que hacemos en AMARA.',
+      nl: 'Dat eenvoudige gevoel is de maatstaf voor alles wat we bij AMARA doen.',
+      sv: 'Den känslan är måttstocken för allt vi gör på AMARA.'
     },
     ctaLinks: [
       {
@@ -196,60 +196,74 @@ export const aboutUsContent: AboutUsContent = {
     ]
   },
   philosophy: {
-    title: { en: 'AMARA means love', de: 'AMARA bedeutet Liebe', es: 'AMARA significa amor', nl: 'AMARA betekent liefde', sv: 'AMARA betyder kärlek' },
+    title: { en: 'About us? Actually: about you.', de: 'Über uns? Eigentlich geht es um euch.', es: '¿Sobre nosotros? En realidad, se trata de vosotros.', nl: 'Over ons? Eigenlijk gaat het om jullie.', sv: 'Om oss? Egentligen handlar det om er.' },
     lead: {
-      en: 'Love for the details. Love for what we do. A kind of love that stays because it is consistent, not loud.',
-      de: 'Liebe zum Detail. Liebe zu dem, was wir tun. Eine Art von Liebe, die bleibt, weil sie beständig ist und nicht laut.',
-      es: 'Amor por los detalles. Amor por lo que hacemos. Un tipo de amor que permanece porque es constante, no estridente.',
-      nl: 'Liefde voor de details. Liefde voor wat we doen. Een soort liefde die blijft, omdat ze consequent is en niet luid.',
-      sv: 'Kärlek till detaljerna. Kärlek till det vi gör. En sorts kärlek som stannar kvar eftersom den är konsekvent, inte högljudd.'
+      en: 'Everything at AMARA starts with one question:',
+      de: 'Bei AMARA beginnt alles mit einer einfachen Frage:',
+      es: 'En AMARA todo empieza con una pregunta sencilla:',
+      nl: 'Bij AMARA begint alles met één eenvoudige vraag:',
+      sv: 'På AMARA börjar allt med en enkel fråga:'
     },
     paragraphs: [
       {
-        en: 'AMARA grows from Robert’s hands-on work across six stays in Frigiliana, Nerja, and Tarifa: answering guest questions, checking each stay, and turning recurring feedback into practical improvements.',
-        de: 'AMARA wächst aus Roberts täglicher Arbeit mit sechs Unterkünften in Frigiliana, Nerja und Tarifa: Gästefragen beantworten, Aufenthalte persönlich prüfen und wiederkehrendes Feedback in konkrete Verbesserungen übersetzen.',
-        es: 'AMARA nace del trabajo directo de Robert en seis alojamientos de Frigiliana, Nerja y Tarifa: responder a los huéspedes, revisar cada estancia y convertir sus comentarios recurrentes en mejoras concretas.',
-        nl: 'AMARA groeit vanuit Roberts dagelijkse werk met zes verblijven in Frigiliana, Nerja en Tarifa: vragen van gasten beantwoorden, elk verblijf controleren en terugkerende feedback omzetten in praktische verbeteringen.',
-        sv: 'AMARA växer ur Roberts praktiska arbete med sex boenden i Frigiliana, Nerja och Tarifa: att svara på gästfrågor, följa upp varje vistelse och omvandla återkommande feedback till konkreta förbättringar.'
+        en: 'What makes a stay genuinely better for the guest?',
+        de: 'Was macht einen Aufenthalt für Gäste wirklich besser?',
+        es: '¿Qué hace que una estancia sea realmente mejor para quien la vive?',
+        nl: 'Wat maakt een verblijf écht beter voor de gast?',
+        sv: 'Vad gör en vistelse genuint bättre för gästen?'
       },
       {
-        en: 'This name is not a promise for a moment. It is a promise for what remains afterwards: trust, returning guests, and the feeling of having truly arrived.',
-        de: 'Dieser Name ist kein Versprechen für einen kurzen Moment. Er ist ein Versprechen für das, was danach bleibt: Vertrauen, wiederkehrende Gäste und das Gefühl, wirklich angekommen zu sein.',
-        es: 'Este nombre no promete un instante. Promete lo que queda después: confianza, huéspedes que regresan y la sensación de haber llegado de verdad.',
-        nl: 'Deze naam is geen belofte voor een enkel moment. Het is een belofte voor wat daarna blijft: vertrouwen, terugkerende gasten en het gevoel echt aangekomen te zijn.',
-        sv: 'Det här namnet är inte ett löfte för ett ögonblick. Det är ett löfte om det som finns kvar efteråt: förtroende, återkommande gäster och känslan av att verkligen ha kommit fram.'
+        en: 'We believe good hospitality should give you something increasingly valuable: time and peace of mind.',
+        de: 'Wir glauben, dass gute Gastfreundschaft vor allem zwei Dinge schenken sollte: Zeit und das gute Gefühl, dass alles stimmt.',
+        es: 'Creemos que la buena hospitalidad debería regalar algo cada vez más valioso: tiempo y tranquilidad.',
+        nl: 'Wij geloven dat goede gastvrijheid vooral twee dingen moet geven: tijd en het geruststellende gevoel dat alles klopt.',
+        sv: 'Vi tror att bra värdskap framför allt ska ge något som blir allt mer värdefullt: tid och sinnesro.'
+      },
+      {
+        en: 'A stay should remove friction rather than create it. Things should work. Information should be clear. The space should feel comfortable, calm and thoughtfully prepared — without demanding attention for itself.',
+        de: 'Ein Aufenthalt sollte euch nicht beschäftigen. Dinge sollen funktionieren, Informationen klar sein und die Unterkunft sich ruhig, komfortabel und selbstverständlich anfühlen – ohne ständig Aufmerksamkeit einzufordern.',
+        es: 'Una estancia no debería dar trabajo. Las cosas deben funcionar, la información debe ser clara y el alojamiento sentirse cómodo, sereno y bien preparado, sin reclamar atención constantemente.',
+        nl: 'Een verblijf zou geen extra werk moeten opleveren. Dingen moeten gewoon werken, informatie moet duidelijk zijn en de ruimte moet comfortabel, rustig en goed voorbereid aanvoelen, zonder voortdurend om aandacht te vragen.',
+        sv: 'En vistelse ska inte skapa mer att tänka på. Saker ska fungera, information ska vara tydlig och boendet ska kännas bekvämt, lugnt och väl förberett utan att hela tiden kräva uppmärksamhet.'
+      },
+      {
+        en: 'That belief shapes the way we choose, prepare and continually improve every AMARA stay. We focus on the things that still matter after the photographs have done their job: how well you sleep, how naturally the space works, whether the details make sense and whether you can simply arrive and begin enjoying your time.',
+        de: 'Dieser Gedanke prägt, wie wir unsere Unterkünfte auswählen, vorbereiten und weiterentwickeln. Uns interessieren besonders die Dinge, die noch wichtig sind, wenn die Fotos längst ihren Zweck erfüllt haben: wie gut ihr schlaft, wie selbstverständlich sich die Räume nutzen lassen, ob Details wirklich sinnvoll sind und ob ihr einfach ankommen und eure Zeit genießen könnt.',
+        es: 'Esa idea guía cómo elegimos, preparamos y mejoramos cada alojamiento AMARA. Nos importan especialmente las cosas que siguen contando cuando las fotos ya han cumplido su función: cómo dormís, lo fácil que resulta vivir el espacio, si los detalles tienen sentido y si podéis simplemente llegar y empezar a disfrutar de vuestro tiempo.',
+        nl: 'Die gedachte bepaalt hoe we elk AMARA-verblijf kiezen, voorbereiden en verder verbeteren. We letten vooral op wat nog telt wanneer de foto’s hun werk al hebben gedaan: hoe goed jullie slapen, hoe vanzelfsprekend de ruimte werkt, of details echt iets toevoegen en of jullie gewoon kunnen aankomen en van jullie tijd kunnen genieten.',
+        sv: 'Den tanken styr hur vi väljer, förbereder och utvecklar varje AMARA-boende. Vi fokuserar särskilt på det som fortfarande spelar roll när bilderna redan har gjort sitt jobb: hur bra ni sover, hur naturligt rummen fungerar, om detaljerna faktiskt hjälper och om ni helt enkelt kan komma fram och börja njuta av er tid.'
       }
     ],
-    subtitle: { en: 'About us? Actually: about you.', de: 'Über uns? Eigentlich: über euch.', es: '¿Sobre nosotros? En realidad: sobre vosotros.', nl: 'Over ons? Eigenlijk: over jullie.', sv: 'Om oss? Egentligen: om er.' },
+    subtitle: { en: 'AMARA means love.', de: 'AMARA bedeutet Liebe.', es: 'AMARA significa amor.', nl: 'AMARA betekent liefde.', sv: 'AMARA betyder kärlek.' },
     items: [
       {
         title: { en: '', de: '', es: '', nl: '', sv: '' },
         copy: {
-          en: 'Everything at AMARA is built around the guest. Not around trends. Not around platform logic. Not around short-term optimisation.',
-          de: 'Alles bei AMARA ist um den Gast herum gebaut. Nicht um Trends. Nicht um Plattformlogik. Nicht um kurzfristige Optimierung.',
-          es: 'Todo en AMARA está construido alrededor del huésped. No alrededor de tendencias. No alrededor de la lógica de las plataformas. No alrededor de la optimización a corto plazo.',
-          nl: 'Alles bij AMARA is gebouwd rond de gast. Niet rond trends. Niet rond platformlogica. Niet rond korte-termijnoptimalisatie.',
-          sv: 'Allt hos AMARA är byggt kring gästen. Inte kring trender. Inte kring plattformslogik. Inte kring kortsiktig optimering.'
+          en: 'For us, that means care for the details that genuinely improve a stay — quietly, consistently and with purpose.',
+          de: 'Für uns heißt das: Sorgfalt bei den Details, die einen Aufenthalt tatsächlich besser machen – unaufdringlich, konsequent und mit einem klaren Sinn.',
+          es: 'Para nosotros, eso significa cuidar los detalles que de verdad mejoran una estancia: con discreción, constancia y sentido.',
+          nl: 'Voor ons betekent dat aandacht voor de details die een verblijf werkelijk beter maken — rustig, consequent en met een duidelijke bedoeling.',
+          sv: 'För oss betyder det omsorg om detaljerna som faktiskt gör vistelsen bättre – diskret, konsekvent och med mening.'
         }
       },
       {
         title: { en: '', de: '', es: '', nl: '', sv: '' },
         copy: {
-          en: 'Hosting here is a matter of trust. The guiding question is always: What makes this stay genuinely better for the guest?',
-          de: 'Gastgeben ist hier eine Frage des Vertrauens. Die leitende Frage ist immer: Was macht diesen Aufenthalt für den Gast wirklich besser?',
-          es: 'Hospedar aquí es una cuestión de confianza. La pregunta guía es siempre: ¿qué hace que esta estancia sea realmente mejor para el huésped?',
-          nl: 'Hosten is hier een kwestie van vertrouwen. De leidende vraag is altijd: wat maakt dit verblijf echt beter voor de gast?',
-          sv: 'Att vara värd här handlar om förtroende. Den vägledande frågan är alltid: vad gör den här vistelsen genuint bättre för gästen?'
+          en: '',
+          de: '',
+          es: '',
+          nl: '',
+          sv: ''
         }
       },
       {
         title: { en: '', de: '', es: '', nl: '', sv: '' },
         copy: {
-          en: 'That question guides every decision: consistency, responsibility, and long-term guest satisfaction.',
-          de: 'Diese Frage lenkt jede Entscheidung: Beständigkeit, Verantwortung und langfristige Gästezufriedenheit.',
-          es: 'Esa pregunta guía cada decisión: consistencia, responsabilidad y satisfacción del huésped a largo plazo.',
-          nl: 'Die vraag stuurt elke beslissing: consistentie, verantwoordelijkheid en langdurige gasttevredenheid.',
-          sv: 'Den frågan styr varje beslut: konsekvens, ansvar och långsiktig gästnöjdhet.'
+          en: '',
+          de: '',
+          es: '',
+          nl: '',
+          sv: ''
         }
       }
     ]
@@ -262,94 +276,94 @@ export const aboutUsContent: AboutUsContent = {
     sv: 'Allt var precis som beskrivet, och ännu bättre när vi kom fram.'
   },
   principles: {
-    title: { en: 'What we do differently', de: 'Was wir anders machen', es: 'Lo que hacemos de forma distinta', nl: 'Wat wij anders doen', sv: 'Det vi gör annorlunda' },
+    title: { en: 'What good hospitality means to us', de: 'Was gute Gastfreundschaft für uns bedeutet', es: 'Lo que significa para nosotros una buena hospitalidad', nl: 'Wat goede gastvrijheid voor ons betekent', sv: 'Vad bra värdskap betyder för oss' },
     note: {
-      en: 'These choices are intentional. They are also not for everyone, and that is exactly the point.',
-      de: 'Diese Entscheidungen sind bewusst getroffen. Sie sind auch nicht für alle gedacht, und genau das ist der Punkt.',
-      es: 'Estas decisiones son intencionadas. Tampoco son para todo el mundo, y precisamente de eso se trata.',
-      nl: 'Deze keuzes zijn bewust gemaakt. Ze zijn ook niet voor iedereen, en precies dat is de bedoeling.',
-      sv: 'De här valen är medvetna. De passar inte heller alla, och det är precis poängen.'
+      en: 'Four principles guide how we turn our purpose into the experience of a real stay.',
+      de: 'Vier Grundsätze bestimmen, wie aus unserem Anspruch ein wirklich guter Aufenthalt wird.',
+      es: 'Cuatro principios guían la forma en que llevamos esta idea a cada estancia.',
+      nl: 'Vier uitgangspunten bepalen hoe we die gedachte in ieder verblijf tot leven brengen.',
+      sv: 'Fyra principer styr hur vi gör den tanken till en verklig vistelse.'
     },
     items: [
       {
-        title: { en: 'Prepared for real stays', de: 'Vorbereitet für echte Aufenthalte', es: 'Preparado para estancias reales', nl: 'Voorbereid op echte verblijven', sv: 'Förberett för riktiga vistelser' },
+        title: { en: 'Prepared for real stays', de: 'Für echte Aufenthalte gemacht', es: 'Pensado para estancias reales', nl: 'Gemaakt voor echte verblijven', sv: 'Skapat för riktiga vistelser' },
         copy: {
-          en: 'Comfort and everyday usefulness come first, not staging for photos.',
-          de: 'Komfort und Alltagstauglichkeit stehen an erster Stelle, nicht das Inszenieren für Fotos.',
-          es: 'La comodidad y la utilidad diaria van primero, no la puesta en escena para fotos.',
-          nl: 'Comfort en dagelijks gebruiksgemak komen eerst, niet het stylen voor foto’s.',
-          sv: 'Komfort och vardaglig användbarhet kommer först, inte att iscensätta för bilder.'
+          en: 'A place should work beautifully in everyday use, not only in photographs. Comfort, practicality and ease come before decoration for its own sake.',
+          de: 'Eine Unterkunft muss sich im Alltag genauso gut bewähren, wie sie auf Bildern aussieht. Komfort, Funktion und Einfachheit sind uns wichtiger als Dekoration um ihrer selbst willen.',
+          es: 'Un alojamiento debe funcionar tan bien en el día a día como se ve en las fotos. La comodidad, la utilidad y la facilidad están por encima de la decoración por sí misma.',
+          nl: 'Een verblijf moet in het dagelijks gebruik net zo goed werken als het eruitziet op foto’s. Comfort, gebruiksgemak en eenvoud gaan voor decoratie om de decoratie.',
+          sv: 'Ett boende ska fungera lika bra i vardagen som det ser ut på bilder. Komfort, funktion och enkelhet är viktigare än dekoration för dekorationens egen skull.'
         }
       },
       {
-        title: { en: 'Consistency over promises', de: 'Beständigkeit statt Versprechen', es: 'Consistencia antes que promesas', nl: 'Consistentie boven beloften', sv: 'Konsekvens framför löften' },
+        title: { en: 'Consistency over promises', de: 'Verlässlichkeit statt großer Versprechen', es: 'Coherencia antes que promesas', nl: 'Betrouwbaarheid boven beloften', sv: 'Pålitlighet framför löften' },
         copy: {
-          en: 'What you see is what you find, every season, every stay.',
-          de: 'Was ihr seht, ist auch das, was ihr vorfindet, in jeder Saison, bei jedem Aufenthalt.',
-          es: 'Lo que veis es lo que encontráis, en cada temporada y en cada estancia.',
-          nl: 'Wat jullie zien, is wat jullie krijgen, elk seizoen opnieuw en bij elk verblijf.',
-          sv: 'Det ni ser är det ni får, varje säsong och varje vistelse.'
+          en: 'Trust is built when reality matches expectation. What you see should be what you find — every season, every stay.',
+          de: 'Vertrauen entsteht, wenn Erwartung und Wirklichkeit zusammenpassen. Was ihr seht, sollt ihr auch vorfinden – unabhängig von Saison oder Aufenthalt.',
+          es: 'La confianza nace cuando la realidad coincide con las expectativas. Lo que veis es lo que debéis encontrar, en cualquier temporada y en cada estancia.',
+          nl: 'Vertrouwen ontstaat wanneer verwachting en werkelijkheid overeenkomen. Wat jullie zien, moeten jullie ook aantreffen — ieder seizoen en bij ieder verblijf.',
+          sv: 'Förtroende byggs när verkligheten motsvarar förväntningarna. Det ni ser ska också vara det ni möter — varje säsong och vid varje vistelse.'
         }
       },
       {
-        title: { en: 'Calm, not stimulation', de: 'Ruhe statt Reizüberflutung', es: 'Calma, no estimulación', nl: 'Rust, geen overprikkeling', sv: 'Lugn, inte stimulans' },
+        title: { en: 'Calm by design', de: 'Ruhe als Teil des Designs', es: 'Diseñado para la calma', nl: 'Rust als onderdeel van het ontwerp', sv: 'Lugn som en del av designen' },
         copy: {
-          en: 'Design supports rest, not visual noise.',
-          de: 'Das Design unterstützt Erholung, nicht visuelle Unruhe.',
-          es: 'El diseño acompaña al descanso, no al ruido visual.',
-          nl: 'Het ontwerp ondersteunt rust, geen visuele onrust.',
-          sv: 'Designen stödjer vila, inte visuellt brus.'
+          en: 'A stay should create space, not noise. Design at AMARA is there to support rest, comfort and a sense of ease — not to compete for attention.',
+          de: 'Eine Unterkunft sollte Raum geben, nicht neue Reize schaffen. Gestaltung soll bei AMARA Erholung, Komfort und Leichtigkeit unterstützen – nicht um Aufmerksamkeit konkurrieren.',
+          es: 'Un alojamiento debería dar espacio, no añadir ruido. En AMARA, el diseño está al servicio del descanso, la comodidad y la sensación de facilidad, no de llamar la atención.',
+          nl: 'Een verblijf moet ruimte geven, geen nieuwe prikkels toevoegen. Design is bij AMARA bedoeld om rust, comfort en gemak te ondersteunen, niet om de aandacht op zichzelf te vestigen.',
+          sv: 'Ett boende ska ge utrymme, inte skapa mer brus. På AMARA ska designen stödja vila, komfort och enkelhet, inte konkurrera om uppmärksamheten.'
         }
       },
       {
-        title: { en: 'Direct responsibility', de: 'Direkte Verantwortung', es: 'Responsabilidad directa', nl: 'Directe verantwoordelijkheid', sv: 'Direkt ansvar' },
+        title: { en: 'Direct responsibility', de: 'Klare Verantwortung', es: 'Responsabilidad directa', nl: 'Directe verantwoordelijkheid', sv: 'Tydligt ansvar' },
         copy: {
-          en: 'You communicate with the people responsible for your stay.',
-          de: 'Ihr kommuniziert mit den Menschen, die für euren Aufenthalt verantwortlich sind.',
-          es: 'Os comunicáis con las personas responsables de vuestra estancia.',
-          nl: 'Jullie communiceren met de mensen die verantwoordelijk zijn voor jullie verblijf.',
-          sv: 'Ni kommunicerar med personerna som ansvarar för er vistelse.'
+          en: 'Behind every AMARA stay are people who know the property and take responsibility for it. We are present when needed and in the background when we are not.',
+          de: 'Hinter jeder AMARA-Unterkunft stehen Menschen, die sie kennen und Verantwortung für sie übernehmen. Wenn ihr uns braucht, sind wir da. Wenn nicht, halten wir uns im Hintergrund.',
+          es: 'Detrás de cada alojamiento AMARA hay personas que lo conocen y se responsabilizan de él. Estamos cuando hace falta y permanecemos en segundo plano cuando no.',
+          nl: 'Achter ieder AMARA-verblijf staan mensen die de plek kennen en er verantwoordelijkheid voor nemen. We zijn er wanneer dat nodig is en blijven op de achtergrond wanneer dat niet zo is.',
+          sv: 'Bakom varje AMARA-boende finns människor som känner platsen och tar ansvar för den. Vi finns där när det behövs och håller oss i bakgrunden när det inte gör det.'
         }
       },
       {
-        title: { en: 'Privacy respected', de: 'Privatsphäre respektiert', es: 'Privacidad respetada', nl: 'Privacy gerespecteerd', sv: 'Integriteten respekteras' },
+        title: { en: '', de: '', es: '', nl: '', sv: '' },
         copy: {
-          en: 'Present when needed, invisible otherwise.',
-          de: 'Da, wenn ihr uns braucht, ansonsten unsichtbar.',
-          es: 'Presentes cuando hace falta, invisibles el resto del tiempo.',
-          nl: 'Aanwezig wanneer nodig, onzichtbaar op de rest van de momenten.',
-          sv: 'Närvarande när det behövs, annars osynliga.'
+          en: '',
+          de: '',
+          es: '',
+          nl: '',
+          sv: ''
         }
       }
     ]
   },
   quality: {
-    title: { en: 'Honest quality in every AMARA home', de: 'Ehrliche Qualität in jedem Zuhause von AMARA', es: 'Calidad honesta en cada hogar de AMARA', nl: 'Eerlijke kwaliteit in elk verblijf van AMARA', sv: 'Ärlig kvalitet i varje AMARA-boende' },
+    title: { en: 'The details that shape a stay', de: 'Die Details, die einen Aufenthalt ausmachen', es: 'Los detalles que definen una estancia', nl: 'De details die bepalen hoe een verblijf voelt', sv: 'Detaljerna som formar en vistelse' },
     cards: [
       {
-        title: { en: 'Deep sleep', de: 'Tiefer Schlaf', es: 'Descanso profundo', nl: 'Diepe slaap', sv: 'Djup sömn' },
-        copy: { en: 'High-quality mattresses, crisp linens, quiet nights.', de: 'Hochwertige Matratzen, frische Bettwäsche, ruhige Nächte.', es: 'Colchones de alta calidad, sábanas impecables y noches tranquilas.', nl: 'Hoogwaardige matrassen, fris linnengoed en stille nachten.', sv: 'Madrasser av hög kvalitet, krispiga lakan och tysta nätter.' }
+        title: { en: 'Deep sleep', de: 'Gut schlafen', es: 'Dormir bien', nl: 'Goed slapen', sv: 'Sov gott' },
+        copy: { en: 'Rest is fundamental. We choose good mattresses, quality bed linen and sleeping environments designed around comfort and calm. A beautiful space is worth little if you do not sleep well in it.', de: 'Erholung ist keine Nebensache. Deshalb achten wir auf gute Matratzen, hochwertige Bettwäsche und eine Umgebung, in der Ruhe und Komfort im Mittelpunkt stehen. Eine schöne Unterkunft ist wenig wert, wenn man darin nicht gut schläft.', es: 'Descansar es fundamental. Elegimos buenos colchones, ropa de cama de calidad y espacios pensados para el confort y la calma. Un alojamiento bonito sirve de poco si no se duerme bien.', nl: 'Goed uitrusten is essentieel. Daarom kiezen we voor goede matrassen, kwalitatief beddengoed en een slaapomgeving waarin comfort en rust centraal staan. Een mooie plek is weinig waard als je er niet goed slaapt.', sv: 'God sömn är grundläggande. Därför väljer vi bra madrasser, sängkläder av hög kvalitet och sovmiljöer där komfort och lugn står i centrum. Ett vackert boende är inte mycket värt om man inte sover bra där.' }
       },
       {
         title: { en: 'Cleanliness', de: 'Sauberkeit', es: 'Limpieza', nl: 'Netheid', sv: 'Renlighet' },
-        subline: { en: '(non-negotiable)', de: '(nicht verhandelbar)', es: '(no negociable)', nl: '(niet onderhandelbaar)', sv: '(inte förhandlingsbart)' },
-        copy: { en: 'Thorough preparation, never rushed, never merely good enough.', de: 'Gründliche Vorbereitung, nie hastig, nie nur gerade ausreichend.', es: 'Preparación minuciosa, nunca apresurada, nunca simplemente suficiente.', nl: 'Grondige voorbereiding, nooit gehaast en nooit slechts net voldoende.', sv: 'Noggrann förberedelse, aldrig stressad och aldrig bara tillräcklig.' }
+        subline: { en: '(non-negotiable)', de: '(nicht verhandelbar)', es: '(innegociable)', nl: '(niet onderhandelbaar)', sv: '(inte förhandlingsbart)' },
+        copy: { en: 'Cleanliness is not a feature. It is a basic standard. Every stay should feel properly prepared, never rushed and never merely “good enough”.', de: 'Sauberkeit ist für uns kein Extra, sondern Grundvoraussetzung. Jede Unterkunft soll sorgfältig vorbereitet sein – niemals hastig und niemals nur „gut genug“.', es: 'La limpieza no es un extra, sino una condición básica. Cada alojamiento debe estar preparado con cuidado, nunca con prisas y nunca simplemente “lo bastante bien”.', nl: 'Netheid is geen extraatje, maar een basisvoorwaarde. Elk verblijf moet zorgvuldig zijn voorbereid — nooit gehaast en nooit gewoon “goed genoeg”.', sv: 'Renlighet är inte en extra förmån utan en grundstandard. Varje boende ska vara noggrant förberett — aldrig stressat och aldrig bara “tillräckligt bra”.' }
       },
       {
-        title: { en: 'Materials that age well', de: 'Materialien, die gut altern', es: 'Materiales que envejecen bien', nl: 'Materialen die mooi verouderen', sv: 'Material som åldras väl' },
-        copy: { en: 'Durable choices instead of quick fixes.', de: 'Langlebige Entscheidungen statt schneller Notlösungen.', es: 'Elecciones duraderas en lugar de soluciones rápidas.', nl: 'Duurzame keuzes in plaats van snelle lapmiddelen.', sv: 'Hållbara val i stället för snabba nödlösningar.' }
+        title: { en: 'Things that work', de: 'Dinge, die einfach funktionieren', es: 'Cosas que simplemente funcionan', nl: 'Dingen die gewoon werken', sv: 'Saker som bara fungerar' },
+        copy: { en: 'Equipment should be reliable, intuitive and appropriate for real everyday use. We prefer things that quietly make the stay easier over features designed mainly to impress.', de: 'Ausstattung soll zuverlässig, verständlich und im Alltag wirklich nützlich sein. Wir bevorzugen Dinge, die einen Aufenthalt unauffällig leichter machen, statt Features, die vor allem Eindruck machen sollen.', es: 'El equipamiento debe ser fiable, intuitivo y realmente útil en el día a día. Preferimos lo que hace la estancia más fácil de forma discreta a lo que existe principalmente para impresionar.', nl: 'Voorzieningen moeten betrouwbaar, logisch en echt bruikbaar zijn in het dagelijks leven. We kiezen liever voor dingen die het verblijf stilletjes makkelijker maken dan voor functies die vooral indruk moeten maken.', sv: 'Utrustning ska vara pålitlig, enkel att förstå och verkligen användbar i vardagen. Vi föredrar sådant som diskret gör vistelsen enklare framför funktioner som främst finns för att imponera.' }
       },
       {
-        title: { en: 'Reliable equipment', de: 'Verlässliche Ausstattung', es: 'Equipamiento fiable', nl: 'Betrouwbare uitrusting', sv: 'Pålitlig utrustning' },
-        copy: { en: 'Useful details, not showroom gimmicks.', de: 'Nützliche Details statt Showroom-Spielereien.', es: 'Detalles útiles, no artificios de escaparate.', nl: 'Nuttige details, geen showroom-gimmicks.', sv: 'Användbara detaljer, inte showrums-gimmickar.' }
+        title: { en: 'Quality that lasts', de: 'Qualität, die bleibt', es: 'Calidad que perdura', nl: 'Kwaliteit die meegaat', sv: 'Kvalitet som håller' },
+        copy: { en: 'We prefer durable choices over quick fixes. Materials, furniture and equipment are maintained and replaced when they no longer meet the standard we expect for our guests.', de: 'Wir setzen lieber auf langlebige Lösungen als auf schnelle Reparaturen. Materialien, Möbel und Ausstattung werden gepflegt und ersetzt, wenn sie unserem Anspruch nicht mehr entsprechen.', es: 'Preferimos soluciones duraderas a arreglos rápidos. Mantenemos y sustituimos materiales, muebles y equipamiento cuando dejan de estar a la altura del estándar que queremos para nuestros huéspedes.', nl: 'We kiezen liever voor duurzame oplossingen dan voor snelle reparaties. Materialen, meubels en apparatuur worden onderhouden en vervangen wanneer ze niet meer voldoen aan de standaard die we voor onze gasten willen.', sv: 'Vi väljer hellre hållbara lösningar än snabba lagningar. Material, möbler och utrustning underhålls och byts ut när de inte längre motsvarar den standard vi vill erbjuda våra gäster.' }
       }
     ],
     note: {
-      en: 'If something no longer meets our standards, it is replaced quietly, consistently, and without discussion.',
-      de: 'Wenn etwas unseren Standards nicht mehr entspricht, wird es leise, konsequent und ohne Diskussion ersetzt.',
-      es: 'Si algo deja de cumplir nuestros estándares, se sustituye con discreción, constancia y sin discusión.',
-      nl: 'Als iets niet langer aan onze normen voldoet, wordt het stil, consequent en zonder discussie vervangen.',
-      sv: 'Om något inte längre uppfyller våra standarder byts det ut lugnt, konsekvent och utan diskussion.'
+      en: 'Individually, these are small decisions. Together, they determine how a stay actually feels.',
+      de: 'Für sich genommen sind das kleine Entscheidungen. Zusammengenommen bestimmen sie, wie sich ein Aufenthalt tatsächlich anfühlt.',
+      es: 'Por separado son pequeñas decisiones. Juntas determinan cómo se siente realmente una estancia.',
+      nl: 'Op zichzelf zijn het kleine beslissingen. Samen bepalen ze hoe een verblijf werkelijk aanvoelt.',
+      sv: 'Var för sig är det små beslut. Tillsammans avgör de hur en vistelse faktiskt känns.'
     },
   },
   locations: {
@@ -368,31 +382,31 @@ export const aboutUsContent: AboutUsContent = {
     ]
   },
   host: {
-    title: { en: 'Your host', de: 'Euer Gastgeber', es: 'Vuestro anfitrión', nl: 'Jullie host', sv: 'Er värd' },
+    title: { en: 'Real people. Direct responsibility.', de: 'Echte Menschen. Klare Verantwortung.', es: 'Personas reales. Responsabilidad directa.', nl: 'Echte mensen. Duidelijke verantwoordelijkheid.', sv: 'Riktiga människor. Tydligt ansvar.' },
     role: { en: 'Robert Sebastian Böhmer — Founder & Host', de: 'Robert Sebastian Böhmer — Gründer & Gastgeber', es: 'Robert Sebastian Böhmer — Fundador y anfitrión', nl: 'Robert Sebastian Böhmer — Oprichter & host', sv: 'Robert Sebastian Böhmer — Grundare och värd' },
     imageAlt: { en: 'Robert, founder and host of AMARA', de: 'Robert, Gründer und Gastgeber von AMARA', es: 'Robert, fundador y anfitrión de AMARA', nl: 'Robert, oprichter en host van AMARA', sv: 'Robert, grundare och värd för AMARA' },
     stats: [
-      { label: { en: 'Fast replies', de: 'Schnelle Antworten', es: 'Respuestas rápidas', nl: 'Snelle reacties', sv: 'Snabba svar' }, value: { en: 'Clear, direct, reliable communication.', de: 'Klare, direkte und verlässliche Kommunikation.', es: 'Comunicación clara, directa y fiable.', nl: 'Duidelijke, directe en betrouwbare communicatie.', sv: 'Tydlig, direkt och pålitlig kommunikation.' } },
-      { label: { en: 'Present, not intrusive', de: 'Präsent, nicht aufdringlich', es: 'Presente, sin ser invasivo', nl: 'Aanwezig, niet opdringerig', sv: 'Närvarande, inte påträngande' }, value: { en: 'Reachable when needed, invisible otherwise.', de: 'Erreichbar, wenn ihr uns braucht, ansonsten unsichtbar.', es: 'Disponible cuando hace falta e invisible el resto del tiempo.', nl: 'Bereikbaar wanneer nodig en verder op de achtergrond.', sv: 'Nåbar när det behövs och annars i bakgrunden.' } },
-      { label: { en: 'Languages', de: 'Sprachen', es: 'Idiomas', nl: 'Talen', sv: 'Språk' }, value: { en: 'DE · EN · ES', de: 'DE · EN · ES', es: 'DE · EN · ES', nl: 'DE · EN · ES', sv: 'DE · EN · ES' } },
-      { label: { en: 'Insider guidance', de: 'Insider-Tipps', es: 'Recomendaciones locales', nl: 'Lokale aanbevelingen', sv: 'Lokala rekommendationer' }, value: { en: 'Curated recommendations for calm, authentic experiences.', de: 'Sorgfältig ausgewählte Empfehlungen für ruhige, authentische Erlebnisse.', es: 'Recomendaciones cuidadas para experiencias auténticas y serenas.', nl: 'Samengestelde aanbevelingen voor rustige, authentieke ervaringen.', sv: 'Utvalda rekommendationer för lugna och genuina upplevelser.' } }
+      { label: { en: 'Direct involvement', de: 'Persönlich eingebunden', es: 'Implicación personal', nl: 'Persoonlijk betrokken', sv: 'Personligt engagerad' }, value: { en: 'I remain directly involved in how our stays are prepared, maintained and improved.', de: 'Ich bin weiterhin direkt daran beteiligt, wie unsere Unterkünfte vorbereitet, gepflegt und weiterentwickelt werden.', es: 'Sigo implicado directamente en cómo se preparan, mantienen y mejoran nuestros alojamientos.', nl: 'Ik blijf direct betrokken bij hoe onze verblijven worden voorbereid, onderhouden en verbeterd.', sv: 'Jag är fortsatt direkt involverad i hur våra boenden förbereds, underhålls och utvecklas.' } },
+      { label: { en: 'Guest feedback', de: 'Feedback, das etwas verändert', es: 'Opiniones que sirven', nl: 'Feedback die iets verandert', sv: 'Feedback som gör skillnad' }, value: { en: 'Feedback helps us make the next stay clearer, easier and more comfortable.', de: 'Rückmeldungen helfen uns dabei, den nächsten Aufenthalt noch klarer, einfacher und angenehmer zu machen.', es: 'Los comentarios de los huéspedes nos ayudan a hacer que la siguiente estancia sea más clara, sencilla y cómoda.', nl: 'Reacties van gasten helpen ons om het volgende verblijf duidelijker, eenvoudiger en comfortabeler te maken.', sv: 'Gästernas återkoppling hjälper oss att göra nästa vistelse tydligare, enklare och mer bekväm.' } },
+      { label: { en: 'Present when needed', de: 'Da, wenn ihr uns braucht', es: 'Disponibles cuando hace falta', nl: 'Bereikbaar wanneer nodig', sv: 'Nåbara när det behövs' }, value: { en: 'Easy to reach when something matters, in the background when it does not.', de: 'Wenn etwas wichtig ist, sind wir gut erreichbar. Ansonsten bleiben wir bewusst im Hintergrund.', es: 'Fáciles de localizar cuando algo importa y en segundo plano cuando no.', nl: 'Goed bereikbaar wanneer iets belangrijk is en bewust op de achtergrond wanneer dat niet zo is.', sv: 'Lätta att nå när något är viktigt och medvetet i bakgrunden när det inte är det.' } },
+      { label: { en: 'Languages', de: 'Sprachen', es: 'Idiomas', nl: 'Talen', sv: 'Språk' }, value: { en: 'DE · EN · ES', de: 'DE · EN · ES', es: 'DE · EN · ES', nl: 'DE · EN · ES', sv: 'DE · EN · ES' } }
     ],
-    subtitle: { en: 'A small team. One standard.', de: 'Ein kleines Team. Ein Standard.', es: 'Un equipo pequeño. Un mismo estándar.', nl: 'Een klein team. Eén standaard.', sv: 'Ett litet team. En standard.' },
+    subtitle: { en: 'A small team. One standard.', de: 'Ein kleines Team. Ein gemeinsamer Anspruch.', es: 'Un equipo pequeño. Un mismo estándar.', nl: 'Een klein team. Eén standaard.', sv: 'Ett litet team. En gemensam standard.' },
     teamItems: [
-      { title: { en: 'Small and trusted', de: 'Klein und vertraut', es: 'Pequeño y de confianza', nl: 'Klein en vertrouwd', sv: 'Litet och pålitligt' }, copy: { en: 'A team that shares the same standards.', de: 'Ein Team, das dieselben Standards teilt.', es: 'Un equipo que comparte los mismos estándares.', nl: 'Een team dat dezelfde standaarden deelt.', sv: 'Ett team som delar samma standarder.' } },
-      { title: { en: 'The same every stay', de: 'Bei jedem Aufenthalt gleich', es: 'Igual en cada estancia', nl: 'Hetzelfde bij elk verblijf', sv: 'Samma vid varje vistelse' }, copy: { en: 'Care applied consistently, not selectively.', de: 'Sorgfalt, die konsequent angewendet wird, nicht selektiv.', es: 'Un cuidado aplicado con constancia, no de forma selectiva.', nl: 'Zorg die consequent wordt toegepast, niet selectief.', sv: 'Omsorg som tillämpas konsekvent, inte selektivt.' } },
-      { title: { en: 'Quiet execution', de: 'Leise umgesetzt', es: 'Ejecución silenciosa', nl: 'Stille uitvoering', sv: 'Diskret genomfört' }, copy: { en: 'Quality happens in the background, so the stay feels effortless.', de: 'Qualität geschieht im Hintergrund, damit sich der Aufenthalt mühelos anfühlt.', es: 'La calidad sucede en segundo plano para que la estancia se sienta natural.', nl: 'Kwaliteit gebeurt op de achtergrond, zodat het verblijf moeiteloos voelt.', sv: 'Kvalitet sker i bakgrunden så att vistelsen känns enkel.' } }
+      { title: { en: 'Small and trusted', de: 'Klein und vertraut', es: 'Pequeño y de confianza', nl: 'Klein en vertrouwd', sv: 'Litet och pålitligt' }, copy: { en: 'Different people may care for different details, but the standard is shared.', de: 'Unterschiedliche Menschen kümmern sich um unterschiedliche Details – der Anspruch bleibt derselbe.', es: 'Distintas personas pueden ocuparse de distintos detalles, pero el estándar es el mismo.', nl: 'Verschillende mensen zorgen voor verschillende details, maar de standaard blijft dezelfde.', sv: 'Olika människor kan ta hand om olika detaljer, men standarden är densamma.' } },
+      { title: { en: 'Clear responsibility', de: 'Klare Zuständigkeit', es: 'Responsabilidad clara', nl: 'Duidelijke verantwoordelijkheid', sv: 'Tydligt ansvar' }, copy: { en: 'Questions are answered clearly, problems are taken seriously and responsibility is never passed around.', de: 'Fragen werden klar beantwortet, Probleme ernst genommen und Verantwortung nicht weitergereicht.', es: 'Las preguntas se responden con claridad, los problemas se toman en serio y la responsabilidad no se pasa de una persona a otra.', nl: 'Vragen worden helder beantwoord, problemen serieus genomen en verantwoordelijkheid wordt niet doorgeschoven.', sv: 'Frågor besvaras tydligt, problem tas på allvar och ansvar skickas inte vidare.' } },
+      { title: { en: 'Space for your stay', de: 'Raum für euren Aufenthalt', es: 'Espacio para vuestra estancia', nl: 'Ruimte voor jullie verblijf', sv: 'Utrymme för er vistelse' }, copy: { en: 'Good hosting should never intrude on the reason you came: your own time, your own rhythm and your own stay.', de: 'Gute Gastfreundschaft sollte sich nie in den Vordergrund drängen. Im Mittelpunkt stehen eure Zeit, euer Rhythmus und euer Aufenthalt.', es: 'La buena hospitalidad no debería ponerse en primer plano. Lo importante es vuestro tiempo, vuestro ritmo y vuestra estancia.', nl: 'Goede gastvrijheid hoeft zichzelf niet op de voorgrond te zetten. Het gaat om jullie tijd, jullie ritme en jullie verblijf.', sv: 'Bra värdskap ska inte ställa sig i centrum. Det viktiga är er tid, er rytm och er vistelse.' } }
     ]
   },
   sustainability: {
-    title: { en: 'AMARA Earth', de: 'AMARA Earth', es: 'AMARA Earth', nl: 'AMARA Earth', sv: 'AMARA Earth' },
-    subtitle: { en: 'Sustainable by choice.', de: 'Nachhaltig aus Überzeugung.', es: 'Sostenible por elección.', nl: 'Duurzaam uit overtuiging.', sv: 'Hållbart av val.' },
+    title: { en: 'Responsible by design', de: 'Verantwortung gehört dazu', es: 'Responsabilidad en cada decisión', nl: 'Verantwoordelijkheid hoort erbij', sv: 'Ansvar är en självklar del' },
+    subtitle: { en: 'Sustainable by choice.', de: 'Nachhaltig aus Überzeugung.', es: 'Sostenible por convicción.', nl: 'Duurzaam uit overtuiging.', sv: 'Hållbart av övertygelse.' },
     lead: {
-      en: 'Sustainability at AMARA means practical decisions that reduce impact without reducing comfort.',
-      de: 'Nachhaltigkeit bei AMARA bedeutet praktische Entscheidungen, die die Wirkung verringern, ohne den Komfort zu mindern.',
-      es: 'La sostenibilidad en AMARA significa decisiones prácticas que reducen el impacto sin reducir la comodidad.',
-      nl: 'Duurzaamheid bij AMARA betekent praktische keuzes die de impact verkleinen zonder comfort in te leveren.',
-      sv: 'Hållbarhet hos AMARA betyder praktiska beslut som minskar påverkan utan att minska komforten.'
+      en: 'We believe thoughtful hospitality also means reducing unnecessary impact. Wherever practical, we choose renewable energy, efficient equipment and measures that reduce water and waste — without asking guests to compromise on comfort.',
+      de: 'Für uns gehört zu durchdachter Gastfreundschaft auch, unnötige Belastungen zu vermeiden. Wo es sinnvoll möglich ist, setzen wir auf erneuerbare Energie, effiziente Ausstattung sowie Maßnahmen, die Wasserverbrauch und Abfall reduzieren – ohne dass ihr dafür auf Komfort verzichten müsst.',
+      es: 'Para nosotros, una hospitalidad bien pensada también implica reducir impactos innecesarios. Siempre que tiene sentido, apostamos por energía renovable, equipos eficientes y medidas que reducen el consumo de agua y los residuos, sin pediros que renunciéis al confort.',
+      nl: 'Doordachte gastvrijheid betekent voor ons ook dat we onnodige impact proberen te beperken. Waar het zinvol is, kiezen we voor hernieuwbare energie, efficiënte apparatuur en maatregelen die waterverbruik en afval verminderen, zonder dat jullie daarvoor comfort hoeven in te leveren.',
+      sv: 'För oss innebär genomtänkt värdskap också att minska onödig påverkan. Där det är praktiskt och meningsfullt väljer vi förnybar energi, effektiv utrustning och lösningar som minskar vattenförbrukning och avfall, utan att ni behöver kompromissa med komforten.'
     },
     listColumns: [
       {
@@ -416,20 +430,20 @@ export const aboutUsContent: AboutUsContent = {
     ]
   },
   closingCta: {
-    title: { en: "If you value reliability, you'll feel at home here", de: 'Wenn ihr Verlässlichkeit schätzt, werdet ihr euch hier zu Hause fühlen', es: 'Si valoráis la fiabilidad, aquí os sentiréis como en casa', nl: 'Als jullie betrouwbaarheid waarderen, voelen jullie je hier thuis', sv: 'Om ni värdesätter pålitlighet kommer ni att känna er hemma här' },
+    title: { en: 'For guests who value the things that cannot be staged', de: 'Für Gäste, denen die Dinge wichtig sind, die man nicht inszenieren kann', es: 'Para quienes valoran lo que no siempre se ve en las fotos', nl: 'Voor gasten die waarde hechten aan wat je niet in scène kunt zetten', sv: 'För gäster som värdesätter det som inte går att iscensätta' },
     lead: {
-      en: 'AMARA is for guests who appreciate calm execution, honest communication, and places that feel considered rather than staged.',
-      de: 'AMARA ist für Gäste gedacht, die ruhige Abläufe, ehrliche Kommunikation und Orte schätzen, die durchdacht statt inszeniert wirken.',
-      es: 'AMARA está pensado para huéspedes que aprecian una ejecución serena, una comunicación honesta y lugares pensados con criterio en vez de decorados.',
-      nl: 'AMARA is er voor gasten die rustige uitvoering, eerlijke communicatie en plekken waarderen die doordacht voelen in plaats van geënsceneerd.',
-      sv: 'AMARA är till för gäster som uppskattar lugnt genomförande, ärlig kommunikation och platser som känns genomtänkta i stället för iscensatta.'
+      en: 'AMARA is for people who appreciate calm, reliability, thoughtful spaces and honest communication. We may not be the right choice for everyone — and that is intentional. But if you value places that have been considered carefully, prepared properly and looked after by people who take personal responsibility for them, you will probably feel at home here.',
+      de: 'AMARA ist für Menschen, die Ruhe, Verlässlichkeit, durchdachte Räume und ehrliche Kommunikation schätzen. Wir sind bewusst nicht für jeden die richtige Wahl. Aber wenn ihr Wert auf Unterkünfte legt, die sorgfältig geplant, gewissenhaft vorbereitet und von Menschen betreut werden, die persönlich Verantwortung übernehmen, werdet ihr euch bei AMARA wahrscheinlich sehr wohlfühlen.',
+      es: 'AMARA es para personas que valoran la calma, la fiabilidad, los espacios bien pensados y una comunicación honesta. Sabemos que no somos la opción adecuada para todo el mundo, y es algo intencionado. Pero si apreciáis alojamientos cuidados, bien preparados y atendidos por personas que asumen personalmente la responsabilidad, probablemente os sentiréis muy a gusto con AMARA.',
+      nl: 'AMARA is er voor mensen die rust, betrouwbaarheid, doordachte ruimtes en eerlijke communicatie waarderen. We zijn bewust niet voor iedereen de juiste keuze. Maar als jullie waarde hechten aan plekken die zorgvuldig zijn ingericht, goed worden voorbereid en worden verzorgd door mensen die persoonlijk verantwoordelijkheid nemen, zullen jullie je bij AMARA waarschijnlijk snel thuis voelen.',
+      sv: 'AMARA är för människor som uppskattar lugn, pålitlighet, genomtänkta miljöer och ärlig kommunikation. Vi är medvetet inte rätt val för alla. Men om ni uppskattar boenden som är noggrant genomtänkta, väl förberedda och omhändertagna av människor som tar personligt ansvar, kommer ni sannolikt att känna er hemma hos AMARA.'
     },
     note: {
-      en: 'Many guests return because expectations are met quietly and consistently.',
-      de: 'Viele Gäste kommen zurück, weil Erwartungen leise und verlässlich erfüllt werden.',
-      es: 'Muchos huéspedes repiten porque las expectativas se cumplen con discreción y constancia.',
-      nl: 'Veel gasten komen terug omdat verwachtingen rustig en consequent worden waargemaakt.',
-      sv: 'Många gäster kommer tillbaka eftersom förväntningarna infrias lugnt och konsekvent.'
+      en: 'A good stay does not need to demand attention. It should simply give you the freedom to enjoy your time.',
+      de: 'Ein guter Aufenthalt muss nicht ständig Aufmerksamkeit verlangen. Er sollte euch vor allem die Freiheit geben, eure Zeit zu genießen.',
+      es: 'Una buena estancia no necesita reclamar atención constantemente. Debería daros, sobre todo, la libertad de disfrutar de vuestro tiempo.',
+      nl: 'Een goed verblijf hoeft niet voortdurend aandacht te vragen. Het moet jullie vooral de vrijheid geven om van jullie tijd te genieten.',
+      sv: 'En bra vistelse behöver inte hela tiden kräva uppmärksamhet. Den ska framför allt ge er friheten att njuta av er tid.'
     },
     links: [
       { token: 'book', label: { en: 'Check Availability', de: 'Verfügbarkeit prüfen', es: 'Ver disponibilidad', nl: 'Beschikbaarheid bekijken', sv: 'Se tillgänglighet' } },

@@ -233,11 +233,11 @@ const globalNavLabels = {
     sv: 'Semesterhus · upp till 4 gäster'
   },
   aboutMeta: {
-    en: 'Our story, values and way of hosting.',
-    de: 'Unsere Geschichte, Haltung und Art, Gastgeber zu sein.',
-    es: 'Nuestra historia, nuestros valores y nuestra forma de recibir.',
-    nl: 'Ons verhaal, onze waarden en onze manier van ontvangen.',
-    sv: 'Vår historia, våra värderingar och vårt värdskap.'
+    en: 'Our philosophy, values and way of hosting.',
+    de: 'Unsere Werte und unser Verständnis von Gastfreundschaft.',
+    es: 'Nuestra filosofía, nuestros valores y nuestra forma de recibir.',
+    nl: 'Onze visie, waarden en manier van gastvrijheid.',
+    sv: 'Vår filosofi, våra värderingar och vårt sätt att vara värdar.'
   },
   reviewsMeta: {
     en: 'Verified experiences from AMARA guests.',
@@ -271,11 +271,11 @@ const globalNavLabels = {
 
 const localizedNavLabels: Partial<Record<string, Record<AmaraLanguage, string>>> = {
   about: {
-    en: 'Our Story',
-    de: 'Unsere Geschichte',
-    es: 'Nuestra historia',
-    nl: 'Ons verhaal',
-    sv: 'Vår historia'
+    en: 'Philosophy',
+    de: 'Unsere Haltung',
+    es: 'Filosofía',
+    nl: 'Onze visie',
+    sv: 'Vår filosofi'
   },
   reviews_hub: {
     en: 'Guest Reviews',
@@ -431,7 +431,7 @@ const globalNavGroups: GlobalNavGroup[] = [
     items: [
       {
         token: 'about',
-        label: localizedNavLabels.about?.[currentLang] ?? 'Our Story',
+        label: localizedNavLabels.about?.[currentLang] ?? 'Philosophy',
         description: tGlobal('aboutMeta')
       },
       {

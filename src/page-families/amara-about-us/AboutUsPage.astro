@@ -2,7 +2,6 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Navigation from '../../components/Navigation.astro';
 import TrustHero from '../../components/hero/TrustHero.astro';
-import EditorialQuote from '../../components/editorial/EditorialQuote.astro';
 import EditorialSplit from '../../components/editorial/EditorialSplit.astro';
 import EditorialDefinitionList from '../../components/editorial/EditorialDefinitionList.astro';
 import EditorialFeatureGrid from '../../components/editorial/EditorialFeatureGrid.astro';
@@ -19,10 +18,12 @@ const currentLang = normalizeLanguage(lang as AmaraLanguage);
 const page = getAboutUsPageData(currentLang);
 const content = page.content;
 
-const principlesDefinitionItems = (content.principles.items ?? []).map((item) => ({
-  title: item.title[currentLang],
-  description: item.copy[currentLang]
-}));
+const principlesDefinitionItems = (content.principles.items ?? [])
+  .map((item) => ({
+    title: item.title[currentLang],
+    description: item.copy[currentLang]
+  }))
+  .filter((item) => item.title.trim() !== '' || item.description.trim() !== '');
 
 const qualityFeatureCards = content.quality.cards.map((card) => ({
   title: card.title[currentLang],
@@ -80,20 +81,20 @@ const heroCtaLinks = page.hero.ctaLinks
           <p class="am-text-subtitle leading-[1.5] text-on-surface mb-8">
             {content.philosophy.lead?.[currentLang]}
           </p>
-          {content.philosophy.paragraphs?.map((paragraph) => (
-            <p class="am-text-body text-subtle">{paragraph[currentLang]}</p>
-          ))}
+          {content.philosophy.paragraphs
+            ?.filter((paragraph) => paragraph[currentLang].trim() !== '')
+            .map((paragraph) => (
+              <p class="am-text-body text-subtle">{paragraph[currentLang]}</p>
+            ))}
           <div class="h-16 w-full shrink-0" aria-hidden="true"></div>
           <h3 class="am-text-subtitle font-normal text-on-surface mb-4">{content.philosophy.subtitle?.[currentLang]}</h3>
-          {content.philosophy.items?.map((item) => (
-            <p class="am-text-body text-subtle">{item.copy[currentLang]}</p>
-          ))}
+          {content.philosophy.items
+            ?.filter((item) => item.copy[currentLang].trim() !== '')
+            .map((item) => (
+              <p class="am-text-body text-subtle">{item.copy[currentLang]}</p>
+            ))}
         </EditorialSplit>
       </section>
-
-      <div class="mb-[clamp(8rem,15vw,14rem)]">
-        <EditorialQuote quote={content.quote[currentLang]} />
-      </div>
 
       <section class="mb-[clamp(8rem,15vw,14rem)] max-w-[800px] mx-auto">
         <div class="mb-16 text-center">
@@ -103,6 +104,13 @@ const heroCtaLinks = page.hero.ctaLinks
         <EditorialDefinitionList items={principlesDefinitionItems} />
       </section>
 
+      <SustainabilityBand
+        title={content.sustainability.title?.[currentLang] ?? ''}
+        subtitle={content.sustainability.subtitle?.[currentLang] ?? ''}
+        lead={content.sustainability.lead?.[currentLang] ?? ''}
+        listColumns={sustainabilityListColumns}
+      />
+
       <section
         class="mb-[clamp(8rem,15vw,14rem)] bg-surface py-[clamp(4rem,8vw,8rem)] px-[clamp(2rem,5vw,5rem)] -mx-[5vw]"
       >
@@ -111,28 +119,6 @@ const heroCtaLinks = page.hero.ctaLinks
           <EditorialFeatureGrid cards={qualityFeatureCards} />
         </div>
         <p class="am-text-body text-center italic text-muted">{content.quality.note?.[currentLang]}</p>
-      </section>
-
-      <section class="mb-[clamp(8rem,15vw,14rem)]">
-        <div class="text-center max-w-[600px] mx-auto mb-20">
-          <h2 class="am-text-title">{content.locations.title?.[currentLang]}</h2>
-          <p class="am-text-body text-subtle">{content.locations.lead?.[currentLang]}</p>
-        </div>
-        <div class="grid grid-cols-1 lg:grid-cols-3 gap-[clamp(2rem,4vw,4rem)]">
-          {content.locations.locations?.map((location) => (
-            <figure class="m-0">
-              <div
-                class="aspect-[3/4] bg-black/[0.03] flex items-center justify-center mb-6"
-              >
-                <span class="am-text-subtitle italic text-on-surface/60">{location.name}</span>
-              </div>
-              <figcaption>
-                <h3 class="am-text-subtitle text-on-surface mb-2">{location.name}</h3>
-                <p class="am-text-body text-subtle">{location.copy[currentLang]}</p>
-              </figcaption>
-            </figure>
-          ))}
-        </div>
       </section>
 
       <EditorialHostProfile
@@ -154,13 +140,6 @@ const heroCtaLinks = page.hero.ctaLinks
           </div>
         </div>
       </EditorialHostProfile>
-
-      <SustainabilityBand
-        title={content.sustainability.title?.[currentLang] ?? ''}
-        subtitle={content.sustainability.subtitle?.[currentLang] ?? ''}
-        lead={content.sustainability.lead?.[currentLang] ?? ''}
-        listColumns={sustainabilityListColumns}
-      />
 
       <EditorialClosingCta
         title={content.closingCta.title?.[currentLang] ?? ''}
