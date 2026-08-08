@@ -1070,11 +1070,11 @@ export const vacationRentalEntities: VacationRentalEntity[] = [
       '/images/amara-tarifa/amara-tarifa-apartment24.webp'
     ],
     imageAlt: {
-      en: 'AMARA Family and Surf ocean-view house in Tarifa',
-      de: 'AMARA Family and Surf Haus mit Meerblick in Tarifa',
-      es: 'Casa AMARA Family and Surf con vistas al mar en Tarifa',
-      nl: 'AMARA Family and Surf huis met zeezicht in Tarifa',
-      sv: 'AMARA Family and Surf hus med havsutsikt i Tarifa'
+      en: 'AMARA Family & Surf ocean-view house in Tarifa',
+      de: 'AMARA Family & Surf Haus mit Meerblick in Tarifa',
+      es: 'Casa AMARA Family & Surf con vistas al mar en Tarifa',
+      nl: 'AMARA Family & Surf huis met zeezicht in Tarifa',
+      sv: 'AMARA Family & Surf hus med havsutsikt i Tarifa'
     },
     amenityFeatures: withLicense('VFT/CA/17038', [
       { name: 'wifi', value: true },

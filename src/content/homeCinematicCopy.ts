@@ -491,7 +491,7 @@ export const cinematicApartments: CinematicAptDef[] = [
   {
     id: 'casa',
     token: 'casa',
-    name: 'Ocean View',
+    name: 'Family & Surf',
     subtitle: {
       en: 'Penthouse',
       de: 'Penthouse',
@@ -521,11 +521,11 @@ export const cinematicApartments: CinematicAptDef[] = [
       sv: 'Vardagsrum med färgstark konst och öppen trappa på AMARA Family & Surf i Tarifa'
     },
     exploreLabel: {
-      en: 'Explore Ocean View',
-      de: 'Ocean View entdecken',
-      es: 'Explorar Ocean View',
-      nl: 'Ontdek Ocean View',
-      sv: 'Utforska Ocean View'
+      en: 'Explore Family & Surf',
+      de: 'Family & Surf entdecken',
+      es: 'Explorar Family & Surf',
+      nl: 'Ontdek Family & Surf',
+      sv: 'Utforska Family & Surf'
     }
   }
 ];
