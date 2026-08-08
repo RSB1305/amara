@@ -290,7 +290,7 @@ const closingCtaLinks = [
   />
 
   <div id="am-page-amenities" class="am-root font-body bg-white text-on-surface" data-am-page="amenities" data-current-lang={currentLang}>
-      <div class="am-exp-page bg-white max-w-[1400px] mx-auto px-[5vw]">
+      <div class="am-wrap bg-white max-w-[1400px] mx-auto px-[5vw]">
         <TrustHero
           subtitle={page.hero.subtitle}
           title={page.hero.title}
@@ -303,7 +303,7 @@ const closingCtaLinks = [
 
       <main class="am-wrap w-full max-w-[76rem] mx-auto px-6 max-md:px-4">
 
-        <section class="am-section mb-12" aria-label={page.sections.inventoryAria}>
+        <section class="mb-12" aria-label={page.sections.inventoryAria}>
           <h2 class="mb-4 am-text-title text-on-surface">{page.sections.inventoryTitle}</h2>
 
           <div class="mb-12 border-y border-outline-variant/30 py-6">
@@ -311,7 +311,7 @@ const closingCtaLinks = [
               {amenityFilterCopy.propertyLabel}
             </p>
             <div
-              class="amenity-filter-scroll flex flex-nowrap gap-2.5 overflow-x-auto border-b border-outline-variant/25 pb-6 md:flex-wrap md:overflow-visible"
+              class="flex flex-wrap gap-2 border-b border-outline-variant/25 pb-6 md:gap-2.5"
               role="group"
               aria-labelledby="property-filter-label"
               aria-controls="amenity-inventory"
@@ -319,7 +319,7 @@ const closingCtaLinks = [
               {propertyFilters.map((filter) => (
                 <button
                   type="button"
-                  class="filter-chip inline-flex min-h-11 shrink-0 items-center whitespace-nowrap rounded-full border border-outline-variant/50 bg-white px-4 py-2 am-text-caption font-medium text-on-surface transition-colors hover:border-primary hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/25 focus-visible:ring-offset-2"
+                  class="filter-chip inline-flex min-h-11 max-w-full items-center justify-center whitespace-normal rounded-full border border-outline-variant/50 bg-white px-3 py-2 text-center am-text-caption font-medium text-on-surface transition-colors hover:border-primary hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/25 focus-visible:ring-offset-2 md:shrink-0 md:whitespace-nowrap md:px-4"
                   data-property-filter={filter.key}
                   aria-pressed={filter.key === 'all' ? 'true' : 'false'}
                 >
@@ -332,7 +332,7 @@ const closingCtaLinks = [
               {amenityFilterCopy.amenityLabel}
             </p>
             <div
-              class="amenity-filter-scroll flex flex-nowrap gap-2.5 overflow-x-auto pb-2 md:flex-wrap md:overflow-visible md:pb-0"
+              class="flex flex-wrap gap-2 pb-2 md:gap-2.5 md:pb-0"
               role="group"
               aria-labelledby="amenity-filter-label"
               aria-controls="amenity-inventory"
@@ -340,7 +340,7 @@ const closingCtaLinks = [
               {amenityFilters.map((filter) => (
                 <button
                   type="button"
-                  class="filter-chip inline-flex min-h-11 shrink-0 items-center whitespace-nowrap rounded-full border border-outline-variant/50 bg-white px-4 py-2 am-text-caption font-medium text-on-surface transition-colors hover:border-primary hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/25 focus-visible:ring-offset-2"
+                  class="filter-chip inline-flex min-h-11 max-w-full items-center justify-center whitespace-normal rounded-full border border-outline-variant/50 bg-white px-3 py-2 text-center am-text-caption font-medium text-on-surface transition-colors hover:border-primary hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/25 focus-visible:ring-offset-2 md:shrink-0 md:whitespace-nowrap md:px-4"
                   data-amenity-filter={filter.key}
                   aria-pressed={filter.key === 'all' ? 'true' : 'false'}
                 >
@@ -350,7 +350,7 @@ const closingCtaLinks = [
             </div>
           </div>
 
-          <div id="amenity-inventory" class="am-grid block" aria-live="polite">
+          <div id="amenity-inventory" aria-live="polite">
             <p
               class="am-text-body mb-12 border-y border-outline-variant/30 py-8 text-on-surface-variant"
               data-filter-empty
@@ -367,11 +367,11 @@ const closingCtaLinks = [
 
               return (
               <article
-                class="am-card mb-14 border-0 rounded-none bg-transparent shadow-none"
+                class="mb-14"
                 data-rental-id={property.id}
                 data-expanded-amenities={hasExpandedAmenities ? 'true' : 'false'}
               >
-                <div class="am-card-body p-0">
+                <div>
                   <h3 class="mb-4 am-text-subtitle text-on-surface">
                     <a
                       href={property.href}
@@ -411,7 +411,7 @@ const closingCtaLinks = [
           </div>
 
           <div class="am-prose max-w-[46rem]">
-            <p class="am-small mt-4 am-text-body leading-relaxed text-on-surface-variant">
+            <p class="mt-4 am-text-body leading-relaxed text-on-surface-variant">
               <strong>{page.noteTitle}</strong> {page.noteText}
             </p>
 
@@ -652,14 +652,6 @@ const closingCtaLinks = [
     border-color: var(--color-primary);
     background-color: var(--color-primary);
     color: var(--color-on-primary);
-  }
-
-  .amenity-filter-scroll {
-    scrollbar-width: none;
-  }
-
-  .amenity-filter-scroll::-webkit-scrollbar {
-    display: none;
   }
 
   :global(#am-page-amenities [data-amenity-row][hidden]),

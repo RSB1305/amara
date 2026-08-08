@@ -175,17 +175,17 @@ const Icon = icons[icon];
 ---
 
 <li
-  class="grid min-h-[5.5rem] grid-cols-[2rem_minmax(0,1fr)] items-start gap-4 border-t border-outline-variant/20 py-5"
+  class="grid min-h-[4.375rem] grid-cols-[1.75rem_minmax(0,1fr)] items-start gap-3 border-t border-outline-variant/20 py-3 md:min-h-[5.5rem] md:grid-cols-[2rem_minmax(0,1fr)] md:gap-4 md:py-5"
   data-amenity-row={filterable ? 'true' : undefined}
   data-amenity-category={category}
 >
   <Icon
-    className="mt-0.5 h-6 w-6 text-primary"
+    className="mt-0.5 h-5 w-5 text-primary md:h-6 md:w-6"
     strokeWidth={1.5}
     aria-hidden="true"
   />
   <div class="min-w-0">
-    <strong class="am-text-body block font-semibold text-on-surface">{label}</strong>
-    {value && <span class="am-text-body mt-1 block leading-relaxed text-on-surface-variant">{value}</span>}
+    <strong class="am-text-body block font-medium text-on-surface md:font-semibold">{label}</strong>
+    {value && <span class="am-text-body mt-0.5 block leading-normal text-on-surface-variant md:mt-1 md:leading-relaxed">{value}</span>}
   </div>
 </li>
