@@ -55,7 +55,7 @@ interface ExperienceHubPageCopy {
     title: string;
     paragraphs: string[];
     imageAlt: string;
-    availabilityCta: string;
+    exploreCta: string;
   };
   sectionNav: {
     editorial: string;
@@ -388,7 +388,7 @@ export const experienceHubContent: Record<
       ],
       imageAlt:
         'A whitewashed street in Frigiliana opening towards the surrounding hills',
-      availabilityCta: 'Check availability'
+      exploreCta: 'Choose your experience'
     },
     sectionNav: {
       editorial: 'The edit',
@@ -550,7 +550,7 @@ export const experienceHubContent: Record<
       ],
       imageAlt:
         'Weiße Gasse in Frigiliana mit Blick auf die umliegenden Berge',
-      availabilityCta: 'Verfügbarkeit prüfen'
+      exploreCta: 'Erlebnis auswählen'
     },
     sectionNav: {
       editorial: 'Unsere Auswahl',
@@ -711,7 +711,7 @@ export const experienceHubContent: Record<
       ],
       imageAlt:
         'Calle blanca de Frigiliana abierta hacia las montañas cercanas',
-      availabilityCta: 'Consultar disponibilidad'
+      exploreCta: 'Elige tu experiencia'
     },
     sectionNav: {
       editorial: 'La selección',
@@ -872,7 +872,7 @@ export const experienceHubContent: Record<
       ],
       imageAlt:
         'Witte straat in Frigiliana met uitzicht richting de bergen',
-      availabilityCta: 'Beschikbaarheid checken'
+      exploreCta: 'Kies je ervaring'
     },
     sectionNav: {
       editorial: 'De selectie',
@@ -1033,7 +1033,7 @@ export const experienceHubContent: Record<
       ],
       imageAlt:
         'Vitkalkad gata i Frigiliana med utsikt mot bergen',
-      availabilityCta: 'Se tillgänglighet'
+      exploreCta: 'Välj din upplevelse'
     },
     sectionNav: {
       editorial: 'Vårt urval',

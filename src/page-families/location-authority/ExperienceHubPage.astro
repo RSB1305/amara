@@ -65,9 +65,6 @@ const footerHighlights = [
   }
 ];
 
-const bookingHref = resolveOptionalLink('book', currentLang, {
-  suppressMissing: true
-});
 const frigilianaHref = resolveOptionalLink('location_frigiliana', currentLang, {
   suppressMissing: true
 });
@@ -119,15 +116,11 @@ const heroImage = {
             ))
           }
         </div>
-        {
-          bookingHref && (
-            <p class="mt-12">
-              <a href={bookingHref} class="am-btn am-btn--primary">
-                {copy.hero.availabilityCta}
-              </a>
-            </p>
-          )
-        }
+        <p class="mt-12">
+          <a href="#moods" class="am-btn am-btn--primary">
+            {copy.hero.exploreCta}
+          </a>
+        </p>
       </Hero>
 
       <section
