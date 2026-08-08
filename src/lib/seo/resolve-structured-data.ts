@@ -183,13 +183,7 @@ const PUBLIC_ROUTE_LABELS: Partial<Record<string, Record<AmaraLanguage, string>>
     nl: 'Instagram',
     sv: 'Instagram'
   },
-  'legal-notice': {
-    en: 'Legal Notice',
-    de: 'Impressum',
-    es: 'Aviso legal',
-    nl: 'Juridische kennisgeving',
-    sv: 'Juridisk information'
-  },
+  'legal-notice': trustLabels.legal_notice,
   'romantic-hideaways': {
     en: 'Apartments for couples',
     de: 'Apartments für Paare',
@@ -258,7 +252,7 @@ const TARIFA_GUIDE_SLUGS = new Set([
   'tarifa-beaches'
 ]);
 
-const TRUST_PAGE_SLUGS = new Set([
+const PRIMARY_TRUST_PAGE_SLUGS = new Set([
   'amara-about-us',
   'guest-reviews',
   'direct-booking-benefits',
@@ -383,7 +377,7 @@ function buildBreadcrumbNode(
       name: resolveRouteLabel(hubSlug, currentLang, 'Experiences'),
       item: hubUrl
     });
-  } else if (TRUST_PAGE_SLUGS.has(slug)) {
+  } else if (PRIMARY_TRUST_PAGE_SLUGS.has(slug)) {
     const aboutUrl = new URL(
       buildOwnedLocalizedPath('amara-about-us', currentLang),
       base

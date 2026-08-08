@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Navigation from '../../components/Navigation.astro';
+import TrustHero from '../../components/hero/TrustHero.astro';
 import { normalizeLanguage } from '../../lib/seo/resolve-seo-head';
 import type { AmaraAuthoringSeo, AmaraLanguage } from '../../types/seo';
 
@@ -49,6 +50,34 @@ const linkClass = 'am-inline-link';
 const specsClass = 'space-y-4 text-on-surface-variant am-text-body';
 const specsItemClass = 'grid gap-2 md:grid-cols-[minmax(0,18rem)_1fr]';
 const cardClass = 'bg-surface-container-lowest border border-outline-variant/10 px-8 py-8 md:px-10 md:py-10';
+
+const heroCopy = {
+  en: {
+    subtitle: 'Transparency matters.',
+    title: 'Legal Notice & Privacy Policy',
+    lead: 'Applicable to amara-lodging.es and associated subpages.'
+  },
+  de: {
+    subtitle: 'Transparenz gehört dazu.',
+    title: 'Impressum & Datenschutz&shy;erklärung',
+    lead: 'Gültig für amara-lodging.es und zugehörige Unterseiten.'
+  },
+  es: {
+    subtitle: 'La transparencia importa.',
+    title: 'Aviso legal y política de privacidad',
+    lead: 'Aplicable a amara-lodging.es y sus subpáginas.'
+  },
+  nl: {
+    subtitle: 'Transparantie hoort erbij.',
+    title: 'Juridische kennisgeving & Privacybeleid',
+    lead: "Van toepassing op amara-lodging.es en subpagina's."
+  },
+  sv: {
+    subtitle: 'Transparens är viktigt.',
+    title: 'Juridisk information & Integritets&shy;policy',
+    lead: 'Gäller för amara-lodging.es och undersidor.'
+  }
+}[currentLang];
 ---
 
 <BaseLayout seo={seo} pageLang={currentLang}>
@@ -60,19 +89,17 @@ const cardClass = 'bg-surface-container-lowest border border-outline-variant/10 
     languageToken="legal_notice"
   />
 
-  <div class="bg-white">
-    <div class="max-w-screen-lg mx-auto px-12 pt-40 pb-28">
-      
+  <div class="am-root bg-white" data-am-page="legal-notice">
+    <div class="am-wrap w-full max-w-[1400px] mx-auto px-[5vw]" data-lang={currentLang}>
+      <TrustHero
+        subtitle={heroCopy.subtitle}
+        title={heroCopy.title}
+        lead={heroCopy.lead}
+      />
+
+      <div class="max-w-screen-lg mx-auto pb-28">
       {currentLang === 'en' && (
         <main lang="en" aria-label="Legal (EN)" class="legal-notice-formal-headings space-y-16">
-          <header class="border-b border-outline-variant/10 pb-16 space-y-6">
-            <span class="am-text-caption text-primary block">Legal</span>
-            <h1 class="am-text-display italic text-on-surface">
-              Legal Notice &amp; Privacy Policy
-            </h1>
-            <p class="am-text-body text-on-surface-variant max-w-2xl">Applicable to amara-lodging.es and associated subpages.</p>
-          </header>
-
           <section class="space-y-6" aria-label="Responsible party">
             <h2 class="am-text-title italic text-on-surface">Responsible for this Website</h2>
             <div class={cardClass}>
@@ -146,13 +173,6 @@ const cardClass = 'bg-surface-container-lowest border border-outline-variant/10 
 
       {currentLang === 'de' && (
         <main lang="de" aria-label="Rechtliches (DE)" class="legal-notice-formal-headings space-y-16">
-          <header class="border-b border-outline-variant/10 pb-16 space-y-6">
-            <span class="am-text-caption text-primary block">Rechtliches</span>
-            <h1 class="am-text-display italic text-on-surface">
-              Impressum &amp; Datenschutzerklärung
-            </h1>
-            <p class="am-text-body text-on-surface-variant max-w-2xl">Gültig für amara-lodging.es und zugehörige Unterseiten.</p>
-          </header>
           <section class="space-y-6" aria-label="Verantwortlich">
             <h2 class="am-text-title italic text-on-surface">Verantwortlich für diese Website</h2>
             <div class={cardClass}>
@@ -168,7 +188,7 @@ const cardClass = 'bg-surface-container-lowest border border-outline-variant/10 
             </div>
           </section>
           <section class="space-y-6" aria-label="Lizenzen">
-            <h2 class="am-text-title italic text-on-surface">Vermietungslizenzen &amp; Registrierungen</h2>
+            <h2 class="am-text-title italic text-on-surface">Vermietungs&shy;lizenzen &amp; Registrierungen</h2>
             <div class="space-y-6">
               <div class={cardClass}>
                 <h3 class="am-text-subtitle italic text-on-surface mb-6">Nerja</h3>
@@ -204,7 +224,7 @@ const cardClass = 'bg-surface-container-lowest border border-outline-variant/10 
             </div>
           </section>
           <section class="space-y-6" aria-label="Datenschutz">
-            <h2 class="am-text-title italic text-on-surface">Datenschutzerklärung</h2>
+            <h2 class="am-text-title italic text-on-surface">Datenschutz&shy;erklärung</h2>
             <p class="am-text-body text-on-surface-variant">Stand: <strong class="text-on-surface">04.08.2026</strong></p>
             <div class={cardClass}>
               <div class="space-y-8">
@@ -223,11 +243,6 @@ const cardClass = 'bg-surface-container-lowest border border-outline-variant/10 
 
       {currentLang === 'es' && (
         <main lang="es" aria-label="Legal (ES)" class="legal-notice-formal-headings space-y-16">
-          <header class="border-b border-outline-variant/10 pb-16 space-y-6">
-            <span class="am-text-caption text-primary block">Legal</span>
-            <h1 class="am-text-display italic text-on-surface">Aviso Legal y Política de Privacidad</h1>
-            <p class="am-text-body text-on-surface-variant max-w-2xl">Aplicable a amara-lodging.es y sus subpáginas.</p>
-          </header>
           <section class="space-y-6" aria-label="Responsable">
             <h2 class="am-text-title italic text-on-surface">Responsable de la web</h2>
             <div class={cardClass}>
@@ -275,11 +290,6 @@ const cardClass = 'bg-surface-container-lowest border border-outline-variant/10 
 
       {currentLang === 'nl' && (
         <main lang="nl" aria-label="Juridisch (NL)" class="legal-notice-formal-headings space-y-16">
-          <header class="border-b border-outline-variant/10 pb-16 space-y-6">
-            <span class="am-text-caption text-primary block">Juridisch</span>
-            <h1 class="am-text-display italic text-on-surface">Juridische kennisgeving &amp; Privacybeleid</h1>
-            <p class="am-text-body text-on-surface-variant max-w-2xl">Van toepassing op amara-lodging.es en subpagina's.</p>
-          </header>
           <section class="space-y-6" aria-label="Verantwoordelijk">
             <h2 class="am-text-title italic text-on-surface">Verantwoordelijk voor deze website</h2>
             <div class={cardClass}><ul class={specsClass} aria-label="Contactgegevens"><li class={specsItemClass}><strong class="text-on-surface">Naam</strong> <span>Robert Sebastian Böhmer</span></li><li class={specsItemClass}><strong class="text-on-surface">Adres</strong> <span>C./ Chorruelo 5, 29788 Frigiliana, Spanje</span></li><li class={specsItemClass}><strong class="text-on-surface">Spaanse fiscale ID (NIE)</strong> <span>Y 77 66 788 R</span></li><li class={specsItemClass}><strong class="text-on-surface">Status</strong> <span>Particuliere verhuurder – Geen inschrijving in het handelsregister</span></li><li class={specsItemClass}><strong class="text-on-surface">Land</strong> <span>Spanje</span></li><li class={specsItemClass}><strong class="text-on-surface">E-mail</strong> <span><a class={linkClass} href="mailto:hola@amara-lodging.es">hola@amara-lodging.es</a></span></li><li class={specsItemClass}><strong class="text-on-surface">Telefoon</strong> <span><a class={linkClass} href="tel:+34604440964">+34 604 440 964</a></span></li></ul></div>
@@ -313,11 +323,6 @@ const cardClass = 'bg-surface-container-lowest border border-outline-variant/10 
 
       {currentLang === 'sv' && (
         <main lang="sv" aria-label="Juridik (SV)" class="legal-notice-formal-headings space-y-16">
-          <header class="border-b border-outline-variant/10 pb-16 space-y-6">
-            <span class="am-text-caption text-primary block">Juridik</span>
-            <h1 class="am-text-display italic text-on-surface">Juridisk information &amp; Integritetspolicy</h1>
-            <p class="am-text-body text-on-surface-variant max-w-2xl">Gäller för amara-lodging.es och undersidor.</p>
-          </header>
           <section class="space-y-6" aria-label="Ansvarig">
             <h2 class="am-text-title italic text-on-surface">Ansvarig för denna webbplats</h2>
             <div class={cardClass}><ul class={specsClass} aria-label="Kontaktuppgifter"><li class={specsItemClass}><strong class="text-on-surface">Namn</strong> <span>Robert Sebastian Böhmer</span></li><li class={specsItemClass}><strong class="text-on-surface">Adress</strong> <span>C./ Chorruelo 5, 29788 Frigiliana, Spanien</span></li><li class={specsItemClass}><strong class="text-on-surface">Spanskt skatte-ID (NIE)</strong> <span>Y 77 66 788 R</span></li><li class={specsItemClass}><strong class="text-on-surface">Status</strong> <span>Privat uthyrare – Ingen registrering i handelsregistret</span></li><li class={specsItemClass}><strong class="text-on-surface">Land</strong> <span>Spanien</span></li><li class={specsItemClass}><strong class="text-on-surface">E-post</strong> <span><a class={linkClass} href="mailto:hola@amara-lodging.es">hola@amara-lodging.es</a></span></li><li class={specsItemClass}><strong class="text-on-surface">Telefon</strong> <span><a class={linkClass} href="tel:+34604440964">+34 604 440 964</a></span></li></ul></div>
@@ -348,6 +353,7 @@ const cardClass = 'bg-surface-container-lowest border border-outline-variant/10 
           </section>
         </main>
       )}
+      </div>
     </div>
   </div>
 </BaseLayout>

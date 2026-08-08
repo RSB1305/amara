@@ -16,6 +16,7 @@ export const trustLabels: Record<
   | 'direct_booking_benefits'
   | 'amenities'
   | 'faq_general'
+  | 'legal_notice'
   | 'book'
   | 'romantic_hideaways',
   LocalizedTrustLabel
@@ -54,6 +55,13 @@ export const trustLabels: Record<
     es: 'FAQ de la estancia',
     nl: 'Verblijfs-FAQ',
     sv: 'FAQ för vistelsen'
+  },
+  legal_notice: {
+    en: 'Legal Notice & Privacy',
+    de: 'Impressum & Datenschutz',
+    es: 'Aviso legal y privacidad',
+    nl: 'Juridische kennisgeving & privacy',
+    sv: 'Juridisk information & integritet'
   },
   book: {
     en: 'Check Availability',

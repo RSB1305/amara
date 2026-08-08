@@ -41,7 +41,6 @@ const labels: Record<
     directBookingBenefits: string;
     faq: string;
     arrival: string;
-    legal: string;
   }
 > = {
   en: {
@@ -56,8 +55,7 @@ const labels: Record<
     checkAvailability: trustLabels.book.en,
     directBookingBenefits: trustLabels.direct_booking_benefits.en,
     faq: trustLabels.faq_general.en,
-    arrival: 'Arrival Guide',
-    legal: 'Legal Notice & Privacy'
+    arrival: 'Arrival Guide'
   },
   de: {
     breadcrumb: 'Brotkrümelnavigation',
@@ -71,8 +69,7 @@ const labels: Record<
     checkAvailability: trustLabels.book.de,
     directBookingBenefits: trustLabels.direct_booking_benefits.de,
     faq: trustLabels.faq_general.de,
-    arrival: 'Anreise-Guide',
-    legal: 'Impressum & Datenschutz'
+    arrival: 'Anreise-Guide'
   },
   es: {
     breadcrumb: 'Migas de pan',
@@ -86,8 +83,7 @@ const labels: Record<
     checkAvailability: trustLabels.book.es,
     directBookingBenefits: trustLabels.direct_booking_benefits.es,
     faq: trustLabels.faq_general.es,
-    arrival: 'Guía de llegada',
-    legal: 'Aviso legal y privacidad'
+    arrival: 'Guía de llegada'
   },
   nl: {
     breadcrumb: 'Broodkruimelnavigatie',
@@ -101,8 +97,7 @@ const labels: Record<
     checkAvailability: trustLabels.book.nl,
     directBookingBenefits: trustLabels.direct_booking_benefits.nl,
     faq: trustLabels.faq_general.nl,
-    arrival: 'Aankomstgids',
-    legal: 'Juridische kennisgeving & privacy'
+    arrival: 'Aankomstgids'
   },
   sv: {
     breadcrumb: 'Brödsmulenavigering',
@@ -116,8 +111,7 @@ const labels: Record<
     checkAvailability: trustLabels.book.sv,
     directBookingBenefits: trustLabels.direct_booking_benefits.sv,
     faq: trustLabels.faq_general.sv,
-    arrival: 'Ankomstguide',
-    legal: 'Juridisk information & integritet'
+    arrival: 'Ankomstguide'
   }
 };
 
@@ -135,12 +129,14 @@ const isCollection = currentPath === normalizePath(resolveLink('romantic_hideawa
 const isAmenities = currentPath === normalizePath(resolveLink('amenities', lang));
 const isAbout = currentPath === normalizePath(resolveLink('about', lang));
 const isFaq = currentPath === normalizePath(resolveLink('faq_general', lang));
-const isTrustContextPage =
+const isLegalNotice = currentPath === normalizePath(resolveLink('legal_notice', lang));
+const isPrimaryTrustPage =
   isAbout ||
   isReviewsHub ||
   isDirectBookingBenefits ||
   isAmenities ||
   isFaq;
+const isTrustFamilyPage = isPrimaryTrustPage || isLegalNotice;
 
 /**
  * A breadcrumb should read like the navigation, not like the SEO title. Titles
@@ -155,10 +151,10 @@ const navLabelForPage =
   : isAmenities ? trustLabels.amenities[lang]
   : isFaq ? trustLabels.faq_general[lang]
   : isAbout ? trustLabels.about[lang]
-  : currentPath === normalizePath(resolveLink('legal_notice', lang)) ? copy.legal
+  : isLegalNotice ? trustLabels.legal_notice[lang]
   : undefined;
 
-const breadcrumbSection = isTrustContextPage
+const breadcrumbSection = isTrustFamilyPage
   ? trustSectionLabels[lang]
   : isStay && !isCollection
     ? copy.stays
@@ -201,20 +197,23 @@ const stayItems: ContextNavigationItem[] = [];
 
 const items = isStay
   ? stayItems
-  : isTrustContextPage
+  : isTrustFamilyPage
     ? trustItems
     : genericItems;
 const activeId = items.find((item) => normalizePath(item.href) === currentPath)?.id;
+const breadcrumbs = isHome ? [] : [
+  { label: 'AMARA', href: homeHref },
+  ...(!isLegalNotice
+    ? [{ label: breadcrumbSection, href: breadcrumbSectionHref }]
+    : []),
+  { label: resolvedBreadcrumbTitle }
+];
 ---
 
 <ContextNavigation
   activeId={activeId}
   breadcrumbAriaLabel={copy.breadcrumb}
-  breadcrumbs={isHome ? [] : [
-    { label: 'AMARA', href: homeHref },
-    { label: breadcrumbSection, href: breadcrumbSectionHref },
-    { label: resolvedBreadcrumbTitle }
-  ]}
+  breadcrumbs={breadcrumbs}
   context="experience"
   items={items}
   switcherAriaLabel={copy.switcher}
