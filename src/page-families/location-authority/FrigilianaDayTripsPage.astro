@@ -44,10 +44,6 @@ const combineItems = copy.combine.items.map((item) => ({
   })
 }));
 
-const bookingHref = resolveOptionalLink('book', currentLang, {
-  suppressMissing: true
-});
-
 const heroImage = {
   src: '/images/hero-frigiliana.jpg',
   width: 1080,
@@ -91,15 +87,6 @@ const heroImage = {
             ))
           }
         </div>
-        {
-          bookingHref && (
-            <p class="mt-12">
-              <a href={bookingHref} class="am-btn am-btn--primary">
-                {copy.hero.availabilityCta}
-              </a>
-            </p>
-          )
-        }
       </Hero>
 
       <section
