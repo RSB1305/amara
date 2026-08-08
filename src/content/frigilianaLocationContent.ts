@@ -720,6 +720,29 @@ export const frigilianaLocationCopy = {
       }
     ]
   },
+  closing: {
+    title: {
+      en: "Choose the stay that fits your plans",
+      de: "Wählen Sie die Unterkunft, die zu Ihren Plänen passt",
+      es: "Elegid el alojamiento que encaje con vuestros planes",
+      nl: "Kies het verblijf dat bij uw plannen past",
+      sv: "Välj boendet som passar era planer"
+    },
+    lead: {
+      en: "Explore AMARA apartments for couples, then check availability when you are ready.",
+      de: "Entdecken Sie die AMARA Apartments für Paare und prüfen Sie anschließend in Ruhe die Verfügbarkeit.",
+      es: "Explorad los apartamentos AMARA para parejas y consultad la disponibilidad cuando estéis listos.",
+      nl: "Ontdek de AMARA-appartementen voor koppels en bekijk daarna rustig de beschikbaarheid.",
+      sv: "Utforska AMARA:s lägenheter för par och kontrollera sedan tillgängligheten när ni är redo."
+    },
+    availabilityCta: {
+      en: "Check Availability",
+      de: "Verfügbarkeit prüfen",
+      es: "Consultar disponibilidad",
+      nl: "Beschikbaarheid bekijken",
+      sv: "Kontrollera tillgänglighet"
+    }
+  },
   footer: {
     brand: { en: "Frigiliana Editorial", de: "Frigiliana Editorial", es: "Editorial", nl: "Redactie", sv: "Redaktion" },
     rights: { en: "All rights reserved.", de: "Alle Rechte vorbehalten.", es: "Reservados", nl: "Voorbehouden", sv: "Förbehållna" },
@@ -731,4 +754,3 @@ export const frigilianaLocationCopy = {
     ]
   }
 };
-

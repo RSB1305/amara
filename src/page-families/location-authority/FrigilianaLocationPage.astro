@@ -8,6 +8,7 @@ import VillageStructureInsight from '../../components/location/VillageStructureI
 import PhotoShow from '../../components/PhotoShow.astro';
 import StayDecision from '../../components/StayDecision.astro';
 import FaqAccordion from '../../components/FaqAccordion.astro';
+import EditorialClosingCta from '../../components/editorial/EditorialClosingCta.astro';
 import EditorialGuideLinkSection from '../../components/editorial/EditorialGuideLinkSection.astro';
 import LocationEditorialComparison from '../../components/location/LocationEditorialComparison.astro';
 import LocationContextNav from '../../components/location/LocationContextNav.astro';
@@ -194,6 +195,12 @@ const c = {
     items: copy.faq.items.map((item) => ({ question: item.q[currentLang], answer: item.a[currentLang] })),
     arrivalDetailCta: { href: arrivalGuideHref, label: copy.faq.arrivalDetailCta[currentLang] },
     allFaqsCta: allFaqsHref ? { href: allFaqsHref, label: copy.faq.allFaqsCta[currentLang] } : undefined
+  },
+  closing: {
+    title: copy.closing.title[currentLang],
+    lead: copy.closing.lead[currentLang],
+    staysCta: copy.planning.links.apartments.label[currentLang],
+    availabilityCta: copy.closing.availabilityCta[currentLang]
   },
   footer: { brand: copy.footer.brand[currentLang], rights: copy.footer.rights[currentLang], links: copy.footer.nav.map(link => ({ token: link.token, label: link.label[currentLang] })) }
 };
@@ -417,6 +424,26 @@ const sectionOrder = getFrigilianaLocationSectionOrder(currentLang);
           </section>
         </Fragment>
       </OrderedFrigilianaLocationSections>
+
+      <section class="max-w-screen-2xl mx-auto px-12 pt-8">
+        <EditorialClosingCta
+          title={c.closing.title}
+          lead={c.closing.lead}
+          lang={currentLang}
+          links={[
+            {
+              token: 'romantic_hideaways',
+              label: c.closing.staysCta,
+              style: 'primary'
+            },
+            {
+              token: 'book',
+              label: c.closing.availabilityCta,
+              style: 'secondary'
+            }
+          ]}
+        />
+      </section>
     </div>
   </div>
 </LocationAuthorityLayout>
