@@ -13,6 +13,19 @@
 /en/ /en 301
 /nl/ /nl 301
 /sv/ /sv 301
+/de/zuhause /de 301
+/sv/start /sv 301
+
+# Legacy booking paths remain on Lodgify after the marketing-domain cutover.
+/en/book/ https://amara.lodgify.com/en/book/ 301
+/de/book/ https://amara.lodgify.com/de/book/ 301
+/es/book/ https://amara.lodgify.com/es/book/ 301
+/nl/book/ https://amara.lodgify.com/nl/book/ 301
+/sv/book/ https://amara.lodgify.com/sv/book/ 301
+/de/buchen/ https://amara.lodgify.com/de/book/ 301
+/es/reservar/ https://amara.lodgify.com/es/book/ 301
+/nl/boeken/ https://amara.lodgify.com/nl/book/ 301
+/sv/boka/ https://amara.lodgify.com/sv/book/ 301
 
 # Current Spanish canonical equivalents
 /es/amara-about-us /amara-about-us 301
@@ -47,6 +60,12 @@
 /es/lla-amara-family-and-surf /la-amara-family-and-surf 301
 /nl/de-amara-zaid /nl/la-amara-zaid 301
 /sv/la-amara-playa%20 /sv/la-amara-playa 301
+/en/la-amara-farah-romantic-double-retreat /en/la-amara-farah 301
+/en/la-amara-lounis-historic-romantic-stay /en/la-amara-lounis 301
+/nl/la-amara-lounis-historic-romantic-stay /nl/la-amara-lounis 301
+/sv/la-amara-lounis-casa-rural-frigiliana /sv/la-amara-lounis 301
+/en/la-amara-family-surf-with-oceanview-and-pool /en/la-amara-family-and-surf 301
+/sv/amara-family-surf-with-oceanview-and-pool /sv/la-amara-family-and-surf 301
 
 # Apartment listing legacy URLs
 /es/la-amara-farah-habitacion-doble-romantica /la-amara-farah 301
@@ -55,6 +74,9 @@
 /es/la-amara-maha-apartamento-con-gran-terraza /la-amara-maha 301
 /es/la-amara-playa-apartamento-nerja /la-amara-playa 301
 /es/amara-casa-familiar-con-vista-al-mar-y-piscina /la-amara-family-and-surf 301
+
+# Proven collection alias
+/en/romantic-getaway-frigiliana-nerja /en/romantic-hideaways 301
 
 # About / brand trust
 /about /amara-about-us 301
@@ -117,6 +139,7 @@
 /es/frigiliana-arrival-parking-guide /getting-to-frigiliana 301
 /nl/frigiliana-arrival-parking-guide /nl/getting-to-frigiliana 301
 /sv/frigiliana-arrival-parking-guide /sv/getting-to-frigiliana 301
+/de/frigiliana-oder-nerja /de/frigiliana-or-nerja 301
 
 # Frigiliana authority duplicates
 /en/frigiliana-location-amara /en/frigiliana-location 301
@@ -146,11 +169,11 @@
 /es/estructura-y-escaleras-del-sitio-de-frigiliana /frigiliana-streets-stairs 301
 /nl/structuur-en-trappen-van-de-frigiliana-site /nl/frigiliana-streets-stairs 301
 /sv/frigiliana-tomtens-struktur-och-trappor /sv/frigiliana-streets-stairs 301
-/en/frigiliana-near-nerja /en/frigiliana-location 301
-/de/nerja /de/frigiliana-location 301
-/es/nerja /frigiliana-location 301
-/nl/nerja /nl/frigiliana-location 301
-/sv/nerja /sv/frigiliana-location 301
+/en/frigiliana-near-nerja /en/frigiliana-or-nerja 301
+/de/nerja /de/nerja-location 301
+/es/nerja /nerja-location 301
+/nl/nerja /nl/nerja-location 301
+/sv/nerja /sv/nerja-location 301
 
 # Frigiliana weather legacy slugs
 /de/wetter-in-frigiliana /de/frigiliana-weather 301
@@ -207,12 +230,7 @@
 /es/day-trips-andalusia /frigiliana-day-trips 301
 /nl/day-trips-andalusia /nl/frigiliana-day-trips 301
 /sv/day-trips-andalusia /sv/frigiliana-day-trips 301
-/frigiliana-guest-day-trips /frigiliana-day-trips 301
-/en/frigiliana-guest-day-trips /en/frigiliana-day-trips 301
-/de/frigiliana-guest-day-trips /de/frigiliana-day-trips 301
-/es/frigiliana-guest-day-trips /frigiliana-day-trips 301
-/nl/frigiliana-guest-day-trips /nl/frigiliana-day-trips 301
-/sv/frigiliana-guest-day-trips /sv/frigiliana-day-trips 301
+/es/frigiliana-guest-day-trips /frigiliana-guest-day-trips 301
 # Frigiliana festivals legacy slugs
 /en/culture-frigiliana-nerja /en/frigiliana-festivals 301
 /de/culture-frigiliana-nerja /de/frigiliana-festivals 301
@@ -239,20 +257,20 @@
 /nl/frigiliana-markt /nl/frigiliana-market 301
 /sv/frigiliana-marknaden /sv/frigiliana-market 301
 /en/frigiliana-supermarkets /en/frigiliana-faq 301
-/de/supermarkte /de/frigiliana-location 301
-/es/supermercados /frigiliana-location 301
-/nl/supermarkten /nl/frigiliana-location 301
-/sv/stormarknader /sv/frigiliana-location 301
-/en/frigiliana-netflix-series-dos-tumbas /en/frigiliana-location 301
-/de/frigiliana-netflix-serie-dos-tumbas /de/frigiliana-location 301
-/es/frigiliana-y-netflix-serie-dos-tumbas /frigiliana-location 301
-/nl/frigiliana-netflix-serie-dos-tumbas /nl/frigiliana-location 301
-/sv/frigiliana-netflix-serien-dos-tumbas /sv/frigiliana-location 301
-/en/village-icon-sale /en/frigiliana-location 301
-/de/village-icon-sale /de/frigiliana-location 301
-/es/village-icon-sale /frigiliana-location 301
-/nl/village-icon-sale /nl/frigiliana-location 301
-/sv/village-icon-sale /sv/frigiliana-location 301
+/de/supermarkte /de/frigiliana-faq 301
+/es/supermercados /frigiliana-faq 301
+/nl/supermarkten /nl/frigiliana-faq 301
+/sv/stormarknader /sv/frigiliana-faq 301
+/en/frigiliana-netflix-series-dos-tumbas /en/frigiliana-netflix-dos-tumbas 301
+/de/frigiliana-netflix-serie-dos-tumbas /de/frigiliana-netflix-dos-tumbas 301
+/es/frigiliana-y-netflix-serie-dos-tumbas /frigiliana-netflix-dos-tumbas 301
+/nl/frigiliana-netflix-serie-dos-tumbas /nl/frigiliana-netflix-dos-tumbas 301
+/sv/frigiliana-netflix-serien-dos-tumbas /sv/frigiliana-netflix-dos-tumbas 301
+/en/village-icon-sale /en/frigiliana-hospitality-property-for-sale 301
+/de/village-icon-sale /de/frigiliana-hospitality-property-for-sale 301
+/es/village-icon-sale /frigiliana-hospitality-property-for-sale 301
+/nl/village-icon-sale /nl/frigiliana-hospitality-property-for-sale 301
+/sv/village-icon-sale /sv/frigiliana-hospitality-property-for-sale 301
 
 # Accommodation and product-intent legacy topics
 /en/apartment-frigiliana /en/romantic-hideaways 301
@@ -291,12 +309,7 @@
 /es/bienestar /frigiliana-wellness 301
 /nl/welzijn /nl/frigiliana-wellness 301
 /sv/valbefinnande /sv/frigiliana-wellness 301
-/frigiliana-guest-wellness /frigiliana-wellness 301
-/en/frigiliana-guest-wellness /en/frigiliana-wellness 301
-/de/frigiliana-guest-wellness /de/frigiliana-wellness 301
-/es/frigiliana-guest-wellness /frigiliana-wellness 301
-/nl/frigiliana-guest-wellness /nl/frigiliana-wellness 301
-/sv/frigiliana-guest-wellness /sv/frigiliana-wellness 301
+/es/frigiliana-guest-wellness /frigiliana-guest-wellness 301
 
 # Nerja and Tarifa legacy topics
 /en/torrecilla-beachfront-living /en/romantic-hideaways 301
@@ -304,11 +317,11 @@
 /es/vida-frente-a-la-playa-en-torrecilla /romantic-hideaways 301
 /nl/wonen-aan-het-strand-in-torrecilla /nl/romantic-hideaways 301
 /sv/torrecilla-strandnara-boende /sv/romantic-hideaways 301
-/en/insider-restaurants-nerja /en/romantic-hideaways 301
-/de/insider-restaurants-nerja /de/romantic-hideaways 301
-/es/restaurantes-insider-nerja /romantic-hideaways 301
-/nl/insider-restaurants-nerja /nl/romantic-hideaways 301
-/sv/insiderrestauranger-nerja /sv/romantic-hideaways 301
+/en/insider-restaurants-nerja /en/frigiliana-restaurants 301
+/de/insider-restaurants-nerja /de/frigiliana-restaurants 301
+/es/restaurantes-insider-nerja /frigiliana-restaurants 301
+/nl/insider-restaurants-nerja /nl/frigiliana-restaurants 301
+/sv/insiderrestauranger-nerja /sv/frigiliana-restaurants 301
 /de/nachtleben-in-nerja /de/nerja-nightlife 301
 /es/vida-nocturna-en-nerja /nerja-nightlife 301
 /nl/nachtleven-in-nerja /nl/nerja-nightlife 301
@@ -318,14 +331,9 @@
 /es/vida-nocturna-de-nerja-ii /nerja-nightlife 301
 /nl/nachtleven-van-nerja-ii /nl/nerja-nightlife 301
 /sv/nerjas-nattliv-ii /sv/nerja-nightlife 301
-/nerja-guest-nightlife /nerja-nightlife 301
-/en/nerja-guest-nightlife /en/nerja-nightlife 301
-/de/nerja-guest-nightlife /de/nerja-nightlife 301
-/es/nerja-guest-nightlife /nerja-nightlife 301
-/nl/nerja-guest-nightlife /nl/nerja-nightlife 301
-/sv/nerja-guest-nightlife /sv/nerja-nightlife 301
-/en/tarifa-beaches-extended /en/romantic-hideaways 301
-/de/strande-von-tarifa /de/romantic-hideaways 301
-/es/playas-de-tarifa /romantic-hideaways 301
-/nl/stranden-van-tarifa /nl/romantic-hideaways 301
-/sv/tarifas-strander /sv/romantic-hideaways 301
+/es/nerja-guest-nightlife /nerja-guest-nightlife 301
+/en/tarifa-beaches-extended /en/tarifa-beaches 301
+/de/strande-von-tarifa /de/tarifa-beaches 301
+/es/playas-de-tarifa /tarifa-beaches 301
+/nl/stranden-van-tarifa /nl/tarifa-beaches 301
+/sv/tarifas-strander /sv/tarifa-beaches 301

@@ -512,11 +512,11 @@ legal_notice: {
        ROMANTIC (LEGACY MAPPING)
     ========================================================= */
     romantic_andalusia: {
-      en: 'https://amara-lodging.es/en/book/',
-      de: 'https://amara-lodging.es/de/book/',
-      es: 'https://amara-lodging.es/es/book/',
-      nl: 'https://amara-lodging.es/nl/book/',
-      sv: 'https://amara-lodging.es/sv/book/'
+      en: buildBookingLandingUrl('en'),
+      de: buildBookingLandingUrl('de'),
+      es: buildBookingLandingUrl('es'),
+      nl: buildBookingLandingUrl('nl'),
+      sv: buildBookingLandingUrl('sv')
     },
     comfort_amenities: {
       en: buildOwnedLocalizedPath('comfort-amenities', 'en'),

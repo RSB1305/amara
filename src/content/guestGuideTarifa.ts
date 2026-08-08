@@ -1,4 +1,5 @@
 import type { GuestGuideEntry, LocalizedText } from '../types/guestGuide';
+import { buildBookingLandingUrl } from '../lib/directBooking';
 
 const TARIFA_SUPPORT_WHATSAPP = 'https://wa.me/34604440964';
 const TARIFA_GOOGLE_REVIEW_URL = 'https://g.page/r/CfOMtRVdxhzKEAE/review';
@@ -30,11 +31,11 @@ const AMARA_SIGN_OFF: LocalizedText = {
 // Booking CTA must stay on the guide page's own language route (never hardcode one locale).
 function bookingCta(query: string): LocalizedText {
   return {
-    en: `https://amara-lodging.es/en/book/?${query}`,
-    de: `https://amara-lodging.es/de/book/?${query}`,
-    es: `https://amara-lodging.es/es/book/?${query}`,
-    nl: `https://amara-lodging.es/nl/book/?${query}`,
-    sv: `https://amara-lodging.es/sv/book/?${query}`
+    en: `${buildBookingLandingUrl('en')}?${query}`,
+    de: `${buildBookingLandingUrl('de')}?${query}`,
+    es: `${buildBookingLandingUrl('es')}?${query}`,
+    nl: `${buildBookingLandingUrl('nl')}?${query}`,
+    sv: `${buildBookingLandingUrl('sv')}?${query}`
   };
 }
 
