@@ -54,7 +54,7 @@ export const guestReviewsCopy = {
     },
     title: {
       en: `${airbnbReviewEvidence.reviewCountLabel} Guest Reviews`,
-      de: `${airbnbReviewEvidence.reviewCountLabel} Gästebewertungen`,
+      de: `${airbnbReviewEvidence.reviewCountLabel} Gäste&shy;bewertungen`,
       es: `${airbnbReviewEvidence.reviewCountLabel} reseñas de huéspedes`,
       nl: `${airbnbReviewEvidence.reviewCountLabel} gastbeoordelingen`,
       sv: `${airbnbReviewEvidence.reviewCountLabel} gästrecensioner`

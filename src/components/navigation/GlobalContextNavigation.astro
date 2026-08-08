@@ -147,6 +147,7 @@ const isReviewsHub = currentPath === normalizePath(resolveLink('reviews_hub', la
 const isCollection = currentPath === normalizePath(resolveLink('romantic_hideaways', lang));
 const isAmenities = currentPath === normalizePath(resolveLink('amenities', lang));
 const isAbout = currentPath === normalizePath(resolveLink('about', lang));
+const isFaq = currentPath === normalizePath(resolveLink('faq_general', lang));
 
 /**
  * A breadcrumb should read like the navigation, not like the SEO title. Titles
@@ -159,7 +160,7 @@ const navLabelForPage =
   : isReviewsHub ? copy.reviews
   : isCollection ? copy.allStays
   : isAmenities ? copy.amenities
-  : currentPath === normalizePath(resolveLink('faq_general', lang)) ? copy.faq
+  : isFaq ? copy.faq
   : isAbout ? aboutBreadcrumb.page
   : currentPath === normalizePath(resolveLink('legal_notice', lang)) ? copy.legal
   : undefined;
@@ -187,6 +188,25 @@ const genericItems: ContextNavigationItem[] = [
   { id: 'faq', href: resolveLink('faq_general', lang), label: copy.faq }
 ];
 
+const trustItems: ContextNavigationItem[] = [
+  { id: 'about', href: resolveLink('about', lang), label: aboutBreadcrumb.page },
+  { id: 'reviews', href: resolveLink('reviews_hub', lang), label: copy.reviews },
+  {
+    id: 'direct-booking',
+    href: resolveLink('direct_booking_benefits', lang),
+    label: copy.directBookingBenefits
+  },
+  { id: 'amenities', href: resolveLink('amenities', lang), label: copy.amenities },
+  { id: 'faq', href: resolveLink('faq_general', lang), label: copy.faq }
+];
+
+const isTrustContextPage =
+  isAbout ||
+  isReviewsHub ||
+  isDirectBookingBenefits ||
+  isAmenities ||
+  isFaq;
+
 /**
  * Stay pages carry no context navigation. The row competed with the booking CTA
  * directly beneath it and repeated links the footer already offers; the arrival
@@ -195,14 +215,11 @@ const genericItems: ContextNavigationItem[] = [
  */
 const stayItems: ContextNavigationItem[] = [];
 
-/**
- * The reviews hub drops the link row for the same reason stay pages do: it sat
- * above a page whose job is to build confidence and offered five ways to leave.
- * Its breadcrumb stays, so the trail back is intact.
- */
-// The amenities index follows the same breadcrumb-only treatment so its
-// inventory begins without a competing row of sitewide exit links.
-const items = isStay || isReviewsHub || isAmenities || isAbout ? stayItems : genericItems;
+const items = isStay
+  ? stayItems
+  : isTrustContextPage
+    ? trustItems
+    : genericItems;
 const activeId = items.find((item) => normalizePath(item.href) === currentPath)?.id;
 ---
 
