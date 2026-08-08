@@ -56,6 +56,7 @@ const c = {
   },
   hero: {
     eyebrow: copy.hero.eyebrow[currentLang],
+    imageAlt: copy.hero.imageAlt[currentLang],
     h1: copy.hero.h1[currentLang],
     body: copy.hero.body[currentLang],
     introLeadBefore: copy.hero.introLead[currentLang].before,
@@ -265,7 +266,7 @@ const liveClimate = {
 
 const heroImage = {
   src: '/images/amara-lounis/15-amara-frigiliana.jpg',
-  alt: 'Frigiliana hillside homes in afternoon light',
+  alt: c.hero.imageAlt,
   width: 1920,
   height: 1282,
   sizes: '(max-width: 767px) calc(100vw - 3rem), (max-width: 1023px) 60vw, 40vw'

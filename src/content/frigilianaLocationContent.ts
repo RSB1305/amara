@@ -59,6 +59,13 @@ export const frigilianaLocationCopy = {
   },
   hero: {
     eyebrow: { en: "Frigiliana travel guide", de: "Frigiliana Reiseguide", es: "Guía de Frigiliana", nl: "Frigiliana reisgids", sv: "Frigiliana reseguide" },
+    imageAlt: {
+      en: "Frigiliana hillside homes in afternoon light",
+      de: "Häuser am Hang von Frigiliana im Nachmittagslicht",
+      es: "Casas en la ladera de Frigiliana a la luz de la tarde",
+      nl: "Huizen tegen de heuvel van Frigiliana in het middaglicht",
+      sv: "Hus på Frigilianas sluttning i eftermiddagsljus"
+    },
     h1: { en: "Frigiliana Guide <br/> Where to Stay", de: "Frigiliana-Guide <br/> Unterkunft & Orientierung", es: "Guía de Frigiliana <br/> Dónde alojarse", nl: "Frigiliana-gids <br/> Waar overnachten", sv: "Frigiliana-guide <br/> Var du bor" },
     body: { en: "A practical guide to Frigiliana for guests choosing where to stay: village character, parking, weather, Nerja access, and AMARA's boutique apartments.", de: "Ein praktischer Frigiliana-Guide für Gäste, die die passende Unterkunft suchen: Dorfcharakter, Parken, Wetter, Nerja-Anbindung und AMARA Boutique-Apartments.", es: "Una guía práctica de Frigiliana para elegir dónde alojarse: carácter del pueblo, aparcamiento, clima, conexión con Nerja y los apartamentos boutique de AMARA.", nl: "Een praktische gids voor Frigiliana voor gasten die willen kiezen waar ze overnachten: dorpskarakter, parkeren, weer, Nerja en AMARA boutique-appartementen.", sv: "En praktisk guide till Frigiliana för gäster som väljer var de ska bo: bykaraktär, parkering, väder, Nerja och AMARA:s boutiquelägenheter." },
     /** Second hero paragraph — inline editorial link (structure / movement reality) → parking authority */
