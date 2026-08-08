@@ -1,8 +1,8 @@
 # AMARA Route Matrix — Current State
 
 Status: factual current-state documentation  
-Repository state: `main` at `ef35a5cdd1df8b48a4907ff074e8df5e8e0cf8a1`  
-Scope: Astro marketing website only; Lodgify is outside this matrix.
+Repository state: current local `main`; exact revision is tracked in Git history
+Scope: Astro marketing routes; the external Lodgify booking engine is not a route family but is an approved redirect destination.
 
 ## Purpose
 
@@ -16,6 +16,8 @@ Primary sources of truth:
 - `src/content/`: localized content and authored SEO data
 - `src/page-families/`: page-family composition and inline SEO data
 - `astro.config.mjs`: sitemap filtering, URL serialization, i18n, and redirects
+- `public/_redirects`: effective Cloudflare production redirect layer
+- `scripts/check-public-slug-policy.mjs`: build-time route and redirect governance
 - `src/pages/vacation-rentals-sitemap.xml.ts`: separate vacation-rental sitemap
 
 ## Localization And URL Rules
@@ -157,9 +159,21 @@ Internal `/tools/*` source pages are removed from normal production output unles
 
 ## Redirect Layer
 
-`astro.config.mjs` currently defines **35 redirects**. Redirect output is separate from indexable content and excluded from the sitemap.
+`public/_redirects` is the effective Cloudflare production redirect layer. It currently contains **295 network-level 301 redirects**. `astro.config.mjs` separately retains **35 redirects** that Astro can render as static redirect pages; every Astro redirect must have a matching Cloudflare rule with the same target so the network-level redirect takes precedence in production.
 
-| Redirect group | Count | Current canonical target behavior |
+| Redirect layer | Count | Governance |
+|---|---:|---|
+| Cloudflare `public/_redirects` | 295 | Effective production redirects; all must be 301 |
+| Astro config redirects | 35 | Must match the corresponding Cloudflare source and target |
+| External Lodgify booking redirects | 9 | Approved exception to internal Astro targets; must use the canonical Lodgify booking origin |
+
+The Cloudflare layer includes legacy `/es/...` sources that normalize to unprefixed Spanish canonical routes. Current Guest Guide routes, including intentional noindex pages, are treated as generated routes and may not be shadowed by redirect sources. Booking-continuity redirects may terminate directly at the external Lodgify booking engine.
+
+The prebuild slug-policy audit parses the complete Cloudflare file and enforces permanent status, unique sources, direct targets, loop safety, known internal destinations, the Lodgify-only external-host policy, current-route collision protection, unprefixed Spanish targets, and Astro/Cloudflare parity.
+
+The Astro redirect subset remains grouped as follows:
+
+| Astro redirect group | Count | Current canonical target behavior |
 |---|---:|---|
 | German Frigiliana/Nerja localized alias | 1 | `/de/frigiliana-oder-nerja` → `/de/frigiliana-or-nerja` |
 | Arrival and parking aliases | 11 | Root/default aliases → `/getting-to-frigiliana`; non-default aliases remain in their language |
@@ -233,7 +247,10 @@ The following are evidence-based overlaps in titles, page scope, or query intent
 - 180 main-sitemap entries
 - 179 exact sitemap/canonical string matches plus one accepted root-slash difference
 - 38 noindex families and 190 localized noindex URLs
-- 35 redirects
+- 295 Cloudflare network-level 301 redirects
+- 35 matching Astro config redirects
+- nine approved external Lodgify booking redirects and no other external redirect host
+- build-time redirect validation with zero current-route collisions, duplicates, direct chains, or loops
 - four clearly marked dormant registry entries
 - no unregistered route family in the main sitemap
 - no new page, slug, URL, redirect, or architecture recommendation in this document

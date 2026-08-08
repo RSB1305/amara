@@ -22,8 +22,35 @@ const ignoredRouteFiles = new Set([
   '[guideSlug].astro'
 ]);
 const sourceExtensions = new Set(['.astro', '.ts', '.js', '.mjs']);
-const supportedLocalePrefixes = new Set(['de', 'en', 'es', 'nl', 'sv']);
+const nonDefaultLocalePrefixes = ['de', 'en', 'nl', 'sv'];
 const violations = [];
+
+const approvedBookingRedirects = new Map([
+  ['/en/book/', 'en'],
+  ['/de/book/', 'de'],
+  ['/es/book/', 'es'],
+  ['/nl/book/', 'nl'],
+  ['/sv/book/', 'sv'],
+  ['/de/buchen/', 'de'],
+  ['/es/reservar/', 'es'],
+  ['/nl/boeken/', 'nl'],
+  ['/sv/boka/', 'sv']
+]);
+
+const approvedPropertyAliasRedirects = new Map([
+  ['/en/la-amara-farah-romantic-double-retreat', '/en/la-amara-farah'],
+  ['/en/la-amara-lounis-historic-romantic-stay', '/en/la-amara-lounis'],
+  ['/nl/la-amara-lounis-historic-romantic-stay', '/nl/la-amara-lounis'],
+  ['/sv/la-amara-lounis-casa-rural-frigiliana', '/sv/la-amara-lounis'],
+  [
+    '/en/la-amara-family-surf-with-oceanview-and-pool',
+    '/en/la-amara-family-and-surf'
+  ],
+  [
+    '/sv/amara-family-surf-with-oceanview-and-pool',
+    '/sv/la-amara-family-and-surf'
+  ]
+]);
 
 function listStaticRouteSlugs(relativeDirectory) {
   const directory = join(workspaceRoot, relativeDirectory);
@@ -60,14 +87,328 @@ function walk(relativeDirectory) {
   return files;
 }
 
-function stripLocalePrefix(pathname) {
-  const segments = pathname.replace(/^\/+|\/+$/g, '').split('/').filter(Boolean);
+function getLineNumber(source, index) {
+  return source.slice(0, index).split('\n').length;
+}
 
-  if (supportedLocalePrefixes.has(segments[0])) {
-    segments.shift();
+function isInternalPath(target) {
+  return target.startsWith('/') && !target.startsWith('//');
+}
+
+function collectGuestGuideSlugs() {
+  const slugs = new Set();
+  const duplicateSlugs = new Set();
+  const contentFiles = [
+    'src/content/guestGuideFrigiliana.ts',
+    'src/content/guestGuideTarifa.ts'
+  ];
+
+  for (const relativePath of contentFiles) {
+    const source = readFileSync(join(workspaceRoot, relativePath), 'utf8');
+    const slugPatterns = [
+      /(?:^|\s)(?:["']slug["']|slug)\s*:\s*["']([^"']+)["']/gm,
+      /createPlaceholderGuidePage\(\s*["']([^"']+)["']/g
+    ];
+
+    for (const pattern of slugPatterns) {
+      let match;
+
+      while ((match = pattern.exec(source)) !== null) {
+        if (slugs.has(match[1])) {
+          duplicateSlugs.add(match[1]);
+        }
+
+        slugs.add(match[1]);
+      }
+    }
   }
 
-  return segments.join('/');
+  for (const slug of duplicateSlugs) {
+    violations.push(`Guest Guide slug "${slug}" is defined more than once.`);
+  }
+
+  if (slugs.size === 0) {
+    violations.push('Unable to derive Guest Guide routes from their content sources.');
+  }
+
+  return slugs;
+}
+
+function buildCurrentRoutePaths(guestGuideSlugs) {
+  const paths = new Set();
+
+  for (const slug of [...CANONICAL_PUBLIC_SLUGS, ...guestGuideSlugs]) {
+    paths.add(slug ? `/${slug}` : '/');
+
+    for (const locale of nonDefaultLocalePrefixes) {
+      paths.add(slug ? `/${locale}/${slug}` : `/${locale}`);
+    }
+  }
+
+  return paths;
+}
+
+export function parseCloudflareRedirects(source) {
+  const rules = [];
+  const parseViolations = [];
+
+  for (const [index, rawLine] of source.split(/\r?\n/).entries()) {
+    const line = rawLine.trim();
+
+    if (!line || line.startsWith('#')) {
+      continue;
+    }
+
+    const fields = line.split(/\s+/);
+
+    if (fields.length !== 3) {
+      parseViolations.push(
+        `public/_redirects:${index + 1}: malformed rule "${line}"; expected source, target, and status.`
+      );
+      continue;
+    }
+
+    rules.push({
+      source: fields[0],
+      target: fields[1],
+      status: fields[2],
+      line: index + 1
+    });
+  }
+
+  return { rules, violations: parseViolations };
+}
+
+export function parseAstroRedirects(source) {
+  const normalizedSource = source.replace(/\r\n/g, '\n');
+  const parseViolations = [];
+  const rules = [];
+  const redirectsBlock = normalizedSource.match(
+    /redirects:\s*\{([\s\S]*?)\n\s*\},\n\s*i18n:/
+  );
+
+  if (!redirectsBlock) {
+    parseViolations.push('Unable to inspect redirects in astro.config.mjs.');
+    return { rules, violations: parseViolations };
+  }
+
+  const blockStart = redirectsBlock.index + redirectsBlock[0].indexOf(redirectsBlock[1]);
+  const redirectPattern = /['"]([^'"]+)['"]\s*:\s*['"]([^'"]+)['"]/g;
+  let match;
+
+  while ((match = redirectPattern.exec(redirectsBlock[1])) !== null) {
+    rules.push({
+      source: match[1],
+      target: match[2],
+      line: getLineNumber(normalizedSource, blockStart + match.index)
+    });
+  }
+
+  return { rules, violations: parseViolations };
+}
+
+function findRedirectLoops(rules) {
+  const edges = new Map();
+  const loops = new Map();
+
+  for (const rule of rules) {
+    if (isInternalPath(rule.target) && !edges.has(rule.source)) {
+      edges.set(rule.source, rule.target);
+    }
+  }
+
+  for (const start of edges.keys()) {
+    const path = [];
+    const positions = new Map();
+    let current = start;
+
+    while (edges.has(current)) {
+      if (positions.has(current)) {
+        const cycle = path.slice(positions.get(current));
+        const rotations = cycle.map((_, index) => [
+          ...cycle.slice(index),
+          ...cycle.slice(0, index)
+        ]);
+        const canonicalCycle = rotations
+          .map((rotation) => rotation.join(' -> '))
+          .sort()[0];
+
+        loops.set(canonicalCycle, [...cycle, current]);
+        break;
+      }
+
+      positions.set(current, path.length);
+      path.push(current);
+      current = edges.get(current);
+    }
+  }
+
+  return [...loops.values()];
+}
+
+export function auditRedirectInfrastructure({
+  cloudflareSource,
+  astroConfigSource,
+  currentRoutePaths,
+  bookingOrigin
+}) {
+  const cloudflareResult = parseCloudflareRedirects(cloudflareSource);
+  const astroResult = parseAstroRedirects(astroConfigSource);
+  const auditViolations = [
+    ...cloudflareResult.violations,
+    ...astroResult.violations
+  ];
+  const sources = new Map();
+
+  for (const rule of cloudflareResult.rules) {
+    const matches = sources.get(rule.source) ?? [];
+    matches.push(rule);
+    sources.set(rule.source, matches);
+
+    if (rule.status !== '301') {
+      auditViolations.push(
+        `public/_redirects:${rule.line}: ${rule.source} -> ${rule.target} uses status ${rule.status}; only 301 is approved.`
+      );
+    }
+  }
+
+  const duplicateSources = [...sources.entries()].filter(([, rules]) => rules.length > 1);
+
+  for (const [source, rules] of duplicateSources) {
+    const conflicts = rules
+      .map((rule) => `${rule.target} (line ${rule.line})`)
+      .join(', ');
+    auditViolations.push(`Duplicate redirect source "${source}": ${conflicts}.`);
+  }
+
+  const directChains = cloudflareResult.rules.filter(
+    (rule) => isInternalPath(rule.target) && sources.has(rule.target)
+  );
+
+  for (const rule of directChains) {
+    const nextRule = sources.get(rule.target)[0];
+    auditViolations.push(
+      `Redirect chain: ${rule.source} -> ${rule.target} -> ${nextRule.target} ` +
+        `(lines ${rule.line}, ${nextRule.line}).`
+    );
+  }
+
+  const loops = findRedirectLoops(cloudflareResult.rules);
+
+  for (const loop of loops) {
+    auditViolations.push(`Redirect loop: ${loop.join(' -> ')}.`);
+  }
+
+  let externalRedirectCount = 0;
+  let collisionCount = 0;
+
+  for (const rule of cloudflareResult.rules) {
+    if (isInternalPath(rule.target)) {
+      if (rule.target === '/es' || rule.target.startsWith('/es/')) {
+        auditViolations.push(
+          `Spanish canonical target "${rule.target}" must be unprefixed (source ${rule.source}, line ${rule.line}).`
+        );
+      }
+
+      if (!currentRoutePaths.has(rule.target)) {
+        auditViolations.push(
+          `Unknown internal redirect target "${rule.target}" from ${rule.source} (line ${rule.line}).`
+        );
+      }
+    } else {
+      externalRedirectCount += 1;
+
+      let targetUrl;
+
+      try {
+        targetUrl = new URL(rule.target);
+      } catch {
+        auditViolations.push(
+          `Invalid external redirect target "${rule.target}" from ${rule.source} (line ${rule.line}).`
+        );
+        continue;
+      }
+
+      if (targetUrl.protocol !== 'https:') {
+        auditViolations.push(
+          `External redirect target "${rule.target}" must use HTTPS (source ${rule.source}, line ${rule.line}).`
+        );
+      }
+
+      if (targetUrl.origin !== bookingOrigin) {
+        auditViolations.push(
+          `External redirect target "${rule.target}" is outside the approved booking origin ${bookingOrigin} ` +
+            `(source ${rule.source}, line ${rule.line}).`
+        );
+      }
+    }
+
+    if (currentRoutePaths.has(rule.source)) {
+      collisionCount += 1;
+      auditViolations.push(
+        `Current-route collision: redirect source "${rule.source}" shadows a generated Astro route (line ${rule.line}).`
+      );
+    }
+  }
+
+  const cloudflareBySource = new Map(
+    [...sources.entries()].map(([source, rules]) => [source, rules[0]])
+  );
+
+  for (const astroRule of astroResult.rules) {
+    if (!isInternalPath(astroRule.target) || !currentRoutePaths.has(astroRule.target)) {
+      auditViolations.push(
+        `astro.config.mjs:${astroRule.line}: redirect target "${astroRule.target}" is not a current canonical Astro path.`
+      );
+    }
+
+    const cloudflareRule = cloudflareBySource.get(astroRule.source);
+
+    if (!cloudflareRule) {
+      auditViolations.push(
+        `Astro/Cloudflare drift: ${astroRule.source} -> ${astroRule.target} exists only in astro.config.mjs.`
+      );
+    } else if (cloudflareRule.target !== astroRule.target) {
+      auditViolations.push(
+        `Astro/Cloudflare drift: ${astroRule.source} targets ${astroRule.target} in astro.config.mjs ` +
+          `but ${cloudflareRule.target} in public/_redirects.`
+      );
+    }
+  }
+
+  for (const [source, language] of approvedBookingRedirects) {
+    const rule = cloudflareBySource.get(source);
+    const expectedTarget = `${bookingOrigin}/${language}/book/`;
+
+    if (!rule || rule.target !== expectedTarget || rule.status !== '301') {
+      auditViolations.push(
+        `Booking continuity rule must be ${source} -> ${expectedTarget} 301.`
+      );
+    }
+  }
+
+  for (const [source, expectedTarget] of approvedPropertyAliasRedirects) {
+    const rule = cloudflareBySource.get(source);
+
+    if (!rule || rule.target !== expectedTarget || rule.status !== '301') {
+      auditViolations.push(
+        `Property alias must be ${source} -> ${expectedTarget} 301.`
+      );
+    }
+  }
+
+  return {
+    violations: auditViolations,
+    summary: {
+      cloudflareRedirectCount: cloudflareResult.rules.length,
+      astroRedirectCount: astroResult.rules.length,
+      externalRedirectCount,
+      collisionCount,
+      duplicateCount: duplicateSources.length,
+      chainCount: directChains.length,
+      loopCount: loops.length
+    }
+  };
 }
 
 if (approvedSlugs.size !== CANONICAL_PUBLIC_SLUGS.length) {
@@ -154,46 +495,33 @@ for (const relativePath of walk('src')) {
   }
 }
 
-// Normalize line endings: the redirect pattern below anchors on \n, and Git rewrites
-// checkouts to CRLF on Windows, which would otherwise fail the check on that platform only.
-const astroConfig = readFileSync(join(workspaceRoot, 'astro.config.mjs'), 'utf8').replace(
-  /\r\n/g,
-  '\n'
+const guestGuideSlugs = collectGuestGuideSlugs();
+const currentRoutePaths = buildCurrentRoutePaths(guestGuideSlugs);
+const directBookingSource = readFileSync(
+  join(workspaceRoot, 'src/lib/directBooking.ts'),
+  'utf8'
 );
-const redirectsBlock = astroConfig.match(
-  /redirects:\s*\{([\s\S]*?)\n\s*\},\n\s*i18n:/
+const bookingOriginMatch = directBookingSource.match(
+  /export const DIRECT_BOOKING_ORIGIN\s*=\s*['"]([^'"]+)['"]/
 );
 
-if (!redirectsBlock) {
-  violations.push('Unable to inspect redirect destinations in astro.config.mjs.');
-} else {
-  const redirectPattern = /['"][^'"]+['"]\s*:\s*['"]([^'"]+)['"]/g;
-  let redirectMatch;
-
-  while ((redirectMatch = redirectPattern.exec(redirectsBlock[1])) !== null) {
-    const destination = redirectMatch[1];
-
-    if (!destination.startsWith('/')) {
-      violations.push(
-        `Redirect destination "${destination}" must be an internal canonical path.`
-      );
-      continue;
-    }
-
-    const destinationSlug = stripLocalePrefix(destination);
-
-    if (!approvedSlugs.has(destinationSlug)) {
-      violations.push(
-        `Redirect destination "${destination}" does not use an approved canonical slug.`
-      );
-    }
-  }
+if (!bookingOriginMatch) {
+  violations.push('Unable to derive DIRECT_BOOKING_ORIGIN from src/lib/directBooking.ts.');
 }
+
+const redirectAudit = auditRedirectInfrastructure({
+  cloudflareSource: readFileSync(join(workspaceRoot, 'public/_redirects'), 'utf8'),
+  astroConfigSource: readFileSync(join(workspaceRoot, 'astro.config.mjs'), 'utf8'),
+  currentRoutePaths,
+  bookingOrigin: bookingOriginMatch?.[1] ?? ''
+});
+
+violations.push(...redirectAudit.violations);
 
 if (violations.length > 0) {
   console.error('AMARA public slug policy check failed.');
   console.error(
-    'Canonical public slugs must be approved English slugs. Localized and legacy slugs are allowed only as redirect sources.'
+    'Canonical routes and redirects must comply with AMARA route ownership and migration policy.'
   );
 
   for (const violation of violations) {
@@ -206,4 +534,14 @@ if (violations.length > 0) {
 console.log('AMARA public slug policy check passed.');
 console.log(
   `${approvedStaticPageSlugs.size} English static slugs and ${approvedDynamicPageSlugs.size} approved branded rental slugs verified across routes, link targets, and redirect destinations.`
+);
+console.log(
+  `${guestGuideSlugs.size} Guest Guide slugs included in current-route collision and redirect-target validation.`
+);
+console.log(
+  `${redirectAudit.summary.cloudflareRedirectCount} Cloudflare redirects and ` +
+    `${redirectAudit.summary.astroRedirectCount} Astro redirects verified; ` +
+    `${redirectAudit.summary.externalRedirectCount} approved external Lodgify redirects; ` +
+    `collisions ${redirectAudit.summary.collisionCount}, duplicates ${redirectAudit.summary.duplicateCount}, ` +
+    `chains ${redirectAudit.summary.chainCount}, loops ${redirectAudit.summary.loopCount}.`
 );
