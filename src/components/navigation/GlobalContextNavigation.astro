@@ -6,6 +6,7 @@
 import ContextNavigation, {
   type ContextNavigationItem
 } from './ContextNavigation.astro';
+import { trustLabels, trustSectionLabels } from '../../content/trustLabels';
 import { resolveLink } from '../../lib/linkResolver';
 import type { AmaraLanguage } from '../../types/seo';
 
@@ -30,7 +31,6 @@ const labels: Record<
   {
     breadcrumb: string;
     discover: string;
-    aboutUs: string;
     stays: string;
     switcher: string;
     destinations: string;
@@ -47,94 +47,81 @@ const labels: Record<
   en: {
     breadcrumb: 'Breadcrumb',
     discover: 'Discover AMARA',
-    aboutUs: 'About Us',
     stays: 'Stays',
     switcher: 'Explore AMARA',
     destinations: 'Destinations',
     allStays: 'All stays',
-    amenities: 'Comfort & Amenities',
-    reviews: 'Guest Reviews',
-    checkAvailability: 'Check Availability',
-    directBookingBenefits: 'Direct Booking Benefits',
-    faq: 'Stay FAQ',
+    amenities: trustLabels.amenities.en,
+    reviews: trustLabels.reviews_hub.en,
+    checkAvailability: trustLabels.book.en,
+    directBookingBenefits: trustLabels.direct_booking_benefits.en,
+    faq: trustLabels.faq_general.en,
     arrival: 'Arrival Guide',
     legal: 'Legal Notice & Privacy'
   },
   de: {
     breadcrumb: 'Brotkrümelnavigation',
     discover: 'AMARA entdecken',
-    aboutUs: 'Über uns',
     stays: 'Unterkünfte',
     switcher: 'AMARA entdecken',
     destinations: 'Reiseziele',
     allStays: 'Alle Unterkünfte',
-    amenities: 'Komfort & Ausstattung',
-    reviews: 'Gästebewertungen',
-    checkAvailability: 'Verfügbarkeit prüfen',
-    directBookingBenefits: 'Vorteile der Direktbuchung',
-    faq: 'Aufenthalts-FAQ',
+    amenities: trustLabels.amenities.de,
+    reviews: trustLabels.reviews_hub.de,
+    checkAvailability: trustLabels.book.de,
+    directBookingBenefits: trustLabels.direct_booking_benefits.de,
+    faq: trustLabels.faq_general.de,
     arrival: 'Anreise-Guide',
     legal: 'Impressum & Datenschutz'
   },
   es: {
     breadcrumb: 'Migas de pan',
     discover: 'Descubrir AMARA',
-    aboutUs: 'Sobre nosotros',
     stays: 'Alojamientos',
     switcher: 'Descubrir AMARA',
     destinations: 'Destinos',
     allStays: 'Todos los alojamientos',
-    amenities: 'Confort y servicios',
-    reviews: 'Opiniones de huéspedes',
-    checkAvailability: 'Ver disponibilidad',
-    directBookingBenefits: 'Ventajas de reserva directa',
-    faq: 'FAQ de la estancia',
+    amenities: trustLabels.amenities.es,
+    reviews: trustLabels.reviews_hub.es,
+    checkAvailability: trustLabels.book.es,
+    directBookingBenefits: trustLabels.direct_booking_benefits.es,
+    faq: trustLabels.faq_general.es,
     arrival: 'Guía de llegada',
     legal: 'Aviso legal y privacidad'
   },
   nl: {
     breadcrumb: 'Broodkruimelnavigatie',
     discover: 'AMARA ontdekken',
-    aboutUs: 'Over ons',
     stays: 'Verblijven',
     switcher: 'AMARA ontdekken',
     destinations: 'Bestemmingen',
     allStays: 'Alle verblijven',
-    amenities: 'Comfort en voorzieningen',
-    reviews: 'Gastbeoordelingen',
-    checkAvailability: 'Beschikbaarheid bekijken',
-    directBookingBenefits: 'Voordelen van direct boeken',
-    faq: 'Verblijfs-FAQ',
+    amenities: trustLabels.amenities.nl,
+    reviews: trustLabels.reviews_hub.nl,
+    checkAvailability: trustLabels.book.nl,
+    directBookingBenefits: trustLabels.direct_booking_benefits.nl,
+    faq: trustLabels.faq_general.nl,
     arrival: 'Aankomstgids',
     legal: 'Juridische kennisgeving & privacy'
   },
   sv: {
     breadcrumb: 'Brödsmulenavigering',
     discover: 'Upptäck AMARA',
-    aboutUs: 'Om oss',
     stays: 'Boenden',
     switcher: 'Upptäck AMARA',
     destinations: 'Resmål',
     allStays: 'Alla boenden',
-    amenities: 'Komfort och bekvämligheter',
-    reviews: 'Gästrecensioner',
-    checkAvailability: 'Se tillgänglighet',
-    directBookingBenefits: 'Fördelar med direktbokning',
-    faq: 'FAQ för vistelsen',
+    amenities: trustLabels.amenities.sv,
+    reviews: trustLabels.reviews_hub.sv,
+    checkAvailability: trustLabels.book.sv,
+    directBookingBenefits: trustLabels.direct_booking_benefits.sv,
+    faq: trustLabels.faq_general.sv,
     arrival: 'Ankomstguide',
     legal: 'Juridisk information & integritet'
   }
 };
 
 const copy = labels[lang];
-const aboutBreadcrumbLabels: Record<AmaraLanguage, { section: string; page: string }> = {
-  en: { section: 'About us', page: 'Philosophy' },
-  de: { section: 'Über uns', page: 'Unsere Haltung' },
-  es: { section: 'Sobre nosotros', page: 'Filosofía' },
-  nl: { section: 'Over ons', page: 'Onze visie' },
-  sv: { section: 'Om oss', page: 'Vår filosofi' }
-};
-const aboutBreadcrumb = aboutBreadcrumbLabels[lang];
 const normalizePath = (value: string) =>
   (value.replace(/\/index\.html$/i, '/').replace(/\.html$/i, '').replace(/\/$/, '') || '/');
 const currentPath = normalizePath(pathname);
@@ -148,6 +135,12 @@ const isCollection = currentPath === normalizePath(resolveLink('romantic_hideawa
 const isAmenities = currentPath === normalizePath(resolveLink('amenities', lang));
 const isAbout = currentPath === normalizePath(resolveLink('about', lang));
 const isFaq = currentPath === normalizePath(resolveLink('faq_general', lang));
+const isTrustContextPage =
+  isAbout ||
+  isReviewsHub ||
+  isDirectBookingBenefits ||
+  isAmenities ||
+  isFaq;
 
 /**
  * A breadcrumb should read like the navigation, not like the SEO title. Titles
@@ -156,22 +149,20 @@ const isFaq = currentPath === normalizePath(resolveLink('faq_general', lang));
  * the rest still fall back to the page title.
  */
 const navLabelForPage =
-  isDirectBookingBenefits ? copy.directBookingBenefits
-  : isReviewsHub ? copy.reviews
+  isDirectBookingBenefits ? trustLabels.direct_booking_benefits[lang]
+  : isReviewsHub ? trustLabels.reviews_hub[lang]
   : isCollection ? copy.allStays
-  : isAmenities ? copy.amenities
-  : isFaq ? copy.faq
-  : isAbout ? aboutBreadcrumb.page
+  : isAmenities ? trustLabels.amenities[lang]
+  : isFaq ? trustLabels.faq_general[lang]
+  : isAbout ? trustLabels.about[lang]
   : currentPath === normalizePath(resolveLink('legal_notice', lang)) ? copy.legal
   : undefined;
 
-const breadcrumbSection = isAbout
-  ? aboutBreadcrumb.section
-  : isDirectBookingBenefits || isReviewsHub || (isAmenities && lang === 'en')
-    ? copy.aboutUs
-    : isStay && !isCollection
-      ? copy.stays
-      : copy.discover;
+const breadcrumbSection = isTrustContextPage
+  ? trustSectionLabels[lang]
+  : isStay && !isCollection
+    ? copy.stays
+    : copy.discover;
 
 const resolvedBreadcrumbTitle =
   navLabelForPage || breadcrumbTitleOverride?.trim() || cleanPageTitle || breadcrumbSection;
@@ -189,23 +180,16 @@ const genericItems: ContextNavigationItem[] = [
 ];
 
 const trustItems: ContextNavigationItem[] = [
-  { id: 'about', href: resolveLink('about', lang), label: aboutBreadcrumb.page },
-  { id: 'reviews', href: resolveLink('reviews_hub', lang), label: copy.reviews },
+  { id: 'about', href: resolveLink('about', lang), label: trustLabels.about[lang] },
+  { id: 'reviews', href: resolveLink('reviews_hub', lang), label: trustLabels.reviews_hub[lang] },
   {
     id: 'direct-booking',
     href: resolveLink('direct_booking_benefits', lang),
-    label: copy.directBookingBenefits
+    label: trustLabels.direct_booking_benefits[lang]
   },
-  { id: 'amenities', href: resolveLink('amenities', lang), label: copy.amenities },
-  { id: 'faq', href: resolveLink('faq_general', lang), label: copy.faq }
+  { id: 'amenities', href: resolveLink('amenities', lang), label: trustLabels.amenities[lang] },
+  { id: 'faq', href: resolveLink('faq_general', lang), label: trustLabels.faq_general[lang] }
 ];
-
-const isTrustContextPage =
-  isAbout ||
-  isReviewsHub ||
-  isDirectBookingBenefits ||
-  isAmenities ||
-  isFaq;
 
 /**
  * Stay pages carry no context navigation. The row competed with the booking CTA

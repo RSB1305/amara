@@ -12,6 +12,7 @@
  * font/size utilities (see `<style>` comment). The CTA remains `.am-btn`.
  */
 import { experienceNavigationContent } from '../content/experienceHubContent';
+import { trustLabels } from '../content/trustLabels';
 import { resolveLink, resolveOptionalLink } from '../lib/linkResolver';
 import { isPublicLinkEnabled } from '../lib/routeOwnership';
 import { AMARA_LANGUAGE_LABELS } from '../lib/languageLabels';
@@ -63,14 +64,6 @@ const languages: { code: AmaraLanguage; label: string }[] = [
   { code: 'nl', label: AMARA_LANGUAGE_LABELS.nl },
   { code: 'sv', label: AMARA_LANGUAGE_LABELS.sv }
 ];
-
-const defaultCtaLabels: Record<AmaraLanguage, string> = {
-  en: 'Check Availability',
-  de: 'Verfügbarkeit prüfen',
-  es: 'Consultar disponibilidad',
-  nl: 'Beschikbaarheid checken',
-  sv: 'Se tillgänglighet'
-};
 
 /** Compact label for the mobile header rail, where space next to the menu trigger is tight. */
 const defaultCtaShortLabels: Record<AmaraLanguage, string> = {
@@ -183,13 +176,7 @@ const globalNavLabels = {
     nl: 'Atlantische wind, weidse horizonten en kitesurfen.',
     sv: 'Atlantvindar, vida horisonter och kitesurfing.'
   },
-  allStays: {
-    en: 'View all stays',
-    de: 'Alle Unterkünfte ansehen',
-    es: 'Ver todos los alojamientos',
-    nl: 'Alle verblijven bekijken',
-    sv: 'Se alla boenden'
-  },
+  allStays: trustLabels.romantic_hideaways,
   farahMeta: {
     en: 'Self-contained boutique suite · 2 guests',
     de: 'Abgeschlossene Boutique-Suite · 2 Gäste',
@@ -269,47 +256,9 @@ const globalNavLabels = {
   }
 } satisfies Record<string, Record<AmaraLanguage, string>>;
 
-const localizedNavLabels: Partial<Record<string, Record<AmaraLanguage, string>>> = {
-  about: {
-    en: 'Philosophy',
-    de: 'Unsere Haltung',
-    es: 'Filosofía',
-    nl: 'Onze visie',
-    sv: 'Vår filosofi'
-  },
-  reviews_hub: {
-    en: 'Guest Reviews',
-    de: 'Gästebewertungen',
-    es: 'Reseñas de huéspedes',
-    nl: 'Gastbeoordelingen',
-    sv: 'Gästrecensioner'
-  },
-  direct_booking_benefits: {
-    en: 'Direct Booking Benefits',
-    de: 'Vorteile der Direktbuchung',
-    es: 'Ventajas de reserva directa',
-    nl: 'Voordelen van direct boeken',
-    sv: 'Fördelar med direktbokning'
-  },
-  amenities: {
-    en: 'Comfort & Amenities',
-    de: 'Komfort & Ausstattung',
-    es: 'Confort y servicios',
-    nl: 'Comfort en voorzieningen',
-    sv: 'Komfort och bekvämligheter'
-  },
-  faq_general: {
-    en: 'Stay FAQ',
-    de: 'Aufenthalts-FAQ',
-    es: 'FAQ de la estancia',
-    nl: 'Verblijfs-FAQ',
-    sv: 'FAQ för vistelsen'
-  }
-};
-
 const ctaLink = {
   token: 'book',
-  label: defaultCtaLabels[currentLang],
+  label: trustLabels.book[currentLang],
   shortLabel: defaultCtaShortLabels[currentLang]
 };
 const currentPath = Astro.url.pathname;
@@ -431,27 +380,27 @@ const globalNavGroups: GlobalNavGroup[] = [
     items: [
       {
         token: 'about',
-        label: localizedNavLabels.about?.[currentLang] ?? 'Philosophy',
+        label: trustLabels.about[currentLang],
         description: tGlobal('aboutMeta')
       },
       {
         token: 'reviews_hub',
-        label: localizedNavLabels.reviews_hub?.[currentLang] ?? 'Guest Reviews',
+        label: trustLabels.reviews_hub[currentLang],
         description: tGlobal('reviewsMeta')
       },
       {
         token: 'direct_booking_benefits',
-        label: localizedNavLabels.direct_booking_benefits?.[currentLang] ?? 'Direct Booking Benefits',
+        label: trustLabels.direct_booking_benefits[currentLang],
         description: tGlobal('directBookingMeta')
       },
       {
         token: 'amenities',
-        label: localizedNavLabels.amenities?.[currentLang] ?? 'Comfort & Amenities',
+        label: trustLabels.amenities[currentLang],
         description: tGlobal('amenitiesMeta')
       },
       {
         token: 'faq_general',
-        label: localizedNavLabels.faq_general?.[currentLang] ?? 'Stay FAQ',
+        label: trustLabels.faq_general[currentLang],
         description: tGlobal('faqMeta')
       }
     ]

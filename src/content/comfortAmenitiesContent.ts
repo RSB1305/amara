@@ -1,4 +1,5 @@
 import type { AmaraAuthoringSeo, AmaraLanguage } from '../types/seo';
+import { trustLabels } from './trustLabels';
 
 type LocalizedText = Record<AmaraLanguage, string>;
 type NavEntry = { token: string; label: string };
@@ -42,13 +43,7 @@ export const comfortAmenitiesNav: {
     nl: 'Gastgids',
     sv: 'Gästguide'
   },
-  ctaLabel: {
-    en: 'Check Availability',
-    de: 'Verfügbarkeit prüfen',
-    es: 'Consultar disponibilidad',
-    nl: 'Beschikbaarheid bekijken',
-    sv: 'Kontrollera tillgänglighet'
-  }
+  ctaLabel: trustLabels.book
 };
 
 export const comfortAmenitiesCopy: Record<
@@ -98,24 +93,24 @@ export const comfortAmenitiesCopy: Record<
 > = {
   en: {
     trustLinks: [
-      { token: 'about', label: 'About AMARA' },
-      { token: 'reviews_hub', label: 'Guest Reviews' },
-      { token: 'direct_booking_benefits', label: 'Direct Booking Benefits' }
+      { token: 'about', label: trustLabels.about.en },
+      { token: 'reviews_hub', label: trustLabels.reviews_hub.en },
+      { token: 'direct_booking_benefits', label: trustLabels.direct_booking_benefits.en }
     ],
     hero: {
-      subtitle: 'Comfort & Amenities',
+      subtitle: 'Comfort lives in the details.',
       title: 'Thoughtful comfort, down to the details.',
       lead: "Well-equipped kitchens, private outdoor spaces, quiet settings and the small details you shouldn't have to think about — because we already have.",
       supportText: 'Compare amenities, key details and practical information for every AMARA stay at a glance.',
-      ctaAbout: 'About Us',
-      ctaReviews: 'Guest Reviews'
+      ctaAbout: trustLabels.about.en,
+      ctaReviews: trustLabels.reviews_hub.en
     },
     sections: {
       inventoryAria: 'Inventory list',
       inventoryTitle: 'Find the stay that suits you'
     },
     inventory: {
-      directBooking: 'Direct booking',
+      directBooking: trustLabels.book.en,
       labels: {
         license: 'Tourist Registration Number',
         maxOccupancy: 'Max occupancy',
@@ -144,24 +139,24 @@ export const comfortAmenitiesCopy: Record<
   },
   de: {
     trustLinks: [
-      { token: 'about', label: 'Über AMARA' },
-      { token: 'reviews_hub', label: 'Gästebewertungen' },
-      { token: 'direct_booking_benefits', label: 'Vorteile der Direktbuchung' }
+      { token: 'about', label: trustLabels.about.de },
+      { token: 'reviews_hub', label: trustLabels.reviews_hub.de },
+      { token: 'direct_booking_benefits', label: trustLabels.direct_booking_benefits.de }
     ],
     hero: {
-      subtitle: 'Komfort & Ausstattung',
+      subtitle: 'Komfort steckt in den Details.',
       title: 'Durchdacht bis ins Detail.',
       lead: 'Gut ausgestattete Küchen, private Außenbereiche, ruhige Lagen und die kleinen Details, um die ihr euch keine Gedanken machen müsst – weil wir es längst getan haben.',
       supportText: 'Vergleicht Ausstattung, wichtige Details und praktische Informationen zu allen AMARA-Unterkünften auf einen Blick.',
-      ctaAbout: 'Über AMARA',
-      ctaReviews: 'Gästebewertungen'
+      ctaAbout: trustLabels.about.de,
+      ctaReviews: trustLabels.reviews_hub.de
     },
     sections: {
       inventoryAria: 'Inventarliste',
       inventoryTitle: 'Findet die Unterkunft, die zu euch passt'
     },
     inventory: {
-      directBooking: 'Direkt buchen',
+      directBooking: trustLabels.book.de,
       labels: {
         license: 'Touristische Registrierungsnummer',
         maxOccupancy: 'Maximale Belegung',
@@ -190,24 +185,24 @@ export const comfortAmenitiesCopy: Record<
   },
   es: {
     trustLinks: [
-      { token: 'about', label: 'Sobre AMARA' },
-      { token: 'reviews_hub', label: 'Opiniones de huéspedes' },
-      { token: 'direct_booking_benefits', label: 'Ventajas de reserva directa' }
+      { token: 'about', label: trustLabels.about.es },
+      { token: 'reviews_hub', label: trustLabels.reviews_hub.es },
+      { token: 'direct_booking_benefits', label: trustLabels.direct_booking_benefits.es }
     ],
     hero: {
-      subtitle: 'Comodidad y equipamiento',
+      subtitle: 'El confort está en los detalles.',
       title: 'Pensado hasta el último detalle.',
       lead: 'Cocinas bien equipadas, espacios exteriores privados, ubicaciones tranquilas y esos pequeños detalles de los que no tenéis que preocuparos, porque nosotros ya lo hemos hecho.',
       supportText: 'Comparad de un vistazo el equipamiento, los datos clave y la información práctica de cada alojamiento AMARA.',
-      ctaAbout: 'Sobre AMARA',
-      ctaReviews: 'Opiniones de huéspedes'
+      ctaAbout: trustLabels.about.es,
+      ctaReviews: trustLabels.reviews_hub.es
     },
     sections: {
       inventoryAria: 'Lista de inventario',
       inventoryTitle: 'Encontrad el alojamiento que mejor os encaja'
     },
     inventory: {
-      directBooking: 'Reserva directa',
+      directBooking: trustLabels.book.es,
       labels: {
         license: 'Número de Registro Turístico',
         maxOccupancy: 'Ocupación máxima',
@@ -236,24 +231,24 @@ export const comfortAmenitiesCopy: Record<
   },
   nl: {
     trustLinks: [
-      { token: 'about', label: 'Over AMARA' },
-      { token: 'reviews_hub', label: 'Gastbeoordelingen' },
-      { token: 'direct_booking_benefits', label: 'Voordelen van direct boeken' }
+      { token: 'about', label: trustLabels.about.nl },
+      { token: 'reviews_hub', label: trustLabels.reviews_hub.nl },
+      { token: 'direct_booking_benefits', label: trustLabels.direct_booking_benefits.nl }
     ],
     hero: {
-      subtitle: 'Comfort en voorzieningen',
+      subtitle: 'Comfort zit in de details.',
       title: 'Aan elk detail is gedacht.',
       lead: 'Goed uitgeruste keukens, privébuitenruimtes, rustige locaties en de kleine details waar jullie niet aan hoeven te denken, omdat wij dat al hebben gedaan.',
       supportText: 'Vergelijk in één oogopslag de voorzieningen, belangrijkste details en praktische informatie van elk AMARA-verblijf.',
-      ctaAbout: 'Over AMARA',
-      ctaReviews: 'Gastbeoordelingen'
+      ctaAbout: trustLabels.about.nl,
+      ctaReviews: trustLabels.reviews_hub.nl
     },
     sections: {
       inventoryAria: 'Inventarislijst',
       inventoryTitle: 'Vind het verblijf dat bij jullie past'
     },
     inventory: {
-      directBooking: 'Direct boeken',
+      directBooking: trustLabels.book.nl,
       labels: {
         license: 'Toeristisch registratienummer',
         maxOccupancy: 'Maximale bezetting',
@@ -282,24 +277,24 @@ export const comfortAmenitiesCopy: Record<
   },
   sv: {
     trustLinks: [
-      { token: 'about', label: 'Om AMARA' },
-      { token: 'reviews_hub', label: 'Gästrecensioner' },
-      { token: 'direct_booking_benefits', label: 'Fördelar med direktbokning' }
+      { token: 'about', label: trustLabels.about.sv },
+      { token: 'reviews_hub', label: trustLabels.reviews_hub.sv },
+      { token: 'direct_booking_benefits', label: trustLabels.direct_booking_benefits.sv }
     ],
     hero: {
-      subtitle: 'Komfort och bekvämligheter',
+      subtitle: 'Komforten finns i detaljerna.',
       title: 'Genomtänkt in i minsta detalj.',
       lead: 'Välutrustade kök, privata uteplatser, lugna lägen och de små detaljer ni inte ska behöva tänka på, eftersom vi redan har gjort det.',
       supportText: 'Jämför bekvämligheter, viktiga detaljer och praktisk information för varje AMARA-boende i en tydlig översikt.',
-      ctaAbout: 'Om AMARA',
-      ctaReviews: 'Gästrecensioner'
+      ctaAbout: trustLabels.about.sv,
+      ctaReviews: trustLabels.reviews_hub.sv
     },
     sections: {
       inventoryAria: 'Inventarielista',
       inventoryTitle: 'Hitta boendet som passar er'
     },
     inventory: {
-      directBooking: 'Boka direkt',
+      directBooking: trustLabels.book.sv,
       labels: {
         license: 'Registreringsnummer för turistboende',
         maxOccupancy: 'Max antal gäster',
@@ -335,58 +330,47 @@ export const comfortAmenitiesSeo: AmaraAuthoringSeo = {
   entityKey: 'amara-brand',
   languages: {
     en: {
-      title: 'Amenities & Stay Details | AMARA Lodging',
+      title: 'Amenities & Stay Details',
       description:
         'Compare amenities, occupancy, access, seasonal price ranges and key stay details for AMARA accommodations in Frigiliana, Nerja and Tarifa.',
       robots: 'index, follow',
       canonical: 'auto'
     },
     de: {
-      title: 'Ausstattung & Aufenthaltsdetails | AMARA Lodging',
+      title: 'Ausstattung & Aufenthaltsdetails',
       description:
         'Vergleicht Ausstattung, Belegung, Zugang, saisonale Preisspannen und wichtige Details der AMARA-Unterkünfte in Frigiliana, Nerja und Tarifa.',
       robots: 'index, follow',
       canonical: 'auto'
     },
     es: {
-      title: 'Equipamiento y detalles de la estancia | AMARA Lodging',
+      title: 'Equipamiento y detalles de la estancia',
       description:
         'Comparad equipamiento, ocupación, acceso, precios orientativos y datos clave de los alojamientos AMARA en Frigiliana, Nerja y Tarifa.',
       robots: 'index, follow',
       canonical: 'auto'
     },
     nl: {
-      title: 'Voorzieningen & verblijfsdetails | AMARA Lodging',
+      title: 'Voorzieningen & verblijfsdetails',
       description:
         'Vergelijk voorzieningen, bezetting, toegang, seizoensprijzen en belangrijke verblijfsdetails voor AMARA in Frigiliana, Nerja en Tarifa.',
       robots: 'index, follow',
       canonical: 'auto'
     },
     sv: {
-      title: 'Bekvämligheter & boendedetaljer | AMARA Lodging',
+      title: 'Bekvämligheter & boendedetaljer',
       description:
         'Jämför bekvämligheter, antal gäster, tillgänglighet, säsongspriser och viktiga boendedetaljer för AMARA i Frigiliana, Nerja och Tarifa.',
       robots: 'index, follow',
       canonical: 'auto'
     }
-  }
+  },
+  ogImage: '/images/hero-frigiliana.jpg'
 };
 
 export const comfortAmenitiesFooterLabels = {
-  amenities: {
-    en: 'Amenities',
-    de: 'Ausstattung',
-    es: 'Servicios',
-    nl: 'Voorzieningen',
-    sv: 'Bekvämligheter'
-  },
-  faq_general: {
-    en: 'Stay FAQ',
-    de: 'Aufenthalts-FAQ',
-    es: 'FAQ de la estancia',
-    nl: 'Verblijfs-FAQ',
-    sv: 'FAQ för vistelsen'
-  },
+  amenities: trustLabels.amenities,
+  faq_general: trustLabels.faq_general,
   instagram: {
     en: 'Instagram',
     de: 'Instagram',

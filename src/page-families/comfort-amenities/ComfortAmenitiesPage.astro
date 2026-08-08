@@ -22,6 +22,7 @@ import {
   comfortAmenitiesProperties,
   comfortAmenitiesSeo
 } from '../../content/comfortAmenitiesContent';
+import { trustLabels } from '../../content/trustLabels';
 import { vacationRentalEntities } from '../../content/vacationRentalEntities';
 import { resolveOptionalLink } from '../../lib/linkResolver';
 import { buildOwnedLocalizedPath } from '../../lib/routeOwnership';
@@ -234,32 +235,32 @@ const closingCopy: Record<AmaraLanguage, { title: string; lead: string; primary:
   en: {
     title: 'Find the AMARA stay that suits you.',
     lead: 'Compare the details that matter to you, then check availability or explore all AMARA stays.',
-    primary: 'Book direct',
-    explore: 'Explore all stays'
+    primary: trustLabels.book.en,
+    explore: trustLabels.romantic_hideaways.en
   },
   de: {
     title: 'Findet die AMARA-Unterkunft, die zu euch passt.',
     lead: 'Vergleicht die Details, die euch wichtig sind, und prüft anschließend die Verfügbarkeit oder entdeckt alle AMARA-Unterkünfte.',
-    primary: 'Direkt buchen',
-    explore: 'Alle Unterkünfte entdecken'
+    primary: trustLabels.book.de,
+    explore: trustLabels.romantic_hideaways.de
   },
   es: {
     title: 'Encontrad el alojamiento AMARA que mejor os encaja.',
     lead: 'Comparad los detalles que más os importan y consultad después la disponibilidad o descubrid todos los alojamientos AMARA.',
-    primary: 'Reservar directamente',
-    explore: 'Descubrir todos los alojamientos'
+    primary: trustLabels.book.es,
+    explore: trustLabels.romantic_hideaways.es
   },
   nl: {
     title: 'Vind het AMARA-verblijf dat bij jullie past.',
     lead: 'Vergelijk de details die voor jullie belangrijk zijn en bekijk daarna de beschikbaarheid of ontdek alle AMARA-verblijven.',
-    primary: 'Direct boeken',
-    explore: 'Alle verblijven ontdekken'
+    primary: trustLabels.book.nl,
+    explore: trustLabels.romantic_hideaways.nl
   },
   sv: {
     title: 'Hitta det AMARA-boende som passar er.',
     lead: 'Jämför detaljerna som är viktiga för er och kontrollera sedan tillgängligheten eller upptäck alla AMARA-boenden.',
-    primary: 'Boka direkt',
-    explore: 'Upptäck alla boenden'
+    primary: trustLabels.book.sv,
+    explore: trustLabels.romantic_hideaways.sv
   }
 };
 const closing = closingCopy[currentLang];
@@ -300,10 +301,10 @@ const closingCtaLinks = [
         />
       </div>
 
-      <main class="am-wrap w-full max-w-[76rem] mx-auto px-6 pb-20 max-md:px-4">
+      <main class="am-wrap w-full max-w-[76rem] mx-auto px-6 max-md:px-4">
 
         <section class="am-section mb-12" aria-label={page.sections.inventoryAria}>
-          <h2 class="am-h2 mb-4 am-text-title font-normal leading-tight tracking-tight text-on-surface">{page.sections.inventoryTitle}</h2>
+          <h2 class="mb-4 am-text-title text-on-surface">{page.sections.inventoryTitle}</h2>
 
           <div class="mb-12 border-y border-outline-variant/30 py-6">
             <p id="property-filter-label" class="am-text-caption mb-4 font-semibold text-on-surface">
@@ -371,7 +372,7 @@ const closingCtaLinks = [
                 data-expanded-amenities={hasExpandedAmenities ? 'true' : 'false'}
               >
                 <div class="am-card-body p-0">
-                  <h3 class="am-h2 mb-4 am-text-subtitle font-normal leading-tight tracking-tight text-on-surface">
+                  <h3 class="mb-4 am-text-subtitle text-on-surface">
                     <a
                       href={property.href}
                       class="inline-flex transition-colors hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/25 focus-visible:ring-offset-4"
@@ -387,7 +388,7 @@ const closingCtaLinks = [
 
                   {amenityRows.length > 0 && (
                     <section class="mt-9" data-amenity-section>
-                      <h4 class="am-text-subtitle font-normal leading-tight text-on-surface">
+                      <h4 class="am-text-subtitle text-on-surface">
                         {amenityFilterCopy.amenityHeading}
                       </h4>
                       <ul class="mt-4 grid list-none gap-x-12 p-0 md:grid-cols-2">

@@ -1,4 +1,5 @@
 import type { AmaraAuthoringSeo, AmaraLanguage } from '../types/seo';
+import { trustLabels } from './trustLabels';
 
 export const directBookingBenefitsSeo: AmaraAuthoringSeo = {
 
@@ -78,19 +79,19 @@ export const directBookingBenefitsSeo: AmaraAuthoringSeo = {
 
 export const directBookingBenefitsTrustLinks = [
 
-  { token: 'about', label: 'About AMARA' },
+  { token: 'about', label: trustLabels.about.en },
 
-  { token: 'reviews_hub', label: 'Guest Reviews' },
+  { token: 'reviews_hub', label: trustLabels.reviews_hub.en },
 
-  { token: 'direct_booking_benefits', label: 'Direct Booking Benefits' }
+  { token: 'direct_booking_benefits', label: trustLabels.direct_booking_benefits.en }
 
 ];
 
 export const directBookingBenefitsFooterLabels = {
 
-  amenities: { en: 'Amenities', de: 'Ausstattung', es: 'Servicios', nl: 'Voorzieningen', sv: 'Bekvämligheter' },
+  amenities: trustLabels.amenities,
 
-  faq_general: { en: 'Stay FAQ', de: 'Aufenthalts-FAQ', es: 'FAQ de la estancia', nl: 'Verblijfs-FAQ', sv: 'FAQ för vistelsen' },
+  faq_general: trustLabels.faq_general,
 
   instagram: { en: 'Instagram', de: 'Instagram', es: 'Instagram', nl: 'Instagram', sv: 'Instagram' }
 
@@ -102,29 +103,29 @@ export const directBookingBenefitsCopy = {
 
     subtitle: {
 
-      en: 'Direct booking benefits',
+      en: 'Direct. Transparent. Personal.',
 
-      de: 'Vorteile der Direktbuchung',
+      de: 'Direkt. Transparent. Persönlich.',
 
-      es: 'Ventajas de reservar directamente',
+      es: 'Directo, claro y personal.',
 
-      nl: 'Voordelen van direct boeken',
+      nl: 'Direct. Transparant. Persoonlijk.',
 
-      sv: 'Fördelar med direktbokning'
+      sv: 'Direkt. Tydligt. Personligt.'
 
     },
 
     title: {
 
-      en: 'Book Direct with AMARA - receive exclusive guest benefits',
+      en: 'Book direct with AMARA.',
 
-      de: 'Direkt bei AMARA buchen - mit exklusiven Vorteilen für Gäste',
+      de: 'Direkt bei AMARA buchen.',
 
-      es: 'Reservad directamente con AMARA y disfrutad de ventajas exclusivas',
+      es: 'Reservad directamente con AMARA.',
 
-      nl: 'Boek direct bij AMARA en ontvang exclusieve voordelen voor gasten',
+      nl: 'Boek direct bij AMARA.',
 
-      sv: 'Boka direkt med AMARA och få exklusiva gästfördelar'
+      sv: 'Boka direkt med AMARA.'
 
     },
 
@@ -156,33 +157,9 @@ export const directBookingBenefitsCopy = {
 
     },
 
-    ctaAbout: {
+    ctaAbout: trustLabels.about,
 
-      en: 'About Us',
-
-      de: 'Über uns',
-
-      es: 'Sobre nosotros',
-
-      nl: 'Over ons',
-
-      sv: 'Om oss'
-
-    },
-
-    ctaReviews: {
-
-      en: 'Guest Reviews',
-
-      de: 'Gästebewertungen',
-
-      es: 'Opiniones de huéspedes',
-
-      nl: 'Gastbeoordelingen',
-
-      sv: 'Gästomdömen'
-
-    }
+    ctaReviews: trustLabels.reviews_hub
 
   },
 
@@ -380,33 +357,9 @@ export const directBookingBenefitsCopy = {
 
     },
 
-    inlineReviews: {
+    inlineReviews: trustLabels.reviews_hub,
 
-      en: 'Guest reviews',
-
-      de: 'Gästebewertungen',
-
-      es: 'Opiniones de huéspedes',
-
-      nl: 'Gastbeoordelingen',
-
-      sv: 'Gästomdömen'
-
-    },
-
-    inlineAbout: {
-
-      en: 'About AMARA',
-
-      de: 'Über AMARA',
-
-      es: 'Sobre AMARA',
-
-      nl: 'Over AMARA',
-
-      sv: 'Om AMARA'
-
-    },
+    inlineAbout: trustLabels.about,
 
     quote: {
 
@@ -548,33 +501,9 @@ export const directBookingBenefitsCopy = {
 
     },
 
-    ctaAvailability: {
+    ctaAvailability: trustLabels.book,
 
-      en: 'Check Availability',
-
-      de: 'Verfügbarkeit prüfen',
-
-      es: 'Ver disponibilidad',
-
-      nl: 'Beschikbaarheid bekijken',
-
-      sv: 'Se tillgänglighet'
-
-    },
-
-    ctaExplore: {
-
-      en: 'Explore Locations',
-
-      de: 'Standorte entdecken',
-
-      es: 'Explorar destinos',
-
-      nl: 'Locaties ontdekken',
-
-      sv: 'Upptäck platser'
-
-    }
+    ctaExplore: trustLabels.romantic_hideaways
 
   }
 

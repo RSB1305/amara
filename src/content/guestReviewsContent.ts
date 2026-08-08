@@ -4,6 +4,7 @@ import {
   airbnbRatingLabel,
   airbnbReviewEvidence
 } from './reviewEvidence';
+import { trustLabels } from './trustLabels';
 export const guestReviewsSeo: AmaraAuthoringSeo = {
   version: '2026-03-23-reviews-v1.0-C',
   pageType: 'C',
@@ -46,17 +47,17 @@ export const guestReviewsSeo: AmaraAuthoringSeo = {
 export const guestReviewsCopy = {
   hero: {
     subtitle: {
-      en: `Reviews · source checked ${airbnbCheckedAtLabel.en}`,
-      de: `Bewertungen · Quelle geprüft am ${airbnbCheckedAtLabel.de}`,
-      es: `Reseñas · fuente consultada el ${airbnbCheckedAtLabel.es}`,
-      nl: `Beoordelingen · bron geraadpleegd op ${airbnbCheckedAtLabel.nl}`,
-      sv: `Gästrecensioner · källa kontrollerad ${airbnbCheckedAtLabel.sv}`
+      en: 'Trust, earned stay by stay.',
+      de: 'Vertrauen entsteht mit jedem Aufenthalt.',
+      es: 'La confianza se gana estancia a estancia.',
+      nl: 'Vertrouwen groeit met elk verblijf.',
+      sv: 'Förtroende byggs vistelse för vistelse.'
     },
     title: {
       en: `${airbnbReviewEvidence.reviewCountLabel} Guest Reviews`,
       de: `${airbnbReviewEvidence.reviewCountLabel} Gäste&shy;bewertungen`,
       es: `${airbnbReviewEvidence.reviewCountLabel} reseñas de huéspedes`,
-      nl: `${airbnbReviewEvidence.reviewCountLabel} gastbeoordelingen`,
+      nl: `${airbnbReviewEvidence.reviewCountLabel} gast&shy;beoordelingen`,
       sv: `${airbnbReviewEvidence.reviewCountLabel} gästrecensioner`
     },
     lead: {
@@ -73,14 +74,8 @@ export const guestReviewsCopy = {
       nl: 'De beoordelingen staan op ons openbare Airbnb-hostprofiel, waar jullie ze rechtstreeks kunnen nalezen.',
       sv: 'Omdömena finns på vår offentliga värdprofil på Airbnb, där ni kan läsa dem direkt.'
     },
-    ctaAbout: { en: 'About Us', de: 'Über uns', es: 'Sobre nosotros', nl: 'Over ons', sv: 'Om oss' },
-    ctaBenefits: {
-      en: 'Direct Booking Benefits',
-      de: 'Vorteile der Direktbuchung',
-      es: 'Ventajas de reserva directa',
-      nl: 'Voordelen van direct boeken',
-      sv: 'Fördelar med direktbokning'
-    }
+    ctaAbout: trustLabels.about,
+    ctaBenefits: trustLabels.direct_booking_benefits
   },
   sections: {
     summaryTitle: {
@@ -216,27 +211,9 @@ export const guestReviewsCopy = {
       nl: 'Ontdek de AMARA-verblijven en bekijk de beschikbaarheid zodra er een bij jullie past.',
       sv: 'Utforska AMARA-boendena och kontrollera tillgängligheten när något känns rätt för er.'
     },
-    ctaBook: {
-      en: 'Check Availability',
-      de: 'Verfügbarkeit prüfen',
-      es: 'Consultar disponibilidad',
-      nl: 'Beschikbaarheid bekijken',
-      sv: 'Kontrollera tillgänglighet'
-    },
-    ctaExplore: {
-      en: 'Explore all stays',
-      de: 'Alle Unterkünfte entdecken',
-      es: 'Descubrir todos los alojamientos',
-      nl: 'Alle verblijven ontdekken',
-      sv: 'Upptäck alla boenden'
-    },
-    ctaBenefits: {
-      en: 'Direct booking benefits',
-      de: 'Vorteile der Direktbuchung',
-      es: 'Ventajas de reserva directa',
-      nl: 'Voordelen van direct boeken',
-      sv: 'Fördelar med direktbokning'
-    }
+    ctaBook: trustLabels.book,
+    ctaExplore: trustLabels.romantic_hideaways,
+    ctaBenefits: trustLabels.direct_booking_benefits
   },
   reviews: [
     {
@@ -339,26 +316,14 @@ export const guestReviewsCopy = {
 } as const;
 
 export const guestReviewsTrustLinks = [
-  { token: 'about', label: 'About AMARA' },
-  { token: 'reviews_hub', label: 'Guest Reviews' },
-  { token: 'direct_booking_benefits', label: 'Direct Booking Benefits' }
+  { token: 'about', label: trustLabels.about.en },
+  { token: 'reviews_hub', label: trustLabels.reviews_hub.en },
+  { token: 'direct_booking_benefits', label: trustLabels.direct_booking_benefits.en }
 ];
 
 export const guestReviewsFooterLabels = {
-  amenities: {
-    en: 'Amenities',
-    de: 'Ausstattung',
-    es: 'Servicios',
-    nl: 'Voorzieningen',
-    sv: 'Bekvämligheter'
-  },
-  faq_general: {
-    en: 'Stay FAQ',
-    de: 'Aufenthalts-FAQ',
-    es: 'FAQ de la estancia',
-    nl: 'Verblijfs-FAQ',
-    sv: 'FAQ för vistelsen'
-  },
+  amenities: trustLabels.amenities,
+  faq_general: trustLabels.faq_general,
   instagram: {
     en: 'Instagram',
     de: 'Instagram',

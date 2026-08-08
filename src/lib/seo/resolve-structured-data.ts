@@ -6,6 +6,7 @@ import {
   vacationRentalEntitiesByKey,
   type VacationRentalEntity
 } from '../../content/vacationRentalEntities';
+import { trustLabels, trustSectionLabels } from '../../content/trustLabels';
 import {
   buildOwnedLocalizedPath,
   getOwnedSlugFromPathname,
@@ -51,27 +52,9 @@ const BRAND_ENTITY: BrandEntity = {
 };
 
 const PUBLIC_ROUTE_LABELS: Partial<Record<string, Record<AmaraLanguage, string>>> = {
-  'amara-about-us': {
-    en: 'About AMARA',
-    de: 'Über AMARA',
-    es: 'Sobre AMARA',
-    nl: 'Over AMARA',
-    sv: 'Om AMARA'
-  },
-  'comfort-amenities': {
-    en: 'Amenities',
-    de: 'Ausstattung',
-    es: 'Servicios',
-    nl: 'Voorzieningen',
-    sv: 'Bekvämligheter'
-  },
-  'direct-booking-benefits': {
-    en: 'Direct Booking Benefits',
-    de: 'Vorteile der Direktbuchung',
-    es: 'Ventajas de reserva directa',
-    nl: 'Voordelen van direct boeken',
-    sv: 'Fördelar med direktbokning'
-  },
+  'amara-about-us': trustLabels.about,
+  'comfort-amenities': trustLabels.amenities,
+  'direct-booking-benefits': trustLabels.direct_booking_benefits,
   'directions-arrival-guide': {
     en: 'Arrival Guide',
     de: 'Anreise-Guide',
@@ -79,13 +62,7 @@ const PUBLIC_ROUTE_LABELS: Partial<Record<string, Record<AmaraLanguage, string>>
     nl: 'Aankomstgids',
     sv: 'Ankomstguide'
   },
-  'faq-general': {
-    en: 'Stay FAQ',
-    de: 'Aufenthalts-FAQ',
-    es: 'FAQ de la estancia',
-    nl: 'Verblijfs-FAQ',
-    sv: 'FAQ för vistelsen'
-  },
+  'faq-general': trustLabels.faq_general,
   'frigiliana-faq': {
     en: 'Frigiliana FAQ',
     de: 'Frigiliana-FAQ',
@@ -198,13 +175,7 @@ const PUBLIC_ROUTE_LABELS: Partial<Record<string, Record<AmaraLanguage, string>>
     nl: 'Het weer in Frigiliana',
     sv: 'Vädret i Frigiliana'
   },
-  'guest-reviews': {
-    en: 'Guest Reviews',
-    de: 'Gästebewertungen',
-    es: 'Reseñas de huéspedes',
-    nl: 'Gastbeoordelingen',
-    sv: 'Gästrecensioner'
-  },
+  'guest-reviews': trustLabels.reviews_hub,
   instagram: {
     en: 'Instagram',
     de: 'Instagram',
@@ -285,6 +256,14 @@ const TARIFA_GUIDE_SLUGS = new Set([
   'tarifa-location',
   'tarifa-wind-kitesurfing',
   'tarifa-beaches'
+]);
+
+const TRUST_PAGE_SLUGS = new Set([
+  'amara-about-us',
+  'guest-reviews',
+  'direct-booking-benefits',
+  'comfort-amenities',
+  'faq-general'
 ]);
 
 const DESTINATION_LABELS: Record<AmaraLanguage, string> = {
@@ -403,6 +382,18 @@ function buildBreadcrumbNode(
       position: itemListElement.length + 1,
       name: resolveRouteLabel(hubSlug, currentLang, 'Experiences'),
       item: hubUrl
+    });
+  } else if (TRUST_PAGE_SLUGS.has(slug)) {
+    const aboutUrl = new URL(
+      buildOwnedLocalizedPath('amara-about-us', currentLang),
+      base
+    ).href;
+
+    itemListElement.push({
+      '@type': 'ListItem',
+      position: itemListElement.length + 1,
+      name: trustSectionLabels[currentLang],
+      item: aboutUrl
     });
   }
 

@@ -1,4 +1,5 @@
 import type { AmaraAuthoringSeo, AmaraLanguage } from '../types/seo';
+import { trustLabels } from './trustLabels';
 
 type LocalizedText = Record<AmaraLanguage, string>;
 
@@ -128,33 +129,27 @@ export const aboutUsContent: AboutUsContent = {
     links: [
       {
         token: 'about',
-        label: { en: 'About AMARA', de: 'Über AMARA', es: 'Sobre AMARA', nl: 'Over AMARA', sv: 'Om AMARA' }
+        label: trustLabels.about
       },
       {
         token: 'reviews_hub',
-        label: { en: 'Guest Reviews', de: 'Gästebewertungen', es: 'Reseñas', nl: 'Beoordelingen', sv: 'Gästomdömen' }
+        label: trustLabels.reviews_hub
       },
       {
         token: 'direct_booking_benefits',
-        label: { en: 'Direct Booking Benefits', de: 'Vorteile der Direktbuchung', es: 'Ventajas de reservar directo', nl: 'Voordelen van direct boeken', sv: 'Fördelar med direktbokning' }
+        label: trustLabels.direct_booking_benefits
       }
     ],
-    ctaLabel: {
-      en: 'Check Availability',
-      de: 'Verfügbarkeit prüfen',
-      es: 'Ver disponibilidad',
-      nl: 'Beschikbaarheid bekijken',
-      sv: 'Se tillgänglighet'
-    }
+    ctaLabel: trustLabels.book
   },
   footerHighlights: [
     {
       token: 'amenities',
-      label: { en: 'Amenities', de: 'Ausstattung', es: 'Servicios', nl: 'Voorzieningen', sv: 'Bekvämligheter' }
+      label: trustLabels.amenities
     },
     {
       token: 'faq_general',
-      label: { en: 'Stay FAQ', de: 'Aufenthalts-FAQ', es: 'FAQ de la estancia', nl: 'Verblijfs-FAQ', sv: 'FAQ för vistelsen' }
+      label: trustLabels.faq_general
     },
     {
       token: 'instagram',
@@ -162,7 +157,7 @@ export const aboutUsContent: AboutUsContent = {
     }
   ],
   hero: {
-    subtitle: { en: 'AMARA · Frigiliana · Nerja · Tarifa', de: 'AMARA · Frigiliana · Nerja · Tarifa', es: 'AMARA · Frigiliana · Nerja · Tarifa', nl: 'AMARA · Frigiliana · Nerja · Tarifa', sv: 'AMARA · Frigiliana · Nerja · Tarifa' },
+    subtitle: { en: 'Hospitality, thoughtfully done.', de: 'Gastfreundschaft mit Haltung.', es: 'Hospitalidad pensada con cuidado.', nl: 'Gastvrijheid, met aandacht.', sv: 'Värdskap med omtanke.' },
     titleHtml: {
       en: 'A stay should feel effortless.',
       de: 'Ankommen. Und einfach da sein.',
@@ -187,11 +182,11 @@ export const aboutUsContent: AboutUsContent = {
     ctaLinks: [
       {
         token: 'reviews_hub',
-        label: { en: 'Guest Reviews', de: 'Gästebewertungen', es: 'Reseñas', nl: 'Beoordelingen', sv: 'Gästomdömen' }
+        label: trustLabels.reviews_hub
       },
       {
         token: 'direct_booking_benefits',
-        label: { en: 'Direct Booking Benefits', de: 'Vorteile der Direktbuchung', es: 'Ventajas de reservar directo', nl: 'Voordelen van direct boeken', sv: 'Fördelar med direktbokning' }
+        label: trustLabels.direct_booking_benefits
       }
     ]
   },
@@ -382,7 +377,7 @@ export const aboutUsContent: AboutUsContent = {
     ]
   },
   host: {
-    title: { en: 'Real people. Direct responsibility.', de: 'Echte Menschen. Klare Verantwortung.', es: 'Personas reales. Responsabilidad directa.', nl: 'Echte mensen. Duidelijke verantwoordelijkheid.', sv: 'Riktiga människor. Tydligt ansvar.' },
+    title: { en: 'Real people. Direct responsibility.', de: 'Echte Menschen. Klare Verantwortung.', es: 'Personas reales. Responsabilidad directa.', nl: 'Echte mensen. Duidelijke verant\u00ADwoordelijkheid.', sv: 'Riktiga människor. Tydligt ansvar.' },
     role: { en: 'Robert Sebastian Böhmer — Founder & Host', de: 'Robert Sebastian Böhmer — Gründer & Gastgeber', es: 'Robert Sebastian Böhmer — Fundador y anfitrión', nl: 'Robert Sebastian Böhmer — Oprichter & host', sv: 'Robert Sebastian Böhmer — Grundare och värd' },
     imageAlt: { en: 'Robert, founder and host of AMARA', de: 'Robert, Gründer und Gastgeber von AMARA', es: 'Robert, fundador y anfitrión de AMARA', nl: 'Robert, oprichter en host van AMARA', sv: 'Robert, grundare och värd för AMARA' },
     stats: [
@@ -399,7 +394,7 @@ export const aboutUsContent: AboutUsContent = {
     ]
   },
   sustainability: {
-    title: { en: 'Responsible by design', de: 'Verantwortung gehört dazu', es: 'Responsabilidad en cada decisión', nl: 'Verantwoordelijkheid hoort erbij', sv: 'Ansvar är en självklar del' },
+    title: { en: 'Responsible by design', de: 'Verantwortung gehört dazu', es: 'Responsabilidad en cada decisión', nl: 'Verant\u00ADwoordelijkheid hoort erbij', sv: 'Ansvar är en självklar del' },
     subtitle: { en: 'Sustainable by choice.', de: 'Nachhaltig aus Überzeugung.', es: 'Sostenible por convicción.', nl: 'Duurzaam uit overtuiging.', sv: 'Hållbart av övertygelse.' },
     lead: {
       en: 'We believe thoughtful hospitality also means reducing unnecessary impact. Wherever practical, we choose renewable energy, efficient equipment and measures that reduce water and waste — without asking guests to compromise on comfort.',
@@ -446,9 +441,9 @@ export const aboutUsContent: AboutUsContent = {
       sv: 'En bra vistelse behöver inte hela tiden kräva uppmärksamhet. Den ska framför allt ge er friheten att njuta av er tid.'
     },
     links: [
-      { token: 'book', label: { en: 'Check Availability', de: 'Verfügbarkeit prüfen', es: 'Ver disponibilidad', nl: 'Beschikbaarheid bekijken', sv: 'Se tillgänglighet' } },
-      { token: 'reviews_hub', label: { en: 'Guest reviews', de: 'Gästebewertungen', es: 'Reseñas', nl: 'Beoordelingen', sv: 'Gästomdömen' } },
-      { token: 'direct_booking_benefits', label: { en: 'Direct booking benefits', de: 'Vorteile der Direktbuchung', es: 'Ventajas de reservar directo', nl: 'Voordelen van direct boeken', sv: 'Fördelar med direktbokning' } }
+      { token: 'book', label: trustLabels.book },
+      { token: 'reviews_hub', label: trustLabels.reviews_hub },
+      { token: 'direct_booking_benefits', label: trustLabels.direct_booking_benefits }
     ]
   }
 };
