@@ -16,6 +16,7 @@ import {
   frigilianaPreFooterCopy,
   getFrigilianaPreFooterDescription
 } from '../../content/frigilianaPreFooterContent';
+import { frigilianaStreetsStairsCopy } from '../../content/frigilianaStreetsStairsContent';
 import LocationAuthorityLayout from '../../layouts/LocationAuthorityLayout.astro';
 import { getFrigilianaAuthoritySubnav } from '../../lib/frigiliana/frigilianaAuthoritySubnav';
 import { resolveOptionalLink } from '../../lib/linkResolver';
@@ -383,13 +384,13 @@ const timingImage = {
           lang={currentLang}
           links={[
             {
-              token: 'frigiliana_stairs',
-              label: t(copy.closing.streetsCta),
+              token: 'romantic_hideaways',
+              label: t(frigilianaStreetsStairsCopy.closing.staysCta),
               style: 'primary'
             },
             {
-              token: 'getting_to_frigiliana',
-              label: t(copy.closing.gettingHereCta),
+              token: 'frigiliana_stairs',
+              label: t(copy.closing.streetsCta),
               style: 'secondary'
             }
           ]}

@@ -1,6 +1,7 @@
 ---
 import LocationAuthorityLayout from '../../layouts/LocationAuthorityLayout.astro';
 import Navigation from '../../components/Navigation.astro';
+import EditorialClosingCta from '../../components/editorial/EditorialClosingCta.astro';
 import EditorialGuideLinkSection from '../../components/editorial/EditorialGuideLinkSection.astro';
 import LocationContextNav from '../../components/location/LocationContextNav.astro';
 import HairlineStatCard from '../../components/location/HairlineStatCard.astro';
@@ -288,6 +289,29 @@ const copy = {
       arrival: { en: 'Arrival Guide', de: 'Anreise-Guide', es: 'Guía de llegada', nl: 'Aankomstgids', sv: 'Ankomstguide' },
       apartments: { en: 'Apartments for couples', de: 'Apartments für Paare', es: 'Apartamentos para parejas', nl: 'Appartementen voor koppels', sv: 'Lägenheter för par' }
     }
+  },
+  closing: {
+    title: {
+      en: 'Find your AMARA stay',
+      de: 'Findet eure AMARA-Unterkunft',
+      es: 'Encontrad vuestro alojamiento AMARA',
+      nl: 'Vind het AMARA-verblijf dat bij jullie past',
+      sv: 'Hitta ert AMARA-boende'
+    },
+    lead: {
+      en: 'Explore the AMARA stays and check availability when one feels right.',
+      de: 'Entdeckt die AMARA-Unterkünfte und prüft die Verfügbarkeit, wenn eine zu euch passt.',
+      es: 'Descubrid los alojamientos AMARA y consultad la disponibilidad cuando encontréis el que mejor os encaja.',
+      nl: 'Ontdek de AMARA-verblijven en bekijk de beschikbaarheid zodra er een bij jullie past.',
+      sv: 'Utforska AMARA-boendena och kontrollera tillgängligheten när något känns rätt för er.'
+    },
+    availabilityCta: {
+      en: 'Check Availability',
+      de: 'Verfügbarkeit prüfen',
+      es: 'Consultar disponibilidad',
+      nl: 'Beschikbaarheid bekijken',
+      sv: 'Kontrollera tillgänglighet'
+    }
   }
 };
 
@@ -530,5 +554,25 @@ const relatedLinks = [
       intro={frigilianaPreFooterCopy.intro[currentLang]}
       links={relatedLinks}
     />
+
+    <section class="max-w-screen-2xl mx-auto px-12 pt-8">
+      <EditorialClosingCta
+        title={t(copy.closing.title)}
+        lead={t(copy.closing.lead)}
+        lang={currentLang}
+        links={[
+          {
+            token: 'romantic_hideaways',
+            label: t(copy.header.cta),
+            style: 'primary'
+          },
+          {
+            token: 'book',
+            label: t(copy.closing.availabilityCta),
+            style: 'secondary'
+          }
+        ]}
+      />
+    </section>
   </div>
 </LocationAuthorityLayout>

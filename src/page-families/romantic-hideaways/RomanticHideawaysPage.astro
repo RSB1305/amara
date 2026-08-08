@@ -834,6 +834,7 @@ const apartmentCopy: Record<ApartmentToken, LocalizedApartmentCopy> = {
 const optionalLink = (token: string) =>
   resolveOptionalLink(token, currentLang, { suppressMissing: true });
 const collectionHref = '#booking';
+const bookHref = optionalLink('book');
 const directBookingHref = optionalLink('direct_booking_benefits');
 const reviewsHref = optionalLink('reviews_hub');
 const faqHref = optionalLink('faq_general');
@@ -888,7 +889,11 @@ const apartmentsWithLinks: ApartmentWithHref[] = apartmentRows.filter(
           subtitle={t(copy.heroSubtitle)}
           title={t(copy.heroTitleHtml)}
           lead={t(copy.heroLead)}
-          ctaLinks={[]}
+          ctaVariant="conversion"
+          ctaLinks={[
+            { href: collectionHref, label: t(copy.ctaCollection) },
+            ...(bookHref ? [{ href: bookHref, label: t(copy.ctaBook) }] : [])
+          ]}
         />
 
         <div class="max-w-2xl space-y-5 mt-8 am-text-body text-on-surface-variant leading-relaxed">
@@ -896,17 +901,6 @@ const apartmentsWithLinks: ApartmentWithHref[] = apartmentRows.filter(
             tArr(copy.prose).map((html) => (
               <p set:html={html} />
             ))
-          }
-        </div>
-
-        <div class="flex flex-wrap items-center gap-4 mt-8">
-          <a class="am-btn am-btn--primary" href={collectionHref}>{t(copy.ctaCollection)}</a>
-          {
-            reviewsHref ? (
-              <a class="am-btn am-btn--secondary" href={reviewsHref}>{t(copy.ctaReviews)}</a>
-            ) : (
-              <span class="am-btn am-btn--secondary am-is-disabled" aria-disabled="true">{t(copy.ctaReviews)}</span>
-            )
           }
         </div>
 
