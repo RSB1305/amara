@@ -61,8 +61,7 @@ const c = {
     introLeadBefore: copy.hero.introLead[currentLang].before,
     introLeadLinkLabel: copy.hero.introLead[currentLang].linkLabel,
     introLeadAfter: copy.hero.introLead[currentLang].after,
-    ctaMain: copy.hero.ctaMain[currentLang],
-    ctaAlt: copy.hero.ctaAlt[currentLang]
+    orientationCta: copy.hero.orientationCta[currentLang]
   },
   essence: { eyebrow: copy.essence.eyebrow[currentLang], title: copy.essence.title[currentLang], intro: copy.essence.intro[currentLang], items: copy.essence.items.map(item => ({ kicker: item.kicker[currentLang], headline: item.headline[currentLang], text: item.text[currentLang], imageSrc: item.imageSrc, imageAlt: item.headline[currentLang], href: item.token && isPublicLinkEnabled(item.token) ? optionalLink(item.token) : undefined, linkLabel: item.linkLabel ? item.linkLabel[currentLang] : undefined })) },
   climate: {
@@ -301,8 +300,7 @@ const sectionOrder = getFrigilianaLocationSectionOrder(currentLang);
                 </p>
               </div>
               <div class="flex flex-wrap gap-8">
-                <a href={romanticHideawaysHref} class="am-btn am-btn--primary">{c.hero.ctaMain}</a>
-                <a href={arrivalGuideHref} class="am-btn am-btn--secondary">{c.hero.ctaAlt}</a>
+                <a href="#where-to-stay" class="am-btn am-btn--primary">{c.hero.orientationCta}</a>
               </div>
             </Hero>
           </div>

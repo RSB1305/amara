@@ -89,8 +89,7 @@ export const frigilianaLocationCopy = {
         after: " hjälper er att välja rätt lägenhet, särskilt om parkering eller dagliga promenader spelar roll."
       }
     },
-    ctaMain: { en: "View apartments", de: "Apartments ansehen", es: "Ver apartamentos", nl: "Appartementen bekijken", sv: "Visa lägenheter" },
-    ctaAlt: { en: "Arrival guide", de: "Anreise-Guide", es: "Guía de llegada", nl: "Aankomstgids", sv: "Ankomstguide" }
+    orientationCta: { en: "Where to stay", de: "Wo übernachten", es: "Dónde alojarse", nl: "Waar overnachten", sv: "Var ska man bo" }
   },
   essence: {
     eyebrow: { en: "At a Glance", de: "Auf einen Blick", es: "De un vistazo", nl: "In het kort", sv: "På ett ögonkast" },
