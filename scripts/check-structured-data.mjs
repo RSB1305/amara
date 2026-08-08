@@ -6,6 +6,21 @@ import {
 } from 'node:fs';
 import { join, relative, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { DYNAMIC_CANONICAL_PUBLIC_SLUGS } from '../src/lib/canonicalPublicSlugs.mjs';
+
+const VACATION_RENTAL_LANGUAGES = Object.freeze(['es', 'de', 'en', 'nl', 'sv']);
+const EXPECTED_VACATION_RENTAL_IDENTITIES = 6;
+const EXPECTED_LOCALIZED_VACATION_RENTAL_PAGES = 30;
+
+const EXPECTED_VACATION_RENTAL_ROUTES = new Map(
+  DYNAMIC_CANONICAL_PUBLIC_SLUGS.flatMap((slug) =>
+    VACATION_RENTAL_LANGUAGES.map((language) => {
+      const pathname = language === 'es' ? `/${slug}` : `/${language}/${slug}`;
+
+      return [pathname, { language, pathname, slug }];
+    })
+  )
+);
 
 const KNOWN_BROKEN_BREADCRUMB_LABELS = new Set([
   'Uber AMARA',
@@ -49,6 +64,55 @@ const EXPERIENCE_DETAIL_SLUGS = new Set([
 ]);
 
 const NON_DEFAULT_LANGUAGES = new Set(['de', 'en', 'nl', 'sv']);
+
+function hasType(node, expectedType) {
+  const types = Array.isArray(node?.['@type'])
+    ? node['@type']
+    : [node?.['@type']];
+
+  return types.includes(expectedType);
+}
+
+function isNonEmptyString(value) {
+  return typeof value === 'string' && value.trim().length > 0;
+}
+
+function isValidAbsoluteHttpUrl(value) {
+  if (!isNonEmptyString(value)) {
+    return false;
+  }
+
+  try {
+    const parsed = new URL(value);
+    return parsed.protocol === 'http:' || parsed.protocol === 'https:';
+  } catch {
+    return false;
+  }
+}
+
+function isValidLatitude(value) {
+  return Number.isFinite(value) && value >= -90 && value <= 90;
+}
+
+function isValidLongitude(value) {
+  return Number.isFinite(value) && value >= -180 && value <= 180;
+}
+
+function getRoutePathFromHtmlFile(relativePath) {
+  const routePath = relativePath
+    .replace(/(?:^|\/)index\.html$/i, '')
+    .replace(/\.html$/i, '');
+
+  return `/${routePath}`.replace(/\/+$/, '') || '/';
+}
+
+function describeRentalRoute(route, canonicalUrl, propertyName) {
+  return (
+    `Vacation Rental route ${route.pathname} ` +
+    `(language=${route.language}, property=${propertyName || route.slug}, ` +
+    `canonical=${canonicalUrl || 'missing'})`
+  );
+}
 
 function getOwnedSlug(pathname) {
   const segments = pathname.split('/').filter(Boolean);
@@ -117,6 +181,9 @@ export function runStructuredDataAudit({
 
   const errors = [];
   const rentalIdentityByIdentifier = new Map();
+  const rentalIdentityBySlug = new Map();
+  const expectedRentalRoutesSeen = new Set();
+  const validatedExpectedRentalRoutes = new Set();
   let contentPages = 0;
   let redirectPages = 0;
   let vacationRentalPages = 0;
@@ -125,16 +192,48 @@ export function runStructuredDataAudit({
     errors.push(`${relative(distRoot, file).replaceAll('\\', '/')}: ${message}`);
   };
 
+  if (DYNAMIC_CANONICAL_PUBLIC_SLUGS.length !== EXPECTED_VACATION_RENTAL_IDENTITIES) {
+    errors.push(
+      'Canonical rental route source contains ' +
+        `${DYNAMIC_CANONICAL_PUBLIC_SLUGS.length} identities; ` +
+        `expected ${EXPECTED_VACATION_RENTAL_IDENTITIES}.`
+    );
+  }
+
+  if (
+    EXPECTED_VACATION_RENTAL_ROUTES.size !==
+    EXPECTED_LOCALIZED_VACATION_RENTAL_PAGES
+  ) {
+    errors.push(
+      'Canonical rental route source produces ' +
+        `${EXPECTED_VACATION_RENTAL_ROUTES.size} localized routes; ` +
+        `expected ${EXPECTED_LOCALIZED_VACATION_RENTAL_PAGES}.`
+    );
+  }
+
   for (const file of walkHtmlFiles(distRoot)) {
     const relativePath = relative(distRoot, file).replaceAll('\\', '/');
+    const fileRoutePath = getRoutePathFromHtmlFile(relativePath);
+    const expectedRentalRoute = EXPECTED_VACATION_RENTAL_ROUTES.get(fileRoutePath);
 
     if (relativePath === '404.html' || relativePath.startsWith('tools/')) {
       continue;
     }
 
+    if (expectedRentalRoute) {
+      expectedRentalRoutesSeen.add(fileRoutePath);
+    }
+
     const html = readFileSync(file, 'utf8');
 
     if (/http-equiv=["']refresh["']/i.test(html)) {
+      if (expectedRentalRoute) {
+        report(
+          file,
+          `${describeRentalRoute(expectedRentalRoute)} unexpectedly renders as a redirect`
+        );
+      }
+
       redirectPages += 1;
       continue;
     }
@@ -148,7 +247,14 @@ export function runStructuredDataAudit({
     ];
 
     if (jsonLdScripts.length !== 1) {
-      report(file, `expected exactly one JSON-LD script, found ${jsonLdScripts.length}`);
+      const routeContext = expectedRentalRoute
+        ? `${describeRentalRoute(expectedRentalRoute)}: `
+        : '';
+      report(
+        file,
+        `${routeContext}expected exactly one JSON-LD script, ` +
+          `found ${jsonLdScripts.length}`
+      );
       continue;
     }
 
@@ -165,7 +271,15 @@ export function runStructuredDataAudit({
       report(file, 'missing or unexpected Schema.org context');
     }
 
-    const graph = Array.isArray(document['@graph']) ? document['@graph'] : [];
+    if (!Array.isArray(document['@graph'])) {
+      const routeContext = expectedRentalRoute
+        ? `${describeRentalRoute(expectedRentalRoute)}: `
+        : '';
+      report(file, `${routeContext}expected one @graph array`);
+      continue;
+    }
+
+    const graph = document['@graph'];
     const webPages = graph.filter((node) => node?.['@type'] === 'WebPage');
 
     if (webPages.length !== 1) {
@@ -180,6 +294,9 @@ export function runStructuredDataAudit({
     const canonicalUrl = readAttribute(canonicalTag, 'href');
     const htmlTag = html.match(/<html\b[^>]*>/i)?.[0];
     const htmlLanguage = readAttribute(htmlTag, 'lang');
+    const rentalContext = expectedRentalRoute
+      ? describeRentalRoute(expectedRentalRoute, canonicalUrl)
+      : null;
 
     if (!canonicalUrl || webPage.url !== canonicalUrl) {
       report(file, 'WebPage URL does not match the canonical URL');
@@ -191,6 +308,19 @@ export function runStructuredDataAudit({
 
     if (webPage.inLanguage !== htmlLanguage) {
       report(file, 'WebPage language does not match the HTML lang attribute');
+    }
+
+    if (
+      expectedRentalRoute &&
+      (webPage.inLanguage !== expectedRentalRoute.language ||
+        htmlLanguage !== expectedRentalRoute.language)
+    ) {
+      report(
+        file,
+        `${rentalContext}: expected language=${expectedRentalRoute.language}, ` +
+          `WebPage language=${webPage.inLanguage || 'missing'}, ` +
+          `HTML language=${htmlLanguage || 'missing'}`
+      );
     }
 
     if (webPage['@id'] !== `${webPage.url}#webpage`) {
@@ -214,11 +344,26 @@ export function runStructuredDataAudit({
       continue;
     }
 
-    const breadcrumb = graph.find((node) => node?.['@type'] === 'BreadcrumbList');
+    const breadcrumbs = graph.filter((node) => hasType(node, 'BreadcrumbList'));
+    const breadcrumb = breadcrumbs[0];
     const pagePath = new URL(webPage.url).pathname;
     const ownedSlug = getOwnedSlug(pagePath);
 
-    if (!isHomePath(pagePath) && !breadcrumb) {
+    if (expectedRentalRoute && pagePath !== expectedRentalRoute.pathname) {
+      report(
+        file,
+        `${rentalContext}: expected canonical route=${expectedRentalRoute.pathname}, ` +
+          `actual route=${pagePath}`
+      );
+    }
+
+    if (expectedRentalRoute && breadcrumbs.length !== 1) {
+      report(
+        file,
+        `${rentalContext}: expected exactly one BreadcrumbList node, ` +
+          `actual count=${breadcrumbs.length}`
+      );
+    } else if (!isHomePath(pagePath) && !breadcrumb) {
       report(file, 'non-home page is missing BreadcrumbList markup');
     }
 
@@ -299,6 +444,11 @@ export function runStructuredDataAudit({
     ].filter(Boolean);
 
     for (const imageUrl of schemaImages) {
+      if (!isValidAbsoluteHttpUrl(imageUrl)) {
+        report(file, `referenced schema image is not a valid absolute URL: ${imageUrl}`);
+        continue;
+      }
+
       const assetPath = localAssetPath(imageUrl, pageOrigin, distRoot);
 
       if (assetPath && (!existsSync(assetPath) || !statSync(assetPath).isFile())) {
@@ -306,43 +456,210 @@ export function runStructuredDataAudit({
       }
     }
 
-    const vacationRental = graph.find(
-      (node) => node?.['@type'] === 'VacationRental'
-    );
+    const vacationRentals = graph.filter((node) => hasType(node, 'VacationRental'));
+    const vacationRental = vacationRentals[0];
 
-    if (!vacationRental) {
+    if (expectedRentalRoute && vacationRentals.length !== 1) {
+      report(
+        file,
+        `${rentalContext}: expected exactly one VacationRental node, ` +
+          `actual count=${vacationRentals.length}`
+      );
+    } else if (!expectedRentalRoute && vacationRentals.length > 0) {
+      report(
+        file,
+        `unexpected VacationRental markup on non-rental route ${pagePath}; ` +
+          `canonical=${canonicalUrl || 'missing'}, actual count=${vacationRentals.length}`
+      );
+    }
+
+    if (!vacationRental || vacationRentals.length !== 1) {
       continue;
     }
 
     vacationRentalPages += 1;
 
+    const contextualRentalReport = (message) => {
+      const context = expectedRentalRoute
+        ? describeRentalRoute(
+            expectedRentalRoute,
+            canonicalUrl,
+            vacationRental.name
+          )
+        : `Vacation Rental canonical=${canonicalUrl || 'missing'}`;
+
+      report(file, `${context}: ${message}`);
+    };
+
     const rentalImages = Array.isArray(vacationRental.image)
       ? vacationRental.image
       : [];
-    const occupancy = vacationRental.containsPlace?.occupancy?.value;
+    const validRentalImages = rentalImages.filter(isValidAbsoluteHttpUrl);
+    const containsPlace = vacationRental.containsPlace;
+    const occupancy = containsPlace?.occupancy?.value;
+    const geo = vacationRental.geo;
+    const latitude = vacationRental.latitude ?? vacationRental.geo?.latitude;
+    const longitude = vacationRental.longitude ?? vacationRental.geo?.longitude;
     const requiredRentalFields = [
-      ['containsPlace', vacationRental.containsPlace],
-      ['containsPlace.occupancy.value', Number.isInteger(occupancy) && occupancy > 0],
-      ['identifier', vacationRental.identifier],
-      ['image (minimum 8)', rentalImages.length >= 8],
       [
-        'latitude',
-        Number.isFinite(vacationRental.latitude ?? vacationRental.geo?.latitude)
+        'containsPlace object',
+        containsPlace && typeof containsPlace === 'object' && !Array.isArray(containsPlace)
+      ],
+      ['containsPlace @type=Accommodation', hasType(containsPlace, 'Accommodation')],
+      [
+        'containsPlace additionalType=EntirePlace',
+        containsPlace?.additionalType === 'EntirePlace'
       ],
       [
-        'longitude',
-        Number.isFinite(vacationRental.longitude ?? vacationRental.geo?.longitude)
+        'containsPlace.occupancy.value as a positive integer',
+        Number.isInteger(occupancy) && occupancy > 0
       ],
-      ['name', vacationRental.name]
+      [
+        'containsPlace.numberOfBedrooms as a non-negative integer',
+        Number.isInteger(containsPlace?.numberOfBedrooms) &&
+          containsPlace.numberOfBedrooms >= 0
+      ],
+      [
+        'containsPlace.numberOfBathroomsTotal as a non-negative number',
+        Number.isFinite(containsPlace?.numberOfBathroomsTotal) &&
+          containsPlace.numberOfBathroomsTotal >= 0
+      ],
+      ['identifier as non-empty text', isNonEmptyString(vacationRental.identifier)],
+      ['at least 8 valid absolute image URLs', validRentalImages.length >= 8],
+      ['latitude in range -90..90', isValidLatitude(latitude)],
+      ['longitude in range -180..180', isValidLongitude(longitude)],
+      ['name as non-empty text', isNonEmptyString(vacationRental.name)]
     ];
 
     for (const [field, value] of requiredRentalFields) {
       if (!value) {
-        report(file, `VacationRental is missing required field: ${field}`);
+        contextualRentalReport(
+          `expected ${field}; actual=${JSON.stringify(
+            field.startsWith('containsPlace')
+              ? containsPlace
+              : vacationRental[field.split(' ')[0]]
+          )}`
+        );
       }
     }
 
-    for (const feature of vacationRental.containsPlace?.amenityFeature ?? []) {
+    if (!geo || typeof geo !== 'object' || Array.isArray(geo)) {
+      contextualRentalReport(
+        `expected one GeoCoordinates object; actual=${JSON.stringify(geo)}`
+      );
+    } else {
+      if (!hasType(geo, 'GeoCoordinates')) {
+        contextualRentalReport(
+          `expected geo @type=GeoCoordinates; actual=${JSON.stringify(geo['@type'])}`
+        );
+      }
+
+      if (!isValidLatitude(geo.latitude) || !isValidLongitude(geo.longitude)) {
+        contextualRentalReport(
+          'expected valid geo latitude/longitude ranges; ' +
+            `actual=${JSON.stringify({ latitude: geo.latitude, longitude: geo.longitude })}`
+        );
+      }
+    }
+
+    if (
+      Object.hasOwn(containsPlace ?? {}, 'numberOfRooms') &&
+      (!Number.isInteger(containsPlace.numberOfRooms) || containsPlace.numberOfRooms <= 0)
+    ) {
+      contextualRentalReport(
+        'expected containsPlace.numberOfRooms to be a positive integer when emitted; ' +
+          `actual=${JSON.stringify(containsPlace.numberOfRooms)}`
+      );
+    }
+
+    const beds = Array.isArray(containsPlace?.bed) ? containsPlace.bed : [];
+    if (beds.length === 0) {
+      contextualRentalReport(
+        `expected at least one BedDetails entry; actual count=${beds.length}`
+      );
+    }
+
+    beds.forEach((bed, index) => {
+      const validBed =
+        bed &&
+        typeof bed === 'object' &&
+        !Array.isArray(bed) &&
+        hasType(bed, 'BedDetails') &&
+        Number.isInteger(bed.numberOfBeds) &&
+        bed.numberOfBeds > 0 &&
+        isNonEmptyString(bed.typeOfBed);
+
+      if (!validBed) {
+        contextualRentalReport(
+          `expected structurally valid BedDetails at index=${index}; ` +
+            `actual=${JSON.stringify(bed)}`
+        );
+      }
+    });
+
+    const address = vacationRental.address;
+    const requiredAddressFields = [
+      'streetAddress',
+      'postalCode',
+      'addressLocality',
+      'addressRegion',
+      'addressCountry'
+    ];
+
+    if (!address || typeof address !== 'object' || Array.isArray(address)) {
+      contextualRentalReport(
+        `expected one PostalAddress object; actual=${JSON.stringify(address)}`
+      );
+    } else {
+      if (!hasType(address, 'PostalAddress')) {
+        contextualRentalReport(
+          `expected address @type=PostalAddress; actual=${JSON.stringify(address['@type'])}`
+        );
+      }
+
+      for (const field of requiredAddressFields) {
+        if (!isNonEmptyString(address[field])) {
+          contextualRentalReport(
+            `expected non-empty address.${field}; actual=${JSON.stringify(address[field])}`
+          );
+        }
+      }
+    }
+
+    const brand = vacationRental.brand;
+    if (!hasType(brand, 'Brand') || brand?.name !== 'AMARA') {
+      contextualRentalReport(
+        'expected VacationRental.brand to identify AMARA as Brand; ' +
+          `actual=${JSON.stringify(brand)}`
+      );
+    }
+
+    const publisherId = webPage.publisher?.['@id'];
+    const publisherNode = graph.find((node) => node?.['@id'] === publisherId);
+
+    if (!isNonEmptyString(publisherId)) {
+      contextualRentalReport(
+        `expected WebPage.publisher @id; actual=${JSON.stringify(webPage.publisher)}`
+      );
+    } else if (!publisherNode) {
+      contextualRentalReport(
+        `expected publisher node ${publisherId} to exist in @graph; actual=missing`
+      );
+    } else if (!hasType(publisherNode, 'LodgingBusiness') || publisherNode.name !== 'AMARA') {
+      contextualRentalReport(
+        `expected publisher node ${publisherId} to identify AMARA LodgingBusiness; ` +
+          `actual=${JSON.stringify({ type: publisherNode['@type'], name: publisherNode.name })}`
+      );
+    }
+
+    const amenityFeatures = containsPlace?.amenityFeature;
+    if (!Array.isArray(amenityFeatures)) {
+      contextualRentalReport(
+        `expected containsPlace.amenityFeature array; actual=${JSON.stringify(amenityFeatures)}`
+      );
+    }
+
+    for (const feature of Array.isArray(amenityFeatures) ? amenityFeatures : []) {
       const { name, value } = feature;
       const isSupportedBoolean =
         typeof value === 'boolean' && GOOGLE_VACATION_RENTAL_BOOLEAN_AMENITIES.has(name);
@@ -351,16 +668,24 @@ export function runStructuredDataAudit({
       const isLicense = name === 'licenseNum' && typeof value === 'string' && value.length > 0;
 
       if (!isSupportedBoolean && !isSupportedEnum && !isLicense) {
-        report(file, `VacationRental has unsupported Google amenity: ${name}=${value}`);
+        contextualRentalReport(`unsupported Google amenity: ${name}=${value}`);
       }
     }
 
     if (webPage.mainEntity?.['@id'] !== vacationRental['@id']) {
-      report(file, 'WebPage and VacationRental main-entity references differ');
+      contextualRentalReport(
+        `WebPage.mainEntity mismatch: WebPage ID=${webPage['@id']}, ` +
+          `expected rental ID=${vacationRental['@id']}, ` +
+          `actual reference=${webPage.mainEntity?.['@id'] || 'missing'}`
+      );
     }
 
     if (vacationRental.mainEntityOfPage?.['@id'] !== webPage['@id']) {
-      report(file, 'VacationRental mainEntityOfPage does not reference WebPage');
+      contextualRentalReport(
+        `VacationRental.mainEntityOfPage mismatch: rental ID=${vacationRental['@id']}, ` +
+          `expected WebPage ID=${webPage['@id']}, ` +
+          `actual reference=${vacationRental.mainEntityOfPage?.['@id'] || 'missing'}`
+      );
     }
 
     if (
@@ -368,26 +693,119 @@ export function runStructuredDataAudit({
         /\/users\/profile\//i.test(url)
       )
     ) {
-      report(file, 'VacationRental sameAs contains a generic host profile');
+      contextualRentalReport('VacationRental sameAs contains a generic host profile');
     }
 
-    const identity = rentalIdentityByIdentifier.get(vacationRental.identifier) ?? {
-      id: vacationRental['@id'],
-      name: vacationRental.name
-    };
+    if (isNonEmptyString(vacationRental.identifier)) {
+      const identity = rentalIdentityByIdentifier.get(vacationRental.identifier) ?? {
+        id: vacationRental['@id'],
+        name: vacationRental.name
+      };
 
-    if (
-      identity.id !== vacationRental['@id'] ||
-      identity.name !== vacationRental.name
-    ) {
-      report(file, 'VacationRental identity changes between language variants');
+      if (
+        identity.id !== vacationRental['@id'] ||
+        identity.name !== vacationRental.name
+      ) {
+        contextualRentalReport(
+          'stable identity mismatch for identifier=' +
+            `${vacationRental.identifier}: expected ID=${identity.id}, ` +
+            `actual ID=${vacationRental['@id']}, expected name=${identity.name}, ` +
+            `actual name=${vacationRental.name}`
+        );
+      }
+
+      rentalIdentityByIdentifier.set(vacationRental.identifier, identity);
     }
 
-    rentalIdentityByIdentifier.set(vacationRental.identifier, identity);
+    if (expectedRentalRoute) {
+      const routeIdentity = rentalIdentityBySlug.get(expectedRentalRoute.slug) ?? {
+        id: vacationRental['@id'],
+        identifier: vacationRental.identifier,
+        languages: new Set(),
+        name: vacationRental.name
+      };
+
+      const identityMismatches = [
+        ['@id', routeIdentity.id, vacationRental['@id']],
+        ['identifier', routeIdentity.identifier, vacationRental.identifier],
+        ['name', routeIdentity.name, vacationRental.name]
+      ].filter(([, expected, actual]) => expected !== actual);
+
+      for (const [field, expected, actual] of identityMismatches) {
+        contextualRentalReport(
+          `identity changed across languages for ${field}: ` +
+            `expected=${JSON.stringify(expected)}, actual=${JSON.stringify(actual)}`
+        );
+      }
+
+      routeIdentity.languages.add(expectedRentalRoute.language);
+      rentalIdentityBySlug.set(expectedRentalRoute.slug, routeIdentity);
+
+      if (breadcrumbs.length === 1) {
+        validatedExpectedRentalRoutes.add(expectedRentalRoute.pathname);
+      }
+    }
   }
 
   if (contentPages === 0) {
     errors.push('No content pages were found in dist.');
+  }
+
+  const missingRentalRoutes = [...EXPECTED_VACATION_RENTAL_ROUTES.keys()].filter(
+    (pathname) => !expectedRentalRoutesSeen.has(pathname)
+  );
+
+  if (missingRentalRoutes.length > 0) {
+    errors.push(
+      `Expected localized Vacation Rental routes are missing from dist: ` +
+        missingRentalRoutes.join(', ')
+    );
+  }
+
+  if (
+    validatedExpectedRentalRoutes.size !==
+    EXPECTED_LOCALIZED_VACATION_RENTAL_PAGES
+  ) {
+    errors.push(
+      `Validated ${validatedExpectedRentalRoutes.size} expected localized ` +
+        `Vacation Rental routes; expected ${EXPECTED_LOCALIZED_VACATION_RENTAL_PAGES}.`
+    );
+  }
+
+  if (vacationRentalPages !== EXPECTED_LOCALIZED_VACATION_RENTAL_PAGES) {
+    errors.push(
+      `Found ${vacationRentalPages} pages with exactly one VacationRental node; ` +
+        `expected ${EXPECTED_LOCALIZED_VACATION_RENTAL_PAGES}.`
+    );
+  }
+
+  if (rentalIdentityByIdentifier.size !== EXPECTED_VACATION_RENTAL_IDENTITIES) {
+    errors.push(
+      `Found ${rentalIdentityByIdentifier.size} stable Vacation Rental identifiers; ` +
+        `expected ${EXPECTED_VACATION_RENTAL_IDENTITIES}.`
+    );
+  }
+
+  if (rentalIdentityBySlug.size !== EXPECTED_VACATION_RENTAL_IDENTITIES) {
+    errors.push(
+      `Validated ${rentalIdentityBySlug.size} canonical Vacation Rental slugs; ` +
+        `expected ${EXPECTED_VACATION_RENTAL_IDENTITIES}.`
+    );
+  }
+
+  for (const slug of DYNAMIC_CANONICAL_PUBLIC_SLUGS) {
+    const identity = rentalIdentityBySlug.get(slug);
+    const actualLanguages = identity ? [...identity.languages].sort() : [];
+
+    if (actualLanguages.length !== VACATION_RENTAL_LANGUAGES.length) {
+      errors.push(
+        `Vacation Rental ${identity?.name || slug} (${slug}) validated ` +
+          `${actualLanguages.length} language variants ` +
+          `[${actualLanguages.join(', ') || 'none'}]; expected ` +
+          `${VACATION_RENTAL_LANGUAGES.length} ` +
+          `[${[...VACATION_RENTAL_LANGUAGES].sort().join(', ')}].`
+      );
+    }
   }
 
   if (errors.length > 0) {
