@@ -343,6 +343,7 @@ const relatedLinks = [
 
 <LocationAuthorityLayout seo={seo} pageLang={currentLang} showContextNavigation={false} bodyBackgroundClass="bg-white">
   <Navigation
+    slot="navigation"
     currentLang={currentLang}
     brandName={t(copy.nav.brand)}
     links={copy.nav.links.map((l) => ({ token: l.token, label: t(l.label) }))}

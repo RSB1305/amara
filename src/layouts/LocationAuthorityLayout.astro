@@ -27,6 +27,9 @@ const {
   showContextNavigation={showContextNavigation}
   bodyBackgroundClass={bodyBackgroundClass}
 >
+  <!-- Global navigation stays before the layout-owned main landmark to preserve banner semantics across this page family. -->
+  <slot name="navigation" />
+
   <main>
     <slot />
   </main>
