@@ -20,27 +20,18 @@ if (!linkRegistry || !linkRegistry.links) {
 
 const registry: AmaraLinkRegistry = linkRegistry;
 
-function resolveRegistryKey(token: string): string {
+function getRegistryEntry(token: string): { finalKey: string; entry: RegistryEntry } {
   if (!token) {
     throw new Error('[AMARA-v3 LINK ERROR] Critical: No token provided.');
   }
 
-  if (registry.legacyAliases && registry.legacyAliases[token]) {
-    return registry.legacyAliases[token].key;
-  }
-
-  return token;
-}
-
-function getRegistryEntry(token: string): { finalKey: string; entry: RegistryEntry } {
-  const finalKey = resolveRegistryKey(token);
-  const entry: RegistryEntry | undefined = registry.links[finalKey];
+  const entry: RegistryEntry | undefined = registry.links[token];
 
   if (!entry) {
     throw new Error(`[AMARA-v3 LINK ERROR] Registry Mismatch: Der Token "${token}" existiert nicht.`);
   }
 
-  return { finalKey, entry };
+  return { finalKey: token, entry };
 }
 
 // Optional shared surfaces should suppress missing links by default instead of
@@ -88,8 +79,7 @@ export function resolveLink(
   const resolved = resolveOptionalLink(token, lang, options);
 
   if (!resolved) {
-    const finalKey = resolveRegistryKey(token);
-    throw new Error(`[AMARA-v3 LINK ERROR] Translation Missing: "${finalKey}" fÃ¼r "${lang}".`);
+    throw new Error(`[AMARA-v3 LINK ERROR] Translation Missing: "${token}" für "${lang}".`);
   }
 
   return resolved;
