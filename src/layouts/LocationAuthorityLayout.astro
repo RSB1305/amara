@@ -30,7 +30,7 @@ const {
   <!-- Global navigation stays before the layout-owned main landmark to preserve banner semantics across this page family. -->
   <slot name="navigation" />
 
-  <main>
+  <main id="am-main-content" tabindex="-1" class="scroll-mt-[104px] lg:scroll-mt-[112px]">
     <slot />
   </main>
 </BaseLayout>

@@ -42,6 +42,13 @@ const {
 const pathname = Astro.url.pathname;
 const rawLang = pathname.split('/')[1] || 'es';
 const currentLang: AmaraLanguage = pageLang ?? normalizeLanguage(rawLang);
+const skipLinkLabels: Record<AmaraLanguage, string> = {
+  en: 'Skip to main content',
+  de: 'Zum Hauptinhalt springen',
+  es: 'Saltar al contenido principal',
+  nl: 'Ga naar de hoofdinhoud',
+  sv: 'Hoppa till huvudinnehållet'
+};
 const normalizePath = (value: string) =>
   value.replace(/\/index\.html$/i, '/').replace(/\.html$/i, '').replace(/\/$/, '') || '/';
 const isHomePage =
@@ -109,6 +116,13 @@ const ldJson = resolveStructuredData(seo, head.canonicalUrl, currentLang, origin
     <div class="grain-overlay fixed inset-0 z-[0] pointer-events-none opacity-[0.03]"></div>
 
     <div class="relative z-[10] pt-[104px] lg:pt-[112px]" data-am-interaction-root>
+      <a
+        href="#am-main-content"
+        class="am-btn am-btn--primary fixed left-4 top-0 z-[200] max-w-[calc(100vw-2rem)] -translate-y-full whitespace-normal text-center transition-none focus:translate-y-4"
+        data-am-skip-link
+      >
+        {skipLinkLabels[currentLang]}
+      </a>
       {shouldShowContextNavigation && (
         <GlobalContextNavigation
       lang={currentLang}

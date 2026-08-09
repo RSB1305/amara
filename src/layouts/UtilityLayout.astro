@@ -21,7 +21,7 @@ const { seo, pageLang, title, subtitle } = Astro.props;
       {subtitle && <p class="font-body text-on-surface-variant text-xl italic opacity-70 max-w-2xl">{subtitle}</p>}
     </header>
 
-    <main class="grid grid-cols-1 lg:grid-cols-12 gap-20">
+    <main id="am-main-content" tabindex="-1" class="grid grid-cols-1 lg:grid-cols-12 gap-20 scroll-mt-[104px] lg:scroll-mt-[112px]">
       <div class="lg:col-span-8">
         <slot />
       </div>
