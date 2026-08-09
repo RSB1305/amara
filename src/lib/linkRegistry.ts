@@ -238,21 +238,6 @@ legal_notice: {
     },
 
     /* =========================================================
-       TARIFA — GUEST GUIDE (UTILITY)
-    ========================================================= */
-    tarifa_guest_hub: { en: '/en/tarifa-guest-guide', de: '/de/tarifa-guest-guide', es: '/es/tarifa-guest-guide', nl: '/nl/tarifa-guest-guide', sv: '/sv/tarifa-guest-guide' },
-    tarifa_guest_apartment: { en: '/en/tarifa-guest-apartment', de: '/de/tarifa-guest-apartment', es: '/es/tarifa-guest-apartment', nl: '/nl/tarifa-guest-apartment', sv: '/sv/tarifa-guest-apartment' },
-    tarifa_guest_local_guide: { en: '/en/tarifa-guest-local-guide', de: '/de/tarifa-guest-local-guide', es: '/es/tarifa-guest-local-guide', nl: '/nl/tarifa-guest-local-guide', sv: '/sv/tarifa-guest-local-guide' },
-    tarifa_guest_local_essentials: { en: '/en/tarifa-guest-local-essentials', de: '/de/tarifa-guest-local-essentials', es: '/es/tarifa-guest-local-essentials', nl: '/nl/tarifa-guest-local-essentials', sv: '/sv/tarifa-guest-local-essentials' },
-    tarifa_guest_beaches: { en: '/en/tarifa-guest-beaches', de: '/de/tarifa-guest-beaches', es: '/es/tarifa-guest-beaches', nl: '/nl/tarifa-guest-beaches', sv: '/sv/tarifa-guest-beaches' },
-    tarifa_guest_kitesurfing: { en: '/en/tarifa-guest-kitesurfing', de: '/de/tarifa-guest-kitesurfing', es: '/es/tarifa-guest-kitesurfing', nl: '/nl/tarifa-guest-kitesurfing', sv: '/sv/tarifa-guest-kitesurfing' },
-    tarifa_guest_activities: { en: '/en/tarifa-guest-activities', de: '/de/tarifa-guest-activities', es: '/es/tarifa-guest-activities', nl: '/nl/tarifa-guest-activities', sv: '/sv/tarifa-guest-activities' },
-    tarifa_guest_food_drink: { en: '/en/tarifa-guest-food-drink', de: '/de/tarifa-guest-food-drink', es: '/es/tarifa-guest-food-drink', nl: '/nl/tarifa-guest-food-drink', sv: '/sv/tarifa-guest-food-drink' },
-    tarifa_guest_night_life: { en: '/en/tarifa-nightlife', de: '/de/tarifa-nightlife', es: '/es/tarifa-nightlife', nl: '/nl/tarifa-nightlife', sv: '/sv/tarifa-nightlife' },
-    tarifa_guest_sightseeing: { en: '/en/tarifa-guest-sightseeing', de: '/de/tarifa-guest-sightseeing', es: '/es/tarifa-guest-sightseeing', nl: '/nl/tarifa-guest-sightseeing', sv: '/sv/tarifa-guest-sightseeing' },
-    tarifa_guest_wind_weather: { en: '/en/tarifa-guest-wind-weather', de: '/de/tarifa-guest-wind-weather', es: '/es/tarifa-guest-wind-weather', nl: '/nl/tarifa-guest-wind-weather', sv: '/sv/tarifa-guest-wind-weather' },
-
-    /* =========================================================
        FRIGILIANA — (NEW)
     ========================================================= */
     faq_general: {
@@ -333,119 +318,9 @@ legal_notice: {
       sv: buildOwnedLocalizedPath('frigiliana-weather', 'sv')
     },
 
-    /* =========================================================
-       FRIGILIANA — GUEST GUIDE (UTILITY LAYER)
-    ========================================================= */
-    frigiliana_guest_local_guide: { en: '/en/frigiliana-guest-local-guide', de: '/de/frigiliana-guest-local-guide', es: '/es/frigiliana-guest-local-guide', nl: '/nl/frigiliana-guest-local-guide', sv: '/sv/frigiliana-guest-local-guide' },
-    frigiliana_guest_beaches: { en: '/en/frigiliana-guest-beaches', de: '/de/frigiliana-guest-beaches', es: '/es/frigiliana-guest-beaches', nl: '/nl/frigiliana-guest-beaches', sv: '/sv/frigiliana-guest-beaches' },
-    frigiliana_guest_food: { en: '/en/frigiliana-guest-restaurants', de: '/de/frigiliana-guest-restaurants', es: '/es/frigiliana-guest-restaurants', nl: '/nl/frigiliana-guest-restaurants', sv: '/sv/frigiliana-guest-restaurants' },
-    frigiliana_guest_hiking: { en: '/en/frigiliana-guest-hiking', de: '/de/frigiliana-guest-hiking', es: '/es/frigiliana-guest-hiking', nl: '/nl/frigiliana-guest-hiking', sv: '/sv/frigiliana-guest-hiking' },
-    frigiliana_guest_day_trips: {
-      en: buildOwnedLocalizedPath('frigiliana-day-trips', 'en'),
-      de: buildOwnedLocalizedPath('frigiliana-day-trips', 'de'),
-      es: buildOwnedLocalizedPath('frigiliana-day-trips', 'es'),
-      nl: buildOwnedLocalizedPath('frigiliana-day-trips', 'nl'),
-      sv: buildOwnedLocalizedPath('frigiliana-day-trips', 'sv')
-    },
-    frigiliana_guest_sightseeing: { en: '/en/frigiliana-guest-sightseeing', de: '/de/frigiliana-guest-sightseeing', es: '/es/frigiliana-guest-sightseeing', nl: '/nl/frigiliana-guest-sightseeing', sv: '/sv/frigiliana-guest-sightseeing' },
-    frigiliana_guest_events: { en: '/en/frigiliana-guest-festivals', de: '/de/frigiliana-guest-festivals', es: '/es/frigiliana-guest-festivals', nl: '/nl/frigiliana-guest-festivals', sv: '/sv/frigiliana-guest-festivals' },
-    frigiliana_guest_wellness: {
-      en: buildOwnedLocalizedPath('frigiliana-wellness', 'en'),
-      de: buildOwnedLocalizedPath('frigiliana-wellness', 'de'),
-      es: buildOwnedLocalizedPath('frigiliana-wellness', 'es'),
-      nl: buildOwnedLocalizedPath('frigiliana-wellness', 'nl'),
-      sv: buildOwnedLocalizedPath('frigiliana-wellness', 'sv')
-    },
-    frigiliana_guest_adventure: { en: '/en/frigiliana-guest-adventure', de: '/de/frigiliana-guest-adventure', es: '/es/frigiliana-guest-adventure', nl: '/nl/frigiliana-guest-adventure', sv: '/sv/frigiliana-guest-adventure' },
-    frigiliana_guest_flamenco_bachata: {
-      en: '/en/guestwelcome-nerja-flamenco-bachata',
-      de: '/de/guestwelcome-nerja-flamenco-bachata',
-      es: '/es/guestwelcome-nerja-flamenco-bachata',
-      nl: '/nl/guestwelcome-nerja-flamenco-bachata',
-      sv: '/sv/guestwelcome-nerja-flamenco-bachata'
-    },
-
     gmaps_search_kayak_nerja: 'https://www.google.com/maps/search/kayak+nerja',
     gmaps_search_jetski_nerja: 'https://www.google.com/maps/search/jetski+nerja',
     gmaps_search_harley_nerja: 'https://www.google.com/maps/search/harley+davidson+nerja',
-
-    nerja_guest_restaurants: { en: '/en/nerja-guest-restaurants', de: '/de/nerja-guest-restaurants', es: '/es/nerja-guest-restaurants', nl: '/nl/nerja-guest-restaurants', sv: '/sv/nerja-guest-restaurants' },
-    nerja_guest_breakfast: { en: '/en/nerja-guest-breakfast', de: '/de/nerja-guest-breakfast', es: '/es/nerja-guest-breakfast', nl: '/nl/nerja-guest-breakfast', sv: '/sv/nerja-guest-breakfast' },
-    nerja_guest_nightlife: {
-      en: buildOwnedLocalizedPath('nerja-nightlife', 'en'),
-      de: buildOwnedLocalizedPath('nerja-nightlife', 'de'),
-      es: buildOwnedLocalizedPath('nerja-nightlife', 'es'),
-      nl: buildOwnedLocalizedPath('nerja-nightlife', 'nl'),
-      sv: buildOwnedLocalizedPath('nerja-nightlife', 'sv')
-    },
-    frigiliana_guest_breakfast: { en: '/en/frigiliana-guest-breakfast', de: '/de/frigiliana-guest-breakfast', es: '/es/frigiliana-guest-breakfast', nl: '/nl/frigiliana-guest-breakfast', sv: '/sv/frigiliana-guest-breakfast' },
-
-    /* =========================================================
-       FRIGILIANA — GUEST WELCOME HUBS (APARTMENTS)
-    ========================================================= */
-    frigiliana_guest_welcome_farah: { en: '/en/guestwelcome-frigiliana-farah', de: '/de/guestwelcome-frigiliana-farah', es: '/es/guestwelcome-frigiliana-farah', nl: '/nl/guestwelcome-frigiliana-farah', sv: '/sv/guestwelcome-frigiliana-farah' },
-    frigiliana_guest_welcome_lounis: { en: '/en/guestwelcome-frigiliana-lounis', de: '/de/guestwelcome-frigiliana-lounis', es: '/es/guestwelcome-frigiliana-lounis', nl: '/nl/guestwelcome-frigiliana-lounis', sv: '/sv/guestwelcome-frigiliana-lounis' },
-    frigiliana_guest_welcome_zaid: { en: '/en/guestwelcome-frigiliana-zaid', de: '/de/guestwelcome-frigiliana-zaid', es: '/es/guestwelcome-frigiliana-zaid', nl: '/nl/guestwelcome-frigiliana-zaid', sv: '/sv/guestwelcome-frigiliana-zaid' },
-    frigiliana_guest_welcome_maha: {
-      en: '/en/guestwelcome-frigiliana-maha',
-      de: '/de/guestwelcome-frigiliana-maha',
-      es: '/es/guestwelcome-frigiliana-maha',
-      nl: '/nl/guestwelcome-frigiliana-maha',
-      sv: '/sv/guestwelcome-frigiliana-maha'
-    },
-
-    /* =========================================================
-       FRIGILIANA — GUEST APARTMENT PAGES (DETAILS)
-    ========================================================= */
-    frigiliana_guest_apartment_farah: { en: '/en/guestwelcome-apartment-farah', de: '/de/guestwelcome-apartment-farah', es: '/es/guestwelcome-apartment-farah', nl: '/nl/guestwelcome-apartment-farah', sv: '/sv/guestwelcome-apartment-farah' },
-    frigiliana_guest_apartment_lounis: { en: '/en/guestwelcome-apartment-lounis', de: '/de/guestwelcome-apartment-lounis', es: '/es/guestwelcome-apartment-lounis', nl: '/nl/guestwelcome-apartment-lounis', sv: '/sv/guestwelcome-apartment-lounis' },
-    frigiliana_guest_apartment_zaid: {
-      en: '/en/guestwelcome-apartment-zaid',
-      de: '/de/guestwelcome-apartment-zaid',
-      es: '/es/guestwelcome-apartment-zaid',
-      nl: '/nl/guestwelcome-apartment-zaid',
-      sv: '/sv/guestwelcome-apartment-zaid'
-    },
-    frigiliana_guest_apartment_maha: { en: '/en/guestwelcome-apartment-maha', de: '/de/guestwelcome-apartment-maha', es: '/es/guestwelcome-apartment-maha', nl: '/nl/guestwelcome-apartment-maha', sv: '/sv/guestwelcome-apartment-maha' },
-
-    /* =========================================================
-       FRIGILIANA — SHARED (ALL APARTMENTS)
-    ========================================================= */
-    frigiliana_guest_local_essentials: { en: '/en/frigiliana-guest-local-essentials', de: '/de/frigiliana-guest-local-essentials', es: '/es/frigiliana-guest-local-essentials', nl: '/nl/frigiliana-guest-local-essentials', sv: '/sv/frigiliana-guest-local-essentials' },
-    frigiliana_guest_recommendations: { en: '/en/frigiliana-guest-recommendations', de: '/de/frigiliana-guest-recommendations', es: '/es/frigiliana-guest-recommendations', nl: '/nl/frigiliana-guest-recommendations', sv: '/sv/frigiliana-guest-recommendations' },
-
-    /* =========================================================
-       NERJA — GUEST WELCOME HUBS (APARTMENTS)
-    ========================================================= */
-    nerja_guest_welcome_playa: {
-      en: '/en/guestwelcome-nerja-playa',
-      de: '/de/guestwelcome-nerja-playa',
-      es: '/es/guestwelcome-nerja-playa',
-      nl: '/nl/guestwelcome-nerja-playa',
-      sv: '/sv/guestwelcome-nerja-playa'
-    },
-
-    /* =========================================================
-       NERJA — GUEST APARTMENT PAGES (DETAILS)
-    ========================================================= */
-    nerja_guest_apartment_playa: {
-      en: '/en/guestwelcome-apartment-playa',
-      de: '/de/guestwelcome-apartment-playa',
-      es: '/es/guestwelcome-apartment-playa',
-      nl: '/nl/guestwelcome-apartment-playa',
-      sv: '/sv/guestwelcome-apartment-playa'
-    },
-
-    /* =========================================================
-       NERJA — LOCAL ESSENTIALS
-    ========================================================= */
-    nerja_guest_local_essentials: {
-      en: '/en/guestwelcome-nerja-local-essentials',
-      de: '/de/guestwelcome-nerja-local-essentials',
-      es: '/es/guestwelcome-nerja-local-essentials',
-      nl: '/nl/guestwelcome-nerja-local-essentials',
-      sv: '/sv/guestwelcome-nerja-local-essentials'
-    },
 
     /* =========================================================
        FRIGILIANA — AUTHORITY (BRIDGED TO NERJA)
