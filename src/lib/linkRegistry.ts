@@ -1,31 +1,6 @@
 import { buildOwnedLocalizedPath } from './routeOwnership';
 import { buildBookingLandingUrl } from './directBooking';
 
-function normalizeInternalSpanishPath(path: string): string {
-  return path.replace(/^\/es\//, '/');
-}
-
-function normalizeRegistrySpanishPaths<T>(value: T): T {
-  if (typeof value === 'string') {
-    // Normalize only internal route paths. Absolute URLs stay untouched.
-    return (value.startsWith('/') ? normalizeInternalSpanishPath(value) : value) as T;
-  }
-
-  if (Array.isArray(value)) {
-    return value.map((item) => normalizeRegistrySpanishPaths(item)) as T;
-  }
-
-  if (value && typeof value === 'object') {
-    const normalized: Record<string, unknown> = {};
-    for (const [key, child] of Object.entries(value as Record<string, unknown>)) {
-      normalized[key] = normalizeRegistrySpanishPaths(child);
-    }
-    return normalized as T;
-  }
-
-  return value;
-}
-
 // src/lib/linkRegistry.ts
 /**
  * AMARA Link Registry — Astro SSOT
@@ -35,7 +10,7 @@ function normalizeRegistrySpanishPaths<T>(value: T): T {
  * - Allow resolveLink(...) to stay simple and deterministic.
  */
 
-export const linkRegistry = normalizeRegistrySpanishPaths({
+export const linkRegistry = {
   version: '2026-07-19-registry-v4.1',
   updated_at: '2026-07-19',
   base: '/',
@@ -114,9 +89,9 @@ export const linkRegistry = normalizeRegistrySpanishPaths({
       sv: buildOwnedLocalizedPath('frigiliana-hospitality-property-for-sale', 'sv')
     },
 instagram: 'https://www.instagram.com/amaralodging/',
-journal: { en: '/journal/', de: '/de/journal/', es: '/es/diario/', nl: '/nl/journal/', sv: '/sv/journal/' },
-contact: { en: '/contact/', de: '/de/kontakt/', es: '/es/contacto/', nl: '/nl/contact/', sv: '/sv/kontakt/' },
-archive: { en: '/archive/', de: '/de/archiv/', es: '/es/archivo/', nl: '/nl/archief/', sv: '/sv/arkiv/' },
+journal: { en: '/journal/', de: '/de/journal/', es: '/diario/', nl: '/nl/journal/', sv: '/sv/journal/' },
+contact: { en: '/contact/', de: '/de/kontakt/', es: '/contacto/', nl: '/nl/contact/', sv: '/sv/kontakt/' },
+archive: { en: '/archive/', de: '/de/archiv/', es: '/archivo/', nl: '/nl/archief/', sv: '/sv/arkiv/' },
 legal_notice: {
   en: buildOwnedLocalizedPath('legal-notice', 'en'),
   de: buildOwnedLocalizedPath('legal-notice', 'de'),
@@ -146,7 +121,7 @@ legal_notice: {
     /* =========================================================
        LOCATIONS
     ========================================================= */
-    locations_hub: { en: '/en/locations', de: '/de/locations', es: '/es/locations', nl: '/nl/locations', sv: '/sv/locations' },
+    locations_hub: { en: '/en/locations', de: '/de/locations', es: '/locations', nl: '/nl/locations', sv: '/sv/locations' },
     location_frigiliana: { en: '/en/frigiliana-location', de: '/de/frigiliana-location', es: '/frigiliana-location', nl: '/nl/frigiliana-location', sv: '/sv/frigiliana-location' },
     location_nerja: {
       en: buildOwnedLocalizedPath('nerja-location', 'en'),
@@ -350,4 +325,4 @@ legal_notice: {
       sv: 'mailto:hola@amara-lodging.es?subject=Casa%20AMARA%20Property%20Enquiry'
     },
   }
-} as const);
+} as const;
