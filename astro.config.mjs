@@ -125,7 +125,7 @@ export default defineConfig({
   build: {
     format: 'file',
     // Keep first-visit rendering free of separate, render-blocking CSS requests.
-    inlineStylesheets: 'always'
+    inlineStylesheets: 'auto'
   },
   trailingSlash: 'never',
   redirects: {
