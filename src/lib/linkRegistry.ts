@@ -135,55 +135,6 @@ legal_notice: {
       nl: buildOwnedLocalizedPath('explore-frigiliana-nerja', 'nl'),
       sv: buildOwnedLocalizedPath('explore-frigiliana-nerja', 'sv')
     },
-    explore_beaches: {
-      en: buildOwnedLocalizedPath('frigiliana-beaches', 'en'),
-      de: buildOwnedLocalizedPath('frigiliana-beaches', 'de'),
-      es: buildOwnedLocalizedPath('frigiliana-beaches', 'es'),
-      nl: buildOwnedLocalizedPath('frigiliana-beaches', 'nl'),
-      sv: buildOwnedLocalizedPath('frigiliana-beaches', 'sv')
-    },
-    explore_culture: {
-      en: buildOwnedLocalizedPath('frigiliana-festivals', 'en'),
-      de: buildOwnedLocalizedPath('frigiliana-festivals', 'de'),
-      es: buildOwnedLocalizedPath('frigiliana-festivals', 'es'),
-      nl: buildOwnedLocalizedPath('frigiliana-festivals', 'nl'),
-      sv: buildOwnedLocalizedPath('frigiliana-festivals', 'sv')
-    },
-    explore_daytrips: {
-      en: buildOwnedLocalizedPath('frigiliana-day-trips', 'en'),
-      de: buildOwnedLocalizedPath('frigiliana-day-trips', 'de'),
-      es: buildOwnedLocalizedPath('frigiliana-day-trips', 'es'),
-      nl: buildOwnedLocalizedPath('frigiliana-day-trips', 'nl'),
-      sv: buildOwnedLocalizedPath('frigiliana-day-trips', 'sv')
-    },
-    explore_food: {
-      en: buildOwnedLocalizedPath('frigiliana-restaurants', 'en'),
-      de: buildOwnedLocalizedPath('frigiliana-restaurants', 'de'),
-      es: buildOwnedLocalizedPath('frigiliana-restaurants', 'es'),
-      nl: buildOwnedLocalizedPath('frigiliana-restaurants', 'nl'),
-      sv: buildOwnedLocalizedPath('frigiliana-restaurants', 'sv')
-    },
-    explore_hiking: {
-      en: buildOwnedLocalizedPath('frigiliana-hiking', 'en'),
-      de: buildOwnedLocalizedPath('frigiliana-hiking', 'de'),
-      es: buildOwnedLocalizedPath('frigiliana-hiking', 'es'),
-      nl: buildOwnedLocalizedPath('frigiliana-hiking', 'nl'),
-      sv: buildOwnedLocalizedPath('frigiliana-hiking', 'sv')
-    },
-    explore_water: {
-      en: buildOwnedLocalizedPath('frigiliana-beaches', 'en'),
-      de: buildOwnedLocalizedPath('frigiliana-beaches', 'de'),
-      es: buildOwnedLocalizedPath('frigiliana-beaches', 'es'),
-      nl: buildOwnedLocalizedPath('frigiliana-beaches', 'nl'),
-      sv: buildOwnedLocalizedPath('frigiliana-beaches', 'sv')
-    },
-    explore_wellness: {
-      en: buildOwnedLocalizedPath('frigiliana-wellness', 'en'),
-      de: buildOwnedLocalizedPath('frigiliana-wellness', 'de'),
-      es: buildOwnedLocalizedPath('frigiliana-wellness', 'es'),
-      nl: buildOwnedLocalizedPath('frigiliana-wellness', 'nl'),
-      sv: buildOwnedLocalizedPath('frigiliana-wellness', 'sv')
-    },
     frigiliana_netflix_dos_tumbas: {
       en: buildOwnedLocalizedPath('frigiliana-netflix-dos-tumbas', 'en'),
       de: buildOwnedLocalizedPath('frigiliana-netflix-dos-tumbas', 'de'),
@@ -282,21 +233,7 @@ legal_notice: {
       nl: buildOwnedLocalizedPath('frigiliana-streets-stairs', 'nl'),
       sv: buildOwnedLocalizedPath('frigiliana-streets-stairs', 'sv')
     },
-    frigiliana_stairs_layout: {
-      en: buildOwnedLocalizedPath('frigiliana-streets-stairs', 'en'),
-      de: buildOwnedLocalizedPath('frigiliana-streets-stairs', 'de'),
-      es: buildOwnedLocalizedPath('frigiliana-streets-stairs', 'es'),
-      nl: buildOwnedLocalizedPath('frigiliana-streets-stairs', 'nl'),
-      sv: buildOwnedLocalizedPath('frigiliana-streets-stairs', 'sv')
-    },
     getting_to_frigiliana: {
-      en: buildOwnedLocalizedPath('getting-to-frigiliana', 'en'),
-      de: buildOwnedLocalizedPath('getting-to-frigiliana', 'de'),
-      es: buildOwnedLocalizedPath('getting-to-frigiliana', 'es'),
-      nl: buildOwnedLocalizedPath('getting-to-frigiliana', 'nl'),
-      sv: buildOwnedLocalizedPath('getting-to-frigiliana', 'sv')
-    },
-    arrival_parking_guide: {
       en: buildOwnedLocalizedPath('getting-to-frigiliana', 'en'),
       de: buildOwnedLocalizedPath('getting-to-frigiliana', 'de'),
       es: buildOwnedLocalizedPath('getting-to-frigiliana', 'es'),
@@ -317,10 +254,6 @@ legal_notice: {
       nl: buildOwnedLocalizedPath('frigiliana-weather', 'nl'),
       sv: buildOwnedLocalizedPath('frigiliana-weather', 'sv')
     },
-
-    gmaps_search_kayak_nerja: 'https://www.google.com/maps/search/kayak+nerja',
-    gmaps_search_jetski_nerja: 'https://www.google.com/maps/search/jetski+nerja',
-    gmaps_search_harley_nerja: 'https://www.google.com/maps/search/harley+davidson+nerja',
 
     /* =========================================================
        FRIGILIANA — AUTHORITY (BRIDGED TO NERJA)
@@ -359,37 +292,6 @@ legal_notice: {
       es: buildOwnedLocalizedPath('frigiliana-wellness', 'es'),
       nl: buildOwnedLocalizedPath('frigiliana-wellness', 'nl'),
       sv: buildOwnedLocalizedPath('frigiliana-wellness', 'sv')
-    },
-
-    /* =========================================================
-       LOCATION SPOKES (LEGACY)
-    ========================================================= */
-    parking_frigiliana_legacy: { en: '/en/frigiliana-parking-and-mobility', de: '/de/frigiliana-parking-and-mobility', es: '/es/frigiliana-parking-and-mobility', nl: '/nl/frigiliana-parking-and-mobility', sv: '/sv/frigiliana-parking-and-mobility' },
-    winter_frigiliana: { en: '/en/winter-stay-frigiliana', de: '/de/winter-stay-frigiliana', es: '/es/winter-stay-frigiliana', nl: '/nl/winter-stay-frigiliana', sv: '/sv/winter-stay-frigiliana' },
-    where_to_stay_frigiliana: {
-      en: buildOwnedLocalizedPath('frigiliana-location', 'en'),
-      de: buildOwnedLocalizedPath('frigiliana-location', 'de'),
-      es: buildOwnedLocalizedPath('frigiliana-location', 'es'),
-      nl: buildOwnedLocalizedPath('frigiliana-location', 'nl'),
-      sv: buildOwnedLocalizedPath('frigiliana-location', 'sv')
-    },
-
-    /* =========================================================
-       ROMANTIC (LEGACY MAPPING)
-    ========================================================= */
-    romantic_andalusia: {
-      en: buildBookingLandingUrl('en'),
-      de: buildBookingLandingUrl('de'),
-      es: buildBookingLandingUrl('es'),
-      nl: buildBookingLandingUrl('nl'),
-      sv: buildBookingLandingUrl('sv')
-    },
-    comfort_amenities: {
-      en: buildOwnedLocalizedPath('comfort-amenities', 'en'),
-      de: buildOwnedLocalizedPath('comfort-amenities', 'de'),
-      es: buildOwnedLocalizedPath('comfort-amenities', 'es'),
-      nl: buildOwnedLocalizedPath('comfort-amenities', 'nl'),
-      sv: buildOwnedLocalizedPath('comfort-amenities', 'sv')
     },
 
     /* =========================================================
@@ -437,19 +339,6 @@ legal_notice: {
       nl: buildOwnedLocalizedPath('la-amara-family-and-surf', 'nl'),
       sv: buildOwnedLocalizedPath('la-amara-family-and-surf', 'sv')
     },
-    /**
-     * Featured editorial “Aura” home — same canonical listing as Farah until a dedicated Aura URL exists.
-     */
-    lodging_aura: {
-      es: buildOwnedLocalizedPath('la-amara-farah', 'es'),
-      en: buildOwnedLocalizedPath('la-amara-farah', 'en'),
-      de: buildOwnedLocalizedPath('la-amara-farah', 'de'),
-      nl: buildOwnedLocalizedPath('la-amara-farah', 'nl'),
-      sv: buildOwnedLocalizedPath('la-amara-farah', 'sv')
-    },
-
-
-
     /* =========================================================
        EXTERNAL UTILITY
     ========================================================= */
@@ -460,8 +349,5 @@ legal_notice: {
       nl: 'mailto:hola@amara-lodging.es?subject=Casa%20AMARA%20Property%20Enquiry',
       sv: 'mailto:hola@amara-lodging.es?subject=Casa%20AMARA%20Property%20Enquiry'
     },
-    maps_link: 'https://goo.gl/maps/dKxJz8u1z8u1z8u1',
-    map_embed_url: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12791.956660602495!2d-3.8960883!3d36.7907572!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd7226190a604245%3A0x673033575ca8650!2sFrigiliana%2C%20M%C3%A1laga%2C%20Spain!5e0!3m2!1sen!2ses!4v1708260000000!5m2!1sen!2ses',
-    flights_link: 'https://www.google.com/travel/flights?tfs=CBwQARoaagwIAxIIL20vMDRncjISCjIwMjQtMDYtMTVAAUgBcAGCAQsI____________AZgBAg&tfu=KgIIAw'
   }
 } as const);
