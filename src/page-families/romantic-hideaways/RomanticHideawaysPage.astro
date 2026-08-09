@@ -985,12 +985,13 @@ const apartmentsWithLinks: ApartmentWithHref[] = apartmentRows.filter(
 
         <ApartmentGrid>
           {
-            apartmentsWithLinks.map((apt) => (
+            apartmentsWithLinks.map((apt, index) => (
               <ApartmentCard
                 href={apt.href}
                 imageSrc={apt.image}
                 imageAlt={t(apt.imageAlt)}
-                loading={['farah', 'lounis', 'zaid'].includes(apt.token) ? 'eager' : 'lazy'}
+                loading={index === 0 ? 'eager' : 'lazy'}
+                fetchpriority={index === 0 ? 'high' : undefined}
                 meta={t(apt.meta)}
                 title={t(apt.title)}
                 description={t(apt.description)}

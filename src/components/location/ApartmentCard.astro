@@ -11,6 +11,7 @@ interface Props {
   imageSrc: ImageMetadata | string;
   imageAlt: string;
   loading?: 'eager' | 'lazy';
+  fetchpriority?: 'high' | 'low' | 'auto';
   meta: string;
   title: string;
   description: string;
@@ -22,6 +23,7 @@ const {
   imageSrc,
   imageAlt,
   loading = 'lazy',
+  fetchpriority,
   meta,
   title,
   description,
@@ -39,6 +41,7 @@ const {
         class="am-apartment-card__image"
         loading={loading}
         decoding="async"
+        fetchpriority={fetchpriority}
       />
     </a>
   </figure>
