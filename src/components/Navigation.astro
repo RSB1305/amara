@@ -426,6 +426,7 @@ const resolvedGlobalNavGroups = globalNavGroups.map((group) => {
 
   return {
     ...group,
+    dropdownId: `am-nav-dropdown-${group.id}`,
     items,
     isActive: items.some((item) => item.isActive)
   };
@@ -436,7 +437,7 @@ const resolvedGlobalNavGroups = globalNavGroups.map((group) => {
   class="fixed top-0 left-0 w-full z-[100] px-6 py-5 lg:px-12 lg:py-6 bg-surface/90 backdrop-blur-md border-b border-outline-variant/5"
   data-am-navigation
 >
-  <nav class="am-nav max-w-screen-2xl mx-auto">
+  <div class="am-nav max-w-screen-2xl mx-auto">
     <div class="am-nav__brand">
       <a href={getBrandHref()} class="group inline-flex flex-col items-center text-center">
         <span class="font-headline italic text-xl text-on-surface tracking-tighter">
@@ -448,20 +449,24 @@ const resolvedGlobalNavGroups = globalNavGroups.map((group) => {
       </a>
     </div>
 
-    <div class="am-nav__center">
+    <nav class="am-nav__center" aria-label={utilityLabels.mobileNavigation}>
       <ul class="hidden lg:flex items-center gap-10">
         {resolvedGlobalNavGroups.map((group) => (
           <li class="am-nav__group">
             <button
               type="button"
               class="am-nav__link am-nav__group-trigger font-label text-[12px] font-bold uppercase tracking-[0.14em] text-on-surface transition-colors"
-              aria-haspopup="true"
+              aria-controls={group.dropdownId}
+              aria-expanded="false"
               aria-current={group.isActive ? 'page' : undefined}
             >
               {group.label}
             </button>
 
-            <div class:list={['am-nav__dropdown', group.items.some((item) => item.description) && 'am-nav__dropdown--detailed']}>
+            <div
+              id={group.dropdownId}
+              class:list={['am-nav__dropdown', group.items.some((item) => item.description) && 'am-nav__dropdown--detailed']}
+            >
               <div class:list={['am-nav__dropdown-panel', group.items.some((item) => item.description) && 'am-nav__dropdown-panel--detailed']}>
                 {group.items.map((item) => (
                   <>
@@ -512,7 +517,7 @@ const resolvedGlobalNavGroups = globalNavGroups.map((group) => {
           </li>
         ))}
       </ul>
-    </div>
+    </nav>
 
     <div class="am-nav__rail">
       <div class="am-nav__slot am-nav__slot--language">
@@ -602,7 +607,7 @@ const resolvedGlobalNavGroups = globalNavGroups.map((group) => {
         </button>
       </div>
     </div>
-  </nav>
+  </div>
 
   <div id="amara-mobile-menu" class="am-nav-mobile" data-am-mobile-menu hidden>
     <nav class="am-nav-mobile__inner" aria-label={utilityLabels.mobileNavigation}>
@@ -695,6 +700,8 @@ const resolvedGlobalNavGroups = globalNavGroups.map((group) => {
     var mobileMenu = header.querySelector('[data-am-mobile-menu]');
     var language = header.querySelector('[data-am-language]');
     var languageTrigger = header.querySelector('[data-am-language-trigger]');
+    var desktopGroups = header.querySelectorAll('.am-nav__group');
+    var desktopQuery = window.matchMedia('(min-width: 1024px)');
     var interactionRoot = header.closest('[data-am-interaction-root]');
     var mobileInertRecords = [];
     var mobileBackgroundIsInert = false;
@@ -752,6 +759,34 @@ const resolvedGlobalNavGroups = globalNavGroups.map((group) => {
       languageTrigger.setAttribute('aria-expanded', open ? 'true' : 'false');
     };
 
+    var setDesktopGroupExpanded = function (group, expanded) {
+      var trigger = group.querySelector('.am-nav__group-trigger');
+      if (trigger) trigger.setAttribute('aria-expanded', expanded ? 'true' : 'false');
+    };
+
+    Array.prototype.forEach.call(desktopGroups, function (group) {
+      group.addEventListener('pointerenter', function () {
+        if (desktopQuery.matches) setDesktopGroupExpanded(group, true);
+      });
+
+      group.addEventListener('pointerleave', function () {
+        setDesktopGroupExpanded(
+          group,
+          desktopQuery.matches && group.contains(document.activeElement)
+        );
+      });
+
+      group.addEventListener('focusin', function () {
+        if (desktopQuery.matches) setDesktopGroupExpanded(group, true);
+      });
+
+      group.addEventListener('focusout', function (event) {
+        var nextTarget = event.relatedTarget;
+        if (nextTarget && group.contains(nextTarget)) return;
+        setDesktopGroupExpanded(group, desktopQuery.matches && group.matches(':hover'));
+      });
+    });
+
     var setMenuOpen = function (open) {
       if (!menuTrigger || !mobileMenu) return;
       mobileMenu.hidden = !open;
@@ -808,9 +843,14 @@ const resolvedGlobalNavGroups = globalNavGroups.map((group) => {
       }
     });
 
-    var desktopQuery = window.matchMedia('(min-width: 1024px)');
     var handleDesktopChange = function (event) {
       if (event.matches) setMenuOpen(false);
+      Array.prototype.forEach.call(desktopGroups, function (group) {
+        setDesktopGroupExpanded(
+          group,
+          event.matches && (group.matches(':hover') || group.contains(document.activeElement))
+        );
+      });
     };
     if (desktopQuery.addEventListener) desktopQuery.addEventListener('change', handleDesktopChange);
   })();
@@ -1347,6 +1387,7 @@ const resolvedGlobalNavGroups = globalNavGroups.map((group) => {
 
   @media (prefers-reduced-motion: reduce) {
     .am-nav__language-popover,
+    .am-nav__dropdown,
     .am-nav__menu-lines span,
     .am-nav-mobile__summary svg {
       transition: none;
