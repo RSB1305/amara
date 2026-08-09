@@ -1,5 +1,5 @@
 export type AmaraLanguage = 'en' | 'de' | 'es' | 'nl' | 'sv';
-export type AmaraPageType = 'A' | 'B' | 'C' | 'D';
+export type AmaraPageType = 'A' | 'B' | 'C' | 'D' | 'utility';
 
 export type AmaraSchemaType =
   | 'none'

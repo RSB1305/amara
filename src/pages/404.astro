@@ -1,47 +1,63 @@
 ---
+import BaseLayout from '../layouts/BaseLayout.astro';
 import Navigation from '../components/Navigation.astro';
-import Footer from '../components/Footer.astro';
-import '../styles/global.css';
+import { resolveLink } from '../lib/linkResolver';
+import type { AmaraAuthoringSeo, AmaraLanguage } from '../types/seo';
+
+const currentLang: AmaraLanguage = 'es';
+
+const seo: AmaraAuthoringSeo = {
+  version: '2026-08-09-404-v1.0-utility',
+  pageType: 'utility',
+  languages: {
+    en: {
+      title: 'Page not found | AMARA',
+      description: 'The requested page is not available. Return to the AMARA homepage.',
+      robots: 'noindex, follow',
+      canonical: 'auto'
+    },
+    de: {
+      title: 'Seite nicht gefunden | AMARA',
+      description: 'Die angeforderte Seite ist nicht verfügbar. Kehren Sie zur AMARA-Startseite zurück.',
+      robots: 'noindex, follow',
+      canonical: 'auto'
+    },
+    es: {
+      title: 'Página no encontrada | AMARA',
+      description: 'La página solicitada no está disponible. Volved a la página principal de AMARA.',
+      robots: 'noindex, follow',
+      canonical: 'auto'
+    },
+    nl: {
+      title: 'Pagina niet gevonden | AMARA',
+      description: 'De opgevraagde pagina is niet beschikbaar. Ga terug naar de homepage van AMARA.',
+      robots: 'noindex, follow',
+      canonical: 'auto'
+    },
+    sv: {
+      title: 'Sidan kunde inte hittas | AMARA',
+      description: 'Sidan du söker är inte tillgänglig. Gå tillbaka till AMARAs startsida.',
+      robots: 'noindex, follow',
+      canonical: 'auto'
+    }
+  }
+};
+
+const homeHref = resolveLink('home', currentLang);
 ---
 
-<!DOCTYPE html>
-<html lang="es" class="light">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="generator" content={Astro.generator} />
-    <meta name="robots" content="noindex, follow" />
-    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
-    <title>Página no encontrada | AMARA</title>
-    <meta
-      name="description"
-      content="La página solicitada no está disponible. Volved a la página principal de AMARA."
-    />
-  </head>
+<BaseLayout seo={seo} pageLang={currentLang} showContextNavigation={false}>
+  <Navigation currentLang={currentLang} />
 
-  <body class="bg-surface text-on-surface font-body selection:bg-primary/10 antialiased">
-    <div class="grain-overlay fixed inset-0 z-[0] pointer-events-none opacity-[0.03]"></div>
-
-    <Navigation
-      currentLang="es"
-      brandName="AMARA"
-      currentToken="home"
-    />
-
-    <div class="relative z-[10] pt-[104px] lg:pt-[136px]">
-      <main class="am-container flex min-h-[62vh] items-center py-20 md:py-28">
-        <section class="max-w-3xl border-t border-outline-variant/30 pt-10 md:pt-14">
-          <p class="am-text-eyebrow text-primary">Error 404</p>
-          <h1 class="am-text-display mt-5">Esta página ya no está aquí.</h1>
-          <p class="am-text-lead mt-7 max-w-2xl text-on-surface-variant">
-            Puede que el enlace haya cambiado o que la dirección no sea correcta. Desde la
-            página principal podéis volver a descubrir todos los alojamientos y destinos de AMARA.
-          </p>
-          <a class="am-btn am-btn--primary mt-9" href="/">Volver a AMARA</a>
-        </section>
-      </main>
-
-      <Footer currentLang="es" />
-    </div>
-  </body>
-</html>
+  <main class="mx-auto flex min-h-[62vh] w-full max-w-screen-2xl items-center px-6 py-20 md:px-12 md:py-28">
+    <section class="max-w-3xl border-t border-outline-variant/30 pt-10 md:pt-14">
+      <p class="am-text-caption uppercase tracking-[0.14em] text-primary">Error 404</p>
+      <h1 class="am-text-display mt-5">Esta página ya no está aquí.</h1>
+      <p class="am-text-body mt-7 max-w-2xl text-on-surface-variant">
+        Puede que el enlace haya cambiado o que la dirección no sea correcta. Desde la
+        página principal podéis volver a descubrir todos los alojamientos y destinos de AMARA.
+      </p>
+      <a class="am-btn am-btn--primary mt-9" href={homeHref}>Volver a AMARA</a>
+    </section>
+  </main>
+</BaseLayout>
