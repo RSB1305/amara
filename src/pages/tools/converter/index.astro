@@ -210,7 +210,6 @@ export const prerender = true;
 
   <div class="options-bar">
     <div class="chips">
-      <span class="chip active" data-opt="amroot">+ .am-root / .am-wrap</span>
       <span class="chip active" data-opt="hex">Hex-Codes → CSS Vars</span>
       <span class="chip active" data-opt="seo">SEO JSON-LD</span>
       <span class="chip active" data-opt="props">Props-Interface</span>
@@ -263,7 +262,7 @@ export const prerender = true;
 </div>
 
 <script>
-  const opts = { amroot: true, hex: true, seo: true, props: true, style: true, react: true }
+  const opts = { hex: true, seo: true, props: true, style: true, react: true }
 
   document.querySelectorAll('.chip[data-opt]').forEach(c => {
     c.addEventListener('click', () => {
@@ -377,11 +376,6 @@ export const prerender = true;
     return `\n<script type="application/ld+json">\n{\n  "@context": "https://schema.org",\n  "@type": "WebPage",\n  "name": "",\n  "description": "",\n  "url": "",\n  "inLanguage": ["en","de","es","nl","sv"],\n  "canonical": "auto"\n}\n<\/script>`
   }
 
-  function wrapAMARA(inner) {
-    const lines = inner.split('\n').map(l => '    ' + l).join('\n')
-    return `<div class="am-root">\n  <div class="am-wrap">\n${lines}\n  </div>\n</div>`
-  }
-
   function transform() {
     const raw = document.getElementById('input').value.trim()
     if (!raw) { addLog('Kein Input.', 'err'); return }
@@ -415,13 +409,6 @@ export const prerender = true;
     if (opts.props) {
       if (props.length > 0) addLog(props.length + ' Props: ' + props.join(', '), 'ok')
       else addLog('Keine data-prop Attribute — Props-Interface leer', 'info')
-    }
-
-    if (opts.amroot && !html.includes('am-root')) {
-      html = wrapAMARA(html)
-      addLog('.am-root + .am-wrap injiziert', 'ok')
-    } else if (html.includes('am-root')) {
-      addLog('.am-root bereits vorhanden', 'info')
     }
 
     const fm = buildFrontmatter(props)

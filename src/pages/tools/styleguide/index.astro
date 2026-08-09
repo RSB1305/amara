@@ -274,17 +274,17 @@ import '../../../styles/global.css';
       <h2 class="sg-section-title">Page Structure</h2>
       <span class="sg-label">AMARA Pflicht-Struktur — jede Seite</span>
       <div class="sg-structure">
-        <span class="sg-structure-label">.am-root (1× pro Seite — auf Layout-Ebene)</span>
+        <span class="sg-structure-label">Astro Layout (1× pro Seite)</span>
         <div class="sg-structure-inner">
-          <span class="sg-structure-label">.am-wrap (direktes Kind von .am-root)</span>
+          <span class="sg-structure-label">Page-Family-Inhalt</span>
           <div style="background:var(--color-primary-container);border-radius:6px;padding:12px 16px;margin-top:8px;">
             <span style="font-size:11px;font-family:monospace;color:var(--color-primary)">→ dein Seiteninhalt hier</span>
           </div>
         </div>
       </div>
       <div style="margin-top:16px;font-size:12px;color:var(--color-muted);line-height:1.7">
-        <span class="sg-code">.am-root</span> existiert genau 1× pro Seite · gesetzt auf Layout-Ebene<br>
-        <span class="sg-code">.am-wrap</span> ist direktes Kind von <span class="sg-code">.am-root</span> · kein Code außerhalb<br>
+        Das Astro Layout komponiert die globale Seitenstruktur<br>
+        Die Page Family besitzt den jeweiligen Seiteninhalt<br>
         Kein <span class="sg-code">style=""</span> inline · kein <span class="sg-code">!important</span> außer SSOT-dokumentiert
       </div>
     </section>

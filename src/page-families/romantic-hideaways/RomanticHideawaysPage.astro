@@ -1,7 +1,7 @@
 ---
 /**
  * AMARA Romantic Hideaways — collection landing (from AI Studio import).
- * Shell: BaseLayout + Navigation + single .am-root > .am-wrap.
+ * Shell: BaseLayout + Navigation.
  */
 import type { ImageMetadata } from 'astro';
 import BaseLayout from '../../layouts/BaseLayout.astro';
@@ -882,8 +882,8 @@ const apartmentsWithLinks: ApartmentWithHref[] = apartmentRows.filter(
     languageToken="romantic_hideaways"
   />
 
-  <div class="am-root bg-surface min-h-screen relative overflow-hidden" data-am-page="romantic-hideaways">
-    <div class="am-wrap w-full max-w-screen-2xl mx-auto px-6 md:px-12 pb-20">
+  <div class="bg-surface min-h-screen relative overflow-hidden" data-am-page="romantic-hideaways">
+    <div class="w-full max-w-screen-2xl mx-auto px-6 md:px-12 pb-20">
       <section class="pt-8 pb-16 md:pb-24 relative z-10">
         <TrustHero
           subtitle={t(copy.heroSubtitle)}
