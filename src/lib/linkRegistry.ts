@@ -393,27 +393,6 @@ legal_notice: {
     },
 
     /* =========================================================
-       CANONICALS (SSOT)
-    ========================================================= */
-    about_canonical_en: 'https://amara-lodging.es/amara-about-us',
-    about_canonical_de: 'https://amara-lodging.es/de/amara-about-us',
-    about_canonical_es: 'https://amara-lodging.es/amara-about-us',
-    about_canonical_nl: 'https://amara-lodging.es/nl/amara-about-us',
-    about_canonical_sv: 'https://amara-lodging.es/sv/amara-about-us',
-
-    reviews_canonical_en: 'https://amara-lodging.es/en/guest-reviews',
-    reviews_canonical_de: 'https://amara-lodging.es/de/guest-reviews',
-    reviews_canonical_es: 'https://amara-lodging.es/guest-reviews',
-    reviews_canonical_nl: 'https://amara-lodging.es/nl/guest-reviews',
-    reviews_canonical_sv: 'https://amara-lodging.es/sv/guest-reviews',
-
-    direct_booking_canonical_en: 'https://amara-lodging.es/en/direct-booking-benefits',
-    direct_booking_canonical_de: 'https://amara-lodging.es/de/direct-booking-benefits',
-    direct_booking_canonical_es: 'https://amara-lodging.es/direct-booking-benefits',
-    direct_booking_canonical_nl: 'https://amara-lodging.es/nl/direct-booking-benefits',
-    direct_booking_canonical_sv: 'https://amara-lodging.es/sv/direct-booking-benefits',
-
-    /* =========================================================
        APARTMENTS
     ========================================================= */
     farah: {
