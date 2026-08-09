@@ -6,13 +6,13 @@ import type { AmaraLanguage } from '../types/seo';
 interface Props {
   currentLang: AmaraLanguage;
   highlights?: { token: string; label: string }[];
-  variant?: 'default' | 'trust';
 }
 
-const { currentLang, highlights, variant = 'default' } = Astro.props;
+const { currentLang, highlights } = Astro.props;
+const shouldRenderFooterMinimal = highlights === undefined || highlights.length > 0;
 ---
 
 <div class="footer">
-  <FooterMinimal currentLang={currentLang} links={highlights} />
-  {variant !== 'trust' && <FooterCore currentLang={currentLang} />}
+  {shouldRenderFooterMinimal && <FooterMinimal currentLang={currentLang} links={highlights} />}
+  <FooterCore currentLang={currentLang} />
 </div>

@@ -7,7 +7,6 @@ interface Props {
   seo: AmaraAuthoringSeo;
   pageLang?: AmaraLanguage;
   footerHighlights?: { token: string; label: string }[];
-  footerVariant?: 'default' | 'trust';
   showContextNavigation?: boolean;
   bodyBackgroundClass?: string;
 }
@@ -16,7 +15,6 @@ const {
   seo,
   pageLang,
   footerHighlights,
-  footerVariant,
   showContextNavigation = false,
   bodyBackgroundClass
 } = Astro.props;
@@ -26,7 +24,6 @@ const {
   seo={seo}
   pageLang={pageLang}
   footerHighlights={footerHighlights}
-  footerVariant={footerVariant}
   showContextNavigation={showContextNavigation}
   bodyBackgroundClass={bodyBackgroundClass}
 >
