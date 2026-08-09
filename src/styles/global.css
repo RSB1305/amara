@@ -1026,6 +1026,12 @@
     }
   }
 
+  @media (prefers-reduced-motion: reduce) {
+    .am-ios-details[open] .am-ios-panel {
+      animation: none;
+    }
+  }
+
   .am-ios-back {
     padding-top: 0.5rem;
     margin-bottom: 1.5rem;

@@ -49,7 +49,7 @@ const { eyebrow, title, intro, items } = Astro.props;
               src={items[0].imageSrc}
               alt={items[0].imageAlt || ''}
               profile="background"
-              class="absolute inset-0 w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-1000 ease-out opacity-60"
+              class="am-essence-grid__image absolute inset-0 w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-1000 ease-out opacity-60"
               loading="lazy"
               decoding="async"
             />
@@ -94,7 +94,7 @@ const { eyebrow, title, intro, items } = Astro.props;
               src={items[3].imageSrc}
               alt={items[3].imageAlt || ''}
               profile="background"
-              class="absolute inset-0 w-full h-full object-cover opacity-20 group-hover:scale-110 transition-transform duration-1000"
+              class="am-essence-grid__image absolute inset-0 w-full h-full object-cover opacity-20 group-hover:scale-110 transition-transform duration-1000"
               loading="lazy"
               decoding="async"
             />
@@ -108,3 +108,11 @@ const { eyebrow, title, intro, items } = Astro.props;
     )}
   </div>
 </section>
+
+<style>
+  @media (prefers-reduced-motion: reduce) {
+    :global(.am-essence-grid__image) {
+      transition: none;
+    }
+  }
+</style>

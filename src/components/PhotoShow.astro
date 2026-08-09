@@ -128,3 +128,12 @@ const t = translations[lang] || translations.en;
     customElements.define('amara-photoshow', AmaraPhotoShow);
   }
 </script>
+
+<style>
+  @media (prefers-reduced-motion: reduce) {
+    .photoshow-track,
+    .photoshow-slide :global(img) {
+      transition: none;
+    }
+  }
+</style>
