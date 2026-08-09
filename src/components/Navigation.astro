@@ -695,6 +695,56 @@ const resolvedGlobalNavGroups = globalNavGroups.map((group) => {
     var mobileMenu = header.querySelector('[data-am-mobile-menu]');
     var language = header.querySelector('[data-am-language]');
     var languageTrigger = header.querySelector('[data-am-language-trigger]');
+    var interactionRoot = header.closest('[data-am-interaction-root]');
+    var mobileInertRecords = [];
+    var mobileBackgroundIsInert = false;
+
+    var collectMobileInertTargets = function () {
+      var targets = [];
+      var addTarget = function (element) {
+        if (element && targets.indexOf(element) === -1) targets.push(element);
+      };
+
+      addTarget(header.querySelector('.am-nav__brand'));
+      addTarget(header.querySelector('.am-nav__center'));
+      addTarget(header.querySelector('.am-nav__slot--language'));
+      addTarget(header.querySelector('.am-nav__slot--cta'));
+
+      var activeBranch = header;
+      while (interactionRoot && activeBranch !== interactionRoot) {
+        var parent = activeBranch.parentElement;
+        if (!parent) break;
+
+        Array.prototype.forEach.call(parent.children, function (sibling) {
+          if (sibling !== activeBranch && sibling.tagName !== 'SCRIPT') addTarget(sibling);
+        });
+
+        activeBranch = parent;
+      }
+
+      return targets;
+    };
+
+    var setMobileBackgroundInert = function (inert) {
+      if (inert) {
+        if (mobileBackgroundIsInert) return;
+        mobileInertRecords = collectMobileInertTargets().map(function (element) {
+          return { element: element, wasInert: element.inert };
+        });
+        mobileInertRecords.forEach(function (record) {
+          record.element.inert = true;
+        });
+        mobileBackgroundIsInert = true;
+        return;
+      }
+
+      if (!mobileBackgroundIsInert) return;
+      mobileInertRecords.forEach(function (record) {
+        record.element.inert = record.wasInert;
+      });
+      mobileInertRecords = [];
+      mobileBackgroundIsInert = false;
+    };
 
     var setLanguageOpen = function (open) {
       if (!language || !languageTrigger) return;
@@ -712,6 +762,7 @@ const resolvedGlobalNavGroups = globalNavGroups.map((group) => {
       );
       document.documentElement.classList.toggle('am-nav-lock', open);
       setLanguageOpen(false);
+      setMobileBackgroundInert(open);
 
       if (open) {
         var firstControl = mobileMenu.querySelector('summary, a');
@@ -745,13 +796,16 @@ const resolvedGlobalNavGroups = globalNavGroups.map((group) => {
 
     document.addEventListener('keydown', function (event) {
       if (event.key !== 'Escape') return;
+      if (languageTrigger && languageTrigger.getAttribute('aria-expanded') === 'true') {
+        setLanguageOpen(false);
+        languageTrigger.focus();
+        return;
+      }
       if (menuTrigger && menuTrigger.getAttribute('aria-expanded') === 'true') {
         setMenuOpen(false);
         menuTrigger.focus();
         return;
       }
-      setLanguageOpen(false);
-      if (languageTrigger) languageTrigger.focus();
     });
 
     var desktopQuery = window.matchMedia('(min-width: 1024px)');
