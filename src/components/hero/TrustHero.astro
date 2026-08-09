@@ -23,7 +23,7 @@ const {
 } = Astro.props;
 ---
 
-<header class="am-exp-hero">
+<div class="am-exp-hero">
   {subtitle && (
     <div class="am-exp-hero__meta">
       <span class="am-kicker text-primary">{subtitle}</span>
@@ -53,7 +53,7 @@ const {
       ))}
     </div>
   )}
-</header>
+</div>
 
 <style>
   @reference "../../styles/global.css";
