@@ -761,29 +761,75 @@ const resolvedGlobalNavGroups = globalNavGroups.map((group) => {
 
     var setDesktopGroupExpanded = function (group, expanded) {
       var trigger = group.querySelector('.am-nav__group-trigger');
+      var dropdown = group.querySelector('.am-nav__dropdown');
+      if (expanded) {
+        group.setAttribute('data-open', 'true');
+      } else {
+        group.removeAttribute('data-open');
+        group.removeAttribute('data-activation-open');
+      }
       if (trigger) trigger.setAttribute('aria-expanded', expanded ? 'true' : 'false');
+      if (dropdown) dropdown.inert = !expanded;
     };
 
+    var closeDesktopGroups = function (exceptGroup) {
+      Array.prototype.forEach.call(desktopGroups, function (group) {
+        if (group === exceptGroup) return;
+        setDesktopGroupExpanded(group, false);
+        group.removeAttribute('data-hover-suppressed');
+      });
+    };
+
+    var openDesktopGroup = function (group, activated) {
+      closeDesktopGroups(group);
+      group.removeAttribute('data-hover-suppressed');
+      if (activated) {
+        group.setAttribute('data-activation-open', 'true');
+      } else {
+        group.removeAttribute('data-activation-open');
+      }
+      setDesktopGroupExpanded(group, true);
+    };
+
+    closeDesktopGroups();
+
     Array.prototype.forEach.call(desktopGroups, function (group) {
+      var trigger = group.querySelector('.am-nav__group-trigger');
+
       group.addEventListener('pointerenter', function () {
-        if (desktopQuery.matches) setDesktopGroupExpanded(group, true);
+        if (!desktopQuery.matches || group.hasAttribute('data-hover-suppressed')) return;
+        if (group.hasAttribute('data-activation-open')) return;
+        openDesktopGroup(group, false);
       });
 
       group.addEventListener('pointerleave', function () {
-        setDesktopGroupExpanded(
-          group,
-          desktopQuery.matches && group.contains(document.activeElement)
-        );
+        group.removeAttribute('data-hover-suppressed');
+        if (!desktopQuery.matches) {
+          setDesktopGroupExpanded(group, false);
+          return;
+        }
+        if (group.hasAttribute('data-activation-open')) return;
+        if (group.contains(document.activeElement)) return;
+        setDesktopGroupExpanded(group, false);
       });
 
-      group.addEventListener('focusin', function () {
-        if (desktopQuery.matches) setDesktopGroupExpanded(group, true);
-      });
+      if (trigger) {
+        trigger.addEventListener('click', function () {
+          if (!desktopQuery.matches) return;
+          if (group.hasAttribute('data-activation-open')) {
+            var suppressHover = group.matches(':hover');
+            setDesktopGroupExpanded(group, false);
+            if (suppressHover) group.setAttribute('data-hover-suppressed', 'true');
+            return;
+          }
+          openDesktopGroup(group, true);
+        });
+      }
 
       group.addEventListener('focusout', function (event) {
         var nextTarget = event.relatedTarget;
         if (nextTarget && group.contains(nextTarget)) return;
-        setDesktopGroupExpanded(group, desktopQuery.matches && group.matches(':hover'));
+        setDesktopGroupExpanded(group, false);
       });
     });
 
@@ -841,16 +887,18 @@ const resolvedGlobalNavGroups = globalNavGroups.map((group) => {
         menuTrigger.focus();
         return;
       }
+      var expandedDesktopGroup = header.querySelector('.am-nav__group[data-open="true"]');
+      if (expandedDesktopGroup) {
+        var openDesktopTrigger = expandedDesktopGroup.querySelector('.am-nav__group-trigger');
+        setDesktopGroupExpanded(expandedDesktopGroup, false);
+        expandedDesktopGroup.removeAttribute('data-hover-suppressed');
+        if (openDesktopTrigger) openDesktopTrigger.focus();
+      }
     });
 
     var handleDesktopChange = function (event) {
       if (event.matches) setMenuOpen(false);
-      Array.prototype.forEach.call(desktopGroups, function (group) {
-        setDesktopGroupExpanded(
-          group,
-          event.matches && (group.matches(':hover') || group.contains(document.activeElement))
-        );
-      });
+      closeDesktopGroups();
     };
     if (desktopQuery.addEventListener) desktopQuery.addEventListener('change', handleDesktopChange);
   })();
@@ -1057,8 +1105,7 @@ const resolvedGlobalNavGroups = globalNavGroups.map((group) => {
     min-width: 25rem;
   }
 
-  .am-nav__group:hover .am-nav__dropdown,
-  .am-nav__group:focus-within .am-nav__dropdown {
+  .am-nav__group[data-open="true"] .am-nav__dropdown {
     opacity: 1;
     visibility: visible;
     transform: translate(-50%, 0);
