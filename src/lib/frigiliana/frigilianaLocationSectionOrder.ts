@@ -2,25 +2,21 @@ import type { AmaraLanguage } from '../../types/seo';
 
 export type FrigilianaLocationSectionId =
   | 'hero'
-  | 'gallery'
-  | 'essence'
-  | 'climate'
-  | 'comparison'
-  | 'villageStructure'
-  | 'whereToStay'
-  | 'planning'
-  | 'arrivalFaq';
+  | 'evening'
+  | 'history'
+  | 'villageLife'
+  | 'coast'
+  | 'seasons'
+  | 'decision';
 
 export const currentOrder: FrigilianaLocationSectionId[] = [
   'hero',
-  'gallery',
-  'essence',
-  'climate',
-  'comparison',
-  'villageStructure',
-  'whereToStay',
-  'planning',
-  'arrivalFaq'
+  'evening',
+  'history',
+  'villageLife',
+  'coast',
+  'seasons',
+  'decision'
 ];
 
 const deOrder: FrigilianaLocationSectionId[] = [...currentOrder];

@@ -2,25 +2,24 @@
 import LocationAuthorityLayout from '../../layouts/LocationAuthorityLayout.astro';
 import Navigation from '../../components/Navigation.astro';
 import Hero from '../../components/Hero.astro';
-import EssenceGrid from '../../components/EssenceGrid.astro';
-import ClimateExperienceSection from '../../components/location/ClimateExperienceSection.astro';
-import VillageStructureInsight from '../../components/location/VillageStructureInsight.astro';
-import PhotoShow from '../../components/PhotoShow.astro';
-import StayDecision from '../../components/StayDecision.astro';
+import AmaraImage from '../../components/AmaraImage.astro';
 import FaqAccordion from '../../components/FaqAccordion.astro';
-import EditorialClosingCta from '../../components/editorial/EditorialClosingCta.astro';
 import EditorialGuideLinkSection from '../../components/editorial/EditorialGuideLinkSection.astro';
-import LocationEditorialComparison from '../../components/location/LocationEditorialComparison.astro';
 import LocationContextNav from '../../components/location/LocationContextNav.astro';
 import OrderedFrigilianaLocationSections from './OrderedFrigilianaLocationSections.astro';
 import {
   frigilianaLocationCopy,
-  frigilianaLocationSeo
+  frigilianaLocationHeroImageAlt,
+  frigilianaLocationNav,
+  frigilianaLocationSeo,
+  type FrigilianaLocationCtaToken,
+  type FrigilianaLocationSubsection
 } from '../../content/frigilianaLocationContent';
+import { comfortAmenitiesLinkLabel } from '../../content/comfortAmenitiesLinkLabel';
+import { trustLabels } from '../../content/trustLabels';
 import { resolveOptionalLink } from '../../lib/linkResolver';
 import { getFrigilianaLocationSectionOrder } from '../../lib/frigiliana/frigilianaLocationSectionOrder';
-import { buildOwnedLocalizedPath, isPublicLinkEnabled } from '../../lib/routeOwnership';
-import { getWeatherWithFallback } from '../../lib/weather/weatherService';
+import { buildOwnedLocalizedPath } from '../../lib/routeOwnership';
 import { normalizeLanguage } from '../../lib/seo/resolve-seo-head';
 import type { AmaraLanguage } from '../../types/seo';
 
@@ -28,182 +27,66 @@ interface Props {
   lang?: string;
 }
 
+type EditorialImageAlt = {
+  evening: string;
+  historyInterior: string;
+  historyShower: string;
+  village: string;
+  coast: string;
+  decision: string;
+};
+
 const { lang = 'es' } = Astro.props;
 const currentLang = normalizeLanguage(lang as AmaraLanguage);
-const seo = frigilianaLocationSeo;
-const copy = frigilianaLocationCopy;
+const c = frigilianaLocationCopy[currentLang];
 const optionalLink = (token: string) =>
   resolveOptionalLink(token, currentLang, { suppressMissing: true });
-const arrivalGuideHref = buildOwnedLocalizedPath('directions-arrival-guide', currentLang);
-const gettingToFrigilianaHref = buildOwnedLocalizedPath('getting-to-frigiliana', currentLang);
-const marketHref = buildOwnedLocalizedPath('frigiliana-market', currentLang);
-const dosTumbasHref = buildOwnedLocalizedPath('frigiliana-netflix-dos-tumbas', currentLang);
+
+// These two spokes intentionally preserve the approved route-ownership mechanism.
 const parkingHref = buildOwnedLocalizedPath('frigiliana-parking', currentLang);
-const streetsStairsHref = buildOwnedLocalizedPath('frigiliana-streets-stairs', currentLang);
 const weatherHref = buildOwnedLocalizedPath('frigiliana-weather', currentLang);
-const hikingHref =
-  currentLang === 'de' ? optionalLink('frigiliana_hiking_authority') : null;
-const romanticHideawaysHref = optionalLink('romantic_hideaways') ?? '#where-to-stay';
+const gettingThereHref = buildOwnedLocalizedPath('getting-to-frigiliana', currentLang);
+const comparisonHref = optionalLink('nerja_vs_frigiliana');
 const reviewsHref = optionalLink('reviews_hub');
 const amenitiesHref = optionalLink('amenities');
-const allFaqsHref = optionalLink('frigiliana_faq');
-const comparisonHref = optionalLink('nerja_vs_frigiliana') ?? '#comparison';
+const availabilityHref = optionalLink('book');
 
-const c = {
-  nav: {
-    brand: copy.nav.brand[currentLang],
-    links: copy.nav.links.map((l) => ({ token: l.token, label: l.label[currentLang] }))
+const frigilianaStayLinks = [
+  { label: 'Farah', href: optionalLink('farah') },
+  { label: 'Lounis', href: optionalLink('lounis') },
+  { label: 'Zaid', href: optionalLink('zaid') },
+  { label: 'Maha', href: optionalLink('maha') }
+].filter((item): item is { label: string; href: string } => Boolean(item.href));
+
+const planningLinks = [
+  { href: gettingThereHref, ...c.planning.gettingThere },
+  { href: parkingHref, ...c.planning.parking },
+  { href: comparisonHref, ...c.planning.comparison },
+  { href: weatherHref, ...c.planning.weather },
+  {
+    href: reviewsHref,
+    label: trustLabels.reviews_hub[currentLang],
+    text: c.planning.reviews.text
   },
-  hero: {
-    eyebrow: copy.hero.eyebrow[currentLang],
-    imageAlt: copy.hero.imageAlt[currentLang],
-    h1: copy.hero.h1[currentLang],
-    body: copy.hero.body[currentLang],
-    introLeadBefore: copy.hero.introLead[currentLang].before,
-    introLeadLinkLabel: copy.hero.introLead[currentLang].linkLabel,
-    introLeadAfter: copy.hero.introLead[currentLang].after,
-    orientationCta: copy.hero.orientationCta[currentLang]
-  },
-  essence: { eyebrow: copy.essence.eyebrow[currentLang], title: copy.essence.title[currentLang], intro: copy.essence.intro[currentLang], items: copy.essence.items.map(item => ({ kicker: item.kicker[currentLang], headline: item.headline[currentLang], text: item.text[currentLang], imageSrc: item.imageSrc, imageAlt: item.headline[currentLang], href: item.token && isPublicLinkEnabled(item.token) ? optionalLink(item.token) : undefined, linkLabel: item.linkLabel ? item.linkLabel[currentLang] : undefined })) },
-  climate: {
-    eyebrowCurrent: copy.climate.eyebrowCurrent[currentLang],
-    heroTemp: copy.climate.heroTemp[currentLang],
-    heroTagline: copy.climate.heroTagline[currentLang],
-    headline: copy.climate.headline[currentLang],
-    body: copy.climate.body[currentLang],
-    metricHumidity: copy.climate.metricHumidity[currentLang],
-    metricWind: copy.climate.metricWind[currentLang],
-    metricUv: copy.climate.metricUv[currentLang],
-    metricSunset: copy.climate.metricSunset[currentLang],
-    factSunDays: copy.climate.factSunDays[currentLang],
-    factCoolerVsCoast: copy.climate.factCoolerVsCoast[currentLang],
-    cta: copy.climate.cta[currentLang]
-  },
-  comparison: {
-    eyebrow: copy.comparison.eyebrow[currentLang],
-    title: copy.comparison.title[currentLang],
-    intro: copy.comparison.intro[currentLang],
-    items: copy.comparison.items[currentLang],
-    cta: copy.comparison.cta[currentLang],
-    imagePrimary: {
-      src: copy.comparison.imagePrimary.src,
-      alt: copy.comparison.imagePrimary.alt[currentLang]
-    },
-    imageSecondary: {
-      src: copy.comparison.imageSecondary.src,
-      alt: copy.comparison.imageSecondary.alt[currentLang]
-    }
-  },
-  villageStructure: {
-    imageSrc: copy.villageStructure.imageSrc,
-    imageAlt: copy.villageStructure.imageAlt[currentLang],
-    eyebrow: copy.villageStructure.eyebrow[currentLang],
-    headline: copy.villageStructure.headline[currentLang],
-    supporting: copy.villageStructure.supporting[currentLang],
-    signal: copy.villageStructure.signal[currentLang],
-    cta: copy.villageStructure.cta[currentLang]
-  },
-  gallery: { eyebrow: copy.gallery.eyebrow[currentLang], title: copy.gallery.title[currentLang], images: copy.gallery.items.map(img => ({ src: img.src, alt: img.alt[currentLang] || img.alt.en, caption: img.caption[currentLang] || img.caption.en })) },
-  decision: {
-    eyebrow: copy.decision.eyebrow[currentLang],
-    title: copy.decision.title[currentLang],
-    detail: {
-      eyebrow: copy.decision.detail.eyebrow[currentLang],
-      title: copy.decision.detail.title[currentLang],
-      text: copy.decision.detail.text[currentLang],
-      cta: copy.decision.detail.cta[currentLang]
-    },
-    profiles: copy.decision.profiles.map(p => ({
-      title: p.title[currentLang],
-      description: p.description[currentLang],
-      suitability: p.suitability[currentLang]
-    }))
-  },
-  planning: {
-    eyebrow: copy.planning.eyebrow[currentLang],
-    title: copy.planning.title[currentLang],
-    intro: copy.planning.intro[currentLang],
-    links: [
-      {
-        href: gettingToFrigilianaHref,
-        label: copy.planning.links.gettingHere.label[currentLang],
-        text: copy.planning.links.gettingHere.text[currentLang]
-      },
-      {
-        href: romanticHideawaysHref,
-        label: copy.planning.links.apartments.label[currentLang],
-        text: copy.planning.links.apartments.text[currentLang]
-      },
-      {
-        href: parkingHref,
-        label: copy.planning.links.parking.label[currentLang],
-        text: copy.planning.links.parking.text[currentLang]
-      },
-      {
-        href: marketHref,
-        label: copy.planning.links.market.label[currentLang],
-        text: copy.planning.links.market.text[currentLang]
-      },
-      ...(hikingHref
-        ? [
-            {
-              href: hikingHref,
-              label: copy.planning.links.hiking.label.de,
-              text: copy.planning.links.hiking.text.de
-            }
-          ]
-        : []),
-      {
-        href: dosTumbasHref,
-        label: copy.planning.links.dosTumbas.label[currentLang],
-        text: copy.planning.links.dosTumbas.text[currentLang]
-      },
-      {
-        href: weatherHref,
-        label: copy.planning.links.weather.label[currentLang],
-        text: copy.planning.links.weather.text[currentLang]
-      },
-      {
-        href: arrivalGuideHref,
-        label: copy.planning.links.arrival.label[currentLang],
-        text: copy.planning.links.arrival.text[currentLang]
-      },
-      ...(reviewsHref
-        ? [
-            {
-              href: reviewsHref,
-              label: copy.planning.links.reviews.label[currentLang],
-              text: copy.planning.links.reviews.text[currentLang]
-            }
-          ]
-        : []),
-      ...(amenitiesHref
-        ? [
-            {
-              href: amenitiesHref,
-              label: copy.planning.links.amenities.label[currentLang],
-              text: copy.planning.links.amenities.text[currentLang]
-            }
-          ]
-        : [])
-    ]
-  },
-  faq: {
-    arrivalTitle: copy.faq.arrivalTitle[currentLang],
-    steps: copy.faq.steps.map((s) => ({ num: s.num, headline: s.h[currentLang], text: s.t[currentLang] })),
-    faqTitle: copy.faq.faqTitle[currentLang],
-    items: copy.faq.items.map((item) => ({ question: item.q[currentLang], answer: item.a[currentLang] })),
-    arrivalDetailCta: { href: arrivalGuideHref, label: copy.faq.arrivalDetailCta[currentLang] },
-    allFaqsCta: allFaqsHref ? { href: allFaqsHref, label: copy.faq.allFaqsCta[currentLang] } : undefined
-  },
-  closing: {
-    title: copy.closing.title[currentLang],
-    lead: copy.closing.lead[currentLang],
-    staysCta: copy.planning.links.apartments.label[currentLang],
-    availabilityCta: copy.closing.availabilityCta[currentLang]
-  },
-  footer: { brand: copy.footer.brand[currentLang], rights: copy.footer.rights[currentLang], links: copy.footer.nav.map(link => ({ token: link.token, label: link.label[currentLang] })) }
+  {
+    href: amenitiesHref,
+    label: comfortAmenitiesLinkLabel[currentLang],
+    text: c.planning.amenities.text
+  }
+].filter((item): item is { href: string; label: string; text: string } => Boolean(item.href));
+
+const ctaHrefByToken: Record<FrigilianaLocationCtaToken, string | null> = {
+  PARKING: parkingHref,
+  COMPARISON: comparisonHref,
+  WEATHER: weatherHref,
+  FRIGILIANA_STAYS: null,
+  AVAILABILITY: availabilityHref
 };
+
+const navLinks = frigilianaLocationNav.links.map((link) => ({
+  token: link.token,
+  label: link.label[currentLang]
+}));
 
 const footerHighlights = [
   {
@@ -238,237 +121,530 @@ const footerHighlights = [
   }
 ];
 
-/** Live snapshot for the climate band (Open-Meteo + cache + safe default — never throws). */
-const weatherSnapshot = await getWeatherWithFallback();
-
-const climateMetricLabels: Record<
-  AmaraLanguage,
-  { humidity: string; wind: string; uv: string; sunset: string }
-> = {
-  en: { humidity: 'Humidity', wind: 'Wind', uv: 'UV', sunset: 'Sunset' },
-  de: { humidity: 'Feuchte', wind: 'Wind', uv: 'UV', sunset: 'Sonnenuntergang' },
-  es: { humidity: 'Humedad', wind: 'Viento', uv: 'UV', sunset: 'Atardecer' },
-  nl: { humidity: 'Vochtigheid', wind: 'Wind', uv: 'UV', sunset: 'Zonsondergang' },
-  sv: { humidity: 'Luftfuktighet', wind: 'Vind', uv: 'UV', sunset: 'Solnedgång' }
+const editorialImageAlt: Record<AmaraLanguage, EditorialImageAlt> = {
+  en: {
+    evening: 'A quiet residential lane in Frigiliana in warm evening light',
+    historyInterior:
+      'Restored historic interior at Casa AMARA with original brickwork and tiled floor',
+    historyShower:
+      'Large walk-in shower at Casa AMARA with handmade green tiles',
+    village: 'Steep steps in Frigiliana old town',
+    coast: 'View of the Nerja coastline',
+    decision: 'Casa AMARA terrace and old well in Frigiliana'
+  },
+  de: {
+    evening: 'Eine ruhige Gasse in Frigiliana im warmen Abendlicht',
+    historyInterior:
+      'Restaurierter historischer Innenraum der Casa AMARA mit altem Mauerwerk und Fliesenboden',
+    historyShower:
+      'Großzügige bodengleiche Dusche in der Casa AMARA mit handgefertigten grünen Fliesen',
+    village: 'Steile Stufen in der Altstadt von Frigiliana',
+    coast: 'Blick auf die Küste von Nerja',
+    decision: 'Terrasse und alter Brunnen der Casa AMARA in Frigiliana'
+  },
+  es: {
+    evening: 'Una calle tranquila de Frigiliana con la luz cálida del atardecer',
+    historyInterior:
+      'Interior histórico restaurado de Casa AMARA con ladrillo antiguo y suelo de baldosas',
+    historyShower:
+      'Ducha amplia a ras de suelo en Casa AMARA con azulejos verdes artesanales',
+    village: 'Escaleras empinadas en el casco antiguo de Frigiliana',
+    coast: 'Vista de la costa de Nerja',
+    decision: 'Terraza y antiguo pozo de Casa AMARA en Frigiliana'
+  },
+  nl: {
+    evening: 'Een rustige straat in Frigiliana in warm avondlicht',
+    historyInterior:
+      'Gerestaureerd historisch interieur van Casa AMARA met oud metselwerk en tegelvloer',
+    historyShower:
+      'Ruime inloopdouche in Casa AMARA met handgemaakte groene tegels',
+    village: 'Steile trappen in het oude centrum van Frigiliana',
+    coast: 'Uitzicht op de kust van Nerja',
+    decision: 'Terras en oude waterput van Casa AMARA in Frigiliana'
+  },
+  sv: {
+    evening: 'En lugn gränd i Frigiliana i varmt kvällsljus',
+    historyInterior:
+      'Restaurerad historisk interiör i Casa AMARA med äldre tegel och klinkergolv',
+    historyShower:
+      'Rymlig dusch i Casa AMARA med handgjort grönt kakel',
+    village: 'Branta trappor i gamla stan i Frigiliana',
+    coast: 'Utsikt över Nerjas kust',
+    decision: 'Terrass och gammal brunn på Casa AMARA i Frigiliana'
+  }
 };
 
-const ml = climateMetricLabels[currentLang] ?? climateMetricLabels.en;
-
-const liveClimate = {
-  heroTemp: Number.isFinite(weatherSnapshot.temperature)
-    ? `${Math.round(weatherSnapshot.temperature)}°`
-    : '—',
-  metricHumidity: `${ml.humidity} · ${weatherSnapshot.humidity}%`,
-  metricWind: `${ml.wind} · ${weatherSnapshot.wind}`,
-  metricUv: `${ml.uv} · ${weatherSnapshot.uv}`,
-  metricSunset: `${ml.sunset} · ${weatherSnapshot.sunset}`
-};
-
+const imageAlt = editorialImageAlt[currentLang];
 const heroImage = {
-  src: '/images/amara-lounis/15-amara-frigiliana.jpg',
-  alt: c.hero.imageAlt,
-  width: 1920,
-  height: 1282,
+  src: '/images/amara-frigiliana-pueblo/JPG_Frigiliana_Pueblo/2000px_72dpi_sRGB/04-frigiliana-pueblo.jpg',
+  alt: frigilianaLocationHeroImageAlt[currentLang],
+  width: 2000,
+  height: 1125,
   sizes: '(max-width: 767px) calc(100vw - 3rem), (max-width: 1023px) 60vw, 40vw'
 };
 
+const editorialImages = {
+  evening:
+    '/images/amara-frigiliana-pueblo/JPG_Frigiliana_Pueblo/2000px_72dpi_sRGB/06-frigiliana-pueblo.jpg',
+  historyInterior: '/images/amara-lounis/17-amara-frigiliana.jpg',
+  historyShower:
+    '/images/amara-insta-facebook/casa-amara-frigiliana-zaid-ducha-exterior-iii.jpg',
+  village:
+    '/images/amara-frigiliana-pueblo/JPG_Frigiliana_Pueblo/2000px_72dpi_sRGB/07-frigiliana-pueblo.jpg',
+  coast: '/images/amara-frigiliana-pueblo/nerja-coast-aerial.jpeg',
+  decision: '/images/amara-lounis/15-amara-frigiliana.jpg'
+} as const;
+
+const historyDetail = c.history.subsections[0];
+const villageDoorstep = c.villageLife.subsections[0];
+const villageParking = c.villageLife.subsections[1];
+const coastMobility = c.coast.subsections[0];
+const coastBeachTown = c.coast.subsections[1];
+const decisionStay = c.decision.subsections[0];
+const decisionStaysCta = decisionStay.ctas.find((cta) => cta.token === 'FRIGILIANA_STAYS');
+const decisionComparisonCta = decisionStay.ctas.find((cta) => cta.token === 'COMPARISON');
+const decisionAvailabilityCta = decisionStay.ctas.find((cta) => cta.token === 'AVAILABILITY');
+
 const sectionOrder = getFrigilianaLocationSectionOrder(currentLang);
+const renderCtas = (subsection: FrigilianaLocationSubsection) => subsection.ctas;
 ---
 
-<LocationAuthorityLayout seo={seo} pageLang={currentLang} footerHighlights={footerHighlights} showContextNavigation={false}>
+<LocationAuthorityLayout
+  seo={frigilianaLocationSeo}
+  pageLang={currentLang}
+  footerHighlights={footerHighlights}
+  showContextNavigation={false}
+>
   <Navigation
     slot="navigation"
     currentLang={currentLang}
-    brandName={c.nav.brand}
-    links={c.nav.links}
+    brandName={frigilianaLocationNav.brand[currentLang]}
+    links={navLinks}
     languageToken="location_frigiliana"
     locationAuthorityNav={true}
   />
-  <LocationContextNav activeId="intro" lang={currentLang} />
-  <div data-am-page="frigiliana-location">
-    <div class="w-full">
+
+  <div class="overflow-x-hidden">
+    <LocationContextNav activeId="intro" lang={currentLang} />
+
+    <div data-am-page="frigiliana-location">
       <OrderedFrigilianaLocationSections order={sectionOrder}>
         <Fragment slot="hero">
           <div id="intro">
-            <Hero imageSrc={heroImage.src} imageAlt={heroImage.alt} imageWidth={heroImage.width} imageHeight={heroImage.height} imageSizes={heroImage.sizes}>
-              <span class="am-text-caption text-primary mb-8 block">{c.hero.eyebrow}</span>
-              <h1 class="am-text-display italic text-on-surface mb-10 tracking-tighter" set:html={c.hero.h1} />
-              <div class="pl-10 border-l border-primary/20 max-w-lg mb-14">
-                <p class="am-text-body text-on-surface-variant leading-relaxed">{c.hero.body}</p>
-                <p class="am-text-body text-on-surface-variant leading-relaxed mt-6">
-                  {c.hero.introLeadBefore}
-                  <a href={parkingHref} class="am-inline-link">{c.hero.introLeadLinkLabel}</a>
-                  {c.hero.introLeadAfter}
-                </p>
-              </div>
-              <div class="flex flex-wrap gap-8">
-                <a href="#where-to-stay" class="am-btn am-btn--primary">{c.hero.orientationCta}</a>
+            <Hero
+              imageSrc={heroImage.src}
+              imageAlt={heroImage.alt}
+              imageWidth={heroImage.width}
+              imageHeight={heroImage.height}
+              imageSizes={heroImage.sizes}
+            >
+              <span class="am-text-caption uppercase tracking-[0.35em] text-primary block mb-6">
+                {c.heroKicker}
+              </span>
+              <h1
+                class="am-text-title italic text-on-surface mb-10 tracking-tight break-normal hyphens-none [overflow-wrap:normal]"
+              >
+                {c.h1}
+              </h1>
+              <div class="max-w-xl space-y-6 border-l border-primary/20 pl-8 md:pl-10">
+                {
+                  c.intro.map((paragraph) => (
+                    <p class="am-text-body text-on-surface-variant leading-relaxed">{paragraph}</p>
+                  ))
+                }
+                <p class="am-text-subtitle italic text-on-surface pt-2">{c.introPullLine}</p>
               </div>
             </Hero>
           </div>
         </Fragment>
 
-        <Fragment slot="gallery">
-          <section id="photo" class="am-section am-section--plain w-full max-w-none !mx-0 !border-t-0 !px-0 !py-0">
-            <PhotoShow eyebrow={c.gallery.eyebrow} title={c.gallery.title} images={c.gallery.images} />
-          </section>
-        </Fragment>
-
-        <Fragment slot="essence">
-          <section id="key-facts" class="am-section am-section--tint w-full max-w-none !mx-0 !border-t-0 !px-0 !py-0">
-            <EssenceGrid eyebrow={c.essence.eyebrow} title={c.essence.title} intro={c.essence.intro} items={c.essence.items} />
-          </section>
-        </Fragment>
-
-        <Fragment slot="climate">
-          <section id="weather-climate" class="am-section am-section--plain">
-            <ClimateExperienceSection
-              eyebrowCurrent={c.climate.eyebrowCurrent}
-              heroTemperature={liveClimate.heroTemp}
-              heroTagline={c.climate.heroTagline}
-              headline={c.climate.headline}
-              body={c.climate.body}
-              metricHumidity={liveClimate.metricHumidity}
-              metricWind={liveClimate.metricWind}
-              metricUv={liveClimate.metricUv}
-              metricSunset={liveClimate.metricSunset}
-              factSunDays={c.climate.factSunDays}
-              factCoolerVsCoast={c.climate.factCoolerVsCoast}
-              ctaLabel={c.climate.cta}
-              ctaHref={weatherHref}
-            />
-          </section>
-        </Fragment>
-
-        <Fragment slot="comparison">
-          <section id="comparison" class="am-section am-section--tint w-full max-w-none !mx-0 !border-t-0 !px-0 !py-0">
-            <LocationEditorialComparison
-              eyebrow={c.comparison.eyebrow}
-              title={c.comparison.title}
-              intro={c.comparison.intro}
-              items={c.comparison.items}
-              imagePrimary={c.comparison.imagePrimary}
-              imageSecondary={c.comparison.imageSecondary}
-            />
-            <div class="max-w-screen-2xl mx-auto px-12 pb-32 -mt-24">
-              <a href={comparisonHref} class="am-cta-link">
-                {c.comparison.cta}
-              </a>
+        <Fragment slot="evening">
+          <section id="overnight" class="am-section am-section--plain !px-6 !py-24 md:!px-12 md:!py-32 lg:!py-40">
+            <div class="mx-auto max-w-6xl">
+              <div class="grid grid-cols-1 items-start gap-12 lg:grid-cols-12 lg:gap-16">
+                <div class="lg:col-span-5 lg:pt-8">
+                  <h2 class="am-text-title italic text-on-surface tracking-tight mb-10">
+                    {c.evening.title}
+                  </h2>
+                  <div class="space-y-6">
+                    {
+                      c.evening.paragraphs.slice(0, 2).map((paragraph) => (
+                        <p class="am-text-body text-on-surface-variant leading-relaxed">{paragraph}</p>
+                      ))
+                    }
+                  </div>
+                </div>
+                <div class="am-mobile-full-bleed lg:col-span-7 overflow-hidden bg-surface-container-low">
+                  <AmaraImage
+                    src={editorialImages.evening}
+                    alt={imageAlt.evening}
+                    profile="gallery"
+                    sizes="(max-width: 1023px) 100vw, 58vw"
+                    class="w-full aspect-[4/3] object-cover"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </div>
+              </div>
+              <div class="mt-14 grid grid-cols-1 lg:mt-20 lg:grid-cols-12">
+                <div class="space-y-6 lg:col-span-7 lg:col-start-6">
+                  {
+                    c.evening.paragraphs.slice(2).map((paragraph, index) =>
+                      index === c.evening.paragraphs.slice(2).length - 1 ? (
+                        <p class="am-text-subtitle italic text-on-surface pt-4">{paragraph}</p>
+                      ) : (
+                        <p class="am-text-body text-on-surface-variant leading-relaxed">{paragraph}</p>
+                      )
+                    )
+                  }
+                </div>
+              </div>
             </div>
           </section>
+
         </Fragment>
 
-        <Fragment slot="villageStructure">
-          <div id="experiences">
-            <VillageStructureInsight
-              eyebrow={c.villageStructure.eyebrow}
-              headline={c.villageStructure.headline}
-              supporting={c.villageStructure.supporting}
-              signal={c.villageStructure.signal}
-              ctaLabel={c.villageStructure.cta}
-              ctaHref={streetsStairsHref}
-              imageSrc={c.villageStructure.imageSrc}
-              imageAlt={c.villageStructure.imageAlt}
-            />
-          </div>
+        <Fragment slot="history">
+          <section id="history" class="am-section am-section--tint !px-6 !py-24 md:!px-12 md:!py-32 lg:!py-40">
+            <div class="mx-auto max-w-6xl">
+              <h2 class="am-text-title italic text-on-surface tracking-tight mb-14 max-w-4xl">
+                {c.history.title}
+              </h2>
+              <div class="grid grid-cols-1 items-start gap-12 lg:grid-cols-12 lg:gap-16">
+                <div class="space-y-6 lg:col-span-5">
+                  {
+                    c.history.paragraphs.map((paragraph) => (
+                      <p class="am-text-body text-on-surface-variant leading-relaxed">{paragraph}</p>
+                    ))
+                  }
+                </div>
+                <div class="am-mobile-full-bleed lg:col-span-7 overflow-hidden bg-surface-container-low">
+                  <AmaraImage
+                    src={editorialImages.historyInterior}
+                    alt={imageAlt.historyInterior}
+                    profile="gallery"
+                    sizes="(max-width: 1023px) 100vw, 58vw"
+                    class="w-full aspect-[4/3] object-cover"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </div>
+              </div>
+
+              <div class="mt-20 grid grid-cols-1 items-start gap-12 border-t border-outline-variant/15 pt-16 lg:mt-28 lg:grid-cols-12 lg:gap-16">
+                <div class="am-mobile-full-bleed lg:col-span-4 overflow-hidden bg-surface-container-low">
+                  <AmaraImage
+                    src={editorialImages.historyShower}
+                    alt={imageAlt.historyShower}
+                    profile="gallery"
+                    sizes="(max-width: 1023px) 100vw, 34vw"
+                    class="w-full aspect-[3/4] object-cover"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </div>
+                <div class="lg:col-span-7 lg:col-start-6 lg:pt-8">
+                  <h3 class="am-text-subtitle text-on-surface mb-8">{historyDetail.title}</h3>
+                  <div class="space-y-6">
+                    {
+                      historyDetail.paragraphs.map((paragraph, index) =>
+                        index === historyDetail.paragraphs.length - 1 ? (
+                          <p class="am-text-subtitle italic text-on-surface pt-4">{paragraph}</p>
+                        ) : (
+                          <p class="am-text-body text-on-surface-variant leading-relaxed">{paragraph}</p>
+                        )
+                      )
+                    }
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
         </Fragment>
 
-        <Fragment slot="whereToStay">
-          <section id="where-to-stay" class="am-section am-section--plain w-full max-w-none !mx-0 !border-t-0 !px-0 !py-0">
-            <StayDecision eyebrow={c.decision.eyebrow} title={c.decision.title} profiles={c.decision.profiles} />
-            <div class="max-w-screen-2xl mx-auto px-12 pb-32 -mt-16">
-              <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start border-t border-outline-variant/15 pt-10">
-                <div class="lg:col-span-4">
-                  <span class="am-text-caption uppercase tracking-[0.3em] text-primary block mb-4">
-                    {c.decision.detail.eyebrow}
-                  </span>
-                  <h3 class="am-text-subtitle text-on-surface">
-                    {c.decision.detail.title}
-                  </h3>
+        <Fragment slot="villageLife">
+          <section id="experiences" class="am-section am-section--plain !px-6 !py-24 md:!px-12 md:!py-32 lg:!py-40">
+            <div class="mx-auto max-w-6xl">
+              <h2 class="am-text-title italic text-on-surface tracking-tight mb-14 max-w-4xl">
+                {c.villageLife.title}
+              </h2>
+              <div class="grid grid-cols-1 items-start gap-12 lg:grid-cols-12 lg:gap-16">
+                <div class="am-mobile-full-bleed lg:col-span-5 overflow-hidden bg-surface-container-low">
+                  <AmaraImage
+                    src={editorialImages.village}
+                    alt={imageAlt.village}
+                    profile="gallery"
+                    sizes="(max-width: 1023px) 100vw, 42vw"
+                    class="w-full aspect-[4/5] object-cover"
+                    loading="lazy"
+                    decoding="async"
+                  />
                 </div>
-                <div class="lg:col-span-7 lg:col-start-6">
-                  <p class="am-text-body text-on-surface-variant leading-relaxed mb-7">
-                    {c.decision.detail.text}
-                  </p>
-                  <a href={streetsStairsHref} class="am-cta-link">
-                    {c.decision.detail.cta}
-                  </a>
+                <div class="space-y-6 lg:col-span-7 lg:pt-8">
+                  {
+                    c.villageLife.paragraphs.map((paragraph) => (
+                      <p class="am-text-body text-on-surface-variant leading-relaxed">{paragraph}</p>
+                    ))
+                  }
                 </div>
+              </div>
+
+              <div class="mt-20 grid grid-cols-1 items-start gap-16 border-t border-outline-variant/15 pt-16 lg:mt-28 lg:grid-cols-12 lg:gap-16">
+                <div class="lg:col-span-7">
+                  <h3 class="am-text-subtitle text-on-surface mb-8">{villageDoorstep.title}</h3>
+                  <div class="space-y-6">
+                    {
+                      villageDoorstep.paragraphs.map((paragraph) => (
+                        <p class="am-text-body text-on-surface-variant leading-relaxed">{paragraph}</p>
+                      ))
+                    }
+                  </div>
+                </div>
+
+                <aside class="border-l border-primary/25 pl-7 lg:col-span-4 lg:col-start-9 lg:pl-9">
+                  <h3 class="am-text-body font-semibold text-on-surface mb-6">{villageParking.title}</h3>
+                  <div class="space-y-4">
+                    {
+                      villageParking.paragraphs.map((paragraph) => (
+                        <p class="am-text-body text-on-surface-variant leading-relaxed">{paragraph}</p>
+                      ))
+                    }
+                  </div>
+                  {
+                    renderCtas(villageParking).length > 0 && (
+                      <div class="mt-8 flex flex-col items-start gap-4">
+                        {renderCtas(villageParking).map((cta) => {
+                          const href = ctaHrefByToken[cta.token];
+                          return href ? <a href={href} class="am-cta-link">{cta.label}</a> : null;
+                        })}
+                      </div>
+                    )
+                  }
+                </aside>
               </div>
             </div>
           </section>
         </Fragment>
 
-        <Fragment slot="planning">
-          <EditorialGuideLinkSection
-            id="stay-planning"
-            eyebrow={c.planning.eyebrow}
-            title={c.planning.title}
-            intro={c.planning.intro}
-            links={c.planning.links}
+        <Fragment slot="coast">
+          <section id="comparison" class="am-section am-section--tint !px-6 !py-24 md:!px-12 md:!py-32 lg:!py-40">
+            <div class="mx-auto max-w-6xl">
+              <h2 class="am-text-title italic text-on-surface tracking-tight mb-14 max-w-4xl">
+                {c.coast.title}
+              </h2>
+              <div class="grid grid-cols-1 items-start gap-12 lg:grid-cols-12 lg:gap-16">
+                <div class="lg:col-span-7">
+                  <div class="space-y-6">
+                    {
+                      c.coast.paragraphs.map((paragraph, index) =>
+                        index === c.coast.paragraphs.length - 1 ? (
+                          <p class="am-text-subtitle italic text-on-surface pt-4">{paragraph}</p>
+                        ) : (
+                          <p class="am-text-body text-on-surface-variant leading-relaxed">{paragraph}</p>
+                        )
+                      )
+                    }
+                  </div>
+
+                  <div class="mt-16 border-t border-outline-variant/15 pt-12">
+                    <h3 class="am-text-subtitle text-on-surface mb-8">{coastMobility.title}</h3>
+                    <div class="space-y-6">
+                      {
+                        coastMobility.paragraphs.map((paragraph) => (
+                          <p class="am-text-body text-on-surface-variant leading-relaxed">{paragraph}</p>
+                        ))
+                      }
+                    </div>
+                  </div>
+                </div>
+                <div class="am-mobile-full-bleed lg:col-span-5 overflow-hidden bg-surface-container-low">
+                  <AmaraImage
+                    src={editorialImages.coast}
+                    alt={imageAlt.coast}
+                    profile="gallery"
+                    sizes="(max-width: 1023px) 100vw, 42vw"
+                    class="w-full aspect-[3/4] object-cover"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </div>
+              </div>
+
+              <div class="mt-20 border-t border-outline-variant/15 pt-16 lg:mt-28">
+                <div class="grid grid-cols-1 gap-12 lg:grid-cols-12 lg:gap-16">
+                  <h3 class="am-text-subtitle text-on-surface lg:col-span-4">
+                    {coastBeachTown.title}
+                  </h3>
+                  <div class="lg:col-span-7 lg:col-start-6">
+                    <div class="space-y-6">
+                      {
+                        coastBeachTown.paragraphs.slice(0, -1).map((paragraph) => (
+                          <p class="am-text-body text-on-surface-variant leading-relaxed">{paragraph}</p>
+                        ))
+                      }
+                      <p class="am-text-subtitle italic text-on-surface border-l border-primary/25 pl-7 pt-2">
+                        {coastBeachTown.paragraphs.at(-1)}
+                      </p>
+                    </div>
+                    {
+                      renderCtas(coastBeachTown).length > 0 && (
+                        <div class="mt-10 flex flex-col items-start gap-4">
+                          {renderCtas(coastBeachTown).map((cta) => {
+                            const href = ctaHrefByToken[cta.token];
+                            return href ? <a href={href} class="am-cta-link">{cta.label}</a> : null;
+                          })}
+                        </div>
+                      )
+                    }
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <FaqAccordion
+            arrivalTitle={c.arrival.title}
+            steps={c.arrival.steps}
+            faqTitle={c.faq.title}
+            items={c.faq.items}
+            anchorArrivalId="arrival"
+            anchorFaqId="faq"
+            arrivalDetailCta={{ href: gettingThereHref, label: c.arrival.detailLabel }}
           />
         </Fragment>
 
-        <Fragment slot="arrivalFaq">
-          <section class="am-section am-section--tint w-full max-w-none !mx-0 !border-t-0 !px-0 !py-0">
-            <FaqAccordion
-              arrivalTitle={c.faq.arrivalTitle}
-              steps={c.faq.steps}
-              faqTitle={c.faq.faqTitle}
-              items={c.faq.items}
-              anchorArrivalId="arrival"
-              anchorFaqId="faq"
-              arrivalDetailCta={c.faq.arrivalDetailCta}
-              allFaqsCta={c.faq.allFaqsCta}
-            />
+        <Fragment slot="seasons">
+          <section id="weather-climate" class="am-section am-section--plain !px-6 !py-24 md:!px-12 md:!py-32 lg:!py-40">
+            <div class="mx-auto max-w-6xl">
+              <div class="grid grid-cols-1 gap-12 lg:grid-cols-12 lg:gap-16">
+                <div class="lg:col-span-5">
+                  <h2 class="am-text-title italic text-on-surface tracking-tight mb-10">
+                    {c.seasons.title}
+                  </h2>
+                  <div class="space-y-6">
+                    {
+                      c.seasons.paragraphs.map((paragraph) => (
+                        <p class="am-text-body text-on-surface-variant leading-relaxed">{paragraph}</p>
+                      ))
+                    }
+                  </div>
+                </div>
+                <div class="grid grid-cols-1 gap-14 lg:col-span-7 lg:grid-cols-2 lg:gap-x-12 lg:gap-y-16">
+                  {
+                    c.seasons.subsections.map((subsection) => (
+                      <div class="border-t border-outline-variant/20 pt-9">
+                        <h3 class="am-text-subtitle text-on-surface mb-7">{subsection.title}</h3>
+                        <div class="space-y-5">
+                          {subsection.paragraphs.map((paragraph) => (
+                            <p class="am-text-body text-on-surface-variant leading-relaxed">{paragraph}</p>
+                          ))}
+                        </div>
+                        {renderCtas(subsection).length > 0 && (
+                          <div class="mt-8 flex flex-col items-start gap-4">
+                            {renderCtas(subsection).map((cta) => {
+                              const href = ctaHrefByToken[cta.token];
+                              return href ? <a href={href} class="am-cta-link">{cta.label}</a> : null;
+                            })}
+                          </div>
+                        )}
+                      </div>
+                    ))
+                  }
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <EditorialGuideLinkSection
+            id="plan-the-stay"
+            eyebrow={c.planning.eyebrow}
+            title={c.planning.title}
+            intro={c.planning.intro}
+            links={planningLinks}
+          />
+        </Fragment>
+
+        <Fragment slot="decision">
+          <section id="where-to-stay" class="am-section am-section--tint !px-6 !py-24 md:!px-12 md:!py-32 lg:!py-40">
+            <div class="mx-auto max-w-6xl">
+              <div class="grid grid-cols-1 gap-12 lg:grid-cols-12 lg:gap-16">
+                <h2 class="am-text-title italic text-on-surface tracking-tight lg:col-span-5">
+                  {c.decision.title}
+                </h2>
+                <div class="space-y-6 lg:col-span-7">
+                  {
+                    c.decision.paragraphs.map((paragraph) => (
+                      <p class="am-text-body text-on-surface-variant leading-relaxed">{paragraph}</p>
+                    ))
+                  }
+                </div>
+              </div>
+
+              <div class="am-mobile-full-bleed mt-16 overflow-hidden bg-surface-container-low lg:mt-24">
+                <AmaraImage
+                  src={editorialImages.decision}
+                  alt={imageAlt.decision}
+                  profile="gallery"
+                  sizes="(max-width: 1023px) 100vw, 83vw"
+                  class="w-full aspect-[16/8] object-cover"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
+
+              <div class="mt-20 border-t border-outline-variant/15 pt-16 lg:mt-24">
+                <h3 class="am-text-subtitle text-on-surface mb-12 max-w-3xl">{decisionStay.title}</h3>
+                <div class="grid grid-cols-1 gap-12 lg:grid-cols-12 lg:gap-16">
+                  <div class="space-y-6 lg:col-span-6">
+                    {
+                      decisionStay.paragraphs.slice(0, 3).map((paragraph) => (
+                        <p class="am-text-body text-on-surface-variant leading-relaxed">{paragraph}</p>
+                      ))
+                    }
+                  </div>
+                  <div class="space-y-6 border-l border-primary/25 pl-7 lg:col-span-5 lg:col-start-8 lg:pl-10">
+                    {
+                      decisionStay.paragraphs.slice(3).map((paragraph) => (
+                        <p class="am-text-subtitle italic text-on-surface">{paragraph}</p>
+                      ))
+                    }
+                  </div>
+                </div>
+
+                <div class="mt-16 grid grid-cols-1 gap-10 border-t border-outline-variant/15 pt-12 lg:grid-cols-12 lg:gap-16">
+                  {
+                    decisionStaysCta && (
+                      <div class="lg:col-span-6">
+                        <p class="am-text-body font-semibold text-on-surface mb-6">{decisionStaysCta.label}</p>
+                        <div class="flex flex-wrap items-center gap-x-7 gap-y-4">
+                          {frigilianaStayLinks.map((stay) => (
+                            <a href={stay.href} class="am-cta-link">{stay.label}</a>
+                          ))}
+                        </div>
+                      </div>
+                    )
+                  }
+                  <div class="flex flex-col items-start gap-7 lg:col-span-5 lg:col-start-8">
+                    {
+                      decisionComparisonCta && comparisonHref && (
+                        <a href={comparisonHref} class="am-cta-link">{decisionComparisonCta.label}</a>
+                      )
+                    }
+                    {
+                      decisionAvailabilityCta && availabilityHref && (
+                        <a href={availabilityHref} class="am-btn am-btn--primary">
+                          {decisionAvailabilityCta.label}
+                        </a>
+                      )
+                    }
+                  </div>
+                </div>
+              </div>
+            </div>
           </section>
         </Fragment>
       </OrderedFrigilianaLocationSections>
-
-      <section class="max-w-screen-2xl mx-auto px-12 pt-8">
-        <EditorialClosingCta
-          title={c.closing.title}
-          lead={c.closing.lead}
-          lang={currentLang}
-          links={[
-            {
-              token: 'romantic_hideaways',
-              label: c.closing.staysCta,
-              style: 'primary'
-            },
-            {
-              token: 'book',
-              label: c.closing.availabilityCta,
-              style: 'secondary'
-            }
-          ]}
-        />
-      </section>
     </div>
   </div>
 </LocationAuthorityLayout>
-
-<style>
-  /**
-   * Two-tone shell (surface + surface-container-low only): child sections use band color from parent.
-   * Components keep their own layout; backgrounds are not edited in component files.
-   */
-  .am-section--plain > :global(section),
-  .am-section--tint > :global(section) {
-    background-color: transparent !important;
-  }
-
-  /** PhotoShow: shell + slide wells use approved tokens only */
-  .am-section--plain :global(amara-photoshow) {
-    background-color: var(--color-surface) !important;
-  }
-
-  .am-section--plain :global(amara-photoshow .bg-surface-container) {
-    background-color: var(--color-surface-container-low) !important;
-  }
-
-  /** EssenceGrid: replace disallowed container greys with surface or tint token */
-  .am-section--tint :global(.bg-surface-container) {
-    background-color: var(--color-surface) !important;
-  }
-</style>
