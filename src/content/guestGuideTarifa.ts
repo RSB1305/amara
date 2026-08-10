@@ -109,16 +109,16 @@ const tarifaBulletList = (items: LocalizedText[]): LocalizedText => {
 
 const tarifaFamilySurfHub: GuestGuideEntry = {
   type: 'hub',
-  slug: 'tarifa-guest-guide',
+  slug: 'guestwelcome-tarifa-family-surf',
   entityKey: 'amara-family-surf',
   supportHref: TARIFA_SUPPORT_WHATSAPP,
   supportLabel: NEED_HELP,
   seoTitle: {
     en: 'Tarifa Guest Guide | AMARA',
-    de: 'Tarifa Gästeguide | AMARA',
+    de: 'Tarifa-Gästeguide | AMARA',
     es: 'Guía para huéspedes en Tarifa | AMARA',
-    nl: 'Tarifa Guest Guide | AMARA',
-    sv: 'Tarifa Guest Guide | AMARA'
+    nl: 'Gastengids voor Tarifa | AMARA',
+    sv: 'Gästguide för Tarifa | AMARA'
   },
   seoDescription: {
     en: 'Your calm, practical guide for an effortless stay in Tarifa: apartment information, local recommendations, and wind and weather essentials.',
@@ -136,18 +136,18 @@ const tarifaFamilySurfHub: GuestGuideEntry = {
     sv: 'AMARA Family & Surf-lägenhet i Tarifa'
   },
   kicker: {
-    en: 'AMARA TARIFA',
-    de: 'AMARA TARIFA',
-    es: 'AMARA TARIFA',
-    nl: 'AMARA TARIFA',
-    sv: 'AMARA TARIFA'
+    en: 'AMARA FAMILY & SURF',
+    de: 'AMARA FAMILY & SURF',
+    es: 'AMARA FAMILY & SURF',
+    nl: 'AMARA FAMILY & SURF',
+    sv: 'AMARA FAMILY & SURF'
   },
   title: {
     en: 'Tarifa Guest Guide',
-    de: 'Tarifa Gästeguide',
+    de: 'Tarifa-Gästeguide',
     es: 'Guía para huéspedes en Tarifa',
-    nl: 'Tarifa Guest Guide',
-    sv: 'Tarifa Gästguide'
+    nl: 'Gastengids voor Tarifa',
+    sv: 'Gästguide för Tarifa'
   },
   intro: {
     en: 'A thoughtful guide to help you settle in, find your way, and enjoy Tarifa with ease.',
@@ -270,7 +270,7 @@ const tarifaFamilySurfApartment: GuestGuideEntry = {
   type: 'detail',
   slug: 'tarifa-guest-apartment',
   entityKey: 'amara-family-surf',
-  backSlug: 'tarifa-guest-guide',
+  backSlug: 'guestwelcome-tarifa-family-surf',
   supportHref: TARIFA_SUPPORT_WHATSAPP,
   supportLabel: NEED_HELP,
   seoTitle: tarifaText(
@@ -1136,7 +1136,7 @@ const tarifaFamilySurfLocalEssentials: GuestGuideEntry = {
   type: 'detail',
   slug: 'tarifa-guest-local-essentials',
   entityKey: 'amara-family-surf',
-  backSlug: 'tarifa-guest-guide',
+  backSlug: 'guestwelcome-tarifa-family-surf',
   supportHref: TARIFA_SUPPORT_WHATSAPP,
   supportLabel: NEED_HELP,
   seoTitle: tarifaText(
@@ -1881,7 +1881,7 @@ const tarifaFamilySurfLocalGuide: GuestGuideEntry = {
   type: 'detail',
   slug: 'tarifa-guest-local-guide',
   entityKey: 'amara-family-surf',
-  backSlug: 'tarifa-guest-guide',
+  backSlug: 'guestwelcome-tarifa-family-surf',
   supportHref: TARIFA_SUPPORT_WHATSAPP,
   supportLabel: NEED_HELP,
   seoTitle: tarifaText(
@@ -3846,7 +3846,7 @@ const tarifaFamilySurfKitesurfing: GuestGuideEntry = {
   type: 'detail',
   slug: 'tarifa-guest-kitesurfing',
   entityKey: 'amara-family-surf',
-  backSlug: 'tarifa-guest-guide',
+  backSlug: 'guestwelcome-tarifa-family-surf',
   supportHref: TARIFA_SUPPORT_WHATSAPP,
   supportLabel: NEED_HELP,
   seoTitle: tarifaText(

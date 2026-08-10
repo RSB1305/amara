@@ -693,14 +693,14 @@ const frigilianaFarahHub: GuestGuideEntry = {
   supportLabel: NEED_HELP,
   seoTitle: {
     en: 'Frigiliana Guest Guide | AMARA',
-    de: 'Frigiliana Gästeguide | AMARA',
+    de: 'Frigiliana-Gästeguide | AMARA',
     es: 'Guía para huéspedes en Frigiliana | AMARA',
-    nl: 'Frigiliana Guest Guide | AMARA',
-    sv: 'Frigiliana Guest Guide | AMARA'
+    nl: 'Gastengids voor Frigiliana | AMARA',
+    sv: 'Gästguide för Frigiliana | AMARA'
   },
   seoDescription: {
     en: 'Your calm, practical guide for an effortless stay in Frigiliana: house info, local recommendations, and essentials for a smooth arrival.',
-    de: 'Dein ruhiger, praktischer Guide für Frigiliana: Haus-Infos, lokale Empfehlungen und alles Wichtige für eine entspannte Anreise.',
+    de: 'Euer ruhiger, praktischer Guide für Frigiliana: Haus-Infos, lokale Empfehlungen und alles Wichtige für eine entspannte Anreise.',
     es: 'Una guía práctica y tranquila para vuestra estancia en Frigiliana: información de la casa, recomendaciones locales y lo esencial para llegar sin estrés.',
     nl: 'Een rustige, praktische gids voor jullie verblijf in Frigiliana: huisinfo, lokale tips en essentials voor een soepele aankomst.',
     sv: 'En lugn och praktisk guide för er vistelse i Frigiliana: boendeinfo, lokala tips och det viktigaste för en smidig ankomst.'
@@ -716,10 +716,10 @@ const frigilianaFarahHub: GuestGuideEntry = {
   kicker: { en: 'AMARA FARAH', de: 'AMARA FARAH', es: 'AMARA FARAH', nl: 'AMARA FARAH', sv: 'AMARA FARAH' },
   title: {
     en: 'Frigiliana Guest Guide',
-    de: 'Frigiliana Gästeguide',
+    de: 'Frigiliana-Gästeguide',
     es: 'Guía para huéspedes en Frigiliana',
-    nl: 'Frigiliana Guest Guide',
-    sv: 'Frigiliana Gästguide'
+    nl: 'Gastengids voor Frigiliana',
+    sv: 'Gästguide för Frigiliana'
   },
   intro: {
     en: 'A thoughtful guide to help you settle in, find your way, and enjoy Frigiliana with ease.',
@@ -1280,11 +1280,11 @@ const frigilianaEssentials: GuestGuideEntry = {
               sv: 'Frigiliana har regelbunden busstrafik till Nerja och Málaga. Tidtabellerna kan variera beroende på säsong och veckodag.'
             },
             {
-              en: '<strong>Frigiliana ↔ Nerja</strong><br>Travel time: 15–20 min<br><a class="am-link" href="https://frigiliana.es/horario-autobuses/" target="_blank" rel="noopener">Operator / Timetables</a>',
-              de: '<strong>Frigiliana ↔ Nerja</strong><br>Fahrzeit: 15–20 Min.<br><a class="am-link" href="https://frigiliana.es/horario-autobuses/" target="_blank" rel="noopener">Anbieter / Fahrpläne</a>',
-              es: '<strong>Frigiliana ↔ Nerja</strong><br>Tiempo de viaje: 15–20 min<br><a class="am-link" href="https://frigiliana.es/horario-autobuses/" target="_blank" rel="noopener">Compañía / Horarios</a>',
-              nl: '<strong>Frigiliana ↔ Nerja</strong><br>Reistijd: 15–20 min<br><a class="am-link" href="https://frigiliana.es/horario-autobuses/" target="_blank" rel="noopener">Vervoerder / Dienstregeling</a>',
-              sv: '<strong>Frigiliana ↔ Nerja</strong><br>Restid: 15–20 min<br><a class="am-link" href="https://frigiliana.es/horario-autobuses/" target="_blank" rel="noopener">Operatör / Tidtabeller</a>'
+              en: '<strong>Frigiliana ↔ Nerja</strong><br>For this bus connection, open the exact <a class="am-link" href="https://maps.app.goo.gl/baoGmVbC8NH1Girk6" target="_blank" rel="noopener">Frigiliana stop</a> and <a class="am-link" href="https://maps.app.goo.gl/fSmb7Xk6tPrwbsia8" target="_blank" rel="noopener">Nerja stop</a> in Google Maps.<br>Travel time: 15–20 min<br><a class="am-link" href="https://frigiliana.es/horario-autobuses/" target="_blank" rel="noopener">Operator / Timetables</a>',
+              de: '<strong>Frigiliana ↔ Nerja</strong><br>Für diese Busverbindung könnt ihr die genaue <a class="am-link" href="https://maps.app.goo.gl/baoGmVbC8NH1Girk6" target="_blank" rel="noopener">Haltestelle in Frigiliana</a> und die <a class="am-link" href="https://maps.app.goo.gl/fSmb7Xk6tPrwbsia8" target="_blank" rel="noopener">Haltestelle in Nerja</a> direkt in Google Maps öffnen.<br>Fahrzeit: 15–20 Min.<br><a class="am-link" href="https://frigiliana.es/horario-autobuses/" target="_blank" rel="noopener">Anbieter / Fahrpläne</a>',
+              es: '<strong>Frigiliana ↔ Nerja</strong><br>Para esta conexión, podéis abrir en Google Maps la <a class="am-link" href="https://maps.app.goo.gl/baoGmVbC8NH1Girk6" target="_blank" rel="noopener">parada exacta de Frigiliana</a> y la <a class="am-link" href="https://maps.app.goo.gl/fSmb7Xk6tPrwbsia8" target="_blank" rel="noopener">parada exacta de Nerja</a>.<br>Tiempo de viaje: 15–20 min<br><a class="am-link" href="https://frigiliana.es/horario-autobuses/" target="_blank" rel="noopener">Compañía / Horarios</a>',
+              nl: '<strong>Frigiliana ↔ Nerja</strong><br>Voor deze busverbinding kunnen jullie de exacte <a class="am-link" href="https://maps.app.goo.gl/baoGmVbC8NH1Girk6" target="_blank" rel="noopener">halte in Frigiliana</a> en <a class="am-link" href="https://maps.app.goo.gl/fSmb7Xk6tPrwbsia8" target="_blank" rel="noopener">halte in Nerja</a> direct openen in Google Maps.<br>Reistijd: 15–20 min<br><a class="am-link" href="https://frigiliana.es/horario-autobuses/" target="_blank" rel="noopener">Vervoerder / Dienstregeling</a>',
+              sv: '<strong>Frigiliana ↔ Nerja</strong><br>För den här bussförbindelsen kan ni öppna den exakta <a class="am-link" href="https://maps.app.goo.gl/baoGmVbC8NH1Girk6" target="_blank" rel="noopener">hållplatsen i Frigiliana</a> och <a class="am-link" href="https://maps.app.goo.gl/fSmb7Xk6tPrwbsia8" target="_blank" rel="noopener">hållplatsen i Nerja</a> direkt i Google Maps.<br>Restid: 15–20 min<br><a class="am-link" href="https://frigiliana.es/horario-autobuses/" target="_blank" rel="noopener">Operatör / Tidtabeller</a>'
             },
             {
               en: '<strong>Nerja ↔ Málaga / Airport (AGP)</strong><br>Travel time: approx. 1h 30m / 2h 00m<br><a class="am-link" href="https://www.alsa.es/" target="_blank" rel="noopener">Operator / Timetables</a>',
@@ -4656,14 +4656,14 @@ const frigilianaLounisHub: GuestGuideEntry = {
   supportLabel: NEED_HELP,
   seoTitle: {
     en: 'Frigiliana Guest Guide | AMARA',
-    de: 'Frigiliana Gästeguide | AMARA',
+    de: 'Frigiliana-Gästeguide | AMARA',
     es: 'Guía para huéspedes en Frigiliana | AMARA',
-    nl: 'Frigiliana Guest Guide | AMARA',
-    sv: 'Frigiliana Guest Guide | AMARA'
+    nl: 'Gastengids voor Frigiliana | AMARA',
+    sv: 'Gästguide för Frigiliana | AMARA'
   },
   seoDescription: {
     en: 'Your calm, practical guide for an effortless stay in Frigiliana: house info, local recommendations, and essentials for a smooth arrival.',
-    de: 'Dein ruhiger, praktischer Guide für Frigiliana: Haus-Infos, lokale Empfehlungen und alles Wichtige für eine entspannte Anreise.',
+    de: 'Euer ruhiger, praktischer Guide für Frigiliana: Haus-Infos, lokale Empfehlungen und alles Wichtige für eine entspannte Anreise.',
     es: 'Una guía práctica y tranquila para vuestra estancia en Frigiliana: información de la casa, recomendaciones locales y lo esencial para llegar sin estrés.',
     nl: 'Een rustige, praktische gids voor jullie verblijf in Frigiliana: huisinfo, lokale tips en essentials voor een soepele aankomst.',
     sv: 'En lugn och praktisk guide för er vistelse i Frigiliana: boendeinfo, lokala tips och det viktigaste för en smidig ankomst.'
@@ -4679,10 +4679,10 @@ const frigilianaLounisHub: GuestGuideEntry = {
   kicker: { en: 'AMARA LOUNIS', de: 'AMARA LOUNIS', es: 'AMARA LOUNIS', nl: 'AMARA LOUNIS', sv: 'AMARA LOUNIS' },
   title: {
     en: 'Frigiliana Guest Guide',
-    de: 'Frigiliana Gästeguide',
+    de: 'Frigiliana-Gästeguide',
     es: 'Guía para huéspedes en Frigiliana',
-    nl: 'Frigiliana Guest Guide',
-    sv: 'Frigiliana Gästguide'
+    nl: 'Gastengids voor Frigiliana',
+    sv: 'Gästguide för Frigiliana'
   },
   intro: {
     en: 'A thoughtful guide to help you settle in, find your way, and enjoy Frigiliana with ease.',
@@ -4700,7 +4700,7 @@ const frigilianaLounisHub: GuestGuideEntry = {
         de: 'Euer Apartment Lounis',
         es: 'Vuestro apartamento Lounis',
         nl: 'Jullie appartement Lounis',
-        sv: 'Lägenheten Lounis'
+        sv: 'Er lägenhet Lounis'
       },
       subtitle: {
         en: 'Arrival · Instructions · Please note',
@@ -4898,14 +4898,14 @@ const frigilianaZaidHub: GuestGuideEntry = {
   supportLabel: NEED_HELP,
   seoTitle: {
     en: 'Frigiliana Guest Guide | AMARA',
-    de: 'Frigiliana Gästeguide | AMARA',
+    de: 'Frigiliana-Gästeguide | AMARA',
     es: 'Guía para huéspedes en Frigiliana | AMARA',
-    nl: 'Frigiliana Guest Guide | AMARA',
-    sv: 'Frigiliana Guest Guide | AMARA'
+    nl: 'Gastengids voor Frigiliana | AMARA',
+    sv: 'Gästguide för Frigiliana | AMARA'
   },
   seoDescription: {
     en: 'Your calm, practical guide for an effortless stay in Frigiliana: house info, local recommendations, and essentials for a smooth arrival.',
-    de: 'Dein ruhiger, praktischer Guide für Frigiliana: Haus-Infos, lokale Empfehlungen und alles Wichtige für eine entspannte Anreise.',
+    de: 'Euer ruhiger, praktischer Guide für Frigiliana: Haus-Infos, lokale Empfehlungen und alles Wichtige für eine entspannte Anreise.',
     es: 'Una guía práctica y tranquila para vuestra estancia en Frigiliana: información de la casa, recomendaciones locales y lo esencial para llegar sin estrés.',
     nl: 'Een rustige, praktische gids voor jullie verblijf in Frigiliana: huisinfo, lokale tips en essentials voor een soepele aankomst.',
     sv: 'En lugn och praktisk guide för er vistelse i Frigiliana: boendeinfo, lokala tips och det viktigaste för en smidig ankomst.'
@@ -4921,10 +4921,10 @@ const frigilianaZaidHub: GuestGuideEntry = {
   kicker: { en: 'AMARA ZAID', de: 'AMARA ZAID', es: 'AMARA ZAID', nl: 'AMARA ZAID', sv: 'AMARA ZAID' },
   title: {
     en: 'Frigiliana Guest Guide',
-    de: 'Frigiliana Gästeguide',
+    de: 'Frigiliana-Gästeguide',
     es: 'Guía para huéspedes en Frigiliana',
-    nl: 'Frigiliana Guest Guide',
-    sv: 'Frigiliana Gästguide'
+    nl: 'Gastengids voor Frigiliana',
+    sv: 'Gästguide för Frigiliana'
   },
   intro: {
     en: 'A thoughtful guide to help you settle in, find your way, and enjoy Frigiliana with ease.',
@@ -4942,7 +4942,7 @@ const frigilianaZaidHub: GuestGuideEntry = {
         de: 'Euer Apartment Zaid',
         es: 'Vuestro apartamento Zaid',
         nl: 'Jullie appartement Zaid',
-        sv: 'Lägenheten Zaid'
+        sv: 'Er lägenhet Zaid'
       },
       subtitle: {
         en: 'Arrival · Instructions · Please note',
@@ -5134,14 +5134,14 @@ const frigilianaMahaHub: GuestGuideEntry = {
   supportLabel: NEED_HELP,
   seoTitle: {
     en: 'Frigiliana Guest Guide | AMARA',
-    de: 'Frigiliana Gästeguide | AMARA',
+    de: 'Frigiliana-Gästeguide | AMARA',
     es: 'Guía para huéspedes en Frigiliana | AMARA',
-    nl: 'Frigiliana Guest Guide | AMARA',
-    sv: 'Frigiliana Guest Guide | AMARA'
+    nl: 'Gastengids voor Frigiliana | AMARA',
+    sv: 'Gästguide för Frigiliana | AMARA'
   },
   seoDescription: {
     en: 'Your calm, practical guide for an effortless stay in Frigiliana: house info, local recommendations, and essentials for a smooth arrival.',
-    de: 'Dein ruhiger, praktischer Guide für Frigiliana: Haus-Infos, lokale Empfehlungen und alles Wichtige für eine entspannte Anreise.',
+    de: 'Euer ruhiger, praktischer Guide für Frigiliana: Haus-Infos, lokale Empfehlungen und alles Wichtige für eine entspannte Anreise.',
     es: 'Una guía práctica y tranquila para vuestra estancia en Frigiliana: información de la casa, recomendaciones locales y lo esencial para llegar sin estrés.',
     nl: 'Een rustige, praktische gids voor jullie verblijf in Frigiliana: huisinfo, lokale tips en essentials voor een soepele aankomst.',
     sv: 'En lugn och praktisk guide för er vistelse i Frigiliana: boendeinfo, lokala tips och det viktigaste för en smidig ankomst.'
@@ -5157,10 +5157,10 @@ const frigilianaMahaHub: GuestGuideEntry = {
   kicker: { en: 'AMARA MAHA', de: 'AMARA MAHA', es: 'AMARA MAHA', nl: 'AMARA MAHA', sv: 'AMARA MAHA' },
   title: {
     en: 'Frigiliana Guest Guide',
-    de: 'Frigiliana Gästeguide',
+    de: 'Frigiliana-Gästeguide',
     es: 'Guía para huéspedes en Frigiliana',
-    nl: 'Frigiliana Guest Guide',
-    sv: 'Frigiliana Gästguide'
+    nl: 'Gastengids voor Frigiliana',
+    sv: 'Gästguide för Frigiliana'
   },
   intro: {
     en: 'A thoughtful guide to help you settle in, find your way, and enjoy Frigiliana with ease.',
@@ -5178,7 +5178,7 @@ const frigilianaMahaHub: GuestGuideEntry = {
         de: 'Euer Apartment Maha',
         es: 'Vuestro apartamento Maha',
         nl: 'Jullie appartement Maha',
-        sv: 'Lägenheten Maha'
+        sv: 'Er lägenhet Maha'
       },
       subtitle: {
         en: 'Arrival · Instructions · Please note',
@@ -5370,10 +5370,10 @@ const nerjaPlayaHub: GuestGuideEntry = {
   supportLabel: NEED_HELP,
   seoTitle: {
     en: 'Nerja Guest Guide | AMARA',
-    de: 'Nerja Gästeguide | AMARA',
+    de: 'Nerja-Gästeguide | AMARA',
     es: 'Guía para huéspedes en Nerja | AMARA',
-    nl: 'Nerja Guest Guide | AMARA',
-    sv: 'Nerja Gästguide | AMARA'
+    nl: 'Gastengids voor Nerja | AMARA',
+    sv: 'Gästguide för Nerja | AMARA'
   },
   seoDescription: {
     en: 'Your calm, practical guide for an effortless stay in Nerja: house info, local recommendations, and essentials for a smooth arrival.',
@@ -5393,10 +5393,10 @@ const nerjaPlayaHub: GuestGuideEntry = {
   kicker: { en: 'AMARA PLAYA', de: 'AMARA PLAYA', es: 'AMARA PLAYA', nl: 'AMARA PLAYA', sv: 'AMARA PLAYA' },
   title: {
     en: 'Nerja Guest Guide',
-    de: 'Nerja Gästeguide',
+    de: 'Nerja-Gästeguide',
     es: 'Guía para huéspedes en Nerja',
-    nl: 'Nerja Guest Guide',
-    sv: 'Nerja Gästguide'
+    nl: 'Gastengids voor Nerja',
+    sv: 'Gästguide för Nerja'
   },
   intro: {
     en: 'A thoughtful guide to help you settle in, find your way, and enjoy Nerja with ease.',
@@ -5463,25 +5463,11 @@ const nerjaPlayaHub: GuestGuideEntry = {
   ],
   closingParagraphs: [
     {
-      en: 'We hope you feel at ease in Nerja — with soft light, sea air, and space to slow down. If you need anything during your stay, we are always happy to help. You can simply send us a message via your booking platform or use the help button.',
-      de: 'Wir hoffen, dass ihr euch in Nerja rundum wohlfühlt – bei weichem Licht, Meeresluft und mit viel Raum, um die Seele baumeln zu lassen. Solltet ihr während eures Aufenthalts etwas brauchen, sind wir jederzeit gerne für euch da. Schreibt uns einfach über eure Buchungsplattform oder nutzt den Hilfe-Button.',
-      es: 'Esperamos que os sintáis a gusto en Nerja, disfrutando de su luz suave, del aire del mar y del espacio para desconectar. Si necesitáis cualquier cosa durante vuestra estancia, siempre estaremos encantados de ayudaros. Simplemente enviadnos un mensaje a través de vuestra plataforma de reservas o usad el botón de ayuda.',
-      nl: 'We hopen dat jullie je helemaal thuis voelen in Nerja — met zacht licht, zeelucht en de ruimte om even helemaal tot rust te komen. Als jullie tijdens jullie verblijf iets nodig hebben, helpen we jullie graag. Stuur ons gerust een berichtje via jullie boekingsplatform of gebruik de help-knop.',
-      sv: 'Vi hoppas att ni ska trivas riktigt bra i Nerja – med mjukt ljus, havsluft och utrymme att bara koppla av. Om ni behöver något under er vistelse hjälper vi er alltid gärna. Skicka bara ett meddelande via er bokningsplattform eller använd hjälp-knappen.'
-    },
-    {
-      en: 'Thank you for choosing AMARA. As a small welcome gift, we have placed a bottle of chilled white wine in the refrigerator for you.',
-      de: 'Danke, dass ihr euch für AMARA entschieden habt. Als kleine Begrüßung haben wir eine Flasche gekühlten Weißwein für euch in den Kühlschrank gestellt.',
-      es: 'Gracias por elegir AMARA. Como pequeño regalo de bienvenida, os hemos dejado una botella de vino blanco frío en la nevera.',
-      nl: 'Bedankt dat jullie voor AMARA hebben gekozen. Als klein welkomstgeschenk hebben we een fles gekoelde witte wijn voor jullie in de koelkast gezet.',
-      sv: 'Tack för att ni valde AMARA. Som en liten välkomstgåva har vi ställt en flaska kylt vitt vin till er i kylskåpet.'
-    },
-    {
-      en: 'Thinking of staying a little longer? You are very welcome to check our current availability online.',
-      de: 'Möchtet ihr euren Aufenthalt noch etwas verlängern? Dann schaut euch gerne unsere aktuelle Verfügbarkeit online an.',
-      es: '¿Os apetece quedaros un poco más? Podéis consultar en cualquier momento nuestra disponibilidad actual online.',
-      nl: 'Denken jullie erover om wat langer te blijven? Bekijk dan gerust onze actuele beschikbaarheid online.',
-      sv: 'Är ni sugna på att stanna lite längre? Då är ni varmt välkomna att se vår aktuella tillgänglighet online.'
+      en: 'We hope you feel at ease in Nerja — with soft light, sea air, and space to slow down. Thank you for choosing AMARA: as a small welcome gift, we have placed a bottle of chilled white wine in the refrigerator for you. If you need anything during your stay, we are always happy to help. You can simply send us a message via your booking platform or use the help button.',
+      de: 'Wir hoffen, dass ihr euch in Nerja rundum wohlfühlt – bei weichem Licht, Meeresluft und mit viel Raum, um die Seele baumeln zu lassen. Danke, dass ihr euch für AMARA entschieden habt: Als kleine Begrüßung haben wir eine Flasche gekühlten Weißwein für euch in den Kühlschrank gestellt. Solltet ihr während eures Aufenthalts etwas brauchen, sind wir jederzeit gerne für euch da. Schreibt uns einfach über eure Buchungsplattform oder nutzt den Hilfe-Button.',
+      es: 'Esperamos que os sintáis a gusto en Nerja, disfrutando de su luz suave, del aire del mar y del espacio para desconectar. Gracias por elegir AMARA: como pequeño regalo de bienvenida, os hemos dejado una botella de vino blanco frío en la nevera. Si necesitáis cualquier cosa durante vuestra estancia, siempre estaremos encantados de ayudaros. Simplemente enviadnos un mensaje a través de vuestra plataforma de reservas o usad el botón de ayuda.',
+      nl: 'We hopen dat jullie je helemaal thuis voelen in Nerja — met zacht licht, zeelucht en de ruimte om even helemaal tot rust te komen. Bedankt dat jullie voor AMARA hebben gekozen: als klein welkomstgeschenk hebben we een fles gekoelde witte wijn voor jullie in de koelkast gezet. Als jullie tijdens jullie verblijf iets nodig hebben, helpen we jullie graag. Stuur ons gerust een berichtje via jullie boekingsplatform of gebruik de help-knop.',
+      sv: 'Vi hoppas att ni ska trivas riktigt bra i Nerja – med mjukt ljus, havsluft och utrymme att bara koppla av. Tack för att ni valde AMARA: som en liten välkomstgåva har vi ställt en flaska kylt vitt vin till er i kylskåpet. Om ni behöver något under er vistelse hjälper vi er alltid gärna. Skicka bara ett meddelande via er bokningsplattform eller använd hjälp-knappen.'
     },
     {
       en: 'Should Nerja find a place in your heart, we would be delighted to welcome you again. Our current and future availability can always be checked online.',

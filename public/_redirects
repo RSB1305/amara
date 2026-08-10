@@ -337,3 +337,12 @@
 /es/playas-de-tarifa /tarifa-beaches 301
 /nl/stranden-van-tarifa /nl/tarifa-beaches 301
 /sv/tarifas-strander /sv/tarifa-beaches 301
+
+# Tarifa Guest Guide moved onto the shared guestwelcome-<location>-<property> convention.
+# The old slug is printed in guest material, so it must keep resolving.
+/tarifa-guest-guide /guestwelcome-tarifa-family-surf 301
+/es/tarifa-guest-guide /guestwelcome-tarifa-family-surf 301
+/en/tarifa-guest-guide /en/guestwelcome-tarifa-family-surf 301
+/de/tarifa-guest-guide /de/guestwelcome-tarifa-family-surf 301
+/nl/tarifa-guest-guide /nl/guestwelcome-tarifa-family-surf 301
+/sv/tarifa-guest-guide /sv/guestwelcome-tarifa-family-surf 301
