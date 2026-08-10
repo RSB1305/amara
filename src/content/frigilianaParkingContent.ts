@@ -44,7 +44,7 @@ export const frigilianaParkingSeo: AmaraAuthoringSeo = {
       canonical: 'auto'
     },
     nl: {
-      title: 'Parkeren in Frigiliana: plan uw aankomst',
+      title: 'Parkeren in Frigiliana: plan jullie aankomst',
       description:
         'Praktische uitleg over openbaar parkeren, toegang tot de oude kern, bagage en het laatste stuk lopen in Frigiliana.',
       robots: 'index, follow',
@@ -140,7 +140,7 @@ export const frigilianaParkingCopy = {
       'What to expect before you arrive',
       'Was ihr vor der Ankunft wissen solltet',
       'Qué conviene saber antes de llegar',
-      'Wat u vóór aankomst kunt verwachten',
+      'Wat jullie vóór aankomst kunnen verwachten',
       'Vad ni bör veta före ankomst'
     ),
     items: [
@@ -151,7 +151,7 @@ export const frigilianaParkingCopy = {
           'Do not assume that you can drive to, stop at, or park beside an old-town address.',
           'Geht nicht davon aus, dass ihr eine Altstadtadresse direkt anfahren, dort halten oder daneben parken könnt.',
           'No deis por hecho que podréis llegar en coche, parar o aparcar junto a una dirección del casco antiguo.',
-          'Ga er niet van uit dat u tot een adres in de oude kern kunt rijden, daar kunt stoppen of ernaast kunt parkeren.',
+          'Ga er niet van uit dat jullie tot een adres in de oude kern kunnen rijden, daar kunnen stoppen of ernaast kunnen parkeren.',
           'Utgå inte från att ni kan köra till, stanna vid eller parkera bredvid en adress i gamla stan.'
         )
       },
@@ -192,7 +192,7 @@ export const frigilianaParkingCopy = {
       'The best option depends on the current signs and the exact access to your accommodation. These are practical categories, not guaranteed spaces.',
       'Welche Option am besten passt, hängt von der aktuellen Beschilderung und dem genauen Zugang zur Unterkunft ab. Das sind praktische Kategorien, keine garantierten Stellplätze.',
       'La mejor opción depende de la señalización actual y del acceso exacto al alojamiento. Son categorías prácticas, no plazas garantizadas.',
-      'De beste optie hangt af van de actuele borden en de exacte toegang tot uw verblijf. Dit zijn praktische categorieën, geen gegarandeerde parkeerplaatsen.',
+      'De beste optie hangt af van de actuele borden en de exacte toegang tot jullie verblijf. Dit zijn praktische categorieën, geen gegarandeerde parkeerplaatsen.',
       'Det bästa alternativet beror på aktuell skyltning och den exakta vägen till boendet. Detta är praktiska kategorier, inte garanterade platser.'
     ),
     labels: {
@@ -311,7 +311,7 @@ export const frigilianaParkingCopy = {
           'Before departure, ask whether your accommodation provides a current route or legal drop-off point.',
           'Fragt vor der Abfahrt, ob eure Unterkunft eine aktuelle Route oder einen erlaubten Ausstiegspunkt nennt.',
           'Antes de salir, preguntad si el alojamiento facilita una ruta actual o un punto legal de bajada.',
-          'Vraag vóór vertrek of uw verblijf een actuele route of toegestaan afzetpunt geeft.',
+          'Vraag vóór vertrek of jullie verblijf een actuele route of toegestaan afzetpunt geeft.',
           'Fråga före avresa om boendet har en aktuell väg eller tillåten avlämningsplats.'
         )
       },
@@ -344,7 +344,7 @@ export const frigilianaParkingCopy = {
           'Mark the car location on your phone and photograph any restriction or closing information you need for the return.',
           'Markiert den Standort im Handy und fotografiert alle Einschränkungen oder Schließinformationen, die ihr für die Rückkehr braucht.',
           'Guardad la ubicación en el móvil y fotografiad las restricciones o información de cierre que necesitéis para volver.',
-          'Markeer de auto op uw telefoon en fotografeer beperkingen of sluitingsinformatie die u voor de terugweg nodig hebt.',
+          'Markeer de auto op jullie telefoon en fotografeer beperkingen of sluitingsinformatie die jullie voor de terugweg nodig hebben.',
           'Markera bilen i telefonen och fotografera begränsningar eller stängningsinformation som behövs inför återkomsten.'
         )
       }
@@ -436,7 +436,7 @@ export const frigilianaParkingCopy = {
       'Parking can take longer during weekends, holidays, local events, and the busiest visiting hours. Arriving with daylight and without a tightly timed reservation immediately afterwards makes it easier to read signs, find a legal space, and complete the walk calmly.',
       'An Wochenenden, Feiertagen, bei lokalen Veranstaltungen und zu den stärksten Besuchszeiten kann die Parkplatzsuche länger dauern. Wenn ihr bei Tageslicht und ohne direkt anschließenden engen Termin ankommt, könnt ihr Schilder ruhiger lesen, einen erlaubten Platz finden und den Fußweg entspannt zurücklegen.',
       'Encontrar aparcamiento puede llevar más tiempo durante fines de semana, festivos, eventos locales y las horas de mayor afluencia. Llegar con luz y sin una reserva con horario ajustado justo después facilita leer las señales, encontrar una plaza legal y completar el recorrido con calma.',
-      'Parkeren kan langer duren in weekenden, op feestdagen, tijdens lokale evenementen en op de drukste bezoekuren. Bij daglicht en zonder direct aansluitende strakke reservering hebt u meer rust om borden te lezen, een legale plek te vinden en het laatste stuk te lopen.',
+      'Parkeren kan langer duren in weekenden, op feestdagen, tijdens lokale evenementen en op de drukste bezoekuren. Bij daglicht en zonder direct aansluitende strakke reservering hebben jullie meer rust om borden te lezen, een legale plek te vinden en het laatste stuk te lopen.',
       'Parkering kan ta längre tid under helger, högtider, lokala evenemang och de mest intensiva besökstiderna. Ankomst i dagsljus och utan en snäv bokning direkt efteråt gör det lättare att läsa skyltar, hitta en laglig plats och gå sista sträckan i lugn och ro.'
     ),
     imageAlt: l(
@@ -476,7 +476,7 @@ export const frigilianaParkingCopy = {
       'Use the map to orientate — and the signs to decide',
       'Nutzt die Karte zur Orientierung – und die Schilder zur Entscheidung',
       'Usad el mapa para orientaros y las señales para decidir',
-      'Gebruik de kaart voor oriëntatie en de borden voor uw beslissing',
+      'Gebruik de kaart voor oriëntatie en de borden voor jullie beslissing',
       'Använd kartan för orientering och skyltarna för beslut'
     ),
     intro: l(

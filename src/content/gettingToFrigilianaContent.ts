@@ -131,7 +131,7 @@ export const gettingToFrigilianaCopy = {
       en: 'The best option depends less on distance than on your arrival time, luggage, and how much freedom you want during the stay. This guide separates those choices clearly.',
       de: 'Welche Option am besten passt, hängt weniger von der Entfernung ab als von eurer Ankunftszeit, dem Gepäck und davon, wie flexibel ihr während des Aufenthalts sein möchtet. Dieser Guide trennt die Möglichkeiten klar voneinander.',
       es: 'La mejor opción depende menos de la distancia que de la hora de llegada, el equipaje y la libertad que queráis durante la estancia. Esta guía separa claramente cada alternativa.',
-      nl: 'De beste keuze hangt minder af van de afstand dan van uw aankomsttijd, bagage en hoeveel vrijheid u tijdens het verblijf wilt. Deze gids zet de opties duidelijk naast elkaar.',
+      nl: 'De beste keuze hangt minder af van de afstand dan van jullie aankomsttijd, bagage en hoeveel vrijheid jullie tijdens het verblijf willen. Deze gids zet de opties duidelijk naast elkaar.',
       sv: 'Det bästa alternativet beror mindre på avståndet än på ankomsttid, bagage och hur stor frihet ni vill ha under vistelsen. Guiden skiljer tydligt mellan alternativen.'
     } satisfies LocalizedText,
     primaryCta: {
@@ -241,7 +241,7 @@ export const gettingToFrigilianaCopy = {
       en: 'Choose your route',
       de: 'Die passende Route wählen',
       es: 'Elegid vuestra ruta',
-      nl: 'Kies uw route',
+      nl: 'Kies jullie route',
       sv: 'Välj resväg'
     } satisfies LocalizedText,
     title: {
@@ -323,7 +323,7 @@ export const gettingToFrigilianaCopy = {
           en: 'Parking and the final walk matter in Frigiliana; old-town access is not door to door.',
           de: 'Parkplatz und letzter Fußweg sind in Frigiliana wichtig; die Altstadt ist nicht überall direkt anfahrbar.',
           es: 'En Frigiliana importan el aparcamiento y el último tramo a pie; no todo el casco antiguo permite llegar hasta la puerta.',
-          nl: 'Parkeren en het laatste stuk lopen zijn belangrijk; in de oude kern rijdt u niet overal tot aan de deur.',
+          nl: 'Parkeren en het laatste stuk lopen zijn belangrijk; in de oude kern rijden jullie niet overal tot aan de deur.',
           sv: 'Parkering och sista sträckan till fots är viktiga; i gamla stan går det inte alltid att köra ända fram.'
         }
       },
@@ -347,7 +347,7 @@ export const gettingToFrigilianaCopy = {
           en: 'A pre-booked driver meets your flight and takes you directly towards Frigiliana without a change in Nerja.',
           de: 'Ein vorab gebuchter Fahrer holt euch am Flughafen ab und bringt euch ohne Umstieg in Nerja direkt in Richtung Frigiliana.',
           es: 'Un conductor reservado con antelación os recoge en el aeropuerto y os lleva hacia Frigiliana sin cambiar en Nerja.',
-          nl: 'Een vooraf geboekte chauffeur haalt u op bij de luchthaven en rijdt zonder overstap in Nerja richting Frigiliana.',
+          nl: 'Een vooraf geboekte chauffeur haalt jullie op bij de luchthaven en rijdt zonder overstap in Nerja richting Frigiliana.',
           sv: 'En förbokad förare möter er på flygplatsen och kör direkt mot Frigiliana utan byte i Nerja.'
         },
         timing: {
@@ -392,14 +392,14 @@ export const gettingToFrigilianaCopy = {
           en: 'Aena lists an airport–Nerja coach connection. From Nerja, continue to Frigiliana by local bus or taxi.',
           de: 'Aena führt eine Busverbindung zwischen Flughafen und Nerja auf. Von Nerja geht es mit dem lokalen Bus oder Taxi weiter nach Frigiliana.',
           es: 'Aena indica una conexión de autobús entre el aeropuerto y Nerja. Desde Nerja se continúa a Frigiliana en autobús local o taxi.',
-          nl: 'Aena vermeldt een busverbinding tussen de luchthaven en Nerja. Vanaf Nerja reist u verder met de lokale bus of taxi.',
+          nl: 'Aena vermeldt een busverbinding tussen de luchthaven en Nerja. Vanaf Nerja reizen jullie verder met de lokale bus of taxi.',
           sv: 'Aena anger en bussförbindelse mellan flygplatsen och Nerja. Från Nerja fortsätter ni med lokalbuss eller taxi.'
         },
         timing: {
           en: 'Connection times vary. Check both timetables for your travel date and allow a generous buffer in Nerja.',
           de: 'Die Anschlusszeiten variieren. Prüft beide Fahrpläne für euren Reisetag und plant in Nerja ausreichend Puffer ein.',
           es: 'Los enlaces varían. Consultad ambos horarios para la fecha del viaje y dejad margen suficiente en Nerja.',
-          nl: 'Aansluittijden verschillen. Controleer beide dienstregelingen voor uw reisdatum en plan ruim overstaptijd in Nerja.',
+          nl: 'Aansluittijden verschillen. Controleer beide dienstregelingen voor jullie reisdatum en plan ruim overstaptijd in Nerja.',
           sv: 'Anslutningstiderna varierar. Kontrollera båda tidtabellerna för resdagen och lägg in god marginal i Nerja.'
         },
         bestFor: {
@@ -441,7 +441,7 @@ export const gettingToFrigilianaCopy = {
           en: 'Search ALSA for your exact date and flight time. Not every service follows the same stopping pattern.',
           de: 'Sucht bei ALSA nach eurem konkreten Reisedatum und der Flugzeit. Nicht jede Verbindung hat dasselbe Haltemuster.',
           es: 'Consultad ALSA para la fecha y hora exactas. No todos los servicios realizan las mismas paradas.',
-          nl: 'Zoek bij ALSA op uw exacte datum en vluchttijd. Niet iedere rit heeft hetzelfde haltepatroon.',
+          nl: 'Zoek bij ALSA op jullie exacte datum en vluchttijd. Niet iedere rit heeft hetzelfde haltepatroon.',
           sv: 'Sök hos ALSA för exakt datum och flygtid. Alla avgångar har inte samma stopp.'
         } satisfies LocalizedText
       },
@@ -475,7 +475,7 @@ export const gettingToFrigilianaCopy = {
           en: 'Match the municipal Nerja–Frigiliana timetable to your arrival. A taxi is the practical fallback if the connection is long.',
           de: 'Stimmt den kommunalen Fahrplan Nerja–Frigiliana auf eure Ankunft ab. Bei langer Wartezeit ist ein Taxi die praktische Alternative.',
           es: 'Coordinad el horario municipal Nerja–Frigiliana con vuestra llegada. Si la espera es larga, el taxi es la alternativa práctica.',
-          nl: 'Stem de gemeentelijke dienstregeling Nerja–Frigiliana af op uw aankomst. Bij lange wachttijd is een taxi de praktische uitwijkmogelijkheid.',
+          nl: 'Stem de gemeentelijke dienstregeling Nerja–Frigiliana af op jullie aankomst. Bij lange wachttijd is een taxi de praktische uitwijkmogelijkheid.',
           sv: 'Matcha kommunens tidtabell Nerja–Frigiliana med er ankomst. Vid lång väntetid är taxi ett praktiskt alternativ.'
         } satisfies LocalizedText
       }
@@ -532,7 +532,7 @@ export const gettingToFrigilianaCopy = {
           en: 'Not necessarily. The village itself is best explored on foot. A car is useful for beaches and day trips, while a transfer plus local buses can work well for a village-focused stay.',
           de: 'Nicht unbedingt. Das Dorf selbst erkundet ihr am besten zu Fuß. Für Strände und Ausflüge ist ein Auto praktisch; für einen Aufenthalt mit Fokus auf das Dorf können Transfer und lokale Busse gut funktionieren.',
           es: 'No necesariamente. El pueblo se disfruta mejor a pie. El coche resulta práctico para playas y excursiones; para una estancia centrada en el pueblo pueden funcionar bien el transfer y los autobuses locales.',
-          nl: 'Niet per se. Het dorp zelf verkent u het best te voet. Een auto is handig voor stranden en dagtochten; voor een verblijf dat vooral om het dorp draait, werken transfer en lokale bussen goed.',
+          nl: 'Niet per se. Het dorp zelf verkennen jullie het best te voet. Een auto is handig voor stranden en dagtochten; voor een verblijf dat vooral om het dorp draait, werken transfer en lokale bussen goed.',
           sv: 'Inte nödvändigtvis. Själva byn upplevs bäst till fots. Bil är praktiskt för stränder och utflykter, medan transfer och lokalbuss kan fungera bra för en vistelse med fokus på byn.'
         } satisfies LocalizedText
       },
@@ -744,7 +744,7 @@ export const gettingToFrigilianaCopy = {
       en: 'Once you know whether your stay is village-first, beach-first, or built around day trips, the right arrival option becomes much clearer.',
       de: 'Sobald klar ist, ob euer Aufenthalt vor allem dem Dorf, dem Strand oder Ausflügen gilt, wird auch die passende Anreise deutlich einfacher.',
       es: 'Cuando sepáis si vuestra estancia gira en torno al pueblo, la playa o las excursiones, la mejor forma de llegar quedará mucho más clara.',
-      nl: 'Zodra duidelijk is of uw verblijf om het dorp, het strand of dagtochten draait, wordt de juiste reisoptie veel eenvoudiger.',
+      nl: 'Zodra duidelijk is of jullie verblijf om het dorp, het strand of dagtochten draait, wordt de juiste reisoptie veel eenvoudiger.',
       sv: 'När ni vet om vistelsen främst handlar om byn, stranden eller utflykter blir rätt resealternativ mycket tydligare.'
     } satisfies LocalizedText,
     apartmentsCta: {

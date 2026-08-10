@@ -67,7 +67,7 @@ export const frigilianaLocationCopy = {
       sv: "Hus på Frigilianas sluttning i eftermiddagsljus"
     },
     h1: { en: "Frigiliana Guide <br/> Where to Stay", de: "Frigiliana-Guide <br/> Unterkunft & Orientierung", es: "Guía de Frigiliana <br/> Dónde alojarse", nl: "Frigiliana-gids <br/> Waar overnachten", sv: "Frigiliana-guide <br/> Var du bor" },
-    body: { en: "A practical guide to Frigiliana for guests choosing where to stay: village character, parking, weather, Nerja access, and AMARA's boutique apartments.", de: "Ein praktischer Frigiliana-Guide für Gäste, die die passende Unterkunft suchen: Dorfcharakter, Parken, Wetter, Nerja-Anbindung und AMARA Boutique-Apartments.", es: "Una guía práctica de Frigiliana para elegir dónde alojarse: carácter del pueblo, aparcamiento, clima, conexión con Nerja y los apartamentos boutique de AMARA.", nl: "Een praktische gids voor Frigiliana voor gasten die willen kiezen waar ze overnachten: dorpskarakter, parkeren, weer, Nerja en AMARA boutique-appartementen.", sv: "En praktisk guide till Frigiliana för gäster som väljer var de ska bo: bykaraktär, parkering, väder, Nerja och AMARA:s boutiquelägenheter." },
+    body: { en: "Four AMARA apartments sit in Frigiliana's old town. This guide explains the slopes, parking, weather and trip to Nerja before you choose one.", de: "Vier AMARA-Apartments liegen in Frigilianas Altstadt. Dieser Guide erklärt euch Steigungen, Parken, Wetter und den Weg nach Nerja, bevor ihr auswählt.", es: "AMARA tiene cuatro apartamentos en el casco antiguo de Frigiliana. Esta guía explica las cuestas, el aparcamiento, el clima y el trayecto a Nerja antes de elegir.", nl: "AMARA heeft vier appartementen in het oude centrum van Frigiliana. Deze gids legt de hellingen, het parkeren, het weer en de rit naar Nerja uit voordat jullie kiezen.", sv: "AMARA har fyra lägenheter i Frigilianas gamla stad. Här får ni koll på backar, parkering, väder och resan till Nerja innan ni väljer." },
     /** Second hero paragraph — inline editorial link (structure / movement reality) → parking authority */
     introLead: {
       en: {
@@ -102,11 +102,11 @@ export const frigilianaLocationCopy = {
     eyebrow: { en: "At a Glance", de: "Auf einen Blick", es: "De un vistazo", nl: "In het kort", sv: "På ett ögonkast" },
     title: { en: "Frigiliana — Key Facts for Staying", de: "Frigiliana — die wichtigsten Fakten zum Übernachten", es: "Frigiliana — datos clave para alojarse", nl: "Frigiliana — kernfeiten voor verblijf", sv: "Frigiliana — viktiga fakta för boende" },
     intro: {
-      en: "Frigiliana is one of Andalusia's most beautiful white villages. For overnight stays, the key question is how its beauty, elevation, parking, and Nerja access fit your travel rhythm.",
-      de: "Frigiliana zählt zu den schönsten weißen Dörfern Andalusiens. Für Übernachtungen zählt vor allem, wie Schönheit, Höhenlage, Parken und die Nähe zu Nerja zu Ihrem Reiserhythmus passen.",
-      es: "Frigiliana es uno de los pueblos blancos más bonitos de Andalucía. Para alojarse, lo importante es cómo encajan su belleza, el desnivel, el aparcamiento y la cercanía a Nerja con vuestro ritmo de viaje.",
-      nl: "Frigiliana hoort bij de mooiste witte dorpen van Andalusië. Voor een verblijf draait het om hoe schoonheid, hoogteverschil, parkeren en Nerja passen bij uw reisritme.",
-      sv: "Frigiliana är en av Andalusiens vackraste vita byar. För övernattning handlar valet om hur skönheten, höjdskillnaderna, parkering och Nerja passar er resrytm."
+      en: "Frigiliana is beautiful, but choosing it for several nights is a practical decision too: expect a hillside village, limited car access and Nerja's beaches a short drive away.",
+      de: "Frigiliana ist wunderschön, doch für mehrere Nächte zählen auch praktische Fragen: Das Dorf liegt am Hang, die Altstadt ist nur eingeschränkt mit dem Auto erreichbar und Nerjas Strände sind eine kurze Fahrt entfernt.",
+      es: "Frigiliana es preciosa, pero elegirla para varias noches también exige mirar lo práctico: está en una ladera, el acceso en coche al casco antiguo es limitado y las playas de Nerja quedan a un corto trayecto.",
+      nl: "Frigiliana is prachtig, maar voor meerdere nachten tellen ook praktische zaken: het dorp ligt tegen een helling, de oude kern is beperkt bereikbaar met de auto en de stranden van Nerja liggen op korte rijafstand.",
+      sv: "Frigiliana är vackert, men för flera nätter behöver ni också väga in det praktiska: byn ligger i en sluttning, biltrafiken i gamla stan är begränsad och Nerjas stränder ligger en kort bilresa bort."
     },
     items: [
       {
@@ -148,11 +148,11 @@ export const frigilianaLocationCopy = {
         kicker: { en: "Atmosphere", de: "Atmosphäre", es: "Ambiente", nl: "Sfeer", sv: "Stämning" },
         headline: { en: "Calm, Scenic, Unhurried", de: "Ruhig, landschaftlich, entspannt", es: "Tranquilo, pintoresco, sin prisas", nl: "Rustig, schilderachtig, ontspannen", sv: "Lugnt, vackert, lugnt tempo" },
         text: {
-          en: "Frigiliana is known for its quiet rhythm, visual beauty and slower pace of life.",
-          de: "Frigiliana steht für ruhigen Rhythmus, visuelle Schönheit und ein langsameres Lebenstempo.",
-          es: "Frigiliana destaca por su ritmo tranquilo, su belleza visual y un ritmo de vida más pausado.",
-          nl: "Frigiliana staat bekend om rust, schoonheid en een langzamer levenstempo.",
-          sv: "Frigiliana är känt för lugnt tempo, vacker miljö och ett långsammare vardagsliv."
+          en: "After the daytime visitors leave, the old-town lanes become noticeably quieter and dinner is served among the white houses.",
+          de: "Wenn die Tagesgäste fort sind, werden die Gassen der Altstadt spürbar ruhiger und zwischen den weißen Häusern beginnt der Abend.",
+          es: "Cuando se marchan quienes vienen solo de día, las calles del casco antiguo se quedan mucho más tranquilas y empieza la cena entre las casas blancas.",
+          nl: "Wanneer de dagjesmensen vertrekken, worden de steegjes in de oude kern merkbaar rustiger en begint de avond tussen de witte huizen.",
+          sv: "När dagsbesökarna har åkt blir gränderna i gamla stan märkbart lugnare och kvällen tar vid mellan de vita husen."
         },
         imageSrc: "/images/amara-frigiliana-pueblo/JPG_Frigiliana_Pueblo/2000px_72dpi_sRGB/03-frigiliana-pueblo.jpg"
       },
@@ -171,11 +171,11 @@ export const frigilianaLocationCopy = {
         kicker: { en: "Best For", de: "Ideal für", es: "Ideal para", nl: "Het beste voor", sv: "Bäst för" },
         headline: { en: "Couples & Relaxed Stays", de: "Paare & entspannte Aufenthalte", es: "Parejas y estancias relajadas", nl: "Koppels en ontspannen verblijven", sv: "Par och avslappnade vistelser" },
         text: {
-          en: "Ideal for guests who value atmosphere, views and character over absolute ease of movement.",
-          de: "Ideal für Gäste, die Atmosphäre, Ausblick und Charakter über absolute Bewegungsleichtigkeit stellen.",
-          es: "Ideal para quienes priorizan ambiente, vistas y encanto frente a la máxima comodidad al moverse.",
-          nl: "Ideaal voor wie sfeer, uitzicht en karakter belangrijker vindt dan maximale loopgemak.",
-          sv: "Idealiskt för gäster som värdesätter stämning, utsikt och karaktär framför maximal rörelsekomfort."
+          en: "A good choice if old-town evenings and wide views matter more to you than flat streets and door-to-door car access.",
+          de: "Eine gute Wahl, wenn euch Abende in der Altstadt und weite Ausblicke wichtiger sind als flache Wege und eine Zufahrt bis vor die Tür.",
+          es: "Una buena opción si valoráis más las noches en el casco antiguo y las vistas que las calles llanas y llegar en coche hasta la puerta.",
+          nl: "Een goede keuze als avonden in de oude kern en weids uitzicht belangrijker zijn dan vlakke straten en met de auto tot aan de deur komen.",
+          sv: "Ett bra val om kvällar i gamla stan och vid utsikt betyder mer än plana gator och bil hela vägen till dörren."
         }
       }
     ]
@@ -197,18 +197,18 @@ export const frigilianaLocationCopy = {
       sv: "Lättare att andas än vid kusten"
     },
     headline: {
-      en: "A Climate That Shapes Your Stay",
-      de: "Ein Klima, das Ihren Aufenthalt prägt",
-      es: "Un clima que moldea su estancia",
-      nl: "Een klimaat dat uw verblijf bepaalt",
-      sv: "Ett klimat som formar er vistelse"
+      en: "Weather changes how you use the village",
+      de: "Das Wetter bestimmt eure Wege im Dorf",
+      es: "El tiempo cambia cómo se recorre el pueblo",
+      nl: "Het weer bepaalt hoe jullie het dorp gebruiken",
+      sv: "Vädret påverkar hur ni rör er i byn"
     },
     body: {
-      en: "Frigiliana sits between sea and mountains, and that changes how the day feels. While the coast can turn intense in summer, the village often stays more breathable thanks to elevation and airflow. It is not only about temperature — it is about when you move, rest, and enjoy the village.",
-      de: "Frigiliana liegt zwischen Meer und Bergen — und das verändert, wie sich der Tag anfühlt. Während die Küste im Sommer oft drückend wirken kann, bleibt das Dorf dank Höhenlage und Luftstrom meist spürbar angenehmer. Es geht nicht nur um die Temperatur — es geht darum, wann Sie sich bewegen, ruhen und das Dorf genießen.",
-      es: "Frigiliana está entre mar y montaña, y eso cambia cómo se siente el día. En verano la costa puede volverse intensa, pero el pueblo suele seguir más respirable gracias a la altitud y el paso del aire. No se trata solo de la temperatura: se trata de cuándo moverse, descansar y disfrutar del pueblo.",
-      nl: "Frigiliana ligt tussen zee en bergen, en dat verandert hoe de dag aanvoelt. In de zomer kan de kust zwaar aanvoelen, maar het dorp blijft dankzij hoogte en luchtstroming vaak prettiger om in te leven. Het gaat niet alleen om temperatuur — het gaat om wanneer u zich beweegt, uitrust en van het dorp geniet.",
-      sv: "Frigiliana ligger mellan hav och berg, och det förändrar hur dagen känns. Medan kusten på sommaren kan bli tryckande, är byn ofta behagligare tack vare höjd och luftflöde. Det handlar inte bara om temperatur — det handlar om när du rör dig, vilar och njuter av byn."
+      en: "The hillside position brings more airflow than the coast often gets. In hot weather, use the cooler morning and evening hours for the steepest walks and leave the middle of the day for shade or the terrace.",
+      de: "Durch die Hanglage ist im Dorf oft mehr Luftbewegung spürbar als an der Küste. Bei Hitze legt ihr die steilsten Wege am besten in den Morgen oder Abend und verbringt die Mittagsstunden im Schatten oder auf der Terrasse.",
+      es: "Por su posición en la ladera, en el pueblo suele correr más aire que en la costa. Con calor, conviene dejar las cuestas más fuertes para la mañana o la tarde y pasar el mediodía a la sombra o en la terraza.",
+      nl: "Door de ligging tegen de helling staat er in het dorp vaak meer lucht dan aan de kust. Plan bij hitte de steilste wandelingen in de ochtend of avond en zoek midden op de dag de schaduw of het terras op.",
+      sv: "Läget i sluttningen ger ofta mer luft än nere vid kusten. Under varma dagar passar de brantaste promenaderna bäst på morgonen eller kvällen; mitt på dagen är skugga eller terrass ett bättre val."
     },
     metricHumidity: {
       en: "Humidity · 58%",
@@ -253,20 +253,20 @@ export const frigilianaLocationCopy = {
       sv: "5 °C svalare än vid kusten"
     },
     cta: {
-      en: "See how climate shapes your stay",
-      de: "Sehen Sie, wie das Klima Ihren Aufenthalt prägt",
-      es: "Vea cómo el clima moldea su estancia",
-      nl: "Ontdek hoe het klimaat uw verblijf bepaalt",
-      sv: "Se hur klimatet formar er vistelse"
+      en: "Check Frigiliana weather by month",
+      de: "Frigiliana-Wetter nach Monat ansehen",
+      es: "Ver el tiempo en Frigiliana por meses",
+      nl: "Bekijk het weer in Frigiliana per maand",
+      sv: "Se vädret i Frigiliana månad för månad"
     }
   },
   comparison: {
     eyebrow: {
-      en: "The Dual Experience",
-      de: "Zwei Aufenthaltswelten",
-      es: "Dos formas de estancia",
-      nl: "Twee verblijfswerelden",
-      sv: "Två sätt att bo"
+      en: "Frigiliana or Nerja",
+      de: "Frigiliana oder Nerja",
+      es: "Frigiliana o Nerja",
+      nl: "Frigiliana of Nerja",
+      sv: "Frigiliana eller Nerja"
     },
     title: {
       en: "Coast or Hillside?",
@@ -276,34 +276,53 @@ export const frigilianaLocationCopy = {
       sv: "Kust eller höjd?"
     },
     intro: {
-      en: "Frigiliana and Nerja are close in distance, but they create very different stay experiences. The better fit depends on whether you value village character or coastal convenience more.",
+      en: "Choose by where you want to spend most evenings. Frigiliana gives you the old town and quiet lanes; Nerja puts beaches, restaurants and flatter walks close to the door.",
       de: "Zwischen Frigiliana und Nerja entscheidet weniger die kurze Entfernung als das gewünschte Gefühl am Abend. Das Bergdorf steht für Ruhe und Altstadtatmosphäre, der Küstenort für Strandnähe und mehr Betrieb vor der Tür.",
-      es: "Frigiliana y Nerja están cerca, pero ofrecen experiencias de estancia muy distintas. La mejor opción depende de si valoras más el carácter del pueblo o la comodidad de la costa.",
-      nl: "Frigiliana en Nerja liggen dicht bij elkaar, maar voelen als verblijf heel verschillend aan. Welke plek beter past, hangt af van de vraag of je meer waarde hecht aan dorpskarakter of kustgemak.",
-      sv: "Frigiliana och Nerja ligger nära varandra, men ger två tydligt olika vistelser. Vad som passar bäst beror på om du värdesätter bykaraktär eller kustnära bekvämlighet mest."
+      es: "Elegid según dónde queréis pasar la mayoría de las noches. Frigiliana ofrece casco antiguo y calles tranquilas; Nerja deja playas, restaurantes y paseos más llanos cerca de la puerta.",
+      nl: "Kies op basis van waar jullie de meeste avonden willen doorbrengen. Frigiliana biedt de oude kern en rustige steegjes; in Nerja liggen stranden, restaurants en vlakkere wandelroutes dichterbij.",
+      sv: "Välj efter var ni vill tillbringa de flesta kvällarna. Frigiliana ger er gamla stan och lugna gränder; i Nerja finns stränder, restauranger och flackare promenader nära boendet."
     },
     items: {
       en: [
         {
           kicker: "15m",
-          title: "The Proximity",
+          title: "Distance",
           text: "Frigiliana sits only a short drive above Nerja, yet the two places feel fundamentally different as a base for several days."
         },
         {
           kicker: "5°C",
-          title: "The Microclimate",
+          title: "Hillside weather",
           text: "The hillside setting is often noticeably cooler than the coast, especially in warmer months."
         },
         {
           title: "Movement",
-          text: "Frigiliana means slopes, steps and a more vertical daily rhythm, while Nerja is generally flatter and easier to navigate."
+          text: "Frigiliana means slopes and steps; Nerja is generally flatter and easier to cross on foot."
         },
         {
-          title: "Stay Experience",
-          text: "Frigiliana suits calm, scenic stays with character, while Nerja offers beach access, variety and greater day-to-day convenience."
+          title: "Evenings",
+          text: "Frigiliana becomes quieter after the day visitors leave; Nerja keeps more restaurants and coastal activity close by."
         }
       ],
-      de: [],
+      de: [
+        {
+          kicker: "15 Min.",
+          title: "Entfernung",
+          text: "Frigiliana liegt nur eine kurze Fahrt oberhalb von Nerja, fühlt sich als Urlaubsort aber deutlich anders an."
+        },
+        {
+          kicker: "5 °C",
+          title: "Wetter am Hang",
+          text: "Am Hang ist es besonders in den warmen Monaten oft spürbar kühler als an der Küste."
+        },
+        {
+          title: "Wege",
+          text: "In Frigiliana gehören Steigungen und Stufen dazu; Nerja ist insgesamt flacher und leichter zu Fuß zu durchqueren."
+        },
+        {
+          title: "Abende",
+          text: "Frigiliana wird ruhiger, wenn die Tagesgäste fort sind; in Nerja bleiben mehr Restaurants und Küstenleben in direkter Nähe."
+        }
+      ],
       es: [
         {
           kicker: "15 min",
@@ -317,11 +336,11 @@ export const frigilianaLocationCopy = {
         },
         {
           title: "Movimiento",
-          text: "Frigiliana implica cuestas, escaleras y un ritmo diario más vertical, mientras que Nerja suele ser más llana y fácil de recorrer."
+          text: "Frigiliana implica cuestas y escaleras, mientras que Nerja suele ser más llana y fácil de recorrer a pie."
         },
         {
-          title: "Experiencia de estancia",
-          text: "Frigiliana encaja mejor con estancias tranquilas y con carácter; Nerja ofrece playa, variedad y mayor comodidad diaria."
+          title: "Las noches",
+          text: "Frigiliana se queda más tranquila cuando se marchan quienes vienen de día; Nerja mantiene más restaurantes y actividad costera cerca."
         }
       ],
       nl: [
@@ -337,11 +356,11 @@ export const frigilianaLocationCopy = {
         },
         {
           title: "Beweging",
-          text: "Frigiliana betekent hellingen, trappen en een verticaler dagritme, terwijl Nerja meestal vlakker en makkelijker te verkennen is."
+          text: "Frigiliana betekent hellingen en trappen; Nerja is meestal vlakker en makkelijker te voet te verkennen."
         },
         {
-          title: "Verblijfsgevoel",
-          text: "Frigiliana past beter bij rustige, karaktervolle verblijven; Nerja biedt strandtoegang, afwisseling en meer dagelijks gemak."
+          title: "Avonden",
+          text: "Frigiliana wordt rustiger zodra de dagjesmensen vertrekken; in Nerja blijven meer restaurants en kustactiviteiten dichtbij."
         }
       ],
       sv: [
@@ -357,11 +376,11 @@ export const frigilianaLocationCopy = {
         },
         {
           title: "Rörelse",
-          text: "Frigiliana innebär backar, trappor och en mer vertikal vardagsrytm, medan Nerja i allmänhet är flackare och lättare att ta sig runt i."
+          text: "Frigiliana innebär backar och trappor; Nerja är i allmänhet flackare och lättare att ta sig runt i till fots."
         },
         {
-          title: "Vistelsekänsla",
-          text: "Frigiliana passar lugna, natursköna vistelser med karaktär, medan Nerja ger strandnärhet, variation och större vardagsbekvämlighet."
+          title: "Kvällar",
+          text: "Frigiliana blir lugnare när dagsbesökarna åker; i Nerja finns fler restauranger och mer kustliv nära till hands."
         }
       ]
     },
@@ -417,11 +436,11 @@ export const frigilianaLocationCopy = {
       sv: "En by av trappor"
     },
     supporting: {
-      en: "Frigiliana is carved into the mountainside. Expect steep inclines, narrow alleys, and rewarding views along the way.",
-      de: "Frigiliana liegt am Berghang, in die Landschaft eingebettet. Rechnen Sie mit steilen Steigungen, engen Gassen und Ausblicken, die sich unterwegs lohnen.",
-      es: "Frigiliana está labrada en la ladera. Espere cuestas pronunciadas, callejuelas estrechas y vistas que compensan el esfuerzo.",
-      nl: "Frigiliana ligt tegen de bergwand. Reken op steile hellingen, smalle steegjes en onderweg uitzichten die de moeite lonen.",
-      sv: "Frigiliana är uthuggen i bergssluttningen. Räkna med branta lutningar, smala gränder och utsikter som belönar vägen."
+      en: "Frigiliana climbs up the hillside. Expect steep inclines, narrow lanes and steps on many routes through the old town.",
+      de: "Frigiliana zieht sich den Hang hinauf. Rechnet in der Altstadt mit steilen Anstiegen, engen Gassen und vielen Wegen mit Stufen.",
+      es: "Frigiliana sube por la ladera. En muchos recorridos por el casco antiguo encontraréis cuestas fuertes, calles estrechas y escaleras.",
+      nl: "Frigiliana loopt tegen de helling omhoog. Reken in de oude kern op steile stukken, smalle steegjes en veel routes met trappen.",
+      sv: "Frigiliana klättrar uppför sluttningen. I gamla stan får ni räkna med branta backar, smala gränder och trappor på många vägar."
     },
     signal: {
       en: "Steps · Elevation · Narrow ways",
@@ -431,16 +450,16 @@ export const frigilianaLocationCopy = {
       sv: "Trappor · Höjd · Smala gränder"
     },
     cta: {
-      en: "Understand how the village layout shapes your stay",
-      de: "Verstehen Sie, wie die Dorfanlage Ihren Aufenthalt prägt",
-      es: "Comprenda cómo la disposición del pueblo marca su estancia",
-      nl: "Begrijp hoe de dorpsindeling uw verblijf beïnvloedt",
-      sv: "Förstå hur byns utformning formar er vistelse"
+      en: "Read about streets, steps and access",
+      de: "Mehr über Gassen, Stufen und Zugang",
+      es: "Ver calles, escaleras y accesos",
+      nl: "Lees over straten, trappen en toegang",
+      sv: "Läs om gränder, trappor och tillträde"
     }
   },
   gallery: {
-    eyebrow: { en: "Architectural Study", de: "Architekturstudie", es: "Estudio Arquitectónico", nl: "Architecturale Studie", sv: "Arkitektonisk Studie" },
-    title: { en: "Mudejar Geometry", de: "Maurische Geometrie", es: "Geometría Mudéjar", nl: "Moorse Geometrie", sv: "Maurisk Geometri" },
+    eyebrow: { en: "Old-town details", de: "Details der Altstadt", es: "Detalles del casco antiguo", nl: "Details van de oude kern", sv: "Detaljer i gamla stan" },
+    title: { en: "Doors, lanes and white walls", de: "Türen, Gassen und weiße Mauern", es: "Puertas, calles y muros blancos", nl: "Deuren, steegjes en witte muren", sv: "Dörrar, gränder och vita väggar" },
     items: [
       { src: '/images/amara-frigiliana-pueblo/JPG_Frigiliana_Pueblo/2000px_72dpi_sRGB/04-frigiliana-pueblo.jpg', alt: { en: "Indigo", de: "Indigo", es: "Índigo", nl: "Indigo", sv: "Indigo" }, caption: { en: "Blue doors of Calle Real", de: "Die blauen Türen der Calle Real", es: "Las puertas azules", nl: "De blauwe deuren", sv: "De blå dörrarna" } },
       { src: '/images/amara-frigiliana-pueblo/JPG_Frigiliana_Pueblo/2000px_72dpi_sRGB/07-frigiliana-pueblo.jpg', alt: { en: "Sierra", de: "Sierra", es: "Sierra", nl: "Sierra", sv: "Sierra" }, caption: { en: "Sierra Almijara", de: "Sierra Almijara", es: "Sierra Almijara", nl: "Sierra Almijara", sv: "Sierra Almijara" } }
@@ -468,7 +487,7 @@ export const frigilianaLocationCopy = {
         en: "These are planning levels, not official districts. Compare repeated daily routes, stairs, the final approach, and actual car access before choosing an address.",
         de: "Das sind Planungsebenen, keine offiziellen Viertel. Vergleicht wiederkehrende Alltagswege, Treppen, den letzten Zugang und die tatsächliche Autozufahrt, bevor ihr eine Adresse wählt.",
         es: "Son niveles para planificar, no barrios oficiales. Comparad los trayectos cotidianos, las escaleras, el último acceso y la llegada real en coche antes de elegir una dirección.",
-        nl: "Dit zijn planningsniveaus, geen officiële wijken. Vergelijk dagelijkse routes, trappen, het laatste toegangsstuk en de werkelijke bereikbaarheid met de auto voordat u een adres kiest.",
+        nl: "Dit zijn planningsniveaus, geen officiële wijken. Vergelijk dagelijkse routes, trappen, het laatste toegangsstuk en de werkelijke bereikbaarheid met de auto voordat jullie een adres kiezen.",
         sv: "Det här är planeringsnivåer, inte officiella stadsdelar. Jämför vardagsvägar, trappor, den sista sträckan och den faktiska bilåtkomsten innan ni väljer adress."
       },
       cta: {
@@ -480,8 +499,8 @@ export const frigilianaLocationCopy = {
       }
     },
     profiles: [
-      { title: { en: "Couples", de: "Paare", es: "Parejas", nl: "Koppels", sv: "Par" }, description: { en: "A strong fit if you want quiet evenings, village character, terraces, and a slower rhythm close to Nerja.", de: "Sehr passend, wenn Sie ruhige Abende, Dorfcharakter, Terrassen und einen langsameren Rhythmus nahe Nerja suchen.", es: "Muy buena opción si buscáis noches tranquilas, carácter de pueblo, terrazas y un ritmo más pausado cerca de Nerja.", nl: "Sterk passend als u rustige avonden, dorpskarakter, terrassen en een langzamer ritme dicht bij Nerja zoekt.", sv: "Mycket passande om ni vill ha lugna kvällar, bykaraktär, terrasser och ett långsammare tempo nära Nerja." }, suitability: { en: "Best fit", de: "Sehr passend", es: "Ideal", nl: "Beste match", sv: "Bäst match" } },
-      { title: { en: "Drivers", de: "Mit Auto", es: "Con coche", nl: "Met auto", sv: "Med bil" }, description: { en: "Good if you are comfortable parking nearby and walking the final stretch through a stepped village.", de: "Gut, wenn Sie in der Nähe parken und das letzte Stück durch ein gestuftes Dorf gehen können.", es: "Buena opción si os parece bien aparcar cerca y caminar el último tramo por un pueblo con escaleras.", nl: "Goed als parkeren in de buurt en het laatste stuk lopen door een dorp met trappen geen probleem is.", sv: "Bra om ni kan parkera i närheten och gå sista biten genom en by med trappor." }, suitability: { en: "Plan ahead", de: "Planen", es: "Planificar", nl: "Plan vooruit", sv: "Planera" } },
+      { title: { en: "Couples", de: "Paare", es: "Parejas", nl: "Koppels", sv: "Par" }, description: { en: "Choose Frigiliana if you want quiet old-town evenings and you are comfortable with hills, steps and a short drive to the beach.", de: "Wählt Frigiliana, wenn ihr ruhige Abende in der Altstadt möchtet und Steigungen, Stufen sowie eine kurze Fahrt zum Strand für euch passen.", es: "Elegid Frigiliana si queréis noches tranquilas en el casco antiguo y os van bien las cuestas, las escaleras y un corto trayecto hasta la playa.", nl: "Kies Frigiliana als jullie rustige avonden in de oude kern willen en hellingen, trappen en een korte rit naar het strand geen bezwaar zijn.", sv: "Välj Frigiliana om ni vill ha lugna kvällar i gamla stan och är bekväma med backar, trappor och en kort bilresa till stranden." }, suitability: { en: "Best fit", de: "Sehr passend", es: "Ideal", nl: "Beste match", sv: "Bäst match" } },
+      { title: { en: "Drivers", de: "Mit Auto", es: "Con coche", nl: "Met auto", sv: "Med bil" }, description: { en: "Expect to park nearby rather than at the door and carry your luggage over the final stretch through the old town.", de: "Rechnet damit, in der Nähe statt direkt vor der Tür zu parken und euer Gepäck das letzte Stück durch die Altstadt zu tragen.", es: "Contad con aparcar cerca, no siempre en la puerta, y llevar el equipaje durante el último tramo por el casco antiguo.", nl: "Reken erop dat jullie in de buurt parkeren, niet altijd voor de deur, en de bagage het laatste stuk door de oude kern meenemen.", sv: "Räkna med att parkera i närheten snarare än vid dörren och bära bagaget den sista biten genom gamla stan." }, suitability: { en: "Plan ahead", de: "Planen", es: "Planificar", nl: "Plan vooruit", sv: "Planera" } },
       { title: { en: "Beach-first guests", de: "Strand zuerst", es: "Playa primero", nl: "Strand eerst", sv: "Strand först" }, description: { en: "Nerja may suit better if daily beach access, flat walking, and door-to-door convenience matter most.", de: "Nerja passt besser, wenn täglicher Strandzugang, flache Wege und maximale Bequemlichkeit wichtiger sind.", es: "Nerja puede encajar mejor si priorizáis playa diaria, paseos llanos y máxima comodidad puerta a puerta.", nl: "Nerja past mogelijk beter als dagelijks strand, vlak lopen en direct gemak het belangrijkst zijn.", sv: "Nerja kan passa bättre om daglig strand, flacka promenader och enkel bekvämlighet är viktigast." }, suitability: { en: "Compare", de: "Vergleichen", es: "Comparar", nl: "Vergelijk", sv: "Jämför" } },
       { title: { en: "Limited mobility", de: "Eingeschränkte Mobilität", es: "Movilidad reducida", nl: "Beperkte mobiliteit", sv: "Nedsatt rörlighet" }, description: { en: "Check access carefully. Frigiliana is beautiful but steep, with stairs, narrow lanes, and uneven surfaces.", de: "Zugang genau prüfen. Frigiliana ist wunderschön, aber steil, mit Treppen, engen Gassen und unebenem Boden.", es: "Conviene revisar el acceso con cuidado. Frigiliana es preciosa, pero empinada, con escaleras, calles estrechas y suelo irregular.", nl: "Controleer de toegang goed. Frigiliana is prachtig maar steil, met trappen, smalle straten en ongelijke ondergrond.", sv: "Kontrollera tillgänglighet noggrant. Frigiliana är vackert men brant, med trappor, smala gränder och ojämna ytor." }, suitability: { en: "Check access", de: "Zugang prüfen", es: "Revisar acceso", nl: "Check toegang", sv: "Kontrollera" } }
     ]
@@ -502,11 +521,11 @@ export const frigilianaLocationCopy = {
       sv: "Användbara nästa steg för Frigiliana"
     },
     intro: {
-      en: "Use these guides to move from inspiration to a realistic stay plan: apartment choice, arrival, parking, weather, reviews, and comfort details.",
-      de: "Diese Guides führen von Inspiration zu einer realistischen Aufenthaltsplanung: Apartmentwahl, Anreise, Parken, Wetter, Bewertungen und Komfortdetails.",
-      es: "Estos enlaces convierten la inspiración en un plan realista: elección de apartamento, llegada, aparcamiento, clima, reseñas y detalles de confort.",
-      nl: "Deze gidsen helpen van inspiratie naar een realistisch verblijfsplan: appartementkeuze, aankomst, parkeren, weer, reviews en comfortdetails.",
-      sv: "Dessa guider tar er från inspiration till en realistisk vistelseplan: lägenhetsval, ankomst, parkering, väder, omdömen och komfortdetaljer."
+      en: "Before booking, compare the apartments, final walking route, parking, monthly weather and access details.",
+      de: "Vergleicht vor der Buchung die Apartments, den letzten Fußweg, Parkmöglichkeiten, Monatswetter und Zugang.",
+      es: "Antes de reservar, comparad los apartamentos, el último tramo a pie, el aparcamiento, el clima por meses y los accesos.",
+      nl: "Vergelijk voor het boeken de appartementen, het laatste stuk lopen, parkeren, het weer per maand en de toegang.",
+      sv: "Jämför lägenheterna, sista sträckan till fots, parkering, månadsväder och tillträde innan ni bokar."
     },
     links: {
       gettingHere: {
@@ -592,11 +611,11 @@ export const frigilianaLocationCopy = {
       arrival: {
         label: { en: "Arrival guide", de: "Anreise-Guide", es: "Guía de llegada", nl: "Aankomstgids", sv: "Ankomstguide" },
         text: {
-          en: "Know the address, route, and arrival rhythm.",
-          de: "Adresse, Route und Ankunftsrhythmus kennen.",
-          es: "Conocer dirección, ruta y ritmo de llegada.",
-          nl: "Ken adres, route en aankomstritme.",
-          sv: "Se adress, rutt och ankomstrytm."
+          en: "See the exact address, walking route and entry instructions.",
+          de: "Genaue Adresse, Fußweg und Hinweise zum Eingang ansehen.",
+          es: "Ver la dirección exacta, el camino a pie y las instrucciones de entrada.",
+          nl: "Bekijk het exacte adres, de looproute en de instructies voor de ingang.",
+          sv: "Se exakt adress, gångväg och instruktioner för entrén."
         }
       },
       reviews: {
@@ -624,9 +643,9 @@ export const frigilianaLocationCopy = {
   faq: {
     arrivalTitle: { en: "The Arrival", de: "Die Ankunft", es: "La Llegada", nl: "De Aankomst", sv: "Ankomsten" },
     steps: [
-      { num: "01", h: { en: "Gateways", de: "Anreise", es: "Puertas", nl: "Poorten", sv: "Portar" }, t: { en: "Malaga Airport (AGP) is the primary gateway, located 50 minutes to the West via the A-7.", de: "Der Flughafen Malaga (AGP) ist das Haupttor, 50 Minuten westlich über die A-7.", es: "El aeropuerto de Málaga (AGP) es la puerta principal, a 50 minutos.", nl: "Luchthaven Malaga (AGP) is de belangrijkste poort.", sv: "Malaga flygplats (AGP) är huvudporten." } },
-      { num: "02", h: { en: "Transportation", de: "Transport", es: "Transporte", nl: "Vervoer", sv: "Transport" }, t: { en: "While public buses run frequently, a private vehicle is essential for exploring the Axarquía.", de: "Busse fahren oft, aber ein Auto ist für die Axarquía unerlässlich.", es: "Hay autobuses, pero un coche es esencial para explorar la Axarquía.", nl: "Bussen rijden, maar een auto is essentieel.", sv: "Bussar går, men bil är nödvändigt." } },
-      { num: "03", h: { en: "The Ascent", de: "Der Aufstieg", es: "El Ascenso", nl: "De Klim", sv: "Klättringen" }, t: { en: "Frigiliana is divided into Barrio Nuevo and Alto. Prepare for steep inclines.", de: "Frigiliana ist geteilt. Stellen Sie sich auf steile Gassen ein.", es: "Frigiliana está dividida. Prepárate para las cuestas.", nl: "Frigiliana is verdeeld. Bereid je voor op hellingen.", sv: "Frigiliana är uppdelad. Förbered dig på backar." } }
+      { num: "01", h: { en: "From Málaga", de: "Ab Málaga", es: "Desde Málaga", nl: "Vanuit Málaga", sv: "Från Málaga" }, t: { en: "Málaga Airport is the usual starting point. Continue by rental car, private transfer or public transport via Nerja.", de: "Der Flughafen Málaga ist der übliche Ausgangspunkt. Weiter geht es per Mietwagen, Privattransfer oder mit öffentlichen Verkehrsmitteln über Nerja.", es: "El aeropuerto de Málaga es el punto de partida habitual. Desde allí podéis seguir en coche de alquiler, transfer privado o transporte público vía Nerja.", nl: "De luchthaven van Málaga is het gebruikelijke vertrekpunt. Reis verder met een huurauto, privétransfer of openbaar vervoer via Nerja.", sv: "Málagas flygplats är den vanligaste utgångspunkten. Fortsätt med hyrbil, privat transfer eller kollektivtrafik via Nerja." } },
+      { num: "02", h: { en: "Choose transport", de: "Verkehrsmittel wählen", es: "Elegir transporte", nl: "Kies vervoer", sv: "Välj transport" }, t: { en: "A car helps with beaches and day trips; buses and taxis can work if most of your time stays in the village.", de: "Ein Auto ist für Strände und Ausflüge praktisch; Busse und Taxis funktionieren, wenn ihr überwiegend im Dorf bleibt.", es: "El coche resulta práctico para playas y excursiones; autobuses y taxis pueden bastar si vais a pasar la mayor parte del tiempo en el pueblo.", nl: "Een auto is handig voor stranden en uitstapjes; bussen en taxi's kunnen volstaan als jullie vooral in het dorp blijven.", sv: "Bil är praktiskt för stränder och utflykter; buss och taxi kan fungera om ni främst stannar i byn." } },
+      { num: "03", h: { en: "Final walk", de: "Letzter Fußweg", es: "Último tramo a pie", nl: "Laatste stuk lopen", sv: "Sista biten till fots" }, t: { en: "The old town has steep lanes, uneven paving and steps. Check the exact route before arriving with luggage.", de: "In der Altstadt gibt es steile Gassen, unebenes Pflaster und Stufen. Prüft den genauen Weg, bevor ihr mit Gepäck ankommt.", es: "El casco antiguo tiene cuestas, suelo irregular y escaleras. Revisad el camino exacto antes de llegar con equipaje.", nl: "De oude kern heeft steile steegjes, ongelijke bestrating en trappen. Bekijk de exacte route voordat jullie met bagage aankomen.", sv: "Gamla stan har branta gränder, ojämn stenläggning och trappor. Kontrollera den exakta vägen innan ni kommer med bagage." } }
     ],
     faqTitle: { en: "Frigiliana stay FAQ", de: "Frigiliana Aufenthalts-FAQ", es: "FAQ para alojarse en Frigiliana", nl: "Frigiliana verblijfs-FAQ", sv: "Frigiliana boende-FAQ" },
     arrivalDetailCta: {
@@ -653,11 +672,11 @@ export const frigilianaLocationCopy = {
           sv: "Är Frigiliana värt att bo i?"
         },
         a: {
-          en: "Yes, if you want atmosphere, views, quiet evenings, and a village rhythm rather than a flat beach base. Frigiliana works especially well for couples who want character and still want Nerja within easy reach.",
-          de: "Ja, wenn Sie Atmosphäre, Aussicht, ruhige Abende und Dorfrhythmus statt einer flachen Strandbasis suchen. Frigiliana passt besonders gut für Paare, die Charakter möchten und Nerja trotzdem schnell erreichen wollen.",
-          es: "Sí, si buscáis atmósfera, vistas, noches tranquilas y ritmo de pueblo en lugar de una base plana de playa. Frigiliana funciona especialmente bien para parejas que quieren carácter y tener Nerja cerca.",
-          nl: "Ja, als u sfeer, uitzicht, rustige avonden en dorpsritme zoekt in plaats van een vlakke strandbasis. Frigiliana werkt vooral goed voor koppels die karakter willen en Nerja dichtbij willen houden.",
-          sv: "Ja, om ni vill ha atmosfär, utsikt, lugna kvällar och byrytm snarare än en platt strandbas. Frigiliana passar särskilt bra för par som vill ha karaktär och ändå ha Nerja nära."
+          en: "Yes, if you want to stay in the old town after the day visitors leave and do not mind hills, steps or driving to the beach. Choose Nerja instead if flat walks and daily sea access matter more.",
+          de: "Ja, wenn ihr nach der Abreise der Tagesgäste in der Altstadt bleiben möchtet und Steigungen, Stufen sowie die Fahrt zum Strand für euch in Ordnung sind. Wählt Nerja, wenn flache Wege und täglicher Strandzugang wichtiger sind.",
+          es: "Sí, si queréis quedaros en el casco antiguo cuando se marchan quienes vienen de día y no os importan las cuestas, las escaleras ni conducir hasta la playa. Elegid Nerja si pesan más los paseos llanos y el mar a diario.",
+          nl: "Ja, als jullie in de oude kern willen blijven nadat de dagjesmensen vertrekken en hellingen, trappen of een rit naar het strand geen bezwaar zijn. Kies Nerja als vlak lopen en dagelijks naar zee belangrijker zijn.",
+          sv: "Ja, om ni vill stanna i gamla stan när dagsbesökarna åker och inte har något emot backar, trappor eller bilresan till stranden. Välj Nerja om flacka promenader och havet varje dag är viktigare."
         }
       },
       {
@@ -669,11 +688,11 @@ export const frigilianaLocationCopy = {
           sv: "Behöver man bil i Frigiliana?"
         },
         a: {
-          en: "A car is strongly recommended if you want beaches, villages, groceries, and flexible arrival times. You can stay without one, but the trip becomes more dependent on buses, taxis, and careful planning.",
-          de: "Ein Auto ist sehr empfehlenswert, wenn Sie Strände, Dörfer, Einkäufe und flexible Ankunftszeiten möchten. Ohne Auto ist es möglich, aber stärker von Bussen, Taxis und genauer Planung abhängig.",
-          es: "El coche es muy recomendable si queréis playas, pueblos, compras y horarios flexibles de llegada. Se puede estar sin coche, pero el viaje depende más de autobuses, taxis y planificación.",
-          nl: "Een auto is sterk aan te raden als u stranden, dorpen, boodschappen en flexibele aankomsttijden wilt. Zonder auto kan het, maar de reis hangt meer af van bussen, taxi's en planning.",
-          sv: "Bil rekommenderas starkt om ni vill nå stränder, byar, matinköp och ha flexibla ankomsttider. Det går utan bil, men resan blir mer beroende av bussar, taxi och planering."
+          en: "Not for the old town itself. A car is useful for beaches and day trips, while buses and taxis can work if you plan to spend most of your time in the village. In either case, expect to walk the final stretch to many addresses.",
+          de: "Für die Altstadt selbst nicht. Für Strände und Ausflüge ist ein Auto praktisch; Busse und Taxis können reichen, wenn ihr die meiste Zeit im Dorf verbringt. In beiden Fällen führt der letzte Abschnitt zu vielen Adressen zu Fuß.",
+          es: "Para el casco antiguo, no. El coche es práctico para playas y excursiones; autobuses y taxis pueden bastar si vais a pasar la mayor parte del tiempo en el pueblo. En ambos casos, a muchas direcciones se llega a pie en el último tramo.",
+          nl: "Niet voor de oude kern zelf. Een auto is handig voor stranden en uitstapjes; bussen en taxi's kunnen volstaan als jullie vooral in het dorp blijven. Naar veel adressen loopt het laatste stuk sowieso te voet.",
+          sv: "Inte för gamla stan i sig. Bil är praktiskt för stränder och utflykter; buss och taxi kan räcka om ni främst stannar i byn. Till många adresser går ni den sista biten oavsett."
         }
       },
       {
@@ -685,11 +704,11 @@ export const frigilianaLocationCopy = {
           sv: "Frigiliana eller Nerja: vad är bäst att bo i?"
         },
         a: {
-          en: "Choose Frigiliana for calm, scenery, historic lanes, and a slower stay. Choose Nerja if daily beach access, flat walking, and more immediate convenience matter more.",
-          de: "Wählen Sie Frigiliana für Ruhe, Ausblicke, historische Gassen und einen langsameren Aufenthalt. Wählen Sie Nerja, wenn täglicher Strandzugang, flache Wege und direkte Bequemlichkeit wichtiger sind.",
-          es: "Elegid Frigiliana para calma, paisaje, callejuelas históricas y una estancia más pausada. Elegid Nerja si pesan más la playa diaria, los paseos llanos y la comodidad inmediata.",
-          nl: "Kies Frigiliana voor rust, landschap, historische straatjes en een langzamer verblijf. Kies Nerja als dagelijks strand, vlak lopen en directe voorzieningen belangrijker zijn.",
-          sv: "Välj Frigiliana för lugn, utsikt, historiska gränder och en långsammare vistelse. Välj Nerja om daglig strand, flacka promenader och omedelbar bekvämlighet är viktigare."
+          en: "Choose Frigiliana for quiet old-town evenings, hillside views and historic lanes. Choose Nerja for daily beach access, flatter walks and more shops and restaurants close by.",
+          de: "Wählt Frigiliana für ruhige Abende in der Altstadt, Hangblicke und historische Gassen. Wählt Nerja für täglichen Strandzugang, flachere Wege und mehr Geschäfte und Restaurants in direkter Nähe.",
+          es: "Elegid Frigiliana por las noches tranquilas en el casco antiguo, las vistas desde la ladera y las calles históricas. Elegid Nerja por la playa diaria, los paseos más llanos y más tiendas y restaurantes cerca.",
+          nl: "Kies Frigiliana voor rustige avonden in de oude kern, uitzicht vanaf de helling en historische steegjes. Kies Nerja voor dagelijks strand, vlakkere wandelingen en meer winkels en restaurants dichtbij.",
+          sv: "Välj Frigiliana för lugna kvällar i gamla stan, utsikt från sluttningen och historiska gränder. Välj Nerja för stranden varje dag, flackare promenader och fler butiker och restauranger nära."
         }
       },
       {
@@ -701,11 +720,11 @@ export const frigilianaLocationCopy = {
           sv: "Var bor man som par i Frigiliana?"
         },
         a: {
-          en: "For couples, a calm lower-village base can be a strong balance: close to the character of Frigiliana, easier for arrival, and practical for trips to Nerja. AMARA focuses on private boutique apartments with this kind of stay rhythm.",
-          de: "Für Paare ist eine ruhige Lage im unteren Dorf oft ein guter Ausgleich: nah am Charakter Frigilianas, einfacher bei der Ankunft und praktisch für Fahrten nach Nerja. AMARA fokussiert private Boutique-Apartments mit genau diesem Aufenthaltsrhythmus.",
-          es: "Para parejas, una base tranquila en la zona baja del pueblo suele equilibrar bien: cerca del carácter de Frigiliana, más cómoda para llegar y práctica para ir a Nerja. AMARA se centra en apartamentos boutique privados con ese ritmo de estancia.",
-          nl: "Voor koppels is een rustige basis in het lagere dorp vaak een sterk evenwicht: dicht bij het karakter van Frigiliana, eenvoudiger bij aankomst en praktisch voor Nerja. AMARA richt zich op private boutique-appartementen met dat ritme.",
-          sv: "För par är en lugn bas i den lägre delen av byn ofta en bra balans: nära Frigilianas karaktär, enklare vid ankomst och praktiskt för Nerja. AMARA fokuserar på privata boutiquelägenheter med just den rytmen."
+          en: "AMARA has four apartments in Frigiliana's old town. Compare the exact access, bed size, kitchen and terrace: Farah is designed for shorter stays, while Lounis, Zaid and Maha each have a private terrace.",
+          de: "AMARA hat vier Apartments in Frigilianas Altstadt. Vergleicht Zugang, Bettgröße, Küche und Terrasse: Farah ist für kürzere Aufenthalte gedacht; Lounis, Zaid und Maha haben jeweils eine private Terrasse.",
+          es: "AMARA tiene cuatro apartamentos en el casco antiguo de Frigiliana. Comparad acceso, tamaño de cama, cocina y terraza: Farah está pensado para estancias más cortas; Lounis, Zaid y Maha tienen terraza privada.",
+          nl: "AMARA heeft vier appartementen in de oude kern van Frigiliana. Vergelijk toegang, bedmaat, keuken en terras: Farah is bedoeld voor kortere verblijven; Lounis, Zaid en Maha hebben elk een privéterras.",
+          sv: "AMARA har fyra lägenheter i Frigilianas gamla stad. Jämför tillträde, sängstorlek, kök och terrass: Farah är avsedd för kortare vistelser; Lounis, Zaid och Maha har var sin privat terrass."
         }
       },
       {
@@ -718,7 +737,7 @@ export const frigilianaLocationCopy = {
         },
         a: {
           en: "Parking is not impossible, but it is different from a coastal resort. Expect signed or peripheral parking, narrow streets, and some walking. In high season, allow extra time and avoid assuming door-to-door car access.",
-          de: "Parken ist nicht unmöglich, aber anders als in einem Küstenort. Rechnen Sie mit ausgewiesenen oder randnahen Parkplätzen, engen Straßen und etwas Fußweg. In der Hochsaison sollten Sie zusätzliche Zeit einplanen.",
+          de: "Parken ist nicht unmöglich, aber anders als in einem Küstenort. Rechnet mit ausgewiesenen oder randnahen Parkplätzen, engen Straßen und etwas Fußweg. Plant in der Hochsaison zusätzliche Zeit ein.",
           es: "Aparcar no es imposible, pero es distinto a un destino costero. Contad con aparcamientos señalizados o periféricos, calles estrechas y algo de camino a pie. En temporada alta conviene dejar margen.",
           nl: "Parkeren is niet onmogelijk, maar anders dan in een kustplaats. Reken op aangegeven of randparkeren, smalle straten en wat lopen. In het hoogseizoen is extra tijd verstandig.",
           sv: "Parkering är inte omöjligt, men annorlunda än vid kusten. Räkna med skyltade eller yttre parkeringsytor, smala gator och en bit till fots. Under högsäsong bör ni ha extra tid."
@@ -728,18 +747,18 @@ export const frigilianaLocationCopy = {
   },
   closing: {
     title: {
-      en: "Choose the stay that fits your plans",
-      de: "Wählen Sie die Unterkunft, die zu Ihren Plänen passt",
-      es: "Elegid el alojamiento que encaje con vuestros planes",
-      nl: "Kies het verblijf dat bij uw plannen past",
-      sv: "Välj boendet som passar era planer"
+      en: "Compare the four Frigiliana apartments",
+      de: "Die vier Frigiliana-Apartments vergleichen",
+      es: "Comparar los cuatro apartamentos de Frigiliana",
+      nl: "Vergelijk de vier appartementen in Frigiliana",
+      sv: "Jämför de fyra lägenheterna i Frigiliana"
     },
     lead: {
-      en: "Explore AMARA apartments for couples, then check availability when you are ready.",
-      de: "Entdecken Sie die AMARA Apartments für Paare und prüfen Sie anschließend in Ruhe die Verfügbarkeit.",
-      es: "Explorad los apartamentos AMARA para parejas y consultad la disponibilidad cuando estéis listos.",
-      nl: "Ontdek de AMARA-appartementen voor koppels en bekijk daarna rustig de beschikbaarheid.",
-      sv: "Utforska AMARA:s lägenheter för par och kontrollera sedan tillgängligheten när ni är redo."
+      en: "See which apartments have a terrace, full kitchen or easier access, then check your dates.",
+      de: "Seht, welche Apartments eine Terrasse, eine vollständige Küche oder einen einfacheren Zugang haben, und prüft dann eure Reisedaten.",
+      es: "Ved qué apartamentos tienen terraza, cocina completa o un acceso más sencillo y consultad después vuestras fechas.",
+      nl: "Bekijk welke appartementen een terras, volledige keuken of makkelijkere toegang hebben en controleer daarna jullie data.",
+      sv: "Se vilka lägenheter som har terrass, komplett kök eller enklare tillträde och kontrollera sedan era datum."
     },
     availabilityCta: {
       en: "Check Availability",

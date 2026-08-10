@@ -32,7 +32,7 @@ export const frigilianaStreetsStairsSeo: AmaraAuthoringSeo = {
     nl: {
       title: 'Frigiliana: straatjes, hellingen & trappen',
       description:
-        'Begrijp de steile straatjes, trappen, ondergrond en hoogteniveaus van Frigiliana voordat u een verblijf kiest.',
+        'Begrijp de steile straatjes, trappen, ondergrond en hoogteniveaus van Frigiliana voordat jullie een verblijf kiezen.',
       robots: 'index, follow',
       canonical: 'auto'
     },
@@ -107,15 +107,15 @@ export const frigilianaStreetsStairsCopy = {
       en: 'Frigiliana is compact on a map, but it is built vertically. Short distances can include cobbled surfaces, steep gradients, and steps — and the same route feels different when you repeat it several times a day.',
       de: 'Frigiliana wirkt auf der Karte kompakt, ist aber vertikal gebaut. Kurze Entfernungen können Kopfsteinpflaster, starke Steigungen und Stufen enthalten – und dieselbe Strecke fühlt sich anders an, wenn ihr sie mehrmals täglich zurücklegt.',
       es: 'Frigiliana parece compacta en el mapa, pero está construida en vertical. Las distancias cortas pueden incluir empedrado, cuestas pronunciadas y escalones, y una misma ruta se siente distinta al repetirla varias veces al día.',
-      nl: 'Frigiliana lijkt compact op de kaart, maar is verticaal gebouwd. Korte afstanden kunnen kasseien, steile hellingen en trappen bevatten, en dezelfde route voelt anders wanneer u die meerdere keren per dag loopt.',
+      nl: 'Frigiliana lijkt compact op de kaart, maar is verticaal gebouwd. Korte afstanden kunnen kasseien, steile hellingen en trappen bevatten, en dezelfde route voelt anders wanneer jullie die meerdere keren per dag lopen.',
       sv: 'Frigiliana ser kompakt ut på kartan men är byggt på höjden. Korta avstånd kan innebära stenläggning, branta lutningar och trappor, och samma väg känns annorlunda när ni går den flera gånger om dagen.'
     } satisfies LocalizedText,
     body: {
-      en: 'This is not a warning against the village. It is a practical guide to choosing a location that fits your mobility, luggage, and daily rhythm.',
-      de: 'Das ist keine Warnung vor dem Dorf. Es ist eine praktische Orientierung, damit Lage, Mobilität, Gepäck und euer Tagesrhythmus zusammenpassen.',
-      es: 'No es una advertencia contra el pueblo. Es una guía práctica para elegir una ubicación que encaje con vuestra movilidad, equipaje y ritmo diario.',
-      nl: 'Dit is geen waarschuwing voor het dorp. Het is praktische uitleg om een locatie te kiezen die past bij uw mobiliteit, bagage en dagritme.',
-      sv: 'Det här är ingen varning för byn. Det är praktisk vägledning för att välja ett läge som passar er rörlighet, ert bagage och er vardagsrytm.'
+      en: 'This is not a warning against the village. It is a practical guide to choosing a street that works for your mobility, luggage and number of daily outings.',
+      de: 'Das ist keine Warnung vor dem Dorf. Es ist eine praktische Orientierung, damit Straße, Mobilität, Gepäck und die Zahl eurer täglichen Wege zusammenpassen.',
+      es: 'No es una advertencia contra el pueblo. Es una guía práctica para elegir una calle adecuada a vuestra movilidad, equipaje y número de salidas al día.',
+      nl: 'Dit is geen waarschuwing voor het dorp. Het is praktische uitleg om een locatie te kiezen die past bij jullie mobiliteit, bagage en dagelijkse plannen.',
+      sv: 'Det här är ingen varning för byn. Det är praktisk vägledning för att välja en gata som fungerar med er rörlighet, ert bagage och hur många gånger ni går ut per dag.'
     } satisfies LocalizedText,
     primaryCta: {
       en: 'Understand the village',
@@ -283,7 +283,7 @@ export const frigilianaStreetsStairsCopy = {
           en: 'Works well when you go out less often and enjoy walking as part of the stay.',
           de: 'Passt gut, wenn ihr seltener hinausgeht und das Gehen als Teil des Aufenthalts mögt.',
           es: 'Funciona bien si salís menos veces y disfrutáis caminar como parte de la estancia.',
-          nl: 'Past goed wanneer u minder vaak op pad gaat en wandelen bij het verblijf vindt horen.',
+          nl: 'Past goed wanneer jullie minder vaak op pad gaan en wandelen bij het verblijf vinden horen.',
           sv: 'Passar när ni går ut mer sällan och tycker om att promenader är en del av vistelsen.'
         } satisfies LocalizedText,
         tradeoff: {
@@ -305,11 +305,11 @@ export const frigilianaStreetsStairsCopy = {
           sv: 'Kan ge avskildhet och vid utsikt, oftast med mest stigning mot den historiska kärnan.'
         } satisfies LocalizedText,
         rhythm: {
-          en: 'Better suited to a retreat-style stay or fewer, longer outings.',
-          de: 'Eher passend für einen Rückzugsort oder weniger, dafür längere Ausflüge.',
-          es: 'Encaja mejor con una estancia de retiro o con menos salidas, pero más largas.',
-          nl: 'Past beter bij een rustig toevluchtsoord of minder, maar langere uitstapjes.',
-          sv: 'Passar bättre för en avskild vistelse eller färre men längre turer.'
+          en: 'Better if you plan fewer, longer outings and spend more time at the accommodation.',
+          de: 'Eher passend, wenn ihr seltener hinausgeht, dafür länger unterwegs seid und mehr Zeit in der Unterkunft verbringt.',
+          es: 'Mejor si planeáis menos salidas, pero más largas, y vais a pasar más tiempo en el alojamiento.',
+          nl: 'Past beter als jullie minder vaak, maar langer op pad gaan en meer tijd in het verblijf doorbrengen.',
+          sv: 'Passar bättre om ni gör färre men längre utflykter och tillbringar mer tid på boendet.'
         } satisfies LocalizedText,
         tradeoff: {
           en: 'Do not assume car access is easier: exact road access varies considerably.',
@@ -333,7 +333,7 @@ export const frigilianaStreetsStairsCopy = {
       en: 'Picture the whole day, not one walk',
       de: 'Stellt euch den ganzen Tag vor, nicht nur einen Weg',
       es: 'Imaginad el día completo, no un solo paseo',
-      nl: 'Stel u de hele dag voor, niet één wandeling',
+      nl: 'Denk aan de hele dag, niet aan één wandeling',
       sv: 'Föreställ er hela dagen, inte en enda promenad'
     } satisfies LocalizedText,
     intro: {
@@ -353,7 +353,7 @@ export const frigilianaStreetsStairsCopy = {
       en: 'If the final return still feels realistic for your group, the location is probably a good match.',
       de: 'Wenn sich auch der letzte Rückweg für eure Gruppe realistisch anfühlt, passt die Lage wahrscheinlich gut.',
       es: 'Si el último regreso sigue pareciendo realista para vuestro grupo, probablemente la ubicación encaja.',
-      nl: 'Als de laatste terugweg nog steeds realistisch voelt voor uw gezelschap, past de locatie waarschijnlijk goed.',
+      nl: 'Als de laatste terugweg nog steeds realistisch voelt voor jullie gezelschap, past de locatie waarschijnlijk goed.',
       sv: 'Om den sista hemvägen fortfarande känns realistisk för ert sällskap passar läget sannolikt bra.'
     } satisfies LocalizedText
   },
@@ -466,11 +466,11 @@ export const frigilianaStreetsStairsCopy = {
       sv: 'Den historiska kärnan följer sluttningen'
     } satisfies LocalizedText,
     body: {
-      en: 'Narrow lanes, irregular connections, and stepped passages are part of the historic fabric. They create the intimate scale and slow pace people come for — but they also make exact access an important part of choosing where to stay.',
-      de: 'Enge Gassen, unregelmäßige Verbindungen und gestufte Durchgänge gehören zur historischen Struktur. Sie schaffen den intimen Maßstab und das langsame Tempo, wegen derer Menschen kommen – machen den genauen Zugang aber auch zu einem wichtigen Teil der Unterkunftswahl.',
-      es: 'Las calles estrechas, las conexiones irregulares y los pasos escalonados forman parte del tejido histórico. Crean la escala íntima y el ritmo pausado que atraen al visitante, pero también convierten el acceso exacto en un criterio importante al elegir alojamiento.',
-      nl: 'Smalle straatjes, onregelmatige verbindingen en doorgangen met trappen horen bij het historische weefsel. Ze geven de intieme schaal en het rustige tempo waarvoor mensen komen, maar maken exacte toegang ook belangrijk bij de keuze van een verblijf.',
-      sv: 'Smala gränder, oregelbundna förbindelser och trappade passager hör till den historiska miljön. De skapar den intima skalan och det långsamma tempot som lockar besökare, men gör också exakt tillgänglighet viktig när ni väljer boende.'
+      en: 'Narrow lanes and stepped passages keep most traffic out of the historic centre. They also make the exact route from a parking or drop-off point an important part of choosing where to stay.',
+      de: 'Enge Gassen und gestufte Durchgänge halten den meisten Verkehr aus der historischen Altstadt heraus. Deshalb gehört der genaue Weg vom Parkplatz oder Ausstiegspunkt unbedingt zur Unterkunftswahl.',
+      es: 'Las calles estrechas y los pasos escalonados mantienen la mayor parte del tráfico fuera del casco histórico. Por eso, el camino exacto desde el aparcamiento o punto de bajada importa al elegir alojamiento.',
+      nl: 'Smalle steegjes en doorgangen met trappen houden het meeste verkeer buiten de historische kern. Daarom is de exacte route vanaf een parkeer- of uitstapplek belangrijk bij de keuze van een verblijf.',
+      sv: 'Smala gränder och trappade passager håller den mesta trafiken utanför den historiska kärnan. Därför är den exakta vägen från parkering eller avlämningsplats viktig när ni väljer boende.'
     } satisfies LocalizedText,
     imageAlt: {
       en: 'Historic lanes following the hillside in Frigiliana',
@@ -512,14 +512,14 @@ export const frigilianaStreetsStairsCopy = {
       en: 'Choose the route you will enjoy repeating.',
       de: 'Wählt den Weg, den ihr gern wiederholt.',
       es: 'Elegid la ruta que os guste repetir.',
-      nl: 'Kies de route die u graag herhaalt.',
+      nl: 'Kies de route die jullie graag herhalen.',
       sv: 'Välj den väg ni gärna går om och om igen.'
     } satisfies LocalizedText,
     lead: {
       en: 'The right location is not the one with the shortest line on a map. It is the one that keeps your real days comfortable.',
       de: 'Die richtige Lage ist nicht die mit der kürzesten Linie auf der Karte, sondern die, die eure tatsächlichen Tage angenehm macht.',
       es: 'La ubicación adecuada no es la que dibuja la línea más corta en el mapa, sino la que hace cómodos vuestros días reales.',
-      nl: 'De juiste locatie is niet die met de kortste lijn op de kaart, maar die uw echte dagen comfortabel houdt.',
+      nl: 'De juiste locatie is niet die met de kortste lijn op de kaart, maar die jullie echte dagen comfortabel houdt.',
       sv: 'Rätt läge är inte det med kortast linje på kartan, utan det som gör era verkliga dagar bekväma.'
     } satisfies LocalizedText,
     staysCta: {
