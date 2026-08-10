@@ -11,10 +11,6 @@ import {
   frigilianaStreetsStairsCopy,
   frigilianaStreetsStairsSeo
 } from '../../content/frigilianaStreetsStairsContent';
-import {
-  frigilianaPreFooterCopy,
-  getFrigilianaPreFooterDescription
-} from '../../content/frigilianaPreFooterContent';
 import LocationAuthorityLayout from '../../layouts/LocationAuthorityLayout.astro';
 import { getFrigilianaAuthoritySubnav } from '../../lib/frigiliana/frigilianaAuthoritySubnav';
 import { resolveOptionalLink } from '../../lib/linkResolver';
@@ -37,17 +33,8 @@ function t(row: LocalizedRow): string {
 }
 
 const streetsHref = buildOwnedLocalizedPath('frigiliana-streets-stairs', currentLang);
-const parkingHref = buildOwnedLocalizedPath('frigiliana-parking', currentLang);
 
-const sectionNavItems = getFrigilianaAuthoritySubnav(currentLang).map((item) =>
-  item.id === 'structure'
-    ? {
-        ...item,
-        href: streetsHref,
-        label: t(copy.nav.links[1].label)
-      }
-    : item
-);
+const sectionNavItems = getFrigilianaAuthoritySubnav(currentLang);
 
 const navLinks = copy.nav.links.map((link) => ({
   token: link.token,
@@ -60,17 +47,23 @@ const factors = copy.factors.items.map((item) => ({
   note: t(item.note)
 }));
 
-const zones = copy.zones.items.map((item) => ({
+const locationModels = copy.models.items.map((item) => ({
   number: item.number,
   title: t(item.title),
   summary: t(item.summary),
-  rhythm: t(item.rhythm),
+  fit: t(item.fit),
+  daily: t(item.daily),
   tradeoff: t(item.tradeoff)
 }));
 
-const rhythmSteps = copy.rhythm.steps.map((step) => ({
+const dailyRouteSteps = copy.dailyRoute.steps.map((step) => ({
   number: step.number,
   label: t(step.label)
+}));
+
+const fitGuideItems = copy.fitGuide.items.map((item) => ({
+  title: t(item.title),
+  text: t(item.text)
 }));
 
 const selfCheckSteps = copy.selfCheck.steps.map((step) => ({
@@ -93,7 +86,7 @@ const relatedLinks = copy.related.links.flatMap((link) => {
     ? [{
         href,
         label: t(link.label),
-        text: getFrigilianaPreFooterDescription(link.token, currentLang)
+        text: t(link.text)
       }]
     : [];
 });
@@ -119,7 +112,7 @@ const heroImage = {
   height: 1333
 };
 
-const contextImage = {
+const proofImage = {
   src: '/images/amara-frigiliana-pueblo/JPG_Frigiliana_Pueblo/2000px_72dpi_sRGB/04-frigiliana-pueblo.jpg',
   width: 2000,
   height: 1333
@@ -140,7 +133,7 @@ const contextImage = {
     languageToken="frigiliana_stairs"
     locationAuthorityNav={true}
   />
-  <LocationContextNav items={sectionNavItems} activeId="structure" lang={currentLang} />
+  <LocationContextNav items={sectionNavItems} activeId="stay" lang={currentLang} />
 
   <div data-am-page="frigiliana-streets-stairs">
     <div class="w-full">
@@ -156,7 +149,7 @@ const contextImage = {
         <h1 class="am-text-display italic text-on-surface mb-10 tracking-tighter">
           {t(copy.hero.title)}
         </h1>
-        <div class="pl-10 border-l border-primary/20 max-w-xl mb-14 space-y-6">
+        <div class="pl-7 border-l border-primary/20 max-w-xl mb-12 space-y-5 md:pl-10 md:mb-14 md:space-y-6">
           <p class="am-text-body text-on-surface-variant leading-relaxed">
             {t(copy.hero.lead)}
           </p>
@@ -165,23 +158,17 @@ const contextImage = {
           </p>
         </div>
         <div class="flex flex-wrap gap-4">
-          <a
-            href="#village-levels"
-            class="am-btn am-btn--primary"
-          >
+          <a href="#location-models" class="am-btn am-btn--primary">
             {t(copy.hero.primaryCta)}
           </a>
-          <a
-            href={parkingHref}
-            class="am-btn am-btn--secondary"
-          >
+          <a href="#daily-route" class="am-btn am-btn--secondary">
             {t(copy.hero.secondaryCta)}
           </a>
         </div>
       </Hero>
 
-      <section class="max-w-screen-2xl mx-auto px-12 pb-32">
-        <div class="max-w-4xl mb-16">
+      <section class="max-w-screen-2xl mx-auto px-12 pb-24 md:pb-32">
+        <div class="max-w-4xl mb-14 md:mb-16">
           <span class="am-text-caption uppercase tracking-[0.35em] text-primary block mb-6">
             {t(copy.principle.eyebrow)}
           </span>
@@ -192,8 +179,8 @@ const contextImage = {
             {t(copy.principle.body)}
           </p>
         </div>
-        <h3 class="am-text-subtitle text-on-surface mb-12">{t(copy.factors.title)}</h3>
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-12 gap-y-12">
+        <h3 class="am-text-subtitle text-on-surface mb-10 md:mb-12">{t(copy.factors.title)}</h3>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-12 gap-y-10 md:gap-y-12">
           {
             factors.map((factor) => (
               <HairlineStatCard
@@ -207,53 +194,61 @@ const contextImage = {
       </section>
 
       <section
-        id="village-levels"
+        id="location-models"
         class="bg-surface-container-low border-y border-outline-variant/5"
       >
-        <div class="max-w-screen-2xl mx-auto px-12 py-32">
-          <div class="max-w-3xl mb-20">
+        <div class="max-w-screen-2xl mx-auto px-12 py-24 md:py-32">
+          <div class="max-w-3xl mb-16 md:mb-20">
             <span class="am-text-caption uppercase tracking-[0.35em] text-primary block mb-6">
-              {t(copy.zones.eyebrow)}
+              {t(copy.models.eyebrow)}
             </span>
             <h2 class="am-text-title italic text-on-surface tracking-tight mb-8">
-              {t(copy.zones.title)}
+              {t(copy.models.title)}
             </h2>
             <p class="am-text-body text-on-surface-variant leading-relaxed">
-              {t(copy.zones.intro)}
+              {t(copy.models.intro)}
             </p>
           </div>
 
-          <div class="grid grid-cols-1 lg:grid-cols-3 gap-x-12 gap-y-16">
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-x-16 gap-y-16 lg:gap-y-20">
             {
-              zones.map((zone) => (
+              locationModels.map((model) => (
                 <article class="border-t border-outline-variant/25 pt-8">
-                  <div class="flex items-baseline justify-between gap-6 mb-10">
-                    <h3 class="am-text-subtitle text-on-surface">{zone.title}</h3>
+                  <div class="flex items-start justify-between gap-6 mb-8">
+                    <h3 class="am-text-subtitle text-on-surface max-w-md">{model.title}</h3>
                     <span
-                      class="font-headline text-[clamp(2.5rem,5vw,4.75rem)] italic leading-none text-outline-variant/45"
+                      class="font-headline text-[clamp(2.5rem,5vw,4.5rem)] italic leading-none text-outline-variant/45"
                       aria-hidden="true"
                     >
-                      {zone.number}
+                      {model.number}
                     </span>
                   </div>
-                  <p class="am-text-body text-on-surface-variant leading-relaxed">
-                    {zone.summary}
+                  <p class="am-text-body text-on-surface-variant leading-relaxed max-w-xl">
+                    {model.summary}
                   </p>
-                  <dl class="mt-10 divide-y divide-outline-variant/10 border-y border-outline-variant/10">
-                    <div class="py-6">
+                  <dl class="mt-8 divide-y divide-outline-variant/10 border-y border-outline-variant/10">
+                    <div class="py-5">
                       <dt class="am-text-caption uppercase tracking-[0.16em] text-primary mb-3">
-                        {t(copy.zones.labels.rhythm)}
+                        {t(copy.models.labels.fit)}
                       </dt>
-                      <dd class="am-text-body text-on-surface-variant leading-relaxed">
-                        {zone.rhythm}
+                      <dd class="am-text-body text-on-surface leading-relaxed">
+                        {model.fit}
                       </dd>
                     </div>
-                    <div class="py-6">
+                    <div class="py-5">
                       <dt class="am-text-caption uppercase tracking-[0.16em] text-primary mb-3">
-                        {t(copy.zones.labels.tradeoff)}
+                        {t(copy.models.labels.daily)}
                       </dt>
                       <dd class="am-text-body text-on-surface-variant leading-relaxed">
-                        {zone.tradeoff}
+                        {model.daily}
+                      </dd>
+                    </div>
+                    <div class="py-5">
+                      <dt class="am-text-caption uppercase tracking-[0.16em] text-primary mb-3">
+                        {t(copy.models.labels.tradeoff)}
+                      </dt>
+                      <dd class="am-text-body text-on-surface-variant leading-relaxed">
+                        {model.tradeoff}
                       </dd>
                     </div>
                   </dl>
@@ -264,34 +259,95 @@ const contextImage = {
         </div>
       </section>
 
-      <section class="max-w-screen-2xl mx-auto px-12 py-32">
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
-          <div class="lg:col-span-5">
+      <section class="max-w-screen-2xl mx-auto px-12 py-24 md:py-32">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+          <div class="am-mobile-full-bleed am-mobile-full-bleed--wide lg:col-span-6">
+            <AmaraImage
+              src={proofImage.src}
+              alt={t(copy.proof.imageAlt)}
+              profile="card"
+              class="w-full aspect-[4/3] object-cover"
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
+          <div class="lg:col-span-6 lg:pl-10">
             <span class="am-text-caption uppercase tracking-[0.35em] text-primary block mb-6">
-              {t(copy.rhythm.eyebrow)}
+              {t(copy.proof.eyebrow)}
             </span>
             <h2 class="am-text-title italic text-on-surface tracking-tight mb-8">
-              {t(copy.rhythm.title)}
+              {t(copy.proof.title)}
             </h2>
-            <p class="am-text-body text-on-surface-variant leading-relaxed mb-8">
-              {t(copy.rhythm.intro)}
-            </p>
-            <p class="am-text-body text-on-surface leading-relaxed border-l border-primary/30 pl-7">
-              {t(copy.rhythm.conclusion)}
+            <div class="space-y-6 max-w-xl">
+              {
+                copy.proof.paragraphs.map((paragraph) => (
+                  <p class="am-text-body text-on-surface-variant leading-relaxed">{t(paragraph)}</p>
+                ))
+              }
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section
+        id="daily-route"
+        class="bg-surface-container-low border-y border-outline-variant/5"
+      >
+        <div class="max-w-screen-2xl mx-auto px-12 py-24 md:py-32">
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-14 lg:gap-16 items-start">
+            <div class="lg:col-span-5">
+              <span class="am-text-caption uppercase tracking-[0.35em] text-primary block mb-6">
+                {t(copy.dailyRoute.eyebrow)}
+              </span>
+              <h2 class="am-text-title italic text-on-surface tracking-tight mb-8">
+                {t(copy.dailyRoute.title)}
+              </h2>
+              <p class="am-text-body text-on-surface-variant leading-relaxed mb-8">
+                {t(copy.dailyRoute.intro)}
+              </p>
+              <p class="am-text-body text-on-surface leading-relaxed border-l border-primary/30 pl-7">
+                {t(copy.dailyRoute.conclusion)}
+              </p>
+            </div>
+            <ol class="lg:col-span-7 border-t border-outline-variant/15">
+              {
+                dailyRouteSteps.map((step) => (
+                  <li class="grid grid-cols-[auto_1fr] gap-6 md:gap-8 items-center py-6 md:py-7 border-b border-outline-variant/15">
+                    <span class="font-headline text-4xl italic leading-none text-outline-variant/60" aria-hidden="true">
+                      {step.number}
+                    </span>
+                    <span class="am-text-subtitle text-on-surface">{step.label}</span>
+                  </li>
+                ))
+              }
+            </ol>
+          </div>
+        </div>
+      </section>
+
+      <section class="max-w-screen-2xl mx-auto px-12 py-24 md:py-32">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
+          <div class="lg:col-span-4">
+            <span class="am-text-caption uppercase tracking-[0.35em] text-primary block mb-6">
+              {t(copy.fitGuide.eyebrow)}
+            </span>
+            <h2 class="am-text-title italic text-on-surface tracking-tight mb-8">
+              {t(copy.fitGuide.title)}
+            </h2>
+            <p class="am-text-body text-on-surface-variant leading-relaxed">
+              {t(copy.fitGuide.intro)}
             </p>
           </div>
-          <ol class="lg:col-span-7 border-t border-outline-variant/15">
+          <div class="lg:col-span-7 lg:col-start-6 grid grid-cols-1 sm:grid-cols-2 gap-x-10 gap-y-10">
             {
-              rhythmSteps.map((step) => (
-                <li class="grid grid-cols-[auto_1fr] gap-8 items-center py-8 border-b border-outline-variant/15">
-                  <span class="font-headline text-4xl italic leading-none text-outline-variant/60" aria-hidden="true">
-                    {step.number}
-                  </span>
-                  <span class="am-text-subtitle text-on-surface">{step.label}</span>
-                </li>
+              fitGuideItems.map((item) => (
+                <article class="border-t border-outline-variant/20 pt-7">
+                  <h3 class="am-text-subtitle text-on-surface mb-5">{item.title}</h3>
+                  <p class="am-text-body text-on-surface-variant leading-relaxed">{item.text}</p>
+                </article>
               ))
             }
-          </ol>
+          </div>
         </div>
       </section>
 
@@ -302,38 +358,10 @@ const contextImage = {
         items={faqItems}
       />
 
-      <section class="bg-surface-container-low border-y border-outline-variant/5">
-        <div class="max-w-screen-2xl mx-auto px-12 py-32">
-          <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
-            <div class="am-mobile-full-bleed am-mobile-full-bleed--wide lg:col-span-6">
-              <AmaraImage
-                src={contextImage.src}
-                alt={t(copy.context.imageAlt)}
-                profile="card"
-                class="w-full aspect-[4/3] object-cover"
-                loading="lazy"
-                decoding="async"
-              />
-            </div>
-            <div class="lg:col-span-6 lg:pl-10">
-              <span class="am-text-caption uppercase tracking-[0.35em] text-primary block mb-6">
-                {t(copy.context.eyebrow)}
-              </span>
-              <h2 class="am-text-title italic text-on-surface tracking-tight mb-8">
-                {t(copy.context.title)}
-              </h2>
-              <p class="am-text-body text-on-surface-variant leading-relaxed max-w-xl">
-                {t(copy.context.body)}
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
       <EditorialGuideLinkSection
-        eyebrow={frigilianaPreFooterCopy.eyebrow[currentLang]}
+        eyebrow={t(copy.related.eyebrow)}
         title={t(copy.related.title)}
-        intro={frigilianaPreFooterCopy.intro[currentLang]}
+        intro={t(copy.related.intro)}
         links={relatedLinks}
       />
 
@@ -344,13 +372,13 @@ const contextImage = {
           lang={currentLang}
           links={[
             {
-              token: 'romantic_hideaways',
-              label: t(copy.closing.staysCta),
+              token: 'location_frigiliana',
+              label: t(copy.closing.hubCta),
               style: 'primary'
             },
             {
-              token: 'frigiliana_parking',
-              label: t(copy.closing.parkingCta),
+              token: 'romantic_hideaways',
+              label: t(copy.closing.staysCta),
               style: 'secondary'
             }
           ]}
