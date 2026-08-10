@@ -38,29 +38,9 @@ function t(row: LocalizedRow): string {
   return row[currentLang] ?? row.en;
 }
 
-const parkingHref = buildOwnedLocalizedPath('frigiliana-parking', currentLang);
 const streetsHref = buildOwnedLocalizedPath('frigiliana-streets-stairs', currentLang);
 
-const sectionNavItems = getFrigilianaAuthoritySubnav(currentLang)
-  .map((item) => {
-    if (item.id === 'structure') {
-      return {
-        ...item,
-        href: streetsHref,
-        label: t(copy.nav.links[2].label)
-      };
-    }
-
-    if (item.id === 'arrival') {
-      return {
-        ...item,
-        href: parkingHref,
-        label: t(copy.nav.links[1].label)
-      };
-    }
-
-    return item;
-  });
+const sectionNavItems = getFrigilianaAuthoritySubnav(currentLang);
 
 const navLinks = copy.nav.links.map((link) => ({
   token: link.token,
@@ -157,7 +137,7 @@ const timingImage = {
     languageToken="frigiliana_parking"
     locationAuthorityNav={true}
   />
-  <LocationContextNav items={sectionNavItems} activeId="arrival" lang={currentLang} />
+  <LocationContextNav items={sectionNavItems} activeId="parking" lang={currentLang} />
 
   <div data-am-page="frigiliana-parking">
     <div class="w-full">

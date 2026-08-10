@@ -6,6 +6,7 @@ import ContextNavigation, {
   type ContextNavigationBreadcrumb
 } from '../navigation/ContextNavigation.astro';
 import {
+  getFrigilianaAuthorityCurrentPageLabel,
   getFrigilianaAuthoritySubnav,
   type FrigilianaAuthoritySubnavId,
   type FrigilianaAuthoritySubnavItem
@@ -21,7 +22,15 @@ interface Props {
 
 const { activeId, items, lang } = Astro.props;
 const navigationItems = items ?? getFrigilianaAuthoritySubnav(lang);
-const currentLabel = navigationItems.find((item) => item.id === activeId)?.label;
+const activeItem = navigationItems.find((item) => item.id === activeId);
+const normalizePathname = (pathname: string) => pathname.replace(/\/+$/, '') || '/';
+const activeItemOwnsCurrentPage = activeItem
+  ? normalizePathname(new URL(activeItem.href, Astro.url).pathname) ===
+    normalizePathname(Astro.url.pathname)
+  : false;
+const currentLabel = activeItemOwnsCurrentPage
+  ? activeItem?.label
+  : getFrigilianaAuthorityCurrentPageLabel(activeId, lang);
 const isOverview = activeId === 'intro';
 
 const labels: Record<

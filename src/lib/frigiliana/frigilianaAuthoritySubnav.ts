@@ -3,12 +3,12 @@ import type { AmaraLanguage } from '../../types/seo';
 
 export type FrigilianaAuthoritySubnavId =
   | 'intro'
-  | 'weather'
-  | 'comparison'
-  | 'structure'
   | 'stay'
-  | 'dosTumbas'
+  | 'comparison'
   | 'arrival'
+  | 'parking'
+  | 'weather'
+  | 'dosTumbas'
   | 'faq';
 
 export type FrigilianaAuthoritySubnavItem = {
@@ -17,44 +17,70 @@ export type FrigilianaAuthoritySubnavItem = {
   href: string;
 };
 
-const labels: Record<
+type VisibleFrigilianaAuthoritySubnavId = Exclude<
+  FrigilianaAuthoritySubnavId,
+  'intro' | 'dosTumbas' | 'faq'
+>;
+
+const visibleLabels: Record<
+  VisibleFrigilianaAuthoritySubnavId,
+  Record<AmaraLanguage, string>
+> = {
+  stay: {
+    en: 'Where to Stay',
+    de: 'Wo übernachten',
+    es: 'Dónde alojarse',
+    nl: 'Waar overnachten',
+    sv: 'Var ska man bo'
+  },
+  comparison: {
+    en: 'Frigiliana or Nerja',
+    de: 'Frigiliana oder Nerja',
+    es: 'Frigiliana o Nerja',
+    nl: 'Frigiliana of Nerja',
+    sv: 'Frigiliana eller Nerja'
+  },
+  arrival: {
+    en: 'Getting Here',
+    de: 'Anreise',
+    es: 'Cómo llegar',
+    nl: 'Erheen reizen',
+    sv: 'Resa hit'
+  },
+  parking: {
+    en: 'Parking',
+    de: 'Parken',
+    es: 'Aparcamiento',
+    nl: 'Parkeren',
+    sv: 'Parkering'
+  },
+  weather: {
+    en: 'Weather & Seasons',
+    de: 'Wetter & Jahreszeiten',
+    es: 'Clima y estaciones',
+    nl: 'Weer & seizoenen',
+    sv: 'Väder & årstider'
+  }
+};
+
+const currentPageLabels: Record<
   FrigilianaAuthoritySubnavId,
   Record<AmaraLanguage, string>
 > = {
   intro: {
-    en: 'Highlights & Orientation',
-    de: 'Überblick & Orientierung',
-    es: 'Lo esencial y orientación',
-    nl: 'Hoogtepunten & oriëntatie',
-    sv: 'Höjdpunkter & orientering'
+    en: 'Frigiliana',
+    de: 'Frigiliana',
+    es: 'Frigiliana',
+    nl: 'Frigiliana',
+    sv: 'Frigiliana'
   },
-  weather: {
-    en: 'Weather & Climate',
-    de: 'Wetter & Klima',
-    es: 'Tiempo y clima',
-    nl: 'Weer & klimaat',
-    sv: 'Väder & klimat'
-  },
-  comparison: {
-    en: 'Frigiliana vs Nerja',
-    de: 'Frigiliana vs Nerja',
-    es: 'Frigiliana vs Nerja',
-    nl: 'Frigiliana vs Nerja',
-    sv: 'Frigiliana vs Nerja'
-  },
-  structure: {
-    en: 'Village Structure',
-    de: 'Dorfstruktur',
-    es: 'Estructura del pueblo',
-    nl: 'Dorpsstructuur',
-    sv: 'Bystruktur'
-  },
-  stay: {
-    en: 'Where to Stay',
-    de: 'Unterkunft',
-    es: 'Dónde alojarse',
-    nl: 'Overnachten',
-    sv: 'Boende'
+  ...visibleLabels,
+  arrival: {
+    en: 'Arrival Guide',
+    de: 'Anreise',
+    es: 'Llegada',
+    nl: 'Aankomst',
+    sv: 'Ankomst'
   },
   dosTumbas: {
     en: 'Netflix Locations',
@@ -63,87 +89,50 @@ const labels: Record<
     nl: 'Netflix-locaties',
     sv: 'Netflix-platser'
   },
-  arrival: {
-    en: 'Arrival Guide',
-    de: 'Anreise',
-    es: 'Llegada',
-    nl: 'Aankomst',
-    sv: 'Ankomst'
-  },
-  faq: { en: 'FAQ', de: 'FAQ', es: 'FAQ', nl: 'FAQ', sv: 'FAQ' }
+  faq: {
+    en: 'FAQ',
+    de: 'FAQ',
+    es: 'FAQ',
+    nl: 'FAQ',
+    sv: 'FAQ'
+  }
 };
 
-const locationAnchors: Record<
-  Exclude<FrigilianaAuthoritySubnavId, 'arrival' | 'weather' | 'faq'>,
-  string
-> = {
-  intro: '#intro',
-  comparison: '#comparison',
-  structure: '#experiences',
-  stay: '#where-to-stay'
-};
+export function getFrigilianaAuthorityCurrentPageLabel(
+  id: FrigilianaAuthoritySubnavId,
+  currentLang: AmaraLanguage
+): string {
+  return currentPageLabels[id][currentLang];
+}
 
 export function getFrigilianaAuthoritySubnav(
   currentLang: AmaraLanguage
 ): FrigilianaAuthoritySubnavItem[] {
-  const locationBase = resolveLink('location_frigiliana', currentLang);
-  const comparisonHref = resolveLink('nerja_vs_frigiliana', currentLang);
-
-  const locationItems: FrigilianaAuthoritySubnavItem[] = (
-    Object.keys(locationAnchors) as Array<
-      Exclude<FrigilianaAuthoritySubnavId, 'arrival' | 'weather' | 'faq'>
-    >
-  ).map((id) => ({
-    id,
-    label: labels[id][currentLang],
-    href:
-      id === 'comparison'
-        ? comparisonHref
-        : `${locationBase}${locationAnchors[id]}`
-  }));
-
-  const arrivalItem: FrigilianaAuthoritySubnavItem = {
-    id: 'arrival',
-    label: labels.arrival[currentLang],
-    href: resolveLink('arrival_guide', currentLang)
-  };
-
-  const weatherItem: FrigilianaAuthoritySubnavItem = {
-    id: 'weather',
-    label: labels.weather[currentLang],
-    href: resolveLink('weather_frigiliana', currentLang)
-  };
-
-  const faqItem: FrigilianaAuthoritySubnavItem = {
-    id: 'faq',
-    label: labels.faq[currentLang],
-    href: resolveLink('frigiliana_faq', currentLang)
-  };
-
-  const dosTumbasItem: FrigilianaAuthoritySubnavItem = {
-    id: 'dosTumbas',
-    label: labels.dosTumbas[currentLang],
-    href: resolveLink('frigiliana_netflix_dos_tumbas', currentLang)
-  };
-
-  const ordered: FrigilianaAuthoritySubnavId[] = [
-    'intro',
-    'weather',
-    'comparison',
-    'structure',
-    'stay',
-    'dosTumbas',
-    'arrival',
-    'faq'
+  return [
+    {
+      id: 'stay',
+      label: visibleLabels.stay[currentLang],
+      href: resolveLink('frigiliana_stairs', currentLang)
+    },
+    {
+      id: 'comparison',
+      label: visibleLabels.comparison[currentLang],
+      href: resolveLink('nerja_vs_frigiliana', currentLang)
+    },
+    {
+      id: 'arrival',
+      label: visibleLabels.arrival[currentLang],
+      href: resolveLink('getting_to_frigiliana', currentLang)
+    },
+    {
+      id: 'parking',
+      label: visibleLabels.parking[currentLang],
+      href: resolveLink('frigiliana_parking', currentLang)
+    },
+    {
+      id: 'weather',
+      label: visibleLabels.weather[currentLang],
+      href: resolveLink('weather_frigiliana', currentLang)
+    }
   ];
-
-  const byId = new Map<FrigilianaAuthoritySubnavId, FrigilianaAuthoritySubnavItem>([
-    ...locationItems.map((i) => [i.id, i] as const),
-    ['arrival', arrivalItem],
-    ['weather', weatherItem],
-    ['faq', faqItem],
-    ['dosTumbas', dosTumbasItem]
-  ]);
-
-  return ordered.map((id) => byId.get(id)!).filter(Boolean);
 }
