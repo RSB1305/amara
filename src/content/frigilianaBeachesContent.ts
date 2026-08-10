@@ -840,9 +840,9 @@ export const frigilianaBeachesContent: Record<
       kicker: 'Kustgids',
       title: 'Stranden bij Frigiliana & Nerja — kies wat bij de dag past',
       paragraphs: [
-        'De charme van deze streek zit in het contrast: u wordt wakker in het koelere, rustige Frigiliana en staat korte tijd later aan de Middellandse Zee. Vanuit Nerja wordt diezelfde kust bijna vanzelf onderdeel van de dag.',
-        'Dat levert twee verschillende strandritmes op. Vanuit het binnenland loont een bewuste timing; in Nerja kunt u spontaner vertrekken, maar belandt u ook sneller in de drukste uren.',
-        'Dit is onze eerlijke selectie voor koppels: zes stranden, hun sterke kanten en wat u vooraf echt wilt weten.'
+        'De charme van deze streek zit in het contrast: jullie worden wakker in het koelere, rustige Frigiliana en staan korte tijd later aan de Middellandse Zee. Vanuit Nerja wordt diezelfde kust bijna vanzelf onderdeel van de dag.',
+        'Vanuit het binnenland loont een bewuste timing; in Nerja kunnen jullie spontaner vertrekken, maar belanden jullie ook sneller in de drukste uren.',
+        'Dit is onze eerlijke selectie voor koppels: zes stranden, hun sterke kanten en wat jullie vooraf echt willen weten.'
       ],
       imageAlt:
         'Palmbomen en de Middellandse Zeekust bij AMARA Playa in Nerja'
@@ -858,7 +858,7 @@ export const frigilianaBeachesContent: Record<
     overview: {
       title: 'Twee nabije kuststroken, twee verschillende sferen',
       intro:
-        'Nerja en Maro liggen vlak bij elkaar, maar voelen zelden hetzelfde. De beste keuze draait minder om ranglijstjes dan om timing, zeecondities en hoeveel comfort u die dag zoekt.',
+        'Nerja en Maro liggen vlak bij elkaar, maar voelen zelden hetzelfde. De beste keuze draait minder om ranglijstjes dan om timing, zeecondities en hoeveel comfort jullie die dag zoeken.',
       items: [
         {
           title: 'Nerja',
@@ -954,7 +954,7 @@ export const frigilianaBeachesContent: Record<
             title: 'Playa Burriana',
             bestFor: 'Een comfortabele hele dag met alles dichtbij',
             description:
-              'Burriana is breed, levendig en goed uitgerust. Het werkt wanneer u douches, ligbedden, watersport en restaurants wilt zonder de auto opnieuw te verplaatsen.',
+              'Burriana is breed, levendig en goed uitgerust. Het werkt wanneer jullie douches, ligbedden, watersport en restaurants willen zonder de auto opnieuw te verplaatsen.',
             tip:
               'Dit wordt moeiteloos een fijne dag samen: ’s ochtends zwemmen, lang lunchen — bijvoorbeeld met paella bij Chiringuito AYO — en afsluiten met een strandwandeling.',
             mapHref: beachMaps.burriana
@@ -1002,7 +1002,7 @@ export const frigilianaBeachesContent: Record<
         {
           title: 'Uitrusting',
           text:
-            'Neem voor Maro en de rustige baaien uw eigen snorkelspullen mee. De grotere stadsstranden zijn makkelijker als u verhuur en voorzieningen dichtbij wilt.'
+            'Neem voor Maro en de rustige baaien jullie eigen snorkelspullen mee. De grotere stadsstranden zijn makkelijker als jullie verhuur en voorzieningen dichtbij willen.'
         },
         {
           title: 'Eten',
@@ -1019,7 +1019,7 @@ export const frigilianaBeachesContent: Record<
       }
     },
     combine: {
-      title: 'Combineer uw dag',
+      title: 'Combineer jullie dag',
       intro:
         'De kust werkt bijzonder goed wanneer het strand een onderdeel van de dag is en niet het volledige programma.',
       items: [
@@ -1042,7 +1042,7 @@ export const frigilianaBeachesContent: Record<
     closing: {
       title: 'Na het strand',
       lead:
-        'Spoel het zout af, laat de levendige kust achter u en kom tot rust in Frigiliana — of verblijf in Nerja dichtbij genoeg om vanaf zee terug te lopen.',
+        'Spoel het zout af, laat de levendige kust achter jullie en keer terug naar Frigiliana — of verblijf in Nerja dichtbij genoeg om vanaf zee terug te lopen.',
       availabilityCta: 'Beschikbaarheid bekijken',
       apartmentsCta: 'Appartementen bekijken'
     }

@@ -1277,8 +1277,8 @@ export const frigilianaFestivalsContent: Record<
         'Feesten in Frigiliana & Nerja — een jaar in het ritme van traditie',
       paragraphs: [
         'De Axarquía verandert het hele jaar door van ritme: rustige dorpsstraten vullen zich met processies, versierde wagens trekken door Nerja en zomeravonden verplaatsen zich naar het strand of de oude wijk van Frigiliana.',
-        'Deze gids helpt u een reisperiode te kiezen en vooraf te begrijpen welke sfeer u kunt verwachten. Terugkerende tradities worden gecombineerd met een klein aantal data dat voor 2026 officieel is bevestigd.',
-        'Exacte routes, tijden en programma’s kunnen veranderen, ook als een feest aan een traditionele datum is verbonden. Gebruik de kalender als planningsoverzicht en controleer de gelinkte officiële informatie kort voor uw bezoek.'
+        'Deze gids helpt jullie een reisperiode te kiezen en vooraf te begrijpen wat jullie kunnen verwachten. Terugkerende tradities worden gecombineerd met een klein aantal data dat voor 2026 officieel is bevestigd.',
+        'Exacte routes, tijden en programma’s kunnen veranderen, ook als een feest aan een traditionele datum is verbonden. Gebruik de kalender als planningsoverzicht en controleer de gelinkte officiële informatie kort voor jullie bezoek.'
       ],
       imageAlt:
         'Het witte dorp Frigiliana boven de heuvels en de Middellandse Zeekust'
@@ -1290,7 +1290,7 @@ export const frigilianaFestivalsContent: Record<
       planning: 'Goed plannen'
     },
     overview: {
-      title: 'Begin met het soort dag dat u wilt beleven',
+      title: 'Begin met het soort dag dat jullie willen beleven',
       intro:
         'Een dorpsfeest rond een heilige, een plechtige processie en een groot zomerfestival voelen totaal verschillend. Kies eerst de sfeer en gebruik daarna de datumstatus om met de juiste mate van zekerheid te plannen.',
       reviewed: 'Redactioneel gecontroleerd: juli 2026',
@@ -1514,7 +1514,7 @@ export const frigilianaFestivalsContent: Record<
       ]
     },
     experiences: {
-      title: 'Vier feesten waarvoor u bewust kunt reizen',
+      title: 'Vier feesten waarvoor jullie bewust kunnen reizen',
       intro:
         'Dit zijn meer dan kalenderdata. Ze veranderen straten, vervoer en openbare ruimte; daarom is de praktische context even belangrijk als het spektakel.',
       items: [
@@ -1547,7 +1547,7 @@ export const frigilianaFestivalsContent: Record<
           description:
             'Versierde wagens, paarden, traditionele kleding en muziek begeleiden de bedevaart vanuit het centrum van Nerja naar het grottenterrein. Het is kleurrijk, sociaal en een van de meest breed gedragen dagen in de streek.',
           planningNote:
-            'Reken op een lange, warme dag en grote verkeerswijzigingen. Begin in Nerja als u het vertrek wilt zien en gebruik speciaal vervoer als de gemeente dat voor uw bezoek bevestigt.',
+            'Reken op een lange, warme dag en grote verkeerswijzigingen. Begin in Nerja als jullie het vertrek willen zien en gebruik speciaal vervoer als de gemeente dat voor jullie bezoek bevestigt.',
           officialHref: officialLinks.sanIsidro2026
         },
         {
@@ -1564,7 +1564,7 @@ export const frigilianaFestivalsContent: Record<
       ]
     },
     planning: {
-      title: 'Beleef het feest zonder uw vakantie vol te plannen',
+      title: 'Beleef het feest zonder jullie vakantie vol te plannen',
       intro:
         'Met wat voorbereiding verlopen deze dagen veel rustiger. Programma’s verschijnen vaak kort voor het feest, terwijl toegang en parkeren al door repetities, processies en avondpieken kunnen veranderen.',
       items: [
@@ -1607,7 +1607,7 @@ export const frigilianaFestivalsContent: Record<
         {
           title: 'Begin met een paar uur aan zee',
           text:
-            'Bij zomerfeesten maakt een rustige ochtend aan de kust de late avond veel aangenamer. Kies het strand bij de omstandigheden die u prettig vindt.',
+            'Bij zomerfeesten maakt een rustige ochtend aan de kust de late avond veel aangenamer. Kies het strand bij de omstandigheden die jullie prettig vinden.',
           linkToken: 'frigiliana_beaches_authority',
           linkLabel: 'Bekijk de strandgids'
         }

@@ -751,7 +751,7 @@ export const frigilianaHikingContent: Record<
         'Wandelen en natuur rond Frigiliana — de Sierra Almijara in',
       paragraphs: [
         'De meeste bezoekers worden naar de kust getrokken, maar direct achter Frigiliana begint een andere wereld, met een eigen ritme. Het dorp ligt aan de rand van natuurpark Sierras de Tejeda, Almijara y Alhama: een beschermd landschap van ruige kalkpieken, dennenbossen en stilte.',
-        'Voor stellen biedt dat een mooie balans: ’s ochtends de paden op met weids uitzicht over de Middellandse Zee, ’s middags rustig terug in het dorp. Hieronder vindt u onze selectie, gerangschikt op inspanning — van een ontspannen ommetje tot een echte topwandeling.',
+        'Voor stellen werkt dat goed: ’s ochtends de paden op met weids uitzicht over de Middellandse Zee, ’s middags terug in het dorp. Hieronder vinden jullie onze selectie, gerangschikt op inspanning — van een ontspannen ommetje tot een echte topwandeling.',
         'Handig om te weten: bij deze routes zijn passende tracks te vinden op Komoot en Wikiloc.'
       ],
       imageAlt:
@@ -780,7 +780,7 @@ export const frigilianaHikingContent: Record<
             experience:
               'Open hellingen en weids uitzicht op de kust, direct boven het dorp.',
             text:
-              'Een panoramische rondwandeling boven Frigiliana, over open hellingen met een weids uitzicht richting de kust. Na regen is dit een van de betrouwbaardere routes, omdat de ondergrond snel opdroogt. Tip: begin aan de bovenrand van het dorp; dan krijgt u het mooiste uitzicht meteen aan het begin.'
+              'Een panoramische rondwandeling boven Frigiliana, over open hellingen met een weids uitzicht richting de kust. Na regen is dit een van de betrouwbaardere routes, omdat de ondergrond snel opdroogt. Tip: begin aan de bovenrand van het dorp; dan krijgen jullie het mooiste uitzicht meteen aan het begin.'
           },
           {
             title: 'El Fuerte (tot aan de uitzichtpunten)',
@@ -789,7 +789,7 @@ export const frigilianaHikingContent: Record<
             experience:
               'Indrukwekkend uitzicht ruim vóór de top — ideaal voor een gematigde wandeling van een halve dag.',
             text:
-              'Dit is de klassieke wandeling achter Frigiliana, zonder dat u helemaal naar de top hoeft. Het pad naar de uitzichtpunten beloont al met een indrukwekkend panorama. Wees na regen voorzichtig op de rotsachtige stukken; schoenen met een goede grip maken echt verschil.'
+              'Dit is de klassieke wandeling achter Frigiliana, zonder dat jullie helemaal naar de top hoeven. Het pad naar de uitzichtpunten beloont al met een indrukwekkend panorama. Wees na regen voorzichtig op de rotsachtige stukken; schoenen met een goede grip maken echt verschil.'
           }
         ]
       },
@@ -837,7 +837,7 @@ export const frigilianaHikingContent: Record<
             experience:
               'Een rustige wandeling door de rivierbedding en smalle cahorros, rechtstreeks vanuit Frigiliana.',
             text:
-              'Dit is de rustigere, lokale variant. Vanuit het dorpscentrum daalt u af naar de rivierbedding en loopt u door de cahorros, smalle rotskloven. Goed om eerlijk te weten: de Higuerón is over een groot deel van de route een droge rivierbedding. Of er water stroomt en hoeveel, hangt af van de regen en het seizoen; als er water staat, komt het meestal niet hoger dan de enkels. Juist daardoor is de route midden in de zomer aangenaam en duidelijk rustiger dan de Chíllar. Waterschoenen of sportsandalen met een goede grip zijn aan te raden.'
+              'Dit is de rustigere, lokale variant. Vanuit het dorpscentrum dalen jullie af naar de rivierbedding en lopen jullie door de cahorros, smalle rotskloven. Goed om eerlijk te weten: de Higuerón is over een groot deel van de route een droge rivierbedding. Of er water stroomt en hoeveel, hangt af van de regen en het seizoen; als er water staat, komt het meestal niet hoger dan de enkels. Juist daardoor is de route midden in de zomer aangenaam en duidelijk rustiger dan de Chíllar. Waterschoenen of sportsandalen met een goede grip zijn aan te raden.'
           },
           {
             title: 'Río Chíllar (Nerja)',
@@ -849,7 +849,7 @@ export const frigilianaHikingContent: Record<
               before: 'Controleer voor vertrek de ',
               label: 'officiële status',
               after:
-                ' op de website van de gemeente Nerja. Zodra de route weer open is, kiest u het best een doordeweekse dag in juni of september, of vertrekt u om 8.00 uur — in juli en augustus is het erg druk.',
+                ' op de website van de gemeente Nerja. Zodra de route weer open is, kiezen jullie het best een doordeweekse dag in juni of september, of vertrekken jullie om 8.00 uur — in juli en augustus is het erg druk.',
               href: 'https://www.nerja.es/el-acceso-al-rio-chillar-permanece-cerrado/'
             }
           }
@@ -916,7 +916,7 @@ export const frigilianaHikingContent: Record<
         {
           title: 'Stranden',
           text:
-            'Geef uw benen rust en ga naar de kust voor een duik in de Middellandse Zee.'
+            'Geef jullie benen rust en ga naar de kust voor een duik in de Middellandse Zee.'
         },
         {
           title: 'Eten',

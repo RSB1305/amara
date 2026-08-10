@@ -47,7 +47,7 @@ export const frigilianaMarketSeo: AmaraAuthoringSeo = {
     nl: {
       title: 'Markt van Frigiliana: dag, tijd en tips',
       description:
-        'Plan uw bezoek aan de donderdagmarkt van Frigiliana met informatie over gebruikelijke tijden, locatie, aanbod, parkeren en de oude kern.',
+        'Plan jullie bezoek aan de donderdagmarkt van Frigiliana met informatie over gebruikelijke tijden, locatie, aanbod, parkeren en de oude kern.',
       robots: 'index, follow',
       canonical: 'auto'
     },
@@ -196,7 +196,7 @@ export const frigilianaMarketCopy = {
       'What to expect',
       'Was euch erwartet',
       'Qué podéis encontrar',
-      'Wat u kunt verwachten',
+      'Wat jullie kunnen verwachten',
       'Vad ni kan förvänta er'
     ),
     title: l(
@@ -210,7 +210,7 @@ export const frigilianaMarketCopy = {
       'The attraction is the mixture. Some stalls serve everyday village needs, while others appeal more directly to visitors. Product origins and makers differ, so ask when local production matters to you.',
       'Der Reiz liegt in der Mischung. Einige Stände decken alltägliche Bedürfnisse im Ort, andere richten sich stärker an Besucher. Herkunft und Hersteller unterscheiden sich – fragt nach, wenn euch lokale Produktion wichtig ist.',
       'El interés está en la mezcla. Algunos puestos cubren necesidades cotidianas del pueblo y otros se orientan más al visitante. El origen y los productores varían; preguntad si para vosotros es importante que algo sea local.',
-      'De charme zit in de mix. Sommige kramen voorzien in dagelijkse behoeften van het dorp, andere richten zich meer op bezoekers. Herkomst en makers verschillen, dus vraag ernaar als lokale productie voor u belangrijk is.',
+      'De charme zit in de mix. Sommige kramen voorzien in dagelijkse behoeften van het dorp, andere richten zich meer op bezoekers. Herkomst en makers verschillen, dus vraag ernaar als lokale productie voor jullie belangrijk is.',
       'Det intressanta är blandningen. Vissa stånd fyller byns vardagsbehov medan andra riktar sig mer till besökare. Ursprung och tillverkare varierar, så fråga om lokal produktion är viktig för er.'
     ),
     labels: {
@@ -293,7 +293,7 @@ export const frigilianaMarketCopy = {
           'Depending on the day, you may see ceramics, leather goods, jewellery, decorative pieces, or packaged foods.',
           'Je nach Markttag findet ihr möglicherweise Keramik, Lederwaren, Schmuck, Dekoration oder verpackte Lebensmittel.',
           'Según el día, podéis encontrar cerámica, artículos de cuero, bisutería, decoración o alimentos envasados.',
-          'Afhankelijk van de dag kunt u keramiek, lederwaren, sieraden, decoratie of verpakte voedingsmiddelen vinden.',
+          'Afhankelijk van de dag kunnen jullie keramiek, lederwaren, sieraden, decoratie of verpakte voedingsmiddelen vinden.',
           'Beroende på dagen kan ni hitta keramik, lädervaror, smycken, dekoration eller förpackade livsmedel.'
         ),
         expect: l(
@@ -307,7 +307,7 @@ export const frigilianaMarketCopy = {
           'For a specifically handmade piece, ask who made it and where.',
           'Wenn ihr gezielt Handarbeit sucht, fragt nach Hersteller und Herstellungsort.',
           'Si buscáis una pieza artesanal, preguntad quién la hizo y dónde.',
-          'Zoekt u specifiek handwerk, vraag dan wie het heeft gemaakt en waar.',
+          'Zoeken jullie specifiek handwerk, vraag dan wie het heeft gemaakt en waar.',
           'Om ni söker något särskilt handgjort, fråga vem som gjort det och var.'
         )
       }
@@ -335,7 +335,7 @@ export const frigilianaMarketCopy = {
           'If the market is the main reason for your trip, check current local information, especially around holidays and large events.',
           'Wenn der Markt der Hauptgrund für eure Fahrt ist, prüft die aktuellen lokalen Informationen – besonders rund um Feiertage und große Veranstaltungen.',
           'Si el mercado es el motivo principal de vuestra visita, comprobad la información local actual, sobre todo en festivos y durante grandes eventos.',
-          'Is de markt de belangrijkste reden voor uw bezoek, controleer dan actuele lokale informatie, vooral rond feestdagen en grote evenementen.',
+          'Is de markt de belangrijkste reden voor jullie bezoek, controleer dan actuele lokale informatie, vooral rond feestdagen en grote evenementen.',
           'Om marknaden är huvudskälet till resan, kontrollera aktuella lokala uppgifter, särskilt kring helgdagar och större evenemang.'
         )
       },
@@ -411,7 +411,7 @@ export const frigilianaMarketCopy = {
           'Thursday morning is the regular schedule, but holidays, weather, municipal arrangements, and major events can cause changes. Check locally if your visit depends on it.',
           'Donnerstagvormittag ist der reguläre Termin. Feiertage, Wetter, kommunale Regelungen und große Veranstaltungen können jedoch zu Änderungen führen. Prüft den Termin lokal, wenn euer Besuch davon abhängt.',
           'El jueves por la mañana es el horario habitual, pero los festivos, el tiempo, las decisiones municipales y los grandes eventos pueden provocar cambios. Comprobadlo localmente si vuestra visita depende de ello.',
-          'Donderdagochtend is het gebruikelijke moment, maar feestdagen, weer, gemeentelijke regelingen en grote evenementen kunnen wijzigingen veroorzaken. Controleer dit lokaal als uw bezoek ervan afhangt.',
+          'Donderdagochtend is het gebruikelijke moment, maar feestdagen, weer, gemeentelijke regelingen en grote evenementen kunnen wijzigingen veroorzaken. Controleer dit lokaal als jullie bezoek ervan afhangt.',
           'Torsdag förmiddag är den ordinarie tiden, men helgdagar, väder, kommunala beslut och större evenemang kan innebära ändringar. Kontrollera lokalt om besöket beror på marknaden.'
         )
       },

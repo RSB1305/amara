@@ -148,7 +148,7 @@ export const nerjaNightlifeSeo: AmaraAuthoringSeo = {
     en: {
       title: 'Nightlife in Nerja: Areas, Bars & Evening Guide',
       description:
-        'Plan nightlife in Nerja by area and mood: old-town terraces, Plaza Tutti Frutti, Burriana, flamenco, seasonal atmosphere and easy evening ideas.',
+        'Plan an evening in Nerja: old-town terraces, Plaza Tutti Frutti bars, Burriana beach dinners, flamenco and seasonal opening patterns.',
       robots: 'index, follow',
       canonical: 'auto'
     },
@@ -205,11 +205,11 @@ export const nerjaNightlifeContent: Record<
     hero: {
       kicker: 'Evening guide',
       title:
-        'Nightlife in Nerja — the best areas, evening styles and where each mood belongs',
+        'Nightlife in Nerja — where to go after dark',
       paragraphs: [
-        'Nightlife in Nerja works differently from the high-intensity party resorts farther west on the Costa del Sol. The town is lively and social after dark, but its strength is variety rather than giant clubs or one all-night strip: sunset terraces, seafood and tapas that turn into drinks, relaxed beach evenings and a central pub zone for a later, louder finish.',
-        'That balance suits couples, groups of friends and families who still want to enjoy the centre in the early evening. You can build a beautiful night around the old town and sea, or move between central bars without committing to a full party-town atmosphere.',
-        'The simplest way to understand Nerja after dark is geographically. Once you know the main zones, it becomes easy to choose between scenery and sunset, social bar-hopping, a beach-led evening or something cultural such as flamenco and live performance.'
+        'Nerja is lively after dark, but it is not built around giant clubs or one all-night strip. Most evenings start with a sunset terrace, seafood or tapas; Plaza Tutti Frutti is the clearest option for later bars.',
+        'Choose the old town and Balcón de Europa for dinner, wine and sea views. Choose Burriana for a beach dinner and open-air drinks. For flamenco, music or theatre, check the current programme before making plans.',
+        'If you are staying in Frigiliana, arrange the journey back before the evening. Do not rely on walking between the towns or finding a taxi at the last minute.'
       ],
       imageAlt:
         'Calm AMARA Playa interior as a base for evenings in coastal Nerja'
@@ -227,7 +227,7 @@ export const nerjaNightlifeContent: Record<
       kicker: 'Quick answer',
       title: 'Is Nerja good for nightlife?',
       intro:
-        'Yes — especially for travelers who want a balanced evening scene rather than a pure party destination. Nerja is strongest for walkable evenings, sunset drinks, cocktail bars, seafood tapas, relaxed beach bars and one central late-night zone. It is less convincing if your only goal is large-scale clubbing until sunrise.',
+        'Yes, if you want dinner, terraces, cocktail bars and one compact late-night area within the same town. Choose another destination if large clubs until sunrise are the main reason for the trip.',
       reviewed: 'Editorially reviewed: July 2026',
       items: [
         {
@@ -248,14 +248,14 @@ export const nerjaNightlifeContent: Record<
         {
           title: 'Best coastal zone',
           text:
-            'Burriana when you want the beach, open air and a slower summer rhythm to remain part of the evening.'
+            'Burriana for dinner by the beach and open-air drinks in the warmer months.'
         }
       ]
     },
     areas: {
       title: 'The three main nightlife areas in Nerja',
       intro:
-        'Most evenings fall into three recognizable zones. This is the practical map of the town: each area serves a different mood, and timing matters almost as much as location.',
+        'Most evenings centre on three areas. The old town is strongest around dinner and sunset, Plaza Tutti Frutti becomes livelier later, and Burriana keeps the evening beside the beach.',
       items: [
         {
           title: '1. Plaza Tutti Frutti — the main bar-hopping area',
@@ -272,7 +272,7 @@ export const nerjaNightlifeContent: Record<
             '2. Balcón de Europa & old town — sunset, cocktails and scenery',
           paragraphs: [
             'This is Nerja’s most attractive evening zone. The Balcón is the landmark, but the real strength lies in the surrounding old-town streets, terraces and side lanes, where sunset becomes drinks and drinks become dinner.',
-            'Travelers who value atmosphere, sea views, a walkable night and a more polished tone will usually start here. The appeal is not late-night momentum but making the whole evening feel special from the beginning.'
+            'Start here for sea views, terraces and restaurants within an easy walk. It is better for dinner and drinks than for a very late finish.'
           ],
           bestFor:
             'Couples, date nights, sunset drinks, wine bars, terraces and calmer cocktails.',
@@ -281,11 +281,11 @@ export const nerjaNightlifeContent: Record<
         {
           title: '3. Burriana — relaxed coastal evenings',
           paragraphs: [
-            'Burriana is not Nerja’s strongest nightlife area in the classic urban sense, but it is one of the best places when you want the sea to remain part of the night. Expect beach dinners, open-air drinks and a softer rhythm.',
+            'Burriana is not Nerja’s main late-night area. Come here for beach dinners and open-air drinks, especially in the warmer months.',
             'In summer it works particularly well as an extended beach day: you do not reset into nightlife, but let the afternoon continue into dinner and one more drink.'
           ],
           bestFor:
-            'Summer evenings, beach bars, slower nights, couples and a sea-led atmosphere.',
+            'Summer evenings, beach restaurants, open-air drinks and couples.',
           mapHref: maps.burriana
         }
       ]
@@ -308,19 +308,19 @@ export const nerjaNightlifeContent: Record<
         {
           title: 'Best for relaxed nights',
           text:
-            'Burriana suits sea air, low pressure and a softer pace, especially on warm evenings.'
+            'Burriana suits beach dinners and open-air drinks, especially on warm evenings.'
         },
         {
           title: 'Best all-round strategy',
           text:
-            'Start around the Balcón or old town for sunset and first drinks, then move to the central pub zone only if you want a louder finish.'
+            'Start around the Balcón or old town for sunset and dinner, then move to Plaza Tutti Frutti only if you want later bars.'
         }
       ]
     },
     eveningStyles: {
       title: 'The kinds of nightlife Nerja does best',
       intro:
-        'Nerja works when the evening unfolds rather than follows a rigid programme. Food, scenery and sociability can carry as much weight as the final bar.',
+        'Food, views and bars sit close enough together to keep plans flexible. Start with dinner and decide later whether to continue.',
       items: [
         {
           title: 'Tapas first, drinks after',
@@ -335,7 +335,7 @@ export const nerjaNightlifeContent: Record<
         {
           title: 'A beach-led evening',
           text:
-            'In warmer months, stay near the coast and let dinner and drinks remain connected to the open-air beach atmosphere rather than switching to an urban rhythm.'
+            'In warmer months, stay near the coast for dinner and open-air drinks instead of moving into the central bar area.'
         },
         {
           title: 'A later, more social bar night',
@@ -348,7 +348,7 @@ export const nerjaNightlifeContent: Record<
       title: 'Flamenco, live performance and Nerja’s local dimension',
       paragraphs: [
         'Nerja is not only about bars. Flamenco, live performance and cultural programming can give the evening a recognizably Andalusian dimension that a purely beach-led resort rarely offers.',
-        'That is why “nightlife” here means more than bars and clubs. The fuller answer includes terraces, food, beach atmosphere, social venues and cultural texture. Programmes vary, so check current dates rather than assuming a regular weekly show.'
+        'Nerja also schedules flamenco, music, dance and theatre. Programmes vary, so check current dates rather than assuming a regular weekly show.'
       ],
       items: [
         {
@@ -380,7 +380,7 @@ export const nerjaNightlifeContent: Record<
         {
           title: 'Shoulder season',
           text:
-            'Often the most balanced period: enough atmosphere for a strong evening, with less crowd pressure and more ease.'
+            'Enough venues remain active for dinner and drinks, usually with fewer crowds than summer.'
         },
         {
           title: 'Winter',
@@ -394,12 +394,12 @@ export const nerjaNightlifeContent: Record<
         }
       ],
       note:
-        'Opening days, performance schedules and the atmosphere of individual areas change with the season. Check current information shortly before your evening.'
+        'Opening days and performance schedules change with the season. Check current information shortly before your evening.'
     },
     travelerFit: {
       title: 'Who nightlife in Nerja suits best',
       intro:
-        'The town’s range makes it easy to build a suitable evening without forcing everyone into the same rhythm.',
+        'Dinner, terraces and later bars are separate enough that a group can stop at different points in the evening.',
       items: [
         {
           title: 'Couples',
@@ -419,14 +419,14 @@ export const nerjaNightlifeContent: Record<
         {
           title: 'Maximum-intensity party seekers',
           text:
-            'Nerja can provide a lively night, but it is not primarily a hardcore clubbing destination. Its strength is range and quality of mood, not extremity.'
+            'Nerja can provide a lively night, but it is not a large-scale clubbing destination.'
         }
       ]
     },
     plans: {
       title: 'Three easy ways to plan a night in Nerja',
       intro:
-        'Use one simple sequence as a starting point, then leave space to decide how far the evening should continue.',
+        'Pick a starting area and decide after dinner whether to continue.',
       items: [
         {
           title: 'Date night',
@@ -468,14 +468,14 @@ export const nerjaNightlifeContent: Record<
         {
           question: 'Is nightlife in Nerja still worthwhile in winter?',
           answer:
-            'Yes, but the rhythm is smaller and more selective. The advantage is a more comfortable town with less pressure, although individual opening days should be checked.'
+            'Yes, but fewer venues open and some operate on reduced days. Check individual opening times before setting out.'
         }
       ]
     },
     combine: {
       title: 'Combine your evening with the rest of the stay',
       intro:
-        'The best evenings in Nerja often work because the day was right first. A beach afternoon or a slower walk can make dinner and drinks feel more natural afterward.',
+        'A beach afternoon or an easy walk can lead naturally into dinner. Leave enough time to change and arrange transport if you are returning to Frigiliana.',
       items: [
         {
           title: 'Start at the beach',
@@ -514,11 +514,11 @@ export const nerjaNightlifeContent: Record<
     hero: {
       kicker: 'Guide für den Abend',
       title:
-        'Nachtleben in Nerja — die besten Viertel, Abendstimmungen und wo sie zu finden sind',
+        'Nachtleben in Nerja — wohin am Abend?',
       paragraphs: [
-        'Das Nachtleben in Nerja funktioniert anders als in den besonders intensiven Partyorten weiter westlich an der Costa del Sol. Nach Einbruch der Dunkelheit ist die Stadt lebendig und gesellig, doch ihre Stärke liegt in der Vielfalt statt in riesigen Clubs oder einer einzigen Partymeile: Terrassen zum Sonnenuntergang, Fisch und Tapas mit anschließendem Drink, entspannte Strandabende und eine zentrale Barzone für einen späteren, lauteren Abschluss.',
-        'Diese Balance passt zu Paaren, Freundesgruppen und Familien, die das Zentrum auch am frühen Abend genießen möchten. Rund um Altstadt und Meer lässt sich ein schöner Abend gestalten; wer später mehr Bewegung sucht, kann zwischen den zentralen Bars wechseln, ohne sich gleich für einen reinen Partyurlaub zu entscheiden.',
-        'Am einfachsten lässt sich Nerja am Abend geografisch verstehen. Wer die wichtigsten Zonen kennt, kann gezielt zwischen Aussicht und Sonnenuntergang, einer geselligen Bar-Runde, einem Abend am Strand oder einem Kulturprogramm mit Flamenco und Live-Auftritten wählen.'
+        'Nerja ist nach Einbruch der Dunkelheit lebendig, aber nicht auf riesige Clubs oder eine einzige Partymeile ausgerichtet. Die meisten Abende beginnen auf einer Terrasse, mit Fisch oder Tapas; rund um die Plaza Tutti Frutti findet ihr später die dichteste Barzone.',
+        'Wählt Altstadt und Balcón de Europa für Abendessen, Wein und Meerblick. Wählt Burriana für ein Strandrestaurant und Drinks im Freien. Für Flamenco, Musik oder Theater prüft ihr am besten das aktuelle Programm.',
+        'Wenn ihr in Frigiliana wohnt, organisiert die Rückfahrt vor dem Abend. Der Weg zwischen den Orten ist kein Nachtspaziergang, und ein kurzfristig verfügbares Taxi ist nicht garantiert.'
       ],
       imageAlt:
         'Ruhiges Interieur von AMARA Playa als Ausgangspunkt für Abende in Nerja'
@@ -536,7 +536,7 @@ export const nerjaNightlifeContent: Record<
       kicker: 'Kurzantwort',
       title: 'Ist Nerja für Nachtleben geeignet?',
       intro:
-        'Ja – besonders für Reisende, die eine ausgewogene Abendszene statt eines reinen Partyortes suchen. Nerja überzeugt mit gut begehbaren Abenden, Drinks zum Sonnenuntergang, Cocktailbars, Fisch und Tapas, entspannten Strandlokalen und einer zentralen Zone für später. Weniger passend ist die Stadt, wenn es ausschließlich um große Clubs bis zum Sonnenaufgang geht.',
+        'Ja, wenn ihr Abendessen, Terrassen, Cocktailbars und eine kompakte Zone für später im selben Ort möchtet. Wählt ein anderes Ziel, wenn große Clubs bis zum Sonnenaufgang der Hauptgrund der Reise sind.',
       reviewed: 'Redaktionell geprüft: Juli 2026',
       items: [
         {
@@ -557,20 +557,20 @@ export const nerjaNightlifeContent: Record<
         {
           title: 'Beste Küstenzone',
           text:
-            'Burriana, wenn Strand, offene Luft und ein langsamer Sommerrhythmus Teil des Abends bleiben sollen.'
+            'Burriana für Abendessen am Strand und Drinks im Freien in den warmen Monaten.'
         }
       ]
     },
     areas: {
       title: 'Die drei wichtigsten Abendzonen in Nerja',
       intro:
-        'Die meisten Abende spielen sich in drei gut erkennbaren Bereichen ab. Das ist die praktische Karte der Stadt: Jede Zone steht für eine andere Stimmung, und der richtige Zeitpunkt ist fast ebenso wichtig wie der Ort.',
+        'Die meisten Abende konzentrieren sich auf drei Bereiche. Die Altstadt ist rund um Abendessen und Sonnenuntergang am stärksten, die Plaza Tutti Frutti wird später lebhafter und Burriana hält den Abend am Strand.',
       items: [
         {
           title: '1. Plaza Tutti Frutti — die wichtigste Barzone',
           paragraphs: [
             'Die Plaza Tutti Frutti ist Nerjas deutlichster Treffpunkt für das spätere Nachtleben. Entscheidend ist weniger ein einzelnes Lokal als die Dichte: Bars und spätere Ausgehmöglichkeiten liegen nah beieinander, Menschen wechseln zwischen ihnen, und die Energie steigt im Verlauf des Abends.',
-            'Wählen Sie diese Gegend, wenn Sie Bewegung statt Ruhe suchen. Am besten funktioniert sie nach dem Abendessen; früh wirkt sie manchmal noch wie im Übergang, später wird sie zur offensichtlichsten geselligen Nachtzone der Stadt.'
+            'Wählt diese Gegend für Bars nach dem Abendessen. Früh kann sie noch ruhig wirken; später wird sie zur deutlichsten Ausgehzone der Stadt.'
           ],
           bestFor:
             'Bar-Hopping, lockere Gruppen, spätere Starts, jüngere Energie und spontane Nächte.',
@@ -581,7 +581,7 @@ export const nerjaNightlifeContent: Record<
             '2. Balcón de Europa & Altstadt — Sonnenuntergang und Cocktails',
           paragraphs: [
             'Dies ist Nerjas schönste Abendzone. Der Balcón ist das Wahrzeichen, doch die eigentliche Stärke liegt in den umliegenden Altstadtgassen, Terrassen und kleinen Seitenstraßen, in denen aus dem Sonnenuntergang Drinks und aus Drinks ein Abendessen werden.',
-            'Wer Atmosphäre, Meerblick, kurze Wege und einen etwas gepflegteren Ton schätzt, beginnt meist hier. Es geht weniger um späte Dynamik als darum, den ganzen Abend von Anfang an besonders wirken zu lassen.'
+            'Beginnt hier für Meerblick, Terrassen und Restaurants in kurzer Laufdistanz. Die Gegend eignet sich besser für Abendessen und Drinks als für einen sehr späten Abschluss.'
           ],
           bestFor:
             'Paare, Dates, Drinks zum Sonnenuntergang, Weinbars, Terrassen und ruhigere Cocktails.',
@@ -590,7 +590,7 @@ export const nerjaNightlifeContent: Record<
         {
           title: '3. Burriana — entspannte Abende am Meer',
           paragraphs: [
-            'Burriana ist im klassischen städtischen Sinn nicht Nerjas stärkste Ausgehzone, aber einer der besten Orte, wenn das Meer Teil des Abends bleiben soll. Erwarten Sie Strandrestaurants, Drinks im Freien und ein weicheres Tempo.',
+            'Burriana ist nicht Nerjas wichtigste Zone für spätabends. Kommt hierher für Strandrestaurants und Drinks im Freien, besonders in den warmen Monaten.',
             'Besonders im Sommer funktioniert Burriana wie die Verlängerung eines Strandtages: Man wechselt nicht bewusst ins Nachtleben, sondern lässt den Nachmittag in Abendessen und einen weiteren Drink übergehen.'
           ],
           bestFor:
@@ -602,7 +602,7 @@ export const nerjaNightlifeContent: Record<
     areaComparison: {
       title: 'Welche Zone passt zu welchem Abend?',
       intro:
-        'Es gibt nicht den einen besten Bereich. Die sinnvolle Antwort hängt davon ab, mit wem Sie unterwegs sind und wie lebhaft die zweite Hälfte des Abends werden soll.',
+        'Es gibt nicht den einen besten Bereich. Entscheidend ist, mit wem ihr unterwegs seid und wie lebhaft die zweite Hälfte des Abends werden soll.',
       items: [
         {
           title: 'Am besten für Paare',
@@ -617,24 +617,24 @@ export const nerjaNightlifeContent: Record<
         {
           title: 'Am besten für ruhige Abende',
           text:
-            'Burriana passt zu Meeresluft, wenig Druck und einem sanfteren Tempo – besonders an warmen Abenden.'
+            'Burriana passt zu Strandrestaurants und Drinks im Freien – besonders an warmen Abenden.'
         },
         {
           title: 'Beste Gesamtstrategie',
           text:
-            'Beginnen Sie am Balcón oder in der Altstadt mit Sonnenuntergang und ersten Drinks. Wechseln Sie nur dann in die zentrale Barzone, wenn der Abschluss lauter werden darf.'
+            'Beginnt am Balcón oder in der Altstadt mit Sonnenuntergang und Abendessen. Wechselt nur dann zur Plaza Tutti Frutti, wenn ihr später noch Bars möchtet.'
         }
       ]
     },
     eveningStyles: {
       title: 'Welche Art von Nachtleben Nerja besonders gut kann',
       intro:
-        'Nerja ist am stärksten, wenn sich der Abend entwickelt, statt einem festen Programm zu folgen. Essen, Kulisse und Geselligkeit können genauso wichtig sein wie die letzte Bar.',
+        'Essen, Aussicht und Bars liegen nah genug beieinander, um flexibel zu bleiben. Beginnt mit dem Abendessen und entscheidet danach, ob ihr weiterzieht.',
       items: [
         {
           title: 'Erst Tapas, dann Drinks',
           text:
-            'Beginnen Sie mit Fisch oder Tapas und entscheiden Sie erst danach, ob es mit Cocktails oder einer lebhafteren Barzone weitergeht. Das wirkt lokal, flexibel und auch ohne große Partynacht vollständig.'
+            'Beginnt mit Fisch oder Tapas und entscheidet erst danach, ob es mit Cocktails oder zur Plaza Tutti Frutti weitergeht.'
         },
         {
           title: 'Cocktails und Terrassen',
@@ -644,7 +644,7 @@ export const nerjaNightlifeContent: Record<
         {
           title: 'Ein Abend rund um den Strand',
           text:
-            'Bleiben Sie in den wärmeren Monaten an der Küste und lassen Sie Abendessen und Drinks mit der offenen Strandatmosphäre verbunden, statt in einen städtischen Rhythmus zu wechseln.'
+            'Bleibt in den wärmeren Monaten für Abendessen und Drinks an der Küste, statt in die zentrale Barzone zu wechseln.'
         },
         {
           title: 'Später und geselliger',
@@ -657,13 +657,13 @@ export const nerjaNightlifeContent: Record<
       title: 'Flamenco, Live-Auftritte und Nerjas lokale Seite',
       paragraphs: [
         'Nerja besteht am Abend nicht nur aus Bars. Flamenco, Live-Auftritte und Kulturprogramme können eine erkennbar andalusische Dimension hinzufügen, die ein reiner Strandort selten bietet.',
-        'Deshalb bedeutet „Nachtleben“ hier mehr als Bars und Clubs. Zum vollständigen Bild gehören Terrassen, Essen, Strandatmosphäre, gesellige Lokale und Kultur. Programme ändern sich; prüfen Sie aktuelle Termine, statt von einer festen wöchentlichen Vorstellung auszugehen.'
+        'Nerja bietet außerdem Flamenco, Musik, Tanz und Theater. Programme ändern sich; prüft aktuelle Termine, statt von einer festen wöchentlichen Vorstellung auszugehen.'
       ],
       items: [
         {
           title: 'Flamenco-Abende',
           text:
-            'Verstehen Sie einen Flamenco-Abend als kulturelles Erlebnis und nicht als garantiertes tägliches Unterhaltungsangebot. Er passt zu Paaren und kulturinteressierten Gästen, die den Süden Spaniens im Abend wiederfinden möchten.',
+            'Plant Flamenco als Kulturprogramm, nicht als garantiertes tägliches Angebot. Prüft aktuelle Termine vorab.',
           href: maps.flamenco,
           linkLabel: 'Aktuelle Flamenco-Angebote suchen'
         },
@@ -689,7 +689,7 @@ export const nerjaNightlifeContent: Record<
         {
           title: 'Vor- und Nachsaison',
           text:
-            'Oft die ausgewogenste Zeit: genügend Atmosphäre für einen guten Abend, aber weniger Andrang und mehr Leichtigkeit.'
+            'Genügend Lokale bleiben für Abendessen und Drinks aktiv, meist mit weniger Andrang als im Sommer.'
         },
         {
           title: 'Winter',
@@ -703,12 +703,12 @@ export const nerjaNightlifeContent: Record<
         }
       ],
       note:
-        'Öffnungstage, Veranstaltungsprogramme und die Stimmung einzelner Viertel ändern sich saisonal. Prüfen Sie die aktuellen Angaben kurz vor dem Abend.'
+        'Öffnungstage und Veranstaltungsprogramme ändern sich saisonal. Prüft die aktuellen Angaben kurz vor dem Abend.'
     },
     travelerFit: {
       title: 'Für wen Nerjas Nachtleben besonders gut passt',
       intro:
-        'Durch die Bandbreite lässt sich leicht ein Abend gestalten, ohne alle Beteiligten in denselben Rhythmus zu zwingen.',
+        'Abendessen, Terrassen und spätere Bars sind klar genug getrennt, dass eine Gruppe zu unterschiedlichen Zeitpunkten Schluss machen kann.',
       items: [
         {
           title: 'Paare',
@@ -728,33 +728,33 @@ export const nerjaNightlifeContent: Record<
         {
           title: 'Maximale Partyintensität',
           text:
-            'In Nerja kann man lebhaft ausgehen, doch die Stadt ist kein Hardcore-Clubbing-Ziel. Ihre Stärke sind Auswahl und Qualität der Stimmung, nicht das Extrem.'
+            'In Nerja kann man lebhaft ausgehen, doch die Stadt ist kein Ziel für große Clubs bis zum Morgen.'
         }
       ]
     },
     plans: {
       title: 'Drei einfache Pläne für einen Abend in Nerja',
       intro:
-        'Nutzen Sie eine einfache Reihenfolge als Ausgangspunkt und lassen Sie offen, wie weit der Abend später noch gehen soll.',
+        'Wählt einen Startpunkt und entscheidet nach dem Abendessen, ob ihr weiterziehen möchtet.',
       items: [
         {
           title: 'Abend zu zweit',
           text:
-            'Beginnen Sie am Balcón oder auf der Carabeo-Seite mit dem Sonnenuntergang, gehen Sie anschließend essen und schließen Sie mit einem ruhigen Cocktail oder einer Weinbar ab.'
+            'Beginnt am Balcón oder auf der Carabeo-Seite mit dem Sonnenuntergang, geht anschließend essen und schließt mit einem Cocktail oder einer Weinbar ab.'
         },
         {
           title: 'Abend mit Freunden',
           text:
-            'Starten Sie mit Tapas, wechseln Sie später in die zentrale Barzone und lassen Sie die letzte Entscheidung offen: noch eine Bar, ein weiterer Drink oder ein später Abschluss.'
+            'Startet mit Tapas und wechselt später zur Plaza Tutti Frutti, wenn ihr noch eine Bar oder einen späteren Abschluss möchtet.'
         },
         {
           title: 'Sommerabend am Meer',
           text:
-            'Verbringen Sie den Nachmittag am Strand, bleiben Sie zum Abendessen in Burriana und setzen Sie den Abend entweder an der Küste oder lebhafter im Zentrum fort.'
+            'Verbringt den Nachmittag am Strand, bleibt zum Abendessen in Burriana und entscheidet danach zwischen Küste und Zentrum.'
         }
       ],
       transportNote:
-        'Altstadt und zentrale Ausgehzonen sind innerhalb Nerjas gut zu Fuß erreichbar. Wenn Sie in Frigiliana wohnen, organisieren Sie die Rückfahrt vor dem Abend; der Weg zwischen den Orten ist nicht als nächtlicher Spaziergang gedacht, und auf ein kurzfristig verfügbares Taxi sollten Sie sich nicht verlassen.'
+        'Altstadt und zentrale Ausgehzonen sind innerhalb Nerjas gut zu Fuß erreichbar. Wenn ihr in Frigiliana wohnt, organisiert die Rückfahrt vor dem Abend; der Weg zwischen den Orten ist kein Nachtspaziergang, und auf ein kurzfristig verfügbares Taxi solltet ihr euch nicht verlassen.'
     },
     faq: {
       title: 'Häufige Fragen zum Nachtleben in Nerja',
@@ -777,14 +777,14 @@ export const nerjaNightlifeContent: Record<
         {
           question: 'Lohnt sich Nerjas Nachtleben auch im Winter?',
           answer:
-            'Ja, allerdings in kleinerem und selektiverem Rhythmus. Die Stadt ist dann angenehmer und weniger voll; die Öffnungstage einzelner Lokale sollten geprüft werden.'
+            'Ja, aber weniger Lokale öffnen und manche haben reduzierte Öffnungstage. Prüft die Zeiten der einzelnen Lokale vorab.'
         }
       ]
     },
     combine: {
-      title: 'Verbinden Sie den Abend mit dem restlichen Aufenthalt',
+      title: 'Verbindet den Abend mit dem restlichen Aufenthalt',
       intro:
-        'Die besten Abende in Nerja funktionieren oft deshalb, weil der Tag vorher gepasst hat. Ein Nachmittag am Strand oder ein langsamer Spaziergang lässt Essen und Drinks später natürlicher wirken.',
+        'Ein Nachmittag am Strand oder ein leichter Spaziergang lässt sich gut mit einem späteren Abendessen verbinden. Plant genug Zeit zum Umziehen und für die Rückfahrt nach Frigiliana ein.',
       items: [
         {
           title: 'Am Strand beginnen',
@@ -823,11 +823,11 @@ export const nerjaNightlifeContent: Record<
     hero: {
       kicker: 'Guía para salir',
       title:
-        'Vida nocturna en Nerja — las mejores zonas, estilos de noche y el ambiente de cada una',
+        'Vida nocturna en Nerja — dónde ir al caer la noche',
       paragraphs: [
-        'La vida nocturna de Nerja funciona de forma distinta a la de los destinos de fiesta intensa situados más al oeste de la Costa del Sol. La ciudad es animada y social al caer la noche, pero su gran ventaja es la variedad, no las discotecas enormes ni una única calle que no duerme: terrazas al atardecer, pescado y tapas que terminan en una copa, noches relajadas junto a la playa y una zona céntrica de bares para acabar más tarde y con más ambiente.',
-        'Ese equilibrio encaja con parejas, grupos de amigos y familias que todavía quieren disfrutar del centro a primera hora de la noche. Podéis crear una velada preciosa alrededor del casco antiguo y el mar, o moveros entre bares céntricos sin asumir el ambiente de un destino dedicado por completo a la fiesta.',
-        'La forma más útil de entender Nerja por la noche es geográfica. Cuando conocéis las zonas principales, resulta sencillo elegir entre paisaje y puesta de sol, una noche social de bar en bar, un plan junto a la playa o una propuesta cultural con flamenco y actuaciones en directo.'
+        'Nerja está animada por la noche, pero no gira alrededor de discotecas enormes ni de una única calle de fiesta. Muchas noches empiezan con una terraza al atardecer, pescado o tapas; Plaza Tutti Frutti reúne la mayor concentración de bares para seguir después.',
+        'Elegid el casco antiguo y el Balcón de Europa para cenar, tomar vino y ver el mar. Elegid Burriana para cenar junto a la playa y tomar algo al aire libre. Para flamenco, música o teatro, consultad el programa actual antes de hacer planes.',
+        'Si os alojáis en Frigiliana, organizad la vuelta antes de salir. El trayecto entre ambos pueblos no es un paseo nocturno y no conviene depender de encontrar taxi a última hora.'
       ],
       imageAlt:
         'Interior tranquilo de AMARA Playa como base para salir por Nerja'
@@ -845,7 +845,7 @@ export const nerjaNightlifeContent: Record<
       kicker: 'Respuesta rápida',
       title: '¿Merece la pena salir de noche en Nerja?',
       intro:
-        'Sí, sobre todo si buscáis una escena nocturna equilibrada y no un destino de fiesta pura. Nerja destaca por noches que se pueden recorrer a pie, copas al atardecer, coctelerías, pescado y tapas, locales relajados junto a la playa y una zona céntrica para seguir hasta más tarde. Convence menos si vuestro único objetivo son grandes discotecas hasta el amanecer.',
+        'Sí, si queréis cena, terrazas, coctelerías y una zona compacta para seguir hasta más tarde en la misma localidad. Elegid otro destino si el objetivo principal son grandes discotecas hasta el amanecer.',
       reviewed: 'Revisión editorial: julio de 2026',
       items: [
         {
@@ -1132,11 +1132,11 @@ export const nerjaNightlifeContent: Record<
     hero: {
       kicker: 'Avondgids',
       title:
-        'Nachtleven in Nerja — de beste buurten, avondstijlen en waar elke sfeer thuishoort',
+        'Nachtleven in Nerja — waar gaan jullie ’s avonds heen?',
       paragraphs: [
-        'Het nachtleven in Nerja werkt anders dan in de intensieve badplaatsen verder naar het westen aan de Costa del Sol. De stad is levendig en sociaal zodra het donker wordt, maar de kracht ligt in variatie, niet in enorme clubs of één strook die de hele nacht doorgaat: terrassen bij zonsondergang, vis en tapas die overgaan in een drankje, ontspannen avonden aan zee en een centrale barzone voor wie later en luidruchtiger wil eindigen.',
-        'Die balans past bij stellen, vriendengroepen en gezinnen die in de vroege avond nog van het centrum willen genieten. Rond de oude stad en de zee bouwt u een mooie avond op, of u beweegt later tussen centrale bars zonder te kiezen voor de sfeer van een volledige feestbestemming.',
-        'De handigste manier om Nerja na zonsondergang te begrijpen is geografisch. Wie de belangrijkste zones kent, kiest eenvoudig tussen uitzicht en zonsondergang, een sociale avond langs bars, een plan aan het strand of cultuur zoals flamenco en liveoptredens.'
+        'Nerja is ’s avonds levendig, maar draait niet om enorme clubs of één feeststrook. Veel avonden beginnen op een terras, met vis of tapas; rond Plaza Tutti Frutti zitten de meeste bars voor later.',
+        'Kies de oude kern en het Balcón de Europa voor diner, wijn en zeezicht. Kies Burriana voor eten aan het strand en drankjes in de open lucht. Controleer voor flamenco, muziek of theater vooraf het actuele programma.',
+        'Verblijven jullie in Frigiliana, regel dan de terugreis voordat jullie uitgaan. Tussen beide plaatsen lopen is ’s nachts niet praktisch en een taxi op het laatste moment is niet gegarandeerd.'
       ],
       imageAlt:
         'Rustig interieur van AMARA Playa als uitvalsbasis voor avonden in Nerja'
@@ -1154,7 +1154,7 @@ export const nerjaNightlifeContent: Record<
       kicker: 'Kort antwoord',
       title: 'Is Nerja goed voor nachtleven?',
       intro:
-        'Ja, vooral voor reizigers die een evenwichtige avondscene zoeken in plaats van een pure feestbestemming. Nerja is sterk in beloopbare avonden, drankjes bij zonsondergang, cocktailbars, vis en tapas, ontspannen strandbars en één centrale zone voor later. Minder overtuigend is de stad wanneer grote clubs tot zonsopkomst uw enige doel zijn.',
+        'Ja, als jullie diner, terrassen, cocktailbars en één compacte zone voor later in dezelfde plaats willen. Kies een andere bestemming als grote clubs tot zonsopkomst het belangrijkste doel zijn.',
       reviewed: 'Redactioneel gecontroleerd: juli 2026',
       items: [
         {
@@ -1188,7 +1188,7 @@ export const nerjaNightlifeContent: Record<
           title: '1. Plaza Tutti Frutti — de belangrijkste barzone',
           paragraphs: [
             'Plaza Tutti Frutti is het duidelijkste centrum van Nerja’s latere nachtleven. De waarde zit minder in één zaak dan in de dichtheid: bars en plekken voor later liggen bij elkaar, mensen bewegen ertussen en de energie neemt zichtbaar toe naarmate de avond vordert.',
-            'Kies dit gebied wanneer u beweging in plaats van stilte wilt. Het werkt het best na het diner; vroeg kan het nog als overgang voelen, later wordt het de meest uitgesproken sociale uitgaanszone van de stad.'
+            'Kies dit gebied voor bars na het diner. Vroeg kan het nog rustig zijn; later wordt dit de duidelijkste uitgaanszone van de stad.'
           ],
           bestFor:
             'Langs bars gaan, informele groepen, later beginnen, jongere energie en spontane avonden.',
@@ -1209,7 +1209,7 @@ export const nerjaNightlifeContent: Record<
           title: '3. Burriana — ontspannen avonden aan zee',
           paragraphs: [
             'Burriana is in klassieke stedelijke zin niet Nerja’s sterkste uitgaansgebied, maar wel een van de beste plekken wanneer de zee onderdeel van de nacht moet blijven. Verwacht diners aan het strand, drankjes buiten en een zachter tempo.',
-            'Vooral in de zomer werkt het als verlenging van de stranddag: u schakelt niet over naar nachtleven, maar laat de middag doorlopen in diner en nog één drankje.'
+            'Vooral in de zomer kunnen jullie de stranddag hier laten doorlopen in diner en nog één drankje.'
           ],
           bestFor:
             'Zomeravonden, strandbars, rustigere nachten, stellen en sfeer aan zee.',
@@ -1220,7 +1220,7 @@ export const nerjaNightlifeContent: Record<
     areaComparison: {
       title: 'Welke zone past bij welke avond?',
       intro:
-        'Er is niet één beste uitgaansgebied. Het nuttige antwoord hangt af van uw gezelschap en hoe levendig de tweede helft van de avond mag worden.',
+        'Er is niet één beste uitgaansgebied. De keuze hangt af van jullie gezelschap en hoe levendig de tweede helft van de avond mag worden.',
       items: [
         {
           title: 'Beste voor stellen',
@@ -1240,7 +1240,7 @@ export const nerjaNightlifeContent: Record<
         {
           title: 'Beste totaalstrategie',
           text:
-            'Begin rond het Balcón of in de oude stad met zonsondergang en eerste drankjes. Ga alleen naar de centrale barzone als u luidruchtiger wilt eindigen.'
+            'Begin rond het Balcón of in de oude stad met zonsondergang en diner. Ga alleen naar de centrale barzone als jullie later nog bars willen.'
         }
       ]
     },
@@ -1252,12 +1252,12 @@ export const nerjaNightlifeContent: Record<
         {
           title: 'Eerst tapas, daarna drankjes',
           text:
-            'Begin met vis of tapas en beslis pas daarna of u doorgaat naar cocktails of een drukkere barzone. Het voelt lokaal, flexibel en compleet zonder dat een grote stapavond nodig is.'
+            'Begin met vis of tapas en beslis pas daarna of jullie doorgaan naar cocktails of een drukkere barzone.'
         },
         {
           title: 'Cocktails en terrassen',
           text:
-            'Eén mooi terras, een goed drankje en een omgeving waar u wilt blijven zijn vaak genoeg. Dit is een van Nerja’s meest natuurlijke avondvormen.'
+            'Eén mooi terras, een goed drankje en een omgeving waar jullie willen blijven zijn vaak genoeg.'
         },
         {
           title: 'Een avond rond het strand',
@@ -1321,7 +1321,7 @@ export const nerjaNightlifeContent: Record<
         }
       ],
       note:
-        'Openingsdagen, voorstellingen en de sfeer per gebied veranderen met het seizoen. Controleer actuele informatie kort voor uw avond.'
+        'Openingsdagen en voorstellingen veranderen met het seizoen. Controleer actuele informatie kort voor jullie avond.'
     },
     travelerFit: {
       title: 'Voor wie het nachtleven van Nerja het best past',
@@ -1372,7 +1372,7 @@ export const nerjaNightlifeContent: Record<
         }
       ],
       transportNote:
-        'De oude stad en centrale uitgaanszones zijn eenmaal in Nerja goed beloopbaar. Verblijft u in Frigiliana, regel dan vooraf het vervoer terug; tussen beide plaatsen lopen is ’s nachts niet praktisch en op het laatste moment een taxi vinden is niet gegarandeerd.'
+        'De oude stad en centrale uitgaanszones zijn eenmaal in Nerja goed beloopbaar. Verblijven jullie in Frigiliana, regel dan vooraf het vervoer terug; tussen beide plaatsen lopen is ’s nachts niet praktisch en op het laatste moment een taxi vinden is niet gegarandeerd.'
     },
     faq: {
       title: 'Veelgestelde vragen over het nachtleven in Nerja',
@@ -1400,7 +1400,7 @@ export const nerjaNightlifeContent: Record<
       ]
     },
     combine: {
-      title: 'Combineer uw avond met de rest van het verblijf',
+      title: 'Combineer jullie avond met de rest van het verblijf',
       intro:
         'De beste avonden in Nerja werken vaak omdat de dag ervoor klopte. Een strandmiddag of rustige wandeling laat diner en drankjes daarna vanzelf ontstaan.',
       items: [
@@ -1414,7 +1414,7 @@ export const nerjaNightlifeContent: Record<
         {
           title: 'Wandel voor de avond',
           text:
-            'Een rustige berg-, dorps- of kustwandeling maakt diner en drankjes in Nerja nog prettiger, zolang u genoeg tijd laat om op te frissen.',
+            'Een rustige berg-, dorps- of kustwandeling maakt diner en drankjes in Nerja nog prettiger, zolang jullie genoeg tijd laten om op te frissen.',
           linkToken: 'frigiliana_hiking_authority',
           linkLabel: 'Bekijk de wandelgids'
         }
@@ -1441,11 +1441,11 @@ export const nerjaNightlifeContent: Record<
     hero: {
       kicker: 'Kvällsguide',
       title:
-        'Nattliv i Nerja — de bästa områdena, kvällsstilarna och var varje känsla hör hemma',
+        'Nattliv i Nerja — vart går ni efter mörkrets inbrott?',
       paragraphs: [
-        'Nattlivet i Nerja fungerar annorlunda än på de intensiva partydestinationerna längre västerut på Costa del Sol. Staden är livlig och social efter mörkrets inbrott, men styrkan ligger i variation snarare än stora klubbar eller en enda gata som håller igång hela natten: terrasser i solnedgången, fisk och tapas som övergår i drinkar, avkopplade kvällar vid stranden och ett centralt barområde för en senare och livligare avslutning.',
-        'Den balansen passar par, vänskapsgrupper och familjer som fortfarande vill njuta av centrum tidigt på kvällen. Ni kan bygga en vacker kväll kring gamla stan och havet eller röra er mellan centrala barer utan att välja känslan av en renodlad partystad.',
-        'Det enklaste sättet att förstå Nerja efter mörkrets inbrott är geografiskt. När ni känner till huvudområdena blir det lätt att välja mellan utsikt och solnedgång, social barrunda, en kväll vid stranden eller kultur som flamenco och liveframträdanden.'
+        'Nerja är livligt efter mörkrets inbrott men kretsar inte kring stora klubbar eller en enda festgata. Många kvällar börjar på en terrass, med fisk eller tapas; kring Plaza Tutti Frutti finns den största koncentrationen av barer för senare.',
+        'Välj gamla stan och Balcón de Europa för middag, vin och havsutsikt. Välj Burriana för middag vid stranden och drinkar utomhus. Kontrollera det aktuella programmet i förväg om ni vill se flamenco, musik eller teater.',
+        'Om ni bor i Frigiliana ordnar ni resan tillbaka innan ni går ut. Vägen mellan orterna är ingen nattpromenad och taxi i sista minuten är inte garanterad.'
       ],
       imageAlt:
         'Lugn interiör på AMARA Playa som bas för kvällar i Nerja'
@@ -1463,7 +1463,7 @@ export const nerjaNightlifeContent: Record<
       kicker: 'Kort svar',
       title: 'Är Nerja bra för nattliv?',
       intro:
-        'Ja – särskilt för resenärer som vill ha en balanserad kvällsscen snarare än en ren partydestination. Nerja är starkt för promenadvänliga kvällar, drinkar i solnedgången, cocktailbarer, fisk och tapas, lugna strandbarer och ett centralt område för senare timmar. Staden passar sämre om det enda målet är stora klubbar fram till gryningen.',
+        'Ja, om ni vill ha middag, terrasser, cocktailbarer och ett kompakt område för senare på samma ort. Välj ett annat resmål om stora klubbar till gryningen är huvudsyftet med resan.',
       reviewed: 'Redaktionellt granskat: juli 2026',
       items: [
         {

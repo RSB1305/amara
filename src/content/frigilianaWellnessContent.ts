@@ -131,14 +131,14 @@ export const frigilianaWellnessSeo: AmaraAuthoringSeo = {
     en: {
       title: 'Wellness & Spa in Frigiliana',
       description:
-        'Compare two carefully selected wellness experiences near Frigiliana: mobile spa treatments at your stay or a quiet countryside massage.',
+        'Compare two independent wellness providers near Frigiliana: mobile spa treatments at your accommodation or Californian massage in the countryside.',
       robots: 'index, follow',
       canonical: 'auto'
     },
     de: {
       title: 'Wellness & Spa bei Frigiliana',
       description:
-        'Zwei ausgewählte Wellness-Erlebnisse bei Frigiliana im Vergleich: mobile Behandlungen in der Unterkunft oder eine ruhige Massage auf dem Land.',
+        'Zwei unabhängige Wellness-Anbieter bei Frigiliana im Vergleich: mobile Spa-Anwendungen in eurer Unterkunft oder kalifornische Massage auf dem Land.',
       robots: 'index, follow',
       canonical: 'auto'
     },
@@ -152,7 +152,7 @@ export const frigilianaWellnessSeo: AmaraAuthoringSeo = {
     nl: {
       title: 'Wellness bij Frigiliana: spa en massage',
       description:
-        'Vergelijk twee zorgvuldig gekozen wellnesservaringen bij Frigiliana: behandelingen in uw verblijf of een rustige massage buiten het dorp.',
+        'Vergelijk twee onafhankelijke wellnessaanbieders bij Frigiliana: behandelingen in jullie verblijf of Californische massage buiten het dorp.',
       robots: 'index, follow',
       canonical: 'auto'
     },
@@ -187,69 +187,69 @@ export const frigilianaWellnessContent: Record<
       hiking: 'Hiking & nature'
     },
     hero: {
-      kicker: 'Slow days · Restore · Disconnect',
+      kicker: 'Massage & spa treatments near Frigiliana',
       title: 'Wellness & spa experiences in Frigiliana',
       paragraphs: [
-        'Frigiliana is not about rushing from activity to activity. Some of the best days here are the quiet ones — slow mornings, warm water, good food and treatments that help you truly switch off.',
-        'Below are two carefully selected wellness providers in the Frigiliana and Nerja area. Their approaches are very different, so the right choice depends less on a ranking and more on the kind of day you want.'
+        'If you want to set aside a few hours for a treatment, there are two quite different options near Frigiliana.',
+        'Frigiliana Wellness comes to your villa or apartment and offers a broader spa and beauty menu. Lidia receives guests for Californian massage at her countryside location near Frigiliana. Both are independent providers, and you book with them directly.'
       ],
       imageAlt:
         'The whitewashed village of Frigiliana above the hills and Mediterranean coast'
     },
     sectionNav: {
-      choose: 'Choose your mood',
+      choose: 'Choose by location',
       providers: 'The providers',
       compare: 'Compare',
       planning: 'Plan your day'
     },
     overview: {
-      title: 'Start with the kind of pause you need',
+      title: 'Would you rather stay in or travel out?',
       intro:
-        'Both options make space for a slower day, but the setting and rhythm are different. Choose between the ease of staying at home and the feeling of leaving the day behind somewhere quiet.',
+        'The clearest difference is practical: Frigiliana Wellness brings treatments to your accommodation; for Lidia, you travel to her countryside location.',
       reviewed: 'Editorially reviewed: July 2026',
       items: [
         {
-          title: 'Wellness at home',
+          title: 'Treatments at your accommodation',
           text:
-            'Treatments come to your villa or apartment, so the day can stay relaxed and flexible from beginning to end.'
+            'Frigiliana Wellness comes to your villa or apartment, so there is no journey before or after the appointment.'
         },
         {
-          title: 'A change of scene',
+          title: 'Massage in the countryside',
           text:
-            'Travel to a quiet countryside setting and make the appointment feel like a small retreat away from your normal holiday rhythm.'
+            'For a session with Lidia, confirm her location near Frigiliana and plan the journey there and back.'
         },
         {
           title: 'Pamper & variety',
           text:
-            'Choose the mobile option when comfort, beauty treatments and a wider menu matter more than travelling elsewhere.'
+            'Choose the mobile option if you want beauty treatments or to combine more than one service.'
         },
         {
           title: 'Quiet & focused',
           text:
-            'Choose the countryside option when you want a personal session, fewer distractions and an intentionally unhurried atmosphere.'
+            'Choose the countryside option if you specifically want Californian massage in a quiet, one-to-one setting.'
         }
       ]
     },
     providers: {
-      title: 'Two different ways to unwind',
+      title: 'One comes to you; one welcomes you outside the village',
       intro:
-        'Neither provider is presented as better. One brings a familiar spa day to your accommodation; the other offers a quieter massage experience at a countryside location near Frigiliana.',
+        'Compare where the appointment happens, the type of treatments offered and how much of the day you want to set aside.',
       items: [
         provider('frigilianaWellness', {
           name: 'Frigiliana Wellness',
           title: 'Mobile spa & pamper days',
           summary:
-            'A relaxed, classic spa experience centred on comfort, beauty and ease. It works especially well when you want wellness to come to you without reorganising the rest of the day.',
+            'A mobile service for spa and beauty treatments at your villa or apartment. It is the simpler option if you do not want to travel for the appointment.',
           highlights: [
             {
               title: 'They come to you',
               text:
-                'Treatments can take place at your villa or apartment, keeping the day private and easy.'
+                'Treatments can take place at your villa or apartment; confirm that your exact address is covered when booking.'
             },
             {
-              title: 'Pamper & beauty focus',
+              title: 'Spa & beauty focus',
               text:
-                'The atmosphere is familiar and uncomplicated — well suited to a relaxed or sociable spa day.'
+                'The menu extends beyond massage, which is useful if several people want different treatments.'
             },
             {
               title: 'A broad treatment menu',
@@ -258,13 +258,13 @@ export const frigilianaWellnessContent: Record<
             }
           ],
           bestFor:
-            'A comfortable “spa at home” day with a flexible, sociable feel.'
+            'Guests who want mobile treatments, a broader menu or appointments for more than one person.'
         }),
         provider('lidia', {
           name: 'Masaje Californiano con Lidia',
-          title: 'Calm, depth & retreat atmosphere',
+          title: 'Californian massage in the countryside',
           summary:
-            'A quieter and more inward kind of wellness. Guests choose Lidia when they want deep relaxation, a slower pace and a personal massage experience away from the activity of the day.',
+            'A personal Californian massage session at Lidia’s countryside location near Frigiliana. You travel to her rather than receiving the treatment at your accommodation.',
           highlights: [
             {
               title: 'A countryside setting',
@@ -274,53 +274,53 @@ export const frigilianaWellnessContent: Record<
             {
               title: 'Californian massage focus',
               text:
-                'Long, flowing movements give the session a slow, grounding and calming rhythm.'
+                'The session centres on the long, flowing movements associated with Californian massage.'
             },
             {
-              title: 'Retreat-like atmosphere',
+              title: 'Quiet one-to-one setting',
               text:
-                'The experience is quiet, personal and intentionally unhurried.'
+                'This option is centred on one personal massage session in a quiet countryside setting.'
             }
           ],
           bestFor:
-            'Guests looking for silence, a personal session and the feeling of a small retreat.'
+            'Guests who specifically want Californian massage and do not mind travelling to the appointment.'
         })
       ]
     },
     comparison: {
-      title: 'Which one fits you?',
+      title: 'Compare the practical difference',
       intro:
-        'Think of these as two different wellness moods. The most useful distinction is how you want the experience to fit into your day.',
+        'Start with location and treatment type. Those two questions usually make the choice straightforward.',
       labels: {
-        mood: 'Mood',
+        mood: 'Session style',
         logistics: 'Logistics',
         ideal: 'Choose it when'
       },
       items: [
         {
           name: 'Frigiliana Wellness',
-          mood: 'Light, comfortable and potentially more sociable.',
+          mood: 'Mobile spa and beauty treatments; suitable for more than one guest.',
           logistics:
             'Stay at your villa or apartment; the treatments come to you.',
           ideal:
-            'You want easy wellness, a pamper-day feeling and minimal planning.'
+            'You want treatments at the accommodation or a broader menu than massage alone.'
         },
         {
           name: 'Lidia',
-          mood: 'Quiet, personal and more retreat-like.',
+          mood: 'Personal Californian massage in a quiet countryside setting.',
           logistics:
             'Travel to her countryside location near Frigiliana.',
           ideal:
-            'You want a real change of scene and a slower, more focused session.'
+            'You specifically want Californian massage and are happy to travel to the session.'
         }
       ],
       tip:
         'If you are unsure, decide by logistics: stay at home with Frigiliana Wellness, or go somewhere quiet for a while with Lidia.'
     },
     planning: {
-      title: 'Keep the rest of the day just as simple',
+      title: 'Book direct and confirm the details',
       intro:
-        'Appointments, available treatments and locations can change. Confirm the practical details directly before shaping the rest of your day around the booking.',
+        'Availability, treatments, prices and meeting details can change. Confirm them with the provider before you arrange the rest of the day.',
       items: [
         {
           title: 'Book directly',
@@ -333,23 +333,23 @@ export const frigilianaWellnessContent: Record<
             'For a mobile treatment, share the accommodation details. For Lidia, confirm the meeting point and journey before setting off.'
         },
         {
-          title: 'Choose by energy',
+          title: 'Choose by format',
           text:
-            'A sociable pamper day and a quiet massage session create different rhythms. Pick the one that matches how you want to feel afterward.'
+            'Decide whether you want treatments at home for one or more guests, or a single Californian massage session in the countryside.'
         },
         {
           title: 'Leave time afterward',
           text:
-            'Avoid placing a rushed meal, drive or activity immediately after the appointment. The slower transition is part of the experience.'
+            'Leave enough time before the next restaurant booking, drive or activity, especially when you need to travel back from Lidia.'
         }
       ],
       note:
         'Treatments are personal wellness experiences and are not medical or therapeutic services. Bookings are made directly with independent external providers.'
     },
     combine: {
-      title: 'Build a genuinely slow day',
+      title: 'What to plan before and after',
       intro:
-        'Wellness works best here when it is not another item on a checklist. Pair it with one calm meal or an easy walk rather than a tightly packed programme.',
+        'Keep the hours around the appointment simple. A nearby meal or an easy walk is easier to combine than a tightly timed excursion.',
       items: [
         {
           title: 'Add an unhurried meal',
@@ -368,9 +368,9 @@ export const frigilianaWellnessContent: Record<
       ]
     },
     closing: {
-      title: 'A quiet base for slower days',
+      title: 'Four apartments in Frigiliana’s old town',
       lead:
-        'Stay in Frigiliana and give the day room to unfold — without rushing from one plan to the next.',
+        'Compare Farah, Lounis, Zaid and Maha, then check availability for your dates.',
       availabilityCta: 'Check availability',
       apartmentsCta: 'View the apartments'
     }
@@ -387,174 +387,174 @@ export const frigilianaWellnessContent: Record<
       hiking: 'Wandern & Natur'
     },
     hero: {
-      kicker: 'Zur Ruhe kommen · Auftanken · Abschalten',
+      kicker: 'Massage & Spa-Anwendungen bei Frigiliana',
       title: 'Wellness- und Spa-Erlebnisse in Frigiliana',
       paragraphs: [
-        'Frigiliana ist kein Ort, an dem man von einem Programmpunkt zum nächsten eilen muss. Zu den schönsten Tagen gehören oft die ruhigen: ein langsamer Morgen, warmes Wasser, gutes Essen und Anwendungen, bei denen man wirklich abschalten kann.',
-        'Hier finden Sie zwei sorgfältig ausgewählte Wellness-Anbieter im Raum Frigiliana und Nerja. Ihre Ansätze unterscheiden sich deutlich – deshalb geht es nicht um ein Ranking, sondern darum, welche Art von Tag gerade zu Ihnen passt.'
+        'Wenn ihr ein paar Stunden für eine Anwendung reservieren möchtet, gibt es bei Frigiliana zwei recht unterschiedliche Möglichkeiten.',
+        'Frigiliana Wellness kommt in eure Villa oder euer Apartment und bietet ein breiteres Spa- und Beauty-Angebot. Lidia empfängt Gäste zur kalifornischen Massage an ihrem Ort auf dem Land bei Frigiliana. Beide arbeiten unabhängig; ihr bucht direkt bei ihnen.'
       ],
       imageAlt:
         'Das weiße Dorf Frigiliana über den Hügeln und der Mittelmeerküste'
     },
     sectionNav: {
-      choose: 'Stimmung wählen',
+      choose: 'Nach Ort wählen',
       providers: 'Die Anbieter',
       compare: 'Vergleich',
       planning: 'Den Tag planen'
     },
     overview: {
-      title: 'Beginnen Sie mit der Pause, die Sie gerade brauchen',
+      title: 'Möchtet ihr bleiben oder hinausfahren?',
       intro:
-        'Beide Möglichkeiten schaffen Raum für einen langsameren Tag, doch Ort und Rhythmus sind verschieden. Entscheiden Sie zwischen dem Komfort in der eigenen Unterkunft und einem bewussten Ortswechsel ins Ruhige.',
+        'Der wichtigste Unterschied ist praktisch: Frigiliana Wellness kommt in eure Unterkunft; für Lidia fahrt ihr zu ihrem Ort auf dem Land.',
       reviewed: 'Redaktionell geprüft: Juli 2026',
       items: [
         {
           title: 'Wellness in der Unterkunft',
           text:
-            'Die Anwendungen kommen in Ihre Villa oder Ihr Apartment. So bleibt der gesamte Tag entspannt, privat und flexibel.'
+            'Frigiliana Wellness kommt in eure Villa oder euer Apartment. Vor und nach dem Termin entfällt damit die Fahrt.'
         },
         {
-          title: 'Bewusster Ortswechsel',
+          title: 'Massage auf dem Land',
           text:
-            'Fahren Sie zu einem ruhigen Ort auf dem Land und machen Sie aus dem Termin eine kleine Auszeit vom gewohnten Urlaubsrhythmus.'
+            'Für einen Termin bei Lidia bestätigt ihr den Ort nahe Frigiliana und plant Hin- und Rückfahrt ein.'
         },
         {
           title: 'Verwöhnen & Auswahl',
           text:
-            'Die mobile Variante passt, wenn Komfort, Beauty-Anwendungen und ein breiteres Angebot wichtiger sind als ein Ortswechsel.'
+            'Wählt die mobile Variante, wenn ihr Beauty-Anwendungen möchtet oder mehrere Leistungen kombinieren wollt.'
         },
         {
           title: 'Ruhe & Fokus',
           text:
-            'Die Variante auf dem Land passt, wenn Sie sich eine persönliche Sitzung, wenige Ablenkungen und viel Ruhe wünschen.'
+            'Wählt die Variante auf dem Land, wenn ihr gezielt eine kalifornische Massage in ruhiger Einzelbetreuung möchtet.'
         }
       ]
     },
     providers: {
-      title: 'Zwei unterschiedliche Wege zum Abschalten',
+      title: 'Eine kommt zu euch; eine empfängt euch auf dem Land',
       intro:
-        'Keiner der beiden Anbieter ist grundsätzlich die bessere Wahl. Der eine bringt einen klassischen Spa-Tag in Ihre Unterkunft, der andere bietet eine ruhigere Massage an einem Ort auf dem Land nahe Frigiliana.',
+        'Vergleicht Terminort, Art der Anwendungen und wie viel Zeit ihr dafür einplanen möchtet.',
       items: [
         provider('frigilianaWellness', {
           name: 'Frigiliana Wellness',
           title: 'Mobiler Spa- und Verwöhntag',
           summary:
-            'Ein entspanntes, klassisches Spa-Erlebnis mit Fokus auf Komfort, Beauty und unkomplizierter Planung. Besonders angenehm, wenn die Wellness zu Ihnen kommen soll und der restliche Tag unverändert bleiben darf.',
+            'Ein mobiler Service für Spa- und Beauty-Anwendungen in eurer Villa oder eurem Apartment. Die einfachere Wahl, wenn ihr für den Termin nicht fahren möchtet.',
           highlights: [
             {
-              title: 'Kommt zu Ihnen',
+              title: 'Kommt zu euch',
               text:
-                'Die Anwendungen können in Ihrer Villa oder Ihrem Apartment stattfinden – privat, bequem und ohne zusätzliche Fahrt.'
+                'Die Anwendungen können in eurer Villa oder eurem Apartment stattfinden. Bestätigt bei der Buchung, dass eure genaue Adresse abgedeckt ist.'
             },
             {
-              title: 'Verwöhn- und Beauty-Fokus',
+              title: 'Spa- und Beauty-Fokus',
               text:
-                'Die Atmosphäre ist vertraut und unkompliziert und eignet sich gut für einen entspannten oder geselligen Spa-Tag.'
+                'Das Angebot geht über Massagen hinaus – praktisch, wenn mehrere Personen unterschiedliche Anwendungen möchten.'
             },
             {
               title: 'Breites Behandlungsangebot',
               text:
-                'Eine gute Wahl, wenn Sie mehr als eine Massage suchen oder mehrere Anwendungen kombinieren möchten.'
+                'Eine gute Wahl, wenn ihr mehr als eine Massage sucht oder mehrere Anwendungen kombinieren möchtet.'
             }
           ],
           bestFor:
-            'Einen komfortablen „Spa zu Hause“-Tag mit flexiblem, geselligem Charakter.'
+            'Gäste, die mobile Anwendungen, eine breitere Auswahl oder Termine für mehrere Personen möchten.'
         }),
         provider('lidia', {
           name: 'Masaje Californiano con Lidia',
-          title: 'Ruhe, Tiefe & Rückzugsort',
+          title: 'Kalifornische Massage auf dem Land',
           summary:
-            'Eine stillere, stärker nach innen gerichtete Form der Entspannung. Gäste wählen Lidia, wenn sie tiefe Ruhe, ein langsameres Tempo und ein persönliches Massageerlebnis abseits des Tagesprogramms suchen.',
+            'Eine persönliche kalifornische Massage an Lidias Ort auf dem Land bei Frigiliana. Ihr fahrt zu ihr; die Anwendung findet nicht in eurer Unterkunft statt.',
           highlights: [
             {
               title: 'Ruhige Lage auf dem Land',
               text:
-                'Sie fahren zu ihrem Ort nahe Frigiliana und schaffen damit einen bewussten Abstand zum übrigen Tag.'
+                'Ihr fahrt zu ihrem Ort nahe Frigiliana. Lasst euch Treffpunkt und Anfahrt vorab bestätigen.'
             },
             {
               title: 'Fokus auf kalifornische Massage',
               text:
-                'Lange, fließende Bewegungen geben der Sitzung einen langsamen, erdenden und beruhigenden Rhythmus.'
+                'Im Mittelpunkt stehen die langen, fließenden Bewegungen der kalifornischen Massage.'
             },
             {
-              title: 'Atmosphäre wie bei einer Auszeit',
+              title: 'Ruhige Einzelbetreuung',
               text:
-                'Das Erlebnis ist ruhig, persönlich und bewusst ohne Zeitdruck gestaltet.'
+                'Diese Variante konzentriert sich auf eine persönliche Massage in ruhiger Umgebung auf dem Land.'
             }
           ],
           bestFor:
-            'Gäste, die Stille, eine persönliche Sitzung und das Gefühl einer kleinen Auszeit suchen.'
+            'Gäste, die gezielt eine kalifornische Massage möchten und für den Termin gern hinausfahren.'
         })
       ]
     },
     comparison: {
-      title: 'Welche Variante passt zu Ihnen?',
+      title: 'Der praktische Unterschied',
       intro:
-        'Betrachten Sie die Angebote als zwei unterschiedliche Wellness-Stimmungen. Entscheidend ist vor allem, wie sich das Erlebnis in Ihren Tag einfügen soll.',
+        'Beginnt mit Ort und Art der Anwendung. Diese beiden Fragen machen die Wahl meist einfach.',
       labels: {
-        mood: 'Stimmung',
+        mood: 'Art des Termins',
         logistics: 'Ablauf',
         ideal: 'Passend, wenn'
       },
       items: [
         {
           name: 'Frigiliana Wellness',
-          mood: 'Leicht, komfortabel und auf Wunsch etwas geselliger.',
+          mood: 'Mobile Spa- und Beauty-Anwendungen, auch für mehrere Gäste.',
           logistics:
-            'Sie bleiben in Ihrer Villa oder Ihrem Apartment; die Anwendungen kommen zu Ihnen.',
+            'Ihr bleibt in eurer Villa oder eurem Apartment; die Anwendungen kommen zu euch.',
           ideal:
-            'Sie unkomplizierte Wellness, Verwöhngefühl und möglichst wenig Planung wünschen.'
+            'Ihr Anwendungen in der Unterkunft oder mehr Auswahl als Massage allein möchtet.'
         },
         {
           name: 'Lidia',
-          mood: 'Ruhig, persönlich und eher wie eine kleine Auszeit.',
+          mood: 'Persönliche kalifornische Massage in ruhiger Umgebung auf dem Land.',
           logistics:
-            'Sie fahren zu ihrem Ort auf dem Land nahe Frigiliana.',
+            'Ihr fahrt zu ihrem Ort auf dem Land nahe Frigiliana.',
           ideal:
-            'Sie bewusst den Ort wechseln und eine langsame, konzentrierte Sitzung erleben möchten.'
+            'Ihr gezielt eine kalifornische Massage möchtet und gern zum Termin fahrt.'
         }
       ],
       tip:
-        'Falls Sie unsicher sind, entscheiden Sie nach dem Ablauf: mit Frigiliana Wellness zu Hause bleiben oder für einige ruhige Stunden zu Lidia fahren.'
+        'Falls ihr unsicher seid, entscheidet nach dem Ablauf: mit Frigiliana Wellness in der Unterkunft bleiben oder für den Termin zu Lidia fahren.'
     },
     planning: {
-      title: 'Auch der restliche Tag darf einfach bleiben',
+      title: 'Direkt buchen und Details bestätigen',
       intro:
-        'Termine, verfügbare Anwendungen und Orte können sich ändern. Klären Sie die praktischen Einzelheiten direkt, bevor Sie den übrigen Tag um die Buchung herum planen.',
+        'Verfügbarkeit, Anwendungen, Preise und Treffpunkte können sich ändern. Klärt sie direkt mit dem Anbieter, bevor ihr den übrigen Tag plant.',
       items: [
         {
           title: 'Direkt buchen',
           text:
-            'Fragen Sie über die Website oder per WhatsApp nach Verfügbarkeit, aktuellen Anwendungen und Preisen.'
+            'Fragt über die Website oder per WhatsApp nach Verfügbarkeit, aktuellen Anwendungen und Preisen.'
         },
         {
           title: 'Ort bestätigen',
           text:
-            'Teilen Sie bei einer mobilen Anwendung die Unterkunftsdaten mit. Lassen Sie sich bei Lidia Treffpunkt und Anfahrt bestätigen.'
+            'Teilt bei einer mobilen Anwendung die Unterkunftsdaten mit. Lasst euch bei Lidia Treffpunkt und Anfahrt bestätigen.'
         },
         {
-          title: 'Nach Energie wählen',
+          title: 'Nach Ablauf wählen',
           text:
-            'Ein geselliger Verwöhntag hat einen anderen Rhythmus als eine ruhige Massage. Wählen Sie nach dem Gefühl, das Sie danach mitnehmen möchten.'
+            'Entscheidet, ob ihr Anwendungen in der Unterkunft für eine oder mehrere Personen oder eine einzelne kalifornische Massage auf dem Land möchtet.'
         },
         {
           title: 'Zeit danach lassen',
           text:
-            'Planen Sie unmittelbar anschließend keine eilige Mahlzeit, Fahrt oder Aktivität. Der langsame Übergang gehört zur Auszeit.'
+            'Lasst vor der nächsten Restaurantreservierung, Fahrt oder Aktivität genug Zeit – besonders für die Rückfahrt von Lidia.'
         }
       ],
       note:
         'Die Anwendungen sind persönliche Wellness-Erlebnisse und keine medizinischen oder therapeutischen Leistungen. Die Buchung erfolgt direkt bei unabhängigen externen Anbietern.'
     },
     combine: {
-      title: 'Gestalten Sie einen wirklich ruhigen Tag',
+      title: 'Was davor und danach passt',
       intro:
-        'Wellness funktioniert hier am besten, wenn sie nicht zum nächsten Punkt auf einer langen Liste wird. Kombinieren Sie die Auszeit lieber mit einem entspannten Essen oder einem leichten Spaziergang.',
+        'Haltet die Stunden rund um den Termin einfach. Ein Essen in der Nähe oder ein kurzer Spaziergang lässt sich leichter kombinieren als ein eng getakteter Ausflug.',
       items: [
         {
           title: 'In Ruhe essen gehen',
           text:
-            'Wählen Sie eine Terrasse in Frigiliana oder ein besonderes Abendessen in Nerja und lassen Sie zwischen Anwendung und Reservierung ausreichend Zeit.',
+            'Wählt eine Terrasse in Frigiliana oder ein besonderes Abendessen in Nerja und lasst zwischen Anwendung und Reservierung ausreichend Zeit.',
           linkToken: 'frigiliana_food_authority',
           linkLabel: 'Zum Restaurant-Guide'
         },
@@ -568,9 +568,9 @@ export const frigilianaWellnessContent: Record<
       ]
     },
     closing: {
-      title: 'Ein ruhiger Ausgangspunkt für langsame Tage',
+      title: 'Vier Apartments in Frigilianas Altstadt',
       lead:
-        'Bleiben Sie in Frigiliana und geben Sie dem Tag Raum, sich ohne Eile zu entfalten.',
+        'Vergleicht Farah, Lounis, Zaid und Maha und prüft dann die Verfügbarkeit für eure Reisedaten.',
       availabilityCta: 'Verfügbarkeit prüfen',
       apartmentsCta: 'Apartments ansehen'
     }
@@ -587,36 +587,36 @@ export const frigilianaWellnessContent: Record<
       hiking: 'Senderismo y naturaleza'
     },
     hero: {
-      kicker: 'Bajar el ritmo · Recuperar energía · Desconectar',
+      kicker: 'Masajes y tratamientos de spa cerca de Frigiliana',
       title: 'Experiencias de bienestar y spa en Frigiliana',
       paragraphs: [
-        'Frigiliana no invita a correr de una actividad a otra. Algunos de los mejores días son los más tranquilos: mañanas sin prisa, agua templada, buena comida y tratamientos que ayudan a desconectar de verdad.',
-        'A continuación encontraréis dos proveedores de bienestar cuidadosamente seleccionados en la zona de Frigiliana y Nerja. Sus propuestas son muy distintas, así que no se trata de elegir al mejor, sino el tipo de día que más os apetece.'
+        'Si queréis reservar unas horas para un tratamiento, hay dos opciones bastante distintas cerca de Frigiliana.',
+        'Frigiliana Wellness se desplaza hasta vuestra villa o apartamento y ofrece una carta más amplia de spa y belleza. Lidia recibe para masaje californiano en su espacio rural cerca de Frigiliana. Ambos son proveedores independientes y se reserva directamente con ellos.'
       ],
       imageAlt:
         'El pueblo blanco de Frigiliana sobre las colinas y la costa mediterránea'
     },
     sectionNav: {
-      choose: 'Elegir ambiente',
+      choose: 'Elegir por ubicación',
       providers: 'Los proveedores',
       compare: 'Comparar',
       planning: 'Planificar el día'
     },
     overview: {
-      title: 'Empezad por la pausa que necesitáis',
+      title: '¿Preferís quedaros o desplazaros?',
       intro:
-        'Las dos opciones dejan espacio para un día más lento, pero cambian el entorno y el ritmo. Podéis elegir entre la comodidad de quedaros en vuestro alojamiento y la sensación de alejaros unas horas a un lugar tranquilo.',
+        'La diferencia principal es práctica: Frigiliana Wellness lleva los tratamientos hasta vuestro alojamiento; para ver a Lidia, os desplazáis a su espacio rural.',
       reviewed: 'Revisión editorial: julio de 2026',
       items: [
         {
           title: 'Bienestar en casa',
           text:
-            'Los tratamientos llegan hasta vuestra villa o apartamento, para que el día siga siendo privado, flexible y relajado de principio a fin.'
+            'Frigiliana Wellness se desplaza hasta vuestra villa o apartamento, así que no necesitáis viajar antes ni después de la cita.'
         },
         {
-          title: 'Cambiar de escenario',
+          title: 'Masaje en el campo',
           text:
-            'Desplazaos a un entorno tranquilo en el campo y convertid la cita en una pequeña pausa fuera del ritmo habitual de las vacaciones.'
+            'Para una sesión con Lidia, confirmad su ubicación cerca de Frigiliana y planificad la ida y la vuelta.'
         },
         {
           title: 'Mimos y variedad',
@@ -626,14 +626,14 @@ export const frigilianaWellnessContent: Record<
         {
           title: 'Calma y atención',
           text:
-            'La opción en el campo encaja si preferís una sesión personal, pocas distracciones y un ambiente deliberadamente pausado.'
+            'Elegid la opción rural si buscáis específicamente masaje californiano en un entorno tranquilo y personal.'
         }
       ]
     },
     providers: {
-      title: 'Dos maneras distintas de desconectar',
+      title: 'Una se desplaza; la otra os recibe en el campo',
       intro:
-        'Ninguna propuesta es mejor que la otra. Una lleva un día de spa clásico hasta vuestro alojamiento; la otra ofrece un masaje más tranquilo en un entorno rural cerca de Frigiliana.',
+        'Comparad dónde se realiza la cita, el tipo de tratamientos y cuánto tiempo queréis reservar.',
       items: [
         provider('frigilianaWellness', {
           name: 'Frigiliana Wellness',
@@ -662,9 +662,9 @@ export const frigilianaWellnessContent: Record<
         }),
         provider('lidia', {
           name: 'Masaje Californiano con Lidia',
-          title: 'Calma, profundidad y ambiente de retiro',
+          title: 'Masaje californiano en el campo',
           summary:
-            'Una forma de bienestar más silenciosa e introspectiva. Quienes eligen a Lidia suelen buscar relajación profunda, un ritmo más lento y un masaje personal lejos de la actividad del día.',
+            'Una sesión personal de masaje californiano en el espacio rural de Lidia cerca de Frigiliana. Os desplazáis hasta allí; el tratamiento no se realiza en vuestro alojamiento.',
           highlights: [
             {
               title: 'Un entorno rural',
@@ -674,25 +674,25 @@ export const frigilianaWellnessContent: Record<
             {
               title: 'Masaje californiano',
               text:
-                'Los movimientos largos y fluidos dan a la sesión un ritmo lento, envolvente y relajante.'
+                'La sesión se centra en los movimientos largos y fluidos propios del masaje californiano.'
             },
             {
-              title: 'Ambiente de retiro',
+              title: 'Entorno tranquilo y personal',
               text:
                 'La experiencia es tranquila, personal y deliberadamente pausada.'
             }
           ],
           bestFor:
-            'Quienes buscan silencio, una sesión personal y la sensación de una pequeña escapada.'
+            'Quienes buscan específicamente masaje californiano y no tienen inconveniente en desplazarse hasta la cita.'
         })
       ]
     },
     comparison: {
-      title: '¿Cuál encaja mejor con vosotros?',
+      title: 'Comparad la diferencia práctica',
       intro:
-        'Pensad en dos estados de ánimo distintos. La diferencia más útil está en cómo queréis integrar la experiencia en vuestro día.',
+        'Empezad por la ubicación y el tipo de tratamiento. Esas dos preguntas suelen resolver la elección.',
       labels: {
-        mood: 'Ambiente',
+        mood: 'Tipo de sesión',
         logistics: 'Logística',
         ideal: 'Elegidla si'
       },
@@ -707,11 +707,11 @@ export const frigilianaWellnessContent: Record<
         },
         {
           name: 'Lidia',
-          mood: 'Tranquilo, personal y más cercano a un pequeño retiro.',
+          mood: 'Masaje californiano personal en un entorno rural tranquilo.',
           logistics:
             'Os desplazáis hasta su espacio rural cerca de Frigiliana.',
           ideal:
-            'Queréis cambiar de escenario y disfrutar de una sesión más lenta y centrada.'
+            'Queréis específicamente masaje californiano y os parece bien desplazaros.'
         }
       ],
       tip:
@@ -733,23 +733,23 @@ export const frigilianaWellnessContent: Record<
             'Para un tratamiento a domicilio, facilitad los datos del alojamiento. Con Lidia, confirmad el punto de encuentro y el trayecto.'
         },
         {
-          title: 'Elegir según la energía',
+          title: 'Elegir según el formato',
           text:
-            'Un día de mimos compartido y un masaje tranquilo tienen ritmos distintos. Elegid según cómo queráis sentiros después.'
+            'Decidid si queréis tratamientos a domicilio para una o varias personas o una sesión individual de masaje californiano en el campo.'
         },
         {
           title: 'Dejar tiempo después',
           text:
-            'No coloquéis una comida con prisas, un trayecto o una actividad justo después. La transición lenta también forma parte de la experiencia.'
+            'Dejad tiempo antes de la siguiente comida, trayecto o actividad, sobre todo para volver desde el espacio de Lidia.'
         }
       ],
       note:
         'Los tratamientos son experiencias personales de bienestar y no servicios médicos ni terapéuticos. Las reservas se realizan directamente con proveedores externos independientes.'
     },
     combine: {
-      title: 'Cread un día realmente tranquilo',
+      title: 'Qué planear antes y después',
       intro:
-        'El bienestar funciona mejor aquí cuando no es otra casilla en una lista. Combinadlo con una comida sin prisa o un paseo suave, no con un programa demasiado apretado.',
+        'Mantened sencillas las horas alrededor de la cita. Una comida cercana o un paseo fácil combinan mejor que una excursión con horarios ajustados.',
       items: [
         {
           title: 'Añadir una comida sin prisa',
@@ -768,9 +768,9 @@ export const frigilianaWellnessContent: Record<
       ]
     },
     closing: {
-      title: 'Una base tranquila para días sin prisa',
+      title: 'Cuatro apartamentos en el casco antiguo de Frigiliana',
       lead:
-        'Alojaos en Frigiliana y dejad que el día se desarrolle con espacio, sin correr de un plan al siguiente.',
+        'Comparad Farah, Lounis, Zaid y Maha y consultad después la disponibilidad para vuestras fechas.',
       availabilityCta: 'Consultar disponibilidad',
       apartmentsCta: 'Ver los apartamentos'
     }
@@ -790,33 +790,33 @@ export const frigilianaWellnessContent: Record<
       kicker: 'Vertragen · Opladen · Loslaten',
       title: 'Wellness- en spa-ervaringen in Frigiliana',
       paragraphs: [
-        'Frigiliana draait niet om van de ene activiteit naar de andere rennen. Sommige van de fijnste dagen zijn juist de stille: een langzame ochtend, warm water, goed eten en behandelingen waarbij u echt even loslaat.',
-        'Hieronder vindt u twee zorgvuldig gekozen wellnessaanbieders in de omgeving van Frigiliana en Nerja. Hun aanpak verschilt sterk, dus het gaat niet om wie beter is, maar om het soort dag waar u behoefte aan hebt.'
+        'Als jullie een paar uur voor een behandeling willen reserveren, zijn er twee heel verschillende opties bij Frigiliana.',
+        'Frigiliana Wellness komt naar jullie villa of appartement en biedt een breder spa- en beautymenu. Lidia ontvangt gasten voor Californische massage op haar landelijke locatie bij Frigiliana. Beide aanbieders zijn onafhankelijk; jullie boeken rechtstreeks bij hen.'
       ],
       imageAlt:
         'Het witte dorp Frigiliana boven de heuvels en de Middellandse Zeekust'
     },
     sectionNav: {
-      choose: 'Kies uw sfeer',
+      choose: 'Kies op locatie',
       providers: 'De aanbieders',
       compare: 'Vergelijken',
-      planning: 'Uw dag plannen'
+      planning: 'Jullie dag plannen'
     },
     overview: {
-      title: 'Begin bij de pauze die u nodig hebt',
+      title: 'Blijven jullie liever thuis of gaan jullie eropuit?',
       intro:
-        'Beide opties maken ruimte voor een tragere dag, maar de omgeving en het ritme zijn anders. Kies tussen het gemak van thuisblijven en het gevoel er even helemaal tussenuit te zijn op een rustige plek.',
+        'Het duidelijkste verschil is praktisch: Frigiliana Wellness brengt behandelingen naar jullie verblijf; voor Lidia reizen jullie naar haar landelijke locatie.',
       reviewed: 'Redactioneel gecontroleerd: juli 2026',
       items: [
         {
-          title: 'Wellness in uw verblijf',
+          title: 'Behandelingen in jullie verblijf',
           text:
-            'De behandelingen komen naar uw villa of appartement, zodat de dag van begin tot eind ontspannen, privé en flexibel blijft.'
+            'Frigiliana Wellness komt naar jullie villa of appartement, zodat er voor en na de afspraak geen rit nodig is.'
         },
         {
-          title: 'Even ergens anders',
+          title: 'Massage op het platteland',
           text:
-            'Ga naar een rustige plek buiten het dorp en laat de afspraak voelen als een korte retraite, los van uw gewone vakantieritme.'
+            'Bevestig voor een afspraak met Lidia haar locatie bij Frigiliana en plan de heen- en terugreis.'
         },
         {
           title: 'Verwennerij & keuze',
@@ -826,25 +826,25 @@ export const frigilianaWellnessContent: Record<
         {
           title: 'Rust & aandacht',
           text:
-            'De optie op het platteland past wanneer u een persoonlijke sessie, weinig afleiding en een bewust rustig tempo zoekt.'
+            'Kies de landelijke optie als jullie specifiek Californische massage in een rustige één-op-éénsetting willen.'
         }
       ]
     },
     providers: {
-      title: 'Twee verschillende manieren om te ontspannen',
+      title: 'De een komt naar jullie toe; de ander ontvangt jullie buiten het dorp',
       intro:
-        'Geen van beide aanbieders is per definitie beter. De een brengt een vertrouwde spadag naar uw accommodatie; de ander biedt een rustigere massage op een landelijke locatie bij Frigiliana.',
+        'Vergelijk waar de afspraak plaatsvindt, het soort behandelingen en hoeveel tijd jullie ervoor willen reserveren.',
       items: [
         provider('frigilianaWellness', {
           name: 'Frigiliana Wellness',
           title: 'Mobiele spa & verwenmomenten',
           summary:
-            'Een ontspannen, klassieke spa-ervaring met comfort, beauty en gemak als uitgangspunt. Vooral prettig wanneer u de wellness naar u toe wilt laten komen zonder de rest van de dag om te gooien.',
+            'Een mobiele service voor spa- en beautybehandelingen in jullie villa of appartement. De eenvoudigste optie als jullie niet voor de afspraak willen reizen.',
           highlights: [
             {
-              title: 'Ze komen naar u toe',
+              title: 'Ze komen naar jullie toe',
               text:
-                'De behandelingen kunnen in uw villa of appartement plaatsvinden: privé, comfortabel en zonder extra rit.'
+                'De behandelingen kunnen in jullie villa of appartement plaatsvinden. Bevestig bij het boeken dat jullie exacte adres wordt bediend.'
             },
             {
               title: 'Verwen- en beautyfocus',
@@ -854,7 +854,7 @@ export const frigilianaWellnessContent: Record<
             {
               title: 'Ruime behandelingskeuze',
               text:
-                'Een handige keuze wanneer u meer zoekt dan alleen massage of meerdere behandelingen wilt combineren.'
+                'Een handige keuze wanneer jullie meer zoeken dan alleen massage of meerdere behandelingen willen combineren.'
             }
           ],
           bestFor:
@@ -862,37 +862,37 @@ export const frigilianaWellnessContent: Record<
         }),
         provider('lidia', {
           name: 'Masaje Californiano con Lidia',
-          title: 'Rust, diepgang & retraitesfeer',
+          title: 'Californische massage op het platteland',
           summary:
-            'Een stillere en meer naar binnen gerichte vorm van wellness. Gasten kiezen Lidia wanneer ze diepe ontspanning, een lager tempo en een persoonlijke massage buiten de drukte van de dag zoeken.',
+            'Een persoonlijke Californische massagesessie op Lidia’s landelijke locatie bij Frigiliana. Jullie reizen naar haar toe; de behandeling vindt niet in jullie verblijf plaats.',
           highlights: [
             {
               title: 'Landelijke omgeving',
               text:
-                'U gaat naar haar locatie bij Frigiliana en maakt zo bewust afstand van de rest van de dag.'
+                'Jullie reizen naar haar locatie bij Frigiliana. Bevestig het ontmoetingspunt en de route vooraf.'
             },
             {
               title: 'Californische massage',
               text:
-                'Lange, vloeiende bewegingen geven de sessie een langzaam, aardend en rustgevend ritme.'
+                'De sessie draait om de lange, vloeiende bewegingen van Californische massage.'
             },
             {
-              title: 'Sfeer van een retraite',
+              title: 'Rustige één-op-éénsetting',
               text:
                 'De ervaring is stil, persoonlijk en bewust zonder haast.'
             }
           ],
           bestFor:
-            'Gasten die stilte, persoonlijke aandacht en het gevoel van een korte retraite zoeken.'
+            'Gasten die specifiek Californische massage willen en graag naar de afspraak reizen.'
         })
       ]
     },
     comparison: {
-      title: 'Welke optie past bij u?',
+      title: 'Vergelijk het praktische verschil',
       intro:
-        'Zie het als twee verschillende wellnessstemmingen. Het belangrijkste verschil is de manier waarop u de ervaring in uw dag wilt laten passen.',
+        'Begin met locatie en behandelingstype. Die twee vragen maken de keuze meestal eenvoudig.',
       labels: {
-        mood: 'Sfeer',
+        mood: 'Type sessie',
         logistics: 'Praktisch',
         ideal: 'Kies dit wanneer'
       },
@@ -901,26 +901,26 @@ export const frigilianaWellnessContent: Record<
           name: 'Frigiliana Wellness',
           mood: 'Licht, comfortabel en desgewenst wat gezelliger.',
           logistics:
-            'U blijft in uw villa of appartement; de behandelingen komen naar u toe.',
+            'Jullie blijven in de villa of het appartement; de behandelingen komen naar jullie toe.',
           ideal:
-            'U makkelijke wellness, een verwendag en zo weinig mogelijk planning wilt.'
+            'Jullie behandelingen in het verblijf of meer keuze dan alleen massage willen.'
         },
         {
           name: 'Lidia',
-          mood: 'Stil, persoonlijk en meer als een korte retraite.',
+          mood: 'Persoonlijke Californische massage in een rustige landelijke omgeving.',
           logistics:
-            'U gaat naar haar landelijke locatie bij Frigiliana.',
+            'Jullie gaan naar haar landelijke locatie bij Frigiliana.',
           ideal:
-            'U echt even ergens anders wilt zijn en een langzame, gerichte sessie zoekt.'
+            'Jullie specifiek Californische massage willen en graag naar de afspraak reizen.'
         }
       ],
       tip:
-        'Twijfelt u nog? Kies dan op basis van de logistiek: thuisblijven met Frigiliana Wellness of enkele rustige uren buitenshuis bij Lidia.'
+        'Twijfelen jullie nog? Kies dan op basis van de logistiek: thuisblijven met Frigiliana Wellness of voor de afspraak naar Lidia reizen.'
     },
     planning: {
       title: 'Houd ook de rest van de dag eenvoudig',
       intro:
-        'Afspraken, beschikbare behandelingen en locaties kunnen veranderen. Bevestig de praktische details rechtstreeks voordat u de rest van uw dag rond de boeking plant.',
+        'Afspraken, beschikbare behandelingen en locaties kunnen veranderen. Bevestig de praktische details rechtstreeks voordat jullie de rest van de dag rond de boeking plannen.',
       items: [
         {
           title: 'Rechtstreeks boeken',
@@ -930,12 +930,12 @@ export const frigilianaWellnessContent: Record<
         {
           title: 'Locatie bevestigen',
           text:
-            'Deel voor een mobiele behandeling de gegevens van uw verblijf. Bevestig bij Lidia het ontmoetingspunt en de route.'
+            'Deel voor een mobiele behandeling de gegevens van jullie verblijf. Bevestig bij Lidia het ontmoetingspunt en de route.'
         },
         {
-          title: 'Kies op gevoel',
+          title: 'Kies op format',
           text:
-            'Een gezellige verwendag heeft een ander ritme dan een stille massage. Kies op basis van hoe u zich daarna wilt voelen.'
+            'Kies tussen behandelingen aan huis voor één of meer gasten en een individuele Californische massagesessie op het platteland.'
         },
         {
           title: 'Laat tijd vrij',
@@ -944,7 +944,7 @@ export const frigilianaWellnessContent: Record<
         }
       ],
       note:
-        'De behandelingen zijn persoonlijke wellnesservaringen en geen medische of therapeutische diensten. U boekt rechtstreeks bij onafhankelijke externe aanbieders.'
+        'De behandelingen zijn persoonlijke wellnesservaringen en geen medische of therapeutische diensten. Jullie boeken rechtstreeks bij onafhankelijke externe aanbieders.'
     },
     combine: {
       title: 'Maak er een echt rustige dag van',
@@ -954,7 +954,7 @@ export const frigilianaWellnessContent: Record<
         {
           title: 'Voeg een ontspannen maaltijd toe',
           text:
-            'Kies een terras in Frigiliana of een bijzonder diner in Nerja en laat voldoende tijd tussen de behandeling en uw reservering.',
+            'Kies een terras in Frigiliana of een bijzonder diner in Nerja en laat voldoende tijd tussen de behandeling en jullie reservering.',
           linkToken: 'frigiliana_food_authority',
           linkLabel: 'Bekijk de restaurantgids'
         },
@@ -968,9 +968,9 @@ export const frigilianaWellnessContent: Record<
       ]
     },
     closing: {
-      title: 'Een rustige basis voor langzame dagen',
+      title: 'Vier appartementen in de oude kern van Frigiliana',
       lead:
-        'Verblijf in Frigiliana en geef de dag de ruimte om zich zonder haast te ontvouwen.',
+        'Vergelijk Farah, Lounis, Zaid en Maha en bekijk daarna de beschikbaarheid voor jullie data.',
       availabilityCta: 'Beschikbaarheid bekijken',
       apartmentsCta: 'Bekijk de appartementen'
     }
@@ -987,36 +987,36 @@ export const frigilianaWellnessContent: Record<
       hiking: 'Vandring & natur'
     },
     hero: {
-      kicker: 'Sakta ner · Hämta ny energi · Koppla av',
+      kicker: 'Massage & spabehandlingar nära Frigiliana',
       title: 'Wellness- och spaupplevelser i Frigiliana',
       paragraphs: [
-        'Frigiliana handlar inte om att skynda från en aktivitet till nästa. Några av de bästa dagarna är de stilla: långsamma morgnar, varmt vatten, god mat och behandlingar som hjälper er att verkligen koppla av.',
-        'Här finns två noggrant utvalda wellnessaktörer i området kring Frigiliana och Nerja. Deras upplägg skiljer sig tydligt, så frågan är inte vem som är bäst utan vilken sorts dag ni längtar efter.'
+        'Om ni vill avsätta några timmar för en behandling finns det två ganska olika alternativ nära Frigiliana.',
+        'Frigiliana Wellness kommer till er villa eller lägenhet och erbjuder en bredare meny av spa- och skönhetsbehandlingar. Lidia tar emot för kalifornisk massage på sin plats på landsbygden nära Frigiliana. Båda är oberoende aktörer och ni bokar direkt med dem.'
       ],
       imageAlt:
         'Den vitkalkade byn Frigiliana ovanför kullarna och Medelhavskusten'
     },
     sectionNav: {
-      choose: 'Välj känsla',
+      choose: 'Välj efter plats',
       providers: 'Aktörerna',
       compare: 'Jämför',
       planning: 'Planera dagen'
     },
     overview: {
-      title: 'Börja med den paus ni behöver',
+      title: 'Vill ni stanna hemma eller åka iväg?',
       intro:
-        'Båda alternativen ger plats åt en lugnare dag, men miljön och rytmen är olika. Välj mellan enkelheten i att stanna hemma och känslan av att lämna dagen bakom er på en stillsam plats.',
+        'Den tydligaste skillnaden är praktisk: Frigiliana Wellness tar behandlingarna till ert boende; till Lidia åker ni till hennes plats på landsbygden.',
       reviewed: 'Redaktionellt granskat: juli 2026',
       items: [
         {
           title: 'Wellness i boendet',
           text:
-            'Behandlingarna kommer till er villa eller lägenhet, så att dagen kan förbli privat, flexibel och avkopplad från början till slut.'
+            'Frigiliana Wellness kommer till er villa eller lägenhet, så ni behöver inte resa före eller efter besöket.'
         },
         {
-          title: 'Ett miljöombyte',
+          title: 'Massage på landsbygden',
           text:
-            'Åk till en lugn plats på landsbygden och låt besöket bli en liten retreat bortom den vanliga semesterrytmen.'
+            'Inför ett besök hos Lidia bekräftar ni platsen nära Frigiliana och planerar resan dit och tillbaka.'
         },
         {
           title: 'Avkoppling & valmöjligheter',
@@ -1026,14 +1026,14 @@ export const frigilianaWellnessContent: Record<
         {
           title: 'Stillhet & fokus',
           text:
-            'Alternativet på landsbygden passar när ni vill ha en personlig session, få distraktioner och ett medvetet lugnt tempo.'
+            'Välj landsbygdsalternativet om ni specifikt vill ha kalifornisk massage i en lugn personlig miljö.'
         }
       ]
     },
     providers: {
-      title: 'Två olika sätt att koppla av',
+      title: 'Den ena kommer till er; den andra tar emot på landsbygden',
       intro:
-        'Ingen av aktörerna presenteras som bättre än den andra. Den ena tar en klassisk spadag till ert boende, den andra erbjuder en stillsammare massage i lantlig miljö nära Frigiliana.',
+        'Jämför var besöket sker, vilken typ av behandlingar som erbjuds och hur mycket tid ni vill avsätta.',
       items: [
         provider('frigilianaWellness', {
           name: 'Frigiliana Wellness',
@@ -1062,9 +1062,9 @@ export const frigilianaWellnessContent: Record<
         }),
         provider('lidia', {
           name: 'Masaje Californiano con Lidia',
-          title: 'Lugn, djup & retreatkänsla',
+          title: 'Kalifornisk massage på landsbygden',
           summary:
-            'En stillsammare och mer inåtvänd form av wellness. Gäster väljer Lidia när de söker djup avkoppling, ett långsammare tempo och en personlig massage bortom dagens aktiviteter.',
+            'En personlig kalifornisk massagesession på Lidias plats på landsbygden nära Frigiliana. Ni åker till henne; behandlingen sker inte i ert boende.',
           highlights: [
             {
               title: 'Lantlig miljö',
@@ -1074,25 +1074,25 @@ export const frigilianaWellnessContent: Record<
             {
               title: 'Fokus på kalifornisk massage',
               text:
-                'Långa, flödande rörelser ger sessionen en långsam, jordande och lugnande rytm.'
+                'Sessionen fokuserar på de långa, flödande rörelser som hör till kalifornisk massage.'
             },
             {
-              title: 'Atmosfär som en retreat',
+              title: 'Lugn personlig miljö',
               text:
                 'Upplevelsen är stillsam, personlig och medvetet utan brådska.'
             }
           ],
           bestFor:
-            'Gäster som söker tystnad, en personlig session och känslan av en liten retreat.'
+            'Gäster som specifikt vill ha kalifornisk massage och gärna reser till besöket.'
         })
       ]
     },
     comparison: {
       title: 'Vilket alternativ passar er?',
       intro:
-        'Se dem som två olika wellnesskänslor. Den viktigaste skillnaden är hur ni vill att upplevelsen ska passa in i dagen.',
+        'Börja med plats och behandlingstyp. De två frågorna brukar göra valet enkelt.',
       labels: {
-        mood: 'Känsla',
+        mood: 'Typ av session',
         logistics: 'Praktiskt',
         ideal: 'Välj detta när'
       },
@@ -1107,11 +1107,11 @@ export const frigilianaWellnessContent: Record<
         },
         {
           name: 'Lidia',
-          mood: 'Stillsamt, personligt och mer som en liten retreat.',
+          mood: 'Personlig kalifornisk massage i en lugn lantlig miljö.',
           logistics:
             'Ni åker till hennes lantliga plats nära Frigiliana.',
           ideal:
-            'Ni vill byta miljö och uppleva en långsammare, mer fokuserad session.'
+            'Ni specifikt vill ha kalifornisk massage och gärna åker till besöket.'
         }
       ],
       tip:
@@ -1133,23 +1133,23 @@ export const frigilianaWellnessContent: Record<
             'Dela uppgifter om boendet för en mobil behandling. Bekräfta mötesplats och resväg med Lidia innan ni åker.'
         },
         {
-          title: 'Välj efter energi',
+          title: 'Välj efter upplägg',
           text:
-            'En social spadag har en annan rytm än en stillsam massage. Välj utifrån hur ni vill känna er efteråt.'
+            'Välj mellan behandlingar i boendet för en eller flera gäster och en individuell kalifornisk massagesession på landsbygden.'
         },
         {
           title: 'Lämna tid efteråt',
           text:
-            'Lägg inte en stressig måltid, bilresa eller aktivitet direkt efter besöket. Den långsamma övergången är en del av upplevelsen.'
+            'Lämna tid före nästa måltid, bilresa eller aktivitet, särskilt för resan tillbaka från Lidia.'
         }
       ],
       note:
         'Behandlingarna är personliga wellnessupplevelser och inte medicinska eller terapeutiska tjänster. Bokning sker direkt hos oberoende externa aktörer.'
     },
     combine: {
-      title: 'Skapa en verkligt lugn dag',
+      title: 'Vad ni kan planera före och efter',
       intro:
-        'Wellness fungerar bäst här när det inte blir ännu en punkt på en lång lista. Kombinera med en lugn måltid eller en enkel promenad i stället för ett fullspäckat program.',
+        'Håll timmarna runt besöket enkla. En måltid i närheten eller en lätt promenad är enklare att kombinera än en utflykt med snäva tider.',
       items: [
         {
           title: 'Lägg till en måltid utan brådska',
@@ -1168,9 +1168,9 @@ export const frigilianaWellnessContent: Record<
       ]
     },
     closing: {
-      title: 'En lugn bas för långsamma dagar',
+      title: 'Fyra lägenheter i Frigilianas gamla stad',
       lead:
-        'Bo i Frigiliana och ge dagen utrymme att utvecklas utan att skynda från en plan till nästa.',
+        'Jämför Farah, Lounis, Zaid och Maha och kontrollera sedan tillgängligheten för era datum.',
       availabilityCta: 'Kontrollera tillgänglighet',
       apartmentsCta: 'Se boendena'
     }

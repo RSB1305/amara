@@ -827,8 +827,8 @@ export const frigilianaDayTripsContent: Record<
       title:
         'Dagtochten vanuit Frigiliana: cultuur, geschiedenis en mooie autoroutes',
       paragraphs: [
-        'Een verblijf in Frigiliana heeft een bijzonder voordeel: u slaapt in de rustige heuvels, terwijl enkele van de meest indrukwekkende plekken van Andalusië binnen één dag bereikbaar zijn.',
-        'Frigiliana blijft uw uitvalsbasis; de dagtocht legt het accent. Kies één hoofdattractie, voeg een ontspannen maaltijd en eventueel één extra stop toe en keer terug voor een rustige dorpsavond, in plaats van van de dag een checklist te maken.'
+        'Een verblijf in Frigiliana heeft een bijzonder voordeel: jullie slapen in de rustige heuvels, terwijl enkele van de meest indrukwekkende plekken van Andalusië binnen één dag bereikbaar zijn.',
+        'Frigiliana blijft jullie uitvalsbasis; de dagtocht legt het accent. Kies één hoofdattractie, voeg een ontspannen maaltijd en eventueel één extra stop toe en keer terug voor een rustige dorpsavond, in plaats van van de dag een checklist te maken.'
       ],
       imageAlt:
         'Het witte dorp Frigiliana in de heuvels als rustige uitvalsbasis voor dagtochten door Andalusië',
@@ -893,9 +893,9 @@ export const frigilianaDayTripsContent: Record<
             value: 'Eenvoudig, flexibel en relatief ontspannen'
           }
         ],
-        planningTitle: 'Zo kunt u de dag indelen',
+        planningTitle: 'Zo kunnen jullie de dag indelen',
         callout:
-          'Een centrale parkeergarage rond de haven en Muelle Uno is een praktisch vertrekpunt. Controleer wel de actuele toegang en beschikbaarheid voordat u vertrekt.',
+          'Een centrale parkeergarage rond de haven en Muelle Uno is een praktisch vertrekpunt. Controleer wel de actuele toegang en beschikbaarheid voordat jullie vertrekken.',
         details:
           'Loop via de haven en het park naar het centrum en kies één cultureel anker: het Museo Picasso Málaga of de Alcazaba zijn allebei goede opties. Houd ruimte voor een ontspannen lunch rond de Mercado de Atarazanas in plaats van elk museum te willen zien.',
         officialHref: officialLinks.malaga,
@@ -923,9 +923,9 @@ export const frigilianaDayTripsContent: Record<
         ],
         planningTitle: 'De realiteit van tickets',
         callout:
-          'De vraag naar Alhambra-tickets is groot. Boek via het officiële kanaal zodra uw data vaststaan en controleer het tijdslot voor de Nasridische paleizen op uw ticket.',
+          'De vraag naar Alhambra-tickets is groot. Boek via het officiële kanaal zodra jullie data vaststaan en controleer het tijdslot voor de Nasridische paleizen op jullie ticket.',
         details:
-          'Zijn er geen Alhambra-tickets meer, dan blijft de dag de moeite waard: verken het Albaicín en eindig bij Mirador de San Nicolás met uitzicht op het paleiscomplex. Houd het programma bewust licht zodat u Granada beleeft zonder tussen wijken te haasten.',
+          'Zijn er geen Alhambra-tickets meer, dan blijft de dag de moeite waard: verken het Albaicín en eindig bij Mirador de San Nicolás met uitzicht op het paleiscomplex. Houd het programma bewust licht zodat jullie Granada beleven zonder tussen wijken te haasten.',
         officialHref: officialLinks.alhambraEn,
         officialLabel: 'Officiële Alhambra-informatie en tickets'
       },
@@ -951,9 +951,9 @@ export const frigilianaDayTripsContent: Record<
         ],
         planningTitle: 'Goed om vooraf te weten',
         callout:
-          'De route is lineair en eenrichtingsverkeer. Reken voor de volledige ervaring, inclusief aanlooppaden, op ongeveer 3–4 uur en plan de shuttle terug naar uw startpunt.',
+          'De route is lineair en eenrichtingsverkeer. Reken voor de volledige route, inclusief aanlooppaden, op ongeveer 3–4 uur en plan de shuttle terug naar jullie startpunt.',
         details:
-          'Reserveer vooraf via de officiële website. Algemene toegang is geschikt als u zelfstandig wilt lopen; een officiële rondleiding is optioneel. De route past niet bij ernstige hoogtevrees en kinderen jonger dan acht jaar hebben geen toegang.',
+          'Reserveer vooraf via de officiële website. Algemene toegang is geschikt als jullie zelfstandig willen lopen; een officiële rondleiding is optioneel. De route past niet bij ernstige hoogtevrees en kinderen jonger dan acht jaar hebben geen toegang.',
         officialHref: officialLinks.caminitoEn,
         officialLabel: 'Officiële Caminito-informatie en tickets'
       },
@@ -989,12 +989,12 @@ export const frigilianaDayTripsContent: Record<
     practical: {
       title: 'Praktische basisinformatie',
       intro:
-        'Een beetje voorbereiding maakt deze dagen veel rustiger. Zie rijtijden als indicatie en controleer tickets, openingstijden, wegomstandigheden en openbaar vervoer opnieuw vlak voor uw datum.',
+        'Een beetje voorbereiding maakt deze dagen veel rustiger. Zie rijtijden als indicatie en controleer tickets, openingstijden, wegomstandigheden en openbaar vervoer opnieuw vlak voor jullie datum.',
       items: [
         {
           title: 'Auto en openbaar vervoer',
           text:
-            'Een auto is sterk aan te raden voor Granada, Ronda en Caminito del Rey. Málaga kan met openbaar vervoer haalbaar zijn, maar controleer actuele verbindingen en de terugreis voordat u daarop rekent.'
+            'Een auto is sterk aan te raden voor Granada, Ronda en Caminito del Rey. Málaga kan met openbaar vervoer haalbaar zijn, maar controleer actuele verbindingen en de terugreis voordat jullie daarop rekenen.'
         },
         {
           title: 'Zomerhitte',
@@ -1004,7 +1004,7 @@ export const frigilianaDayTripsContent: Record<
         {
           title: 'Zondagen en openingstijden',
           text:
-            'Opening op zondag verschilt per museum, winkel en restaurant. Controleer de concrete plekken die u wilt bezoeken in plaats van uit te gaan van één algemeen schema.'
+            'Opening op zondag verschilt per museum, winkel en restaurant. Controleer de concrete plekken die jullie willen bezoeken in plaats van uit te gaan van één algemeen schema.'
         },
         {
           title: 'Rustige terugkeer',
@@ -1014,9 +1014,9 @@ export const frigilianaDayTripsContent: Record<
       ]
     },
     combine: {
-      title: 'Breng de dagtocht in balans met de rest van uw verblijf',
+      title: 'Combineer de dagtocht met de rest van jullie verblijf',
       intro:
-        'Na een dag vol cultuur, wandelen of autorijden voelt de terugkeer richting kust verfrissend. Houd de volgende dag lichter of regel het diner voordat u vertrekt.',
+        'Na een dag vol cultuur, wandelen of autorijden voelt de terugkeer richting kust verfrissend. Houd de volgende dag lichter of regel het diner voordat jullie vertrekken.',
       items: [
         {
           title: 'Stranden',
