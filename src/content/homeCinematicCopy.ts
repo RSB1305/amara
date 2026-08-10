@@ -9,7 +9,7 @@ export type CopyRow = Record<AmaraLanguage, string>;
 
 export const cinematicHeroKicker: CopyRow = {
   en: 'Romantic Hideaways',
-  de: 'Romantische Hideaways',
+  de: 'Ferienunterkünfte in Andalusien',
   es: 'Refugios románticos',
   nl: 'Romantische hideaways',
   sv: 'Romantiska tillflyktsorter'
@@ -17,7 +17,7 @@ export const cinematicHeroKicker: CopyRow = {
 
 export const cinematicHeroLead: CopyRow = {
   en: 'A place to arrive, exhale, and truly stay.',
-  de: 'Ein Ort zum Ankommen, Durchatmen und wirklich Bleiben.',
+  de: 'Frigiliana, Nerja und Tarifa. Drei ganz unterschiedliche Arten, Andalusien zu erleben.',
   es: 'Un lugar para llegar, exhalar y quedarse de verdad.',
   nl: 'Een plek om aan te komen, uit te ademen en echt te blijven.',
   sv: 'En plats att komma till, andas ut och verkligen stanna.'
@@ -33,7 +33,7 @@ export const cinematicHeroImageAlt: CopyRow = {
 
 export const cinematicScrollHint: CopyRow = {
   en: 'Scroll to discover',
-  de: 'Scrollen zum Entdecken',
+  de: 'Mehr entdecken',
   es: 'Desplázate para descubrir',
   nl: 'Scroll om te ontdekken',
   sv: 'Scrolla för att upptäcka'
@@ -41,7 +41,7 @@ export const cinematicScrollHint: CopyRow = {
 
 export const cinematicPhilosophyPart1: CopyRow = {
   en: 'Not just passing through, but',
-  de: 'Nicht nur Durchreisen, sondern',
+  de: 'Jede Unterkunft ist individuell.',
   es: 'No solo de paso, sino',
   nl: 'Niet alleen passeren, maar',
   sv: 'Inte bara på genomresa, utan'
@@ -49,7 +49,7 @@ export const cinematicPhilosophyPart1: CopyRow = {
 
 export const cinematicPhilosophyAccent: CopyRow = {
   en: 'belonging.',
-  de: 'Zugehörigkeit.',
+  de: 'Genau das soll so sein.',
   es: 'pertenecer.',
   nl: 'thuishoren.',
   sv: 'att höra hemma.'
@@ -57,7 +57,7 @@ export const cinematicPhilosophyAccent: CopyRow = {
 
 export const cinematicPhilosophyLabel: CopyRow = {
   en: 'The Philosophy',
-  de: 'Die Philosophie',
+  de: 'Über AMARA',
   es: 'La filosofía',
   nl: 'De filosofie',
   sv: 'Filosofin'
@@ -65,7 +65,7 @@ export const cinematicPhilosophyLabel: CopyRow = {
 
 export const cinematicPhilosophyP1: CopyRow = {
   en: 'AMARA is a curated collection of private boutique apartments in the white village of Frigiliana, plus one calm seaside escape in Nerja. Created for guests who value privacy, atmosphere, and a slower rhythm of travel.',
-  de: 'AMARA ist eine kuratierte Sammlung privater Boutique-Apartments im weißen Dorf Frigiliana plus einem ruhigen Küstenort in Nerja. Für Gäste, die Privatsphäre, Atmosphäre und ein langsameres Reisetempo schätzen.',
+  de: 'AMARA ist keine Hotelkette. Wir vermieten eine kleine Anzahl individuell eingerichteter Ferienunterkünfte in Frigiliana, Nerja und Tarifa. Manche liegen mitten in historischen Gassen, andere fast direkt am Meer. Gemeinsam ist ihnen, dass wir sie selbst betreuen und sehr genau kennen.',
   es: 'AMARA es una colección curada de apartamentos boutique privados en el pueblo blanco de Frigiliana, más un refugio costero tranquilo en Nerja. Pensado para quienes valoran la privacidad, la atmósfera y un ritmo de viaje más pausado.',
   nl: 'AMARA is een gecureerde collectie privé boutique-appartementen in het witte dorp Frigiliana, plus één rustige kustontsnapping in Nerja. Voor gasten die privacy, sfeer en een langzamer reisritme waarderen.',
   sv: 'AMARA är en kurerad samling privata boutiquelägenheter i den vita byn Frigiliana, plus ett lugnt kustnära alternativ i Nerja. För gäster som värdesätter integritet, stämning och ett långsammare resande.'
@@ -73,7 +73,7 @@ export const cinematicPhilosophyP1: CopyRow = {
 
 export const cinematicPhilosophyP2: CopyRow = {
   en: 'Casa AMARA stands in Frigiliana’s protected old town, listed Spanish heritage. We restored it between 2020 and 2022; the old walls came to light in the process, and our architect recognised Moorish construction.',
-  de: 'Casa AMARA steht in Frigilianas denkmalgeschützter Altstadt, spanisches Kulturgut. Wir haben es von 2020 bis 2022 restauriert; dabei kamen die alten Mauern zum Vorschein, und unser Architekt erkannte die Bauweise der Mauren.',
+  de: 'Casa AMARA steht mitten in Frigilianas historischer Altstadt. Wir haben das Haus von 2020 bis 2022 restauriert. Dabei kamen alte Mauern zum Vorschein, in denen unser Architekt noch die maurische Bauweise erkannte, die diesen Teil Andalusiens über Jahrhunderte geprägt hat.',
   es: 'Casa AMARA se encuentra en el casco antiguo protegido de Frigiliana, patrimonio cultural español. La restauramos entre 2020 y 2022; en el proceso aparecieron los muros originales y nuestro arquitecto reconoció la construcción andalusí.',
   nl: 'Casa AMARA staat in de beschermde oude kern van Frigiliana, Spaans cultureel erfgoed. We hebben het tussen 2020 en 2022 gerestaureerd; daarbij kwamen de oude muren tevoorschijn en onze architect herkende Moorse bouwkunst.',
   sv: 'Casa AMARA ligger i Frigilianas skyddade gamla by, spanskt kulturarv. Vi restaurerade huset mellan 2020 och 2022; då kom de gamla murarna fram, och vår arkitekt kände igen morisk byggnadsteknik.'
@@ -81,7 +81,7 @@ export const cinematicPhilosophyP2: CopyRow = {
 
 export const cinematicCollectionEyebrow: CopyRow = {
   en: 'The Collection',
-  de: 'Die Kollektion',
+  de: 'Unsere Unterkünfte',
   es: 'La colección',
   nl: 'De collectie',
   sv: 'Kollektionen'
@@ -89,7 +89,7 @@ export const cinematicCollectionEyebrow: CopyRow = {
 
 export const cinematicCollectionTitle: CopyRow = {
   en: 'Spaces to breathe.',
-  de: 'Räume zum Atmen.',
+  de: 'Welche passt zu euch?',
   es: 'Espacios para respirar.',
   nl: 'Ruimte om te ademen.',
   sv: 'Utrymmen att andas i.'
@@ -97,7 +97,7 @@ export const cinematicCollectionTitle: CopyRow = {
 
 export const cinematicTrustQuote: CopyRow = {
   en: 'Calm stays, terrace mornings, quiet nights, deep sleep — thoughtfully hosted.',
-  de: 'Ruhige Aufenthalte, Terrassenmorgen, leise Nächte, tiefer Schlaf — durchdacht betreut.',
+  de: 'Unsere Gäste können AMARA besser beurteilen als wir selbst.',
   es: 'Estancias tranquilas, mañanas en la terraza, noches en silencio, sueño profundo — con un cuidado meditado.',
   nl: 'Rustige verblijven, terrasochtenden, stille nachten, diepe slaap — doordacht gehost.',
   sv: 'Lugna vistelser, terrassmorgnar, tysta nätter, djup sömn — omsorgsfullt värdskap.'
@@ -141,7 +141,7 @@ export const cinematicStatRatingLabel: CopyRow = {
 
 export const cinematicGuideEyebrow: CopyRow = {
   en: 'Plan your stay',
-  de: 'Aufenthalt planen',
+  de: 'Gut zu wissen',
   es: 'Planificar la estancia',
   nl: 'Verblijf plannen',
   sv: 'Planera vistelsen'
@@ -149,7 +149,7 @@ export const cinematicGuideEyebrow: CopyRow = {
 
 export const cinematicGuideTitle: CopyRow = {
   en: 'Useful guides before you choose.',
-  de: 'Nützliche Guides vor der Auswahl.',
+  de: 'Damit ihr vor der Buchung wisst, was euch erwartet.',
   es: 'Guías útiles antes de elegir.',
   nl: 'Handige gidsen voordat je kiest.',
   sv: 'Användbara guider innan ni väljer.'
@@ -166,14 +166,14 @@ export const cinematicGuideLinks: CinematicGuideLinkDef[] = [
     token: 'romantic_hideaways',
     label: {
       en: 'Apartments for couples',
-      de: 'Apartments für Paare',
+      de: 'Unterkünfte vergleichen',
       es: 'Apartamentos para parejas',
       nl: 'Appartementen voor koppels',
       sv: 'Lägenheter för par'
     },
     text: {
       en: 'Compare the AMARA stays in Frigiliana and Nerja.',
-      de: 'Vergleicht die AMARA-Unterkünfte in Frigiliana und Nerja.',
+      de: 'Seht die Unterschiede zwischen unseren Unterkünften in Frigiliana und Nerja.',
       es: 'Comparar las estancias AMARA en Frigiliana y Nerja.',
       nl: 'Vergelijk de AMARA-verblijven in Frigiliana en Nerja.',
       sv: 'Jämför AMARA-boenden i Frigiliana och Nerja.'
@@ -183,14 +183,14 @@ export const cinematicGuideLinks: CinematicGuideLinkDef[] = [
     token: 'location_frigiliana',
     label: {
       en: 'Frigiliana guide',
-      de: 'Frigiliana-Guide',
+      de: 'Frigiliana',
       es: 'Guía de Frigiliana',
       nl: 'Frigiliana-gids',
       sv: 'Frigiliana-guide'
     },
     text: {
       en: 'Understand the village, Nerja access, and where to stay.',
-      de: 'Versteht Dorfstruktur, Nähe zu Nerja und die beste Lage.',
+      de: 'Was ihr über die Altstadt, die Wege und die Nähe zu Nerja wissen solltet.',
       es: 'Entender el pueblo, la conexión con Nerja y dónde alojarse.',
       nl: 'Begrijp het dorp, Nerja en waar je het best verblijft.',
       sv: 'Förstå byn, Nerja-kopplingen och var ni bor bäst.'
@@ -207,7 +207,7 @@ export const cinematicGuideLinks: CinematicGuideLinkDef[] = [
     },
     text: {
       en: 'Plan the last metres, stairs, and daily movement.',
-      de: 'Plant die letzten Meter, Treppen und Wege im Alltag.',
+      de: 'Wo ihr parken könnt und wie der letzte Weg zur Unterkunft aussieht.',
       es: 'Planificar el último tramo, escaleras y movimiento diario.',
       nl: 'Plan de laatste meters, trappen en dagelijkse beweging.',
       sv: 'Planera sista biten, trappor och dagliga rörelser.'
@@ -217,14 +217,14 @@ export const cinematicGuideLinks: CinematicGuideLinkDef[] = [
     token: 'weather_frigiliana',
     label: {
       en: 'Weather & seasons',
-      de: 'Wetter & Saison',
+      de: 'Wetter & Reisezeit',
       es: 'Clima y temporadas',
       nl: 'Weer & seizoenen',
       sv: 'Väder & säsonger'
     },
     text: {
       en: 'See how hillside weather shapes terraces and sleep.',
-      de: 'Seht, wie die Hanglage Terrassenzeit und Schlaf prägt.',
+      de: 'Welche Monate angenehm sind und was die Lage oberhalb der Küste im Sommer ausmacht.',
       es: 'Ver cómo la ladera influye en terrazas y descanso.',
       nl: 'Zie hoe het heuvellandschap terras en slaap beïnvloedt.',
       sv: 'Se hur läget på höjden påverkar terrass och sömn.'
@@ -268,7 +268,7 @@ export const navSoonBadge: CopyRow = {
 /** Four chips — trust band */
 export const cinematicTrustChips: Record<AmaraLanguage, string[]> = {
   en: ['Sea views', 'Large private terraces', 'Quiet locations', 'Premium bedding'],
-  de: ['Meerblick', 'Große private Terrassen', 'Ruhige Lagen', 'Premium-Bettwäsche'],
+  de: ['Meerblick', 'Private Terrassen', 'Ruhige Lagen', 'Hochwertige Betten'],
   es: ['Vistas al mar', 'Grandes terrazas privadas', 'Ubicaciones tranquilas', 'Ropa de cama premium'],
   nl: ['Zeezicht', 'Grote privéterrassen', 'Rustige locaties', 'Premium beddengoed'],
   sv: ['Havsutsikt', 'Stora privata terrasser', 'Tysta lägen', 'Premium sängkläder']
@@ -294,7 +294,7 @@ export const cinematicApartments: CinematicAptDef[] = [
     name: 'Farah',
     subtitle: {
       en: 'Boutique Retreat',
-      de: 'Boutique-Refugium',
+      de: 'Für kurze Aufenthalte in Frigiliana',
       es: 'Refugio boutique',
       nl: 'Boutique-retraite',
       sv: 'Boutique-reträtt'
@@ -308,7 +308,7 @@ export const cinematicApartments: CinematicAptDef[] = [
     },
     desc: {
       en: "A romantic, self-contained boutique suite with character — ideal for shorter trips. Designed with deep respect for the village's Moorish past.",
-      de: 'Eine romantische, abgeschlossene Boutique-Suite mit Charakter — ideal für kürzere Aufenthalte. Gestaltet mit tiefem Respekt für die maurische Geschichte des Dorfes.',
+      de: 'Ideal für ein oder zwei Nächte: Schlafzimmer, Teeküche und nur eine Stufe am Hauseingang. Keine Terrasse und keine vollständige Küche.',
       es: 'Una suite boutique independiente, romántica y con carácter — ideal para estancias cortas. Diseñada con profundo respeto por el pasado morisco del pueblo.',
       nl: 'Een romantische, zelfstandige boutique-suite met karakter — ideaal voor kortere verblijven. Ontworpen met diep respect voor het Moorse verleden van het dorp.',
       sv: 'En romantisk, självständig boutique-svit med karaktär — idealisk för kortare vistelser. Utformad med djup respekt för byns moriska förflutna.'
@@ -334,7 +334,7 @@ export const cinematicApartments: CinematicAptDef[] = [
     name: 'Lounis',
     subtitle: {
       en: 'Historic Apartment',
-      de: 'Historisches Apartment',
+      de: 'Historisches Apartment mit Terrasse',
       es: 'Apartamento histórico',
       nl: 'Historisch appartement',
       sv: 'Historisk lägenhet'
@@ -348,7 +348,7 @@ export const cinematicApartments: CinematicAptDef[] = [
     },
     desc: {
       en: 'Historic charm with terrace time and a sense of space. High ceilings and original beams tell stories of centuries past.',
-      de: 'Historischer Charme mit Terrassenzeit und Raumgefühl. Hohe Decken und alte Balken erzählen von vergangenen Jahrhunderten.',
+      de: 'Blick über die Mango- und Avocadoplantagen bis zum Meer. Morgens liegt die Terrasse im Schatten, ab Mittag in der Sonne.',
       es: 'Encanto histórico con tiempo en la terraza y sensación de espacio. Techos altos y vigas originales cuentan siglos de historia.',
       nl: 'Historische charme met terrastijd en ruimtegevoel. Hoge plafonds en originele balken vertellen verhalen uit vroeger.',
       sv: 'Historiskt charm med terrasstid och rymd. Höga tak och originalbalkar berättar om århundraden.'
@@ -374,7 +374,7 @@ export const cinematicApartments: CinematicAptDef[] = [
     name: 'Zaid',
     subtitle: {
       en: 'Terrace Apartment',
-      de: 'Terrassen-Apartment',
+      de: 'Eine Etage höher, mit weiterem Blick',
       es: 'Apartamento con terraza',
       nl: 'Terrasappartement',
       sv: 'Terrasslägenhet'
@@ -388,7 +388,7 @@ export const cinematicApartments: CinematicAptDef[] = [
     },
     desc: {
       en: 'A calm retreat with a private terrace — made for slow mornings, coffee in the sun, and watching the village wake up.',
-      de: 'Ein ruhiges Refugium mit privater Terrasse — für langsame Morgen, Kaffee in der Sonne und zusehen, wie das Dorf erwacht.',
+      de: 'Private Terrasse über den Plantagen und mit 180 × 200 cm das breiteste Bett in Casa AMARA.',
       es: 'Un refugio tranquilo con terraza privada — para mañanas lentas, café al sol y ver despertar el pueblo.',
       nl: 'Een rustige plek met privéterras — voor trage ochtenden, koffie in de zon en het dorp dat ontwaakt.',
       sv: 'Ett lugnt tillflyktsort med privat terrass — för långsamma morgnar, kaffe i solen och byn som vaknar.'
@@ -414,7 +414,7 @@ export const cinematicApartments: CinematicAptDef[] = [
     name: 'Maha',
     subtitle: {
       en: 'Old Town Apartment',
-      de: 'Altstadt-Apartment',
+      de: '60 m² private Terrasse',
       es: 'Apartamento en casco antiguo',
       nl: 'Appartement in oude stad',
       sv: 'Lägenhet i gamla stan'
@@ -428,7 +428,7 @@ export const cinematicApartments: CinematicAptDef[] = [
     },
     desc: {
       en: 'A terrace apartment designed for lingering in the white village. Elevated views and a seamless blend of indoor and outdoor living.',
-      de: 'Ein Terrassen-Apartment zum Verweilen im weißen Dorf. Erhöhte Aussicht und ein nahtloses Zusammenspiel von innen und außen.',
+      de: 'Die größte Terrasse im Haus, mit Außenküche und weitem Blick. Das Apartment liegt ganz oben in Casa AMARA.',
       es: 'Un apartamento con terraza pensado para quedarse en el pueblo blanco. Vistas elevadas y una fusión natural de interior y exterior.',
       nl: 'Een terrasappartement om te blijven hangen in het witte dorp. Verhoogd uitzicht en een naadloze mix van binnen en buiten.',
       sv: 'En terrasslägenhet för att dröja kvar i den vita byn. Höjd över byn och en sömlös blandning av inne och ute.'
@@ -454,7 +454,7 @@ export const cinematicApartments: CinematicAptDef[] = [
     name: 'Playa',
     subtitle: {
       en: 'Nerja Beach Apartment',
-      de: 'Strand-Apartment Nerja',
+      de: '100 Meter vom Strand in Nerja',
       es: 'Apartamento de playa en Nerja',
       nl: 'Strandappartement Nerja',
       sv: 'Strandlägenhet Nerja'
@@ -468,7 +468,7 @@ export const cinematicApartments: CinematicAptDef[] = [
     },
     desc: {
       en: 'A relaxed seaside base for couples who want the sea close by. The sound of the waves is your constant companion.',
-      de: 'Eine entspannte Küstenbasis für Paare, die das Meer nah haben wollen. Das Rauschen der Wellen ist euer ständiger Begleiter.',
+      de: 'Nur 500 Meter bis zum Balcón de Europa und trotzdem ruhig. Im fünften Stock mit Aufzug und einem 200 × 200 cm großen Bett.',
       es: 'Una base costera relajada para parejas que quieren el mar cerca. El sonido de las olas es vuestra compañía constante.',
       nl: 'Een ontspannen kustbasis voor koppels die de zee dichtbij willen. Het geluid van de golven is je constante metgezel.',
       sv: 'En avslappnad kustbas för par som vill ha havet nära. Vågornas brus är er ständiga följeslagare.'
@@ -494,7 +494,7 @@ export const cinematicApartments: CinematicAptDef[] = [
     name: 'Family & Surf',
     subtitle: {
       en: 'Penthouse',
-      de: 'Penthouse',
+      de: 'Penthouse in Tarifa für bis zu vier Gäste',
       es: 'Ático',
       nl: 'Penthouse',
       sv: 'Penthouse'
@@ -508,7 +508,7 @@ export const cinematicApartments: CinematicAptDef[] = [
     },
     desc: {
       en: 'A spacious home for surfers and families — intentionally different. Where the Mediterranean meets the Atlantic.',
-      de: 'Ein geräumiges Zuhause für Surfer und Familien — bewusst anders. Wo Mittelmeer und Atlantik aufeinandertreffen.',
+      de: 'Zwei Schlafzimmer, zwei Bäder, direkter Atlantikblick, Gemeinschaftspool und ein reservierter Tiefgaragenplatz.',
       es: 'Un hogar amplio para surfistas y familias — distinto a propósito. Donde el Mediterráneo se encuentra con el Atlántico.',
       nl: 'Een ruim thuis voor surfers en gezinnen — bewust anders. Waar de Middellandse Zee en de Atlantische Oceaan elkaar ontmoeten.',
       sv: 'Ett rymligt hem för surfare och familjer — medvetet annorlunda. Där Medelhavet möter Atlanten.'
