@@ -8,19 +8,19 @@ import { airbnbRatingLabel, airbnbReviewEvidence } from './reviewEvidence';
 export type CopyRow = Record<AmaraLanguage, string>;
 
 export const cinematicHeroKicker: CopyRow = {
-  en: 'Romantic Hideaways',
+  en: 'Holiday stays in Andalusia',
   de: 'Ferienunterkünfte in Andalusien',
-  es: 'Refugios románticos',
-  nl: 'Romantische hideaways',
-  sv: 'Romantiska tillflyktsorter'
+  es: 'Alojamientos en Andalucía',
+  nl: 'Vakantieverblijven in Andalusië',
+  sv: 'Semesterboenden i Andalusien'
 };
 
 export const cinematicHeroLead: CopyRow = {
-  en: 'A place to arrive, exhale, and truly stay.',
+  en: 'Frigiliana, Nerja and Tarifa. Three very different ways to stay in Andalusia.',
   de: 'Frigiliana, Nerja und Tarifa. Drei ganz unterschiedliche Arten, Andalusien zu erleben.',
-  es: 'Un lugar para llegar, exhalar y quedarse de verdad.',
-  nl: 'Een plek om aan te komen, uit te ademen en echt te blijven.',
-  sv: 'En plats att komma till, andas ut och verkligen stanna.'
+  es: 'Frigiliana, Nerja y Tarifa. Tres formas muy distintas de disfrutar Andalucía.',
+  nl: 'Frigiliana, Nerja en Tarifa. Drie heel verschillende manieren om in Andalusië te verblijven.',
+  sv: 'Frigiliana, Nerja och Tarifa. Tre helt olika sätt att bo i Andalusien.'
 };
 
 export const cinematicHeroImageAlt: CopyRow = {
@@ -40,67 +40,67 @@ export const cinematicScrollHint: CopyRow = {
 };
 
 export const cinematicPhilosophyPart1: CopyRow = {
-  en: 'Not just passing through, but',
+  en: 'Every stay is different.',
   de: 'Jede Unterkunft ist individuell.',
-  es: 'No solo de paso, sino',
-  nl: 'Niet alleen passeren, maar',
-  sv: 'Inte bara på genomresa, utan'
+  es: 'Cada alojamiento es distinto.',
+  nl: 'Elk verblijf is anders.',
+  sv: 'Varje boende är unikt.'
 };
 
 export const cinematicPhilosophyAccent: CopyRow = {
-  en: 'belonging.',
+  en: 'That is exactly the point.',
   de: 'Genau das soll so sein.',
-  es: 'pertenecer.',
-  nl: 'thuishoren.',
-  sv: 'att höra hemma.'
+  es: 'Y así debe ser.',
+  nl: 'Precies zoals het hoort.',
+  sv: 'Precis som det ska vara.'
 };
 
 export const cinematicPhilosophyLabel: CopyRow = {
-  en: 'The Philosophy',
+  en: 'About AMARA',
   de: 'Über AMARA',
-  es: 'La filosofía',
-  nl: 'De filosofie',
-  sv: 'Filosofin'
+  es: 'Sobre AMARA',
+  nl: 'Over AMARA',
+  sv: 'Om AMARA'
 };
 
 export const cinematicPhilosophyP1: CopyRow = {
-  en: 'AMARA is a curated collection of private boutique apartments in the white village of Frigiliana, plus one calm seaside escape in Nerja. Created for guests who value privacy, atmosphere, and a slower rhythm of travel.',
+  en: 'AMARA is not a hotel chain. We look after a small number of individual holiday stays in Frigiliana, Nerja and Tarifa. Some sit among historic village lanes; others are close to the sea. We manage every one ourselves and know each of them well.',
   de: 'AMARA ist keine Hotelkette. Wir vermieten eine kleine Anzahl individuell eingerichteter Ferienunterkünfte in Frigiliana, Nerja und Tarifa. Manche liegen mitten in historischen Gassen, andere fast direkt am Meer. Gemeinsam ist ihnen, dass wir sie selbst betreuen und sehr genau kennen.',
-  es: 'AMARA es una colección curada de apartamentos boutique privados en el pueblo blanco de Frigiliana, más un refugio costero tranquilo en Nerja. Pensado para quienes valoran la privacidad, la atmósfera y un ritmo de viaje más pausado.',
-  nl: 'AMARA is een gecureerde collectie privé boutique-appartementen in het witte dorp Frigiliana, plus één rustige kustontsnapping in Nerja. Voor gasten die privacy, sfeer en een langzamer reisritme waarderen.',
-  sv: 'AMARA är en kurerad samling privata boutiquelägenheter i den vita byn Frigiliana, plus ett lugnt kustnära alternativ i Nerja. För gäster som värdesätter integritet, stämning och ett långsammare resande.'
+  es: 'AMARA no es una cadena hotelera. Gestionamos un pequeño número de alojamientos con personalidad propia en Frigiliana, Nerja y Tarifa. Algunos están entre calles históricas; otros, muy cerca del mar. Los llevamos nosotros mismos y conocemos bien cada uno.',
+  nl: 'AMARA is geen hotelketen. We beheren een klein aantal eigenzinnige vakantieverblijven in Frigiliana, Nerja en Tarifa. Sommige liggen midden in historische straatjes, andere vlak bij zee. We zorgen er zelf voor en kennen elk verblijf door en door.',
+  sv: 'AMARA är ingen hotellkedja. Vi tar hand om ett litet antal personliga semesterboenden i Frigiliana, Nerja och Tarifa. Några ligger mitt bland historiska gränder, andra nära havet. Vi sköter dem själva och känner varje boende väl.'
 };
 
 export const cinematicPhilosophyP2: CopyRow = {
-  en: 'Casa AMARA stands in Frigiliana’s protected old town, listed Spanish heritage. We restored it between 2020 and 2022; the old walls came to light in the process, and our architect recognised Moorish construction.',
+  en: 'Casa AMARA stands in Frigiliana’s protected old town. We restored the house between 2020 and 2022. During the work, old walls came to light in which our architect recognised the Moorish construction that shaped this part of Andalusia for centuries.',
   de: 'Casa AMARA steht mitten in Frigilianas historischer Altstadt. Wir haben das Haus von 2020 bis 2022 restauriert. Dabei kamen alte Mauern zum Vorschein, in denen unser Architekt noch die maurische Bauweise erkannte, die diesen Teil Andalusiens über Jahrhunderte geprägt hat.',
-  es: 'Casa AMARA se encuentra en el casco antiguo protegido de Frigiliana, patrimonio cultural español. La restauramos entre 2020 y 2022; en el proceso aparecieron los muros originales y nuestro arquitecto reconoció la construcción andalusí.',
-  nl: 'Casa AMARA staat in de beschermde oude kern van Frigiliana, Spaans cultureel erfgoed. We hebben het tussen 2020 en 2022 gerestaureerd; daarbij kwamen de oude muren tevoorschijn en onze architect herkende Moorse bouwkunst.',
-  sv: 'Casa AMARA ligger i Frigilianas skyddade gamla by, spanskt kulturarv. Vi restaurerade huset mellan 2020 och 2022; då kom de gamla murarna fram, och vår arkitekt kände igen morisk byggnadsteknik.'
+  es: 'Casa AMARA está en pleno casco antiguo de Frigiliana. Restauramos la casa entre 2020 y 2022. Durante las obras aparecieron muros antiguos en los que nuestro arquitecto reconoció la construcción andalusí que marcó esta parte de Andalucía durante siglos.',
+  nl: 'Casa AMARA staat midden in de beschermde oude kern van Frigiliana. We restaureerden het huis tussen 2020 en 2022. Daarbij kwamen oude muren tevoorschijn waarin onze architect de Moorse bouwwijze herkende die dit deel van Andalusië eeuwenlang heeft gevormd.',
+  sv: 'Casa AMARA ligger mitt i Frigilianas skyddade gamla stad. Vi restaurerade huset mellan 2020 och 2022. Under arbetet kom gamla murar fram där vår arkitekt kände igen den moriska byggnadsteknik som präglade den här delen av Andalusien i århundraden.'
 };
 
 export const cinematicCollectionEyebrow: CopyRow = {
-  en: 'The Collection',
+  en: 'Our stays',
   de: 'Unsere Unterkünfte',
-  es: 'La colección',
-  nl: 'De collectie',
-  sv: 'Kollektionen'
+  es: 'Nuestros alojamientos',
+  nl: 'Onze verblijven',
+  sv: 'Våra boenden'
 };
 
 export const cinematicCollectionTitle: CopyRow = {
-  en: 'Spaces to breathe.',
+  en: 'Which one suits your trip?',
   de: 'Welche passt zu euch?',
-  es: 'Espacios para respirar.',
-  nl: 'Ruimte om te ademen.',
-  sv: 'Utrymmen att andas i.'
+  es: '¿Cuál encaja con vuestro viaje?',
+  nl: 'Welk verblijf past bij jullie reis?',
+  sv: 'Vilket boende passar er resa?'
 };
 
 export const cinematicTrustQuote: CopyRow = {
-  en: 'Calm stays, terrace mornings, quiet nights, deep sleep — thoughtfully hosted.',
+  en: 'Our guests can judge AMARA better than we can.',
   de: 'Unsere Gäste können AMARA besser beurteilen als wir selbst.',
-  es: 'Estancias tranquilas, mañanas en la terraza, noches en silencio, sueño profundo — con un cuidado meditado.',
-  nl: 'Rustige verblijven, terrasochtenden, stille nachten, diepe slaap — doordacht gehost.',
-  sv: 'Lugna vistelser, terrassmorgnar, tysta nätter, djup sömn — omsorgsfullt värdskap.'
+  es: 'Nuestros huéspedes pueden hablar de AMARA mejor que nosotros.',
+  nl: 'Onze gasten kunnen AMARA beter beoordelen dan wijzelf.',
+  sv: 'Våra gäster kan bedöma AMARA bättre än vi själva.'
 };
 
 export const cinematicTrustCta: CopyRow = {
@@ -267,11 +267,11 @@ export const navSoonBadge: CopyRow = {
 
 /** Four chips — trust band */
 export const cinematicTrustChips: Record<AmaraLanguage, string[]> = {
-  en: ['Sea views', 'Large private terraces', 'Quiet locations', 'Premium bedding'],
+  en: ['Sea views', 'Private terraces', 'Direct host contact', 'Verified guest reviews'],
   de: ['Meerblick', 'Private Terrassen', 'Ruhige Lagen', 'Hochwertige Betten'],
-  es: ['Vistas al mar', 'Grandes terrazas privadas', 'Ubicaciones tranquilas', 'Ropa de cama premium'],
-  nl: ['Zeezicht', 'Grote privéterrassen', 'Rustige locaties', 'Premium beddengoed'],
-  sv: ['Havsutsikt', 'Stora privata terrasser', 'Tysta lägen', 'Premium sängkläder']
+  es: ['Vistas al mar', 'Terrazas privadas', 'Contacto directo con el anfitrión', 'Reseñas verificadas'],
+  nl: ['Zeezicht', 'Privéterrassen', 'Direct contact met de host', 'Geverifieerde beoordelingen'],
+  sv: ['Havsutsikt', 'Privata terrasser', 'Direktkontakt med värden', 'Verifierade recensioner']
 };
 
 export type CinematicAptToken = 'farah' | 'lounis' | 'zaid' | 'maha' | 'playa' | 'casa';
@@ -293,11 +293,11 @@ export const cinematicApartments: CinematicAptDef[] = [
     token: 'farah',
     name: 'Farah',
     subtitle: {
-      en: 'Boutique Retreat',
+      en: 'For short stays in Frigiliana',
       de: 'Für kurze Aufenthalte in Frigiliana',
-      es: 'Refugio boutique',
-      nl: 'Boutique-retraite',
-      sv: 'Boutique-reträtt'
+      es: 'Para estancias cortas en Frigiliana',
+      nl: 'Voor een kort verblijf in Frigiliana',
+      sv: 'För kortare vistelser i Frigiliana'
     },
     meta: {
       en: 'Frigiliana • 2 guests',
@@ -307,11 +307,11 @@ export const cinematicApartments: CinematicAptDef[] = [
       sv: 'Frigiliana • 2 gäster'
     },
     desc: {
-      en: "A romantic, self-contained boutique suite with character — ideal for shorter trips. Designed with deep respect for the village's Moorish past.",
+      en: 'Best for one or two nights: a bedroom, kitchenette and only one step at the entrance. No terrace and no full kitchen.',
       de: 'Ideal für ein oder zwei Nächte: Schlafzimmer, Teeküche und nur eine Stufe am Hauseingang. Keine Terrasse und keine vollständige Küche.',
-      es: 'Una suite boutique independiente, romántica y con carácter — ideal para estancias cortas. Diseñada con profundo respeto por el pasado morisco del pueblo.',
-      nl: 'Een romantische, zelfstandige boutique-suite met karakter — ideaal voor kortere verblijven. Ontworpen met diep respect voor het Moorse verleden van het dorp.',
-      sv: 'En romantisk, självständig boutique-svit med karaktär — idealisk för kortare vistelser. Utformad med djup respekt för byns moriska förflutna.'
+      es: 'Pensada para una o dos noches: dormitorio, pequeña zona de cocina y un único escalón en la entrada. No tiene terraza ni cocina completa.',
+      nl: 'Handig voor één of twee nachten: een slaapkamer, kitchenette en slechts één trede bij de ingang. Geen privéterras en geen volledige keuken.',
+      sv: 'Passar bäst för en eller två nätter: sovrum, pentry och bara ett trappsteg vid entrén. Ingen terrass och inget komplett kök.'
     },
     imageAlt: {
       en: 'Bright bedroom with a green wooden window and brick arches in AMARA Farah, Frigiliana',
@@ -347,11 +347,11 @@ export const cinematicApartments: CinematicAptDef[] = [
       sv: 'Frigiliana • 2 gäster'
     },
     desc: {
-      en: 'Historic charm with terrace time and a sense of space. High ceilings and original beams tell stories of centuries past.',
+      en: 'Views across the mango and avocado plantations to the sea. The terrace stays shaded in the morning and gets sun from around midday.',
       de: 'Blick über die Mango- und Avocadoplantagen bis zum Meer. Morgens liegt die Terrasse im Schatten, ab Mittag in der Sonne.',
-      es: 'Encanto histórico con tiempo en la terraza y sensación de espacio. Techos altos y vigas originales cuentan siglos de historia.',
-      nl: 'Historische charme met terrastijd en ruimtegevoel. Hoge plafonds en originele balken vertellen verhalen uit vroeger.',
-      sv: 'Historiskt charm med terrasstid och rymd. Höga tak och originalbalkar berättar om århundraden.'
+      es: 'Vistas sobre los cultivos de mango y aguacate hasta el mar. La terraza tiene sombra por la mañana y sol a partir del mediodía.',
+      nl: 'Uitzicht over de mango- en avocadoplantages tot aan zee. Het terras ligt ’s ochtends in de schaduw en krijgt vanaf de middag zon.',
+      sv: 'Utsikt över mango- och avokadoplantagerna ända till havet. Terrassen ligger i skugga på morgonen och får sol från ungefär mitt på dagen.'
     },
     imageAlt: {
       en: 'Whitewashed terraces and palm trees at AMARA Lounis in Frigiliana',
@@ -387,11 +387,11 @@ export const cinematicApartments: CinematicAptDef[] = [
       sv: 'Frigiliana • 2 gäster'
     },
     desc: {
-      en: 'A calm retreat with a private terrace — made for slow mornings, coffee in the sun, and watching the village wake up.',
+      en: 'A private terrace one floor above Lounis, with a wider view and the broadest bed in Casa AMARA at 180 × 200 cm.',
       de: 'Private Terrasse über den Plantagen und mit 180 × 200 cm das breiteste Bett in Casa AMARA.',
-      es: 'Un refugio tranquilo con terraza privada — para mañanas lentas, café al sol y ver despertar el pueblo.',
-      nl: 'Een rustige plek met privéterras — voor trage ochtenden, koffie in de zon en het dorp dat ontwaakt.',
-      sv: 'Ett lugnt tillflyktsort med privat terrass — för långsamma morgnar, kaffe i solen och byn som vaknar.'
+      es: 'Terraza privada una planta por encima de Lounis, con vistas más amplias y la cama más ancha de Casa AMARA: 180 × 200 cm.',
+      nl: 'Een privéterras één verdieping boven Lounis, met ruimer uitzicht en het breedste bed van Casa AMARA: 180 × 200 cm.',
+      sv: 'Privat terrass en våning ovanför Lounis, med vidare utsikt och Casa AMARAs bredaste säng: 180 × 200 cm.'
     },
     imageAlt: {
       en: 'Outdoor rain shower with handmade tiles on the private terrace of AMARA Zaid in Frigiliana',
@@ -427,11 +427,11 @@ export const cinematicApartments: CinematicAptDef[] = [
       sv: 'Frigiliana • 2 gäster'
     },
     desc: {
-      en: 'A terrace apartment designed for lingering in the white village. Elevated views and a seamless blend of indoor and outdoor living.',
+      en: 'The largest terrace in the house: 60 m² with an outdoor kitchen and the widest view. Maha sits at the top of Casa AMARA.',
       de: 'Die größte Terrasse im Haus, mit Außenküche und weitem Blick. Das Apartment liegt ganz oben in Casa AMARA.',
-      es: 'Un apartamento con terraza pensado para quedarse en el pueblo blanco. Vistas elevadas y una fusión natural de interior y exterior.',
-      nl: 'Een terrasappartement om te blijven hangen in het witte dorp. Verhoogd uitzicht en een naadloze mix van binnen en buiten.',
-      sv: 'En terrasslägenhet för att dröja kvar i den vita byn. Höjd över byn och en sömlös blandning av inne och ute.'
+      es: 'La terraza más grande de la casa: 60 m², cocina exterior y las vistas más amplias. Maha ocupa la parte más alta de Casa AMARA.',
+      nl: 'Het grootste terras van het huis: 60 m², met buitenkeuken en het ruimste uitzicht. Maha ligt helemaal boven in Casa AMARA.',
+      sv: 'Husets största terrass: 60 m² med utekök och den vidaste utsikten. Maha ligger högst upp i Casa AMARA.'
     },
     imageAlt: {
       en: 'Shaded private terrace with an outdoor sofa at AMARA Maha in Frigiliana',
@@ -467,11 +467,11 @@ export const cinematicApartments: CinematicAptDef[] = [
       sv: 'Nerja • 2 gäster'
     },
     desc: {
-      en: 'A relaxed seaside base for couples who want the sea close by. The sound of the waves is your constant companion.',
+      en: '100 metres from Torrecilla beach and 500 metres from the Balcón de Europa. Fifth floor with lift, side sea view and a 200 × 200 cm bed.',
       de: 'Nur 500 Meter bis zum Balcón de Europa und trotzdem ruhig. Im fünften Stock mit Aufzug und einem 200 × 200 cm großen Bett.',
-      es: 'Una base costera relajada para parejas que quieren el mar cerca. El sonido de las olas es vuestra compañía constante.',
-      nl: 'Een ontspannen kustbasis voor koppels die de zee dichtbij willen. Het geluid van de golven is je constante metgezel.',
-      sv: 'En avslappnad kustbas för par som vill ha havet nära. Vågornas brus är er ständiga följeslagare.'
+      es: 'A 100 metros de la playa de Torrecilla y 500 del Balcón de Europa. Quinta planta con ascensor, vistas laterales al mar y cama de 200 × 200 cm.',
+      nl: 'Op 100 meter van het strand van Torrecilla en 500 meter van het Balcón de Europa. Vijfde verdieping met lift, zijdelings zeezicht en een bed van 200 × 200 cm.',
+      sv: '100 meter från Torrecillastranden och 500 meter från Balcón de Europa. Femte våningen med hiss, havsutsikt åt sidan och en säng på 200 × 200 cm.'
     },
     imageAlt: {
       en: 'Blue-and-white living and dining room with balcony at AMARA Playa in Nerja',
@@ -507,11 +507,11 @@ export const cinematicApartments: CinematicAptDef[] = [
       sv: 'Tarifa • familjevistelse'
     },
     desc: {
-      en: 'A spacious home for surfers and families — intentionally different. Where the Mediterranean meets the Atlantic.',
+      en: 'Two floors, two bedrooms and two bathrooms, with a terrace facing the Atlantic. Suitable for couples and families of up to four.',
       de: 'Zwei Schlafzimmer, zwei Bäder, direkter Atlantikblick, Gemeinschaftspool und ein reservierter Tiefgaragenplatz.',
-      es: 'Un hogar amplio para surfistas y familias — distinto a propósito. Donde el Mediterráneo se encuentra con el Atlántico.',
-      nl: 'Een ruim thuis voor surfers en gezinnen — bewust anders. Waar de Middellandse Zee en de Atlantische Oceaan elkaar ontmoeten.',
-      sv: 'Ett rymligt hem för surfare och familjer — medvetet annorlunda. Där Medelhavet möter Atlanten.'
+      es: 'Dos plantas, dos dormitorios y dos baños, con terraza frente al Atlántico. Para parejas y familias de hasta cuatro personas.',
+      nl: 'Twee verdiepingen, twee slaapkamers en twee badkamers, met een terras op de Atlantische Oceaan. Voor stellen en gezinnen tot vier personen.',
+      sv: 'Två våningar, två sovrum och två badrum samt en terrass mot Atlanten. Passar både par och familjer på upp till fyra personer.'
     },
     imageAlt: {
       en: 'Living room with colorful artwork and an open staircase at AMARA Family & Surf in Tarifa',

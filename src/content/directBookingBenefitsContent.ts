@@ -15,7 +15,7 @@ export const directBookingBenefitsSeo: AmaraAuthoringSeo = {
 
       title: 'Direct Booking: Benefits for Your Stay',
 
-      description: 'Book AMARA directly for best-price clarity, direct host contact, and guest-first benefits before your stay in Frigiliana or Nerja.',
+      description: 'Book AMARA directly for our lowest available price, direct host contact, priority early check-in or late check-out, and a mid-stay clean on stays over seven nights.',
 
       robots: 'index, follow',
 
@@ -27,7 +27,7 @@ export const directBookingBenefitsSeo: AmaraAuthoringSeo = {
 
       title: 'Direktbuchung: Vorteile für euren Aufenthalt',
 
-      description: 'Bucht AMARA direkt mit klarer Bestpreis-Orientierung, direktem Gastgeberkontakt und Vorteilen für euren Aufenthalt.',
+      description: 'Bucht AMARA direkt zum niedrigsten verfügbaren Preis, mit direktem Gastgeberkontakt, bevorzugter früher Anreise oder später Abreise und Zwischenreinigung bei mehr als sieben Nächten.',
 
       robots: 'index, follow',
 
@@ -39,7 +39,7 @@ export const directBookingBenefitsSeo: AmaraAuthoringSeo = {
 
       title: 'Reserva directa: precio y ventajas',
 
-      description: 'Reservad directamente con AMARA: mejor precio, contacto con el anfitrión y ventajas para vuestra estancia en Frigiliana o Nerja.',
+      description: 'Reservad directamente con AMARA: nuestro precio más bajo disponible, contacto con el anfitrión, prioridad para entrar antes o salir más tarde y limpieza intermedia en estancias de más de siete noches.',
 
       robots: 'index, follow',
 
@@ -51,7 +51,7 @@ export const directBookingBenefitsSeo: AmaraAuthoringSeo = {
 
       title: 'Direct boeken: voordelen voor je verblijf',
 
-      description: 'Boek AMARA direct met duidelijke prijsvoordelen, rechtstreeks hostcontact en voordelen voor je verblijf in Frigiliana of Nerja.',
+      description: 'Boek AMARA rechtstreeks voor onze laagste beschikbare prijs, direct contact met de host, voorrang bij vroeger in- of later uitchecken en tussentijdse schoonmaak bij meer dan zeven nachten.',
 
       robots: 'index, follow',
 
@@ -63,7 +63,7 @@ export const directBookingBenefitsSeo: AmaraAuthoringSeo = {
 
       title: 'Direktbokning: fördelar för vistelsen',
 
-      description: 'Boka AMARA direkt med tydlig prisfördel, direkt kontakt med värden och fördelar inför vistelsen i Frigiliana eller Nerja.',
+      description: 'Boka AMARA direkt för vårt lägsta tillgängliga pris, direktkontakt med värden, förtur till tidig incheckning eller sen utcheckning och mellanstädning vid vistelser över sju nätter.',
 
       robots: 'index, follow',
 
@@ -131,29 +131,29 @@ export const directBookingBenefitsCopy = {
 
     lead: {
 
-      en: 'When you book directly with AMARA, you get the same beautiful stay - plus a few extras that make arrival easier and the experience more personal.',
+      en: 'A direct booking gives you our lowest available price, a direct line to the host and several practical extras, subject to the conditions below.',
 
-      de: 'Wenn ihr direkt bei AMARA bucht, bekommt ihr denselben schönen Aufenthalt - plus ein paar Extras, die die Anreise leichter und den Aufenthalt persönlicher machen.',
+      de: 'Bei einer Direktbuchung bekommt ihr unseren niedrigsten verfügbaren Preis, direkten Kontakt zum Gastgeber und einige praktische Extras zu den unten genannten Bedingungen.',
 
-      es: 'Cuando reserváis directamente con AMARA, disfrutáis de la misma estancia preciosa, con algunos extras que hacen la llegada más fácil y la experiencia más personal.',
+      es: 'Al reservar directamente obtenéis nuestro precio más bajo disponible, contacto directo con el anfitrión y varias ventajas prácticas sujetas a las condiciones que explicamos a continuación.',
 
-      nl: 'Wanneer jullie direct bij AMARA boeken, krijgen jullie hetzelfde mooie verblijf - plus een paar extra\'s die de aankomst makkelijker en de ervaring persoonlijker maken.',
+      nl: 'Bij een rechtstreekse boeking krijgen jullie onze laagste beschikbare prijs, direct contact met de host en enkele praktische extra’s volgens de voorwaarden hieronder.',
 
-      sv: 'När ni bokar direkt med AMARA får ni samma vackra vistelse - plus några extra detaljer som gör ankomsten enklare och upplevelsen mer personlig.'
+      sv: 'När ni bokar direkt får ni vårt lägsta tillgängliga pris, direktkontakt med värden och flera praktiska fördelar enligt villkoren nedan.'
 
     },
 
     supportText: {
 
-      en: 'Transparent, calm, and guest-first - without gimmicks.',
+      en: 'The price, conditions and available extras are shown clearly before you confirm.',
 
-      de: 'Transparent, ruhig und ganz auf euch als Gäste ausgerichtet - ohne Spielereien.',
+      de: 'Preis, Bedingungen und verfügbare Extras werden euch vor der Bestätigung klar angezeigt.',
 
-      es: 'Transparente, tranquilo y pensado para el huésped, sin artificios.',
+      es: 'Veréis claramente el precio, las condiciones y las ventajas disponibles antes de confirmar.',
 
-      nl: 'Transparant, rustig en helemaal gastgericht - zonder trucs.',
+      nl: 'Prijs, voorwaarden en beschikbare extra’s worden duidelijk getoond voordat jullie bevestigen.',
 
-      sv: 'Transparent, lugnt och helt gästfokuserat - utan gimmickar.'
+      sv: 'Pris, villkor och tillgängliga fördelar visas tydligt innan ni bekräftar.'
 
     },
 
@@ -169,15 +169,15 @@ export const directBookingBenefitsCopy = {
 
       title: {
 
-        en: 'Best price guarantee',
+        en: 'Our lowest available price',
 
-        de: 'Bestpreis-Garantie',
+        de: 'Unser niedrigster verfügbarer Preis',
 
-        es: 'Mejor precio garantizado',
+        es: 'Nuestro precio más bajo disponible',
 
-        nl: 'Besteprijsgarantie',
+        nl: 'Onze laagste beschikbare prijs',
 
-        sv: 'Bästa pris-garanti'
+        sv: 'Vårt lägsta tillgängliga pris'
 
       },
 
@@ -311,15 +311,15 @@ export const directBookingBenefitsCopy = {
 
       copy: {
 
-        en: 'A small local welcome detail on arrival - simple, thoughtful, seasonal.',
+        en: 'A small local welcome item on arrival. What it is may vary with the season.',
 
-        de: 'Eine kleine lokale Aufmerksamkeit bei der Ankunft - schlicht, aufmerksam und saisonal gedacht.',
+        de: 'Bei der Ankunft wartet eine kleine lokale Aufmerksamkeit auf euch. Was genau, kann je nach Saison variieren.',
 
-        es: 'Un pequeño detalle local de bienvenida a la llegada: sencillo, cuidado y de temporada.',
+        es: 'A la llegada encontraréis un pequeño detalle local de bienvenida, que puede variar según la temporada.',
 
-        nl: 'Een klein lokaal welkomstdetail bij aankomst - eenvoudig, attent en passend bij het seizoen.',
+        nl: 'Bij aankomst staat er een klein lokaal welkomstgeschenk klaar. Wat dat is, kan per seizoen verschillen.',
 
-        sv: 'En liten lokal välkomstgest vid ankomst - enkel, genomtänkt och anpassad efter säsong.'
+        sv: 'Vid ankomsten väntar en liten lokal välkomstgåva. Vad det är kan variera med säsongen.'
 
       }
 
@@ -345,15 +345,15 @@ export const directBookingBenefitsCopy = {
 
     tip: {
 
-      en: "Tip: If you're not sure which apartment fits best, message us first - we'll guide you calmly and honestly.",
+      en: "If you're unsure which apartment suits your plans, message us first. We know the differences and will answer directly.",
 
-      de: 'Tipp: Wenn ihr nicht sicher seid, welches Apartment am besten passt, schreibt uns zuerst - wir beraten euch ruhig und ehrlich.',
+      de: 'Wenn ihr nicht sicher seid, welches Apartment zu euren Plänen passt, schreibt uns zuerst. Wir kennen die Unterschiede und antworten euch direkt.',
 
-      es: 'Consejo: si no tenéis claro qué apartamento os encaja mejor, escribidnos primero y os orientaremos con calma y honestidad.',
+      es: 'Si no tenéis claro qué apartamento se adapta mejor a vuestros planes, escribidnos primero. Conocemos las diferencias y os responderemos directamente.',
 
-      nl: 'Tip: als jullie niet zeker weten welk appartement het beste past, stuur ons eerst een bericht - we helpen jullie rustig en eerlijk verder.',
+      nl: 'Twijfelen jullie welk appartement bij jullie plannen past? Stuur ons dan eerst een bericht. We kennen de verschillen en geven direct antwoord.',
 
-      sv: 'Tips: om ni inte är säkra på vilken lägenhet som passar bäst, skriv till oss först - vi guidar er lugnt och ärligt.'
+      sv: 'Om ni är osäkra på vilken lägenhet som passar era planer kan ni skriva till oss först. Vi känner till skillnaderna och svarar direkt.'
 
     },
 
@@ -489,15 +489,15 @@ export const directBookingBenefitsCopy = {
 
     ctaLead: {
 
-      en: 'Ready to plan your stay? Check availability directly - calm, transparent, and guest-first.',
+      en: 'Choose your dates to see current availability, the final price and the booking conditions.',
 
-      de: 'Ihr möchtet euren Aufenthalt planen? Prüft die Verfügbarkeit direkt - ruhig, transparent und ganz auf euch als Gäste ausgerichtet.',
+      de: 'Wählt eure Daten, um die aktuelle Verfügbarkeit, den endgültigen Preis und die Buchungsbedingungen zu sehen.',
 
-      es: '¿Listos para planear vuestra estancia? Consultad la disponibilidad directamente: con calma, transparencia y pensando en el huésped.',
+      es: 'Elegid las fechas para ver la disponibilidad actual, el precio final y las condiciones de la reserva.',
 
-      nl: 'Klaar om jullie verblijf te plannen? Bekijk de beschikbaarheid direct - rustig, transparant en helemaal gastgericht.',
+      nl: 'Kies jullie data om de actuele beschikbaarheid, de definitieve prijs en de boekingsvoorwaarden te zien.',
 
-      sv: 'Redo att planera vistelsen? Se tillgängligheten direkt - lugnt, transparent och helt med gästen i fokus.'
+      sv: 'Välj datum för att se aktuell tillgänglighet, slutpris och bokningsvillkor.'
 
     },
 

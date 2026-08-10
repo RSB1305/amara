@@ -157,27 +157,27 @@ export const aboutUsContent: AboutUsContent = {
     }
   ],
   hero: {
-    subtitle: { en: 'Hospitality, thoughtfully done.', de: 'Gastfreundschaft mit Haltung.', es: 'Hospitalidad pensada con cuidado.', nl: 'Gastvrijheid, met aandacht.', sv: 'Värdskap med omtanke.' },
+    subtitle: { en: 'Six stays. Direct responsibility.', de: 'Sechs Unterkünfte. Klare Verantwortung.', es: 'Seis alojamientos. Responsabilidad directa.', nl: 'Zes verblijven. Duidelijke verantwoordelijkheid.', sv: 'Sex boenden. Tydligt ansvar.' },
     titleHtml: {
-      en: 'A stay should feel effortless.',
-      de: 'Ankommen. Und einfach da sein.',
-      es: 'Llegar. Y sentir que todo encaja.',
-      nl: 'Aankomen. En meteen tot rust komen.',
-      sv: 'Kom fram. Och bara landa.'
+      en: 'The people behind AMARA.',
+      de: 'Die Menschen hinter AMARA.',
+      es: 'Las personas detrás de AMARA.',
+      nl: 'De mensen achter AMARA.',
+      sv: 'Människorna bakom AMARA.'
     },
     lead: {
-      en: 'You arrive, open the door, and everything is ready. The space feels calm, considered and easy to settle into.',
-      de: 'Ihr öffnet die Tür, alles ist vorbereitet. Die Räume wirken ruhig, durchdacht und so, dass ihr euch sofort zurechtfindet.',
-      es: 'Abrís la puerta y todo está preparado. El espacio se siente sereno, cuidado y fácil de disfrutar desde el primer momento.',
-      nl: 'Jullie openen de deur en alles staat klaar. De ruimte voelt rustig, doordacht en vanzelfsprekend in gebruik.',
-      sv: 'Ni öppnar dörren och allt är förberett. Rummen känns lugna, genomtänkta och enkla att komma till rätta i.'
+      en: 'AMARA is a small, owner-led group of holiday stays. Robert remains directly involved in how each one is prepared, maintained and improved.',
+      de: 'AMARA ist eine kleine, inhabergeführte Gruppe von Ferienunterkünften. Robert ist direkt daran beteiligt, wie jede einzelne vorbereitet, gepflegt und weiterentwickelt wird.',
+      es: 'AMARA es un pequeño grupo de alojamientos gestionado por su propietario. Robert sigue implicado directamente en la preparación, el mantenimiento y las mejoras de cada uno.',
+      nl: 'AMARA is een kleine groep vakantieverblijven onder leiding van de eigenaar. Robert blijft direct betrokken bij de voorbereiding, het onderhoud en de verbetering van elk verblijf.',
+      sv: 'AMARA är en liten, ägarledd grupp semesterboenden. Robert är fortsatt direkt delaktig i hur varje boende förbereds, underhålls och förbättras.'
     },
     supportText: {
-      en: 'That simple feeling guides everything we do at AMARA.',
-      de: 'Genau dieses Gefühl ist der Maßstab für alles, was wir bei AMARA tun.',
-      es: 'Esa sensación sencilla guía todo lo que hacemos en AMARA.',
-      nl: 'Dat eenvoudige gevoel is de maatstaf voor alles wat we bij AMARA doen.',
-      sv: 'Den känslan är måttstocken för allt vi gör på AMARA.'
+      en: 'You get clear descriptions before booking, a properly prepared home and a contact who knows the property.',
+      de: 'Vor der Buchung bekommt ihr klare Beschreibungen, bei der Ankunft eine sorgfältig vorbereitete Unterkunft und bei Fragen einen Kontakt, der sie kennt.',
+      es: 'Antes de reservar encontráis descripciones claras; al llegar, un alojamiento bien preparado; y, si surge una duda, un contacto que conoce la propiedad.',
+      nl: 'Voor het boeken krijgen jullie duidelijke informatie, bij aankomst een goed voorbereid verblijf en bij vragen een contactpersoon die de plek kent.',
+      sv: 'Före bokningen får ni tydliga beskrivningar, vid ankomsten ett ordentligt förberett boende och vid frågor en kontakt som känner huset.'
     },
     ctaLinks: [
       {
@@ -191,7 +191,7 @@ export const aboutUsContent: AboutUsContent = {
     ]
   },
   philosophy: {
-    title: { en: 'About us? Actually: about you.', de: 'Über uns? Eigentlich geht es um euch.', es: '¿Sobre nosotros? En realidad, se trata de vosotros.', nl: 'Over ons? Eigenlijk gaat het om jullie.', sv: 'Om oss? Egentligen handlar det om er.' },
+    title: { en: 'What guests can expect from us', de: 'Was ihr von uns erwarten könnt', es: 'Qué podéis esperar de nosotros', nl: 'Wat jullie van ons kunnen verwachten', sv: 'Vad ni kan förvänta er av oss' },
     lead: {
       en: 'Everything at AMARA starts with one question:',
       de: 'Bei AMARA beginnt alles mit einer einfachen Frage:',
@@ -364,16 +364,16 @@ export const aboutUsContent: AboutUsContent = {
   locations: {
     title: { en: 'Our locations in Andalusia', de: 'Unsere Standorte in Andalusien', es: 'Nuestras ubicaciones en Andalucía', nl: 'Onze locaties in Andalusië', sv: 'Våra platser i Andalusien' },
     lead: {
-      en: 'Each AMARA location is chosen for atmosphere, rhythm, and the kind of stay it makes possible.',
-      de: 'Jeder Standort von AMARA wird nach Atmosphäre, Rhythmus und der Art des Aufenthalts ausgewählt, die er ermöglicht.',
-      es: 'Cada ubicación de AMARA se elige por su atmósfera, su ritmo y el tipo de estancia que hace posible.',
-      nl: 'Elke locatie van AMARA wordt gekozen om de sfeer, het ritme en het soort verblijf dat ze mogelijk maakt.',
-      sv: 'Varje AMARA-plats väljs för sin atmosfär, sin rytm och den typ av vistelse den möjliggör.'
+      en: 'The six stays are spread across three places, and each location changes what everyday holiday life looks like.',
+      de: 'Unsere sechs Unterkünfte verteilen sich auf drei Orte, die im Urlaubsalltag ganz unterschiedliche Möglichkeiten bieten.',
+      es: 'Los seis alojamientos se reparten entre tres lugares, cada uno con una forma distinta de vivir el día a día de las vacaciones.',
+      nl: 'De zes verblijven liggen verspreid over drie plaatsen, elk met een heel andere vakantiedag.',
+      sv: 'De sex boendena finns på tre platser som ger helt olika semesterdagar.'
     },
     locations: [
-      { name: 'Frigiliana', copy: { en: 'Quiet depth, white-village calm, and a sense of time.', de: 'Ruhige Tiefe, die Gelassenheit eines weißen Dorfes und ein Gefühl für Zeit.', es: 'Profundidad serena, calma de pueblo blanco y una sensación distinta del tiempo.', nl: 'Stille diepgang, de rust van een wit dorp en een bijzonder tijdsgevoel.', sv: 'Lugn fördjupning, den vita byns stillhet och en känsla för tid.' } },
-      { name: 'Nerja', copy: { en: 'Sea rhythm, authentic energy, with balance and ease.', de: 'Meeresrhythmus, authentische Energie, mit Balance und Leichtigkeit.', es: 'Ritmo de mar, energía auténtica, con equilibrio y facilidad.', nl: 'Ritme van de zee, authentieke energie, met balans en gemak.', sv: 'Havets rytm, genuin energi, med balans och lätthet.' } },
-      { name: 'Tarifa', copy: { en: 'Wide horizons, light and wind, active outdoors, calm indoors.', de: 'Weite Horizonte, Licht und Wind, aktiv draußen, ruhig drinnen.', es: 'Horizontes abiertos, luz y viento, activo fuera y sereno dentro.', nl: 'Wijde horizonten, licht en wind, actief buiten en rustig binnen.', sv: 'Vida horisonter, ljus och vind, aktivt utomhus och lugnt inomhus.' } }
+      { name: 'Frigiliana', copy: { en: 'Four individual stays in the historic old town; Lounis, Zaid and Maha have private terraces.', de: 'Vier individuelle Unterkünfte in der historischen Altstadt; Lounis, Zaid und Maha haben private Terrassen.', es: 'Cuatro alojamientos distintos en el casco antiguo; Lounis, Zaid y Maha tienen terraza privada.', nl: 'Vier verschillende verblijven in de historische oude kern; Lounis, Zaid en Maha hebben een privéterras.', sv: 'Fyra olika boenden i den historiska gamla stan; Lounis, Zaid och Maha har privat terrass.' } },
+      { name: 'Nerja', copy: { en: 'One fifth-floor apartment with a lift, 100 metres from Torrecilla beach and 500 metres from the Balcón de Europa.', de: 'Ein Apartment im fünften Stock mit Aufzug, 100 Meter vom Strand Torrecilla und 500 Meter vom Balcón de Europa entfernt.', es: 'Un apartamento en la quinta planta con ascensor, a 100 metros de la playa de Torrecilla y 500 del Balcón de Europa.', nl: 'Eén appartement op de vijfde verdieping met lift, op 100 meter van het strand van Torrecilla en 500 meter van het Balcón de Europa.', sv: 'En lägenhet på femte våningen med hiss, 100 meter från Torrecillastranden och 500 meter från Balcón de Europa.' } },
+      { name: 'Tarifa', copy: { en: 'A two-floor penthouse for up to four guests, with two bedrooms and a terrace facing the Atlantic.', de: 'Ein Penthouse über zwei Etagen für bis zu vier Gäste, mit zwei Schlafzimmern und einer Terrasse zum Atlantik.', es: 'Un ático de dos plantas para un máximo de cuatro personas, con dos dormitorios y terraza frente al Atlántico.', nl: 'Een penthouse over twee verdiepingen voor maximaal vier gasten, met twee slaapkamers en een terras aan de Atlantische Oceaan.', sv: 'Ett penthouse i två våningar för upp till fyra gäster, med två sovrum och en terrass mot Atlanten.' } }
     ]
   },
   host: {
@@ -397,11 +397,11 @@ export const aboutUsContent: AboutUsContent = {
     title: { en: 'Responsible by design', de: 'Verantwortung gehört dazu', es: 'Responsabilidad en cada decisión', nl: 'Verant\u00ADwoordelijkheid hoort erbij', sv: 'Ansvar är en självklar del' },
     subtitle: { en: 'Sustainable by choice.', de: 'Nachhaltig aus Überzeugung.', es: 'Sostenible por convicción.', nl: 'Duurzaam uit overtuiging.', sv: 'Hållbart av övertygelse.' },
     lead: {
-      en: 'We believe thoughtful hospitality also means reducing unnecessary impact. Wherever practical, we choose renewable energy, efficient equipment and measures that reduce water and waste — without asking guests to compromise on comfort.',
-      de: 'Für uns gehört zu durchdachter Gastfreundschaft auch, unnötige Belastungen zu vermeiden. Wo es sinnvoll möglich ist, setzen wir auf erneuerbare Energie, effiziente Ausstattung sowie Maßnahmen, die Wasserverbrauch und Abfall reduzieren – ohne dass ihr dafür auf Komfort verzichten müsst.',
-      es: 'Para nosotros, una hospitalidad bien pensada también implica reducir impactos innecesarios. Siempre que tiene sentido, apostamos por energía renovable, equipos eficientes y medidas que reducen el consumo de agua y los residuos, sin pediros que renunciéis al confort.',
-      nl: 'Doordachte gastvrijheid betekent voor ons ook dat we onnodige impact proberen te beperken. Waar het zinvol is, kiezen we voor hernieuwbare energie, efficiënte apparatuur en maatregelen die waterverbruik en afval verminderen, zonder dat jullie daarvoor comfort hoeven in te leveren.',
-      sv: 'För oss innebär genomtänkt värdskap också att minska onödig påverkan. Där det är praktiskt och meningsfullt väljer vi förnybar energi, effektiv utrustning och lösningar som minskar vattenförbrukning och avfall, utan att ni behöver kompromissa med komforten.'
+      en: 'Where practical, we use renewable energy, efficient equipment and measures that reduce water use and waste, without asking guests to give up comfort.',
+      de: 'Wo es sinnvoll möglich ist, setzen wir auf erneuerbare Energie, effiziente Ausstattung sowie Maßnahmen, die Wasserverbrauch und Abfall reduzieren – ohne dass ihr dafür auf Komfort verzichten müsst.',
+      es: 'Siempre que resulta práctico, utilizamos energía renovable, equipos eficientes y medidas que reducen el consumo de agua y los residuos, sin pediros que renunciéis al confort.',
+      nl: 'Waar het praktisch uitvoerbaar is, kiezen we voor hernieuwbare energie, efficiënte apparatuur en maatregelen die waterverbruik en afval beperken, zonder dat jullie comfort hoeven in te leveren.',
+      sv: 'Där det fungerar i praktiken använder vi förnybar energi, effektiv utrustning och lösningar som minskar vattenförbrukning och avfall, utan att ni behöver ge avkall på komforten.'
     },
     listColumns: [
       {

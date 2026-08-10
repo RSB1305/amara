@@ -170,18 +170,18 @@ export const guestReviewsCopy = {
       sv: 'Vart vill ni?'
     },
     locationLead: {
-      en: 'Each place has its own character — and its own reviews.',
-      de: 'Jeder Ort hat seinen eigenen Charakter – und seine eigenen Bewertungen.',
-      es: 'Cada sitio tiene su propio carácter y sus propias reseñas.',
-      nl: 'Elke plek heeft zijn eigen karakter — en zijn eigen beoordelingen.',
-      sv: 'Varje plats har sin egen karaktär — och sina egna omdömen.'
+      en: 'The stays differ by location, layout and outdoor space. Their reviews reflect those differences.',
+      de: 'Die Unterkünfte unterscheiden sich in Lage, Raumaufteilung und Außenbereich. Das zeigt sich auch in ihren Bewertungen.',
+      es: 'Los alojamientos cambian según la ubicación, la distribución y el espacio exterior. Las reseñas reflejan esas diferencias.',
+      nl: 'De verblijven verschillen in ligging, indeling en buitenruimte. Dat is ook terug te zien in de beoordelingen.',
+      sv: 'Boendena skiljer sig åt i läge, planlösning och uteplats. Det märks också i recensionerna.'
     },
     locationFrigiliana: {
-      en: 'Design-led stays in the old town: quiet and romantic, with terraces made for long evenings.',
-      de: 'Design-Unterkünfte in der Altstadt: ruhig und romantisch, mit Terrassen für lange Abende.',
-      es: 'Alojamientos de diseño en el casco antiguo: tranquilos y románticos, con terrazas para disfrutar de largas veladas.',
-      nl: 'Stijlvolle verblijven in de oude dorpskern: rustig en romantisch, met terrassen voor lange avonden.',
-      sv: 'Omsorgsfullt formgivna boenden i gamla byn: lugna och romantiska, med terrasser för långa kvällar.'
+      en: 'Four stays in the historic old town. Lounis, Zaid and Maha have private terraces; Farah is the simpler option for a short visit.',
+      de: 'Vier Unterkünfte in der historischen Altstadt. Lounis, Zaid und Maha haben private Terrassen; Farah ist die einfachere Wahl für einen kurzen Aufenthalt.',
+      es: 'Cuatro alojamientos en el casco antiguo. Lounis, Zaid y Maha tienen terraza privada; Farah es la opción más sencilla para una visita corta.',
+      nl: 'Vier verblijven in de historische oude kern. Lounis, Zaid en Maha hebben een privéterras; Farah is de eenvoudigere optie voor een kort bezoek.',
+      sv: 'Fyra boenden i den historiska gamla stan. Lounis, Zaid och Maha har privat terrass; Farah är det enklare alternativet för ett kort besök.'
     },
     locationNerja: {
       en: 'A hundred metres from the beach and still pleasantly quiet. Lift to the apartment floor, with a few steps before reaching the lift.',
@@ -191,11 +191,11 @@ export const guestReviewsCopy = {
       sv: 'Hundra meter från stranden och ändå behagligt lugnt. Hiss till lägenhetens våningsplan, med några trappsteg innan man når hissen.'
     },
     locationTarifa: {
-      en: 'Wind, wide horizons and light. Outdoors by day, quiet in the evening.',
-      de: 'Wind, Weite und Licht. Tagsüber draußen, abends zur Ruhe kommen.',
-      es: 'Viento, horizontes abiertos y luz. Días al aire libre y noches tranquilas.',
-      nl: 'Wind, weidse horizonten en licht. Overdag buiten, ’s avonds tot rust komen.',
-      sv: 'Vind, vida horisonter och ljus. Dagar utomhus, lugna kvällar.'
+      en: 'A 75 m² penthouse over two floors, with two bedrooms, two bathrooms and a terrace facing the Atlantic.',
+      de: 'Ein 75 m² großes Penthouse über zwei Etagen, mit zwei Schlafzimmern, zwei Bädern und einer Terrasse zum Atlantik.',
+      es: 'Un ático de 75 m² en dos plantas, con dos dormitorios, dos baños y una terraza frente al Atlántico.',
+      nl: 'Een penthouse van 75 m² over twee verdiepingen, met twee slaapkamers, twee badkamers en een terras aan de Atlantische Oceaan.',
+      sv: 'Ett 75 m² stort penthouse i två våningar, med två sovrum, två badrum och en terrass mot Atlanten.'
     },
     nextTitle: {
       en: 'Find your AMARA stay',
