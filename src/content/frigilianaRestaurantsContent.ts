@@ -178,7 +178,7 @@ export const frigilianaRestaurantsSeo: AmaraAuthoringSeo = {
     en: {
       title: 'Restaurants in Frigiliana & Nerja',
       description:
-        'Ten restaurants in Frigiliana and Nerja chosen by mood, with honest AMARA tips for terraces, special dinners, tapas, seafood and a destination lunch.',
+        'Compare ten restaurants in Frigiliana and Nerja for village terraces, special dinners, tapas, seafood and a destination lunch.',
       robots: 'index, follow',
       canonical: 'auto'
     },
@@ -239,7 +239,7 @@ export const frigilianaRestaurantsContent: Record<
       kicker: 'Local dining guide',
       title: 'Restaurants in Frigiliana & Nerja — where we send our guests',
       paragraphs: [
-        'A memorable dinner here can mean a terrace above Frigiliana, creative plates in Nerja or fresh fish served at the pace of a busy local bar. Those are different evenings, and the right choice depends on the mood.',
+        'Dinner here can mean a terrace above Frigiliana, creative plates in Nerja or fresh fish in a busy local bar. Those are different evenings, with different travel and booking needs.',
         'This is not a ranking or a directory. It is a concise selection we use for our own guests, with the trade-offs that matter before you reserve.',
         'Opening days and menus change with the season. Use the guide to choose, then confirm the latest details directly with the restaurant.'
       ],
@@ -247,7 +247,7 @@ export const frigilianaRestaurantsContent: Record<
         'Whitewashed Frigiliana above the hills and Mediterranean coast'
     },
     sectionNav: {
-      choose: 'Choose by mood',
+      choose: 'Choose by location and meal',
       frigiliana: 'Frigiliana evenings',
       specialNerja: 'Special nights',
       tapasSeafood: 'Tapas & seafood',
@@ -257,7 +257,7 @@ export const frigilianaRestaurantsContent: Record<
     overview: {
       title: 'Start with the evening you want',
       intro:
-        'The most useful distinction is not “best” versus “second best”, but atmosphere, distance and how formal you want the meal to feel.',
+        'Distance, noise level, booking requirements and the kind of meal you want are more useful than a ranking.',
       reviewed: 'Editorially reviewed: July 2026',
       items: [
         {
@@ -273,7 +273,7 @@ export const frigilianaRestaurantsContent: Record<
         {
           title: 'Eat like a local',
           text:
-            'For tapas and fish, accept a little noise and pace. The liveliest rooms are often more rewarding than the prettiest tables.'
+            'For tapas and fish, expect conversation, movement and a full room. The busiest places often serve faster than formal dining rooms.'
         },
         {
           title: 'Turn lunch into an outing',
@@ -307,7 +307,7 @@ export const frigilianaRestaurantsContent: Record<
             tip:
               'Choose an outside table when you want to watch the plaza come alive. It is an easy first-night option without climbing deep into Barribarto.',
             goodToKnow:
-              'The mood is social rather than secluded. Check current opening days before making it the fixed plan for your arrival evening.'
+              'Expect a social, busy room rather than a secluded table. Check current opening days before making it the fixed plan for your arrival evening.'
           }),
           restaurant('laTaperia', {
             title: 'La Tapería',
@@ -363,13 +363,13 @@ export const frigilianaRestaurantsContent: Record<
         id: 'tapas-seafood',
         title: 'Tapas, fish & the lively side of Nerja',
         intro:
-          'These are not hushed dining rooms. Come for fresh fish, local rhythm and the kind of meal where atmosphere matters as much as presentation.',
+          'These are not hushed dining rooms. Come for fresh fish, quick service, conversation and full tables.',
         restaurants: [
           restaurant('laPuntilla', {
             title: 'La Puntilla',
             bestFor: 'Fresh fish and a fast, local lunch',
             description:
-              'La Puntilla is a long-standing seafood address known for fish brought in daily, tapas and an energetic service rhythm.',
+              'La Puntilla is a long-standing seafood address known for fish brought in daily, tapas and fast-moving service.',
             tip:
               'Go for lunch and ask what fish is best that day instead of deciding everything in advance. The daily choice is more useful than chasing one famous dish.',
             goodToKnow:
@@ -437,7 +437,7 @@ export const frigilianaRestaurantsContent: Record<
             'Frigiliana dinners can end with a walk home. For Nerja, arrange a taxi or a sober driver before the first glass of wine.'
         },
         {
-          title: 'Expect a later rhythm',
+          title: 'Expect dinner to start later',
           text:
             'Dinner in Spain starts later than in northern Europe. If you prefer a quiet table, use the first seating rather than fighting the local peak.'
         }
@@ -467,9 +467,9 @@ export const frigilianaRestaurantsContent: Record<
       ]
     },
     closing: {
-      title: 'Come home slowly',
+      title: 'Eat in the village and walk home',
       lead:
-        'The best ending is often simple: one last turn through the whitewashed streets, the village quietening around you and no need to rush the evening.',
+        'From Casa AMARA you can walk to Frigiliana’s restaurants. For an evening in Nerja, arrange a taxi or driver before the first drink.',
       availabilityCta: 'Check availability',
       apartmentsCta: 'View apartments'
     }
@@ -491,9 +491,9 @@ export const frigilianaRestaurantsContent: Record<
       kicker: 'Restaurant-Guide aus der Region',
       title: 'Restaurants in Frigiliana & Nerja — unsere Empfehlungen für Gäste',
       paragraphs: [
-        'Ein besonderer Abend kann hier vieles sein: ein Tisch über den Dächern Frigilianas, kreative Küche in Nerja oder fangfrischer Fisch in einer lebhaften Bar. Das sind ganz unterschiedliche Erlebnisse – entscheidend ist, wonach dir gerade ist.',
+        'Ein besonderer Abend kann hier vieles sein: ein Tisch über den Dächern Frigilianas, kreative Küche in Nerja oder fangfrischer Fisch in einer lebhaften Bar. Das sind ganz unterschiedliche Erlebnisse – entscheidend ist, wonach euch gerade ist.',
         'Diese Seite ist weder Rangliste noch vollständiges Verzeichnis. Sie versammelt eine überschaubare Auswahl, die wir auch unseren Gästen empfehlen, einschließlich der Details, die vor der Reservierung wirklich zählen.',
-        'Ruhetage und Speisekarten ändern sich je nach Saison. Nutze den Guide für die Auswahl und bestätige die aktuellen Angaben anschließend direkt beim Restaurant.'
+        'Ruhetage und Speisekarten ändern sich je nach Saison. Nutzt den Guide für die Auswahl und bestätigt die aktuellen Angaben anschließend direkt beim Restaurant.'
       ],
       imageAlt:
         'Das weiße Dorf Frigiliana über den Hügeln und der Mittelmeerküste'
@@ -507,7 +507,7 @@ export const frigilianaRestaurantsContent: Record<
       planning: 'Den Abend planen'
     },
     overview: {
-      title: 'Beginne mit dem Abend, den du dir wünschst',
+      title: 'Beginnt mit dem Abend, den ihr euch wünscht',
       intro:
         'Hilfreicher als eine Rangliste sind Atmosphäre, Entfernung und die Frage, wie besonders oder unkompliziert sich das Essen anfühlen soll.',
       reviewed: 'Redaktionell geprüft: Juli 2026',
@@ -515,12 +515,12 @@ export const frigilianaRestaurantsContent: Record<
         {
           title: 'In Frigiliana bleiben',
           text:
-            'Wähle das Dorf, wenn dir weiße Gassen, ein schöner Heimweg zu Fuß und ein ruhiger Abend wichtiger sind als eine möglichst große Auswahl.'
+            'Wählt das Dorf, wenn euch weiße Gassen, ein schöner Heimweg zu Fuß und ein ruhiger Abend wichtiger sind als eine möglichst große Auswahl.'
         },
         {
           title: 'Einen besonderen Abend planen',
           text:
-            'Nerja bietet mehr Auswahl für gehobene Küche, Menüs und Terrassen mit Meerblick. Reserviere und plane Taxi oder Fahrer gleich mit.'
+            'Nerja bietet mehr Auswahl für gehobene Küche, Menüs und Terrassen mit Meerblick. Reserviert und plant Taxi oder Fahrer gleich mit.'
         },
         {
           title: 'Essen wie die Einheimischen',
@@ -530,7 +530,7 @@ export const frigilianaRestaurantsContent: Record<
         {
           title: 'Aus dem Mittagessen einen Ausflug machen',
           text:
-            'El Acebuchal ist kein schneller Zwischenstopp. Verbinde das Essen mit der Landschaft und mache den Lunch selbst zum Ziel.'
+            'El Acebuchal ist kein schneller Zwischenstopp. Verbindet das Essen mit der Landschaft und macht den Lunch selbst zum Ziel.'
         }
       ]
     },
@@ -547,7 +547,7 @@ export const frigilianaRestaurantsContent: Record<
             description:
               'Hoch im Barribarto verbindet The Garden eine Terrasse mit Blick über Dorf und Küste mit einer saisonalen, international geprägten Küche.',
             tip:
-              'Bitte bei der Reservierung um einen Außentisch und komme vor Sonnenuntergang. Das wechselnde Licht und der spätere Weg durch die Altstadt gehören zum Abend dazu.',
+              'Bittet bei der Reservierung um einen Außentisch und kommt vor Sonnenuntergang. Das wechselnde Licht und der spätere Weg durch die Altstadt gehören zum Abend dazu.',
             goodToKnow:
               'Die Terrasse ist klein, der Weg führt über Frigilianas Treppengassen. Früh reservieren und bequeme Schuhe tragen.'
           }),
@@ -557,9 +557,9 @@ export const frigilianaRestaurantsContent: Record<
             description:
               'An der Plaza de las Tres Culturas serviert Gloria Bendita moderne mediterrane Küche mit internationalen Einflüssen in zentraler, lebendiger Lage.',
             tip:
-              'Ein Außentisch lohnt sich, wenn du das Treiben auf dem Platz magst. Für den Ankunftsabend ist das unkompliziert, ohne tief ins steile Barribarto zu laufen.',
+              'Ein Außentisch lohnt sich, wenn ihr das Treiben auf dem Platz mögt. Für den Ankunftsabend ist das unkompliziert, ohne tief ins steile Barribarto zu laufen.',
             goodToKnow:
-              'Die Stimmung ist gesellig, nicht abgeschieden. Prüfe die aktuellen Öffnungstage, bevor du den Ankunftsabend fest darauf ausrichtest.'
+              'Die Stimmung ist gesellig, nicht abgeschieden. Prüft die aktuellen Öffnungstage, bevor ihr den Ankunftsabend fest darauf ausrichtet.'
           }),
           restaurant('laTaperia', {
             title: 'La Tapería',
@@ -585,7 +585,7 @@ export const frigilianaRestaurantsContent: Record<
             description:
               'Das Restaurant 34 im Hotel Carabeo arbeitet mit regionalen Produkten und hat mehrere Bereiche, darunter eine sommerliche Terrasse zum Mittelmeer.',
             tip:
-              'Frage konkret, welche Terrassen- oder Meerblicktische verfügbar sind, und bestätige vor der Auswahl die aktuell geltenden Reservierungsbedingungen.',
+              'Fragt konkret, welche Terrassen- oder Meerblicktische verfügbar sind, und bestätigt vor der Auswahl die aktuell geltenden Reservierungsbedingungen.',
             goodToKnow:
               'Für Tische in der ersten Meerblickreihe können besondere Bedingungen oder ein Aufpreis gelten. Maßgeblich ist die aktuelle Bestätigung des Restaurants.'
           }),
@@ -595,7 +595,7 @@ export const frigilianaRestaurantsContent: Record<
             description:
               'Nahe der Plaza de España serviert Oliva zeitgemäße mediterrane Küche und wird seit 2016 im Guide Michelin geführt.',
             tip:
-              'Plane Oliva als eigentlichen Abend: reservieren, Zeit für mehrere Gänge lassen und bei Interesse nach der Terrasse fragen.',
+              'Plant Oliva als eigentlichen Abend: reserviert, lasst Zeit für mehrere Gänge und fragt bei Interesse nach der Terrasse.',
             goodToKnow:
               'Oliva gehört zu den eleganteren Empfehlungen. Für einen besonderen Termin Speisekarte und Küchenzeiten noch einmal direkt prüfen.'
           }),
@@ -623,9 +623,9 @@ export const frigilianaRestaurantsContent: Record<
             description:
               'La Puntilla ist eine alteingesessene Fischadresse, bekannt für täglich frische Ware, Tapas und einen zügigen, energiegeladenen Service.',
             tip:
-              'Gehe mittags und frage, welcher Fisch an diesem Tag besonders gut ist. Das ist hilfreicher, als sich vorher auf ein berühmtes Gericht festzulegen.',
+              'Geht mittags und fragt, welcher Fisch an diesem Tag besonders gut ist. Das ist hilfreicher, als euch vorher auf ein berühmtes Gericht festzulegen.',
             goodToKnow:
-              'Rechne mit Gesprächen, Bewegung und einem vollen Raum. Das ist ein lokales Fischessen, kein ruhiges romantisches Mittagessen.'
+              'Rechnet mit Gesprächen, Bewegung und einem vollen Raum. Das ist ein lokales Fischessen, kein ruhiges romantisches Mittagessen.'
           }),
           restaurant('elPulguilla', {
             title: 'El Pulguilla',
@@ -633,7 +633,7 @@ export const frigilianaRestaurantsContent: Record<
             description:
               'Nur wenige Gassen vom Balcón de Europa entfernt ist El Pulguilla ein Nerja-Klassiker für Meeresfrüchte, frittierten Fisch, Tapas und größere Portionen.',
             tip:
-              'Wähle die Bar für das Tapas-Erlebnis, Tisch oder Terrasse für ein vollständiges Essen. So entstehen aus derselben Adresse zwei sehr unterschiedliche Abende.',
+              'Wählt die Bar für das Tapas-Erlebnis, Tisch oder Terrasse für ein vollständiges Essen. So entstehen aus derselben Adresse zwei sehr unterschiedliche Abende.',
             goodToKnow:
               'Zu Stoßzeiten wird es voll und laut. Früh kommen oder die lebhafte Stimmung bewusst als Teil des Erlebnisses annehmen.'
           }),
@@ -645,7 +645,7 @@ export const frigilianaRestaurantsContent: Record<
             tip:
               'Mit einem Bad am Vormittag verbinden und auf einen geselligen, zwanglosen Lunch einstellen. Als Teil des Strandtags funktioniert AYO besser denn als formelles Dinner.',
             goodToKnow:
-              'Denke an Chiringuito am Tag, nicht an ein stilles Abendrestaurant. Saisonale Öffnung prüfen, bevor du nur für das Essen hinfährst.'
+              'Denkt an Chiringuito am Tag, nicht an ein stilles Abendrestaurant. Prüft die saisonale Öffnung, bevor ihr nur für das Essen hinfahrt.'
           })
         ]
       },
@@ -661,9 +661,9 @@ export const frigilianaRestaurantsContent: Record<
             description:
               'Im restaurierten Weiler El Acebuchal stehen traditionelle Fleischgerichte, hausgemachtes Brot und Desserts im Mittelpunkt – weit weg vom Küstentrubel.',
             tip:
-              'Mache das Essen zum Abschluss einer Wanderung oder einer langsamen Fahrt in die Berge. Plane Zeit für den Weg und den Lunch ein, statt ihn zwischen Küstenpläne zu quetschen.',
+              'Macht das Essen zum Abschluss einer Wanderung oder einer ruhigen Fahrt in die Berge. Plant Zeit für den Weg und den Lunch ein, statt ihn zwischen Küstenpläne zu quetschen.',
             goodToKnow:
-              'Die Anfahrt ist ländlich, aktuelle Öffnung entscheidend. Route, Zeiten und Reservierung direkt prüfen, bevor du aufbrichst.'
+              'Die Anfahrt ist ländlich, aktuelle Öffnung entscheidend. Prüft Route, Zeiten und Reservierung direkt, bevor ihr aufbrecht.'
           })
         ]
       }
@@ -681,7 +681,7 @@ export const frigilianaRestaurantsContent: Record<
         {
           title: 'In derselben Woche prüfen',
           text:
-            'Ruhetage, Winterpausen und Karten ändern sich. Deshalb nennen wir bewusst keine Öffnungszeiten; bestätige sie über die aktuellen Angaben des Restaurants.'
+            'Ruhetage, Winterpausen und Karten ändern sich. Deshalb nennen wir bewusst keine Öffnungszeiten; bestätigt sie über die aktuellen Angaben des Restaurants.'
         },
         {
           title: 'Vorher klären, wer fährt',
@@ -719,9 +719,9 @@ export const frigilianaRestaurantsContent: Record<
       ]
     },
     closing: {
-      title: 'Langsam nach Hause kommen',
+      title: 'Im Dorf essen und zu Fuß zurückkehren',
       lead:
-        'Der schönste Abschluss ist oft ganz einfach: eine letzte Kurve durch die weißen Gassen, das Dorf wird stiller und der Abend muss noch lange nicht enden.',
+        'Von Casa AMARA erreicht ihr die Restaurants in Frigiliana zu Fuß. Für einen Abend in Nerja organisiert ihr Taxi oder Fahrer am besten vor dem ersten Getränk.',
       availabilityCta: 'Verfügbarkeit prüfen',
       apartmentsCta: 'Apartments ansehen'
     }
@@ -971,9 +971,9 @@ export const frigilianaRestaurantsContent: Record<
       ]
     },
     closing: {
-      title: 'Vuelve a casa sin prisa',
+      title: 'Cenad en el pueblo y volved a pie',
       lead:
-        'El mejor final suele ser sencillo: una última curva entre las calles blancas, el pueblo que se va calmando y ninguna necesidad de apresurar la noche.',
+        'Desde Casa AMARA podéis ir andando a los restaurantes de Frigiliana. Para una noche en Nerja, organizad taxi o conductor antes de la primera copa.',
       availabilityCta: 'Consultar disponibilidad',
       apartmentsCta: 'Ver apartamentos'
     }
@@ -1223,9 +1223,9 @@ export const frigilianaRestaurantsContent: Record<
       ]
     },
     closing: {
-      title: 'Kom rustig thuis',
+      title: 'Eet in het dorp en wandel terug',
       lead:
-        'Het mooiste einde is vaak eenvoudig: nog één bocht door de witte straatjes, het dorp dat stiller wordt en geen enkele reden om de avond te haasten.',
+        'Vanuit Casa AMARA lopen jullie naar de restaurants van Frigiliana. Regel voor een avond in Nerja vóór het eerste drankje een taxi of chauffeur.',
       availabilityCta: 'Beschikbaarheid bekijken',
       apartmentsCta: 'Appartementen bekijken'
     }
@@ -1475,9 +1475,9 @@ export const frigilianaRestaurantsContent: Record<
       ]
     },
     closing: {
-      title: 'Kom hem långsamt',
+      title: 'Ät i byn och promenera hem',
       lead:
-        'Det finaste slutet är ofta enkelt: en sista sväng genom de vita gränderna, byn som blir allt tystare och ingen anledning att skynda på kvällen.',
+        'Från Casa AMARA kan ni promenera till restaurangerna i Frigiliana. För en kväll i Nerja bör ni ordna taxi eller förare före den första drinken.',
       availabilityCta: 'Kontrollera tillgänglighet',
       apartmentsCta: 'Se lägenheter'
     }

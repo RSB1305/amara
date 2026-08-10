@@ -27,7 +27,7 @@ const descriptions = {
     en: 'Understand the village layout, where to stay, and what daily movement feels like.',
     de: 'Dorfstruktur, passende Unterkünfte und die Wege im Alltag einordnen.',
     es: 'Entender la estructura del pueblo, dónde alojarse y cómo son los recorridos diarios.',
-    nl: 'Begrijp de dorpsindeling, waar u kunt verblijven en hoe de dagelijkse routes aanvoelen.',
+    nl: 'Bekijk de dorpsindeling, waar jullie kunnen verblijven en hoe de dagelijkse routes lopen.',
     sv: 'Förstå byns struktur, var ni kan bo och hur de dagliga vägarna känns.',
   },
   frigiliana_parking: {
@@ -41,7 +41,7 @@ const descriptions = {
     en: 'Understand slopes, stairs, and the routes you will use each day.',
     de: 'Steigungen, Treppen und die täglich genutzten Wege verstehen.',
     es: 'Entender las cuestas, las escaleras y los recorridos que usaréis cada día.',
-    nl: 'Begrijp de hellingen, trappen en routes die u dagelijks gebruikt.',
+    nl: 'Bekijk de hellingen, trappen en routes die jullie dagelijks gebruiken.',
     sv: 'Förstå lutningar, trappor och vägarna ni använder varje dag.',
   },
   getting_to_frigiliana: {

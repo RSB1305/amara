@@ -172,10 +172,10 @@ export const frigilianaBeachesContent: Record<
     },
     hero: {
       kicker: 'Coastal guide',
-      title: 'Beaches near Frigiliana & Nerja — choose by mood, not by list',
+      title: 'Beaches near Frigiliana & Nerja — compare access and sea conditions',
       paragraphs: [
-        'One of the pleasures of staying here is the contrast: you can wake in the cooler, quieter hills of Frigiliana and be beside the Mediterranean a short drive later. From Nerja, the same coast becomes part of the day almost without planning.',
-        'Those two starting points create different beach rhythms. Inland stays reward timing and intention; town stays invite spontaneity but reach the busy hours sooner.',
+        'From Frigiliana, every beach involves a drive down to the coast. From Nerja, the town beaches are close at hand and the Maro coves are a short trip east.',
+        'Access, parking, shade, facilities and exposure to the sea differ sharply between the six beaches below. Check current conditions before leaving, especially for the natural coves.',
         'This is our honest shortlist for couples: six beaches, what each one does well, and what is worth knowing before you set out.'
       ],
       imageAlt:
@@ -190,7 +190,7 @@ export const frigilianaBeachesContent: Record<
       practical: 'Good to know'
     },
     overview: {
-      title: 'Two neighbouring coasts, two different moods',
+      title: 'Town beaches in Nerja or natural coves near Maro?',
       intro:
         'Nerja and Maro sit close together on the map, yet they rarely offer the same kind of beach day. The best choice depends less on rankings than on timing, conditions and how much comfort you want.',
       items: [
@@ -394,10 +394,10 @@ export const frigilianaBeachesContent: Record<
     },
     hero: {
       kicker: 'Küsten-Guide',
-      title: 'Strände bei Frigiliana & Nerja — passend zur Stimmung',
+      title: 'Strände bei Frigiliana & Nerja — Zugang und Bedingungen vergleichen',
       paragraphs: [
-        'Der besondere Reiz dieser Gegend liegt im Kontrast: Ihr wacht in der kühleren Ruhe von Frigiliana auf und steht wenig später am Mittelmeer. Von Nerja aus wird dieselbe Küste fast ohne Planung Teil des Tages.',
-        'Daraus entstehen zwei unterschiedliche Strandrhythmen. Vom Dorf aus lohnt sich bewusstes Timing; in Nerja ist Spontaneität leichter, dafür erreicht ihr die vollen Stunden schneller.',
+        'Von Frigiliana fahrt ihr für jeden Strand hinunter an die Küste. In Nerja liegen die Stadtstrände nahe; zu den Buchten bei Maro geht es ein Stück weiter nach Osten.',
+        'Zugang, Parken, Schatten, Infrastruktur und Seegang unterscheiden sich bei den sechs Stränden deutlich. Prüft vor der Abfahrt die aktuellen Bedingungen, besonders bei den Naturbuchten.',
         'Hier kommt unsere ehrliche Auswahl für Paare: sechs Strände, ihre jeweiligen Stärken und das, was ihr vor der Abfahrt wissen solltet.'
       ],
       imageAlt:
@@ -412,7 +412,7 @@ export const frigilianaBeachesContent: Record<
       practical: 'Gut zu wissen'
     },
     overview: {
-      title: 'Zwei benachbarte Küsten, zwei ganz eigene Stimmungen',
+      title: 'Stadtstrände in Nerja oder Naturbuchten bei Maro?',
       intro:
         'Nerja und Maro liegen auf der Karte dicht beieinander und fühlen sich trotzdem selten gleich an. Entscheidend ist weniger eine Rangliste als die Frage, wann ihr fahrt, wie das Meer ist und wie viel Komfort ihr möchtet.',
       items: [
@@ -616,10 +616,10 @@ export const frigilianaBeachesContent: Record<
     },
     hero: {
       kicker: 'Guía de costa',
-      title: 'Playas cerca de Frigiliana y Nerja — cuál elegir según el día',
+      title: 'Playas cerca de Frigiliana y Nerja — comparar acceso y estado del mar',
       paragraphs: [
-        'Uno de los placeres de alojarse aquí es el contraste: podéis despertar en la calma más fresca de Frigiliana y estar junto al Mediterráneo poco después. Desde Nerja, esa misma costa entra en el día casi sin necesidad de planearlo.',
-        'Son dos maneras distintas de vivir la playa. Desde el interior conviene elegir bien la hora; en el pueblo costero hay más espontaneidad, aunque también se llega antes a las franjas de mayor afluencia.',
+        'Desde Frigiliana hay que bajar en coche para ir a cualquier playa. En Nerja, las playas urbanas quedan cerca y las calas de Maro están a un corto trayecto hacia el este.',
+        'El acceso, el aparcamiento, la sombra, los servicios y la exposición al mar cambian mucho entre estas seis playas. Comprobad las condiciones antes de salir, sobre todo para las calas naturales.',
         'Esta es nuestra selección sincera para parejas: seis playas, lo mejor de cada una y lo que merece la pena saber antes de salir.'
       ],
       imageAlt:
@@ -634,7 +634,7 @@ export const frigilianaBeachesContent: Record<
       practical: 'Datos prácticos'
     },
     overview: {
-      title: 'Dos costas vecinas, dos ambientes distintos',
+      title: '¿Playas urbanas de Nerja o calas naturales de Maro?',
       intro:
         'Nerja y Maro están muy cerca en el mapa, pero rara vez ofrecen el mismo tipo de día. La mejor elección depende menos de los rankings que de la hora, el estado del mar y el nivel de comodidad que buscáis.',
       items: [
@@ -838,10 +838,10 @@ export const frigilianaBeachesContent: Record<
     },
     hero: {
       kicker: 'Kustgids',
-      title: 'Stranden bij Frigiliana & Nerja — kies wat bij de dag past',
+      title: 'Stranden bij Frigiliana & Nerja — vergelijk bereikbaarheid en zeecondities',
       paragraphs: [
-        'De charme van deze streek zit in het contrast: jullie worden wakker in het koelere, rustige Frigiliana en staan korte tijd later aan de Middellandse Zee. Vanuit Nerja wordt diezelfde kust bijna vanzelf onderdeel van de dag.',
-        'Vanuit het binnenland loont een bewuste timing; in Nerja kunnen jullie spontaner vertrekken, maar belanden jullie ook sneller in de drukste uren.',
+        'Vanuit Frigiliana rijden jullie voor elk strand naar beneden, naar de kust. In Nerja liggen de stadsstranden dichtbij; de baaien bij Maro liggen een korte rit naar het oosten.',
+        'Bereikbaarheid, parkeren, schaduw, voorzieningen en blootstelling aan zee verschillen sterk tussen deze zes stranden. Controleer vóór vertrek de actuele omstandigheden, vooral bij de natuurbaaien.',
         'Dit is onze eerlijke selectie voor koppels: zes stranden, hun sterke kanten en wat jullie vooraf echt willen weten.'
       ],
       imageAlt:
@@ -856,7 +856,7 @@ export const frigilianaBeachesContent: Record<
       practical: 'Praktisch'
     },
     overview: {
-      title: 'Twee nabije kuststroken, twee verschillende sferen',
+      title: 'Stadsstranden in Nerja of natuurbaaien bij Maro?',
       intro:
         'Nerja en Maro liggen vlak bij elkaar, maar voelen zelden hetzelfde. De beste keuze draait minder om ranglijstjes dan om timing, zeecondities en hoeveel comfort jullie die dag zoeken.',
       items: [
@@ -1060,10 +1060,10 @@ export const frigilianaBeachesContent: Record<
     },
     hero: {
       kicker: 'Kustguide',
-      title: 'Stränder nära Frigiliana & Nerja — välj efter dagens känsla',
+      title: 'Stränder nära Frigiliana & Nerja — jämför tillgång och havsförhållanden',
       paragraphs: [
-        'En av traktens stora kvaliteter är kontrasten: ni kan vakna i Frigilianas svalare lugn och stå vid Medelhavet en kort stund senare. Från Nerja blir samma kust en del av dagen nästan utan planering.',
-        'Det skapar två olika strandrytmer. Från inlandet lönar det sig att välja tid med omsorg; i Nerja är spontaniteten större, men ni möter också de fullaste timmarna snabbare.',
+        'Från Frigiliana behöver ni köra ner till kusten för alla stränder. I Nerja ligger stadsstränderna nära; vikarna vid Maro ligger en kort bit österut.',
+        'Tillgång, parkering, skugga, service och exponering mot havet skiljer sig tydligt mellan de sex stränderna. Kontrollera aktuella förhållanden före avfärd, särskilt vid naturvikarna.',
         'Här är vår ärliga lista för par: sex stränder, vad var och en gör bäst och vad som är bra att veta innan ni åker.'
       ],
       imageAlt:
@@ -1078,7 +1078,7 @@ export const frigilianaBeachesContent: Record<
       practical: 'Bra att veta'
     },
     overview: {
-      title: 'Två närliggande kuster, två olika stämningar',
+      title: 'Stadsstränder i Nerja eller naturvikar vid Maro?',
       intro:
         'Nerja och Maro ligger nära varandra på kartan men känns sällan likadana. Det bästa valet handlar mindre om topplistor och mer om tidpunkt, havsförhållanden och hur mycket bekvämlighet ni vill ha.',
       items: [

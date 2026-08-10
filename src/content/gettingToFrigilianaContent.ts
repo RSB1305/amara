@@ -566,7 +566,7 @@ export const gettingToFrigilianaCopy = {
       en: 'Reaching the village is easy. Moving through it is different.',
       de: 'Das Dorf ist leicht zu erreichen. Sich darin zu bewegen, ist eine andere Frage.',
       es: 'Llegar al pueblo es fácil. Moverse por él es otra cuestión.',
-      nl: 'Het dorp bereiken is eenvoudig. U erin verplaatsen is iets anders.',
+      nl: 'Het dorp bereiken is eenvoudig. Je erdoor verplaatsen is iets anders.',
       sv: 'Det är enkelt att nå byn. Att ta sig runt i den är något annat.'
     } satisfies LocalizedText,
     body: {

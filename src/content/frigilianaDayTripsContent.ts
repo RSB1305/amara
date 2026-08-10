@@ -167,7 +167,7 @@ export const frigilianaDayTripsContent: Record<
     overview: {
       title: 'Choose one memorable focus for the day',
       intro:
-        'The best day trips from Frigiliana are not about collecting landmarks. They work when the destination sets the rhythm and the rest of the day stays flexible.',
+        'The best day trips from Frigiliana focus on one main destination and leave the rest of the day flexible.',
       rule:
         'Simple planning rule: choose one main highlight, leave by around 09:00 and keep enough margin for a calm return to the village.',
       reviewed: 'Editorially reviewed: July 2026',
@@ -296,7 +296,7 @@ export const frigilianaDayTripsContent: Record<
           },
           {
             label: 'Style',
-            value: 'A longer drive with a slower pace'
+            value: 'A longer drive; keep the rest of the day light'
           }
         ],
         planningTitle: 'Make the journey part of the day',
@@ -393,7 +393,7 @@ export const frigilianaDayTripsContent: Record<
     overview: {
       title: 'Ein prägendes Erlebnis pro Tag',
       intro:
-        'Die besten Tagesausflüge ab Frigiliana leben nicht davon, möglichst viele Sehenswürdigkeiten abzuhaken. Sie funktionieren, wenn das Hauptziel den Rhythmus vorgibt und der Rest des Tages flexibel bleibt.',
+        'Die besten Tagesausflüge ab Frigiliana konzentrieren sich auf ein Hauptziel und lassen den Rest des Tages flexibel.',
       rule:
         'Einfache Planungsregel: Wählt ein Hauptziel, fahrt gegen 09:00 Uhr los und lasst genügend Puffer für eine ruhige Rückkehr ins Dorf.',
       reviewed: 'Redaktionell geprüft: Juli 2026',
@@ -619,7 +619,7 @@ export const frigilianaDayTripsContent: Record<
     overview: {
       title: 'Un gran motivo para cada día',
       intro:
-        'Las mejores excursiones desde Frigiliana no consisten en acumular monumentos. Funcionan cuando el destino principal marca el ritmo y el resto de la jornada conserva cierta flexibilidad.',
+        'Las mejores excursiones desde Frigiliana no consisten en acumular monumentos. Funcionan cuando os centráis en un destino principal y dejáis flexible el resto de la jornada.',
       rule:
         'Regla sencilla: elegid un atractivo principal, salid hacia las 09:00 y dejad margen suficiente para regresar al pueblo sin prisas.',
       reviewed: 'Revisión editorial: julio de 2026',
@@ -748,7 +748,7 @@ export const frigilianaDayTripsContent: Record<
           },
           {
             label: 'Estilo',
-            value: 'Más carretera y un ritmo más lento'
+            value: 'Más carretera; conviene dejar ligero el resto del día'
           }
         ],
         planningTitle: 'El viaje forma parte del día',
@@ -1071,7 +1071,7 @@ export const frigilianaDayTripsContent: Record<
     overview: {
       title: 'Välj ett minnesvärt huvudmål för dagen',
       intro:
-        'De bästa dagsutflykterna från Frigiliana handlar inte om att samla sevärdheter. De fungerar när resmålet sätter rytmen och resten av dagen får förbli flexibel.',
+        'De bästa dagsutflykterna från Frigiliana handlar inte om att samla sevärdheter. De fungerar när ni fokuserar på ett huvudmål och låter resten av dagen vara flexibel.',
       rule:
         'Enkel planeringsregel: välj en huvudupplevelse, åk omkring 09.00 och lämna tillräckligt med marginal för en lugn återkomst till byn.',
       reviewed: 'Redaktionellt granskad: juli 2026',

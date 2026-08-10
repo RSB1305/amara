@@ -206,7 +206,7 @@ export const frigilianaDosTumbasContent: Record<
         {
           title: 'Find a table near where you have been walking',
           text:
-            'From a village terrace on Calle Real to a table by the coast near Nerja and Torrox, our restaurant guide picks the right spot for the mood of the day.',
+            'Our restaurant guide compares village terraces on Calle Real with coastal tables near Nerja and Torrox, including the practical differences in travel and booking.',
           linkToken: 'frigiliana_food_authority',
           linkLabel: 'See the restaurant guide'
         }
@@ -310,7 +310,7 @@ export const frigilianaDosTumbasContent: Record<
         {
           title: 'Findet einen Tisch nahe der Wege, die ihr abgelaufen seid',
           text:
-            'Von einer Dorfterrasse an der Calle Real bis zu einem Tisch an der Küste bei Nerja und Torrox: Unser Restaurantguide wählt den passenden Ort für die jeweilige Stimmung.',
+            'Unser Restaurantguide vergleicht Dorfterrassen an der Calle Real mit Tischen an der Küste bei Nerja und Torrox, einschließlich Anfahrt und Reservierung.',
           linkToken: 'frigiliana_food_authority',
           linkLabel: 'Zum Restaurantguide'
         }
@@ -414,7 +414,7 @@ export const frigilianaDosTumbasContent: Record<
         {
           title: 'Buscad una mesa cerca de donde habéis paseado',
           text:
-            'Desde una terraza de pueblo en la Calle Real hasta una mesa junto al mar cerca de Nerja y Torrox, nuestra guía de restaurantes elige el lugar adecuado para cada momento del día.',
+            'Nuestra guía de restaurantes compara las terrazas de la Calle Real con las mesas junto al mar cerca de Nerja y Torrox, incluido lo práctico sobre desplazamientos y reservas.',
           linkToken: 'frigiliana_food_authority',
           linkLabel: 'Ver la guía de restaurantes'
         }
@@ -518,7 +518,7 @@ export const frigilianaDosTumbasContent: Record<
         {
           title: 'Zoek een tafel dicht bij waar je hebt gelopen',
           text:
-            'Van een dorpsterras aan de Calle Real tot een tafel aan zee bij Nerja en Torrox: onze restaurantgids kiest de juiste plek voor de sfeer van de dag.',
+            'Onze restaurantgids vergelijkt dorpsterrassen aan de Calle Real met tafels aan zee bij Nerja en Torrox, inclusief vervoer en reserveren.',
           linkToken: 'frigiliana_food_authority',
           linkLabel: 'Bekijk de restaurantgids'
         }
@@ -622,7 +622,7 @@ export const frigilianaDosTumbasContent: Record<
         {
           title: 'Hitta ett bord nära där ni har gått',
           text:
-            'Från en byterrass vid Calle Real till ett bord vid havet nära Nerja och Torrox — vår restaurangguide väljer rätt plats för dagens stämning.',
+            'Vår restaurangguide jämför byterrasser vid Calle Real med bord vid havet nära Nerja och Torrox, inklusive resa och bokning.',
           linkToken: 'frigiliana_food_authority',
           linkLabel: 'Se restaurangguiden'
         }

@@ -240,7 +240,7 @@ export const frigilianaStreetsStairsCopy = {
       sv: 'Det här är planeringskategorier, inte fasta områdesgränser. Den exakta tillgängligheten kan skilja sig mellan två gränder eller till och med två portar.'
     } satisfies LocalizedText,
     labels: {
-      rhythm: { en: 'Daily rhythm', de: 'Tagesrhythmus', es: 'Ritmo diario', nl: 'Dagritme', sv: 'Vardagsrytm' } satisfies LocalizedText,
+      rhythm: { en: 'Daily use', de: 'Im Alltag', es: 'Uso diario', nl: 'Dagelijks gebruik', sv: 'I vardagen' } satisfies LocalizedText,
       tradeoff: { en: 'Trade-off', de: 'Abwägung', es: 'A cambio', nl: 'Afweging', sv: 'Avvägning' } satisfies LocalizedText
     },
     items: [

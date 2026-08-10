@@ -214,7 +214,7 @@ export const frigilianaMarketCopy = {
       'Det intressanta är blandningen. Vissa stånd fyller byns vardagsbehov medan andra riktar sig mer till besökare. Ursprung och tillverkare varierar, så fråga om lokal produktion är viktig för er.'
     ),
     labels: {
-      expect: l('You may find', 'Mögliche Angebote', 'Podéis encontrar', 'U kunt vinden', 'Ni kan hitta'),
+      expect: l('You may find', 'Mögliche Angebote', 'Podéis encontrar', 'Wat jullie kunnen vinden', 'Ni kan hitta'),
       remember: l('Keep in mind', 'Gut zu wissen', 'Tened en cuenta', 'Houd rekening met', 'Tänk på')
     },
     items: [

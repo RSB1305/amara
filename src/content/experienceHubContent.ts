@@ -461,9 +461,9 @@ export const experienceHubContent: Record<
       },
       restaurants: {
         kicker: 'Food & tables',
-        title: 'Eat by mood, not by ranking',
+        title: 'Compare village terraces, Nerja dining and seafood',
         text:
-          'Village terraces, creative cooking, seafood and relaxed local favourites — choose the atmosphere first, then the table.',
+          'See which places need a reservation, which Frigiliana tables are walkable from Casa AMARA and when a taxi or driver matters for Nerja.',
         linkLabel: 'Open the restaurant guide',
         imageAlt: 'Sunlit whitewashed lane in Frigiliana'
       },
@@ -477,9 +477,9 @@ export const experienceHubContent: Record<
       },
       market: {
         kicker: 'Local life',
-        title: 'Take the weekly market at village pace',
+        title: 'Plan a Thursday market morning in Frigiliana',
         text:
-          'A practical guide to when to go, what to expect and how to combine market morning with coffee and a slow walk through Frigiliana.',
+          'Check the typical time, stall mix, parking and how to continue through the old town after the market.',
         linkLabel: 'Open the market guide',
         imageAlt: 'Whitewashed homes and flowerpots in Frigiliana'
       },
@@ -622,9 +622,9 @@ export const experienceHubContent: Record<
       },
       restaurants: {
         kicker: 'Küche & Atmosphäre',
-        title: 'Erst die Stimmung wählen, dann den Tisch',
+        title: 'Dorfterrassen, Dinner in Nerja und frischen Fisch vergleichen',
         text:
-          'Dachterrasse im Dorf, kreative Küche, Fisch am Meer oder unkompliziertes Lieblingslokal — hier zählt der passende Abend, nicht eine Rangliste.',
+          'Lest, wo ihr reservieren solltet, welche Restaurants in Frigiliana von Casa AMARA zu Fuß erreichbar sind und wann ihr für Nerja Taxi oder Fahrer braucht.',
         linkLabel: 'Zum Restaurantguide',
         imageAlt: 'Sonnige weiße Altstadtgasse in Frigiliana'
       },
@@ -638,9 +638,9 @@ export const experienceHubContent: Record<
       },
       market: {
         kicker: 'Lokales Leben',
-        title: 'Ein Marktvormittag im Rhythmus des Dorfes',
+        title: 'Den Donnerstagsmarkt in Frigiliana planen',
         text:
-          'Wann ihr kommen solltet, was euch erwartet und wie sich Markt, Kaffee und ein Rundgang durchs Dorf verbinden lassen.',
+          'Typische Uhrzeit, Stände, Parken und der anschließende Weg durch die Altstadt auf einen Blick.',
         linkLabel: 'Zum Marktguide',
         imageAlt: 'Weiße Häuser und Pflanzentöpfe in Frigiliana'
       },
@@ -783,9 +783,9 @@ export const experienceHubContent: Record<
       },
       restaurants: {
         kicker: 'Cocina y ambiente',
-        title: 'Elegir la mesa por el momento',
+        title: 'Comparar terrazas del pueblo, cenas en Nerja y pescado fresco',
         text:
-          'Terrazas en el pueblo, cocina creativa, pescado junto al mar y lugares sencillos que apetece repetir. No es un ranking: es una guía para acertar con el plan.',
+          'Ved dónde conviene reservar, qué restaurantes de Frigiliana quedan a pie de Casa AMARA y cuándo hace falta taxi o conductor para Nerja.',
         linkLabel: 'Ver la guía de restaurantes',
         imageAlt: 'Calle blanca de Frigiliana iluminada por el sol'
       },
@@ -799,9 +799,9 @@ export const experienceHubContent: Record<
       },
       market: {
         kicker: 'Vida local',
-        title: 'Una mañana de mercado sin prisas',
+        title: 'Planificar el mercadillo de los jueves en Frigiliana',
         text:
-          'Cuándo ir, qué encontrar y cómo combinar el mercado semanal con un café y un paseo tranquilo por el pueblo.',
+          'Horario habitual, tipos de puestos, aparcamiento y cómo seguir después por el casco antiguo.',
         linkLabel: 'Ver la guía del mercado',
         imageAlt: 'Casas encaladas y macetas en Frigiliana'
       },
@@ -944,9 +944,9 @@ export const experienceHubContent: Record<
       },
       restaurants: {
         kicker: 'Eten & sfeer',
-        title: 'Kies eerst de sfeer, daarna de tafel',
+        title: 'Vergelijk dorpsterrassen, dineren in Nerja en verse vis',
         text:
-          'Een dakterras in het dorp, creatieve keuken, vis aan zee of een ongecompliceerde lokale favoriet — geen ranglijst, wel de juiste avond.',
+          'Lees waar jullie moeten reserveren, welke restaurants in Frigiliana op loopafstand van Casa AMARA liggen en wanneer voor Nerja een taxi of chauffeur nodig is.',
         linkLabel: 'Open de restaurantgids',
         imageAlt: 'Zonnige witte straat in Frigiliana'
       },
@@ -960,9 +960,9 @@ export const experienceHubContent: Record<
       },
       market: {
         kicker: 'Lokaal leven',
-        title: 'Neem de weekmarkt op dorpstempo',
+        title: 'Plan de donderdagmarkt in Frigiliana',
         text:
-          'Wanneer jullie het beste gaan, wat er te verwachten is en hoe markt, koffie en een dorpswandeling te combineren zijn.',
+          'Bekijk de gebruikelijke tijd, soorten kramen, parkeren en hoe jullie daarna door de oude kern verdergaan.',
         linkLabel: 'Open de marktgids',
         imageAlt: 'Witte huizen en plantenpotten in Frigiliana'
       },
@@ -1105,9 +1105,9 @@ export const experienceHubContent: Record<
       },
       restaurants: {
         kicker: 'Mat & stämning',
-        title: 'Välj känslan först och bordet sedan',
+        title: 'Jämför byterrasser, middagar i Nerja och färsk fisk',
         text:
-          'En takterrass i byn, kreativ matlagning, fisk vid havet eller en avslappnad lokal favorit — guiden handlar om rätt kväll, inte en topplista.',
+          'Läs var ni bör boka, vilka restauranger i Frigiliana som ligger på gångavstånd från Casa AMARA och när taxi eller förare behövs till Nerja.',
         linkLabel: 'Öppna restaurangguiden',
         imageAlt: 'Solbelyst vit gata i Frigiliana'
       },
@@ -1121,9 +1121,9 @@ export const experienceHubContent: Record<
       },
       market: {
         kicker: 'Lokalt liv',
-        title: 'Ta veckomarknaden i byns tempo',
+        title: 'Planera torsdagsmarknaden i Frigiliana',
         text:
-          'När det är bäst att gå, vad ni kan förvänta er och hur marknaden kan kombineras med kaffe och en lugn promenad.',
+          'Se vanlig tid, typer av stånd, parkering och hur ni kan fortsätta genom gamla byn efter marknaden.',
         linkLabel: 'Öppna marknadsguiden',
         imageAlt: 'Vitkalkade hus och krukväxter i Frigiliana'
       },

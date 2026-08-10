@@ -146,9 +146,9 @@ export const frigilianaHikingContent: Record<
       title:
         'Hiking & nature around Frigiliana — into the Sierra Almijara',
       paragraphs: [
-        'Most visitors are drawn to the coast, but just behind Frigiliana a different world begins, with a rhythm of its own. The village sits at the gateway to Sierras de Tejeda, Almijara y Alhama Natural Park — a protected landscape of rugged limestone peaks, pine forest and deep quiet.',
-        'For couples, it is an ideal balance: mornings on the trails with wide Mediterranean views, followed by a slow afternoon back in the village. Our selection below is arranged by effort, from an easy wander to a proper summit day.',
-        'Good to know: you can find suitable tracks for these routes on Komoot and Wikiloc.'
+        'The trails of Sierras de Tejeda, Almijara y Alhama Natural Park begin directly behind Frigiliana, across limestone peaks, pine forest and open slopes above the Mediterranean.',
+        'The selection below is arranged by effort, from a short circuit above the village to the summit of El Fuerte.',
+        'Suitable GPX tracks for these routes are available on Komoot and Wikiloc.'
       ],
       imageAlt:
         'View through Frigiliana’s whitewashed houses towards the foothills of the Sierra Almijara'
@@ -183,7 +183,7 @@ export const frigilianaHikingContent: Record<
             duration: '2–3 hrs',
             difficulty: 'moderate',
             experience:
-              'Dramatic views well before the summit — ideal for a moderate half-day hike.',
+              'Wide views well before the summit on a moderate half-day hike.',
             text:
               'This is the classic walk behind Frigiliana, without the need to go all the way to the top. The path to the viewpoints already delivers a dramatic outlook. After rain, take care on the rocky sections; shoes with reliable grip make a real difference.'
           }
@@ -193,7 +193,7 @@ export const frigilianaHikingContent: Record<
         id: 'gentle',
         title: 'Gentle walks & viewpoints',
         intro:
-          'Ideal for an active rest day or a golden-hour stroll, with no specialist equipment required.',
+          'For a shorter walk or a late-afternoon outing, with no specialist equipment required.',
         routes: [
           {
             title: 'The Lízar & acequia trail',
@@ -304,9 +304,9 @@ export const frigilianaHikingContent: Record<
       ]
     },
     combine: {
-      title: 'Make a day of it',
+      title: 'After the walk',
       intro:
-        'There is a particular pleasure in returning to the village after a hike: cool stone floors, a shower and a glass of wine on the terrace.',
+        'Stay in Frigiliana for dinner, or drive down to the coast for a swim and an early lunch. If you use a nature trail, plan to be back before dark.',
       items: [
         {
           title: 'Beaches',
@@ -316,14 +316,14 @@ export const frigilianaHikingContent: Record<
         {
           title: 'Food',
           text:
-            'You have earned it. Choose one of the village terraces for dinner after your walk.'
+            'Choose one of the village restaurants or terraces after your walk.'
         }
       ]
     },
     closing: {
-      title: 'Your base in the hills',
+      title: 'Stay in Frigiliana, walk from the village',
       lead:
-        'Apartments designed for quiet — an ideal starting point for both mountain and sea.',
+        'From Frigiliana’s old town you can begin several routes on foot. For a beach day, Nerja sits below the village on the coast.',
       availabilityCta: 'Check availability',
       apartmentsCta: 'View apartments'
     }
@@ -347,9 +347,9 @@ export const frigilianaHikingContent: Record<
       title:
         'Wandern & Natur rund um Frigiliana — unterwegs in der Sierra Almijara',
       paragraphs: [
-        'Während die Küste die meisten Besucher anzieht, beginnt hinter Frigiliana eine andere Welt mit einem ganz eigenen Rhythmus. Das Dorf liegt am Tor zum Naturpark Sierras de Tejeda, Almijara y Alhama — einem geschützten Gebiet aus schroffen Kalksteingipfeln, Pinienwäldern und Stille.',
-        'Für Paare ergibt das die perfekte Balance: Vormittags auf den Wegen, mit weitem Blick über das Mittelmeer, nachmittags Ruhe im Dorf. Unten findest du unsere Auswahl, sortiert nach Anstrengung — von der gemütlichen Runde bis zum Gipfel.',
-        'Kleiner Hinweis: Passende Spuren zu diesen Wegen findest du auf Komoot und Wikiloc.'
+        'Direkt hinter Frigiliana beginnen die Wege des Naturparks Sierras de Tejeda, Almijara y Alhama: schroffe Kalksteingipfel, Pinienwald und offene Blicke bis zum Mittelmeer.',
+        'Unten findet ihr unsere Auswahl nach Anstrengung sortiert — von einer kurzen Runde oberhalb des Dorfes bis zum Gipfel des El Fuerte.',
+        'Passende GPX-Spuren zu diesen Wegen findet ihr auf Komoot und Wikiloc.'
       ],
       imageAlt:
         'Blick durch Frigilianas weiße Häuser auf die Ausläufer der Sierra Almijara'
@@ -377,7 +377,7 @@ export const frigilianaHikingContent: Record<
             experience:
               'Offene Hänge und weite Küstenblicke direkt oberhalb des Dorfes.',
             text:
-              'Eine Panorama-Runde oberhalb des Dorfes, mit offenen Hängen und weitem Blick auf die Küste. Nach Regen eine der verlässlichsten Touren, weil das Gelände schnell abtrocknet. Tipp: Starte am oberen Dorfrand, dann hast du die schönste Aussicht gleich am Anfang.'
+              'Eine Panorama-Runde oberhalb des Dorfes, mit offenen Hängen und weitem Blick auf die Küste. Nach Regen eine der verlässlichsten Touren, weil das Gelände schnell abtrocknet. Startet am oberen Dorfrand; dort beginnt der aussichtsreiche Abschnitt.'
           },
           {
             title: 'El Fuerte (bis zu den Aussichtspunkten)',
@@ -386,7 +386,7 @@ export const frigilianaHikingContent: Record<
             experience:
               'Dramatische Aussicht schon vor dem Gipfel — ideal für eine moderate Halbtagestour.',
             text:
-              'Die klassische Wanderung hinter Frigiliana — aber du musst nicht bis ganz oben. Schon der Weg zu den Aussichtspunkten belohnt mit einem dramatischen Ausblick. Hinweis: Nach Regen auf den felsigen Passagen aufpassen — griffige Schuhe machen einen großen Unterschied.'
+              'Die klassische Wanderung hinter Frigiliana — ihr müsst aber nicht bis ganz oben. Schon der Weg zu den Aussichtspunkten öffnet den Blick weit über Dorf und Küste. Passt nach Regen auf den felsigen Passagen auf; Schuhe mit gutem Profil machen einen großen Unterschied.'
           }
         ]
       },
@@ -394,7 +394,7 @@ export const frigilianaHikingContent: Record<
         id: 'gentle',
         title: 'Sanfte Wege & Aussichtspunkte',
         intro:
-          'Ideal für aktive Ruhetage oder einen Spaziergang zur goldenen Stunde, ganz ohne schwere Ausrüstung.',
+          'Für eine kürzere Runde oder einen Spaziergang am späten Nachmittag, ohne besondere Ausrüstung.',
         routes: [
           {
             title: 'Der Lizar- & Acequia-Weg',
@@ -405,7 +405,7 @@ export const frigilianaHikingContent: Record<
             experience:
               'Alte Bewässerungskanäle, Avocadotal und Meer im Licht des Sonnenuntergangs.',
             text:
-              'Folge den alten Bewässerungskanälen (acequias) oberhalb des Dorfes. Ein flacher Weg im „Levada“-Stil, mit durchgehendem Blick über das Avocado-Tal und das Meer. Start am Lizar-Stausee bzw. an der Burgruine oberhalb der Altstadt. Perfekt zum Sonnenuntergang.'
+              'Folgt den alten Bewässerungskanälen (acequias) oberhalb des Dorfes. Der fast flache Weg führt am Avocadotal entlang und blickt zum Meer. Ihr könnt am Lízar-Stausee oder an der Burgruine oberhalb der Altstadt beginnen; am späten Nachmittag liegt die Strecke im weicheren Licht.'
           },
           {
             title: 'Runde durchs historische Viertel (Barribarto)',
@@ -415,7 +415,7 @@ export const frigilianaHikingContent: Record<
             experience:
               'Maurische Gassen und zwölf Keramiktafeln erzählen Frigilianas Geschichte im Vorbeigehen.',
             text:
-              'Schlendere durch das obere maurische Viertel. Kopfsteinpflaster-Gassen, Torbögen und handbemalte Keramiktafeln. Folge den 12 Keramiktafeln für eine kleine, selbstgeführte Geschichtsstunde über den Morisken-Aufstand.'
+              'Geht durch das obere maurische Viertel mit seinen Kopfsteinpflastergassen, Torbögen und handbemalten Keramiktafeln. Die zwölf Tafeln erzählen der Reihe nach vom Morisken-Aufstand.'
           }
         ]
       },
@@ -434,7 +434,7 @@ export const frigilianaHikingContent: Record<
             experience:
               'Eine ruhige Flussbettwanderung durch schmale Cahorros direkt ab Frigiliana.',
             text:
-              'Die ruhige, ortsnahe Variante. Vom Dorfzentrum steigst du hinab ins Flussbett und läufst durch die Cahorros — schmale Felsschluchten. Ehrlich gesagt: Der Higuerón ist über weite Strecken ein trockenes Flussbett. Ob und wie viel Wasser fließt, hängt vom Regen und der Jahreszeit ab — und wenn Wasser da ist, reicht es meist nur bis zu den Knöcheln. Genau das macht ihn im Hochsommer angenehm und deutlich ruhiger als den Chíllar. Ausrüstung: Wasserschuhe oder griffige Sportsandalen empfehlenswert.'
+              'Die ruhige, ortsnahe Variante. Vom Dorfzentrum steigt ihr hinab ins Flussbett und lauft durch die Cahorros — schmale Felsschluchten. Der Higuerón ist über weite Strecken ein trockenes Flussbett. Ob und wie viel Wasser fließt, hängt von Regen und Jahreszeit ab; wenn Wasser da ist, reicht es meist nur bis zu den Knöcheln. Im Hochsommer ist die Route dadurch oft einfacher und deutlich ruhiger als der Chíllar. Nehmt Wasserschuhe oder griffige Sportsandalen mit.'
           },
           {
             title: 'Río Chíllar (Nerja)',
@@ -475,7 +475,7 @@ export const frigilianaHikingContent: Record<
             experience:
               'Pinienwald, verlorenes Dorf und rustikale Mittagspause in einer Tour.',
             text:
-              'Eine Wanderung durch Pinienwälder zum „verlorenen Dorf“ El Acebuchal — ein nach dem Bürgerkrieg verlassener und liebevoll restaurierter Weiler. Perfekte Kombination aus Natur und einer rustikalen Mittagspause. Hinweis: Im Dorfrestaurant vorab einen Tisch reservieren. Bargeld mitnehmen.'
+              'Eine Wanderung durch Pinienwald zum „verlorenen Dorf“ El Acebuchal — ein nach dem Bürgerkrieg verlassener und restaurierter Weiler. Reserviert im Dorfrestaurant vorab einen Tisch und nehmt Bargeld mit.'
           }
         ]
       }
@@ -505,9 +505,9 @@ export const frigilianaHikingContent: Record<
       ]
     },
     combine: {
-      title: 'Kombiniere deinen Tag',
+      title: 'Nach der Wanderung',
       intro:
-        'Es gibt ein besonderes Gefühl, nach einer Wanderung ins Dorf zurückzukehren: kühle Steinböden, eine Dusche und ein Glas Wein auf der Terrasse.',
+        'Bleibt zum Abendessen in Frigiliana oder fahrt für ein Bad und einen frühen Lunch hinunter an die Küste. Plant die Rückkehr vor Einbruch der Dunkelheit, wenn ihr einen Naturweg geht.',
       items: [
         {
           title: 'Strände',
@@ -517,14 +517,14 @@ export const frigilianaHikingContent: Record<
         {
           title: 'Essen',
           text:
-            'Du hast es dir verdient. Die besten Terrassen fürs Abendessen nach der Wanderung.'
+            'Wählt nach der Wanderung eines der Restaurants oder eine Terrasse im Dorf.'
         }
       ]
     },
     closing: {
-      title: 'Dein Basislager',
+      title: 'In Frigiliana wohnen, vom Dorf aus loswandern',
       lead:
-        'Apartments, die für Ruhe gemacht sind — der ideale Ausgangspunkt für Berg und Meer.',
+        'Von Frigilianas Altstadt könnt ihr zu mehreren Wegen direkt zu Fuß starten. Für einen Strandtag liegt Nerja unten an der Küste.',
       availabilityCta: 'Verfügbarkeit prüfen',
       apartmentsCta: 'Apartments ansehen'
     }
@@ -548,9 +548,9 @@ export const frigilianaHikingContent: Record<
       title:
         'Senderismo y naturaleza alrededor de Frigiliana — caminos de la Sierra Almijara',
       paragraphs: [
-        'La costa atrae a la mayoría de los visitantes, pero justo detrás de Frigiliana empieza otro mundo, con un ritmo propio. El pueblo se encuentra a las puertas del Parque Natural de las Sierras de Tejeda, Almijara y Alhama: un espacio protegido de abruptas cumbres calizas, pinares y silencio.',
-        'Para una escapada en pareja, el equilibrio es perfecto: la mañana en los senderos, con amplias vistas del Mediterráneo, y la tarde tranquila en el pueblo. Hemos ordenado nuestra selección por nivel de esfuerzo, desde un paseo suave hasta una subida a la cumbre.',
-        'Un apunte: en Komoot y Wikiloc encontraréis tracks adecuados para estas rutas.'
+        'Los senderos del Parque Natural de las Sierras de Tejeda, Almijara y Alhama empiezan justo detrás de Frigiliana, entre cumbres calizas, pinares y laderas abiertas sobre el Mediterráneo.',
+        'Hemos ordenado la selección por esfuerzo, desde una ruta corta sobre el pueblo hasta la cumbre de El Fuerte.',
+        'En Komoot y Wikiloc encontraréis tracks GPX adecuados para estas rutas.'
       ],
       imageAlt:
         'Vista entre las casas blancas de Frigiliana hacia las estribaciones de la Sierra Almijara'
@@ -707,9 +707,9 @@ export const frigilianaHikingContent: Record<
       ]
     },
     combine: {
-      title: 'Completad el día',
+      title: 'Después de la ruta',
       intro:
-        'Volver al pueblo después de una caminata tiene algo especial: suelo de piedra fresco, una ducha y una copa de vino en la terraza.',
+        'Podéis quedaros a cenar en Frigiliana o bajar a la costa para bañaros y almorzar temprano. Si vais por un sendero natural, calculad el regreso antes de que anochezca.',
       items: [
         {
           title: 'Playas',
@@ -719,14 +719,14 @@ export const frigilianaHikingContent: Record<
         {
           title: 'Comer',
           text:
-            'Os lo habéis ganado. Elegid una de las mejores terrazas del pueblo para cenar después de la ruta.'
+            'Elegid después de la ruta uno de los restaurantes o terrazas del pueblo.'
         }
       ]
     },
     closing: {
-      title: 'Vuestra base entre mar y montaña',
+      title: 'Alojaros en Frigiliana y salir a pie desde el pueblo',
       lead:
-        'Apartamentos pensados para descansar — el punto de partida ideal para disfrutar de la sierra y la costa.',
+        'Desde el casco antiguo de Frigiliana podéis empezar varias rutas a pie. Para un día de playa, Nerja queda abajo, junto a la costa.',
       availabilityCta: 'Comprobar disponibilidad',
       apartmentsCta: 'Ver apartamentos'
     }
@@ -750,9 +750,9 @@ export const frigilianaHikingContent: Record<
       title:
         'Wandelen en natuur rond Frigiliana — de Sierra Almijara in',
       paragraphs: [
-        'De meeste bezoekers worden naar de kust getrokken, maar direct achter Frigiliana begint een andere wereld, met een eigen ritme. Het dorp ligt aan de rand van natuurpark Sierras de Tejeda, Almijara y Alhama: een beschermd landschap van ruige kalkpieken, dennenbossen en stilte.',
-        'Voor stellen werkt dat goed: ’s ochtends de paden op met weids uitzicht over de Middellandse Zee, ’s middags terug in het dorp. Hieronder vinden jullie onze selectie, gerangschikt op inspanning — van een ontspannen ommetje tot een echte topwandeling.',
-        'Handig om te weten: bij deze routes zijn passende tracks te vinden op Komoot en Wikiloc.'
+        'De paden van natuurpark Sierras de Tejeda, Almijara y Alhama beginnen direct achter Frigiliana, tussen kalkpieken, dennenbossen en open hellingen boven de Middellandse Zee.',
+        'Hieronder staat de selectie op inspanning gerangschikt, van een korte ronde boven het dorp tot de top van El Fuerte.',
+        'Bij deze routes zijn passende GPX-tracks te vinden op Komoot en Wikiloc.'
       ],
       imageAlt:
         'Uitzicht tussen de witte huizen van Frigiliana naar de uitlopers van de Sierra Almijara'
@@ -808,7 +808,7 @@ export const frigilianaHikingContent: Record<
             experience:
               'Oude irrigatiekanalen, de avocadovallei en de zee in het avondlicht.',
             text:
-              'Volg de oude irrigatiekanalen, de acequias, boven het dorp. Dit vrijwel vlakke pad in levadastijl biedt voortdurend uitzicht over de avocadovallei en de zee. U kunt beginnen bij het Lízar-reservoir of bij de kasteelruïne boven de oude kern. Vooral bij zonsondergang is het hier prachtig.'
+              'Volg de oude irrigatiekanalen, de acequias, boven het dorp. Dit vrijwel vlakke pad in levadastijl biedt voortdurend uitzicht over de avocadovallei en de zee. Jullie kunnen beginnen bij het Lízar-reservoir of bij de kasteelruïne boven de oude kern. Vooral bij zonsondergang is het hier prachtig.'
           },
           {
             title: 'Rondje door de oude kern (Barribarto)',
@@ -909,9 +909,9 @@ export const frigilianaHikingContent: Record<
       ]
     },
     combine: {
-      title: 'Maak er een hele dag van',
+      title: 'Na de wandeling',
       intro:
-        'Terugkomen in het dorp na een wandeling heeft iets bijzonders: koele stenen vloeren, een douche en een glas wijn op het terras.',
+        'Blijf in Frigiliana voor het diner, of rijd naar de kust voor een duik en een vroege lunch. Plan op een natuurpad de terugweg vóór het donker wordt.',
       items: [
         {
           title: 'Stranden',
@@ -921,14 +921,14 @@ export const frigilianaHikingContent: Record<
         {
           title: 'Eten',
           text:
-            'U hebt het verdiend. Kies na de wandeling een van de fijne terrassen in het dorp voor het diner.'
+            'Kies na de wandeling een van de restaurants of terrassen in het dorp.'
         }
       ]
     },
     closing: {
-      title: 'Uw uitvalsbasis',
+      title: 'Overnachten in Frigiliana, wandelen vanaf het dorp',
       lead:
-        'Appartementen gemaakt voor rust — een ideaal vertrekpunt voor zowel bergen als zee.',
+        'Vanuit de oude kern van Frigiliana kunnen jullie verschillende routes te voet beginnen. Voor een stranddag ligt Nerja beneden aan de kust.',
       availabilityCta: 'Beschikbaarheid bekijken',
       apartmentsCta: 'Bekijk appartementen'
     }
@@ -952,9 +952,9 @@ export const frigilianaHikingContent: Record<
       title:
         'Vandring och natur runt Frigiliana — ut i Sierra Almijara',
       paragraphs: [
-        'De flesta besökare lockas till kusten, men direkt bakom Frigiliana börjar en annan värld, med sin egen rytm. Byn ligger vid porten till naturparken Sierras de Tejeda, Almijara y Alhama — ett skyddat landskap med karga kalkstenstoppar, pinjeskogar och stillhet.',
-        'För par blir det en fin balans: förmiddagar på lederna med vida vyer över Medelhavet, följt av en lugn eftermiddag i byn. Nedan har vi ordnat våra förslag efter ansträngningsnivå — från en lätt promenad till en riktig topptur.',
-        'Bra att veta: passande spår för de här turerna finns på Komoot och Wikiloc.'
+        'Lederna i naturparken Sierras de Tejeda, Almijara y Alhama börjar direkt bakom Frigiliana, bland kalkstenstoppar, pinjeskog och öppna sluttningar ovanför Medelhavet.',
+        'Förslagen nedan är ordnade efter ansträngningsnivå, från en kort slinga ovanför byn till toppen av El Fuerte.',
+        'Passande GPX-spår för turerna finns på Komoot och Wikiloc.'
       ],
       imageAlt:
         'Utsikt mellan Frigilianas vitkalkade hus mot Sierra Almijaras utlöpare'
@@ -1111,9 +1111,9 @@ export const frigilianaHikingContent: Record<
       ]
     },
     combine: {
-      title: 'Gör en hel dag av turen',
+      title: 'Efter vandringen',
       intro:
-        'Det är något särskilt med att komma tillbaka till byn efter en vandring: svala stengolv, en dusch och ett glas vin på terrassen.',
+        'Stanna i Frigiliana för middag eller åk ner till kusten för ett bad och en tidig lunch. På en naturstig bör ni planera att vara tillbaka före mörkrets inbrott.',
       items: [
         {
           title: 'Stränder',
@@ -1123,14 +1123,14 @@ export const frigilianaHikingContent: Record<
         {
           title: 'Mat',
           text:
-            'Det har ni förtjänat. Välj någon av byns fina terrasser för middag efter vandringen.'
+            'Välj någon av byns restauranger eller terrasser efter vandringen.'
         }
       ]
     },
     closing: {
-      title: 'Er bas mellan berg och hav',
+      title: 'Bo i Frigiliana och börja vandringen i byn',
       lead:
-        'Boenden skapade för lugn — en idealisk utgångspunkt för både bergen och havet.',
+        'Från Frigilianas gamla by kan ni börja flera leder till fots. För en stranddag ligger Nerja nere vid kusten.',
       availabilityCta: 'Kontrollera tillgänglighet',
       apartmentsCta: 'Se boenden'
     }
