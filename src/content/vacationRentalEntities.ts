@@ -464,11 +464,11 @@ export const vacationRentalEntities: VacationRentalEntity[] = [
       sv: 'Lägenhet i gamla Frigiliana för 2, en våning upp: vidare utsikt över odlingarna, terrass och kingsize-säng 180 × 200. Sex trappsteg.'
     },
     eyebrow: {
-      en: 'Romantic terrace retreat',
-      de: 'Romantischer Terrassenrueckzug',
-      es: 'Refugio romántico con terraza',
-      nl: 'Romantisch terrasverblijf',
-      sv: 'Romantisk terrassvistelse'
+      en: 'Private terrace, one floor higher',
+      de: 'Private Terrasse, eine Etage höher',
+      es: 'Terraza privada, una planta más arriba',
+      nl: 'Privéterras, één verdieping hoger',
+      sv: 'Privat terrass, en våning upp'
     },
     headline: {
       en: 'The upper floor above the groves',
@@ -649,11 +649,11 @@ export const vacationRentalEntities: VacationRentalEntity[] = [
       sv: 'Mahas terrass mäter 60 kvadratmeter, öppen mot himlen, med parasoll och delvis skuggad av solsegel. Dessutom ett litet utekök: den som vill laga mat utomhus kan göra det här.'
     },
     description: {
-      en: 'Here the terrace is the actual living room. Hammock, loungers and outdoor shower come with every AMARA apartment — but here with room to spread out, and an outdoor kitchen the others do not have. Maha sits highest in the house and has the widest view. In exchange the bed is 150 centimetres, narrower than in Lounis or Zaid, and there is no washing machine.',
-      de: 'Die Terrasse ist hier das eigentliche Wohnzimmer. Hängematte, Liegen und Außendusche gibt es in jeder AMARA-Wohnung – hier aber mit Platz, und dazu eine Außenküche, die es sonst nirgends gibt. Maha liegt am höchsten im Haus und hat die weiteste Aussicht. Dafür ist das Bett mit 150 Zentimetern schmaler als in Lounis oder Zaid, und eine Waschmaschine gibt es nicht.',
-      es: 'Aquí la terraza es el verdadero salón. Hamaca, tumbonas y ducha exterior las tienen todos los apartamentos AMARA, pero aquí con espacio de sobra, y además una cocina exterior que no hay en ningún otro. Maha es el más alto de la casa y el de vistas más amplias. A cambio, la cama mide 150 centímetros, más estrecha que en Lounis o Zaid, y no hay lavadora.',
-      nl: 'Hier is het terras de eigenlijke woonkamer. Hangmat, ligbedden en buitendouche heeft elk AMARA-appartement — hier alleen met ruimte, en met een buitenkeuken die de andere niet hebben. Maha ligt het hoogst in het huis en heeft het verste uitzicht. Daar staat tegenover dat het bed 150 centimeter breed is, smaller dan in Lounis of Zaid, en dat er geen wasmachine is.',
-      sv: 'Här är terrassen det egentliga vardagsrummet. Hängmatta, solsängar och utedusch finns i varje AMARA-lägenhet — men här med gott om plats, och dessutom ett utekök som ingen annan har. Maha ligger högst i huset och har den vidaste utsikten. I gengäld är sängen 150 centimeter, smalare än i Lounis och Zaid, och någon tvättmaskin finns inte.'
+      en: 'Here the terrace is the actual living room. All three AMARA terrace apartments have a hammock, two loungers and an outdoor shower — but Maha gives you more room around them, plus an outdoor kitchen the others do not have. Maha sits highest in the house and has the widest view. In exchange the bed is 150 centimetres, narrower than in Lounis or Zaid, and there is no washing machine.',
+      de: 'Die Terrasse ist hier das eigentliche Wohnzimmer. Hängematte, zwei Liegen und Außendusche gibt es in allen drei AMARA-Apartments mit Terrasse – bei Maha aber mit mehr Platz und dazu einer Außenküche, die es sonst nirgends gibt. Maha liegt am höchsten im Haus und hat die weiteste Aussicht. Dafür ist das Bett mit 150 Zentimetern schmaler als in Lounis oder Zaid, und eine Waschmaschine gibt es nicht.',
+      es: 'Aquí la terraza es el verdadero salón. Los tres apartamentos AMARA con terraza tienen hamaca, dos tumbonas y ducha exterior; en Maha, además, hay mucho más espacio y una cocina exterior que no tiene ningún otro. Maha está en lo más alto de la casa y ofrece las vistas más amplias. A cambio, la cama mide 150 centímetros, es más estrecha que la de Lounis o Zaid y no hay lavadora.',
+      nl: 'Hier is het terras de eigenlijke woonkamer. Alle drie de AMARA-appartementen met terras hebben een hangmat, twee ligbedden en een buitendouche — bij Maha staat er veel meer ruimte omheen en is er bovendien een buitenkeuken die de andere niet hebben. Maha ligt het hoogst in het huis en heeft het verste uitzicht. Daar staat tegenover dat het bed 150 centimeter breed is, smaller dan in Lounis of Zaid, en dat er geen wasmachine is.',
+      sv: 'Här är terrassen det egentliga vardagsrummet. Alla tre AMARA-lägenheter med terrass har hängmatta, två solsängar och utedusch — hos Maha finns det mycket mer plats runt dem, plus ett utekök som de andra saknar. Maha ligger högst i huset och har den vidaste utsikten. I gengäld är sängen 150 centimeter, smalare än i Lounis och Zaid, och någon tvättmaskin finns inte.'
     },
     highlights: {
       en: ['60 m² terrace, open to the sky', 'Outdoor kitchen for cooking outside', 'The widest view in the house'],
@@ -981,11 +981,11 @@ export const vacationRentalEntities: VacationRentalEntity[] = [
       sv: 'Tarifa för familj och surf'
     },
     headline: {
-      en: 'Sea view with unforgettable sunsets',
-      de: 'Meerblick mit unvergesslichen Sonnenuntergängen',
-      es: 'Vistas al mar con puestas de sol inolvidables',
-      nl: 'Zeezicht met onvergetelijke zonsondergangen',
-      sv: 'Havsutsikt med oförglömliga solnedgångar'
+      en: 'Atlantic views and sunset from the terrace',
+      de: 'Atlantikblick und Sonnenuntergang von der Terrasse',
+      es: 'Vistas al Atlántico y puesta de sol desde la terraza',
+      nl: 'Uitzicht op de Atlantische Oceaan en zonsondergang vanaf het terras',
+      sv: 'Atlantutsikt och solnedgång från terrassen'
     },
     lead: {
       en: '75 square metres over two floors: two bedrooms, two bathrooms, room for four. The lift goes right to the apartment door; inside, stairs lead up to the bedrooms.',
@@ -995,18 +995,18 @@ export const vacationRentalEntities: VacationRentalEntity[] = [
       sv: '75 kvadratmeter över två plan: två sovrum, två badrum, plats för fyra. Hissen går ända fram till dörren; inne leder trappor upp till sovrummen.'
     },
     description: {
-      en: 'You enter on the third floor and climb to the fourth inside. In the evening most guests stay up here rather than heading out again. A very large kitchen for anyone who cooks on holiday, a fireplace, rain shower, 60-inch screen, fast internet, and a reserved space in the underground garage.',
-      de: 'Man betritt die Wohnung im dritten Stock und geht innen hinauf in den vierten. Abends bleiben die meisten Gäste oben, statt noch einmal loszuziehen. Eine sehr große Küche für alle, die im Urlaub kochen, dazu Kamin, Regendusche, 60-Zoll-Bildschirm, schnelles Internet und ein reservierter Platz in der Tiefgarage.',
-      es: 'Se entra en la tercera planta y se sube por dentro a la cuarta. Por la tarde, la mayoría de los huéspedes se queda arriba en lugar de volver a salir. Una cocina muy grande para quien cocina en vacaciones, chimenea, ducha de lluvia, pantalla de 60 pulgadas, internet rápido y una plaza reservada en el garaje.',
-      nl: 'Je komt binnen op de derde verdieping en gaat binnendoor omhoog naar de vierde. ’s Avonds blijven de meeste gasten boven in plaats van er nog op uit te gaan. Een zeer grote keuken voor wie op vakantie kookt, een haard, regendouche, scherm van 60 inch, snel internet en een gereserveerde plek in de parkeergarage.',
-      sv: 'Man kliver in på tredje våningen och går inomhus upp till den fjärde. På kvällen stannar de flesta gäster kvar däruppe i stället för att gå ut igen. Ett mycket stort kök för den som lagar mat på semestern, öppen spis, regndusch, 60-tums skärm, snabbt internet och en reserverad plats i garaget.'
+      en: 'You enter on the third floor and climb to the fourth inside. The terrace faces the Atlantic and the sunset. The main bedroom has a 150 × 200 double bed; the second is a bunk room. There is also a very large kitchen for anyone who cooks on holiday, a fireplace, rain shower, 60-inch screen, fast internet, and a reserved space in the underground garage.',
+      de: 'Ihr betretet die Wohnung im dritten Stock und geht innen hinauf in den vierten. Von der Terrasse blickt ihr auf den Atlantik und den Sonnenuntergang. Im Hauptschlafzimmer steht ein 150 × 200 großes Doppelbett, das zweite Zimmer hat ein Etagenbett. Dazu kommen eine sehr große Küche für alle, die im Urlaub kochen, Kamin, Regendusche, 60-Zoll-Bildschirm, schnelles Internet und ein reservierter Platz in der Tiefgarage.',
+      es: 'Se entra en la tercera planta y se sube por dentro a la cuarta. La terraza mira al Atlántico y a la puesta de sol. El dormitorio principal tiene una cama doble de 150 × 200; el segundo, una litera. También hay una cocina muy grande para quien cocina en vacaciones, chimenea, ducha de lluvia, pantalla de 60 pulgadas, internet rápido y una plaza reservada en el garaje.',
+      nl: 'Jullie komen binnen op de derde verdieping en gaan binnendoor omhoog naar de vierde. Het terras kijkt uit over de Atlantische Oceaan en de zonsondergang. De hoofdslaapkamer heeft een tweepersoonsbed van 150 × 200; de tweede slaapkamer een stapelbed. Verder zijn er een zeer grote keuken voor wie op vakantie kookt, een haard, regendouche, scherm van 60 inch, snel internet en een gereserveerde plek in de parkeergarage.',
+      sv: 'Ni kommer in på tredje våningen och går inomhus upp till den fjärde. Terrassen vetter mot Atlanten och solnedgången. Det stora sovrummet har en dubbelsäng på 150 × 200; det andra har en våningssäng. Dessutom finns ett mycket stort kök för den som lagar mat på semestern, öppen spis, regndusch, 60-tums skärm, snabbt internet och en reserverad plats i garaget.'
     },
     highlights: {
-      en: ['Penthouse, 75 m² over two floors', 'Large kitchen, fireplace and pool', 'Reserved garage space included'],
-      de: ['Penthouse, 75 m² über zwei Etagen', 'Große Küche, Kamin und Pool', 'Tiefgaragenplatz inklusive'],
-      es: ['Ático de 75 m² en dos plantas', 'Cocina grande, chimenea y piscina', 'Plaza de garaje incluida'],
-      nl: ['Penthouse, 75 m² over twee verdiepingen', 'Grote keuken, haard en zwembad', 'Garageplaats inbegrepen'],
-      sv: ['Takvåning, 75 m² över två plan', 'Stort kök, öppen spis och pool', 'Garageplats ingår']
+      en: ['Penthouse, 75 m² over two floors', 'Terrace facing the Atlantic and sunset', 'Pool and reserved garage space included'],
+      de: ['Penthouse, 75 m² über zwei Etagen', 'Terrasse mit Atlantikblick und Sonnenuntergang', 'Pool und Tiefgaragenplatz inklusive'],
+      es: ['Ático de 75 m² en dos plantas', 'Terraza frente al Atlántico y la puesta de sol', 'Piscina y plaza de garaje incluidas'],
+      nl: ['Penthouse, 75 m² over twee verdiepingen', 'Terras met zicht op de Atlantische Oceaan en zonsondergang', 'Zwembad en garageplaats inbegrepen'],
+      sv: ['Takvåning, 75 m² över två plan', 'Terrass mot Atlanten och solnedgången', 'Pool och garageplats ingår']
     },
     accessNote: {
       en: 'No steps outside or in the building — the lift reaches the apartment door. Inside, stairs lead up to the bedrooms.',
