@@ -50,6 +50,7 @@ const comparisonHref = optionalLink('nerja_vs_frigiliana');
 const reviewsHref = optionalLink('reviews_hub');
 const amenitiesHref = optionalLink('amenities');
 const availabilityHref = optionalLink('book');
+const exploreHubHref = optionalLink('explore_hub');
 
 const frigilianaStayLinks = [
   { label: 'Farah', href: optionalLink('farah') },
@@ -563,6 +564,40 @@ const renderCtas = (subsection: FrigilianaLocationSubsection) => subsection.ctas
             intro={c.planning.intro}
             links={planningLinks}
           />
+
+          <section
+            id="explore-frigiliana"
+            data-am-component="frigiliana-explore-bridge"
+            class="am-section am-section--plain !px-6 !py-24 md:!px-12 md:!py-32 lg:!py-40"
+          >
+            <div class="mx-auto max-w-6xl border-y border-primary/20 py-16 md:py-20">
+              <div class="grid grid-cols-1 gap-10 lg:grid-cols-12 lg:items-center lg:gap-16">
+                <div class="lg:col-span-5">
+                  <span class="am-text-caption mb-6 block uppercase tracking-[0.4em] text-primary">
+                    {c.exploreBridge.eyebrow}
+                  </span>
+                  <h2 class="am-text-title italic tracking-tight text-on-surface">
+                    {c.exploreBridge.title}
+                  </h2>
+                </div>
+                <div class="lg:col-span-6 lg:col-start-7">
+                  <p class="am-text-body leading-relaxed text-on-surface-variant">
+                    {c.exploreBridge.text}
+                  </p>
+                  {
+                    exploreHubHref && (
+                      <a
+                        href={exploreHubHref}
+                        class="am-btn am-btn--secondary mt-10 w-full justify-center sm:w-auto"
+                      >
+                        {c.exploreBridge.ctaLabel}
+                      </a>
+                    )
+                  }
+                </div>
+              </div>
+            </div>
+          </section>
         </Fragment>
 
         <Fragment slot="decision">

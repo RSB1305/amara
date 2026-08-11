@@ -53,6 +53,13 @@ export interface FrigilianaLocationPlanning {
   amenities: FrigilianaLocationPlanningLink;
 }
 
+export interface FrigilianaLocationExploreBridge {
+  eyebrow: string;
+  title: string;
+  text: string;
+  ctaLabel: string;
+}
+
 export interface FrigilianaLocationPageCopy {
   heroKicker: string;
   h1: string;
@@ -66,6 +73,7 @@ export interface FrigilianaLocationPageCopy {
   faq: FrigilianaLocationFaq;
   seasons: FrigilianaLocationModule;
   planning: FrigilianaLocationPlanning;
+  exploreBridge: FrigilianaLocationExploreBridge;
   decision: FrigilianaLocationModule;
 }
 
@@ -267,6 +275,12 @@ export const frigilianaLocationCopy = {
       "reviews": { "label": "Gästebewertungen", "text": "Lesen, was Gäste nach ihrem Aufenthalt erwähnen." },
       "amenities": { "label": "Komfort und Ausstattung", "text": "Komfortdetails der AMARA Unterkünfte vor der Buchung prüfen." }
     },
+    "exploreBridge": {
+      "eyebrow": "ENTDECKEN",
+      "title": "Frigiliana entdecken",
+      "text": "Wenn Frigiliana als Basis für euch passt, könnt ihr von hier aus eure Tage weiterplanen: Restaurants, Strände, Wanderungen, Märkte und besondere Orte im Dorf und an der Küste.",
+      "ctaLabel": "Frigiliana entdecken"
+    },
     "decision": {
       "title": "Für wen Frigiliana die richtige Wahl ist",
       "paragraphs": [
@@ -432,6 +446,12 @@ export const frigilianaLocationCopy = {
       "weather": { "label": "Weather & seasons", "text": "Plan monthly weather, terrace time and the right season." },
       "reviews": { "label": "Guest reviews", "text": "Read what guests mention after staying with AMARA." },
       "amenities": { "label": "Comfort & Amenities", "text": "Check the comfort details of AMARA stays before booking." }
+    },
+    "exploreBridge": {
+      "eyebrow": "EXPLORE",
+      "title": "Explore Frigiliana",
+      "text": "Once Frigiliana feels right as your base, start planning the days around it: restaurants, beaches, walks, markets and places worth discovering in the village and along the coast.",
+      "ctaLabel": "Explore Frigiliana"
     },
     "decision": {
       "title": "Who Frigiliana is right for",
@@ -599,6 +619,12 @@ export const frigilianaLocationCopy = {
       "reviews": { "label": "Reseñas de huéspedes", "text": "Leer qué cuentan los huéspedes después de alojarse con AMARA." },
       "amenities": { "label": "Confort y servicios", "text": "Revisar el confort de los alojamientos AMARA antes de reservar." }
     },
+    "exploreBridge": {
+      "eyebrow": "DESCUBRIR",
+      "title": "Descubrir Frigiliana",
+      "text": "Si Frigiliana encaja como vuestra base, desde aquí podéis empezar a planear los días: restaurantes, playas, rutas, mercados y lugares por descubrir en el pueblo y junto a la costa.",
+      "ctaLabel": "Descubrir Frigiliana"
+    },
     "decision": {
       "title": "Para quién es Frigiliana la elección adecuada",
       "paragraphs": [
@@ -765,6 +791,12 @@ export const frigilianaLocationCopy = {
       "reviews": { "label": "Gastbeoordelingen", "text": "Lees wat gasten na een verblijf bij AMARA vertellen." },
       "amenities": { "label": "Comfort en voorzieningen", "text": "Controleer het comfort van AMARA-verblijven vóór het boeken." }
     },
+    "exploreBridge": {
+      "eyebrow": "ONTDEKKEN",
+      "title": "Ontdek Frigiliana",
+      "text": "Als Frigiliana goed bij jullie past als uitvalsbasis, kunnen jullie van hieruit de dagen verder plannen: restaurants, stranden, wandelingen, markten en bijzondere plekken in het dorp en aan de kust.",
+      "ctaLabel": "Ontdek Frigiliana"
+    },
     "decision": {
       "title": "Voor wie Frigiliana de juiste keuze is",
       "paragraphs": [
@@ -930,6 +962,12 @@ export const frigilianaLocationCopy = {
       "weather": { "label": "Väder & årstider", "text": "Planera månad, terrasser och rätt säsong med mer sammanhang." },
       "reviews": { "label": "Gästrecensioner", "text": "Läs vad gäster berättar efter en vistelse hos AMARA." },
       "amenities": { "label": "Komfort och bekvämligheter", "text": "Kontrollera komforten i AMARA-boendena före bokning." }
+    },
+    "exploreBridge": {
+      "eyebrow": "UPPTÄCK",
+      "title": "Upptäck Frigiliana",
+      "text": "Om Frigiliana känns rätt som bas kan ni börja planera dagarna härifrån: restauranger, stränder, vandringar, marknader och platser att upptäcka i byn och längs kusten.",
+      "ctaLabel": "Upptäck Frigiliana"
     },
     "decision": {
       "title": "Vem Frigiliana passar",
