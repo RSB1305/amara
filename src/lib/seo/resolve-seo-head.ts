@@ -64,7 +64,13 @@ function normalizeBrandTitle(rawTitle: string | undefined): string {
     return 'AMARA';
   }
 
-  if (/\s(?:\||-|–|—|:)\s*AMARA$/i.test(title)) {
+  // A directly joined ASCII hyphen belongs to an authored AMARA compound.
+  // Genuine brand separators continue through the normalization path below.
+  if (/^AMARA-\S/i.test(title)) {
+    return title;
+  }
+
+  if (/(?:\s(?:\||-|–|—)|:)\s*AMARA$/i.test(title)) {
     return title;
   }
 
