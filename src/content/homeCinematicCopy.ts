@@ -165,11 +165,11 @@ export const cinematicGuideLinks: CinematicGuideLinkDef[] = [
   {
     token: 'romantic_hideaways',
     label: {
-      en: 'Apartments for couples',
+      en: 'Compare AMARA stays',
       de: 'Unterkünfte vergleichen',
-      es: 'Apartamentos para parejas',
-      nl: 'Appartementen voor koppels',
-      sv: 'Lägenheter för par'
+      es: 'Comparar alojamientos AMARA',
+      nl: 'AMARA-verblijven vergelijken',
+      sv: 'Jämför AMARA-boenden'
     },
     text: {
       en: 'Compare the AMARA stays in Frigiliana and Nerja.',

@@ -174,7 +174,7 @@ export const frigilianaBeachesContent: Record<
     footerHighlights: {
       beaches: 'Beaches & coast',
       hiking: 'Hiking & nature',
-      stays: 'Apartments for couples'
+      stays: 'AMARA stays'
     },
     hero: {
       kicker: 'Coastal guide',
@@ -403,7 +403,7 @@ export const frigilianaBeachesContent: Record<
     footerHighlights: {
       beaches: 'Strände & Küste',
       hiking: 'Wandern & Natur',
-      stays: 'Apartments für Paare'
+      stays: 'AMARA-Unterkünfte'
     },
     hero: {
       kicker: 'Küsten-Guide',
@@ -632,7 +632,7 @@ export const frigilianaBeachesContent: Record<
     footerHighlights: {
       beaches: 'Playas y costa',
       hiking: 'Senderismo y naturaleza',
-      stays: 'Apartamentos para parejas'
+      stays: 'Alojamientos AMARA'
     },
     hero: {
       kicker: 'Guía de costa',
@@ -861,7 +861,7 @@ export const frigilianaBeachesContent: Record<
     footerHighlights: {
       beaches: 'Stranden & kust',
       hiking: 'Wandelen & natuur',
-      stays: 'Appartementen voor koppels'
+      stays: 'AMARA-verblijven'
     },
     hero: {
       kicker: 'Kustgids',
@@ -1090,7 +1090,7 @@ export const frigilianaBeachesContent: Record<
     footerHighlights: {
       beaches: 'Stränder & kust',
       hiking: 'Vandring & natur',
-      stays: 'Lägenheter för par'
+      stays: 'AMARA-boenden'
     },
     hero: {
       kicker: 'Kustguide',

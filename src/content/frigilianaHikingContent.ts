@@ -139,7 +139,7 @@ export const frigilianaHikingContent: Record<
     footerHighlights: {
       hiking: 'Hiking & nature',
       guide: 'Frigiliana guide',
-      stays: 'Apartments for couples'
+      stays: 'AMARA stays'
     },
     hero: {
       kicker: 'Nature guide',
@@ -340,7 +340,7 @@ export const frigilianaHikingContent: Record<
     footerHighlights: {
       hiking: 'Wandern & Natur',
       guide: 'Frigiliana-Guide',
-      stays: 'Apartments für Paare'
+      stays: 'AMARA-Unterkünfte'
     },
     hero: {
       kicker: 'Natur-Guide',
@@ -541,7 +541,7 @@ export const frigilianaHikingContent: Record<
     footerHighlights: {
       hiking: 'Senderismo y naturaleza',
       guide: 'Guía de Frigiliana',
-      stays: 'Apartamentos para parejas'
+      stays: 'Alojamientos AMARA'
     },
     hero: {
       kicker: 'Guía de naturaleza',
@@ -743,7 +743,7 @@ export const frigilianaHikingContent: Record<
     footerHighlights: {
       hiking: 'Wandelen & natuur',
       guide: 'Frigiliana-gids',
-      stays: 'Appartementen voor stellen'
+      stays: 'AMARA-verblijven'
     },
     hero: {
       kicker: 'Natuurgids',
@@ -945,7 +945,7 @@ export const frigilianaHikingContent: Record<
     footerHighlights: {
       hiking: 'Vandring & natur',
       guide: 'Frigiliana-guide',
-      stays: 'Boenden för par'
+      stays: 'AMARA-boenden'
     },
     hero: {
       kicker: 'Naturguide',

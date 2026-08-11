@@ -199,11 +199,11 @@ const PUBLIC_ROUTE_LABELS: Partial<Record<string, Record<AmaraLanguage, string>>
   },
   'legal-notice': trustLabels.legal_notice,
   'romantic-hideaways': {
-    en: 'Apartments for couples',
-    de: 'Apartments für Paare',
-    es: 'Apartamentos para parejas',
-    nl: 'Appartementen voor koppels',
-    sv: 'Lägenheter för par'
+    en: 'AMARA stays',
+    de: 'AMARA-Unterkünfte',
+    es: 'Alojamientos AMARA',
+    nl: 'AMARA-verblijven',
+    sv: 'AMARA-boenden'
   },
   'la-amara-farah': {
     en: 'AMARA Farah',
