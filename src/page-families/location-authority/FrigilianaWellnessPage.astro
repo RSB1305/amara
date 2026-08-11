@@ -46,12 +46,15 @@ const combineItems = copy.combine.items.map((item) => ({
 }));
 
 const heroImage = {
-  src: '/images/hero-frigiliana.jpg',
-  width: 1080,
-  height: 721
+  src: '/images/wellness/frigiliana-wellness-2.jpeg',
+  width: 1512,
+  height: 1512
 };
 
-const providerImage = '/images/wellness/frigiliana-wellness-1.jpeg';
+const providerImages = {
+  frigilianaWellness: '/images/wellness/frigiliana-wellness-1.jpeg',
+  lidia: '/images/wellness/masaje_californiano-1.webp'
+} as const;
 ---
 
 <LocationAuthorityLayout
@@ -134,6 +137,7 @@ const providerImage = '/images/wellness/frigiliana-wellness-1.jpeg';
           {
             copy.providers.items.map((provider) => {
               const titleId = `provider-${provider.id}`;
+              const imageSrc = providerImages[provider.id];
 
               return (
                 <article
@@ -141,10 +145,10 @@ const providerImage = '/images/wellness/frigiliana-wellness-1.jpeg';
                   aria-labelledby={titleId}
                 >
                   {
-                    provider.id === 'frigilianaWellness' && provider.imageAlt && (
+                    imageSrc && provider.imageAlt && (
                       <div class="mb-8 overflow-hidden bg-surface-container-low">
                         <AmaraImage
-                          src={providerImage}
+                          src={imageSrc}
                           alt={provider.imageAlt}
                           profile="card"
                           width={720}

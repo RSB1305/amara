@@ -195,7 +195,7 @@ export const frigilianaWellnessContent: Record<
         'Frigiliana Wellness comes to your villa or apartment and offers a broader spa and beauty menu. Lidia receives guests for Californian massage at her countryside location near Frigiliana. Both are independent providers, and you book with them directly.'
       ],
       imageAlt:
-        'The whitewashed village of Frigiliana above the hills and Mediterranean coast'
+        'Two guests on outdoor massage tables beneath a pergola with mountain views near Frigiliana'
     },
     sectionNav: {
       choose: 'Choose by location',
@@ -264,6 +264,7 @@ export const frigilianaWellnessContent: Record<
         }),
         provider('lidia', {
           name: 'Masaje Californiano con Lidia',
+          imageAlt: 'Close-up of a Californian massage treatment on the neck and shoulders',
           title: 'Californian massage in the countryside',
           summary:
             'A personal Californian massage session at Lidia’s countryside location near Frigiliana. You travel to her rather than receiving the treatment at your accommodation.',
@@ -396,7 +397,7 @@ export const frigilianaWellnessContent: Record<
         'Frigiliana Wellness kommt in eure Villa oder euer Apartment und bietet ein breiteres Spa- und Beauty-Angebot. Lidia empfängt Gäste zur kalifornischen Massage an ihrem Ort auf dem Land bei Frigiliana. Beide arbeiten unabhängig; ihr bucht direkt bei ihnen.'
       ],
       imageAlt:
-        'Das weiße Dorf Frigiliana über den Hügeln und der Mittelmeerküste'
+        'Zwei Gäste auf Massageliegen im Freien unter einer Pergola mit Bergblick bei Frigiliana'
     },
     sectionNav: {
       choose: 'Nach Ort wählen',
@@ -465,6 +466,7 @@ export const frigilianaWellnessContent: Record<
         }),
         provider('lidia', {
           name: 'Masaje Californiano con Lidia',
+          imageAlt: 'Nahaufnahme einer kalifornischen Massage an Nacken und Schultern',
           title: 'Kalifornische Massage auf dem Land',
           summary:
             'Eine persönliche kalifornische Massage an Lidias Ort auf dem Land bei Frigiliana. Ihr fahrt zu ihr; die Anwendung findet nicht in eurer Unterkunft statt.',
@@ -597,7 +599,7 @@ export const frigilianaWellnessContent: Record<
         'Frigiliana Wellness se desplaza hasta vuestra villa o apartamento y ofrece una carta más amplia de spa y belleza. Lidia recibe para masaje californiano en su espacio rural cerca de Frigiliana. Ambos son proveedores independientes y se reserva directamente con ellos.'
       ],
       imageAlt:
-        'El pueblo blanco de Frigiliana sobre las colinas y la costa mediterránea'
+        'Dos huéspedes en camillas de masaje al aire libre bajo una pérgola con vistas a la montaña cerca de Frigiliana'
     },
     sectionNav: {
       choose: 'Elegir por ubicación',
@@ -666,6 +668,7 @@ export const frigilianaWellnessContent: Record<
         }),
         provider('lidia', {
           name: 'Masaje Californiano con Lidia',
+          imageAlt: 'Primer plano de un masaje californiano en el cuello y los hombros',
           title: 'Masaje californiano en el campo',
           summary:
             'Una sesión personal de masaje californiano en el espacio rural de Lidia cerca de Frigiliana. Os desplazáis hasta allí; el tratamiento no se realiza en vuestro alojamiento.',
@@ -798,7 +801,7 @@ export const frigilianaWellnessContent: Record<
         'Frigiliana Wellness komt naar jullie villa of appartement en biedt een breder spa- en beautymenu. Lidia ontvangt gasten voor Californische massage op haar landelijke locatie bij Frigiliana. Beide aanbieders zijn onafhankelijk; jullie boeken rechtstreeks bij hen.'
       ],
       imageAlt:
-        'Het witte dorp Frigiliana boven de heuvels en de Middellandse Zeekust'
+        'Twee gasten op massagetafels in de buitenlucht onder een pergola met bergzicht bij Frigiliana'
     },
     sectionNav: {
       choose: 'Kies op locatie',
@@ -867,6 +870,7 @@ export const frigilianaWellnessContent: Record<
         }),
         provider('lidia', {
           name: 'Masaje Californiano con Lidia',
+          imageAlt: 'Close-up van een Californische massage van nek en schouders',
           title: 'Californische massage op het platteland',
           summary:
             'Een persoonlijke Californische massagesessie op Lidia’s landelijke locatie bij Frigiliana. Jullie reizen naar haar toe; de behandeling vindt niet in jullie verblijf plaats.',
@@ -999,7 +1003,7 @@ export const frigilianaWellnessContent: Record<
         'Frigiliana Wellness kommer till er villa eller lägenhet och erbjuder en bredare meny av spa- och skönhetsbehandlingar. Lidia tar emot för kalifornisk massage på sin plats på landsbygden nära Frigiliana. Båda är oberoende aktörer och ni bokar direkt med dem.'
       ],
       imageAlt:
-        'Den vitkalkade byn Frigiliana ovanför kullarna och Medelhavskusten'
+        'Två gäster på massagebänkar utomhus under en pergola med utsikt över bergen nära Frigiliana'
     },
     sectionNav: {
       choose: 'Välj efter plats',
@@ -1068,6 +1072,7 @@ export const frigilianaWellnessContent: Record<
         }),
         provider('lidia', {
           name: 'Masaje Californiano con Lidia',
+          imageAlt: 'Närbild av kalifornisk massage av nacke och axlar',
           title: 'Kalifornisk massage på landsbygden',
           summary:
             'En personlig kalifornisk massagesession på Lidias plats på landsbygden nära Frigiliana. Ni åker till henne; behandlingen sker inte i ert boende.',
