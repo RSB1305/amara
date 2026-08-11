@@ -11,6 +11,9 @@ import { DYNAMIC_CANONICAL_PUBLIC_SLUGS } from '../src/lib/canonicalPublicSlugs.
 const VACATION_RENTAL_LANGUAGES = Object.freeze(['es', 'de', 'en', 'nl', 'sv']);
 const EXPECTED_VACATION_RENTAL_IDENTITIES = 6;
 const EXPECTED_LOCALIZED_VACATION_RENTAL_PAGES = 30;
+const STAY_SELECTOR_SLUG = 'romantic-hideaways';
+const EXPECTED_LOCALIZED_STAY_SELECTOR_PAGES = VACATION_RENTAL_LANGUAGES.length;
+const VACATION_RENTAL_SLUGS = new Set(DYNAMIC_CANONICAL_PUBLIC_SLUGS);
 
 const EXPECTED_VACATION_RENTAL_ROUTES = new Map(
   DYNAMIC_CANONICAL_PUBLIC_SLUGS.flatMap((slug) =>
@@ -20,6 +23,16 @@ const EXPECTED_VACATION_RENTAL_ROUTES = new Map(
       return [pathname, { language, pathname, slug }];
     })
   )
+);
+
+const EXPECTED_STAY_SELECTOR_ROUTES = new Map(
+  VACATION_RENTAL_LANGUAGES.map((language) => {
+    const pathname = language === 'es'
+      ? `/${STAY_SELECTOR_SLUG}`
+      : `/${language}/${STAY_SELECTOR_SLUG}`;
+
+    return [pathname, { language, pathname }];
+  })
 );
 
 const KNOWN_BROKEN_BREADCRUMB_LABELS = new Set([
@@ -124,6 +137,34 @@ function getOwnedSlug(pathname) {
   return segments.join('/');
 }
 
+function getLocalizedOwnedPath(slug, language) {
+  return language === 'es' ? `/${slug}` : `/${language}/${slug}`;
+}
+
+function getVisibleRentalSlugs(html, pageUrl) {
+  const slugs = [];
+  const seen = new Set();
+
+  for (const match of html.matchAll(/<a\b[^>]*\bhref=["']([^"']+)["'][^>]*>/gi)) {
+    let slug;
+
+    try {
+      slug = getOwnedSlug(new URL(match[1], pageUrl).pathname);
+    } catch {
+      continue;
+    }
+
+    if (!VACATION_RENTAL_SLUGS.has(slug) || seen.has(slug)) {
+      continue;
+    }
+
+    seen.add(slug);
+    slugs.push(slug);
+  }
+
+  return slugs;
+}
+
 function getExperienceHubPath(pathname) {
   const language = pathname.split('/').filter(Boolean)[0];
 
@@ -184,6 +225,9 @@ export function runStructuredDataAudit({
   const rentalIdentityBySlug = new Map();
   const expectedRentalRoutesSeen = new Set();
   const validatedExpectedRentalRoutes = new Set();
+  const expectedStaySelectorRoutesSeen = new Set();
+  const validatedStaySelectorRoutes = new Set();
+  const staySelectorRecords = [];
   let contentPages = 0;
   let redirectPages = 0;
   let vacationRentalPages = 0;
@@ -211,10 +255,22 @@ export function runStructuredDataAudit({
     );
   }
 
+  if (
+    EXPECTED_STAY_SELECTOR_ROUTES.size !==
+    EXPECTED_LOCALIZED_STAY_SELECTOR_PAGES
+  ) {
+    errors.push(
+      'Stay Selector route source produces ' +
+        `${EXPECTED_STAY_SELECTOR_ROUTES.size} localized routes; ` +
+        `expected ${EXPECTED_LOCALIZED_STAY_SELECTOR_PAGES}.`
+    );
+  }
+
   for (const file of walkHtmlFiles(distRoot)) {
     const relativePath = relative(distRoot, file).replaceAll('\\', '/');
     const fileRoutePath = getRoutePathFromHtmlFile(relativePath);
     const expectedRentalRoute = EXPECTED_VACATION_RENTAL_ROUTES.get(fileRoutePath);
+    const expectedStaySelectorRoute = EXPECTED_STAY_SELECTOR_ROUTES.get(fileRoutePath);
 
     if (relativePath === '404.html' || relativePath.startsWith('tools/')) {
       continue;
@@ -222,6 +278,10 @@ export function runStructuredDataAudit({
 
     if (expectedRentalRoute) {
       expectedRentalRoutesSeen.add(fileRoutePath);
+    }
+
+    if (expectedStaySelectorRoute) {
+      expectedStaySelectorRoutesSeen.add(fileRoutePath);
     }
 
     const html = readFileSync(file, 'utf8');
@@ -232,6 +292,10 @@ export function runStructuredDataAudit({
           file,
           `${describeRentalRoute(expectedRentalRoute)} unexpectedly renders as a redirect`
         );
+      }
+
+      if (expectedStaySelectorRoute) {
+        report(file, `Stay Selector route ${fileRoutePath} unexpectedly renders as a redirect`);
       }
 
       redirectPages += 1;
@@ -342,6 +406,34 @@ export function runStructuredDataAudit({
     } catch {
       report(file, 'WebPage URL is not absolute');
       continue;
+    }
+
+    const itemLists = graph.filter((node) => hasType(node, 'ItemList'));
+
+    if (expectedStaySelectorRoute) {
+      if (itemLists.length !== 1) {
+        report(
+          file,
+          `Stay Selector expected exactly one ItemList node, found ${itemLists.length}`
+        );
+      } else {
+        staySelectorRecords.push({
+          canonicalUrl,
+          file,
+          graph,
+          html,
+          htmlLanguage,
+          itemList: itemLists[0],
+          route: expectedStaySelectorRoute,
+          webPage
+        });
+      }
+    } else if (itemLists.length > 0) {
+      report(
+        file,
+        `unexpected ItemList markup on non-collection route ${fileRoutePath}; ` +
+          `actual count=${itemLists.length}`
+      );
     }
 
     const breadcrumbs = graph.filter((node) => hasType(node, 'BreadcrumbList'));
@@ -762,6 +854,17 @@ export function runStructuredDataAudit({
     );
   }
 
+  const missingStaySelectorRoutes = [...EXPECTED_STAY_SELECTOR_ROUTES.keys()].filter(
+    (pathname) => !expectedStaySelectorRoutesSeen.has(pathname)
+  );
+
+  if (missingStaySelectorRoutes.length > 0) {
+    errors.push(
+      'Expected localized Stay Selector routes are missing from dist: ' +
+        missingStaySelectorRoutes.join(', ')
+    );
+  }
+
   if (
     validatedExpectedRentalRoutes.size !==
     EXPECTED_LOCALIZED_VACATION_RENTAL_PAGES
@@ -808,6 +911,196 @@ export function runStructuredDataAudit({
     }
   }
 
+  for (const record of staySelectorRecords) {
+    let isValid = true;
+    const selectorReport = (message) => {
+      isValid = false;
+      report(record.file, `Stay Selector ${record.route.pathname}: ${message}`);
+    };
+    const { canonicalUrl, graph, html, htmlLanguage, itemList, route, webPage } = record;
+    const listItems = Array.isArray(itemList.itemListElement)
+      ? itemList.itemListElement
+      : [];
+
+    if (!canonicalUrl) {
+      selectorReport('missing canonical URL');
+      continue;
+    }
+
+    const canonical = new URL(canonicalUrl);
+    if (canonical.pathname !== route.pathname) {
+      selectorReport(
+        `canonical path mismatch: expected=${route.pathname}, actual=${canonical.pathname}`
+      );
+    }
+
+    if (webPage.inLanguage !== route.language || htmlLanguage !== route.language) {
+      selectorReport(
+        `language mismatch: expected=${route.language}, ` +
+          `WebPage=${webPage.inLanguage || 'missing'}, HTML=${htmlLanguage || 'missing'}`
+      );
+    }
+
+    if (itemList['@id'] !== `${canonicalUrl}#itemlist`) {
+      selectorReport(
+        `ItemList @id mismatch: expected=${canonicalUrl}#itemlist, ` +
+          `actual=${itemList['@id'] || 'missing'}`
+      );
+    }
+
+    if (!isNonEmptyString(itemList.name)) {
+      selectorReport('ItemList name must be non-empty');
+    }
+
+    if (Object.hasOwn(itemList, 'itemListOrder')) {
+      selectorReport('ItemList must not emit itemListOrder without a semantic sort rule');
+    }
+
+    if (itemList.numberOfItems !== EXPECTED_VACATION_RENTAL_IDENTITIES) {
+      selectorReport(
+        `numberOfItems=${itemList.numberOfItems}; ` +
+          `expected ${EXPECTED_VACATION_RENTAL_IDENTITIES}`
+      );
+    }
+
+    if (listItems.length !== EXPECTED_VACATION_RENTAL_IDENTITIES) {
+      selectorReport(
+        `ListItem count=${listItems.length}; ` +
+          `expected ${EXPECTED_VACATION_RENTAL_IDENTITIES}`
+      );
+    }
+
+    const positions = listItems.map((listItem) => listItem?.position);
+    if (
+      new Set(positions).size !== EXPECTED_VACATION_RENTAL_IDENTITIES ||
+      positions.some((position, index) => position !== index + 1)
+    ) {
+      selectorReport(
+        `ListItem positions must be unique 1..${EXPECTED_VACATION_RENTAL_IDENTITIES}; ` +
+          `actual=${JSON.stringify(positions)}`
+      );
+    }
+
+    const schemaSlugs = [];
+    const entityIds = [];
+    const itemUrls = [];
+
+    listItems.forEach((listItem, index) => {
+      if (!hasType(listItem, 'ListItem')) {
+        selectorReport(`item at position ${index + 1} is not a ListItem`);
+      }
+
+      const item = listItem?.item;
+      if (!item || typeof item !== 'object' || Array.isArray(item)) {
+        selectorReport(`ListItem ${index + 1} is missing its item object`);
+        return;
+      }
+
+      const unexpectedItemFields = Object.keys(item).filter(
+        (field) => !['@id', 'name', 'url'].includes(field)
+      );
+      if (unexpectedItemFields.length > 0) {
+        selectorReport(
+          `ListItem ${index + 1} duplicates property fields: ` +
+            unexpectedItemFields.join(', ')
+        );
+      }
+
+      entityIds.push(item['@id']);
+      itemUrls.push(item.url);
+
+      if (!isValidAbsoluteHttpUrl(item.url)) {
+        selectorReport(`ListItem ${index + 1} has invalid URL=${JSON.stringify(item.url)}`);
+        return;
+      }
+
+      const itemUrl = new URL(item.url);
+      const slug = getOwnedSlug(itemUrl.pathname);
+      const rentalIdentity = rentalIdentityBySlug.get(slug);
+      schemaSlugs.push(slug);
+
+      if (!rentalIdentity) {
+        selectorReport(
+          `ListItem ${index + 1} does not resolve to a canonical rental: ${item.url}`
+        );
+        return;
+      }
+
+      const expectedItemUrl = new URL(
+        getLocalizedOwnedPath(slug, route.language),
+        canonical.origin
+      ).href;
+
+      if (item.url !== expectedItemUrl) {
+        selectorReport(
+          `ListItem ${index + 1} URL mismatch: ` +
+            `expected=${expectedItemUrl}, actual=${item.url}`
+        );
+      }
+
+      if (item['@id'] !== rentalIdentity.id) {
+        selectorReport(
+          `ListItem ${index + 1} identity mismatch: ` +
+            `expected=${rentalIdentity.id}, actual=${item['@id'] || 'missing'}`
+        );
+      }
+
+      if (item.name !== rentalIdentity.name) {
+        selectorReport(
+          `ListItem ${index + 1} name mismatch: ` +
+            `expected=${rentalIdentity.name}, actual=${item.name || 'missing'}`
+        );
+      }
+    });
+
+    if (new Set(entityIds).size !== EXPECTED_VACATION_RENTAL_IDENTITIES) {
+      selectorReport('ItemList entity identities must be unique');
+    }
+
+    if (new Set(itemUrls).size !== EXPECTED_VACATION_RENTAL_IDENTITIES) {
+      selectorReport('ItemList property URLs must be unique');
+    }
+
+    const visibleSlugs = getVisibleRentalSlugs(html, canonicalUrl);
+    if (
+      visibleSlugs.length !== EXPECTED_VACATION_RENTAL_IDENTITIES ||
+      JSON.stringify(schemaSlugs) !== JSON.stringify(visibleSlugs)
+    ) {
+      selectorReport(
+        'ItemList order does not match the visible collection order: ' +
+          `schema=${JSON.stringify(schemaSlugs)}, visible=${JSON.stringify(visibleSlugs)}`
+      );
+    }
+
+    if (webPage.mainEntity?.['@id'] !== itemList['@id']) {
+      selectorReport(
+        `WebPage.mainEntity must reference ${itemList['@id']}; ` +
+          `actual=${webPage.mainEntity?.['@id'] || 'missing'}`
+      );
+    }
+
+    const rentalNodeCount = graph.filter((node) => hasType(node, 'VacationRental')).length;
+    if (rentalNodeCount !== 0) {
+      selectorReport(
+        `collection graph duplicates ${rentalNodeCount} full VacationRental node(s)`
+      );
+    }
+
+    if (isValid) {
+      validatedStaySelectorRoutes.add(route.pathname);
+    }
+  }
+
+  if (
+    validatedStaySelectorRoutes.size !==
+    EXPECTED_LOCALIZED_STAY_SELECTOR_PAGES
+  ) {
+    errors.push(
+      `Validated ${validatedStaySelectorRoutes.size} localized Stay Selector ` +
+        `ItemLists; expected ${EXPECTED_LOCALIZED_STAY_SELECTOR_PAGES}.`
+    );
+  }
+
   if (errors.length > 0) {
     throw new Error(
       [
@@ -820,6 +1113,7 @@ export function runStructuredDataAudit({
   const summary = {
     contentPages,
     redirectPages,
+    staySelectorItemLists: validatedStaySelectorRoutes.size,
     vacationRentalPages,
     vacationRentalEntities: rentalIdentityByIdentifier.size
   };
@@ -828,7 +1122,8 @@ export function runStructuredDataAudit({
   console.log(
     `${contentPages} content pages, ${redirectPages} redirects, ` +
       `${vacationRentalPages} localized VacationRental pages ` +
-      `for ${rentalIdentityByIdentifier.size} properties checked.`
+      `for ${rentalIdentityByIdentifier.size} properties, and ` +
+      `${validatedStaySelectorRoutes.size} localized Stay Selector ItemLists checked.`
   );
 
   return summary;

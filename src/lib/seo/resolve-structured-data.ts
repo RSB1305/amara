@@ -514,6 +514,35 @@ function buildWebPageNode(
   return node;
 }
 
+function buildItemListNode(
+  entities: VacationRentalEntity[],
+  canonicalUrl: string,
+  currentLang: AmaraLanguage,
+  origin: string,
+  name: string
+) {
+  const base = getBase(origin);
+
+  return {
+    '@type': 'ItemList',
+    '@id': `${canonicalUrl}#itemlist`,
+    name,
+    numberOfItems: entities.length,
+    itemListElement: entities.map((entity, index) => ({
+      '@type': 'ListItem',
+      position: index + 1,
+      item: {
+        '@id': `${base}/#${entity.identifier}`,
+        name: entity.name,
+        url: new URL(
+          buildOwnedLocalizedPath(entity.slug, currentLang),
+          base
+        ).href
+      }
+    }))
+  };
+}
+
 function buildArticleNode(
   seo: NonNullable<AmaraAuthoringSeo['article']>,
   canonicalUrl: string,
@@ -775,6 +804,24 @@ export function resolveStructuredData(
   const lodgingEntity = seo?.schemaType === 'lodging'
     ? getVacationRentalEntity(seo.entityKey)
     : undefined;
+  const collectionEntities = (seo?.collection?.entityKeys ?? []).map((entityKey) => {
+    const entity = vacationRentalEntitiesByKey[entityKey];
+
+    if (!entity) {
+      throw new Error(`[Structured data] Unknown collection entity: ${entityKey}`);
+    }
+
+    return entity;
+  });
+  const itemListNode = collectionEntities.length > 0
+    ? buildItemListNode(
+        collectionEntities,
+        canonicalUrl,
+        currentLang,
+        origin,
+        current.title
+      )
+    : undefined;
   const ogImage = resolveOgImage(seo, origin);
   const breadcrumbNode = buildBreadcrumbNode(
     canonicalUrl,
@@ -794,6 +841,7 @@ export function resolveStructuredData(
   const lodgingEntityId = lodgingEntity
     ? `${getBase(origin)}/#${lodgingEntity.identifier}`
     : undefined;
+  const itemListEntityId = itemListNode?.['@id'] as string | undefined;
 
   const graph: SchemaNode[] = [];
 
@@ -811,7 +859,7 @@ export function resolveStructuredData(
       {
         breadcrumbId: breadcrumbNode?.['@id'] as string | undefined,
         publisherId,
-        mainEntityId: lodgingEntityId ?? articleEntityId,
+        mainEntityId: lodgingEntityId ?? itemListEntityId ?? articleEntityId,
         image: ogImage
       }
     )
@@ -823,6 +871,10 @@ export function resolveStructuredData(
 
   if (includeBrand) {
     graph.push(buildBrandNode(BRAND_ENTITY, origin));
+  }
+
+  if (itemListNode) {
+    graph.push(itemListNode);
   }
 
   if (seo?.article) {

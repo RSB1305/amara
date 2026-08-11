@@ -35,11 +35,22 @@ interface Props {
 
 const { lang = 'es' } = Astro.props;
 const currentLang = normalizeLanguage(lang as AmaraLanguage);
+const stayCollectionEntityKeys = [
+  'amara-farah',
+  'amara-lounis',
+  'amara-zaid',
+  'amara-maha',
+  'amara-playa',
+  'amara-family-surf'
+] as const satisfies readonly VacationRentalEntityKey[];
 
 const seo: AmaraAuthoringSeo = {
   version: '2026-08-11-amara-stay-collection-v2.0-D',
   pageType: 'D',
   entityKey: 'amara-brand',
+  collection: {
+    entityKeys: stayCollectionEntityKeys
+  },
   languages: {
     en: {
       title: 'AMARA Stays in Frigiliana, Nerja & Tarifa',
@@ -414,8 +425,7 @@ const featureChipsByLang: Record<AmaraLanguage, { label: string; note?: string }
   ]
 };
 
-const apartmentTokens = ['farah', 'lounis', 'zaid', 'maha', 'playa', 'casa'] as const;
-type ApartmentToken = (typeof apartmentTokens)[number];
+type ApartmentToken = VacationRentalEntity['token'];
 
 const apartmentImages: Record<ApartmentToken, ImageMetadata> = {
   farah: imgFarah,
@@ -424,15 +434,6 @@ const apartmentImages: Record<ApartmentToken, ImageMetadata> = {
   maha: imgMaha,
   playa: imgPlaya,
   casa: imgTarifa
-};
-
-const rentalKeyByToken: Record<ApartmentToken, VacationRentalEntityKey> = {
-  farah: 'amara-farah',
-  lounis: 'amara-lounis',
-  zaid: 'amara-zaid',
-  maha: 'amara-maha',
-  playa: 'amara-playa',
-  casa: 'amara-family-surf'
 };
 
 const guestCountLabels: Record<AmaraLanguage, (count: number) => string> = {
@@ -639,10 +640,11 @@ const locationBridgeLinks = [
   ...(winterHref ? [{ href: winterHref, label: t(copy.locationWinter) }] : [])
 ];
 
-const apartmentRows = apartmentTokens.map((token) => {
+const apartmentRows = stayCollectionEntityKeys.map((entityKey) => {
+  const rental = vacationRentalEntitiesByKey[entityKey];
+  const token = rental.token;
   const href = optionalLink(token);
   if (!href) return null;
-  const rental = vacationRentalEntitiesByKey[rentalKeyByToken[token]];
 
   return {
     token,

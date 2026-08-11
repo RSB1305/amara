@@ -19,6 +19,9 @@ export interface AmaraAuthoringSeo {
   schemaType?: AmaraSchemaType;
   languages: Record<AmaraLanguage, AmaraSeoLanguageEntry>;
   ogImage?: string;
+  collection?: {
+    entityKeys: readonly Exclude<AmaraEntityKey, 'amara-brand'>[];
+  };
   article?: {
     datePublished: string;
     dateModified: string;
