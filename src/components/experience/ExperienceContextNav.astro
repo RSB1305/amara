@@ -3,8 +3,8 @@
  * ExperienceContextNav
  *
  * Crawlable family navigation for the AMARA experience hub and every detail
- * page. The optional currentId creates the hub state without a redundant back
- * link; detail pages additionally identify the current guide.
+ * page. The optional currentId creates the hub state; detail pages additionally
+ * identify the current guide.
  */
 import ContextNavigation, {
   type ContextNavigationBreadcrumb
@@ -73,7 +73,6 @@ const breadcrumbs: ContextNavigationBreadcrumb[] = [
 
 <ContextNavigation
   activeId={currentId}
-  backLink={currentId && hubHref ? { href: hubHref, label: navigation.backLabel } : undefined}
   breadcrumbAriaLabel={navigation.breadcrumbAriaLabel}
   breadcrumbs={breadcrumbs}
   context="experience"

@@ -36,38 +36,32 @@ const isOverview = activeId === 'intro';
 const labels: Record<
   AmaraLanguage,
   {
-    back: string;
     breadcrumb: string;
     destinations: string;
     switcher: string;
   }
 > = {
   en: {
-    back: 'Back to Frigiliana guide',
     breadcrumb: 'Breadcrumb',
     destinations: 'Destinations',
     switcher: 'Frigiliana guide navigation'
   },
   de: {
-    back: 'Zurück zum Frigiliana-Guide',
     breadcrumb: 'Brotkrümelnavigation',
     destinations: 'Reiseziele',
     switcher: 'Navigation im Frigiliana-Guide'
   },
   es: {
-    back: 'Volver a la guía de Frigiliana',
     breadcrumb: 'Migas de pan',
     destinations: 'Destinos',
     switcher: 'Navegación de la guía de Frigiliana'
   },
   nl: {
-    back: 'Terug naar de Frigiliana-gids',
     breadcrumb: 'Broodkruimelnavigatie',
     destinations: 'Bestemmingen',
     switcher: 'Navigatie van de Frigiliana-gids'
   },
   sv: {
-    back: 'Tillbaka till Frigiliana-guiden',
     breadcrumb: 'Brödsmulenavigering',
     destinations: 'Resmål',
     switcher: 'Navigering i Frigiliana-guiden'
@@ -76,6 +70,9 @@ const labels: Record<
 
 const copy = labels[lang];
 const homeHref = resolveOptionalLink('home', lang, {
+  suppressMissing: true
+});
+const destinationsHref = resolveOptionalLink('explore_hub', lang, {
   suppressMissing: true
 });
 const guideHref = resolveOptionalLink('location_frigiliana', lang, {
@@ -92,17 +89,21 @@ const breadcrumbs: ContextNavigationBreadcrumb[] = [
   },
   {
     label: copy.destinations,
-    href: !isOverview ? guideHref ?? undefined : undefined
+    href: destinationsHref ?? undefined
   },
   {
-    label: isOverview ? frigilianaLabel : currentLabel ?? frigilianaLabel
+    label: frigilianaLabel,
+    href: !isOverview ? guideHref ?? undefined : undefined
   }
 ];
+
+if (!isOverview) {
+  breadcrumbs.push({ label: currentLabel ?? frigilianaLabel });
+}
 ---
 
 <ContextNavigation
   activeId={activeId}
-  backLink={!isOverview && guideHref ? { href: guideHref, label: copy.back } : undefined}
   breadcrumbAriaLabel={copy.breadcrumb}
   breadcrumbs={breadcrumbs}
   context="location"

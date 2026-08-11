@@ -176,7 +176,6 @@ export interface ExperienceNavigationCopy {
   menuOverviewDescription: string;
   breadcrumbLabel: string;
   breadcrumbAriaLabel: string;
-  backLabel: string;
   switcherLabel: string;
   relatedKicker: string;
   relatedTitle: string;
@@ -200,7 +199,6 @@ export const experienceNavigationContent: Record<
     menuOverviewDescription: 'The complete Frigiliana and Nerja experience guide.',
     breadcrumbLabel: 'Experiences',
     breadcrumbAriaLabel: 'Breadcrumb',
-    backLabel: 'Back to all experiences',
     switcherLabel: 'Explore another experience',
     relatedKicker: 'Continue exploring',
     relatedTitle: 'Choose another local guide',
@@ -225,7 +223,6 @@ export const experienceNavigationContent: Record<
     menuOverviewDescription: 'Der vollständige Experience Guide für Frigiliana und Nerja.',
     breadcrumbLabel: 'Erlebnisse',
     breadcrumbAriaLabel: 'Brotkrümelnavigation',
-    backLabel: 'Zurück zu allen Erlebnissen',
     switcherLabel: 'Ein anderes Erlebnis entdecken',
     relatedKicker: 'Weiter entdecken',
     relatedTitle: 'Wählt einen weiteren lokalen Guide',
@@ -250,7 +247,6 @@ export const experienceNavigationContent: Record<
     menuOverviewDescription: 'La guía completa de experiencias en Frigiliana y Nerja.',
     breadcrumbLabel: 'Experiencias',
     breadcrumbAriaLabel: 'Migas de pan',
-    backLabel: 'Volver a todas las experiencias',
     switcherLabel: 'Descubrir otra experiencia',
     relatedKicker: 'Seguir descubriendo',
     relatedTitle: 'Elegid otra guía local',
@@ -275,7 +271,6 @@ export const experienceNavigationContent: Record<
     menuOverviewDescription: 'De complete ervaringengids voor Frigiliana en Nerja.',
     breadcrumbLabel: 'Ervaringen',
     breadcrumbAriaLabel: 'Broodkruimelnavigatie',
-    backLabel: 'Terug naar alle ervaringen',
     switcherLabel: 'Ontdek een andere ervaring',
     relatedKicker: 'Verder ontdekken',
     relatedTitle: 'Kies een andere lokale gids',
@@ -300,7 +295,6 @@ export const experienceNavigationContent: Record<
     menuOverviewDescription: 'Den kompletta upplevelseguiden för Frigiliana och Nerja.',
     breadcrumbLabel: 'Upplevelser',
     breadcrumbAriaLabel: 'Brödsmulenavigering',
-    backLabel: 'Tillbaka till alla upplevelser',
     switcherLabel: 'Upptäck en annan upplevelse',
     relatedKicker: 'Fortsätt upptäcka',
     relatedTitle: 'Välj en annan lokal guide',

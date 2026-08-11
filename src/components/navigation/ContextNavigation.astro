@@ -18,10 +18,6 @@ export interface ContextNavigationItem {
 
 interface Props {
   activeId?: string;
-  backLink?: {
-    href: string;
-    label: string;
-  };
   breadcrumbAriaLabel: string;
   breadcrumbs: ContextNavigationBreadcrumb[];
   context: 'experience' | 'location';
@@ -31,7 +27,6 @@ interface Props {
 
 const {
   activeId,
-  backLink,
   breadcrumbAriaLabel,
   breadcrumbs,
   context,
@@ -92,17 +87,6 @@ const visibleItems = activeId
           </ol>
         </nav>
 
-        {
-          backLink && (
-            <a
-              href={backLink.href}
-              aria-label={backLink.label}
-              class="inline-flex h-9 w-9 items-center justify-center text-primary transition-colors hover:text-on-surface"
-            >
-              <span aria-hidden="true">&larr;</span>
-            </a>
-          )
-        }
       </div>
         )
       }
