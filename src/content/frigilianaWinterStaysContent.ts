@@ -92,35 +92,35 @@ export const frigilianaWinterStaysSeo: AmaraAuthoringSeo = {
   ogImage: '/images/hero-frigiliana.jpg',
   languages: {
     en: {
-      title: 'Winter Stays in Frigiliana | Heated AMARA Apartments',
+      title: 'Heated Winter Stays in Frigiliana | AMARA',
       description:
         'Stay in Frigiliana for a winter break of a few days to three weeks, with heating, bathroom underfloor heating, pellet stoves and the Mediterranean coast nearby.',
       robots: 'index, follow',
       canonical: 'auto'
     },
     de: {
-      title: 'Winterurlaub in Frigiliana | Beheizte AMARA-Unterkünfte',
+      title: 'Winterurlaub in Frigiliana | Beheizte Unterkünfte | AMARA',
       description:
         'Winterurlaub in Frigiliana für ein paar Tage bis drei Wochen: historisches Dorf, Heizung, Fußbodenheizung im Bad, Pelletofen und die Küste bei Nerja ganz nah.',
       robots: 'index, follow',
       canonical: 'auto'
     },
     es: {
-      title: 'Invierno en Frigiliana | Alojamientos AMARA con calefacción',
+      title: 'Invierno en Frigiliana | Alojamientos con calefacción | AMARA',
       description:
         'Alojaos en Frigiliana unos días o hasta tres semanas en invierno, con calefacción, suelo radiante en los baños, estufas de pellets y la costa de Nerja cerca.',
       robots: 'index, follow',
       canonical: 'auto'
     },
     nl: {
-      title: 'Winterverblijf in Frigiliana | Verwarmde AMARA-verblijven',
+      title: 'Verwarmde winterverblijven in Frigiliana | AMARA',
       description:
         'Verblijf enkele dagen tot drie weken in Frigiliana in de winter, met verwarming, vloerverwarming in de badkamers, pelletkachels en de kust bij Nerja dichtbij.',
       robots: 'index, follow',
       canonical: 'auto'
     },
     sv: {
-      title: 'Vintervistelse i Frigiliana | Uppvärmda AMARA-boenden',
+      title: 'Uppvärmda vinterboenden i Frigiliana | AMARA',
       description:
         'Bo i Frigiliana några dagar eller upp till tre veckor på vintern, med värme, golvvärme i badrummen, pelletskaminer och Nerjas kust nära.',
       robots: 'index, follow',

@@ -84,31 +84,31 @@ export const frigilianaLocationSeo: AmaraAuthoringSeo = {
   ogImage: '/images/amara-lounis/15-amara-frigiliana.jpg',
   languages: {
   "de": {
-    "title": "In Frigiliana übernachten | Altstadt, Meer & AMARA",
+    "title": "In Frigiliana übernachten | Altstadt & Meer | AMARA",
     "description": "Entdeckt, warum es sich lohnt, in Frigiliana zu übernachten: historisches weißes Dorf, ruhige Abende, Nerja und Meer ganz nah – und Casa AMARA mittendrin.",
     "robots": "index, follow",
     "canonical": "auto"
   },
   "en": {
-    "title": "Stay in Frigiliana | Historic Village, Coast & AMARA",
+    "title": "Stay in Frigiliana | Historic Village & Coast | AMARA",
     "description": "Discover what it is like to stay in Frigiliana: quiet evenings, centuries-old streets, the Mediterranean nearby and Casa AMARA in the heart of the old town.",
     "robots": "index, follow",
     "canonical": "auto"
   },
   "es": {
-    "title": "Alojarse en Frigiliana | Casco histórico, mar y AMARA",
+    "title": "Alojarse en Frigiliana | Casco histórico y mar | AMARA",
     "description": "Descubre cómo es alojarse en Frigiliana: calles blancas, noches tranquilas, siglos de historia, el Mediterráneo cerca y Casa AMARA en pleno casco histórico.",
     "robots": "index, follow",
     "canonical": "auto"
   },
   "nl": {
-    "title": "Overnachten in Frigiliana | Historisch dorp, zee & AMARA",
+    "title": "Overnachten in Frigiliana | Historisch dorp & zee | AMARA",
     "description": "Ontdek hoe het is om in Frigiliana te verblijven: witte straatjes, rustige avonden, eeuwenoude geschiedenis, de Middellandse Zee dichtbij en Casa AMARA midden in het oude dorp.",
     "robots": "index, follow",
     "canonical": "auto"
   },
   "sv": {
-    "title": "Bo i Frigiliana | Historisk by, havet & AMARA",
+    "title": "Bo i Frigiliana | Historisk by & havet | AMARA",
     "description": "Upptäck hur det är att bo i Frigiliana: vita gränder, lugna kvällar, århundraden av historia, Medelhavet nära och Casa AMARA mitt i den gamla byn.",
     "robots": "index, follow",
     "canonical": "auto"

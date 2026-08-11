@@ -322,16 +322,16 @@ export const vacationRentalEntities: VacationRentalEntity[] = [
     seoTitle: {
       en: 'Lounis: Frigiliana apartment, step-free to town | AMARA',
       de: 'Lounis: Ferienwohnung Frigiliana, stufenlos ins Dorf | AMARA',
-      es: 'Lounis: apartamento en Frigiliana sin escalones | AMARA',
+      es: 'Lounis: apartamento en Frigiliana, ruta al centro sin escalones | AMARA',
       nl: 'Lounis: appartement Frigiliana, trapvrij naar het dorp | AMARA',
       sv: 'Lounis: lägenhet i Frigiliana, trappfritt till byn | AMARA'
     },
     seoDescription: {
-      en: 'Step-free to the restaurants and the plaza: a Frigiliana old-town apartment for 2, terrace over the groves, Moorish walls, small dogs welcome.',
-      de: 'Stufenlos zu Restaurants und Plaza: Ferienwohnung in Frigilianas Altstadt für 2, Terrasse über den Plantagen, maurische Mauern, Hunde willkommen.',
+      en: 'Step-free to the restaurants and the plaza: a Frigiliana old-town apartment for 2, terrace over the groves, Moorish walls. Small dogs on request.',
+      de: 'Stufenlos zu Restaurants und Plaza: Ferienwohnung in Frigilianas Altstadt für 2, Terrasse über den Plantagen, maurische Mauern. Kleine Hunde auf Anfrage.',
       es: 'Sin escalones hasta los restaurantes y la plaza: apartamento en el casco antiguo de Frigiliana para 2, terraza sobre el campo, muros andalusíes.',
-      nl: 'Trapvrij naar de restaurants en het plein: appartement in de oude kern van Frigiliana voor 2, terras boven de plantages, kleine honden welkom.',
-      sv: 'Trappfritt till restauranger och torget: lägenhet i gamla Frigiliana för 2, terrass över odlingarna, moriska murar, små hundar välkomna.'
+      nl: 'Trapvrij naar de restaurants en het plein: appartement in de oude kern van Frigiliana voor 2, terras boven de plantages. Kleine honden op aanvraag.',
+      sv: 'Trappfritt till restauranger och torget: lägenhet i gamla Frigiliana för 2, terrass över odlingarna, moriska murar. Små hundar på förfrågan.'
     },
     eyebrow: {
       en: 'Historic apartment',
@@ -667,11 +667,11 @@ export const vacationRentalEntities: VacationRentalEntity[] = [
       sv: 'Maha: lägenhet i Frigiliana med 60 m² terrass | AMARA'
     },
     seoDescription: {
-      en: 'A 60 m² terrace with an outdoor kitchen, highest in the house: a Frigiliana apartment for 2 with the widest view. Small dogs welcome.',
-      de: '60 m² Terrasse mit Außenküche, ganz oben im Haus: Ferienwohnung in Frigiliana für 2 mit der weitesten Aussicht. Hunde willkommen.',
-      es: 'Terraza de 60 m² con cocina exterior, en lo más alto de la casa: apartamento en Frigiliana para 2 con las vistas más amplias. Perros pequeños.',
-      nl: 'Terras van 60 m² met buitenkeuken, het hoogst in huis: appartement in Frigiliana voor 2 met het verste uitzicht. Kleine honden welkom.',
-      sv: '60 m² terrass med utekök, högst upp i huset: lägenhet i Frigiliana för 2 med den vidaste utsikten. Små hundar välkomna.'
+      en: 'A 60 m² terrace with an outdoor kitchen, highest in the house: a Frigiliana apartment for 2 with the widest view. Small dogs on request.',
+      de: '60 m² Terrasse mit Außenküche, ganz oben im Haus: Ferienwohnung in Frigiliana für 2 mit der weitesten Aussicht. Kleine Hunde auf Anfrage.',
+      es: 'Terraza de 60 m² con cocina exterior, en lo más alto de la casa: apartamento en Frigiliana para 2 con las vistas más amplias. Perros pequeños bajo petición.',
+      nl: 'Terras van 60 m² met buitenkeuken, het hoogst in huis: appartement in Frigiliana voor 2 met het verste uitzicht. Kleine honden op aanvraag.',
+      sv: '60 m² terrass med utekök, högst upp i huset: lägenhet i Frigiliana för 2 med den vidaste utsikten. Små hundar på förfrågan.'
     },
     eyebrow: {
       en: 'Large private terrace',
