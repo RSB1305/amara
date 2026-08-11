@@ -11,8 +11,8 @@ import { buildBookingLandingUrl } from './directBooking';
  */
 
 export const linkRegistry = {
-  version: '2026-07-19-registry-v4.1',
-  updated_at: '2026-07-19',
+  version: '2026-08-11-registry-v4.2',
+  updated_at: '2026-08-11',
   base: '/',
   links: {
     /* =========================================================
@@ -228,6 +228,13 @@ legal_notice: {
       es: buildOwnedLocalizedPath('frigiliana-weather', 'es'),
       nl: buildOwnedLocalizedPath('frigiliana-weather', 'nl'),
       sv: buildOwnedLocalizedPath('frigiliana-weather', 'sv')
+    },
+    frigiliana_winter_stays: {
+      en: buildOwnedLocalizedPath('frigiliana-winter-stays', 'en'),
+      de: buildOwnedLocalizedPath('frigiliana-winter-stays', 'de'),
+      es: buildOwnedLocalizedPath('frigiliana-winter-stays', 'es'),
+      nl: buildOwnedLocalizedPath('frigiliana-winter-stays', 'nl'),
+      sv: buildOwnedLocalizedPath('frigiliana-winter-stays', 'sv')
     },
 
     /* =========================================================

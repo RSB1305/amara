@@ -1,0 +1,13 @@
+---
+import FrigilianaWinterStaysPage from '../../page-families/seasonal-conversion/FrigilianaWinterStaysPage.astro';
+import { getOwnedPageStaticPaths } from '../../lib/routeOwnership';
+import type { AmaraLanguage } from '../../types/seo';
+
+export function getStaticPaths() {
+  return getOwnedPageStaticPaths();
+}
+
+const { lang } = Astro.params as { lang: AmaraLanguage };
+---
+
+<FrigilianaWinterStaysPage lang={lang} />

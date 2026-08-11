@@ -45,6 +45,7 @@
 /es/frigiliana-parking /frigiliana-parking 301
 /es/frigiliana-streets-stairs /frigiliana-streets-stairs 301
 /es/frigiliana-weather /frigiliana-weather 301
+/es/frigiliana-winter-stays /frigiliana-winter-stays 301
 /es/getting-to-frigiliana /getting-to-frigiliana 301
 /es/guest-reviews /guest-reviews 301
 /es/legal-notice /legal-notice 301
@@ -180,11 +181,13 @@
 /es/el-tiempo-en-frigiliana /frigiliana-weather 301
 /nl/het-weer-in-frigiliana /nl/frigiliana-weather 301
 /sv/frigiliana-vader /sv/frigiliana-weather 301
-/en/winter-stay-frigiliana /en/frigiliana-weather 301
-/de/winter-in-frigiliana /de/frigiliana-weather 301
-/es/invierno-en-frigiliana /frigiliana-weather 301
-/nl/de-winter-in-frigiliana /nl/frigiliana-weather 301
-/sv/vinter-i-frigiliana /sv/frigiliana-weather 301
+
+# Frigiliana winter stay legacy slugs
+/en/winter-stay-frigiliana /en/frigiliana-winter-stays 301
+/de/winter-in-frigiliana /de/frigiliana-winter-stays 301
+/es/invierno-en-frigiliana /frigiliana-winter-stays 301
+/nl/de-winter-in-frigiliana /nl/frigiliana-winter-stays 301
+/sv/vinter-i-frigiliana /sv/frigiliana-winter-stays 301
 
 # Frigiliana beaches legacy slugs
 /beaches-nerja-frigiliana /frigiliana-beaches 301
