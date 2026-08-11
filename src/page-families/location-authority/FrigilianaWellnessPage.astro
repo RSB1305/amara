@@ -1,6 +1,7 @@
 ---
 import Hero from '../../components/Hero.astro';
 import Navigation from '../../components/Navigation.astro';
+import AmaraImage from '../../components/AmaraImage.astro';
 import EditorialClosingCta from '../../components/editorial/EditorialClosingCta.astro';
 import EditorialFeatureGrid from '../../components/editorial/EditorialFeatureGrid.astro';
 import ExperienceContextNav from '../../components/experience/ExperienceContextNav.astro';
@@ -49,6 +50,8 @@ const heroImage = {
   width: 1080,
   height: 721
 };
+
+const providerImage = '/images/wellness/frigiliana-wellness-1.jpeg';
 ---
 
 <LocationAuthorityLayout
@@ -137,6 +140,21 @@ const heroImage = {
                   class="border-t border-outline-variant/25 pt-8 flex h-full flex-col"
                   aria-labelledby={titleId}
                 >
+                  {
+                    provider.id === 'frigilianaWellness' && provider.imageAlt && (
+                      <div class="mb-8 overflow-hidden bg-surface-container-low">
+                        <AmaraImage
+                          src={providerImage}
+                          alt={provider.imageAlt}
+                          profile="card"
+                          width={720}
+                          widths={[360, 480, 720]}
+                          sizes="(max-width: 1023px) calc(100vw - 3rem), 42vw"
+                          class="aspect-[4/3] h-full w-full object-cover"
+                        />
+                      </div>
+                    )
+                  }
                   <p class="am-text-caption text-primary mb-3">
                     {provider.name}
                   </p>

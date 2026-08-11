@@ -4,6 +4,7 @@ type WellnessProviderKey = 'frigilianaWellness' | 'lidia';
 
 interface WellnessProviderCopy {
   name: string;
+  imageAlt?: string;
   title: string;
   summary: string;
   highlights: {
@@ -237,6 +238,7 @@ export const frigilianaWellnessContent: Record<
       items: [
         provider('frigilianaWellness', {
           name: 'Frigiliana Wellness',
+          imageAlt: 'Outdoor massage beside a pool in the hills around Frigiliana',
           title: 'Mobile spa & pamper days',
           summary:
             'A mobile service for spa and beauty treatments at your villa or apartment. It is the simpler option if you do not want to travel for the appointment.',
@@ -437,6 +439,7 @@ export const frigilianaWellnessContent: Record<
       items: [
         provider('frigilianaWellness', {
           name: 'Frigiliana Wellness',
+          imageAlt: 'Massage im Freien an einem Pool in den Hügeln rund um Frigiliana',
           title: 'Mobiler Spa- und Verwöhntag',
           summary:
             'Ein mobiler Service für Spa- und Beauty-Anwendungen in eurer Villa oder eurem Apartment. Die einfachere Wahl, wenn ihr für den Termin nicht fahren möchtet.',
@@ -637,6 +640,7 @@ export const frigilianaWellnessContent: Record<
       items: [
         provider('frigilianaWellness', {
           name: 'Frigiliana Wellness',
+          imageAlt: 'Masaje al aire libre junto a una piscina en las colinas de Frigiliana',
           title: 'Spa a domicilio y días de mimos',
           summary:
             'Una experiencia de spa clásica y relajada, centrada en la comodidad, la belleza y la facilidad. Resulta especialmente práctica si queréis que el bienestar venga a vosotros sin reorganizar el resto del día.',
@@ -837,6 +841,7 @@ export const frigilianaWellnessContent: Record<
       items: [
         provider('frigilianaWellness', {
           name: 'Frigiliana Wellness',
+          imageAlt: 'Massage in de buitenlucht bij een zwembad in de heuvels rond Frigiliana',
           title: 'Mobiele spa & verwenmomenten',
           summary:
             'Een mobiele service voor spa- en beautybehandelingen in jullie villa of appartement. De eenvoudigste optie als jullie niet voor de afspraak willen reizen.',
@@ -1037,6 +1042,7 @@ export const frigilianaWellnessContent: Record<
       items: [
         provider('frigilianaWellness', {
           name: 'Frigiliana Wellness',
+          imageAlt: 'Utomhusmassage vid en pool i kullarna runt Frigiliana',
           title: 'Mobil spa- och avkopplingsdag',
           summary:
             'En avslappnad, klassisk spaupplevelse med fokus på komfort, skönhet och enkelhet. Särskilt praktiskt när ni vill att wellness ska komma till er utan att resten av dagen behöver planeras om.',
