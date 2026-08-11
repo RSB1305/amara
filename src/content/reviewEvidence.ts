@@ -15,7 +15,7 @@ export const airbnbReviewEvidence = {
    */
   reviewCountLabel: '550+',
   checkedAt: '2026-08-04',
-  sourceUrl: 'https://www.airbnb.com/rooms/52229175'
+  sourceUrl: 'https://www.airbnb.com/users/show/12417181'
 } as const;
 
 export const airbnbRatingLabel: Record<AmaraLanguage, string> = {

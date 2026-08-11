@@ -322,7 +322,7 @@ export const vacationRentalEntities: VacationRentalEntity[] = [
     seoTitle: {
       en: 'Lounis: Frigiliana apartment, step-free to town | AMARA',
       de: 'Lounis: Ferienwohnung Frigiliana, stufenlos ins Dorf | AMARA',
-      es: 'Lounis: apartamento en Frigiliana, ruta al centro sin escalones | AMARA',
+      es: 'Lounis: apartamento en Frigiliana, centro sin escalones | AMARA',
       nl: 'Lounis: appartement Frigiliana, trapvrij naar het dorp | AMARA',
       sv: 'Lounis: lägenhet i Frigiliana, trappfritt till byn | AMARA'
     },

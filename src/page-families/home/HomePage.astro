@@ -34,6 +34,7 @@ import {
   navReviews
 } from '../../content/homeCinematicCopy';
 import { stayCollectionLabels } from '../../content/stayCollectionLabels';
+import { airbnbRatingLabel, airbnbReviewEvidence } from '../../content/reviewEvidence';
 import imgHeroLounis from '../../assets/images/home/amara-lounis-15-amara-frigiliana.jpg';
 import imgFarah from '../../assets/images/home/amara-farah-67-amara-frigiliana.jpg';
 import imgZaid from '../../assets/images/home/amara-zaid-terraza-5.jpg';
@@ -79,8 +80,7 @@ const seo: AmaraAuthoringSeo = {
     },
     de: {
       title: 'AMARA | Individuelle Ferienunterkünfte in Frigiliana, Nerja & Tarifa',
-      description:
-        'Historische Apartments mit privaten Terrassen, ein Strandapartment in Nerja und ein Penthouse in Tarifa. Persönlich geführt, mit über 500 Gästebewertungen und durchschnittlich 4,95/5.',
+      description: `Historische Apartments mit privaten Terrassen, ein Strandapartment in Nerja und ein Penthouse in Tarifa. Persönlich geführt, mit ${airbnbReviewEvidence.reviewCountLabel} Gästebewertungen und durchschnittlich ${airbnbRatingLabel.de}/5.`,
       robots: 'index, follow',
       canonical: 'auto'
     },
