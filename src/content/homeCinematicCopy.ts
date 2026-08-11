@@ -4,6 +4,7 @@
  */
 import type { AmaraLanguage } from '../types/seo';
 import { airbnbRatingLabel, airbnbReviewEvidence } from './reviewEvidence';
+import { stayCollectionLabels } from './stayCollectionLabels';
 
 export type CopyRow = Record<AmaraLanguage, string>;
 
@@ -164,13 +165,7 @@ export interface CinematicGuideLinkDef {
 export const cinematicGuideLinks: CinematicGuideLinkDef[] = [
   {
     token: 'romantic_hideaways',
-    label: {
-      en: 'Compare AMARA stays',
-      de: 'Unterkünfte vergleichen',
-      es: 'Comparar alojamientos AMARA',
-      nl: 'AMARA-verblijven vergelijken',
-      sv: 'Jämför AMARA-boenden'
-    },
+    label: stayCollectionLabels.compareLabel,
     text: {
       en: 'Compare the AMARA stays in Frigiliana and Nerja.',
       de: 'Seht die Unterschiede zwischen unseren Unterkünften in Frigiliana und Nerja.',
@@ -241,13 +236,8 @@ export const navExperiences: CopyRow = {
   sv: 'Upplevelser'
 };
 
-export const navApartments: CopyRow = {
-  en: 'Apartments',
-  de: 'Apartments',
-  es: 'Apartamentos',
-  nl: 'Appartementen',
-  sv: 'Lägenheter'
-};
+// Compatibility export for the untracked Design Lab consumer; the vocabulary is owned centrally.
+export const navApartments: CopyRow = stayCollectionLabels.shortLabel;
 
 export const navReviews: CopyRow = {
   en: 'Reviews',

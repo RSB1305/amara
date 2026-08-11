@@ -1,4 +1,5 @@
 import type { AmaraAuthoringSeo, AmaraLanguage } from '../types/seo';
+import { stayCollectionLabels } from './stayCollectionLabels';
 
 export interface FrigilianaHikingRouteCard {
   title: string;
@@ -139,7 +140,7 @@ export const frigilianaHikingContent: Record<
     footerHighlights: {
       hiking: 'Hiking & nature',
       guide: 'Frigiliana guide',
-      stays: 'AMARA stays'
+      stays: stayCollectionLabels.structuralName.en
     },
     hero: {
       kicker: 'Nature guide',
@@ -340,7 +341,7 @@ export const frigilianaHikingContent: Record<
     footerHighlights: {
       hiking: 'Wandern & Natur',
       guide: 'Frigiliana-Guide',
-      stays: 'AMARA-Unterkünfte'
+      stays: stayCollectionLabels.structuralName.de
     },
     hero: {
       kicker: 'Natur-Guide',
@@ -541,7 +542,7 @@ export const frigilianaHikingContent: Record<
     footerHighlights: {
       hiking: 'Senderismo y naturaleza',
       guide: 'Guía de Frigiliana',
-      stays: 'Alojamientos AMARA'
+      stays: stayCollectionLabels.structuralName.es
     },
     hero: {
       kicker: 'Guía de naturaleza',
@@ -743,7 +744,7 @@ export const frigilianaHikingContent: Record<
     footerHighlights: {
       hiking: 'Wandelen & natuur',
       guide: 'Frigiliana-gids',
-      stays: 'AMARA-verblijven'
+      stays: stayCollectionLabels.structuralName.nl
     },
     hero: {
       kicker: 'Natuurgids',
@@ -945,7 +946,7 @@ export const frigilianaHikingContent: Record<
     footerHighlights: {
       hiking: 'Vandring & natur',
       guide: 'Frigiliana-guide',
-      stays: 'AMARA-boenden'
+      stays: stayCollectionLabels.structuralName.sv
     },
     hero: {
       kicker: 'Naturguide',

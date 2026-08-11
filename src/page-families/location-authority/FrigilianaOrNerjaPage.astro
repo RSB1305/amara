@@ -7,6 +7,7 @@ import {
   frigilianaOrNerjaSeo
 } from '../../content/frigilianaOrNerjaContent';
 import { frigilianaLocationCopy } from '../../content/frigilianaLocationContent';
+import { stayCollectionLabels } from '../../content/stayCollectionLabels';
 import LocationAuthorityLayout from '../../layouts/LocationAuthorityLayout.astro';
 import { resolveOptionalLink } from '../../lib/linkResolver';
 import { normalizeLanguage } from '../../lib/seo/resolve-seo-head';
@@ -53,30 +54,25 @@ const links = {
 
 const footerLabels: Record<
   AmaraLanguage,
-  { apartments: string; frigiliana: string; nerja: string }
+  { frigiliana: string; nerja: string }
 > = {
   en: {
-    apartments: 'AMARA stays',
     frigiliana: 'Frigiliana guide',
     nerja: 'Nerja guide'
   },
   de: {
-    apartments: 'AMARA-Unterkünfte',
     frigiliana: 'Frigiliana-Guide',
     nerja: 'Nerja-Guide'
   },
   es: {
-    apartments: 'Alojamientos AMARA',
     frigiliana: 'Guía de Frigiliana',
     nerja: 'Guía de Nerja'
   },
   nl: {
-    apartments: 'AMARA-verblijven',
     frigiliana: 'Frigiliana-gids',
     nerja: 'Nerja-gids'
   },
   sv: {
-    apartments: 'AMARA-boenden',
     frigiliana: 'Guide till Frigiliana',
     nerja: 'Guide till Nerja'
   }
@@ -86,7 +82,7 @@ const footer = footerLabels[currentLang];
 const footerHighlights = [
   {
     token: 'romantic_hideaways',
-    label: footer.apartments
+    label: stayCollectionLabels.structuralName[currentLang]
   },
   {
     token: 'location_frigiliana',

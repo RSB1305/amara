@@ -1,4 +1,5 @@
 import type { AmaraAuthoringSeo, AmaraLanguage } from '../types/seo';
+import { stayCollectionLabels } from './stayCollectionLabels';
 
 export type ExperienceId =
   | 'hiking'
@@ -409,7 +410,7 @@ export const experienceHubContent: Record<
       ],
       discoveryLinks: [
         {
-          label: 'Romantic stays for two',
+          label: stayCollectionLabels.compareLabel.en,
           token: 'romantic_hideaways'
         }
       ]
@@ -571,7 +572,7 @@ export const experienceHubContent: Record<
       ],
       discoveryLinks: [
         {
-          label: 'Romantische Auszeiten zu zweit',
+          label: stayCollectionLabels.compareLabel.de,
           token: 'romantic_hideaways'
         }
       ]
@@ -732,7 +733,7 @@ export const experienceHubContent: Record<
       ],
       discoveryLinks: [
         {
-          label: 'Escapadas románticas para dos',
+          label: stayCollectionLabels.compareLabel.es,
           token: 'romantic_hideaways'
         }
       ]
@@ -893,7 +894,7 @@ export const experienceHubContent: Record<
       ],
       discoveryLinks: [
         {
-          label: 'Romantische verblijven voor twee',
+          label: stayCollectionLabels.compareLabel.nl,
           token: 'romantic_hideaways'
         }
       ]
@@ -1054,7 +1055,7 @@ export const experienceHubContent: Record<
       ],
       discoveryLinks: [
         {
-          label: 'Romantiska vistelser för två',
+          label: stayCollectionLabels.compareLabel.sv,
           token: 'romantic_hideaways'
         }
       ]

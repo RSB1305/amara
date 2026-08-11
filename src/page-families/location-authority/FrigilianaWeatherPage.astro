@@ -10,6 +10,7 @@ import {
   frigilianaPreFooterCopy,
   getFrigilianaPreFooterDescription
 } from '../../content/frigilianaPreFooterContent';
+import { stayCollectionLabels } from '../../content/stayCollectionLabels';
 import { buildOwnedLocalizedPath } from '../../lib/routeOwnership';
 import { normalizeLanguage } from '../../lib/seo/resolve-seo-head';
 import type { AmaraAuthoringSeo, AmaraLanguage } from '../../types/seo';
@@ -287,7 +288,7 @@ const copy = {
       stay: { en: 'Where to stay', de: 'Unterkunft', es: 'Dónde alojarse', nl: 'Waar overnachten', sv: 'Var du bor' },
       parking: { en: 'Parking & arrival', de: 'Parken & Anreise', es: 'Aparcamiento y llegada', nl: 'Parkeren & aankomst', sv: 'Parkering & ankomst' },
       arrival: { en: 'Arrival Guide', de: 'Anreise-Guide', es: 'Guía de llegada', nl: 'Aankomstgids', sv: 'Ankomstguide' },
-      apartments: { en: 'AMARA stays', de: 'AMARA-Unterkünfte', es: 'Alojamientos AMARA', nl: 'AMARA-verblijven', sv: 'AMARA-boenden' }
+      stays: stayCollectionLabels.structuralName
     }
   },
   closing: {
@@ -335,7 +336,7 @@ const relatedLinks = [
   },
   {
     href: staysHref,
-    label: t(copy.related.links.apartments),
+    label: t(copy.related.links.stays),
     text: getFrigilianaPreFooterDescription('romantic_hideaways', currentLang)
   }
 ];

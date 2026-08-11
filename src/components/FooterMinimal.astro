@@ -2,6 +2,7 @@
 import { resolveOptionalLink } from '../lib/linkResolver';
 import { isPublicLinkEnabled } from '../lib/routeOwnership';
 import { comfortAmenitiesLinkLabel } from '../content/comfortAmenitiesLinkLabel';
+import { stayCollectionLabels } from '../content/stayCollectionLabels';
 import type { AmaraLanguage } from '../types/seo';
 
 interface FooterLink {
@@ -16,31 +17,31 @@ interface Props {
 
 const defaultLinksByLang: Record<AmaraLanguage, FooterLink[]> = {
   en: [
-    { token: 'romantic_hideaways', label: 'AMARA stays' },
+    { token: 'romantic_hideaways', label: stayCollectionLabels.structuralName.en },
     { token: 'amenities', label: 'Comfort & Amenities' },
     { token: 'reviews_hub', label: 'Guest Reviews' },
     { token: 'direct_booking_benefits', label: 'Direct Booking Benefits' }
   ],
   de: [
-    { token: 'romantic_hideaways', label: 'AMARA-Unterkünfte' },
+    { token: 'romantic_hideaways', label: stayCollectionLabels.structuralName.de },
     { token: 'amenities', label: 'Komfort & Ausstattung' },
     { token: 'reviews_hub', label: 'Gästebewertungen' },
     { token: 'direct_booking_benefits', label: 'Vorteile der Direktbuchung' }
   ],
   es: [
-    { token: 'romantic_hideaways', label: 'Alojamientos AMARA' },
+    { token: 'romantic_hideaways', label: stayCollectionLabels.structuralName.es },
     { token: 'amenities', label: 'Confort y servicios' },
     { token: 'reviews_hub', label: 'Reseñas de huéspedes' },
     { token: 'direct_booking_benefits', label: 'Ventajas de reserva directa' }
   ],
   nl: [
-    { token: 'romantic_hideaways', label: 'AMARA-verblijven' },
+    { token: 'romantic_hideaways', label: stayCollectionLabels.structuralName.nl },
     { token: 'amenities', label: 'Comfort en voorzieningen' },
     { token: 'reviews_hub', label: 'Gastbeoordelingen' },
     { token: 'direct_booking_benefits', label: 'Voordelen van direct boeken' }
   ],
   sv: [
-    { token: 'romantic_hideaways', label: 'AMARA-boenden' },
+    { token: 'romantic_hideaways', label: stayCollectionLabels.structuralName.sv },
     { token: 'amenities', label: 'Komfort och bekvämligheter' },
     { token: 'reviews_hub', label: 'Gästrecensioner' },
     { token: 'direct_booking_benefits', label: 'Fördelar med direktbokning' }

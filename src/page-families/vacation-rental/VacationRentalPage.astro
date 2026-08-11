@@ -9,6 +9,7 @@ import {
   type VacationRentalAmenityFeature,
   type VacationRentalEntity
 } from '../../content/vacationRentalEntities';
+import { stayCollectionLabels } from '../../content/stayCollectionLabels';
 import { resolveOptionalLink } from '../../lib/linkResolver';
 import { buildRentalBookingUrl } from '../../lib/directBooking';
 import { normalizeLanguage } from '../../lib/seo/resolve-seo-head';
@@ -28,26 +29,12 @@ const seo = buildVacationRentalSeo(rental);
 const bookingHref = buildRentalBookingUrl(rental.slug, currentLang);
 
 const ui = {
-  navApartments: {
-    en: 'Apartments',
-    de: 'Apartments',
-    es: 'Apartamentos',
-    nl: 'Appartementen',
-    sv: 'Lägenheter'
-  },
   checkAvailability: {
     en: 'Check availability',
     de: 'Verfügbarkeit prüfen',
     es: 'Consultar disponibilidad',
     nl: 'Beschikbaarheid bekijken',
     sv: 'Se tillgänglighet'
-  },
-  backToCollection: {
-    en: 'Back to apartment overview',
-    de: 'Zur Apartment-Übersicht',
-    es: 'Volver a la vista de apartamentos',
-    nl: 'Terug naar het appartementenoverzicht',
-    sv: 'Till lägenhetsöversikten'
   },
   readReviews: {
     en: 'Read guest reviews',
@@ -593,13 +580,13 @@ if (rental.bathroomUnderfloorHeating) {
 }
 
 const navLinks = [
-  { token: 'romantic_hideaways', label: t(ui.navApartments as LocalizedText) },
+  { token: 'romantic_hideaways', label: t(stayCollectionLabels.shortLabel) },
   { token: 'amenities' },
   { token: 'reviews_hub' },
   { token: 'direct_booking_benefits' }
 ];
 const footerHighlights = [
-  { token: 'romantic_hideaways', label: t(ui.navApartments as LocalizedText) },
+  { token: 'romantic_hideaways', label: t(stayCollectionLabels.shortLabel) },
   { token: 'amenities', label: t(ui.amenitiesTitle as LocalizedText) },
   { token: 'faq_general', label: 'FAQ' }
 ];
@@ -677,7 +664,7 @@ const galleryImages = visibleImages.slice(1);
             </a>
             {collectionHref && (
               <a class="am-btn am-btn--secondary w-full justify-center sm:w-auto" href={collectionHref}>
-                {t(ui.backToCollection as LocalizedText)}
+                {t(stayCollectionLabels.backToCollectionLabel)}
               </a>
             )}
           </div>

@@ -1,4 +1,5 @@
 import type { AmaraAuthoringSeo, AmaraLanguage } from '../types/seo';
+import { stayCollectionLabels } from './stayCollectionLabels';
 
 type LocalizedText = Record<AmaraLanguage, string>;
 
@@ -702,7 +703,7 @@ export const frigilianaStreetsStairsCopy = {
       },
       {
         token: 'romantic_hideaways',
-        label: { en: 'AMARA stays', de: 'AMARA-Unterkünfte', es: 'Alojamientos AMARA', nl: 'AMARA-verblijven', sv: 'AMARA-boenden' } satisfies LocalizedText,
+        label: stayCollectionLabels.structuralName,
         text: {
           en: 'Explore the existing AMARA stays after choosing the location model.',
           de: 'Entdeckt die bestehenden AMARA-Unterkünfte, wenn der Lagetyp feststeht.',

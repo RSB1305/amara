@@ -16,6 +16,7 @@ import {
   type FrigilianaLocationSubsection
 } from '../../content/frigilianaLocationContent';
 import { comfortAmenitiesLinkLabel } from '../../content/comfortAmenitiesLinkLabel';
+import { stayCollectionLabels } from '../../content/stayCollectionLabels';
 import { trustLabels } from '../../content/trustLabels';
 import { resolveOptionalLink } from '../../lib/linkResolver';
 import { getFrigilianaLocationSectionOrder } from '../../lib/frigiliana/frigilianaLocationSectionOrder';
@@ -92,13 +93,7 @@ const navLinks = frigilianaLocationNav.links.map((link) => ({
 const footerHighlights = [
   {
     token: 'romantic_hideaways',
-    label: {
-      en: 'AMARA stays',
-      de: 'AMARA-Unterkünfte',
-      es: 'Alojamientos AMARA',
-      nl: 'AMARA-verblijven',
-      sv: 'AMARA-boenden'
-    }[currentLang]
+    label: stayCollectionLabels.structuralName[currentLang]
   },
   {
     token: 'frigiliana_parking',

@@ -1,4 +1,5 @@
 import type { AmaraAuthoringSeo, AmaraLanguage } from '../types/seo';
+import { stayCollectionLabels } from './stayCollectionLabels';
 
 export interface FrigilianaBeachCard {
   title: string;
@@ -174,7 +175,7 @@ export const frigilianaBeachesContent: Record<
     footerHighlights: {
       beaches: 'Beaches & coast',
       hiking: 'Hiking & nature',
-      stays: 'AMARA stays'
+      stays: stayCollectionLabels.structuralName.en
     },
     hero: {
       kicker: 'Coastal guide',
@@ -403,7 +404,7 @@ export const frigilianaBeachesContent: Record<
     footerHighlights: {
       beaches: 'Strände & Küste',
       hiking: 'Wandern & Natur',
-      stays: 'AMARA-Unterkünfte'
+      stays: stayCollectionLabels.structuralName.de
     },
     hero: {
       kicker: 'Küsten-Guide',
@@ -632,7 +633,7 @@ export const frigilianaBeachesContent: Record<
     footerHighlights: {
       beaches: 'Playas y costa',
       hiking: 'Senderismo y naturaleza',
-      stays: 'Alojamientos AMARA'
+      stays: stayCollectionLabels.structuralName.es
     },
     hero: {
       kicker: 'Guía de costa',
@@ -861,7 +862,7 @@ export const frigilianaBeachesContent: Record<
     footerHighlights: {
       beaches: 'Stranden & kust',
       hiking: 'Wandelen & natuur',
-      stays: 'AMARA-verblijven'
+      stays: stayCollectionLabels.structuralName.nl
     },
     hero: {
       kicker: 'Kustgids',
@@ -1090,7 +1091,7 @@ export const frigilianaBeachesContent: Record<
     footerHighlights: {
       beaches: 'Stränder & kust',
       hiking: 'Vandring & natur',
-      stays: 'AMARA-boenden'
+      stays: stayCollectionLabels.structuralName.sv
     },
     hero: {
       kicker: 'Kustguide',

@@ -8,6 +8,7 @@ import {
   type VacationRentalEntity
 } from '../../content/vacationRentalEntities';
 import { trustLabels, trustSectionLabels } from '../../content/trustLabels';
+import { stayCollectionLabels } from '../../content/stayCollectionLabels';
 import {
   buildOwnedLocalizedPath,
   getOwnedSlugFromPathname,
@@ -198,13 +199,7 @@ const PUBLIC_ROUTE_LABELS: Partial<Record<string, Record<AmaraLanguage, string>>
     sv: 'Instagram'
   },
   'legal-notice': trustLabels.legal_notice,
-  'romantic-hideaways': {
-    en: 'AMARA stays',
-    de: 'AMARA-Unterkünfte',
-    es: 'Alojamientos AMARA',
-    nl: 'AMARA-verblijven',
-    sv: 'AMARA-boenden'
-  },
+  'romantic-hideaways': stayCollectionLabels.structuralName,
   'la-amara-farah': {
     en: 'AMARA Farah',
     de: 'AMARA Farah',
