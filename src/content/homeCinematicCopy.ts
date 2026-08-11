@@ -167,11 +167,11 @@ export const cinematicGuideLinks: CinematicGuideLinkDef[] = [
     token: 'romantic_hideaways',
     label: stayCollectionLabels.compareLabel,
     text: {
-      en: 'Compare the AMARA stays in Frigiliana and Nerja.',
-      de: 'Seht die Unterschiede zwischen unseren Unterkünften in Frigiliana und Nerja.',
-      es: 'Comparar las estancias AMARA en Frigiliana y Nerja.',
-      nl: 'Vergelijk de AMARA-verblijven in Frigiliana en Nerja.',
-      sv: 'Jämför AMARA-boenden i Frigiliana och Nerja.'
+      en: 'Compare the AMARA stays in Frigiliana, Nerja and Tarifa.',
+      de: 'Vergleicht die AMARA-Unterkünfte in Frigiliana, Nerja und Tarifa.',
+      es: 'Comparad los alojamientos AMARA en Frigiliana, Nerja y Tarifa.',
+      nl: 'Vergelijk de AMARA-verblijven in Frigiliana, Nerja en Tarifa.',
+      sv: 'Jämför AMARA-boendena i Frigiliana, Nerja och Tarifa.'
     }
   },
   {
