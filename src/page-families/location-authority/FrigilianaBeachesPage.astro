@@ -40,6 +40,11 @@ const combineItems = copy.combine.items.map((item) => ({
     suppressMissing: true
   })
 }));
+const baseDecisionHref = resolveOptionalLink(
+  copy.combine.baseDecision.linkToken,
+  currentLang,
+  { suppressMissing: true }
+);
 
 const heroImage = {
   src: '/images/amara-playa/apartment/chaparril-22.webp',
@@ -248,6 +253,16 @@ const heroImage = {
           <p class="am-text-body text-on-surface-variant leading-relaxed">
             {copy.combine.intro}
           </p>
+          {
+            baseDecisionHref && (
+              <p class="am-text-body text-on-surface-variant leading-relaxed mt-5">
+                {copy.combine.baseDecision.before}<a
+                  href={baseDecisionHref}
+                  class="am-inline-link"
+                >{copy.combine.baseDecision.linkLabel}</a>{copy.combine.baseDecision.after}
+              </p>
+            )
+          }
         </div>
 
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-x-16 gap-y-14">

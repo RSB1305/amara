@@ -74,6 +74,12 @@ export interface FrigilianaBeachesPageCopy {
   combine: {
     title: string;
     intro: string;
+    baseDecision: {
+      before: string;
+      linkLabel: string;
+      after: string;
+      linkToken: 'playa';
+    };
     items: {
       title: string;
       text: string;
@@ -356,6 +362,13 @@ export const frigilianaBeachesContent: Record<
       title: 'Combine your day',
       intro:
         'The coast works especially well when the beach is one part of the day rather than the whole plan.',
+      baseDecision: {
+        before:
+          'Frigiliana remains a natural home base when the beach is a day trip. If spontaneous walk-to-beach access matters more, ',
+        linkLabel: 'AMARA Playa in Nerja is 100 m from Torrecilla beach',
+        after: '.',
+        linkToken: 'playa'
+      },
       items: [
         {
           title: 'From sea to summit',
@@ -578,6 +591,13 @@ export const frigilianaBeachesContent: Record<
       title: 'So lässt sich der Tag verbinden',
       intro:
         'Die Küste funktioniert besonders gut, wenn der Strand ein Teil des Tages ist und nicht das gesamte Programm.',
+      baseDecision: {
+        before:
+          'Frigiliana bleibt eine stimmige Basis, wenn der Strand ein Tagesausflug ist. Wenn ihr lieber spontan zu Fuß ans Meer gehen möchtet, ',
+        linkLabel: 'liegt AMARA Playa in Nerja 100 m vom Strand Torrecilla entfernt',
+        after: '.',
+        linkToken: 'playa'
+      },
       items: [
         {
           title: 'Vom Meer in die Berge',
@@ -800,6 +820,13 @@ export const frigilianaBeachesContent: Record<
       title: 'Combinad el día',
       intro:
         'La costa funciona especialmente bien cuando la playa forma parte del día sin convertirse en todo el programa.',
+      baseDecision: {
+        before:
+          'Frigiliana sigue siendo una base muy lógica si la playa forma parte de una excursión. Si preferís bajar andando al mar cuando os apetezca, ',
+        linkLabel: 'AMARA Playa en Nerja está a 100 m de la playa de Torrecilla',
+        after: '.',
+        linkToken: 'playa'
+      },
       items: [
         {
           title: 'Del mar a la sierra',
@@ -1022,6 +1049,13 @@ export const frigilianaBeachesContent: Record<
       title: 'Combineer jullie dag',
       intro:
         'De kust werkt bijzonder goed wanneer het strand een onderdeel van de dag is en niet het volledige programma.',
+      baseDecision: {
+        before:
+          'Frigiliana blijft een logische uitvalsbasis wanneer het strand een daguitstap is. Willen jullie juist spontaan naar zee kunnen lopen, dan ',
+        linkLabel: 'ligt AMARA Playa in Nerja op 100 m van het Torrecilla-strand',
+        after: '.',
+        linkToken: 'playa'
+      },
       items: [
         {
           title: 'Van zee naar berg',
@@ -1244,6 +1278,13 @@ export const frigilianaBeachesContent: Record<
       title: 'Kombinera dagen',
       intro:
         'Kusten fungerar särskilt bra när stranden är en del av dagen och inte hela programmet.',
+      baseDecision: {
+        before:
+          'Frigiliana är fortfarande en naturlig bas när stranden är en dagsutflykt. Om ni hellre vill kunna promenera spontant till havet ',
+        linkLabel: 'ligger AMARA Playa i Nerja 100 m från Torrecillastranden',
+        after: '.',
+        linkToken: 'playa'
+      },
       items: [
         {
           title: 'Från hav till berg',
