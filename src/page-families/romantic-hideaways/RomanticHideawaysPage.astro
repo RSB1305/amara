@@ -1,7 +1,7 @@
 ---
 /**
- * AMARA Romantic Hideaways — collection landing (from AI Studio import).
- * Shell: BaseLayout + Navigation.
+ * AMARA stay collection — six-property shortlist page.
+ * The legacy route remains unchanged; stable property facts come from the rental SSOT.
  */
 import type { ImageMetadata } from 'astro';
 import BaseLayout from '../../layouts/BaseLayout.astro';
@@ -17,11 +17,16 @@ import imgMaha from '../../assets/images/home/amara-maha-29-amara-frigiliana.jpg
 import imgPlaya from '../../assets/images/home/amara-playa-chaparril-13.webp';
 import imgTarifa from '../../assets/images/home/amara-tarifa-apartment01.webp';
 import { resolveOptionalLink } from '../../lib/linkResolver';
-import { buildOwnedLocalizedPath } from '../../lib/routeOwnership';
 import { normalizeLanguage } from '../../lib/seo/resolve-seo-head';
 import { comfortAmenitiesLinkLabel } from '../../content/comfortAmenitiesLinkLabel';
 import { guestReviewsCopy } from '../../content/guestReviewsContent';
 import { airbnbRatingLabel, airbnbReviewEvidence } from '../../content/reviewEvidence';
+import {
+  vacationRentalEntitiesByKey,
+  type VacationRentalAmenityFeature,
+  type VacationRentalEntity,
+  type VacationRentalEntityKey
+} from '../../content/vacationRentalEntities';
 import type { AmaraAuthoringSeo, AmaraLanguage } from '../../types/seo';
 
 interface Props {
@@ -32,42 +37,42 @@ const { lang = 'es' } = Astro.props;
 const currentLang = normalizeLanguage(lang as AmaraLanguage);
 
 const seo: AmaraAuthoringSeo = {
-  version: '2026-04-04-romantic-hideaways-v1.0-D',
+  version: '2026-08-11-amara-stay-collection-v2.0-D',
   pageType: 'D',
   entityKey: 'amara-brand',
   languages: {
     en: {
-      title: 'Apartments for Couples in Frigiliana, Nerja & Tarifa',
+      title: 'AMARA Stays in Frigiliana, Nerja & Tarifa',
       description:
-        'Compare AMARA stays for two: historic apartments with private terraces in Frigiliana, a beach apartment in Nerja and an Atlantic-view penthouse in Tarifa.',
+        'Compare six AMARA stays by destination, guest count, facilities, outdoor space and access in Frigiliana, Nerja and Tarifa.',
       robots: 'index, follow',
       canonical: 'auto'
     },
     de: {
-      title: 'Ferienunterkünfte für Paare in Frigiliana, Nerja & Tarifa | AMARA',
+      title: 'AMARA-Unterkünfte in Frigiliana, Nerja & Tarifa',
       description:
-        'Ferienunterkünfte für Paare: private Terrassen in Frigiliana, ein Apartment 100 Meter vom Strand in Nerja und ein Penthouse mit Atlantikblick in Tarifa.',
+        'Vergleicht sechs AMARA-Unterkünfte nach Ort, Gästezahl, Ausstattung, Außenbereich und Zugang in Frigiliana, Nerja und Tarifa.',
       robots: 'index, follow',
       canonical: 'auto'
     },
     es: {
-      title: 'Apartamentos para parejas en Frigiliana, Nerja y Tarifa',
+      title: 'Alojamientos AMARA en Frigiliana, Nerja y Tarifa',
       description:
-        'Comparad los alojamientos AMARA para dos: apartamentos históricos con terraza en Frigiliana, uno junto al mar en Nerja y un ático con vistas al Atlántico en Tarifa.',
+        'Comparad seis alojamientos AMARA por destino, número de huéspedes, equipamiento, espacio exterior y acceso en Frigiliana, Nerja y Tarifa.',
       robots: 'index, follow',
       canonical: 'auto'
     },
     nl: {
-      title: 'Appartementen voor stellen in Frigiliana, Nerja & Tarifa',
+      title: 'AMARA-verblijven in Frigiliana, Nerja & Tarifa',
       description:
-        'Vergelijk AMARA-verblijven voor twee: historische appartementen met privéterras in Frigiliana, een strandappartement in Nerja en een penthouse met Atlantisch uitzicht in Tarifa.',
+        'Vergelijk zes AMARA-verblijven op locatie, aantal gasten, voorzieningen, buitenruimte en toegang in Frigiliana, Nerja en Tarifa.',
       robots: 'index, follow',
       canonical: 'auto'
     },
     sv: {
-      title: 'Lägenheter för par i Frigiliana, Nerja & Tarifa',
+      title: 'AMARA-boenden i Frigiliana, Nerja & Tarifa',
       description:
-        'Jämför AMARAs boenden för två: historiska lägenheter med privat terrass i Frigiliana, en strandlägenhet i Nerja och ett penthouse med utsikt över Atlanten i Tarifa.',
+        'Jämför sex AMARA-boenden efter resmål, antal gäster, utrustning, uteplats och tillträde i Frigiliana, Nerja och Tarifa.',
       robots: 'index, follow',
       canonical: 'auto'
     }
@@ -81,65 +86,52 @@ type DecisionItem = {
   title: string;
   body: string;
 };
-type FaqItem = {
-  question: string;
-  answer: string;
-};
-type GermanProofItem = {
-  title: string;
-  body: string;
-};
 
 const bookingAwardCount =
   guestReviewsCopy.awards.frigiliana.length + guestReviewsCopy.awards.coast.length;
 
 const copy = {
   heroSubtitle: {
-    en: 'AMARA · Stays for two',
-    de: 'AMARA · Urlaub zu zweit',
-    es: 'AMARA · Viajes para dos',
-    nl: 'AMARA · Vakantie met z’n tweeën',
-    sv: 'AMARA · Semester för två'
+    en: 'Six stays · Three destinations',
+    de: 'Sechs Unterkünfte · Drei Orte',
+    es: 'Seis alojamientos · Tres destinos',
+    nl: 'Zes verblijven · Drie plaatsen',
+    sv: 'Sex boenden · Tre resmål'
   } satisfies CopyRow,
   heroTitleHtml: {
-    en: 'Holiday apartments for couples <br />in Frigiliana, Nerja &amp; Tarifa',
-    de: 'Unterkünfte für Paare <br />in Frigiliana, Nerja &amp; Tarifa',
-    es: 'Alojamientos para parejas <br />en Frigiliana, Nerja y Tarifa',
-    nl: 'Vakantieappartementen voor stellen <br />in Frigiliana, Nerja &amp; Tarifa',
-    sv: 'Semesterlägenheter för par <br />i Frigiliana, Nerja &amp; Tarifa'
+    en: 'AMARA stays <br />in Frigiliana, Nerja &amp; Tarifa',
+    de: 'AMARA-Unterkünfte <br />in Frigiliana, Nerja &amp; Tarifa',
+    es: 'Alojamientos AMARA <br />en Frigiliana, Nerja y Tarifa',
+    nl: 'AMARA-verblijven <br />in Frigiliana, Nerja &amp; Tarifa',
+    sv: 'AMARA-boenden <br />i Frigiliana, Nerja &amp; Tarifa'
   } satisfies CopyRow,
   heroLead: {
-    en: 'Four old-town stays in Frigiliana, a beach apartment in Nerja and an Atlantic-view penthouse in Tarifa.',
-    de: 'Vier Unterkünfte in Frigilianas Altstadt, ein Strandapartment in Nerja und ein Penthouse mit direktem Atlantikblick in Tarifa.',
-    es: 'Cuatro alojamientos en el casco antiguo de Frigiliana, un apartamento junto al mar en Nerja y un ático frente al Atlántico en Tarifa.',
-    nl: 'Vier verblijven in de oude kern van Frigiliana, een strandappartement in Nerja en een penthouse met direct uitzicht op de Atlantische Oceaan in Tarifa.',
-    sv: 'Fyra boenden i Frigilianas gamla stad, en strandlägenhet i Nerja och ett penthouse med direkt utsikt över Atlanten i Tarifa.'
+    en: 'Compare six individual stays for a village break, more everyday facilities, days by the beach or a family trip.',
+    de: 'Vergleicht sechs unterschiedliche Unterkünfte für Altstadttage, mehr Ausstattung im Alltag, Strandnähe oder eine Reise mit bis zu vier Gästen.',
+    es: 'Comparad seis alojamientos distintos para una escapada al pueblo, una estancia con más comodidades, días de playa o un viaje en familia.',
+    nl: 'Vergelijk zes verschillende verblijven voor een paar dagen in het dorp, meer gemak tijdens de reis, het strand dichtbij of een gezinsvakantie.',
+    sv: 'Jämför sex olika boenden för några dagar i byn, mer utrustning i vardagen, närhet till stranden eller en familjeresa.'
   } satisfies CopyRow,
   prose: {
     en: [
-      'AMARA is a small group of individual holiday stays: four in the historic centre of Frigiliana, one by the sea in Nerja and a penthouse in Tarifa.',
-      'Unlike hotel rooms, no two are alike. Farah has only one step at the entrance; Maha has a 60 m² terrace with an outdoor kitchen; Playa has the widest bed. Each page also explains the limitations, so you can choose on facts rather than photographs alone.',
-      'Casa AMARA sits in the historic heart of Frigiliana. During the restoration from 2020 to 2022 the old walls came to light, and our architect recognised Moorish construction.',
-      'We manage the stays ourselves, so you can contact the people who know them before and during your visit.'
+      'Four AMARA stays are in Frigiliana’s old town, one is 100 metres from the beach in Nerja, and one gives up to four guests more room in Tarifa.',
+      'There is no single best choice. Start with where you want to stay and who is travelling, then compare the kitchen, washing machine, outdoor space and exact access that will shape the trip.'
     ],
-    de: [],
+    de: [
+      'Vier AMARA-Unterkünfte liegen in Frigilianas Altstadt, eine nur 100 Meter vom Strand in Nerja entfernt und eine bietet bis zu vier Gästen mehr Platz in Tarifa.',
+      'Die eine beste Wahl gibt es nicht. Entscheidend sind Ort und Gästezahl – und danach Küche, Waschmaschine, Außenbereich und der genaue Zugang, die euren Aufenthalt im Alltag prägen.'
+    ],
     es: [
-      'AMARA reúne un pequeño número de alojamientos con personalidad propia: cuatro en el casco antiguo de Frigiliana, uno junto al mar en Nerja y un ático en Tarifa.',
-      'No funcionan como habitaciones idénticas de hotel. Farah tiene un único escalón en la entrada; Maha, 60 m² de terraza con cocina exterior; Playa, la cama más ancha. En cada ficha contamos también las limitaciones para que podáis elegir con algo más que las fotos.',
-      'Casa AMARA se encuentra en el corazón histórico de Frigiliana. En la restauración de 2020 a 2022 aparecieron los muros originales y nuestro arquitecto reconoció la construcción andalusí.',
-      'Gestionamos los alojamientos nosotros mismos, así que antes y durante la estancia hablaréis con quienes los conocen de verdad.'
+      'Cuatro alojamientos AMARA están en el casco antiguo de Frigiliana, uno se encuentra a 100 metros de la playa en Nerja y otro ofrece más espacio en Tarifa para un máximo de cuatro huéspedes.',
+      'No hay una opción mejor para todos. Empezad por el lugar y el número de viajeros; después comparad cocina, lavadora, espacio exterior y acceso exacto según cómo pensáis vivir la estancia.'
     ],
     nl: [
-      'AMARA bestaat uit een klein aantal heel verschillende vakantieverblijven: vier in de historische kern van Frigiliana, één aan zee in Nerja en een penthouse in Tarifa.',
-      'Het zijn geen identieke hotelkamers. Farah heeft maar één trede bij de ingang; Maha een terras van 60 m² met buitenkeuken; Playa het breedste bed. Op elke pagina noemen we ook de beperkingen, zodat jullie op meer dan alleen de foto’s kunnen kiezen.',
-      'Casa AMARA ligt in het historische hart van Frigiliana. Bij de restauratie van 2020 tot 2022 kwamen de oude muren tevoorschijn en onze architect herkende Moorse bouwkunst.',
-      'We beheren de verblijven zelf. Voor en tijdens jullie verblijf hebben jullie dus contact met de mensen die ze echt kennen.'
+      'Vier AMARA-verblijven liggen in de oude kern van Frigiliana, één op 100 meter van het strand in Nerja en één biedt in Tarifa meer ruimte voor maximaal vier gasten.',
+      'Er is niet één beste keuze. Begin met de locatie en het aantal reizigers; vergelijk daarna keuken, wasmachine, buitenruimte en de precieze toegang voor het dagelijks gebruik tijdens jullie verblijf.'
     ],
     sv: [
-      'AMARA består av ett litet antal personliga semesterboenden: fyra i Frigilianas historiska centrum, ett vid havet i Nerja och ett penthouse i Tarifa.',
-      'De är inte likadana hotellrum. Farah har bara ett trappsteg vid entrén, Maha en 60 m² stor terrass med utekök och Playa den bredaste sängen. På varje sida beskriver vi också begränsningarna, så att ni kan välja utifrån mer än bilderna.',
-      'Casa AMARA ligger i Frigilianas historiska hjärta. Vid restaureringen 2020–2022 kom de gamla murarna fram, och vår arkitekt kände igen morisk byggnadsteknik.',
-      'Vi sköter boendena själva. Före och under vistelsen har ni därför kontakt med dem som faktiskt känner husen.'
+      'Fyra AMARA-boenden ligger i Frigilianas gamla stad, ett 100 meter från stranden i Nerja och ett ger upp till fyra gäster mer utrymme i Tarifa.',
+      'Det finns inget boende som är bäst för alla. Börja med resmål och antal gäster och jämför sedan kök, tvättmaskin, uteplats och exakt tillträde utifrån hur ni vill använda vistelsen.'
     ]
   } satisfies Record<AmaraLanguage, string[]>,
   ctaBook: {
@@ -150,11 +142,11 @@ const copy = {
     sv: 'Se tillgänglighet'
   } satisfies CopyRow,
   ctaCollection: {
-    en: 'View apartments',
-    de: 'Unterkünfte ansehen',
-    es: 'Ver apartamentos',
-    nl: 'Appartementen bekijken',
-    sv: 'Visa lägenheter'
+    en: 'Compare the stays',
+    de: 'Unterkünfte vergleichen',
+    es: 'Comparar alojamientos',
+    nl: 'Verblijven vergelijken',
+    sv: 'Jämför boendena'
   } satisfies CopyRow,
   ctaReviews: {
     en: 'Read reviews',
@@ -195,145 +187,154 @@ const copy = {
     sv: 'Vilket boende passar er?'
   } satisfies CopyRow,
   collectionIntro: {
-    en: 'Choose between white-village calm in Frigiliana, a beachside base in Nerja, and a larger Tarifa penthouse for guests who want more space.',
-    de: 'Ob kurzer Altstadtaufenthalt, private Terrasse, Strand vor der Tür oder viel Platz mit Atlantikblick: Hier seht ihr, welche Unterkunft zu euren Plänen passt.',
-    es: 'Elige entre la calma de pueblo blanco en Frigiliana, una base junto al mar en Nerja y un ático más amplio en Tarifa para quienes buscan más espacio.',
-    nl: 'Kies tussen de rust van het witte dorp Frigiliana, een appartement bij zee in Nerja en een ruimer penthouse in Tarifa voor gasten die meer ruimte willen.',
-    sv: 'Välj mellan lugnet i den vita byn Frigiliana, ett havsnära boende i Nerja och en större penthouse i Tarifa för gäster som vill ha mer utrymme.'
+    en: 'All six are first-level choices. Each card gives the strongest reason to investigate the stay, the facilities that affect daily use and its exact access.',
+    de: 'Alle sechs Unterkünfte stehen gleichberechtigt zur Auswahl. Jede Karte zeigt den wichtigsten Grund für einen genaueren Blick, die im Alltag relevanten Ausstattungsmerkmale und den exakten Zugang.',
+    es: 'Los seis alojamientos son opciones principales. Cada ficha resume el motivo más claro para valorarlo, el equipamiento que influye en el día a día y su acceso exacto.',
+    nl: 'Alle zes verblijven zijn volwaardige keuzes. Elke kaart toont de belangrijkste reden om verder te kijken, de voorzieningen die dagelijks verschil maken en de precieze toegang.',
+    sv: 'Alla sex boenden är likvärdiga val. Varje kort visar det främsta skälet att titta närmare, utrustningen som påverkar vardagen och det exakta tillträdet.'
   } satisfies CopyRow,
   decisionEyebrow: {
-    en: 'Choose the right base',
-    de: 'Für zwei gedacht',
-    es: 'Elegid la base adecuada',
-    nl: 'Kies de juiste basis',
-    sv: 'Välj rätt bas'
+    en: 'Start your shortlist',
+    de: 'Eure Vorauswahl',
+    es: 'Empezad a elegir',
+    nl: 'Maak een eerste selectie',
+    sv: 'Börja välja'
   } satisfies CopyRow,
   decisionTitle: {
     en: 'Which AMARA stay fits your trip?',
-    de: 'Was unsere Unterkünfte für zwei unterscheidet',
-    es: '¿Qué estancia AMARA encaja con vuestro viaje?',
-    nl: 'Welke AMARA-stay past bij jullie reis?',
-    sv: 'Vilken AMARA-vistelse passar er resa?'
+    de: 'Welche AMARA-Unterkunft passt zu eurer Reise?',
+    es: '¿Qué alojamiento AMARA encaja con vuestro viaje?',
+    nl: 'Welk AMARA-verblijf past bij jullie reis?',
+    sv: 'Vilket AMARA-boende passar er resa?'
   } satisfies CopyRow,
   decisionIntro: {
-    en: 'The practical differences matter: bed width, a private terrace, old-town or beach location, stairs and the amount of space you want.',
-    de: 'Für zwei sind oft ganz praktische Dinge entscheidend: Wie breit ist das Bett? Gibt es eine private Terrasse? Liegt der Strand vor der Tür oder die Altstadt? Und wie viel Platz möchtet ihr haben?',
-    es: 'Las diferencias prácticas son las que más cuentan: el ancho de la cama, la terraza privada, estar en el casco antiguo o junto a la playa, las escaleras y el espacio que queréis.',
-    nl: 'De praktische verschillen geven de doorslag: bedbreedte, een privéterras, de oude kern of het strand, trappen en hoeveel ruimte jullie willen.',
-    sv: 'De praktiska skillnaderna avgör: sängens bredd, privat terrass, gamla stan eller stranden, trappor och hur mycket plats ni vill ha.'
+    en: 'Choose the destination first, then the number of guests and how much everyday practicality you need. The property cards below handle the exact differences.',
+    de: 'Wählt zuerst den Ort, dann die Gästezahl und wie viel Ausstattung ihr im Alltag braucht. Die Karten darunter zeigen anschließend die genauen Unterschiede.',
+    es: 'Elegid primero el destino; después, el número de huéspedes y cuánta comodidad cotidiana necesitáis. Las fichas muestran a continuación las diferencias exactas.',
+    nl: 'Kies eerst de locatie, daarna het aantal gasten en hoeveel praktisch gemak jullie nodig hebben. De kaarten hieronder tonen vervolgens de precieze verschillen.',
+    sv: 'Välj först resmål, sedan antal gäster och hur mycket praktisk utrustning ni behöver. Korten nedan visar därefter de exakta skillnaderna.'
   } satisfies CopyRow,
   decisionItems: {
     en: [
       {
         kicker: 'Frigiliana old town',
-        title: 'Four different old-town stays',
-        body: 'Choose Farah for a short visit or Lounis, Zaid or Maha for a private terrace. Nerja remains close enough for a day at the beach.'
+        title: 'A short visit or a fuller apartment stay',
+        body: 'Farah is shaped around a short visit. Lounis, Zaid and Maha add full kitchens and private outdoor space for guests who will use the apartment more during the stay.'
       },
       {
         kicker: 'Nerja coast',
-        title: 'For the beach on your doorstep',
-        body: 'Choose Playa for Torrecilla beach 100 metres away, the Balcón de Europa at 500 metres and Nerja’s restaurants within walking distance.'
+        title: 'For two guests near the beach',
+        body: 'Playa puts Torrecilla beach 100 metres away and adds a full kitchen and washing machine for an everyday base in Nerja.'
       },
       {
         kicker: 'Tarifa space',
-        title: 'For two who want more space — or up to four guests',
-        body: 'Choose AMARA Family & Surf for 75 m² over two floors, two bedrooms, two bathrooms and a terrace facing the Atlantic.'
+        title: 'For a family or up to four guests',
+        body: 'Family & Surf has two bedrooms, two bathrooms, a pool, reserved garage space and an Atlantic-facing terrace.'
       }
     ],
-    de: [],
+    de: [
+      {
+        kicker: 'Altstadt von Frigiliana',
+        title: 'Kurz bleiben oder das Apartment stärker nutzen',
+        body: 'Farah ist auf einen kurzen Besuch zugeschnitten. Lounis, Zaid und Maha bieten vollständige Küchen und private Außenbereiche, wenn ihr euch während der Reise öfter im Apartment aufhaltet.'
+      },
+      {
+        kicker: 'Küste von Nerja',
+        title: 'Für zwei Gäste nahe am Strand',
+        body: 'Von Playa sind es 100 Meter zum Strand Torrecilla. Eine vollständige Küche und Waschmaschine machen das Apartment zugleich zu einer praktischen Basis in Nerja.'
+      },
+      {
+        kicker: 'Mehr Platz in Tarifa',
+        title: 'Für Familien oder bis zu vier Gäste',
+        body: 'Family & Surf hat zwei Schlafzimmer, zwei Bäder, einen Pool, einen reservierten Garagenplatz und eine Terrasse mit Atlantikblick.'
+      }
+    ],
     es: [
       {
         kicker: 'Casco antiguo de Frigiliana',
-        title: 'Cuatro opciones distintas en el casco antiguo',
-        body: 'Elegid Farah para una visita corta, o Lounis, Zaid o Maha si queréis terraza privada. Nerja sigue estando cerca para pasar el día en la playa.'
+        title: 'Una visita corta o un apartamento más completo',
+        body: 'Farah está pensado para una visita breve. Lounis, Zaid y Maha añaden cocina completa y espacio exterior privado si vais a hacer más vida en el apartamento.'
       },
       {
         kicker: 'Costa de Nerja',
-        title: 'Para tener la playa a un paso',
-        body: 'Elegid Playa si queréis la playa de Torrecilla a 100 metros, el Balcón de Europa a 500 y los restaurantes de Nerja a pie.'
+        title: 'Para dos huéspedes cerca de la playa',
+        body: 'Playa está a 100 metros de la playa de Torrecilla y cuenta con cocina completa y lavadora para organizar el día a día en Nerja.'
       },
       {
         kicker: 'Más espacio en Tarifa',
-        title: 'Para dos con más espacio, o hasta cuatro personas',
-        body: 'Elegid AMARA Family & Surf por sus 75 m² en dos plantas, dos dormitorios, dos baños y una terraza frente al Atlántico.'
+        title: 'Para una familia o hasta cuatro huéspedes',
+        body: 'Family & Surf tiene dos dormitorios, dos baños, piscina, garaje reservado y una terraza frente al Atlántico.'
       }
     ],
     nl: [
       {
         kicker: 'Oude kern van Frigiliana',
-        title: 'Vier verschillende verblijven in de oude kern',
-        body: 'Kies Farah voor een kort bezoek, of Lounis, Zaid of Maha voor een privéterras. Nerja blijft dichtbij genoeg voor een dag aan het strand.'
+        title: 'Een kort bezoek of een completer appartement',
+        body: 'Farah is afgestemd op een kort bezoek. Lounis, Zaid en Maha voegen een volledige keuken en privébuitenruimte toe als jullie het appartement tijdens de reis vaker gebruiken.'
       },
       {
         kicker: 'Kust van Nerja',
-        title: 'Voor het strand voor de deur',
-        body: 'Kies Playa voor het strand van Torrecilla op 100 meter, het Balcón de Europa op 500 meter en restaurants in Nerja op loopafstand.'
+        title: 'Voor twee gasten dicht bij het strand',
+        body: 'Playa ligt op 100 meter van het strand van Torrecilla en heeft een volledige keuken en wasmachine voor het dagelijks verblijf in Nerja.'
       },
       {
         kicker: 'Meer ruimte in Tarifa',
-        title: 'Voor twee met extra ruimte, of maximaal vier gasten',
-        body: 'Kies AMARA Family & Surf voor 75 m² over twee verdiepingen, twee slaapkamers, twee badkamers en een terras aan de Atlantische Oceaan.'
+        title: 'Voor een gezin of maximaal vier gasten',
+        body: 'Family & Surf heeft twee slaapkamers, twee badkamers, een zwembad, een gereserveerde garageplaats en een terras aan de Atlantische Oceaan.'
       }
     ],
     sv: [
       {
         kicker: 'Frigilianas gamla stad',
-        title: 'Fyra olika boenden i gamla stan',
-        body: 'Välj Farah för ett kort besök eller Lounis, Zaid eller Maha om ni vill ha privat terrass. Nerja ligger fortfarande nära nog för en dag på stranden.'
+        title: 'Ett kort besök eller en mer komplett lägenhet',
+        body: 'Farah är utformat för ett kort besök. Lounis, Zaid och Maha har kompletta kök och privata uteplatser när ni vill använda lägenheten mer under resan.'
       },
       {
         kicker: 'Nerjas kust',
-        title: 'För stranden runt hörnet',
-        body: 'Välj Playa för Torrecillastranden 100 meter bort, Balcón de Europa på 500 meter och restauranger i Nerja inom gångavstånd.'
+        title: 'För två gäster nära stranden',
+        body: 'Playa ligger 100 meter från Torrecillastranden och har komplett kök och tvättmaskin för en praktisk vardag i Nerja.'
       },
       {
         kicker: 'Mer utrymme i Tarifa',
-        title: 'För två som vill ha mer plats, eller upp till fyra gäster',
-        body: 'Välj AMARA Family & Surf för 75 m² i två våningar, två sovrum, två badrum och en terrass mot Atlanten.'
+        title: 'För en familj eller upp till fyra gäster',
+        body: 'Family & Surf har två sovrum, två badrum, pool, reserverad garageplats och en terrass mot Atlanten.'
       }
     ]
   } satisfies Record<AmaraLanguage, DecisionItem[]>,
   locationBridgeEyebrow: {
-    en: 'Plan the stay',
-    de: 'Aufenthalt planen',
-    es: 'Planificar la estancia',
-    nl: 'Verblijf plannen',
-    sv: 'Planera vistelsen'
+    en: 'A strength for two',
+    de: 'Eine Stärke für zwei',
+    es: 'Una opción especialmente atractiva para dos',
+    nl: 'Een sterke keuze voor twee',
+    sv: 'En styrka för två'
   } satisfies CopyRow,
   locationBridgeTitle: {
-    en: 'Frigiliana first, Nerja close by',
-    de: 'Frigiliana, Nerja oder Tarifa?',
-    es: 'Frigiliana primero, Nerja muy cerca',
-    nl: 'Eerst Frigiliana, Nerja vlakbij',
-    sv: 'Frigiliana först, Nerja nära'
+    en: 'Five stays for two — without making the whole collection couples-only',
+    de: 'Fünf Unterkünfte für zwei – ohne die ganze Auswahl auf Paare zu reduzieren',
+    es: 'Cinco alojamientos para dos, sin convertir toda la colección en una propuesta solo para parejas',
+    nl: 'Vijf verblijven voor twee, zonder de hele collectie uitsluitend op stellen te richten',
+    sv: 'Fem boenden för två – utan att göra hela urvalet till enbart en parresa'
   } satisfies CopyRow,
   locationBridgeBody: {
-    en: 'Most AMARA stays are in Frigiliana, one of Andalusia’s most beautiful white villages. Nerja, beaches, parking guidance, and seasonal weather planning are close enough to keep the trip simple.',
-    de: 'Frigiliana für die historische Altstadt, Nerja für den Strand vor der Tür und Tarifa für direkten Atlantikblick und deutlich mehr Platz.',
-    es: 'La mayoría de las estancias AMARA están en Frigiliana, uno de los pueblos blancos más bonitos de Andalucía. Nerja, las playas, la información de aparcamiento y la planificación del clima quedan lo bastante cerca para que el viaje sea sencillo.',
-    nl: 'De meeste AMARA-verblijven liggen in Frigiliana, een van de mooiste witte dorpen van Andalusië. Nerja, stranden, parkeerinformatie en seizoensweer blijven dichtbij genoeg om de reis eenvoudig te houden.',
-    sv: 'De flesta AMARA-vistelser ligger i Frigiliana, en av Andalusiens vackraste vita byar. Nerja, stränder, parkeringsråd och säsongsväder finns tillräckligt nära för att resan ska kännas enkel.'
+    en: 'Farah, Lounis, Zaid, Maha and Playa are built around one or two guests. Old-town settings, generous beds and private terraces can make them particularly appealing for a romantic trip. Family & Surf stands apart when a family or group needs two bedrooms and room for four.',
+    de: 'Farah, Lounis, Zaid, Maha und Playa sind auf ein oder zwei Gäste ausgerichtet. Altstadtlage, großzügige Betten und private Terrassen können sie besonders für eine romantische Reise zu zweit interessant machen. Family & Surf steht bewusst daneben, wenn eine Familie oder Gruppe zwei Schlafzimmer und Platz für vier braucht.',
+    es: 'Farah, Lounis, Zaid, Maha y Playa están pensados para uno o dos huéspedes. El casco antiguo, las camas amplias y las terrazas privadas pueden hacerlos especialmente atractivos para una escapada romántica. Family & Surf ocupa otro lugar cuando una familia o un grupo necesita dos dormitorios y espacio para cuatro.',
+    nl: 'Farah, Lounis, Zaid, Maha en Playa zijn ingericht voor één of twee gasten. De oude dorpskern, ruime bedden en privéterrassen kunnen ze extra aantrekkelijk maken voor een romantische reis. Family & Surf staat daar bewust naast wanneer een gezin of groep twee slaapkamers en plek voor vier nodig heeft.',
+    sv: 'Farah, Lounis, Zaid, Maha och Playa är utformade för en eller två gäster. Gamla stadsmiljöer, generösa sängar och privata terrasser kan göra dem särskilt fina för en romantisk resa. Family & Surf står för ett annat behov när en familj eller grupp behöver två sovrum och plats för fyra.'
   } satisfies CopyRow,
-  locationFrigiliana: {
-    en: 'Frigiliana guide',
-    de: 'Frigiliana entdecken',
-    es: 'Guía de Frigiliana',
-    nl: 'Frigiliana-gids',
-    sv: 'Guide till Frigiliana'
+  locationComparison: {
+    en: 'Compare Frigiliana and Nerja',
+    de: 'Frigiliana und Nerja vergleichen',
+    es: 'Comparar Frigiliana y Nerja',
+    nl: 'Frigiliana en Nerja vergelijken',
+    sv: 'Jämför Frigiliana och Nerja'
   } satisfies CopyRow,
-  locationParking: {
-    en: 'Parking guide',
-    de: 'Parken & Anreise',
-    es: 'Guía de aparcamiento',
-    nl: 'Parkeergids',
-    sv: 'Parkeringsguide'
-  } satisfies CopyRow,
-  locationWeather: {
-    en: 'Weather by month',
-    de: 'Wetter & Reisezeit',
-    es: 'Clima por mes',
-    nl: 'Weer per maand',
-    sv: 'Väder per månad'
+  locationWinter: {
+    en: 'Explore winter stays in Frigiliana',
+    de: 'Winteraufenthalte in Frigiliana',
+    es: 'Ver estancias de invierno en Frigiliana',
+    nl: 'Bekijk winterverblijven in Frigiliana',
+    sv: 'Se vinterboenden i Frigiliana'
   } satisfies CopyRow,
   reviewsEyebrow: {
     en: 'Guest-verified',
@@ -362,169 +363,8 @@ const copy = {
     es: 'Leer todas las reseñas',
     nl: 'Alle gastbeoordelingen lezen',
     sv: 'Läs alla gästrecensioner'
-  } satisfies CopyRow,
-  faqEyebrow: {
-    en: 'Before you book',
-    de: 'Vor der Buchung',
-    es: 'Antes de reservar',
-    nl: 'Voor het boeken',
-    sv: 'Innan ni bokar'
-  } satisfies CopyRow,
-  faqTitle: {
-    en: 'Questions couples usually ask',
-    de: 'Vier Fragen vor eurer Auswahl',
-    es: 'Preguntas habituales de parejas',
-    nl: 'Vragen die koppels vaak stellen',
-    sv: 'Frågor som par ofta ställer'
-  } satisfies CopyRow,
-  faqIntro: {
-    en: 'Short answers for the practical decisions that matter before choosing an apartment.',
-    de: 'Kurze Antworten zu Betten, Terrassen, Aufenthaltsdauer und Belegung.',
-    es: 'Respuestas breves para las decisiones prácticas antes de elegir apartamento.',
-    nl: 'Korte antwoorden op praktische keuzes die tellen voordat je een appartement kiest.',
-    sv: 'Korta svar på de praktiska val som spelar roll innan ni väljer lägenhet.'
-  } satisfies CopyRow,
-  faqItems: {
-    en: [
-      {
-        question: 'Which AMARA stay has the largest bed?',
-        answer: 'Playa in Nerja has the largest bed at 200 × 200 cm. Zaid in Frigiliana follows at 180 × 200 cm.'
-      },
-      {
-        question: 'Which apartments have a private terrace?',
-        answer: 'Lounis, Zaid and Maha in Frigiliana have private terraces. Each has a hammock, two sun loungers and an outdoor shower; Maha also has a 60 m² terrace and outdoor kitchen.'
-      },
-      {
-        question: 'Which stay works best for a short visit?',
-        answer: 'Farah was made for this. The usual minimum is two nights, although a single night is sometimes available at short notice.'
-      },
-      {
-        question: 'Are all the stays exclusively for couples?',
-        answer: 'No. Farah, Lounis, Zaid, Maha and Playa are for two guests. Family & Surf gives a couple plenty of space, but also has two bedrooms and sleeps up to four.'
-      }
-    ],
-    de: [
-      {
-        question: 'Welche AMARA-Unterkunft hat das größte Bett?',
-        answer: 'Playa in Nerja hat mit 200 × 200 cm das größte Bett. Zaid in Frigiliana folgt mit 180 × 200 cm.'
-      },
-      {
-        question: 'Welche Apartments haben eine private Terrasse?',
-        answer: 'Lounis, Zaid und Maha in Frigiliana haben private Terrassen. Zu jeder gehören eine Hängematte, zwei Sonnenliegen und eine Außendusche. Maha hat mit 60 m² den größten Außenbereich und zusätzlich eine Außenküche.'
-      },
-      {
-        question: 'Welche Unterkunft eignet sich für einen kurzen Aufenthalt?',
-        answer: 'Farah ist genau dafür gedacht. Normalerweise könnt ihr ab zwei Nächten buchen; kurzfristig ist manchmal auch eine einzelne Nacht möglich.'
-      },
-      {
-        question: 'Sind alle Unterkünfte ausschließlich für Paare?',
-        answer: 'Nein. Farah, Lounis, Zaid, Maha und Playa sind für zwei Gäste ausgelegt. Family & Surf lässt sich zu zweit mit viel Platz nutzen und bietet zugleich zwei Schlafzimmer und Platz für bis zu vier Gäste.'
-      }
-    ],
-    es: [
-      {
-        question: '¿Qué alojamiento AMARA tiene la cama más grande?',
-        answer: 'Playa, en Nerja, tiene la cama más grande: 200 × 200 cm. Le sigue Zaid, en Frigiliana, con 180 × 200 cm.'
-      },
-      {
-        question: '¿Qué apartamentos tienen terraza privada?',
-        answer: 'Lounis, Zaid y Maha, en Frigiliana. Las tres terrazas tienen hamaca, dos tumbonas y ducha exterior; Maha añade 60 m² y una cocina al aire libre.'
-      },
-      {
-        question: '¿Qué alojamiento conviene para una visita corta?',
-        answer: 'Farah está pensado precisamente para eso. La estancia mínima habitual es de dos noches, aunque a veces se puede reservar una sola con poca antelación.'
-      },
-      {
-        question: '¿Todos los alojamientos son solo para parejas?',
-        answer: 'No. Farah, Lounis, Zaid, Maha y Playa admiten dos huéspedes. Family & Surf ofrece mucho espacio para una pareja, pero tiene dos dormitorios y capacidad para cuatro personas.'
-      }
-    ],
-    nl: [
-      {
-        question: 'Welk AMARA-verblijf heeft het grootste bed?',
-        answer: 'Playa in Nerja heeft met 200 × 200 cm het grootste bed. Zaid in Frigiliana volgt met 180 × 200 cm.'
-      },
-      {
-        question: 'Welke appartementen hebben een privéterras?',
-        answer: 'Lounis, Zaid en Maha in Frigiliana. Elk terras heeft een hangmat, twee ligstoelen en een buitendouche; Maha heeft daarnaast 60 m² en een buitenkeuken.'
-      },
-      {
-        question: 'Welk verblijf past bij een kort bezoek?',
-        answer: 'Farah is daar speciaal voor bedoeld. Meestal geldt een minimum van twee nachten; kort voor aankomst is soms ook één nacht beschikbaar.'
-      },
-      {
-        question: 'Zijn alle verblijven uitsluitend voor stellen?',
-        answer: 'Nee. Farah, Lounis, Zaid, Maha en Playa zijn ingericht voor twee gasten. Family & Surf geeft een stel veel ruimte, maar heeft ook twee slaapkamers en plek voor maximaal vier personen.'
-      }
-    ],
-    sv: [
-      {
-        question: 'Vilket AMARA-boende har den största sängen?',
-        answer: 'Playa i Nerja har den största sängen, 200 × 200 cm. Därefter kommer Zaid i Frigiliana med 180 × 200 cm.'
-      },
-      {
-        question: 'Vilka lägenheter har privat terrass?',
-        answer: 'Lounis, Zaid och Maha i Frigiliana. Varje terrass har en hängmatta, två solsängar och utomhusdusch; Maha har dessutom 60 m² och utekök.'
-      },
-      {
-        question: 'Vilket boende passar för ett kort besök?',
-        answer: 'Farah är gjort just för det. Vanligtvis är minsta vistelsen två nätter, men med kort varsel kan även en natt ibland vara möjlig.'
-      },
-      {
-        question: 'Är alla boenden enbart för par?',
-        answer: 'Nej. Farah, Lounis, Zaid, Maha och Playa är för två gäster. Family & Surf ger ett par gott om plats, men har också två sovrum och plats för upp till fyra.'
-      }
-    ]
-  } satisfies Record<AmaraLanguage, FaqItem[]>,
-  faqCta: {
-    en: 'Open full stay FAQ',
-    de: 'Alle Fragen zum Aufenthalt',
-    es: 'Ver FAQ completa',
-    nl: 'Open volledige verblijfs-FAQ',
-    sv: 'Öppna hela vistelse-FAQ'
   } satisfies CopyRow
 };
-
-const germanDecisionIntroSecondary =
-  'Keine AMARA-Unterkunft ist wie die andere. Deshalb zeigen wir euch nicht nur, was sie bietet, sondern auch, wo ihr Abstriche macht. So könnt ihr nach dem auswählen, was euch beiden wichtig ist.';
-
-const germanProofItems: GermanProofItem[] = [
-  {
-    title: 'Betten',
-    body: 'Farah und Lounis haben Betten mit 160 × 200 cm, Zaid 180 × 200 cm, Maha 150 × 200 cm und Playa 200 × 200 cm. In Family & Surf misst das Doppelbett 150 × 200 cm; im zweiten Schlafzimmer steht ein Etagenbett.'
-  },
-  {
-    title: 'Duschen',
-    body: 'Lounis und Zaid haben Doppel-Regenduschen. Farah, Maha, Playa und Family & Surf verfügen jeweils über eine Regendusche.'
-  },
-  {
-    title: 'Private Terrassen',
-    body: 'Lounis, Zaid und Maha haben private Terrassen. Zu jeder gehören eine Hängematte, zwei Sonnenliegen und eine Außendusche; Maha bietet zusätzlich 60 m² und eine Außenküche.'
-  },
-  {
-    title: 'Nerja',
-    body: 'Playa liegt 100 Meter vom Strand Torrecilla und 500 Meter vom Balcón de Europa entfernt.'
-  },
-  {
-    title: 'Tarifa',
-    body: 'Family & Surf bietet 75 m² über zwei Etagen, eine Terrasse, direkten Atlantikblick und Platz für bis zu vier Gäste. Von der Terrasse seht ihr am Abend den Sonnenuntergang über dem Meer.'
-  }
-];
-
-const germanDestinationItems: GermanProofItem[] = [
-  {
-    title: 'Frigiliana',
-    body: 'Frigiliana passt, wenn ihr mitten in einem historischen Dorf wohnen und abends zu Fuß essen gehen möchtet. Vier AMARA-Unterkünfte liegen im alten Ortskern; Lounis, Zaid und Maha haben private Terrassen.'
-  },
-  {
-    title: 'Nerja',
-    body: 'Nerja ist die einfachere Wahl, wenn das Meer im Alltag wichtiger ist. Von Playa sind es 100 Meter zum Strand und rund 500 Meter bis zum Balcón de Europa.'
-  },
-  {
-    title: 'Tarifa',
-    body: 'Tarifa passt, wenn ihr direkten Atlantikblick, einen Sonnenuntergang von der Terrasse und deutlich mehr Platz möchtet. Family & Surf bietet außerdem Platz für bis zu vier Gäste.'
-  }
-];
 
 const t = <T extends Record<AmaraLanguage, string>>(row: T) => row[currentLang] ?? row.en;
 const tArr = (row: Record<AmaraLanguage, string[]>) => row[currentLang] ?? row.en;
@@ -574,72 +414,8 @@ const featureChipsByLang: Record<AmaraLanguage, { label: string; note?: string }
   ]
 };
 
-const apartments = [
-  {
-    token: 'farah' as const,
-    imageSrc: 'https://l.icdbcdn.com/oh/3c79ee18-d231-4066-bbce-1b20c4732057.jpg',
-    imageAlt: 'AMARA Farah – Romantic Boutique Stay in Frigiliana for couples',
-    meta: 'Frigiliana • 2 guests',
-    title: 'AMARA Farah – Boutique Retreat',
-    description: 'A romantic boutique room with character — ideal for shorter trips.',
-    ctaLabel: 'Explore Farah'
-  },
-  {
-    token: 'lounis' as const,
-    imageSrc: 'https://l.icdbcdn.com/oh/882b7732-0b8a-4d00-b9af-16271f78d09e.jpg',
-    imageAlt: 'AMARA Lounis – Historic Frigiliana Apartment with terrace',
-    meta: 'Frigiliana • 2 guests',
-    title: 'AMARA Lounis – Historic Apartment',
-    description: 'Historic charm with terrace time and a sense of space.',
-    ctaLabel: 'Explore Apartment'
-  },
-  {
-    token: 'zaid' as const,
-    imageSrc: 'https://l.icdbcdn.com/oh/392c7773-50bf-4814-955d-da26457f6440.jpg',
-    imageAlt: 'AMARA Zaid – Frigiliana Apartment with private terrace',
-    meta: 'Frigiliana • 2 guests',
-    title: 'AMARA Zaid – Terrace Apartment',
-    description: 'A calm retreat with terrace — made for slow mornings.',
-    ctaLabel: 'Explore Apartment'
-  },
-  {
-    token: 'maha' as const,
-    imageSrc: 'https://l.icdbcdn.com/oh/3e9884fa-4453-4aa8-8dae-fb54d6a87456.jpg',
-    imageAlt: 'AMARA Maha – Romantic Penthouse Apartment in Frigiliana Old Town',
-    meta: 'Frigiliana • 2 guests',
-    title: 'AMARA Maha – Old Town Apartment',
-    description: 'A terrace apartment designed for lingering in the white village.',
-    ctaLabel: 'Explore Apartment'
-  },
-  {
-    token: 'playa' as const,
-    imageSrc: 'https://l.icdbcdn.com/oh/46e112f1-729d-4a76-9c7a-df53cb2e2626.jpg',
-    imageAlt: 'AMARA Playa – Coastal Nerja Apartment near the beach with sea view',
-    meta: 'Nerja • 2 guests',
-    title: 'AMARA Playa – Nerja Beach Apartment',
-    description: 'A relaxed seaside base for couples who want the sea close by.',
-    ctaLabel: 'Explore Apartment'
-  },
-  {
-    token: 'casa' as const,
-    imageSrc: 'https://l.icdbcdn.com/oh/aa11c018-1653-4e74-9bcc-831dc0f8a3e7.jpg',
-    imageAlt: 'AMARA Ocean View Penthouse – Family & Surf holiday rental Tarifa',
-    meta: 'Tarifa • family stay',
-    title: 'AMARA Ocean View Penthouse',
-    description: 'A spacious home for surfers and families — intentionally different.',
-    ctaLabel: 'Explore Penthouse'
-  }
-];
-
-type ApartmentToken = (typeof apartments)[number]['token'];
-
-interface LocalizedApartmentCopy {
-  imageAlt: CopyRow;
-  meta: CopyRow;
-  title: CopyRow;
-  description: CopyRow;
-  ctaLabel: CopyRow;
-}
+const apartmentTokens = ['farah', 'lounis', 'zaid', 'maha', 'playa', 'casa'] as const;
+type ApartmentToken = (typeof apartmentTokens)[number];
 
 const apartmentImages: Record<ApartmentToken, ImageMetadata> = {
   farah: imgFarah,
@@ -650,230 +426,201 @@ const apartmentImages: Record<ApartmentToken, ImageMetadata> = {
   casa: imgTarifa
 };
 
-const apartmentCopy: Record<ApartmentToken, LocalizedApartmentCopy> = {
-  farah: {
-    imageAlt: {
-      en: 'AMARA Farah boutique apartment in Frigiliana for couples',
-      de: 'AMARA Farah Boutique-Ferienwohnung in Frigiliana für Paare',
-      es: 'Apartamento boutique AMARA Farah en Frigiliana para parejas',
-      nl: 'AMARA Farah boutique-appartement in Frigiliana voor koppels',
-      sv: 'AMARA Farah boutiquelägenhet i Frigiliana för par'
-    },
-    meta: {
-      en: 'Frigiliana · 2 guests',
-      de: 'Frigiliana · 2 Gäste',
-      es: 'Frigiliana · 2 huéspedes',
-      nl: 'Frigiliana · 2 gasten',
-      sv: 'Frigiliana · 2 gäster'
-    },
-    title: {
-      en: 'AMARA Farah · For a short stay for two',
-      de: 'AMARA Farah · Für einen kurzen Aufenthalt zu zweit',
-      es: 'AMARA Farah · Para una estancia corta en pareja',
-      nl: 'AMARA Farah · Voor een kort verblijf met z’n tweeën',
-      sv: 'AMARA Farah · För en kort vistelse för två'
-    },
-    description: {
-      en: 'Farah is intended for short stays in Frigiliana’s old town: normally two nights or more, with an occasional single night at short notice. It has a bedroom, a second room with tea and coffee facilities, and only one step at the main entrance. There is no full kitchen or private terrace.',
-      de: 'Farah ist für kurze Aufenthalte in Frigilianas Altstadt gedacht: normalerweise ab zwei Nächten, kurzfristig manchmal auch für eine. Es gibt ein Schlafzimmer, einen zweiten Raum mit Tee- und Kaffeestation und nur eine Stufe am Haupteingang; danach kommt keine weitere. Eine vollständige Küche und eine private Terrasse gibt es nicht. Für ein oder zwei Nächte fehlt euch beides oft nicht, für einen längeren Aufenthalt wäre Farah jedoch nicht unsere erste Empfehlung.',
-      es: 'Farah está pensado para estancias cortas en el casco antiguo de Frigiliana: normalmente a partir de dos noches, aunque a veces se puede reservar una sola con poca antelación. Tiene dormitorio, una segunda estancia con té y café y un único escalón en la entrada principal. No hay cocina completa ni terraza privada.',
-      nl: 'Farah is bedoeld voor een kort verblijf in de oude kern van Frigiliana: meestal vanaf twee nachten, soms op korte termijn ook voor één. Er is een slaapkamer, een tweede ruimte met thee en koffie en slechts één trede bij de hoofdingang. Een volledige keuken en privéterras ontbreken.',
-      sv: 'Farah är avsett för korta vistelser i Frigilianas gamla stad: vanligtvis från två nätter, ibland även en natt med kort varsel. Här finns ett sovrum, ett extra rum med te och kaffe och bara ett trappsteg vid huvudentrén. Komplett kök och privat terrass saknas.'
-    },
-    ctaLabel: {
-      en: 'Explore Farah',
-      de: 'Farah ansehen',
-      es: 'Ver Farah',
-      nl: 'Farah bekijken',
-      sv: 'Visa Farah'
-    }
-  },
-  lounis: {
-    imageAlt: {
-      en: 'AMARA Lounis historic apartment in Frigiliana with terrace',
-      de: 'AMARA Lounis historische Ferienwohnung in Frigiliana mit Terrasse',
-      es: 'Apartamento histórico AMARA Lounis en Frigiliana con terraza',
-      nl: 'AMARA Lounis historisch appartement in Frigiliana met terras',
-      sv: 'AMARA Lounis historisk lägenhet i Frigiliana med terrass'
-    },
-    meta: {
-      en: 'Frigiliana · 2 guests',
-      de: 'Frigiliana · 2 Gäste',
-      es: 'Frigiliana · 2 huéspedes',
-      nl: 'Frigiliana · 2 gasten',
-      sv: 'Frigiliana · 2 gäster'
-    },
-    title: {
-      en: 'AMARA Lounis · Historic Apartment',
-      de: 'AMARA Lounis · Historisches Apartment mit Terrasse',
-      es: 'AMARA Lounis · Apartamento histórico',
-      nl: 'AMARA Lounis · Historisch appartement',
-      sv: 'AMARA Lounis · Historisk lägenhet'
-    },
-    description: {
-      en: 'Lounis sits in Frigiliana’s old town. Its private terrace looks across the mango and avocado plantations to the sea, with shade in the morning and sun from around midday. The bed is 160 × 200 cm and the bathroom has a double rain shower.',
-      de: 'Lounis liegt mitten in Frigilianas Altstadt. Von der privaten Terrasse blickt ihr über die Mango- und Avocadoplantagen bis zum Meer. Morgens bleibt sie angenehm schattig, ab etwa Mittag liegt sie in der Sonne. Dazu kommen ein 160 × 200 cm großes Bett und eine Doppel-Regendusche.',
-      es: 'Lounis está en el casco antiguo de Frigiliana. Desde la terraza privada se ven los cultivos de mango y aguacate hasta el mar; por la mañana hay sombra y el sol llega hacia el mediodía. La cama mide 160 × 200 cm y el baño tiene ducha de lluvia doble.',
-      nl: 'Lounis ligt in de oude kern van Frigiliana. Vanaf het privéterras kijk je over de mango- en avocadoplantages tot aan zee; ’s ochtends is er schaduw en vanaf ongeveer de middag zon. Het bed is 160 × 200 cm en de badkamer heeft een dubbele regendouche.',
-      sv: 'Lounis ligger i Frigilianas gamla stad. Från den privata terrassen ser ni över mango- och avokadoplantagerna mot havet; på morgonen är det skugga och från ungefär mitt på dagen sol. Sängen är 160 × 200 cm och badrummet har dubbel regndusch.'
-    },
-    ctaLabel: {
-      en: 'Explore Lounis',
-      de: 'Lounis ansehen',
-      es: 'Ver Lounis',
-      nl: 'Lounis bekijken',
-      sv: 'Visa Lounis'
-    }
-  },
-  zaid: {
-    imageAlt: {
-      en: 'AMARA Zaid apartment in Frigiliana with private terrace',
-      de: 'AMARA Zaid Ferienwohnung in Frigiliana mit privater Terrasse',
-      es: 'Apartamento AMARA Zaid en Frigiliana con terraza privada',
-      nl: 'AMARA Zaid appartement in Frigiliana met privéterras',
-      sv: 'AMARA Zaid lägenhet i Frigiliana med privat terrass'
-    },
-    meta: {
-      en: 'Frigiliana · 2 guests',
-      de: 'Frigiliana · 2 Gäste',
-      es: 'Frigiliana · 2 huéspedes',
-      nl: 'Frigiliana · 2 gasten',
-      sv: 'Frigiliana · 2 gäster'
-    },
-    title: {
-      en: 'AMARA Zaid · Terrace Apartment',
-      de: 'AMARA Zaid · Weiter Blick und 180 cm breites Bett',
-      es: 'AMARA Zaid · Apartamento con terraza',
-      nl: 'AMARA Zaid · Appartement met terras',
-      sv: 'AMARA Zaid · Lägenhet med terrass'
-    },
-    description: {
-      en: 'Zaid is one floor above Lounis, with a wider view across the plantations to the sea. Its 180 × 200 cm bed is the broadest in Casa AMARA, and the bathroom has a double rain shower.',
-      de: 'Zaid liegt eine Etage über Lounis. Von der privaten Terrasse reicht der Blick weiter über die Plantagen bis zum Meer. Das Bett misst 180 × 200 cm und ist damit das breiteste in Casa AMARA. Im Bad gibt es eine Doppel-Regendusche.',
-      es: 'Zaid está una planta por encima de Lounis y ofrece vistas más amplias sobre los cultivos hasta el mar. Su cama de 180 × 200 cm es la más ancha de Casa AMARA y el baño tiene ducha de lluvia doble.',
-      nl: 'Zaid ligt één verdieping boven Lounis en kijkt nog verder over de plantages naar zee. Het bed van 180 × 200 cm is het breedste van Casa AMARA en de badkamer heeft een dubbele regendouche.',
-      sv: 'Zaid ligger en våning ovanför Lounis och har vidare utsikt över odlingarna mot havet. Sängen på 180 × 200 cm är den bredaste i Casa AMARA och badrummet har dubbel regndusch.'
-    },
-    ctaLabel: {
-      en: 'Explore Zaid',
-      de: 'Zaid ansehen',
-      es: 'Ver Zaid',
-      nl: 'Zaid bekijken',
-      sv: 'Visa Zaid'
-    }
-  },
-  maha: {
-    imageAlt: {
-      en: 'AMARA Maha romantic old town apartment in Frigiliana',
-      de: 'AMARA Maha romantische Altstadt-Ferienwohnung in Frigiliana',
-      es: 'Apartamento romántico AMARA Maha en el casco antiguo de Frigiliana',
-      nl: 'AMARA Maha romantisch appartement in de oude kern van Frigiliana',
-      sv: 'AMARA Maha romantisk lägenhet i Frigilianas gamla stad'
-    },
-    meta: {
-      en: 'Frigiliana · 2 guests',
-      de: 'Frigiliana · 2 Gäste',
-      es: 'Frigiliana · 2 huéspedes',
-      nl: 'Frigiliana · 2 gasten',
-      sv: 'Frigiliana · 2 gäster'
-    },
-    title: {
-      en: 'AMARA Maha · Old Town Apartment',
-      de: 'AMARA Maha · 60 m² Terrasse mit Außenküche',
-      es: 'AMARA Maha · Apartamento en el casco antiguo',
-      nl: 'AMARA Maha · Appartement in de oude kern',
-      sv: 'AMARA Maha · Lägenhet i gamla stan'
-    },
-    description: {
-      en: 'Maha’s 60 m² terrace works almost like a second living room, with an outdoor kitchen, hammock, two sun loungers and outdoor shower. It sits highest in Casa AMARA and has the widest view. The 150 × 200 cm bed is narrower than those in Lounis or Zaid.',
-      de: 'Bei Maha ist die Terrasse fast ein zweites Wohnzimmer: 60 m², Außenküche, Hängematte, zwei Sonnenliegen und Außendusche. Maha liegt ganz oben im Haus und hat den weitesten Blick. Das Bett ist mit 150 × 200 cm schmaler als in Lounis oder Zaid.',
-      es: 'La terraza de Maha funciona casi como un segundo salón: 60 m², cocina exterior, hamaca, dos tumbonas y ducha al aire libre. Es el apartamento más alto de Casa AMARA y el que tiene las vistas más amplias. La cama, de 150 × 200 cm, es más estrecha que la de Lounis o Zaid.',
-      nl: 'Maha’s terras is bijna een tweede woonkamer: 60 m² met buitenkeuken, hangmat, twee ligstoelen en buitendouche. Het ligt het hoogst in Casa AMARA en heeft het ruimste uitzicht. Het bed van 150 × 200 cm is smaller dan dat van Lounis of Zaid.',
-      sv: 'Mahas terrass fungerar nästan som ett extra vardagsrum: 60 m² med utekök, hängmatta, två solsängar och utomhusdusch. Lägenheten ligger högst i Casa AMARA och har den vidaste utsikten. Sängen på 150 × 200 cm är smalare än i Lounis eller Zaid.'
-    },
-    ctaLabel: {
-      en: 'Explore Maha',
-      de: 'Maha ansehen',
-      es: 'Ver Maha',
-      nl: 'Maha bekijken',
-      sv: 'Visa Maha'
-    }
-  },
-  playa: {
-    imageAlt: {
-      en: 'AMARA Playa Nerja apartment near the beach with sea view',
-      de: 'AMARA Playa Apartment in Nerja nahe am Strand mit Meerblick',
-      es: 'Apartamento AMARA Playa en Nerja cerca de la playa con vistas al mar',
-      nl: 'AMARA Playa appartement in Nerja bij het strand met zeezicht',
-      sv: 'AMARA Playa lägenhet i Nerja nära stranden med havsutsikt'
-    },
-    meta: {
-      en: 'Nerja · 2 guests',
-      de: 'Nerja · 2 Gäste',
-      es: 'Nerja · 2 huéspedes',
-      nl: 'Nerja · 2 gasten',
-      sv: 'Nerja · 2 gäster'
-    },
-    title: {
-      en: 'AMARA Playa · Nerja Beach Apartment',
-      de: 'AMARA Playa · 100 Meter zum Strand',
-      es: 'AMARA Playa · Apartamento junto al mar en Nerja',
-      nl: 'AMARA Playa · Strandappartement in Nerja',
-      sv: 'AMARA Playa · Strandlägenhet i Nerja'
-    },
-    description: {
-      en: 'Playa is 100 metres from Torrecilla beach and 500 metres from the Balcón de Europa. The fifth-floor apartment has a lift, balcony and AMARA’s largest bed at 200 × 200 cm. The sea view is to the side rather than panoramic, and there are seven steps before the lift.',
-      de: 'Wenn ihr direkt an der Küste wohnen möchtet, ist Playa die Alternative zu Frigiliana. Zum Strand Torrecilla sind es 100 Meter, zum Balcón de Europa 500. Das Apartment liegt im fünften Stock mit Aufzug, hat einen Balkon und mit 200 × 200 cm das größte Bett aller AMARA-Unterkünfte. Der Meerblick ist seitlich, kein Panorama – dafür liegt das Meer tatsächlich fast vor der Haustür. Bis zum Aufzug sind es insgesamt sieben Stufen.',
-      es: 'Playa está a 100 metros de la playa de Torrecilla y a 500 del Balcón de Europa. El apartamento, en una quinta planta con ascensor, tiene balcón y la cama más grande de AMARA: 200 × 200 cm. Las vistas al mar son laterales, no panorámicas, y hay siete escalones antes del ascensor.',
-      nl: 'Playa ligt op 100 meter van het strand van Torrecilla en 500 meter van het Balcón de Europa. Het appartement op de vijfde verdieping heeft een lift, balkon en met 200 × 200 cm het grootste bed van AMARA. Het zeezicht is zijdelings, niet panoramisch, en vóór de lift zijn er zeven treden.',
-      sv: 'Playa ligger 100 meter från Torrecillastranden och 500 meter från Balcón de Europa. Lägenheten på femte våningen har hiss, balkong och AMARAs största säng, 200 × 200 cm. Havsutsikten är åt sidan, inte panoramisk, och det är sju trappsteg fram till hissen.'
-    },
-    ctaLabel: {
-      en: 'Explore Playa',
-      de: 'Playa ansehen',
-      es: 'Ver Playa',
-      nl: 'Playa bekijken',
-      sv: 'Visa Playa'
-    }
-  },
-  casa: {
-    imageAlt: {
-      en: 'Living room with colorful artwork and an open staircase at AMARA Family & Surf in Tarifa',
-      de: 'Wohnzimmer mit farbenfroher Kunst und offener Treppe bei AMARA Family & Surf in Tarifa',
-      es: 'Salón con obras de arte coloridas y escalera abierta en AMARA Family & Surf, Tarifa',
-      nl: 'Woonkamer met kleurrijke kunst en open trap bij AMARA Family & Surf in Tarifa',
-      sv: 'Vardagsrum med färgstark konst och öppen trappa på AMARA Family & Surf i Tarifa'
-    },
-    meta: {
-      en: 'Tarifa · family stay',
-      de: 'Tarifa · bis zu 4 Gäste',
-      es: 'Tarifa · estancia familiar',
-      nl: 'Tarifa · gezinsverblijf',
-      sv: 'Tarifa · familjevistelse'
-    },
-    title: {
-      en: 'AMARA Family & Surf · Ocean View Penthouse',
-      de: 'AMARA Family & Surf · Sonnenuntergänge über dem Atlantik',
-      es: 'AMARA Family & Surf · Ático con vistas al mar',
-      nl: 'AMARA Family & Surf · Penthouse met zeezicht',
-      sv: 'AMARA Family & Surf · Penthouse med havsutsikt'
-    },
-    description: {
-      en: 'Family & Surf has 75 m² over two floors, with two bedrooms, two bathrooms and a terrace facing the Atlantic. You can watch the sun set over the sea and use the extra space as a couple, or stay with up to four guests.',
-      de: 'Family & Surf verteilt sich auf 75 m² über zwei Etagen und bietet deutlich mehr Platz als unsere Unterkünfte für zwei. Zu zweit habt ihr dort zwei Bäder, zwei Schlafzimmer und eine Terrasse mit direktem Atlantikblick. Abends seht ihr von dort den Sonnenuntergang über dem Meer. Gleichzeitig bietet das Penthouse Platz für bis zu vier Gäste.',
-      es: 'Family & Surf ofrece 75 m² en dos plantas, con dos dormitorios, dos baños y una terraza frente al Atlántico desde la que se ve ponerse el sol sobre el mar. Podéis disfrutar de todo ese espacio en pareja o alojaros hasta cuatro personas.',
-      nl: 'Family & Surf biedt 75 m² over twee verdiepingen, met twee slaapkamers, twee badkamers en een terras aan de Atlantische Oceaan. Vanaf het terras zien jullie de zon in zee zakken. Gebruik alle ruimte met z’n tweeën of verblijf met maximaal vier gasten.',
-      sv: 'Family & Surf har 75 m² i två våningar, med två sovrum, två badrum och en terrass mot Atlanten. Därifrån ser ni solen gå ner över havet. Njut av utrymmet som par eller bo här med upp till fyra gäster.'
-    },
-    ctaLabel: {
-      en: 'Explore Penthouse',
-      de: 'Family & Surf ansehen',
-      es: 'Ver ático',
-      nl: 'Penthouse bekijken',
-      sv: 'Visa penthouse'
-    }
-  }
+const rentalKeyByToken: Record<ApartmentToken, VacationRentalEntityKey> = {
+  farah: 'amara-farah',
+  lounis: 'amara-lounis',
+  zaid: 'amara-zaid',
+  maha: 'amara-maha',
+  playa: 'amara-playa',
+  casa: 'amara-family-surf'
 };
+
+const guestCountLabels: Record<AmaraLanguage, (count: number) => string> = {
+  en: (count) => `${count} guests`,
+  de: (count) => `${count} Gäste`,
+  es: (count) => `${count} huéspedes`,
+  nl: (count) => `${count} gasten`,
+  sv: (count) => `${count} gäster`
+};
+
+const selectionLabels = {
+  washingMachine: {
+    en: 'Washing machine',
+    de: 'Waschmaschine',
+    es: 'Lavadora',
+    nl: 'Wasmachine',
+    sv: 'Tvättmaskin'
+  },
+  noWashingMachine: {
+    en: 'No washing machine',
+    de: 'Keine Waschmaschine',
+    es: 'Sin lavadora',
+    nl: 'Geen wasmachine',
+    sv: 'Ingen tvättmaskin'
+  },
+  twoRoomSuite: {
+    en: 'Two-room suite',
+    de: 'Suite mit zwei Räumen',
+    es: 'Suite de dos estancias',
+    nl: 'Suite met twee kamers',
+    sv: 'Svit med två rum'
+  },
+  bedSize: {
+    en: '200 × 200 cm bed',
+    de: 'Bett: 200 × 200 cm',
+    es: 'Cama de 200 × 200 cm',
+    nl: 'Bed van 200 × 200 cm',
+    sv: 'Säng: 200 × 200 cm'
+  },
+  noInternalStairs: {
+    en: 'No stairs inside the apartment',
+    de: 'Keine Stufen im Apartment',
+    es: 'Sin escaleras dentro del apartamento',
+    nl: 'Geen trappen in het appartement',
+    sv: 'Inga trappor inne i lägenheten'
+  },
+  privatePatioAndTerrace: {
+    en: 'Private patio and terrace',
+    de: 'Privater Patio und private Terrasse',
+    es: 'Patio y terraza privados',
+    nl: 'Privépatio en privéterras',
+    sv: 'Privat uteplats och terrass'
+  },
+  sharedPool: {
+    en: 'Shared pool',
+    de: 'Gemeinschaftspool',
+    es: 'Piscina comunitaria',
+    nl: 'Gedeeld zwembad',
+    sv: 'Gemensam pool'
+  },
+  reservedGarage: {
+    en: 'Reserved underground parking space',
+    de: 'Reservierter Tiefgaragenstellplatz',
+    es: 'Plaza reservada en el garaje',
+    nl: 'Gereserveerde plek in de parkeergarage',
+    sv: 'Reserverad garageplats'
+  },
+  stepFreeVillageRoute: {
+    en: 'The route towards the village centre is step-free',
+    de: 'Der Weg in Richtung Ortskern ist stufenlos',
+    es: 'El recorrido hacia el centro del pueblo no tiene escalones',
+    nl: 'De route richting het dorpscentrum is trapvrij',
+    sv: 'Vägen mot bykärnan är utan trappsteg'
+  }
+} satisfies Record<string, CopyRow>;
+
+type SelectionSignal =
+  | 'kitchen'
+  | 'washingMachine'
+  | 'noWashingMachine'
+  | 'twoRoomSuite'
+  | 'bedSize'
+  | 'outdoor'
+  | 'privatePatioAndTerrace'
+  | 'pets'
+  | 'pool'
+  | 'parking'
+  | 'stepFreeVillageRoute';
+
+const selectionSignalsByToken: Record<ApartmentToken, SelectionSignal[]> = {
+  farah: ['twoRoomSuite', 'kitchen', 'outdoor', 'stepFreeVillageRoute'],
+  lounis: ['kitchen', 'washingMachine', 'privatePatioAndTerrace', 'pets'],
+  zaid: ['kitchen', 'washingMachine', 'outdoor'],
+  maha: ['kitchen', 'noWashingMachine', 'outdoor', 'pets'],
+  playa: ['bedSize', 'kitchen', 'washingMachine', 'outdoor'],
+  casa: ['kitchen', 'washingMachine', 'pool', 'parking']
+};
+
+function amenityValue(
+  rental: VacationRentalEntity,
+  name: string
+): VacationRentalAmenityFeature['value'] | undefined {
+  return rental.amenityFeatures.find((feature) => feature.name === name)?.value;
+}
+
+function hasAmenity(rental: VacationRentalEntity, name: string): boolean {
+  return amenityValue(rental, name) === true;
+}
+
+function firstSentence(text: string): string {
+  const end = text.indexOf('.');
+  return end === -1 ? text : text.slice(0, end + 1);
+}
+
+function selectionSignal(
+  signal: SelectionSignal,
+  rental: VacationRentalEntity
+): string | undefined {
+  switch (signal) {
+    case 'kitchen':
+      return rental.kitchenNote[currentLang];
+    case 'washingMachine':
+      return hasAmenity(rental, 'washingMachine')
+        ? selectionLabels.washingMachine[currentLang]
+        : undefined;
+    case 'noWashingMachine':
+      return !hasAmenity(rental, 'washingMachine')
+        ? selectionLabels.noWashingMachine[currentLang]
+        : undefined;
+    case 'twoRoomSuite':
+      return rental.rooms === 2 ? selectionLabels.twoRoomSuite[currentLang] : undefined;
+    case 'bedSize':
+      return rental.bed.some((bed) => bed.label === '200 x 200')
+        ? selectionLabels.bedSize[currentLang]
+        : undefined;
+    case 'outdoor':
+      return rental.outdoorNote[currentLang];
+    case 'privatePatioAndTerrace':
+      return hasAmenity(rental, 'privatePatio') && hasAmenity(rental, 'privateTerrace')
+        ? selectionLabels.privatePatioAndTerrace[currentLang]
+        : undefined;
+    case 'pets':
+      return hasAmenity(rental, 'petsAllowed') ? rental.petsNote[currentLang] : undefined;
+    case 'pool':
+      return hasAmenity(rental, 'pool') ? selectionLabels.sharedPool[currentLang] : undefined;
+    case 'parking':
+      return amenityValue(rental, 'parkingType') === 'ReservedUndergroundIncluded'
+        ? selectionLabels.reservedGarage[currentLang]
+        : undefined;
+    case 'stepFreeVillageRoute':
+      return rental.accessFacts.routeToVillageCore === 'step-free'
+        ? selectionLabels.stepFreeVillageRoute[currentLang]
+        : undefined;
+  }
+}
+
+function physicalAccessSummary(token: ApartmentToken, rental: VacationRentalEntity): string {
+  if (token === 'playa' || token === 'casa') return rental.accessNote[currentLang];
+
+  const summary = token === 'zaid' && currentLang === 'sv'
+    ? `Ett trappsteg vid huvudentrén och därefter ${rental.accessFacts.insideBuildingStepsToUnitOrLift} trappsteg upp till lägenheten.`
+    : firstSentence(rental.accessNote[currentLang]);
+  return token === 'zaid'
+    ? `${summary} ${selectionLabels.noInternalStairs[currentLang]}.`
+    : summary;
+}
+
+function cardDescription(token: ApartmentToken, rental: VacationRentalEntity): string {
+  const lead = token === 'casa'
+    ? firstSentence(rental.lead[currentLang])
+    : rental.lead[currentLang];
+  const signals = selectionSignalsByToken[token]
+    .map((signal) => selectionSignal(signal, rental))
+    .filter((value): value is string => Boolean(value));
+
+  return `${lead} ${signals.join(' · ')}. ${physicalAccessSummary(token, rental)}`;
+}
+
+function cardCtaLabel(rental: VacationRentalEntity): string {
+  const labels: Record<AmaraLanguage, string> = {
+    en: `View ${rental.shortName}`,
+    de: `${rental.shortName} ansehen`,
+    es: `Ver ${rental.shortName}`,
+    nl: `${rental.shortName} bekijken`,
+    sv: `Visa ${rental.shortName}`
+  };
+  return labels[currentLang];
+}
 
 const optionalLink = (token: string) =>
   resolveOptionalLink(token, currentLang, { suppressMissing: true });
@@ -881,39 +628,35 @@ const collectionHref = '#booking';
 const bookHref = optionalLink('book');
 const directBookingHref = optionalLink('direct_booking_benefits');
 const reviewsHref = optionalLink('reviews_hub');
-const faqHref = optionalLink('faq_general');
 const comparisonHref = optionalLink('nerja_vs_frigiliana');
+const amenitiesHref = optionalLink('amenities');
+const winterHref = optionalLink('frigiliana_winter_stays');
 const decisionItems = copy.decisionItems[currentLang] ?? copy.decisionItems.en;
-const faqItems = copy.faqItems[currentLang] ?? copy.faqItems.en;
 
 const locationBridgeLinks = [
-  { href: buildOwnedLocalizedPath('frigiliana-location', currentLang), label: t(copy.locationFrigiliana) },
-  { href: buildOwnedLocalizedPath('frigiliana-parking', currentLang), label: t(copy.locationParking) },
-  { href: buildOwnedLocalizedPath('frigiliana-weather', currentLang), label: t(copy.locationWeather) }
+  ...(comparisonHref ? [{ href: comparisonHref, label: t(copy.locationComparison) }] : []),
+  ...(amenitiesHref ? [{ href: amenitiesHref, label: t(copy.ctaAmenities) }] : []),
+  ...(winterHref ? [{ href: winterHref, label: t(copy.locationWinter) }] : [])
 ];
 
-type ApartmentBase = Omit<
-  (typeof apartments)[number],
-  'imageSrc' | 'imageAlt' | 'meta' | 'title' | 'description' | 'ctaLabel'
->;
-type ApartmentWithHref = ApartmentBase &
-  LocalizedApartmentCopy & {
-    href: string;
-    image: ImageMetadata;
-  };
-const apartmentRows = apartments.map((apt) => {
-    const href = optionalLink(apt.token);
-    if (!href) return null;
+const apartmentRows = apartmentTokens.map((token) => {
+  const href = optionalLink(token);
+  if (!href) return null;
+  const rental = vacationRentalEntitiesByKey[rentalKeyByToken[token]];
 
-    return {
-      token: apt.token,
-      ...apartmentCopy[apt.token],
-      href,
-      image: apartmentImages[apt.token]
-    };
-  });
-const apartmentsWithLinks: ApartmentWithHref[] = apartmentRows.filter(
-  (apt): apt is ApartmentWithHref => Boolean(apt)
+  return {
+    token,
+    href,
+    image: apartmentImages[token],
+    imageAlt: rental.imageAlt,
+    meta: `${rental.city} · ${guestCountLabels[currentLang](rental.occupancy)}`,
+    title: rental.name,
+    description: cardDescription(token, rental),
+    ctaLabel: cardCtaLabel(rental)
+  };
+});
+const apartmentsWithLinks = apartmentRows.filter(
+  (apt): apt is NonNullable<(typeof apartmentRows)[number]> => Boolean(apt)
 );
 ---
 
@@ -940,15 +683,11 @@ const apartmentsWithLinks: ApartmentWithHref[] = apartmentRows.filter(
           ]}
         />
 
-        {
-          currentLang !== 'de' && (
-            <div class="max-w-2xl space-y-5 mt-8 am-text-body text-on-surface-variant leading-relaxed">
-              {tArr(copy.prose).map((html) => (
-                <p set:html={html} />
-              ))}
-            </div>
-          )
-        }
+        <div class="max-w-2xl space-y-5 mt-8 am-text-body text-on-surface-variant leading-relaxed">
+          {tArr(copy.prose).map((html) => (
+            <p set:html={html} />
+          ))}
+        </div>
 
         <div
           class="flex flex-wrap items-center gap-x-8 gap-y-4 mt-12 pt-8 border-t border-border-subtle am-text-body text-on-surface-variant"
@@ -970,14 +709,7 @@ const apartmentsWithLinks: ApartmentWithHref[] = apartmentRows.filter(
         class="py-14 md:py-20 border-t border-border-subtle relative z-10"
         aria-labelledby="decision-title"
       >
-        <div
-          class:list={[
-            'grid gap-10 lg:items-start',
-            currentLang === 'de'
-              ? 'lg:grid-cols-1'
-              : 'lg:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)]'
-          ]}
-        >
+        <div class="grid gap-10 lg:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)] lg:items-start">
           <div class="max-w-2xl">
             <p class="font-label text-[11px] font-bold uppercase tracking-[0.14em] text-on-surface-variant">
               {t(copy.decisionEyebrow)}
@@ -988,47 +720,23 @@ const apartmentsWithLinks: ApartmentWithHref[] = apartmentRows.filter(
             <p class="am-text-body text-on-surface-variant mt-5 leading-relaxed">
               {t(copy.decisionIntro)}
             </p>
-            {
-              currentLang === 'de' && (
-                <p class="am-text-body text-on-surface-variant mt-4 leading-relaxed">
-                  {germanDecisionIntroSecondary}
-                </p>
-              )
-            }
           </div>
 
-          {
-            currentLang === 'de' ? (
-              <div class="grid gap-8 md:grid-cols-2 xl:grid-cols-3">
-                {germanProofItems.map((item) => (
-                  <article class="border-t border-border-subtle pt-5">
-                    <h3 class="am-text-subtitle text-on-surface">
-                      {item.title}
-                    </h3>
-                    <p class="am-text-body text-on-surface-variant mt-3 leading-relaxed">
-                      {item.body}
-                    </p>
-                  </article>
-                ))}
-              </div>
-            ) : (
-              <div class="grid gap-8 md:grid-cols-3">
-                {decisionItems.map((item) => (
-                  <article class="border-t border-border-subtle pt-5">
-                    <p class="font-label text-[11px] font-bold uppercase tracking-[0.14em] text-primary">
-                      {item.kicker}
-                    </p>
-                    <h3 class="am-text-subtitle text-on-surface mt-4">
-                      {item.title}
-                    </h3>
-                    <p class="am-text-body text-on-surface-variant mt-3 leading-relaxed">
-                      {item.body}
-                    </p>
-                  </article>
-                ))}
-              </div>
-            )
-          }
+          <div class="grid gap-8 md:grid-cols-3">
+            {decisionItems.map((item) => (
+              <article class="border-t border-border-subtle pt-5">
+                <p class="font-label text-[11px] font-bold uppercase tracking-[0.14em] text-primary">
+                  {item.kicker}
+                </p>
+                <h3 class="am-text-subtitle text-on-surface mt-4">
+                  {item.title}
+                </h3>
+                <p class="am-text-body text-on-surface-variant mt-3 leading-relaxed">
+                  {item.body}
+                </p>
+              </article>
+            ))}
+          </div>
         </div>
       </section>
 
@@ -1051,10 +759,10 @@ const apartmentsWithLinks: ApartmentWithHref[] = apartmentRows.filter(
                 imageAlt={t(apt.imageAlt)}
                 loading={index === 0 ? 'eager' : 'lazy'}
                 fetchpriority={index === 0 ? 'high' : undefined}
-                meta={t(apt.meta)}
-                title={t(apt.title)}
-                description={t(apt.description)}
-                ctaLabel={t(apt.ctaLabel)}
+                meta={apt.meta}
+                title={apt.title}
+                description={apt.description}
+                ctaLabel={apt.ctaLabel}
               />
             ))
           }
@@ -1062,46 +770,17 @@ const apartmentsWithLinks: ApartmentWithHref[] = apartmentRows.filter(
       </section>
 
       <section class="py-14 md:py-20 border-t border-border-subtle relative z-10" aria-labelledby="location-bridge-title">
-        <div class:list={[currentLang === 'de' ? 'max-w-6xl' : 'max-w-3xl']}>
-          {
-            currentLang !== 'de' && (
-              <p class="font-label text-[11px] font-bold uppercase tracking-[0.14em] text-on-surface-variant">
-                {t(copy.locationBridgeEyebrow)}
-              </p>
-            )
-          }
-          <h2
-            id="location-bridge-title"
-            class:list={['am-text-title tracking-tight', currentLang !== 'de' && 'mt-4']}
-          >
+        <div class="max-w-3xl">
+          <p class="font-label text-[11px] font-bold uppercase tracking-[0.14em] text-on-surface-variant">
+            {t(copy.locationBridgeEyebrow)}
+          </p>
+          <h2 id="location-bridge-title" class="am-text-title tracking-tight mt-4">
             {t(copy.locationBridgeTitle)}
           </h2>
-          {
-            currentLang === 'de' ? (
-              <div class="grid gap-8 mt-10 md:grid-cols-3">
-                {germanDestinationItems.map((item) => (
-                  <article class="border-t border-border-subtle pt-5">
-                    <h3 class="am-text-subtitle text-on-surface">{item.title}</h3>
-                    <p class="am-text-body text-on-surface-variant mt-3 leading-relaxed">
-                      {item.body}
-                    </p>
-                  </article>
-                ))}
-              </div>
-            ) : (
-              <p class="am-text-body text-on-surface-variant mt-5 leading-relaxed">
-                {t(copy.locationBridgeBody)}
-              </p>
-            )
-          }
+          <p class="am-text-body text-on-surface-variant mt-5 leading-relaxed">
+            {t(copy.locationBridgeBody)}
+          </p>
           <div class="flex flex-wrap gap-3 mt-7">
-            {
-              currentLang === 'de' && comparisonHref && (
-                <a class="am-btn am-btn--secondary" href={comparisonHref}>
-                  Frigiliana und Nerja ausführlich vergleichen
-                </a>
-              )
-            }
             {
               locationBridgeLinks.map((link) => (
                 <a class="am-btn am-btn--secondary" href={link.href}>{link.label}</a>
@@ -1112,66 +791,7 @@ const apartmentsWithLinks: ApartmentWithHref[] = apartmentRows.filter(
       </section>
 
       {
-        currentLang === 'de' && reviewsHref && (
-          <GuestReviewsSummary
-            eyebrow={t(copy.reviewsEyebrow)}
-            headline={t(copy.reviewsHeadline)}
-            body={t(copy.reviewsBody)}
-            reviewsHref={reviewsHref}
-            reviewsCtaLabel={t(copy.reviewsCta)}
-            features={featureChipsByLang[currentLang]}
-          />
-        )
-      }
-
-      <section
-        class="am-romantic-faq py-14 md:py-20 border-t border-border-subtle relative z-10"
-        aria-labelledby="romantic-faq-title"
-      >
-        <div class="max-w-3xl">
-          <p class="font-label text-[11px] font-bold uppercase tracking-[0.14em] text-on-surface-variant">
-            {t(copy.faqEyebrow)}
-          </p>
-          <h2 id="romantic-faq-title" class="am-text-title tracking-tight mt-4">
-            {t(copy.faqTitle)}
-          </h2>
-          <p class="am-text-body text-on-surface-variant mt-5 leading-relaxed">
-            {t(copy.faqIntro)}
-          </p>
-        </div>
-
-        <div class="mt-10 divide-y divide-border-subtle border-t border-border-subtle">
-          {
-            faqItems.map((item) => (
-              <details class="group py-6">
-                <summary class="flex cursor-pointer list-none items-center justify-between gap-6">
-                  <h3 class="am-text-subtitle text-on-surface">
-                    {item.question}
-                  </h3>
-                  <span class="text-on-surface-variant text-xl leading-none" aria-hidden="true">
-                    <span class="group-open:hidden">+</span>
-                    <span class="hidden group-open:inline">-</span>
-                  </span>
-                </summary>
-                <p class="am-text-body text-on-surface-variant mt-4 max-w-3xl leading-relaxed">
-                  {item.answer}
-                </p>
-              </details>
-            ))
-          }
-        </div>
-
-        {
-          faqHref && (
-            <a class="am-btn am-btn--secondary mt-8" href={faqHref}>
-              {t(copy.faqCta)}
-            </a>
-          )
-        }
-      </section>
-
-      {
-        currentLang !== 'de' && reviewsHref && (
+        reviewsHref && (
           <GuestReviewsSummary
             eyebrow={t(copy.reviewsEyebrow)}
             headline={t(copy.reviewsHeadline)}
@@ -1185,9 +805,3 @@ const apartmentsWithLinks: ApartmentWithHref[] = apartmentRows.filter(
     </div>
   </main>
 </BaseLayout>
-
-<style>
-  .am-romantic-faq summary::-webkit-details-marker {
-    display: none;
-  }
-</style>
