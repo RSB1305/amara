@@ -47,12 +47,6 @@ interface FrigilianaWinterStaysCopy {
     title: string;
     paragraphs: string[];
   };
-  chooser: {
-    title: string;
-    stays: Record<'farah' | StayKey, string>;
-    closing: string;
-    cta: string;
-  };
   planning: {
     title: string;
     weather: { text: string; link: string };
@@ -132,7 +126,7 @@ export const frigilianaWinterStaysContent: Record<
       paragraphs: [
         'Many people first discover Frigiliana on a summer day. Winter brings a different experience.',
         'Morning starts inside the old village. Walk out for breakfast or through the lanes, use the milder part of the day for a walk or hike, then head towards Nerja or the coast if you feel like the sea.',
-        'In the evening, you return to Frigiliana. Restaurants and village life remain part of the stay, while the large summer visitor flows play a much smaller role in the day.',
+        'In the evening, you return to Frigiliana. Restaurants and village life remain part of the stay, while the summer crowds are much less present.',
         "For guests who want mild winter days together with the feeling of actually living somewhere for a while, this is one of Frigiliana's most appealing seasons."
       ],
       weatherLink: 'Weather & Seasons'
@@ -146,7 +140,7 @@ export const frigilianaWinterStaysContent: Record<
         'Fast Wi-Fi, generous bathrooms and large showers bring everyday comfort inside a house whose historic fabric has developed over centuries.',
         'Spend the day exploring Frigiliana and the surrounding area, then come home to a warm and comfortable place in the evening.'
       ],
-      imageAlt: 'Pellet stove beside the historic walls inside Casa AMARA in Frigiliana'
+      imageAlt: 'Historic sitting room inside AMARA Lounis in Frigiliana'
     },
     pelletStays: {
       title: 'Three stays with pellet stoves',
@@ -174,7 +168,7 @@ export const frigilianaWinterStaysContent: Record<
     farah: {
       title: 'Farah for a shorter winter break',
       paragraphs: [
-        'Farah is a more compact way to stay inside historic Frigiliana during winter.',
+        'Farah offers an intimate stay in the heart of historic Frigiliana.',
         "Heating is part of the stay, together with Casa AMARA's position near San Antonio in the heart of the old village.",
         'For a shorter winter break, that can be a very simple combination: Frigiliana outside the door and a comfortable place to return to in the evening.'
       ],
@@ -195,21 +189,10 @@ export const frigilianaWinterStaysContent: Record<
     duration: {
       title: 'From a few winter nights to three weeks',
       paragraphs: [
-        "AMARA's Frigiliana winter stays are intended for holiday guests staying from a few nights up to a maximum of three weeks.",
+        'A winter stay at AMARA can last a few nights, a week or up to three weeks.',
         'You may simply want a short break. You may have a full week. Or you may want two or three weeks to travel more slowly and let Frigiliana become home for a little while.',
         'That leaves plenty of time for the village, the surrounding landscape and days beside the Mediterranean.'
       ]
-    },
-    chooser: {
-      title: 'Which AMARA stay fits your winter holiday?',
-      stays: {
-        farah: 'A compact winter stay in the heart of the historic village.',
-        lounis: 'Private terrace + pellet stove.',
-        zaid: 'Private terrace + pellet stove.',
-        maha: 'Pellet stove + approximately 60 m² private terrace + outdoor kitchen.'
-      },
-      closing: "All four stays are inside Casa AMARA in Frigiliana's historic centre and have heating.",
-      cta: 'View the four stays'
     },
     planning: {
       title: 'Plan winter in Frigiliana',
@@ -242,7 +225,7 @@ export const frigilianaWinterStaysContent: Record<
       paragraphs: [
         'Im Winter verändert Frigiliana seinen Rhythmus. Die Gassen werden ruhiger, Spaziergänge und Wanderungen angenehmer und Nerja, Maro und das Mittelmeer bleiben für den Tag ganz in der Nähe.',
         'Ihr verbringt eure Wintertage zwischen den alten weißen Häusern Frigilianas – für ein paar Tage, eine Woche oder bis zu drei Wochen.',
-        'Und wenn ihr am Abend zurückkommt, zählt etwas, das im Sommer kaum jemand erwähnt: ein Zuhause, in dem man sich auch drinnen wohlfühlt.'
+        'Und wenn ihr am Abend zurückkommt, zählt etwas, das im Sommer kaum jemand erwähnt: ein Zuhause, in dem ihr euch auch drinnen wohlfühlt.'
       ],
       cta: 'Winterverfügbarkeit prüfen',
       imageAlt: 'Weiße Häuser und ruhige Gassen im historischen Frigiliana'
@@ -266,7 +249,7 @@ export const frigilianaWinterStaysContent: Record<
         'Dazu kommen schnelles WLAN, großzügige Badezimmer und große Duschen – moderner Komfort innerhalb eines Hauses, dessen historische Substanz über Jahrhunderte gewachsen ist.',
         'So könnt ihr morgens Frigiliana und die Umgebung entdecken und euch abends auf einen warmen, komfortablen Rückzugsort freuen.'
       ],
-      imageAlt: 'Pelletofen neben historischen Mauern in Casa AMARA in Frigiliana'
+      imageAlt: 'Historischer Wohnbereich von AMARA Lounis in Frigiliana'
     },
     pelletStays: {
       title: 'Drei Unterkünfte mit Pelletofen',
@@ -294,7 +277,7 @@ export const frigilianaWinterStaysContent: Record<
     farah: {
       title: 'Farah für einen kürzeren Winteraufenthalt',
       paragraphs: [
-        'Farah ist eine kompaktere Möglichkeit für einen Winteraufenthalt mitten im historischen Frigiliana.',
+        'Farah ist ein persönlicher Rückzugsort mitten im historischen Frigiliana.',
         'Auch hier gehört Heizung zum Aufenthalt, ebenso die Lage in Casa AMARA nahe San Antonio und damit direkt im alten Dorf.',
         'Für einen kürzeren Winterurlaub kann genau diese Kombination interessant sein: Frigiliana vor der Haustür und ein komfortabler Rückzugsort für den Abend.'
       ],
@@ -306,7 +289,7 @@ export const frigilianaWinterStaysContent: Record<
       paragraphs: [
         'Im Winter lassen sich Dorf und Küste besonders gut miteinander verbinden.',
         'Frigiliana kann der Ort sein, an dem ihr morgens aufwacht und abends nach Hause kommt. Nerja, Maro und die Küste bleiben Teil eurer Urlaubstage.',
-        'Für Strandspaziergänge, größere Einkäufe oder weitere Ausflüge gibt euch ein Mietwagen zusätzliche Freiheit. Für einen einfachen Tag in Nerja kann auch die Busverbindung funktionieren.',
+        'Für Strandspaziergänge, größere Einkäufe oder weitere Ausflüge gibt euch ein Mietwagen zusätzliche Freiheit. Für einen entspannten Tag in Nerja könnt ihr auch den Bus nehmen.',
         'Wenn für euch unmittelbare Strandnähe wichtiger ist als das Wohnen im historischen Dorf, kann AMARA Playa in Nerja die passendere Wahl sein.'
       ],
       cta: 'Frigiliana & Nerja entdecken',
@@ -315,21 +298,10 @@ export const frigilianaWinterStaysContent: Record<
     duration: {
       title: 'Von ein paar Wintertagen bis zu drei Wochen',
       paragraphs: [
-        'AMARA richtet den Winteraufenthalt bewusst an Urlaubsgäste für einige Tage bis maximal drei Wochen.',
-        'Vielleicht möchtet ihr nur einige Tage raus. Vielleicht habt ihr eine Woche Zeit. Oder ihr möchtet zwei oder drei Wochen langsamer reisen und Frigiliana tatsächlich zum temporären Zuhause machen.',
+        'Euer Winterurlaub bei AMARA kann ein paar Nächte, eine Woche oder bis zu drei Wochen dauern.',
+        'Vielleicht möchtet ihr nur einige Tage raus. Vielleicht habt ihr eine Woche Zeit. Oder ihr nehmt euch zwei oder drei Wochen, reist langsamer und lasst Frigiliana für eine Weile zu eurem Zuhause werden.',
         'So bleibt viel Zeit für das Dorf, die Umgebung und Tage am Mittelmeer.'
       ]
-    },
-    chooser: {
-      title: 'Welcher AMARA-Aufenthalt passt zu eurem Winterurlaub?',
-      stays: {
-        farah: 'Kompakter Winteraufenthalt mitten im historischen Dorf.',
-        lounis: 'Private Terrasse + Pelletofen.',
-        zaid: 'Private Terrasse + Pelletofen.',
-        maha: 'Pelletofen + rund 60 m² private Terrasse + Outdoor-Küche.'
-      },
-      closing: 'Alle vier Unterkünfte befinden sich in Casa AMARA im historischen Zentrum von Frigiliana und verfügen über Heizung.',
-      cta: 'Die vier Unterkünfte ansehen'
     },
     planning: {
       title: 'Winter in Frigiliana planen',
@@ -386,7 +358,7 @@ export const frigilianaWinterStaysContent: Record<
         'El wifi rápido, los baños amplios y las duchas grandes aportan comodidad cotidiana dentro de una casa cuya estructura histórica se ha formado a lo largo de los siglos.',
         'Así podéis pasar el día descubriendo Frigiliana y sus alrededores y volver por la tarde a un espacio cálido y confortable.'
       ],
-      imageAlt: 'Estufa de pellets junto a los muros históricos de Casa AMARA en Frigiliana'
+      imageAlt: 'Sala de estar histórica de AMARA Lounis en Frigiliana'
     },
     pelletStays: {
       title: 'Tres alojamientos con estufa de pellets',
@@ -414,7 +386,7 @@ export const frigilianaWinterStaysContent: Record<
     farah: {
       title: 'Farah para una escapada de invierno más corta',
       paragraphs: [
-        'Farah es una opción más compacta para alojarse en pleno Frigiliana histórico durante el invierno.',
+        'Farah ofrece una estancia íntima y sencilla en pleno Frigiliana histórico.',
         'Cuenta con calefacción y comparte la ubicación de Casa AMARA junto a San Antonio, directamente dentro del casco antiguo.',
         'Para una escapada de invierno más corta puede ser una combinación muy cómoda: Frigiliana al salir por la puerta y un lugar agradable al que volver por la tarde.'
       ],
@@ -435,21 +407,10 @@ export const frigilianaWinterStaysContent: Record<
     duration: {
       title: 'De unas noches de invierno a tres semanas',
       paragraphs: [
-        'Las estancias de invierno de AMARA en Frigiliana están pensadas para vacaciones de unas noches hasta un máximo de tres semanas.',
+        'Una estancia de invierno en AMARA puede durar unas noches, una semana o hasta tres semanas.',
         'Quizá queráis simplemente una escapada. Tal vez tengáis una semana. O quizá dos o tres semanas para viajar con más calma y convertir Frigiliana en casa durante un tiempo.',
         'Así queda tiempo de sobra para disfrutar del pueblo, el paisaje y los días junto al Mediterráneo.'
       ]
-    },
-    chooser: {
-      title: '¿Qué alojamiento AMARA encaja con vuestro invierno?',
-      stays: {
-        farah: 'Una estancia compacta en pleno pueblo histórico.',
-        lounis: 'Terraza privada + estufa de pellets.',
-        zaid: 'Terraza privada + estufa de pellets.',
-        maha: 'Estufa de pellets + terraza privada de unos 60 m² + cocina exterior.'
-      },
-      closing: 'Los cuatro alojamientos están en Casa AMARA, en el centro histórico de Frigiliana, y disponen de calefacción.',
-      cta: 'Ver los cuatro alojamientos'
     },
     planning: {
       title: 'Planear el invierno en Frigiliana',
@@ -506,7 +467,7 @@ export const frigilianaWinterStaysContent: Record<
         'Snelle wifi, ruime badkamers en grote douches zorgen voor hedendaags comfort binnen een huis waarvan de historische structuur door de eeuwen heen is gegroeid.',
         "Zo kunnen jullie overdag Frigiliana en de omgeving ontdekken en 's avonds terugkeren naar een warme, comfortabele plek."
       ],
-      imageAlt: 'Pelletkachel naast de historische muren van Casa AMARA in Frigiliana'
+      imageAlt: 'Historische zitkamer van AMARA Lounis in Frigiliana'
     },
     pelletStays: {
       title: 'Drie verblijven met pelletkachel',
@@ -534,7 +495,7 @@ export const frigilianaWinterStaysContent: Record<
     farah: {
       title: 'Farah voor een korter winterverblijf',
       paragraphs: [
-        'Farah is een compactere manier om in de winter midden in historisch Frigiliana te verblijven.',
+        'Farah biedt een intiem en eenvoudig verblijf midden in historisch Frigiliana.',
         'Ook hier hoort verwarming bij het verblijf, samen met de ligging van Casa AMARA vlak bij San Antonio in de oude dorpskern.',
         "Voor een kortere wintervakantie kan dat precies genoeg zijn: Frigiliana direct buiten de deur en een comfortabele plek om 's avonds naar terug te keren."
       ],
@@ -555,21 +516,10 @@ export const frigilianaWinterStaysContent: Record<
     duration: {
       title: 'Van enkele winternachten tot drie weken',
       paragraphs: [
-        'De winterverblijven van AMARA in Frigiliana zijn bedoeld voor vakanties van enkele nachten tot maximaal drie weken.',
+        'Een winterverblijf bij AMARA kan enkele nachten, een week of maximaal drie weken duren.',
         'Misschien willen jullie er gewoon even tussenuit. Misschien hebben jullie een hele week. Of twee of drie weken om rustiger te reizen en Frigiliana tijdelijk als thuis te ervaren.',
         'Dat geeft volop tijd voor het dorp, het landschap en dagen aan de Middellandse Zee.'
       ]
-    },
-    chooser: {
-      title: 'Welk AMARA-verblijf past bij jullie wintervakantie?',
-      stays: {
-        farah: 'Een compact winterverblijf midden in het historische dorp.',
-        lounis: 'Privéterras + pelletkachel.',
-        zaid: 'Privéterras + pelletkachel.',
-        maha: 'Pelletkachel + privéterras van ongeveer 60 m² + buitenkeuken.'
-      },
-      closing: 'Alle vier verblijven liggen in Casa AMARA in het historische centrum van Frigiliana en hebben verwarming.',
-      cta: 'Bekijk de vier verblijven'
     },
     planning: {
       title: 'Plan de winter in Frigiliana',
@@ -626,7 +576,7 @@ export const frigilianaWinterStaysContent: Record<
         'Snabbt wifi, rymliga badrum och stora duschar ger modern vardagskomfort i ett hus vars historiska struktur vuxit fram under århundraden.',
         'Tillbringa dagen i Frigiliana och omgivningarna och kom sedan hem till en varm och bekväm plats på kvällen.'
       ],
-      imageAlt: 'Pelletskamin intill de historiska väggarna i Casa AMARA i Frigiliana'
+      imageAlt: 'Historiskt vardagsrum på AMARA Lounis i Frigiliana'
     },
     pelletStays: {
       title: 'Tre boenden med pelletskamin',
@@ -654,7 +604,7 @@ export const frigilianaWinterStaysContent: Record<
     farah: {
       title: 'Farah för en kortare vintervistelse',
       paragraphs: [
-        'Farah är ett mer kompakt sätt att bo mitt i historiska Frigiliana under vintern.',
+        'Farah är ett personligt och enkelt val mitt i historiska Frigiliana.',
         'Här finns uppvärmning, tillsammans med Casa AMARA:s läge nära San Antonio direkt i den gamla byn.',
         'För en kortare vintersemester kan det vara en enkel och fin kombination: Frigiliana utanför dörren och en bekväm plats att komma hem till på kvällen.'
       ],
@@ -675,21 +625,10 @@ export const frigilianaWinterStaysContent: Record<
     duration: {
       title: 'Från några vinternätter till tre veckor',
       paragraphs: [
-        'AMARA:s vintervistelser i Frigiliana är avsedda för semesterresor från några nätter upp till maximalt tre veckor.',
+        'En vintervistelse hos AMARA kan vara några nätter, en vecka eller upp till tre veckor.',
         'Kanske vill ni bara komma bort några dagar. Kanske har ni en hel vecka. Eller två eller tre veckor för att resa långsammare och låta Frigiliana bli hemma för en liten stund.',
         'Det ger gott om tid för byn, landskapet och dagar vid Medelhavet.'
       ]
-    },
-    chooser: {
-      title: 'Vilket AMARA-boende passar er vintersemester?',
-      stays: {
-        farah: 'En kompakt vintervistelse mitt i den historiska byn.',
-        lounis: 'Privat terrass + pelletskamin.',
-        zaid: 'Privat terrass + pelletskamin.',
-        maha: 'Pelletskamin + cirka 60 m² privat terrass + utomhuskök.'
-      },
-      closing: 'Alla fyra boenden finns i Casa AMARA i Frigilianas historiska centrum och har uppvärmning.',
-      cta: 'Se de fyra boendena'
     },
     planning: {
       title: 'Planera vintern i Frigiliana',

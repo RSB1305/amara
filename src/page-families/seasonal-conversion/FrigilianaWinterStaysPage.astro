@@ -8,10 +8,10 @@ import {
   frigilianaWinterStaysSeo
 } from '../../content/frigilianaWinterStaysContent';
 import heroImage from '../../assets/images/content/hero-frigiliana.jpg';
-import comfortImage from '../../assets/images/content/amara-insta-facebook/casa-amara-frigiliana-maha-chimenea.jpg';
+import comfortImage from '../../assets/images/content/amara-lounis/17-amara-frigiliana.jpg';
 import coastImage from '../../assets/images/content/amara-frigiliana-pueblo/nerja-coast-aerial.jpeg';
 import farahImage from '../../assets/images/home/amara-farah-67-amara-frigiliana.jpg';
-import lounisImage from '../../assets/images/home/amara-lounis-17-amara-frigiliana.jpg';
+import lounisImage from '../../assets/images/content/amara-lounis/28-amara-frigiliana.jpg';
 import zaidImage from '../../assets/images/home/amara-zaid-terraza-5.jpg';
 import mahaImage from '../../assets/images/home/amara-maha-29-amara-frigiliana.jpg';
 import BaseLayout from '../../layouts/BaseLayout.astro';
@@ -51,7 +51,6 @@ const links = {
 };
 
 const pelletStayKeys = ['lounis', 'zaid', 'maha'] as const;
-const stayKeys = ['farah', ...pelletStayKeys] as const;
 const pelletImages: Record<(typeof pelletStayKeys)[number], ImageMetadata> = {
   lounis: lounisImage,
   zaid: zaidImage,
@@ -80,9 +79,14 @@ const pelletImages: Record<(typeof pelletStayKeys)[number], ImageMetadata> = {
       <span class="am-text-caption text-primary mb-8 block">
         {copy.hero.kicker}
       </span>
-      <h1 class="am-text-display italic text-on-surface mb-10 break-words tracking-tighter">
+      <h1 class="am-text-display italic text-on-surface mb-7 break-words tracking-tighter md:mb-8">
         {copy.hero.title}
       </h1>
+      <div class="mb-10">
+        <a class="am-btn am-btn--primary" href={links.book}>
+          {copy.hero.cta}
+        </a>
+      </div>
       <div class="max-w-2xl space-y-5 border-l border-primary/20 pl-6 md:pl-10">
         {copy.hero.paragraphs.map((paragraph, index) => (
           <p
@@ -95,9 +99,6 @@ const pelletImages: Record<(typeof pelletStayKeys)[number], ImageMetadata> = {
             {paragraph}
           </p>
         ))}
-        <a class="am-btn am-btn--primary mt-3" href={links.book}>
-          {copy.hero.cta}
-        </a>
       </div>
     </Hero>
 
@@ -240,32 +241,6 @@ const pelletImages: Record<(typeof pelletStayKeys)[number], ImageMetadata> = {
             <p class="am-text-body text-on-surface-variant leading-relaxed">{paragraph}</p>
           ))}
         </div>
-      </div>
-    </section>
-
-    <section class="border-t border-outline-variant/5 bg-surface-container-low">
-      <div class="mx-auto max-w-screen-2xl px-6 py-20 md:px-12 md:py-28">
-        <h2 class="am-text-title max-w-3xl italic text-on-surface tracking-tight">
-          {copy.chooser.title}
-        </h2>
-        <div class="mt-12 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
-          {stayKeys.map((stayKey) => (
-            <article class="border-t border-outline-variant/20 pt-5">
-              <h3 class="am-text-subtitle text-on-surface">
-                <a class="transition-colors hover:text-primary" href={links[stayKey]}>
-                  {stayKey.charAt(0).toUpperCase() + stayKey.slice(1)}
-                </a>
-              </h3>
-              <p class="am-text-body mt-3 text-on-surface-variant leading-relaxed">
-                {copy.chooser.stays[stayKey]}
-              </p>
-            </article>
-          ))}
-        </div>
-        <p class="am-text-body mt-10 max-w-3xl text-on-surface-variant leading-relaxed">
-          {copy.chooser.closing}
-        </p>
-        <a class="am-btn am-btn--primary mt-8" href="#winter-stays">{copy.chooser.cta}</a>
       </div>
     </section>
 
