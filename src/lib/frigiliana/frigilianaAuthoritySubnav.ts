@@ -34,11 +34,11 @@ const visibleLabels: Record<
     sv: 'Var ska man bo'
   },
   comparison: {
-    en: 'Frigiliana or Nerja',
-    de: 'Frigiliana oder Nerja',
-    es: 'Frigiliana o Nerja',
-    nl: 'Frigiliana of Nerja',
-    sv: 'Frigiliana eller Nerja'
+    en: 'Frigiliana & Nerja',
+    de: 'Frigiliana & Nerja',
+    es: 'Frigiliana y Nerja',
+    nl: 'Frigiliana en Nerja',
+    sv: 'Frigiliana och Nerja'
   },
   arrival: {
     en: 'Getting Here',
@@ -110,19 +110,14 @@ export function getFrigilianaAuthoritySubnav(
 ): FrigilianaAuthoritySubnavItem[] {
   return [
     {
-      id: 'stay',
-      label: visibleLabels.stay[currentLang],
-      href: resolveLink('frigiliana_stairs', currentLang)
-    },
-    {
-      id: 'comparison',
-      label: visibleLabels.comparison[currentLang],
-      href: resolveLink('nerja_vs_frigiliana', currentLang)
-    },
-    {
       id: 'arrival',
       label: visibleLabels.arrival[currentLang],
       href: resolveLink('getting_to_frigiliana', currentLang)
+    },
+    {
+      id: 'stay',
+      label: visibleLabels.stay[currentLang],
+      href: resolveLink('frigiliana_stairs', currentLang)
     },
     {
       id: 'parking',
@@ -133,6 +128,11 @@ export function getFrigilianaAuthoritySubnav(
       id: 'weather',
       label: visibleLabels.weather[currentLang],
       href: resolveLink('weather_frigiliana', currentLang)
+    },
+    {
+      id: 'comparison',
+      label: visibleLabels.comparison[currentLang],
+      href: resolveLink('nerja_vs_frigiliana', currentLang)
     }
   ];
 }
