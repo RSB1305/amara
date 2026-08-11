@@ -4,6 +4,7 @@ import Navigation from '../../components/Navigation.astro';
 import AmaraImage from '../../components/AmaraImage.astro';
 import {
   buildVacationRentalSeo,
+  formatVacationRentalPriceRange,
   vacationRentalEntitiesByKey,
   type VacationRentalAmenityFeature,
   type VacationRentalEntity
@@ -342,6 +343,7 @@ const amenityLabels: Record<string, LocalizedText> = {
   kitchen: { en: 'Kitchen', de: 'Küche', es: 'Cocina', nl: 'Keuken', sv: 'Kök' },
   rainShower: { en: 'Rain shower', de: 'Regendusche', es: 'Ducha de lluvia', nl: 'Regendouche', sv: 'Regndusch' },
   doubleRainShower: { en: 'Double shower / Rain shower', de: 'Doppeldusche / Regendusche', es: 'Ducha doble / Ducha de lluvia', nl: 'Dubbele douche / Regendouche', sv: 'Dubbeldusch / Regndusch' },
+  elevator: { en: 'Lift', de: 'Aufzug', es: 'Ascensor', nl: 'Lift', sv: 'Hiss' },
   washingMachine: { en: 'Washing machine', de: 'Waschmaschine', es: 'Lavadora', nl: 'Wasmachine', sv: 'Tvättmaskin' },
   fireplace: { en: 'Fireplace', de: 'Kamin', es: 'Chimenea', nl: 'Open haard', sv: 'Eldstad' },
   licenseNum: { en: 'License number', de: 'Lizenznummer', es: 'Número de licencia', nl: 'Licentienummer', sv: 'Licensnummer' },
@@ -388,6 +390,14 @@ const coolingAndHeating: LocalizedText = {
   es: 'Aire acondicionado — Frío y calor',
   nl: 'Airconditioning — Koelen en verwarmen',
   sv: 'Luftkonditionering — Kyla och värme'
+};
+
+const bathroomUnderfloorHeating: LocalizedText = {
+  en: 'Underfloor heating in the bathroom',
+  de: 'Fußbodenheizung im Bad',
+  es: 'Suelo radiante en el baño',
+  nl: 'Vloerverwarming in de badkamer',
+  sv: 'Golvvärme i badrummet'
 };
 
 const bunkBedLabel: LocalizedText = {
@@ -540,7 +550,10 @@ const factRows = [
   ...(typeof rental.rooms === 'number'
     ? [{ label: t(ui.labels.rooms as LocalizedText), value: String(rental.rooms) }]
     : []),
-  { label: t(ui.labels.price as LocalizedText), value: rental.priceLabel[currentLang] },
+  {
+    label: t(ui.labels.price as LocalizedText),
+    value: formatVacationRentalPriceRange(rental.priceRange, currentLang)
+  },
   { label: t(ui.labels.license as LocalizedText), value: rental.license }
 ];
 
@@ -574,6 +587,10 @@ const mapsHref = `https://www.google.com/maps/search/?api=1&query=${encodeURICom
 const visibleAmenities = rental.amenityFeatures
   .map(formatAmenity)
   .filter((item): item is string => Boolean(item));
+
+if (rental.bathroomUnderfloorHeating) {
+  visibleAmenities.push(t(bathroomUnderfloorHeating));
+}
 
 const navLinks = [
   { token: 'romantic_hideaways', label: t(ui.navApartments as LocalizedText) },

@@ -1,4 +1,5 @@
 import type { AmaraAuthoringSeo, AmaraLanguage } from '../types/seo';
+import { vacationRentalEntitiesByKey } from './vacationRentalEntities';
 
 type StayKey = 'lounis' | 'zaid' | 'maha';
 
@@ -58,6 +59,30 @@ interface FrigilianaWinterStaysCopy {
     paragraphs: string[];
     cta: string;
   };
+}
+
+const frigilianaWinterRentalKeys = [
+  'amara-farah',
+  'amara-lounis',
+  'amara-zaid',
+  'amara-maha'
+] as const;
+const pelletStoveRentalKeys = ['amara-lounis', 'amara-zaid', 'amara-maha'] as const;
+const hasAmenity = (key: (typeof frigilianaWinterRentalKeys)[number], name: string) =>
+  vacationRentalEntitiesByKey[key].amenityFeatures.some(
+    (feature) => feature.name === name && feature.value === true
+  );
+
+if (
+  !frigilianaWinterRentalKeys.every((key) => hasAmenity(key, 'heating'))
+  || !frigilianaWinterRentalKeys.every(
+    (key) => vacationRentalEntitiesByKey[key].bathroomUnderfloorHeating
+  )
+  || !pelletStoveRentalKeys.every((key) => hasAmenity(key, 'pelletStove'))
+) {
+  throw new Error(
+    '[Frigiliana Winter Stays] Seasonal equipment copy is out of sync with vacationRentalEntities.'
+  );
 }
 
 export const frigilianaWinterStaysSeo: AmaraAuthoringSeo = {

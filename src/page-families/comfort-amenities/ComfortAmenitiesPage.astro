@@ -124,6 +124,13 @@ const buildExistingAmenityRows = (property: Property): AmenityRow[] => [
   ...(property.specs.shower
     ? [{ icon: 'shower' as const, label: page.inventory.labels.shower, value: property.specs.shower[currentLang] }]
     : []),
+  ...(property.specs.bathroomUnderfloorHeating
+    ? [{
+        icon: 'heating' as const,
+        label: page.inventory.labels.bathroomUnderfloorHeating,
+        value: property.specs.bathroomUnderfloorHeating[currentLang]
+      }]
+    : []),
   {
     icon: 'air-conditioning',
     label: page.inventory.labels.airCon,
@@ -214,6 +221,14 @@ const buildFilterableAmenityRows = (property: Property): AmenityRow[] => {
           icon: 'shower' as const,
           label: page.inventory.labels.shower,
           value: property.specs.shower[currentLang],
+          category: 'bathroom' as const
+        }]
+      : []),
+    ...(property.specs.bathroomUnderfloorHeating
+      ? [{
+          icon: 'heating' as const,
+          label: page.inventory.labels.bathroomUnderfloorHeating,
+          value: property.specs.bathroomUnderfloorHeating[currentLang],
           category: 'bathroom' as const
         }]
       : [])

@@ -1,7 +1,15 @@
 import type { AmaraAuthoringSeo, AmaraLanguage } from '../types/seo';
 import { trustLabels } from './trustLabels';
+import {
+  formatVacationRentalPriceRange,
+  vacationRentalEntities,
+  type VacationRentalAmenityFeature,
+  type VacationRentalBed,
+  type VacationRentalEntity
+} from './vacationRentalEntities';
 
 type LocalizedText = Record<AmaraLanguage, string>;
+const languages: AmaraLanguage[] = ['en', 'de', 'es', 'nl', 'sv'];
 type NavEntry = { token: string; label: string };
 type PropertySpecs = {
   license: string;
@@ -23,6 +31,7 @@ type PropertySpecs = {
   pelletStove?: LocalizedText;
   fireplace?: LocalizedText;
   shower?: LocalizedText;
+  bathroomUnderfloorHeating?: LocalizedText;
   airCon: LocalizedText;
 };
 type PropertyEntry = {
@@ -83,6 +92,7 @@ export const comfortAmenitiesCopy: Record<
         pelletStove: string;
         fireplace: string;
         shower: string;
+        bathroomUnderfloorHeating: string;
         pool: string;
         airCon: string;
       };
@@ -130,6 +140,7 @@ export const comfortAmenitiesCopy: Record<
         pelletStove: 'Pellet Stove',
         fireplace: 'Fireplace',
         shower: 'Shower',
+        bathroomUnderfloorHeating: 'Bathroom underfloor heating',
         pool: 'Pool',
         airCon: 'Air Con'
       }
@@ -176,6 +187,7 @@ export const comfortAmenitiesCopy: Record<
         pelletStove: 'Pelletofen',
         fireplace: 'Kamin',
         shower: 'Dusche',
+        bathroomUnderfloorHeating: 'Fußbodenheizung im Bad',
         pool: 'Pool',
         airCon: 'Klimaanlage'
       }
@@ -222,6 +234,7 @@ export const comfortAmenitiesCopy: Record<
         pelletStove: 'Estufa de pellets',
         fireplace: 'Chimenea',
         shower: 'Ducha',
+        bathroomUnderfloorHeating: 'Suelo radiante en el baño',
         pool: 'Piscina',
         airCon: 'Aire acondicionado'
       }
@@ -268,6 +281,7 @@ export const comfortAmenitiesCopy: Record<
         pelletStove: 'Pelletkachel',
         fireplace: 'Open haard',
         shower: 'Douche',
+        bathroomUnderfloorHeating: 'Vloerverwarming in de badkamer',
         pool: 'Zwembad',
         airCon: 'Airconditioning'
       }
@@ -314,6 +328,7 @@ export const comfortAmenitiesCopy: Record<
         pelletStove: 'Pelletskamin',
         fireplace: 'Eldstad',
         shower: 'Dusch',
+        bathroomUnderfloorHeating: 'Golvvärme i badrummet',
         pool: 'Pool',
         airCon: 'Luftkonditionering'
       }
@@ -380,239 +395,163 @@ export const comfortAmenitiesFooterLabels = {
   }
 } as const;
 
-export const comfortAmenitiesProperties: PropertyEntry[] = [
-  {
-    id: '408326',
-    name: 'AMARA Farah, Frigiliana',
-    href: '/la-amara-farah',
+const localizedYes: LocalizedText = {
+  en: 'Yes',
+  de: 'Ja',
+  es: 'Sí',
+  nl: 'Ja',
+  sv: 'Ja'
+};
+
+const localizedSharedPool: LocalizedText = {
+  en: 'Shared pool',
+  de: 'Gemeinschaftspool',
+  es: 'Piscina comunitaria',
+  nl: 'Gedeeld zwembad',
+  sv: 'Gemensam pool'
+};
+
+const localizedPrivatePatioAndTerrace: LocalizedText = {
+  en: 'Private patio & private terrace',
+  de: 'Privater Patio & private Terrasse',
+  es: 'Patio privado y terraza privada',
+  nl: 'Privépatio en privéterras',
+  sv: 'Privat uteplats och privat terrass'
+};
+
+const localizedReservedParking: LocalizedText = {
+  en: 'Reserved underground parking space included',
+  de: 'Reservierter Tiefgaragenstellplatz inklusive',
+  es: 'Plaza de aparcamiento subterránea reservada incluida',
+  nl: 'Gereserveerde ondergrondse parkeerplaats inbegrepen',
+  sv: 'Reserverad garageplats under mark ingår'
+};
+
+const localizedCoolingAndHeating: LocalizedText = {
+  en: 'Cooling & heating',
+  de: 'Kühlen & Heizen',
+  es: 'Frío y calor',
+  nl: 'Koelen & verwarmen',
+  sv: 'Kyla & värme'
+};
+
+const localizedRainShower: LocalizedText = {
+  en: 'Rain Shower',
+  de: 'Regendusche',
+  es: 'Ducha de lluvia',
+  nl: 'Regendouche',
+  sv: 'Regndusch'
+};
+
+const localizedDoubleRainShower: LocalizedText = {
+  en: 'Double Shower / Rain Shower',
+  de: 'Doppeldusche / Regendusche',
+  es: 'Ducha doble / Ducha de lluvia',
+  nl: 'Dubbele douche / Regendouche',
+  sv: 'Dubbeldusch / Regndusch'
+};
+
+const bunkBedLabel: LocalizedText = {
+  en: 'bunk bed',
+  de: 'Etagenbett',
+  es: 'litera',
+  nl: 'stapelbed',
+  sv: 'våningssäng'
+};
+
+function amenityValue(
+  rental: VacationRentalEntity,
+  name: string
+): VacationRentalAmenityFeature['value'] | undefined {
+  return rental.amenityFeatures.find((feature) => feature.name === name)?.value;
+}
+
+function hasAmenity(rental: VacationRentalEntity, name: string): boolean {
+  return amenityValue(rental, name) === true;
+}
+
+function localizeGuestCount(count: number): LocalizedText {
+  return {
+    en: `${count} ${count === 1 ? 'guest' : 'guests'}`,
+    de: `${count} ${count === 1 ? 'Gast' : 'Gäste'}`,
+    es: `${count} ${count === 1 ? 'huésped' : 'huéspedes'}`,
+    nl: `${count} ${count === 1 ? 'gast' : 'gasten'}`,
+    sv: `${count} ${count === 1 ? 'gäst' : 'gäster'}`
+  };
+}
+
+function normalizeBedSize(label: string): string {
+  return label.replace(/\s+x\s+/i, '×');
+}
+
+function localizeBeds(beds: VacationRentalBed[]): LocalizedText {
+  return Object.fromEntries(
+    languages.map((lang) => [
+      lang,
+      beds.map((bed) => (
+        bed.label === 'Bunk bed'
+          ? bunkBedLabel[lang]
+          : normalizeBedSize(bed.label)
+      )).join(' + ')
+    ])
+  ) as LocalizedText;
+}
+
+function buildComfortProperty(rental: VacationRentalEntity): PropertyEntry {
+  const bedSummary = localizeBeds(rental.bed);
+  const privatePatioAndTerrace =
+    hasAmenity(rental, 'privatePatio') && hasAmenity(rental, 'privateTerrace');
+  const parking = amenityValue(rental, 'parkingType') === 'ReservedUndergroundIncluded'
+    ? localizedReservedParking
+    : undefined;
+  const sunLoungers = amenityValue(rental, 'sunLoungers');
+  const shower = hasAmenity(rental, 'doubleRainShower')
+    ? localizedDoubleRainShower
+    : hasAmenity(rental, 'rainShower')
+      ? localizedRainShower
+      : undefined;
+
+  return {
+    id: rental.propertyId,
+    name: `${rental.name}, ${rental.city}`,
+    href: `/${rental.slug}`,
     specs: {
-      license: 'A/MA/01767',
-      maxOccupancy: { en: '2 guests', de: '2 Gäste', es: '2 huéspedes', nl: '2 gasten', sv: '2 gäster' },
-      bed: '160×200',
-      price: { en: '€75–€120', de: '75 € – 120 €', es: '75 € – 120 €', nl: '€75 – €120', sv: '75 € – 120 €' },
-      accessNote: { en: '1 step at entrance', de: '1 Stufe am Eingang', es: '1 escalón en la entrada', nl: '1 trede bij ingang', sv: '1 trappsteg vid entrén' },
-      pets: { en: 'No pets', de: 'Keine Haustiere', es: 'Sin mascotas', nl: 'Geen huisdieren', sv: 'Inga husdjur' },
-      view: {
-        en: 'Village street',
-        de: 'Dorfstraße',
-        es: 'Calle del pueblo',
-        nl: 'Dorpsstraat',
-        sv: 'Bygata'
-      },
-      kitchen: {
-        en: 'Tea & coffee station',
-        de: 'Tee-/Kaffeestation',
-        es: 'Estación de té/café',
-        nl: 'Thee-/koffiefaciliteiten',
-        sv: 'Te-/kaffestation'
-      },
-      shower: { en: 'Rain Shower', de: 'Regendusche', es: 'Ducha de lluvia', nl: 'Regendouche', sv: 'Regndusch' },
-      airCon: { en: 'Cooling & heating', de: 'Kühlen & Heizen', es: 'Frío y calor', nl: 'Koelen & verwarmen', sv: 'Kyla & värme' }
+      license: rental.license,
+      maxOccupancy: localizeGuestCount(rental.occupancy),
+      ...(rental.bed.length === 1
+        ? { bed: bedSummary.en }
+        : { beds: bedSummary }),
+      price: Object.fromEntries(
+        languages.map((lang) => [
+          lang,
+          formatVacationRentalPriceRange(rental.priceRange, lang, 'symbol')
+        ])
+      ) as LocalizedText,
+      accessNote: rental.accessNote,
+      ...(parking ? { parking } : {}),
+      pets: rental.petsNote,
+      ...(hasAmenity(rental, 'pool') ? { pool: localizedSharedPool } : {}),
+      view: rental.viewNote,
+      outdoor: privatePatioAndTerrace
+        ? localizedPrivatePatioAndTerrace
+        : rental.outdoorNote,
+      ...(typeof sunLoungers === 'string'
+        ? { sunLoungers: Object.fromEntries(languages.map((lang) => [lang, sunLoungers])) as LocalizedText }
+        : {}),
+      ...(hasAmenity(rental, 'hammock') ? { hammock: localizedYes } : {}),
+      ...(hasAmenity(rental, 'outdoorShower') ? { outdoorShower: localizedYes } : {}),
+      kitchen: rental.kitchenNote,
+      ...(hasAmenity(rental, 'washingMachine') ? { washingMachine: localizedYes } : {}),
+      ...(hasAmenity(rental, 'pelletStove') ? { pelletStove: localizedYes } : {}),
+      ...(hasAmenity(rental, 'fireplace') ? { fireplace: localizedYes } : {}),
+      ...(shower ? { shower } : {}),
+      ...(rental.bathroomUnderfloorHeating
+        ? { bathroomUnderfloorHeating: localizedYes }
+        : {}),
+      airCon: localizedCoolingAndHeating
     }
-  },
-  {
-    id: '408324',
-    name: 'AMARA Lounis, Frigiliana',
-    href: '/la-amara-lounis',
-    specs: {
-      license: 'A/MA/01767',
-      maxOccupancy: { en: '2 guests', de: '2 Gäste', es: '2 huéspedes', nl: '2 gasten', sv: '2 gäster' },
-      bed: '160×200',
-      price: { en: '€90–€200', de: '90 € – 200 €', es: '90 € – 200 €', nl: '€90 – €200', sv: '90 € – 200 €' },
-      accessNote: { en: 'Stair access', de: 'Zugang über Treppen', es: 'Acceso por escaleras', nl: 'Toegang via trappen', sv: 'Åtkomst via trappa' },
-      pets: {
-        en: 'On request (€15/day)',
-        de: 'Auf Anfrage (15 €/Tag)',
-        es: 'Bajo petición (15 €/día)',
-        nl: 'Op aanvraag (€15/dag)',
-        sv: 'På förfrågan (15 €/dag)'
-      },
-      view: {
-        en: 'Distant sea view',
-        de: 'Meerblick in der Ferne',
-        es: 'Vistas al mar en la distancia',
-        nl: 'Uitzicht op zee in de verte',
-        sv: 'Havsutsikt i fjärran'
-      },
-      outdoor: {
-        en: 'Private patio & private terrace',
-        de: 'Privater Patio & private Terrasse',
-        es: 'Patio privado y terraza privada',
-        nl: 'Privépatio en privéterras',
-        sv: 'Privat uteplats och privat terrass'
-      },
-      sunLoungers: { en: '2', de: '2', es: '2', nl: '2', sv: '2' },
-      hammock: { en: 'Yes', de: 'Ja', es: 'Sí', nl: 'Ja', sv: 'Ja' },
-      outdoorShower: { en: 'Yes', de: 'Ja', es: 'Sí', nl: 'Ja', sv: 'Ja' },
-      kitchen: {
-        en: 'Fully equipped kitchen',
-        de: 'Voll ausgestattete Küche',
-        es: 'Cocina totalmente equipada',
-        nl: 'Volledig uitgeruste keuken',
-        sv: 'Fullt utrustat kök'
-      },
-      washingMachine: { en: 'Yes', de: 'Ja', es: 'Sí', nl: 'Ja', sv: 'Ja' },
-      pelletStove: { en: 'Yes', de: 'Ja', es: 'Sí', nl: 'Ja', sv: 'Ja' },
-      shower: { en: 'Double Shower / Rain Shower', de: 'Doppeldusche / Regendusche', es: 'Ducha doble / Ducha de lluvia', nl: 'Dubbele douche / Regendouche', sv: 'Dubbel dusch / Regndusch' },
-      airCon: { en: 'Cooling & heating', de: 'Kühlen & Heizen', es: 'Frío y calor', nl: 'Koelen & verwarmen', sv: 'Kyla & värme' }
-    }
-  },
-  {
-    id: '408323',
-    name: 'AMARA Zaid, Frigiliana',
-    href: '/la-amara-zaid',
-    specs: {
-      license: 'A/MA/01767',
-      maxOccupancy: { en: '2 guests', de: '2 Gäste', es: '2 huéspedes', nl: '2 gasten', sv: '2 gäster' },
-      bed: '180×200',
-      price: { en: '€90–€180', de: '90 € – 180 €', es: '90 € – 180 €', nl: '€90 – €180', sv: '90 € – 180 €' },
-      accessNote: { en: 'Stair access', de: 'Zugang über Treppen', es: 'Acceso por escaleras', nl: 'Toegang via trappen', sv: 'Åtkomst via trappa' },
-      pets: { en: 'No pets', de: 'Keine Haustiere', es: 'Sin mascotas', nl: 'Geen huisdieren', sv: 'Inga husdjur' },
-      view: {
-        en: 'Distant sea view',
-        de: 'Meerblick in der Ferne',
-        es: 'Vistas al mar en la distancia',
-        nl: 'Uitzicht op zee in de verte',
-        sv: 'Havsutsikt i fjärran'
-      },
-      outdoor: {
-        en: 'Private Terrace',
-        de: 'Private Terrasse',
-        es: 'Terraza privada',
-        nl: 'Privéterras',
-        sv: 'Privat terrass'
-      },
-      sunLoungers: { en: '2', de: '2', es: '2', nl: '2', sv: '2' },
-      hammock: { en: 'Yes', de: 'Ja', es: 'Sí', nl: 'Ja', sv: 'Ja' },
-      outdoorShower: { en: 'Yes', de: 'Ja', es: 'Sí', nl: 'Ja', sv: 'Ja' },
-      kitchen: {
-        en: 'Fully equipped kitchen',
-        de: 'Voll ausgestattete Küche',
-        es: 'Cocina totalmente equipada',
-        nl: 'Volledig uitgeruste keuken',
-        sv: 'Fullt utrustat kök'
-      },
-      washingMachine: { en: 'Yes', de: 'Ja', es: 'Sí', nl: 'Ja', sv: 'Ja' },
-      pelletStove: { en: 'Yes', de: 'Ja', es: 'Sí', nl: 'Ja', sv: 'Ja' },
-      shower: { en: 'Double Shower / Rain Shower', de: 'Doppeldusche / Regendusche', es: 'Ducha doble / Ducha de lluvia', nl: 'Dubbele douche / Regendouche', sv: 'Dubbel dusch / Regndusch' },
-      airCon: { en: 'Cooling & heating', de: 'Kühlen & Heizen', es: 'Frío y calor', nl: 'Koelen & verwarmen', sv: 'Kyla & värme' }
-    }
-  },
-  {
-    id: '408325',
-    name: 'AMARA Maha, Frigiliana',
-    href: '/la-amara-maha',
-    specs: {
-      license: 'A/MA/01767',
-      maxOccupancy: { en: '2 guests', de: '2 Gäste', es: '2 huéspedes', nl: '2 gasten', sv: '2 gäster' },
-      bed: '150×200',
-      price: { en: '€90–€180', de: '90 € – 180 €', es: '90 € – 180 €', nl: '€90 – €180', sv: '90 € – 180 €' },
-      accessNote: { en: 'Stair access', de: 'Zugang über Treppen', es: 'Acceso por escaleras', nl: 'Toegang via trappen', sv: 'Åtkomst via trappa' },
-      pets: {
-        en: 'On request (€15/day)',
-        de: 'Auf Anfrage (15 €/Tag)',
-        es: 'Bajo petición (15 €/día)',
-        nl: 'Op aanvraag (€15/dag)',
-        sv: 'På förfrågan (15 €/dag)'
-      },
-      view: {
-        en: 'Distant sea view',
-        de: 'Meerblick in der Ferne',
-        es: 'Vistas al mar en la distancia',
-        nl: 'Uitzicht op zee in de verte',
-        sv: 'Havsutsikt i fjärran'
-      },
-      outdoor: {
-        en: 'Large private terrace',
-        de: 'Große private Terrasse',
-        es: 'Gran terraza privada',
-        nl: 'Groot privéterras',
-        sv: 'Stor privat terrass'
-      },
-      sunLoungers: { en: '2', de: '2', es: '2', nl: '2', sv: '2' },
-      hammock: { en: 'Yes', de: 'Ja', es: 'Sí', nl: 'Ja', sv: 'Ja' },
-      outdoorShower: { en: 'Yes', de: 'Ja', es: 'Sí', nl: 'Ja', sv: 'Ja' },
-      kitchen: {
-        en: 'Fully equipped kitchen',
-        de: 'Voll ausgestattete Küche',
-        es: 'Cocina totalmente equipada',
-        nl: 'Volledig uitgeruste keuken',
-        sv: 'Fullt utrustat kök'
-      },
-      pelletStove: { en: 'Yes', de: 'Ja', es: 'Sí', nl: 'Ja', sv: 'Ja' },
-      shower: { en: 'Rain Shower', de: 'Regendusche', es: 'Ducha de lluvia', nl: 'Regendouche', sv: 'Regndusch' },
-      airCon: { en: 'Cooling & heating', de: 'Kühlen & Heizen', es: 'Frío y calor', nl: 'Koelen & verwarmen', sv: 'Kyla & värme' }
-    }
-  },
-  {
-    id: '408327',
-    name: 'AMARA Playa, Nerja',
-    href: '/la-amara-playa',
-    specs: {
-      license: 'VFT/MA/19212',
-      maxOccupancy: { en: '2 guests', de: '2 Gäste', es: '2 huéspedes', nl: '2 gasten', sv: '2 gäster' },
-      bed: '200×200',
-      price: { en: '€90–€200', de: '90 € – 200 €', es: '90 € – 200 €', nl: '€90 – €200', sv: '90 € – 200 €' },
-      accessNote: { en: 'Stair access', de: 'Zugang über Treppen', es: 'Acceso por escaleras', nl: 'Toegang via trappen', sv: 'Åtkomst via trappa' },
-      pets: { en: 'No pets', de: 'Keine Haustiere', es: 'Sin mascotas', nl: 'Geen huisdieren', sv: 'Inga husdjur' },
-      view: { en: 'Sea view', de: 'Meerblick', es: 'Vistas al mar', nl: 'Uitzicht op zee', sv: 'Havsutsikt' },
-      outdoor: { en: 'Balcony', de: 'Balkon', es: 'Balcón', nl: 'Balkon', sv: 'Balkong' },
-      kitchen: {
-        en: 'Fully equipped kitchen',
-        de: 'Voll ausgestattete Küche',
-        es: 'Cocina totalmente equipada',
-        nl: 'Volledig uitgeruste keuken',
-        sv: 'Fullt utrustat kök'
-      },
-      washingMachine: { en: 'Yes', de: 'Ja', es: 'Sí', nl: 'Ja', sv: 'Ja' },
-      shower: { en: 'Rain Shower', de: 'Regendusche', es: 'Ducha de lluvia', nl: 'Regendouche', sv: 'Regndusch' },
-      airCon: { en: 'Cooling & heating', de: 'Kühlen & Heizen', es: 'Frío y calor', nl: 'Koelen & verwarmen', sv: 'Kyla & värme' }
-    }
-  },
-  {
-    id: '544478',
-    name: 'AMARA Family & Surf, Tarifa',
-    href: '/la-amara-family-and-surf',
-    specs: {
-      license: 'VFT/CA/17038',
-      maxOccupancy: { en: '4 guests', de: '4 Gäste', es: '4 huéspedes', nl: '4 gasten', sv: '4 gäster' },
-      beds: {
-        en: '150 + bunk bed',
-        de: '150 + Etagenbett',
-        es: '150 + litera',
-        nl: '150 + stapelbed',
-        sv: '150 + våningssäng'
-      },
-      price: { en: '€120–€350', de: '120 € – 350 €', es: '120 € – 350 €', nl: '€120 – €350', sv: '120 € – 350 €' },
-      accessNote: {
-        en: 'Step-free entrance; internal steps within the apartment',
-        de: 'Stufenloser Zugang; Stufen innerhalb des Apartments',
-        es: 'Acceso sin escalones; hay escalones dentro del apartamento',
-        nl: 'Drempelvrije toegang; traptreden in het appartement',
-        sv: 'Stegfri entré; trappsteg inne i lägenheten'
-      },
-      parking: {
-        en: 'Reserved underground parking space included',
-        de: 'Reservierter Tiefgaragenstellplatz inklusive',
-        es: 'Plaza de aparcamiento subterráneo reservada incluida',
-        nl: 'Gereserveerde ondergrondse parkeerplaats inbegrepen',
-        sv: 'Reserverad garageplats under mark ingår'
-      },
-      pets: { en: 'No pets', de: 'Keine Haustiere', es: 'Sin mascotas', nl: 'Geen huisdieren', sv: 'Inga husdjur' },
-      pool: { en: 'Shared pool', de: 'Gemeinschaftspool', es: 'Piscina comunitaria', nl: 'Gedeeld zwembad', sv: 'Gemensam pool' },
-      view: { en: 'Sea view', de: 'Meerblick', es: 'Vistas al mar', nl: 'Uitzicht op zee', sv: 'Havsutsikt' },
-      outdoor: { en: 'Terrace', de: 'Terrasse', es: 'Terraza', nl: 'Terras', sv: 'Terrass' },
-      kitchen: {
-        en: 'Fully equipped kitchen',
-        de: 'Voll ausgestattete Küche',
-        es: 'Cocina totalmente equipada',
-        nl: 'Volledig uitgeruste keuken',
-        sv: 'Fullt utrustat kök'
-      },
-      washingMachine: { en: 'Yes', de: 'Ja', es: 'Sí', nl: 'Ja', sv: 'Ja' },
-      fireplace: { en: 'Yes', de: 'Ja', es: 'Sí', nl: 'Ja', sv: 'Ja' },
-      shower: { en: 'Rain Shower', de: 'Regendusche', es: 'Ducha de lluvia', nl: 'Regendouche', sv: 'Regndusch' },
-      airCon: { en: 'Cooling & heating', de: 'Kühlen & Heizen', es: 'Frío y calor', nl: 'Koelen & verwarmen', sv: 'Kyla & värme' }
-    }
-  }
-];
+  };
+}
+
+export const comfortAmenitiesProperties: PropertyEntry[] =
+  vacationRentalEntities.map(buildComfortProperty);

@@ -14,6 +14,20 @@ export interface VacationRentalBed {
   label: string;
 }
 
+export interface VacationRentalAccessFacts {
+  outsideStepsBeforeEntrance: number;
+  buildingEntranceSteps: number;
+  insideBuildingStepsToUnitOrLift: number;
+  internalStairs: 'none' | 'few-down' | 'few' | 'to-bedrooms';
+  lift: 'none' | 'to-floor' | 'to-unit-door';
+  routeToVillageCore: 'step-free' | 'not-verified';
+  parkingToUnit: 'not-provided' | 'not-verified';
+  vehicleAccessHours?: {
+    until: string;
+    from: string;
+  };
+}
+
 export interface VacationRentalAmenityFeature {
   name: string;
   value: boolean | string;
@@ -43,8 +57,9 @@ export interface VacationRentalEntity {
   occupancy: number;
   bed: VacationRentalBed[];
   tvSizeInches: 40 | 50 | 60;
+  /** Indicative build-time range only. Lodgify owns the final price for selected dates. */
   priceRange: string;
-  priceLabel: LocalizedText;
+  bathroomUnderfloorHeating: boolean;
   checkinTime: string;
   checkoutTime: string;
   // Booking links are derived per language from `slug` — see src/lib/directBooking.ts.
@@ -56,6 +71,7 @@ export interface VacationRentalEntity {
   lead: LocalizedText;
   description: LocalizedText;
   highlights: Record<AmaraLanguage, string[]>;
+  accessFacts: VacationRentalAccessFacts;
   accessNote: LocalizedText;
   // Not rendered on the rental page — pets are shown on Comfort & Amenities only.
   petsNote: LocalizedText;
@@ -70,6 +86,30 @@ export interface VacationRentalEntity {
 }
 
 const languages: AmaraLanguage[] = ['en', 'de', 'es', 'nl', 'sv'];
+
+export function formatVacationRentalPriceRange(
+  priceRange: string,
+  lang: AmaraLanguage,
+  currencyStyle: 'code' | 'symbol' = 'code'
+): string {
+  const match = /^EUR\s+(\d+)-(\d+)$/.exec(priceRange);
+
+  if (!match) return priceRange;
+
+  const [, minimum, maximum] = match;
+
+  if (currencyStyle === 'symbol') {
+    return lang === 'en' || lang === 'nl'
+      ? `€${minimum}–€${maximum}`
+      : `${minimum} € – ${maximum} €`;
+  }
+
+  return lang === 'en'
+    ? `EUR ${minimum}-${maximum}`
+    : lang === 'nl'
+      ? `EUR ${minimum} - EUR ${maximum}`
+      : `${minimum} EUR - ${maximum} EUR`;
+}
 const frigilianaAddress = {
   street: 'Calle Chorruelo 5',
   city: 'Frigiliana',
@@ -117,13 +157,7 @@ export const vacationRentalEntities: VacationRentalEntity[] = [
     bed: [{ numberOfBeds: 1, typeOfBed: 'Queen', label: '160 x 200' }],
     tvSizeInches: 40,
     priceRange: 'EUR 75-120',
-    priceLabel: {
-      en: 'EUR 75-120',
-      de: '75 EUR - 120 EUR',
-      es: '75 EUR - 120 EUR',
-      nl: 'EUR 75 - EUR 120',
-      sv: '75 EUR - 120 EUR'
-    },
+    bathroomUnderfloorHeating: true,
     checkinTime: '15:00:00',
     checkoutTime: '11:00:00',
     sameAs: [
@@ -178,6 +212,16 @@ export const vacationRentalEntities: VacationRentalEntity[] = [
       es: ['Un escalón y ninguno más', 'Admite una o dos noches', 'Dormitorio y zona de café y té'],
       nl: ['Eén trede, verder geen', 'Ook voor één of twee nachten', 'Slaapkamer en theekeuken'],
       sv: ['Ett trappsteg, inga fler', 'Tar emot en eller två nätter', 'Sovrum och tekök']
+    },
+    accessFacts: {
+      outsideStepsBeforeEntrance: 0,
+      buildingEntranceSteps: 1,
+      insideBuildingStepsToUnitOrLift: 0,
+      internalStairs: 'none',
+      lift: 'none',
+      routeToVillageCore: 'step-free',
+      parkingToUnit: 'not-provided',
+      vehicleAccessHours: { until: '11:00', from: '17:00' }
     },
     accessNote: {
       en: 'One step at the main entrance, none after that. Vehicle access until 11:00 and from 17:00.',
@@ -268,13 +312,7 @@ export const vacationRentalEntities: VacationRentalEntity[] = [
     bed: [{ numberOfBeds: 1, typeOfBed: 'Queen', label: '160 x 200' }],
     tvSizeInches: 40,
     priceRange: 'EUR 90-180',
-    priceLabel: {
-      en: 'EUR 90-180',
-      de: '90 EUR - 180 EUR',
-      es: '90 EUR - 180 EUR',
-      nl: 'EUR 90 - EUR 180',
-      sv: '90 EUR - 180 EUR'
-    },
+    bathroomUnderfloorHeating: true,
     checkinTime: '15:00:00',
     checkoutTime: '11:00:00',
     sameAs: [
@@ -330,6 +368,16 @@ export const vacationRentalEntities: VacationRentalEntity[] = [
       nl: ['Moorse muren, blootgelegd 2020–2022', 'Zonder trap naar de cafés', 'Terras boven de plantages'],
       sv: ['Moriska murar, frilagda 2020–2022', 'Trappfritt till kaféerna', 'Terrass över odlingarna']
     },
+    accessFacts: {
+      outsideStepsBeforeEntrance: 0,
+      buildingEntranceSteps: 1,
+      insideBuildingStepsToUnitOrLift: 0,
+      internalStairs: 'few-down',
+      lift: 'none',
+      routeToVillageCore: 'step-free',
+      parkingToUnit: 'not-provided',
+      vehicleAccessHours: { until: '11:00', from: '17:00' }
+    },
     accessNote: {
       en: 'One step at the main entrance, then a few down inside the apartment. Vehicle access until 11:00 and from 17:00.',
       de: 'Eine Stufe am Haupteingang, im Apartment einige Stufen nach unten. Zufahrt bis 11 und ab 17 Uhr.',
@@ -338,11 +386,11 @@ export const vacationRentalEntities: VacationRentalEntity[] = [
       sv: 'Ett trappsteg vid huvudentrén, sedan några nedåt inne i lägenheten. Bilinfart fram till 11 och från 17.'
     },
     petsNote: {
-      en: 'Small dogs on request',
-      de: 'Kleine Hunde auf Anfrage',
-      es: 'Perros pequeños bajo petición',
-      nl: 'Kleine honden op aanvraag',
-      sv: 'Små hundar på förfrågan'
+      en: 'Small dogs on request (€15/day)',
+      de: 'Kleine Hunde auf Anfrage (15 €/Tag)',
+      es: 'Perros pequeños bajo petición (15 €/día)',
+      nl: 'Kleine honden op aanvraag (€15/dag)',
+      sv: 'Små hundar på förfrågan (15 €/dag)'
     },
     kitchenNote: {
       en: 'Full indoor kitchen',
@@ -436,13 +484,7 @@ export const vacationRentalEntities: VacationRentalEntity[] = [
     bed: [{ numberOfBeds: 1, typeOfBed: 'King', label: '180 x 200' }],
     tvSizeInches: 40,
     priceRange: 'EUR 90-180',
-    priceLabel: {
-      en: 'EUR 90-180',
-      de: '90 EUR - 180 EUR',
-      es: '90 EUR - 180 EUR',
-      nl: 'EUR 90 - EUR 180',
-      sv: '90 EUR - 180 EUR'
-    },
+    bathroomUnderfloorHeating: true,
     checkinTime: '15:00:00',
     checkoutTime: '11:00:00',
     sameAs: [
@@ -497,6 +539,16 @@ export const vacationRentalEntities: VacationRentalEntity[] = [
       es: ['Una planta más arriba, vista más amplia', 'La cama más ancha de la casa, 180 × 200', 'Terraza sobre el campo'],
       nl: ['Een verdieping hoger, verder uitzicht', 'Breedste bed van het huis, 180 × 200', 'Terras boven de plantages'],
       sv: ['En våning upp, vidare utsikt', 'Husets bredaste säng, 180 × 200', 'Terrass över odlingarna']
+    },
+    accessFacts: {
+      outsideStepsBeforeEntrance: 0,
+      buildingEntranceSteps: 1,
+      insideBuildingStepsToUnitOrLift: 6,
+      internalStairs: 'none',
+      lift: 'none',
+      routeToVillageCore: 'step-free',
+      parkingToUnit: 'not-provided',
+      vehicleAccessHours: { until: '11:00', from: '17:00' }
     },
     accessNote: {
       en: 'One step at the main entrance, six more up to the apartment. Vehicle access until 11:00 and from 17:00.',
@@ -600,13 +652,7 @@ export const vacationRentalEntities: VacationRentalEntity[] = [
     bed: [{ numberOfBeds: 1, typeOfBed: 'Double', label: '150 x 200' }],
     tvSizeInches: 40,
     priceRange: 'EUR 90-180',
-    priceLabel: {
-      en: 'EUR 90-180',
-      de: '90 EUR - 180 EUR',
-      es: '90 EUR - 180 EUR',
-      nl: 'EUR 90 - EUR 180',
-      sv: '90 EUR - 180 EUR'
-    },
+    bathroomUnderfloorHeating: true,
     checkinTime: '15:00:00',
     checkoutTime: '11:00:00',
     sameAs: [
@@ -662,6 +708,16 @@ export const vacationRentalEntities: VacationRentalEntity[] = [
       nl: ['Terras van 60 m², open naar de hemel', 'Buitenkeuken om buiten te koken', 'Het verste uitzicht van het huis'],
       sv: ['60 m² terrass under bar himmel', 'Utekök för matlagning utomhus', 'Husets vidaste utsikt']
     },
+    accessFacts: {
+      outsideStepsBeforeEntrance: 0,
+      buildingEntranceSteps: 1,
+      insideBuildingStepsToUnitOrLift: 6,
+      internalStairs: 'few',
+      lift: 'none',
+      routeToVillageCore: 'step-free',
+      parkingToUnit: 'not-provided',
+      vehicleAccessHours: { until: '11:00', from: '17:00' }
+    },
     accessNote: {
       en: 'One step at the main entrance, six up to the apartment, a few more inside. Vehicle access until 11:00 and from 17:00.',
       de: 'Eine Stufe am Haupteingang, sechs bis zur Wohnung, einige weitere im Apartment. Zufahrt bis 11 und ab 17 Uhr.',
@@ -670,11 +726,11 @@ export const vacationRentalEntities: VacationRentalEntity[] = [
       sv: 'Ett trappsteg vid huvudentrén, sex upp till lägenheten och några till inne. Bilinfart fram till 11 och från 17.'
     },
     petsNote: {
-      en: 'Small dogs on request',
-      de: 'Kleine Hunde auf Anfrage',
-      es: 'Perros pequeños bajo petición',
-      nl: 'Kleine honden op aanvraag',
-      sv: 'Små hundar på förfrågan'
+      en: 'Small dogs on request (€15/day)',
+      de: 'Kleine Hunde auf Anfrage (15 €/Tag)',
+      es: 'Perros pequeños bajo petición (15 €/día)',
+      nl: 'Kleine honden op aanvraag (€15/dag)',
+      sv: 'Små hundar på förfrågan (15 €/dag)'
     },
     kitchenNote: {
       en: 'Full indoor kitchen',
@@ -773,13 +829,7 @@ export const vacationRentalEntities: VacationRentalEntity[] = [
     bed: [{ numberOfBeds: 1, typeOfBed: 'King', label: '200 x 200' }],
     tvSizeInches: 50,
     priceRange: 'EUR 90-180',
-    priceLabel: {
-      en: 'EUR 90-180',
-      de: '90 EUR - 180 EUR',
-      es: '90 EUR - 180 EUR',
-      nl: 'EUR 90 - EUR 180',
-      sv: '90 EUR - 180 EUR'
-    },
+    bathroomUnderfloorHeating: false,
     checkinTime: '15:00:00',
     checkoutTime: '11:00:00',
     sameAs: [
@@ -835,12 +885,21 @@ export const vacationRentalEntities: VacationRentalEntity[] = [
       nl: ['100 m naar het strand, 500 m naar het Balcón de Europa', 'Rustig op de vijfde verdieping, met lift', 'Grootste AMARA-bed, 200 × 200'],
       sv: ['100 m till stranden, 500 m till Balcón de Europa', 'Tyst på femte våningen, med hiss', 'Största AMARA-sängen, 200 × 200']
     },
+    accessFacts: {
+      outsideStepsBeforeEntrance: 5,
+      buildingEntranceSteps: 0,
+      insideBuildingStepsToUnitOrLift: 5,
+      internalStairs: 'none',
+      lift: 'to-floor',
+      routeToVillageCore: 'not-verified',
+      parkingToUnit: 'not-provided'
+    },
     accessNote: {
-      en: 'Lift to the fifth floor. Before it, three steps outside the door and four inside.',
-      de: 'Aufzug in den fünften Stock. Davor drei Stufen vor der Haustür und vier im Haus.',
-      es: 'Ascensor hasta la quinta planta. Antes, tres escalones en la calle y cuatro dentro de la casa.',
-      nl: 'Lift naar de vijfde verdieping. Daarvoor drie treden buiten en vier binnen.',
-      sv: 'Hiss till femte våningen. Dessförinnan tre trappsteg utanför porten och fyra inne.'
+      en: 'Lift to the fifth floor. Before it, five steps outside the building and another five inside.',
+      de: 'Aufzug in den fünften Stock. Davor fünf Stufen vor dem Gebäude und weitere fünf im Haus.',
+      es: 'Ascensor hasta la quinta planta. Antes, cinco escalones fuera del edificio y otros cinco dentro.',
+      nl: 'Lift naar de vijfde verdieping. Daarvoor vijf treden buiten het gebouw en nog eens vijf binnen.',
+      sv: 'Hiss till femte våningen. Dessförinnan fem trappsteg utanför huset och ytterligare fem inne.'
     },
     petsNote: {
       en: 'Pets are not allowed',
@@ -913,6 +972,7 @@ export const vacationRentalEntities: VacationRentalEntity[] = [
       { name: 'kitchen', value: true },
       { name: 'balcony', value: true },
       { name: 'beachAccess', value: true },
+      { name: 'elevator', value: true },
       { name: 'selfCheckinCheckout', value: true },
       { name: 'heating', value: true },
       { name: 'petsAllowed', value: false }
@@ -946,13 +1006,7 @@ export const vacationRentalEntities: VacationRentalEntity[] = [
     ],
     tvSizeInches: 60,
     priceRange: 'EUR 140-350',
-    priceLabel: {
-      en: 'EUR 140-350',
-      de: '140 EUR - 350 EUR',
-      es: '140 EUR - 350 EUR',
-      nl: 'EUR 140 - EUR 350',
-      sv: '140 EUR - 350 EUR'
-    },
+    bathroomUnderfloorHeating: false,
     checkinTime: '15:00:00',
     checkoutTime: '11:00:00',
     sameAs: [
@@ -1007,6 +1061,15 @@ export const vacationRentalEntities: VacationRentalEntity[] = [
       es: ['Ático de 75 m² en dos plantas', 'Terraza frente al Atlántico y la puesta de sol', 'Piscina y plaza de garaje incluidas'],
       nl: ['Penthouse, 75 m² over twee verdiepingen', 'Terras met zicht op de Atlantische Oceaan en zonsondergang', 'Zwembad en garageplaats inbegrepen'],
       sv: ['Takvåning, 75 m² över två plan', 'Terrass mot Atlanten och solnedgången', 'Pool och garageplats ingår']
+    },
+    accessFacts: {
+      outsideStepsBeforeEntrance: 0,
+      buildingEntranceSteps: 0,
+      insideBuildingStepsToUnitOrLift: 0,
+      internalStairs: 'to-bedrooms',
+      lift: 'to-unit-door',
+      routeToVillageCore: 'not-verified',
+      parkingToUnit: 'not-verified'
     },
     accessNote: {
       en: 'No steps outside or in the building — the lift reaches the apartment door. Inside, stairs lead up to the bedrooms.',
@@ -1088,6 +1151,7 @@ export const vacationRentalEntities: VacationRentalEntity[] = [
       { name: 'patio', value: true },
       { name: 'pool', value: true },
       { name: 'poolType', value: 'Outdoor' },
+      { name: 'elevator', value: true },
       { name: 'childFriendly', value: true },
       { name: 'selfCheckinCheckout', value: true },
       { name: 'heating', value: true },

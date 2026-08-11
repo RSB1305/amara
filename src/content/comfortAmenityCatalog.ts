@@ -193,8 +193,8 @@ export const comfortAmenityCategoryOptions: ComfortAmenityCategoryOption[] = [
 ];
 
 /**
- * One authored catalog prevents five apartment records from drifting apart.
- * Farah is intentionally excluded because it retains its smaller, verified inventory.
+ * One authored catalog keeps shared amenity presentation consistent.
+ * Property-specific exclusions below preserve verified differences in the rental SSOT.
  */
 export const expandedComfortAmenityPropertyIds = new Set([
   '408326',
@@ -220,6 +220,9 @@ export const comfortAmenityExclusionsByPropertyId: Record<
       'cooking-basics',
       'kitchen'
     ]
+  },
+  '408325': {
+    keys: ['washing-machine']
   },
   '408327': {
     keys: ['outdoor-shower', 'fireplace', 'sun-loungers', 'carbon-monoxide-alarm']

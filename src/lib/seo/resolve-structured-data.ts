@@ -3,6 +3,7 @@ import type {
   AmaraLanguage
 } from '../../types/seo';
 import {
+  vacationRentalEntities,
   vacationRentalEntitiesByKey,
   type VacationRentalEntity
 } from '../../content/vacationRentalEntities';
@@ -33,6 +34,19 @@ interface BrandEntity {
   instagramProfile?: string;
 }
 
+function buildPortfolioPriceRange(): string {
+  const bounds = vacationRentalEntities.flatMap((entity) => {
+    const match = /^EUR\s+(\d+)-(\d+)$/.exec(entity.priceRange);
+    return match ? [Number(match[1]), Number(match[2])] : [];
+  });
+
+  if (bounds.length === 0) {
+    throw new Error('[Structured data] No valid rental price ranges found.');
+  }
+
+  return `EUR ${Math.min(...bounds)}-${Math.max(...bounds)}`;
+}
+
 const BRAND_ENTITY: BrandEntity = {
   key: 'amara-brand',
   name: 'AMARA',
@@ -47,7 +61,7 @@ const BRAND_ENTITY: BrandEntity = {
   latitude: 36.793171,
   longitude: -3.899107,
   image: '/images/hero-frigiliana.jpg',
-  priceRange: 'EUR 75-350',
+  priceRange: buildPortfolioPriceRange(),
   instagramProfile: 'https://www.instagram.com/amaralodging/'
 };
 
