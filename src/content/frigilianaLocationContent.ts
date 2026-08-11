@@ -135,12 +135,12 @@ export const frigilianaLocationCopy = {
       "Wer bleibt, erlebt mehr: Wenn die Tagesbesucher gehen, werden die Gassen ruhiger; am nächsten Morgen seid ihr schon da, bevor der Ort wieder voller wird.",
       "Über mehrere Tage wird das Dorf zum Ausgangspunkt eures Urlaubs – für Frühstück und Abendessen zu Fuß, Ausflüge ans Meer und die Rückkehr in die Altstadt."
     ],
-    "introPullLine": "Frigiliana nicht nur besuchen, sondern für einige Tage darin wohnen.",
+    "introPullLine": "Ein paar Tage in Frigiliana beginnen morgens im alten Dorf und enden abends wieder in seinen Gassen.",
     "evening": {
       "title": "Frigiliana am Abend – wenn das Dorf wieder ruhiger wird",
       "paragraphs": [
-        "Am Abend werden die Gassen stiller. Vor den weißen Fassaden leuchten die farbigen Türen, kleine Bars und Restaurants liegen hinter Hausecken oder ein paar Stufen weiter oben, und warmes Licht fällt auf die Altstadt. Dazwischen öffnet sich immer wieder der Blick bis zum Mittelmeer. Man nimmt sich Zeit, statt nur die bekanntesten Gassen abzulaufen.",
-        "Das Dorf ist nicht leer: Bewohner sind unterwegs, in den kleinen Lokalen wird gegessen und getrunken. Gerade diese Mischung aus Ruhe und weitergehendem Dorfleben macht den Abend besonders. Danach führt der Weg einfach zu Fuß durch die Gassen nach Hause – eine Seite Frigilianas, die ein Tagesausflug kaum zeigt.",
+        "Am Abend werden die Gassen stiller. Vor den weißen Fassaden leuchten die farbigen Türen, kleine Bars und Restaurants liegen hinter Hausecken oder ein paar Stufen weiter oben, und warmes Licht fällt auf die Altstadt. Dazwischen öffnet sich immer wieder der Blick bis zum Mittelmeer. Jetzt bleibt Zeit, die Details des Dorfes wahrzunehmen.",
+        "Mit der Ruhe des Abends bleibt das Dorfleben spürbar: Bewohner sind unterwegs, in den kleinen Lokalen wird gegessen, getrunken und gesprochen. Gerade diese Mischung macht den Abend besonders.",
         "Am nächsten Morgen beginnt der Ort noch einmal anders: ruhig, bevor der Tagesbetrieb wieder einsetzt."
       ],
       "subsections": [],
@@ -150,16 +150,16 @@ export const frigilianaLocationCopy = {
       "title": "In einem Dorf wohnen, dessen Geschichte noch in den Häusern steckt",
       "paragraphs": [
         "Frigilianas enger, unregelmäßiger Ortskern ist über Jahrhunderte entstanden. Seine Ebenen und Häuser folgen keinem modernen Raster. Casa AMARA steht rund 15 Meter von der Kirche San Antonio entfernt, mitten in dieser historischen Struktur.",
-        "Teile der Bausubstanz sind vermutlich mehrere Jahrhunderte alt; einzelne Mauern könnten ungefähr 800 Jahre zurückreichen. Das genaue Alter kennt heute niemand, deshalb nennen wir bewusst keine künstlich präzise Jahreszahl.",
-        "Die Geschichte zeigt sich in Wänden, die nicht immer rechtwinklig verlaufen, in Räumen, die dem alten Haus folgen, und in einem eigenen historischen Brunnen auf dem Grundstück. Man bemerkt sie nicht nur beim Rundgang durch das Dorf, sondern auch im Wohnen."
+        "Teile der Bausubstanz sind vermutlich mehrere Jahrhunderte alt; einzelne Mauern könnten ungefähr 800 Jahre zurückreichen. Ihr genaues Alter lässt sich heute nicht mehr bestimmen.",
+        "In schiefen Wandverläufen, Räumen, die dem alten Haus folgen, und dem eigenen historischen Brunnen auf dem Grundstück wird diese Geschichte beim Wohnen greifbar."
       ],
       "subsections": [
         {
-          "title": "Ein altes Haus – aber kein Museum",
+          "title": "Historische Substanz, behutsam für heute restauriert",
           "paragraphs": [
-            "Von 2020 bis 2022 haben wir Casa AMARA sorgfältig restauriert, ohne ihre gewachsene Struktur glattzubügeln. Alte Oberflächen und unregelmäßige Räume sollten lesbar bleiben, während das Haus wieder zu einem angenehmen Urlaubsort wurde.",
-            "Heute treffen die alten Mauern auf schnelles WLAN, Klimaanlage und Heizung. Großzügige Badezimmer und große Duschen – in mehreren Apartments Doppelduschen – waren uns wichtig, weil dieser Komfort in historischen Häusern keineswegs selbstverständlich ist. Gerade hier sollte sich historischer Charakter nicht wie ein Verzicht anfühlen.",
-            "So wohnt ihr nicht in einer Kulisse, sondern für einige Tage mitten in Frigilianas Geschichte."
+            "Von 2020 bis 2022 haben wir Casa AMARA sorgfältig restauriert. Alte Oberflächen, unregelmäßige Räume und die über Generationen gewachsene Struktur blieben dabei sichtbar und prägen das Haus bis heute.",
+            "Zwischen den alten Mauern gehören heute schnelles WLAN, Klimaanlage und Heizung zum Aufenthalt. Großzügige Badezimmer und große Duschen – in mehreren Apartments Doppelduschen – bringen den Komfort, der im Urlaub zählt.",
+            "So wird Casa AMARA für einige Tage zu eurem Zuhause mitten in Frigilianas Geschichte."
           ],
           "ctas": []
         }
@@ -167,19 +167,19 @@ export const frigilianaLocationCopy = {
       "ctas": []
     },
     "villageLife": {
-      "title": "Mitten im historischen Dorf – und trotzdem nicht ganz oben",
+      "title": "Mitten im historischen Dorf – in vergleichsweise niedriger Lage bei San Antonio",
       "paragraphs": [
         "Frigiliana zieht sich den Hang hinauf. Gassen verschwinden hinter Hausecken, Treppen führen auf die nächste Ebene, und weiter oben öffnen sich neue Blicke über Dächer und Meer. Diese Topografie macht einen großen Teil der Schönheit des Dorfes aus.",
         "Für einen Spaziergang gehört dieses Auf und Ab dazu; bei einem mehrtägigen Aufenthalt zählt jedoch die genaue Lage. Häuser im oberen Barribarto sind reizvoll, doch Treppen und Steigungen werden dort Teil jedes Heimwegs.",
-        "Unsere vier Unterkünfte liegen in der Calle Chorruelo bei San Antonio – mitten in der Altstadt, aber vergleichsweise weit unten. Frigiliana bleibt ein Hangdorf, doch ihr müsst nicht bei jeder Rückkehr bis in die höchsten Gassen hinauf. Für den Alltag eines längeren Aufenthalts ist das ein spürbarer Unterschied.",
+        "Unsere vier Unterkünfte liegen in der Calle Chorruelo bei San Antonio – mitten in der Altstadt und darin vergleichsweise weit unten. Frigiliana bleibt auch hier ein Hangdorf; durch die niedrigere Lage kann der tägliche Rückweg weniger Höhenmeter umfassen als zu Unterkünften hoch im Barribarto. Für den Alltag eines längeren Aufenthalts ist das ein spürbarer Unterschied.",
         "Es macht einen Unterschied, ob ihr eine Steigung freiwillig erkundet oder sie mehrmals täglich auf dem Weg zur Unterkunft bewältigt."
       ],
       "subsections": [
         {
           "title": "Ein Urlaub, der direkt vor der Haustür beginnt",
           "paragraphs": [
-            "Rund um den Kirchplatz, die Calle Real und die angrenzenden Gassen liegen Bars, Restaurants und das tägliche Dorfleben. Für Abendessen oder einen Spaziergang braucht ihr kein Auto, und ihr müsst den Abend nicht um eine Rückfahrt herum planen.",
-            "Ihr öffnet die Tür, seid mitten im historischen Dorf und geht nach dem Abend einfach zu Fuß nach Hause. Aus einer Sehenswürdigkeit wird so der Ort, an dem euer Urlaubstag beginnt und endet."
+            "Rund um den Kirchplatz, die Calle Real und die angrenzenden Gassen liegen Bars, Restaurants und das tägliche Dorfleben. Ihr geht zum Abendessen oder zu einem Spaziergang zu Fuß los und kehrt später durch die historischen Gassen nach Hause zurück.",
+            "Ihr öffnet die Tür und seid mitten im historischen Dorf. So wird aus einer Sehenswürdigkeit der Ort, an dem euer Urlaubstag beginnt und endet."
           ],
           "ctas": []
         },
@@ -198,7 +198,7 @@ export const frigilianaLocationCopy = {
     "coast": {
       "title": "Im weißen Dorf wohnen – und das Mittelmeer trotzdem ganz nah",
       "paragraphs": [
-        "Wer in Frigiliana wohnt, muss sich nicht zwischen Dorf und Meer entscheiden. Die Altstadt ist euer Zuhause; tagsüber erreicht ihr Nerja, die Küste und Maro für Strand oder Ausflüge und kehrt später wieder hinauf. Dadurch hat der Tag zwei unterschiedliche Stimmungen, ohne dass ihr die Unterkunft wechseln müsst.",
+        "Die Altstadt ist der Ort, an dem ihr morgens aufwacht und abends zurückkehrt. Dazwischen erreicht ihr Nerja, die Küste und Maro für Strandtage oder Ausflüge. So kann derselbe Urlaubstag zwei unterschiedliche Stimmungen verbinden.",
         "So verbindet der Aufenthalt das Leben in einem weißen andalusischen Dorf mit Tagen am Mittelmeer.",
         "Das Meer gehört zum Urlaub, ohne dass der Strand die Adresse bestimmen muss."
       ],
@@ -301,12 +301,12 @@ export const frigilianaLocationCopy = {
       "Staying changes the experience: the lanes quieten as day visitors leave, and the next morning you are already here before the village becomes busier again.",
       "Over several days, the village becomes the base for your holiday – breakfast and dinner on foot, time by the sea, and a return to the old town."
     ],
-    "introPullLine": "Not simply visiting Frigiliana, but living inside it for a few days.",
+    "introPullLine": "A few days in Frigiliana begin in the old village each morning and end back among its lanes at night.",
     "evening": {
       "title": "Frigiliana in the evening – when the village quietens again",
       "paragraphs": [
-        "In the evening the lanes grow quieter. Coloured doors stand out against white façades, small bars and restaurants appear around corners or a few steps higher, and warm light settles over the old town. Between the houses, the Mediterranean occasionally comes into view. There is time to notice the village rather than simply cover its best-known streets.",
-        "The village is not empty: residents are still out, and people eat and drink in the small local places. That balance of calm and continuing village life is what makes the evening special. Afterwards, the route home is simply a walk through the lanes – a side of Frigiliana that a day visit rarely reveals.",
+        "In the evening the lanes grow quieter. Coloured doors stand out against white façades, small bars and restaurants appear around corners or a few steps higher, and warm light settles over the old town. Between the houses, the Mediterranean occasionally comes into view. There is time to notice the details of the village.",
+        "As evening settles, village life continues: residents are still out, and people eat, drink and talk in the small local places. That meeting of calm and everyday life makes the evening special.",
         "The next morning feels different again: calm, before the day's activity returns."
       ],
       "subsections": [],
@@ -316,16 +316,16 @@ export const frigilianaLocationCopy = {
       "title": "Living in a village whose history remains inside its houses",
       "paragraphs": [
         "Frigiliana's close, irregular old town developed over centuries; its levels and houses follow no modern grid. Casa AMARA stands about 15 metres from San Antonio church, within that historic fabric.",
-        "Parts of the building are probably several centuries old; some walls may date back around 800 years. Nobody knows their exact age, so we deliberately avoid an artificially precise date.",
-        "The history appears in walls that do not always meet at right angles, rooms that follow the old structure, and a private historic well that remains on the property. You notice it not only on a walk through the village, but in the experience of staying here."
+        "Parts of the building are probably several centuries old; some walls may date back around 800 years. Their exact age can no longer be determined.",
+        "That history becomes tangible in walls that do not always meet at right angles, rooms shaped by the old structure and the private historic well still on the property."
       ],
       "subsections": [
         {
-          "title": "An old house – not a museum",
+          "title": "Historic fabric, carefully restored for today",
           "paragraphs": [
-            "From 2020 to 2022, we carefully restored Casa AMARA without smoothing away its character. Old surfaces and irregular rooms were meant to remain visible while the house became a comfortable place for a holiday again.",
-            "The old walls now come with fast Wi-Fi, air conditioning and heating. Generous bathrooms and large showers – including double showers in several apartments – mattered to us because that comfort is far from standard in historic houses. Historic character should not have to feel like a compromise.",
-            "You are not staying in a stage set, but living inside part of Frigiliana's history."
+            "From 2020 to 2022, we carefully restored Casa AMARA. Old surfaces, irregular rooms and the structure shaped over generations remain visible throughout the house.",
+            "Today, fast Wi-Fi, air conditioning and heating sit within the old walls. Generous bathrooms and large showers – including double showers in several apartments – bring the comfort that matters during a holiday.",
+            "For a few days, Casa AMARA becomes your home within part of Frigiliana's history."
           ],
           "ctas": []
         }
@@ -333,19 +333,19 @@ export const frigilianaLocationCopy = {
       "ctas": []
     },
     "villageLife": {
-      "title": "Inside the historic village – without staying at the very top",
+      "title": "Inside the historic village – in a comparatively lower position by San Antonio",
       "paragraphs": [
         "Frigiliana climbs the hillside. Lanes disappear around corners, steps reach the next level, and higher up new views open across rooftops and towards the sea. This topography is a large part of the village's beauty.",
         "That rise and fall is part of a walk; over several days, the exact location of your stay matters. Houses high in the Barribarto can be beautiful, but their stairs and slopes become part of every journey home.",
-        "Our four stays are on Calle Chorruelo beside San Antonio – in the old town, yet comparatively low down. Frigiliana remains a hillside village, but you do not have to climb to its highest lanes every time you return. Over a longer stay, that becomes a meaningful everyday difference.",
+        "Our four stays are on Calle Chorruelo beside San Antonio – in the old town and comparatively low within it. Frigiliana remains a hillside village; from this lower position, the daily route can involve less elevation than a stay high in Barribarto. Over a longer stay, that becomes a meaningful everyday difference.",
         "There is a real difference between exploring a climb by choice and repeating it several times a day on the way to your accommodation."
       ],
       "subsections": [
         {
           "title": "A holiday that begins at the front door",
           "paragraphs": [
-            "Small bars, restaurants and everyday village life sit around the church square, Calle Real and the neighbouring lanes. You do not need a car for dinner or an evening walk, and the night never has to be organised around a return journey.",
-            "Open the door and the historic village begins; when the evening is over, you simply walk home. A place normally seen as a sight becomes where your holiday days begin and end."
+            "Small bars, restaurants and everyday village life sit around the church square, Calle Real and the neighbouring lanes. You can set out for dinner or an evening walk on foot, then return home through the historic streets.",
+            "Open the door and the historic village begins. A place many people see as a sight becomes where your holiday days begin and end."
           ],
           "ctas": []
         },
@@ -364,7 +364,7 @@ export const frigilianaLocationCopy = {
     "coast": {
       "title": "Live in the white village – with the Mediterranean close by",
       "paragraphs": [
-        "Staying in Frigiliana does not mean choosing between village and sea. The old town is home; during the day you can reach Nerja, the coast and Maro for beaches or outings, then return uphill. The day can hold two distinct atmospheres without changing accommodation.",
+        "The old town is where you wake in the morning and return in the evening. Between those moments, Nerja, the coast and Maro are within reach for beach days and outings. One holiday day can hold two distinct atmospheres.",
         "A stay here combines life in a white Andalusian village with days beside the Mediterranean.",
         "The sea can be part of the holiday without the beach deciding your address."
       ],
@@ -467,12 +467,12 @@ export const frigilianaLocationCopy = {
       "Quedarse cambia la experiencia: cuando se marchan los visitantes del día, las calles recuperan la calma; a la mañana siguiente ya estáis aquí antes de que el pueblo vuelva a animarse.",
       "Durante varios días, el pueblo se convierte en la base de las vacaciones: desayunos y cenas a pie, escapadas al mar y regreso al casco antiguo."
     ],
-    "introPullLine": "No solo visitar Frigiliana, sino vivir dentro del pueblo durante unos días.",
+    "introPullLine": "Durante unos días, las mañanas empiezan en el casco antiguo y las noches terminan de nuevo entre sus callejuelas.",
     "evening": {
       "title": "Frigiliana al atardecer, cuando vuelve la calma",
       "paragraphs": [
-        "Al caer la tarde, las calles se vuelven más tranquilas. Las puertas de colores resaltan sobre las fachadas blancas, pequeños bares y restaurantes aparecen tras una esquina o unos peldaños más arriba, y una luz cálida envuelve el casco antiguo. Entre las casas asoma de vez en cuando el Mediterráneo. Hay tiempo para mirar sin recorrer solo los lugares más conocidos.",
-        "El pueblo no está vacío: los vecinos siguen haciendo su vida y en los locales se cena y se conversa. Ese equilibrio entre calma y vida cotidiana da personalidad a la noche. Después, volver a casa es simplemente caminar por las callejuelas, una cara de Frigiliana que rara vez muestra una visita de unas horas.",
+        "Al caer la tarde, las calles se vuelven más tranquilas. Las puertas de colores resaltan sobre las fachadas blancas, pequeños bares y restaurantes aparecen tras una esquina o unos peldaños más arriba, y una luz cálida envuelve el casco antiguo. Entre las casas asoma de vez en cuando el Mediterráneo. Hay tiempo para fijarse en los detalles del pueblo.",
+        "Al caer la tarde, el pueblo baja el ritmo y la vida cotidiana continúa: los vecinos siguen haciendo su vida y en los pequeños locales se cena y se conversa. Esa mezcla de calma y vida local da personalidad a la noche.",
         "A la mañana siguiente, el pueblo vuelve a sentirse distinto: sereno antes de que empiece el movimiento del día."
       ],
       "subsections": [],
@@ -482,16 +482,16 @@ export const frigilianaLocationCopy = {
       "title": "Vivir en un pueblo cuya historia sigue dentro de las casas",
       "paragraphs": [
         "El casco antiguo, estrecho e irregular, se formó a lo largo de los siglos; sus niveles y casas no siguen una cuadrícula moderna. Casa AMARA está a unos 15 metros de la iglesia de San Antonio, dentro de ese tejido histórico.",
-        "Parte de la construcción probablemente tiene varios siglos; algunos muros podrían remontarse unos 800 años. Nadie conoce su edad exacta, así que evitamos dar una fecha artificialmente precisa.",
-        "La historia se percibe en paredes que no siempre forman ángulos rectos, estancias que siguen la estructura antigua y un pozo histórico privado que aún se conserva en la propiedad. No solo se observa al pasear: también forma parte de la experiencia de alojarse aquí."
+        "Parte de la construcción probablemente tiene varios siglos; algunos muros podrían remontarse unos 800 años. Hoy ya no es posible determinar su edad exacta.",
+        "Esa historia se vuelve tangible en paredes que no siempre forman ángulos rectos, estancias que siguen la estructura antigua y el pozo histórico privado que aún se conserva en la propiedad."
       ],
       "subsections": [
         {
-          "title": "Una casa antigua, no un museo",
+          "title": "Una historia conservada para vivirla hoy",
           "paragraphs": [
-            "Entre 2020 y 2022 restauramos Casa AMARA con cuidado, sin borrar el carácter que había adquirido con el tiempo. Queríamos mantener visibles las superficies y geometrías irregulares sin renunciar a un alojamiento agradable.",
-            "Los muros antiguos conviven hoy con wifi rápido, aire acondicionado y calefacción. Dimos especial importancia a los baños amplios y las duchas grandes —dobles en varios apartamentos— porque ese confort no es habitual en una casa histórica. El carácter antiguo no tenía por qué sentirse como una renuncia.",
-            "No os alojáis en un decorado: durante unos días vivís dentro de la historia de Frigiliana."
+            "Entre 2020 y 2022 restauramos Casa AMARA con cuidado. Las superficies antiguas, las estancias irregulares y la estructura formada a lo largo del tiempo siguen visibles y dan forma a la casa.",
+            "Entre esos muros hay hoy wifi rápido, aire acondicionado y calefacción. Los baños amplios y las duchas grandes —dobles en varios apartamentos— aportan el confort que cuenta durante las vacaciones.",
+            "Durante unos días, Casa AMARA se convierte en vuestra casa dentro de la historia de Frigiliana."
           ],
           "ctas": []
         }
@@ -499,19 +499,19 @@ export const frigilianaLocationCopy = {
       "ctas": []
     },
     "villageLife": {
-      "title": "En pleno pueblo histórico, sin alojarse en la parte más alta",
+      "title": "En pleno pueblo histórico, en una cota relativamente baja junto a San Antonio",
       "paragraphs": [
         "Frigiliana sube por la ladera. Las calles desaparecen tras las esquinas, las escaleras llevan al siguiente nivel y más arriba se abren nuevas vistas sobre los tejados y hacia el mar.",
         "Ese desnivel forma parte del paseo; durante una estancia de varios días, la ubicación exacta importa. Las casas de la parte alta del Barribarto pueden ser preciosas, pero sus escaleras y pendientes acompañan cada regreso.",
-        "Nuestros cuatro alojamientos están en la calle Chorruelo, junto a San Antonio: en el casco antiguo, pero relativamente abajo. Frigiliana sigue siendo un pueblo en cuesta, aunque no tendréis que subir hasta las calles más altas cada vez que volváis. Durante una estancia larga, esa diferencia se nota en el día a día.",
+        "Nuestros cuatro alojamientos están en la calle Chorruelo, junto a San Antonio: en el casco antiguo y en una cota relativamente baja. Frigiliana sigue siendo un pueblo en cuesta; desde esta posición, el recorrido diario puede acumular menos desnivel que desde un alojamiento en lo alto del Barribarto. Durante una estancia larga, esa diferencia se nota en el día a día.",
         "No es lo mismo explorar una pendiente por gusto que repetirla varias veces al día para llegar al alojamiento."
       ],
       "subsections": [
         {
           "title": "Unas vacaciones que empiezan al abrir la puerta",
           "paragraphs": [
-            "Alrededor de la plaza de la iglesia, la calle Real y las callejuelas cercanas hay bares, restaurantes y vida cotidiana. Para cenar o pasear al atardecer no necesitáis coche.",
-            "Abrís la puerta y empieza el pueblo histórico; al terminar la noche, volvéis andando a casa."
+            "Alrededor de la plaza de la iglesia, la calle Real y las callejuelas cercanas hay bares, restaurantes y vida cotidiana. Salís andando para cenar o pasear al atardecer y después regresáis a casa por las calles históricas.",
+            "Abrís la puerta y empieza el pueblo histórico. El casco antiguo se convierte en el lugar donde empiezan y terminan vuestros días de vacaciones."
           ],
           "ctas": []
         },
@@ -530,7 +530,7 @@ export const frigilianaLocationCopy = {
     "coast": {
       "title": "Vivir en el pueblo blanco con el Mediterráneo muy cerca",
       "paragraphs": [
-        "Alojarse en Frigiliana no obliga a elegir entre pueblo y mar. El casco antiguo es vuestra casa; durante el día podéis acercaros a Nerja, la costa y Maro para ir a la playa o hacer una excursión y después regresar a la sierra. El mismo día puede tener dos ambientes distintos sin cambiar de alojamiento.",
+        "El casco antiguo es el lugar donde os despertáis por la mañana y al que regresáis al atardecer. Entre ambos momentos, Nerja, la costa y Maro quedan cerca para pasar el día en la playa o hacer una excursión. Un mismo día de vacaciones puede reunir dos ambientes distintos.",
         "La estancia combina la vida en un pueblo blanco andaluz con días junto al Mediterráneo.",
         "El mar puede formar parte de las vacaciones sin decidir dónde dormís."
       ],
@@ -633,12 +633,12 @@ export const frigilianaLocationCopy = {
       "Blijven overnachten verandert de ervaring: wanneer de dagjesmensen vertrekken, worden de straten rustiger; de volgende ochtend zijn jullie er al voordat het dorp weer levendiger wordt.",
       "Tijdens een verblijf van enkele dagen wordt het dorp de basis van jullie vakantie: ontbijten en dineren op loopafstand, tijd aan zee en thuiskomen in de oude kern."
     ],
-    "introPullLine": "Frigiliana niet alleen bezoeken, maar er een paar dagen middenin leven.",
+    "introPullLine": "Een verblijf van een paar dagen begint 's ochtends in de oude kern en eindigt 's avonds weer tussen de straatjes.",
     "evening": {
       "title": "Frigiliana in de avond, wanneer de rust terugkeert",
       "paragraphs": [
-        "'s Avonds worden de straatjes stiller. Gekleurde deuren vallen op tegen witte gevels, kleine bars en restaurants verschijnen om een hoek of een paar treden hoger, en warm licht ligt over de oude kern. Tussen de huizen door duikt af en toe de Middellandse Zee op. Er is tijd om echt te kijken in plaats van alleen de bekendste straten af te lopen.",
-        "Het dorp is niet leeg: bewoners zijn nog onderweg en in de kleine zaken wordt gegeten en gedronken. Juist die combinatie van rust en doorgaand dorpsleven maakt de avond bijzonder. Daarna wandel je gewoon door de straatjes naar huis – een kant van Frigiliana die een dagbezoek zelden laat zien.",
+        "'s Avonds worden de straatjes stiller. Gekleurde deuren vallen op tegen witte gevels, kleine bars en restaurants verschijnen om een hoek of een paar treden hoger, en warm licht ligt over de oude kern. Tussen de huizen door duikt af en toe de Middellandse Zee op. Er is tijd om de details van het dorp echt te bekijken.",
+        "Terwijl de avond rustiger wordt, gaat het dorpsleven door: bewoners zijn nog onderweg en in de kleine zaken wordt gegeten, gedronken en gepraat. Juist die combinatie van rust en dagelijks dorpsleven maakt de avond bijzonder.",
         "De volgende ochtend voelt het dorp opnieuw anders: kalm voordat de drukte van de dag terugkeert."
       ],
       "subsections": [],
@@ -648,16 +648,16 @@ export const frigilianaLocationCopy = {
       "title": "Wonen in een dorp waarvan de geschiedenis nog in de huizen zit",
       "paragraphs": [
         "De compacte, onregelmatige oude kern van Frigiliana groeide door de eeuwen heen; de niveaus en huizen volgen geen modern stratenplan. Casa AMARA staat op ongeveer 15 meter van de kerk van San Antonio, midden in die historische structuur.",
-        "Delen van het gebouw zijn vermoedelijk eeuwenoud; sommige muren kunnen ongeveer 800 jaar oud zijn. Niemand kent de precieze leeftijd, daarom noemen we bewust geen kunstmatig exact bouwjaar.",
-        "Die geschiedenis is zichtbaar in muren die niet altijd haaks staan, kamers die de oude bouwstructuur volgen en een eigen historische waterput die nog op het terrein aanwezig is. Je merkt haar niet alleen tijdens een wandeling, maar ook wanneer je hier woont."
+        "Delen van het gebouw zijn vermoedelijk eeuwenoud; sommige muren kunnen ongeveer 800 jaar oud zijn. Hun precieze leeftijd is vandaag niet meer vast te stellen.",
+        "Die geschiedenis wordt tastbaar in muren die niet altijd haaks staan, kamers die de oude bouwstructuur volgen en de eigen historische waterput die nog op het terrein aanwezig is."
       ],
       "subsections": [
         {
-          "title": "Een oud huis, geen museum",
+          "title": "Historische bouwstructuur, zorgvuldig gerestaureerd voor een verblijf van nu",
           "paragraphs": [
-            "Van 2020 tot 2022 hebben we Casa AMARA zorgvuldig gerestaureerd zonder het gegroeide karakter weg te werken. Oude oppervlakken en onregelmatige kamers mochten zichtbaar blijven, terwijl het huis opnieuw een comfortabele vakantieplek werd.",
-            "Achter de oude muren vinden jullie nu snelle wifi, airconditioning en verwarming. Ruime badkamers en grote douches – in meerdere appartementen dubbele douches – waren belangrijk, omdat dit comfort in historische huizen allerminst vanzelfsprekend is. Historisch karakter hoeft niet als een compromis te voelen.",
-            "Jullie verblijven niet in een decor, maar leven enkele dagen midden in de geschiedenis van Frigiliana."
+            "Van 2020 tot 2022 hebben we Casa AMARA zorgvuldig gerestaureerd. Oude oppervlakken, onregelmatige kamers en de structuur die in de loop van generaties ontstond, zijn door het hele huis zichtbaar gebleven.",
+            "Achter de oude muren vinden jullie nu snelle wifi, airconditioning en verwarming. Ruime badkamers en grote douches – in meerdere appartementen dubbele douches – bieden het comfort dat tijdens een vakantie telt.",
+            "Een paar dagen lang wordt Casa AMARA jullie thuis midden in de geschiedenis van Frigiliana."
           ],
           "ctas": []
         }
@@ -665,19 +665,19 @@ export const frigilianaLocationCopy = {
       "ctas": []
     },
     "villageLife": {
-      "title": "Midden in het historische dorp, zonder helemaal bovenaan te wonen",
+      "title": "Midden in het historische dorp, relatief laag bij San Antonio",
       "paragraphs": [
         "Frigiliana klimt tegen de heuvel op. Straatjes verdwijnen achter hoeken, trappen leiden naar een volgend niveau en hogerop openen zich nieuwe uitzichten over daken en richting zee. Die topografie bepaalt een groot deel van de schoonheid van het dorp.",
         "Dat stijgen en dalen hoort bij een wandeling; bij een verblijf van meerdere dagen telt de precieze ligging. Huizen hoog in het Barribarto kunnen prachtig zijn, maar de trappen en hellingen horen dan bij elke weg naar huis.",
-        "Onze vier verblijven liggen aan Calle Chorruelo naast San Antonio – in de oude kern, maar relatief laag. Frigiliana blijft een heuveldorp, alleen hoeven jullie niet bij elke terugkeer naar de hoogste straatjes te klimmen. Tijdens een langer verblijf merk je dat verschil in het dagelijks leven.",
+        "Onze vier verblijven liggen aan Calle Chorruelo naast San Antonio – in de oude kern en daarbinnen relatief laag. Frigiliana blijft een heuveldorp; vanuit deze lagere positie kan de dagelijkse route minder hoogteverschil hebben dan vanuit een verblijf hoog in Barribarto. Tijdens een langer verblijf merk je dat verschil in het dagelijks leven.",
         "Het maakt verschil of je een helling vrijwillig verkent of die meerdere keren per dag naar je accommodatie aflegt."
       ],
       "subsections": [
         {
           "title": "Een vakantie die bij de voordeur begint",
           "paragraphs": [
-            "Rond het kerkplein, Calle Real en de omliggende straatjes liggen bars, restaurants en het dagelijkse dorpsleven. Voor een diner of avondwandeling hebben jullie geen auto nodig en hoeft de avond niet rond een terugrit te worden gepland.",
-            "Open de deur en het historische dorp begint; na afloop lopen jullie gewoon naar huis. Wat voor veel mensen een bezienswaardigheid is, wordt de plek waar jullie vakantiedag begint en eindigt."
+            "Rond het kerkplein, Calle Real en de omliggende straatjes liggen bars, restaurants en het dagelijkse dorpsleven. Jullie gaan te voet op pad voor een diner of avondwandeling en lopen later door de historische straatjes naar huis.",
+            "Open de deur en het historische dorp begint. De oude kern wordt de plek waar jullie vakantiedagen beginnen en eindigen."
           ],
           "ctas": []
         },
@@ -696,7 +696,7 @@ export const frigilianaLocationCopy = {
     "coast": {
       "title": "Wonen in het witte dorp, met de Middellandse Zee dichtbij",
       "paragraphs": [
-        "Een verblijf in Frigiliana betekent niet kiezen tussen dorp en zee. De oude kern is jullie thuis; overdag gaan jullie naar Nerja, de kust of Maro voor het strand of een uitstapje en keren later weer de heuvel op. Eén dag kan zo twee verschillende sferen hebben zonder van accommodatie te wisselen.",
+        "De oude kern is de plek waar jullie 's ochtends wakker worden en 's avonds terugkeren. Daartussen liggen Nerja, de kust en Maro binnen bereik voor een stranddag of uitstapje. Eén vakantiedag kan zo twee verschillende sferen samenbrengen.",
         "Zo combineert de vakantie het leven in een wit Andalusisch dorp met dagen aan de Middellandse Zee.",
         "De zee kan bij de vakantie horen zonder dat het strand jullie adres bepaalt."
       ],
@@ -799,12 +799,12 @@ export const frigilianaLocationCopy = {
       "Att stanna över natten förändrar upplevelsen: när dagsbesökarna lämnar blir gränderna lugnare, och nästa morgon är ni redan här innan byn blir livligare igen.",
       "Under några dagar blir byn basen för semestern – frukost och middag till fots, tid vid havet och hemkomst till gamla stan."
     ],
-    "introPullLine": "Inte bara besöka Frigiliana, utan leva mitt i byn under några dagar.",
+    "introPullLine": "Under några dagar börjar morgonen i gamla stan och kvällen slutar hemma bland gränderna.",
     "evening": {
       "title": "Frigiliana på kvällen, när lugnet återvänder",
       "paragraphs": [
-        "På kvällen blir gränderna stillare. Färgade dörrar framträder mot vita fasader, små barer och restauranger dyker upp runt ett hörn eller några trappsteg högre, och ett varmt ljus faller över gamla stan. Mellan husen skymtar ibland Medelhavet. Det finns tid att verkligen se byn i stället för att bara hinna längs de mest kända stråken.",
-        "Byn är inte tom: boende är fortfarande ute och på de små ställena äter och dricker man. Just blandningen av lugn och fortsatt vardagsliv gör kvällen speciell. Sedan är vägen hem bara en promenad genom gränderna – en sida av Frigiliana som ett dagsbesök sällan visar.",
+        "På kvällen blir gränderna stillare. Färgade dörrar framträder mot vita fasader, små barer och restauranger dyker upp runt ett hörn eller några trappsteg högre, och ett varmt ljus faller över gamla stan. Mellan husen skymtar ibland Medelhavet. Det finns tid att lägga märke till byns detaljer.",
+        "När kvällen blir lugnare fortsätter vardagslivet i byn: boende är fortfarande ute och på de små ställena äter, dricker och samtalar man. Blandningen av lugn och byliv gör kvällen speciell.",
         "Nästa morgon känns byn annorlunda igen: lugn innan dagens liv återvänder."
       ],
       "subsections": [],
@@ -814,16 +814,16 @@ export const frigilianaLocationCopy = {
       "title": "Bo i en by där historien finns kvar i husen",
       "paragraphs": [
         "Frigilianas täta, oregelbundna gamla stad växte fram under århundraden. Nivåerna, gränderna och husen följer inget modernt rutnät. Casa AMARA ligger omkring 15 meter från kyrkan San Antonio, mitt i den historiska strukturen.",
-        "Delar av byggnaden är troligen flera hundra år gamla; vissa murar kan vara omkring 800 år. Ingen känner den exakta åldern, därför anger vi medvetet inget konstlat exakt årtal.",
-        "Historien syns i väggar som inte alltid möts i räta vinklar, rum som följer den gamla byggnaden och en egen historisk brunn som fortfarande finns på tomten. Den märks inte bara under en promenad genom byn, utan också i hur det känns att bo här."
+        "Delar av byggnaden är troligen flera hundra år gamla; vissa murar kan vara omkring 800 år gamla. Deras exakta ålder går inte längre att fastställa.",
+        "Historien blir påtaglig i väggar som inte alltid möts i räta vinklar, rum som följer den gamla byggnaden och den egna historiska brunnen som fortfarande finns på tomten."
       ],
       "subsections": [
         {
-          "title": "Ett gammalt hus, inget museum",
+          "title": "Historisk karaktär, varsamt restaurerad för livet i dag",
           "paragraphs": [
-            "Mellan 2020 och 2022 restaurerade vi Casa AMARA omsorgsfullt utan att släta ut husets karaktär. Äldre ytor och oregelbundna rum skulle få vara synliga, samtidigt som huset åter blev en bekväm plats för semester.",
-            "Bakom de gamla murarna finns nu snabbt wifi, luftkonditionering och uppvärmning. Rymliga badrum och stora duschar – dubbelduschar i flera lägenheter – var viktiga eftersom den komforten inte är självklar i historiska hus. Historisk karaktär ska inte behöva kännas som en kompromiss i vardagen.",
-            "Ni bor inte i en kuliss, utan mitt i en del av Frigilianas historia."
+            "Mellan 2020 och 2022 restaurerade vi Casa AMARA omsorgsfullt. Äldre ytor, oregelbundna rum och den struktur som vuxit fram under generationer är fortfarande tydliga i hela huset.",
+            "Bakom de gamla murarna finns nu snabbt wifi, luftkonditionering och uppvärmning. Rymliga badrum och stora duschar – dubbelduschar i flera lägenheter – ger den komfort som betyder mest under semestern.",
+            "Under några dagar blir Casa AMARA ert hem mitt i en del av Frigilianas historia."
           ],
           "ctas": []
         }
@@ -831,19 +831,19 @@ export const frigilianaLocationCopy = {
       "ctas": []
     },
     "villageLife": {
-      "title": "Mitt i den historiska byn, utan att bo högst upp",
+      "title": "Mitt i den historiska byn, i ett jämförelsevis lägre läge vid San Antonio",
       "paragraphs": [
         "Frigiliana klättrar uppför sluttningen. Gränder försvinner runt hörn, trappor leder till nästa nivå och högre upp öppnas nya vyer över taken och mot havet. Topografin är en stor del av byns skönhet och gör varje promenad annorlunda.",
         "Nivåskillnaderna hör till en promenad; under flera dagar spelar boendets exakta läge större roll. Hus högt uppe i Barribarto kan vara vackra, men trappor och backar blir då en del av varje väg hem.",
-        "Våra fyra boenden ligger på Calle Chorruelo vid San Antonio – i gamla stan, men jämförelsevis långt ner. Frigiliana är fortfarande en by på en sluttning, men ni behöver inte klättra till de högsta gränderna varje gång ni återvänder. Under en vistelse på flera dagar blir det en tydlig skillnad i vardagen.",
+        "Våra fyra boenden ligger på Calle Chorruelo vid San Antonio – i gamla stan och jämförelsevis långt ner. Frigiliana är fortfarande en by på en sluttning; från det lägre läget kan den dagliga vägen innebära mindre höjdskillnad än från ett boende högt uppe i Barribarto. Under en vistelse på flera dagar blir det en tydlig skillnad i vardagen.",
         "Det är skillnad mellan att utforska en backe av fri vilja och att gå den flera gånger om dagen till boendet."
       ],
       "subsections": [
         {
           "title": "En semester som börjar utanför dörren",
           "paragraphs": [
-            "Runt kyrkplatsen, Calle Real och de närliggande gränderna finns barer, restauranger och byns vardagsliv. För middag eller en kvällspromenad behövs ingen bil, och kvällen behöver inte planeras runt en resa tillbaka.",
-            "Öppna dörren och den historiska byn börjar; när kvällen är slut promenerar ni bara hem. Det som för många är en sevärdhet blir platsen där semesterdagen börjar och slutar."
+            "Runt kyrkplatsen, Calle Real och de närliggande gränderna finns barer, restauranger och byns vardagsliv. Ni går till fots för middag eller en kvällspromenad och återvänder senare hem genom de historiska gränderna.",
+            "Öppna dörren och den historiska byn börjar. Gamla stan blir platsen där semesterdagarna börjar och slutar."
           ],
           "ctas": []
         },
@@ -862,7 +862,7 @@ export const frigilianaLocationCopy = {
     "coast": {
       "title": "Bo i den vita byn med Medelhavet nära",
       "paragraphs": [
-        "Att bo i Frigiliana innebär inte att välja mellan by och hav. Gamla stan är ert hem; på dagen kan ni åka till Nerja, kusten och Maro för strand eller utflykter och sedan återvända upp till byn. Samma dag kan rymma två olika stämningar utan att ni byter boende.",
+        "Gamla stan är platsen där ni vaknar på morgonen och återvänder på kvällen. Däremellan ligger Nerja, kusten och Maro inom räckhåll för stranddagar och utflykter. En och samma semesterdag kan rymma två olika stämningar.",
         "Vistelsen förenar livet i en vit andalusisk by med dagar vid Medelhavet.",
         "Havet kan vara en del av semestern utan att stranden bestämmer adressen."
       ],
