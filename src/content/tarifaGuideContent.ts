@@ -22,12 +22,83 @@ export interface TarifaGuideSource {
   href: string;
 }
 
-export interface TarifaGuideContent {
-  id: TarifaGuideId;
+export interface TarifaLocationLink {
+  label: string;
+  token:
+    | 'casa'
+    | 'tarifa_experience_hub'
+    | 'tarifa_beaches_authority'
+    | 'tarifa_wind_kitesurfing_authority';
+}
+
+export interface TarifaLocationCard {
+  title: string;
+  paragraphs: string[];
+  fit?: string;
+}
+
+export interface TarifaLocationTextSection {
+  id: string;
+  title: string;
+  paragraphs: string[];
+  links?: TarifaLocationLink[];
+}
+
+export interface TarifaLocationAuthorityCopy {
+  hero: {
+    eyebrow: string;
+    title: string;
+    lead: string[];
+    editorialNote: string;
+    updated: string;
+  };
+  microLocations: {
+    title: string;
+    items: TarifaLocationCard[];
+    clarification: string;
+    link: TarifaLocationLink;
+  };
+  car: TarifaLocationTextSection;
+  wind: TarifaLocationTextSection;
+  seasons: TarifaLocationTextSection;
+  stayFits: {
+    title: string;
+    items: TarifaLocationCard[];
+  };
+  dailyLife: TarifaLocationTextSection;
+  tradeoffs: {
+    title: string;
+    intro?: string;
+    items: string[];
+    closing?: string[];
+  };
+  amara: {
+    title: string;
+    paragraphs: string[];
+    facts: string[];
+    imageAlt: string;
+  };
+  closing: {
+    title: string;
+    primary: TarifaLocationLink;
+    secondary: TarifaLocationLink;
+  };
+}
+
+interface TarifaGuideBase {
   token: string;
   seo: AmaraAuthoringSeo;
   navLabel: LocalizedText;
   breadcrumbLabel: LocalizedText;
+}
+
+export interface TarifaLocationGuideContent extends TarifaGuideBase {
+  id: 'overview';
+  location: Record<AmaraLanguage, TarifaLocationAuthorityCopy>;
+}
+
+export interface TarifaTopicGuideContent extends TarifaGuideBase {
+  id: Exclude<TarifaGuideId, 'overview'>;
   hero: {
     eyebrow: LocalizedText;
     title: LocalizedText;
@@ -53,6 +124,8 @@ export interface TarifaGuideContent {
   related: TarifaGuideId[];
 }
 
+export type TarifaGuideContent = TarifaLocationGuideContent | TarifaTopicGuideContent;
+
 const l = (
   en: string,
   de: string,
@@ -73,12 +146,13 @@ const buildSeo = (
   version: string,
   pageType: AmaraAuthoringSeo['pageType'],
   titles: LocalizedText,
-  descriptions: LocalizedText
+  descriptions: LocalizedText,
+  articleMetadata = article
 ): AmaraAuthoringSeo => ({
   version,
   pageType,
   entityKey: 'amara-brand',
-  article,
+  article: articleMetadata,
   languages: {
     en: { title: titles.en, description: descriptions.en, robots: 'index, follow', canonical: 'auto' },
     de: { title: titles.de, description: descriptions.de, robots: 'index, follow', canonical: 'auto' },
@@ -138,135 +212,570 @@ const officialKiteSource: TarifaGuideSource = {
 };
 
 const overviewTitles = l(
-  'Tarifa Travel Guide | Atlantic, Wind & Old Town',
-  'Tarifa-Reiseführer | Atlantik, Wind & Altstadt',
-  'Guía de Tarifa | Atlántico, viento y casco histórico',
-  'Tarifa-gids | Atlantische kust, wind en oude stad',
-  'Tarifa-guide | Atlanten, vind och gamla stan'
+  'Where to Stay in Tarifa: Old Town, Beach or La Marina',
+  'Wo in Tarifa übernachten? Altstadt, La Marina oder Strand',
+  'Dónde alojarse en Tarifa: casco antiguo, La Marina o playa',
+  'Waar overnachten in Tarifa: oude stad, La Marina of strand',
+  'Var ska man bo i Tarifa: gamla stan, La Marina eller stranden'
 );
 
 const overviewDescriptions = l(
-  'Plan a Tarifa stay with clear guidance on Atlantic beaches, wind, the old town, day rhythms and AMARA Family & Surf.',
-  'Tarifa planen: Atlantikstrände, Wind, Altstadt, Tagesrhythmus und AMARA Family & Surf klar und ehrlich eingeordnet.',
-  'Planifica Tarifa con orientación clara sobre playas atlánticas, viento, casco histórico y AMARA Family & Surf.',
-  'Plan Tarifa met heldere informatie over Atlantische stranden, wind, de oude stad en AMARA Family & Surf.',
-  'Planera Tarifa med tydlig vägledning om Atlantstränder, vind, gamla stan och AMARA Family & Surf.'
+  'Where should you stay in Tarifa? Compare the Old Town, La Marina, Los Lances and countryside for walkability, beaches, parking, wind and everyday life.',
+  'Welche Lage passt zu eurem Tarifa-Aufenthalt? Vergleicht Altstadt, La Marina, Los Lances und Umland nach Fußläufigkeit, Strand, Auto, Parken und Alltag.',
+  '¿Dónde alojarse en Tarifa? Compara casco antiguo, La Marina, Los Lances y alrededores según playa, coche, aparcamiento, distancias y vida diaria.',
+  'Waar kun je het beste verblijven in Tarifa? Vergelijk oude stad, La Marina, Los Lances en buitengebied op strand, lopen, parkeren, auto en dagelijks gemak.',
+  'Var är bäst att bo i Tarifa? Jämför gamla stan, La Marina, Los Lances och landsbygden utifrån strand, gångavstånd, bil, parkering och vardag.'
 );
 
 const overview: TarifaGuideContent = {
   id: 'overview',
   token: 'location_tarifa',
-  seo: buildSeo('2026-08-03-tarifa-location-v2.0', 'A', overviewTitles, overviewDescriptions),
+  seo: buildSeo(
+    '2026-08-12-tarifa-location-v3.0',
+    'A',
+    overviewTitles,
+    overviewDescriptions,
+    { ...article, dateModified: '2026-08-12' }
+  ),
   navLabel: l('Overview', 'Überblick', 'Visión general', 'Overzicht', 'Översikt'),
   breadcrumbLabel: l('Tarifa', 'Tarifa', 'Tarifa', 'Tarifa', 'Tarifa'),
-  hero: {
-    eyebrow: l('AMARA destination guide', 'AMARA Reiseguide', 'Guía de destino AMARA', 'AMARA-bestemmingsgids', 'AMARA destinationsguide'),
-    title: l(
-      'Tarifa — Atlantic beaches, wind and old-town evenings',
-      'Tarifa – Atlantikstrände, Wind und Abende in der Altstadt',
-      'Tarifa: playas atlánticas, viento y noches en el casco histórico',
-      'Tarifa — Atlantische stranden, wind en avonden in de oude stad',
-      'Tarifa – Atlantstränder, vind och kvällar i gamla stan'
-    ),
-    lead: l(
-      'Tarifa combines open Atlantic beaches, changeable wind and a historic centre that becomes busiest after sunset. This guide explains how those three parts affect a stay.',
-      'Tarifa verbindet offene Atlantikstrände, wechselnden Wind und eine Altstadt, die nach Sonnenuntergang am lebendigsten wird. Dieser Guide zeigt, was diese drei Seiten für euren Aufenthalt bedeuten.',
-      'Tarifa combina playas abiertas al Atlántico, viento cambiante y un casco histórico que se anima sobre todo después del atardecer. Esta guía explica qué supone cada parte para la estancia.',
-      'Tarifa combineert open Atlantische stranden, wisselende wind en een historische binnenstad die na zonsondergang het levendigst wordt. Deze gids legt uit wat die drie kanten voor jullie verblijf betekenen.',
-      'Tarifa förenar öppna Atlantstränder, skiftande vind och en historisk stadskärna som är livligast efter solnedgången. Guiden visar vad de tre delarna innebär för er vistelse.'
-    ),
-    editorialNote: sharedEditorialNote,
-    updated: sharedUpdated
-  },
-  facts: [
-    {
-      label: l('Travel profile', 'Reiseprofil', 'Tipo de viaje', 'Reisprofiel', 'Reseprofil'),
-      value: l('Active coast, quiet apartment', 'Aktive Küste, ruhige Unterkunft', 'Costa activa, alojamiento tranquilo', 'Actieve kust, rustig verblijf', 'Aktiv kust, lugnt boende')
+  location: {
+    en: {
+      hero: {
+        eyebrow: 'AMARA location guide',
+        title: 'Where to stay in Tarifa: choosing the right base',
+        lead: [
+          'Tarifa is compact, but where you stay changes the experience more than the size of the town suggests.',
+          'Living inside the Old Town is very different from staying in the newer residential area around La Marina, farther along the Los Lances coast or outside town altogether. The right choice depends less on which area sounds most attractive and more on how you want to spend several consecutive days here.',
+          'Do you want dinner almost outside your door? A beach-and-town balance? Easy use of a car for kitesurfing and day trips? Or quiet and space outside town?'
+        ],
+        editorialNote: sharedEditorialNote.en,
+        updated: sharedUpdated.en
+      },
+      microLocations: {
+        title: 'Where to stay in Tarifa',
+        items: [
+          {
+            title: 'Old Town — for maximum immediacy',
+            paragraphs: [
+              `Staying inside or directly around the historic centre puts Tarifa's restaurants, cafés, shops and evening life closest to you.`,
+              'It is a strong choice if you want to walk almost everywhere and do not expect to use your car several times a day.',
+              'The trade-off is equally clear: historic streets were not designed around modern cars. Parking and luggage can require more planning, and streets close to the evening scene may be lively well into the night during busy periods.'
+            ],
+            fit: 'Best for: couples, first-time visitors and short stays where town life matters more than easy car use.'
+          },
+          {
+            title: 'La Marina — for balance',
+            paragraphs: [
+              'La Marina sits in the newer urban part of Tarifa and offers a different kind of convenience.',
+              'You are still part of town rather than staying in an isolated beach resort, but everyday logistics and car use can be easier than inside the historic centre. That makes this area particularly interesting for guests who want to combine Tarifa on foot with beaches, kitesurfing or excursions by car.',
+              'It does not give you the historic Old Town immediately outside your door. In return, it can offer a more balanced relationship between town, coast and mobility.'
+            ],
+            fit: 'Best for: couples who want flexibility, surf-minded travellers and longer stays where everyday practicality matters.'
+          },
+          {
+            title: 'Los Lances corridor — for a beach-first stay',
+            paragraphs: [
+              'Farther along the Atlantic coast, the balance changes again.',
+              'The beach becomes the centre of the stay. Depending on the exact location, reaching restaurants, shops and the Old Town becomes less spontaneous and the car becomes more useful.',
+              'That can be exactly right if being close to the open coast and watersports matters more than stepping into town every evening.'
+            ],
+            fit: 'Best for: guests who put beach and watersports first and are comfortable organising more of the day around a car.'
+          },
+          {
+            title: 'Countryside — for space and quiet',
+            paragraphs: [
+              'Fincas and villas outside Tarifa offer a completely different stay.',
+              'They can provide privacy, space and landscape, but the price of that freedom is mobility: shopping, dinner, beaches and town usually become car journeys.'
+            ],
+            fit: 'Best for: guests deliberately choosing seclusion rather than a walkable Tarifa stay.'
+          }
+        ],
+        clarification: 'Valdevaqueros and Punta Paloma belong to this wider beach-and-surf landscape more than to everyday Tarifa town life. Bolonia is better understood as a separate excursion destination rather than another neighbourhood of Tarifa.',
+        link: { label: `Explore Tarifa's beaches`, token: 'tarifa_beaches_authority' }
+      },
+      car: {
+        id: 'car-and-parking',
+        title: 'Do you need a car in Tarifa?',
+        paragraphs: [
+          'Not necessarily.',
+          'A central stay can work very well without one, particularly if your priority is the Old Town, nearby beaches and everyday life on foot.',
+          'A car becomes more valuable when you want to visit different Atlantic beaches, reach Valdevaqueros or Punta Paloma regularly, explore the region or build kitesurfing into several days of the stay.',
+          'The more important question is therefore not simply:',
+          '“Do I need a car?”',
+          'but:',
+          '“Will I want to use it every day — and how easy will that be from where I stay?”',
+          'That distinction matters particularly in busy periods.'
+        ]
+      },
+      wind: {
+        id: 'wind-and-location',
+        title: 'How much does the wind matter when choosing where to stay?',
+        paragraphs: [
+          'Wind is part of Tarifa, but it should not determine every accommodation decision.',
+          'Open coastal locations experience the conditions differently from more built-up parts of town, and the value of a terrace or outdoor space can depend on its actual orientation and shelter.',
+          'For watersports travellers, another factor matters just as much: how easily can you leave town toward the western kite and surf areas?',
+          'The detailed question of which beach or activity works in which conditions belongs in our Tarifa experience and wind guides. For choosing a base, the relevant point is simpler:',
+          'wind changes how you use the location, not whether Tarifa works at all.'
+        ],
+        links: [
+          { label: 'Explore what to do in Tarifa', token: 'tarifa_experience_hub' },
+          { label: 'Understand wind & kitesurfing', token: 'tarifa_wind_kitesurfing_authority' }
+        ]
+      },
+      seasons: {
+        id: 'seasons',
+        title: 'Tarifa changes through the year',
+        paragraphs: [
+          'The geography stays the same. The way you use it does not.',
+          'Summer brings the greatest intensity: more visitors, more evening activity and more pressure on roads and parking.',
+          'Outside peak summer, town life can feel easier and quieter, while longer stays place more importance on practical questions such as shopping, heating, workspace and how often you want to drive.',
+          'There is no universally best season. The better question is which version of Tarifa fits your stay.'
+        ]
+      },
+      stayFits: {
+        title: 'Which Tarifa base fits your trip?',
+        items: [
+          {
+            title: 'Couples',
+            paragraphs: [
+              'If dinner on foot and historic atmosphere are the priority, the Old Town is difficult to beat.',
+              'If you want those evenings but also expect to use the car for beaches, nature or day trips, a residential urban base such as La Marina can provide a useful middle ground.'
+            ]
+          },
+          {
+            title: 'Surf-minded couples',
+            paragraphs: [
+              'You do not have to choose between staying in town and making kitesurfing an important part of the trip.',
+              'A base that combines walkable Tarifa with uncomplicated car access toward the western beaches can make both parts of the stay work together.'
+            ]
+          },
+          {
+            title: 'Couples travelling with young children',
+            paragraphs: [
+              'Daily logistics become more important: groceries, easy use of the car, flexible beach choice and the possibility of returning home without turning every outing into a complicated journey.',
+              'For this type of stay, the most atmospheric location is not automatically the most practical one.'
+            ]
+          },
+          {
+            title: 'Longer stays',
+            paragraphs: ['For a week or more, ordinary life matters increasingly: shopping, parking, quieter nights, storage, workspace and whether the car remains easy to use.']
+          }
+        ]
+      },
+      dailyLife: {
+        id: 'daily-life',
+        title: 'What everyday life feels like depends on the base',
+        paragraphs: [
+          'A good location is not only about the distance to a landmark.',
+          'Over several nights, smaller questions start to matter:',
+          'Can you buy groceries without making a trip of it?',
+          'Can you walk to dinner?',
+          'Can you leave the car parked when you do not need it?',
+          'Can you use it easily when you do?',
+          'Is the beach part of your daily routine or something you drive to?',
+          'These are often more important than being a few hundred metres closer to one attraction.'
+        ]
+      },
+      tradeoffs: {
+        title: 'The trade-offs are real',
+        intro: 'There is no Tarifa location that wins every category.',
+        items: [
+          'Old Town gives you maximum immediacy, but less convenient car logistics and potentially more evening activity.',
+          'La Marina and the newer urban areas sacrifice some doorstep historic atmosphere in exchange for a more balanced everyday base.',
+          'Los Lances brings the Atlantic and watersports closer, but everyday town life can become less spontaneous.',
+          'Countryside gives you space and privacy, but almost everything becomes a drive.'
+        ],
+        closing: ['Choosing well means deciding which trade-off you actually want.']
+      },
+      amara: {
+        title: 'Why AMARA chose La Marina',
+        paragraphs: [
+          'AMARA Family & Surf is in Urbanización La Marina.',
+          'For our own guests, that gives the location a very practical combination:',
+          `That is why we see La Marina not as a compromise between town and coast, but as a particularly flexible base for the kind of Tarifa stay many of our guests want: dinner on foot, beaches and kitesurfing by car when needed, and no daily search for somewhere to park when you return.`
+        ],
+        facts: [
+          'a private underground parking space;',
+          'a supermarket directly opposite;',
+          'roughly 10–15 minutes on foot to the Old Town;',
+          `straightforward car access west toward Valdevaqueros and Tarifa's kite beaches.`
+        ],
+        imageAlt: 'Living space at AMARA Family & Surf in La Marina, Tarifa'
+      },
+      closing: {
+        title: 'Once you know how you want Tarifa to work for you, choosing where to stay becomes much easier.',
+        primary: { label: 'Explore what to do in Tarifa', token: 'tarifa_experience_hub' },
+        secondary: { label: 'Discover AMARA Family & Surf', token: 'casa' }
+      }
     },
-    {
-      label: l('Best known for', 'Bekannt für', 'Conocida por', 'Bekend om', 'Känd för'),
-      value: l('Wind, beaches and old town', 'Wind, Strände und Altstadt', 'Viento, playas y casco histórico', 'Wind, stranden en oude stad', 'Vind, stränder och gamla stan')
+    de: {
+      hero: {
+        eyebrow: 'AMARA Lage-Guide',
+        title: 'Wo in Tarifa übernachten? Die richtige Lage für euren Aufenthalt',
+        lead: [
+          'Tarifa ist überschaubar – trotzdem macht es einen großen Unterschied, in welchem Teil des Ortes ihr mehrere Tage verbringt.',
+          'Direkt in der Altstadt zu wohnen funktioniert anders als in La Marina, weiter draußen am Los-Lances-Korridor oder im Umland. Die entscheidende Frage ist deshalb nicht, welche Gegend auf den ersten Blick am schönsten klingt.',
+          'Sondern:',
+          'Wie möchtet ihr Tarifa im Alltag nutzen?',
+          'Altstadt direkt vor der Tür? Stadt und Strand miteinander verbinden? Mit dem Auto unkompliziert zu Kite-Spots und Ausflügen fahren? Oder bewusst außerhalb und ruhig wohnen?'
+        ],
+        editorialNote: sharedEditorialNote.de,
+        updated: sharedUpdated.de
+      },
+      microLocations: {
+        title: 'Die wichtigsten Lagen zum Übernachten',
+        items: [
+          {
+            title: 'Altstadt — wenn ihr mitten im Geschehen wohnen möchtet',
+            paragraphs: ['Im historischen Zentrum liegen Restaurants, Cafés, kleine Geschäfte und das abendliche Tarifa unmittelbar vor der Haustür.', 'Wenn ihr möglichst viel zu Fuß machen und das Auto während des Aufenthalts wenig nutzen möchtet, ist das eine sehr attraktive Variante.', 'Der Nachteil gehört aber zur gleichen Lage: enge historische Straßen und moderner Autoverkehr passen nicht immer gut zusammen. Parken und Gepäck können mehr Planung verlangen. Und je näher ihr am abendlichen Leben wohnt, desto weniger sollte absolute Ruhe selbstverständlich erwartet werden.'],
+            fit: 'Passt besonders: zu Paaren, Erstbesuchern und kürzeren Aufenthalten mit starkem Altstadtfokus.'
+          },
+          {
+            title: 'La Marina — wenn ihr vieles miteinander verbinden möchtet',
+            paragraphs: ['La Marina liegt im neueren, urbanen Teil Tarifas.', 'Ihr wohnt weiterhin im Ort und könnt das Stadtleben zu Fuß erreichen, habt aber gleichzeitig bessere Voraussetzungen, das Auto flexibel für Strände, Kitesurfen oder Ausflüge zu nutzen.', 'Die historische Atmosphäre beginnt nicht direkt vor der Haustür. Dafür kann diese Lage im Alltag sehr ausgewogen funktionieren.'],
+            fit: 'Passt besonders: zu Paaren, aktiven Gästen, Kitesurfern und längeren Aufenthalten, bei denen nicht nur ein einzelnes Urlaubsmotiv zählt.'
+          },
+          {
+            title: 'Los Lances — wenn Strand und Wassersport im Vordergrund stehen',
+            paragraphs: ['Weiter entlang der Atlantikküste verschiebt sich der Schwerpunkt.', 'Der Strand wird stärker zum Mittelpunkt des Aufenthalts. Gleichzeitig wird die spontane Verbindung zur Altstadt – je nach genauer Lage – schwächer und das Auto gewinnt an Bedeutung.', 'Wenn ihr hauptsächlich wegen Strand, Wind und Wassersport kommt, kann genau das richtig sein.'],
+            fit: 'Passt besonders: zu Gästen, die Beach und Surf über unmittelbares Stadtleben stellen.'
+          },
+          {
+            title: 'Umland — wenn Ruhe und Raum wichtiger sind',
+            paragraphs: ['Fincas und Häuser außerhalb Tarifas bieten ein anderes Aufenthaltsmodell.', 'Mehr Raum, Natur und Privatsphäre bedeuten gleichzeitig: Einkaufen, Essen, Strand und Altstadt werden meist zu Autofahrten.'],
+            fit: 'Passt besonders: wenn ihr diese Abgeschiedenheit bewusst sucht.'
+          }
+        ],
+        clarification: 'Valdevaqueros und Punta Paloma würden wir eher als spezielle Strand-/Surf-Umfelder betrachten als als normales Tarifa-Stadtleben. Bolonia ist wiederum ein eigenes Ausflugsziel und keine Tarifa-Mikrolage.',
+        link: { label: 'Tarifas Strände entdecken', token: 'tarifa_beaches_authority' }
+      },
+      car: {
+        id: 'car-and-parking',
+        title: 'Braucht man in Tarifa ein Auto?',
+        paragraphs: ['Nicht unbedingt.', 'Wenn ihr zentral wohnt und euch vor allem Altstadt, nahe Strände und ein Alltag zu Fuß interessieren, lässt sich Tarifa sehr gut ohne tägliche Autofahrten erleben.', 'Ein Auto wird wertvoller, sobald unterschiedliche Strände, Valdevaqueros, Punta Paloma, regionale Ausflüge oder regelmäßiges Kitesurfen Teil des Aufenthalts werden.', 'Deshalb ist die wichtigere Frage nicht:', '„Brauchen wir ein Auto?“', 'sondern:', '„Wie häufig wollen wir es benutzen – und wie unkompliziert funktioniert das von unserer Unterkunft aus?“']
+      },
+      wind: {
+        id: 'wind-and-location',
+        title: 'Welche Rolle spielt der Wind für die Lage?',
+        paragraphs: ['Wind gehört zu Tarifa.', 'Offene Küstenlagen erleben die Bedingungen anders als dichter bebaute Teile des Ortes. Auch die Nutzbarkeit einer Terrasse oder eines Balkons hängt von der konkreten Ausrichtung und dem tatsächlichen Windschutz ab.', 'Für Kitesurfer kommt ein weiterer Punkt hinzu: Wie unkompliziert kommt man von der Unterkunft Richtung westliche Spots?', 'Welche Strände bei welchen Bedingungen funktionieren, gehört auf unsere Experience- und Kitesurfing-Seiten. Für die Lageentscheidung genügt die Erkenntnis:', 'Der Wind verändert, wie ihr eure Base nutzt – er macht nicht automatisch eine Lage gut oder schlecht.'],
+        links: [{ label: 'Tarifa erleben', token: 'tarifa_experience_hub' }, { label: 'Wind & Kitesurfen verstehen', token: 'tarifa_wind_kitesurfing_authority' }]
+      },
+      seasons: {
+        id: 'seasons',
+        title: 'Tarifa verändert sich mit der Jahreszeit',
+        paragraphs: ['Im Sommer wird Tarifa deutlich intensiver.', 'Mehr Menschen, mehr Abendleben und mehr Verkehr machen die genaue Lage und insbesondere die Autonutzung relevanter.', 'Außerhalb der Hochsaison wird es ruhiger. Bei längeren Aufenthalten gewinnen dafür andere Dinge an Bedeutung: Einkauf, Wohnkomfort, Arbeitsplatz, Heizung und die Frage, wie häufig man tatsächlich fahren möchte.', 'Die beste Lage kann deshalb je nach Aufenthaltsmodell unterschiedlich sein.']
+      },
+      stayFits: {
+        title: 'Welche Lage passt zu euch?',
+        items: [
+          { title: 'Für Paare', paragraphs: ['Wenn ihr Altstadt, Restaurants und den Abend unmittelbar erleben möchtet, ist das historische Zentrum sehr attraktiv.', 'Wenn ihr dieselben Abende zu Fuß erreichen, tagsüber aber flexibel mit Auto und Strand sein möchtet, wird eine Lage wie La Marina interessanter.'] },
+          { title: 'Für Paare, die kiten oder surfen', paragraphs: ['Ihr müsst euch nicht zwingend zwischen Tarifa-Stadt und Surftrip entscheiden.', 'Eine Lage, aus der ihr abends zu Fuß in die Stadt und tagsüber unkompliziert mit dem Auto Richtung westliche Kite-Spots kommt, verbindet beide Teile des Urlaubs.'] },
+          { title: 'Für Paare, die inzwischen mit kleineren Kindern reisen', paragraphs: ['Dann verändert sich die Priorität.', 'Einkaufen, Auto, flexible Strandwahl und unkomplizierte Rückwege werden wichtiger. Die atmosphärischste Lage ist dann nicht automatisch die praktischste.'] },
+          { title: 'Für längere Aufenthalte', paragraphs: ['Nach einer Woche zählen nicht mehr nur Sehenswürdigkeiten.', 'Alltag, Einkauf, Parken, ruhigere Nächte und einfache Mobilität werden spürbar wichtiger.'] }
+        ]
+      },
+      dailyLife: {
+        id: 'daily-life',
+        title: 'Alltag ist Teil der Lage',
+        paragraphs: ['Nach mehreren Tagen zählen oft ganz andere Dinge als am ersten Urlaubstag:', 'Könnt ihr schnell einkaufen?', 'Könnt ihr abends zu Fuß essen gehen?', 'Kann das Auto stehen bleiben, wenn ihr es nicht braucht?', 'Und könnt ihr es unkompliziert nutzen, wenn ihr weiter an die Küste möchtet?', 'Die richtige Lage macht aus diesen Fragen entweder Alltag – oder tägliche Organisation.']
+      },
+      tradeoffs: {
+        title: 'Jede Lage hat ihren Preis',
+        items: ['Altstadt: maximale Unmittelbarkeit, dafür weniger komfortabel mit Auto und nicht überall ruhig.', 'La Marina: weniger historische Atmosphäre unmittelbar vor der Tür, dafür eine ausgeglichene Kombination aus Stadt, Alltag und Mobilität.', 'Los Lances: mehr Strand und Wassersport, dafür weniger spontane Stadtintegration.', 'Umland: Ruhe und Raum, dafür starke Autoabhängigkeit.'],
+        closing: ['Es geht deshalb nicht darum, die „beste“ Gegend zu finden.', 'Sondern diejenige, deren Nachteile euch am wenigsten stören und deren Vorteile ihr tatsächlich nutzt.']
+      },
+      amara: {
+        title: 'Warum AMARA in La Marina liegt',
+        paragraphs: ['AMARA Family & Surf befindet sich in der Urbanización La Marina.', 'Für unsere Gäste verbindet diese Lage mehrere Dinge, die in Tarifa nicht selbstverständlich gleichzeitig funktionieren:', 'Für uns ist La Marina deshalb weniger ein Kompromiss zwischen Stadt und Strand als eine flexible Base:', 'abends zu Fuß in die Altstadt, tagsüber mit dem Auto zum Strand oder Kitesurfen – und bei der Rückkehr kein neues Parkplatzproblem.'],
+        facts: ['eigener Tiefgaragenstellplatz;', 'Supermarkt direkt gegenüber;', 'ungefähr 10–15 Minuten zu Fuß in die Altstadt;', 'unkomplizierte Fahrtrichtung Richtung Valdevaqueros und westliche Kite-Spots.'],
+        imageAlt: 'Wohnbereich bei AMARA Family & Surf in La Marina, Tarifa'
+      },
+      closing: {
+        title: 'Wenn ihr wisst, wie ihr Tarifa nutzen möchtet, wird die Wahl der richtigen Lage deutlich einfacher.',
+        primary: { label: 'Tarifa erleben', token: 'tarifa_experience_hub' },
+        secondary: { label: 'AMARA Family & Surf entdecken', token: 'casa' }
+      }
     },
-    {
-      label: l('AMARA stay', 'AMARA-Unterkunft', 'Alojamiento AMARA', 'AMARA-verblijf', 'AMARA-boende'),
-      value: l('Family & Surf · up to 4 guests', 'Family & Surf · bis 4 Gäste', 'Family & Surf · hasta 4 huéspedes', 'Family & Surf · tot 4 gasten', 'Family & Surf · upp till 4 gäster')
+    es: {
+      hero: {
+        eyebrow: 'Guía de ubicación AMARA',
+        title: 'Dónde alojarse en Tarifa: elegid la zona que encaja con vuestra estancia',
+        lead: ['Tarifa no es una ciudad grande, pero la zona donde os alojéis cambia bastante la forma de vivir varios días aquí.', 'Dormir dentro del casco antiguo no es lo mismo que alojarse en La Marina, junto al corredor de Los Lances o fuera del núcleo urbano.', 'Por eso la pregunta no es simplemente qué zona es más bonita, sino:', '¿cómo queréis utilizar Tarifa durante vuestra estancia?'],
+        editorialNote: sharedEditorialNote.es,
+        updated: sharedUpdated.es
+      },
+      microLocations: {
+        title: 'Las principales zonas para alojarse',
+        items: [
+          {
+            title: 'Casco antiguo — para vivir Tarifa desde dentro',
+            paragraphs: ['Aquí están muy cerca restaurantes, cafeterías, tiendas y gran parte de la vida nocturna.', 'Es una opción muy buena si queréis moveros principalmente a pie y utilizar poco el coche.', 'El contrapunto es evidente: las calles históricas no están pensadas para el tráfico moderno. Aparcar y mover equipaje puede requerir más planificación y determinadas calles pueden ser animadas por la noche.'],
+            fit: 'Ideal para: parejas, primeras visitas y estancias cortas centradas en la vida del centro.'
+          },
+          {
+            title: 'La Marina — para combinar ciudad, costa y coche',
+            paragraphs: ['La Marina pertenece a la parte urbana más nueva de Tarifa.', 'Seguís estando dentro del pueblo y podéis llegar andando al centro, pero utilizar el coche para playas, kitesurf o excursiones puede resultar mucho más práctico que desde el corazón del casco antiguo.', 'No tenéis la arquitectura histórica nada más salir de casa. A cambio, la zona puede ofrecer un equilibrio muy cómodo para una estancia de varios días.'],
+            fit: 'Ideal para: parejas, viajeros activos, aficionados al kitesurf y estancias más largas.'
+          },
+          {
+            title: 'Los Lances — para una estancia centrada en playa y agua',
+            paragraphs: ['A medida que avanzáis hacia la costa atlántica, cambia la lógica de la estancia.', 'La playa gana protagonismo y, según la ubicación exacta, el casco antiguo deja de formar parte tan espontánea de la vida diaria.', 'El coche se vuelve más útil.'],
+            fit: 'Ideal para: quienes priorizan playa y deportes acuáticos.'
+          },
+          {
+            title: 'Campo y alrededores — para buscar espacio y tranquilidad',
+            paragraphs: ['Las fincas y alojamientos fuera de Tarifa ofrecen privacidad y entorno natural.', 'Pero esa tranquilidad implica desplazamientos en coche para prácticamente todo: compras, restaurantes, playas y centro.']
+          }
+        ],
+        clarification: 'Valdevaqueros y Punta Paloma forman parte de este paisaje de costa y surf más que de la vida urbana de Tarifa. Bolonia debe entenderse como un destino propio para una excursión.',
+        link: { label: 'Descubrir las playas de Tarifa', token: 'tarifa_beaches_authority' }
+      },
+      car: {
+        id: 'car-and-parking',
+        title: '¿Hace falta coche?',
+        paragraphs: ['No necesariamente.', 'Desde una zona urbana podéis disfrutar gran parte de Tarifa andando.', 'El coche empieza a aportar mucho más valor si queréis moveros entre diferentes playas, ir regularmente a Valdevaqueros, descubrir los alrededores o practicar kitesurf varios días.', 'La pregunta más útil es:', '¿cuántas veces vamos a querer mover el coche durante la estancia y qué fácil será hacerlo desde nuestro alojamiento?']
+      },
+      wind: {
+        id: 'wind-and-location',
+        title: 'El viento también influye en cómo se vive una zona',
+        paragraphs: ['Levante y Poniente forman parte de Tarifa.', 'Las zonas abiertas junto a la costa reciben las condiciones de otra manera que las calles urbanas más protegidas. Y cualquier afirmación sobre una terraza o espacio exterior depende siempre de la orientación real del alojamiento.', 'Para quienes practican kitesurf, también importa lo fácil que sea salir hacia las playas del oeste.', 'La elección del mejor spot para cada día pertenece a nuestra guía de experiencias. Aquí la conclusión es más sencilla:', 'el viento cambia cómo utilizáis vuestra base.'],
+        links: [{ label: 'Descubrir qué hacer en Tarifa', token: 'tarifa_experience_hub' }, { label: 'Viento y kitesurf en Tarifa', token: 'tarifa_wind_kitesurfing_authority' }]
+      },
+      seasons: {
+        id: 'seasons',
+        title: 'Tarifa según la época del año',
+        paragraphs: ['En verano aumenta notablemente la intensidad del pueblo: más visitantes, más movimiento nocturno y más presión sobre tráfico y aparcamiento.', 'Fuera de los meses más concurridos, la estancia puede ser más tranquila. En viajes largos empiezan a importar más aspectos cotidianos como las compras, el confort de la vivienda o la necesidad real de conducir.']
+      },
+      stayFits: {
+        title: '¿Qué tipo de base encaja con vosotros?',
+        items: [
+          { title: 'Parejas', paragraphs: ['El casco antiguo funciona especialmente bien si queréis salir y estar directamente dentro de la vida del centro.', 'La Marina puede resultar más interesante si queréis seguir llegando andando a ese ambiente y al mismo tiempo utilizar el coche con facilidad.'] },
+          { title: 'Parejas que practican kitesurf o surf', paragraphs: ['No tenéis por qué elegir entre una estancia urbana y unas vacaciones de surf.', 'Una base con acceso sencillo hacia las playas occidentales y el centro a pie puede combinar ambas cosas.'] },
+          { title: 'Parejas que ahora viajan con niños pequeños', paragraphs: ['Entonces pesan más cuestiones como compras, coche, flexibilidad para elegir playa y facilidad para volver al alojamiento.'] },
+          { title: 'Estancias más largas', paragraphs: ['A partir de varios días, la vida cotidiana importa casi tanto como las atracciones.'] }
+        ]
+      },
+      dailyLife: {
+        id: 'daily-life',
+        title: 'La vida diaria también define una buena ubicación',
+        paragraphs: ['¿Podéis comprar sin coger el coche?', '¿Podéis ir andando a cenar?', '¿Podéis dejar aparcado el coche cuando no lo necesitáis?', '¿Y podéis utilizarlo fácilmente cuando queréis salir hacia otra playa?', 'En una estancia de varios días estas preguntas cuentan mucho.']
+      },
+      tradeoffs: {
+        title: 'Ninguna zona lo ofrece todo',
+        items: ['Casco antiguo: máxima proximidad y ambiente, con más fricción para el coche y posible ruido.', 'La Marina: menos carácter histórico inmediato, pero una combinación equilibrada de ciudad, costa y movilidad.', 'Los Lances: prioridad a playa y deporte, con menor espontaneidad para el centro.', 'Alrededores: espacio y tranquilidad a cambio de dependencia del coche.']
+      },
+      amara: {
+        title: 'Por qué AMARA está en La Marina',
+        paragraphs: ['AMARA Family & Surf se encuentra en Urbanización La Marina.', 'Para nuestros huéspedes, la ubicación combina varios elementos prácticos:', 'Para nosotros, eso convierte La Marina en una base especialmente flexible para quienes quieren disfrutar Tarifa a pie y seguir teniendo libertad para moverse por la costa.'],
+        facts: ['plaza propia en garaje subterráneo;', 'supermercado justo enfrente;', 'aproximadamente 10–15 minutos andando al casco antiguo;', 'salida sencilla en coche hacia Valdevaqueros y las playas de kitesurf del oeste.'],
+        imageAlt: 'Salón de AMARA Family & Surf en La Marina, Tarifa'
+      },
+      closing: {
+        title: 'Cuando sabéis cómo queréis vivir Tarifa, elegir dónde alojaros resulta mucho más fácil.',
+        primary: { label: 'Descubrir qué hacer en Tarifa', token: 'tarifa_experience_hub' },
+        secondary: { label: 'Conocer AMARA Family & Surf', token: 'casa' }
+      }
+    },
+    nl: {
+      hero: {
+        eyebrow: 'AMARA locatiegids',
+        title: 'Waar overnachten in Tarifa: kies de uitvalsbasis die bij jullie past',
+        lead: [
+          'Tarifa is compact, maar waar je verblijft heeft veel invloed op hoe een verblijf van meerdere dagen eruitziet.',
+          'De oude stad, La Marina, de kust richting Los Lances en het buitengebied bieden allemaal een ander dagelijks ritme.',
+          'De belangrijkste vraag is daarom niet welke buurt algemeen het beste is, maar:',
+          'hoe willen jullie Tarifa gebruiken?'
+        ],
+        editorialNote: sharedEditorialNote.nl,
+        updated: sharedUpdated.nl
+      },
+      microLocations: {
+        title: 'De belangrijkste plekken om te verblijven',
+        items: [
+          {
+            title: 'Oude stad — voor maximale levendigheid en gemak te voet',
+            paragraphs: [
+              'Restaurants, cafés, winkels en het avondleven liggen hier dichtbij.',
+              'Wie veel wil lopen en de auto weinig nodig heeft, zit hier sterk.',
+              `Daar staat tegenover dat historische straten minder handig zijn voor modern autoverkeer en parkeren. Sommige straten kunnen in drukke periodes ook tot laat levendig blijven.`
+            ]
+          },
+          {
+            title: 'La Marina — voor een evenwichtige uitvalsbasis',
+            paragraphs: [
+              'La Marina ligt in het nieuwere stedelijke Tarifa.',
+              'De oude stad blijft bereikbaar te voet, terwijl de auto gemakkelijker onderdeel kan blijven van het verblijf voor stranden, kitesurfen en uitstapjes.',
+              'Je hebt niet direct de historische sfeer voor de deur, maar krijgt daar meer flexibiliteit voor terug.'
+            ]
+          },
+          {
+            title: 'Los Lances — wanneer strand op één staat',
+            paragraphs: [
+              'Verder langs de Atlantische kust wordt strand steeds meer het middelpunt.',
+              'Afhankelijk van de exacte plek wordt de verbinding met de oude stad minder spontaan en wordt de auto belangrijker.'
+            ]
+          },
+          {
+            title: 'Buiten Tarifa — voor ruimte en rust',
+            paragraphs: [
+              `Finca's en villa's buiten de stad bieden privacy en natuur.`,
+              'Daarvoor wordt vrijwel iedere dagelijkse activiteit een autorit.'
+            ]
+          }
+        ],
+        clarification: 'Valdevaqueros en Punta Paloma horen eerder bij de bredere surf- en strandwereld dan bij dagelijks stadsleven. Bolonia is een apart uitstapje.',
+        link: { label: 'Ontdek de stranden van Tarifa', token: 'tarifa_beaches_authority' }
+      },
+      car: {
+        id: 'car-and-parking',
+        title: 'Heb je een auto nodig?',
+        paragraphs: [
+          'Niet per se.',
+          'Vanuit Tarifa zelf kan veel te voet.',
+          'Een auto wordt vooral waardevol wanneer verschillende stranden, Valdevaqueros, de regio of regelmatig kitesurfen onderdeel van jullie verblijf zijn.',
+          'Daarom is de betere vraag:',
+          'hoe vaak willen we de auto gebruiken en hoe gemakkelijk is dat vanuit onze accommodatie?'
+        ]
+      },
+      wind: {
+        id: 'wind-and-location',
+        title: 'Wat betekent de wind voor je verblijfplaats?',
+        paragraphs: [
+          'Wind hoort bij Tarifa.',
+          'Open kustlocaties ervaren de omstandigheden anders dan dichter bebouwde stedelijke zones. De werkelijke bruikbaarheid van terrassen en balkons hangt bovendien af van de specifieke ligging en beschutting.',
+          'Voor kitesurfers speelt ook mee hoe gemakkelijk je richting de westelijke spots rijdt.',
+          'De gedetailleerde strandkeuze hoort bij onze Experience-gids. Voor Location is vooral belangrijk dat de wind bepaalt hoe je een plek gebruikt.'
+        ],
+        links: [
+          { label: 'Ontdek Tarifa', token: 'tarifa_experience_hub' },
+          { label: 'Wind & kitesurfen in Tarifa', token: 'tarifa_wind_kitesurfing_authority' }
+        ]
+      },
+      seasons: {
+        id: 'seasons',
+        title: 'Tarifa verandert met het seizoen',
+        paragraphs: [
+          'In de zomer wordt alles intensiever: bezoekers, verkeer, avondleven en parkeerdruk.',
+          'Buiten het hoogseizoen wordt het rustiger en gaan bij langere verblijven dagelijkse zaken zwaarder wegen: boodschappen, comfort, werkruimte en mobiliteit.'
+        ]
+      },
+      stayFits: {
+        title: 'Welke base past bij jullie?',
+        items: [
+          { title: 'Stellen', paragraphs: ['De oude stad is sterk als restaurants en sfeer vooropstaan.', 'La Marina wordt interessant wanneer je hetzelfde stadsleven te voet wilt combineren met meer vrijheid voor de auto.'] },
+          { title: 'Stellen die kitesurfen of surfen', paragraphs: ['Je hoeft stad en sport niet tegenover elkaar te zetten.', 'Een stedelijke base met gemakkelijke toegang richting de westelijke stranden kan beide combineren.'] },
+          { title: 'Stellen die met jonge kinderen reizen', paragraphs: ['Boodschappen, auto, verschillende strandopties en praktische terugwegen worden dan belangrijker.'] },
+          { title: 'Langere verblijven', paragraphs: ['Hoe langer je blijft, hoe belangrijker dagelijkse logistiek wordt.'] }
+        ]
+      },
+      dailyLife: {
+        id: 'daily-life',
+        title: 'Dagelijks gemak telt',
+        paragraphs: ['Kun je gemakkelijk boodschappen doen?', 'Kun je lopen naar het avondeten?', 'Kan de auto blijven staan als je hem niet nodig hebt?', 'Kun je hem zonder gedoe gebruiken wanneer je verder langs de kust wilt?', 'Een goede locatie maakt deze dingen vanzelfsprekend.']
+      },
+      tradeoffs: {
+        title: 'Elke locatie heeft een compromis',
+        items: [`Oude stad: maximaal stadsgevoel, minder gemakkelijk met de auto en mogelijk levendiger 's nachts.`, 'La Marina: minder historische sfeer direct voor de deur, maar een sterke balans tussen stad en mobiliteit.', 'Los Lances: meer strand en sport, minder spontaan stadsleven.', 'Buitengebied: ruimte en rust, maar afhankelijk van de auto.']
+      },
+      amara: {
+        title: 'Waarom AMARA in La Marina ligt',
+        paragraphs: ['AMARA Family & Surf ligt in Urbanización La Marina.', 'Voor onze gasten betekent dat:', 'Daardoor zien we La Marina als een bijzonder flexibele uitvalsbasis voor gasten die Tarifa te voet willen beleven én vrij willen zijn om met de auto de kust te verkennen.'],
+        facts: ['een eigen ondergrondse parkeerplaats;', 'een supermarkt direct aan de overkant;', 'ongeveer 10–15 minuten lopen naar de oude stad;', 'eenvoudige toegang met de auto richting Valdevaqueros en de westelijke kitesurfstranden.'],
+        imageAlt: 'Woonruimte van AMARA Family & Surf in La Marina, Tarifa'
+      },
+      closing: {
+        title: 'Als jullie weten hoe jullie Tarifa willen gebruiken, wordt kiezen waar jullie verblijven veel eenvoudiger.',
+        primary: { label: 'Ontdek Tarifa', token: 'tarifa_experience_hub' },
+        secondary: { label: 'Bekijk AMARA Family & Surf', token: 'casa' }
+      }
+    },
+    sv: {
+      hero: {
+        eyebrow: 'AMARA platsguide',
+        title: 'Var ska man bo i Tarifa? Välj rätt bas för er vistelse',
+        lead: [
+          'Tarifa är en relativt liten stad, men området ni bor i påverkar vardagen mycket när ni stannar flera nätter.',
+          'Gamla stan, La Marina, kusten mot Los Lances och boenden utanför staden fungerar på olika sätt.',
+          'Den viktigaste frågan är därför inte vilket område som är ”bäst”, utan:',
+          'hur vill ni använda Tarifa under er vistelse?'
+        ],
+        editorialNote: sharedEditorialNote.sv,
+        updated: sharedUpdated.sv
+      },
+      microLocations: {
+        title: 'De viktigaste områdena att bo i',
+        items: [
+          {
+            title: 'Gamla stan — för stadsliv direkt utanför dörren',
+            paragraphs: ['Här ligger restauranger, kaféer, butiker och kvällsliv nära.', 'Om ni vill gå till det mesta och använda bilen sällan är det ett starkt alternativ.', 'Nackdelen är att historiska gator inte alltid fungerar smidigt med bil och parkering. Vissa delar kan också vara livliga på kvällarna under högsäsong.']
+          },
+          {
+            title: 'La Marina — för balans',
+            paragraphs: ['La Marina ligger i den nyare urbana delen av Tarifa.', 'Gamla stan kan fortfarande nås till fots, samtidigt som bilen är lättare att använda för stränder, kitesurfing och utflykter.', 'Den historiska miljön börjar inte precis utanför dörren, men vardagen kan bli mer flexibel.']
+          },
+          {
+            title: 'Los Lances — när stranden står i centrum',
+            paragraphs: ['Längre ut mot Atlantkusten blir stranden en större del av själva boendet.', 'Beroende på exakt läge blir gamla stan mindre spontan och bilen viktigare.']
+          },
+          {
+            title: 'Landsbygden — för lugn och utrymme',
+            paragraphs: ['Boenden utanför Tarifa kan erbjuda mer plats, privatliv och natur.', 'I gengäld kräver nästan allt bil: mat, strand, restauranger och stad.']
+          }
+        ],
+        clarification: 'Valdevaqueros och Punta Paloma hör mer till Tarifas surf- och kustlandskap än till vardagslivet i staden. Bolonia är bäst att se som ett eget utflyktsmål.',
+        link: { label: 'Upptäck Tarifas stränder', token: 'tarifa_beaches_authority' }
+      },
+      car: {
+        id: 'car-and-parking',
+        title: 'Behöver man bil i Tarifa?',
+        paragraphs: ['Inte nödvändigtvis.', 'Från en central urban bas fungerar mycket till fots.', 'Bilen blir framför allt värdefull om ni vill besöka olika stränder, åka ofta till Valdevaqueros, utforska regionen eller kitesurfa flera dagar.', 'Den viktigare frågan är därför:', 'hur ofta vill vi använda bilen och hur enkelt är det från där vi bor?']
+      },
+      wind: {
+        id: 'wind-and-location',
+        title: 'Hur påverkar vinden valet av område?',
+        paragraphs: ['Vinden är en del av Tarifa.', 'Öppna kustlägen upplever förhållandena annorlunda än tätare bebyggda delar av staden. Hur användbar en terrass eller balkong är beror också på den exakta orienteringen och skyddet.', 'För kitesurfare spelar det dessutom roll hur enkelt det är att köra västerut mot surfstränderna.', 'Location behöver inte tala om vilken strand som passar dagens vind. Det viktiga här är att förstå hur vinden påverkar användningen av själva basen.'],
+        links: [
+          { label: 'Upplev Tarifa', token: 'tarifa_experience_hub' },
+          { label: 'Vind & kitesurfing i Tarifa', token: 'tarifa_wind_kitesurfing_authority' }
+        ]
+      },
+      seasons: {
+        id: 'seasons',
+        title: 'Tarifa förändras under året',
+        paragraphs: ['Sommaren innebär mer folk, mer kvällsliv, mer trafik och större parkeringspress.', 'Utanför högsäsong blir staden lugnare. Under längre vistelser får vardagliga frågor större betydelse: matinköp, bostadskomfort, arbetsplats och hur ofta bilen behövs.']
+      },
+      stayFits: {
+        title: 'Vilken bas passar er?',
+        items: [
+          { title: 'Par', paragraphs: ['Gamla stan passar bra när atmosfär, restauranger och kvällar står högst på listan.', 'La Marina blir intressant när ni vill behålla gångavstånd till stan men samtidigt kunna använda bilen enkelt.'] },
+          { title: 'Par som kitesurfar eller surfar', paragraphs: ['Ni behöver inte välja mellan stadssemester och surfresa.', 'En urban bas med enkel bilväg mot de västra stränderna kan kombinera båda.'] },
+          { title: 'Par som reser med yngre barn', paragraphs: ['Då får matinköp, bil, flexibel strandplanering och enkla vardagsrutiner större betydelse.'] },
+          { title: 'Längre vistelser', paragraphs: ['Ju längre ni stannar, desto viktigare blir vardagslogistiken.'] }
+        ]
+      },
+      dailyLife: {
+        id: 'daily-life',
+        title: 'Vardagen avgör mer än man tror',
+        paragraphs: ['Kan ni handla utan att göra en utflykt av det?', 'Kan ni promenera till middagen?', 'Kan bilen stå när ni inte behöver den?', 'Kan ni enkelt använda den när ni vill längre längs kusten?', 'Det är sådant som gör en bra bas bra även efter fem eller sju dagar.']
+      },
+      tradeoffs: {
+        title: 'Alla områden innebär en kompromiss',
+        items: ['Gamla stan: maximalt stadsliv, men mindre smidigt med bil och ibland mer kvällsljud.', 'La Marina: mindre historisk miljö direkt utanför dörren, men en bra balans mellan stad och mobilitet.', 'Los Lances: mer strand och sport, mindre spontan stad.', 'Landsbygden: lugn och utrymme, men bilberoende.']
+      },
+      amara: {
+        title: 'Varför AMARA ligger i La Marina',
+        paragraphs: ['AMARA Family & Surf ligger i Urbanización La Marina.', 'För våra gäster innebär läget:', 'Därför ser vi La Marina som en särskilt flexibel bas för gäster som vill uppleva Tarifa till fots och samtidigt kunna använda bilen fritt för kust, kitesurfing och utflykter.'],
+        facts: ['egen plats i underjordiskt garage;', 'mataffär direkt mittemot;', 'ungefär 10–15 minuters promenad till gamla stan;', 'enkel bilväg mot Valdevaqueros och de västra kitesurfstränderna.'],
+        imageAlt: 'Vardagsrum på AMARA Family & Surf i La Marina, Tarifa'
+      },
+      closing: {
+        title: 'När ni vet hur ni vill använda Tarifa blir det mycket enklare att välja var ni ska bo.',
+        primary: { label: 'Upplev Tarifa', token: 'tarifa_experience_hub' },
+        secondary: { label: 'Se AMARA Family & Surf', token: 'casa' }
+      }
     }
-  ],
-  sections: [
-    {
-      id: 'character',
-      eyebrow: l('First orientation', 'Erste Orientierung', 'Primera orientación', 'Eerste oriëntatie', 'Första orienteringen'),
-      title: l('Three sides of the same destination', 'Drei Seiten desselben Reiseziels', 'Tres caras de un mismo destino', 'Drie kanten van dezelfde bestemming', 'Tre sidor av samma resmål'),
-      intro: l(
-        'The strongest Tarifa stay combines the coast, the historic centre and enough flexibility to plan around the conditions.',
-        'Ein gelungener Tarifa-Aufenthalt verbindet Küste, Altstadt und genügend Flexibilität, um den Tag nach den Bedingungen zu planen.',
-        'La mejor estancia en Tarifa combina costa, casco histórico y suficiente flexibilidad para adaptar el día a las condiciones.',
-        'Een geslaagd verblijf in Tarifa combineert de kust, de oude stad en genoeg flexibiliteit om de dag op de omstandigheden af te stemmen.',
-        'En lyckad vistelse i Tarifa förenar kusten, gamla stan och tillräcklig flexibilitet för att planera dagen efter förhållandena.'
-      ),
-      cards: [
-        {
-          kicker: l('Atlantic', 'Atlantik', 'Atlántico', 'Atlantische kust', 'Atlanten'),
-          title: l('Open beaches and changing conditions', 'Weite Strände und wechselnde Bedingungen', 'Playas abiertas y condiciones cambiantes', 'Open stranden en wisselende omstandigheden', 'Öppna stränder och skiftande förhållanden'),
-          text: l('Los Lances, Valdevaqueros and Bolonia each offer a different balance of space, sport, swimming and landscape.', 'Los Lances, Valdevaqueros und Bolonia bieten jeweils eine andere Mischung aus Weite, Sport, Baden und Landschaft.', 'Los Lances, Valdevaqueros y Bolonia ofrecen distintos equilibrios entre espacio, deporte, baño y paisaje.', 'Los Lances, Valdevaqueros en Bolonia bieden elk een andere balans tussen ruimte, sport, zwemmen en landschap.', 'Los Lances, Valdevaqueros och Bolonia erbjuder olika balans mellan rymd, sport, bad och landskap.')
-        },
-        {
-          kicker: l('Old town', 'Altstadt', 'Casco histórico', 'Oude stad', 'Gamla stan'),
-          title: l('Restaurants and small plazas after sunset', 'Restaurants und kleine Plätze nach Sonnenuntergang', 'Restaurantes y plazas pequeñas al anochecer', 'Restaurants en kleine pleinen na zonsondergang', 'Restauranger och små torg efter solnedgången'),
-          text: l('Whitewashed lanes, small plazas and restaurants make the centre a natural counterpoint to active days outside.', 'Weiße Gassen, kleine Plätze und Restaurants machen das Zentrum zum natürlichen Gegenpol zu aktiven Tagen draußen.', 'Calles blancas, pequeñas plazas y restaurantes convierten el centro en el contrapunto natural a los días activos.', 'Witte steegjes, kleine pleinen en restaurants maken het centrum tot een natuurlijk tegenwicht voor actieve dagen buiten.', 'Vitkalkade gränder, små torg och restauranger blir en naturlig kontrast till aktiva dagar utomhus.')
-        },
-        {
-          kicker: l('Wind', 'Wind', 'Viento', 'Wind', 'Vind'),
-          title: l('Part of the destination, not background noise', 'Teil des Reiseziels, nicht nur Kulisse', 'Parte del destino, no un simple telón de fondo', 'Onderdeel van de bestemming, niet alleen achtergrond', 'En del av resmålet, inte bara bakgrund'),
-          text: l('Levante and Poniente can change how a beach feels. Good planning starts with the current forecast, flags and local guidance.', 'Levante und Poniente können das Stranderlebnis vollständig verändern. Gute Planung beginnt mit aktueller Vorhersage, Beflaggung und Hinweisen vor Ort.', 'Levante y Poniente pueden cambiar por completo la experiencia de playa. La buena planificación empieza con la previsión, las banderas y la información local.', 'Levante en Poniente kunnen een stranddag volledig veranderen. Goede planning begint met de actuele verwachting, vlaggen en lokale aanwijzingen.', 'Levante och Poniente kan helt förändra en stranddag. Bra planering börjar med aktuell prognos, flaggor och lokal vägledning.')
-        }
-      ]
-    },
-    {
-      id: 'fit',
-      eyebrow: l('Travel fit', 'Passt Tarifa?', '¿Encaja Tarifa?', 'Past Tarifa bij je?', 'Passar Tarifa?'),
-      title: l('Choose Tarifa for its real character', 'Tarifa wegen seines echten Charakters wählen', 'Elegir Tarifa por su verdadero carácter', 'Kies Tarifa om het echte karakter', 'Välj Tarifa för dess verkliga karaktär'),
-      intro: l('The destination works best when expectations match the place rather than an idealised beach promise.', 'Das Reiseziel funktioniert am besten, wenn die Erwartungen zum Ort passen – nicht zu einem idealisierten Strandversprechen.', 'El destino funciona mejor cuando las expectativas se ajustan al lugar y no a una promesa de playa idealizada.', 'De bestemming werkt het best wanneer verwachtingen bij de plek passen en niet bij een geïdealiseerde strandbelofte.', 'Resmålet fungerar bäst när förväntningarna stämmer med platsen, inte med ett idealiserat strandlöfte.'),
-      cards: [
-        {
-          kicker: l('Strong match', 'Sehr passend', 'Muy buena opción', 'Sterke match', 'Passar mycket bra'),
-          title: l('Active travellers and flexible families', 'Aktive Reisende und flexible Familien', 'Viajeros activos y familias flexibles', 'Actieve reizigers en flexibele gezinnen', 'Aktiva resenärer och flexibla familjer'),
-          text: l('Best for guests who enjoy beaches and outdoor activity and are willing to adjust each day to wind and weather.', 'Am besten für Gäste, die Strände und Outdoor-Aktivitäten mögen und ihre Tagesplanung an Wind und Wetter anpassen.', 'Funciona mejor para quienes disfrutan de la playa y la actividad al aire libre y adaptan cada día al viento y al tiempo.', 'Past het best bij gasten die van strand en buitenleven houden en hun dag aan wind en weer aanpassen.', 'Passar bäst för gäster som gillar strand och uteliv och anpassar dagen efter vind och väder.')
-        },
-        {
-          kicker: l('Good with context', 'Gut mit Vorbereitung', 'Buena con preparación', 'Goed met voorbereiding', 'Bra med förberedelse'),
-          title: l('Beach holidays without watersports', 'Strandurlaub ohne Wassersport', 'Vacaciones de playa sin deportes acuáticos', 'Strandvakantie zonder watersport', 'Strandsemester utan vattensport'),
-          text: l('Very possible, but beach choice matters. Sheltered or designated bathing areas may be more comfortable on stronger wind days.', 'Gut möglich, aber die Strandwahl ist entscheidend. Geschützte oder ausgewiesene Badebereiche können an stärkeren Windtagen angenehmer sein.', 'Es perfectamente posible, pero conviene elegir bien la playa. Las zonas resguardadas o de baño pueden resultar más cómodas con viento fuerte.', 'Zeker mogelijk, maar de strandkeuze telt. Beschutte of aangewezen zwemzones zijn vaak prettiger op dagen met harde wind.', 'Absolut möjligt, men strandvalet spelar roll. Skyddade eller markerade badområden kan vara bekvämare när vinden är stark.')
-        },
-        {
-          kicker: l('Consider carefully', 'Bewusst abwägen', 'Conviene valorar', 'Goed overwegen', 'Överväg noga'),
-          title: l('Guests seeking guaranteed stillness', 'Gäste mit Wunsch nach garantierter Windstille', 'Quienes buscan calma garantizada', 'Gasten die gegarandeerde windstilte zoeken', 'Gäster som söker garanterat vindstilla väder'),
-          text: l('Tarifa can be calm, but wind is central to its identity. A rigid plan built around one beach is less suitable than a flexible itinerary.', 'Tarifa kann ruhig sein, doch Wind gehört zu seiner Identität. Ein starrer Plan rund um nur einen Strand passt weniger gut als ein flexibler Reiseablauf.', 'Tarifa puede estar en calma, pero el viento forma parte de su identidad. Un plan rígido centrado en una sola playa encaja peor que un itinerario flexible.', 'Tarifa kan rustig zijn, maar wind hoort bij de identiteit. Een strak plan rond één strand past minder goed dan een flexibel programma.', 'Tarifa kan vara lugnt, men vinden är en del av identiteten. Ett strikt schema kring en enda strand passar sämre än en flexibel plan.')
-        }
-      ]
-    }
-  ],
-  notice: {
-    eyebrow: l('Plan with the day', 'Mit dem Tag planen', 'Planificar según el día', 'Plan met de dag mee', 'Planera efter dagen'),
-    title: l('Conditions decide more than the calendar', 'Die Bedingungen entscheiden mehr als der Kalender', 'Las condiciones importan más que el calendario', 'De omstandigheden bepalen meer dan de kalender', 'Förhållandena avgör mer än kalendern'),
-    text: l('Use the current forecast, official flags, marked zones and local instructions each day. The guides explain the destination; they do not replace real-time safety information.', 'Nutzt täglich die aktuelle Vorhersage, offizielle Beflaggung, markierte Zonen und Hinweise vor Ort. Die Guides erklären das Reiseziel, ersetzen aber keine Echtzeit-Sicherheitsinformation.', 'Consulta cada día la previsión, las banderas oficiales, las zonas señalizadas y las indicaciones locales. Las guías explican el destino, pero no sustituyen la información de seguridad en tiempo real.', 'Controleer dagelijks de actuele verwachting, officiële vlaggen, gemarkeerde zones en lokale aanwijzingen. De gidsen leggen de bestemming uit, maar vervangen geen actuele veiligheidsinformatie.', 'Kontrollera varje dag aktuell prognos, officiella flaggor, markerade zoner och lokala anvisningar. Guiderna förklarar resmålet men ersätter inte säkerhetsinformation i realtid.')
-  },
-  faq: [
-    {
-      question: l('Is Tarifa only for kitesurfers?', 'Ist Tarifa nur für Kitesurfer?', '¿Tarifa es solo para kitesurfistas?', 'Is Tarifa alleen voor kitesurfers?', 'Är Tarifa bara för kitesurfare?'),
-      answer: l('No. The old town, long beaches, coastal landscape and day trips make it rewarding without watersports. Flexibility remains useful because wind changes the beach experience.', 'Nein. Altstadt, lange Strände, Küstenlandschaft und Ausflüge machen Tarifa auch ohne Wassersport attraktiv. Flexibilität bleibt hilfreich, weil der Wind das Stranderlebnis verändert.', 'No. El casco histórico, las largas playas, el paisaje costero y las excursiones ofrecen mucho sin practicar deportes acuáticos. Conviene mantener cierta flexibilidad porque el viento cambia la experiencia de playa.', 'Nee. De oude stad, lange stranden, het kustlandschap en uitstapjes maken Tarifa ook zonder watersport aantrekkelijk. Flexibiliteit blijft handig omdat wind de strandervaring verandert.', 'Nej. Gamla stan, de långa stränderna, kustlandskapet och utflykterna gör Tarifa givande även utan vattensport. Flexibilitet är ändå värdefull eftersom vinden förändrar strandupplevelsen.')
-    },
-    {
-      question: l('Does Tarifa work for families?', 'Eignet sich Tarifa für Familien?', '¿Tarifa es adecuada para familias?', 'Is Tarifa geschikt voor gezinnen?', 'Passar Tarifa för familjer?'),
-      answer: l('Yes, especially for families comfortable with active days and flexible beach choices. Always follow bathing zones, flags and local safety guidance.', 'Ja, besonders für Familien, die aktive Tage und flexible Strandwahl mögen. Badezonen, Beflaggung und Sicherheitshinweise vor Ort müssen immer beachtet werden.', 'Sí, especialmente para familias que disfrutan de días activos y pueden elegir la playa con flexibilidad. Hay que respetar siempre las zonas de baño, las banderas y las indicaciones locales.', 'Ja, vooral voor gezinnen die van actieve dagen houden en flexibel een strand kiezen. Volg altijd zwemzones, vlaggen en lokale veiligheidsinstructies.', 'Ja, särskilt för familjer som gillar aktiva dagar och kan välja strand flexibelt. Följ alltid badzoner, flaggor och lokala säkerhetsanvisningar.')
-    },
-    {
-      question: l('Should we rent a car?', 'Ist ein Mietwagen sinnvoll?', '¿Conviene alquilar coche?', 'Is een huurauto handig?', 'Är hyrbil praktiskt?'),
-      answer: l('A car makes it easier to compare beaches and adapt to conditions. Parking and access can be busy in peak periods, so current signs and local restrictions take priority.', 'Ein Auto erleichtert den Vergleich verschiedener Strände und die Anpassung an die Bedingungen. In Spitzenzeiten können Zufahrt und Parken stark belastet sein; aktuelle Beschilderung und lokale Regeln haben Vorrang.', 'El coche facilita comparar playas y adaptarse a las condiciones. En temporada alta, los accesos y aparcamientos pueden estar muy concurridos; prevalecen siempre la señalización y las restricciones vigentes.', 'Een auto maakt het makkelijker om stranden te vergelijken en op omstandigheden in te spelen. In drukke periodes kunnen toegang en parkeren lastig zijn; actuele borden en lokale regels zijn leidend.', 'Bil gör det enklare att jämföra stränder och anpassa sig till förhållandena. Under högsäsong kan tillfarter och parkering vara hårt belastade; aktuell skyltning och lokala regler gäller.')
-    }
-  ],
-  sources: [officialBeachSource, beachPlanSource, officialKiteSource],
-  related: ['wind', 'beaches']
+  }
 };
 
 const windTitles = l(

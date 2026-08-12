@@ -34,7 +34,17 @@ const requiredLink = (token: string) => {
 const stayHref = requiredLink('casa');
 const bookHref = requiredLink('book');
 const aboutHref = requiredLink('about');
-const relatedGuides = content.related.map((id) => tarifaGuideContent[id]);
+const topicContent = content.id === 'overview' ? undefined : content;
+const relatedGuides = topicContent?.related.map((id) => tarifaGuideContent[id]) ?? [];
+const locationCopy = content.id === 'overview' ? content.location[currentLang] : undefined;
+
+if (content.id === 'overview' && !locationCopy) {
+  throw new Error(`[Tarifa guide] Missing location-authority copy for locale: ${currentLang}`);
+}
+
+const locationSections = locationCopy
+  ? [locationCopy.car, locationCopy.wind, locationCopy.seasons]
+  : [];
 
 const ui = {
   faq: {
@@ -156,26 +166,227 @@ const footerHighlights = [
     lang={currentLang}
   />
 
+  {locationCopy ? (
+    <article class="bg-surface" data-am-page="tarifa-overview">
+      <header class="border-b border-border-subtle bg-surface px-6 py-20 md:px-12 md:py-28">
+        <div class="mx-auto max-w-screen-2xl">
+          <div class="max-w-5xl">
+            <p class="font-label text-[11px] font-bold uppercase tracking-[0.18em] text-primary">
+              {locationCopy.hero.eyebrow}
+            </p>
+            <h1 class="am-text-display mt-7 max-w-5xl text-balance text-on-surface">
+              {locationCopy.hero.title}
+            </h1>
+            <div class="mt-9 max-w-4xl space-y-5">
+              {locationCopy.hero.lead.map((paragraph, index) => (
+                <p
+                  class:list={[
+                    index === 0 ? 'am-text-title text-balance' : 'am-text-body',
+                    'leading-relaxed text-on-surface-variant'
+                  ]}
+                >
+                  {paragraph}
+                </p>
+              ))}
+            </div>
+            {content.seo.article && (
+              <EditorialByline
+                lang={currentLang}
+                authorName={content.seo.article.authorName}
+                authorHref={aboutHref}
+                updated={locationCopy.hero.updated}
+                note={locationCopy.hero.editorialNote}
+              />
+            )}
+          </div>
+        </div>
+      </header>
+
+      <section class="border-b border-border-subtle bg-surface-container-low px-6 py-20 md:px-12 md:py-28">
+        <div class="mx-auto max-w-screen-2xl">
+          <h2 class="am-text-title max-w-3xl text-balance text-on-surface">
+            {locationCopy.microLocations.title}
+          </h2>
+          <div class="mt-12 grid gap-5 md:grid-cols-2">
+            {locationCopy.microLocations.items.map((item) => (
+              <section class="border-t border-border-subtle bg-surface px-6 pb-8 pt-7 md:px-8 md:pb-10 md:pt-9">
+                <h3 class="am-text-subtitle text-balance text-on-surface">{item.title}</h3>
+                <div class="mt-5 space-y-4">
+                  {item.paragraphs.map((paragraph) => (
+                    <p class="am-text-body leading-relaxed text-on-surface-variant">{paragraph}</p>
+                  ))}
+                </div>
+                {item.fit && (
+                  <p class="mt-6 border-l border-primary/30 pl-4 am-text-body leading-relaxed text-on-surface">
+                    {item.fit}
+                  </p>
+                )}
+              </section>
+            ))}
+          </div>
+          <aside class="mt-8 border-l border-primary/30 bg-surface px-6 py-6 md:px-8">
+            <p class="am-text-body max-w-5xl leading-relaxed text-on-surface-variant">
+              {locationCopy.microLocations.clarification}
+            </p>
+            <a
+              href={requiredLink(locationCopy.microLocations.link.token)}
+              class="am-cta-link mt-5 inline-flex"
+            >
+              {locationCopy.microLocations.link.label}
+            </a>
+          </aside>
+        </div>
+      </section>
+
+      {locationSections.map((section, sectionIndex) => (
+        <section
+          id={section.id}
+          class:list={[
+            'border-b border-border-subtle px-6 py-16 md:px-12 md:py-20',
+            sectionIndex % 2 === 0 ? 'bg-surface' : 'bg-surface-container-low'
+          ]}
+        >
+          <div class="mx-auto grid max-w-screen-2xl gap-8 lg:grid-cols-[0.7fr_1.3fr] lg:gap-20">
+            <h2 class="am-text-title max-w-xl text-balance text-on-surface">{section.title}</h2>
+            <div class="max-w-4xl space-y-5">
+              {section.paragraphs.map((paragraph) => (
+                <p class="am-text-body leading-relaxed text-on-surface-variant">{paragraph}</p>
+              ))}
+              {section.links && (
+                <div class="flex flex-wrap gap-x-6 gap-y-3 pt-3">
+                  {section.links.map((link) => (
+                    <a href={requiredLink(link.token)} class="am-cta-link">{link.label}</a>
+                  ))}
+                </div>
+              )}
+            </div>
+          </div>
+        </section>
+      ))}
+
+      <section class="border-b border-border-subtle bg-surface-container-low px-6 py-20 md:px-12 md:py-24">
+        <div class="mx-auto max-w-screen-2xl">
+          <h2 class="am-text-title max-w-3xl text-balance text-on-surface">{locationCopy.stayFits.title}</h2>
+          <div class="mt-10 grid gap-5 md:grid-cols-2">
+            {locationCopy.stayFits.items.map((item) => (
+              <section class="border-t border-border-subtle bg-surface px-6 pb-7 pt-6">
+                <h3 class="am-text-subtitle text-on-surface">{item.title}</h3>
+                <div class="mt-4 space-y-4">
+                  {item.paragraphs.map((paragraph) => (
+                    <p class="am-text-body leading-relaxed text-on-surface-variant">{paragraph}</p>
+                  ))}
+                </div>
+              </section>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section id={locationCopy.dailyLife.id} class="border-b border-border-subtle bg-surface px-6 py-16 md:px-12 md:py-20">
+        <div class="mx-auto grid max-w-screen-2xl gap-8 lg:grid-cols-[0.7fr_1.3fr] lg:gap-20">
+          <h2 class="am-text-title max-w-xl text-balance text-on-surface">{locationCopy.dailyLife.title}</h2>
+          <div class="max-w-4xl space-y-4">
+            {locationCopy.dailyLife.paragraphs.map((paragraph) => (
+              <p class="am-text-body leading-relaxed text-on-surface-variant">{paragraph}</p>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section class="border-b border-border-subtle bg-inverse-surface px-6 py-16 text-inverted-on-surface md:px-12 md:py-20">
+        <div class="mx-auto grid max-w-screen-2xl gap-8 lg:grid-cols-[0.7fr_1.3fr] lg:gap-20">
+          <div>
+            <h2 class="am-text-title max-w-xl text-balance text-inverted-on-surface">
+              {locationCopy.tradeoffs.title}
+            </h2>
+            {locationCopy.tradeoffs.intro && (
+              <p class="am-text-body mt-5 leading-relaxed text-inverted-on-surface/75">
+                {locationCopy.tradeoffs.intro}
+              </p>
+            )}
+          </div>
+          <div>
+            <ul class="divide-y divide-inverted-on-surface/15 border-y border-inverted-on-surface/15">
+              {locationCopy.tradeoffs.items.map((item) => (
+                <li class="py-5 am-text-body leading-relaxed text-inverted-on-surface/85">{item}</li>
+              ))}
+            </ul>
+            {locationCopy.tradeoffs.closing && (
+              <div class="mt-7 space-y-3">
+                {locationCopy.tradeoffs.closing.map((paragraph) => (
+                  <p class="am-text-body leading-relaxed text-inverted-on-surface/75">{paragraph}</p>
+                ))}
+              </div>
+            )}
+          </div>
+        </div>
+      </section>
+
+      <section class="border-b border-border-subtle bg-surface-container-low px-6 py-20 md:px-12 md:py-28">
+        <div class="mx-auto grid max-w-screen-2xl overflow-hidden bg-surface lg:grid-cols-2">
+          <figure class="am-mobile-full-bleed min-h-[360px] bg-surface-container-high lg:min-h-[560px]">
+            <AmaraImage
+              src={tarifaStayImage}
+              alt={locationCopy.amara.imageAlt}
+              profile="hero"
+              class="h-full w-full object-cover"
+              sizes="(max-width: 1023px) 100vw, 50vw"
+            />
+          </figure>
+          <div class="flex flex-col justify-center p-8 md:p-14 lg:p-16">
+            <h2 class="am-text-title text-balance text-on-surface">{locationCopy.amara.title}</h2>
+            <div class="mt-6 space-y-4">
+              {locationCopy.amara.paragraphs.map((paragraph) => (
+                <p class="am-text-body leading-relaxed text-on-surface-variant">{paragraph}</p>
+              ))}
+            </div>
+            <ul class="mt-7 space-y-3 border-l border-primary/30 pl-5">
+              {locationCopy.amara.facts.map((fact) => (
+                <li class="am-text-body leading-relaxed text-on-surface">{fact}</li>
+              ))}
+            </ul>
+            <div class="mt-9">
+              <a href={stayHref} class="am-btn am-btn--primary">{locationCopy.closing.secondary.label}</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="bg-surface px-6 py-20 md:px-12 md:py-28">
+        <div class="mx-auto max-w-4xl text-center">
+          <h2 class="am-text-title text-balance text-on-surface">{locationCopy.closing.title}</h2>
+          <div class="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row">
+            <a href={requiredLink(locationCopy.closing.primary.token)} class="am-btn am-btn--primary w-full justify-center sm:w-auto">
+              {locationCopy.closing.primary.label}
+            </a>
+            <a href={requiredLink(locationCopy.closing.secondary.token)} class="am-btn am-btn--secondary w-full justify-center sm:w-auto">
+              {locationCopy.closing.secondary.label}
+            </a>
+          </div>
+        </div>
+      </section>
+    </article>
+  ) : topicContent ? (
   <article class="bg-surface" data-am-page={`tarifa-${content.id}`}>
     <header class="border-b border-border-subtle bg-surface px-6 py-20 md:px-12 md:py-28">
       <div class="mx-auto max-w-screen-2xl">
         <div class="max-w-5xl">
           <p class="font-label text-[11px] font-bold uppercase tracking-[0.18em] text-primary">
-            {t(content.hero.eyebrow)}
+            {t(topicContent.hero.eyebrow)}
           </p>
           <h1 class="am-text-display mt-7 max-w-5xl text-balance text-on-surface">
-            {t(content.hero.title)}
+            {t(topicContent.hero.title)}
           </h1>
           <p class="am-text-title mt-9 max-w-4xl text-balance leading-relaxed text-on-surface-variant">
-            {t(content.hero.lead)}
+            {t(topicContent.hero.lead)}
           </p>
           {content.seo.article && (
             <EditorialByline
               lang={currentLang}
               authorName={content.seo.article.authorName}
               authorHref={aboutHref}
-              updated={t(content.hero.updated)}
-              note={t(content.hero.editorialNote)}
+              updated={t(topicContent.hero.updated)}
+              note={t(topicContent.hero.editorialNote)}
             />
           )}
         </div>
@@ -184,7 +395,7 @@ const footerHighlights = [
 
     <section class="border-b border-border-subtle bg-surface-container-low px-6 py-8 md:px-12">
       <dl class="mx-auto grid max-w-screen-2xl gap-8 md:grid-cols-3">
-        {content.facts.map((fact) => (
+        {topicContent.facts.map((fact) => (
           <div class="border-l border-primary/25 pl-5">
             <dt class="font-label text-[10px] font-bold uppercase tracking-[0.14em] text-on-surface-variant">
               {t(fact.label)}
@@ -195,7 +406,7 @@ const footerHighlights = [
       </dl>
     </section>
 
-    {content.sections.map((section, sectionIndex) => (
+    {topicContent.sections.map((section, sectionIndex) => (
       <section
         id={section.id}
         class:list={[
@@ -231,12 +442,12 @@ const footerHighlights = [
     <aside class="bg-inverse-surface px-6 py-16 text-inverted-on-surface md:px-12 md:py-20">
       <div class="mx-auto grid max-w-screen-2xl gap-8 lg:grid-cols-[0.65fr_1.35fr] lg:gap-20">
         <p class="font-label text-[11px] font-bold uppercase tracking-[0.16em] text-primary-fixed-dim">
-          {t(content.notice.eyebrow)}
+          {t(topicContent.notice.eyebrow)}
         </p>
         <div>
-          <h2 class="am-text-title text-balance text-inverted-on-surface">{t(content.notice.title)}</h2>
+          <h2 class="am-text-title text-balance text-inverted-on-surface">{t(topicContent.notice.title)}</h2>
           <p class="am-text-body mt-6 max-w-4xl leading-relaxed text-inverted-on-surface/75">
-            {t(content.notice.text)}
+            {t(topicContent.notice.text)}
           </p>
         </div>
       </div>
@@ -246,7 +457,7 @@ const footerHighlights = [
       <div class="mx-auto grid max-w-screen-2xl gap-12 lg:grid-cols-[0.7fr_1.3fr] lg:gap-20">
         <h2 class="am-text-title text-on-surface">{t(ui.faq)}</h2>
         <div class="divide-y divide-border-subtle border-y border-border-subtle">
-          {content.faq.map((item) => (
+          {topicContent.faq.map((item) => (
             <details class="group py-6">
               <summary class="flex cursor-pointer list-none items-start justify-between gap-6 am-text-subtitle text-on-surface">
                 <span>{t(item.question)}</span>
@@ -273,7 +484,7 @@ const footerHighlights = [
           </p>
         </div>
         <ul class="divide-y divide-border-subtle border-y border-border-subtle">
-          {content.sources.map((source) => (
+          {topicContent.sources.map((source) => (
             <li>
               <a
                 href={source.href}
@@ -337,4 +548,5 @@ const footerHighlights = [
       </div>
     </section>
   </article>
+  ) : null}
 </LocationAuthorityLayout>
