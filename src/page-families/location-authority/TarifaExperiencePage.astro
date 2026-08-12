@@ -1,0 +1,156 @@
+---
+import Hero from '../../components/Hero.astro';
+import Navigation from '../../components/Navigation.astro';
+import EditorialClosingCta from '../../components/editorial/EditorialClosingCta.astro';
+import TarifaContextNav from '../../components/location/TarifaContextNav.astro';
+import {
+  TARIFA_EXPERIENCE_TOKEN,
+  tarifaExperienceContent,
+  tarifaExperienceSeo
+} from '../../content/tarifaExperienceContent';
+import { tarifaGuideContent } from '../../content/tarifaGuideContent';
+import LocationAuthorityLayout from '../../layouts/LocationAuthorityLayout.astro';
+import { resolveOptionalLink } from '../../lib/linkResolver';
+import { normalizeLanguage } from '../../lib/seo/resolve-seo-head';
+import type { AmaraLanguage } from '../../types/seo';
+
+interface Props {
+  lang?: string;
+}
+
+const { lang = 'es' } = Astro.props;
+const currentLang = normalizeLanguage(lang as AmaraLanguage);
+const copy = tarifaExperienceContent[currentLang];
+const requiredLink = (token: string) => {
+  const href = resolveOptionalLink(token, currentLang, { suppressMissing: true });
+
+  if (!href) {
+    throw new Error(`[Tarifa Experience] Missing required link token: ${token}`);
+  }
+
+  return href;
+};
+
+const footerHighlights = [
+  { token: 'location_tarifa', label: tarifaGuideContent.overview.navLabel[currentLang] },
+  { token: TARIFA_EXPERIENCE_TOKEN, label: copy.navLabel },
+  { token: 'tarifa_beaches_authority', label: tarifaGuideContent.beaches.navLabel[currentLang] },
+  { token: 'tarifa_wind_kitesurfing_authority', label: tarifaGuideContent.wind.navLabel[currentLang] }
+];
+---
+
+<LocationAuthorityLayout
+  seo={tarifaExperienceSeo}
+  pageLang={currentLang}
+  showContextNavigation={false}
+  footerHighlights={footerHighlights}
+>
+  <Navigation
+    slot="navigation"
+    currentLang={currentLang}
+    brandName="Tarifa"
+    currentToken={TARIFA_EXPERIENCE_TOKEN}
+    languageToken={TARIFA_EXPERIENCE_TOKEN}
+    locationAuthorityNav={true}
+  />
+  <TarifaContextNav
+    activeId="experience"
+    currentLabel={copy.breadcrumbLabel}
+    lang={currentLang}
+  />
+
+  <article class="bg-surface" data-am-page="tarifa-experience">
+    <Hero
+      imageSrc="/images/amara-tarifa/amara-tarifa-apartment10.webp"
+      imageAlt={copy.hero.imageAlt}
+      imageWidth={1080}
+    >
+      <p class="am-text-caption mb-6 text-primary">Tarifa · {copy.navLabel}</p>
+      <h1 class="am-text-display max-w-4xl text-balance text-on-surface">
+        {copy.hero.title}
+      </h1>
+      <div class="mt-8 max-w-3xl space-y-5">
+        {copy.hero.lead.map((paragraph) => (
+          <p class="am-text-body leading-relaxed text-on-surface-variant">{paragraph}</p>
+        ))}
+      </div>
+    </Hero>
+
+    <section class="border-y border-border-subtle bg-surface-container-low px-6 py-20 md:px-12 md:py-28">
+      <div class="mx-auto max-w-screen-2xl">
+        <div class="max-w-3xl">
+          <h2 class="am-text-title text-balance text-on-surface">{copy.dayChooser.title}</h2>
+          {copy.dayChooser.intro.length > 0 && (
+            <div class="mt-6 space-y-4">
+              {copy.dayChooser.intro.map((paragraph) => (
+                <p class="am-text-body leading-relaxed text-on-surface-variant">{paragraph}</p>
+              ))}
+            </div>
+          )}
+        </div>
+
+        <div class="mt-14 grid gap-x-10 gap-y-10 sm:grid-cols-2 lg:grid-cols-5">
+          {copy.dayChooser.days.map((day, index) => (
+            <article class="border-t border-primary/35 pt-6">
+              <p class="font-label text-[10px] font-bold uppercase tracking-[0.16em] text-primary">
+                {String(index + 1).padStart(2, '0')}
+              </p>
+              <h3 class="am-text-subtitle mt-4 text-on-surface">{day.title}</h3>
+              <p class="mt-4 text-sm leading-relaxed text-on-surface-variant">{day.text}</p>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    {copy.sections.map((section, index) => (
+      <section
+        id={section.id}
+        class:list={[
+          'border-b border-border-subtle px-6 py-20 md:px-12 md:py-28',
+          index % 2 === 0 ? 'bg-surface' : 'bg-surface-container-low'
+        ]}
+      >
+        <div class="mx-auto grid max-w-screen-2xl gap-10 lg:grid-cols-[minmax(0,0.62fr)_minmax(0,1.38fr)] lg:gap-20">
+          <div>
+            <p class="font-label text-[10px] font-bold uppercase tracking-[0.16em] text-primary">
+              {String(index + 1).padStart(2, '0')}
+            </p>
+            <h2 class="am-text-title mt-5 max-w-xl text-balance text-on-surface">
+              {section.title}
+            </h2>
+          </div>
+          <div class="max-w-3xl space-y-5">
+            {section.paragraphs.map((paragraph) => (
+              <p class="am-text-body leading-relaxed text-on-surface-variant">{paragraph}</p>
+            ))}
+            {section.cta && (
+              <p class="pt-4">
+                <a href={requiredLink(section.cta.token)} class="am-inline-link">
+                  {section.cta.label}<span aria-hidden="true"> →</span>
+                </a>
+              </p>
+            )}
+          </div>
+        </div>
+      </section>
+    ))}
+
+    <section class="bg-surface px-6 pt-24 md:px-12 md:pt-32">
+      <div class="mx-auto max-w-screen-2xl">
+        <EditorialClosingCta
+          title={copy.closing.title}
+          lead={copy.closing.lead}
+          lang={currentLang}
+          links={[
+            {
+              token: copy.closing.token,
+              label: copy.closing.ctaLabel,
+              style: 'primary'
+            }
+          ]}
+        />
+      </div>
+    </section>
+  </article>
+</LocationAuthorityLayout>

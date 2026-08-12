@@ -162,6 +162,13 @@ const PUBLIC_ROUTE_LABELS: Partial<Record<string, Record<AmaraLanguage, string>>
     nl: 'Tarifa',
     sv: 'Tarifa'
   },
+  'tarifa-experience': {
+    en: 'Experiences',
+    de: 'Erlebnisse',
+    es: 'Experiencias',
+    nl: 'Ervaringen',
+    sv: 'Upplevelser'
+  },
   'tarifa-wind-kitesurfing': {
     en: 'Wind & Kitesurfing',
     de: 'Wind & Kitesurfen',
@@ -257,6 +264,7 @@ const EXPERIENCE_DETAIL_SLUGS = new Set([
 
 const TARIFA_GUIDE_SLUGS = new Set([
   'tarifa-location',
+  'tarifa-experience',
   'tarifa-wind-kitesurfing',
   'tarifa-beaches'
 ]);

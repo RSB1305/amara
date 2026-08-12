@@ -148,6 +148,13 @@ legal_notice: {
     /* =========================================================
        TARIFA — AUTHORITY (PUBLIC)
     ========================================================= */
+    tarifa_experience_hub: {
+      en: buildOwnedLocalizedPath('tarifa-experience', 'en'),
+      de: buildOwnedLocalizedPath('tarifa-experience', 'de'),
+      es: buildOwnedLocalizedPath('tarifa-experience', 'es'),
+      nl: buildOwnedLocalizedPath('tarifa-experience', 'nl'),
+      sv: buildOwnedLocalizedPath('tarifa-experience', 'sv')
+    },
     tarifa_wind_kitesurfing_authority: {
       en: buildOwnedLocalizedPath('tarifa-wind-kitesurfing', 'en'),
       de: buildOwnedLocalizedPath('tarifa-wind-kitesurfing', 'de'),

@@ -1,0 +1,13 @@
+---
+import TarifaExperiencePage from '../../page-families/location-authority/TarifaExperiencePage.astro';
+import { getOwnedPageStaticPaths } from '../../lib/routeOwnership';
+import type { AmaraLanguage } from '../../types/seo';
+
+export function getStaticPaths() {
+  return getOwnedPageStaticPaths();
+}
+
+const { lang } = Astro.params as { lang: AmaraLanguage };
+---
+
+<TarifaExperiencePage lang={lang} />
