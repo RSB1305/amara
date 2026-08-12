@@ -141,19 +141,19 @@ export const cinematicStatRatingLabel: CopyRow = {
 };
 
 export const cinematicGuideEyebrow: CopyRow = {
-  en: 'Plan your stay',
-  de: 'Gut zu wissen',
-  es: 'Planificar la estancia',
-  nl: 'Verblijf plannen',
-  sv: 'Planera vistelsen'
+  en: 'Choose the right location',
+  de: 'Die richtige Lage',
+  es: 'Elegid bien la zona',
+  nl: 'Kies de juiste ligging',
+  sv: 'Välj rätt läge'
 };
 
 export const cinematicGuideTitle: CopyRow = {
-  en: 'Useful guides before you choose.',
-  de: 'Damit ihr vor der Buchung wisst, was euch erwartet.',
-  es: 'Guías útiles antes de elegir.',
-  nl: 'Handige gidsen voordat je kiest.',
-  sv: 'Användbara guider innan ni väljer.'
+  en: "Know where you're going? Now choose where to stay.",
+  de: 'Ihr wisst, wohin? Jetzt zählt, wo genau ihr wohnt.',
+  es: '¿Ya sabéis adónde vais? Ahora toca elegir dónde alojarse.',
+  nl: 'Weten jullie al waarheen? Kies dan waar je precies wilt verblijven.',
+  sv: 'Vet ni redan vart ni vill? Då återstår att välja var ni ska bo.'
 };
 
 export interface CinematicGuideLinkDef {
@@ -164,65 +164,37 @@ export interface CinematicGuideLinkDef {
 
 export const cinematicGuideLinks: CinematicGuideLinkDef[] = [
   {
-    token: 'romantic_hideaways',
-    label: stayCollectionLabels.compareLabel,
+    token: 'frigiliana_stairs',
+    label: {
+      en: 'Where to stay in Frigiliana',
+      de: 'Wo in Frigiliana übernachten?',
+      es: 'Dónde alojarse en Frigiliana',
+      nl: 'Waar overnachten in Frigiliana?',
+      sv: 'Var ska man bo i Frigiliana?'
+    },
     text: {
-      en: 'Compare the AMARA stays in Frigiliana, Nerja and Tarifa.',
-      de: 'Vergleicht die AMARA-Unterkünfte in Frigiliana, Nerja und Tarifa.',
-      es: 'Comparad los alojamientos AMARA en Frigiliana, Nerja y Tarifa.',
-      nl: 'Vergelijk de AMARA-verblijven in Frigiliana, Nerja en Tarifa.',
-      sv: 'Jämför AMARA-boendena i Frigiliana, Nerja och Tarifa.'
+      en: 'Historic centre or newer village? Upper Barribarto or lower in the old town? See how slopes, walking routes and the exact position shape the stay.',
+      de: 'Altstadt oder neuerer Ortsteil? Weiter oben im Barribarto oder vergleichsweise niedrig im historischen Zentrum? Seht, wie Steigungen, Wege und die genaue Lage euren Aufenthalt verändern.',
+      es: '¿Casco histórico o zona más moderna? ¿Arriba en el Barribarto o más abajo dentro del pueblo antiguo? Ved cómo las cuestas, los recorridos a pie y la ubicación concreta cambian la estancia.',
+      nl: 'Historische kern of moderner dorpsdeel? Hoog in Barribarto of lager in het oude dorp? Ontdek hoe hellingen, wandelroutes en de precieze ligging jullie verblijf beïnvloeden.',
+      sv: 'Historiska bykärnan eller den modernare delen? Högt i Barribarto eller längre ner i gamla byn? Se hur backar, gångvägar och det exakta läget påverkar vistelsen.'
     }
   },
   {
-    token: 'location_frigiliana',
+    token: 'location_nerja',
     label: {
-      en: 'Frigiliana guide',
-      de: 'Frigiliana',
-      es: 'Guía de Frigiliana',
-      nl: 'Frigiliana-gids',
-      sv: 'Frigiliana-guide'
+      en: 'Where to stay in Nerja',
+      de: 'Wo in Nerja übernachten?',
+      es: 'Dónde alojarse en Nerja',
+      nl: 'Waar overnachten in Nerja?',
+      sv: 'Var ska man bo i Nerja?'
     },
     text: {
-      en: 'Understand the village, Nerja access, and where to stay.',
-      de: 'Was ihr über die Altstadt, die Wege und die Nähe zu Nerja wissen solltet.',
-      es: 'Entender el pueblo, la conexión con Nerja y dónde alojarse.',
-      nl: 'Begrijp het dorp, Nerja en waar je het best verblijft.',
-      sv: 'Förstå byn, Nerja-kopplingen och var ni bor bäst.'
-    }
-  },
-  {
-    token: 'frigiliana_parking',
-    label: {
-      en: 'Parking & arrival',
-      de: 'Parken & Anreise',
-      es: 'Aparcamiento y llegada',
-      nl: 'Parkeren & aankomst',
-      sv: 'Parkering & ankomst'
-    },
-    text: {
-      en: 'Plan the last metres, stairs, and daily movement.',
-      de: 'Wo ihr parken könnt und wie der letzte Weg zur Unterkunft aussieht.',
-      es: 'Planificar el último tramo, escaleras y movimiento diario.',
-      nl: 'Plan de laatste meters, trappen en dagelijkse beweging.',
-      sv: 'Planera sista biten, trappor och dagliga rörelser.'
-    }
-  },
-  {
-    token: 'weather_frigiliana',
-    label: {
-      en: 'Weather & seasons',
-      de: 'Wetter & Reisezeit',
-      es: 'Clima y temporadas',
-      nl: 'Weer & seizoenen',
-      sv: 'Väder & säsonger'
-    },
-    text: {
-      en: 'See how hillside weather shapes terraces and sleep.',
-      de: 'Welche Monate angenehm sind und was die Lage oberhalb der Küste im Sommer ausmacht.',
-      es: 'Ver cómo la ladera influye en terrazas y descanso.',
-      nl: 'Zie hoe het heuvellandschap terras en slaap beïnvloedt.',
-      sv: 'Se hur läget på höjden påverkar terrass och sömn.'
+      en: 'Old Town, Torrecilla, Carabeo, Burriana or the residential hills? Compare beach access, walking, mobility and everyday life.',
+      de: 'Altstadt, Torrecilla, Carabeo, Burriana oder die Wohnlagen am Hang? Vergleicht Strandnähe, Wege, Mobilität und den Alltag vor Ort.',
+      es: '¿Casco antiguo, Torrecilla, Carabeo, Burriana o las zonas residenciales de las colinas? Comparad playa, recorridos a pie, movilidad y vida cotidiana.',
+      nl: 'Oude centrum, Torrecilla, Carabeo, Burriana of de woonwijken in de heuvels? Vergelijk strand, wandelroutes, mobiliteit en het dagelijks leven.',
+      sv: 'Gamla stan, Torrecilla, Carabeo, Burriana eller bostadsområdena på höjderna? Jämför närhet till stranden, gångvägar, mobilitet och vardagsliv.'
     }
   }
 ];
