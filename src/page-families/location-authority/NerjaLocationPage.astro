@@ -2,12 +2,9 @@
 import LocationAuthorityLayout from '../../layouts/LocationAuthorityLayout.astro';
 import Navigation from '../../components/Navigation.astro';
 import Hero from '../../components/Hero.astro';
-import AmaraImage from '../../components/AmaraImage.astro';
 import EssenceGrid from '../../components/EssenceGrid.astro';
 import PhotoShow from '../../components/PhotoShow.astro';
-import StayDecision from '../../components/StayDecision.astro';
 import FaqAccordion from '../../components/FaqAccordion.astro';
-import LocationEditorialComparison from '../../components/location/LocationEditorialComparison.astro';
 import NerjaContextNav from '../../components/location/NerjaContextNav.astro';
 import {
   nerjaLocationCopy,
@@ -25,129 +22,120 @@ const { lang = 'es' } = Astro.props;
 const currentLang = normalizeLanguage(lang as AmaraLanguage);
 const seo = nerjaLocationSeo;
 const copy = nerjaLocationCopy;
+function t<T>(value: Readonly<Record<AmaraLanguage, T>>): T {
+  return value[currentLang];
+}
 const optionalLink = (token: string) =>
   resolveOptionalLink(token, currentLang, { suppressMissing: true });
 
 const playaHref = optionalLink('playa') ?? '#amara-playa';
-const frigilianaHref = optionalLink('location_frigiliana') ?? '#compare-frigiliana';
-const comparisonHref =
-  optionalLink('nerja_vs_frigiliana') ?? '#compare-frigiliana';
-
-const essenceItems = copy.essence.items.map((item) => {
-  const token = 'token' in item ? item.token : undefined;
-  const linkLabel = 'linkLabel' in item ? item.linkLabel : undefined;
-  const imageSrc = 'imageSrc' in item ? item.imageSrc : undefined;
-
-  return {
-    kicker: item.kicker[currentLang],
-    headline: item.headline[currentLang],
-    text: item.text[currentLang],
-    imageSrc,
-    imageAlt: item.headline[currentLang],
-    href: token ? optionalLink(token) : undefined,
-    linkLabel: linkLabel ? linkLabel[currentLang] : undefined
-  };
-});
+const comparisonHref = optionalLink('nerja_vs_frigiliana') ?? '#nerja-frigiliana';
+const beachesHref = optionalLink('frigiliana_beaches_authority');
 
 const c = {
   nav: {
-    brand: copy.nav.brand[currentLang]
+    brand: t(copy.nav.brand)
   },
   hero: {
-    eyebrow: copy.hero.eyebrow[currentLang],
-    h1: copy.hero.h1[currentLang],
-    body: copy.hero.body[currentLang],
-    introLeadBefore: copy.hero.introLead[currentLang].before,
-    introLeadLinkLabel: copy.hero.introLead[currentLang].linkLabel,
-    introLeadAfter: copy.hero.introLead[currentLang].after,
-    ctaMain: copy.hero.ctaMain[currentLang],
-    ctaAlt: copy.hero.ctaAlt[currentLang]
-  },
-  gallery: {
-    eyebrow: copy.gallery.eyebrow[currentLang],
-    title: copy.gallery.title[currentLang],
-    images: copy.gallery.items.map((image) => ({
-      src: image.src,
-      alt: image.alt[currentLang],
-      caption: image.caption[currentLang]
-    }))
+    eyebrow: t(copy.hero.eyebrow),
+    h1: t(copy.hero.h1),
+    body: t(copy.hero.body),
+    ctaMain: t(copy.hero.ctaMain),
+    ctaAlt: t(copy.hero.ctaAlt),
+    imageAlt: t(copy.hero.imageAlt)
   },
   essence: {
-    eyebrow: copy.essence.eyebrow[currentLang],
-    title: copy.essence.title[currentLang],
-    intro: copy.essence.intro[currentLang],
-    items: essenceItems
-  },
-  areas: {
-    eyebrow: copy.areas.eyebrow[currentLang],
-    title: copy.areas.title[currentLang],
-    intro: copy.areas.intro[currentLang],
-    items: copy.areas.items[currentLang],
-    imagePrimary: {
-      src: copy.areas.imagePrimary.src,
-      alt: copy.areas.imagePrimary.alt[currentLang]
-    },
-    imageSecondary: {
-      src: copy.areas.imageSecondary.src,
-      alt: copy.areas.imageSecondary.alt[currentLang]
-    }
-  },
-  beaches: {
-    eyebrow: copy.beaches.eyebrow[currentLang],
-    title: copy.beaches.title[currentLang],
-    intro: copy.beaches.intro[currentLang],
-    items: copy.beaches.items.map((item) => ({
-      title: item.title[currentLang],
-      text: item.text[currentLang]
+    eyebrow: t(copy.essence.eyebrow),
+    title: t(copy.essence.title),
+    intro: t(copy.essence.intro),
+    items: copy.essence.items.map((item) => ({
+      kicker: t(item.kicker),
+      headline: t(item.headline),
+      text: t(item.text),
+      imageSrc: 'imageSrc' in item ? item.imageSrc : undefined,
+      imageAlt: 'imageSrc' in item ? t(copy.hero.imageAlt) : undefined
     }))
   },
+  areas: {
+    eyebrow: t(copy.areas.eyebrow),
+    title: t(copy.areas.title),
+    intro: t(copy.areas.intro),
+    labels: {
+      everyday: t(copy.areas.labels.everyday),
+      benefit: t(copy.areas.labels.benefit),
+      tradeoff: t(copy.areas.labels.tradeoff),
+      suits: t(copy.areas.labels.suits)
+    },
+    items: copy.areas.items[currentLang]
+  },
+  beaches: {
+    eyebrow: t(copy.beaches.eyebrow),
+    title: t(copy.beaches.title),
+    intro: t(copy.beaches.intro),
+    items: copy.beaches.items.map((item) => ({
+      title: t(item.title),
+      text: t(item.text)
+    })),
+    cta: t(copy.beaches.cta)
+  },
   practical: {
-    eyebrow: copy.practical.eyebrow[currentLang],
-    title: copy.practical.title[currentLang],
-    intro: copy.practical.intro[currentLang],
+    eyebrow: t(copy.practical.eyebrow),
+    title: t(copy.practical.title),
+    intro: t(copy.practical.intro),
     cards: copy.practical.cards.map((card) => ({
-      kicker: card.kicker[currentLang],
-      title: card.title[currentLang],
-      bullets: card.bullets[currentLang]
+      kicker: t(card.kicker),
+      title: t(card.title),
+      bullets: t(card.bullets)
     }))
   },
   comparison: {
-    eyebrow: copy.comparison.eyebrow[currentLang],
-    title: copy.comparison.title[currentLang],
-    teaser: copy.comparison.teaser[currentLang],
-    cta: copy.comparison.cta[currentLang],
+    eyebrow: t(copy.comparison.eyebrow),
+    title: t(copy.comparison.title),
+    intro: t(copy.comparison.intro),
     profiles: copy.comparison.profiles.map((profile) => ({
-      title: profile.title[currentLang],
-      description: profile.description[currentLang],
-      suitability: profile.suitability[currentLang]
+      title: t(profile.title),
+      text: t(profile.text)
+    })),
+    bridge: t(copy.comparison.bridge),
+    cta: t(copy.comparison.cta)
+  },
+  gallery: {
+    eyebrow: t(copy.gallery.eyebrow),
+    title: t(copy.gallery.title),
+    images: copy.gallery.items.map((image) => ({
+      src: image.src,
+      alt: t(image.alt),
+      caption: t(image.caption)
     }))
   },
   playa: {
-    eyebrow: copy.playa.eyebrow[currentLang],
-    title: copy.playa.title[currentLang],
-    text: copy.playa.text[currentLang],
-    cta: copy.playa.cta[currentLang]
+    eyebrow: t(copy.playa.eyebrow),
+    title: t(copy.playa.title),
+    intro: t(copy.playa.intro),
+    proofPoints: t(copy.playa.proofPoints),
+    limitation: t(copy.playa.limitation),
+    cta: t(copy.playa.cta)
   },
   faq: {
-    arrivalTitle: copy.faq.arrivalTitle[currentLang],
+    decisionTitle: t(copy.faq.decisionTitle),
     steps: copy.faq.steps.map((step) => ({
       num: step.num,
-      headline: step.h[currentLang],
-      text: step.t[currentLang]
+      headline: t(step.h),
+      text: t(step.t)
     })),
-    faqTitle: copy.faq.faqTitle[currentLang],
+    faqTitle: t(copy.faq.faqTitle),
     items: copy.faq.items.map((item) => ({
-      question: item.q[currentLang],
-      answer: item.a[currentLang]
+      question: t(item.q),
+      answer: t(item.a)
     }))
   }
 };
 
 const heroImage = {
-  src: '/images/amara-playa/apartment/chaparril-13.webp',
-  alt: c.gallery.images[0].alt,
-  width: 1600,
-  height: 1067,
+  src: '/images/amara-frigiliana-pueblo/nerja-coast-aerial.jpeg',
+  alt: c.hero.imageAlt,
+  width: 666,
+  height: 1000,
   sizes: '(max-width: 767px) calc(100vw - 3rem), (max-width: 1023px) 60vw, 40vw'
 };
 
@@ -177,7 +165,6 @@ const footerHighlights = [
     }[currentLang]
   }
 ];
-
 ---
 
 <LocationAuthorityLayout seo={seo} pageLang={currentLang} footerHighlights={footerHighlights} showContextNavigation={false}>
@@ -201,29 +188,20 @@ const footerHighlights = [
           imageSizes={heroImage.sizes}
         >
           <span class="am-text-caption text-primary mb-8 block">{c.hero.eyebrow}</span>
-          <h1 class="am-text-display italic text-on-surface mb-10 tracking-tighter" set:html={c.hero.h1} />
-          <div class="pl-10 border-l border-primary/20 max-w-lg mb-14">
+          <h1 class="am-text-display italic text-on-surface mb-10 tracking-tighter">{c.hero.h1}</h1>
+          <div class="pl-10 border-l border-primary/20 max-w-xl mb-14">
             <p class="am-text-body text-on-surface-variant leading-relaxed">{c.hero.body}</p>
-            <p class="am-text-body text-on-surface-variant leading-relaxed mt-6">
-              {c.hero.introLeadBefore}
-              <a href={playaHref} class="am-inline-link">{c.hero.introLeadLinkLabel}</a>
-              {c.hero.introLeadAfter}
-            </p>
           </div>
           <div class="flex flex-wrap gap-8">
-            <a href={playaHref} class="am-btn am-btn--primary">
+            <a href="#where-to-stay-in-nerja" class="am-btn am-btn--primary">
               {c.hero.ctaMain}
             </a>
-            <a href={frigilianaHref} class="am-btn am-btn--secondary">
+            <a href="#nerja-frigiliana" class="am-btn am-btn--secondary">
               {c.hero.ctaAlt}
             </a>
           </div>
         </Hero>
       </div>
-
-      <section id="photo" class="am-section am-section--plain w-full max-w-none !mx-0 !border-t-0 !px-0 !py-0">
-        <PhotoShow eyebrow={c.gallery.eyebrow} title={c.gallery.title} images={c.gallery.images} />
-      </section>
 
       <section id="key-facts" class="am-section am-section--tint w-full max-w-none !mx-0 !border-t-0 !px-0 !py-0">
         <EssenceGrid
@@ -234,29 +212,63 @@ const footerHighlights = [
         />
       </section>
 
-      <section id="where-to-stay-in-nerja" class="am-section am-section--plain w-full max-w-none !mx-0 !border-t-0 !px-0 !py-0">
-        <LocationEditorialComparison
-          eyebrow={c.areas.eyebrow}
-          title={c.areas.title}
-          intro={c.areas.intro}
-          items={c.areas.items}
-          imagePrimary={c.areas.imagePrimary}
-          imageSecondary={c.areas.imageSecondary}
-        />
+      <section id="where-to-stay-in-nerja" class="am-section am-section--plain w-full max-w-none !mx-0 !border-t-0 !px-0">
+        <div class="max-w-screen-2xl mx-auto px-12 py-40 border-t border-outline-variant/5">
+          <div class="max-w-3xl mb-20">
+            <span class="am-text-caption uppercase tracking-[0.4em] text-primary block mb-6">{c.areas.eyebrow}</span>
+            <h2 class="am-text-title italic text-on-surface tracking-tight mb-8">{c.areas.title}</h2>
+            <p class="am-text-body text-on-surface-variant leading-relaxed">{c.areas.intro}</p>
+          </div>
+
+          <div class="grid grid-cols-1 xl:grid-cols-2 gap-x-20 border-t border-outline-variant/20">
+            {
+              c.areas.items.map((item) => (
+                <article class="grid grid-cols-[3.5rem_minmax(0,1fr)] gap-6 py-12 border-b border-outline-variant/20">
+                  <span class="am-text-subtitle italic text-primary" aria-hidden="true">{item.kicker}</span>
+                  <div>
+                    <h3 class="am-text-subtitle text-on-surface mb-4">{item.title}</h3>
+                    <p class="am-text-body italic text-on-surface-variant leading-relaxed">{item.location}</p>
+                    <dl class="mt-8 space-y-5">
+                      <div class="grid grid-cols-1 sm:grid-cols-[9rem_minmax(0,1fr)] gap-2 sm:gap-5">
+                        <dt class="am-text-caption uppercase tracking-[0.18em] text-primary">{c.areas.labels.everyday}</dt>
+                        <dd class="am-text-body text-on-surface-variant leading-relaxed">{item.everyday}</dd>
+                      </div>
+                      <div class="grid grid-cols-1 sm:grid-cols-[9rem_minmax(0,1fr)] gap-2 sm:gap-5">
+                        <dt class="am-text-caption uppercase tracking-[0.18em] text-primary">{c.areas.labels.benefit}</dt>
+                        <dd class="am-text-body text-on-surface-variant leading-relaxed">{item.benefit}</dd>
+                      </div>
+                      <div class="grid grid-cols-1 sm:grid-cols-[9rem_minmax(0,1fr)] gap-2 sm:gap-5">
+                        <dt class="am-text-caption uppercase tracking-[0.18em] text-primary">{c.areas.labels.tradeoff}</dt>
+                        <dd class="am-text-body text-on-surface-variant leading-relaxed">{item.tradeoff}</dd>
+                      </div>
+                      <div class="grid grid-cols-1 sm:grid-cols-[9rem_minmax(0,1fr)] gap-2 sm:gap-5">
+                        <dt class="am-text-caption uppercase tracking-[0.18em] text-primary">{c.areas.labels.suits}</dt>
+                        <dd class="am-text-body text-on-surface-variant leading-relaxed">{item.suits}</dd>
+                      </div>
+                    </dl>
+                  </div>
+                </article>
+              ))
+            }
+          </div>
+        </div>
       </section>
 
-      <section id="nerja-beaches" class="am-section am-section--tint w-full max-w-none !mx-0 !border-t-0 !px-0">
+      <section id="beach-or-town" class="am-section am-section--tint w-full max-w-none !mx-0 !border-t-0 !px-0">
         <div class="max-w-screen-2xl mx-auto px-12 py-40 border-t border-outline-variant/5">
           <div class="grid grid-cols-1 lg:grid-cols-12 gap-16">
             <div class="lg:col-span-5">
               <span class="am-text-caption uppercase tracking-[0.4em] text-primary block mb-6">{c.beaches.eyebrow}</span>
               <h2 class="am-text-title italic text-on-surface tracking-tight mb-8">{c.beaches.title}</h2>
-              <p class="am-text-body text-on-surface-variant leading-relaxed max-w-xl">{c.beaches.intro}</p>
+              <p class="am-text-body text-on-surface-variant leading-relaxed max-w-xl mb-10">{c.beaches.intro}</p>
+              {beachesHref && (
+                <a href={beachesHref} class="am-cta-link">{c.beaches.cta}</a>
+              )}
             </div>
-            <div class="lg:col-span-7 grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-10">
+            <div class="lg:col-span-7 space-y-12">
               {
                 c.beaches.items.map((item) => (
-                  <article class="border-t border-outline-variant/20 pt-7">
+                  <article class="border-t border-outline-variant/20 pt-8">
                     <h3 class="am-text-subtitle italic text-on-surface mb-4">{item.title}</h3>
                     <p class="am-text-body text-on-surface-variant leading-relaxed">{item.text}</p>
                   </article>
@@ -282,7 +294,9 @@ const footerHighlights = [
                   <h3 class="am-text-subtitle italic text-on-surface mb-8">{card.title}</h3>
                   <ul class="space-y-5">
                     {card.bullets.map((bullet) => (
-                      <li class="am-text-body text-on-surface-variant leading-relaxed">{bullet}</li>
+                      <li class="am-text-body text-on-surface-variant leading-relaxed border-t border-outline-variant/10 pt-5 first:border-t-0 first:pt-0">
+                        {bullet}
+                      </li>
                     ))}
                   </ul>
                 </article>
@@ -292,68 +306,65 @@ const footerHighlights = [
         </div>
       </section>
 
-      <section id="compare-frigiliana" class="am-section am-section--tint w-full max-w-none !mx-0 !border-t-0 !px-0 !py-0">
-        {
-          currentLang === 'de' ? (
-            <div class="max-w-screen-2xl mx-auto px-12 py-40 border-t border-outline-variant/5">
-              <div class="max-w-3xl">
-                <span class="am-text-caption uppercase tracking-[0.4em] text-primary block mb-6">
-                  {c.comparison.eyebrow}
-                </span>
-                <h2 class="am-text-title italic text-on-surface tracking-tight mb-8">
-                  {c.comparison.title}
-                </h2>
-                <p class="am-text-body text-on-surface-variant leading-relaxed mb-8">
-                  {c.comparison.teaser}
-                </p>
-                <a href={comparisonHref} class="am-cta-link">
-                  {c.comparison.cta}
-                </a>
-              </div>
-            </div>
-          ) : (
-            <StayDecision
-              eyebrow={c.comparison.eyebrow}
-              title={c.comparison.title}
-              profiles={c.comparison.profiles}
-            />
-          )
-        }
-      </section>
-
-      <section id="amara-playa" class="am-section am-section--plain w-full max-w-none !mx-0 !border-t-0 !px-0">
+      <section id="nerja-frigiliana" class="am-section am-section--tint w-full max-w-none !mx-0 !border-t-0 !px-0">
         <div class="max-w-screen-2xl mx-auto px-12 py-40 border-t border-outline-variant/5">
-          <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
-            <div class="am-mobile-full-bleed am-mobile-full-bleed--wide lg:col-span-7 overflow-hidden bg-surface-container-low">
-              <AmaraImage
-                src="/images/amara-playa/apartment/chaparril-22.webp"
-                alt={c.gallery.images[2].alt}
-                profile="gallery"
-                sizes="(max-width: 1023px) calc(100vw - 6rem), 58vw"
-                class="w-full aspect-[16/10] object-cover"
-                loading="lazy"
-                decoding="async"
-              />
-            </div>
-            <div class="lg:col-span-5">
-              <span class="am-text-caption uppercase tracking-[0.4em] text-primary block mb-6">{c.playa.eyebrow}</span>
-              <h2 class="am-text-title italic text-on-surface tracking-tight mb-8">{c.playa.title}</h2>
-              <p class="am-text-body text-on-surface-variant leading-relaxed mb-10">{c.playa.text}</p>
-              <a href={playaHref} class="am-btn am-btn--primary">
-                {c.playa.cta}
-              </a>
-            </div>
+          <div class="max-w-3xl mb-20">
+            <span class="am-text-caption uppercase tracking-[0.4em] text-primary block mb-6">{c.comparison.eyebrow}</span>
+            <h2 class="am-text-title italic text-on-surface tracking-tight mb-8">{c.comparison.title}</h2>
+            <p class="am-text-body text-on-surface-variant leading-relaxed">{c.comparison.intro}</p>
+          </div>
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-16">
+            {
+              c.comparison.profiles.map((profile) => (
+                <article class="border-l border-primary/30 pl-8 py-3">
+                  <h3 class="am-text-subtitle italic text-on-surface mb-5">{profile.title}</h3>
+                  <p class="am-text-body text-on-surface-variant leading-relaxed">{profile.text}</p>
+                </article>
+              ))
+            }
+          </div>
+          <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-8 border-t border-outline-variant/20 pt-10">
+            <p class="am-text-subtitle italic text-on-surface max-w-2xl">{c.comparison.bridge}</p>
+            <a href={comparisonHref} class="am-cta-link shrink-0">{c.comparison.cta}</a>
           </div>
         </div>
       </section>
 
+      <div id="amara-playa" class="am-section am-section--plain w-full max-w-none !mx-0 !border-t-0 !px-0">
+        <section class="max-w-screen-2xl mx-auto px-12 py-40 border-t border-outline-variant/5">
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-16">
+            <div class="lg:col-span-5">
+              <span class="am-text-caption uppercase tracking-[0.4em] text-primary block mb-6">{c.playa.eyebrow}</span>
+              <h2 class="am-text-title italic text-on-surface tracking-tight">{c.playa.title}</h2>
+            </div>
+            <div class="lg:col-span-7">
+              <p class="am-text-body text-on-surface-variant leading-relaxed mb-10">{c.playa.intro}</p>
+              <ul class="divide-y divide-outline-variant/10 border-y border-outline-variant/10">
+                {c.playa.proofPoints.map((point) => (
+                  <li class="am-text-body text-on-surface-variant leading-relaxed py-6">{point}</li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <PhotoShow eyebrow={c.gallery.eyebrow} title={c.gallery.title} images={c.gallery.images} />
+
+        <div class="max-w-screen-2xl mx-auto px-12 py-24 border-b border-outline-variant/5">
+          <div class="max-w-3xl ml-auto border-l border-primary/30 pl-8">
+            <p class="am-text-body italic text-on-surface-variant leading-relaxed mb-10">{c.playa.limitation}</p>
+            <a href={playaHref} class="am-btn am-btn--primary">{c.playa.cta}</a>
+          </div>
+        </div>
+      </div>
+
       <section class="am-section am-section--tint w-full max-w-none !mx-0 !border-t-0 !px-0 !py-0">
         <FaqAccordion
-          arrivalTitle={c.faq.arrivalTitle}
+          arrivalTitle={c.faq.decisionTitle}
           steps={c.faq.steps}
           faqTitle={c.faq.faqTitle}
           items={c.faq.items}
-          anchorArrivalId="nerja-planning-basics"
+          anchorArrivalId="nerja-base-check"
           anchorFaqId="faq"
         />
       </section>
