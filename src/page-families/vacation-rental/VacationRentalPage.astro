@@ -9,7 +9,10 @@ import {
   type VacationRentalAmenityFeature,
   type VacationRentalEntity
 } from '../../content/vacationRentalEntities';
+import { directBookingTrustSignals } from '../../content/directBookingBenefitsContent';
+import { airbnbRatingLabel, airbnbReviewEvidence } from '../../content/reviewEvidence';
 import { stayCollectionLabels } from '../../content/stayCollectionLabels';
+import { trustLabels } from '../../content/trustLabels';
 import { resolveOptionalLink } from '../../lib/linkResolver';
 import { buildRentalBookingUrl } from '../../lib/directBooking';
 import { normalizeLanguage } from '../../lib/seo/resolve-seo-head';
@@ -593,6 +596,23 @@ const footerHighlights = [
 const collectionHref = resolveOptionalLink('romantic_hideaways', currentLang, { suppressMissing: true });
 const amenitiesHref = resolveOptionalLink('amenities', currentLang, { suppressMissing: true });
 const reviewsHref = resolveOptionalLink('reviews_hub', currentLang, { suppressMissing: true });
+const directBookingBenefitsHref = resolveOptionalLink('direct_booking_benefits', currentLang, { suppressMissing: true });
+const bookingTrustSignals = [
+  directBookingTrustSignals.lowestAvailablePrice[currentLang],
+  directBookingTrustSignals.directHostContact[currentLang],
+  `${airbnbReviewEvidence.reviewCountLabel} ${airbnbReviewEvidence.platform}`,
+  `${airbnbRatingLabel[currentLang]}/5`
+];
+const bookingTrustLinks = [
+  {
+    href: directBookingBenefitsHref,
+    label: trustLabels.direct_booking_benefits[currentLang]
+  },
+  {
+    href: reviewsHref,
+    label: trustLabels.reviews_hub[currentLang]
+  }
+].filter((item): item is { href: string; label: string } => Boolean(item.href));
 const locationLinkSpecs = [
   ...(rental.city === 'Frigiliana'
     ? [
@@ -666,6 +686,30 @@ const galleryImages = visibleImages.slice(1);
               <a class="am-btn am-btn--secondary w-full justify-center sm:w-auto" href={collectionHref}>
                 {t(stayCollectionLabels.backToCollectionLabel)}
               </a>
+            )}
+          </div>
+
+          <div
+            data-am-component="property-booking-trust"
+            class="mt-7 border-t border-border-subtle pt-5"
+          >
+            <p class="font-label text-[11px] font-bold uppercase tracking-[0.14em] text-on-surface-variant">
+              {directBookingTrustSignals.directWithAmara[currentLang]}
+            </p>
+            <ul class="am-text-body mt-3 flex flex-wrap gap-x-3 gap-y-2 text-on-surface-variant">
+              {bookingTrustSignals.map((signal, index) => (
+                <li class="inline-flex items-baseline gap-2">
+                  {index > 0 && <span aria-hidden="true">·</span>}
+                  <span>{signal}</span>
+                </li>
+              ))}
+            </ul>
+            {bookingTrustLinks.length > 0 && (
+              <div class="am-text-body mt-3 flex flex-wrap gap-x-5 gap-y-2">
+                {bookingTrustLinks.map((link) => (
+                  <a class="am-inline-link" href={link.href}>{link.label}</a>
+                ))}
+              </div>
             )}
           </div>
         </div>
