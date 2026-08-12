@@ -85,6 +85,20 @@ export interface VacationRentalEntity {
   amenityFeatures: VacationRentalAmenityFeature[];
 }
 
+interface FamilySurfConversionLocale {
+  surf: {
+    kicker: string;
+    title: string;
+    paragraphs: string[];
+    ctaLabel: string;
+    ctaToken: 'tarifa_wind_kitesurfing_authority';
+  };
+  family: {
+    title?: string;
+    paragraphs: string[];
+  };
+}
+
 const languages: AmaraLanguage[] = ['en', 'de', 'es', 'nl', 'sv'];
 
 export function formatVacationRentalPriceRange(
@@ -1014,53 +1028,108 @@ export const vacationRentalEntities: VacationRentalEntity[] = [
       'https://www.airbnb.com/rooms/803371111851036443'
     ],
     seoTitle: {
-      en: 'Family & Surf: Tarifa penthouse with pool | AMARA',
-      de: 'Family & Surf: Penthouse mit Pool in Tarifa | AMARA',
-      es: 'Family & Surf: ático en Tarifa con piscina | AMARA',
-      nl: 'Family & Surf: penthouse in Tarifa met zwembad | AMARA',
-      sv: 'Family & Surf: takvåning i Tarifa med pool | AMARA'
+      en: 'AMARA Family & Surf | Romantic Tarifa Stay with Pool & Parking',
+      de: 'AMARA Family & Surf | Romantisch wohnen in Tarifa mit Pool & Garage',
+      es: 'AMARA Family & Surf | Estancia romántica en Tarifa con piscina y garaje',
+      nl: 'AMARA Family & Surf | Romantisch verblijf in Tarifa met zwembad & garage',
+      sv: 'AMARA Family & Surf | Romantiskt boende i Tarifa med pool & garage'
     },
     seoDescription: {
-      en: 'AMARA Family & Surf in Tarifa: penthouse for up to 4, direct sea view, large kitchen, pool and reserved garage space. Lift right to the door.',
-      de: 'AMARA Family & Surf in Tarifa: Penthouse für bis zu 4 Gäste, direkter Meerblick, große Küche, Pool und Tiefgaragenplatz. Aufzug bis vor die Tür.',
-      es: 'AMARA Family & Surf en Tarifa: ático para hasta 4 huéspedes, vistas directas al mar, cocina grande, piscina y plaza de garaje. Ascensor hasta la puerta.',
-      nl: 'AMARA Family & Surf in Tarifa: penthouse voor maximaal 4 gasten, direct zeezicht, grote keuken, zwembad en garageplaats. Lift tot aan de deur.',
-      sv: 'AMARA Family & Surf i Tarifa: takvåning för upp till 4 gäster, direkt havsutsikt, stort kök, pool och garageplats. Hiss ända fram till dörren.'
+      en: 'A spacious Tarifa stay for couples, with Atlantic sunset terrace, pool and underground parking. Kitesurf lessons and equipment can be arranged before arrival.',
+      de: 'Großzügige Tarifa-Unterkunft für Paare mit Atlantikterrasse, Pool und Tiefgarage. Kitekurs und Material können schon vor der Anreise organisiert werden.',
+      es: 'Alojamiento amplio en Tarifa para parejas, con terraza al Atlántico, piscina y garaje privado. Clases y material de kitesurf pueden organizarse antes de llegar.',
+      nl: 'Ruim verblijf in Tarifa voor stellen met Atlantisch terras, zwembad en eigen garage. Kitesurflessen en materiaal kunnen vóór aankomst worden geregeld.',
+      sv: 'Rymligt boende i Tarifa för par med Atlantterrass, pool och eget garage. Kitesurflektioner och utrustning kan ordnas redan före ankomsten.'
     },
     eyebrow: {
-      en: 'Tarifa family and surf stay',
-      de: 'Tarifa für Familie und Surf',
-      es: 'Tarifa para familia y surf',
-      nl: 'Tarifa voor gezin en surf',
-      sv: 'Tarifa för familj och surf'
+      en: 'AMARA Romantic Days · Tarifa',
+      de: 'AMARA Romantic Days · Tarifa',
+      es: 'AMARA Romantic Days · Tarifa',
+      nl: 'AMARA Romantic Days · Tarifa',
+      sv: 'AMARA Romantic Days · Tarifa'
     },
     headline: {
-      en: 'Atlantic views and sunset from the terrace',
-      de: 'Atlantikblick und Sonnenuntergang von der Terrasse',
-      es: 'Vistas al Atlántico y puesta de sol desde la terraza',
-      nl: 'Uitzicht op de Atlantische Oceaan en zonsondergang vanaf het terras',
-      sv: 'Atlantutsikt och solnedgång från terrassen'
+      en: 'Atlantic sunsets, Tarifa on foot and the freedom to surf',
+      de: 'Atlantik-Sonnenuntergänge, Tarifa zu Fuß und Freiheit fürs Kitesurfen',
+      es: 'Atardeceres atlánticos, Tarifa a pie y libertad para practicar kitesurf',
+      nl: 'Atlantische zonsondergangen, Tarifa te voet en alle vrijheid om te kitesurfen',
+      sv: 'Solnedgång över Atlanten, Tarifa till fots och frihet att kitesurfa'
     },
     lead: {
-      en: '75 square metres over two floors: two bedrooms, two bathrooms, room for four. The lift goes right to the apartment door; inside, stairs lead up to the bedrooms.',
-      de: '75 Quadratmeter über zwei Etagen: zwei Schlafzimmer, zwei Bäder, Platz für vier. Der Aufzug fährt bis vor die Wohnungstür, drinnen führen Stufen hinauf zu den Schlafzimmern.',
-      es: '75 metros cuadrados en dos plantas: dos dormitorios, dos baños, sitio para cuatro. El ascensor llega hasta la puerta; dentro, unas escaleras suben a los dormitorios.',
-      nl: '75 vierkante meter over twee verdiepingen: twee slaapkamers, twee badkamers, plaats voor vier. De lift gaat tot aan de voordeur; binnen leiden trappen omhoog naar de slaapkamers.',
-      sv: '75 kvadratmeter över två plan: två sovrum, två badrum, plats för fyra. Hissen går ända fram till dörren; inne leder trappor upp till sovrummen.'
+      en: [
+        'A spacious Tarifa home that works beautifully for two: Atlantic views from the terrace, the Old Town within walking distance and your own underground parking when you want to head farther along the coast.',
+        `For couples who kitesurf — or want to learn — our cooperation with Tarifa Surf Club makes the sport unusually easy to build into the stay. And if you now travel with younger children, the separate bunk-bed room gives you useful extra flexibility without changing the apartment's couple-first character.`
+      ].join('\n\n'),
+      de: [
+        'Eine großzügige Tarifa-Unterkunft, die wunderbar für zwei funktioniert: Atlantikblick von der Terrasse, die Altstadt zu Fuß erreichbar und ein eigener Tiefgaragenstellplatz, wenn ihr weiter entlang der Küste fahren möchtet.',
+        'Für Paare, die kiten – oder es lernen möchten –, macht unsere Kooperation mit dem Tarifa Surf Club den Sport besonders unkompliziert. Und wenn ihr inzwischen mit kleineren Kindern reist, bietet das separate Hochbettzimmer zusätzliche Flexibilität, ohne dass die Wohnung ihren Charakter als AMARA-Unterkunft für Paare verliert.'
+      ].join('\n\n'),
+      es: [
+        'Una casa amplia en Tarifa que funciona especialmente bien para dos: vistas al Atlántico desde la terraza, el casco antiguo a poca distancia andando y vuestra propia plaza de garaje subterráneo cuando queráis moveros por la costa.',
+        'Para parejas que practican kitesurf —o quieren aprender— nuestra colaboración con Tarifa Surf Club facilita mucho la experiencia. Y si ahora viajáis con niños pequeños, el dormitorio separado con litera aporta flexibilidad adicional sin convertir el apartamento en una vivienda pensada principalmente para grupos.'
+      ].join('\n\n'),
+      nl: [
+        'Een ruime woning in Tarifa die uitstekend werkt voor twee: Atlantisch uitzicht vanaf het terras, de oude stad op loopafstand en een eigen ondergrondse parkeerplaats wanneer jullie verder langs de kust willen.',
+        'Voor stellen die kitesurfen — of het willen leren — maakt onze samenwerking met Tarifa Surf Club de sport bijzonder eenvoudig onderdeel van de reis. Reizen jullie inmiddels met jonge kinderen, dan biedt de aparte kamer met stapelbed extra flexibiliteit zonder dat de woning haar couple-first karakter verliest.'
+      ].join('\n\n'),
+      sv: [
+        'Ett rymligt boende i Tarifa som fungerar mycket bra för två: Atlantutsikt från terrassen, gamla stan på gångavstånd och egen plats i underjordiskt garage när ni vill ta bilen längre längs kusten.',
+        'För par som kitesurfar — eller vill lära sig — gör samarbetet med Tarifa Surf Club sporten ovanligt enkel att lägga in i vistelsen. Reser ni numera med yngre barn ger det separata rummet med våningssäng extra flexibilitet utan att boendet tappar sitt fokus på par.'
+      ].join('\n\n')
     },
     description: {
-      en: 'You enter on the third floor and climb to the fourth inside. The terrace faces the Atlantic and the sunset. The main bedroom has a 150 × 200 double bed; the second is a bunk room. There is also a very large kitchen for anyone who cooks on holiday, a fireplace, rain shower, 60-inch screen, fast internet, and a reserved space in the underground garage.',
-      de: 'Ihr betretet die Wohnung im dritten Stock und geht innen hinauf in den vierten. Von der Terrasse blickt ihr auf den Atlantik und den Sonnenuntergang. Im Hauptschlafzimmer steht ein 150 × 200 großes Doppelbett, das zweite Zimmer hat ein Etagenbett. Dazu kommen eine sehr große Küche für alle, die im Urlaub kochen, Kamin, Regendusche, 60-Zoll-Bildschirm, schnelles Internet und ein reservierter Platz in der Tiefgarage.',
-      es: 'Se entra en la tercera planta y se sube por dentro a la cuarta. La terraza mira al Atlántico y a la puesta de sol. El dormitorio principal tiene una cama doble de 150 × 200; el segundo, una litera. También hay una cocina muy grande para quien cocina en vacaciones, chimenea, ducha de lluvia, pantalla de 60 pulgadas, internet rápido y una plaza reservada en el garaje.',
-      nl: 'Jullie komen binnen op de derde verdieping en gaan binnendoor omhoog naar de vierde. Het terras kijkt uit over de Atlantische Oceaan en de zonsondergang. De hoofdslaapkamer heeft een tweepersoonsbed van 150 × 200; de tweede slaapkamer een stapelbed. Verder zijn er een zeer grote keuken voor wie op vakantie kookt, een haard, regendouche, scherm van 60 inch, snel internet en een gereserveerde plek in de parkeergarage.',
-      sv: 'Ni kommer in på tredje våningen och går inomhus upp till den fjärde. Terrassen vetter mot Atlanten och solnedgången. Det stora sovrummet har en dubbelsäng på 150 × 200; det andra har en våningssäng. Dessutom finns ett mycket stort kök för den som lagar mat på semestern, öppen spis, regndusch, 60-tums skärm, snabbt internet och en reserverad plats i garaget.'
+      en: [
+        'Set over two levels, AMARA Family & Surf combines a main bedroom with a 150 × 200 cm double bed, a separate bunk-bed room, two bathrooms, a large kitchen and an Atlantic-facing terrace for sunsets.',
+        'The apartment is in Urbanización La Marina, with a supermarket directly opposite and the Old Town roughly 10–15 minutes away on foot. Your reserved underground parking space makes it easy to leave the car when you do not need it — and use it whenever you want to head west towards Valdevaqueros, the kite beaches or a day trip.',
+        'The technical occupancy is four guests, but the sleeping layout is particularly well suited to a couple or to parents travelling with younger children.'
+      ].join('\n\n'),
+      de: [
+        'AMARA Family & Surf erstreckt sich über zwei Ebenen und verbindet ein Hauptschlafzimmer mit 150 × 200 cm Doppelbett, ein separates Hochbettzimmer, zwei Badezimmer, eine große Küche und eine Terrasse mit Atlantikblick und Sonnenuntergang.',
+        'Die Wohnung liegt in der Urbanización La Marina. Der Supermarkt befindet sich direkt gegenüber, die Altstadt erreicht ihr ungefähr in 10–15 Minuten zu Fuß. Der eigene Tiefgaragenstellplatz bedeutet: Das Auto kann stehen bleiben, wenn ihr es nicht braucht – und ihr könnt unkompliziert Richtung Valdevaqueros, Kite-Strände oder Ausflüge starten.',
+        'Die technische Belegung beträgt vier Gäste. Von der Schlafaufteilung her passt die Wohnung besonders gut zu einem Paar oder zu Eltern, die mit kleineren Kindern reisen.'
+      ].join('\n\n'),
+      es: [
+        'AMARA Family & Surf se distribuye en dos niveles y cuenta con dormitorio principal con cama doble de 150 × 200 cm, un dormitorio separado con litera, dos baños, cocina amplia y terraza con vistas al Atlántico y al atardecer.',
+        'La vivienda está en Urbanización La Marina. El supermercado está justo enfrente y el casco antiguo queda aproximadamente a 10–15 minutos andando. La plaza privada en el garaje subterráneo permite dejar el coche cuando no lo necesitáis y utilizarlo fácilmente para ir hacia Valdevaqueros, las playas de kite o una excursión.',
+        'La capacidad técnica es de cuatro huéspedes, pero la distribución resulta especialmente adecuada para una pareja o para padres que viajan con niños pequeños.'
+      ].join('\n\n'),
+      nl: [
+        'AMARA Family & Surf ligt verdeeld over twee niveaus en heeft een hoofdslaapkamer met een tweepersoonsbed van 150 × 200 cm, een aparte kamer met stapelbed, twee badkamers, een ruime keuken en een terras met Atlantisch uitzicht en zonsondergang.',
+        'De woning ligt in Urbanización La Marina. De supermarkt ligt direct aan de overkant en de oude stad is ongeveer 10–15 minuten lopen. Dankzij de eigen ondergrondse parkeerplaats kan de auto blijven staan wanneer jullie hem niet nodig hebben en gemakkelijk worden gebruikt voor Valdevaqueros, de kite-stranden of uitstapjes.',
+        'De technische capaciteit is vier gasten, maar de slaapindeling past vooral goed bij een stel of bij ouders die met jonge kinderen reizen.'
+      ].join('\n\n'),
+      sv: [
+        'AMARA Family & Surf är fördelat på två plan och har ett huvudsovrum med dubbelsäng på 150 × 200 cm, ett separat rum med våningssäng, två badrum, ett stort kök och en terrass med utsikt över Atlanten och solnedgången.',
+        'Boendet ligger i Urbanización La Marina. Mataffären finns direkt mittemot och gamla stan ligger ungefär 10–15 minuters promenad bort. Den egna garageplatsen gör att bilen kan stå när ni inte behöver den och användas smidigt när ni vill köra mot Valdevaqueros, kitesurfstränderna eller andra utflykter.',
+        'Den tekniska kapaciteten är fyra gäster, men sovlösningen passar särskilt bra för ett par eller föräldrar som reser med yngre barn.'
+      ].join('\n\n')
     },
     highlights: {
-      en: ['Penthouse, 75 m² over two floors', 'Terrace facing the Atlantic and sunset', 'Pool and reserved garage space included'],
-      de: ['Penthouse, 75 m² über zwei Etagen', 'Terrasse mit Atlantikblick und Sonnenuntergang', 'Pool und Tiefgaragenplatz inklusive'],
-      es: ['Ático de 75 m² en dos plantas', 'Terraza frente al Atlántico y la puesta de sol', 'Piscina y plaza de garaje incluidas'],
-      nl: ['Penthouse, 75 m² over twee verdiepingen', 'Terras met zicht op de Atlantische Oceaan en zonsondergang', 'Zwembad en garageplaats inbegrepen'],
-      sv: ['Takvåning, 75 m² över två plan', 'Terrass mot Atlanten och solnedgången', 'Pool och garageplats ingår']
+      en: [
+        'Room to enjoy Tarifa together\n75 m² over two levels, with a main double bedroom and additional bunk-bed room.',
+        'Atlantic evenings at home\nA private terrace with Atlantic views and sunset as a quieter counterpoint to active days outside.',
+        `Town on foot, coast by car\nOld Town around 10–15 minutes away on foot, private underground parking and easy westbound access towards Tarifa's kite beaches.`
+      ],
+      de: [
+        'Viel Raum für gemeinsame Tarifa-Tage\n75 m² auf zwei Ebenen mit Hauptschlafzimmer und zusätzlichem Hochbettzimmer.',
+        'Atlantikabende auf der eigenen Terrasse\nMeerblick und Sonnenuntergang als ruhiger Gegenpol zu aktiven Tagen draußen.',
+        'Altstadt zu Fuß, Küste mit dem Auto\nCa. 10–15 Minuten in die Altstadt, eigener Tiefgaragenplatz und unkomplizierte Fahrtrichtung zu den westlichen Kite-Stränden.'
+      ],
+      es: [
+        'Espacio para disfrutar Tarifa juntos\n75 m² en dos niveles, dormitorio principal y habitación adicional con litera.',
+        'Atardeceres sobre el Atlántico\nTerraza privada con vistas al mar para terminar el día con calma.',
+        'Centro a pie, costa en coche\nCasco antiguo a unos 10–15 minutos andando, plaza propia de garaje y salida cómoda hacia las playas occidentales.'
+      ],
+      nl: [
+        'Ruimte om Tarifa samen te beleven\n75 m² over twee niveaus, met hoofdslaapkamer en extra stapelbedkamer.',
+        'Atlantische avonden op het terras\nEigen buitenruimte met uitzicht op zee en zonsondergang.',
+        'Stad te voet, kust met de auto\nOude stad op circa 10–15 minuten lopen, eigen garage en eenvoudige route naar de westelijke kite-stranden.'
+      ],
+      sv: [
+        'Gott om plats för Tarifa tillsammans\n75 m² på två plan med huvudsovrum och extra rum med våningssäng.',
+        'Atlantkvällar på den egna terrassen\nHavsutsikt och solnedgång efter en dag ute.',
+        'Gamla stan till fots, kusten med bil\nCirka 10–15 minuter till gamla stan, eget garage och enkel väg mot de västra kitesurfstränderna.'
+      ]
     },
     accessFacts: {
       outsideStepsBeforeEntrance: 0,
@@ -1160,6 +1229,107 @@ export const vacationRentalEntities: VacationRentalEntity[] = [
     ])
   }
 ];
+
+/** Public conversion proof for AMARA Family & Surf only. Operational details remain in the noindex Guest Guide. */
+export const familySurfConversionContent: Record<AmaraLanguage, FamilySurfConversionLocale> = {
+  en: {
+    surf: {
+      kicker: 'AMARA × Tarifa Surf Club',
+      title: 'Kitesurfing, organised before you arrive',
+      paragraphs: [
+        `Tarifa is one of Europe's great places to kitesurf. Staying with AMARA means you do not have to begin your holiday by looking for a school, instructor or rental shop.`,
+        'We can connect you directly with our friends at Tarifa Surf Club before you arrive. Lessons, instructor contact and rental equipment can be organised in advance, and equipment can be prepared so it is available at the accommodation when you arrive.',
+        'If the wind is already good on your first day, you can spend less time organising and more time on the water.'
+      ],
+      ctaLabel: 'Wind & Kitesurfing in Tarifa',
+      ctaToken: 'tarifa_wind_kitesurfing_authority'
+    },
+    family: {
+      title: 'Travelling with younger children?',
+      paragraphs: [
+        'The second bedroom has a bunk bed with two single sleeping places. That makes the apartment particularly practical for parents travelling with younger children while keeping the main bedroom to themselves.',
+        'We describe the apartment as accommodating up to four guests because that is its technical capacity — but it is not positioned as a conventional four-adult sleeping arrangement.'
+      ]
+    }
+  },
+  de: {
+    surf: {
+      kicker: 'AMARA × Tarifa Surf Club',
+      title: 'Kitesurfen – schon vor der Anreise organisiert',
+      paragraphs: [
+        'Tarifa gehört zu den großen europäischen Kitesurf-Destinationen. Als AMARA-Gast müsst ihr euren Urlaub aber nicht damit beginnen, erst eine Schule, einen Lehrer oder einen Materialverleih zu suchen.',
+        'Wir bringen euch bereits vor der Reise direkt mit unseren Freunden vom Tarifa Surf Club in Kontakt. Unterricht, Kitelehrer und Rental-Material können vorab abgestimmt werden. Das Equipment kann so organisiert werden, dass es bei eurer Ankunft an der Unterkunft bereitsteht.',
+        'Wenn am Ankunftstag bereits guter Wind ist, verliert ihr keine wertvolle Zeit mit Organisation – sondern könnt im Idealfall direkt aufs Wasser.'
+      ],
+      ctaLabel: 'Wind & Kitesurfen in Tarifa',
+      ctaToken: 'tarifa_wind_kitesurfing_authority'
+    },
+    family: {
+      title: 'Ihr reist inzwischen mit kleineren Kindern?',
+      paragraphs: [
+        'Im zweiten Schlafzimmer befindet sich ein Hochbett mit zwei einzelnen Schlafplätzen. Dadurch können Eltern ihr eigenes Schlafzimmer behalten, während die Kinder einen separaten Schlafbereich haben.',
+        'Die technische Belegung der Wohnung beträgt vier Personen. Wir möchten sie dennoch nicht als klassische Unterkunft für vier Erwachsene positionieren. Besonders gut passt die Aufteilung zu einem Paar oder zu Eltern mit jüngeren Kindern.'
+      ]
+    }
+  },
+  es: {
+    surf: {
+      kicker: 'AMARA × Tarifa Surf Club',
+      title: 'Kitesurf organizado antes de vuestra llegada',
+      paragraphs: [
+        'Tarifa es uno de los grandes destinos europeos para practicar kitesurf. Alojaros con AMARA significa que no tenéis que empezar las vacaciones buscando escuela, instructor o tienda de alquiler.',
+        'Podemos poneros en contacto directo con nuestros amigos de Tarifa Surf Club antes de vuestra llegada. Las clases, el instructor y el material de alquiler pueden organizarse previamente, y el equipo puede prepararse para estar disponible en el alojamiento cuando lleguéis.',
+        'Si el viento ya acompaña el primer día, podéis dedicar menos tiempo a organizar y más tiempo al agua.'
+      ],
+      ctaLabel: 'Viento y kitesurf en Tarifa',
+      ctaToken: 'tarifa_wind_kitesurfing_authority'
+    },
+    family: {
+      paragraphs: [
+        'El segundo dormitorio dispone de una litera con dos camas individuales. Por eso la distribución funciona especialmente bien para padres que viajan con niños pequeños y quieren conservar su propio dormitorio.',
+        'La capacidad técnica es de cuatro personas, pero no presentamos la vivienda como una configuración convencional para cuatro adultos.'
+      ]
+    }
+  },
+  nl: {
+    surf: {
+      kicker: 'AMARA × Tarifa Surf Club',
+      title: 'Kitesurfen geregeld vóór jullie aankomst',
+      paragraphs: [
+        `Tarifa is een van Europa's bekendste bestemmingen voor kitesurfen. Als AMARA-gast hoeven jullie de vakantie niet te beginnen met het zoeken naar een school, instructeur of verhuurshop.`,
+        'We kunnen jullie voor aankomst direct in contact brengen met onze vrienden van Tarifa Surf Club. Lessen, instructeur en huurmateriaal kunnen vooraf worden geregeld en de uitrusting kan worden voorbereid zodat die bij aankomst bij de accommodatie beschikbaar is.',
+        'Is de wind op jullie eerste dag al goed, dan gaat er minder tijd verloren aan organisatie en kan de vakantie direct beginnen.'
+      ],
+      ctaLabel: 'Wind & kitesurfen in Tarifa',
+      ctaToken: 'tarifa_wind_kitesurfing_authority'
+    },
+    family: {
+      paragraphs: [
+        'De tweede slaapkamer heeft een stapelbed met twee aparte slaapplaatsen. Dat maakt de woning bijzonder praktisch voor ouders met jonge kinderen die hun eigen slaapkamer willen behouden.',
+        'De technische capaciteit is vier personen, maar we positioneren de woning niet als een standaard slaapopstelling voor vier volwassenen.'
+      ]
+    }
+  },
+  sv: {
+    surf: {
+      kicker: 'AMARA × Tarifa Surf Club',
+      title: 'Kitesurfing ordnad innan ni kommer',
+      paragraphs: [
+        'Tarifa är en av Europas stora destinationer för kitesurfing. Som AMARA-gäst behöver ni inte börja semestern med att leta efter skola, instruktör eller uthyrning.',
+        'Vi kan sätta er i direkt kontakt med våra vänner på Tarifa Surf Club redan före resan. Lektioner, instruktör och hyrutrustning kan ordnas i förväg, och utrustningen kan förberedas så att den finns vid boendet när ni anländer.',
+        'Om vinden redan är bra första dagen kan ni lägga mindre tid på organisation och mer tid på vattnet.'
+      ],
+      ctaLabel: 'Vind & kitesurfing i Tarifa',
+      ctaToken: 'tarifa_wind_kitesurfing_authority'
+    },
+    family: {
+      paragraphs: [
+        'Det andra sovrummet har en våningssäng med två separata sovplatser. Det passar särskilt bra för föräldrar med yngre barn som vill behålla huvudsovrummet för sig själva.',
+        'Den tekniska kapaciteten är fyra personer, men boendet positioneras inte som en vanlig sovlösning för fyra vuxna.'
+      ]
+    }
+  }
+};
 
 export const vacationRentalSlugs = vacationRentalEntities.map((entity) => entity.slug);
 

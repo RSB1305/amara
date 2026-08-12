@@ -4,6 +4,7 @@ import Navigation from '../../components/Navigation.astro';
 import AmaraImage from '../../components/AmaraImage.astro';
 import {
   buildVacationRentalSeo,
+  familySurfConversionContent,
   formatVacationRentalPriceRange,
   vacationRentalEntitiesByKey,
   type VacationRentalAmenityFeature,
@@ -28,6 +29,8 @@ type LocalizedText = Record<AmaraLanguage, string>;
 const { rental: rentalProp, lang = 'es' } = Astro.props;
 const rental = vacationRentalEntitiesByKey[rentalProp.key] ?? rentalProp;
 const currentLang = normalizeLanguage(lang as AmaraLanguage);
+const isFamilySurf = rental.key === 'amara-family-surf';
+const familySurfContent = isFamilySurf ? familySurfConversionContent[currentLang] : undefined;
 const seo = buildVacationRentalSeo(rental);
 const bookingHref = buildRentalBookingUrl(rental.slug, currentLang);
 
@@ -122,6 +125,27 @@ const ui = {
     es: 'Experiencias',
     nl: 'Ervaringen',
     sv: 'Upplevelser'
+  },
+  tarifaLocationGuide: {
+    en: 'Where to stay in Tarifa',
+    de: 'Wo in Tarifa übernachten?',
+    es: 'Dónde alojarse en Tarifa',
+    nl: 'Waar overnachten in Tarifa?',
+    sv: 'Var ska man bo i Tarifa?'
+  },
+  tarifaBeachesGuide: {
+    en: 'Beaches',
+    de: 'Strände',
+    es: 'Playas',
+    nl: 'Stranden',
+    sv: 'Stränder'
+  },
+  tarifaWindGuide: {
+    en: 'Wind & Kitesurfing',
+    de: 'Wind & Kitesurfen',
+    es: 'Viento y kitesurf',
+    nl: 'Wind & kitesurfen',
+    sv: 'Vind & kitesurfing'
   },
   labels: {
     license: {
@@ -597,6 +621,9 @@ const collectionHref = resolveOptionalLink('romantic_hideaways', currentLang, { 
 const amenitiesHref = resolveOptionalLink('amenities', currentLang, { suppressMissing: true });
 const reviewsHref = resolveOptionalLink('reviews_hub', currentLang, { suppressMissing: true });
 const directBookingBenefitsHref = resolveOptionalLink('direct_booking_benefits', currentLang, { suppressMissing: true });
+const familySurfWindHref = familySurfContent
+  ? resolveOptionalLink(familySurfContent.surf.ctaToken, currentLang, { suppressMissing: true })
+  : undefined;
 const bookingTrustSignals = [
   directBookingTrustSignals.lowestAvailablePrice[currentLang],
   directBookingTrustSignals.directHostContact[currentLang],
@@ -619,6 +646,13 @@ const locationLinkSpecs = [
         { token: 'location_frigiliana', label: t(ui.frigilianaLocationGuide as LocalizedText) },
         { token: 'explore_hub', label: t(ui.experiencesGuide as LocalizedText) }
       ]
+    : isFamilySurf
+      ? [
+          { token: 'location_tarifa', label: t(ui.tarifaLocationGuide as LocalizedText) },
+          { token: 'tarifa_experience_hub', label: t(ui.experiencesGuide as LocalizedText) },
+          { token: 'tarifa_beaches_authority', label: t(ui.tarifaBeachesGuide as LocalizedText) },
+          { token: 'tarifa_wind_kitesurfing_authority', label: t(ui.tarifaWindGuide as LocalizedText) }
+        ]
     : rental.city === 'Nerja'
       ? [{ token: 'location_nerja', label: 'Nerja' }]
       : []),
@@ -665,7 +699,12 @@ const galleryImages = visibleImages.slice(1);
           <p class="am-text-title text-on-surface mt-5 max-w-4xl text-balance">
             {t(rental.headline)}
           </p>
-          <p class="am-text-body text-on-surface-variant mt-6 max-w-2xl leading-relaxed">
+          <p
+            class:list={[
+              'am-text-body text-on-surface-variant mt-6 max-w-2xl leading-relaxed',
+              { 'whitespace-pre-line': isFamilySurf }
+            ]}
+          >
             {t(rental.lead)}
           </p>
           {highlights.length > 0 && (
@@ -673,7 +712,7 @@ const galleryImages = visibleImages.slice(1);
               {highlights.map((highlight) => (
                 <li class="am-text-body text-on-surface flex gap-3 leading-relaxed">
                   <span aria-hidden="true" class="text-on-surface-variant select-none">—</span>
-                  <span>{highlight}</span>
+                  <span class:list={[{ 'whitespace-pre-line': isFamilySurf }]}>{highlight}</span>
                 </li>
               ))}
             </ul>
@@ -754,7 +793,12 @@ const galleryImages = visibleImages.slice(1);
             <h2 id="rental-details-title" class="am-text-title text-on-surface">
               {t(ui.detailsTitle as LocalizedText)}
             </h2>
-            <p class="am-text-body text-on-surface-variant mt-6 max-w-2xl leading-relaxed">
+            <p
+              class:list={[
+                'am-text-body text-on-surface-variant mt-6 max-w-2xl leading-relaxed',
+                { 'whitespace-pre-line': isFamilySurf }
+              ]}
+            >
               {t(rental.description)}
             </p>
           </div>
@@ -773,6 +817,51 @@ const galleryImages = visibleImages.slice(1);
           </dl>
         </div>
       </section>
+
+      {isFamilySurf && familySurfContent && (
+        <section
+          class="py-12 md:py-16 border-b border-border-subtle"
+          aria-labelledby="family-surf-proof-title"
+          data-am-component="tarifa-surf-club-proof"
+        >
+          <div class="grid gap-12 lg:grid-cols-[minmax(0,1.15fr)_minmax(0,0.85fr)]">
+            <div class="max-w-3xl">
+              <p class="font-label text-[11px] font-bold uppercase tracking-[0.14em] text-on-surface-variant">
+                {familySurfContent.surf.kicker}
+              </p>
+              <h2 id="family-surf-proof-title" class="am-text-title text-on-surface mt-4 text-balance">
+                {familySurfContent.surf.title}
+              </h2>
+              <div class="mt-6 grid gap-4">
+                {familySurfContent.surf.paragraphs.map((paragraph) => (
+                  <p class="am-text-body text-on-surface-variant leading-relaxed">{paragraph}</p>
+                ))}
+              </div>
+              {familySurfWindHref && (
+                <p class="am-text-body mt-7">
+                  <a class="am-inline-link" href={familySurfWindHref}>
+                    {familySurfContent.surf.ctaLabel}
+                    <span aria-hidden="true"> &rarr;</span>
+                  </a>
+                </p>
+              )}
+            </div>
+
+            <aside class="border-t border-border-subtle pt-7 lg:border-l lg:border-t-0 lg:pl-10 lg:pt-0">
+              {familySurfContent.family.title && (
+                <h3 class="am-text-subtitle text-on-surface text-balance">
+                  {familySurfContent.family.title}
+                </h3>
+              )}
+              <div class:list={['grid gap-4', { 'mt-5': familySurfContent.family.title }]}>
+                {familySurfContent.family.paragraphs.map((paragraph) => (
+                  <p class="am-text-body text-on-surface-variant leading-relaxed">{paragraph}</p>
+                ))}
+              </div>
+            </aside>
+          </div>
+        </section>
+      )}
 
       <section class="py-12 md:py-16 border-b border-border-subtle" aria-labelledby="rental-gallery-title">
         <h2 id="rental-gallery-title" class="am-text-title text-on-surface">
