@@ -1,6 +1,33 @@
 import type { AmaraAuthoringSeo, AmaraLanguage } from '../types/seo';
 import { trustLabels } from './trustLabels';
 
+export const directBookingTrustSignals = {
+  directWithAmara: {
+    en: 'Direct with AMARA',
+    de: 'Direkt bei AMARA',
+    es: 'Reserva directa con AMARA',
+    nl: 'Direct bij AMARA',
+    sv: 'Direkt med AMARA'
+  },
+  lowestAvailablePrice: {
+    en: 'Our lowest available price',
+    de: 'Unser niedrigster verfügbarer Preis',
+    es: 'Nuestro precio más bajo disponible',
+    nl: 'Onze laagste beschikbare prijs',
+    sv: 'Vårt lägsta tillgängliga pris'
+  },
+  directHostContact: {
+    en: 'Direct line to host',
+    de: 'Direkter Kontakt zum Gastgeber',
+    es: 'Contacto directo con el anfitrión',
+    nl: 'Direct contact met de host',
+    sv: 'Direktkontakt med värden'
+  }
+} satisfies Record<
+  'directWithAmara' | 'lowestAvailablePrice' | 'directHostContact',
+  Record<AmaraLanguage, string>
+>;
+
 export const directBookingBenefitsSeo: AmaraAuthoringSeo = {
 
   version: '2026-03-23-direct-booking-benefits-v1.0-C',
@@ -167,19 +194,7 @@ export const directBookingBenefitsCopy = {
 
     {
 
-      title: {
-
-        en: 'Our lowest available price',
-
-        de: 'Unser niedrigster verfügbarer Preis',
-
-        es: 'Nuestro precio más bajo disponible',
-
-        nl: 'Onze laagste beschikbare prijs',
-
-        sv: 'Vårt lägsta tillgängliga pris'
-
-      },
+      title: directBookingTrustSignals.lowestAvailablePrice,
 
       copy: {
 
@@ -263,19 +278,7 @@ export const directBookingBenefitsCopy = {
 
     {
 
-      title: {
-
-        en: 'Direct line to host',
-
-        de: 'Direkter Kontakt zum Gastgeber',
-
-        es: 'Contacto directo con el anfitrión',
-
-        nl: 'Direct contact met de host',
-
-        sv: 'Direktkontakt med värden'
-
-      },
+      title: directBookingTrustSignals.directHostContact,
 
       copy: {
 
