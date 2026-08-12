@@ -504,7 +504,7 @@ export const frigilianaOrNerjaContent: Record<
           number: '02',
           title: 'De rol van het strand',
           frigiliana:
-            'De kust is iets wat jullie bewust in de dag opnemen. Na een paar uur aan zee keren jullie weer terug naar het dorp.',
+            'Een dag aan de kust plannen jullie bewust in. Na een paar uur aan zee keren jullie weer terug naar het dorp.',
           nerja:
             'In de juiste buurt van Nerja kan naar het strand gaan net zo spontaan zijn als koffie drinken of uit eten gaan.'
         },
@@ -551,7 +551,7 @@ export const frigilianaOrNerjaContent: Record<
       paragraphs: [
         'Welke plek jullie ook kiezen, de andere verdwijnt niet uit de reis.',
         'Frigiliana en Nerja liggen dicht genoeg bij elkaar om ze tijdens hetzelfde verblijf te combineren. Openbaar vervoer, taxi en auto maken verplaatsingen overdag tussen dorp en kust mogelijk; een auto geeft meer vrijheid voor latere avonden en uitstapjes verder weg.',
-        'De nuttige vraag is dus niet “Frigiliana of Nerja voor altijd?”, maar simpelweg naar welke omgeving jullie elke dag willen terugkeren.'
+        'Het gaat dus niet om “Frigiliana of Nerja voor altijd?”, maar om de omgeving waarnaar jullie elke dag willen terugkeren.'
       ],
       cta: 'Zo reizen jullie tussen Frigiliana en de kust'
     },
@@ -600,7 +600,7 @@ export const frigilianaOrNerjaContent: Record<
       title: 'Var vill ni vakna och komma hem i slutet av dagen?',
       paragraphs: [
         'En dagsutflykt kan ge er en bild av båda platserna. Att bo där är något annat.',
-        'Platsen där ni bor präglar semesterns vardagsstunder: var ni tar morgonkaffet, vad som finns utanför dörren efter middagen, om stranden blir en del av den dagliga promenaden och hur mycket transport ni vill planera.',
+        'Platsen där ni bor präglar semesterns vardagsstunder: var ni tar morgonkaffet, vad som finns utanför dörren efter middagen, om stranden blir en del av den dagliga promenaden och hur mycket ni vill behöva planera för att ta er runt.',
         'Frigiliana och Nerja ligger nära varandra. Men vardagen har olika karaktär.'
       ]
     },
@@ -667,7 +667,7 @@ export const frigilianaOrNerjaContent: Record<
       paragraphs: [
         'Vilken plats ni än väljer försvinner inte den andra ur resan.',
         'Frigiliana och Nerja ligger nära nog för att kombineras under samma vistelse. Kollektivtrafik, taxi och bil gör det möjligt att röra sig mellan byn och kusten under dagen; med bil får ni större flexibilitet för sena kvällar och utflykter längre bort.',
-        'Den användbara frågan är alltså inte ”Frigiliana eller Nerja för alltid?”, utan vilken miljö ni vill återvända till varje dag.'
+        'Frågan är alltså inte ”Frigiliana eller Nerja för alltid?”, utan vilken miljö ni vill återvända till varje dag.'
       ],
       cta: 'Så tar ni er mellan Frigiliana och kusten'
     },
@@ -683,7 +683,7 @@ export const frigilianaOrNerjaContent: Record<
       nerja: {
         title: 'Ska ni bo i Nerja?',
         text:
-          'Jämför gamla stan, Torrecilla, Carabeo, Burriana och bostadsområdena på höjderna utifrån strandvägar, promenader, hur ni tar er runt och vardagsliv.',
+          'Jämför gamla stan, Torrecilla, Carabeo, Burriana och bostadsområdena på höjderna utifrån närhet till stranden, promenader, hur ni tar er runt och vardagsliv.',
         cta: 'Var ska man bo i Nerja?'
       }
     },
