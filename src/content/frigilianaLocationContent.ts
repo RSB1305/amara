@@ -60,6 +60,13 @@ export interface FrigilianaLocationExploreBridge {
   ctaLabel: string;
 }
 
+export interface FrigilianaLocationJourneyBridge {
+  eyebrow: string;
+  title: string;
+  text: string;
+  ctaLabel: string;
+}
+
 export interface FrigilianaLocationPageCopy {
   heroKicker: string;
   h1: string;
@@ -73,6 +80,7 @@ export interface FrigilianaLocationPageCopy {
   faq: FrigilianaLocationFaq;
   seasons: FrigilianaLocationModule;
   planning: FrigilianaLocationPlanning;
+  journeyBridge?: FrigilianaLocationJourneyBridge;
   exploreBridge: FrigilianaLocationExploreBridge;
   decision: FrigilianaLocationModule;
 }
@@ -420,7 +428,8 @@ export const frigilianaLocationCopy = {
         { "question": "What is parking like when staying overnight in Frigiliana?", "answer": "A lot of parking advice about Frigiliana is written for day visitors who tend to arrive at similar times. Overnight guests have a different rhythm. In our experience, parking is often more relaxed later in the afternoon and evening than during the main day-visitor period. A free space can never be guaranteed, however, especially in summer, at weekends or during local events." },
         { "question": "Is Frigiliana very steep?", "answer": "Frigiliana is built on a hillside, so slopes and steps are part of the historic village. What matters is not only how far your accommodation appears to be from the centre on a map, but also its elevation and the route you may walk several times a day. Staying in the comparatively lower historic centre can feel noticeably different from staying higher up in the Barribarto." },
         { "question": "Can we get to Nerja and the beach without a car?", "answer": "Yes. Frigiliana can work perfectly well as a base for a simple day in Nerja or at the beach without a hire car. A car does give you much more freedom if you want to combine different beaches, Maro and other places around the region." },
-        { "question": "What should we know about arriving with luggage?", "answer": "Frigiliana is a historic hillside village with narrow streets, slopes and, depending on the exact location, steps or a final section that needs to be covered on foot. It is therefore worth packing so that you can comfortably carry your luggage for that last part of the journey. The exact approach depends on your accommodation and how you arrive." }
+        { "question": "What should we know about arriving with luggage?", "answer": "Frigiliana is a historic hillside village with narrow streets, slopes and, depending on the exact location, steps or a final section that needs to be covered on foot. It is therefore worth packing so that you can comfortably carry your luggage for that last part of the journey. The exact approach depends on your accommodation and how you arrive." },
+        { "question": "Is Frigiliana worth staying overnight, or is a day trip enough?", "answer": "A day trip can show you Frigiliana’s main streets, viewpoints and whitewashed old town. Staying overnight changes the experience: the village becomes quieter after many day visitors leave, you can have dinner and walk home through the old streets, and the next morning begins before the daytime activity returns. If Frigiliana is one stop on a wider Andalusia trip, staying for one or more nights can also give the journey a slower village chapter between larger destinations." }
       ]
     },
     "seasons": {
@@ -446,6 +455,12 @@ export const frigilianaLocationCopy = {
       "weather": { "label": "Weather & seasons", "text": "Plan monthly weather, terrace time and the right season." },
       "reviews": { "label": "Guest reviews", "text": "Read what guests mention after staying with AMARA." },
       "amenities": { "label": "Comfort & Amenities", "text": "Check the comfort details of AMARA stays before booking." }
+    },
+    "journeyBridge": {
+      "eyebrow": "EXPLORING MORE OF ANDALUSIA?",
+      "title": "Let Frigiliana be the quieter part of the journey.",
+      "text": "Málaga, Granada, Ronda and Caminito del Rey can all form part of a wider Andalusia trip. If you stay in Frigiliana, the village can become the place where the pace changes between bigger days — with its old streets, evenings and the Mediterranean coast around you.",
+      "ctaLabel": "Plan day trips from Frigiliana"
     },
     "exploreBridge": {
       "eyebrow": "EXPLORE",

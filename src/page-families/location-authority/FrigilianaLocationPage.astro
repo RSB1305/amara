@@ -52,6 +52,8 @@ const reviewsHref = optionalLink('reviews_hub');
 const amenitiesHref = optionalLink('amenities');
 const availabilityHref = optionalLink('book');
 const exploreHubHref = optionalLink('explore_hub');
+const dayTripsHref = optionalLink('frigiliana_daytrips_authority');
+const journeyBridge = 'journeyBridge' in c ? c.journeyBridge : undefined;
 
 const frigilianaStayLinks = [
   { label: 'Farah', href: optionalLink('farah') },
@@ -559,6 +561,35 @@ const renderCtas = (subsection: FrigilianaLocationSubsection) => subsection.ctas
             intro={c.planning.intro}
             links={planningLinks}
           />
+
+          {
+            journeyBridge && dayTripsHref && (
+              <section
+                id="andalusia-journey"
+                data-am-component="frigiliana-journey-bridge"
+                class="am-section am-section--plain !px-6 !py-16 md:!px-12 md:!py-20"
+              >
+                <div class="mx-auto max-w-6xl border-l-2 border-primary/40 bg-surface-container-low px-6 py-10 md:px-10 md:py-12">
+                  <span class="am-text-caption mb-5 block uppercase tracking-[0.35em] text-primary">
+                    {journeyBridge.eyebrow}
+                  </span>
+                  <div class="grid grid-cols-1 gap-6 lg:grid-cols-12 lg:gap-12">
+                    <h2 class="am-text-subtitle tracking-tight text-on-surface lg:col-span-5">
+                      {journeyBridge.title}
+                    </h2>
+                    <div class="lg:col-span-7">
+                      <p class="am-text-body leading-relaxed text-on-surface-variant">
+                        {journeyBridge.text}
+                      </p>
+                      <a href={dayTripsHref} class="am-cta-link mt-8 inline-flex">
+                        {journeyBridge.ctaLabel}
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </section>
+            )
+          }
 
           <section
             id="explore-frigiliana"
