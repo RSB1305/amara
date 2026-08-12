@@ -39,7 +39,7 @@ const c = {
   hero: {
     eyebrow: t(copy.hero.eyebrow),
     h1: t(copy.hero.h1),
-    body: t(copy.hero.body),
+    body: t(copy.hero.body).split('\n\n'),
     ctaMain: t(copy.hero.ctaMain),
     ctaAlt: t(copy.hero.ctaAlt),
     imageAlt: t(copy.hero.imageAlt)
@@ -60,12 +60,7 @@ const c = {
     eyebrow: t(copy.areas.eyebrow),
     title: t(copy.areas.title),
     intro: t(copy.areas.intro),
-    labels: {
-      everyday: t(copy.areas.labels.everyday),
-      benefit: t(copy.areas.labels.benefit),
-      tradeoff: t(copy.areas.labels.tradeoff),
-      suits: t(copy.areas.labels.suits)
-    },
+    goodForLabel: t(copy.areas.goodForLabel),
     items: copy.areas.items[currentLang]
   },
   beaches: {
@@ -74,7 +69,7 @@ const c = {
     intro: t(copy.beaches.intro),
     items: copy.beaches.items.map((item) => ({
       title: t(item.title),
-      text: t(item.text)
+      paragraphs: t(item.paragraphs)
     })),
     cta: t(copy.beaches.cta)
   },
@@ -83,19 +78,20 @@ const c = {
     title: t(copy.practical.title),
     intro: t(copy.practical.intro),
     cards: copy.practical.cards.map((card) => ({
-      kicker: t(card.kicker),
       title: t(card.title),
-      bullets: t(card.bullets)
+      paragraphs: t(card.paragraphs)
     }))
   },
   comparison: {
     eyebrow: t(copy.comparison.eyebrow),
     title: t(copy.comparison.title),
-    intro: t(copy.comparison.intro),
+    intro: t(copy.comparison.intro).split('\n\n'),
+    prompt: t(copy.comparison.prompt),
     profiles: copy.comparison.profiles.map((profile) => ({
       title: t(profile.title),
       text: t(profile.text)
     })),
+    outro: t(copy.comparison.outro),
     bridge: t(copy.comparison.bridge),
     cta: t(copy.comparison.cta)
   },
@@ -111,9 +107,7 @@ const c = {
   playa: {
     eyebrow: t(copy.playa.eyebrow),
     title: t(copy.playa.title),
-    intro: t(copy.playa.intro),
-    proofPoints: t(copy.playa.proofPoints),
-    limitation: t(copy.playa.limitation),
+    paragraphs: t(copy.playa.paragraphs),
     cta: t(copy.playa.cta)
   },
   faq: {
@@ -189,8 +183,10 @@ const footerHighlights = [
         >
           <span class="am-text-caption text-primary mb-8 block">{c.hero.eyebrow}</span>
           <h1 class="am-text-display italic text-on-surface mb-10 tracking-tighter">{c.hero.h1}</h1>
-          <div class="pl-10 border-l border-primary/20 max-w-xl mb-14">
-            <p class="am-text-body text-on-surface-variant leading-relaxed">{c.hero.body}</p>
+          <div class="pl-10 border-l border-primary/20 max-w-xl mb-14 space-y-5">
+            {c.hero.body.map((paragraph) => (
+              <p class="am-text-body text-on-surface-variant leading-relaxed">{paragraph}</p>
+            ))}
           </div>
           <div class="flex flex-wrap gap-8">
             <a href="#where-to-stay-in-nerja" class="am-btn am-btn--primary">
@@ -227,25 +223,15 @@ const footerHighlights = [
                   <span class="am-text-subtitle italic text-primary" aria-hidden="true">{item.kicker}</span>
                   <div>
                     <h3 class="am-text-subtitle text-on-surface mb-4">{item.title}</h3>
-                    <p class="am-text-body italic text-on-surface-variant leading-relaxed">{item.location}</p>
-                    <dl class="mt-8 space-y-5">
-                      <div class="grid grid-cols-1 sm:grid-cols-[9rem_minmax(0,1fr)] gap-2 sm:gap-5">
-                        <dt class="am-text-caption uppercase tracking-[0.18em] text-primary">{c.areas.labels.everyday}</dt>
-                        <dd class="am-text-body text-on-surface-variant leading-relaxed">{item.everyday}</dd>
-                      </div>
-                      <div class="grid grid-cols-1 sm:grid-cols-[9rem_minmax(0,1fr)] gap-2 sm:gap-5">
-                        <dt class="am-text-caption uppercase tracking-[0.18em] text-primary">{c.areas.labels.benefit}</dt>
-                        <dd class="am-text-body text-on-surface-variant leading-relaxed">{item.benefit}</dd>
-                      </div>
-                      <div class="grid grid-cols-1 sm:grid-cols-[9rem_minmax(0,1fr)] gap-2 sm:gap-5">
-                        <dt class="am-text-caption uppercase tracking-[0.18em] text-primary">{c.areas.labels.tradeoff}</dt>
-                        <dd class="am-text-body text-on-surface-variant leading-relaxed">{item.tradeoff}</dd>
-                      </div>
-                      <div class="grid grid-cols-1 sm:grid-cols-[9rem_minmax(0,1fr)] gap-2 sm:gap-5">
-                        <dt class="am-text-caption uppercase tracking-[0.18em] text-primary">{c.areas.labels.suits}</dt>
-                        <dd class="am-text-body text-on-surface-variant leading-relaxed">{item.suits}</dd>
-                      </div>
-                    </dl>
+                    <div class="mt-7 space-y-5">
+                      {item.paragraphs.map((paragraph) => (
+                        <p class="am-text-body text-on-surface-variant leading-relaxed">{paragraph}</p>
+                      ))}
+                    </div>
+                    <p class="am-text-body text-on-surface leading-relaxed mt-8 border-l border-primary/30 pl-6">
+                      <strong class="am-text-caption uppercase tracking-[0.18em] text-primary mr-2">{c.areas.goodForLabel}:</strong>
+                      {item.goodFor}
+                    </p>
                   </div>
                 </article>
               ))
@@ -254,7 +240,7 @@ const footerHighlights = [
         </div>
       </section>
 
-      <section id="beach-or-town" class="am-section am-section--tint w-full max-w-none !mx-0 !border-t-0 !px-0">
+      <section id="nerja-beaches" class="am-section am-section--tint w-full max-w-none !mx-0 !border-t-0 !px-0">
         <div class="max-w-screen-2xl mx-auto px-12 py-40 border-t border-outline-variant/5">
           <div class="grid grid-cols-1 lg:grid-cols-12 gap-16">
             <div class="lg:col-span-5">
@@ -270,7 +256,11 @@ const footerHighlights = [
                 c.beaches.items.map((item) => (
                   <article class="border-t border-outline-variant/20 pt-8">
                     <h3 class="am-text-subtitle italic text-on-surface mb-4">{item.title}</h3>
-                    <p class="am-text-body text-on-surface-variant leading-relaxed">{item.text}</p>
+                    <div class="space-y-5">
+                      {item.paragraphs.map((paragraph) => (
+                        <p class="am-text-body text-on-surface-variant leading-relaxed">{paragraph}</p>
+                      ))}
+                    </div>
                   </article>
                 ))
               }
@@ -288,17 +278,16 @@ const footerHighlights = [
           </div>
           <div class="grid grid-cols-1 lg:grid-cols-3 gap-12">
             {
-              c.practical.cards.map((card) => (
-                <article class="border-l border-outline-variant/20 pl-8 py-3">
-                  <span class="am-text-caption uppercase tracking-[0.28em] text-primary block mb-4">{card.kicker}</span>
-                  <h3 class="am-text-subtitle italic text-on-surface mb-8">{card.title}</h3>
-                  <ul class="space-y-5">
-                    {card.bullets.map((bullet) => (
-                      <li class="am-text-body text-on-surface-variant leading-relaxed border-t border-outline-variant/10 pt-5 first:border-t-0 first:pt-0">
-                        {bullet}
-                      </li>
-                    ))}
-                  </ul>
+                c.practical.cards.map((card) => (
+                  <article class="border-l border-outline-variant/20 pl-8 py-3">
+                    <h3 class="am-text-subtitle italic text-on-surface mb-6">{card.title}</h3>
+                    <div class="space-y-5">
+                      {card.paragraphs.map((paragraph) => (
+                        <p class="am-text-body text-on-surface-variant leading-relaxed">
+                          {paragraph}
+                        </p>
+                      ))}
+                    </div>
                 </article>
               ))
             }
@@ -311,7 +300,12 @@ const footerHighlights = [
           <div class="max-w-3xl mb-20">
             <span class="am-text-caption uppercase tracking-[0.4em] text-primary block mb-6">{c.comparison.eyebrow}</span>
             <h2 class="am-text-title italic text-on-surface tracking-tight mb-8">{c.comparison.title}</h2>
-            <p class="am-text-body text-on-surface-variant leading-relaxed">{c.comparison.intro}</p>
+            <div class="space-y-5">
+              {c.comparison.intro.map((paragraph) => (
+                <p class="am-text-body text-on-surface-variant leading-relaxed">{paragraph}</p>
+              ))}
+            </div>
+            <p class="am-text-subtitle italic text-on-surface mt-8">{c.comparison.prompt}</p>
           </div>
           <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-16">
             {
@@ -323,6 +317,7 @@ const footerHighlights = [
               ))
             }
           </div>
+          <p class="am-text-body text-on-surface-variant leading-relaxed max-w-3xl mb-12">{c.comparison.outro}</p>
           <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-8 border-t border-outline-variant/20 pt-10">
             <p class="am-text-subtitle italic text-on-surface max-w-2xl">{c.comparison.bridge}</p>
             <a href={comparisonHref} class="am-cta-link shrink-0">{c.comparison.cta}</a>
@@ -338,12 +333,11 @@ const footerHighlights = [
               <h2 class="am-text-title italic text-on-surface tracking-tight">{c.playa.title}</h2>
             </div>
             <div class="lg:col-span-7">
-              <p class="am-text-body text-on-surface-variant leading-relaxed mb-10">{c.playa.intro}</p>
-              <ul class="divide-y divide-outline-variant/10 border-y border-outline-variant/10">
-                {c.playa.proofPoints.map((point) => (
-                  <li class="am-text-body text-on-surface-variant leading-relaxed py-6">{point}</li>
+              <div class="space-y-6">
+                {c.playa.paragraphs.map((paragraph) => (
+                  <p class="am-text-body text-on-surface-variant leading-relaxed">{paragraph}</p>
                 ))}
-              </ul>
+              </div>
             </div>
           </div>
         </section>
@@ -351,8 +345,7 @@ const footerHighlights = [
         <PhotoShow eyebrow={c.gallery.eyebrow} title={c.gallery.title} images={c.gallery.images} />
 
         <div class="max-w-screen-2xl mx-auto px-12 py-24 border-b border-outline-variant/5">
-          <div class="max-w-3xl ml-auto border-l border-primary/30 pl-8">
-            <p class="am-text-body italic text-on-surface-variant leading-relaxed mb-10">{c.playa.limitation}</p>
+          <div class="max-w-3xl ml-auto">
             <a href={playaHref} class="am-btn am-btn--primary">{c.playa.cta}</a>
           </div>
         </div>
