@@ -5,56 +5,50 @@ export interface FrigilianaOrNerjaPageCopy {
     eyebrow: string;
     title: string;
     lead: string;
-    intro: string;
+    body: string[];
     imageAlt: string;
   };
   coreQuestion: {
     eyebrow: string;
     title: string;
-    text: string;
-  };
-  evening: {
-    eyebrow: string;
-    title: string;
-    text: string;
+    paragraphs: string[];
   };
   decisionFactors: {
     eyebrow: string;
     title: string;
-    text: string;
-  };
-  history: {
-    eyebrow: string;
-    title: string;
-    text: string;
+    items: {
+      number: string;
+      title: string;
+      frigiliana: string;
+      nerja: string;
+    }[];
   };
   comparison: {
     eyebrow: string;
     title: string;
     frigiliana: {
       title: string;
-      text: string;
+      paragraphs: string[];
+      cta: string;
     };
     nerja: {
       title: string;
-      text: string;
+      paragraphs: string[];
+      cta: string;
     };
-    conclusion: string;
   };
-  transport: {
-    eyebrow: string;
+  experienceBoth: {
     title: string;
-    beforeBusLink: string;
-    busLinkLabel: string;
-    afterBusLink: string;
+    paragraphs: string[];
+    cta: string;
   };
-  booking: {
+  microLocations: {
     eyebrow: string;
     title: string;
     frigiliana: {
       title: string;
       text: string;
-      collectionCta: string;
+      cta: string;
     };
     nerja: {
       title: string;
@@ -62,47 +56,54 @@ export interface FrigilianaOrNerjaPageCopy {
       cta: string;
     };
   };
+  amara: {
+    eyebrow: string;
+    title: string;
+    paragraphs: string[];
+    frigilianaCta: string;
+    nerjaCta: string;
+  };
 }
 
 export const frigilianaOrNerjaSeo: AmaraAuthoringSeo = {
-  version: '2026-07-29-frigiliana-or-nerja-v2',
+  version: '2026-08-12-frigiliana-or-nerja-v3',
   pageType: 'A',
   entityKey: 'amara-brand',
   ogImage:
     '/images/amara-frigiliana-pueblo/JPG_Frigiliana_Pueblo/2000px_72dpi_sRGB/02-frigiliana-pueblo.jpg',
   languages: {
     en: {
-      title: 'Frigiliana or Nerja: Where to Stay?',
+      title: 'Frigiliana or Nerja: Where to Stay? | AMARA',
       description:
-        'Frigiliana or Nerja—which suits your stay better? An honest host comparison of calm, beaches, climate, transport and day trips.',
+        'Frigiliana or Nerja? Compare the everyday feel of village and coast, walking, beach access and mobility — then choose where you want to make your base.',
       robots: 'index, follow',
       canonical: 'auto'
     },
     de: {
-      title: 'Frigiliana oder Nerja: Wo übernachten?',
+      title: 'Frigiliana oder Nerja: Wo übernachten? | AMARA',
       description:
-        'Frigiliana oder Nerja – welcher Ort passt besser zu Paaren? Ehrlicher Gastgebervergleich zu Ruhe, Meer, Klima, Anreise und Ausflügen.',
+        'Frigiliana oder Nerja? Vergleicht Dorf und Küste im Alltag, Wege, Strandnähe und Mobilität – und entscheidet, wo ihr im Urlaub wohnen möchtet.',
       robots: 'index, follow',
       canonical: 'auto'
     },
     es: {
-      title: 'Frigiliana o Nerja: ¿dónde alojarse?',
+      title: 'Frigiliana o Nerja: ¿dónde alojarse? | AMARA',
       description:
-        'Frigiliana o Nerja: comparativa sincera de anfitriones sobre tranquilidad, playa, clima, transporte y excursiones para elegir dónde alojarse.',
+        '¿Frigiliana o Nerja? Comparad el día a día en el pueblo y la costa, los recorridos a pie, el acceso a la playa y la movilidad para elegir dónde alojaros.',
       robots: 'index, follow',
       canonical: 'auto'
     },
     nl: {
-      title: 'Frigiliana of Nerja: waar verblijven?',
+      title: 'Frigiliana of Nerja: waar overnachten? | AMARA',
       description:
-        'Frigiliana of Nerja: een eerlijke vergelijking van rust, strand, klimaat, vervoer en dagtochten door hosts met verblijven in beide plaatsen.',
+        'Frigiliana of Nerja? Vergelijk het dagelijks leven in het dorp en aan de kust, wandelroutes, toegang tot het strand en vervoer – en kies waar jullie willen verblijven.',
       robots: 'index, follow',
       canonical: 'auto'
     },
     sv: {
-      title: 'Frigiliana eller Nerja: var ska man bo?',
+      title: 'Frigiliana eller Nerja: var ska man bo? | AMARA',
       description:
-        'Frigiliana eller Nerja: en ärlig värdjämförelse av lugn, strand, klimat, transport och utflykter för att välja rätt plats att bo på.',
+        'Frigiliana eller Nerja? Jämför vardagen i byn och vid kusten, promenader, strandläge och hur ni tar er runt – och välj var ni vill bo.',
       robots: 'index, follow',
       canonical: 'auto'
     }
@@ -110,8 +111,8 @@ export const frigilianaOrNerjaSeo: AmaraAuthoringSeo = {
 };
 
 /**
- * English is the semantic source of truth for this page. Every localization
- * preserves its meaning and practical depth in natural guest-facing language.
+ * English is the semantic source of truth. Each locale preserves the same
+ * decision path and claim boundaries in natural guest-facing language.
  */
 export const frigilianaOrNerjaContent: Record<
   AmaraLanguage,
@@ -119,385 +120,582 @@ export const frigilianaOrNerjaContent: Record<
 > = {
   en: {
     hero: {
-      eyebrow: 'Decision Guide',
+      eyebrow: 'Frigiliana & Nerja',
       title: 'Frigiliana or Nerja – Where to Stay?',
-      lead: 'A practical comparison from hosts with apartments in both places.',
-      intro:
-        'Frigiliana and Nerja are only about ten minutes apart by car, which makes them easy to combine in one holiday. The more useful question is not which one you want to visit, but where you want to wake up and come home to in the evening. Choose Frigiliana when the historic village should feel like home, with Nerja, Maro and the beaches for days by the coast. Nerja fits better when walking straight to the beach and deciding spontaneously between the sea, restaurants and coastal life matters most.',
-      imageAlt: 'White houses and alleys in Frigiliana with a view towards the coast'
+      lead:
+        'They are close enough to experience both. The real choice is which place you want around you at the beginning and end of each day.',
+      body: [
+        'Stay in Frigiliana and the historic village becomes home, with Nerja and the coast available for beach days and outings. Stay in Nerja and the sea, town and everyday coastal life become your starting point, while Frigiliana remains close enough to visit easily.',
+        'You are not choosing which place to miss. You are choosing where you want to wake up.'
+      ],
+      imageAlt:
+        'White houses and alleys in Frigiliana with a view towards the coast'
     },
     coreQuestion: {
-      eyebrow: 'The Real Question',
-      title: 'Where do you want to wake up – and come home to?',
-      text:
-        'Frigiliana puts the historic village around you at the beginning and end of the day: quiet lanes in the morning, restaurants on foot in the evening, and the coast as an easy daytime option. Nerja puts beaches, seaside life and a broader choice of coastal services directly outside the door. The distance is short; the real difference is the setting that shapes your daily rhythm.'
+      eyebrow: 'The real question',
+      title: 'Where do you want to wake up — and come home to?',
+      paragraphs: [
+        'A day trip can show you both places. Staying there is different.',
+        'Your base shapes the ordinary moments of the holiday: where you go for a morning coffee, what is outside the door after dinner, whether the beach is part of an everyday walk and how much transport you want to organise.',
+        'Frigiliana and Nerja are close. Their daily rhythms are not the same.'
+      ]
     },
     decisionFactors: {
-      eyebrow: 'Decision Factors',
-      title: 'Calm, Beach Access, Climate: What Matters Most to You?',
-      text:
-        'Use this overview to compare the daily rhythm of each place. With Frigiliana and Nerja only about ten minutes apart by car, village life and the coast can remain part of the same holiday.'
-    },
-    evening: {
-      eyebrow: 'Frigiliana in the Evening',
-      title: 'In the evening, Frigiliana belongs to its guests',
-      text:
-        "Frigiliana is a mountain village in the truest sense of the word – steep alleys, stairs, hardly a car passing through. This changes everything as soon as the last day-trip buses leave the village. What remains is calm. A real, rare calm. Around 8 PM, the small restaurants slowly open. People sit at tables in the alleys, eating and talking – it feels less like tourism and more like being in the village with friends for the evening. All around are the white houses with their colourful doors, bougainvillea on the walls, and beyond, the view of the sea and the avocado and mango plantations of the Axarquía. This is the Frigiliana moment a day tourist never experiences. They are long back on the coast, while the village settles down and, for a few hours, belongs to those who stay."
-    },
-    history: {
-      eyebrow: 'Moorish heritage / Alhambra',
-      title: 'Sleeping in one of the oldest houses in the village',
-      text:
-        "Frigiliana's old town is considered one of the best-preserved Moorish-Mudéjar quarters in the province of Málaga – created by the same culture that built the Alhambra in Granada. The houses grew organically up the slope over centuries: narrow stepped alleys, no room with a right angle, each house expanded, sold, and rebuilt over time. When we carefully restored AMARA Lounis from 2020 to 2022 and uncovered the old walls, our architect was visibly impressed: he recognised the same construction method as the Alhambra in Granada – the same Moorish signature that shaped this quarter centuries ago. Sleeping in a house with such roots is a different feeling than in a coastal hotel. It is one of Frigiliana's defining strengths, while Nerja's distinctive appeal begins with life beside the sea."
+      eyebrow: 'Decision factors',
+      title: 'Four differences that shape the stay.',
+      items: [
+        {
+          number: '01',
+          title: 'Everyday setting',
+          frigiliana:
+            'You wake up inside a historic hillside village, with white lanes, restaurants and village life around you.',
+          nerja:
+            'You wake up in a coastal town where beaches, shops, restaurants and everyday services can be integrated into the day, depending on the area you choose.'
+        },
+        {
+          number: '02',
+          title: 'Beach routine',
+          frigiliana:
+            'The coast becomes something you deliberately include in the day. You can spend hours by the sea and return to the village afterwards.',
+          nerja:
+            'In the right part of Nerja, going to the beach can be as spontaneous as going out for coffee or dinner.'
+        },
+        {
+          number: '03',
+          title: 'Walking & topography',
+          frigiliana:
+            'The village climbs the hillside. The exact position within Frigiliana determines how much elevation, paving and steps become part of each return.',
+          nerja:
+            'Nerja is not uniformly flat either. Old Town, Torrecilla, Carabeo, Burriana and the residential hills all create different walking patterns.'
+        },
+        {
+          number: '04',
+          title: 'Mobility',
+          frigiliana:
+            'A car gives you the most freedom for beaches and the wider region, although a stay can also work without one if your plans remain relatively simple.',
+          nerja:
+            'A well-chosen central location can work very well without a car. Further out, a car becomes more useful — while central parking can also become part of the trade-off.'
+        }
+      ]
     },
     comparison: {
-      eyebrow: 'The Honest Comparison',
-      title: 'Two home bases, two daily rhythms',
+      eyebrow: 'Choose your base',
+      title: 'Two places. Two ways to start and end the day.',
       frigiliana: {
-        title: 'Frigiliana – Calm, Nature, History',
-        text:
-          'For couples who want peace and quiet at night, value village character and views, and enjoy being in nature. There are many hiking trails around Frigiliana into the Sierra. A bonus, especially in summer: it is often noticeably cooler up in the mountain village than on the coast – the nights are significantly more pleasant.'
+        title: 'Frigiliana as your base',
+        paragraphs: [
+          'Frigiliana suits a stay in which the historic village itself should be part of the experience — quiet mornings, village streets, dinner on foot and returning to the old town at the end of the day.',
+          'The coast remains close enough for beach days, Nerja and Maro, but the village is the place that feels like home.'
+        ],
+        cta: 'Explore staying in Frigiliana'
       },
       nerja: {
-        title: 'Nerja – Sea, Vibrancy, Right Outside',
-        text:
-          'For guests who want the lively life right on their doorstep: the beach within walking distance, plenty of restaurants, and a buzz. Nerja became famous in Spain through the cult TV series "Verano Azul" (1980s) and has its own unique, summery pulse. If you are looking for proximity to the sea and the hustle and bustle, this is the place for you.'
-      },
-      conclusion:
-        "A stay in Frigiliana can pair village mornings and evenings with beach days in Nerja or Maro. From Nerja, Frigiliana remains close enough for an easy visit between days by the sea. The choice is the setting you want around you when the day begins and where you want to come home to at night."
-    },
-    transport: {
-      eyebrow: 'Village and coast',
-      title: 'From Frigiliana, the coast stays within easy reach',
-      beforeBusLink:
-        'The drive from Frigiliana to Nerja takes about ten minutes, making a beach day easy to include. There are several large car parks before you enter Nerja; it gets tighter in the centre, but it’s manageable. If you are travelling without a car, you can use the ',
-      busLinkLabel: 'public bus',
-      afterBusLink:
-        ' (Grupo Fajardo) to get there and back: from Monday to Saturday, there are about a dozen connections in each direction during the day. The last regular bus from Frigiliana down to Nerja on weekdays is around 9:00 PM (until 10:00 PM in high summer), and back up from Nerja around 8:30 PM (with an additional service at 9:30 PM in July and August). Fewer buses run on Sundays and public holidays. So, a car is more convenient for late evenings – but during the day, you can be at the beach in ten minutes and back in the quieter village just as quickly.'
-    },
-    booking: {
-      eyebrow: 'Booking Fork',
-      title: 'Choose the setting that should feel like home',
-      frigiliana: {
-        title: 'Choose Frigiliana for village mornings and quiet evenings',
-        text:
-          'Then our boutique apartments in Frigiliana for couples are the right choice – with the sea just ten minutes away.',
-        collectionCta: 'View apartments'
-      },
-      nerja: {
-        title: 'Choose Nerja for beach-first days',
-        text:
-          'AMARA Playa fits when immediate beach walkability and spontaneous coastal life matter most.',
-        cta: 'View AMARA Playa'
+        title: 'Nerja as your base',
+        paragraphs: [
+          'Nerja suits a stay in which the coast and town should be part of everyday life — beach time, restaurants, shops and walks that can often begin directly from your accommodation.',
+          'The exact area matters: Torrecilla, the Old Town, Carabeo, Burriana and the residential hills offer noticeably different routines.'
+        ],
+        cta: 'Explore staying in Nerja'
       }
+    },
+    experienceBoth: {
+      title: 'Choose where to wake up. Experience both.',
+      paragraphs: [
+        'Whichever base you choose, the other place does not disappear from the trip.',
+        'Frigiliana and Nerja are close enough to combine during the same stay. Public transport, taxis and driving all make daytime movement between village and coast possible, while a car gives more flexibility for later evenings and wider plans.',
+        'So the useful decision is not “Frigiliana or Nerja forever?” It is simply which setting you want to return to each day.'
+      ],
+      cta: 'How to get between Frigiliana and the coast'
+    },
+    microLocations: {
+      eyebrow: 'Once the base is clear',
+      title: 'Then choose the right part of town or village.',
+      frigiliana: {
+        title: 'Staying in Frigiliana?',
+        text:
+          'Compare the lower historic centre, upper Barribarto, the newer lower village and countryside locations — including the walking and access differences that matter over several days.',
+        cta: 'Where to stay in Frigiliana'
+      },
+      nerja: {
+        title: 'Staying in Nerja?',
+        text:
+          'Compare the Old Town, Torrecilla, Carabeo, Burriana and the residential hills by beach access, walking, mobility and everyday routines.',
+        cta: 'Where to stay in Nerja'
+      }
+    },
+    amara: {
+      eyebrow: 'Stay with AMARA',
+      title: 'We host in both places.',
+      paragraphs: [
+        "AMARA has four stays in Frigiliana's historic centre and AMARA Playa in west-central Nerja.",
+        'Choose the base first. Then choose the stay that fits the way you want to travel.'
+      ],
+      frigilianaCta: 'View AMARA stays in Frigiliana',
+      nerjaCta: 'View AMARA Playa'
     }
   },
   de: {
     hero: {
-      eyebrow: 'Entscheidungshilfe',
+      eyebrow: 'Frigiliana & Nerja',
       title: 'Frigiliana oder Nerja – wo übernachten?',
       lead:
-        'Ein praktischer Vergleich von Gastgebern mit Unterkünften in beiden Orten.',
-      intro:
-        'Frigiliana und Nerja liegen nur etwa zehn Autominuten auseinander und lassen sich im Urlaub sehr gut miteinander verbinden. Die wichtigere Frage ist deshalb nicht, welchen Ort ihr besuchen möchtet, sondern wo ihr morgens aufwachen und abends nach Hause kommen wollt. Frigiliana passt zu euch, wenn das historische Dorf euer Zuhause sein soll und Nerja, Maro und die Strände eure Tage am Meer ergänzen. Nerja ist die stimmigere Basis, wenn ihr spontan zu Fuß zum Strand, ans Meer oder zum Restaurant gehen möchtet.',
+        'Beide Orte liegen nah genug beieinander, um sie während derselben Reise zu erleben. Entscheidend ist, welcher Ort euch morgens und abends umgeben soll.',
+      body: [
+        'Wohnt ihr in Frigiliana, wird das historische Dorf zu eurem Zuhause, während Nerja und die Küste für Strandtage und Ausflüge erreichbar bleiben. Wohnt ihr in Nerja, beginnen eure Tage am Meer und in der Stadt; Frigiliana lässt sich trotzdem leicht besuchen.',
+        'Ihr entscheidet also nicht, auf welchen Ort ihr verzichtet. Ihr entscheidet, wo ihr aufwachen möchtet.'
+      ],
       imageAlt:
         'Weiße Häuser und Gassen in Frigiliana mit Blick Richtung Küste'
     },
     coreQuestion: {
       eyebrow: 'Die eigentliche Frage',
       title: 'Wo wollt ihr aufwachen – und abends nach Hause kommen?',
-      text:
-        'In Frigiliana beginnt und endet euer Tag mitten im historischen Dorf: morgens in ruhigen Gassen, abends zu Fuß auf dem Weg zum Restaurant und tagsüber mit der Küste als unkomplizierter Option. In Nerja liegen Strände, Küstenleben und ein breiteres Angebot direkt vor der Tür. Die Entfernung ist kurz; den Unterschied macht die Umgebung, die euren Tagesrhythmus prägt.'
+      paragraphs: [
+        'Bei einem Tagesausflug könnt ihr beide Orte kennenlernen. Dort zu wohnen, fühlt sich anders an.',
+        'Euer Urlaubsort prägt die selbstverständlichen Momente: wo ihr morgens Kaffee trinkt, was nach dem Abendessen vor der Tür liegt, ob der Strand zum täglichen Spaziergang gehört und wie oft ihr eure Wege mit Bus, Taxi oder Auto planen möchtet.',
+        'Frigiliana und Nerja liegen nah beieinander. Im Alltag fühlen sie sich dennoch unterschiedlich an.'
+      ]
     },
     decisionFactors: {
-      eyebrow: 'Entscheidungsfaktoren',
-      title: 'Ruhe, Strandnähe, Klima: Was ist euch am wichtigsten?',
-      text:
-        'Diese Übersicht zeigt euch den unterschiedlichen Tagesrhythmus beider Orte. Da Frigiliana und Nerja nur etwa zehn Autominuten auseinanderliegen, können Dorfleben und Küste Teil desselben Urlaubs bleiben.'
-    },
-    evening: {
-      eyebrow: 'Frigiliana am Abend',
-      title: 'Frigiliana am Abend gehört den Gästen',
-      text:
-        'Frigiliana ist ein Bergdorf im Wortsinn – steile Gassen, Treppen, kaum ein Auto, das durchfährt. Genau das verändert alles, sobald die letzten Tagesbusse das Dorf verlassen. Was bleibt, ist Ruhe. Eine echte, seltene Ruhe. Gegen 20 Uhr öffnen langsam die kleinen Restaurants. Man setzt sich an die Tische in den Gassen, es wird gegessen und geredet – es fühlt sich weniger an wie Tourismus und mehr, als wäre man abends mit Freunden im Dorf. Ringsum die weißen Häuser mit ihren farbigen Türen, Bougainvillea an den Mauern, und dahinter der Blick aufs Meer und über die Avocado- und Mangoplantagen der Axarquía. Das ist der Frigiliana-Moment, den ein Tagestourist nie erlebt. Er ist längst zurück an der Küste, während das Dorf zur Ruhe kommt und für ein paar Stunden denen gehört, die bleiben.'
-    },
-    history: {
-      eyebrow: 'Maurisches Erbe / Alhambra',
-      title: 'Schlafen in einem der ältesten Häuser des Dorfes',
-      text:
-        'Frigilianas Altstadt gilt als eines der am besten erhaltenen maurisch-mudéjar geprägten Altstadtviertel der Provinz Málaga – angelegt von derselben Kultur, die in Granada die Alhambra schuf. Die Häuser wuchsen über Jahrhunderte organisch den Hang hinauf: enge Stufengassen, kein Zimmer mit rechtem Winkel, jedes Haus im Lauf der Zeit erweitert, verkauft, umgebaut. Als wir AMARA Lounis von 2020 bis 2022 behutsam restaurierten und die alten Mauern freilegten, war unser Architekt sichtlich beeindruckt: Er erkannte darin dieselbe Bauweise wie die der Alhambra in Granada – dieselbe maurische Handschrift, die dieses Viertel vor Jahrhunderten geprägt hat. In einem Haus mit solchen Wurzeln zu schlafen, ist ein anderes Gefühl als in einem Küstenhotel. Darin liegt eine besondere Stärke Frigilianas; Nerjas eigener Reiz beginnt dagegen mit dem Leben am Meer.'
+      eyebrow: 'Was im Alltag zählt',
+      title: 'Vier Unterschiede, die euren Aufenthalt prägen.',
+      items: [
+        {
+          number: '01',
+          title: 'Die Umgebung im Alltag',
+          frigiliana:
+            'Ihr wacht in einem historischen Dorf am Hang auf. Weiße Gassen, Restaurants und das Dorfleben liegen direkt um euch herum.',
+          nerja:
+            'Ihr wacht in einer Küstenstadt auf. Je nach Viertel lassen sich Strände, Geschäfte, Restaurants und alles für den Alltag gut in den Tag einbauen.'
+        },
+        {
+          number: '02',
+          title: 'Der Weg zum Strand',
+          frigiliana:
+            'Ein Tag am Meer wird bewusst eingeplant. Ihr könnt Stunden an der Küste verbringen und danach ins Dorf zurückkehren.',
+          nerja:
+            'In der passenden Lage kann der Weg zum Strand so spontan sein wie der Gang zum Café oder Restaurant.'
+        },
+        {
+          number: '03',
+          title: 'Wege & Höhenunterschiede',
+          frigiliana:
+            'Das Dorf zieht sich den Hang hinauf. Die genaue Lage in Frigiliana entscheidet, wie viele Steigungen, gepflasterte Wege und Stufen zu jedem Rückweg gehören.',
+          nerja:
+            'Auch Nerja ist nicht überall flach. Altstadt, Torrecilla, Carabeo, Burriana und die Wohnlagen am Hang bringen jeweils andere Wege mit sich.'
+        },
+        {
+          number: '04',
+          title: 'Mobilität',
+          frigiliana:
+            'Mit einem Auto seid ihr für Strände und Ausflüge in die Region am flexibelsten. Auch ohne Auto kann der Aufenthalt funktionieren, wenn eure Pläne überschaubar bleiben.',
+          nerja:
+            'In einer gut gewählten zentralen Lage kommt ihr sehr gut ohne Auto aus. Weiter außerhalb wird ein Auto nützlicher; im Zentrum müsst ihr zugleich das Parken berücksichtigen.'
+        }
+      ]
     },
     comparison: {
-      eyebrow: 'Der ehrliche Vergleich',
-      title: 'Zwei Urlaubsbasen, zwei Tagesrhythmen',
+      eyebrow: 'Wählt euren Urlaubsort',
+      title: 'Zwei Orte. Zwei Arten, den Tag zu beginnen und ausklingen zu lassen.',
       frigiliana: {
-        title: 'Frigiliana – Ruhe, Natur, Geschichte',
-        text:
-          'Für Paare, die abends und nachts ihre Ruhe möchten, Wert auf Dorfcharakter und Ausblick legen und gern in der Natur sind. Rund um Frigiliana gibt es viele Wanderwege in die Sierra. Ein Pluspunkt gerade im Sommer: Oben im Bergdorf ist es oft spürbar kühler als an der Küste – die Nächte sind spürbar angenehmer.'
+        title: 'Frigiliana als Urlaubsort',
+        paragraphs: [
+          'Frigiliana passt zu einem Aufenthalt, bei dem das historische Dorf selbst Teil des Erlebnisses sein soll: ruhige Morgen, Dorfstraßen, abends zu Fuß zum Essen und am Tagesende zurück in die Altstadt.',
+          'Die Küste bleibt nah genug für Strandtage, Nerja und Maro. Zu Hause fühlt ihr euch jedoch im Dorf.'
+        ],
+        cta: 'Wohnen in Frigiliana entdecken'
       },
       nerja: {
-        title: 'Nerja – Meer, Lebendigkeit, direkt raus',
-        text:
-          'Für Gäste, die das lebendige Leben direkt vor der Tür wollen: Strand zu Fuß erreichbar, viele Restaurants, Betrieb. Nerja ist in Spanien durch die Kult-Fernsehserie „Verano azul“ (1980er) berühmt geworden und hat einen ganz eigenen, sommerlichen Puls. Wer die Nähe zum Meer und den Trubel sucht, ist hier richtig.'
-      },
-      conclusion:
-        'Ein Aufenthalt in Frigiliana verbindet Dorfmorgen und ruhige Abende mit Strandtagen in Nerja oder Maro. Von Nerja aus bleibt Frigiliana nah genug für einen unkomplizierten Besuch zwischen den Tagen am Meer. Entscheidend ist die Umgebung, in der euer Tag beginnen und in die ihr abends nach Hause kommen sollt.'
-    },
-    transport: {
-      eyebrow: 'Dorf und Küste',
-      title: 'Von Frigiliana bleibt die Küste gut erreichbar',
-      beforeBusLink:
-        'Die Fahrt von Frigiliana nach Nerja dauert rund zehn Minuten, sodass sich ein Strandtag unkompliziert einplanen lässt. Vor Nerja gibt es mehrere große Parkplätze; im Zentrum wird es enger, aber es ist machbar. Wer ohne Auto reist, kommt mit dem ',
-      busLinkLabel: 'öffentlichen Bus',
-      afterBusLink:
-        ' (Grupo Fajardo) hin und zurück: Montag bis Samstag fahren tagsüber rund ein Dutzend Verbindungen je Richtung. Von Frigiliana hinunter nach Nerja fährt der letzte reguläre Bus werktags gegen 21:00 Uhr (im Hochsommer bis 22:00 Uhr), zurück von Nerja hinauf gegen 20:30 Uhr (im Juli und August zusätzlich um 21:30 Uhr). Sonntags und feiertags fahren weniger Busse. Für späte Abende ist ein Auto also bequemer – aber tagsüber seid ihr in zehn Minuten am Strand und ebenso schnell wieder in eurer Ruhe.'
-    },
-    booking: {
-      eyebrow: 'Buchungs-Gabelung',
-      title: 'Wählt den Ort, an dem ihr euch im Urlaub zu Hause fühlen wollt',
-      frigiliana: {
-        title: 'Frigiliana für Dorfmorgen und ruhige Abende',
-        text:
-          'Dann sind unsere Boutique-Apartments in Frigiliana für Paare die richtige Wahl – mit dem Meer zehn Minuten entfernt.',
-        collectionCta: 'Apartments ansehen'
-      },
-      nerja: {
-        title: 'Nerja für Urlaubstage mit dem Strand direkt vor der Tür',
-        text:
-          'AMARA Playa passt zu euch, wenn der Strand sofort zu Fuß erreichbar sein und das Küstenleben spontan beginnen soll.',
-        cta: 'AMARA Playa ansehen'
+        title: 'Nerja als Urlaubsort',
+        paragraphs: [
+          'Nerja passt zu einem Aufenthalt, bei dem Küste und Stadt zum Alltag gehören sollen: Zeit am Strand, Restaurants, Geschäfte und Spaziergänge, die oft direkt an der Unterkunft beginnen können.',
+          'Die genaue Lage zählt: Torrecilla, Altstadt, Carabeo, Burriana und die Wohnlagen am Hang bieten spürbar unterschiedliche Tagesabläufe.'
+        ],
+        cta: 'Wohnen in Nerja entdecken'
       }
+    },
+    experienceBoth: {
+      title: 'Wählt, wo ihr aufwacht. Erlebt beide Orte.',
+      paragraphs: [
+        'Für welchen Urlaubsort ihr euch auch entscheidet: Der andere verschwindet nicht aus der Reise.',
+        'Frigiliana und Nerja liegen nah genug beieinander, um sie während desselben Aufenthalts zu verbinden. Öffentliche Verkehrsmittel, Taxis und das Auto ermöglichen tagsüber Wege zwischen Dorf und Küste; mit einem Auto bleibt ihr für spätere Abende und weitere Ausflüge flexibler.',
+        'Die hilfreiche Frage lautet also nicht „Frigiliana oder Nerja für immer?“, sondern einfach: In welche Umgebung möchtet ihr jeden Tag zurückkehren?'
+      ],
+      cta: 'So kommt ihr zwischen Frigiliana und der Küste hin und her'
+    },
+    microLocations: {
+      eyebrow: 'Wenn der Ort feststeht',
+      title: 'Dann wählt die passende Lage im Dorf oder in der Stadt.',
+      frigiliana: {
+        title: 'Ihr wohnt in Frigiliana?',
+        text:
+          'Vergleicht das untere historische Zentrum, das obere Barribarto, den neueren tiefer gelegenen Ortsteil und Lagen im Umland – einschließlich der Unterschiede bei Wegen und Zugang, die über mehrere Tage zählen.',
+        cta: 'Wo in Frigiliana übernachten?'
+      },
+      nerja: {
+        title: 'Ihr wohnt in Nerja?',
+        text:
+          'Vergleicht Altstadt, Torrecilla, Carabeo, Burriana und die Wohnlagen am Hang nach Strandnähe, Wegen, Mobilität und Alltag vor Ort.',
+        cta: 'Wo in Nerja übernachten?'
+      }
+    },
+    amara: {
+      eyebrow: 'Bei AMARA wohnen',
+      title: 'AMARA bietet Unterkünfte in beiden Orten.',
+      paragraphs: [
+        'AMARA hat vier Unterkünfte im historischen Zentrum Frigilianas und AMARA Playa im westlichen Zentrum Nerjas.',
+        'Wählt zuerst den Urlaubsort und danach die Unterkunft, die zu eurer Art zu reisen passt.'
+      ],
+      frigilianaCta: 'AMARA-Unterkünfte in Frigiliana ansehen',
+      nerjaCta: 'AMARA Playa ansehen'
     }
   },
   es: {
     hero: {
-      eyebrow: 'Guía para decidir',
+      eyebrow: 'Frigiliana y Nerja',
       title: 'Frigiliana o Nerja: ¿dónde alojarse?',
       lead:
-        'Una comparativa práctica de anfitriones con alojamientos en ambos lugares.',
-      intro:
-        'Frigiliana y Nerja están a unos diez minutos en coche y se combinan con mucha facilidad en unas mismas vacaciones. La pregunta importante no es cuál queréis visitar, sino dónde queréis despertar y adónde queréis volver al anochecer. Frigiliana encaja cuando el pueblo histórico debe ser vuestro hogar y Nerja, Maro y las playas completan los días junto al mar. Nerja funciona mejor como base si lo prioritario es ir andando a la playa y decidir sobre la marcha entre el mar, los restaurantes y la vida de la costa.',
+        'Están lo bastante cerca para conocer ambos lugares. La verdadera elección es cuál queréis tener a vuestro alrededor al empezar y terminar cada día.',
+      body: [
+        'Si os alojáis en Frigiliana, el pueblo histórico se convierte en vuestro hogar, mientras Nerja y la costa quedan a mano para días de playa y excursiones. Si os alojáis en Nerja, el mar, la localidad y la vida cotidiana de la costa son el punto de partida; Frigiliana sigue lo bastante cerca para visitarla con facilidad.',
+        'No estáis eligiendo qué lugar perderos. Estáis eligiendo dónde queréis despertar.'
+      ],
       imageAlt:
         'Casas blancas y callejuelas de Frigiliana con vistas hacia la costa'
     },
     coreQuestion: {
       eyebrow: 'La pregunta clave',
-      title: '¿Dónde queréis despertar y volver al anochecer?',
-      text:
-        'En Frigiliana, el día empieza y termina dentro del pueblo histórico: callejuelas tranquilas por la mañana, restaurantes a pie por la noche y la costa como plan fácil durante el día. Nerja sitúa las playas, la vida junto al mar y una oferta costera más amplia nada más salir de casa. La distancia es corta; la diferencia real está en el entorno que marca vuestro ritmo diario.'
+      title: '¿Dónde queréis despertar y volver al final del día?',
+      paragraphs: [
+        'Una excursión permite conocer ambos lugares. Alojarse en ellos es distinto.',
+        'El lugar donde os quedáis marca los momentos cotidianos de las vacaciones: dónde tomáis el café por la mañana, qué hay al salir después de cenar, si la playa forma parte del paseo diario y cuánto transporte queréis organizar.',
+        'Frigiliana y Nerja están cerca. Su vida cotidiana no tiene el mismo ritmo.'
+      ]
     },
     decisionFactors: {
-      eyebrow: 'Factores para decidir',
-      title: 'Calma, playa y clima: ¿qué os importa más?',
-      text:
-        'Esta comparativa muestra el ritmo diario de cada lugar. Como Frigiliana y Nerja están a unos diez minutos en coche, el pueblo y la costa pueden formar parte de las mismas vacaciones.'
-    },
-    evening: {
-      eyebrow: 'Frigiliana al anochecer',
-      title: 'Por la noche, Frigiliana pertenece a quienes se alojan aquí',
-      text:
-        'Frigiliana es un pueblo de montaña en el sentido más literal: callejuelas empinadas, escaleras y apenas coches atravesándolo. Todo cambia cuando se marchan los últimos autobuses de excursionistas. Lo que queda es calma, una calma auténtica y poco habitual. Hacia las ocho, los pequeños restaurantes empiezan a abrir. La gente se sienta a las mesas de las callejuelas, cena y conversa; se siente menos como turismo y más como pasar la noche en el pueblo entre amigos. Alrededor aparecen las casas blancas con puertas de colores, buganvillas sobre los muros y, al fondo, el mar y las plantaciones de aguacates y mangos de la Axarquía. Es el momento de Frigiliana que quien viene solo de día nunca vive. Ya ha regresado a la costa mientras el pueblo baja el ritmo y, durante unas horas, pertenece a quienes se quedan.'
-    },
-    history: {
-      eyebrow: 'Herencia andalusí / Alhambra',
-      title: 'Dormir en una de las casas más antiguas del pueblo',
-      text:
-        'El casco antiguo de Frigiliana está considerado uno de los barrios morisco-mudéjares mejor conservados de la provincia de Málaga, nacido de la misma cultura que levantó la Alhambra de Granada. Durante siglos, las casas crecieron de forma orgánica por la ladera: callejuelas escalonadas, habitaciones sin ángulos rectos y viviendas ampliadas, vendidas y transformadas con el tiempo. Cuando restauramos cuidadosamente AMARA Lounis de 2020 a 2022 y dejamos al descubierto los muros antiguos, nuestro arquitecto quedó visiblemente impresionado: reconoció el mismo método constructivo de la Alhambra, la misma huella morisca que dio forma a este barrio hace siglos. Dormir en una casa con estas raíces se siente de otra manera que hacerlo en un hotel de costa. Es una de las grandes cualidades de Frigiliana; el atractivo propio de Nerja comienza, en cambio, con la vida junto al mar.'
+      eyebrow: 'Claves para elegir',
+      title: 'Cuatro diferencias que marcan la estancia.',
+      items: [
+        {
+          number: '01',
+          title: 'El entorno cotidiano',
+          frigiliana:
+            'Despertáis dentro de un pueblo histórico en la ladera, rodeados de calles blancas, restaurantes y vida de pueblo.',
+          nerja:
+            'Despertáis en una localidad costera donde, según la zona elegida, las playas, las tiendas, los restaurantes y los servicios cotidianos pueden integrarse fácilmente en el día.'
+        },
+        {
+          number: '02',
+          title: 'La playa en el día a día',
+          frigiliana:
+            'La costa es un plan que incorporáis de forma consciente. Podéis pasar horas junto al mar y regresar después al pueblo.',
+          nerja:
+            'En la zona adecuada de Nerja, ir a la playa puede ser tan espontáneo como salir a tomar un café o cenar.'
+        },
+        {
+          number: '03',
+          title: 'Recorridos a pie y desnivel',
+          frigiliana:
+            'El pueblo asciende por la ladera. La ubicación concreta en Frigiliana determina cuánto desnivel, pavimento y escaleras forman parte de cada regreso.',
+          nerja:
+            'Nerja tampoco es completamente llana. El casco antiguo, Torrecilla, Carabeo, Burriana y las zonas residenciales de las colinas implican recorridos diferentes.'
+        },
+        {
+          number: '04',
+          title: 'Movilidad',
+          frigiliana:
+            'Un coche ofrece la mayor libertad para ir a las playas y recorrer la zona, aunque la estancia también puede funcionar sin él si vuestros planes son relativamente sencillos.',
+          nerja:
+            'Una ubicación céntrica bien elegida puede funcionar muy bien sin coche. Más lejos del centro resulta más útil, mientras que en las zonas céntricas también hay que tener en cuenta el aparcamiento.'
+        }
+      ]
     },
     comparison: {
-      eyebrow: 'La comparativa sincera',
-      title: 'Dos bases, dos ritmos de vacaciones',
+      eyebrow: 'Elegid dónde alojaros',
+      title: 'Dos lugares. Dos formas de empezar y terminar el día.',
       frigiliana: {
-        title: 'Frigiliana: calma, naturaleza e historia',
-        text:
-          'Para parejas que quieren tranquilidad por la noche, valoran el carácter del pueblo y las vistas, y disfrutan de la naturaleza. Desde Frigiliana parten numerosas rutas hacia la sierra. Otra ventaja, especialmente en verano, es que el pueblo de montaña suele estar sensiblemente más fresco que la costa y las noches resultan mucho más agradables.'
+        title: 'Alojarse en Frigiliana',
+        paragraphs: [
+          'Frigiliana encaja en unas vacaciones donde el pueblo histórico debe formar parte de la experiencia: mañanas tranquilas, calles de pueblo, cenas a pie y el regreso al casco antiguo al final del día.',
+          'La costa sigue lo bastante cerca para pasar el día en la playa, en Nerja o en Maro, pero el lugar que se siente como casa es el pueblo.'
+        ],
+        cta: 'Descubrir cómo es alojarse en Frigiliana'
       },
       nerja: {
-        title: 'Nerja: mar y ambiente al salir de casa',
-        text:
-          'Para huéspedes que quieren vida y movimiento justo al otro lado de la puerta: playa a pie, muchos restaurantes y un ambiente animado. Nerja se hizo famosa en España gracias a la serie de culto «Verano Azul», de los años ochenta, y conserva un pulso veraniego muy propio. Si buscáis cercanía al mar y más actividad, este es vuestro lugar.'
-      },
-      conclusion:
-        'Alojarse en Frigiliana permite combinar mañanas y noches de pueblo con días de playa en Nerja o Maro. Desde Nerja, Frigiliana sigue lo bastante cerca para visitarla cómodamente entre jornadas junto al mar. La elección está en el entorno donde queréis empezar el día y al que queréis volver por la noche.'
-    },
-    transport: {
-      eyebrow: 'Pueblo y costa',
-      title: 'Desde Frigiliana, la costa sigue estando muy cerca',
-      beforeBusLink:
-        'Nerja está a unos diez minutos en coche desde Frigiliana, por lo que resulta fácil incluir un día de playa. Antes de entrar en el centro hay varios aparcamientos grandes; dentro las calles son más estrechas, pero se puede gestionar. Si viajáis sin coche, podéis utilizar el ',
-      busLinkLabel: 'autobús público',
-      afterBusLink:
-        ' de Grupo Fajardo para ir y volver. De lunes a sábado hay alrededor de una docena de servicios diurnos en cada sentido. Entre semana, el último autobús regular de Frigiliana a Nerja sale hacia las 21:00 —hasta las 22:00 en pleno verano— y el último de regreso sube aproximadamente a las 20:30, con un servicio adicional a las 21:30 en julio y agosto. Los domingos y festivos hay menos conexiones. Para volver tarde, el coche es más cómodo; durante el día, en cambio, podéis estar en la playa en diez minutos y regresar con la misma rapidez a vuestro refugio tranquilo.'
-    },
-    booking: {
-      eyebrow: 'El momento de elegir',
-      title: 'Elegid el lugar al que queréis volver cada día',
-      frigiliana: {
-        title: 'Frigiliana para mañanas de pueblo y noches tranquilas',
-        text:
-          'Entonces nuestros apartamentos boutique para parejas en Frigiliana son la opción adecuada, con el mar a solo diez minutos.',
-        collectionCta: 'Ver apartamentos'
-      },
-      nerja: {
-        title: 'Nerja para unas vacaciones con la playa en primer plano',
-        text:
-          'AMARA Playa encaja si lo más importante es llegar andando a la playa y disfrutar de la costa con total espontaneidad.',
-        cta: 'Ver AMARA Playa'
+        title: 'Alojarse en Nerja',
+        paragraphs: [
+          'Nerja encaja en unas vacaciones donde la costa y la localidad deben formar parte del día a día: playa, restaurantes, tiendas y paseos que a menudo pueden empezar directamente desde el alojamiento.',
+          'La zona concreta importa: Torrecilla, el casco antiguo, Carabeo, Burriana y las áreas residenciales de las colinas ofrecen rutinas claramente distintas.'
+        ],
+        cta: 'Descubrir cómo es alojarse en Nerja'
       }
+    },
+    experienceBoth: {
+      title: 'Elegid dónde despertar. Disfrutad de ambos lugares.',
+      paragraphs: [
+        'Elijáis el lugar que elijáis, el otro no desaparece del viaje.',
+        'Frigiliana y Nerja están lo bastante cerca para combinarlas durante la misma estancia. El transporte público, los taxis y el coche permiten desplazarse durante el día entre el pueblo y la costa; con coche tendréis más flexibilidad para volver más tarde y ampliar los planes.',
+        'La pregunta útil no es «¿Frigiliana o Nerja para siempre?», sino a qué entorno queréis regresar cada día.'
+      ],
+      cta: 'Cómo moverse entre Frigiliana y la costa'
+    },
+    microLocations: {
+      eyebrow: 'Cuando el destino está claro',
+      title: 'Después, elegid bien la zona del pueblo o la localidad.',
+      frigiliana: {
+        title: '¿Os alojáis en Frigiliana?',
+        text:
+          'Comparad la parte baja del casco histórico, el Barribarto alto, la zona moderna más baja y los alojamientos en el campo, incluidas las diferencias de acceso y recorridos a pie que importan durante varios días.',
+        cta: 'Dónde alojarse en Frigiliana'
+      },
+      nerja: {
+        title: '¿Os alojáis en Nerja?',
+        text:
+          'Comparad el casco antiguo, Torrecilla, Carabeo, Burriana y las zonas residenciales de las colinas según la playa, los recorridos a pie, la movilidad y la vida cotidiana.',
+        cta: 'Dónde alojarse en Nerja'
+      }
+    },
+    amara: {
+      eyebrow: 'Alojaos con AMARA',
+      title: 'Recibimos huéspedes en ambos lugares.',
+      paragraphs: [
+        'AMARA tiene cuatro alojamientos en el centro histórico de Frigiliana y AMARA Playa en la zona oeste del centro de Nerja.',
+        'Elegid primero el lugar. Después, el alojamiento que mejor encaje con vuestra forma de viajar.'
+      ],
+      frigilianaCta: 'Ver alojamientos AMARA en Frigiliana',
+      nerjaCta: 'Ver AMARA Playa'
     }
   },
   nl: {
     hero: {
-      eyebrow: 'Keuzehulp',
-      title: 'Frigiliana of Nerja: waar verblijven?',
+      eyebrow: 'Frigiliana & Nerja',
+      title: 'Frigiliana of Nerja: waar overnachten?',
       lead:
-        'Een praktische vergelijking van hosts met verblijven in beide plaatsen.',
-      intro:
-        'Frigiliana en Nerja liggen maar ongeveer tien minuten rijden van elkaar en laten zich gemakkelijk combineren tijdens één vakantie. De belangrijkste vraag is daarom niet welke plaats jullie willen bezoeken, maar waar jullie willen wakker worden en ’s avonds willen thuiskomen. Frigiliana past wanneer het historische dorp als thuisbasis moet voelen en Nerja, Maro en de stranden de dagen aan zee invullen. Nerja werkt beter als uitvalsbasis wanneer direct naar het strand lopen en spontaan kiezen tussen zee, restaurants en kustleven vooropstaan.',
+        'De twee plaatsen liggen dicht genoeg bij elkaar om ze allebei te beleven. De echte keuze is in welke omgeving jullie elke dag willen beginnen en eindigen.',
+      body: [
+        'Verblijven jullie in Frigiliana, dan wordt het historische dorp jullie thuisplek en blijven Nerja en de kust binnen bereik voor stranddagen en uitstapjes. Verblijven jullie in Nerja, dan beginnen de dagen bij de zee en in de kustplaats; Frigiliana blijft dichtbij genoeg voor een ontspannen bezoek.',
+        'Jullie kiezen dus niet welke plek jullie moeten missen. Jullie kiezen waar jullie wakker willen worden.'
+      ],
       imageAlt:
         'Witte huizen en steegjes in Frigiliana met uitzicht richting de kust'
     },
     coreQuestion: {
       eyebrow: 'De echte vraag',
-      title: 'Waar willen jullie wakker worden en thuiskomen?',
-      text:
-        'In Frigiliana begint en eindigt de dag midden in het historische dorp: rustige steegjes in de ochtend, restaurants op loopafstand in de avond en de kust als gemakkelijke optie overdag. In Nerja liggen stranden, het leven aan zee en een ruimer aanbod aan de kust direct buiten de deur. De afstand is klein; het echte verschil is de omgeving die jullie dagritme bepaalt.'
+      title: 'Waar willen jullie wakker worden en aan het eind van de dag thuiskomen?',
+      paragraphs: [
+        'Tijdens een dagtocht krijgen jullie van beide plaatsen een indruk. Er verblijven is iets anders.',
+        'De plek waar jullie verblijven bepaalt de gewone vakantiemomenten: waar jullie koffie halen in de ochtend, wat er na het eten buiten de deur te vinden is, of het strand bij een dagelijkse wandeling hoort en hoeveel vervoer jullie willen regelen.',
+        'Frigiliana en Nerja liggen dicht bij elkaar. Het dagelijks leven voelt er niet hetzelfde.'
+      ]
     },
     decisionFactors: {
-      eyebrow: 'Beslissende factoren',
-      title: 'Rust, strand en klimaat: wat vinden jullie het belangrijkst?',
-      text:
-        'Dit overzicht vergelijkt het dagelijkse ritme van beide plaatsen. Omdat Frigiliana en Nerja maar ongeveer tien minuten rijden van elkaar liggen, kunnen het dorpsleven en de kust deel blijven van dezelfde vakantie.'
-    },
-    evening: {
-      eyebrow: 'Frigiliana in de avond',
-      title: 'In de avond is Frigiliana van zijn gasten',
-      text:
-        'Frigiliana is een bergdorp in de meest letterlijke zin: steile steegjes, trappen en nauwelijks doorgaand autoverkeer. Alles verandert zodra de laatste bussen met dagjesmensen vertrekken. Wat overblijft is rust, echte en zeldzame rust. Rond acht uur openen de kleine restaurants langzaam hun deuren. Mensen zitten aan tafels in de steegjes, eten en praten; het voelt minder als toerisme en meer als een avond met vrienden in het dorp. Rondom staan de witte huizen met kleurrijke deuren en bougainville tegen de muren, met daarachter uitzicht op zee en de avocado- en mangoplantages van de Axarquía. Dit is het Frigiliana-moment dat een dagbezoeker nooit meemaakt. Die is al terug aan de kust terwijl het dorp tot rust komt en een paar uur lang toebehoort aan de mensen die blijven.'
-    },
-    history: {
-      eyebrow: 'Moors erfgoed / Alhambra',
-      title: 'Slapen in een van de oudste huizen van het dorp',
-      text:
-        'De oude stad van Frigiliana geldt als een van de best bewaarde Moors-Mudéjarwijken van de provincie Málaga, gevormd door dezelfde cultuur die het Alhambra in Granada bouwde. De huizen groeiden eeuwenlang organisch tegen de helling op: smalle steegjes met trappen, kamers zonder rechte hoek en woningen die door de jaren heen werden uitgebreid, verkocht en verbouwd. Toen we AMARA Lounis van 2020 tot 2022 zorgvuldig restaureerden en de oude muren blootlegden, was onze architect zichtbaar onder de indruk. Hij herkende dezelfde bouwmethode als bij het Alhambra, dezelfde Moorse signatuur die deze wijk eeuwen geleden vormde. Slapen in een huis met zulke wortels voelt anders dan in een hotel aan de kust. Dat is een van Frigiliana’s onderscheidende kwaliteiten; de eigen aantrekkingskracht van Nerja begint juist bij het leven aan zee.'
+      eyebrow: 'Wat het verschil maakt',
+      title: 'Vier verschillen die jullie verblijf bepalen.',
+      items: [
+        {
+          number: '01',
+          title: 'De omgeving van alledag',
+          frigiliana:
+            'Jullie worden wakker in een historisch dorp tegen de heuvel, met witte straatjes, restaurants en het dorpsleven om jullie heen.',
+          nerja:
+            'Jullie worden wakker in een kustplaats waar strand, winkels, restaurants en dagelijkse voorzieningen, afhankelijk van de buurt, gemakkelijk deel van de dag kunnen zijn.'
+        },
+        {
+          number: '02',
+          title: 'De rol van het strand',
+          frigiliana:
+            'De kust is iets wat jullie bewust in de dag opnemen. Na een paar uur aan zee keren jullie weer terug naar het dorp.',
+          nerja:
+            'In de juiste buurt van Nerja kan naar het strand gaan net zo spontaan zijn als koffie drinken of uit eten gaan.'
+        },
+        {
+          number: '03',
+          title: 'Lopen & hoogteverschillen',
+          frigiliana:
+            'Het dorp loopt tegen de heuvel omhoog. De precieze plek in Frigiliana bepaalt hoeveel stijging, bestrating en trappen bij elke terugweg horen.',
+          nerja:
+            'Ook Nerja is niet overal vlak. Het oude centrum, Torrecilla, Carabeo, Burriana en de woonwijken in de heuvels hebben elk hun eigen wandelroutes.'
+        },
+        {
+          number: '04',
+          title: 'Vervoer',
+          frigiliana:
+            'Met een auto hebben jullie de meeste vrijheid voor stranden en de omgeving. Zonder auto kan een verblijf ook goed werken als de plannen relatief eenvoudig blijven.',
+          nerja:
+            'Op een goed gekozen centrale plek kunnen jullie prima zonder auto. Verder van het centrum wordt een auto nuttiger, terwijl parkeren in het centrum zelf ook meeweegt.'
+        }
+      ]
     },
     comparison: {
-      eyebrow: 'De eerlijke vergelijking',
-      title: 'Twee uitvalsbases, twee vakantieritmes',
+      eyebrow: 'Kies waar jullie verblijven',
+      title: 'Twee plaatsen. Twee manieren om de dag te beginnen en af te sluiten.',
       frigiliana: {
-        title: 'Frigiliana: rust, natuur en geschiedenis',
-        text:
-          'Voor stellen die ’s avonds en ’s nachts rust willen, dorpskarakter en uitzicht waarderen en graag in de natuur zijn. Rond Frigiliana lopen veel wandelroutes de sierra in. Een extra voordeel, vooral in de zomer, is dat het bergdorp vaak merkbaar koeler is dan de kust en de nachten er aanzienlijk aangenamer zijn.'
+        title: 'Frigiliana als thuisplek',
+        paragraphs: [
+          'Frigiliana past bij een verblijf waarin het historische dorp deel van de ervaring mag zijn: rustige ochtenden, dorpsstraatjes, te voet uit eten en aan het eind van de dag thuiskomen in de oude kern.',
+          'De kust blijft dichtbij genoeg voor stranddagen, Nerja en Maro, maar het dorp is de plek die als thuis voelt.'
+        ],
+        cta: 'Ontdek verblijven in Frigiliana'
       },
       nerja: {
-        title: 'Nerja: zee en levendigheid voor de deur',
-        text:
-          'Voor gasten die het bruisende leven direct voor de deur willen: het strand op loopafstand, veel restaurants en volop reuring. Nerja werd in Spanje beroemd door de cultserie ‘Verano Azul’ uit de jaren tachtig en heeft een heel eigen zomers ritme. Wie dicht bij zee en midden in de bedrijvigheid wil zijn, zit hier goed.'
-      },
-      conclusion:
-        'Een verblijf in Frigiliana combineert dorpsmorgens en rustige avonden met stranddagen in Nerja of Maro. Vanuit Nerja blijft Frigiliana dichtbij genoeg voor een ontspannen bezoek tussen de dagen aan zee. De keuze draait om de omgeving waarin jullie de dag willen beginnen en ’s avonds willen thuiskomen.'
-    },
-    transport: {
-      eyebrow: 'Dorp en kust',
-      title: 'Vanuit Frigiliana blijft de kust gemakkelijk bereikbaar',
-      beforeBusLink:
-        'De rit van Frigiliana naar Nerja duurt ongeveer tien minuten, waardoor een stranddag gemakkelijk in te plannen is. Voor de toegang tot Nerja liggen meerdere grote parkeerterreinen; in het centrum wordt het krapper, maar het is goed te doen. Reizen jullie zonder auto, dan kunnen jullie de ',
-      busLinkLabel: 'openbare bus',
-      afterBusLink:
-        ' van Grupo Fajardo nemen. Van maandag tot en met zaterdag rijden overdag ongeveer twaalf bussen per richting. Op werkdagen vertrekt de laatste reguliere bus van Frigiliana naar Nerja rond 21.00 uur —in het hoogseizoen tot 22.00 uur— en vanuit Nerja omhoog rond 20.30 uur, met in juli en augustus nog een extra rit om 21.30 uur. Op zon- en feestdagen rijden minder bussen. Voor late avonden is een auto dus handiger, maar overdag staan jullie in tien minuten op het strand en zijn jullie net zo snel terug in de rust.'
-    },
-    booking: {
-      eyebrow: 'Het keuzemoment',
-      title: 'Kies de plek waar jullie elke dag willen thuiskomen',
-      frigiliana: {
-        title: 'Frigiliana voor dorpsmorgens en rustige avonden',
-        text:
-          'Dan zijn onze boutique-appartementen voor stellen in Frigiliana de juiste keuze, met de zee op slechts tien minuten afstand.',
-        collectionCta: 'Bekijk de appartementen'
-      },
-      nerja: {
-        title: 'Nerja voor vakantiedagen met het strand voorop',
-        text:
-          'AMARA Playa past wanneer direct naar het strand lopen en spontaan genieten van het kustleven het belangrijkst zijn.',
-        cta: 'Bekijk AMARA Playa'
+        title: 'Nerja als thuisplek',
+        paragraphs: [
+          'Nerja past bij een verblijf waarin de kust en de plaats zelf bij elke dag horen: strand, restaurants, winkels en wandelingen die vaak direct bij de accommodatie beginnen.',
+          'De precieze buurt maakt verschil. Torrecilla, het oude centrum, Carabeo, Burriana en de woonwijken in de heuvels brengen elk een andere dagelijkse routine mee.'
+        ],
+        cta: 'Ontdek verblijven in Nerja'
       }
+    },
+    experienceBoth: {
+      title: 'Kies waar jullie wakker worden. Beleef ze allebei.',
+      paragraphs: [
+        'Welke plek jullie ook kiezen, de andere verdwijnt niet uit de reis.',
+        'Frigiliana en Nerja liggen dicht genoeg bij elkaar om ze tijdens hetzelfde verblijf te combineren. Openbaar vervoer, taxi en auto maken verplaatsingen overdag tussen dorp en kust mogelijk; een auto geeft meer vrijheid voor latere avonden en uitstapjes verder weg.',
+        'De nuttige vraag is dus niet “Frigiliana of Nerja voor altijd?”, maar simpelweg naar welke omgeving jullie elke dag willen terugkeren.'
+      ],
+      cta: 'Zo reizen jullie tussen Frigiliana en de kust'
+    },
+    microLocations: {
+      eyebrow: 'Als de plaats vaststaat',
+      title: 'Kies vervolgens de juiste plek in het dorp of de stad.',
+      frigiliana: {
+        title: 'Verblijven jullie in Frigiliana?',
+        text:
+          'Vergelijk het lagere historische centrum, het hoger gelegen Barribarto, het nieuwere lagere dorpsdeel en locaties buiten het dorp, inclusief de verschillen in lopen en toegang die na een paar dagen merkbaar worden.',
+        cta: 'Waar overnachten in Frigiliana?'
+      },
+      nerja: {
+        title: 'Verblijven jullie in Nerja?',
+        text:
+          'Vergelijk het oude centrum, Torrecilla, Carabeo, Burriana en de woonwijken in de heuvels op toegang tot het strand, wandelroutes, vervoer en het dagelijks leven.',
+        cta: 'Waar overnachten in Nerja?'
+      }
+    },
+    amara: {
+      eyebrow: 'Verblijf bij AMARA',
+      title: 'We ontvangen gasten op beide plekken.',
+      paragraphs: [
+        'AMARA heeft vier verblijven in het historische centrum van Frigiliana en AMARA Playa in het westelijke deel van het centrum van Nerja.',
+        'Kies eerst de plaats. Kies daarna het verblijf dat past bij de manier waarop jullie willen reizen.'
+      ],
+      frigilianaCta: 'Bekijk AMARA-verblijven in Frigiliana',
+      nerjaCta: 'Bekijk AMARA Playa'
     }
   },
   sv: {
     hero: {
-      eyebrow: 'Vägledning inför valet',
+      eyebrow: 'Frigiliana & Nerja',
       title: 'Frigiliana eller Nerja: var ska man bo?',
       lead:
-        'En praktisk jämförelse från värdar med boenden på båda platserna.',
-      intro:
-        'Frigiliana och Nerja ligger bara omkring tio minuters bilresa från varandra och är enkla att kombinera under samma semester. Den viktigaste frågan är därför inte vilken ort ni vill besöka, utan var ni vill vakna och komma hem på kvällen. Frigiliana passar när den historiska byn ska vara ert hem och Nerja, Maro och stränderna fyller dagarna vid havet. Nerja fungerar bättre som bas när det viktigaste är att kunna promenera direkt till stranden och spontant välja mellan havet, restaurangerna och kustlivet.',
+        'De ligger så nära varandra att ni kan uppleva båda. Den verkliga frågan är vilken plats ni vill ha omkring er när dagen börjar och slutar.',
+      body: [
+        'Bor ni i Frigiliana blir den historiska byn ert hem, medan Nerja och kusten finns nära till hands för stranddagar och utflykter. Bor ni i Nerja börjar dagen vid havet och i kuststaden; Frigiliana ligger fortfarande nära nog för ett enkelt besök.',
+        'Ni väljer alltså inte vilken plats ni ska avstå från. Ni väljer var ni vill vakna.'
+      ],
       imageAlt:
         'Vita hus och gränder i Frigiliana med utsikt mot kusten'
     },
     coreQuestion: {
       eyebrow: 'Den verkliga frågan',
-      title: 'Var vill ni vakna och komma hem på kvällen?',
-      text:
-        'I Frigiliana börjar och slutar dagen mitt i den historiska byn: lugna gränder på morgonen, restauranger på gångavstånd på kvällen och kusten som ett enkelt alternativ under dagen. I Nerja finns stränderna, livet vid havet och ett bredare kustutbud direkt utanför dörren. Avståndet är kort; den verkliga skillnaden är miljön som formar er dagsrytm.'
+      title: 'Var vill ni vakna och komma hem i slutet av dagen?',
+      paragraphs: [
+        'En dagsutflykt kan ge er en bild av båda platserna. Att bo där är något annat.',
+        'Platsen där ni bor präglar semesterns vardagsstunder: var ni tar morgonkaffet, vad som finns utanför dörren efter middagen, om stranden blir en del av den dagliga promenaden och hur mycket transport ni vill planera.',
+        'Frigiliana och Nerja ligger nära varandra. Men vardagen har olika karaktär.'
+      ]
     },
     decisionFactors: {
-      eyebrow: 'Faktorer som avgör',
-      title: 'Lugn, strand och klimat: vad är viktigast för er?',
-      text:
-        'Översikten jämför vardagsrytmen på de båda orterna. Eftersom Frigiliana och Nerja bara ligger omkring tio minuters bilresa från varandra kan bylivet och kusten vara delar av samma semester.'
-    },
-    evening: {
-      eyebrow: 'Frigiliana på kvällen',
-      title: 'På kvällen tillhör Frigiliana sina gäster',
-      text:
-        'Frigiliana är en bergsby i ordets mest bokstavliga mening: branta gränder, trappor och knappt någon genomfartstrafik. Allt förändras när de sista bussarna med dagsbesökare lämnar byn. Kvar blir lugnet, ett äkta och sällsynt lugn. Vid åttatiden börjar de små restaurangerna öppna. Människor sitter vid bord i gränderna, äter och pratar; det känns mindre som turism och mer som en kväll i byn med vänner. Runt omkring syns de vita husen med färgstarka dörrar, bougainvillea längs väggarna och längre bort havet och Axarquías avokado- och mangoodlingar. Det är Frigiliana-ögonblicket som en dagsbesökare aldrig upplever. De är sedan länge tillbaka vid kusten medan byn varvar ner och under några timmar tillhör dem som stannar.'
-    },
-    history: {
-      eyebrow: 'Moriskt arv / Alhambra',
-      title: 'Sov i ett av byns äldsta hus',
-      text:
-        'Frigilianas gamla stad räknas som ett av de bäst bevarade morisk-mudéjarpräglade kvarteren i provinsen Málaga, skapat av samma kultur som byggde Alhambra i Granada. Under århundraden växte husen organiskt uppför sluttningen: smala gränder med trappor, rum utan räta vinklar och bostäder som byggdes ut, såldes och förändrades över tid. När vi varsamt restaurerade AMARA Lounis 2020–2022 och blottlade de gamla murarna blev vår arkitekt tydligt imponerad. Han kände igen samma byggmetod som i Alhambra, samma moriska signatur som formade kvarteret för flera hundra år sedan. Att sova i ett hus med sådana rötter känns annorlunda än på ett kusthotell. Det är en av Frigilianas särskilda styrkor, medan Nerjas egen attraktionskraft börjar med livet vid havet.'
+      eyebrow: 'Det som påverkar vistelsen',
+      title: 'Fyra skillnader att tänka på.',
+      items: [
+        {
+          number: '01',
+          title: 'Miljön omkring er',
+          frigiliana:
+            'Ni vaknar i en historisk by på bergssluttningen, med vita gränder, restauranger och byliv runt omkring.',
+          nerja:
+            'Ni vaknar i en kuststad där stränder, butiker, restauranger och vardagsservice kan bli en enkel del av dagen, beroende på vilket område ni väljer.'
+        },
+        {
+          number: '02',
+          title: 'Stranden i vardagen',
+          frigiliana:
+            'Kusten blir något ni medvetet planerar in. Ni kan tillbringa några timmar vid havet och återvända till byn efteråt.',
+          nerja:
+            'I rätt del av Nerja kan ett besök på stranden bli lika spontant som att gå ut för en kaffe eller middag.'
+        },
+        {
+          number: '03',
+          title: 'Promenader & nivåskillnader',
+          frigiliana:
+            'Byn klättrar uppför sluttningen. Det exakta läget i Frigiliana avgör hur mycket backar, stenläggning och trappor som ingår i vägen hem.',
+          nerja:
+            'Inte heller Nerja är platt överallt. Gamla stan, Torrecilla, Carabeo, Burriana och bostadsområdena på höjderna ger olika promenadmönster.'
+        },
+        {
+          number: '04',
+          title: 'Att ta sig runt',
+          frigiliana:
+            'Med bil får ni störst frihet för stränder och utflykter i området. Det går också att bo utan bil om planerna är förhållandevis enkla.',
+          nerja:
+            'Med ett väl valt centralt läge fungerar det mycket bra utan bil. Längre ut blir bilen mer användbar, samtidigt som ni behöver ta hänsyn till parkeringen i centrum.'
+        }
+      ]
     },
     comparison: {
-      eyebrow: 'Den ärliga jämförelsen',
-      title: 'Två semesterbaser, två dagsrytmer',
+      eyebrow: 'Välj var ni vill bo',
+      title: 'Två platser. Två sätt att börja och avsluta dagen.',
       frigiliana: {
-        title: 'Frigiliana: lugn, natur och historia',
-        text:
-          'För par som vill ha lugn på kvällen och natten, uppskattar bykaraktär och utsikt och gärna vistas i naturen. Runt Frigiliana finns många vandringsleder som leder ut i sierran. En extra fördel, särskilt på sommaren, är att bergsbyn ofta är märkbart svalare än kusten och nätterna betydligt behagligare.'
+        title: 'Frigiliana som hem under resan',
+        paragraphs: [
+          'Frigiliana passar när den historiska byn ska vara en del av själva vistelsen: lugna morgnar, bygator, middag på gångavstånd och att återvända till gamla stan i slutet av dagen.',
+          'Kusten ligger fortfarande nära nog för stranddagar, Nerja och Maro, men det är byn som känns som hemma.'
+        ],
+        cta: 'Upptäck hur det är att bo i Frigiliana'
       },
       nerja: {
-        title: 'Nerja: hav och folkliv utanför dörren',
-        text:
-          'För gäster som vill ha det livliga utbudet precis utanför dörren: stranden på gångavstånd, många restauranger och rörelse. Nerja blev känt i Spanien genom kultserien ”Verano Azul” från 1980-talet och har en helt egen sommarpuls. Om närheten till havet och mer folkliv är viktigast passar Nerja bäst.'
-      },
-      conclusion:
-        'En vistelse i Frigiliana kombinerar bymorgnar och lugna kvällar med stranddagar i Nerja eller Maro. Från Nerja ligger Frigiliana fortfarande nära nog för ett enkelt besök mellan dagarna vid havet. Valet handlar om miljön där ni vill börja dagen och komma hem på kvällen.'
-    },
-    transport: {
-      eyebrow: 'By och kust',
-      title: 'Från Frigiliana är kusten fortfarande lätt att nå',
-      beforeBusLink:
-        'Bilresan från Frigiliana till Nerja tar ungefär tio minuter, så en stranddag är enkel att planera in. Innan ni kör in i Nerja finns flera stora parkeringar; i centrum blir det trängre, men det går att hantera. Reser ni utan bil kan ni använda den ',
-      busLinkLabel: 'allmänna bussen',
-      afterBusLink:
-        ' från Grupo Fajardo för att ta er fram och tillbaka. Från måndag till lördag går ungefär ett dussin avgångar i vardera riktningen under dagen. På vardagar går den sista ordinarie bussen från Frigiliana ner till Nerja omkring klockan 21.00 —under högsommaren fram till 22.00— och tillbaka upp från Nerja omkring 20.30, med en extra avgång 21.30 i juli och augusti. På söndagar och helgdagar går färre bussar. För sena kvällar är bil därför smidigare, men dagtid når ni stranden på tio minuter och är lika snabbt tillbaka i lugnet.'
-    },
-    booking: {
-      eyebrow: 'Dags att välja',
-      title: 'Välj platsen som ska kännas som hemma',
-      frigiliana: {
-        title: 'Frigiliana för bymorgnar och lugna kvällar',
-        text:
-          'Då är våra boutiquelägenheter för par i Frigiliana rätt val, med havet bara tio minuter bort.',
-        collectionCta: 'Se lägenheterna'
-      },
-      nerja: {
-        title: 'Nerja för semesterdagar med stranden i centrum',
-        text:
-          'AMARA Playa passar när det viktigaste är att kunna promenera direkt till stranden och spontant ta del av kustlivet.',
-        cta: 'Se AMARA Playa'
+        title: 'Nerja som hem under resan',
+        paragraphs: [
+          'Nerja passar när kusten och staden ska vara en del av vardagen: strandliv, restauranger, butiker och promenader som ofta kan börja direkt vid boendet.',
+          'Det exakta området spelar roll. Torrecilla, gamla stan, Carabeo, Burriana och bostadsområdena på höjderna ger tydligt olika rutiner.'
+        ],
+        cta: 'Upptäck hur det är att bo i Nerja'
       }
+    },
+    experienceBoth: {
+      title: 'Välj var ni vill vakna. Upplev båda.',
+      paragraphs: [
+        'Vilken plats ni än väljer försvinner inte den andra ur resan.',
+        'Frigiliana och Nerja ligger nära nog för att kombineras under samma vistelse. Kollektivtrafik, taxi och bil gör det möjligt att röra sig mellan byn och kusten under dagen; med bil får ni större flexibilitet för sena kvällar och utflykter längre bort.',
+        'Den användbara frågan är alltså inte ”Frigiliana eller Nerja för alltid?”, utan vilken miljö ni vill återvända till varje dag.'
+      ],
+      cta: 'Så tar ni er mellan Frigiliana och kusten'
+    },
+    microLocations: {
+      eyebrow: 'När platsen är vald',
+      title: 'Välj sedan rätt del av byn eller staden.',
+      frigiliana: {
+        title: 'Ska ni bo i Frigiliana?',
+        text:
+          'Jämför den nedre historiska delen, övre Barribarto, den nyare delen längre ner och boenden på landsbygden, inklusive skillnader i promenader och tillgänglighet som märks under flera dagar.',
+        cta: 'Var ska man bo i Frigiliana?'
+      },
+      nerja: {
+        title: 'Ska ni bo i Nerja?',
+        text:
+          'Jämför gamla stan, Torrecilla, Carabeo, Burriana och bostadsområdena på höjderna utifrån strandvägar, promenader, hur ni tar er runt och vardagsliv.',
+        cta: 'Var ska man bo i Nerja?'
+      }
+    },
+    amara: {
+      eyebrow: 'Bo hos AMARA',
+      title: 'Vi finns på båda platserna.',
+      paragraphs: [
+        'AMARA har fyra boenden i Frigilianas historiska centrum och AMARA Playa i den västra delen av centrala Nerja.',
+        'Välj plats först. Välj sedan det boende som passar ert sätt att resa.'
+      ],
+      frigilianaCta: 'Se AMARA-boenden i Frigiliana',
+      nerjaCta: 'Se AMARA Playa'
     }
   }
 };
