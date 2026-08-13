@@ -33,7 +33,7 @@ if (!activeBranch) {
   throw new Error(`[Tarifa context navigation] Missing branch: ${activeBranchId}`);
 }
 
-// A stable six-topic row preserves orientation across both hubs and spokes.
+// A stable five-topic row keeps the primary location decisions visible across hubs and spokes.
 const visibleTopics = activeBranch.children;
 
 const labels: Record<

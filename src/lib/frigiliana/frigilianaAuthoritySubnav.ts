@@ -148,12 +148,6 @@ export function getFrigilianaAuthoritySubnav(
       id: 'daily-life-services',
       label: labels['daily-life-services'],
       status: 'future'
-    },
-    {
-      id: 'winter-stays',
-      label: labels['winter-stays'],
-      status: 'live',
-      href: resolveLink('frigiliana_winter_stays', currentLang)
     }
   ];
 }

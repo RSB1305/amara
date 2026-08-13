@@ -223,7 +223,7 @@ export const tarifaWeatherContent: Record<AmaraLanguage, TarifaWeatherLocale> = 
       links: [
         { token: 'tarifa_geography', label: 'Geography & Orientation', text: 'See how the Strait, Atlantic coast and westbound direction shape Tarifa.' },
         { token: 'tarifa_wind_kitesurfing_authority', label: 'Wind & Watersports', text: 'Continue to the specialist guide for wind systems, safety and watersports decisions.' },
-        { token: 'getting_to_tarifa', label: 'Arrival & Mobility', text: 'Plan the complete route to AMARA and everyday movement from La Marina.' }
+        { token: 'tarifa_winter_stays', label: 'Winter Stays', text: 'Continue to the dedicated guide for a quieter, longer stay with changing Atlantic weather.' }
       ]
     },
     sources: {
@@ -338,7 +338,7 @@ export const tarifaWeatherContent: Record<AmaraLanguage, TarifaWeatherLocale> = 
       eyebrow: 'Weiterplanen', title: 'Das Wetter räumlich einordnen', links: [
         { token: 'tarifa_geography', label: 'Geografie & Orientierung', text: 'Wie Meerenge, Atlantikküste und die Richtung nach Westen Tarifa prägen.' },
         { token: 'tarifa_wind_kitesurfing_authority', label: 'Wind & Wassersport', text: 'Der Fachguide für Windsysteme, Sicherheit und Wassersportentscheidungen.' },
-        { token: 'getting_to_tarifa', label: 'Anreise & Mobilität', text: 'Die vollständige Route zu AMARA und die alltägliche Bewegung ab La Marina.' }
+        { token: 'tarifa_winter_stays', label: 'Winteraufenthalte', text: 'Der eigene Guide für einen ruhigeren, längeren Aufenthalt bei wechselhaftem Atlantikwetter.' }
       ]
     },
     sources: {
@@ -416,7 +416,7 @@ export const tarifaWeatherContent: Record<AmaraLanguage, TarifaWeatherLocale> = 
     related: { eyebrow: 'Seguid planificando', title: 'Poned el tiempo en su lugar', links: [
       { token: 'tarifa_geography', label: 'Geografía y orientación', text: 'Cómo el Estrecho, la costa atlántica y la dirección oeste organizan Tarifa.' },
       { token: 'tarifa_wind_kitesurfing_authority', label: 'Viento y deportes acuáticos', text: 'La guía especializada para sistemas de viento, seguridad y decisiones en el agua.' },
-      { token: 'getting_to_tarifa', label: 'Llegada y movilidad', text: 'La ruta completa hasta AMARA y los desplazamientos cotidianos desde La Marina.' }
+      { token: 'tarifa_winter_stays', label: 'Estancias de invierno', text: 'La guía específica para una estancia más tranquila y larga con el tiempo cambiante del Atlántico.' }
     ] },
     sources: { eyebrow: 'Fuentes', title: 'Fuentes oficiales de clima y viento', intro: 'Las afirmaciones climáticas utilizan los valores normales oficiales de AEMET 1981–2010. El contexto de viento y carretera junto a la duna procede de la Junta de Andalucía.', checked: 'Fuentes revisadas en agosto de 2026', links: [
       { label: 'AEMET · Valores normales de Tarifa', text: 'Medias mensuales de temperatura, precipitación y días de lluvia de la estación 6001.', href: sharedSources.tarifaNormals },
@@ -487,7 +487,7 @@ export const tarifaWeatherContent: Record<AmaraLanguage, TarifaWeatherLocale> = 
     related: { eyebrow: 'Verder plannen', title: 'Plaats het weer in de omgeving', links: [
       { token: 'tarifa_geography', label: 'Geografie & oriëntatie', text: 'Hoe de Straat, Atlantische kust en westelijke richting Tarifa vormgeven.' },
       { token: 'tarifa_wind_kitesurfing_authority', label: 'Wind & watersport', text: 'De specialistische gids voor windsystemen, veiligheid en watersportkeuzes.' },
-      { token: 'getting_to_tarifa', label: 'Aankomst & mobiliteit', text: 'De volledige route naar AMARA en dagelijks vervoer vanuit La Marina.' }
+      { token: 'tarifa_winter_stays', label: 'Winterverblijven', text: 'De aparte gids voor een rustiger, langer verblijf met wisselvallig Atlantisch weer.' }
     ] },
     sources: { eyebrow: 'Bronnen', title: 'Officiële klimaat- en windbronnen', intro: 'Klimaatuitspraken gebruiken de officiële AEMET-normalen voor 1981–2010. Context over wind en de duinweg komt van de Junta de Andalucía.', checked: 'Bronnen gecontroleerd in augustus 2026', links: [
       { label: 'AEMET · Normalen Tarifa', text: 'Maandgemiddelden voor temperatuur, neerslag en regendagen van station 6001.', href: sharedSources.tarifaNormals },
@@ -558,7 +558,7 @@ export const tarifaWeatherContent: Record<AmaraLanguage, TarifaWeatherLocale> = 
     related: { eyebrow: 'Planera vidare', title: 'Sätt vädret på kartan', links: [
       { token: 'tarifa_geography', label: 'Geografi & orientering', text: 'Hur sundet, Atlantkusten och riktningen västerut formar Tarifa.' },
       { token: 'tarifa_wind_kitesurfing_authority', label: 'Vind & vattensport', text: 'Specialistguiden för vindsystem, säkerhet och beslut om vattensport.' },
-      { token: 'getting_to_tarifa', label: 'Ankomst & mobilitet', text: 'Hela resan till AMARA och vardagliga förflyttningar från La Marina.' }
+      { token: 'tarifa_winter_stays', label: 'Vintervistelser', text: 'Den särskilda guiden för en lugnare, längre vistelse med omväxlande Atlantväder.' }
     ] },
     sources: { eyebrow: 'Källor', title: 'Officiella klimat- och vindkällor', intro: 'Klimatuppgifterna använder AEMET:s officiella normalvärden för 1981–2010. Vind- och dynvägskontext kommer från Junta de Andalucía.', checked: 'Källor granskade i augusti 2026', links: [
       { label: 'AEMET · Normalvärden för Tarifa', text: 'Månadsmedel för temperatur, nederbörd och regndagar vid station 6001.', href: sharedSources.tarifaNormals },

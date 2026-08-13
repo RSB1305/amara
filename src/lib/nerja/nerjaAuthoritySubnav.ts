@@ -45,11 +45,6 @@ export function getNerjaAuthoritySubnav(
       id: 'daily-life-services',
       label: labels['daily-life-services'],
       status: 'future'
-    },
-    {
-      id: 'winter-stays',
-      label: labels['winter-stays'],
-      status: 'future'
     }
   ];
 }

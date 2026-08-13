@@ -10,7 +10,6 @@ import {
   frigilianaPreFooterCopy,
   getFrigilianaPreFooterDescription
 } from '../../content/frigilianaPreFooterContent';
-import { stayCollectionLabels } from '../../content/stayCollectionLabels';
 import { buildOwnedLocalizedPath } from '../../lib/routeOwnership';
 import { normalizeLanguage } from '../../lib/seo/resolve-seo-head';
 import type { AmaraAuthoringSeo, AmaraLanguage } from '../../types/seo';
@@ -24,7 +23,7 @@ const currentLang = normalizeLanguage(lang as AmaraLanguage);
 const locationBase = buildOwnedLocalizedPath('frigiliana-location', currentLang);
 const arrivalGuideHref = buildOwnedLocalizedPath('directions-arrival-guide', currentLang);
 const parkingHref = buildOwnedLocalizedPath('frigiliana-parking', currentLang);
-const staysHref = buildOwnedLocalizedPath('romantic-hideaways', currentLang);
+const winterStaysHref = buildOwnedLocalizedPath('frigiliana-winter-stays', currentLang);
 
 const seo: AmaraAuthoringSeo = {
   version: '2026-04-01-frigiliana-weather-v1.0-A',
@@ -288,7 +287,20 @@ const copy = {
       stay: { en: 'Where to stay', de: 'Unterkunft', es: 'Dónde alojarse', nl: 'Waar overnachten', sv: 'Var du bor' },
       parking: { en: 'Parking & arrival', de: 'Parken & Anreise', es: 'Aparcamiento y llegada', nl: 'Parkeren & aankomst', sv: 'Parkering & ankomst' },
       arrival: { en: 'Arrival Guide', de: 'Anreise-Guide', es: 'Guía de llegada', nl: 'Aankomstgids', sv: 'Ankomstguide' },
-      stays: stayCollectionLabels.structuralName
+      winter: {
+        en: 'Winter stays',
+        de: 'Winteraufenthalte',
+        es: 'Estancias de invierno',
+        nl: 'Winterverblijven',
+        sv: 'Vintervistelser'
+      },
+      winterText: {
+        en: 'See what the quieter season means for village life, indoor comfort and a longer AMARA stay.',
+        de: 'Erfahrt, was die ruhigere Jahreszeit für Dorfleben, Wohnkomfort und einen längeren AMARA-Aufenthalt bedeutet.',
+        es: 'Descubrid qué implica la temporada tranquila para la vida del pueblo, el confort interior y una estancia AMARA más larga.',
+        nl: 'Ontdek wat het rustige seizoen betekent voor het dorpsleven, comfort binnen en een langer verblijf bij AMARA.',
+        sv: 'Läs om vad den lugnare säsongen innebär för bylivet, komforten inomhus och en längre vistelse hos AMARA.'
+      }
     }
   },
   closing: {
@@ -335,9 +347,9 @@ const relatedLinks = [
     text: getFrigilianaPreFooterDescription('arrival_guide', currentLang)
   },
   {
-    href: staysHref,
-    label: t(copy.related.links.stays),
-    text: getFrigilianaPreFooterDescription('romantic_hideaways', currentLang)
+    href: winterStaysHref,
+    label: t(copy.related.links.winter),
+    text: t(copy.related.links.winterText)
   }
 ];
 ---

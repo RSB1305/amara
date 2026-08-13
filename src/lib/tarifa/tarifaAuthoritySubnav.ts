@@ -190,12 +190,6 @@ export function getTarifaAuthoritySubnav(
           label: locationLabels['daily-life-services'],
           status: 'live',
           href: resolveLink('tarifa_daily_life', currentLang)
-        },
-        {
-          id: 'winter-stays',
-          label: locationLabels['winter-stays'],
-          status: 'live',
-          href: resolveLink('tarifa_winter_stays', currentLang)
         }
       ]
     },
