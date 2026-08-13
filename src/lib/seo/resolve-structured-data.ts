@@ -225,6 +225,34 @@ const PUBLIC_ROUTE_LABELS: Partial<Record<string, Record<AmaraLanguage, string>>
     nl: 'Stranden',
     sv: 'Stränder'
   },
+  'tarifa-food-evening-life': {
+    en: 'Food & Evening Life',
+    de: 'Essen & Ausgehen',
+    es: 'Gastronomía y vida nocturna',
+    nl: 'Eten & uitgaan',
+    sv: 'Mat & kvällsliv'
+  },
+  'tarifa-nature-wildlife': {
+    en: 'Nature & Wildlife',
+    de: 'Natur & Tierwelt',
+    es: 'Naturaleza y fauna',
+    nl: 'Natuur & dieren',
+    sv: 'Natur & djurliv'
+  },
+  'tarifa-old-town-history': {
+    en: 'Old Town & History',
+    de: 'Altstadt & Geschichte',
+    es: 'Casco antiguo e historia',
+    nl: 'Oude stad & geschiedenis',
+    sv: 'Gamla stan & historia'
+  },
+  'tarifa-bolonia-baelo-claudia': {
+    en: 'Bolonia & Baelo Claudia',
+    de: 'Bolonia & Baelo Claudia',
+    es: 'Bolonia y Baelo Claudia',
+    nl: 'Bolonia & Baelo Claudia',
+    sv: 'Bolonia & Baelo Claudia'
+  },
   'frigiliana-parking': {
     en: 'Frigiliana Parking',
     de: 'Parken in Frigiliana',
@@ -314,7 +342,11 @@ const TARIFA_GUIDE_SLUGS = new Set([
   'tarifa-winter-stays',
   'tarifa-experience',
   'tarifa-wind-kitesurfing',
-  'tarifa-beaches'
+  'tarifa-beaches',
+  'tarifa-food-evening-life',
+  'tarifa-nature-wildlife',
+  'tarifa-old-town-history',
+  'tarifa-bolonia-baelo-claudia'
 ]);
 
 const PRIMARY_TRUST_PAGE_SLUGS = new Set([

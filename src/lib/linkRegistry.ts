@@ -211,6 +211,34 @@ legal_notice: {
       nl: buildOwnedLocalizedPath('tarifa-beaches', 'nl'),
       sv: buildOwnedLocalizedPath('tarifa-beaches', 'sv')
     },
+    tarifa_food_evening_life: {
+      en: buildOwnedLocalizedPath('tarifa-food-evening-life', 'en'),
+      de: buildOwnedLocalizedPath('tarifa-food-evening-life', 'de'),
+      es: buildOwnedLocalizedPath('tarifa-food-evening-life', 'es'),
+      nl: buildOwnedLocalizedPath('tarifa-food-evening-life', 'nl'),
+      sv: buildOwnedLocalizedPath('tarifa-food-evening-life', 'sv')
+    },
+    tarifa_nature_wildlife: {
+      en: buildOwnedLocalizedPath('tarifa-nature-wildlife', 'en'),
+      de: buildOwnedLocalizedPath('tarifa-nature-wildlife', 'de'),
+      es: buildOwnedLocalizedPath('tarifa-nature-wildlife', 'es'),
+      nl: buildOwnedLocalizedPath('tarifa-nature-wildlife', 'nl'),
+      sv: buildOwnedLocalizedPath('tarifa-nature-wildlife', 'sv')
+    },
+    tarifa_old_town_history: {
+      en: buildOwnedLocalizedPath('tarifa-old-town-history', 'en'),
+      de: buildOwnedLocalizedPath('tarifa-old-town-history', 'de'),
+      es: buildOwnedLocalizedPath('tarifa-old-town-history', 'es'),
+      nl: buildOwnedLocalizedPath('tarifa-old-town-history', 'nl'),
+      sv: buildOwnedLocalizedPath('tarifa-old-town-history', 'sv')
+    },
+    tarifa_bolonia_baelo_claudia: {
+      en: buildOwnedLocalizedPath('tarifa-bolonia-baelo-claudia', 'en'),
+      de: buildOwnedLocalizedPath('tarifa-bolonia-baelo-claudia', 'de'),
+      es: buildOwnedLocalizedPath('tarifa-bolonia-baelo-claudia', 'es'),
+      nl: buildOwnedLocalizedPath('tarifa-bolonia-baelo-claudia', 'nl'),
+      sv: buildOwnedLocalizedPath('tarifa-bolonia-baelo-claudia', 'sv')
+    },
 
     /* =========================================================
        FRIGILIANA — (NEW)

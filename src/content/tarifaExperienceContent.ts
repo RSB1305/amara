@@ -5,7 +5,11 @@ export const TARIFA_EXPERIENCE_TOKEN = 'tarifa_experience_hub' as const;
 export type TarifaExperienceLinkToken =
   | 'location_tarifa'
   | 'tarifa_beaches_authority'
-  | 'tarifa_wind_kitesurfing_authority';
+  | 'tarifa_wind_kitesurfing_authority'
+  | 'tarifa_food_evening_life'
+  | 'tarifa_nature_wildlife'
+  | 'tarifa_old_town_history'
+  | 'tarifa_bolonia_baelo_claudia';
 
 export interface TarifaExperienceDayType {
   title: string;
@@ -13,13 +17,12 @@ export interface TarifaExperienceDayType {
 }
 
 export type TarifaExperienceWorldId =
-  | 'coast'
+  | 'beaches-coast'
   | 'wind-watersports'
+  | 'food-evening-life'
+  | 'nature-wildlife'
   | 'old-town-history'
-  | 'strait-nature-wildlife'
-  | 'bolonia-baelo'
-  | 'food-almadraba-tuna'
-  | 'tangier-strait';
+  | 'bolonia-baelo-claudia';
 
 export interface TarifaExperienceDiscoveryWorld {
   id: TarifaExperienceWorldId;
@@ -120,17 +123,16 @@ export const tarifaExperienceContent = {
       imageAlt: 'Whale artwork and writing desk at AMARA Family & Surf in Tarifa'
     },
     discovery: {
-      title: 'Seven ways into Tarifa',
+      title: 'Six ways into Tarifa',
       intro:
-        'Move from coast and wind to history, nature and food — with Bolonia and a possible day across the Strait adding two more dimensions.',
+        'Move from coast and wind to food, nature and history, with Bolonia adding a day where landscape and archaeology belong together.',
       worlds: [
-        { id: 'coast', label: 'Coast' },
+        { id: 'beaches-coast', label: 'Beaches & Coast' },
         { id: 'wind-watersports', label: 'Wind & watersports' },
+        { id: 'food-evening-life', label: 'Food & evening life' },
+        { id: 'nature-wildlife', label: 'Nature & wildlife' },
         { id: 'old-town-history', label: 'Old Town & history' },
-        { id: 'strait-nature-wildlife', label: 'Strait, nature & wildlife' },
-        { id: 'bolonia-baelo', label: 'Bolonia & Baelo Claudia' },
-        { id: 'food-almadraba-tuna', label: 'Food, Almadraba & atún rojo' },
-        { id: 'tangier-strait', label: 'Tangier, across the Strait' }
+        { id: 'bolonia-baelo-claudia', label: 'Bolonia & Baelo Claudia' }
       ]
     },
     dayChooser: {
@@ -184,7 +186,7 @@ export const tarifaExperienceContent = {
           'Watersports are one major Tarifa world, not the whole destination. If kitesurfing is part of your stay, AMARA guests can be connected with our friends at Tarifa Surf Club before arrival to arrange lessons or equipment.'
         ],
         cta: {
-          label: 'Understand wind & kitesurfing in Tarifa',
+          label: 'Explore wind & kitesurfing in Tarifa',
           token: 'tarifa_wind_kitesurfing_authority'
         }
       },
@@ -195,7 +197,8 @@ export const tarifaExperienceContent = {
           `Tarifa's position at the Strait shaped the historic town and its defensive character. The walls and close-grained streets give a walk here a clear relationship to the sea and the passage between continents.`,
           'Enter through Puerta de Jerez and make the 10th-century Castillo de Guzmán el Bueno an anchor for the day. These are not isolated monuments: together they make the Old Town feel like a place formed by its geography.',
           'The same streets then settle into a different rhythm around cafés, lunch and dinner. History gives the day its context; staying into the evening keeps the Old Town part of lived Tarifa rather than a sightseeing stop.'
-        ]
+        ],
+        cta: { label: 'Explore the Old Town & its history', token: 'tarifa_old_town_history' }
       },
       {
         id: 'nature',
@@ -204,7 +207,8 @@ export const tarifaExperienceContent = {
           'Parque Natural del Estrecho protects a maritime-terrestrial landscape around Tarifa where Atlantic and Mediterranean, Europe and Africa, meet. Looking towards the Strait reveals a larger geography than the beach alone.',
           'Walks and viewpoints offer perspectives towards Africa, while the Strait is an important migration corridor for birds moving between the two continents. A nature-led day can therefore stay on land and still feel distinctly Tarifa.',
           'Marine-wildlife excursions, including whale and dolphin watching, are another possibility from Tarifa. Conditions and sightings cannot be fixed in advance, so this is one experience worth keeping flexible.'
-        ]
+        ],
+        cta: { label: 'Explore nature & wildlife', token: 'tarifa_nature_wildlife' }
       },
       {
         id: 'bolonia',
@@ -213,7 +217,8 @@ export const tarifaExperienceContent = {
           'Bolonia should not simply be filed under “another beach”. Its open coast sits beside the protected Duna de Bolonia and the archaeological complex of Baelo Claudia.',
           `Baelo's Roman urban structure remains especially legible, while its fish-salting and garum production show how closely the settlement's economy was tied to the coast.`,
           'Beach, dune landscape and Roman archaeology therefore make one coherent signature day — especially when you have enough time to let each part of the setting register.'
-        ]
+        ],
+        cta: { label: 'Plan a Bolonia & Baelo Claudia day', token: 'tarifa_bolonia_baelo_claudia' }
       },
       {
         id: 'food',
@@ -222,7 +227,8 @@ export const tarifaExperienceContent = {
           `Eating in Tarifa can carry the coastal story into lunch and the evening. Atlantic seafood is part of that context, with atún rojo — Atlantic bluefin tuna — holding a particular place in the town's fishing and culinary identity.`,
           'Almadraba is the long-established Cádiz-coast tradition of using a fixed net system to intercept migratory tuna, and Tarifa belongs to that tradition. It gives useful context to why red tuna appears so often in the food culture here.',
           'The point is not to assume that every tuna dish has the same origin. It is to recognise the relationship between coast, fishing and table, then make a considered lunch or dinner part of the Tarifa day.'
-        ]
+        ],
+        cta: { label: 'Explore food & evening life', token: 'tarifa_food_evening_life' }
       },
       {
         id: 'tangier',
@@ -262,17 +268,16 @@ export const tarifaExperienceContent = {
       imageAlt: 'Walbild und Schreibtisch bei AMARA Family & Surf in Tarifa'
     },
     discovery: {
-      title: 'Sieben Seiten von Tarifa',
+      title: 'Sechs Seiten von Tarifa',
       intro:
-        'Von Küste und Wind über Geschichte, Natur und Essen bis zu Bolonia und einem möglichen Tag auf der anderen Seite der Meerenge.',
+        'Von Küste und Wind über Essen, Natur und Geschichte bis zu einem Bolonia-Tag, an dem Landschaft und Archäologie zusammengehören.',
       worlds: [
-        { id: 'coast', label: 'Küste' },
+        { id: 'beaches-coast', label: 'Strände & Küste' },
         { id: 'wind-watersports', label: 'Wind & Wassersport' },
+        { id: 'food-evening-life', label: 'Essen & Ausgehen' },
+        { id: 'nature-wildlife', label: 'Natur & Tierwelt' },
         { id: 'old-town-history', label: 'Altstadt & Geschichte' },
-        { id: 'strait-nature-wildlife', label: 'Meerenge, Natur & Tierwelt' },
-        { id: 'bolonia-baelo', label: 'Bolonia & Baelo Claudia' },
-        { id: 'food-almadraba-tuna', label: 'Essen, Almadraba & atún rojo' },
-        { id: 'tangier-strait', label: 'Tanger, jenseits der Meerenge' }
+        { id: 'bolonia-baelo-claudia', label: 'Bolonia & Baelo Claudia' }
       ]
     },
     dayChooser: {
@@ -334,7 +339,8 @@ export const tarifaExperienceContent = {
           'Tarifas Lage an der Meerenge hat die historische Stadt und ihren wehrhaften Charakter geprägt. Mauern und enge Gassen machen beim Rundgang spürbar, wie eng Stadt, Meer und die Passage zwischen den Kontinenten zusammengehören.',
           'Durch die Puerta de Jerez gelangt ihr in den ummauerten Stadtkern; das Castillo de Guzmán el Bueno aus dem 10. Jahrhundert gibt dem Tag einen klaren Orientierungspunkt. Gemeinsam lassen diese Orte die Geografie hinter der Geschichte sichtbar werden.',
           'Später finden dieselben Gassen rund um Cafés, Mittag- und Abendessen einen anderen Rhythmus. Die Geschichte gibt dem Tag seinen Rahmen; wer bis zum Abend bleibt, erlebt die Altstadt als Teil des heutigen Tarifa.'
-        ]
+        ],
+        cta: { label: 'Altstadt & Geschichte entdecken', token: 'tarifa_old_town_history' }
       },
       {
         id: 'nature',
@@ -343,7 +349,8 @@ export const tarifaExperienceContent = {
           'Der Parque Natural del Estrecho schützt rund um Tarifa eine Landschaft an Land und im Meer, in der Atlantik und Mittelmeer sowie Europa und Afrika aufeinandertreffen. Der Blick zur Meerenge öffnet deshalb eine größere Perspektive als der Strand allein.',
           'Wege und Aussichtspunkte geben den Blick Richtung Afrika frei; zugleich ist die Meerenge ein wichtiger Zugkorridor für Vögel zwischen den Kontinenten. Ein Naturtag kann also vollständig an Land stattfinden und trotzdem unverkennbar nach Tarifa gehören.',
           'Auch Ausfahrten zur Beobachtung von Walen und Delfinen sind von Tarifa aus möglich. Bedingungen und Sichtungen lassen sich nicht fest einplanen, deshalb lohnt es sich, diese Erfahrung flexibel zu halten.'
-        ]
+        ],
+        cta: { label: 'Natur & Tierwelt entdecken', token: 'tarifa_nature_wildlife' }
       },
       {
         id: 'bolonia',
@@ -352,7 +359,8 @@ export const tarifaExperienceContent = {
           'An der offenen Küste von Bolonia liegen der geschützte Naturraum der Duna de Bolonia und der archäologische Komplex Baelo Claudia unmittelbar beieinander.',
           'In Baelo ist die Struktur einer römischen Stadt besonders gut ablesbar. Fischsalzung und die Herstellung von Garum zeigen zudem, wie eng ihre Wirtschaft mit der Küste verbunden war.',
           'Strand, Düne und römische Archäologie ergeben so einen stimmigen, für Tarifa typischen Tagesausflug — besonders, wenn ihr keinem Teil der Landschaft Eile aufzwingt.'
-        ]
+        ],
+        cta: { label: 'Bolonia & Baelo Claudia planen', token: 'tarifa_bolonia_baelo_claudia' }
       },
       {
         id: 'food',
@@ -361,7 +369,8 @@ export const tarifaExperienceContent = {
           'Beim Essen setzt sich die Geschichte der Küste bis zum Mittag und in den Abend fort. Atlantischer Fisch und Meeresfrüchte gehören dazu; atún rojo, der Atlantische Blauflossen-Thunfisch, hat in Tarifas Fischerei- und Esskultur einen besonderen Platz.',
           'Almadraba bezeichnet die lange Tradition an der Küste von Cádiz, wandernde Thunfische mit einem fest installierten Netzsystem zu fangen. Tarifa gehört zu dieser Tradition — und damit wird verständlich, warum roter Thunfisch in der lokalen Esskultur so präsent ist.',
           'Das bedeutet nicht, dass jedes Thunfischgericht denselben Ursprung hat. Entscheidend ist die Verbindung von Küste, Fischerei und Tisch: Ein bewusst gewähltes Mittag- oder Abendessen kann deshalb selbst Teil des Tarifa-Tages sein.'
-        ]
+        ],
+        cta: { label: 'Essen & Ausgehen entdecken', token: 'tarifa_food_evening_life' }
       },
       {
         id: 'tangier',
@@ -399,17 +408,16 @@ export const tarifaExperienceContent = {
       imageAlt: 'Ilustración de una ballena y escritorio de AMARA Family & Surf en Tarifa'
     },
     discovery: {
-      title: 'Siete maneras de vivir Tarifa',
+      title: 'Seis maneras de vivir Tarifa',
       intro:
-        'De la costa y el viento a la historia, la naturaleza y la gastronomía, con Bolonia y una posible jornada al otro lado del Estrecho.',
+        'De la costa y el viento a la gastronomía, la naturaleza y la historia, con un día en Bolonia que une paisaje y arqueología.',
       worlds: [
-        { id: 'coast', label: 'Costa' },
+        { id: 'beaches-coast', label: 'Playas y costa' },
         { id: 'wind-watersports', label: 'Viento y deportes acuáticos' },
+        { id: 'food-evening-life', label: 'Gastronomía y vida nocturna' },
+        { id: 'nature-wildlife', label: 'Naturaleza y fauna' },
         { id: 'old-town-history', label: 'Casco antiguo e historia' },
-        { id: 'strait-nature-wildlife', label: 'Estrecho, naturaleza y fauna' },
-        { id: 'bolonia-baelo', label: 'Bolonia y Baelo Claudia' },
-        { id: 'food-almadraba-tuna', label: 'Gastronomía, almadraba y atún rojo' },
-        { id: 'tangier-strait', label: 'Tánger, al otro lado del Estrecho' }
+        { id: 'bolonia-baelo-claudia', label: 'Bolonia y Baelo Claudia' }
       ]
     },
     dayChooser: {
@@ -469,9 +477,10 @@ export const tarifaExperienceContent = {
         title: 'Una ciudad histórica del Estrecho, del día a la noche',
         paragraphs: [
           'La posición de Tarifa junto al Estrecho marcó la ciudad histórica y su carácter defensivo. Sus murallas y calles recogidas muestran durante el paseo la relación entre la ciudad, el mar y el paso entre continentes.',
-          'Entrad por la Puerta de Jerez y tomad como referencia el Castillo de Guzmán el Bueno, una fortaleza del siglo X. No son monumentos aislados: juntos permiten entender una ciudad formada por su geografía.',
+          'Entrad por la Puerta de Jerez y tomad como referencia el Castillo de Guzmán el Bueno, una fortaleza del siglo X. No son monumentos aislados: juntos muestran una ciudad formada por su geografía.',
           'Después, esas mismas calles encuentran otro ritmo alrededor de los cafés, el almuerzo y la cena. La historia da contexto al día; quedarse hasta la noche mantiene el casco antiguo dentro de la vida actual de Tarifa.'
-        ]
+        ],
+        cta: { label: 'Descubrir el casco antiguo y su historia', token: 'tarifa_old_town_history' }
       },
       {
         id: 'nature',
@@ -480,7 +489,8 @@ export const tarifaExperienceContent = {
           'El Parque Natural del Estrecho protege alrededor de Tarifa un paisaje marítimo y terrestre donde se encuentran Atlántico y Mediterráneo, Europa y África. Mirar hacia el Estrecho amplía el horizonte mucho más allá de la playa.',
           'Los paseos y miradores abren perspectivas hacia África, mientras el Estrecho funciona como un importante corredor migratorio para las aves entre ambos continentes. Un día de naturaleza puede transcurrir en tierra y seguir siendo inconfundiblemente tarifeño.',
           'Las salidas desde Tarifa para observar ballenas y delfines son otra posibilidad. Las condiciones y los avistamientos no pueden fijarse de antemano, así que conviene mantener flexible esta experiencia.'
-        ]
+        ],
+        cta: { label: 'Descubrir la naturaleza y la fauna', token: 'tarifa_nature_wildlife' }
       },
       {
         id: 'bolonia',
@@ -489,16 +499,18 @@ export const tarifaExperienceContent = {
           'La costa abierta de Bolonia comparte escenario con el Monumento Natural Duna de Bolonia y el conjunto arqueológico de Baelo Claudia.',
           'La estructura urbana romana de Baelo se conserva de forma especialmente legible. La salazón de pescado y la producción de garum muestran, además, hasta qué punto su economía estaba unida a la costa.',
           'Playa, duna y arqueología romana forman así una jornada completa y coherente, sobre todo si disponéis de tiempo para que cada parte del paisaje tenga su momento.'
-        ]
+        ],
+        cta: { label: 'Preparar un día en Bolonia y Baelo Claudia', token: 'tarifa_bolonia_baelo_claudia' }
       },
       {
         id: 'food',
         title: 'Saborear la costa: almadraba y atún rojo',
         paragraphs: [
           'Comer en Tarifa puede prolongar la historia de la costa hasta el almuerzo y la noche. Los pescados y mariscos atlánticos forman parte del contexto, y el atún rojo ocupa un lugar especial en la cultura pesquera y gastronómica local.',
-          'La almadraba es la tradición histórica de la costa gaditana que utiliza un sistema fijo de redes para interceptar el paso migratorio del atún. Tarifa forma parte de esa tradición, que ayuda a entender la presencia del atún rojo en su cultura culinaria.',
+          'La almadraba es la tradición histórica de la costa gaditana que utiliza un sistema fijo de redes para interceptar el paso migratorio del atún. Tarifa forma parte de esa tradición, que explica la presencia del atún rojo en su cultura culinaria.',
           'Eso no significa que todos los platos de atún tengan el mismo origen. Se trata de reconocer la relación entre costa, pesca y mesa, y de hacer que un almuerzo o una cena elegidos con atención formen parte del día en Tarifa.'
-        ]
+        ],
+        cta: { label: 'Descubrir la gastronomía y las noches de Tarifa', token: 'tarifa_food_evening_life' }
       },
       {
         id: 'tangier',
@@ -536,17 +548,16 @@ export const tarifaExperienceContent = {
       imageAlt: 'Walviskunst en schrijftafel bij AMARA Family & Surf in Tarifa'
     },
     discovery: {
-      title: 'Zeven kanten van Tarifa',
+      title: 'Zes kanten van Tarifa',
       intro:
-        'Van kust en wind tot geschiedenis, natuur en eten, met Bolonia en een mogelijke dag aan de overkant van de Straat.',
+        'Van kust en wind tot eten, natuur en geschiedenis, met een dag in Bolonia waar landschap en archeologie samenkomen.',
       worlds: [
-        { id: 'coast', label: 'Kust' },
+        { id: 'beaches-coast', label: 'Stranden & kust' },
         { id: 'wind-watersports', label: 'Wind & watersport' },
+        { id: 'food-evening-life', label: 'Eten & uitgaan' },
+        { id: 'nature-wildlife', label: 'Natuur & dieren' },
         { id: 'old-town-history', label: 'Oude stad & geschiedenis' },
-        { id: 'strait-nature-wildlife', label: 'Straat, natuur & dierenleven' },
-        { id: 'bolonia-baelo', label: 'Bolonia & Baelo Claudia' },
-        { id: 'food-almadraba-tuna', label: 'Eten, almadraba & atún rojo' },
-        { id: 'tangier-strait', label: 'Tanger, aan de overkant' }
+        { id: 'bolonia-baelo-claudia', label: 'Bolonia & Baelo Claudia' }
       ]
     },
     dayChooser: {
@@ -608,7 +619,8 @@ export const tarifaExperienceContent = {
           'Tarifa’s ligging aan de Straat heeft de historische stad en haar verdedigende karakter gevormd. De muren en compacte straten laten tijdens een wandeling de relatie tussen de stad, de zee en de doorgang tussen continenten zien.',
           'Ga via de Puerta de Jerez de ommuurde kern binnen en gebruik het 10e-eeuwse Castillo de Guzmán el Bueno als herkenningspunt. Het zijn geen losse monumenten: samen maken ze zichtbaar hoe de geografie de stad heeft gevormd.',
           'Later vinden dezelfde straten een ander ritme rond cafés, lunch en diner. De geschiedenis geeft de dag context; door tot de avond te blijven, beleef je de oude stad als onderdeel van het huidige Tarifa.'
-        ]
+        ],
+        cta: { label: 'Ontdek de oude stad & haar geschiedenis', token: 'tarifa_old_town_history' }
       },
       {
         id: 'nature',
@@ -617,7 +629,8 @@ export const tarifaExperienceContent = {
           'Parque Natural del Estrecho beschermt rond Tarifa een landschap op land en in zee waar Atlantische Oceaan en Middellandse Zee, Europa en Afrika samenkomen. Wie naar de Straat kijkt, ziet een grotere geografie dan alleen het strand.',
           'Wandelingen en uitzichtpunten openen perspectieven richting Afrika, terwijl de Straat een belangrijke trekroute is voor vogels tussen beide continenten. Een natuurdag kan dus volledig op land blijven en toch onmiskenbaar bij Tarifa horen.',
           'Excursies om walvissen en dolfijnen te observeren zijn een andere mogelijkheid vanuit Tarifa. Omstandigheden en waarnemingen staan nooit vooraf vast, dus houd deze ervaring flexibel.'
-        ]
+        ],
+        cta: { label: 'Ontdek natuur & dieren', token: 'tarifa_nature_wildlife' }
       },
       {
         id: 'bolonia',
@@ -626,7 +639,8 @@ export const tarifaExperienceContent = {
           'De open kust van Bolonia deelt haar omgeving met het beschermde natuurmonument Duna de Bolonia en het archeologische complex Baelo Claudia.',
           'In Baelo is de structuur van een Romeinse stad bijzonder goed leesbaar. Viszouterijen en de productie van garum laten bovendien zien hoe nauw de economie met de kust verbonden was.',
           'Strand, duinlandschap en Romeinse archeologie vormen zo één samenhangende dag, vooral wanneer jullie ieder deel van de omgeving genoeg tijd geven.'
-        ]
+        ],
+        cta: { label: 'Plan Bolonia & Baelo Claudia', token: 'tarifa_bolonia_baelo_claudia' }
       },
       {
         id: 'food',
@@ -635,7 +649,8 @@ export const tarifaExperienceContent = {
           'Eten in Tarifa kan het verhaal van de kust meenemen naar de lunch en de avond. Atlantische vis en zeevruchten horen bij die context; atún rojo, de Atlantische blauwvintonijn, heeft een bijzondere plaats in de lokale visserij- en eetcultuur.',
           'Almadraba is de lang bestaande traditie langs de kust van Cádiz waarbij een vast netwerk van netten migrerende tonijn onderschept. Tarifa maakt deel uit van die traditie, die verklaart waarom rode tonijn zo zichtbaar is in de eetcultuur.',
           'Dat betekent niet dat ieder tonijngerecht dezelfde herkomst heeft. Het gaat om de relatie tussen kust, visserij en tafel: een bewust gekozen lunch of diner kan daardoor zelf onderdeel worden van de Tarifa-dag.'
-        ]
+        ],
+        cta: { label: 'Ontdek eten & uitgaan', token: 'tarifa_food_evening_life' }
       },
       {
         id: 'tangier',
@@ -673,17 +688,16 @@ export const tarifaExperienceContent = {
       imageAlt: 'Valkonst och skrivbord på AMARA Family & Surf i Tarifa'
     },
     discovery: {
-      title: 'Sju sidor av Tarifa',
+      title: 'Sex sidor av Tarifa',
       intro:
-        'Från kust och vind till historia, natur och mat, med Bolonia och en möjlig dag på andra sidan sundet.',
+        'Från kust och vind till mat, natur och historia, med en dag i Bolonia där landskap och arkeologi hör samman.',
       worlds: [
-        { id: 'coast', label: 'Kust' },
+        { id: 'beaches-coast', label: 'Stränder & kust' },
         { id: 'wind-watersports', label: 'Vind & vattensport' },
+        { id: 'food-evening-life', label: 'Mat & kvällsliv' },
+        { id: 'nature-wildlife', label: 'Natur & djurliv' },
         { id: 'old-town-history', label: 'Gamla stan & historia' },
-        { id: 'strait-nature-wildlife', label: 'Sundet, natur & djurliv' },
-        { id: 'bolonia-baelo', label: 'Bolonia & Baelo Claudia' },
-        { id: 'food-almadraba-tuna', label: 'Mat, almadraba & atún rojo' },
-        { id: 'tangier-strait', label: 'Tanger, på andra sidan sundet' }
+        { id: 'bolonia-baelo-claudia', label: 'Bolonia & Baelo Claudia' }
       ]
     },
     dayChooser: {
@@ -745,7 +759,8 @@ export const tarifaExperienceContent = {
           'Tarifas läge vid sundet har präglat den historiska staden och dess försvarskaraktär. Murarna och de täta gränderna visar sambandet mellan staden, havet och passagen mellan kontinenterna.',
           'Gå in i den muromgärdade stadskärnan genom Puerta de Jerez och använd Castillo de Guzmán el Bueno från 900-talet som riktmärke. Det är inte fristående monument; tillsammans visar de hur geografin har format staden.',
           'Senare hittar samma gränder en annan rytm kring kaféer, lunch och middag. Historien ger dagen sitt sammanhang, medan kvällen gör gamla stan till en del av dagens Tarifa.'
-        ]
+        ],
+        cta: { label: 'Upptäck Gamla stan & historien', token: 'tarifa_old_town_history' }
       },
       {
         id: 'nature',
@@ -754,7 +769,8 @@ export const tarifaExperienceContent = {
           'Parque Natural del Estrecho skyddar ett landskap på land och i havet runt Tarifa, där Atlanten och Medelhavet, Europa och Afrika möts. Blicken mot sundet öppnar en större geografi än stranden ensam.',
           'Vandringar och utsiktsplatser ger perspektiv mot Afrika, samtidigt som sundet är en viktig flyttkorridor för fåglar mellan kontinenterna. En naturdag kan därför stanna helt på land och ändå kännas tydligt förankrad i Tarifa.',
           'Turer för att observera valar och delfiner är en annan möjlighet från Tarifa. Förhållanden och observationer kan aldrig bestämmas i förväg, så den upplevelsen mår bra av flexibilitet.'
-        ]
+        ],
+        cta: { label: 'Upptäck natur & djurliv', token: 'tarifa_nature_wildlife' }
       },
       {
         id: 'bolonia',
@@ -763,7 +779,8 @@ export const tarifaExperienceContent = {
           'Bolonias öppna kust delar sin miljö med det skyddade naturmonumentet Duna de Bolonia och det arkeologiska området Baelo Claudia.',
           'I Baelo är strukturen i en romersk stad särskilt lätt att avläsa. Fisksaltning och tillverkning av garum visar dessutom hur nära ekonomin var knuten till kusten.',
           'Strand, dynlandskap och romersk arkeologi bildar därmed en sammanhållen dag, särskilt när ni ger varje del av platsen tillräckligt med tid.'
-        ]
+        ],
+        cta: { label: 'Planera Bolonia & Baelo Claudia', token: 'tarifa_bolonia_baelo_claudia' }
       },
       {
         id: 'food',
@@ -772,7 +789,8 @@ export const tarifaExperienceContent = {
           'Maten i Tarifa kan föra kustens berättelse vidare in i lunchen och kvällen. Fisk och skaldjur från Atlanten hör till sammanhanget; atún rojo, den atlantiska blåfenade tonfisken, har en särskild plats i den lokala fiske- och matkulturen.',
           'Almadraba är den långa traditionen längs Cádizkusten där ett fast nätssystem fångar upp vandrande tonfisk. Tarifa ingår i den traditionen, som hjälper till att förklara varför röd tonfisk är så synlig i matkulturen.',
           'Det betyder inte att varje tonfiskrätt har samma ursprung. Poängen är sambandet mellan kust, fiske och bord: en omsorgsfullt vald lunch eller middag kan därför bli en del av själva Tarifa-dagen.'
-        ]
+        ],
+        cta: { label: 'Upptäck mat & kvällsliv', token: 'tarifa_food_evening_life' }
       },
       {
         id: 'tangier',

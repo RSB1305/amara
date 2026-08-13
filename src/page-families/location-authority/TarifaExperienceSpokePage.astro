@@ -1,0 +1,215 @@
+---
+import Navigation from '../../components/Navigation.astro';
+import EditorialByline from '../../components/editorial/EditorialByline.astro';
+import TarifaContextNav from '../../components/location/TarifaContextNav.astro';
+import type {
+  LocalizedExperienceText,
+  TarifaExperienceSpokeContent
+} from '../../content/tarifaExperienceSpokeContent';
+import LocationAuthorityLayout from '../../layouts/LocationAuthorityLayout.astro';
+import { resolveOptionalLink } from '../../lib/linkResolver';
+import { normalizeLanguage } from '../../lib/seo/resolve-seo-head';
+import type { AmaraLanguage } from '../../types/seo';
+
+interface Props {
+  content: TarifaExperienceSpokeContent;
+  lang?: string;
+}
+
+const { content, lang = 'es' } = Astro.props;
+const currentLang = normalizeLanguage(lang as AmaraLanguage);
+const t = (value: LocalizedExperienceText) => value[currentLang];
+
+const requiredLink = (token: string) => {
+  const href = resolveOptionalLink(token, currentLang, { suppressMissing: true });
+
+  if (!href) {
+    throw new Error(`[Tarifa experience] Missing required link token: ${token}`);
+  }
+
+  return href;
+};
+
+const aboutHref = requiredLink('about');
+const hubHref = requiredLink('tarifa_experience_hub');
+const propertyHref = requiredLink('casa');
+const footerHighlights = [
+  { token: content.token, label: t(content.navLabel) },
+  { token: 'tarifa_experience_hub', label: t(content.closing.hubLabel) },
+  ...content.related.links.slice(0, 2).map((link) => ({
+    token: link.token,
+    label: t(link.label)
+  }))
+];
+---
+
+<LocationAuthorityLayout
+  seo={content.seo}
+  pageLang={currentLang}
+  showContextNavigation={false}
+  footerHighlights={footerHighlights}
+>
+  <Navigation
+    slot="navigation"
+    currentLang={currentLang}
+    brandName="Tarifa"
+    languageToken={content.token}
+    locationAuthorityNav={true}
+  />
+  <TarifaContextNav
+    activeId={content.id}
+    currentLabel={t(content.breadcrumbLabel)}
+    lang={currentLang}
+  />
+
+  <article class="bg-surface" data-am-page={`tarifa-${content.id}`} data-am-experience-spoke={content.id}>
+    <header class="overflow-hidden border-b border-border-subtle bg-surface px-6 py-20 md:px-12 md:py-28 lg:py-36">
+      <div class="mx-auto grid max-w-screen-2xl gap-14 lg:grid-cols-12 lg:items-start lg:gap-16">
+        <div class="lg:col-span-8">
+          <p class="font-label text-[11px] font-bold uppercase tracking-[0.2em] text-primary">
+            {t(content.hero.eyebrow)}
+          </p>
+          <h1 class="am-text-display mt-7 max-w-6xl text-balance text-on-surface">
+            {t(content.hero.title)}
+          </h1>
+        </div>
+        <div class="border-l border-primary/30 pl-6 lg:col-span-4 lg:pl-9">
+          <p class="am-text-subtitle text-balance leading-relaxed text-on-surface-variant">
+            {t(content.hero.standfirst)}
+          </p>
+        </div>
+        <div class="lg:col-span-8">
+          <EditorialByline
+            lang={currentLang}
+            authorName={content.seo.article!.authorName}
+            authorHref={aboutHref}
+            updated={t(content.hero.updated)}
+            note={t(content.hero.note)}
+          />
+        </div>
+        <div aria-hidden="true" class="hidden text-right font-serif text-[clamp(3.5rem,8vw,8.5rem)] leading-[0.72] text-primary/10 lg:col-span-4 lg:block">
+          Tarifa
+        </div>
+      </div>
+    </header>
+
+    <section class="border-b border-border-subtle bg-surface-container-low px-6 py-16 md:px-12 md:py-20">
+      <dl class="mx-auto grid max-w-screen-2xl gap-x-10 gap-y-8 md:grid-cols-3">
+        {content.facts.map((fact) => (
+          <div class="border-t border-primary/30 pt-5">
+            <dt class="font-label text-[10px] font-bold uppercase tracking-[0.14em] text-primary">{t(fact.label)}</dt>
+            <dd class="am-text-subtitle mt-3 text-on-surface">{t(fact.value)}</dd>
+          </div>
+        ))}
+      </dl>
+    </section>
+
+    {content.sections.map((section, index) => (
+      <section
+        id={section.id}
+        class:list={[
+          'scroll-mt-32 border-b border-border-subtle px-6 py-20 md:px-12 md:py-28',
+          index % 2 === 0 ? 'bg-surface' : 'bg-surface-container-low'
+        ]}
+        data-am-experience-section={section.id}
+      >
+        <div class="mx-auto grid max-w-screen-2xl gap-10 lg:grid-cols-12 lg:gap-20">
+          <div class="lg:col-span-5">
+            <p class="font-label text-[11px] font-bold uppercase tracking-[0.18em] text-primary">{t(section.eyebrow)}</p>
+            <h2 class="am-text-title mt-5 max-w-xl text-balance text-on-surface">{t(section.title)}</h2>
+          </div>
+          <div class="max-w-4xl space-y-5 lg:col-span-7">
+            {section.paragraphs.map((paragraph, paragraphIndex) => (
+              <p
+                class:list={[
+                  paragraphIndex === 0 ? 'am-text-subtitle' : 'am-text-body',
+                  'leading-relaxed text-on-surface-variant'
+                ]}
+              >
+                {t(paragraph)}
+              </p>
+            ))}
+          </div>
+        </div>
+      </section>
+    ))}
+
+    <aside class="border-b border-border-subtle bg-inverse-surface px-6 py-20 text-inverted-on-surface md:px-12 md:py-28">
+      <div class="mx-auto grid max-w-screen-2xl gap-10 lg:grid-cols-12 lg:gap-20">
+        <div class="lg:col-span-5">
+          <p class="font-label text-[11px] font-bold uppercase tracking-[0.18em] text-primary-fixed-dim">{t(content.host.eyebrow)}</p>
+          <h2 class="am-text-title mt-5 max-w-xl text-balance text-inverted-on-surface">{t(content.host.title)}</h2>
+        </div>
+        <div class="max-w-4xl space-y-5 lg:col-span-7">
+          {content.host.paragraphs.map((paragraph, index) => (
+            <p class:list={[index === 0 ? 'am-text-subtitle' : 'am-text-body', 'leading-relaxed text-inverted-on-surface/78']}>
+              {t(paragraph)}
+            </p>
+          ))}
+        </div>
+      </div>
+    </aside>
+
+    <section class="border-b border-border-subtle bg-surface px-6 py-20 md:px-12 md:py-28">
+      <div class="mx-auto max-w-screen-2xl">
+        <p class="font-label text-[11px] font-bold uppercase tracking-[0.18em] text-primary">{t(content.related.eyebrow)}</p>
+        <h2 class="am-text-title mt-5 max-w-3xl text-balance text-on-surface">{t(content.related.title)}</h2>
+        <div class="mt-12 grid gap-5 lg:grid-cols-3">
+          {content.related.links.map((link) => (
+            <a
+              href={requiredLink(link.token)}
+              class="group border-t border-border-subtle bg-surface-container-low px-6 pb-8 pt-7 transition-colors hover:border-primary/45"
+            >
+              <h3 class="am-text-subtitle text-on-surface transition-colors group-hover:text-primary">{t(link.label)}</h3>
+              <span class="am-text-body mt-4 block leading-relaxed text-on-surface-variant">{t(link.text)}</span>
+              <span aria-hidden="true" class="mt-6 inline-flex text-primary transition-transform group-hover:translate-x-1">→</span>
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="border-b border-border-subtle bg-surface-container-low px-6 py-20 md:px-12 md:py-28">
+      <div class="mx-auto grid max-w-screen-2xl gap-12 lg:grid-cols-12 lg:gap-20">
+        <div class="lg:col-span-4">
+          <p class="font-label text-[11px] font-bold uppercase tracking-[0.18em] text-primary">{t(content.sources.eyebrow)}</p>
+          <h2 class="am-text-title mt-5 text-balance text-on-surface">{t(content.sources.title)}</h2>
+          <p class="am-text-body mt-6 leading-relaxed text-on-surface-variant">{t(content.sources.intro)}</p>
+          <p class="mt-6 font-label text-[10px] font-semibold uppercase tracking-[0.12em] text-on-surface-variant/70">{t(content.sources.checked)}</p>
+        </div>
+        <div class="border-t border-border-subtle lg:col-span-8">
+          {content.sources.links.map((source) => (
+            <a
+              href={source.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="group grid grid-cols-[1fr_auto] gap-8 border-b border-border-subtle py-7 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/25"
+            >
+              <span>
+                <span class="am-text-subtitle block text-on-surface transition-colors group-hover:text-primary">{t(source.label)}</span>
+                <span class="am-text-body mt-2 block leading-relaxed text-on-surface-variant">{t(source.text)}</span>
+              </span>
+              <span aria-hidden="true" class="am-text-subtitle text-primary">↗</span>
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="bg-surface px-6 py-24 md:px-12 md:py-32">
+      <div class="mx-auto grid max-w-screen-2xl gap-10 lg:grid-cols-12 lg:items-end lg:gap-20">
+        <div class="lg:col-span-7">
+          <p class="font-label text-[11px] font-bold uppercase tracking-[0.18em] text-primary">{t(content.closing.eyebrow)}</p>
+          <h2 class="am-text-display mt-6 text-balance text-on-surface">{t(content.closing.title)}</h2>
+        </div>
+        <div class="lg:col-span-5">
+          <p class="am-text-body leading-relaxed text-on-surface-variant">{t(content.closing.body)}</p>
+          <div class="mt-8 flex flex-col items-start gap-5 sm:flex-row sm:items-center">
+            <a href={hubHref} class="am-btn am-btn--primary">{t(content.closing.hubLabel)}</a>
+            <a href={propertyHref} class="am-cta-link">{t(content.closing.propertyLabel)}</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </article>
+</LocationAuthorityLayout>

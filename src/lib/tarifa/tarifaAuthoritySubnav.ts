@@ -2,7 +2,6 @@ import type { TarifaGuideId } from '../../content/tarifaGuideContent';
 import { resolveLink } from '../linkResolver';
 import type { AmaraLanguage } from '../../types/seo';
 
-export type TarifaAuthoritySubnavId = TarifaGuideId | 'experience';
 export type TarifaAuthorityBranchId = 'location' | 'experience';
 export type TarifaAuthorityChildId =
   | 'arrival-mobility'
@@ -13,6 +12,14 @@ export type TarifaAuthorityChildId =
   | 'winter-stays'
   | 'beaches'
   | 'wind'
+  | 'food-evening-life'
+  | 'nature-wildlife'
+  | 'old-town-history'
+  | 'bolonia-baelo-claudia';
+
+export type TarifaAuthoritySubnavId =
+  | TarifaGuideId
+  | 'experience'
   | 'food-evening-life'
   | 'nature-wildlife'
   | 'old-town-history'
@@ -207,10 +214,30 @@ export function getTarifaAuthoritySubnav(
           status: 'live',
           href: resolveLink('tarifa_wind_kitesurfing_authority', currentLang)
         },
-        { id: 'food-evening-life', label: copy.children['food-evening-life'], status: 'future' },
-        { id: 'nature-wildlife', label: copy.children['nature-wildlife'], status: 'future' },
-        { id: 'old-town-history', label: copy.children['old-town-history'], status: 'future' },
-        { id: 'bolonia-baelo-claudia', label: copy.children['bolonia-baelo-claudia'], status: 'future' }
+        {
+          id: 'food-evening-life',
+          label: copy.children['food-evening-life'],
+          status: 'live',
+          href: resolveLink('tarifa_food_evening_life', currentLang)
+        },
+        {
+          id: 'nature-wildlife',
+          label: copy.children['nature-wildlife'],
+          status: 'live',
+          href: resolveLink('tarifa_nature_wildlife', currentLang)
+        },
+        {
+          id: 'old-town-history',
+          label: copy.children['old-town-history'],
+          status: 'live',
+          href: resolveLink('tarifa_old_town_history', currentLang)
+        },
+        {
+          id: 'bolonia-baelo-claudia',
+          label: copy.children['bolonia-baelo-claudia'],
+          status: 'live',
+          href: resolveLink('tarifa_bolonia_baelo_claudia', currentLang)
+        }
       ]
     }
   ];

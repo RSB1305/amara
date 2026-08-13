@@ -33,13 +33,12 @@ const requiredLink = (token: string) => {
 };
 
 const discoveryHrefs: Record<TarifaExperienceWorldId, string> = {
-  coast: requiredLink('tarifa_beaches_authority'),
+  'beaches-coast': requiredLink('tarifa_beaches_authority'),
   'wind-watersports': requiredLink('tarifa_wind_kitesurfing_authority'),
-  'old-town-history': '#old-town',
-  'strait-nature-wildlife': '#nature',
-  'bolonia-baelo': '#bolonia',
-  'food-almadraba-tuna': '#food',
-  'tangier-strait': '#tangier'
+  'food-evening-life': requiredLink('tarifa_food_evening_life'),
+  'nature-wildlife': requiredLink('tarifa_nature_wildlife'),
+  'old-town-history': requiredLink('tarifa_old_town_history'),
+  'bolonia-baelo-claudia': requiredLink('tarifa_bolonia_baelo_claudia')
 };
 
 const footerHighlights = [

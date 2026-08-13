@@ -26,7 +26,7 @@ const activeBranchId: TarifaAuthorityBranchId =
   activeId === 'overview' ? 'location' : 'experience';
 const inferredChildId: TarifaAuthorityChildId | undefined =
   activeChildId ??
-  (activeId === 'beaches' || activeId === 'wind' ? activeId : undefined);
+  (activeId !== 'overview' && activeId !== 'experience' ? activeId : undefined);
 const activeBranch = navigationItems.find((item) => item.id === activeBranchId);
 
 if (!activeBranch) {
