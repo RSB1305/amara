@@ -235,24 +235,6 @@ const heroImage = {
           <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16">
             <article class="border-l border-primary/30 pl-7 md:pl-8 py-3">
               <h3 class="am-text-subtitle italic text-on-surface mb-7">
-                {copy.comparison.frigiliana.title}
-              </h3>
-              <div class="space-y-5 mb-9">
-                {
-                  copy.comparison.frigiliana.paragraphs.map((paragraph) => (
-                    <p class="am-text-body text-on-surface-variant leading-relaxed">
-                      {paragraph}
-                    </p>
-                  ))
-                }
-              </div>
-              <a href={links.frigilianaLocation} class="am-cta-link">
-                {copy.comparison.frigiliana.cta}
-              </a>
-            </article>
-
-            <article class="border-l border-primary/30 pl-7 md:pl-8 py-3">
-              <h3 class="am-text-subtitle italic text-on-surface mb-7">
                 {copy.comparison.nerja.title}
               </h3>
               <div class="space-y-5 mb-9">
@@ -266,6 +248,24 @@ const heroImage = {
               </div>
               <a href={links.nerjaLocation} class="am-cta-link">
                 {copy.comparison.nerja.cta}
+              </a>
+            </article>
+
+            <article class="border-l border-primary/30 pl-7 md:pl-8 py-3">
+              <h3 class="am-text-subtitle italic text-on-surface mb-7">
+                {copy.comparison.frigiliana.title}
+              </h3>
+              <div class="space-y-5 mb-9">
+                {
+                  copy.comparison.frigiliana.paragraphs.map((paragraph) => (
+                    <p class="am-text-body text-on-surface-variant leading-relaxed">
+                      {paragraph}
+                    </p>
+                  ))
+                }
+              </div>
+              <a href={links.frigilianaLocation} class="am-cta-link">
+                {copy.comparison.frigiliana.cta}
               </a>
             </article>
           </div>

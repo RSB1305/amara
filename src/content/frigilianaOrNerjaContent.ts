@@ -158,19 +158,19 @@ export const frigilianaOrNerjaContent: Record<
           frigiliana:
             'The coast becomes something you deliberately include in the day. You can spend hours by the sea and return to the village afterwards.',
           nerja:
-            'In the right part of Nerja, going to the beach can be as spontaneous as going out for coffee or dinner.'
+            'In the right part of Nerja, going to the beach can be as spontaneous as going out for coffee or dinner. When spontaneous beach access and a coast-first daily routine matter most, Nerja can be the stronger base.'
         },
         {
           number: '03',
           title: 'Walking & topography',
           frigiliana:
-            'The village climbs the hillside. The exact position within Frigiliana determines how much elevation, paving and steps become part of each return.',
+            'The village climbs the hillside. The exact position within Frigiliana determines how much elevation, paving and steps become part of each return. A lower historic-core location can reduce repeated climbing, but lower does not mean flat or step-free.',
           nerja:
-            'Nerja is not uniformly flat either. Old Town, Torrecilla, Carabeo, Burriana and the residential hills all create different walking patterns.'
+            'Nerja also has varied walking terrain: Old Town, Torrecilla, Carabeo, Burriana and the residential hills all create different patterns. If repeated climbs or stairs would materially reduce your enjoyment, a carefully selected central Nerja location may be the more practical base; the exact street, beach route and building access still matter.'
         },
         {
           number: '04',
-          title: 'Mobility',
+          title: 'Car use & transport',
           frigiliana:
             'A car gives you the most freedom for beaches and the wider region, although a stay can also work without one if your plans remain relatively simple.',
           nerja:
@@ -184,16 +184,16 @@ export const frigilianaOrNerjaContent: Record<
       frigiliana: {
         title: 'Frigiliana as your base',
         paragraphs: [
-          'Frigiliana suits a stay in which the historic village itself should be part of the experience — quiet mornings, village streets, dinner on foot and returning to the old town at the end of the day.',
-          'The coast remains close enough for beach days, Nerja and Maro, but the village is the place that feels like home.'
+          'Frigiliana can be the stronger base when the historic hillside village itself should be the overnight environment — quieter mornings and evenings beyond the main day-visitor rhythm, slower village-first days and a return to the old town at night.',
+          'With an appropriate village or historic-core location, dinner and everyday village life can become part of the walking routine. The coast remains an outing rather than the defining address; a lower historic-core position can reduce repeated climbing, but it is neither automatically flat nor step-free.'
         ],
         cta: 'Explore staying in Frigiliana'
       },
       nerja: {
         title: 'Nerja as your base',
         paragraphs: [
-          'Nerja suits a stay in which the coast and town should be part of everyday life — beach time, restaurants, shops and walks that can often begin directly from your accommodation.',
-          'The exact area matters: Torrecilla, the Old Town, Carabeo, Burriana and the residential hills offer noticeably different routines.'
+          'Nerja may be the better base when spontaneous beach time and a coast-first daily routine take priority, especially in a carefully chosen central area where restaurants, shops and everyday services fit easily into the day.',
+          'It may also be the more practical choice when repeated climbs or stairs are a major concern, but only after checking the exact street, beach route and building access: Torrecilla, the Old Town, Carabeo, Burriana and the residential hills offer noticeably different routines.'
         ],
         cta: 'Explore staying in Nerja'
       }
@@ -203,7 +203,7 @@ export const frigilianaOrNerjaContent: Record<
       paragraphs: [
         'Whichever base you choose, the other place does not disappear from the trip.',
         'Frigiliana and Nerja are close enough to combine during the same stay. Public transport, taxis and driving all make daytime movement between village and coast possible, while a car gives more flexibility for later evenings and wider plans.',
-        'So the useful decision is not “Frigiliana or Nerja forever?” It is simply which setting you want to return to each day.'
+        'The places can share one trip, but the bases are not interchangeable: where you wake and return, whether coast or village is the daily default, and which walking and transport patterns you repeat still shape the stay.'
       ],
       cta: 'How to get between Frigiliana and the coast'
     },
@@ -274,19 +274,19 @@ export const frigilianaOrNerjaContent: Record<
           frigiliana:
             'Ein Tag am Meer wird bewusst eingeplant. Ihr könnt Stunden an der Küste verbringen und danach ins Dorf zurückkehren.',
           nerja:
-            'In der passenden Lage kann der Weg zum Strand so spontan sein wie der Gang zum Café oder Restaurant.'
+            'In der passenden Lage kann der Weg zum Strand so spontan sein wie der Gang zum Café oder Restaurant. Wenn spontaner Strandzugang und ein Alltag an der Küste im Mittelpunkt stehen, kann Nerja als Urlaubsort die bessere Wahl sein.'
         },
         {
           number: '03',
           title: 'Wege & Höhenunterschiede',
           frigiliana:
-            'Das Dorf zieht sich den Hang hinauf. Die genaue Lage in Frigiliana entscheidet, wie viele Steigungen, gepflasterte Wege und Stufen zu jedem Rückweg gehören.',
+            'Das Dorf zieht sich den Hang hinauf. Die genaue Lage in Frigiliana entscheidet, wie viele Steigungen, gepflasterte Wege und Stufen zu jedem Rückweg gehören. Eine Lage im unteren historischen Zentrum kann wiederholte Anstiege verringern; „weiter unten“ bedeutet jedoch weder eben noch stufenlos.',
           nerja:
-            'Auch Nerja ist nicht überall flach. Altstadt, Torrecilla, Carabeo, Burriana und die Wohnlagen am Hang bringen jeweils andere Wege mit sich.'
+            'Auch in Nerja unterscheiden sich Steigungen, Treppen und Wege: Altstadt, Torrecilla, Carabeo, Burriana und die Wohnlagen am Hang bringen jeweils andere Anforderungen mit sich. Wenn wiederholte Anstiege oder Treppen den Urlaub deutlich beeinträchtigen würden, kann eine sorgfältig gewählte zentrale Lage in Nerja praktischer sein; die genaue Straße, der Weg zum Strand und der Gebäudezugang bleiben entscheidend.'
         },
         {
           number: '04',
-          title: 'Mobilität',
+          title: 'Auto & Verkehrsmittel',
           frigiliana:
             'Mit einem Auto seid ihr für Strände und Ausflüge in die Region am flexibelsten. Auch ohne Auto kann der Aufenthalt funktionieren, wenn eure Pläne überschaubar bleiben.',
           nerja:
@@ -300,16 +300,16 @@ export const frigilianaOrNerjaContent: Record<
       frigiliana: {
         title: 'Frigiliana als Urlaubsort',
         paragraphs: [
-          'Frigiliana passt zu einem Aufenthalt, bei dem das historische Dorf selbst Teil des Erlebnisses sein soll: ruhige Morgen, Dorfstraßen, abends zu Fuß zum Essen und am Tagesende zurück in die Altstadt.',
-          'Die Küste bleibt nah genug für Strandtage, Nerja und Maro. Zu Hause fühlt ihr euch jedoch im Dorf.'
+          'Frigiliana kann als Urlaubsort die stärkere Wahl sein, wenn das historische Dorf am Hang selbst die Umgebung des Aufenthalts sein soll: ruhigere Morgen und Abende, wenn weniger Tagesgäste im Dorf sind, langsamere dorforientierte Tage und die Rückkehr in die Altstadt am Abend.',
+          'Bei einer passenden Lage im Dorf oder historischen Zentrum können Restaurantbesuche und der Dorfalltag zu Fuß dazugehören. Die Küste bleibt ein Ausflug statt die bestimmende Adresse; eine Lage im unteren historischen Zentrum kann wiederholte Anstiege verringern, ist aber weder automatisch eben noch stufenlos.'
         ],
         cta: 'Wohnen in Frigiliana entdecken'
       },
       nerja: {
         title: 'Nerja als Urlaubsort',
         paragraphs: [
-          'Nerja passt zu einem Aufenthalt, bei dem Küste und Stadt zum Alltag gehören sollen: Zeit am Strand, Restaurants, Geschäfte und Spaziergänge, die oft direkt an der Unterkunft beginnen können.',
-          'Die genaue Lage zählt: Torrecilla, Altstadt, Carabeo, Burriana und die Wohnlagen am Hang bieten spürbar unterschiedliche Tagesabläufe.'
+          'Nerja kann als Urlaubsort die bessere Wahl sein, wenn spontane Strandzeit und ein Alltag an der Küste Vorrang haben — besonders in einer sorgfältig gewählten zentralen Lage, in der Restaurants, Geschäfte und vieles für den Alltag gut erreichbar sind.',
+          'Auch wenn wiederholte Anstiege oder Treppen stark ins Gewicht fallen, kann Nerja praktischer sein — aber erst nach Prüfung der genauen Straße, des Weges zum Strand und des Gebäudezugangs: Torrecilla, Altstadt, Carabeo, Burriana und die Wohnlagen am Hang bieten spürbar unterschiedliche Tagesabläufe.'
         ],
         cta: 'Wohnen in Nerja entdecken'
       }
@@ -319,7 +319,7 @@ export const frigilianaOrNerjaContent: Record<
       paragraphs: [
         'Für welchen Urlaubsort ihr euch auch entscheidet: Der andere verschwindet nicht aus der Reise.',
         'Frigiliana und Nerja liegen nah genug beieinander, um sie während desselben Aufenthalts zu verbinden. Öffentliche Verkehrsmittel, Taxis und das Auto ermöglichen tagsüber Wege zwischen Dorf und Küste; mit einem Auto bleibt ihr für spätere Abende und weitere Ausflüge flexibler.',
-        'Die hilfreiche Frage lautet also nicht „Frigiliana oder Nerja für immer?“, sondern einfach: In welche Umgebung möchtet ihr jeden Tag zurückkehren?'
+        'Beide Orte können Teil derselben Reise sein, doch als Urlaubsbasis sind sie nicht austauschbar: Wo ihr aufwacht und zurückkehrt, ob Küste oder Dorf den Alltag bestimmt und welche Wege ihr täglich zu Fuß oder mit Verkehrsmitteln wiederholt, prägt den Aufenthalt.'
       ],
       cta: 'So kommt ihr zwischen Frigiliana und der Küste hin und her'
     },
@@ -390,19 +390,19 @@ export const frigilianaOrNerjaContent: Record<
           frigiliana:
             'La costa es un plan que incorporáis de forma consciente. Podéis pasar horas junto al mar y regresar después al pueblo.',
           nerja:
-            'En la zona adecuada de Nerja, ir a la playa puede ser tan espontáneo como salir a tomar un café o cenar.'
+            'En la zona adecuada de Nerja, ir a la playa puede ser tan espontáneo como salir a tomar un café o cenar. Cuando el acceso espontáneo a la playa y una rutina diaria centrada en la costa son prioritarios, Nerja puede ser la mejor base.'
         },
         {
           number: '03',
           title: 'Recorridos a pie y desnivel',
           frigiliana:
-            'El pueblo asciende por la ladera. La ubicación concreta en Frigiliana determina cuánto desnivel, pavimento y escaleras forman parte de cada regreso.',
+            'El pueblo asciende por la ladera. La ubicación concreta en Frigiliana determina cuánto desnivel, pavimento y escaleras forman parte de cada regreso. Una ubicación en la parte baja del casco histórico puede reducir las subidas repetidas, pero estar más abajo no significa que el recorrido sea llano ni esté libre de escalones.',
           nerja:
-            'Nerja tampoco es completamente llana. El casco antiguo, Torrecilla, Carabeo, Burriana y las zonas residenciales de las colinas implican recorridos diferentes.'
+            'Nerja también presenta recorridos con distintos desniveles y escaleras: el casco antiguo, Torrecilla, Carabeo, Burriana y las zonas residenciales de las colinas plantean condiciones diferentes. Si repetir cuestas o escaleras reduciría de forma importante vuestro disfrute, una zona céntrica de Nerja elegida con cuidado puede resultar más práctica; la calle concreta, el acceso a la playa y la entrada del edificio siguen siendo decisivos.'
         },
         {
           number: '04',
-          title: 'Movilidad',
+          title: 'Coche y transporte',
           frigiliana:
             'Un coche ofrece la mayor libertad para ir a las playas y recorrer la zona, aunque la estancia también puede funcionar sin él si vuestros planes son relativamente sencillos.',
           nerja:
@@ -416,16 +416,16 @@ export const frigilianaOrNerjaContent: Record<
       frigiliana: {
         title: 'Alojarse en Frigiliana',
         paragraphs: [
-          'Frigiliana encaja en unas vacaciones donde el pueblo histórico debe formar parte de la experiencia: mañanas tranquilas, calles de pueblo, cenas a pie y el regreso al casco antiguo al final del día.',
-          'La costa sigue lo bastante cerca para pasar el día en la playa, en Nerja o en Maro, pero el lugar que se siente como casa es el pueblo.'
+          'Frigiliana puede ser la mejor base cuando el pueblo histórico en la ladera debe ser el entorno de la estancia: mañanas y atardeceres más tranquilos cuando hay menos visitantes que pasan solo el día, jornadas más pausadas centradas en el pueblo y el regreso al casco antiguo por la noche.',
+          'Con una ubicación adecuada en el pueblo o en el casco histórico, salir a cenar y la vida cotidiana pueden integrarse en los recorridos a pie. La costa sigue siendo una excursión en lugar de determinar dónde os alojáis; una posición en la parte baja del casco histórico puede reducir las subidas repetidas, pero eso no garantiza un recorrido llano ni libre de escalones.'
         ],
         cta: 'Descubrir cómo es alojarse en Frigiliana'
       },
       nerja: {
         title: 'Alojarse en Nerja',
         paragraphs: [
-          'Nerja encaja en unas vacaciones donde la costa y la localidad deben formar parte del día a día: playa, restaurantes, tiendas y paseos que a menudo pueden empezar directamente desde el alojamiento.',
-          'La zona concreta importa: Torrecilla, el casco antiguo, Carabeo, Burriana y las áreas residenciales de las colinas ofrecen rutinas claramente distintas.'
+          'Nerja puede ser la mejor base cuando tienen prioridad la playa espontánea y una rutina diaria centrada en la costa, sobre todo en una zona céntrica elegida con cuidado donde los restaurantes, las tiendas y los servicios cotidianos se integren fácilmente en el día.',
+          'También puede ser la opción más práctica cuando las cuestas o escaleras repetidas sean una preocupación importante, pero solo después de comprobar la calle concreta, el acceso a la playa y la entrada del edificio: Torrecilla, el casco antiguo, Carabeo, Burriana y las áreas residenciales de las colinas ofrecen rutinas claramente distintas.'
         ],
         cta: 'Descubrir cómo es alojarse en Nerja'
       }
@@ -435,7 +435,7 @@ export const frigilianaOrNerjaContent: Record<
       paragraphs: [
         'Elijáis el lugar que elijáis, el otro no desaparece del viaje.',
         'Frigiliana y Nerja están lo bastante cerca para combinarlas durante la misma estancia. El transporte público, los taxis y el coche permiten desplazarse durante el día entre el pueblo y la costa; con coche tendréis más flexibilidad para volver más tarde y ampliar los planes.',
-        'La pregunta útil no es «¿Frigiliana o Nerja para siempre?», sino a qué entorno queréis regresar cada día.'
+        'Ambos lugares pueden formar parte del mismo viaje, pero no son bases intercambiables: dónde despertáis y regresáis, si la costa o el pueblo marcan el día a día y qué recorridos a pie y formas de transporte repetís siguen definiendo la estancia.'
       ],
       cta: 'Cómo moverse entre Frigiliana y la costa'
     },
@@ -506,19 +506,19 @@ export const frigilianaOrNerjaContent: Record<
           frigiliana:
             'Een dag aan de kust plannen jullie bewust in. Na een paar uur aan zee keren jullie weer terug naar het dorp.',
           nerja:
-            'In de juiste buurt van Nerja kan naar het strand gaan net zo spontaan zijn als koffie drinken of uit eten gaan.'
+            'In de juiste buurt van Nerja kan naar het strand gaan net zo spontaan zijn als koffie drinken of uit eten gaan. Als spontane toegang tot het strand en een kustgerichte dagelijkse routine het belangrijkst zijn, kan Nerja de betere uitvalsbasis zijn.'
         },
         {
           number: '03',
           title: 'Lopen & hoogteverschillen',
           frigiliana:
-            'Het dorp loopt tegen de heuvel omhoog. De precieze plek in Frigiliana bepaalt hoeveel stijging, bestrating en trappen bij elke terugweg horen.',
+            'Het dorp loopt tegen de heuvel omhoog. De precieze plek in Frigiliana bepaalt hoeveel stijging, bestrating en trappen bij elke terugweg horen. Een plek in het lagere deel van de historische kern kan herhaald klimwerk beperken, maar lager betekent niet dat de route vlak of trapvrij is.',
           nerja:
-            'Ook Nerja is niet overal vlak. Het oude centrum, Torrecilla, Carabeo, Burriana en de woonwijken in de heuvels hebben elk hun eigen wandelroutes.'
+            'Ook in Nerja verschillen hellingen, trappen en wandelroutes: het oude centrum, Torrecilla, Carabeo, Burriana en de woonwijken in de heuvels stellen elk andere eisen. Als herhaald klimmen of traplopen het vakantieplezier duidelijk zou verminderen, kan een zorgvuldig gekozen centrale plek in Nerja praktischer zijn; de precieze straat, route naar het strand en toegang tot het gebouw blijven bepalend.'
         },
         {
           number: '04',
-          title: 'Vervoer',
+          title: 'Auto & vervoer',
           frigiliana:
             'Met een auto hebben jullie de meeste vrijheid voor stranden en de omgeving. Zonder auto kan een verblijf ook goed werken als de plannen relatief eenvoudig blijven.',
           nerja:
@@ -532,16 +532,16 @@ export const frigilianaOrNerjaContent: Record<
       frigiliana: {
         title: 'Frigiliana als thuisplek',
         paragraphs: [
-          'Frigiliana past bij een verblijf waarin het historische dorp deel van de ervaring mag zijn: rustige ochtenden, dorpsstraatjes, te voet uit eten en aan het eind van de dag thuiskomen in de oude kern.',
-          'De kust blijft dichtbij genoeg voor stranddagen, Nerja en Maro, maar het dorp is de plek die als thuis voelt.'
+          'Frigiliana kan juist de betere uitvalsbasis zijn wanneer het historische dorp tegen de heuvel zelf de omgeving van het verblijf moet vormen: rustigere ochtenden en avonden buiten de drukste uren van dagjesmensen, een langzamer dorpsgericht ritme en thuiskomen in de oude kern.',
+          'Vanuit een passende plek in het dorp of de historische kern kunnen uit eten gaan en het dagelijkse dorpsleven deel worden van de wandelroutine. De kust blijft een uitstapje in plaats van het adres te bepalen; een lagere plek in de historische kern kan herhaald klimwerk beperken, maar is niet automatisch vlak of trapvrij.'
         ],
         cta: 'Ontdek verblijven in Frigiliana'
       },
       nerja: {
         title: 'Nerja als thuisplek',
         paragraphs: [
-          'Nerja past bij een verblijf waarin de kust en de plaats zelf bij elke dag horen: strand, restaurants, winkels en wandelingen die vaak direct bij de accommodatie beginnen.',
-          'De precieze buurt maakt verschil. Torrecilla, het oude centrum, Carabeo, Burriana en de woonwijken in de heuvels brengen elk een andere dagelijkse routine mee.'
+          'Nerja kan de betere uitvalsbasis zijn wanneer spontane strandtijd en een kustgerichte dagelijkse routine vooropstaan, vooral vanuit een zorgvuldig gekozen centrale buurt waar restaurants, winkels en dagelijkse voorzieningen gemakkelijk in de dag passen.',
+          'Ook wanneer herhaald klimmen of traplopen zwaar meeweegt, kan Nerja praktischer zijn — maar pas nadat de precieze straat, route naar het strand en toegang tot het gebouw zijn gecontroleerd: Torrecilla, het oude centrum, Carabeo, Burriana en de woonwijken in de heuvels brengen elk een andere dagelijkse routine mee.'
         ],
         cta: 'Ontdek verblijven in Nerja'
       }
@@ -551,7 +551,7 @@ export const frigilianaOrNerjaContent: Record<
       paragraphs: [
         'Welke plek jullie ook kiezen, de andere verdwijnt niet uit de reis.',
         'Frigiliana en Nerja liggen dicht genoeg bij elkaar om ze tijdens hetzelfde verblijf te combineren. Openbaar vervoer, taxi en auto maken verplaatsingen overdag tussen dorp en kust mogelijk; een auto geeft meer vrijheid voor latere avonden en uitstapjes verder weg.',
-        'Het gaat dus niet om “Frigiliana of Nerja voor altijd?”, maar om de omgeving waarnaar jullie elke dag willen terugkeren.'
+        'Beide plaatsen kunnen deel zijn van dezelfde reis, maar als uitvalsbasis zijn ze niet uitwisselbaar: waar jullie wakker worden en terugkeren, of de kust of het dorp jullie dagelijkse omgeving vormt en welke wandel- en vervoerspatronen jullie herhalen, blijft het verblijf bepalen.'
       ],
       cta: 'Zo reizen jullie tussen Frigiliana en de kust'
     },
@@ -622,19 +622,19 @@ export const frigilianaOrNerjaContent: Record<
           frigiliana:
             'Kusten blir något ni medvetet planerar in. Ni kan tillbringa några timmar vid havet och återvända till byn efteråt.',
           nerja:
-            'I rätt del av Nerja kan ett besök på stranden bli lika spontant som att gå ut för en kaffe eller middag.'
+            'I rätt del av Nerja kan ett besök på stranden bli lika spontant som att gå ut för en kaffe eller middag. När spontan tillgång till stranden och en kustnära vardagsrytm väger tyngst kan Nerja vara det bättre valet som bas.'
         },
         {
           number: '03',
           title: 'Promenader & nivåskillnader',
           frigiliana:
-            'Byn klättrar uppför sluttningen. Det exakta läget i Frigiliana avgör hur mycket backar, stenläggning och trappor som ingår i vägen hem.',
+            'Byn klättrar uppför sluttningen. Det exakta läget i Frigiliana avgör hur mycket backar, stenläggning och trappor som ingår i vägen hem. Ett läge i den lägre delen av den historiska bykärnan kan minska återkommande stigningar, men lägre betyder inte att vägen är plan eller trappfri.',
           nerja:
-            'Inte heller Nerja är platt överallt. Gamla stan, Torrecilla, Carabeo, Burriana och bostadsområdena på höjderna ger olika promenadmönster.'
+            'Även i Nerja varierar backar, trappor och promenadvägar: gamla stan, Torrecilla, Carabeo, Burriana och bostadsområdena på höjderna ställer olika krav. Om återkommande stigningar eller trappor tydligt skulle minska er trivsel kan ett noggrant valt centralt läge i Nerja vara mer praktiskt; den exakta gatan, vägen till stranden och tillträdet till byggnaden är fortfarande avgörande.'
         },
         {
           number: '04',
-          title: 'Att ta sig runt',
+          title: 'Bil & transporter',
           frigiliana:
             'Med bil får ni störst frihet för stränder och utflykter i området. Det går också att bo utan bil om planerna är förhållandevis enkla.',
           nerja:
@@ -648,16 +648,16 @@ export const frigilianaOrNerjaContent: Record<
       frigiliana: {
         title: 'Frigiliana som hem under resan',
         paragraphs: [
-          'Frigiliana passar när den historiska byn ska vara en del av själva vistelsen: lugna morgnar, bygator, middag på gångavstånd och att återvända till gamla stan i slutet av dagen.',
-          'Kusten ligger fortfarande nära nog för stranddagar, Nerja och Maro, men det är byn som känns som hemma.'
+          'Frigiliana kan vara den starkare basen när den historiska byn på sluttningen ska vara vistelsens miljö: lugnare morgnar och kvällar utanför dagbesökarnas mest intensiva tider, ett långsammare byorienterat tempo och att återvända till gamla stan på kvällen.',
+          'Med ett lämpligt läge i byn eller den historiska bykärnan kan restaurangbesök och vardagsliv bli en del av promenadrutinen. Kusten förblir en utflykt i stället för att avgöra var ni bor; ett lägre läge i den historiska bykärnan kan minska återkommande stigningar, men är inte automatiskt plant eller trappfritt.'
         ],
         cta: 'Upptäck hur det är att bo i Frigiliana'
       },
       nerja: {
         title: 'Nerja som hem under resan',
         paragraphs: [
-          'Nerja passar när kusten och staden ska vara en del av vardagen: strandliv, restauranger, butiker och promenader som ofta kan börja direkt vid boendet.',
-          'Det exakta området spelar roll. Torrecilla, gamla stan, Carabeo, Burriana och bostadsområdena på höjderna ger tydligt olika rutiner.'
+          'Nerja kan vara den bättre basen när spontana stunder på stranden och en kustnära vardagsrytm prioriteras, särskilt i ett noggrant valt centralt område där restauranger, butiker och vardagsservice enkelt kan bli en del av dagen.',
+          'Det kan också vara det mer praktiska valet när återkommande stigningar eller trappor är ett stort bekymmer, men först efter att den exakta gatan, vägen till stranden och tillträdet till byggnaden har kontrollerats: Torrecilla, gamla stan, Carabeo, Burriana och bostadsområdena på höjderna ger tydligt olika rutiner.'
         ],
         cta: 'Upptäck hur det är att bo i Nerja'
       }
@@ -667,7 +667,7 @@ export const frigilianaOrNerjaContent: Record<
       paragraphs: [
         'Vilken plats ni än väljer försvinner inte den andra ur resan.',
         'Frigiliana och Nerja ligger nära nog för att kombineras under samma vistelse. Kollektivtrafik, taxi och bil gör det möjligt att röra sig mellan byn och kusten under dagen; med bil får ni större flexibilitet för sena kvällar och utflykter längre bort.',
-        'Frågan är alltså inte ”Frigiliana eller Nerja för alltid?”, utan vilken miljö ni vill återvända till varje dag.'
+        'Båda platserna kan ingå i samma resa, men som baser är de inte utbytbara: var ni vaknar och återvänder, om kusten eller byn präglar vardagen och vilka promenad- och transportmönster ni upprepar fortsätter att forma vistelsen.'
       ],
       cta: 'Så tar ni er mellan Frigiliana och kusten'
     },
