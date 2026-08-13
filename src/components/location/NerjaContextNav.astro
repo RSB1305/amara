@@ -14,10 +14,11 @@ import type { AmaraLanguage } from '../../types/seo';
 
 interface Props {
   activeId: NerjaAuthoritySubnavId;
+  childLabel?: string;
   lang: AmaraLanguage;
 }
 
-const { activeId, lang } = Astro.props;
+const { activeId, childLabel, lang } = Astro.props;
 const navigationItems = getNerjaAuthoritySubnav(lang);
 
 const labels: Record<
@@ -53,6 +54,9 @@ const copy = labels[lang];
 const homeHref = resolveOptionalLink('home', lang, {
   suppressMissing: true
 });
+const nerjaHref = resolveOptionalLink('location_nerja', lang, {
+  suppressMissing: true
+});
 
 const breadcrumbs: ContextNavigationBreadcrumb[] = [
   {
@@ -60,8 +64,10 @@ const breadcrumbs: ContextNavigationBreadcrumb[] = [
     href: homeHref ?? undefined
   },
   {
-    label: 'Nerja'
-  }
+    label: 'Nerja',
+    href: childLabel ? nerjaHref ?? undefined : undefined
+  },
+  ...(childLabel ? [{ label: childLabel }] : [])
 ];
 ---
 

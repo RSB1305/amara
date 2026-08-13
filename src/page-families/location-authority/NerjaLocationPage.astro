@@ -11,6 +11,7 @@ import {
   nerjaLocationSeo
 } from '../../content/nerjaLocationContent';
 import { resolveOptionalLink } from '../../lib/linkResolver';
+import { getLocationGuideTopicLabels } from '../../lib/location/locationGuideTopics';
 import { normalizeLanguage } from '../../lib/seo/resolve-seo-head';
 import type { AmaraLanguage } from '../../types/seo';
 
@@ -20,6 +21,7 @@ interface Props {
 
 const { lang = 'es' } = Astro.props;
 const currentLang = normalizeLanguage(lang as AmaraLanguage);
+const whereToStayLabel = getLocationGuideTopicLabels(currentLang)['where-to-stay'];
 const seo = nerjaLocationSeo;
 const copy = nerjaLocationCopy;
 function t<T>(value: Readonly<Record<AmaraLanguage, T>>): T {
@@ -166,12 +168,12 @@ const footerHighlights = [
     slot="navigation"
     currentLang={currentLang}
     brandName={c.nav.brand}
-    languageToken="location_nerja"
+    languageToken="nerja_where_to_stay"
     locationAuthorityNav={true}
   />
-  <NerjaContextNav activeId="intro" lang={currentLang} />
+  <NerjaContextNav activeId="where-to-stay" childLabel={whereToStayLabel} lang={currentLang} />
 
-  <div data-am-page="nerja-location">
+  <div data-am-page="nerja-where-to-stay">
     <div class="w-full">
       <div id="intro">
         <Hero

@@ -99,6 +99,20 @@ const PUBLIC_ROUTE_LABELS: Partial<Record<string, Record<AmaraLanguage, string>>
     nl: 'Nerja',
     sv: 'Nerja'
   },
+  'getting-to-nerja': {
+    en: 'Arrival & Mobility',
+    de: 'Anreise & Mobilität',
+    es: 'Llegada y movilidad',
+    nl: 'Aankomst & mobiliteit',
+    sv: 'Ankomst & mobilitet'
+  },
+  'nerja-where-to-stay': {
+    en: 'Where to Stay / Areas',
+    de: 'Wo übernachten / Lagen',
+    es: 'Dónde alojarse / zonas',
+    nl: 'Waar overnachten / gebieden',
+    sv: 'Var ska man bo / områden'
+  },
   'getting-to-frigiliana': {
     en: 'Arrival & Mobility',
     de: 'Anreise & Mobilität',
@@ -390,6 +404,12 @@ const FRIGILIANA_LOCATION_GUIDE_SLUGS = new Set([
   'frigiliana-netflix-dos-tumbas'
 ]);
 
+const NERJA_LOCATION_GUIDE_SLUGS = new Set([
+  'nerja-location',
+  'getting-to-nerja',
+  'nerja-where-to-stay'
+]);
+
 const PRIMARY_TRUST_PAGE_SLUGS = new Set([
   'amara-about-us',
   'guest-reviews',
@@ -494,6 +514,21 @@ function buildBreadcrumbNode(
         position: itemListElement.length + 1,
         name: 'Frigiliana',
         item: frigilianaUrl
+      });
+    }
+  } else if (NERJA_LOCATION_GUIDE_SLUGS.has(slug)) {
+    if (slug !== 'nerja-location') {
+      const nerjaSlug = 'nerja-location';
+      const nerjaUrl = new URL(
+        buildOwnedLocalizedPath(nerjaSlug, currentLang),
+        base
+      ).href;
+
+      itemListElement.push({
+        '@type': 'ListItem',
+        position: itemListElement.length + 1,
+        name: 'Nerja',
+        item: nerjaUrl
       });
     }
   } else if (EXPERIENCE_DETAIL_SLUGS.has(slug)) {

@@ -130,6 +130,20 @@ legal_notice: {
       nl: buildOwnedLocalizedPath('nerja-location', 'nl'),
       sv: buildOwnedLocalizedPath('nerja-location', 'sv')
     },
+    getting_to_nerja: {
+      en: buildOwnedLocalizedPath('getting-to-nerja', 'en'),
+      de: buildOwnedLocalizedPath('getting-to-nerja', 'de'),
+      es: buildOwnedLocalizedPath('getting-to-nerja', 'es'),
+      nl: buildOwnedLocalizedPath('getting-to-nerja', 'nl'),
+      sv: buildOwnedLocalizedPath('getting-to-nerja', 'sv')
+    },
+    nerja_where_to_stay: {
+      en: buildOwnedLocalizedPath('nerja-where-to-stay', 'en'),
+      de: buildOwnedLocalizedPath('nerja-where-to-stay', 'de'),
+      es: buildOwnedLocalizedPath('nerja-where-to-stay', 'es'),
+      nl: buildOwnedLocalizedPath('nerja-where-to-stay', 'nl'),
+      sv: buildOwnedLocalizedPath('nerja-where-to-stay', 'sv')
+    },
     nerja_nightlife_authority: {
       en: buildOwnedLocalizedPath('nerja-nightlife', 'en'),
       de: buildOwnedLocalizedPath('nerja-nightlife', 'de'),

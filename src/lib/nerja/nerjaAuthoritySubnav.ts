@@ -18,26 +18,23 @@ export function getNerjaAuthoritySubnav(
   currentLang: AmaraLanguage
 ): NerjaAuthoritySubnavItem[] {
   const labels = getLocationGuideTopicLabels(currentLang);
-  const locationBase = resolveLink('location_nerja', currentLang);
-
   return [
     {
       id: 'arrival-mobility',
       label: labels['arrival-mobility'],
       status: 'live',
-      href: `${locationBase}#practical-nerja`
+      href: resolveLink('getting_to_nerja', currentLang)
     },
     {
       id: 'geography-orientation',
       label: labels['geography-orientation'],
-      status: 'live',
-      href: `${locationBase}#key-facts`
+      status: 'future'
     },
     {
       id: 'where-to-stay',
       label: labels['where-to-stay'],
       status: 'live',
-      href: `${locationBase}#where-to-stay-in-nerja`
+      href: resolveLink('nerja_where_to_stay', currentLang)
     },
     {
       id: 'weather-seasons',
