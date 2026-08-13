@@ -443,7 +443,7 @@ const overview: TarifaGuideContent = {
           },
           {
             title: 'Umland — wenn Ruhe und Raum wichtiger sind',
-            paragraphs: ['Fincas und Häuser außerhalb Tarifas bieten ein anderes Aufenthaltsmodell.', 'Mehr Raum, Natur und Privatsphäre bedeuten gleichzeitig: Einkaufen, Essen, Strand und Altstadt werden meist zu Autofahrten.'],
+            paragraphs: ['Fincas und Häuser außerhalb Tarifas bieten eine andere Art des Aufenthalts.', 'Mehr Raum, Natur und Privatsphäre bedeuten gleichzeitig: Einkaufen, Essen, Strand und Altstadt werden meist zu Autofahrten.'],
             fit: 'Im Umland ist die Abgeschiedenheit Teil des Aufenthalts – nicht nur eine Folge der Lage.'
           }
         ],
@@ -464,7 +464,7 @@ const overview: TarifaGuideContent = {
       seasons: {
         id: 'seasons',
         title: 'Tarifa verändert sich mit der Jahreszeit',
-        paragraphs: ['Im Sommer wird Tarifa deutlich intensiver.', 'Mehr Menschen, mehr Abendleben und mehr Verkehr machen die genaue Lage und insbesondere die Autonutzung relevanter.', 'Außerhalb der Hochsaison wird es ruhiger. Bei längeren Aufenthalten gewinnen dafür andere Dinge an Bedeutung: Einkauf, Wohnkomfort, Arbeitsplatz, Heizung und die Frage, wie häufig man tatsächlich fahren möchte.', 'Die beste Lage kann deshalb je nach Aufenthaltsmodell unterschiedlich sein.']
+        paragraphs: ['Im Sommer wird Tarifa deutlich intensiver.', 'Mehr Menschen, mehr Abendleben und mehr Verkehr machen die genaue Lage und insbesondere die Autonutzung relevanter.', 'Außerhalb der Hochsaison wird es ruhiger. Bei längeren Aufenthalten gewinnen dafür andere Dinge an Bedeutung: Einkauf, Wohnkomfort, Arbeitsplatz, Heizung und die Frage, wie häufig man tatsächlich fahren möchte.', 'Die beste Lage kann deshalb je nach Art des Aufenthalts unterschiedlich sein.']
       },
       stayFits: {
         title: 'Vier Reisearten, vier unterschiedliche Prioritäten',

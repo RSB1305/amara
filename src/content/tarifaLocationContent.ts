@@ -114,7 +114,7 @@ export const tarifaLocationContent: {
   locales: {
     en: {
       hero: {
-        eyebrow: 'Tarifa location authority',
+        eyebrow: 'Tarifa location guide',
         title: 'Tarifa between town, Atlantic and open coast',
         standfirst: 'Tarifa is a compact Atlantic town with several very different ways to inhabit it. This guide gives first-time overnight guests the geographic and practical overview before the details split into arrival, areas, climate, daily life and winter.',
         note: 'An independent AMARA guide for planning a stay — not a live conditions service.',
@@ -123,7 +123,7 @@ export const tarifaLocationContent: {
       discovery: {
         eyebrow: 'Start with the question',
         title: 'Six questions that shape a Tarifa stay',
-        intro: 'Each one changes the rhythm of several days here. The area guide has its own page; the other links lead to concise, practical notes on this Hub.',
+        intro: 'Each one changes the rhythm of several days here. The area guide has its own page; the other links lead to concise, practical notes in this guide.',
         items: [
           { number: '01', title: 'Getting here', text: 'Arrival, luggage and when a car becomes useful.', label: 'Arrival & mobility', anchor: '#arrival-mobility' },
           { number: '02', title: 'Where Tarifa is', text: 'Town, Atlantic edge, western coast and inland landscape.', label: 'Geography & orientation', anchor: '#geography-orientation' },
@@ -196,8 +196,8 @@ export const tarifaLocationContent: {
         ]
       },
       amara: {
-        eyebrow: 'AMARA application',
-        title: 'Why La Marina fits the AMARA stay model',
+        eyebrow: 'At AMARA',
+        title: 'Why La Marina works well for an AMARA stay',
         paragraphs: [
           'AMARA Family & Surf is in La Marina. We chose this setting for a specific balance rather than because one area is universally best.',
           'It keeps the Old Town within an approximate 10–15 minute walk while supporting practical everyday and westbound movement. The trade-off is that the historic centre is not immediately outside the door.'
@@ -231,7 +231,7 @@ export const tarifaLocationContent: {
       discovery: {
         eyebrow: 'Beginnt mit der Frage',
         title: 'Sechs Fragen, die euren Aufenthalt in Tarifa prägen',
-        intro: 'Je nachdem, was euch wichtig ist, bekommen mehrere Tage in Tarifa einen anderen Rhythmus. Der Lagevergleich hat eine eigene Seite; die übrigen Links führen zu kompakten, praktischen Hinweisen auf diesem Hub.',
+        intro: 'Je nachdem, was euch wichtig ist, bekommen mehrere Tage in Tarifa einen anderen Rhythmus. Der Lagevergleich hat eine eigene Seite; die übrigen Links führen zu kompakten, praktischen Hinweisen in diesem Guide.',
         items: [
           { number: '01', title: 'Ankommen', text: 'Anreise, Gepäck und wann ein Auto sinnvoll wird.', label: 'Anreise & Mobilität', anchor: '#arrival-mobility' },
           { number: '02', title: 'Tarifa auf der Karte', text: 'Ort, Atlantikküste, westliche Strände und Hinterland.', label: 'Geografie & Orientierung', anchor: '#geography-orientation' },
@@ -305,7 +305,7 @@ export const tarifaLocationContent: {
       },
       amara: {
         eyebrow: 'AMARA in der Praxis',
-        title: 'Warum La Marina zu AMARAs Aufenthaltsmodell passt',
+        title: 'Warum La Marina gut zu einem Aufenthalt bei AMARA passt',
         paragraphs: [
           'AMARA Family & Surf liegt in La Marina. Wir haben diese Lage wegen einer bestimmten Balance gewählt – nicht, weil eine Gegend für alle die beste wäre.',
           'Die Altstadt bleibt ungefähr 10–15 Minuten zu Fuß entfernt, während Alltag und Fahrten nach Westen praktisch bleiben. Der ehrliche Tausch: Das historische Zentrum beginnt nicht direkt vor der Haustür.'
@@ -339,7 +339,7 @@ export const tarifaLocationContent: {
       discovery: {
         eyebrow: 'Empieza por la pregunta',
         title: 'Seis preguntas que dan forma a una estancia en Tarifa',
-        intro: 'Según lo que busques, varios días en Tarifa pueden tener ritmos muy distintos. La comparación de zonas tiene su propia página; los demás enlaces llevan a notas breves y prácticas dentro de este Hub.',
+        intro: 'Según lo que busques, varios días en Tarifa pueden tener ritmos muy distintos. La comparación de zonas tiene su propia página; los demás enlaces llevan a notas breves y prácticas dentro de esta guía.',
         items: [
           { number: '01', title: 'Cómo llegar', text: 'Llegada, equipaje y cuándo resulta útil el coche.', label: 'Llegada y movilidad', anchor: '#arrival-mobility' },
           { number: '02', title: 'Dónde está Tarifa', text: 'Pueblo, Atlántico, costa occidental e interior.', label: 'Geografía y orientación', anchor: '#geography-orientation' },
@@ -412,8 +412,8 @@ export const tarifaLocationContent: {
         ]
       },
       amara: {
-        eyebrow: 'Aplicación AMARA',
-        title: 'Por qué La Marina encaja con el modelo de estancia de AMARA',
+        eyebrow: 'AMARA en la práctica',
+        title: 'Por qué La Marina funciona bien para una estancia en AMARA',
         paragraphs: [
           'AMARA Family & Surf está en La Marina. Elegimos este entorno por un equilibrio concreto, no porque exista una zona universalmente mejor.',
           'El casco antiguo queda a unos 10–15 minutos a pie, mientras la vida diaria y la salida hacia el oeste siguen siendo prácticas. La contrapartida es clara: el centro histórico no empieza al salir de casa.'
@@ -447,7 +447,7 @@ export const tarifaLocationContent: {
       discovery: {
         eyebrow: 'Begin met de vraag',
         title: 'Zes vragen die jullie verblijf in Tarifa vormgeven',
-        intro: 'Wat jullie belangrijk vinden, bepaalt het ritme van meerdere dagen in Tarifa. De gebiedsvergelijking heeft een eigen pagina; de overige links gaan naar beknopte, praktische informatie op deze Hub.',
+        intro: 'Wat jullie belangrijk vinden, bepaalt het ritme van meerdere dagen in Tarifa. De gebiedsvergelijking heeft een eigen pagina; de overige links gaan naar beknopte, praktische informatie in deze gids.',
         items: [
           { number: '01', title: 'Aankomen', text: 'Aankomst, bagage en wanneer een auto nuttig wordt.', label: 'Aankomst & mobiliteit', anchor: '#arrival-mobility' },
           { number: '02', title: 'Tarifa op de kaart', text: 'Stad, Atlantische kust, westelijke stranden en achterland.', label: 'Geografie & oriëntatie', anchor: '#geography-orientation' },
@@ -521,7 +521,7 @@ export const tarifaLocationContent: {
       },
       amara: {
         eyebrow: 'AMARA in de praktijk',
-        title: 'Waarom La Marina past bij het verblijfsmodel van AMARA',
+        title: 'Waarom La Marina goed werkt voor een verblijf bij AMARA',
         paragraphs: [
           'AMARA Family & Surf ligt in La Marina. We kozen deze setting voor een specifieke balans, niet omdat één gebied voor iedereen het beste is.',
           'De oude stad blijft ongeveer 10–15 minuten lopen, terwijl het dagelijks leven en westwaarts rijden praktisch blijven. De eerlijke keerzijde: het historische centrum ligt niet direct voor de deur.'
@@ -555,7 +555,7 @@ export const tarifaLocationContent: {
       discovery: {
         eyebrow: 'Börja med frågan',
         title: 'Sex frågor som formar en vistelse i Tarifa',
-        intro: 'Det ni prioriterar sätter rytmen för flera dagar i Tarifa. Områdesjämförelsen har en egen sida; övriga länkar leder till kort och praktisk information på denna hubb.',
+        intro: 'Det ni prioriterar sätter rytmen för flera dagar i Tarifa. Områdesjämförelsen har en egen sida; övriga länkar leder till kort och praktisk information i den här guiden.',
         items: [
           { number: '01', title: 'Ta er hit', text: 'Ankomst, bagage och när en bil blir användbar.', label: 'Ankomst & mobilitet', anchor: '#arrival-mobility' },
           { number: '02', title: 'Tarifa på kartan', text: 'Staden, Atlantkusten, västkusten och inlandet.', label: 'Geografi & orientering', anchor: '#geography-orientation' },
@@ -629,7 +629,7 @@ export const tarifaLocationContent: {
       },
       amara: {
         eyebrow: 'AMARA i praktiken',
-        title: 'Varför La Marina passar AMARAs vistelsemodell',
+        title: 'Varför La Marina fungerar bra för en vistelse hos AMARA',
         paragraphs: [
           'AMARA Family & Surf ligger i La Marina. Vi valde miljön för en särskild balans, inte för att ett område är bäst för alla.',
           'Gamla stan ligger ungefär 10–15 minuters promenad bort, samtidigt som vardagen och körning västerut förblir praktiska. Den ärliga avvägningen är att den historiska kärnan inte börjar direkt utanför dörren.'
