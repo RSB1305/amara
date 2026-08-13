@@ -162,6 +162,13 @@ const PUBLIC_ROUTE_LABELS: Partial<Record<string, Record<AmaraLanguage, string>>
     nl: 'Tarifa',
     sv: 'Tarifa'
   },
+  'getting-to-tarifa': {
+    en: 'Arrival & Mobility',
+    de: 'Anreise & Mobilität',
+    es: 'Llegada y movilidad',
+    nl: 'Aankomst & mobiliteit',
+    sv: 'Ankomst & mobilitet'
+  },
   'tarifa-where-to-stay': {
     en: 'Where to stay',
     de: 'Wo übernachten',
@@ -271,6 +278,7 @@ const EXPERIENCE_DETAIL_SLUGS = new Set([
 
 const TARIFA_GUIDE_SLUGS = new Set([
   'tarifa-location',
+  'getting-to-tarifa',
   'tarifa-where-to-stay',
   'tarifa-experience',
   'tarifa-wind-kitesurfing',

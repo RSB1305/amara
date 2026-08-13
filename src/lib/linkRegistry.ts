@@ -148,6 +148,13 @@ legal_notice: {
     /* =========================================================
        TARIFA — AUTHORITY (PUBLIC)
     ========================================================= */
+    getting_to_tarifa: {
+      en: buildOwnedLocalizedPath('getting-to-tarifa', 'en'),
+      de: buildOwnedLocalizedPath('getting-to-tarifa', 'de'),
+      es: buildOwnedLocalizedPath('getting-to-tarifa', 'es'),
+      nl: buildOwnedLocalizedPath('getting-to-tarifa', 'nl'),
+      sv: buildOwnedLocalizedPath('getting-to-tarifa', 'sv')
+    },
     tarifa_where_to_stay: {
       en: buildOwnedLocalizedPath('tarifa-where-to-stay', 'en'),
       de: buildOwnedLocalizedPath('tarifa-where-to-stay', 'de'),
