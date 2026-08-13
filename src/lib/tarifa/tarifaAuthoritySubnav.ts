@@ -54,7 +54,7 @@ const labels: Record<AmaraLanguage, TarifaAuthorityLabels> = {
     experience: 'Experience',
     children: {
       'arrival-mobility': 'Arrival & Mobility',
-      'geography-orientation': 'Geography & orientation',
+      'geography-orientation': 'Geography & Orientation',
       'where-to-stay': 'Where to stay / areas',
       'weather-seasons': 'Weather & seasons',
       'daily-life-services': 'Daily life & services',
@@ -158,7 +158,12 @@ export function getTarifaAuthoritySubnav(
           status: 'live',
           href: resolveLink('getting_to_tarifa', currentLang)
         },
-        { id: 'geography-orientation', label: copy.children['geography-orientation'], status: 'future' },
+        {
+          id: 'geography-orientation',
+          label: copy.children['geography-orientation'],
+          status: 'live',
+          href: resolveLink('tarifa_geography', currentLang)
+        },
         {
           id: 'where-to-stay',
           label: copy.children['where-to-stay'],

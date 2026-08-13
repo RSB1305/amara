@@ -2,6 +2,7 @@ import type { AmaraAuthoringSeo, AmaraLanguage } from '../types/seo';
 
 export type TarifaLocationHubLinkToken =
   | 'getting_to_tarifa'
+  | 'tarifa_geography'
   | 'tarifa_where_to_stay'
   | 'tarifa_experience_hub'
   | 'tarifa_beaches_authority'
@@ -127,7 +128,7 @@ export const tarifaLocationContent: {
         intro: 'Each one changes the rhythm of several days here. The area guide has its own page; the other links lead to concise, practical notes in this guide.',
         items: [
           { number: '01', title: 'Getting here', text: 'Arrival, luggage and when a car becomes useful.', label: 'Arrival & mobility', token: 'getting_to_tarifa' },
-          { number: '02', title: 'Where Tarifa is', text: 'Town, Atlantic edge, western coast and inland landscape.', label: 'Geography & orientation', anchor: '#geography-orientation' },
+          { number: '02', title: 'Where Tarifa is', text: 'Town, Atlantic edge, western coast and inland landscape.', label: 'Geography & orientation', token: 'tarifa_geography' },
           { number: '03', title: 'Choose your area', text: 'Compare the real daily trade-offs between four stay settings.', label: 'Where to stay', token: 'tarifa_where_to_stay' },
           { number: '04', title: 'Weather & seasons', text: 'How wind and seasonal rhythm affect the way you use Tarifa.', label: 'Weather & seasons', anchor: '#weather-seasons' },
           { number: '05', title: 'Daily life', text: 'Groceries, dinner, beach routines and practical movement.', label: 'Daily life', anchor: '#daily-life' },
@@ -235,7 +236,7 @@ export const tarifaLocationContent: {
         intro: 'Je nachdem, was euch wichtig ist, bekommen mehrere Tage in Tarifa einen anderen Rhythmus. Der Lagevergleich hat eine eigene Seite; die übrigen Links führen zu kompakten, praktischen Hinweisen in diesem Guide.',
         items: [
           { number: '01', title: 'Ankommen', text: 'Anreise, Gepäck und wann ein Auto sinnvoll wird.', label: 'Anreise & Mobilität', token: 'getting_to_tarifa' },
-          { number: '02', title: 'Tarifa auf der Karte', text: 'Ort, Atlantikküste, westliche Strände und Hinterland.', label: 'Geografie & Orientierung', anchor: '#geography-orientation' },
+          { number: '02', title: 'Tarifa auf der Karte', text: 'Ort, Atlantikküste, westliche Strände und Hinterland.', label: 'Geografie & Orientierung', token: 'tarifa_geography' },
           { number: '03', title: 'Lage wählen', text: 'Die tatsächlichen Alltagsfolgen von vier Wohnlagen vergleichen.', label: 'Wo übernachten', token: 'tarifa_where_to_stay' },
           { number: '04', title: 'Wetter & Jahreszeiten', text: 'Wie Wind und Saison den Tagesrhythmus prägen.', label: 'Wetter & Jahreszeiten', anchor: '#weather-seasons' },
           { number: '05', title: 'Alltag', text: 'Einkaufen, Essen, Strandroutinen und Wege.', label: 'Alltag & Versorgung', anchor: '#daily-life' },
@@ -343,7 +344,7 @@ export const tarifaLocationContent: {
         intro: 'Según lo que busques, varios días en Tarifa pueden tener ritmos muy distintos. La comparación de zonas tiene su propia página; los demás enlaces llevan a notas breves y prácticas dentro de esta guía.',
         items: [
           { number: '01', title: 'Cómo llegar', text: 'Llegada, equipaje y cuándo resulta útil el coche.', label: 'Llegada y movilidad', token: 'getting_to_tarifa' },
-          { number: '02', title: 'Dónde está Tarifa', text: 'Pueblo, Atlántico, costa occidental e interior.', label: 'Geografía y orientación', anchor: '#geography-orientation' },
+          { number: '02', title: 'Dónde está Tarifa', text: 'Pueblo, Atlántico, costa occidental e interior.', label: 'Geografía y orientación', token: 'tarifa_geography' },
           { number: '03', title: 'Elegir zona', text: 'Compara las consecuencias diarias de cuatro entornos.', label: 'Dónde alojarse', token: 'tarifa_where_to_stay' },
           { number: '04', title: 'Tiempo y estaciones', text: 'Cómo el viento y la temporada cambian el ritmo.', label: 'Clima y estaciones', anchor: '#weather-seasons' },
           { number: '05', title: 'Vida diaria', text: 'Compras, cenas, playa y desplazamientos prácticos.', label: 'Vida diaria y servicios', anchor: '#daily-life' },
@@ -451,7 +452,7 @@ export const tarifaLocationContent: {
         intro: 'Wat jullie belangrijk vinden, bepaalt het ritme van meerdere dagen in Tarifa. De gebiedsvergelijking heeft een eigen pagina; de overige links gaan naar beknopte, praktische informatie in deze gids.',
         items: [
           { number: '01', title: 'Aankomen', text: 'Aankomst, bagage en wanneer een auto nuttig wordt.', label: 'Aankomst & mobiliteit', token: 'getting_to_tarifa' },
-          { number: '02', title: 'Tarifa op de kaart', text: 'Stad, Atlantische kust, westelijke stranden en achterland.', label: 'Geografie & oriëntatie', anchor: '#geography-orientation' },
+          { number: '02', title: 'Tarifa op de kaart', text: 'Stad, Atlantische kust, westelijke stranden en achterland.', label: 'Geografie & oriëntatie', token: 'tarifa_geography' },
           { number: '03', title: 'Een gebied kiezen', text: 'Vergelijk de dagelijkse gevolgen van vier verblijfssettings.', label: 'Waar overnachten', token: 'tarifa_where_to_stay' },
           { number: '04', title: 'Weer & seizoenen', text: 'Hoe wind en seizoen het dagelijkse ritme bepalen.', label: 'Weer & seizoenen', anchor: '#weather-seasons' },
           { number: '05', title: 'Dagelijks leven', text: 'Boodschappen, eten, strandroutine en praktische beweging.', label: 'Dagelijks leven', anchor: '#daily-life' },
@@ -559,7 +560,7 @@ export const tarifaLocationContent: {
         intro: 'Det ni prioriterar sätter rytmen för flera dagar i Tarifa. Områdesjämförelsen har en egen sida; övriga länkar leder till kort och praktisk information i den här guiden.',
         items: [
           { number: '01', title: 'Ta er hit', text: 'Ankomst, bagage och när en bil blir användbar.', label: 'Ankomst & mobilitet', token: 'getting_to_tarifa' },
-          { number: '02', title: 'Tarifa på kartan', text: 'Staden, Atlantkusten, västkusten och inlandet.', label: 'Geografi & orientering', anchor: '#geography-orientation' },
+          { number: '02', title: 'Tarifa på kartan', text: 'Staden, Atlantkusten, västkusten och inlandet.', label: 'Geografi & orientering', token: 'tarifa_geography' },
           { number: '03', title: 'Välj område', text: 'Jämför de dagliga följderna av fyra boendemiljöer.', label: 'Var ska man bo', token: 'tarifa_where_to_stay' },
           { number: '04', title: 'Väder & årstider', text: 'Hur vind och säsong påverkar dagsrytmen.', label: 'Väder & årstider', anchor: '#weather-seasons' },
           { number: '05', title: 'Vardagsliv', text: 'Matinköp, middag, strandrutiner och förflyttning.', label: 'Vardagsliv', anchor: '#daily-life' },

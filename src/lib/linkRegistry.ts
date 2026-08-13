@@ -155,6 +155,13 @@ legal_notice: {
       nl: buildOwnedLocalizedPath('getting-to-tarifa', 'nl'),
       sv: buildOwnedLocalizedPath('getting-to-tarifa', 'sv')
     },
+    tarifa_geography: {
+      en: buildOwnedLocalizedPath('tarifa-geography', 'en'),
+      de: buildOwnedLocalizedPath('tarifa-geography', 'de'),
+      es: buildOwnedLocalizedPath('tarifa-geography', 'es'),
+      nl: buildOwnedLocalizedPath('tarifa-geography', 'nl'),
+      sv: buildOwnedLocalizedPath('tarifa-geography', 'sv')
+    },
     tarifa_where_to_stay: {
       en: buildOwnedLocalizedPath('tarifa-where-to-stay', 'en'),
       de: buildOwnedLocalizedPath('tarifa-where-to-stay', 'de'),
