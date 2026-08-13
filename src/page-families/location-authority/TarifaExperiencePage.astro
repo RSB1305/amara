@@ -6,7 +6,8 @@ import TarifaContextNav from '../../components/location/TarifaContextNav.astro';
 import {
   TARIFA_EXPERIENCE_TOKEN,
   tarifaExperienceContent,
-  tarifaExperienceSeo
+  tarifaExperienceSeo,
+  type TarifaExperienceWorldId
 } from '../../content/tarifaExperienceContent';
 import { tarifaGuideContent } from '../../content/tarifaGuideContent';
 import LocationAuthorityLayout from '../../layouts/LocationAuthorityLayout.astro';
@@ -29,6 +30,16 @@ const requiredLink = (token: string) => {
   }
 
   return href;
+};
+
+const discoveryHrefs: Record<TarifaExperienceWorldId, string> = {
+  coast: requiredLink('tarifa_beaches_authority'),
+  'wind-watersports': requiredLink('tarifa_wind_kitesurfing_authority'),
+  'old-town-history': '#old-town',
+  'strait-nature-wildlife': '#nature',
+  'bolonia-baelo': '#bolonia',
+  'food-almadraba-tuna': '#food',
+  'tangier-strait': '#tangier'
 };
 
 const footerHighlights = [
@@ -75,6 +86,34 @@ const footerHighlights = [
         ))}
       </div>
     </Hero>
+
+    <section class="border-b border-border-subtle bg-surface px-6 py-10 md:px-12 md:py-12">
+      <div class="mx-auto max-w-screen-2xl">
+        <div class="max-w-3xl">
+          <h2 id="tarifa-worlds-title" class="am-text-subtitle text-balance text-on-surface">
+            {copy.discovery.title}
+          </h2>
+          <p class="mt-3 text-sm leading-relaxed text-on-surface-variant">
+            {copy.discovery.intro}
+          </p>
+        </div>
+
+        <nav class="mt-7" aria-labelledby="tarifa-worlds-title">
+          <ul class="grid gap-x-8 gap-y-3 sm:grid-cols-2 lg:grid-cols-4">
+            {copy.discovery.worlds.map((world) => (
+              <li>
+                <a
+                  href={discoveryHrefs[world.id]}
+                  class="am-inline-link inline-flex min-h-11 max-w-full items-center text-sm leading-snug"
+                >
+                  {world.label}<span aria-hidden="true"> →</span>
+                </a>
+              </li>
+            ))}
+          </ul>
+        </nav>
+      </div>
+    </section>
 
     <section class="border-y border-border-subtle bg-surface-container-low px-6 py-20 md:px-12 md:py-28">
       <div class="mx-auto max-w-screen-2xl">
