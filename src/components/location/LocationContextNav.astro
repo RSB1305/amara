@@ -6,6 +6,7 @@ import ContextNavigation, {
   type ContextNavigationBreadcrumb
 } from '../navigation/ContextNavigation.astro';
 import {
+  getFrigilianaAuthorityActiveTopic,
   getFrigilianaAuthorityCurrentPageLabel,
   getFrigilianaAuthoritySubnav,
   type FrigilianaAuthoritySubnavId,
@@ -22,57 +23,41 @@ interface Props {
 
 const { activeId, items, lang } = Astro.props;
 const navigationItems = items ?? getFrigilianaAuthoritySubnav(lang);
-const activeItem = navigationItems.find((item) => item.id === activeId);
-const normalizePathname = (pathname: string) => pathname.replace(/\/+$/, '') || '/';
-const activeItemOwnsCurrentPage = activeItem
-  ? normalizePathname(new URL(activeItem.href, Astro.url).pathname) ===
-    normalizePathname(Astro.url.pathname)
-  : false;
-const currentLabel = activeItemOwnsCurrentPage
-  ? activeItem?.label
-  : getFrigilianaAuthorityCurrentPageLabel(activeId, lang);
+const activeTopicId = getFrigilianaAuthorityActiveTopic(activeId);
+const currentLabel = getFrigilianaAuthorityCurrentPageLabel(activeId, lang);
 const isOverview = activeId === 'intro';
 
 const labels: Record<
   AmaraLanguage,
   {
     breadcrumb: string;
-    destinations: string;
     switcher: string;
   }
 > = {
   en: {
     breadcrumb: 'Breadcrumb',
-    destinations: 'Destinations',
     switcher: 'Frigiliana guide navigation'
   },
   de: {
     breadcrumb: 'Brotkrümelnavigation',
-    destinations: 'Reiseziele',
     switcher: 'Navigation im Frigiliana-Guide'
   },
   es: {
     breadcrumb: 'Migas de pan',
-    destinations: 'Destinos',
     switcher: 'Navegación de la guía de Frigiliana'
   },
   nl: {
     breadcrumb: 'Broodkruimelnavigatie',
-    destinations: 'Bestemmingen',
     switcher: 'Navigatie van de Frigiliana-gids'
   },
   sv: {
     breadcrumb: 'Brödsmulenavigering',
-    destinations: 'Resmål',
     switcher: 'Navigering i Frigiliana-guiden'
   }
 };
 
 const copy = labels[lang];
 const homeHref = resolveOptionalLink('home', lang, {
-  suppressMissing: true
-});
-const destinationsHref = resolveOptionalLink('explore_hub', lang, {
   suppressMissing: true
 });
 const guideHref = resolveOptionalLink('location_frigiliana', lang, {
@@ -88,10 +73,6 @@ const breadcrumbs: ContextNavigationBreadcrumb[] = [
     href: homeHref ?? undefined
   },
   {
-    label: copy.destinations,
-    href: destinationsHref ?? undefined
-  },
-  {
     label: frigilianaLabel,
     href: !isOverview ? guideHref ?? undefined : undefined
   }
@@ -103,10 +84,12 @@ if (!isOverview) {
 ---
 
 <ContextNavigation
-  activeId={activeId}
+  activeId={activeTopicId}
   breadcrumbAriaLabel={copy.breadcrumb}
   breadcrumbs={breadcrumbs}
   context="location"
   items={navigationItems}
+  retainActiveItem={true}
   switcherAriaLabel={copy.switcher}
+  wrapItems={true}
 />

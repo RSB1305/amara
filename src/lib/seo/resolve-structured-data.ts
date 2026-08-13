@@ -71,11 +71,11 @@ const PUBLIC_ROUTE_LABELS: Partial<Record<string, Record<AmaraLanguage, string>>
   'comfort-amenities': trustLabels.amenities,
   'direct-booking-benefits': trustLabels.direct_booking_benefits,
   'directions-arrival-guide': {
-    en: 'Arrival Guide',
-    de: 'Anreise-Guide',
-    es: 'Guía de llegada',
-    nl: 'Aankomstgids',
-    sv: 'Ankomstguide'
+    en: 'Arrival & Mobility',
+    de: 'Anreise & Mobilität',
+    es: 'Llegada y movilidad',
+    nl: 'Aankomst & mobiliteit',
+    sv: 'Ankomst & mobilitet'
   },
   'faq-general': trustLabels.faq_general,
   'frigiliana-faq': {
@@ -86,11 +86,39 @@ const PUBLIC_ROUTE_LABELS: Partial<Record<string, Record<AmaraLanguage, string>>
     sv: 'Frigiliana-FAQ'
   },
   'frigiliana-location': {
-    en: 'Frigiliana Guide',
-    de: 'Frigiliana-Guide',
-    es: 'Guía de Frigiliana',
-    nl: 'Frigiliana-gids',
-    sv: 'Frigiliana-guide'
+    en: 'Frigiliana',
+    de: 'Frigiliana',
+    es: 'Frigiliana',
+    nl: 'Frigiliana',
+    sv: 'Frigiliana'
+  },
+  'nerja-location': {
+    en: 'Nerja',
+    de: 'Nerja',
+    es: 'Nerja',
+    nl: 'Nerja',
+    sv: 'Nerja'
+  },
+  'getting-to-frigiliana': {
+    en: 'Arrival & Mobility',
+    de: 'Anreise & Mobilität',
+    es: 'Llegada y movilidad',
+    nl: 'Aankomst & mobiliteit',
+    sv: 'Ankomst & mobilitet'
+  },
+  'frigiliana-streets-stairs': {
+    en: 'Where to Stay / Areas',
+    de: 'Wo übernachten / Lagen',
+    es: 'Dónde alojarse / zonas',
+    nl: 'Waar overnachten / gebieden',
+    sv: 'Var ska man bo / områden'
+  },
+  'frigiliana-winter-stays': {
+    en: 'Winter Stays',
+    de: 'Winteraufenthalte',
+    es: 'Estancias de invierno',
+    nl: 'Winterverblijven',
+    sv: 'Vintervistelser'
   },
   'explore-frigiliana-nerja': {
     en: 'Experiences',
@@ -254,18 +282,18 @@ const PUBLIC_ROUTE_LABELS: Partial<Record<string, Record<AmaraLanguage, string>>
     sv: 'Bolonia & Baelo Claudia'
   },
   'frigiliana-parking': {
-    en: 'Frigiliana Parking',
-    de: 'Parken in Frigiliana',
-    es: 'Aparcamiento en Frigiliana',
-    nl: 'Parkeren in Frigiliana',
-    sv: 'Parkering i Frigiliana'
+    en: 'Parking',
+    de: 'Parken',
+    es: 'Aparcamiento',
+    nl: 'Parkeren',
+    sv: 'Parkering'
   },
   'frigiliana-weather': {
-    en: 'Weather in Frigiliana',
-    de: 'Wetter in Frigiliana',
-    es: 'El tiempo en Frigiliana',
-    nl: 'Het weer in Frigiliana',
-    sv: 'Vädret i Frigiliana'
+    en: 'Weather & Seasons',
+    de: 'Wetter & Jahreszeiten',
+    es: 'Tiempo y estaciones',
+    nl: 'Weer & seizoenen',
+    sv: 'Väder & årstider'
   },
   'guest-reviews': trustLabels.reviews_hub,
   instagram: {
@@ -349,6 +377,19 @@ const TARIFA_GUIDE_SLUGS = new Set([
   'tarifa-bolonia-baelo-claudia'
 ]);
 
+const FRIGILIANA_LOCATION_GUIDE_SLUGS = new Set([
+  'frigiliana-location',
+  'getting-to-frigiliana',
+  'directions-arrival-guide',
+  'frigiliana-streets-stairs',
+  'frigiliana-parking',
+  'frigiliana-weather',
+  'frigiliana-winter-stays',
+  'frigiliana-or-nerja',
+  'frigiliana-faq',
+  'frigiliana-netflix-dos-tumbas'
+]);
+
 const PRIMARY_TRUST_PAGE_SLUGS = new Set([
   'amara-about-us',
   'guest-reviews',
@@ -356,14 +397,6 @@ const PRIMARY_TRUST_PAGE_SLUGS = new Set([
   'comfort-amenities',
   'faq-general'
 ]);
-
-const DESTINATION_LABELS: Record<AmaraLanguage, string> = {
-  en: 'Destinations',
-  de: 'Reiseziele',
-  es: 'Destinos',
-  nl: 'Bestemmingen',
-  sv: 'Resmål'
-};
 
 function getBase(origin: string): string {
   return origin.replace(/\/+$/, '');
@@ -434,19 +467,6 @@ function buildBreadcrumbNode(
   ];
 
   if (TARIFA_GUIDE_SLUGS.has(slug)) {
-    const destinationsSlug = 'explore-frigiliana-nerja';
-    const destinationsUrl = new URL(
-      buildOwnedLocalizedPath(destinationsSlug, currentLang),
-      base
-    ).href;
-
-    itemListElement.push({
-      '@type': 'ListItem',
-      position: itemListElement.length + 1,
-      name: DESTINATION_LABELS[currentLang],
-      item: destinationsUrl
-    });
-
     if (slug !== 'tarifa-location') {
       const tarifaSlug = 'tarifa-location';
       const tarifaUrl = new URL(
@@ -459,6 +479,21 @@ function buildBreadcrumbNode(
         position: itemListElement.length + 1,
         name: resolveRouteLabel(tarifaSlug, currentLang, 'Tarifa'),
         item: tarifaUrl
+      });
+    }
+  } else if (FRIGILIANA_LOCATION_GUIDE_SLUGS.has(slug)) {
+    if (slug !== 'frigiliana-location') {
+      const frigilianaSlug = 'frigiliana-location';
+      const frigilianaUrl = new URL(
+        buildOwnedLocalizedPath(frigilianaSlug, currentLang),
+        base
+      ).href;
+
+      itemListElement.push({
+        '@type': 'ListItem',
+        position: itemListElement.length + 1,
+        name: 'Frigiliana',
+        item: frigilianaUrl
       });
     }
   } else if (EXPERIENCE_DETAIL_SLUGS.has(slug)) {

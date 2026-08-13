@@ -18,7 +18,6 @@ import {
 } from '../../content/frigilianaPreFooterContent';
 import { frigilianaStreetsStairsCopy } from '../../content/frigilianaStreetsStairsContent';
 import LocationAuthorityLayout from '../../layouts/LocationAuthorityLayout.astro';
-import { getFrigilianaAuthoritySubnav } from '../../lib/frigiliana/frigilianaAuthoritySubnav';
 import { resolveOptionalLink } from '../../lib/linkResolver';
 import { buildOwnedLocalizedPath } from '../../lib/routeOwnership';
 import { normalizeLanguage } from '../../lib/seo/resolve-seo-head';
@@ -39,8 +38,6 @@ function t(row: LocalizedRow): string {
 }
 
 const streetsHref = buildOwnedLocalizedPath('frigiliana-streets-stairs', currentLang);
-
-const sectionNavItems = getFrigilianaAuthoritySubnav(currentLang);
 
 const navLinks = copy.nav.links.map((link) => ({
   token: link.token,
@@ -137,7 +134,7 @@ const timingImage = {
     languageToken="frigiliana_parking"
     locationAuthorityNav={true}
   />
-  <LocationContextNav items={sectionNavItems} activeId="parking" lang={currentLang} />
+  <LocationContextNav activeId="parking" lang={currentLang} />
 
   <div data-am-page="frigiliana-parking">
     <div class="w-full">

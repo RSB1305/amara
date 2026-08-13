@@ -17,7 +17,6 @@ import {
   getFrigilianaPreFooterDescription
 } from '../../content/frigilianaPreFooterContent';
 import LocationAuthorityLayout from '../../layouts/LocationAuthorityLayout.astro';
-import { getFrigilianaAuthoritySubnav } from '../../lib/frigiliana/frigilianaAuthoritySubnav';
 import { resolveOptionalLink } from '../../lib/linkResolver';
 import { buildOwnedLocalizedPath } from '../../lib/routeOwnership';
 import { normalizeLanguage } from '../../lib/seo/resolve-seo-head';
@@ -37,19 +36,8 @@ function t(row: LocalizedRow): string {
   return row[currentLang] ?? row.en;
 }
 
-const gettingHereHref = buildOwnedLocalizedPath('getting-to-frigiliana', currentLang);
 const parkingHref = buildOwnedLocalizedPath('frigiliana-parking', currentLang);
 const bookedArrivalHref = buildOwnedLocalizedPath('directions-arrival-guide', currentLang);
-
-const sectionNavItems = getFrigilianaAuthoritySubnav(currentLang).map((item) =>
-  item.id === 'arrival'
-    ? {
-        ...item,
-        href: gettingHereHref,
-        label: t(copy.nav.links[2].label)
-      }
-    : item
-);
 
 const navLinks = copy.nav.links.map((link) => ({
   token: link.token,
@@ -154,7 +142,7 @@ const approachImage = {
     languageToken="getting_to_frigiliana"
     locationAuthorityNav={true}
   />
-  <LocationContextNav items={sectionNavItems} activeId="arrival" lang={currentLang} />
+  <LocationContextNav activeId="arrival" lang={currentLang} />
 
   <div data-am-page="getting-to-frigiliana">
     <div class="w-full">

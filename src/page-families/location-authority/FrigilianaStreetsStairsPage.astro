@@ -12,9 +12,7 @@ import {
   frigilianaStreetsStairsSeo
 } from '../../content/frigilianaStreetsStairsContent';
 import LocationAuthorityLayout from '../../layouts/LocationAuthorityLayout.astro';
-import { getFrigilianaAuthoritySubnav } from '../../lib/frigiliana/frigilianaAuthoritySubnav';
 import { resolveOptionalLink } from '../../lib/linkResolver';
-import { buildOwnedLocalizedPath } from '../../lib/routeOwnership';
 import { normalizeLanguage } from '../../lib/seo/resolve-seo-head';
 import type { AmaraLanguage } from '../../types/seo';
 
@@ -31,10 +29,6 @@ const copy = frigilianaStreetsStairsCopy;
 function t(row: LocalizedRow): string {
   return row[currentLang] ?? row.en;
 }
-
-const streetsHref = buildOwnedLocalizedPath('frigiliana-streets-stairs', currentLang);
-
-const sectionNavItems = getFrigilianaAuthoritySubnav(currentLang);
 
 const navLinks = copy.nav.links.map((link) => ({
   token: link.token,
@@ -133,7 +127,7 @@ const proofImage = {
     languageToken="frigiliana_stairs"
     locationAuthorityNav={true}
   />
-  <LocationContextNav items={sectionNavItems} activeId="stay" lang={currentLang} />
+  <LocationContextNav activeId="stay" lang={currentLang} />
 
   <div data-am-page="frigiliana-streets-stairs">
     <div class="w-full">

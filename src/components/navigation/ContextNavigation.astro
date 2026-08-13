@@ -12,8 +12,9 @@ export interface ContextNavigationBreadcrumb {
 
 export interface ContextNavigationItem {
   id: string;
-  href: string;
+  href?: string;
   label: string;
+  status?: 'live' | 'future';
 }
 
 interface Props {
@@ -22,7 +23,9 @@ interface Props {
   breadcrumbs: ContextNavigationBreadcrumb[];
   context: 'experience' | 'location';
   items: ContextNavigationItem[];
+  retainActiveItem?: boolean;
   switcherAriaLabel: string;
+  wrapItems?: boolean;
 }
 
 const {
@@ -31,12 +34,14 @@ const {
   breadcrumbs,
   context,
   items,
-  switcherAriaLabel
+  retainActiveItem = false,
+  switcherAriaLabel,
+  wrapItems = false
 } = Astro.props;
 
 // The breadcrumb already identifies the current page. Removing it from the
 // sibling switcher keeps the navigation focused on the available next steps.
-const visibleItems = activeId
+const visibleItems = activeId && !retainActiveItem
   ? items.filter((item) => item.id !== activeId)
   : items;
 ---
@@ -93,23 +98,51 @@ const visibleItems = activeId
 
       {visibleItems.length > 0 && (
       <nav aria-label={switcherAriaLabel} class="min-w-0">
-        <ul class="-mx-1 flex flex-nowrap items-center gap-0.5 overflow-x-auto overscroll-x-contain pb-1 xl:justify-end xl:overflow-visible xl:pb-0">
+        <ul
+          class:list={[
+            'flex items-center gap-x-0.5 gap-y-1',
+            wrapItems
+              ? 'flex-wrap xl:flex-nowrap xl:justify-end'
+              : '-mx-1 flex-nowrap overflow-x-auto overscroll-x-contain pb-1 xl:justify-end xl:overflow-visible xl:pb-0'
+          ]}
+        >
           {
-            visibleItems.map((item) => (
-              <li
-                class="shrink-0"
-                data-am-context-sibling
-                data-am-experience-sibling={context === 'experience' ? '' : undefined}
-                data-am-location-sibling={context === 'location' ? '' : undefined}
-              >
-                <a
-                  href={item.href}
-                  class="inline-flex min-h-8 items-center border-b border-transparent px-2 font-label text-[10px] font-medium uppercase tracking-[0.06em] text-on-surface-variant transition-colors hover:border-primary/45 hover:text-on-surface focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/25"
+            visibleItems.map((item) => {
+              const isActiveItem = item.id === activeId;
+              const isLiveItem = item.status !== 'future' && Boolean(item.href);
+
+              return (
+                <li
+                  class:list={[!wrapItems && 'shrink-0']}
+                  data-am-context-sibling
+                  data-am-context-sibling-status={isLiveItem ? 'live' : 'future'}
+                  data-am-experience-sibling={context === 'experience' ? '' : undefined}
+                  data-am-location-sibling={context === 'location' ? '' : undefined}
                 >
-                  {item.label}
-                </a>
-              </li>
-            ))
+                  {isLiveItem ? (
+                    <a
+                      href={item.href}
+                      aria-current={isActiveItem ? 'page' : undefined}
+                      class:list={[
+                        'inline-flex min-h-8 items-center border-b px-2 font-label text-[10px] font-medium uppercase tracking-[0.06em] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/25',
+                        isActiveItem
+                          ? 'border-primary font-semibold text-on-surface'
+                          : 'border-transparent text-on-surface-variant hover:border-primary/45 hover:text-on-surface'
+                      ]}
+                    >
+                      {item.label}
+                    </a>
+                  ) : (
+                    <span
+                      aria-disabled="true"
+                      class="inline-flex min-h-8 items-center px-2 font-label text-[10px] font-medium uppercase tracking-[0.06em] text-on-surface-variant/55"
+                    >
+                      {item.label}
+                    </span>
+                  )}
+                </li>
+              );
+            })
           }
         </ul>
       </nav>

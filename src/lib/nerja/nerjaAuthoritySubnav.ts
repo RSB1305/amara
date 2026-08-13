@@ -1,82 +1,58 @@
+import {
+  getLocationGuideTopicLabels,
+  type LocationGuideTopicId
+} from '../location/locationGuideTopics';
 import { resolveLink } from '../linkResolver';
 import type { AmaraLanguage } from '../../types/seo';
 
-export type NerjaAuthoritySubnavId =
-  | 'intro'
-  | 'areas'
-  | 'beaches'
-  | 'practical'
-  | 'playa'
-  | 'faq';
+export type NerjaAuthoritySubnavId = 'intro' | LocationGuideTopicId;
 
 export type NerjaAuthoritySubnavItem = {
-  id: NerjaAuthoritySubnavId;
+  id: LocationGuideTopicId;
   label: string;
-  href: string;
-};
-
-const labels: Record<NerjaAuthoritySubnavId, Record<AmaraLanguage, string>> = {
-  intro: {
-    en: 'Overview',
-    de: 'Überblick',
-    es: 'Resumen',
-    nl: 'Overzicht',
-    sv: 'Översikt'
-  },
-  areas: {
-    en: 'Where to Stay',
-    de: 'Unterkunft',
-    es: 'Dónde alojarse',
-    nl: 'Overnachten',
-    sv: 'Boende'
-  },
-  beaches: {
-    en: 'Beaches',
-    de: 'Strände',
-    es: 'Playas',
-    nl: 'Stranden',
-    sv: 'Stränder'
-  },
-  practical: {
-    en: 'Practical',
-    de: 'Praktisch',
-    es: 'Práctico',
-    nl: 'Praktisch',
-    sv: 'Praktiskt'
-  },
-  playa: {
-    en: 'AMARA Playa',
-    de: 'AMARA Playa',
-    es: 'AMARA Playa',
-    nl: 'AMARA Playa',
-    sv: 'AMARA Playa'
-  },
-  faq: {
-    en: 'FAQ',
-    de: 'FAQ',
-    es: 'FAQ',
-    nl: 'FAQ',
-    sv: 'FAQ'
-  }
-};
-
-const anchors: Record<NerjaAuthoritySubnavId, string> = {
-  intro: '#intro',
-  areas: '#where-to-stay-in-nerja',
-  beaches: '#nerja-beaches',
-  practical: '#practical-nerja',
-  playa: '#amara-playa',
-  faq: '#faq'
+  href?: string;
+  status: 'live' | 'future';
 };
 
 export function getNerjaAuthoritySubnav(
   currentLang: AmaraLanguage
 ): NerjaAuthoritySubnavItem[] {
+  const labels = getLocationGuideTopicLabels(currentLang);
   const locationBase = resolveLink('location_nerja', currentLang);
 
-  return (Object.keys(anchors) as NerjaAuthoritySubnavId[]).map((id) => ({
-    id,
-    label: labels[id][currentLang],
-    href: `${locationBase}${anchors[id]}`
-  }));
+  return [
+    {
+      id: 'arrival-mobility',
+      label: labels['arrival-mobility'],
+      status: 'live',
+      href: `${locationBase}#practical-nerja`
+    },
+    {
+      id: 'geography-orientation',
+      label: labels['geography-orientation'],
+      status: 'live',
+      href: `${locationBase}#key-facts`
+    },
+    {
+      id: 'where-to-stay',
+      label: labels['where-to-stay'],
+      status: 'live',
+      href: `${locationBase}#where-to-stay-in-nerja`
+    },
+    {
+      id: 'weather-seasons',
+      label: labels['weather-seasons'],
+      status: 'future'
+    },
+    {
+      id: 'daily-life-services',
+      label: labels['daily-life-services'],
+      status: 'future'
+    },
+    {
+      id: 'winter-stays',
+      label: labels['winter-stays'],
+      status: 'future'
+    }
+  ];
 }

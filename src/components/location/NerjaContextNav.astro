@@ -24,33 +24,27 @@ const labels: Record<
   AmaraLanguage,
   {
     breadcrumb: string;
-    destinations: string;
     switcher: string;
   }
 > = {
   en: {
     breadcrumb: 'Breadcrumb',
-    destinations: 'Destinations',
     switcher: 'Nerja guide navigation'
   },
   de: {
     breadcrumb: 'Brotkrümelnavigation',
-    destinations: 'Reiseziele',
     switcher: 'Navigation im Nerja-Guide'
   },
   es: {
     breadcrumb: 'Migas de pan',
-    destinations: 'Destinos',
     switcher: 'Navegación de la guía de Nerja'
   },
   nl: {
     breadcrumb: 'Broodkruimelnavigatie',
-    destinations: 'Bestemmingen',
     switcher: 'Navigatie van de Nerja-gids'
   },
   sv: {
     breadcrumb: 'Brödsmulenavigering',
-    destinations: 'Resmål',
     switcher: 'Navigering i Nerja-guiden'
   }
 };
@@ -66,9 +60,6 @@ const breadcrumbs: ContextNavigationBreadcrumb[] = [
     href: homeHref ?? undefined
   },
   {
-    label: copy.destinations
-  },
-  {
     label: 'Nerja'
   }
 ];
@@ -80,5 +71,7 @@ const breadcrumbs: ContextNavigationBreadcrumb[] = [
   breadcrumbs={breadcrumbs}
   context="location"
   items={navigationItems}
+  retainActiveItem={true}
   switcherAriaLabel={copy.switcher}
+  wrapItems={true}
 />

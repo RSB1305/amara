@@ -33,54 +33,40 @@ if (!activeBranch) {
   throw new Error(`[Tarifa context navigation] Missing branch: ${activeBranchId}`);
 }
 
-// Location spokes already identify the current page in the breadcrumb, so the
-// topic row keeps only the five useful onward links. The Location hub retains
-// all six topics, and the separate Experience branch keeps its current behavior.
-const visibleTopics =
-  activeBranchId === 'location' && inferredChildId
-    ? activeBranch.children.filter((topic) => topic.id !== inferredChildId)
-    : activeBranch.children;
+// A stable six-topic row preserves orientation across both hubs and spokes.
+const visibleTopics = activeBranch.children;
 
 const labels: Record<
   AmaraLanguage,
   {
     breadcrumb: string;
-    destinations: string;
     topics: string;
   }
 > = {
   en: {
     breadcrumb: 'Breadcrumb',
-    destinations: 'Destinations',
     topics: 'Tarifa guide topics'
   },
   de: {
     breadcrumb: 'Brotkrümelnavigation',
-    destinations: 'Reiseziele',
     topics: 'Themen im Tarifa-Guide'
   },
   es: {
     breadcrumb: 'Migas de pan',
-    destinations: 'Destinos',
     topics: 'Temas de la guía de Tarifa'
   },
   nl: {
     breadcrumb: 'Broodkruimelnavigatie',
-    destinations: 'Bestemmingen',
     topics: 'Onderwerpen in de Tarifa-gids'
   },
   sv: {
     breadcrumb: 'Brödsmulenavigering',
-    destinations: 'Resmål',
     topics: 'Ämnen i Tarifa-guiden'
   }
 };
 
 const copy = labels[lang];
 const homeHref = resolveOptionalLink('home', lang, {
-  suppressMissing: true
-});
-const destinationsHref = resolveOptionalLink('explore_hub', lang, {
   suppressMissing: true
 });
 const tarifaHref = resolveOptionalLink('location_tarifa', lang, {
@@ -94,10 +80,6 @@ const breadcrumbs: ContextNavigationBreadcrumb[] = [
   {
     label: 'AMARA',
     href: homeHref ?? undefined
-  },
-  {
-    label: copy.destinations,
-    href: destinationsHref ?? undefined
   },
   {
     label: 'Tarifa',
@@ -167,7 +149,7 @@ if (childLabel) {
         data-am-tarifa-topic-navigation
       >
         <ul
-          class="-mx-1 flex flex-wrap items-center gap-x-0.5 gap-y-1 xl:flex-nowrap xl:justify-end"
+          class="flex flex-wrap items-center gap-x-0.5 gap-y-1 xl:flex-nowrap xl:justify-end"
           data-am-tarifa-topic-branch={activeBranchId}
         >
           {visibleTopics.map((topic) => {

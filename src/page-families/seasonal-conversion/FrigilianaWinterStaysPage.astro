@@ -2,6 +2,7 @@
 import type { ImageMetadata } from 'astro';
 import AmaraImage from '../../components/AmaraImage.astro';
 import Hero from '../../components/Hero.astro';
+import LocationContextNav from '../../components/location/LocationContextNav.astro';
 import Navigation from '../../components/Navigation.astro';
 import {
   frigilianaWinterStaysContent,
@@ -62,12 +63,14 @@ const pelletImages: Record<(typeof pelletStayKeys)[number], ImageMetadata> = {
   seo={frigilianaWinterStaysSeo}
   pageLang={currentLang}
   contextBreadcrumbTitle={copy.hero.title}
+  showContextNavigation={false}
 >
   <Navigation
     currentLang={currentLang}
     currentToken="frigiliana_winter_stays"
     languageToken="frigiliana_winter_stays"
   />
+  <LocationContextNav activeId="winter" lang={currentLang} />
 
   <main
     id="am-main-content"

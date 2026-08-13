@@ -1,4 +1,5 @@
 import type { TarifaGuideId } from '../../content/tarifaGuideContent';
+import { getLocationGuideTopicLabels } from '../location/locationGuideTopics';
 import { resolveLink } from '../linkResolver';
 import type { AmaraLanguage } from '../../types/seo';
 
@@ -152,6 +153,7 @@ export function getTarifaAuthoritySubnav(
   currentLang: AmaraLanguage
 ): TarifaAuthoritySubnavItem[] {
   const copy = labels[currentLang];
+  const locationLabels = getLocationGuideTopicLabels(currentLang);
 
   return [
     {
@@ -161,37 +163,37 @@ export function getTarifaAuthoritySubnav(
       children: [
         {
           id: 'arrival-mobility',
-          label: copy.children['arrival-mobility'],
+          label: locationLabels['arrival-mobility'],
           status: 'live',
           href: resolveLink('getting_to_tarifa', currentLang)
         },
         {
           id: 'geography-orientation',
-          label: copy.children['geography-orientation'],
+          label: locationLabels['geography-orientation'],
           status: 'live',
           href: resolveLink('tarifa_geography', currentLang)
         },
         {
           id: 'where-to-stay',
-          label: copy.children['where-to-stay'],
+          label: locationLabels['where-to-stay'],
           status: 'live',
           href: resolveLink('tarifa_where_to_stay', currentLang)
         },
         {
           id: 'weather-seasons',
-          label: copy.children['weather-seasons'],
+          label: locationLabels['weather-seasons'],
           status: 'live',
           href: resolveLink('tarifa_weather', currentLang)
         },
         {
           id: 'daily-life-services',
-          label: copy.children['daily-life-services'],
+          label: locationLabels['daily-life-services'],
           status: 'live',
           href: resolveLink('tarifa_daily_life', currentLang)
         },
         {
           id: 'winter-stays',
-          label: copy.children['winter-stays'],
+          label: locationLabels['winter-stays'],
           status: 'live',
           href: resolveLink('tarifa_winter_stays', currentLang)
         }
