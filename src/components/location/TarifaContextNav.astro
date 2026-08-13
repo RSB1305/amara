@@ -37,40 +37,34 @@ const labels: Record<
   AmaraLanguage,
   {
     breadcrumb: string;
-    children: string;
     destinations: string;
-    parents: string;
+    topics: string;
   }
 > = {
   en: {
     breadcrumb: 'Breadcrumb',
-    children: 'Location guide pages',
     destinations: 'Destinations',
-    parents: 'Tarifa guide sections'
+    topics: 'Tarifa guide topics'
   },
   de: {
     breadcrumb: 'Brotkrümelnavigation',
-    children: 'Seiten im Tarifa-Guide',
     destinations: 'Reiseziele',
-    parents: 'Bereiche im Tarifa-Guide'
+    topics: 'Themen im Tarifa-Guide'
   },
   es: {
     breadcrumb: 'Migas de pan',
-    children: 'Páginas de la guía de Tarifa',
     destinations: 'Destinos',
-    parents: 'Secciones de la guía de Tarifa'
+    topics: 'Temas de la guía de Tarifa'
   },
   nl: {
     breadcrumb: 'Broodkruimelnavigatie',
-    children: 'Pagina’s in de Tarifa-gids',
     destinations: 'Bestemmingen',
-    parents: 'Onderdelen van de Tarifa-gids'
+    topics: 'Onderwerpen in de Tarifa-gids'
   },
   sv: {
     breadcrumb: 'Brödsmulenavigering',
-    children: 'Sidor i Tarifa-guiden',
     destinations: 'Resmål',
-    parents: 'Delar av Tarifa-guiden'
+    topics: 'Ämnen i Tarifa-guiden'
   }
 };
 
@@ -121,10 +115,6 @@ if (childLabel) {
   breadcrumbs.push({ label: childLabel });
 }
 
-const isParentPage = (branchId: TarifaAuthorityBranchId) =>
-  branchId === activeBranchId &&
-  ((branchId === 'location' && !inferredChildId) ||
-    (branchId === 'experience' && activeId === 'experience'));
 ---
 
 <div
@@ -134,7 +124,7 @@ const isParentPage = (branchId: TarifaAuthorityBranchId) =>
   data-am-tarifa-context-navigation
 >
   <div class="mx-auto max-w-screen-2xl px-6 py-5 md:px-12">
-    <div class="flex flex-col gap-5 xl:flex-row xl:items-start xl:justify-between">
+    <div class="flex flex-col gap-5 xl:flex-row xl:items-center xl:justify-between">
       <nav aria-label={copy.breadcrumb}>
         <ol class="flex flex-wrap items-center gap-2 font-label text-[10px] font-semibold uppercase tracking-[0.14em] text-on-surface/55">
           {breadcrumbs.map((breadcrumb, index) => {
@@ -163,59 +153,48 @@ const isParentPage = (branchId: TarifaAuthorityBranchId) =>
         </ol>
       </nav>
 
-      <div class="flex min-w-0 max-w-full flex-col gap-2 xl:items-end">
-        <nav aria-label={copy.parents} class="max-w-full" data-am-tarifa-context-level="parents">
-          <ul class="-mx-1 flex max-w-full flex-nowrap items-center gap-1 overflow-x-auto overscroll-x-contain pb-1 xl:justify-end xl:overflow-visible xl:pb-0">
-            {navigationItems.map((item) => {
-              const isActiveBranch = item.id === activeBranchId;
+      <nav
+        aria-label={copy.topics}
+        class="min-w-0 xl:flex-1"
+        data-am-tarifa-topic-navigation
+      >
+        <ul
+          class="-mx-1 flex flex-wrap items-center gap-x-0.5 gap-y-1 xl:flex-nowrap xl:justify-end"
+          data-am-tarifa-topic-branch={activeBranchId}
+        >
+          {activeBranch.children.map((topic) => {
+            const isActiveTopic = topic.id === inferredChildId;
 
-              return (
-                <li class="shrink-0">
+            return (
+              <li data-am-tarifa-topic={topic.id} data-am-tarifa-topic-status={topic.status}>
+                {topic.status === 'live' ? (
                   <a
-                    href={item.href}
-                    aria-current={isParentPage(item.id) ? 'page' : isActiveBranch ? 'true' : undefined}
-                    class:list={[
-                      'inline-flex min-h-8 items-center border-b px-2 font-label text-[10px] font-semibold uppercase tracking-[0.1em] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/25',
-                      isActiveBranch
-                        ? 'border-primary text-on-surface'
-                        : 'border-transparent text-on-surface-variant hover:border-primary/45 hover:text-on-surface'
-                    ]}
-                    data-am-tarifa-parent={item.id}
-                  >
-                    {item.label}
-                  </a>
-                </li>
-              );
-            })}
-          </ul>
-        </nav>
-
-        <nav aria-label={copy.children} class="max-w-full border-l-2 border-primary/30 pl-2" data-am-tarifa-context-level="children">
-          <ul class="-mx-1 flex max-w-full flex-nowrap items-center gap-0.5 overflow-x-auto overscroll-x-contain pb-1 xl:justify-end xl:overflow-visible xl:pb-0">
-            {activeBranch.children.map((item) => {
-              const isActiveChild = item.id === inferredChildId;
-
-              return (
-                <li class="shrink-0">
-                  <a
-                    href={item.href}
-                    aria-current={isActiveChild ? 'page' : undefined}
+                    href={topic.href}
+                    aria-current={isActiveTopic ? 'page' : undefined}
                     class:list={[
                       'inline-flex min-h-8 items-center border-b px-2 font-label text-[10px] font-medium uppercase tracking-[0.06em] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/25',
-                      isActiveChild
-                        ? 'border-primary text-on-surface'
+                      isActiveTopic
+                        ? 'border-primary font-semibold text-on-surface'
                         : 'border-transparent text-on-surface-variant hover:border-primary/45 hover:text-on-surface'
                     ]}
-                    data-am-tarifa-child={item.id}
+                    data-am-tarifa-child={topic.id}
                   >
-                    {item.label}
+                    {topic.label}
                   </a>
-                </li>
-              );
-            })}
-          </ul>
-        </nav>
-      </div>
+                ) : (
+                  <span
+                    aria-disabled="true"
+                    class="inline-flex min-h-8 items-center px-2 font-label text-[10px] font-medium uppercase tracking-[0.06em] text-on-surface-variant/55"
+                    data-am-tarifa-child={topic.id}
+                  >
+                    {topic.label}
+                  </span>
+                )}
+              </li>
+            );
+          })}
+        </ul>
+      </nav>
     </div>
   </div>
 </div>
