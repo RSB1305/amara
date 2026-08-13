@@ -3,6 +3,7 @@ import tarifaStayImage from '../../assets/images/home/amara-tarifa-apartment01.w
 import AmaraImage from '../../components/AmaraImage.astro';
 import Navigation from '../../components/Navigation.astro';
 import EditorialByline from '../../components/editorial/EditorialByline.astro';
+import EditorialClosingCta from '../../components/editorial/EditorialClosingCta.astro';
 import TarifaContextNav from '../../components/location/TarifaContextNav.astro';
 import { tarifaLocationContent } from '../../content/tarifaLocationContent';
 import LocationAuthorityLayout from '../../layouts/LocationAuthorityLayout.astro';
@@ -26,8 +27,6 @@ const requiredLink = (token: string) => {
 
   return href;
 };
-const discoveryHref = (item: { token?: string; anchor?: string }) =>
-  item.token ? requiredLink(item.token) : item.anchor;
 const aboutHref = requiredLink('about');
 const stayHref = requiredLink('casa');
 const footerHighlights = [
@@ -85,34 +84,6 @@ const footerHighlights = [
       </div>
     </header>
 
-    <nav aria-label={content.discovery.title} class="border-b border-border-subtle bg-surface-container-low px-6 py-16 md:px-12 md:py-20">
-      <div class="mx-auto max-w-screen-2xl">
-        <div class="grid gap-8 lg:grid-cols-12 lg:gap-16">
-          <div class="lg:col-span-4">
-            <p class="font-label text-[11px] font-bold uppercase tracking-[0.18em] text-primary">
-              {content.discovery.eyebrow}
-            </p>
-            <h2 class="am-text-title mt-5 text-balance text-on-surface">{content.discovery.title}</h2>
-            <p class="am-text-body mt-6 max-w-xl leading-relaxed text-on-surface-variant">
-              {content.discovery.intro}
-            </p>
-          </div>
-          <ol class="grid gap-x-8 lg:col-span-8 sm:grid-cols-2">
-            {content.discovery.items.map((item) => (
-              <li class="border-t border-border-subtle py-6">
-                <a href={discoveryHref(item)} class="group block focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/25">
-                  <span class="font-label text-[10px] font-bold uppercase tracking-[0.16em] text-primary">{item.number}</span>
-                  <span class="am-text-subtitle mt-3 block text-on-surface transition-colors group-hover:text-primary">{item.title}</span>
-                  <span class="am-text-body mt-2 block leading-relaxed text-on-surface-variant">{item.text}</span>
-                  <span class="am-cta-link mt-4 inline-flex">{item.label}</span>
-                </a>
-              </li>
-            ))}
-          </ol>
-        </div>
-      </div>
-    </nav>
-
     <section id="geography-orientation" class="scroll-mt-28 border-b border-border-subtle bg-surface px-6 py-24 md:px-12 md:py-32 lg:py-40">
       <div class="mx-auto grid max-w-screen-2xl gap-14 lg:grid-cols-12 lg:gap-20">
         <div class="lg:col-span-7">
@@ -123,6 +94,11 @@ const footerHighlights = [
               <p class="am-text-body leading-relaxed text-on-surface-variant">{paragraph}</p>
             ))}
           </div>
+          {content.geography.link?.token && (
+            <a href={requiredLink(content.geography.link.token)} class="am-cta-link mt-8 inline-flex">
+              {content.geography.link.label}
+            </a>
+          )}
         </div>
         <dl class="self-end border-y border-border-subtle lg:col-span-5">
           {content.geography.markers.map((marker, index) => (
@@ -145,6 +121,11 @@ const footerHighlights = [
           {content.arrival.paragraphs.map((paragraph, index) => (
             <p class:list={[index === 0 ? 'am-text-subtitle' : 'am-text-body', 'leading-relaxed text-on-surface-variant']}>{paragraph}</p>
           ))}
+          {content.arrival.link?.token && (
+            <a href={requiredLink(content.arrival.link.token)} class="am-cta-link inline-flex">
+              {content.arrival.link.label}
+            </a>
+          )}
         </div>
       </div>
     </section>
@@ -268,5 +249,18 @@ const footerHighlights = [
         </div>
       </div>
     </section>
+
+    {content.closing && (
+      <section class="border-t border-border-subtle bg-surface-container-low px-6 pt-24 md:px-12 md:pt-32">
+        <div class="mx-auto max-w-screen-2xl">
+          <EditorialClosingCta
+            title={content.closing.title}
+            lead={content.closing.lead}
+            lang={currentLang}
+            links={[{ token: 'casa', label: content.closing.ctaLabel, style: 'primary' }]}
+          />
+        </div>
+      </section>
+    )}
   </article>
 </LocationAuthorityLayout>

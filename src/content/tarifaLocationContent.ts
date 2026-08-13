@@ -16,12 +16,6 @@ export interface TarifaLocationHubLink {
   anchor?: string;
 }
 
-interface TarifaLocationHubDiscoveryItem extends TarifaLocationHubLink {
-  number: string;
-  title: string;
-  text: string;
-}
-
 interface TarifaLocationHubFeature {
   eyebrow: string;
   title: string;
@@ -36,12 +30,6 @@ interface TarifaLocationHubLocale {
     standfirst: string;
     note: string;
     updated: string;
-  };
-  discovery: {
-    eyebrow: string;
-    title: string;
-    intro: string;
-    items: TarifaLocationHubDiscoveryItem[];
   };
   geography: TarifaLocationHubFeature & {
     markers: Array<{ label: string; value: string }>;
@@ -59,6 +47,12 @@ interface TarifaLocationHubLocale {
   };
   experience: TarifaLocationHubFeature & {
     links: TarifaLocationHubLink[];
+  };
+  /** Booking-facing close. Rolled out per language as each locale is rewritten. */
+  closing?: {
+    title: string;
+    lead: string;
+    ctaLabel: string;
   };
 }
 
@@ -122,19 +116,6 @@ export const tarifaLocationContent: {
         standfirst: 'Tarifa is a compact Atlantic town with several very different ways to inhabit it. This guide gives first-time overnight guests the geographic and practical overview before the details split into arrival, areas, climate, daily life and winter.',
         note: 'An independent AMARA guide for planning a stay — not a live conditions service.',
         updated: 'Reviewed August 2026'
-      },
-      discovery: {
-        eyebrow: 'Start with the question',
-        title: 'Six questions that shape a Tarifa stay',
-        intro: 'Each one changes the rhythm of several days here. The area guide has its own page; the other links lead to concise, practical notes in this guide.',
-        items: [
-          { number: '01', title: 'Getting here', text: 'Arrival, luggage and when a car becomes useful.', label: 'Arrival & mobility', token: 'getting_to_tarifa' },
-          { number: '02', title: 'Where Tarifa is', text: 'Town, Atlantic edge, western coast and inland landscape.', label: 'Geography & orientation', token: 'tarifa_geography' },
-          { number: '03', title: 'Choose your area', text: 'Compare the real daily trade-offs between four stay settings.', label: 'Where to stay', token: 'tarifa_where_to_stay' },
-          { number: '04', title: 'Weather & seasons', text: 'How wind and seasonal rhythm affect the way you use Tarifa.', label: 'Weather & seasons', token: 'tarifa_weather' },
-          { number: '05', title: 'Daily life', text: 'Groceries, dinner, beach routines and practical movement.', label: 'Daily life', anchor: '#daily-life' },
-          { number: '06', title: 'Winter stays', text: 'What matters when Tarifa becomes a slower, longer stay.', label: 'Winter stays', anchor: '#winter-stays' }
-        ]
       },
       geography: {
         eyebrow: 'Geography first',
@@ -225,110 +206,111 @@ export const tarifaLocationContent: {
     },
     de: {
       hero: {
-        eyebrow: 'Tarifa Lage-Guide',
-        title: 'Tarifa zwischen Altstadt, Atlantik und weiter Küste',
-        standfirst: 'Tarifa ist eine kompakte Atlantikstadt, die sich je nach Lage sehr unterschiedlich anfühlt. Dieser Guide gibt euch zuerst den geografischen und praktischen Überblick; die Details gliedern sich anschließend in Anreise, Wohnlagen, Klima, Alltag und Winter.',
-        note: 'Ein unabhängiger AMARA-Guide zur Reiseplanung – kein Live-Dienst für aktuelle Bedingungen.',
+        eyebrow: 'Tarifa · Lage & Aufenthalt',
+        title: 'In Tarifa übernachten – der Atlantik vor dem Balkon, Afrika am Horizont',
+        standfirst: 'Tarifa ist ein Dorf am südlichsten Punkt Europas, in dem fast alles zu Fuß geht. Und trotzdem entscheidet die Wohnlage hier über jeden Tag: über den Wind auf eurem Balkon, über die Parkplatzsuche im August und darüber, wie der Abend endet. Ich habe selbst in Tarifa gewohnt, bevor wir hier Gäste empfangen haben.',
+        note: 'Ein AMARA-Guide aus eigener Erfahrung – keine Live-Auskunft zu Wind und Wetter.',
         updated: 'Geprüft im August 2026'
       },
-      discovery: {
-        eyebrow: 'Beginnt mit der Frage',
-        title: 'Sechs Fragen, die euren Aufenthalt in Tarifa prägen',
-        intro: 'Je nachdem, was euch wichtig ist, bekommen mehrere Tage in Tarifa einen anderen Rhythmus. Der Lagevergleich hat eine eigene Seite; die übrigen Links führen zu kompakten, praktischen Hinweisen in diesem Guide.',
-        items: [
-          { number: '01', title: 'Ankommen', text: 'Anreise, Gepäck und wann ein Auto sinnvoll wird.', label: 'Anreise & Mobilität', token: 'getting_to_tarifa' },
-          { number: '02', title: 'Tarifa auf der Karte', text: 'Ort, Atlantikküste, westliche Strände und Hinterland.', label: 'Geografie & Orientierung', token: 'tarifa_geography' },
-          { number: '03', title: 'Lage wählen', text: 'Die tatsächlichen Alltagsfolgen von vier Wohnlagen vergleichen.', label: 'Wo übernachten', token: 'tarifa_where_to_stay' },
-          { number: '04', title: 'Wetter & Jahreszeiten', text: 'Wie Wind und Saison den Tagesrhythmus prägen.', label: 'Wetter & Jahreszeiten', token: 'tarifa_weather' },
-          { number: '05', title: 'Alltag', text: 'Einkaufen, Essen, Strandroutinen und Wege.', label: 'Alltag & Versorgung', anchor: '#daily-life' },
-          { number: '06', title: 'Winter', text: 'Was bei einem ruhigeren, längeren Aufenthalt zählt.', label: 'Winter in Tarifa', anchor: '#winter-stays' }
-        ]
-      },
       geography: {
-        eyebrow: 'Zuerst die Geografie',
-        title: 'Eine kleine Stadt, verbunden mit einer viel größeren Küste',
+        eyebrow: 'Wo ihr seid',
+        title: 'Am südlichsten Punkt Europas, mit Afrika gegenüber',
         paragraphs: [
-          'Tarifa liegt dort, wo Atlantik und Straße von Gibraltar aufeinandertreffen. Altstadt und neuerer Ort bilden eine kompakte städtische Basis; nach Westen öffnet sich eine andere Strand- und Wassersportlandschaft.',
-          'Genau daraus entsteht der Charakter des Reiseziels: Der Alltag im Ort kann zu Fuß funktionieren, viele Strand-, Natur- und Aktivitätstage führen jedoch über das Zentrum hinaus. Die hilfreiche Landkarte besteht deshalb aus Ort, urbanem Strandrand, Westküste und Hinterland.'
+          'Tarifa liegt dort, wo der Atlantik in die Straße von Gibraltar übergeht – am südlichsten Punkt des europäischen Festlands. Bei klarer Luft liegt die marokkanische Küste so nah gegenüber, dass ihr sie vom Balkon aus seht. Nicht als Idee auf einer Landkarte, sondern als Küstenlinie mit Bergen darüber.',
+          'Der Ort selbst ist klein. Altstadt, neuerer Teil und Strandkante liegen so dicht beieinander, dass ihr fast alles zu Fuß erreicht. Was weiter draußen liegt – die westlichen Kite-Strände, Bolonia, die Meerenge – ist in Minuten mit dem Auto da.'
         ],
         markers: [
-          { label: 'Städtischer Kern', value: 'Altstadt + neuerer Ort' },
-          { label: 'Küste im Alltag', value: 'Stadtstrände + Los-Lances-Rand' },
-          { label: 'Weiter Horizont', value: 'Westliche Strände + Umland' }
-        ]
+          { label: 'Vor der Tür', value: 'Playa Los Lances, 5 Minuten zu Fuß' },
+          { label: 'Am Abend', value: 'Altstadt, 10–15 Minuten am Meer entlang' },
+          { label: 'Nach Westen', value: 'Valdevaqueros, 10 Minuten mit dem Auto' }
+        ],
+        link: { label: 'Geografie & Orientierung im Detail', token: 'tarifa_geography' }
       },
       arrival: {
-        eyebrow: 'Anreise & Mobilität',
-        title: 'Wie viel ihr fahrt, hängt von eurem Aufenthalt ab',
+        eyebrow: 'Anreise & Auto',
+        title: 'Braucht ihr ein Auto? Im Dorf nie – für die Kite-Strände schon',
         paragraphs: [
-          'Bei einer zentralen Lage müsst ihr das Auto nicht täglich nutzen. Restaurants, Besorgungen und nahe Küstenabschnitte können Teil eurer Wege zu Fuß bleiben.',
-          'Wertvoller wird ein Auto, wenn westliche Strände, mehrere Wassersporttage, Natur oder Ausflüge die Reise prägen. Entscheidend ist nicht nur, ob ihr mit dem Auto anreist, sondern wie oft ihr es danach tatsächlich bewegen möchtet.',
-          'Konkrete Park-, Gepäck- und Transferfragen gehören in den zukünftigen Guide zu Anreise & Mobilität. Wählt eure Unterkunft bis dahin passend zu euren wirklichen Bewegungsmustern.'
-        ]
+          'Die meisten unserer Gäste fliegen nach Málaga und fahren von dort rund anderthalb Stunden über die Autobahn. Gibraltar funktioniert praktisch nur für Gäste aus Großbritannien, mit dem Bus kommt kaum jemand, und ganz wenige setzen mit dem Schiff aus Marokko über.',
+          'In Tarifa selbst braucht ihr das Auto nicht. Wir empfehlen sogar ausdrücklich, im Ort nicht zu fahren – nur hinaus. Im Juli und August ist die Parkplatzsuche wirklich schwierig; wer dann jeden Abend einen Platz sucht, verliert Urlaub.',
+          'Wirklich nötig wird das Auto an einer Stelle: für die Kite-Strände im Westen. Wer beim Tarifa Surf Club Unterricht nimmt, findet meist eine Mitfahrgelegenheit unter den anderen Schülern – fest verlassen würde ich mich nicht darauf.'
+        ],
+        link: { label: 'Anreise nach Tarifa planen', token: 'getting_to_tarifa' }
       },
       areas: {
-        eyebrow: 'Wo übernachten',
-        title: 'Jede Lage in Tarifa gibt euch ein anderes Versprechen',
+        eyebrow: 'Wo wohnen',
+        title: 'Altstadt oder La Marina – und was das jeden Tag bedeutet',
         paragraphs: [
-          'Die Altstadt setzt auf unmittelbares Ortsleben. La Marina verbindet Stadt mit praktischer Mobilität. Am urbanen Los-Lances-Korridor rückt der Atlantik näher an den Alltag. Im Umland tauscht ihr Fußläufigkeit gegen Raum und Abstand.',
-          'Keine Lage gewinnt in jeder Kategorie. Entscheidend ist, welche Konsequenz ihr jeden Tag gern wiederholt.'
+          'Wer unbedingt in der Altstadt wohnen will, sollte in der Altstadt wohnen. Das ist keine halbe Sache – das ist eine Entscheidung mit Folgen, jeden Tag.',
+          'In der Altstadt heißt das: Gepäck über Kopfsteinpflaster, im Sommer Hitze, Lärm und Party bis spät, und ein Parkplatz mindestens zehn bis fünfzehn Minuten entfernt. Dazu kommt etwas, das selten jemand erwähnt: Die alten Häuser im Zentrum sind feucht, Schimmel ist dort ein verbreitetes Thema.',
+          'La Marina ist das Gegenteil: modern und ruhig, mit eigenem Stellplatz und dem Strand fünf Minuten die Straße runter. Dafür beginnt die Geschichte nicht vor der Haustür, sondern zehn bis fünfzehn Minuten später – am Meer entlang, unten in die Altstadt hinein.'
         ],
         archetypes: [
-          { title: 'Altstadt', consequence: 'Ortsleben vor der Tür; Auto und Gepäck brauchen mehr Planung.' },
-          { title: 'La Marina', consequence: 'Städtische Balance zwischen Fußwegen, Versorgung und Autofahrten.' },
+          { title: 'Altstadt', consequence: 'Geschichte vor der Tür. Dafür Hitze, Lärm, Feuchtigkeit – und Parken weit außerhalb.' },
+          { title: 'La Marina', consequence: 'Modern und ruhig, eigener Stellplatz, Strand in fünf Minuten. Die Altstadt liegt einen Spaziergang entfernt.' },
           { title: 'Los-Lances-Korridor', consequence: 'Stärkerer Strandalltag, dafür weniger spontane Abende im Ort.' },
           { title: 'Umland & Hügel', consequence: 'Raum und Ruhe, aber ein Alltag, der sich am Auto orientiert.' }
         ],
         link: { label: 'Tarifas Lagen im Detail vergleichen', token: 'tarifa_where_to_stay' }
       },
       weather: {
-        eyebrow: 'Wetter, Klima & Jahreszeiten',
-        title: 'Die Bedingungen verändern den Rhythmus, nicht Tarifas Identität',
+        eyebrow: 'Wind & Jahreszeiten',
+        title: 'Der Wind verändert, wie sich der Tag anfühlt',
         paragraphs: [
-          'Wind gehört zu Tarifa. Wie er sich praktisch auswirkt, hängt jedoch von Tag, Aktivität und genauer Lage ab. Eine offene Küste, geschützte Straßen und eine private Terrasse fühlen sich bei derselben Vorhersage nicht gleich an.',
-          'Im Sommer werden Straßen, Strände und Abende intensiver. Außerhalb der Hauptsaison zählen Flexibilität, Innenkomfort und der normale Rhythmus eines längeren Aufenthalts stärker. Kurz vor der Reise haben aktuelle Vorhersagen und lokale Regeln Vorrang.'
+          'Tarifa ist windgetrieben, vor allem in Vor- und Nebensaison. Wer damit nicht umgehen kann, wird hier nicht glücklich. Wer ihn annimmt, bekommt genau den Ort, für den Tarifa berühmt ist.',
+          'Levante und Poniente verändern den Komfort am offenen Strand, beim Spaziergang und beim Wassersport. Welcher Küstenabschnitt dann passt, hängt von den aktuellen Bedingungen und eurem Plan ab – die Vorhersage und Hinweise vor Ort gehen deshalb immer vor.',
+          'An solchen Tagen zählt auch, wie eure Unterkunft steht. Unser Balkon liegt auf der Meerseite; der Levante trifft die Rückseite des Hauses. Bei Poniente kann es dagegen auch vorne windig werden.'
         ],
         link: { label: 'Wetter & Jahreszeiten in Tarifa', token: 'tarifa_weather' }
       },
       dailyLife: {
-        eyebrow: 'Alltag & Versorgung',
-        title: 'Nach dem ersten Tag wird Bequemlichkeit Teil des Reiseziels',
+        eyebrow: 'Alltag',
+        title: 'Was sich nach drei Tagen wiederholt',
         paragraphs: [
-          'Mehrere Tage werden von wiederkehrenden Wegen geprägt: Lebensmittel einkaufen, zum Abendessen laufen, den Strand erreichen, das Auto stehen lassen oder erneut herausfahren.',
-          'Die eindrucksvollste Kulisse ist nicht automatisch die einfachste Basis für den Alltag. Wählt die Lage nach den Routinen, die ihr wiederholen möchtet, und prüft zeitabhängige Angebote direkt, bevor ihr euch darauf verlasst.'
+          'Zum Frühstück gehören für uns das Café SURLA und das Powerhouse. Abends beginnt das Leben in der Calle Batalla del Salado; dort fangen die ersten Restaurants und Bars an.',
+          'Die Grundversorgung läuft über den Mercadona direkt gegenüber. Für Fisch lohnt der Mercado, für Obst und Gemüse die kleinen Garagenverkäufe im Ort. Öffnungszeiten – besonders sonntags – prüft ihr am besten aktuell.'
         ]
       },
       winter: {
-        eyebrow: 'Winter in Tarifa',
-        title: 'Das langsamere Tarifa belohnt eine bewusst gewählte Basis',
+        eyebrow: 'Ab September',
+        title: 'Ab dem 1. September wird Tarifa ein anderer Ort',
         paragraphs: [
-          'Im Winter weicht die Intensität der Hauptsaison einem ruhigeren und weniger planbaren Rhythmus. Wind, kühlere Phasen und Regen geben Innenkomfort, praktischer Versorgung und spontanen Planänderungen mehr Gewicht.',
-          'Bei längeren Aufenthalten können Heizung, Arbeitsplatz, Parken und tägliche Wege ebenso wichtig werden wie Strandnähe. Winter ist nicht einfach Sommer mit weniger Menschen, sondern eine andere Nutzung derselben Geografie.'
+          'Juli und August sind der absolute Peak: voll, laut, die Parkplatzsuche wirklich schwierig – und viele kommen genau dafür. Ab dem 1. September lässt es schlagartig nach.',
+          'Dann wird es still. Man merkt die Ruhe, man kommt mit Einheimischen ins Gespräch, man lernt Leute kennen. Für uns ist das die schönste Zeit hier.',
+          'Für längere Aufenthalte zählt dann anderes als Strandnähe: dass die Wohnung trocken ist, dass sie warm wird und dass es einen Platz zum Arbeiten gibt. Genau daran scheitern viele Häuser in der Altstadt.'
         ]
       },
       amara: {
-        eyebrow: 'AMARA in der Praxis',
-        title: 'Warum La Marina gut zu einem Aufenthalt bei AMARA passt',
+        eyebrow: 'Unsere Wohnung',
+        title: 'Warum wir unsere Gäste in La Marina beherbergen',
         paragraphs: [
-          'AMARA Family & Surf liegt in La Marina. Wir haben diese Lage wegen einer bestimmten Balance gewählt – nicht, weil eine Gegend für alle die beste wäre.',
-          'Die Altstadt bleibt ungefähr 10–15 Minuten zu Fuß entfernt, während Alltag und Fahrten nach Westen praktisch bleiben. Der ehrliche Tausch: Das historische Zentrum beginnt nicht direkt vor der Haustür.'
+          'Der Balkon zeigt nach Westen. Das heißt: Jeden Abend fällt die Sonne vor euch in den Atlantik. Und wenn die Luft klar ist, liegt Afrika gegenüber – nicht als Idee auf einer Landkarte, sondern als Küste, die man sieht.',
+          'Darüber liegt das Schlafzimmer, mit demselben Blick. Ihr wacht mit dem Meer auf. Was Gäste beim Ankommen am häufigsten sagen: dass die Wohnung in echt schöner ist als auf den Fotos.',
+          'Ich habe in Tarifa selbst gewohnt – Kitesurfen, Freunde, immer wieder ein paar Monate. Als diese Wohnung zum Verkauf stand, haben wir sie gekauft und modernisiert. Wegen der Abende. Und weil sie im Alltag einfach funktioniert.',
+          'Ehrlich gesagt: Wer das historische Tarifa direkt vor der Tür braucht, ist bei uns falsch. Und der Pool gehört zur Anlage, nicht zur Wohnung – je nach Witterung etwa von Mitte Mai bis Mitte September.'
         ],
         facts: [
-          'Reservierter Tiefgaragenstellplatz',
-          'Supermarkt direkt gegenüber',
-          'Praktische Ausfahrt Richtung Valdevaqueros und westliche Strände'
+          '75 m² auf zwei Ebenen – Schlafzimmer mit Meerblick',
+          'Großer Balkon nach Westen, bei Levante komplett windgeschützt',
+          'Reservierter Tiefgaragenstellplatz, bis 2,00 m Höhe',
+          'Playa Los Lances 5 Minuten zu Fuß, Mercadona gegenüber',
+          'Zwei Schreibtische – und im Winter trocken'
         ],
         imageAlt: 'AMARA Family & Surf in La Marina, Tarifa',
         link: { label: 'AMARA Family & Surf ansehen', token: 'casa' }
       },
       experience: {
-        eyebrow: 'Vom Ort zum Erlebnis',
-        title: 'Vom Ort selbst zu den Tagen, die ihr hier verbringt',
-        paragraphs: ['Dieser Lage-Guide zeigt Tarifa als Ausgangspunkt für euren Aufenthalt. Der Erlebnis-Guide führt weiter zu Stränden, Wind, Essen, Natur, Geschichte und Ausflügen.'],
+        eyebrow: 'Eure Tage hier',
+        title: 'Und dann die Tage selbst',
+        paragraphs: ['Wo ihr wohnt, ist entschieden. Was ihr hier tut – Strände, Wind, Essen, Natur, Altstadt und die Ausflüge nach Bolonia oder Tanger – steht im Erlebnis-Guide.'],
         links: [
           { label: 'Tarifa Experience entdecken', token: 'tarifa_experience_hub' },
           { label: 'Tarifas Strände entdecken', token: 'tarifa_beaches_authority' }
         ]
+      },
+      closing: {
+        title: 'Tarifa ist für uns der schönste Ort auf diesem Planeten.',
+        lead: 'Wenn ihr das nachvollziehen könnt, wohnt ihr am besten dort, wo abends die Sonne vor euch ins Meer fällt.',
+        ctaLabel: 'AMARA Family & Surf ansehen'
       }
     },
     es: {
@@ -338,19 +320,6 @@ export const tarifaLocationContent: {
         standfirst: 'Tarifa es una localidad atlántica compacta que se vive de formas muy distintas según la base elegida. Esta guía ofrece primero una visión geográfica y práctica; después, las preguntas se separan en llegada, zonas, clima, vida diaria e invierno.',
         note: 'Una guía independiente de AMARA para planificar la estancia; no es un servicio de condiciones en directo.',
         updated: 'Revisado en agosto de 2026'
-      },
-      discovery: {
-        eyebrow: 'Empieza por la pregunta',
-        title: 'Seis preguntas que dan forma a una estancia en Tarifa',
-        intro: 'Según lo que busques, varios días en Tarifa pueden tener ritmos muy distintos. La comparación de zonas tiene su propia página; los demás enlaces llevan a notas breves y prácticas dentro de esta guía.',
-        items: [
-          { number: '01', title: 'Cómo llegar', text: 'Llegada, equipaje y cuándo resulta útil el coche.', label: 'Llegada y movilidad', token: 'getting_to_tarifa' },
-          { number: '02', title: 'Dónde está Tarifa', text: 'Pueblo, Atlántico, costa occidental e interior.', label: 'Geografía y orientación', token: 'tarifa_geography' },
-          { number: '03', title: 'Elegir zona', text: 'Compara las consecuencias diarias de cuatro entornos.', label: 'Dónde alojarse', token: 'tarifa_where_to_stay' },
-          { number: '04', title: 'Tiempo y estaciones', text: 'Cómo el viento y la temporada cambian el ritmo.', label: 'Clima y estaciones', token: 'tarifa_weather' },
-          { number: '05', title: 'Vida diaria', text: 'Compras, cenas, playa y desplazamientos prácticos.', label: 'Vida diaria y servicios', anchor: '#daily-life' },
-          { number: '06', title: 'Invierno', text: 'Qué importa en una estancia más tranquila y larga.', label: 'Invierno en Tarifa', anchor: '#winter-stays' }
-        ]
       },
       geography: {
         eyebrow: 'Primero, la geografía',
@@ -447,19 +416,6 @@ export const tarifaLocationContent: {
         note: 'Een onafhankelijke AMARA-gids voor de reisplanning — geen live informatiedienst.',
         updated: 'Gecontroleerd in augustus 2026'
       },
-      discovery: {
-        eyebrow: 'Begin met de vraag',
-        title: 'Zes vragen die jullie verblijf in Tarifa vormgeven',
-        intro: 'Wat jullie belangrijk vinden, bepaalt het ritme van meerdere dagen in Tarifa. De gebiedsvergelijking heeft een eigen pagina; de overige links gaan naar beknopte, praktische informatie in deze gids.',
-        items: [
-          { number: '01', title: 'Aankomen', text: 'Aankomst, bagage en wanneer een auto nuttig wordt.', label: 'Aankomst & mobiliteit', token: 'getting_to_tarifa' },
-          { number: '02', title: 'Tarifa op de kaart', text: 'Stad, Atlantische kust, westelijke stranden en achterland.', label: 'Geografie & oriëntatie', token: 'tarifa_geography' },
-          { number: '03', title: 'Een gebied kiezen', text: 'Vergelijk de dagelijkse gevolgen van vier verblijfssettings.', label: 'Waar overnachten', token: 'tarifa_where_to_stay' },
-          { number: '04', title: 'Weer & seizoenen', text: 'Hoe wind en seizoen het dagelijkse ritme bepalen.', label: 'Weer & seizoenen', token: 'tarifa_weather' },
-          { number: '05', title: 'Dagelijks leven', text: 'Boodschappen, eten, strandroutine en praktische beweging.', label: 'Dagelijks leven', anchor: '#daily-life' },
-          { number: '06', title: 'Winter', text: 'Wat telt tijdens een rustiger en langer verblijf.', label: 'Winter in Tarifa', anchor: '#winter-stays' }
-        ]
-      },
       geography: {
         eyebrow: 'Eerst de geografie',
         title: 'Een kleine stad die verbonden is met een veel grotere kust',
@@ -554,19 +510,6 @@ export const tarifaLocationContent: {
         standfirst: 'Tarifa är en kompakt Atlantstad som upplevs mycket olika beroende på var ni bor. Guiden ger först geografisk och praktisk orientering; därefter delas frågorna upp i ankomst, områden, klimat, vardag och vinter.',
         note: 'En oberoende AMARA-guide för reseplanering – inte en tjänst för liveförhållanden.',
         updated: 'Granskad i augusti 2026'
-      },
-      discovery: {
-        eyebrow: 'Börja med frågan',
-        title: 'Sex frågor som formar en vistelse i Tarifa',
-        intro: 'Det ni prioriterar sätter rytmen för flera dagar i Tarifa. Områdesjämförelsen har en egen sida; övriga länkar leder till kort och praktisk information i den här guiden.',
-        items: [
-          { number: '01', title: 'Ta er hit', text: 'Ankomst, bagage och när en bil blir användbar.', label: 'Ankomst & mobilitet', token: 'getting_to_tarifa' },
-          { number: '02', title: 'Tarifa på kartan', text: 'Staden, Atlantkusten, västkusten och inlandet.', label: 'Geografi & orientering', token: 'tarifa_geography' },
-          { number: '03', title: 'Välj område', text: 'Jämför de dagliga följderna av fyra boendemiljöer.', label: 'Var ska man bo', token: 'tarifa_where_to_stay' },
-          { number: '04', title: 'Väder & årstider', text: 'Hur vind och säsong påverkar dagsrytmen.', label: 'Väder & årstider', token: 'tarifa_weather' },
-          { number: '05', title: 'Vardagsliv', text: 'Matinköp, middag, strandrutiner och förflyttning.', label: 'Vardagsliv', anchor: '#daily-life' },
-          { number: '06', title: 'Vinter', text: 'Vad som betyder mest under en lugnare, längre vistelse.', label: 'Vinter i Tarifa', anchor: '#winter-stays' }
-        ]
       },
       geography: {
         eyebrow: 'Geografin först',
