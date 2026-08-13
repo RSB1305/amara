@@ -155,6 +155,27 @@ const globalNavLabels = {
     nl: 'Tarifa',
     sv: 'Tarifa'
   },
+  locationGuides: {
+    en: 'Location guides',
+    de: 'Lage-Guides',
+    es: 'Guías de destinos',
+    nl: 'Bestemmingsgidsen',
+    sv: 'Resmålsguider'
+  },
+  experienceTarifa: {
+    en: 'Tarifa',
+    de: 'Tarifa',
+    es: 'Tarifa',
+    nl: 'Tarifa',
+    sv: 'Tarifa'
+  },
+  experienceTarifaMeta: {
+    en: 'Beaches, wind and local experiences around your AMARA stay.',
+    de: 'Strände, Wind und Erlebnisse rund um euren AMARA-Aufenthalt.',
+    es: 'Playas, viento y experiencias locales durante vuestra estancia en AMARA.',
+    nl: 'Stranden, wind en lokale ervaringen rond jullie verblijf bij AMARA.',
+    sv: 'Stränder, vind och lokala upplevelser under er vistelse på AMARA.'
+  },
   locationFrigilianaMeta: {
     en: 'One of Andalusia’s most beautiful white villages.',
     de: 'Eines der schönsten weißen Dörfer Andalusiens.',
@@ -325,7 +346,8 @@ const globalNavGroups: GlobalNavGroup[] = [
       {
         token: 'location_frigiliana',
         label: tGlobal('locationFrigiliana'),
-        description: tGlobal('locationFrigilianaMeta')
+        description: tGlobal('locationFrigilianaMeta'),
+        sectionLabel: tGlobal('locationGuides')
       },
       {
         token: 'location_nerja',
@@ -343,6 +365,11 @@ const globalNavGroups: GlobalNavGroup[] = [
         description: experienceNavigation.menuOverviewDescription,
         sectionLabel: experienceNavigation.menuSectionLabel,
         separatedSection: true
+      },
+      {
+        token: 'tarifa_experience_hub',
+        label: tGlobal('experienceTarifa'),
+        description: tGlobal('experienceTarifaMeta')
       }
     ]
   },
