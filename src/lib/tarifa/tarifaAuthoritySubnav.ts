@@ -176,7 +176,12 @@ export function getTarifaAuthoritySubnav(
           status: 'live',
           href: resolveLink('tarifa_weather', currentLang)
         },
-        { id: 'daily-life-services', label: copy.children['daily-life-services'], status: 'future' },
+        {
+          id: 'daily-life-services',
+          label: copy.children['daily-life-services'],
+          status: 'live',
+          href: resolveLink('tarifa_daily_life', currentLang)
+        },
         { id: 'winter-stays', label: copy.children['winter-stays'], status: 'future' }
       ]
     },
