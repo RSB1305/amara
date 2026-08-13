@@ -182,7 +182,12 @@ export function getTarifaAuthoritySubnav(
           status: 'live',
           href: resolveLink('tarifa_daily_life', currentLang)
         },
-        { id: 'winter-stays', label: copy.children['winter-stays'], status: 'future' }
+        {
+          id: 'winter-stays',
+          label: copy.children['winter-stays'],
+          status: 'live',
+          href: resolveLink('tarifa_winter_stays', currentLang)
+        }
       ]
     },
     {

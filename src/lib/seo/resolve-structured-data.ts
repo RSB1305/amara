@@ -197,6 +197,13 @@ const PUBLIC_ROUTE_LABELS: Partial<Record<string, Record<AmaraLanguage, string>>
     nl: 'Dagelijks leven & voorzieningen',
     sv: 'Vardag & service'
   },
+  'tarifa-winter-stays': {
+    en: 'Winter Stays',
+    de: 'Winteraufenthalte',
+    es: 'Estancias de invierno',
+    nl: 'Winterverblijven',
+    sv: 'Vintervistelser'
+  },
   'tarifa-experience': {
     en: 'Experiences',
     de: 'Erlebnisse',
@@ -304,6 +311,7 @@ const TARIFA_GUIDE_SLUGS = new Set([
   'tarifa-where-to-stay',
   'tarifa-weather',
   'tarifa-daily-life',
+  'tarifa-winter-stays',
   'tarifa-experience',
   'tarifa-wind-kitesurfing',
   'tarifa-beaches'

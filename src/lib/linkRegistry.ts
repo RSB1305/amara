@@ -183,6 +183,13 @@ legal_notice: {
       nl: buildOwnedLocalizedPath('tarifa-daily-life', 'nl'),
       sv: buildOwnedLocalizedPath('tarifa-daily-life', 'sv')
     },
+    tarifa_winter_stays: {
+      en: buildOwnedLocalizedPath('tarifa-winter-stays', 'en'),
+      de: buildOwnedLocalizedPath('tarifa-winter-stays', 'de'),
+      es: buildOwnedLocalizedPath('tarifa-winter-stays', 'es'),
+      nl: buildOwnedLocalizedPath('tarifa-winter-stays', 'nl'),
+      sv: buildOwnedLocalizedPath('tarifa-winter-stays', 'sv')
+    },
     tarifa_experience_hub: {
       en: buildOwnedLocalizedPath('tarifa-experience', 'en'),
       de: buildOwnedLocalizedPath('tarifa-experience', 'de'),
