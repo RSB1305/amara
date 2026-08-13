@@ -4,6 +4,7 @@ export type TarifaLocationHubLinkToken =
   | 'getting_to_tarifa'
   | 'tarifa_geography'
   | 'tarifa_where_to_stay'
+  | 'tarifa_weather'
   | 'tarifa_experience_hub'
   | 'tarifa_beaches_authority'
   | 'tarifa_wind_kitesurfing_authority'
@@ -130,7 +131,7 @@ export const tarifaLocationContent: {
           { number: '01', title: 'Getting here', text: 'Arrival, luggage and when a car becomes useful.', label: 'Arrival & mobility', token: 'getting_to_tarifa' },
           { number: '02', title: 'Where Tarifa is', text: 'Town, Atlantic edge, western coast and inland landscape.', label: 'Geography & orientation', token: 'tarifa_geography' },
           { number: '03', title: 'Choose your area', text: 'Compare the real daily trade-offs between four stay settings.', label: 'Where to stay', token: 'tarifa_where_to_stay' },
-          { number: '04', title: 'Weather & seasons', text: 'How wind and seasonal rhythm affect the way you use Tarifa.', label: 'Weather & seasons', anchor: '#weather-seasons' },
+          { number: '04', title: 'Weather & seasons', text: 'How wind and seasonal rhythm affect the way you use Tarifa.', label: 'Weather & seasons', token: 'tarifa_weather' },
           { number: '05', title: 'Daily life', text: 'Groceries, dinner, beach routines and practical movement.', label: 'Daily life', anchor: '#daily-life' },
           { number: '06', title: 'Winter stays', text: 'What matters when Tarifa becomes a slower, longer stay.', label: 'Winter stays', anchor: '#winter-stays' }
         ]
@@ -179,7 +180,7 @@ export const tarifaLocationContent: {
           'Wind belongs to Tarifa, but its practical effect depends on the day, the activity and the exact setting. Open coastal space, sheltered urban streets and a private terrace do not all feel the same under one forecast.',
           'Summer brings a busier road, beach and evening rhythm. Outside the peak, planning often shifts toward flexibility, indoor comfort and the ordinary pattern of a longer stay. Current forecasts and local rules should always take priority close to travel.'
         ],
-        link: { label: 'Explore wind & kitesurfing', token: 'tarifa_wind_kitesurfing_authority' }
+        link: { label: 'Explore Tarifa weather & seasons', token: 'tarifa_weather' }
       },
       dailyLife: {
         eyebrow: 'Daily life & services',
@@ -238,7 +239,7 @@ export const tarifaLocationContent: {
           { number: '01', title: 'Ankommen', text: 'Anreise, Gepäck und wann ein Auto sinnvoll wird.', label: 'Anreise & Mobilität', token: 'getting_to_tarifa' },
           { number: '02', title: 'Tarifa auf der Karte', text: 'Ort, Atlantikküste, westliche Strände und Hinterland.', label: 'Geografie & Orientierung', token: 'tarifa_geography' },
           { number: '03', title: 'Lage wählen', text: 'Die tatsächlichen Alltagsfolgen von vier Wohnlagen vergleichen.', label: 'Wo übernachten', token: 'tarifa_where_to_stay' },
-          { number: '04', title: 'Wetter & Jahreszeiten', text: 'Wie Wind und Saison den Tagesrhythmus prägen.', label: 'Wetter & Jahreszeiten', anchor: '#weather-seasons' },
+          { number: '04', title: 'Wetter & Jahreszeiten', text: 'Wie Wind und Saison den Tagesrhythmus prägen.', label: 'Wetter & Jahreszeiten', token: 'tarifa_weather' },
           { number: '05', title: 'Alltag', text: 'Einkaufen, Essen, Strandroutinen und Wege.', label: 'Alltag & Versorgung', anchor: '#daily-life' },
           { number: '06', title: 'Winter', text: 'Was bei einem ruhigeren, längeren Aufenthalt zählt.', label: 'Winter in Tarifa', anchor: '#winter-stays' }
         ]
@@ -287,7 +288,7 @@ export const tarifaLocationContent: {
           'Wind gehört zu Tarifa. Wie er sich praktisch auswirkt, hängt jedoch von Tag, Aktivität und genauer Lage ab. Eine offene Küste, geschützte Straßen und eine private Terrasse fühlen sich bei derselben Vorhersage nicht gleich an.',
           'Im Sommer werden Straßen, Strände und Abende intensiver. Außerhalb der Hauptsaison zählen Flexibilität, Innenkomfort und der normale Rhythmus eines längeren Aufenthalts stärker. Kurz vor der Reise haben aktuelle Vorhersagen und lokale Regeln Vorrang.'
         ],
-        link: { label: 'Wind & Kitesurfen in Tarifa', token: 'tarifa_wind_kitesurfing_authority' }
+        link: { label: 'Wetter & Jahreszeiten in Tarifa', token: 'tarifa_weather' }
       },
       dailyLife: {
         eyebrow: 'Alltag & Versorgung',
@@ -346,7 +347,7 @@ export const tarifaLocationContent: {
           { number: '01', title: 'Cómo llegar', text: 'Llegada, equipaje y cuándo resulta útil el coche.', label: 'Llegada y movilidad', token: 'getting_to_tarifa' },
           { number: '02', title: 'Dónde está Tarifa', text: 'Pueblo, Atlántico, costa occidental e interior.', label: 'Geografía y orientación', token: 'tarifa_geography' },
           { number: '03', title: 'Elegir zona', text: 'Compara las consecuencias diarias de cuatro entornos.', label: 'Dónde alojarse', token: 'tarifa_where_to_stay' },
-          { number: '04', title: 'Tiempo y estaciones', text: 'Cómo el viento y la temporada cambian el ritmo.', label: 'Clima y estaciones', anchor: '#weather-seasons' },
+          { number: '04', title: 'Tiempo y estaciones', text: 'Cómo el viento y la temporada cambian el ritmo.', label: 'Clima y estaciones', token: 'tarifa_weather' },
           { number: '05', title: 'Vida diaria', text: 'Compras, cenas, playa y desplazamientos prácticos.', label: 'Vida diaria y servicios', anchor: '#daily-life' },
           { number: '06', title: 'Invierno', text: 'Qué importa en una estancia más tranquila y larga.', label: 'Invierno en Tarifa', anchor: '#winter-stays' }
         ]
@@ -395,7 +396,7 @@ export const tarifaLocationContent: {
           'El viento forma parte de Tarifa, pero su efecto práctico depende del día, la actividad y el entorno exacto. La costa abierta, unas calles más resguardadas y una terraza privada no se sienten igual con la misma previsión.',
           'El verano intensifica carreteras, playas y tardes. Fuera de temporada pesan más la flexibilidad, el confort interior y la rutina normal de una estancia larga. Cerca del viaje, prevalecen la previsión actual y las normas locales.'
         ],
-        link: { label: 'Viento y kitesurf en Tarifa', token: 'tarifa_wind_kitesurfing_authority' }
+        link: { label: 'Tiempo y estaciones en Tarifa', token: 'tarifa_weather' }
       },
       dailyLife: {
         eyebrow: 'Vida diaria y servicios',
@@ -454,7 +455,7 @@ export const tarifaLocationContent: {
           { number: '01', title: 'Aankomen', text: 'Aankomst, bagage en wanneer een auto nuttig wordt.', label: 'Aankomst & mobiliteit', token: 'getting_to_tarifa' },
           { number: '02', title: 'Tarifa op de kaart', text: 'Stad, Atlantische kust, westelijke stranden en achterland.', label: 'Geografie & oriëntatie', token: 'tarifa_geography' },
           { number: '03', title: 'Een gebied kiezen', text: 'Vergelijk de dagelijkse gevolgen van vier verblijfssettings.', label: 'Waar overnachten', token: 'tarifa_where_to_stay' },
-          { number: '04', title: 'Weer & seizoenen', text: 'Hoe wind en seizoen het dagelijkse ritme bepalen.', label: 'Weer & seizoenen', anchor: '#weather-seasons' },
+          { number: '04', title: 'Weer & seizoenen', text: 'Hoe wind en seizoen het dagelijkse ritme bepalen.', label: 'Weer & seizoenen', token: 'tarifa_weather' },
           { number: '05', title: 'Dagelijks leven', text: 'Boodschappen, eten, strandroutine en praktische beweging.', label: 'Dagelijks leven', anchor: '#daily-life' },
           { number: '06', title: 'Winter', text: 'Wat telt tijdens een rustiger en langer verblijf.', label: 'Winter in Tarifa', anchor: '#winter-stays' }
         ]
@@ -503,7 +504,7 @@ export const tarifaLocationContent: {
           'Wind hoort bij Tarifa, maar het praktische effect hangt af van dag, activiteit en exacte setting. Open kust, beschuttere stadsstraten en een privéterras voelen niet hetzelfde bij één voorspelling.',
           'De zomer maakt wegen, stranden en avonden intensiever. Buiten de piek tellen flexibiliteit, binnencomfort en de normale routine van een langer verblijf sterker. Actuele voorspellingen en lokale regels hebben vlak voor vertrek voorrang.'
         ],
-        link: { label: 'Lees over wind & kitesurfen', token: 'tarifa_wind_kitesurfing_authority' }
+        link: { label: 'Bekijk weer & seizoenen in Tarifa', token: 'tarifa_weather' }
       },
       dailyLife: {
         eyebrow: 'Dagelijks leven & voorzieningen',
@@ -562,7 +563,7 @@ export const tarifaLocationContent: {
           { number: '01', title: 'Ta er hit', text: 'Ankomst, bagage och när en bil blir användbar.', label: 'Ankomst & mobilitet', token: 'getting_to_tarifa' },
           { number: '02', title: 'Tarifa på kartan', text: 'Staden, Atlantkusten, västkusten och inlandet.', label: 'Geografi & orientering', token: 'tarifa_geography' },
           { number: '03', title: 'Välj område', text: 'Jämför de dagliga följderna av fyra boendemiljöer.', label: 'Var ska man bo', token: 'tarifa_where_to_stay' },
-          { number: '04', title: 'Väder & årstider', text: 'Hur vind och säsong påverkar dagsrytmen.', label: 'Väder & årstider', anchor: '#weather-seasons' },
+          { number: '04', title: 'Väder & årstider', text: 'Hur vind och säsong påverkar dagsrytmen.', label: 'Väder & årstider', token: 'tarifa_weather' },
           { number: '05', title: 'Vardagsliv', text: 'Matinköp, middag, strandrutiner och förflyttning.', label: 'Vardagsliv', anchor: '#daily-life' },
           { number: '06', title: 'Vinter', text: 'Vad som betyder mest under en lugnare, längre vistelse.', label: 'Vinter i Tarifa', anchor: '#winter-stays' }
         ]
@@ -611,7 +612,7 @@ export const tarifaLocationContent: {
           'Vinden hör till Tarifa, men den praktiska effekten beror på dag, aktivitet och exakt miljö. Öppen kust, mer skyddade stadsgator och en privat terrass känns inte likadant i samma prognos.',
           'Sommaren ger mer intensitet på vägar, stränder och kvällar. Utanför toppen väger flexibilitet, inomhuskomfort och rytmen i en längre vistelse tyngre. Aktuella prognoser och lokala regler gäller alltid närmast resan.'
         ],
-        link: { label: 'Vind & kitesurfing i Tarifa', token: 'tarifa_wind_kitesurfing_authority' }
+        link: { label: 'Väder & årstider i Tarifa', token: 'tarifa_weather' }
       },
       dailyLife: {
         eyebrow: 'Vardagsliv & service',

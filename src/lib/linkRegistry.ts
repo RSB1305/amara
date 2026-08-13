@@ -169,6 +169,13 @@ legal_notice: {
       nl: buildOwnedLocalizedPath('tarifa-where-to-stay', 'nl'),
       sv: buildOwnedLocalizedPath('tarifa-where-to-stay', 'sv')
     },
+    tarifa_weather: {
+      en: buildOwnedLocalizedPath('tarifa-weather', 'en'),
+      de: buildOwnedLocalizedPath('tarifa-weather', 'de'),
+      es: buildOwnedLocalizedPath('tarifa-weather', 'es'),
+      nl: buildOwnedLocalizedPath('tarifa-weather', 'nl'),
+      sv: buildOwnedLocalizedPath('tarifa-weather', 'sv')
+    },
     tarifa_experience_hub: {
       en: buildOwnedLocalizedPath('tarifa-experience', 'en'),
       de: buildOwnedLocalizedPath('tarifa-experience', 'de'),

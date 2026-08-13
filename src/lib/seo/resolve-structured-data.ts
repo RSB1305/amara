@@ -183,6 +183,13 @@ const PUBLIC_ROUTE_LABELS: Partial<Record<string, Record<AmaraLanguage, string>>
     nl: 'Waar overnachten',
     sv: 'Var ska man bo'
   },
+  'tarifa-weather': {
+    en: 'Weather & Seasons',
+    de: 'Wetter & Jahreszeiten',
+    es: 'Tiempo y estaciones',
+    nl: 'Weer & seizoenen',
+    sv: 'Väder & årstider'
+  },
   'tarifa-experience': {
     en: 'Experiences',
     de: 'Erlebnisse',
@@ -288,6 +295,7 @@ const TARIFA_GUIDE_SLUGS = new Set([
   'getting-to-tarifa',
   'tarifa-geography',
   'tarifa-where-to-stay',
+  'tarifa-weather',
   'tarifa-experience',
   'tarifa-wind-kitesurfing',
   'tarifa-beaches'

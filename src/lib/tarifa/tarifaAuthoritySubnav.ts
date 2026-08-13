@@ -56,7 +56,7 @@ const labels: Record<AmaraLanguage, TarifaAuthorityLabels> = {
       'arrival-mobility': 'Arrival & Mobility',
       'geography-orientation': 'Geography & Orientation',
       'where-to-stay': 'Where to stay / areas',
-      'weather-seasons': 'Weather & seasons',
+      'weather-seasons': 'Weather & Seasons',
       'daily-life-services': 'Daily life & services',
       'winter-stays': 'Winter stays',
       beaches: 'Beaches & coast',
@@ -92,7 +92,7 @@ const labels: Record<AmaraLanguage, TarifaAuthorityLabels> = {
       'arrival-mobility': 'Llegada y movilidad',
       'geography-orientation': 'Geografía y orientación',
       'where-to-stay': 'Dónde alojarse / zonas',
-      'weather-seasons': 'Tiempo y temporadas',
+      'weather-seasons': 'Tiempo y estaciones',
       'daily-life-services': 'Vida diaria y servicios',
       'winter-stays': 'Estancias de invierno',
       beaches: 'Playas y costa',
@@ -170,7 +170,12 @@ export function getTarifaAuthoritySubnav(
           status: 'live',
           href: resolveLink('tarifa_where_to_stay', currentLang)
         },
-        { id: 'weather-seasons', label: copy.children['weather-seasons'], status: 'future' },
+        {
+          id: 'weather-seasons',
+          label: copy.children['weather-seasons'],
+          status: 'live',
+          href: resolveLink('tarifa_weather', currentLang)
+        },
         { id: 'daily-life-services', label: copy.children['daily-life-services'], status: 'future' },
         { id: 'winter-stays', label: copy.children['winter-stays'], status: 'future' }
       ]
