@@ -33,6 +33,14 @@ if (!activeBranch) {
   throw new Error(`[Tarifa context navigation] Missing branch: ${activeBranchId}`);
 }
 
+// Location spokes already identify the current page in the breadcrumb, so the
+// topic row keeps only the five useful onward links. The Location hub retains
+// all six topics, and the separate Experience branch keeps its current behavior.
+const visibleTopics =
+  activeBranchId === 'location' && inferredChildId
+    ? activeBranch.children.filter((topic) => topic.id !== inferredChildId)
+    : activeBranch.children;
+
 const labels: Record<
   AmaraLanguage,
   {
@@ -162,7 +170,7 @@ if (childLabel) {
           class="-mx-1 flex flex-wrap items-center gap-x-0.5 gap-y-1 xl:flex-nowrap xl:justify-end"
           data-am-tarifa-topic-branch={activeBranchId}
         >
-          {activeBranch.children.map((topic) => {
+          {visibleTopics.map((topic) => {
             const isActiveTopic = topic.id === inferredChildId;
 
             return (
