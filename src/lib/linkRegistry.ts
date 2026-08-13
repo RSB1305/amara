@@ -11,8 +11,8 @@ import { buildBookingLandingUrl } from './directBooking';
  */
 
 export const linkRegistry = {
-  version: '2026-08-11-registry-v4.2',
-  updated_at: '2026-08-11',
+  version: '2026-08-13-registry-v4.3',
+  updated_at: '2026-08-13',
   base: '/',
   links: {
     /* =========================================================
@@ -148,6 +148,13 @@ legal_notice: {
     /* =========================================================
        TARIFA — AUTHORITY (PUBLIC)
     ========================================================= */
+    tarifa_where_to_stay: {
+      en: buildOwnedLocalizedPath('tarifa-where-to-stay', 'en'),
+      de: buildOwnedLocalizedPath('tarifa-where-to-stay', 'de'),
+      es: buildOwnedLocalizedPath('tarifa-where-to-stay', 'es'),
+      nl: buildOwnedLocalizedPath('tarifa-where-to-stay', 'nl'),
+      sv: buildOwnedLocalizedPath('tarifa-where-to-stay', 'sv')
+    },
     tarifa_experience_hub: {
       en: buildOwnedLocalizedPath('tarifa-experience', 'en'),
       de: buildOwnedLocalizedPath('tarifa-experience', 'de'),

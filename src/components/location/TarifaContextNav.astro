@@ -15,10 +15,11 @@ import type { AmaraLanguage } from '../../types/seo';
 interface Props {
   activeId: TarifaAuthoritySubnavId;
   currentLabel: string;
+  childLabel?: string;
   lang: AmaraLanguage;
 }
 
-const { activeId, currentLabel, lang } = Astro.props;
+const { activeId, currentLabel, childLabel, lang } = Astro.props;
 const navigationItems = getTarifaAuthoritySubnav(lang);
 
 const labels: Record<
@@ -84,6 +85,10 @@ const breadcrumbs: ContextNavigationBreadcrumb[] = [
 
 if (activeId !== 'overview') {
   breadcrumbs.push({ label: currentLabel });
+}
+
+if (childLabel) {
+  breadcrumbs.push({ label: childLabel });
 }
 ---
 

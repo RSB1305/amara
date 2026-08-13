@@ -1,12 +1,272 @@
 ---
-import { tarifaGuideContent } from '../../content/tarifaGuideContent';
-import TarifaGuidePage from './TarifaGuidePage.astro';
+import tarifaStayImage from '../../assets/images/home/amara-tarifa-apartment01.webp';
+import AmaraImage from '../../components/AmaraImage.astro';
+import Navigation from '../../components/Navigation.astro';
+import EditorialByline from '../../components/editorial/EditorialByline.astro';
+import TarifaContextNav from '../../components/location/TarifaContextNav.astro';
+import { tarifaLocationContent } from '../../content/tarifaLocationContent';
+import LocationAuthorityLayout from '../../layouts/LocationAuthorityLayout.astro';
+import { resolveOptionalLink } from '../../lib/linkResolver';
+import { normalizeLanguage } from '../../lib/seo/resolve-seo-head';
+import type { AmaraLanguage } from '../../types/seo';
 
 interface Props {
   lang?: string;
 }
 
 const { lang = 'es' } = Astro.props;
+const currentLang = normalizeLanguage(lang as AmaraLanguage);
+const content = tarifaLocationContent.locales[currentLang];
+const requiredLink = (token: string) => {
+  const href = resolveOptionalLink(token, currentLang, { suppressMissing: true });
+
+  if (!href) {
+    throw new Error(`[Tarifa location hub] Missing required link token: ${token}`);
+  }
+
+  return href;
+};
+const discoveryHref = (item: { token?: string; anchor?: string }) =>
+  item.token ? requiredLink(item.token) : item.anchor;
+const aboutHref = requiredLink('about');
+const stayHref = requiredLink('casa');
+const footerHighlights = [
+  { token: 'location_tarifa', label: 'Tarifa' },
+  { token: 'tarifa_where_to_stay', label: content.areas.link?.label ?? 'Where to stay' },
+  { token: 'tarifa_experience_hub', label: content.experience.links[0].label }
+];
 ---
 
-<TarifaGuidePage content={tarifaGuideContent.overview} lang={lang} />
+<LocationAuthorityLayout
+  seo={tarifaLocationContent.seo}
+  pageLang={currentLang}
+  showContextNavigation={false}
+  footerHighlights={footerHighlights}
+>
+  <Navigation
+    slot="navigation"
+    currentLang={currentLang}
+    brandName="Tarifa"
+    languageToken={tarifaLocationContent.token}
+    locationAuthorityNav={true}
+  />
+  <TarifaContextNav activeId="overview" currentLabel="Tarifa" lang={currentLang} />
+
+  <article class="bg-surface" data-am-page="tarifa-location-hub">
+    <header class="overflow-hidden border-b border-border-subtle bg-surface px-6 py-20 md:px-12 md:py-28 lg:py-36">
+      <div class="mx-auto grid max-w-screen-2xl gap-14 lg:grid-cols-12 lg:items-start lg:gap-16">
+        <div class="lg:col-span-8">
+          <p class="font-label text-[11px] font-bold uppercase tracking-[0.2em] text-primary">
+            {content.hero.eyebrow}
+          </p>
+          <h1 class="am-text-display mt-7 max-w-6xl text-balance text-on-surface">
+            {content.hero.title}
+          </h1>
+        </div>
+        <div class="border-l border-primary/30 pl-6 lg:col-span-4 lg:pl-9">
+          <p class="am-text-subtitle text-balance leading-relaxed text-on-surface-variant">
+            {content.hero.standfirst}
+          </p>
+        </div>
+        <div class="lg:col-span-8">
+          {tarifaLocationContent.seo.article && (
+            <EditorialByline
+              lang={currentLang}
+              authorName={tarifaLocationContent.seo.article.authorName}
+              authorHref={aboutHref}
+              updated={content.hero.updated}
+              note={content.hero.note}
+            />
+          )}
+        </div>
+        <div aria-hidden="true" class="hidden font-serif text-[clamp(3.5rem,8vw,8.5rem)] leading-[0.72] text-primary/10 lg:col-span-4 lg:block">
+          Tarifa
+        </div>
+      </div>
+    </header>
+
+    <nav aria-label={content.discovery.title} class="border-b border-border-subtle bg-surface-container-low px-6 py-16 md:px-12 md:py-20">
+      <div class="mx-auto max-w-screen-2xl">
+        <div class="grid gap-8 lg:grid-cols-12 lg:gap-16">
+          <div class="lg:col-span-4">
+            <p class="font-label text-[11px] font-bold uppercase tracking-[0.18em] text-primary">
+              {content.discovery.eyebrow}
+            </p>
+            <h2 class="am-text-title mt-5 text-balance text-on-surface">{content.discovery.title}</h2>
+            <p class="am-text-body mt-6 max-w-xl leading-relaxed text-on-surface-variant">
+              {content.discovery.intro}
+            </p>
+          </div>
+          <ol class="grid gap-x-8 lg:col-span-8 sm:grid-cols-2">
+            {content.discovery.items.map((item) => (
+              <li class="border-t border-border-subtle py-6">
+                <a href={discoveryHref(item)} class="group block focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/25">
+                  <span class="font-label text-[10px] font-bold uppercase tracking-[0.16em] text-primary">{item.number}</span>
+                  <span class="am-text-subtitle mt-3 block text-on-surface transition-colors group-hover:text-primary">{item.title}</span>
+                  <span class="am-text-body mt-2 block leading-relaxed text-on-surface-variant">{item.text}</span>
+                  <span class="am-cta-link mt-4 inline-flex">{item.label}</span>
+                </a>
+              </li>
+            ))}
+          </ol>
+        </div>
+      </div>
+    </nav>
+
+    <section id="geography-orientation" class="scroll-mt-28 border-b border-border-subtle bg-surface px-6 py-24 md:px-12 md:py-32 lg:py-40">
+      <div class="mx-auto grid max-w-screen-2xl gap-14 lg:grid-cols-12 lg:gap-20">
+        <div class="lg:col-span-7">
+          <p class="font-label text-[11px] font-bold uppercase tracking-[0.18em] text-primary">{content.geography.eyebrow}</p>
+          <h2 class="am-text-display mt-6 max-w-5xl text-balance text-on-surface">{content.geography.title}</h2>
+          <div class="mt-10 max-w-3xl space-y-5">
+            {content.geography.paragraphs.map((paragraph) => (
+              <p class="am-text-body leading-relaxed text-on-surface-variant">{paragraph}</p>
+            ))}
+          </div>
+        </div>
+        <dl class="self-end border-y border-border-subtle lg:col-span-5">
+          {content.geography.markers.map((marker, index) => (
+            <div class:list={['grid grid-cols-[0.65fr_1.35fr] gap-6 py-7', index > 0 && 'border-t border-border-subtle']}>
+              <dt class="font-label text-[10px] font-bold uppercase tracking-[0.14em] text-primary">{marker.label}</dt>
+              <dd class="am-text-subtitle text-on-surface">{marker.value}</dd>
+            </div>
+          ))}
+        </dl>
+      </div>
+    </section>
+
+    <section id="arrival-mobility" class="scroll-mt-28 border-b border-border-subtle bg-surface-container-low px-6 py-20 md:px-12 md:py-28">
+      <div class="mx-auto grid max-w-screen-2xl gap-10 lg:grid-cols-12 lg:gap-20">
+        <div class="lg:col-span-5">
+          <p class="font-label text-[11px] font-bold uppercase tracking-[0.18em] text-primary">{content.arrival.eyebrow}</p>
+          <h2 class="am-text-title mt-5 max-w-xl text-balance text-on-surface">{content.arrival.title}</h2>
+        </div>
+        <div class="max-w-4xl space-y-5 lg:col-span-7">
+          {content.arrival.paragraphs.map((paragraph, index) => (
+            <p class:list={[index === 0 ? 'am-text-subtitle' : 'am-text-body', 'leading-relaxed text-on-surface-variant']}>{paragraph}</p>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="border-b border-border-subtle bg-inverse-surface px-6 py-24 text-inverted-on-surface md:px-12 md:py-32 lg:py-40">
+      <div class="mx-auto max-w-screen-2xl">
+        <div class="grid gap-12 lg:grid-cols-12 lg:gap-20">
+          <div class="lg:col-span-5">
+            <p class="font-label text-[11px] font-bold uppercase tracking-[0.18em] text-primary-fixed-dim">{content.areas.eyebrow}</p>
+            <h2 class="am-text-display mt-6 text-balance text-inverted-on-surface">{content.areas.title}</h2>
+          </div>
+          <div class="space-y-5 lg:col-span-7">
+            {content.areas.paragraphs.map((paragraph) => (
+              <p class="am-text-body leading-relaxed text-inverted-on-surface/75">{paragraph}</p>
+            ))}
+          </div>
+        </div>
+        <div class="mt-16 grid gap-x-8 md:grid-cols-2 lg:mt-24 lg:grid-cols-4">
+          {content.areas.archetypes.map((area, index) => (
+            <div class="border-t border-inverted-on-surface/20 py-7">
+              <span class="font-label text-[10px] font-bold uppercase tracking-[0.14em] text-primary-fixed-dim">0{index + 1}</span>
+              <h3 class="am-text-subtitle mt-4 text-inverted-on-surface">{area.title}</h3>
+              <p class="am-text-body mt-3 leading-relaxed text-inverted-on-surface/70">{area.consequence}</p>
+            </div>
+          ))}
+        </div>
+        {content.areas.link && (
+          <a href={requiredLink(content.areas.link.token!)} class="am-btn am-btn--primary mt-10">{content.areas.link.label}</a>
+        )}
+      </div>
+    </section>
+
+    <div class="border-b border-border-subtle bg-surface">
+      <div class="mx-auto grid max-w-screen-2xl lg:grid-cols-2">
+        <section id="weather-seasons" class="scroll-mt-28 border-b border-border-subtle px-6 py-20 md:px-12 md:py-28 lg:border-b-0 lg:border-r">
+          <p class="font-label text-[11px] font-bold uppercase tracking-[0.18em] text-primary">{content.weather.eyebrow}</p>
+          <h2 class="am-text-title mt-5 max-w-xl text-balance text-on-surface">{content.weather.title}</h2>
+          <div class="mt-7 space-y-5">
+            {content.weather.paragraphs.map((paragraph) => (
+              <p class="am-text-body leading-relaxed text-on-surface-variant">{paragraph}</p>
+            ))}
+          </div>
+          {content.weather.link && (
+            <a href={requiredLink(content.weather.link.token!)} class="am-cta-link mt-8 inline-flex">{content.weather.link.label}</a>
+          )}
+        </section>
+        <section id="daily-life" class="scroll-mt-28 px-6 py-20 md:px-12 md:py-28">
+          <p class="font-label text-[11px] font-bold uppercase tracking-[0.18em] text-primary">{content.dailyLife.eyebrow}</p>
+          <h2 class="am-text-title mt-5 max-w-xl text-balance text-on-surface">{content.dailyLife.title}</h2>
+          <div class="mt-7 space-y-5">
+            {content.dailyLife.paragraphs.map((paragraph) => (
+              <p class="am-text-body leading-relaxed text-on-surface-variant">{paragraph}</p>
+            ))}
+          </div>
+        </section>
+      </div>
+    </div>
+
+    <section id="winter-stays" class="scroll-mt-28 border-b border-border-subtle bg-surface-container-low px-6 py-24 md:px-12 md:py-32">
+      <div class="mx-auto max-w-screen-2xl border-y border-primary/20 py-14 md:py-20">
+        <div class="grid gap-10 lg:grid-cols-12 lg:gap-20">
+          <div class="lg:col-span-5">
+            <p class="font-label text-[11px] font-bold uppercase tracking-[0.18em] text-primary">{content.winter.eyebrow}</p>
+            <h2 class="am-text-title mt-5 text-balance text-on-surface">{content.winter.title}</h2>
+          </div>
+          <div class="space-y-5 lg:col-span-7">
+            {content.winter.paragraphs.map((paragraph, index) => (
+              <p class:list={[index === 0 ? 'am-text-subtitle' : 'am-text-body', 'leading-relaxed text-on-surface-variant']}>{paragraph}</p>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="border-b border-border-subtle bg-surface px-6 py-20 md:px-12 md:py-28">
+      <div class="mx-auto grid max-w-screen-2xl overflow-hidden bg-surface-container-low lg:grid-cols-[0.9fr_1.1fr]">
+        <figure class="am-mobile-full-bleed min-h-[340px] bg-surface-container-high lg:min-h-[520px]">
+          <AmaraImage
+            src={tarifaStayImage}
+            alt={content.amara.imageAlt}
+            profile="gallery"
+            class="h-full w-full object-cover"
+            sizes="(max-width: 1023px) 100vw, 45vw"
+            loading="lazy"
+            decoding="async"
+          />
+        </figure>
+        <div class="flex flex-col justify-center p-8 md:p-14 lg:p-16">
+          <p class="font-label text-[11px] font-bold uppercase tracking-[0.18em] text-primary">{content.amara.eyebrow}</p>
+          <h2 class="am-text-title mt-5 text-balance text-on-surface">{content.amara.title}</h2>
+          <div class="mt-7 space-y-5">
+            {content.amara.paragraphs.map((paragraph) => (
+              <p class="am-text-body leading-relaxed text-on-surface-variant">{paragraph}</p>
+            ))}
+          </div>
+          <ul class="mt-7 space-y-3 border-l border-primary/30 pl-5">
+            {content.amara.facts.map((fact) => (
+              <li class="am-text-body leading-relaxed text-on-surface">{fact}</li>
+            ))}
+          </ul>
+          <a href={stayHref} class="am-cta-link mt-9 inline-flex self-start">{content.amara.link?.label}</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="bg-surface px-6 py-24 md:px-12 md:py-32">
+      <div class="mx-auto grid max-w-screen-2xl gap-10 lg:grid-cols-12 lg:items-end lg:gap-20">
+        <div class="lg:col-span-7">
+          <p class="font-label text-[11px] font-bold uppercase tracking-[0.18em] text-primary">{content.experience.eyebrow}</p>
+          <h2 class="am-text-display mt-6 text-balance text-on-surface">{content.experience.title}</h2>
+        </div>
+        <div class="lg:col-span-5">
+          {content.experience.paragraphs.map((paragraph) => (
+            <p class="am-text-body leading-relaxed text-on-surface-variant">{paragraph}</p>
+          ))}
+          <div class="mt-8 flex flex-wrap gap-x-7 gap-y-4">
+            {content.experience.links.map((link) => (
+              <a href={requiredLink(link.token!)} class="am-cta-link">{link.label}</a>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+  </article>
+</LocationAuthorityLayout>
