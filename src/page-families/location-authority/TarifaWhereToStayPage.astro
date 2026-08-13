@@ -39,6 +39,7 @@ const breadcrumbLabels: Record<AmaraLanguage, string> = {
 const ui: Record<
   AmaraLanguage,
   {
+    editorialNote: string;
     howEyebrow: string;
     howTitle: string;
     comparisonEyebrow: string;
@@ -56,84 +57,89 @@ const ui: Record<
   }
 > = {
   en: {
-    howEyebrow: 'Decision framework',
-    howTitle: 'How to choose your Tarifa base',
+    editorialNote: 'An independent AMARA guide for planning your stay — not a live conditions service.',
+    howEyebrow: 'Start with your stay',
+    howTitle: 'Begin with the days you want in Tarifa',
     comparisonEyebrow: 'At a glance',
     comparisonTitle: 'The trade-offs before the detail',
     settingsEyebrow: 'Four accommodation settings',
     contextTitle: 'The westbound coast is context, not a fifth town neighbourhood',
     dimensionsEyebrow: 'Across every area',
     dimensionsTitle: 'Car use, wind and everyday life still shape the choice',
-    fitEyebrow: 'Match the base to the trip',
+    fitEyebrow: 'For different kinds of stay',
     continueEyebrow: 'Continue planning',
-    continueTitle: 'Return to orientation or follow the next practical question',
+    continueTitle: 'Return to Tarifa Location or continue with beaches and wind',
     backToLocation: 'Back to Tarifa Location',
     beaches: 'Explore Tarifa beaches',
-    wind: 'Understand wind & kitesurfing'
+    wind: 'Explore wind & kitesurfing'
   },
   de: {
-    howEyebrow: 'Entscheidungsrahmen',
-    howTitle: 'So wählt ihr eure Basis in Tarifa',
+    editorialNote: 'Ein unabhängiger AMARA-Guide zur Reiseplanung – kein Live-Dienst für aktuelle Bedingungen.',
+    howEyebrow: 'Euer Aufenthalt',
+    howTitle: 'Beginnt mit den Tagen, die ihr in Tarifa verbringen möchtet',
     comparisonEyebrow: 'Auf einen Blick',
     comparisonTitle: 'Die Abwägungen vor dem Detail',
     settingsEyebrow: 'Vier Wohnlagen',
     contextTitle: 'Die Westküste ist Kontext – kein fünftes Stadtviertel',
     dimensionsEyebrow: 'In jeder Lage',
     dimensionsTitle: 'Auto, Wind und Alltag prägen die Entscheidung weiterhin',
-    fitEyebrow: 'Die Basis muss zur Reise passen',
+    fitEyebrow: 'Für unterschiedliche Aufenthalte',
     continueEyebrow: 'Weiter planen',
-    continueTitle: 'Zur Orientierung zurückkehren oder die nächste praktische Frage öffnen',
+    continueTitle: 'Zurück zum Lage-Guide oder weiter zu Strand und Wind',
     backToLocation: 'Zurück zum Tarifa Lage-Guide',
     beaches: 'Tarifas Strände entdecken',
-    wind: 'Wind & Kitesurfen verstehen'
+    wind: 'Wind & Kitesurfen in Tarifa'
   },
   es: {
-    howEyebrow: 'Marco de decisión',
-    howTitle: 'Cómo elegir tu base en Tarifa',
+    editorialNote: 'Una guía independiente de AMARA para planificar la estancia; no es un servicio de condiciones en directo.',
+    howEyebrow: 'Vuestra estancia',
+    howTitle: 'Empieza por los días que queréis pasar en Tarifa',
     comparisonEyebrow: 'De un vistazo',
     comparisonTitle: 'Las contrapartidas antes del detalle',
     settingsEyebrow: 'Cuatro entornos de alojamiento',
     contextTitle: 'La costa occidental es contexto, no un quinto barrio urbano',
     dimensionsEyebrow: 'En cualquier zona',
     dimensionsTitle: 'El coche, el viento y la vida diaria siguen definiendo la elección',
-    fitEyebrow: 'Ajusta la base al viaje',
+    fitEyebrow: 'Para distintos tipos de estancia',
     continueEyebrow: 'Seguir planificando',
-    continueTitle: 'Vuelve a la orientación general o abre la siguiente pregunta práctica',
+    continueTitle: 'Vuelve a la guía de ubicación o sigue con playas y viento',
     backToLocation: 'Volver a Ubicación Tarifa',
     beaches: 'Explorar las playas de Tarifa',
-    wind: 'Entender el viento y el kitesurf'
+    wind: 'Viento y kitesurf en Tarifa'
   },
   nl: {
-    howEyebrow: 'Besliskader',
-    howTitle: 'Zo kiezen jullie een basis in Tarifa',
+    editorialNote: 'Een onafhankelijke AMARA-gids voor jullie reisplanning — geen live informatiedienst.',
+    howEyebrow: 'Jullie verblijf',
+    howTitle: 'Begin bij de dagen die jullie in Tarifa willen doorbrengen',
     comparisonEyebrow: 'In één oogopslag',
     comparisonTitle: 'De afwegingen vóór de details',
     settingsEyebrow: 'Vier verblijfssettings',
     contextTitle: 'De westkust is context, geen vijfde stadswijk',
     dimensionsEyebrow: 'In elk gebied',
     dimensionsTitle: 'Auto, wind en dagelijks leven blijven de keuze bepalen',
-    fitEyebrow: 'Laat de basis passen bij de reis',
+    fitEyebrow: 'Voor verschillende soorten verblijf',
     continueEyebrow: 'Verder plannen',
-    continueTitle: 'Ga terug naar de oriëntatie of open de volgende praktische vraag',
+    continueTitle: 'Ga terug naar de locatiegids of verder naar strand en wind',
     backToLocation: 'Terug naar Tarifa Locatie',
     beaches: 'Ontdek de stranden van Tarifa',
     wind: 'Lees over wind & kitesurfen'
   },
   sv: {
-    howEyebrow: 'Beslutsram',
-    howTitle: 'Så väljer ni bas i Tarifa',
+    editorialNote: 'En oberoende AMARA-guide för reseplanering – inte en tjänst för liveförhållanden.',
+    howEyebrow: 'Er vistelse',
+    howTitle: 'Börja med dagarna ni vill tillbringa i Tarifa',
     comparisonEyebrow: 'I korthet',
     comparisonTitle: 'Avvägningarna före detaljerna',
     settingsEyebrow: 'Fyra boendemiljöer',
     contextTitle: 'Västkusten är ett sammanhang, inte en femte stadsdel',
     dimensionsEyebrow: 'I varje område',
     dimensionsTitle: 'Bil, vind och vardag fortsätter att forma valet',
-    fitEyebrow: 'Matcha basen med resan',
+    fitEyebrow: 'För olika slags vistelser',
     continueEyebrow: 'Fortsätt planera',
-    continueTitle: 'Gå tillbaka till orienteringen eller öppna nästa praktiska fråga',
+    continueTitle: 'Gå tillbaka till lägesguiden eller vidare till strand och vind',
     backToLocation: 'Tillbaka till Tarifa lägesguide',
     beaches: 'Upptäck Tarifas stränder',
-    wind: 'Förstå vind & kitesurfing'
+    wind: 'Vind & kitesurfing i Tarifa'
   }
 };
 const copy = ui[currentLang];
@@ -159,6 +165,7 @@ const footerHighlights = [
   />
   <TarifaContextNav
     activeId="overview"
+    activeChildId="where-to-stay"
     currentLabel="Tarifa"
     childLabel={breadcrumbLabels[currentLang]}
     lang={currentLang}
@@ -181,7 +188,7 @@ const footerHighlights = [
               authorName={tarifaWhereToStayContent.seo.article.authorName}
               authorHref={aboutHref}
               updated={content.hero.updated}
-              note={content.hero.editorialNote}
+              note={copy.editorialNote}
             />
           )}
         </div>

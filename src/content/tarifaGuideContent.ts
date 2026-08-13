@@ -262,7 +262,7 @@ const overview: TarifaGuideContent = {
               'It is a strong choice if you want to walk almost everywhere and do not expect to use your car several times a day.',
               'The trade-off is equally clear: historic streets were not designed around modern cars. Parking and luggage can require more planning, and streets close to the evening scene may be lively well into the night during busy periods.'
             ],
-            fit: 'Best for: couples, first-time visitors and short stays where town life matters more than easy car use.'
+            fit: 'Old Town keeps couples, first-time visitors and short stays close to town life, with less convenience for the car.'
           },
           {
             title: 'La Marina — for balance',
@@ -271,7 +271,7 @@ const overview: TarifaGuideContent = {
               'You are still part of town rather than staying in an isolated beach resort, but everyday logistics and car use can be easier than inside the historic centre. That makes this area particularly interesting for guests who want to combine Tarifa on foot with beaches, kitesurfing or excursions by car.',
               'It does not give you the historic Old Town immediately outside your door. In return, it can offer a more balanced relationship between town, coast and mobility.'
             ],
-            fit: 'Best for: couples who want flexibility, surf-minded travellers and longer stays where everyday practicality matters.'
+            fit: 'La Marina gives couples, surf-minded travellers and longer stays a flexible, practical base.'
           },
           {
             title: 'Los Lances corridor — for a beach-first stay',
@@ -280,7 +280,7 @@ const overview: TarifaGuideContent = {
               'The beach becomes the centre of the stay. Depending on the exact location, reaching restaurants, shops and the Old Town becomes less spontaneous and the car becomes more useful.',
               'That can be exactly right if being close to the open coast and watersports matters more than stepping into town every evening.'
             ],
-            fit: 'Best for: guests who put beach and watersports first and are comfortable organising more of the day around a car.'
+            fit: 'Los Lances brings beach and watersports to the foreground, with more of the day organised around a car.'
           },
           {
             title: 'Countryside — for space and quiet',
@@ -288,7 +288,7 @@ const overview: TarifaGuideContent = {
               'Fincas and villas outside Tarifa offer a completely different stay.',
               'They can provide privacy, space and landscape, but the price of that freedom is mobility: shopping, dinner, beaches and town usually become car journeys.'
             ],
-            fit: 'Best for: guests deliberately choosing seclusion rather than a walkable Tarifa stay.'
+            fit: 'The countryside trades walkability for the seclusion you came to Tarifa to enjoy.'
           }
         ],
         clarification: 'Valdevaqueros and Punta Paloma belong to this wider beach-and-surf landscape more than to everyday Tarifa town life. Bolonia is better understood as a separate excursion destination rather than another neighbourhood of Tarifa.',
@@ -320,7 +320,7 @@ const overview: TarifaGuideContent = {
         ],
         links: [
           { label: 'Explore what to do in Tarifa', token: 'tarifa_experience_hub' },
-          { label: 'Understand wind & kitesurfing', token: 'tarifa_wind_kitesurfing_authority' }
+          { label: 'Explore wind & kitesurfing', token: 'tarifa_wind_kitesurfing_authority' }
         ]
       },
       seasons: {
@@ -334,7 +334,7 @@ const overview: TarifaGuideContent = {
         ]
       },
       stayFits: {
-        title: 'Which Tarifa base fits your trip?',
+        title: 'Four kinds of stay, four different priorities',
         items: [
           {
             title: 'Couples',
@@ -429,22 +429,22 @@ const overview: TarifaGuideContent = {
           {
             title: 'Altstadt — wenn ihr mitten im Geschehen wohnen möchtet',
             paragraphs: ['Im historischen Zentrum liegen Restaurants, Cafés, kleine Geschäfte und das abendliche Tarifa unmittelbar vor der Haustür.', 'Wenn ihr möglichst viel zu Fuß machen und das Auto während des Aufenthalts wenig nutzen möchtet, ist das eine sehr attraktive Variante.', 'Der Nachteil gehört aber zur gleichen Lage: enge historische Straßen und moderner Autoverkehr passen nicht immer gut zusammen. Parken und Gepäck können mehr Planung verlangen. Und je näher ihr am abendlichen Leben wohnt, desto weniger sollte absolute Ruhe selbstverständlich erwartet werden.'],
-            fit: 'Passt besonders: zu Paaren, Erstbesuchern und kürzeren Aufenthalten mit starkem Altstadtfokus.'
+            fit: 'In der Altstadt erleben Paare, Erstbesucher und Gäste auf kürzeren Reisen Tarifa besonders nah; das Auto bleibt dafür weniger bequem.'
           },
           {
             title: 'La Marina — wenn ihr vieles miteinander verbinden möchtet',
             paragraphs: ['La Marina liegt im neueren, urbanen Teil Tarifas.', 'Ihr wohnt weiterhin im Ort und könnt das Stadtleben zu Fuß erreichen, habt aber gleichzeitig bessere Voraussetzungen, das Auto flexibel für Strände, Kitesurfen oder Ausflüge zu nutzen.', 'Die historische Atmosphäre beginnt nicht direkt vor der Haustür. Dafür kann diese Lage im Alltag sehr ausgewogen funktionieren.'],
-            fit: 'Passt besonders: zu Paaren, aktiven Gästen, Kitesurfern und längeren Aufenthalten, bei denen nicht nur ein einzelnes Urlaubsmotiv zählt.'
+            fit: 'La Marina bietet Paaren, aktiven Gästen, Kitesurfern und bei längeren Aufenthalten eine flexible Basis.'
           },
           {
             title: 'Los Lances — wenn Strand und Wassersport im Vordergrund stehen',
             paragraphs: ['Weiter entlang der Atlantikküste verschiebt sich der Schwerpunkt.', 'Der Strand wird stärker zum Mittelpunkt des Aufenthalts. Gleichzeitig wird die spontane Verbindung zur Altstadt – je nach genauer Lage – schwächer und das Auto gewinnt an Bedeutung.', 'Wenn ihr hauptsächlich wegen Strand, Wind und Wassersport kommt, kann genau das richtig sein.'],
-            fit: 'Passt besonders: zu Gästen, die Beach und Surf über unmittelbares Stadtleben stellen.'
+            fit: 'Am Los-Lances-Korridor stehen Strand und Wassersport im Vordergrund, nicht das unmittelbare Stadtleben.'
           },
           {
             title: 'Umland — wenn Ruhe und Raum wichtiger sind',
             paragraphs: ['Fincas und Häuser außerhalb Tarifas bieten ein anderes Aufenthaltsmodell.', 'Mehr Raum, Natur und Privatsphäre bedeuten gleichzeitig: Einkaufen, Essen, Strand und Altstadt werden meist zu Autofahrten.'],
-            fit: 'Passt besonders: wenn ihr diese Abgeschiedenheit bewusst sucht.'
+            fit: 'Im Umland ist die Abgeschiedenheit Teil des Aufenthalts – nicht nur eine Folge der Lage.'
           }
         ],
         clarification: 'Valdevaqueros und Punta Paloma würden wir eher als spezielle Strand-/Surf-Umfelder betrachten als als normales Tarifa-Stadtleben. Bolonia ist wiederum ein eigenes Ausflugsziel und keine Tarifa-Mikrolage.',
@@ -459,7 +459,7 @@ const overview: TarifaGuideContent = {
         id: 'wind-and-location',
         title: 'Welche Rolle spielt der Wind für die Lage?',
         paragraphs: ['Wind gehört zu Tarifa.', 'Offene Küstenlagen erleben die Bedingungen anders als dichter bebaute Teile des Ortes. Auch die Nutzbarkeit einer Terrasse oder eines Balkons hängt von der konkreten Ausrichtung und dem tatsächlichen Windschutz ab.', 'Für Kitesurfer kommt ein weiterer Punkt hinzu: Wie unkompliziert kommt man von der Unterkunft Richtung westliche Spots?', 'Welche Strände bei welchen Bedingungen funktionieren, gehört auf unsere Experience- und Kitesurfing-Seiten. Für die Lageentscheidung genügt die Erkenntnis:', 'Der Wind verändert, wie ihr eure Base nutzt – er macht nicht automatisch eine Lage gut oder schlecht.'],
-        links: [{ label: 'Tarifa erleben', token: 'tarifa_experience_hub' }, { label: 'Wind & Kitesurfen verstehen', token: 'tarifa_wind_kitesurfing_authority' }]
+        links: [{ label: 'Tarifa erleben', token: 'tarifa_experience_hub' }, { label: 'Wind & Kitesurfen in Tarifa', token: 'tarifa_wind_kitesurfing_authority' }]
       },
       seasons: {
         id: 'seasons',
@@ -467,7 +467,7 @@ const overview: TarifaGuideContent = {
         paragraphs: ['Im Sommer wird Tarifa deutlich intensiver.', 'Mehr Menschen, mehr Abendleben und mehr Verkehr machen die genaue Lage und insbesondere die Autonutzung relevanter.', 'Außerhalb der Hochsaison wird es ruhiger. Bei längeren Aufenthalten gewinnen dafür andere Dinge an Bedeutung: Einkauf, Wohnkomfort, Arbeitsplatz, Heizung und die Frage, wie häufig man tatsächlich fahren möchte.', 'Die beste Lage kann deshalb je nach Aufenthaltsmodell unterschiedlich sein.']
       },
       stayFits: {
-        title: 'Welche Lage passt zu euch?',
+        title: 'Vier Reisearten, vier unterschiedliche Prioritäten',
         items: [
           { title: 'Für Paare', paragraphs: ['Wenn ihr Altstadt, Restaurants und den Abend unmittelbar erleben möchtet, ist das historische Zentrum sehr attraktiv.', 'Wenn ihr dieselben Abende zu Fuß erreichen, tagsüber aber flexibel mit Auto und Strand sein möchtet, wird eine Lage wie La Marina interessanter.'] },
           { title: 'Für Paare, die kiten oder surfen', paragraphs: ['Ihr müsst euch nicht zwingend zwischen Tarifa-Stadt und Surftrip entscheiden.', 'Eine Lage, aus der ihr abends zu Fuß in die Stadt und tagsüber unkompliziert mit dem Auto Richtung westliche Kite-Spots kommt, verbindet beide Teile des Urlaubs.'] },
@@ -511,24 +511,24 @@ const overview: TarifaGuideContent = {
           {
             title: 'Casco antiguo — para vivir Tarifa desde dentro',
             paragraphs: ['Aquí están muy cerca restaurantes, cafeterías, tiendas y gran parte de la vida nocturna.', 'Es una opción muy buena si queréis moveros principalmente a pie y utilizar poco el coche.', 'El contrapunto es evidente: las calles históricas no están pensadas para el tráfico moderno. Aparcar y mover equipaje puede requerir más planificación y determinadas calles pueden ser animadas por la noche.'],
-            fit: 'Ideal para: parejas, primeras visitas y estancias cortas centradas en la vida del centro.'
+            fit: 'En el casco antiguo, parejas, primeras visitas y estancias cortas tienen la vida del centro a un paso, con menos comodidad para el coche.'
           },
           {
             title: 'La Marina — para combinar ciudad, costa y coche',
             paragraphs: ['La Marina pertenece a la parte urbana más nueva de Tarifa.', 'Seguís estando dentro del pueblo y podéis llegar andando al centro, pero utilizar el coche para playas, kitesurf o excursiones puede resultar mucho más práctico que desde el corazón del casco antiguo.', 'No tenéis la arquitectura histórica nada más salir de casa. A cambio, la zona puede ofrecer un equilibrio muy cómodo para una estancia de varios días.'],
-            fit: 'Ideal para: parejas, viajeros activos, aficionados al kitesurf y estancias más largas.'
+            fit: 'La Marina ofrece una base flexible para parejas, viajeros activos, aficionados al kitesurf y estancias más largas.'
           },
           {
             title: 'Los Lances — para una estancia centrada en playa y agua',
             paragraphs: ['A medida que avanzáis hacia la costa atlántica, cambia la lógica de la estancia.', 'La playa gana protagonismo y, según la ubicación exacta, el casco antiguo deja de formar parte tan espontánea de la vida diaria.', 'El coche se vuelve más útil.'],
-            fit: 'Ideal para: quienes priorizan playa y deportes acuáticos.'
+            fit: 'En el corredor de Los Lances, la playa y los deportes acuáticos pasan a primer plano, por delante de la vida del centro.'
           },
           {
             title: 'Campo y alrededores — para buscar espacio y tranquilidad',
             paragraphs: ['Las fincas y alojamientos fuera de Tarifa ofrecen privacidad y entorno natural.', 'Pero esa tranquilidad implica desplazamientos en coche para prácticamente todo: compras, restaurantes, playas y centro.']
           }
         ],
-        clarification: 'Valdevaqueros y Punta Paloma forman parte de este paisaje de costa y surf más que de la vida urbana de Tarifa. Bolonia debe entenderse como un destino propio para una excursión.',
+        clarification: 'Valdevaqueros y Punta Paloma forman parte de este paisaje de costa y surf más que de la vida urbana de Tarifa. Bolonia, en cambio, es un destino propio para una excursión.',
         link: { label: 'Descubrir las playas de Tarifa', token: 'tarifa_beaches_authority' }
       },
       car: {
@@ -548,7 +548,7 @@ const overview: TarifaGuideContent = {
         paragraphs: ['En verano aumenta notablemente la intensidad del pueblo: más visitantes, más movimiento nocturno y más presión sobre tráfico y aparcamiento.', 'Fuera de los meses más concurridos, la estancia puede ser más tranquila. En viajes largos empiezan a importar más aspectos cotidianos como las compras, el confort de la vivienda o la necesidad real de conducir.']
       },
       stayFits: {
-        title: '¿Qué tipo de base encaja con vosotros?',
+        title: 'Cuatro formas de viajar, cuatro prioridades distintas',
         items: [
           { title: 'Parejas', paragraphs: ['El casco antiguo funciona especialmente bien si queréis salir y estar directamente dentro de la vida del centro.', 'La Marina puede resultar más interesante si queréis seguir llegando andando a ese ambiente y al mismo tiempo utilizar el coche con facilidad.'] },
           { title: 'Parejas que practican kitesurf o surf', paragraphs: ['No tenéis por qué elegir entre una estancia urbana y unas vacaciones de surf.', 'Una base con acceso sencillo hacia las playas occidentales y el centro a pie puede combinar ambas cosas.'] },
@@ -661,7 +661,7 @@ const overview: TarifaGuideContent = {
         ]
       },
       stayFits: {
-        title: 'Welke base past bij jullie?',
+        title: 'Vier soorten reizen, vier verschillende prioriteiten',
         items: [
           { title: 'Stellen', paragraphs: ['De oude stad is sterk als restaurants en sfeer vooropstaan.', 'La Marina wordt interessant wanneer je hetzelfde stadsleven te voet wilt combineren met meer vrijheid voor de auto.'] },
           { title: 'Stellen die kitesurfen of surfen', paragraphs: ['Je hoeft stad en sport niet tegenover elkaar te zetten.', 'Een stedelijke base met gemakkelijke toegang richting de westelijke stranden kan beide combineren.'] },
@@ -734,7 +734,7 @@ const overview: TarifaGuideContent = {
       wind: {
         id: 'wind-and-location',
         title: 'Hur påverkar vinden valet av område?',
-        paragraphs: ['Vinden är en del av Tarifa.', 'Öppna kustlägen upplever förhållandena annorlunda än tätare bebyggda delar av staden. Hur användbar en terrass eller balkong är beror också på den exakta orienteringen och skyddet.', 'För kitesurfare spelar det dessutom roll hur enkelt det är att köra västerut mot surfstränderna.', 'Location behöver inte tala om vilken strand som passar dagens vind. Det viktiga här är att förstå hur vinden påverkar användningen av själva basen.'],
+        paragraphs: ['Vinden är en del av Tarifa.', 'Öppna kustlägen upplever förhållandena annorlunda än tätare bebyggda delar av staden. Hur användbar en terrass eller balkong är beror också på den exakta orienteringen och skyddet.', 'För kitesurfare spelar det dessutom roll hur enkelt det är att köra västerut mot surfstränderna.', 'Dagens strandval hör hemma i upplevelseguiden. För boendet är poängen enklare: vinden påverkar hur ni använder er bas.'],
         links: [
           { label: 'Upplev Tarifa', token: 'tarifa_experience_hub' },
           { label: 'Vind & kitesurfing i Tarifa', token: 'tarifa_wind_kitesurfing_authority' }
@@ -746,7 +746,7 @@ const overview: TarifaGuideContent = {
         paragraphs: ['Sommaren innebär mer folk, mer kvällsliv, mer trafik och större parkeringspress.', 'Utanför högsäsong blir staden lugnare. Under längre vistelser får vardagliga frågor större betydelse: matinköp, bostadskomfort, arbetsplats och hur ofta bilen behövs.']
       },
       stayFits: {
-        title: 'Vilken bas passar er?',
+        title: 'Fyra slags resor, fyra olika prioriteringar',
         items: [
           { title: 'Par', paragraphs: ['Gamla stan passar bra när atmosfär, restauranger och kvällar står högst på listan.', 'La Marina blir intressant när ni vill behålla gångavstånd till stan men samtidigt kunna använda bilen enkelt.'] },
           { title: 'Par som kitesurfar eller surfar', paragraphs: ['Ni behöver inte välja mellan stadssemester och surfresa.', 'En urban bas med enkel bilväg mot de västra stränderna kan kombinera båda.'] },

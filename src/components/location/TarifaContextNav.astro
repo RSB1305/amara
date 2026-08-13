@@ -1,12 +1,12 @@
 ---
 /**
- * Tarifa location-family wrapper for the shared AMARA context navigation.
+ * Tarifa-local context navigation with explicit parent and child levels.
  */
-import ContextNavigation, {
-  type ContextNavigationBreadcrumb
-} from '../navigation/ContextNavigation.astro';
+import type { ContextNavigationBreadcrumb } from '../navigation/ContextNavigation.astro';
 import {
   getTarifaAuthoritySubnav,
+  type TarifaAuthorityBranchId,
+  type TarifaAuthorityChildId,
   type TarifaAuthoritySubnavId
 } from '../../lib/tarifa/tarifaAuthoritySubnav';
 import { resolveOptionalLink } from '../../lib/linkResolver';
@@ -14,46 +14,63 @@ import type { AmaraLanguage } from '../../types/seo';
 
 interface Props {
   activeId: TarifaAuthoritySubnavId;
+  activeChildId?: TarifaAuthorityChildId;
   currentLabel: string;
   childLabel?: string;
   lang: AmaraLanguage;
 }
 
-const { activeId, currentLabel, childLabel, lang } = Astro.props;
+const { activeId, activeChildId, currentLabel, childLabel, lang } = Astro.props;
 const navigationItems = getTarifaAuthoritySubnav(lang);
+const activeBranchId: TarifaAuthorityBranchId =
+  activeId === 'overview' ? 'location' : 'experience';
+const inferredChildId: TarifaAuthorityChildId | undefined =
+  activeChildId ??
+  (activeId === 'beaches' || activeId === 'wind' ? activeId : undefined);
+const activeBranch = navigationItems.find((item) => item.id === activeBranchId);
+
+if (!activeBranch) {
+  throw new Error(`[Tarifa context navigation] Missing branch: ${activeBranchId}`);
+}
 
 const labels: Record<
   AmaraLanguage,
   {
     breadcrumb: string;
+    children: string;
     destinations: string;
-    switcher: string;
+    parents: string;
   }
 > = {
   en: {
     breadcrumb: 'Breadcrumb',
+    children: 'Location guide pages',
     destinations: 'Destinations',
-    switcher: 'Tarifa guide navigation'
+    parents: 'Tarifa guide sections'
   },
   de: {
     breadcrumb: 'Brotkrümelnavigation',
+    children: 'Seiten im Tarifa-Guide',
     destinations: 'Reiseziele',
-    switcher: 'Navigation im Tarifa-Guide'
+    parents: 'Bereiche im Tarifa-Guide'
   },
   es: {
     breadcrumb: 'Migas de pan',
+    children: 'Páginas de la guía de Tarifa',
     destinations: 'Destinos',
-    switcher: 'Navegación de la guía de Tarifa'
+    parents: 'Secciones de la guía de Tarifa'
   },
   nl: {
     breadcrumb: 'Broodkruimelnavigatie',
+    children: 'Pagina’s in de Tarifa-gids',
     destinations: 'Bestemmingen',
-    switcher: 'Navigatie van de Tarifa-gids'
+    parents: 'Onderdelen van de Tarifa-gids'
   },
   sv: {
     breadcrumb: 'Brödsmulenavigering',
+    children: 'Sidor i Tarifa-guiden',
     destinations: 'Resmål',
-    switcher: 'Navigering i Tarifa-guiden'
+    parents: 'Delar av Tarifa-guiden'
   }
 };
 
@@ -65,6 +82,9 @@ const destinationsHref = resolveOptionalLink('explore_hub', lang, {
   suppressMissing: true
 });
 const tarifaHref = resolveOptionalLink('location_tarifa', lang, {
+  suppressMissing: true
+});
+const experienceHref = resolveOptionalLink('tarifa_experience_hub', lang, {
   suppressMissing: true
 });
 
@@ -79,9 +99,19 @@ const breadcrumbs: ContextNavigationBreadcrumb[] = [
   },
   {
     label: 'Tarifa',
-    href: activeId === 'overview' ? undefined : tarifaHref ?? undefined
+    href:
+      activeBranchId === 'location' && !inferredChildId
+        ? undefined
+        : tarifaHref ?? undefined
   }
 ];
+
+if (activeBranchId === 'experience' && activeId !== 'experience') {
+  breadcrumbs.push({
+    label: navigationItems.find((item) => item.id === 'experience')?.label ?? 'Experience',
+    href: experienceHref ?? undefined
+  });
+}
 
 if (activeId !== 'overview') {
   breadcrumbs.push({ label: currentLabel });
@@ -90,13 +120,102 @@ if (activeId !== 'overview') {
 if (childLabel) {
   breadcrumbs.push({ label: childLabel });
 }
+
+const isParentPage = (branchId: TarifaAuthorityBranchId) =>
+  branchId === activeBranchId &&
+  ((branchId === 'location' && !inferredChildId) ||
+    (branchId === 'experience' && activeId === 'experience'));
 ---
 
-<ContextNavigation
-  activeId={activeId}
-  breadcrumbAriaLabel={copy.breadcrumb}
-  breadcrumbs={breadcrumbs}
-  context="location"
-  items={navigationItems}
-  switcherAriaLabel={copy.switcher}
-/>
+<div
+  class="border-b border-outline-variant/10 bg-surface"
+  data-am-context-navigation
+  data-am-location-context
+  data-am-tarifa-context-navigation
+>
+  <div class="mx-auto max-w-screen-2xl px-6 py-5 md:px-12">
+    <div class="flex flex-col gap-5 xl:flex-row xl:items-start xl:justify-between">
+      <nav aria-label={copy.breadcrumb}>
+        <ol class="flex flex-wrap items-center gap-2 font-label text-[10px] font-semibold uppercase tracking-[0.14em] text-on-surface/55">
+          {breadcrumbs.map((breadcrumb, index) => {
+            const isCurrent = index === breadcrumbs.length - 1;
+
+            return (
+              <>
+                {index > 0 && (
+                  <li aria-hidden="true" class="text-outline-variant/60">/</li>
+                )}
+                <li
+                  aria-current={isCurrent ? 'page' : undefined}
+                  class:list={[isCurrent && 'text-on-surface']}
+                >
+                  {breadcrumb.href && !isCurrent ? (
+                    <a href={breadcrumb.href} class="transition-colors hover:text-primary">
+                      {breadcrumb.label}
+                    </a>
+                  ) : (
+                    breadcrumb.label
+                  )}
+                </li>
+              </>
+            );
+          })}
+        </ol>
+      </nav>
+
+      <div class="flex min-w-0 max-w-full flex-col gap-2 xl:items-end">
+        <nav aria-label={copy.parents} class="max-w-full" data-am-tarifa-context-level="parents">
+          <ul class="-mx-1 flex max-w-full flex-nowrap items-center gap-1 overflow-x-auto overscroll-x-contain pb-1 xl:justify-end xl:overflow-visible xl:pb-0">
+            {navigationItems.map((item) => {
+              const isActiveBranch = item.id === activeBranchId;
+
+              return (
+                <li class="shrink-0">
+                  <a
+                    href={item.href}
+                    aria-current={isParentPage(item.id) ? 'page' : isActiveBranch ? 'true' : undefined}
+                    class:list={[
+                      'inline-flex min-h-8 items-center border-b px-2 font-label text-[10px] font-semibold uppercase tracking-[0.1em] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/25',
+                      isActiveBranch
+                        ? 'border-primary text-on-surface'
+                        : 'border-transparent text-on-surface-variant hover:border-primary/45 hover:text-on-surface'
+                    ]}
+                    data-am-tarifa-parent={item.id}
+                  >
+                    {item.label}
+                  </a>
+                </li>
+              );
+            })}
+          </ul>
+        </nav>
+
+        <nav aria-label={copy.children} class="max-w-full border-l-2 border-primary/30 pl-2" data-am-tarifa-context-level="children">
+          <ul class="-mx-1 flex max-w-full flex-nowrap items-center gap-0.5 overflow-x-auto overscroll-x-contain pb-1 xl:justify-end xl:overflow-visible xl:pb-0">
+            {activeBranch.children.map((item) => {
+              const isActiveChild = item.id === inferredChildId;
+
+              return (
+                <li class="shrink-0">
+                  <a
+                    href={item.href}
+                    aria-current={isActiveChild ? 'page' : undefined}
+                    class:list={[
+                      'inline-flex min-h-8 items-center border-b px-2 font-label text-[10px] font-medium uppercase tracking-[0.06em] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/25',
+                      isActiveChild
+                        ? 'border-primary text-on-surface'
+                        : 'border-transparent text-on-surface-variant hover:border-primary/45 hover:text-on-surface'
+                    ]}
+                    data-am-tarifa-child={item.id}
+                  >
+                    {item.label}
+                  </a>
+                </li>
+              );
+            })}
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </div>
+</div>
