@@ -51,14 +51,14 @@ Die Saison wird von der Hausgemeinschaft je nach Witterung festgelegt und schwan
 
 ---
 
-## W-04 · Klimadaten Nerja und Frigiliana — teilweise geklärt, Zahlen weiter offen
+## W-04 · Klimadaten Nerja und Frigiliana — OPEN, amtliche Vergleichsbasis weiter offen
 
 | | |
 |---|---|
-| **Status** | **Falsche Aussagen entfernt. Endgültige Zahlen fehlen weiterhin.** |
+| **Status** | **OPEN — Evidence-Containment umgesetzt. Amtliche Normalwerte fehlen weiterhin.** |
 | **Betrifft** | [NerjaWeatherPage.astro](src/page-families/location-authority/NerjaWeatherPage.astro) · [FrigilianaWeatherPage.astro](src/page-families/location-authority/FrigilianaWeatherPage.astro) |
 | **Prüfintervall** | Offen bis zur Klärung |
-| **Risiko** | Gesenkt. Auf den Seiten stehen keine unbelegten Zahlenpaare mehr. |
+| **Risiko** | Gesenkt. Ungeklärte Klima-, Niederschlags- und Meerestemperaturwerte sind nicht mehr veröffentlicht. |
 
 ### Was die Recherche geklärt hat
 
@@ -66,9 +66,9 @@ Auftrag 1 ergab zwei sich widersprechende Berichte. Belastbar ist nur, was **bei
 
 - **292 mm Jahresniederschlag** — keine Quelle reproduziert diesen Wert. Verworfen.
 - **„Frigiliana tagsüber heißer, 31 gegen 28 °C"** — nicht belegt; unabhängige Kontrolle zeigt eher Gleichstand. **Von der Seite entfernt.**
-- **26 °C Wassertemperatur als Monatsmittel** — nur als sommerlicher Einzelwert plausibel. Auf der Seite steht 24.
+- **26 °C Wassertemperatur als Monatsmittel** — nur als sommerlicher Einzelwert plausibel. Der zuvor veröffentlichte Bereich bis 24 °C wurde im Containment-Patch ebenfalls entfernt.
 - **„Mildeste Winter auf dem europäischen Festland"** — kein Ranking-Nachweis, methodisch undefiniert. Wird nicht verwendet.
-- **„300+ Sonnentage"** — kein definierter meteorologischer Kennwert. AEMET führt für Málaga 2.905 Sonnenstunden, aber nur 109,1 wolkenlose Tage im Jahr. **Von der Frigiliana-Seite entfernt.**
+- **„300+ Sonnentage"** — kein definierter meteorologischer Kennwert. AEMET führt für Málaga 2.905 Sonnenstunden, aber nur 109,1 wolkenlose Tage im Jahr. Die Aussage war entgegen der früheren Dokumentation vor diesem Patch noch in allen fünf Locales live und wurde mit dem Weather Evidence Containment Patch entfernt.
 
 Zusätzlich geklärt: Station **6213X** liegt auf 169 m und rund 3,4 km von der Ortslage Nerja (20 m) entfernt; ein durchgehender Datenbestand 1991–2020 ist nicht nachgewiesen. Für **Frigiliana** (315 m) gibt es laut AEMET **keine Station im Gemeindegebiet**.
 
@@ -79,7 +79,7 @@ Zusätzlich aus Recherche 2 geklärt:
 
 ### Was offen bleibt
 
-Die AEMET-Rasterwerte 1991–2020 für beide Ortskoordinaten. Erst damit lassen sich Monatstabellen und ein Zahlenvergleich veröffentlichen.
+Die AEMET-Rasterwerte 1991–2020 für beide Ortskoordinaten. Erst damit lassen sich Monatstabellen und ein Zahlenvergleich auf einer gemeinsamen amtlichen Basis veröffentlichen. Eine quantitative Wiedereinführung erfordert für beide Orte dieselbe belastbare Quelle, denselben Referenzzeitraum und eine klar definierte meteorologische Kennzahl.
 
 **Konkreter Beschaffungsweg** (aus Recherche 2):
 
@@ -99,9 +99,13 @@ Siehe [NERJA-FRIGILIANA-KLIMA-RECHERCHE-2_2026-08-14.md](NERJA-FRIGILIANA-KLIMA-
 
 ### Aktueller Stand auf der Seite
 
-Der Vergleichsblock nennt keine Zahlen mehr, sondern die Aussage, die beide Berichte stützen: im Hochsommer tagsüber ähnlich heiß, Nerja nachts milder. Ein sichtbarer Hinweis nennt die laufende Prüfung.
+- **Frigiliana:** `300+` Sonnentage, `19 °C`, die Saisonpaare `22/12`, `31/19`, `26/15` und `16/8 °C` sowie unbelegte Erklärungen durch Hangabkühlung, Wärmeabgabe und höhenbedingte Abendbrise sind entfernt oder neutralisiert. Die ungefähre Ortskernhöhe `≈ 315 m` bleibt ausschließlich als geografische Angabe stehen, nicht als Klimamesswert.
+- **Nerja:** `15–24 °C` Meerestemperatur, Mai–September als exakt abgegrenzte Trockenzeit, `≈ 450 mm`, die Monatswerte für August, Januar, Sommernächte und Dezember sowie die Saisonpaare `21/12`, `28/21`, `24/16` und `17/10 °C` sind entfernt. Aussagen zu Wärmespeicherung und deutlich langsamerer Abkühlung wurden neutralisiert.
+- **Vergleich:** Der sichtbare Vergleich bleibt bewusst qualitativ: Im Hochsommer können beide Orte tagsüber ähnlich heiß sein; Nerja kann nachts milder bleiben und Frigiliana sich frischer anfühlen. Ein sichtbarer Hinweis nennt die laufende Prüfung gegen AEMET-Normalwerte 1991–2020.
+- Bis zur amtlichen Klärung werden keine Ersatzwerte oder neuen Klima-Normalwerte eingeführt.
 
 **Prüfhistorie**
+- 2026-08-14 — Weather Evidence Containment umgesetzt; alle ungeklärten veröffentlichten Präzisionswerte entfernt oder neutralisiert. W-04 bleibt OPEN.
 - 2026-08-14 — Auftrag 1 ausgewertet, widerlegte Aussagen entfernt, Auftrag 2 gestellt.
 
 ---
