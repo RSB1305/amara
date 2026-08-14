@@ -4,6 +4,7 @@ export const TARIFA_EXPERIENCE_TOKEN = 'tarifa_experience_hub' as const;
 
 export type TarifaExperienceLinkToken =
   | 'location_tarifa'
+  | 'casa'
   | 'tarifa_beaches_authority'
   | 'tarifa_wind_kitesurfing_authority'
   | 'tarifa_food_evening_life'
@@ -14,6 +15,9 @@ export type TarifaExperienceLinkToken =
 export interface TarifaExperienceDayType {
   title: string;
   text: string;
+  /** Routes to the spoke that owns this topic, so the hub links instead of retelling. */
+  token?: TarifaExperienceLinkToken;
+  linkLabel?: string;
 }
 
 export type TarifaExperienceWorldId =
@@ -62,7 +66,10 @@ export interface TarifaExperiencePageCopy {
     title: string;
     lead: string;
     ctaLabel: string;
-    token: 'location_tarifa';
+    token: TarifaExperienceLinkToken;
+    /** Secondary route back into the location guide. */
+    secondaryLabel?: string;
+    secondaryToken?: TarifaExperienceLinkToken;
   };
 }
 
@@ -136,99 +143,59 @@ export const tarifaExperienceContent = {
       ]
     },
     dayChooser: {
-      title: 'Choose your Tarifa day',
+      title: 'Which day suits today?',
       intro: [
-        'Some days are for the beach. Some are for getting on the water. Others are better spent walking the Old Town, watching wildlife or heading farther along the coast.',
-        `That flexibility is part of Tarifa's appeal, especially if you are staying for more than a weekend.`
+        'In a strong Levante only Valdevaqueros really works — that is where the rescue boats are and where everything is set up for it. The small, family-friendly Playa Chica is not a good choice then. In a Poniente, or when the air is still, it is the other way round.',
+        'So you do not plan Tarifa in advance. You look outside in the morning and decide then. Six kinds of day to choose from:'
       ],
       days: [
         {
-          title: 'Coast day',
-          text: 'Swim close to town, watch the kites farther along the Atlantic coast or let a wider landscape set the pace.'
+          title: 'A coast day.',
+          text: 'Swim close to town or watch the kites farther west. Which beach works today depends on the wind.',
+          token: 'tarifa_beaches_authority',
+          linkLabel: 'Tarifa’s beaches'
         },
         {
-          title: 'Wind & water day',
-          text: 'Get onto the water if that is why you came. If it is not, let the conditions point you towards another Tarifa world.'
+          title: 'A wind and water day.',
+          text: 'Onto the water if that is why you came. Beginners too — through our friends at Tarifa Surf Club, which we arrange before you arrive.',
+          token: 'tarifa_wind_kitesurfing_authority',
+          linkLabel: 'Wind & kitesurfing'
         },
         {
-          title: 'Town & table day',
-          text: 'Follow the old walls and streets, pause for lunch, then stay for dinner and the town’s evening rhythm.'
+          title: 'An Old Town day.',
+          text: 'Through the Puerta de Jerez into the walled core, the Castillo as your anchor, and the Strait behind you the whole way.',
+          token: 'tarifa_old_town_history',
+          linkLabel: 'Old Town & history'
         },
         {
-          title: 'Strait nature day',
-          text: 'Walk towards a viewpoint, follow the migration landscape or keep a marine-wildlife excursion flexible around conditions.'
+          title: 'An evening and table day.',
+          text: 'Red tuna from the Almadraba tradition, then Calle Batalla del Salado and the Old Town streets.',
+          token: 'tarifa_food_evening_life',
+          linkLabel: 'Food & evening life'
         },
         {
-          title: 'Bolonia day',
-          text: 'Combine a broad Atlantic beach, the dune landscape and the Roman remains of Baelo Claudia in one outing.'
+          title: 'A Strait nature day.',
+          text: 'Viewpoints looking across to Africa, the bird migration corridor, or a whale and dolphin trip — that one stays deliberately flexible.',
+          token: 'tarifa_nature_wildlife',
+          linkLabel: 'Nature & wildlife'
+        },
+        {
+          title: 'A Bolonia day.',
+          text: 'Open coast, protected dune and the Roman town of Baelo Claudia — that is a whole day, not a stopover.',
+          token: 'tarifa_bolonia_baelo_claudia',
+          linkLabel: 'Bolonia & Baelo Claudia'
         }
       ]
     },
     sections: [
       {
-        id: 'beaches',
-        title: 'Beaches that do different jobs',
+        id: 'our-day',
+        title: 'What a Tarifa day looks like for us',
         paragraphs: [
-          `Tarifa's beaches are not interchangeable.`,
-          'A compact beach close to town gives you a very different day from the open Atlantic spaces of Los Lances or Valdevaqueros. Farther west, beaches become increasingly about landscape, wind and the journey itself.',
-          'That is why we do not think in terms of one “best beach”. The better question is: what kind of beach day do you want today?'
-        ],
-        cta: {
-          label: `Explore Tarifa's beaches`,
-          token: 'tarifa_beaches_authority'
-        }
-      },
-      {
-        id: 'wind',
-        title: 'Wind is part of Tarifa — especially if you kite',
-        paragraphs: [
-          `Levante and Poniente are part of Tarifa's identity. For kitesurfers and windsurfers, changing conditions are one of the main reasons to come. For everyone else, wind simply changes which kind of day feels most attractive.`,
-          'Watersports are one major Tarifa world, not the whole destination. If kitesurfing is part of your stay, AMARA guests can be connected with our friends at Tarifa Surf Club before arrival to arrange lessons or equipment.'
-        ],
-        cta: {
-          label: 'Explore wind & kitesurfing in Tarifa',
-          token: 'tarifa_wind_kitesurfing_authority'
-        }
-      },
-      {
-        id: 'old-town',
-        title: 'A historic Strait town, from day into evening',
-        paragraphs: [
-          `Tarifa's position at the Strait shaped the historic town and its defensive character. The walls and close-grained streets give a walk here a clear relationship to the sea and the passage between continents.`,
-          'Enter through Puerta de Jerez and make the 10th-century Castillo de Guzmán el Bueno an anchor for the day. These are not isolated monuments: together they make the Old Town feel like a place formed by its geography.',
-          'The same streets then settle into a different rhythm around cafés, lunch and dinner. History gives the day its context; staying into the evening keeps the Old Town part of lived Tarifa rather than a sightseeing stop.'
-        ],
-        cta: { label: 'Explore the Old Town & its history', token: 'tarifa_old_town_history' }
-      },
-      {
-        id: 'nature',
-        title: 'The Strait is a landscape, not only a crossing',
-        paragraphs: [
-          'Parque Natural del Estrecho protects a maritime-terrestrial landscape around Tarifa where Atlantic and Mediterranean, Europe and Africa, meet. Looking towards the Strait reveals a larger geography than the beach alone.',
-          'Walks and viewpoints offer perspectives towards Africa, while the Strait is an important migration corridor for birds moving between the two continents. A nature-led day can therefore stay on land and still feel distinctly Tarifa.',
-          'Marine-wildlife excursions, including whale and dolphin watching, are another possibility from Tarifa. Conditions and sightings cannot be fixed in advance, so this is one experience worth keeping flexible.'
-        ],
-        cta: { label: 'Explore nature & wildlife', token: 'tarifa_nature_wildlife' }
-      },
-      {
-        id: 'bolonia',
-        title: 'Bolonia is worth a day of its own',
-        paragraphs: [
-          'Bolonia should not simply be filed under “another beach”. Its open coast sits beside the protected Duna de Bolonia and the archaeological complex of Baelo Claudia.',
-          `Baelo's Roman urban structure remains especially legible, while its fish-salting and garum production show how closely the settlement's economy was tied to the coast.`,
-          'Beach, dune landscape and Roman archaeology therefore make one coherent signature day — especially when you have enough time to let each part of the setting register.'
-        ],
-        cta: { label: 'Plan a Bolonia & Baelo Claudia day', token: 'tarifa_bolonia_baelo_claudia' }
-      },
-      {
-        id: 'food',
-        title: 'Taste the coast through Almadraba and atún rojo',
-        paragraphs: [
-          `Eating in Tarifa can carry the coastal story into lunch and the evening. Atlantic seafood is part of that context, with atún rojo — Atlantic bluefin tuna — holding a particular place in the town's fishing and culinary identity.`,
-          'Almadraba is the long-established Cádiz-coast tradition of using a fixed net system to intercept migratory tuna, and Tarifa belongs to that tradition. It gives useful context to why red tuna appears so often in the food culture here.',
-          'The point is not to assume that every tuna dish has the same origin. It is to recognise the relationship between coast, fishing and table, then make a considered lunch or dinner part of the Tarifa day.'
-        ],
-        cta: { label: 'Explore food & evening life', token: 'tarifa_food_evening_life' }
+          'A very good breakfast first — an açaí bowl at Café SURLA or Powerhouse. Then we wait for the wind to arrive in the afternoon.',
+          'Out of season we walk the five minutes from our door to Playa Los Lances and kite there. In high season we take the car to Valdevaqueros, ten minutes on the N-340. Then into town for the evening.',
+          'And this is the part that is hard to put into words: Tarifa has a feel of its own. You sit in a bar in the evening and a kitesurfing world champion is sitting next to you. In summer it is still warm, the narrow streets are warmly lit, and you understand why people come back every year.'
+        ]
       },
       {
         id: 'tangier',
@@ -241,19 +208,21 @@ export const tarifaExperienceContent = {
       },
       {
         id: 'stay-length',
-        title: 'Give Tarifa enough time to change the plan',
+        title: 'Two nights is a different thing from two weeks',
         paragraphs: [
-          'With two or three nights, combine the coast and Old Town with one signature experience.',
-          'With four to seven nights, Tarifa becomes much more interesting: you can choose different beaches, respond to the wind rather than fight it, add nature, Bolonia or a food-led town day and still leave space for an evening with no itinerary at all.',
-          'That flexibility is one of the strongest reasons to stay rather than simply pass through.'
+          'With two or three nights we would not even try to fit everything in. Coast, Old Town and one signature experience are enough.',
+          'From four to seven nights Tarifa gets easier: you plan with the wind instead of against it. If a day is too windy for the beach, you go into the Old Town or out to Bolonia — and the windy day becomes a kite day rather than a lost one.',
+          'What we like best is fourteen nights. Not because Tarifa has that much to see, but because that is when you stop planning days.'
         ]
       }
     ],
     closing: {
-      title: 'First decide how you want to experience Tarifa.',
-      lead: 'Then decide where to stay.',
-      ctaLabel: 'Where to stay in Tarifa',
-      token: 'location_tarifa'
+      title: 'For us, Tarifa is the most beautiful place on this planet.',
+      lead: 'Once you know which days you want to spend here, all that is missing is where you wake up.',
+      ctaLabel: 'View AMARA Family & Surf',
+      token: 'casa',
+      secondaryLabel: 'Where to stay in Tarifa',
+      secondaryToken: 'location_tarifa'
     }
   },
   de: {
@@ -281,96 +250,59 @@ export const tarifaExperienceContent = {
       ]
     },
     dayChooser: {
-      title: 'Wählt euren Tarifa-Tag',
-      intro: [],
+      title: 'Welcher Tag passt heute?',
+      intro: [
+        'Bei starkem Levante funktioniert praktisch nur Valdevaqueros – dort sind die Rettungsboote, dort ist alles darauf eingestellt. Die kleine, familienfreundliche Playa Chica ist dann keine gute Wahl. Bei Poniente oder ruhiger Luft dreht sich das um.',
+        'Deshalb plant man Tarifa nicht auf Vorrat durch. Man schaut morgens nach draußen und entscheidet dann. Sechs Tagesformen, aus denen ihr wählen könnt:'
+      ],
       days: [
         {
           title: 'Ein Küstentag.',
-          text: 'Nah am Ort baden, den Kitern am Atlantik zuschauen oder einer weiten Küstenlandschaft den Takt überlassen.'
+          text: 'Nah am Ort baden oder weiter westlich den Kitern zuschauen. Welcher Strand heute passt, hängt vom Wind ab.',
+          token: 'tarifa_beaches_authority',
+          linkLabel: 'Tarifas Strände'
         },
         {
           title: 'Ein Wind- und Wassertag.',
-          text: 'Geht aufs Wasser, wenn ihr dafür gekommen seid. Wenn nicht, weisen die Bedingungen den Weg zu einer anderen Seite Tarifas.'
+          text: 'Aufs Wasser, wenn ihr dafür gekommen seid. Anfänger ebenso – über unsere Freunde vom Tarifa Surf Club, mit denen wir das vor eurer Anreise organisieren.',
+          token: 'tarifa_wind_kitesurfing_authority',
+          linkLabel: 'Wind & Kitesurfen'
         },
         {
-          title: 'Ein Altstadt- und Genusstag.',
-          text: 'Folgt Mauern und Gassen, legt eine Pause zum Mittagessen ein und bleibt für den Rhythmus des Abends.'
+          title: 'Ein Altstadttag.',
+          text: 'Durch die Puerta de Jerez in den ummauerten Kern, das Castillo als Ankerpunkt, und die Meerenge ist dabei immer im Rücken.',
+          token: 'tarifa_old_town_history',
+          linkLabel: 'Altstadt & Geschichte'
+        },
+        {
+          title: 'Ein Abend- und Esstag.',
+          text: 'Roter Thunfisch aus der Almadraba-Tradition, später die Calle Batalla del Salado und die Gassen der Altstadt.',
+          token: 'tarifa_food_evening_life',
+          linkLabel: 'Essen & Ausgehen'
         },
         {
           title: 'Ein Naturtag an der Meerenge.',
-          text: 'Geht zu einem Aussichtspunkt, erlebt die Zugvogelroute oder haltet eine Tour zur Beobachtung von Meerestieren bewusst flexibel.'
+          text: 'Aussichtspunkte mit Blick nach Afrika, der Zugvogelkorridor, oder eine Ausfahrt zu Walen und Delfinen – die bleibt bewusst flexibel.',
+          token: 'tarifa_nature_wildlife',
+          linkLabel: 'Natur & Tierwelt'
         },
         {
           title: 'Ein Bolonia-Tag.',
-          text: 'Strand, Dünenlandschaft und Baelo Claudia ergeben zusammen einen Ausflug, für den man sich ruhig Zeit nehmen kann.'
+          text: 'Offene Küste, geschützte Düne und die römische Stadt Baelo Claudia – das ist ein ganzer Tag, kein Zwischenstopp.',
+          token: 'tarifa_bolonia_baelo_claudia',
+          linkLabel: 'Bolonia & Baelo Claudia'
         }
       ]
     },
     sections: [
       {
-        id: 'beaches',
-        title: 'Nicht jeder Strand ist für denselben Tag gemacht',
+        id: 'our-day',
+        title: 'So sieht bei uns ein Tarifa-Tag aus',
         paragraphs: [
-          'Playa Chica, Los Lances, Valdevaqueros oder Bolonia stehen nicht einfach für vier Versionen desselben Strandurlaubs.',
-          'Manche funktionieren gut in Verbindung mit dem Ort, andere leben von Weite, Wind oder Landschaft. Deshalb halten wir wenig von einer pauschalen Liste der „besten Strände“.',
-          'Die sinnvollere Frage lautet: Was möchtet ihr heute am Meer machen?'
-        ],
-        cta: {
-          label: 'Tarifas Strände entdecken',
-          token: 'tarifa_beaches_authority'
-        }
-      },
-      {
-        id: 'wind',
-        title: 'Wind gehört zu Tarifa',
-        paragraphs: [
-          'Levante und Poniente prägen Tarifa. Für Kitesurfer und Windsurfer sind die wechselnden Bedingungen ein großer Teil der Faszination. Für alle anderen verändert der Wind vor allem, welche Art von Tag gerade attraktiv ist.',
-          'Wassersport ist eine wichtige Seite Tarifas, aber nicht die ganze Destination. Wenn Kitesurfen zu eurem Urlaub gehört, können wir AMARA-Gäste vor der Anreise mit unseren Freunden vom Tarifa Surf Club verbinden, um Unterricht oder Material zu organisieren.'
-        ],
-        cta: {
-          label: 'Wind & Kitesurfen in Tarifa',
-          token: 'tarifa_wind_kitesurfing_authority'
-        }
-      },
-      {
-        id: 'old-town',
-        title: 'Historische Stadt an der Meerenge — vom Tag bis in den Abend',
-        paragraphs: [
-          'Tarifas Lage an der Meerenge hat die historische Stadt und ihren wehrhaften Charakter geprägt. Mauern und enge Gassen machen beim Rundgang spürbar, wie eng Stadt, Meer und die Passage zwischen den Kontinenten zusammengehören.',
-          'Durch die Puerta de Jerez gelangt ihr in den ummauerten Stadtkern; das Castillo de Guzmán el Bueno aus dem 10. Jahrhundert gibt dem Tag einen klaren Orientierungspunkt. Gemeinsam lassen diese Orte die Geografie hinter der Geschichte sichtbar werden.',
-          'Später finden dieselben Gassen rund um Cafés, Mittag- und Abendessen einen anderen Rhythmus. Die Geschichte gibt dem Tag seinen Rahmen; wer bis zum Abend bleibt, erlebt die Altstadt als Teil des heutigen Tarifa.'
-        ],
-        cta: { label: 'Altstadt & Geschichte entdecken', token: 'tarifa_old_town_history' }
-      },
-      {
-        id: 'nature',
-        title: 'Die Meerenge ist eine Landschaft, nicht nur eine Passage',
-        paragraphs: [
-          'Der Parque Natural del Estrecho schützt rund um Tarifa eine Landschaft an Land und im Meer, in der Atlantik und Mittelmeer sowie Europa und Afrika aufeinandertreffen. Der Blick zur Meerenge öffnet deshalb eine größere Perspektive als der Strand allein.',
-          'Wege und Aussichtspunkte geben den Blick Richtung Afrika frei; zugleich ist die Meerenge ein wichtiger Zugkorridor für Vögel zwischen den Kontinenten. Ein Naturtag kann also vollständig an Land stattfinden und trotzdem unverkennbar nach Tarifa gehören.',
-          'Auch Ausfahrten zur Beobachtung von Walen und Delfinen sind von Tarifa aus möglich. Bedingungen und Sichtungen lassen sich nicht fest einplanen, deshalb lohnt es sich, diese Erfahrung flexibel zu halten.'
-        ],
-        cta: { label: 'Natur & Tierwelt entdecken', token: 'tarifa_nature_wildlife' }
-      },
-      {
-        id: 'bolonia',
-        title: 'Bolonia ist mehr als ein weiterer Strand',
-        paragraphs: [
-          'An der offenen Küste von Bolonia liegen der geschützte Naturraum der Duna de Bolonia und der archäologische Komplex Baelo Claudia unmittelbar beieinander.',
-          'In Baelo ist die Struktur einer römischen Stadt besonders gut ablesbar. Fischsalzung und die Herstellung von Garum zeigen zudem, wie eng ihre Wirtschaft mit der Küste verbunden war.',
-          'Strand, Düne und römische Archäologie ergeben so einen stimmigen, für Tarifa typischen Tagesausflug — besonders, wenn ihr keinem Teil der Landschaft Eile aufzwingt.'
-        ],
-        cta: { label: 'Bolonia & Baelo Claudia planen', token: 'tarifa_bolonia_baelo_claudia' }
-      },
-      {
-        id: 'food',
-        title: 'Die Küste schmecken: Almadraba und atún rojo',
-        paragraphs: [
-          'Beim Essen setzt sich die Geschichte der Küste bis zum Mittag und in den Abend fort. Atlantischer Fisch und Meeresfrüchte gehören dazu; atún rojo, der Atlantische Blauflossen-Thunfisch, hat in Tarifas Fischerei- und Esskultur einen besonderen Platz.',
-          'Almadraba bezeichnet die lange Tradition an der Küste von Cádiz, wandernde Thunfische mit einem fest installierten Netzsystem zu fangen. Tarifa gehört zu dieser Tradition — und damit wird verständlich, warum roter Thunfisch in der lokalen Esskultur so präsent ist.',
-          'Das bedeutet nicht, dass jedes Thunfischgericht denselben Ursprung hat. Entscheidend ist die Verbindung von Küste, Fischerei und Tisch: Ein bewusst gewähltes Mittag- oder Abendessen kann deshalb selbst Teil des Tarifa-Tages sein.'
-        ],
-        cta: { label: 'Essen & Ausgehen entdecken', token: 'tarifa_food_evening_life' }
+          'Morgens ein sehr gutes Frühstück – eine Açaí-Bowl im Café SURLA oder im Powerhouse. Dann warten wir ab, bis der Wind am Nachmittag kommt.',
+          'In der Nebensaison laufen wir von der Haustür die fünf Minuten zur Playa Los Lances und gehen dort kiten. In der Hauptsaison nehmen wir das Auto nach Valdevaqueros, zehn Minuten über die N-340. Abends dann in die Stadt.',
+          'Und das ist der Teil, der schwer zu beschreiben ist: Tarifa hat einen eigenen Vibe. Man sitzt abends in einer Bar, und neben einem sitzt ein Weltmeister im Kitesurfen. Im Sommer ist es dann noch warm, die Gassen sind warm beleuchtet, und man versteht, warum Leute jedes Jahr wiederkommen.'
+        ]
       },
       {
         id: 'tangier',
@@ -382,18 +314,21 @@ export const tarifaExperienceContent = {
       },
       {
         id: 'stay-length',
-        title: 'Zwei Nächte sind anders als eine Woche',
+        title: 'Zwei Nächte sind etwas anderes als zwei Wochen',
         paragraphs: [
-          'Bei zwei oder drei Nächten würden wir nicht versuchen, alles unterzubringen: Küste, Altstadt und ein besonderes Erlebnis reichen.',
-          'Bei vier bis sieben Nächten wird Tarifa deutlich entspannter. Dann könnt ihr den Wind mitdenken statt gegen ihn zu planen, unterschiedliche Küstentage ausprobieren, Natur, Bolonia oder einen Altstadt- und Genusstag einbauen und trotzdem Zeit freihalten.'
+          'Bei zwei oder drei Nächten würden wir gar nicht erst versuchen, alles unterzubringen. Küste, Altstadt und ein besonderes Erlebnis reichen.',
+          'Ab vier bis sieben Nächten wird Tarifa entspannter: Dann plant ihr mit dem Wind statt gegen ihn. Ist ein Tag zu windig für den Strand, geht ihr in die Altstadt oder nach Bolonia – und der Windtag wird zum Kitetag statt zum verlorenen Tag.',
+          'Am liebsten sind uns vierzehn Tage. Nicht weil Tarifa so viel zu sehen hätte, sondern weil man erst dann aufhört, Tage zu planen.'
         ]
       }
     ],
     closing: {
-      title: 'Erst entscheiden, wie ihr Tarifa erleben möchtet.',
-      lead: 'Dann die passende Lage wählen.',
-      ctaLabel: 'Wo in Tarifa übernachten?',
-      token: 'location_tarifa'
+      title: 'Tarifa ist für uns der schönste Ort auf diesem Planeten.',
+      lead: 'Wenn ihr wisst, welche Tage ihr hier verbringen wollt, fehlt nur noch der Ort, an dem ihr aufwacht.',
+      ctaLabel: 'AMARA Family & Surf ansehen',
+      token: 'casa',
+      secondaryLabel: 'Wo in Tarifa übernachten?',
+      secondaryToken: 'location_tarifa'
     }
   },
   es: {
@@ -421,96 +356,59 @@ export const tarifaExperienceContent = {
       ]
     },
     dayChooser: {
-      title: 'Un Tarifa distinto para cada día',
-      intro: [],
+      title: '¿Qué día encaja hoy?',
+      intro: [
+        'Con levante fuerte solo funciona de verdad Valdevaqueros: allí están las lanchas de rescate y todo está preparado para ello. La pequeña Playa Chica, ideal para familias, no es entonces buena elección. Con poniente o con el aire en calma ocurre al revés.',
+        'Por eso Tarifa no se planifica de antemano. Se mira fuera por la mañana y se decide entonces. Seis tipos de día entre los que elegir:'
+      ],
       days: [
         {
-          title: 'Día de costa',
-          text: 'baño cerca del pueblo, cometas sobre el Atlántico o un paisaje abierto que marque el ritmo.'
+          title: 'Un día de costa.',
+          text: 'Bañarse cerca del pueblo o ver las cometas más al oeste. Qué playa funciona hoy depende del viento.',
+          token: 'tarifa_beaches_authority',
+          linkLabel: 'Las playas de Tarifa'
         },
         {
-          title: 'Día de viento y agua',
-          text: 'salid al agua si habéis venido para ello; si no, dejad que las condiciones os lleven hacia otro mundo de Tarifa.'
+          title: 'Un día de viento y agua.',
+          text: 'Al agua, si habéis venido para eso. También quienes empiezan, con nuestros amigos del Tarifa Surf Club, que organizamos antes de vuestra llegada.',
+          token: 'tarifa_wind_kitesurfing_authority',
+          linkLabel: 'Viento y kitesurf'
         },
         {
-          title: 'Día de casco antiguo y buena mesa',
-          text: 'seguid las murallas y las calles, parad a comer y quedaos para el ritmo de la noche.'
+          title: 'Un día de casco antiguo.',
+          text: 'Por la Puerta de Jerez al recinto amurallado, el Castillo como referencia, y el Estrecho siempre a la espalda.',
+          token: 'tarifa_old_town_history',
+          linkLabel: 'Casco antiguo e historia'
         },
         {
-          title: 'Día de naturaleza en el Estrecho',
-          text: 'caminad hasta un mirador, seguid el paisaje migratorio o mantened flexible una salida para observar fauna marina.'
+          title: 'Un día de mesa y noche.',
+          text: 'Atún rojo de la tradición almadrabera y, después, la Calle Batalla del Salado y las calles del casco antiguo.',
+          token: 'tarifa_food_evening_life',
+          linkLabel: 'Comer y salir'
         },
         {
-          title: 'Día de Bolonia',
-          text: 'playa, duna y Baelo Claudia en una misma salida.'
+          title: 'Un día de naturaleza en el Estrecho.',
+          text: 'Miradores hacia África, el corredor migratorio de aves o una salida para ver ballenas y delfines: esa conviene dejarla flexible.',
+          token: 'tarifa_nature_wildlife',
+          linkLabel: 'Naturaleza y fauna'
+        },
+        {
+          title: 'Un día de Bolonia.',
+          text: 'Costa abierta, duna protegida y la ciudad romana de Baelo Claudia: eso es un día entero, no una parada.',
+          token: 'tarifa_bolonia_baelo_claudia',
+          linkLabel: 'Bolonia y Baelo Claudia'
         }
       ]
     },
     sections: [
       {
-        id: 'beaches',
-        title: 'Elegir playa importa más que hacer un ranking',
+        id: 'our-day',
+        title: 'Así es un día en Tarifa para nosotros',
         paragraphs: [
-          'Las playas de Tarifa tienen personalidades muy distintas. Playa Chica no ofrece el mismo tipo de día que Los Lances, Valdevaqueros o Bolonia.',
-          'Por eso la pregunta no debería ser «¿cuál es la mejor playa?», sino:',
-          '¿qué tipo de día de playa queremos hoy?'
-        ],
-        cta: {
-          label: 'Descubrir las playas de Tarifa',
-          token: 'tarifa_beaches_authority'
-        }
-      },
-      {
-        id: 'wind',
-        title: 'El viento forma parte del viaje',
-        paragraphs: [
-          'Levante y Poniente forman parte de Tarifa. Para quienes practican kitesurf o windsurf, las condiciones cambiantes son parte de la razón para venir. Para los demás, el viento simplemente cambia qué tipo de día resulta más atractivo.',
-          'Los deportes acuáticos son uno de los grandes mundos de Tarifa, no el destino entero. Si el kitesurf forma parte de vuestra estancia, podemos poner a los huéspedes de AMARA en contacto con nuestros amigos de Tarifa Surf Club antes de llegar para organizar clases o material.'
-        ],
-        cta: {
-          label: 'Viento y kitesurf en Tarifa',
-          token: 'tarifa_wind_kitesurfing_authority'
-        }
-      },
-      {
-        id: 'old-town',
-        title: 'Una ciudad histórica del Estrecho, del día a la noche',
-        paragraphs: [
-          'La posición de Tarifa junto al Estrecho marcó la ciudad histórica y su carácter defensivo. Sus murallas y calles recogidas muestran durante el paseo la relación entre la ciudad, el mar y el paso entre continentes.',
-          'Entrad por la Puerta de Jerez y tomad como referencia el Castillo de Guzmán el Bueno, una fortaleza del siglo X. No son monumentos aislados: juntos muestran una ciudad formada por su geografía.',
-          'Después, esas mismas calles encuentran otro ritmo alrededor de los cafés, el almuerzo y la cena. La historia da contexto al día; quedarse hasta la noche mantiene el casco antiguo dentro de la vida actual de Tarifa.'
-        ],
-        cta: { label: 'Descubrir el casco antiguo y su historia', token: 'tarifa_old_town_history' }
-      },
-      {
-        id: 'nature',
-        title: 'El Estrecho es un paisaje, no solo un paso',
-        paragraphs: [
-          'El Parque Natural del Estrecho protege alrededor de Tarifa un paisaje marítimo y terrestre donde se encuentran Atlántico y Mediterráneo, Europa y África. Mirar hacia el Estrecho amplía el horizonte mucho más allá de la playa.',
-          'Los paseos y miradores abren perspectivas hacia África, mientras el Estrecho funciona como un importante corredor migratorio para las aves entre ambos continentes. Un día de naturaleza puede transcurrir en tierra y seguir siendo inconfundiblemente tarifeño.',
-          'Las salidas desde Tarifa para observar ballenas y delfines son otra posibilidad. Las condiciones y los avistamientos no pueden fijarse de antemano, así que conviene mantener flexible esta experiencia.'
-        ],
-        cta: { label: 'Descubrir la naturaleza y la fauna', token: 'tarifa_nature_wildlife' }
-      },
-      {
-        id: 'bolonia',
-        title: 'Bolonia merece tiempo',
-        paragraphs: [
-          'La costa abierta de Bolonia comparte escenario con el Monumento Natural Duna de Bolonia y el conjunto arqueológico de Baelo Claudia.',
-          'La estructura urbana romana de Baelo se conserva de forma especialmente legible. La salazón de pescado y la producción de garum muestran, además, hasta qué punto su economía estaba unida a la costa.',
-          'Playa, duna y arqueología romana forman así una jornada completa y coherente, sobre todo si disponéis de tiempo para que cada parte del paisaje tenga su momento.'
-        ],
-        cta: { label: 'Preparar un día en Bolonia y Baelo Claudia', token: 'tarifa_bolonia_baelo_claudia' }
-      },
-      {
-        id: 'food',
-        title: 'Saborear la costa: almadraba y atún rojo',
-        paragraphs: [
-          'Comer en Tarifa puede prolongar la historia de la costa hasta el almuerzo y la noche. Los pescados y mariscos atlánticos forman parte del contexto, y el atún rojo ocupa un lugar especial en la cultura pesquera y gastronómica local.',
-          'La almadraba es la tradición histórica de la costa gaditana que utiliza un sistema fijo de redes para interceptar el paso migratorio del atún. Tarifa forma parte de esa tradición, que explica la presencia del atún rojo en su cultura culinaria.',
-          'Eso no significa que todos los platos de atún tengan el mismo origen. Se trata de reconocer la relación entre costa, pesca y mesa, y de hacer que un almuerzo o una cena elegidos con atención formen parte del día en Tarifa.'
-        ],
-        cta: { label: 'Descubrir la gastronomía y las noches de Tarifa', token: 'tarifa_food_evening_life' }
+          'Primero un desayuno muy bueno: un bol de açaí en el Café SURLA o en Powerhouse. Luego esperamos a que el viento llegue por la tarde.',
+          'En temporada baja bajamos andando los cinco minutos desde nuestra puerta hasta la Playa Los Lances y hacemos kite allí. En temporada alta cogemos el coche hasta Valdevaqueros, diez minutos por la N-340. Y por la noche, al pueblo.',
+          'Y esta es la parte difícil de explicar: Tarifa tiene un ambiente propio. Estás por la noche en un bar y a tu lado se sienta un campeón del mundo de kitesurf. En verano todavía hace calor, las calles están cálidamente iluminadas, y entiendes por qué hay gente que vuelve cada año.'
+        ]
       },
       {
         id: 'tangier',
@@ -522,18 +420,21 @@ export const tarifaExperienceContent = {
       },
       {
         id: 'stay-length',
-        title: 'Tarifa mejora cuando no intentáis verlo todo',
+        title: 'Dos noches no son lo mismo que dos semanas',
         paragraphs: [
-          'Con dos o tres noches, elegid bien: costa, casco antiguo y una experiencia principal.',
-          'Con cuatro a siete noches podéis dejar más espacio a las condiciones, alternar días de costa, descubrir naturaleza, Bolonia o un día de casco antiguo y buena mesa, y seguir teniendo noches sin agenda.'
+          'Con dos o tres noches ni siquiera intentaríamos encajarlo todo. Costa, casco antiguo y una experiencia principal bastan.',
+          'A partir de cuatro o siete noches Tarifa se vuelve más fácil: planificáis con el viento y no contra él. Si un día sopla demasiado para la playa, os vais al casco antiguo o a Bolonia, y el día de viento se convierte en día de kite en lugar de un día perdido.',
+          'Lo que más nos gusta son catorce noches. No porque Tarifa tenga tanto que ver, sino porque es entonces cuando se deja de planificar días.'
         ]
       }
     ],
     closing: {
-      title: 'Primero decidid cómo queréis vivir Tarifa.',
-      lead: 'Después, elegid dónde alojaros.',
-      ctaLabel: 'Dónde alojarse en Tarifa',
-      token: 'location_tarifa'
+      title: 'Para nosotros, Tarifa es el lugar más bonito de este planeta.',
+      lead: 'Cuando sabéis qué días queréis pasar aquí, solo falta el lugar donde despertar.',
+      ctaLabel: 'Ver AMARA Family & Surf',
+      token: 'casa',
+      secondaryLabel: 'Dónde alojarse en Tarifa',
+      secondaryToken: 'location_tarifa'
     }
   },
   nl: {
@@ -561,96 +462,59 @@ export const tarifaExperienceContent = {
       ]
     },
     dayChooser: {
-      title: 'Kies je Tarifa-dag',
-      intro: [],
+      title: 'Welke dag past vandaag?',
+      intro: [
+        'Bij sterke levante werkt praktisch alleen Valdevaqueros — daar liggen de reddingsboten en daar is alles erop ingericht. Het kleine, gezinsvriendelijke Playa Chica is dan geen goede keuze. Bij poniente of bij stille lucht is het andersom.',
+        'Daarom plan je Tarifa niet vooruit. Je kijkt ’s ochtends naar buiten en beslist dan. Zes soorten dagen om uit te kiezen:'
+      ],
       days: [
         {
-          title: 'Kustdag',
-          text: 'zwemmen dicht bij de stad, de kites langs de Atlantische kust bekijken of het open landschap het tempo laten bepalen.'
+          title: 'Een kustdag.',
+          text: 'Zwemmen dicht bij het dorp of verderop naar het westen de kites bekijken. Welk strand vandaag werkt, hangt van de wind af.',
+          token: 'tarifa_beaches_authority',
+          linkLabel: 'De stranden van Tarifa'
         },
         {
-          title: 'Wind- en waterdag',
-          text: 'ga het water op als je daarvoor bent gekomen; laat je anders door de omstandigheden naar een andere kant van Tarifa leiden.'
+          title: 'Een wind- en waterdag.',
+          text: 'Het water op, als je daarvoor bent gekomen. Beginners ook — via onze vrienden van Tarifa Surf Club, wat we vóór jullie aankomst regelen.',
+          token: 'tarifa_wind_kitesurfing_authority',
+          linkLabel: 'Wind & kitesurfen'
         },
         {
-          title: 'Stad- en tafeldag',
-          text: 'volg de oude muren en straten, pauzeer voor de lunch en blijf voor het ritme van de avond.'
+          title: 'Een oude-stadsdag.',
+          text: 'Door de Puerta de Jerez de ommuurde kern in, het Castillo als ankerpunt, en de Straat de hele tijd in je rug.',
+          token: 'tarifa_old_town_history',
+          linkLabel: 'Oude stad & geschiedenis'
         },
         {
-          title: 'Natuurdag aan de Straat',
-          text: 'wandel naar een uitzichtpunt, volg het landschap van de vogeltrek of houd een excursie op zee bewust flexibel.'
+          title: 'Een avond- en tafeldag.',
+          text: 'Rode tonijn uit de almadraba-traditie, later de Calle Batalla del Salado en de straatjes van de oude stad.',
+          token: 'tarifa_food_evening_life',
+          linkLabel: 'Eten & uitgaan'
         },
         {
-          title: 'Bolonia-dag',
-          text: 'strand, duinlandschap en Romeins Baelo Claudia combineren.'
+          title: 'Een natuurdag aan de Straat.',
+          text: 'Uitzichtpunten richting Afrika, de vogeltrekcorridor, of een tocht naar walvissen en dolfijnen — die houden we bewust flexibel.',
+          token: 'tarifa_nature_wildlife',
+          linkLabel: 'Natuur & dierenwereld'
+        },
+        {
+          title: 'Een Bolonia-dag.',
+          text: 'Open kust, beschermd duin en de Romeinse stad Baelo Claudia — dat is een hele dag, geen tussenstop.',
+          token: 'tarifa_bolonia_baelo_claudia',
+          linkLabel: 'Bolonia & Baelo Claudia'
         }
       ]
     },
     sections: [
       {
-        id: 'beaches',
-        title: 'De beste strandkeuze hangt af van de dag',
+        id: 'our-day',
+        title: 'Zo ziet een dag in Tarifa er bij ons uit',
         paragraphs: [
-          'Playa Chica, Los Lances, Valdevaqueros en Bolonia bieden heel verschillende ervaringen.',
-          'Daarom vinden we een ranglijst van “de beste stranden” minder nuttig dan één eenvoudige vraag:',
-          'Wat willen jullie vandaag aan zee doen?'
-        ],
-        cta: {
-          label: 'Ontdek de stranden van Tarifa',
-          token: 'tarifa_beaches_authority'
-        }
-      },
-      {
-        id: 'wind',
-        title: 'Wind hoort bij Tarifa',
-        paragraphs: [
-          'Levante en Poniente bepalen voor een deel wat er op het water gebeurt. Voor kite- en windsurfers zijn de veranderende omstandigheden juist de aantrekkingskracht. Voor anderen verandert de wind vooral welk soort dag op dat moment aantrekkelijk is.',
-          'Watersport is een belangrijke wereld van Tarifa, maar niet de hele bestemming. Als kitesurfen bij jullie verblijf hoort, kunnen we AMARA-gasten vóór aankomst in contact brengen met onze vrienden van Tarifa Surf Club om lessen of materiaal te regelen.'
-        ],
-        cta: {
-          label: 'Wind & kitesurfen in Tarifa',
-          token: 'tarifa_wind_kitesurfing_authority'
-        }
-      },
-      {
-        id: 'old-town',
-        title: 'Een historische stad aan de Straat, van dag tot avond',
-        paragraphs: [
-          'Tarifa’s ligging aan de Straat heeft de historische stad en haar verdedigende karakter gevormd. De muren en compacte straten laten tijdens een wandeling de relatie tussen de stad, de zee en de doorgang tussen continenten zien.',
-          'Ga via de Puerta de Jerez de ommuurde kern binnen en gebruik het 10e-eeuwse Castillo de Guzmán el Bueno als herkenningspunt. Het zijn geen losse monumenten: samen maken ze zichtbaar hoe de geografie de stad heeft gevormd.',
-          'Later vinden dezelfde straten een ander ritme rond cafés, lunch en diner. De geschiedenis geeft de dag context; door tot de avond te blijven, beleef je de oude stad als onderdeel van het huidige Tarifa.'
-        ],
-        cta: { label: 'Ontdek de oude stad & haar geschiedenis', token: 'tarifa_old_town_history' }
-      },
-      {
-        id: 'nature',
-        title: 'De Straat is een landschap, niet alleen een oversteek',
-        paragraphs: [
-          'Parque Natural del Estrecho beschermt rond Tarifa een landschap op land en in zee waar Atlantische Oceaan en Middellandse Zee, Europa en Afrika samenkomen. Wie naar de Straat kijkt, ziet een grotere geografie dan alleen het strand.',
-          'Wandelingen en uitzichtpunten openen perspectieven richting Afrika, terwijl de Straat een belangrijke trekroute is voor vogels tussen beide continenten. Een natuurdag kan dus volledig op land blijven en toch onmiskenbaar bij Tarifa horen.',
-          'Excursies om walvissen en dolfijnen te observeren zijn een andere mogelijkheid vanuit Tarifa. Omstandigheden en waarnemingen staan nooit vooraf vast, dus houd deze ervaring flexibel.'
-        ],
-        cta: { label: 'Ontdek natuur & dieren', token: 'tarifa_nature_wildlife' }
-      },
-      {
-        id: 'bolonia',
-        title: 'Maak van Bolonia een complete dag',
-        paragraphs: [
-          'De open kust van Bolonia deelt haar omgeving met het beschermde natuurmonument Duna de Bolonia en het archeologische complex Baelo Claudia.',
-          'In Baelo is de structuur van een Romeinse stad bijzonder goed leesbaar. Viszouterijen en de productie van garum laten bovendien zien hoe nauw de economie met de kust verbonden was.',
-          'Strand, duinlandschap en Romeinse archeologie vormen zo één samenhangende dag, vooral wanneer jullie ieder deel van de omgeving genoeg tijd geven.'
-        ],
-        cta: { label: 'Plan Bolonia & Baelo Claudia', token: 'tarifa_bolonia_baelo_claudia' }
-      },
-      {
-        id: 'food',
-        title: 'Proef de kust: almadraba en atún rojo',
-        paragraphs: [
-          'Eten in Tarifa kan het verhaal van de kust meenemen naar de lunch en de avond. Atlantische vis en zeevruchten horen bij die context; atún rojo, de Atlantische blauwvintonijn, heeft een bijzondere plaats in de lokale visserij- en eetcultuur.',
-          'Almadraba is de lang bestaande traditie langs de kust van Cádiz waarbij een vast netwerk van netten migrerende tonijn onderschept. Tarifa maakt deel uit van die traditie, die verklaart waarom rode tonijn zo zichtbaar is in de eetcultuur.',
-          'Dat betekent niet dat ieder tonijngerecht dezelfde herkomst heeft. Het gaat om de relatie tussen kust, visserij en tafel: een bewust gekozen lunch of diner kan daardoor zelf onderdeel worden van de Tarifa-dag.'
-        ],
-        cta: { label: 'Ontdek eten & uitgaan', token: 'tarifa_food_evening_life' }
+          'Eerst een heel goed ontbijt — een açaí-bowl bij Café SURLA of Powerhouse. Daarna wachten we tot de wind in de middag opkomt.',
+          'In het laagseizoen lopen we de vijf minuten van onze deur naar Playa Los Lances en kitesurfen daar. In het hoogseizoen nemen we de auto naar Valdevaqueros, tien minuten over de N-340. ’s Avonds de stad in.',
+          'En dan het deel dat lastig te beschrijven is: Tarifa heeft een eigen sfeer. Je zit ’s avonds in een bar en naast je zit een wereldkampioen kitesurfen. In de zomer is het dan nog warm, de straatjes zijn warm verlicht, en je begrijpt waarom mensen elk jaar terugkomen.'
+        ]
       },
       {
         id: 'tangier',
@@ -662,18 +526,21 @@ export const tarifaExperienceContent = {
       },
       {
         id: 'stay-length',
-        title: 'Meer nachten geven Tarifa ruimte',
+        title: 'Twee nachten is iets anders dan twee weken',
         paragraphs: [
-          'Met twee of drie nachten zouden we kiezen voor kust, oude stad en één bijzondere activiteit.',
-          'Met vier tot zeven nachten ontstaat ruimte om van plan te veranderen, verschillende kustdagen te proberen en natuur, Bolonia of een stad- en tafeldag toe te voegen zonder dat de reis een checklist wordt.'
+          'Met twee of drie nachten zouden we niet eens proberen alles erin te proppen. Kust, oude stad en één bijzondere ervaring zijn genoeg.',
+          'Vanaf vier tot zeven nachten wordt Tarifa makkelijker: dan plan je mét de wind in plaats van ertegen. Is een dag te winderig voor het strand, dan ga je de oude stad in of naar Bolonia — en de winderige dag wordt een kitedag in plaats van een verloren dag.',
+          'Het liefst zien we veertien nachten. Niet omdat Tarifa zoveel te zien heeft, maar omdat je dan ophoudt met dagen plannen.'
         ]
       }
     ],
     closing: {
-      title: 'Bepaal eerst hoe jullie Tarifa willen beleven.',
-      lead: 'Kies daarna waar jullie willen verblijven.',
-      ctaLabel: 'Waar overnachten in Tarifa?',
-      token: 'location_tarifa'
+      title: 'Voor ons is Tarifa de mooiste plek op deze planeet.',
+      lead: 'Als jullie weten welke dagen jullie hier willen doorbrengen, ontbreekt alleen nog de plek waar jullie wakker worden.',
+      ctaLabel: 'Bekijk AMARA Family & Surf',
+      token: 'casa',
+      secondaryLabel: 'Waar overnachten in Tarifa?',
+      secondaryToken: 'location_tarifa'
     }
   },
   sv: {
@@ -728,69 +595,13 @@ export const tarifaExperienceContent = {
     },
     sections: [
       {
-        id: 'beaches',
-        title: 'Olika stränder passar olika dagar',
+        id: 'our-day',
+        title: 'Så ser en dag i Tarifa ut för oss',
         paragraphs: [
-          'Playa Chica, Los Lances, Valdevaqueros och Bolonia ger inte samma sorts strandupplevelse.',
-          'Därför är frågan inte vilken strand som generellt är bäst, utan:',
-          'Vilken sorts dag vid havet vill ni ha idag?'
-        ],
-        cta: {
-          label: 'Upptäck Tarifas stränder',
-          token: 'tarifa_beaches_authority'
-        }
-      },
-      {
-        id: 'wind',
-        title: 'Vinden är en del av Tarifa',
-        paragraphs: [
-          'Levante och Poniente påverkar vardagen vid kusten. För kite- och vindsurfare är de skiftande förhållandena en stor del av anledningen att resa hit. För andra förändrar vinden framför allt vilken sorts dag som känns mest lockande.',
-          'Vattensport är en viktig del av Tarifa, men inte hela destinationen. Om kitesurfing ingår i er vistelse kan vi sätta AMARA-gäster i kontakt med våra vänner på Tarifa Surf Club före resan för att ordna lektioner eller utrustning.'
-        ],
-        cta: {
-          label: 'Vind & kitesurfing i Tarifa',
-          token: 'tarifa_wind_kitesurfing_authority'
-        }
-      },
-      {
-        id: 'old-town',
-        title: 'En historisk stad vid sundet, från dag till kväll',
-        paragraphs: [
-          'Tarifas läge vid sundet har präglat den historiska staden och dess försvarskaraktär. Murarna och de täta gränderna visar sambandet mellan staden, havet och passagen mellan kontinenterna.',
-          'Gå in i den muromgärdade stadskärnan genom Puerta de Jerez och använd Castillo de Guzmán el Bueno från 900-talet som riktmärke. Det är inte fristående monument; tillsammans visar de hur geografin har format staden.',
-          'Senare hittar samma gränder en annan rytm kring kaféer, lunch och middag. Historien ger dagen sitt sammanhang, medan kvällen gör gamla stan till en del av dagens Tarifa.'
-        ],
-        cta: { label: 'Upptäck Gamla stan & historien', token: 'tarifa_old_town_history' }
-      },
-      {
-        id: 'nature',
-        title: 'Sundet är ett landskap, inte bara en överfart',
-        paragraphs: [
-          'Parque Natural del Estrecho skyddar ett landskap på land och i havet runt Tarifa, där Atlanten och Medelhavet, Europa och Afrika möts. Blicken mot sundet öppnar en större geografi än stranden ensam.',
-          'Vandringar och utsiktsplatser ger perspektiv mot Afrika, samtidigt som sundet är en viktig flyttkorridor för fåglar mellan kontinenterna. En naturdag kan därför stanna helt på land och ändå kännas tydligt förankrad i Tarifa.',
-          'Turer för att observera valar och delfiner är en annan möjlighet från Tarifa. Förhållanden och observationer kan aldrig bestämmas i förväg, så den upplevelsen mår bra av flexibilitet.'
-        ],
-        cta: { label: 'Upptäck natur & djurliv', token: 'tarifa_nature_wildlife' }
-      },
-      {
-        id: 'bolonia',
-        title: 'Bolonia är värt en egen dag',
-        paragraphs: [
-          'Bolonias öppna kust delar sin miljö med det skyddade naturmonumentet Duna de Bolonia och det arkeologiska området Baelo Claudia.',
-          'I Baelo är strukturen i en romersk stad särskilt lätt att avläsa. Fisksaltning och tillverkning av garum visar dessutom hur nära ekonomin var knuten till kusten.',
-          'Strand, dynlandskap och romersk arkeologi bildar därmed en sammanhållen dag, särskilt när ni ger varje del av platsen tillräckligt med tid.'
-        ],
-        cta: { label: 'Planera Bolonia & Baelo Claudia', token: 'tarifa_bolonia_baelo_claudia' }
-      },
-      {
-        id: 'food',
-        title: 'Smaka på kusten: almadraba och atún rojo',
-        paragraphs: [
-          'Maten i Tarifa kan föra kustens berättelse vidare in i lunchen och kvällen. Fisk och skaldjur från Atlanten hör till sammanhanget; atún rojo, den atlantiska blåfenade tonfisken, har en särskild plats i den lokala fiske- och matkulturen.',
-          'Almadraba är den långa traditionen längs Cádizkusten där ett fast nätssystem fångar upp vandrande tonfisk. Tarifa ingår i den traditionen, som hjälper till att förklara varför röd tonfisk är så synlig i matkulturen.',
-          'Det betyder inte att varje tonfiskrätt har samma ursprung. Poängen är sambandet mellan kust, fiske och bord: en omsorgsfullt vald lunch eller middag kan därför bli en del av själva Tarifa-dagen.'
-        ],
-        cta: { label: 'Upptäck mat & kvällsliv', token: 'tarifa_food_evening_life' }
+          'Först en riktigt bra frukost — en açaí-bowl på Café SURLA eller Powerhouse. Sedan väntar vi på att vinden ska komma på eftermiddagen.',
+          'Under lågsäsong går vi de fem minuterna från dörren ner till Playa Los Lances och kitar där. Under högsäsong tar vi bilen till Valdevaqueros, tio minuter på N-340. På kvällen in till stan.',
+          'Och här kommer det som är svårt att sätta ord på: Tarifa har en egen känsla. Man sitter på en bar om kvällen och bredvid sitter en världsmästare i kitesurfing. På sommaren är det fortfarande varmt, gränderna är varmt upplysta, och man förstår varför folk kommer tillbaka år efter år.'
+        ]
       },
       {
         id: 'tangier',
@@ -802,18 +613,21 @@ export const tarifaExperienceContent = {
       },
       {
         id: 'stay-length',
-        title: 'Ge Tarifa lite tid',
+        title: 'Två nätter är något annat än två veckor',
         paragraphs: [
-          'Med två eller tre nätter är kust, gamla stan och en större upplevelse en bra kombination.',
-          'Med fyra till sju nätter får ni utrymme att byta plan efter förhållandena, prova olika kustdagar och lägga till natur, Bolonia eller en dag med gamla stan och mat utan att semestern blir ett schema.'
+          'Med två eller tre nätter skulle vi inte ens försöka få med allt. Kust, gamla stan och en större upplevelse räcker.',
+          'Från fyra till sju nätter blir Tarifa enklare: då planerar ni med vinden i stället för mot den. Är en dag för blåsig för stranden går ni in i gamla stan eller ut till Bolonia — och blåsdagen blir en kitedag i stället för en förlorad dag.',
+          'Helst ser vi fjorton nätter. Inte för att Tarifa har så mycket att se, utan för att det är då man slutar planera dagar.'
         ]
       }
     ],
     closing: {
-      title: 'Bestäm först hur ni vill uppleva Tarifa.',
-      lead: 'Välj sedan var ni vill bo.',
-      ctaLabel: 'Var ska man bo i Tarifa?',
-      token: 'location_tarifa'
+      title: 'För oss är Tarifa den vackraste platsen på den här planeten.',
+      lead: 'När ni vet vilka dagar ni vill tillbringa här återstår bara platsen där ni vaknar.',
+      ctaLabel: 'Visa AMARA Family & Surf',
+      token: 'casa',
+      secondaryLabel: 'Var ska man bo i Tarifa?',
+      secondaryToken: 'location_tarifa'
     }
   }
 } satisfies Record<AmaraLanguage, TarifaExperiencePageCopy>;

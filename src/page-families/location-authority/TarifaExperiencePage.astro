@@ -6,8 +6,7 @@ import TarifaContextNav from '../../components/location/TarifaContextNav.astro';
 import {
   TARIFA_EXPERIENCE_TOKEN,
   tarifaExperienceContent,
-  tarifaExperienceSeo,
-  type TarifaExperienceWorldId
+  tarifaExperienceSeo
 } from '../../content/tarifaExperienceContent';
 import { tarifaGuideContent } from '../../content/tarifaGuideContent';
 import LocationAuthorityLayout from '../../layouts/LocationAuthorityLayout.astro';
@@ -30,15 +29,6 @@ const requiredLink = (token: string) => {
   }
 
   return href;
-};
-
-const discoveryHrefs: Record<TarifaExperienceWorldId, string> = {
-  'beaches-coast': requiredLink('tarifa_beaches_authority'),
-  'wind-watersports': requiredLink('tarifa_wind_kitesurfing_authority'),
-  'food-evening-life': requiredLink('tarifa_food_evening_life'),
-  'nature-wildlife': requiredLink('tarifa_nature_wildlife'),
-  'old-town-history': requiredLink('tarifa_old_town_history'),
-  'bolonia-baelo-claudia': requiredLink('tarifa_bolonia_baelo_claudia')
 };
 
 const footerHighlights = [
@@ -86,33 +76,12 @@ const footerHighlights = [
       </div>
     </Hero>
 
-    <section class="border-b border-border-subtle bg-surface px-6 py-10 md:px-12 md:py-12">
-      <div class="mx-auto max-w-screen-2xl">
-        <div class="max-w-3xl">
-          <h2 id="tarifa-worlds-title" class="am-text-subtitle text-balance text-on-surface">
-            {copy.discovery.title}
-          </h2>
-          <p class="mt-3 text-sm leading-relaxed text-on-surface-variant">
-            {copy.discovery.intro}
-          </p>
-        </div>
-
-        <nav class="mt-7" aria-labelledby="tarifa-worlds-title">
-          <ul class="grid gap-x-8 gap-y-3 sm:grid-cols-2 lg:grid-cols-4">
-            {copy.discovery.worlds.map((world) => (
-              <li>
-                <a
-                  href={discoveryHrefs[world.id]}
-                  class="am-inline-link inline-flex min-h-11 max-w-full items-center text-sm leading-snug"
-                >
-                  {world.label}<span aria-hidden="true"> →</span>
-                </a>
-              </li>
-            ))}
-          </ul>
-        </nav>
-      </div>
-    </section>
+    {/*
+      The six-topic link list was removed: it repeated the context navigation
+      directly above it, and the day chooser below now routes to the same six
+      guides with a reason to click. `copy.discovery` stays as the authoring
+      source for the footer highlight labels.
+    */}
 
     <section class="border-y border-border-subtle bg-surface-container-low px-6 py-20 md:px-12 md:py-28">
       <div class="mx-auto max-w-screen-2xl">
@@ -135,6 +104,13 @@ const footerHighlights = [
               </p>
               <h3 class="am-text-subtitle mt-4 text-on-surface">{day.title}</h3>
               <p class="mt-4 text-sm leading-relaxed text-on-surface-variant">{day.text}</p>
+              {day.token && (
+                <p class="mt-4">
+                  <a href={requiredLink(day.token)} class="am-inline-link text-sm">
+                    {day.linkLabel}<span aria-hidden="true"> →</span>
+                  </a>
+                </p>
+              )}
             </article>
           ))}
         </div>
@@ -185,7 +161,16 @@ const footerHighlights = [
               token: copy.closing.token,
               label: copy.closing.ctaLabel,
               style: 'primary'
-            }
+            },
+            ...(copy.closing.secondaryToken
+              ? [
+                  {
+                    token: copy.closing.secondaryToken,
+                    label: copy.closing.secondaryLabel!,
+                    style: 'secondary' as const
+                  }
+                ]
+              : [])
           ]}
         />
       </div>
