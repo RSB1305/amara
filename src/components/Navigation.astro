@@ -11,7 +11,6 @@
  * wordmark, subline, center nav links, and language dropdown use explicit Tailwind
  * font/size utilities (see `<style>` comment). The CTA remains `.am-btn`.
  */
-import { experienceNavigationContent } from '../content/experienceHubContent';
 import { trustLabels } from '../content/trustLabels';
 import { resolveLink, resolveOptionalLink } from '../lib/linkResolver';
 import { isPublicLinkEnabled } from '../lib/routeOwnership';
@@ -154,27 +153,6 @@ const globalNavLabels = {
     es: 'Tarifa',
     nl: 'Tarifa',
     sv: 'Tarifa'
-  },
-  locationGuides: {
-    en: 'Location guides',
-    de: 'Lage-Guides',
-    es: 'Guías de destinos',
-    nl: 'Bestemmingsgidsen',
-    sv: 'Resmålsguider'
-  },
-  experienceTarifa: {
-    en: 'Tarifa',
-    de: 'Tarifa',
-    es: 'Tarifa',
-    nl: 'Tarifa',
-    sv: 'Tarifa'
-  },
-  experienceTarifaMeta: {
-    en: 'Beaches, wind and local experiences around your AMARA stay.',
-    de: 'Strände, Wind und Erlebnisse rund um euren AMARA-Aufenthalt.',
-    es: 'Playas, viento y experiencias locales durante vuestra estancia en AMARA.',
-    nl: 'Stranden, wind en lokale ervaringen rond jullie verblijf bij AMARA.',
-    sv: 'Stränder, vind och lokala upplevelser under er vistelse på AMARA.'
   },
   locationFrigilianaMeta: {
     en: 'One of Andalusia’s most beautiful white villages.',
@@ -336,18 +314,20 @@ type GlobalNavGroup = {
 const tGlobal = (key: keyof typeof globalNavLabels) =>
   globalNavLabels[key][currentLang] ?? globalNavLabels[key].en;
 
-const experienceNavigation = experienceNavigationContent[currentLang];
-
 const globalNavGroups: GlobalNavGroup[] = [
   {
+    /**
+     * One row per destination, no section heading. The destination pages carry the
+     * onward bridge into their experience hub, so the header stays a place chooser
+     * instead of repeating the same three names under a second ordering logic.
+     */
     id: 'locations',
     label: tGlobal('locations'),
     items: [
       {
         token: 'location_frigiliana',
         label: tGlobal('locationFrigiliana'),
-        description: tGlobal('locationFrigilianaMeta'),
-        sectionLabel: tGlobal('locationGuides')
+        description: tGlobal('locationFrigilianaMeta')
       },
       {
         token: 'location_nerja',
@@ -358,18 +338,6 @@ const globalNavGroups: GlobalNavGroup[] = [
         token: 'location_tarifa',
         label: tGlobal('locationTarifa'),
         description: tGlobal('locationTarifaMeta')
-      },
-      {
-        token: 'explore_hub',
-        label: experienceNavigation.menuOverviewLabel,
-        description: experienceNavigation.menuOverviewDescription,
-        sectionLabel: experienceNavigation.menuSectionLabel,
-        separatedSection: true
-      },
-      {
-        token: 'tarifa_experience_hub',
-        label: tGlobal('experienceTarifa'),
-        description: tGlobal('experienceTarifaMeta')
       }
     ]
   },
