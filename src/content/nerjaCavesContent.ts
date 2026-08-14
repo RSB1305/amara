@@ -19,6 +19,12 @@ export interface NerjaCavesLocale {
   };
   facts: Array<{ label: string; value: string }>;
   sections: NerjaCavesSection[];
+  personal: {
+    eyebrow: string;
+    title: string;
+    paragraphs: string[];
+    imageAlt: string;
+  };
   related: {
     eyebrow: string;
     title: string;
@@ -158,6 +164,16 @@ export const nerjaCavesContent: Record<AmaraLanguage, NerjaCavesLocale> = {
         ]
       }
     ],
+    personal: {
+      eyebrow: 'Our own visit',
+      title: 'What we did not expect: flying through the galleries that are closed',
+      paragraphs: [
+        'Alongside the walking route there is a VR experience called “El Gran Viaje Interior”. We did not pay anything extra for it, and we nearly walked past it. That would have been a mistake.',
+        'You sit down, put on a headset, and the film first takes you over Nerja from the air — genuinely striking footage — then shows how the cave was formed, and finally flies you through galleries visitors are not allowed to enter. It runs about twelve minutes, and because it is filmed in 360 degrees you look wherever you want while you move. That is what makes it work: you are not watching a film, you are turning your head in a place you will never stand in.',
+        'The cave itself does the rest. It stays cool inside — nine degrees, we were told — which in high summer is the most pleasant hour of the day. And on one of the rare days when it rains, this is the one thing on this coast that does not care about the weather.'
+      ],
+      imageAlt: 'Putting on a VR headset in the El Gran Viaje Interior room at the Caves of Nerja'
+    },
     related: {
       eyebrow: 'Continue',
       title: 'Around the caves',
@@ -264,6 +280,16 @@ export const nerjaCavesContent: Record<AmaraLanguage, NerjaCavesLocale> = {
         ]
       }
     ],
+    personal: {
+      eyebrow: 'Unser eigener Besuch',
+      title: 'Womit wir nicht gerechnet hatten: durch die gesperrten Galerien fliegen',
+      paragraphs: [
+        'Neben dem Rundgang gibt es ein VR-Erlebnis, „El Gran Viaje Interior". Wir haben dafür nichts extra bezahlt und wären fast daran vorbeigelaufen. Das wäre ein Fehler gewesen.',
+        'Man setzt sich hin, bekommt eine Brille auf, und der Film führt euch zuerst von oben über Nerja — wirklich beeindruckende Aufnahmen —, zeigt dann, wie die Höhle entstanden ist, und fliegt am Ende durch Galerien, die Besucher nicht betreten dürfen. Es dauert etwa zwölf Minuten, und weil in 360 Grad gefilmt wurde, schaut ihr dabei dorthin, wohin ihr wollt. Genau das macht den Unterschied: Ihr seht keinen Film, ihr dreht den Kopf an einem Ort, an dem ihr nie stehen werdet.',
+        'Den Rest erledigt die Höhle selbst. Drinnen bleibt es kühl — neun Grad, hieß es —, und im Hochsommer ist das die angenehmste Stunde des Tages. Und an einem der seltenen Regentage ist das die eine Sache an dieser Küste, der das Wetter egal ist.'
+      ],
+      imageAlt: 'Aufsetzen der VR-Brille im Raum von El Gran Viaje Interior an der Cueva de Nerja'
+    },
     related: {
       eyebrow: 'Weiterlesen',
       title: 'Rund um die Höhlen',
@@ -370,6 +396,16 @@ export const nerjaCavesContent: Record<AmaraLanguage, NerjaCavesLocale> = {
         ]
       }
     ],
+    personal: {
+      eyebrow: 'Nuestra propia visita',
+      title: 'Lo que no esperábamos: volar por las galerías cerradas',
+      paragraphs: [
+        'Junto al recorrido a pie hay una experiencia de realidad virtual, «El Gran Viaje Interior». No pagamos nada aparte y estuvimos a punto de pasar de largo. Habría sido un error.',
+        'Uno se sienta, le colocan unas gafas, y la película os lleva primero sobre Nerja desde el aire —imágenes realmente impresionantes—, después muestra cómo se formó la cueva y termina volando por galerías en las que no se puede entrar. Dura unos doce minutos, y como está grabada en 360 grados miráis a donde queráis mientras avanzáis. Ahí está la diferencia: no veis una película, giráis la cabeza en un lugar donde nunca vais a estar.',
+        'El resto lo hace la propia cueva. Dentro se mantiene fresca —nueve grados, nos dijeron—, y en pleno verano esa es la hora más agradable del día. Y en uno de esos días raros de lluvia, es lo único de esta costa a lo que el tiempo le da igual.'
+      ],
+      imageAlt: 'Colocándose las gafas de realidad virtual en la sala de El Gran Viaje Interior, en la Cueva de Nerja'
+    },
     related: {
       eyebrow: 'Seguir leyendo',
       title: 'Alrededor de la cueva',
@@ -476,6 +512,16 @@ export const nerjaCavesContent: Record<AmaraLanguage, NerjaCavesLocale> = {
         ]
       }
     ],
+    personal: {
+      eyebrow: 'Ons eigen bezoek',
+      title: 'Waar we niet op gerekend hadden: door de gesloten galerijen vliegen',
+      paragraphs: [
+        'Naast de wandelroute is er een VR-ervaring, „El Gran Viaje Interior". We hebben er niets extra voor betaald en waren er bijna langsgelopen. Dat zou een fout zijn geweest.',
+        'Je gaat zitten, krijgt een bril op, en de film neemt jullie eerst vanuit de lucht mee over Nerja — werkelijk indrukwekkende beelden —, laat daarna zien hoe de grot is ontstaan en vliegt tot slot door galerijen die bezoekers niet mogen betreden. Het duurt ongeveer twaalf minuten, en omdat er in 360 graden is gefilmd, kijken jullie ondertussen waarheen je wilt. Precies dat maakt het verschil: je kijkt niet naar een film, je draait je hoofd op een plek waar je nooit zult staan.',
+        'De rest doet de grot zelf. Binnen blijft het koel — negen graden, werd ons verteld — en in de hoogzomer is dat het aangenaamste uur van de dag. En op een van die zeldzame regendagen is dit het enige aan deze kust waar het weer niets toe doet.'
+      ],
+      imageAlt: 'Een VR-bril opzetten in de zaal van El Gran Viaje Interior bij de Grotten van Nerja'
+    },
     related: {
       eyebrow: 'Verder lezen',
       title: 'Rond de grotten',
@@ -582,6 +628,16 @@ export const nerjaCavesContent: Record<AmaraLanguage, NerjaCavesLocale> = {
         ]
       }
     ],
+    personal: {
+      eyebrow: 'Vårt eget besök',
+      title: 'Det vi inte hade räknat med: att flyga genom de stängda gångarna',
+      paragraphs: [
+        'Vid sidan av vandringsrundan finns en VR-upplevelse, ”El Gran Viaje Interior”. Vi betalade inget extra för den och gick nästan förbi. Det hade varit ett misstag.',
+        'Man sätter sig ner, får på sig ett headset, och filmen tar er först över Nerja från luften — verkligen slående bilder — visar sedan hur grottan bildades och flyger till sist genom gångar som besökare inte får gå in i. Den håller på i ungefär tolv minuter, och eftersom den är filmad i 360 grader tittar ni vart ni vill medan ni rör er. Det är just det som gör skillnaden: ni ser inte en film, ni vrider på huvudet på en plats där ni aldrig kommer att stå.',
+        'Resten sköter grottan själv. Inne håller sig svalt — nio grader, fick vi höra — och mitt i sommaren är det dygnets behagligaste timme. Och en av de sällsynta regndagarna är det här det enda på den här kusten som struntar i vädret.'
+      ],
+      imageAlt: 'Någon sätter på sig ett VR-headset i salen för El Gran Viaje Interior vid Nerjagrottorna'
+    },
     related: {
       eyebrow: 'Läs vidare',
       title: 'Runt grottorna',
