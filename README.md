@@ -59,9 +59,14 @@ The flow for any page is:
 **content module** (`src/content/…`) + **resolvers** (`src/lib/…`) →
 **layout and components**.
 
-Dependencies point downward only. Content modules and page families use `lib`;
-`lib` never imports from them. Within `lib`, `linkRegistry` builds on
-`routeOwnership`, so `routeOwnership` must not import back from the registry.
+Dependencies mostly point downward: page families use `lib` and `content`, and
+`content` uses `lib`. Two documented exceptions run the other way —
+`lib/seo/resolve-structured-data.ts` reads `content/trustLabels` and
+`content/stayCollectionLabels`, and `lib/tarifa/tarifaAuthoritySubnav.ts` imports a
+content type. Treat those as the exceptions they are; do not add more.
+
+Within `lib`, `linkRegistry` builds on `routeOwnership`, so `routeOwnership` must
+not import back from the registry — that one is a hard cycle, not a preference.
 
 ## Internal links
 
@@ -109,7 +114,10 @@ There is no separate CI service and no unit test suite. The gate is the build:
 - `postbuild.mjs` — structured data audit and SEO title policy assertions
 
 Because `prebuild` runs all of these, a commit that breaks any of them fails the
-deploy build. That is the CI.
+deploy build. `.github/workflows/check.yml` runs the same gate on every push and
+pull request, so a failure is visible before it reaches the deployment path.
+
+Run `npm run check` locally before committing and you will see the same result.
 
 ## Internal tools
 

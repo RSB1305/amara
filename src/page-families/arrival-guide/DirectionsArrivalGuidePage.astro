@@ -214,7 +214,8 @@ const c = {
                   <button
                     type="button"
                     class="block w-full"
-                    onclick="document.getElementById('map-overlay').classList.remove('hidden')"
+                    data-am-map-open
+                    aria-haspopup="dialog"
                   >
                     <AmaraImage
                       src="/images/arrival-map.jpg"
@@ -284,14 +285,18 @@ const c = {
   <div
     id="map-overlay"
     class="fixed inset-0 z-[999] hidden bg-on-surface/70"
-    onclick="this.classList.add('hidden')"
+    data-am-map-overlay
+    role="dialog"
+    aria-modal="true"
+    aria-label="Expanded route map"
+    hidden
   >
     <div class="min-h-full flex items-center justify-center p-6">
-      <div class="relative max-w-4xl w-full" onclick="event.stopPropagation()">
+      <div class="relative max-w-4xl w-full">
         <button
           type="button"
           class="absolute top-4 right-4 text-on-primary am-text-subtitle"
-          onclick="document.getElementById('map-overlay').classList.add('hidden')"
+          data-am-map-close
         >
           ✕
         </button>
@@ -319,4 +324,41 @@ const c = {
       </div>
     </div>
   </div>
+
+  <script>
+    // Map overlay behaviour. Previously four inline onclick attributes, one of which
+    // relied on the deprecated global `event`. Kept here so the markup stays free of
+    // behaviour and a strict Content-Security-Policy remains possible.
+    (() => {
+      const overlay = document.querySelector<HTMLElement>('[data-am-map-overlay]');
+      const opener = document.querySelector<HTMLElement>('[data-am-map-open]');
+      const closer = overlay?.querySelector<HTMLElement>('[data-am-map-close]');
+      if (!overlay || !opener || !closer) return;
+
+      const open = () => {
+        overlay.hidden = false;
+        overlay.classList.remove('hidden');
+        closer.focus();
+      };
+
+      const close = () => {
+        overlay.hidden = true;
+        overlay.classList.add('hidden');
+        opener.focus();
+      };
+
+      opener.addEventListener('click', open);
+      closer.addEventListener('click', close);
+
+      // Only a click on the backdrop itself closes; clicks on the panel bubble up
+      // to here but carry a different target.
+      overlay.addEventListener('click', (e) => {
+        if (e.target === overlay) close();
+      });
+
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && !overlay.hidden) close();
+      });
+    })();
+  </script>
 </LocationAuthorityLayout>

@@ -26,11 +26,6 @@ const awardScoreFormatter = new Intl.NumberFormat(currentLang, {
 });
 const formatAward = (award: { name: string; score: number }) =>
   `${award.name} - ${awardScoreFormatter.format(award.score)} / 10`;
-const trustLinks: LabeledLink[] = [
-  { token: 'about', label: copy.hero.ctaAbout[currentLang] },
-  { token: 'reviews_hub', label: copy.sections.reviewsTitle[currentLang] },
-  { token: 'direct_booking_benefits', label: copy.hero.ctaBenefits[currentLang] }
-];
 const footerHighlights: LabeledLink[] = [
   { token: 'amenities', label: guestReviewsFooterLabels.amenities[currentLang] },
   { token: 'faq_general', label: guestReviewsFooterLabels.faq_general[currentLang] },

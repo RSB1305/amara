@@ -34,7 +34,6 @@ const { lang = 'es' } = Astro.props;
 const currentLang = normalizeLanguage(lang as AmaraLanguage);
 const page = comfortAmenitiesCopy[currentLang];
 const seo = comfortAmenitiesSeo;
-const navBrandLabel = comfortAmenitiesNav.brandLabel[currentLang];
 const footerHighlights: LabeledLink[] = [
   { token: 'reviews_hub', label: page.hero.ctaReviews },
   { token: 'faq_general', label: comfortAmenitiesFooterLabels.faq_general[currentLang] },

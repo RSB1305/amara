@@ -8,6 +8,7 @@
   "scripts": {
     "dev": "astro dev",
     "typecheck": "astro check",
+    "typecheck:tools": "astro check --tsconfig tsconfig.tools.json",
     "prebuild": "npm run typecheck && npm run check:slug-policy && npm run check:fallback-policy && npm run check:image-policy",
     "check": "npm run typecheck && npm run check:slug-policy && npm run check:fallback-policy && npm run check:image-policy",
     "build": "astro build",

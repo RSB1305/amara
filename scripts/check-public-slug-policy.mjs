@@ -1,5 +1,5 @@
 import { readFileSync, readdirSync } from 'node:fs';
-import { extname, join, relative } from 'node:path';
+import { extname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import {
   CANONICAL_PUBLIC_SLUGS,

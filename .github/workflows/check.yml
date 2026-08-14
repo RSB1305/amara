@@ -1,0 +1,27 @@
+name: Check
+
+# Runs the same gate as the deploy build, but on every push and pull request, so a
+# broken commit is visible before it reaches the deployment path.
+on:
+  push:
+    branches: ['**']
+  pull_request:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+          cache: npm
+
+      - run: npm ci
+
+      # prebuild runs the typecheck and the slug, fallback and image policies;
+      # postbuild runs the structured data audit and the SEO title assertions.
+      - run: npm run build
+        env:
+          PUBLIC_SITE_URL: https://amara-lodging.es

@@ -7,8 +7,7 @@ import {
   buildOwnedLocalizedPath,
   getOwnedLanguagesForSlug,
   getOwnedSlugFromPathname,
-  isSupportedLanguage,
-  SUPPORTED_LANGUAGES
+  isSupportedLanguage
 } from '../routeOwnership';
 
 export const OG_LOCALES: Record<AmaraLanguage, string> = {

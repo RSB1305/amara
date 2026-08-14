@@ -380,11 +380,6 @@ const copy = {
 const t = <T extends Record<AmaraLanguage, string>>(row: T) => row[currentLang] ?? row.en;
 const tArr = (row: Record<AmaraLanguage, string[]>) => row[currentLang] ?? row.en;
 
-const trustLinks = [
-  { token: 'about', label: 'About AMARA' },
-  { token: 'reviews_hub', label: 'Guest Reviews' },
-  { token: 'direct_booking_benefits', label: 'Direct Booking Benefits' }
-];
 
 const footerHighlights: LabeledLink[] = [
   { token: 'amenities', label: t(comfortAmenitiesLinkLabel) },
