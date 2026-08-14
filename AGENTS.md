@@ -1,335 +1,121 @@
-# AGENTS.md — AMARA Project Rules
+# AGENTS.md — AMARA Project Rules and SSOT Gateway
+
+## Authority notice
+
+This file remains the model-neutral implementation gateway. It preserves the important current operational rules while routing durable policy to the AMARA SSOT.
+
+Before material AMARA work, read:
+
+1. `docs/AMARA_REGISTER.md`;
+2. the relevant governing owner;
+3. any explicitly listed interim/feature owner needed for the task.
+
+If this gateway conflicts with a higher owner or an explicitly recorded intentional supersession, the higher owner governs. A conversational shorthand or isolated new statement never silently supersedes an ACTIVE contract; use Reality Reconciliation.
 
 ## Mission
 
 Build AMARA as a premium-feeling Astro website with simple, repeatable architecture.
 
 Default mindset:
-- 98% of the project should use standardized, low-complexity patterns
-- Prefer pragmatic, reusable solutions over abstract or enterprise-heavy systems
-- Keep the site fast, calm, structured, and visibly professional
+- standardized, low-complexity patterns;
+- pragmatic reuse over enterprise-heavy abstraction;
+- fast, calm, structured and visibly professional output;
+- no overengineering.
 
-AMARA should feel like:
-- simple architecture
-- professional signal
-- premium execution
-- no overengineering
-
----
+## Core execution rule
 
-## Core Execution Rule
+**Default: AMARA FAST.**
 
-Always follow this sequence:
+For an already-scoped normal task: **understand -> implement -> targeted validate -> atomic local commit**. The operator's direct instruction to implement the named task counts as confirmation; do not add another approval round.
 
-1. Analyze
-2. Recommend
-3. Wait for explicit confirmation
-4. Implement
+Use deeper analysis/validation only for a concrete shared/infrastructure risk, unresolved contradiction, protected contract or explicit release gate.
 
-Do not jump directly into implementation when architecture, routing, localization structure, design system behavior, or shared components are affected.
+Do not jump directly into implementation when architecture, routing, localization structure, design-system behavior, shared components or other protected contracts are genuinely affected.
 
-If the task is ambiguous and affects system structure:
-- stop
-- explain the decision point
-- ask for confirmation before changing code
+If scope expands, validation fails or repository/document reality materially disagree: stop and report the decision point.
 
----
+**No ritual re-review:** if the agreed fix passes its targeted implementation checks, close the normal task.
 
-## AMARA Default Philosophy
+**No routine full build:** content and bounded local-page work use targeted validation; full builds belong to concrete compile/global risk, shared/infrastructure work or batch/release boundaries.
 
-### Prefer standardization
-Use the existing AMARA patterns by default.
+**Time discipline:** a normal FAST task should usually finish in roughly 5–10 minutes. If it does not, report the concrete blocker/cost instead of silently expanding the audit.
 
-Do:
-- reuse existing layouts
-- reuse existing components
-- reuse existing tokens
-- reuse existing content structures
-- keep page families consistent
-- keep changes narrow and controlled
+## Architecture philosophy
 
-Do not:
-- invent a new pattern for a one-off page
-- create parallel systems
-- create a second visual solution for the same job
-- introduce complexity unless the current standard truly cannot solve the task
+Prefer existing AMARA layouts, components, tokens, content structures and page-family patterns. Keep changes narrow. Do not create parallel systems, duplicate authoring models or speculative future-proofing.
 
-### Taxi, not spaceship
-AMARA is a premium small-site project, not an enterprise platform by default.
+AMARA is Astro-native. Keep Astro simple: few layouts, focused shared components, clear content objects, low page logic and minimal client JavaScript unless it provides a concrete user benefit.
 
-That means:
-- high-quality output
-- low-complexity structure
-- minimal moving parts
-- no unnecessary abstractions
+## Localization rules
 
-Enterprise-grade options may exist in the background, but they are not the default implementation mode.
+The shared cross-language SSOT is **facts, page job, evidence, claim boundaries, required information/topics, conversion intent, meaning depth and material nuance**. English may be used as a practical semantic working reference, but it is **not** a mandatory master language.
 
----
+Each locale must sound natural and market-native. No literal translation, machine phrasing or grammar copied from another language. **Do not shorten away required information, weaken meaning or remove material nuance.** Locale-specific examples/emphasis/additional depth are allowed only when explicitly justified by the locale brief/evidence and never by omitting shared required information.
 
-## Astro Architecture Rules
+Use proper language characters in visible labels, titles and descriptions (for example German/Swedish diacritics). Infrastructure identifiers such as slugs, URLs, tokens and filenames follow the active URL/route contract and should not introduce locale-specific special characters unless that contract explicitly changes.
 
-### Keep Astro simple
-Use Astro like a clean, high-performance, structured website builder.
+Use structured language dictionaries/content objects where practical: one structural page system, localized content by language key, parallel templates only when explicitly justified.
 
-Default approach:
-- few layouts
-- few shared components
-- few page families
-- low logic inside pages
-- clear content objects
-- minimal JS unless clearly needed
-
-Avoid:
-- unnecessary page-family engines
-- abstraction layers for small problems
-- duplicate authoring systems
-- “future-proofing” that increases present complexity without clear benefit
-
----
-
-## Localization Rules
+**Navigation booking CTA contract:** the `Check Availability` / booking CTA must have a native localized label in all five supported locales: EN, DE, ES, NL and SV.
 
-### English is SSOT
-English is the semantic source of truth for meaning.
+## Design system rules
 
-This means:
-- preserve meaning exactly
-- preserve information depth
-- preserve factual accuracy
-- do not shorten
-- do not add new meaning
-- do not remove nuance
+High visual quality does not justify architectural complexity. Preserve hierarchy, section rhythm, spacing discipline, typography hierarchy and component consistency. Do not redesign while cleaning up or refactoring unless redesign is the approved objective.
 
-### Localization is NOT literal translation
-All target languages must sound natural, idiomatic, and market-native.
+If a page/variant is designated a visual master, preserve its visible output unless the approved workstream explicitly changes composition.
 
-Use:
-- native hospitality phrasing
-- market-appropriate wording
-- language that a real guest-facing premium apartment brand would use
+## Component rules
 
-Do not use:
-- literal translation
-- machine-sounding wording
-- grammar copied from English
-- terms that are technically correct but unnatural in market context
-
-Always ask internally:
-- “How would a native speaker really say this on a boutique hospitality website?”
+Reuse first. Introduce or expand a component only for a real recurring use case that improves consistency without creating a parallel system.
 
-### Use language dictionaries / content objects
-Localization should use structured language dictionaries or page-family content objects where practical.
-
-Preferred pattern:
-- one page structure
-- one content object
-- one language key per locale
-- same structure, different language content
-
-Avoid:
-- hardcoded full-page copy per language when a structured content object would keep the page family cleaner
-- parallel templates per language unless explicitly approved
+Shared components such as Navigation, Footer, Hero, FAQ, CTA and Layouts are high-risk: state scope risk, consider global consumers, keep changes minimal and avoid unrelated cleanup.
 
----
+## Hero rules
 
-## Design System Rules
-
-### Professional signal, simple structure
-The site must look highly professional, intentional, and premium.
+Hero components are system-critical. Do not improvise new hero structures, switch hero families casually or change spacing/composition during unrelated refactors. Use the canonical family pattern when one exists.
 
-But do not confuse visual quality with architectural complexity.
+## Routing / Registry / Slug rules
 
-Do:
-- preserve visual hierarchy
-- preserve section rhythm
-- preserve spacing discipline
-- preserve typography hierarchy
-- preserve component consistency
+Treat slugs, route ownership, registry behavior, link resolution, language routing and route generation as infrastructure. Do not change them without the explicit alignment required by the active URL/route contract and Decision Register.
 
-Do not:
-- redesign while “cleaning up”
-- modernize without approval
-- subtly change composition during refactors
-- replace a proven component with a different look just because it seems cleaner
+Use the existing `linkRegistry.ts` and `routeOwnership.ts` contracts for navigation logic where applicable. Do not introduce silent cross-language fallbacks, hidden routing aliases or invented token behavior.
 
-### Design freeze rule
-If the user identifies a page or variant as the visual master:
-- treat that version as frozen
-- preserve its visible output
-- unify logic underneath it
-- do not change visual composition unless explicitly requested
-
----
+## Current external booking boundary
 
-## Component Rules
+Astro is the sole AMARA **website** runtime. The current external booking / availability / checkout boundary remains separately governed and active until an explicit architecture workstream changes it.
 
-### Reuse first
-Before creating or changing a component, check whether an existing AMARA component already solves the need.
+For that scope, the current interim owner is `AMARA-BOOKING-ARCHITECTURE.md` and the centralized repository helper it references. Do not hardcode booking hosts elsewhere, point booking CTAs at an OTA, or let external operational data overwrite authored AMARA content outside its approved data boundary.
 
-Only introduce or expand a component if:
-- there is a real recurring use case
-- it improves consistency
-- it does not create a parallel system
+## Trust page rules
 
-### Shared components are high-risk
-When editing shared components such as:
-- Navigation
-- Footer
-- Hero
-- FAQ
-- CTA
-- Layouts
-
-always:
-- state the scope risk clearly
-- verify possible global side effects
-- keep changes minimal
-- avoid unrelated cleanup
+Trust pages should remain clear, calm, premium and reassuring. Preserve their approved visual family and avoid mixed CTA patterns, half-localized states or accidental page-family splits.
 
----
+## Code rules
 
-## Hero Rules
-
-Hero components are system-critical.
+Code must be production-ready, narrow in scope and consistent with project conventions. Comments are in professional English and explain architectural intent rather than narrating obvious syntax. Do not leave temporary hacks or unapproved fallback systems.
 
-Do not:
-- improvise new hero structures
-- switch hero components casually
-- change hero spacing or composition during refactors
-- move to a different hero style without approval
-
-If one hero is designated as the canonical standard for a family:
-- use that one
-- preserve the approved visual output exactly
+## Validation rules
 
----
+Validation follows Governance risk classes rather than one universal full-build rule. Use targeted checks for micro/content edits, page/browser/build validation for local structural work and broader cross-consumer validation for shared/infrastructure changes.
 
-## Routing / Registry / Slug Rules
+When a shared component changes, verify representative unrelated consumers. When localization changes, verify the affected locale is complete and natural. A wrong visible page is FAIL even if tests pass.
 
-Treat these as infrastructure.
+## What to avoid by default
 
-Do not change without explicit approval:
-- slugs
-- route ownership
-- registry behavior
-- link resolution logic
-- navigation language behavior
-- route generation scope
+Avoid broad refactors, architecture rewrites, registry cleanups during unrelated work, design refreshes, page-family redesigns, new component systems and enterprise-level abstraction for small tasks unless explicitly approved.
 
-Never introduce:
-- hidden fallbacks
-- silent cross-language redirects
-- fake availability in the UI
-- invented token behavior
-
-Infrastructure stability overrides convenience.
+## Operator commands
 
-### Booking hosts are infrastructure too
-
-The Lodgify booking engine lives on its own host. All booking links derive from the single
-`DIRECT_BOOKING_ORIGIN` constant in `src/lib/directBooking.ts`.
+`AMARA FAST: ...` means: use the minimum-safe FAST execution posture. Do not repeat settled research, do not add a post-fix review, and do not run a full production build unless a concrete risk requires it.
 
-Do not:
-- hardcode a booking hostname anywhere else
-- point booking CTAs at an OTA
-- let the Lodgify API overwrite authored content — only price, minimum stay and availability
-  may come from it
+`Bitte in die AMARA SSOT aufnehmen: ...` means: classify the information and place/recommend it in the smallest correct SSOT owner/inbox; do not automatically version multiple documents immediately.
 
-See `AMARA-BOOKING-ARCHITECTURE.md` for the full model and the cutover runbook.
+`AMARA SSOT SYNC` means: consolidate pending SSOT items once, update only owners whose normative meaning changed, update the Register/Change Ledger, and prepare one documentation commit.
 
----
+`OK, in die SSOT übernehmen.` authorizes the already-aligned documentation-only canonical update; it does not authorize unrelated website/runtime changes.
 
-## Trust Page Rules
+`Bitte AMARA SSOT Audit durchführen.` means: audit active owners, decisions, review triggers, duplication and repository/document divergence.
 
-Trust pages must feel:
-- clear
-- calm
-- premium
-- reassuring
-- structurally consistent
+## AMARA one-line principle
 
-Do not let trust pages drift into:
-- inconsistent hero systems
-- mixed CTA patterns
-- half-localized states
-- page-family splits
-
-When working on trust pages:
-- preserve the approved visual family
-- standardize underneath
-- keep the visible result coherent
-
----
-
-## Code Rules
-
-All code must be:
-- production-ready
-- copy-paste-ready
-- narrow in scope
-- consistent with existing project conventions
-
-Comments should:
-- be in professional English
-- explain architectural intent
-- explain why the structure exists
-- avoid trivial narration
-
-Do not:
-- leave behind temporary hacks
-- introduce fallback logic without approval
-- mix cleanup with implementation unless explicitly requested
-
----
-
-## Validation Rules
-
-After implementation, always verify:
-- build still passes
-- no unrelated files were changed without reason
-- shared components did not regress globally
-- approved visual references remain visually unchanged where required
-- localization did not shorten or distort meaning
-
-If a task touched a shared component:
-- verify at least one unrelated page that also uses it
-
-If a task touched localization:
-- verify no English leftovers remain where localized content was expected
-- verify the result sounds native, not translated
-
----
-
-## What to Avoid by Default
-
-Avoid these unless explicitly approved:
-- broad refactors
-- architecture rewrites
-- registry cleanups during unrelated work
-- design refreshes
-- page-family redesigns
-- introducing new component systems
-- enterprise-level abstraction for small page tasks
-
----
-
-## Preferred Delivery Style
-
-When responding with implementation work:
-- explain the smallest safe change
-- identify exact files affected
-- mention risks if shared systems are touched
-- keep changes controlled
-- do not bundle unrelated improvements
-
-When architecture is involved:
-- recommend the strategically better option
-- do not stay neutral if one option is clearly safer
-- but do not implement without explicit confirmation
-
----
-
-## AMARA One-Line Principle
-
-Simple architecture. Professional signal.
+**Simple architecture. Professional signal.**
