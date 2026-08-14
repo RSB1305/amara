@@ -1,0 +1,936 @@
+---
+// The study is intentionally standalone so experimental composition cannot alter public homepage architecture.
+import '../../../styles/global.css';
+import { createAmaraImage } from '../../../lib/images/amaraImageProfiles';
+import {
+  cinematicApartments,
+  type CinematicAptToken,
+  cinematicCollectionEyebrow,
+  cinematicCollectionTitle,
+  cinematicGuideEyebrow,
+  cinematicGuideLinks,
+  cinematicGuideTitle,
+  cinematicHeroImageAlt,
+  cinematicHeroKicker,
+  cinematicHeroLead,
+  cinematicPhilosophyAccent,
+  cinematicPhilosophyLabel,
+  cinematicPhilosophyP1,
+  cinematicPhilosophyP2,
+  cinematicPhilosophyPart1,
+  cinematicScrollHint,
+  cinematicStatRatingLabel,
+  cinematicStatRatingValue,
+  cinematicStatReviewsLabel,
+  cinematicStatReviewsValue,
+  cinematicTrustChips,
+  cinematicTrustCta,
+  cinematicTrustCtaPrimary,
+  cinematicTrustQuote,
+  navApartments,
+  navExperiences,
+  navReviews,
+  type CopyRow
+} from '../../../content/homeCinematicCopy';
+import imgLounis from '../../../assets/images/home/amara-lounis-15-amara-frigiliana.jpg';
+import imgFarah from '../../../assets/images/home/amara-farah-67-amara-frigiliana.jpg';
+import imgZaid from '../../../assets/images/home/amara-zaid-terraza-5.jpg';
+import imgMaha from '../../../assets/images/home/amara-maha-29-amara-frigiliana.jpg';
+import imgPlaya from '../../../assets/images/home/amara-playa-chaparril-13.webp';
+import imgCasa from '../../../assets/images/home/amara-tarifa-apartment01.webp';
+
+const english = (copy: CopyRow) => copy.en;
+
+const imageByApartment: Record<CinematicAptToken, typeof imgLounis> = {
+  farah: imgFarah,
+  lounis: imgLounis,
+  zaid: imgZaid,
+  maha: imgMaha,
+  playa: imgPlaya,
+  casa: imgCasa
+};
+
+const heroImage = await createAmaraImage(imgLounis, 'hero', { quality: 60 });
+const apartmentStudies = await Promise.all(
+  cinematicApartments.map(async (apartment) => {
+    const image = await createAmaraImage(imageByApartment[apartment.token], 'card', { quality: 65 });
+
+    return {
+      ...apartment,
+      image
+    };
+  })
+);
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="noindex, nofollow" />
+    <title>AMARA Homepage Design Study B</title>
+  </head>
+  <body class="bg-surface-white font-body text-on-surface antialiased">
+    <div class="study-b">
+      <div class="study-b__label" aria-label="Internal design study">
+        DESIGN LAB <span aria-hidden="true">·</span> HOMEPAGE B
+      </div>
+
+      <!-- This inert header tests visual hierarchy only and deliberately avoids public navigation behavior. -->
+      <header class="study-header" aria-label="Homepage header study">
+        <span class="study-header__brand">AMARA</span>
+        <div class="study-header__nav" aria-hidden="true">
+          <span>{english(navExperiences)}</span>
+          <span>{english(navApartments)}</span>
+          <span>{english(navReviews)}</span>
+        </div>
+        <button class="study-header__action" type="button" disabled>
+          {english(cinematicTrustCtaPrimary)}
+        </button>
+      </header>
+
+      <main>
+        <section class="hero" aria-labelledby="study-hero-title">
+          <div class="hero__copy">
+            <p class="eyebrow">{english(cinematicHeroKicker)}</p>
+            <h1 id="study-hero-title">AMARA</h1>
+            <p class="hero__lead">{english(cinematicHeroLead)}</p>
+            <div class="hero__footnote">
+              <span>{english(cinematicScrollHint)}</span>
+              <span aria-hidden="true">01 / 05</span>
+            </div>
+          </div>
+
+          <figure class="hero__media">
+            <img
+              src={heroImage.src}
+              srcset={heroImage.srcSet.attribute}
+              sizes="(max-width: 767px) 100vw, 58vw"
+              alt={english(cinematicHeroImageAlt)}
+              width={heroImage.attributes.width as number}
+              height={heroImage.attributes.height as number}
+              loading="eager"
+              fetchpriority="high"
+              decoding="async"
+            />
+            <figcaption>Casa AMARA <span>Frigiliana, Andalucía</span></figcaption>
+          </figure>
+        </section>
+
+        <section class="philosophy" aria-labelledby="philosophy-title">
+          <div class="section-marker">
+            <span>02</span>
+            <span>{english(cinematicPhilosophyLabel)}</span>
+          </div>
+
+          <div class="philosophy__statement">
+            <h2 id="philosophy-title">
+              {english(cinematicPhilosophyPart1)}
+              <span>{english(cinematicPhilosophyAccent)}</span>
+            </h2>
+          </div>
+
+          <div class="philosophy__body">
+            <p>{english(cinematicPhilosophyP1)}</p>
+            <p>{english(cinematicPhilosophyP2)}</p>
+          </div>
+
+          <dl class="philosophy__stats">
+            <div>
+              <dt>{english(cinematicStatReviewsLabel)}</dt>
+              <dd>{cinematicStatReviewsValue}</dd>
+            </div>
+            <div>
+              <dt>{english(cinematicStatRatingLabel)}</dt>
+              <dd>{english(cinematicStatRatingValue)}</dd>
+            </div>
+          </dl>
+        </section>
+
+        <section class="stay-guide" aria-labelledby="stay-guide-title">
+          <div class="section-marker">
+            <span>03</span>
+            <span>{english(cinematicGuideEyebrow)}</span>
+          </div>
+
+          <div class="stay-guide__heading">
+            <h2 id="stay-guide-title">{english(cinematicGuideTitle)}</h2>
+          </div>
+
+          <ol class="stay-guide__list">
+            {
+              cinematicGuideLinks.map((guide, index) => (
+                <li>
+                  <span class="stay-guide__number">{String(index + 1).padStart(2, '0')}</span>
+                  <div>
+                    <h3>{english(guide.label)}</h3>
+                    <p>{english(guide.text)}</p>
+                  </div>
+                  <span class="stay-guide__arrow" aria-hidden="true">↗</span>
+                </li>
+              ))
+            }
+          </ol>
+        </section>
+
+        <section class="collection" aria-labelledby="collection-title">
+          <div class="collection__heading">
+            <div class="section-marker">
+              <span>04</span>
+              <span>{english(cinematicCollectionEyebrow)}</span>
+            </div>
+            <h2 id="collection-title">{english(cinematicCollectionTitle)}</h2>
+          </div>
+
+          <!-- Uneven spans and image ratios make the six stays read as an editorial sequence instead of repeated cards. -->
+          <div class="property-grid">
+            {
+              apartmentStudies.map((apartment, index) => (
+                <article class:list={['property', `property--${apartment.token}`]}>
+                  <figure class="property__media">
+                    <img
+                      src={apartment.image.src}
+                      srcset={apartment.image.srcSet.attribute}
+                      sizes="(max-width: 767px) 100vw, (max-width: 1099px) 50vw, 58vw"
+                      alt={english(apartment.imageAlt)}
+                      width={apartment.image.attributes.width as number}
+                      height={apartment.image.attributes.height as number}
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  </figure>
+                  <div class="property__copy">
+                    <span class="property__index">{String(index + 1).padStart(2, '0')}</span>
+                    <div>
+                      <p class="property__meta">{english(apartment.meta)}</p>
+                      <h3>AMARA {apartment.name}</h3>
+                      <p class="property__subtitle">{english(apartment.subtitle)}</p>
+                      <p class="property__description">{english(apartment.desc)}</p>
+                      <span class="property__action">{english(apartment.exploreLabel)}</span>
+                    </div>
+                  </div>
+                </article>
+              ))
+            }
+          </div>
+        </section>
+
+        <section class="trust" aria-labelledby="trust-title">
+          <div class="section-marker">
+            <span>05</span>
+            <span>{english(cinematicStatReviewsLabel)}</span>
+          </div>
+
+          <div class="trust__score" aria-label={`${english(cinematicStatRatingValue)} ${english(cinematicStatRatingLabel)}`}>
+            <span>{english(cinematicStatRatingValue)}</span>
+            <p>{english(cinematicStatRatingLabel)}</p>
+          </div>
+
+          <div class="trust__quote">
+            <h2 id="trust-title">{english(cinematicTrustQuote)}</h2>
+            <p>{cinematicStatReviewsValue} {english(cinematicStatReviewsLabel)}</p>
+          </div>
+
+          <ul class="trust__proof" aria-label="Stay highlights">
+            {cinematicTrustChips.en.map((feature) => <li>{feature}</li>)}
+          </ul>
+
+          <div class="trust__actions" aria-hidden="true">
+            <span>{english(cinematicTrustCtaPrimary)}</span>
+            <span>{english(cinematicTrustCta)}</span>
+          </div>
+        </section>
+      </main>
+    </div>
+  </body>
+</html>
+
+<style>
+  .study-b {
+    min-height: 100vh;
+    overflow: hidden;
+    background: var(--color-surface-white);
+    color: var(--color-on-surface);
+  }
+
+  .study-b__label {
+    border-bottom: 1px solid var(--color-outline-variant);
+    padding: 0.7rem clamp(1.25rem, 3vw, 3.5rem);
+    font-family: var(--font-label);
+    font-size: 0.625rem;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-align: center;
+  }
+
+  .study-header {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+    min-height: 5.5rem;
+    border-bottom: 1px solid var(--color-outline-variant);
+    padding: 0 clamp(1.25rem, 3vw, 3.5rem);
+  }
+
+  .study-header__brand {
+    font-family: var(--font-body);
+    font-size: 1rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+  }
+
+  .study-header__nav {
+    display: flex;
+    align-items: center;
+    gap: clamp(1.5rem, 3vw, 3.5rem);
+    font-size: 0.75rem;
+  }
+
+  .study-header__action {
+    justify-self: end;
+    border: 1px solid var(--color-on-surface);
+    border-radius: 0;
+    padding: 0.75rem 1.1rem;
+    background: transparent;
+    color: var(--color-on-surface);
+    font-family: var(--font-body);
+    font-size: 0.6875rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    opacity: 1;
+  }
+
+  .hero {
+    display: grid;
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    min-height: calc(100svh - 7.9rem);
+    border-bottom: 1px solid var(--color-outline-variant);
+  }
+
+  .hero__copy {
+    display: flex;
+    grid-column: 1 / span 5;
+    flex-direction: column;
+    justify-content: center;
+    padding: clamp(4rem, 9vw, 8rem) clamp(2rem, 5vw, 5rem) 2rem clamp(1.25rem, 3vw, 3.5rem);
+  }
+
+  .eyebrow,
+  .section-marker,
+  .property__meta,
+  .property__index,
+  .stay-guide__number {
+    font-family: var(--font-label);
+    font-size: 0.6875rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+  }
+
+  .eyebrow {
+    color: var(--color-primary);
+  }
+
+  .hero h1 {
+    margin-top: 1.5rem;
+    font-family: var(--font-body);
+    font-size: clamp(4rem, 9vw, 8.5rem);
+    font-weight: 700;
+    letter-spacing: -0.075em;
+    line-height: 0.85;
+  }
+
+  .hero__lead {
+    max-width: 29rem;
+    margin-top: 2.5rem;
+    font-size: clamp(1.25rem, 1.6vw, 1.75rem);
+    line-height: 1.45;
+  }
+
+  .hero__footnote {
+    display: flex;
+    justify-content: space-between;
+    margin-top: auto;
+    padding-top: 4rem;
+    color: var(--color-muted);
+    font-size: 0.6875rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  .hero__media {
+    position: relative;
+    grid-column: 6 / -1;
+    min-height: 40rem;
+    overflow: hidden;
+    background: var(--color-surface-container-low);
+  }
+
+  .hero__media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .hero__media figcaption {
+    position: absolute;
+    right: 1.5rem;
+    bottom: 1.5rem;
+    left: 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    padding-top: 0.75rem;
+    border-top: 1px solid color-mix(in srgb, var(--color-surface-white) 65%, transparent);
+    color: var(--color-surface-white);
+    font-size: 0.6875rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .section-marker {
+    display: flex;
+    justify-content: space-between;
+    gap: 2rem;
+    padding-top: 0.75rem;
+    border-top: 1px solid var(--color-outline);
+    color: var(--color-muted);
+  }
+
+  .philosophy {
+    display: grid;
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    gap: 0 clamp(1rem, 2vw, 2rem);
+    padding: clamp(6rem, 11vw, 11rem) clamp(1.25rem, 3vw, 3.5rem);
+  }
+
+  .philosophy > .section-marker {
+    grid-column: 1 / span 3;
+  }
+
+  .philosophy__statement {
+    grid-column: 5 / -1;
+  }
+
+  .philosophy__statement h2 {
+    max-width: 58rem;
+    font-family: var(--font-body);
+    font-size: clamp(2.75rem, 6.4vw, 7rem);
+    font-weight: 400;
+    letter-spacing: -0.06em;
+    line-height: 0.98;
+  }
+
+  .philosophy__statement h2 span {
+    display: block;
+    font-family: var(--font-headline);
+    font-weight: 300;
+    letter-spacing: -0.03em;
+  }
+
+  .philosophy__body {
+    grid-column: 5 / span 5;
+    padding-top: clamp(3rem, 7vw, 7rem);
+  }
+
+  .philosophy__body p {
+    margin-bottom: 1.5rem;
+    color: var(--color-on-surface-variant);
+    font-size: 1rem;
+    line-height: 1.75;
+  }
+
+  .philosophy__stats {
+    grid-column: 10 / -1;
+    align-self: end;
+    padding-top: clamp(3rem, 7vw, 7rem);
+  }
+
+  .philosophy__stats div {
+    display: flex;
+    flex-direction: column-reverse;
+    padding: 1.25rem 0;
+    border-top: 1px solid var(--color-outline-variant);
+  }
+
+  .philosophy__stats dt {
+    color: var(--color-muted);
+    font-size: 0.6875rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  .philosophy__stats dd {
+    margin-bottom: 0.25rem;
+    font-family: var(--font-body);
+    font-size: clamp(2rem, 4vw, 4rem);
+    font-weight: 700;
+    letter-spacing: -0.05em;
+    line-height: 1;
+  }
+
+  .stay-guide {
+    display: grid;
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    gap: 3rem clamp(1rem, 2vw, 2rem);
+    padding: clamp(5rem, 9vw, 8rem) clamp(1.25rem, 3vw, 3.5rem);
+    border-block: 1px solid var(--color-outline-variant);
+    background: var(--color-surface-container-low);
+  }
+
+  .stay-guide > .section-marker {
+    grid-column: 1 / span 3;
+  }
+
+  .stay-guide__heading {
+    grid-column: 5 / -1;
+  }
+
+  .stay-guide__heading h2,
+  .collection__heading h2,
+  .trust__quote h2 {
+    font-family: var(--font-body);
+    font-size: clamp(2.25rem, 4.8vw, 5.25rem);
+    font-weight: 400;
+    letter-spacing: -0.05em;
+    line-height: 1.02;
+  }
+
+  .stay-guide__list {
+    grid-column: 5 / -1;
+    margin: 2rem 0 0;
+    padding: 0;
+    border-bottom: 1px solid var(--color-outline);
+    list-style: none;
+  }
+
+  .stay-guide__list li {
+    display: grid;
+    grid-template-columns: 3rem minmax(0, 1fr) auto;
+    gap: 1.5rem;
+    align-items: start;
+    padding: 1.5rem 0;
+    border-top: 1px solid var(--color-outline);
+  }
+
+  .stay-guide__list h3 {
+    font-size: 1rem;
+    font-weight: 700;
+  }
+
+  .stay-guide__list p {
+    max-width: 35rem;
+    margin-top: 0.35rem;
+    color: var(--color-on-surface-variant);
+    font-size: 0.875rem;
+    line-height: 1.55;
+  }
+
+  .stay-guide__number,
+  .stay-guide__arrow {
+    color: var(--color-muted);
+  }
+
+  .collection {
+    padding: clamp(6rem, 11vw, 11rem) clamp(1.25rem, 3vw, 3.5rem);
+  }
+
+  .collection__heading {
+    display: grid;
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    gap: 2rem clamp(1rem, 2vw, 2rem);
+    margin-bottom: clamp(5rem, 9vw, 9rem);
+  }
+
+  .collection__heading .section-marker {
+    grid-column: 1 / span 3;
+  }
+
+  .collection__heading h2 {
+    grid-column: 5 / -1;
+  }
+
+  .property-grid {
+    display: grid;
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    gap: clamp(6rem, 12vw, 12rem) clamp(1.25rem, 3vw, 3.5rem);
+    align-items: start;
+  }
+
+  .property {
+    display: grid;
+    gap: 1.5rem;
+  }
+
+  .property--farah {
+    grid-column: 1 / span 7;
+  }
+
+  .property--lounis {
+    grid-column: 9 / -1;
+    margin-top: 9rem;
+  }
+
+  .property--zaid {
+    grid-column: 2 / span 4;
+  }
+
+  .property--maha {
+    grid-column: 7 / -1;
+    margin-top: 5rem;
+  }
+
+  .property--playa {
+    grid-column: 1 / span 6;
+    margin-top: 6rem;
+  }
+
+  .property--casa {
+    grid-column: 8 / -1;
+  }
+
+  .property__media {
+    overflow: hidden;
+    background: var(--color-surface-container-low);
+  }
+
+  .property__media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .property--farah .property__media,
+  .property--maha .property__media {
+    aspect-ratio: 4 / 3;
+  }
+
+  .property--lounis .property__media,
+  .property--zaid .property__media,
+  .property--casa .property__media {
+    aspect-ratio: 4 / 5;
+  }
+
+  .property--playa .property__media {
+    aspect-ratio: 16 / 10;
+  }
+
+  .property__copy {
+    display: grid;
+    grid-template-columns: 2.25rem minmax(0, 1fr);
+    gap: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--color-outline);
+  }
+
+  .property__index,
+  .property__meta {
+    color: var(--color-muted);
+  }
+
+  .property__copy h3 {
+    margin-top: 0.5rem;
+    font-family: var(--font-body);
+    font-size: clamp(1.5rem, 2.7vw, 2.75rem);
+    font-weight: 700;
+    letter-spacing: -0.04em;
+    line-height: 1.05;
+  }
+
+  .property__subtitle {
+    margin-top: 0.35rem;
+    font-family: var(--font-headline);
+    font-size: 1.35rem;
+    line-height: 1.2;
+  }
+
+  .property__description {
+    max-width: 35rem;
+    margin-top: 1.25rem;
+    color: var(--color-on-surface-variant);
+    font-size: 0.875rem;
+    line-height: 1.65;
+  }
+
+  .property__action {
+    display: inline-block;
+    margin-top: 1.5rem;
+    padding-bottom: 0.25rem;
+    border-bottom: 1px solid var(--color-on-surface);
+    font-size: 0.6875rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  .trust {
+    display: grid;
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    gap: 3rem clamp(1rem, 2vw, 2rem);
+    padding: clamp(6rem, 10vw, 10rem) clamp(1.25rem, 3vw, 3.5rem);
+    border-top: 1px solid var(--color-outline);
+  }
+
+  .trust > .section-marker {
+    grid-column: 1 / span 3;
+  }
+
+  .trust__score {
+    grid-column: 1 / span 3;
+    padding-top: 2rem;
+  }
+
+  .trust__score > span {
+    display: block;
+    font-size: clamp(5rem, 10vw, 10rem);
+    font-weight: 700;
+    letter-spacing: -0.09em;
+    line-height: 0.8;
+  }
+
+  .trust__score p {
+    margin-top: 1rem;
+    color: var(--color-muted);
+    font-size: 0.6875rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  .trust__quote {
+    grid-column: 5 / -1;
+    padding-top: 2rem;
+  }
+
+  .trust__quote h2 {
+    max-width: 56rem;
+  }
+
+  .trust__quote > p {
+    margin-top: 2rem;
+    color: var(--color-muted);
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  .trust__proof {
+    display: grid;
+    grid-column: 5 / -1;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    margin: 2rem 0 0;
+    padding: 0;
+    border-bottom: 1px solid var(--color-outline);
+    list-style: none;
+  }
+
+  .trust__proof li {
+    padding: 1.25rem 0;
+    border-top: 1px solid var(--color-outline);
+    font-size: 0.875rem;
+  }
+
+  .trust__proof li:nth-child(odd) {
+    padding-right: 1.5rem;
+  }
+
+  .trust__proof li:nth-child(even) {
+    padding-left: 1.5rem;
+    border-left: 1px solid var(--color-outline);
+  }
+
+  .trust__actions {
+    display: flex;
+    grid-column: 5 / -1;
+    flex-wrap: wrap;
+    gap: 1rem 3rem;
+    padding-top: 1rem;
+  }
+
+  .trust__actions span {
+    padding-bottom: 0.3rem;
+    border-bottom: 1px solid var(--color-on-surface);
+    font-size: 0.6875rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  @media (max-width: 1099px) {
+    .study-header {
+      grid-template-columns: 1fr auto;
+    }
+
+    .study-header__nav {
+      display: none;
+    }
+
+    .hero__copy {
+      grid-column: 1 / span 6;
+    }
+
+    .hero__media {
+      grid-column: 7 / -1;
+    }
+
+    .philosophy > .section-marker,
+    .stay-guide > .section-marker,
+    .collection__heading .section-marker,
+    .trust > .section-marker,
+    .trust__score {
+      grid-column: 1 / span 4;
+    }
+
+    .philosophy__statement,
+    .philosophy__body,
+    .stay-guide__heading,
+    .stay-guide__list,
+    .collection__heading h2,
+    .trust__quote,
+    .trust__proof,
+    .trust__actions {
+      grid-column: 5 / -1;
+    }
+
+    .philosophy__body {
+      grid-column-end: span 6;
+    }
+
+    .philosophy__stats {
+      grid-column: 11 / -1;
+    }
+
+    .property--farah,
+    .property--playa {
+      grid-column: 1 / span 7;
+    }
+
+    .property--lounis,
+    .property--maha,
+    .property--casa {
+      grid-column: 8 / -1;
+    }
+
+    .property--zaid {
+      grid-column: 2 / span 5;
+    }
+  }
+
+  @media (max-width: 767px) {
+    .study-b__label {
+      text-align: left;
+    }
+
+    .study-header {
+      min-height: 4.75rem;
+    }
+
+    .study-header__action {
+      padding: 0.65rem 0.75rem;
+      font-size: 0.5625rem;
+    }
+
+    .hero {
+      display: flex;
+      min-height: 0;
+      flex-direction: column;
+    }
+
+    .hero__copy {
+      min-height: 32rem;
+      padding: 5rem 1.25rem 1.5rem;
+    }
+
+    .hero h1 {
+      font-size: clamp(4rem, 25vw, 7rem);
+    }
+
+    .hero__media {
+      min-height: 34rem;
+    }
+
+    .hero__media figcaption {
+      right: 1rem;
+      bottom: 1rem;
+      left: 1rem;
+    }
+
+    .philosophy,
+    .stay-guide,
+    .trust {
+      display: block;
+    }
+
+    .philosophy > *,
+    .stay-guide > *,
+    .trust > * {
+      margin-top: 3rem;
+    }
+
+    .philosophy > .section-marker,
+    .stay-guide > .section-marker,
+    .trust > .section-marker {
+      margin-top: 0;
+    }
+
+    .philosophy__body,
+    .philosophy__stats,
+    .stay-guide__list,
+    .trust__proof {
+      padding-top: 0;
+    }
+
+    .philosophy__stats {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1.5rem;
+    }
+
+    .stay-guide__list li {
+      grid-template-columns: 2rem minmax(0, 1fr) auto;
+      gap: 0.75rem;
+    }
+
+    .collection__heading {
+      display: block;
+    }
+
+    .collection__heading h2 {
+      margin-top: 3rem;
+    }
+
+    .property-grid {
+      display: block;
+    }
+
+    .property {
+      margin: 0 0 6rem;
+    }
+
+    .property__media,
+    .property--farah .property__media,
+    .property--maha .property__media,
+    .property--playa .property__media {
+      aspect-ratio: 4 / 5;
+    }
+
+    .property__copy {
+      grid-template-columns: 2rem minmax(0, 1fr);
+    }
+
+    .trust__score {
+      padding-top: 0;
+    }
+
+    .trust__proof {
+      grid-template-columns: 1fr;
+    }
+
+    .trust__proof li:nth-child(odd),
+    .trust__proof li:nth-child(even) {
+      padding-inline: 0;
+      border-left: 0;
+    }
+  }
+</style>
