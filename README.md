@@ -109,6 +109,8 @@ The repository has a focused automated test suite plus the build gate:
 
 - `npm run typecheck` — the primary safety net for everyday edits
 - `npm run typecheck:tools` — strict checking for the dev-only internal tools
+- `npm run typecheck:tests` — strict checking for test code and its configuration
+- `npm run audit:dependencies` — blocks known high and critical npm vulnerabilities
 - `npm run test:contracts` — booking, localization, route and link contracts
 - `npm run test:browser` — real-browser smoke tests for interactive behaviour
 - `check-public-slug-policy` — slug collisions, duplicates, redirect chains and loops

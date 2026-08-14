@@ -25,9 +25,15 @@ jobs:
 
       - run: npm ci
 
+      # Block known high and critical dependency vulnerabilities. Lower-severity
+      # advisories remain visible without turning CI into a noisy patch gate.
+      - run: npm run audit:dependencies
+
       # Dev-only tools are outside the production Astro typecheck, but they are
       # still maintained code and must not regress unnoticed.
       - run: npm run typecheck:tools
+
+      - run: npm run typecheck:tests
 
       # Contract tests protect booking, localization, routing and registry
       # semantics before broader shared components are refactored.
