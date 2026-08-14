@@ -1,53 +1,145 @@
-# Astro Starter Kit: Minimal
+# AMARA Lodging — website
 
-```sh
-npm create astro@latest -- --template minimal
+Static Astro site for AMARA Lodging: six holiday rentals in Frigiliana, Nerja and
+Tarifa, published in five languages across roughly 470 pages.
+
+The site is static-first by design. There is no server runtime, no hydration in the
+production output, and no client-side framework on the page. Booking, availability
+and checkout live behind a separate external boundary (see below).
+
+## Setup
+
+Requires Node 24 (`.nvmrc` pins the version).
+
+```bash
+npm install
+npm run dev
 ```
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+The dev server runs on port 4321.
 
-## 🚀 Project Structure
+## Everyday commands
 
-Inside of your Astro project, you'll see the following folders and files:
+| Command | What it does |
+|---|---|
+| `npm run dev` | Dev server, including the internal tools at `/tools/*` |
+| `npm run typecheck` | Astro + TypeScript check. Fast; run this after any edit. |
+| `npm run check` | Typecheck plus the slug, fallback and image policy checks |
+| `npm run build` | Production build. Runs `npm run check` first and fails on any error. |
+| `npm run preview` | Serve the built `dist/` locally |
 
-```text
-/
-├── public/
-├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
+A production build needs `PUBLIC_SITE_URL`:
+
+```bash
+PUBLIC_SITE_URL=https://amara-lodging.es npm run build
 ```
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+The build aborts without it rather than emitting wrong canonical URLs.
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+## How the code is organised
 
-Any static assets, like images, can be placed in the `public/` directory.
+```
+src/
+  pages/           Thin route wrappers. One file per public URL.
+  pages/_tools/    Internal tools. Dev-only; never in the production build.
+  page-families/   The actual page implementations, grouped by page job.
+  layouts/         Document shells (BaseLayout, LocationAuthorityLayout, …)
+  components/      Shared UI. Navigation and Footer have site-wide reach.
+  content/         Authored copy and page data, one module per page family.
+  lib/             Resolvers and contracts (links, routes, SEO, images, booking)
+  assets/images/   Images processed by the build
+  styles/          global.css and the design tokens
+scripts/           Policy checks that run before and after the build
+docs/              Architecture and governance documents (see AGENTS.md)
+```
 
-## 🧞 Commands
+The flow for any page is:
 
-All commands are run from the root of the project, from a terminal:
+**route wrapper** (`src/pages/…`) → **page family** (`src/page-families/…`) →
+**content module** (`src/content/…`) + **resolvers** (`src/lib/…`) →
+**layout and components**.
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+Dependencies point downward only. Content modules and page families use `lib`;
+`lib` never imports from them. Within `lib`, `linkRegistry` builds on
+`routeOwnership`, so `routeOwnership` must not import back from the registry.
 
-## 👀 Want to learn more?
+## Internal links
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+Never hardcode an internal URL. Links resolve through the registry:
 
-## AMARA Link Governance
+```ts
+import { resolveLink, resolveOptionalLink, type LinkToken } from '../lib/linkResolver';
 
-- Use `resolveOptionalLink(..., { suppressMissing: true })` for optional shared surfaces such as footer highlights, related links, or other reusable promotional link groups.
-- Use strict `resolveLink()` for structural shell surfaces such as navigation, legal/footer core links, and required canonical CTAs.
-- Only use cross-language fallback via `fallbackLang` when a page or component deliberately requests that behavior at the call site.
-- Never encode cross-language fallback as a hidden registry default.
-- Run `npm run check:link-policy` when shared components or page-family surfaces add new link resolution logic.
-- Run `npm run check:fallback-policy` when introducing any deliberate cross-language fallback exception.
-- Booking links are not registry links. Derive them from `src/lib/directBooking.ts` and never hardcode a booking hostname — see [AMARA-BOOKING-ARCHITECTURE.md](AMARA-BOOKING-ARCHITECTURE.md).
+// Required link — throws at build time if it cannot resolve.
+const href = resolveLink('location_nerja', lang, { context: 'Nerja geography' });
+
+// Optional link — returns null so the surface can omit the entry.
+const maybe = resolveOptionalLink('nerja_weather', lang, { suppressMissing: true });
+```
+
+`LinkToken` is derived from `linkRegistry.ts`, so an invalid token is a compile
+error. Any field that stores a token should be typed `LinkToken`, not `string`.
+
+## Adding a route or page family
+
+1. Search the repository first for an existing page covering the same topic and
+   search intent. Duplicate intent is the failure mode here, not missing pages.
+2. Add the token and localized paths to `src/lib/linkRegistry.ts`.
+3. Add the slug to `src/lib/routeOwnership.ts` / the canonical slug list.
+4. Create the page family under `src/page-families/<family>/`, reusing an
+   existing layout and the shared components.
+5. Put the copy in a content module under `src/content/`, and annotate the
+   export with its interface so the declared shape is actually enforced.
+6. Add the route wrappers: `src/pages/<slug>.astro` and
+   `src/pages/[lang]/<slug>.astro`.
+7. Run `npm run check`.
+
+Spanish is unprefixed; `de`, `en`, `nl` and `sv` are language-prefixed. All five
+locales must carry the same facts and required information — see the localization
+rules in `AGENTS.md`.
+
+## Quality gates
+
+There is no separate CI service and no unit test suite. The gate is the build:
+
+- `npm run typecheck` — the primary safety net for everyday edits
+- `check-public-slug-policy` — slug collisions, duplicates, redirect chains and loops
+- `check-fallback-policy` — restricts `fallbackLang` to approved files
+- `check-image-policy` — responsive image delivery, in source and in `dist`
+- `postbuild.mjs` — structured data audit and SEO title policy assertions
+
+Because `prebuild` runs all of these, a commit that breaks any of them fails the
+deploy build. That is the CI.
+
+## Internal tools
+
+`/tools/component-library`, `/tools/styleguide`, `/tools/design-lab`,
+`/tools/converter` and `/tools/guest-welcome` are internal surfaces. They live in
+`src/pages/_tools/`, which Astro's file router ignores, and are mounted as routes
+only in the dev server. To include them in a local QA build:
+
+```bash
+AMARA_INCLUDE_INTERNAL_TOOLS=true PUBLIC_SITE_URL=https://amara-lodging.es npm run build
+```
+
+They are excluded from the typecheck.
+
+## Booking boundary
+
+Booking, availability and checkout are handled by an external provider. All
+booking URLs are built in `src/lib/directBooking.ts`. Do not hardcode booking
+hosts anywhere else and do not point a booking CTA at an OTA. The contract is
+owned by `AMARA-BOOKING-ARCHITECTURE.md`.
+
+## Deployment
+
+Cloudflare Pages builds from the repository and serves `dist/`.
+`PUBLIC_SITE_URL` must be set in the Production environment. Redirects live in
+`astro.config.mjs` and in the Cloudflare redirect list, both covered by the slug
+policy check.
+
+## Working conventions
+
+`AGENTS.md` is the operating contract for day-to-day work: change classes, what
+counts as a protected contract, and when to consult `docs/AMARA_REGISTER.md`.
+Read it before making structural changes.
