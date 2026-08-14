@@ -1,8 +1,9 @@
+import type { LinkToken } from '../lib/linkResolver';
 import type { AmaraAuthoringSeo, AmaraLanguage } from '../types/seo';
 
 export interface NerjaLocationHubLink {
   label: string;
-  token?: 'getting_to_nerja' | 'nerja_where_to_stay' | 'playa' | 'nerja_experience_hub';
+  token?: LinkToken;
   anchor?: string;
 }
 

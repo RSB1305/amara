@@ -16,7 +16,7 @@ import imgLounisTerrace from '../../assets/images/home/amara-lounis-17-amara-fri
 import imgMaha from '../../assets/images/home/amara-maha-29-amara-frigiliana.jpg';
 import imgPlaya from '../../assets/images/home/amara-playa-chaparril-13.webp';
 import imgTarifa from '../../assets/images/home/amara-tarifa-apartment01.webp';
-import { resolveOptionalLink } from '../../lib/linkResolver';
+import { resolveOptionalLink, type LinkToken, type LabeledLink } from '../../lib/linkResolver';
 import { normalizeLanguage } from '../../lib/seo/resolve-seo-head';
 import { comfortAmenitiesLinkLabel } from '../../content/comfortAmenitiesLinkLabel';
 import { guestReviewsCopy } from '../../content/guestReviewsContent';
@@ -386,7 +386,7 @@ const trustLinks = [
   { token: 'direct_booking_benefits', label: 'Direct Booking Benefits' }
 ];
 
-const footerHighlights = [
+const footerHighlights: LabeledLink[] = [
   { token: 'amenities', label: t(comfortAmenitiesLinkLabel) },
   { token: 'faq_general', label: t({ en: 'Stay FAQ', de: 'Aufenthalts-FAQ', es: 'FAQ de la estancia', nl: 'Verblijfs-FAQ', sv: 'FAQ för vistelsen' }) },
   { token: 'instagram', label: t({ en: 'Instagram', de: 'Instagram', es: 'Instagram', nl: 'Instagram', sv: 'Instagram' }) }
@@ -623,7 +623,7 @@ function cardCtaLabel(rental: VacationRentalEntity): string {
   return labels[currentLang];
 }
 
-const optionalLink = (token: string) =>
+const optionalLink = (token: LinkToken) =>
   resolveOptionalLink(token, currentLang, { suppressMissing: true });
 const collectionHref = '#booking';
 const bookHref = optionalLink('book');

@@ -9,7 +9,7 @@ import {
   gettingToTarifaSeo
 } from '../../content/gettingToTarifaContent';
 import LocationAuthorityLayout from '../../layouts/LocationAuthorityLayout.astro';
-import { resolveOptionalLink } from '../../lib/linkResolver';
+import { resolveLink, type LinkToken, type LabeledLink } from '../../lib/linkResolver';
 import { normalizeLanguage } from '../../lib/seo/resolve-seo-head';
 import type { AmaraLanguage } from '../../types/seo';
 
@@ -21,20 +21,13 @@ const { lang = 'es' } = Astro.props;
 const currentLang = normalizeLanguage(lang as AmaraLanguage);
 const content = gettingToTarifaContent[currentLang];
 
-const requiredLink = (token: string) => {
-  const href = resolveOptionalLink(token, currentLang, { suppressMissing: true });
-
-  if (!href) {
-    throw new Error(`[Getting to Tarifa] Missing required link token: ${token}`);
-  }
-
-  return href;
-};
+const requiredLink = (token: LinkToken) =>
+  resolveLink(token, currentLang, { context: 'Getting to Tarifa' });
 
 const aboutHref = requiredLink('about');
 const locationHref = requiredLink('location_tarifa');
 const areasHref = requiredLink('tarifa_where_to_stay');
-const footerHighlights = [
+const footerHighlights: LabeledLink[] = [
   { token: 'getting_to_tarifa', label: content.navLabel },
   { token: 'location_tarifa', label: 'Tarifa' },
   { token: 'tarifa_where_to_stay', label: content.closing.areasLabel }

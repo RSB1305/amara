@@ -8,13 +8,12 @@
   "scripts": {
     "dev": "astro dev",
     "typecheck": "astro check",
-    "prebuild": "npm run check:slug-policy && npm run check:link-policy && npm run check:fallback-policy && npm run check:image-policy",
+    "prebuild": "npm run typecheck && npm run check:slug-policy && npm run check:fallback-policy && npm run check:image-policy",
     "build": "astro build",
     "postbuild": "node scripts/postbuild.mjs && node scripts/check-image-policy.mjs --dist",
     "preview": "astro preview",
     "astro": "astro",
     "check:slug-policy": "node scripts/check-public-slug-policy.mjs",
-    "check:link-policy": "node scripts/check-shared-link-policy.mjs",
     "check:fallback-policy": "node scripts/check-fallback-policy.mjs",
     "check:image-policy": "node scripts/check-image-policy.mjs",
     "check:structured-data": "node scripts/check-structured-data.mjs"

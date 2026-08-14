@@ -12,13 +12,13 @@
  * font/size utilities (see `<style>` comment). The CTA remains `.am-btn`.
  */
 import { trustLabels } from '../content/trustLabels';
-import { resolveLink, resolveOptionalLink } from '../lib/linkResolver';
+import { resolveLink, resolveOptionalLink, type LinkToken } from '../lib/linkResolver';
 import { isPublicLinkEnabled } from '../lib/routeOwnership';
 import { AMARA_LANGUAGE_LABELS } from '../lib/languageLabels';
 import type { AmaraLanguage } from '../types/seo';
 
 interface NavLink {
-  token: string;
+  token: LinkToken;
   label?: string;
   /** Non-interactive “coming soon” row (span + badge); checked before global token disable rules. */
   disabled?: boolean;
@@ -268,7 +268,7 @@ const normalizePath = (path: string) => {
   return path.endsWith('/') ? path.slice(0, -1) : path;
 };
 
-function getLanguageHref(token: string, code: AmaraLanguage) {
+function getLanguageHref(token: LinkToken, code: AmaraLanguage) {
   try {
     return resolveOptionalLink(token, code, { suppressMissing: true });
   } catch {
@@ -288,7 +288,7 @@ const getBrandHref = () =>
   resolveOptionalLink('home', currentLang, { suppressMissing: true }) ??
   (currentLang === 'es' ? '/' : `/${currentLang}/`);
 
-const getIsActive = (token: string, href: string) => {
+const getIsActive = (token: LinkToken, href: string) => {
   if (languageToken) {
     return token === languageToken;
   }
@@ -297,7 +297,7 @@ const getIsActive = (token: string, href: string) => {
 };
 
 type GlobalNavItem = {
-  token: string;
+  token: LinkToken;
   label: string;
   description?: string;
   sectionLabel?: string;

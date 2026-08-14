@@ -5,22 +5,43 @@ import type { AmaraLanguage } from '../types/seo';
 type AmaraLinkRegistry = typeof linkRegistry;
 type RegistryEntry = AmaraLinkRegistry['links'][keyof AmaraLinkRegistry['links']];
 
+/**
+ * Every internal link token AMARA knows, derived from the registry itself.
+ * A typo or a retired token is a compile error, not a runtime surprise.
+ */
+export type LinkToken = keyof AmaraLinkRegistry['links'];
+
+/**
+ * A registry link paired with its authored label. Shared by footer highlight
+ * groups and related-link lists, which all carry exactly this shape.
+ */
+export interface LabeledLink {
+  token: LinkToken;
+  label: string;
+}
+
 interface ResolveLinkOptions {
   fallbackLang?: AmaraLanguage;
   suppressMissing?: boolean;
+  /** Names the calling surface in error messages, e.g. 'Nerja geography'. */
+  context?: string;
 }
 
 /**
  * AMARA-v3 Safety Guard
  */
 if (!linkRegistry || !linkRegistry.links) {
-  console.error('[AMARA-v3] Registry Import fehlgeschlagen. Inhalt von linkRegistry:', linkRegistry);
-  throw new Error('[AMARA-v3 CRITICAL] linkRegistry konnte nicht geladen werden. PrÃ¼fe Export/Import!');
+  console.error('[AMARA-v3] Registry import failed. Contents of linkRegistry:', linkRegistry);
+  throw new Error('[AMARA-v3 CRITICAL] linkRegistry could not be loaded. Check export/import.');
 }
 
 const registry: AmaraLinkRegistry = linkRegistry;
 
-function getRegistryEntry(token: string): { finalKey: string; entry: RegistryEntry } {
+function describeContext(context?: string): string {
+  return context ? `[${context}] ` : '';
+}
+
+function getRegistryEntry(token: LinkToken): { finalKey: LinkToken; entry: RegistryEntry } {
   if (!token) {
     throw new Error('[AMARA-v3 LINK ERROR] Critical: No token provided.');
   }
@@ -28,7 +49,7 @@ function getRegistryEntry(token: string): { finalKey: string; entry: RegistryEnt
   const entry: RegistryEntry | undefined = registry.links[token];
 
   if (!entry) {
-    throw new Error(`[AMARA-v3 LINK ERROR] Registry Mismatch: Der Token "${token}" existiert nicht.`);
+    throw new Error(`[AMARA-v3 LINK ERROR] Registry mismatch: the token "${token}" does not exist.`);
   }
 
   return { finalKey: token, entry };
@@ -37,7 +58,7 @@ function getRegistryEntry(token: string): { finalKey: string; entry: RegistryEnt
 // Optional shared surfaces should suppress missing links by default instead of
 // hiding cross-language fallback inside registry data.
 export function resolveOptionalLink(
-  token: string,
+  token: LinkToken,
   lang: AmaraLanguage,
   options: ResolveLinkOptions = {}
 ): string | null {
@@ -64,22 +85,29 @@ export function resolveOptionalLink(
       return null;
     }
 
-    throw new Error(`[AMARA-v3 LINK ERROR] Translation Missing: "${finalKey}" fÃ¼r "${lang}".`);
+    throw new Error(
+      `${describeContext(options.context)}[AMARA-v3 LINK ERROR] Translation missing: "${finalKey}" for "${lang}".`
+    );
   }
 
-  throw new Error(`[AMARA-v3 LINK ERROR] Invalid Registry Format: "${finalKey}"`);
+  throw new Error(
+    `${describeContext(options.context)}[AMARA-v3 LINK ERROR] Invalid registry format: "${finalKey}"`
+  );
 }
 
 // Structural shell, legal, and required canonical surfaces should stay strict.
+// Pass `context` so a build failure names the surface that needs the link.
 export function resolveLink(
-  token: string,
+  token: LinkToken,
   lang: AmaraLanguage,
   options: ResolveLinkOptions = {}
 ): string {
   const resolved = resolveOptionalLink(token, lang, options);
 
   if (!resolved) {
-    throw new Error(`[AMARA-v3 LINK ERROR] Translation Missing: "${token}" für "${lang}".`);
+    throw new Error(
+      `${describeContext(options.context)}[AMARA-v3 LINK ERROR] Translation missing: "${token}" for "${lang}".`
+    );
   }
 
   return resolved;

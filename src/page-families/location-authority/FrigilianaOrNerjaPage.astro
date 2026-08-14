@@ -9,7 +9,7 @@ import {
 import { frigilianaLocationCopy } from '../../content/frigilianaLocationContent';
 import { stayCollectionLabels } from '../../content/stayCollectionLabels';
 import LocationAuthorityLayout from '../../layouts/LocationAuthorityLayout.astro';
-import { resolveOptionalLink } from '../../lib/linkResolver';
+import { resolveLink, type LinkToken, type LabeledLink } from '../../lib/linkResolver';
 import { normalizeLanguage } from '../../lib/seo/resolve-seo-head';
 import type { AmaraLanguage } from '../../types/seo';
 
@@ -26,19 +26,8 @@ const navLinks = frigilianaLocationCopy.nav.links.map((link) => ({
   label: link.label[currentLang]
 }));
 
-function requiredLink(token: string): string {
-  const href = resolveOptionalLink(token, currentLang, {
-    suppressMissing: true
-  });
-
-  if (!href) {
-    throw new Error(
-      `[AMARA] Required link token "${token}" is missing for "${currentLang}".`
-    );
-  }
-
-  return href;
-}
+const requiredLink = (token: LinkToken) =>
+  resolveLink(token, currentLang, { context: 'Frigiliana or Nerja' });
 
 const links = {
   frigilianaLocation: requiredLink('location_frigiliana'),
@@ -76,7 +65,7 @@ const footerLabels: Record<
 };
 
 const footer = footerLabels[currentLang];
-const footerHighlights = [
+const footerHighlights: LabeledLink[] = [
   {
     token: 'romantic_hideaways',
     label: stayCollectionLabels.structuralName[currentLang]

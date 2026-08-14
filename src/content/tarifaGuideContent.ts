@@ -1,3 +1,4 @@
+import type { LinkToken } from '../lib/linkResolver';
 import type { AmaraAuthoringSeo, AmaraLanguage } from '../types/seo';
 
 export type TarifaGuideId = 'overview' | 'wind' | 'beaches';
@@ -86,7 +87,7 @@ export interface TarifaLocationAuthorityCopy {
 }
 
 interface TarifaGuideBase {
-  token: string;
+  token: LinkToken;
   seo: AmaraAuthoringSeo;
   navLabel: LocalizedText;
   breadcrumbLabel: LocalizedText;

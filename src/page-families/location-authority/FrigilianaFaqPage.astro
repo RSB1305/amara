@@ -15,7 +15,7 @@ import {
   getFrigilianaPreFooterDescription
 } from '../../content/frigilianaPreFooterContent';
 import LocationAuthorityLayout from '../../layouts/LocationAuthorityLayout.astro';
-import { resolveOptionalLink } from '../../lib/linkResolver';
+import { resolveOptionalLink, type LabeledLink } from '../../lib/linkResolver';
 import { buildOwnedLocalizedPath } from '../../lib/routeOwnership';
 import { normalizeLanguage } from '../../lib/seo/resolve-seo-head';
 import type { AmaraLanguage } from '../../types/seo';
@@ -100,7 +100,7 @@ const relatedLinks = copy.related.links.flatMap((link) => {
     : [];
 });
 
-const footerHighlights = [
+const footerHighlights: LabeledLink[] = [
   {
     token: 'frigiliana_faq',
     label: t(copy.nav.links[2].label)

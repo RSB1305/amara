@@ -1,4 +1,5 @@
 ---
+import type { LinkToken } from '../lib/linkResolver';
 // src/layouts/LocationAuthorityLayout.astro
 import BaseLayout from './BaseLayout.astro';
 import type { AmaraAuthoringSeo, AmaraLanguage } from '../types/seo';
@@ -6,7 +7,7 @@ import type { AmaraAuthoringSeo, AmaraLanguage } from '../types/seo';
 interface Props {
   seo: AmaraAuthoringSeo;
   pageLang?: AmaraLanguage;
-  footerHighlights?: { token: string; label: string }[];
+  footerHighlights?: { token: LinkToken; label: string }[];
   showContextNavigation?: boolean;
   bodyBackgroundClass?: string;
 }

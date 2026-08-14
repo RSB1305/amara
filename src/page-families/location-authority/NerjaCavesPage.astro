@@ -8,7 +8,7 @@ import {
   nerjaCavesSeo
 } from '../../content/nerjaCavesContent';
 import LocationAuthorityLayout from '../../layouts/LocationAuthorityLayout.astro';
-import { resolveOptionalLink } from '../../lib/linkResolver';
+import { resolveLink, type LinkToken, type LabeledLink } from '../../lib/linkResolver';
 import { normalizeLanguage } from '../../lib/seo/resolve-seo-head';
 import type { AmaraLanguage } from '../../types/seo';
 
@@ -20,21 +20,14 @@ const { lang = 'es' } = Astro.props;
 const currentLang = normalizeLanguage(lang as AmaraLanguage);
 const content = nerjaCavesContent[currentLang];
 
-const requiredLink = (token: string) => {
-  const href = resolveOptionalLink(token, currentLang, { suppressMissing: true });
-
-  if (!href) {
-    throw new Error(`[Nerja caves] Missing required link token: ${token}`);
-  }
-
-  return href;
-};
+const requiredLink = (token: LinkToken) =>
+  resolveLink(token, currentLang, { context: 'Nerja caves' });
 
 const aboutHref = requiredLink('about');
 const locationHref = requiredLink('location_nerja');
 const propertyHref = requiredLink('playa');
 const personalImage = '/images/nerja/nerja-cave-VR.jpeg';
-const footerHighlights = [
+const footerHighlights: LabeledLink[] = [
   { token: 'nerja_caves', label: content.navLabel },
   { token: 'nerja_geography', label: content.related.links[0].label },
   { token: 'nerja_weather', label: content.related.links[1].label }

@@ -7,7 +7,7 @@ import {
   nerjaGeographySeo
 } from '../../content/nerjaGeographyContent';
 import LocationAuthorityLayout from '../../layouts/LocationAuthorityLayout.astro';
-import { resolveOptionalLink } from '../../lib/linkResolver';
+import { resolveLink, type LinkToken, type LabeledLink } from '../../lib/linkResolver';
 import { normalizeLanguage } from '../../lib/seo/resolve-seo-head';
 import type { AmaraLanguage } from '../../types/seo';
 
@@ -19,20 +19,13 @@ const { lang = 'es' } = Astro.props;
 const currentLang = normalizeLanguage(lang as AmaraLanguage);
 const content = nerjaGeographyContent[currentLang];
 
-const requiredLink = (token: string) => {
-  const href = resolveOptionalLink(token, currentLang, { suppressMissing: true });
-
-  if (!href) {
-    throw new Error(`[Nerja geography] Missing required link token: ${token}`);
-  }
-
-  return href;
-};
+const requiredLink = (token: LinkToken) =>
+  resolveLink(token, currentLang, { context: 'Nerja geography' });
 
 const aboutHref = requiredLink('about');
 const locationHref = requiredLink('location_nerja');
 const propertyHref = requiredLink('playa');
-const footerHighlights = [
+const footerHighlights: LabeledLink[] = [
   { token: 'nerja_geography', label: content.navLabel },
   { token: 'getting_to_nerja', label: content.related.links[0].label },
   { token: 'nerja_where_to_stay', label: content.related.links[1].label }

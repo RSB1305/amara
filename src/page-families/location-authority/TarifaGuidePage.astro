@@ -10,7 +10,7 @@ import {
   type TarifaGuideContent
 } from '../../content/tarifaGuideContent';
 import LocationAuthorityLayout from '../../layouts/LocationAuthorityLayout.astro';
-import { resolveOptionalLink } from '../../lib/linkResolver';
+import { resolveLink, type LinkToken, type LabeledLink } from '../../lib/linkResolver';
 import { normalizeLanguage } from '../../lib/seo/resolve-seo-head';
 import type { AmaraLanguage } from '../../types/seo';
 
@@ -22,15 +22,8 @@ interface Props {
 const { content, lang = 'es' } = Astro.props;
 const currentLang = normalizeLanguage(lang as AmaraLanguage);
 const t = (value: LocalizedText) => value[currentLang];
-const requiredLink = (token: string) => {
-  const href = resolveOptionalLink(token, currentLang, { suppressMissing: true });
-
-  if (!href) {
-    throw new Error(`[Tarifa guide] Missing required link token: ${token}`);
-  }
-
-  return href;
-};
+const requiredLink = (token: LinkToken) =>
+  resolveLink(token, currentLang, { context: 'Tarifa guide' });
 const stayHref = requiredLink('casa');
 const bookHref = requiredLink('book');
 const aboutHref = requiredLink('about');
@@ -140,7 +133,7 @@ const ui = {
   }
 } satisfies Record<string, LocalizedText>;
 
-const footerHighlights = [
+const footerHighlights: LabeledLink[] = [
   { token: 'location_tarifa', label: 'Tarifa' },
   { token: 'tarifa_experience_hub', label: 'Experience' },
   { token: 'tarifa_wind_kitesurfing_authority', label: t(tarifaGuideContent.wind.navLabel) },

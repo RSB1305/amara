@@ -5,7 +5,7 @@ import TrustHero from '../../components/hero/TrustHero.astro';
 import EditorialClosingCta from '../../components/editorial/EditorialClosingCta.astro';
 import AmaraImage from '../../components/AmaraImage.astro';
 import { trustLabels } from '../../content/trustLabels';
-import { resolveOptionalLink } from '../../lib/linkResolver';
+import { resolveOptionalLink, type LabeledLink } from '../../lib/linkResolver';
 import { normalizeLanguage } from '../../lib/seo/resolve-seo-head';
 import type { AmaraAuthoringSeo, AmaraLanguage } from '../../types/seo';
 
@@ -67,7 +67,7 @@ const trustFooterLabels = {
   }
 } as const;
 
-const footerHighlights = [
+const footerHighlights: LabeledLink[] = [
   { token: 'amenities', label: trustFooterLabels.amenities[currentLang] },
   { token: 'reviews_hub', label: trustFooterLabels.reviews_hub[currentLang] },
   { token: 'instagram', label: trustFooterLabels.instagram[currentLang] }

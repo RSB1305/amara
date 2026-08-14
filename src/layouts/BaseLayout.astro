@@ -4,7 +4,7 @@ import type { AmaraAuthoringSeo, AmaraLanguage } from '../types/seo';
 import BackToTop from '../components/BackToTop.astro';
 import Footer from '../components/Footer.astro';
 import GlobalContextNavigation from '../components/navigation/GlobalContextNavigation.astro';
-import { resolveLink } from '../lib/linkResolver';
+import { resolveLink, type LinkToken } from '../lib/linkResolver';
 import {
   normalizeLanguage,
   OG_LOCALES,
@@ -16,7 +16,7 @@ import '../styles/global.css';
 interface Props {
   seo: AmaraAuthoringSeo;
   pageLang?: AmaraLanguage;
-  footerHighlights?: { token: string; label: string }[];
+  footerHighlights?: { token: LinkToken; label: string }[];
   /** Optional compact label for the final item in the global breadcrumb. */
   contextBreadcrumbTitle?: string;
   /** Disable only when a page family supplies its own location-specific context navigation. */

@@ -14,7 +14,7 @@ import { directBookingTrustSignals } from '../../content/directBookingBenefitsCo
 import { airbnbRatingLabel, airbnbReviewEvidence } from '../../content/reviewEvidence';
 import { stayCollectionLabels } from '../../content/stayCollectionLabels';
 import { trustLabels } from '../../content/trustLabels';
-import { resolveOptionalLink } from '../../lib/linkResolver';
+import { resolveOptionalLink, type LabeledLink } from '../../lib/linkResolver';
 import { buildRentalBookingUrl } from '../../lib/directBooking';
 import { normalizeLanguage } from '../../lib/seo/resolve-seo-head';
 import type { AmaraLanguage } from '../../types/seo';
@@ -612,7 +612,7 @@ const navLinks = [
   { token: 'reviews_hub' },
   { token: 'direct_booking_benefits' }
 ];
-const footerHighlights = [
+const footerHighlights: LabeledLink[] = [
   { token: 'romantic_hideaways', label: t(stayCollectionLabels.shortLabel) },
   { token: 'amenities', label: t(ui.amenitiesTitle as LocalizedText) },
   { token: 'faq_general', label: 'FAQ' }

@@ -24,7 +24,7 @@ import {
 } from '../../content/comfortAmenitiesContent';
 import { trustLabels } from '../../content/trustLabels';
 import { vacationRentalEntities } from '../../content/vacationRentalEntities';
-import { resolveOptionalLink } from '../../lib/linkResolver';
+import { resolveOptionalLink, type LabeledLink } from '../../lib/linkResolver';
 import { buildOwnedLocalizedPath } from '../../lib/routeOwnership';
 import { normalizeLanguage } from '../../lib/seo/resolve-seo-head';
 import type { AmaraLanguage } from '../../types/seo';
@@ -34,7 +34,7 @@ const currentLang = normalizeLanguage(lang as AmaraLanguage);
 const page = comfortAmenitiesCopy[currentLang];
 const seo = comfortAmenitiesSeo;
 const navBrandLabel = comfortAmenitiesNav.brandLabel[currentLang];
-const footerHighlights = [
+const footerHighlights: LabeledLink[] = [
   { token: 'reviews_hub', label: page.hero.ctaReviews },
   { token: 'faq_general', label: comfortAmenitiesFooterLabels.faq_general[currentLang] },
   { token: 'instagram', label: comfortAmenitiesFooterLabels.instagram[currentLang] }

@@ -1,3 +1,4 @@
+import type { LinkToken } from '../lib/linkResolver';
 import type { AmaraAuthoringSeo, AmaraLanguage } from '../types/seo';
 import { trustLabels } from './trustLabels';
 import {
@@ -10,7 +11,7 @@ import {
 
 type LocalizedText = Record<AmaraLanguage, string>;
 const languages: AmaraLanguage[] = ['en', 'de', 'es', 'nl', 'sv'];
-type NavEntry = { token: string; label: string };
+type NavEntry = { token: LinkToken; label: string };
 type PropertySpecs = {
   license: string;
   maxOccupancy: LocalizedText;

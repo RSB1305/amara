@@ -1,3 +1,4 @@
+import type { LinkToken } from '../lib/linkResolver';
 import type { AmaraAuthoringSeo, AmaraLanguage } from '../types/seo';
 
 export interface TarifaWeatherSection {
@@ -30,7 +31,7 @@ export interface TarifaWeatherLocale {
   related: {
     eyebrow: string;
     title: string;
-    links: Array<{ token: string; label: string; text: string }>;
+    links: Array<{ token: LinkToken; label: string; text: string }>;
   };
   sources: {
     eyebrow: string;

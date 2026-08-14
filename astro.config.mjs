@@ -120,7 +120,8 @@ function normalizeSitemapUrl(url) {
 }
 
 /**
- * @param {{ url: string, links?: Array<{ url: string }> }} item
+ * @param {import('@astrojs/sitemap').SitemapItem} item
+ * @returns {import('@astrojs/sitemap').SitemapItem}
  */
 function normalizeSitemapItem(item) {
   return {

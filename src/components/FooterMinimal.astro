@@ -1,12 +1,12 @@
 ---
-import { resolveOptionalLink } from '../lib/linkResolver';
+import { resolveOptionalLink, type LinkToken } from '../lib/linkResolver';
 import { isPublicLinkEnabled } from '../lib/routeOwnership';
 import { comfortAmenitiesLinkLabel } from '../content/comfortAmenitiesLinkLabel';
 import { stayCollectionLabels } from '../content/stayCollectionLabels';
 import type { AmaraLanguage } from '../types/seo';
 
 interface FooterLink {
-  token: string;
+  token: LinkToken;
   label: string;
 }
 

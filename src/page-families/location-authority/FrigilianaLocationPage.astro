@@ -18,7 +18,7 @@ import {
 import { comfortAmenitiesLinkLabel } from '../../content/comfortAmenitiesLinkLabel';
 import { stayCollectionLabels } from '../../content/stayCollectionLabels';
 import { trustLabels } from '../../content/trustLabels';
-import { resolveOptionalLink } from '../../lib/linkResolver';
+import { resolveOptionalLink, type LinkToken, type LabeledLink } from '../../lib/linkResolver';
 import { getFrigilianaLocationSectionOrder } from '../../lib/frigiliana/frigilianaLocationSectionOrder';
 import { buildOwnedLocalizedPath } from '../../lib/routeOwnership';
 import { normalizeLanguage } from '../../lib/seo/resolve-seo-head';
@@ -40,7 +40,7 @@ type EditorialImageAlt = {
 const { lang = 'es' } = Astro.props;
 const currentLang = normalizeLanguage(lang as AmaraLanguage);
 const c = frigilianaLocationCopy[currentLang];
-const optionalLink = (token: string) =>
+const optionalLink = (token: LinkToken) =>
   resolveOptionalLink(token, currentLang, { suppressMissing: true });
 
 // These two spokes intentionally preserve the approved route-ownership mechanism.
@@ -92,7 +92,7 @@ const navLinks = frigilianaLocationNav.links.map((link) => ({
   label: link.label[currentLang]
 }));
 
-const footerHighlights = [
+const footerHighlights: LabeledLink[] = [
   {
     token: 'romantic_hideaways',
     label: stayCollectionLabels.structuralName[currentLang]
