@@ -1,18 +1,17 @@
 ---
 document_id: AMARA-GOV-005
 title: AMARA Governance, Execution & Documentation Lifecycle
-version: 5.4.0
-status: PROPOSED
+version: 5.5.0
+status: ACTIVE
 authority_class: GOVERNING CONTRACT
 effective_from: 2026-08-14
-last_modified: 2026-08-14T12:30:00+02:00
+last_modified: 2026-08-14T12:59:47+02:00
 canonical_path: /docs/standards/05_AMARA_Governance_Execution_and_Documentation_Lifecycle_V5.md
 supersedes:
   - AMARA Governance & Execution Standard V4.2
   - AMARA Efficient Execution Protocol V1.0
   - AMARA AI Execution Productivity & Focus Guardrail V1.0
-activation_state: PENDING_COMPATIBILITY_GATE
-candidate_iteration: FAST-FIRST
+activation_state: ACTIVE
 decision_refs:
   - DR-DOC-001
   - DR-DOC-005
@@ -39,26 +38,27 @@ Governance protects architectural integrity, factual/content quality, user-visib
 
 **Use the minimum process necessary to make the approved change safely. More process is justified only when it reduces a concrete risk.**
 
-## 2. Focus Lock
+## 2. Current work order
 
-Every material workstream begins with:
+The operator's current request is the only active work order.
 
-- **CURRENT WORKSTREAM** — bounded area being worked on;
-- **CURRENT OBJECTIVE** — single result the current implementation must deliver.
+Handovers, TODOs, audits, inventories, maintenance notes and suggested next steps are context only unless the operator explicitly selects them. Anything that does not directly block the requested result is parked.
 
-Anything that does not directly block that objective is **PARKED**.
+## 3. Daily execution model
 
-## 3. Mandatory sequence
+For normal Class 0–2 work:
 
-1. **Analysis** — identify actual problem, current owner, page/surface type where relevant and structural implications.
-2. **Recommendation** — state preferred direction and material trade-offs.
-3. **Explicit confirmation** — required before architecture, shared systems, page structure, protected contracts or runtime infrastructure proceeds.
-4. **Implementation** — execute confirmed scope.
-5. **Validation** — proportionate to actual risk and failure modes.
-6. **Commit** — one coherent commit for the objective when included in the confirmed execution contract.
-7. **Push/deployment** — separate permission unless the operator's confirmed instruction explicitly includes it.
+1. understand the requested result and identify the smallest complete implementation scope;
+2. implement with existing approved patterns;
+3. run targeted validation against the changed scope;
+4. stage exact files and create one atomic local commit when included in the work order;
+5. push or deploy only with separate permission.
 
-For an already-scoped FAST task, the operator's direct instruction to implement the named change **is the confirmation**. Do not add a second approval ceremony merely because code or content will be edited.
+The operator's direct implementation request is confirmation. Class 0–2 work does not require a separate analysis/recommendation/approval sequence.
+
+Deliver the requested result in the turn. Ask only when unresolved ambiguity would materially change the result, create substantial avoidable rework or trigger an irreversible/high-risk action. Do not offer process, tooling, audit or validation work as an optional next step; offer only meaningful content, product or scope choices when a genuine choice remains.
+
+Architecture/SSOT work and changes to protected Class-3 contracts require relevant owner context and explicit alignment before implementation.
 
 ## 4. Align once, execute once
 
@@ -80,7 +80,9 @@ Copy in existing fields while preserving page job, section structure, layout, ro
 Local section/composition/markup/presentation changes without changing shared owners.
 
 ### Class 3 — Shared / Infrastructure Change
-Shared layouts/components, global navigation/footer, Link Registry, route ownership, canonical/hreflang, structured-data/head resolvers, redirects/public paths, global CSS/tokens, build pipeline, global analytics/consent or other protected shared contracts.
+Changes to the system itself: resolver semantics, canonical/hreflang architecture, route ownership architecture, Link Registry semantics, global navigation architecture, global CSS/tokens, broadly shared infrastructure/components, build pipeline, analytics/consent architecture, booking/checkout architecture or other protected contracts.
+
+Using an existing approved page family, route pattern, registry mechanism, resolver, component pattern or localization structure is normal implementation, not a Class-3 architecture change.
 
 ### FAST-first execution default
 
@@ -90,12 +92,14 @@ FAST means:
 
 - reuse already-approved analysis, research, facts and copy instead of repeating them;
 - edit the smallest complete owner scope immediately after confirmation;
-- use targeted source/diff checks and only the browser checks that directly test the visible change;
-- for multilingual work, browser-check representative locales and verify remaining locales by source/string checks unless the change itself is locale-specific;
+- treat documentation as reference material, not a cumulative checklist whose relevant sections must all be executed in sequence;
+- use targeted source/diff checks and only the existing tools or browser checks that directly test the visible change;
+- do not create new documentation, tests, audit scripts, validation utilities, inventories, npm checks or guardrails merely to validate the task; create permanent tooling only when the operator requests it;
 - do **not** run a full production build for ordinary content/local-page work unless the change creates a concrete compile/runtime risk;
-- a successful targeted implementation validation closes the normal task — **no mandatory post-fix re-review**;
+- require no second-agent review, post-fix re-review, full production build or five-locale browser matrix for normal Class 0–2 work;
+- a successful targeted implementation validation closes the normal task;
 - prefer one implementation pass and one atomic local commit;
-- if a normal FAST task is not heading to completion within roughly 5–10 minutes, stop and report the concrete blocker/cost instead of silently expanding the audit.
+- deliver a normal FAST result within roughly 5–10 minutes total, including validation; if that is not happening, report the concrete blocker/cost instead of expanding the process.
 
 The operator command **`AMARA FAST: ...`** explicitly requests this minimum-safe execution posture. If the requested change is objectively Class 3 or would alter a protected contract, the agent must say so and return to alignment rather than pretending it is FAST.
 
@@ -105,14 +109,19 @@ The operator defines the desired result. The system translates it into the small
 
 ## 7. Minimum Necessary Context
 
-Default read set:
+For normal Class 0–2 work, `AGENTS.md` is sufficient operating context. The default read set is:
 
 - working-tree status when repository state matters;
-- named task owner;
-- direct data sources/imports/consumers only when needed;
-- active Register plus relevant owner document for structural work.
+- files named by or directly required for the current request;
+- direct data sources, imports and consumers only when needed.
 
-Do not default to full repository audits, full Git history, all page families or repeated research already approved in the workstream.
+Do not automatically read the Register, Governance, Constitution, SEO, URL, Astro or other owner documents. Read the Register and relevant owner only when:
+
+1. the operator explicitly requests architecture or SSOT work;
+2. the task would change a protected contract; or
+3. implementation reveals a concrete contradiction or uncertainty.
+
+Do not default to full repository audits, full Git history, all page families, all owner documents or repeated research already approved in the workstream.
 
 ## 8. Scope rule
 
@@ -138,7 +147,7 @@ Implementation work owns repository ownership discovery, smallest safe implement
 
 Investigate repeated problems in this order: layout -> shared component -> shared data/content model -> page family -> individual page.
 
-Fix at the highest stable reusable layer that genuinely owns the problem. Existing patterns are not automatically correct forever: verify owner, rationale and current fitness before structural reuse.
+Reuse an existing approved pattern when it fits the requested result. Reading architecture owners or reopening the pattern's rationale is unnecessary unless the task would change the pattern or reveals a concrete conflict. Fix at the highest stable reusable layer that genuinely owns the problem without expanding a local task into a redesign.
 
 ## 12. Page/content alignment
 
@@ -148,7 +157,7 @@ For new pages or material restructuring, confirm dominant strategic job, surface
 
 Material public copy/new pages/major rewrites/multi-language creation require a brief covering dominant job, search intent, guest questions, verified proof, information order, conversion goal, limitations and locale notes. Cross-language required information, meaning depth and material nuance must be identified explicitly; no locale may shorten or omit them merely for stylistic localization.
 
-Sequence: brief -> proof -> story -> native draft -> SEO pass -> human-voice pass -> conversion/plausibility pass -> factual/structural/rendered validation.
+These are required content outcomes, not mandatory separate documents, tools or review rounds. Their checks may be combined inside one FAST implementation pass when the scope is already approved.
 
 ## 14. Anti-stall / no duplicate analysis
 
@@ -180,13 +189,15 @@ Never reset, discard, stage, commit or rewrite unrelated work for convenience.
 
 A wrong visible page is FAIL even when tests pass.
 
+FAST validation may use existing relevant tooling. It must not create permanent tests, scripts, npm checks, inventories, validation utilities, compatibility gates or other guardrails merely to prove the current task.
+
 ### FAST preflight checks
 
 Both checks are deterministic, cheap and performed by the implementing agent. Neither requires a second agent; a second agent is added only for concrete uncertainty, shared/infrastructure risk or a deliberate release check.
 
-**New-page duplication check.** Before creating a new public page, route or guide, search the repository for an existing page covering the same or a substantially overlapping topic and search intent. Search repository-wide rather than only within the current location cluster, and cover routes, page families/content and the relevant registry entries. On probable duplication or ownership overlap, stop before creating the page and report.
+**New-page duplication check.** Before creating a new public page, route or guide, run a targeted repository-wide search for an existing page with the same or substantially overlapping topic/search intent. Repository-wide describes search reach, not work scope. Normally use no more than about three targeted searches or 60 seconds, covering likely topic/intent, route/content and registry ownership. On probable duplication or ownership overlap, stop and report; otherwise continue implementation. Never create a full inventory for this preflight.
 
-**Five-locale completeness check.** After a multilingual change intended for all supported languages, verify EN, DE, ES, NL and SV deterministically for structural completeness: required keys/entries, sections and links must be present in all five locales. A count or structure mismatch is FAIL and must be fixed before commit. A browser check of all five locales is not the default.
+**Five-locale completeness check.** After a multilingual change intended for all supported languages, check only the multilingual scope changed by the task. Verify required entries, sections and links across EN, DE, ES, NL and SV. Natural paragraph and sentence differences between languages are allowed. Do not inspect all multilingual repository content or browser-test all five locales by default.
 
 ### Completion rule
 
@@ -194,7 +205,7 @@ For a normal FAST task, one successful targeted validation after implementation 
 
 ## 18. Stop Criteria
 
-Stop before commit when scope exceeds confirmation, an unexpected protected contract is required, a new public route/path/token is unexpectedly needed, a material claim/page job is unclear, validation fails without understood cause, an out-of-scope regression appears, unrelated tracked work cannot be separated, staged files exceed scope, remote divergence affects a requested push, or document/repository reality materially disagree.
+Stop before commit when scope exceeds confirmation, an unexpected protected contract is required, a new public route/path/token is unexpectedly needed, a material claim/page job is unclear, validation fails without understood cause, an out-of-scope regression appears, unrelated tracked work cannot be separated, staged files exceed scope, remote divergence affects a requested push, or document/repository reality materially disagree. Ask the operator only when the unresolved point meets the material ambiguity/high-risk threshold in section 3.
 
 ## 19. Git and push rules
 
@@ -278,9 +289,9 @@ Do not create a new active appendix, prompt or memo to add a permanent rule that
 
 Superseded standards, audits, handovers, reform notes, prompts, replacement maps and superseded platform records are archive evidence, not current instruction. An external operational service that is still implemented and listed as ACTIVE/INTERIM in the Register is not historical merely because the website runtime is Astro-only.
 
-## 29. Generated inventories
+## 29. Inventories and current-state authority
 
-Route matrices, page counts, component/token inventories and build/sitemap inventories should be generated where practical and tied to an exact commit. Inventories describe reality; they do not create policy.
+Create or update an inventory only when the operator requests it as the deliverable. Inventories describe reality at a point in time and do not create policy. During normal work, stale inventories are ignored for current-state reasoning; repository reality is authoritative. Do not repair an old route matrix or inventory incidentally.
 
 ## 30. Reality Reconciliation Rule
 
@@ -306,7 +317,7 @@ Urgent protected-contract changes may be synchronized immediately when delay its
 
 An initial documentation bootstrap, governing-owner migration, or SSOT change that could supersede a protected implementation contract must pass a **read-only compatibility gate** before implementation.
 
-A normal already-aligned revision to Governance/Register/content guidance does **not** require a full bootstrap-style compatibility package. Use a targeted owner/Register consistency check unless the change introduces a concrete protected-contract conflict.
+This gate is protected/Class-3 process, not a daily Class 0–2 requirement. A normal already-aligned revision to Governance/Register/content guidance does **not** require a full bootstrap-style compatibility package. Use a targeted owner/Register consistency check unless the change introduces a concrete protected-contract conflict.
 
 The gate compares the candidate package with current repository reality and classifies every finding as exactly one of:
 
@@ -342,13 +353,13 @@ If a new statement appears to conflict with the Register, repository implementat
 
 This safeguard is especially important when a broad statement such as "Astro-only" could be misread as removing an independently governed operational service.
 
-## 33. Agent Context Rule
+## 35. Agent Context Rule
 
-The target model is a model-neutral `AGENTS.md` repository gateway. Tool/vendor files must not maintain independent policy once their migration is complete.
+`AGENTS.md` is the model-neutral daily operating contract. Tool/vendor files contain no independent policy.
 
-During bootstrap, existing agent files remain protected until a rule crosswalk proves that important current rules are preserved or intentionally superseded. Implementation agents must read the Register first, then the relevant owner documents and any explicitly listed transitional agent rules.
+For normal Class 0–2 work, agents read `AGENTS.md` and the current task scope. They read the Register and relevant owners only for an architecture/SSOT request, a protected-contract change or a concrete conflict discovered during implementation.
 
-## 34. Activation
+## 36. Activation
 
 A document becomes ACTIVE when its approved canonical Markdown is on the canonical branch and the Register lists that version ACTIVE.
 
@@ -361,5 +372,6 @@ Project attachments/PDFs are not activation gates.
 | 5.0.0 | 2026-08-13 | Consolidated Governance V4.2, Efficient Execution and Productivity Guardrail. | DR-EXEC-001, DR-EXEC-002 | historical package snapshot |
 | 5.1.0 | 2026-08-14T08:55:00+02:00 | Prepared semantic revision control, metadata/status model, Change Ledger, SSOT commands, attachment decoupling and contract-supersession safeguard after Reality Reconciliation. | DR-DOC-001, DR-DOC-005, DR-DOC-006, DR-GOV-001 | withdrawn candidate — never committed |
 | 5.2.0 | 2026-08-14T09:28:00+02:00 | **PROPOSED, not activated.** Added mandatory read-only SSOT Compatibility Gate; preserved transitional agent rules; strengthened multilingual meaning-depth protection and policy-vs-implementation supersession checks. | DR-BOOT-001, DR-AGENT-001 | candidate only — never committed |
-| 5.3.0 | 2026-08-14T11:41:00+02:00 | **APPROVED FAST-first revision.** Made minimum-safe FAST execution the default for Class 0/1 and bounded Class 2 work; removed ritual post-fix re-review/full-build defaults; added operator-time proportionality, push batching and SSOT intake/sync. | DR-EXEC-003, DR-EXEC-004, DR-EXEC-005, DR-EXEC-006, DR-EXEC-007, DR-EXEC-008 | candidate pending SSOT activation |
-| 5.4.0 | 2026-08-14T12:30:00+02:00 | Added two deterministic FAST preflight checks to the validation ladder: repository-wide new-page duplication check before creating a public page/route/guide, and a five-locale structural completeness check before committing multilingual changes. Both are performed by the implementing agent; neither introduces a mandatory second agent. | DR-EXEC-003, DR-EXEC-004 | this commit |
+| 5.3.0 | 2026-08-14T11:41:00+02:00 | **ACTIVE FAST-first revision.** Made minimum-safe FAST execution the default for Class 0/1 and bounded Class 2 work; removed ritual post-fix re-review/full-build defaults; added operator-time proportionality, push batching and SSOT intake/sync. | DR-EXEC-003, DR-EXEC-004, DR-EXEC-005, DR-EXEC-006, DR-EXEC-007, DR-EXEC-008 | 5c59674 |
+| 5.4.0 | 2026-08-14T12:30:00+02:00 | Added two deterministic FAST preflight checks to the validation ladder: repository-wide new-page duplication check before creating a public page/route/guide, and a five-locale structural completeness check before committing multilingual changes. Both are performed by the implementing agent; neither introduces a mandatory second agent. | DR-EXEC-003, DR-EXEC-004 | 0e2b26a |
+| 5.5.0 | 2026-08-14T12:59:47+02:00 | Made `AGENTS.md` sufficient for daily Class 0–2 work; limited owner reads to architecture/SSOT, protected-contract and concrete-conflict triggers; bounded FAST preflights; prohibited incidental validation tooling, documentation and inventories; established result-first turn completion. | DR-EXEC-001–008, DR-AGENT-001 | this revision |

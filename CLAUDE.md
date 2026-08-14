@@ -2,10 +2,6 @@
 
 This file defines no independent AMARA policy.
 
-Before material work, read:
+Read `AGENTS.md` for normal daily work. It is sufficient context for Class 0–2 implementation.
 
-1. `docs/AMARA_REGISTER.md`;
-2. `AGENTS.md`;
-3. only the relevant governing/interim/feature owner documents required by the current task.
-
-Where a transitional agent rule conflicts with a higher owner or an explicitly recorded intentional supersession, follow the Register/owner hierarchy and trigger Reality Reconciliation if the effect is material.
+Read `docs/AMARA_REGISTER.md` and the relevant owner documents only when `AGENTS.md` identifies a protected-contract trigger, the operator requests architecture/SSOT work, or a concrete conflict appears.

@@ -1,129 +1,88 @@
-# AGENTS.md — AMARA Project Rules and SSOT Gateway
+# AGENTS.md — AMARA Daily Operating Contract
 
-## Authority notice
+## Daily gateway
 
-This file remains the model-neutral implementation gateway. It preserves the important current operational rules while routing durable policy to the AMARA SSOT.
+`AGENTS.md` is the sufficient operating context for normal Class 0–2 work.
 
-Before material AMARA work, read:
+The operator's current request is the only active work order. Handovers, TODOs, audits, inventories, maintenance notes and suggested next steps are context only unless the operator explicitly selects them.
 
-1. `docs/AMARA_REGISTER.md`;
-2. the relevant governing owner;
-3. any explicitly listed interim/feature owner needed for the task.
+Do not automatically read `docs/AMARA_REGISTER.md` or owner documents. Read the Register and the relevant owner only when:
 
-If this gateway conflicts with a higher owner or an explicitly recorded intentional supersession, the higher owner governs. A conversational shorthand or isolated new statement never silently supersedes an ACTIVE contract; use Reality Reconciliation.
+- the operator requests architecture or SSOT work;
+- the task would change a protected contract; or
+- implementation reveals a concrete contradiction or uncertainty.
+
+Documentation is reference material, not a cumulative checklist. Using an existing approved page family, route pattern, registry/resolver, component pattern or localization structure is normal implementation, not an architecture change.
 
 ## Mission
 
-Build AMARA as a premium-feeling Astro website with simple, repeatable architecture.
+Build AMARA as a premium-feeling Astro website with simple, repeatable architecture: standardized patterns, pragmatic reuse, calm professional output and no overengineering.
 
-Default mindset:
-- standardized, low-complexity patterns;
-- pragmatic reuse over enterprise-heavy abstraction;
-- fast, calm, structured and visibly professional output;
-- no overengineering.
+## AMARA FAST
 
-## Core execution rule
+FAST is the default for normal Class 0–2 work:
 
-**Default: AMARA FAST.**
+**understand -> implement -> targeted validate -> exact stage -> atomic local commit**
 
-For an already-scoped normal task: **understand -> implement -> targeted validate -> atomic local commit**. The operator's direct instruction to implement the named task counts as confirmation; do not add another approval round.
+The operator's direct implementation request is confirmation. Ask only when unresolved ambiguity would materially change the result, create substantial avoidable rework or trigger an irreversible/high-risk action.
 
-Use deeper analysis/validation only for a concrete shared/infrastructure risk, unresolved contradiction, protected contract or explicit release gate.
+- Keep scope narrow and preserve unrelated work.
+- Use repository reality for current-state questions; ignore stale inventories and do not repair them incidentally.
+- Reuse approved layouts, components, tokens, content structures and page-family patterns.
+- Do not create new documentation, tests, audit scripts, validation utilities, inventories, npm checks or guardrails unless the operator requests them as deliverables. Existing relevant tooling may be used.
+- No mandatory second-agent review, post-fix re-review, full production build or five-locale browser matrix for normal Class 0–2 work.
+- A successful targeted check closes a normal task.
+- A normal FAST task should usually deliver its result within roughly 5–10 minutes total. If it will not, report the concrete blocker instead of expanding the process.
+- End result-first. Do not offer optional process, audit, tooling or validation work; offer only meaningful content/product/scope choices when a choice is genuinely needed.
 
-Do not jump directly into implementation when architecture, routing, localization structure, design-system behavior, shared components or other protected contracts are genuinely affected.
+## Change classes and protected triggers
 
-If scope expands, validation fails or repository/document reality materially disagree: stop and report the decision point.
+- **Class 0:** micro edits with no semantic, layout or runtime impact.
+- **Class 1:** content changes in existing fields that preserve page job, structure, route and runtime contracts.
+- **Class 2:** bounded local page/composition/presentation changes that do not change shared owners.
+- **Class 3:** changes to the system itself, including resolver semantics, canonical/hreflang architecture, route ownership, Link Registry semantics, global navigation, broadly shared infrastructure/components, global CSS/tokens, analytics/consent or booking/checkout architecture.
 
-**No ritual re-review:** if the agreed fix passes its targeted implementation checks, close the normal task.
+Class 3 and protected-contract work requires the Register, relevant owner and explicit alignment. If ordinary implementation unexpectedly reaches that boundary, stop and report the decision point.
 
-**No routine full build:** content and bounded local-page work use targeted validation; full builds belong to concrete compile/global risk, shared/infrastructure work or batch/release boundaries.
+## Implementation rules
 
-**Time discipline:** a normal FAST task should usually finish in roughly 5–10 minutes. If it does not, report the concrete blocker/cost instead of silently expanding the audit.
+- Prefer existing AMARA architecture. Do not create parallel systems, duplicate authoring models or speculative abstractions.
+- Preserve hierarchy, section rhythm, spacing, typography and component consistency. Do not redesign during cleanup or refactoring unless redesign is the objective.
+- Shared Navigation, Footer, Hero, FAQ, CTA and Layout changes have broad blast radius; keep them minimal and validate representative consumers.
+- Use existing `linkRegistry.ts` and `routeOwnership.ts` contracts where applicable. Do not invent silent fallbacks, aliases or token behavior.
+- Keep Astro simple and client JavaScript minimal unless it provides a concrete user benefit.
+- Code must be production-ready, narrow and consistent with project conventions. Comments explain architectural intent in professional English.
 
-## Architecture philosophy
+## Localization
 
-Prefer existing AMARA layouts, components, tokens, content structures and page-family patterns. Keep changes narrow. Do not create parallel systems, duplicate authoring models or speculative future-proofing.
+The cross-language SSOT is facts, page job, evidence, claim boundaries, required information/topics, conversion intent, meaning depth and material nuance. English may be a working reference but is not a mandatory master language.
 
-AMARA is Astro-native. Keep Astro simple: few layouts, focused shared components, clear content objects, low page logic and minimal client JavaScript unless it provides a concrete user benefit.
+Every locale must be natural and market-native. Do not shorten away required information, weaken meaning or remove material nuance. Use correct visible-language characters; infrastructure identifiers follow the active route contract.
 
-## Localization rules
+The Navigation booking CTA must have a native localized label in EN, DE, ES, NL and SV.
 
-The shared cross-language SSOT is **facts, page job, evidence, claim boundaries, required information/topics, conversion intent, meaning depth and material nuance**. English may be used as a practical semantic working reference, but it is **not** a mandatory master language.
+## FAST preflights
 
-Each locale must sound natural and market-native. No literal translation, machine phrasing or grammar copied from another language. **Do not shorten away required information, weaken meaning or remove material nuance.** Locale-specific examples/emphasis/additional depth are allowed only when explicitly justified by the locale brief/evidence and never by omitting shared required information.
+Before creating a new public page, route or guide, run a targeted repository-wide search for probable topic/search-intent duplication. Repository-wide defines search reach, not work scope. Normally use no more than about three targeted searches or 60 seconds, covering likely topic/intent, route/content and registry ownership. Stop on a probable duplicate; otherwise continue. Never create a full inventory for this check.
 
-Use proper language characters in visible labels, titles and descriptions (for example German/Swedish diacritics). Infrastructure identifiers such as slugs, URLs, tokens and filenames follow the active URL/route contract and should not introduce locale-specific special characters unless that contract explicitly changes.
+After a multilingual change intended for all five locales, check only the changed scope for required entries, sections and links across EN, DE, ES, NL and SV. Natural sentence and paragraph differences are allowed. Do not inspect all multilingual repository content or browser-test all five locales by default.
 
-Use structured language dictionaries/content objects where practical: one structural page system, localized content by language key, parallel templates only when explicitly justified.
+## External booking boundary
 
-**Navigation booking CTA contract:** the `Check Availability` / booking CTA must have a native localized label in all five supported locales: EN, DE, ES, NL and SV.
+Astro is the sole AMARA website runtime. The active external booking/availability/checkout boundary remains separately governed by `AMARA-BOOKING-ARCHITECTURE.md` and `src/lib/directBooking.ts`. Do not hardcode booking hosts elsewhere, point booking CTAs at an OTA or let operational data overwrite authored AMARA content outside the approved boundary.
 
-## Design system rules
+## Git and validation
 
-High visual quality does not justify architectural complexity. Preserve hierarchy, section rhythm, spacing discipline, typography hierarchy and component consistency. Do not redesign while cleaning up or refactoring unless redesign is the approved objective.
+Use the smallest validation that directly tests the changed scope. Full builds belong to concrete compile/global risk, Class 3 work or batch/release boundaries.
 
-If a page/variant is designated a visual master, preserve its visible output unless the approved workstream explicitly changes composition.
-
-## Component rules
-
-Reuse first. Introduce or expand a component only for a real recurring use case that improves consistency without creating a parallel system.
-
-Shared components such as Navigation, Footer, Hero, FAQ, CTA and Layouts are high-risk: state scope risk, consider global consumers, keep changes minimal and avoid unrelated cleanup.
-
-## Hero rules
-
-Hero components are system-critical. Do not improvise new hero structures, switch hero families casually or change spacing/composition during unrelated refactors. Use the canonical family pattern when one exists.
-
-## Routing / Registry / Slug rules
-
-Treat slugs, route ownership, registry behavior, link resolution, language routing and route generation as infrastructure. Do not change them without the explicit alignment required by the active URL/route contract and Decision Register.
-
-Use the existing `linkRegistry.ts` and `routeOwnership.ts` contracts for navigation logic where applicable. Do not introduce silent cross-language fallbacks, hidden routing aliases or invented token behavior.
-
-## Current external booking boundary
-
-Astro is the sole AMARA **website** runtime. The current external booking / availability / checkout boundary remains separately governed and active until an explicit architecture workstream changes it.
-
-For that scope, the current interim owner is `AMARA-BOOKING-ARCHITECTURE.md` and the centralized repository helper it references. Do not hardcode booking hosts elsewhere, point booking CTAs at an OTA, or let external operational data overwrite authored AMARA content outside its approved data boundary.
-
-## Trust page rules
-
-Trust pages should remain clear, calm, premium and reassuring. Preserve their approved visual family and avoid mixed CTA patterns, half-localized states or accidental page-family splits.
-
-## Code rules
-
-Code must be production-ready, narrow in scope and consistent with project conventions. Comments are in professional English and explain architectural intent rather than narrating obvious syntax. Do not leave temporary hacks or unapproved fallback systems.
-
-## Validation rules
-
-Validation follows Governance risk classes rather than one universal full-build rule. Use targeted checks for micro/content edits, page/browser/build validation for local structural work and broader cross-consumer validation for shared/infrastructure changes.
-
-When a shared component changes, verify representative unrelated consumers. When localization changes, verify the affected locale is complete and natural. A wrong visible page is FAIL even if tests pass.
-
-### FAST preflight checks
-
-Two deterministic checks, run by the implementing agent. They do not add a review round and do not require a second agent.
-
-**Before creating a new public page, route or guide:** grep the whole repository — not just the current location cluster — for an existing page with the same or substantially overlapping topic/search intent. Check routes, page families/content and registry entries. On probable duplication or ownership overlap, stop and report before creating the page.
-
-**After a multilingual change meant for all five locales:** verify EN, DE, ES, NL and SV deterministically for structural completeness — required keys/entries, sections and links present in all five. A count/structure mismatch is FAIL and must be fixed before commit. Browser-testing all five locales is not the default.
-
-## What to avoid by default
-
-Avoid broad refactors, architecture rewrites, registry cleanups during unrelated work, design refreshes, page-family redesigns, new component systems and enterprise-level abstraction for small tasks unless explicitly approved.
+Inspect the working tree, preserve unrelated changes, stage only explicit task files, verify the staged set and `git diff --cached --check`, and make one coherent local commit when requested. Do not push without explicit instruction.
 
 ## Operator commands
 
-`AMARA FAST: ...` means: use the minimum-safe FAST execution posture. Do not repeat settled research, do not add a post-fix review, and do not run a full production build unless a concrete risk requires it.
-
-`Bitte in die AMARA SSOT aufnehmen: ...` means: classify the information and place/recommend it in the smallest correct SSOT owner/inbox; do not automatically version multiple documents immediately.
-
-`AMARA SSOT SYNC` means: consolidate pending SSOT items once, update only owners whose normative meaning changed, update the Register/Change Ledger, and prepare one documentation commit.
-
-`OK, in die SSOT übernehmen.` authorizes the already-aligned documentation-only canonical update; it does not authorize unrelated website/runtime changes.
-
-`Bitte AMARA SSOT Audit durchführen.` means: audit active owners, decisions, review triggers, duplication and repository/document divergence.
-
-## AMARA one-line principle
+- `AMARA FAST: ...` — minimum-safe FAST execution.
+- `Bitte in die AMARA SSOT aufnehmen: ...` — classify and recommend/place the item in the smallest correct SSOT owner or inbox.
+- `AMARA SSOT SYNC` — consolidate pending SSOT items once and update only owners whose normative meaning changed.
+- `OK, in die SSOT übernehmen.` — authorize the already-aligned documentation-only canonical update.
+- `Bitte AMARA SSOT Audit durchführen.` — audit active owners, decisions, review triggers, duplication and repository/document divergence.
 
 **Simple architecture. Professional signal.**

@@ -1,17 +1,16 @@
 ---
 document_id: AMARA-SYS-001
 title: AMARA System Constitution
-version: 5.1.0
-status: PROPOSED
+version: 5.1.1
+status: ACTIVE
 authority_class: PRINCIPLE / SYSTEM CONSTITUTION
 effective_from: 2026-08-14
-last_modified: 2026-08-14T09:28:00+02:00
+last_modified: 2026-08-14T12:59:47+02:00
 canonical_path: /docs/standards/01_AMARA_System_Constitution_V5.md
 supersedes:
   - AMARA System V4.2 - Master Architecture
   - AMARA Core V4 - Strategic Constitution
-activation_state: PENDING_COMPATIBILITY_GATE
-candidate_iteration: V3.1
+activation_state: ACTIVE
 decision_refs:
   - DR-DOC-001
   - DR-DOC-003
@@ -240,4 +239,5 @@ A public content page is strategically complete when its dominant job is explici
 | Version | Timestamp | Change | Decision refs | Commit |
 |---|---|---|---|---|
 | 5.0.0 | 2026-08-13 | Consolidated Master V4.2 and Core V4; introduced dominant-job and multilingual SSOT reform direction. | DR-DOC-003, DR-SURFACE-001 | historical package snapshot |
-| 5.1.0 | 2026-08-14T09:28:00+02:00 | **PROPOSED, not activated.** Prepared repository-Markdown SSOT/revision-control model; clarified Astro-only as the website-runtime contract while preserving governed external operational boundaries; clarified multilingual SSOT so meaning depth, required information and material nuance remain mandatory across locales. | DR-DOC-001, DR-DOC-005, DR-PLATFORM-001, DR-BOOK-001 | candidate only — never committed |
+| 5.1.0 | 2026-08-14T09:28:00+02:00 | **ACTIVE.** Established the repository-Markdown SSOT/revision-control model; clarified Astro-only as the website-runtime contract while preserving governed external operational boundaries; clarified multilingual SSOT so meaning depth, required information and material nuance remain mandatory across locales. | DR-DOC-001, DR-DOC-005, DR-PLATFORM-001, DR-BOOK-001 | 5c59674 |
+| 5.1.1 | 2026-08-14T12:59:47+02:00 | Corrected stale bootstrap metadata to reflect the already-active canonical SSOT; no strategic content changed. | DR-DOC-006 | this revision |

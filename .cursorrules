@@ -2,6 +2,6 @@
 
 No independent policy is defined here.
 
-Read `docs/AMARA_REGISTER.md`, `AGENTS.md`, and then only the relevant owner documents for the current task.
+Read `AGENTS.md` for normal daily work. It is sufficient context for Class 0–2 implementation.
 
-If a tool-specific cached rule conflicts with the active Register/owner hierarchy, do not silently choose one; report the conflict through Reality Reconciliation.
+Read `docs/AMARA_REGISTER.md` and the relevant owner documents only when `AGENTS.md` identifies a protected-contract trigger, the operator requests architecture/SSOT work, or a concrete conflict appears.
