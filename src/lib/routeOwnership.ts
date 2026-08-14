@@ -18,7 +18,9 @@ const LOCATION_AUTHORITY_CENTER_TOKENS = new Set([
   'location_frigiliana',
   'location_nerja',
   'location_tarifa',
-  'explore_hub'
+  'frigiliana_experience_hub',
+  'nerja_experience_hub',
+  'tarifa_experience_hub'
 ]);
 
 interface PublicLinkOptions {

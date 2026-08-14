@@ -54,7 +54,7 @@ const secondaryStories = secondaryIds.map(getExperience);
 const allExperiences = copy.catalog.order.map(getExperience);
 
 const footerHighlights = [
-  { token: 'explore_hub', label: copy.footerHighlights.hub },
+  { token: 'frigiliana_experience_hub', label: copy.footerHighlights.hub },
   {
     token: experienceCatalog[leadId].token,
     label: copy.footerHighlights.first
@@ -64,13 +64,6 @@ const footerHighlights = [
     label: copy.footerHighlights.second
   }
 ];
-
-const frigilianaHref = resolveOptionalLink('location_frigiliana', currentLang, {
-  suppressMissing: true
-});
-const nerjaHref = resolveOptionalLink('location_nerja', currentLang, {
-  suppressMissing: true
-});
 
 const heroImage = {
   src: '/images/hero-frigiliana.jpg',
@@ -87,14 +80,14 @@ const heroImage = {
   <Navigation
     slot="navigation"
     currentLang={currentLang}
-    brandName="Frigiliana & Nerja"
-    currentToken="explore_hub"
-    languageToken="explore_hub"
+    brandName="Frigiliana"
+    currentToken="frigiliana_experience_hub"
+    languageToken="frigiliana_experience_hub"
     locationAuthorityNav={true}
   />
   <ExperienceContextNav lang={currentLang} />
 
-  <div data-am-page="experience-hub">
+  <div data-am-page="frigiliana-experience-hub">
     <div class="w-full">
       <Hero
         imageSrc={heroImage.src}
@@ -309,14 +302,9 @@ const heroImage = {
                 id={`experience-${experience.id}`}
                 class="scroll-mt-36 border-t border-outline-variant/30 pt-6"
               >
-                <div class="mb-7 flex items-center justify-between gap-5">
-                  <span class="font-label text-[10px] font-semibold tracking-[0.16em] text-primary">
-                    {String(index + 1).padStart(2, '0')}
-                  </span>
-                  <span class="font-label text-[10px] uppercase tracking-[0.14em] text-on-surface/45">
-                    {copy.catalog.destinationLabels[experience.destination]}
-                  </span>
-                </div>
+                <span class="mb-7 block font-label text-[10px] font-semibold tracking-[0.16em] text-primary">
+                  {String(index + 1).padStart(2, '0')}
+                </span>
                 <p class="am-text-caption mb-3 text-primary">
                   {experience.editorial.kicker}
                 </p>
@@ -347,71 +335,6 @@ const heroImage = {
               </article>
             ))
           }
-        </div>
-      </section>
-
-      <section
-        id="places"
-        class="am-section am-section--tint !px-6 md:!px-12"
-      >
-        <div class="grid grid-cols-1 gap-x-16 gap-y-14 lg:grid-cols-12">
-          <div class="lg:col-span-4">
-            <p class="am-text-caption mb-5 text-primary">
-              {copy.places.kicker}
-            </p>
-            <h2 class="am-text-title mb-6 italic tracking-tight text-on-surface">
-              {copy.places.title}
-            </h2>
-            <p class="am-text-body leading-relaxed text-on-surface-variant">
-              {copy.places.intro}
-            </p>
-          </div>
-
-          <div class="grid grid-cols-1 gap-x-10 gap-y-10 sm:grid-cols-2 lg:col-span-8">
-            <article class="border-t border-outline-variant/30 pt-8">
-              <p class="font-label mb-5 text-[10px] font-semibold uppercase tracking-[0.18em] text-primary">
-                01
-              </p>
-              <h3 class="am-text-subtitle mb-5 text-on-surface">
-                {copy.places.frigiliana.title}
-              </h3>
-              <p class="am-text-body leading-relaxed text-on-surface-variant">
-                {copy.places.frigiliana.text}
-              </p>
-              {
-                frigilianaHref && (
-                  <p class="mt-6">
-                    <a href={frigilianaHref} class="am-inline-link">
-                      {copy.places.frigiliana.linkLabel}
-                      <span aria-hidden="true"> &rarr;</span>
-                    </a>
-                  </p>
-                )
-              }
-            </article>
-
-            <article class="border-t border-outline-variant/30 pt-8">
-              <p class="font-label mb-5 text-[10px] font-semibold uppercase tracking-[0.18em] text-primary">
-                02
-              </p>
-              <h3 class="am-text-subtitle mb-5 text-on-surface">
-                {copy.places.nerja.title}
-              </h3>
-              <p class="am-text-body leading-relaxed text-on-surface-variant">
-                {copy.places.nerja.text}
-              </p>
-              {
-                nerjaHref && (
-                  <p class="mt-6">
-                    <a href={nerjaHref} class="am-inline-link">
-                      {copy.places.nerja.linkLabel}
-                      <span aria-hidden="true"> &rarr;</span>
-                    </a>
-                  </p>
-                )
-              }
-            </article>
-          </div>
         </div>
       </section>
 
@@ -462,7 +385,7 @@ const heroImage = {
   }
 
   @media (prefers-reduced-motion: reduce) {
-    :global([data-am-page='experience-hub'] img) {
+    :global([data-am-page='frigiliana-experience-hub'] img) {
       transition: none;
     }
   }

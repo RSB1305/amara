@@ -2,7 +2,7 @@
 import AmaraImage from '../../components/AmaraImage.astro';
 import Navigation from '../../components/Navigation.astro';
 import EditorialByline from '../../components/editorial/EditorialByline.astro';
-import NerjaContextNav from '../../components/location/NerjaContextNav.astro';
+import ExperienceContextNav from '../../components/experience/ExperienceContextNav.astro';
 import {
   nerjaCavesContent,
   nerjaCavesSeo
@@ -54,11 +54,7 @@ const footerHighlights = [
     languageToken="nerja_caves"
     locationAuthorityNav={true}
   />
-  <NerjaContextNav
-    activeId="intro"
-    childLabel={content.breadcrumbLabel}
-    lang={currentLang}
-  />
+  <ExperienceContextNav currentId="caves" destination="nerja" lang={currentLang} />
 
   <article class="bg-surface" data-am-page="nerja-caves">
     <header class="overflow-hidden border-b border-border-subtle bg-surface px-6 py-20 md:px-12 md:py-28 lg:py-36">

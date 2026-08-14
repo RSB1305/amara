@@ -4,7 +4,6 @@ import Navigation from '../../components/Navigation.astro';
 import EditorialClosingCta from '../../components/editorial/EditorialClosingCta.astro';
 import EditorialFeatureGrid from '../../components/editorial/EditorialFeatureGrid.astro';
 import ExperienceContextNav from '../../components/experience/ExperienceContextNav.astro';
-import ExperiencePreFooter from '../../components/experience/ExperiencePreFooter.astro';
 import {
   nerjaNightlifeContent,
   nerjaNightlifeSeo
@@ -65,7 +64,7 @@ const heroImage = {
     languageToken="nerja_nightlife_authority"
     locationAuthorityNav={true}
   />
-  <ExperienceContextNav currentId="nightlife" lang={currentLang} />
+  <ExperienceContextNav currentId="nightlife" destination="nerja" lang={currentLang} />
 
   <div data-am-page="nerja-nightlife">
     <div class="w-full">
@@ -398,8 +397,6 @@ const heroImage = {
           }
         </div>
       </section>
-
-      <ExperiencePreFooter currentId="nightlife" lang={currentLang} />
 
       <section class="max-w-screen-2xl mx-auto px-6 pt-24 md:px-12">
         <EditorialClosingCta

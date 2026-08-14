@@ -103,12 +103,12 @@ legal_notice: {
 /* =========================================================
        EXPLORE
     ========================================================= */
-    explore_hub: {
-      en: buildOwnedLocalizedPath('explore-frigiliana-nerja', 'en'),
-      de: buildOwnedLocalizedPath('explore-frigiliana-nerja', 'de'),
-      es: buildOwnedLocalizedPath('explore-frigiliana-nerja', 'es'),
-      nl: buildOwnedLocalizedPath('explore-frigiliana-nerja', 'nl'),
-      sv: buildOwnedLocalizedPath('explore-frigiliana-nerja', 'sv')
+    frigiliana_experience_hub: {
+      en: buildOwnedLocalizedPath('frigiliana-experience', 'en'),
+      de: buildOwnedLocalizedPath('frigiliana-experience', 'de'),
+      es: buildOwnedLocalizedPath('frigiliana-experience', 'es'),
+      nl: buildOwnedLocalizedPath('frigiliana-experience', 'nl'),
+      sv: buildOwnedLocalizedPath('frigiliana-experience', 'sv')
     },
     frigiliana_netflix_dos_tumbas: {
       en: buildOwnedLocalizedPath('frigiliana-netflix-dos-tumbas', 'en'),
@@ -129,6 +129,13 @@ legal_notice: {
       es: buildOwnedLocalizedPath('nerja-location', 'es'),
       nl: buildOwnedLocalizedPath('nerja-location', 'nl'),
       sv: buildOwnedLocalizedPath('nerja-location', 'sv')
+    },
+    nerja_experience_hub: {
+      en: buildOwnedLocalizedPath('nerja-experience', 'en'),
+      de: buildOwnedLocalizedPath('nerja-experience', 'de'),
+      es: buildOwnedLocalizedPath('nerja-experience', 'es'),
+      nl: buildOwnedLocalizedPath('nerja-experience', 'nl'),
+      sv: buildOwnedLocalizedPath('nerja-experience', 'sv')
     },
     getting_to_nerja: {
       en: buildOwnedLocalizedPath('getting-to-nerja', 'en'),

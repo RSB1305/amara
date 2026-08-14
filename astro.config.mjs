@@ -163,7 +163,12 @@ export default defineConfig({
     '/de/frigiliana-ort-struktur-und-treppen': '/de/frigiliana-streets-stairs',
     '/es/estructura-y-escaleras-del-sitio-de-frigiliana': '/frigiliana-streets-stairs',
     '/nl/structuur-en-trappen-van-de-frigiliana-site': '/nl/frigiliana-streets-stairs',
-    '/sv/frigiliana-tomtens-struktur-och-trappor': '/sv/frigiliana-streets-stairs'
+    '/sv/frigiliana-tomtens-struktur-och-trappor': '/sv/frigiliana-streets-stairs',
+    '/explore-frigiliana-nerja': '/frigiliana-experience',
+    '/de/explore-frigiliana-nerja': '/de/frigiliana-experience',
+    '/en/explore-frigiliana-nerja': '/en/frigiliana-experience',
+    '/nl/explore-frigiliana-nerja': '/nl/frigiliana-experience',
+    '/sv/explore-frigiliana-nerja': '/sv/frigiliana-experience'
   },
   i18n: {
     defaultLocale: 'es',

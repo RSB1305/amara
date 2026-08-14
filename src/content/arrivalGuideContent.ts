@@ -19,7 +19,7 @@ export const arrivalGuideCopy = {
     links: [
       { token: "location_frigiliana", label: { en: "Frigiliana", de: "Frigiliana", es: "Frigiliana", nl: "Frigiliana", sv: "Frigiliana" } },
       { token: "location_nerja", label: { en: "Nerja", de: "Nerja", es: "Nerja", nl: "Nerja", sv: "Nerja" } },
-      { token: "explore_hub", label: { en: "Experiences", de: "Erlebnisse", es: "Experiencias", nl: "Ervaringen", sv: "Upplevelser" } }
+      { token: "frigiliana_experience_hub", label: { en: "Experiences", de: "Erlebnisse", es: "Experiencias", nl: "Ervaringen", sv: "Upplevelser" } }
     ]
   },
   header: {

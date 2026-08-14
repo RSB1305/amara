@@ -3482,7 +3482,7 @@ const frigilianaGuestSightseeing: GuestGuideEntry = {
     sv: 'Det viktigaste som faktiskt känns värt det: grottor, utsiktsplatser, gamla gator – och lugna sätt att uppleva var och en av dem. Vår regel: välj 1–2 höjdpunkter och lämna sedan tid för en långsam måltid eller en timme på stranden.'
   },
   authorityLink: {
-    targetSlug: 'explore-frigiliana-nerja',
+    targetSlug: 'frigiliana-experience',
     label: {
       en: 'Looking for a deeper overview? Read the full sightseeing guide →',
       de: 'Sucht ihr nach einer ausführlicheren Übersicht? Lest unseren kompletten Sightseeing-Guide →',

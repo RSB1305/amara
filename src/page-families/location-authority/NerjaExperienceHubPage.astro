@@ -1,0 +1,138 @@
+---
+import Hero from '../../components/Hero.astro';
+import Navigation from '../../components/Navigation.astro';
+import EditorialClosingCta from '../../components/editorial/EditorialClosingCta.astro';
+import ExperienceContextNav from '../../components/experience/ExperienceContextNav.astro';
+import {
+  nerjaExperienceHubContent,
+  nerjaExperienceHubSeo
+} from '../../content/nerjaExperienceHubContent';
+import LocationAuthorityLayout from '../../layouts/LocationAuthorityLayout.astro';
+import { resolveOptionalLink } from '../../lib/linkResolver';
+import { normalizeLanguage } from '../../lib/seo/resolve-seo-head';
+import type { AmaraLanguage } from '../../types/seo';
+
+interface Props {
+  lang?: string;
+}
+
+const { lang = 'es' } = Astro.props;
+const currentLang = normalizeLanguage(lang as AmaraLanguage);
+const copy = nerjaExperienceHubContent[currentLang];
+
+const themes = copy.themes.map((theme) => ({
+  ...theme,
+  href: theme.token
+    ? resolveOptionalLink(theme.token, currentLang, { suppressMissing: true })
+    : undefined
+}));
+
+const footerHighlights = [
+  { token: 'nerja_experience_hub', label: copy.hero.eyebrow },
+  { token: 'nerja_balcon_de_europa', label: copy.themes.find((theme) => theme.id === 'balcon')!.title },
+  { token: 'nerja_caves', label: copy.themes.find((theme) => theme.id === 'caves')!.title }
+];
+---
+
+<LocationAuthorityLayout
+  seo={nerjaExperienceHubSeo}
+  pageLang={currentLang}
+  showContextNavigation={false}
+  footerHighlights={footerHighlights}
+>
+  <Navigation
+    slot="navigation"
+    currentLang={currentLang}
+    brandName="Nerja"
+    currentToken="nerja_experience_hub"
+    languageToken="nerja_experience_hub"
+    locationAuthorityNav={true}
+  />
+  <ExperienceContextNav destination="nerja" lang={currentLang} />
+
+  <article class="bg-surface" data-am-page="nerja-experience-hub">
+    <Hero
+      imageSrc="/images/amara-frigiliana-pueblo/nerja-coast-aerial.jpeg"
+      imageAlt={copy.hero.imageAlt}
+      imageWidth={2000}
+      imageHeight={1333}
+    >
+      <span class="am-text-caption mb-8 block text-primary">{copy.hero.eyebrow}</span>
+      <h1 class="am-text-display mb-10 text-balance italic tracking-tighter text-on-surface">
+        {copy.hero.title}
+      </h1>
+      <p class="am-text-body max-w-xl border-l border-primary/20 pl-10 leading-relaxed text-on-surface-variant">
+        {copy.hero.standfirst}
+      </p>
+      <p class="mt-12">
+        <a href="#experiences" class="am-btn am-btn--primary">{copy.intro.eyebrow}</a>
+      </p>
+    </Hero>
+
+    <section id="experiences" class="am-section am-section--plain !px-6 md:!px-12">
+      <div class="grid grid-cols-1 gap-10 border-b border-outline-variant/20 pb-14 lg:grid-cols-12 lg:items-end">
+        <div class="lg:col-span-7">
+          <p class="am-text-caption mb-5 text-primary">{copy.intro.eyebrow}</p>
+          <h2 class="am-text-title max-w-4xl text-balance italic tracking-tight text-on-surface">
+            {copy.intro.title}
+          </h2>
+        </div>
+        <p class="am-text-body leading-relaxed text-on-surface-variant lg:col-span-5">
+          {copy.intro.text}
+        </p>
+      </div>
+
+      <div class="mt-16 grid grid-cols-1 gap-x-12 gap-y-14 md:grid-cols-2 xl:grid-cols-3">
+        {themes.map((theme, index) => (
+          <article id={`experience-${theme.id}`} class="scroll-mt-36 border-t border-outline-variant/30 pt-6">
+            <span class="font-label text-[10px] font-semibold tracking-[0.16em] text-primary">
+              {String(index + 1).padStart(2, '0')}
+            </span>
+            <h3 class="am-text-subtitle mt-5 text-on-surface">
+              {theme.href ? (
+                <a href={theme.href} class="am-magazine-title-link">{theme.title}</a>
+              ) : theme.title}
+            </h3>
+            <p class="mt-4 text-sm leading-relaxed text-on-surface-variant">{theme.text}</p>
+            {theme.href && theme.linkLabel && (
+              <p class="mt-6 text-sm">
+                <a href={theme.href} class="am-inline-link">
+                  {theme.linkLabel}<span aria-hidden="true"> &rarr;</span>
+                </a>
+              </p>
+            )}
+          </article>
+        ))}
+      </div>
+    </section>
+
+    <section class="border-t border-outline-variant/15 bg-surface-container-low px-6 pt-24 md:px-12 md:pt-32">
+      <div class="mx-auto max-w-screen-2xl">
+        <p class="am-text-caption mb-5 text-primary">{copy.closing.eyebrow}</p>
+        <EditorialClosingCta
+          title={copy.closing.title}
+          lead={copy.closing.text}
+          lang={currentLang}
+          links={[{ token: 'playa', label: copy.closing.stayLabel, style: 'primary' }]}
+        />
+      </div>
+    </section>
+  </article>
+</LocationAuthorityLayout>
+
+<style>
+  .am-magazine-title-link {
+    color: inherit;
+    text-decoration-color: color-mix(in srgb, var(--color-primary) 32%, transparent);
+    text-decoration-line: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 0.2em;
+    transition: color 160ms ease, text-decoration-color 160ms ease;
+  }
+
+  .am-magazine-title-link:hover,
+  .am-magazine-title-link:focus-visible {
+    color: var(--color-primary);
+    text-decoration-color: var(--color-primary);
+  }
+</style>

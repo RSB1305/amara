@@ -1,13 +1,8 @@
 ---
-/**
- * ExperienceContextNav
- *
- * Crawlable family navigation for the AMARA experience hub and every detail
- * page. The optional currentId creates the hub state; detail pages additionally
- * identify the current guide.
- */
+/** Destination-specific, crawlable navigation for experience hubs and spokes. */
 import ContextNavigation, {
-  type ContextNavigationBreadcrumb
+  type ContextNavigationBreadcrumb,
+  type ContextNavigationItem
 } from '../navigation/ContextNavigation.astro';
 import {
   experienceCatalog,
@@ -16,55 +11,103 @@ import {
   type ExperienceId
 } from '../../content/experienceHubContent';
 import { resolveOptionalLink } from '../../lib/linkResolver';
+import { getDestinationBranchNavigation } from '../../lib/location/destinationBranchNavigation';
 import type { AmaraLanguage } from '../../types/seo';
 
+export type NerjaExperienceId = 'balcon' | 'caves' | 'nightlife';
+
 interface Props {
-  currentId?: ExperienceId;
+  currentId?: ExperienceId | NerjaExperienceId;
+  destination?: 'frigiliana' | 'nerja';
   lang: AmaraLanguage;
 }
 
-const { currentId, lang } = Astro.props;
-const edition = experienceHubContent[lang];
-const navigation = experienceNavigationContent[lang];
-const currentLabel = currentId ? navigation.labels[currentId] : null;
+const { currentId, destination = 'frigiliana', lang } = Astro.props;
+const branchNavigation = getDestinationBranchNavigation(destination, lang);
+const sharedNavigation = experienceNavigationContent[lang];
 
-const homeHref = resolveOptionalLink('home', lang, { suppressMissing: true });
-const hubHref = resolveOptionalLink('explore_hub', lang, {
-  suppressMissing: true
-});
+const nerjaLabels: Record<
+  AmaraLanguage,
+  {
+    breadcrumb: string;
+    switcher: string;
+    labels: Record<NerjaExperienceId, string>;
+  }
+> = {
+  en: {
+    breadcrumb: 'Experiences',
+    switcher: 'Explore another Nerja experience',
+    labels: { balcon: 'Balcón & Old Town', caves: 'Nerja Caves', nightlife: 'Evening life' }
+  },
+  de: {
+    breadcrumb: 'Erlebnisse',
+    switcher: 'Ein anderes Nerja-Erlebnis entdecken',
+    labels: { balcon: 'Balcón & Altstadt', caves: 'Höhlen von Nerja', nightlife: 'Abendleben' }
+  },
+  es: {
+    breadcrumb: 'Experiencias',
+    switcher: 'Descubrir otra experiencia en Nerja',
+    labels: { balcon: 'Balcón y casco antiguo', caves: 'Cueva de Nerja', nightlife: 'Vida nocturna' }
+  },
+  nl: {
+    breadcrumb: 'Ervaringen',
+    switcher: 'Ontdek een andere ervaring in Nerja',
+    labels: { balcon: 'Balcón & oude stad', caves: 'Grotten van Nerja', nightlife: 'Avondleven' }
+  },
+  sv: {
+    breadcrumb: 'Upplevelser',
+    switcher: 'Upptäck en annan upplevelse i Nerja',
+    labels: { balcon: 'Balcón & gamla stan', caves: 'Nerjagrottorna', nightlife: 'Kvällsliv' }
+  }
+};
 
-const siblingLinks = edition.catalog.order
+const destinationLabel = destination === 'frigiliana' ? 'Frigiliana' : 'Nerja';
+const locationToken = destination === 'frigiliana' ? 'location_frigiliana' : 'location_nerja';
+const hubToken = destination === 'frigiliana'
+  ? 'frigiliana_experience_hub'
+  : 'nerja_experience_hub';
+const locationHref = resolveOptionalLink(locationToken, lang, { suppressMissing: true });
+const hubHref = resolveOptionalLink(hubToken, lang, { suppressMissing: true });
+
+const frigilianaSiblingLinks: ContextNavigationItem[] = experienceHubContent[lang].catalog.order
+  .filter((id) => id !== 'nightlife')
   .map((id) => {
     const definition = experienceCatalog[id];
-    const href = resolveOptionalLink(definition.token, lang, {
-      suppressMissing: true
-    });
+    const href = resolveOptionalLink(definition.token, lang, { suppressMissing: true });
 
-    return href
-      ? {
-          id,
-          href,
-          label: navigation.labels[id]
-        }
-      : null;
+    return href ? { id, href, label: sharedNavigation.labels[id] } : null;
   })
-  .filter(
-    (
-      item
-    ): item is {
-      id: ExperienceId;
-      href: string;
-      label: string;
-    } => Boolean(item)
-  );
+  .filter((item): item is ContextNavigationItem => Boolean(item));
 
+const nerjaDefinitions: { id: NerjaExperienceId; token: string }[] = [
+  { id: 'balcon', token: 'nerja_balcon_de_europa' },
+  { id: 'caves', token: 'nerja_caves' },
+  { id: 'nightlife', token: 'nerja_nightlife_authority' }
+];
+const nerjaCopy = nerjaLabels[lang];
+const nerjaSiblingLinks: ContextNavigationItem[] = nerjaDefinitions.map(({ id, token }) => ({
+  id,
+  href: resolveOptionalLink(token, lang, { suppressMissing: true }) ?? undefined,
+  label: nerjaCopy.labels[id]
+}));
+
+const items = destination === 'frigiliana' ? frigilianaSiblingLinks : nerjaSiblingLinks;
+const experienceBreadcrumb = destination === 'frigiliana'
+  ? sharedNavigation.breadcrumbLabel
+  : nerjaCopy.breadcrumb;
+const switcherLabel = destination === 'frigiliana'
+  ? sharedNavigation.switcherLabel
+  : nerjaCopy.switcher;
+const currentLabel = currentId
+  ? items.find((item) => item.id === currentId)?.label
+  : undefined;
+
+const homeHref = resolveOptionalLink('home', lang, { suppressMissing: true });
 const breadcrumbs: ContextNavigationBreadcrumb[] = [
+  { label: 'AMARA', href: homeHref ?? undefined },
+  { label: destinationLabel, href: locationHref ?? undefined },
   {
-    label: 'AMARA',
-    href: homeHref ?? undefined
-  },
-  {
-    label: navigation.breadcrumbLabel,
+    label: experienceBreadcrumb,
     href: currentId ? hubHref ?? undefined : undefined
   },
   ...(currentId && currentLabel ? [{ label: currentLabel }] : [])
@@ -72,10 +115,14 @@ const breadcrumbs: ContextNavigationBreadcrumb[] = [
 ---
 
 <ContextNavigation
+  activeBranchId="experience"
   activeId={currentId}
-  breadcrumbAriaLabel={navigation.breadcrumbAriaLabel}
+  branches={branchNavigation.items}
+  branchSwitcherAriaLabel={branchNavigation.ariaLabel}
+  breadcrumbAriaLabel={sharedNavigation.breadcrumbAriaLabel}
   breadcrumbs={breadcrumbs}
   context="experience"
-  items={siblingLinks}
-  switcherAriaLabel={navigation.switcherLabel}
+  items={items}
+  switcherAriaLabel={switcherLabel}
+  wrapItems={true}
 />

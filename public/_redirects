@@ -36,12 +36,14 @@
 /es/frigiliana-location /frigiliana-location 301
 /es/nerja-location /nerja-location 301
 /es/nerja-nightlife /nerja-nightlife 301
+/es/nerja-experience /nerja-experience 301
 /es/tarifa-location /tarifa-location 301
 /es/frigiliana-market /frigiliana-market 301
 /es/frigiliana-beaches /frigiliana-beaches 301
 /es/frigiliana-hiking /frigiliana-hiking 301
 /es/frigiliana-day-trips /frigiliana-day-trips 301
-/es/explore-frigiliana-nerja /explore-frigiliana-nerja 301
+/es/frigiliana-experience /frigiliana-experience 301
+/es/explore-frigiliana-nerja /frigiliana-experience 301
 /es/frigiliana-parking /frigiliana-parking 301
 /es/frigiliana-streets-stairs /frigiliana-streets-stairs 301
 /es/frigiliana-weather /frigiliana-weather 301
@@ -67,6 +69,13 @@
 /sv/la-amara-lounis-casa-rural-frigiliana /sv/la-amara-lounis 301
 /en/la-amara-family-surf-with-oceanview-and-pool /en/la-amara-family-and-surf 301
 /sv/amara-family-surf-with-oceanview-and-pool /sv/la-amara-family-and-surf 301
+
+# The former combined experience hub now resolves to the destination-specific Frigiliana hub.
+/explore-frigiliana-nerja /frigiliana-experience 301
+/de/explore-frigiliana-nerja /de/frigiliana-experience 301
+/en/explore-frigiliana-nerja /en/frigiliana-experience 301
+/nl/explore-frigiliana-nerja /nl/frigiliana-experience 301
+/sv/explore-frigiliana-nerja /sv/frigiliana-experience 301
 
 # Apartment listing legacy URLs
 /es/la-amara-farah-habitacion-doble-romantica /la-amara-farah 301

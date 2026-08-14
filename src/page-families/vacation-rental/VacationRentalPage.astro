@@ -644,7 +644,7 @@ const locationLinkSpecs = [
   ...(rental.city === 'Frigiliana'
     ? [
         { token: 'location_frigiliana', label: t(ui.frigilianaLocationGuide as LocalizedText) },
-        { token: 'explore_hub', label: t(ui.experiencesGuide as LocalizedText) }
+        { token: 'frigiliana_experience_hub', label: t(ui.experiencesGuide as LocalizedText) }
       ]
     : isFamilySurf
       ? [
@@ -654,7 +654,10 @@ const locationLinkSpecs = [
           { token: 'tarifa_wind_kitesurfing_authority', label: t(ui.tarifaWindGuide as LocalizedText) }
         ]
     : rental.city === 'Nerja'
-      ? [{ token: 'location_nerja', label: 'Nerja' }]
+      ? [
+          { token: 'location_nerja', label: 'Nerja' },
+          { token: 'nerja_experience_hub', label: t(ui.experiencesGuide as LocalizedText) }
+        ]
       : []),
   // Moved here from the context navigation: arrival belongs with planning, not with site-wide links.
   { token: 'arrival_guide', label: t(ui.arrivalGuide as LocalizedText) }

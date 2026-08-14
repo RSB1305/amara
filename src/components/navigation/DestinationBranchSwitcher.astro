@@ -1,0 +1,41 @@
+---
+/** Crawlable destination-level switch between location and experience hubs. */
+interface BranchItem {
+  id: string;
+  href: string;
+  label: string;
+}
+
+interface Props {
+  activeId: string;
+  ariaLabel: string;
+  items: BranchItem[];
+}
+
+const { activeId, ariaLabel, items } = Astro.props;
+---
+
+<nav aria-label={ariaLabel} data-am-destination-branch-switcher>
+  <ul class="inline-flex items-center rounded-full border border-outline-variant/20 bg-surface-container-low p-1">
+    {items.map((item) => {
+      const isActive = item.id === activeId;
+
+      return (
+        <li>
+          <a
+            href={item.href}
+            aria-current={isActive ? 'page' : undefined}
+            class:list={[
+              'inline-flex min-h-8 items-center rounded-full px-3.5 font-label text-[10px] font-semibold uppercase tracking-[0.08em] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/25',
+              isActive
+                ? 'bg-surface text-on-surface shadow-sm'
+                : 'text-on-surface-variant hover:bg-surface/70 hover:text-on-surface'
+            ]}
+          >
+            {item.label}
+          </a>
+        </li>
+      );
+    })}
+  </ul>
+</nav>

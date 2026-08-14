@@ -13,6 +13,7 @@ import {
   type FrigilianaAuthoritySubnavItem
 } from '../../lib/frigiliana/frigilianaAuthoritySubnav';
 import { resolveOptionalLink } from '../../lib/linkResolver';
+import { getDestinationBranchNavigation } from '../../lib/location/destinationBranchNavigation';
 import type { AmaraLanguage } from '../../types/seo';
 
 interface Props {
@@ -57,6 +58,7 @@ const labels: Record<
 };
 
 const copy = labels[lang];
+const branchNavigation = getDestinationBranchNavigation('frigiliana', lang);
 const homeHref = resolveOptionalLink('home', lang, {
   suppressMissing: true
 });
@@ -84,7 +86,10 @@ if (!isOverview) {
 ---
 
 <ContextNavigation
+  activeBranchId="location"
   activeId={activeTopicId}
+  branches={branchNavigation.items}
+  branchSwitcherAriaLabel={branchNavigation.ariaLabel}
   breadcrumbAriaLabel={copy.breadcrumb}
   breadcrumbs={breadcrumbs}
   context="location"

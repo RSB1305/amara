@@ -3,6 +3,7 @@
  * Tarifa-local context navigation with explicit parent and child levels.
  */
 import type { ContextNavigationBreadcrumb } from '../navigation/ContextNavigation.astro';
+import DestinationBranchSwitcher from '../navigation/DestinationBranchSwitcher.astro';
 import {
   getTarifaAuthoritySubnav,
   type TarifaAuthorityBranchId,
@@ -10,6 +11,7 @@ import {
   type TarifaAuthoritySubnavId
 } from '../../lib/tarifa/tarifaAuthoritySubnav';
 import { resolveOptionalLink } from '../../lib/linkResolver';
+import { getDestinationBranchNavigation } from '../../lib/location/destinationBranchNavigation';
 import type { AmaraLanguage } from '../../types/seo';
 
 interface Props {
@@ -66,6 +68,7 @@ const labels: Record<
 };
 
 const copy = labels[lang];
+const branchNavigation = getDestinationBranchNavigation('tarifa', lang);
 const homeHref = resolveOptionalLink('home', lang, {
   suppressMissing: true
 });
@@ -110,7 +113,8 @@ if (childLabel) {
 <div
   class="border-b border-outline-variant/10 bg-surface"
   data-am-context-navigation
-  data-am-location-context
+  data-am-experience-context={activeBranchId === 'experience' ? '' : undefined}
+  data-am-location-context={activeBranchId === 'location' ? '' : undefined}
   data-am-tarifa-context-navigation
 >
   <div class="mx-auto max-w-screen-2xl px-6 py-5 md:px-12">
@@ -143,48 +147,55 @@ if (childLabel) {
         </ol>
       </nav>
 
-      <nav
-        aria-label={copy.topics}
-        class="min-w-0 xl:flex-1"
-        data-am-tarifa-topic-navigation
-      >
-        <ul
-          class="flex flex-wrap items-center gap-x-0.5 gap-y-1 xl:flex-nowrap xl:justify-end"
-          data-am-tarifa-topic-branch={activeBranchId}
+      <div class="flex min-w-0 flex-col gap-3 xl:flex-row xl:items-center xl:justify-end">
+        <DestinationBranchSwitcher
+          activeId={activeBranchId}
+          ariaLabel={branchNavigation.ariaLabel}
+          items={branchNavigation.items}
+        />
+        <nav
+          aria-label={copy.topics}
+          class="min-w-0 xl:flex-1"
+          data-am-tarifa-topic-navigation
         >
-          {visibleTopics.map((topic) => {
-            const isActiveTopic = topic.id === inferredChildId;
+          <ul
+            class="flex flex-wrap items-center gap-x-0.5 gap-y-1 xl:flex-nowrap xl:justify-end"
+            data-am-tarifa-topic-branch={activeBranchId}
+          >
+            {visibleTopics.map((topic) => {
+              const isActiveTopic = topic.id === inferredChildId;
 
-            return (
-              <li data-am-tarifa-topic={topic.id} data-am-tarifa-topic-status={topic.status}>
-                {topic.status === 'live' ? (
-                  <a
-                    href={topic.href}
-                    aria-current={isActiveTopic ? 'page' : undefined}
-                    class:list={[
-                      'inline-flex min-h-8 items-center border-b px-2 font-label text-[10px] font-medium uppercase tracking-[0.06em] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/25',
-                      isActiveTopic
-                        ? 'border-primary font-semibold text-on-surface'
-                        : 'border-transparent text-on-surface-variant hover:border-primary/45 hover:text-on-surface'
-                    ]}
-                    data-am-tarifa-child={topic.id}
-                  >
-                    {topic.label}
-                  </a>
-                ) : (
-                  <span
-                    aria-disabled="true"
-                    class="inline-flex min-h-8 items-center px-2 font-label text-[10px] font-medium uppercase tracking-[0.06em] text-on-surface-variant/55"
-                    data-am-tarifa-child={topic.id}
-                  >
-                    {topic.label}
-                  </span>
-                )}
-              </li>
-            );
-          })}
-        </ul>
-      </nav>
+              return (
+                <li data-am-tarifa-topic={topic.id} data-am-tarifa-topic-status={topic.status}>
+                  {topic.status === 'live' ? (
+                    <a
+                      href={topic.href}
+                      aria-current={isActiveTopic ? 'page' : undefined}
+                      class:list={[
+                        'inline-flex min-h-8 items-center border-b px-2 font-label text-[10px] font-medium uppercase tracking-[0.06em] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/25',
+                        isActiveTopic
+                          ? 'border-primary font-semibold text-on-surface'
+                          : 'border-transparent text-on-surface-variant hover:border-primary/45 hover:text-on-surface'
+                      ]}
+                      data-am-tarifa-child={topic.id}
+                    >
+                      {topic.label}
+                    </a>
+                  ) : (
+                    <span
+                      aria-disabled="true"
+                      class="inline-flex min-h-8 items-center px-2 font-label text-[10px] font-medium uppercase tracking-[0.06em] text-on-surface-variant/55"
+                      data-am-tarifa-child={topic.id}
+                    >
+                      {topic.label}
+                    </span>
+                  )}
+                </li>
+              );
+            })}
+          </ul>
+        </nav>
+      </div>
     </div>
   </div>
 </div>

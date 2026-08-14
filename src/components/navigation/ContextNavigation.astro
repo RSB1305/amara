@@ -17,8 +17,13 @@ export interface ContextNavigationItem {
   status?: 'live' | 'future';
 }
 
+import DestinationBranchSwitcher from './DestinationBranchSwitcher.astro';
+
 interface Props {
   activeId?: string;
+  activeBranchId?: string;
+  branches?: { id: string; href: string; label: string }[];
+  branchSwitcherAriaLabel?: string;
   breadcrumbAriaLabel: string;
   breadcrumbs: ContextNavigationBreadcrumb[];
   context: 'experience' | 'location';
@@ -30,6 +35,9 @@ interface Props {
 
 const {
   activeId,
+  activeBranchId,
+  branches = [],
+  branchSwitcherAriaLabel,
   breadcrumbAriaLabel,
   breadcrumbs,
   context,
@@ -96,7 +104,16 @@ const visibleItems = activeId && !retainActiveItem
         )
       }
 
-      {visibleItems.length > 0 && (
+      {(branches.length > 0 || visibleItems.length > 0) && (
+      <div class="flex min-w-0 flex-col gap-3 xl:flex-row xl:items-center xl:justify-end">
+        {branches.length > 0 && activeBranchId && branchSwitcherAriaLabel && (
+          <DestinationBranchSwitcher
+            activeId={activeBranchId}
+            ariaLabel={branchSwitcherAriaLabel}
+            items={branches}
+          />
+        )}
+        {visibleItems.length > 0 && (
       <nav aria-label={switcherAriaLabel} class="min-w-0">
         <ul
           class:list={[
@@ -146,6 +163,8 @@ const visibleItems = activeId && !retainActiveItem
           }
         </ul>
       </nav>
+        )}
+      </div>
       )}
     </div>
   </div>

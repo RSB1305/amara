@@ -2,7 +2,7 @@ import type { AmaraAuthoringSeo, AmaraLanguage } from '../types/seo';
 
 export interface NerjaLocationHubLink {
   label: string;
-  token?: 'getting_to_nerja' | 'nerja_where_to_stay' | 'playa' | 'explore_hub';
+  token?: 'getting_to_nerja' | 'nerja_where_to_stay' | 'playa' | 'nerja_experience_hub';
   anchor?: string;
 }
 
@@ -205,7 +205,7 @@ export const nerjaLocationHubContent: {
         paragraphs: [
           'The location choice sets the daily rhythm; the experience comes from what you do with it. Beach mornings, old-town evenings, Maro, Frigiliana and the wider Axarquía can be combined without forcing every day into the same pattern.'
         ],
-        link: { label: 'Explore Frigiliana & Nerja', token: 'explore_hub' }
+        link: { label: 'Explore Nerja experiences', token: 'nerja_experience_hub' }
       }
     },
     de: {
@@ -315,7 +315,7 @@ export const nerjaLocationHubContent: {
         paragraphs: [
           'Die Lage bestimmt den Tagesrhythmus; das Erlebnis entsteht daraus, was ihr daraus macht. Strandmorgen, Altstadtabende, Maro, Frigiliana und die weitere Axarquía lassen sich verbinden, ohne jeden Tag gleich zu planen.'
         ],
-        link: { label: 'Frigiliana & Nerja entdecken', token: 'explore_hub' }
+        link: { label: 'Nerja-Erlebnisse entdecken', token: 'nerja_experience_hub' }
       }
     },
     es: {
@@ -425,7 +425,7 @@ export const nerjaLocationHubContent: {
         paragraphs: [
           'La ubicación marca el ritmo; la experiencia nace de lo que hacéis con ella. Mañanas de playa, noches en el casco antiguo, Maro, Frigiliana y la Axarquía pueden combinarse sin convertir todos los días en el mismo plan.'
         ],
-        link: { label: 'Descubrir Frigiliana y Nerja', token: 'explore_hub' }
+        link: { label: 'Descubrir experiencias en Nerja', token: 'nerja_experience_hub' }
       }
     },
     nl: {
@@ -535,7 +535,7 @@ export const nerjaLocationHubContent: {
         paragraphs: [
           'De locatie bepaalt het dagritme; de ervaring ontstaat uit wat je ermee doet. Strandochtenden, avonden in het oude centrum, Maro, Frigiliana en de Axarquía zijn te combineren zonder iedere dag hetzelfde in te delen.'
         ],
-        link: { label: 'Ontdek Frigiliana & Nerja', token: 'explore_hub' }
+        link: { label: 'Ontdek ervaringen in Nerja', token: 'nerja_experience_hub' }
       }
     },
     sv: {
@@ -645,7 +645,7 @@ export const nerjaLocationHubContent: {
         paragraphs: [
           'Läget sätter dagsrytmen; upplevelsen kommer av vad ni gör med den. Strandmorgnar, kvällar i gamla stan, Maro, Frigiliana och Axarquía går att kombinera utan att varje dag följer samma schema.'
         ],
-        link: { label: 'Upptäck Frigiliana & Nerja', token: 'explore_hub' }
+        link: { label: 'Upptäck upplevelser i Nerja', token: 'nerja_experience_hub' }
       }
     }
   }

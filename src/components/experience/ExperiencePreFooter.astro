@@ -24,7 +24,7 @@ interface Props {
 const { currentId, lang } = Astro.props;
 const edition = experienceHubContent[lang];
 const navigation = experienceNavigationContent[lang];
-const orderedIds = edition.catalog.order;
+const orderedIds = edition.catalog.order.filter((id) => id !== 'nightlife');
 const currentIndex = Math.max(orderedIds.indexOf(currentId), 0);
 
 const recommendationIds = Array.from(
@@ -45,8 +45,7 @@ const recommendations = recommendationIds
           href,
           editorial: edition.stories[id],
           shortLabel: navigation.labels[id],
-          destinationLabel:
-            edition.catalog.destinationLabels[definition.destination]
+          destinationLabel: 'Frigiliana'
         }
       : null;
   })
@@ -56,7 +55,7 @@ const recommendations = recommendationIds
     ): item is NonNullable<typeof item> => Boolean(item)
   );
 
-const hubHref = resolveOptionalLink('explore_hub', lang, {
+const hubHref = resolveOptionalLink('frigiliana_experience_hub', lang, {
   suppressMissing: true
 });
 ---

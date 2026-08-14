@@ -10,6 +10,7 @@ import {
   type NerjaAuthoritySubnavId
 } from '../../lib/nerja/nerjaAuthoritySubnav';
 import { resolveOptionalLink } from '../../lib/linkResolver';
+import { getDestinationBranchNavigation } from '../../lib/location/destinationBranchNavigation';
 import type { AmaraLanguage } from '../../types/seo';
 
 interface Props {
@@ -51,6 +52,7 @@ const labels: Record<
 };
 
 const copy = labels[lang];
+const branchNavigation = getDestinationBranchNavigation('nerja', lang);
 const homeHref = resolveOptionalLink('home', lang, {
   suppressMissing: true
 });
@@ -72,7 +74,10 @@ const breadcrumbs: ContextNavigationBreadcrumb[] = [
 ---
 
 <ContextNavigation
+  activeBranchId="location"
   activeId={activeId}
+  branches={branchNavigation.items}
+  branchSwitcherAriaLabel={branchNavigation.ariaLabel}
   breadcrumbAriaLabel={copy.breadcrumb}
   breadcrumbs={breadcrumbs}
   context="location"

@@ -134,7 +134,14 @@ const PUBLIC_ROUTE_LABELS: Partial<Record<string, Record<AmaraLanguage, string>>
     nl: 'Winterverblijven',
     sv: 'Vintervistelser'
   },
-  'explore-frigiliana-nerja': {
+  'frigiliana-experience': {
+    en: 'Experiences',
+    de: 'Erlebnisse',
+    es: 'Experiencias',
+    nl: 'Ervaringen',
+    sv: 'Upplevelser'
+  },
+  'nerja-experience': {
     en: 'Experiences',
     de: 'Erlebnisse',
     es: 'Experiencias',
@@ -363,25 +370,35 @@ const PUBLIC_ROUTE_LABELS: Partial<Record<string, Record<AmaraLanguage, string>>
   }
 };
 
-const EXPERIENCE_DETAIL_SLUGS = new Set([
+const FRIGILIANA_EXPERIENCE_SLUGS = new Set([
+  'frigiliana-experience',
   'frigiliana-beaches',
   'frigiliana-hiking',
   'frigiliana-restaurants',
   'frigiliana-festivals',
   'frigiliana-market',
   'frigiliana-day-trips',
-  'frigiliana-wellness',
+  'frigiliana-wellness'
+]);
+
+const NERJA_EXPERIENCE_SLUGS = new Set([
+  'nerja-experience',
+  'nerja-balcon-de-europa',
+  'nerja-caves',
   'nerja-nightlife'
 ]);
 
-const TARIFA_GUIDE_SLUGS = new Set([
+const TARIFA_LOCATION_GUIDE_SLUGS = new Set([
   'tarifa-location',
   'getting-to-tarifa',
   'tarifa-geography',
   'tarifa-where-to-stay',
   'tarifa-weather',
   'tarifa-daily-life',
-  'tarifa-winter-stays',
+  'tarifa-winter-stays'
+]);
+
+const TARIFA_EXPERIENCE_SLUGS = new Set([
   'tarifa-experience',
   'tarifa-wind-kitesurfing',
   'tarifa-beaches',
@@ -486,7 +503,41 @@ function buildBreadcrumbNode(
     }
   ];
 
-  if (TARIFA_GUIDE_SLUGS.has(slug)) {
+  const experienceHierarchy = FRIGILIANA_EXPERIENCE_SLUGS.has(slug)
+    ? { locationSlug: 'frigiliana-location', hubSlug: 'frigiliana-experience', locationName: 'Frigiliana' }
+    : NERJA_EXPERIENCE_SLUGS.has(slug)
+      ? { locationSlug: 'nerja-location', hubSlug: 'nerja-experience', locationName: 'Nerja' }
+      : TARIFA_EXPERIENCE_SLUGS.has(slug)
+        ? { locationSlug: 'tarifa-location', hubSlug: 'tarifa-experience', locationName: 'Tarifa' }
+        : null;
+
+  if (experienceHierarchy) {
+    const locationUrl = new URL(
+      buildOwnedLocalizedPath(experienceHierarchy.locationSlug, currentLang),
+      base
+    ).href;
+
+    itemListElement.push({
+      '@type': 'ListItem',
+      position: itemListElement.length + 1,
+      name: experienceHierarchy.locationName,
+      item: locationUrl
+    });
+
+    if (slug !== experienceHierarchy.hubSlug) {
+      const hubUrl = new URL(
+        buildOwnedLocalizedPath(experienceHierarchy.hubSlug, currentLang),
+        base
+      ).href;
+
+      itemListElement.push({
+        '@type': 'ListItem',
+        position: itemListElement.length + 1,
+        name: resolveRouteLabel(experienceHierarchy.hubSlug, currentLang, 'Experiences'),
+        item: hubUrl
+      });
+    }
+  } else if (TARIFA_LOCATION_GUIDE_SLUGS.has(slug)) {
     if (slug !== 'tarifa-location') {
       const tarifaSlug = 'tarifa-location';
       const tarifaUrl = new URL(
@@ -531,19 +582,6 @@ function buildBreadcrumbNode(
         item: nerjaUrl
       });
     }
-  } else if (EXPERIENCE_DETAIL_SLUGS.has(slug)) {
-    const hubSlug = 'explore-frigiliana-nerja';
-    const hubUrl = new URL(
-      buildOwnedLocalizedPath(hubSlug, currentLang),
-      base
-    ).href;
-
-    itemListElement.push({
-      '@type': 'ListItem',
-      position: itemListElement.length + 1,
-      name: resolveRouteLabel(hubSlug, currentLang, 'Experiences'),
-      item: hubUrl
-    });
   } else if (PRIMARY_TRUST_PAGE_SLUGS.has(slug)) {
     const aboutUrl = new URL(
       buildOwnedLocalizedPath('amara-about-us', currentLang),

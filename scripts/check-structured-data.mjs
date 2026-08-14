@@ -65,14 +65,19 @@ const GOOGLE_VACATION_RENTAL_ENUM_AMENITIES = {
   poolType: new Set(['Indoor', 'Outdoor', 'None'])
 };
 
-const EXPERIENCE_DETAIL_SLUGS = new Set([
+const FRIGILIANA_EXPERIENCE_DETAIL_SLUGS = new Set([
   'frigiliana-beaches',
   'frigiliana-hiking',
   'frigiliana-restaurants',
   'frigiliana-festivals',
   'frigiliana-market',
   'frigiliana-day-trips',
-  'frigiliana-wellness',
+  'frigiliana-wellness'
+]);
+
+const NERJA_EXPERIENCE_DETAIL_SLUGS = new Set([
+  'nerja-balcon-de-europa',
+  'nerja-caves',
   'nerja-nightlife'
 ]);
 
@@ -165,12 +170,32 @@ function getVisibleRentalSlugs(html, pageUrl) {
   return slugs;
 }
 
-function getExperienceHubPath(pathname) {
+function getExperienceHubPath(pathname, hubSlug) {
   const language = pathname.split('/').filter(Boolean)[0];
 
   return NON_DEFAULT_LANGUAGES.has(language)
-    ? `/${language}/explore-frigiliana-nerja`
-    : '/explore-frigiliana-nerja';
+    ? `/${language}/${hubSlug}`
+    : `/${hubSlug}`;
+}
+
+function getExperienceFamily(slug) {
+  if (FRIGILIANA_EXPERIENCE_DETAIL_SLUGS.has(slug)) {
+    return {
+      hubSlug: 'frigiliana-experience',
+      detailSlugs: FRIGILIANA_EXPERIENCE_DETAIL_SLUGS,
+      requiresPrefooter: true
+    };
+  }
+
+  if (NERJA_EXPERIENCE_DETAIL_SLUGS.has(slug)) {
+    return {
+      hubSlug: 'nerja-experience',
+      detailSlugs: NERJA_EXPERIENCE_DETAIL_SLUGS,
+      requiresPrefooter: false
+    };
+  }
+
+  return null;
 }
 
 function walkHtmlFiles(directory) {
@@ -480,27 +505,29 @@ export function runStructuredDataAudit({
         report(file, `breadcrumb label is not properly localized: ${pageLabel}`);
       }
 
-      if (EXPERIENCE_DETAIL_SLUGS.has(ownedSlug)) {
+      const breadcrumbExperienceFamily = getExperienceFamily(ownedSlug);
+      if (breadcrumbExperienceFamily) {
         const expectedHubUrl = new URL(
-          getExperienceHubPath(pagePath),
+          getExperienceHubPath(pagePath, breadcrumbExperienceFamily.hubSlug),
           pageOrigin
         ).href;
 
-        if (items.length !== 3 || items[1]?.item !== expectedHubUrl) {
+        if (items.length !== 4 || items[2]?.item !== expectedHubUrl) {
           report(
             file,
-            'experience detail breadcrumb must be Home > Experiences > current page'
+            'experience detail breadcrumb must be Home > Destination > Experiences > current page'
           );
         }
       }
     }
 
-    if (EXPERIENCE_DETAIL_SLUGS.has(ownedSlug)) {
+    const experienceFamily = getExperienceFamily(ownedSlug);
+    if (experienceFamily) {
       if (!html.includes('data-am-experience-context')) {
         report(file, 'experience detail is missing its crawlable family navigation');
       }
 
-      if (!html.includes('data-am-experience-prefooter')) {
+      if (experienceFamily.requiresPrefooter && !html.includes('data-am-experience-prefooter')) {
         report(file, 'experience detail is missing its related-guides pre-footer');
       }
 
@@ -511,7 +538,7 @@ export function runStructuredDataAudit({
         ...html.matchAll(/\bdata-am-experience-recommendation\b/g)
       ].length;
 
-      const expectedSiblingLinkCount = EXPERIENCE_DETAIL_SLUGS.size - 1;
+      const expectedSiblingLinkCount = experienceFamily.detailSlugs.size - 1;
 
       if (siblingLinkCount !== expectedSiblingLinkCount) {
         report(
@@ -520,7 +547,7 @@ export function runStructuredDataAudit({
         );
       }
 
-      if (recommendationCount !== 3) {
+      if (experienceFamily.requiresPrefooter && recommendationCount !== 3) {
         report(
           file,
           `experience pre-footer contains ${recommendationCount} recommendations instead of 3`

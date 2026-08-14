@@ -1,7 +1,7 @@
 ---
 import Navigation from '../../components/Navigation.astro';
 import EditorialByline from '../../components/editorial/EditorialByline.astro';
-import NerjaContextNav from '../../components/location/NerjaContextNav.astro';
+import ExperienceContextNav from '../../components/experience/ExperienceContextNav.astro';
 import {
   nerjaBalconContent,
   nerjaBalconSeo
@@ -52,11 +52,7 @@ const footerHighlights = [
     languageToken="nerja_balcon_de_europa"
     locationAuthorityNav={true}
   />
-  <NerjaContextNav
-    activeId="intro"
-    childLabel={content.breadcrumbLabel}
-    lang={currentLang}
-  />
+  <ExperienceContextNav currentId="balcon" destination="nerja" lang={currentLang} />
 
   <article class="bg-surface" data-am-page="nerja-balcon-de-europa">
     <header class="overflow-hidden border-b border-border-subtle bg-surface px-6 py-20 md:px-12 md:py-28 lg:py-36">
