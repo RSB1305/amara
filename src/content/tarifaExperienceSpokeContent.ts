@@ -242,6 +242,13 @@ const food: TarifaExperienceSpokeContent = {
           'La temporada, el día de la semana y el tiempo cambian el ambiente. Elegid la noche que encontréis, sin confiar en afirmaciones fijas sobre la vida nocturna de Tarifa.',
           'Seizoen, weekdag en weer bepalen de sfeer. Kies wat je op dat moment aantreft in plaats van uit te gaan van vaste uitspraken over het nachtleven.',
           'Säsong, veckodag och väder påverkar stämningen. Välj den kväll som faktiskt finns framför er i stället för att lita på fasta påståenden om Tarifas nattliv.'
+        ),
+        l(
+          'If you want a starting point: the evening usually begins along Calle Batalla del Salado, where the first restaurants and bars are, and works its way into the Old Town from there. On a warm night the streets are busiest long after dark — and you may well end up next to a kitesurfing world champion at the bar.',
+          'Wenn ihr einen Ausgangspunkt wollt: Der Abend beginnt meist entlang der Calle Batalla del Salado, wo die ersten Restaurants und Bars liegen, und wandert von dort in die Altstadt. In einer warmen Nacht sind die Gassen lange nach Einbruch der Dunkelheit am vollsten – und es kann gut sein, dass an der Bar neben euch ein Kitesurf-Weltmeister sitzt.',
+          'Si queréis un punto de partida: la noche suele empezar en la Calle Batalla del Salado, donde están los primeros restaurantes y bares, y desde ahí se adentra en el casco antiguo. En una noche cálida las calles se llenan mucho después del anochecer, y es muy posible que en la barra tengáis al lado a un campeón del mundo de kitesurf.',
+          'Willen jullie een startpunt: de avond begint meestal langs de Calle Batalla del Salado, waar de eerste restaurants en bars liggen, en trekt vandaar de oude stad in. Op een warme avond zijn de straten lang na zonsondergang het drukst — en het kan zomaar dat er aan de bar een wereldkampioen kitesurfen naast jullie zit.',
+          'Vill ni ha en utgångspunkt: kvällen börjar oftast längs Calle Batalla del Salado, där de första restaurangerna och barerna ligger, och rör sig därifrån in i Gamla stan. En varm kväll är gatorna som fullast långt efter mörkrets inbrott — och det är fullt möjligt att ni får en världsmästare i kitesurfing bredvid er i baren.'
         )
       ]
     },
@@ -256,6 +263,13 @@ const food: TarifaExperienceSpokeContent = {
           'Un día centrado en la gastronomía no tiene por qué empezar en un restaurante. Pasead por la costa, recorred el casco antiguo, parad para un almuerzo tardío o volved a cenar cuando cambie la luz.',
           'Een dag rond eten hoeft niet in een restaurant te beginnen. Wandel langs de kust, breng tijd door in de oude stad, neem een late lunch of kom terug voor het diner wanneer het licht verandert.',
           'En matdag behöver inte börja på en restaurang. Gå längs kusten, tillbringa tid i Gamla stan, stanna för en sen lunch eller återvänd till middag när ljuset förändras.'
+        ),
+        l(
+          'Our own day usually starts with breakfast — Café SURLA or Powerhouse for an açaí bowl, or Helenas Kitchen, which is right next to our front door in La Marina. Then the wind decides the rest.',
+          'Unser eigener Tag beginnt meist mit dem Frühstück – Café SURLA oder Powerhouse für eine Açaí-Bowl, oder das Helenas Kitchen, das direkt neben unserer Haustür in La Marina liegt. Den Rest entscheidet dann der Wind.',
+          'Nuestro día suele empezar con el desayuno: Café SURLA o Powerhouse para un bol de açaí, o Helenas Kitchen, justo al lado de nuestra puerta en La Marina. El resto lo decide el viento.',
+          'Onze eigen dag begint meestal met ontbijt — Café SURLA of Powerhouse voor een açaí-bowl, of Helenas Kitchen, direct naast onze voordeur in La Marina. De rest bepaalt de wind.',
+          'Vår egen dag börjar oftast med frukost — Café SURLA eller Powerhouse för en açaí-bowl, eller Helenas Kitchen som ligger alldeles intill vår ytterdörr i La Marina. Resten avgör vinden.'
         ),
         l(
           'This keeps eating part of a real Tarifa day rather than turning the town into a directory of reservations.',
