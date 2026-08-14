@@ -1,4 +1,4 @@
-import { resolveLink } from '../linkResolver';
+import { resolveLink, type LinkToken } from '../linkResolver';
 import type { AmaraLanguage } from '../../types/seo';
 
 export type DestinationBranchId = 'location' | 'experience';
@@ -37,7 +37,7 @@ const labels: Record<
 
 const tokens: Record<
   DestinationId,
-  { location: string; experience: string }
+  { location: LinkToken; experience: LinkToken }
 > = {
   frigiliana: {
     location: 'location_frigiliana',

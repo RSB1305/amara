@@ -36,11 +36,6 @@ function t(row: LocalizedRow): string {
 
 const gettingHereHref = buildOwnedLocalizedPath('getting-to-frigiliana', currentLang);
 
-const navLinks = copy.nav.links.map((link) => ({
-  token: link.token,
-  label: t(link.label)
-}));
-
 const orientationFacts = copy.orientation.items.map((item) => ({
   label: t(item.label),
   value: t(item.value),
@@ -131,8 +126,6 @@ const heroImage = {
   <Navigation
     slot="navigation"
     currentLang={currentLang}
-    brandName={t(copy.nav.brand)}
-    links={navLinks}
     languageToken="frigiliana_faq"
     locationAuthorityNav={true}
   />

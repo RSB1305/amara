@@ -87,11 +87,6 @@ const ctaHrefByToken: Record<FrigilianaLocationCtaToken, string | null> = {
   AVAILABILITY: availabilityHref
 };
 
-const navLinks = frigilianaLocationNav.links.map((link) => ({
-  token: link.token,
-  label: link.label[currentLang]
-}));
-
 const footerHighlights: LabeledLink[] = [
   {
     token: 'romantic_hideaways',
@@ -216,8 +211,6 @@ const renderCtas = (subsection: FrigilianaLocationSubsection) => subsection.ctas
   <Navigation
     slot="navigation"
     currentLang={currentLang}
-    brandName={frigilianaLocationNav.brand[currentLang]}
-    links={navLinks}
     languageToken="location_frigiliana"
     locationAuthorityNav={true}
   />

@@ -17,29 +17,10 @@ import { isPublicLinkEnabled } from '../lib/routeOwnership';
 import { AMARA_LANGUAGE_LABELS } from '../lib/languageLabels';
 import type { AmaraLanguage } from '../types/seo';
 
-interface NavLink {
-  token: LinkToken;
-  label?: string;
-  /** Non-interactive “coming soon” row (span + badge); checked before global token disable rules. */
-  disabled?: boolean;
-  /** Resolves a link even when the token is globally gated. */
-  forceEnabled?: boolean;
-}
-
 interface Props {
   currentLang: AmaraLanguage;
-  /** Deprecated compatibility input; the wordmark is always "AMARA / Lodging" now that breadcrumbs carry location context. */
-  brandName?: string;
-  /** Deprecated compatibility input; see brandName. */
-  brandLabel?: string;
-  /** Deprecated compatibility input; the global shell ignores page-specific center links. */
-  links?: NavLink[];
-  /** Deprecated compatibility input; visual variants no longer change the global center navigation. */
-  variant?: 'default' | 'trust';
-  currentToken?: string;
-  languageToken?: string;
-  /** Deprecated compatibility input; see brandName. */
-  brandVariant?: 'default' | 'lodging';
+  currentToken?: LinkToken;
+  languageToken?: LinkToken;
   showBookingCta?: boolean;
   /**
    * Type A location authority pages: allow Frigiliana / Nerja / experiences hub links in the center
@@ -255,7 +236,7 @@ const globalNavLabels = {
   }
 } satisfies Record<string, Record<AmaraLanguage, string>>;
 
-const ctaLink = {
+const ctaLink: { token: LinkToken; label: string; shortLabel: string } = {
   token: 'book',
   label: trustLabels.book[currentLang],
   shortLabel: defaultCtaShortLabels[currentLang]

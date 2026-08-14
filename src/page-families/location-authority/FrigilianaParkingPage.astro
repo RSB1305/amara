@@ -39,11 +39,6 @@ function t(row: LocalizedRow): string {
 
 const streetsHref = buildOwnedLocalizedPath('frigiliana-streets-stairs', currentLang);
 
-const navLinks = copy.nav.links.map((link) => ({
-  token: link.token,
-  label: t(link.label)
-}));
-
 const facts = copy.facts.items.map((item) => ({
   label: t(item.label),
   value: t(item.value),
@@ -129,8 +124,6 @@ const timingImage = {
   <Navigation
     slot="navigation"
     currentLang={currentLang}
-    brandName={t(copy.nav.brand)}
-    links={navLinks}
     languageToken="frigiliana_parking"
     locationAuthorityNav={true}
   />

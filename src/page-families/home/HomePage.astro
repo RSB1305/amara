@@ -108,12 +108,6 @@ const seo: AmaraAuthoringSeo = {
   }
 };
 
-const homeNavLinks = [
-  { token: 'location_frigiliana', label: 'Frigiliana' },
-  { token: 'romantic_hideaways', label: t(stayCollectionLabels.shortLabel) },
-  { token: 'reviews_hub', label: t(navReviews) }
-];
-
 const cinematicApartmentsProps = (
   await Promise.all(
   cinematicApartments.map(async (apt) => {
@@ -161,9 +155,6 @@ const guideLinks = cinematicGuideLinks
 <BaseLayout seo={seo} pageLang={currentLang}>
   <Navigation
     currentLang={currentLang}
-    brandName="AMARA"
-    links={homeNavLinks}
-    variant="default"
     languageToken="home"
   />
   <div data-am-page="home">

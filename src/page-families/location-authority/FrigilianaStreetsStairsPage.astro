@@ -30,11 +30,6 @@ function t(row: LocalizedRow): string {
   return row[currentLang] ?? row.en;
 }
 
-const navLinks = copy.nav.links.map((link) => ({
-  token: link.token,
-  label: t(link.label)
-}));
-
 const factors = copy.factors.items.map((item) => ({
   label: t(item.label),
   value: t(item.value),
@@ -122,8 +117,6 @@ const proofImage = {
   <Navigation
     slot="navigation"
     currentLang={currentLang}
-    brandName={t(copy.nav.brand)}
-    links={navLinks}
     languageToken="frigiliana_stairs"
     locationAuthorityNav={true}
   />

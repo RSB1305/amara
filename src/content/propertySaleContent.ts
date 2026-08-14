@@ -123,7 +123,7 @@ export const propertySaleSeo: AmaraAuthoringSeo = {
   ogImage: propertySaleImages.hero
 };
 
-export const propertySaleContent = {
+export const propertySaleContent: Record<AmaraLanguage, PropertySaleLocalizedContent> = {
   en: {
     navigation: {
       brandName: 'AMARA'

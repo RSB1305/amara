@@ -606,12 +606,6 @@ if (rental.bathroomUnderfloorHeating) {
   visibleAmenities.push(t(bathroomUnderfloorHeating));
 }
 
-const navLinks = [
-  { token: 'romantic_hideaways', label: t(stayCollectionLabels.shortLabel) },
-  { token: 'amenities' },
-  { token: 'reviews_hub' },
-  { token: 'direct_booking_benefits' }
-];
 const footerHighlights: LabeledLink[] = [
   { token: 'romantic_hideaways', label: t(stayCollectionLabels.shortLabel) },
   { token: 'amenities', label: t(ui.amenitiesTitle as LocalizedText) },
@@ -683,9 +677,6 @@ const galleryImages = visibleImages.slice(1);
 >
   <Navigation
     currentLang={currentLang}
-    brandName="AMARA"
-    links={navLinks}
-    variant="trust"
     languageToken={rental.token}
   />
 

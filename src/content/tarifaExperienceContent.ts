@@ -117,7 +117,7 @@ export const tarifaExperienceSeo: AmaraAuthoringSeo = {
   }
 };
 
-export const tarifaExperienceContent = {
+export const tarifaExperienceContent: Record<AmaraLanguage, TarifaExperiencePageCopy> = {
   en: {
     navLabel: 'Experiences',
     breadcrumbLabel: 'Experiences',
