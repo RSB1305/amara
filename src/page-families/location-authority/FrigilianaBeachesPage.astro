@@ -10,7 +10,7 @@ import {
   frigilianaBeachesSeo
 } from '../../content/frigilianaBeachesContent';
 import LocationAuthorityLayout from '../../layouts/LocationAuthorityLayout.astro';
-import { resolveOptionalLink } from '../../lib/linkResolver';
+import { resolveOptionalLink, type LabeledLink } from '../../lib/linkResolver';
 import { normalizeLanguage } from '../../lib/seo/resolve-seo-head';
 import type { AmaraLanguage } from '../../types/seo';
 
@@ -22,7 +22,7 @@ const { lang = 'es' } = Astro.props;
 const currentLang = normalizeLanguage(lang as AmaraLanguage);
 const copy = frigilianaBeachesContent[currentLang];
 
-const footerHighlights = [
+const footerHighlights: LabeledLink[] = [
   {
     token: 'frigiliana_beaches_authority',
     label: copy.footerHighlights.beaches
@@ -61,7 +61,6 @@ const heroImage = {
   <Navigation
     slot="navigation"
     currentLang={currentLang}
-    brandName="Frigiliana"
     languageToken="frigiliana_beaches_authority"
     locationAuthorityNav={true}
   />

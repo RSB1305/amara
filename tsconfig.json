@@ -5,7 +5,8 @@
     "**/*"
   ],
   "exclude": [
-    "dist"
+    "dist",
+    "src/pages/_tools"
   ],
   "compilerOptions": {
     "jsx": "react-jsx",

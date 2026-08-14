@@ -3,9 +3,10 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import Navigation from '../../components/Navigation.astro';
 import TrustHero from '../../components/hero/TrustHero.astro';
 import EditorialClosingCta from '../../components/editorial/EditorialClosingCta.astro';
+import type { EditorialClosingCtaLink } from '../../components/editorial/EditorialClosingCta.astro';
 import AmaraImage from '../../components/AmaraImage.astro';
 import { trustLabels } from '../../content/trustLabels';
-import { resolveOptionalLink } from '../../lib/linkResolver';
+import { resolveOptionalLink, type LabeledLink } from '../../lib/linkResolver';
 import { normalizeLanguage } from '../../lib/seo/resolve-seo-head';
 import type { AmaraAuthoringSeo, AmaraLanguage } from '../../types/seo';
 
@@ -67,7 +68,7 @@ const trustFooterLabels = {
   }
 } as const;
 
-const footerHighlights = [
+const footerHighlights: LabeledLink[] = [
   { token: 'amenities', label: trustFooterLabels.amenities[currentLang] },
   { token: 'reviews_hub', label: trustFooterLabels.reviews_hub[currentLang] },
   { token: 'instagram', label: trustFooterLabels.instagram[currentLang] }
@@ -276,21 +277,16 @@ const hero = {
   ctaAmenities: copy.hero.ctaAmenities[currentLang]
 };
 
-const trustLinks = [
-  { token: 'about', label: copy.shared.ctaAbout[currentLang] },
-  { token: 'reviews_hub', label: copy.shared.ctaReviews[currentLang] },
-  { token: 'direct_booking_benefits', label: copy.shared.ctaDirectBenefits[currentLang] }
-];
-const heroCtaLinks = [
+const heroCtaLinks = ([
   { token: 'book', label: hero.ctaBooking },
   { token: 'amenities', label: hero.ctaAmenities }
-]
+] satisfies LabeledLink[])
   .map((link) => {
     const href = resolveOptionalLink(link.token, currentLang, { suppressMissing: true });
     return href ? { href, label: link.label } : null;
   })
   .filter((link): link is { href: string; label: string } => Boolean(link));
-const closingCtaLinks = [
+const closingCtaLinks: EditorialClosingCtaLink[] = [
   { token: 'book', label: hero.ctaBooking, style: 'primary' as const },
   { token: 'amenities', label: hero.ctaAmenities, style: 'secondary' as const }
 ];
@@ -310,9 +306,6 @@ const sections = copy.sections.map((section, index) => ({
 <BaseLayout seo={seo} pageLang={currentLang} footerHighlights={footerHighlights}>
   <Navigation
     currentLang={currentLang}
-    brandName="AMARA"
-    links={trustLinks}
-    variant="trust"
     currentToken="faq_general"
   />
 

@@ -1,3 +1,4 @@
+import type { LinkToken } from '../lib/linkResolver';
 /**
  * Homepage cinematic band — 5-language copy (SSOT per field).
  * Used by HomePage.astro + HomeCinematicMain.astro props.
@@ -157,7 +158,7 @@ export const cinematicGuideTitle: CopyRow = {
 };
 
 export interface CinematicGuideLinkDef {
-  token: string;
+  token: LinkToken;
   label: CopyRow;
   text: CopyRow;
 }

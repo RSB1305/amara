@@ -12,34 +12,15 @@
  * font/size utilities (see `<style>` comment). The CTA remains `.am-btn`.
  */
 import { trustLabels } from '../content/trustLabels';
-import { resolveLink, resolveOptionalLink } from '../lib/linkResolver';
+import { resolveLink, resolveOptionalLink, type LinkToken } from '../lib/linkResolver';
 import { isPublicLinkEnabled } from '../lib/routeOwnership';
 import { AMARA_LANGUAGE_LABELS } from '../lib/languageLabels';
 import type { AmaraLanguage } from '../types/seo';
 
-interface NavLink {
-  token: string;
-  label?: string;
-  /** Non-interactive “coming soon” row (span + badge); checked before global token disable rules. */
-  disabled?: boolean;
-  /** Resolves a link even when the token is globally gated. */
-  forceEnabled?: boolean;
-}
-
 interface Props {
   currentLang: AmaraLanguage;
-  /** Deprecated compatibility input; the wordmark is always "AMARA / Lodging" now that breadcrumbs carry location context. */
-  brandName?: string;
-  /** Deprecated compatibility input; see brandName. */
-  brandLabel?: string;
-  /** Deprecated compatibility input; the global shell ignores page-specific center links. */
-  links?: NavLink[];
-  /** Deprecated compatibility input; visual variants no longer change the global center navigation. */
-  variant?: 'default' | 'trust';
-  currentToken?: string;
-  languageToken?: string;
-  /** Deprecated compatibility input; see brandName. */
-  brandVariant?: 'default' | 'lodging';
+  currentToken?: LinkToken;
+  languageToken?: LinkToken;
   showBookingCta?: boolean;
   /**
    * Type A location authority pages: allow Frigiliana / Nerja / experiences hub links in the center
@@ -255,7 +236,7 @@ const globalNavLabels = {
   }
 } satisfies Record<string, Record<AmaraLanguage, string>>;
 
-const ctaLink = {
+const ctaLink: { token: LinkToken; label: string; shortLabel: string } = {
   token: 'book',
   label: trustLabels.book[currentLang],
   shortLabel: defaultCtaShortLabels[currentLang]
@@ -268,7 +249,7 @@ const normalizePath = (path: string) => {
   return path.endsWith('/') ? path.slice(0, -1) : path;
 };
 
-function getLanguageHref(token: string, code: AmaraLanguage) {
+function getLanguageHref(token: LinkToken, code: AmaraLanguage) {
   try {
     return resolveOptionalLink(token, code, { suppressMissing: true });
   } catch {
@@ -288,7 +269,7 @@ const getBrandHref = () =>
   resolveOptionalLink('home', currentLang, { suppressMissing: true }) ??
   (currentLang === 'es' ? '/' : `/${currentLang}/`);
 
-const getIsActive = (token: string, href: string) => {
+const getIsActive = (token: LinkToken, href: string) => {
   if (languageToken) {
     return token === languageToken;
   }
@@ -297,7 +278,7 @@ const getIsActive = (token: string, href: string) => {
 };
 
 type GlobalNavItem = {
-  token: string;
+  token: LinkToken;
   label: string;
   description?: string;
   sectionLabel?: string;

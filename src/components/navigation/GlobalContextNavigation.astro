@@ -199,7 +199,9 @@ const items = isStay
   : isTrustFamilyPage
     ? trustItems
     : genericItems;
-const activeId = items.find((item) => normalizePath(item.href) === currentPath)?.id;
+const activeId = items.find(
+  (item) => item.href !== undefined && normalizePath(item.href) === currentPath
+)?.id;
 const breadcrumbs = isHome ? [] : [
   { label: 'AMARA', href: homeHref },
   ...(!isLegalNotice

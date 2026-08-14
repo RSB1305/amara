@@ -1,3 +1,4 @@
+import type { LinkToken } from '../lib/linkResolver';
 import type { AmaraAuthoringSeo, AmaraLanguage } from '../types/seo';
 import type { TarifaAuthorityChildId } from '../lib/tarifa/tarifaAuthoritySubnav';
 
@@ -17,7 +18,7 @@ export interface TarifaExperienceSpokeSection {
 
 export interface TarifaExperienceSpokeContent {
   id: TarifaExperienceSpokeId;
-  token: string;
+  token: LinkToken;
   seo: AmaraAuthoringSeo;
   navLabel: LocalizedExperienceText;
   breadcrumbLabel: LocalizedExperienceText;
@@ -39,7 +40,7 @@ export interface TarifaExperienceSpokeContent {
     eyebrow: LocalizedExperienceText;
     title: LocalizedExperienceText;
     links: Array<{
-      token: string;
+      token: LinkToken;
       label: LocalizedExperienceText;
       text: LocalizedExperienceText;
     }>;

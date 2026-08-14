@@ -7,7 +7,7 @@ import {
   nerjaDailyLifeSeo
 } from '../../content/nerjaDailyLifeContent';
 import LocationAuthorityLayout from '../../layouts/LocationAuthorityLayout.astro';
-import { resolveOptionalLink } from '../../lib/linkResolver';
+import { resolveLink, type LinkToken, type LabeledLink } from '../../lib/linkResolver';
 import { normalizeLanguage } from '../../lib/seo/resolve-seo-head';
 import type { AmaraLanguage } from '../../types/seo';
 
@@ -19,20 +19,13 @@ const { lang = 'es' } = Astro.props;
 const currentLang = normalizeLanguage(lang as AmaraLanguage);
 const content = nerjaDailyLifeContent[currentLang];
 
-const requiredLink = (token: string) => {
-  const href = resolveOptionalLink(token, currentLang, { suppressMissing: true });
-
-  if (!href) {
-    throw new Error(`[Nerja daily life] Missing required link token: ${token}`);
-  }
-
-  return href;
-};
+const requiredLink = (token: LinkToken) =>
+  resolveLink(token, currentLang, { context: 'Nerja daily life' });
 
 const aboutHref = requiredLink('about');
 const locationHref = requiredLink('location_nerja');
 const propertyHref = requiredLink('playa');
-const footerHighlights = [
+const footerHighlights: LabeledLink[] = [
   { token: 'nerja_daily_life', label: content.navLabel },
   { token: 'nerja_weather', label: content.related.links[0].label },
   { token: 'nerja_geography', label: content.related.links[1].label }
@@ -48,7 +41,6 @@ const footerHighlights = [
   <Navigation
     slot="navigation"
     currentLang={currentLang}
-    brandName="Nerja"
     languageToken="nerja_daily_life"
     locationAuthorityNav={true}
   />

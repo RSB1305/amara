@@ -1,5 +1,5 @@
 import {
-  tarifaGuideContent,
+  overview as tarifaOverviewGuide,
   type TarifaLocationGuideContent
 } from './tarifaGuideContent';
 
@@ -9,6 +9,6 @@ import {
  * without creating a second authoring source.
  */
 export const tarifaWhereToStayContent: TarifaLocationGuideContent = {
-  ...tarifaGuideContent.overview,
+  ...tarifaOverviewGuide,
   token: 'tarifa_where_to_stay'
 };

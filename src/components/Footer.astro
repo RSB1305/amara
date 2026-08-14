@@ -1,11 +1,12 @@
 ---
+import type { LinkToken } from '../lib/linkResolver';
 import FooterMinimal from './FooterMinimal.astro';
 import FooterCore from './FooterCore.astro';
 import type { AmaraLanguage } from '../types/seo';
 
 interface Props {
   currentLang: AmaraLanguage;
-  highlights?: { token: string; label: string }[];
+  highlights?: { token: LinkToken; label: string }[];
 }
 
 const { currentLang, highlights } = Astro.props;

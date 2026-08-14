@@ -10,7 +10,7 @@ import {
   experienceNavigationContent,
   type ExperienceId
 } from '../../content/experienceHubContent';
-import { resolveOptionalLink } from '../../lib/linkResolver';
+import { resolveOptionalLink, type LinkToken } from '../../lib/linkResolver';
 import { getDestinationBranchNavigation } from '../../lib/location/destinationBranchNavigation';
 import type { AmaraLanguage } from '../../types/seo';
 
@@ -77,9 +77,9 @@ const frigilianaSiblingLinks: ContextNavigationItem[] = experienceHubContent[lan
 
     return href ? { id, href, label: sharedNavigation.labels[id] } : null;
   })
-  .filter((item): item is ContextNavigationItem => Boolean(item));
+  .filter((item) => item !== null);
 
-const nerjaDefinitions: { id: NerjaExperienceId; token: string }[] = [
+const nerjaDefinitions: { id: NerjaExperienceId; token: LinkToken }[] = [
   { id: 'balcon', token: 'nerja_balcon_de_europa' },
   { id: 'caves', token: 'nerja_caves' },
   { id: 'nightlife', token: 'nerja_nightlife_authority' }

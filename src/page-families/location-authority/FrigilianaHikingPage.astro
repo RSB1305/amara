@@ -1,4 +1,5 @@
 ---
+import type { LabeledLink } from '../../lib/linkResolver';
 import Hero from '../../components/Hero.astro';
 import Navigation from '../../components/Navigation.astro';
 import EditorialClosingCta from '../../components/editorial/EditorialClosingCta.astro';
@@ -28,7 +29,7 @@ if (!copy) {
   );
 }
 
-const footerHighlights = [
+const footerHighlights: LabeledLink[] = [
   {
     token: 'frigiliana_hiking_authority',
     label: copy.footerHighlights.hiking
@@ -52,7 +53,6 @@ const heroImage = {
   <Navigation
     slot="navigation"
     currentLang={currentLang}
-    brandName="Frigiliana"
     languageToken="frigiliana_hiking_authority"
     locationAuthorityNav={true}
   />

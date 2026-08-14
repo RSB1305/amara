@@ -1,3 +1,4 @@
+import type { LinkToken } from '../lib/linkResolver';
 import type { AmaraAuthoringSeo, AmaraLanguage } from '../types/seo';
 
 export type TarifaGuideId = 'overview' | 'wind' | 'beaches';
@@ -86,7 +87,7 @@ export interface TarifaLocationAuthorityCopy {
 }
 
 interface TarifaGuideBase {
-  token: string;
+  token: LinkToken;
   seo: AmaraAuthoringSeo;
   navLabel: LocalizedText;
   breadcrumbLabel: LocalizedText;
@@ -227,7 +228,9 @@ const overviewDescriptions = l(
   'Var är bäst att bo i Tarifa? Jämför gamla stan, La Marina, Los Lances och landsbygden utifrån strand, gångavstånd, bil, parkering och vardag.'
 );
 
-const overview: TarifaGuideContent = {
+// Annotated with its concrete variant rather than the union, so consumers that need
+// the location copy (the A3 where-to-stay route) keep that guarantee.
+export const overview: TarifaLocationGuideContent = {
   id: 'overview',
   token: 'location_tarifa',
   seo: buildSeo(

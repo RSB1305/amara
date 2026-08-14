@@ -30,10 +30,8 @@ import {
   cinematicStatRatingLabel,
   cinematicGuideEyebrow,
   cinematicGuideTitle,
-  cinematicGuideLinks,
-  navReviews
+  cinematicGuideLinks
 } from '../../content/homeCinematicCopy';
-import { stayCollectionLabels } from '../../content/stayCollectionLabels';
 import { airbnbRatingLabel, airbnbReviewEvidence } from '../../content/reviewEvidence';
 import imgHeroLounis from '../../assets/images/home/amara-lounis-15-amara-frigiliana.jpg';
 import imgFarah from '../../assets/images/home/amara-farah-67-amara-frigiliana.jpg';
@@ -108,12 +106,6 @@ const seo: AmaraAuthoringSeo = {
   }
 };
 
-const homeNavLinks = [
-  { token: 'location_frigiliana', label: 'Frigiliana' },
-  { token: 'romantic_hideaways', label: t(stayCollectionLabels.shortLabel) },
-  { token: 'reviews_hub', label: t(navReviews) }
-];
-
 const cinematicApartmentsProps = (
   await Promise.all(
   cinematicApartments.map(async (apt) => {
@@ -161,9 +153,6 @@ const guideLinks = cinematicGuideLinks
 <BaseLayout seo={seo} pageLang={currentLang}>
   <Navigation
     currentLang={currentLang}
-    brandName="AMARA"
-    links={homeNavLinks}
-    variant="default"
     languageToken="home"
   />
   <div data-am-page="home">

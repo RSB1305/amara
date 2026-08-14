@@ -4,13 +4,13 @@
  *
  * Centered closing headline, lead, optional note, and token-resolved CTA links.
  */
-import { resolveOptionalLink } from '../../lib/linkResolver';
+import { resolveOptionalLink, type LinkToken } from '../../lib/linkResolver';
 import type { AmaraLanguage } from '../../types/seo';
 
 export interface EditorialClosingCtaLink {
   label: string;
   /** When set, label resolves via `resolveLink`. Omit when `disabled` is true. */
-  token?: string;
+  token?: LinkToken;
   /** Defaults to the existing editorial text-link treatment. */
   style?: 'text' | 'primary' | 'secondary';
   /** Renders a non-interactive label with the same typographic treatment as links. */

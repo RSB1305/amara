@@ -49,41 +49,41 @@ const ldJson = resolveStructuredData(seo, head.canonicalUrl, currentLang, origin
       <slot />
     </div>
     <GuestGuideSupportFloat href={supportHref} label={supportLabel} />
+
+    <script is:inline>
+      (function () {
+        if (typeof window === 'undefined') return;
+        if (window.__amaraNavTrackBound) return;
+        window.__amaraNavTrackBound = true;
+        // Records the page the guest is leaving onto a sessionStorage stack whenever they
+        // follow a real guide link (not an accordion toggle, which shares the same class
+        // on its <summary>) — so SmartBackButton can retrace an arbitrarily deep path
+        // (hub -> shared recommendations -> a specific recommendation page -> ...).
+        document.addEventListener('click', function (e) {
+          var el = e.target && e.target.closest ? e.target.closest('a.am-ios-item') : null;
+          if (!el) return;
+          var slug = document.body.getAttribute('data-guide-slug');
+          if (!slug) return;
+          try {
+            var raw = sessionStorage.getItem('amGuideNavStack');
+            var stack = raw ? JSON.parse(raw) : [];
+            stack.push(slug);
+            sessionStorage.setItem('amGuideNavStack', JSON.stringify(stack));
+          } catch (err) {
+            /* sessionStorage unavailable (private mode etc.) — SmartBackButton falls back to its default target */
+          }
+        });
+
+        // The map pin sits inside <summary>, so a plain click would open Maps and expand
+        // the entry at the same time. Open it here instead and let the toggle be.
+        // Without JS the link still works; the entry just expands as well.
+        document.addEventListener('click', function (e) {
+          var link = e.target && e.target.closest ? e.target.closest('[data-am-map-link]') : null;
+          if (!link) return;
+          e.preventDefault();
+          window.open(link.href, '_blank', 'noopener');
+        });
+      })();
+    </script>
   </body>
 </html>
-
-<script is:inline>
-  (function () {
-    if (typeof window === 'undefined') return;
-    if (window.__amaraNavTrackBound) return;
-    window.__amaraNavTrackBound = true;
-    // Records the page the guest is leaving onto a sessionStorage stack whenever they
-    // follow a real guide link (not an accordion toggle, which shares the same class
-    // on its <summary>) — so SmartBackButton can retrace an arbitrarily deep path
-    // (hub -> shared recommendations -> a specific recommendation page -> ...).
-    document.addEventListener('click', function (e) {
-      var el = e.target && e.target.closest ? e.target.closest('a.am-ios-item') : null;
-      if (!el) return;
-      var slug = document.body.getAttribute('data-guide-slug');
-      if (!slug) return;
-      try {
-        var raw = sessionStorage.getItem('amGuideNavStack');
-        var stack = raw ? JSON.parse(raw) : [];
-        stack.push(slug);
-        sessionStorage.setItem('amGuideNavStack', JSON.stringify(stack));
-      } catch (err) {
-        /* sessionStorage unavailable (private mode etc.) — SmartBackButton falls back to its default target */
-      }
-    });
-
-    // The map pin sits inside <summary>, so a plain click would open Maps and expand
-    // the entry at the same time. Open it here instead and let the toggle be.
-    // Without JS the link still works; the entry just expands as well.
-    document.addEventListener('click', function (e) {
-      var link = e.target && e.target.closest ? e.target.closest('[data-am-map-link]') : null;
-      if (!link) return;
-      e.preventDefault();
-      window.open(link.href, '_blank', 'noopener');
-    });
-  })();
-</script>

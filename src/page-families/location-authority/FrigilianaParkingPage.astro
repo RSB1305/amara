@@ -18,7 +18,7 @@ import {
 } from '../../content/frigilianaPreFooterContent';
 import { frigilianaStreetsStairsCopy } from '../../content/frigilianaStreetsStairsContent';
 import LocationAuthorityLayout from '../../layouts/LocationAuthorityLayout.astro';
-import { resolveOptionalLink } from '../../lib/linkResolver';
+import { resolveOptionalLink, type LabeledLink } from '../../lib/linkResolver';
 import { buildOwnedLocalizedPath } from '../../lib/routeOwnership';
 import { normalizeLanguage } from '../../lib/seo/resolve-seo-head';
 import type { AmaraLanguage } from '../../types/seo';
@@ -38,11 +38,6 @@ function t(row: LocalizedRow): string {
 }
 
 const streetsHref = buildOwnedLocalizedPath('frigiliana-streets-stairs', currentLang);
-
-const navLinks = copy.nav.links.map((link) => ({
-  token: link.token,
-  label: t(link.label)
-}));
 
 const facts = copy.facts.items.map((item) => ({
   label: t(item.label),
@@ -92,7 +87,7 @@ const relatedLinks = copy.related.links.flatMap((link) => {
     : [];
 });
 
-const footerHighlights = [
+const footerHighlights: LabeledLink[] = [
   {
     token: 'frigiliana_parking',
     label: t(copy.nav.links[1].label)
@@ -129,8 +124,6 @@ const timingImage = {
   <Navigation
     slot="navigation"
     currentLang={currentLang}
-    brandName={t(copy.nav.brand)}
-    links={navLinks}
     languageToken="frigiliana_parking"
     locationAuthorityNav={true}
   />

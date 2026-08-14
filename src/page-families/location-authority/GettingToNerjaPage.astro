@@ -6,7 +6,7 @@ import EditorialByline from '../../components/editorial/EditorialByline.astro';
 import NerjaContextNav from '../../components/location/NerjaContextNav.astro';
 import { gettingToNerjaContent, gettingToNerjaSeo } from '../../content/gettingToNerjaContent';
 import LocationAuthorityLayout from '../../layouts/LocationAuthorityLayout.astro';
-import { resolveOptionalLink } from '../../lib/linkResolver';
+import { resolveLink, type LinkToken, type LabeledLink } from '../../lib/linkResolver';
 import { normalizeLanguage } from '../../lib/seo/resolve-seo-head';
 import type { AmaraLanguage } from '../../types/seo';
 
@@ -17,19 +17,12 @@ interface Props {
 const { lang = 'es' } = Astro.props;
 const currentLang = normalizeLanguage(lang as AmaraLanguage);
 const content = gettingToNerjaContent[currentLang];
-const requiredLink = (token: string) => {
-  const href = resolveOptionalLink(token, currentLang, { suppressMissing: true });
-
-  if (!href) {
-    throw new Error(`[Getting to Nerja] Missing required link token: ${token}`);
-  }
-
-  return href;
-};
+const requiredLink = (token: LinkToken) =>
+  resolveLink(token, currentLang, { context: 'Getting to Nerja' });
 const aboutHref = requiredLink('about');
 const locationHref = requiredLink('location_nerja');
 const areasHref = requiredLink('nerja_where_to_stay');
-const footerHighlights = [
+const footerHighlights: LabeledLink[] = [
   { token: 'getting_to_nerja', label: content.navLabel },
   { token: 'location_nerja', label: 'Nerja' },
   { token: 'nerja_where_to_stay', label: content.closing.areasLabel }
@@ -37,7 +30,7 @@ const footerHighlights = [
 ---
 
 <LocationAuthorityLayout seo={gettingToNerjaSeo} pageLang={currentLang} showContextNavigation={false} footerHighlights={footerHighlights}>
-  <Navigation slot="navigation" currentLang={currentLang} brandName="Nerja" languageToken="getting_to_nerja" locationAuthorityNav={true} />
+  <Navigation slot="navigation" currentLang={currentLang} languageToken="getting_to_nerja" locationAuthorityNav={true} />
   <NerjaContextNav activeId="arrival-mobility" childLabel={content.navLabel} lang={currentLang} />
 
   <article class="bg-surface" data-am-page="getting-to-nerja">

@@ -1,4 +1,4 @@
-import type { AmaraAuthoringSeo, AmaraLanguage } from '../types/seo';
+import type { AmaraAuthoringSeo } from '../types/seo';
 import {
   airbnbCheckedAtLabel,
   airbnbRatingLabel,

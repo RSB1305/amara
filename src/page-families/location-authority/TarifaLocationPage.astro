@@ -7,7 +7,7 @@ import EditorialClosingCta from '../../components/editorial/EditorialClosingCta.
 import TarifaContextNav from '../../components/location/TarifaContextNav.astro';
 import { tarifaLocationContent } from '../../content/tarifaLocationContent';
 import LocationAuthorityLayout from '../../layouts/LocationAuthorityLayout.astro';
-import { resolveOptionalLink } from '../../lib/linkResolver';
+import { resolveLink, type LinkToken, type LabeledLink } from '../../lib/linkResolver';
 import { normalizeLanguage } from '../../lib/seo/resolve-seo-head';
 import type { AmaraLanguage } from '../../types/seo';
 
@@ -18,18 +18,11 @@ interface Props {
 const { lang = 'es' } = Astro.props;
 const currentLang = normalizeLanguage(lang as AmaraLanguage);
 const content = tarifaLocationContent.locales[currentLang];
-const requiredLink = (token: string) => {
-  const href = resolveOptionalLink(token, currentLang, { suppressMissing: true });
-
-  if (!href) {
-    throw new Error(`[Tarifa location hub] Missing required link token: ${token}`);
-  }
-
-  return href;
-};
+const requiredLink = (token: LinkToken) =>
+  resolveLink(token, currentLang, { context: 'Tarifa location hub' });
 const aboutHref = requiredLink('about');
 const stayHref = requiredLink('casa');
-const footerHighlights = [
+const footerHighlights: LabeledLink[] = [
   { token: 'location_tarifa', label: 'Tarifa' },
   { token: 'tarifa_where_to_stay', label: content.areas.link?.label ?? 'Where to stay' },
   { token: 'tarifa_experience_hub', label: content.experience.links[0].label }
@@ -45,7 +38,6 @@ const footerHighlights = [
   <Navigation
     slot="navigation"
     currentLang={currentLang}
-    brandName="Tarifa"
     languageToken={tarifaLocationContent.token}
     locationAuthorityNav={true}
   />

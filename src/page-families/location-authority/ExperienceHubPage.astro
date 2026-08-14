@@ -11,7 +11,7 @@ import {
   type ExperienceId
 } from '../../content/experienceHubContent';
 import LocationAuthorityLayout from '../../layouts/LocationAuthorityLayout.astro';
-import { resolveOptionalLink } from '../../lib/linkResolver';
+import { resolveOptionalLink, type LabeledLink } from '../../lib/linkResolver';
 import { normalizeLanguage } from '../../lib/seo/resolve-seo-head';
 import type { AmaraLanguage } from '../../types/seo';
 
@@ -53,7 +53,7 @@ const leadStory = getExperience(leadId);
 const secondaryStories = secondaryIds.map(getExperience);
 const allExperiences = copy.catalog.order.map(getExperience);
 
-const footerHighlights = [
+const footerHighlights: LabeledLink[] = [
   { token: 'frigiliana_experience_hub', label: copy.footerHighlights.hub },
   {
     token: experienceCatalog[leadId].token,
@@ -80,7 +80,6 @@ const heroImage = {
   <Navigation
     slot="navigation"
     currentLang={currentLang}
-    brandName="Frigiliana"
     currentToken="frigiliana_experience_hub"
     languageToken="frigiliana_experience_hub"
     locationAuthorityNav={true}

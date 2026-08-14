@@ -12,7 +12,7 @@ import {
   frigilianaStreetsStairsSeo
 } from '../../content/frigilianaStreetsStairsContent';
 import LocationAuthorityLayout from '../../layouts/LocationAuthorityLayout.astro';
-import { resolveOptionalLink } from '../../lib/linkResolver';
+import { resolveOptionalLink, type LabeledLink } from '../../lib/linkResolver';
 import { normalizeLanguage } from '../../lib/seo/resolve-seo-head';
 import type { AmaraLanguage } from '../../types/seo';
 
@@ -29,11 +29,6 @@ const copy = frigilianaStreetsStairsCopy;
 function t(row: LocalizedRow): string {
   return row[currentLang] ?? row.en;
 }
-
-const navLinks = copy.nav.links.map((link) => ({
-  token: link.token,
-  label: t(link.label)
-}));
 
 const factors = copy.factors.items.map((item) => ({
   label: t(item.label),
@@ -85,7 +80,7 @@ const relatedLinks = copy.related.links.flatMap((link) => {
     : [];
 });
 
-const footerHighlights = [
+const footerHighlights: LabeledLink[] = [
   {
     token: 'frigiliana_stairs',
     label: t(copy.nav.links[1].label)
@@ -122,8 +117,6 @@ const proofImage = {
   <Navigation
     slot="navigation"
     currentLang={currentLang}
-    brandName={t(copy.nav.brand)}
-    links={navLinks}
     languageToken="frigiliana_stairs"
     locationAuthorityNav={true}
   />

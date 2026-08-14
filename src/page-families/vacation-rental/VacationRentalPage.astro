@@ -14,7 +14,7 @@ import { directBookingTrustSignals } from '../../content/directBookingBenefitsCo
 import { airbnbRatingLabel, airbnbReviewEvidence } from '../../content/reviewEvidence';
 import { stayCollectionLabels } from '../../content/stayCollectionLabels';
 import { trustLabels } from '../../content/trustLabels';
-import { resolveOptionalLink } from '../../lib/linkResolver';
+import { resolveOptionalLink, type LabeledLink } from '../../lib/linkResolver';
 import { buildRentalBookingUrl } from '../../lib/directBooking';
 import { normalizeLanguage } from '../../lib/seo/resolve-seo-head';
 import type { AmaraLanguage } from '../../types/seo';
@@ -606,13 +606,7 @@ if (rental.bathroomUnderfloorHeating) {
   visibleAmenities.push(t(bathroomUnderfloorHeating));
 }
 
-const navLinks = [
-  { token: 'romantic_hideaways', label: t(stayCollectionLabels.shortLabel) },
-  { token: 'amenities' },
-  { token: 'reviews_hub' },
-  { token: 'direct_booking_benefits' }
-];
-const footerHighlights = [
+const footerHighlights: LabeledLink[] = [
   { token: 'romantic_hideaways', label: t(stayCollectionLabels.shortLabel) },
   { token: 'amenities', label: t(ui.amenitiesTitle as LocalizedText) },
   { token: 'faq_general', label: 'FAQ' }
@@ -640,8 +634,8 @@ const bookingTrustLinks = [
     label: trustLabels.reviews_hub[currentLang]
   }
 ].filter((item): item is { href: string; label: string } => Boolean(item.href));
-const locationLinkSpecs = [
-  ...(rental.city === 'Frigiliana'
+const locationLinkSpecs: LabeledLink[] = [
+  ...((rental.city === 'Frigiliana'
     ? [
         { token: 'location_frigiliana', label: t(ui.frigilianaLocationGuide as LocalizedText) },
         { token: 'frigiliana_experience_hub', label: t(ui.experiencesGuide as LocalizedText) }
@@ -658,7 +652,7 @@ const locationLinkSpecs = [
           { token: 'location_nerja', label: 'Nerja' },
           { token: 'nerja_experience_hub', label: t(ui.experiencesGuide as LocalizedText) }
         ]
-      : []),
+      : []) satisfies LabeledLink[]),
   // Moved here from the context navigation: arrival belongs with planning, not with site-wide links.
   { token: 'arrival_guide', label: t(ui.arrivalGuide as LocalizedText) }
 ];
@@ -683,9 +677,6 @@ const galleryImages = visibleImages.slice(1);
 >
   <Navigation
     currentLang={currentLang}
-    brandName="AMARA"
-    links={navLinks}
-    variant="trust"
     languageToken={rental.token}
   />
 

@@ -15,7 +15,7 @@ import {
   getFrigilianaPreFooterDescription
 } from '../../content/frigilianaPreFooterContent';
 import LocationAuthorityLayout from '../../layouts/LocationAuthorityLayout.astro';
-import { resolveOptionalLink } from '../../lib/linkResolver';
+import { resolveOptionalLink, type LabeledLink } from '../../lib/linkResolver';
 import { buildOwnedLocalizedPath } from '../../lib/routeOwnership';
 import { normalizeLanguage } from '../../lib/seo/resolve-seo-head';
 import type { AmaraLanguage } from '../../types/seo';
@@ -35,11 +35,6 @@ function t(row: LocalizedRow): string {
 }
 
 const gettingHereHref = buildOwnedLocalizedPath('getting-to-frigiliana', currentLang);
-
-const navLinks = copy.nav.links.map((link) => ({
-  token: link.token,
-  label: t(link.label)
-}));
 
 const orientationFacts = copy.orientation.items.map((item) => ({
   label: t(item.label),
@@ -100,7 +95,7 @@ const relatedLinks = copy.related.links.flatMap((link) => {
     : [];
 });
 
-const footerHighlights = [
+const footerHighlights: LabeledLink[] = [
   {
     token: 'frigiliana_faq',
     label: t(copy.nav.links[2].label)
@@ -131,8 +126,6 @@ const heroImage = {
   <Navigation
     slot="navigation"
     currentLang={currentLang}
-    brandName={t(copy.nav.brand)}
-    links={navLinks}
     languageToken="frigiliana_faq"
     locationAuthorityNav={true}
   />

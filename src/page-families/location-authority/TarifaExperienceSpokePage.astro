@@ -7,7 +7,7 @@ import type {
   TarifaExperienceSpokeContent
 } from '../../content/tarifaExperienceSpokeContent';
 import LocationAuthorityLayout from '../../layouts/LocationAuthorityLayout.astro';
-import { resolveOptionalLink } from '../../lib/linkResolver';
+import { resolveLink, type LinkToken, type LabeledLink } from '../../lib/linkResolver';
 import { normalizeLanguage } from '../../lib/seo/resolve-seo-head';
 import type { AmaraLanguage } from '../../types/seo';
 
@@ -20,20 +20,13 @@ const { content, lang = 'es' } = Astro.props;
 const currentLang = normalizeLanguage(lang as AmaraLanguage);
 const t = (value: LocalizedExperienceText) => value[currentLang];
 
-const requiredLink = (token: string) => {
-  const href = resolveOptionalLink(token, currentLang, { suppressMissing: true });
-
-  if (!href) {
-    throw new Error(`[Tarifa experience] Missing required link token: ${token}`);
-  }
-
-  return href;
-};
+const requiredLink = (token: LinkToken) =>
+  resolveLink(token, currentLang, { context: 'Tarifa experience' });
 
 const aboutHref = requiredLink('about');
 const hubHref = requiredLink('tarifa_experience_hub');
 const propertyHref = requiredLink('casa');
-const footerHighlights = [
+const footerHighlights: LabeledLink[] = [
   { token: content.token, label: t(content.navLabel) },
   { token: 'tarifa_experience_hub', label: t(content.closing.hubLabel) },
   ...content.related.links.slice(0, 2).map((link) => ({
@@ -52,7 +45,6 @@ const footerHighlights = [
   <Navigation
     slot="navigation"
     currentLang={currentLang}
-    brandName="Tarifa"
     languageToken={content.token}
     locationAuthorityNav={true}
   />

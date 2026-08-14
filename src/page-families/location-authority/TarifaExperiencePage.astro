@@ -10,7 +10,7 @@ import {
 } from '../../content/tarifaExperienceContent';
 import { tarifaGuideContent } from '../../content/tarifaGuideContent';
 import LocationAuthorityLayout from '../../layouts/LocationAuthorityLayout.astro';
-import { resolveOptionalLink } from '../../lib/linkResolver';
+import { resolveLink, type LinkToken, type LabeledLink } from '../../lib/linkResolver';
 import { normalizeLanguage } from '../../lib/seo/resolve-seo-head';
 import type { AmaraLanguage } from '../../types/seo';
 
@@ -21,17 +21,10 @@ interface Props {
 const { lang = 'es' } = Astro.props;
 const currentLang = normalizeLanguage(lang as AmaraLanguage);
 const copy = tarifaExperienceContent[currentLang];
-const requiredLink = (token: string) => {
-  const href = resolveOptionalLink(token, currentLang, { suppressMissing: true });
+const requiredLink = (token: LinkToken) =>
+  resolveLink(token, currentLang, { context: 'Tarifa Experience' });
 
-  if (!href) {
-    throw new Error(`[Tarifa Experience] Missing required link token: ${token}`);
-  }
-
-  return href;
-};
-
-const footerHighlights = [
+const footerHighlights: LabeledLink[] = [
   { token: 'location_tarifa', label: tarifaGuideContent.overview.navLabel[currentLang] },
   { token: TARIFA_EXPERIENCE_TOKEN, label: copy.navLabel },
   { token: 'tarifa_beaches_authority', label: tarifaGuideContent.beaches.navLabel[currentLang] },
@@ -48,7 +41,6 @@ const footerHighlights = [
   <Navigation
     slot="navigation"
     currentLang={currentLang}
-    brandName="Tarifa"
     currentToken={TARIFA_EXPERIENCE_TOKEN}
     languageToken={TARIFA_EXPERIENCE_TOKEN}
     locationAuthorityNav={true}

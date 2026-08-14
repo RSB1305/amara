@@ -8,9 +8,8 @@ import {
   frigilianaDosTumbasContent,
   frigilianaDosTumbasSeo
 } from '../../content/frigilianaDosTumbasContent';
-import { frigilianaLocationCopy } from '../../content/frigilianaLocationContent';
 import LocationAuthorityLayout from '../../layouts/LocationAuthorityLayout.astro';
-import { resolveOptionalLink } from '../../lib/linkResolver';
+import { resolveOptionalLink, type LabeledLink } from '../../lib/linkResolver';
 import { normalizeLanguage } from '../../lib/seo/resolve-seo-head';
 import type { AmaraLanguage } from '../../types/seo';
 
@@ -22,7 +21,7 @@ const { lang = 'es' } = Astro.props;
 const currentLang = normalizeLanguage(lang as AmaraLanguage);
 const copy = frigilianaDosTumbasContent[currentLang];
 
-const footerHighlights = [
+const footerHighlights: LabeledLink[] = [
   {
     token: 'frigiliana_netflix_dos_tumbas',
     label: copy.footerHighlights.dosTumbas
@@ -60,7 +59,6 @@ const heroImage = {
   <Navigation
     slot="navigation"
     currentLang={currentLang}
-    brandName={frigilianaLocationCopy.nav.brand[currentLang]}
     languageToken="frigiliana_netflix_dos_tumbas"
     locationAuthorityNav={true}
   />

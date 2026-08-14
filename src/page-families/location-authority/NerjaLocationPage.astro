@@ -10,7 +10,7 @@ import {
   nerjaLocationCopy,
   nerjaLocationSeo
 } from '../../content/nerjaLocationContent';
-import { resolveOptionalLink } from '../../lib/linkResolver';
+import { resolveOptionalLink, type LinkToken, type LabeledLink } from '../../lib/linkResolver';
 import { getLocationGuideTopicLabels } from '../../lib/location/locationGuideTopics';
 import { normalizeLanguage } from '../../lib/seo/resolve-seo-head';
 import type { AmaraLanguage } from '../../types/seo';
@@ -27,7 +27,7 @@ const copy = nerjaLocationCopy;
 function t<T>(value: Readonly<Record<AmaraLanguage, T>>): T {
   return value[currentLang];
 }
-const optionalLink = (token: string) =>
+const optionalLink = (token: LinkToken) =>
   resolveOptionalLink(token, currentLang, { suppressMissing: true });
 
 const playaHref = optionalLink('playa') ?? '#amara-playa';
@@ -135,7 +135,7 @@ const heroImage = {
   sizes: '(max-width: 767px) calc(100vw - 3rem), (max-width: 1023px) 60vw, 40vw'
 };
 
-const footerHighlights = [
+const footerHighlights: LabeledLink[] = [
   {
     token: 'playa',
     label: 'AMARA Playa'
@@ -167,7 +167,6 @@ const footerHighlights = [
   <Navigation
     slot="navigation"
     currentLang={currentLang}
-    brandName={c.nav.brand}
     languageToken="nerja_where_to_stay"
     locationAuthorityNav={true}
   />

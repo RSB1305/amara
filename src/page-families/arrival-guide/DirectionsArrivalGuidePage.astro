@@ -85,8 +85,6 @@ const c = {
   <Navigation
     slot="navigation"
     currentLang={currentLang}
-    brandName={c.nav.brand}
-    links={c.nav.links}
     languageToken="arrival_guide"
     locationAuthorityNav={true}
   />
@@ -216,7 +214,8 @@ const c = {
                   <button
                     type="button"
                     class="block w-full"
-                    onclick="document.getElementById('map-overlay').classList.remove('hidden')"
+                    data-am-map-open
+                    aria-haspopup="dialog"
                   >
                     <AmaraImage
                       src="/images/arrival-map.jpg"
@@ -283,42 +282,80 @@ const c = {
     </div>
   </div>
 
-  <div
-    id="map-overlay"
-    class="fixed inset-0 z-[999] hidden bg-on-surface/70"
-    onclick="this.classList.add('hidden')"
-  >
-    <div class="min-h-full flex items-center justify-center p-6">
-      <div class="relative max-w-4xl w-full" onclick="event.stopPropagation()">
-        <button
-          type="button"
-          class="absolute top-4 right-4 text-on-primary am-text-subtitle"
-          onclick="document.getElementById('map-overlay').classList.add('hidden')"
+  <dialog id="map-overlay" class="am-map-dialog" data-am-map-overlay aria-label="Expanded route map">
+    <div class="relative w-full" data-am-map-panel>
+      <button
+        type="button"
+        class="absolute top-4 right-4 text-on-primary am-text-subtitle"
+        data-am-map-close
+      >
+        ✕
+      </button>
+
+      <AmaraImage
+        src="/images/arrival-map.jpg"
+        alt="Expanded route map"
+        profile="gallery"
+        sizes="90vw"
+        class="w-full h-auto rounded-editorial"
+        loading="lazy"
+        decoding="async"
+      />
+
+      <div class="mt-4 text-center">
+        <a
+          href="https://www.google.com/maps/dir/Avenida+Carlos+Cano+42,+Frigiliana/Calle+Chorruelo+5,+Frigiliana"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="am-cta-link am-cta-link--inverse"
         >
-          ✕
-        </button>
-
-        <AmaraImage
-          src="/images/arrival-map.jpg"
-          alt="Expanded route map"
-          profile="gallery"
-          sizes="90vw"
-          class="w-full h-auto rounded-editorial"
-          loading="lazy"
-          decoding="async"
-        />
-
-        <div class="mt-4 text-center">
-          <a
-            href="https://www.google.com/maps/dir/Avenida+Carlos+Cano+42,+Frigiliana/Calle+Chorruelo+5,+Frigiliana"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="am-cta-link am-cta-link--inverse"
-          >
-            Open route in Google Maps
-          </a>
-        </div>
+          Open route in Google Maps
+        </a>
       </div>
     </div>
-  </div>
+  </dialog>
+
+  <script>
+    // Map overlay behaviour. This was four inline onclick attributes, one of them
+    // using the deprecated global `event`. A native <dialog> handles the modal
+    // contract itself: top layer, focus trap, background inert, Escape to dismiss
+    // and focus restored to the trigger. Only backdrop-dismiss needs wiring, and
+    // the markup stays free of behaviour so a strict CSP remains possible.
+    (() => {
+      const dialog = document.querySelector<HTMLDialogElement>('[data-am-map-overlay]');
+      const opener = document.querySelector<HTMLElement>('[data-am-map-open]');
+      const closer = dialog?.querySelector<HTMLElement>('[data-am-map-close]');
+      if (!dialog || !opener || !closer) return;
+
+      opener.addEventListener('click', () => dialog.showModal());
+      closer.addEventListener('click', () => dialog.close());
+
+      // A click on ::backdrop reports the dialog itself as the target; a click on
+      // the panel reports an element inside it. The panel has no full-bleed wrapper
+      // above it, so this distinction actually holds for real pointer events.
+      dialog.addEventListener('click', (e) => {
+        if (e.target === dialog) dialog.close();
+      });
+    })();
+  </script>
+
+  <style>
+    /*
+     * The dialog is the panel box, not a full-viewport layer: ::backdrop supplies the
+     * dimming. That keeps a real backdrop click targeting the dialog element rather
+     * than an intermediate wrapper.
+     */
+    .am-map-dialog {
+      max-width: min(64rem, 92vw);
+      width: 100%;
+      padding: 1.5rem;
+      border: 0;
+      background: transparent;
+      overflow: visible;
+    }
+
+    .am-map-dialog::backdrop {
+      background: rgb(0 0 0 / 0.7);
+    }
+  </style>
 </LocationAuthorityLayout>

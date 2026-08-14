@@ -1,3 +1,4 @@
+import type { LinkToken } from '../lib/linkResolver';
 import type { AmaraAuthoringSeo, AmaraLanguage } from '../types/seo';
 import { trustLabels } from './trustLabels';
 
@@ -36,13 +37,13 @@ interface AboutUsContent {
   navigation: {
     brandLabel: LocalizedText;
     links: {
-      token: string;
+      token: LinkToken;
       label: LocalizedText;
     }[];
     ctaLabel: LocalizedText;
   };
   footerHighlights: {
-    token: string;
+    token: LinkToken;
     label: LocalizedText;
   }[];
   hero: {
@@ -51,7 +52,7 @@ interface AboutUsContent {
     lead: LocalizedText;
     supportText: LocalizedText;
     ctaLinks: {
-      token: string;
+      token: LinkToken;
       label: LocalizedText;
     }[];
   };
@@ -73,7 +74,7 @@ interface AboutUsContent {
   sustainability: AboutUsSection;
   closingCta: AboutUsSection & {
     links: {
-      token: string;
+      token: LinkToken;
       label: LocalizedText;
     }[];
   };

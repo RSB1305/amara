@@ -7,11 +7,8 @@ const optimizedImageRoot = join(sourceRoot, 'assets', 'images', 'content');
 const distRoot = join(projectRoot, 'dist');
 const checkDist = process.argv.includes('--dist');
 const sourceExtensions = new Set(['.astro', '.ts', '.tsx', '.js', '.jsx']);
-const ignoredPathSegments = [
-  `${sep}ai-studio-design-import${sep}`,
-  `${sep}dev-pages${sep}`,
-  `${sep}pages${sep}tools${sep}`
-];
+// Internal tools are dev-only surfaces and are not held to the responsive image contract.
+const ignoredPathSegments = [`${sep}pages${sep}_tools${sep}`];
 
 function walk(directory) {
   return readdirSync(directory).flatMap((entry) => {

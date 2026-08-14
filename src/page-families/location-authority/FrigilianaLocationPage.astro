@@ -10,7 +10,6 @@ import OrderedFrigilianaLocationSections from './OrderedFrigilianaLocationSectio
 import {
   frigilianaLocationCopy,
   frigilianaLocationHeroImageAlt,
-  frigilianaLocationNav,
   frigilianaLocationSeo,
   type FrigilianaLocationCtaToken,
   type FrigilianaLocationSubsection
@@ -18,7 +17,7 @@ import {
 import { comfortAmenitiesLinkLabel } from '../../content/comfortAmenitiesLinkLabel';
 import { stayCollectionLabels } from '../../content/stayCollectionLabels';
 import { trustLabels } from '../../content/trustLabels';
-import { resolveOptionalLink } from '../../lib/linkResolver';
+import { resolveOptionalLink, type LinkToken, type LabeledLink } from '../../lib/linkResolver';
 import { getFrigilianaLocationSectionOrder } from '../../lib/frigiliana/frigilianaLocationSectionOrder';
 import { buildOwnedLocalizedPath } from '../../lib/routeOwnership';
 import { normalizeLanguage } from '../../lib/seo/resolve-seo-head';
@@ -40,7 +39,7 @@ type EditorialImageAlt = {
 const { lang = 'es' } = Astro.props;
 const currentLang = normalizeLanguage(lang as AmaraLanguage);
 const c = frigilianaLocationCopy[currentLang];
-const optionalLink = (token: string) =>
+const optionalLink = (token: LinkToken) =>
   resolveOptionalLink(token, currentLang, { suppressMissing: true });
 
 // These two spokes intentionally preserve the approved route-ownership mechanism.
@@ -87,12 +86,7 @@ const ctaHrefByToken: Record<FrigilianaLocationCtaToken, string | null> = {
   AVAILABILITY: availabilityHref
 };
 
-const navLinks = frigilianaLocationNav.links.map((link) => ({
-  token: link.token,
-  label: link.label[currentLang]
-}));
-
-const footerHighlights = [
+const footerHighlights: LabeledLink[] = [
   {
     token: 'romantic_hideaways',
     label: stayCollectionLabels.structuralName[currentLang]
@@ -216,8 +210,6 @@ const renderCtas = (subsection: FrigilianaLocationSubsection) => subsection.ctas
   <Navigation
     slot="navigation"
     currentLang={currentLang}
-    brandName={frigilianaLocationNav.brand[currentLang]}
-    links={navLinks}
     languageToken="location_frigiliana"
     locationAuthorityNav={true}
   />

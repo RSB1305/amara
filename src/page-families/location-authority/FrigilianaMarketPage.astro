@@ -1,4 +1,5 @@
 ---
+import type { LabeledLink } from '../../lib/linkResolver';
 import Hero from '../../components/Hero.astro';
 import AmaraImage from '../../components/AmaraImage.astro';
 import FaqAccordion from '../../components/FaqAccordion.astro';
@@ -32,11 +33,6 @@ function t(row: LocalizedRow): string {
 }
 
 const parkingHref = buildOwnedLocalizedPath('frigiliana-parking', currentLang);
-
-const navLinks = copy.nav.links.map((link) => ({
-  token: link.token,
-  label: t(link.label)
-}));
 
 const facts = copy.facts.items.map((item) => ({
   label: t(item.label),
@@ -72,7 +68,7 @@ const liveInfoLinks = copy.liveInfo.links.map((link) => ({
   text: t(link.text)
 }));
 
-const footerHighlights = [
+const footerHighlights: LabeledLink[] = [
   {
     token: 'frigiliana_market',
     label: t(copy.nav.links[1].label)
@@ -108,8 +104,6 @@ const ingenioImage = {
   <Navigation
     slot="navigation"
     currentLang={currentLang}
-    brandName={t(copy.nav.brand)}
-    links={navLinks}
     languageToken="frigiliana_market"
     locationAuthorityNav={true}
   />
