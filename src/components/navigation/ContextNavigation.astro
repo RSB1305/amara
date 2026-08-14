@@ -61,7 +61,7 @@ const visibleItems = activeId && !retainActiveItem
   data-am-location-context={context === 'location' ? '' : undefined}
 >
   <div class="mx-auto max-w-screen-2xl px-6 py-5 md:px-12">
-    <div class="flex flex-col gap-5 xl:flex-row xl:items-center xl:justify-between">
+    <div class="flex flex-col gap-5 xl:flex-row xl:items-start xl:justify-between">
       {
         breadcrumbs.length > 0 && (
       <div class="flex flex-wrap items-center justify-between gap-x-8 gap-y-3">
@@ -105,7 +105,7 @@ const visibleItems = activeId && !retainActiveItem
       }
 
       {(branches.length > 0 || visibleItems.length > 0) && (
-      <div class="flex min-w-0 flex-col gap-3 xl:flex-row xl:items-center xl:justify-end">
+      <div class="flex min-w-0 flex-col gap-3 xl:ml-auto xl:items-end">
         {branches.length > 0 && activeBranchId && branchSwitcherAriaLabel && (
           <DestinationBranchSwitcher
             activeId={activeBranchId}
