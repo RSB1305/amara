@@ -151,6 +151,13 @@ legal_notice: {
       nl: buildOwnedLocalizedPath('nerja-caves', 'nl'),
       sv: buildOwnedLocalizedPath('nerja-caves', 'sv')
     },
+    nerja_balcon_de_europa: {
+      en: buildOwnedLocalizedPath('nerja-balcon-de-europa', 'en'),
+      de: buildOwnedLocalizedPath('nerja-balcon-de-europa', 'de'),
+      es: buildOwnedLocalizedPath('nerja-balcon-de-europa', 'es'),
+      nl: buildOwnedLocalizedPath('nerja-balcon-de-europa', 'nl'),
+      sv: buildOwnedLocalizedPath('nerja-balcon-de-europa', 'sv')
+    },
     nerja_daily_life: {
       en: buildOwnedLocalizedPath('nerja-daily-life', 'en'),
       de: buildOwnedLocalizedPath('nerja-daily-life', 'de'),
