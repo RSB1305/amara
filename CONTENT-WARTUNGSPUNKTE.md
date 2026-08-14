@@ -106,6 +106,24 @@ Der Vergleichsblock nennt keine Zahlen mehr, sondern die Aussage, die beide Beri
 
 ---
 
+## W-06 · Cueva de Nerja — Preise, Zeiten, Festival
+
+| | |
+|---|---|
+| **Status** | Bewusst **nicht** auf der Seite genannt |
+| **Betrifft** | [nerjaCavesContent.ts](src/content/nerjaCavesContent.ts) |
+| **Quelle** | https://cuevadenerja.es |
+| **Prüfintervall** | Jährlich |
+| **Risiko** | Niedrig, solange keine Zahlen genannt werden. |
+
+Ticketpreise, Öffnungszeiten, Zeitfenster, Parkgebühr und das Festival-Programm ändern sich jährlich. Die Seite verweist deshalb auf den Betreiber, statt Zahlen zu nennen.
+
+**Nicht volatil und deshalb auf der Seite:** Entdeckung 12.01.1959, Systemlänge 4.823 m, Säule 32 m mit Basis 13 × 7 m, Guinness-Rekord seit **1989** (die oft zitierte Jahreszahl 1994 ist falsch), Rundgang 45–60 Min über mehr als 458 Stufen, keine Barrierefreiheit, gesperrte Galerien.
+
+**Ebenfalls festgehalten:** Das Festival findet seit 2022 **nicht mehr in der Höhle** statt, sondern im Freiluft-Auditorium — Beschluss der Stiftung von Dezember 2019 aus konservatorischen Gründen. Falls das je wieder anders wird, muss die Seite nachgezogen werden.
+
+---
+
 ## W-05 · Bahía Park Algeciras — Saison und Preise
 
 | | |

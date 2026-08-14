@@ -144,6 +144,13 @@ legal_notice: {
       nl: buildOwnedLocalizedPath('nerja-geography', 'nl'),
       sv: buildOwnedLocalizedPath('nerja-geography', 'sv')
     },
+    nerja_caves: {
+      en: buildOwnedLocalizedPath('nerja-caves', 'en'),
+      de: buildOwnedLocalizedPath('nerja-caves', 'de'),
+      es: buildOwnedLocalizedPath('nerja-caves', 'es'),
+      nl: buildOwnedLocalizedPath('nerja-caves', 'nl'),
+      sv: buildOwnedLocalizedPath('nerja-caves', 'sv')
+    },
     nerja_daily_life: {
       en: buildOwnedLocalizedPath('nerja-daily-life', 'en'),
       de: buildOwnedLocalizedPath('nerja-daily-life', 'de'),
