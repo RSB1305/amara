@@ -17,6 +17,8 @@ pnpm-debug.log*
 # These are working output of a single investigation, not project sources.
 output/
 .playwright-cli/
+playwright-report/
+test-results/
 
 # machine-specific agent settings; .claude/launch.json stays versioned
 .claude/settings.local.json

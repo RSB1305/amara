@@ -25,6 +25,20 @@ jobs:
 
       - run: npm ci
 
+      # Dev-only tools are outside the production Astro typecheck, but they are
+      # still maintained code and must not regress unnoticed.
+      - run: npm run typecheck:tools
+
+      # Contract tests protect booking, localization, routing and registry
+      # semantics before broader shared components are refactored.
+      - run: npm run test:contracts
+
+      - run: npx playwright install --with-deps chromium
+
+      # The browser smoke test exercises native dialog behaviour with real
+      # keyboard and pointer input, including the backdrop dismissal path.
+      - run: npm run test:browser
+
       # prebuild runs the typecheck and the slug, fallback and image policies;
       # postbuild runs the structured data audit and the SEO title assertions.
       - run: npm run build
