@@ -51,16 +51,39 @@ Die Saison wird von der Hausgemeinschaft je nach Witterung festgelegt und schwan
 
 ---
 
-## W-04 · Klimadaten Nerja und Frigiliana — Widerspruch offen
+## W-04 · Klimadaten Nerja und Frigiliana — teilweise geklärt, Zahlen weiter offen
 
 | | |
 |---|---|
-| **Status** | **Ungeklärt.** Zwei Datensätze widersprechen sich. |
+| **Status** | **Falsche Aussagen entfernt. Endgültige Zahlen fehlen weiterhin.** |
 | **Betrifft** | [NerjaWeatherPage.astro](src/page-families/location-authority/NerjaWeatherPage.astro) · [FrigilianaWeatherPage.astro](src/page-families/location-authority/FrigilianaWeatherPage.astro) |
 | **Prüfintervall** | Offen bis zur Klärung |
-| **Risiko bei Veralten** | **Hoch.** Die Vergleichstabelle Nerja/Frigiliana steht auf wackligen Zahlen. |
+| **Risiko** | Gesenkt. Auf den Seiten stehen keine unbelegten Zahlenpaare mehr. |
 
-Siehe [NERJA-FRIGILIANA-KLIMA-RECHERCHE_2026-08-13.md](NERJA-FRIGILIANA-KLIMA-RECHERCHE_2026-08-13.md).
+### Was die Recherche geklärt hat
+
+Auftrag 1 ergab zwei sich widersprechende Berichte. Belastbar ist nur, was **beide** verwerfen:
+
+- **292 mm Jahresniederschlag** — keine Quelle reproduziert diesen Wert. Verworfen.
+- **„Frigiliana tagsüber heißer, 31 gegen 28 °C"** — nicht belegt; unabhängige Kontrolle zeigt eher Gleichstand. **Von der Seite entfernt.**
+- **26 °C Wassertemperatur als Monatsmittel** — nur als sommerlicher Einzelwert plausibel. Auf der Seite steht 24.
+- **„Mildeste Winter auf dem europäischen Festland"** — kein Ranking-Nachweis, methodisch undefiniert. Wird nicht verwendet.
+- **„300+ Sonnentage"** — kein definierter meteorologischer Kennwert. AEMET führt für Málaga 2.905 Sonnenstunden, aber nur 109,1 wolkenlose Tage im Jahr. **Von der Frigiliana-Seite entfernt.**
+
+Zusätzlich geklärt: Station **6213X** liegt auf 169 m und rund 3,4 km von der Ortslage Nerja (20 m) entfernt; ein durchgehender Datenbestand 1991–2020 ist nicht nachgewiesen. Für **Frigiliana** (315 m) gibt es laut AEMET **keine Station im Gemeindegebiet**.
+
+### Was offen bleibt
+
+Die AEMET-Rasterwerte 1991–2020 für beide Ortskoordinaten. Erst damit lassen sich Monatstabellen und ein Zahlenvergleich veröffentlichen.
+
+Siehe [NERJA-FRIGILIANA-KLIMA-RECHERCHE-2_2026-08-14.md](NERJA-FRIGILIANA-KLIMA-RECHERCHE-2_2026-08-14.md).
+
+### Aktueller Stand auf der Seite
+
+Der Vergleichsblock nennt keine Zahlen mehr, sondern die Aussage, die beide Berichte stützen: im Hochsommer tagsüber ähnlich heiß, Nerja nachts milder. Ein sichtbarer Hinweis nennt die laufende Prüfung.
+
+**Prüfhistorie**
+- 2026-08-14 — Auftrag 1 ausgewertet, widerlegte Aussagen entfernt, Auftrag 2 gestellt.
 
 ---
 
