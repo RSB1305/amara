@@ -423,7 +423,7 @@ export const tarifaExperienceContent = {
         title: 'Dos noches no son lo mismo que dos semanas',
         paragraphs: [
           'Con dos o tres noches ni siquiera intentaríamos encajarlo todo. Costa, casco antiguo y una experiencia principal bastan.',
-          'A partir de cuatro o siete noches Tarifa se vuelve más fácil: planificáis con el viento y no contra él. Si un día sopla demasiado para la playa, os vais al casco antiguo o a Bolonia, y el día de viento se convierte en día de kite en lugar de un día perdido.',
+          'A partir de cuatro a siete noches Tarifa se vuelve más fácil: planificáis con el viento y no contra él. Si un día sopla demasiado para la playa, os vais al casco antiguo o a Bolonia, y el día de viento se convierte en día de kite en lugar de un día perdido.',
           'Lo que más nos gusta son catorce noches. No porque Tarifa tenga tanto que ver, sino porque es entonces cuando se deja de planificar días.'
         ]
       }
@@ -569,27 +569,46 @@ export const tarifaExperienceContent = {
     },
     dayChooser: {
       title: 'Välj er Tarifa-dag',
-      intro: [],
+      intro: [
+        'Vid stark levante fungerar i praktiken bara Valdevaqueros – där finns räddningsbåtarna och allt är anpassat för förhållandena. Den lilla, familjevänliga Playa Chica är då inget bra val. Vid poniente eller stiltje är det tvärtom.',
+        'Därför planerar man inte Tarifa långt i förväg. Titta ut på morgonen och bestäm då. Sex sorters dagar att välja mellan:'
+      ],
       days: [
         {
-          title: 'Kustdag',
-          text: 'bada nära stan, se drakarna längs Atlantkusten eller låt det öppna landskapet bestämma tempot.'
+          title: 'En kustdag.',
+          text: 'Bada nära stan eller se kitesurfarna längre västerut. Vilken strand som passar i dag beror på vinden.',
+          token: 'tarifa_beaches_authority',
+          linkLabel: 'Tarifas stränder'
         },
         {
-          title: 'Vind- och vattendag',
-          text: 'ge er ut på vattnet om det är därför ni kom; låt annars förhållandena leda vidare till en annan sida av Tarifa.'
+          title: 'En vind- och vattendag.',
+          text: 'Ge er ut på vattnet om det är därför ni kom. Även nybörjare – via våra vänner på Tarifa Surf Club; det ordnar vi före er ankomst.',
+          token: 'tarifa_wind_kitesurfing_authority',
+          linkLabel: 'Vind & kitesurfing'
         },
         {
-          title: 'Gamla stan och mat',
-          text: 'följ murar och gränder, pausa för lunch och stanna kvar när kvällen hittar sin rytm.'
+          title: 'En dag i gamla stan.',
+          text: 'Gå genom Puerta de Jerez in i den muromgärdade stadskärnan, med Castillo som riktpunkt och sundet i ryggen hela vägen.',
+          token: 'tarifa_old_town_history',
+          linkLabel: 'Gamla stan & historia'
         },
         {
-          title: 'Naturdag vid sundet',
-          text: 'gå till en utsiktsplats, följ flyttfåglarnas landskap eller håll en tur för att se havsdjur flexibel.'
+          title: 'En kvälls- och matdag.',
+          text: 'Röd tonfisk från almadraba-traditionen, följt av Calle Batalla del Salado och gränderna i gamla stan.',
+          token: 'tarifa_food_evening_life',
+          linkLabel: 'Mat & kvällsliv'
         },
         {
-          title: 'Bolonia-dag',
-          text: 'kombinera strand, sanddyner och romerska Baelo Claudia.'
+          title: 'En naturdag vid sundet.',
+          text: 'Välj en utsiktsplats, följ flyttfåglarnas stråk eller håll möjligheten till en val- och delfintur öppen.',
+          token: 'tarifa_nature_wildlife',
+          linkLabel: 'Natur & djurliv'
+        },
+        {
+          title: 'En Bolonia-dag.',
+          text: 'Öppen kust, skyddad dyn och den romerska staden Baelo Claudia – en hel dag, inte ett stopp på vägen.',
+          token: 'tarifa_bolonia_baelo_claudia',
+          linkLabel: 'Bolonia & Baelo Claudia'
         }
       ]
     },
