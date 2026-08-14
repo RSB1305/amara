@@ -520,6 +520,9 @@ const closingCtaLinks: EditorialClosingCtaLink[] = [
     color: var(--color-on-primary);
   }
 
+  /* The filter uses the `hidden` attribute as its single source of truth. The rows it
+     targets also carry Tailwind display utilities (flex/grid), so `!important` is the
+     intended guarantee that `[hidden]` always wins — not an accidental override. */
   :global(#am-page-amenities [data-amenity-row][hidden]),
   :global(#am-page-amenities [data-rental-id][hidden]),
   :global(#am-page-amenities [data-filter-empty][hidden]) {
