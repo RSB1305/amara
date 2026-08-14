@@ -105,7 +105,6 @@
     <div class="sidebar-cat">Navigation</div>
     <a href="#navigation"><span>Navigation</span><span class="badge badge-active">Active</span></a>
     <a href="#smartbackbutton"><span>SmartBackButton</span><span class="badge badge-active">Active</span></a>
-    <a href="#sectionanchornav"><span>SectionAnchorNav</span><span class="badge badge-active">Active</span></a>
 
     <div class="sidebar-cat">Layout</div>
     <a href="#footer"><span>Footer</span><span class="badge badge-active">Active</span></a>
@@ -128,12 +127,8 @@
     <a href="#sustainabilityband"><span>SustainabilityBand</span><span class="badge badge-active">Active</span></a>
 
     <div class="sidebar-cat">Location</div>
-    <a href="#parkingrealiypillars"><span>ParkingRealityPillars</span><span class="badge badge-active">Active</span></a>
-    <a href="#staymodels"><span>StayModels</span><span class="badge badge-active">Active</span></a>
     <a href="#climateexperience"><span>ClimateExperienceSection</span><span class="badge badge-active">Active</span></a>
-    <a href="#villagestructure"><span>VillageStructureInsight</span><span class="badge badge-active">Active</span></a>
     <a href="#locationeditorial"><span>LocationEditorialComparison</span><span class="badge badge-active">Active</span></a>
-    <a href="#staydecision"><span>StayDecision</span><span class="badge badge-active">Active</span></a>
 
     <div class="sidebar-cat">Media</div>
     <a href="#essencegrid"><span>EssenceGrid</span><span class="badge badge-active">Active</span></a>
@@ -142,8 +137,6 @@
     <div class="sidebar-cat">Utility</div>
     <a href="#faqaccordion"><span>FaqAccordion</span><span class="badge badge-active">Active</span></a>
     <a href="#symbolicon"><span>SymbolIcon</span><span class="badge badge-internal">Internal</span></a>
-    <a href="#weather"><span>Weather</span><span class="badge badge-orphan">Orphan</span></a>
-    <a href="#villagemap"><span>VillageMap</span><span class="badge badge-orphan">Orphan</span></a>
 
     <div class="sidebar-cat">Page Families</div>
     <a href="#pagefamilies"><span>11 Page Families</span><span class="badge badge-active">Active</span></a>
@@ -227,30 +220,6 @@
         </div>
       </div>
 
-      <div class="comp-card" id="sectionanchornav" data-name="sectionanchornav anchor nav">
-        <div class="comp-card-head">
-          <div><div class="comp-name">SectionAnchorNav</div><div class="comp-path">src/components/navigation/SectionAnchorNav.astro</div></div>
-          <span class="comp-status status-active">Active</span>
-        </div>
-        <div class="comp-body">
-          <div class="comp-purpose">Horizontale In-Page Anker-Navigation für lange Seiten.</div>
-          <div class="comp-props">
-            <div class="comp-props-label">Props</div>
-            <span class="comp-prop required">items* (SectionAnchorNavItem[])</span>
-          </div>
-          <div class="comp-used"><strong>Genutzt in:</strong> FrigilianaLocationPage</div>
-        </div>
-        <div class="comp-footer">
-          <code>&lt;SectionAnchorNav items=&#123;[&#123;label, href&#125;]&#125; /&gt;</code>
-          <button
-            class="copy-btn"
-            data-copy="import SectionAnchorNav from '../components/navigation/SectionAnchorNav.astro'"
-            onclick="copyCode(this, this.dataset.copy)"
-          >
-            Import kopieren
-          </button>
-        </div>
-      </div>
     </div>
 
     <!-- HERO -->
@@ -539,64 +508,6 @@
     <h2 class="cat-heading">Location</h2>
     <div class="comp-grid">
 
-      <div class="comp-card" id="parkingrealiypillars" data-name="parking reality pillars">
-        <div class="comp-card-head">
-          <div><div class="comp-name">ParkingRealityPillars</div><div class="comp-path">src/components/location/ParkingRealityPillars.astro</div></div>
-          <span class="comp-status status-active">Active</span>
-        </div>
-        <div class="comp-body">
-          <div class="comp-purpose">Drei-Säulen Editorial-Block mit Icons, Titeln und Copy für Parking/Bewegungs-Realität.</div>
-          <div class="comp-props">
-            <div class="comp-props-label">Props</div>
-            <span class="comp-prop">title?</span>
-            <span class="comp-prop">intro?</span>
-            <span class="comp-prop">items? (mit icon)</span>
-          </div>
-          <div class="comp-used"><strong>Genutzt in:</strong> FrigilianaParkingPage</div>
-        </div>
-        <div class="comp-footer">
-          <code>&lt;ParkingRealityPillars title="..." items=&#123;[...]&#125; /&gt;</code>
-          <button
-            class="copy-btn"
-            data-copy="import ParkingRealityPillars from '../components/location/ParkingRealityPillars.astro'"
-            onclick="copyCode(this, this.dataset.copy)"
-          >
-            Import kopieren
-          </button>
-        </div>
-      </div>
-
-      <div class="comp-card" id="staymodels" data-name="stay models vergleich">
-        <div class="comp-card-head">
-          <div><div class="comp-name">StayModels</div><div class="comp-path">src/components/location/StayModels.astro</div></div>
-          <span class="comp-status status-active">Active</span>
-        </div>
-        <div class="comp-body">
-          <div class="comp-purpose">Dreispaltige Aufenthalts-Vergleich (inkl. dunkle "Balance"-Card) mit Lucide Icons.</div>
-          <div class="comp-props">
-            <div class="comp-props-label">Props</div>
-            <span class="comp-prop required">title*</span>
-            <span class="comp-prop required">intro*</span>
-            <span class="comp-prop required">left*</span>
-            <span class="comp-prop required">center*</span>
-            <span class="comp-prop required">right*</span>
-            <span class="comp-prop required">frictionLabel*</span>
-            <span class="comp-prop required">carAccessLabel*</span>
-          </div>
-          <div class="comp-used"><strong>Genutzt in:</strong> FrigilianaParkingPage</div>
-        </div>
-        <div class="comp-footer">
-          <code>&lt;StayModels title="..." left=&#123;...&#125; center=&#123;...&#125; right=&#123;...&#125; /&gt;</code>
-          <button
-            class="copy-btn"
-            data-copy="import StayModels from '../components/location/StayModels.astro'"
-            onclick="copyCode(this, this.dataset.copy)"
-          >
-            Import kopieren
-          </button>
-        </div>
-      </div>
-
       <div class="comp-card" id="climateexperience" data-name="climate experience klima">
         <div class="comp-card-head">
           <div><div class="comp-name">ClimateExperienceSection</div><div class="comp-path">src/components/location/ClimateExperienceSection.astro</div></div>
@@ -621,38 +532,6 @@
           <button
             class="copy-btn"
             data-copy="import ClimateExperienceSection from '../components/location/ClimateExperienceSection.astro'"
-            onclick="copyCode(this, this.dataset.copy)"
-          >
-            Import kopieren
-          </button>
-        </div>
-      </div>
-
-      <div class="comp-card" id="villagestructure" data-name="village structure insight">
-        <div class="comp-card-head">
-          <div><div class="comp-name">VillageStructureInsight</div><div class="comp-path">src/components/location/VillageStructureInsight.astro</div></div>
-          <span class="comp-status status-active">Active</span>
-        </div>
-        <div class="comp-body">
-          <div class="comp-purpose">Bild-geführte Split-Insight-Section über die Dorfstruktur mit CTA.</div>
-          <div class="comp-props">
-            <div class="comp-props-label">Props</div>
-            <span class="comp-prop required">eyebrow*</span>
-            <span class="comp-prop required">headline*</span>
-            <span class="comp-prop required">imageSrc*</span>
-            <span class="comp-prop required">imageAlt*</span>
-            <span class="comp-prop required">ctaHref*</span>
-            <span class="comp-prop required">supporting*</span>
-            <span class="comp-prop required">signal*</span>
-            <span class="comp-prop required">ctaLabel*</span>
-          </div>
-          <div class="comp-used"><strong>Genutzt in:</strong> FrigilianaLocationPage</div>
-        </div>
-        <div class="comp-footer">
-          <code>&lt;VillageStructureInsight eyebrow="..." imageSrc="..." /&gt;</code>
-          <button
-            class="copy-btn"
-            data-copy="import VillageStructureInsight from '../components/location/VillageStructureInsight.astro'"
             onclick="copyCode(this, this.dataset.copy)"
           >
             Import kopieren
@@ -690,32 +569,6 @@
         </div>
       </div>
 
-      <div class="comp-card" id="staydecision" data-name="stay decision profil">
-        <div class="comp-card-head">
-          <div><div class="comp-name">StayDecision</div><div class="comp-path">src/components/StayDecision.astro</div></div>
-          <span class="comp-status status-active">Active</span>
-        </div>
-        <div class="comp-body">
-          <div class="comp-purpose">Vierspaltige Eignungs-/Aufenthalts-Profil-Vergleich für Type A Authority.</div>
-          <div class="comp-props">
-            <div class="comp-props-label">Props</div>
-            <span class="comp-prop required">eyebrow*</span>
-            <span class="comp-prop required">title*</span>
-            <span class="comp-prop required">profiles* (Profile[])</span>
-          </div>
-          <div class="comp-used"><strong>Genutzt in:</strong> FrigilianaLocationPage</div>
-        </div>
-        <div class="comp-footer">
-          <code>&lt;StayDecision eyebrow="..." profiles=&#123;[...]&#125; /&gt;</code>
-          <button
-            class="copy-btn"
-            data-copy="import StayDecision from '../components/StayDecision.astro'"
-            onclick="copyCode(this, this.dataset.copy)"
-          >
-            Import kopieren
-          </button>
-        </div>
-      </div>
     </div>
 
     <!-- MEDIA -->
@@ -814,57 +667,6 @@
         </div>
       </div>
 
-      <div class="comp-card" id="weather" data-name="weather wetter">
-        <div class="comp-card-head">
-          <div><div class="comp-name">Weather</div><div class="comp-path">src/components/Weather.astro</div></div>
-          <span class="comp-status status-orphan">Orphan</span>
-        </div>
-        <div class="comp-body">
-          <div class="comp-purpose">Lokales Wetter-UI mit übersetztem Chrome und Forecast-States. Aktuell nicht in Produktion eingebunden.</div>
-          <div class="comp-props">
-            <div class="comp-props-label">Props</div>
-            <span class="comp-prop required">lat*</span>
-            <span class="comp-prop required">lon*</span>
-            <span class="comp-prop required">locationName*</span>
-          </div>
-          <div class="comp-used"><strong>Status:</strong> Bereit aber nicht importiert — kann sofort eingebaut werden</div>
-        </div>
-        <div class="comp-footer">
-          <code>&lt;Weather lat=&#123;36.78&#125; lon=&#123;-3.89&#125; locationName="Frigiliana" /&gt;</code>
-          <button
-            class="copy-btn"
-            data-copy="import Weather from '../components/Weather.astro'"
-            onclick="copyCode(this, this.dataset.copy)"
-          >
-            Import kopieren
-          </button>
-        </div>
-      </div>
-
-      <div class="comp-card" id="villagemap" data-name="village map karte">
-        <div class="comp-card-head">
-          <div><div class="comp-name">VillageMap</div><div class="comp-path">src/components/VillageMap.tsx</div></div>
-          <span class="comp-status status-orphan">Orphan</span>
-        </div>
-        <div class="comp-body">
-          <div class="comp-purpose">Interaktive "Village Explorer" Karte mit POI-Pins und Detail-Panel. React-Komponente, aktuell nicht eingebunden.</div>
-          <div class="comp-props">
-            <div class="comp-props-label">Props</div>
-            <span class="comp-prop">keine Props (internal state)</span>
-          </div>
-          <div class="comp-used"><strong>Status:</strong> POC — braucht client:load Island für Hydration</div>
-        </div>
-        <div class="comp-footer">
-          <code>&lt;VillageMap client:load /&gt;</code>
-          <button
-            class="copy-btn"
-            data-copy="import VillageMap from '../components/VillageMap.tsx'"
-            onclick="copyCode(this, this.dataset.copy)"
-          >
-            Import kopieren
-          </button>
-        </div>
-      </div>
     </div>
 
     <!-- PAGE FAMILIES -->
