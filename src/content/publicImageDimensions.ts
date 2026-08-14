@@ -103,7 +103,7 @@ const PUBLIC_IMAGE_DIMENSIONS: Record<string, PublicImageDimensions> = {
   "/images/amara-zaid/cara-rural-frigiliana-amara-said-dormitorio.jpg": { width: 1920, height: 1282 },
   "/images/amara-zaid/cara-rural-frigiliana-amara-said-terraza-5.jpg": { width: 1920, height: 1282 },
   "/images/amara-zaid/cara-rural-frigiliana-amara-said-terraza.jpg": { width: 1920, height: 1282 },
-  "/images/robert-amara-founder-host.jpg": { width: 2644, height: 3966 },
+  "/images/robert-amara-host.jpg": { width: 2644, height: 3966 },
 };
 
 export function getPublicImageDimensions(src: string): PublicImageDimensions {

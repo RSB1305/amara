@@ -11,11 +11,11 @@ interface Props {
 
 const { lang, authorName, authorHref, updated, note } = Astro.props;
 const authorLabel = {
-  en: `By ${authorName} · Founder and host at AMARA`,
-  de: `Von ${authorName} · Gründer und Gastgeber bei AMARA`,
-  es: `Por ${authorName} · Fundador y anfitrión de AMARA`,
-  nl: `Door ${authorName} · Oprichter en host bij AMARA`,
-  sv: `Av ${authorName} · Grundare och värd hos AMARA`
+  en: `By ${authorName} · Host at AMARA`,
+  de: `Von ${authorName} · Gastgeber bei AMARA`,
+  es: `Por ${authorName} · Anfitrión de AMARA`,
+  nl: `Door ${authorName} · Host bij AMARA`,
+  sv: `Av ${authorName} · Värd på AMARA`
 } satisfies Record<AmaraLanguage, string>;
 ---
 

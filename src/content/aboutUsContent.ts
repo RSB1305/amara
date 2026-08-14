@@ -84,35 +84,35 @@ export const aboutUsContent: AboutUsContent = {
     version: '2026-03-23-amara-about-us',
     pageType: 'C',
     entityKey: 'amara-brand',
-    ogImage: '/images/robert-amara-founder-host.jpg',
+    ogImage: '/images/robert-amara-host.jpg',
     languages: {
       en: {
         title: 'About AMARA: Hosting Standards & Quality',
-        description: "Meet Robert Sebastian Böhmer, AMARA's founder and host, and discover the standards behind six stays in Frigiliana, Nerja, and Tarifa.",
+        description: 'Meet Robert Sebastian Böhmer, host at AMARA, and discover the standards behind six stays in Frigiliana, Nerja, and Tarifa.',
         robots: 'index, follow',
         canonical: 'auto'
       },
       de: {
         title: 'Über AMARA: Gastgeberstandard & Qualität',
-        description: 'Lernt Robert Sebastian Böhmer, Gründer und Gastgeber von AMARA, und die Standards hinter sechs Unterkünften in Frigiliana, Nerja und Tarifa kennen.',
+        description: 'Lernt Robert Sebastian Böhmer, Gastgeber bei AMARA, und die Standards hinter sechs Unterkünften in Frigiliana, Nerja und Tarifa kennen.',
         robots: 'index, follow',
         canonical: 'auto'
       },
       es: {
         title: 'Sobre AMARA: anfitrión, calidad y filosofía',
-        description: 'Conoce a Robert Sebastian Böhmer, fundador y anfitrión de AMARA, y los estándares de seis alojamientos en Frigiliana, Nerja y Tarifa.',
+        description: 'Conoce a Robert Sebastian Böhmer, anfitrión de AMARA, y los estándares de seis alojamientos en Frigiliana, Nerja y Tarifa.',
         robots: 'index, follow',
         canonical: 'auto'
       },
       nl: {
         title: 'Over AMARA: hoststandaard & kwaliteit',
-        description: 'Maak kennis met Robert Sebastian Böhmer, oprichter en host van AMARA, en de standaarden achter zes verblijven in Frigiliana, Nerja en Tarifa.',
+        description: 'Maak kennis met Robert Sebastian Böhmer, host bij AMARA, en de standaarden achter zes verblijven in Frigiliana, Nerja en Tarifa.',
         robots: 'index, follow',
         canonical: 'auto'
       },
       sv: {
         title: 'Om AMARA: värdskap, kvalitet & filosofi',
-        description: 'Lär känna Robert Sebastian Böhmer, AMARAs grundare och värd, och standarderna bakom sex boenden i Frigiliana, Nerja och Tarifa.',
+        description: 'Lär känna Robert Sebastian Böhmer, värd på AMARA, och standarderna bakom sex boenden i Frigiliana, Nerja och Tarifa.',
         robots: 'index, follow',
         canonical: 'auto'
       }
@@ -378,8 +378,8 @@ export const aboutUsContent: AboutUsContent = {
   },
   host: {
     title: { en: 'Real people. Direct responsibility.', de: 'Echte Menschen. Klare Verantwortung.', es: 'Personas reales. Responsabilidad directa.', nl: 'Echte mensen. Duidelijke verant\u00ADwoordelijkheid.', sv: 'Riktiga människor. Tydligt ansvar.' },
-    role: { en: 'Robert Sebastian Böhmer — Founder & Host', de: 'Robert Sebastian Böhmer — Gründer & Gastgeber', es: 'Robert Sebastian Böhmer — Fundador y anfitrión', nl: 'Robert Sebastian Böhmer — Oprichter & host', sv: 'Robert Sebastian Böhmer — Grundare och värd' },
-    imageAlt: { en: 'Robert, founder and host of AMARA', de: 'Robert, Gründer und Gastgeber von AMARA', es: 'Robert, fundador y anfitrión de AMARA', nl: 'Robert, oprichter en host van AMARA', sv: 'Robert, grundare och värd för AMARA' },
+    role: { en: 'Robert Sebastian Böhmer — Host at AMARA', de: 'Robert Sebastian Böhmer — Gastgeber bei AMARA', es: 'Robert Sebastian Böhmer — Anfitrión de AMARA', nl: 'Robert Sebastian Böhmer — Host bij AMARA', sv: 'Robert Sebastian Böhmer — Värd på AMARA' },
+    imageAlt: { en: 'Robert, host at AMARA', de: 'Robert, Gastgeber bei AMARA', es: 'Robert, anfitrión de AMARA', nl: 'Robert, host bij AMARA', sv: 'Robert, värd på AMARA' },
     stats: [
       { label: { en: 'Direct involvement', de: 'Persönlich eingebunden', es: 'Implicación personal', nl: 'Persoonlijk betrokken', sv: 'Personligt engagerad' }, value: { en: 'I remain directly involved in how our stays are prepared, maintained and improved.', de: 'Ich bin weiterhin direkt daran beteiligt, wie unsere Unterkünfte vorbereitet, gepflegt und weiterentwickelt werden.', es: 'Sigo implicado directamente en cómo se preparan, mantienen y mejoran nuestros alojamientos.', nl: 'Ik blijf direct betrokken bij hoe onze verblijven worden voorbereid, onderhouden en verbeterd.', sv: 'Jag är fortsatt direkt involverad i hur våra boenden förbereds, underhålls och utvecklas.' } },
       { label: { en: 'Guest feedback', de: 'Feedback, das etwas verändert', es: 'Opiniones que sirven', nl: 'Feedback die iets verandert', sv: 'Feedback som gör skillnad' }, value: { en: 'Feedback helps us make the next stay clearer, easier and more comfortable.', de: 'Rückmeldungen helfen uns dabei, den nächsten Aufenthalt noch klarer, einfacher und angenehmer zu machen.', es: 'Los comentarios de los huéspedes nos ayudan a hacer que la siguiente estancia sea más clara, sencilla y cómoda.', nl: 'Reacties van gasten helpen ons om het volgende verblijf duidelijker, eenvoudiger en comfortabeler te maken.', sv: 'Gästernas återkoppling hjälper oss att göra nästa vistelse tydligare, enklare och mer bekväm.' } },
