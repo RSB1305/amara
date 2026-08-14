@@ -16,7 +16,9 @@
     "check:link-policy": "node scripts/check-shared-link-policy.mjs",
     "check:fallback-policy": "node scripts/check-fallback-policy.mjs",
     "check:image-policy": "node scripts/check-image-policy.mjs",
-    "check:structured-data": "node scripts/check-structured-data.mjs"
+    "check:structured-data": "node scripts/check-structured-data.mjs",
+    "check:locale-parity": "node scripts/check-locale-parity.mjs",
+    "check:page-duplication": "node scripts/check-page-duplication.mjs"
   },
   "dependencies": {
     "@astrojs/react": "^6.0.2",
