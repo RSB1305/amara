@@ -367,20 +367,27 @@ const footerHighlights: LabeledLink[] = [
 </LocationAuthorityLayout>
 
 <style>
+  /**
+   * Band tone corrections for shared components rendered inside this page's
+   * section shells. The nested components carry their own Tailwind background
+   * utilities; these rules let the surrounding band tone win. Astro's scoped
+   * page styles are unlayered and therefore already outrank Tailwind's
+   * `utilities` layer — no `!important` is required.
+   */
   .am-section--plain > :global(section),
   .am-section--tint > :global(section) {
-    background-color: transparent !important;
+    background-color: transparent;
   }
 
   .am-section--plain :global(amara-photoshow) {
-    background-color: var(--color-surface) !important;
+    background-color: var(--color-surface);
   }
 
   .am-section--plain :global(amara-photoshow .bg-surface-container) {
-    background-color: var(--color-surface-container-low) !important;
+    background-color: var(--color-surface-container-low);
   }
 
   .am-section--tint :global(.bg-surface-container) {
-    background-color: var(--color-surface) !important;
+    background-color: var(--color-surface);
   }
 </style>

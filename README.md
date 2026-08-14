@@ -121,10 +121,11 @@ Locally: run `npm run check` for the fast preflight, and `npm run build` to
 reproduce exactly what CI does — only the full build covers rendering and the
 postbuild audits.
 
-**Known debt:** the internal tools are excluded from `npm run typecheck`.
-`npm run typecheck:tools` checks them separately and currently reports 44 errors.
-That check is deliberately not part of `npm run check` or CI yet, so the number is
-visible rather than hidden — but it is accepted debt, not a solved problem.
+The internal tools are excluded from `npm run typecheck` because they are dev-only
+surfaces with their own conventions. `npm run typecheck:tools` checks them against
+the same strict settings and currently passes with zero errors. That check is not
+part of `npm run check` or CI, so it has to be run deliberately after changing a
+tool — the separation is a scope boundary, not accepted debt.
 
 ## Internal tools
 
@@ -137,7 +138,8 @@ only in the dev server. To include them in a local QA build:
 AMARA_INCLUDE_INTERNAL_TOOLS=true PUBLIC_SITE_URL=https://amara-lodging.es npm run build
 ```
 
-They are excluded from the typecheck.
+They are excluded from `npm run typecheck`; run `npm run typecheck:tools` after
+changing one.
 
 ## Booking boundary
 

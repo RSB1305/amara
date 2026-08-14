@@ -30,6 +30,7 @@
       --color-muted: #666666;
       --color-hint: #888888;
       --color-gold: #C9A96E;
+      --color-tool-success: #2D7D46;
       --font-headline: 'Newsreader', Georgia, serif;
       --font-body: 'Plus Jakarta Sans', system-ui, sans-serif;
       --font-mono: 'SF Mono', 'Fira Code', monospace;
@@ -89,6 +90,7 @@
     .comp-footer { padding: 10px 20px; background: var(--color-surface-container-low); border-top: 1px solid var(--color-surface-container-high); display: flex; justify-content: space-between; align-items: center; }
     .copy-btn { font-size: 10px; font-family: var(--font-mono); background: none; border: 1px solid var(--color-outline-variant); border-radius: 4px; padding: 3px 10px; cursor: pointer; color: var(--color-primary); transition: all .15s; }
     .copy-btn:hover { background: var(--color-primary-container); }
+    .copy-btn.is-copied { color: var(--color-tool-success); }
     .comp-card.hidden { display: none; }
 
     code { font-family: var(--font-mono); font-size: 10px; background: var(--color-surface-container-high); padding: 1px 5px; border-radius: 3px; color: var(--color-primary); }
@@ -155,7 +157,7 @@
     </div>
 
     <!-- Search -->
-    <input class="search-bar" type="text" id="search" placeholder="Komponente suchen... z.B. Navigation, Hero, Editorial" oninput="filterCards(this.value)" />
+    <input class="search-bar" type="text" id="search" placeholder="Komponente suchen... z.B. Navigation, Hero, Editorial" />
 
     <!-- NAVIGATION COMPONENTS -->
     <h2 class="cat-heading">Navigation</h2>
@@ -186,7 +188,6 @@
           <button
             class="copy-btn"
             data-copy="import Navigation from '../components/Navigation.astro'"
-            onclick="copyCode(this, this.dataset.copy)"
           >
             Import kopieren
           </button>
@@ -213,7 +214,6 @@
           <button
             class="copy-btn"
             data-copy="import SmartBackButton from '../components/navigation/SmartBackButton.astro'"
-            onclick="copyCode(this, this.dataset.copy)"
           >
             Import kopieren
           </button>
@@ -248,7 +248,6 @@
           <button
             class="copy-btn"
             data-copy="import TrustHero from '../components/hero/TrustHero.astro'"
-            onclick="copyCode(this, this.dataset.copy)"
           >
             Import kopieren
           </button>
@@ -278,7 +277,6 @@
           <button
             class="copy-btn"
             data-copy="import Hero from '../components/Hero.astro'"
-            onclick="copyCode(this, this.dataset.copy)"
           >
             Import kopieren
           </button>
@@ -308,7 +306,6 @@
           <button
             class="copy-btn"
             data-copy="import EditorialStatement from '../components/editorial/EditorialStatement.astro'"
-            onclick="copyCode(this, this.dataset.copy)"
           >
             Import kopieren
           </button>
@@ -333,7 +330,6 @@
           <button
             class="copy-btn"
             data-copy="import EditorialSplit from '../components/editorial/EditorialSplit.astro'"
-            onclick="copyCode(this, this.dataset.copy)"
           >
             Import kopieren
           </button>
@@ -360,7 +356,6 @@
           <button
             class="copy-btn"
             data-copy="import EditorialQuote from '../components/editorial/EditorialQuote.astro'"
-            onclick="copyCode(this, this.dataset.copy)"
           >
             Import kopieren
           </button>
@@ -385,7 +380,6 @@
           <button
             class="copy-btn"
             data-copy="import EditorialFeatureGrid from '../components/editorial/EditorialFeatureGrid.astro'"
-            onclick="copyCode(this, this.dataset.copy)"
           >
             Import kopieren
           </button>
@@ -410,7 +404,6 @@
           <button
             class="copy-btn"
             data-copy="import EditorialDefinitionList from '../components/editorial/EditorialDefinitionList.astro'"
-            onclick="copyCode(this, this.dataset.copy)"
           >
             Import kopieren
           </button>
@@ -439,7 +432,6 @@
           <button
             class="copy-btn"
             data-copy="import EditorialHostProfile from '../components/editorial/EditorialHostProfile.astro'"
-            onclick="copyCode(this, this.dataset.copy)"
           >
             Import kopieren
           </button>
@@ -468,7 +460,6 @@
           <button
             class="copy-btn"
             data-copy="import EditorialClosingCta from '../components/editorial/EditorialClosingCta.astro'"
-            onclick="copyCode(this, this.dataset.copy)"
           >
             Import kopieren
           </button>
@@ -496,7 +487,6 @@
           <button
             class="copy-btn"
             data-copy="import SustainabilityBand from '../components/editorial/SustainabilityBand.astro'"
-            onclick="copyCode(this, this.dataset.copy)"
           >
             Import kopieren
           </button>
@@ -532,7 +522,6 @@
           <button
             class="copy-btn"
             data-copy="import ClimateExperienceSection from '../components/location/ClimateExperienceSection.astro'"
-            onclick="copyCode(this, this.dataset.copy)"
           >
             Import kopieren
           </button>
@@ -562,7 +551,6 @@
           <button
             class="copy-btn"
             data-copy="import LocationEditorialComparison from '../components/location/LocationEditorialComparison.astro'"
-            onclick="copyCode(this, this.dataset.copy)"
           >
             Import kopieren
           </button>
@@ -596,7 +584,6 @@
           <button
             class="copy-btn"
             data-copy="import EssenceGrid from '../components/EssenceGrid.astro'"
-            onclick="copyCode(this, this.dataset.copy)"
           >
             Import kopieren
           </button>
@@ -623,7 +610,6 @@
           <button
             class="copy-btn"
             data-copy="import PhotoShow from '../components/PhotoShow.astro'"
-            onclick="copyCode(this, this.dataset.copy)"
           >
             Import kopieren
           </button>
@@ -660,7 +646,6 @@
           <button
             class="copy-btn"
             data-copy="import FaqAccordion from '../components/FaqAccordion.astro'"
-            onclick="copyCode(this, this.dataset.copy)"
           >
             Import kopieren
           </button>
@@ -722,25 +707,37 @@
 </div>
 
 <script>
-function filterCards(query) {
-  const q = query.toLowerCase().trim()
-  document.querySelectorAll('.comp-card').forEach(card => {
-    const name = card.dataset.name || ''
-    card.classList.toggle('hidden', q.length > 0 && !name.includes(q))
-  })
-}
+  function filterCards(query: string): void {
+    const needle = query.toLowerCase().trim();
+    for (const card of document.querySelectorAll<HTMLElement>('.comp-card')) {
+      const name = card.dataset.name ?? '';
+      card.classList.toggle('hidden', needle.length > 0 && !name.includes(needle));
+    }
+  }
 
-function copyCode(btn, text) {
-  navigator.clipboard.writeText(text).then(() => {
-    const orig = btn.textContent
-    btn.textContent = 'Kopiert ✓'
-    btn.style.color = '#2D7D46'
-    setTimeout(() => {
-      btn.textContent = orig
-      btn.style.color = ''
-    }, 2000)
-  })
-}
+  function copyCode(button: HTMLButtonElement, text: string): void {
+    navigator.clipboard
+      .writeText(text)
+      .then(() => {
+        const original = button.textContent;
+        button.textContent = 'Kopiert ✓';
+        button.classList.add('is-copied');
+        window.setTimeout(() => {
+          button.textContent = original;
+          button.classList.remove('is-copied');
+        }, 2000);
+      })
+      .catch(() => {
+        button.textContent = 'Kopieren fehlgeschlagen';
+      });
+  }
+
+  const search = document.querySelector<HTMLInputElement>('#search');
+  search?.addEventListener('input', () => filterCards(search.value));
+
+  for (const button of document.querySelectorAll<HTMLButtonElement>('.copy-btn[data-copy]')) {
+    button.addEventListener('click', () => copyCode(button, button.dataset.copy ?? ''));
+  }
 </script>
 
 </body>

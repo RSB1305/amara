@@ -217,9 +217,9 @@ export const prerender = true;
       <span class="chip active" data-opt="react">React → Astro</span>
     </div>
     <div class="actions">
-      <button class="btn" onclick="loadDemo()">Demo</button>
-      <button class="btn" onclick="clearAll()">Leeren</button>
-      <button class="btn btn-primary" onclick="transform()">Transformieren →</button>
+      <button class="btn" id="action-demo" type="button">Demo</button>
+      <button class="btn" id="action-clear" type="button">Leeren</button>
+      <button class="btn btn-primary" id="action-transform" type="button">Transformieren →</button>
     </div>
   </div>
 
@@ -227,14 +227,14 @@ export const prerender = true;
     <div class="panel">
       <div class="panel-head">
         <span class="panel-label">Input — AI Studio Code</span>
-        <button class="btn-sm" onclick="document.getElementById('input').value=''">✕ Leeren</button>
+        <button class="btn-sm" id="action-clear-input" type="button">✕ Leeren</button>
       </div>
       <textarea id="input" spellcheck="false" placeholder="HTML oder React/JSX Code aus dem AI Studio Code-Tab hier einfügen (Ctrl+A → Ctrl+C im Code-Tab)..."></textarea>
     </div>
     <div class="panel">
       <div class="panel-head">
         <span class="panel-label">Output — Astro Komponente</span>
-        <button class="btn-sm" onclick="copyOutput()">Kopieren</button>
+        <button class="btn-sm" id="action-copy" type="button">Kopieren</button>
       </div>
       <div class="output-area" id="output">Warte auf Input...</div>
     </div>
@@ -262,43 +262,77 @@ export const prerender = true;
 </div>
 
 <script>
-  const opts = { hex: true, seo: true, props: true, style: true, react: true }
+  type ConverterOption = 'hex' | 'seo' | 'props' | 'style' | 'react';
+  type LogKind = 'info' | 'ok' | 'warn' | 'err';
 
-  document.querySelectorAll('.chip[data-opt]').forEach(c => {
-    c.addEventListener('click', () => {
-      const k = c.dataset.opt
-      opts[k] = !opts[k]
-      c.classList.toggle('active', opts[k])
-    })
-  })
+  const opts: Record<ConverterOption, boolean> = {
+    hex: true,
+    seo: true,
+    props: true,
+    style: true,
+    react: true
+  };
 
-  function addLog(msg, type = 'info') {
-    const el = document.getElementById('log')
-    if (el.innerHTML.includes('Bereit')) el.innerHTML = ''
-    const d = document.createElement('div')
-    d.className = 'log-item'
-    const icon = type === 'ok' ? '✓' : type === 'warn' ? '⚠' : type === 'err' ? '✗' : '·'
-    d.innerHTML = `<span class="${type}">${icon}</span><span class="${type}">${msg}</span>`
-    el.appendChild(d)
-    el.scrollTop = el.scrollHeight
+  function isConverterOption(value: string | undefined): value is ConverterOption {
+    return value !== undefined && value in opts;
   }
 
-  function copyOutput() {
-    navigator.clipboard.writeText(document.getElementById('output').textContent).catch(() => {})
+  // The tool is a self-contained dev surface: a missing element is an authoring bug,
+  // not a runtime state the UI has to recover from.
+  function requireElement<T extends HTMLElement>(selector: string): T {
+    const element = document.querySelector<T>(selector);
+    if (!element) {
+      throw new Error(`[AMARA converter] Missing required element: ${selector}`);
+    }
+    return element;
   }
 
-  function clearAll() {
-    document.getElementById('input').value = ''
-    document.getElementById('output').textContent = 'Warte auf Input...'
-    document.getElementById('log').innerHTML = '<span class="info">Bereit. Code einfügen und "Transformieren" klicken.</span>'
-    ;['s-hex','s-inline','s-props','s-lines'].forEach(id => document.getElementById(id).textContent = '—')
+  const inputField = requireElement<HTMLTextAreaElement>('#input');
+  const outputArea = requireElement('#output');
+  const logArea = requireElement('#log');
+  const statHex = requireElement('#s-hex');
+  const statInline = requireElement('#s-inline');
+  const statProps = requireElement('#s-props');
+  const statLines = requireElement('#s-lines');
+
+  for (const chip of document.querySelectorAll<HTMLElement>('.chip[data-opt]')) {
+    chip.addEventListener('click', () => {
+      const key = chip.dataset.opt;
+      if (!isConverterOption(key)) return;
+      opts[key] = !opts[key];
+      chip.classList.toggle('active', opts[key]);
+    });
   }
 
-  function isReact(code) {
+  function addLog(msg: string, type: LogKind = 'info'): void {
+    if (logArea.innerHTML.includes('Bereit')) logArea.innerHTML = '';
+    const entry = document.createElement('div');
+    entry.className = 'log-item';
+    const icon = type === 'ok' ? '✓' : type === 'warn' ? '⚠' : type === 'err' ? '✗' : '·';
+    entry.innerHTML = `<span class="${type}">${icon}</span><span class="${type}">${msg}</span>`;
+    logArea.appendChild(entry);
+    logArea.scrollTop = logArea.scrollHeight;
+  }
+
+  function copyOutput(): void {
+    navigator.clipboard.writeText(outputArea.textContent ?? '').catch(() => {});
+  }
+
+  function clearAll(): void {
+    inputField.value = '';
+    outputArea.textContent = 'Warte auf Input...';
+    logArea.innerHTML =
+      '<span class="info">Bereit. Code einfügen und "Transformieren" klicken.</span>';
+    for (const stat of [statHex, statInline, statProps, statLines]) {
+      stat.textContent = '—';
+    }
+  }
+
+  function isReact(code: string): boolean {
     return code.includes('className=') || code.includes('import React') || code.includes('export default function')
   }
 
-  function reactToAstro(code) {
+  function reactToAstro(code: string): string {
     return code
       .replace(/className=/g, 'class=')
       .replace(/htmlFor=/g, 'for=')
@@ -316,7 +350,7 @@ export const prerender = true;
       .replace(/<(\w+)[^>]*\/>/g, (m) => m)
   }
 
-  function extractBody(html) {
+  function extractBody(html: string): string {
     const bodyMatch = html.match(/<body[^>]*>([\s\S]*?)<\/body>/i)
     if (bodyMatch) return bodyMatch[1].trim()
     return html
@@ -327,16 +361,16 @@ export const prerender = true;
       .trim()
   }
 
-  function countHex(html) {
+  function countHex(html: string): number {
     return (html.match(/#[0-9A-Fa-f]{3,8}\b/g) || []).length
   }
 
-  function countInline(html) {
+  function countInline(html: string): number {
     return (html.match(/style\s*=\s*["']/g) || []).length
   }
 
-  function replaceKnownHex(html) {
-    const map = {
+  function replaceKnownHex(html: string): string {
+    const map: Record<string, string> = {
       '#F9F5EE': 'var(--am-color-surface)',
       '#F5F0E8': 'var(--am-color-surface)',
       '#F5F2ED': 'var(--am-color-surface)',
@@ -359,27 +393,27 @@ export const prerender = true;
     return out
   }
 
-  function inferProps(html) {
-    const props = []
+  function inferProps(html: string): string[] {
+    const props: string[] = []
     for (const m of html.matchAll(/data-prop="([^"]+)"/g)) {
       if (!props.includes(m[1])) props.push(m[1])
     }
     return props
   }
 
-  function buildFrontmatter(props) {
+  function buildFrontmatter(props: string[]): string {
     if (!props.length) return `---\n---`
     return `---\ninterface Props {\n${props.map(p => `  ${p}: string`).join('\n')}\n}\nconst { ${props.join(', ')} } = Astro.props\n---`
   }
 
-  function buildSEO() {
+  function buildSEO(): string {
     return `\n<script type="application/ld+json">\n{\n  "@context": "https://schema.org",\n  "@type": "WebPage",\n  "name": "",\n  "description": "",\n  "url": "",\n  "inLanguage": ["en","de","es","nl","sv"],\n  "canonical": "auto"\n}\n<\/script>`
   }
 
-  function transform() {
-    const raw = document.getElementById('input').value.trim()
+  function transform(): void {
+    const raw = inputField.value.trim()
     if (!raw) { addLog('Kein Input.', 'err'); return }
-    document.getElementById('log').innerHTML = ''
+    logArea.innerHTML = ''
 
     let html = raw
 
@@ -415,17 +449,17 @@ export const prerender = true;
     const seo = opts.seo ? buildSEO() : ''
     const output = fm + '\n\n' + html + (seo ? '\n' + seo : '')
 
-    document.getElementById('output').textContent = output
-    document.getElementById('s-hex').textContent = hexCount
-    document.getElementById('s-inline').textContent = inlineCount
-    document.getElementById('s-props').textContent = props.length
-    document.getElementById('s-lines').textContent = output.split('\n').length
+    outputArea.textContent = output
+    statHex.textContent = String(hexCount)
+    statInline.textContent = String(inlineCount)
+    statProps.textContent = String(props.length)
+    statLines.textContent = String(output.split('\n').length)
 
     addLog('Fertig — ' + output.split('\n').length + ' Zeilen', 'ok')
   }
 
-  function loadDemo() {
-    document.getElementById('input').value = `import React from 'react';
+  function loadDemo(): void {
+    inputField.value = `import React from 'react';
 import { MapPin, Clock } from 'lucide-react';
 
 export default function FrigilianaParking() {
@@ -447,6 +481,14 @@ export default function FrigilianaParking() {
 }`
     addLog('Demo geladen', 'info')
   }
+
+  requireElement('#action-demo').addEventListener('click', loadDemo);
+  requireElement('#action-clear').addEventListener('click', clearAll);
+  requireElement('#action-transform').addEventListener('click', transform);
+  requireElement('#action-copy').addEventListener('click', copyOutput);
+  requireElement('#action-clear-input').addEventListener('click', () => {
+    inputField.value = '';
+  });
 </script>
 
 </body>
