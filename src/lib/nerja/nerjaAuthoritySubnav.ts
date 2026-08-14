@@ -28,7 +28,8 @@ export function getNerjaAuthoritySubnav(
     {
       id: 'geography-orientation',
       label: labels['geography-orientation'],
-      status: 'future'
+      status: 'live',
+      href: resolveLink('nerja_geography', currentLang)
     },
     {
       id: 'where-to-stay',
@@ -39,12 +40,14 @@ export function getNerjaAuthoritySubnav(
     {
       id: 'weather-seasons',
       label: labels['weather-seasons'],
-      status: 'future'
+      status: 'live',
+      href: resolveLink('nerja_weather', currentLang)
     },
     {
       id: 'daily-life-services',
       label: labels['daily-life-services'],
-      status: 'future'
+      status: 'live',
+      href: resolveLink('nerja_daily_life', currentLang)
     }
   ];
 }

@@ -1,0 +1,13 @@
+---
+import NerjaDailyLifePage from '../../page-families/location-authority/NerjaDailyLifePage.astro';
+import { getOwnedPageStaticPaths } from '../../lib/routeOwnership';
+import type { AmaraLanguage } from '../../types/seo';
+
+export function getStaticPaths() {
+  return getOwnedPageStaticPaths();
+}
+
+const { lang } = Astro.params as { lang: AmaraLanguage };
+---
+
+<NerjaDailyLifePage lang={lang} />

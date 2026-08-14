@@ -112,11 +112,11 @@ export const nerjaLocationHubContent: {
         intro: 'Start with your real daily rhythm: arrival, beach choice, walking, errands and the outings you want beyond town.',
         items: [
           { number: '01', title: 'Getting here', text: 'Airports, coach arrival and the final leg to Calle Castilla Pérez 60.', label: 'Arrival & mobility', token: 'getting_to_nerja' },
-          { number: '02', title: 'Read the town', text: 'Sea edge, old centre, eastern beaches and the hills behind Nerja.', label: 'Geography & orientation', anchor: '#orientation' },
+          { number: '02', title: 'Read the town', text: 'Sea edge, old centre, eastern beaches and the hills behind Nerja.', label: 'Geography & orientation', token: 'nerja_geography' },
           { number: '03', title: 'Choose your area', text: 'Compare Torrecilla, the Old Town, Burriana and the upper residential areas.', label: 'Where to stay / areas', token: 'nerja_where_to_stay' },
-          { number: '04', title: 'Weather & seasons', text: 'How heat, rain and the quieter months change a coastal stay.', label: 'Weather & seasons', anchor: '#seasons' },
-          { number: '05', title: 'Daily life', text: 'Groceries, evening walks, beach routines and moving around town.', label: 'Daily life & services', anchor: '#daily-life' },
-          { number: '06', title: 'Stay longer', text: 'What becomes more important when a holiday turns into weeks.', label: 'Winter stays', anchor: '#seasons' }
+          { number: '04', title: 'Weather & seasons', text: 'How heat, rain and the quieter months change a coastal stay.', label: 'Weather & seasons', token: 'nerja_weather' },
+          { number: '05', title: 'Daily life', text: 'Groceries, evening walks, beach routines and moving around town.', label: 'Daily life & services', token: 'nerja_daily_life' },
+          { number: '06', title: 'Stay longer', text: 'What becomes more important when a holiday turns into weeks.', label: 'Winter stays', token: 'nerja_weather' }
         ]
       },
       orientation: {
@@ -183,10 +183,12 @@ export const nerjaLocationHubContent: {
       },
       amara: {
         eyebrow: 'Your Nerja base',
-        title: 'AMARA Playa puts western Nerja into a walking rhythm',
+        title: 'From guest to host in Nerja',
         paragraphs: [
-          'The apartment sits on Calle Castilla Pérez, between Torrecilla’s beach life and the historic centre. It is a central base for two guests who want the Mediterranean close without giving up town evenings.',
-          'It is important to plan the real building, too: the apartment is on the fifth floor with a lift, but there are five steps outside and five steps inside before the lift. No private parking is supplied.'
+          'For years we were holiday guests in this exact apartment. We enjoyed our time here so much that we did not hesitate for a second when we heard it was for sale.',
+          'If we had to describe it in a few words: absolute cosiness and the perfect location. You are right in the centre, yet the apartment faces away from the street and stays wonderfully quiet — crowned by a sea view. You do not need a car here.',
+          'The location is hard to beat: barely 500 metres to the Balcón de Europa and just 100 metres to Torrecilla beach. Walk a few hundred metres further and you reach small, secluded coves.',
+          'The building belongs in an honest plan, too: the apartment is on the fifth floor with a lift, but there are five steps outside and five inside before you reach it. No private parking is supplied.'
         ],
         facts: [
           'Approximately 100 m to Torrecilla beach',
@@ -220,11 +222,11 @@ export const nerjaLocationHubContent: {
         intro: 'Beginnt mit eurem echten Tagesrhythmus: Anreise, Strandwahl, Wege, Einkäufe und Ausflüge außerhalb des Ortes.',
         items: [
           { number: '01', title: 'Nach Nerja kommen', text: 'Flughäfen, Busankunft und die letzte Etappe zur Calle Castilla Pérez 60.', label: 'Anreise & Mobilität', token: 'getting_to_nerja' },
-          { number: '02', title: 'Den Ort einordnen', text: 'Meereskante, Altstadt, östliche Strände und die Hänge dahinter.', label: 'Geografie & Orientierung', anchor: '#orientation' },
+          { number: '02', title: 'Den Ort einordnen', text: 'Meereskante, Altstadt, östliche Strände und die Hänge dahinter.', label: 'Geografie & Orientierung', token: 'nerja_geography' },
           { number: '03', title: 'Die passende Lage wählen', text: 'Torrecilla, Altstadt, Burriana und die oberen Wohnlagen im Vergleich.', label: 'Wo übernachten / Lagen', token: 'nerja_where_to_stay' },
-          { number: '04', title: 'Wetter & Jahreszeiten', text: 'Wie Hitze, Regen und ruhigere Monate den Küstenurlaub verändern.', label: 'Wetter & Jahreszeiten', anchor: '#seasons' },
-          { number: '05', title: 'Alltag vor Ort', text: 'Einkaufen, Abendspaziergänge, Strandroutine und Wege im Ort.', label: 'Alltag & Services', anchor: '#daily-life' },
-          { number: '06', title: 'Länger bleiben', text: 'Was wichtiger wird, wenn aus Urlaub mehrere Wochen werden.', label: 'Winteraufenthalte', anchor: '#seasons' }
+          { number: '04', title: 'Wetter & Jahreszeiten', text: 'Wie Hitze, Regen und ruhigere Monate den Küstenurlaub verändern.', label: 'Wetter & Jahreszeiten', token: 'nerja_weather' },
+          { number: '05', title: 'Alltag vor Ort', text: 'Einkaufen, Abendspaziergänge, Strandroutine und Wege im Ort.', label: 'Alltag & Services', token: 'nerja_daily_life' },
+          { number: '06', title: 'Länger bleiben', text: 'Was wichtiger wird, wenn aus Urlaub mehrere Wochen werden.', label: 'Winteraufenthalte', token: 'nerja_weather' }
         ]
       },
       orientation: {
@@ -291,9 +293,11 @@ export const nerjaLocationHubContent: {
       },
       amara: {
         eyebrow: 'Eure Basis in Nerja',
-        title: 'AMARA Playa bringt den Westen Nerjas in einen gut gehbaren Alltag',
+        title: 'Vom Gast zum Gastgeber in Nerja',
         paragraphs: [
-          'Die Wohnung liegt in der Calle Castilla Pérez zwischen dem Strandleben an Torrecilla und dem historischen Zentrum. Für zwei Gäste verbindet sie Mittelmeernähe mit Abenden im Ort.',
+          'Jahrelang waren wir selbst Urlaubsgäste in genau dieser Wohnung. Wir haben die Zeit hier so sehr genossen, dass wir keine Sekunde zögern mussten, als wir erfuhren, dass sie zum Verkauf steht.',
+          'In wenigen Worten: absolute Gemütlichkeit und die perfekte Lage. Man ist mitten im Zentrum, und trotzdem liegt die Wohnung nach hinten heraus und bleibt herrlich ruhig – gekrönt von einem wunderbaren Meerblick. Ein Auto braucht man hier nicht.',
+          'Die Lage ist schwer zu schlagen: knapp 500 Meter zum Balcón de Europa und gerade einmal 100 Meter zum Strand Torrecilla. Wer ein paar hundert Meter weiter geht, erreicht abgelegene, ruhige kleine Buchten.',
           'Auch das Gebäude gehört zur ehrlichen Planung: Die Wohnung liegt im fünften Stock mit Aufzug, davor gibt es außen fünf und innen weitere fünf Stufen. Ein privater Stellplatz ist nicht vorhanden.'
         ],
         facts: [
@@ -328,11 +332,11 @@ export const nerjaLocationHubContent: {
         intro: 'Pensad primero en vuestro ritmo real: llegada, playa, paseos, compras y excursiones fuera del pueblo.',
         items: [
           { number: '01', title: 'Llegar a Nerja', text: 'Aeropuertos, llegada en autobús y último tramo hasta Calle Castilla Pérez 60.', label: 'Llegada y movilidad', token: 'getting_to_nerja' },
-          { number: '02', title: 'Situarse en el pueblo', text: 'Frente marítimo, casco antiguo, playas orientales y laderas.', label: 'Geografía y orientación', anchor: '#orientation' },
+          { number: '02', title: 'Situarse en el pueblo', text: 'Frente marítimo, casco antiguo, playas orientales y laderas.', label: 'Geografía y orientación', token: 'nerja_geography' },
           { number: '03', title: 'Elegir zona', text: 'Torrecilla, casco antiguo, Burriana y urbanizaciones de la parte alta.', label: 'Dónde alojarse / zonas', token: 'nerja_where_to_stay' },
-          { number: '04', title: 'Tiempo y temporadas', text: 'Cómo el calor, la lluvia y los meses tranquilos cambian la estancia.', label: 'Tiempo y temporadas', anchor: '#seasons' },
-          { number: '05', title: 'Vida diaria', text: 'Compras, paseos nocturnos, playa y desplazamientos por el pueblo.', label: 'Vida diaria y servicios', anchor: '#daily-life' },
-          { number: '06', title: 'Quedarse más tiempo', text: 'Lo que importa cuando unas vacaciones se convierten en semanas.', label: 'Estancias de invierno', anchor: '#seasons' }
+          { number: '04', title: 'Tiempo y temporadas', text: 'Cómo el calor, la lluvia y los meses tranquilos cambian la estancia.', label: 'Tiempo y temporadas', token: 'nerja_weather' },
+          { number: '05', title: 'Vida diaria', text: 'Compras, paseos nocturnos, playa y desplazamientos por el pueblo.', label: 'Vida diaria y servicios', token: 'nerja_daily_life' },
+          { number: '06', title: 'Quedarse más tiempo', text: 'Lo que importa cuando unas vacaciones se convierten en semanas.', label: 'Estancias de invierno', token: 'nerja_weather' }
         ]
       },
       orientation: {
@@ -399,10 +403,12 @@ export const nerjaLocationHubContent: {
       },
       amara: {
         eyebrow: 'Vuestra base en Nerja',
-        title: 'AMARA Playa convierte el oeste de Nerja en una rutina a pie',
+        title: 'De huéspedes a anfitriones en Nerja',
         paragraphs: [
-          'El apartamento está en Calle Castilla Pérez, entre la vida de playa de Torrecilla y el casco histórico. Es una base céntrica para dos personas que quieren tener el Mediterráneo cerca sin renunciar a las noches en el pueblo.',
-          'El edificio también forma parte de la elección: el apartamento está en una quinta planta con ascensor, pero hay cinco escalones fuera y otros cinco dentro antes de llegar a él. No incluye aparcamiento privado.'
+          'Durante años fuimos nosotros mismos huéspedes en este mismo apartamento. Disfrutamos tanto del tiempo aquí que no dudamos ni un segundo cuando supimos que se vendía.',
+          'Si tuviéramos que resumirlo: comodidad absoluta y la ubicación perfecta. Estáis en pleno centro y, aun así, el apartamento da a la parte trasera y se mantiene maravillosamente tranquilo, coronado por unas vistas al mar. Aquí no hace falta coche.',
+          'La ubicación es difícil de superar: apenas 500 metros hasta el Balcón de Europa y solo 100 metros hasta la playa de Torrecilla. Unos cientos de metros más allá se llega a pequeñas calas apartadas y tranquilas.',
+          'El edificio también forma parte de una planificación honesta: el apartamento está en una quinta planta con ascensor, pero hay cinco escalones fuera y otros cinco dentro antes de llegar a él. No incluye aparcamiento privado.'
         ],
         facts: [
           'Aproximadamente 100 m hasta la playa de Torrecilla',
@@ -436,11 +442,11 @@ export const nerjaLocationHubContent: {
         intro: 'Begin bij je echte dagritme: aankomst, strandkeuze, lopen, boodschappen en uitstapjes buiten de stad.',
         items: [
           { number: '01', title: 'Naar Nerja reizen', text: 'Luchthavens, aankomst per bus en het laatste stuk naar Calle Castilla Pérez 60.', label: 'Aankomst & mobiliteit', token: 'getting_to_nerja' },
-          { number: '02', title: 'De stad lezen', text: 'Zeekant, oude centrum, oostelijke stranden en de heuvels erachter.', label: 'Geografie & oriëntatie', anchor: '#orientation' },
+          { number: '02', title: 'De stad lezen', text: 'Zeekant, oude centrum, oostelijke stranden en de heuvels erachter.', label: 'Geografie & oriëntatie', token: 'nerja_geography' },
           { number: '03', title: 'De juiste buurt kiezen', text: 'Vergelijk Torrecilla, het oude centrum, Burriana en hoger gelegen woonwijken.', label: 'Waar overnachten / gebieden', token: 'nerja_where_to_stay' },
-          { number: '04', title: 'Weer & seizoenen', text: 'Hoe warmte, regen en rustige maanden een kustverblijf veranderen.', label: 'Weer & seizoenen', anchor: '#seasons' },
-          { number: '05', title: 'Dagelijks leven', text: 'Boodschappen, avondwandelingen, strandritme en bewegen door de stad.', label: 'Dagelijks leven & diensten', anchor: '#daily-life' },
-          { number: '06', title: 'Langer blijven', text: 'Wat belangrijker wordt als een vakantie weken gaat duren.', label: 'Winterverblijven', anchor: '#seasons' }
+          { number: '04', title: 'Weer & seizoenen', text: 'Hoe warmte, regen en rustige maanden een kustverblijf veranderen.', label: 'Weer & seizoenen', token: 'nerja_weather' },
+          { number: '05', title: 'Dagelijks leven', text: 'Boodschappen, avondwandelingen, strandritme en bewegen door de stad.', label: 'Dagelijks leven & diensten', token: 'nerja_daily_life' },
+          { number: '06', title: 'Langer blijven', text: 'Wat belangrijker wordt als een vakantie weken gaat duren.', label: 'Winterverblijven', token: 'nerja_weather' }
         ]
       },
       orientation: {
@@ -507,10 +513,12 @@ export const nerjaLocationHubContent: {
       },
       amara: {
         eyebrow: 'Jullie uitvalsbasis in Nerja',
-        title: 'AMARA Playa brengt westelijk Nerja in een wandelritme',
+        title: 'Van gast naar gastheer in Nerja',
         paragraphs: [
-          'Het appartement ligt aan Calle Castilla Pérez, tussen het strandleven van Torrecilla en het historische centrum. Voor twee gasten combineert het de Middellandse Zee dichtbij met avonden in de stad.',
-          'Ook het gebouw hoort bij de keuze: het appartement ligt op de vijfde verdieping met lift, maar vóór de lift zijn er buiten vijf en binnen nog vijf treden. Er is geen eigen parkeerplaats.'
+          'Jarenlang waren we zelf vakantiegasten in precies dit appartement. We genoten er zo van dat we geen seconde twijfelden toen we hoorden dat het te koop stond.',
+          'In een paar woorden: absolute gezelligheid en de perfecte ligging. Je zit midden in het centrum en toch ligt het appartement aan de achterzijde en blijft het heerlijk rustig — bekroond met zeezicht. Een auto heb je hier niet nodig.',
+          'De ligging is moeilijk te verslaan: nog geen 500 meter tot de Balcón de Europa en slechts 100 meter tot het strand Torrecilla. Een paar honderd meter verder liggen afgelegen, rustige baaitjes.',
+          'Ook het gebouw hoort bij een eerlijke planning: het appartement ligt op de vijfde verdieping met lift, maar vóór de lift zijn er buiten vijf en binnen nog vijf treden. Er is geen eigen parkeerplaats.'
         ],
         facts: [
           'Ongeveer 100 m naar het strand van Torrecilla',
@@ -544,11 +552,11 @@ export const nerjaLocationHubContent: {
         intro: 'Börja med er verkliga vardag: ankomst, strandval, promenader, inköp och utflykter utanför staden.',
         items: [
           { number: '01', title: 'Ta sig till Nerja', text: 'Flygplatser, bussankomst och sista sträckan till Calle Castilla Pérez 60.', label: 'Ankomst & mobilitet', token: 'getting_to_nerja' },
-          { number: '02', title: 'Orientera sig', text: 'Havskanten, gamla stan, östra stränder och höjderna bakom.', label: 'Geografi & orientering', anchor: '#orientation' },
+          { number: '02', title: 'Orientera sig', text: 'Havskanten, gamla stan, östra stränder och höjderna bakom.', label: 'Geografi & orientering', token: 'nerja_geography' },
           { number: '03', title: 'Välj rätt område', text: 'Jämför Torrecilla, gamla stan, Burriana och bostadsområdena högre upp.', label: 'Var ska man bo / områden', token: 'nerja_where_to_stay' },
-          { number: '04', title: 'Väder & årstider', text: 'Hur värme, regn och lugnare månader förändrar kustvistelsen.', label: 'Väder & årstider', anchor: '#seasons' },
-          { number: '05', title: 'Vardagsliv', text: 'Matinköp, kvällspromenader, strandrutiner och rörelser i staden.', label: 'Vardagsliv & service', anchor: '#daily-life' },
-          { number: '06', title: 'Stanna längre', text: 'Det som blir viktigare när semestern blir flera veckor.', label: 'Vintervistelser', anchor: '#seasons' }
+          { number: '04', title: 'Väder & årstider', text: 'Hur värme, regn och lugnare månader förändrar kustvistelsen.', label: 'Väder & årstider', token: 'nerja_weather' },
+          { number: '05', title: 'Vardagsliv', text: 'Matinköp, kvällspromenader, strandrutiner och rörelser i staden.', label: 'Vardagsliv & service', token: 'nerja_daily_life' },
+          { number: '06', title: 'Stanna längre', text: 'Det som blir viktigare när semestern blir flera veckor.', label: 'Vintervistelser', token: 'nerja_weather' }
         ]
       },
       orientation: {
@@ -615,10 +623,12 @@ export const nerjaLocationHubContent: {
       },
       amara: {
         eyebrow: 'Er bas i Nerja',
-        title: 'AMARA Playa gör västra Nerja till en vardag till fots',
+        title: 'Från gäst till värd i Nerja',
         paragraphs: [
-          'Lägenheten ligger på Calle Castilla Pérez mellan strandlivet vid Torrecilla och det historiska centrumet. För två gäster kombinerar den närhet till Medelhavet med kvällar i staden.',
-          'Även byggnaden hör till valet: lägenheten ligger på femte våningen med hiss, men före hissen finns fem trappsteg utomhus och fem inomhus. Privat parkering ingår inte.'
+          'I flera år var vi själva semestergäster i precis den här lägenheten. Vi trivdes så bra att vi inte tvekade en sekund när vi fick veta att den var till salu.',
+          'Med några få ord: absolut mysighet och det perfekta läget. Ni bor mitt i centrum, och ändå vetter lägenheten mot baksidan och förblir härligt tyst — krönt av havsutsikt. Här behöver ni ingen bil.',
+          'Läget är svårslaget: knappt 500 meter till Balcón de Europa och bara 100 meter till stranden Torrecilla. Går man några hundra meter till når man små, avskilda och lugna vikar.',
+          'Även byggnaden hör till en ärlig planering: lägenheten ligger på femte våningen med hiss, men före hissen finns fem trappsteg utomhus och fem inomhus. Privat parkering ingår inte.'
         ],
         facts: [
           'Cirka 100 m till Torrecillas strand',

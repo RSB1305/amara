@@ -137,6 +137,27 @@ legal_notice: {
       nl: buildOwnedLocalizedPath('getting-to-nerja', 'nl'),
       sv: buildOwnedLocalizedPath('getting-to-nerja', 'sv')
     },
+    nerja_geography: {
+      en: buildOwnedLocalizedPath('nerja-geography', 'en'),
+      de: buildOwnedLocalizedPath('nerja-geography', 'de'),
+      es: buildOwnedLocalizedPath('nerja-geography', 'es'),
+      nl: buildOwnedLocalizedPath('nerja-geography', 'nl'),
+      sv: buildOwnedLocalizedPath('nerja-geography', 'sv')
+    },
+    nerja_daily_life: {
+      en: buildOwnedLocalizedPath('nerja-daily-life', 'en'),
+      de: buildOwnedLocalizedPath('nerja-daily-life', 'de'),
+      es: buildOwnedLocalizedPath('nerja-daily-life', 'es'),
+      nl: buildOwnedLocalizedPath('nerja-daily-life', 'nl'),
+      sv: buildOwnedLocalizedPath('nerja-daily-life', 'sv')
+    },
+    nerja_weather: {
+      en: buildOwnedLocalizedPath('nerja-weather', 'en'),
+      de: buildOwnedLocalizedPath('nerja-weather', 'de'),
+      es: buildOwnedLocalizedPath('nerja-weather', 'es'),
+      nl: buildOwnedLocalizedPath('nerja-weather', 'nl'),
+      sv: buildOwnedLocalizedPath('nerja-weather', 'sv')
+    },
     nerja_where_to_stay: {
       en: buildOwnedLocalizedPath('nerja-where-to-stay', 'en'),
       de: buildOwnedLocalizedPath('nerja-where-to-stay', 'de'),

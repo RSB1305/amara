@@ -1,0 +1,760 @@
+---
+import LocationAuthorityLayout from '../../layouts/LocationAuthorityLayout.astro';
+import Navigation from '../../components/Navigation.astro';
+import EditorialClosingCta from '../../components/editorial/EditorialClosingCta.astro';
+import EditorialGuideLinkSection from '../../components/editorial/EditorialGuideLinkSection.astro';
+import NerjaContextNav from '../../components/location/NerjaContextNav.astro';
+import HairlineStatCard from '../../components/location/HairlineStatCard.astro';
+import SeasonalPillar from '../../components/location/SeasonalPillar.astro';
+import { buildOwnedLocalizedPath } from '../../lib/routeOwnership';
+import { normalizeLanguage } from '../../lib/seo/resolve-seo-head';
+import type { AmaraAuthoringSeo, AmaraLanguage } from '../../types/seo';
+
+interface Props {
+  lang?: string;
+}
+
+const { lang = 'es' } = Astro.props;
+const currentLang = normalizeLanguage(lang as AmaraLanguage);
+const locationHref = buildOwnedLocalizedPath('nerja-location', currentLang);
+const geographyHref = buildOwnedLocalizedPath('nerja-geography', currentLang);
+const arrivalHref = buildOwnedLocalizedPath('getting-to-nerja', currentLang);
+const whereToStayHref = buildOwnedLocalizedPath('nerja-where-to-stay', currentLang);
+
+const seo: AmaraAuthoringSeo = {
+  version: '2026-08-13-nerja-weather-v1.0',
+  pageType: 'A',
+  entityKey: 'amara-brand',
+  article: {
+    datePublished: '2026-08-13',
+    dateModified: '2026-08-13',
+    authorName: 'Robert Sebastian Böhmer',
+    authorType: 'Person',
+    authorSlug: 'amara-about-us'
+  },
+  languages: {
+    en: {
+      title: 'Nerja Weather: Climate, Sea Temperature & Best Months',
+      description:
+        'Nerja weather month by month: the sea keeps days milder and nights warmer than inland Frigiliana. Compare both before choosing where to stay.',
+      robots: 'index, follow',
+      canonical: 'auto'
+    },
+    de: {
+      title: 'Wetter in Nerja: Klima, Wassertemperatur & beste Reisezeit',
+      description:
+        'Nerjas Wetter Monat für Monat: Das Meer hält die Tage milder und die Nächte wärmer als im höher gelegenen Frigiliana. Beide im Vergleich.',
+      robots: 'index, follow',
+      canonical: 'auto'
+    },
+    es: {
+      title: 'Tiempo en Nerja: clima, temperatura del mar y mejores meses',
+      description:
+        'El tiempo en Nerja mes a mes: el mar suaviza los días y templa las noches frente a Frigiliana, en la ladera. Los dos, comparados.',
+      robots: 'index, follow',
+      canonical: 'auto'
+    },
+    nl: {
+      title: 'Weer in Nerja: klimaat, zeewatertemperatuur & beste maanden',
+      description:
+        'Het weer in Nerja maand per maand: de zee houdt de dagen milder en de nachten warmer dan het hoger gelegen Frigiliana. Beide vergeleken.',
+      robots: 'index, follow',
+      canonical: 'auto'
+    },
+    sv: {
+      title: 'Vädret i Nerja: klimat, vattentemperatur & bästa månader',
+      description:
+        'Vädret i Nerja månad för månad: havet håller dagarna mildare och nätterna varmare än i högre belägna Frigiliana. Båda jämförda.',
+      robots: 'index, follow',
+      canonical: 'auto'
+    }
+  }
+};
+
+const copy = {
+  header: {
+    eyebrow: {
+      en: 'Weather & seasons · Nerja',
+      de: 'Wetter & Jahreszeiten · Nerja',
+      es: 'Tiempo y estaciones · Nerja',
+      nl: 'Weer & seizoenen · Nerja',
+      sv: 'Väder & årstider · Nerja'
+    },
+    h1: {
+      en: 'Weather in Nerja',
+      de: 'Wetter in Nerja',
+      es: 'El tiempo en Nerja',
+      nl: 'Het weer in Nerja',
+      sv: 'Vädret i Nerja'
+    },
+    lead: {
+      en: 'The sea does the work here. It keeps Nerja’s days a little cooler than the hillside villages behind it and its nights noticeably warmer. That one difference decides more about a stay than any forecast.',
+      de: 'Hier arbeitet das Meer. Es hält Nerjas Tage etwas kühler als in den Bergdörfern dahinter – und die Nächte spürbar wärmer. Dieser eine Unterschied entscheidet mehr über einen Aufenthalt als jede Vorhersage.',
+      es: 'Aquí trabaja el mar. Mantiene los días de Nerja algo más frescos que en los pueblos de ladera y las noches claramente más templadas. Esa única diferencia decide más que cualquier previsión.',
+      nl: 'Hier doet de zee het werk. Ze houdt de dagen in Nerja iets koeler dan in de dorpen op de helling erachter, en de nachten merkbaar warmer. Dat ene verschil bepaalt meer dan welke voorspelling ook.',
+      sv: 'Här är det havet som gör jobbet. Det håller Nerjas dagar något svalare än byarna på sluttningen bakom, och nätterna märkbart varmare. Just den skillnaden avgör mer än någon prognos.'
+    },
+    cta: {
+      en: 'View AMARA Playa',
+      de: 'AMARA Playa ansehen',
+      es: 'Ver AMARA Playa',
+      nl: 'Bekijk AMARA Playa',
+      sv: 'Visa AMARA Playa'
+    }
+  },
+  glance: {
+    title: {
+      en: 'Weather at a glance',
+      de: 'Wetter auf einen Blick',
+      es: 'El tiempo de un vistazo',
+      nl: 'Het weer in één oogopslag',
+      sv: 'Vädret i korthet'
+    },
+    intro: {
+      en: 'Nerja has a dry Mediterranean climate with a long rainless stretch in summer and most of its rain packed into the winter months. What follows are rounded averages, not promises for your week.',
+      de: 'Nerja hat ein trockenes Mittelmeerklima mit einer langen regenarmen Phase im Sommer und dem meisten Niederschlag in den Wintermonaten. Was folgt, sind gerundete Mittelwerte – keine Zusagen für eure Woche.',
+      es: 'Nerja tiene clima mediterráneo seco, con un largo periodo sin lluvia en verano y la mayor parte de las precipitaciones concentradas en invierno. Lo que sigue son medias redondeadas, no promesas para vuestra semana.',
+      nl: 'Nerja heeft een droog mediterraan klimaat met een lange regenloze zomerperiode en de meeste neerslag in de wintermaanden. Wat volgt zijn afgeronde gemiddelden, geen beloften voor jullie week.',
+      sv: 'Nerja har ett torrt medelhavsklimat med en lång regnfattig sommarperiod och merparten av nederbörden samlad till vintermånaderna. Det som följer är avrundade medelvärden, inte löften för er vecka.'
+    },
+    stats: {
+      sea: {
+        label: {
+          en: 'Sea temperature',
+          de: 'Wassertemperatur',
+          es: 'Temperatura del mar',
+          nl: 'Zeewatertemperatuur',
+          sv: 'Vattentemperatur'
+        },
+        value: { en: '15–24 °C', de: '15–24 °C', es: '15–24 °C', nl: '15–24 °C', sv: '15–24 °C' },
+        note: {
+          en: 'Warmest in August, coolest around February.',
+          de: 'Am wärmsten im August, am kühlsten um den Februar.',
+          es: 'Más cálido en agosto, más fresco hacia febrero.',
+          nl: 'Warmst in augustus, koelst rond februari.',
+          sv: 'Varmast i augusti, svalast kring februari.'
+        }
+      },
+      dry: {
+        label: {
+          en: 'Dry season',
+          de: 'Trockenzeit',
+          es: 'Estación seca',
+          nl: 'Droge seizoen',
+          sv: 'Torrsäsong'
+        },
+        value: {
+          en: 'May – September',
+          de: 'Mai – September',
+          es: 'Mayo – septiembre',
+          nl: 'Mei – september',
+          sv: 'Maj – september'
+        },
+        note: {
+          en: 'Rain is rare enough in these months to plan around it.',
+          de: 'Regen ist in diesen Monaten selten genug, um damit zu planen.',
+          es: 'La lluvia es lo bastante rara para planificar con ella.',
+          nl: 'Regen is in deze maanden zeldzaam genoeg om mee te plannen.',
+          sv: 'Regn är sällsynt nog dessa månader för att planera efter.'
+        }
+      },
+      rain: {
+        label: {
+          en: 'Annual rainfall',
+          de: 'Jahresniederschlag',
+          es: 'Precipitación anual',
+          nl: 'Jaarlijkse neerslag',
+          sv: 'Årsnederbörd'
+        },
+        value: { en: '≈ 450 mm', de: '≈ 450 mm', es: '≈ 450 mm', nl: '≈ 450 mm', sv: '≈ 450 mm' },
+        note: {
+          en: 'Most of it between November and February.',
+          de: 'Der Großteil davon zwischen November und Februar.',
+          es: 'La mayor parte entre noviembre y febrero.',
+          nl: 'Het grootste deel tussen november en februari.',
+          sv: 'Merparten mellan november och februari.'
+        }
+      }
+    }
+  },
+  pattern: {
+    title: {
+      en: 'The Nerja pattern',
+      de: 'Das Nerja-Muster',
+      es: 'El patrón de Nerja',
+      nl: 'Het patroon van Nerja',
+      sv: 'Nerjas mönster'
+    },
+    body: {
+      en: 'A coastal town has a narrower temperature range than the land behind it. Water heats and cools slowly, so Nerja rarely gets extreme in either direction — and rarely cools down quickly at night in high summer.',
+      de: 'Ein Küstenort hat eine engere Temperaturspanne als das Land dahinter. Wasser erwärmt und kühlt langsam ab. Deshalb wird Nerja selten extrem – und im Hochsommer nachts selten schnell kühl.',
+      es: 'Un pueblo costero tiene un rango térmico más estrecho que el interior. El agua se calienta y se enfría despacio, así que Nerja rara vez llega a extremos, y en pleno verano rara vez refresca rápido de noche.',
+      nl: 'Een kustplaats heeft een smaller temperatuurbereik dan het achterland. Water warmt en koelt langzaam, dus Nerja wordt zelden extreem — en koelt hoogzomers ’s nachts zelden snel af.',
+      sv: 'En kustort har ett smalare temperaturspann än landet bakom. Vatten värms och kyls långsamt, så Nerja blir sällan extremt — och svalnar sällan snabbt om natten på högsommaren.'
+    },
+    facts: {
+      en: [
+        { label: 'Warmest month', value: 'August, ≈ 27 °C', description: 'Daytime average. Individual days run higher.' },
+        { label: 'Coolest month', value: 'January, ≈ 15 °C', description: 'Still mild enough for long walks in daylight.' },
+        { label: 'Summer nights', value: '≈ 22 °C', description: 'The sea gives its heat back after dark.' },
+        { label: 'Wettest month', value: 'December, ≈ 90 mm', description: 'Rain arrives in bursts rather than as steady drizzle.' }
+      ],
+      de: [
+        { label: 'Wärmster Monat', value: 'August, ≈ 27 °C', description: 'Tagesmittel. Einzelne Tage liegen darüber.' },
+        { label: 'Kühlster Monat', value: 'Januar, ≈ 15 °C', description: 'Tagsüber immer noch mild genug für lange Wege.' },
+        { label: 'Sommernächte', value: '≈ 22 °C', description: 'Das Meer gibt seine Wärme nach Einbruch der Dunkelheit zurück.' },
+        { label: 'Nassester Monat', value: 'Dezember, ≈ 90 mm', description: 'Regen kommt eher in Schüben als als Dauernieseln.' }
+      ],
+      es: [
+        { label: 'Mes más cálido', value: 'Agosto, ≈ 27 °C', description: 'Media diurna. Hay días que suben más.' },
+        { label: 'Mes más fresco', value: 'Enero, ≈ 15 °C', description: 'De día sigue siendo suave para caminar mucho.' },
+        { label: 'Noches de verano', value: '≈ 22 °C', description: 'El mar devuelve su calor al caer la noche.' },
+        { label: 'Mes más lluvioso', value: 'Diciembre, ≈ 90 mm', description: 'La lluvia llega a rachas, no como llovizna continua.' }
+      ],
+      nl: [
+        { label: 'Warmste maand', value: 'Augustus, ≈ 27 °C', description: 'Daggemiddelde. Losse dagen liggen hoger.' },
+        { label: 'Koelste maand', value: 'Januari, ≈ 15 °C', description: 'Overdag nog mild genoeg om lang te lopen.' },
+        { label: 'Zomernachten', value: '≈ 22 °C', description: 'De zee geeft haar warmte terug na zonsondergang.' },
+        { label: 'Natste maand', value: 'December, ≈ 90 mm', description: 'Regen komt in buien, niet als aanhoudende motregen.' }
+      ],
+      sv: [
+        { label: 'Varmaste månad', value: 'Augusti, ≈ 27 °C', description: 'Dagsmedel. Enskilda dagar ligger högre.' },
+        { label: 'Svalaste månad', value: 'Januari, ≈ 15 °C', description: 'Dagtid fortfarande milt nog för långa promenader.' },
+        { label: 'Sommarnätter', value: '≈ 22 °C', description: 'Havet ger tillbaka sin värme efter mörkrets inbrott.' },
+        { label: 'Blötaste månad', value: 'December, ≈ 90 mm', description: 'Regnet kommer i skurar snarare än som ihållande duggregn.' }
+      ]
+    }
+  },
+  seasons: {
+    title: {
+      en: 'Best time to stay',
+      de: 'Beste Reisezeit',
+      es: 'Mejor época para alojarse',
+      nl: 'Beste tijd voor een verblijf',
+      sv: 'Bästa tiden att bo här'
+    },
+    intro: {
+      en: 'Every season here works, but not for the same kind of holiday. The question is less “when is it good” than “what do you want the day to feel like”.',
+      de: 'Jede Jahreszeit funktioniert hier – aber nicht für dieselbe Art Urlaub. Die Frage ist weniger „wann ist es gut" als „wie soll sich der Tag anfühlen".',
+      es: 'Aquí funciona cualquier estación, pero no para el mismo tipo de vacaciones. La pregunta no es tanto «cuándo está bien» como «cómo queréis que sea el día».',
+      nl: 'Elk seizoen werkt hier, maar niet voor dezelfde vakantie. De vraag is minder «wanneer is het goed» dan «hoe wil je dat de dag aanvoelt».',
+      sv: 'Varje årstid fungerar här, men inte för samma sorts semester. Frågan är mindre ”när är det bra” än ”hur vill ni att dagen ska kännas”.'
+    }
+  },
+  compare: {
+    title: {
+      en: 'Nerja or Frigiliana? Same valley, two climates',
+      de: 'Nerja oder Frigiliana? Dasselbe Tal, zwei Klimata',
+      es: '¿Nerja o Frigiliana? El mismo valle, dos climas',
+      nl: 'Nerja of Frigiliana? Dezelfde vallei, twee klimaten',
+      sv: 'Nerja eller Frigiliana? Samma dal, två klimat'
+    },
+    body: {
+      en: 'The two are fifteen minutes apart, but roughly 300 metres of altitude separate them — and that changes the numbers more than the distance suggests. Frigiliana swings; Nerja stays even.',
+      de: 'Die beiden liegen fünfzehn Minuten auseinander, trennt aber rund 300 Höhenmeter – und das verändert die Werte stärker, als die Entfernung vermuten lässt. Frigiliana schwingt, Nerja bleibt gleichmäßig.',
+      es: 'Están a quince minutos, pero les separan unos 300 metros de altitud, y eso cambia las cifras más de lo que sugiere la distancia. Frigiliana oscila; Nerja se mantiene estable.',
+      nl: 'Ze liggen vijftien minuten uit elkaar, maar zo’n 300 hoogtemeters scheiden ze — en dat verandert de cijfers meer dan de afstand doet vermoeden. Frigiliana schommelt; Nerja blijft gelijkmatig.',
+      sv: 'De ligger femton minuter isär, men skiljs av omkring 300 höjdmeter — och det förändrar siffrorna mer än avståndet antyder. Frigiliana svänger; Nerja håller sig jämnt.'
+    },
+    headings: {
+      metric: { en: '', de: '', es: '', nl: '', sv: '' },
+      nerja: { en: 'Nerja · coast', de: 'Nerja · Küste', es: 'Nerja · costa', nl: 'Nerja · kust', sv: 'Nerja · kust' },
+      frigiliana: {
+        en: 'Frigiliana · hillside',
+        de: 'Frigiliana · Hanglage',
+        es: 'Frigiliana · ladera',
+        nl: 'Frigiliana · helling',
+        sv: 'Frigiliana · sluttning'
+      }
+    },
+    rows: {
+      en: [
+        { metric: 'Summer day', nerja: '≈ 28 °C', frigiliana: '≈ 31 °C' },
+        { metric: 'Summer night', nerja: '≈ 21 °C', frigiliana: '≈ 19 °C' },
+        { metric: 'Winter day', nerja: '≈ 17 °C', frigiliana: '≈ 16 °C' },
+        { metric: 'Winter night', nerja: '≈ 10 °C', frigiliana: '≈ 8 °C' }
+      ],
+      de: [
+        { metric: 'Sommertag', nerja: '≈ 28 °C', frigiliana: '≈ 31 °C' },
+        { metric: 'Sommernacht', nerja: '≈ 21 °C', frigiliana: '≈ 19 °C' },
+        { metric: 'Wintertag', nerja: '≈ 17 °C', frigiliana: '≈ 16 °C' },
+        { metric: 'Winternacht', nerja: '≈ 10 °C', frigiliana: '≈ 8 °C' }
+      ],
+      es: [
+        { metric: 'Día de verano', nerja: '≈ 28 °C', frigiliana: '≈ 31 °C' },
+        { metric: 'Noche de verano', nerja: '≈ 21 °C', frigiliana: '≈ 19 °C' },
+        { metric: 'Día de invierno', nerja: '≈ 17 °C', frigiliana: '≈ 16 °C' },
+        { metric: 'Noche de invierno', nerja: '≈ 10 °C', frigiliana: '≈ 8 °C' }
+      ],
+      nl: [
+        { metric: 'Zomerdag', nerja: '≈ 28 °C', frigiliana: '≈ 31 °C' },
+        { metric: 'Zomernacht', nerja: '≈ 21 °C', frigiliana: '≈ 19 °C' },
+        { metric: 'Winterdag', nerja: '≈ 17 °C', frigiliana: '≈ 16 °C' },
+        { metric: 'Winternacht', nerja: '≈ 10 °C', frigiliana: '≈ 8 °C' }
+      ],
+      sv: [
+        { metric: 'Sommardag', nerja: '≈ 28 °C', frigiliana: '≈ 31 °C' },
+        { metric: 'Sommarnatt', nerja: '≈ 21 °C', frigiliana: '≈ 19 °C' },
+        { metric: 'Vinterdag', nerja: '≈ 17 °C', frigiliana: '≈ 16 °C' },
+        { metric: 'Vinternatt', nerja: '≈ 10 °C', frigiliana: '≈ 8 °C' }
+      ]
+    },
+    verdict: {
+      en: 'Read it this way: if hot afternoons bother you less than warm nights, the hillside is your side. If you want to swim after work and eat outside at eleven without a jacket, stay by the sea.',
+      de: 'So lest ihr es: Wenn euch heiße Nachmittage weniger stören als warme Nächte, ist die Hanglage eure Seite. Wenn ihr abends noch schwimmen und um elf ohne Jacke draußen essen wollt, bleibt am Meer.',
+      es: 'Leedlo así: si os molestan menos las tardes calurosas que las noches templadas, vuestro lado es la ladera. Si queréis bañaros al final del día y cenar fuera a las once sin chaqueta, quedaos junto al mar.',
+      nl: 'Lees het zo: als hete middagen jullie minder storen dan warme nachten, is de helling jullie kant. Willen jullie ’s avonds nog zwemmen en om elf uur buiten eten zonder jas, blijf dan aan zee.',
+      sv: 'Läs det så här: om heta eftermiddagar stör er mindre än varma nätter är sluttningen er sida. Vill ni bada på kvällen och äta ute klockan elva utan jacka — bo vid havet.'
+    }
+  },
+  notice: {
+    title: {
+      en: 'What overnight guests actually notice',
+      de: 'Was Übernachtungsgäste tatsächlich merken',
+      es: 'Lo que de verdad notan quienes se quedan',
+      nl: 'Wat overnachtende gasten echt merken',
+      sv: 'Vad övernattande gäster faktiskt märker'
+    },
+    body: {
+      en: 'Not the daytime maximum — the night. In July and August the air barely drops below the low twenties after dark, which makes evenings outside effortless and sleep without air conditioning harder. In the cooler half of the year the opposite is true: the day invites long walks, and from the centre everything is within reach on foot anyway.',
+      de: 'Nicht das Tagesmaximum – die Nacht. Im Juli und August sinkt die Luft nach Einbruch der Dunkelheit kaum unter gut zwanzig Grad. Das macht Abende draußen mühelos und Schlafen ohne Klimaanlage schwerer. In der kühleren Jahreshälfte gilt das Gegenteil: Der Tag lädt zu langen Wegen ein, und vom Zentrum aus ist ohnehin alles zu Fuß erreichbar.',
+      es: 'No el máximo diurno, sino la noche. En julio y agosto el aire apenas baja de los veintipocos grados tras el anochecer: las veladas al aire libre salen solas y dormir sin aire acondicionado cuesta más. En la mitad fresca del año pasa lo contrario: el día invita a caminar, y desde el centro se llega a todo a pie.',
+      nl: 'Niet het dagmaximum — de nacht. In juli en augustus zakt de lucht na zonsondergang nauwelijks onder de ruim twintig graden. Dat maakt avonden buiten moeiteloos en slapen zonder airco lastiger. In de koelere helft van het jaar geldt het omgekeerde: de dag nodigt uit tot lange wandelingen, en vanuit het centrum is alles toch te voet bereikbaar.',
+      sv: 'Inte dagsmaximum — natten. I juli och augusti sjunker luften knappt under dryga tjugo grader efter mörkrets inbrott. Det gör kvällar ute enkla och sömn utan luftkonditionering svårare. Under årets svalare hälft gäller det omvända: dagen bjuder in till långa promenader, och från centrum når man ändå allt till fots.'
+    }
+  },
+  interpretation: {
+    title: {
+      en: 'How to read a forecast here',
+      de: 'Wie ihr eine Vorhersage hier lest',
+      es: 'Cómo leer una previsión aquí',
+      nl: 'Hoe je hier een voorspelling leest',
+      sv: 'Hur ni läser en prognos här'
+    },
+    body: {
+      en: 'The figures on this page are rounded long-term averages, useful for choosing a month and packing a suitcase. They are not a forecast. For the days you are actually travelling, the Spanish meteorological agency AEMET publishes the official municipal forecast for Nerja, and that always takes precedence over any evergreen guide, including this one.',
+      de: 'Die Zahlen auf dieser Seite sind gerundete Langzeitmittel – nützlich, um einen Monat zu wählen und den Koffer zu packen. Eine Vorhersage sind sie nicht. Für eure tatsächlichen Reisetage veröffentlicht der spanische Wetterdienst AEMET die amtliche Gemeindeprognose für Nerja, und die geht immer vor – auch vor diesem Guide.',
+      es: 'Las cifras de esta página son medias a largo plazo redondeadas, útiles para elegir mes y hacer la maleta. No son una previsión. Para vuestros días de viaje, la agencia estatal AEMET publica la predicción municipal oficial de Nerja, y esa prevalece siempre sobre cualquier guía, incluida esta.',
+      nl: 'De cijfers op deze pagina zijn afgeronde langjarige gemiddelden, handig om een maand te kiezen en te pakken. Een voorspelling zijn ze niet. Voor jullie werkelijke reisdagen publiceert de Spaanse weerdienst AEMET de officiële gemeentelijke verwachting voor Nerja, en die gaat altijd voor — ook op deze gids.',
+      sv: 'Siffrorna på den här sidan är avrundade långtidsmedelvärden, användbara för att välja månad och packa väskan. De är ingen prognos. För era faktiska resdagar publicerar den spanska vädertjänsten AEMET den officiella kommunprognosen för Nerja, och den gäller alltid före den här guiden.'
+    }
+  },
+  related: {
+    eyebrow: {
+      en: 'Continue in the Nerja guide',
+      de: 'Weiter im Nerja-Guide',
+      es: 'Seguir en la guía de Nerja',
+      nl: 'Verder in de Nerja-gids',
+      sv: 'Vidare i Nerja-guiden'
+    },
+    title: {
+      en: 'The other questions a stay raises',
+      de: 'Die anderen Fragen, die ein Aufenthalt aufwirft',
+      es: 'Las otras preguntas que plantea una estancia',
+      nl: 'De andere vragen die een verblijf oproept',
+      sv: 'De andra frågorna en vistelse väcker'
+    },
+    intro: {
+      en: 'Weather sets the mood of a day. Where you sleep and how you move decide the rest.',
+      de: 'Das Wetter bestimmt die Stimmung eines Tages. Wo ihr schlaft und wie ihr euch bewegt, entscheidet den Rest.',
+      es: 'El tiempo marca el tono del día. Dónde dormís y cómo os movéis deciden lo demás.',
+      nl: 'Het weer bepaalt de sfeer van een dag. Waar je slaapt en hoe je je verplaatst bepaalt de rest.',
+      sv: 'Vädret sätter dagens stämning. Var ni sover och hur ni rör er avgör resten.'
+    },
+    links: {
+      geography: {
+        label: {
+          en: 'Geography & orientation',
+          de: 'Geografie & Orientierung',
+          es: 'Geografía y orientación',
+          nl: 'Geografie & oriëntatie',
+          sv: 'Geografi & orientering'
+        },
+        text: {
+          en: 'Why the beaches lie below the town and gradient matters more than distance.',
+          de: 'Warum die Strände unter dem Ort liegen und Steigung mehr zählt als Entfernung.',
+          es: 'Por qué las playas quedan debajo del pueblo y la pendiente importa más que la distancia.',
+          nl: 'Waarom de stranden onder het dorp liggen en hoogteverschil meer telt dan afstand.',
+          sv: 'Varför stränderna ligger under orten och lutning betyder mer än avstånd.'
+        }
+      },
+      stay: {
+        label: {
+          en: 'Where to stay in Nerja',
+          de: 'Wo in Nerja übernachten',
+          es: 'Dónde alojarse en Nerja',
+          nl: 'Waar overnachten in Nerja',
+          sv: 'Var man bor i Nerja'
+        },
+        text: {
+          en: 'Torrecilla, the Old Town, Burriana and the upper areas compared.',
+          de: 'Torrecilla, Altstadt, Burriana und die oberen Lagen im Vergleich.',
+          es: 'Torrecilla, el casco antiguo, Burriana y las zonas altas, comparados.',
+          nl: 'Torrecilla, de oude kern, Burriana en de hoger gelegen wijken vergeleken.',
+          sv: 'Torrecilla, gamla stan, Burriana och de högre områdena jämförda.'
+        }
+      },
+      arrival: {
+        label: {
+          en: 'Arrival & mobility',
+          de: 'Anreise & Mobilität',
+          es: 'Llegada y movilidad',
+          nl: 'Aankomst & mobiliteit',
+          sv: 'Ankomst & mobilitet'
+        },
+        text: {
+          en: 'Airports, the coach connection and the last stretch to the address.',
+          de: 'Flughäfen, die Busverbindung und die letzte Etappe bis zur Adresse.',
+          es: 'Aeropuertos, la conexión en autobús y el último tramo hasta la dirección.',
+          nl: 'Luchthavens, de busverbinding en het laatste stuk naar het adres.',
+          sv: 'Flygplatser, bussförbindelsen och sista sträckan fram till adressen.'
+        }
+      },
+      location: {
+        label: {
+          en: 'Nerja location guide',
+          de: 'Nerja Lage-Guide',
+          es: 'Guía de ubicación de Nerja',
+          nl: 'Nerja locatiegids',
+          sv: 'Nerjas lägesguide'
+        },
+        text: {
+          en: 'The overview that ties town, coast and your stay together.',
+          de: 'Der Überblick, der Ort, Küste und euren Aufenthalt zusammenbringt.',
+          es: 'La visión que une pueblo, costa y vuestra estancia.',
+          nl: 'Het overzicht dat dorp, kust en jullie verblijf verbindt.',
+          sv: 'Översikten som binder ihop ort, kust och er vistelse.'
+        }
+      }
+    }
+  },
+  closing: {
+    title: {
+      en: 'Pick the month, then pick the side of town.',
+      de: 'Wählt den Monat – und dann die Seite des Ortes.',
+      es: 'Elegid el mes y después el lado del pueblo.',
+      nl: 'Kies de maand en daarna de kant van het dorp.',
+      sv: 'Välj månaden – och sedan sidan av orten.'
+    },
+    lead: {
+      en: 'AMARA Playa sits right in the centre and faces away from the street: about 100 metres to Torrecilla beach, and quiet all the same — with a sea view from the terrace.',
+      de: 'AMARA Playa liegt mitten im Zentrum und nach hinten heraus: gut 100 Meter zum Strand Torrecilla – und trotzdem ruhig, mit Meerblick von der Terrasse.',
+      es: 'AMARA Playa está en pleno centro y orientado hacia la parte trasera: unos 100 metros hasta la playa de Torrecilla y, aun así, tranquilo, con vistas al mar desde la terraza.',
+      nl: 'AMARA Playa ligt midden in het centrum en aan de achterzijde: zo’n 100 meter tot het strand Torrecilla — en toch rustig, met zeezicht vanaf het terras.',
+      sv: 'AMARA Playa ligger mitt i centrum och vetter mot baksidan: omkring 100 meter till stranden Torrecilla — och ändå tyst, med havsutsikt från terrassen.'
+    },
+    availabilityCta: {
+      en: 'Check availability',
+      de: 'Verfügbarkeit prüfen',
+      es: 'Ver disponibilidad',
+      nl: 'Beschikbaarheid bekijken',
+      sv: 'Se tillgänglighet'
+    }
+  }
+};
+
+const t = <T extends Record<AmaraLanguage, string>>(row: T) => row[currentLang] ?? row.en;
+
+const patternFacts = copy.pattern.facts[currentLang] ?? copy.pattern.facts.en;
+const compareRows = copy.compare.rows[currentLang] ?? copy.compare.rows.en;
+
+const relatedLinks = [
+  { href: geographyHref, label: t(copy.related.links.geography.label), text: t(copy.related.links.geography.text) },
+  { href: whereToStayHref, label: t(copy.related.links.stay.label), text: t(copy.related.links.stay.text) },
+  { href: arrivalHref, label: t(copy.related.links.arrival.label), text: t(copy.related.links.arrival.text) },
+  { href: locationHref, label: t(copy.related.links.location.label), text: t(copy.related.links.location.text) }
+];
+
+const seasonLabels = {
+  spring: {
+    eyebrow: { en: 'March – May', de: 'März – Mai', es: 'Marzo – mayo', nl: 'Maart – mei', sv: 'Mars – maj' },
+    title: { en: 'Spring', de: 'Frühling', es: 'Primavera', nl: 'Lente', sv: 'Vår' },
+    subtitle: {
+      en: 'Warm land, cold water',
+      de: 'Warmes Land, kaltes Wasser',
+      es: 'Tierra cálida, agua fría',
+      nl: 'Warm land, koud water',
+      sv: 'Varmt land, kallt vatten'
+    },
+    vibe: {
+      en: 'The best walking months of the year. Days are comfortable and the hills behind town are still green — but the sea is only just beginning to warm and swimming stays brief.',
+      de: 'Die besten Wandermonate des Jahres. Die Tage sind angenehm, die Hänge hinter dem Ort noch grün – aber das Meer erwärmt sich gerade erst, und Baden bleibt kurz.',
+      es: 'Los mejores meses para caminar. Días agradables y laderas todavía verdes, pero el mar apenas empieza a templarse y los baños son breves.',
+      nl: 'De beste wandelmaanden van het jaar. Aangename dagen en nog groene hellingen — maar de zee begint pas op te warmen en zwemmen blijft kort.',
+      sv: 'Årets bästa promenadmånader. Behagliga dagar och sluttningarna bakom orten fortfarande gröna — men havet börjar först nu bli varmare och baden blir korta.'
+    },
+    hint: {
+      en: 'Bring one warm layer for evenings; the sun sets earlier than it feels.',
+      de: 'Eine warme Schicht für die Abende einpacken; die Sonne geht früher unter, als es sich anfühlt.',
+      es: 'Llevad una capa de abrigo para la tarde; el sol se pone antes de lo que parece.',
+      nl: 'Neem één warme laag mee voor de avond; de zon gaat eerder onder dan het voelt.',
+      sv: 'Ta med ett varmt lager för kvällen; solen går ner tidigare än det känns.'
+    }
+  },
+  summer: {
+    eyebrow: { en: 'June – August', de: 'Juni – August', es: 'Junio – agosto', nl: 'Juni – augustus', sv: 'Juni – augusti' },
+    title: { en: 'Summer', de: 'Sommer', es: 'Verano', nl: 'Zomer', sv: 'Sommar' },
+    subtitle: {
+      en: 'Warm nights, full town',
+      de: 'Warme Nächte, voller Ort',
+      es: 'Noches templadas, pueblo lleno',
+      nl: 'Warme nachten, vol dorp',
+      sv: 'Varma nätter, full ort'
+    },
+    vibe: {
+      en: 'The sea reaches its warmest and the town its busiest. Evenings outside need no jacket at all, which is the single best argument for a coastal stay — and the reason nights indoors can feel close.',
+      de: 'Das Meer erreicht seine wärmsten Werte, der Ort seine vollsten. Abende draußen brauchen keine Jacke – das beste Argument für die Küste, und zugleich der Grund, warum Nächte drinnen stickig wirken können.',
+      es: 'El mar alcanza su punto más cálido y el pueblo su mayor afluencia. Las veladas al aire libre no piden chaqueta: el mejor argumento para la costa y la razón de que las noches dentro puedan resultar cargadas.',
+      nl: 'De zee is op haar warmst en het dorp op zijn drukst. Avonden buiten vragen geen jas — het beste argument voor de kust, en meteen de reden dat nachten binnen benauwd kunnen voelen.',
+      sv: 'Havet når sitt varmaste och orten sitt fullaste. Kvällar ute kräver ingen jacka — det bästa argumentet för kusten, och samtidigt skälet till att nätter inomhus kan kännas kvava.'
+    },
+    hint: {
+      en: 'Plan the beach early or late; midday sun on a low cliff is unforgiving.',
+      de: 'Den Strand früh oder spät einplanen; Mittagssonne auf niedriger Kliffkante verzeiht nichts.',
+      es: 'Playa temprano o al final del día; el sol de mediodía sobre el acantilado no perdona.',
+      nl: 'Plan het strand vroeg of laat; de middagzon op een lage klif is genadeloos.',
+      sv: 'Planera stranden tidigt eller sent; middagssolen på en låg klippkant är obarmhärtig.'
+    }
+  },
+  autumn: {
+    eyebrow: { en: 'September – November', de: 'September – November', es: 'Septiembre – noviembre', nl: 'September – november', sv: 'September – november' },
+    title: { en: 'Autumn', de: 'Herbst', es: 'Otoño', nl: 'Herfst', sv: 'Höst' },
+    subtitle: {
+      en: 'The warmest water of the year',
+      de: 'Das wärmste Wasser des Jahres',
+      es: 'El agua más cálida del año',
+      nl: 'Het warmste water van het jaar',
+      sv: 'Årets varmaste vatten'
+    },
+    vibe: {
+      en: 'September still swims like summer with far fewer people, and October often holds. This is the stretch regulars quietly prefer — the sea is at its most forgiving just as the town exhales.',
+      de: 'Im September badet es sich noch wie im Sommer, nur mit viel weniger Menschen, und der Oktober hält oft mit. Das ist die Phase, die Stammgäste stillschweigend bevorzugen: Das Meer ist am angenehmsten, gerade wenn der Ort durchatmet.',
+      es: 'En septiembre aún se nada como en verano, con mucha menos gente, y octubre suele aguantar. Es el tramo que los habituales prefieren en silencio: el mar en su mejor momento justo cuando el pueblo respira.',
+      nl: 'In september zwem je nog als in de zomer, met veel minder mensen, en oktober houdt vaak stand. Dit is de periode die vaste gasten stilletjes verkiezen: de zee op haar best terwijl het dorp uitademt.',
+      sv: 'I september badar man fortfarande som på sommaren, med långt färre människor, och oktober håller ofta. Det är perioden stamgästerna tyst föredrar — havet som bäst just när orten andas ut.'
+    },
+    hint: {
+      en: 'The first real rain usually arrives late in this window, in short heavy bursts.',
+      de: 'Der erste richtige Regen kommt meist gegen Ende dieser Phase – in kurzen, kräftigen Schüben.',
+      es: 'La primera lluvia de verdad suele llegar al final de este tramo, en rachas cortas y fuertes.',
+      nl: 'De eerste echte regen valt meestal aan het eind van deze periode, in korte felle buien.',
+      sv: 'Det första riktiga regnet kommer oftast sent i den här perioden, i korta kraftiga skurar.'
+    }
+  },
+  winter: {
+    eyebrow: { en: 'December – February', de: 'Dezember – Februar', es: 'Diciembre – febrero', nl: 'December – februari', sv: 'December – februari' },
+    title: { en: 'Winter', de: 'Winter', es: 'Invierno', nl: 'Winter', sv: 'Vinter' },
+    subtitle: {
+      en: 'Mild, quiet, occasionally wet',
+      de: 'Mild, ruhig, gelegentlich nass',
+      es: 'Suave, tranquilo, a veces lluvioso',
+      nl: 'Mild, rustig, af en toe nat',
+      sv: 'Milt, lugnt, tidvis blött'
+    },
+    vibe: {
+      en: 'Days stay mild enough to spend outside and the town belongs to the people who live here. Most of the year’s rain falls now, usually in bursts rather than for whole days.',
+      de: 'Die Tage bleiben mild genug, um draußen zu sein, und der Ort gehört denen, die hier leben. Der meiste Regen des Jahres fällt jetzt – meist in Schüben, nicht über ganze Tage.',
+      es: 'Los días siguen siendo lo bastante suaves para estar fuera y el pueblo es de quienes viven en él. Ahora cae la mayor parte de la lluvia anual, casi siempre a rachas y no durante días enteros.',
+      nl: 'De dagen blijven mild genoeg om buiten te zijn en het dorp is van wie er woont. Het grootste deel van de jaarlijkse regen valt nu, meestal in buien in plaats van hele dagen.',
+      sv: 'Dagarna förblir milda nog att tillbringa ute och orten tillhör dem som bor här. Merparten av årets regn faller nu, oftast i skurar snarare än hela dagar.'
+    },
+    hint: {
+      en: 'For longer stays, a dry, well-heated apartment matters more than beach proximity.',
+      de: 'Bei längeren Aufenthalten zählt eine trockene, gut beheizbare Wohnung mehr als Strandnähe.',
+      es: 'En estancias largas, una vivienda seca y bien calentable importa más que la cercanía a la playa.',
+      nl: 'Bij langere verblijven telt een droge, goed te verwarmen woning meer dan de afstand tot het strand.',
+      sv: 'Vid längre vistelser betyder en torr och lättvärmd bostad mer än närheten till stranden.'
+    }
+  }
+};
+---
+
+<LocationAuthorityLayout seo={seo} pageLang={currentLang} showContextNavigation={false} bodyBackgroundClass="bg-white">
+  <Navigation
+    slot="navigation"
+    currentLang={currentLang}
+    brandName="Nerja"
+    languageToken="nerja_weather"
+    locationAuthorityNav={true}
+  />
+
+  <NerjaContextNav activeId="weather-seasons" childLabel={t(copy.header.h1)} lang={currentLang} />
+
+  <div data-am-page="nerja-weather">
+    <div class="w-full max-w-screen-2xl mx-auto px-12 pt-20 pb-20">
+      <header class="mb-20 border-b border-black/10 pb-12">
+        <span class="am-text-caption text-primary mb-4 block">{t(copy.header.eyebrow)}</span>
+        <h1 class="am-text-display italic text-on-surface mb-6">{t(copy.header.h1)}</h1>
+        <p class="am-text-body text-on-surface-variant italic opacity-70 max-w-2xl">{t(copy.header.lead)}</p>
+      </header>
+
+      <div class="pt-8 space-y-20">
+        <section class="grid gap-10 lg:grid-cols-12 items-start">
+          <div class="lg:col-span-8 space-y-6">
+            <h2 class="am-text-title italic text-on-surface">{t(copy.glance.title)}</h2>
+            <p class="am-text-body text-on-surface-variant leading-relaxed italic max-w-3xl">
+              {t(copy.glance.intro)}
+            </p>
+          </div>
+          <div class="lg:col-span-4 space-y-4">
+            <HairlineStatCard
+              label={t(copy.glance.stats.sea.label)}
+              value={t(copy.glance.stats.sea.value)}
+              description={t(copy.glance.stats.sea.note)}
+            />
+            <HairlineStatCard
+              label={t(copy.glance.stats.dry.label)}
+              value={t(copy.glance.stats.dry.value)}
+              description={t(copy.glance.stats.dry.note)}
+            />
+            <HairlineStatCard
+              label={t(copy.glance.stats.rain.label)}
+              value={t(copy.glance.stats.rain.value)}
+              description={t(copy.glance.stats.rain.note)}
+            />
+          </div>
+        </section>
+
+        <section>
+          <div class="mb-12 max-w-2xl">
+            <h2 class="am-text-title text-on-surface mb-4">{t(copy.pattern.title)}</h2>
+            <p class="am-text-body text-on-surface-variant leading-relaxed">{t(copy.pattern.body)}</p>
+          </div>
+
+          <div class="grid grid-cols-2 md:grid-cols-4 gap-10 md:gap-16">
+            {patternFacts.map((item) => (
+              <div>
+                <div class="h-px w-10 bg-outline-variant/25"></div>
+                <div class="mt-4 am-text-caption uppercase tracking-[0.18em] text-on-surface-variant/70">
+                  {item.label}
+                </div>
+                <div class="mt-2 am-text-subtitle tracking-tight text-on-surface">{item.value}</div>
+                <p class="mt-3 am-text-body leading-relaxed text-on-surface-variant/80 max-w-[44ch]">
+                  {item.description}
+                </p>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        <section>
+          <div class="mb-12 max-w-2xl">
+            <h2 class="am-text-title text-on-surface mb-4">{t(copy.seasons.title)}</h2>
+            <p class="am-text-body text-on-surface-variant leading-relaxed">{t(copy.seasons.intro)}</p>
+          </div>
+
+          <div class="grid gap-10 md:grid-cols-2 xl:grid-cols-4">
+            <SeasonalPillar
+              eyebrow={t(seasonLabels.spring.eyebrow)}
+              title={t(seasonLabels.spring.title)}
+              subtitle={t(seasonLabels.spring.subtitle)}
+              highTemp="21°C"
+              lowTemp="12°C"
+              vibe={t(seasonLabels.spring.vibe)}
+              hint={t(seasonLabels.spring.hint)}
+            />
+            <SeasonalPillar
+              eyebrow={t(seasonLabels.summer.eyebrow)}
+              title={t(seasonLabels.summer.title)}
+              subtitle={t(seasonLabels.summer.subtitle)}
+              highTemp="28°C"
+              lowTemp="21°C"
+              vibe={t(seasonLabels.summer.vibe)}
+              hint={t(seasonLabels.summer.hint)}
+            />
+            <SeasonalPillar
+              eyebrow={t(seasonLabels.autumn.eyebrow)}
+              title={t(seasonLabels.autumn.title)}
+              subtitle={t(seasonLabels.autumn.subtitle)}
+              highTemp="24°C"
+              lowTemp="16°C"
+              vibe={t(seasonLabels.autumn.vibe)}
+              hint={t(seasonLabels.autumn.hint)}
+              isHighlighted={true}
+            />
+            <SeasonalPillar
+              eyebrow={t(seasonLabels.winter.eyebrow)}
+              title={t(seasonLabels.winter.title)}
+              subtitle={t(seasonLabels.winter.subtitle)}
+              highTemp="17°C"
+              lowTemp="10°C"
+              vibe={t(seasonLabels.winter.vibe)}
+              hint={t(seasonLabels.winter.hint)}
+            />
+          </div>
+        </section>
+
+        <section data-am-compare="nerja-frigiliana">
+          <div class="mb-12 max-w-2xl">
+            <h2 class="am-text-title text-on-surface mb-4">{t(copy.compare.title)}</h2>
+            <p class="am-text-body text-on-surface-variant leading-relaxed">{t(copy.compare.body)}</p>
+          </div>
+
+          <div class="overflow-x-auto">
+            <table class="w-full min-w-[34rem] border-collapse text-left">
+              <thead>
+                <tr class="border-b border-outline-variant/25">
+                  <th scope="col" class="py-4 pr-6 am-text-caption uppercase tracking-[0.18em] text-on-surface-variant/70">
+                    <span class="sr-only">{t(copy.compare.title)}</span>
+                  </th>
+                  <th scope="col" class="py-4 pr-6 am-text-caption uppercase tracking-[0.18em] text-primary">
+                    {t(copy.compare.headings.nerja)}
+                  </th>
+                  <th scope="col" class="py-4 am-text-caption uppercase tracking-[0.18em] text-on-surface-variant/70">
+                    {t(copy.compare.headings.frigiliana)}
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                {compareRows.map((row) => (
+                  <tr class="border-b border-outline-variant/15">
+                    <th scope="row" class="py-5 pr-6 am-text-body font-normal text-on-surface-variant">{row.metric}</th>
+                    <td class="py-5 pr-6 am-text-subtitle tracking-tight text-on-surface">{row.nerja}</td>
+                    <td class="py-5 am-text-subtitle tracking-tight text-on-surface-variant/80">{row.frigiliana}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+
+          <p class="mt-10 max-w-3xl border-l-2 border-primary/35 py-2 pl-6 am-text-body leading-relaxed text-on-surface">
+            {t(copy.compare.verdict)}
+          </p>
+        </section>
+
+        <section class="rounded-editorial border border-outline-variant/10 bg-surface px-10 py-10">
+          <h2 class="am-text-title italic text-on-surface">{t(copy.notice.title)}</h2>
+          <p class="mt-6 am-text-body text-on-surface-variant leading-relaxed italic max-w-3xl">
+            {t(copy.notice.body)}
+          </p>
+        </section>
+
+        <section class="space-y-6">
+          <h2 class="am-text-title italic text-on-surface">{t(copy.interpretation.title)}</h2>
+          <p class="am-text-body text-on-surface-variant leading-relaxed italic max-w-3xl">
+            {t(copy.interpretation.body)}
+          </p>
+        </section>
+      </div>
+    </div>
+
+    <EditorialGuideLinkSection
+      eyebrow={t(copy.related.eyebrow)}
+      title={t(copy.related.title)}
+      intro={t(copy.related.intro)}
+      links={relatedLinks}
+    />
+
+    <section class="max-w-screen-2xl mx-auto px-12 pt-8">
+      <EditorialClosingCta
+        title={t(copy.closing.title)}
+        lead={t(copy.closing.lead)}
+        lang={currentLang}
+        links={[
+          { token: 'playa', label: t(copy.header.cta), style: 'primary' },
+          { token: 'book', label: t(copy.closing.availabilityCta), style: 'secondary' }
+        ]}
+      />
+    </section>
+  </div>
+</LocationAuthorityLayout>
