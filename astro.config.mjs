@@ -1,36 +1,44 @@
 // @ts-check
-import { existsSync, rmSync } from 'node:fs';
-import { join } from 'node:path';
-import { fileURLToPath } from 'node:url';
 import { defineConfig } from 'astro/config';
 import tailwindcss from '@tailwindcss/vite';
 import react from '@astrojs/react';
 import sitemap from '@astrojs/sitemap';
 import { guestGuideEntries } from './src/content/guestGuideEntries.ts';
 
-function removeToolsFromDist() {
+// Internal tools live in src/pages/_tools, which Astro's file router ignores because
+// of the underscore. They are mounted as real /tools/* routes only where they are
+// actually used: the dev server, or a local QA build that opts in explicitly. This
+// keeps them out of the production module graph entirely, rather than compiling them
+// with the site and deleting the output afterwards.
+const INTERNAL_TOOL_ROUTES = [
+  ['/tools/component-library', './src/pages/_tools/component-library/index.astro'],
+  ['/tools/converter', './src/pages/_tools/converter/index.astro'],
+  ['/tools/design-lab', './src/pages/_tools/design-lab/index.astro'],
+  ['/tools/design-lab/home-contemporary', './src/pages/_tools/design-lab/home-contemporary.astro'],
+  ['/tools/guest-welcome', './src/pages/_tools/guest-welcome/index.astro'],
+  ['/tools/styleguide', './src/pages/_tools/styleguide/index.astro']
+];
+
+/** @returns {import('astro').AstroIntegration} */
+function internalToolRoutes() {
   return {
-    name: 'remove-tools-from-dist',
+    name: 'internal-tool-routes',
     hooks: {
-      'astro:build:done': ({ dir }) => {
-        // Internal tools remain excluded unless a local QA build explicitly opts in.
-        if (process.env.AMARA_INCLUDE_INTERNAL_TOOLS === 'true') {
+      'astro:config:setup': ({ command, injectRoute }) => {
+        const include = command === 'dev' || process.env.AMARA_INCLUDE_INTERNAL_TOOLS === 'true';
+        if (!include) {
           return;
         }
 
-        const outRoot = fileURLToPath(dir);
-        let toolsDir = join(outRoot, 'tools');
-        if (!existsSync(toolsDir)) {
-          toolsDir = join(process.cwd(), 'dist', 'tools');
-        }
-        if (existsSync(toolsDir)) {
-          rmSync(toolsDir, { recursive: true, force: true });
+        for (const [pattern, entrypoint] of INTERNAL_TOOL_ROUTES) {
+          injectRoute({ pattern, entrypoint });
         }
       }
     }
   };
 }
 
+/** @returns {import('astro').AstroIntegration} */
 function requirePublicSiteUrlForProduction() {
   return {
     name: 'require-public-site-url-for-production',
@@ -71,6 +79,7 @@ const sitemapExcludedSlugs = new Set([
 ]);
 const sitemapHomePathnames = new Set(['/']);
 
+/** @param {string} page @returns {string} */
 function getSitemapSlug(page) {
   const pathname = new URL(page).pathname;
   const cleanPath = pathname.replace(/^\/+|\/+$/g, '');
@@ -88,6 +97,7 @@ function getSitemapSlug(page) {
   return cleanPath;
 }
 
+/** @param {string} page @returns {boolean} */
 function isSitemapPageAllowed(page) {
   const slug = getSitemapSlug(page);
 
@@ -98,6 +108,7 @@ function isSitemapPageAllowed(page) {
   return slug !== 'tools' && !slug.startsWith('tools/');
 }
 
+/** @param {string} url @returns {string} */
 function normalizeSitemapUrl(url) {
   const parsedUrl = new URL(url);
 
@@ -108,6 +119,9 @@ function normalizeSitemapUrl(url) {
   return parsedUrl.href;
 }
 
+/**
+ * @param {{ url: string, links?: Array<{ url: string }> }} item
+ */
 function normalizeSitemapItem(item) {
   return {
     ...item,
@@ -197,6 +211,6 @@ export default defineConfig({
       filter: isSitemapPageAllowed,
       serialize: normalizeSitemapItem
     }),
-    removeToolsFromDist()
+    internalToolRoutes()
   ]
 });
