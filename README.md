@@ -105,7 +105,7 @@ rules in `AGENTS.md`.
 
 ## Quality gates
 
-There is no separate CI service and no unit test suite. The gate is the build:
+There is no unit test suite. The gate is the build, run both in CI and locally:
 
 - `npm run typecheck` — the primary safety net for everyday edits
 - `check-public-slug-policy` — slug collisions, duplicates, redirect chains and loops
@@ -114,10 +114,17 @@ There is no separate CI service and no unit test suite. The gate is the build:
 - `postbuild.mjs` — structured data audit and SEO title policy assertions
 
 Because `prebuild` runs all of these, a commit that breaks any of them fails the
-deploy build. `.github/workflows/check.yml` runs the same gate on every push and
-pull request, so a failure is visible before it reaches the deployment path.
+build. `.github/workflows/check.yml` runs `npm run build` on every push and pull
+request, so a failure is visible before it reaches the deployment path.
 
-Run `npm run check` locally before committing and you will see the same result.
+Locally: run `npm run check` for the fast preflight, and `npm run build` to
+reproduce exactly what CI does — only the full build covers rendering and the
+postbuild audits.
+
+**Known debt:** the internal tools are excluded from `npm run typecheck`.
+`npm run typecheck:tools` checks them separately and currently reports 44 errors.
+That check is deliberately not part of `npm run check` or CI yet, so the number is
+visible rather than hidden — but it is accepted debt, not a solved problem.
 
 ## Internal tools
 
