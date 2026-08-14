@@ -1,13 +1,13 @@
 ---
 document_id: AMARA-REG-001
 title: AMARA Register
-version: 1.3.0
+version: 1.3.1
 status: PROPOSED
 authority_class: LIVING BINDING REGISTER
 activation_state: PENDING_COMPATIBILITY_GATE
 candidate_iteration: FAST-FIRST
 effective_from: 2026-08-14
-last_modified: 2026-08-14T11:41:00+02:00
+last_modified: 2026-08-14T12:30:00+02:00
 canonical_path: /docs/AMARA_REGISTER.md
 ---
 
@@ -25,7 +25,7 @@ The AMARA Register is the single source for active documents, authority classes,
 | 02 | AMARA Astro & Design Architecture Contract | PENDING Package 2 | CONTRACT / governing | Interim snapshot: `docs/interim/03_AMARA_Astro_Technical_Standard_V4.md` + current repository implementation |
 | 03 | AMARA Runtime, SEO & Data Contract | PENDING Package 2 | CONTRACT / governing | Interim snapshot: `docs/interim/04_AMARA_Runtime_and_SEO_Standard_V4.md` + current repository implementation |
 | 04 | AMARA URL, Route & Link Contract | PENDING Package 2 | CONTRACT / governing | Interim snapshot: `docs/interim/05_AMARA_URL_and_Route_Infrastructure_V4.md` + Decision Register |
-| 05 | AMARA Governance, Execution & Documentation Lifecycle | 5.3.0 ACTIVE | CONTRACT / governing | `docs/standards/05_AMARA_Governance_Execution_and_Documentation_Lifecycle_V5.md` |
+| 05 | AMARA Governance, Execution & Documentation Lifecycle | 5.4.0 ACTIVE | CONTRACT / governing | `docs/standards/05_AMARA_Governance_Execution_and_Documentation_Lifecycle_V5.md` |
 | 06 | AMARA Performance & Delivery Standard | PENDING Package 2 | PRINCIPLE/CONTRACT / governing | Interim snapshot: `docs/interim/07_AMARA_Performance_Standard_V2.md` |
 | 07 | AMARA Register | 1.3.0 ACTIVE | LIVING BINDING REGISTER | `docs/AMARA_REGISTER.md` |
 | 08 | AMARA Guest Utility Feature Contract | PENDING Package 2/3 | FEATURE CONTRACT | Interim snapshot: `docs/interim/08_AMARA_Guest_Utility_Architecture_V2.md` |
@@ -144,6 +144,7 @@ Routine new evidence/ideas may be captured here or in the relevant working evide
 | 2026-08-14T09:08:00+02:00 | SSOT Bootstrap V3 candidate | Added repository Markdown snapshots for all seven interim owner documents and introduced a mandatory read-only Compatibility Gate before activation. Gate result: BLOCKED; candidate withdrawn without commit. | DR-DOC-001, DR-DOC-005, DR-BOOT-001 | withdrawn candidate — never committed |
 | 2026-08-14T09:28:00+02:00 | SSOT Bootstrap V3.1 candidate | Corrected multilingual supersession scope, declared URL policy supersession while protecting current implementation, removed false activation wording, preserved explicit five-language booking-CTA localization, added source-PDF verification evidence and parked the Legal/analytics mismatch for later reconciliation. | DR-BOOT-001, DR-GOV-001, DR-URL-002/003/004 | candidate only — never committed |
 | 2026-08-14T11:41:00+02:00 | FAST-first execution reform | Reversed the daily execution default from risk-heavy validation to minimum-safe FAST execution; removed mandatory re-review/full-build behavior for normal work; added operator-time proportionality, push batching and SSOT intake/sync. | DR-EXEC-003–008 | approved for inclusion in bootstrap |
+| 2026-08-14T12:30:00+02:00 | FAST preflight checks | Added a repository-wide new-page duplication check and a five-locale structural completeness check to the Governance validation ladder, with an operative summary in `AGENTS.md`. Both run inside FAST; no second agent, no new decision ID, no new governance document. Governance 5.4.0, Register 1.3.1. | DR-EXEC-003, DR-EXEC-004 | this commit |
 
 ## 5. Intentional supersessions recorded for compatibility review
 

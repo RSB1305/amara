@@ -1,11 +1,11 @@
 ---
 document_id: AMARA-GOV-005
 title: AMARA Governance, Execution & Documentation Lifecycle
-version: 5.3.0
+version: 5.4.0
 status: PROPOSED
 authority_class: GOVERNING CONTRACT
 effective_from: 2026-08-14
-last_modified: 2026-08-14T11:41:00+02:00
+last_modified: 2026-08-14T12:30:00+02:00
 canonical_path: /docs/standards/05_AMARA_Governance_Execution_and_Documentation_Lifecycle_V5.md
 supersedes:
   - AMARA Governance & Execution Standard V4.2
@@ -179,6 +179,14 @@ Never reset, discard, stage, commit or rewrite unrelated work for convenience.
 - **Level D — isolated committed-state/worktree validation:** only for a concrete clean-state need.
 
 A wrong visible page is FAIL even when tests pass.
+
+### FAST preflight checks
+
+Both checks are deterministic, cheap and performed by the implementing agent. Neither requires a second agent; a second agent is added only for concrete uncertainty, shared/infrastructure risk or a deliberate release check.
+
+**New-page duplication check.** Before creating a new public page, route or guide, search the repository for an existing page covering the same or a substantially overlapping topic and search intent. Search repository-wide rather than only within the current location cluster, and cover routes, page families/content and the relevant registry entries. On probable duplication or ownership overlap, stop before creating the page and report.
+
+**Five-locale completeness check.** After a multilingual change intended for all supported languages, verify EN, DE, ES, NL and SV deterministically for structural completeness: required keys/entries, sections and links must be present in all five locales. A count or structure mismatch is FAIL and must be fixed before commit. A browser check of all five locales is not the default.
 
 ### Completion rule
 
@@ -354,3 +362,4 @@ Project attachments/PDFs are not activation gates.
 | 5.1.0 | 2026-08-14T08:55:00+02:00 | Prepared semantic revision control, metadata/status model, Change Ledger, SSOT commands, attachment decoupling and contract-supersession safeguard after Reality Reconciliation. | DR-DOC-001, DR-DOC-005, DR-DOC-006, DR-GOV-001 | withdrawn candidate — never committed |
 | 5.2.0 | 2026-08-14T09:28:00+02:00 | **PROPOSED, not activated.** Added mandatory read-only SSOT Compatibility Gate; preserved transitional agent rules; strengthened multilingual meaning-depth protection and policy-vs-implementation supersession checks. | DR-BOOT-001, DR-AGENT-001 | candidate only — never committed |
 | 5.3.0 | 2026-08-14T11:41:00+02:00 | **APPROVED FAST-first revision.** Made minimum-safe FAST execution the default for Class 0/1 and bounded Class 2 work; removed ritual post-fix re-review/full-build defaults; added operator-time proportionality, push batching and SSOT intake/sync. | DR-EXEC-003, DR-EXEC-004, DR-EXEC-005, DR-EXEC-006, DR-EXEC-007, DR-EXEC-008 | candidate pending SSOT activation |
+| 5.4.0 | 2026-08-14T12:30:00+02:00 | Added two deterministic FAST preflight checks to the validation ladder: repository-wide new-page duplication check before creating a public page/route/guide, and a five-locale structural completeness check before committing multilingual changes. Both are performed by the implementing agent; neither introduces a mandatory second agent. | DR-EXEC-003, DR-EXEC-004 | this commit |

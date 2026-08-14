@@ -100,6 +100,14 @@ Validation follows Governance risk classes rather than one universal full-build 
 
 When a shared component changes, verify representative unrelated consumers. When localization changes, verify the affected locale is complete and natural. A wrong visible page is FAIL even if tests pass.
 
+### FAST preflight checks
+
+Two deterministic checks, run by the implementing agent. They do not add a review round and do not require a second agent.
+
+**Before creating a new public page, route or guide:** grep the whole repository — not just the current location cluster — for an existing page with the same or substantially overlapping topic/search intent. Check routes, page families/content and registry entries. On probable duplication or ownership overlap, stop and report before creating the page.
+
+**After a multilingual change meant for all five locales:** verify EN, DE, ES, NL and SV deterministically for structural completeness — required keys/entries, sections and links present in all five. A count/structure mismatch is FAIL and must be fixed before commit. Browser-testing all five locales is not the default.
+
 ## What to avoid by default
 
 Avoid broad refactors, architecture rewrites, registry cleanups during unrelated work, design refreshes, page-family redesigns, new component systems and enterprise-level abstraction for small tasks unless explicitly approved.
