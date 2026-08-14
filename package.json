@@ -9,6 +9,7 @@
     "dev": "astro dev",
     "typecheck": "astro check",
     "prebuild": "npm run typecheck && npm run check:slug-policy && npm run check:fallback-policy && npm run check:image-policy",
+    "check": "npm run typecheck && npm run check:slug-policy && npm run check:fallback-policy && npm run check:image-policy",
     "build": "astro build",
     "postbuild": "node scripts/postbuild.mjs && node scripts/check-image-policy.mjs --dist",
     "preview": "astro preview",

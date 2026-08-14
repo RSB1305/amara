@@ -7,6 +7,7 @@ import EditorialDefinitionList from '../../components/editorial/EditorialDefinit
 import EditorialSplit from '../../components/editorial/EditorialSplit.astro';
 import EditorialStatement from '../../components/editorial/EditorialStatement.astro';
 import EditorialClosingCta from '../../components/editorial/EditorialClosingCta.astro';
+import type { EditorialClosingCtaLink } from '../../components/editorial/EditorialClosingCta.astro';
 import {
   directBookingBenefitsCopy,
   directBookingBenefitsFooterLabels,
@@ -20,7 +21,7 @@ const { lang = 'es' } = Astro.props;
 const currentLang = normalizeLanguage(lang as AmaraLanguage);
 const seo = directBookingBenefitsSeo;
 const copy = directBookingBenefitsCopy;
-const trustLinks = [
+const trustLinks: LabeledLink[] = [
   { token: 'about', label: copy.hero.ctaAbout[currentLang] },
   { token: 'reviews_hub', label: copy.hero.ctaReviews[currentLang] },
   { token: 'direct_booking_benefits', label: copy.hero.subtitle[currentLang] }
@@ -34,24 +35,24 @@ const directBookingDefinitionItems = copy.benefits.map((benefit) => ({
   title: benefit.title[currentLang],
   description: benefit.copy[currentLang]
 }));
-const closingCtaLinks = [
+const closingCtaLinks: EditorialClosingCtaLink[] = [
   { label: copy.sections.ctaAvailability[currentLang], token: 'book', style: 'primary' as const },
   { label: copy.sections.inlineAbout[currentLang], token: 'about', style: 'secondary' as const },
   { label: copy.sections.ctaExplore[currentLang], token: 'romantic_hideaways', style: 'secondary' as const }
 ];
-const heroCtaLinks = [
+const heroCtaLinks = ([
   { token: 'book', label: copy.sections.ctaAvailability[currentLang] },
   { token: 'reviews_hub', label: copy.hero.ctaReviews[currentLang] }
-]
+] satisfies LabeledLink[])
   .map((link) => {
     const href = resolveOptionalLink(link.token, currentLang, { suppressMissing: true });
     return href ? { href, label: link.label } : null;
   })
   .filter((link): link is { href: string; label: string } => Boolean(link));
-const inlineLinks = [
+const inlineLinks = ([
   { token: 'reviews_hub', label: copy.sections.inlineReviews[currentLang] },
   { token: 'about', label: copy.sections.inlineAbout[currentLang] }
-]
+] satisfies LabeledLink[])
   .map((link) => {
     const href = resolveOptionalLink(link.token, currentLang, { suppressMissing: true });
     return href ? { href, label: link.label } : null;

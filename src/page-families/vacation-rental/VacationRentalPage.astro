@@ -634,8 +634,8 @@ const bookingTrustLinks = [
     label: trustLabels.reviews_hub[currentLang]
   }
 ].filter((item): item is { href: string; label: string } => Boolean(item.href));
-const locationLinkSpecs = [
-  ...(rental.city === 'Frigiliana'
+const locationLinkSpecs: LabeledLink[] = [
+  ...((rental.city === 'Frigiliana'
     ? [
         { token: 'location_frigiliana', label: t(ui.frigilianaLocationGuide as LocalizedText) },
         { token: 'frigiliana_experience_hub', label: t(ui.experiencesGuide as LocalizedText) }
@@ -652,7 +652,7 @@ const locationLinkSpecs = [
           { token: 'location_nerja', label: 'Nerja' },
           { token: 'nerja_experience_hub', label: t(ui.experiencesGuide as LocalizedText) }
         ]
-      : []),
+      : []) satisfies LabeledLink[]),
   // Moved here from the context navigation: arrival belongs with planning, not with site-wide links.
   { token: 'arrival_guide', label: t(ui.arrivalGuide as LocalizedText) }
 ];

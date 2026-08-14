@@ -3,6 +3,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import Navigation from '../../components/Navigation.astro';
 import TrustHero from '../../components/hero/TrustHero.astro';
 import EditorialClosingCta from '../../components/editorial/EditorialClosingCta.astro';
+import type { EditorialClosingCtaLink } from '../../components/editorial/EditorialClosingCta.astro';
 import AmenitySpecRow, {
   type AmenitySpecIcon
 } from '../../components/amenities/AmenitySpecRow.astro';
@@ -279,16 +280,16 @@ const closingCopy: Record<AmaraLanguage, { title: string; lead: string; primary:
   }
 };
 const closing = closingCopy[currentLang];
-const heroCtaLinks = [
+const heroCtaLinks = ([
   { token: 'book', label: page.inventory.directBooking },
   { token: 'reviews_hub', label: page.hero.ctaReviews }
-]
+] satisfies LabeledLink[])
   .map((link) => {
     const href = resolveOptionalLink(link.token, currentLang, { suppressMissing: true });
     return href ? { href, label: link.label } : null;
   })
   .filter((link): link is { href: string; label: string } => Boolean(link));
-const closingCtaLinks = [
+const closingCtaLinks: EditorialClosingCtaLink[] = [
   { token: 'book', label: closing.primary, style: 'primary' as const },
   { token: 'romantic_hideaways', label: closing.explore, style: 'secondary' as const }
 ];

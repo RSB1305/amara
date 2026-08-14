@@ -25,7 +25,9 @@ const { currentId, lang } = Astro.props;
 const edition = experienceHubContent[lang];
 const navigation = experienceNavigationContent[lang];
 const orderedIds = edition.catalog.order.filter((id) => id !== 'nightlife');
-const currentIndex = Math.max(orderedIds.indexOf(currentId), 0);
+// currentId may be 'nightlife', which orderedIds deliberately excludes; falling back
+// to the first entry keeps the recommendation ring intact for that page.
+const currentIndex = Math.max(orderedIds.findIndex((id) => id === currentId), 0);
 
 const recommendationIds = Array.from(
   { length: Math.min(3, orderedIds.length - 1) },

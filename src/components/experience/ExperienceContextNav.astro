@@ -77,7 +77,7 @@ const frigilianaSiblingLinks: ContextNavigationItem[] = experienceHubContent[lan
 
     return href ? { id, href, label: sharedNavigation.labels[id] } : null;
   })
-  .filter((item): item is ContextNavigationItem => Boolean(item));
+  .filter((item) => item !== null);
 
 const nerjaDefinitions: { id: NerjaExperienceId; token: LinkToken }[] = [
   { id: 'balcon', token: 'nerja_balcon_de_europa' },

@@ -3,6 +3,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import Navigation from '../../components/Navigation.astro';
 import TrustHero from '../../components/hero/TrustHero.astro';
 import EditorialClosingCta from '../../components/editorial/EditorialClosingCta.astro';
+import type { EditorialClosingCtaLink } from '../../components/editorial/EditorialClosingCta.astro';
 import {
   guestReviewsCopy,
   guestReviewsFooterLabels,
@@ -25,7 +26,7 @@ const awardScoreFormatter = new Intl.NumberFormat(currentLang, {
 });
 const formatAward = (award: { name: string; score: number }) =>
   `${award.name} - ${awardScoreFormatter.format(award.score)} / 10`;
-const trustLinks = [
+const trustLinks: LabeledLink[] = [
   { token: 'about', label: copy.hero.ctaAbout[currentLang] },
   { token: 'reviews_hub', label: copy.sections.reviewsTitle[currentLang] },
   { token: 'direct_booking_benefits', label: copy.hero.ctaBenefits[currentLang] }
@@ -35,16 +36,16 @@ const footerHighlights: LabeledLink[] = [
   { token: 'faq_general', label: guestReviewsFooterLabels.faq_general[currentLang] },
   { token: 'instagram', label: guestReviewsFooterLabels.instagram[currentLang] }
 ];
-const heroCtaLinks = [
+const heroCtaLinks = ([
   { token: 'book', label: copy.sections.ctaBook[currentLang] },
   { token: 'direct_booking_benefits', label: copy.hero.ctaBenefits[currentLang] }
-]
+] satisfies LabeledLink[])
   .map((link) => {
     const href = resolveOptionalLink(link.token, currentLang, { suppressMissing: true });
     return href ? { href, label: link.label } : null;
   })
   .filter((link): link is { href: string; label: string } => Boolean(link));
-const closingCtaLinks = [
+const closingCtaLinks: EditorialClosingCtaLink[] = [
   { token: 'book', label: copy.sections.ctaBook[currentLang], style: 'primary' as const },
   { token: 'romantic_hideaways', label: copy.sections.ctaExplore[currentLang], style: 'secondary' as const },
   { token: 'direct_booking_benefits', label: copy.sections.ctaBenefits[currentLang], style: 'secondary' as const }
