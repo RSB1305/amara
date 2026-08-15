@@ -116,6 +116,37 @@
   }
 }
 
+/**
+ * Narrow-gutter page bridge.
+ *
+ * These five pages compose their own markup with a bare `px-12` and also mount
+ * shared components that do the same. They render the narrow mobile gutter, so
+ * the nested `.px-12` has to be reduced from the page root rather than per
+ * element. The page list is the same one the full-bleed gutter above uses; both
+ * rules describe the same set of pages and are kept together for that reason.
+ *
+ * The rule is deliberately unlayered. Tailwind's utilities sit in the
+ * `utilities` layer and an unlayered rule outranks every layer, which is why no
+ * `!important` is needed here.
+ *
+ * This bridge disappears once the shared components own a responsive gutter
+ * themselves. That changes how they render on every other route, so it is a
+ * design decision rather than a refactor.
+ */
+@media (max-width: 767px) {
+  :is(
+    [data-am-page='frigiliana-faq'],
+    [data-am-page='frigiliana-market'],
+    [data-am-page='frigiliana-parking'],
+    [data-am-page='frigiliana-streets-stairs'],
+    [data-am-page='getting-to-frigiliana']
+  )
+    .px-12 {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+}
+
 @layer base {
   body {
     @apply bg-surface text-on-surface font-body selection:bg-primary-fixed-dim selection:text-on-primary-fixed;
@@ -471,9 +502,14 @@
     pointer-events: none;
   }
 
-  /** Type A Location Authority: shared section shell + alternating backgrounds */
+  /**
+   * Type A Location Authority: shared section shell + alternating backgrounds.
+   * The shell owns the standard responsive gutter. A section that needs a
+   * different one states it with a plain Tailwind utility: utilities are layered
+   * after `base`, so no `!important` is involved.
+   */
   .am-section {
-    @apply max-w-screen-2xl mx-auto px-12 py-40 border-t border-outline-variant/5;
+    @apply max-w-screen-2xl mx-auto px-6 py-40 border-t border-outline-variant/5 md:px-12;
   }
 
   .am-section--plain {
