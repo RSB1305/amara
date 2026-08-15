@@ -1,7 +1,15 @@
 import { createHash } from 'node:crypto';
 import { existsSync, readdirSync, readFileSync, statSync } from 'node:fs';
-import { extname, isAbsolute, join, posix, relative, resolve, sep } from 'node:path';
+import { extname, join, relative, resolve, sep } from 'node:path';
 import { pathToFileURL } from 'node:url';
+import {
+  collectPublicImageReferences,
+  findCanonicalOrigin,
+  isInsideDirectory,
+  normalizePublicImageReference,
+  PUBLIC_IMAGE_ROOT_URL
+} from '../src/lib/images/publicImageReferences.ts';
+import { STABLE_PUBLIC_IMAGE_PATHS } from '../src/lib/images/stablePublicImages.ts';
 
 const projectRoot = resolve(import.meta.dirname, '..');
 const sourceRoot = join(projectRoot, 'src');
@@ -11,54 +19,8 @@ const sourceExtensions = new Set(['.astro', '.ts', '.tsx', '.js', '.jsx']);
 // Internal tools are dev-only surfaces and are not held to the responsive image contract.
 const ignoredPathSegments = [`${sep}pages${sep}_tools${sep}`];
 
-const PUBLIC_IMAGE_ROOT_URL = '/images/';
-const PUBLIC_IMAGE_EXTENSIONS = 'jpe?g|png|webp|avif';
-
-/**
- * Matches a candidate reference in one of two shapes, so that a nested `/images/`
- * segment can never be mistaken for a root path.
- *
- * An absolute http(s) URL is consumed from its scheme onwards, which keeps its full
- * path intact: `https://host/archive/images/old.jpg` is collected whole and rejected
- * later, rather than being sliced down to a bogus `/images/old.jpg`. A root-relative
- * path is accepted only where the preceding character cannot be part of a path
- * segment, which is what anchors it to the document root.
- *
- * Query strings and fragments are captured deliberately. Stripping them is the
- * normalizer's job; letting the pattern hide them would make correctness depend on
- * this regex rather than on the function that claims to guarantee it.
- */
-const PUBLIC_IMAGE_REFERENCE_PATTERN = new RegExp(
-  '(?:https?://[^\\s"\'<>\\\\]*?|(?<![A-Za-z0-9._~%/-]))' +
-    `${PUBLIC_IMAGE_ROOT_URL}[^\\s"'<>\\\\)?#]*?\\.(?:${PUBLIC_IMAGE_EXTENSIONS})` +
-    '(?:[?#][^\\s"\'<>\\\\)]*)?',
-  'gi'
-);
-
-/** Splits an absolute http(s) URL into its authority and the raw path that follows. */
-const ABSOLUTE_HTTP_REFERENCE = /^https?:\/\/[^/?#]*(.*)$/i;
-
-/** Reads the origin a document declares for itself through its canonical link. */
-function findCanonicalOrigin(html) {
-  for (const tag of html.match(/<link\b[^>]*>/gi) ?? []) {
-    if (!/\brel=["']canonical["']/i.test(tag)) {
-      continue;
-    }
-
-    const href = /\bhref=["']([^"']+)["']/i.exec(tag);
-    if (!href) {
-      continue;
-    }
-
-    try {
-      return new URL(href[1]).origin;
-    } catch {
-      return null;
-    }
-  }
-
-  return null;
-}
+/** Distinguishes an absolute reference from a root-relative one when reporting. */
+const ABSOLUTE_REFERENCE = /^https?:\/\//i;
 
 function walk(directory) {
   return readdirSync(directory).flatMap((entry) => {
@@ -67,110 +29,20 @@ function walk(directory) {
   });
 }
 
-function isInsideDirectory(directory, candidate) {
-  const relativePath = relative(directory, candidate);
-
-  if (relativePath === '' || isAbsolute(relativePath)) {
-    return false;
-  }
-
-  // Only a real parent-directory segment escapes. A file whose name merely starts
-  // with two dots is an ordinary asset and must stay inside the root.
-  return !relativePath.split(/[\\/]/).includes('..');
-}
-
 function sha256(path) {
   return createHash('sha256').update(readFileSync(path)).digest('hex');
 }
 
 /**
- * Resolves one raw reference to the stable public path it addresses.
- *
- * Three outcomes are distinguished on purpose. `path` is a reference this contract
- * owns. `error` means the reference targets the public image root but is malformed,
- * which must fail the build. `ignored` means the reference is simply outside the
- * local mirror contract — a foreign origin or a different path root — which is not a
- * defect. Whether external metadata images should be allowed at all is a separate
- * architecture decision, so they are passed over rather than silently resolved
- * against local files.
- *
- * Query and fragment are removed here rather than by the collecting pattern, so this
- * function alone guarantees the path it returns. Decoding happens before the
- * traversal guard so that percent-encoded traversal (`%2e%2e%2f`) collapses into a
- * `..` segment that can still be rejected, and the authored path is inspected before
- * any URL parser can quietly resolve those segments away.
- */
-export function normalizePublicImageReference(rawReference, { localOrigins } = {}) {
-  const absoluteReference = ABSOLUTE_HTTP_REFERENCE.exec(rawReference);
-  let rawPath = rawReference;
-
-  if (absoluteReference) {
-    let origin;
-    try {
-      origin = new URL(rawReference).origin;
-    } catch {
-      return { error: 'is not a parsable URL' };
-    }
-
-    if (!localOrigins?.has(origin)) {
-      return { ignored: `points at ${origin}, which is not an origin this site serves` };
-    }
-
-    rawPath = absoluteReference[1] || '/';
-  } else if (!rawReference.startsWith('/')) {
-    return { ignored: 'is neither an absolute URL nor a root-relative path' };
-  }
-
-  const pathWithoutFragment = rawPath.split('#')[0] ?? '';
-  const pathWithoutQuery = pathWithoutFragment.split('?')[0] ?? '';
-
-  let decodedPath;
-  try {
-    decodedPath = decodeURIComponent(pathWithoutQuery);
-  } catch {
-    return { error: 'contains an invalid percent-encoding' };
-  }
-
-  if (decodedPath.includes('\\') || decodedPath.includes('\0')) {
-    return { error: 'contains an illegal path separator or null byte' };
-  }
-
-  if (decodedPath.split('/').includes('..')) {
-    return { error: 'escapes the public image root' };
-  }
-
-  const normalizedPath = posix.normalize(decodedPath);
-
-  if (!normalizedPath.startsWith(PUBLIC_IMAGE_ROOT_URL)) {
-    return { ignored: 'does not address the public image root' };
-  }
-
-  return { path: normalizedPath };
-}
-
-/**
- * Collects candidate public image references from one generated document.
- *
- * Candidates are returned verbatim, including origin, query and fragment;
- * classifying them is `normalizePublicImageReference`'s responsibility. JSON
- * payloads may escape forward slashes, so the escape is undone for scanning only.
- * Hashed `/_astro/` metadata is out of scope by construction: it is owned by Astro's
- * asset pipeline and is never mirrored into the public root.
- */
-export function collectPublicImageReferences(html) {
-  return html.replaceAll('\\/', '/').match(PUBLIC_IMAGE_REFERENCE_PATTERN) ?? [];
-}
-
-/**
  * Verifies that every stable public image URL the build actually emitted resolves
- * to a delivered file that is byte-identical to its optimized source twin.
+ * to a delivered file that is byte-identical to its source in
+ * `src/assets/images/content`.
  *
- * The source-side policy proves only that a twin exists for each *literal*
- * `/images/` path in `src`. It cannot see composed paths, and it never inspects the
- * delivered output, so an absent or stale public copy still yields a green build
- * and a silently broken social preview or structured-data image. Existence alone is
- * therefore not enough — the SHA-256 comparison is what makes the two roots a
- * verified mirror rather than a manual convention.
+ * This is the reference-driven half of the delivery contract: it starts from what
+ * the pages ask for. `auditPublishedImageDelivery` covers the other half, starting
+ * from what the contract promises to publish. Both are needed, because a reference
+ * can exist without a published path and a published path can exist without a
+ * reference.
  */
 export function auditPublicImageIntegrity({
   distRoot: auditDistRoot,
@@ -202,7 +74,7 @@ export function auditPublicImageIntegrity({
 
   for (const { displayPath, rawReferences } of documents) {
     for (const rawReference of rawReferences) {
-      if (localOrigins.size === 0 && ABSOLUTE_HTTP_REFERENCE.test(rawReference)) {
+      if (localOrigins.size === 0 && ABSOLUTE_REFERENCE.test(rawReference)) {
         errors.push(
           `${displayPath} references "${rawReference}", but no canonical link identifies the ` +
             'origin this site serves, so the reference cannot be classified.'
@@ -269,6 +141,63 @@ export function auditPublicImageIntegrity({
   }
 
   return { errors, verifiedPaths: references.size };
+}
+
+/**
+ * Verifies that every published path actually reached the output, byte-identical to
+ * its source.
+ *
+ * The reference-driven audit above cannot see a published path that no page happens
+ * to reference right now, yet those are exactly the URLs the contract exists to keep
+ * alive. This starts from the contract instead, so a silently skipped emission is
+ * caught even when nothing links to the image any more.
+ */
+export function auditPublishedImageDelivery({
+  distRoot: auditDistRoot,
+  optimizedImageRoot: auditOptimizedImageRoot,
+  publishedPaths
+}) {
+  const publicImageRoot = join(auditDistRoot, 'images');
+  const errors = [];
+
+  for (const publicPath of publishedPaths) {
+    const relativeSegments = publicPath.slice(PUBLIC_IMAGE_ROOT_URL.length).split('/');
+    const deliveredFile = resolve(publicImageRoot, ...relativeSegments);
+    const sourceFile = resolve(auditOptimizedImageRoot, ...relativeSegments);
+
+    if (
+      !isInsideDirectory(publicImageRoot, deliveredFile) ||
+      !isInsideDirectory(auditOptimizedImageRoot, sourceFile)
+    ) {
+      errors.push(`${publicPath} is published, but it escapes its image root.`);
+      continue;
+    }
+
+    if (!existsSync(sourceFile)) {
+      errors.push(
+        `${publicPath} is published, but its source is missing at ` +
+          `${relative(projectRoot, sourceFile)}.`
+      );
+      continue;
+    }
+
+    if (!existsSync(deliveredFile)) {
+      errors.push(
+        `${publicPath} is published, but the build delivered no file at ` +
+          `${relative(projectRoot, deliveredFile)}.`
+      );
+      continue;
+    }
+
+    if (sha256(deliveredFile) !== sha256(sourceFile)) {
+      errors.push(
+        `${publicPath} was delivered, but it is not byte-identical to ` +
+          `${relative(projectRoot, sourceFile)}.`
+      );
+    }
+  }
+
+  return { errors, verifiedPaths: publishedPaths.length };
 }
 
 function main() {
@@ -392,6 +321,25 @@ function main() {
   console.log(
     `[AMARA image policy] Public image integrity audit passed: ${integrity.verifiedPaths} ` +
       'distinct stable /images/ paths are delivered and byte-identical to their optimized sources.'
+  );
+
+  const delivery = auditPublishedImageDelivery({
+    distRoot,
+    optimizedImageRoot,
+    publishedPaths: STABLE_PUBLIC_IMAGE_PATHS
+  });
+
+  if (delivery.errors.length > 0) {
+    console.error('[AMARA image policy] Published image delivery audit failed:\n');
+    for (const error of delivery.errors) {
+      console.error(`- ${error}`);
+    }
+    process.exit(1);
+  }
+
+  console.log(
+    `[AMARA image policy] Published image delivery audit passed: ${delivery.verifiedPaths} ` +
+      'declared stable /images/ paths reached the build output byte-identical to their sources.'
   );
 }
 
