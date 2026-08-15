@@ -10,11 +10,11 @@
  * `/images/...` directly, and this list is the contract for exactly that set.
  *
  * The list is not a second image source. `src/assets/images/content` is the
- * canonical byte source, and every entry names a file below that root. It is not
- * yet the only physical location: during the current transition a byte-identical
- * legacy copy of each listed image also remains under `public/images`, and
- * retiring those copies is a separate, later migration step. What the list adds
- * is a promise about URLs, not about bytes.
+ * canonical byte source, and every entry names a file below that root. For these
+ * images it is now also the only versioned one: the byte-identical copies that
+ * used to be kept under `public/images` were retired once this contract's emitter
+ * took over their delivery. What the list adds on top of that is a promise about
+ * URLs, not about bytes.
  *
  * Three rules follow from that promise:
  *
@@ -27,10 +27,10 @@
  * - Nothing derives this list and no build step may drop entries from it. An
  *   entry whose last in-site reference disappears keeps being emitted, because
  *   a URL that was published once can already be indexed, cached or shared.
- * - Removing an entry withdraws this contract's guarantee for that URL. On its
- *   own it does not retire the URL: while any other delivery source still carries
- *   the file — today, the legacy copy under `public/images` — the URL keeps
- *   resolving. A real retirement needs that removal too, as a controlled step.
+ * - Removing an entry retires the URL. No second delivery path carries these bytes
+ *   any more, so an entry that leaves this list stops being emitted and its URL
+ *   resolves nowhere from the next build onwards. Withdrawing a published address
+ *   is a decision of its own and must never arrive as a by-product of tidying.
  *
  * Adding a path here declares a guaranteed stable public URL within this
  * contract.

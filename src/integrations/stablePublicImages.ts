@@ -17,22 +17,22 @@ import {
 /**
  * Delivery for the published `/images/...` URL contract.
  *
- * `src/assets/images/content` holds the canonical bytes of every content image.
- * During the current transition a byte-identical legacy copy of each listed image
- * also remains under `public/images`; retiring those copies is a separate, later
- * step. This integration makes the subset listed in `stablePublicImages.ts`
- * reachable under its stable URL from the canonical source, in both of the places
- * that need it:
+ * `src/assets/images/content` holds the canonical bytes of every content image, and
+ * for the subset listed in `stablePublicImages.ts` it is the only versioned source
+ * there is: the byte-identical copies once kept under `public/images` were retired
+ * once this integration took over their delivery. It makes that subset reachable
+ * under its stable URL from the canonical source, in both of the places that need
+ * it:
  *
  * - the production build, by copying each listed path into the output directory;
  * - the dev server, by serving each listed path straight from the source root.
  *
  * The dev side is restricted to the listed paths on purpose. Serving the entire
  * source root under `/images/` would bypass the manifest and expose source-only
- * paths absent from the current build. Once the legacy public copies are removed,
- * that dev/production discrepancy would only grow, and parity is worth more than
- * the convenience. Anything this contract does not manage is handed back to Astro's
- * ordinary public-directory handling, so parked media keeps behaving as before.
+ * paths absent from every production build, and parity is worth more than the
+ * convenience. Anything this contract does not manage is handed back to Astro's
+ * ordinary public-directory handling, so the parked media that `public/images`
+ * still carries keeps behaving as before.
  *
  * Emission is driven by the list, not by what the current pages happen to reference.
  * A listed path is emitted even when nothing links to it any more, which is what
