@@ -1,0 +1,89 @@
+---
+/**
+ * AMARA global navigation — desktop center row
+ *
+ * Architectural intent:
+ * Renders the hover/click group navigation shown from the large breakpoint up.
+ * Desktop and mobile deliberately keep separate markup because their semantics
+ * differ: this view is a button-driven dropdown, the mobile view is a details
+ * disclosure list. Both consume the same resolved model.
+ */
+import type { ResolvedGlobalNavGroup } from './globalNavigationModel';
+
+interface Props {
+  groups: ResolvedGlobalNavGroup[];
+  navigationLabel: string;
+}
+
+const { groups, navigationLabel } = Astro.props;
+---
+
+<nav class="am-nav__center" aria-label={navigationLabel}>
+  <ul class="hidden lg:flex items-center gap-10">
+    {groups.map((group) => (
+      <li class="am-nav__group">
+        <button
+          type="button"
+          class="am-nav__link am-nav__group-trigger font-label text-[12px] font-bold uppercase tracking-[0.14em] text-on-surface transition-colors"
+          aria-controls={group.dropdownId}
+          aria-expanded="false"
+          aria-current={group.isActive ? 'page' : undefined}
+        >
+          {group.label}
+        </button>
+
+        <div
+          id={group.dropdownId}
+          class:list={['am-nav__dropdown', group.hasDescriptions && 'am-nav__dropdown--detailed']}
+        >
+          <div class:list={['am-nav__dropdown-panel', group.hasDescriptions && 'am-nav__dropdown-panel--detailed']}>
+            {group.items.map((item) => (
+              <>
+                {item.sectionLabel && (
+                  <span
+                    class:list={[
+                      'am-nav__dropdown-section',
+                      item.separatedSection && 'am-nav__dropdown-section--separated'
+                    ]}
+                  >
+                    {item.sectionLabel}
+                  </span>
+                )}
+                {item.href ? (
+                  <a
+                    href={item.href}
+                    class:list={[
+                      'am-nav__dropdown-link font-label text-[12px] font-bold uppercase tracking-[0.12em]',
+                      item.description && 'am-nav__dropdown-link--detailed',
+                      item.overview && 'am-nav__dropdown-link--overview'
+                    ]}
+                    aria-current={item.isActive ? 'page' : undefined}
+                  >
+                    <span class="am-nav__dropdown-item-title">{item.label}</span>
+                    {item.description && (
+                      <span class="am-nav__dropdown-item-meta">{item.description}</span>
+                    )}
+                  </a>
+                ) : (
+                  <span
+                    class:list={[
+                      'am-nav__dropdown-link am-is-disabled font-label text-[12px] font-bold uppercase tracking-[0.12em]',
+                      item.description && 'am-nav__dropdown-link--detailed',
+                      item.overview && 'am-nav__dropdown-link--overview'
+                    ]}
+                    aria-disabled="true"
+                  >
+                    <span class="am-nav__dropdown-item-title">{item.label}</span>
+                    {item.description && (
+                      <span class="am-nav__dropdown-item-meta">{item.description}</span>
+                    )}
+                  </span>
+                )}
+              </>
+            ))}
+          </div>
+        </div>
+      </li>
+    ))}
+  </ul>
+</nav>

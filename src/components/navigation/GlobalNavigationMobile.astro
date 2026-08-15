@@ -1,0 +1,101 @@
+---
+/**
+ * AMARA global navigation — mobile panel
+ *
+ * Architectural intent:
+ * A details-based disclosure list shown below the large breakpoint. It keeps its
+ * own markup rather than sharing an item renderer with the desktop dropdown,
+ * because the two views carry different semantics for the same resolved routes.
+ */
+import type { ResolvedGlobalNavGroup, ResolvedNavigationCta } from './globalNavigationModel';
+
+interface Props {
+  groups: ResolvedGlobalNavGroup[];
+  cta: ResolvedNavigationCta;
+  showBookingCta: boolean;
+  navigationLabel: string;
+}
+
+const { groups, cta, showBookingCta, navigationLabel } = Astro.props;
+---
+
+<div id="amara-mobile-menu" class="am-nav-mobile" data-am-mobile-menu hidden>
+  <nav class="am-nav-mobile__inner" aria-label={navigationLabel}>
+    <div class="am-nav-mobile__groups">
+      {groups.map((group) => (
+        <details class="am-nav-mobile__group" open={group.isActive}>
+          <summary class="am-nav-mobile__summary">
+            <span>{group.label}</span>
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path
+                d="M6 9l6 6 6-6"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              ></path>
+            </svg>
+          </summary>
+          <div class="am-nav-mobile__links">
+            {group.items.map((item) => (
+              <>
+                {item.sectionLabel && (
+                  <span
+                    class:list={[
+                      'am-nav-mobile__section',
+                      item.separatedSection && 'am-nav-mobile__section--separated'
+                    ]}
+                  >
+                    {item.sectionLabel}
+                  </span>
+                )}
+                {item.href ? (
+                  <a
+                    href={item.href}
+                    class:list={[
+                      item.description && 'am-nav-mobile__detailed-link',
+                      item.overview && 'am-nav-mobile__overview-link'
+                    ]}
+                    aria-current={item.isActive ? 'page' : undefined}
+                  >
+                    <span class="am-nav-mobile__item-title">{item.label}</span>
+                    {item.description && (
+                      <span class="am-nav-mobile__item-meta">{item.description}</span>
+                    )}
+                  </a>
+                ) : (
+                  <span
+                    class:list={[
+                      'am-is-disabled',
+                      item.description && 'am-nav-mobile__detailed-link',
+                      item.overview && 'am-nav-mobile__overview-link'
+                    ]}
+                    aria-disabled="true"
+                  >
+                    <span class="am-nav-mobile__item-title">{item.label}</span>
+                    {item.description && (
+                      <span class="am-nav-mobile__item-meta">{item.description}</span>
+                    )}
+                  </span>
+                )}
+              </>
+            ))}
+          </div>
+        </details>
+      ))}
+    </div>
+
+    {showBookingCta && (
+      cta.href === null ? (
+        <span class="am-btn am-btn--primary am-nav-mobile__cta am-is-disabled" aria-disabled="true">
+          {cta.label}
+        </span>
+      ) : (
+        <a href={cta.href} class="am-btn am-btn--primary am-nav-mobile__cta">
+          {cta.label}
+        </a>
+      )
+    )}
+  </nav>
+</div>
