@@ -1,0 +1,559 @@
+import { expect, test, type Page } from '@playwright/test';
+import { dev } from 'astro';
+import { fileURLToPath } from 'node:url';
+import { gettingToNerjaContent } from '../../src/content/gettingToNerjaContent';
+import { gettingToTarifaContent } from '../../src/content/gettingToTarifaContent';
+import { nerjaBalconContent } from '../../src/content/nerjaBalconContent';
+import { nerjaCavesContent } from '../../src/content/nerjaCavesContent';
+import { nerjaDailyLifeContent } from '../../src/content/nerjaDailyLifeContent';
+import { nerjaGeographyContent } from '../../src/content/nerjaGeographyContent';
+import { tarifaDailyLifeContent } from '../../src/content/tarifaDailyLifeContent';
+import { tarifaGeographyContent } from '../../src/content/tarifaGeographyContent';
+import { tarifaWeatherContent } from '../../src/content/tarifaWeatherContent';
+import { tarifaWinterStaysContent } from '../../src/content/tarifaWinterStaysContent';
+import { resolveLink, type LinkToken } from '../../src/lib/linkResolver';
+import type { AmaraLanguage } from '../../src/types/seo';
+
+/**
+ * Characterization tests for the shared authority article contract.
+ *
+ * Ten location-authority pages repeat the same delivered article shape: one
+ * `article[data-am-page]` root, one H1, an editorial byline, a fact strip, text
+ * sections, related links, external sources and a closing CTA pair. Four of them
+ * additionally place a page-specific block at a fixed position in that sequence.
+ *
+ * The assertions read only markup the site already ships — element order, ids,
+ * link targets, `target`/`rel` and the existing `data-am-*` attributes — so they
+ * stay valid across a composition refactor of the page family while failing on
+ * any semantic drift.
+ */
+
+const PORT = 4324;
+const ORIGIN = `http://127.0.0.1:${PORT}`;
+
+const LANGUAGES: AmaraLanguage[] = ['en', 'de', 'es', 'nl', 'sv'];
+
+/** The structural sweep runs in Spanish, which owns the unprefixed routes. */
+const SWEEP_LANGUAGE: AmaraLanguage = 'es';
+
+/** The structural slice of a page locale that every authority article shares. */
+interface AuthorityArticleLocale {
+  hero: { title: string; standfirst: string; note: string; updated: string; mark?: string };
+  facts: Array<{ label: string; value: string }>;
+  sections: Array<{ id: string; eyebrow: string; title: string; paragraphs: string[] }>;
+  related?: {
+    eyebrow: string;
+    title: string;
+    links: Array<{ token: LinkToken; label: string; text: string }>;
+  };
+  sources: { links: Array<{ label: string; text: string; href: string }> };
+  closing: Record<string, string>;
+}
+
+/** A locale that also carries the orientation block of the geography pages. */
+interface OrientedLocale extends AuthorityArticleLocale {
+  orientation: { items: Array<{ label: string; value: string }> };
+}
+
+/** A closing call to action, in the order the page renders it. */
+interface ClosingCta {
+  token: LinkToken;
+  labelKey: string;
+  className: string;
+}
+
+/** A block rendered inside the text-section loop, right after a given section. */
+interface InterleavedBlock {
+  afterSectionIndex: number;
+  kind: string;
+}
+
+interface AuthorityPage {
+  /** Registry token that owns this page's localized routes. */
+  routeToken: LinkToken;
+  /** The `data-am-page` value on the article root. */
+  pageId: string;
+  content: Record<AmaraLanguage, AuthorityArticleLocale>;
+  /** Oversized decorative hero mark, or null where the page renders none. */
+  heroMark: ((locale: AuthorityArticleLocale) => string) | null;
+  /** Responsive column class of the related-link grid; null where absent. */
+  relatedColumns: string | null;
+  /** Block rendered before the text sections. */
+  blockBeforeSections: string | null;
+  /** Block rendered between the text sections and the related links. */
+  blockAfterSections: string | null;
+  interleaved: InterleavedBlock[];
+  /** Attribute each text section carries in addition to its id. */
+  sectionMarkerAttribute: string | null;
+  closingCtas: [ClosingCta, ClosingCta];
+}
+
+const PRIMARY_CTA_CLASS = 'am-btn am-btn--primary';
+const SECONDARY_CTA_CLASS = 'am-cta-link';
+
+const AUTHORITY_PAGES: AuthorityPage[] = [
+  {
+    routeToken: 'getting_to_nerja',
+    pageId: 'getting-to-nerja',
+    content: gettingToNerjaContent,
+    heroMark: () => 'Nerja',
+    relatedColumns: null,
+    blockBeforeSections: null,
+    blockAfterSections: null,
+    interleaved: [{ afterSectionIndex: 2, kind: 'stay-bridge' }],
+    sectionMarkerAttribute: null,
+    closingCtas: [
+      { token: 'location_nerja', labelKey: 'locationLabel', className: PRIMARY_CTA_CLASS },
+      { token: 'nerja_where_to_stay', labelKey: 'areasLabel', className: SECONDARY_CTA_CLASS }
+    ]
+  },
+  {
+    routeToken: 'getting_to_tarifa',
+    pageId: 'getting-to-tarifa',
+    content: gettingToTarifaContent,
+    heroMark: () => 'Tarifa',
+    relatedColumns: null,
+    blockBeforeSections: null,
+    blockAfterSections: null,
+    interleaved: [{ afterSectionIndex: 2, kind: 'stay-bridge' }],
+    sectionMarkerAttribute: null,
+    closingCtas: [
+      { token: 'location_tarifa', labelKey: 'locationLabel', className: PRIMARY_CTA_CLASS },
+      { token: 'tarifa_where_to_stay', labelKey: 'areasLabel', className: SECONDARY_CTA_CLASS }
+    ]
+  },
+  {
+    routeToken: 'nerja_balcon_de_europa',
+    pageId: 'nerja-balcon-de-europa',
+    content: nerjaBalconContent,
+    heroMark: null,
+    relatedColumns: 'md:grid-cols-2',
+    blockBeforeSections: null,
+    blockAfterSections: null,
+    interleaved: [],
+    sectionMarkerAttribute: null,
+    closingCtas: [
+      { token: 'playa', labelKey: 'propertyLabel', className: PRIMARY_CTA_CLASS },
+      { token: 'location_nerja', labelKey: 'locationLabel', className: SECONDARY_CTA_CLASS }
+    ]
+  },
+  {
+    routeToken: 'nerja_caves',
+    pageId: 'nerja-caves',
+    content: nerjaCavesContent,
+    heroMark: null,
+    relatedColumns: 'md:grid-cols-2',
+    blockBeforeSections: null,
+    blockAfterSections: 'section:our-visit',
+    interleaved: [],
+    sectionMarkerAttribute: null,
+    closingCtas: [
+      { token: 'playa', labelKey: 'propertyLabel', className: PRIMARY_CTA_CLASS },
+      { token: 'location_nerja', labelKey: 'locationLabel', className: SECONDARY_CTA_CLASS }
+    ]
+  },
+  {
+    routeToken: 'nerja_daily_life',
+    pageId: 'nerja-daily-life',
+    content: nerjaDailyLifeContent,
+    heroMark: null,
+    relatedColumns: 'md:grid-cols-2',
+    blockBeforeSections: null,
+    blockAfterSections: null,
+    interleaved: [],
+    sectionMarkerAttribute: null,
+    closingCtas: [
+      { token: 'playa', labelKey: 'propertyLabel', className: PRIMARY_CTA_CLASS },
+      { token: 'location_nerja', labelKey: 'locationLabel', className: SECONDARY_CTA_CLASS }
+    ]
+  },
+  {
+    routeToken: 'nerja_geography',
+    pageId: 'nerja-geography',
+    content: nerjaGeographyContent,
+    heroMark: () => '36° N',
+    relatedColumns: 'md:grid-cols-2',
+    blockBeforeSections: 'orientation:nerja',
+    blockAfterSections: null,
+    interleaved: [],
+    sectionMarkerAttribute: null,
+    closingCtas: [
+      { token: 'playa', labelKey: 'propertyLabel', className: PRIMARY_CTA_CLASS },
+      { token: 'location_nerja', labelKey: 'locationLabel', className: SECONDARY_CTA_CLASS }
+    ]
+  },
+  {
+    routeToken: 'tarifa_daily_life',
+    pageId: 'tarifa-daily-life',
+    content: tarifaDailyLifeContent,
+    heroMark: () => '5 min',
+    relatedColumns: 'md:grid-cols-2',
+    blockBeforeSections: null,
+    blockAfterSections: null,
+    interleaved: [],
+    sectionMarkerAttribute: 'data-am-daily-life-section',
+    closingCtas: [
+      { token: 'location_tarifa', labelKey: 'locationLabel', className: PRIMARY_CTA_CLASS },
+      { token: 'casa', labelKey: 'propertyLabel', className: SECONDARY_CTA_CLASS }
+    ]
+  },
+  {
+    routeToken: 'tarifa_geography',
+    pageId: 'tarifa-geography',
+    content: tarifaGeographyContent,
+    heroMark: () => '36° N',
+    relatedColumns: 'md:grid-cols-2',
+    blockBeforeSections: 'orientation:tarifa',
+    blockAfterSections: null,
+    interleaved: [],
+    sectionMarkerAttribute: null,
+    closingCtas: [
+      { token: 'location_tarifa', labelKey: 'locationLabel', className: PRIMARY_CTA_CLASS },
+      { token: 'tarifa_experience_hub', labelKey: 'experienceLabel', className: SECONDARY_CTA_CLASS }
+    ]
+  },
+  {
+    routeToken: 'tarifa_weather',
+    pageId: 'tarifa-weather',
+    content: tarifaWeatherContent,
+    heroMark: () => '23.9°',
+    relatedColumns: 'md:grid-cols-3',
+    blockBeforeSections: null,
+    blockAfterSections: null,
+    interleaved: [{ afterSectionIndex: 0, kind: 'comparison' }],
+    sectionMarkerAttribute: null,
+    closingCtas: [
+      { token: 'location_tarifa', labelKey: 'locationLabel', className: PRIMARY_CTA_CLASS },
+      { token: 'tarifa_where_to_stay', labelKey: 'areasLabel', className: SECONDARY_CTA_CLASS }
+    ]
+  },
+  {
+    routeToken: 'tarifa_winter_stays',
+    pageId: 'tarifa-winter-stays',
+    content: tarifaWinterStaysContent,
+    heroMark: (locale) => locale.hero.mark ?? '',
+    relatedColumns: 'md:grid-cols-2',
+    blockBeforeSections: null,
+    blockAfterSections: null,
+    interleaved: [],
+    sectionMarkerAttribute: 'data-am-winter-stays-section',
+    closingCtas: [
+      { token: 'location_tarifa', labelKey: 'locationLabel', className: PRIMARY_CTA_CLASS },
+      { token: 'casa', labelKey: 'propertyLabel', className: SECONDARY_CTA_CLASS }
+    ]
+  }
+];
+
+function authorityPage(pageId: string): AuthorityPage {
+  const entry = AUTHORITY_PAGES.find((candidate) => candidate.pageId === pageId);
+  if (!entry) {
+    throw new Error(`No authority page descriptor for "${pageId}".`);
+  }
+  return entry;
+}
+
+let astroServer: Awaited<ReturnType<typeof dev>> | undefined;
+
+test.beforeAll(async () => {
+  astroServer = await dev({
+    root: fileURLToPath(new URL('../../', import.meta.url)),
+    server: {
+      host: '127.0.0.1',
+      port: PORT
+    },
+    logLevel: 'silent'
+  });
+});
+
+test.afterAll(async () => {
+  await astroServer?.stop();
+});
+
+/** Article markup ships in the initial response; images and fonts need not settle first. */
+const openPage = (page: Page, path: string) =>
+  page.goto(`${ORIGIN}${path}`, { waitUntil: 'domcontentloaded' });
+
+/** Tailwind variant classes contain a colon, so match them as whole class tokens. */
+const byClassToken = (token: string) => `[class~="${token}"]`;
+
+interface BlockFingerprint {
+  kind: string;
+  marker: string | null;
+}
+
+/**
+ * Reduce the article's direct children to an ordered, semantic fingerprint.
+ * Every branch keys off markup the pages already ship, so the sequence — and
+ * with it the DOM position of each page-specific block — is asserted without
+ * introducing test-only hooks.
+ */
+const articleBlocks = (page: Page, pageId: string): Promise<BlockFingerprint[]> =>
+  page.$$eval(`article[data-am-page="${pageId}"] > *`, (nodes) =>
+    nodes.map((node) => {
+      const orientation = node.getAttribute('data-am-orientation');
+      const marker =
+        node.getAttribute('data-am-daily-life-section') ??
+        node.getAttribute('data-am-winter-stays-section');
+
+      if (node.tagName === 'HEADER') return { kind: 'header', marker: null };
+      if (orientation) return { kind: `orientation:${orientation}`, marker: null };
+      if (node.id) return { kind: `section:${node.id}`, marker };
+      if (node.querySelector('dl')) return { kind: 'facts', marker: null };
+      if (node.querySelector('figure')) return { kind: 'stay-bridge', marker: null };
+      if (node.querySelector('.tabular-nums')) return { kind: 'comparison', marker: null };
+      if (node.querySelector('a[target="_blank"]')) return { kind: 'sources', marker: null };
+      if (node.querySelector('a.am-btn--primary')) return { kind: 'closing', marker: null };
+      if (node.querySelector('a[href]')) return { kind: 'related', marker: null };
+      return { kind: 'unclassified', marker: null };
+    })
+  );
+
+/** The block sequence a page is expected to deliver, built from its own content. */
+function expectedBlocks(entry: AuthorityPage, locale: AuthorityArticleLocale): BlockFingerprint[] {
+  const blocks: BlockFingerprint[] = [
+    { kind: 'header', marker: null },
+    { kind: 'facts', marker: null }
+  ];
+
+  if (entry.blockBeforeSections) {
+    blocks.push({ kind: entry.blockBeforeSections, marker: null });
+  }
+
+  locale.sections.forEach((section, index) => {
+    blocks.push({
+      kind: `section:${section.id}`,
+      marker: entry.sectionMarkerAttribute ? section.id : null
+    });
+
+    for (const block of entry.interleaved) {
+      if (block.afterSectionIndex === index) {
+        blocks.push({ kind: block.kind, marker: null });
+      }
+    }
+  });
+
+  if (entry.blockAfterSections) {
+    blocks.push({ kind: entry.blockAfterSections, marker: null });
+  }
+
+  if (entry.relatedColumns) {
+    blocks.push({ kind: 'related', marker: null });
+  }
+
+  blocks.push({ kind: 'sources', marker: null }, { kind: 'closing', marker: null });
+
+  return blocks;
+}
+
+for (const entry of AUTHORITY_PAGES) {
+  test(`${entry.pageId} keeps its delivered authority article contract`, async ({ page }) => {
+    const locale = entry.content[SWEEP_LANGUAGE];
+    await openPage(page, resolveLink(entry.routeToken, SWEEP_LANGUAGE));
+
+    const article = page.locator(`article[data-am-page="${entry.pageId}"]`);
+    await expect(article).toHaveCount(1);
+
+    // Exactly one H1 in the document, and it belongs to the article. Queried
+    // through the light DOM so the dev toolbar's own shadow markup is excluded.
+    const documentHeadings = await page.evaluate(() => document.querySelectorAll('h1').length);
+    expect(documentHeadings).toBe(1);
+    await expect(article.locator('h1')).toHaveText(locale.hero.title);
+
+    // Element order, including where each page-specific block sits.
+    expect(await articleBlocks(page, entry.pageId)).toEqual(expectedBlocks(entry, locale));
+
+    // Editorial byline: one per article, crediting the author page.
+    const byline = article.locator('[data-am-component="editorial-byline"]');
+    await expect(byline).toHaveCount(1);
+    await expect(byline.locator('a[rel="author"]')).toHaveAttribute(
+      'href',
+      resolveLink('about', SWEEP_LANGUAGE)
+    );
+    await expect(byline.locator('span').first()).toHaveText(locale.hero.updated);
+    await expect(byline.locator('span').last()).toHaveText(locale.hero.note);
+
+    // Decorative hero mark.
+    const heroMark = article.locator('header [aria-hidden="true"]');
+    if (entry.heroMark) {
+      await expect(heroMark).toHaveCount(1);
+      await expect(heroMark).toHaveText(entry.heroMark(locale));
+    } else {
+      await expect(heroMark).toHaveCount(0);
+    }
+
+    // Fact strip.
+    const facts = article.locator('dl');
+    await expect(facts).toHaveCount(1);
+    await expect(facts.locator('dt')).toHaveText(locale.facts.map((fact) => fact.label));
+    await expect(facts.locator('dd')).toHaveText(locale.facts.map((fact) => fact.value));
+
+    // Text sections keep their ids, headings and paragraph counts.
+    for (const section of locale.sections) {
+      const sectionRoot = article.locator(`section[id="${section.id}"]`);
+      await expect(sectionRoot).toHaveCount(1);
+      await expect(sectionRoot.locator('h2')).toHaveText(section.title);
+      // One eyebrow paragraph precedes the authored body paragraphs.
+      await expect(sectionRoot.locator('p')).toHaveCount(section.paragraphs.length + 1);
+    }
+
+    // Internal related links resolve through the registry.
+    if (locale.related) {
+      const relatedGrid = article.locator(
+        `div${byClassToken(entry.relatedColumns as string)}`
+      );
+      await expect(relatedGrid).toHaveCount(1);
+
+      const relatedLinks = relatedGrid.locator('a');
+      await expect(relatedLinks).toHaveCount(locale.related.links.length);
+
+      for (const [index, link] of locale.related.links.entries()) {
+        await expect(relatedLinks.nth(index)).toHaveAttribute(
+          'href',
+          resolveLink(link.token, SWEEP_LANGUAGE)
+        );
+        await expect(relatedLinks.nth(index).locator('span').first()).toHaveText(link.label);
+      }
+    } else {
+      expect(entry.relatedColumns).toBeNull();
+    }
+
+    // External sources open in a new tab with a safe rel.
+    const sourceLinks = article.locator('a[target="_blank"]');
+    await expect(sourceLinks).toHaveCount(locale.sources.links.length);
+
+    for (const [index, source] of locale.sources.links.entries()) {
+      const sourceLink = sourceLinks.nth(index);
+      await expect(sourceLink).toHaveAttribute('href', source.href);
+      await expect(sourceLink).toHaveAttribute('rel', 'noopener noreferrer');
+
+      // The label and its supporting line sit in a wrapper span, next to the arrow.
+      const sourceCopy = sourceLink.locator('span > span');
+      await expect(sourceCopy.nth(0)).toHaveText(source.label);
+      await expect(sourceCopy.nth(1)).toHaveText(source.text);
+    }
+
+    // Closing CTAs: order, styling contract and destinations.
+    const closingCtas = article.locator('a.am-btn, a.am-cta-link');
+    await expect(closingCtas).toHaveCount(entry.closingCtas.length);
+
+    for (const [index, cta] of entry.closingCtas.entries()) {
+      const ctaLink = closingCtas.nth(index);
+      await expect(ctaLink).toHaveClass(cta.className);
+      await expect(ctaLink).toHaveAttribute('href', resolveLink(cta.token, SWEEP_LANGUAGE));
+      await expect(ctaLink).toHaveText(locale.closing[cta.labelKey] as string);
+    }
+  });
+}
+
+test('the getting-to pages bridge to the stay after the third text section', async ({ page }) => {
+  for (const pageId of ['getting-to-nerja', 'getting-to-tarifa']) {
+    const entry = authorityPage(pageId);
+    const locale = entry.content[SWEEP_LANGUAGE];
+    await openPage(page, resolveLink(entry.routeToken, SWEEP_LANGUAGE));
+
+    const blocks = await articleBlocks(page, pageId);
+    const bridgeIndex = blocks.findIndex((block) => block.kind === 'stay-bridge');
+    const thirdSectionIndex = blocks.findIndex(
+      (block) => block.kind === `section:${locale.sections[2].id}`
+    );
+
+    expect(thirdSectionIndex, pageId).toBeGreaterThan(-1);
+    expect(bridgeIndex, pageId).toBe(thirdSectionIndex + 1);
+    await expect(page.locator(`article[data-am-page="${pageId}"] figure img`)).toHaveCount(1);
+  }
+});
+
+test('nerja-caves places the personal visit block before the related links', async ({ page }) => {
+  const entry = authorityPage('nerja-caves');
+  const locale = entry.content[SWEEP_LANGUAGE];
+  await openPage(page, resolveLink(entry.routeToken, SWEEP_LANGUAGE));
+
+  const blocks = await articleBlocks(page, 'nerja-caves');
+  const visitIndex = blocks.findIndex((block) => block.kind === 'section:our-visit');
+  const relatedIndex = blocks.findIndex((block) => block.kind === 'related');
+  const lastSectionId = locale.sections[locale.sections.length - 1].id;
+  const lastSectionIndex = blocks.findIndex((block) => block.kind === `section:${lastSectionId}`);
+
+  expect(visitIndex).toBe(lastSectionIndex + 1);
+  expect(relatedIndex).toBe(visitIndex + 1);
+  await expect(page.locator('#our-visit img')).toHaveCount(1);
+});
+
+test('the geography pages place the orientation block before the text sections', async ({
+  page
+}) => {
+  for (const [pageId, destination] of [
+    ['nerja-geography', 'nerja'],
+    ['tarifa-geography', 'tarifa']
+  ]) {
+    const entry = authorityPage(pageId);
+    const locale = entry.content[SWEEP_LANGUAGE] as OrientedLocale;
+    await openPage(page, resolveLink(entry.routeToken, SWEEP_LANGUAGE));
+
+    const blocks = await articleBlocks(page, pageId);
+    const orientationIndex = blocks.findIndex(
+      (block) => block.kind === `orientation:${destination}`
+    );
+    const firstSectionIndex = blocks.findIndex(
+      (block) => block.kind === `section:${locale.sections[0].id}`
+    );
+
+    expect(orientationIndex, pageId).toBeGreaterThan(-1);
+    expect(orientationIndex, pageId).toBeLessThan(firstSectionIndex);
+
+    const orientation = page.locator(`[data-am-orientation="${destination}"]`);
+    await expect(orientation.locator('[data-am-orientation-point]')).toHaveCount(
+      locale.orientation.items.length
+    );
+    await expect(orientation.locator('h2')).toHaveAttribute('id', `${destination}-orientation-title`);
+  }
+});
+
+test('tarifa-weather places the comparison block after the first text section', async ({
+  page
+}) => {
+  const locale = tarifaWeatherContent[SWEEP_LANGUAGE];
+  await openPage(page, resolveLink('tarifa_weather', SWEEP_LANGUAGE));
+
+  const blocks = await articleBlocks(page, 'tarifa-weather');
+  const comparisonIndex = blocks.findIndex((block) => block.kind === 'comparison');
+  const firstSectionIndex = blocks.findIndex(
+    (block) => block.kind === `section:${locale.sections[0].id}`
+  );
+
+  expect(comparisonIndex).toBe(firstSectionIndex + 1);
+  await expect(
+    page.locator('article[data-am-page="tarifa-weather"] .tabular-nums')
+  ).toHaveCount(locale.comparison.places.length * 2);
+});
+
+for (const language of LANGUAGES) {
+  test(`tarifa-weather resolves its related links and CTAs in ${language}`, async ({ page }) => {
+    const locale = tarifaWeatherContent[language];
+    await openPage(page, resolveLink('tarifa_weather', language));
+
+    const article = page.locator('article[data-am-page="tarifa-weather"]');
+    await expect(article.locator('h1')).toHaveText(locale.hero.title);
+
+    const relatedLinks = article.locator(`div${byClassToken('md:grid-cols-3')} a`);
+    await expect(relatedLinks).toHaveCount(locale.related.links.length);
+
+    for (const [index, link] of locale.related.links.entries()) {
+      await expect(relatedLinks.nth(index)).toHaveAttribute(
+        'href',
+        resolveLink(link.token, language)
+      );
+    }
+
+    const closingCtas = article.locator('a.am-btn, a.am-cta-link');
+    await expect(closingCtas).toHaveCount(2);
+    await expect(closingCtas.nth(0)).toHaveAttribute(
+      'href',
+      resolveLink('location_tarifa', language)
+    );
+    await expect(closingCtas.nth(1)).toHaveAttribute(
+      'href',
+      resolveLink('tarifa_where_to_stay', language)
+    );
+  });
+}
