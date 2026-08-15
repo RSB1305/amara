@@ -9,6 +9,11 @@
     "dev": "astro dev",
     "typecheck": "astro check",
     "typecheck:tools": "astro check --tsconfig tsconfig.tools.json",
+    "typecheck:tests": "tsc --noEmit --project tsconfig.tests.json",
+    "audit:dependencies": "npm audit --audit-level=high",
+    "test": "npm run test:contracts && npm run test:browser",
+    "test:contracts": "playwright test --config=playwright.contracts.config.ts",
+    "test:browser": "playwright test --config=playwright.browser.config.ts",
     "prebuild": "npm run typecheck && npm run check:slug-policy && npm run check:fallback-policy && npm run check:image-policy",
     "check": "npm run typecheck && npm run check:slug-policy && npm run check:fallback-policy && npm run check:image-policy",
     "build": "astro build",
@@ -34,6 +39,7 @@
   },
   "devDependencies": {
     "@astrojs/check": "^0.9.5",
+    "@playwright/test": "^1.62.1",
     "@types/react": "^19.2.14",
     "@types/react-dom": "^19.2.3",
     "typescript": "^5.9.3"

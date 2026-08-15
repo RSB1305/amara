@@ -105,27 +105,32 @@ rules in `AGENTS.md`.
 
 ## Quality gates
 
-There is no unit test suite. The gate is the build, run both in CI and locally:
+The repository has a focused automated test suite plus the build gate:
 
 - `npm run typecheck` — the primary safety net for everyday edits
+- `npm run typecheck:tools` — strict checking for the dev-only internal tools
+- `npm run typecheck:tests` — strict checking for test code and its configuration
+- `npm run audit:dependencies` — blocks known high and critical npm vulnerabilities
+- `npm run test:contracts` — booking, localization, route and link contracts
+- `npm run test:browser` — real-browser smoke tests for interactive behaviour
 - `check-public-slug-policy` — slug collisions, duplicates, redirect chains and loops
 - `check-fallback-policy` — restricts `fallbackLang` to approved files
 - `check-image-policy` — responsive image delivery, in source and in `dist`
 - `postbuild.mjs` — structured data audit and SEO title policy assertions
 
-Because `prebuild` runs all of these, a commit that breaks any of them fails the
-build. `.github/workflows/check.yml` runs `npm run build` on every push and pull
+Because `prebuild` runs the production typecheck and policy checks, a commit that
+breaks any of them fails the build. `.github/workflows/check.yml` additionally runs
+the tools typecheck, both test layers and `npm run build` on every push and pull
 request, so a failure is visible before it reaches the deployment path.
 
-Locally: run `npm run check` for the fast preflight, and `npm run build` to
-reproduce exactly what CI does — only the full build covers rendering and the
-postbuild audits.
+Locally: run `npm run check` for the fast production preflight, `npm test` for the
+focused automated suite, and `npm run build` for rendering and postbuild audits.
+CI runs all three scopes on a clean install.
 
 The internal tools are excluded from `npm run typecheck` because they are dev-only
 surfaces with their own conventions. `npm run typecheck:tools` checks them against
-the same strict settings and currently passes with zero errors. That check is not
-part of `npm run check` or CI, so it has to be run deliberately after changing a
-tool — the separation is a scope boundary, not accepted debt.
+the same strict settings and currently passes with zero errors. It remains separate
+from the fast production check, but CI enforces it on every push and pull request.
 
 ## Internal tools
 
