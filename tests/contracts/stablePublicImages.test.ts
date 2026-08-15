@@ -14,8 +14,8 @@ import {
  * Characterization of the published image URL contract.
  *
  * These assertions pin the contract itself rather than any mechanism that
- * serves it, so they stay valid while delivery moves from the public root to a
- * build-time emission.
+ * serves it, which is what kept them valid when delivery moved from the public
+ * root to a build-time emission.
  */
 
 const repositoryRoot = fileURLToPath(new URL('../../', import.meta.url));
@@ -26,7 +26,7 @@ const segmentsOf = (path: string) =>
 const sourceFileFor = (path: string) =>
   join(repositoryRoot, STABLE_PUBLIC_IMAGE_SOURCE_ROOT, ...segmentsOf(path));
 
-/** Transition reality: a byte-identical legacy copy still sits in the public root. */
+/** Where a copy of a listed image would sit if one ever returned to the public root. */
 const publicFileFor = (path: string) =>
   join(repositoryRoot, 'public', 'images', ...segmentsOf(path));
 
@@ -76,14 +76,19 @@ test('membership and source resolution agree', () => {
   expect(isStablePublicImagePath('/images/does-not-exist.jpg')).toBe(false);
 });
 
-test('the manifest-managed set still has a legacy copy in the public root', () => {
-  // Characterizes the transition state: every listed path also exists as a
-  // byte-identical copy under `public/images`. Removing those copies is a
-  // separate, later step, and this assertion is what will record it when it
-  // happens.
-  const missingPublicTwin = STABLE_PUBLIC_IMAGE_PATHS.filter(
-    (path) => !existsSync(publicFileFor(path))
-  );
+test('no manifest-managed path is duplicated in the public root', () => {
+  // The invariant the migration established: for a listed path, the source root is
+  // the only versioned copy and the build emitter is the only thing that puts it
+  // under `/images/`. A file reappearing here would give a stable URL a second
+  // source that could drift away from the first one unnoticed.
+  const publicTwins = STABLE_PUBLIC_IMAGE_PATHS.filter((path) => existsSync(publicFileFor(path)));
 
-  expect(missingPublicTwin).toEqual([]);
+  expect(publicTwins).toEqual([]);
+});
+
+test('media the manifest does not list stays in the public root', () => {
+  // Scoped to the manifest, not to `/images/` as a whole. Parked media this contract
+  // never managed keeps living in the public root and keeps being delivered from
+  // there, so the assertion above must not be read as emptying that namespace.
+  expect(existsSync(publicFileFor('/images/tarifa/surla-tarifa-cafe.jpeg'))).toBe(true);
 });

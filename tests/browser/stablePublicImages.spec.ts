@@ -14,9 +14,9 @@ import {
  *
  * The point of these is parity: the dev server must emit exactly what a production
  * build emits, no more. A middleware that simply exposed the entire source root
- * would bypass the manifest and expose source-only paths absent from the current
- * build. Once the legacy public copies are removed, that discrepancy would only
- * grow, and it would surface only when something external followed such a URL.
+ * would bypass the manifest and make source-only paths available even though
+ * production does not emit them, a discrepancy that would surface only when
+ * something external followed such a URL.
  *
  * Astro's own public-directory handling sets `etag` and `cache-control`; the
  * published-image middleware does not. That difference is what lets these tests tell
@@ -31,8 +31,9 @@ const PUBLISHED_PATH = STABLE_PUBLIC_IMAGE_PATHS[0];
 /**
  * A specifically chosen source-only example: it is in the source root, the manifest
  * does not list it, and it has no copy under `public/images` either. That last part
- * is why it is unreachable today. Other unlisted source images can still resolve
- * during the transition through a legacy public copy, which this contract leaves be.
+ * is why it is unreachable today. Other unlisted source images may also have
+ * independently retained copies in `public/images` and can therefore resolve through
+ * Astro's public handling; this contract leaves those files alone.
  */
 const SOURCE_ONLY_PATH = '/images/wellness/frigiliana-wellness-1.jpeg';
 /** Parked media that only the public root holds and that this contract must not touch. */
