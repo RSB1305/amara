@@ -14,18 +14,18 @@ import {
 import type { AmaraLanguage } from '../../src/types/seo';
 
 /**
- * Characterization of the global navigation model.
+ * Contract for the global navigation model.
  *
- * The header exposes a `locationAuthorityNav` flag that is meant to unlock
- * destination links on Type A location authority pages. These tests pin the
- * resolved model down for every language and every page context in which the
- * flag is actually used, so that the flag can be evaluated against observed
- * behaviour rather than against its documented intent.
+ * These assertions pin the resolved header down for every language and every
+ * page context that renders it, so that group order, link targets, active
+ * state, CTA and language options cannot drift silently. Link gating is owned
+ * by the disabled route token set plus the forced destination tokens, and
+ * nothing else may re-open a gated route.
  */
 
 const ALL_LINK_TOKENS = Object.keys(linkRegistry.links) as LinkToken[];
 
-const KNOWN_DISABLED_TOKENS: LinkToken[] = [
+const DISABLED_TOKENS: LinkToken[] = [
   'locations_hub',
   'weather_frigiliana',
   'journal',
@@ -53,7 +53,7 @@ const EXPECTED_CTA_LABELS: Record<AmaraLanguage, string> = {
   sv: 'Se tillgänglighet'
 };
 
-/** The page contexts that currently render the header, including both flag users. */
+/** The page contexts that currently render the header. */
 const NAVIGATION_SCENARIOS: {
   id: string;
   activeToken: LinkToken | null;
@@ -68,7 +68,7 @@ const NAVIGATION_SCENARIOS: {
     })
   },
   {
-    id: 'ordinary page without the flag',
+    id: 'ordinary page',
     activeToken: 'about',
     input: (currentLang) => ({
       currentLang,
@@ -95,33 +95,6 @@ const NAVIGATION_SCENARIOS: {
     })
   }
 ];
-
-test('resolves the same navigation model with and without the location authority flag', () => {
-  for (const language of SUPPORTED_LANGUAGES) {
-    for (const scenario of NAVIGATION_SCENARIOS) {
-      const input = scenario.input(language);
-
-      const withoutFlag = createGlobalNavigationModel(input);
-      const withFlag = createGlobalNavigationModel({ ...input, locationAuthorityNav: true });
-
-      expect(
-        withFlag,
-        `${scenario.id} (${language}) must not depend on the location authority flag`
-      ).toEqual(withoutFlag);
-    }
-  }
-});
-
-test('treats the location authority flag as inert across the whole link token space', () => {
-  for (const token of ALL_LINK_TOKENS) {
-    for (const forceEnabled of [false, true]) {
-      expect(
-        isPublicLinkEnabled(token, { forceEnabled, locationAuthorityNav: true }),
-        `token ${token} (forceEnabled: ${forceEnabled}) must not depend on the flag`
-      ).toBe(isPublicLinkEnabled(token, { forceEnabled }));
-    }
-  }
-});
 
 test('keeps the three destination tokens resolvable in every language', () => {
   for (const language of SUPPORTED_LANGUAGES) {
@@ -184,10 +157,16 @@ test('keeps navigation groups, order, active state, CTA and language options sta
   }
 });
 
-test('keeps disabled public route tokens disabled regardless of the flag', () => {
-  for (const token of KNOWN_DISABLED_TOKENS) {
+test('gates every registry token strictly by the disabled route token set', () => {
+  for (const token of ALL_LINK_TOKENS) {
+    expect(isPublicLinkEnabled(token), `token ${token} gating`).toBe(
+      !DISABLED_TOKENS.includes(token)
+    );
+  }
+
+  for (const token of DISABLED_TOKENS) {
     expect(isPublicLinkEnabled(token)).toBe(false);
-    expect(isPublicLinkEnabled(token, { locationAuthorityNav: true })).toBe(false);
+    expect(isPublicLinkEnabled(token, { forceEnabled: true })).toBe(true);
   }
 });
 

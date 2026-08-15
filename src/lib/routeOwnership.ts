@@ -14,19 +14,9 @@ const DISABLED_PUBLIC_ROUTE_TOKENS = new Set([
   'archive'
 ]);
 
-const LOCATION_AUTHORITY_CENTER_TOKENS = new Set([
-  'location_frigiliana',
-  'location_nerja',
-  'location_tarifa',
-  'frigiliana_experience_hub',
-  'nerja_experience_hub',
-  'tarifa_experience_hub'
-]);
-
 interface PublicLinkOptions {
   disabled?: boolean;
   forceEnabled?: boolean;
-  locationAuthorityNav?: boolean;
 }
 
 export function isSupportedLanguage(lang: string): lang is AmaraLanguage {
@@ -59,10 +49,6 @@ export function isPublicLinkEnabled(
   }
 
   if (options.forceEnabled) {
-    return true;
-  }
-
-  if (options.locationAuthorityNav && LOCATION_AUTHORITY_CENTER_TOKENS.has(token)) {
     return true;
   }
 
