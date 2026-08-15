@@ -6,7 +6,7 @@ import EditorialByline from '../../components/editorial/EditorialByline.astro';
 import NerjaContextNav from '../../components/location/NerjaContextNav.astro';
 import { gettingToNerjaContent, gettingToNerjaSeo } from '../../content/gettingToNerjaContent';
 import LocationAuthorityLayout from '../../layouts/LocationAuthorityLayout.astro';
-import { resolveLink, type LinkToken, type LabeledLink } from '../../lib/linkResolver';
+import { createRequiredLinkResolver, type LabeledLink } from '../../lib/linkResolver';
 import { normalizeLanguage } from '../../lib/seo/resolve-seo-head';
 import type { AmaraLanguage } from '../../types/seo';
 
@@ -17,8 +17,7 @@ interface Props {
 const { lang = 'es' } = Astro.props;
 const currentLang = normalizeLanguage(lang as AmaraLanguage);
 const content = gettingToNerjaContent[currentLang];
-const requiredLink = (token: LinkToken) =>
-  resolveLink(token, currentLang, { context: 'Getting to Nerja' });
+const requiredLink = createRequiredLinkResolver(currentLang, 'Getting to Nerja');
 const aboutHref = requiredLink('about');
 const locationHref = requiredLink('location_nerja');
 const areasHref = requiredLink('nerja_where_to_stay');

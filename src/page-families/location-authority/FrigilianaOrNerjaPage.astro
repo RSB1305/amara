@@ -8,7 +8,7 @@ import {
 } from '../../content/frigilianaOrNerjaContent';
 import { stayCollectionLabels } from '../../content/stayCollectionLabels';
 import LocationAuthorityLayout from '../../layouts/LocationAuthorityLayout.astro';
-import { resolveLink, type LinkToken, type LabeledLink } from '../../lib/linkResolver';
+import { createRequiredLinkResolver, type LabeledLink } from '../../lib/linkResolver';
 import { normalizeLanguage } from '../../lib/seo/resolve-seo-head';
 import type { AmaraLanguage } from '../../types/seo';
 
@@ -20,8 +20,7 @@ const { lang = 'es' } = Astro.props;
 const currentLang = normalizeLanguage(lang as AmaraLanguage);
 const copy = frigilianaOrNerjaContent[currentLang];
 
-const requiredLink = (token: LinkToken) =>
-  resolveLink(token, currentLang, { context: 'Frigiliana or Nerja' });
+const requiredLink = createRequiredLinkResolver(currentLang, 'Frigiliana or Nerja');
 
 const links = {
   frigilianaLocation: requiredLink('location_frigiliana'),

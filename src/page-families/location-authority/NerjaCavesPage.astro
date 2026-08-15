@@ -8,7 +8,7 @@ import {
   nerjaCavesSeo
 } from '../../content/nerjaCavesContent';
 import LocationAuthorityLayout from '../../layouts/LocationAuthorityLayout.astro';
-import { resolveLink, type LinkToken, type LabeledLink } from '../../lib/linkResolver';
+import { createRequiredLinkResolver, type LabeledLink } from '../../lib/linkResolver';
 import { normalizeLanguage } from '../../lib/seo/resolve-seo-head';
 import type { AmaraLanguage } from '../../types/seo';
 
@@ -20,8 +20,7 @@ const { lang = 'es' } = Astro.props;
 const currentLang = normalizeLanguage(lang as AmaraLanguage);
 const content = nerjaCavesContent[currentLang];
 
-const requiredLink = (token: LinkToken) =>
-  resolveLink(token, currentLang, { context: 'Nerja caves' });
+const requiredLink = createRequiredLinkResolver(currentLang, 'Nerja caves');
 
 const aboutHref = requiredLink('about');
 const locationHref = requiredLink('location_nerja');

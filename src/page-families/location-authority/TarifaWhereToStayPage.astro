@@ -6,7 +6,7 @@ import EditorialByline from '../../components/editorial/EditorialByline.astro';
 import TarifaContextNav from '../../components/location/TarifaContextNav.astro';
 import { tarifaWhereToStayContent } from '../../content/tarifaWhereToStayContent';
 import LocationAuthorityLayout from '../../layouts/LocationAuthorityLayout.astro';
-import { resolveLink, type LinkToken, type LabeledLink } from '../../lib/linkResolver';
+import { createRequiredLinkResolver, type LabeledLink } from '../../lib/linkResolver';
 import { normalizeLanguage } from '../../lib/seo/resolve-seo-head';
 import type { AmaraLanguage } from '../../types/seo';
 
@@ -17,8 +17,7 @@ interface Props {
 const { lang = 'es' } = Astro.props;
 const currentLang = normalizeLanguage(lang as AmaraLanguage);
 const content = tarifaWhereToStayContent.location[currentLang];
-const requiredLink = (token: LinkToken) =>
-  resolveLink(token, currentLang, { context: 'Tarifa where to stay' });
+const requiredLink = createRequiredLinkResolver(currentLang, 'Tarifa where to stay');
 const aboutHref = requiredLink('about');
 const stayHref = requiredLink('casa');
 const locationHref = requiredLink('location_tarifa');

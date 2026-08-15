@@ -9,7 +9,7 @@ import {
   gettingToTarifaSeo
 } from '../../content/gettingToTarifaContent';
 import LocationAuthorityLayout from '../../layouts/LocationAuthorityLayout.astro';
-import { resolveLink, type LinkToken, type LabeledLink } from '../../lib/linkResolver';
+import { createRequiredLinkResolver, type LabeledLink } from '../../lib/linkResolver';
 import { normalizeLanguage } from '../../lib/seo/resolve-seo-head';
 import type { AmaraLanguage } from '../../types/seo';
 
@@ -21,8 +21,7 @@ const { lang = 'es' } = Astro.props;
 const currentLang = normalizeLanguage(lang as AmaraLanguage);
 const content = gettingToTarifaContent[currentLang];
 
-const requiredLink = (token: LinkToken) =>
-  resolveLink(token, currentLang, { context: 'Getting to Tarifa' });
+const requiredLink = createRequiredLinkResolver(currentLang, 'Getting to Tarifa');
 
 const aboutHref = requiredLink('about');
 const locationHref = requiredLink('location_tarifa');
