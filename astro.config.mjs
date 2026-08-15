@@ -4,6 +4,7 @@ import tailwindcss from '@tailwindcss/vite';
 import react from '@astrojs/react';
 import sitemap from '@astrojs/sitemap';
 import { guestGuideEntries } from './src/content/guestGuideEntries.ts';
+import { stablePublicImages } from './src/integrations/stablePublicImages.ts';
 
 // Internal tools live in src/pages/_tools, which Astro's file router ignores because
 // of the underscore. They are mounted as real /tools/* routes only where they are
@@ -212,6 +213,7 @@ export default defineConfig({
       filter: isSitemapPageAllowed,
       serialize: normalizeSitemapItem
     }),
-    internalToolRoutes()
+    internalToolRoutes(),
+    stablePublicImages()
   ]
 });

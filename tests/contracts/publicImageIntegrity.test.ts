@@ -2,11 +2,11 @@ import { expect, test } from '@playwright/test';
 import { mkdirSync, mkdtempSync, rmSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { dirname, join } from 'node:path';
+import { auditPublicImageIntegrity } from '../../scripts/check-image-policy.mjs';
 import {
-  auditPublicImageIntegrity,
   collectPublicImageReferences,
   normalizePublicImageReference
-} from '../../scripts/check-image-policy.mjs';
+} from '../../src/lib/images/publicImageReferences';
 
 const SITE_ORIGIN = 'https://amara-lodging.es';
 const LOCAL_ORIGINS = new Set([SITE_ORIGIN]);
