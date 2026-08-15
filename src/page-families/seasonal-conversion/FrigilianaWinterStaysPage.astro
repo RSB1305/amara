@@ -16,7 +16,7 @@ import lounisImage from '../../assets/images/content/amara-lounis/28-amara-frigi
 import zaidImage from '../../assets/images/home/amara-zaid-terraza-5.jpg';
 import mahaImage from '../../assets/images/home/amara-maha-29-amara-frigiliana.jpg';
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import { resolveLink, type LinkToken } from '../../lib/linkResolver';
+import { createRequiredLinkResolver } from '../../lib/linkResolver';
 import { normalizeLanguage } from '../../lib/seo/resolve-seo-head';
 import type { AmaraLanguage } from '../../types/seo';
 
@@ -28,8 +28,7 @@ const { lang = 'es' } = Astro.props;
 const currentLang = normalizeLanguage(lang as AmaraLanguage);
 const copy = frigilianaWinterStaysContent[currentLang];
 
-const requiredLink = (token: LinkToken) =>
-  resolveLink(token, currentLang, { context: 'Frigiliana winter stays' });
+const requiredLink = createRequiredLinkResolver(currentLang, 'Frigiliana winter stays');
 
 const links = {
   book: requiredLink('book'),

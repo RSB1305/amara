@@ -112,3 +112,21 @@ export function resolveLink(
 
   return resolved;
 }
+
+/** Resolves a required registry token against a pre-bound language and surface. */
+export type RequiredLinkResolver = (token: LinkToken) => string;
+
+/**
+ * Binds the language and the naming context a surface uses for every required
+ * link, so a page family states them once instead of at each call site.
+ *
+ * This is a binding over `resolveLink`, not a second resolver: it adds no
+ * fallback, no alias and no lookup of its own, and a missing token or
+ * translation still fails the build with the bound context in the message.
+ */
+export function createRequiredLinkResolver(
+  lang: AmaraLanguage,
+  context: string
+): RequiredLinkResolver {
+  return (token) => resolveLink(token, lang, { context });
+}

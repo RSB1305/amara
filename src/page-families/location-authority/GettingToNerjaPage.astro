@@ -2,13 +2,14 @@
 import nerjaStayImage from '../../assets/images/home/amara-playa-chaparril-13.webp';
 import AmaraImage from '../../components/AmaraImage.astro';
 import Navigation from '../../components/Navigation.astro';
-import EditorialByline from '../../components/editorial/EditorialByline.astro';
 import NerjaContextNav from '../../components/location/NerjaContextNav.astro';
 import { gettingToNerjaContent, gettingToNerjaSeo } from '../../content/gettingToNerjaContent';
 import LocationAuthorityLayout from '../../layouts/LocationAuthorityLayout.astro';
-import { resolveLink, type LinkToken, type LabeledLink } from '../../lib/linkResolver';
+import { createRequiredLinkResolver, type LabeledLink } from '../../lib/linkResolver';
 import { normalizeLanguage } from '../../lib/seo/resolve-seo-head';
 import type { AmaraLanguage } from '../../types/seo';
+import AuthorityArticle from './AuthorityArticle.astro';
+import AuthorityTextSection from './AuthorityTextSection.astro';
 
 interface Props {
   lang?: string;
@@ -17,8 +18,7 @@ interface Props {
 const { lang = 'es' } = Astro.props;
 const currentLang = normalizeLanguage(lang as AmaraLanguage);
 const content = gettingToNerjaContent[currentLang];
-const requiredLink = (token: LinkToken) =>
-  resolveLink(token, currentLang, { context: 'Getting to Nerja' });
+const requiredLink = createRequiredLinkResolver(currentLang, 'Getting to Nerja');
 const aboutHref = requiredLink('about');
 const locationHref = requiredLink('location_nerja');
 const areasHref = requiredLink('nerja_where_to_stay');
@@ -33,51 +33,28 @@ const footerHighlights: LabeledLink[] = [
   <Navigation slot="navigation" currentLang={currentLang} languageToken="getting_to_nerja" locationAuthorityNav={true} />
   <NerjaContextNav activeId="arrival-mobility" childLabel={content.navLabel} lang={currentLang} />
 
-  <article class="bg-surface" data-am-page="getting-to-nerja">
-    <header class="overflow-hidden border-b border-border-subtle bg-surface px-6 py-20 md:px-12 md:py-28 lg:py-36">
-      <div class="mx-auto grid max-w-screen-2xl gap-14 lg:grid-cols-12 lg:items-start lg:gap-16">
-        <div class="lg:col-span-8">
-          <p class="font-label text-[11px] font-bold uppercase tracking-[0.2em] text-primary">{content.hero.eyebrow}</p>
-          <h1 class="am-text-display mt-7 max-w-6xl text-balance text-on-surface">{content.hero.title}</h1>
-        </div>
-        <div class="border-l border-primary/30 pl-6 lg:col-span-4 lg:pl-9">
-          <p class="am-text-subtitle text-balance leading-relaxed text-on-surface-variant">{content.hero.standfirst}</p>
-        </div>
-        <div class="lg:col-span-8">
-          <EditorialByline lang={currentLang} authorName={gettingToNerjaSeo.article!.authorName} authorHref={aboutHref} updated={content.hero.updated} note={content.hero.note} />
-        </div>
-        <div aria-hidden="true" class="hidden font-serif text-[clamp(3.5rem,8vw,8.5rem)] leading-[0.72] text-primary/10 lg:col-span-4 lg:block">Nerja</div>
-      </div>
-    </header>
-
-    <section class="border-b border-border-subtle bg-surface-container-low px-6 py-16 md:px-12 md:py-20">
-      <dl class="mx-auto grid max-w-screen-2xl gap-x-10 gap-y-8 sm:grid-cols-2 lg:grid-cols-4">
-        {content.facts.map((fact) => (
-          <div class="border-t border-primary/30 pt-5">
-            <dt class="font-label text-[10px] font-bold uppercase tracking-[0.14em] text-primary">{fact.label}</dt>
-            <dd class="am-text-subtitle mt-3 text-on-surface">{fact.value}</dd>
-          </div>
-        ))}
-      </dl>
-    </section>
+  <AuthorityArticle
+    pageId="getting-to-nerja"
+    lang={currentLang}
+    hero={content.hero}
+    authorName={gettingToNerjaSeo.article!.authorName}
+    authorHref={aboutHref}
+    facts={content.facts}
+    sources={content.sources}
+    closing={content.closing}
+    primaryCta={{ href: locationHref, label: content.closing.locationLabel }}
+    secondaryCta={{ href: areasHref, label: content.closing.areasLabel }}
+  >
+    <div slot="hero-mark" aria-hidden="true" class="hidden font-serif text-[clamp(3.5rem,8vw,8.5rem)] leading-[0.72] text-primary/10 lg:col-span-4 lg:block">Nerja</div>
 
     {content.sections.map((section, index) => (
       <>
-        <section id={section.id} class:list={['scroll-mt-32 border-b border-border-subtle px-6 py-20 md:px-12 md:py-28', index % 2 === 0 ? 'bg-surface' : 'bg-surface-container-low']}>
-          <div class="mx-auto grid max-w-screen-2xl gap-10 lg:grid-cols-12 lg:gap-20">
-            <div class="lg:col-span-5">
-              <p class="font-label text-[11px] font-bold uppercase tracking-[0.18em] text-primary">{section.eyebrow}</p>
-              <h2 class="am-text-title mt-5 max-w-xl text-balance text-on-surface">{section.title}</h2>
-            </div>
-            <div class="max-w-4xl space-y-5 lg:col-span-7">
-              {section.paragraphs.map((paragraph, paragraphIndex) => (
-                <p class:list={[paragraphIndex === 0 ? 'am-text-subtitle' : 'am-text-body', 'leading-relaxed text-on-surface-variant', paragraphIndex === 2 && 'border-l-2 border-primary/35 bg-surface-container-low px-6 py-5 text-on-surface']}>
-                  {paragraph}
-                </p>
-              ))}
-            </div>
-          </div>
-        </section>
+        <AuthorityTextSection
+          section={section}
+          index={index}
+          highlightIndex={2}
+          highlightSurface="bg-surface-container-low"
+        />
 
         {index === 2 && (
           <section class="border-b border-border-subtle bg-inverse-surface px-6 py-16 md:px-12 md:py-20">
@@ -95,43 +72,5 @@ const footerHighlights: LabeledLink[] = [
         )}
       </>
     ))}
-
-    <section class="border-b border-border-subtle bg-surface-container-low px-6 py-20 md:px-12 md:py-28">
-      <div class="mx-auto grid max-w-screen-2xl gap-12 lg:grid-cols-12 lg:gap-20">
-        <div class="lg:col-span-4">
-          <p class="font-label text-[11px] font-bold uppercase tracking-[0.18em] text-primary">{content.sources.eyebrow}</p>
-          <h2 class="am-text-title mt-5 text-balance text-on-surface">{content.sources.title}</h2>
-          <p class="am-text-body mt-6 leading-relaxed text-on-surface-variant">{content.sources.intro}</p>
-          <p class="mt-6 font-label text-[10px] font-semibold uppercase tracking-[0.12em] text-on-surface-variant/70">{content.sources.checked}</p>
-        </div>
-        <div class="border-t border-border-subtle lg:col-span-8">
-          {content.sources.links.map((source) => (
-            <a href={source.href} target="_blank" rel="noopener noreferrer" class="group grid grid-cols-[1fr_auto] gap-8 border-b border-border-subtle py-7 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/25">
-              <span>
-                <span class="am-text-subtitle block text-on-surface transition-colors group-hover:text-primary">{source.label}</span>
-                <span class="am-text-body mt-2 block leading-relaxed text-on-surface-variant">{source.text}</span>
-              </span>
-              <span aria-hidden="true" class="am-text-subtitle text-primary">↗</span>
-            </a>
-          ))}
-        </div>
-      </div>
-    </section>
-
-    <section class="bg-surface px-6 py-24 md:px-12 md:py-32">
-      <div class="mx-auto grid max-w-screen-2xl gap-10 lg:grid-cols-12 lg:items-end lg:gap-20">
-        <div class="lg:col-span-7">
-          <p class="font-label text-[11px] font-bold uppercase tracking-[0.18em] text-primary">{content.closing.eyebrow}</p>
-          <h2 class="am-text-display mt-6 text-balance text-on-surface">{content.closing.title}</h2>
-        </div>
-        <div class="lg:col-span-5">
-          <p class="am-text-body leading-relaxed text-on-surface-variant">{content.closing.body}</p>
-          <div class="mt-8 flex flex-col items-start gap-5">
-            <a href={locationHref} class="am-btn am-btn--primary">{content.closing.locationLabel}</a>
-            <a href={areasHref} class="am-cta-link">{content.closing.areasLabel}</a>
-          </div>
-        </div>
-      </div>
-    </section>
-  </article>
+  </AuthorityArticle>
 </LocationAuthorityLayout>

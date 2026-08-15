@@ -10,7 +10,7 @@ import {
 } from '../../content/tarifaExperienceContent';
 import { tarifaGuideContent } from '../../content/tarifaGuideContent';
 import LocationAuthorityLayout from '../../layouts/LocationAuthorityLayout.astro';
-import { resolveLink, type LinkToken, type LabeledLink } from '../../lib/linkResolver';
+import { createRequiredLinkResolver, type LabeledLink } from '../../lib/linkResolver';
 import { normalizeLanguage } from '../../lib/seo/resolve-seo-head';
 import type { AmaraLanguage } from '../../types/seo';
 
@@ -21,8 +21,7 @@ interface Props {
 const { lang = 'es' } = Astro.props;
 const currentLang = normalizeLanguage(lang as AmaraLanguage);
 const copy = tarifaExperienceContent[currentLang];
-const requiredLink = (token: LinkToken) =>
-  resolveLink(token, currentLang, { context: 'Tarifa Experience' });
+const requiredLink = createRequiredLinkResolver(currentLang, 'Tarifa Experience');
 
 const footerHighlights: LabeledLink[] = [
   { token: 'location_tarifa', label: tarifaGuideContent.overview.navLabel[currentLang] },

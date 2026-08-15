@@ -10,7 +10,7 @@ import {
   type TarifaGuideContent
 } from '../../content/tarifaGuideContent';
 import LocationAuthorityLayout from '../../layouts/LocationAuthorityLayout.astro';
-import { resolveLink, type LinkToken, type LabeledLink } from '../../lib/linkResolver';
+import { createRequiredLinkResolver, type LabeledLink } from '../../lib/linkResolver';
 import { normalizeLanguage } from '../../lib/seo/resolve-seo-head';
 import type { AmaraLanguage } from '../../types/seo';
 
@@ -22,8 +22,7 @@ interface Props {
 const { content, lang = 'es' } = Astro.props;
 const currentLang = normalizeLanguage(lang as AmaraLanguage);
 const t = (value: LocalizedText) => value[currentLang];
-const requiredLink = (token: LinkToken) =>
-  resolveLink(token, currentLang, { context: 'Tarifa guide' });
+const requiredLink = createRequiredLinkResolver(currentLang, 'Tarifa guide');
 const stayHref = requiredLink('casa');
 const bookHref = requiredLink('book');
 const aboutHref = requiredLink('about');
