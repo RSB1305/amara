@@ -93,19 +93,34 @@ test('opening a desktop group closes the previous one and Escape restores focus'
   await openPage(page, resolveLink('home', 'en'));
 
   const triggers = page.locator('[data-am-navigation] .am-nav__group-trigger');
+  const dropdowns = page.locator('[data-am-navigation] .am-nav__dropdown');
   const first = triggers.nth(0);
   const second = triggers.nth(1);
+  const firstDropdown = dropdowns.nth(0);
+  const secondDropdown = dropdowns.nth(1);
+
+  // A closed group is not just visually hidden: its panel is removed from the
+  // a11y tree and from tab order.
+  await expect(dropdowns).toHaveCount(3);
+  for (let index = 0; index < 3; index += 1) {
+    await expect(dropdowns.nth(index)).toHaveJSProperty('inert', true);
+  }
 
   await first.click();
   await expect(first).toHaveAttribute('aria-expanded', 'true');
   await expect(second).toHaveAttribute('aria-expanded', 'false');
+  await expect(firstDropdown).toHaveJSProperty('inert', false);
+  await expect(secondDropdown).toHaveJSProperty('inert', true);
 
   await second.click();
   await expect(second).toHaveAttribute('aria-expanded', 'true');
   await expect(first).toHaveAttribute('aria-expanded', 'false');
+  await expect(firstDropdown).toHaveJSProperty('inert', true);
+  await expect(secondDropdown).toHaveJSProperty('inert', false);
 
   await page.keyboard.press('Escape');
   await expect(second).toHaveAttribute('aria-expanded', 'false');
+  await expect(secondDropdown).toHaveJSProperty('inert', true);
   await expect(second).toBeFocused();
 });
 

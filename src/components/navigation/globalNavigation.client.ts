@@ -14,13 +14,19 @@ type InertRecord = { element: HTMLElement; wasInert: boolean };
 
 const DESKTOP_QUERY = '(min-width: 1024px)';
 
+/**
+ * A page renders one header; guard anyway so a repeated import cannot bind twice.
+ * The guard is module-private on purpose — the header's DOM contract must not gain
+ * a runtime attribute, and a global would leak the same state onto window.
+ */
+const initializedNavigationRoots = new WeakSet<HTMLElement>();
+
 function initGlobalNavigation(): void {
   const header = document.querySelector<HTMLElement>('[data-am-navigation]');
   if (!header) return;
 
-  // A page renders one header; guard anyway so a repeated import cannot bind twice.
-  if (header.dataset.amNavigationReady === 'true') return;
-  header.dataset.amNavigationReady = 'true';
+  if (initializedNavigationRoots.has(header)) return;
+  initializedNavigationRoots.add(header);
 
   const menuTrigger = header.querySelector<HTMLElement>('[data-am-menu-trigger]');
   const mobileMenu = header.querySelector<HTMLElement>('[data-am-mobile-menu]');
