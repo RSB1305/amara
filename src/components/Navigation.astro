@@ -27,27 +27,15 @@ interface Props {
   currentToken?: LinkToken;
   languageToken?: LinkToken;
   showBookingCta?: boolean;
-  /**
-   * Type A location authority pages: allow Frigiliana / Nerja / experiences hub links in the center
-   * row even when those tokens are globally gated as disabled elsewhere.
-   */
-  locationAuthorityNav?: boolean;
 }
 
-const {
-  currentLang,
-  currentToken,
-  languageToken,
-  showBookingCta = true,
-  locationAuthorityNav = false
-} = Astro.props;
+const { currentLang, currentToken, languageToken, showBookingCta = true } = Astro.props;
 
 const { brandHref, utilityLabels, groups, languageOptions, cta } = createGlobalNavigationModel({
   currentLang,
   currentPath: Astro.url.pathname,
   currentToken,
-  languageToken,
-  locationAuthorityNav
+  languageToken
 });
 ---
 

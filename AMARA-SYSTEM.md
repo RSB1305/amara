@@ -233,7 +233,7 @@ Props:
 
 ### `Navigation.astro`
 Purpose:
-- AMARA canonical fixed two/three-rail header navigation with language switch, CTA slot, and optional Location Authority token override rules.
+- AMARA canonical fixed two/three-rail header navigation with language switch and CTA slot.
 Props:
 - `currentLang: AmaraLanguage`
 - `brandName: string`
@@ -244,7 +244,6 @@ Props:
 - `languageToken?: string`
 - `brandVariant?: 'default' | 'lodging'`
 - `ctaLabel?: string`
-- `locationAuthorityNav?: boolean` (default: `false`)
 
 ### `navigation/SectionAnchorNav.astro`
 Purpose:

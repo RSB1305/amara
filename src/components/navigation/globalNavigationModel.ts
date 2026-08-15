@@ -59,7 +59,6 @@ export type GlobalNavigationModelInput = {
   currentPath: string;
   currentToken?: LinkToken;
   languageToken?: LinkToken;
-  locationAuthorityNav?: boolean;
 };
 
 const CTA_TOKEN: LinkToken = 'book';
@@ -73,8 +72,7 @@ export function createGlobalNavigationModel({
   currentLang,
   currentPath,
   currentToken,
-  languageToken,
-  locationAuthorityNav = false
+  languageToken
 }: GlobalNavigationModelInput): GlobalNavigationModel {
   const languageSwitchToken = currentToken ?? languageToken ?? 'home';
 
@@ -108,8 +106,7 @@ export function createGlobalNavigationModel({
 
   const resolveGlobalNavItem = (item: GlobalNavItem): ResolvedGlobalNavItem => {
     const canResolve = isPublicLinkEnabled(item.token, {
-      forceEnabled: forcedEnabledNavTokens.includes(item.token),
-      locationAuthorityNav
+      forceEnabled: forcedEnabledNavTokens.includes(item.token)
     });
     const href = canResolve ? resolveLink(item.token, currentLang) : null;
 
