@@ -1,0 +1,546 @@
+/*
+ * AMARA global navigation — component stylesheet
+ *
+ * Architectural intent:
+ * This file replaces the component's scoped <style> block. Astro scoping used to
+ * append its own attribute selector to every rule; each selector here is instead
+ * bounded by the unique [data-am-navigation] root, which keeps both the
+ * containment and the exact specificity the scoped rules had. Do not add a rule
+ * that escapes that root — the one deliberate exception is the html scroll lock
+ * at the end of this file.
+ *
+ * Navigation typography: intentional exceptions to the global `am-text-*` system.
+ * — Brand wordmark: font-headline italic text-xl
+ * — Subline (e.g. Gästeguide): font-label text-[8px] uppercase tracking-[0.5em]
+ * — Center nav links: font-label text-[12px] font-bold uppercase tracking-[0.14em]
+ * — Language menu: font-label text-[11px] font-bold uppercase tracking-[0.14em]
+ * — CTA: .am-btn (unchanged)
+ */
+
+[data-am-navigation] .am-nav {
+  display: grid;
+  grid-template-columns: 16rem minmax(18rem, 1fr) auto;
+  align-items: center;
+  column-gap: 2.5rem;
+  min-height: 4rem;
+}
+
+[data-am-navigation] .am-nav__brand {
+  width: 16rem;
+  min-width: 16rem;
+  display: flex;
+  align-items: center;
+}
+
+[data-am-navigation] .am-nav__center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 0;
+}
+
+/**
+ * The right rail is the dedicated utility + conversion cluster.
+ * It stays visually detached from the editorial nav so the CTA reads as an
+ * intentional action anchor instead of another navigation item.
+ */
+[data-am-navigation] .am-nav__rail {
+  width: auto;
+  justify-self: end;
+  display: grid;
+  grid-template-columns: auto minmax(12.5rem, max-content);
+  align-items: center;
+  column-gap: 1.35rem;
+}
+
+[data-am-navigation] .am-nav__slot {
+  min-width: 0;
+  display: flex;
+  align-items: center;
+}
+
+[data-am-navigation] .am-nav__slot--language {
+  justify-content: center;
+}
+
+[data-am-navigation] .am-nav__slot--cta {
+  justify-content: flex-end;
+}
+
+[data-am-navigation] .am-nav__cta-label-short {
+  display: none;
+}
+
+[data-am-navigation] .am-nav__slot--menu {
+  display: none;
+  justify-content: flex-end;
+}
+
+[data-am-navigation] .am-nav__language {
+  width: auto;
+  position: relative;
+  display: grid;
+  place-items: center;
+  padding-left: 1.8rem;
+}
+
+[data-am-navigation] .am-nav__icon-button {
+  display: inline-grid;
+  width: 2.75rem;
+  height: 2.75rem;
+  place-items: center;
+  border: 0;
+  border-radius: var(--radius-pill);
+  background: transparent;
+  color: color-mix(in srgb, var(--color-on-surface) 68%, transparent);
+  cursor: pointer;
+  transition:
+    background-color 160ms ease,
+    color 160ms ease;
+}
+
+[data-am-navigation] .am-nav__icon-button:hover,
+[data-am-navigation] .am-nav__icon-button:focus-visible,
+[data-am-navigation] .am-nav__language[data-open="true"] .am-nav__icon-button {
+  background-color: color-mix(in srgb, var(--color-on-surface) 5%, transparent);
+  color: var(--color-on-surface);
+}
+
+[data-am-navigation] .am-nav__icon-button:focus-visible,
+[data-am-navigation] .am-nav__link:focus-visible,
+[data-am-navigation] .am-nav__dropdown-link:focus-visible,
+[data-am-navigation] .am-nav-mobile a:focus-visible,
+[data-am-navigation] .am-nav-mobile summary:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 3px;
+}
+
+[data-am-navigation] .am-nav__language-popover {
+  position: absolute;
+  right: 0;
+  top: 100%;
+  z-index: 2;
+  padding-top: 1rem;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(0.5rem);
+  pointer-events: none;
+  transition:
+    opacity 160ms ease,
+    transform 160ms ease,
+    visibility 160ms ease;
+}
+
+[data-am-navigation] .am-nav__language:hover .am-nav__language-popover,
+[data-am-navigation] .am-nav__language[data-open="true"] .am-nav__language-popover {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+[data-am-navigation] .am-nav__language::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 1px;
+  height: 1.5rem;
+  background-color: var(--color-nav-border);
+  transform: translateY(-50%);
+}
+
+[data-am-navigation] .am-nav__link {
+  position: relative;
+  display: inline-block;
+  padding-bottom: 0.35rem;
+  background: transparent;
+  border: 0;
+  cursor: pointer;
+}
+
+[data-am-navigation] .am-nav__link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 1px;
+  background: var(--color-nav-scrim);
+  opacity: 0;
+  transition: opacity 160ms ease;
+}
+
+[data-am-navigation] .am-nav__link:hover::after,
+[data-am-navigation] .am-nav__link[aria-current="page"]::after {
+  opacity: 1;
+}
+
+[data-am-navigation] .am-nav__link[aria-current="page"] {
+  color: var(--color-nav-panel);
+}
+
+[data-am-navigation] .am-nav__group {
+  position: relative;
+}
+
+[data-am-navigation] .am-nav__group-trigger {
+  white-space: nowrap;
+}
+
+[data-am-navigation] .am-nav__dropdown {
+  position: absolute;
+  left: 50%;
+  top: 100%;
+  min-width: 15rem;
+  padding-top: 1.15rem;
+  opacity: 0;
+  visibility: hidden;
+  transform: translate(-50%, 0.4rem);
+  transition:
+    opacity 160ms ease,
+    transform 160ms ease,
+    visibility 160ms ease;
+  pointer-events: none;
+}
+
+[data-am-navigation] .am-nav__dropdown--detailed {
+  min-width: 25rem;
+}
+
+[data-am-navigation] .am-nav__group[data-open="true"] .am-nav__dropdown {
+  opacity: 1;
+  visibility: visible;
+  transform: translate(-50%, 0);
+  pointer-events: auto;
+}
+
+[data-am-navigation] .am-nav__dropdown-panel {
+  display: grid;
+  gap: 0.2rem;
+  padding: 0.8rem;
+  border: 1px solid var(--color-nav-border);
+  border-radius: var(--radius-overlay);
+  background: color-mix(in srgb, var(--color-surface) 96%, transparent);
+  box-shadow: 0 18px 42px rgba(0, 0, 0, 0.08);
+  backdrop-filter: blur(16px);
+}
+
+[data-am-navigation] .am-nav__dropdown-panel--detailed {
+  gap: 0.1rem;
+  padding: 1rem;
+}
+
+[data-am-navigation] .am-nav__dropdown-section {
+  display: block;
+  padding: 0.9rem 0.75rem 0.25rem;
+  font-family: var(--font-label);
+  font-size: 0.625rem;
+  font-weight: 700;
+  line-height: 1.4;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: color-mix(in srgb, var(--color-on-surface) 45%, transparent);
+}
+
+[data-am-navigation] .am-nav__dropdown-section--separated {
+  margin-top: 0.45rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--color-nav-border);
+}
+
+[data-am-navigation] .am-nav__dropdown-link {
+  display: block;
+  padding: 0.65rem 0.75rem;
+  color: var(--color-on-surface-variant);
+  text-align: left;
+  text-decoration: none;
+  transition:
+    background-color 140ms ease,
+    color 140ms ease;
+}
+
+[data-am-navigation] .am-nav__dropdown-link--detailed {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.15rem;
+  padding-top: 0.55rem;
+  padding-bottom: 0.55rem;
+}
+
+[data-am-navigation] .am-nav__dropdown-link--overview {
+  margin-bottom: 0.1rem;
+  padding-bottom: 0.85rem;
+  border-bottom: 1px solid var(--color-nav-border);
+}
+
+[data-am-navigation] .am-nav__dropdown-item-title,
+[data-am-navigation] .am-nav-mobile__item-title {
+  display: block;
+}
+
+[data-am-navigation] .am-nav__dropdown-item-meta {
+  display: block;
+  font-family: var(--font-body);
+  font-size: 0.8125rem;
+  font-weight: 400;
+  line-height: 1.4;
+  letter-spacing: normal;
+  text-transform: none;
+  color: color-mix(in srgb, var(--color-on-surface-variant) 78%, transparent);
+}
+
+[data-am-navigation] .am-nav__dropdown-link:hover,
+[data-am-navigation] .am-nav__dropdown-link[aria-current="page"] {
+  color: var(--color-on-surface);
+  background-color: var(--color-surface-container-low);
+}
+
+[data-am-navigation] .am-nav-mobile {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  left: 0;
+  height: calc(100svh - 6.5rem);
+  z-index: 1;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  border-top: 1px solid color-mix(in srgb, var(--color-outline-variant) 18%, transparent);
+  background: var(--color-surface);
+  backdrop-filter: blur(18px);
+}
+
+[data-am-navigation] .am-nav-mobile__inner {
+  display: flex;
+  width: min(100%, 48rem);
+  min-height: 100%;
+  margin: 0 auto;
+  padding: 1.5rem 1.5rem 3rem;
+  flex-direction: column;
+}
+
+[data-am-navigation] .am-nav-mobile__groups {
+  border-top: 1px solid color-mix(in srgb, var(--color-outline-variant) 28%, transparent);
+}
+
+[data-am-navigation] .am-nav-mobile__group {
+  border-bottom: 1px solid color-mix(in srgb, var(--color-outline-variant) 28%, transparent);
+}
+
+[data-am-navigation] .am-nav-mobile__summary {
+  display: flex;
+  min-height: 4.5rem;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  list-style: none;
+  cursor: pointer;
+  font-family: var(--font-label);
+  font-size: 0.8125rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-on-surface);
+}
+
+[data-am-navigation] .am-nav-mobile__summary::-webkit-details-marker {
+  display: none;
+}
+
+[data-am-navigation] .am-nav-mobile__summary svg {
+  width: 1.125rem;
+  height: 1.125rem;
+  flex: none;
+  transition: transform 160ms ease;
+}
+
+[data-am-navigation] .am-nav-mobile__group[open] .am-nav-mobile__summary svg {
+  transform: rotate(180deg);
+}
+
+[data-am-navigation] .am-nav-mobile__links {
+  display: grid;
+  padding: 0 0 1.25rem 1rem;
+}
+
+[data-am-navigation] .am-nav-mobile__links a,
+[data-am-navigation] .am-nav-mobile__links > span {
+  display: flex;
+  min-height: 2.75rem;
+  align-items: center;
+  font-family: var(--font-body);
+  font-size: 0.9375rem;
+  color: var(--color-on-surface-variant);
+  text-decoration: none;
+}
+
+[data-am-navigation] .am-nav-mobile__links > .am-nav-mobile__section {
+  display: block;
+  min-height: 0;
+  padding: 1rem 0 0.25rem;
+  font-family: var(--font-label);
+  font-size: 0.625rem;
+  font-weight: 700;
+  line-height: 1.4;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: color-mix(in srgb, var(--color-on-surface) 45%, transparent);
+}
+
+[data-am-navigation] .am-nav-mobile__links > .am-nav-mobile__section--separated {
+  margin-top: 0.5rem;
+  border-top: 1px solid color-mix(in srgb, var(--color-outline-variant) 28%, transparent);
+}
+
+[data-am-navigation] .am-nav-mobile__links .am-nav-mobile__detailed-link {
+  min-height: 3.5rem;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 0.15rem;
+  padding: 0.45rem 0;
+}
+
+[data-am-navigation] .am-nav-mobile__overview-link {
+  margin-bottom: 0.1rem;
+  border-bottom: 1px solid color-mix(in srgb, var(--color-outline-variant) 28%, transparent);
+}
+
+[data-am-navigation] .am-nav-mobile__item-title {
+  font-family: var(--font-label);
+  font-size: 0.8125rem;
+  font-weight: 700;
+  line-height: 1.4;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+[data-am-navigation] .am-nav-mobile__item-meta {
+  display: block;
+  font-family: var(--font-body);
+  font-size: 0.875rem;
+  font-weight: 400;
+  line-height: 1.45;
+  letter-spacing: normal;
+  text-transform: none;
+  color: var(--color-on-surface-variant);
+}
+
+[data-am-navigation] .am-nav-mobile__links a:hover,
+[data-am-navigation] .am-nav-mobile__links a[aria-current="page"] {
+  color: var(--color-primary);
+}
+
+[data-am-navigation] .am-nav-mobile__cta {
+  width: 100%;
+  margin-top: 2rem;
+  align-self: center;
+}
+
+[data-am-navigation] .am-nav__menu-lines {
+  position: relative;
+  display: block;
+  width: 1.25rem;
+  height: 0.75rem;
+}
+
+[data-am-navigation] .am-nav__menu-lines span {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: currentColor;
+  transition:
+    top 160ms ease,
+    transform 160ms ease;
+}
+
+[data-am-navigation] .am-nav__menu-lines span:first-child {
+  top: 0.125rem;
+}
+
+[data-am-navigation] .am-nav__menu-lines span:last-child {
+  top: 0.625rem;
+}
+
+[data-am-navigation] .am-nav__menu-trigger[aria-expanded="true"] .am-nav__menu-lines span:first-child {
+  top: 0.375rem;
+  transform: rotate(45deg);
+}
+
+[data-am-navigation] .am-nav__menu-trigger[aria-expanded="true"] .am-nav__menu-lines span:last-child {
+  top: 0.375rem;
+  transform: rotate(-45deg);
+}
+
+/* The single deliberate global: the mobile panel owns the document scroll lock. */
+html.am-nav-lock {
+  overflow: hidden;
+}
+
+@media (max-width: 1023px) {
+  [data-am-navigation] .am-nav {
+    grid-template-columns: minmax(0, 1fr) auto;
+    column-gap: 1rem;
+  }
+
+  [data-am-navigation] .am-nav__center {
+    display: none;
+  }
+
+  [data-am-navigation] .am-nav__brand {
+    width: auto;
+    min-width: 0;
+  }
+
+  [data-am-navigation] .am-nav__rail {
+    width: auto;
+    grid-template-columns: auto auto auto;
+    align-items: center;
+    column-gap: 0.5rem;
+  }
+
+  [data-am-navigation] .am-nav__slot--cta,
+  [data-am-navigation] .am-nav__slot--menu {
+    display: flex;
+  }
+
+  /* Compact pill so the persistent booking CTA fits next to the menu trigger on phones. */
+  [data-am-navigation] .am-nav__slot--cta .am-btn {
+    min-width: 0;
+    min-height: 2.75rem;
+    padding: 0.7rem 1.1rem;
+  }
+
+  [data-am-navigation] .am-nav__cta-label-full {
+    display: none;
+  }
+
+  [data-am-navigation] .am-nav__cta-label-short {
+    display: inline;
+  }
+
+  [data-am-navigation] .am-nav__language {
+    padding-left: 0;
+  }
+
+  [data-am-navigation] .am-nav__language::before {
+    display: none;
+  }
+}
+
+@media (min-width: 1024px) {
+  [data-am-navigation] .am-nav-mobile {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [data-am-navigation] .am-nav__language-popover,
+  [data-am-navigation] .am-nav__dropdown,
+  [data-am-navigation] .am-nav__menu-lines span,
+  [data-am-navigation] .am-nav-mobile__summary svg {
+    transition: none;
+  }
+}
