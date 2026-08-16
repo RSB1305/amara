@@ -43,7 +43,8 @@ const NEVER_BRIDGED = [
   '/nerja-where-to-stay',
   '/frigiliana-location',
   '/directions-arrival-guide',
-  '/nerja-nightlife'
+  '/nerja-nightlife',
+  '/frigiliana-or-nerja'
 ];
 
 let astroServer: Awaited<ReturnType<typeof dev>> | undefined;
@@ -119,17 +120,20 @@ test.describe('shared .am-section gutter', () => {
   });
 
   /**
-   * `/frigiliana-or-nerja` still opts its section shells out of the responsive
-   * default and nests a second gutter inside each one. Pinned until that page is
-   * normalized so the change stays a recorded decision.
+   * `/frigiliana-or-nerja` used to opt its section shells out of the responsive
+   * default. They now follow it like every other section shell.
    */
-  test('frigiliana-or-nerja keeps the wide gutter at every breakpoint', async ({ page }) => {
-    for (const viewport of [MOBILE, TABLET, DESKTOP]) {
+  test('frigiliana-or-nerja section shells follow the responsive default', async ({ page }) => {
+    for (const [viewport, expected] of [
+      [MOBILE, NARROW],
+      [TABLET, WIDE],
+      [DESKTOP, WIDE]
+    ] as const) {
       await page.setViewportSize(viewport);
       await open(page, '/frigiliana-or-nerja');
       const gutters = await guttersOf(page, 'section.am-section');
       expect(gutters.length).toBe(6);
-      expect(gutters.every((padding) => padding === WIDE)).toBe(true);
+      expect(gutters.every((padding) => padding === expected)).toBe(true);
     }
   });
 });
@@ -172,36 +176,43 @@ test.describe('the page gutter does not depend on the mounting page', () => {
 
 test.describe('footer gutter', () => {
   /**
-   * The footer sits outside every page wrapper and still keeps the wide gutter on
-   * mobile across the whole site. Pinned until it is normalized so the change
-   * stays a recorded decision.
+   * The footer sits outside every page wrapper, so it has to declare the gutter
+   * itself rather than inherit one. It resolves to the same pair of values.
    */
-  test('footer keeps 48px on mobile on every route', async ({ page }) => {
-    await page.setViewportSize(MOBILE);
+  test('footer follows the responsive gutter on every route', async ({ page }) => {
+    for (const [viewport, expected] of [
+      [MOBILE, NARROW],
+      [TABLET, WIDE],
+      [DESKTOP, WIDE]
+    ] as const) {
+      await page.setViewportSize(viewport);
 
-    for (const route of ['/frigiliana-parking', '/nerja-nightlife', '/frigiliana-or-nerja']) {
-      await open(page, route);
-      expect(await guttersOf(page, '.footer-core')).toEqual([WIDE]);
-      expect(await guttersOf(page, '.footer-minimal')).toEqual([WIDE]);
+      for (const route of ['/frigiliana-parking', '/nerja-nightlife', '/frigiliana-or-nerja']) {
+        await open(page, route);
+        expect(await guttersOf(page, '.footer-core')).toEqual([expected]);
+        expect(await guttersOf(page, '.footer-minimal')).toEqual([expected]);
+      }
     }
   });
 });
 
 test.describe('effective content inset', () => {
   /**
-   * `/frigiliana-or-nerja` is the one route where an outer and an inner gutter
-   * still add up. Pinned as an explicit number so normalizing it is visible in
-   * the diff rather than implied.
+   * `/frigiliana-or-nerja` was the one route where an outer and an inner gutter
+   * added up. Only the section shell contributes horizontal padding now, so the
+   * inset an author sees equals the gutter itself rather than twice it.
    */
-  test('frigiliana-or-nerja still adds an outer and an inner gutter', async ({ page }) => {
-    await page.setViewportSize(MOBILE);
-    await open(page, '/frigiliana-or-nerja');
-    const mobile = await contentInsetOf(page, 'section.am-section > div');
-    expect(mobile.length).toBe(6);
-    expect(mobile.every((inset) => inset === WIDE + NARROW)).toBe(true);
-
-    await page.setViewportSize(TABLET);
-    const tablet = await contentInsetOf(page, 'section.am-section > div');
-    expect(tablet.every((inset) => inset === WIDE + WIDE)).toBe(true);
+  test('frigiliana-or-nerja insets content by exactly one gutter', async ({ page }) => {
+    for (const [viewport, expected] of [
+      [MOBILE, NARROW],
+      [TABLET, WIDE],
+      [DESKTOP, WIDE]
+    ] as const) {
+      await page.setViewportSize(viewport);
+      await open(page, '/frigiliana-or-nerja');
+      const insets = await contentInsetOf(page, 'section.am-section > div');
+      expect(insets.length).toBe(6);
+      expect(insets.every((inset) => inset === expected)).toBe(true);
+    }
   });
 });
