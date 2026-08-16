@@ -126,9 +126,9 @@ export const tarifaGeographyContent: Record<AmaraLanguage, TarifaGeographyLocale
       items: [
         { label: 'Your base', value: 'AMARA Family & Surf · La Marina' },
         { label: 'Town core', value: 'Old Town' },
-        { label: 'Passenger edge', value: 'Port of Tarifa' },
+        { label: 'Passenger edge', value: 'Port of Tarifa · 2.1 km, about 8 min by car' },
         { label: 'Southern landmark', value: 'Isla de las Palomas' },
-        { label: 'West', value: 'Atlantic · Los Lances · Valdevaqueros' },
+        { label: 'West', value: 'Atlantic · Los Lances beach access 400–500 m · Valdevaqueros' },
         { label: 'East', value: 'Strait-facing Mediterranean setting' },
         { label: 'South', value: 'Africa across the Strait' }
       ]
@@ -270,9 +270,9 @@ export const tarifaGeographyContent: Record<AmaraLanguage, TarifaGeographyLocale
       items: [
         { label: 'Euer Ausgangspunkt', value: 'AMARA Family & Surf · La Marina' },
         { label: 'Historischer Kern', value: 'Altstadt' },
-        { label: 'Am Wasser', value: 'Hafen von Tarifa' },
+        { label: 'Am Wasser', value: 'Hafen von Tarifa · 2,1 km, etwa 8 Autominuten' },
         { label: 'Südlicher Bezugspunkt', value: 'Isla de las Palomas' },
-        { label: 'Westen', value: 'Atlantik · Los Lances · Valdevaqueros' },
+        { label: 'Westen', value: 'Atlantik · Strandzugang Los Lances 400–500 m · Valdevaqueros' },
         { label: 'Osten', value: 'Mediterrane Seite der Meerenge' },
         { label: 'Süden', value: 'Afrika jenseits der Meerenge' }
       ]
@@ -348,7 +348,7 @@ export const tarifaGeographyContent: Record<AmaraLanguage, TarifaGeographyLocale
     hero: { eyebrow: 'Guía geográfica de Tarifa', title: 'Dónde está Tarifa', standfirst: 'Tarifa no es solo una localidad en el extremo sur de España. Está en el borde meridional de Europa, junto al Estrecho de Gibraltar: el Atlántico se abre hacia el oeste y el entorno mediterráneo continúa al este. Desde AMARA, en La Marina, esa geografía se convierte en una orientación práctica para cada día.', note: 'Una guía escrita por vuestros anfitriones para leer el paisaje. El viento, la visibilidad, las corrientes y el estado del agua siguen siendo dinámicos.', updated: 'Geografía comprobada en agosto de 2026' },
     facts: [ { label: 'Referencia meridional', value: 'Punta de Tarifa · casi 36° N exactos' }, { label: 'Entorno marítimo', value: 'Atlántico · Estrecho · Mediterráneo' }, { label: 'Al otro lado', value: 'África al sur' }, { label: 'Base AMARA', value: 'La Marina · Mar Adriático 29' } ],
     orientation: { eyebrow: 'Orientación de un vistazo', title: 'Leed la ciudad desde AMARA hasta el agua', intro: 'Estos puntos fijos sostienen la guía. Forman una secuencia espacial sencilla sin sustituir una ruta actual ni la consulta de las condiciones.', items: [
-      { label: 'Vuestra base', value: 'AMARA Family & Surf · La Marina' }, { label: 'Núcleo histórico', value: 'Casco antiguo' }, { label: 'Borde de pasajeros', value: 'Puerto de Tarifa' }, { label: 'Referencia meridional', value: 'Isla de las Palomas' }, { label: 'Oeste', value: 'Atlántico · Los Lances · Valdevaqueros' }, { label: 'Este', value: 'Lado mediterráneo del Estrecho' }, { label: 'Sur', value: 'África al otro lado del Estrecho' }
+      { label: 'Vuestra base', value: 'AMARA Family & Surf · La Marina' }, { label: 'Núcleo histórico', value: 'Casco antiguo' }, { label: 'Borde de pasajeros', value: 'Puerto de Tarifa · 2,1 km, unos 8 min en coche' }, { label: 'Referencia meridional', value: 'Isla de las Palomas' }, { label: 'Oeste', value: 'Atlántico · acceso a Los Lances 400–500 m · Valdevaqueros' }, { label: 'Este', value: 'Lado mediterráneo del Estrecho' }, { label: 'Sur', value: 'África al otro lado del Estrecho' }
     ] },
     sections: [
       { id: 'strait-of-gibraltar', eyebrow: '01 · El paso estrecho', title: 'El Estrecho de Gibraltar marca la escala', paragraphs: [ 'El Estrecho conecta el océano Atlántico con el mar Mediterráneo y separa el sur de Europa del norte de África. Tarifa ocupa su orilla norte, cerca de la entrada occidental.', 'El horizonte pertenece así a un corredor, no solo a una extensión de mar abierto. En días despejados se ve África; la bruma, las nubes y el viento pueden transformar la misma vista al día siguiente.', 'Desde AMARA en La Marina, el casco antiguo, el puerto y la Isla de las Palomas forman una línea práctica hacia el Estrecho. El apartamento es vuestra base urbana, no una dirección portuaria ni frente al mar.' ] },
@@ -373,7 +373,7 @@ export const tarifaGeographyContent: Record<AmaraLanguage, TarifaGeographyLocale
     hero: { eyebrow: 'Geografiegids Tarifa', title: 'Waar Tarifa ligt', standfirst: 'Tarifa is niet zomaar een stad onderaan Spanje. Ze ligt aan de zuidrand van Europa, bij de Straat van Gibraltar: de Atlantische Oceaan opent zich naar het westen en het mediterrane kustlandschap loopt oostwaarts door. Vanaf AMARA in La Marina wordt die geografie een praktische manier om elke dag te plannen.', note: 'Een gids van jullie hosts om het landschap te lezen. Wind, zicht, stromingen en watercondities blijven veranderlijk.', updated: 'Geografie gecontroleerd in augustus 2026' },
     facts: [ { label: 'Zuidelijk oriëntatiepunt', value: 'Punta de Tarifa · bijna exact 36° N' }, { label: 'Waterlandschap', value: 'Atlantische Oceaan · Straat · Middellandse Zee' }, { label: 'Aan de overkant', value: 'Afrika in het zuiden' }, { label: 'AMARA-basis', value: 'La Marina · Mar Adriático 29' } ],
     orientation: { eyebrow: 'Oriëntatie in één oogopslag', title: 'Lees de stad vanaf AMARA tot aan het water', intro: 'Deze vaste punten dragen de gids. Samen vormen ze een eenvoudige ruimtelijke reeks, zonder een actuele route- of conditiecheck te vervangen.', items: [
-      { label: 'Jullie basis', value: 'AMARA Family & Surf · La Marina' }, { label: 'Historische kern', value: 'Oude stad' }, { label: 'Passagiersrand', value: 'Haven van Tarifa' }, { label: 'Zuidelijk oriëntatiepunt', value: 'Isla de las Palomas' }, { label: 'West', value: 'Atlantische Oceaan · Los Lances · Valdevaqueros' }, { label: 'Oost', value: 'Mediterrane zijde van de Straat' }, { label: 'Zuid', value: 'Afrika aan de overkant' }
+      { label: 'Jullie basis', value: 'AMARA Family & Surf · La Marina' }, { label: 'Historische kern', value: 'Oude stad' }, { label: 'Passagiersrand', value: 'Haven van Tarifa · 2,1 km, ongeveer 8 min met de auto' }, { label: 'Zuidelijk oriëntatiepunt', value: 'Isla de las Palomas' }, { label: 'West', value: 'Atlantische Oceaan · strandtoegang Los Lances 400–500 m · Valdevaqueros' }, { label: 'Oost', value: 'Mediterrane zijde van de Straat' }, { label: 'Zuid', value: 'Afrika aan de overkant' }
     ] },
     sections: [
       { id: 'strait-of-gibraltar', eyebrow: '01 · De smalle doorgang', title: 'De Straat van Gibraltar bepaalt de schaal', paragraphs: [ 'De Straat verbindt de Atlantische Oceaan met de Middellandse Zee en scheidt Zuid-Europa van Noord-Afrika. Tarifa ligt aan de noordelijke oever, dicht bij de westelijke ingang.', 'De horizon hoort daardoor bij een corridor, niet bij één open zeezicht. Op heldere dagen is Afrika zichtbaar; nevel, bewolking en wind kunnen hetzelfde uitzicht een dag later volledig veranderen.', 'Vanaf AMARA in La Marina vormen de oude stad, haven en Isla de las Palomas een praktische lijn naar de Straat. Het appartement is jullie stadsbasis, geen adres aan de haven of direct aan het water.' ] },
@@ -398,7 +398,7 @@ export const tarifaGeographyContent: Record<AmaraLanguage, TarifaGeographyLocale
     hero: { eyebrow: 'Geografiguide Tarifa', title: 'Var Tarifa ligger', standfirst: 'Tarifa är inte bara en stad längst ned i Spanien. Den ligger vid Europas sydkant, intill Gibraltarsund: Atlanten öppnar sig västerut och den mediterrana kustmiljön fortsätter österut. Från AMARA i La Marina blir geografin ett praktiskt sätt att planera varje dag.', note: 'En värdskriven guide till landskapet. Vind, sikt, strömmar och vattenförhållanden förändras fortfarande.', updated: 'Geografin granskad i augusti 2026' },
     facts: [ { label: 'Sydligt riktmärke', value: 'Punta de Tarifa · nästan exakt 36° N' }, { label: 'Vattenläge', value: 'Atlanten · sundet · Medelhavet' }, { label: 'På andra sidan', value: 'Afrika i söder' }, { label: 'AMARA-bas', value: 'La Marina · Mar Adriático 29' } ],
     orientation: { eyebrow: 'Orientering i korthet', title: 'Läs staden från AMARA till vattnet', intro: 'De här fasta punkterna bär guiden. De bildar en enkel rumslig följd utan att ersätta en aktuell rutt- eller förhållandekontroll.', items: [
-      { label: 'Er bas', value: 'AMARA Family & Surf · La Marina' }, { label: 'Historisk kärna', value: 'Gamla stan' }, { label: 'Passagerarkant', value: 'Tarifas hamn' }, { label: 'Sydligt riktmärke', value: 'Isla de las Palomas' }, { label: 'Väst', value: 'Atlanten · Los Lances · Valdevaqueros' }, { label: 'Öst', value: 'Sundets mediterrana sida' }, { label: 'Söder', value: 'Afrika på andra sidan sundet' }
+      { label: 'Er bas', value: 'AMARA Family & Surf · La Marina' }, { label: 'Historisk kärna', value: 'Gamla stan' }, { label: 'Passagerarkant', value: 'Tarifas hamn · 2,1 km, cirka 8 min med bil' }, { label: 'Sydligt riktmärke', value: 'Isla de las Palomas' }, { label: 'Väst', value: 'Atlanten · Los Lances 400–500 m bort · Valdevaqueros' }, { label: 'Öst', value: 'Sundets mediterrana sida' }, { label: 'Söder', value: 'Afrika på andra sidan sundet' }
     ] },
     sections: [
       { id: 'strait-of-gibraltar', eyebrow: '01 · Den smala passagen', title: 'Gibraltarsund sätter skalan', paragraphs: [ 'Sundet förbinder Atlanten med Medelhavet och skiljer södra Europa från norra Afrika. Tarifa ligger på dess norra sida nära den västra infarten.', 'Horisonten är därför del av en korridor, inte bara en öppen havsvy. Klara dagar syns Afrika; dis, moln och vind kan förändra samma utsikt helt nästa dag.', 'Från AMARA i La Marina bildar Gamla stan, hamnen och Isla de las Palomas en praktisk linje mot sundet. Lägenheten är er bas i staden, inte en adress vid hamnen eller direkt vid vattnet.' ] },
