@@ -8,12 +8,29 @@
  * UI utility rather than a footer-specific element so behavior and
  * styling remain consistent on desktop and mobile.
  */
+import type { AmaraLanguage } from '../types/seo';
+
+interface Props {
+  lang: AmaraLanguage;
+}
+
+const { lang } = Astro.props;
+
+// The control carries no visible text, so the accessible name is the only
+// thing a screen reader announces and has to follow the page language.
+const ariaLabels: Record<AmaraLanguage, string> = {
+  en: 'Back to top',
+  de: 'Zurück nach oben',
+  es: 'Volver arriba',
+  nl: 'Terug naar boven',
+  sv: 'Tillbaka till toppen'
+};
 ---
 
 <button
   class="am-back-to-top"
   type="button"
-  aria-label="Back to top"
+  aria-label={ariaLabels[lang]}
   data-am-back-to-top
 >
   <svg
