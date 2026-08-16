@@ -86,8 +86,12 @@
 
 /**
  * Mobile editorial media may use the complete viewport width while surrounding
- * copy keeps its page-family gutter. Apply only to standalone photographic
- * media, never to cards, logos, maps, controls, or decorative UI imagery.
+ * copy keeps its page gutter. Apply only to standalone photographic media,
+ * never to cards, logos, maps, controls, or decorative UI imagery.
+ *
+ * The default offset mirrors the mobile page gutter, so a full-bleed element
+ * cancels exactly the padding its container contributes. `--fluid` is the one
+ * intentional exception: it scales with the viewport instead of the gutter.
  */
 @media (max-width: 639px) {
   .am-mobile-full-bleed {
@@ -97,53 +101,8 @@
     margin-inline: calc(var(--am-mobile-full-bleed-gutter) * -1);
   }
 
-  .am-mobile-full-bleed--wide {
-    --am-mobile-full-bleed-gutter: var(--am-mobile-wide-gutter, 3rem);
-  }
-
   .am-mobile-full-bleed--fluid {
     --am-mobile-full-bleed-gutter: 5vw;
-  }
-
-  :is(
-    [data-am-page='frigiliana-faq'],
-    [data-am-page='frigiliana-market'],
-    [data-am-page='frigiliana-parking'],
-    [data-am-page='frigiliana-streets-stairs'],
-    [data-am-page='getting-to-frigiliana']
-  ) {
-    --am-mobile-wide-gutter: 1.5rem;
-  }
-}
-
-/**
- * Narrow-gutter page bridge.
- *
- * These five pages compose their own markup with a bare `px-12` and also mount
- * shared components that do the same. They render the narrow mobile gutter, so
- * the nested `.px-12` has to be reduced from the page root rather than per
- * element. The page list is the same one the full-bleed gutter above uses; both
- * rules describe the same set of pages and are kept together for that reason.
- *
- * The rule is deliberately unlayered. Tailwind's utilities sit in the
- * `utilities` layer and an unlayered rule outranks every layer, which is why no
- * `!important` is needed here.
- *
- * This bridge disappears once the shared components own a responsive gutter
- * themselves. That changes how they render on every other route, so it is a
- * design decision rather than a refactor.
- */
-@media (max-width: 767px) {
-  :is(
-    [data-am-page='frigiliana-faq'],
-    [data-am-page='frigiliana-market'],
-    [data-am-page='frigiliana-parking'],
-    [data-am-page='frigiliana-streets-stairs'],
-    [data-am-page='getting-to-frigiliana']
-  )
-    .px-12 {
-    padding-left: 1.5rem;
-    padding-right: 1.5rem;
   }
 }
 
