@@ -94,21 +94,21 @@ export const tarifaExperienceSeo: AmaraAuthoringSeo = {
       canonical: 'auto'
     },
     es: {
-      title: 'Qué hacer en Tarifa: playas, kitesurf, naturaleza y casco antiguo',
+      title: 'Qué hacer en Tarifa: playas, kitesurf, naturaleza e historia',
       description:
         'Descubre Tarifa más allá del kitesurf: playas diferentes, casco antiguo, naturaleza del Estrecho, Bolonia y excursiones para una estancia de varios días.',
       robots: 'index, follow',
       canonical: 'auto'
     },
     nl: {
-      title: 'Wat te doen in Tarifa: stranden, kitesurfen, natuur en oude stad',
+      title: 'Wat te doen in Tarifa: strand, kitesurfen, natuur, oude stad',
       description:
         'Ontdek Tarifa voorbij het kitesurfen: verschillende stranden, de oude stad, natuur rond de Straat van Gibraltar, Bolonia en bijzondere dagtrips.',
       robots: 'index, follow',
       canonical: 'auto'
     },
     sv: {
-      title: 'Att göra i Tarifa: stränder, kitesurfing, natur och gamla stan',
+      title: 'Att göra i Tarifa: stränder, kitesurfing och gamla stan',
       description:
         'Upptäck Tarifa bortom kitesurfingen: olika stränder, gamla stan, naturen kring Gibraltarsundet, Bolonia och utflykter under en längre vistelse.',
       robots: 'index, follow',

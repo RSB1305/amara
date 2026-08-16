@@ -73,13 +73,13 @@ export const tarifaGeographySeo: AmaraAuthoringSeo = {
       canonical: 'auto'
     },
     es: {
-      title: 'Dónde está Tarifa: Atlántico, Mediterráneo, Estrecho y África',
+      title: 'Dónde está Tarifa: Atlántico, Mediterráneo y África',
       description: 'Descubrid la posición de Tarifa entre Atlántico, Mediterráneo, Europa y África, con orientación práctica desde AMARA en La Marina.',
       robots: 'index, follow',
       canonical: 'auto'
     },
     nl: {
-      title: 'Waar ligt Tarifa? Atlantische Oceaan, Middellandse Zee en Afrika',
+      title: 'Waar ligt Tarifa? Oceaan, Middellandse Zee en Afrika',
       description: 'Bekijk Tarifas ligging tussen Atlantische Oceaan, Middellandse Zee, Europa en Afrika, met praktische oriëntatie vanaf AMARA.',
       robots: 'index, follow',
       canonical: 'auto'

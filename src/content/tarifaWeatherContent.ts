@@ -76,7 +76,7 @@ export const tarifaWeatherSeo: AmaraAuthoringSeo = {
       canonical: 'auto'
     },
     es: {
-      title: 'Tiempo y clima en Tarifa: estaciones y mejor época para viajar',
+      title: 'Tiempo en Tarifa: estaciones y mejor época para viajar',
       description: 'Clima, estaciones, Levante y Poniente en Tarifa, con consejos prácticos para una estancia real en AMARA, en La Marina.',
       robots: 'index, follow',
       canonical: 'auto'

@@ -69,7 +69,7 @@ export const frigilianaDailyLifeSeo: AmaraAuthoringSeo = {
   article,
   languages: {
     en: {
-      title: 'Daily Life in Frigiliana: Groceries, Pharmacy & Getting Around',
+      title: 'Daily Life in Frigiliana: Groceries, Pharmacy & Transport',
       description:
         'How daily life works in Frigiliana: groceries, bakery, pharmacy, errands without a car and when a larger shop in Nerja is useful.',
       robots: 'index, follow',
@@ -90,7 +90,7 @@ export const frigilianaDailyLifeSeo: AmaraAuthoringSeo = {
       canonical: 'auto'
     },
     nl: {
-      title: 'Dagelijks leven in Frigiliana: boodschappen, apotheek & vervoer',
+      title: 'Dagelijks leven in Frigiliana: winkels, apotheek & vervoer',
       description:
         'Zo werkt het dagelijks leven in Frigiliana: boodschappen, bakker, apotheek, zonder auto op pad en wanneer een grotere winkelronde in Nerja handig is.',
       robots: 'index, follow',

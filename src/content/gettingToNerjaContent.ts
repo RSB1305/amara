@@ -56,13 +56,13 @@ export const gettingToNerjaSeo: AmaraAuthoringSeo = {
       canonical: 'auto'
     },
     de: {
-      title: 'Anreise nach Nerja & zu AMARA Playa: Flughafen, Bus oder Auto',
+      title: 'Anreise nach Nerja: Flughafen, Bus oder Auto',
       description: 'Plant die komplette Anreise nach Nerja und zu AMARA Playa, Calle Castilla Pérez 60 – mit Flughafen, Busankunft, Auto, Parken und Wegen zu Fuß.',
       robots: 'index, follow',
       canonical: 'auto'
     },
     es: {
-      title: 'Cómo llegar a Nerja y AMARA Playa: aeropuerto, autobús o coche',
+      title: 'Cómo llegar a Nerja: aeropuerto, autobús o coche',
       description: 'Preparad todo el viaje a Nerja y AMARA Playa, Calle Castilla Pérez 60: aeropuerto de Málaga, autobús, coche, aparcamiento y recorridos a pie.',
       robots: 'index, follow',
       canonical: 'auto'

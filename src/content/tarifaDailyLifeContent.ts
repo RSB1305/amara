@@ -86,7 +86,7 @@ export const tarifaDailyLifeSeo: AmaraAuthoringSeo = {
       canonical: 'auto'
     },
     nl: {
-      title: 'Dagelijks leven in Tarifa: winkels, voorzieningen & coworking',
+      title: 'Dagelijks leven in Tarifa: winkels, zorg & coworking',
       description: 'Praktische informatie over boodschappen, zorg, vervoer en coworking tijdens een langer verblijf bij AMARA in La Marina, Tarifa.',
       robots: 'index, follow',
       canonical: 'auto'

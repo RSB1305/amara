@@ -101,14 +101,14 @@ export const nerjaGeographySeo: AmaraAuthoringSeo = {
       canonical: 'auto'
     },
     nl: {
-      title: 'Waar ligt Nerja? Middellandse Zee, hellingen & Sierra Almijara',
+      title: 'Waar ligt Nerja? Zee, hellingen & Sierra Almijara',
       description:
         'Lees Nerja van de Middellandse Zee via oplopende woonwijken naar de Sierra Almijara en ontdek wat het hoogteverschil te voet betekent.',
       robots: 'index, follow',
       canonical: 'auto'
     },
     sv: {
-      title: 'Var ligger Nerja? Medelhavet, sluttningarna & Sierra Almijara',
+      title: 'Var ligger Nerja? Medelhavet & Sierra Almijara',
       description:
         'Förstå Nerjas geografi från Medelhavet via de stigande bostadsområdena till Sierra Almijara och vad höjdskillnaderna betyder till fots.',
       robots: 'index, follow',
