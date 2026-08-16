@@ -130,6 +130,13 @@ legal_notice: {
       nl: buildOwnedLocalizedPath('frigiliana-geography', 'nl'),
       sv: buildOwnedLocalizedPath('frigiliana-geography', 'sv')
     },
+    frigiliana_daily_life: {
+      en: buildOwnedLocalizedPath('frigiliana-daily-life', 'en'),
+      de: buildOwnedLocalizedPath('frigiliana-daily-life', 'de'),
+      es: buildOwnedLocalizedPath('frigiliana-daily-life', 'es'),
+      nl: buildOwnedLocalizedPath('frigiliana-daily-life', 'nl'),
+      sv: buildOwnedLocalizedPath('frigiliana-daily-life', 'sv')
+    },
     location_nerja: {
       en: buildOwnedLocalizedPath('nerja-location', 'en'),
       de: buildOwnedLocalizedPath('nerja-location', 'de'),

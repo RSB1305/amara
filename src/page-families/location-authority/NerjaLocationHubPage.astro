@@ -152,6 +152,7 @@ const footerHighlights: LabeledLink[] = [
           <div class="mt-7 space-y-5">
             {content.dailyLife.paragraphs.map((paragraph) => <p class="am-text-body leading-relaxed text-on-surface-variant">{paragraph}</p>)}
           </div>
+          <a href={featureHref(content.dailyLife.link)} class="am-cta-link mt-8 inline-flex">{content.dailyLife.link?.label}</a>
         </section>
       </div>
     </div>
