@@ -68,7 +68,7 @@ export const tarifaGeographySeo: AmaraAuthoringSeo = {
     },
     de: {
       title: 'Wo liegt Tarifa? Atlantik, Mittelmeer, Meerenge und Afrika',
-      description: 'Tarifas Lage zwischen Atlantik, Mittelmeer, Europa und Afrika – mit praktischer Orientierung ab AMARA in La Marina.',
+      description: 'Tarifas Lage zwischen Atlantik, Mittelmeer, Europa und Afrika – ab AMARA in La Marina sind es 400–500 m zum Strandzugang Los Lances.',
       robots: 'index, follow',
       canonical: 'auto'
     },
@@ -86,7 +86,7 @@ export const tarifaGeographySeo: AmaraAuthoringSeo = {
     },
     sv: {
       title: 'Var ligger Tarifa? Atlanten, Medelhavet, sundet och Afrika',
-      description: 'Se hur Tarifa ligger mellan Atlanten, Medelhavet, Europa och Afrika, med praktisk orientering från AMARA i La Marina.',
+      description: 'Se hur Tarifa ligger mellan Atlanten, Medelhavet, Europa och Afrika – från AMARA i La Marina är det 400–500 m ner till Los Lances.',
       robots: 'index, follow',
       canonical: 'auto'
     }

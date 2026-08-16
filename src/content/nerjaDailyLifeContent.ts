@@ -96,7 +96,7 @@ export const nerjaDailyLifeSeo: AmaraAuthoringSeo = {
     sv: {
       title: 'Vardagen i Nerja: inköp, marknad, service och rytm',
       description:
-        'Hur vardagen fungerar i Nerja: tisdagsmarknaden, matinköp, apotek, vårdcentralen och rytmen i en spansk kustort.',
+        'Hur vardagen fungerar i Nerja: tisdagsmarknaden i Almijara-området, matinköp, apotek, vårdcentral och rytmen i en spansk kustort.',
       robots: 'index, follow',
       canonical: 'auto'
     }

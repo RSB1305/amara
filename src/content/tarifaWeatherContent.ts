@@ -77,13 +77,13 @@ export const tarifaWeatherSeo: AmaraAuthoringSeo = {
     },
     es: {
       title: 'Tiempo en Tarifa: estaciones y mejor época para viajar',
-      description: 'Clima, estaciones, Levante y Poniente en Tarifa, con consejos prácticos para una estancia real en AMARA, en La Marina.',
+      description: 'Clima, estaciones, Levante y Poniente en Tarifa: con 23,9 °C de media en julio, mucho más suave que el interior de Andalucía.',
       robots: 'index, follow',
       canonical: 'auto'
     },
     nl: {
       title: 'Weer en klimaat in Tarifa: seizoenen en beste reistijd',
-      description: 'Plan jullie verblijf rond het weer, klimaat, de seizoenen, Levante en Poniente in Tarifa, vanuit AMARA in La Marina.',
+      description: 'Weer, seizoenen, Levante en Poniente in Tarifa: met 23,9 °C gemiddeld in juli blijft het milder dan het Andalusische binnenland.',
       robots: 'index, follow',
       canonical: 'auto'
     },
