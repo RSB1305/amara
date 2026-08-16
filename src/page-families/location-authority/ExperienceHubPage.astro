@@ -8,6 +8,7 @@ import {
   experienceCatalog,
   experienceHubContent,
   experienceHubSeo,
+  experienceNavigationContent,
   type ExperienceId
 } from '../../content/experienceHubContent';
 import LocationAuthorityLayout from '../../layouts/LocationAuthorityLayout.astro';
@@ -22,6 +23,7 @@ interface Props {
 const { lang = 'es' } = Astro.props;
 const currentLang = normalizeLanguage(lang as AmaraLanguage);
 const copy = experienceHubContent[currentLang];
+const navigation = experienceNavigationContent[currentLang];
 
 const moodAnchorLinks = copy.moods.items.map((item) => ({
   label: item.label,
@@ -57,11 +59,11 @@ const footerHighlights: LabeledLink[] = [
   { token: 'frigiliana_experience_hub', label: copy.footerHighlights.hub },
   {
     token: experienceCatalog[leadId].token,
-    label: copy.footerHighlights.first
+    label: navigation.labels[leadId]
   },
   {
     token: experienceCatalog[secondaryIds[0]].token,
-    label: copy.footerHighlights.second
+    label: navigation.labels[secondaryIds[0]]
   }
 ];
 

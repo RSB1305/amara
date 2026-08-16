@@ -136,7 +136,7 @@ const ldJson = resolveStructuredData(seo, head.canonicalUrl, currentLang, origin
     />
       )}
       <slot />
-      <BackToTop />
+      <BackToTop lang={currentLang} />
       <Footer currentLang={currentLang} highlights={footerHighlights} />
     </div>
   </body>

@@ -1,0 +1,86 @@
+---
+import Hero from '../../components/Hero.astro';
+import Navigation from '../../components/Navigation.astro';
+import EditorialByline from '../../components/editorial/EditorialByline.astro';
+import EditorialClosingCta from '../../components/editorial/EditorialClosingCta.astro';
+import EditorialFeatureGrid from '../../components/editorial/EditorialFeatureGrid.astro';
+import ExperienceContextNav from '../../components/experience/ExperienceContextNav.astro';
+import {
+  nerjaFoodPageContent,
+  nerjaFoodSeo
+} from '../../content/nerjaExperienceAdditionsContent';
+import { frigilianaRestaurantsContent } from '../../content/frigilianaRestaurantsContent';
+import LocationAuthorityLayout from '../../layouts/LocationAuthorityLayout.astro';
+import { createRequiredLinkResolver, type LabeledLink } from '../../lib/linkResolver';
+import { normalizeLanguage } from '../../lib/seo/resolve-seo-head';
+import type { AmaraLanguage } from '../../types/seo';
+
+interface Props { lang?: string; }
+
+const { lang = 'es' } = Astro.props;
+const currentLang = normalizeLanguage(lang as AmaraLanguage);
+const shared = frigilianaRestaurantsContent[currentLang];
+const copy = nerjaFoodPageContent[currentLang];
+const requiredLink = createRequiredLinkResolver(currentLang, 'Nerja food');
+const restaurantSections = shared.restaurantSections.filter((section) => section.id === 'special-nerja' || section.id === 'tapas-seafood');
+const planningItems = shared.planning.items.filter((_, index) => index !== 2);
+const updated: Record<AmaraLanguage, string> = { en: 'Reviewed August 2026', de: 'Geprüft im August 2026', es: 'Revisado en agosto de 2026', nl: 'Gecontroleerd in augustus 2026', sv: 'Granskad i augusti 2026' };
+const aboutHref = requiredLink('about');
+const footerHighlights: LabeledLink[] = [
+  { token: 'nerja_food_authority', label: copy.navLabel },
+  { token: 'nerja_beaches_authority', label: copy.related.items[0].title },
+  { token: 'nerja_nightlife_authority', label: copy.related.items[1].title }
+];
+const heroImage = { src: '/images/amara-frigiliana-pueblo/nerja-coast-aerial.jpeg', width: 2000, height: 1333 };
+---
+
+<LocationAuthorityLayout seo={nerjaFoodSeo} pageLang={currentLang} footerHighlights={footerHighlights}>
+  <Navigation slot="navigation" currentLang={currentLang} languageToken="nerja_food_authority" />
+  <ExperienceContextNav currentId="food" destination="nerja" lang={currentLang} />
+
+  <div data-am-page="nerja-food">
+    <Hero imageSrc={heroImage.src} imageAlt={copy.hero.imageAlt} imageWidth={heroImage.width} imageHeight={heroImage.height}>
+      <span class="am-text-caption mb-8 block text-primary">{copy.hero.kicker}</span>
+      <h1 class="am-text-display mb-10 italic tracking-tighter text-on-surface">{copy.hero.title}</h1>
+      <div class="max-w-xl space-y-6 border-l border-primary/20 pl-10">{copy.hero.paragraphs.map((paragraph) => <p class="am-text-body leading-relaxed text-on-surface-variant">{paragraph}</p>)}</div>
+      {nerjaFoodSeo.article && <EditorialByline lang={currentLang} authorName={nerjaFoodSeo.article.authorName} authorHref={aboutHref} updated={updated[currentLang]} note={shared.planning.note} />}
+    </Hero>
+
+    <section id="choose" class="am-section am-section--tint">
+      <div class="mb-16 max-w-3xl"><h2 class="am-text-title mb-6 italic tracking-tight text-on-surface">{copy.overview.title}</h2><p class="am-text-body leading-relaxed text-on-surface-variant">{copy.overview.intro}</p></div>
+      <EditorialFeatureGrid cards={copy.overview.items.map((item) => ({ title: item.title, copy: item.text }))} />
+    </section>
+
+    {restaurantSections.map((section, sectionIndex) => (
+      <section id={section.id} class:list={['am-section', sectionIndex % 2 === 0 ? 'am-section--plain' : 'am-section--tint']}>
+        <div class="mb-16 max-w-3xl"><h2 class="am-text-title mb-6 italic tracking-tight text-on-surface">{section.title}</h2><p class="am-text-body leading-relaxed text-on-surface-variant">{section.intro}</p></div>
+        <div class="grid grid-cols-1 gap-x-10 gap-y-14 lg:grid-cols-2 xl:grid-cols-3">
+          {section.restaurants.map((restaurant, restaurantIndex) => {
+            const titleId = `${section.id}-restaurant-${restaurantIndex}`;
+            return (
+              <article class="flex h-full flex-col border-t border-outline-variant/25 pt-8" aria-labelledby={titleId}>
+                <h3 id={titleId} class="am-text-subtitle mb-5 text-on-surface lg:min-h-[2.8em]">{restaurant.title}</h3>
+                <div class="mb-6 flex flex-wrap items-start lg:min-h-[4.25rem]"><span class="rounded-pill border border-outline-variant/30 bg-surface-container-lowest px-3 py-1 am-text-caption normal-case tracking-normal text-primary"><span class="font-bold">{shared.cardLabels.bestFor}:</span>{' '}{restaurant.bestFor}</span></div>
+                <p class="am-text-body leading-relaxed text-on-surface-variant lg:min-h-[8.5rem]">{restaurant.description}</p>
+                <div class="mt-6"><p class="border-l border-primary/20 bg-surface-container-low px-4 py-3 am-text-body leading-relaxed text-on-surface-variant lg:min-h-[12rem]"><span class="font-bold text-primary">{shared.cardLabels.tip}:</span>{' '}{restaurant.tip}</p><p class="mt-5 am-text-body leading-relaxed text-on-surface-variant lg:min-h-[9.5rem]"><span class="font-bold text-on-surface">{shared.cardLabels.goodToKnow}:</span>{' '}{restaurant.goodToKnow}</p></div>
+                <p class="mt-5 flex flex-wrap gap-x-5 gap-y-2 am-text-body lg:mt-auto"><a href={restaurant.mapHref} target="_blank" rel="noopener noreferrer" class="am-inline-link">{shared.cardLabels.map}<span aria-hidden="true"> ↗</span></a><a href={restaurant.websiteHref} target="_blank" rel="noopener noreferrer" class="am-inline-link">{shared.cardLabels.website}<span aria-hidden="true"> ↗</span></a></p>
+              </article>
+            );
+          })}
+        </div>
+      </section>
+    ))}
+
+    <section id="planning" class="am-section am-section--tint">
+      <div class="mb-16 max-w-3xl"><h2 class="am-text-title mb-6 italic tracking-tight text-on-surface">{shared.planning.title}</h2><p class="am-text-body leading-relaxed text-on-surface-variant">{shared.planning.intro}</p></div>
+      <EditorialFeatureGrid cards={planningItems.map((item) => ({ title: item.title, copy: item.text }))} />
+    </section>
+
+    <section class="am-section am-section--plain">
+      <div class="mb-12 max-w-3xl"><h2 class="am-text-title italic tracking-tight text-on-surface">{copy.related.title}</h2></div>
+      <div class="grid grid-cols-1 gap-x-16 gap-y-12 lg:grid-cols-2">{copy.related.items.map((item) => <article class="border-t border-outline-variant/25 pt-8"><h3 class="am-text-subtitle text-on-surface">{item.title}</h3><p class="mt-4 am-text-body leading-relaxed text-on-surface-variant">{item.text}</p><p class="mt-6"><a href={requiredLink(item.token)} class="am-inline-link">{item.label}<span aria-hidden="true"> →</span></a></p></article>)}</div>
+    </section>
+
+    <section class="mx-auto max-w-screen-2xl px-6 pt-24 md:px-12"><EditorialClosingCta title={copy.closing.title} lead={copy.closing.lead} lang={currentLang} links={[{ token: 'playa', label: copy.closing.propertyLabel, style: 'primary' }, { token: 'nerja_experience_hub', label: copy.closing.hubLabel, style: 'secondary' }]} /></section>
+  </div>
+</LocationAuthorityLayout>

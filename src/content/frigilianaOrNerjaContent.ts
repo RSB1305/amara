@@ -96,7 +96,7 @@ export const frigilianaOrNerjaSeo: AmaraAuthoringSeo = {
     nl: {
       title: 'Frigiliana of Nerja: waar overnachten? | AMARA',
       description:
-        'Frigiliana of Nerja? Vergelijk het dagelijks leven in het dorp en aan de kust, wandelroutes, toegang tot het strand en vervoer – en kies waar jullie willen verblijven.',
+        'Frigiliana of Nerja? Vergelijk het leven in het dorp en aan de kust, wandelroutes, strandtoegang en vervoer, en kies waar jullie willen verblijven.',
       robots: 'index, follow',
       canonical: 'auto'
     },

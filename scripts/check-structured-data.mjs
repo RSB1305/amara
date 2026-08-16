@@ -76,6 +76,9 @@ const FRIGILIANA_EXPERIENCE_DETAIL_SLUGS = new Set([
 ]);
 
 const NERJA_EXPERIENCE_DETAIL_SLUGS = new Set([
+  'nerja-beaches',
+  'nerja-day-trips',
+  'nerja-food',
   'nerja-balcon-de-europa',
   'nerja-caves',
   'nerja-nightlife'

@@ -148,6 +148,27 @@ const PUBLIC_ROUTE_LABELS: Partial<Record<string, Record<AmaraLanguage, string>>
     nl: 'Ervaringen',
     sv: 'Upplevelser'
   },
+  'nerja-beaches': {
+    en: 'Beaches',
+    de: 'Strände',
+    es: 'Playas',
+    nl: 'Stranden',
+    sv: 'Stränder'
+  },
+  'nerja-day-trips': {
+    en: 'Day Trips',
+    de: 'Tagesausflüge',
+    es: 'Excursiones',
+    nl: 'Dagtochten',
+    sv: 'Utflykter'
+  },
+  'nerja-food': {
+    en: 'Food & Restaurants',
+    de: 'Essen & Restaurants',
+    es: 'Gastronomía y restaurantes',
+    nl: 'Eten & restaurants',
+    sv: 'Mat & restauranger'
+  },
   'frigiliana-beaches': {
     en: 'Beaches',
     de: 'Strände',
@@ -316,6 +337,41 @@ const PUBLIC_ROUTE_LABELS: Partial<Record<string, Record<AmaraLanguage, string>>
     nl: 'Weer & seizoenen',
     sv: 'Väder & årstider'
   },
+  'frigiliana-daily-life': {
+    en: 'Daily Life & Services',
+    de: 'Alltag & Versorgung',
+    es: 'Vida diaria y servicios',
+    nl: 'Dagelijks leven & voorzieningen',
+    sv: 'Vardag & service'
+  },
+  'frigiliana-geography': {
+    en: 'Geography & Orientation',
+    de: 'Geografie & Orientierung',
+    es: 'Geografía y orientación',
+    nl: 'Geografie & oriëntatie',
+    sv: 'Geografi & orientering'
+  },
+  'frigiliana-or-nerja': {
+    en: 'Frigiliana & Nerja',
+    de: 'Frigiliana & Nerja',
+    es: 'Frigiliana y Nerja',
+    nl: 'Frigiliana en Nerja',
+    sv: 'Frigiliana och Nerja'
+  },
+  'frigiliana-netflix-dos-tumbas': {
+    en: 'Netflix Locations',
+    de: 'Netflix-Drehorte',
+    es: 'Localizaciones Netflix',
+    nl: 'Netflix-locaties',
+    sv: 'Netflix-platser'
+  },
+  'frigiliana-hospitality-property-for-sale': {
+    en: 'Property for Sale',
+    de: 'Immobilie zu verkaufen',
+    es: 'Propiedad en venta',
+    nl: 'Pand te koop',
+    sv: 'Fastighet till salu'
+  },
   'guest-reviews': trustLabels.reviews_hub,
   instagram: {
     en: 'Instagram',
@@ -383,6 +439,9 @@ const FRIGILIANA_EXPERIENCE_SLUGS = new Set([
 
 const NERJA_EXPERIENCE_SLUGS = new Set([
   'nerja-experience',
+  'nerja-beaches',
+  'nerja-day-trips',
+  'nerja-food',
   'nerja-balcon-de-europa',
   'nerja-caves',
   'nerja-nightlife'
@@ -417,6 +476,8 @@ const FRIGILIANA_LOCATION_GUIDE_SLUGS = new Set([
   'frigiliana-weather',
   'frigiliana-winter-stays',
   'frigiliana-or-nerja',
+  'frigiliana-daily-life',
+  'frigiliana-geography',
   'frigiliana-faq',
   'frigiliana-netflix-dos-tumbas'
 ]);
@@ -470,8 +531,11 @@ function resolveRouteLabel(
   currentLang: AmaraLanguage,
   fallbackTitle: string
 ): string {
+  // Authored titles may carry the brand at either end. A breadcrumb names the
+  // page, never the brand, so both forms are stripped before falling back.
   const titleLabel = fallbackTitle
     .replace(/^AMARA\s*(?:\||-|–|—|:)?\s*/i, '')
+    .replace(/\s*(?:\||-|–|—)\s*AMARA$/i, '')
     .trim();
   const routeLabel = PUBLIC_ROUTE_LABELS[slug]?.[currentLang] ??
     PUBLIC_ROUTE_LABELS[slug]?.en;

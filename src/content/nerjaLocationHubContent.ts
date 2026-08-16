@@ -72,7 +72,7 @@ const seo: AmaraAuthoringSeo = {
     },
     es: {
       title: 'Guía de ubicación de Nerja: pueblo, playas y estancia | AMARA',
-      description: 'Así se conectan el casco antiguo, las playas y las zonas de Nerja, con información práctica sobre llegada, paseos, aparcamiento y vida diaria junto a Torrecilla.',
+      description: 'Cómo se conectan el casco antiguo, las playas y las zonas de Nerja: llegada, paseos, aparcamiento y vida diaria junto a Torrecilla.',
       robots: 'index, follow',
       canonical: 'auto'
     },

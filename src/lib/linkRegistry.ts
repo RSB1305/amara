@@ -151,6 +151,27 @@ legal_notice: {
       nl: buildOwnedLocalizedPath('nerja-experience', 'nl'),
       sv: buildOwnedLocalizedPath('nerja-experience', 'sv')
     },
+    nerja_beaches_authority: {
+      en: buildOwnedLocalizedPath('nerja-beaches', 'en'),
+      de: buildOwnedLocalizedPath('nerja-beaches', 'de'),
+      es: buildOwnedLocalizedPath('nerja-beaches', 'es'),
+      nl: buildOwnedLocalizedPath('nerja-beaches', 'nl'),
+      sv: buildOwnedLocalizedPath('nerja-beaches', 'sv')
+    },
+    nerja_daytrips_authority: {
+      en: buildOwnedLocalizedPath('nerja-day-trips', 'en'),
+      de: buildOwnedLocalizedPath('nerja-day-trips', 'de'),
+      es: buildOwnedLocalizedPath('nerja-day-trips', 'es'),
+      nl: buildOwnedLocalizedPath('nerja-day-trips', 'nl'),
+      sv: buildOwnedLocalizedPath('nerja-day-trips', 'sv')
+    },
+    nerja_food_authority: {
+      en: buildOwnedLocalizedPath('nerja-food', 'en'),
+      de: buildOwnedLocalizedPath('nerja-food', 'de'),
+      es: buildOwnedLocalizedPath('nerja-food', 'es'),
+      nl: buildOwnedLocalizedPath('nerja-food', 'nl'),
+      sv: buildOwnedLocalizedPath('nerja-food', 'sv')
+    },
     getting_to_nerja: {
       en: buildOwnedLocalizedPath('getting-to-nerja', 'en'),
       de: buildOwnedLocalizedPath('getting-to-nerja', 'de'),

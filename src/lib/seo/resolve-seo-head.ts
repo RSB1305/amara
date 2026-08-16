@@ -52,6 +52,12 @@ function toAbsoluteUrl(url: string | undefined, origin: string): string {
   return new URL(url, origin).href;
 }
 
+/**
+ * AMARA titles carry the brand last: the differentiating search intent occupies
+ * the front of the SERP title, and a truncated title loses the brand rather than
+ * the keyword. Authoring stays brand-free; this resolver owns the brand entirely,
+ * and titles that already end in the brand pass through untouched.
+ */
 function normalizeBrandTitle(rawTitle: string | undefined): string {
   const title = (rawTitle ?? '').trim();
 
@@ -73,16 +79,16 @@ function normalizeBrandTitle(rawTitle: string | undefined): string {
     return title;
   }
 
-  const stripBrandPrefix = title.replace(
+  const withoutBrandPrefix = title.replace(
     /^AMARA(?:\s*(?:\||-|–|—|:)\s*|\s+)/i,
     ''
   ).trim();
 
-  if (!stripBrandPrefix) {
+  if (!withoutBrandPrefix) {
     return 'AMARA';
   }
 
-  return `AMARA | ${stripBrandPrefix}`;
+  return `${withoutBrandPrefix} | AMARA`;
 }
 
 export function resolveSeoHead(

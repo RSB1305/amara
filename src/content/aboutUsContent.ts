@@ -88,31 +88,31 @@ export const aboutUsContent: AboutUsContent = {
     ogImage: '/images/robert-amara-host.jpg',
     languages: {
       en: {
-        title: 'About AMARA: Hosting Standards & Quality',
+        title: 'About Us: Hosting Standards & Quality',
         description: 'Meet Robert Sebastian Böhmer, host at AMARA, and discover the standards behind six stays in Frigiliana, Nerja, and Tarifa.',
         robots: 'index, follow',
         canonical: 'auto'
       },
       de: {
-        title: 'Über AMARA: Gastgeberstandard & Qualität',
+        title: 'Über uns: Gastgeberstandard & Qualität',
         description: 'Lernt Robert Sebastian Böhmer, Gastgeber bei AMARA, und die Standards hinter sechs Unterkünften in Frigiliana, Nerja und Tarifa kennen.',
         robots: 'index, follow',
         canonical: 'auto'
       },
       es: {
-        title: 'Sobre AMARA: anfitrión, calidad y filosofía',
+        title: 'Sobre nosotros: anfitrión, calidad y filosofía',
         description: 'Conoce a Robert Sebastian Böhmer, anfitrión de AMARA, y los estándares de seis alojamientos en Frigiliana, Nerja y Tarifa.',
         robots: 'index, follow',
         canonical: 'auto'
       },
       nl: {
-        title: 'Over AMARA: hoststandaard & kwaliteit',
+        title: 'Over ons: hoststandaard & kwaliteit',
         description: 'Maak kennis met Robert Sebastian Böhmer, host bij AMARA, en de standaarden achter zes verblijven in Frigiliana, Nerja en Tarifa.',
         robots: 'index, follow',
         canonical: 'auto'
       },
       sv: {
-        title: 'Om AMARA: värdskap, kvalitet & filosofi',
+        title: 'Om oss: värdskap, kvalitet & filosofi',
         description: 'Lär känna Robert Sebastian Böhmer, värd på AMARA, och standarderna bakom sex boenden i Frigiliana, Nerja och Tarifa.',
         robots: 'index, follow',
         canonical: 'auto'

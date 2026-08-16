@@ -88,7 +88,7 @@ const seo: AmaraAuthoringSeo = {
     },
     nl: {
       title: 'Overnachten in Tarifa: balkon aan de oceaan | AMARA',
-      description: 'Waar jullie in Tarifa verblijven bepaalt elke dag: wind, parkeren, afstanden. Ons appartement in La Marina – balkon aan de oceaan, parkeerplaats, strand in 5 minuten.',
+      description: 'Waar jullie in Tarifa verblijven bepaalt elke dag: wind, parkeren, afstanden. Ons appartement in La Marina: oceaanbalkon, parkeerplaats, strand in 5 minuten.',
       robots: 'index, follow',
       canonical: 'auto'
     },

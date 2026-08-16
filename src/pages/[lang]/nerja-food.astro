@@ -1,0 +1,10 @@
+---
+import NerjaFoodPage from '../../page-families/location-authority/NerjaFoodPage.astro';
+import { getOwnedPageStaticPaths } from '../../lib/routeOwnership';
+import type { AmaraLanguage } from '../../types/seo';
+
+export function getStaticPaths() { return getOwnedPageStaticPaths(); }
+const { lang } = Astro.params as { lang: AmaraLanguage };
+---
+
+<NerjaFoodPage lang={lang} />

@@ -51,6 +51,8 @@ export interface FrigilianaLocationPlanning {
   dailyLife: FrigilianaLocationPlanningLink;
   comparison: FrigilianaLocationPlanningLink;
   weather: FrigilianaLocationPlanningLink;
+  faq: FrigilianaLocationPlanningLink;
+  filmLocations: FrigilianaLocationPlanningLink;
   reviews: FrigilianaLocationPlanningLink;
   amenities: FrigilianaLocationPlanningLink;
 }
@@ -284,6 +286,8 @@ export const frigilianaLocationCopy = {
       "dailyLife": { "label": "Alltag & Versorgung", "text": "Lebensmittel, Bäckerei und normale Erledigungen im Dorf planen – mit Nerja als Ergänzung für mehr Auswahl." },
       "comparison": { "label": "Frigiliana oder Nerja", "text": "Dorfleben in Frigiliana mit dem strandnahen Nerja vergleichen." },
       "weather": { "label": "Wetter und Jahreszeiten", "text": "Monatswetter, Terrassenzeit und passende Saison einordnen." },
+      "faq": { "label": "Häufige Fragen zu Frigiliana", "text": "Kurze Antworten zu Anreise, Parken, Dorfstruktur, Übernachten, Veranstaltungen und Wandern." },
+      "filmLocations": { "label": "Netflix-Drehorte in Frigiliana", "text": "Nachvollziehen, wo der Netflix-Thriller Dos Tumbas gedreht wurde und was das für die Altstadt bedeutet." },
       "reviews": { "label": "Gästebewertungen", "text": "Lesen, was Gäste nach ihrem Aufenthalt erwähnen." },
       "amenities": { "label": "Komfort und Ausstattung", "text": "Komfortdetails der AMARA Unterkünfte vor der Buchung prüfen." }
     },
@@ -459,6 +463,8 @@ export const frigilianaLocationCopy = {
       "dailyLife": { "label": "Daily life & services", "text": "Plan groceries, bakery stops and normal village errands, with Nerja adding more choice when useful." },
       "comparison": { "label": "Frigiliana or Nerja", "text": "Compare village life in Frigiliana with beach-first Nerja." },
       "weather": { "label": "Weather & seasons", "text": "Plan monthly weather, terrace time and the right season." },
+      "faq": { "label": "Frigiliana FAQ", "text": "Short answers on arrival, parking, village layout, staying overnight, events and hiking." },
+      "filmLocations": { "label": "Netflix filming locations", "text": "See where the Netflix thriller Dos Tumbas was filmed and what it means for the old town." },
       "reviews": { "label": "Guest reviews", "text": "Read what guests mention after staying with AMARA." },
       "amenities": { "label": "Comfort & Amenities", "text": "Check the comfort details of AMARA stays before booking." }
     },
@@ -639,6 +645,8 @@ export const frigilianaLocationCopy = {
       "dailyLife": { "label": "Vida diaria y servicios", "text": "Planificar alimentación, panadería y recados en el pueblo, con Nerja como complemento para más variedad." },
       "comparison": { "label": "Frigiliana o Nerja", "text": "Comparar la vida de pueblo en Frigiliana con Nerja junto al mar." },
       "weather": { "label": "Clima y estaciones", "text": "Elegir época, terrazas y planes con el clima de cada mes." },
+      "faq": { "label": "Preguntas frecuentes sobre Frigiliana", "text": "Respuestas breves sobre llegada, aparcamiento, estructura del pueblo, alojamiento, eventos y senderismo." },
+      "filmLocations": { "label": "Localizaciones de Netflix", "text": "Ver dónde se rodó el thriller de Netflix Dos Tumbas y qué significa para el casco antiguo." },
       "reviews": { "label": "Reseñas de huéspedes", "text": "Leer qué cuentan los huéspedes después de alojarse con AMARA." },
       "amenities": { "label": "Confort y servicios", "text": "Revisar el confort de los alojamientos AMARA antes de reservar." }
     },
@@ -813,6 +821,8 @@ export const frigilianaLocationCopy = {
       "dailyLife": { "label": "Dagelijks leven & voorzieningen", "text": "Plan boodschappen, de bakker en gewone dorpszaken, met Nerja als aanvulling voor meer keuze." },
       "comparison": { "label": "Frigiliana of Nerja", "text": "Vergelijk het dorpsleven in Frigiliana met Nerja aan zee." },
       "weather": { "label": "Weer & seizoenen", "text": "Kies maand, terrasmomenten en seizoen met meer context." },
+      "faq": { "label": "Veelgestelde vragen over Frigiliana", "text": "Korte antwoorden over aankomst, parkeren, dorpsstructuur, overnachten, evenementen en wandelen." },
+      "filmLocations": { "label": "Netflix-filmlocaties", "text": "Zien waar de Netflix-thriller Dos Tumbas is gefilmd en wat dat betekent voor de oude kern." },
       "reviews": { "label": "Gastbeoordelingen", "text": "Lees wat gasten na een verblijf bij AMARA vertellen." },
       "amenities": { "label": "Comfort en voorzieningen", "text": "Controleer het comfort van AMARA-verblijven vóór het boeken." }
     },
@@ -987,6 +997,8 @@ export const frigilianaLocationCopy = {
       "dailyLife": { "label": "Vardag & service", "text": "Planera matinköp, bageri och vanliga byärenden, med Nerja som komplement för större urval." },
       "comparison": { "label": "Frigiliana eller Nerja", "text": "Jämför bylivet i Frigiliana med kustnära Nerja." },
       "weather": { "label": "Väder & årstider", "text": "Planera månad, terrasser och rätt säsong med mer sammanhang." },
+      "faq": { "label": "Vanliga frågor om Frigiliana", "text": "Korta svar om ankomst, parkering, byns struktur, övernattning, evenemang och vandring." },
+      "filmLocations": { "label": "Netflix inspelningsplatser", "text": "Se var Netflix-thrillern Dos Tumbas spelades in och vad det betyder för gamla stan." },
       "reviews": { "label": "Gästrecensioner", "text": "Läs vad gäster berättar efter en vistelse hos AMARA." },
       "amenities": { "label": "Komfort och bekvämligheter", "text": "Kontrollera komforten i AMARA-boendena före bokning." }
     },

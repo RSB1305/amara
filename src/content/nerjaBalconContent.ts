@@ -70,7 +70,7 @@ export const nerjaBalconSeo: AmaraAuthoringSeo = {
     de: {
       title: 'Balcón de Europa in Nerja: Die Kanonenbatterie hinter der Aussicht',
       description:
-        'Die meistfotografierte Terrasse dieser Küste war eine Küstenbatterie. Was ihr seht, wann ihr hingeht — und welcher Teil der Königsgeschichte nur Überlieferung ist.',
+        'Die meistfotografierte Terrasse dieser Küste war eine Küstenbatterie: was ihr seht, wann ihr hingeht und welcher Teil der Königsgeschichte Überlieferung ist.',
       robots: 'index, follow',
       canonical: 'auto'
     },

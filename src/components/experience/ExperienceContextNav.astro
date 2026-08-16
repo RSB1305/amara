@@ -10,11 +10,15 @@ import {
   experienceNavigationContent,
   type ExperienceId
 } from '../../content/experienceHubContent';
-import { resolveOptionalLink, type LinkToken } from '../../lib/linkResolver';
+import {
+  nerjaExperienceHubContent,
+  type NerjaExperienceThemeId
+} from '../../content/nerjaExperienceHubContent';
+import { resolveOptionalLink } from '../../lib/linkResolver';
 import { getDestinationBranchNavigation } from '../../lib/location/destinationBranchNavigation';
 import type { AmaraLanguage } from '../../types/seo';
 
-export type NerjaExperienceId = 'balcon' | 'caves' | 'nightlife';
+export type NerjaExperienceId = NerjaExperienceThemeId;
 
 interface Props {
   currentId?: ExperienceId | NerjaExperienceId;
@@ -31,33 +35,27 @@ const nerjaLabels: Record<
   {
     breadcrumb: string;
     switcher: string;
-    labels: Record<NerjaExperienceId, string>;
   }
 > = {
   en: {
     breadcrumb: 'Experiences',
-    switcher: 'Explore another Nerja experience',
-    labels: { balcon: 'Balcón & Old Town', caves: 'Nerja Caves', nightlife: 'Evening life' }
+    switcher: 'Explore another Nerja experience'
   },
   de: {
     breadcrumb: 'Erlebnisse',
-    switcher: 'Ein anderes Nerja-Erlebnis entdecken',
-    labels: { balcon: 'Balcón & Altstadt', caves: 'Höhlen von Nerja', nightlife: 'Abendleben' }
+    switcher: 'Ein anderes Nerja-Erlebnis entdecken'
   },
   es: {
     breadcrumb: 'Experiencias',
-    switcher: 'Descubrir otra experiencia en Nerja',
-    labels: { balcon: 'Balcón y casco antiguo', caves: 'Cueva de Nerja', nightlife: 'Vida nocturna' }
+    switcher: 'Descubrir otra experiencia en Nerja'
   },
   nl: {
     breadcrumb: 'Ervaringen',
-    switcher: 'Ontdek een andere ervaring in Nerja',
-    labels: { balcon: 'Balcón & oude stad', caves: 'Grotten van Nerja', nightlife: 'Avondleven' }
+    switcher: 'Ontdek een andere ervaring in Nerja'
   },
   sv: {
     breadcrumb: 'Upplevelser',
-    switcher: 'Upptäck en annan upplevelse i Nerja',
-    labels: { balcon: 'Balcón & gamla stan', caves: 'Nerjagrottorna', nightlife: 'Kvällsliv' }
+    switcher: 'Upptäck en annan upplevelse i Nerja'
   }
 };
 
@@ -79,16 +77,11 @@ const frigilianaSiblingLinks: ContextNavigationItem[] = experienceHubContent[lan
   })
   .filter((item) => item !== null);
 
-const nerjaDefinitions: { id: NerjaExperienceId; token: LinkToken }[] = [
-  { id: 'balcon', token: 'nerja_balcon_de_europa' },
-  { id: 'caves', token: 'nerja_caves' },
-  { id: 'nightlife', token: 'nerja_nightlife_authority' }
-];
 const nerjaCopy = nerjaLabels[lang];
-const nerjaSiblingLinks: ContextNavigationItem[] = nerjaDefinitions.map(({ id, token }) => ({
-  id,
-  href: resolveOptionalLink(token, lang, { suppressMissing: true }) ?? undefined,
-  label: nerjaCopy.labels[id]
+const nerjaSiblingLinks: ContextNavigationItem[] = nerjaExperienceHubContent[lang].themes.map((theme) => ({
+  id: theme.id,
+  href: resolveOptionalLink(theme.token, lang, { suppressMissing: true }) ?? undefined,
+  label: theme.title
 }));
 
 const items = destination === 'frigiliana' ? frigilianaSiblingLinks : nerjaSiblingLinks;

@@ -83,6 +83,7 @@ export const propertySaleImages = {
 export const propertySaleSeo: AmaraAuthoringSeo = {
   version: '2026-07-31-casa-amara-property-sale-v1.0-D',
   pageType: 'D',
+  entityKey: 'amara-brand',
   languages: {
     en: {
       title: 'Historic Boutique Property for Sale in Frigiliana | AMARA',

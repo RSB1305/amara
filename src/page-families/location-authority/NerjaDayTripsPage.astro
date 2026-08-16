@@ -1,0 +1,85 @@
+---
+import Hero from '../../components/Hero.astro';
+import Navigation from '../../components/Navigation.astro';
+import EditorialClosingCta from '../../components/editorial/EditorialClosingCta.astro';
+import EditorialFeatureGrid from '../../components/editorial/EditorialFeatureGrid.astro';
+import ExperienceContextNav from '../../components/experience/ExperienceContextNav.astro';
+import { frigilianaDayTripsContent } from '../../content/frigilianaDayTripsContent';
+import {
+  nerjaDayTripsPageContent,
+  nerjaDayTripsSeo
+} from '../../content/nerjaExperienceAdditionsContent';
+import LocationAuthorityLayout from '../../layouts/LocationAuthorityLayout.astro';
+import { createRequiredLinkResolver, type LabeledLink } from '../../lib/linkResolver';
+import { normalizeLanguage } from '../../lib/seo/resolve-seo-head';
+import type { AmaraLanguage } from '../../types/seo';
+
+interface Props { lang?: string; }
+
+const { lang = 'es' } = Astro.props;
+const currentLang = normalizeLanguage(lang as AmaraLanguage);
+const shared = frigilianaDayTripsContent[currentLang];
+const copy = nerjaDayTripsPageContent[currentLang];
+const requiredLink = createRequiredLinkResolver(currentLang, 'Nerja day trips');
+const adaptBase = (value: string) => value.replaceAll('Frigiliana', 'Nerja');
+const footerHighlights: LabeledLink[] = [
+  { token: 'nerja_daytrips_authority', label: copy.navLabel },
+  { token: 'nerja_beaches_authority', label: copy.related.items[0].title },
+  { token: 'nerja_food_authority', label: copy.related.items[1].title }
+];
+const heroImage = { src: '/images/amara-frigiliana-pueblo/nerja-coast-aerial.jpeg', width: 2000, height: 1333 };
+---
+
+<LocationAuthorityLayout seo={nerjaDayTripsSeo} pageLang={currentLang} footerHighlights={footerHighlights}>
+  <Navigation slot="navigation" currentLang={currentLang} languageToken="nerja_daytrips_authority" />
+  <ExperienceContextNav currentId="dayTrips" destination="nerja" lang={currentLang} />
+
+  <div data-am-page="nerja-day-trips">
+    <Hero imageSrc={heroImage.src} imageAlt={copy.hero.imageAlt} imageWidth={heroImage.width} imageHeight={heroImage.height}>
+      <span class="am-text-caption mb-8 block text-primary">{copy.hero.kicker}</span>
+      <h1 class="am-text-display mb-10 italic tracking-tighter text-on-surface">{copy.hero.title}</h1>
+      <div class="max-w-xl space-y-6 border-l border-primary/20 pl-10">
+        {copy.hero.paragraphs.map((paragraph) => <p class="am-text-body leading-relaxed text-on-surface-variant">{paragraph}</p>)}
+      </div>
+    </Hero>
+
+    <section id="overview" class="am-section am-section--tint">
+      <div class="mb-16 max-w-3xl">
+        <h2 class="am-text-title mb-6 italic tracking-tight text-on-surface">{copy.overview.title}</h2>
+        <p class="am-text-body leading-relaxed text-on-surface-variant">{copy.overview.intro}</p>
+      </div>
+      <EditorialFeatureGrid cards={copy.overview.items.map((item) => ({ title: item.title, copy: item.text }))} />
+    </section>
+
+    {shared.destinations.map((destination, index) => (
+      <section id={destination.id} class:list={['am-section', index % 2 === 0 ? 'am-section--plain' : 'am-section--tint']}>
+        <div class="mb-16 max-w-3xl">
+          <p class="am-text-caption mb-5 text-primary">{destination.kicker}</p>
+          <h2 class="am-text-title mb-6 italic tracking-tight text-on-surface">{destination.title}</h2>
+          <p class="am-text-body leading-relaxed text-on-surface-variant">{adaptBase(destination.summary)}</p>
+        </div>
+        <div class="grid grid-cols-1 gap-x-16 gap-y-14 lg:grid-cols-12">
+          <article class="border-t border-outline-variant/25 pt-8 lg:col-span-5"><dl class="space-y-7">{destination.facts.map((fact) => <div><dt class="am-text-caption mb-2 text-primary">{fact.label}</dt><dd class="am-text-body leading-relaxed text-on-surface-variant">{fact.value}</dd></div>)}</dl></article>
+          <article class="border-t border-outline-variant/25 pt-8 lg:col-span-7">
+            <h3 class="am-text-subtitle mb-6 text-on-surface">{destination.planningTitle}</h3>
+            <p class="border-l border-primary/20 bg-surface-container-low px-4 py-3 am-text-body leading-relaxed text-on-surface-variant">{adaptBase(destination.callout)}</p>
+            <p class="mt-7 am-text-body leading-relaxed text-on-surface-variant">{adaptBase(destination.details)}</p>
+            <p class="mt-7 am-text-body"><a href={destination.officialHref} target="_blank" rel="noopener noreferrer" class="am-inline-link">{destination.officialLabel}<span aria-hidden="true"> →</span></a></p>
+          </article>
+        </div>
+      </section>
+    ))}
+
+    <section id="practical" class="am-section am-section--tint">
+      <div class="mb-16 max-w-3xl"><h2 class="am-text-title mb-6 italic tracking-tight text-on-surface">{shared.practical.title}</h2><p class="am-text-body leading-relaxed text-on-surface-variant">{adaptBase(shared.practical.intro)}</p></div>
+      <EditorialFeatureGrid cards={shared.practical.items.map((item) => ({ title: item.title, copy: adaptBase(item.text) }))} />
+    </section>
+
+    <section class="am-section am-section--plain">
+      <div class="mb-12 max-w-3xl"><h2 class="am-text-title italic tracking-tight text-on-surface">{copy.related.title}</h2></div>
+      <div class="grid grid-cols-1 gap-x-16 gap-y-12 lg:grid-cols-2">{copy.related.items.map((item) => <article class="border-t border-outline-variant/25 pt-8"><h3 class="am-text-subtitle text-on-surface">{item.title}</h3><p class="mt-4 am-text-body leading-relaxed text-on-surface-variant">{item.text}</p><p class="mt-6"><a href={requiredLink(item.token)} class="am-inline-link">{item.label}<span aria-hidden="true"> →</span></a></p></article>)}</div>
+    </section>
+
+    <section class="mx-auto max-w-screen-2xl px-6 pt-24 md:px-12"><EditorialClosingCta title={copy.closing.title} lead={copy.closing.lead} lang={currentLang} links={[{ token: 'playa', label: copy.closing.propertyLabel, style: 'primary' }, { token: 'nerja_experience_hub', label: copy.closing.hubLabel, style: 'secondary' }]} /></section>
+  </div>
+</LocationAuthorityLayout>

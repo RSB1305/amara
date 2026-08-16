@@ -78,12 +78,12 @@ async function runSeoTitlePolicyAudit() {
       ['compound DE', 'AMARA-Unterkünfte', 'AMARA-Unterkünfte'],
       ['compound NL', 'AMARA-verblijven', 'AMARA-verblijven'],
       ['compound SV', 'AMARA-boenden', 'AMARA-boenden'],
-      ['prefix pipe', 'AMARA | Example', 'AMARA | Example'],
-      ['prefix hyphen', 'AMARA - Example', 'AMARA | Example'],
-      ['prefix en dash', 'AMARA – Example', 'AMARA | Example'],
-      ['prefix em dash', 'AMARA — Example', 'AMARA | Example'],
-      ['prefix colon', 'AMARA: Example', 'AMARA | Example'],
-      ['prefix space', 'AMARA Example', 'AMARA | Example'],
+      ['prefix pipe', 'AMARA | Example', 'Example | AMARA'],
+      ['prefix hyphen', 'AMARA - Example', 'Example | AMARA'],
+      ['prefix en dash', 'AMARA – Example', 'Example | AMARA'],
+      ['prefix em dash', 'AMARA — Example', 'Example | AMARA'],
+      ['prefix colon', 'AMARA: Example', 'Example | AMARA'],
+      ['prefix space', 'AMARA Example', 'Example | AMARA'],
       ['suffix pipe', 'Example | AMARA', 'Example | AMARA'],
       ['suffix hyphen', 'Example - AMARA', 'Example - AMARA'],
       ['suffix en dash', 'Example – AMARA', 'Example – AMARA'],
@@ -105,7 +105,7 @@ async function runSeoTitlePolicyAudit() {
       ],
       [
         'en/romantic-hideaways.html',
-        'AMARA | Stays in Frigiliana, Nerja & Tarifa'
+        'Stays in Frigiliana, Nerja & Tarifa | AMARA'
       ],
       [
         'de/romantic-hideaways.html',
@@ -132,7 +132,9 @@ async function runSeoTitlePolicyAudit() {
     for (const htmlFile of walkHtmlFiles(distRoot)) {
       const title = readRenderedTitle(htmlFile);
 
-      if (/^AMARA \| AMARA-/.test(title)) {
+      // A compound brand title owns its brand already. Appending the suffix to it
+      // would state the brand twice, which is the failure this guard catches.
+      if (/^AMARA-.*\s\|\s*AMARA$/.test(title)) {
         throw new Error(
           `[AMARA SEO title policy] Duplicated compound brand in ${htmlFile}: ${title}`
         );

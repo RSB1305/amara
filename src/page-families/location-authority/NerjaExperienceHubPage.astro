@@ -22,15 +22,12 @@ const copy = nerjaExperienceHubContent[currentLang];
 
 const themes = copy.themes.map((theme) => ({
   ...theme,
-  href: theme.token
-    ? resolveOptionalLink(theme.token, currentLang, { suppressMissing: true })
-    : undefined
+  href: resolveOptionalLink(theme.token, currentLang, { suppressMissing: true })
 }));
 
 const footerHighlights: LabeledLink[] = [
   { token: 'nerja_experience_hub', label: copy.hero.eyebrow },
-  { token: 'nerja_balcon_de_europa', label: copy.themes.find((theme) => theme.id === 'balcon')!.title },
-  { token: 'nerja_caves', label: copy.themes.find((theme) => theme.id === 'caves')!.title }
+  ...copy.themes.slice(0, 2).map((theme) => ({ token: theme.token, label: theme.title }))
 ];
 ---
 
