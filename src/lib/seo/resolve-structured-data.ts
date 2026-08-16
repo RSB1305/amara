@@ -531,8 +531,11 @@ function resolveRouteLabel(
   currentLang: AmaraLanguage,
   fallbackTitle: string
 ): string {
+  // Authored titles may carry the brand at either end. A breadcrumb names the
+  // page, never the brand, so both forms are stripped before falling back.
   const titleLabel = fallbackTitle
     .replace(/^AMARA\s*(?:\||-|–|—|:)?\s*/i, '')
+    .replace(/\s*(?:\||-|–|—)\s*AMARA$/i, '')
     .trim();
   const routeLabel = PUBLIC_ROUTE_LABELS[slug]?.[currentLang] ??
     PUBLIC_ROUTE_LABELS[slug]?.en;

@@ -25,7 +25,7 @@ test('falls back to authored English metadata without changing the requested rou
 
   expect(result.current).toEqual({
     ...englishSeo,
-    title: 'AMARA | Arrival guide'
+    title: 'Arrival guide | AMARA'
   });
   expect(result.canonicalUrl).toBe(
     'https://amara-lodging.es/de/directions-arrival-guide'
