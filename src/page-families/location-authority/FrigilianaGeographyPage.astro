@@ -1,0 +1,108 @@
+---
+import Navigation from '../../components/Navigation.astro';
+import LocationContextNav from '../../components/location/LocationContextNav.astro';
+import {
+  frigilianaGeographyContent,
+  frigilianaGeographySeo
+} from '../../content/frigilianaGeographyContent';
+import LocationAuthorityLayout from '../../layouts/LocationAuthorityLayout.astro';
+import { createRequiredLinkResolver, type LabeledLink } from '../../lib/linkResolver';
+import { normalizeLanguage } from '../../lib/seo/resolve-seo-head';
+import type { AmaraLanguage } from '../../types/seo';
+import AuthorityArticle from './AuthorityArticle.astro';
+import AuthorityRelatedLinks from './AuthorityRelatedLinks.astro';
+import AuthorityTextSection from './AuthorityTextSection.astro';
+
+interface Props {
+  lang?: string;
+}
+
+const { lang = 'es' } = Astro.props;
+const currentLang = normalizeLanguage(lang as AmaraLanguage);
+const content = frigilianaGeographyContent[currentLang];
+
+const requiredLink = createRequiredLinkResolver(currentLang, 'Frigiliana geography');
+
+const aboutHref = requiredLink('about');
+const arrivalHref = requiredLink('getting_to_frigiliana');
+const stayHref = requiredLink('frigiliana_stairs');
+const footerHighlights: LabeledLink[] = [
+  { token: 'frigiliana_geography', label: content.navLabel },
+  { token: 'getting_to_frigiliana', label: content.related.links[0].label },
+  { token: 'frigiliana_stairs', label: content.related.links[1].label }
+];
+---
+
+<LocationAuthorityLayout
+  seo={frigilianaGeographySeo}
+  pageLang={currentLang}
+  showContextNavigation={false}
+  footerHighlights={footerHighlights}
+>
+  <Navigation
+    slot="navigation"
+    currentLang={currentLang}
+    languageToken="frigiliana_geography"
+  />
+  <LocationContextNav activeId="geography" lang={currentLang} />
+
+  <AuthorityArticle
+    pageId="frigiliana-geography"
+    lang={currentLang}
+    hero={content.hero}
+    authorName={frigilianaGeographySeo.article!.authorName}
+    authorHref={aboutHref}
+    facts={content.facts}
+    sources={content.sources}
+    closing={content.closing}
+    primaryCta={{ href: arrivalHref, label: content.closing.arrivalLabel }}
+    secondaryCta={{ href: stayHref, label: content.closing.stayLabel }}
+  >
+    <div
+      slot="hero-mark"
+      aria-hidden="true"
+      class="hidden font-serif text-[clamp(3.5rem,8vw,8.5rem)] leading-[0.72] text-primary/10 lg:col-span-4 lg:block"
+    >
+      36° N
+    </div>
+
+    <section
+      aria-labelledby="frigiliana-orientation-title"
+      class="border-b border-border-subtle bg-inverse-surface px-6 py-20 text-inverted-on-surface md:px-12 md:py-28"
+      data-am-orientation="frigiliana"
+    >
+      <div class="mx-auto grid max-w-screen-2xl gap-12 lg:grid-cols-12 lg:gap-20">
+        <div class="lg:col-span-4">
+          <p class="font-label text-[11px] font-bold uppercase tracking-[0.18em] text-primary-fixed-dim">{content.orientation.eyebrow}</p>
+          <h2 id="frigiliana-orientation-title" class="am-text-title mt-5 text-balance text-inverted-on-surface">{content.orientation.title}</h2>
+          <p class="am-text-body mt-6 leading-relaxed text-inverted-on-surface/70">{content.orientation.intro}</p>
+        </div>
+        <ol class="grid border-y border-inverted-on-surface/20 sm:grid-cols-2 lg:col-span-8">
+          {content.orientation.items.map((item, index) => (
+            <li
+              class:list={[
+                'border-inverted-on-surface/20 px-1 py-6 sm:px-7',
+                index > 1 && 'border-t',
+                index % 2 === 1 && 'sm:border-l'
+              ]}
+              data-am-orientation-point={index + 1}
+            >
+              <span class="font-label text-[10px] font-bold uppercase tracking-[0.14em] text-primary-fixed-dim">{item.label}</span>
+              <span class="am-text-subtitle mt-3 block text-inverted-on-surface">{item.value}</span>
+            </li>
+          ))}
+        </ol>
+      </div>
+    </section>
+
+    {content.sections.map((section, index) => (
+      <AuthorityTextSection section={section} index={index} />
+    ))}
+
+    <AuthorityRelatedLinks
+      related={content.related}
+      columns="md:grid-cols-2"
+      resolveHref={requiredLink}
+    />
+  </AuthorityArticle>
+</LocationAuthorityLayout>

@@ -123,6 +123,13 @@ legal_notice: {
     ========================================================= */
     locations_hub: { en: '/en/locations', de: '/de/locations', es: '/locations', nl: '/nl/locations', sv: '/sv/locations' },
     location_frigiliana: { en: '/en/frigiliana-location', de: '/de/frigiliana-location', es: '/frigiliana-location', nl: '/nl/frigiliana-location', sv: '/sv/frigiliana-location' },
+    frigiliana_geography: {
+      en: buildOwnedLocalizedPath('frigiliana-geography', 'en'),
+      de: buildOwnedLocalizedPath('frigiliana-geography', 'de'),
+      es: buildOwnedLocalizedPath('frigiliana-geography', 'es'),
+      nl: buildOwnedLocalizedPath('frigiliana-geography', 'nl'),
+      sv: buildOwnedLocalizedPath('frigiliana-geography', 'sv')
+    },
     location_nerja: {
       en: buildOwnedLocalizedPath('nerja-location', 'en'),
       de: buildOwnedLocalizedPath('nerja-location', 'de'),
