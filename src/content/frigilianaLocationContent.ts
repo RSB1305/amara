@@ -47,6 +47,8 @@ export interface FrigilianaLocationPlanning {
   intro: string;
   gettingThere: FrigilianaLocationPlanningLink;
   parking: FrigilianaLocationPlanningLink;
+  stairs: FrigilianaLocationPlanningLink;
+  dailyLife: FrigilianaLocationPlanningLink;
   comparison: FrigilianaLocationPlanningLink;
   weather: FrigilianaLocationPlanningLink;
   reviews: FrigilianaLocationPlanningLink;
@@ -278,6 +280,8 @@ export const frigilianaLocationCopy = {
       "intro": "Vergleicht vor der Buchung Anreise, Parken, Lageentscheidung, Jahreszeit und die Details eures Aufenthalts.",
       "gettingThere": { "label": "Anreise nach Frigiliana", "text": "Mietwagen, privaten Transfer und öffentliche Verbindungen über Nerja vergleichen." },
       "parking": { "label": "Parken in Frigiliana", "text": "Parkmöglichkeiten und den letzten Weg zur Altstadt verstehen." },
+      "stairs": { "label": "Dorfstruktur & Treppen", "text": "Einordnen, wie Frigilianas Ebenen und Stufen die täglichen Wege prägen." },
+      "dailyLife": { "label": "Alltag & Versorgung", "text": "Lebensmittel, Bäckerei und normale Erledigungen im Dorf planen – mit Nerja als Ergänzung für mehr Auswahl." },
       "comparison": { "label": "Frigiliana oder Nerja", "text": "Dorfleben in Frigiliana mit dem strandnahen Nerja vergleichen." },
       "weather": { "label": "Wetter und Jahreszeiten", "text": "Monatswetter, Terrassenzeit und passende Saison einordnen." },
       "reviews": { "label": "Gästebewertungen", "text": "Lesen, was Gäste nach ihrem Aufenthalt erwähnen." },
@@ -451,6 +455,8 @@ export const frigilianaLocationCopy = {
       "intro": "Before booking, compare arrival, parking, the location decision, seasons and the details of your stay.",
       "gettingThere": { "label": "Getting to Frigiliana", "text": "Compare rental car, private transfer and public transport via Nerja." },
       "parking": { "label": "Parking in Frigiliana", "text": "Understand the parking options and final approach to the old town." },
+      "stairs": { "label": "Village structure & stairs", "text": "Understand how Frigiliana’s levels and steps shape repeated daily routes." },
+      "dailyLife": { "label": "Daily life & services", "text": "Plan groceries, bakery stops and normal village errands, with Nerja adding more choice when useful." },
       "comparison": { "label": "Frigiliana or Nerja", "text": "Compare village life in Frigiliana with beach-first Nerja." },
       "weather": { "label": "Weather & seasons", "text": "Plan monthly weather, terrace time and the right season." },
       "reviews": { "label": "Guest reviews", "text": "Read what guests mention after staying with AMARA." },
@@ -629,6 +635,8 @@ export const frigilianaLocationCopy = {
       "intro": "Antes de reservar, comparad llegada, aparcamiento, ubicación, época del año y detalles de la estancia.",
       "gettingThere": { "label": "Cómo llegar a Frigiliana", "text": "Comparar coche de alquiler, transfer privado y transporte público vía Nerja." },
       "parking": { "label": "Aparcamiento en Frigiliana", "text": "Entender las opciones para aparcar y el último acceso al casco antiguo." },
+      "stairs": { "label": "Estructura y escaleras", "text": "Entender cómo los niveles y escalones de Frigiliana condicionan los recorridos diarios." },
+      "dailyLife": { "label": "Vida diaria y servicios", "text": "Planificar alimentación, panadería y recados en el pueblo, con Nerja como complemento para más variedad." },
       "comparison": { "label": "Frigiliana o Nerja", "text": "Comparar la vida de pueblo en Frigiliana con Nerja junto al mar." },
       "weather": { "label": "Clima y estaciones", "text": "Elegir época, terrazas y planes con el clima de cada mes." },
       "reviews": { "label": "Reseñas de huéspedes", "text": "Leer qué cuentan los huéspedes después de alojarse con AMARA." },
@@ -801,6 +809,8 @@ export const frigilianaLocationCopy = {
       "intro": "Vergelijk voor het boeken aankomst, parkeren, de locatiekeuze, seizoenen en verblijfsdetails.",
       "gettingThere": { "label": "Naar Frigiliana reizen", "text": "Vergelijk huurauto, privétransfer en openbaar vervoer via Nerja." },
       "parking": { "label": "Parkeren in Frigiliana", "text": "Bekijk parkeeropties en de laatste route naar de oude kern." },
+      "stairs": { "label": "Dorpsstructuur & trappen", "text": "Begrijp hoe niveaus en trappen de terugkerende dagelijkse routes bepalen." },
+      "dailyLife": { "label": "Dagelijks leven & voorzieningen", "text": "Plan boodschappen, de bakker en gewone dorpszaken, met Nerja als aanvulling voor meer keuze." },
       "comparison": { "label": "Frigiliana of Nerja", "text": "Vergelijk het dorpsleven in Frigiliana met Nerja aan zee." },
       "weather": { "label": "Weer & seizoenen", "text": "Kies maand, terrasmomenten en seizoen met meer context." },
       "reviews": { "label": "Gastbeoordelingen", "text": "Lees wat gasten na een verblijf bij AMARA vertellen." },
@@ -973,6 +983,8 @@ export const frigilianaLocationCopy = {
       "intro": "Jämför ankomst, parkering, ortsval, årstid och vistelsens detaljer innan ni bokar.",
       "gettingThere": { "label": "Resa till Frigiliana", "text": "Jämför hyrbil, privat transfer och kollektivtrafik via Nerja." },
       "parking": { "label": "Parkering i Frigiliana", "text": "Förstå parkeringsalternativen och sista vägen till gamla stan." },
+      "stairs": { "label": "Bystruktur & trappor", "text": "Förstå hur Frigilianas nivåer och trappor formar återkommande vardagsvägar." },
+      "dailyLife": { "label": "Vardag & service", "text": "Planera matinköp, bageri och vanliga byärenden, med Nerja som komplement för större urval." },
       "comparison": { "label": "Frigiliana eller Nerja", "text": "Jämför bylivet i Frigiliana med kustnära Nerja." },
       "weather": { "label": "Väder & årstider", "text": "Planera månad, terrasser och rätt säsong med mer sammanhang." },
       "reviews": { "label": "Gästrecensioner", "text": "Läs vad gäster berättar efter en vistelse hos AMARA." },

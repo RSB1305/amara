@@ -42,7 +42,7 @@ export interface NerjaDailyLifeLocale {
 
 const article = {
   datePublished: '2026-08-13',
-  dateModified: '2026-08-13',
+  dateModified: '2026-08-16',
   authorName: 'Robert Sebastian Böhmer',
   authorType: 'Person' as const,
   authorSlug: 'amara-about-us'
@@ -55,13 +55,12 @@ const article = {
 const sharedSources = {
   health:
     'https://www.sspa.juntadeandalucia.es/servicioandaluzdesalud/el-sas/servicios-y-centros/informacion-por-centros/24887',
-  busStation: 'https://www.spain.info/en/transport/nerja-bus-station/',
   market: 'https://www.mercadillosemanal.com/en.malaga/mercadillo-de-nerja',
   sima: 'https://www.juntadeandalucia.es/institutodeestadisticaycartografia/sima/ficha.htm?mun=29075'
 };
 
 export const nerjaDailyLifeSeo: AmaraAuthoringSeo = {
-  version: '2026-08-13-nerja-daily-life-v1.0',
+  version: '2026-08-16-nerja-daily-life-v1.1',
   pageType: 'A',
   entityKey: 'amara-brand',
   article,
@@ -116,9 +115,9 @@ export const nerjaDailyLifeContent: Record<AmaraLanguage, NerjaDailyLifeLocale> 
       updated: 'Reviewed August 2026'
     },
     facts: [
-      { label: 'Weekly market', value: 'Tuesdays, roughly 09:00–14:00' },
-      { label: 'Bus station', value: 'From about 06:30 to the last departure' },
-      { label: 'Pharmacy by the clinic', value: 'Typically 08:00–22:00' },
+      { label: 'Everyday shopping', value: 'Supermarkets, bakeries and specialist shops' },
+      { label: 'Weekly market', value: 'Tuesdays in the Almijara area' },
+      { label: 'Central routines', value: 'Many errands work on foot' },
       { label: 'Health centre', value: 'Servicio Andaluz de Salud' }
     ],
     sections: [
@@ -127,9 +126,8 @@ export const nerjaDailyLifeContent: Record<AmaraLanguage, NerjaDailyLifeLocale> 
         eyebrow: 'Groceries',
         title: 'Everyday shopping is a walk, not a drive',
         paragraphs: [
-          'Nerja is large enough to carry full supermarkets and small enough that you reach one on foot from almost anywhere in the centre.',
-          'For a self-catering stay that changes the shape of the week: you shop small and often rather than filling a boot once. Bread, fruit and fish get bought on the way back from somewhere else, which is how the town actually lives.',
-          'This is exactly how we spent our own holidays here: while my wife slept in a little longer, I walked to the baker and the supermarket. Then breakfast on the terrace, unhurried, looking at the water.'
+          'Nerja’s size supports full supermarkets, bakeries, pharmacies and a broader range of specialist and household shopping than a small village. In the centre, much of that everyday supply can be combined on foot.',
+          'The exact neighbourhood still matters. Coastal and central addresses keep many repeated errands easier, while upper residential areas add gradient or make a car more useful. From AMARA Playa, normal central shopping fits naturally into the walk between Torrecilla and the old town.'
         ]
       },
       {
@@ -137,9 +135,8 @@ export const nerjaDailyLifeContent: Record<AmaraLanguage, NerjaDailyLifeLocale> 
         eyebrow: 'The market',
         title: 'Tuesday is the day the town rearranges itself',
         paragraphs: [
-          'The weekly mercadillo runs every Tuesday, roughly from 09:00 to 14:00, with around two hundred stalls: produce, clothing, shoes, household goods.',
-          'It is not in the centre. The market sets up in the Almijara area, about two kilometres out, which is a fifteen to twenty minute walk or five minutes by car, with free parking alongside. On Tuesdays an urban bus connects the centre with the market.',
-          'Go early if you want the food stalls at their best, and go late if you would rather have space than choice.'
+          'The weekly mercadillo takes place on Tuesdays in the Almijara area, outside the compact centre. It adds produce, clothing and household stalls to Nerja’s normal retail range.',
+          'Because market arrangements and hours can change, treat the day and area as orientation and confirm current details before making the trip.'
         ]
       },
       {
@@ -147,19 +144,34 @@ export const nerjaDailyLifeContent: Record<AmaraLanguage, NerjaDailyLifeLocale> 
         eyebrow: 'Health & emergencies',
         title: 'What to know before you need it',
         paragraphs: [
-          'Nerja has its own health centre run by the Servicio Andaluz de Salud, the Andalusian public health service, which handles primary care for residents and visitors alike.',
-          'Pharmacies are easy to find and one of them sits directly opposite the health centre, typically open from early morning until late evening. Spanish pharmacies also run a rota so that one is always open outside normal hours; the duty list is posted in every pharmacy window.',
-          'The European emergency number 112 works throughout Spain. Save it before you need it, and note the address of where you are staying — that is the first thing you will be asked.'
+          'Nerja has its own health centre within the Servicio Andaluz de Salud and a broad choice of pharmacies across town.',
+          'Opening hours vary, so use the current Farmacia de Guardia information when timing matters. This page keeps healthcare as practical location context rather than medical advice.'
         ]
       },
       {
         id: 'rhythm',
         eyebrow: 'The rhythm',
-        title: 'The day has a gap in the middle, and dinner starts late',
+        title: 'Opening patterns differ by business, season and day',
         paragraphs: [
-          'Many smaller shops still close for several hours in the early afternoon and open again towards evening. Supermarkets and businesses aimed at visitors often stay open through, but the pattern is real enough to plan around.',
-          'Evening runs later than most northern European guests expect. Restaurants fill from nine, and in summer the streets are busiest well after dark — which is exactly when the coast is at its most pleasant.',
-          'Practically: do errands in the morning, take the afternoon off as the town does, and treat the evening as the main event rather than the end of the day.'
+          'Some smaller businesses use split hours, while larger supermarkets and visitor-facing shops may stay open through. Sundays, public holidays and seasonal changes create further differences.',
+          'The reliable rule is to check the specific business rather than assume one fixed siesta or Sunday pattern for the whole town. Evening life still starts later than many northern European guests expect, but normal errands do not all follow the same clock.'
+        ]
+      },
+      {
+        id: 'without-a-car',
+        eyebrow: 'Getting around',
+        title: 'A central Nerja stay can keep ordinary life largely car-free',
+        paragraphs: [
+          'Supermarkets, bakeries, pharmacies, beaches and restaurants are close enough to combine on foot in central Nerja. A car becomes more useful for upper neighbourhoods, larger regional shopping or several destinations in one day.',
+          'Walkability is therefore a location question, not a universal promise about the municipality. The geography and Where to Stay guides explain the gradient and neighbourhood trade-offs.'
+        ]
+      },
+      {
+        id: 'frigiliana-complement',
+        eyebrow: 'Nerja & Frigiliana',
+        title: 'Broader choice and village convenience are complementary strengths',
+        paragraphs: [
+          'Nerja offers the wider retail and service range of a larger coastal town. Frigiliana handles normal daily needs through a smaller village network. Neither needs to be framed as the deficient version of the other; they support different rhythms and can easily form part of the same stay.'
         ]
       }
     ],
@@ -176,6 +188,16 @@ export const nerjaDailyLifeContent: Record<AmaraLanguage, NerjaDailyLifeLocale> 
           token: 'nerja_geography',
           label: 'Geography & orientation',
           text: 'Why gradient matters more than distance in this town.'
+        },
+        {
+          token: 'nerja_where_to_stay',
+          label: 'Where to stay in Nerja',
+          text: 'Compare central, coastal and upper residential routines.'
+        },
+        {
+          token: 'frigiliana_daily_life',
+          label: 'Daily life in Frigiliana',
+          text: 'How the nearby village handles groceries, services and car-free errands.'
         }
       ]
     },
@@ -183,18 +205,13 @@ export const nerjaDailyLifeContent: Record<AmaraLanguage, NerjaDailyLifeLocale> 
       eyebrow: 'Behind this guide',
       title: 'Sources for the practical details',
       intro:
-        'Public bodies and public listings. Because opening hours shift with season and holidays, times on this page are given as patterns and should be confirmed locally before you rely on them.',
+        'Public bodies and public listings. Volatile opening hours are intentionally not frozen into the guide and should be confirmed with the individual business.',
       checked: 'Sources checked in August 2026.',
       links: [
         {
           label: 'Servicio Andaluz de Salud · Centro de Salud Nerja',
           text: 'Official record of the public health centre serving Nerja.',
           href: sharedSources.health
-        },
-        {
-          label: 'spain.info · Nerja bus station',
-          text: 'Official Spanish tourism portal, for the coach connection and station.',
-          href: sharedSources.busStation
         },
         {
           label: 'Weekly markets listing · Mercadillo de Nerja',
@@ -227,9 +244,9 @@ export const nerjaDailyLifeContent: Record<AmaraLanguage, NerjaDailyLifeLocale> 
       updated: 'Geprüft im August 2026'
     },
     facts: [
-      { label: 'Wochenmarkt', value: 'Dienstags, etwa 9–14 Uhr' },
-      { label: 'Busbahnhof', value: 'Ab ca. 6:30 Uhr bis zur letzten Abfahrt' },
-      { label: 'Apotheke am Gesundheitszentrum', value: 'Üblicherweise 8–22 Uhr' },
+      { label: 'Einkaufen im Alltag', value: 'Supermärkte, Bäckereien und Fachgeschäfte' },
+      { label: 'Wochenmarkt', value: 'Dienstags im Bereich Almijara' },
+      { label: 'Zentrale Wege', value: 'Viele Erledigungen funktionieren zu Fuß' },
       { label: 'Gesundheitszentrum', value: 'Servicio Andaluz de Salud' }
     ],
     sections: [
@@ -238,9 +255,8 @@ export const nerjaDailyLifeContent: Record<AmaraLanguage, NerjaDailyLifeLocale> 
         eyebrow: 'Einkaufen',
         title: 'Der tägliche Einkauf ist ein Weg zu Fuß, keine Autofahrt',
         paragraphs: [
-          'Nerja ist groß genug für vollwertige Supermärkte und klein genug, dass ihr von fast überall im Zentrum zu Fuß einen erreicht.',
-          'Für Selbstversorger ändert das den Rhythmus der Woche: Man kauft klein und oft ein, statt einmal den Kofferraum zu füllen. Brot, Obst und Fisch nimmt man auf dem Rückweg von woanders mit – so lebt der Ort tatsächlich.',
-          'Genau so haben wir hier selbst Urlaub gemacht: Während meine Frau morgens noch etwas länger schlafen konnte, bin ich gemütlich zum Bäcker und zum Supermarkt gelaufen. Danach ein entspanntes Frühstück auf der Terrasse, ganz in Ruhe und mit Blick aufs Wasser.'
+          'Nerjas Größe trägt vollwertige Supermärkte, Bäckereien, Apotheken und eine breitere Auswahl an Fach- und Haushaltsgeschäften als ein kleines Dorf. Im Zentrum lässt sich vieles davon zu Fuß verbinden.',
+          'Die konkrete Lage bleibt entscheidend. Küstennahe und zentrale Adressen halten wiederkehrende Wege einfacher; in oberen Wohnlagen kommen Steigung oder häufiger ein Auto hinzu. Von AMARA Playa passt der normale Einkauf natürlich in den Weg zwischen Torrecilla und Altstadt.'
         ]
       },
       {
@@ -248,9 +264,8 @@ export const nerjaDailyLifeContent: Record<AmaraLanguage, NerjaDailyLifeLocale> 
         eyebrow: 'Der Markt',
         title: 'Dienstags sortiert sich der Ort neu',
         paragraphs: [
-          'Der Wochenmarkt findet jeden Dienstag statt, etwa von 9 bis 14 Uhr, mit rund zweihundert Ständen: Obst und Gemüse, Kleidung, Schuhe, Haushaltswaren.',
-          'Er liegt nicht im Zentrum. Der Markt baut sich im Bereich Almijara auf, etwa zwei Kilometer außerhalb – fünfzehn bis zwanzig Minuten zu Fuß oder fünf Minuten mit dem Auto, mit kostenlosen Parkplätzen daneben. Dienstags verbindet zusätzlich ein Ortsbus das Zentrum mit dem Markt.',
-          'Geht früh, wenn ihr die Lebensmittelstände in Bestform wollt. Geht spät, wenn euch Platz wichtiger ist als Auswahl.'
+          'Der Wochenmarkt findet dienstags im Bereich Almijara außerhalb des kompakten Zentrums statt. Er ergänzt Nerjas reguläres Angebot um Lebensmittel-, Kleidungs- und Haushaltsstände.',
+          'Weil sich Marktorganisation und Zeiten ändern können, dienen Tag und Bereich hier nur zur Orientierung; prüft aktuelle Details vor dem Weg dorthin.'
         ]
       },
       {
@@ -258,19 +273,34 @@ export const nerjaDailyLifeContent: Record<AmaraLanguage, NerjaDailyLifeLocale> 
         eyebrow: 'Gesundheit & Notfall',
         title: 'Was ihr wissen solltet, bevor ihr es braucht',
         paragraphs: [
-          'Nerja hat ein eigenes Gesundheitszentrum des Servicio Andaluz de Salud, des andalusischen öffentlichen Gesundheitsdienstes. Es übernimmt die Grundversorgung – für Einheimische wie für Gäste.',
-          'Apotheken sind leicht zu finden; eine liegt direkt gegenüber dem Gesundheitszentrum und hat üblicherweise von früh morgens bis spät abends geöffnet. Spanische Apotheken haben zusätzlich einen Notdienstplan, sodass außerhalb der normalen Zeiten immer eine geöffnet ist – der Plan hängt in jedem Apothekenfenster.',
-          'Die europäische Notrufnummer 112 gilt in ganz Spanien. Speichert sie, bevor ihr sie braucht, und merkt euch die Adresse eurer Unterkunft – danach wird als Erstes gefragt.'
+          'Nerja hat ein eigenes Gesundheitszentrum des Servicio Andaluz de Salud und eine breite Auswahl an Apotheken im Ort.',
+          'Öffnungszeiten unterscheiden sich; wenn das Timing zählt, nutzt die aktuelle Farmacia-de-Guardia-Information. Diese Seite hält Medizin bewusst als praktische Ortsinformation und nicht als Ratgeber.'
         ]
       },
       {
         id: 'rhythm',
         eyebrow: 'Der Rhythmus',
-        title: 'Der Tag hat eine Lücke in der Mitte, und das Abendessen beginnt spät',
+        title: 'Öffnungsmuster unterscheiden sich nach Betrieb, Saison und Tag',
         paragraphs: [
-          'Viele kleinere Läden schließen am frühen Nachmittag für mehrere Stunden und öffnen gegen Abend wieder. Supermärkte und auf Gäste ausgerichtete Betriebe bleiben oft durchgehend offen, aber das Muster ist real genug, um damit zu planen.',
-          'Der Abend liegt später, als die meisten mitteleuropäischen Gäste erwarten. Restaurants füllen sich ab neun, und im Sommer sind die Straßen lange nach Einbruch der Dunkelheit am belebtesten – genau dann, wenn die Küste am angenehmsten ist.',
-          'Praktisch heißt das: Besorgungen am Vormittag, den Nachmittag freinehmen wie der Ort selbst, und den Abend als Hauptteil des Tages behandeln statt als Ausklang.'
+          'Einige kleinere Betriebe arbeiten mit geteilten Zeiten, während größere Supermärkte und besucherorientierte Läden durchgehend öffnen können. Sonntage, Feiertage und Saison bringen weitere Unterschiede.',
+          'Verlässlich ist deshalb nur der Blick auf den konkreten Betrieb – nicht die Annahme einer festen Siesta oder Sonntagsregel für den ganzen Ort. Der Abend beginnt weiterhin später als für viele nordeuropäische Gäste gewohnt, aber normale Erledigungen folgen nicht alle derselben Uhr.'
+        ]
+      },
+      {
+        id: 'without-a-car',
+        eyebrow: 'Fortbewegung',
+        title: 'In zentraler Lage bleibt der normale Alltag weitgehend autofrei',
+        paragraphs: [
+          'Supermärkte, Bäckereien, Apotheken, Strände und Restaurants liegen im Zentrum nah genug, um sie zu Fuß zu verbinden. In oberen Vierteln, für größere regionale Einkäufe oder mehrere Ziele an einem Tag wird das Auto nützlicher.',
+          'Fußläufigkeit ist damit eine Lagenfrage und keine pauschale Zusage für das gesamte Gemeindegebiet. Geografie- und Lagen-Guide erklären Gefälle und Viertelunterschiede.'
+        ]
+      },
+      {
+        id: 'frigiliana-complement',
+        eyebrow: 'Nerja & Frigiliana',
+        title: 'Breite Auswahl und dörfliche Nähe sind komplementäre Stärken',
+        paragraphs: [
+          'Nerja bietet die größere Handels- und Serviceauswahl einer Küstenstadt. Frigiliana deckt den normalen täglichen Bedarf über ein kleineres Dorfnetz. Keiner der Orte ist die mangelhaft versorgte Version des anderen; beide tragen unterschiedliche Rhythmen und lassen sich leicht im selben Aufenthalt verbinden.'
         ]
       }
     ],
@@ -287,6 +317,16 @@ export const nerjaDailyLifeContent: Record<AmaraLanguage, NerjaDailyLifeLocale> 
           token: 'nerja_geography',
           label: 'Geografie & Orientierung',
           text: 'Warum in diesem Ort die Steigung mehr zählt als die Entfernung.'
+        },
+        {
+          token: 'nerja_where_to_stay',
+          label: 'Wo in Nerja übernachten',
+          text: 'Zentrale, küstennahe und obere Wohnlagen im Alltag vergleichen.'
+        },
+        {
+          token: 'frigiliana_daily_life',
+          label: 'Alltag & Versorgung in Frigiliana',
+          text: 'Wie das nahe Dorf Lebensmittel, Services und autofreie Erledigungen organisiert.'
         }
       ]
     },
@@ -294,18 +334,13 @@ export const nerjaDailyLifeContent: Record<AmaraLanguage, NerjaDailyLifeLocale> 
       eyebrow: 'Belege hinter dem Guide',
       title: 'Quellen zu den praktischen Angaben',
       intro:
-        'Öffentliche Stellen und öffentliche Verzeichnisse. Weil sich Öffnungszeiten mit Saison und Feiertagen verschieben, stehen Zeiten hier als Muster und sollten vor Ort bestätigt werden.',
+        'Öffentliche Stellen und öffentliche Verzeichnisse. Veränderliche Öffnungszeiten werden bewusst nicht festgeschrieben und sollten beim jeweiligen Betrieb geprüft werden.',
       checked: 'Quellen geprüft im August 2026.',
       links: [
         {
           label: 'Servicio Andaluz de Salud · Centro de Salud Nerja',
           text: 'Amtlicher Eintrag zum öffentlichen Gesundheitszentrum für Nerja.',
           href: sharedSources.health
-        },
-        {
-          label: 'spain.info · Busbahnhof Nerja',
-          text: 'Offizielles spanisches Tourismusportal zu Busverbindung und Bahnhof.',
-          href: sharedSources.busStation
         },
         {
           label: 'Wochenmarkt-Verzeichnis · Mercadillo de Nerja',
@@ -338,9 +373,9 @@ export const nerjaDailyLifeContent: Record<AmaraLanguage, NerjaDailyLifeLocale> 
       updated: 'Revisado en agosto de 2026'
     },
     facts: [
-      { label: 'Mercadillo semanal', value: 'Martes, aproximadamente 9:00–14:00' },
-      { label: 'Estación de autobuses', value: 'Desde las 6:30 hasta la última salida' },
-      { label: 'Farmacia junto al centro de salud', value: 'Habitualmente 8:00–22:00' },
+      { label: 'Compra cotidiana', value: 'Supermercados, panaderías y tiendas especializadas' },
+      { label: 'Mercadillo semanal', value: 'Martes en la zona de Almijara' },
+      { label: 'Rutinas céntricas', value: 'Muchos recados funcionan a pie' },
       { label: 'Centro de salud', value: 'Servicio Andaluz de Salud' }
     ],
     sections: [
@@ -349,9 +384,8 @@ export const nerjaDailyLifeContent: Record<AmaraLanguage, NerjaDailyLifeLocale> 
         eyebrow: 'La compra',
         title: 'La compra diaria es un paseo, no un trayecto en coche',
         paragraphs: [
-          'Nerja es lo bastante grande para tener supermercados completos y lo bastante pequeña para llegar a uno a pie desde casi cualquier punto del centro.',
-          'Para quien cocina en casa, eso cambia el ritmo de la semana: se compra poco y a menudo en vez de llenar el maletero una vez. El pan, la fruta y el pescado se recogen de vuelta de otro sitio, que es como vive realmente el pueblo.',
-          'Así vivimos aquí nuestras propias vacaciones: mientras mi mujer dormía un rato más, yo bajaba tranquilamente a la panadería y al supermercado. Después, un desayuno sin prisa en la terraza, con vistas al agua.'
+          'El tamaño de Nerja permite contar con supermercados completos, panaderías, farmacias y una oferta de tiendas especializadas y de hogar mayor que la de un pueblo pequeño. En el centro, buena parte de esa vida cotidiana se combina a pie.',
+          'La zona exacta sigue importando. Las direcciones céntricas y costeras mantienen más fáciles los recados repetidos; en las áreas residenciales altas aparecen la pendiente o un uso más frecuente del coche. Desde AMARA Playa, la compra cotidiana encaja en el recorrido entre Torrecilla y el casco antiguo.'
         ]
       },
       {
@@ -359,9 +393,8 @@ export const nerjaDailyLifeContent: Record<AmaraLanguage, NerjaDailyLifeLocale> 
         eyebrow: 'El mercadillo',
         title: 'El martes el pueblo se reordena',
         paragraphs: [
-          'El mercadillo semanal se celebra todos los martes, aproximadamente de 9:00 a 14:00, con unos doscientos puestos: fruta y verdura, ropa, calzado y menaje.',
-          'No está en el centro. Se monta en la zona de Almijara, a unos dos kilómetros, es decir quince o veinte minutos a pie o cinco en coche, con aparcamiento gratuito al lado. Los martes hay además un autobús urbano que conecta el centro con el mercadillo.',
-          'Id temprano si queréis los puestos de alimentación en su mejor momento; id tarde si preferís espacio antes que variedad.'
+          'El mercadillo semanal se celebra los martes en la zona de Almijara, fuera del centro compacto. Añade puestos de alimentación, ropa y hogar a la oferta comercial habitual de Nerja.',
+          'Como la organización y los horarios pueden cambiar, tomad el día y la zona como orientación y comprobad los detalles actuales antes de desplazaros.'
         ]
       },
       {
@@ -369,19 +402,34 @@ export const nerjaDailyLifeContent: Record<AmaraLanguage, NerjaDailyLifeLocale> 
         eyebrow: 'Salud y urgencias',
         title: 'Lo que conviene saber antes de necesitarlo',
         paragraphs: [
-          'Nerja cuenta con su propio centro de salud del Servicio Andaluz de Salud, que atiende la asistencia primaria tanto de residentes como de visitantes.',
-          'Las farmacias son fáciles de encontrar y una está justo enfrente del centro de salud, con horario habitual de primera hora de la mañana hasta bien entrada la noche. Además existe un turno de guardia para que siempre haya una abierta fuera del horario normal; el listado se expone en el escaparate de cada farmacia.',
-          'El número europeo de emergencias 112 funciona en toda España. Guardadlo antes de necesitarlo y tened a mano la dirección de vuestro alojamiento: es lo primero que os van a preguntar.'
+          'Nerja cuenta con su propio centro de salud del Servicio Andaluz de Salud y una amplia red de farmacias por el pueblo.',
+          'Los horarios varían; cuando el momento sea importante, consultad la Farmacia de Guardia actual. Esta página mantiene la sanidad como información práctica de ubicación, no como consejo médico.'
         ]
       },
       {
         id: 'rhythm',
         eyebrow: 'El ritmo',
-        title: 'El día tiene un hueco en medio y la cena empieza tarde',
+        title: 'Los horarios cambian según negocio, temporada y día',
         paragraphs: [
-          'Muchos comercios pequeños siguen cerrando varias horas a primera hora de la tarde y vuelven a abrir hacia el anochecer. Los supermercados y los negocios orientados al visitante suelen mantener horario continuo, pero el patrón es lo bastante real como para planificar con él.',
-          'La noche va más tarde de lo que esperan la mayoría de los huéspedes del norte de Europa. Los restaurantes se llenan a partir de las nueve y, en verano, las calles están más animadas bastante después del anochecer, justo cuando la costa resulta más agradable.',
-          'En la práctica: los recados por la mañana, la tarde libre como hace el pueblo, y la noche como plato principal del día y no como su final.'
+          'Algunos negocios pequeños trabajan con horario partido, mientras grandes supermercados y comercios orientados al visitante pueden abrir de forma continua. Domingos, festivos y temporada añaden más diferencias.',
+          'La regla fiable es comprobar el negocio concreto, no suponer una siesta fija o una norma dominical para todo el pueblo. La noche empieza más tarde de lo habitual para muchos huéspedes del norte de Europa, pero los recados no siguen todos el mismo reloj.'
+        ]
+      },
+      {
+        id: 'without-a-car',
+        eyebrow: 'Moverse',
+        title: 'Una estancia céntrica permite resolver gran parte del día a día sin coche',
+        paragraphs: [
+          'Supermercados, panaderías, farmacias, playas y restaurantes están lo bastante cerca en el centro para combinarlos a pie. El coche gana utilidad en barrios altos, para compras regionales mayores o para unir varios destinos en una jornada.',
+          'Caminar bien depende, por tanto, de la ubicación y no es una promesa universal sobre todo el municipio. Las guías de geografía y zonas desarrollan pendientes y diferencias entre barrios.'
+        ]
+      },
+      {
+        id: 'frigiliana-complement',
+        eyebrow: 'Nerja y Frigiliana',
+        title: 'La variedad amplia y la cercanía de pueblo son fortalezas complementarias',
+        paragraphs: [
+          'Nerja ofrece la gama comercial y de servicios de una localidad costera mayor. Frigiliana cubre las necesidades normales mediante una red de pueblo más pequeña. Ninguna es la versión mal abastecida de la otra; sostienen ritmos diferentes y pueden formar parte de la misma estancia.'
         ]
       }
     ],
@@ -398,6 +446,16 @@ export const nerjaDailyLifeContent: Record<AmaraLanguage, NerjaDailyLifeLocale> 
           token: 'nerja_geography',
           label: 'Geografía y orientación',
           text: 'Por qué en este pueblo importa más la pendiente que la distancia.'
+        },
+        {
+          token: 'nerja_where_to_stay',
+          label: 'Dónde alojarse en Nerja',
+          text: 'Comparar la rutina del centro, la costa y las zonas residenciales altas.'
+        },
+        {
+          token: 'frigiliana_daily_life',
+          label: 'Vida diaria en Frigiliana',
+          text: 'Cómo resuelve el pueblo cercano la compra, los servicios y los recados sin coche.'
         }
       ]
     },
@@ -405,18 +463,13 @@ export const nerjaDailyLifeContent: Record<AmaraLanguage, NerjaDailyLifeLocale> 
       eyebrow: 'Detrás de esta guía',
       title: 'Fuentes de los datos prácticos',
       intro:
-        'Organismos públicos y directorios públicos. Como los horarios varían con la temporada y los festivos, las horas de esta página se dan como patrón y conviene confirmarlas allí antes de contar con ellas.',
+        'Organismos y directorios públicos. Los horarios variables no se fijan en la guía y conviene confirmarlos con cada negocio.',
       checked: 'Fuentes consultadas en agosto de 2026.',
       links: [
         {
           label: 'Servicio Andaluz de Salud · Centro de Salud Nerja',
           text: 'Ficha oficial del centro de salud público que atiende a Nerja.',
           href: sharedSources.health
-        },
-        {
-          label: 'spain.info · Estación de autobuses de Nerja',
-          text: 'Portal oficial de turismo de España, para la conexión y la estación.',
-          href: sharedSources.busStation
         },
         {
           label: 'Directorio de mercadillos · Mercadillo de Nerja',
@@ -449,9 +502,9 @@ export const nerjaDailyLifeContent: Record<AmaraLanguage, NerjaDailyLifeLocale> 
       updated: 'Gecontroleerd in augustus 2026'
     },
     facts: [
-      { label: 'Weekmarkt', value: 'Dinsdags, ongeveer 09:00–14:00' },
-      { label: 'Busstation', value: 'Vanaf circa 06:30 tot het laatste vertrek' },
-      { label: 'Apotheek bij het gezondheidscentrum', value: 'Doorgaans 08:00–22:00' },
+      { label: 'Dagelijkse boodschappen', value: 'Supermarkten, bakkers en speciaalzaken' },
+      { label: 'Weekmarkt', value: 'Dinsdags in de wijk Almijara' },
+      { label: 'Centrale routine', value: 'Veel boodschappen kunnen te voet' },
       { label: 'Gezondheidscentrum', value: 'Servicio Andaluz de Salud' }
     ],
     sections: [
@@ -460,9 +513,8 @@ export const nerjaDailyLifeContent: Record<AmaraLanguage, NerjaDailyLifeLocale> 
         eyebrow: 'Boodschappen',
         title: 'De dagelijkse boodschap is een wandeling, geen autorit',
         paragraphs: [
-          'Nerja is groot genoeg voor volwaardige supermarkten en klein genoeg om er vanuit vrijwel het hele centrum te voet te komen.',
-          'Voor wie zelf kookt verandert dat het ritme van de week: je koopt klein en vaak in plaats van één keer de kofferbak te vullen. Brood, fruit en vis neem je mee op de terugweg van ergens anders — zo leeft het dorp ook echt.',
-          'Precies zo brachten we hier onze eigen vakanties door: terwijl mijn vrouw ’s ochtends nog wat langer sliep, liep ik rustig naar de bakker en de supermarkt. Daarna een ontspannen ontbijt op het terras, met uitzicht op het water.'
+          'Nerja is groot genoeg voor volwaardige supermarkten, bakkers, apotheken en een breder aanbod aan speciaalzaken en huishoudelijke winkels dan een klein dorp. In het centrum zijn veel dagelijkse boodschappen goed te voet te combineren.',
+          'De precieze wijk blijft belangrijk. Aan de kust en in het centrum zijn terugkerende boodschappen eenvoudiger, terwijl hoger gelegen woonwijken meer hoogteverschil toevoegen of een auto nuttiger maken. Vanaf AMARA Playa past de normale centrale boodschap vanzelf in de wandeling tussen Torrecilla en de oude stad.'
         ]
       },
       {
@@ -470,9 +522,8 @@ export const nerjaDailyLifeContent: Record<AmaraLanguage, NerjaDailyLifeLocale> 
         eyebrow: 'De markt',
         title: 'Op dinsdag herschikt het dorp zich',
         paragraphs: [
-          'De weekmarkt is er elke dinsdag, ongeveer van 09:00 tot 14:00, met zo’n tweehonderd kramen: groente en fruit, kleding, schoenen en huishoudelijke waren.',
-          'Hij ligt niet in het centrum. De markt bouwt op in de wijk Almijara, ongeveer twee kilometer verderop: vijftien tot twintig minuten lopen of vijf minuten met de auto, met gratis parkeren ernaast. Op dinsdag rijdt er bovendien een stadsbus tussen het centrum en de markt.',
-          'Ga vroeg als jullie de voedselkramen op hun best willen, en laat als ruimte jullie meer waard is dan keuze.'
+          'De weekmarkt vindt op dinsdag plaats in de wijk Almijara, buiten het compacte centrum. Hij voegt groente, kleding en huishoudelijke kramen toe aan Nerja’s gewone winkelaanbod.',
+          'Omdat marktindeling en openingstijden kunnen veranderen, zijn dag en wijk hier bedoeld als oriëntatie. Controleer de actuele details voordat jullie vertrekken.'
         ]
       },
       {
@@ -480,19 +531,34 @@ export const nerjaDailyLifeContent: Record<AmaraLanguage, NerjaDailyLifeLocale> 
         eyebrow: 'Zorg & noodgevallen',
         title: 'Wat je wilt weten vóór je het nodig hebt',
         paragraphs: [
-          'Nerja heeft een eigen gezondheidscentrum van de Servicio Andaluz de Salud, de Andalusische openbare gezondheidsdienst, voor de eerstelijnszorg van bewoners én bezoekers.',
-          'Apotheken zijn goed te vinden en één zit recht tegenover het gezondheidscentrum, doorgaans open van vroeg tot laat op de avond. Spaanse apotheken hebben daarnaast een dienstrooster zodat er buiten de normale uren altijd één open is; die lijst hangt bij elke apotheek voor het raam.',
-          'Het Europese alarmnummer 112 werkt in heel Spanje. Sla het op vóór je het nodig hebt, en ken het adres van jullie verblijf — daar wordt als eerste naar gevraagd.'
+          'Nerja heeft een eigen gezondheidscentrum binnen de Servicio Andaluz de Salud en een ruime keuze aan apotheken verspreid over de plaats.',
+          'Openingstijden verschillen. Gebruik daarom de actuele informatie over de Farmacia de Guardia wanneer het tijdstip belangrijk is. Deze pagina behandelt zorg alleen als praktische locatiecontext, niet als medisch advies.'
         ]
       },
       {
         id: 'rhythm',
         eyebrow: 'Het ritme',
-        title: 'De dag heeft een gat in het midden en het diner begint laat',
+        title: 'Openingstijden verschillen per zaak, seizoen en dag',
         paragraphs: [
-          'Veel kleinere winkels sluiten in de vroege middag nog enkele uren en openen tegen de avond weer. Supermarkten en op bezoekers gerichte zaken blijven vaak doorlopend open, maar het patroon is reëel genoeg om mee te plannen.',
-          'De avond ligt later dan de meeste Noord-Europese gasten verwachten. Restaurants lopen vanaf negen uur vol en in de zomer zijn de straten ruim na zonsondergang het drukst — precies wanneer de kust op haar prettigst is.',
-          'Praktisch: boodschappen in de ochtend, de middag vrij zoals het dorp dat doet, en de avond als hoofdmoot van de dag in plaats van als afsluiting.'
+          'Sommige kleinere zaken werken met gesplitste openingstijden, terwijl grotere supermarkten en op bezoekers gerichte winkels soms doorlopend open zijn. Zondagen, feestdagen en seizoenswisselingen zorgen voor extra verschillen.',
+          'De betrouwbare regel is om de specifieke zaak te controleren in plaats van één vast siësta- of zondagspatroon voor de hele plaats aan te nemen. Het avondleven begint nog steeds later dan veel Noord-Europese gasten verwachten, maar gewone boodschappen volgen niet allemaal dezelfde klok.'
+        ]
+      },
+      {
+        id: 'without-a-car',
+        eyebrow: 'Onderweg',
+        title: 'Vanuit centraal Nerja kan het gewone leven grotendeels zonder auto',
+        paragraphs: [
+          'Supermarkten, bakkers, apotheken, stranden en restaurants liggen in centraal Nerja dicht genoeg bij elkaar om te voet te combineren. Een auto wordt nuttiger voor hogere wijken, grotere regionale inkopen of meerdere bestemmingen op één dag.',
+          'Beloopbaarheid is dus een locatievraag, geen algemene belofte voor de hele gemeente. De gidsen over geografie en verblijfslocaties leggen de hoogteverschillen en wijkkeuzes uit.'
+        ]
+      },
+      {
+        id: 'frigiliana-complement',
+        eyebrow: 'Nerja & Frigiliana',
+        title: 'Breder aanbod en dorpsgemak zijn aanvullende sterke punten',
+        paragraphs: [
+          'Nerja biedt het bredere winkel- en dienstenaanbod van een grotere kustplaats. Frigiliana dekt de normale dagelijkse behoeften via een kleiner dorpsnetwerk. Geen van beide hoeft als de gebrekkige versie van de ander te worden voorgesteld; ze passen bij verschillende ritmes en zijn eenvoudig in één verblijf te combineren.'
         ]
       }
     ],
@@ -509,6 +575,16 @@ export const nerjaDailyLifeContent: Record<AmaraLanguage, NerjaDailyLifeLocale> 
           token: 'nerja_geography',
           label: 'Geografie & oriëntatie',
           text: 'Waarom hoogteverschil in dit dorp meer telt dan afstand.'
+        },
+        {
+          token: 'nerja_where_to_stay',
+          label: 'Waar verblijven in Nerja',
+          text: 'Vergelijk centrale, kustgerichte en hoger gelegen dagelijkse routines.'
+        },
+        {
+          token: 'frigiliana_daily_life',
+          label: 'Dagelijks leven in Frigiliana',
+          text: 'Hoe het nabijgelegen dorp boodschappen, voorzieningen en autovrije routines organiseert.'
         }
       ]
     },
@@ -516,18 +592,13 @@ export const nerjaDailyLifeContent: Record<AmaraLanguage, NerjaDailyLifeLocale> 
       eyebrow: 'Achter deze gids',
       title: 'Bronnen voor de praktische gegevens',
       intro:
-        'Overheidsinstanties en openbare registers. Omdat openingstijden met seizoen en feestdagen schuiven, staan tijden hier als patroon en zijn ze ter plaatse te bevestigen.',
+        'Overheidsinstanties en openbare registers. Omdat openingstijden, marktindeling en diensten kunnen veranderen, controleer je tijdgevoelige details het best bij de actuele bron.',
       checked: 'Bronnen gecontroleerd in augustus 2026.',
       links: [
         {
           label: 'Servicio Andaluz de Salud · Centro de Salud Nerja',
           text: 'Officiële vermelding van het openbare gezondheidscentrum voor Nerja.',
           href: sharedSources.health
-        },
-        {
-          label: 'spain.info · Busstation Nerja',
-          text: 'Officieel Spaans toerismeportaal, voor de busverbinding en het station.',
-          href: sharedSources.busStation
         },
         {
           label: 'Weekmarktenregister · Mercadillo de Nerja',
@@ -560,9 +631,9 @@ export const nerjaDailyLifeContent: Record<AmaraLanguage, NerjaDailyLifeLocale> 
       updated: 'Granskad i augusti 2026'
     },
     facts: [
-      { label: 'Veckomarknad', value: 'Tisdagar, ungefär 09:00–14:00' },
-      { label: 'Busstation', value: 'Från cirka 06:30 till sista avgången' },
-      { label: 'Apotek vid vårdcentralen', value: 'Vanligtvis 08:00–22:00' },
+      { label: 'Vardagsinköp', value: 'Mataffärer, bagerier och specialbutiker' },
+      { label: 'Veckomarknad', value: 'Tisdagar i området Almijara' },
+      { label: 'Central vardag', value: 'Många ärenden fungerar till fots' },
       { label: 'Vårdcentral', value: 'Servicio Andaluz de Salud' }
     ],
     sections: [
@@ -571,9 +642,8 @@ export const nerjaDailyLifeContent: Record<AmaraLanguage, NerjaDailyLifeLocale> 
         eyebrow: 'Matinköp',
         title: 'Den dagliga handlingen är en promenad, inte en bilresa',
         paragraphs: [
-          'Nerja är stort nog för fullstora mataffärer och litet nog för att ni når en till fots från nästan hela centrum.',
-          'För den som lagar mat själv ändrar det veckans rytm: man handlar litet och ofta i stället för att fylla bagageluckan en gång. Bröd, frukt och fisk tar man med på vägen hem från något annat — så lever orten faktiskt.',
-          'Precis så tillbringade vi våra egna semestrar här: medan min fru sov lite längre på morgonen promenerade jag lugnt till bageriet och mataffären. Sedan en avspänd frukost på terrassen, i lugn och ro med utsikt över vattnet.'
+          'Nerja är stort nog för fullstora mataffärer, bagerier, apotek och ett bredare utbud av special- och hushållsbutiker än en liten by. I centrum kan mycket av vardagsservicen kombineras till fots.',
+          'Det exakta området spelar ändå roll. Kustnära och centrala adresser gör återkommande ärenden enklare, medan högre bostadsområden ger mer lutning eller gör bilen mer användbar. Från AMARA Playa passar vanliga centrala inköp naturligt in i promenaden mellan Torrecilla och gamla stan.'
         ]
       },
       {
@@ -581,9 +651,8 @@ export const nerjaDailyLifeContent: Record<AmaraLanguage, NerjaDailyLifeLocale> 
         eyebrow: 'Marknaden',
         title: 'På tisdagar möblerar orten om sig',
         paragraphs: [
-          'Veckomarknaden hålls varje tisdag, ungefär mellan 09:00 och 14:00, med omkring tvåhundra stånd: frukt och grönt, kläder, skor och husgeråd.',
-          'Den ligger inte i centrum. Marknaden byggs upp i området Almijara, ungefär två kilometer bort — femton till tjugo minuters promenad eller fem minuter med bil, med gratis parkering intill. På tisdagar går dessutom en lokalbuss mellan centrum och marknaden.',
-          'Gå tidigt om ni vill ha matstånden när de är som bäst, och sent om ni hellre vill ha utrymme än utbud.'
+          'Veckomarknaden hålls på tisdagar i området Almijara, utanför det kompakta centrumet. Den kompletterar Nerjas vanliga butiksutbud med frukt och grönt, kläder och hushållsvaror.',
+          'Eftersom marknadens upplägg och öppettider kan ändras är dag och område här främst orientering. Kontrollera aktuella detaljer innan ni åker dit.'
         ]
       },
       {
@@ -591,19 +660,34 @@ export const nerjaDailyLifeContent: Record<AmaraLanguage, NerjaDailyLifeLocale> 
         eyebrow: 'Vård & nödsituationer',
         title: 'Sådant ni vill veta innan ni behöver det',
         paragraphs: [
-          'Nerja har en egen vårdcentral inom Servicio Andaluz de Salud, Andalusiens offentliga hälso- och sjukvård, som sköter primärvården för både boende och besökare.',
-          'Apotek är lätta att hitta och ett ligger direkt mittemot vårdcentralen, vanligtvis öppet från tidig morgon till sen kväll. Spanska apotek har dessutom jourschema så att ett alltid är öppet utanför ordinarie tider; listan sitter i varje apoteksfönster.',
-          'Det europeiska nödnumret 112 fungerar i hela Spanien. Spara det innan ni behöver det, och ha adressen till ert boende till hands — det är det första ni får frågan om.'
+          'Nerja har en egen vårdcentral inom Servicio Andaluz de Salud och ett brett urval av apotek runt om i staden.',
+          'Öppettiderna varierar, så använd aktuell information om Farmacia de Guardia när tidpunkten är viktig. Den här sidan behandlar vård som praktisk platskontext, inte som medicinsk rådgivning.'
         ]
       },
       {
         id: 'rhythm',
         eyebrow: 'Rytmen',
-        title: 'Dagen har en lucka i mitten, och middagen börjar sent',
+        title: 'Öppettider varierar mellan verksamheter, säsonger och dagar',
         paragraphs: [
-          'Många mindre butiker stänger fortfarande några timmar tidig eftermiddag och öppnar igen mot kvällen. Mataffärer och verksamheter riktade mot besökare håller ofta öppet genomgående, men mönstret är verkligt nog att planera efter.',
-          'Kvällen ligger senare än de flesta nordeuropeiska gäster väntar sig. Restaurangerna fylls från nio, och på sommaren är gatorna som livligast långt efter mörkrets inbrott — precis när kusten är som behagligast.',
-          'I praktiken: ärenden på förmiddagen, ledig eftermiddag som orten själv tar, och kvällen som dagens huvudnummer i stället för dess avslutning.'
+          'Vissa mindre verksamheter använder delade öppettider, medan större mataffärer och besöksinriktade butiker ibland håller öppet genom dagen. Söndagar, helgdagar och säsongsskiften skapar ytterligare skillnader.',
+          'Den pålitliga regeln är att kontrollera den enskilda verksamheten i stället för att anta ett fast siesta- eller söndagsmönster för hela staden. Kvällslivet börjar fortfarande senare än många nordeuropeiska gäster väntar sig, men vanliga ärenden följer inte alla samma klocka.'
+        ]
+      },
+      {
+        id: 'without-a-car',
+        eyebrow: 'Ta sig runt',
+        title: 'En central vistelse i Nerja kan hålla vardagen i stort sett bilfri',
+        paragraphs: [
+          'Mataffärer, bagerier, apotek, stränder och restauranger ligger tillräckligt nära varandra i centrala Nerja för att kombineras till fots. Bil blir mer användbar för högre områden, större regionala inköp eller flera mål under samma dag.',
+          'Promenadvänlighet är därför en lägesfråga, inte ett generellt löfte om hela kommunen. Guiderna om geografi och boendeområden förklarar lutningen och avvägningarna mellan stadsdelarna.'
+        ]
+      },
+      {
+        id: 'frigiliana-complement',
+        eyebrow: 'Nerja & Frigiliana',
+        title: 'Bredare utbud och byns bekvämlighet är kompletterande styrkor',
+        paragraphs: [
+          'Nerja erbjuder det bredare butiks- och serviceutbudet hos en större kustort. Frigiliana täcker vanliga vardagsbehov genom ett mindre bynätverk. Ingen av dem behöver beskrivas som den bristfälliga versionen av den andra; de passar olika rytmer och kan enkelt ingå i samma vistelse.'
         ]
       }
     ],
@@ -620,6 +704,16 @@ export const nerjaDailyLifeContent: Record<AmaraLanguage, NerjaDailyLifeLocale> 
           token: 'nerja_geography',
           label: 'Geografi & orientering',
           text: 'Varför lutning betyder mer än avstånd i den här orten.'
+        },
+        {
+          token: 'nerja_where_to_stay',
+          label: 'Var ska man bo i Nerja',
+          text: 'Jämför centrala, kustnära och högre belägna vardagsrutiner.'
+        },
+        {
+          token: 'frigiliana_daily_life',
+          label: 'Vardagsliv i Frigiliana',
+          text: 'Så fungerar inköp, service och bilfria ärenden i den närliggande byn.'
         }
       ]
     },
@@ -627,18 +721,13 @@ export const nerjaDailyLifeContent: Record<AmaraLanguage, NerjaDailyLifeLocale> 
       eyebrow: 'Bakom guiden',
       title: 'Källor till de praktiska uppgifterna',
       intro:
-        'Offentliga myndigheter och offentliga register. Eftersom öppettider skiftar med säsong och helgdagar anges tider här som mönster och bör bekräftas på plats.',
+        'Offentliga myndigheter och offentliga register. Eftersom öppettider, marknadsupplägg och service kan ändras bör tidskänsliga detaljer kontrolleras hos den aktuella källan.',
       checked: 'Källor kontrollerade i augusti 2026.',
       links: [
         {
           label: 'Servicio Andaluz de Salud · Centro de Salud Nerja',
           text: 'Officiell post om den offentliga vårdcentralen för Nerja.',
           href: sharedSources.health
-        },
-        {
-          label: 'spain.info · Nerjas busstation',
-          text: 'Spaniens officiella turismportal, för bussförbindelsen och stationen.',
-          href: sharedSources.busStation
         },
         {
           label: 'Veckomarknadsregister · Mercadillo de Nerja',

@@ -46,6 +46,8 @@ const optionalLink = (token: LinkToken) =>
 const parkingHref = buildOwnedLocalizedPath('frigiliana-parking', currentLang);
 const weatherHref = buildOwnedLocalizedPath('frigiliana-weather', currentLang);
 const gettingThereHref = buildOwnedLocalizedPath('getting-to-frigiliana', currentLang);
+const stairsHref = optionalLink('frigiliana_stairs');
+const dailyLifeHref = optionalLink('frigiliana_daily_life');
 const comparisonHref = optionalLink('nerja_vs_frigiliana');
 const reviewsHref = optionalLink('reviews_hub');
 const amenitiesHref = optionalLink('amenities');
@@ -64,6 +66,8 @@ const frigilianaStayLinks = [
 const planningLinks = [
   { href: gettingThereHref, ...c.planning.gettingThere },
   { href: parkingHref, ...c.planning.parking },
+  { href: stairsHref, ...c.planning.stairs },
+  { href: dailyLifeHref, ...c.planning.dailyLife },
   { href: comparisonHref, ...c.planning.comparison },
   { href: weatherHref, ...c.planning.weather },
   {

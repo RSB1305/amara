@@ -170,9 +170,10 @@ export const nerjaLocationHubContent: {
         eyebrow: 'Daily life & services',
         title: 'The compact centre is Nerja’s everyday advantage',
         paragraphs: [
-          'The old centre, supermarkets, bakeries, restaurants and several beaches sit close enough to combine without moving the car. The pedestrian core also makes evening movement feel different from a dispersed coastal resort.',
+          'Nerja’s size brings a broad range of supermarkets, bakeries, pharmacies and practical services. In and around the centre, many normal errands can be combined without moving the car; farther uphill, the exact neighbourhood changes the effort on foot.',
           'At AMARA Playa, the practical benefit is repetition: Torrecilla is close, the Balcón de Europa is approximately 500 metres away and the centre can stay part of an ordinary morning or evening rather than a planned excursion.'
-        ]
+        ],
+        link: { label: 'Daily life & services in Nerja', token: 'nerja_daily_life' }
       },
       seasons: {
         eyebrow: 'Weather, seasons & longer stays',
@@ -280,9 +281,10 @@ export const nerjaLocationHubContent: {
         eyebrow: 'Alltag & Services',
         title: 'Das kompakte Zentrum ist Nerjas praktischer Vorteil',
         paragraphs: [
-          'Altstadt, Supermärkte, Bäckereien, Restaurants und mehrere Strände liegen nah genug beieinander, um vieles ohne Auto zu verbinden. Der Fußgängerbereich gibt auch den Abenden einen anderen Rhythmus als in einem weit verteilten Küstenresort.',
+          'Nerjas Größe bringt eine breite Auswahl an Supermärkten, Bäckereien, Apotheken und praktischen Services. Im und rund um das Zentrum lassen sich viele normale Erledigungen ohne Auto verbinden; weiter oben verändert die konkrete Lage den Aufwand zu Fuß.',
           'Bei AMARA Playa liegt der Vorteil in der Wiederholung: Torrecilla ist nah, der Balcón de Europa ungefähr 500 Meter entfernt, und das Zentrum bleibt Teil eines normalen Morgens oder Abends statt eines geplanten Ausflugs.'
-        ]
+        ],
+        link: { label: 'Alltag & Versorgung in Nerja', token: 'nerja_daily_life' }
       },
       seasons: {
         eyebrow: 'Wetter, Jahreszeiten & längere Aufenthalte',
@@ -390,9 +392,10 @@ export const nerjaLocationHubContent: {
         eyebrow: 'Vida diaria y servicios',
         title: 'El centro compacto es la gran ventaja práctica de Nerja',
         paragraphs: [
-          'Casco antiguo, supermercados, panaderías, restaurantes y varias playas están lo bastante cerca para combinarlos sin mover el coche. El núcleo peatonal también da a las noches un ritmo distinto al de una urbanización costera dispersa.',
+          'El tamaño de Nerja aporta una oferta amplia de supermercados, panaderías, farmacias y servicios prácticos. En el centro y sus alrededores, muchos recados se combinan sin mover el coche; en las zonas altas, la ubicación exacta cambia el esfuerzo a pie.',
           'En AMARA Playa, la ventaja está en la repetición: Torrecilla queda cerca, el Balcón de Europa está a unos 500 metros y el centro forma parte de una mañana o una noche normal, no de una excursión.'
-        ]
+        ],
+        link: { label: 'Vida diaria y servicios en Nerja', token: 'nerja_daily_life' }
       },
       seasons: {
         eyebrow: 'Tiempo, temporadas y estancias largas',
@@ -500,9 +503,10 @@ export const nerjaLocationHubContent: {
         eyebrow: 'Dagelijks leven & diensten',
         title: 'Het compacte centrum is Nerja’s praktische voordeel',
         paragraphs: [
-          'Het oude centrum, supermarkten, bakkers, restaurants en verschillende stranden liggen dicht genoeg bij elkaar om de auto te laten staan. Het voetgangershart geeft ook de avonden een ander ritme dan in een verspreid kustresort.',
+          'Door Nerja’s omvang is er een brede keuze aan supermarkten, bakkers, apotheken en praktische diensten. In en rond het centrum kunnen veel gewone boodschappen zonder auto; hogerop bepaalt de precieze wijk hoeveel inspanning lopen kost.',
           'Bij AMARA Playa zit de winst in herhaling: Torrecilla is dichtbij, het Balcón de Europa ligt op ongeveer 500 meter en het centrum hoort bij een gewone ochtend of avond in plaats van bij een uitstapje.'
-        ]
+        ],
+        link: { label: 'Dagelijks leven & voorzieningen in Nerja', token: 'nerja_daily_life' }
       },
       seasons: {
         eyebrow: 'Weer, seizoenen & langer verblijf',
@@ -610,9 +614,10 @@ export const nerjaLocationHubContent: {
         eyebrow: 'Vardagsliv & service',
         title: 'Det kompakta centrumet är Nerjas praktiska fördel',
         paragraphs: [
-          'Gamla stan, mataffärer, bagerier, restauranger och flera stränder ligger nära nog för att kombineras utan bil. Gågatorna ger också kvällarna en annan rytm än i en utspridd kustresort.',
+          'Nerjas storlek ger ett brett utbud av mataffärer, bagerier, apotek och praktisk service. I och runt centrum kan många vanliga ärenden kombineras utan bil; högre upp påverkar det exakta området hur promenaden känns.',
           'Vid AMARA Playa ligger fördelen i upprepningen: Torrecilla är nära, Balcón de Europa ligger cirka 500 meter bort och centrum blir en del av en vanlig morgon eller kväll, inte en utflykt.'
-        ]
+        ],
+        link: { label: 'Vardag & service i Nerja', token: 'nerja_daily_life' }
       },
       seasons: {
         eyebrow: 'Väder, årstider & längre vistelser',

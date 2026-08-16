@@ -10,6 +10,8 @@ export type FrigilianaAuthoritySubnavId =
   | 'stay'
   | 'comparison'
   | 'arrival'
+  | 'geography'
+  | 'dailyLife'
   | 'parking'
   | 'weather'
   | 'winter'
@@ -54,6 +56,20 @@ const currentPageLabels: Record<
     es: 'Llegada y movilidad',
     nl: 'Aankomst & mobiliteit',
     sv: 'Ankomst & mobilitet'
+  },
+  geography: {
+    en: 'Geography & Orientation',
+    de: 'Geografie & Orientierung',
+    es: 'Geografía y orientación',
+    nl: 'Geografie & oriëntatie',
+    sv: 'Geografi & orientering'
+  },
+  dailyLife: {
+    en: 'Daily Life & Services',
+    de: 'Alltag & Versorgung',
+    es: 'Vida diaria y servicios',
+    nl: 'Dagelijks leven & voorzieningen',
+    sv: 'Vardag & service'
   },
   parking: {
     en: 'Parking',
@@ -106,6 +122,8 @@ export function getFrigilianaAuthorityActiveTopic(
     Record<FrigilianaAuthoritySubnavId, LocationGuideTopicId>
   > = {
     arrival: 'arrival-mobility',
+    geography: 'geography-orientation',
+    dailyLife: 'daily-life-services',
     parking: 'arrival-mobility',
     stay: 'where-to-stay',
     weather: 'weather-seasons',
@@ -130,7 +148,8 @@ export function getFrigilianaAuthoritySubnav(
     {
       id: 'geography-orientation',
       label: labels['geography-orientation'],
-      status: 'future'
+      status: 'live',
+      href: resolveLink('frigiliana_geography', currentLang)
     },
     {
       id: 'where-to-stay',
@@ -147,7 +166,8 @@ export function getFrigilianaAuthoritySubnav(
     {
       id: 'daily-life-services',
       label: labels['daily-life-services'],
-      status: 'future'
+      status: 'live',
+      href: resolveLink('frigiliana_daily_life', currentLang)
     }
   ];
 }

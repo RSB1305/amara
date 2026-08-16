@@ -1057,25 +1057,39 @@ const frigilianaEssentials: GuestGuideEntry = {
               sv: 'Om ni vill ha lite större urval finns det också ytterligare en eller två små livsmedelsbutiker i byn:<br><br>• <a class="am-link" href="https://maps.app.goo.gl/Vtimyw8gijGHRtsX7" target="_blank" rel="noopener"><strong>La Plazituela “Saboreando la Comarca”</strong></a><br><br>• <a class="am-link" href="https://maps.app.goo.gl/SwRmk8J7nDRTGQzf6" target="_blank" rel="noopener"><strong>Tienda Silveria</strong></a>'
             },
             {
-              en: '<strong>For a bigger shop, go to Nerja</strong>',
-              de: '<strong>Für einen größeren Einkauf lieber nach Nerja</strong>',
-              es: '<strong>Para una compra más grande, mejor ir a Nerja</strong>',
-              nl: '<strong>Voor grotere boodschappen liever naar Nerja</strong>',
-              sv: '<strong>För större handling rekommenderar vi Nerja</strong>'
+              en: '<strong>A larger option in Frigiliana</strong>',
+              de: '<strong>Eine größere Option in Frigiliana</strong>',
+              es: '<strong>Una opción más grande en Frigiliana</strong>',
+              nl: '<strong>Een grotere optie in Frigiliana</strong>',
+              sv: '<strong>Ett större alternativ i Frigiliana</strong>'
             },
             {
-              en: 'For a proper supermarket run, we would usually recommend Nerja rather than trying to find everything in the village.<br><br>• <a class="am-link" href="https://www.google.com/maps/place/?q=place_id:ChIJvymkvBglcg0R9Krp1OTyAao" target="_blank" rel="noopener"><strong>Lidl (Nerja)</strong></a><br><br>• <a class="am-link" href="https://www.google.com/maps/place/?q=place_id:ChIJjSZ_9hAlcg0ReZbcNgz4bh8" target="_blank" rel="noopener"><strong>Mercadona (Nerja)</strong></a>',
-              de: 'Für einen richtigen größeren Einkauf empfehlen wir normalerweise eher Nerja, statt im Dorf alles zusammensuchen zu wollen.<br><br>• <a class="am-link" href="https://www.google.com/maps/place/?q=place_id:ChIJvymkvBglcg0R9Krp1OTyAao" target="_blank" rel="noopener"><strong>Lidl (Nerja)</strong></a><br><br>• <a class="am-link" href="https://www.google.com/maps/place/?q=place_id:ChIJjSZ_9hAlcg0ReZbcNgz4bh8" target="_blank" rel="noopener"><strong>Mercadona (Nerja)</strong></a>',
-              es: 'Para una compra grande de verdad, normalmente os recomendaríamos ir a Nerja en lugar de intentar encontrarlo todo en el pueblo.<br><br>• <a class="am-link" href="https://www.google.com/maps/place/?q=place_id:ChIJvymkvBglcg0R9Krp1OTyAao" target="_blank" rel="noopener"><strong>Lidl (Nerja)</strong></a><br><br>• <a class="am-link" href="https://www.google.com/maps/place/?q=place_id:ChIJjSZ_9hAlcg0ReZbcNgz4bh8" target="_blank" rel="noopener"><strong>Mercadona (Nerja)</strong></a>',
-              nl: 'Voor een echte grotere boodschap zouden we normaal gesproken eerder Nerja aanraden dan alles in het dorp bij elkaar te zoeken.<br><br>• <a class="am-link" href="https://www.google.com/maps/place/?q=place_id:ChIJvymkvBglcg0R9Krp1OTyAao" target="_blank" rel="noopener"><strong>Lidl (Nerja)</strong></a><br><br>• <a class="am-link" href="https://www.google.com/maps/place/?q=place_id:ChIJjSZ_9hAlcg0ReZbcNgz4bh8" target="_blank" rel="noopener"><strong>Mercadona (Nerja)</strong></a>',
-              sv: 'För en ordentlig större handling skulle vi vanligtvis rekommendera Nerja i stället för att försöka hitta allt i byn.<br><br>• <a class="am-link" href="https://www.google.com/maps/place/?q=place_id:ChIJvymkvBglcg0R9Krp1OTyAao" target="_blank" rel="noopener"><strong>Lidl (Nerja)</strong></a><br><br>• <a class="am-link" href="https://www.google.com/maps/place/?q=place_id:ChIJjSZ_9hAlcg0ReZbcNgz4bh8" target="_blank" rel="noopener"><strong>Mercadona (Nerja)</strong></a>'
+              en: '<strong>EROSKI/city Frigiliana</strong>, in the newer lower part of the village, has a wider range than the small shops in the historic centre. It is still much smaller than the large supermarket formats in Nerja.',
+              de: '<strong>EROSKI/city Frigiliana</strong> im neueren, unteren Ortsteil bietet mehr Auswahl als die kleinen Geschäfte im historischen Zentrum. Der Markt ist dennoch deutlich kleiner als die großen Supermarktformate in Nerja.',
+              es: '<strong>EROSKI/city Frigiliana</strong>, en la parte nueva y baja del pueblo, ofrece más variedad que las pequeñas tiendas del centro histórico. Sigue siendo bastante más pequeño que los grandes formatos de supermercado de Nerja.',
+              nl: '<strong>EROSKI/city Frigiliana</strong>, in het nieuwere lagere deel van het dorp, heeft meer keuze dan de kleine winkels in het historische centrum. De winkel is nog steeds duidelijk kleiner dan de grote supermarktformules in Nerja.',
+              sv: '<strong>EROSKI/city Frigiliana</strong>, i den nyare nedre delen av byn, har ett bredare utbud än de små butikerna i det historiska centrumet. Den är fortfarande tydligt mindre än de stora mataffärsformaten i Nerja.'
             },
             {
-              en: '<em>Please note:</em> opening hours can vary seasonally, and Sunday opening hours are often more limited.',
-              de: '<em>Bitte beachten:</em> Die Öffnungszeiten können je nach Saison variieren, und sonntags ist die Auswahl oft eingeschränkter.',
-              es: '<em>A tener en cuenta:</em> los horarios pueden variar según la temporada, y los domingos suelen ser más limitados.',
-              nl: '<em>Let op:</em> openingstijden kunnen per seizoen verschillen, en op zondag is het aanbod vaak beperkter.',
-              sv: '<em>Observera:</em> öppettiderna kan variera beroende på säsong, och på söndagar är utbudet ofta mer begränsat.'
+              en: '<strong>Add Nerja when you want more choice</strong>',
+              de: '<strong>Für mehr Auswahl Nerja bei Bedarf ergänzen</strong>',
+              es: '<strong>Añadid Nerja cuando queráis más variedad</strong>',
+              nl: '<strong>Vul aan met Nerja als jullie meer keuze willen</strong>',
+              sv: '<strong>Komplettera med Nerja när ni vill ha större utbud</strong>'
+            },
+            {
+              en: 'Frigiliana works well for normal daily shopping. For a larger basket or specialist products, you can combine a trip to Nerja or the coast with a bigger shop.<br><br>• <a class="am-link" href="https://www.google.com/maps/place/?q=place_id:ChIJvymkvBglcg0R9Krp1OTyAao" target="_blank" rel="noopener"><strong>Lidl (Nerja)</strong></a><br><br>• <a class="am-link" href="https://www.google.com/maps/place/?q=place_id:ChIJjSZ_9hAlcg0ReZbcNgz4bh8" target="_blank" rel="noopener"><strong>Mercadona (Nerja)</strong></a>',
+              de: 'Für normale tägliche Einkäufe funktioniert Frigiliana gut. Einen größeren Warenkorb oder spezielle Produkte könnt ihr bei Bedarf bequem mit einem Ausflug nach Nerja oder ans Meer verbinden.<br><br>• <a class="am-link" href="https://www.google.com/maps/place/?q=place_id:ChIJvymkvBglcg0R9Krp1OTyAao" target="_blank" rel="noopener"><strong>Lidl (Nerja)</strong></a><br><br>• <a class="am-link" href="https://www.google.com/maps/place/?q=place_id:ChIJjSZ_9hAlcg0ReZbcNgz4bh8" target="_blank" rel="noopener"><strong>Mercadona (Nerja)</strong></a>',
+              es: 'Frigiliana funciona bien para la compra diaria normal. Si necesitáis una compra más grande o productos específicos, podéis combinarla cómodamente con una visita a Nerja o a la costa.<br><br>• <a class="am-link" href="https://www.google.com/maps/place/?q=place_id:ChIJvymkvBglcg0R9Krp1OTyAao" target="_blank" rel="noopener"><strong>Lidl (Nerja)</strong></a><br><br>• <a class="am-link" href="https://www.google.com/maps/place/?q=place_id:ChIJjSZ_9hAlcg0ReZbcNgz4bh8" target="_blank" rel="noopener"><strong>Mercadona (Nerja)</strong></a>',
+              nl: 'Frigiliana werkt goed voor normale dagelijkse boodschappen. Voor een grotere winkelmand of specifieke producten kunnen jullie een bezoek aan Nerja of de kust gemakkelijk met een grotere boodschap combineren.<br><br>• <a class="am-link" href="https://www.google.com/maps/place/?q=place_id:ChIJvymkvBglcg0R9Krp1OTyAao" target="_blank" rel="noopener"><strong>Lidl (Nerja)</strong></a><br><br>• <a class="am-link" href="https://www.google.com/maps/place/?q=place_id:ChIJjSZ_9hAlcg0ReZbcNgz4bh8" target="_blank" rel="noopener"><strong>Mercadona (Nerja)</strong></a>',
+              sv: 'Frigiliana fungerar bra för vanliga vardagsinköp. För en större varukorg eller särskilda produkter kan ni enkelt kombinera ett besök i Nerja eller vid kusten med en större handling.<br><br>• <a class="am-link" href="https://www.google.com/maps/place/?q=place_id:ChIJvymkvBglcg0R9Krp1OTyAao" target="_blank" rel="noopener"><strong>Lidl (Nerja)</strong></a><br><br>• <a class="am-link" href="https://www.google.com/maps/place/?q=place_id:ChIJjSZ_9hAlcg0ReZbcNgz4bh8" target="_blank" rel="noopener"><strong>Mercadona (Nerja)</strong></a>'
+            },
+            {
+              en: '<em>Please note:</em> shopping is also possible on Sundays, with more choice often available in summer. Hours vary by business and season, so check current details outside the main season and on public holidays.',
+              de: '<em>Bitte beachten:</em> Auch sonntags gibt es Einkaufsmöglichkeiten; im Sommer ist die Auswahl erfahrungsgemäß größer. Die Zeiten unterscheiden sich je nach Betrieb und Saison, daher lohnt sich außerhalb der Hauptsaison und an Feiertagen ein aktueller Check.',
+              es: '<em>A tener en cuenta:</em> también es posible comprar los domingos y en verano suele haber más opciones. Los horarios varían según el negocio y la temporada; fuera de la temporada principal y en festivos conviene comprobarlos.',
+              nl: '<em>Let op:</em> ook op zondag zijn er winkelmogelijkheden; in de zomer is de keuze vaak groter. Tijden verschillen per zaak en seizoen, dus controleer de actuele informatie buiten het hoofdseizoen en op feestdagen.',
+              sv: '<em>Observera:</em> det går att handla även på söndagar, och på sommaren är utbudet ofta större. Tiderna varierar mellan verksamheter och säsonger, så kontrollera aktuella uppgifter utanför huvudsäsongen och på helgdagar.'
             }
           ]
         },
@@ -1115,11 +1129,11 @@ const frigilianaEssentials: GuestGuideEntry = {
               sv: 'Om ni vill ha en <strong>drop-off-tjänst</strong> är <strong>Lavandería El Acebuchal</strong> ett praktiskt alternativ i Frigiliana och ligger bara cirka <strong>4 minuter från huset</strong>.<br><br>• <a class="am-link" href="https://maps.app.goo.gl/SGDiDiLSsXyMmUKY7" target="_blank" rel="noopener"><strong>Lavandería El Acebuchal</strong></a>'
             },
             {
-              en: 'If you prefer <strong>self-service laundry</strong>, the most practical external option is in <strong>Nerja</strong>:<br><br>• <a class="am-link" href="https://maps.app.goo.gl/MivMQoL7q7xPo2dD8" target="_blank" rel="noopener"><strong>Lavandería Autoservicio 24h CEPSA AXARQUIA</strong></a>',
-              de: 'Wenn ihr lieber <strong>Self Service</strong> möchtet, ist die praktischste externe Option in <strong>Nerja</strong>:<br><br>• <a class="am-link" href="https://maps.app.goo.gl/MivMQoL7q7xPo2dD8" target="_blank" rel="noopener"><strong>Lavandería Autoservicio 24h CEPSA AXARQUIA</strong></a>',
-              es: 'Si preferís <strong>autoservicio</strong>, la opción externa más práctica está en <strong>Nerja</strong>:<br><br>• <a class="am-link" href="https://maps.app.goo.gl/MivMQoL7q7xPo2dD8" target="_blank" rel="noopener"><strong>Lavandería Autoservicio 24h CEPSA AXARQUIA</strong></a>',
-              nl: 'Als jullie liever <strong>self-service</strong> willen, is de meest praktische externe optie in <strong>Nerja</strong>:<br><br>• <a class="am-link" href="https://maps.app.goo.gl/MivMQoL7q7xPo2dD8" target="_blank" rel="noopener"><strong>Lavandería Autoservicio 24h CEPSA AXARQUIA</strong></a>',
-              sv: 'Om ni föredrar <strong>självservice</strong> är det mest praktiska externa alternativet i <strong>Nerja</strong>:<br><br>• <a class="am-link" href="https://maps.app.goo.gl/MivMQoL7q7xPo2dD8" target="_blank" rel="noopener"><strong>Lavandería Autoservicio 24h CEPSA AXARQUIA</strong></a>'
+              en: 'If you prefer <strong>self-service laundry</strong>, the most practical external option is in <strong>Nerja</strong>:<br><br>• <a class="am-link" href="https://maps.app.goo.gl/MivMQoL7q7xPo2dD8" target="_blank" rel="noopener"><strong>Moeve AXARQUIA (formerly Cepsa) · self-service laundry</strong></a>',
+              de: 'Wenn ihr lieber <strong>Self Service</strong> möchtet, ist die praktischste externe Option in <strong>Nerja</strong>:<br><br>• <a class="am-link" href="https://maps.app.goo.gl/MivMQoL7q7xPo2dD8" target="_blank" rel="noopener"><strong>Moeve AXARQUIA (ehemals Cepsa) · SB-Wäscherei</strong></a>',
+              es: 'Si preferís <strong>autoservicio</strong>, la opción externa más práctica está en <strong>Nerja</strong>:<br><br>• <a class="am-link" href="https://maps.app.goo.gl/MivMQoL7q7xPo2dD8" target="_blank" rel="noopener"><strong>Moeve AXARQUIA (antes Cepsa) · lavandería autoservicio</strong></a>',
+              nl: 'Als jullie liever <strong>self-service</strong> willen, is de meest praktische externe optie in <strong>Nerja</strong>:<br><br>• <a class="am-link" href="https://maps.app.goo.gl/MivMQoL7q7xPo2dD8" target="_blank" rel="noopener"><strong>Moeve AXARQUIA (voorheen Cepsa) · wasserette met zelfbediening</strong></a>',
+              sv: 'Om ni föredrar <strong>självservice</strong> är det mest praktiska externa alternativet i <strong>Nerja</strong>:<br><br>• <a class="am-link" href="https://maps.app.goo.gl/MivMQoL7q7xPo2dD8" target="_blank" rel="noopener"><strong>Moeve AXARQUIA (tidigare Cepsa) · självbetjäningstvätt</strong></a>'
             }
           ]
         },
