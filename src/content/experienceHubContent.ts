@@ -393,10 +393,10 @@ export const experienceHubContent: Record<
     },
     editorial: {
       kicker: 'Three ways to start',
-      title: 'A beach, a day trip or a table worth booking.',
+      title: 'A beach, a table worth booking or one good day trip.',
       intro:
-        'Choose the beach for an easy day, compare realistic travel times for a day trip, or find a restaurant by location and style of meal.',
-      featuredIds: ['beaches', 'dayTrips', 'restaurants']
+        'Choose the beach for an easy day, find a restaurant by location and style of meal, or compare realistic travel times for one good day trip.',
+      featuredIds: ['beaches', 'restaurants', 'dayTrips']
     },
     moods: {
       title: 'What would you like to do today?',
@@ -422,8 +422,8 @@ export const experienceHubContent: Record<
         'Browse seven guides shaped around a stay in Frigiliana, from walking out of the village to planning a market morning or a nearby beach day.',
       order: [
         'beaches',
-        'dayTrips',
         'restaurants',
+        'dayTrips',
         'festivals',
         'market',
         'wellness',
@@ -554,10 +554,10 @@ export const experienceHubContent: Record<
     },
     editorial: {
       kicker: 'Drei gute Ausgangspunkte',
-      title: 'Erst hinaus in die Landschaft. Danach bleibt Zeit für Genuss.',
+      title: 'Beginnt am Meer, plant gutes Essen und nehmt die Landschaft dazu.',
       intro:
-        'Frigiliana ist ein idealer Ausgangspunkt für aktive Tage, ohne dass der Aufenthalt zum Sportprogramm werden muss. Eine gute Route, ein lohnender Ausflug oder ein Fest im Dorf genügen völlig.',
-      featuredIds: ['hiking', 'dayTrips', 'festivals']
+        'Ein Strandtag und ein gutes Restaurant gehören zu den einfachsten Entscheidungen. Wenn ihr danach aktiv hinauswollt, beginnt die Sierra direkt oberhalb des Dorfes.',
+      featuredIds: ['beaches', 'restaurants', 'hiking']
     },
     moods: {
       title: 'Was möchtet ihr heute unternehmen?',
@@ -582,11 +582,11 @@ export const experienceHubContent: Record<
       intro:
         'Sieben Guides beantworten unterschiedliche Fragen rund um euren Aufenthalt in Frigiliana – vom Wanderweg bis zum Marktbesuch oder einem nahen Strandtag.',
       order: [
+        'beaches',
+        'restaurants',
         'hiking',
         'dayTrips',
-        'restaurants',
         'festivals',
-        'beaches',
         'market',
         'wellness'
       ],
@@ -714,10 +714,10 @@ export const experienceHubContent: Record<
     },
     editorial: {
       kicker: 'Tres formas de empezar',
-      title: 'Una buena mesa, el pueblo en fiesta y la vida de cada semana.',
+      title: 'Una buena mesa, el mar y una fiesta que cambie el ritmo.',
       intro:
-        'La mejor forma de conocer Frigiliana no siempre empieza con un monumento. A veces comienza con el plato adecuado, una plaza llena o una mañana de mercado.',
-      featuredIds: ['restaurants', 'festivals', 'market']
+        'Empezad por la gastronomía o por un día de playa. Cuando el calendario coincide, las fiestas muestran otra forma de vivir el pueblo.',
+      featuredIds: ['restaurants', 'beaches', 'festivals']
     },
     moods: {
       title: '¿Qué queréis hacer hoy?',
@@ -743,9 +743,9 @@ export const experienceHubContent: Record<
         'Siete guías responden a preguntas distintas sobre una estancia en Frigiliana, desde los senderos y el mercado hasta una playa cercana.',
       order: [
         'restaurants',
+        'beaches',
         'festivals',
         'market',
-        'beaches',
         'wellness',
         'dayTrips',
         'hiking'
@@ -874,10 +874,10 @@ export const experienceHubContent: Record<
     },
     editorial: {
       kicker: 'Drie manieren om te beginnen',
-      title: 'Begin aan zee. Trek er daarna op jullie eigen manier op uit.',
+      title: 'Begin aan zee, kies een goede tafel en trek daarna de natuur in.',
       intro:
-        'Een stranddag, een goed geplande wandeling en een vrije dagtocht passen hier moeiteloos naast elkaar. Kies één duidelijke richting en houd de rest van de dag open.',
-      featuredIds: ['beaches', 'hiking', 'dayTrips']
+        'Een stranddag en een goed gekozen maaltijd vormen de makkelijke basis. Voeg een wandeling toe wanneer jullie actief de heuvels in willen.',
+      featuredIds: ['beaches', 'restaurants', 'hiking']
     },
     moods: {
       title: 'Wat willen jullie vandaag doen?',
@@ -903,10 +903,10 @@ export const experienceHubContent: Record<
         'Zeven gidsen beantwoorden verschillende vragen rond een verblijf in Frigiliana, van wandelen en de markt tot een stranddag in de buurt.',
       order: [
         'beaches',
+        'restaurants',
         'hiking',
         'dayTrips',
         'market',
-        'restaurants',
         'festivals',
         'wellness'
       ],
@@ -1034,10 +1034,10 @@ export const experienceHubContent: Record<
     },
     editorial: {
       kicker: 'Tre sätt att börja',
-      title: 'Börja vid havet och välj sedan mat, vila eller en utflykt.',
+      title: 'Börja vid havet, välj ett bra bord och lämna plats för vila.',
       intro:
-        'Välj strand för en enkel dag, jämför behandlingar om ni vill vila eller kontrollera restiderna innan ni planerar en utflykt.',
-      featuredIds: ['beaches', 'wellness', 'dayTrips']
+        'En stranddag och en väl vald måltid är den enkla grunden. Lägg till wellness när vistelsen behöver ett lugnare tempo.',
+      featuredIds: ['beaches', 'restaurants', 'wellness']
     },
     moods: {
       title: 'Vad vill ni göra i dag?',
@@ -1063,9 +1063,9 @@ export const experienceHubContent: Record<
         'Sju guider svarar på olika frågor om en vistelse i Frigiliana, från vandring och marknad till en stranddag i närheten.',
       order: [
         'beaches',
+        'restaurants',
         'wellness',
         'dayTrips',
-        'restaurants',
         'market',
         'festivals',
         'hiking'

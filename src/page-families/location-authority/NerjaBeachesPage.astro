@@ -1,0 +1,118 @@
+---
+import Hero from '../../components/Hero.astro';
+import Navigation from '../../components/Navigation.astro';
+import EditorialClosingCta from '../../components/editorial/EditorialClosingCta.astro';
+import EditorialFeatureGrid from '../../components/editorial/EditorialFeatureGrid.astro';
+import ExperienceContextNav from '../../components/experience/ExperienceContextNav.astro';
+import { frigilianaBeachesContent } from '../../content/frigilianaBeachesContent';
+import {
+  nerjaBeachesPageContent,
+  nerjaBeachesSeo
+} from '../../content/nerjaExperienceAdditionsContent';
+import LocationAuthorityLayout from '../../layouts/LocationAuthorityLayout.astro';
+import { createRequiredLinkResolver, type LabeledLink } from '../../lib/linkResolver';
+import { normalizeLanguage } from '../../lib/seo/resolve-seo-head';
+import type { AmaraLanguage } from '../../types/seo';
+
+interface Props { lang?: string; }
+
+const { lang = 'es' } = Astro.props;
+const currentLang = normalizeLanguage(lang as AmaraLanguage);
+const shared = frigilianaBeachesContent[currentLang];
+const copy = nerjaBeachesPageContent[currentLang];
+const requiredLink = createRequiredLinkResolver(currentLang, 'Nerja beaches');
+
+const footerHighlights: LabeledLink[] = [
+  { token: 'nerja_beaches_authority', label: copy.navLabel },
+  { token: 'nerja_food_authority', label: copy.related.items[0].title },
+  { token: 'nerja_balcon_de_europa', label: copy.related.items[1].title }
+];
+
+const heroImage = {
+  src: '/images/amara-playa/apartment/chaparril-22.webp',
+  width: 1920,
+  height: 1279
+};
+---
+
+<LocationAuthorityLayout seo={nerjaBeachesSeo} pageLang={currentLang} footerHighlights={footerHighlights}>
+  <Navigation slot="navigation" currentLang={currentLang} languageToken="nerja_beaches_authority" />
+  <ExperienceContextNav currentId="beaches" destination="nerja" lang={currentLang} />
+
+  <div data-am-page="nerja-beaches">
+    <Hero imageSrc={heroImage.src} imageAlt={copy.hero.imageAlt} imageWidth={heroImage.width} imageHeight={heroImage.height}>
+      <span class="am-text-caption mb-8 block text-primary">{copy.hero.kicker}</span>
+      <h1 class="am-text-display mb-10 italic tracking-tighter text-on-surface">{copy.hero.title}</h1>
+      <div class="max-w-xl space-y-6 border-l border-primary/20 pl-10">
+        {copy.hero.paragraphs.map((paragraph) => <p class="am-text-body leading-relaxed text-on-surface-variant">{paragraph}</p>)}
+      </div>
+    </Hero>
+
+    <section id="coast" class="am-section am-section--tint">
+      <div class="mb-16 max-w-3xl">
+        <h2 class="am-text-title mb-6 italic tracking-tight text-on-surface">{copy.overview.title}</h2>
+        <p class="am-text-body leading-relaxed text-on-surface-variant">{copy.overview.intro}</p>
+      </div>
+      <EditorialFeatureGrid cards={copy.overview.items.map((item) => ({ title: item.title, copy: item.text }))} />
+    </section>
+
+    {shared.beachSections.map((section, index) => (
+      <section id={section.id} class:list={['am-section', index % 2 === 0 ? 'am-section--plain' : 'am-section--tint']}>
+        <div class="mb-16 max-w-3xl">
+          <h2 class="am-text-title mb-6 italic tracking-tight text-on-surface">{section.title}</h2>
+          <p class="am-text-body leading-relaxed text-on-surface-variant">{section.intro}</p>
+        </div>
+        <div class="grid grid-cols-1 gap-x-16 gap-y-14 lg:grid-cols-2">
+          {section.beaches.map((beach, beachIndex) => {
+            const titleId = `${section.id}-beach-${beachIndex}`;
+            return (
+              <article class="flex h-full flex-col border-t border-outline-variant/25 pt-8" aria-labelledby={titleId}>
+                <h3 id={titleId} class="am-text-subtitle mb-5 text-on-surface lg:min-h-[2.3em]">{beach.title}</h3>
+                <div class="mb-6 flex flex-wrap lg:min-h-8">
+                  <span class="rounded-pill border border-outline-variant/30 bg-surface-container-lowest px-3 py-1 am-text-caption normal-case tracking-normal text-primary"><span class="font-bold">{shared.beachCardLabels.bestFor}:</span>{' '}{beach.bestFor}</span>
+                </div>
+                <p class="am-text-body leading-relaxed text-on-surface-variant">{beach.description}</p>
+                <p class="mt-6 border-l border-primary/20 bg-surface-container-low px-4 py-3 am-text-body leading-relaxed text-on-surface-variant lg:mt-auto"><span class="font-bold text-primary">{shared.beachCardLabels.tip}:</span>{' '}{beach.tip}</p>
+                <p class="mt-5 am-text-body"><a href={beach.mapHref} target="_blank" rel="noopener noreferrer" class="am-inline-link">{shared.beachCardLabels.map}<span aria-hidden="true"> ↗</span></a></p>
+              </article>
+            );
+          })}
+        </div>
+      </section>
+    ))}
+
+    <section id="conditions" class="am-section am-section--tint">
+      <div class="mb-16 max-w-3xl">
+        <h2 class="am-text-title mb-6 italic tracking-tight text-on-surface">{shared.conditions.title}</h2>
+        <p class="am-text-body leading-relaxed text-on-surface-variant">{shared.conditions.intro}</p>
+      </div>
+      <EditorialFeatureGrid cards={shared.conditions.items.map((item) => ({ title: item.title, copy: item.text }))} />
+    </section>
+
+    <section id="practical" class="am-section am-section--plain">
+      <div class="mb-16 max-w-3xl">
+        <h2 class="am-text-title mb-6 italic tracking-tight text-on-surface">{shared.practical.title}</h2>
+        <p class="am-text-body leading-relaxed text-on-surface-variant">{shared.practical.intro}</p>
+      </div>
+      <EditorialFeatureGrid cards={shared.practical.items.map((item) => ({ title: item.title, copy: item.text }))} />
+      <p class="mt-12 max-w-3xl border-l border-primary/20 bg-surface-container-low px-4 py-3 am-text-body leading-relaxed text-on-surface-variant">{shared.practical.accessNote.before}<a href={shared.practical.accessNote.href} target="_blank" rel="noopener noreferrer" class="am-inline-link">{shared.practical.accessNote.label}</a>{shared.practical.accessNote.after}</p>
+    </section>
+
+    <section class="am-section am-section--tint">
+      <div class="mb-12 max-w-3xl"><h2 class="am-text-title italic tracking-tight text-on-surface">{copy.related.title}</h2></div>
+      <div class="grid grid-cols-1 gap-x-16 gap-y-12 lg:grid-cols-2">
+        {copy.related.items.map((item) => (
+          <article class="border-t border-outline-variant/25 pt-8">
+            <h3 class="am-text-subtitle text-on-surface">{item.title}</h3>
+            <p class="mt-4 am-text-body leading-relaxed text-on-surface-variant">{item.text}</p>
+            <p class="mt-6"><a href={requiredLink(item.token)} class="am-inline-link">{item.label}<span aria-hidden="true"> →</span></a></p>
+          </article>
+        ))}
+      </div>
+    </section>
+
+    <section class="mx-auto max-w-screen-2xl px-6 pt-24 md:px-12">
+      <EditorialClosingCta title={copy.closing.title} lead={copy.closing.lead} lang={currentLang} links={[{ token: 'playa', label: copy.closing.propertyLabel, style: 'primary' }, { token: 'nerja_experience_hub', label: copy.closing.hubLabel, style: 'secondary' }]} />
+    </section>
+  </div>
+</LocationAuthorityLayout>

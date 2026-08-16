@@ -148,6 +148,27 @@ const PUBLIC_ROUTE_LABELS: Partial<Record<string, Record<AmaraLanguage, string>>
     nl: 'Ervaringen',
     sv: 'Upplevelser'
   },
+  'nerja-beaches': {
+    en: 'Beaches',
+    de: 'Strände',
+    es: 'Playas',
+    nl: 'Stranden',
+    sv: 'Stränder'
+  },
+  'nerja-day-trips': {
+    en: 'Day Trips',
+    de: 'Tagesausflüge',
+    es: 'Excursiones',
+    nl: 'Dagtochten',
+    sv: 'Utflykter'
+  },
+  'nerja-food': {
+    en: 'Food & Restaurants',
+    de: 'Essen & Restaurants',
+    es: 'Gastronomía y restaurantes',
+    nl: 'Eten & restaurants',
+    sv: 'Mat & restauranger'
+  },
   'frigiliana-beaches': {
     en: 'Beaches',
     de: 'Strände',
@@ -383,6 +404,9 @@ const FRIGILIANA_EXPERIENCE_SLUGS = new Set([
 
 const NERJA_EXPERIENCE_SLUGS = new Set([
   'nerja-experience',
+  'nerja-beaches',
+  'nerja-day-trips',
+  'nerja-food',
   'nerja-balcon-de-europa',
   'nerja-caves',
   'nerja-nightlife'
