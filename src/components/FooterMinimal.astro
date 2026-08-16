@@ -64,7 +64,7 @@ const resolvedLinks = links
   .filter((link): link is FooterLink & { href: string | null } => Boolean(link));
 ---
 
-<section class="footer-minimal border-t border-outline-variant/10 bg-surface px-12 py-10">
+<section class="footer-minimal border-t border-outline-variant/10 bg-surface px-6 md:px-12 py-10">
   <nav class="footer-minimal__nav max-w-screen-2xl mx-auto" aria-label="Footer highlights">
     <ul class="footer-minimal__list flex flex-wrap items-center justify-center gap-x-10 gap-y-4">
       {resolvedLinks.map((link) => (

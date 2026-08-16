@@ -3,19 +3,17 @@ import { dev } from 'astro';
 import { fileURLToPath } from 'node:url';
 
 /**
- * Characterization tests for the shared responsive page gutter.
+ * Contract tests for the shared responsive page gutter.
  *
- * The horizontal gutter is owned in three different places at once: the global
- * `.am-section` shell, page-owned Tailwind utilities, and a compatibility rule
- * that narrows nested `.px-12` on a small set of pages. Those layers are easy to
- * change independently and hard to reason about from markup alone, because the
- * same shared component renders a different gutter depending on which page
- * mounts it.
+ * One horizontal gutter rule applies to every normal page shell and every
+ * public shared component: 24px below the `md` breakpoint, 48px from `md`
+ * upwards. A component renders the same gutter regardless of which page mounts
+ * it, so the gutter can be reasoned about from the component alone.
  *
- * These assert the delivered contract — the computed padding at each breakpoint —
- * rather than the class names that currently produce it, so they stay valid
- * across a refactor of where the gutter is declared and fail if the rendered
- * result actually moves.
+ * These assert the delivered contract — computed padding and the resulting
+ * content inset — rather than the class names that currently produce it, so
+ * they stay valid across a refactor of where the gutter is declared and fail if
+ * the rendered result actually moves.
  */
 
 const PORT = 4326;
@@ -28,6 +26,26 @@ const DESKTOP = { width: 1440, height: 900 };
 /** Standard gutter: 24px below the `md` breakpoint, 48px from `md` upwards. */
 const NARROW = 24;
 const WIDE = 48;
+
+/** Pages that used to depend on a page-scoped rule for the narrow gutter. */
+const FORMERLY_BRIDGED = [
+  '/frigiliana-faq',
+  '/frigiliana-market',
+  '/frigiliana-parking',
+  '/frigiliana-streets-stairs',
+  '/getting-to-frigiliana'
+];
+
+/** Pages that mount the same shared components without that rule. */
+const NEVER_BRIDGED = [
+  '/frigiliana-weather',
+  '/nerja-weather',
+  '/nerja-where-to-stay',
+  '/frigiliana-location',
+  '/directions-arrival-guide',
+  '/nerja-nightlife',
+  '/frigiliana-or-nerja'
+];
 
 let astroServer: Awaited<ReturnType<typeof dev>> | undefined;
 
@@ -54,6 +72,35 @@ const guttersOf = (page: Page, selector: string) =>
       elements.map((element) => Math.round(parseFloat(getComputedStyle(element).paddingLeft)))
     );
 
+/**
+ * Distinct left padding of every page-gutter owner inside `main`.
+ *
+ * A gutter owner is identified structurally rather than by class: it spans the
+ * full viewport width and contributes horizontal padding. Cards, inset copy and
+ * controls sit inside a grid or a narrower max-width and are therefore excluded,
+ * which keeps internal component padding out of the page-gutter contract.
+ */
+const pageGutters = (page: Page) =>
+  page.evaluate(() => {
+    const widths = new Set<number>();
+    for (const element of document.querySelectorAll('main *')) {
+      const rect = element.getBoundingClientRect();
+      if (rect.left !== 0 || Math.round(rect.width) !== window.innerWidth) continue;
+      const padding = Math.round(parseFloat(getComputedStyle(element).paddingLeft));
+      if (padding > 0) widths.add(padding);
+    }
+    return [...widths].sort((a, b) => a - b);
+  });
+
+/** Left edge of the first authored block inside a container, from the viewport. */
+const contentInsetOf = (page: Page, selector: string) =>
+  page.locator(selector).evaluateAll((elements) =>
+    elements.map((element) => {
+      const rect = element.getBoundingClientRect();
+      return Math.round(rect.left + parseFloat(getComputedStyle(element).paddingLeft));
+    })
+  );
+
 const open = (page: Page, path: string) =>
   page.goto(`${ORIGIN}${path}`, { waitUntil: 'domcontentloaded' });
 
@@ -73,64 +120,99 @@ test.describe('shared .am-section gutter', () => {
   });
 
   /**
-   * `/frigiliana-or-nerja` is the one route whose section shells keep the wide
-   * gutter on mobile. It is pinned deliberately: narrowing it is a visible
-   * layout change, not a refactor, and must stay a separate decision.
+   * `/frigiliana-or-nerja` used to opt its section shells out of the responsive
+   * default. They now follow it like every other section shell.
    */
-  test('frigiliana-or-nerja keeps the wide gutter at every breakpoint', async ({ page }) => {
-    for (const viewport of [MOBILE, TABLET, DESKTOP]) {
+  test('frigiliana-or-nerja section shells follow the responsive default', async ({ page }) => {
+    for (const [viewport, expected] of [
+      [MOBILE, NARROW],
+      [TABLET, WIDE],
+      [DESKTOP, WIDE]
+    ] as const) {
       await page.setViewportSize(viewport);
       await open(page, '/frigiliana-or-nerja');
       const gutters = await guttersOf(page, 'section.am-section');
       expect(gutters.length).toBe(6);
-      expect(gutters.every((padding) => padding === WIDE)).toBe(true);
+      expect(gutters.every((padding) => padding === expected)).toBe(true);
     }
   });
 });
 
-test.describe('shared components inherit the mounting page gutter', () => {
+test.describe('the page gutter does not depend on the mounting page', () => {
   /**
-   * On the bridged pages the nested `.px-12` of shared components is narrowed to
-   * 24px on mobile; on every other route the same components render 48px. This
-   * asymmetry is the current contract, and both halves are pinned so that
-   * unifying them stays a deliberate design decision.
+   * The five pages that previously needed a page-scoped rule and the pages that
+   * never had one now resolve to the same value, which is what makes that rule
+   * removable rather than merely relocated.
    */
-  test('bridged page narrows nested shared components on mobile', async ({ page }) => {
-    await page.setViewportSize(MOBILE);
-    await open(page, '/frigiliana-parking');
+  for (const route of [...FORMERLY_BRIDGED, ...NEVER_BRIDGED]) {
+    test(`${route} renders one gutter per breakpoint`, async ({ page }) => {
+      await page.setViewportSize(MOBILE);
+      await open(page, route);
+      expect(await pageGutters(page)).toEqual([NARROW]);
 
-    expect(await guttersOf(page, '[data-am-component="editorial-guide-link-section"] > div')).toEqual([
-      NARROW
-    ]);
-    // Hero and FaqAccordion own their gutter through a bare `.px-12`.
-    const nested = await guttersOf(page, 'main .px-12');
-    expect(nested.length).toBeGreaterThan(0);
-    expect(nested.every((padding) => padding === NARROW)).toBe(true);
-  });
+      await page.setViewportSize(TABLET);
+      expect(await pageGutters(page)).toEqual([WIDE]);
 
-  test('unbridged page keeps shared components at the wide gutter on mobile', async ({ page }) => {
-    await page.setViewportSize(MOBILE);
-    await open(page, '/frigiliana-weather');
+      await page.setViewportSize(DESKTOP);
+      expect(await pageGutters(page)).toEqual([WIDE]);
+    });
+  }
 
-    expect(await guttersOf(page, '[data-am-component="editorial-guide-link-section"] > div')).toEqual([
-      WIDE
-    ]);
+  test('EditorialGuideLinkSection renders the same gutter on every route', async ({ page }) => {
+    for (const route of ['/frigiliana-parking', '/frigiliana-weather', '/nerja-weather']) {
+      await page.setViewportSize(MOBILE);
+      await open(page, route);
+      expect(
+        await guttersOf(page, '[data-am-component="editorial-guide-link-section"] > div')
+      ).toEqual([NARROW]);
+
+      await page.setViewportSize(TABLET);
+      expect(
+        await guttersOf(page, '[data-am-component="editorial-guide-link-section"] > div')
+      ).toEqual([WIDE]);
+    }
   });
 });
 
 test.describe('footer gutter', () => {
   /**
-   * The footer sits outside every page wrapper and therefore keeps the wide
-   * gutter on mobile across the whole site. Pinned so that changing it is a
-   * recorded design decision rather than a side effect of a gutter refactor.
+   * The footer sits outside every page wrapper, so it has to declare the gutter
+   * itself rather than inherit one. It resolves to the same pair of values.
    */
-  test('footer keeps 48px on mobile on both bridged and unbridged routes', async ({ page }) => {
-    await page.setViewportSize(MOBILE);
+  test('footer follows the responsive gutter on every route', async ({ page }) => {
+    for (const [viewport, expected] of [
+      [MOBILE, NARROW],
+      [TABLET, WIDE],
+      [DESKTOP, WIDE]
+    ] as const) {
+      await page.setViewportSize(viewport);
 
-    for (const route of ['/frigiliana-parking', '/nerja-nightlife', '/frigiliana-or-nerja']) {
-      await open(page, route);
-      expect(await guttersOf(page, '.footer-core')).toEqual([WIDE]);
-      expect(await guttersOf(page, '.footer-minimal')).toEqual([WIDE]);
+      for (const route of ['/frigiliana-parking', '/nerja-nightlife', '/frigiliana-or-nerja']) {
+        await open(page, route);
+        expect(await guttersOf(page, '.footer-core')).toEqual([expected]);
+        expect(await guttersOf(page, '.footer-minimal')).toEqual([expected]);
+      }
+    }
+  });
+});
+
+test.describe('effective content inset', () => {
+  /**
+   * `/frigiliana-or-nerja` was the one route where an outer and an inner gutter
+   * added up. Only the section shell contributes horizontal padding now, so the
+   * inset an author sees equals the gutter itself rather than twice it.
+   */
+  test('frigiliana-or-nerja insets content by exactly one gutter', async ({ page }) => {
+    for (const [viewport, expected] of [
+      [MOBILE, NARROW],
+      [TABLET, WIDE],
+      [DESKTOP, WIDE]
+    ] as const) {
+      await page.setViewportSize(viewport);
+      await open(page, '/frigiliana-or-nerja');
+      const insets = await contentInsetOf(page, 'section.am-section > div');
+      expect(insets.length).toBe(6);
+      expect(insets.every((inset) => inset === expected)).toBe(true);
     }
   });
 });
