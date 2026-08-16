@@ -48,7 +48,7 @@ export interface NerjaGeographyLocale {
 
 const article = {
   datePublished: '2026-08-13',
-  dateModified: '2026-08-13',
+  dateModified: '2026-08-16',
   authorName: 'Robert Sebastian Böhmer',
   authorType: 'Person' as const,
   authorSlug: 'amara-about-us'
@@ -60,52 +60,57 @@ const article = {
  */
 const sharedSources = {
   sima: 'https://www.juntadeandalucia.es/institutodeestadisticaycartografia/sima/ficha.htm?mun=29075',
+  simaAltitude: 'https://ws089.juntadeandalucia.es/sima/info.htm?f=a03',
+  boundaries:
+    'https://www.juntadeandalucia.es/institutodeestadisticaycartografia/dega/delimitaciones-territoriales',
+  terrain:
+    'https://centrodedescargas.cnig.es/CentroDescargas/modelo-digital-terreno-mdt02-segunda-cobertura',
   naturalPark:
     'https://www.juntadeandalucia.es/medioambiente/portal/areas-tematicas/espacios-protegidos/legislacion-autonomica-nacional/parques-naturales/parque-natural-sierras-de-tejeda-almijara-y-alhama',
-  chillar: 'https://www.malaga.es/en/laprovincia/naturaleza/lis_cd-10589/vado-de-los-patos-rio-chillar-nerja',
-  aemet: 'https://www.aemet.es/en/eltiempo/prediccion/municipios/nerja-id29075',
-  /** WARTUNGSPUNKT: Río Chíllar closure. Re-check before each release. */
+  coast:
+    'https://www.nerja.es/el-alcalde-reivindica-unidad-de-accion-en-el-consejo-de-turismo/',
+  /** MAINTENANCE: Río Chíllar closure. Re-check before each release. */
   chillarClosure: 'https://www.nerja.es/el-acceso-al-rio-chillar-permanece-cerrado/'
 };
 
 export const nerjaGeographySeo: AmaraAuthoringSeo = {
-  version: '2026-08-13-nerja-geography-v1.0',
+  version: '2026-08-16-nerja-geography-v2.0',
   pageType: 'A',
   entityKey: 'amara-brand',
   article,
   languages: {
     en: {
-      title: 'Where Is Nerja? Coast, Sierra Almijara and the Río Chíllar',
+      title: 'Where Is Nerja? Mediterranean, Slopes & Sierra Almijara',
       description:
-        'See where Nerja sits between the Mediterranean and the Sierra Almijara, why the town is built on a low cliff, and what that means for your days here.',
+        'Read Nerja from the Mediterranean to the Sierra Almijara: coastal levels, rising neighbourhoods and what the relief means on foot.',
       robots: 'index, follow',
       canonical: 'auto'
     },
     de: {
-      title: 'Wo liegt Nerja? Küste, Sierra Almijara und der Río Chíllar',
+      title: 'Wo liegt Nerja? Mittelmeer, Hanglagen & Sierra Almijara',
       description:
-        'Nerjas Lage zwischen Mittelmeer und Sierra Almijara: warum der Ort auf einer niedrigen Kliffkante steht und was das für eure Tage vor Ort bedeutet.',
+        'Nerja geografisch verstehen: vom Mittelmeer über die ansteigenden Wohnlagen bis zur Sierra Almijara – und was das Gefälle zu Fuß bedeutet.',
       robots: 'index, follow',
       canonical: 'auto'
     },
     es: {
-      title: 'Dónde está Nerja: costa, Sierra Almijara y el río Chíllar',
+      title: 'Dónde está Nerja: Mediterráneo, laderas y Sierra Almijara',
       description:
-        'La posición de Nerja entre el Mediterráneo y la Sierra Almijara: por qué el pueblo se asienta sobre un acantilado bajo y qué significa para vuestros días aquí.',
+        'Orientación geográfica de Nerja: desde el Mediterráneo y las cotas costeras hasta las laderas y la Sierra Almijara, con sus efectos al caminar.',
       robots: 'index, follow',
       canonical: 'auto'
     },
     nl: {
-      title: 'Waar ligt Nerja? Kust, Sierra Almijara en de Río Chíllar',
+      title: 'Waar ligt Nerja? Middellandse Zee, hellingen & Sierra Almijara',
       description:
-        'De ligging van Nerja tussen Middellandse Zee en Sierra Almijara: waarom het dorp op een lage klif staat en wat dat betekent voor jullie dagen hier.',
+        'Lees Nerja van de Middellandse Zee via oplopende woonwijken naar de Sierra Almijara en ontdek wat het hoogteverschil te voet betekent.',
       robots: 'index, follow',
       canonical: 'auto'
     },
     sv: {
-      title: 'Var ligger Nerja? Kusten, Sierra Almijara och Río Chíllar',
+      title: 'Var ligger Nerja? Medelhavet, sluttningarna & Sierra Almijara',
       description:
-        'Nerjas läge mellan Medelhavet och Sierra Almijara: varför orten ligger på en låg klippkant och vad det betyder för era dagar här.',
+        'Förstå Nerjas geografi från Medelhavet via de stigande bostadsområdena till Sierra Almijara och vad höjdskillnaderna betyder till fots.',
       robots: 'index, follow',
       canonical: 'auto'
     }
@@ -117,126 +122,113 @@ export const nerjaGeographyContent: Record<AmaraLanguage, NerjaGeographyLocale> 
     navLabel: 'Geography & orientation',
     hero: {
       eyebrow: 'Nerja · Geography & orientation',
-      title: 'A town on a low cliff, with a 1,800-metre mountain behind it',
+      title: 'From the Mediterranean to the high Sierra in one compact municipality',
       standfirst:
-        'Nerja is squeezed into a narrow strip between the Mediterranean and the Sierra Almijara. That strip is why the town stays walkable, why the beaches lie below rather than in front of it, and why almost every street eventually runs downhill to the sea.',
-      note: 'Fixed geographic figures come from Spanish public sources. Conditions on the ground still change with season and weather.',
+        'Nerja combines beaches close to sea level, an elevated central coast, rising residential slopes and high Sierra Almijara terrain. The municipality climbs from the Mediterranean to around 1,830 metres in the Navachica area, so elevation changes how even short distances feel.',
+      note: 'Official reference figures and rounded terrain-based orientation values are identified separately below.',
       updated: 'Reviewed August 2026'
     },
     facts: [
-      { label: 'To Málaga', value: 'Roughly 50 km west along the coast' },
-      { label: 'Municipal area', value: 'About 85 km², with 14.5 km of coast' },
-      { label: 'Highest point', value: 'Pico Navachica, 1,832 m' },
-      { label: 'Protected land', value: 'Sierras de Tejeda, Almijara y Alhama' }
+      { label: 'Municipality', value: '85.07 km²' },
+      { label: 'Official altitude reference', value: '22 m at the Town Hall' },
+      { label: 'Municipal relief', value: 'Sea level to around 1,830 m' },
+      { label: 'Coast', value: 'Around 14 km' }
     ],
     orientation: {
-      eyebrow: 'Four bearings',
-      title: 'Everything in Nerja is read from the sea upwards',
+      eyebrow: 'Read the terrain',
+      title: 'Four levels from sea to Sierra',
       intro:
-        'Once you know these four directions, the town stops being a maze. Nerja is small enough that orientation is a one-day skill.',
+        'This vertical model is more useful than treating Nerja as uniformly flat or uniformly cliff-edged. The figures within the built-up area are rounded orientation values from official terrain data, not official neighbourhood altitudes.',
       items: [
-        { label: 'South', value: 'The Mediterranean, always downhill from you' },
-        { label: 'North', value: 'The Sierra Almijara, rising steeply behind town' },
-        { label: 'West', value: 'The Río Chíllar mouth and the quieter western beaches' },
-        { label: 'East', value: 'Burriana, the Cuevas and the road towards Granada' }
+        { label: 'Coastal level', value: 'Beaches and shore close to 0 m' },
+        { label: 'Central coastal edge', value: 'Balcón area about 20 m; Parador edge about 35 m' },
+        { label: 'Residential slopes', value: 'Representative upper areas about 60–150 m' },
+        { label: 'High Sierra', value: 'Municipal terrain to around 1,830 m' }
       ]
     },
     sections: [
       {
-        id: 'coast-and-cliff',
-        eyebrow: 'The coastline',
-        title: 'The beaches are below the town, not in front of it',
+        id: 'coast',
+        eyebrow: 'The coast',
+        title: 'Fourteen kilometres, with several different relationships to the sea',
         paragraphs: [
-          'Nerja does not sit on its beach. It sits on a low cliff above a series of coves, and that single fact shapes more of a stay here than any other.',
-          'The municipality holds roughly 14.5 kilometres of coast, broken into separate bays rather than one continuous strand. Between them the rock comes right down to the water, which is why Nerja has many small beaches instead of one big one — and why each of them has its own character and its own way down.',
-          'Practically, that means most beach visits include a descent and a climb. It is rarely far, but it is rarely flat either.'
+          'Nerja has around 14 kilometres of coastline, but it is not one continuous geographic situation. Some beaches meet the built-up town close to sea level; central sections such as the Balcón de Europa stand above the water; farther along are coves, rocky edges and open beaches.',
+          'That variety is the useful orientation point. A route to the coast may be almost level, may descend from an elevated central edge or may use a stepped access. It is therefore safer to read the specific beach and street than to assume that every beach lies below the whole town.'
         ]
       },
       {
-        id: 'mountains-behind',
-        eyebrow: 'The mountains',
-        title: 'The Sierra Almijara starts where the town stops',
+        id: 'built-up-relief',
+        eyebrow: 'The built-up town',
+        title: 'The map stays compact while the ground rises',
         paragraphs: [
-          'Behind Nerja the land does not ease into hills — it climbs. The northern part of the municipality belongs to the Sierras de Tejeda, Almijara y Alhama Natural Park, declared in 1999 and covering some 40,662 hectares across Málaga and Granada provinces.',
-          'The highest point above Nerja is Pico Navachica at 1,832 metres. From sea level to that summit is a horizontal distance most towns would use to reach a suburb.',
-          'The same park also covers Frigiliana, fifteen minutes inland. Nerja and Frigiliana are not two unrelated places — they are the coastal and the mountain end of one landscape.'
+          'Rounded terrain readings place the Balcón de Europa area at about 20 metres and the Parador or upper central coastal edge at about 35 metres. The residential terrain then rises: roughly 60 metres around Oasis de Capistrano, about 100 metres around Capistrano Village and about 150 metres around San Juan de Capistrano.',
+          'These are representative points derived from official IECA boundary data and CNIG MDT02 terrain, not legally defined elevations for whole neighbourhoods. Their value is practical: two addresses that look equally close to the centre or beach can require very different effort on foot.'
+        ]
+      },
+      {
+        id: 'sierra',
+        eyebrow: 'The Sierra',
+        title: 'Mountain terrain is part of Nerja, not a distant backdrop',
+        paragraphs: [
+          'Across the municipal polygon, official terrain data shows a rise from sea level to around 1,830 metres in the Navachica area. Because the boundary crosses the summit area, this is a robust description of municipal relief rather than a claim that one precisely measured summit is wholly Nerja’s highest point.',
+          'Nerja and Frigiliana are both included in the Sierras de Tejeda, Almijara y Alhama Natural Park, a protected landscape of approximately 40,657 hectares across Málaga and Granada. The short visual distance between coast and high mountains is one of the defining facts of this landscape.'
         ]
       },
       {
         id: 'rio-chillar',
-        eyebrow: 'The river',
-        title: 'The Río Chíllar explains the western edge of town',
+        eyebrow: 'The valley corridor',
+        title: 'The Río Chíllar links mountain relief with the coast',
         paragraphs: [
-          'The Chíllar rises above 1,200 metres in the Sierra Almijara and reaches the Mediterranean just west of the town centre, after a course of only about 17 kilometres.',
-          'That is an unusually steep run — an average gradient of around 7.3 per cent — because the mountains stand so close to the sea. The Chíllar is best known as a walking route through its own gorge, but that route has been closed since August 2023. The authorities are preparing a limited-access model; no reopening date has been set.',
-          'For orientation it matters in a simpler way: the Chíllar marks where Nerja ends to the west. Everything between the river and the old centre is the flatter, more residential side of town.'
+          'The Chíllar valley cuts through the Sierra toward the Mediterranean and makes the coast-to-mountain structure visible in one corridor. It is an important geographic line, but it is not Nerja’s western municipal boundary: both municipal territory and developed areas continue west of it.',
+          'The well-known river walking access remains closed under the current municipal notice. That operational status is not the page’s main subject, but it matters when the valley is mentioned so geographic orientation is not mistaken for a route recommendation.'
         ]
       },
       {
         id: 'what-it-means',
         eyebrow: 'What it means for a stay',
-        title: 'Short distances, but almost never level ground',
+        title: 'Combine distance with gradient',
         paragraphs: [
-          'Nerja is compact. The distances that matter to a guest are measured in minutes, not kilometres, and the town centre can carry a whole holiday on foot.',
-          'The variable is not distance but gradient. Two addresses the same number of minutes apart can feel very different depending on whether the walk home goes up or down — and that difference grows over a two-week stay, in August heat, or with a pushchair.',
-          'AMARA Playa sits right in the centre: barely 500 metres to the Balcón de Europa, about 100 metres to Torrecilla beach. You do not need a car here. We were guests in this exact apartment for years ourselves — and did not hesitate for a second when we heard it was for sale.'
+          'Many everyday central-Nerja days work well without a car. AMARA Playa, for example, is approximately 100 metres from Torrecilla beach and approximately 500 metres from the Balcón de Europa; these are useful guest distances, not survey measurements.',
+          'Across Nerja more broadly, a short line on a map does not guarantee an equally easy walk. Check whether the route starts at coastal level, crosses the central edge or climbs toward the residential slopes—especially for repeated returns, summer heat, luggage or a pushchair. The detailed area choice belongs in the Where to Stay guide.'
         ]
       }
     ],
     related: {
       eyebrow: 'Continue',
-      title: 'From the map to the practical questions',
+      title: 'Turn the terrain into a practical plan',
       links: [
         {
           token: 'getting_to_nerja',
           label: 'Arrival & mobility',
-          text: 'Airports, the coach connection and the last stretch to the address.'
+          text: 'Airports, coach connections and the final route into Nerja.'
         },
         {
           token: 'nerja_where_to_stay',
           label: 'Where to stay in Nerja',
-          text: 'Torrecilla, the Old Town, Burriana and the upper areas compared.'
+          text: 'Compare the centre, coastal areas and higher residential slopes.'
         }
       ]
     },
     sources: {
       eyebrow: 'Behind this guide',
-      title: 'Sources for the geographic figures',
+      title: 'Official sources and terrain methodology',
       intro:
-        'Area, elevation, protected status and river data come from Spanish public bodies. Anything that changes with weather or season is deliberately not given as a fixed number here.',
+        'Area and the Town Hall altitude reference are official SIMA values. Municipal relief and built-up orientation values are rounded readings derived from the official IECA boundary and CNIG MDT02 terrain data; they are not official neighbourhood altitudes.',
       checked: 'Sources checked in August 2026.',
       links: [
-        {
-          label: 'Instituto de Estadística y Cartografía de Andalucía · Nerja',
-          text: 'Official municipal figures for area, elevation and population.',
-          href: sharedSources.sima
-        },
-        {
-          label: 'Junta de Andalucía · Sierras de Tejeda, Almijara y Alhama',
-          text: 'Official record of the natural park, its extent and its 1999 declaration.',
-          href: sharedSources.naturalPark
-        },
-        {
-          label: 'Diputación de Málaga · Río Chíllar',
-          text: 'Public provincial information on the river, its course and its setting.',
-          href: sharedSources.chillar
-        },
-        {
-          label: 'AEMET · Nerja',
-          text: 'The national meteorological service, for current conditions rather than fixed claims.',
-          href: sharedSources.aemet
-        },
-        {
-          label: 'Ayuntamiento de Nerja · Río Chíllar access',
-          text: 'The municipality’s own notice that the river route remains closed.',
-          href: sharedSources.chillarClosure
-        }
+        { label: 'SIMA · Nerja', text: 'Official municipal area and reference data.', href: sharedSources.sima },
+        { label: 'SIMA · Altitude definition', text: 'Defines municipal altitude at the Town Hall of the principal settlement.', href: sharedSources.simaAltitude },
+        { label: 'IECA · Territorial boundaries', text: 'Official municipal polygon used for the relief analysis.', href: sharedSources.boundaries },
+        { label: 'CNIG · MDT02', text: 'Official two-metre terrain model used for rounded orientation readings.', href: sharedSources.terrain },
+        { label: 'Junta de Andalucía · Natural Park', text: 'Official protected-area extent and included municipalities.', href: sharedSources.naturalPark },
+        { label: 'Ayuntamiento de Nerja · Coast', text: 'Municipal source for around 14 kilometres of coastline.', href: sharedSources.coast },
+        { label: 'Ayuntamiento de Nerja · Río Chíllar access', text: 'Current municipal notice that access to the river route remains closed.', href: sharedSources.chillarClosure }
       ]
     },
     closing: {
       eyebrow: 'Back to the stay',
-      title: 'The map only matters once it becomes your day.',
-      body: 'Knowing where Nerja sits is useful. Knowing which side of town you wake up on is what actually shapes the holiday.',
+      title: 'A better map includes the climb.',
+      body: 'Once the sea-to-Sierra structure is clear, choosing routes and a base becomes much more realistic.',
       locationLabel: 'Back to the Nerja location guide',
       propertyLabel: 'View AMARA Playa'
     }
@@ -245,126 +237,105 @@ export const nerjaGeographyContent: Record<AmaraLanguage, NerjaGeographyLocale> 
     navLabel: 'Geografie & Orientierung',
     hero: {
       eyebrow: 'Nerja · Geografie & Orientierung',
-      title: 'Ein Ort auf niedriger Kliffkante, mit einem 1.800er im Rücken',
+      title: 'Vom Mittelmeer bis ins Hochgebirge – in einer kompakten Gemeinde',
       standfirst:
-        'Nerja liegt auf einem schmalen Streifen zwischen Mittelmeer und Sierra Almijara. Dieser Streifen ist der Grund, warum der Ort zu Fuß funktioniert, warum die Strände unter ihm liegen statt vor ihm – und warum fast jede Straße irgendwann bergab zum Meer führt.',
-      note: 'Die festen geografischen Zahlen stammen aus spanischen amtlichen Quellen. Was sich mit Jahreszeit und Wetter ändert, steht hier bewusst nicht als feste Größe.',
+        'Nerja verbindet Strände nahe dem Meeresspiegel, eine erhöhte zentrale Küstenlage, ansteigende Wohngebiete und das Hochgebirge der Sierra Almijara. Das Gemeindegebiet reicht vom Meer bis auf rund 1.830 Meter im Bereich der Navachica – deshalb verändert die Höhe selbst kurze Wege.',
+      note: 'Amtliche Referenzwerte und gerundete Orientierungswerte aus Geländedaten werden unten klar getrennt.',
       updated: 'Geprüft im August 2026'
     },
     facts: [
-      { label: 'Nach Málaga', value: 'Rund 50 km westlich an der Küste' },
-      { label: 'Gemeindefläche', value: 'Etwa 85 km², davon 14,5 km Küste' },
-      { label: 'Höchster Punkt', value: 'Pico Navachica, 1.832 m' },
-      { label: 'Schutzgebiet', value: 'Sierras de Tejeda, Almijara y Alhama' }
+      { label: 'Gemeindegebiet', value: '85,07 km²' },
+      { label: 'Amtlicher Höhenbezug', value: '22 m am Rathaus' },
+      { label: 'Relief der Gemeinde', value: 'Meeresspiegel bis rund 1.830 m' },
+      { label: 'Küste', value: 'Rund 14 km' }
     ],
     orientation: {
-      eyebrow: 'Vier Himmelsrichtungen',
-      title: 'In Nerja liest man alles vom Meer aus nach oben',
+      eyebrow: 'Das Gelände lesen',
+      title: 'Vier Höhenstufen vom Meer zur Sierra',
       intro:
-        'Wenn ihr diese vier Richtungen kennt, hört Nerja auf, ein Labyrinth zu sein. Der Ort ist klein genug, dass Orientierung eine Sache von einem Tag ist.',
+        'Dieses vertikale Modell ist hilfreicher, als Nerja pauschal für flach oder durchgehend von Klippen geprägt zu halten. Die Werte im bebauten Gebiet sind gerundete Orientierungswerte aus amtlichen Geländedaten, keine amtlichen Höhen ganzer Viertel.',
       items: [
-        { label: 'Süden', value: 'Das Mittelmeer – von euch aus immer bergab' },
-        { label: 'Norden', value: 'Die Sierra Almijara, steil hinter dem Ort' },
-        { label: 'Westen', value: 'Die Mündung des Río Chíllar und die ruhigeren Strände' },
-        { label: 'Osten', value: 'Burriana, die Tropfsteinhöhle und die Straße Richtung Granada' }
+        { label: 'Küstenniveau', value: 'Strände und Ufer nahe 0 m' },
+        { label: 'Zentrale Küstenkante', value: 'Balcón etwa 20 m; Parador-Kante etwa 35 m' },
+        { label: 'Wohnhänge', value: 'Repräsentative obere Lagen etwa 60–150 m' },
+        { label: 'Hohe Sierra', value: 'Gemeindegebiet bis rund 1.830 m' }
       ]
     },
     sections: [
       {
-        id: 'coast-and-cliff',
+        id: 'coast',
         eyebrow: 'Die Küste',
-        title: 'Die Strände liegen unter dem Ort, nicht vor ihm',
+        title: 'Vierzehn Kilometer mit unterschiedlichen Beziehungen zum Meer',
         paragraphs: [
-          'Nerja liegt nicht an seinem Strand. Es liegt auf einer niedrigen Kliffkante über einer Reihe von Buchten – und diese eine Tatsache prägt einen Aufenthalt hier mehr als alles andere.',
-          'Zur Gemeinde gehören rund 14,5 Kilometer Küste, aufgeteilt in einzelne Buchten statt in einen durchgehenden Strand. Dazwischen reicht der Fels bis ans Wasser. Deshalb hat Nerja viele kleine Strände statt eines großen – und deshalb hat jeder von ihnen einen eigenen Charakter und einen eigenen Abgang.',
-          'Praktisch heißt das: Zu fast jedem Strandbesuch gehören ein Abstieg und ein Aufstieg. Weit ist es selten. Eben aber auch nicht.'
+          'Nerja hat rund 14 Kilometer Küste, aber nicht überall dieselbe geografische Situation. Manche Strände treffen nahe dem Meeresspiegel auf den bebauten Ort; zentrale Abschnitte wie der Balcón de Europa liegen erhöht; daneben gibt es Buchten, Felskanten und offene Strände.',
+          'Genau diese Vielfalt hilft bei der Orientierung. Ein Weg zur Küste kann beinahe eben sein, von einer erhöhten zentralen Kante absteigen oder über Stufen führen. Sinnvoller ist daher, den konkreten Strand und die konkrete Straße zu prüfen, statt alle Strände unterhalb des gesamten Ortes zu vermuten.'
         ]
       },
       {
-        id: 'mountains-behind',
-        eyebrow: 'Die Berge',
-        title: 'Die Sierra Almijara beginnt dort, wo der Ort aufhört',
+        id: 'built-up-relief',
+        eyebrow: 'Der bebaute Ort',
+        title: 'Die Karte bleibt kompakt, während das Gelände steigt',
         paragraphs: [
-          'Hinter Nerja geht das Land nicht in Hügel über – es steigt. Der nördliche Teil der Gemeinde gehört zum Naturpark Sierras de Tejeda, Almijara y Alhama, 1999 ausgewiesen und rund 40.662 Hektar groß, verteilt auf die Provinzen Málaga und Granada.',
-          'Der höchste Punkt über Nerja ist der Pico Navachica mit 1.832 Metern. Die Strecke vom Meeresspiegel bis zu diesem Gipfel bräuchten andere Orte, um einen Vorort zu erreichen.',
-          'Derselbe Naturpark umfasst auch Frigiliana, fünfzehn Minuten landeinwärts. Nerja und Frigiliana sind keine zwei zusammenhanglosen Orte – sie sind das Küsten- und das Bergende derselben Landschaft.'
+          'Gerundete Geländewerte verorten den Bereich des Balcón de Europa bei etwa 20 Metern und die Parador- beziehungsweise obere zentrale Küstenkante bei etwa 35 Metern. Danach steigen die Wohnlagen an: ungefähr 60 Meter bei Oasis de Capistrano, etwa 100 Meter bei Capistrano Village und rund 150 Meter bei San Juan de Capistrano.',
+          'Das sind repräsentative Punkte, abgeleitet aus der amtlichen IECA-Gemeindegrenze und dem CNIG-Geländemodell MDT02 – keine rechtlich definierten Höhen ganzer Viertel. Praktisch zeigen sie, warum zwei Adressen mit ähnlicher Kartenentfernung zu Zentrum oder Strand zu Fuß sehr unterschiedlich wirken können.'
+        ]
+      },
+      {
+        id: 'sierra',
+        eyebrow: 'Die Sierra',
+        title: 'Das Hochgebirge gehört zu Nerja und ist nicht nur Kulisse',
+        paragraphs: [
+          'Für das Gemeindegebiet zeigen die amtlichen Geländedaten einen Anstieg vom Meeresspiegel bis auf rund 1.830 Meter im Bereich der Navachica. Da die Grenze durch den Gipfelbereich verläuft, ist dies eine belastbare Reliefbeschreibung – keine Behauptung, ein exakt vermessener Gipfel liege vollständig in Nerja und sei zweifelsfrei dessen höchster Punkt.',
+          'Nerja und Frigiliana liegen beide im Naturpark Sierras de Tejeda, Almijara y Alhama, einem rund 40.657 Hektar großen Schutzgebiet in den Provinzen Málaga und Granada. Die geringe sichtbare Distanz zwischen Küste und Hochgebirge prägt diese Landschaft.'
         ]
       },
       {
         id: 'rio-chillar',
-        eyebrow: 'Der Fluss',
-        title: 'Der Río Chíllar erklärt den westlichen Ortsrand',
+        eyebrow: 'Der Talkorridor',
+        title: 'Der Río Chíllar verbindet Gebirgsrelief und Küste',
         paragraphs: [
-          'Der Chíllar entspringt oberhalb von 1.200 Metern in der Sierra Almijara und erreicht das Mittelmeer direkt westlich des Ortskerns – nach einem Lauf von nur etwa 17 Kilometern.',
-          'Das ist ein ungewöhnlich steiler Weg, im Mittel rund 7,3 Prozent Gefälle, weil die Berge so nah am Meer stehen. Bekannt ist der Chíllar vor allem als Wanderroute durch die eigene Schlucht – die ist allerdings seit August 2023 gesperrt. Die Behörden bereiten ein Modell mit begrenztem Zugang vor; einen Öffnungstermin gibt es bislang nicht.',
-          'Für die Orientierung zählt er auf einfachere Weise: Der Chíllar markiert, wo Nerja nach Westen endet. Alles zwischen dem Fluss und der Altstadt ist die flachere, wohnlichere Seite des Ortes.'
+          'Das Chíllar-Tal schneidet durch die Sierra zum Mittelmeer und macht die Struktur zwischen Küste und Gebirge in einem einzigen Korridor sichtbar. Es ist eine wichtige geografische Linie, aber nicht Nerjas westliche Gemeindegrenze: Gemeindegebiet und Bebauung setzen sich westlich davon fort.',
+          'Der bekannte Zugang zur Flusswanderung bleibt laut aktueller Mitteilung der Gemeinde gesperrt. Dieser Betriebszustand ist nicht das Hauptthema der Seite, gehört aber zur Erwähnung des Tals, damit geografische Orientierung nicht als Routenempfehlung verstanden wird.'
         ]
       },
       {
         id: 'what-it-means',
-        eyebrow: 'Was das für den Aufenthalt heißt',
-        title: 'Kurze Wege, aber fast nie ebene',
+        eyebrow: 'Was das für den Aufenthalt bedeutet',
+        title: 'Entfernung und Steigung zusammen betrachten',
         paragraphs: [
-          'Nerja ist kompakt. Die Entfernungen, die für Gäste zählen, misst man in Minuten, nicht in Kilometern – und der Ortskern trägt einen ganzen Urlaub zu Fuß.',
-          'Die Variable ist nicht die Entfernung, sondern die Steigung. Zwei Adressen, die gleich viele Minuten auseinanderliegen, fühlen sich sehr unterschiedlich an, je nachdem ob der Heimweg hinauf oder hinunter führt. Über zwei Wochen, in der Augusthitze oder mit Kinderwagen wächst dieser Unterschied.',
-          'AMARA Playa liegt mitten im Zentrum: knapp 500 Meter zum Balcón de Europa, gut 100 Meter zum Strand Torrecilla. Ein Auto braucht ihr hier nicht. Wir waren jahrelang selbst Gäste in genau dieser Wohnung – und mussten keine Sekunde zögern, als wir erfuhren, dass sie zum Verkauf steht.'
+          'Viele gewöhnliche Urlaubstage im Zentrum von Nerja funktionieren gut ohne Auto. Von AMARA Playa sind es zum Beispiel ungefähr 100 Meter zum Strand Torrecilla und etwa 500 Meter zum Balcón de Europa; das sind praktische Gästeangaben, keine Vermessungswerte.',
+          'Für Nerja insgesamt garantiert eine kurze Linie auf der Karte keinen gleich leichten Fußweg. Prüft, ob der Weg auf Küstenniveau beginnt, die zentrale Kante quert oder zu den Wohnhängen ansteigt – besonders bei mehreren Rückwegen, Sommerhitze, Gepäck oder Kinderwagen. Die detaillierte Lagenwahl gehört in den Guide „Wo übernachten“.'
         ]
       }
     ],
     related: {
       eyebrow: 'Weiterlesen',
-      title: 'Von der Karte zu den praktischen Fragen',
+      title: 'Vom Gelände zum praktischen Plan',
       links: [
-        {
-          token: 'getting_to_nerja',
-          label: 'Anreise & Mobilität',
-          text: 'Flughäfen, die Busverbindung und die letzte Etappe bis zur Adresse.'
-        },
-        {
-          token: 'nerja_where_to_stay',
-          label: 'Wo in Nerja übernachten',
-          text: 'Torrecilla, Altstadt, Burriana und die oberen Lagen im Vergleich.'
-        }
+        { token: 'getting_to_nerja', label: 'Anreise & Mobilität', text: 'Flughäfen, Busverbindungen und die letzte Etappe nach Nerja.' },
+        { token: 'nerja_where_to_stay', label: 'Wo in Nerja übernachten', text: 'Zentrum, Küstenlagen und höhere Wohnhänge im Vergleich.' }
       ]
     },
     sources: {
       eyebrow: 'Belege hinter dem Guide',
-      title: 'Quellen zu den geografischen Zahlen',
+      title: 'Amtliche Quellen und Geländemethodik',
       intro:
-        'Fläche, Höhe, Schutzstatus und Flussdaten stammen von spanischen amtlichen Stellen. Was sich mit Wetter oder Jahreszeit ändert, steht hier bewusst nicht als feste Zahl.',
+        'Fläche und Höhenbezug am Rathaus sind amtliche SIMA-Werte. Das Relief der Gemeinde und die Orientierungswerte im Ort sind gerundete Ableitungen aus der amtlichen IECA-Grenze und dem CNIG-Geländemodell MDT02; sie sind keine amtlichen Viertelhöhen.',
       checked: 'Quellen geprüft im August 2026.',
       links: [
-        {
-          label: 'Instituto de Estadística y Cartografía de Andalucía · Nerja',
-          text: 'Amtliche Gemeindedaten zu Fläche, Höhe und Einwohnerzahl.',
-          href: sharedSources.sima
-        },
-        {
-          label: 'Junta de Andalucía · Sierras de Tejeda, Almijara y Alhama',
-          text: 'Amtlicher Eintrag zum Naturpark, seiner Größe und der Ausweisung von 1999.',
-          href: sharedSources.naturalPark
-        },
-        {
-          label: 'Diputación de Málaga · Río Chíllar',
-          text: 'Öffentliche Provinzinformation zum Fluss, seinem Verlauf und seiner Umgebung.',
-          href: sharedSources.chillar
-        },
-        {
-          label: 'AEMET · Nerja',
-          text: 'Der staatliche Wetterdienst – für aktuelle Bedingungen statt fester Aussagen.',
-          href: sharedSources.aemet
-        },
-        {
-          label: 'Ayuntamiento de Nerja · Zugang Río Chíllar',
-          text: 'Die Mitteilung der Gemeinde selbst, dass die Flussroute weiterhin gesperrt ist.',
-          href: sharedSources.chillarClosure
-        }
+        { label: 'SIMA · Nerja', text: 'Amtliche Fläche und Referenzdaten der Gemeinde.', href: sharedSources.sima },
+        { label: 'SIMA · Definition der Höhenangabe', text: 'Definiert die Gemeindehöhe am Rathaus des Hauptortes.', href: sharedSources.simaAltitude },
+        { label: 'IECA · Verwaltungsgrenzen', text: 'Amtliche Gemeindegrenze für die Reliefanalyse.', href: sharedSources.boundaries },
+        { label: 'CNIG · MDT02', text: 'Amtliches Zwei-Meter-Geländemodell für die gerundeten Orientierungswerte.', href: sharedSources.terrain },
+        { label: 'Junta de Andalucía · Naturpark', text: 'Amtliche Fläche des Schutzgebiets und beteiligte Gemeinden.', href: sharedSources.naturalPark },
+        { label: 'Ayuntamiento de Nerja · Küste', text: 'Gemeindequelle für rund 14 Kilometer Küste.', href: sharedSources.coast },
+        { label: 'Ayuntamiento de Nerja · Zugang Río Chíllar', text: 'Aktuelle Gemeindemitteilung zur fortbestehenden Sperrung des Flusszugangs.', href: sharedSources.chillarClosure }
       ]
     },
     closing: {
       eyebrow: 'Zurück zum Aufenthalt',
-      title: 'Die Karte zählt erst, wenn sie euer Tag wird.',
-      body: 'Zu wissen, wo Nerja liegt, ist nützlich. Zu wissen, auf welcher Seite des Ortes ihr aufwacht, prägt den Urlaub.',
+      title: 'Eine gute Karte zeigt auch den Anstieg.',
+      body: 'Wenn die Struktur vom Meer zur Sierra klar ist, werden Wege und die Wahl der passenden Basis realistischer.',
       locationLabel: 'Zurück zum Nerja Lage-Guide',
       propertyLabel: 'AMARA Playa ansehen'
     }
@@ -373,126 +344,105 @@ export const nerjaGeographyContent: Record<AmaraLanguage, NerjaGeographyLocale> 
     navLabel: 'Geografía y orientación',
     hero: {
       eyebrow: 'Nerja · Geografía y orientación',
-      title: 'Un pueblo sobre un acantilado bajo, con una sierra de 1.800 metros detrás',
+      title: 'Del Mediterráneo a la alta sierra dentro de un municipio compacto',
       standfirst:
-        'Nerja se encaja en una franja estrecha entre el Mediterráneo y la Sierra Almijara. Esa franja explica por qué el pueblo se recorre a pie, por qué las playas quedan debajo y no delante, y por qué casi todas las calles acaban bajando hacia el mar.',
-      note: 'Las cifras geográficas fijas proceden de fuentes públicas españolas. Lo que cambia con la estación y el tiempo no se da aquí como dato fijo.',
+        'Nerja reúne playas próximas al nivel del mar, un frente costero central elevado, zonas residenciales que suben por la ladera y la alta Sierra Almijara. El municipio asciende desde el Mediterráneo hasta unos 1.830 metros en el entorno de Navachica; por eso el desnivel transforma incluso los trayectos cortos.',
+      note: 'A continuación se distinguen los datos oficiales de referencia y las cotas orientativas redondeadas obtenidas del terreno.',
       updated: 'Revisado en agosto de 2026'
     },
     facts: [
-      { label: 'Hasta Málaga', value: 'Unos 50 km al oeste por la costa' },
-      { label: 'Término municipal', value: 'Unos 85 km², con 14,5 km de costa' },
-      { label: 'Punto más alto', value: 'Pico Navachica, 1.832 m' },
-      { label: 'Espacio protegido', value: 'Sierras de Tejeda, Almijara y Alhama' }
+      { label: 'Municipio', value: '85,07 km²' },
+      { label: 'Referencia oficial de altitud', value: '22 m en el Ayuntamiento' },
+      { label: 'Relieve municipal', value: 'Del nivel del mar a unos 1.830 m' },
+      { label: 'Costa', value: 'Alrededor de 14 km' }
     ],
     orientation: {
-      eyebrow: 'Cuatro referencias',
-      title: 'En Nerja todo se lee desde el mar hacia arriba',
+      eyebrow: 'Leer el terreno',
+      title: 'Cuatro niveles desde el mar hasta la sierra',
       intro:
-        'Con estas cuatro direcciones, Nerja deja de ser un laberinto. El pueblo es lo bastante pequeño como para orientarse en un día.',
+        'Este modelo vertical resulta más útil que imaginar Nerja como un lugar completamente llano o como un único acantilado. Las cotas del casco urbano son referencias redondeadas basadas en datos oficiales del terreno, no altitudes oficiales de barrios enteros.',
       items: [
-        { label: 'Sur', value: 'El Mediterráneo, siempre cuesta abajo desde vosotros' },
-        { label: 'Norte', value: 'La Sierra Almijara, que sube abrupta detrás del pueblo' },
-        { label: 'Oeste', value: 'La desembocadura del río Chíllar y las playas más tranquilas' },
-        { label: 'Este', value: 'Burriana, la Cueva y la carretera hacia Granada' }
+        { label: 'Nivel costero', value: 'Playas y orilla cerca de 0 m' },
+        { label: 'Borde costero central', value: 'Balcón, unos 20 m; entorno del Parador, unos 35 m' },
+        { label: 'Laderas residenciales', value: 'Zonas altas representativas, unos 60–150 m' },
+        { label: 'Alta sierra', value: 'Terreno municipal hasta unos 1.830 m' }
       ]
     },
     sections: [
       {
-        id: 'coast-and-cliff',
+        id: 'coast',
         eyebrow: 'La costa',
-        title: 'Las playas están debajo del pueblo, no delante',
+        title: 'Catorce kilómetros con distintas relaciones con el mar',
         paragraphs: [
-          'Nerja no está sobre su playa. Está sobre un acantilado bajo por encima de una sucesión de calas, y ese único hecho condiciona una estancia más que ningún otro.',
-          'El municipio cuenta con unos 14,5 kilómetros de costa, repartidos en calas separadas y no en un arenal continuo. Entre ellas la roca llega hasta el agua. Por eso Nerja tiene muchas playas pequeñas en lugar de una grande, y por eso cada una tiene su carácter y su propia bajada.',
-          'En la práctica: casi toda visita a la playa incluye una bajada y una subida. Lejos no suele estar. Llano tampoco.'
+          'Nerja tiene alrededor de 14 kilómetros de costa, pero no responde a una única situación geográfica. Algunas playas se encuentran con el casco urbano cerca del nivel del mar; tramos centrales como el Balcón de Europa se elevan sobre el agua; y en otros puntos aparecen calas, bordes rocosos y playas abiertas.',
+          'Esa variedad es la clave para orientarse. El camino hacia la costa puede ser casi llano, descender desde el borde central elevado o incluir escaleras. Conviene leer cada playa y cada calle en concreto, en vez de suponer que todas las playas quedan debajo de todo el pueblo.'
         ]
       },
       {
-        id: 'mountains-behind',
-        eyebrow: 'La montaña',
-        title: 'La Sierra Almijara empieza donde termina el pueblo',
+        id: 'built-up-relief',
+        eyebrow: 'El casco urbano',
+        title: 'El mapa sigue siendo compacto mientras el terreno asciende',
         paragraphs: [
-          'Detrás de Nerja el terreno no pasa a colinas: sube. La parte norte del municipio pertenece al Parque Natural Sierras de Tejeda, Almijara y Alhama, declarado en 1999 y con unas 40.662 hectáreas entre las provincias de Málaga y Granada.',
-          'El punto más alto sobre Nerja es el Pico Navachica, con 1.832 metros. La distancia horizontal que separa el nivel del mar de esa cumbre le serviría a otros pueblos para llegar a un barrio periférico.',
-          'El mismo parque incluye Frigiliana, a quince minutos hacia el interior. Nerja y Frigiliana no son dos lugares sin relación: son el extremo costero y el extremo montañoso de un mismo paisaje.'
+          'Las lecturas redondeadas del terreno sitúan el entorno del Balcón de Europa en unos 20 metros y el Parador o borde costero central superior en unos 35 metros. Después suben las zonas residenciales: aproximadamente 60 metros en Oasis de Capistrano, unos 100 en Capistrano Village y unos 150 en San Juan de Capistrano.',
+          'Son puntos representativos derivados del límite municipal oficial del IECA y del modelo del terreno MDT02 del CNIG, no cotas legalmente definidas para barrios completos. Su utilidad es práctica: dos direcciones igual de próximas al centro o a la playa sobre el mapa pueden exigir esfuerzos muy distintos a pie.'
+        ]
+      },
+      {
+        id: 'sierra',
+        eyebrow: 'La sierra',
+        title: 'La alta montaña forma parte de Nerja, no es un telón de fondo lejano',
+        paragraphs: [
+          'En el polígono municipal, los datos oficiales del terreno muestran un ascenso desde el nivel del mar hasta unos 1.830 metros en el entorno de Navachica. Como el límite atraviesa la zona de cumbre, esta es una descripción sólida del relieve municipal, no la afirmación de que una cima medida con precisión sea íntegramente el punto más alto de Nerja.',
+          'Nerja y Frigiliana están incluidos en el Parque Natural Sierras de Tejeda, Almijara y Alhama, un espacio protegido de aproximadamente 40.657 hectáreas entre Málaga y Granada. La escasa distancia visual entre la costa y la alta montaña define este paisaje.'
         ]
       },
       {
         id: 'rio-chillar',
-        eyebrow: 'El río',
-        title: 'El río Chíllar explica el borde occidental del pueblo',
+        eyebrow: 'El corredor del valle',
+        title: 'El río Chíllar enlaza el relieve de la sierra con la costa',
         paragraphs: [
-          'El Chíllar nace por encima de los 1.200 metros en la Sierra Almijara y llega al Mediterráneo justo al oeste del casco urbano, tras un recorrido de solo unos 17 kilómetros.',
-          'Es un trazado insólitamente empinado —una pendiente media en torno al 7,3 por ciento— porque la montaña está muy cerca del mar. El Chíllar se conoce sobre todo como ruta de senderismo por su propio cauce, pero ese acceso está cerrado desde agosto de 2023. Se prepara un modelo de acceso limitado; todavía no hay fecha de reapertura.',
-          'Para orientarse importa de una forma más simple: el Chíllar marca dónde acaba Nerja hacia el oeste. Todo lo que queda entre el río y el casco antiguo es el lado más llano y residencial del pueblo.'
+          'El valle del Chíllar corta la sierra en dirección al Mediterráneo y permite ver en un solo corredor la estructura entre montaña y mar. Es una línea geográfica importante, pero no constituye el límite occidental del municipio: tanto el término como las zonas urbanizadas continúan al oeste.',
+          'El conocido acceso al recorrido fluvial sigue cerrado según el aviso municipal vigente. Ese estado operativo no es el tema central de la página, pero debe acompañar la mención del valle para que una explicación geográfica no se interprete como recomendación de ruta.'
         ]
       },
       {
         id: 'what-it-means',
-        eyebrow: 'Qué significa para la estancia',
-        title: 'Distancias cortas, pero casi nunca en llano',
+        eyebrow: 'Qué significa para una estancia',
+        title: 'Combinar distancia y pendiente',
         paragraphs: [
-          'Nerja es compacta. Las distancias que importan a un huésped se miden en minutos, no en kilómetros, y el centro sostiene unas vacaciones enteras a pie.',
-          'La variable no es la distancia, sino la pendiente. Dos direcciones separadas por los mismos minutos se viven de forma muy distinta según si la vuelta a casa es cuesta arriba o cuesta abajo. En dos semanas, con calor de agosto o con carrito, esa diferencia crece.',
-          'AMARA Playa está en pleno centro: apenas 500 metros hasta el Balcón de Europa y unos 100 metros hasta la playa de Torrecilla. Aquí no hace falta coche. Durante años fuimos nosotros mismos huéspedes en este mismo apartamento, y no dudamos ni un segundo cuando supimos que se vendía.'
+          'Muchos días cotidianos en el centro de Nerja funcionan bien sin coche. AMARA Playa, por ejemplo, está aproximadamente a 100 metros de la playa de Torrecilla y a unos 500 metros del Balcón de Europa; son distancias orientativas para huéspedes, no mediciones topográficas.',
+          'En el conjunto de Nerja, una línea corta en el mapa no garantiza un paseo igual de fácil. Conviene comprobar si el trayecto parte de la cota costera, cruza el borde central o sube hacia las laderas residenciales, sobre todo al repetir el camino, con calor, equipaje o carrito. La elección detallada de zona corresponde a la guía Dónde alojarse.'
         ]
       }
     ],
     related: {
-      eyebrow: 'Seguir leyendo',
-      title: 'Del mapa a las preguntas prácticas',
+      eyebrow: 'Continuar',
+      title: 'Del relieve al plan práctico',
       links: [
-        {
-          token: 'getting_to_nerja',
-          label: 'Llegada y movilidad',
-          text: 'Aeropuertos, la conexión en autobús y el último tramo hasta la dirección.'
-        },
-        {
-          token: 'nerja_where_to_stay',
-          label: 'Dónde alojarse en Nerja',
-          text: 'Torrecilla, el casco antiguo, Burriana y las zonas altas, comparados.'
-        }
+        { token: 'getting_to_nerja', label: 'Llegada y movilidad', text: 'Aeropuertos, conexiones en autobús y el último tramo hasta Nerja.' },
+        { token: 'nerja_where_to_stay', label: 'Dónde alojarse en Nerja', text: 'Comparación entre el centro, las zonas costeras y las laderas residenciales.' }
       ]
     },
     sources: {
-      eyebrow: 'Detrás de esta guía',
-      title: 'Fuentes de las cifras geográficas',
+      eyebrow: 'Fuentes de la guía',
+      title: 'Fuentes oficiales y metodología del terreno',
       intro:
-        'Superficie, altitud, figura de protección y datos del río proceden de organismos públicos españoles. Lo que depende del tiempo o de la estación no se ofrece aquí como cifra fija.',
-      checked: 'Fuentes consultadas en agosto de 2026.',
+        'La superficie y la referencia de altitud en el Ayuntamiento son datos oficiales de SIMA. El relieve municipal y las cotas orientativas del casco urbano son lecturas redondeadas derivadas del límite oficial del IECA y del MDT02 del CNIG; no son altitudes oficiales de barrios.',
+      checked: 'Fuentes comprobadas en agosto de 2026.',
       links: [
-        {
-          label: 'Instituto de Estadística y Cartografía de Andalucía · Nerja',
-          text: 'Datos municipales oficiales de superficie, altitud y población.',
-          href: sharedSources.sima
-        },
-        {
-          label: 'Junta de Andalucía · Sierras de Tejeda, Almijara y Alhama',
-          text: 'Ficha oficial del parque natural, su extensión y su declaración de 1999.',
-          href: sharedSources.naturalPark
-        },
-        {
-          label: 'Diputación de Málaga · Río Chíllar',
-          text: 'Información pública provincial sobre el río, su curso y su entorno.',
-          href: sharedSources.chillar
-        },
-        {
-          label: 'AEMET · Nerja',
-          text: 'La agencia estatal de meteorología, para condiciones actuales y no para afirmaciones fijas.',
-          href: sharedSources.aemet
-        },
-        {
-          label: 'Ayuntamiento de Nerja · Acceso al río Chíllar',
-          text: 'El aviso del propio Ayuntamiento de que la ruta del río sigue cerrada.',
-          href: sharedSources.chillarClosure
-        }
+        { label: 'SIMA · Nerja', text: 'Superficie y datos oficiales de referencia del municipio.', href: sharedSources.sima },
+        { label: 'SIMA · Definición de altitud', text: 'Define la altitud municipal en el Ayuntamiento del núcleo principal.', href: sharedSources.simaAltitude },
+        { label: 'IECA · Delimitaciones territoriales', text: 'Polígono municipal oficial utilizado para analizar el relieve.', href: sharedSources.boundaries },
+        { label: 'CNIG · MDT02', text: 'Modelo oficial del terreno de dos metros usado para las referencias redondeadas.', href: sharedSources.terrain },
+        { label: 'Junta de Andalucía · Parque Natural', text: 'Extensión oficial del espacio protegido y municipios incluidos.', href: sharedSources.naturalPark },
+        { label: 'Ayuntamiento de Nerja · Costa', text: 'Fuente municipal para los aproximadamente 14 kilómetros de costa.', href: sharedSources.coast },
+        { label: 'Ayuntamiento de Nerja · Acceso al río Chíllar', text: 'Aviso municipal vigente sobre el cierre del acceso al recorrido fluvial.', href: sharedSources.chillarClosure }
       ]
     },
     closing: {
-      eyebrow: 'De vuelta a la estancia',
-      title: 'El mapa solo cuenta cuando se convierte en vuestro día.',
-      body: 'Saber dónde está Nerja es útil. Saber en qué lado del pueblo os despertáis es lo que de verdad marca las vacaciones.',
+      eyebrow: 'Volver a la estancia',
+      title: 'Un buen mapa también incluye la subida.',
+      body: 'Al comprender la estructura del mar a la sierra, resulta más fácil valorar rutas y elegir una base realista.',
       locationLabel: 'Volver a la guía de ubicación de Nerja',
       propertyLabel: 'Ver AMARA Playa'
     }
@@ -501,127 +451,106 @@ export const nerjaGeographyContent: Record<AmaraLanguage, NerjaGeographyLocale> 
     navLabel: 'Geografie & oriëntatie',
     hero: {
       eyebrow: 'Nerja · Geografie & oriëntatie',
-      title: 'Een dorp op een lage klif, met een berg van 1.800 meter erachter',
+      title: 'Van de Middellandse Zee naar het hooggebergte binnen één compacte gemeente',
       standfirst:
-        'Nerja ligt geklemd op een smalle strook tussen de Middellandse Zee en de Sierra Almijara. Die strook verklaart waarom het dorp te belopen blijft, waarom de stranden eronder liggen in plaats van ervoor, en waarom bijna elke straat uiteindelijk naar zee afdaalt.',
-      note: 'De vaste geografische cijfers komen uit Spaanse openbare bronnen. Wat met seizoen en weer verandert, staat hier bewust niet als vast getal.',
+        'Nerja combineert stranden rond zeeniveau, een verhoogde centrale kuststrook, oplopende woonwijken en het hoge terrein van de Sierra Almijara. De gemeente stijgt van de zee tot ongeveer 1.830 meter in de omgeving van Navachica, waardoor hoogteverschil zelfs korte afstanden anders laat aanvoelen.',
+      note: 'Officiële referentiewaarden en afgeronde oriëntatiewaarden uit terreingegevens worden hieronder duidelijk onderscheiden.',
       updated: 'Gecontroleerd in augustus 2026'
     },
     facts: [
-      { label: 'Naar Málaga', value: 'Ongeveer 50 km westwaarts langs de kust' },
-      { label: 'Gemeentelijk gebied', value: 'Circa 85 km², met 14,5 km kust' },
-      { label: 'Hoogste punt', value: 'Pico Navachica, 1.832 m' },
-      { label: 'Beschermd gebied', value: 'Sierras de Tejeda, Almijara y Alhama' }
+      { label: 'Gemeente', value: '85,07 km²' },
+      { label: 'Officiële hoogtereferentie', value: '22 m bij het stadhuis' },
+      { label: 'Reliëf van de gemeente', value: 'Zeeniveau tot ongeveer 1.830 m' },
+      { label: 'Kust', value: 'Ongeveer 14 km' }
     ],
     orientation: {
-      eyebrow: 'Vier richtingen',
-      title: 'In Nerja lees je alles vanaf de zee omhoog',
+      eyebrow: 'Lees het terrein',
+      title: 'Vier niveaus van zee naar Sierra',
       intro:
-        'Zodra jullie deze vier richtingen kennen, is Nerja geen doolhof meer. Het dorp is klein genoeg om je in één dag te oriënteren.',
+        'Dit verticale model is nuttiger dan Nerja als overal vlak of als één doorlopende klif te zien. De waarden in de bebouwde kom zijn afgeronde oriëntatiepunten uit officiële terreingegevens, geen officiële hoogtes van complete wijken.',
       items: [
-        { label: 'Zuid', value: 'De Middellandse Zee, vanaf jullie altijd bergaf' },
-        { label: 'Noord', value: 'De Sierra Almijara, steil achter het dorp' },
-        { label: 'West', value: 'De monding van de Río Chíllar en de rustiger stranden' },
-        { label: 'Oost', value: 'Burriana, de druipsteengrot en de weg richting Granada' }
+        { label: 'Kustniveau', value: 'Stranden en oever dicht bij 0 m' },
+        { label: 'Centrale kustrand', value: 'Balcón circa 20 m; Paradorrand circa 35 m' },
+        { label: 'Woonhellingen', value: 'Representatieve hogere zones circa 60–150 m' },
+        { label: 'Hoge Sierra', value: 'Gemeentelijk terrein tot circa 1.830 m' }
       ]
     },
     sections: [
       {
-        id: 'coast-and-cliff',
+        id: 'coast',
         eyebrow: 'De kust',
-        title: 'De stranden liggen ónder het dorp, niet ervoor',
+        title: 'Veertien kilometer met verschillende relaties tot de zee',
         paragraphs: [
-          'Nerja ligt niet aan zijn strand. Het ligt op een lage klif boven een reeks baaien, en dat ene feit bepaalt een verblijf hier meer dan wat ook.',
-          'De gemeente telt ongeveer 14,5 kilometer kust, verdeeld over losse baaien in plaats van één doorlopend strand. Ertussen loopt de rots tot aan het water. Daarom heeft Nerja veel kleine stranden in plaats van één groot — en daarom heeft elk strand een eigen karakter en een eigen afdaling.',
-          'Praktisch betekent dat: bij bijna elk strandbezoek hoort een afdaling en een klim. Ver is het zelden. Vlak ook niet.'
+          'Nerja heeft ongeveer 14 kilometer kust, maar die vormt niet overal dezelfde geografische situatie. Sommige stranden sluiten rond zeeniveau aan op de bebouwde kom; centrale delen zoals het Balcón de Europa liggen boven het water; elders liggen baaien, rotsranden en open stranden.',
+          'Juist die afwisseling helpt bij de oriëntatie. Een route naar de kust kan bijna vlak zijn, vanaf de verhoogde centrale rand dalen of via trappen lopen. Kijk daarom naar het concrete strand en de concrete straat, in plaats van aan te nemen dat elk strand onder het hele dorp ligt.'
         ]
       },
       {
-        id: 'mountains-behind',
-        eyebrow: 'De bergen',
-        title: 'De Sierra Almijara begint waar het dorp ophoudt',
+        id: 'built-up-relief',
+        eyebrow: 'De bebouwde kom',
+        title: 'De kaart blijft compact terwijl het terrein oploopt',
         paragraphs: [
-          'Achter Nerja gaat het land niet over in heuvels — het klimt. Het noordelijke deel van de gemeente hoort bij het natuurpark Sierras de Tejeda, Almijara y Alhama, aangewezen in 1999 en zo’n 40.662 hectare groot, verdeeld over de provincies Málaga en Granada.',
-          'Het hoogste punt boven Nerja is de Pico Navachica met 1.832 meter. De horizontale afstand van zeeniveau tot die top hebben andere plaatsen nodig om een buitenwijk te bereiken.',
-          'Datzelfde park omvat ook Frigiliana, vijftien minuten landinwaarts. Nerja en Frigiliana zijn geen twee losstaande plekken — ze zijn het kust- en het bergeinde van één landschap.'
+          'Afgeronde terreinmetingen plaatsen de omgeving van het Balcón de Europa op ongeveer 20 meter en de Parador of hogere centrale kustrand op ongeveer 35 meter. Daarna lopen de woongebieden op: circa 60 meter bij Oasis de Capistrano, ongeveer 100 meter bij Capistrano Village en circa 150 meter bij San Juan de Capistrano.',
+          'Dit zijn representatieve punten, afgeleid van de officiële IECA-gemeentegrens en het CNIG-terreinmodel MDT02, geen wettelijk vastgestelde hoogtes van hele wijken. Praktisch laten ze zien waarom twee adressen die op de kaart even dicht bij centrum of strand liggen te voet heel anders kunnen voelen.'
+        ]
+      },
+      {
+        id: 'sierra',
+        eyebrow: 'De Sierra',
+        title: 'Het hooggebergte hoort bij Nerja en is geen verre achtergrond',
+        paragraphs: [
+          'Binnen de gemeentegrens tonen officiële terreingegevens een stijging van zeeniveau tot ongeveer 1.830 meter in de omgeving van Navachica. Omdat de grens door het topgebied loopt, is dit een betrouwbare beschrijving van het gemeentelijke reliëf en geen claim dat één exact gemeten top volledig Nerja’s hoogste punt vormt.',
+          'Nerja en Frigiliana liggen beide in het natuurpark Sierras de Tejeda, Almijara y Alhama, een beschermd landschap van ongeveer 40.657 hectare in Málaga en Granada. De korte zichtafstand tussen kust en hooggebergte bepaalt het karakter van dit landschap.'
         ]
       },
       {
         id: 'rio-chillar',
-        eyebrow: 'De rivier',
-        title: 'De Río Chíllar verklaart de westrand van het dorp',
+        eyebrow: 'De valleicorridor',
+        title: 'De Río Chíllar verbindt het bergreliëf met de kust',
         paragraphs: [
-          'De Chíllar ontspringt boven de 1.200 meter in de Sierra Almijara en bereikt de Middellandse Zee net ten westen van het centrum, na een loop van slechts zo’n 17 kilometer.',
-          'Dat is een ongewoon steil verval — gemiddeld rond 7,3 procent — doordat de bergen zo dicht bij zee staan. De Chíllar is vooral bekend als wandelroute door zijn eigen kloof, maar die is sinds augustus 2023 gesloten. Er wordt gewerkt aan een model met beperkte toegang; een datum voor heropening is er nog niet.',
-          'Voor de oriëntatie telt hij eenvoudiger: de Chíllar markeert waar Nerja in het westen ophoudt. Alles tussen de rivier en de oude kern is de vlakkere, meer residentiële kant van het dorp.'
+          'De Chíllarvallei snijdt vanuit de Sierra naar de Middellandse Zee en maakt de structuur tussen bergen en kust in één corridor zichtbaar. Het is een belangrijke geografische lijn, maar niet de westelijke gemeentegrens van Nerja: zowel het grondgebied als bebouwing loopt ten westen ervan door.',
+          'De bekende toegang tot de rivierwandeling blijft volgens de huidige gemeentelijke mededeling gesloten. Die operationele status is niet het hoofdonderwerp van deze pagina, maar hoort bij de vermelding van de vallei zodat geografische uitleg niet als routeadvies wordt opgevat.'
         ]
       },
       {
         id: 'what-it-means',
-        eyebrow: 'Wat dat betekent voor het verblijf',
-        title: 'Korte afstanden, maar bijna nooit vlak',
+        eyebrow: 'Wat dit betekent voor een verblijf',
+        title: 'Combineer afstand met helling',
         paragraphs: [
-          'Nerja is compact. De afstanden die voor gasten tellen meet je in minuten, niet in kilometers, en het centrum draagt een hele vakantie te voet.',
-          'De variabele is niet de afstand maar het hoogteverschil. Twee adressen op evenveel minuten voelen heel verschillend, afhankelijk van of de weg naar huis omhoog of omlaag gaat. Over twee weken, in de augustushitte of met een kinderwagen groeit dat verschil.',
-          'AMARA Playa ligt midden in het centrum: nog geen 500 meter tot de Balcón de Europa en zo’n 100 meter tot het strand Torrecilla. Een auto hebben jullie hier niet nodig. We waren jarenlang zelf gast in precies dit appartement — en twijfelden geen seconde toen we hoorden dat het te koop stond.'
+          'Veel gewone dagen in het centrum van Nerja werken prima zonder auto. AMARA Playa ligt bijvoorbeeld op ongeveer 100 meter van het strand van Torrecilla en circa 500 meter van het Balcón de Europa; dit zijn praktische afstanden voor gasten, geen landmeetkundige waarden.',
+          'In Nerja als geheel staat een korte lijn op de kaart niet automatisch voor een even gemakkelijke wandeling. Controleer of de route op kustniveau begint, de centrale rand kruist of naar de woonhellingen klimt, vooral bij herhaalde terugwegen, zomerhitte, bagage of een kinderwagen. De gedetailleerde gebiedskeuze hoort in de gids Waar overnachten.'
         ]
       }
     ],
     related: {
-      eyebrow: 'Verder lezen',
-      title: 'Van de kaart naar de praktische vragen',
+      eyebrow: 'Lees verder',
+      title: 'Van het terrein naar een praktisch plan',
       links: [
-        {
-          token: 'getting_to_nerja',
-          label: 'Aankomst & mobiliteit',
-          text: 'Luchthavens, de busverbinding en het laatste stuk naar het adres.'
-        },
-        {
-          token: 'nerja_where_to_stay',
-          label: 'Waar overnachten in Nerja',
-          text: 'Torrecilla, de oude kern, Burriana en de hoger gelegen wijken vergeleken.'
-        }
+        { token: 'getting_to_nerja', label: 'Aankomst & mobiliteit', text: 'Luchthavens, busverbindingen en het laatste traject naar Nerja.' },
+        { token: 'nerja_where_to_stay', label: 'Waar overnachten in Nerja', text: 'Vergelijk het centrum, kustgebieden en hogere woonhellingen.' }
       ]
     },
     sources: {
-      eyebrow: 'Achter deze gids',
-      title: 'Bronnen voor de geografische cijfers',
+      eyebrow: 'Bronnen van deze gids',
+      title: 'Officiële bronnen en terreinmethode',
       intro:
-        'Oppervlakte, hoogte, beschermde status en riviergegevens komen van Spaanse overheidsinstanties. Wat met weer of seizoen verandert, staat hier bewust niet als vast getal.',
+        'Oppervlakte en de hoogtereferentie bij het stadhuis zijn officiële SIMA-waarden. Het gemeentelijke reliëf en de oriëntatiewaarden in de bebouwde kom zijn afgeronde afleidingen uit de officiële IECA-grens en het CNIG-terreinmodel MDT02; het zijn geen officiële wijkhoogtes.',
       checked: 'Bronnen gecontroleerd in augustus 2026.',
       links: [
-        {
-          label: 'Instituto de Estadística y Cartografía de Andalucía · Nerja',
-          text: 'Officiële gemeentelijke cijfers voor oppervlakte, hoogte en inwonertal.',
-          href: sharedSources.sima
-        },
-        {
-          label: 'Junta de Andalucía · Sierras de Tejeda, Almijara y Alhama',
-          text: 'Officiële vermelding van het natuurpark, de omvang en de aanwijzing in 1999.',
-          href: sharedSources.naturalPark
-        },
-        {
-          label: 'Diputación de Málaga · Río Chíllar',
-          text: 'Openbare provinciale informatie over de rivier, haar loop en omgeving.',
-          href: sharedSources.chillar
-        },
-        {
-          label: 'AEMET · Nerja',
-          text: 'De nationale weerdienst — voor actuele omstandigheden, niet voor vaste uitspraken.',
-          href: sharedSources.aemet
-        },
-        {
-          label: 'Ayuntamiento de Nerja · Toegang Río Chíllar',
-          text: 'De mededeling van de gemeente zelf dat de rivierroute gesloten blijft.',
-          href: sharedSources.chillarClosure
-        }
+        { label: 'SIMA · Nerja', text: 'Officiële oppervlakte en referentiegegevens van de gemeente.', href: sharedSources.sima },
+        { label: 'SIMA · Definitie van hoogte', text: 'Definieert de gemeentehoogte bij het stadhuis van de hoofdplaats.', href: sharedSources.simaAltitude },
+        { label: 'IECA · Territoriale grenzen', text: 'Officiële gemeentegrens voor de reliëfanalyse.', href: sharedSources.boundaries },
+        { label: 'CNIG · MDT02', text: 'Officieel terreinmodel van twee meter voor de afgeronde oriëntatiewaarden.', href: sharedSources.terrain },
+        { label: 'Junta de Andalucía · Natuurpark', text: 'Officiële omvang van het beschermde gebied en deelnemende gemeenten.', href: sharedSources.naturalPark },
+        { label: 'Ayuntamiento de Nerja · Kust', text: 'Gemeentelijke bron voor ongeveer 14 kilometer kust.', href: sharedSources.coast },
+        { label: 'Ayuntamiento de Nerja · Toegang Río Chíllar', text: 'Actuele gemeentelijke mededeling dat de rivierroute gesloten blijft.', href: sharedSources.chillarClosure }
       ]
     },
     closing: {
       eyebrow: 'Terug naar het verblijf',
-      title: 'De kaart telt pas als hij jullie dag wordt.',
-      body: 'Weten waar Nerja ligt is nuttig. Weten aan welke kant van het dorp jullie wakker worden, bepaalt de vakantie.',
-      locationLabel: 'Terug naar de Nerja locatiegids',
+      title: 'Een betere kaart laat ook de klim zien.',
+      body: 'Zodra de structuur van zee naar Sierra duidelijk is, worden routes en de keuze van een uitvalsbasis realistischer.',
+      locationLabel: 'Terug naar de locatiegids van Nerja',
       propertyLabel: 'Bekijk AMARA Playa'
     }
   },
@@ -629,126 +558,105 @@ export const nerjaGeographyContent: Record<AmaraLanguage, NerjaGeographyLocale> 
     navLabel: 'Geografi & orientering',
     hero: {
       eyebrow: 'Nerja · Geografi & orientering',
-      title: 'En ort på en låg klippkant, med ett 1 800-metersberg bakom sig',
+      title: 'Från Medelhavet till hög Sierra inom en kompakt kommun',
       standfirst:
-        'Nerja ligger inklämt på en smal remsa mellan Medelhavet och Sierra Almijara. Den remsan är skälet till att orten fungerar till fots, till att stränderna ligger nedanför i stället för framför – och till att nästan varje gata till slut leder nedför mot havet.',
-      note: 'De fasta geografiska siffrorna kommer från spanska offentliga källor. Det som ändras med årstid och väder anges medvetet inte som fast värde här.',
+        'Nerja förenar stränder nära havsnivån, ett upphöjt centralt kustparti, stigande bostadsområden och Sierra Almijaras höga terräng. Kommunen reser sig från Medelhavet till omkring 1 830 meter i Navachicaområdet, så höjdskillnaden påverkar även hur korta sträckor känns.',
+      note: 'Officiella referensvärden och avrundade orienteringsvärden från terrängdata skiljs tydligt åt nedan.',
       updated: 'Granskad i augusti 2026'
     },
     facts: [
-      { label: 'Till Málaga', value: 'Cirka 50 km västerut längs kusten' },
-      { label: 'Kommunyta', value: 'Omkring 85 km², varav 14,5 km kust' },
-      { label: 'Högsta punkt', value: 'Pico Navachica, 1 832 m' },
-      { label: 'Skyddat område', value: 'Sierras de Tejeda, Almijara y Alhama' }
+      { label: 'Kommun', value: '85,07 km²' },
+      { label: 'Officiell höjdreferens', value: '22 m vid stadshuset' },
+      { label: 'Kommunens relief', value: 'Havsnivå till omkring 1 830 m' },
+      { label: 'Kust', value: 'Omkring 14 km' }
     ],
     orientation: {
-      eyebrow: 'Fyra väderstreck',
-      title: 'I Nerja läser man allt från havet och uppåt',
+      eyebrow: 'Läs terrängen',
+      title: 'Fyra nivåer från hav till Sierra',
       intro:
-        'När ni kan de här fyra riktningarna slutar Nerja vara en labyrint. Orten är liten nog för att orienteringen ska sitta på en dag.',
+        'Denna vertikala modell är mer användbar än att se Nerja som helt platt eller som en sammanhängande klippkant. Värdena i den bebyggda orten är avrundade orienteringspunkter från officiella terrängdata, inte officiella höjder för hela bostadsområden.',
       items: [
-        { label: 'Söder', value: 'Medelhavet – alltid nedförsbacke från er' },
-        { label: 'Norr', value: 'Sierra Almijara, brant bakom orten' },
-        { label: 'Väster', value: 'Río Chíllars mynning och de lugnare stränderna' },
-        { label: 'Öster', value: 'Burriana, grottan och vägen mot Granada' }
+        { label: 'Kustnivå', value: 'Stränder och strandlinje nära 0 m' },
+        { label: 'Centrala kustkanten', value: 'Balcón cirka 20 m; Paradorområdet cirka 35 m' },
+        { label: 'Bostadssluttningar', value: 'Representativa högre områden cirka 60–150 m' },
+        { label: 'Höga Sierran', value: 'Kommunal terräng till omkring 1 830 m' }
       ]
     },
     sections: [
       {
-        id: 'coast-and-cliff',
+        id: 'coast',
         eyebrow: 'Kusten',
-        title: 'Stränderna ligger under orten, inte framför den',
+        title: 'Fjorton kilometer med olika förhållanden till havet',
         paragraphs: [
-          'Nerja ligger inte vid sin strand. Orten ligger på en låg klippkant ovanför en rad vikar, och just det formar en vistelse här mer än något annat.',
-          'Kommunen har omkring 14,5 kilometer kust, uppdelad i separata vikar i stället för en sammanhängande sandstrand. Mellan dem går berget ända ned i vattnet. Därför har Nerja många små stränder i stället för en stor – och därför har var och en sin egen karaktär och sin egen nedgång.',
-          'I praktiken: nästan varje strandbesök innehåller en nedstigning och en uppstigning. Långt är det sällan. Platt är det inte heller.'
+          'Nerja har omkring 14 kilometer kust, men den består inte av en enda geografisk situation. Vissa stränder möter bebyggelsen nära havsnivån; centrala partier som Balcón de Europa ligger ovanför vattnet; på andra håll finns vikar, klippkanter och öppna stränder.',
+          'Variationen är själva orienteringsnyckeln. En väg till kusten kan vara nästan plan, gå ned från den upphöjda centrala kanten eller innehålla trappor. Läs därför den aktuella stranden och gatan i stället för att anta att alla stränder ligger nedanför hela orten.'
         ]
       },
       {
-        id: 'mountains-behind',
-        eyebrow: 'Bergen',
-        title: 'Sierra Almijara börjar där orten slutar',
+        id: 'built-up-relief',
+        eyebrow: 'Den bebyggda orten',
+        title: 'Kartan förblir kompakt medan marken stiger',
         paragraphs: [
-          'Bakom Nerja övergår landet inte i kullar – det stiger. Kommunens norra del tillhör naturparken Sierras de Tejeda, Almijara y Alhama, avsatt 1999 och omkring 40 662 hektar stor, fördelad över provinserna Málaga och Granada.',
-          'Högsta punkten ovanför Nerja är Pico Navachica på 1 832 meter. Det horisontella avstånd som skiljer havsytan från den toppen skulle andra orter behöva för att nå en förort.',
-          'Samma park omfattar även Frigiliana, femton minuter inåt land. Nerja och Frigiliana är inte två orelaterade platser – de är kust- och bergsänden av ett och samma landskap.'
+          'Avrundade terrängvärden placerar området kring Balcón de Europa på omkring 20 meter och Parador eller den övre centrala kustkanten på omkring 35 meter. Därefter stiger bostadsområdena: ungefär 60 meter vid Oasis de Capistrano, cirka 100 meter vid Capistrano Village och omkring 150 meter vid San Juan de Capistrano.',
+          'Detta är representativa punkter som härletts från IECA:s officiella kommungräns och CNIG:s terrängmodell MDT02, inte juridiskt definierade höjder för hela områden. De visar praktiskt varför två adresser som ser lika nära centrum eller stranden ut kan kännas mycket olika till fots.'
+        ]
+      },
+      {
+        id: 'sierra',
+        eyebrow: 'Sierran',
+        title: 'Högfjällsterrängen tillhör Nerja och är inte bara en avlägsen fond',
+        paragraphs: [
+          'Inom kommungränsen visar officiella terrängdata en stigning från havsnivån till omkring 1 830 meter i Navachicaområdet. Eftersom gränsen går genom toppområdet är detta en robust beskrivning av kommunens relief, inte ett påstående att en exakt uppmätt topp helt och hållet är Nerjas högsta punkt.',
+          'Både Nerja och Frigiliana ingår i naturparken Sierras de Tejeda, Almijara y Alhama, ett skyddat landskap på cirka 40 657 hektar i Málaga och Granada. Det korta synliga avståndet mellan kust och högfjäll präglar landskapet.'
         ]
       },
       {
         id: 'rio-chillar',
-        eyebrow: 'Floden',
-        title: 'Río Chíllar förklarar ortens västra kant',
+        eyebrow: 'Dalgången',
+        title: 'Río Chíllar binder samman bergsreliefen med kusten',
         paragraphs: [
-          'Chíllar rinner upp över 1 200 meter i Sierra Almijara och når Medelhavet strax väster om ortskärnan, efter ett lopp på bara cirka 17 kilometer.',
-          'Det är ett ovanligt brant lopp – i genomsnitt runt 7,3 procents lutning – eftersom bergen står så nära havet. Chíllar är mest känd som vandringsled genom sin egen ravin, men den är stängd sedan augusti 2023. Ett system med begränsat tillträde förbereds; något öppningsdatum finns ännu inte.',
-          'För orienteringen spelar den en enklare roll: Chíllar markerar var Nerja tar slut åt väster. Allt mellan floden och gamla kärnan är ortens flackare, mer bostadsbetonade sida.'
+          'Chíllardalen skär genom Sierran mot Medelhavet och gör strukturen mellan berg och kust synlig i en enda korridor. Den är en viktig geografisk linje, men inte Nerjas västra kommungräns: både kommunalt område och bebyggelse fortsätter väster om den.',
+          'Den välkända tillfarten till flodvandringen är fortsatt stängd enligt kommunens aktuella besked. Den operativa statusen är inte sidans huvudämne, men behöver nämnas så att geografisk orientering inte uppfattas som en rekommendation att följa leden.'
         ]
       },
       {
         id: 'what-it-means',
-        eyebrow: 'Vad det betyder för vistelsen',
-        title: 'Korta avstånd, men nästan aldrig plana',
+        eyebrow: 'Vad det betyder för en vistelse',
+        title: 'Väg samman avstånd och lutning',
         paragraphs: [
-          'Nerja är kompakt. De avstånd som betyder något för en gäst mäts i minuter, inte i kilometer, och ortskärnan bär en hel semester till fots.',
-          'Variabeln är inte avståndet utan lutningen. Två adresser lika många minuter isär känns mycket olika beroende på om hemvägen går uppåt eller nedåt. Över två veckor, i augustivärmen eller med barnvagn växer den skillnaden.',
-          'AMARA Playa ligger mitt i centrum: knappt 500 meter till Balcón de Europa och omkring 100 meter till stranden Torrecilla. Här behöver ni ingen bil. Vi var själva gäster i precis den här lägenheten i flera år — och tvekade inte en sekund när vi fick veta att den var till salu.'
+          'Många vanliga dagar i centrala Nerja fungerar bra utan bil. AMARA Playa ligger till exempel ungefär 100 meter från Torrecillastranden och cirka 500 meter från Balcón de Europa; det är praktiska gästavstånd, inte exakta lantmäterimått.',
+          'I Nerja som helhet garanterar en kort linje på kartan inte en lika lätt promenad. Kontrollera om vägen börjar på kustnivå, korsar den centrala kanten eller klättrar mot bostadssluttningarna, särskilt vid upprepade hemvägar, sommarvärme, bagage eller barnvagn. Det detaljerade områdesvalet hör hemma i guiden Var ska man bo.'
         ]
       }
     ],
     related: {
       eyebrow: 'Läs vidare',
-      title: 'Från kartan till de praktiska frågorna',
+      title: 'Från terrängen till en praktisk plan',
       links: [
-        {
-          token: 'getting_to_nerja',
-          label: 'Ankomst & mobilitet',
-          text: 'Flygplatser, bussförbindelsen och sista sträckan fram till adressen.'
-        },
-        {
-          token: 'nerja_where_to_stay',
-          label: 'Var man bor i Nerja',
-          text: 'Torrecilla, gamla stan, Burriana och de högre områdena jämförda.'
-        }
+        { token: 'getting_to_nerja', label: 'Ankomst & mobilitet', text: 'Flygplatser, bussförbindelser och sista sträckan in till Nerja.' },
+        { token: 'nerja_where_to_stay', label: 'Var man bor i Nerja', text: 'Jämför centrum, kustområden och högre bostadssluttningar.' }
       ]
     },
     sources: {
-      eyebrow: 'Bakom guiden',
-      title: 'Källor till de geografiska siffrorna',
+      eyebrow: 'Källorna bakom guiden',
+      title: 'Officiella källor och terrängmetod',
       intro:
-        'Yta, höjd, skyddsstatus och floddata kommer från spanska offentliga myndigheter. Det som ändras med väder eller årstid anges medvetet inte som fast siffra här.',
+        'Ytan och höjdreferensen vid stadshuset är officiella SIMA-värden. Kommunens relief och orienteringsvärdena i den bebyggda orten är avrundade härledningar från IECA:s officiella gräns och CNIG:s terrängmodell MDT02; de är inte officiella områdeshöjder.',
       checked: 'Källor kontrollerade i augusti 2026.',
       links: [
-        {
-          label: 'Instituto de Estadística y Cartografía de Andalucía · Nerja',
-          text: 'Officiella kommunuppgifter om yta, höjd och befolkning.',
-          href: sharedSources.sima
-        },
-        {
-          label: 'Junta de Andalucía · Sierras de Tejeda, Almijara y Alhama',
-          text: 'Officiell post om naturparken, dess omfattning och avsättningen 1999.',
-          href: sharedSources.naturalPark
-        },
-        {
-          label: 'Diputación de Málaga · Río Chíllar',
-          text: 'Offentlig provinsinformation om floden, dess lopp och omgivning.',
-          href: sharedSources.chillar
-        },
-        {
-          label: 'AEMET · Nerja',
-          text: 'Den statliga vädertjänsten – för aktuella förhållanden, inte för fasta påståenden.',
-          href: sharedSources.aemet
-        },
-        {
-          label: 'Ayuntamiento de Nerja · Tillträde till Río Chíllar',
-          text: 'Kommunens eget besked om att flodleden fortfarande är stängd.',
-          href: sharedSources.chillarClosure
-        }
+        { label: 'SIMA · Nerja', text: 'Officiell kommunyta och referensuppgifter.', href: sharedSources.sima },
+        { label: 'SIMA · Definition av höjd', text: 'Definierar kommunhöjden vid huvudortens stadshus.', href: sharedSources.simaAltitude },
+        { label: 'IECA · Territoriella gränser', text: 'Officiell kommungräns som användes för reliefanalysen.', href: sharedSources.boundaries },
+        { label: 'CNIG · MDT02', text: 'Officiell terrängmodell med två meters upplösning för avrundade orienteringsvärden.', href: sharedSources.terrain },
+        { label: 'Junta de Andalucía · Naturpark', text: 'Officiell omfattning för det skyddade området och ingående kommuner.', href: sharedSources.naturalPark },
+        { label: 'Ayuntamiento de Nerja · Kusten', text: 'Kommunal källa för omkring 14 kilometer kust.', href: sharedSources.coast },
+        { label: 'Ayuntamiento de Nerja · Tillträde till Río Chíllar', text: 'Aktuellt kommunalt besked att tillträdet till flodleden förblir stängt.', href: sharedSources.chillarClosure }
       ]
     },
     closing: {
       eyebrow: 'Tillbaka till vistelsen',
-      title: 'Kartan betyder något först när den blir er dag.',
-      body: 'Att veta var Nerja ligger är nyttigt. Att veta på vilken sida av orten ni vaknar är det som faktiskt formar semestern.',
+      title: 'En bättre karta visar också stigningen.',
+      body: 'När strukturen från havet till Sierran är tydlig blir det lättare att bedöma vägar och välja en realistisk bas.',
       locationLabel: 'Tillbaka till Nerjas lägesguide',
       propertyLabel: 'Visa AMARA Playa'
     }
