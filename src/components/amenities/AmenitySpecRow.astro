@@ -14,6 +14,7 @@ import {
   CircleAlert,
   Coffee,
   CookingPot,
+  createLucideIcon,
   Droplets,
   Eye,
   FileBadge2,
@@ -40,10 +41,24 @@ import {
   Users,
   UtensilsCrossed,
   WashingMachine,
-  Waves,
   Wifi,
   Wind
-} from 'lucide-react';
+} from '@lucide/astro';
+import type { AstroComponent } from '@lucide/astro';
+
+/**
+ * Architectural intent:
+ * Lucide redrew and renamed `waves` to `waves-horizontal` in its 1.x line, so importing
+ * the icon by name would silently restyle the pool row. This pins the glyph that is live
+ * today through Lucide's own icon factory, which keeps the pool row byte-identical to
+ * production. Adopting the redrawn glyph stays a deliberate design decision, not a
+ * side effect of a dependency change.
+ */
+const Waves = createLucideIcon('waves', [
+  ['path', { d: 'M2 6c.6.5 1.2 1 2.5 1C7 7 7 5 9.5 5c2.6 0 2.4 2 5 2 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1' }],
+  ['path', { d: 'M2 12c.6.5 1.2 1 2.5 1 2.5 0 2.5-2 5-2 2.6 0 2.4 2 5 2 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1' }],
+  ['path', { d: 'M2 18c.6.5 1.2 1 2.5 1 2.5 0 2.5-2 5-2 2.6 0 2.4 2 5 2 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1' }]
+]) as AstroComponent;
 
 export type AmenitySpecIcon =
   | 'occupancy'
@@ -180,8 +195,8 @@ const Icon = icons[icon];
   data-amenity-category={category}
 >
   <Icon
-    className="mt-0.5 h-5 w-5 text-primary md:h-6 md:w-6"
-    strokeWidth={1.5}
+    class="mt-0.5 h-5 w-5 text-primary md:h-6 md:w-6"
+    stroke-width={1.5}
     aria-hidden="true"
   />
   <div class="min-w-0">

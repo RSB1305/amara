@@ -7,9 +7,5 @@
   "exclude": [
     "dist",
     "src/pages/_tools"
-  ],
-  "compilerOptions": {
-    "jsx": "react-jsx",
-    "jsxImportSource": "react"
-  }
+  ]
 }

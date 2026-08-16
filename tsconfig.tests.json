@@ -5,8 +5,6 @@
     "tests/**/*.ts"
   ],
   "compilerOptions": {
-    "jsx": "react-jsx",
-    "jsxImportSource": "react",
     "noEmit": true
   }
 }

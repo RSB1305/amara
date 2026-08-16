@@ -1,7 +1,6 @@
 // @ts-check
 import { defineConfig } from 'astro/config';
 import tailwindcss from '@tailwindcss/vite';
-import react from '@astrojs/react';
 import sitemap from '@astrojs/sitemap';
 import { guestGuideEntries } from './src/content/guestGuideEntries.ts';
 import { stablePublicImages } from './src/integrations/stablePublicImages.ts';
@@ -198,7 +197,6 @@ export default defineConfig({
   },
   integrations: [
     requirePublicSiteUrlForProduction(),
-    react(),
     sitemap({
       i18n: {
         defaultLocale: 'es',
