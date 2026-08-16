@@ -1,10 +1,13 @@
 name: Check
 
-# Runs the same gate as the deploy build, but on every push and pull request, so a
-# broken commit is visible before it reaches the deployment path.
+# Runs the same gate as the deploy build, so a broken commit is visible before it
+# reaches the deployment path. Pull requests are covered by the pull_request
+# trigger alone: a branch push before or during a pull request would otherwise run
+# the identical gate a second time. The push trigger stays on main so the state
+# that is actually deployed is still verified after a merge.
 on:
   push:
-    branches: ['**']
+    branches: [main]
   pull_request:
 
 # The job only reads the repository and builds it; it never writes back.
