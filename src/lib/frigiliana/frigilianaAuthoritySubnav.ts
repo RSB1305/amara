@@ -18,18 +18,8 @@ export type FrigilianaAuthoritySubnavId =
   | 'dosTumbas'
   | 'faq';
 
-/**
- * Frigiliana lists two sibling topics the shared location model does not define.
- * Keeping their ids local avoids widening the shared topic contract, which Nerja
- * and Tarifa consume unchanged.
- */
-export type FrigilianaAuthoritySubnavTopicId =
-  | LocationGuideTopicId
-  | 'frigiliana-film-locations'
-  | 'frigiliana-faq';
-
 export type FrigilianaAuthoritySubnavItem = {
-  id: FrigilianaAuthoritySubnavTopicId;
+  id: LocationGuideTopicId;
   label: string;
   href?: string;
   status: 'live' | 'future';
@@ -127,9 +117,9 @@ export function getFrigilianaAuthorityCurrentPageLabel(
 
 export function getFrigilianaAuthorityActiveTopic(
   id: FrigilianaAuthoritySubnavId
-): FrigilianaAuthoritySubnavTopicId | undefined {
+): LocationGuideTopicId | undefined {
   const topicByPage: Partial<
-    Record<FrigilianaAuthoritySubnavId, FrigilianaAuthoritySubnavTopicId>
+    Record<FrigilianaAuthoritySubnavId, LocationGuideTopicId>
   > = {
     arrival: 'arrival-mobility',
     geography: 'geography-orientation',
@@ -137,9 +127,7 @@ export function getFrigilianaAuthorityActiveTopic(
     parking: 'arrival-mobility',
     stay: 'where-to-stay',
     weather: 'weather-seasons',
-    winter: 'winter-stays',
-    dosTumbas: 'frigiliana-film-locations',
-    faq: 'frigiliana-faq'
+    winter: 'winter-stays'
   };
 
   return topicByPage[id];
@@ -180,20 +168,6 @@ export function getFrigilianaAuthoritySubnav(
       label: labels['daily-life-services'],
       status: 'live',
       href: resolveLink('frigiliana_daily_life', currentLang)
-    },
-    // Both entries reuse the authored breadcrumb labels so the sibling switcher
-    // and the breadcrumb name the same page identically in every language.
-    {
-      id: 'frigiliana-film-locations',
-      label: currentPageLabels.dosTumbas[currentLang],
-      status: 'live',
-      href: resolveLink('frigiliana_netflix_dos_tumbas', currentLang)
-    },
-    {
-      id: 'frigiliana-faq',
-      label: currentPageLabels.faq[currentLang],
-      status: 'live',
-      href: resolveLink('frigiliana_faq', currentLang)
     }
   ];
 }
