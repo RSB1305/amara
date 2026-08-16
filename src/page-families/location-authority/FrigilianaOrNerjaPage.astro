@@ -123,9 +123,16 @@ const heroImage = {
         </Hero>
       </div>
 
+      {/*
+        Every section on this page renders the wide mobile gutter rather than the
+        responsive `.am-section` default, and each one nests a second gutter inside
+        it. The explicit `px-12` preserves the existing wide mobile gutter pending a
+        separate layout decision. It does not establish that spacing as the preferred
+        responsive standard.
+      */}
       <section
         id="core-question"
-        class="am-section am-section--tint border-t border-outline-variant/5"
+        class="am-section am-section--tint border-t border-outline-variant/5 px-12"
       >
         <div class="max-w-screen-2xl mx-auto px-6 py-24 md:px-12 md:py-32 grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
           <div class="lg:col-span-4">
@@ -150,7 +157,7 @@ const heroImage = {
 
       <section
         id="decision-factors"
-        class="am-section am-section--plain border-t border-outline-variant/5"
+        class="am-section am-section--plain border-t border-outline-variant/5 px-12"
       >
         <div class="max-w-screen-2xl mx-auto px-6 py-24 md:px-12 md:py-36">
           <div class="max-w-3xl mb-16 md:mb-20">
@@ -199,7 +206,7 @@ const heroImage = {
 
       <section
         id="comparison"
-        class="am-section am-section--tint border-t border-outline-variant/5"
+        class="am-section am-section--tint border-t border-outline-variant/5 px-12"
       >
         <div class="max-w-screen-2xl mx-auto px-6 py-24 md:px-12 md:py-36">
           <div class="max-w-3xl mb-16 md:mb-20">
@@ -253,7 +260,7 @@ const heroImage = {
 
       <section
         id="experience-both"
-        class="am-section am-section--plain border-t border-outline-variant/5"
+        class="am-section am-section--plain border-t border-outline-variant/5 px-12"
       >
         <div class="max-w-screen-2xl mx-auto px-6 py-24 md:px-12 md:py-36 grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
           <div class="lg:col-span-4">
@@ -283,7 +290,7 @@ const heroImage = {
 
       <section
         id="micro-locations"
-        class="am-section am-section--tint border-t border-outline-variant/5"
+        class="am-section am-section--tint border-t border-outline-variant/5 px-12"
       >
         <div class="max-w-screen-2xl mx-auto px-6 py-24 md:px-12 md:py-36">
           <div class="max-w-3xl mb-16 md:mb-20">
@@ -331,7 +338,7 @@ const heroImage = {
 
       <section
         id="amara-stays"
-        class="am-section am-section--plain border-t border-outline-variant/5"
+        class="am-section am-section--plain border-t border-outline-variant/5 px-12"
       >
         <div class="max-w-screen-2xl mx-auto px-6 py-24 md:px-12 md:py-36">
           <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 mb-16 md:mb-20">
