@@ -25,35 +25,35 @@ export const frigilianaParkingSeo: AmaraAuthoringSeo = {
     en: {
       title: 'Parking in Frigiliana: Where to Park',
       description:
-        'Plan parking in Frigiliana with practical guidance on public parking, old-town access, luggage, and the final walk.',
+        'Plan parking in Frigiliana: signposted visitor parking around Plaza de las Tres Culturas, old-town access, luggage and the final walk.',
       robots: 'index, follow',
       canonical: 'auto'
     },
     de: {
       title: 'Parken in Frigiliana: So plant ihr die Ankunft',
       description:
-        'Praktische Orientierung zu öffentlichen Parkmöglichkeiten, Altstadtzufahrt, Gepäck und dem letzten Fußweg in Frigiliana.',
+        'Parken in Frigiliana: ausgeschilderte Besucherparkplätze rund um die Plaza de las Tres Culturas, Altstadtzufahrt, Gepäck und letzter Fußweg.',
       robots: 'index, follow',
       canonical: 'auto'
     },
     es: {
       title: 'Aparcar en Frigiliana: cómo planificar la llegada',
       description:
-        'Información práctica sobre aparcamiento público, acceso al casco antiguo, equipaje y el último tramo a pie en Frigiliana.',
+        'Aparcar en Frigiliana: aparcamiento señalizado junto a la Plaza de las Tres Culturas, acceso al casco antiguo, equipaje y el último tramo a pie.',
       robots: 'index, follow',
       canonical: 'auto'
     },
     nl: {
       title: 'Parkeren in Frigiliana: plan jullie aankomst',
       description:
-        'Praktische uitleg over openbaar parkeren, toegang tot de oude kern, bagage en het laatste stuk lopen in Frigiliana.',
+        'Parkeren in Frigiliana: bewegwijzerd bezoekersparkeren rond Plaza de las Tres Culturas, toegang tot de oude kern, bagage en de laatste klim.',
       robots: 'index, follow',
       canonical: 'auto'
     },
     sv: {
       title: 'Parkering i Frigiliana: planera ankomsten',
       description:
-        'Praktisk vägledning om allmän parkering, tillträde till gamla stan, bagage och den sista promenaden i Frigiliana.',
+        'Parkering i Frigiliana: skyltad besöksparkering vid Plaza de las Tres Culturas, tillträde till gamla stan, bagage och sista promenaden.',
       robots: 'index, follow',
       canonical: 'auto'
     }

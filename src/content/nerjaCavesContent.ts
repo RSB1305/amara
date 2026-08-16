@@ -69,28 +69,28 @@ export const nerjaCavesSeo: AmaraAuthoringSeo = {
   article,
   languages: {
     en: {
-      title: 'Caves of Nerja: The Column, the Paintings and What You Actually See',
+      title: 'Caves of Nerja: The Column, the Paintings and What You See',
       description:
         'Found by five teenagers in 1959: the world’s largest joined column, cave paintings whose age was revised, and which galleries visitors can enter.',
       robots: 'index, follow',
       canonical: 'auto'
     },
     de: {
-      title: 'Höhlen von Nerja: Die Säule, die Malereien und was ihr wirklich seht',
+      title: 'Höhlen von Nerja: Säule, Malereien und was ihr wirklich seht',
       description:
         '1959 von fünf Jugendlichen gefunden: die größte zusammengewachsene Tropfsteinsäule der Welt, Malereien mit korrigiertem Alter und die zugänglichen Galerien.',
       robots: 'index, follow',
       canonical: 'auto'
     },
     es: {
-      title: 'Cueva de Nerja: la columna, las pinturas y lo que se ve de verdad',
+      title: 'Cueva de Nerja: la columna, las pinturas y lo que se ve',
       description:
         'Descubierta en 1959 por cinco jóvenes: la mayor columna del mundo, pinturas cuya datación se revisó y qué galerías se pueden visitar.',
       robots: 'index, follow',
       canonical: 'auto'
     },
     nl: {
-      title: 'Grotten van Nerja: de zuil, de schilderingen en wat je echt ziet',
+      title: 'Grotten van Nerja: de zuil, de schilderingen en wat je ziet',
       description:
         'In 1959 gevonden door vijf jongeren: de grootste samengegroeide druipsteenzuil ter wereld, schilderingen met herziene datering en de open galerijen.',
       robots: 'index, follow',

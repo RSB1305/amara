@@ -55,13 +55,13 @@ export const gettingToTarifaSeo: AmaraAuthoringSeo = {
       canonical: 'auto'
     },
     de: {
-      title: 'Anreise nach Tarifa & zu AMARA: Auto, Bus, Flughafen und Hafen',
+      title: 'Anreise nach Tarifa: Auto, Bus, Flughafen und Hafen',
       description: 'Plant die gesamte Anreise nach Tarifa und die letzte Etappe zu AMARA Family & Surf, Mar Adriático 29 – mit Auto, Bus, Flug oder Fähre.',
       robots: 'index, follow',
       canonical: 'auto'
     },
     es: {
-      title: 'Cómo llegar a Tarifa y AMARA: coche, autobús, aeropuerto y puerto',
+      title: 'Cómo llegar a Tarifa: coche, autobús, aeropuerto y puerto',
       description: 'Planificad el viaje completo a Tarifa y el último tramo hasta AMARA Family & Surf, Mar Adriático 29, en coche, autobús, avión o ferry.',
       robots: 'index, follow',
       canonical: 'auto'

@@ -70,7 +70,7 @@ export const frigilianaGeographySeo: AmaraAuthoringSeo = {
   article,
   languages: {
     en: {
-      title: 'Frigiliana Geography & Orientation: Hillside Village & Sierra',
+      title: 'Frigiliana Geography: Hillside Village & Sierra Almijara',
       description:
         'Understand Frigiliana’s hillside geography, the climb through its historic quarter and how the Sierra Almijara shapes walking and a stay.',
       robots: 'index, follow',

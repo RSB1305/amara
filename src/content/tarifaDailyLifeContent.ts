@@ -86,14 +86,14 @@ export const tarifaDailyLifeSeo: AmaraAuthoringSeo = {
       canonical: 'auto'
     },
     nl: {
-      title: 'Dagelijks leven in Tarifa: winkels, voorzieningen & coworking',
+      title: 'Dagelijks leven in Tarifa: winkels, zorg & coworking',
       description: 'Praktische informatie over boodschappen, zorg, vervoer en coworking tijdens een langer verblijf bij AMARA in La Marina, Tarifa.',
       robots: 'index, follow',
       canonical: 'auto'
     },
     sv: {
       title: 'Vardagsliv i Tarifa: butiker, service och coworking',
-      description: 'Planera inköp, ärenden, vård och coworking under en längre vistelse i Tarifa, med praktiska råd från AMARA i La Marina.',
+      description: 'Planera inköp, ärenden, vård och coworking i Tarifa: mataffären ligger mittemot AMARA och TAF CoWorking cirka 350 meter bort.',
       robots: 'index, follow',
       canonical: 'auto'
     }
