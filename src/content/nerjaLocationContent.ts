@@ -19,7 +19,7 @@ export const nerjaLocationSeo: AmaraAuthoringSeo = {
     en: {
       title: 'Where to Stay in Nerja: Areas, Walkability & Parking | AMARA',
       description:
-        'Where to stay in Nerja, from the old town and Torrecilla to Burriana and the residential hills — with honest guidance on walking, beach access, parking and when a car helps.',
+        'Where to stay in Nerja: old town, Torrecilla, Burriana or the residential hills — honest guidance on walking, beach access, parking and when a car helps.',
       robots: 'index, follow',
       canonical: 'auto'
     },
@@ -33,21 +33,21 @@ export const nerjaLocationSeo: AmaraAuthoringSeo = {
     es: {
       title: 'Dónde alojarse en Nerja: zonas, cuestas y aparcamiento | AMARA',
       description:
-        'Dónde alojarse en Nerja: casco antiguo, Torrecilla, Burriana y las zonas residenciales, con información clara sobre recorridos a pie, playa, aparcamiento y coche.',
+        'Dónde alojarse en Nerja: casco antiguo, Torrecilla, Burriana o zonas residenciales, con información clara sobre paseos, playa, aparcamiento y coche.',
       robots: 'index, follow',
       canonical: 'auto'
     },
     nl: {
       title: 'Waar overnachten in Nerja? Buurten, lopen & parkeren | AMARA',
       description:
-        'Waar overnachten in Nerja? Van het oude centrum en Torrecilla tot Burriana en de heuvelwijken, met eerlijk advies over lopen, strandroutes, parkeren en autogebruik.',
+        'Waar overnachten in Nerja? Van het oude centrum en Torrecilla tot Burriana en de heuvelwijken, met eerlijk advies over lopen, strand, parkeren en auto.',
       robots: 'index, follow',
       canonical: 'auto'
     },
     sv: {
       title: 'Var ska man bo i Nerja? Områden, backar & parkering | AMARA',
       description:
-        'Var ska man bo i Nerja? Från gamla stan och Torrecilla till Burriana och bostadsområdena på höjden, med tydliga råd om promenader, strandvägar, parkering och bil.',
+        'Var ska man bo i Nerja? Från gamla stan och Torrecilla till Burriana och höjdernas bostadsområden, med tydliga råd om promenader, strand, parkering och bil.',
       robots: 'index, follow',
       canonical: 'auto'
     }

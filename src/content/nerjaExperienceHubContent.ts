@@ -58,19 +58,19 @@ export const nerjaExperienceHubSeo: AmaraAuthoringSeo = {
     },
     es: {
       title: 'Qué hacer en Nerja: costa, cuevas y noches',
-      description: 'Descubrid Nerja a través de sus playas, gastronomía, excursiones, casco antiguo, cuevas y vida nocturna.',
+      description: 'Descubrid Nerja a través de sus playas, gastronomía, excursiones, casco antiguo, cuevas y vida nocturna, cada tema con su propia guía de AMARA.',
       robots: 'index, follow',
       canonical: 'auto'
     },
     nl: {
       title: 'Wat te doen in Nerja: kust, grotten & avonden',
-      description: 'Ontdek Nerja via stranden, restaurants, dagtochten, oude stad, grotten en avondleven in een eigen AMARA-gids.',
+      description: 'Ontdek Nerja via stranden, restaurants, dagtochten, de oude stad, de grotten en het avondleven, elk thema met een eigen AMARA-gids.',
       robots: 'index, follow',
       canonical: 'auto'
     },
     sv: {
       title: 'Att göra i Nerja: kust, grottor & kvällar',
-      description: 'Upptäck Nerja genom stränder, mat, dagsutflykter, gamla stan, grottor och kvällsliv i AMARAs destinationsguide.',
+      description: 'Upptäck Nerja genom stränder, mat, dagsutflykter, gamla stan, grottor och kvällsliv – varje tema har en egen AMARA-guide med praktiska råd.',
       robots: 'index, follow',
       canonical: 'auto'
     }
