@@ -28,28 +28,28 @@ export const gettingToFrigilianaSeo: AmaraAuthoringSeo = {
     de: {
       title: 'Anreise nach Frigiliana: Auto, Transfer & Bus',
       description:
-        'Plant eure Anreise vom Flughafen Málaga nach Frigiliana mit Mietwagen, privatem Transfer oder Bus über Nerja.',
+        'Plant eure Anreise vom Flughafen Málaga nach Frigiliana: Mietwagen, privater Transfer oder Bus über Nerja – mit Fahrzeit, Umstieg und Ankunft im Ort.',
       robots: 'index, follow',
       canonical: 'auto'
     },
     es: {
       title: 'Cómo llegar a Frigiliana: coche, transfer y autobús',
       description:
-        'Planificad el trayecto desde el aeropuerto de Málaga hasta Frigiliana en coche, transfer privado o autobús vía Nerja.',
+        'Planificad el trayecto desde el aeropuerto de Málaga hasta Frigiliana en coche, transfer privado o autobús, con tiempos, cambio en Nerja y llegada al pueblo.',
       robots: 'index, follow',
       canonical: 'auto'
     },
     nl: {
       title: 'Naar Frigiliana: auto, transfer of bus',
       description:
-        'Plan de reis van Málaga Airport naar Frigiliana met huurauto, privétransfer of bus via Nerja.',
+        'Plan de reis van Málaga Airport naar Frigiliana met huurauto, privétransfer of bus: reistijden, de overstap in Nerja en de aankomst in het dorp.',
       robots: 'index, follow',
       canonical: 'auto'
     },
     sv: {
       title: 'Resa till Frigiliana: bil, transfer och buss',
       description:
-        'Planera resan från Málaga flygplats till Frigiliana med hyrbil, privat transfer eller buss via Nerja.',
+        'Planera resan från Málaga flygplats till Frigiliana med hyrbil, privat transfer eller buss: restider, bytet i Nerja och ankomsten till byn.',
       robots: 'index, follow',
       canonical: 'auto'
     }

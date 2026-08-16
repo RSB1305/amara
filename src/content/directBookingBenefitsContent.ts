@@ -42,7 +42,7 @@ export const directBookingBenefitsSeo: AmaraAuthoringSeo = {
 
       title: 'Direct Booking: Benefits for Your Stay',
 
-      description: 'Book AMARA directly for our lowest available price, direct host contact, priority early check-in or late check-out, and a mid-stay clean on stays over seven nights.',
+      description: 'Book AMARA directly: lowest available price, direct host contact, priority early check-in or late check-out, and a mid-stay clean from eight nights.',
 
       robots: 'index, follow',
 
@@ -54,7 +54,7 @@ export const directBookingBenefitsSeo: AmaraAuthoringSeo = {
 
       title: 'Direktbuchung: Vorteile für euren Aufenthalt',
 
-      description: 'Bucht AMARA direkt zum niedrigsten verfügbaren Preis, mit direktem Gastgeberkontakt, bevorzugter früher Anreise oder später Abreise und Zwischenreinigung bei mehr als sieben Nächten.',
+      description: 'Bucht AMARA direkt: niedrigster verfügbarer Preis, direkter Gastgeberkontakt, bevorzugt früh an- oder spät abreisen, Zwischenreinigung ab acht Nächten.',
 
       robots: 'index, follow',
 
@@ -66,7 +66,7 @@ export const directBookingBenefitsSeo: AmaraAuthoringSeo = {
 
       title: 'Reserva directa: precio y ventajas',
 
-      description: 'Reservad directamente con AMARA: nuestro precio más bajo disponible, contacto con el anfitrión, prioridad para entrar antes o salir más tarde y limpieza intermedia en estancias de más de siete noches.',
+      description: 'Reserva directa con AMARA: precio más bajo disponible, contacto con el anfitrión, entrada anticipada o salida tardía y limpieza intermedia desde 8 noches.',
 
       robots: 'index, follow',
 
@@ -78,7 +78,7 @@ export const directBookingBenefitsSeo: AmaraAuthoringSeo = {
 
       title: 'Direct boeken: voordelen voor je verblijf',
 
-      description: 'Boek AMARA rechtstreeks voor onze laagste beschikbare prijs, direct contact met de host, voorrang bij vroeger in- of later uitchecken en tussentijdse schoonmaak bij meer dan zeven nachten.',
+      description: 'Boek AMARA rechtstreeks: laagste beschikbare prijs, contact met de host, voorrang bij vroeg in- of laat uitchecken en tussentijdse schoonmaak vanaf 8 nachten.',
 
       robots: 'index, follow',
 
@@ -90,7 +90,7 @@ export const directBookingBenefitsSeo: AmaraAuthoringSeo = {
 
       title: 'Direktbokning: fördelar för vistelsen',
 
-      description: 'Boka AMARA direkt för vårt lägsta tillgängliga pris, direktkontakt med värden, förtur till tidig incheckning eller sen utcheckning och mellanstädning vid vistelser över sju nätter.',
+      description: 'Boka AMARA direkt: lägsta tillgängliga pris, direktkontakt med värden, förtur till tidig in- eller sen utcheckning och mellanstädning från åtta nätter.',
 
       robots: 'index, follow',
 
