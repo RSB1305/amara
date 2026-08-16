@@ -337,6 +337,41 @@ const PUBLIC_ROUTE_LABELS: Partial<Record<string, Record<AmaraLanguage, string>>
     nl: 'Weer & seizoenen',
     sv: 'Väder & årstider'
   },
+  'frigiliana-daily-life': {
+    en: 'Daily Life & Services',
+    de: 'Alltag & Versorgung',
+    es: 'Vida diaria y servicios',
+    nl: 'Dagelijks leven & voorzieningen',
+    sv: 'Vardag & service'
+  },
+  'frigiliana-geography': {
+    en: 'Geography & Orientation',
+    de: 'Geografie & Orientierung',
+    es: 'Geografía y orientación',
+    nl: 'Geografie & oriëntatie',
+    sv: 'Geografi & orientering'
+  },
+  'frigiliana-or-nerja': {
+    en: 'Frigiliana & Nerja',
+    de: 'Frigiliana & Nerja',
+    es: 'Frigiliana y Nerja',
+    nl: 'Frigiliana en Nerja',
+    sv: 'Frigiliana och Nerja'
+  },
+  'frigiliana-netflix-dos-tumbas': {
+    en: 'Netflix Locations',
+    de: 'Netflix-Drehorte',
+    es: 'Localizaciones Netflix',
+    nl: 'Netflix-locaties',
+    sv: 'Netflix-platser'
+  },
+  'frigiliana-hospitality-property-for-sale': {
+    en: 'Property for Sale',
+    de: 'Immobilie zu verkaufen',
+    es: 'Propiedad en venta',
+    nl: 'Pand te koop',
+    sv: 'Fastighet till salu'
+  },
   'guest-reviews': trustLabels.reviews_hub,
   instagram: {
     en: 'Instagram',
@@ -441,6 +476,8 @@ const FRIGILIANA_LOCATION_GUIDE_SLUGS = new Set([
   'frigiliana-weather',
   'frigiliana-winter-stays',
   'frigiliana-or-nerja',
+  'frigiliana-daily-life',
+  'frigiliana-geography',
   'frigiliana-faq',
   'frigiliana-netflix-dos-tumbas'
 ]);
