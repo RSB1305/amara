@@ -341,7 +341,7 @@ export const frigilianaDayTripsContent: Record<
         'After a day of culture, walking or driving, coming back towards the coast feels restorative. Keep the following day lighter or plan dinner before you leave.',
       items: [
         {
-          title: 'Beaches',
+          title: 'Beaches & coast',
           text:
             'Follow a longer excursion with a relaxed beach day around Nerja and the eastern Costa del Sol.',
           linkToken: 'frigiliana_beaches_authority',
@@ -567,7 +567,7 @@ export const frigilianaDayTripsContent: Record<
         'Nach einem Tag voller Kultur, Bewegung oder Fahrt wirkt die Rückkehr Richtung Küste erholsam. Haltet den Folgetag leichter oder plant das Abendessen schon vor der Abfahrt.',
       items: [
         {
-          title: 'Strände',
+          title: 'Strände & Küste',
           text:
             'Lasst auf einen längeren Ausflug einen entspannten Strandtag rund um Nerja und an der östlichen Costa del Sol folgen.',
           linkToken: 'frigiliana_beaches_authority',
@@ -793,7 +793,7 @@ export const frigilianaDayTripsContent: Record<
         'Después de un día de cultura, caminata o carretera, volver hacia la costa resulta reparador. Haced más ligero el día siguiente o dejad organizada la cena antes de salir.',
       items: [
         {
-          title: 'Playas',
+          title: 'Playas y costa',
           text:
             'Después de una excursión larga, dedicad el día siguiente a una playa tranquila en torno a Nerja y la Costa del Sol oriental.',
           linkToken: 'frigiliana_beaches_authority',
@@ -1019,7 +1019,7 @@ export const frigilianaDayTripsContent: Record<
         'Na een dag vol cultuur, wandelen of autorijden voelt de terugkeer richting kust verfrissend. Houd de volgende dag lichter of regel het diner voordat jullie vertrekken.',
       items: [
         {
-          title: 'Stranden',
+          title: 'Stranden & kust',
           text:
             'Laat op een langere uitstap een ontspannen stranddag rond Nerja en aan de oostelijke Costa del Sol volgen.',
           linkToken: 'frigiliana_beaches_authority',
@@ -1245,7 +1245,7 @@ export const frigilianaDayTripsContent: Record<
         'Efter en dag med kultur, vandring eller bilkörning känns återkomsten mot kusten uppfriskande. Håll nästa dag lättare eller planera middagen innan ni åker.',
       items: [
         {
-          title: 'Stränder',
+          title: 'Stränder & kust',
           text:
             'Följ en längre utflykt med en lugn stranddag kring Nerja och den östra delen av Costa del Sol.',
           linkToken: 'frigiliana_beaches_authority',

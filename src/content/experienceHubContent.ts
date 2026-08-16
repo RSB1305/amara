@@ -48,8 +48,6 @@ interface ExperienceEditorial {
 interface ExperienceHubPageCopy {
   footerHighlights: {
     hub: string;
-    first: string;
-    second: string;
   };
   hero: {
     kicker: string;
@@ -208,13 +206,13 @@ export const experienceNavigationContent: Record<
     viewAllLabel: 'View all experiences',
     labels: {
       hiking: 'Hiking',
-      beaches: 'Beaches',
-      restaurants: 'Food',
+      beaches: 'Beaches & coast',
+      restaurants: 'Food & restaurants',
       festivals: 'Festivals',
       market: 'Market',
       dayTrips: 'Day trips',
       wellness: 'Wellness',
-      nightlife: 'Nightlife'
+      nightlife: 'Evening life'
     }
   },
   de: {
@@ -232,13 +230,13 @@ export const experienceNavigationContent: Record<
     viewAllLabel: 'Alle Erlebnisse ansehen',
     labels: {
       hiking: 'Wandern',
-      beaches: 'Strände',
-      restaurants: 'Essen',
+      beaches: 'Strände & Küste',
+      restaurants: 'Essen & Restaurants',
       festivals: 'Feste',
       market: 'Markt',
-      dayTrips: 'Ausflüge',
+      dayTrips: 'Tagesausflüge',
       wellness: 'Wellness',
-      nightlife: 'Nachtleben'
+      nightlife: 'Abendleben'
     }
   },
   es: {
@@ -256,13 +254,13 @@ export const experienceNavigationContent: Record<
     viewAllLabel: 'Ver todas las experiencias',
     labels: {
       hiking: 'Senderismo',
-      beaches: 'Playas',
-      restaurants: 'Gastronomía',
+      beaches: 'Playas y costa',
+      restaurants: 'Gastronomía y restaurantes',
       festivals: 'Fiestas',
       market: 'Mercado',
       dayTrips: 'Excursiones',
       wellness: 'Bienestar',
-      nightlife: 'Noche'
+      nightlife: 'Vida nocturna'
     }
   },
   nl: {
@@ -280,13 +278,13 @@ export const experienceNavigationContent: Record<
     viewAllLabel: 'Bekijk alle ervaringen',
     labels: {
       hiking: 'Wandelen',
-      beaches: 'Stranden',
-      restaurants: 'Eten',
+      beaches: 'Stranden & kust',
+      restaurants: 'Eten & restaurants',
       festivals: 'Feesten',
       market: 'Markt',
       dayTrips: 'Dagtochten',
       wellness: 'Wellness',
-      nightlife: 'Uitgaan'
+      nightlife: 'Avondleven'
     }
   },
   sv: {
@@ -304,11 +302,11 @@ export const experienceNavigationContent: Record<
     viewAllLabel: 'Se alla upplevelser',
     labels: {
       hiking: 'Vandring',
-      beaches: 'Stränder',
-      restaurants: 'Mat',
+      beaches: 'Stränder & kust',
+      restaurants: 'Mat & restauranger',
       festivals: 'Festivaler',
       market: 'Marknad',
-      dayTrips: 'Utflykter',
+      dayTrips: 'Dagsutflykter',
       wellness: 'Wellness',
       nightlife: 'Kvällsliv'
     }
@@ -370,9 +368,7 @@ export const experienceHubContent: Record<
 > = {
   en: {
     footerHighlights: {
-      hub: 'All experiences',
-      first: 'Beach guide',
-      second: 'Day trips'
+      hub: 'All experiences'
     },
     hero: {
       kicker: 'Things to do in Frigiliana',
@@ -531,9 +527,7 @@ export const experienceHubContent: Record<
 
   de: {
     footerHighlights: {
-      hub: 'Alle Erlebnisse',
-      first: 'Wandern',
-      second: 'Tagesausflüge'
+      hub: 'Alle Erlebnisse'
     },
     hero: {
       kicker: 'Aktivitäten in Frigiliana',
@@ -691,9 +685,7 @@ export const experienceHubContent: Record<
 
   es: {
     footerHighlights: {
-      hub: 'Todas las experiencias',
-      first: 'Restaurantes',
-      second: 'Fiestas'
+      hub: 'Todas las experiencias'
     },
     hero: {
       kicker: 'Qué hacer en Frigiliana',
@@ -851,9 +843,7 @@ export const experienceHubContent: Record<
 
   nl: {
     footerHighlights: {
-      hub: 'Alle ervaringen',
-      first: 'Stranden',
-      second: 'Wandelen'
+      hub: 'Alle ervaringen'
     },
     hero: {
       kicker: 'Wat te doen in Frigiliana',
@@ -1011,9 +1001,7 @@ export const experienceHubContent: Record<
 
   sv: {
     footerHighlights: {
-      hub: 'Alla upplevelser',
-      first: 'Stränder',
-      second: 'Välmående'
+      hub: 'Alla upplevelser'
     },
     hero: {
       kicker: 'Att göra i Frigiliana',

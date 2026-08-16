@@ -310,12 +310,12 @@ export const frigilianaHikingContent: Record<
         'Stay in Frigiliana for dinner, or drive down to the coast for a swim and an early lunch. If you use a nature trail, plan to be back before dark.',
       items: [
         {
-          title: 'Beaches',
+          title: 'Beaches & coast',
           text:
             'Put your feet up. Head down to the coast for a swim in the Mediterranean.'
         },
         {
-          title: 'Food',
+          title: 'Food & restaurants',
           text:
             'Choose one of the village restaurants or terraces after your walk.'
         }
@@ -511,12 +511,12 @@ export const frigilianaHikingContent: Record<
         'Bleibt zum Abendessen in Frigiliana oder fahrt für ein Bad und einen frühen Lunch hinunter an die Küste. Plant die Rückkehr vor Einbruch der Dunkelheit, wenn ihr einen Naturweg geht.',
       items: [
         {
-          title: 'Strände',
+          title: 'Strände & Küste',
           text:
             'Beine hochlegen. Runter zur Küste für ein Bad im Mittelmeer.'
         },
         {
-          title: 'Essen',
+          title: 'Essen & Restaurants',
           text:
             'Wählt nach der Wanderung eines der Restaurants oder eine Terrasse im Dorf.'
         }
@@ -713,12 +713,12 @@ export const frigilianaHikingContent: Record<
         'Podéis quedaros a cenar en Frigiliana o bajar a la costa para bañaros y almorzar temprano. Si vais por un sendero natural, calculad el regreso antes de que anochezca.',
       items: [
         {
-          title: 'Playas',
+          title: 'Playas y costa',
           text:
             'Descansad las piernas y bajad a la costa para bañaros en el Mediterráneo.'
         },
         {
-          title: 'Comer',
+          title: 'Gastronomía y restaurantes',
           text:
             'Elegid después de la ruta uno de los restaurantes o terrazas del pueblo.'
         }
@@ -915,12 +915,12 @@ export const frigilianaHikingContent: Record<
         'Blijf in Frigiliana voor het diner, of rijd naar de kust voor een duik en een vroege lunch. Plan op een natuurpad de terugweg vóór het donker wordt.',
       items: [
         {
-          title: 'Stranden',
+          title: 'Stranden & kust',
           text:
             'Geef jullie benen rust en ga naar de kust voor een duik in de Middellandse Zee.'
         },
         {
-          title: 'Eten',
+          title: 'Eten & restaurants',
           text:
             'Kies na de wandeling een van de restaurants of terrassen in het dorp.'
         }
@@ -1117,12 +1117,12 @@ export const frigilianaHikingContent: Record<
         'Stanna i Frigiliana för middag eller åk ner till kusten för ett bad och en tidig lunch. På en naturstig bör ni planera att vara tillbaka före mörkrets inbrott.',
       items: [
         {
-          title: 'Stränder',
+          title: 'Stränder & kust',
           text:
             'Låt benen vila och åk ner till kusten för ett dopp i Medelhavet.'
         },
         {
-          title: 'Mat',
+          title: 'Mat & restauranger',
           text:
             'Välj någon av byns restauranger eller terrasser efter vandringen.'
         }
