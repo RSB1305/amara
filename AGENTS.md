@@ -44,6 +44,8 @@ The operator's direct implementation request is confirmation. Ask only when unre
 
 Class 3 and protected-contract work requires the Register, relevant owner and explicit alignment. If ordinary implementation unexpectedly reaches that boundary, stop and report the decision point.
 
+Classify the change by the owner or contract actually being changed, not by shared infrastructure that a local consumer merely uses. A local, behavior-preserving cleanup is not Class 3 solely because it references a shared component, global style or token. It becomes Class 3 when the shared owner or contract itself changes.
+
 ## Implementation rules
 
 - Prefer existing AMARA architecture. Do not create parallel systems, duplicate authoring models or speculative abstractions.
@@ -77,9 +79,21 @@ Use the smallest validation that directly tests the changed scope. Full builds b
 
 Inspect the working tree, preserve unrelated changes, stage only explicit task files, verify the staged set and `git diff --cached --check`, and make one coherent local commit when requested. Do not push without explicit instruction.
 
+## External build budget and release batching
+
+Treat the operator-reported Cloudflare Pages limit of 500 builds as a hard shared budget. A local commit consumes no external build; a branch push, pull-request update or merge can trigger GitHub Actions and Cloudflare builds.
+
+- Keep validated Class 0–2 changes and behavior-preserving cleanup commits local by default, and batch them into intentional release points.
+- Do not propose or perform a separate push or pull request for every micro change. Do not use remote CI or Cloudflare as the first validation when the relevant checks can run locally.
+- Before requesting or performing any push, inspect the active workflow and deployment triggers and tell the operator the exact commits and scope in the batch, the expected GitHub Actions runs and Cloudflare builds through pull request and merge, and why this is a sensible release boundary.
+- Push authorization applies only to the named batch after that cost disclosure. It does not authorize additional update or fix pushes; finish known local corrections first and batch necessary follow-up fixes whenever practical.
+- Use targeted validation while accumulating local commits. Run the complete release validation once at the batch boundary, then prefer one branch push, one pull request and one merge for the approved batch.
+- Exceptions require either an urgent production or security need, or an explicit operator override after the external build cost has been disclosed.
+
 ## Operator commands
 
 - `AMARA FAST: ...` — minimum-safe FAST execution.
+- `AMARA RELEASE BATCH` — report the accumulated scope and expected external build cost, run the release gate once and request approval for one intentional push and pull request.
 - `Bitte in die AMARA SSOT aufnehmen: ...` — classify and recommend/place the item in the smallest correct SSOT owner or inbox.
 - `AMARA SSOT SYNC` — consolidate pending SSOT items once and update only owners whose normative meaning changed.
 - `OK, in die SSOT übernehmen.` — authorize the already-aligned documentation-only canonical update.
