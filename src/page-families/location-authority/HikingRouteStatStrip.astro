@@ -1,5 +1,5 @@
 ---
-import { Clock, Mountain, Route } from 'lucide-react';
+import { Clock, Mountain, Route } from '@lucide/astro';
 
 interface Props {
   duration?: string;
@@ -56,8 +56,8 @@ const hasStats = stats.length > 0 || Boolean(difficulty);
               aria-label={`${stat.label}: ${stat.value}`}
             >
               <Icon
-                className="h-4 w-4 shrink-0 text-primary"
-                strokeWidth={1.5}
+                class="h-4 w-4 shrink-0 text-primary"
+                stroke-width={1.5}
                 aria-hidden="true"
               />
               <span class="am-text-caption normal-case tracking-normal text-on-surface">
