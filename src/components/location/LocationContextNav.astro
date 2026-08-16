@@ -10,7 +10,8 @@ import {
   getFrigilianaAuthorityCurrentPageLabel,
   getFrigilianaAuthoritySubnav,
   type FrigilianaAuthoritySubnavId,
-  type FrigilianaAuthoritySubnavItem
+  type FrigilianaAuthoritySubnavItem,
+  type FrigilianaAuthoritySubnavTopicId
 } from '../../lib/frigiliana/frigilianaAuthoritySubnav';
 import { resolveOptionalLink } from '../../lib/linkResolver';
 import { getDestinationBranchNavigation } from '../../lib/location/destinationBranchNavigation';
@@ -23,10 +24,21 @@ interface Props {
 }
 
 const { activeId, items, lang } = Astro.props;
-const navigationItems = items ?? getFrigilianaAuthoritySubnav(lang);
 const activeTopicId = getFrigilianaAuthorityActiveTopic(activeId);
 const currentLabel = getFrigilianaAuthorityCurrentPageLabel(activeId, lang);
 const isOverview = activeId === 'intro';
+
+// The location hub introduces the guide, so its switcher stays on the core
+// planning topics. These two remain listed on every spoke, which is where the
+// reader is already deep enough in the guide for them to be a useful next step.
+const SUPPLEMENTARY_TOPIC_IDS: FrigilianaAuthoritySubnavTopicId[] = [
+  'frigiliana-film-locations',
+  'frigiliana-faq'
+];
+const resolvedItems = items ?? getFrigilianaAuthoritySubnav(lang);
+const navigationItems = isOverview
+  ? resolvedItems.filter((item) => !SUPPLEMENTARY_TOPIC_IDS.includes(item.id))
+  : resolvedItems;
 
 const labels: Record<
   AmaraLanguage,
