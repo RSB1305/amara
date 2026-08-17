@@ -74,6 +74,35 @@ const heroCtaLinks = page.hero.ctaLinks
     />
 
     <main id="am-main-content" tabindex="-1" class="scroll-mt-[104px] lg:scroll-mt-[112px]">
+      <EditorialHostProfile
+        id="host"
+        imageSrc="/images/robert-amara-host.jpg"
+        imageAlt={content.host.imageAlt[currentLang]}
+        title={content.host.title?.[currentLang] ?? ''}
+        role={content.host.role[currentLang]}
+        intro={hostIntro}
+        stats={hostStats}
+      >
+        <div class="flex flex-wrap items-center gap-x-5 gap-y-2" aria-label={content.host.contactLabel[currentLang]}>
+          <span class="font-label text-[11px] font-semibold uppercase tracking-[0.1em] text-on-surface-variant">
+            {content.host.contactLabel[currentLang]}:
+          </span>
+          <a class="am-inline-link" href="mailto:hola@amara-lodging.es">hola@amara-lodging.es</a>
+          <a class="am-inline-link" href="tel:+34604440964">+34 604 440 964</a>
+        </div>
+        <div class="pt-12">
+          <h3 class="am-text-subtitle font-normal text-on-surface mb-4">{content.host.subtitle?.[currentLang]}</h3>
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-8 mt-8">
+            {content.host.teamItems?.map((item) => (
+              <div>
+                <h4 class="am-text-body font-bold text-on-surface mb-2 m-0">{item.title[currentLang]}</h4>
+                <p class="am-text-body text-subtle m-0">{item.copy[currentLang]}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </EditorialHostProfile>
+
       <section class="mb-[clamp(8rem,15vw,14rem)]">
         <EditorialSplit title={content.philosophy.title?.[currentLang] ?? ''}>
           <p class="am-text-subtitle leading-[1.5] text-on-surface mb-8">
@@ -118,28 +147,6 @@ const heroCtaLinks = page.hero.ctaLinks
         </div>
         <p class="am-text-body text-center italic text-muted">{content.quality.note?.[currentLang]}</p>
       </section>
-
-      <EditorialHostProfile
-        id="host"
-        imageSrc="/images/robert-amara-host.jpg"
-        imageAlt={content.host.imageAlt[currentLang]}
-        title={content.host.title?.[currentLang] ?? ''}
-        role={content.host.role[currentLang]}
-        intro={hostIntro}
-        stats={hostStats}
-      >
-        <div class="pt-12">
-          <h3 class="am-text-subtitle font-normal text-on-surface mb-4">{content.host.subtitle?.[currentLang]}</h3>
-          <div class="grid grid-cols-1 sm:grid-cols-3 gap-8 mt-8">
-            {content.host.teamItems?.map((item) => (
-              <div>
-                <h4 class="am-text-body font-bold text-on-surface mb-2 m-0">{item.title[currentLang]}</h4>
-                <p class="am-text-body text-subtle m-0">{item.copy[currentLang]}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </EditorialHostProfile>
 
       <EditorialClosingCta
         title={content.closingCta.title?.[currentLang] ?? ''}

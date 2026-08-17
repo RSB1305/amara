@@ -70,6 +70,7 @@ interface AboutUsContent {
   host: AboutUsSection & {
     imageAlt: LocalizedText;
     role: LocalizedText;
+    contactLabel: LocalizedText;
   };
   sustainability: AboutUsSection;
   closingCta: AboutUsSection & {
@@ -312,13 +313,13 @@ export const aboutUsContent: AboutUsContent = {
         }
       },
       {
-        title: { en: 'Direct responsibility', de: 'Klare Verantwortung', es: 'Responsabilidad directa', nl: 'Directe verantwoordelijkheid', sv: 'Tydligt ansvar' },
+        title: { en: 'Clarity before arrival', de: 'Klarheit vor der Anreise', es: 'Claridad antes de llegar', nl: 'Duidelijkheid vóór aankomst', sv: 'Tydlighet före ankomst' },
         copy: {
-          en: 'Behind every AMARA stay are people who know the property and take responsibility for it. We are present when needed and in the background when we are not.',
-          de: 'Hinter jeder AMARA-Unterkunft stehen Menschen, die sie kennen und Verantwortung für sie übernehmen. Wenn ihr uns braucht, sind wir da. Wenn nicht, halten wir uns im Hintergrund.',
-          es: 'Detrás de cada alojamiento AMARA hay personas que lo conocen y se responsabilizan de él. Estamos cuando hace falta y permanecemos en segundo plano cuando no.',
-          nl: 'Achter ieder AMARA-verblijf staan mensen die de plek kennen en er verantwoordelijkheid voor nemen. We zijn er wanneer dat nodig is en blijven op de achtergrond wanneer dat niet zo is.',
-          sv: 'Bakom varje AMARA-boende finns människor som känner platsen och tar ansvar för den. Vi finns där när det behövs och håller oss i bakgrunden när det inte gör det.'
+          en: 'Steps, access, equipment and limitations belong in the description, not among the surprises after arrival.',
+          de: 'Stufen, Zugang, Ausstattung und Einschränkungen gehören in die Beschreibung – nicht zu den Überraschungen nach der Ankunft.',
+          es: 'Los escalones, el acceso, el equipamiento y las limitaciones deben aparecer en la descripción, no convertirse en sorpresas al llegar.',
+          nl: 'Treden, toegang, voorzieningen en beperkingen horen in de beschrijving thuis, niet bij de verrassingen na aankomst.',
+          sv: 'Trappsteg, tillgänglighet, utrustning och begränsningar hör hemma i beskrivningen, inte bland överraskningarna vid ankomsten.'
         }
       },
       {
@@ -381,6 +382,7 @@ export const aboutUsContent: AboutUsContent = {
     title: { en: 'Real people. Direct responsibility.', de: 'Echte Menschen. Klare Verantwortung.', es: 'Personas reales. Responsabilidad directa.', nl: 'Echte mensen. Duidelijke verant\u00ADwoordelijkheid.', sv: 'Riktiga människor. Tydligt ansvar.' },
     role: { en: 'Robert Sebastian Böhmer — Host at AMARA', de: 'Robert Sebastian Böhmer — Gastgeber bei AMARA', es: 'Robert Sebastian Böhmer — Anfitrión de AMARA', nl: 'Robert Sebastian Böhmer — Host bij AMARA', sv: 'Robert Sebastian Böhmer — Värd på AMARA' },
     imageAlt: { en: 'Robert, host at AMARA', de: 'Robert, Gastgeber bei AMARA', es: 'Robert, anfitrión de AMARA', nl: 'Robert, host bij AMARA', sv: 'Robert, värd på AMARA' },
+    contactLabel: { en: 'Contact Robert directly', de: 'Robert direkt erreichen', es: 'Contactar directamente con Robert', nl: 'Robert rechtstreeks bereiken', sv: 'Kontakta Robert direkt' },
     // First-person account: how AMARA started, and where the host actually is.
     paragraphs: [
       {
@@ -415,7 +417,7 @@ export const aboutUsContent: AboutUsContent = {
     teamItems: [
       { title: { en: 'The same people since 2021', de: 'Dieselben Menschen seit 2021', es: 'Las mismas personas desde 2021', nl: 'Dezelfde mensen sinds 2021', sv: 'Samma människor sedan 2021' }, copy: { en: 'Cleaning, maintenance, laundry and guest support are handled by established local partners — the same ones since the first guest. People who have known the houses for years notice things before a guest has to report them.', de: 'Reinigung, Instandhaltung, Wäsche und Gästebetreuung liegen bei festen Dienstleistern vor Ort – denselben seit dem ersten Gast. Wer die Häuser über Jahre kennt, sieht Dinge, bevor ein Gast sie melden muss.', es: 'La limpieza, el mantenimiento, la lavandería y la atención a los huéspedes están en manos de colaboradores locales fijos, los mismos desde el primer huésped. Quien conoce las casas desde hace años detecta las cosas antes de que un huésped tenga que avisar.', nl: 'Schoonmaak, onderhoud, was en gastenservice liggen bij vaste lokale partners — dezelfde sinds de eerste gast. Wie de huizen al jaren kent, ziet dingen voordat een gast ze hoeft te melden.', sv: 'Städning, underhåll, tvätt och gästservice sköts av fasta lokala partner — desamma sedan första gästen. Den som känt husen i flera år ser saker innan en gäst behöver säga till.' } },
       { title: { en: 'Self check-in, still a direct line', de: 'Self Check-in, trotzdem direkter Kontakt', es: 'Entrada autónoma y contacto directo', nl: 'Zelf inchecken, toch direct contact', sv: 'Självincheckning, ändå direktkontakt' }, copy: { en: 'We introduced self check-in in 2020 and kept it because it works: you arrive when you arrive, with no handover appointment. If you book directly with AMARA, you are still writing to me before and during the stay.', de: 'Self Check-in haben wir 2020 eingeführt und behalten, weil es funktioniert: Ihr kommt an, wann ihr ankommt, ohne Übergabetermin. Wer direkt bei AMARA bucht, schreibt vor und während des Aufenthalts trotzdem mit mir.', es: 'Introdujimos la entrada autónoma en 2020 y la mantuvimos porque funciona: llegáis cuando llegáis, sin cita para la entrega de llaves. Si reserváis directamente con AMARA, seguís escribiéndome a mí antes y durante la estancia.', nl: 'Zelf inchecken hebben we in 2020 ingevoerd en gehouden omdat het werkt: jullie komen aan wanneer jullie aankomen, zonder overdrachtsafspraak. Wie rechtstreeks bij AMARA boekt, schrijft voor en tijdens het verblijf nog steeds met mij.', sv: 'Vi införde självincheckning 2020 och behöll den för att den fungerar: ni kommer när ni kommer, utan överlämningstid. Bokar ni direkt hos AMARA skriver ni fortfarande med mig före och under vistelsen.' } },
-      { title: { en: 'Clear responsibility', de: 'Klare Zuständigkeit', es: 'Responsabilidad clara', nl: 'Duidelijke verantwoordelijkheid', sv: 'Tydligt ansvar' }, copy: { en: 'Questions are answered clearly, problems are taken seriously and responsibility is never passed around.', de: 'Fragen werden klar beantwortet, Probleme ernst genommen und Verantwortung nicht weitergereicht.', es: 'Las preguntas se responden con claridad, los problemas se toman en serio y la responsabilidad no se pasa de una persona a otra.', nl: 'Vragen worden helder beantwoord, problemen serieus genomen en verantwoordelijkheid wordt niet doorgeschoven.', sv: 'Frågor besvaras tydligt, problem tas på allvar och ansvar skickas inte vidare.' } }
+      { title: { en: 'Practical solutions', de: 'Praktische Lösungen', es: 'Soluciones prácticas', nl: 'Praktische oplossingen', sv: 'Praktiska lösningar' }, copy: { en: 'If something is not right, it is not passed around. The person who can resolve it takes it on as quickly as possible.', de: 'Wenn etwas nicht stimmt, wird es nicht weitergereicht. Die Person, die es lösen kann, kümmert sich so schnell wie möglich darum.', es: 'Si algo no está bien, no se deriva de una persona a otra. Quien puede resolverlo se ocupa de ello lo antes posible.', nl: 'Als iets niet in orde is, wordt het niet doorgeschoven. Degene die het kan oplossen, pakt het zo snel mogelijk op.', sv: 'Om något inte stämmer skickas det inte vidare. Den som kan lösa det tar hand om det så snabbt som möjligt.' } }
     ]
   },
   sustainability: {

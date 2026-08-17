@@ -288,11 +288,11 @@ export const vacationRentalEntities: VacationRentalEntity[] = [
       vehicleAccessHours: { until: '11:00', from: '17:00' }
     },
     accessNote: {
-      en: 'One step at the main entrance, none after that.',
-      de: 'Eine Stufe am Haupteingang, danach keine mehr.',
-      es: 'Un escalón en la entrada principal y ninguno más.',
-      nl: 'Eén trede bij de hoofdingang, daarna geen meer.',
-      sv: 'Ett trappsteg vid huvudentrén, inga fler därefter.'
+      en: 'One step at the main entrance. After that, all rooms are on one level — the only one of the four Casa AMARA stays with no further steps.',
+      de: 'Eine Stufe am Haupteingang. Danach liegen alle Räume auf einer Ebene – als einzige der vier Casa-AMARA-Unterkünfte ohne weitere Stufen.',
+      es: 'Un escalón en la entrada principal. Después, todas las estancias están en una sola planta: es el único de los cuatro alojamientos de Casa AMARA sin más escalones.',
+      nl: 'Eén trede bij de hoofdingang. Daarna liggen alle ruimtes op één niveau — als enige van de vier Casa AMARA-verblijven zonder verdere treden.',
+      sv: 'Ett trappsteg vid huvudentrén. Därefter ligger alla rum på samma plan — det enda av de fyra Casa AMARA-boendena utan fler trappsteg.'
     },
     petsNote: {
       en: 'Pets are not allowed',
