@@ -69,10 +69,15 @@ const buildExistingAmenityRows = (property: Property): AmenityRow[] => [
     ? [{ icon: 'bed' as const, label: page.inventory.labels.beds, value: property.specs.beds[currentLang] }]
     : []),
   ...(property.specs.interiorArea
-    ? [{ icon: 'living-room' as const, label: page.inventory.labels.interiorArea, value: property.specs.interiorArea }]
-    : []),
-  ...(property.specs.exteriorArea
-    ? [{ icon: 'outdoor' as const, label: page.inventory.labels.exteriorArea, value: property.specs.exteriorArea }]
+    ? [{
+        icon: 'living-room' as const,
+        label: property.specs.exteriorArea
+          ? page.inventory.labels.interiorExteriorArea
+          : page.inventory.labels.interiorArea,
+        value: property.specs.exteriorArea
+          ? `${property.specs.interiorArea} / ${property.specs.exteriorArea}`
+          : property.specs.interiorArea
+      }]
     : []),
   {
     icon: 'price',
@@ -160,10 +165,15 @@ const buildKeyFactRows = (property: Property): AmenityRow[] => [
     ? [{ icon: 'bed' as const, label: page.inventory.labels.beds, value: property.specs.beds[currentLang] }]
     : []),
   ...(property.specs.interiorArea
-    ? [{ icon: 'living-room' as const, label: page.inventory.labels.interiorArea, value: property.specs.interiorArea }]
-    : []),
-  ...(property.specs.exteriorArea
-    ? [{ icon: 'outdoor' as const, label: page.inventory.labels.exteriorArea, value: property.specs.exteriorArea }]
+    ? [{
+        icon: 'living-room' as const,
+        label: property.specs.exteriorArea
+          ? page.inventory.labels.interiorExteriorArea
+          : page.inventory.labels.interiorArea,
+        value: property.specs.exteriorArea
+          ? `${property.specs.interiorArea} / ${property.specs.exteriorArea}`
+          : property.specs.interiorArea
+      }]
     : []),
   {
     icon: 'price',

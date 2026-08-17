@@ -82,7 +82,7 @@ export const comfortAmenitiesCopy: Record<
         bed: string;
         beds: string;
         interiorArea: string;
-        exteriorArea: string;
+        interiorExteriorArea: string;
         price: string;
         accessNote: string;
         parking: string;
@@ -132,7 +132,7 @@ export const comfortAmenitiesCopy: Record<
         bed: 'Bed',
         beds: 'Beds',
         interiorArea: 'Interior space',
-        exteriorArea: 'Outdoor space',
+        interiorExteriorArea: 'Interior / outdoor space',
         price: 'Price per night',
         accessNote: 'Access note',
         parking: 'Parking',
@@ -181,7 +181,7 @@ export const comfortAmenitiesCopy: Record<
         bed: 'Bett',
         beds: 'Betten',
         interiorArea: 'Innenfläche',
-        exteriorArea: 'Außenfläche',
+        interiorExteriorArea: 'Innenfläche / Außenfläche',
         price: 'Preis pro Nacht',
         accessNote: 'Zugang',
         parking: 'Parken',
@@ -230,7 +230,7 @@ export const comfortAmenitiesCopy: Record<
         bed: 'Cama',
         beds: 'Camas',
         interiorArea: 'Superficie interior',
-        exteriorArea: 'Superficie exterior',
+        interiorExteriorArea: 'Superficie interior / exterior',
         price: 'Precio por noche',
         accessNote: 'Acceso',
         parking: 'Aparcamiento',
@@ -279,7 +279,7 @@ export const comfortAmenitiesCopy: Record<
         bed: 'Bed',
         beds: 'Bedden',
         interiorArea: 'Binnenoppervlakte',
-        exteriorArea: 'Buitenoppervlakte',
+        interiorExteriorArea: 'Binnenoppervlakte / buitenoppervlakte',
         price: 'Prijs per nacht',
         accessNote: 'Toegang',
         parking: 'Parkeren',
@@ -328,7 +328,7 @@ export const comfortAmenitiesCopy: Record<
         bed: 'Säng',
         beds: 'Sängar',
         interiorArea: 'Inomhusyta',
-        exteriorArea: 'Utomhusyta',
+        interiorExteriorArea: 'Inomhusyta / utomhusyta',
         price: 'Pris per natt',
         accessNote: 'Åtkomst',
         parking: 'Parkering',
