@@ -4,6 +4,7 @@ export interface CinematicApartment {
   name: string;
   subtitle: string;
   meta: string;
+  price: string;
   desc: string;
   imgAlt: string;
   img: string;
@@ -237,7 +238,10 @@ const {
 
               <div class="flex w-full flex-col justify-center lg:w-1/2">
                 <div>
-                  <span class="mb-4 block am-text-caption uppercase tracking-widest text-on-surface-variant">{apt.meta}</span>
+                  <div class="mb-4 flex flex-wrap items-baseline justify-between gap-x-6 gap-y-2">
+                    <span class="am-text-caption uppercase tracking-widest text-on-surface-variant">{apt.meta}</span>
+                    <span class="am-text-subtitle text-primary">{apt.price}</span>
+                  </div>
                   <h3 class="mb-2 am-text-title text-on-surface">{apt.name}</h3>
                   <h4 class="mb-8 am-text-subtitle italic text-primary">{apt.subtitle}</h4>
                   <p class="mb-10 max-w-md am-text-body text-on-surface-variant">{apt.desc}</p>

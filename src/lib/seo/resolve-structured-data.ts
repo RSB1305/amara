@@ -3,6 +3,7 @@ import type {
   AmaraLanguage
 } from '../../types/seo';
 import {
+  toVacationRentalPriceRange,
   vacationRentalEntities,
   vacationRentalEntitiesByKey,
   type VacationRentalEntity
@@ -36,10 +37,10 @@ interface BrandEntity {
 }
 
 function buildPortfolioPriceRange(): string {
-  const bounds = vacationRentalEntities.flatMap((entity) => {
-    const match = /^EUR\s+(\d+)-(\d+)$/.exec(entity.priceRange);
-    return match ? [Number(match[1]), Number(match[2])] : [];
-  });
+  const bounds = vacationRentalEntities.flatMap((entity) => [
+    entity.pricing.indicativeFrom,
+    entity.pricing.indicativeTo
+  ]);
 
   if (bounds.length === 0) {
     throw new Error('[Structured data] No valid rental price ranges found.');
@@ -1019,7 +1020,7 @@ function buildVacationRentalNode(
     checkoutTime: entity.checkoutTime,
     description: entity.description[currentLang] ?? entity.description.en,
     knowsLanguage: ['en-US', 'de-DE', 'es-ES'],
-    priceRange: entity.priceRange,
+    priceRange: toVacationRentalPriceRange(entity.pricing),
     sameAs: entity.sameAs,
     containsPlace,
     mainEntityOfPage: {

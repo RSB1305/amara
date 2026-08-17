@@ -525,7 +525,7 @@ function buildComfortProperty(rental: VacationRentalEntity): PropertyEntry {
       price: Object.fromEntries(
         languages.map((lang) => [
           lang,
-          formatVacationRentalPriceRange(rental.priceRange, lang, 'symbol')
+          formatVacationRentalPriceRange(rental.pricing, lang, 'symbol')
         ])
       ) as LocalizedText,
       accessNote: rental.accessNote,

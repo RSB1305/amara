@@ -7,6 +7,10 @@ import { resolveOptionalLink } from '../../lib/linkResolver';
 import { normalizeLanguage } from '../../lib/seo/resolve-seo-head';
 import type { AmaraAuthoringSeo, AmaraLanguage } from '../../types/seo';
 import {
+  formatVacationRentalFromPrice,
+  vacationRentalEntitiesByToken
+} from '../../content/vacationRentalEntities';
+import {
   cinematicApartments,
   type CinematicAptToken,
   cinematicHeroKicker,
@@ -114,12 +118,14 @@ const cinematicApartmentsProps = (
       return null;
     }
 
+    const rental = vacationRentalEntitiesByToken[apt.token];
     const optimized = await createAmaraImage(homeImageByToken[apt.token], 'card', { quality: 60 });
     return {
       id: apt.id,
       name: apt.name,
       subtitle: t(apt.subtitle),
       meta: t(apt.meta),
+      price: formatVacationRentalFromPrice(rental.pricing, currentLang),
       desc: t(apt.desc),
       imgAlt: t(apt.imageAlt),
       img: optimized.src,

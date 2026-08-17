@@ -5,7 +5,7 @@ import AmaraImage from '../../components/AmaraImage.astro';
 import {
   buildVacationRentalSeo,
   familySurfConversionContent,
-  formatVacationRentalPriceRange,
+  formatVacationRentalFromPrice,
   vacationRentalEntitiesByKey,
   type VacationRentalAmenityFeature,
   type VacationRentalEntity
@@ -566,7 +566,7 @@ const factRows = [
     : []),
   {
     label: t(ui.labels.price as LocalizedText),
-    value: formatVacationRentalPriceRange(rental.priceRange, currentLang)
+    value: formatVacationRentalFromPrice(rental.pricing, currentLang)
   },
   { label: t(ui.labels.license as LocalizedText), value: rental.license }
 ];

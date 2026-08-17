@@ -33,6 +33,13 @@ export interface VacationRentalAmenityFeature {
   value: boolean | string;
 }
 
+export interface VacationRentalPricing {
+  currency: 'EUR';
+  indicativeFrom: number;
+  indicativeTo: number;
+  lastVerified: string;
+}
+
 export interface VacationRentalEntity {
   key: VacationRentalEntityKey;
   token: VacationRentalToken;
@@ -57,8 +64,8 @@ export interface VacationRentalEntity {
   occupancy: number;
   bed: VacationRentalBed[];
   tvSizeInches: 40 | 50 | 60;
-  /** Indicative build-time range only. Lodgify owns the final price for selected dates. */
-  priceRange: string;
+  /** Indicative build-time pricing only. Lodgify owns the final price for selected dates. */
+  pricing: VacationRentalPricing;
   bathroomUnderfloorHeating: boolean;
   checkinTime: string;
   checkoutTime: string;
@@ -102,15 +109,11 @@ interface FamilySurfConversionLocale {
 const languages: AmaraLanguage[] = ['en', 'de', 'es', 'nl', 'sv'];
 
 export function formatVacationRentalPriceRange(
-  priceRange: string,
+  pricing: VacationRentalPricing,
   lang: AmaraLanguage,
   currencyStyle: 'code' | 'symbol' = 'code'
 ): string {
-  const match = /^EUR\s+(\d+)-(\d+)$/.exec(priceRange);
-
-  if (!match) return priceRange;
-
-  const [, minimum, maximum] = match;
+  const { currency, indicativeFrom: minimum, indicativeTo: maximum } = pricing;
 
   if (currencyStyle === 'symbol') {
     return lang === 'en' || lang === 'nl'
@@ -119,10 +122,33 @@ export function formatVacationRentalPriceRange(
   }
 
   return lang === 'en'
-    ? `EUR ${minimum}-${maximum}`
+    ? `${currency} ${minimum}-${maximum}`
     : lang === 'nl'
-      ? `EUR ${minimum} - EUR ${maximum}`
-      : `${minimum} EUR - ${maximum} EUR`;
+      ? `${currency} ${minimum} - ${currency} ${maximum}`
+      : `${minimum} ${currency} - ${maximum} ${currency}`;
+}
+
+export function formatVacationRentalFromPrice(
+  pricing: VacationRentalPricing,
+  lang: AmaraLanguage
+): string {
+  const amount = lang === 'en' || lang === 'nl'
+    ? `€${pricing.indicativeFrom}`
+    : `${pricing.indicativeFrom} €`;
+
+  const prefix: Record<AmaraLanguage, string> = {
+    en: 'From',
+    de: 'Ab',
+    es: 'Desde',
+    nl: 'Vanaf',
+    sv: 'Från'
+  };
+
+  return `${prefix[lang]} ${amount}`;
+}
+
+export function toVacationRentalPriceRange(pricing: VacationRentalPricing): string {
+  return `${pricing.currency} ${pricing.indicativeFrom}-${pricing.indicativeTo}`;
 }
 const frigilianaAddress = {
   street: 'Calle Chorruelo 5',
@@ -170,7 +196,12 @@ export const vacationRentalEntities: VacationRentalEntity[] = [
     occupancy: 2,
     bed: [{ numberOfBeds: 1, typeOfBed: 'Queen', label: '160 x 200' }],
     tvSizeInches: 40,
-    priceRange: 'EUR 75-120',
+    pricing: {
+      currency: 'EUR',
+      indicativeFrom: 75,
+      indicativeTo: 120,
+      lastVerified: '2026-08-17'
+    },
     bathroomUnderfloorHeating: true,
     checkinTime: '15:00:00',
     checkoutTime: '11:00:00',
@@ -325,7 +356,12 @@ export const vacationRentalEntities: VacationRentalEntity[] = [
     occupancy: 2,
     bed: [{ numberOfBeds: 1, typeOfBed: 'Queen', label: '160 x 200' }],
     tvSizeInches: 40,
-    priceRange: 'EUR 90-180',
+    pricing: {
+      currency: 'EUR',
+      indicativeFrom: 90,
+      indicativeTo: 180,
+      lastVerified: '2026-08-17'
+    },
     bathroomUnderfloorHeating: true,
     checkinTime: '15:00:00',
     checkoutTime: '11:00:00',
@@ -497,7 +533,12 @@ export const vacationRentalEntities: VacationRentalEntity[] = [
     occupancy: 2,
     bed: [{ numberOfBeds: 1, typeOfBed: 'King', label: '180 x 200' }],
     tvSizeInches: 40,
-    priceRange: 'EUR 90-180',
+    pricing: {
+      currency: 'EUR',
+      indicativeFrom: 90,
+      indicativeTo: 180,
+      lastVerified: '2026-08-17'
+    },
     bathroomUnderfloorHeating: true,
     checkinTime: '15:00:00',
     checkoutTime: '11:00:00',
@@ -665,7 +706,12 @@ export const vacationRentalEntities: VacationRentalEntity[] = [
     occupancy: 2,
     bed: [{ numberOfBeds: 1, typeOfBed: 'Double', label: '150 x 200' }],
     tvSizeInches: 40,
-    priceRange: 'EUR 90-180',
+    pricing: {
+      currency: 'EUR',
+      indicativeFrom: 90,
+      indicativeTo: 180,
+      lastVerified: '2026-08-17'
+    },
     bathroomUnderfloorHeating: true,
     checkinTime: '15:00:00',
     checkoutTime: '11:00:00',
@@ -842,7 +888,12 @@ export const vacationRentalEntities: VacationRentalEntity[] = [
     occupancy: 2,
     bed: [{ numberOfBeds: 1, typeOfBed: 'King', label: '200 x 200' }],
     tvSizeInches: 50,
-    priceRange: 'EUR 90-180',
+    pricing: {
+      currency: 'EUR',
+      indicativeFrom: 90,
+      indicativeTo: 180,
+      lastVerified: '2026-08-17'
+    },
     bathroomUnderfloorHeating: false,
     checkinTime: '15:00:00',
     checkoutTime: '11:00:00',
@@ -1019,7 +1070,12 @@ export const vacationRentalEntities: VacationRentalEntity[] = [
       { numberOfBeds: 2, typeOfBed: 'Single', label: 'Bunk bed' }
     ],
     tvSizeInches: 60,
-    priceRange: 'EUR 140-350',
+    pricing: {
+      currency: 'EUR',
+      indicativeFrom: 140,
+      indicativeTo: 350,
+      lastVerified: '2026-08-17'
+    },
     bathroomUnderfloorHeating: false,
     checkinTime: '15:00:00',
     checkoutTime: '11:00:00',
@@ -1340,6 +1396,10 @@ export const vacationRentalEntitiesByKey = Object.fromEntries(
 export const vacationRentalEntitiesBySlug = Object.fromEntries(
   vacationRentalEntities.map((entity) => [entity.slug, entity])
 ) as Record<string, VacationRentalEntity>;
+
+export const vacationRentalEntitiesByToken = Object.fromEntries(
+  vacationRentalEntities.map((entity) => [entity.token, entity])
+) as Record<VacationRentalToken, VacationRentalEntity>;
 
 export function getVacationRentalBySlug(slug: string): VacationRentalEntity | undefined {
   return vacationRentalEntitiesBySlug[slug];
