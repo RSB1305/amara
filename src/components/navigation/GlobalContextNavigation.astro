@@ -197,7 +197,7 @@ const trustItems: ContextNavigationItem[] = [
  */
 const stayItems: ContextNavigationItem[] = [];
 
-const items = isStay
+const items = isStay || isLegalDocument
   ? stayItems
   : isTrustFamilyPage
     ? trustItems
