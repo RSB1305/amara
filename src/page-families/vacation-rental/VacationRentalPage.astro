@@ -1046,26 +1046,26 @@ const imageAlts = getVacationRentalImageAlts(rental, currentLang);
             {factRows.map(({ label, value, Icon, note }, index) => (
               <div
                 class:list={[
-                  'grid grid-cols-[2rem_minmax(0,1fr)] items-start gap-2.5 sm:grid-cols-[2.5rem_minmax(0,1fr)] sm:gap-4',
+                  'grid grid-cols-[2rem_minmax(0,1fr)] items-start gap-x-2.5 sm:grid-cols-[2.5rem_minmax(0,1fr)] sm:gap-x-4',
                   index >= 4 && 'col-span-2 sm:col-span-1'
                 ]}
               >
-                <span class="flex h-8 w-8 items-center justify-center rounded-full bg-surface-container-low text-primary sm:h-10 sm:w-10">
-                  <Icon class="h-5 w-5" stroke-width={1.5} aria-hidden="true" />
-                </span>
-                <div class="min-w-0 pt-0.5">
-                  <dt class="font-label text-[12px] font-semibold tracking-[0.04em] text-on-surface-variant">
+                <dt class="col-span-2 grid grid-cols-[2rem_minmax(0,1fr)] items-start gap-x-2.5 sm:grid-cols-[2.5rem_minmax(0,1fr)] sm:gap-x-4">
+                  <span class="flex h-8 w-8 items-center justify-center rounded-full bg-surface-container-low text-primary sm:h-10 sm:w-10" aria-hidden="true">
+                    <Icon class="h-5 w-5" stroke-width={1.5} />
+                  </span>
+                  <span class="min-w-0 pt-0.5 font-label text-[12px] font-semibold tracking-[0.04em] text-on-surface-variant">
                     {label}
-                  </dt>
-                  <dd class="am-text-subtitle mt-1 text-on-surface">
-                    {value}{note && <sup class="ml-0.5 text-[0.55em] align-super">*</sup>}
+                  </span>
+                </dt>
+                <dd class="am-text-subtitle col-start-2 mt-1 text-on-surface">
+                  {value}{note && <sup class="ml-0.5 text-[0.55em] align-super">*</sup>}
+                </dd>
+                {note && (
+                  <dd class="font-label col-start-2 mt-2 text-[10px] leading-relaxed tracking-[0.03em] text-on-surface-variant">
+                    {note}
                   </dd>
-                  {note && (
-                    <p class="font-label mt-2 text-[10px] leading-relaxed tracking-[0.03em] text-on-surface-variant">
-                      {note}
-                    </p>
-                  )}
-                </div>
+                )}
               </div>
             ))}
           </dl>
@@ -1096,18 +1096,18 @@ const imageAlts = getVacationRentalImageAlts(rental, currentLang);
 
             <dl class="mt-4 bg-surface-container-low px-5 sm:px-6">
               {scheduleRows.map(({ label, value, Icon }) => (
-                <div class="grid min-h-[4.5rem] grid-cols-[2.25rem_minmax(0,1fr)] items-center gap-4 border-b border-border-subtle py-4 first:border-t last:border-b-0 md:min-h-[5.75rem] md:py-5">
-                  <span class="flex h-9 w-9 items-center justify-center rounded-full bg-surface text-primary">
-                    <Icon class="h-[1.125rem] w-[1.125rem]" stroke-width={1.5} aria-hidden="true" />
-                  </span>
-                  <div class="min-w-0">
-                    <dt class="font-label text-[12px] font-semibold tracking-[0.04em] text-on-surface-variant">
+                <div class="grid min-h-[4.5rem] grid-cols-[2.25rem_minmax(0,1fr)] content-center gap-x-4 border-b border-border-subtle py-4 first:border-t last:border-b-0 md:min-h-[5.75rem] md:py-5">
+                  <dt class="col-span-2 grid grid-cols-[2.25rem_minmax(0,1fr)] items-center gap-x-4">
+                    <span class="flex h-9 w-9 items-center justify-center rounded-full bg-surface text-primary" aria-hidden="true">
+                      <Icon class="h-[1.125rem] w-[1.125rem]" stroke-width={1.5} />
+                    </span>
+                    <span class="min-w-0 font-label text-[12px] font-semibold tracking-[0.04em] text-on-surface-variant">
                       {label}
-                    </dt>
-                    <dd class="am-text-body mt-1 text-on-surface">
-                      {value}
-                    </dd>
-                  </div>
+                    </span>
+                  </dt>
+                  <dd class="am-text-body col-start-2 mt-1 text-on-surface">
+                    {value}
+                  </dd>
                 </div>
               ))}
             </dl>
@@ -1126,18 +1126,18 @@ const imageAlts = getVacationRentalImageAlts(rental, currentLang);
               </summary>
               <dl class="bg-surface-container-low px-5 sm:px-6">
                 {detailRows.map(({ label, value, Icon }) => (
-                  <div class="grid min-h-[4.5rem] grid-cols-[2.25rem_minmax(0,1fr)] items-center gap-4 border-b border-border-subtle py-4 last:border-b-0 md:min-h-[5.75rem] md:py-5">
-                    <span class="flex h-9 w-9 items-center justify-center rounded-full bg-surface text-primary">
-                      <Icon class="h-[1.125rem] w-[1.125rem]" stroke-width={1.5} aria-hidden="true" />
-                    </span>
-                    <div class="min-w-0">
-                      <dt class="font-label text-[12px] font-semibold tracking-[0.04em] text-on-surface-variant">
+                  <div class="grid min-h-[4.5rem] grid-cols-[2.25rem_minmax(0,1fr)] content-center gap-x-4 border-b border-border-subtle py-4 last:border-b-0 md:min-h-[5.75rem] md:py-5">
+                    <dt class="col-span-2 grid grid-cols-[2.25rem_minmax(0,1fr)] items-center gap-x-4">
+                      <span class="flex h-9 w-9 items-center justify-center rounded-full bg-surface text-primary" aria-hidden="true">
+                        <Icon class="h-[1.125rem] w-[1.125rem]" stroke-width={1.5} />
+                      </span>
+                      <span class="min-w-0 font-label text-[12px] font-semibold tracking-[0.04em] text-on-surface-variant">
                         {label}
-                      </dt>
-                      <dd class="am-text-body mt-1 text-on-surface">
-                        {value}
-                      </dd>
-                    </div>
+                      </span>
+                    </dt>
+                    <dd class="am-text-body col-start-2 mt-1 text-on-surface">
+                      {value}
+                    </dd>
                   </div>
                 ))}
               </dl>
