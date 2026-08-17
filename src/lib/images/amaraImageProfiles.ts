@@ -13,8 +13,12 @@ interface AmaraImageProfileConfig {
 
 export const amaraImageProfiles: Record<AmaraImageProfile, AmaraImageProfileConfig> = {
   hero: {
+    // 768 closes the gap between 640 and 960: a full-width hero on a mid-density
+    // phone needs just over 640 device pixels, which previously forced the browser
+    // up to the 960 variant. The background profile keeps its wider steps, because
+    // its images sit behind content where the extra step buys no visible fidelity.
     width: 1920,
-    widths: [480, 640, 960, 1280, 1536, 1920],
+    widths: [480, 640, 768, 960, 1280, 1536, 1920],
     sizes: '100vw',
     quality: 70
   },
