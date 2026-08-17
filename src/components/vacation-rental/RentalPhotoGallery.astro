@@ -1,0 +1,424 @@
+---
+import { getImage } from 'astro:assets';
+import { ChevronLeft, ChevronRight, Images, X } from '@lucide/astro';
+import AmaraImage from '../AmaraImage.astro';
+import { resolveAmaraImageSource } from '../../lib/images/amaraImageRegistry';
+import type { AmaraLanguage } from '../../types/seo';
+
+interface Props {
+  images: string[];
+  alt: string;
+  lang: AmaraLanguage;
+}
+
+interface GalleryCopy {
+  viewAll: string;
+  photos: string;
+  openPhoto: string;
+  dialogLabel: string;
+  close: string;
+  previous: string;
+  next: string;
+  photo: string;
+  of: string;
+}
+
+const copy: Record<AmaraLanguage, GalleryCopy> = {
+  en: {
+    viewAll: 'View all photos',
+    photos: 'photos',
+    openPhoto: 'Enlarge photo',
+    dialogLabel: 'Accommodation photo gallery',
+    close: 'Close gallery',
+    previous: 'Previous photo',
+    next: 'Next photo',
+    photo: 'Photo',
+    of: 'of'
+  },
+  de: {
+    viewAll: 'Alle Fotos ansehen',
+    photos: 'Fotos',
+    openPhoto: 'Foto vergrößern',
+    dialogLabel: 'Fotogalerie der Unterkunft',
+    close: 'Galerie schließen',
+    previous: 'Vorheriges Foto',
+    next: 'Nächstes Foto',
+    photo: 'Foto',
+    of: 'von'
+  },
+  es: {
+    viewAll: 'Ver todas las fotos',
+    photos: 'fotos',
+    openPhoto: 'Ampliar foto',
+    dialogLabel: 'Galería de fotos del alojamiento',
+    close: 'Cerrar galería',
+    previous: 'Foto anterior',
+    next: 'Foto siguiente',
+    photo: 'Foto',
+    of: 'de'
+  },
+  nl: {
+    viewAll: "Alle foto's bekijken",
+    photos: "foto's",
+    openPhoto: 'Foto vergroten',
+    dialogLabel: 'Fotogalerij van de accommodatie',
+    close: 'Galerij sluiten',
+    previous: 'Vorige foto',
+    next: 'Volgende foto',
+    photo: 'Foto',
+    of: 'van'
+  },
+  sv: {
+    viewAll: 'Visa alla bilder',
+    photos: 'bilder',
+    openPhoto: 'Förstora bild',
+    dialogLabel: 'Boendets bildgalleri',
+    close: 'Stäng galleriet',
+    previous: 'Föregående bild',
+    next: 'Nästa bild',
+    photo: 'Bild',
+    of: 'av'
+  }
+};
+
+const { images, alt, lang } = Astro.props;
+const labels = copy[lang];
+const previewImages = images.slice(1, 8);
+
+// These URLs are generated at build time but are not assigned to an <img>
+// until the lightbox opens. The browser therefore downloads only requested photos.
+const lightboxImages = await Promise.all(
+  images.map(async (src) => {
+    const optimized = await getImage({
+      src: resolveAmaraImageSource(src),
+      widths: [720, 1200, 1920],
+      sizes: '100vw',
+      quality: 76,
+      format: 'webp'
+    });
+
+    return {
+      src: optimized.src,
+      srcSet: optimized.srcSet.attribute
+    };
+  })
+);
+
+const serializedGallery = JSON.stringify({ images: lightboxImages, alt, labels }).replace(/</g, '\\u003c');
+---
+
+<div class="am-mobile-full-bleed mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-4" data-am-rental-gallery-grid>
+  {previewImages.map((image, index) => (
+    <button
+      type="button"
+      class="group relative aspect-[4/3] overflow-hidden bg-surface-container-low focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
+      data-am-rental-photo-open
+      data-am-photo-index={index + 1}
+      aria-haspopup="dialog"
+      aria-label={`${labels.openPhoto}: ${labels.photo} ${index + 2} ${labels.of} ${images.length}`}
+    >
+      <AmaraImage
+        src={image}
+        alt={`${alt} ${index + 2}`}
+        profile="gallery"
+        class="h-full w-full object-cover transition-transform duration-500 ease-out group-hover:scale-[1.025] motion-reduce:transition-none motion-reduce:group-hover:scale-100"
+        loading="lazy"
+        decoding="async"
+      />
+      <span class="pointer-events-none absolute inset-0 bg-on-surface/0 transition-colors duration-300 group-hover:bg-on-surface/10 motion-reduce:transition-none" aria-hidden="true"></span>
+    </button>
+  ))}
+
+  <button
+    type="button"
+    class="group flex aspect-[4/3] flex-col items-center justify-center gap-3 border border-border-subtle bg-surface-container-low px-6 text-center text-on-surface transition-colors duration-300 hover:bg-surface-container focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary motion-reduce:transition-none"
+    data-am-rental-photo-open
+    data-am-photo-index="0"
+    aria-haspopup="dialog"
+  >
+    <Images class="h-7 w-7 text-primary transition-transform duration-300 group-hover:scale-105 motion-reduce:transition-none motion-reduce:group-hover:scale-100" stroke-width={1.4} aria-hidden="true" />
+    <span class="font-label text-[12px] font-bold uppercase tracking-[0.12em]">{labels.viewAll}</span>
+    <span class="am-text-body text-on-surface-variant">{images.length} {labels.photos}</span>
+  </button>
+</div>
+
+<dialog
+  class="am-rental-gallery-dialog"
+  data-am-rental-gallery-dialog
+  aria-label={labels.dialogLabel}
+>
+  <div class="am-rental-gallery-shell">
+    <header class="am-rental-gallery-toolbar">
+      <p class="font-label text-[12px] font-semibold tracking-[0.08em] text-white/80" aria-live="polite" data-am-gallery-counter></p>
+      <button
+        type="button"
+        class="am-rental-gallery-control"
+        data-am-gallery-close
+        aria-label={labels.close}
+      >
+        <X class="h-6 w-6" stroke-width={1.5} aria-hidden="true" />
+      </button>
+    </header>
+
+    <div class="am-rental-gallery-stage" data-am-gallery-stage>
+      <img
+        class="am-rental-gallery-image"
+        data-am-gallery-image
+        alt=""
+        decoding="async"
+      />
+
+      <button
+        type="button"
+        class="am-rental-gallery-control am-rental-gallery-control--previous"
+        data-am-gallery-previous
+        aria-label={labels.previous}
+      >
+        <ChevronLeft class="h-7 w-7" stroke-width={1.4} aria-hidden="true" />
+      </button>
+      <button
+        type="button"
+        class="am-rental-gallery-control am-rental-gallery-control--next"
+        data-am-gallery-next
+        aria-label={labels.next}
+      >
+        <ChevronRight class="h-7 w-7" stroke-width={1.4} aria-hidden="true" />
+      </button>
+    </div>
+  </div>
+</dialog>
+
+<script is:inline type="application/json" data-am-rental-gallery-data set:html={serializedGallery}></script>
+
+<script>
+  interface LightboxImage {
+    src: string;
+    srcSet: string;
+  }
+
+  interface LightboxData {
+    images: LightboxImage[];
+    alt: string;
+    labels: {
+      photo: string;
+      of: string;
+    };
+  }
+
+  (() => {
+    const dialog = document.querySelector<HTMLDialogElement>('[data-am-rental-gallery-dialog]');
+    const dataNode = document.querySelector<HTMLScriptElement>('[data-am-rental-gallery-data]');
+    if (!dialog || !dataNode || dialog.dataset.amGalleryReady === 'true') return;
+
+    const image = dialog.querySelector<HTMLImageElement>('[data-am-gallery-image]');
+    const counter = dialog.querySelector<HTMLElement>('[data-am-gallery-counter]');
+    const stage = dialog.querySelector<HTMLElement>('[data-am-gallery-stage]');
+    const closeButton = dialog.querySelector<HTMLButtonElement>('[data-am-gallery-close]');
+    const previousButton = dialog.querySelector<HTMLButtonElement>('[data-am-gallery-previous]');
+    const nextButton = dialog.querySelector<HTMLButtonElement>('[data-am-gallery-next]');
+    const openers = document.querySelectorAll<HTMLButtonElement>('[data-am-rental-photo-open]');
+    if (!image || !counter || !stage || !closeButton || !previousButton || !nextButton || openers.length === 0) return;
+
+    const gallery = JSON.parse(dataNode.textContent ?? '{}') as LightboxData;
+    if (!Array.isArray(gallery.images) || gallery.images.length === 0) return;
+
+    dialog.dataset.amGalleryReady = 'true';
+    let currentIndex = 0;
+    let touchStartX: number | null = null;
+    let touchStartY: number | null = null;
+
+    const normalizeIndex = (index: number) =>
+      (index + gallery.images.length) % gallery.images.length;
+
+    const preloadNextImage = () => {
+      if (!window.matchMedia('(min-width: 768px)').matches || gallery.images.length < 2) return;
+      const next = gallery.images[normalizeIndex(currentIndex + 1)];
+      const preloader = new Image();
+      preloader.sizes = '100vw';
+      preloader.srcset = next.srcSet;
+      preloader.src = next.src;
+    };
+
+    const showImage = (index: number) => {
+      currentIndex = normalizeIndex(index);
+      const current = gallery.images[currentIndex];
+      image.removeAttribute('src');
+      image.removeAttribute('srcset');
+      image.sizes = '100vw';
+      image.srcset = current.srcSet;
+      image.src = current.src;
+      image.alt = `${gallery.alt} — ${gallery.labels.photo} ${currentIndex + 1} ${gallery.labels.of} ${gallery.images.length}`;
+      counter.textContent = `${currentIndex + 1} / ${gallery.images.length}`;
+      preloadNextImage();
+    };
+
+    const openGallery = (index: number) => {
+      showImage(index);
+      dialog.showModal();
+    };
+
+    openers.forEach((opener) => {
+      opener.addEventListener('click', () => {
+        openGallery(Number(opener.dataset.amPhotoIndex ?? 0));
+      });
+    });
+
+    closeButton.addEventListener('click', () => dialog.close());
+    previousButton.addEventListener('click', () => showImage(currentIndex - 1));
+    nextButton.addEventListener('click', () => showImage(currentIndex + 1));
+
+    dialog.addEventListener('keydown', (event) => {
+      if (event.key === 'ArrowLeft') {
+        event.preventDefault();
+        showImage(currentIndex - 1);
+      }
+      if (event.key === 'ArrowRight') {
+        event.preventDefault();
+        showImage(currentIndex + 1);
+      }
+    });
+
+    stage.addEventListener('touchstart', (event) => {
+      const touch = event.touches[0];
+      touchStartX = touch?.clientX ?? null;
+      touchStartY = touch?.clientY ?? null;
+    }, { passive: true });
+
+    stage.addEventListener('touchend', (event) => {
+      if (touchStartX === null || touchStartY === null) return;
+      const touch = event.changedTouches[0];
+      const deltaX = (touch?.clientX ?? touchStartX) - touchStartX;
+      const deltaY = (touch?.clientY ?? touchStartY) - touchStartY;
+      touchStartX = null;
+      touchStartY = null;
+
+      if (Math.abs(deltaX) < 50 || Math.abs(deltaX) <= Math.abs(deltaY)) return;
+      showImage(currentIndex + (deltaX < 0 ? 1 : -1));
+    }, { passive: true });
+
+    dialog.addEventListener('close', () => {
+      image.removeAttribute('src');
+      image.removeAttribute('srcset');
+    });
+  })();
+</script>
+
+<style>
+  .am-rental-gallery-dialog {
+    width: 100vw;
+    max-width: none;
+    height: 100dvh;
+    max-height: none;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    background: #11110f;
+    color: white;
+  }
+
+  .am-rental-gallery-dialog::backdrop {
+    background: rgb(17 17 15 / 0.96);
+  }
+
+  .am-rental-gallery-shell {
+    display: grid;
+    grid-template-rows: auto minmax(0, 1fr);
+    width: 100%;
+    height: 100%;
+  }
+
+  .am-rental-gallery-toolbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 4.5rem;
+    padding: 0.75rem 1rem 0.5rem 1.25rem;
+  }
+
+  .am-rental-gallery-stage {
+    position: relative;
+    display: flex;
+    min-height: 0;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem 4.25rem 2rem;
+  }
+
+  .am-rental-gallery-image {
+    display: block;
+    width: auto;
+    max-width: min(88rem, 100%);
+    height: auto;
+    max-height: 100%;
+    object-fit: contain;
+  }
+
+  .am-rental-gallery-control {
+    display: inline-flex;
+    width: 2.75rem;
+    height: 2.75rem;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgb(255 255 255 / 0.22);
+    border-radius: 999px;
+    background: rgb(255 255 255 / 0.08);
+    color: white;
+    transition: background-color 180ms ease, border-color 180ms ease;
+  }
+
+  .am-rental-gallery-control:hover {
+    border-color: rgb(255 255 255 / 0.42);
+    background: rgb(255 255 255 / 0.15);
+  }
+
+  .am-rental-gallery-control:focus-visible {
+    outline: 2px solid white;
+    outline-offset: 3px;
+  }
+
+  .am-rental-gallery-control--previous,
+  .am-rental-gallery-control--next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  .am-rental-gallery-control--previous {
+    left: 1rem;
+  }
+
+  .am-rental-gallery-control--next {
+    right: 1rem;
+  }
+
+  @media (max-width: 639px) {
+    .am-rental-gallery-toolbar {
+      min-height: 4rem;
+    }
+
+    .am-rental-gallery-stage {
+      padding: 0.5rem 0.75rem 5rem;
+    }
+
+    .am-rental-gallery-control--previous,
+    .am-rental-gallery-control--next {
+      top: auto;
+      bottom: 1rem;
+      transform: none;
+    }
+
+    .am-rental-gallery-control--previous {
+      left: calc(50% - 3.25rem);
+    }
+
+    .am-rental-gallery-control--next {
+      right: calc(50% - 3.25rem);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .am-rental-gallery-control {
+      transition: none;
+    }
+  }
+</style>

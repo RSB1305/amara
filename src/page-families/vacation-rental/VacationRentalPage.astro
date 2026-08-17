@@ -2,6 +2,7 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Navigation from '../../components/Navigation.astro';
 import AmaraImage from '../../components/AmaraImage.astro';
+import RentalPhotoGallery from '../../components/vacation-rental/RentalPhotoGallery.astro';
 import {
   buildVacationRentalSeo,
   familySurfConversionContent,
@@ -725,10 +726,10 @@ const locationLinks = locationLinkSpecs.flatMap(({ token, label }) => {
 const locationBody = locationLinks.length > 0
   ? t(ui.locationBodyWithGuides as LocalizedText)
   : t(ui.locationBodyWithoutGuides as LocalizedText);
-// The eight visible images are also the complete image set emitted in JSON-LD.
+// The eight initially visible images mirror the complete image set emitted in JSON-LD.
+// Additional lightbox images remain unloaded until a guest opens the gallery.
 const visibleImages = rental.images.slice(0, 8);
 const heroImage = visibleImages[0];
-const galleryImages = visibleImages.slice(1);
 ---
 
 <BaseLayout
@@ -816,16 +817,25 @@ const galleryImages = visibleImages.slice(1);
         </div>
 
         <figure class="am-mobile-full-bleed mt-12 aspect-[16/9] max-h-[720px] overflow-hidden bg-surface-container-low">
-          <AmaraImage
-            src={heroImage}
-            alt={t(rental.imageAlt)}
-            profile="hero"
-            sizes="(max-width: 639px) 100vw, (max-width: 767px) calc(100vw - 3rem), (max-width: 1535px) calc(100vw - 6rem), 1440px"
-            class="h-full w-full object-cover"
-            loading="eager"
-            fetchpriority="high"
-            decoding="async"
-          />
+          <button
+            type="button"
+            class="group block h-full w-full cursor-zoom-in focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[-2px] focus-visible:outline-primary"
+            data-am-rental-photo-open
+            data-am-photo-index="0"
+            aria-haspopup="dialog"
+            aria-label={`${t(ui.galleryTitle as LocalizedText)}: ${rental.name}`}
+          >
+            <AmaraImage
+              src={heroImage}
+              alt={t(rental.imageAlt)}
+              profile="hero"
+              sizes="(max-width: 639px) 100vw, (max-width: 767px) calc(100vw - 3rem), (max-width: 1535px) calc(100vw - 6rem), 1440px"
+              class="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.01] motion-reduce:transition-none motion-reduce:group-hover:scale-100"
+              loading="eager"
+              fetchpriority="high"
+              decoding="async"
+            />
+          </button>
         </figure>
       </section>
 
@@ -929,20 +939,7 @@ const galleryImages = visibleImages.slice(1);
         <h2 id="rental-gallery-title" class="am-text-title text-on-surface">
           {t(ui.galleryTitle as LocalizedText)}
         </h2>
-        <div class="am-mobile-full-bleed mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
-          {galleryImages.map((image, index) => (
-            <figure class="aspect-[4/3] overflow-hidden bg-surface-container-low">
-              <AmaraImage
-                src={image}
-                alt={`${t(rental.imageAlt)} ${index + 2}`}
-                profile="gallery"
-                class="h-full w-full object-cover"
-                loading="lazy"
-                decoding="async"
-              />
-            </figure>
-          ))}
-        </div>
+        <RentalPhotoGallery images={rental.images} alt={t(rental.imageAlt)} lang={currentLang} />
       </section>
 
       <section class="py-12 md:py-16 border-b border-border-subtle" aria-labelledby="rental-amenities-title">
