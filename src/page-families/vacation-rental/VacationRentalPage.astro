@@ -632,13 +632,16 @@ const detailRows = [
   { label: t(ui.labels.view as LocalizedText), value: t(rental.viewNote) },
   { label: t(ui.labels.access as LocalizedText), value: t(rental.accessNote) },
   { label: t(ui.labels.hostLanguages as LocalizedText), value: t(localizedHostLanguages) },
+  ...(parkingValue
+    ? [{ label: t(ui.labels.parking as LocalizedText), value: localizedParking }]
+    : [])
+];
+
+const scheduleRows = [
   { label: t(ui.labels.checkin as LocalizedText), value: rental.checkinTime.slice(0, 5) },
   { label: t(ui.labels.checkout as LocalizedText), value: rental.checkoutTime.slice(0, 5) },
   ...(hasAmenity('selfCheckinCheckout')
     ? [{ label: t(ui.labels.selfCheckin as LocalizedText), value: t(ui.labels.available as LocalizedText) }]
-    : []),
-  ...(parkingValue
-    ? [{ label: t(ui.labels.parking as LocalizedText), value: localizedParking }]
     : [])
 ];
 
@@ -873,6 +876,19 @@ const heroImage = visibleImages[0];
             >
               {t(rental.description)}
             </p>
+
+            <dl class="mt-8 grid gap-4">
+              {scheduleRows.map((row) => (
+                <div class="grid gap-2 border-t border-border-subtle pt-4 sm:grid-cols-[12rem_minmax(0,1fr)]">
+                  <dt class="font-label text-[11px] font-bold uppercase tracking-[0.14em] text-on-surface-variant">
+                    {row.label}
+                  </dt>
+                  <dd class="am-text-body text-on-surface">
+                    {row.value}
+                  </dd>
+                </div>
+              ))}
+            </dl>
           </div>
 
           <dl class="grid gap-4">
