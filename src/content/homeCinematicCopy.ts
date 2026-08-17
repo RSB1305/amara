@@ -18,11 +18,11 @@ export const cinematicHeroKicker: CopyRow = {
 };
 
 export const cinematicHeroLead: CopyRow = {
-  en: 'Frigiliana, Nerja and Tarifa. Three very different ways to stay in Andalusia.',
-  de: 'Frigiliana, Nerja und Tarifa. Drei ganz unterschiedliche Arten, Andalusien zu erleben.',
-  es: 'Frigiliana, Nerja y Tarifa. Tres formas muy distintas de disfrutar Andalucía.',
-  nl: 'Frigiliana, Nerja en Tarifa. Drie heel verschillende manieren om in Andalusië te verblijven.',
-  sv: 'Frigiliana, Nerja och Tarifa. Tre helt olika sätt att bo i Andalusien.'
+  en: 'Between whitewashed lanes, the Mediterranean and the Atlantic. Six distinctive stays for discovering Andalusia at your own pace.',
+  de: 'Zwischen weißen Gassen, Mittelmeer und Atlantik. Sechs besondere Unterkünfte für euren eigenen Rhythmus in Andalusien.',
+  es: 'Entre callejuelas blancas, el Mediterráneo y el Atlántico. Seis alojamientos con personalidad propia para vivir Andalucía a vuestro ritmo.',
+  nl: 'Tussen witgekalkte straatjes, de Middellandse Zee en de Atlantische Oceaan. Zes bijzondere verblijven om Andalusië in jullie eigen ritme te beleven.',
+  sv: 'Mellan vitkalkade gränder, Medelhavet och Atlanten. Sex personliga boenden för att uppleva Andalusien i er egen takt.'
 };
 
 export const cinematicHeroImageAlt: CopyRow = {
@@ -42,19 +42,19 @@ export const cinematicScrollHint: CopyRow = {
 };
 
 export const cinematicPhilosophyPart1: CopyRow = {
-  en: 'Every stay is different.',
-  de: 'Jede Unterkunft ist individuell.',
-  es: 'Cada alojamiento es distinto.',
-  nl: 'Elk verblijf is anders.',
-  sv: 'Varje boende är unikt.'
+  en: 'Six stays. Each with a story of its own.',
+  de: 'Sechs Unterkünfte. Jede mit ihrer eigenen Geschichte.',
+  es: 'Seis alojamientos. Cada uno con su propia historia.',
+  nl: 'Zes verblijven. Elk met een eigen verhaal.',
+  sv: 'Sex boenden. Alla med sin egen historia.'
 };
 
 export const cinematicPhilosophyAccent: CopyRow = {
-  en: 'That is exactly the point.',
-  de: 'Genau das soll so sein.',
-  es: 'Y así debe ser.',
-  nl: 'Precies zoals het hoort.',
-  sv: 'Precis som det ska vara.'
+  en: 'Which one will become part of yours?',
+  de: 'Welche wird Teil eurer?',
+  es: '¿Cuál formará parte de la vuestra?',
+  nl: 'Welk wordt deel van jullie verhaal?',
+  sv: 'Vilket blir en del av er?'
 };
 
 export const cinematicPhilosophyLabel: CopyRow = {
@@ -66,11 +66,11 @@ export const cinematicPhilosophyLabel: CopyRow = {
 };
 
 export const cinematicPhilosophyP1: CopyRow = {
-  en: 'AMARA is not a hotel chain. We look after a small number of individual holiday stays in Frigiliana, Nerja and Tarifa. Some sit among historic village lanes; others are close to the sea. We manage every one ourselves and know each of them well.',
-  de: 'AMARA ist keine Hotelkette. Wir vermieten eine kleine Anzahl individuell eingerichteter Ferienunterkünfte in Frigiliana, Nerja und Tarifa. Manche liegen mitten in historischen Gassen, andere fast direkt am Meer. Gemeinsam ist ihnen, dass wir sie selbst betreuen und sehr genau kennen.',
-  es: 'AMARA no es una cadena hotelera. Gestionamos un pequeño número de alojamientos con personalidad propia en Frigiliana, Nerja y Tarifa. Algunos están entre calles históricas; otros, muy cerca del mar. Los llevamos nosotros mismos y conocemos bien cada uno.',
-  nl: 'AMARA is geen hotelketen. We beheren een klein aantal eigenzinnige vakantieverblijven in Frigiliana, Nerja en Tarifa. Sommige liggen midden in historische straatjes, andere vlak bij zee. We zorgen er zelf voor en kennen elk verblijf door en door.',
-  sv: 'AMARA är ingen hotellkedja. Vi tar hand om ett litet antal personliga semesterboenden i Frigiliana, Nerja och Tarifa. Några ligger mitt bland historiska gränder, andra nära havet. Vi sköter dem själva och känner varje boende väl.'
+  en: 'AMARA brings together six individually furnished holiday stays in Frigiliana, Nerja and Tarifa — among whitewashed old-town lanes, along the Mediterranean coast and beneath Tarifa’s wide Atlantic sky. We look after every stay ourselves, know its story and its character, and want you to feel at home from the moment you arrive.',
+  de: 'AMARA vereint sechs individuell eingerichtete Ferienunterkünfte in Frigiliana, Nerja und Tarifa – zwischen weißen Altstadtgassen, mediterraner Küste und weitem Atlantikhimmel. Wir betreuen jede Unterkunft selbst, kennen ihre Geschichte und ihre Eigenheiten und möchten, dass ihr euch vom ersten Moment an angekommen fühlt.',
+  es: 'AMARA reúne seis alojamientos vacacionales con personalidad propia en Frigiliana, Nerja y Tarifa: entre callejuelas blancas, la costa mediterránea y el inmenso cielo atlántico de Tarifa. Cuidamos personalmente cada alojamiento, conocemos su historia y sus particularidades y queremos que os sintáis en casa desde el primer momento.',
+  nl: 'AMARA brengt zes individueel ingerichte vakantieverblijven in Frigiliana, Nerja en Tarifa samen — tussen witgekalkte straatjes, aan de Middellandse Zeekust en onder de weidse Atlantische hemel van Tarifa. We beheren elk verblijf zelf, kennen het verhaal en de eigenheid ervan en willen dat jullie je vanaf het eerste moment thuis voelen.',
+  sv: 'AMARA samlar sex individuellt inredda semesterboenden i Frigiliana, Nerja och Tarifa — bland vitkalkade gränder, längs Medelhavskusten och under Tarifas vida atlanthimmel. Vi tar hand om varje boende själva, känner dess historia och karaktär och vill att ni ska känna er hemma från första stund.'
 };
 
 export const cinematicPhilosophyP2: CopyRow = {
@@ -270,11 +270,11 @@ export const cinematicApartments: CinematicAptDef[] = [
       sv: 'Frigiliana • 2 gäster'
     },
     desc: {
-      en: 'Best for one or two nights: a bedroom, kitchenette and only one step at the entrance. No terrace and no full kitchen.',
-      de: 'Ideal für ein oder zwei Nächte: Schlafzimmer, Teeküche und nur eine Stufe am Hauseingang. Keine Terrasse und keine vollständige Küche.',
-      es: 'Pensada para una o dos noches: dormitorio, pequeña zona de cocina y un único escalón en la entrada. No tiene terraza ni cocina completa.',
-      nl: 'Handig voor één of twee nachten: een slaapkamer, kitchenette en slechts één trede bij de ingang. Geen privéterras en geen volledige keuken.',
-      sv: 'Passar bäst för en eller två nätter: sovrum, pentry och bara ett trappsteg vid entrén. Ingen terrass och inget komplett kök.'
+      en: 'Made for one or two nights in Frigiliana’s old town: a calm bedroom, a small coffee-and-tea kitchenette and just one step at the entrance — compact, easy and close to village life.',
+      de: 'Für ein oder zwei Nächte in Frigilianas Altstadt: ein ruhiges Schlafzimmer, eine kleine Teeküche und nur eine Stufe am Eingang – kompakt, unkompliziert und mitten im Dorfleben.',
+      es: 'Pensada para una o dos noches en el casco antiguo de Frigiliana: un dormitorio tranquilo, una pequeña zona de café y té y un único escalón en la entrada. Compacta, sencilla y en plena vida del pueblo.',
+      nl: 'Gemaakt voor één of twee nachten in de oude kern van Frigiliana: een rustige slaapkamer, een kleine koffie- en theehoek en slechts één trede bij de ingang. Compact, eenvoudig en midden in het dorpsleven.',
+      sv: 'Skapad för en eller två nätter i Frigilianas gamla stad: ett lugnt sovrum, en liten kaffe- och teavdelning och bara ett trappsteg vid entrén. Kompakt, enkelt och mitt i bylivet.'
     },
     imageAlt: {
       en: 'Bright bedroom with a green wooden window and brick arches in AMARA Farah, Frigiliana',
