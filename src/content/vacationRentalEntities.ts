@@ -61,6 +61,10 @@ export interface VacationRentalEntity {
   bedrooms: number;
   bathrooms: number;
   rooms?: number;
+  /** Usable interior floor area in square metres. */
+  interiorAreaSqm?: number;
+  /** Private terrace, patio or balcony area in square metres. */
+  exteriorAreaSqm?: number;
   occupancy: number;
   bed: VacationRentalBed[];
   tvSizeInches: 40 | 50 | 60;
@@ -207,6 +211,7 @@ export const vacationRentalEntities: VacationRentalEntity[] = [
     bedrooms: 1,
     bathrooms: 1,
     rooms: 2,
+    interiorAreaSqm: 19,
     occupancy: 2,
     bed: [{ numberOfBeds: 1, typeOfBed: 'Queen', label: '160 x 200' }],
     tvSizeInches: 40,
@@ -367,6 +372,8 @@ export const vacationRentalEntities: VacationRentalEntity[] = [
     bedrooms: 1,
     bathrooms: 1,
     rooms: 3,
+    interiorAreaSqm: 70,
+    exteriorAreaSqm: 39,
     occupancy: 2,
     bed: [{ numberOfBeds: 1, typeOfBed: 'Queen', label: '160 x 200' }],
     tvSizeInches: 40,
@@ -544,6 +551,8 @@ export const vacationRentalEntities: VacationRentalEntity[] = [
     bedrooms: 1,
     bathrooms: 1,
     rooms: 3,
+    interiorAreaSqm: 33,
+    exteriorAreaSqm: 20,
     occupancy: 2,
     bed: [{ numberOfBeds: 1, typeOfBed: 'King', label: '180 x 200' }],
     tvSizeInches: 40,
@@ -717,6 +726,8 @@ export const vacationRentalEntities: VacationRentalEntity[] = [
     bedrooms: 1,
     bathrooms: 1,
     rooms: 3,
+    interiorAreaSqm: 35,
+    exteriorAreaSqm: 64,
     occupancy: 2,
     bed: [{ numberOfBeds: 1, typeOfBed: 'Double', label: '150 x 200' }],
     tvSizeInches: 40,
@@ -734,18 +745,18 @@ export const vacationRentalEntities: VacationRentalEntity[] = [
       'https://www.airbnb.com/rooms/643486091667223317'
     ],
     seoTitle: {
-      en: 'Maha: Frigiliana apartment with a 60 m² terrace | AMARA',
-      de: 'Maha: Apartment mit 60 m² Terrasse, Frigiliana | AMARA',
-      es: 'Maha: apartamento en Frigiliana con terraza de 60 m² | AMARA',
-      nl: 'Maha: appartement Frigiliana met terras van 60 m² | AMARA',
-      sv: 'Maha: lägenhet i Frigiliana med 60 m² terrass | AMARA'
+      en: 'Maha: Frigiliana apartment with a 64 m² terrace | AMARA',
+      de: 'Maha: Apartment mit 64 m² Terrasse, Frigiliana | AMARA',
+      es: 'Maha: apartamento en Frigiliana con terraza de 64 m² | AMARA',
+      nl: 'Maha: appartement Frigiliana met terras van 64 m² | AMARA',
+      sv: 'Maha: lägenhet i Frigiliana med 64 m² terrass | AMARA'
     },
     seoDescription: {
-      en: 'A 60 m² terrace with an outdoor kitchen, highest in the house: a Frigiliana apartment for 2 with the widest view.',
-      de: '60 m² Terrasse mit Außenküche, ganz oben im Haus: Ferienwohnung in Frigiliana für 2 mit der weitesten Aussicht.',
-      es: 'Terraza de 60 m² con cocina exterior, en lo más alto de la casa: apartamento en Frigiliana para 2 con las vistas más amplias.',
-      nl: 'Terras van 60 m² met buitenkeuken, het hoogst in huis: appartement in Frigiliana voor 2 met het verste uitzicht.',
-      sv: '60 m² terrass med utekök, högst upp i huset: lägenhet i Frigiliana för 2 med den vidaste utsikten.'
+      en: 'A 64 m² terrace with an outdoor kitchen, highest in the house: a Frigiliana apartment for 2 with the widest view.',
+      de: '64 m² Terrasse mit Außenküche, ganz oben im Haus: Ferienwohnung in Frigiliana für 2 mit der weitesten Aussicht.',
+      es: 'Terraza de 64 m² con cocina exterior, en lo más alto de la casa: apartamento en Frigiliana para 2 con las vistas más amplias.',
+      nl: 'Terras van 64 m² met buitenkeuken, het hoogst in huis: appartement in Frigiliana voor 2 met het verste uitzicht.',
+      sv: '64 m² terrass med utekök, högst upp i huset: lägenhet i Frigiliana för 2 med den vidaste utsikten.'
     },
     eyebrow: {
       en: 'Large private terrace',
@@ -755,18 +766,18 @@ export const vacationRentalEntities: VacationRentalEntity[] = [
       sv: 'Stor privat terrass'
     },
     headline: {
-      en: 'Sixty square metres of open-air terrace',
-      de: 'Sechzig Quadratmeter Terrasse unter freiem Himmel',
-      es: 'Sesenta metros cuadrados de terraza al aire libre',
-      nl: 'Zestig vierkante meter terras onder de blote hemel',
-      sv: 'Sextio kvadratmeter terrass under bar himmel'
+      en: 'Sixty-four square metres of open-air terrace',
+      de: 'Vierundsechzig Quadratmeter Terrasse unter freiem Himmel',
+      es: 'Sesenta y cuatro metros cuadrados de terraza al aire libre',
+      nl: 'Vierenzestig vierkante meter terras onder de blote hemel',
+      sv: 'Sextiofyra kvadratmeter terrass under bar himmel'
     },
     lead: {
-      en: 'Maha’s terrace measures 60 square metres, open to the sky, with parasols and partly shaded by sails. Plus a small outdoor kitchen — if you like cooking outside, this is where you can.',
-      de: 'Mahas Terrasse misst 60 Quadratmeter – offen zum Himmel, mit Sonnenschirmen und teilweise von Sonnensegeln beschattet. Dazu eine kleine Außenküche: Wer draußen kochen möchte, kann es hier.',
-      es: 'La terraza de Maha mide 60 metros cuadrados, abierta al cielo, con sombrillas y en parte cubierta por velas de sombra. Y una pequeña cocina exterior: quien quiera cocinar al aire libre, aquí puede.',
-      nl: 'Het terras van Maha meet 60 vierkante meter, open naar de hemel, met parasols en deels beschaduwd door schaduwdoeken. Plus een kleine buitenkeuken: wie graag buiten kookt, kan dat hier.',
-      sv: 'Mahas terrass mäter 60 kvadratmeter, öppen mot himlen, med parasoll och delvis skuggad av solsegel. Dessutom ett litet utekök: den som vill laga mat utomhus kan göra det här.'
+      en: 'Maha’s terrace measures 64 square metres, open to the sky, with parasols and partly shaded by sails. Plus a small outdoor kitchen — if you like cooking outside, this is where you can.',
+      de: 'Mahas Terrasse misst 64 Quadratmeter – offen zum Himmel, mit Sonnenschirmen und teilweise von Sonnensegeln beschattet. Dazu eine kleine Außenküche: Wer draußen kochen möchte, kann es hier.',
+      es: 'La terraza de Maha mide 64 metros cuadrados, abierta al cielo, con sombrillas y en parte cubierta por velas de sombra. Y una pequeña cocina exterior: quien quiera cocinar al aire libre, aquí puede.',
+      nl: 'Het terras van Maha meet 64 vierkante meter, open naar de hemel, met parasols en deels beschaduwd door schaduwdoeken. Plus een kleine buitenkeuken: wie graag buiten kookt, kan dat hier.',
+      sv: 'Mahas terrass mäter 64 kvadratmeter, öppen mot himlen, med parasoll och delvis skuggad av solsegel. Dessutom ett litet utekök: den som vill laga mat utomhus kan göra det här.'
     },
     description: {
       en: 'Here the terrace is the actual living room. All three AMARA terrace apartments have a hammock, two loungers and an outdoor shower — but Maha gives you more room around them, plus an outdoor kitchen the others do not have. Maha sits highest in the house and has the widest view. In exchange the bed is 150 centimetres, narrower than in Lounis or Zaid, and there is no washing machine.',
@@ -776,11 +787,11 @@ export const vacationRentalEntities: VacationRentalEntity[] = [
       sv: 'Här är terrassen det egentliga vardagsrummet. Alla tre AMARA-lägenheter med terrass har hängmatta, två solsängar och utedusch — hos Maha finns det mycket mer plats runt dem, plus ett utekök som de andra saknar. Maha ligger högst i huset och har den vidaste utsikten. I gengäld är sängen 150 centimeter, smalare än i Lounis och Zaid, och någon tvättmaskin finns inte.'
     },
     highlights: {
-      en: ['60 m² terrace, open to the sky', 'Outdoor kitchen for cooking outside', 'The widest view in the house'],
-      de: ['60 m² Terrasse unter freiem Himmel', 'Außenküche zum Kochen im Freien', 'Die weiteste Aussicht im Haus'],
-      es: ['Terraza de 60 m² abierta al cielo', 'Cocina exterior para cocinar fuera', 'Las vistas más amplias de la casa'],
-      nl: ['Terras van 60 m², open naar de hemel', 'Buitenkeuken om buiten te koken', 'Het verste uitzicht van het huis'],
-      sv: ['60 m² terrass under bar himmel', 'Utekök för matlagning utomhus', 'Husets vidaste utsikt']
+      en: ['64 m² terrace, open to the sky', 'Outdoor kitchen for cooking outside', 'The widest view in the house'],
+      de: ['64 m² Terrasse unter freiem Himmel', 'Außenküche zum Kochen im Freien', 'Die weiteste Aussicht im Haus'],
+      es: ['Terraza de 64 m² abierta al cielo', 'Cocina exterior para cocinar fuera', 'Las vistas más amplias de la casa'],
+      nl: ['Terras van 64 m², open naar de hemel', 'Buitenkeuken om buiten te koken', 'Het verste uitzicht van het huis'],
+      sv: ['64 m² terrass under bar himmel', 'Utekök för matlagning utomhus', 'Husets vidaste utsikt']
     },
     accessFacts: {
       outsideStepsBeforeEntrance: 0,
@@ -814,11 +825,11 @@ export const vacationRentalEntities: VacationRentalEntity[] = [
       sv: 'Fullt kök'
     },
     outdoorNote: {
-      en: '60 m² terrace with outdoor kitchen',
-      de: '60 m² Terrasse mit Außenküche',
-      es: 'Terraza de 60 m² con cocina exterior',
-      nl: 'Terras van 60 m² met buitenkeuken',
-      sv: '60 m² terrass med utekök'
+      en: '64 m² terrace with outdoor kitchen',
+      de: '64 m² Terrasse mit Außenküche',
+      es: 'Terraza de 64 m² con cocina exterior',
+      nl: 'Terras van 64 m² met buitenkeuken',
+      sv: '64 m² terrass med utekök'
     },
     viewNote: {
       en: 'Groves and sea, from the top of the house',
@@ -1078,6 +1089,7 @@ export const vacationRentalEntities: VacationRentalEntity[] = [
     bedrooms: 2,
     bathrooms: 2,
     rooms: 4,
+    interiorAreaSqm: 75,
     occupancy: 4,
     bed: [
       { numberOfBeds: 1, typeOfBed: 'Double', label: '150 x 200' },

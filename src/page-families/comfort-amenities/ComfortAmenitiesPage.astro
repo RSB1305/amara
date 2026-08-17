@@ -68,6 +68,12 @@ const buildExistingAmenityRows = (property: Property): AmenityRow[] => [
   ...(property.specs.beds
     ? [{ icon: 'bed' as const, label: page.inventory.labels.beds, value: property.specs.beds[currentLang] }]
     : []),
+  ...(property.specs.interiorArea
+    ? [{ icon: 'living-room' as const, label: page.inventory.labels.interiorArea, value: property.specs.interiorArea }]
+    : []),
+  ...(property.specs.exteriorArea
+    ? [{ icon: 'outdoor' as const, label: page.inventory.labels.exteriorArea, value: property.specs.exteriorArea }]
+    : []),
   {
     icon: 'price',
     label: page.inventory.labels.price,
@@ -152,6 +158,12 @@ const buildKeyFactRows = (property: Property): AmenityRow[] => [
     : []),
   ...(property.specs.beds
     ? [{ icon: 'bed' as const, label: page.inventory.labels.beds, value: property.specs.beds[currentLang] }]
+    : []),
+  ...(property.specs.interiorArea
+    ? [{ icon: 'living-room' as const, label: page.inventory.labels.interiorArea, value: property.specs.interiorArea }]
+    : []),
+  ...(property.specs.exteriorArea
+    ? [{ icon: 'outdoor' as const, label: page.inventory.labels.exteriorArea, value: property.specs.exteriorArea }]
     : []),
   {
     icon: 'price',

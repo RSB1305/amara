@@ -223,6 +223,20 @@ const ui = {
       nl: 'Badkamers',
       sv: 'Badrum'
     },
+    interiorArea: {
+      en: 'Interior space',
+      de: 'Innenfläche',
+      es: 'Superficie interior',
+      nl: 'Binnenoppervlakte',
+      sv: 'Inomhusyta'
+    },
+    exteriorArea: {
+      en: 'Outdoor space',
+      de: 'Außenfläche',
+      es: 'Superficie exterior',
+      nl: 'Buitenoppervlakte',
+      sv: 'Utomhusyta'
+    },
     rooms: {
       en: 'Rooms (excluding bathrooms)',
       de: 'Räume (ohne Badezimmer)',
@@ -626,6 +640,12 @@ const factRows = [
   { label: t(ui.labels.bathrooms as LocalizedText), value: String(rental.bathrooms), note: undefined },
   ...(typeof rental.rooms === 'number'
     ? [{ label: t(ui.labels.rooms as LocalizedText), value: String(rental.rooms), note: undefined }]
+    : []),
+  ...(rental.interiorAreaSqm
+    ? [{ label: t(ui.labels.interiorArea as LocalizedText), value: `${rental.interiorAreaSqm} m²`, note: undefined }]
+    : []),
+  ...(rental.exteriorAreaSqm
+    ? [{ label: t(ui.labels.exteriorArea as LocalizedText), value: `${rental.exteriorAreaSqm} m²`, note: undefined }]
     : []),
   {
     label: t(ui.labels.pricePerNight as LocalizedText),

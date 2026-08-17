@@ -17,6 +17,8 @@ type PropertySpecs = {
   maxOccupancy: LocalizedText;
   bed?: string;
   beds?: LocalizedText;
+  interiorArea?: string;
+  exteriorArea?: string;
   price: LocalizedText;
   accessNote: LocalizedText;
   parking?: LocalizedText;
@@ -79,6 +81,8 @@ export const comfortAmenitiesCopy: Record<
         maxOccupancy: string;
         bed: string;
         beds: string;
+        interiorArea: string;
+        exteriorArea: string;
         price: string;
         accessNote: string;
         parking: string;
@@ -127,6 +131,8 @@ export const comfortAmenitiesCopy: Record<
         maxOccupancy: 'Max occupancy',
         bed: 'Bed',
         beds: 'Beds',
+        interiorArea: 'Interior space',
+        exteriorArea: 'Outdoor space',
         price: 'Price per night',
         accessNote: 'Access note',
         parking: 'Parking',
@@ -174,6 +180,8 @@ export const comfortAmenitiesCopy: Record<
         maxOccupancy: 'Maximale Belegung',
         bed: 'Bett',
         beds: 'Betten',
+        interiorArea: 'Innenfläche',
+        exteriorArea: 'Außenfläche',
         price: 'Preis pro Nacht',
         accessNote: 'Zugang',
         parking: 'Parken',
@@ -221,6 +229,8 @@ export const comfortAmenitiesCopy: Record<
         maxOccupancy: 'Ocupación máxima',
         bed: 'Cama',
         beds: 'Camas',
+        interiorArea: 'Superficie interior',
+        exteriorArea: 'Superficie exterior',
         price: 'Precio por noche',
         accessNote: 'Acceso',
         parking: 'Aparcamiento',
@@ -268,6 +278,8 @@ export const comfortAmenitiesCopy: Record<
         maxOccupancy: 'Maximale bezetting',
         bed: 'Bed',
         beds: 'Bedden',
+        interiorArea: 'Binnenoppervlakte',
+        exteriorArea: 'Buitenoppervlakte',
         price: 'Prijs per nacht',
         accessNote: 'Toegang',
         parking: 'Parkeren',
@@ -315,6 +327,8 @@ export const comfortAmenitiesCopy: Record<
         maxOccupancy: 'Max antal gäster',
         bed: 'Säng',
         beds: 'Sängar',
+        interiorArea: 'Inomhusyta',
+        exteriorArea: 'Utomhusyta',
         price: 'Pris per natt',
         accessNote: 'Åtkomst',
         parking: 'Parkering',
@@ -522,6 +536,8 @@ function buildComfortProperty(rental: VacationRentalEntity): PropertyEntry {
       ...(rental.bed.length === 1
         ? { bed: bedSummary.en }
         : { beds: bedSummary }),
+      ...(rental.interiorAreaSqm ? { interiorArea: `${rental.interiorAreaSqm} m²` } : {}),
+      ...(rental.exteriorAreaSqm ? { exteriorArea: `${rental.exteriorAreaSqm} m²` } : {}),
       price: Object.fromEntries(
         languages.map((lang) => [
           lang,

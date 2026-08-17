@@ -377,7 +377,7 @@ export const cinematicApartments: CinematicAptDef[] = [
     name: 'Maha',
     subtitle: {
       en: 'Old Town Apartment',
-      de: '60 m² private Terrasse',
+      de: '64 m² private Terrasse',
       es: 'Apartamento en casco antiguo',
       nl: 'Appartement in oude stad',
       sv: 'Lägenhet i gamla stan'
@@ -390,11 +390,11 @@ export const cinematicApartments: CinematicAptDef[] = [
       sv: 'Frigiliana • 2 gäster'
     },
     desc: {
-      en: 'The largest terrace in the house: 60 m² with an outdoor kitchen and the widest view. Maha sits at the top of Casa AMARA.',
+      en: 'The largest terrace in the house: 64 m² with an outdoor kitchen and the widest view. Maha sits at the top of Casa AMARA.',
       de: 'Die größte Terrasse im Haus, mit Außenküche und weitem Blick. Das Apartment liegt ganz oben in Casa AMARA.',
-      es: 'La terraza más grande de la casa: 60 m², cocina exterior y las vistas más amplias. Maha ocupa la parte más alta de Casa AMARA.',
-      nl: 'Het grootste terras van het huis: 60 m², met buitenkeuken en het ruimste uitzicht. Maha ligt helemaal boven in Casa AMARA.',
-      sv: 'Husets största terrass: 60 m² med utekök och den vidaste utsikten. Maha ligger högst upp i Casa AMARA.'
+      es: 'La terraza más grande de la casa: 64 m², cocina exterior y las vistas más amplias. Maha ocupa la parte más alta de Casa AMARA.',
+      nl: 'Het grootste terras van het huis: 64 m², met buitenkeuken en het ruimste uitzicht. Maha ligt helemaal boven in Casa AMARA.',
+      sv: 'Husets största terrass: 64 m² med utekök och den vidaste utsikten. Maha ligger högst upp i Casa AMARA.'
     },
     imageAlt: {
       en: 'Shaded private terrace with an outdoor sofa at AMARA Maha in Frigiliana',

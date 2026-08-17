@@ -184,7 +184,7 @@ export const frigilianaWinterStaysContent: Record<
         },
         maha: {
           title: 'Maha',
-          text: 'Alongside its pellet stove, Maha has an approximately 60 m² private terrace and an outdoor kitchen, giving you particularly generous private outdoor space for a longer winter holiday.',
+          text: 'Alongside its pellet stove, Maha has a 64 m² private terrace and an outdoor kitchen, giving you particularly generous private outdoor space for a longer winter holiday.',
           cta: 'View Maha',
           imageAlt: 'Large private terrace and outdoor kitchen at AMARA Maha in Frigiliana'
         }
@@ -293,7 +293,7 @@ export const frigilianaWinterStaysContent: Record<
         },
         maha: {
           title: 'Maha',
-          text: 'Maha bietet zusätzlich zum Pelletofen eine private Terrasse von rund 60 m² und eine Outdoor-Küche. Gerade für einen längeren Winterurlaub bietet sie besonders viel privaten Außenraum.',
+          text: 'Maha bietet zusätzlich zum Pelletofen eine 64 m² große private Terrasse und eine Outdoor-Küche. Gerade für einen längeren Winterurlaub bietet sie besonders viel privaten Außenraum.',
           cta: 'Maha ansehen',
           imageAlt: 'Große private Terrasse mit Outdoor-Küche von AMARA Maha in Frigiliana'
         }
@@ -402,7 +402,7 @@ export const frigilianaWinterStaysContent: Record<
         },
         maha: {
           title: 'Maha',
-          text: 'Además de la estufa de pellets, Maha ofrece una terraza privada de unos 60 m² y cocina exterior, con mucho espacio exterior privado para unas vacaciones de invierno algo más largas.',
+          text: 'Además de la estufa de pellets, Maha ofrece una terraza privada de 64 m² y cocina exterior, con mucho espacio exterior privado para unas vacaciones de invierno algo más largas.',
           cta: 'Ver Maha',
           imageAlt: 'Gran terraza privada con cocina exterior de AMARA Maha en Frigiliana'
         }
@@ -511,7 +511,7 @@ export const frigilianaWinterStaysContent: Record<
         },
         maha: {
           title: 'Maha',
-          text: 'Naast de pelletkachel heeft Maha een privéterras van ongeveer 60 m² en een buitenkeuken, met bijzonder veel privé-buitenruimte voor een langer winterverblijf.',
+          text: 'Naast de pelletkachel heeft Maha een privéterras van 64 m² en een buitenkeuken, met bijzonder veel privé-buitenruimte voor een langer winterverblijf.',
           cta: 'Bekijk Maha',
           imageAlt: 'Groot privéterras met buitenkeuken van AMARA Maha in Frigiliana'
         }
@@ -620,7 +620,7 @@ export const frigilianaWinterStaysContent: Record<
         },
         maha: {
           title: 'Maha',
-          text: 'Utöver pelletskaminen har Maha en privat terrass på omkring 60 m² och ett utomhuskök, vilket ger gott om privat utomhusutrymme under en längre vintersemester.',
+          text: 'Utöver pelletskaminen har Maha en privat terrass på 64 m² och ett utomhuskök, vilket ger gott om privat utomhusutrymme under en längre vintersemester.',
           cta: 'Se Maha',
           imageAlt: 'Stor privat terrass med utomhuskök på AMARA Maha i Frigiliana'
         }
