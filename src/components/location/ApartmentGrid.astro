@@ -12,15 +12,43 @@
   @reference "../../styles/global.css";
 
   .am-apartment-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 4rem 2rem;
-    margin-top: 4rem;
+    display: flex;
+    gap: 1rem;
+    margin-top: 2.5rem;
+    padding-bottom: 1rem;
+    overflow-x: auto;
+    overscroll-behavior-inline: contain;
+    scroll-padding-inline: 0;
+    scroll-snap-type: inline proximity;
+  }
+
+  .am-apartment-grid :global(.am-apartment-card) {
+    flex: 0 0 min(82vw, 22rem);
+    scroll-snap-align: start;
+  }
+
+  @media (max-width: 639px) {
+    .am-apartment-grid {
+      width: calc(100% + 3rem);
+      margin-inline: -1.5rem;
+      padding-inline: 1.5rem;
+      scroll-padding-inline: 1.5rem;
+    }
   }
 
   @media (min-width: 768px) {
     .am-apartment-grid {
+      display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 4rem 2rem;
+      margin-top: 4rem;
+      padding: 0;
+      overflow: visible;
+      scroll-snap-type: none;
+    }
+
+    .am-apartment-grid :global(.am-apartment-card) {
+      min-width: 0;
     }
   }
 
