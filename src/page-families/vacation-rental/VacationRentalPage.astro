@@ -809,10 +809,6 @@ const aboutHref = resolveOptionalLink('about', currentLang, { suppressMissing: t
 const hostProfileHref = aboutHref ? `${aboutHref}#host` : undefined;
 const bookingTrustLinks = [
   {
-    href: hostProfileHref,
-    label: t(ui.hostProfile as LocalizedText)
-  },
-  {
     href: directBookingBenefitsHref,
     label: trustLabels.direct_booking_benefits[currentLang]
   },
@@ -981,6 +977,36 @@ const imageAlts = getVacationRentalImageAlts(rental, currentLang);
                     </li>
                   ))}
                 </ul>
+                {hostProfileHref && (
+                  <a
+                    class="group mt-5 inline-flex items-center gap-3 border-t border-border-subtle pt-4 text-left no-underline"
+                    href={hostProfileHref}
+                    data-am-host-profile-link
+                  >
+                    <span class="h-12 w-12 shrink-0 overflow-hidden rounded-full bg-surface-container-low">
+                      <AmaraImage
+                        src="/images/robert-amara-host.jpg"
+                        alt=""
+                        profile="card"
+                        width={96}
+                        widths={[48, 96]}
+                        sizes="48px"
+                        class="h-full w-full object-cover"
+                        loading="lazy"
+                        decoding="async"
+                      />
+                    </span>
+                    <span class="min-w-0">
+                      <span class="font-label block text-[11px] font-semibold uppercase tracking-[0.1em] text-on-surface-variant">
+                        {t(ui.hostProfile as LocalizedText)}
+                      </span>
+                      <span class="am-text-body mt-0.5 inline-flex items-center gap-2 font-semibold text-on-surface">
+                        Robert Sebastian Böhmer
+                        <span class="transition-transform duration-300 group-hover:translate-x-0.5 motion-reduce:transition-none" aria-hidden="true">→</span>
+                      </span>
+                    </span>
+                  </a>
+                )}
                 {bookingTrustLinks.length > 0 && (
                   <div class="am-text-body mt-4 flex flex-wrap gap-x-5 gap-y-2">
                     {bookingTrustLinks.map((link) => (
