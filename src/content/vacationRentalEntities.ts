@@ -910,6 +910,7 @@ export const vacationRentalEntities: VacationRentalEntity[] = [
     bedrooms: 1,
     bathrooms: 1,
     rooms: 2,
+    interiorAreaSqm: 37,
     occupancy: 2,
     bed: [{ numberOfBeds: 1, typeOfBed: 'King', label: '200 x 200' }],
     tvSizeInches: 50,
@@ -1090,6 +1091,7 @@ export const vacationRentalEntities: VacationRentalEntity[] = [
     bathrooms: 2,
     rooms: 4,
     interiorAreaSqm: 75,
+    exteriorAreaSqm: 12,
     occupancy: 4,
     bed: [
       { numberOfBeds: 1, typeOfBed: 'Double', label: '150 x 200' },
@@ -1124,11 +1126,11 @@ export const vacationRentalEntities: VacationRentalEntity[] = [
       sv: 'Rymligt boende i Tarifa för par med Atlantterrass, pool och eget garage. Kitesurflektioner och utrustning kan ordnas redan före ankomsten.'
     },
     eyebrow: {
-      en: 'AMARA Romantic Days · Tarifa',
-      de: 'AMARA Romantic Days · Tarifa',
-      es: 'AMARA Romantic Days · Tarifa',
-      nl: 'AMARA Romantic Days · Tarifa',
-      sv: 'AMARA Romantic Days · Tarifa'
+      en: 'AMARA Romantic Stays · Tarifa',
+      de: 'AMARA Romantic Stays · Tarifa',
+      es: 'AMARA Romantic Stays · Tarifa',
+      nl: 'AMARA Romantic Stays · Tarifa',
+      sv: 'AMARA Romantic Stays · Tarifa'
     },
     headline: {
       en: 'Atlantic sunsets, Tarifa on foot and the freedom to surf',
@@ -1140,23 +1142,23 @@ export const vacationRentalEntities: VacationRentalEntity[] = [
     lead: {
       en: [
         'A spacious Tarifa home that works beautifully for two: Atlantic views from the terrace, the Old Town within walking distance and your own underground parking when you want to head farther along the coast.',
-        `For couples who kitesurf — or want to learn — our cooperation with Tarifa Surf Club makes the sport unusually easy to build into the stay. And if you now travel with younger children, the separate bunk-bed room gives you useful extra flexibility without changing the apartment's couple-first character.`
+        `For couples who kitesurf — or want to learn — our cooperation with Tarifa Surf Club makes the sport unusually easy to build into the stay. And if you now travel with younger children: this is the one AMARA stay where a separate bunk-bed room gives you that flexibility, without changing the apartment's couple-first character.`
       ].join('\n\n'),
       de: [
         'Eine großzügige Tarifa-Unterkunft, die wunderbar für zwei funktioniert: Atlantikblick von der Terrasse, die Altstadt zu Fuß erreichbar und ein eigener Tiefgaragenstellplatz, wenn ihr weiter entlang der Küste fahren möchtet.',
-        'Für Paare, die kiten – oder es lernen möchten –, macht unsere Kooperation mit dem Tarifa Surf Club den Sport besonders unkompliziert. Und wenn ihr inzwischen mit kleineren Kindern reist, bietet das separate Hochbettzimmer zusätzliche Flexibilität, ohne dass die Wohnung ihren Charakter als AMARA-Unterkunft für Paare verliert.'
+        'Für Paare, die kiten – oder es lernen möchten –, macht unsere Kooperation mit dem Tarifa Surf Club den Sport besonders unkompliziert. Und wenn ihr inzwischen mit kleineren Kindern reist: Als einzige AMARA-Unterkunft bietet Family & Surf mit dem separaten Hochbettzimmer diese Flexibilität – ohne dass die Wohnung ihren Charakter für Paare verliert.'
       ].join('\n\n'),
       es: [
         'Una casa amplia en Tarifa que funciona especialmente bien para dos: vistas al Atlántico desde la terraza, el casco antiguo a poca distancia andando y vuestra propia plaza de garaje subterráneo cuando queráis moveros por la costa.',
-        'Para parejas que practican kitesurf —o quieren aprender— nuestra colaboración con Tarifa Surf Club facilita mucho la experiencia. Y si ahora viajáis con niños pequeños, el dormitorio separado con litera aporta flexibilidad adicional sin convertir el apartamento en una vivienda pensada principalmente para grupos.'
+        'Para parejas que practican kitesurf —o quieren aprender— nuestra colaboración con Tarifa Surf Club facilita mucho la experiencia. Y si ahora viajáis con niños pequeños: este es el único alojamiento AMARA donde el dormitorio separado con litera aporta esa flexibilidad, sin que el apartamento deje de estar pensado para dos.'
       ].join('\n\n'),
       nl: [
         'Een ruime woning in Tarifa die uitstekend werkt voor twee: Atlantisch uitzicht vanaf het terras, de oude stad op loopafstand en een eigen ondergrondse parkeerplaats wanneer jullie verder langs de kust willen.',
-        'Voor stellen die kitesurfen — of het willen leren — maakt onze samenwerking met Tarifa Surf Club de sport bijzonder eenvoudig onderdeel van de reis. Reizen jullie inmiddels met jonge kinderen, dan biedt de aparte kamer met stapelbed extra flexibiliteit zonder dat de woning haar couple-first karakter verliest.'
+        'Voor stellen die kitesurfen — of het willen leren — maakt onze samenwerking met Tarifa Surf Club de sport bijzonder eenvoudig onderdeel van de reis. Reizen jullie inmiddels met jonge kinderen: dit is het enige AMARA-verblijf waar de aparte kamer met stapelbed die flexibiliteit biedt, zonder dat de woning haar couple-first karakter verliest.'
       ].join('\n\n'),
       sv: [
         'Ett rymligt boende i Tarifa som fungerar mycket bra för två: Atlantutsikt från terrassen, gamla stan på gångavstånd och egen plats i underjordiskt garage när ni vill ta bilen längre längs kusten.',
-        'För par som kitesurfar — eller vill lära sig — gör samarbetet med Tarifa Surf Club sporten ovanligt enkel att lägga in i vistelsen. Reser ni numera med yngre barn ger det separata rummet med våningssäng extra flexibilitet utan att boendet tappar sitt fokus på par.'
+        'För par som kitesurfar — eller vill lära sig — gör samarbetet med Tarifa Surf Club sporten ovanligt enkel att lägga in i vistelsen. Reser ni numera med yngre barn: det här är det enda AMARA-boendet där ett separat rum med våningssäng ger den flexibiliteten, utan att boendet tappar sitt fokus på par.'
       ].join('\n\n')
     },
     description: {
