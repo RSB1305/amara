@@ -314,6 +314,13 @@ const ui = {
       nl: 'Indicatieve prijs',
       sv: 'Riktpris'
     },
+    pricePerNight: {
+      en: 'Indicative price per night',
+      de: 'Orientierungspreis pro Nacht',
+      es: 'Precio orientativo por noche',
+      nl: 'Indicatieve prijs per nacht',
+      sv: 'Riktpris per natt'
+    },
     checkin: {
       en: 'Check-in',
       de: 'Check-in',
@@ -613,7 +620,7 @@ const factRows = [
     ? [{ label: t(ui.labels.rooms as LocalizedText), value: String(rental.rooms) }]
     : []),
   {
-    label: t(ui.labels.price as LocalizedText),
+    label: t(ui.labels.pricePerNight as LocalizedText),
     value: indicativePriceRange
   },
   { label: t(ui.labels.license as LocalizedText), value: rental.license }

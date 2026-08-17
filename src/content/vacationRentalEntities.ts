@@ -149,7 +149,15 @@ export function formatVacationRentalFromPrice(
     sv: 'Från'
   };
 
-  return `${prefix[lang]} ${amount}`;
+  const unit: Record<AmaraLanguage, string> = {
+    en: 'per night',
+    de: 'pro Nacht',
+    es: 'por noche',
+    nl: 'per nacht',
+    sv: 'per natt'
+  };
+
+  return `${prefix[lang]} ${amount} ${unit[lang]}`;
 }
 
 export function toVacationRentalPriceRange(pricing: VacationRentalPricing): string {
