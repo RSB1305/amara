@@ -11,8 +11,8 @@ import { buildBookingLandingUrl } from './directBooking';
  */
 
 export const linkRegistry = {
-  version: '2026-08-13-registry-v4.3',
-  updated_at: '2026-08-13',
+  version: '2026-08-17-registry-v4.4',
+  updated_at: '2026-08-17',
   base: '/',
   links: {
     /* =========================================================
@@ -98,6 +98,13 @@ legal_notice: {
   es: buildOwnedLocalizedPath('legal-notice', 'es'),
   nl: buildOwnedLocalizedPath('legal-notice', 'nl'),
   sv: buildOwnedLocalizedPath('legal-notice', 'sv')
+},
+booking_stay_terms: {
+  en: buildOwnedLocalizedPath('booking-stay-terms', 'en'),
+  de: buildOwnedLocalizedPath('booking-stay-terms', 'de'),
+  es: buildOwnedLocalizedPath('booking-stay-terms', 'es'),
+  nl: buildOwnedLocalizedPath('booking-stay-terms', 'nl'),
+  sv: buildOwnedLocalizedPath('booking-stay-terms', 'sv')
 },
 
 /* =========================================================

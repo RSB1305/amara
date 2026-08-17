@@ -130,13 +130,15 @@ const isAmenities = currentPath === normalizePath(resolveLink('amenities', lang)
 const isAbout = currentPath === normalizePath(resolveLink('about', lang));
 const isFaq = currentPath === normalizePath(resolveLink('faq_general', lang));
 const isLegalNotice = currentPath === normalizePath(resolveLink('legal_notice', lang));
+const isBookingStayTerms = currentPath === normalizePath(resolveLink('booking_stay_terms', lang));
+const isLegalDocument = isLegalNotice || isBookingStayTerms;
 const isPrimaryTrustPage =
   isAbout ||
   isReviewsHub ||
   isDirectBookingBenefits ||
   isAmenities ||
   isFaq;
-const isTrustFamilyPage = isPrimaryTrustPage || isLegalNotice;
+const isTrustFamilyPage = isPrimaryTrustPage || isLegalDocument;
 
 /**
  * A breadcrumb should read like the navigation, not like the SEO title. Titles
@@ -152,6 +154,7 @@ const navLabelForPage =
   : isFaq ? trustLabels.faq_general[lang]
   : isAbout ? trustLabels.about[lang]
   : isLegalNotice ? trustLabels.legal_notice[lang]
+  : isBookingStayTerms ? trustLabels.booking_stay_terms[lang]
   : undefined;
 
 const breadcrumbSection = isTrustFamilyPage
@@ -204,7 +207,7 @@ const activeId = items.find(
 )?.id;
 const breadcrumbs = isHome ? [] : [
   { label: 'AMARA', href: homeHref },
-  ...(!isLegalNotice
+  ...(!isLegalDocument
     ? [{ label: breadcrumbSection, href: breadcrumbSectionHref }]
     : []),
   { label: resolvedBreadcrumbTitle }

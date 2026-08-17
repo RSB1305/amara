@@ -382,6 +382,7 @@ const PUBLIC_ROUTE_LABELS: Partial<Record<string, Record<AmaraLanguage, string>>
     sv: 'Instagram'
   },
   'legal-notice': trustLabels.legal_notice,
+  'booking-stay-terms': trustLabels.booking_stay_terms,
   'romantic-hideaways': stayCollectionLabels.structuralName,
   'la-amara-farah': {
     en: 'AMARA Farah',

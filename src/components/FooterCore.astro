@@ -10,27 +10,32 @@ const { currentLang } = Astro.props;
 
 const copy: Record<
   AmaraLanguage,
-  { location: string; legal: string }
+  { location: string; legal: string; bookingTerms: string }
 > = {
   en: {
     location: 'Frigiliana, Malaga · Spain',
-    legal: 'Legal Notice & Privacy'
+    legal: 'Legal Notice & Privacy',
+    bookingTerms: 'Booking & Stay Terms'
   },
   de: {
     location: 'Frigiliana, Málaga · Spanien',
-    legal: 'Impressum & Datenschutz'
+    legal: 'Impressum & Datenschutz',
+    bookingTerms: 'Buchungs- & Aufenthaltsbedingungen'
   },
   es: {
     location: 'Frigiliana, Málaga · España',
-    legal: 'Aviso legal y privacidad'
+    legal: 'Aviso legal y privacidad',
+    bookingTerms: 'Condiciones de reserva y estancia'
   },
   nl: {
     location: 'Frigiliana, Málaga · Spanje',
-    legal: 'Juridische kennisgeving & privacy'
+    legal: 'Juridische kennisgeving & privacy',
+    bookingTerms: 'Boekings- en verblijfsvoorwaarden'
   },
   sv: {
     location: 'Frigiliana, Málaga · Spanien',
-    legal: 'Juridisk information & integritet'
+    legal: 'Juridisk information & integritet',
+    bookingTerms: 'Boknings- och vistelsevillkor'
   }
 };
 
@@ -55,6 +60,9 @@ const labels = copy[currentLang] ?? copy.en;
       </div>
 
       <div class="footer-core__right flex flex-wrap items-center gap-x-4 gap-y-2">
+        <a href={resolveLink('booking_stay_terms', currentLang)} class="font-label text-[11px] font-bold uppercase tracking-[0.14em] text-on-surface-variant hover:text-primary transition-colors">
+          {labels.bookingTerms}
+        </a>
         <a href={resolveLink('legal_notice', currentLang)} class="font-label text-[11px] font-bold uppercase tracking-[0.14em] text-on-surface-variant hover:text-primary transition-colors">
           {labels.legal}
         </a>
