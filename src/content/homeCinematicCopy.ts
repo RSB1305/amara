@@ -270,11 +270,11 @@ export const cinematicApartments: CinematicAptDef[] = [
       sv: 'Frigiliana • 2 gäster'
     },
     desc: {
-      en: 'Made for one or two nights in Frigiliana’s old town: a calm bedroom, a small coffee-and-tea kitchenette and just one step at the entrance — compact, easy and close to village life.',
-      de: 'Für ein oder zwei Nächte in Frigilianas Altstadt: ein ruhiges Schlafzimmer, eine kleine Teeküche und nur eine Stufe am Eingang – kompakt, unkompliziert und mitten im Dorfleben.',
-      es: 'Pensada para una o dos noches en el casco antiguo de Frigiliana: un dormitorio tranquilo, una pequeña zona de café y té y un único escalón en la entrada. Compacta, sencilla y en plena vida del pueblo.',
-      nl: 'Gemaakt voor één of twee nachten in de oude kern van Frigiliana: een rustige slaapkamer, een kleine koffie- en theehoek en slechts één trede bij de ingang. Compact, eenvoudig en midden in het dorpsleven.',
-      sv: 'Skapad för en eller två nätter i Frigilianas gamla stad: ett lugnt sovrum, en liten kaffe- och teavdelning och bara ett trappsteg vid entrén. Kompakt, enkelt och mitt i bylivet.'
+      en: 'A small, cosy double room in Frigiliana’s old town, with a compact kitchenette for coffee or a light meal and just one step at the entrance.',
+      de: 'Ein kleines, gemütliches Doppelzimmer in Frigilianas Altstadt, mit kleiner Teeküche für einen Kaffee oder eine kleine Mahlzeit und nur einer Stufe am Eingang.',
+      es: 'Una habitación doble pequeña y acogedora en el casco antiguo de Frigiliana, con una pequeña zona de cocina para preparar un café o una comida ligera y un único escalón en la entrada.',
+      nl: 'Een kleine, knusse tweepersoonskamer in de oude kern van Frigiliana, met een kleine kitchenette voor koffie of een lichte maaltijd en slechts één trede bij de ingang.',
+      sv: 'Ett litet, ombonat dubbelrum i Frigilianas gamla stad, med ett litet pentry för kaffe eller en enklare måltid och bara ett trappsteg vid entrén.'
     },
     imageAlt: {
       en: 'Bright bedroom with a green wooden window and brick arches in AMARA Farah, Frigiliana',

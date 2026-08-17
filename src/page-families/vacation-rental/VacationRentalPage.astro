@@ -4,6 +4,39 @@ import Navigation from '../../components/Navigation.astro';
 import AmaraImage from '../../components/AmaraImage.astro';
 import RentalPhotoGallery from '../../components/vacation-rental/RentalPhotoGallery.astro';
 import {
+  Accessibility,
+  Baby,
+  BadgeCheck,
+  BadgeEuro,
+  Bath,
+  BedDouble,
+  BedSingle,
+  Building2,
+  CarFront,
+  Check,
+  CircleParking,
+  Clock3,
+  CookingPot,
+  Droplets,
+  Eye,
+  Flame,
+  Footprints,
+  KeyRound,
+  Languages,
+  PawPrint,
+  ShowerHead,
+  ShieldCheck,
+  Snowflake,
+  Sun,
+  Thermometer,
+  Trees,
+  Tv,
+  Users,
+  WashingMachine,
+  Wifi
+} from '@lucide/astro';
+import type { AstroComponent } from '@lucide/astro';
+import {
   buildVacationRentalSeo,
   familySurfConversionContent,
   formatVacationRentalFromPrice,
@@ -52,6 +85,13 @@ const ui = {
     es: 'Leer reseñas',
     nl: 'Gastbeoordelingen lezen',
     sv: 'Läs recensioner'
+  },
+  hostProfile: {
+    en: 'Your host',
+    de: 'Euer Gastgeber',
+    es: 'Vuestro anfitrión',
+    nl: 'Jullie host',
+    sv: 'Er värd'
   },
   externalProfilesLabel: {
     en: 'External profiles',
@@ -344,11 +384,18 @@ const ui = {
       sv: 'Utcheckning'
     },
     access: {
-      en: 'Access',
-      de: 'Zugang',
-      es: 'Acceso',
-      nl: 'Toegang',
-      sv: 'Tilltrade'
+      en: 'Accessibility & steps',
+      de: 'Zugänglichkeit & Stufen',
+      es: 'Accesibilidad y escalones',
+      nl: 'Toegankelijkheid & treden',
+      sv: 'Tillgänglighet & trappsteg'
+    },
+    vehicleAccess: {
+      en: 'Vehicle access to the door',
+      de: 'Zufahrt zur Haustür',
+      es: 'Acceso en coche hasta la puerta',
+      nl: 'Auto tot aan de voordeur',
+      sv: 'Bilinfart fram till dörren'
     },
     pets: {
       en: 'Pets',
@@ -622,9 +669,9 @@ const indicativePriceRange = formatVacationRentalPriceRange(rental.pricing, curr
 const priceFeesNote = t(ui.labels.priceFeesNote as LocalizedText);
 
 const factRows = [
-  { label: t(ui.labels.guests as LocalizedText), value: t(localizedGuests), note: undefined },
-  { label: t(ui.labels.bedrooms as LocalizedText), value: String(rental.bedrooms), note: undefined },
-  { label: t(ui.labels.bathrooms as LocalizedText), value: String(rental.bathrooms), note: undefined },
+  { label: t(ui.labels.guests as LocalizedText), value: t(localizedGuests), Icon: Users, note: undefined },
+  { label: t(ui.labels.bedrooms as LocalizedText), value: String(rental.bedrooms), Icon: BedDouble, note: undefined },
+  { label: t(ui.labels.bathrooms as LocalizedText), value: String(rental.bathrooms), Icon: Bath, note: undefined },
   ...(rental.interiorAreaSqm
     ? [{
         label: t((rental.exteriorAreaSqm
@@ -633,15 +680,17 @@ const factRows = [
         value: rental.exteriorAreaSqm
           ? `${rental.interiorAreaSqm} m² / ${rental.exteriorAreaSqm} m²`
           : `${rental.interiorAreaSqm} m²`,
+        Icon: Building2,
         note: undefined
       }]
     : []),
   {
     label: t(ui.labels.pricePerNight as LocalizedText),
     value: indicativePriceRange,
+    Icon: BadgeEuro,
     note: priceFeesNote
   },
-  { label: t(ui.labels.license as LocalizedText), value: rental.license, note: undefined }
+  { label: t(ui.labels.license as LocalizedText), value: rental.license, Icon: BadgeCheck, note: undefined }
 ];
 
 const amenityValue = (name: string) =>
@@ -651,41 +700,89 @@ const parkingValue = amenityValue('parkingType');
 const localizedParking = parkingValue === 'ReservedUndergroundIncluded'
   ? t(amenityValueLabels.ReservedUndergroundIncluded)
   : t(ui.labels.freeParking as LocalizedText);
+const vehicleAccessHours = rental.accessFacts.vehicleAccessHours;
+const localizedVehicleAccess: LocalizedText | undefined = vehicleAccessHours
+  ? {
+      en: `Until ${vehicleAccessHours.until} and from ${vehicleAccessHours.from}`,
+      de: `Bis ${vehicleAccessHours.until} Uhr und ab ${vehicleAccessHours.from} Uhr`,
+      es: `Hasta las ${vehicleAccessHours.until} y a partir de las ${vehicleAccessHours.from}`,
+      nl: `Tot ${vehicleAccessHours.until.replace(':', '.')} uur en vanaf ${vehicleAccessHours.from.replace(':', '.')} uur`,
+      sv: `Fram till kl. ${vehicleAccessHours.until.replace(':', '.')} och från kl. ${vehicleAccessHours.from.replace(':', '.')}`
+    }
+  : undefined;
 
 const detailRows = [
-  { label: t(ui.labels.bedSize as LocalizedText), value: rental.bed.map(formatBed).join(', ') },
-  { label: t(ui.labels.view as LocalizedText), value: t(rental.viewNote) },
-  { label: t(ui.labels.access as LocalizedText), value: t(rental.accessNote) },
-  { label: t(ui.labels.hostLanguages as LocalizedText), value: t(localizedHostLanguages) },
+  { label: t(ui.labels.bedSize as LocalizedText), value: rental.bed.map(formatBed).join(', '), Icon: BedDouble },
+  { label: t(ui.labels.view as LocalizedText), value: t(rental.viewNote), Icon: Eye },
+  { label: t(ui.labels.access as LocalizedText), value: t(rental.accessNote), Icon: Accessibility },
+  ...(localizedVehicleAccess
+    ? [{ label: t(ui.labels.vehicleAccess as LocalizedText), value: t(localizedVehicleAccess), Icon: CarFront }]
+    : []),
+  { label: t(ui.labels.pets as LocalizedText), value: t(rental.petsNote), Icon: PawPrint },
+  { label: t(ui.labels.hostLanguages as LocalizedText), value: t(localizedHostLanguages), Icon: Languages },
   ...(parkingValue
-    ? [{ label: t(ui.labels.parking as LocalizedText), value: localizedParking }]
+    ? [{ label: t(ui.labels.parking as LocalizedText), value: localizedParking, Icon: CircleParking }]
     : [])
 ];
 
 const scheduleRows = [
-  { label: t(ui.labels.checkin as LocalizedText), value: rental.checkinTime.slice(0, 5) },
-  { label: t(ui.labels.checkout as LocalizedText), value: rental.checkoutTime.slice(0, 5) },
+  { label: t(ui.labels.checkin as LocalizedText), value: rental.checkinTime.slice(0, 5), Icon: Clock3 },
+  { label: t(ui.labels.checkout as LocalizedText), value: rental.checkoutTime.slice(0, 5), Icon: Clock3 },
   ...(hasAmenity('selfCheckinCheckout')
-    ? [{ label: t(ui.labels.selfCheckin as LocalizedText), value: t(ui.labels.available as LocalizedText) }]
+    ? [{ label: t(ui.labels.selfCheckin as LocalizedText), value: t(ui.labels.available as LocalizedText), Icon: KeyRound }]
     : [])
 ];
 
 const visibleAddress = `${rental.street}, ${rental.zip} ${rental.city}, ${t(localizedRegion)}, ${t(localizedCountry)}`;
 const mapsQuery = `${rental.street}, ${rental.zip} ${rental.city}, ${rental.region}, Spain`;
 const mapsHref = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(mapsQuery)}`;
+const addressNoteSegments = rental.addressNote
+  ? t(rental.addressNote).split(/(Calle Chorruelo|Calle Real)/g)
+  : [];
+
+const amenityIcons: Record<string, AstroComponent> = {
+  ac: Snowflake,
+  balcony: Trees,
+  beachAccess: Footprints,
+  childFriendly: Baby,
+  doubleRainShower: ShowerHead,
+  elevator: Building2,
+  fireplace: Flame,
+  hammock: BedSingle,
+  kitchen: CookingPot,
+  outdoorGrill: Flame,
+  outdoorShower: ShowerHead,
+  patio: Trees,
+  pelletStove: Flame,
+  pool: Droplets,
+  poolType: Droplets,
+  privatePatio: Trees,
+  privateTerrace: Sun,
+  rainShower: ShowerHead,
+  sunLoungers: Sun,
+  tv: Tv,
+  washingMachine: WashingMachine,
+  wifi: Wifi
+};
 
 const visibleAmenities = rental.amenityFeatures
-  .map(formatAmenity)
-  .filter((item): item is string => Boolean(item));
+  .map((feature) => {
+    const label = formatAmenity(feature);
+    return label ? { label, Icon: amenityIcons[feature.name] ?? BadgeCheck } : null;
+  })
+  .filter((item): item is { label: string; Icon: AstroComponent } => Boolean(item));
 
 if (rental.bathroomUnderfloorHeating) {
-  visibleAmenities.push(t(bathroomUnderfloorHeating));
+  visibleAmenities.push({ label: t(bathroomUnderfloorHeating), Icon: Thermometer });
 }
 
 const footerHighlights: LabeledLink[] = [
   { token: 'romantic_hideaways', label: t(stayCollectionLabels.shortLabel) },
   { token: 'amenities', label: t(ui.amenitiesTitle as LocalizedText) },
-  { token: 'faq_general', label: 'FAQ' }
+  {
+    token: 'direct_booking_benefits',
+    label: trustLabels.direct_booking_benefits[currentLang]
+  }
 ];
 const collectionHref = resolveOptionalLink('romantic_hideaways', currentLang, { suppressMissing: true });
 const amenitiesHref = resolveOptionalLink('amenities', currentLang, { suppressMissing: true });
@@ -694,13 +791,27 @@ const directBookingBenefitsHref = resolveOptionalLink('direct_booking_benefits',
 const familySurfWindHref = familySurfContent
   ? resolveOptionalLink(familySurfContent.surf.ctaToken, currentLang, { suppressMissing: true })
   : undefined;
+const localizedHostRating: LocalizedText = {
+  en: `Host rating: ${airbnbRatingLabel.en}/5 · ${airbnbReviewEvidence.reviewCountLabel} Airbnb reviews`,
+  de: `Gastgeberbewertung: ${airbnbRatingLabel.de}/5 · ${airbnbReviewEvidence.reviewCountLabel} Airbnb-Bewertungen`,
+  es: `Valoración del anfitrión: ${airbnbRatingLabel.es}/5 · ${airbnbReviewEvidence.reviewCountLabel} reseñas en Airbnb`,
+  nl: `Hostbeoordeling: ${airbnbRatingLabel.nl}/5 · ${airbnbReviewEvidence.reviewCountLabel} Airbnb-beoordelingen`,
+  sv: `Värdomdöme: ${airbnbRatingLabel.sv}/5 · ${airbnbReviewEvidence.reviewCountLabel} Airbnb-omdömen`
+};
 const bookingTrustSignals = [
   directBookingTrustSignals.lowestAvailablePrice[currentLang],
   directBookingTrustSignals.directHostContact[currentLang],
-  `${airbnbReviewEvidence.reviewCountLabel} ${airbnbReviewEvidence.platform}`,
-  `${airbnbRatingLabel[currentLang]}/5`
+  localizedHostRating[currentLang]
 ];
+const aboutHref = resolveOptionalLink('about', currentLang, { suppressMissing: true });
+// Deep link to the host profile itself, not the top of the About page: the
+// claim "direct contact with the host" is only worth as much as its evidence.
+const hostProfileHref = aboutHref ? `${aboutHref}#host` : undefined;
 const bookingTrustLinks = [
+  {
+    href: hostProfileHref,
+    label: t(ui.hostProfile as LocalizedText)
+  },
   {
     href: directBookingBenefitsHref,
     label: trustLabels.direct_booking_benefits[currentLang]
@@ -793,8 +904,33 @@ const imageAlts = getVacationRentalImageAlts(rental, currentLang);
           >
             {t(rental.lead)}
           </p>
+        </div>
+
+        <figure class="am-mobile-full-bleed mt-8 aspect-[16/9] max-h-[720px] overflow-hidden bg-surface-container-low md:mt-10">
+          <button
+            type="button"
+            class="group block h-full w-full cursor-zoom-in focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[-2px] focus-visible:outline-primary"
+            data-am-rental-photo-open
+            data-am-photo-index="0"
+            aria-haspopup="dialog"
+            aria-label={`${t(ui.galleryTitle as LocalizedText)}: ${rental.name}`}
+          >
+            <AmaraImage
+              src={heroImage}
+              alt={imageAlts[0] ?? t(rental.imageAlt)}
+              profile="hero"
+              sizes="(max-width: 639px) 100vw, (max-width: 767px) calc(100vw - 3rem), (max-width: 1535px) calc(100vw - 6rem), 1440px"
+              class="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.01] motion-reduce:transition-none motion-reduce:group-hover:scale-100"
+              loading="eager"
+              fetchpriority="high"
+              decoding="async"
+            />
+          </button>
+        </figure>
+
+        <div class="mt-8 max-w-4xl md:mt-10">
           {highlights.length > 0 && (
-            <ul class="mt-6 grid gap-2 max-w-2xl">
+            <ul class="grid max-w-2xl gap-2">
               {highlights.map((highlight) => (
                 <li class="am-text-body text-on-surface flex gap-3 leading-relaxed">
                   <span aria-hidden="true" class="text-on-surface-variant select-none">—</span>
@@ -831,48 +967,31 @@ const imageAlts = getVacationRentalImageAlts(rental, currentLang);
             data-am-component="property-booking-trust"
             class="mt-7 border-t border-border-subtle pt-5"
           >
-            <p class="font-label text-[11px] font-bold uppercase tracking-[0.14em] text-on-surface-variant">
-              {directBookingTrustSignals.directWithAmara[currentLang]}
-            </p>
-            <ul class="am-text-body mt-3 flex flex-wrap gap-x-3 gap-y-2 text-on-surface-variant">
-              {bookingTrustSignals.map((signal, index) => (
-                <li class="inline-flex items-baseline gap-2">
-                  {index > 0 && <span aria-hidden="true">·</span>}
-                  <span>{signal}</span>
-                </li>
-              ))}
-            </ul>
-            {bookingTrustLinks.length > 0 && (
-              <div class="am-text-body mt-3 flex flex-wrap gap-x-5 gap-y-2">
-                {bookingTrustLinks.map((link) => (
-                  <a class="am-inline-link" href={link.href}>{link.label}</a>
-                ))}
+            <div class="grid grid-cols-[1.5rem_minmax(0,1fr)] gap-3">
+              <ShieldCheck class="mt-0.5 h-5 w-5 text-primary" stroke-width={1.5} aria-hidden="true" />
+              <div>
+                <p class="am-text-body font-semibold text-on-surface">
+                  {directBookingTrustSignals.directWithAmara[currentLang]}
+                </p>
+                <ul class="am-text-body mt-3 grid gap-x-6 gap-y-2 text-on-surface-variant sm:grid-cols-2">
+                  {bookingTrustSignals.map((signal) => (
+                    <li class="grid grid-cols-[1rem_minmax(0,1fr)] items-start gap-2">
+                      <Check class="mt-1 h-3.5 w-3.5 text-primary" stroke-width={1.75} aria-hidden="true" />
+                      <span>{signal}</span>
+                    </li>
+                  ))}
+                </ul>
+                {bookingTrustLinks.length > 0 && (
+                  <div class="am-text-body mt-4 flex flex-wrap gap-x-5 gap-y-2">
+                    {bookingTrustLinks.map((link) => (
+                      <a class="am-inline-link" href={link.href}>{link.label}</a>
+                    ))}
+                  </div>
+                )}
               </div>
-            )}
+            </div>
           </div>
         </div>
-
-        <figure class="am-mobile-full-bleed mt-12 aspect-[16/9] max-h-[720px] overflow-hidden bg-surface-container-low">
-          <button
-            type="button"
-            class="group block h-full w-full cursor-zoom-in focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[-2px] focus-visible:outline-primary"
-            data-am-rental-photo-open
-            data-am-photo-index="0"
-            aria-haspopup="dialog"
-            aria-label={`${t(ui.galleryTitle as LocalizedText)}: ${rental.name}`}
-          >
-            <AmaraImage
-              src={heroImage}
-              alt={imageAlts[0] ?? t(rental.imageAlt)}
-              profile="hero"
-              sizes="(max-width: 639px) 100vw, (max-width: 767px) calc(100vw - 3rem), (max-width: 1535px) calc(100vw - 6rem), 1440px"
-              class="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.01] motion-reduce:transition-none motion-reduce:group-hover:scale-100"
-              loading="eager"
-              fetchpriority="high"
-              decoding="async"
-            />
-          </button>
-        </figure>
       </section>
 
       <section class="py-12 md:py-16 border-b border-border-subtle" aria-labelledby="rental-facts-title">
@@ -880,24 +999,36 @@ const imageAlts = getVacationRentalImageAlts(rental, currentLang);
           <h2 id="rental-facts-title" class="am-text-title text-on-surface">
             {t(ui.factsTitle as LocalizedText)}
           </h2>
-          <dl class="grid gap-x-8 gap-y-6 sm:grid-cols-2 lg:grid-cols-3">
-            {factRows.map((row) => (
-              <div class="border-t border-border-subtle pt-4">
-                <dt class="font-label text-[11px] font-bold uppercase tracking-[0.14em] text-on-surface-variant">
-                  {row.label}
-                </dt>
-                <dd class="am-text-subtitle text-on-surface mt-2">
-                  {row.value}{row.note && <sup class="ml-0.5 text-[0.55em] align-super">*</sup>}
-                </dd>
-                {row.note && (
-                  <p class="font-label mt-2 text-[10px] leading-relaxed tracking-[0.03em] text-on-surface-variant">
-                    {row.note}
-                  </p>
-                )}
+          <dl class="grid gap-x-10 gap-y-8 sm:grid-cols-2 lg:grid-cols-3">
+            {factRows.map(({ label, value, Icon, note }) => (
+              <div class="grid grid-cols-[2.5rem_minmax(0,1fr)] items-start gap-4">
+                <span class="flex h-10 w-10 items-center justify-center rounded-full bg-surface-container-low text-primary">
+                  <Icon class="h-5 w-5" stroke-width={1.5} aria-hidden="true" />
+                </span>
+                <div class="min-w-0 pt-0.5">
+                  <dt class="font-label text-[12px] font-semibold tracking-[0.04em] text-on-surface-variant">
+                    {label}
+                  </dt>
+                  <dd class="am-text-subtitle mt-1 text-on-surface">
+                    {value}{note && <sup class="ml-0.5 text-[0.55em] align-super">*</sup>}
+                  </dd>
+                  {note && (
+                    <p class="font-label mt-2 text-[10px] leading-relaxed tracking-[0.03em] text-on-surface-variant">
+                      {note}
+                    </p>
+                  )}
+                </div>
               </div>
             ))}
           </dl>
         </div>
+      </section>
+
+      <section class="py-12 md:py-16 border-b border-border-subtle" aria-labelledby="rental-gallery-title">
+        <h2 id="rental-gallery-title" class="am-text-title text-on-surface">
+          {t(ui.galleryTitle as LocalizedText)}
+        </h2>
+        <RentalPhotoGallery images={rental.images} alts={imageAlts} lang={currentLang} />
       </section>
 
       <section class="py-12 md:py-16 border-b border-border-subtle" aria-labelledby="rental-details-title">
@@ -915,29 +1046,39 @@ const imageAlts = getVacationRentalImageAlts(rental, currentLang);
               {t(rental.description)}
             </p>
 
-            <dl class="mt-8 grid gap-4">
-              {scheduleRows.map((row) => (
-                <div class="grid gap-2 border-t border-border-subtle pt-4 sm:grid-cols-[12rem_minmax(0,1fr)]">
-                  <dt class="font-label text-[11px] font-bold uppercase tracking-[0.14em] text-on-surface-variant">
-                    {row.label}
-                  </dt>
-                  <dd class="am-text-body text-on-surface">
-                    {row.value}
-                  </dd>
+            <dl class="mt-4 bg-surface-container-low px-5 sm:px-6">
+              {scheduleRows.map(({ label, value, Icon }) => (
+                <div class="grid min-h-[5.75rem] grid-cols-[2.25rem_minmax(0,1fr)] items-center gap-4 border-b border-border-subtle py-5 first:border-t last:border-b-0">
+                  <span class="flex h-9 w-9 items-center justify-center rounded-full bg-surface text-primary">
+                    <Icon class="h-[1.125rem] w-[1.125rem]" stroke-width={1.5} aria-hidden="true" />
+                  </span>
+                  <div class="min-w-0">
+                    <dt class="font-label text-[12px] font-semibold tracking-[0.04em] text-on-surface-variant">
+                      {label}
+                    </dt>
+                    <dd class="am-text-body mt-1 text-on-surface">
+                      {value}
+                    </dd>
+                  </div>
                 </div>
               ))}
             </dl>
           </div>
 
-          <dl class="grid gap-4">
-            {detailRows.map((row) => (
-              <div class="grid gap-2 border-t border-border-subtle pt-4 sm:grid-cols-[12rem_minmax(0,1fr)]">
-                <dt class="font-label text-[11px] font-bold uppercase tracking-[0.14em] text-on-surface-variant">
-                  {row.label}
-                </dt>
-                <dd class="am-text-body text-on-surface">
-                  {row.value}
-                </dd>
+          <dl class="bg-surface-container-low px-5 sm:px-6">
+            {detailRows.map(({ label, value, Icon }) => (
+              <div class="grid min-h-[5.75rem] grid-cols-[2.25rem_minmax(0,1fr)] items-center gap-4 border-b border-border-subtle py-5 last:border-b-0">
+                <span class="flex h-9 w-9 items-center justify-center rounded-full bg-surface text-primary">
+                  <Icon class="h-[1.125rem] w-[1.125rem]" stroke-width={1.5} aria-hidden="true" />
+                </span>
+                <div class="min-w-0">
+                  <dt class="font-label text-[12px] font-semibold tracking-[0.04em] text-on-surface-variant">
+                    {label}
+                  </dt>
+                  <dd class="am-text-body mt-1 text-on-surface">
+                    {value}
+                  </dd>
+                </div>
               </div>
             ))}
           </dl>
@@ -989,23 +1130,21 @@ const imageAlts = getVacationRentalImageAlts(rental, currentLang);
         </section>
       )}
 
-      <section class="py-12 md:py-16 border-b border-border-subtle" aria-labelledby="rental-gallery-title">
-        <h2 id="rental-gallery-title" class="am-text-title text-on-surface">
-          {t(ui.galleryTitle as LocalizedText)}
-        </h2>
-        <RentalPhotoGallery images={rental.images} alts={imageAlts} lang={currentLang} />
-      </section>
-
       <section class="py-12 md:py-16 border-b border-border-subtle" aria-labelledby="rental-amenities-title">
         <div class="grid gap-10 lg:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)]">
           <h2 id="rental-amenities-title" class="am-text-title text-on-surface">
             {t(ui.amenitiesTitle as LocalizedText)}
           </h2>
           <div>
-            <ul class="grid gap-x-8 gap-y-4 sm:grid-cols-2">
-              {visibleAmenities.map((item) => (
-                <li class="am-text-body text-on-surface border-t border-border-subtle pt-3">
-                  {item}
+            <ul class="grid gap-x-10 gap-y-4 sm:grid-cols-2">
+              {visibleAmenities.map(({ label, Icon }) => (
+                <li class="grid grid-cols-[2rem_minmax(0,1fr)] items-start gap-3 py-2">
+                  <span class="flex h-8 w-8 items-center justify-center rounded-full bg-surface-container-low text-primary">
+                    <Icon class="h-5 w-5" stroke-width={1.5} aria-hidden="true" />
+                  </span>
+                  <span class="am-text-body pt-1 text-on-surface">
+                    {label}
+                  </span>
                 </li>
               ))}
             </ul>
@@ -1043,7 +1182,11 @@ const imageAlts = getVacationRentalImageAlts(rental, currentLang);
                 {
                   rental.addressNote && (
                     <dd class="am-text-body text-on-surface-variant mt-3 leading-relaxed">
-                      {t(rental.addressNote)}
+                      {addressNoteSegments.map((segment) =>
+                        segment === 'Calle Chorruelo' || segment === 'Calle Real'
+                          ? <strong class="font-semibold text-on-surface">{segment}</strong>
+                          : segment
+                      )}
                     </dd>
                   )
                 }
@@ -1051,14 +1194,12 @@ const imageAlts = getVacationRentalImageAlts(rental, currentLang);
             </dl>
           </div>
           <div class="grid gap-4 lg:justify-items-end">
-            <div class="grid gap-3 sm:flex sm:flex-wrap lg:justify-end">
+            <div class="am-text-body flex flex-wrap gap-x-5 gap-y-2 lg:justify-end">
               {locationLinks.map((link) => (
-                <a class="am-btn am-btn--secondary w-full justify-center sm:w-auto" href={link.href}>
-                  {link.label}
-                </a>
+                <a class="am-inline-link" href={link.href}>{link.label}</a>
               ))}
               {reviewsHref && (
-                <a class="am-btn am-btn--secondary w-full justify-center sm:w-auto" href={reviewsHref}>
+                <a class="am-inline-link" href={reviewsHref}>
                   {t(ui.readReviews as LocalizedText)}
                 </a>
               )}
