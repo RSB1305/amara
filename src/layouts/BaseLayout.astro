@@ -12,6 +12,22 @@ import {
 } from '../lib/seo/resolve-seo-head';
 import { resolveStructuredData } from '../lib/seo/resolve-structured-data';
 import '../styles/global.css';
+import headlineFontUrl from '@fontsource/newsreader/files/newsreader-latin-300-normal.woff2?url';
+import bodyFontUrl from '@fontsource/plus-jakarta-sans/files/plus-jakarta-sans-latin-400-normal.woff2?url';
+import labelFontUrl from '@fontsource/plus-jakarta-sans/files/plus-jakarta-sans-latin-700-normal.woff2?url';
+
+/**
+ * Web fonts are declared inside the global stylesheet, so the browser can only
+ * discover them after that stylesheet has been fetched and parsed — a third
+ * serial round trip before any text reaches its final form. Preloading starts
+ * the three faces that carry the visible page shell (headings, body copy and
+ * navigation labels) in parallel with the stylesheet instead.
+ *
+ * The Newsreader italic wordmark is deliberately excluded: it is the largest
+ * file of the set and covers the least text, so it stays a normal swap rather
+ * than competing with the LCP image for early bandwidth.
+ */
+const preloadedFonts = [headlineFontUrl, bodyFontUrl, labelFontUrl];
 
 interface Props {
   seo: AmaraAuthoringSeo;
@@ -68,6 +84,11 @@ const ldJson = resolveStructuredData(seo, head.canonicalUrl, currentLang, origin
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="generator" content={Astro.generator} />
+
+    {preloadedFonts.map((href) => (
+      <link rel="preload" href={href} as="font" type="font/woff2" crossorigin />
+    ))}
+
     {/* PNG first — browsers that support it prefer it; favicon.ico stays as the fallback. */}
     <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png" />
     <link rel="icon" type="image/x-icon" href="/favicon.ico" />
