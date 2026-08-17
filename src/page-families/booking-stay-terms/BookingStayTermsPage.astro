@@ -3,7 +3,6 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import Navigation from '../../components/Navigation.astro';
 import TrustHero from '../../components/hero/TrustHero.astro';
 import {
-  BOOKING_STAY_TERMS_DOCUMENT_ID,
   BOOKING_STAY_TERMS_PUBLISHED_AT,
   BOOKING_STAY_TERMS_VERSION,
   bookingStayTermsContent
@@ -30,13 +29,6 @@ const seo: AmaraAuthoringSeo = {
   }
 };
 
-const metadata = [
-  { label: copy.metadata.document, value: BOOKING_STAY_TERMS_DOCUMENT_ID },
-  { label: copy.metadata.version, value: BOOKING_STAY_TERMS_VERSION },
-  { label: copy.metadata.published, value: copy.metadata.publishedValue },
-  { label: copy.metadata.appliesTo, value: copy.metadata.appliesToValue }
-];
-
 const identityRows = [
   { label: copy.identity.name, value: legalIdentity.name },
   { label: copy.identity.tradingAs, value: legalIdentity.tradingName },
@@ -61,57 +53,7 @@ const privacyHref = resolveLink('legal_notice', currentLang);
       <TrustHero subtitle={copy.hero.subtitle} title={copy.hero.title} lead={copy.hero.lead} />
 
       <main id="am-main-content" tabindex="-1" class="mx-auto max-w-screen-lg scroll-mt-[104px] pb-28 lg:scroll-mt-[112px]">
-        <section class="border-y border-outline-variant/15 py-8" aria-label={copy.metadata.document}>
-          <dl class="grid gap-x-8 gap-y-6 md:grid-cols-2">
-            {metadata.map((item) => (
-              <div class="grid gap-1">
-                <dt class="font-label text-[11px] font-bold uppercase tracking-[0.14em] text-on-surface-variant">{item.label}</dt>
-                <dd class="am-text-body text-on-surface">{item.value}</dd>
-              </div>
-            ))}
-          </dl>
-        </section>
-
-        <section class="py-14 md:py-16" aria-labelledby="booking-terms-model">
-          <div class="max-w-3xl space-y-4">
-            <h2 id="booking-terms-model" class="am-text-title italic text-on-surface">{copy.model.heading}</h2>
-            <p class="am-text-body text-on-surface-variant">{copy.model.intro}</p>
-          </div>
-          <div class="mt-8 grid gap-5 md:grid-cols-2">
-            <article class="border border-outline-variant/15 bg-surface px-7 py-7 md:px-8 md:py-8">
-              <p class="font-label text-[11px] font-bold uppercase tracking-[0.14em] text-primary">01</p>
-              <h3 class="am-text-subtitle mt-4 italic text-on-surface">{copy.model.stableTitle}</h3>
-              <p class="am-text-body mt-4 text-on-surface-variant">{copy.model.stableText}</p>
-            </article>
-            <article class="border border-outline-variant/15 bg-surface px-7 py-7 md:px-8 md:py-8">
-              <p class="font-label text-[11px] font-bold uppercase tracking-[0.14em] text-primary">02</p>
-              <h3 class="am-text-subtitle mt-4 italic text-on-surface">{copy.model.flexibleTitle}</h3>
-              <p class="am-text-body mt-4 text-on-surface-variant">{copy.model.flexibleText}</p>
-            </article>
-          </div>
-        </section>
-
-        <section class="border border-outline-variant/15 bg-surface px-7 py-8 md:px-10 md:py-10" aria-labelledby="contracting-party">
-          <h2 id="contracting-party" class="am-text-title italic text-on-surface">{copy.identity.heading}</h2>
-          <dl class="mt-8 space-y-4 am-text-body text-on-surface-variant">
-            {identityRows.map((row) => (
-              <div class="grid gap-2 border-b border-outline-variant/10 pb-4 last:border-b-0 last:pb-0 md:grid-cols-[minmax(0,16rem)_1fr]">
-                <dt class="font-semibold text-on-surface">{row.label}</dt>
-                <dd>{row.value}</dd>
-              </div>
-            ))}
-            <div class="grid gap-2 border-b border-outline-variant/10 pb-4 md:grid-cols-[minmax(0,16rem)_1fr]">
-              <dt class="font-semibold text-on-surface">{copy.identity.email}</dt>
-              <dd><a class="am-inline-link" href={`mailto:${legalIdentity.email}`}>{legalIdentity.email}</a></dd>
-            </div>
-            <div class="grid gap-2 md:grid-cols-[minmax(0,16rem)_1fr]">
-              <dt class="font-semibold text-on-surface">{copy.identity.phone}</dt>
-              <dd><a class="am-inline-link" href={`tel:${legalIdentity.phoneHref}`}>{legalIdentity.phoneDisplay}</a></dd>
-            </div>
-          </dl>
-        </section>
-
-        <div class="mt-16 space-y-14 md:mt-20 md:space-y-16">
+        <div class="space-y-14 md:space-y-16">
           {copy.sections.map((section) => (
             <section id={section.id} class="scroll-mt-32 border-t border-outline-variant/15 pt-8" aria-labelledby={`${section.id}-title`}>
               <h2 id={`${section.id}-title`} class="am-text-title italic text-on-surface">{section.title}</h2>
@@ -129,9 +71,30 @@ const privacyHref = resolveLink('legal_notice', currentLang);
           ))}
         </div>
 
+        <section class="mt-16 border-t border-outline-variant/15 pt-8 md:mt-20" aria-labelledby="contracting-party">
+          <h2 id="contracting-party" class="am-text-subtitle italic text-on-surface">{copy.identity.heading}</h2>
+          <dl class="mt-6 grid gap-x-10 gap-y-5 am-text-body text-on-surface-variant md:grid-cols-2">
+            {identityRows.map((row) => (
+              <div class="grid gap-1">
+                <dt class="font-label text-[11px] font-bold uppercase tracking-[0.12em] text-on-surface">{row.label}</dt>
+                <dd>{row.value}</dd>
+              </div>
+            ))}
+            <div class="grid gap-1">
+              <dt class="font-label text-[11px] font-bold uppercase tracking-[0.12em] text-on-surface">{copy.identity.email}</dt>
+              <dd><a class="am-inline-link" href={`mailto:${legalIdentity.email}`}>{legalIdentity.email}</a></dd>
+            </div>
+            <div class="grid gap-1">
+              <dt class="font-label text-[11px] font-bold uppercase tracking-[0.12em] text-on-surface">{copy.identity.phone}</dt>
+              <dd><a class="am-inline-link" href={`tel:${legalIdentity.phoneHref}`}>{legalIdentity.phoneDisplay}</a></dd>
+            </div>
+          </dl>
+        </section>
+
         <aside class="mt-16 border-l-2 border-primary/60 bg-surface-container-low px-7 py-6 md:mt-20 md:px-8" aria-label={copy.privacyLinkLabel}>
           <p class="am-text-body text-on-surface-variant">{copy.closingNote}</p>
           <a class="am-cta-link mt-4 inline-flex" href={privacyHref}>{copy.privacyLinkLabel}</a>
+          <p class="mt-5 font-label text-[11px] font-bold uppercase tracking-[0.12em] text-on-surface-variant">{copy.versionNote}</p>
         </aside>
       </main>
     </div>

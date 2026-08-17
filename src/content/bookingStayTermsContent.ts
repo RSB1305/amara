@@ -1,6 +1,5 @@
 import type { AmaraLanguage } from '../types/seo';
 
-export const BOOKING_STAY_TERMS_DOCUMENT_ID = 'AMARA-BST-001';
 export const BOOKING_STAY_TERMS_VERSION = '1.0';
 export const BOOKING_STAY_TERMS_PUBLISHED_AT = '2026-08-17';
 
@@ -21,14 +20,6 @@ interface BookingStayTermsLocale {
     title: string;
     lead: string;
   };
-  metadata: {
-    document: string;
-    version: string;
-    published: string;
-    publishedValue: string;
-    appliesTo: string;
-    appliesToValue: string;
-  };
   identity: {
     heading: string;
     name: string;
@@ -41,37 +32,22 @@ interface BookingStayTermsLocale {
     phone: string;
     country: string;
   };
-  model: {
-    heading: string;
-    intro: string;
-    stableTitle: string;
-    stableText: string;
-    flexibleTitle: string;
-    flexibleText: string;
-  };
   sections: BookingStayTermSection[];
   privacyLinkLabel: string;
   closingNote: string;
+  versionNote: string;
 }
 
 export const bookingStayTermsContent: Record<AmaraLanguage, BookingStayTermsLocale> = {
   en: {
     seo: {
-      title: 'Booking & Stay Terms | AMARA',
-      description: 'Stable booking and stay terms for AMARA Lodging, together with the booking-specific price, payment and cancellation terms confirmed at checkout.'
+      title: 'Booking Terms | AMARA',
+      description: 'General booking terms for direct reservations with AMARA Lodging.'
     },
     hero: {
-      subtitle: 'Clear terms. Flexible booking details.',
-      title: 'Booking & Stay Terms',
-      lead: 'The stable framework for direct bookings with AMARA Lodging.'
-    },
-    metadata: {
-      document: 'Document',
-      version: 'Version',
-      published: 'Published',
-      publishedValue: '17 August 2026',
-      appliesTo: 'Applies to',
-      appliesToValue: 'Bookings whose confirmation incorporates version 1.0'
+      subtitle: 'Clear and reliable.',
+      title: 'Booking Terms',
+      lead: 'The general terms for direct bookings with AMARA Lodging.'
     },
     identity: {
       heading: 'Contracting party',
@@ -85,20 +61,12 @@ export const bookingStayTermsContent: Record<AmaraLanguage, BookingStayTermsLoca
       phone: 'Phone',
       country: 'Spain'
     },
-    model: {
-      heading: 'One contract, two complementary parts',
-      intro: 'These terms provide the stable legal framework. The commercial details that can vary by property, dates or selected rate are shown before booking and fixed in the booking confirmation.',
-      stableTitle: 'Stable website terms',
-      stableText: 'Contract formation, proper use, care of the accommodation, fair handling of damage, liability, applicable law and document version.',
-      flexibleTitle: 'Booking-specific details',
-      flexibleText: 'Property and licence, travel dates, guest count, total price, payment schedule, cancellation policy, deposit, pets, extras and agreed arrival or departure times.'
-    },
     sections: [
       {
         id: 'scope',
         title: '1. Contracting Party and Scope',
         paragraphs: [
-          'These Booking & Stay Terms govern short-term tourist accommodation provided by the contracting party identified above (“Host”) at the accommodation specified in the booking confirmation. AMARA Lodging is the Host’s trading name and is not a separate contracting entity.',
+          'These Booking Terms govern short-term tourist accommodation provided by the contracting party identified on this page (“Host”) at the accommodation specified in the booking confirmation. AMARA Lodging is the Host’s trading name and is not a separate contracting entity.',
           'The person completing the reservation is the lead guest (“Guest”). The Guest confirms that the booking information is correct and is responsible for communicating the relevant terms and property rules to all accompanying guests.'
         ]
       },
@@ -113,17 +81,9 @@ export const bookingStayTermsContent: Record<AmaraLanguage, BookingStayTermsLoca
       },
       {
         id: 'booking-details',
-        title: '3. Details Fixed for Each Booking',
+        title: '3. Booking Confirmation',
         paragraphs: [
-          'Before the Guest completes the booking, checkout identifies the terms that apply to the selected accommodation and rate. The confirmation records those details in a form the Guest can retain.'
-        ],
-        bullets: [
-          'the accommodation, address and applicable tourist registration or licence number;',
-          'arrival and departure dates, agreed times and number of guests;',
-          'total price, included taxes and mandatory fees, plus any expressly selected extras;',
-          'amounts due, payment method and payment deadlines;',
-          'the selected cancellation, refund, no-show and early-departure rules;',
-          'any deposit or payment authorisation, pet permission and fee, and other agreed special conditions.'
+          'Before the Guest completes the booking, the price, payment and cancellation terms for the selected accommodation and rate are displayed. The booking confirmation records the agreed accommodation, travel dates, guest count, total price and the terms that apply to that reservation in a form the Guest can retain.'
         ]
       },
       {
@@ -207,31 +167,24 @@ export const bookingStayTermsContent: Record<AmaraLanguage, BookingStayTermsLoca
         id: 'version',
         title: '13. Version, Changes and Contact',
         paragraphs: [
-          'The document ID, version and publication date appear at the top of this page. A material change creates a new version and applies only to bookings that incorporate that new version. The version accepted for an existing booking remains unchanged unless both parties expressly agree otherwise in a durable form.',
+          'A material change to these terms creates a new version and applies only to bookings that refer to that new version. The version accepted for an existing booking remains unchanged unless both parties expressly agree otherwise in a durable form.',
           'Guests should retain the booking confirmation together with these terms. Questions about a booking or these terms can be sent using the contact details above.'
         ]
       }
     ],
     privacyLinkLabel: 'Legal Notice & Privacy Policy',
-    closingNote: 'Privacy and guest-registration information is provided separately and forms no replacement for these booking terms.'
+    closingNote: 'Privacy and guest-registration information is provided separately and forms no replacement for these booking terms.',
+    versionNote: 'Last updated: 17 August 2026 · Version 1.0'
   },
   de: {
     seo: {
-      title: 'Buchungs- & Aufenthaltsbedingungen | AMARA',
-      description: 'Stabile Buchungs- und Aufenthaltsbedingungen von AMARA Lodging sowie die im Checkout bestätigten buchungsspezifischen Preis-, Zahlungs- und Stornierungsregeln.'
+      title: 'Buchungsbedingungen | AMARA',
+      description: 'Allgemeine Buchungsbedingungen für Direktbuchungen bei AMARA Lodging.'
     },
     hero: {
-      subtitle: 'Klare Bedingungen. Flexible Buchungsdetails.',
-      title: 'Buchungs- & Aufenthalts&shy;bedingungen',
-      lead: 'Der stabile Rahmen für Direktbuchungen bei AMARA Lodging.'
-    },
-    metadata: {
-      document: 'Dokument',
-      version: 'Version',
-      published: 'Veröffentlicht',
-      publishedValue: '17. August 2026',
-      appliesTo: 'Gilt für',
-      appliesToValue: 'Buchungen, deren Bestätigung auf Version 1.0 verweist'
+      subtitle: 'Klar und verlässlich.',
+      title: 'Buchungsbedingungen',
+      lead: 'Die allgemeinen Bedingungen für Direktbuchungen bei AMARA Lodging.'
     },
     identity: {
       heading: 'Vertragspartner',
@@ -245,20 +198,12 @@ export const bookingStayTermsContent: Record<AmaraLanguage, BookingStayTermsLoca
       phone: 'Telefon',
       country: 'Spanien'
     },
-    model: {
-      heading: 'Ein Vertrag, zwei sich ergänzende Bestandteile',
-      intro: 'Diese Bedingungen bilden den stabilen rechtlichen Rahmen. Die wirtschaftlichen Details, die sich je nach Unterkunft, Reisedaten oder gewähltem Tarif unterscheiden können, werden vor der Buchung angezeigt und in der Buchungsbestätigung festgehalten.',
-      stableTitle: 'Stabile Bedingungen auf der Website',
-      stableText: 'Vertragsschluss, ordnungsgemäße Nutzung, sorgfältiger Umgang mit der Unterkunft, faire Schadenabwicklung, Haftung, anwendbares Recht und Dokumentversion.',
-      flexibleTitle: 'Buchungsspezifische Details',
-      flexibleText: 'Unterkunft und Lizenz, Reisedaten, Gästezahl, Gesamtpreis, Zahlungsplan, Stornierungsregeln, Kaution, Haustiere, Zusatzleistungen und vereinbarte An- oder Abreisezeiten.'
-    },
     sections: [
       {
         id: 'scope',
         title: '1. Vertragspartner und Geltungsbereich',
         paragraphs: [
-          'Diese Buchungs- und Aufenthaltsbedingungen gelten für die kurzfristige touristische Beherbergung durch den oben genannten Vertragspartner („Gastgeber“) in der Unterkunft, die in der Buchungsbestätigung bezeichnet ist. AMARA Lodging ist die geschäftliche Bezeichnung des Gastgebers und keine eigenständige Vertragspartei.',
+          'Diese Buchungsbedingungen gelten für die kurzfristige touristische Beherbergung durch den auf dieser Seite genannten Vertragspartner („Gastgeber“) in der Unterkunft, die in der Buchungsbestätigung bezeichnet ist. AMARA Lodging ist die geschäftliche Bezeichnung des Gastgebers und keine eigenständige Vertragspartei.',
           'Die Person, welche die Reservierung abschließt, ist der buchende Hauptgast („Gast“). Der Gast bestätigt die Richtigkeit der Buchungsangaben und sorgt dafür, dass alle mitreisenden Personen die für sie maßgeblichen Bedingungen und Hausregeln kennen.'
         ]
       },
@@ -273,17 +218,9 @@ export const bookingStayTermsContent: Record<AmaraLanguage, BookingStayTermsLoca
       },
       {
         id: 'booking-details',
-        title: '3. Für jede Buchung festgelegte Details',
+        title: '3. Buchungsbestätigung',
         paragraphs: [
-          'Bevor der Gast die Buchung abschließt, weist der Checkout die Bedingungen aus, die für die gewählte Unterkunft und den gewählten Tarif gelten. Die Bestätigung hält diese Angaben in einer Form fest, die der Gast dauerhaft speichern kann.'
-        ],
-        bullets: [
-          'Unterkunft, Anschrift und einschlägige touristische Registrierungs- oder Lizenznummer;',
-          'An- und Abreisedatum, vereinbarte Zeiten und Anzahl der Gäste;',
-          'Gesamtpreis einschließlich Steuern und obligatorischer Gebühren sowie ausdrücklich gewählte Zusatzleistungen;',
-          'fällige Beträge, Zahlungsart und Zahlungsfristen;',
-          'die gewählten Regeln für Stornierung, Erstattung, Nichterscheinen und vorzeitige Abreise;',
-          'eine etwaige Kaution oder Zahlungsautorisierung, Haustiererlaubnis und Gebühr sowie weitere vereinbarte Sonderbedingungen.'
+          'Vor Abschluss der Buchung werden die Preis-, Zahlungs- und Stornierungsbedingungen für die gewählte Unterkunft und den gewählten Tarif angezeigt. Die Buchungsbestätigung hält die vereinbarte Unterkunft, die Reisedaten, die Gästezahl, den Gesamtpreis und die für diese Reservierung geltenden Bedingungen in einer Form fest, die der Gast dauerhaft speichern kann.'
         ]
       },
       {
@@ -367,31 +304,24 @@ export const bookingStayTermsContent: Record<AmaraLanguage, BookingStayTermsLoca
         id: 'version',
         title: '13. Version, Änderungen und Kontakt',
         paragraphs: [
-          'Dokument-ID, Version und Veröffentlichungsdatum stehen am Anfang dieser Seite. Eine inhaltlich wesentliche Änderung erhält eine neue Version und gilt nur für Buchungen, die diese neue Version einbeziehen. Für eine bestehende Buchung bleibt die angenommene Version unverändert, sofern die Parteien nicht ausdrücklich in dauerhafter Form etwas anderes vereinbaren.',
+          'Eine inhaltlich wesentliche Änderung dieser Bedingungen erhält eine neue Version und gilt nur für Buchungen, die auf diese neue Version verweisen. Für eine bestehende Buchung bleibt die angenommene Version unverändert, sofern die Parteien nicht ausdrücklich in dauerhafter Form etwas anderes vereinbaren.',
           'Der Gast sollte die Buchungsbestätigung gemeinsam mit diesen Bedingungen aufbewahren. Fragen zur Buchung oder zu diesen Bedingungen können über die oben genannten Kontaktdaten gestellt werden.'
         ]
       }
     ],
     privacyLinkLabel: 'Impressum & Datenschutzerklärung',
-    closingNote: 'Informationen zum Datenschutz und zur Gästeregistrierung werden gesondert bereitgestellt und ersetzen diese Buchungsbedingungen nicht.'
+    closingNote: 'Informationen zum Datenschutz und zur Gästeregistrierung werden gesondert bereitgestellt und ersetzen diese Buchungsbedingungen nicht.',
+    versionNote: 'Stand: 17. August 2026 · Version 1.0'
   },
   es: {
     seo: {
-      title: 'Condiciones de reserva y estancia | AMARA',
-      description: 'Condiciones estables de reserva y estancia de AMARA Lodging, junto con las condiciones específicas de precio, pago y cancelación confirmadas durante la reserva.'
+      title: 'Condiciones de reserva | AMARA',
+      description: 'Condiciones generales para las reservas directas con AMARA Lodging.'
     },
     hero: {
-      subtitle: 'Condiciones claras. Detalles de reserva flexibles.',
-      title: 'Condiciones de reserva y estancia',
-      lead: 'El marco estable para las reservas directas con AMARA Lodging.'
-    },
-    metadata: {
-      document: 'Documento',
-      version: 'Versión',
-      published: 'Publicado',
-      publishedValue: '17 de agosto de 2026',
-      appliesTo: 'Aplicable a',
-      appliesToValue: 'Reservas cuya confirmación incorpore la versión 1.0'
+      subtitle: 'Claras y fiables.',
+      title: 'Condiciones de reserva',
+      lead: 'Las condiciones generales para las reservas directas con AMARA Lodging.'
     },
     identity: {
       heading: 'Parte contratante',
@@ -405,20 +335,12 @@ export const bookingStayTermsContent: Record<AmaraLanguage, BookingStayTermsLoca
       phone: 'Teléfono',
       country: 'España'
     },
-    model: {
-      heading: 'Un contrato, dos partes complementarias',
-      intro: 'Estas condiciones establecen el marco jurídico estable. Los detalles económicos que pueden variar según el alojamiento, las fechas o la tarifa seleccionada se muestran antes de reservar y quedan fijados en la confirmación de la reserva.',
-      stableTitle: 'Condiciones estables en la web',
-      stableText: 'Formalización del contrato, uso adecuado, cuidado del alojamiento, gestión justa de daños, responsabilidad, legislación aplicable y versión del documento.',
-      flexibleTitle: 'Detalles específicos de la reserva',
-      flexibleText: 'Alojamiento y licencia, fechas, número de huéspedes, precio total, calendario de pagos, cancelación, depósito, mascotas, extras y horarios de entrada o salida acordados.'
-    },
     sections: [
       {
         id: 'scope',
         title: '1. Parte contratante y ámbito de aplicación',
         paragraphs: [
-          'Estas Condiciones de reserva y estancia regulan el alojamiento turístico de corta duración prestado por la parte contratante identificada anteriormente (“Anfitrión”) en el alojamiento indicado en la confirmación de la reserva. AMARA Lodging es el nombre comercial del Anfitrión y no una entidad contratante independiente.',
+          'Estas Condiciones de reserva regulan el alojamiento turístico de corta duración prestado por la parte contratante identificada en esta página (“Anfitrión”) en el alojamiento indicado en la confirmación de la reserva. AMARA Lodging es el nombre comercial del Anfitrión y no una entidad contratante independiente.',
           'La persona que completa la reserva es el huésped principal (“Huésped”). El Huésped confirma que los datos de la reserva son correctos y se responsabiliza de comunicar a todos sus acompañantes las condiciones y normas del alojamiento que les resulten aplicables.'
         ]
       },
@@ -433,17 +355,9 @@ export const bookingStayTermsContent: Record<AmaraLanguage, BookingStayTermsLoca
       },
       {
         id: 'booking-details',
-        title: '3. Detalles fijados para cada reserva',
+        title: '3. Confirmación de la reserva',
         paragraphs: [
-          'Antes de completar la reserva, el proceso de contratación identifica las condiciones aplicables al alojamiento y a la tarifa seleccionados. La confirmación recoge esos datos en un formato que el Huésped puede conservar.'
-        ],
-        bullets: [
-          'el alojamiento, su dirección y el número de registro o licencia turística aplicable;',
-          'las fechas y horas acordadas de entrada y salida y el número de huéspedes;',
-          'el precio total, los impuestos y cargos obligatorios incluidos y los extras elegidos expresamente;',
-          'los importes, el medio de pago y los plazos de pago;',
-          'las reglas seleccionadas sobre cancelación, reembolso, no presentación y salida anticipada;',
-          'cualquier depósito o autorización de pago, permiso y tarifa para mascotas y otras condiciones especiales acordadas.'
+          'Antes de completar la reserva se muestran las condiciones de precio, pago y cancelación aplicables al alojamiento y a la tarifa seleccionados. La confirmación recoge el alojamiento acordado, las fechas, el número de huéspedes, el precio total y las condiciones aplicables a esa reserva en un formato que el Huésped puede conservar.'
         ]
       },
       {
@@ -527,31 +441,24 @@ export const bookingStayTermsContent: Record<AmaraLanguage, BookingStayTermsLoca
         id: 'version',
         title: '13. Versión, modificaciones y contacto',
         paragraphs: [
-          'La identificación del documento, la versión y la fecha de publicación figuran al principio de esta página. Toda modificación material genera una nueva versión y solo se aplica a las reservas que incorporen esa nueva versión. La versión aceptada para una reserva existente no cambia salvo acuerdo expreso de ambas partes en un soporte duradero.',
+          'Toda modificación material de estas condiciones genera una nueva versión y solo se aplica a las reservas que hagan referencia a ella. La versión aceptada para una reserva existente no cambia salvo acuerdo expreso de ambas partes en un soporte duradero.',
           'El Huésped deberá conservar la confirmación junto con estas condiciones. Las consultas sobre una reserva o sobre estas condiciones pueden enviarse utilizando los datos de contacto anteriores.'
         ]
       }
     ],
     privacyLinkLabel: 'Aviso legal y política de privacidad',
-    closingNote: 'La información sobre privacidad y registro de huéspedes se facilita por separado y no sustituye estas condiciones de reserva.'
+    closingNote: 'La información sobre privacidad y registro de huéspedes se facilita por separado y no sustituye estas condiciones de reserva.',
+    versionNote: 'Actualizado: 17 de agosto de 2026 · Versión 1.0'
   },
   nl: {
     seo: {
-      title: 'Boekings- en verblijfsvoorwaarden | AMARA',
-      description: 'Vaste boekings- en verblijfsvoorwaarden van AMARA Lodging, samen met de boekingsspecifieke prijs-, betaal- en annuleringsvoorwaarden die bij het boeken worden bevestigd.'
+      title: 'Boekingsvoorwaarden | AMARA',
+      description: 'Algemene boekingsvoorwaarden voor rechtstreekse boekingen bij AMARA Lodging.'
     },
     hero: {
-      subtitle: 'Duidelijke voorwaarden. Flexibele boekingsdetails.',
-      title: 'Boekings- en verblijfs&shy;voorwaarden',
-      lead: 'Het vaste kader voor rechtstreekse boekingen bij AMARA Lodging.'
-    },
-    metadata: {
-      document: 'Document',
-      version: 'Versie',
-      published: 'Gepubliceerd',
-      publishedValue: '17 augustus 2026',
-      appliesTo: 'Van toepassing op',
-      appliesToValue: 'Boekingen waarvan de bevestiging naar versie 1.0 verwijst'
+      subtitle: 'Helder en betrouwbaar.',
+      title: 'Boekingsvoorwaarden',
+      lead: 'De algemene voorwaarden voor rechtstreekse boekingen bij AMARA Lodging.'
     },
     identity: {
       heading: 'Contractspartij',
@@ -565,20 +472,12 @@ export const bookingStayTermsContent: Record<AmaraLanguage, BookingStayTermsLoca
       phone: 'Telefoon',
       country: 'Spanje'
     },
-    model: {
-      heading: 'Eén overeenkomst, twee aanvullende onderdelen',
-      intro: 'Deze voorwaarden vormen het vaste juridische kader. Commerciële gegevens die per accommodatie, datum of gekozen tarief kunnen verschillen, worden vóór het boeken getoond en in de boekingsbevestiging vastgelegd.',
-      stableTitle: 'Vaste voorwaarden op de website',
-      stableText: 'Totstandkoming van de overeenkomst, correct gebruik, zorg voor de accommodatie, eerlijke schadeafhandeling, aansprakelijkheid, toepasselijk recht en documentversie.',
-      flexibleTitle: 'Boekingsspecifieke gegevens',
-      flexibleText: 'Accommodatie en vergunning, verblijfsdata, aantal gasten, totaalprijs, betaalschema, annulering, borg, huisdieren, extra’s en overeengekomen aankomst- of vertrektijden.'
-    },
     sections: [
       {
         id: 'scope',
         title: '1. Contractspartij en toepassingsgebied',
         paragraphs: [
-          'Deze Boekings- en verblijfsvoorwaarden gelden voor toeristische accommodatie voor korte duur die door de hierboven vermelde contractspartij (“Host”) wordt aangeboden in de accommodatie die in de boekingsbevestiging staat. AMARA Lodging is de handelsnaam van de Host en geen afzonderlijke contractspartij.',
+          'Deze Boekingsvoorwaarden gelden voor toeristische accommodatie voor korte duur die door de op deze pagina vermelde contractspartij (“Host”) wordt aangeboden in de accommodatie die in de boekingsbevestiging staat. AMARA Lodging is de handelsnaam van de Host en geen afzonderlijke contractspartij.',
           'De persoon die de reservering voltooit, is de hoofdgast (“Gast”). De Gast bevestigt dat de boekingsgegevens juist zijn en zorgt ervoor dat alle medereizigers kennisnemen van de voor hen relevante voorwaarden en huisregels.'
         ]
       },
@@ -593,17 +492,9 @@ export const bookingStayTermsContent: Record<AmaraLanguage, BookingStayTermsLoca
       },
       {
         id: 'booking-details',
-        title: '3. Gegevens die per boeking worden vastgelegd',
+        title: '3. Boekingsbevestiging',
         paragraphs: [
-          'Voordat de Gast de boeking voltooit, vermeldt het boekingsproces de voorwaarden die bij de gekozen accommodatie en het gekozen tarief horen. De bevestiging legt deze gegevens vast in een vorm die de Gast kan bewaren.'
-        ],
-        bullets: [
-          'de accommodatie, het adres en het toepasselijke toeristische registratie- of vergunningsnummer;',
-          'aankomst- en vertrekdata, overeengekomen tijden en aantal gasten;',
-          'de totaalprijs, inbegrepen belastingen en verplichte kosten, plus uitdrukkelijk gekozen extra’s;',
-          'verschuldigde bedragen, betaalwijze en betaaltermijnen;',
-          'de gekozen regels voor annulering, terugbetaling, niet verschijnen en vroegtijdig vertrek;',
-          'een eventuele borg of betaalautorisatie, toestemming en kosten voor huisdieren en andere overeengekomen bijzondere voorwaarden.'
+          'Voordat de Gast de boeking voltooit, worden de prijs-, betaal- en annuleringsvoorwaarden voor de gekozen accommodatie en het gekozen tarief getoond. De boekingsbevestiging legt de overeengekomen accommodatie, reisdata, het aantal gasten, de totaalprijs en de voorwaarden voor die reservering vast in een vorm die de Gast kan bewaren.'
         ]
       },
       {
@@ -687,31 +578,24 @@ export const bookingStayTermsContent: Record<AmaraLanguage, BookingStayTermsLoca
         id: 'version',
         title: '13. Versie, wijzigingen en contact',
         paragraphs: [
-          'De documentcode, versie en publicatiedatum staan bovenaan deze pagina. Een materiële wijziging krijgt een nieuwe versie en geldt alleen voor boekingen die naar die nieuwe versie verwijzen. De voor een bestaande boeking aanvaarde versie blijft ongewijzigd, tenzij beide partijen uitdrukkelijk anders overeenkomen op een duurzame gegevensdrager.',
+          'Een materiële wijziging van deze voorwaarden krijgt een nieuwe versie en geldt alleen voor boekingen die naar die nieuwe versie verwijzen. De voor een bestaande boeking aanvaarde versie blijft ongewijzigd, tenzij beide partijen uitdrukkelijk anders overeenkomen op een duurzame gegevensdrager.',
           'De Gast bewaart de boekingsbevestiging samen met deze voorwaarden. Vragen over een boeking of deze voorwaarden kunnen via de bovenstaande contactgegevens worden gesteld.'
         ]
       }
     ],
     privacyLinkLabel: 'Juridische kennisgeving & privacybeleid',
-    closingNote: 'Informatie over privacy en gastenregistratie wordt afzonderlijk verstrekt en vervangt deze boekingsvoorwaarden niet.'
+    closingNote: 'Informatie over privacy en gastenregistratie wordt afzonderlijk verstrekt en vervangt deze boekingsvoorwaarden niet.',
+    versionNote: 'Bijgewerkt: 17 augustus 2026 · Versie 1.0'
   },
   sv: {
     seo: {
-      title: 'Boknings- och vistelsevillkor | AMARA',
-      description: 'Fasta boknings- och vistelsevillkor för AMARA Lodging tillsammans med de bokningsspecifika pris-, betalnings- och avbokningsvillkor som bekräftas vid bokningen.'
+      title: 'Bokningsvillkor | AMARA',
+      description: 'Allmänna bokningsvillkor för direktbokningar hos AMARA Lodging.'
     },
     hero: {
-      subtitle: 'Tydliga villkor. Flexibla bokningsuppgifter.',
-      title: 'Boknings- och vistelse&shy;villkor',
-      lead: 'Den fasta ramen för direktbokningar hos AMARA Lodging.'
-    },
-    metadata: {
-      document: 'Dokument',
-      version: 'Version',
-      published: 'Publicerad',
-      publishedValue: '17 augusti 2026',
-      appliesTo: 'Gäller för',
-      appliesToValue: 'Bokningar vars bekräftelse hänvisar till version 1.0'
+      subtitle: 'Tydliga och tillförlitliga.',
+      title: 'Bokningsvillkor',
+      lead: 'De allmänna villkoren för direktbokningar hos AMARA Lodging.'
     },
     identity: {
       heading: 'Avtalspart',
@@ -725,20 +609,12 @@ export const bookingStayTermsContent: Record<AmaraLanguage, BookingStayTermsLoca
       phone: 'Telefon',
       country: 'Spanien'
     },
-    model: {
-      heading: 'Ett avtal, två kompletterande delar',
-      intro: 'Dessa villkor utgör den fasta rättsliga ramen. Kommersiella uppgifter som kan variera beroende på boende, datum eller vald prisplan visas före bokningen och fastställs i bokningsbekräftelsen.',
-      stableTitle: 'Fasta villkor på webbplatsen',
-      stableText: 'Avtalets ingående, korrekt användning, omsorg om boendet, rättvis skadehantering, ansvar, tillämplig lag och dokumentversion.',
-      flexibleTitle: 'Bokningsspecifika uppgifter',
-      flexibleText: 'Boende och licens, vistelsedatum, antal gäster, totalpris, betalningsplan, avbokning, deposition, husdjur, tillval och överenskomna in- eller utcheckningstider.'
-    },
     sections: [
       {
         id: 'scope',
         title: '1. Avtalspart och tillämpningsområde',
         paragraphs: [
-          'Dessa Boknings- och vistelsevillkor gäller för kortvarigt turistboende som tillhandahålls av den avtalspart som anges ovan (“Värden”) i det boende som anges i bokningsbekräftelsen. AMARA Lodging är Värdens verksamhetsnamn och inte en separat avtalspart.',
+          'Dessa Bokningsvillkor gäller för kortvarigt turistboende som tillhandahålls av den avtalspart som anges på denna sida (“Värden”) i det boende som anges i bokningsbekräftelsen. AMARA Lodging är Värdens verksamhetsnamn och inte en separat avtalspart.',
           'Den person som slutför bokningen är huvudgästen (“Gästen”). Gästen bekräftar att bokningsuppgifterna är korrekta och ansvarar för att alla medresenärer får kännedom om de villkor och boenderegler som berör dem.'
         ]
       },
@@ -753,17 +629,9 @@ export const bookingStayTermsContent: Record<AmaraLanguage, BookingStayTermsLoca
       },
       {
         id: 'booking-details',
-        title: '3. Uppgifter som fastställs för varje bokning',
+        title: '3. Bokningsbekräftelse',
         paragraphs: [
-          'Innan Gästen slutför bokningen visar bokningsprocessen de villkor som gäller för valt boende och vald prisplan. Bekräftelsen dokumenterar uppgifterna i en form som Gästen kan spara.'
-        ],
-        bullets: [
-          'boendet, adressen och tillämpligt turistregistrerings- eller licensnummer;',
-          'ankomst- och avresedatum, överenskomna tider och antal gäster;',
-          'totalpris, inkluderade skatter och obligatoriska avgifter samt uttryckligen valda tillägg;',
-          'belopp som ska betalas, betalningsmetod och betalningsfrister;',
-          'valda regler för avbokning, återbetalning, utebliven ankomst och förtida avresa;',
-          'eventuell deposition eller betalningsauktorisation, tillstånd och avgift för husdjur samt andra överenskomna särskilda villkor.'
+          'Innan Gästen slutför bokningen visas de pris-, betalnings- och avbokningsvillkor som gäller för valt boende och vald prisplan. Bokningsbekräftelsen anger det avtalade boendet, resedatumen, antalet gäster, totalpriset och villkoren för bokningen i en form som Gästen kan spara.'
         ]
       },
       {
@@ -847,12 +715,13 @@ export const bookingStayTermsContent: Record<AmaraLanguage, BookingStayTermsLoca
         id: 'version',
         title: '13. Version, ändringar och kontakt',
         paragraphs: [
-          'Dokument-ID, version och publiceringsdatum anges högst upp på sidan. En väsentlig ändring får en ny version och gäller endast för bokningar som hänvisar till den nya versionen. Den version som godkänts för en befintlig bokning förblir oförändrad om inte båda parter uttryckligen avtalar annat på ett varaktigt medium.',
+          'En väsentlig ändring av dessa villkor får en ny version och gäller endast för bokningar som hänvisar till den nya versionen. Den version som godkänts för en befintlig bokning förblir oförändrad om inte båda parter uttryckligen avtalar annat på ett varaktigt medium.',
           'Gästen bör spara bokningsbekräftelsen tillsammans med dessa villkor. Frågor om en bokning eller villkoren kan skickas via kontaktuppgifterna ovan.'
         ]
       }
     ],
     privacyLinkLabel: 'Juridisk information & integritetspolicy',
-    closingNote: 'Information om integritet och gästregistrering lämnas separat och ersätter inte dessa bokningsvillkor.'
+    closingNote: 'Information om integritet och gästregistrering lämnas separat och ersätter inte dessa bokningsvillkor.',
+    versionNote: 'Uppdaterad: 17 augusti 2026 · Version 1.0'
   }
 };

@@ -65,11 +65,11 @@ export const trustLabels: Record<
     sv: 'Juridisk information & integritet'
   },
   booking_stay_terms: {
-    en: 'Booking & Stay Terms',
-    de: 'Buchungs- & Aufenthaltsbedingungen',
-    es: 'Condiciones de reserva y estancia',
-    nl: 'Boekings- en verblijfsvoorwaarden',
-    sv: 'Boknings- och vistelsevillkor'
+    en: 'Booking Terms',
+    de: 'Buchungsbedingungen',
+    es: 'Condiciones de reserva',
+    nl: 'Boekingsvoorwaarden',
+    sv: 'Bokningsvillkor'
   },
   book: {
     en: 'Check Availability',
