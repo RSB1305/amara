@@ -124,7 +124,7 @@ export const bookingStayTermsContent: Record<AmaraLanguage, BookingStayTermsLoca
         title: '8. House Rules, Quiet, Smoking and Pets',
         paragraphs: [
           'Guests must respect neighbours, shared areas, property-specific quiet hours and the material house rules shown before booking or included with the confirmation. Operational instructions may also be provided at or before arrival.',
-          'Smoking inside is not permitted unless the booking information expressly states otherwise. Pets are permitted only when the selected accommodation allows them and the booking confirmation records the permission and any fee. Mandatory rules concerning assistance animals remain unaffected.',
+          'Smoking inside is not permitted. Pets are not permitted in any AMARA Lodging accommodation. Mandatory rules concerning recognised assistance animals remain unaffected.',
           'For a serious or repeated breach, the Host may take reasonable and proportionate measures permitted by law, including requiring the conduct to stop or, where justified, ending the stay. Any refund consequence is determined by the confirmed booking conditions and mandatory law; it is not automatically forfeited.'
         ]
       },
@@ -261,7 +261,7 @@ export const bookingStayTermsContent: Record<AmaraLanguage, BookingStayTermsLoca
         title: '8. Hausregeln, Ruhe, Rauchen und Haustiere',
         paragraphs: [
           'Die Gäste nehmen Rücksicht auf Nachbarn und Gemeinschaftsflächen und beachten die unterkunftsspezifischen Ruhezeiten sowie die wesentlichen Hausregeln, die vor der Buchung oder mit der Bestätigung bereitgestellt werden. Organisatorische Hinweise können zusätzlich vor oder bei der Anreise übermittelt werden.',
-          'Das Rauchen in Innenräumen ist nicht gestattet, sofern die Buchungsinformationen nicht ausdrücklich etwas anderes ausweisen. Haustiere sind nur erlaubt, wenn die gewählte Unterkunft sie zulässt und die Erlaubnis sowie eine etwaige Gebühr in der Buchungsbestätigung festgehalten sind. Zwingende Vorschriften zu Assistenztieren bleiben unberührt.',
+          'Das Rauchen in Innenräumen ist nicht gestattet. Haustiere sind in keiner Unterkunft von AMARA Lodging erlaubt. Zwingende Vorschriften zu anerkannten Assistenzhunden bleiben unberührt.',
           'Bei einem schwerwiegenden oder wiederholten Verstoß kann der Gastgeber angemessene und verhältnismäßige, gesetzlich zulässige Maßnahmen ergreifen. Dazu kann bei entsprechender Rechtfertigung auch die Beendigung des Aufenthalts gehören. Ob eine Erstattung erfolgt, richtet sich nach den bestätigten Buchungsbedingungen und zwingendem Recht; sie entfällt nicht automatisch.'
         ]
       },
@@ -398,7 +398,7 @@ export const bookingStayTermsContent: Record<AmaraLanguage, BookingStayTermsLoca
         title: '8. Normas, descanso, tabaco y mascotas',
         paragraphs: [
           'Los huéspedes respetarán al vecindario y las zonas comunes, los horarios de descanso específicos y las normas esenciales comunicadas antes de la reserva o incluidas con la confirmación. También podrán facilitarse instrucciones operativas antes de la llegada o en ese momento.',
-          'No está permitido fumar en el interior salvo que la información de la reserva indique expresamente lo contrario. Las mascotas solo se admiten cuando el alojamiento seleccionado lo permita y la confirmación recoja el permiso y cualquier tarifa. Las normas imperativas relativas a animales de asistencia no se ven afectadas.',
+          'No está permitido fumar en el interior. No se admiten mascotas en ningún alojamiento de AMARA Lodging. Las normas imperativas relativas a perros de asistencia reconocidos no se ven afectadas.',
           'Ante un incumplimiento grave o reiterado, el Anfitrión podrá adoptar medidas razonables, proporcionadas y permitidas por la ley, incluida la finalización de la estancia cuando esté justificada. Las consecuencias sobre un posible reembolso se determinan conforme a las condiciones confirmadas y la ley imperativa; el reembolso no se pierde automáticamente.'
         ]
       },
@@ -535,7 +535,7 @@ export const bookingStayTermsContent: Record<AmaraLanguage, BookingStayTermsLoca
         title: '8. Huisregels, rust, roken en huisdieren',
         paragraphs: [
           'Gasten respecteren buren en gemeenschappelijke ruimten, accommodatiespecifieke rusttijden en de belangrijke huisregels die vóór het boeken of bij de bevestiging zijn verstrekt. Praktische instructies kunnen ook vóór of bij aankomst worden gegeven.',
-          'Binnen roken is niet toegestaan, tenzij de boekingsinformatie uitdrukkelijk anders vermeldt. Huisdieren zijn alleen toegestaan wanneer de gekozen accommodatie ze toelaat en de bevestiging de toestemming en eventuele kosten vermeldt. Dwingende regels voor assistentiedieren blijven onverminderd gelden.',
+          'Binnen roken is niet toegestaan. Huisdieren zijn in geen enkele AMARA Lodging-accommodatie toegestaan. Dwingende regels voor erkende assistentiedieren blijven onverminderd gelden.',
           'Bij een ernstige of herhaalde overtreding kan de Host redelijke, evenredige en wettelijk toegestane maatregelen nemen, waaronder beëindiging van het verblijf wanneer dat gerechtvaardigd is. De gevolgen voor een eventuele terugbetaling volgen uit de bevestigde voorwaarden en het dwingende recht; een terugbetaling vervalt niet automatisch.'
         ]
       },
@@ -672,7 +672,7 @@ export const bookingStayTermsContent: Record<AmaraLanguage, BookingStayTermsLoca
         title: '8. Ordningsregler, hänsyn, rökning och husdjur',
         paragraphs: [
           'Gäster ska visa hänsyn till grannar och gemensamma utrymmen och följa boendets särskilda tystnadstider och viktiga ordningsregler som har lämnats före bokningen eller tillsammans med bekräftelsen. Praktiska instruktioner kan även ges före eller vid ankomst.',
-          'Rökning inomhus är inte tillåten om inte bokningsinformationen uttryckligen anger något annat. Husdjur är endast tillåtna när det valda boendet medger det och bokningsbekräftelsen anger tillståndet och eventuell avgift. Tvingande regler om assistansdjur påverkas inte.',
+          'Rökning inomhus är inte tillåten. Husdjur är inte tillåtna i något av AMARA Lodgings boenden. Tvingande regler om erkända assistansdjur påverkas inte.',
           'Vid en allvarlig eller upprepad överträdelse får Värden vidta rimliga, proportionerliga och lagliga åtgärder, inklusive att avsluta vistelsen när det är motiverat. Konsekvenserna för eventuell återbetalning bestäms av de bekräftade villkoren och tvingande lag; återbetalningen förverkas inte automatiskt.'
         ]
       },

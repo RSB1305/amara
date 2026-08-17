@@ -513,16 +513,15 @@ type SelectionSignal =
   | 'bedSize'
   | 'outdoor'
   | 'privatePatioAndTerrace'
-  | 'pets'
   | 'pool'
   | 'parking'
   | 'stepFreeVillageRoute';
 
 const selectionSignalsByToken: Record<ApartmentToken, SelectionSignal[]> = {
   farah: ['twoRoomSuite', 'kitchen', 'outdoor', 'stepFreeVillageRoute'],
-  lounis: ['kitchen', 'washingMachine', 'privatePatioAndTerrace', 'pets'],
+  lounis: ['kitchen', 'washingMachine', 'privatePatioAndTerrace'],
   zaid: ['kitchen', 'washingMachine', 'outdoor'],
-  maha: ['kitchen', 'noWashingMachine', 'outdoor', 'pets'],
+  maha: ['kitchen', 'noWashingMachine', 'outdoor'],
   playa: ['bedSize', 'kitchen', 'washingMachine', 'outdoor'],
   casa: ['kitchen', 'washingMachine', 'pool', 'parking']
 };
@@ -570,8 +569,6 @@ function selectionSignal(
       return hasAmenity(rental, 'privatePatio') && hasAmenity(rental, 'privateTerrace')
         ? selectionLabels.privatePatioAndTerrace[currentLang]
         : undefined;
-    case 'pets':
-      return hasAmenity(rental, 'petsAllowed') ? rental.petsNote[currentLang] : undefined;
     case 'pool':
       return hasAmenity(rental, 'pool') ? selectionLabels.sharedPool[currentLang] : undefined;
     case 'parking':

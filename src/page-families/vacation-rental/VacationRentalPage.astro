@@ -413,7 +413,6 @@ const amenityLabels: Record<string, LocalizedText> = {
   privatePatio: { en: 'Private patio', de: 'Privater Patio', es: 'Patio privado', nl: 'Privépatio', sv: 'Privat uteplats' },
   privateTerrace: { en: 'Private terrace', de: 'Private Terrasse', es: 'Terraza privada', nl: 'Privéterras', sv: 'Privat terrass' },
   pelletStove: { en: 'Pellet stove', de: 'Pelletofen', es: 'Estufa de pellets', nl: 'Pelletkachel', sv: 'Pelletskamin' },
-  petsAllowed: { en: 'Pets allowed', de: 'Haustiere erlaubt', es: 'Mascotas permitidas', nl: 'Huisdieren toegestaan', sv: 'Husdjur tillatna' },
   pool: { en: 'Pool', de: 'Pool', es: 'Piscina', nl: 'Zwembad', sv: 'Pool' },
   poolType: { en: 'Pool type', de: 'Pooltyp', es: 'Tipo de piscina', nl: 'Zwembadtype', sv: 'Pooltyp' },
   selfCheckinCheckout: { en: 'Self check-in', de: 'Self Check-in', es: 'Entrada autónoma', nl: 'Zelf inchecken', sv: 'Självincheckning' },
@@ -511,7 +510,6 @@ const formatAmenity = (feature: VacationRentalAmenityFeature) => {
     'internetType',
     'licenseNum',
     'parkingType',
-    'petsAllowed',
     'selfCheckinCheckout'
   ]);
   const hasAirConditioning = rental.amenityFeatures.some(

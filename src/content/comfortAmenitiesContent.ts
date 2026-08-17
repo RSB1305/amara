@@ -112,7 +112,7 @@ export const comfortAmenitiesCopy: Record<
       subtitle: 'Compare before you book.',
       title: 'Beds, terraces, kitchens & access.',
       lead: 'Farah has a kitchenette but no full kitchen; Playa has lift access after seven steps; and three Frigiliana apartments have private terraces.',
-      supportText: 'Compare occupancy, bed sizes, access, parking, pets, views and seasonal price ranges for every AMARA stay.',
+      supportText: 'Compare occupancy, bed sizes, access, parking, views and seasonal price ranges for every AMARA stay.',
       ctaAbout: trustLabels.about.en,
       ctaReviews: trustLabels.reviews_hub.en
     },
@@ -159,7 +159,7 @@ export const comfortAmenitiesCopy: Record<
       subtitle: 'Vor der Buchung vergleichen.',
       title: 'Betten, Terrassen, Küchen & Zugang.',
       lead: 'Farah hat eine Teeküche, aber keine vollständige Küche; bei Playa führen sieben Stufen zum Aufzug; und drei Apartments in Frigiliana haben private Terrassen.',
-      supportText: 'Vergleicht Belegung, Bettgrößen, Zugang, Parken, Haustiere, Ausblick und saisonale Preisspannen aller AMARA-Unterkünfte.',
+      supportText: 'Vergleicht Belegung, Bettgrößen, Zugang, Parken, Ausblick und saisonale Preisspannen aller AMARA-Unterkünfte.',
       ctaAbout: trustLabels.about.de,
       ctaReviews: trustLabels.reviews_hub.de
     },
@@ -206,7 +206,7 @@ export const comfortAmenitiesCopy: Record<
       subtitle: 'Comparad antes de reservar.',
       title: 'Camas, terrazas, cocinas y acceso.',
       lead: 'Farah tiene una pequeña zona de cocina, pero no cocina completa; en Playa hay siete escalones antes del ascensor; y tres apartamentos de Frigiliana cuentan con terraza privada.',
-      supportText: 'Comparad capacidad, tamaño de las camas, acceso, aparcamiento, mascotas, vistas y precios orientativos de todos los alojamientos AMARA.',
+      supportText: 'Comparad capacidad, tamaño de las camas, acceso, aparcamiento, vistas y precios orientativos de todos los alojamientos AMARA.',
       ctaAbout: trustLabels.about.es,
       ctaReviews: trustLabels.reviews_hub.es
     },
@@ -253,7 +253,7 @@ export const comfortAmenitiesCopy: Record<
       subtitle: 'Vergelijk voordat jullie boeken.',
       title: 'Bedden, terrassen, keukens & toegang.',
       lead: 'Farah heeft een kitchenette maar geen volledige keuken; bij Playa zijn er zeven treden vóór de lift; en drie appartementen in Frigiliana hebben een privéterras.',
-      supportText: 'Vergelijk bezetting, bedmaten, toegang, parkeren, huisdieren, uitzicht en seizoensprijzen van alle AMARA-verblijven.',
+      supportText: 'Vergelijk bezetting, bedmaten, toegang, parkeren, uitzicht en seizoensprijzen van alle AMARA-verblijven.',
       ctaAbout: trustLabels.about.nl,
       ctaReviews: trustLabels.reviews_hub.nl
     },
@@ -300,7 +300,7 @@ export const comfortAmenitiesCopy: Record<
       subtitle: 'Jämför innan ni bokar.',
       title: 'Sängar, terrasser, kök & tillträde.',
       lead: 'Farah har pentry men inget komplett kök; till hissen i Playa leder sju trappsteg; och tre lägenheter i Frigiliana har privat terrass.',
-      supportText: 'Jämför antal gäster, sängmått, tillträde, parkering, husdjur, utsikt och säsongspriser för alla AMARA-boenden.',
+      supportText: 'Jämför antal gäster, sängmått, tillträde, parkering, utsikt och säsongspriser för alla AMARA-boenden.',
       ctaAbout: trustLabels.about.sv,
       ctaReviews: trustLabels.reviews_hub.sv
     },

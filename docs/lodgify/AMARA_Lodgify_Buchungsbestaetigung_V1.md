@@ -16,22 +16,23 @@ Die Platzhalter in eckigen Klammern sind noch keine Lodgify-Feldnamen. Vor der A
 - `[MAXIMALE_BELEGUNG]`
 - `[REGULAERER_CHECK_IN]` und `[REGULAERER_CHECK_OUT]`
 - `[ZUGANG_UND_STUFEN]`: nur sachliche, unterkunftsspezifische Zugangsinformationen
-- `[HAUSTIERREGEL]`: Erlaubnis, Größenbeschränkung, vorherige Bestätigung und Gebühr
 - `[UNTERKUNFTSREGELN]`: nur wesentliche Regeln, die von den allgemeinen Buchungsbedingungen abweichen oder sie konkretisieren
 - `[KAUTION_ODER_AUTORISIERUNG]`: nur wenn für diese Unterkunft vorgesehen
+
+Für alle Unterkünfte gilt einheitlich: Haustiere sind nicht erlaubt. Diese Regel muss in Lodgify sowohl in den Unterkunftseinstellungen als auch in allen sichtbaren Richtlinien und automatischen Nachrichten fest hinterlegt werden.
 
 ### Aktueller Datenstand aus der Website
 
 | Unterkunft | Adresse | Registrierung | Max. Gäste | Reguläre Zeiten | Haustiere |
 |---|---|---:|---:|---|---|
 | AMARA Farah | Calle Chorruelo 5, 29788 Frigiliana, Andalusien, Spanien | A/MA/01767 | 2 | 15:00 / 11:00 | nicht erlaubt |
-| AMARA Lounis | Calle Chorruelo 5, 29788 Frigiliana, Andalusien, Spanien | A/MA/01767 | 2 | 15:00 / 11:00 | kleine Hunde auf Anfrage, 15 €/Tag |
+| AMARA Lounis | Calle Chorruelo 5, 29788 Frigiliana, Andalusien, Spanien | A/MA/01767 | 2 | 15:00 / 11:00 | nicht erlaubt |
 | AMARA Zaid | Calle Chorruelo 5, 29788 Frigiliana, Andalusien, Spanien | A/MA/01767 | 2 | 15:00 / 11:00 | nicht erlaubt |
-| AMARA Maha | Calle Chorruelo 5, 29788 Frigiliana, Andalusien, Spanien | A/MA/01767 | 2 | 15:00 / 11:00 | kleine Hunde auf Anfrage, 15 €/Tag |
+| AMARA Maha | Calle Chorruelo 5, 29788 Frigiliana, Andalusien, Spanien | A/MA/01767 | 2 | 15:00 / 11:00 | nicht erlaubt |
 | AMARA Playa | Calle Castilla Perez 60, 29780 Nerja, Andalusien, Spanien | VFT/MA/19212 | 2 | 15:00 / 11:00 | nicht erlaubt |
 | AMARA Family & Surf | Calle Mar Adriatico 29, 11380 Tarifa, Andalusien, Spanien | VFT/CA/17038 | 4 | 15:00 / 11:00 | nicht erlaubt |
 
-Vor der Übernahme in Lodgify sind Anschriften, Registrierungsnummern, Belegung und Haustierregeln noch einmal gegen den aktuellen operativen Stand zu prüfen.
+Vor der Übernahme in Lodgify sind Anschriften, Registrierungsnummern und Belegung noch einmal gegen den aktuellen operativen Stand zu prüfen.
 
 ## 2. Für jede Buchung automatisch einsetzen
 
@@ -46,7 +47,7 @@ Vor der Übernahme in Lodgify sind Anschriften, Registrierungsnummern, Belegung 
 - `[ZAHLUNGSBEDINGUNGEN]`
 - `[STORNIERUNGSBEDINGUNGEN]`, einschließlich Erstattung, Nichterscheinen und vorzeitiger Abreise
 - `[GEBUCHTE_EXTRAS]`
-- `[BESTAETIGTE_SONDERVEREINBARUNGEN]`, zum Beispiel Haustier, früher Check-in oder später Check-out
+- `[BESTAETIGTE_SONDERVEREINBARUNGEN]`, zum Beispiel früher Check-in oder später Check-out
 
 ## 3. Textvorlagen für die Buchungsbestätigung
 
@@ -80,7 +81,7 @@ Für diese Buchung gelten folgende Stornierungs-, Erstattungs-, No-show- und Abr
 **Angaben zu Ihrer Unterkunft**
 
 - Zugang: `[ZUGANG_UND_STUFEN]`
-- Haustiere: `[HAUSTIERREGEL]`
+- Haustiere: nicht erlaubt
 - Kaution oder Zahlungsautorisierung: `[KAUTION_ODER_AUTORISIERUNG]`
 - Gebuchte Extras: `[GEBUCHTE_EXTRAS]`
 - Wesentliche Unterkunftsregeln: `[UNTERKUNFTSREGELN]`
@@ -118,7 +119,7 @@ The following cancellation, refund, no-show and early-departure terms apply to t
 **Your accommodation**
 
 - Access: `[ACCESS_AND_STEPS]`
-- Pets: `[PET_POLICY]`
+- Pets: not allowed
 - Deposit or payment authorisation: `[DEPOSIT_OR_AUTHORISATION]`
 - Booked extras: `[BOOKED_EXTRAS]`
 - Essential property rules: `[PROPERTY_RULES]`
@@ -156,7 +157,7 @@ Se aplican a esta reserva las siguientes condiciones de cancelación, reembolso,
 **Datos del alojamiento**
 
 - Acceso: `[ACCESO_Y_ESCALONES]`
-- Mascotas: `[POLITICA_DE_MASCOTAS]`
+- Mascotas: no se admiten
 - Depósito o autorización de pago: `[DEPOSITO_O_AUTORIZACION]`
 - Extras reservados: `[EXTRAS_RESERVADOS]`
 - Normas esenciales del alojamiento: `[NORMAS_DEL_ALOJAMIENTO]`
@@ -194,7 +195,7 @@ Voor deze boeking gelden de volgende voorwaarden voor annulering, terugbetaling,
 **Gegevens over de accommodatie**
 
 - Toegang: `[TOEGANG_EN_TREDEN]`
-- Huisdieren: `[HUISDIERENBELEID]`
+- Huisdieren: niet toegestaan
 - Borg of betaalautorisatie: `[BORG_OF_AUTORISATIE]`
 - Geboekte extra’s: `[GEBOEKTE_EXTRAS]`
 - Essentiële accommodatieregels: `[ACCOMMODATIEREGELS]`
@@ -232,7 +233,7 @@ Följande villkor för avbokning, återbetalning, utebliven ankomst och förtida
 **Uppgifter om boendet**
 
 - Tillträde: `[TILLTRADE_OCH_TRAPPSTEG]`
-- Husdjur: `[HUSDJURSREGLER]`
+- Husdjur: inte tillåtna
 - Deposition eller betalningsauktorisation: `[DEPOSITION_ELLER_AUKTORISATION]`
 - Bokade tillval: `[BOKADE_TILLVAL]`
 - Viktiga boenderegler: `[BOENDEREGLER]`
@@ -243,7 +244,7 @@ AMARA Lodgings allmänna Bokningsvillkor gäller också: https://amara-lodging.e
 ## 4. Vor Aktivierung in Lodgify prüfen
 
 1. Jeden Platzhalter einem Lodgify-Feld oder einem festen Unterkunftsblock zuordnen.
-2. Für alle sechs Unterkünfte den Zugang, wesentliche Hausregeln, Haustiere und eine mögliche Kaution freigeben.
+2. Für alle sechs Unterkünfte den Zugang, wesentliche Hausregeln und eine mögliche Kaution freigeben; die Haustierregel muss ausnahmslos auf „nicht erlaubt“ stehen.
 3. Sicherstellen, dass der jeweils gebuchte Tarif seine tatsächlichen Zahlungs- und Stornierungsbedingungen einsetzt.
 4. Mit einer Testbuchung in jeder Sprache prüfen, dass keine leeren Felder oder Platzhalter ausgegeben werden.
 5. Den Link zu den allgemeinen Buchungsbedingungen in Checkout und Buchungsbestätigung anklickbar ausgeben.

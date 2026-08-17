@@ -782,7 +782,7 @@ const tarifaFamilySurfApartment: GuestGuideEntry = {
               `Inflatable mattresses, glass objects, alcoholic drinks, loud music or speakers, smoking, balls, rackets and street footwear are not permitted in the pool area.`,
               `Picnics, events, parties and pets are not permitted in the pool area.`,
               `Please do not reserve spaces with towels or other belongings. Take all personal items with you whenever you leave the pool area.`,
-              `Please remove all rubbish. Do not leave rubbish bags or organic waste such as food, nappies or pet waste in the communal bins.`
+              `Please remove all rubbish. Do not leave rubbish bags or organic waste such as food or nappies in the communal bins.`
             ],
             de: [
               `Der Gemeinschaftspool darf nur während der offiziell freigegebenen Saison genutzt werden. Er schließt am 30. September.`,
@@ -793,7 +793,7 @@ const tarifaFamilySurfApartment: GuestGuideEntry = {
               `Aufblasbare Matratzen, Glasgegenstände, alkoholische Getränke, laute Musik oder Lautsprecher, Rauchen, Ballspiele, Schläger und Straßenschuhe sind im Poolbereich nicht erlaubt.`,
               `Picknicks, Veranstaltungen, Feiern und Haustiere sind im Poolbereich nicht gestattet.`,
               `Bitte reserviert keine Plätze mit Handtüchern oder anderen Gegenständen. Nehmt beim Verlassen des Poolbereichs alle persönlichen Sachen mit.`,
-              `Bitte entsorgt sämtlichen Abfall. Müllbeutel und organische Abfälle wie Lebensmittel, Windeln oder Tierkot dürfen nicht in den Gemeinschaftspapierkörben zurückgelassen werden.`
+              `Bitte entsorgt sämtlichen Abfall. Müllbeutel und organische Abfälle wie Lebensmittel oder Windeln dürfen nicht in den Gemeinschaftspapierkörben zurückgelassen werden.`
             ],
             es: [
               `La piscina comunitaria solo puede utilizarse durante la temporada oficialmente autorizada. Cierra el 30 de septiembre.`,
@@ -804,7 +804,7 @@ const tarifaFamilySurfApartment: GuestGuideEntry = {
               `No se permiten colchonetas inflables, objetos de cristal, bebidas alcohólicas, música alta o altavoces, fumar, pelotas, raquetas ni calzado de calle.`,
               `No están permitidos los picnics, eventos, fiestas ni mascotas en el recinto de la piscina.`,
               `No reservéis espacios con toallas u otros objetos. Al salir del recinto, retirad todas vuestras pertenencias.`,
-              `Retirad toda la basura. No dejéis bolsas de basura ni residuos orgánicos, como comida, pañales o excrementos de mascotas, en las papeleras comunitarias.`
+              `Retirad toda la basura. No dejéis bolsas de basura ni residuos orgánicos, como comida o pañales, en las papeleras comunitarias.`
             ],
             nl: [
               `Het gemeenschappelijke zwembad mag alleen tijdens het officieel toegestane seizoen worden gebruikt. Het sluit op 30 september.`,
@@ -815,7 +815,7 @@ const tarifaFamilySurfApartment: GuestGuideEntry = {
               `Luchtbedden, glazen voorwerpen, alcoholische dranken, harde muziek of luidsprekers, roken, ballen, rackets en straatschoenen zijn niet toegestaan in het zwembadgedeelte.`,
               `Picknicks, evenementen, feesten en huisdieren zijn niet toegestaan in het zwembadgedeelte.`,
               `Reserveer geen plaatsen met handdoeken of andere eigendommen. Neem bij het verlaten van het zwembadgedeelte al jullie persoonlijke spullen mee.`,
-              `Verwijder al het afval. Laat geen vuilniszakken of organisch afval, zoals etensresten, luiers of uitwerpselen van huisdieren, achter in de gemeenschappelijke afvalbakken.`
+              `Verwijder al het afval. Laat geen vuilniszakken of organisch afval, zoals etensresten of luiers, achter in de gemeenschappelijke afvalbakken.`
             ],
             sv: [
               `Den gemensamma poolen får endast användas under den officiellt godkända säsongen. Den stänger den 30 september.`,
@@ -826,7 +826,7 @@ const tarifaFamilySurfApartment: GuestGuideEntry = {
               `Uppblåsbara madrasser, glasföremål, alkoholhaltiga drycker, hög musik eller högtalare, rökning, bollar, racketar och utomhusskor är inte tillåtna i poolområdet.`,
               `Picknick, evenemang, fester och husdjur är inte tillåtna i poolområdet.`,
               `Reservera inte platser med handdukar eller andra tillhörigheter. Ta med alla personliga saker när ni lämnar poolområdet.`,
-              `Ta med allt avfall. Lämna inte soppåsar eller organiskt avfall, såsom mat, blöjor eller husdjursavfall, i de gemensamma papperskorgarna.`
+              `Ta med allt avfall. Lämna inte soppåsar eller organiskt avfall, såsom mat eller blöjor, i de gemensamma papperskorgarna.`
             ]
           })
         },
@@ -977,9 +977,8 @@ const tarifaFamilySurfApartment: GuestGuideEntry = {
               `For safety reasons, garage doors must not be used as pedestrian entrances. Please use the designated pedestrian access points.`,
               `Avoid disturbing noise and loud music at all times. Noise is strictly prohibited between 11:00 PM and 7:00 AM.`,
               `Smoking is prohibited in lifts and enclosed communal areas.`,
-              `Do not place food, nappies, pet waste or other organic waste in communal bins. Please use the municipal waste containers.`,
-              `Pets must remain on a lead and under control in communal areas. Dogs may only pass directly through the complex on the way outside and may not be walked within the grounds.`,
-              `Pets must not urinate or defecate in communal areas and are not permitted in the pool area. Any cleaning costs caused by a pet may be charged to its owner.`,
+              `Do not place food, nappies or other organic waste in communal bins. Please use the municipal waste containers.`,
+              `Pets are not permitted in AMARA Family & Surf or in its communal areas. Mandatory rules concerning recognised assistance animals remain unaffected.`,
               `Please respect the lawns, planted areas and irrigation systems. Do not walk on the grass with street footwear or cause any damage.`
             ],
             de: [
@@ -988,9 +987,8 @@ const tarifaFamilySurfApartment: GuestGuideEntry = {
               `Aus Sicherheitsgründen dürfen die Garagentore nicht als Fußgängerzugang benutzt werden. Bitte verwendet die vorgesehenen Fußgängereingänge.`,
               `Vermeidet jederzeit störenden Lärm und laute Musik. Zwischen 23:00 und 07:00 Uhr sind laute Geräusche strengstens verboten.`,
               `Das Rauchen ist in Aufzügen und geschlossenen Gemeinschaftsbereichen verboten.`,
-              `Lebensmittel, Windeln, Tierkot und andere organische Abfälle dürfen nicht in den Gemeinschaftspapierkörben entsorgt werden. Bitte benutzt dafür die kommunalen Müllcontainer.`,
-              `Haustiere müssen in den Gemeinschaftsbereichen stets angeleint und unter Kontrolle sein. Hunde dürfen die Anlage nur auf direktem Weg nach draußen durchqueren und nicht innerhalb der Anlage ausgeführt werden.`,
-              `Haustiere dürfen in den Gemeinschaftsbereichen weder urinieren noch koten und dürfen den Poolbereich nicht betreten. Verursachte Reinigungskosten können dem Tierhalter berechnet werden.`,
+              `Lebensmittel, Windeln und andere organische Abfälle dürfen nicht in den Gemeinschaftspapierkörben entsorgt werden. Bitte benutzt dafür die kommunalen Müllcontainer.`,
+              `Haustiere sind in AMARA Family & Surf und in den Gemeinschaftsbereichen nicht erlaubt. Zwingende Regelungen für anerkannte Assistenzhunde bleiben unberührt.`,
               `Bitte respektiert die Rasenflächen, Bepflanzungen und Bewässerungssysteme. Betretet den Rasen nicht mit Straßenschuhen und verursacht keine Schäden.`
             ],
             es: [
@@ -999,9 +997,8 @@ const tarifaFamilySurfApartment: GuestGuideEntry = {
               `Por motivos de seguridad, está prohibido utilizar las puertas del garaje como acceso peatonal. Utilizad los accesos peatonales habilitados.`,
               `Evitad en todo momento los ruidos molestos y la música alta. Los ruidos fuertes están terminantemente prohibidos entre las 23:00 y las 07:00.`,
               `Está prohibido fumar en los ascensores y en los espacios comunes cerrados.`,
-              `No depositéis comida, pañales, excrementos de mascotas ni otros residuos orgánicos en las papeleras comunitarias. Utilizad los contenedores municipales.`,
-              `Las mascotas deberán ir siempre con correa y bajo control en las zonas comunes. Los perros solo podrán transitar directamente hacia el exterior y no podrán ser paseados dentro del recinto.`,
-              `Está prohibido que las mascotas orinen o defequen en las zonas comunes y no podrán acceder al recinto de la piscina. Los gastos de limpieza ocasionados podrán ser repercutidos al propietario del animal.`,
+              `No depositéis comida, pañales ni otros residuos orgánicos en las papeleras comunitarias. Utilizad los contenedores municipales.`,
+              `No se admiten mascotas en AMARA Family & Surf ni en sus zonas comunes. Las normas imperativas relativas a perros de asistencia reconocidos no se ven afectadas.`,
               `Respetad las zonas de césped, las plantaciones y los sistemas de riego. No piséis el césped con calzado de calle ni causéis daños.`
             ],
             nl: [
@@ -1010,9 +1007,8 @@ const tarifaFamilySurfApartment: GuestGuideEntry = {
               `Om veiligheidsredenen mogen de garagedeuren niet als voetgangersingang worden gebruikt. Gebruik de daarvoor bestemde voetgangersingangen.`,
               `Vermijd te allen tijde storend lawaai en harde muziek. Lawaai is strikt verboden tussen 23.00 en 07.00 uur.`,
               `Roken is verboden in liften en afgesloten gemeenschappelijke ruimtes.`,
-              `Gooi geen etensresten, luiers, uitwerpselen van huisdieren of ander organisch afval in de gemeenschappelijke afvalbakken. Gebruik hiervoor de gemeentelijke afvalcontainers.`,
-              `Huisdieren moeten in de gemeenschappelijke ruimtes altijd aangelijnd en onder controle zijn. Honden mogen het complex alleen rechtstreeks doorkruisen op weg naar buiten en mogen niet binnen het terrein worden uitgelaten.`,
-              `Huisdieren mogen niet urineren of hun behoefte doen in de gemeenschappelijke ruimtes en zijn niet toegestaan in het zwembadgedeelte. Eventuele schoonmaakkosten kunnen aan de eigenaar van het dier worden doorberekend.`,
+              `Gooi geen etensresten, luiers of ander organisch afval in de gemeenschappelijke afvalbakken. Gebruik hiervoor de gemeentelijke afvalcontainers.`,
+              `Huisdieren zijn niet toegestaan in AMARA Family & Surf of in de gemeenschappelijke ruimtes. Dwingende regels voor erkende assistentiedieren blijven onverminderd gelden.`,
               `Respecteer de gazons, beplanting en irrigatiesystemen. Loop niet met straatschoenen over het gras en veroorzaak geen schade.`
             ],
             sv: [
@@ -1021,9 +1017,8 @@ const tarifaFamilySurfApartment: GuestGuideEntry = {
               `Av säkerhetsskäl får garageportarna inte användas som gångentré. Använd de avsedda gångentréerna.`,
               `Undvik störande ljud och hög musik under hela dygnet. Höga ljud är strikt förbjudna mellan 23.00 och 07.00.`,
               `Rökning är förbjuden i hissar och slutna gemensamma utrymmen.`,
-              `Lägg inte mat, blöjor, husdjursavfall eller annat organiskt avfall i de gemensamma papperskorgarna. Använd de kommunala avfallsbehållarna.`,
-              `Husdjur ska alltid vara kopplade och under kontroll i gemensamma utrymmen. Hundar får endast passera direkt genom området på väg ut och får inte rastas inom området.`,
-              `Husdjur får inte urinera eller lämna avföring i gemensamma utrymmen och får inte vistas i poolområdet. Eventuella rengöringskostnader kan debiteras djurets ägare.`,
+              `Lägg inte mat, blöjor eller annat organiskt avfall i de gemensamma papperskorgarna. Använd de kommunala avfallsbehållarna.`,
+              `Husdjur är inte tillåtna i AMARA Family & Surf eller i de gemensamma utrymmena. Tvingande regler om erkända assistansdjur påverkas inte.`,
               `Respektera gräsytor, planteringar och bevattningssystem. Gå inte på gräset med utomhusskor och orsaka ingen skada.`
             ]
           })
