@@ -53,41 +53,27 @@ const ui = {
     nl: 'Gastbeoordelingen lezen',
     sv: 'Läs recensioner'
   },
-  externalReviewsEyebrow: {
-    en: 'Reviews on booking platforms',
-    de: 'Bewertungen auf Buchungsplattformen',
-    es: 'Reseñas en plataformas de reservas',
-    nl: 'Beoordelingen op boekingsplatforms',
-    sv: 'Omdömen på bokningsplattformar'
-  },
-  externalReviewsTitle: {
-    en: 'See this stay on Airbnb and Booking.com',
-    de: 'Diese Unterkunft auf Airbnb und Booking.com ansehen',
-    es: 'Ver este alojamiento en Airbnb y Booking.com',
-    nl: 'Bekijk dit verblijf op Airbnb en Booking.com',
-    sv: 'Se boendet på Airbnb och Booking.com'
-  },
-  externalReviewsBody: {
-    en: 'The platform profiles show the guest reviews published there. Book directly and check current availability here with AMARA.',
-    de: 'Auf den Plattformprofilen findet ihr die dort veröffentlichten Gästebewertungen. Direkt buchen und die aktuelle Verfügbarkeit prüfen könnt ihr hier bei AMARA.',
-    es: 'En los perfiles de las plataformas podéis leer las reseñas publicadas allí. Aquí, con AMARA, podéis reservar directamente y consultar la disponibilidad actual.',
-    nl: 'Op de platformprofielen lees je de gastbeoordelingen die daar zijn gepubliceerd. Hier bij AMARA boek je rechtstreeks en bekijk je de actuele beschikbaarheid.',
-    sv: 'På plattformsprofilerna kan ni läsa gästomdömena som publicerats där. Här hos AMARA bokar ni direkt och ser aktuell tillgänglighet.'
+  externalProfilesLabel: {
+    en: 'External profiles',
+    de: 'Externe Profile',
+    es: 'Perfiles externos',
+    nl: 'Externe profielen',
+    sv: 'Externa profiler'
   },
   externalReviewLinkLabels: {
     airbnb: {
-      en: 'Read reviews on Airbnb',
-      de: 'Bewertungen auf Airbnb lesen',
-      es: 'Leer reseñas en Airbnb',
-      nl: 'Beoordelingen op Airbnb lezen',
-      sv: 'Läs omdömen på Airbnb'
+      en: 'Airbnb',
+      de: 'Airbnb',
+      es: 'Airbnb',
+      nl: 'Airbnb',
+      sv: 'Airbnb'
     },
     booking: {
-      en: 'Read reviews on Booking.com',
-      de: 'Bewertungen auf Booking.com lesen',
-      es: 'Leer reseñas en Booking.com',
-      nl: 'Beoordelingen op Booking.com lezen',
-      sv: 'Läs omdömen på Booking.com'
+      en: 'Booking.com',
+      de: 'Booking.com',
+      es: 'Booking.com',
+      nl: 'Booking.com',
+      sv: 'Booking.com'
     }
   },
   opensInNewTab: {
@@ -1064,56 +1050,48 @@ const imageAlts = getVacationRentalImageAlts(rental, currentLang);
               </div>
             </dl>
           </div>
-          <div class="grid gap-3 sm:flex sm:flex-wrap lg:justify-end">
-            {locationLinks.map((link) => (
-              <a class="am-btn am-btn--secondary w-full justify-center sm:w-auto" href={link.href}>
-                {link.label}
-              </a>
-            ))}
-            {reviewsHref && (
-              <a class="am-btn am-btn--secondary w-full justify-center sm:w-auto" href={reviewsHref}>
-                {t(ui.readReviews as LocalizedText)}
-              </a>
-            )}
-          </div>
-        </div>
-
-        {externalReviewProfiles.length > 0 && (
-          <aside
-            class="mt-10 border-t border-border-subtle pt-8"
-            aria-labelledby="external-review-profiles-title"
-            data-am-component="external-review-profiles"
-          >
-            <div class="grid gap-6 md:grid-cols-[minmax(0,1fr)_auto] md:items-end">
-              <div class="max-w-3xl">
-                <p class="font-label text-[11px] font-bold uppercase tracking-[0.14em] text-on-surface-variant">
-                  {t(ui.externalReviewsEyebrow as LocalizedText)}
-                </p>
-                <h2 id="external-review-profiles-title" class="am-text-subtitle text-on-surface mt-3 text-balance">
-                  {t(ui.externalReviewsTitle as LocalizedText)}
-                </h2>
-                <p class="am-text-body text-on-surface-variant mt-3 leading-relaxed">
-                  {t(ui.externalReviewsBody as LocalizedText)}
-                </p>
-              </div>
-              <div class="grid gap-3 sm:flex sm:flex-wrap md:justify-end">
+          <div class="grid gap-4 lg:justify-items-end">
+            <div class="grid gap-3 sm:flex sm:flex-wrap lg:justify-end">
+              {locationLinks.map((link) => (
+                <a class="am-btn am-btn--secondary w-full justify-center sm:w-auto" href={link.href}>
+                  {link.label}
+                </a>
+              ))}
+              {reviewsHref && (
+                <a class="am-btn am-btn--secondary w-full justify-center sm:w-auto" href={reviewsHref}>
+                  {t(ui.readReviews as LocalizedText)}
+                </a>
+              )}
+            </div>
+            {externalReviewProfiles.length > 0 && (
+              <aside
+                class="font-label flex flex-wrap items-baseline gap-x-3 gap-y-1 text-[12px] leading-relaxed text-on-surface-variant lg:justify-end"
+                aria-label={t(ui.externalProfilesLabel as LocalizedText)}
+                data-am-component="external-review-profiles"
+              >
+                <span>{t(ui.externalProfilesLabel as LocalizedText)}:</span>
                 {externalReviewProfiles.map((profile) => (
                   <a
-                    class="am-btn am-btn--secondary w-full justify-between sm:w-auto"
+                    class="am-inline-link text-[12px]"
                     href={profile.href}
                     target="_blank"
                     rel="noopener noreferrer external"
                     data-am-external-review-profile={profile.platform}
                     aria-label={`${profile.label}. ${t(ui.opensInNewTab as LocalizedText)}`}
                   >
-                    <span>{profile.label}</span>
-                    <span aria-hidden="true">↗</span>
+                    {profile.label}
                   </a>
                 ))}
-              </div>
-            </div>
-          </aside>
-        )}
+              </aside>
+            )}
+          </div>
+        </div>
+
+        <div class="mt-10 flex justify-center border-t border-border-subtle pt-8 md:justify-end">
+          <a class="am-btn am-btn--primary w-full justify-center sm:w-auto" href={bookingHref}>
+            {t(ui.checkAvailability as LocalizedText)}
+          </a>
+        </div>
       </section>
     </div>
   </main>
