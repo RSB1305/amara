@@ -86,8 +86,8 @@ const labels = copy[lang];
 const previewImages = images.slice(1, 8);
 const previewAlts = alts.slice(1, 8);
 
-// These URLs are generated at build time but are not assigned to an <img>
-// until the lightbox opens. The browser therefore downloads only requested photos.
+// These URLs are generated at build time but are not assigned to the lightbox image
+// until it opens. The browser therefore downloads only requested photos.
 const lightboxImages = await Promise.all(
   images.map(async (src, index) => {
     const optimized = await getImage({
@@ -167,6 +167,8 @@ const serializedGallery = JSON.stringify({ images: lightboxImages, labels }).rep
         class="am-rental-gallery-image"
         data-am-gallery-image
         alt=""
+        srcset=""
+        sizes="100vw"
         decoding="async"
       />
 
