@@ -128,6 +128,11 @@ const {
         AMARA<span class="sr-only"> — {heroKicker}</span>
       </h1>
       <p class="max-w-xl am-text-body italic text-inverted-on-surface/90">{heroLead}</p>
+      {trustBookingHref && (
+        <a href={trustBookingHref} class="am-btn am-btn--primary am-btn--inverse mt-8">
+          {trustCtaPrimary}
+        </a>
+      )}
     </div>
 
     <div class="absolute bottom-12 left-1/2 z-10 flex -translate-x-1/2 flex-col items-center gap-2 text-inverted-on-surface/80">
