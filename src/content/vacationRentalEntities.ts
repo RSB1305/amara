@@ -135,7 +135,8 @@ export function formatVacationRentalPriceRange(
 
 export function formatVacationRentalFromPrice(
   pricing: VacationRentalPricing,
-  lang: AmaraLanguage
+  lang: AmaraLanguage,
+  includeUnit = true
 ): string {
   const amount = lang === 'en' || lang === 'nl'
     ? `€${pricing.indicativeFrom}`
@@ -157,7 +158,7 @@ export function formatVacationRentalFromPrice(
     sv: 'per natt'
   };
 
-  return `${prefix[lang]} ${amount} ${unit[lang]}`;
+  return `${prefix[lang]} ${amount}${includeUnit ? ` ${unit[lang]}` : ''}`;
 }
 
 export function toVacationRentalPriceRange(pricing: VacationRentalPricing): string {

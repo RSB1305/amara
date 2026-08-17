@@ -307,19 +307,26 @@ const ui = {
       nl: 'Inbegrepen',
       sv: 'Ingår'
     },
-    price: {
-      en: 'Indicative price',
-      de: 'Orientierungspreis',
-      es: 'Precio orientativo',
-      nl: 'Indicatieve prijs',
-      sv: 'Riktpris'
-    },
     pricePerNight: {
-      en: 'Indicative price per night',
-      de: 'Orientierungspreis pro Nacht',
-      es: 'Precio orientativo por noche',
-      nl: 'Indicatieve prijs per nacht',
-      sv: 'Riktpris per natt'
+      en: 'Price per night',
+      de: 'Preis pro Nacht',
+      es: 'Precio por noche',
+      nl: 'Prijs per nacht',
+      sv: 'Pris per natt'
+    },
+    perNight: {
+      en: 'per night',
+      de: 'pro Nacht',
+      es: 'por noche',
+      nl: 'per nacht',
+      sv: 'per natt'
+    },
+    priceFeesNote: {
+      en: '* plus cleaning costs and service fee',
+      de: '* zzgl. Reinigungskosten und Servicegebühr',
+      es: '* más gastos de limpieza y tarifa de servicio',
+      nl: '* exclusief schoonmaakkosten en servicekosten',
+      sv: '* exklusive städavgift och serviceavgift'
     },
     checkin: {
       en: 'Check-in',
@@ -609,21 +616,23 @@ const localizedCountry: LocalizedText = {
   sv: 'Spanien'
 };
 
-const indicativeFromPrice = formatVacationRentalFromPrice(rental.pricing, currentLang);
+const indicativeFromPrice = formatVacationRentalFromPrice(rental.pricing, currentLang, false);
 const indicativePriceRange = formatVacationRentalPriceRange(rental.pricing, currentLang, 'symbol');
+const priceFeesNote = t(ui.labels.priceFeesNote as LocalizedText);
 
 const factRows = [
-  { label: t(ui.labels.guests as LocalizedText), value: t(localizedGuests) },
-  { label: t(ui.labels.bedrooms as LocalizedText), value: String(rental.bedrooms) },
-  { label: t(ui.labels.bathrooms as LocalizedText), value: String(rental.bathrooms) },
+  { label: t(ui.labels.guests as LocalizedText), value: t(localizedGuests), note: undefined },
+  { label: t(ui.labels.bedrooms as LocalizedText), value: String(rental.bedrooms), note: undefined },
+  { label: t(ui.labels.bathrooms as LocalizedText), value: String(rental.bathrooms), note: undefined },
   ...(typeof rental.rooms === 'number'
-    ? [{ label: t(ui.labels.rooms as LocalizedText), value: String(rental.rooms) }]
+    ? [{ label: t(ui.labels.rooms as LocalizedText), value: String(rental.rooms), note: undefined }]
     : []),
   {
     label: t(ui.labels.pricePerNight as LocalizedText),
-    value: indicativePriceRange
+    value: indicativePriceRange,
+    note: priceFeesNote
   },
-  { label: t(ui.labels.license as LocalizedText), value: rental.license }
+  { label: t(ui.labels.license as LocalizedText), value: rental.license, note: undefined }
 ];
 
 const amenityValue = (name: string) =>
@@ -784,11 +793,18 @@ const heroImage = visibleImages[0];
               ))}
             </ul>
           )}
-          <div class="mt-8 flex flex-wrap items-baseline gap-x-4 gap-y-1">
-            <span class="am-text-title text-primary">{indicativeFromPrice}</span>
-            <span class="font-label text-[11px] font-bold uppercase tracking-[0.14em] text-on-surface-variant">
-              {t(ui.labels.price as LocalizedText)}
-            </span>
+          <div class="mt-8">
+            <div class="flex flex-wrap items-baseline gap-x-1.5 gap-y-1">
+              <span class="am-text-title text-primary">
+                {indicativeFromPrice}<sup class="ml-0.5 text-[0.55em] align-super">*</sup>
+              </span>
+              <span class="font-label text-[10px] font-semibold tracking-[0.06em] text-on-surface-variant">
+                / {t(ui.labels.perNight as LocalizedText)}
+              </span>
+            </div>
+            <p class="font-label mt-2 text-[10px] tracking-[0.03em] text-on-surface-variant">
+              {priceFeesNote}
+            </p>
           </div>
           <div class="grid gap-3 mt-5 sm:flex sm:flex-wrap">
             <a class="am-btn am-btn--primary w-full justify-center sm:w-auto" href={bookingHref}>
@@ -861,8 +877,13 @@ const heroImage = visibleImages[0];
                   {row.label}
                 </dt>
                 <dd class="am-text-subtitle text-on-surface mt-2">
-                  {row.value}
+                  {row.value}{row.note && <sup class="ml-0.5 text-[0.55em] align-super">*</sup>}
                 </dd>
+                {row.note && (
+                  <p class="font-label mt-2 text-[10px] leading-relaxed tracking-[0.03em] text-on-surface-variant">
+                    {row.note}
+                  </p>
+                )}
               </div>
             ))}
           </dl>
