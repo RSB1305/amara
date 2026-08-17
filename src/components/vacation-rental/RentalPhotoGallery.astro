@@ -7,7 +7,7 @@ import type { AmaraLanguage } from '../../types/seo';
 
 interface Props {
   images: string[];
-  alt: string;
+  alts: string[];
   lang: AmaraLanguage;
 }
 
@@ -81,14 +81,15 @@ const copy: Record<AmaraLanguage, GalleryCopy> = {
   }
 };
 
-const { images, alt, lang } = Astro.props;
+const { images, alts, lang } = Astro.props;
 const labels = copy[lang];
 const previewImages = images.slice(1, 8);
+const previewAlts = alts.slice(1, 8);
 
 // These URLs are generated at build time but are not assigned to an <img>
 // until the lightbox opens. The browser therefore downloads only requested photos.
 const lightboxImages = await Promise.all(
-  images.map(async (src) => {
+  images.map(async (src, index) => {
     const optimized = await getImage({
       src: resolveAmaraImageSource(src),
       widths: [720, 1200, 1920],
@@ -99,12 +100,13 @@ const lightboxImages = await Promise.all(
 
     return {
       src: optimized.src,
-      srcSet: optimized.srcSet.attribute
+      srcSet: optimized.srcSet.attribute,
+      alt: alts[index] ?? ''
     };
   })
 );
 
-const serializedGallery = JSON.stringify({ images: lightboxImages, alt, labels }).replace(/</g, '\\u003c');
+const serializedGallery = JSON.stringify({ images: lightboxImages, labels }).replace(/</g, '\\u003c');
 ---
 
 <div class="am-mobile-full-bleed mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-4" data-am-rental-gallery-grid>
@@ -115,11 +117,11 @@ const serializedGallery = JSON.stringify({ images: lightboxImages, alt, labels }
       data-am-rental-photo-open
       data-am-photo-index={index + 1}
       aria-haspopup="dialog"
-      aria-label={`${labels.openPhoto}: ${labels.photo} ${index + 2} ${labels.of} ${images.length}`}
+      aria-label={`${labels.openPhoto}: ${previewAlts[index] ?? labels.photo}`}
     >
       <AmaraImage
         src={image}
-        alt={`${alt} ${index + 2}`}
+        alt={previewAlts[index] ?? ''}
         profile="gallery"
         class="h-full w-full object-cover transition-transform duration-500 ease-out group-hover:scale-[1.025] motion-reduce:transition-none motion-reduce:group-hover:scale-100"
         loading="lazy"
@@ -194,11 +196,11 @@ const serializedGallery = JSON.stringify({ images: lightboxImages, alt, labels }
   interface LightboxImage {
     src: string;
     srcSet: string;
+    alt: string;
   }
 
   interface LightboxData {
     images: LightboxImage[];
-    alt: string;
     labels: {
       photo: string;
       of: string;
@@ -247,7 +249,7 @@ const serializedGallery = JSON.stringify({ images: lightboxImages, alt, labels }
       image.sizes = '100vw';
       image.srcset = current.srcSet;
       image.src = current.src;
-      image.alt = `${gallery.alt} — ${gallery.labels.photo} ${currentIndex + 1} ${gallery.labels.of} ${gallery.images.length}`;
+      image.alt = current.alt;
       counter.textContent = `${currentIndex + 1} / ${gallery.images.length}`;
       preloadNextImage();
     };

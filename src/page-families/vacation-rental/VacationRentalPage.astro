@@ -16,6 +16,7 @@ import { directBookingTrustSignals } from '../../content/directBookingBenefitsCo
 import { airbnbRatingLabel, airbnbReviewEvidence } from '../../content/reviewEvidence';
 import { stayCollectionLabels } from '../../content/stayCollectionLabels';
 import { trustLabels } from '../../content/trustLabels';
+import { getVacationRentalImageAlts } from '../../content/vacationRentalImageAlts';
 import { resolveOptionalLink, type LabeledLink } from '../../lib/linkResolver';
 import { buildRentalBookingUrl } from '../../lib/directBooking';
 import { normalizeLanguage } from '../../lib/seo/resolve-seo-head';
@@ -771,6 +772,7 @@ const locationBody = locationLinks.length > 0
 // Additional lightbox images remain unloaded until a guest opens the gallery.
 const visibleImages = rental.images.slice(0, 8);
 const heroImage = visibleImages[0];
+const imageAlts = getVacationRentalImageAlts(rental, currentLang);
 ---
 
 <BaseLayout
@@ -875,7 +877,7 @@ const heroImage = visibleImages[0];
           >
             <AmaraImage
               src={heroImage}
-              alt={t(rental.imageAlt)}
+              alt={imageAlts[0] ?? t(rental.imageAlt)}
               profile="hero"
               sizes="(max-width: 639px) 100vw, (max-width: 767px) calc(100vw - 3rem), (max-width: 1535px) calc(100vw - 6rem), 1440px"
               class="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.01] motion-reduce:transition-none motion-reduce:group-hover:scale-100"
@@ -1005,7 +1007,7 @@ const heroImage = visibleImages[0];
         <h2 id="rental-gallery-title" class="am-text-title text-on-surface">
           {t(ui.galleryTitle as LocalizedText)}
         </h2>
-        <RentalPhotoGallery images={rental.images} alt={t(rental.imageAlt)} lang={currentLang} />
+        <RentalPhotoGallery images={rental.images} alts={imageAlts} lang={currentLang} />
       </section>
 
       <section class="py-12 md:py-16 border-b border-border-subtle" aria-labelledby="rental-amenities-title">
