@@ -43,6 +43,8 @@ const hostStats =
     value: stat.value[currentLang]
   })) ?? [];
 
+const hostIntro = content.host.paragraphs?.map((paragraph) => paragraph[currentLang]) ?? [];
+
 const closingCtaLinks = content.closingCta.links.map((link) => ({
   token: link.token,
   label: link.label[currentLang]
@@ -118,10 +120,12 @@ const heroCtaLinks = page.hero.ctaLinks
       </section>
 
       <EditorialHostProfile
+        id="host"
         imageSrc="/images/robert-amara-host.jpg"
         imageAlt={content.host.imageAlt[currentLang]}
         title={content.host.title?.[currentLang] ?? ''}
         role={content.host.role[currentLang]}
+        intro={hostIntro}
         stats={hostStats}
       >
         <div class="pt-12">

@@ -17,13 +17,21 @@ interface Props {
   title: string;
   role: string;
   stats: EditorialHostStat[];
+  /** Anchor target, so other pages can deep-link to the host profile. */
+  id?: string;
+  /** First-person paragraphs, rendered between the role and the stats. */
+  intro?: string[];
 }
 
-const { imageSrc, imageAlt, title, role, stats } = Astro.props;
+const { imageSrc, imageAlt, title, role, stats, id, intro = [] } = Astro.props;
 ---
 
 <div
-  class="grid grid-cols-1 lg:grid-cols-[4fr_6fr] gap-[clamp(4rem,8vw,8rem)] items-start mb-[clamp(8rem,15vw,14rem)]"
+  id={id}
+  class:list={[
+    'grid grid-cols-1 lg:grid-cols-[4fr_6fr] gap-[clamp(4rem,8vw,8rem)] items-start mb-[clamp(8rem,15vw,14rem)]',
+    { 'scroll-mt-[104px] lg:scroll-mt-[112px]': id }
+  ]}
 >
   <div class="am-mobile-full-bleed am-mobile-full-bleed--fluid w-full max-w-[400px] mx-auto lg:mx-0 lg:max-w-none">
     <div class="aspect-[4/5] bg-surface-container-low overflow-hidden flex items-center justify-center">
@@ -40,6 +48,15 @@ const { imageSrc, imageAlt, title, role, stats } = Astro.props;
   <div>
     <h2 class="am-text-title">{title}</h2>
     <p class="am-kicker mt-4 mb-0">{role}</p>
+    {
+      intro.length > 0 && (
+        <div class="grid gap-5 mt-8">
+          {intro.map((paragraph) => (
+            <p class="am-text-body text-subtle leading-relaxed m-0">{paragraph}</p>
+          ))}
+        </div>
+      )
+    }
     <dl class="grid grid-cols-2 gap-x-8 gap-y-12 my-12 pb-12 border-b border-on-surface/10">
       {
         stats.map((stat) => (
