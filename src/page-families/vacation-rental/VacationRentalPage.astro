@@ -6,6 +6,7 @@ import {
   buildVacationRentalSeo,
   familySurfConversionContent,
   formatVacationRentalFromPrice,
+  formatVacationRentalPriceRange,
   vacationRentalEntitiesByKey,
   type VacationRentalAmenityFeature,
   type VacationRentalEntity
@@ -558,6 +559,7 @@ const localizedCountry: LocalizedText = {
 };
 
 const indicativeFromPrice = formatVacationRentalFromPrice(rental.pricing, currentLang);
+const indicativePriceRange = formatVacationRentalPriceRange(rental.pricing, currentLang, 'symbol');
 
 const factRows = [
   { label: t(ui.labels.guests as LocalizedText), value: t(localizedGuests) },
@@ -568,7 +570,7 @@ const factRows = [
     : []),
   {
     label: t(ui.labels.price as LocalizedText),
-    value: indicativeFromPrice
+    value: indicativePriceRange
   },
   { label: t(ui.labels.license as LocalizedText), value: rental.license }
 ];
