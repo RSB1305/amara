@@ -87,6 +87,11 @@ export interface VacationRentalEntity {
   viewNote: LocalizedText;
   /** Shown under the full address. Frigiliana only — the four apartments share one street. */
   addressNote?: LocalizedText;
+  /**
+   * The first eight entries form both the visible listing set and the
+   * VacationRental JSON-LD image set. They must include at least one bedroom,
+   * one bathroom and one common-area image.
+   */
   images: string[];
   imageAlt: LocalizedText;
   amenityFeatures: VacationRentalAmenityFeature[];
@@ -465,23 +470,23 @@ export const vacationRentalEntities: VacationRentalEntity[] = [
     },
     images: [
       '/images/amara-lounis/104-amara-frigiliana.jpg',
+      '/images/amara-lounis/09-amara-frigiliana.jpg',
       '/images/amara-lounis/15-amara-frigiliana.jpg',
       '/images/amara-lounis/17-amara-frigiliana.jpg',
       '/images/amara-lounis/18-amara-frigiliana.jpg',
-      '/images/amara-lounis/19-amara-frigiliana.jpg',
       '/images/amara-lounis/20-amara-frigiliana.jpg',
       '/images/amara-lounis/21-amara-frigiliana.jpg',
       '/images/amara-lounis/28-amara-frigiliana.jpg',
       '/images/amara-lounis/01-amara-frigiliana.jpg',
       '/images/amara-lounis/04-amara-frigiliana.jpg',
       '/images/amara-lounis/05-amara-frigiliana.jpg',
-      '/images/amara-lounis/09-amara-frigiliana.jpg',
       '/images/amara-lounis/10-amara-frigiliana.jpg',
       '/images/amara-lounis/11-amara-frigiliana.jpg',
       '/images/amara-lounis/12-amara-frigiliana.jpg',
       '/images/amara-lounis/13-amara-frigiliana.jpg',
       '/images/amara-lounis/14-amara-frigiliana.jpg',
       '/images/amara-lounis/16-amara-frigiliana.jpg',
+      '/images/amara-lounis/19-amara-frigiliana.jpg',
       '/images/amara-lounis/22-amara-frigiliana.jpg',
       '/images/amara-lounis/23-amara-frigiliana.jpg',
       '/images/amara-lounis/25-amara-frigiliana.jpg',
@@ -1238,13 +1243,13 @@ export const vacationRentalEntities: VacationRentalEntity[] = [
       '/images/amara-tarifa/amara-tarifa-apartment04.webp',
       '/images/amara-tarifa/amara-tarifa-apartment05.webp',
       '/images/amara-tarifa/amara-tarifa-apartment06.webp',
+      '/images/amara-tarifa/amara-tarifa-apartment11.webp',
+      '/images/amara-tarifa/amara-tarifa-apartment13.webp',
       '/images/amara-tarifa/amara-tarifa-apartment07.webp',
       '/images/amara-tarifa/amara-tarifa-apartment08.webp',
       '/images/amara-tarifa/amara-tarifa-apartment09.webp',
       '/images/amara-tarifa/amara-tarifa-apartment10.webp',
-      '/images/amara-tarifa/amara-tarifa-apartment11.webp',
       '/images/amara-tarifa/amara-tarifa-apartment12.webp',
-      '/images/amara-tarifa/amara-tarifa-apartment13.webp',
       '/images/amara-tarifa/amara-tarifa-apartment14.webp',
       '/images/amara-tarifa/amara-tarifa-apartment15.webp',
       '/images/amara-tarifa/amara-tarifa-apartment16.webp',
