@@ -1000,9 +1000,6 @@ const galleryImages = visibleImages.slice(1);
             </dl>
           </div>
           <div class="grid gap-3 sm:flex sm:flex-wrap lg:justify-end">
-            <a class="am-btn am-btn--primary w-full justify-center sm:w-auto" href={bookingHref}>
-              {t(ui.checkAvailability as LocalizedText)}
-            </a>
             {locationLinks.map((link) => (
               <a class="am-btn am-btn--secondary w-full justify-center sm:w-auto" href={link.href}>
                 {link.label}
