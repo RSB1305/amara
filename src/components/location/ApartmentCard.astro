@@ -5,6 +5,7 @@
  */
 import type { ImageMetadata } from 'astro';
 import AmaraImage from '../AmaraImage.astro';
+import InlineEmphasis from '../text/InlineEmphasis.astro';
 
 interface Props {
   href: string;
@@ -48,7 +49,7 @@ const {
   <div class="am-apartment-card__body">
     <small class="am-apartment-card__meta am-text-caption text-on-surface-variant">{meta}</small>
     <h3 class="am-apartment-card__title am-text-subtitle text-on-surface">{title}</h3>
-    <p class="am-apartment-card__description am-text-body text-on-surface-variant">{description}</p>
+    <p class="am-apartment-card__description am-text-body text-on-surface-variant"><InlineEmphasis text={description} /></p>
     <div class="am-apartment-card__cta-wrap">
       <a class="am-btn am-btn--secondary" href={href}>{ctaLabel}</a>
     </div>

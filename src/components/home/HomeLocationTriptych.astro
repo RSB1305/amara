@@ -2,6 +2,8 @@
 /**
  * Home: three location cards — one live (Frigiliana), two coming soon (Nerja, Tarifa).
  */
+import InlineEmphasis from '../text/InlineEmphasis.astro';
+
 interface LocationCard {
   name: string;
   description: string;
@@ -46,7 +48,7 @@ const { title, liveLabel, comingSoonLabel, locations } = Astro.props;
                 {loc.status === 'live' ? liveLabel : comingSoonLabel}
               </span>
             </div>
-            <p class="am-home-triptych__desc am-text-body text-on-surface-variant">{loc.description}</p>
+            <p class="am-home-triptych__desc am-text-body text-on-surface-variant"><InlineEmphasis text={loc.description} /></p>
             {loc.status === 'live' && loc.href && loc.ctaLabel ? (
               <div class="am-home-triptych__cta-wrap">
                 <a href={loc.href} class="am-btn am-btn--primary">

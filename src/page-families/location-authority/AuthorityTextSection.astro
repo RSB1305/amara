@@ -8,6 +8,8 @@
  * `data-am-*` attribute a page already ships on its sections is passed through
  * unchanged.
  */
+import InlineEmphasis from '../../components/text/InlineEmphasis.astro';
+
 
 interface AuthoritySection {
   id: string;
@@ -59,7 +61,7 @@ const {
               `border-l-2 border-primary/35 ${highlightSurface} px-6 py-5 text-on-surface`
           ]}
         >
-          {paragraph}
+          <InlineEmphasis text={paragraph} />
         </p>
       ))}
     </div>

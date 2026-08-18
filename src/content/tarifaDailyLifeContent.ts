@@ -114,7 +114,7 @@ export const tarifaDailyLifeContent: Record<AmaraLanguage, TarifaDailyLifeLocale
     hero: {
       eyebrow: 'Practical Tarifa guide',
       title: 'Daily life in Tarifa',
-      standfirst: 'A stay of several days or weeks is shaped by ordinary things: where groceries come from, which errands work on foot, when a car helps and whether a proper working day is possible. From AMARA Family & Surf in La Marina, those questions have unusually concrete answers.',
+      standfirst: 'A stay of several days or weeks is shaped by ordinary things: where groceries come from, **which errands work on foot**, when a car helps and whether a proper working day is possible. From AMARA Family & Surf in La Marina, those questions have unusually concrete answers.',
       note: 'A host-written guide to stable everyday patterns. Check current opening, duty and service information before relying on a particular provider.',
       updated: 'Services and walking routes checked in August 2026'
     },
@@ -253,7 +253,7 @@ export const tarifaDailyLifeContent: Record<AmaraLanguage, TarifaDailyLifeLocale
     hero: {
       eyebrow: 'Praktischer Tarifa-Guide',
       title: 'Alltag in Tarifa',
-      standfirst: 'Bei mehreren Tagen oder Wochen zählen nicht nur Strand und Altstadt. Entscheidend wird, wo ihr einkauft, was zu Fuß funktioniert, wann das Auto sinnvoll ist und ob sich ein professioneller Arbeitstag einplanen lässt. Von AMARA Family & Surf in La Marina aus sind diese Fragen erstaunlich konkret zu beantworten.',
+      standfirst: 'Bei mehreren Tagen oder Wochen zählen nicht nur Strand und Altstadt. Entscheidend wird, wo ihr einkauft, **was zu Fuß funktioniert**, wann das Auto sinnvoll ist und ob sich ein professioneller Arbeitstag einplanen lässt. Von AMARA Family & Surf in La Marina aus sind diese Fragen erstaunlich konkret zu beantworten.',
       note: 'Ein persönlicher Guide eurer Gastgeber zu stabilen Alltagsmustern. Prüft Öffnungszeiten, Notdienste und aktuelle Leistungen immer direkt beim jeweiligen Anbieter.',
       updated: 'Versorgung und Fußwege im August 2026 geprüft'
     },
@@ -365,7 +365,7 @@ export const tarifaDailyLifeContent: Record<AmaraLanguage, TarifaDailyLifeLocale
     hero: {
       eyebrow: 'Guía práctica de Tarifa',
       title: 'La vida diaria en Tarifa',
-      standfirst: 'En una estancia de varios días o semanas importan las cosas normales: dónde hacer la compra, qué recados se resuelven andando, cuándo compensa sacar el coche y si es posible trabajar con medios profesionales. Desde AMARA Family & Surf, en La Marina, las respuestas son muy concretas.',
+      standfirst: 'En una estancia de varios días o semanas importan las cosas normales: dónde hacer la compra, **qué recados se resuelven andando**, cuándo compensa sacar el coche y si es posible trabajar con medios profesionales. Desde AMARA Family & Surf, en La Marina, las respuestas son muy concretas.',
       note: 'Una guía escrita por vuestros anfitriones sobre hábitos cotidianos estables. Comprobad siempre horarios, guardias y servicios vigentes directamente con cada entidad.',
       updated: 'Servicios y rutas peatonales comprobados en agosto de 2026'
     },
@@ -477,7 +477,7 @@ export const tarifaDailyLifeContent: Record<AmaraLanguage, TarifaDailyLifeLocale
     hero: {
       eyebrow: 'Praktische gids voor Tarifa',
       title: 'Dagelijks leven in Tarifa',
-      standfirst: 'Tijdens een verblijf van enkele dagen of weken worden gewone vragen belangrijk: waar doen jullie boodschappen, welke zaken kunnen te voet, wanneer is een auto handig en kun je hier professioneel werken? Vanuit AMARA Family & Surf in La Marina zijn de antwoorden verrassend concreet.',
+      standfirst: 'Tijdens een verblijf van enkele dagen of weken worden gewone vragen belangrijk: waar doen jullie boodschappen, **welke zaken kunnen te voet**, wanneer is een auto handig en kun je hier professioneel werken? Vanuit AMARA Family & Surf in La Marina zijn de antwoorden verrassend concreet.',
       note: 'Een persoonlijke gids van jullie hosts over stabiele dagelijkse patronen. Controleer actuele openingstijden, wachtdiensten en voorzieningen altijd bij de verantwoordelijke aanbieder.',
       updated: 'Voorzieningen en wandelroutes gecontroleerd in augustus 2026'
     },
@@ -589,7 +589,7 @@ export const tarifaDailyLifeContent: Record<AmaraLanguage, TarifaDailyLifeLocale
     hero: {
       eyebrow: 'Praktisk Tarifaguide',
       title: 'Vardagsliv i Tarifa',
-      standfirst: 'Under flera dagar eller veckor blir vanliga frågor viktiga: var ni handlar, vilka ärenden som fungerar till fots, när bilen behövs och om en professionell arbetsdag är möjlig. Från AMARA Family & Surf i La Marina går det att ge ovanligt konkreta svar.',
+      standfirst: 'Under flera dagar eller veckor blir vanliga frågor viktiga: var ni handlar, **vilka ärenden som fungerar till fots**, när bilen behövs och om en professionell arbetsdag är möjlig. Från AMARA Family & Surf i La Marina går det att ge ovanligt konkreta svar.',
       note: 'En personlig guide från era värdar till stabila vardagsmönster. Kontrollera alltid aktuella öppettider, jourer och tjänster hos ansvarig verksamhet.',
       updated: 'Service och gångvägar granskade i augusti 2026'
     },

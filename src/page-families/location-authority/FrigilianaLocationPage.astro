@@ -1,4 +1,5 @@
 ---
+import InlineEmphasis from '../../components/text/InlineEmphasis.astro';
 import LocationAuthorityLayout from '../../layouts/LocationAuthorityLayout.astro';
 import Navigation from '../../components/Navigation.astro';
 import Hero from '../../components/Hero.astro';
@@ -258,10 +259,10 @@ const renderCtas = (subsection: FrigilianaLocationSubsection) => subsection.ctas
               <div class="max-w-xl space-y-6 border-l border-primary/20 pl-8 md:pl-10">
                 {
                   c.intro.map((paragraph) => (
-                    <p class="am-text-body text-on-surface-variant leading-relaxed">{paragraph}</p>
+                    <p class="am-text-body text-on-surface-variant leading-relaxed"><InlineEmphasis text={paragraph} /></p>
                   ))
                 }
-                <p class="am-text-subtitle italic text-on-surface pt-2">{c.introPullLine}</p>
+                <p class="am-text-subtitle italic text-on-surface pt-2"><InlineEmphasis text={c.introPullLine} /></p>
               </div>
             </Hero>
 
@@ -350,7 +351,7 @@ const renderCtas = (subsection: FrigilianaLocationSubsection) => subsection.ctas
                   <div class="space-y-6">
                     {
                       c.evening.paragraphs.slice(0, 2).map((paragraph) => (
-                        <p class="am-text-body text-on-surface-variant leading-relaxed">{paragraph}</p>
+                        <p class="am-text-body text-on-surface-variant leading-relaxed"><InlineEmphasis text={paragraph} /></p>
                       ))
                     }
                   </div>
@@ -372,9 +373,9 @@ const renderCtas = (subsection: FrigilianaLocationSubsection) => subsection.ctas
                   {
                     c.evening.paragraphs.slice(2).map((paragraph, index) =>
                       index === c.evening.paragraphs.slice(2).length - 1 ? (
-                        <p class="am-text-subtitle italic text-on-surface pt-4">{paragraph}</p>
+                        <p class="am-text-subtitle italic text-on-surface pt-4"><InlineEmphasis text={paragraph} /></p>
                       ) : (
-                        <p class="am-text-body text-on-surface-variant leading-relaxed">{paragraph}</p>
+                        <p class="am-text-body text-on-surface-variant leading-relaxed"><InlineEmphasis text={paragraph} /></p>
                       )
                     )
                   }
@@ -395,7 +396,7 @@ const renderCtas = (subsection: FrigilianaLocationSubsection) => subsection.ctas
                 <div class="space-y-6 lg:col-span-5">
                   {
                     c.history.paragraphs.map((paragraph) => (
-                      <p class="am-text-body text-on-surface-variant leading-relaxed">{paragraph}</p>
+                      <p class="am-text-body text-on-surface-variant leading-relaxed"><InlineEmphasis text={paragraph} /></p>
                     ))
                   }
                 </div>
@@ -430,9 +431,9 @@ const renderCtas = (subsection: FrigilianaLocationSubsection) => subsection.ctas
                     {
                       historyDetail.paragraphs.map((paragraph, index) =>
                         index === historyDetail.paragraphs.length - 1 ? (
-                          <p class="am-text-subtitle italic text-on-surface pt-4">{paragraph}</p>
+                          <p class="am-text-subtitle italic text-on-surface pt-4"><InlineEmphasis text={paragraph} /></p>
                         ) : (
-                          <p class="am-text-body text-on-surface-variant leading-relaxed">{paragraph}</p>
+                          <p class="am-text-body text-on-surface-variant leading-relaxed"><InlineEmphasis text={paragraph} /></p>
                         )
                       )
                     }
@@ -465,7 +466,7 @@ const renderCtas = (subsection: FrigilianaLocationSubsection) => subsection.ctas
                 <div class="space-y-6 lg:col-span-7 lg:pt-8">
                   {
                     c.villageLife.paragraphs.map((paragraph) => (
-                      <p class="am-text-body text-on-surface-variant leading-relaxed">{paragraph}</p>
+                      <p class="am-text-body text-on-surface-variant leading-relaxed"><InlineEmphasis text={paragraph} /></p>
                     ))
                   }
                 </div>
@@ -477,7 +478,7 @@ const renderCtas = (subsection: FrigilianaLocationSubsection) => subsection.ctas
                   <div class="space-y-6">
                     {
                       villageDoorstep.paragraphs.map((paragraph) => (
-                        <p class="am-text-body text-on-surface-variant leading-relaxed">{paragraph}</p>
+                        <p class="am-text-body text-on-surface-variant leading-relaxed"><InlineEmphasis text={paragraph} /></p>
                       ))
                     }
                   </div>
@@ -488,7 +489,7 @@ const renderCtas = (subsection: FrigilianaLocationSubsection) => subsection.ctas
                   <div class="space-y-4">
                     {
                       villageParking.paragraphs.map((paragraph) => (
-                        <p class="am-text-body text-on-surface-variant leading-relaxed">{paragraph}</p>
+                        <p class="am-text-body text-on-surface-variant leading-relaxed"><InlineEmphasis text={paragraph} /></p>
                       ))
                     }
                   </div>
@@ -520,9 +521,9 @@ const renderCtas = (subsection: FrigilianaLocationSubsection) => subsection.ctas
                     {
                       c.coast.paragraphs.map((paragraph, index) =>
                         index === c.coast.paragraphs.length - 1 ? (
-                          <p class="am-text-subtitle italic text-on-surface pt-4">{paragraph}</p>
+                          <p class="am-text-subtitle italic text-on-surface pt-4"><InlineEmphasis text={paragraph} /></p>
                         ) : (
-                          <p class="am-text-body text-on-surface-variant leading-relaxed">{paragraph}</p>
+                          <p class="am-text-body text-on-surface-variant leading-relaxed"><InlineEmphasis text={paragraph} /></p>
                         )
                       )
                     }
@@ -533,7 +534,7 @@ const renderCtas = (subsection: FrigilianaLocationSubsection) => subsection.ctas
                     <div class="space-y-6">
                       {
                         coastMobility.paragraphs.map((paragraph) => (
-                          <p class="am-text-body text-on-surface-variant leading-relaxed">{paragraph}</p>
+                          <p class="am-text-body text-on-surface-variant leading-relaxed"><InlineEmphasis text={paragraph} /></p>
                         ))
                       }
                     </div>
@@ -561,7 +562,7 @@ const renderCtas = (subsection: FrigilianaLocationSubsection) => subsection.ctas
                     <div class="space-y-6">
                       {
                         coastBeachTown.paragraphs.slice(0, -1).map((paragraph) => (
-                          <p class="am-text-body text-on-surface-variant leading-relaxed">{paragraph}</p>
+                          <p class="am-text-body text-on-surface-variant leading-relaxed"><InlineEmphasis text={paragraph} /></p>
                         ))
                       }
                       <p class="am-text-subtitle italic text-on-surface border-l border-primary/25 pl-7 pt-2">
@@ -606,7 +607,7 @@ const renderCtas = (subsection: FrigilianaLocationSubsection) => subsection.ctas
                   <div class="space-y-6">
                     {
                       c.seasons.paragraphs.map((paragraph) => (
-                        <p class="am-text-body text-on-surface-variant leading-relaxed">{paragraph}</p>
+                        <p class="am-text-body text-on-surface-variant leading-relaxed"><InlineEmphasis text={paragraph} /></p>
                       ))
                     }
                   </div>
@@ -618,7 +619,7 @@ const renderCtas = (subsection: FrigilianaLocationSubsection) => subsection.ctas
                         <h3 class="am-text-subtitle text-on-surface mb-7">{subsection.title}</h3>
                         <div class="space-y-5">
                           {subsection.paragraphs.map((paragraph) => (
-                            <p class="am-text-body text-on-surface-variant leading-relaxed">{paragraph}</p>
+                            <p class="am-text-body text-on-surface-variant leading-relaxed"><InlineEmphasis text={paragraph} /></p>
                           ))}
                         </div>
                         {renderCtas(subsection).length > 0 && (
@@ -719,7 +720,7 @@ const renderCtas = (subsection: FrigilianaLocationSubsection) => subsection.ctas
                 <div class="space-y-6 lg:col-span-7">
                   {
                     c.decision.paragraphs.map((paragraph) => (
-                      <p class="am-text-body text-on-surface-variant leading-relaxed">{paragraph}</p>
+                      <p class="am-text-body text-on-surface-variant leading-relaxed"><InlineEmphasis text={paragraph} /></p>
                     ))
                   }
                 </div>
@@ -743,14 +744,14 @@ const renderCtas = (subsection: FrigilianaLocationSubsection) => subsection.ctas
                   <div class="space-y-6 lg:col-span-6">
                     {
                       decisionStay.paragraphs.slice(0, 3).map((paragraph) => (
-                        <p class="am-text-body text-on-surface-variant leading-relaxed">{paragraph}</p>
+                        <p class="am-text-body text-on-surface-variant leading-relaxed"><InlineEmphasis text={paragraph} /></p>
                       ))
                     }
                   </div>
                   <div class="space-y-6 border-l border-primary/25 pl-7 lg:col-span-5 lg:col-start-8 lg:pl-10">
                     {
                       decisionStay.paragraphs.slice(3).map((paragraph) => (
-                        <p class="am-text-subtitle italic text-on-surface">{paragraph}</p>
+                        <p class="am-text-subtitle italic text-on-surface"><InlineEmphasis text={paragraph} /></p>
                       ))
                     }
                   </div>
@@ -760,7 +761,7 @@ const renderCtas = (subsection: FrigilianaLocationSubsection) => subsection.ctas
                   {
                     decisionStaysCta && (
                       <div class="lg:col-span-6">
-                        <p class="am-text-body font-semibold text-on-surface mb-6">{decisionStaysCta.label}</p>
+                        <p class="am-text-body font-semibold text-on-surface mb-6"><InlineEmphasis text={decisionStaysCta.label} /></p>
                         <div class="flex flex-wrap items-center gap-x-7 gap-y-4">
                           {frigilianaStayLinks.map((stay) => (
                             <a href={stay.href} class="am-cta-link">{stay.label}</a>

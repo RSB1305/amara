@@ -47,7 +47,7 @@ export const bookingStayTermsContent: Record<AmaraLanguage, BookingStayTermsLoca
     hero: {
       subtitle: 'Clear and reliable.',
       title: 'Booking Terms',
-      lead: 'The general terms for direct bookings with AMARA Lodging.'
+      lead: 'The general terms for **direct bookings with AMARA Lodging**.'
     },
     identity: {
       heading: 'Contracting party',
@@ -184,7 +184,7 @@ export const bookingStayTermsContent: Record<AmaraLanguage, BookingStayTermsLoca
     hero: {
       subtitle: 'Klar und verlässlich.',
       title: 'Buchungsbedingungen',
-      lead: 'Die allgemeinen Bedingungen für Direktbuchungen bei AMARA Lodging.'
+      lead: 'Die allgemeinen Bedingungen für **Direktbuchungen bei AMARA Lodging**.'
     },
     identity: {
       heading: 'Vertragspartner',
@@ -321,7 +321,7 @@ export const bookingStayTermsContent: Record<AmaraLanguage, BookingStayTermsLoca
     hero: {
       subtitle: 'Claras y fiables.',
       title: 'Condiciones de reserva',
-      lead: 'Las condiciones generales para las reservas directas con AMARA Lodging.'
+      lead: 'Las condiciones generales para las **reservas directas con AMARA Lodging**.'
     },
     identity: {
       heading: 'Parte contratante',
@@ -458,7 +458,7 @@ export const bookingStayTermsContent: Record<AmaraLanguage, BookingStayTermsLoca
     hero: {
       subtitle: 'Helder en betrouwbaar.',
       title: 'Boekingsvoorwaarden',
-      lead: 'De algemene voorwaarden voor rechtstreekse boekingen bij AMARA Lodging.'
+      lead: 'De algemene voorwaarden voor **rechtstreekse boekingen bij AMARA Lodging**.'
     },
     identity: {
       heading: 'Contractspartij',
@@ -595,7 +595,7 @@ export const bookingStayTermsContent: Record<AmaraLanguage, BookingStayTermsLoca
     hero: {
       subtitle: 'Tydliga och tillförlitliga.',
       title: 'Bokningsvillkor',
-      lead: 'De allmänna villkoren för direktbokningar hos AMARA Lodging.'
+      lead: 'De allmänna villkoren för **direktbokningar hos AMARA Lodging**.'
     },
     identity: {
       heading: 'Avtalspart',

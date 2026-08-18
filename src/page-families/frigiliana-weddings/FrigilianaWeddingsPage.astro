@@ -1,4 +1,5 @@
 ---
+import InlineEmphasis from '../../components/text/InlineEmphasis.astro';
 import AmaraImage from '../../components/AmaraImage.astro';
 import Hero from '../../components/Hero.astro';
 import Navigation from '../../components/Navigation.astro';
@@ -96,7 +97,7 @@ const parishHref = 'https://diocesismalaga.es/parroquias/145/san-antonio-de-padu
       </p>
       <div class="mt-8 max-w-2xl space-y-5 border-l border-primary/20 pl-6 md:pl-10">
         {copy.hero.paragraphs.map((paragraph) => (
-          <p class="am-text-body leading-relaxed text-on-surface-variant">{paragraph}</p>
+          <p class="am-text-body leading-relaxed text-on-surface-variant"><InlineEmphasis text={paragraph} /></p>
         ))}
       </div>
       <a class="am-btn am-btn--primary mt-9" href="#wedding-stay">
@@ -112,7 +113,7 @@ const parishHref = 'https://diocesismalaga.es/parroquias/145/san-antonio-de-padu
           </h2>
           <div class="mt-8 space-y-5">
             {copy.village.paragraphs.map((paragraph) => (
-              <p class="am-text-body leading-relaxed text-on-surface-variant">{paragraph}</p>
+              <p class="am-text-body leading-relaxed text-on-surface-variant"><InlineEmphasis text={paragraph} /></p>
             ))}
           </div>
         </div>
@@ -155,7 +156,7 @@ const parishHref = 'https://diocesismalaga.es/parroquias/145/san-antonio-de-padu
             </h3>
             <div class="mt-6 space-y-5">
               {copy.nearChurch.paragraphs.map((paragraph) => (
-                <p class="am-text-body leading-relaxed text-on-surface-variant">{paragraph}</p>
+                <p class="am-text-body leading-relaxed text-on-surface-variant"><InlineEmphasis text={paragraph} /></p>
               ))}
             </div>
             <div class="mt-8 border-l border-primary/30 pl-6">
@@ -308,7 +309,7 @@ const parishHref = 'https://diocesismalaga.es/parroquias/145/san-antonio-de-padu
         </h2>
         <div class="mx-auto mt-8 max-w-3xl space-y-5">
           {copy.closing.paragraphs.map((paragraph) => (
-            <p class="am-text-body leading-relaxed text-surface/80">{paragraph}</p>
+            <p class="am-text-body leading-relaxed text-surface/80"><InlineEmphasis text={paragraph} /></p>
           ))}
         </div>
         <a class="am-btn am-btn--primary mt-9" href={links.book}>{copy.closing.cta}</a>

@@ -1,4 +1,5 @@
 ---
+import InlineEmphasis from '../../components/text/InlineEmphasis.astro';
 import Navigation from '../../components/Navigation.astro';
 import LocationContextNav from '../../components/location/LocationContextNav.astro';
 import {
@@ -75,7 +76,7 @@ const footerHighlights: LabeledLink[] = [
         <div class="lg:col-span-4">
           <p class="font-label text-[11px] font-bold uppercase tracking-[0.18em] text-primary-fixed-dim">{content.orientation.eyebrow}</p>
           <h2 id="frigiliana-orientation-title" class="am-text-title mt-5 text-balance text-inverted-on-surface">{content.orientation.title}</h2>
-          <p class="am-text-body mt-6 leading-relaxed text-inverted-on-surface/70">{content.orientation.intro}</p>
+          <p class="am-text-body mt-6 leading-relaxed text-inverted-on-surface/70"><InlineEmphasis text={content.orientation.intro} /></p>
         </div>
         <ol class="grid border-y border-inverted-on-surface/20 sm:grid-cols-2 lg:col-span-8">
           {content.orientation.items.map((item, index) => (

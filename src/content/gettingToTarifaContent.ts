@@ -96,7 +96,7 @@ export const gettingToTarifaContent: Record<AmaraLanguage, GettingToTarifaLocale
     hero: {
       eyebrow: 'Tarifa arrival guide',
       title: 'Getting to Tarifa',
-      standfirst: 'Reaching Tarifa is only the first part of the journey. If you are staying at AMARA Family & Surf, your real destination is Mar Adriático 29 in La Marina — so every option below continues all the way to the apartment, not just to the town name on a map.',
+      standfirst: 'Reaching Tarifa is only the first part of the journey. If you are staying at AMARA Family & Surf, **your real destination is Mar Adriático 29 in La Marina** — so every option below continues all the way to the apartment, not just to the town name on a map.',
       note: 'A host-written planning guide. Live transport times, border requirements and ferry operations should always be checked close to travel.',
       updated: 'Reviewed August 2026'
     },
@@ -205,7 +205,7 @@ export const gettingToTarifaContent: Record<AmaraLanguage, GettingToTarifaLocale
     hero: {
       eyebrow: 'Anreise-Guide Tarifa',
       title: 'Anreise nach Tarifa',
-      standfirst: 'Tarifa zu erreichen ist nur der erste Teil der Reise. Wenn ihr in AMARA Family & Surf wohnt, lautet euer eigentliches Ziel Mar Adriático 29 in La Marina. Deshalb führt jede Option hier bis zum Apartment weiter – und endet nicht einfach beim Ortsnamen auf der Karte.',
+      standfirst: 'Tarifa zu erreichen ist nur der erste Teil der Reise. Wenn ihr in AMARA Family & Surf wohnt, lautet **euer eigentliches Ziel Mar Adriático 29 in La Marina**. Deshalb führt jede Option hier bis zum Apartment weiter – und endet nicht einfach beim Ortsnamen auf der Karte.',
       note: 'Ein persönlicher Planungs-Guide eurer Gastgeber. Aktuelle Fahrzeiten, Einreisebestimmungen und Fährbetrieb bitte immer kurz vor der Reise prüfen.',
       updated: 'Geprüft im August 2026'
     },
@@ -282,7 +282,7 @@ export const gettingToTarifaContent: Record<AmaraLanguage, GettingToTarifaLocale
   es: {
     navLabel: 'Llegada y movilidad',
     hero: {
-      eyebrow: 'Guía de llegada a Tarifa', title: 'Cómo llegar a Tarifa', standfirst: 'Llegar a Tarifa es solo la primera parte del viaje. Si os alojáis en AMARA Family & Surf, el destino real es Mar Adriático 29, en La Marina. Por eso cada opción continúa hasta el apartamento y no termina simplemente en el nombre de la localidad.', note: 'Una guía de planificación escrita por vuestros anfitriones. Consultad siempre los horarios, los requisitos de entrada y el funcionamiento de los ferris poco antes del viaje.', updated: 'Revisado en agosto de 2026'
+      eyebrow: 'Guía de llegada a Tarifa', title: 'Cómo llegar a Tarifa', standfirst: 'Llegar a Tarifa es solo la primera parte del viaje. Si os alojáis en AMARA Family & Surf, **el destino real es Mar Adriático 29, en La Marina**. Por eso cada opción continúa hasta el apartamento y no termina simplemente en el nombre de la localidad.', note: 'Una guía de planificación escrita por vuestros anfitriones. Consultad siempre los horarios, los requisitos de entrada y el funcionamiento de los ferris poco antes del viaje.', updated: 'Revisado en agosto de 2026'
     },
     facts: [
       { label: 'Dirección de AMARA', value: 'Mar Adriático 29' }, { label: 'Zona', value: 'La Marina' }, { label: 'En el apartamento', value: 'Garaje subterráneo reservado' }, { label: 'Para el día a día', value: 'Supermercado justo enfrente' }
@@ -336,7 +336,7 @@ export const gettingToTarifaContent: Record<AmaraLanguage, GettingToTarifaLocale
   },
   nl: {
     navLabel: 'Aankomst & mobiliteit',
-    hero: { eyebrow: 'Aankomstgids Tarifa', title: 'Naar Tarifa reizen', standfirst: 'Tarifa bereiken is maar het eerste deel van de reis. Verblijven jullie in AMARA Family & Surf, dan is Mar Adriático 29 in La Marina de echte bestemming. Daarom loopt elke optie hieronder door tot aan het appartement en stopt ze niet bij de plaatsnaam op de kaart.', note: 'Een persoonlijke planningsgids van jullie hosts. Controleer actuele vertrektijden, toegangsregels en ferryverkeer altijd kort voor de reis.', updated: 'Gecontroleerd in augustus 2026' },
+    hero: { eyebrow: 'Aankomstgids Tarifa', title: 'Naar Tarifa reizen', standfirst: 'Tarifa bereiken is maar het eerste deel van de reis. Verblijven jullie in AMARA Family & Surf, dan is **Mar Adriático 29 in La Marina de echte bestemming**. Daarom loopt elke optie hieronder door tot aan het appartement en stopt ze niet bij de plaatsnaam op de kaart.', note: 'Een persoonlijke planningsgids van jullie hosts. Controleer actuele vertrektijden, toegangsregels en ferryverkeer altijd kort voor de reis.', updated: 'Gecontroleerd in augustus 2026' },
     facts: [ { label: 'Adres van AMARA', value: 'Mar Adriático 29' }, { label: 'Wijk', value: 'La Marina' }, { label: 'Bij het appartement', value: 'Gereserveerde ondergrondse parking' }, { label: 'Voor elke dag', value: 'Supermarkt direct aan de overkant' } ],
     sections: [
       { id: 'by-car', eyebrow: '01 · Over de weg', title: 'Met de auto naar AMARA', paragraphs: [
@@ -387,7 +387,7 @@ export const gettingToTarifaContent: Record<AmaraLanguage, GettingToTarifaLocale
   },
   sv: {
     navLabel: 'Ankomst & mobilitet',
-    hero: { eyebrow: 'Ankomstguide Tarifa', title: 'Resa till Tarifa', standfirst: 'Att nå Tarifa är bara den första delen av resan. Om ni bor på AMARA Family & Surf är den verkliga destinationen Mar Adriático 29 i La Marina. Därför fortsätter varje alternativ hela vägen till lägenheten och stannar inte vid ortsnamnet på kartan.', note: 'En personlig planeringsguide från era värdar. Kontrollera alltid aktuella avgångar, inresekrav och färjetrafik nära resdagen.', updated: 'Granskad i augusti 2026' },
+    hero: { eyebrow: 'Ankomstguide Tarifa', title: 'Resa till Tarifa', standfirst: 'Att nå Tarifa är bara den första delen av resan. Om ni bor på AMARA Family & Surf är **den verkliga destinationen Mar Adriático 29 i La Marina**. Därför fortsätter varje alternativ hela vägen till lägenheten och stannar inte vid ortsnamnet på kartan.', note: 'En personlig planeringsguide från era värdar. Kontrollera alltid aktuella avgångar, inresekrav och färjetrafik nära resdagen.', updated: 'Granskad i augusti 2026' },
     facts: [ { label: 'AMARAs adress', value: 'Mar Adriático 29' }, { label: 'Område', value: 'La Marina' }, { label: 'Vid lägenheten', value: 'Reserverad underjordisk parkering' }, { label: 'För vardagen', value: 'Stormarknad direkt mittemot' } ],
     sections: [
       { id: 'by-car', eyebrow: '01 · På väg', title: 'Med bil till AMARA', paragraphs: [

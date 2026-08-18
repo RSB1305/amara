@@ -110,7 +110,7 @@ export const nerjaDailyLifeContent: Record<AmaraLanguage, NerjaDailyLifeLocale> 
       eyebrow: 'Nerja · Daily life & services',
       title: 'After the first few days, a holiday becomes ordinary life',
       standfirst:
-        'Where you buy bread, when the shops shut, how far the pharmacy is — none of it matters on day one and all of it matters by day four. This is the practical layer of a Nerja stay.',
+        'Where you buy bread, when the shops shut, how far the pharmacy is — none of it matters on day one and **all of it matters by day four**. This is the practical layer of a Nerja stay.',
       note: 'Opening hours in Spain change with season and holidays. Treat every time here as a pattern, not a promise.',
       updated: 'Reviewed August 2026'
     },
@@ -239,7 +239,7 @@ export const nerjaDailyLifeContent: Record<AmaraLanguage, NerjaDailyLifeLocale> 
       eyebrow: 'Nerja · Alltag & Versorgung',
       title: 'Nach den ersten Tagen wird aus Urlaub ganz normaler Alltag',
       standfirst:
-        'Wo ihr Brot kauft, wann die Läden schließen, wie weit die Apotheke ist – am ersten Tag zählt nichts davon, am vierten alles. Das ist die praktische Ebene eines Nerja-Aufenthalts.',
+        'Wo ihr Brot kauft, wann die Läden schließen, wie weit die Apotheke ist – am ersten Tag zählt nichts davon, **am vierten alles**. Das ist die praktische Ebene eines Nerja-Aufenthalts.',
       note: 'Öffnungszeiten ändern sich in Spanien mit Saison und Feiertagen. Nehmt jede Zeitangabe hier als Muster, nicht als Zusage.',
       updated: 'Geprüft im August 2026'
     },
@@ -368,7 +368,7 @@ export const nerjaDailyLifeContent: Record<AmaraLanguage, NerjaDailyLifeLocale> 
       eyebrow: 'Nerja · Vida diaria y servicios',
       title: 'Pasados los primeros días, las vacaciones se vuelven vida corriente',
       standfirst:
-        'Dónde compráis el pan, cuándo cierran las tiendas, a qué distancia está la farmacia: el primer día no importa nada de eso y al cuarto importa todo. Esta es la capa práctica de una estancia en Nerja.',
+        'Dónde compráis el pan, cuándo cierran las tiendas, a qué distancia está la farmacia: el primer día no importa nada de eso y **al cuarto importa todo**. Esta es la capa práctica de una estancia en Nerja.',
       note: 'Los horarios en España cambian con la temporada y los festivos. Tomad cada hora de esta página como un patrón, no como una promesa.',
       updated: 'Revisado en agosto de 2026'
     },
@@ -497,7 +497,7 @@ export const nerjaDailyLifeContent: Record<AmaraLanguage, NerjaDailyLifeLocale> 
       eyebrow: 'Nerja · Dagelijks leven & voorzieningen',
       title: 'Na de eerste dagen wordt vakantie gewoon dagelijks leven',
       standfirst:
-        'Waar jullie brood kopen, wanneer de winkels sluiten, hoe ver de apotheek is — op dag één telt niets daarvan en op dag vier alles. Dit is de praktische laag van een verblijf in Nerja.',
+        'Waar jullie brood kopen, wanneer de winkels sluiten, hoe ver de apotheek is — op dag één telt niets daarvan en **op dag vier alles**. Dit is de praktische laag van een verblijf in Nerja.',
       note: 'Openingstijden veranderen in Spanje met seizoen en feestdagen. Neem elke tijd hier als patroon, niet als belofte.',
       updated: 'Gecontroleerd in augustus 2026'
     },
@@ -626,7 +626,7 @@ export const nerjaDailyLifeContent: Record<AmaraLanguage, NerjaDailyLifeLocale> 
       eyebrow: 'Nerja · Vardagsliv & service',
       title: 'Efter de första dagarna blir semestern helt vanlig vardag',
       standfirst:
-        'Var ni köper bröd, när butikerna stänger, hur långt det är till apoteket — dag ett spelar inget av det roll, dag fyra spelar allt roll. Det här är det praktiska lagret av en vistelse i Nerja.',
+        'Var ni köper bröd, när butikerna stänger, hur långt det är till apoteket — dag ett spelar inget av det roll, **dag fyra spelar allt roll**. Det här är det praktiska lagret av en vistelse i Nerja.',
       note: 'Öppettider i Spanien ändras med säsong och helgdagar. Se varje tid här som ett mönster, inte ett löfte.',
       updated: 'Granskad i augusti 2026'
     },

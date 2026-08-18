@@ -1,4 +1,5 @@
 ---
+import InlineEmphasis from '../../components/text/InlineEmphasis.astro';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Navigation from '../../components/Navigation.astro';
 import TrustHero from '../../components/hero/TrustHero.astro';
@@ -75,7 +76,7 @@ const closingCtaLinks: EditorialClosingCtaLink[] = [
             <h2 class="am-text-title">{copy.sections.summaryTitle[currentLang]}</h2>
           </div>
           <div class="am-reviews-split__right">
-            <p class="am-text-subtitle text-on-surface mb-8">{copy.sections.summaryLead[currentLang]}</p>
+            <p class="am-text-subtitle text-on-surface mb-8"><InlineEmphasis text={copy.sections.summaryLead[currentLang]} /></p>
             <p class="am-text-caption text-on-surface-variant mb-6">
               <a
                 class="am-inline-link"
@@ -102,7 +103,7 @@ const closingCtaLinks: EditorialClosingCtaLink[] = [
       <section class="am-reviews-section">
         <div class="am-reviews-section-header">
           <h2 class="am-text-title">{copy.sections.reviewsTitle[currentLang]}</h2>
-          <p class="am-text-body text-muted italic am-reviews-section-note">{copy.sections.reviewsNote[currentLang]}</p>
+          <p class="am-text-body text-muted italic am-reviews-section-note"><InlineEmphasis text={copy.sections.reviewsNote[currentLang]} /></p>
         </div>
 
         <div class="am-reviews-grid">
@@ -118,13 +119,13 @@ const closingCtaLinks: EditorialClosingCtaLink[] = [
       <section class="am-reviews-section am-reviews-proof">
         <div class="am-reviews-proof__header">
           <h2 class="am-text-title">{copy.sections.mentionsTitle[currentLang]}</h2>
-          <p class="am-text-body text-muted italic am-reviews-proof__note">{copy.sections.mentionsNote[currentLang]}</p>
+          <p class="am-text-body text-muted italic am-reviews-proof__note"><InlineEmphasis text={copy.sections.mentionsNote[currentLang]} /></p>
         </div>
 
         <div class="am-reviews-list">
           {copy.proofPoints[currentLang].map((item) => (
             <div class="am-reviews-list__item">
-              <p class="am-text-body text-strong am-reviews-list__copy">{item}</p>
+              <p class="am-text-body text-strong am-reviews-list__copy"><InlineEmphasis text={item} /></p>
             </div>
           ))}
         </div>
@@ -134,8 +135,8 @@ const closingCtaLinks: EditorialClosingCtaLink[] = [
       <section class="am-reviews-section am-reviews-awards">
         <div class="am-reviews-awards__header">
           <h2 class="am-text-title am-reviews-awards__title">{copy.sections.awardsTitle[currentLang]}</h2>
-          <p class="am-text-body text-subtle">{copy.sections.awardsBody[currentLang]}</p>
-          <p class="am-text-body text-muted italic am-reviews-awards__source">{copy.sections.awardsSource[currentLang]}</p>
+          <p class="am-text-body text-subtle"><InlineEmphasis text={copy.sections.awardsBody[currentLang]} /></p>
+          <p class="am-text-body text-muted italic am-reviews-awards__source"><InlineEmphasis text={copy.sections.awardsSource[currentLang]} /></p>
         </div>
 
         <div class="am-reviews-awards__grid">
@@ -162,7 +163,7 @@ const closingCtaLinks: EditorialClosingCtaLink[] = [
       <section class="am-reviews-section am-reviews-locations">
         <div class="am-reviews-locations__header">
           <h2 class="am-text-title">{copy.sections.locationTitle[currentLang]}</h2>
-          <p class="am-text-body text-subtle">{copy.sections.locationLead[currentLang]}</p>
+          <p class="am-text-body text-subtle"><InlineEmphasis text={copy.sections.locationLead[currentLang]} /></p>
         </div>
 
         <div class="am-reviews-locations__trio">
@@ -177,7 +178,7 @@ const closingCtaLinks: EditorialClosingCtaLink[] = [
             </div>
             <div class="am-reviews-location__caption">
               <h3 class="am-text-subtitle am-reviews-location__title">Frigiliana</h3>
-              <p class="am-text-body text-subtle">{copy.sections.locationFrigiliana[currentLang]}</p>
+              <p class="am-text-body text-subtle"><InlineEmphasis text={copy.sections.locationFrigiliana[currentLang]} /></p>
             </div>
           </a>
 
@@ -192,7 +193,7 @@ const closingCtaLinks: EditorialClosingCtaLink[] = [
             </div>
             <div class="am-reviews-location__caption">
               <h3 class="am-text-subtitle am-reviews-location__title">Nerja</h3>
-              <p class="am-text-body text-subtle">{copy.sections.locationNerja[currentLang]}</p>
+              <p class="am-text-body text-subtle"><InlineEmphasis text={copy.sections.locationNerja[currentLang]} /></p>
             </div>
           </a>
 
@@ -207,7 +208,7 @@ const closingCtaLinks: EditorialClosingCtaLink[] = [
             </div>
             <div class="am-reviews-location__caption">
               <h3 class="am-text-subtitle am-reviews-location__title">Tarifa</h3>
-              <p class="am-text-body text-subtle">{copy.sections.locationTarifa[currentLang]}</p>
+              <p class="am-text-body text-subtle"><InlineEmphasis text={copy.sections.locationTarifa[currentLang]} /></p>
             </div>
           </a>
         </div>

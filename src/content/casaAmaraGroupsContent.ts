@@ -135,7 +135,7 @@ export const casaAmaraGroupsContent: Record<AmaraLanguage, CasaAmaraGroupsCopy> 
       title: 'Stay together. Keep your own space.',
       lead: 'Casa AMARA brings three apartments and one double room together under one historic roof in Frigiliana — a calm base for 4–8 registered overnight guests.',
       facts: '3 apartments · 1 double room · 4 private bathrooms',
-      qualifier: 'Designed for small groups who value privacy and quiet. It is not a party house or an event venue.',
+      qualifier: 'Designed for small groups who value privacy and quiet. **It is not a party house or an event venue.**',
       primaryCta: 'Enquire for 4–8 guests',
       secondaryCta: 'Compare the four stays',
       imageAlt: 'Large shaded terrace at Casa AMARA Maha in Frigiliana'
@@ -143,7 +143,7 @@ export const casaAmaraGroupsContent: Record<AmaraLanguage, CasaAmaraGroupsCopy> 
     model: {
       eyebrow: 'ONE HOUSE, SEVERAL STAYS',
       title: 'Book the space your group actually needs',
-      intro: 'Each AMARA stay accommodates up to two guests. We coordinate two, three or four stays for the same dates, depending on your group size and the available combination.',
+      intro: 'Each AMARA stay accommodates up to two guests. We coordinate **two, three or four stays for the same dates**, depending on your group size and the available combination.',
       options: [
         { guests: '4 GUESTS', title: 'Two private stays', text: 'A natural fit for two couples or four adults who want to be close without sharing every room.' },
         { guests: '5–6 GUESTS', title: 'Three private stays', text: 'Three separate sleeping spaces and three bathrooms create an easy rhythm for families or friends.' },
@@ -244,7 +244,7 @@ export const casaAmaraGroupsContent: Record<AmaraLanguage, CasaAmaraGroupsCopy> 
       title: 'Gemeinsam reisen. Mit eigenem Rückzugsort.',
       lead: 'Casa AMARA vereint drei Apartments und ein Doppelzimmer unter einem historischen Dach in Frigiliana – eine ruhige Basis für 4–8 angemeldete Übernachtungsgäste.',
       facts: '3 Apartments · 1 Doppelzimmer · 4 private Bäder',
-      qualifier: 'Für kleine Gruppen, denen Privatsphäre und Ruhe wichtig sind. Kein Partyhaus und keine Eventlocation.',
+      qualifier: 'Für kleine Gruppen, denen Privatsphäre und Ruhe wichtig sind. **Kein Partyhaus und keine Eventlocation.**',
       primaryCta: 'Für 4–8 Gäste anfragen',
       secondaryCta: 'Die vier Unterkünfte vergleichen',
       imageAlt: 'Große schattige Terrasse von Casa AMARA Maha in Frigiliana'
@@ -252,7 +252,7 @@ export const casaAmaraGroupsContent: Record<AmaraLanguage, CasaAmaraGroupsCopy> 
     model: {
       eyebrow: 'EIN HAUS, MEHRERE UNTERKÜNFTE',
       title: 'Bucht genau den Raum, den eure Gruppe braucht',
-      intro: 'Jede AMARA Unterkunft ist für maximal zwei Gäste ausgelegt. Je nach Gruppengröße und Verfügbarkeit koordinieren wir für denselben Zeitraum zwei, drei oder vier Unterkünfte.',
+      intro: 'Jede AMARA Unterkunft ist für maximal zwei Gäste ausgelegt. Je nach Gruppengröße und Verfügbarkeit koordinieren wir **für denselben Zeitraum zwei, drei oder vier Unterkünfte**.',
       options: [
         { guests: '4 GÄSTE', title: 'Zwei private Unterkünfte', text: 'Ideal für zwei Paare oder vier Erwachsene, die nah beieinander wohnen möchten, ohne jeden Raum zu teilen.' },
         { guests: '5–6 GÄSTE', title: 'Drei private Unterkünfte', text: 'Drei getrennte Schlafbereiche und drei Bäder schaffen einen entspannten Rhythmus für Familie oder Freunde.' },
@@ -353,7 +353,7 @@ export const casaAmaraGroupsContent: Record<AmaraLanguage, CasaAmaraGroupsCopy> 
       title: 'Viajar juntos. Con vuestro propio espacio.',
       lead: 'Casa AMARA reúne tres apartamentos y una habitación doble bajo un mismo techo histórico en Frigiliana: una base tranquila para 4–8 huéspedes alojados.',
       facts: '3 apartamentos · 1 habitación doble · 4 baños privados',
-      qualifier: 'Pensado para grupos pequeños que valoran la privacidad y la tranquilidad. No es una casa de fiestas ni un espacio para eventos.',
+      qualifier: 'Pensado para grupos pequeños que valoran la privacidad y la tranquilidad. **No es una casa de fiestas ni un espacio para eventos.**',
       primaryCta: 'Consultar para 4–8 huéspedes',
       secondaryCta: 'Comparar los cuatro alojamientos',
       imageAlt: 'Gran terraza con sombra de Casa AMARA Maha en Frigiliana'
@@ -361,7 +361,7 @@ export const casaAmaraGroupsContent: Record<AmaraLanguage, CasaAmaraGroupsCopy> 
     model: {
       eyebrow: 'UNA CASA, VARIOS ALOJAMIENTOS',
       title: 'Reservad el espacio que vuestro grupo necesita',
-      intro: 'Cada alojamiento AMARA admite un máximo de dos huéspedes. Coordinamos dos, tres o cuatro alojamientos para las mismas fechas, según el tamaño del grupo y la combinación disponible.',
+      intro: 'Cada alojamiento AMARA admite un máximo de dos huéspedes. Coordinamos **dos, tres o cuatro alojamientos para las mismas fechas**, según el tamaño del grupo y la combinación disponible.',
       options: [
         { guests: '4 HUÉSPEDES', title: 'Dos alojamientos privados', text: 'Una opción natural para dos parejas o cuatro adultos que quieren estar cerca sin compartir todas las estancias.' },
         { guests: '5–6 HUÉSPEDES', title: 'Tres alojamientos privados', text: 'Tres zonas de descanso y tres baños independientes facilitan el ritmo de familiares o amigos.' },
@@ -462,7 +462,7 @@ export const casaAmaraGroupsContent: Record<AmaraLanguage, CasaAmaraGroupsCopy> 
       title: 'Samen op reis. Met een eigen plek.',
       lead: 'Casa AMARA brengt drie appartementen en één tweepersoonskamer samen onder één historisch dak in Frigiliana: een rustige uitvalsbasis voor 4–8 geregistreerde verblijfsgasten.',
       facts: '3 appartementen · 1 tweepersoonskamer · 4 privébadkamers',
-      qualifier: 'Voor kleine groepen die privacy en rust waarderen. Geen feesthuis en geen evenementenlocatie.',
+      qualifier: 'Voor kleine groepen die privacy en rust waarderen. **Geen feesthuis en geen evenementenlocatie.**',
       primaryCta: 'Informeer voor 4–8 gasten',
       secondaryCta: 'Vergelijk de vier verblijven',
       imageAlt: 'Groot schaduwrijk terras van Casa AMARA Maha in Frigiliana'
@@ -470,7 +470,7 @@ export const casaAmaraGroupsContent: Record<AmaraLanguage, CasaAmaraGroupsCopy> 
     model: {
       eyebrow: 'ÉÉN HUIS, MEERDERE VERBLIJVEN',
       title: 'Boek de ruimte die jullie groep echt nodig heeft',
-      intro: 'Elk AMARA-verblijf biedt plaats aan maximaal twee gasten. Afhankelijk van groepsgrootte en beschikbaarheid coördineren we twee, drie of vier verblijven voor dezelfde data.',
+      intro: 'Elk AMARA-verblijf biedt plaats aan maximaal twee gasten. Afhankelijk van groepsgrootte en beschikbaarheid coördineren we **twee, drie of vier verblijven voor dezelfde data**.',
       options: [
         { guests: '4 GASTEN', title: 'Twee privéverblijven', text: 'Een logische keuze voor twee stellen of vier volwassenen die dichtbij elkaar willen zijn zonder alle ruimtes te delen.' },
         { guests: '5–6 GASTEN', title: 'Drie privéverblijven', text: 'Drie aparte slaapruimtes en drie badkamers geven familie of vrienden een ontspannen ritme.' },
@@ -571,7 +571,7 @@ export const casaAmaraGroupsContent: Record<AmaraLanguage, CasaAmaraGroupsCopy> 
       title: 'Res tillsammans. Med ett eget utrymme.',
       lead: 'Casa AMARA samlar tre lägenheter och ett dubbelrum under samma historiska tak i Frigiliana – en lugn bas för 4–8 registrerade övernattande gäster.',
       facts: '3 lägenheter · 1 dubbelrum · 4 privata badrum',
-      qualifier: 'För små grupper som värdesätter avskildhet och lugn. Inget partyhus och ingen evenemangslokal.',
+      qualifier: 'För små grupper som värdesätter avskildhet och lugn. **Inget partyhus och ingen evenemangslokal.**',
       primaryCta: 'Skicka förfrågan för 4–8 gäster',
       secondaryCta: 'Jämför de fyra boendena',
       imageAlt: 'Stor skuggig terrass vid Casa AMARA Maha i Frigiliana'
@@ -579,7 +579,7 @@ export const casaAmaraGroupsContent: Record<AmaraLanguage, CasaAmaraGroupsCopy> 
     model: {
       eyebrow: 'ETT HUS, FLERA BOENDEN',
       title: 'Boka det utrymme som gruppen faktiskt behöver',
-      intro: 'Varje AMARA-boende rymmer högst två gäster. Beroende på gruppstorlek och tillgänglighet samordnar vi två, tre eller fyra boenden för samma datum.',
+      intro: 'Varje AMARA-boende rymmer högst två gäster. Beroende på gruppstorlek och tillgänglighet samordnar vi **två, tre eller fyra boenden för samma datum**.',
       options: [
         { guests: '4 GÄSTER', title: 'Två privata boenden', text: 'Ett naturligt val för två par eller fyra vuxna som vill bo nära utan att dela alla utrymmen.' },
         { guests: '5–6 GÄSTER', title: 'Tre privata boenden', text: 'Tre separata sovutrymmen och tre badrum ger familj eller vänner en avslappnad rytm.' },

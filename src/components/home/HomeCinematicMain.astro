@@ -1,4 +1,6 @@
 ---
+import InlineEmphasis from '../text/InlineEmphasis.astro';
+
 export interface CinematicApartment {
   id: string;
   name: string;
@@ -127,7 +129,7 @@ const {
       <h1 class="mb-8 am-text-display">
         AMARA<span class="sr-only"> — {heroKicker}</span>
       </h1>
-      <p class="max-w-xl am-text-body italic text-inverted-on-surface/90">{heroLead}</p>
+      <p class="max-w-xl am-text-body italic text-inverted-on-surface/90"><InlineEmphasis text={heroLead} /></p>
       {trustBookingHref && (
         <a href={trustBookingHref} class="am-btn am-btn--primary am-btn--inverse mt-8">
           {trustCtaPrimary}
@@ -159,8 +161,8 @@ const {
       </div>
 
       <div class="flex flex-col gap-8 am-text-body text-on-surface-variant lg:col-span-6 lg:col-start-7">
-        <div><p>{philosophyP1}</p></div>
-        <div><p>{philosophyP2}</p></div>
+        <div><p><InlineEmphasis text={philosophyP1} /></p></div>
+        <div><p><InlineEmphasis text={philosophyP2} /></p></div>
         <div>
           <div class="flex gap-8 border-t border-outline-variant/30 pt-8">
             <div>
@@ -195,7 +197,7 @@ const {
                 <a href={link.href} class="am-guide-link group">
                   <span class="block am-text-caption uppercase tracking-widest text-primary">{link.label}</span>
                   <span class="mt-3 block max-w-sm am-text-body leading-relaxed text-on-surface-variant transition-colors group-hover:text-on-surface">
-                    {link.text}
+                    <InlineEmphasis text={link.text} />
                   </span>
                 </a>
               ))}
@@ -249,7 +251,7 @@ const {
                   </div>
                   <h3 class="mb-2 am-text-title text-on-surface">{apt.name}</h3>
                   <h4 class="mb-8 am-text-subtitle italic text-primary">{apt.subtitle}</h4>
-                  <p class="mb-10 max-w-md am-text-body text-on-surface-variant">{apt.desc}</p>
+                  <p class="mb-10 max-w-md am-text-body text-on-surface-variant"><InlineEmphasis text={apt.desc} /></p>
 
                   <a
                     href={apt.exploreHref}

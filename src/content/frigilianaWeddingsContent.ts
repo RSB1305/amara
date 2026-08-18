@@ -136,7 +136,7 @@ export const frigilianaWeddingsContent: Record<
       lead:
         'A white village, a seventeenth-century church and a place to stay only a few steps from the ceremony.',
       paragraphs: [
-        'San Antonio de Padua church stands in the heart of Frigiliana’s old town. Casa AMARA is diagonally opposite, around 15 metres away.',
+        'San Antonio de Padua church stands in the heart of Frigiliana’s old town. **Casa AMARA is diagonally opposite, around 15 metres away.**',
         'That makes the house a particularly practical base for the couple, close family or wedding guests who want to stay in the village and avoid another journey immediately before the ceremony.'
       ],
       cta: 'See the accommodation options',
@@ -305,7 +305,7 @@ export const frigilianaWeddingsContent: Record<
       lead:
         'Ein weißes Dorf, eine Kirche aus dem 17. Jahrhundert und eure Unterkunft nur wenige Schritte von der Trauung entfernt.',
       paragraphs: [
-        'Die Kirche San Antonio de Padua steht mitten in Frigilianas Altstadt. Casa AMARA liegt schräg gegenüber, rund 15 Meter entfernt.',
+        'Die Kirche San Antonio de Padua steht mitten in Frigilianas Altstadt. **Casa AMARA liegt schräg gegenüber, rund 15 Meter entfernt.**',
         'Damit ist das Haus eine besonders praktische Basis für das Brautpaar, enge Familie oder Hochzeitsgäste, die im Dorf übernachten und unmittelbar vor der Trauung keine weitere Anreise möchten.'
       ],
       cta: 'Unterkunftsmöglichkeiten ansehen',
@@ -474,7 +474,7 @@ export const frigilianaWeddingsContent: Record<
       lead:
         'Un pueblo blanco, una iglesia del siglo XVII y vuestro alojamiento a pocos pasos de la ceremonia.',
       paragraphs: [
-        'La iglesia de San Antonio de Padua está en pleno casco antiguo de Frigiliana. Casa AMARA queda en diagonal, a unos 15 metros.',
+        'La iglesia de San Antonio de Padua está en pleno casco antiguo de Frigiliana. **Casa AMARA queda en diagonal, a unos 15 metros.**',
         'Por eso es una base especialmente práctica para la pareja, la familia cercana o los invitados que quieren dormir en el pueblo y evitar otro desplazamiento justo antes de la ceremonia.'
       ],
       cta: 'Ver opciones de alojamiento',
@@ -643,7 +643,7 @@ export const frigilianaWeddingsContent: Record<
       lead:
         'Een wit dorp, een kerk uit de zeventiende eeuw en jullie verblijf op slechts een paar stappen van de ceremonie.',
       paragraphs: [
-        'De kerk San Antonio de Padua staat midden in de oude kern van Frigiliana. Casa AMARA ligt er schuin tegenover, op ongeveer 15 meter afstand.',
+        'De kerk San Antonio de Padua staat midden in de oude kern van Frigiliana. **Casa AMARA ligt er schuin tegenover, op ongeveer 15 meter afstand.**',
         'Daardoor is het huis een bijzonder praktische uitvalsbasis voor het bruidspaar, naaste familie of bruiloftsgasten die in het dorp willen overnachten en vlak voor de ceremonie geen extra rit willen maken.'
       ],
       cta: 'Bekijk de verblijfsmogelijkheden',
@@ -812,7 +812,7 @@ export const frigilianaWeddingsContent: Record<
       lead:
         'En vit by, en kyrka från 1600-talet och ert boende bara några steg från vigseln.',
       paragraphs: [
-        'San Antonio de Padua-kyrkan ligger mitt i Frigilianas gamla by. Casa AMARA ligger snett mittemot, cirka 15 meter bort.',
+        'San Antonio de Padua-kyrkan ligger mitt i Frigilianas gamla by. **Casa AMARA ligger snett mittemot, cirka 15 meter bort.**',
         'Det gör huset till en ovanligt praktisk bas för brudparet, den närmaste familjen eller bröllopsgäster som vill bo i byn och slippa ännu en resa strax före vigseln.'
       ],
       cta: 'Se boendealternativen',

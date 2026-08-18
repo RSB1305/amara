@@ -66,11 +66,11 @@ export const cinematicPhilosophyLabel: CopyRow = {
 };
 
 export const cinematicPhilosophyP1: CopyRow = {
-  en: 'AMARA brings together six individually furnished holiday stays in Frigiliana, Nerja and Tarifa — among whitewashed old-town lanes, along the Mediterranean coast and beneath Tarifa’s wide Atlantic sky. We look after every stay ourselves, know its story and its character, and want you to feel at home from the moment you arrive.',
-  de: 'AMARA vereint sechs individuell eingerichtete Ferienunterkünfte in Frigiliana, Nerja und Tarifa – zwischen weißen Altstadtgassen, mediterraner Küste und weitem Atlantikhimmel. Wir betreuen jede Unterkunft selbst, kennen ihre Geschichte und ihre Eigenheiten und möchten, dass ihr euch vom ersten Moment an angekommen fühlt.',
-  es: 'AMARA reúne seis alojamientos vacacionales con personalidad propia en Frigiliana, Nerja y Tarifa: entre callejuelas blancas, la costa mediterránea y el inmenso cielo atlántico de Tarifa. Cuidamos personalmente cada alojamiento, conocemos su historia y sus particularidades y queremos que os sintáis en casa desde el primer momento.',
-  nl: 'AMARA brengt zes individueel ingerichte vakantieverblijven in Frigiliana, Nerja en Tarifa samen — tussen witgekalkte straatjes, aan de Middellandse Zeekust en onder de weidse Atlantische hemel van Tarifa. We beheren elk verblijf zelf, kennen het verhaal en de eigenheid ervan en willen dat jullie je vanaf het eerste moment thuis voelen.',
-  sv: 'AMARA samlar sex individuellt inredda semesterboenden i Frigiliana, Nerja och Tarifa — bland vitkalkade gränder, längs Medelhavskusten och under Tarifas vida atlanthimmel. Vi tar hand om varje boende själva, känner dess historia och karaktär och vill att ni ska känna er hemma från första stund.'
+  en: 'AMARA brings together six individually furnished holiday stays in Frigiliana, Nerja and Tarifa — among whitewashed old-town lanes, along the Mediterranean coast and beneath Tarifa’s wide Atlantic sky. **We look after every stay ourselves**, know its story and its character, and want you to feel at home from the moment you arrive.',
+  de: 'AMARA vereint sechs individuell eingerichtete Ferienunterkünfte in Frigiliana, Nerja und Tarifa – zwischen weißen Altstadtgassen, mediterraner Küste und weitem Atlantikhimmel. **Wir betreuen jede Unterkunft selbst**, kennen ihre Geschichte und ihre Eigenheiten und möchten, dass ihr euch vom ersten Moment an angekommen fühlt.',
+  es: 'AMARA reúne seis alojamientos vacacionales con personalidad propia en Frigiliana, Nerja y Tarifa: entre callejuelas blancas, la costa mediterránea y el inmenso cielo atlántico de Tarifa. **Cuidamos personalmente cada alojamiento**, conocemos su historia y sus particularidades y queremos que os sintáis en casa desde el primer momento.',
+  nl: 'AMARA brengt zes individueel ingerichte vakantieverblijven in Frigiliana, Nerja en Tarifa samen — tussen witgekalkte straatjes, aan de Middellandse Zeekust en onder de weidse Atlantische hemel van Tarifa. **We beheren elk verblijf zelf**, kennen het verhaal en de eigenheid ervan en willen dat jullie je vanaf het eerste moment thuis voelen.',
+  sv: 'AMARA samlar sex individuellt inredda semesterboenden i Frigiliana, Nerja och Tarifa — bland vitkalkade gränder, längs Medelhavskusten och under Tarifas vida atlanthimmel. **Vi tar hand om varje boende själva**, känner dess historia och karaktär och vill att ni ska känna er hemma från första stund.'
 };
 
 export const cinematicPhilosophyP2: CopyRow = {
@@ -270,11 +270,11 @@ export const cinematicApartments: CinematicAptDef[] = [
       sv: 'Frigiliana • 2 gäster'
     },
     desc: {
-      en: 'A small, cosy double room in Frigiliana’s old town, with a compact kitchenette for coffee or a light meal and just one step at the entrance.',
-      de: 'Ein kleines, gemütliches Doppelzimmer in Frigilianas Altstadt, mit kleiner Teeküche für einen Kaffee oder eine kleine Mahlzeit und nur einer Stufe am Eingang.',
-      es: 'Una habitación doble pequeña y acogedora en el casco antiguo de Frigiliana, con una pequeña zona de cocina para preparar un café o una comida ligera y un único escalón en la entrada.',
-      nl: 'Een kleine, knusse tweepersoonskamer in de oude kern van Frigiliana, met een kleine kitchenette voor koffie of een lichte maaltijd en slechts één trede bij de ingang.',
-      sv: 'Ett litet, ombonat dubbelrum i Frigilianas gamla stad, med ett litet pentry för kaffe eller en enklare måltid och bara ett trappsteg vid entrén.'
+      en: 'A small, cosy double room in Frigiliana’s old town, with a compact kitchenette for coffee or a light meal and **just one step at the entrance**.',
+      de: 'Ein kleines, gemütliches Doppelzimmer in Frigilianas Altstadt, mit kleiner Teeküche für einen Kaffee oder eine kleine Mahlzeit und **nur einer Stufe am Eingang**.',
+      es: 'Una habitación doble pequeña y acogedora en el casco antiguo de Frigiliana, con una pequeña zona de cocina para preparar un café o una comida ligera y **un único escalón en la entrada**.',
+      nl: 'Een kleine, knusse tweepersoonskamer in de oude kern van Frigiliana, met een kleine kitchenette voor koffie of een lichte maaltijd en **slechts één trede bij de ingang**.',
+      sv: 'Ett litet, ombonat dubbelrum i Frigilianas gamla stad, med ett litet pentry för kaffe eller en enklare måltid och **bara ett trappsteg vid entrén**.'
     },
     imageAlt: {
       en: 'Bright bedroom with a green wooden window and brick arches in AMARA Farah, Frigiliana',
@@ -310,11 +310,11 @@ export const cinematicApartments: CinematicAptDef[] = [
       sv: 'Frigiliana • 2 gäster'
     },
     desc: {
-      en: 'Views across the mango and avocado plantations to the sea. The terrace stays shaded in the morning and gets sun from around midday.',
-      de: 'Blick über die Mango- und Avocadoplantagen bis zum Meer. Morgens liegt die Terrasse im Schatten, ab Mittag in der Sonne.',
-      es: 'Vistas sobre los cultivos de mango y aguacate hasta el mar. La terraza tiene sombra por la mañana y sol a partir del mediodía.',
-      nl: 'Uitzicht over de mango- en avocadoplantages tot aan zee. Het terras ligt ’s ochtends in de schaduw en krijgt vanaf de middag zon.',
-      sv: 'Utsikt över mango- och avokadoplantagerna ända till havet. Terrassen ligger i skugga på morgonen och får sol från ungefär mitt på dagen.'
+      en: 'Views across the mango and avocado plantations to the sea. The terrace stays shaded in the morning and **gets sun from around midday**.',
+      de: 'Blick über die Mango- und Avocadoplantagen bis zum Meer. Morgens liegt die Terrasse im Schatten, **ab Mittag in der Sonne**.',
+      es: 'Vistas sobre los cultivos de mango y aguacate hasta el mar. La terraza tiene sombra por la mañana y **sol a partir del mediodía**.',
+      nl: 'Uitzicht over de mango- en avocadoplantages tot aan zee. Het terras ligt ’s ochtends in de schaduw en **krijgt vanaf de middag zon**.',
+      sv: 'Utsikt över mango- och avokadoplantagerna ända till havet. Terrassen ligger i skugga på morgonen och **får sol från ungefär mitt på dagen**.'
     },
     imageAlt: {
       en: 'Whitewashed terraces and palm trees at AMARA Lounis in Frigiliana',
@@ -350,11 +350,11 @@ export const cinematicApartments: CinematicAptDef[] = [
       sv: 'Frigiliana • 2 gäster'
     },
     desc: {
-      en: 'A private terrace one floor above Lounis, with a wider view and the broadest bed in Casa AMARA at 180 × 200 cm.',
-      de: 'Private Terrasse über den Plantagen und mit 180 × 200 cm das breiteste Bett in Casa AMARA.',
-      es: 'Terraza privada una planta por encima de Lounis, con vistas más amplias y la cama más ancha de Casa AMARA: 180 × 200 cm.',
-      nl: 'Een privéterras één verdieping boven Lounis, met ruimer uitzicht en het breedste bed van Casa AMARA: 180 × 200 cm.',
-      sv: 'Privat terrass en våning ovanför Lounis, med vidare utsikt och Casa AMARAs bredaste säng: 180 × 200 cm.'
+      en: 'A private terrace one floor above Lounis, with a wider view and **the broadest bed in Casa AMARA at 180 × 200 cm**.',
+      de: 'Private Terrasse über den Plantagen und mit **180 × 200 cm das breiteste Bett in Casa AMARA**.',
+      es: 'Terraza privada una planta por encima de Lounis, con vistas más amplias y **la cama más ancha de Casa AMARA: 180 × 200 cm**.',
+      nl: 'Een privéterras één verdieping boven Lounis, met ruimer uitzicht en **het breedste bed van Casa AMARA: 180 × 200 cm**.',
+      sv: 'Privat terrass en våning ovanför Lounis, med vidare utsikt och **Casa AMARAs bredaste säng: 180 × 200 cm**.'
     },
     imageAlt: {
       en: 'Outdoor rain shower with handmade tiles on the private terrace of AMARA Zaid in Frigiliana',
@@ -390,11 +390,11 @@ export const cinematicApartments: CinematicAptDef[] = [
       sv: 'Frigiliana • 2 gäster'
     },
     desc: {
-      en: 'The largest terrace in the house: 64 m² with an outdoor kitchen and the widest view. Maha sits at the top of Casa AMARA.',
-      de: 'Die größte Terrasse im Haus, mit Außenküche und weitem Blick. Das Apartment liegt ganz oben in Casa AMARA.',
-      es: 'La terraza más grande de la casa: 64 m², cocina exterior y las vistas más amplias. Maha ocupa la parte más alta de Casa AMARA.',
-      nl: 'Het grootste terras van het huis: 64 m², met buitenkeuken en het ruimste uitzicht. Maha ligt helemaal boven in Casa AMARA.',
-      sv: 'Husets största terrass: 64 m² med utekök och den vidaste utsikten. Maha ligger högst upp i Casa AMARA.'
+      en: '**The largest terrace in the house: 64 m²**, with an outdoor kitchen and the widest view. Maha sits at the top of Casa AMARA.',
+      de: '**Die größte Terrasse im Haus**, mit Außenküche und weitem Blick. Das Apartment liegt ganz oben in Casa AMARA.',
+      es: '**La terraza más grande de la casa: 64 m²**, cocina exterior y las vistas más amplias. Maha ocupa la parte más alta de Casa AMARA.',
+      nl: '**Het grootste terras van het huis: 64 m²**, met buitenkeuken en het ruimste uitzicht. Maha ligt helemaal boven in Casa AMARA.',
+      sv: '**Husets största terrass: 64 m²**, med utekök och den vidaste utsikten. Maha ligger högst upp i Casa AMARA.'
     },
     imageAlt: {
       en: 'Shaded private terrace with an outdoor sofa at AMARA Maha in Frigiliana',
@@ -470,11 +470,11 @@ export const cinematicApartments: CinematicAptDef[] = [
       sv: 'Tarifa • familjevistelse'
     },
     desc: {
-      en: 'Two floors, two bedrooms and two bathrooms, with a terrace facing the Atlantic. Suitable for couples and families of up to four.',
-      de: 'Zwei Schlafzimmer, zwei Bäder, direkter Atlantikblick, Gemeinschaftspool und ein reservierter Tiefgaragenplatz.',
-      es: 'Dos plantas, dos dormitorios y dos baños, con terraza frente al Atlántico. Para parejas y familias de hasta cuatro personas.',
-      nl: 'Twee verdiepingen, twee slaapkamers en twee badkamers, met een terras op de Atlantische Oceaan. Voor stellen en gezinnen tot vier personen.',
-      sv: 'Två våningar, två sovrum och två badrum samt en terrass mot Atlanten. Passar både par och familjer på upp till fyra personer.'
+      en: '**Two floors, two bedrooms and two bathrooms**, with a terrace facing the Atlantic. Suitable for couples and families of up to four.',
+      de: '**Zwei Schlafzimmer, zwei Bäder**, direkter Atlantikblick, Gemeinschaftspool und ein reservierter Tiefgaragenplatz.',
+      es: '**Dos plantas, dos dormitorios y dos baños**, con terraza frente al Atlántico. Para parejas y familias de hasta cuatro personas.',
+      nl: '**Twee verdiepingen, twee slaapkamers en twee badkamers**, met een terras op de Atlantische Oceaan. Voor stellen en gezinnen tot vier personen.',
+      sv: '**Två våningar, två sovrum och två badrum** samt en terrass mot Atlanten. Passar både par och familjer på upp till fyra personer.'
     },
     imageAlt: {
       en: 'Living room with colorful artwork and an open staircase at AMARA Family & Surf in Tarifa',

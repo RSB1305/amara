@@ -198,15 +198,15 @@ export const directBookingBenefitsCopy = {
 
       copy: {
 
-        en: 'You always get our best available price when booking directly - no hidden fees.',
+        en: 'You always get **our best available price** when booking directly - no hidden fees.',
 
-        de: 'Bei einer Direktbuchung bekommt ihr immer unseren besten verfügbaren Preis - ohne versteckte Gebühren.',
+        de: 'Bei einer Direktbuchung bekommt ihr immer **unseren besten verfügbaren Preis** - ohne versteckte Gebühren.',
 
-        es: 'Al reservar directamente, siempre veréis nuestro mejor precio disponible, sin cargos ocultos.',
+        es: 'Al reservar directamente, siempre veréis **nuestro mejor precio disponible**, sin cargos ocultos.',
 
-        nl: 'Wanneer jullie direct boeken, krijgen jullie altijd onze beste beschikbare prijs - zonder verborgen kosten.',
+        nl: 'Wanneer jullie direct boeken, krijgen jullie altijd **onze beste beschikbare prijs** - zonder verborgen kosten.',
 
-        sv: 'När ni bokar direkt får ni alltid vårt bästa tillgängliga pris - utan dolda avgifter.'
+        sv: 'När ni bokar direkt får ni alltid **vårt bästa tillgängliga pris** - utan dolda avgifter.'
 
       }
 
@@ -436,15 +436,15 @@ export const directBookingBenefitsCopy = {
 
     promiseP1: {
 
-      en: "If you find the exact same dates and conditions for a lower price elsewhere, tell us. We'll check it with you and do our best to match it fairly.",
+      en: "If you find **the exact same dates and conditions for a lower price elsewhere**, tell us. We'll check it with you and do our best to match it fairly.",
 
-      de: 'Wenn ihr anderswo denselben Aufenthalt zu denselben Daten und Bedingungen günstiger findet, sagt uns Bescheid. Wir prüfen es mit euch und versuchen, den Preis fair anzugleichen.',
+      de: 'Wenn ihr anderswo **denselben Aufenthalt zu denselben Daten und Bedingungen günstiger** findet, sagt uns Bescheid. Wir prüfen es mit euch und versuchen, den Preis fair anzugleichen.',
 
-      es: 'Si encontráis las mismas fechas y condiciones por un precio más bajo en otro sitio, decidnoslo. Lo revisaremos con vosotros y haremos lo posible por igualarlo de forma justa.',
+      es: 'Si encontráis **las mismas fechas y condiciones por un precio más bajo** en otro sitio, decidnoslo. Lo revisaremos con vosotros y haremos lo posible por igualarlo de forma justa.',
 
-      nl: 'Als jullie elders exact dezelfde data en voorwaarden voor een lagere prijs vinden, laat het ons weten. We kijken het samen met jullie na en doen ons best om dat eerlijk te evenaren.',
+      nl: 'Als jullie elders **exact dezelfde data en voorwaarden voor een lagere prijs** vinden, laat het ons weten. We kijken het samen met jullie na en doen ons best om dat eerlijk te evenaren.',
 
-      sv: 'Om ni hittar exakt samma datum och villkor till ett lägre pris någon annanstans, säg till oss. Vi går igenom det tillsammans med er och gör vårt bästa för att matcha det på ett schysst sätt.'
+      sv: 'Om ni hittar **exakt samma datum och villkor till ett lägre pris** någon annanstans, säg till oss. Vi går igenom det tillsammans med er och gör vårt bästa för att matcha det på ett schysst sätt.'
 
     },
 

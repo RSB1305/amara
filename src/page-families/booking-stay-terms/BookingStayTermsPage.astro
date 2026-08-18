@@ -1,4 +1,5 @@
 ---
+import InlineEmphasis from '../../components/text/InlineEmphasis.astro';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Navigation from '../../components/Navigation.astro';
 import TrustHero from '../../components/hero/TrustHero.astro';
@@ -59,7 +60,7 @@ const privacyHref = resolveLink('legal_notice', currentLang);
               <h2 id={`${section.id}-title`} class="am-text-title italic text-on-surface">{section.title}</h2>
               <div class="mt-6 max-w-3xl space-y-4">
                 {section.paragraphs.map((paragraph) => (
-                  <p class="am-text-body text-on-surface-variant">{paragraph}</p>
+                  <p class="am-text-body text-on-surface-variant"><InlineEmphasis text={paragraph} /></p>
                 ))}
                 {section.bullets && (
                   <ul class="space-y-3 pl-5 am-text-body text-on-surface-variant marker:text-primary">
@@ -92,7 +93,7 @@ const privacyHref = resolveLink('legal_notice', currentLang);
         </section>
 
         <aside class="mt-16 border-l-2 border-primary/60 bg-surface-container-low px-7 py-6 md:mt-20 md:px-8" aria-label={copy.privacyLinkLabel}>
-          <p class="am-text-body text-on-surface-variant">{copy.closingNote}</p>
+          <p class="am-text-body text-on-surface-variant"><InlineEmphasis text={copy.closingNote} /></p>
           <a class="am-cta-link mt-4 inline-flex" href={privacyHref}>{copy.privacyLinkLabel}</a>
           <p class="mt-5 font-label text-[11px] font-bold uppercase tracking-[0.12em] text-on-surface-variant">{copy.versionNote}</p>
         </aside>

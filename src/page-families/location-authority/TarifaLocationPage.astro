@@ -1,4 +1,5 @@
 ---
+import InlineEmphasis from '../../components/text/InlineEmphasis.astro';
 import tarifaStayImage from '../../assets/images/home/amara-tarifa-apartment01.webp';
 import AmaraImage from '../../components/AmaraImage.astro';
 import Navigation from '../../components/Navigation.astro';
@@ -81,7 +82,7 @@ const footerHighlights: LabeledLink[] = [
           <h2 class="am-text-display mt-6 max-w-5xl text-balance text-on-surface">{content.geography.title}</h2>
           <div class="mt-10 max-w-3xl space-y-5">
             {content.geography.paragraphs.map((paragraph) => (
-              <p class="am-text-body leading-relaxed text-on-surface-variant">{paragraph}</p>
+              <p class="am-text-body leading-relaxed text-on-surface-variant"><InlineEmphasis text={paragraph} /></p>
             ))}
           </div>
           {content.geography.link?.token && (
@@ -129,7 +130,7 @@ const footerHighlights: LabeledLink[] = [
           </div>
           <div class="space-y-5 lg:col-span-7">
             {content.areas.paragraphs.map((paragraph) => (
-              <p class="am-text-body leading-relaxed text-inverted-on-surface/75">{paragraph}</p>
+              <p class="am-text-body leading-relaxed text-inverted-on-surface/75"><InlineEmphasis text={paragraph} /></p>
             ))}
           </div>
         </div>
@@ -138,7 +139,7 @@ const footerHighlights: LabeledLink[] = [
             <div class="border-t border-inverted-on-surface/20 py-7">
               <span class="font-label text-[10px] font-bold uppercase tracking-[0.14em] text-primary-fixed-dim">0{index + 1}</span>
               <h3 class="am-text-subtitle mt-4 text-inverted-on-surface">{area.title}</h3>
-              <p class="am-text-body mt-3 leading-relaxed text-inverted-on-surface/70">{area.consequence}</p>
+              <p class="am-text-body mt-3 leading-relaxed text-inverted-on-surface/70"><InlineEmphasis text={area.consequence} /></p>
             </div>
           ))}
         </div>
@@ -155,7 +156,7 @@ const footerHighlights: LabeledLink[] = [
           <h2 class="am-text-title mt-5 max-w-xl text-balance text-on-surface">{content.weather.title}</h2>
           <div class="mt-7 space-y-5">
             {content.weather.paragraphs.map((paragraph) => (
-              <p class="am-text-body leading-relaxed text-on-surface-variant">{paragraph}</p>
+              <p class="am-text-body leading-relaxed text-on-surface-variant"><InlineEmphasis text={paragraph} /></p>
             ))}
           </div>
           {content.weather.link && (
@@ -167,7 +168,7 @@ const footerHighlights: LabeledLink[] = [
           <h2 class="am-text-title mt-5 max-w-xl text-balance text-on-surface">{content.dailyLife.title}</h2>
           <div class="mt-7 space-y-5">
             {content.dailyLife.paragraphs.map((paragraph) => (
-              <p class="am-text-body leading-relaxed text-on-surface-variant">{paragraph}</p>
+              <p class="am-text-body leading-relaxed text-on-surface-variant"><InlineEmphasis text={paragraph} /></p>
             ))}
           </div>
         </section>
@@ -208,7 +209,7 @@ const footerHighlights: LabeledLink[] = [
           <h2 class="am-text-title mt-5 text-balance text-on-surface">{content.amara.title}</h2>
           <div class="mt-7 space-y-5">
             {content.amara.paragraphs.map((paragraph) => (
-              <p class="am-text-body leading-relaxed text-on-surface-variant">{paragraph}</p>
+              <p class="am-text-body leading-relaxed text-on-surface-variant"><InlineEmphasis text={paragraph} /></p>
             ))}
           </div>
           <ul class="mt-7 space-y-3 border-l border-primary/30 pl-5">
@@ -229,7 +230,7 @@ const footerHighlights: LabeledLink[] = [
         </div>
         <div class="lg:col-span-5">
           {content.experience.paragraphs.map((paragraph) => (
-            <p class="am-text-body leading-relaxed text-on-surface-variant">{paragraph}</p>
+            <p class="am-text-body leading-relaxed text-on-surface-variant"><InlineEmphasis text={paragraph} /></p>
           ))}
           <div class="mt-8 flex flex-wrap gap-x-7 gap-y-4">
             {content.experience.links.map((link) => (

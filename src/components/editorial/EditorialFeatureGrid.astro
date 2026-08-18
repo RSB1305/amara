@@ -4,6 +4,8 @@
  *
  * Responsive feature cards with labeled headers and body copy (quality / amenity grids).
  */
+import InlineEmphasis from '../text/InlineEmphasis.astro';
+
 export interface EditorialFeatureCard {
   title: string;
   subline?: string;
@@ -29,7 +31,7 @@ const { cards } = Astro.props;
             ) : null}
           </h3>
         </div>
-        <p class="am-text-body text-on-surface-variant m-0">{card.copy}</p>
+        <p class="am-text-body text-on-surface-variant m-0"><InlineEmphasis text={card.copy} /></p>
       </div>
     ))
   }

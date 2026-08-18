@@ -4,6 +4,8 @@
  *
  * Full-bleed green editorial band with headline, lead, and two-column checklist lists.
  */
+import InlineEmphasis from '../text/InlineEmphasis.astro';
+
 export interface SustainabilityListColumn {
   label: string;
   items: string[];
@@ -29,7 +31,7 @@ const { title, subtitle, lead, listColumns } = Astro.props;
     </header>
     <div>
       <p class="am-text-subtitle leading-[1.5] text-[var(--color-sustainability-on-surface)] mb-8 m-0">
-        {lead}
+        <InlineEmphasis text={lead} />
       </p>
       <div class="grid grid-cols-1 md:grid-cols-2 gap-12 mt-16">
         {
@@ -41,7 +43,7 @@ const { title, subtitle, lead, listColumns } = Astro.props;
               <ul class="list-none p-0 m-0 am-text-body text-[var(--color-sustainability-on-surface)]">
                 {column.items.map((item) => (
                   <li class="relative mb-3 pl-5 last:mb-0 before:content-['—'] before:absolute before:left-0 before:opacity-40">
-                    {item}
+                    <InlineEmphasis text={item} />
                   </li>
                 ))}
               </ul>
