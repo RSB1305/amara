@@ -11,8 +11,8 @@ import { buildBookingLandingUrl } from './directBooking';
  */
 
 export const linkRegistry = {
-  version: '2026-08-17-registry-v4.4',
-  updated_at: '2026-08-17',
+  version: '2026-08-18-registry-v4.5',
+  updated_at: '2026-08-18',
   base: '/',
   links: {
     /* =========================================================
@@ -410,6 +410,13 @@ booking_stay_terms: {
       es: buildOwnedLocalizedPath('frigiliana-winter-stays', 'es'),
       nl: buildOwnedLocalizedPath('frigiliana-winter-stays', 'nl'),
       sv: buildOwnedLocalizedPath('frigiliana-winter-stays', 'sv')
+    },
+    frigiliana_weddings: {
+      en: buildOwnedLocalizedPath('frigiliana-weddings', 'en'),
+      de: buildOwnedLocalizedPath('frigiliana-weddings', 'de'),
+      es: buildOwnedLocalizedPath('frigiliana-weddings', 'es'),
+      nl: buildOwnedLocalizedPath('frigiliana-weddings', 'nl'),
+      sv: buildOwnedLocalizedPath('frigiliana-weddings', 'sv')
     },
 
     /* =========================================================
