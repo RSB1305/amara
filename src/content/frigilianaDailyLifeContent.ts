@@ -116,7 +116,7 @@ export const frigilianaDailyLifeContent: Record<
       eyebrow: 'Frigiliana · Daily life & services',
       title: 'Daily life in Frigiliana',
       standfirst:
-        'For a normal holiday stay, everyday needs can be covered in Frigiliana itself. Several small food shops and a bakery sit around the historic centre, while Eroski City adds a larger option in the newer lower village. Nerja is useful for a bigger basket or specialist products, but it is an extension of the choice—not a requirement for making Frigiliana work.',
+        'For a normal holiday stay, **everyday needs can be covered in Frigiliana itself**. Several small food shops and a bakery sit around the historic centre, while Eroski City adds a larger option in the newer lower village. Nerja is useful for a bigger basket or specialist products, but it is an extension of the choice—not a requirement for making Frigiliana work.',
       note: 'This guide combines current local facts with practical experience from hosting more than 500 Frigiliana guests a year.',
       updated: 'Published August 2026'
     },
@@ -255,7 +255,7 @@ export const frigilianaDailyLifeContent: Record<
       eyebrow: 'Frigiliana · Alltag & Versorgung',
       title: 'Alltag & Versorgung in Frigiliana',
       standfirst:
-        'Für einen normalen Ferienaufenthalt lässt sich der tägliche Bedarf direkt in Frigiliana decken. Rund um das historische Zentrum liegen mehrere kleine Lebensmittelgeschäfte und eine Bäckerei; im neueren unteren Ort ergänzt ein größerer Eroski City das Angebot. Für größere Einkäufe oder speziellere Produkte ist Nerja praktisch, aber keine Voraussetzung dafür, dass Frigiliana im Alltag funktioniert.',
+        'Für einen normalen Ferienaufenthalt lässt sich **der tägliche Bedarf direkt in Frigiliana decken**. Rund um das historische Zentrum liegen mehrere kleine Lebensmittelgeschäfte und eine Bäckerei; im neueren unteren Ort ergänzt ein größerer Eroski City das Angebot. Für größere Einkäufe oder speziellere Produkte ist Nerja praktisch, aber keine Voraussetzung dafür, dass Frigiliana im Alltag funktioniert.',
       note: 'Dieser Guide verbindet aktuelle lokale Fakten mit der Erfahrung aus mehr als 500 Frigiliana-Gästen pro Jahr.',
       updated: 'Veröffentlicht im August 2026'
     },
@@ -394,7 +394,7 @@ export const frigilianaDailyLifeContent: Record<
       eyebrow: 'Frigiliana · Vida diaria y servicios',
       title: 'Vida diaria y servicios en Frigiliana',
       standfirst:
-        'Durante unas vacaciones normales, las necesidades cotidianas pueden resolverse en Frigiliana. Alrededor del casco histórico hay varias tiendas pequeñas de alimentación y una panadería; en la parte baja más nueva, Eroski City amplía la oferta. Nerja resulta útil para una compra grande o productos específicos, pero no es imprescindible para que el día a día funcione en el pueblo.',
+        'Durante unas vacaciones normales, **las necesidades cotidianas pueden resolverse en Frigiliana**. Alrededor del casco histórico hay varias tiendas pequeñas de alimentación y una panadería; en la parte baja más nueva, Eroski City amplía la oferta. Nerja resulta útil para una compra grande o productos específicos, pero no es imprescindible para que el día a día funcione en el pueblo.',
       note: 'Esta guía combina datos locales actuales con la experiencia práctica de alojar a más de 500 huéspedes al año en Frigiliana.',
       updated: 'Publicado en agosto de 2026'
     },
@@ -533,7 +533,7 @@ export const frigilianaDailyLifeContent: Record<
       eyebrow: 'Frigiliana · Dagelijks leven & voorzieningen',
       title: 'Dagelijks leven en voorzieningen in Frigiliana',
       standfirst:
-        'Tijdens een gewone vakantie kun je de dagelijkse behoeften in Frigiliana zelf regelen. Rond de historische kern liggen verschillende kleine voedingswinkels en een bakker; in het nieuwere benedendorp vult Eroski City het aanbod aan. Nerja is handig voor een grotere winkelronde of specifieke producten, maar niet noodzakelijk om het dagelijks leven in Frigiliana te laten werken.',
+        'Tijdens een gewone vakantie kun je **de dagelijkse behoeften in Frigiliana zelf regelen**. Rond de historische kern liggen verschillende kleine voedingswinkels en een bakker; in het nieuwere benedendorp vult Eroski City het aanbod aan. Nerja is handig voor een grotere winkelronde of specifieke producten, maar niet noodzakelijk om het dagelijks leven in Frigiliana te laten werken.',
       note: 'Deze gids combineert actuele lokale feiten met ervaring uit meer dan 500 Frigiliana-gasten per jaar.',
       updated: 'Gepubliceerd in augustus 2026'
     },
@@ -672,7 +672,7 @@ export const frigilianaDailyLifeContent: Record<
       eyebrow: 'Frigiliana · Vardag & service',
       title: 'Vardag och service i Frigiliana',
       standfirst:
-        'Under en vanlig semestervistelse kan de dagliga behoven lösas i Frigiliana. Runt den historiska byn finns flera små matbutiker och ett bageri; i den nyare nedre bydelen kompletterar Eroski City utbudet. Nerja är praktiskt för en större handling eller särskilda produkter, men behövs inte för att vardagen i Frigiliana ska fungera.',
+        'Under en vanlig semestervistelse kan **de dagliga behoven lösas i Frigiliana**. Runt den historiska byn finns flera små matbutiker och ett bageri; i den nyare nedre bydelen kompletterar Eroski City utbudet. Nerja är praktiskt för en större handling eller särskilda produkter, men behövs inte för att vardagen i Frigiliana ska fungera.',
       note: 'Guiden kombinerar aktuella lokala fakta med erfarenhet från fler än 500 Frigiliana-gäster per år.',
       updated: 'Publicerad i augusti 2026'
     },

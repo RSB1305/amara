@@ -1,4 +1,5 @@
 ---
+import InlineEmphasis from '../../components/text/InlineEmphasis.astro';
 import Hero from '../../components/Hero.astro';
 import Navigation from '../../components/Navigation.astro';
 import EditorialClosingCta from '../../components/editorial/EditorialClosingCta.astro';
@@ -61,7 +62,7 @@ const footerHighlights: LabeledLink[] = [
       </h1>
       <div class="mt-8 max-w-3xl space-y-5">
         {copy.hero.lead.map((paragraph) => (
-          <p class="am-text-body leading-relaxed text-on-surface-variant">{paragraph}</p>
+          <p class="am-text-body leading-relaxed text-on-surface-variant"><InlineEmphasis text={paragraph} /></p>
         ))}
       </div>
     </Hero>
@@ -80,7 +81,7 @@ const footerHighlights: LabeledLink[] = [
           {copy.dayChooser.intro.length > 0 && (
             <div class="mt-6 space-y-4">
               {copy.dayChooser.intro.map((paragraph) => (
-                <p class="am-text-body leading-relaxed text-on-surface-variant">{paragraph}</p>
+                <p class="am-text-body leading-relaxed text-on-surface-variant"><InlineEmphasis text={paragraph} /></p>
               ))}
             </div>
           )}
@@ -126,7 +127,7 @@ const footerHighlights: LabeledLink[] = [
           </div>
           <div class="max-w-3xl space-y-5">
             {section.paragraphs.map((paragraph) => (
-              <p class="am-text-body leading-relaxed text-on-surface-variant">{paragraph}</p>
+              <p class="am-text-body leading-relaxed text-on-surface-variant"><InlineEmphasis text={paragraph} /></p>
             ))}
             {section.cta && (
               <p class="pt-4">

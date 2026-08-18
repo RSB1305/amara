@@ -4,6 +4,8 @@
  *
  * Two-column definition rows (title + description) with a strong top rule.
  */
+import InlineEmphasis from '../text/InlineEmphasis.astro';
+
 export interface EditorialDefinitionListItem {
   title: string;
   description: string;
@@ -21,7 +23,7 @@ const { items } = Astro.props;
     items.map((item) => (
       <div class="grid grid-cols-1 md:grid-cols-2 gap-8 py-8 border-b border-on-surface/10">
         <h3 class="am-text-subtitle text-on-surface m-0">{item.title}</h3>
-        <p class="am-text-body text-on-surface-variant m-0">{item.description}</p>
+        <p class="am-text-body text-on-surface-variant m-0"><InlineEmphasis text={item.description} /></p>
       </div>
     ))
   }

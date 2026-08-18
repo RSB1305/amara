@@ -106,7 +106,7 @@ export const nerjaBalconContent: Record<AmaraLanguage, NerjaBalconLocale> = {
       eyebrow: 'Nerja · Balcón de Europa',
       title: 'The Balcón de Europa is no hidden gem — which is exactly why it works',
       standfirst:
-        'A viewing terrace on a rock spur at the end of the old town, with the open Mediterranean below it. Every guidebook names it and every visitor stands there, yet it has not been ruined. That has to do with what lies underneath it, and with what the people of Nerja still use it for.',
+        'A viewing terrace on a rock spur at the end of the old town, with the open Mediterranean below it. Every guidebook names it and every visitor stands there, yet **it has not been ruined**. That has to do with what lies underneath it, and with what the people of Nerja still use it for.',
       note: 'A guide written by your hosts. Events and street life change; treat this as orientation rather than a programme.',
       updated: 'Last checked in August 2026'
     },
@@ -218,7 +218,7 @@ export const nerjaBalconContent: Record<AmaraLanguage, NerjaBalconLocale> = {
       eyebrow: 'Nerja · Balcón de Europa',
       title: 'Der Balcón de Europa ist kein Geheimtipp — und genau deshalb funktioniert er',
       standfirst:
-        'Eine Aussichtsterrasse auf einem Felsvorsprung am Ende der Altstadt, darunter das offene Mittelmeer. Jeder Reiseführer nennt ihn, jeder Besucher steht dort, und trotzdem ist er nicht kaputtgegangen. Das liegt an dem, was unter ihm liegt — und daran, wofür die Menschen in Nerja ihn bis heute benutzen.',
+        'Eine Aussichtsterrasse auf einem Felsvorsprung am Ende der Altstadt, darunter das offene Mittelmeer. Jeder Reiseführer nennt ihn, jeder Besucher steht dort, und trotzdem **ist er nicht kaputtgegangen**. Das liegt an dem, was unter ihm liegt — und daran, wofür die Menschen in Nerja ihn bis heute benutzen.',
       note: 'Ein Guide eurer Gastgeber. Veranstaltungen und Straßenleben wechseln; nehmt das als Orientierung, nicht als Programm.',
       updated: 'Zuletzt geprüft im August 2026'
     },
@@ -330,7 +330,7 @@ export const nerjaBalconContent: Record<AmaraLanguage, NerjaBalconLocale> = {
       eyebrow: 'Nerja · Balcón de Europa',
       title: 'El Balcón de Europa no es ningún secreto — y precisamente por eso funciona',
       standfirst:
-        'Un mirador sobre un espolón rocoso al final del casco antiguo, con el Mediterráneo abierto debajo. Toda guía lo menciona y todo visitante se asoma, y aun así no se ha echado a perder. Eso tiene que ver con lo que hay debajo y con el uso que los nerjeños siguen dándole.',
+        'Un mirador sobre un espolón rocoso al final del casco antiguo, con el Mediterráneo abierto debajo. Toda guía lo menciona y todo visitante se asoma, y aun así **no se ha echado a perder**. Eso tiene que ver con lo que hay debajo y con el uso que los nerjeños siguen dándole.',
       note: 'Una guía escrita por vuestros anfitriones. Los eventos y la vida en la calle cambian; tomadlo como orientación, no como programa.',
       updated: 'Revisado por última vez en agosto de 2026'
     },
@@ -442,7 +442,7 @@ export const nerjaBalconContent: Record<AmaraLanguage, NerjaBalconLocale> = {
       eyebrow: 'Nerja · Balcón de Europa',
       title: 'De Balcón de Europa is geen geheime tip — en juist daarom werkt hij',
       standfirst:
-        'Een uitkijkterras op een rotspunt aan het einde van de oude stad, met daaronder de open Middellandse Zee. Elke reisgids noemt hem en elke bezoeker staat er, en toch is hij niet kapotgegaan. Dat komt door wat eronder ligt — en door waar de mensen van Nerja hem nog steeds voor gebruiken.',
+        'Een uitkijkterras op een rotspunt aan het einde van de oude stad, met daaronder de open Middellandse Zee. Elke reisgids noemt hem en elke bezoeker staat er, en toch **is hij niet kapotgegaan**. Dat komt door wat eronder ligt — en door waar de mensen van Nerja hem nog steeds voor gebruiken.',
       note: 'Een gids geschreven door jullie gastheren. Evenementen en straatleven wisselen; zie dit als oriëntatie, niet als programma.',
       updated: 'Laatst gecontroleerd in augustus 2026'
     },
@@ -554,7 +554,7 @@ export const nerjaBalconContent: Record<AmaraLanguage, NerjaBalconLocale> = {
       eyebrow: 'Nerja · Balcón de Europa',
       title: 'Balcón de Europa är inget smultronställe — och just därför fungerar den',
       standfirst:
-        'En utsiktsterrass på en klippudde i slutet av gamla stan, med öppna Medelhavet nedanför. Varje guidebok nämner den och varje besökare står där, ändå har den inte blivit förstörd. Det beror på vad som ligger under den — och på vad Nerjaborna fortfarande använder den till.',
+        'En utsiktsterrass på en klippudde i slutet av gamla stan, med öppna Medelhavet nedanför. Varje guidebok nämner den och varje besökare står där, ändå **har den inte blivit förstörd**. Det beror på vad som ligger under den — och på vad Nerjaborna fortfarande använder den till.',
       note: 'En guide skriven av era värdar. Evenemang och gatuliv växlar; se detta som orientering, inte som program.',
       updated: 'Senast kontrollerad i augusti 2026'
     },

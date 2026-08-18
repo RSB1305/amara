@@ -1,0 +1,13 @@
+---
+import FrigilianaWeddingsPage from '../../page-families/frigiliana-weddings/FrigilianaWeddingsPage.astro';
+import { getOwnedPageStaticPaths } from '../../lib/routeOwnership';
+import type { AmaraLanguage } from '../../types/seo';
+
+export function getStaticPaths() {
+  return getOwnedPageStaticPaths();
+}
+
+const { lang } = Astro.params as { lang: AmaraLanguage };
+---
+
+<FrigilianaWeddingsPage lang={lang} />

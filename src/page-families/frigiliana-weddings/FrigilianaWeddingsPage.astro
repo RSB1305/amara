@@ -1,0 +1,329 @@
+---
+import InlineEmphasis from '../../components/text/InlineEmphasis.astro';
+import AmaraImage from '../../components/AmaraImage.astro';
+import Hero from '../../components/Hero.astro';
+import Navigation from '../../components/Navigation.astro';
+import churchImage from '../../assets/images/content/amara-frigiliana-pueblo/JPG_Frigiliana_Pueblo/2000px_72dpi_sRGB/01-frigiliana-pueblo.jpg';
+import villageImage from '../../assets/images/content/hero-frigiliana.jpg';
+import houseImage from '../../assets/images/content/amara-entrada/casa-amara-frigiliana-fuerra.jpg';
+import prepareImage from '../../assets/images/content/amara-zaid/cara-rural-frigiliana-amara-said-bano.jpg';
+import {
+  frigilianaWeddingsContent,
+  frigilianaWeddingsSeo
+} from '../../content/frigilianaWeddingsContent';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { createRequiredLinkResolver, type LabeledLink } from '../../lib/linkResolver';
+import { normalizeLanguage } from '../../lib/seo/resolve-seo-head';
+import type { AmaraLanguage } from '../../types/seo';
+
+interface Props {
+  lang?: string;
+}
+
+const { lang = 'es' } = Astro.props;
+const currentLang = normalizeLanguage(lang as AmaraLanguage);
+const copy = frigilianaWeddingsContent[currentLang];
+const requiredLink = createRequiredLinkResolver(currentLang, 'Frigiliana weddings');
+
+const links = {
+  book: requiredLink('book'),
+  stays: requiredLink('romantic_hideaways'),
+  location: requiredLink('location_frigiliana'),
+  farah: requiredLink('farah'),
+  lounis: requiredLink('lounis'),
+  zaid: requiredLink('zaid'),
+  maha: requiredLink('maha')
+};
+
+const apartmentLinks = [
+  { label: 'Farah', href: links.farah },
+  { label: 'Lounis', href: links.lounis },
+  { label: 'Zaid', href: links.zaid },
+  { label: 'Maha', href: links.maha }
+];
+
+const planningItems = copy.planning.items.map((item) => ({
+  ...item,
+  href: requiredLink(item.linkToken)
+}));
+
+const footerHighlights: LabeledLink[] = [
+  { token: 'frigiliana_weddings', label: copy.footerHighlights.weddings },
+  { token: 'location_frigiliana', label: copy.footerHighlights.location },
+  {
+    token: 'casa_amara_groups',
+    label: {
+      en: 'Casa AMARA for 4–8',
+      de: 'Casa AMARA für 4–8',
+      es: 'Casa AMARA para 4–8',
+      nl: 'Casa AMARA voor 4–8',
+      sv: 'Casa AMARA för 4–8'
+    }[currentLang]
+  },
+  { token: 'romantic_hideaways', label: copy.footerHighlights.stays }
+];
+
+const parishHref = 'https://diocesismalaga.es/parroquias/145/san-antonio-de-padua-frigiliana';
+---
+
+<BaseLayout
+  seo={frigilianaWeddingsSeo}
+  pageLang={currentLang}
+  contextBreadcrumbTitle={copy.hero.title}
+  footerHighlights={footerHighlights}
+  showContextNavigation={false}
+>
+  <Navigation
+    currentLang={currentLang}
+    currentToken="frigiliana_weddings"
+    languageToken="frigiliana_weddings"
+  />
+
+  <main
+    id="am-main-content"
+    tabindex="-1"
+    class="min-h-screen overflow-hidden scroll-mt-[104px] lg:scroll-mt-[112px]"
+    data-am-page="frigiliana-weddings"
+  >
+    <Hero imageSrc={churchImage} imageAlt={copy.hero.imageAlt}>
+      <span class="am-text-caption mb-8 block text-primary">
+        {copy.hero.kicker}
+      </span>
+      <h1 class="am-text-display mb-7 break-words italic tracking-tighter text-on-surface md:mb-8">
+        {copy.hero.title}
+      </h1>
+      <p class="am-text-subtitle max-w-2xl italic leading-relaxed text-on-surface">
+        {copy.hero.lead}
+      </p>
+      <div class="mt-8 max-w-2xl space-y-5 border-l border-primary/20 pl-6 md:pl-10">
+        {copy.hero.paragraphs.map((paragraph) => (
+          <p class="am-text-body leading-relaxed text-on-surface-variant"><InlineEmphasis text={paragraph} /></p>
+        ))}
+      </div>
+      <a class="am-btn am-btn--primary mt-9" href="#wedding-stay">
+        {copy.hero.cta}
+      </a>
+    </Hero>
+
+    <section class="border-t border-outline-variant/5 bg-surface-container-low">
+      <div class="mx-auto grid max-w-screen-2xl items-center gap-12 px-6 py-20 md:px-12 md:py-28 lg:grid-cols-12 lg:gap-16">
+        <div class="max-w-2xl lg:col-span-5">
+          <h2 class="am-text-title italic tracking-tight text-on-surface">
+            {copy.village.title}
+          </h2>
+          <div class="mt-8 space-y-5">
+            {copy.village.paragraphs.map((paragraph) => (
+              <p class="am-text-body leading-relaxed text-on-surface-variant"><InlineEmphasis text={paragraph} /></p>
+            ))}
+          </div>
+        </div>
+        <div class="lg:col-span-6 lg:col-start-7">
+          <AmaraImage
+            src={villageImage}
+            alt={copy.village.imageAlt}
+            profile="gallery"
+            class="aspect-[4/3] h-full w-full object-cover"
+            loading="lazy"
+            decoding="async"
+          />
+        </div>
+      </div>
+    </section>
+
+    <section
+      id="wedding-stay"
+      class="scroll-mt-36 border-t border-outline-variant/5 bg-surface"
+    >
+      <div class="mx-auto max-w-screen-2xl px-6 py-20 md:px-12 md:py-28">
+        <h2 class="am-text-title max-w-3xl italic tracking-tight text-on-surface">
+          {copy.stayOptions.title}
+        </h2>
+
+        <div class="mt-14 grid items-center gap-12 lg:grid-cols-12 lg:gap-16">
+          <div class="lg:col-span-6">
+            <AmaraImage
+              src={houseImage}
+              alt={copy.nearChurch.imageAlt}
+              profile="gallery"
+              class="aspect-[4/3] h-full w-full object-cover"
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
+          <div class="max-w-2xl lg:col-span-5 lg:col-start-8">
+            <h3 class="am-text-subtitle text-on-surface">
+              {copy.nearChurch.title}
+            </h3>
+            <div class="mt-6 space-y-5">
+              {copy.nearChurch.paragraphs.map((paragraph) => (
+                <p class="am-text-body leading-relaxed text-on-surface-variant"><InlineEmphasis text={paragraph} /></p>
+              ))}
+            </div>
+            <div class="mt-8 border-l border-primary/30 pl-6">
+              <p class="am-text-display italic leading-none text-primary">
+                {copy.nearChurch.distance}
+              </p>
+              <p class="am-text-caption mt-3 normal-case tracking-normal text-on-surface-variant">
+                {copy.nearChurch.distanceLabel}
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-20 border-t border-outline-variant/10 pt-12">
+          <p class="am-text-body max-w-3xl leading-relaxed text-on-surface-variant">
+            {copy.stayOptions.intro}
+          </p>
+          <div class="mt-12 grid gap-10 md:grid-cols-3 md:gap-8">
+            {copy.stayOptions.items.map((item) => (
+              <article class="border-t border-outline-variant/20 pt-6">
+                <p class="am-text-caption text-primary">{item.eyebrow}</p>
+                <h3 class="am-text-subtitle mt-4 text-on-surface">{item.title}</h3>
+                <p class="am-text-body mt-4 leading-relaxed text-on-surface-variant">
+                  {item.text}
+                </p>
+              </article>
+            ))}
+          </div>
+          <p class="am-text-body mt-10 max-w-4xl border-l border-primary/20 bg-surface-container-low px-5 py-4 leading-relaxed text-on-surface-variant">
+            {copy.stayOptions.note}
+          </p>
+          <div class="mt-10 flex flex-wrap gap-3">
+            <a class="am-btn am-btn--primary" href={links.book}>{copy.stayOptions.cta}</a>
+            <a class="am-btn am-btn--secondary" href={links.stays}>
+              {copy.stayOptions.apartmentsCta}
+            </a>
+          </div>
+          <div class="mt-8 flex flex-wrap gap-x-6 gap-y-3">
+            {apartmentLinks.map((item) => (
+              <a class="am-inline-link" href={item.href}>{item.label}</a>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="border-t border-outline-variant/5 bg-surface-container-low">
+      <div class="mx-auto grid max-w-screen-2xl items-center gap-12 px-6 py-20 md:px-12 md:py-28 lg:grid-cols-12 lg:gap-16">
+        <div class="max-w-2xl lg:col-span-5">
+          <h2 class="am-text-title italic tracking-tight text-on-surface">
+            {copy.prepare.title}
+          </h2>
+          <p class="am-text-body mt-6 leading-relaxed text-on-surface-variant">
+            {copy.prepare.intro}
+          </p>
+          <div class="mt-10 space-y-8">
+            {copy.prepare.items.map((item) => (
+              <article class="border-l border-primary/20 pl-5">
+                <h3 class="am-text-subtitle text-on-surface">{item.title}</h3>
+                <p class="am-text-body mt-3 leading-relaxed text-on-surface-variant">
+                  {item.text}
+                </p>
+              </article>
+            ))}
+          </div>
+          <p class="am-text-body mt-10 leading-relaxed text-on-surface-variant">
+            {copy.prepare.note}
+          </p>
+        </div>
+        <div class="lg:col-span-6 lg:col-start-7">
+          <AmaraImage
+            src={prepareImage}
+            alt={copy.prepare.imageAlt}
+            profile="gallery"
+            class="aspect-[4/3] h-full w-full object-cover"
+            loading="lazy"
+            decoding="async"
+          />
+        </div>
+      </div>
+    </section>
+
+    <section class="border-t border-outline-variant/5 bg-surface">
+      <div class="mx-auto max-w-screen-2xl px-6 py-20 md:px-12 md:py-28">
+        <div class="max-w-3xl">
+          <h2 class="am-text-title italic tracking-tight text-on-surface">
+            {copy.planning.title}
+          </h2>
+          <p class="am-text-body mt-6 leading-relaxed text-on-surface-variant">
+            {copy.planning.intro}
+          </p>
+        </div>
+        <div class="mt-12 grid gap-10 md:grid-cols-2 md:gap-8 xl:grid-cols-4">
+          {planningItems.map((item) => (
+            <article class="flex flex-col border-t border-outline-variant/20 pt-6">
+              <h3 class="am-text-subtitle text-on-surface">{item.title}</h3>
+              <p class="am-text-body mt-4 flex-1 leading-relaxed text-on-surface-variant">
+                {item.text}
+              </p>
+              <a class="am-inline-link mt-5 w-fit" href={item.href}>
+                {item.linkLabel}<span aria-hidden="true"> →</span>
+              </a>
+            </article>
+          ))}
+        </div>
+        <p class="am-text-body mt-12 max-w-4xl border-l border-primary/20 bg-surface-container-low px-5 py-4 leading-relaxed text-on-surface-variant">
+          {copy.planning.churchNote}{' '}
+          <a
+            class="am-inline-link"
+            href={parishHref}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            {copy.planning.churchLinkLabel}
+          </a>.
+        </p>
+      </div>
+    </section>
+
+    <section class="border-t border-outline-variant/5 bg-surface-container-low">
+      <div class="mx-auto max-w-5xl px-6 py-20 md:px-12 md:py-28">
+        <h2 class="am-text-title max-w-3xl italic tracking-tight text-on-surface">
+          {copy.faq.title}
+        </h2>
+        <div class="mt-12 divide-y divide-outline-variant/15 border-y border-outline-variant/15">
+          {copy.faq.items.map((item) => (
+            <details class="group py-7 md:py-9">
+              <summary class="am-accordion__trigger items-center">
+                <span class="am-text-subtitle pr-6 text-on-surface transition-colors group-hover:text-primary">
+                  {item.question}
+                </span>
+                <span class="am-accordion__indicator" aria-hidden="true">
+                  <span class="group-open:hidden">+</span>
+                  <span class="hidden group-open:inline">−</span>
+                </span>
+              </summary>
+              <p class="am-text-body max-w-3xl pt-5 leading-relaxed text-on-surface-variant md:pt-7">
+                {item.answer}
+              </p>
+            </details>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="border-t border-outline-variant/5 bg-on-surface text-surface">
+      <div class="mx-auto max-w-4xl px-6 py-20 text-center md:px-12 md:py-28">
+        <h2 class="am-text-title italic tracking-tight text-surface">
+          {copy.closing.title}
+        </h2>
+        <div class="mx-auto mt-8 max-w-3xl space-y-5">
+          {copy.closing.paragraphs.map((paragraph) => (
+            <p class="am-text-body leading-relaxed text-surface/80"><InlineEmphasis text={paragraph} /></p>
+          ))}
+        </div>
+        <a class="am-btn am-btn--primary mt-9" href={links.book}>{copy.closing.cta}</a>
+      </div>
+    </section>
+  </main>
+</BaseLayout>
+
+<style>
+  summary::-webkit-details-marker {
+    display: none;
+  }
+
+  summary {
+    list-style: none;
+  }
+</style>

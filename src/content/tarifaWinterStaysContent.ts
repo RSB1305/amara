@@ -114,7 +114,7 @@ export const tarifaWinterStaysContent: Record<AmaraLanguage, TarifaWinterStaysLo
     hero: {
       eyebrow: 'A host’s winter guide to Tarifa',
       title: 'Winter in Tarifa is a different season, not a lesser one',
-      standfirst: 'Summer brings intensity. Winter makes room for daylight, Atlantic walks, changing weather and the ordinary rhythm of town. For guests who can stay for more than a few days, that quieter version can be the more rewarding one.',
+      standfirst: 'Summer brings intensity. Winter makes room for daylight, Atlantic walks, changing weather and the ordinary rhythm of town. For guests who can stay for more than a few days, **that quieter version can be the more rewarding one**.',
       note: 'Written from Robert’s first-hand host experience. Personal observations describe how winter has felt to us over time; they are not promises about every day or every visit.',
       updated: 'Host perspective and supporting sources reviewed August 2026',
       mark: 'WINTER'
@@ -253,7 +253,7 @@ export const tarifaWinterStaysContent: Record<AmaraLanguage, TarifaWinterStaysLo
     hero: {
       eyebrow: 'Ein persönlicher Winterguide für Tarifa',
       title: 'Der Winter ist nicht die kleinere Version von Tarifa',
-      standfirst: 'Der Sommer bringt Intensität. Im Winter entstehen Freiräume für Tageslicht, Atlantikspaziergänge, wechselndes Wetter und den normalen Rhythmus des Ortes. Wenn ihr länger als ein paar Tage bleiben könnt, erlebt ihr möglicherweise gerade diese ruhigere Seite als die wertvollere.',
+      standfirst: 'Der Sommer bringt Intensität. Im Winter entstehen Freiräume für Tageslicht, Atlantikspaziergänge, wechselndes Wetter und den normalen Rhythmus des Ortes. Wenn ihr länger als ein paar Tage bleiben könnt, erlebt ihr möglicherweise **gerade diese ruhigere Seite als die wertvollere**.',
       note: 'Geschrieben aus Roberts eigener Erfahrung als Gastgeber. Persönliche Beobachtungen beschreiben, wie wir den Winter über die Jahre erlebt haben; sie sind kein Versprechen für jeden Tag und jeden Aufenthalt.',
       updated: 'Gastgeberperspektive und Quellen geprüft im August 2026',
       mark: 'WINTER'
@@ -365,7 +365,7 @@ export const tarifaWinterStaysContent: Record<AmaraLanguage, TarifaWinterStaysLo
     hero: {
       eyebrow: 'Una guía personal del invierno en Tarifa',
       title: 'El invierno no es una versión menor de Tarifa',
-      standfirst: 'El verano trae intensidad. El invierno deja espacio para la luz, los paseos junto al Atlántico, el tiempo cambiante y el ritmo normal de la localidad. Para quienes pueden quedarse más de unos días, esa versión tranquila quizá sea la más gratificante.',
+      standfirst: 'El verano trae intensidad. El invierno deja espacio para la luz, los paseos junto al Atlántico, el tiempo cambiante y el ritmo normal de la localidad. Para quienes pueden quedarse más de unos días, **esa versión tranquila quizá sea la más gratificante**.',
       note: 'Escrita desde la experiencia directa de Robert como anfitrión. Las observaciones personales cuentan cómo hemos vivido el invierno a lo largo del tiempo; no prometen que cada día o cada estancia sean iguales.',
       updated: 'Perspectiva del anfitrión y fuentes revisadas en agosto de 2026',
       mark: 'INVIERNO'
@@ -477,7 +477,7 @@ export const tarifaWinterStaysContent: Record<AmaraLanguage, TarifaWinterStaysLo
     hero: {
       eyebrow: 'Een persoonlijke wintergids voor Tarifa',
       title: 'De winter is geen mindere versie van Tarifa',
-      standfirst: 'De zomer brengt intensiteit. De winter geeft ruimte aan daglicht, wandelingen langs de Atlantische Oceaan, wisselend weer en het gewone ritme van de stad. Wie langer dan enkele dagen kan blijven, ervaart die rustigere versie misschien als de meest waardevolle.',
+      standfirst: 'De zomer brengt intensiteit. De winter geeft ruimte aan daglicht, wandelingen langs de Atlantische Oceaan, wisselend weer en het gewone ritme van de stad. Wie langer dan enkele dagen kan blijven, ervaart **die rustigere versie misschien als de meest waardevolle**.',
       note: 'Geschreven vanuit Roberts eigen ervaring als host. Persoonlijke observaties beschrijven hoe de winter door de jaren heen voor ons voelde; ze beloven niet dat elke dag of elk verblijf hetzelfde is.',
       updated: 'Hostperspectief en bronnen gecontroleerd in augustus 2026',
       mark: 'WINTER'
@@ -589,7 +589,7 @@ export const tarifaWinterStaysContent: Record<AmaraLanguage, TarifaWinterStaysLo
     hero: {
       eyebrow: 'En personlig vinterguide till Tarifa',
       title: 'Vintern är inte en mindre version av Tarifa',
-      standfirst: 'Sommaren ger intensitet. Vintern lämnar utrymme för dagsljus, promenader vid Atlanten, växlande väder och stadens vanliga rytm. För er som kan stanna längre än några dagar kan den lugnare versionen vara den mest givande.',
+      standfirst: 'Sommaren ger intensitet. Vintern lämnar utrymme för dagsljus, promenader vid Atlanten, växlande väder och stadens vanliga rytm. För er som kan stanna längre än några dagar kan **den lugnare versionen vara den mest givande**.',
       note: 'Skriven utifrån Roberts egen erfarenhet som värd. Personliga observationer beskriver hur vintern har känts för oss över tid; de lovar inte att varje dag eller vistelse blir likadan.',
       updated: 'Värdperspektiv och källor granskade i augusti 2026',
       mark: 'VINTER'

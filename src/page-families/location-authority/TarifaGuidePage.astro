@@ -1,4 +1,5 @@
 ---
+import InlineEmphasis from '../../components/text/InlineEmphasis.astro';
 import tarifaStayImage from '../../assets/images/home/amara-tarifa-apartment01.webp';
 import AmaraImage from '../../components/AmaraImage.astro';
 import Navigation from '../../components/Navigation.astro';
@@ -204,7 +205,7 @@ const footerHighlights: LabeledLink[] = [
                 <h3 class="am-text-subtitle text-balance text-on-surface">{item.title}</h3>
                 <div class="mt-5 space-y-4">
                   {item.paragraphs.map((paragraph) => (
-                    <p class="am-text-body leading-relaxed text-on-surface-variant">{paragraph}</p>
+                    <p class="am-text-body leading-relaxed text-on-surface-variant"><InlineEmphasis text={paragraph} /></p>
                   ))}
                 </div>
                 {item.fit && (
@@ -241,7 +242,7 @@ const footerHighlights: LabeledLink[] = [
             <h2 class="am-text-title max-w-xl text-balance text-on-surface">{section.title}</h2>
             <div class="max-w-4xl space-y-5">
               {section.paragraphs.map((paragraph) => (
-                <p class="am-text-body leading-relaxed text-on-surface-variant">{paragraph}</p>
+                <p class="am-text-body leading-relaxed text-on-surface-variant"><InlineEmphasis text={paragraph} /></p>
               ))}
               {section.links && (
                 <div class="flex flex-wrap gap-x-6 gap-y-3 pt-3">
@@ -264,7 +265,7 @@ const footerHighlights: LabeledLink[] = [
                 <h3 class="am-text-subtitle text-on-surface">{item.title}</h3>
                 <div class="mt-4 space-y-4">
                   {item.paragraphs.map((paragraph) => (
-                    <p class="am-text-body leading-relaxed text-on-surface-variant">{paragraph}</p>
+                    <p class="am-text-body leading-relaxed text-on-surface-variant"><InlineEmphasis text={paragraph} /></p>
                   ))}
                 </div>
               </section>
@@ -278,7 +279,7 @@ const footerHighlights: LabeledLink[] = [
           <h2 class="am-text-title max-w-xl text-balance text-on-surface">{locationCopy.dailyLife.title}</h2>
           <div class="max-w-4xl space-y-4">
             {locationCopy.dailyLife.paragraphs.map((paragraph) => (
-              <p class="am-text-body leading-relaxed text-on-surface-variant">{paragraph}</p>
+              <p class="am-text-body leading-relaxed text-on-surface-variant"><InlineEmphasis text={paragraph} /></p>
             ))}
           </div>
         </div>
@@ -305,7 +306,7 @@ const footerHighlights: LabeledLink[] = [
             {locationCopy.tradeoffs.closing && (
               <div class="mt-7 space-y-3">
                 {locationCopy.tradeoffs.closing.map((paragraph) => (
-                  <p class="am-text-body leading-relaxed text-inverted-on-surface/75">{paragraph}</p>
+                  <p class="am-text-body leading-relaxed text-inverted-on-surface/75"><InlineEmphasis text={paragraph} /></p>
                 ))}
               </div>
             )}
@@ -328,7 +329,7 @@ const footerHighlights: LabeledLink[] = [
             <h2 class="am-text-title text-balance text-on-surface">{locationCopy.amara.title}</h2>
             <div class="mt-6 space-y-4">
               {locationCopy.amara.paragraphs.map((paragraph) => (
-                <p class="am-text-body leading-relaxed text-on-surface-variant">{paragraph}</p>
+                <p class="am-text-body leading-relaxed text-on-surface-variant"><InlineEmphasis text={paragraph} /></p>
               ))}
             </div>
             <ul class="mt-7 space-y-3 border-l border-primary/30 pl-5">
@@ -412,7 +413,7 @@ const footerHighlights: LabeledLink[] = [
                 {t(section.eyebrow)}
               </p>
               <h2 class="am-text-title mt-5 text-balance text-on-surface">{t(section.title)}</h2>
-              <p class="am-text-body mt-6 leading-relaxed text-on-surface-variant">{t(section.intro)}</p>
+              <p class="am-text-body mt-6 leading-relaxed text-on-surface-variant"><InlineEmphasis text={t(section.intro)} /></p>
             </div>
             <div class="grid gap-5 sm:grid-cols-2">
               {section.cards.map((card) => (
@@ -421,7 +422,7 @@ const footerHighlights: LabeledLink[] = [
                     {t(card.kicker)}
                   </p>
                   <h3 class="am-text-subtitle mt-4 text-on-surface">{t(card.title)}</h3>
-                  <p class="am-text-body mt-4 leading-relaxed text-on-surface-variant">{t(card.text)}</p>
+                  <p class="am-text-body mt-4 leading-relaxed text-on-surface-variant"><InlineEmphasis text={t(card.text)} /></p>
                 </section>
               ))}
             </div>
@@ -530,7 +531,7 @@ const footerHighlights: LabeledLink[] = [
             {t(ui.stayEyebrow)}
           </p>
           <h2 class="am-text-title mt-6 text-balance text-on-surface">{t(ui.stayTitle)}</h2>
-          <p class="am-text-body mt-6 max-w-xl leading-relaxed text-on-surface-variant">{t(ui.stayBody)}</p>
+          <p class="am-text-body mt-6 max-w-xl leading-relaxed text-on-surface-variant"><InlineEmphasis text={t(ui.stayBody)} /></p>
           <div class="mt-10 flex flex-wrap gap-4">
             <a href={stayHref} class="am-btn am-btn--primary">{t(ui.viewStay)}</a>
             <a href={bookHref} class="am-btn am-btn--secondary">{t(ui.availability)}</a>

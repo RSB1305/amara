@@ -1,0 +1,18 @@
+---
+/**
+ * Renders author-controlled emphasis without enabling arbitrary inline HTML.
+ * Content authors wrap one short, decision-relevant phrase in **double asterisks**.
+ */
+interface Props {
+  text: string;
+}
+
+const { text } = Astro.props;
+const segments = text.split(/(\*\*[^*\n]+\*\*)/g).filter(Boolean);
+---
+
+{segments.map((segment) =>
+  segment.startsWith('**') && segment.endsWith('**')
+    ? <strong>{segment.slice(2, -2)}</strong>
+    : segment
+)}

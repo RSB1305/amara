@@ -8,6 +8,7 @@ import EditorialSplit from '../../components/editorial/EditorialSplit.astro';
 import EditorialStatement from '../../components/editorial/EditorialStatement.astro';
 import EditorialClosingCta from '../../components/editorial/EditorialClosingCta.astro';
 import type { EditorialClosingCtaLink } from '../../components/editorial/EditorialClosingCta.astro';
+import InlineEmphasis from '../../components/text/InlineEmphasis.astro';
 import {
   directBookingBenefitsCopy,
   directBookingBenefitsFooterLabels,
@@ -100,7 +101,7 @@ const inlineLinks = ([
 
           <p class="am-text-body leading-[1.8] text-muted italic mb-8">
 
-            {copy.sections.tip[currentLang]}
+            <InlineEmphasis text={copy.sections.tip[currentLang]} />
 
           </p>
 
@@ -143,7 +144,7 @@ const inlineLinks = ([
 
           <p class="am-text-body leading-[1.8] text-subtle">
 
-            {copy.sections.whyBody[currentLang]}
+            <InlineEmphasis text={copy.sections.whyBody[currentLang]} />
 
           </p>
 
@@ -159,19 +160,19 @@ const inlineLinks = ([
 
           <p class="am-text-body leading-[1.8] text-subtle">
 
-            {copy.sections.promiseP1[currentLang]}
+            <InlineEmphasis text={copy.sections.promiseP1[currentLang]} />
 
           </p>
 
           <p class="am-text-body leading-[1.8] text-subtle">
 
-            {copy.sections.promiseP2[currentLang]}
+            <InlineEmphasis text={copy.sections.promiseP2[currentLang]} />
 
           </p>
 
           <p class="am-text-body leading-[1.8] text-muted italic mt-8">
 
-            {copy.sections.promiseNote[currentLang]}
+            <InlineEmphasis text={copy.sections.promiseNote[currentLang]} />
 
           </p>
 
@@ -200,7 +201,6 @@ const inlineLinks = ([
   </div>
 
 </BaseLayout>
-
 
 
 

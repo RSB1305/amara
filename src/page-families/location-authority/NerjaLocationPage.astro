@@ -1,4 +1,5 @@
 ---
+import InlineEmphasis from '../../components/text/InlineEmphasis.astro';
 import LocationAuthorityLayout from '../../layouts/LocationAuthorityLayout.astro';
 import Navigation from '../../components/Navigation.astro';
 import Hero from '../../components/Hero.astro';
@@ -185,7 +186,7 @@ const footerHighlights: LabeledLink[] = [
           <h1 class="am-text-display italic text-on-surface mb-10 tracking-tighter">{c.hero.h1}</h1>
           <div class="pl-10 border-l border-primary/20 max-w-xl mb-14 space-y-5">
             {c.hero.body.map((paragraph) => (
-              <p class="am-text-body text-on-surface-variant leading-relaxed">{paragraph}</p>
+              <p class="am-text-body text-on-surface-variant leading-relaxed"><InlineEmphasis text={paragraph} /></p>
             ))}
           </div>
           <div class="flex flex-wrap gap-8">
@@ -213,7 +214,7 @@ const footerHighlights: LabeledLink[] = [
           <div class="max-w-3xl mb-20">
             <span class="am-text-caption uppercase tracking-[0.4em] text-primary block mb-6">{c.areas.eyebrow}</span>
             <h2 class="am-text-title italic text-on-surface tracking-tight mb-8">{c.areas.title}</h2>
-            <p class="am-text-body text-on-surface-variant leading-relaxed">{c.areas.intro}</p>
+            <p class="am-text-body text-on-surface-variant leading-relaxed"><InlineEmphasis text={c.areas.intro} /></p>
           </div>
 
           <div class="grid grid-cols-1 xl:grid-cols-2 gap-x-20 border-t border-outline-variant/20">
@@ -225,7 +226,7 @@ const footerHighlights: LabeledLink[] = [
                     <h3 class="am-text-subtitle text-on-surface mb-4">{item.title}</h3>
                     <div class="mt-7 space-y-5">
                       {item.paragraphs.map((paragraph) => (
-                        <p class="am-text-body text-on-surface-variant leading-relaxed">{paragraph}</p>
+                        <p class="am-text-body text-on-surface-variant leading-relaxed"><InlineEmphasis text={paragraph} /></p>
                       ))}
                     </div>
                     <p class="am-text-body text-on-surface leading-relaxed mt-8 border-l border-primary/30 pl-6">
@@ -246,7 +247,7 @@ const footerHighlights: LabeledLink[] = [
             <div class="lg:col-span-5">
               <span class="am-text-caption uppercase tracking-[0.4em] text-primary block mb-6">{c.beaches.eyebrow}</span>
               <h2 class="am-text-title italic text-on-surface tracking-tight mb-8">{c.beaches.title}</h2>
-              <p class="am-text-body text-on-surface-variant leading-relaxed max-w-xl mb-10">{c.beaches.intro}</p>
+              <p class="am-text-body text-on-surface-variant leading-relaxed max-w-xl mb-10"><InlineEmphasis text={c.beaches.intro} /></p>
               {beachesHref && (
                 <a href={beachesHref} class="am-cta-link">{c.beaches.cta}</a>
               )}
@@ -258,7 +259,7 @@ const footerHighlights: LabeledLink[] = [
                     <h3 class="am-text-subtitle italic text-on-surface mb-4">{item.title}</h3>
                     <div class="space-y-5">
                       {item.paragraphs.map((paragraph) => (
-                        <p class="am-text-body text-on-surface-variant leading-relaxed">{paragraph}</p>
+                        <p class="am-text-body text-on-surface-variant leading-relaxed"><InlineEmphasis text={paragraph} /></p>
                       ))}
                     </div>
                   </article>
@@ -274,7 +275,7 @@ const footerHighlights: LabeledLink[] = [
           <div class="max-w-3xl mb-20">
             <span class="am-text-caption uppercase tracking-[0.4em] text-primary block mb-6">{c.practical.eyebrow}</span>
             <h2 class="am-text-title italic text-on-surface tracking-tight mb-8">{c.practical.title}</h2>
-            <p class="am-text-body text-on-surface-variant leading-relaxed">{c.practical.intro}</p>
+            <p class="am-text-body text-on-surface-variant leading-relaxed"><InlineEmphasis text={c.practical.intro} /></p>
           </div>
           <div class="grid grid-cols-1 lg:grid-cols-3 gap-12">
             {
@@ -302,24 +303,24 @@ const footerHighlights: LabeledLink[] = [
             <h2 class="am-text-title italic text-on-surface tracking-tight mb-8">{c.comparison.title}</h2>
             <div class="space-y-5">
               {c.comparison.intro.map((paragraph) => (
-                <p class="am-text-body text-on-surface-variant leading-relaxed">{paragraph}</p>
+                <p class="am-text-body text-on-surface-variant leading-relaxed"><InlineEmphasis text={paragraph} /></p>
               ))}
             </div>
-            <p class="am-text-subtitle italic text-on-surface mt-8">{c.comparison.prompt}</p>
+            <p class="am-text-subtitle italic text-on-surface mt-8"><InlineEmphasis text={c.comparison.prompt} /></p>
           </div>
           <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-16">
             {
               c.comparison.profiles.map((profile) => (
                 <article class="border-l border-primary/30 pl-8 py-3">
                   <h3 class="am-text-subtitle italic text-on-surface mb-5">{profile.title}</h3>
-                  <p class="am-text-body text-on-surface-variant leading-relaxed">{profile.text}</p>
+                  <p class="am-text-body text-on-surface-variant leading-relaxed"><InlineEmphasis text={profile.text} /></p>
                 </article>
               ))
             }
           </div>
-          <p class="am-text-body text-on-surface-variant leading-relaxed max-w-3xl mb-12">{c.comparison.outro}</p>
+          <p class="am-text-body text-on-surface-variant leading-relaxed max-w-3xl mb-12"><InlineEmphasis text={c.comparison.outro} /></p>
           <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-8 border-t border-outline-variant/20 pt-10">
-            <p class="am-text-subtitle italic text-on-surface max-w-2xl">{c.comparison.bridge}</p>
+            <p class="am-text-subtitle italic text-on-surface max-w-2xl"><InlineEmphasis text={c.comparison.bridge} /></p>
             <a href={comparisonHref} class="am-cta-link shrink-0">{c.comparison.cta}</a>
           </div>
         </div>
@@ -335,7 +336,7 @@ const footerHighlights: LabeledLink[] = [
             <div class="lg:col-span-7">
               <div class="space-y-6">
                 {c.playa.paragraphs.map((paragraph) => (
-                  <p class="am-text-body text-on-surface-variant leading-relaxed">{paragraph}</p>
+                  <p class="am-text-body text-on-surface-variant leading-relaxed"><InlineEmphasis text={paragraph} /></p>
                 ))}
               </div>
             </div>

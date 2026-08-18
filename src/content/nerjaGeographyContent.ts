@@ -188,7 +188,7 @@ export const nerjaGeographyContent: Record<AmaraLanguage, NerjaGeographyLocale> 
         eyebrow: 'What it means for a stay',
         title: 'Combine distance with gradient',
         paragraphs: [
-          'Many everyday central-Nerja days work well without a car. AMARA Playa, for example, is approximately 100 metres from Torrecilla beach and approximately 500 metres from the Balcón de Europa; these are useful guest distances, not survey measurements.',
+          'Many everyday central-Nerja days work well without a car. AMARA Playa, for example, is approximately 200 metres from Torrecilla beach and approximately 500 metres from the Balcón de Europa; these are useful guest distances, not survey measurements.',
           'Across Nerja more broadly, a short line on a map does not guarantee an equally easy walk. Check whether the route starts at coastal level, crosses the central edge or climbs toward the residential slopes—especially for repeated returns, summer heat, luggage or a pushchair. The detailed area choice belongs in the Where to Stay guide.'
         ]
       }
@@ -303,7 +303,7 @@ export const nerjaGeographyContent: Record<AmaraLanguage, NerjaGeographyLocale> 
         eyebrow: 'Was das für den Aufenthalt bedeutet',
         title: 'Entfernung und Steigung zusammen betrachten',
         paragraphs: [
-          'Viele gewöhnliche Urlaubstage im Zentrum von Nerja funktionieren gut ohne Auto. Von AMARA Playa sind es zum Beispiel ungefähr 100 Meter zum Strand Torrecilla und etwa 500 Meter zum Balcón de Europa; das sind praktische Gästeangaben, keine Vermessungswerte.',
+          'Viele gewöhnliche Urlaubstage im Zentrum von Nerja funktionieren gut ohne Auto. Von AMARA Playa sind es zum Beispiel ungefähr 200 Meter zum Strand Torrecilla und etwa 500 Meter zum Balcón de Europa; das sind praktische Gästeangaben, keine Vermessungswerte.',
           'Für Nerja insgesamt garantiert eine kurze Linie auf der Karte keinen gleich leichten Fußweg. Prüft, ob der Weg auf Küstenniveau beginnt, die zentrale Kante quert oder zu den Wohnhängen ansteigt – besonders bei mehreren Rückwegen, Sommerhitze, Gepäck oder Kinderwagen. Die detaillierte Lagenwahl gehört in den Guide „Wo übernachten“.'
         ]
       }
@@ -410,7 +410,7 @@ export const nerjaGeographyContent: Record<AmaraLanguage, NerjaGeographyLocale> 
         eyebrow: 'Qué significa para una estancia',
         title: 'Combinar distancia y pendiente',
         paragraphs: [
-          'Muchos días cotidianos en el centro de Nerja funcionan bien sin coche. AMARA Playa, por ejemplo, está aproximadamente a 100 metros de la playa de Torrecilla y a unos 500 metros del Balcón de Europa; son distancias orientativas para huéspedes, no mediciones topográficas.',
+          'Muchos días cotidianos en el centro de Nerja funcionan bien sin coche. AMARA Playa, por ejemplo, está aproximadamente a 200 metros de la playa de Torrecilla y a unos 500 metros del Balcón de Europa; son distancias orientativas para huéspedes, no mediciones topográficas.',
           'En el conjunto de Nerja, una línea corta en el mapa no garantiza un paseo igual de fácil. Conviene comprobar si el trayecto parte de la cota costera, cruza el borde central o sube hacia las laderas residenciales, sobre todo al repetir el camino, con calor, equipaje o carrito. La elección detallada de zona corresponde a la guía Dónde alojarse.'
         ]
       }
@@ -517,7 +517,7 @@ export const nerjaGeographyContent: Record<AmaraLanguage, NerjaGeographyLocale> 
         eyebrow: 'Wat dit betekent voor een verblijf',
         title: 'Combineer afstand met helling',
         paragraphs: [
-          'Veel gewone dagen in het centrum van Nerja werken prima zonder auto. AMARA Playa ligt bijvoorbeeld op ongeveer 100 meter van het strand van Torrecilla en circa 500 meter van het Balcón de Europa; dit zijn praktische afstanden voor gasten, geen landmeetkundige waarden.',
+          'Veel gewone dagen in het centrum van Nerja werken prima zonder auto. AMARA Playa ligt bijvoorbeeld op ongeveer 200 meter van het strand van Torrecilla en circa 500 meter van het Balcón de Europa; dit zijn praktische afstanden voor gasten, geen landmeetkundige waarden.',
           'In Nerja als geheel staat een korte lijn op de kaart niet automatisch voor een even gemakkelijke wandeling. Controleer of de route op kustniveau begint, de centrale rand kruist of naar de woonhellingen klimt, vooral bij herhaalde terugwegen, zomerhitte, bagage of een kinderwagen. De gedetailleerde gebiedskeuze hoort in de gids Waar overnachten.'
         ]
       }
@@ -624,7 +624,7 @@ export const nerjaGeographyContent: Record<AmaraLanguage, NerjaGeographyLocale> 
         eyebrow: 'Vad det betyder för en vistelse',
         title: 'Väg samman avstånd och lutning',
         paragraphs: [
-          'Många vanliga dagar i centrala Nerja fungerar bra utan bil. AMARA Playa ligger till exempel ungefär 100 meter från Torrecillastranden och cirka 500 meter från Balcón de Europa; det är praktiska gästavstånd, inte exakta lantmäterimått.',
+          'Många vanliga dagar i centrala Nerja fungerar bra utan bil. AMARA Playa ligger till exempel ungefär 200 meter från Torrecillastranden och cirka 500 meter från Balcón de Europa; det är praktiska gästavstånd, inte exakta lantmäterimått.',
           'I Nerja som helhet garanterar en kort linje på kartan inte en lika lätt promenad. Kontrollera om vägen börjar på kustnivå, korsar den centrala kanten eller klättrar mot bostadssluttningarna, särskilt vid upprepade hemvägar, sommarvärme, bagage eller barnvagn. Det detaljerade områdesvalet hör hemma i guiden Var ska man bo.'
         ]
       }

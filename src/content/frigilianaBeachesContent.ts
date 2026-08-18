@@ -366,7 +366,7 @@ export const frigilianaBeachesContent: Record<
       baseDecision: {
         before:
           'Frigiliana remains a natural home base when the beach is a day trip. If spontaneous walk-to-beach access matters more, ',
-        linkLabel: 'AMARA Playa in Nerja is 100 m from Torrecilla beach',
+        linkLabel: 'AMARA Playa in Nerja is 200 m from Torrecilla beach',
         after: '.',
         linkToken: 'playa'
       },
@@ -595,7 +595,7 @@ export const frigilianaBeachesContent: Record<
       baseDecision: {
         before:
           'Frigiliana bleibt eine stimmige Basis, wenn der Strand ein Tagesausflug ist. Wenn ihr lieber spontan zu Fuß ans Meer gehen möchtet, ',
-        linkLabel: 'liegt AMARA Playa in Nerja 100 m vom Strand Torrecilla entfernt',
+        linkLabel: 'liegt AMARA Playa in Nerja 200 m vom Strand Torrecilla entfernt',
         after: '.',
         linkToken: 'playa'
       },
@@ -824,7 +824,7 @@ export const frigilianaBeachesContent: Record<
       baseDecision: {
         before:
           'Frigiliana sigue siendo una base muy lógica si la playa forma parte de una excursión. Si preferís bajar andando al mar cuando os apetezca, ',
-        linkLabel: 'AMARA Playa en Nerja está a 100 m de la playa de Torrecilla',
+        linkLabel: 'AMARA Playa en Nerja está a 200 m de la playa de Torrecilla',
         after: '.',
         linkToken: 'playa'
       },
@@ -1053,7 +1053,7 @@ export const frigilianaBeachesContent: Record<
       baseDecision: {
         before:
           'Frigiliana blijft een logische uitvalsbasis wanneer het strand een daguitstap is. Willen jullie juist spontaan naar zee kunnen lopen, dan ',
-        linkLabel: 'ligt AMARA Playa in Nerja op 100 m van het Torrecilla-strand',
+        linkLabel: 'ligt AMARA Playa in Nerja op 200 m van het Torrecilla-strand',
         after: '.',
         linkToken: 'playa'
       },
@@ -1282,7 +1282,7 @@ export const frigilianaBeachesContent: Record<
       baseDecision: {
         before:
           'Frigiliana är fortfarande en naturlig bas när stranden är en dagsutflykt. Om ni hellre vill kunna promenera spontant till havet ',
-        linkLabel: 'ligger AMARA Playa i Nerja 100 m från Torrecillastranden',
+        linkLabel: 'ligger AMARA Playa i Nerja 200 m från Torrecillastranden',
         after: '.',
         linkToken: 'playa'
       },

@@ -48,7 +48,7 @@ export interface FrigilianaGeographyLocale {
 
 const article = {
   datePublished: '2026-08-16',
-  dateModified: '2026-08-16',
+  dateModified: '2026-08-18',
   authorName: 'Robert Sebastian Böhmer',
   authorType: 'Person' as const,
   authorSlug: 'amara-about-us'
@@ -57,6 +57,7 @@ const article = {
 const sharedSources = {
   sima: 'https://www.juntadeandalucia.es/institutodeestadisticaycartografia/sima/ficha.htm?mun=29053',
   simaAltitude: 'https://ws089.juntadeandalucia.es/sima/info.htm?f=a03',
+  tourismSituation: 'https://www.turismofrigiliana.es/es/situacion.html',
   tourismEn: 'https://www.turismofrigiliana.es/en/frigiliana-el-fuerte-en.html',
   tourismEs: 'https://turismofrigiliana.es/es/el-fuerte.html',
   naturalPark:
@@ -64,43 +65,43 @@ const sharedSources = {
 };
 
 export const frigilianaGeographySeo: AmaraAuthoringSeo = {
-  version: '2026-08-16-frigiliana-geography-v1.0',
+  version: '2026-08-18-frigiliana-geography-v1.1',
   pageType: 'A',
   entityKey: 'amara-brand',
   article,
   languages: {
     en: {
-      title: 'Frigiliana Geography: Hillside Village & Sierra Almijara',
+      title: 'Where Is Frigiliana? Málaga, Nerja & Sierra Almijara',
       description:
-        'Understand Frigiliana’s hillside geography, the climb through its historic quarter and how the Sierra Almijara shapes walking and a stay.',
+        'Find Frigiliana in eastern Málaga province, 6 km from Nerja, and understand how its Sierra Almijara hillside shapes walking and a stay.',
       robots: 'index, follow',
       canonical: 'auto'
     },
     de: {
-      title: 'Frigiliana: Geografie & Orientierung am Hang der Sierra',
+      title: 'Wo liegt Frigiliana? Málaga, Nerja & Sierra Almijara',
       description:
-        'Frigilianas Hanglage verstehen: vom unteren Dorf durch die historische Altstadt bis zur Sierra Almijara – und was die Steigung zu Fuß bedeutet.',
+        'Frigiliana liegt im Osten der Provinz Málaga, 6 km von Nerja entfernt. Versteht die Hanglage zwischen Altstadt und Sierra Almijara.',
       robots: 'index, follow',
       canonical: 'auto'
     },
     es: {
-      title: 'Geografía de Frigiliana: pueblo en ladera y Sierra Almijara',
+      title: 'Dónde está Frigiliana: Málaga, Nerja y Sierra Almijara',
       description:
-        'Comprended la geografía de Frigiliana, la subida por su casco histórico y cómo la Sierra Almijara condiciona los recorridos y la estancia.',
+        'Frigiliana está al este de la provincia de Málaga, a 6 km de Nerja. Comprended su ladera entre el casco histórico y la Sierra Almijara.',
       robots: 'index, follow',
       canonical: 'auto'
     },
     nl: {
-      title: 'Geografie van Frigiliana: heuveldorp & Sierra Almijara',
+      title: 'Waar ligt Frigiliana? Málaga, Nerja & Sierra Almijara',
       description:
-        'Begrijp Frigiliana als dorp tegen de helling, de klim door de historische kern en wat de Sierra Almijara betekent voor lopen en verblijven.',
+        'Frigiliana ligt in het oosten van de provincie Málaga, 6 km van Nerja. Begrijp de helling tussen de oude kern en Sierra Almijara.',
       robots: 'index, follow',
       canonical: 'auto'
     },
     sv: {
-      title: 'Frigilianas geografi: by på sluttningen & Sierra Almijara',
+      title: 'Var ligger Frigiliana? Málaga, Nerja & Sierra Almijara',
       description:
-        'Förstå Frigilianas sluttningsläge, stigningen genom den historiska byn och hur Sierra Almijara påverkar promenader och vistelsen.',
+        'Frigiliana ligger i östra Málagaprovinsen, 6 km från Nerja. Förstå sluttningen mellan gamla stan och Sierra Almijara.',
       robots: 'index, follow',
       canonical: 'auto'
     }
@@ -115,9 +116,9 @@ export const frigilianaGeographyContent: Record<
     navLabel: 'Geography & orientation',
     hero: {
       eyebrow: 'Frigiliana · Geography & orientation',
-      title: 'A village that climbs the hillside into the Sierra',
+      title: 'Where is Frigiliana?',
       standfirst:
-        'Frigiliana is not a settlement on one flat level. Plaza del Ingenio, the Town Hall, the stepped historic quarter and the mountain edge occupy different heights, so the most useful way to understand the village is from the lower terrain upwards.',
+        'Frigiliana is in the Axarquía in the east of Málaga province, **about 6 kilometres inland from Nerja**. The village rises from lower terrain towards the Sierra Almijara, so its location is best understood from the Mediterranean coast upwards.',
       note: 'The official altitude figure is a Town Hall reference, not one altitude for the whole village.',
       updated: 'Published August 2026'
     },
@@ -198,9 +199,10 @@ export const frigilianaGeographyContent: Record<
       eyebrow: 'Behind this guide',
       title: 'Official geographic references',
       intro:
-        'The municipal area and 318-metre Town Hall reference come from SIMA. Plaza del Ingenio, Barribarto and Pozo de Lízar follow official Frigiliana tourism information. No municipal minimum or maximum elevation is stated.',
+        'The Axarquía setting and 6-kilometre distance from Nerja follow the official location page. The municipal area and 318-metre Town Hall reference come from SIMA; Plaza del Ingenio, Barribarto and Pozo de Lízar follow official Frigiliana tourism information.',
       checked: 'Sources checked in August 2026.',
       links: [
+        { label: 'Frigiliana Tourism · Location', text: 'Official setting in the Axarquía and distance from Nerja.', href: sharedSources.tourismSituation },
         { label: 'SIMA · Frigiliana', text: 'Official municipal area and altitude reference.', href: sharedSources.sima },
         { label: 'SIMA · Altitude definition', text: 'Defines municipal altitude at the Town Hall of the principal settlement.', href: sharedSources.simaAltitude },
         { label: 'Frigiliana Tourism · El Fuerte', text: 'Official route description for Plaza del Ingenio, Barribarto and Pozo de Lízar.', href: sharedSources.tourismEn },
@@ -219,9 +221,9 @@ export const frigilianaGeographyContent: Record<
     navLabel: 'Geografie & Orientierung',
     hero: {
       eyebrow: 'Frigiliana · Geografie & Orientierung',
-      title: 'Ein Dorf, das den Hang hinauf in die Sierra steigt',
+      title: 'Wo liegt Frigiliana?',
       standfirst:
-        'Frigiliana liegt nicht auf einer einzigen ebenen Fläche. Plaza del Ingenio, Rathaus, gestufte Altstadt und Gebirgsrand befinden sich auf unterschiedlichen Höhen. Am besten versteht ihr das Dorf deshalb von den tieferen Lagen nach oben.',
+        'Frigiliana liegt in der Axarquía im Osten der Provinz Málaga, **etwa 6 Kilometer landeinwärts von Nerja**. Das Dorf steigt vom tieferen Gelände zur Sierra Almijara an; seine Lage versteht ihr deshalb am besten von der Mittelmeerküste aus nach oben.',
       note: 'Die amtliche Höhenangabe bezieht sich auf das Rathaus und ist keine einheitliche Höhe des ganzen Dorfes.',
       updated: 'Veröffentlicht im August 2026'
     },
@@ -302,9 +304,10 @@ export const frigilianaGeographyContent: Record<
       eyebrow: 'Belege hinter dem Guide',
       title: 'Amtliche geografische Referenzen',
       intro:
-        'Gemeindefläche und der 318-Meter-Bezug am Rathaus stammen aus SIMA. Plaza del Ingenio, Barribarto und Pozo de Lízar folgen der offiziellen Tourismusinformation von Frigiliana. Eine minimale oder maximale Gemeindehöhe wird nicht genannt.',
+        'Die Lage in der Axarquía und die Entfernung von 6 Kilometern zu Nerja folgen der offiziellen Ortsbeschreibung. Gemeindefläche und der 318-Meter-Bezug am Rathaus stammen aus SIMA; Plaza del Ingenio, Barribarto und Pozo de Lízar aus der offiziellen Tourismusinformation.',
       checked: 'Quellen geprüft im August 2026.',
       links: [
+        { label: 'Frigiliana Tourism · Lage', text: 'Offizielle Einordnung in die Axarquía und Entfernung zu Nerja.', href: sharedSources.tourismSituation },
         { label: 'SIMA · Frigiliana', text: 'Amtliche Gemeindefläche und Höhenreferenz.', href: sharedSources.sima },
         { label: 'SIMA · Definition der Höhenangabe', text: 'Definiert die Gemeindehöhe am Rathaus des Hauptortes.', href: sharedSources.simaAltitude },
         { label: 'Frigiliana Tourism · El Fuerte', text: 'Offizielle Route mit Angaben zu Plaza del Ingenio, Barribarto und Pozo de Lízar.', href: sharedSources.tourismEn },
@@ -323,9 +326,9 @@ export const frigilianaGeographyContent: Record<
     navLabel: 'Geografía y orientación',
     hero: {
       eyebrow: 'Frigiliana · Geografía y orientación',
-      title: 'Un pueblo que asciende por la ladera hacia la sierra',
+      title: '¿Dónde está Frigiliana?',
       standfirst:
-        'Frigiliana no ocupa una única plataforma llana. La plaza del Ingenio, el Ayuntamiento, el casco histórico escalonado y el borde de la sierra están a distintas cotas. La forma más útil de entender el pueblo es leerlo desde el terreno inferior hacia arriba.',
+        'Frigiliana está en la Axarquía, al este de la provincia de Málaga, **a unos 6 kilómetros hacia el interior desde Nerja**. El pueblo asciende desde las cotas inferiores hacia la Sierra Almijara; por eso su ubicación se entiende mejor desde la costa mediterránea hacia arriba.',
       note: 'La altitud oficial es una referencia medida en el Ayuntamiento, no una única cota para todo el pueblo.',
       updated: 'Publicado en agosto de 2026'
     },
@@ -406,9 +409,10 @@ export const frigilianaGeographyContent: Record<
       eyebrow: 'Fuentes de la guía',
       title: 'Referencias geográficas oficiales',
       intro:
-        'La superficie municipal y la referencia de 318 metros en el Ayuntamiento proceden de SIMA. Plaza del Ingenio, Barribarto y Pozo de Lízar siguen la información turística oficial de Frigiliana. No se publica una altitud municipal mínima o máxima.',
+        'La ubicación en la Axarquía y los 6 kilómetros hasta Nerja proceden de la página oficial de situación. La superficie municipal y la referencia de 318 metros en el Ayuntamiento proceden de SIMA; plaza del Ingenio, Barribarto y Pozo de Lízar siguen la información turística oficial.',
       checked: 'Fuentes comprobadas en agosto de 2026.',
       links: [
+        { label: 'Turismo de Frigiliana · Situación', text: 'Ubicación oficial en la Axarquía y distancia hasta Nerja.', href: sharedSources.tourismSituation },
         { label: 'SIMA · Frigiliana', text: 'Superficie municipal y referencia oficial de altitud.', href: sharedSources.sima },
         { label: 'SIMA · Definición de altitud', text: 'Define la altitud municipal en el Ayuntamiento del núcleo principal.', href: sharedSources.simaAltitude },
         { label: 'Turismo de Frigiliana · El Fuerte', text: 'Ruta oficial con datos de plaza del Ingenio, Barribarto y Pozo de Lízar.', href: sharedSources.tourismEs },
@@ -427,9 +431,9 @@ export const frigilianaGeographyContent: Record<
     navLabel: 'Geografie & oriëntatie',
     hero: {
       eyebrow: 'Frigiliana · Geografie & oriëntatie',
-      title: 'Een dorp dat tegen de helling omhoog de Sierra in klimt',
+      title: 'Waar ligt Frigiliana?',
       standfirst:
-        'Frigiliana ligt niet op één vlak niveau. Plaza del Ingenio, het stadhuis, de getrapte historische kern en de rand van het gebergte liggen op verschillende hoogtes. Je begrijpt het dorp daarom het beste van het lagere terrein naar boven toe.',
+        'Frigiliana ligt in de Axarquía, in het oosten van de provincie Málaga, **ongeveer 6 kilometer landinwaarts van Nerja**. Het dorp loopt vanaf het lagere terrein op naar de Sierra Almijara; de ligging wordt daarom het duidelijkst vanaf de Middellandse Zeekust omhoog.',
       note: 'De officiële hoogte is een referentie bij het stadhuis, niet één hoogte voor het hele dorp.',
       updated: 'Gepubliceerd in augustus 2026'
     },
@@ -510,9 +514,10 @@ export const frigilianaGeographyContent: Record<
       eyebrow: 'Bronnen van deze gids',
       title: 'Officiële geografische referenties',
       intro:
-        'De gemeenteoppervlakte en de referentie van 318 meter bij het stadhuis komen van SIMA. Plaza del Ingenio, Barribarto en Pozo de Lízar volgen de officiële toeristische informatie van Frigiliana. Er wordt geen minimale of maximale gemeentehoogte genoemd.',
+        'De ligging in de Axarquía en de afstand van 6 kilometer tot Nerja volgen de officiële locatiepagina. De gemeenteoppervlakte en de referentie van 318 meter bij het stadhuis komen van SIMA; Plaza del Ingenio, Barribarto en Pozo de Lízar volgen de officiële toeristische informatie.',
       checked: 'Bronnen gecontroleerd in augustus 2026.',
       links: [
+        { label: 'Frigiliana Tourism · Ligging', text: 'Officiële ligging in de Axarquía en afstand tot Nerja.', href: sharedSources.tourismSituation },
         { label: 'SIMA · Frigiliana', text: 'Officiële gemeenteoppervlakte en hoogtereferentie.', href: sharedSources.sima },
         { label: 'SIMA · Definitie van hoogte', text: 'Definieert de gemeentehoogte bij het stadhuis van de hoofdplaats.', href: sharedSources.simaAltitude },
         { label: 'Frigiliana Tourism · El Fuerte', text: 'Officiële routebeschrijving voor Plaza del Ingenio, Barribarto en Pozo de Lízar.', href: sharedSources.tourismEn },
@@ -531,9 +536,9 @@ export const frigilianaGeographyContent: Record<
     navLabel: 'Geografi & orientering',
     hero: {
       eyebrow: 'Frigiliana · Geografi & orientering',
-      title: 'En by som klättrar uppför sluttningen in i Sierran',
+      title: 'Var ligger Frigiliana?',
       standfirst:
-        'Frigiliana ligger inte på en enda plan nivå. Plaza del Ingenio, stadshuset, den trappade historiska byn och bergskanten ligger på olika höjder. Därför blir byn tydligast när den läses från den lägre terrängen och uppåt.',
+        'Frigiliana ligger i Axarquía i den östra delen av Málagaprovinsen, **omkring 6 kilometer inåt land från Nerja**. Byn stiger från lägre terräng mot Sierra Almijara, så läget blir tydligast när det läses från Medelhavskusten och uppåt.',
       note: 'Den officiella höjden är en referens vid stadshuset, inte en enda höjd för hela byn.',
       updated: 'Publicerad i augusti 2026'
     },
@@ -614,9 +619,10 @@ export const frigilianaGeographyContent: Record<
       eyebrow: 'Källorna bakom guiden',
       title: 'Officiella geografiska referenser',
       intro:
-        'Kommunytan och referensen på 318 meter vid stadshuset kommer från SIMA. Plaza del Ingenio, Barribarto och Pozo de Lízar följer Frigilianas officiella turistinformation. Ingen lägsta eller högsta kommunhöjd anges.',
+        'Läget i Axarquía och avståndet på 6 kilometer till Nerja följer den officiella lägesbeskrivningen. Kommunytan och referensen på 318 meter vid stadshuset kommer från SIMA; Plaza del Ingenio, Barribarto och Pozo de Lízar följer Frigilianas officiella turistinformation.',
       checked: 'Källor kontrollerade i augusti 2026.',
       links: [
+        { label: 'Frigiliana Tourism · Läge', text: 'Officiellt läge i Axarquía och avstånd till Nerja.', href: sharedSources.tourismSituation },
         { label: 'SIMA · Frigiliana', text: 'Officiell kommunyta och höjdreferens.', href: sharedSources.sima },
         { label: 'SIMA · Definition av höjd', text: 'Definierar kommunhöjden vid huvudortens stadshus.', href: sharedSources.simaAltitude },
         { label: 'Frigiliana Tourism · El Fuerte', text: 'Officiell ruttbeskrivning för Plaza del Ingenio, Barribarto och Pozo de Lízar.', href: sharedSources.tourismEn },

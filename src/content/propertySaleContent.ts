@@ -135,7 +135,7 @@ export const propertySaleContent: Record<AmaraLanguage, PropertySaleLocalizedCon
       lead:
         'A fully rebuilt historic property with direct car access, three terraces, open countryside views and an established four-unit hospitality operation.',
       saleScope:
-        'Casa AMARA is offered only as one complete freehold property. The apartments and room are not available for individual purchase.',
+        'Casa AMARA is offered **only as one complete freehold property**. The apartments and room are not available for individual purchase.',
       price: 'Price on request.',
       imageAlt:
         'Terrace at Casa AMARA overlooking the countryside and the Mediterranean landscape near Frigiliana'
@@ -270,7 +270,7 @@ export const propertySaleContent: Record<AmaraLanguage, PropertySaleLocalizedCon
       lead:
         'Eine umfassend rekonstruierte historische Immobilie mit direkter Autozufahrt, drei Terrassen, freiem Blick über die Landschaft und einem etablierten touristischen Betrieb mit vier Einheiten.',
       saleScope:
-        'Casa AMARA wird ausschließlich als eine vollständige Immobilie in Alleineigentum angeboten. Die Apartments und das Zimmer stehen nicht einzeln zum Verkauf.',
+        'Casa AMARA wird **ausschließlich als eine vollständige Immobilie in Alleineigentum** angeboten. Die Apartments und das Zimmer stehen nicht einzeln zum Verkauf.',
       price: 'Preis auf Anfrage.',
       imageAlt:
         'Terrasse der Casa AMARA mit Blick über die Landschaft und auf die mediterrane Umgebung bei Frigiliana'
@@ -405,7 +405,7 @@ export const propertySaleContent: Record<AmaraLanguage, PropertySaleLocalizedCon
       lead:
         'Una propiedad histórica reconstruida integralmente, con acceso directo en coche, tres terrazas, vistas abiertas al campo y una actividad de alojamiento consolidada con cuatro unidades.',
       saleScope:
-        'Casa AMARA se ofrece únicamente como una propiedad completa en pleno dominio. Los apartamentos y la habitación no se venden por separado.',
+        'Casa AMARA se ofrece **únicamente como una propiedad completa en pleno dominio**. Los apartamentos y la habitación no se venden por separado.',
       price: 'Precio a consultar.',
       imageAlt:
         'Terraza de Casa AMARA con vistas al campo y al paisaje mediterráneo próximo a Frigiliana'
@@ -540,7 +540,7 @@ export const propertySaleContent: Record<AmaraLanguage, PropertySaleLocalizedCon
       lead:
         'Een volledig herbouwd historisch pand, direct bereikbaar met de auto, met drie terrassen, vrij uitzicht over het landschap en een gevestigde logiesexploitatie met vier verblijfsunits.',
       saleScope:
-        'Casa AMARA wordt uitsluitend als één complete onroerende zaak in volle eigendom aangeboden. De appartementen en de kamer zijn niet afzonderlijk te koop.',
+        'Casa AMARA wordt **uitsluitend als één complete onroerende zaak in volle eigendom** aangeboden. De appartementen en de kamer zijn niet afzonderlijk te koop.',
       price: 'Prijs op aanvraag.',
       imageAlt:
         'Terras van Casa AMARA met uitzicht over het landschap en de mediterrane omgeving bij Frigiliana'
@@ -675,7 +675,7 @@ export const propertySaleContent: Record<AmaraLanguage, PropertySaleLocalizedCon
       lead:
         'En historisk fastighet som har byggts om i grunden, direkt tillgänglig med bil, med tre terrasser, fri utsikt över landskapet och en etablerad logiverksamhet med fyra enheter.',
       saleScope:
-        'Casa AMARA erbjuds endast som en komplett friköpt fastighet. Lägenheterna och rummet säljs inte separat.',
+        'Casa AMARA erbjuds **endast som en komplett friköpt fastighet**. Lägenheterna och rummet säljs inte separat.',
       price: 'Pris på begäran.',
       imageAlt:
         'Terrass på Casa AMARA med utsikt över landskapet och medelhavsmiljön nära Frigiliana'

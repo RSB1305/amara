@@ -71,11 +71,24 @@ export interface FrigilianaLocationJourneyBridge {
   ctaLabel: string;
 }
 
+export interface FrigilianaLocationOrientation {
+  eyebrow: string;
+  title: string;
+  paragraphs: string[];
+  facts: Array<{ value: string; label: string }>;
+  mapLabel: string;
+  mapNote: string;
+  geographyLabel: string;
+  arrivalLabel: string;
+  routeLabel: string;
+}
+
 export interface FrigilianaLocationPageCopy {
   heroKicker: string;
   h1: string;
   intro: string[];
   introPullLine: string;
+  orientation: FrigilianaLocationOrientation;
   evening: FrigilianaLocationModule;
   history: FrigilianaLocationModule;
   villageLife: FrigilianaLocationModule;
@@ -90,7 +103,7 @@ export interface FrigilianaLocationPageCopy {
 }
 
 export const frigilianaLocationSeo: AmaraAuthoringSeo = {
-  version: '2026-08-10-frigiliana-location-final-v2.0',
+  version: '2026-08-18-frigiliana-location-v2.1',
   pageType: 'A',
   entityKey: 'amara-brand',
   ogImage: '/images/amara-lounis/15-amara-frigiliana.jpg',
@@ -156,6 +169,24 @@ export const frigilianaLocationCopy = {
       "Über mehrere Tage wird das Dorf zum Ausgangspunkt eures Urlaubs – für Frühstück und Abendessen zu Fuß, Ausflüge ans Meer und die Rückkehr in die Altstadt."
     ],
     "introPullLine": "Ein paar Tage in Frigiliana beginnen morgens im alten Dorf und enden abends wieder in seinen Gassen.",
+    "orientation": {
+      "eyebrow": "LAGE UND ORIENTIERUNG",
+      "title": "Wo liegt Frigiliana?",
+      "paragraphs": [
+        "Frigiliana liegt in der Axarquía im Osten der Provinz Málaga am Südhang der Sierra de Almijara. Die historische Altstadt erhebt sich über dem Mittelmeer, etwa 6 Kilometer von Nerja entfernt.",
+        "Casa AMARA liegt in der Calle Chorruelo bei der Kirche San Antonio. Vom Flughafen Málaga-Costa del Sol solltet ihr bei normalem Verkehr ungefähr 50 bis 60 Minuten mit dem Auto einplanen."
+      ],
+      "facts": [
+        { "value": "6 km", "label": "bis Nerja" },
+        { "value": "50–60 Min.", "label": "vom Flughafen Málaga" },
+        { "value": "Sierra Almijara", "label": "Hanglage über dem Mittelmeer" }
+      ],
+      "mapLabel": "Schematische Orientierung von Málaga über Nerja nach Frigiliana und Casa AMARA",
+      "mapNote": "Orientierungskarte · nicht maßstabsgetreu",
+      "geographyLabel": "Geografie und Orientierung",
+      "arrivalLabel": "Anreise planen",
+      "routeLabel": "Route ab Flughafen öffnen"
+    },
     "evening": {
       "title": "Frigiliana am Abend – wenn das Dorf wieder ruhiger wird",
       "paragraphs": [
@@ -332,6 +363,24 @@ export const frigilianaLocationCopy = {
       "Over several days, the village becomes the base for your holiday – breakfast and dinner on foot, time by the sea, and a return to the old town."
     ],
     "introPullLine": "A few days in Frigiliana begin in the old village each morning and end back among its lanes at night.",
+    "orientation": {
+      "eyebrow": "LOCATION & ORIENTATION",
+      "title": "Where is Frigiliana?",
+      "paragraphs": [
+        "Frigiliana is in the Axarquía in the east of Málaga province, on the southern slope of the Sierra Almijara. Its historic quarter rises above the Mediterranean, about 6 kilometres from Nerja.",
+        "Casa AMARA is on Calle Chorruelo by San Antonio church. From Málaga-Costa del Sol Airport, allow roughly 50–60 minutes by car in normal traffic."
+      ],
+      "facts": [
+        { "value": "6 km", "label": "to Nerja" },
+        { "value": "50–60 min", "label": "from Málaga Airport" },
+        { "value": "Sierra Almijara", "label": "hillside above the Mediterranean" }
+      ],
+      "mapLabel": "Schematic orientation from Málaga via Nerja to Frigiliana and Casa AMARA",
+      "mapNote": "Orientation map · not to scale",
+      "geographyLabel": "Geography & orientation",
+      "arrivalLabel": "Plan your arrival",
+      "routeLabel": "Open route from the airport"
+    },
     "evening": {
       "title": "Frigiliana in the evening – when the village quietens again",
       "paragraphs": [
@@ -515,6 +564,24 @@ export const frigilianaLocationCopy = {
       "Durante varios días, el pueblo se convierte en la base de las vacaciones: desayunos y cenas a pie, escapadas al mar y regreso al casco antiguo."
     ],
     "introPullLine": "Durante unos días, las mañanas empiezan en el casco antiguo y las noches terminan de nuevo entre sus callejuelas.",
+    "orientation": {
+      "eyebrow": "UBICACIÓN Y ORIENTACIÓN",
+      "title": "¿Dónde está Frigiliana?",
+      "paragraphs": [
+        "Frigiliana está en la Axarquía, al este de la provincia de Málaga, en la ladera sur de la Sierra de Almijara. Su casco histórico se eleva sobre el Mediterráneo, a unos 6 kilómetros de Nerja.",
+        "Casa AMARA se encuentra en la calle Chorruelo, junto a la iglesia de San Antonio. Desde el aeropuerto de Málaga-Costa del Sol conviene calcular aproximadamente 50–60 minutos en coche con tráfico normal."
+      ],
+      "facts": [
+        { "value": "6 km", "label": "hasta Nerja" },
+        { "value": "50–60 min", "label": "desde el aeropuerto de Málaga" },
+        { "value": "Sierra Almijara", "label": "ladera sobre el Mediterráneo" }
+      ],
+      "mapLabel": "Mapa esquemático desde Málaga, pasando por Nerja, hasta Frigiliana y Casa AMARA",
+      "mapNote": "Mapa orientativo · no está a escala",
+      "geographyLabel": "Geografía y orientación",
+      "arrivalLabel": "Planificar la llegada",
+      "routeLabel": "Abrir ruta desde el aeropuerto"
+    },
     "evening": {
       "title": "Frigiliana al atardecer, cuando vuelve la calma",
       "paragraphs": [
@@ -691,6 +758,24 @@ export const frigilianaLocationCopy = {
       "Tijdens een verblijf van enkele dagen wordt het dorp de basis van jullie vakantie: ontbijten en dineren op loopafstand, tijd aan zee en thuiskomen in de oude kern."
     ],
     "introPullLine": "Een verblijf van een paar dagen begint 's ochtends in de oude kern en eindigt 's avonds weer tussen de straatjes.",
+    "orientation": {
+      "eyebrow": "LIGGING EN ORIËNTATIE",
+      "title": "Waar ligt Frigiliana?",
+      "paragraphs": [
+        "Frigiliana ligt in de Axarquía, in het oosten van de provincie Málaga, op de zuidhelling van de Sierra Almijara. De historische kern verheft zich boven de Middellandse Zee, op ongeveer 6 kilometer van Nerja.",
+        "Casa AMARA ligt aan Calle Chorruelo, bij de kerk van San Antonio. Reken vanaf Málaga-Costa del Sol Airport bij normaal verkeer op ongeveer 50–60 minuten met de auto."
+      ],
+      "facts": [
+        { "value": "6 km", "label": "naar Nerja" },
+        { "value": "50–60 min", "label": "vanaf Málaga Airport" },
+        { "value": "Sierra Almijara", "label": "helling boven de Middellandse Zee" }
+      ],
+      "mapLabel": "Schematische oriëntatie van Málaga via Nerja naar Frigiliana en Casa AMARA",
+      "mapNote": "Oriëntatiekaart · niet op schaal",
+      "geographyLabel": "Geografie en oriëntatie",
+      "arrivalLabel": "Aankomst plannen",
+      "routeLabel": "Route vanaf de luchthaven openen"
+    },
     "evening": {
       "title": "Frigiliana in de avond, wanneer de rust terugkeert",
       "paragraphs": [
@@ -867,6 +952,24 @@ export const frigilianaLocationCopy = {
       "Under några dagar blir byn basen för semestern – frukost och middag till fots, tid vid havet och hemkomst till gamla stan."
     ],
     "introPullLine": "Under några dagar börjar morgonen i gamla stan och kvällen slutar hemma bland gränderna.",
+    "orientation": {
+      "eyebrow": "LÄGE OCH ORIENTERING",
+      "title": "Var ligger Frigiliana?",
+      "paragraphs": [
+        "Frigiliana ligger i Axarquía i den östra delen av Málagaprovinsen, på Sierra Almijaras sydsluttning. Den historiska bykärnan reser sig över Medelhavet, omkring 6 kilometer från Nerja.",
+        "Casa AMARA ligger på Calle Chorruelo vid kyrkan San Antonio. Från Málaga-Costa del Sols flygplats tar bilresan ungefär 50–60 minuter i normal trafik."
+      ],
+      "facts": [
+        { "value": "6 km", "label": "till Nerja" },
+        { "value": "50–60 min", "label": "från Málagas flygplats" },
+        { "value": "Sierra Almijara", "label": "sluttning över Medelhavet" }
+      ],
+      "mapLabel": "Schematisk orientering från Málaga via Nerja till Frigiliana och Casa AMARA",
+      "mapNote": "Orienteringskarta · inte skalenlig",
+      "geographyLabel": "Geografi och orientering",
+      "arrivalLabel": "Planera ankomsten",
+      "routeLabel": "Öppna rutten från flygplatsen"
+    },
     "evening": {
       "title": "Frigiliana på kvällen, när lugnet återvänder",
       "paragraphs": [

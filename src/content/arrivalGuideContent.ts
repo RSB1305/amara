@@ -32,11 +32,11 @@ export const arrivalGuideCopy = {
     },
     title: { en: "Guest Arrival Guide", de: "Anreiseguide für Gäste", es: "Guía de llegada para huéspedes", nl: "Aankomstgids voor gasten", sv: "Ankomstguide för gäster" },
     subtitle: {
-      en: "Essential information for navigating the vertical streets of the Mudejar quarter.",
-      de: "Alles Wichtige, damit ihr euch in den steilen Gassen des Mudejar-Viertels gut zurechtfindet.",
-      es: "La información esencial para moveros bien por las calles empinadas del barrio mudéjar.",
-      nl: "De belangrijkste informatie om vlot door de steile straten van de Mudejar-wijk te komen.",
-      sv: "Det viktigaste för att ni enkelt ska hitta genom de branta gatorna i Mudejar-kvarteret."
+      en: "Essential information for navigating **the vertical streets of the Mudejar quarter**.",
+      de: "Alles Wichtige, damit ihr euch in **den steilen Gassen des Mudejar-Viertels** gut zurechtfindet.",
+      es: "La información esencial para moveros bien por **las calles empinadas del barrio mudéjar**.",
+      nl: "De belangrijkste informatie om vlot door **de steile straten van de Mudejar-wijk** te komen.",
+      sv: "Det viktigaste för att ni enkelt ska hitta genom **de branta gatorna i Mudejar-kvarteret**."
     },
     backLinkWord: {
       en: 'Back',

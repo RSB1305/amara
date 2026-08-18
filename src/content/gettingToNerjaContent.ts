@@ -101,7 +101,7 @@ export const gettingToNerjaContent: Record<AmaraLanguage, GettingToNerjaLocale> 
     },
     facts: [
       { label: 'AMARA address', value: 'Calle Castilla Pérez 60' },
-      { label: 'Nearest beach', value: 'Torrecilla · approx. 100 m' },
+      { label: 'Nearest beach', value: 'Torrecilla · approx. 200 m' },
       { label: 'Old-town landmark', value: 'Balcón de Europa · approx. 500 m' },
       { label: 'Parking at the stay', value: 'No private space included' }
     ],
@@ -153,7 +153,7 @@ export const gettingToNerjaContent: Record<AmaraLanguage, GettingToNerjaLocale> 
         paragraphs: [
           'Yes, if your holiday is centred on Nerja itself. The old town, shops, restaurants and several beaches form a compact urban routine, and much of the historic centre gives priority to pedestrians.',
           'Without a car, regional days need more advance thought, but the everyday holiday can become simpler: no daily parking search, no need to move the car for dinner and no vehicle between you and a quick swim.',
-          'AMARA Playa is approximately 100 metres from Torrecilla and 500 metres from the Balcón de Europa. That makes beach time and central evenings realistic on foot; taxis or selected rental days can cover the exceptions.'
+          'AMARA Playa is approximately 200 metres from Torrecilla and 500 metres from the Balcón de Europa. That makes beach time and central evenings realistic on foot; taxis or selected rental days can cover the exceptions.'
         ]
       },
       {
@@ -163,7 +163,7 @@ export const gettingToNerjaContent: Record<AmaraLanguage, GettingToNerjaLocale> 
         paragraphs: [
           'Nerja’s beaches sit in different coves and town sections. Torrecilla and El Chucho lie on the western side; Calahonda and Carabeo connect more closely with the old centre; Burriana forms a larger eastern beach setting.',
           'Walking can be the most practical way to reach several central beaches, but steps, slopes and the return route matter. Driving across town does not automatically make a beach day easier once parking is included.',
-          'Torrecilla is AMARA Playa’s everyday beach at approximately 100 metres. Treat Burriana, Maro and other beaches as separate outings and choose walking, taxi, bus or car for the actual day rather than by habit.'
+          'Torrecilla is AMARA Playa’s everyday beach at approximately 200 metres. Treat Burriana, Maro and other beaches as separate outings and choose walking, taxi, bus or car for the actual day rather than by habit.'
         ]
       },
       {
@@ -218,7 +218,7 @@ export const gettingToNerjaContent: Record<AmaraLanguage, GettingToNerjaLocale> 
     },
     facts: [
       { label: 'AMARA Adresse', value: 'Calle Castilla Pérez 60' },
-      { label: 'Nächster Strand', value: 'Torrecilla · ca. 100 m' },
+      { label: 'Nächster Strand', value: 'Torrecilla · ca. 200 m' },
       { label: 'Altstadt-Ziel', value: 'Balcón de Europa · ca. 500 m' },
       { label: 'Parken an der Unterkunft', value: 'Kein privater Stellplatz' }
     ],
@@ -270,7 +270,7 @@ export const gettingToNerjaContent: Record<AmaraLanguage, GettingToNerjaLocale> 
         paragraphs: [
           'Ja, wenn euer Urlaub vor allem in Nerja stattfindet. Altstadt, Geschäfte, Restaurants und mehrere Strände bilden einen kompakten Alltag; im historischen Zentrum haben Fußgänger auf vielen Straßen Vorrang.',
           'Ohne Auto brauchen Ausflüge mehr Vorplanung, der normale Urlaubstag wird aber einfacher: keine tägliche Parkplatzsuche, kein Umparken fürs Abendessen und kein Fahrzeug zwischen euch und einem kurzen Bad.',
-          'Von AMARA Playa sind es ungefähr 100 Meter bis Torrecilla und 500 Meter bis zum Balcón de Europa. Strand und zentrale Abende funktionieren zu Fuß; Taxis oder einzelne Mietwagentage decken Ausnahmen ab.'
+          'Von AMARA Playa sind es ungefähr 200 Meter bis Torrecilla und 500 Meter bis zum Balcón de Europa. Strand und zentrale Abende funktionieren zu Fuß; Taxis oder einzelne Mietwagentage decken Ausnahmen ab.'
         ]
       },
       {
@@ -280,7 +280,7 @@ export const gettingToNerjaContent: Record<AmaraLanguage, GettingToNerjaLocale> 
         paragraphs: [
           'Nerjas Strände liegen in verschiedenen Buchten und Ortsteilen. Torrecilla und El Chucho befinden sich westlich, Calahonda und Carabeo näher an der Altstadt, Burriana bildet östlich eine größere eigene Strandlage.',
           'Zu mehreren zentralen Stränden ist der Fußweg oft am praktischsten; Treppen, Steigungen und Rückweg zählen jedoch mit. Mit Parkplatzsuche wird die Autofahrt quer durch den Ort nicht automatisch leichter.',
-          'Torrecilla ist mit ungefähr 100 Metern der Alltagsstrand von AMARA Playa. Burriana, Maro und weitere Strände plant ihr als eigene Ausflüge und wählt je nach Tag Fußweg, Taxi, Bus oder Auto.'
+          'Torrecilla ist mit ungefähr 200 Metern der Alltagsstrand von AMARA Playa. Burriana, Maro und weitere Strände plant ihr als eigene Ausflüge und wählt je nach Tag Fußweg, Taxi, Bus oder Auto.'
         ]
       },
       {
@@ -335,7 +335,7 @@ export const gettingToNerjaContent: Record<AmaraLanguage, GettingToNerjaLocale> 
     },
     facts: [
       { label: 'Dirección de AMARA', value: 'Calle Castilla Pérez 60' },
-      { label: 'Playa más cercana', value: 'Torrecilla · aprox. 100 m' },
+      { label: 'Playa más cercana', value: 'Torrecilla · aprox. 200 m' },
       { label: 'Referencia del centro', value: 'Balcón de Europa · aprox. 500 m' },
       { label: 'Aparcamiento', value: 'No incluye plaza privada' }
     ],
@@ -387,7 +387,7 @@ export const gettingToNerjaContent: Record<AmaraLanguage, GettingToNerjaLocale> 
         paragraphs: [
           'Sí, si las vacaciones se centran en Nerja. Casco antiguo, tiendas, restaurantes y varias playas forman una rutina urbana compacta, con muchas calles del centro histórico pensadas para peatones.',
           'Sin coche, las excursiones necesitan más previsión, pero el día normal se simplifica: sin buscar aparcamiento cada jornada, sin mover el vehículo para cenar y sin coche entre vosotros y un baño rápido.',
-          'AMARA Playa está a unos 100 metros de Torrecilla y 500 metros del Balcón de Europa. Playa y noches en el centro funcionan a pie; taxis o días sueltos de alquiler cubren las excepciones.'
+          'AMARA Playa está a unos 200 metros de Torrecilla y 500 metros del Balcón de Europa. Playa y noches en el centro funcionan a pie; taxis o días sueltos de alquiler cubren las excepciones.'
         ]
       },
       {
@@ -397,7 +397,7 @@ export const gettingToNerjaContent: Record<AmaraLanguage, GettingToNerjaLocale> 
         paragraphs: [
           'Las playas de Nerja ocupan calas y sectores distintos. Torrecilla y El Chucho quedan al oeste; Calahonda y Carabeo se relacionan más con el casco antiguo; Burriana forma un amplio ambiente de playa al este.',
           'Ir a pie suele ser lo más práctico para varias playas centrales, aunque cuentan las escaleras, las cuestas y el regreso. Cruzar el pueblo en coche no siempre facilita el día cuando se incluye el aparcamiento.',
-          'Torrecilla es la playa cotidiana de AMARA Playa, a unos 100 metros. Burriana, Maro y otras playas son salidas aparte: elegid paseo, taxi, bus o coche según el día real.'
+          'Torrecilla es la playa cotidiana de AMARA Playa, a unos 200 metros. Burriana, Maro y otras playas son salidas aparte: elegid paseo, taxi, bus o coche según el día real.'
         ]
       },
       {
@@ -452,7 +452,7 @@ export const gettingToNerjaContent: Record<AmaraLanguage, GettingToNerjaLocale> 
     },
     facts: [
       { label: 'AMARA-adres', value: 'Calle Castilla Pérez 60' },
-      { label: 'Dichtstbijzijnde strand', value: 'Torrecilla · ca. 100 m' },
+      { label: 'Dichtstbijzijnde strand', value: 'Torrecilla · ca. 200 m' },
       { label: 'Centraal herkenningspunt', value: 'Balcón de Europa · ca. 500 m' },
       { label: 'Parkeren bij het verblijf', value: 'Geen privéplek inbegrepen' }
     ],
@@ -504,7 +504,7 @@ export const gettingToNerjaContent: Record<AmaraLanguage, GettingToNerjaLocale> 
         paragraphs: [
           'Ja, als je vakantie vooral om Nerja draait. Het oude centrum, winkels, restaurants en meerdere stranden vormen een compacte routine en veel straten in het historische hart geven ruimte aan voetgangers.',
           'Zonder auto vragen regionale dagen meer planning, maar het gewone vakantiegevoel wordt eenvoudiger: geen dagelijkse parkeerzoektocht, geen auto verplaatsen voor het diner en niets tussen jou en een snelle duik.',
-          'AMARA Playa ligt ongeveer 100 meter van Torrecilla en 500 meter van het Balcón de Europa. Strand en avonden in het centrum werken te voet; taxi’s of losse huurdagen dekken uitzonderingen.'
+          'AMARA Playa ligt ongeveer 200 meter van Torrecilla en 500 meter van het Balcón de Europa. Strand en avonden in het centrum werken te voet; taxi’s of losse huurdagen dekken uitzonderingen.'
         ]
       },
       {
@@ -514,7 +514,7 @@ export const gettingToNerjaContent: Record<AmaraLanguage, GettingToNerjaLocale> 
         paragraphs: [
           'De stranden van Nerja liggen in verschillende baaien en stadsdelen. Torrecilla en El Chucho liggen westelijk; Calahonda en Carabeo sluiten meer aan op het oude centrum; Burriana vormt een grotere oostelijke strandzone.',
           'Lopen is voor centrale stranden vaak het handigst, al tellen trappen, hellingen en de terugweg mee. Door de stad rijden maakt een stranddag niet automatisch eenvoudiger zodra parkeren meespeelt.',
-          'Torrecilla is met ongeveer 100 meter het dagelijkse strand van AMARA Playa. Zie Burriana, Maro en andere stranden als aparte uitstapjes en kies per dag voor lopen, taxi, bus of auto.'
+          'Torrecilla is met ongeveer 200 meter het dagelijkse strand van AMARA Playa. Zie Burriana, Maro en andere stranden als aparte uitstapjes en kies per dag voor lopen, taxi, bus of auto.'
         ]
       },
       {
@@ -569,7 +569,7 @@ export const gettingToNerjaContent: Record<AmaraLanguage, GettingToNerjaLocale> 
     },
     facts: [
       { label: 'AMARA-adress', value: 'Calle Castilla Pérez 60' },
-      { label: 'Närmaste strand', value: 'Torrecilla · ca 100 m' },
+      { label: 'Närmaste strand', value: 'Torrecilla · ca 200 m' },
       { label: 'Landmärke i centrum', value: 'Balcón de Europa · ca 500 m' },
       { label: 'Parkering vid boendet', value: 'Ingen privat plats ingår' }
     ],
@@ -621,7 +621,7 @@ export const gettingToNerjaContent: Record<AmaraLanguage, GettingToNerjaLocale> 
         paragraphs: [
           'Ja, om semestern främst handlar om Nerja. Gamla stan, butiker, restauranger och flera stränder bildar en kompakt vardag och många gator i det historiska centrumet prioriterar fotgängare.',
           'Utan bil kräver regionala dagar mer planering, men den vanliga semesterdagen blir enklare: inget dagligt parkeringssökande, ingen bil till middagen och inget fordon mellan er och ett snabbt dopp.',
-          'AMARA Playa ligger cirka 100 meter från Torrecilla och 500 meter från Balcón de Europa. Strand och kvällar i centrum fungerar till fots; taxi eller enstaka hyrbilsdagar täcker undantagen.'
+          'AMARA Playa ligger cirka 200 meter från Torrecilla och 500 meter från Balcón de Europa. Strand och kvällar i centrum fungerar till fots; taxi eller enstaka hyrbilsdagar täcker undantagen.'
         ]
       },
       {
@@ -631,7 +631,7 @@ export const gettingToNerjaContent: Record<AmaraLanguage, GettingToNerjaLocale> 
         paragraphs: [
           'Nerjas stränder ligger i olika vikar och stadsdelar. Torrecilla och El Chucho ligger i väster; Calahonda och Carabeo hänger närmare ihop med gamla stan; Burriana bildar ett större östligt strandområde.',
           'Promenad är ofta enklast till centrala stränder, men trappor, backar och hemväg räknas. Att köra genom staden gör inte automatiskt stranddagen lättare när parkering ingår.',
-          'Torrecilla är AMARA Playas vardagsstrand på cirka 100 meters avstånd. Se Burriana, Maro och andra stränder som egna utflykter och välj promenad, taxi, buss eller bil för den aktuella dagen.'
+          'Torrecilla är AMARA Playas vardagsstrand på cirka 200 meters avstånd. Se Burriana, Maro och andra stränder som egna utflykter och välj promenad, taxi, buss eller bil för den aktuella dagen.'
         ]
       },
       {

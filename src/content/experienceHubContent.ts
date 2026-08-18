@@ -23,7 +23,7 @@ type ExperienceLinkToken =
   | 'frigiliana_wellness_authority'
   | 'nerja_nightlife_authority';
 
-type ExperienceDiscoveryLinkToken = 'romantic_hideaways';
+type ExperienceDiscoveryLinkToken = 'romantic_hideaways' | 'frigiliana_weddings';
 
 interface ExperienceDiscoveryLink {
   label: string;
@@ -75,7 +75,7 @@ interface ExperienceHubPageCopy {
       label: string;
       id: ExperienceId;
     }[];
-    discoveryLinks: [ExperienceDiscoveryLink];
+    discoveryLinks: ExperienceDiscoveryLink[];
   };
   catalog: {
     kicker: string;
@@ -408,6 +408,10 @@ export const experienceHubContent: Record<
         {
           label: stayCollectionLabels.compareLabel.en,
           token: 'romantic_hideaways'
+        },
+        {
+          label: 'Getting married in Frigiliana',
+          token: 'frigiliana_weddings'
         }
       ]
     },
@@ -567,6 +571,10 @@ export const experienceHubContent: Record<
         {
           label: stayCollectionLabels.compareLabel.de,
           token: 'romantic_hideaways'
+        },
+        {
+          label: 'Heiraten in Frigiliana',
+          token: 'frigiliana_weddings'
         }
       ]
     },
@@ -725,6 +733,10 @@ export const experienceHubContent: Record<
         {
           label: stayCollectionLabels.compareLabel.es,
           token: 'romantic_hideaways'
+        },
+        {
+          label: 'Casarse en Frigiliana',
+          token: 'frigiliana_weddings'
         }
       ]
     },
@@ -883,6 +895,10 @@ export const experienceHubContent: Record<
         {
           label: stayCollectionLabels.compareLabel.nl,
           token: 'romantic_hideaways'
+        },
+        {
+          label: 'Trouwen in Frigiliana',
+          token: 'frigiliana_weddings'
         }
       ]
     },
@@ -1041,6 +1057,10 @@ export const experienceHubContent: Record<
         {
           label: stayCollectionLabels.compareLabel.sv,
           token: 'romantic_hideaways'
+        },
+        {
+          label: 'Gifta sig i Frigiliana',
+          token: 'frigiliana_weddings'
         }
       ]
     },

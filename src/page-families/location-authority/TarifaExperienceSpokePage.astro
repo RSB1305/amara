@@ -1,4 +1,5 @@
 ---
+import InlineEmphasis from '../../components/text/InlineEmphasis.astro';
 import Navigation from '../../components/Navigation.astro';
 import EditorialByline from '../../components/editorial/EditorialByline.astro';
 import TarifaContextNav from '../../components/location/TarifaContextNav.astro';
@@ -164,7 +165,7 @@ const footerHighlights: LabeledLink[] = [
         <div class="lg:col-span-4">
           <p class="font-label text-[11px] font-bold uppercase tracking-[0.18em] text-primary">{t(content.sources.eyebrow)}</p>
           <h2 class="am-text-title mt-5 text-balance text-on-surface">{t(content.sources.title)}</h2>
-          <p class="am-text-body mt-6 leading-relaxed text-on-surface-variant">{t(content.sources.intro)}</p>
+          <p class="am-text-body mt-6 leading-relaxed text-on-surface-variant"><InlineEmphasis text={t(content.sources.intro)} /></p>
           <p class="mt-6 font-label text-[10px] font-semibold uppercase tracking-[0.12em] text-on-surface-variant/70">{t(content.sources.checked)}</p>
         </div>
         <div class="border-t border-border-subtle lg:col-span-8">
@@ -193,7 +194,7 @@ const footerHighlights: LabeledLink[] = [
           <h2 class="am-text-display mt-6 text-balance text-on-surface">{t(content.closing.title)}</h2>
         </div>
         <div class="lg:col-span-5">
-          <p class="am-text-body leading-relaxed text-on-surface-variant">{t(content.closing.body)}</p>
+          <p class="am-text-body leading-relaxed text-on-surface-variant"><InlineEmphasis text={t(content.closing.body)} /></p>
           <div class="mt-8 flex flex-col items-start gap-5 sm:flex-row sm:items-center">
             <a href={hubHref} class="am-btn am-btn--primary">{t(content.closing.hubLabel)}</a>
             <a href={propertyHref} class="am-cta-link">{t(content.closing.propertyLabel)}</a>

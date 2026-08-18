@@ -160,7 +160,7 @@ export const frigilianaWinterStaysContent: Record<
       title: 'Winter outside. Comfort inside.',
       paragraphs: [
         'A historic Andalusian house feels different in winter than it does in high summer, so indoor comfort matters.',
-        'All four AMARA stays in Frigiliana have heating. Casa AMARA also has underfloor heating in the bathrooms.',
+        '**All four AMARA stays in Frigiliana have heating.** Casa AMARA also has underfloor heating in the bathrooms.',
         'Lounis, Zaid and Maha add a pellet stove.',
         'Fast Wi-Fi, generous bathrooms and large showers bring everyday comfort inside a house whose historic fabric has developed over centuries.',
         'Spend the day exploring Frigiliana and the surrounding area, then come home to a warm and comfortable place in the evening.'
@@ -269,7 +269,7 @@ export const frigilianaWinterStaysContent: Record<
       title: 'Winter draußen. Komfort drinnen.',
       paragraphs: [
         'Ein historisches andalusisches Haus fühlt sich im Winter anders an als im Hochsommer. Deshalb ist für uns Winterkomfort ein wichtiges Thema.',
-        'Alle vier AMARA-Unterkünfte in Frigiliana verfügen über Heizung. In Casa AMARA gibt es außerdem Fußbodenheizung in den Badezimmern.',
+        '**Alle vier AMARA-Unterkünfte in Frigiliana verfügen über Heizung.** In Casa AMARA gibt es außerdem Fußbodenheizung in den Badezimmern.',
         'In Lounis, Zaid und Maha gehört zusätzlich ein Pelletofen zur Ausstattung.',
         'Dazu kommen schnelles WLAN, großzügige Badezimmer und große Duschen – moderner Komfort innerhalb eines Hauses, dessen historische Substanz über Jahrhunderte gewachsen ist.',
         'So könnt ihr morgens Frigiliana und die Umgebung entdecken und euch abends auf einen warmen, komfortablen Rückzugsort freuen.'
@@ -378,7 +378,7 @@ export const frigilianaWinterStaysContent: Record<
       title: 'Invierno fuera. Confort dentro.',
       paragraphs: [
         'Una casa histórica andaluza se vive de forma distinta en invierno que en pleno verano, por eso el confort interior importa.',
-        'Los cuatro alojamientos AMARA de Frigiliana tienen calefacción. Casa AMARA cuenta además con suelo radiante en los baños.',
+        '**Los cuatro alojamientos AMARA de Frigiliana tienen calefacción.** Casa AMARA cuenta además con suelo radiante en los baños.',
         'Lounis, Zaid y Maha disponen también de estufa de pellets.',
         'El wifi rápido, los baños amplios y las duchas grandes aportan comodidad cotidiana dentro de una casa cuya estructura histórica se ha formado a lo largo de los siglos.',
         'Así podéis pasar el día descubriendo Frigiliana y sus alrededores y volver por la tarde a un espacio cálido y confortable.'
@@ -487,7 +487,7 @@ export const frigilianaWinterStaysContent: Record<
       title: 'Winter buiten. Comfort binnen.',
       paragraphs: [
         'Een historisch Andalusisch huis voelt in de winter anders dan midden in de zomer. Daarom is comfort binnenshuis belangrijk.',
-        'Alle vier de AMARA-verblijven in Frigiliana hebben verwarming. Casa AMARA heeft bovendien vloerverwarming in de badkamers.',
+        '**Alle vier de AMARA-verblijven in Frigiliana hebben verwarming.** Casa AMARA heeft bovendien vloerverwarming in de badkamers.',
         'Lounis, Zaid en Maha hebben daarnaast een pelletkachel.',
         'Snelle wifi, ruime badkamers en grote douches zorgen voor hedendaags comfort binnen een huis waarvan de historische structuur door de eeuwen heen is gegroeid.',
         "Zo kunnen jullie overdag Frigiliana en de omgeving ontdekken en 's avonds terugkeren naar een warme, comfortabele plek."
@@ -596,7 +596,7 @@ export const frigilianaWinterStaysContent: Record<
       title: 'Vinter ute. Komfort inne.',
       paragraphs: [
         'Ett historiskt andalusiskt hus känns annorlunda på vintern än mitt i högsommaren. Därför spelar komforten inomhus stor roll.',
-        'Alla fyra AMARA-boenden i Frigiliana har uppvärmning. Casa AMARA har dessutom golvvärme i badrummen.',
+        '**Alla fyra AMARA-boenden i Frigiliana har uppvärmning.** Casa AMARA har dessutom golvvärme i badrummen.',
         'Lounis, Zaid och Maha har också pelletskamin.',
         'Snabbt wifi, rymliga badrum och stora duschar ger modern vardagskomfort i ett hus vars historiska struktur vuxit fram under århundraden.',
         'Tillbringa dagen i Frigiliana och omgivningarna och kom sedan hem till en varm och bekväm plats på kvällen.'

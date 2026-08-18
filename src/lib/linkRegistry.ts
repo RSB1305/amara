@@ -1,6 +1,10 @@
 import { buildOwnedLocalizedPath } from './routeOwnership';
 import { buildBookingLandingUrl } from './directBooking';
 
+function buildGroupEnquiry(subject: string, body: string): string {
+  return `mailto:hola@amara-lodging.es?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+}
+
 // src/lib/linkRegistry.ts
 /**
  * AMARA Link Registry — Astro SSOT
@@ -11,8 +15,8 @@ import { buildBookingLandingUrl } from './directBooking';
  */
 
 export const linkRegistry = {
-  version: '2026-08-17-registry-v4.4',
-  updated_at: '2026-08-17',
+  version: '2026-08-18-registry-v4.6',
+  updated_at: '2026-08-18',
   base: '/',
   links: {
     /* =========================================================
@@ -80,6 +84,13 @@ export const linkRegistry = {
       es: buildOwnedLocalizedPath('romantic-hideaways', 'es'),
       nl: buildOwnedLocalizedPath('romantic-hideaways', 'nl'),
       sv: buildOwnedLocalizedPath('romantic-hideaways', 'sv')
+    },
+    casa_amara_groups: {
+      en: buildOwnedLocalizedPath('casa-amara-4-8-guests', 'en'),
+      de: buildOwnedLocalizedPath('casa-amara-4-8-guests', 'de'),
+      es: buildOwnedLocalizedPath('casa-amara-4-8-guests', 'es'),
+      nl: buildOwnedLocalizedPath('casa-amara-4-8-guests', 'nl'),
+      sv: buildOwnedLocalizedPath('casa-amara-4-8-guests', 'sv')
     },
     property_sale: {
       en: buildOwnedLocalizedPath('frigiliana-hospitality-property-for-sale', 'en'),
@@ -411,6 +422,13 @@ booking_stay_terms: {
       nl: buildOwnedLocalizedPath('frigiliana-winter-stays', 'nl'),
       sv: buildOwnedLocalizedPath('frigiliana-winter-stays', 'sv')
     },
+    frigiliana_weddings: {
+      en: buildOwnedLocalizedPath('frigiliana-weddings', 'en'),
+      de: buildOwnedLocalizedPath('frigiliana-weddings', 'de'),
+      es: buildOwnedLocalizedPath('frigiliana-weddings', 'es'),
+      nl: buildOwnedLocalizedPath('frigiliana-weddings', 'nl'),
+      sv: buildOwnedLocalizedPath('frigiliana-weddings', 'sv')
+    },
 
     /* =========================================================
        FRIGILIANA — AUTHORITY (BRIDGED TO NERJA)
@@ -505,6 +523,28 @@ booking_stay_terms: {
       es: 'mailto:hola@amara-lodging.es?subject=Casa%20AMARA%20Property%20Enquiry',
       nl: 'mailto:hola@amara-lodging.es?subject=Casa%20AMARA%20Property%20Enquiry',
       sv: 'mailto:hola@amara-lodging.es?subject=Casa%20AMARA%20Property%20Enquiry'
+    },
+    casa_amara_group_enquiry: {
+      en: buildGroupEnquiry(
+        'Casa AMARA enquiry for 4–8 guests',
+        'Hello AMARA,\n\nTravel dates:\nNumber of guests:\nPreferred setup or other notes:\n'
+      ),
+      de: buildGroupEnquiry(
+        'Casa AMARA Anfrage für 4–8 Gäste',
+        'Hallo AMARA,\n\nReisedaten:\nAnzahl der Gäste:\nGewünschte Aufteilung oder weitere Hinweise:\n'
+      ),
+      es: buildGroupEnquiry(
+        'Consulta Casa AMARA para 4–8 huéspedes',
+        'Hola AMARA,\n\nFechas del viaje:\nNúmero de huéspedes:\nDistribución preferida u otras indicaciones:\n'
+      ),
+      nl: buildGroupEnquiry(
+        'Casa AMARA aanvraag voor 4–8 gasten',
+        'Hallo AMARA,\n\nReisdata:\nAantal gasten:\nGewenste indeling of andere opmerkingen:\n'
+      ),
+      sv: buildGroupEnquiry(
+        'Casa AMARA förfrågan för 4–8 gäster',
+        'Hej AMARA,\n\nResedatum:\nAntal gäster:\nÖnskad fördelning eller andra önskemål:\n'
+      )
     },
   }
 } as const;

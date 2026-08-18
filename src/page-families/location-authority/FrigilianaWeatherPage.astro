@@ -1,4 +1,5 @@
 ---
+import InlineEmphasis from '../../components/text/InlineEmphasis.astro';
 import LocationAuthorityLayout from '../../layouts/LocationAuthorityLayout.astro';
 import Navigation from '../../components/Navigation.astro';
 import EditorialClosingCta from '../../components/editorial/EditorialClosingCta.astro';
@@ -374,7 +375,7 @@ const relatedLinks = [
       <header class="mb-20 border-b border-black/10 pb-12">
         <span class="am-text-caption text-primary mb-4 block">{t(copy.header.eyebrow)}</span>
         <h1 class="am-text-display italic text-on-surface mb-6">{t(copy.header.h1)}</h1>
-        <p class="am-text-body text-on-surface-variant italic opacity-70 max-w-2xl">{t(copy.header.lead)}</p>
+        <p class="am-text-body text-on-surface-variant italic opacity-70 max-w-2xl"><InlineEmphasis text={t(copy.header.lead)} /></p>
       </header>
 
       <div class="pt-8 space-y-20">

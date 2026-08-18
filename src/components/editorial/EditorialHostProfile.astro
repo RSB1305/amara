@@ -5,6 +5,7 @@
  * Split portrait + bio with stats and optional slot (e.g. team grid).
  */
 import AmaraImage from '../AmaraImage.astro';
+import InlineEmphasis from '../text/InlineEmphasis.astro';
 
 export interface EditorialHostStat {
   label: string;
@@ -52,7 +53,7 @@ const { imageSrc, imageAlt, title, role, stats, id, intro = [] } = Astro.props;
       intro.length > 0 && (
         <div class="grid gap-5 mt-8">
           {intro.map((paragraph) => (
-            <p class="am-text-body text-subtle leading-relaxed m-0">{paragraph}</p>
+            <p class="am-text-body text-subtle leading-relaxed m-0"><InlineEmphasis text={paragraph} /></p>
           ))}
         </div>
       )

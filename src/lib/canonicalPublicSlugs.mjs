@@ -61,6 +61,8 @@ export const STATIC_CANONICAL_PUBLIC_SLUGS = Object.freeze([
   'frigiliana-streets-stairs',
   'frigiliana-weather',
   'frigiliana-winter-stays',
+  'frigiliana-weddings',
+  'casa-amara-4-8-guests',
   'getting-to-frigiliana',
   'instagram',
   'directions-arrival-guide',

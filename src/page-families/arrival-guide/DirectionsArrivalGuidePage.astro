@@ -1,4 +1,5 @@
 ---
+import InlineEmphasis from '../../components/text/InlineEmphasis.astro';
 /**
  * AMARA v3 Arrival Guide
  * Guest-facing operational arrival page for La AMARA.
@@ -94,7 +95,7 @@ const c = {
       <header class="mb-20 border-b border-black/10 pb-12">
         <span class="am-text-caption text-primary mb-4 block">{c.header.eyebrow}</span>
         <h1 class="am-text-display italic text-on-surface mb-6">{c.header.title}</h1>
-        <p class="am-text-body text-on-surface-variant italic opacity-70 max-w-2xl">{c.header.subtitle}</p>
+        <p class="am-text-body text-on-surface-variant italic opacity-70 max-w-2xl"><InlineEmphasis text={c.header.subtitle} /></p>
       </header>
 
       <div class="pt-8 space-y-20">
@@ -196,7 +197,7 @@ const c = {
                     <span class="am-text-caption uppercase tracking-[0.18em] opacity-50 mb-2 block">
                       {c.sidebar.walkingDistance[currentLang]}
                     </span>
-                    <p class="am-text-body text-on-surface leading-relaxed">{c.sidebar.walkingValue[currentLang]}</p>
+                    <p class="am-text-body text-on-surface leading-relaxed"><InlineEmphasis text={c.sidebar.walkingValue[currentLang]} /></p>
                   </div>
 
                   <div>

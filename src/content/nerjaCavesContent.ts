@@ -114,7 +114,7 @@ export const nerjaCavesContent: Record<AmaraLanguage, NerjaCavesLocale> = {
       eyebrow: 'Nerja · Caves',
       title: 'Five teenagers went looking for bats and found a cathedral',
       standfirst:
-        'The Caves of Nerja are the most visited thing in the area, and the most misreported. This is what is actually established: who found them, what the record-holding column really is, and why the famous date on the paintings turned out to be wrong.',
+        'The Caves of Nerja are **the most visited thing in the area, and the most misreported**. This is what is actually established: who found them, what the record-holding column really is, and why the famous date on the paintings turned out to be wrong.',
       note: 'Opening hours, prices and time slots change and are deliberately not listed here — check the operator before you go.',
       updated: 'Reviewed August 2026'
     },
@@ -230,7 +230,7 @@ export const nerjaCavesContent: Record<AmaraLanguage, NerjaCavesLocale> = {
       eyebrow: 'Nerja · Höhlen',
       title: 'Fünf Jugendliche suchten Fledermäuse und fanden eine Kathedrale',
       standfirst:
-        'Die Höhlen von Nerja sind die meistbesuchte Sehenswürdigkeit der Gegend – und die am häufigsten falsch beschriebene. Hier steht, was gesichert ist: wer sie fand, was die Rekordsäule wirklich ist und warum das berühmte Alter der Malereien nicht stimmt.',
+        'Die Höhlen von Nerja sind **die meistbesuchte Sehenswürdigkeit der Gegend – und die am häufigsten falsch beschriebene**. Hier steht, was gesichert ist: wer sie fand, was die Rekordsäule wirklich ist und warum das berühmte Alter der Malereien nicht stimmt.',
       note: 'Öffnungszeiten, Preise und Zeitfenster ändern sich und stehen hier bewusst nicht – prüft sie vor dem Besuch beim Betreiber.',
       updated: 'Geprüft im August 2026'
     },
@@ -346,7 +346,7 @@ export const nerjaCavesContent: Record<AmaraLanguage, NerjaCavesLocale> = {
       eyebrow: 'Nerja · Cueva',
       title: 'Cinco jóvenes buscaban murciélagos y encontraron una catedral',
       standfirst:
-        'La Cueva de Nerja es lo más visitado de la zona y también lo peor contado. Aquí está lo que está establecido: quién la encontró, qué es realmente la columna del récord y por qué la famosa datación de las pinturas no se sostiene.',
+        'La Cueva de Nerja es **lo más visitado de la zona y también lo peor contado**. Aquí está lo que está establecido: quién la encontró, qué es realmente la columna del récord y por qué la famosa datación de las pinturas no se sostiene.',
       note: 'Horarios, precios y franjas horarias cambian y no se indican aquí: consultadlos en la fundación antes de ir.',
       updated: 'Revisado en agosto de 2026'
     },
@@ -462,7 +462,7 @@ export const nerjaCavesContent: Record<AmaraLanguage, NerjaCavesLocale> = {
       eyebrow: 'Nerja · Grotten',
       title: 'Vijf jongeren zochten vleermuizen en vonden een kathedraal',
       standfirst:
-        'De grotten van Nerja zijn de best bezochte bezienswaardigheid van de streek en tegelijk de slechtst beschreven. Hier staat wat vaststaat: wie ze vond, wat de recordzuil werkelijk is en waarom de beroemde datering van de schilderingen niet klopt.',
+        'De grotten van Nerja zijn **de best bezochte bezienswaardigheid van de streek en tegelijk de slechtst beschreven**. Hier staat wat vaststaat: wie ze vond, wat de recordzuil werkelijk is en waarom de beroemde datering van de schilderingen niet klopt.',
       note: 'Openingstijden, prijzen en tijdvakken veranderen en staan hier bewust niet — controleer ze vooraf bij de beheerder.',
       updated: 'Gecontroleerd in augustus 2026'
     },
@@ -578,7 +578,7 @@ export const nerjaCavesContent: Record<AmaraLanguage, NerjaCavesLocale> = {
       eyebrow: 'Nerja · Grottorna',
       title: 'Fem ungdomar letade efter fladdermöss och hittade en katedral',
       standfirst:
-        'Nerjas grottor är traktens mest besökta sevärdhet och samtidigt den som beskrivs sämst. Här står det som är fastslaget: vem som hittade dem, vad rekordpelaren faktiskt är och varför den berömda dateringen av målningarna inte håller.',
+        'Nerjas grottor är **traktens mest besökta sevärdhet och samtidigt den som beskrivs sämst**. Här står det som är fastslaget: vem som hittade dem, vad rekordpelaren faktiskt är och varför den berömda dateringen av målningarna inte håller.',
       note: 'Öppettider, priser och tidsluckor ändras och anges medvetet inte här — kontrollera dem hos anläggningen före besöket.',
       updated: 'Granskad i augusti 2026'
     },

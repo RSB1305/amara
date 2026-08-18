@@ -3,6 +3,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import Navigation from '../../components/Navigation.astro';
 import AmaraImage from '../../components/AmaraImage.astro';
 import EditorialFeatureGrid from '../../components/editorial/EditorialFeatureGrid.astro';
+import InlineEmphasis from '../../components/text/InlineEmphasis.astro';
 import {
   propertySaleContent,
   propertySaleImages,
@@ -72,7 +73,7 @@ const enquiryHref = resolveOptionalLink('property_sale_enquiry', currentLang, {
           </p>
           <div class="mt-8 max-w-3xl border-l border-primary/40 pl-5">
             <p class="am-text-body text-on-surface-variant leading-relaxed">
-              {page.hero.saleScope}
+              <InlineEmphasis text={page.hero.saleScope} />
             </p>
             <p class="am-text-subtitle text-on-surface mt-3">
               {page.hero.price}
@@ -107,7 +108,7 @@ const enquiryHref = resolveOptionalLink('property_sale_enquiry', currentLang, {
             {page.snapshot.title}
           </h2>
           <p class="am-text-body text-on-surface-variant mt-5 leading-relaxed">
-            {page.snapshot.intro}
+            <InlineEmphasis text={page.snapshot.intro} />
           </p>
         </div>
 
@@ -144,7 +145,7 @@ const enquiryHref = resolveOptionalLink('property_sale_enquiry', currentLang, {
               {
                 page.position.paragraphs.map((paragraph) => (
                   <p class="am-text-body text-on-surface-variant leading-relaxed">
-                    {paragraph}
+                    <InlineEmphasis text={paragraph} />
                   </p>
                 ))
               }
@@ -171,7 +172,7 @@ const enquiryHref = resolveOptionalLink('property_sale_enquiry', currentLang, {
                       {detail.title}
                     </dt>
                     <dd class="am-text-body text-on-surface">
-                      {detail.copy}
+                      <InlineEmphasis text={detail.copy} />
                     </dd>
                   </div>
                 ))
@@ -197,7 +198,7 @@ const enquiryHref = resolveOptionalLink('property_sale_enquiry', currentLang, {
           </div>
           <div>
             <p class="am-text-body text-on-surface-variant leading-relaxed">
-              {page.units.intro}
+              <InlineEmphasis text={page.units.intro} />
             </p>
             <p class="am-text-subtitle text-on-surface mt-4">
               {page.units.saleNotice}
@@ -223,7 +224,7 @@ const enquiryHref = resolveOptionalLink('property_sale_enquiry', currentLang, {
             {page.useCases.title}
           </h2>
           <p class="am-text-body text-on-surface-variant mt-5 max-w-3xl leading-relaxed">
-            {page.useCases.intro}
+            <InlineEmphasis text={page.useCases.intro} />
           </p>
         </div>
 
@@ -235,7 +236,7 @@ const enquiryHref = resolveOptionalLink('property_sale_enquiry', currentLang, {
                   {item.title}
                 </h3>
                 <p class="am-text-body text-on-surface-variant mt-4 leading-relaxed">
-                  {item.copy}
+                  <InlineEmphasis text={item.copy} />
                 </p>
               </article>
             ))
@@ -243,7 +244,7 @@ const enquiryHref = resolveOptionalLink('property_sale_enquiry', currentLang, {
         </div>
 
         <p class="am-text-body text-on-surface-variant mt-10 max-w-5xl border-l border-primary/40 pl-5 leading-relaxed">
-          {page.useCases.requirements}
+          <InlineEmphasis text={page.useCases.requirements} />
         </p>
       </section>
 
@@ -261,12 +262,12 @@ const enquiryHref = resolveOptionalLink('property_sale_enquiry', currentLang, {
               {page.enquiry.title}
             </h2>
             <p class="am-text-body text-on-surface-variant mt-6 max-w-2xl leading-relaxed">
-              {page.enquiry.lead}
+              <InlineEmphasis text={page.enquiry.lead} />
             </p>
 
             <div class="mt-10 border-t border-border-subtle pt-5">
               <p class="am-text-body text-on-surface-variant leading-relaxed">
-                {page.enquiry.legalNotice}
+                <InlineEmphasis text={page.enquiry.legalNotice} />
               </p>
               <p class="am-text-subtitle text-on-surface mt-5">
                 {page.enquiry.viewingNotice}

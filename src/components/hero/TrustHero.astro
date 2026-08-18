@@ -1,4 +1,6 @@
 ---
+import InlineEmphasis from '../text/InlineEmphasis.astro';
+
 interface HeroLink {
   href: string;
   label: string;
@@ -30,8 +32,8 @@ const {
     </div>
   )}
   <h1 class="am-text-display am-exp-hero__title" set:html={title} />
-  <p class="am-text-body am-exp-hero__lead text-subtle">{lead}</p>
-  {supportText && <p class="am-text-body am-hero-support italic text-muted">{supportText}</p>}
+  <p class="am-text-body am-exp-hero__lead text-subtle"><InlineEmphasis text={lead} /></p>
+  {supportText && <p class="am-text-body am-hero-support italic text-muted"><InlineEmphasis text={supportText} /></p>}
   {ctaLinks.length > 0 && ctaVariant === 'conversion' && (
     <div class="am-exp-hero__actions">
       {ctaLinks.map((link, index) => (
