@@ -1,15 +1,9 @@
 @import "@fontsource/newsreader/latin-300.css";
-@import "@fontsource/newsreader/latin-ext-300.css";
 @import "@fontsource/newsreader/latin-300-italic.css";
-@import "@fontsource/newsreader/latin-ext-300-italic.css";
 @import "@fontsource/newsreader/latin-400.css";
-@import "@fontsource/newsreader/latin-ext-400.css";
 @import "@fontsource/newsreader/latin-400-italic.css";
-@import "@fontsource/newsreader/latin-ext-400-italic.css";
 @import "@fontsource/plus-jakarta-sans/latin-400.css";
-@import "@fontsource/plus-jakarta-sans/latin-ext-400.css";
 @import "@fontsource/plus-jakarta-sans/latin-700.css";
-@import "@fontsource/plus-jakarta-sans/latin-ext-700.css";
 @import "tailwindcss";
 
 @theme {
@@ -455,16 +449,6 @@
     line-height: 1;
     font-weight: 400;
     color: var(--color-primary-alpha-80);
-  }
-
-  /**
-   * The grain layer is part of the AMARA shell language, so it remains global.
-   * Keeping it here avoids re-declaring the same texture in page components.
-   */
-  .grain-overlay {
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
-    opacity: 0.03;
-    pointer-events: none;
   }
 
   /**

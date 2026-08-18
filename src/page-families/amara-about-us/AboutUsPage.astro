@@ -10,7 +10,7 @@ import { getAboutUsPageData } from '../../content/aboutUsContent';
 import { resolveOptionalLink } from '../../lib/linkResolver';
 import { normalizeLanguage } from '../../lib/seo/resolve-seo-head';
 import type { AmaraLanguage } from '../../types/seo';
-import '@fontsource/newsreader/700.css';
+import '@fontsource/newsreader/latin-700.css';
 
 const { lang = 'es' } = Astro.props;
 const currentLang = normalizeLanguage(lang as AmaraLanguage);
