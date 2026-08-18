@@ -49,6 +49,16 @@ const planningItems = copy.planning.items.map((item) => ({
 const footerHighlights: LabeledLink[] = [
   { token: 'frigiliana_weddings', label: copy.footerHighlights.weddings },
   { token: 'location_frigiliana', label: copy.footerHighlights.location },
+  {
+    token: 'casa_amara_groups',
+    label: {
+      en: 'Casa AMARA for 4–8',
+      de: 'Casa AMARA für 4–8',
+      es: 'Casa AMARA para 4–8',
+      nl: 'Casa AMARA voor 4–8',
+      sv: 'Casa AMARA för 4–8'
+    }[currentLang]
+  },
   { token: 'romantic_hideaways', label: copy.footerHighlights.stays }
 ];
 

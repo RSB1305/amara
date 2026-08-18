@@ -382,6 +382,16 @@ const tArr = (row: Record<AmaraLanguage, string[]>) => row[currentLang] ?? row.e
 
 
 const footerHighlights: LabeledLink[] = [
+  {
+    token: 'casa_amara_groups',
+    label: t({
+      en: 'Casa AMARA for 4–8',
+      de: 'Casa AMARA für 4–8',
+      es: 'Casa AMARA para 4–8',
+      nl: 'Casa AMARA voor 4–8',
+      sv: 'Casa AMARA för 4–8'
+    })
+  },
   { token: 'amenities', label: t(comfortAmenitiesLinkLabel) },
   { token: 'faq_general', label: t({ en: 'Stay FAQ', de: 'Aufenthalts-FAQ', es: 'FAQ de la estancia', nl: 'Verblijfs-FAQ', sv: 'FAQ för vistelsen' }) },
   { token: 'instagram', label: t({ en: 'Instagram', de: 'Instagram', es: 'Instagram', nl: 'Instagram', sv: 'Instagram' }) }
