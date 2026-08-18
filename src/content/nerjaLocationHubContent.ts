@@ -163,7 +163,7 @@ export const nerjaLocationHubContent: {
         title: 'A beach town where the coast still asks you to choose',
         paragraphs: [
           'Torrecilla, El Chucho, Calahonda, Carabeo and Burriana are not interchangeable. Access, facilities, stairs and the route back to your accommodation all change the feel of a beach day.',
-          'From AMARA Playa, Torrecilla is approximately 100 metres away. That makes a quick swim or a second visit near sunset easy; other beaches can remain deliberate walks or occasional taxi and car outings.'
+          'From AMARA Playa, Torrecilla is approximately 200 metres away. That makes a quick swim or a second visit near sunset easy; other beaches can remain deliberate walks or occasional taxi and car outings.'
         ]
       },
       dailyLife: {
@@ -189,11 +189,11 @@ export const nerjaLocationHubContent: {
         paragraphs: [
           'For years we were holiday guests in this exact apartment. We enjoyed our time here so much that we did not hesitate for a second when we heard it was for sale.',
           'If we had to describe it in a few words: absolute cosiness and the perfect location. You are right in the centre, yet the apartment faces away from the street and stays wonderfully quiet — crowned by a sea view. You do not need a car here.',
-          'The location is hard to beat: barely 500 metres to the Balcón de Europa and just 100 metres to Torrecilla beach. Walk a few hundred metres further and you reach small, secluded coves.',
+          'The location is hard to beat: barely 500 metres to the Balcón de Europa and just 200 metres to Torrecilla beach. Walk a few hundred metres further and you reach small, secluded coves.',
           'The building belongs in an honest plan, too: the apartment is on the fifth floor with a lift, but there are five steps outside and five inside before you reach it. No private parking is supplied.'
         ],
         facts: [
-          'Approximately 100 m to Torrecilla beach',
+          'Approximately 200 m to Torrecilla beach',
           'Approximately 500 m to the Balcón de Europa',
           'Private balcony, full kitchen and washing machine',
           'Air conditioning and heating; no private parking'
@@ -274,7 +274,7 @@ export const nerjaLocationHubContent: {
         title: 'Auch in einem Strandort bleibt die Küstenwahl wichtig',
         paragraphs: [
           'Torrecilla, El Chucho, Calahonda, Carabeo und Burriana sind nicht austauschbar. Zugang, Ausstattung, Treppen und der Rückweg zur Unterkunft verändern den Strandtag.',
-          'Von AMARA Playa sind es ungefähr 100 Meter bis Torrecilla. Ein kurzer Sprung ins Meer oder ein zweiter Besuch am Abend bleibt dadurch unkompliziert; andere Strände werden zu bewussten Spaziergängen oder gelegentlichen Taxi- und Autofahrten.'
+          'Von AMARA Playa sind es ungefähr 200 Meter bis Torrecilla. Ein kurzer Sprung ins Meer oder ein zweiter Besuch am Abend bleibt dadurch unkompliziert; andere Strände werden zu bewussten Spaziergängen oder gelegentlichen Taxi- und Autofahrten.'
         ]
       },
       dailyLife: {
@@ -300,11 +300,11 @@ export const nerjaLocationHubContent: {
         paragraphs: [
           'Jahrelang waren wir selbst Urlaubsgäste in genau dieser Wohnung. Wir haben die Zeit hier so sehr genossen, dass wir keine Sekunde zögern mussten, als wir erfuhren, dass sie zum Verkauf steht.',
           'In wenigen Worten: absolute Gemütlichkeit und die perfekte Lage. Man ist mitten im Zentrum, und trotzdem liegt die Wohnung nach hinten heraus und bleibt herrlich ruhig – gekrönt von einem wunderbaren Meerblick. Ein Auto braucht man hier nicht.',
-          'Die Lage ist schwer zu schlagen: knapp 500 Meter zum Balcón de Europa und gerade einmal 100 Meter zum Strand Torrecilla. Wer ein paar hundert Meter weiter geht, erreicht abgelegene, ruhige kleine Buchten.',
+          'Die Lage ist schwer zu schlagen: knapp 500 Meter zum Balcón de Europa und gerade einmal 200 Meter zum Strand Torrecilla. Wer ein paar hundert Meter weiter geht, erreicht abgelegene, ruhige kleine Buchten.',
           'Auch das Gebäude gehört zur ehrlichen Planung: Die Wohnung liegt im fünften Stock mit Aufzug, davor gibt es außen fünf und innen weitere fünf Stufen. Ein privater Stellplatz ist nicht vorhanden.'
         ],
         facts: [
-          'Ungefähr 100 m bis zum Strand Torrecilla',
+          'Ungefähr 200 m bis zum Strand Torrecilla',
           'Ungefähr 500 m bis zum Balcón de Europa',
           'Privater Balkon, vollständige Küche und Waschmaschine',
           'Klimaanlage und Heizung; kein privater Stellplatz'
@@ -385,7 +385,7 @@ export const nerjaLocationHubContent: {
         title: 'En Nerja también importa elegir qué costa queréis vivir',
         paragraphs: [
           'Torrecilla, El Chucho, Calahonda, Carabeo y Burriana no son intercambiables. Accesos, servicios, escaleras y la vuelta al alojamiento cambian el día de playa.',
-          'Desde AMARA Playa hay unos 100 metros hasta Torrecilla. Es fácil bajar a darse un baño o volver al atardecer; las demás playas pueden ser paseos deliberados o salidas puntuales en taxi o coche.'
+          'Desde AMARA Playa hay unos 200 metros hasta Torrecilla. Es fácil bajar a darse un baño o volver al atardecer; las demás playas pueden ser paseos deliberados o salidas puntuales en taxi o coche.'
         ]
       },
       dailyLife: {
@@ -411,11 +411,11 @@ export const nerjaLocationHubContent: {
         paragraphs: [
           'Durante años fuimos nosotros mismos huéspedes en este mismo apartamento. Disfrutamos tanto del tiempo aquí que no dudamos ni un segundo cuando supimos que se vendía.',
           'Si tuviéramos que resumirlo: comodidad absoluta y la ubicación perfecta. Estáis en pleno centro y, aun así, el apartamento da a la parte trasera y se mantiene maravillosamente tranquilo, coronado por unas vistas al mar. Aquí no hace falta coche.',
-          'La ubicación es difícil de superar: apenas 500 metros hasta el Balcón de Europa y solo 100 metros hasta la playa de Torrecilla. Unos cientos de metros más allá se llega a pequeñas calas apartadas y tranquilas.',
+          'La ubicación es difícil de superar: apenas 500 metros hasta el Balcón de Europa y solo 200 metros hasta la playa de Torrecilla. Unos cientos de metros más allá se llega a pequeñas calas apartadas y tranquilas.',
           'El edificio también forma parte de una planificación honesta: el apartamento está en una quinta planta con ascensor, pero hay cinco escalones fuera y otros cinco dentro antes de llegar a él. No incluye aparcamiento privado.'
         ],
         facts: [
-          'Aproximadamente 100 m hasta la playa de Torrecilla',
+          'Aproximadamente 200 m hasta la playa de Torrecilla',
           'Aproximadamente 500 m hasta el Balcón de Europa',
           'Balcón privado, cocina completa y lavadora',
           'Aire acondicionado y calefacción; sin aparcamiento privado'
@@ -496,7 +496,7 @@ export const nerjaLocationHubContent: {
         title: 'Ook in een badplaats blijft de keuze van het strand belangrijk',
         paragraphs: [
           'Torrecilla, El Chucho, Calahonda, Carabeo en Burriana zijn niet hetzelfde. Toegang, voorzieningen, trappen en de terugweg naar je verblijf bepalen hoe de stranddag voelt.',
-          'Vanaf AMARA Playa is Torrecilla ongeveer 100 meter. Even zwemmen of later op de dag teruggaan is daardoor eenvoudig; andere stranden blijven bewuste wandelingen of af en toe een rit per taxi of auto.'
+          'Vanaf AMARA Playa is Torrecilla ongeveer 200 meter. Even zwemmen of later op de dag teruggaan is daardoor eenvoudig; andere stranden blijven bewuste wandelingen of af en toe een rit per taxi of auto.'
         ]
       },
       dailyLife: {
@@ -522,11 +522,11 @@ export const nerjaLocationHubContent: {
         paragraphs: [
           'Jarenlang waren we zelf vakantiegasten in precies dit appartement. We genoten er zo van dat we geen seconde twijfelden toen we hoorden dat het te koop stond.',
           'In een paar woorden: absolute gezelligheid en de perfecte ligging. Je zit midden in het centrum en toch ligt het appartement aan de achterzijde en blijft het heerlijk rustig — bekroond met zeezicht. Een auto heb je hier niet nodig.',
-          'De ligging is moeilijk te verslaan: nog geen 500 meter tot de Balcón de Europa en slechts 100 meter tot het strand Torrecilla. Een paar honderd meter verder liggen afgelegen, rustige baaitjes.',
+          'De ligging is moeilijk te verslaan: nog geen 500 meter tot de Balcón de Europa en slechts 200 meter tot het strand Torrecilla. Een paar honderd meter verder liggen afgelegen, rustige baaitjes.',
           'Ook het gebouw hoort bij een eerlijke planning: het appartement ligt op de vijfde verdieping met lift, maar vóór de lift zijn er buiten vijf en binnen nog vijf treden. Er is geen eigen parkeerplaats.'
         ],
         facts: [
-          'Ongeveer 100 m naar het strand van Torrecilla',
+          'Ongeveer 200 m naar het strand van Torrecilla',
           'Ongeveer 500 m naar het Balcón de Europa',
           'Privébalkon, complete keuken en wasmachine',
           'Airconditioning en verwarming; geen privéparkeerplaats'
@@ -607,7 +607,7 @@ export const nerjaLocationHubContent: {
         title: 'Även i en badort spelar valet av kustläge roll',
         paragraphs: [
           'Torrecilla, El Chucho, Calahonda, Carabeo och Burriana är inte utbytbara. Tillgång, service, trappor och vägen tillbaka till boendet förändrar stranddagen.',
-          'Från AMARA Playa är det cirka 100 meter till Torrecilla. Ett snabbt dopp eller ett nytt besök på kvällen blir enkelt; andra stränder kan vara medvetna promenader eller enstaka taxi- och bilturer.'
+          'Från AMARA Playa är det cirka 200 meter till Torrecilla. Ett snabbt dopp eller ett nytt besök på kvällen blir enkelt; andra stränder kan vara medvetna promenader eller enstaka taxi- och bilturer.'
         ]
       },
       dailyLife: {
@@ -633,11 +633,11 @@ export const nerjaLocationHubContent: {
         paragraphs: [
           'I flera år var vi själva semestergäster i precis den här lägenheten. Vi trivdes så bra att vi inte tvekade en sekund när vi fick veta att den var till salu.',
           'Med några få ord: absolut mysighet och det perfekta läget. Ni bor mitt i centrum, och ändå vetter lägenheten mot baksidan och förblir härligt tyst — krönt av havsutsikt. Här behöver ni ingen bil.',
-          'Läget är svårslaget: knappt 500 meter till Balcón de Europa och bara 100 meter till stranden Torrecilla. Går man några hundra meter till når man små, avskilda och lugna vikar.',
+          'Läget är svårslaget: knappt 500 meter till Balcón de Europa och bara 200 meter till stranden Torrecilla. Går man några hundra meter till når man små, avskilda och lugna vikar.',
           'Även byggnaden hör till en ärlig planering: lägenheten ligger på femte våningen med hiss, men före hissen finns fem trappsteg utomhus och fem inomhus. Privat parkering ingår inte.'
         ],
         facts: [
-          'Cirka 100 m till Torrecillas strand',
+          'Cirka 200 m till Torrecillas strand',
           'Cirka 500 m till Balcón de Europa',
           'Privat balkong, fullt kök och tvättmaskin',
           'Luftkonditionering och värme; ingen privat parkering'

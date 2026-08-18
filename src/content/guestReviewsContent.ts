@@ -184,11 +184,11 @@ export const guestReviewsCopy = {
       sv: 'Fyra boenden i den historiska gamla stan. Lounis, Zaid och Maha har privat terrass; Farah är det enklare alternativet för ett kort besök.'
     },
     locationNerja: {
-      en: 'A hundred metres from the beach and still pleasantly quiet. Lift to the apartment floor, with a few steps before reaching the lift.',
-      de: 'Hundert Meter zum Strand und trotzdem angenehm ruhig. Aufzug bis zur Wohnungsetage, davor sind einige Stufen zu überwinden.',
-      es: 'A cien metros de la playa y, aun así, agradablemente tranquilo. Ascensor hasta la planta del apartamento, con algunos escalones antes de llegar al ascensor.',
-      nl: 'Op honderd meter van het strand en toch aangenaam rustig. Lift tot de verdieping van het appartement, met enkele treden voordat de lift bereikbaar is.',
-      sv: 'Hundra meter från stranden och ändå behagligt lugnt. Hiss till lägenhetens våningsplan, med några trappsteg innan man når hissen.'
+      en: '200 metres from the beach and still pleasantly quiet. Lift to the apartment floor, with a few steps before reaching the lift.',
+      de: '200 Meter zum Strand und trotzdem angenehm ruhig. Aufzug bis zur Wohnungsetage, davor sind einige Stufen zu überwinden.',
+      es: 'A 200 metros de la playa y, aun así, agradablemente tranquilo. Ascensor hasta la planta del apartamento, con algunos escalones antes de llegar al ascensor.',
+      nl: 'Op 200 meter van het strand en toch aangenaam rustig. Lift tot de verdieping van het appartement, met enkele treden voordat de lift bereikbaar is.',
+      sv: '200 meter från stranden och ändå behagligt lugnt. Hiss till lägenhetens våningsplan, med några trappsteg innan man når hissen.'
     },
     locationTarifa: {
       en: 'A 75 m² penthouse over two floors, with two bedrooms, two bathrooms and a terrace facing the Atlantic.',

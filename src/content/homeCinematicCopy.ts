@@ -417,7 +417,7 @@ export const cinematicApartments: CinematicAptDef[] = [
     name: 'Playa',
     subtitle: {
       en: 'Nerja Beach Apartment',
-      de: '100 Meter vom Strand in Nerja',
+      de: '200 Meter vom Strand in Nerja',
       es: 'Apartamento de playa en Nerja',
       nl: 'Strandappartement Nerja',
       sv: 'Strandlägenhet Nerja'
@@ -430,11 +430,11 @@ export const cinematicApartments: CinematicAptDef[] = [
       sv: 'Nerja • 2 gäster'
     },
     desc: {
-      en: '100 metres from Torrecilla beach and 500 metres from the Balcón de Europa. Fifth floor with lift, side sea view and a 200 × 200 cm bed.',
+      en: '200 metres from Torrecilla beach and 500 metres from the Balcón de Europa. Fifth floor with lift, side sea view and a 200 × 200 cm bed.',
       de: 'Nur 500 Meter bis zum Balcón de Europa und trotzdem ruhig. Im fünften Stock mit Aufzug und einem 200 × 200 cm großen Bett.',
-      es: 'A 100 metros de la playa de Torrecilla y 500 del Balcón de Europa. Quinta planta con ascensor, vistas laterales al mar y cama de 200 × 200 cm.',
-      nl: 'Op 100 meter van het strand van Torrecilla en 500 meter van het Balcón de Europa. Vijfde verdieping met lift, zijdelings zeezicht en een bed van 200 × 200 cm.',
-      sv: '100 meter från Torrecillastranden och 500 meter från Balcón de Europa. Femte våningen med hiss, havsutsikt åt sidan och en säng på 200 × 200 cm.'
+      es: 'A 200 metros de la playa de Torrecilla y 500 del Balcón de Europa. Quinta planta con ascensor, vistas laterales al mar y cama de 200 × 200 cm.',
+      nl: 'Op 200 meter van het strand van Torrecilla en 500 meter van het Balcón de Europa. Vijfde verdieping met lift, zijdelings zeezicht en een bed van 200 × 200 cm.',
+      sv: '200 meter från Torrecillastranden och 500 meter från Balcón de Europa. Femte våningen med hiss, havsutsikt åt sidan och en säng på 200 × 200 cm.'
     },
     imageAlt: {
       en: 'Blue-and-white living and dining room with balcony at AMARA Playa in Nerja',
