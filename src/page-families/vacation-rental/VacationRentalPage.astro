@@ -137,11 +137,11 @@ const ui = {
     sv: 'Boendet i detalj'
   },
   additionalDetails: {
-    en: 'View, parking & more',
-    de: 'Ausblick, Parken & mehr',
-    es: 'Vistas, aparcamiento y más',
-    nl: 'Uitzicht, parkeren en meer',
-    sv: 'Utsikt, parkering med mera'
+    en: 'Beds, access, parking & more',
+    de: 'Betten, Zugang, Parken & mehr',
+    es: 'Camas, acceso, aparcamiento y más',
+    nl: 'Bedden, toegang, parkeren en meer',
+    sv: 'Sängar, tillträde, parkering med mera'
   },
   galleryTitle: {
     en: 'Photos of the accommodation',
@@ -486,12 +486,20 @@ const bathroomUnderfloorHeating: LocalizedText = {
   sv: 'Golvvärme i badrummet'
 };
 
-const lounisAreaLabel: LocalizedText = {
+const privateTerraceAreaLabel: LocalizedText = {
   en: 'Interior / Private terrace',
   de: 'Innen / Private Terrasse',
   es: 'Interior / Terraza privada',
   nl: 'Binnen / Privéterras',
   sv: 'Inomhus / Privat terrass'
+};
+
+const terraceAreaLabel: LocalizedText = {
+  en: 'Interior / Terrace',
+  de: 'Innen / Terrasse',
+  es: 'Interior / Terraza',
+  nl: 'Binnen / Terras',
+  sv: 'Inomhus / Terrass'
 };
 
 const outdoorPool: LocalizedText = {
@@ -675,6 +683,13 @@ const parkingValue = amenityValue('parkingType');
 const localizedParking = parkingValue === 'ReservedUndergroundIncluded'
   ? t(amenityValueLabels.ReservedUndergroundIncluded)
   : t(ui.labels.freeParking as LocalizedText);
+const localizedAreaLabel = rental.exteriorAreaSqm && hasAmenity('privateTerrace')
+  ? t(privateTerraceAreaLabel)
+  : rental.exteriorAreaSqm && hasAmenity('patio')
+    ? t(terraceAreaLabel)
+    : t((rental.exteriorAreaSqm
+        ? ui.labels.interiorExteriorArea
+        : ui.labels.interiorArea) as LocalizedText);
 
 type FactRow = {
   label: string;
@@ -689,11 +704,7 @@ const factRows: FactRow[] = [
   { label: t(ui.labels.bathrooms as LocalizedText), value: String(rental.bathrooms), Icon: Bath },
   ...(rental.interiorAreaSqm
     ? [{
-        label: rental.key === 'amara-lounis'
-          ? t(lounisAreaLabel)
-          : t((rental.exteriorAreaSqm
-              ? ui.labels.interiorExteriorArea
-              : ui.labels.interiorArea) as LocalizedText),
+        label: localizedAreaLabel,
         value: rental.exteriorAreaSqm
           ? `${rental.interiorAreaSqm} m² / ${rental.exteriorAreaSqm} m²`
           : `${rental.interiorAreaSqm} m²`,
@@ -712,7 +723,7 @@ const factRows: FactRow[] = [
     Icon: CookingPot,
     wide: true
   },
-  ...(rental.key === 'amara-lounis'
+  ...(rental.exteriorAreaSqm
     ? []
     : [{
         label: t(ui.labels.outdoor as LocalizedText),
@@ -742,12 +753,17 @@ const localizedVehicleAccess: LocalizedText | undefined = vehicleAccessHours
   : undefined;
 
 const detailRows = [
+  { label: t(ui.labels.bedSize as LocalizedText), value: rental.bed.map(formatBed).join(', '), Icon: BedDouble },
   { label: t(ui.labels.view as LocalizedText), value: t(rental.viewNote), Icon: Eye },
+  { label: t(ui.labels.access as LocalizedText), value: t(rental.accessNote), Icon: Accessibility },
   ...(localizedVehicleAccess
     ? [{ label: t(ui.labels.vehicleAccess as LocalizedText), value: t(localizedVehicleAccess), Icon: CarFront }]
     : []),
   { label: t(ui.labels.pets as LocalizedText), value: t(rental.petsNote), Icon: PawPrint },
   { label: t(ui.labels.hostLanguages as LocalizedText), value: t(localizedHostLanguages), Icon: Languages },
+  ...(parkingValue
+    ? [{ label: t(ui.labels.parking as LocalizedText), value: localizedParking, Icon: CircleParking }]
+    : []),
   { label: t(ui.labels.license as LocalizedText), value: rental.license, Icon: BadgeCheck }
 ];
 
@@ -1154,7 +1170,7 @@ const breadcrumbRentalName = rental.name.replace(/^AMARA\s+/u, '');
       </section>
 
       <section class="py-12 md:py-16 border-b border-border-subtle" aria-labelledby="rental-details-title">
-        <div class="grid gap-10 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] lg:gap-14">
+        <div class="grid gap-12 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)]">
           <div>
             <h2 id="rental-details-title" class="am-text-title text-on-surface">
               {t(ui.detailsTitle as LocalizedText)}
@@ -1167,10 +1183,8 @@ const breadcrumbRentalName = rental.name.replace(/^AMARA\s+/u, '');
             >
               {t(rental.description)}
             </p>
-          </div>
 
-          <div class="grid self-start gap-6">
-            <dl class="bg-surface-container-low px-5 sm:px-6">
+            <dl class="mt-4 bg-surface-container-low px-5 sm:px-6">
               {scheduleRows.map(({ label, value, Icon }) => (
                 <div class="grid min-h-[4.5rem] grid-cols-[2.25rem_minmax(0,1fr)] content-center gap-x-4 border-b border-border-subtle py-4 first:border-t last:border-b-0 md:min-h-[5.75rem] md:py-5">
                   <dt class="col-span-2 grid grid-cols-[2.25rem_minmax(0,1fr)] items-center gap-x-4">
@@ -1187,10 +1201,12 @@ const breadcrumbRentalName = rental.name.replace(/^AMARA\s+/u, '');
                 </div>
               ))}
             </dl>
+          </div>
 
-            {detailRows.length > 0 && (
-              <details class="group border-y border-border-subtle" data-am-responsive-details>
-                <summary class="am-accordion__trigger min-h-11 items-center py-5 lg:hidden">
+          {detailRows.length > 0 && (
+            <div class="self-start">
+              <details class="group border-y border-border-subtle lg:hidden">
+                <summary class="am-accordion__trigger min-h-11 items-center py-5">
                   <span class="font-label text-[12px] font-semibold uppercase tracking-[0.1em] text-on-surface group-hover:text-primary transition-colors">
                     {t(ui.additionalDetails as LocalizedText)}
                   </span>
@@ -1199,7 +1215,7 @@ const breadcrumbRentalName = rental.name.replace(/^AMARA\s+/u, '');
                     <span class="hidden group-open:inline">−</span>
                   </span>
                 </summary>
-                <dl class="bg-surface-container-low px-5 sm:px-6" data-am-details-content>
+                <dl class="bg-surface-container-low px-5 sm:px-6">
                   {detailRows.map(({ label, value, Icon }) => (
                     <div class="grid min-h-[4.5rem] grid-cols-[2.25rem_minmax(0,1fr)] content-center gap-x-4 border-b border-border-subtle py-4 last:border-b-0 md:min-h-[5.75rem] md:py-5">
                       <dt class="col-span-2 grid grid-cols-[2.25rem_minmax(0,1fr)] items-center gap-x-4">
@@ -1217,8 +1233,33 @@ const breadcrumbRentalName = rental.name.replace(/^AMARA\s+/u, '');
                   ))}
                 </dl>
               </details>
-            )}
-          </div>
+
+              <div class="hidden border-y border-border-subtle lg:block" aria-labelledby="rental-additional-details-title">
+                <div class="flex min-h-11 items-center py-5">
+                  <h3 id="rental-additional-details-title" class="font-label text-[12px] font-semibold uppercase tracking-[0.1em] text-on-surface">
+                    {t(ui.additionalDetails as LocalizedText)}
+                  </h3>
+                </div>
+                <dl class="bg-surface-container-low px-5 sm:px-6">
+                  {detailRows.map(({ label, value, Icon }) => (
+                    <div class="grid min-h-[4.5rem] grid-cols-[2.25rem_minmax(0,1fr)] content-center gap-x-4 border-b border-border-subtle py-4 last:border-b-0 md:min-h-[5.75rem] md:py-5">
+                      <dt class="col-span-2 grid grid-cols-[2.25rem_minmax(0,1fr)] items-center gap-x-4">
+                        <span class="flex h-9 w-9 items-center justify-center rounded-full bg-surface text-primary" aria-hidden="true">
+                          <Icon class="h-[1.125rem] w-[1.125rem]" stroke-width={1.5} />
+                        </span>
+                        <span class="min-w-0 font-label text-[12px] font-semibold tracking-[0.04em] text-on-surface-variant">
+                          {label}
+                        </span>
+                      </dt>
+                      <dd class="am-text-body col-start-2 mt-1 text-on-surface">
+                        {value}
+                      </dd>
+                    </div>
+                  ))}
+                </dl>
+              </div>
+            </div>
+          )}
         </div>
       </section>
 
@@ -1424,12 +1465,6 @@ const breadcrumbRentalName = rental.name.replace(/^AMARA\s+/u, '');
 </BaseLayout>
 
 <style is:global>
-  @media (min-width: 64rem) {
-    details[data-am-responsive-details]:not([open]) > [data-am-details-content] {
-      display: block;
-    }
-  }
-
   @media (max-width: 47.999rem) {
     [data-am-page='vacation-rental'] ~ .footer .footer-minimal {
       padding-block: 1.5rem;
