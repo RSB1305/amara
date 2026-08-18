@@ -148,7 +148,7 @@ export const propertySaleContent: Record<AmaraLanguage, PropertySaleLocalizedCon
       facts: [
         { label: 'Location', value: 'Historic old town of Frigiliana, Málaga, Andalusia' },
         { label: 'Property type', value: 'One complete freehold property' },
-        { label: 'Configuration', value: '3 independent apartments + 1 premium double room' },
+        { label: 'Configuration', value: '3 independent apartments + 1 compact suite' },
         { label: 'Interior area', value: 'Approx. 170 m²' },
         { label: 'Terraces and outdoor area', value: 'Approx. 130 m² across three usable terraces' },
         { label: 'Access', value: 'Direct car access within the historic old town' },
@@ -200,7 +200,7 @@ export const propertySaleContent: Record<AmaraLanguage, PropertySaleLocalizedCon
         },
         {
           title: 'AMARA Farah',
-          subline: 'Premium double room',
+          subline: 'Compact suite',
           copy: 'The fourth guest unit in the current boutique accommodation configuration.'
         }
       ]
@@ -283,7 +283,7 @@ export const propertySaleContent: Record<AmaraLanguage, PropertySaleLocalizedCon
       facts: [
         { label: 'Lage', value: 'Historische Altstadt von Frigiliana, Málaga, Andalusien' },
         { label: 'Immobilienart', value: 'Eine vollständige Immobilie in Alleineigentum' },
-        { label: 'Aufteilung', value: '3 unabhängige Apartments + 1 Premium-Doppelzimmer' },
+        { label: 'Aufteilung', value: '3 unabhängige Apartments + 1 kompakte Suite' },
         { label: 'Innenfläche', value: 'Ca. 170 m²' },
         { label: 'Terrassen und Außenflächen', value: 'Ca. 130 m² auf drei nutzbaren Terrassen' },
         { label: 'Zufahrt', value: 'Direkte Autozufahrt innerhalb der historischen Altstadt' },
@@ -335,7 +335,7 @@ export const propertySaleContent: Record<AmaraLanguage, PropertySaleLocalizedCon
         },
         {
           title: 'AMARA Farah',
-          subline: 'Premium-Doppelzimmer',
+          subline: 'Kompakte Suite',
           copy: 'Die vierte Gasteinheit in der heutigen Boutique-Unterkunftsstruktur.'
         }
       ]
@@ -418,7 +418,7 @@ export const propertySaleContent: Record<AmaraLanguage, PropertySaleLocalizedCon
       facts: [
         { label: 'Ubicación', value: 'Casco histórico de Frigiliana, Málaga, Andalucía' },
         { label: 'Tipo de propiedad', value: 'Una propiedad completa en pleno dominio' },
-        { label: 'Configuración', value: '3 apartamentos independientes + 1 habitación doble premium' },
+        { label: 'Configuración', value: '3 apartamentos independientes + 1 suite compacta' },
         { label: 'Superficie interior', value: 'Aprox. 170 m²' },
         { label: 'Terrazas y exteriores', value: 'Aprox. 130 m² distribuidos en tres terrazas utilizables' },
         { label: 'Acceso', value: 'Acceso directo en coche dentro del casco histórico' },
@@ -470,7 +470,7 @@ export const propertySaleContent: Record<AmaraLanguage, PropertySaleLocalizedCon
         },
         {
           title: 'AMARA Farah',
-          subline: 'Habitación doble premium',
+          subline: 'Suite compacta',
           copy: 'La cuarta unidad para huéspedes de la configuración actual del alojamiento boutique.'
         }
       ]
@@ -553,7 +553,7 @@ export const propertySaleContent: Record<AmaraLanguage, PropertySaleLocalizedCon
       facts: [
         { label: 'Locatie', value: 'Historisch centrum van Frigiliana, Málaga, Andalusië' },
         { label: 'Type object', value: 'Eén complete onroerende zaak in volle eigendom' },
-        { label: 'Indeling', value: '3 zelfstandige appartementen + 1 premium tweepersoonskamer' },
+        { label: 'Indeling', value: '3 zelfstandige appartementen + 1 compacte suite' },
         { label: 'Binnenruimte', value: 'Circa 170 m²' },
         { label: 'Terrassen en buitenruimte', value: 'Circa 130 m² verdeeld over drie bruikbare terrassen' },
         { label: 'Bereikbaarheid', value: 'Direct bereikbaar met de auto in het historische centrum' },
@@ -605,7 +605,7 @@ export const propertySaleContent: Record<AmaraLanguage, PropertySaleLocalizedCon
         },
         {
           title: 'AMARA Farah',
-          subline: 'Premium tweepersoonskamer',
+          subline: 'Compacte suite',
           copy: 'De vierde gastenunit binnen de huidige boutique-accommodatieopzet.'
         }
       ]
@@ -688,7 +688,7 @@ export const propertySaleContent: Record<AmaraLanguage, PropertySaleLocalizedCon
       facts: [
         { label: 'Läge', value: 'Frigilianas historiska stadskärna, Málaga, Andalusien' },
         { label: 'Fastighetstyp', value: 'En komplett friköpt fastighet' },
-        { label: 'Utformning', value: '3 fristående lägenheter + 1 premium dubbelrum' },
+        { label: 'Utformning', value: '3 fristående lägenheter + 1 kompakt svit' },
         { label: 'Invändig yta', value: 'Cirka 170 m²' },
         { label: 'Terrasser och utomhusyta', value: 'Cirka 130 m² fördelat på tre användbara terrasser' },
         { label: 'Tillgänglighet', value: 'Direkt tillgänglig med bil i den historiska stadskärnan' },
@@ -740,7 +740,7 @@ export const propertySaleContent: Record<AmaraLanguage, PropertySaleLocalizedCon
         },
         {
           title: 'AMARA Farah',
-          subline: 'Premium dubbelrum',
+          subline: 'Kompakt svit',
           copy: 'Den fjärde gästenheten i den nuvarande boutiqueinriktade boendestrukturen.'
         }
       ]

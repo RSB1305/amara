@@ -97,31 +97,31 @@ export const casaAmaraGroupsSeo: AmaraAuthoringSeo = {
   languages: {
     en: {
       title: 'Accommodation for 4–8 in Frigiliana | Casa AMARA',
-      description: 'Stay together in Frigiliana with your own space: three apartments and one double room for 4–8 guests at Casa AMARA. Combined stays by enquiry.',
+      description: 'Stay together in Frigiliana with your own space: three apartments and one compact suite for 4–8 guests at Casa AMARA. Combined stays by enquiry.',
       robots: 'index, follow',
       canonical: 'auto'
     },
     de: {
       title: 'Unterkunft für 4–8 Personen in Frigiliana | Casa AMARA',
-      description: 'Gemeinsam in Frigiliana wohnen und trotzdem Privatsphäre haben: drei Apartments und ein Doppelzimmer für 4–8 Gäste. Kombinierte Buchung auf Anfrage.',
+      description: 'Gemeinsam in Frigiliana wohnen und trotzdem Privatsphäre haben: drei Apartments und eine kompakte Suite für 4–8 Gäste. Kombinierte Buchung auf Anfrage.',
       robots: 'index, follow',
       canonical: 'auto'
     },
     es: {
       title: 'Alojamiento para 4–8 en Frigiliana | Casa AMARA',
-      description: 'Alojaos juntos en Frigiliana conservando vuestro espacio: tres apartamentos y una habitación doble para 4–8 huéspedes. Reserva conjunta bajo consulta.',
+      description: 'Alojaos juntos en Frigiliana conservando vuestro espacio: tres apartamentos y una suite compacta para 4–8 huéspedes. Reserva conjunta bajo consulta.',
       robots: 'index, follow',
       canonical: 'auto'
     },
     nl: {
       title: 'Verblijf voor 4–8 personen in Frigiliana | Casa AMARA',
-      description: 'Samen verblijven in Frigiliana met eigen ruimte: drie appartementen en één tweepersoonskamer voor 4–8 gasten. Gecombineerd verblijf op aanvraag.',
+      description: 'Samen verblijven in Frigiliana met eigen ruimte: drie appartementen en één compacte suite voor 4–8 gasten. Gecombineerd verblijf op aanvraag.',
       robots: 'index, follow',
       canonical: 'auto'
     },
     sv: {
       title: 'Boende för 4–8 personer i Frigiliana | Casa AMARA',
-      description: 'Bo tillsammans i Frigiliana med eget utrymme: tre lägenheter och ett dubbelrum för 4–8 gäster. Kombinerad vistelse bokas på förfrågan.',
+      description: 'Bo tillsammans i Frigiliana med eget utrymme: tre lägenheter och en kompakt svit för 4–8 gäster. Kombinerad vistelse bokas på förfrågan.',
       robots: 'index, follow',
       canonical: 'auto'
     }
@@ -133,8 +133,8 @@ export const casaAmaraGroupsContent: Record<AmaraLanguage, CasaAmaraGroupsCopy> 
     hero: {
       kicker: 'FRIGILIANA · 4–8 GUESTS',
       title: 'Stay together. Keep your own space.',
-      lead: 'Casa AMARA brings three apartments and one double room together under one historic roof in Frigiliana — a calm base for 4–8 registered overnight guests.',
-      facts: '3 apartments · 1 double room · 4 private bathrooms',
+      lead: 'Casa AMARA brings three apartments and one compact suite together under one historic roof in Frigiliana — a calm base for 4–8 registered overnight guests.',
+      facts: '3 apartments · 1 compact suite · 4 private bathrooms',
       qualifier: 'Designed for small groups who value privacy and quiet. **It is not a party house or an event venue.**',
       primaryCta: 'Enquire for 4–8 guests',
       secondaryCta: 'Compare the four stays',
@@ -156,7 +156,7 @@ export const casaAmaraGroupsContent: Record<AmaraLanguage, CasaAmaraGroupsCopy> 
       title: 'Different characters, one address',
       intro: 'All four stays are at Calle Chorruelo 5 in Frigiliana. Each has its own entrance and private bathroom; the three apartments have full kitchens, while Farah has a compact tea kitchen.',
       contexts: {
-        farah: 'A compact double room for the guests who prefer simple, easy access and do not need a full kitchen.',
+        farah: 'A compact suite for guests who prefer simple, easy access and do not need a full kitchen.',
         lounis: 'The largest interior space, with a generous private terrace and a full kitchen.',
         zaid: 'A private apartment and terrace that can be connected with Maha for a coordinated group stay.',
         maha: 'A bright apartment with a 64 m² terrace, outdoor kitchen and the largest place for the group to sit together.'
@@ -242,8 +242,8 @@ export const casaAmaraGroupsContent: Record<AmaraLanguage, CasaAmaraGroupsCopy> 
     hero: {
       kicker: 'FRIGILIANA · 4–8 GÄSTE',
       title: 'Gemeinsam reisen. Mit eigenem Rückzugsort.',
-      lead: 'Casa AMARA vereint drei Apartments und ein Doppelzimmer unter einem historischen Dach in Frigiliana – eine ruhige Basis für 4–8 angemeldete Übernachtungsgäste.',
-      facts: '3 Apartments · 1 Doppelzimmer · 4 private Bäder',
+      lead: 'Casa AMARA vereint drei Apartments und eine kompakte Suite unter einem historischen Dach in Frigiliana – eine ruhige Basis für 4–8 angemeldete Übernachtungsgäste.',
+      facts: '3 Apartments · 1 kompakte Suite · 4 private Bäder',
       qualifier: 'Für kleine Gruppen, denen Privatsphäre und Ruhe wichtig sind. **Kein Partyhaus und keine Eventlocation.**',
       primaryCta: 'Für 4–8 Gäste anfragen',
       secondaryCta: 'Die vier Unterkünfte vergleichen',
@@ -265,7 +265,7 @@ export const casaAmaraGroupsContent: Record<AmaraLanguage, CasaAmaraGroupsCopy> 
       title: 'Unterschiedlicher Charakter, dieselbe Adresse',
       intro: 'Alle vier Unterkünfte liegen in der Calle Chorruelo 5 in Frigiliana. Jede hat einen eigenen Eingang und ein privates Bad; die drei Apartments besitzen eine vollwertige Küche, Farah eine kompakte Teeküche.',
       contexts: {
-        farah: 'Ein kompaktes Doppelzimmer für Gäste, die es einfach mögen, einen leichten Zugang schätzen und keine vollwertige Küche brauchen.',
+        farah: 'Eine kompakte Suite für Gäste, die es einfach mögen, einen leichten Zugang schätzen und keine vollwertige Küche brauchen.',
         lounis: 'Der größte Innenraum im Haus, dazu eine großzügige private Terrasse und eine vollwertige Küche.',
         zaid: 'Ein privates Apartment mit Terrasse, das für Gruppen direkt mit Maha verbunden werden kann.',
         maha: 'Ein helles Apartment mit 64 m² Terrasse, Außenküche und dem größten gemeinsamen Sitzbereich.'
@@ -351,8 +351,8 @@ export const casaAmaraGroupsContent: Record<AmaraLanguage, CasaAmaraGroupsCopy> 
     hero: {
       kicker: 'FRIGILIANA · 4–8 HUÉSPEDES',
       title: 'Viajar juntos. Con vuestro propio espacio.',
-      lead: 'Casa AMARA reúne tres apartamentos y una habitación doble bajo un mismo techo histórico en Frigiliana: una base tranquila para 4–8 huéspedes alojados.',
-      facts: '3 apartamentos · 1 habitación doble · 4 baños privados',
+      lead: 'Casa AMARA reúne tres apartamentos y una suite compacta bajo un mismo techo histórico en Frigiliana: una base tranquila para 4–8 huéspedes alojados.',
+      facts: '3 apartamentos · 1 suite compacta · 4 baños privados',
       qualifier: 'Pensado para grupos pequeños que valoran la privacidad y la tranquilidad. **No es una casa de fiestas ni un espacio para eventos.**',
       primaryCta: 'Consultar para 4–8 huéspedes',
       secondaryCta: 'Comparar los cuatro alojamientos',
@@ -374,7 +374,7 @@ export const casaAmaraGroupsContent: Record<AmaraLanguage, CasaAmaraGroupsCopy> 
       title: 'Personalidades distintas, una misma dirección',
       intro: 'Los cuatro alojamientos están en Calle Chorruelo 5, Frigiliana. Cada uno tiene entrada y baño privados; los tres apartamentos disponen de cocina completa y Farah, de una pequeña zona para té y café.',
       contexts: {
-        farah: 'Una habitación doble compacta para quien prefiere sencillez, un acceso fácil y no necesita cocina completa.',
+        farah: 'Una suite compacta para quien prefiere sencillez, un acceso fácil y no necesita cocina completa.',
         lounis: 'El mayor espacio interior de la casa, con una amplia terraza privada y cocina completa.',
         zaid: 'Apartamento y terraza privados que pueden conectarse con Maha para una estancia de grupo coordinada.',
         maha: 'Un apartamento luminoso con 64 m² de terraza, cocina exterior y el mayor espacio para reuniros.'
@@ -460,8 +460,8 @@ export const casaAmaraGroupsContent: Record<AmaraLanguage, CasaAmaraGroupsCopy> 
     hero: {
       kicker: 'FRIGILIANA · 4–8 GASTEN',
       title: 'Samen op reis. Met een eigen plek.',
-      lead: 'Casa AMARA brengt drie appartementen en één tweepersoonskamer samen onder één historisch dak in Frigiliana: een rustige uitvalsbasis voor 4–8 geregistreerde verblijfsgasten.',
-      facts: '3 appartementen · 1 tweepersoonskamer · 4 privébadkamers',
+      lead: 'Casa AMARA brengt drie appartementen en één compacte suite samen onder één historisch dak in Frigiliana: een rustige uitvalsbasis voor 4–8 geregistreerde verblijfsgasten.',
+      facts: '3 appartementen · 1 compacte suite · 4 privébadkamers',
       qualifier: 'Voor kleine groepen die privacy en rust waarderen. **Geen feesthuis en geen evenementenlocatie.**',
       primaryCta: 'Informeer voor 4–8 gasten',
       secondaryCta: 'Vergelijk de vier verblijven',
@@ -483,7 +483,7 @@ export const casaAmaraGroupsContent: Record<AmaraLanguage, CasaAmaraGroupsCopy> 
       title: 'Een eigen karakter, hetzelfde adres',
       intro: 'Alle vier verblijven liggen aan Calle Chorruelo 5 in Frigiliana. Elk heeft een eigen ingang en privébadkamer; de drie appartementen hebben een volledige keuken en Farah een compacte pantry voor thee en koffie.',
       contexts: {
-        farah: 'Een compacte tweepersoonskamer voor gasten die eenvoud en gemakkelijke toegang waarderen en geen volledige keuken nodig hebben.',
+        farah: 'Een compacte suite voor gasten die eenvoud en gemakkelijke toegang waarderen en geen volledige keuken nodig hebben.',
         lounis: 'De grootste binnenruimte van het huis, met een ruim privéterras en een volledige keuken.',
         zaid: 'Een privéappartement met terras dat voor een groepsverblijf rechtstreeks met Maha kan worden verbonden.',
         maha: 'Een licht appartement met 64 m² terras, buitenkeuken en de ruimste plek om samen te zitten.'
@@ -569,8 +569,8 @@ export const casaAmaraGroupsContent: Record<AmaraLanguage, CasaAmaraGroupsCopy> 
     hero: {
       kicker: 'FRIGILIANA · 4–8 GÄSTER',
       title: 'Res tillsammans. Med ett eget utrymme.',
-      lead: 'Casa AMARA samlar tre lägenheter och ett dubbelrum under samma historiska tak i Frigiliana – en lugn bas för 4–8 registrerade övernattande gäster.',
-      facts: '3 lägenheter · 1 dubbelrum · 4 privata badrum',
+      lead: 'Casa AMARA samlar tre lägenheter och en kompakt svit under samma historiska tak i Frigiliana – en lugn bas för 4–8 registrerade övernattande gäster.',
+      facts: '3 lägenheter · 1 kompakt svit · 4 privata badrum',
       qualifier: 'För små grupper som värdesätter avskildhet och lugn. **Inget partyhus och ingen evenemangslokal.**',
       primaryCta: 'Skicka förfrågan för 4–8 gäster',
       secondaryCta: 'Jämför de fyra boendena',
@@ -592,7 +592,7 @@ export const casaAmaraGroupsContent: Record<AmaraLanguage, CasaAmaraGroupsCopy> 
       title: 'Olika karaktär, samma adress',
       intro: 'Alla fyra boenden ligger på Calle Chorruelo 5 i Frigiliana. Varje boende har egen ingång och privat badrum; de tre lägenheterna har fullständiga kök och Farah ett kompakt tekök.',
       contexts: {
-        farah: 'Ett kompakt dubbelrum för gäster som uppskattar enkelhet och lätt tillträde och inte behöver ett fullständigt kök.',
+        farah: 'En kompakt svit för gäster som uppskattar enkelhet och lätt tillträde och inte behöver ett fullständigt kök.',
         lounis: 'Husets största inomhusyta, med en rymlig privat terrass och ett fullständigt kök.',
         zaid: 'En privat lägenhet med terrass som kan kopplas direkt till Maha för en samordnad gruppvistelse.',
         maha: 'En ljus lägenhet med 64 m² terrass, utekök och den största platsen för gruppen att sitta tillsammans.'

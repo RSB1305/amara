@@ -117,6 +117,11 @@ interface FamilySurfConversionLocale {
 
 const languages: AmaraLanguage[] = ['en', 'de', 'es', 'nl', 'sv'];
 
+export function formatVacationRentalBedDimensions(label: string): string | undefined {
+  const dimensions = /^(\d+)\s*x\s*(\d+)$/i.exec(label.trim());
+  return dimensions ? `${dimensions[1]} × ${dimensions[2]} cm` : undefined;
+}
+
 export function formatVacationRentalPriceRange(
   pricing: VacationRentalPricing,
   lang: AmaraLanguage,
@@ -229,18 +234,18 @@ export const vacationRentalEntities: VacationRentalEntity[] = [
       'https://www.airbnb.com/rooms/52229175'
     ],
     seoTitle: {
-      en: 'Farah: cosy double room in Frigiliana | AMARA',
-      de: 'Farah: gemütliches Doppelzimmer in Frigiliana | AMARA',
-      es: 'Farah: habitación doble acogedora en Frigiliana | AMARA',
-      nl: 'Farah: knusse tweepersoonskamer in Frigiliana | AMARA',
-      sv: 'Farah: ombonat dubbelrum i Frigiliana | AMARA'
+      en: 'Farah: compact suite in Frigiliana | AMARA',
+      de: 'Farah: kompakte Suite in Frigiliana | AMARA',
+      es: 'Farah: suite compacta en Frigiliana | AMARA',
+      nl: 'Farah: compacte suite in Frigiliana | AMARA',
+      sv: 'Farah: kompakt svit i Frigiliana | AMARA'
     },
     seoDescription: {
-      en: 'AMARA Farah in historic Frigiliana: a small, cosy double room for 2 guests. One step at the entrance and none after that.',
-      de: 'AMARA Farah in der Altstadt von Frigiliana: ein kleines, gemütliches Doppelzimmer für 2 Gäste. Eine Stufe am Eingang, danach keine mehr.',
-      es: 'AMARA Farah en el casco antiguo de Frigiliana: una habitación doble pequeña y acogedora para 2 huéspedes. Un escalón en la entrada y ninguno más.',
-      nl: 'AMARA Farah in het oude Frigiliana: een kleine, knusse tweepersoonskamer voor 2 gasten. Eén trede bij de ingang en daarna geen meer.',
-      sv: 'AMARA Farah i gamla Frigiliana: ett litet, ombonat dubbelrum för 2 gäster. Ett trappsteg vid entrén, inga fler därefter.'
+      en: 'AMARA Farah in historic Frigiliana: a compact suite for 2 with a separate bedroom and tea kitchen. One step at the entrance and none after that.',
+      de: 'AMARA Farah in Frigilianas Altstadt: eine kompakte Suite für 2 mit separatem Schlafzimmer und Teeküche. Eine Stufe am Eingang, danach keine mehr.',
+      es: 'AMARA Farah en el casco antiguo de Frigiliana: una suite compacta para 2 con dormitorio separado y zona de café y té. Un escalón en la entrada y ninguno más.',
+      nl: 'AMARA Farah in het oude Frigiliana: een compacte suite voor 2 met aparte slaapkamer en kitchenette. Eén trede bij de ingang en daarna geen meer.',
+      sv: 'AMARA Farah i gamla Frigiliana: en kompakt svit för 2 med separat sovrum och pentry. Ett trappsteg vid entrén, inga fler därefter.'
     },
     eyebrow: {
       en: 'Frigiliana old town',
@@ -257,11 +262,11 @@ export const vacationRentalEntities: VacationRentalEntity[] = [
       sv: 'För kortare vistelser i Frigilianas gamla stad'
     },
     lead: {
-      en: 'Farah is a small, cosy double room in Frigiliana’s historic centre — ideal for guests who like to make coffee and prepare a light meal.',
-      de: 'Farah ist ein kleines, gemütliches Doppelzimmer im historischen Zentrum von Frigiliana – ideal für Gäste, die sich gern einen Kaffee und eine kleine Mahlzeit zubereiten.',
-      es: 'Farah es una habitación doble pequeña y acogedora en el centro histórico de Frigiliana, ideal para quienes disfrutan preparando un café y una comida ligera.',
-      nl: 'Farah is een kleine, knusse tweepersoonskamer in het historische centrum van Frigiliana – ideaal voor gasten die graag koffie en een kleine maaltijd klaarmaken.',
-      sv: 'Farah är ett litet, ombonat dubbelrum i Frigilianas historiska centrum – perfekt för gäster som gärna ordnar kaffe och en enklare måltid.'
+      en: 'Farah is a compact, self-contained suite in Frigiliana’s historic centre, with a separate bedroom and tea kitchen for coffee and light meals.',
+      de: 'Farah ist eine kompakte, abgeschlossene Suite im historischen Zentrum von Frigiliana – mit separatem Schlafzimmer und Teeküche für Kaffee und kleine Mahlzeiten.',
+      es: 'Farah es una suite compacta e independiente en el centro histórico de Frigiliana, con dormitorio separado y zona de café y té para preparar bebidas y comidas ligeras.',
+      nl: 'Farah is een compacte, zelfstandige suite in het historische centrum van Frigiliana, met aparte slaapkamer en kitchenette voor koffie en lichte maaltijden.',
+      sv: 'Farah är en kompakt, självständig svit i Frigilianas historiska centrum, med separat sovrum och pentry för kaffe och enklare måltider.'
     },
     description: {
       en: 'Farah has two separate rooms: the bedroom and a tea kitchen with a refrigerator. A stool at the worktop can also serve as a small desk. The compact setup is designed for shorter stays; there is no full kitchen or private outdoor space.',
@@ -1126,25 +1131,25 @@ export const vacationRentalEntities: VacationRentalEntity[] = [
       'https://www.airbnb.com/rooms/803371111851036443'
     ],
     seoTitle: {
-      en: 'AMARA Family & Surf | Romantic Tarifa Stay with Pool & Parking',
-      de: 'AMARA Family & Surf | Romantisch wohnen in Tarifa mit Pool & Garage',
-      es: 'AMARA Family & Surf | Estancia romántica en Tarifa con piscina y garaje',
-      nl: 'AMARA Family & Surf | Romantisch verblijf in Tarifa met zwembad & garage',
-      sv: 'AMARA Family & Surf | Romantiskt boende i Tarifa med pool & garage'
+      en: 'Family & Surf: Tarifa with Pool & Parking | AMARA',
+      de: 'Family & Surf: Tarifa mit Pool & Garage | AMARA',
+      es: 'Family & Surf: Tarifa con piscina y garaje | AMARA',
+      nl: 'Family & Surf: Tarifa met zwembad en garage | AMARA',
+      sv: 'Family & Surf: Tarifa med pool och garage | AMARA'
     },
     seoDescription: {
-      en: 'A spacious Tarifa stay for couples, with Atlantic sunset terrace, pool and underground parking. Kitesurf lessons and equipment can be arranged before arrival.',
-      de: 'Großzügige Tarifa-Unterkunft für Paare mit Atlantikterrasse, Pool und Tiefgarage. Kitekurs und Material können schon vor der Anreise organisiert werden.',
-      es: 'Alojamiento amplio en Tarifa para parejas, con terraza al Atlántico, piscina y garaje privado. Clases y material de kitesurf pueden organizarse antes de llegar.',
-      nl: 'Ruim verblijf in Tarifa voor stellen met Atlantisch terras, zwembad en eigen garage. Kitesurflessen en materiaal kunnen vóór aankomst worden geregeld.',
-      sv: 'Rymligt boende i Tarifa för par med Atlantterrass, pool och eget garage. Kitesurflektioner och utrustning kan ordnas redan före ankomsten.'
+      en: 'A spacious Tarifa stay for two or parents with younger children, with Atlantic terrace, shared pool and underground parking. Kitesurfing can be arranged before arrival.',
+      de: 'Großzügige Tarifa-Unterkunft für zwei oder Eltern mit jüngeren Kindern, mit Atlantikterrasse, Gemeinschaftspool und Tiefgarage. Kitesurfen kann vorab organisiert werden.',
+      es: 'Alojamiento amplio en Tarifa para dos o para padres con niños pequeños, con terraza al Atlántico, piscina comunitaria y garaje. El kitesurf puede organizarse antes de llegar.',
+      nl: 'Ruim verblijf in Tarifa voor twee of ouders met jonge kinderen, met Atlantisch terras, gedeeld zwembad en eigen garage. Kitesurfen kan vooraf worden geregeld.',
+      sv: 'Rymligt boende i Tarifa för två eller föräldrar med yngre barn, med Atlantterrass, gemensam pool och eget garage. Kitesurfing kan ordnas före ankomsten.'
     },
     eyebrow: {
-      en: 'AMARA Romantic Stays · Tarifa',
-      de: 'AMARA Romantic Stays · Tarifa',
-      es: 'AMARA Romantic Stays · Tarifa',
-      nl: 'AMARA Romantic Stays · Tarifa',
-      sv: 'AMARA Romantic Stays · Tarifa'
+      en: 'Tarifa · Atlantic terrace and pool',
+      de: 'Tarifa · Atlantikterrasse und Pool',
+      es: 'Tarifa · Terraza atlántica y piscina',
+      nl: 'Tarifa · Atlantisch terras en zwembad',
+      sv: 'Tarifa · Atlantterrass och pool'
     },
     headline: {
       en: 'Atlantic sunsets and the freedom to surf',
@@ -1155,24 +1160,24 @@ export const vacationRentalEntities: VacationRentalEntity[] = [
     },
     lead: {
       en: [
-        'A spacious two-level Tarifa home that works beautifully for two, with Atlantic views from the private terrace and room to slow down between active days by the sea.',
-        `For couples who kitesurf — or want to learn — our cooperation with Tarifa Surf Club makes the sport unusually easy to build into the stay. And if you now travel with younger children: this is the one AMARA stay where a separate bunk-bed room gives you that flexibility, without changing the apartment's couple-first character.`
+        'A spacious two-level Tarifa home with Atlantic views from the private terrace and room to slow down between active days by the sea. Its main bedroom and separate bunk-bed room work well for two or for parents travelling with younger children.',
+        'For guests who kitesurf — or want to learn — our cooperation with Tarifa Surf Club makes the sport unusually easy to build into the stay.'
       ].join('\n\n'),
       de: [
-        'Eine großzügige Tarifa-Unterkunft auf zwei Ebenen, die wunderbar für zwei funktioniert: mit Atlantikblick von der privaten Terrasse und viel Raum zum Ankommen zwischen aktiven Tagen am Meer.',
-        'Für Paare, die kiten – oder es lernen möchten –, macht unsere Kooperation mit dem Tarifa Surf Club den Sport besonders unkompliziert. Und wenn ihr inzwischen mit kleineren Kindern reist: Als einzige AMARA-Unterkunft bietet Family & Surf mit dem separaten Hochbettzimmer diese Flexibilität – ohne dass die Wohnung ihren Charakter für Paare verliert.'
+        'Eine großzügige Tarifa-Unterkunft auf zwei Ebenen mit Atlantikblick von der privaten Terrasse und viel Raum zum Ankommen zwischen aktiven Tagen am Meer. Hauptschlafzimmer und separates Hochbettzimmer passen gut für zwei oder für Eltern mit jüngeren Kindern.',
+        'Für Gäste, die kiten – oder es lernen möchten –, macht unsere Kooperation mit dem Tarifa Surf Club den Sport besonders unkompliziert.'
       ].join('\n\n'),
       es: [
-        'Una casa amplia en Tarifa, distribuida en dos niveles y especialmente agradable para dos, con vistas al Atlántico desde la terraza privada y espacio para descansar entre días activos junto al mar.',
-        'Para parejas que practican kitesurf —o quieren aprender— nuestra colaboración con Tarifa Surf Club facilita mucho la experiencia. Y si ahora viajáis con niños pequeños: este es el único alojamiento AMARA donde el dormitorio separado con litera aporta esa flexibilidad, sin que el apartamento deje de estar pensado para dos.'
+        'Una casa amplia en Tarifa, distribuida en dos niveles, con vistas al Atlántico desde la terraza privada y espacio para descansar entre días activos junto al mar. El dormitorio principal y la habitación separada con litera funcionan bien para dos o para padres con niños pequeños.',
+        'Para quienes practican kitesurf —o quieren aprender— nuestra colaboración con Tarifa Surf Club facilita mucho la experiencia.'
       ].join('\n\n'),
       nl: [
-        'Een ruime woning in Tarifa over twee niveaus die uitstekend werkt voor twee, met Atlantisch uitzicht vanaf het eigen terras en ruimte om tot rust te komen tussen actieve dagen aan zee.',
-        'Voor stellen die kitesurfen — of het willen leren — maakt onze samenwerking met Tarifa Surf Club de sport bijzonder eenvoudig onderdeel van de reis. Reizen jullie inmiddels met jonge kinderen: dit is het enige AMARA-verblijf waar de aparte kamer met stapelbed die flexibiliteit biedt, zonder dat de woning haar couple-first karakter verliest.'
+        'Een ruime woning in Tarifa over twee niveaus, met Atlantisch uitzicht vanaf het eigen terras en ruimte om tot rust te komen tussen actieve dagen aan zee. De hoofdslaapkamer en aparte kamer met stapelbed werken goed voor twee of voor ouders met jonge kinderen.',
+        'Voor gasten die kitesurfen — of het willen leren — maakt onze samenwerking met Tarifa Surf Club de sport bijzonder eenvoudig onderdeel van de reis.'
       ].join('\n\n'),
       sv: [
-        'Ett rymligt boende i Tarifa på två plan som fungerar mycket bra för två, med Atlantutsikt från den privata terrassen och gott om plats att varva ner mellan aktiva dagar vid havet.',
-        'För par som kitesurfar — eller vill lära sig — gör samarbetet med Tarifa Surf Club sporten ovanligt enkel att lägga in i vistelsen. Reser ni numera med yngre barn: det här är det enda AMARA-boendet där ett separat rum med våningssäng ger den flexibiliteten, utan att boendet tappar sitt fokus på par.'
+        'Ett rymligt boende i Tarifa på två plan, med Atlantutsikt från den privata terrassen och gott om plats att varva ner mellan aktiva dagar vid havet. Huvudsovrummet och det separata rummet med våningssäng passar bra för två eller föräldrar med yngre barn.',
+        'För gäster som kitesurfar — eller vill lära sig — gör samarbetet med Tarifa Surf Club sporten ovanligt enkel att lägga in i vistelsen.'
       ].join('\n\n')
     },
     description: {
@@ -1341,7 +1346,7 @@ export const familySurfConversionContent: Record<AmaraLanguage, FamilySurfConver
       title: 'Travelling with younger children?',
       paragraphs: [
         'The second bedroom has a bunk bed with two single sleeping places. That makes the apartment particularly practical for parents travelling with younger children while keeping the main bedroom to themselves.',
-        'We describe the apartment as accommodating up to four guests because that is its technical capacity — but it is not positioned as a conventional four-adult sleeping arrangement.'
+        'The apartment accommodates up to four guests, but the sleeping layout is best suited to two adults with one or two younger children rather than four adults.'
       ]
     }
   },
@@ -1358,10 +1363,10 @@ export const familySurfConversionContent: Record<AmaraLanguage, FamilySurfConver
       ctaToken: 'tarifa_wind_kitesurfing_authority'
     },
     family: {
-      title: 'Ihr reist inzwischen mit kleineren Kindern?',
+      title: 'Reist ihr mit jüngeren Kindern?',
       paragraphs: [
         'Im zweiten Schlafzimmer befindet sich ein Hochbett mit zwei einzelnen Schlafplätzen. Dadurch können Eltern ihr eigenes Schlafzimmer behalten, während die Kinder einen separaten Schlafbereich haben.',
-        'Die technische Belegung der Wohnung beträgt vier Personen. Wir möchten sie dennoch nicht als klassische Unterkunft für vier Erwachsene positionieren. Besonders gut passt die Aufteilung zu einem Paar oder zu Eltern mit jüngeren Kindern.'
+        'Die Wohnung bietet Platz für bis zu vier Gäste. Die Schlafaufteilung passt jedoch besser zu zwei Erwachsenen mit einem oder zwei jüngeren Kindern als zu vier Erwachsenen.'
       ]
     }
   },
@@ -1378,9 +1383,10 @@ export const familySurfConversionContent: Record<AmaraLanguage, FamilySurfConver
       ctaToken: 'tarifa_wind_kitesurfing_authority'
     },
     family: {
+      title: '¿Viajáis con niños pequeños?',
       paragraphs: [
         'El segundo dormitorio dispone de una litera con dos camas individuales. Por eso la distribución funciona especialmente bien para padres que viajan con niños pequeños y quieren conservar su propio dormitorio.',
-        'La capacidad técnica es de cuatro personas, pero no presentamos la vivienda como una configuración convencional para cuatro adultos.'
+        'El alojamiento admite hasta cuatro huéspedes, pero la distribución resulta más adecuada para dos adultos con uno o dos niños pequeños que para cuatro adultos.'
       ]
     }
   },
@@ -1397,9 +1403,10 @@ export const familySurfConversionContent: Record<AmaraLanguage, FamilySurfConver
       ctaToken: 'tarifa_wind_kitesurfing_authority'
     },
     family: {
+      title: 'Reizen jullie met jonge kinderen?',
       paragraphs: [
         'De tweede slaapkamer heeft een stapelbed met twee aparte slaapplaatsen. Dat maakt de woning bijzonder praktisch voor ouders met jonge kinderen die hun eigen slaapkamer willen behouden.',
-        'De technische capaciteit is vier personen, maar we positioneren de woning niet als een standaard slaapopstelling voor vier volwassenen.'
+        'De woning biedt plaats aan maximaal vier gasten, maar de slaapindeling past beter bij twee volwassenen met een of twee jonge kinderen dan bij vier volwassenen.'
       ]
     }
   },
@@ -1416,9 +1423,10 @@ export const familySurfConversionContent: Record<AmaraLanguage, FamilySurfConver
       ctaToken: 'tarifa_wind_kitesurfing_authority'
     },
     family: {
+      title: 'Reser ni med yngre barn?',
       paragraphs: [
         'Det andra sovrummet har en våningssäng med två separata sovplatser. Det passar särskilt bra för föräldrar med yngre barn som vill behålla huvudsovrummet för sig själva.',
-        'Den tekniska kapaciteten är fyra personer, men boendet positioneras inte som en vanlig sovlösning för fyra vuxna.'
+        'Boendet rymmer upp till fyra gäster, men sovlösningen passar bättre för två vuxna med ett eller två yngre barn än för fyra vuxna.'
       ]
     }
   }
