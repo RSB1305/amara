@@ -1,14 +1,14 @@
 import type { AmaraAuthoringSeo } from '../types/seo';
 
 export const arrivalGuideSeo: AmaraAuthoringSeo = {
-  version: "2026-03-21-v3.1-arrival-utility",
+  version: "2026-08-18-v3.2-arrival-utility",
   pageType: "A",
   languages: {
-    en: { title: "Frigiliana Arrival & Parking Guide", description: "How to reach the village and where to park.", robots: "noindex, follow", canonical: "auto" },
-    de: { title: "Frigiliana Anreise- & Parkguide", description: "So erreicht ihr das Dorf und wisst, wo ihr am besten parkt.", robots: "noindex, follow", canonical: "auto" },
-    es: { title: "Guía de llegada y aparcamiento en Frigiliana", description: "Cómo llegar al pueblo y dónde os conviene aparcar.", robots: "noindex, follow", canonical: "auto" },
-    nl: { title: "Frigiliana aankomst- en parkeergids", description: "Hoe jullie het dorp bereiken en waar jullie het beste parkeren.", robots: "noindex, follow", canonical: "auto" },
-    sv: { title: "Frigiliana ankomst- och parkeringsguide", description: "Hur ni tar er till byn och var det är bäst att parkera.", robots: "noindex, follow", canonical: "auto" }
+    en: { title: "Arrival at La AMARA Frigiliana", description: "The recommended drop-off point and the final walking route through Frigiliana to the La AMARA door.", robots: "noindex, follow", canonical: "auto" },
+    de: { title: "Ankunft bei La AMARA Frigiliana", description: "Der empfohlene Ausstiegspunkt und der letzte Fußweg durch Frigiliana bis zur Tür von La AMARA.", robots: "noindex, follow", canonical: "auto" },
+    es: { title: "Llegada a La AMARA Frigiliana", description: "El punto recomendado para bajar y el último camino a pie por Frigiliana hasta la puerta de La AMARA.", robots: "noindex, follow", canonical: "auto" },
+    nl: { title: "Aankomst bij La AMARA Frigiliana", description: "De aanbevolen afzetplek en de laatste looproute door Frigiliana naar de deur van La AMARA.", robots: "noindex, follow", canonical: "auto" },
+    sv: { title: "Ankomst till La AMARA Frigiliana", description: "Den rekommenderade avlämningsplatsen och den sista gångvägen genom Frigiliana till La AMARAs dörr.", robots: "noindex, follow", canonical: "auto" }
   },
   ogImage: "/images/amara-entrada/casa-amara-frigiliana-entrada.jpg"
 };
@@ -24,19 +24,19 @@ export const arrivalGuideCopy = {
   },
   header: {
     eyebrow: {
-      en: 'Location guide · Frigiliana',
-      de: 'Ortsguide · Frigiliana',
-      es: 'Guía de entorno · Frigiliana',
-      nl: 'Locatiegids · Frigiliana',
-      sv: 'Platsguide · Frigiliana'
+      en: 'Guest arrival · La AMARA Frigiliana',
+      de: 'Gästeankunft · La AMARA Frigiliana',
+      es: 'Llegada de huéspedes · La AMARA Frigiliana',
+      nl: 'Aankomst voor gasten · La AMARA Frigiliana',
+      sv: 'Gästankomst · La AMARA Frigiliana'
     },
-    title: { en: "Guest Arrival Guide", de: "Anreiseguide für Gäste", es: "Guía de llegada para huéspedes", nl: "Aankomstgids voor gasten", sv: "Ankomstguide för gäster" },
+    title: { en: "Arriving at La AMARA Frigiliana", de: "Ankunft bei La AMARA Frigiliana", es: "Llegar a La AMARA Frigiliana", nl: "Aankomen bij La AMARA Frigiliana", sv: "Att komma fram till La AMARA Frigiliana" },
     subtitle: {
-      en: "Essential information for navigating **the vertical streets of the Mudejar quarter**.",
-      de: "Alles Wichtige, damit ihr euch in **den steilen Gassen des Mudejar-Viertels** gut zurechtfindet.",
-      es: "La información esencial para moveros bien por **las calles empinadas del barrio mudéjar**.",
-      nl: "De belangrijkste informatie om vlot door **de steile straten van de Mudejar-wijk** te komen.",
-      sv: "Det viktigaste för att ni enkelt ska hitta genom **de branta gatorna i Mudejar-kvarteret**."
+      en: "From the recommended village drop-off to **the green La AMARA door** — clearly explained step by step.",
+      de: "Vom empfohlenen Ausstiegspunkt im Dorf bis **zur grünen Tür von La AMARA** – klar und Schritt für Schritt erklärt.",
+      es: "Desde el punto recomendado para bajar en el pueblo hasta **la puerta verde de La AMARA**, explicado paso a paso.",
+      nl: "Van de aanbevolen afzetplek in het dorp tot **de groene deur van La AMARA** — duidelijk en stap voor stap uitgelegd.",
+      sv: "Från den rekommenderade avlämningsplatsen i byn till **La AMARAs gröna dörr** – tydligt förklarat steg för steg."
     },
     backLinkWord: {
       en: 'Back',
@@ -47,6 +47,29 @@ export const arrivalGuideCopy = {
     }
   },
   content: {
+    journeyIntro: {
+      title: {
+        en: "First reach Frigiliana",
+        de: "Zuerst nach Frigiliana",
+        es: "Primero, llegar a Frigiliana",
+        nl: "Eerst naar Frigiliana",
+        sv: "Först till Frigiliana"
+      },
+      text: {
+        en: "If you are still planning the journey from Málaga Airport or Nerja, compare rental car, private transfer and bus options first. This guide takes over once you reach the village.",
+        de: "Wenn ihr die Anreise vom Flughafen Málaga oder von Nerja noch plant, vergleicht zuerst Mietwagen, privaten Transfer und Bus. Dieser Guide übernimmt, sobald ihr Frigiliana erreicht.",
+        es: "Si todavía estáis planificando el trayecto desde el aeropuerto de Málaga o Nerja, comparad primero coche de alquiler, transfer privado y autobús. Esta guía continúa cuando llegáis al pueblo.",
+        nl: "Als jullie de reis vanaf Málaga Airport of Nerja nog plannen, vergelijk dan eerst huurauto, privétransfer en bus. Deze gids neemt het over zodra jullie Frigiliana bereiken.",
+        sv: "Om ni fortfarande planerar resan från Málaga flygplats eller Nerja, jämför först hyrbil, privat transfer och buss. Den här guiden tar vid när ni når byn."
+      },
+      cta: {
+        en: "Plan the journey to Frigiliana",
+        de: "Anreise nach Frigiliana planen",
+        es: "Planificar el viaje a Frigiliana",
+        nl: "Plan de reis naar Frigiliana",
+        sv: "Planera resan till Frigiliana"
+      }
+    },
     parking: {
       title: { en: "Arriving at La AMARA Frigiliana", de: "Ankunft bei La AMARA in Frigiliana", es: "Llegar a La AMARA en Frigiliana", nl: "Aankomen bij La AMARA in Frigiliana", sv: "Att komma fram till La AMARA i Frigiliana" },
       text: {
@@ -85,7 +108,7 @@ export const arrivalGuideCopy = {
       }
     },
     arrivalByBus: {
-      title: { en: "Arrival by Bus", de: "Anreise mit dem Bus", es: "Llegada en autobús", nl: "Aankomst met de bus", sv: "Ankomst med buss" },
+      title: { en: "From the Frigiliana bus stop to La AMARA", de: "Von der Bushaltestelle Frigiliana zu La AMARA", es: "Desde la parada de Frigiliana hasta La AMARA", nl: "Van de bushalte in Frigiliana naar La AMARA", sv: "Från busshållplatsen i Frigiliana till La AMARA" },
       text: {
         en: "If you arrive by bus, the bus stops at Parada de Autobús - C. Real, Frigiliana.\n\nFrom there, you can choose between two walking routes to reach La AMARA:\n\nShorter route - via Calle Real\nApprox. 8 minutes (550 m)\nThis is the shorter route through the old village. It is slightly uphill and follows cobbled streets, but it does not include steps.\n\nLonger route - via the main road\nApprox. 12 minutes (750 m)\nThis route is mostly flat until La Fuente. At the end, there are several steps and a short final ascent of around 25 meters elevation.",
         de: "Wenn ihr mit dem Bus ankommt, steigt ihr an der Haltestelle Parada de Autobús - C. Real, Frigiliana aus.\n\nVon dort habt ihr zwei Fußwege zur Auswahl, um La AMARA zu erreichen:\n\nKürzerer Weg - über Calle Real\nCa. 8 Minuten (550 m)\nDas ist der kürzere Weg durch das alte Dorf. Er geht leicht bergauf über Kopfsteinpflaster, hat aber keine Stufen.\n\nLängerer Weg - über die Hauptstraße\nCa. 12 Minuten (750 m)\nDieser Weg ist bis La Fuente größtenteils flach. Am Ende gibt es mehrere Stufen und einen kurzen letzten Anstieg von etwa 25 Höhenmetern.",
@@ -124,34 +147,34 @@ export const arrivalGuideCopy = {
       title: { en: "Logistics FAQ", de: "FAQ zur Anreise", es: "FAQ de la llegada", nl: "FAQ over de aankomst", sv: "FAQ om ankomsten" },
       items: {
         en: [
-          { question: "Can I drive directly into the old town?", answer: "Usually not in a practical way. Most visitors find it easier to park near the entrance of the village and continue on foot." },
-          { question: "Is Frigiliana suitable if I have heavy luggage?", answer: "It depends on your accommodation location, but you should expect some walking, stairs, or uneven streets. Packing light is always a good idea." },
-          { question: "Where should I park when arriving for the first time?", answer: "Avenida Carlos Cano 42 is usually the easiest point to stop first. From there, you can continue on foot to La AMARA." },
-          { question: "What if I need urgent local help?", answer: "Use the quick contact information on this page for local taxi support or emergency services if needed." }
+          { question: "Can I drive directly to the La AMARA entrance?", answer: "Usually not in a practical way. The historic lanes are narrow and vehicle access is limited, so Avenida Carlos Cano 42 is the recommended first stop before continuing on foot." },
+          { question: "Is the walk to La AMARA manageable with heavy luggage?", answer: "The recommended route is short, but it is uphill over uneven ground and includes steps. Manageable luggage makes the final approach noticeably easier." },
+          { question: "Where should a taxi drop me for La AMARA?", answer: "Avenida Carlos Cano 42 is usually the simplest drop-off point. From there, the mapped walking route to La AMARA takes about four minutes." },
+          { question: "What if I need help during arrival?", answer: "Use the quick contact information on this page for local taxi support or emergency services if needed." }
         ],
         de: [
-          { question: "Kann ich direkt in die Altstadt fahren?", answer: "Meistens nicht auf eine wirklich praktische Weise. Für die meisten ist es einfacher, in der Nähe des Dorfeingangs anzuhalten und den Rest zu Fuß weiterzugehen." },
-          { question: "Ist Frigiliana geeignet, wenn ich schweres Gepäck habe?", answer: "Das hängt von der Lage eurer Unterkunft ab, aber ihr solltet mit Fußwegen, Treppen oder unebenen Gassen rechnen. Leicht zu packen ist immer die bessere Idee." },
-          { question: "Wo sollte ich beim ersten Mal anhalten?", answer: "Avenida Carlos Cano 42 ist in der Regel der einfachste Punkt für den ersten Stopp. Von dort könnt ihr zu Fuß zu La AMARA weitergehen." },
-          { question: "Was ist, wenn ich schnelle lokale Hilfe brauche?", answer: "Nutzt bei Bedarf die Schnellkontakt-Informationen auf dieser Seite für ein lokales Taxi oder den Notruf." }
+          { question: "Kann ich direkt bis zum Eingang von La AMARA fahren?", answer: "In der Regel nicht auf eine praktische Weise. Die historischen Gassen sind eng und die Zufahrt ist eingeschränkt. Deshalb ist Avenida Carlos Cano 42 der empfohlene erste Stopp, bevor ihr zu Fuß weitergeht." },
+          { question: "Ist der Fußweg zu La AMARA mit schwerem Gepäck gut machbar?", answer: "Der empfohlene Weg ist kurz, führt aber bergauf über unebenen Boden und einige Stufen. Mit gut handhabbarem Gepäck ist die letzte Etappe deutlich einfacher." },
+          { question: "Wo sollte mich ein Taxi für La AMARA absetzen?", answer: "Avenida Carlos Cano 42 ist meist der einfachste Ausstiegspunkt. Von dort dauert der eingezeichnete Fußweg zu La AMARA etwa vier Minuten." },
+          { question: "Was ist, wenn ich bei der Ankunft Hilfe brauche?", answer: "Nutzt bei Bedarf die Schnellkontakt-Informationen auf dieser Seite für ein lokales Taxi oder den Notruf." }
         ],
         es: [
-          { question: "¿Puedo conducir directamente al casco antiguo?", answer: "Normalmente no de una forma práctica. A la mayoría de los visitantes les resulta más fácil parar cerca de la entrada del pueblo y continuar a pie." },
-          { question: "¿Es Frigiliana adecuada si llevo equipaje pesado?", answer: "Depende de dónde esté vuestro alojamiento, pero deberéis contar con algo de caminata, escaleras o calles irregulares. Viajar ligero siempre ayuda." },
-          { question: "¿Dónde debería parar la primera vez?", answer: "Avenida Carlos Cano 42 suele ser el punto más sencillo para una primera parada. Desde allí podéis continuar a pie hasta La AMARA." },
-          { question: "¿Y si necesito ayuda local urgente?", answer: "Utilizad la información de contacto rápido de esta página si necesitáis un taxi local o los servicios de emergencia." }
+          { question: "¿Puedo llegar en coche directamente a la entrada de La AMARA?", answer: "Normalmente no de una forma práctica. Las calles históricas son estrechas y el acceso está limitado, por lo que Avenida Carlos Cano 42 es el primer punto recomendado antes de continuar a pie." },
+          { question: "¿Es fácil llegar a pie a La AMARA con equipaje pesado?", answer: "El camino recomendado es corto, pero sube por un suelo irregular e incluye escalones. Con equipaje fácil de manejar, el último tramo resulta mucho más sencillo." },
+          { question: "¿Dónde debería dejarme un taxi para La AMARA?", answer: "Avenida Carlos Cano 42 suele ser el punto más sencillo para bajar. Desde allí, el recorrido a pie indicado hasta La AMARA dura unos cuatro minutos." },
+          { question: "¿Y si necesito ayuda durante la llegada?", answer: "Utilizad la información de contacto rápido de esta página si necesitáis un taxi local o los servicios de emergencia." }
         ],
         nl: [
-          { question: "Kan ik direct de oude dorpskern inrijden?", answer: "Meestal niet op een praktische manier. De meeste bezoekers vinden het makkelijker om dicht bij de dorpsingang te stoppen en daarna te voet verder te gaan." },
-          { question: "Is Frigiliana geschikt als ik zware bagage heb?", answer: "Dat hangt af van waar jullie accommodatie ligt, maar houd rekening met lopen, trappen of ongelijke straatjes. Licht inpakken is altijd verstandiger." },
-          { question: "Waar moet ik de eerste keer stoppen?", answer: "Avenida Carlos Cano 42 is meestal het makkelijkste punt voor een eerste stop. Vanaf daar kunnen jullie te voet verder naar La AMARA." },
-          { question: "Wat als ik snel lokale hulp nodig heb?", answer: "Gebruik dan de snelle contactinformatie op deze pagina voor een lokale taxi of de hulpdiensten." }
+          { question: "Kan ik direct naar de ingang van La AMARA rijden?", answer: "Meestal niet op een praktische manier. De historische straatjes zijn smal en auto's hebben beperkt toegang. Daarom is Avenida Carlos Cano 42 de aanbevolen eerste stop voordat jullie te voet verdergaan." },
+          { question: "Is de wandeling naar La AMARA goed te doen met zware bagage?", answer: "De aanbevolen route is kort, maar loopt bergop over een ongelijke ondergrond en bevat trappen. Met hanteerbare bagage is het laatste stuk merkbaar eenvoudiger." },
+          { question: "Waar kan een taxi mij het beste afzetten voor La AMARA?", answer: "Avenida Carlos Cano 42 is meestal de eenvoudigste afzetplek. Vanaf daar duurt de aangegeven looproute naar La AMARA ongeveer vier minuten." },
+          { question: "Wat als ik tijdens de aankomst hulp nodig heb?", answer: "Gebruik dan de snelle contactinformatie op deze pagina voor een lokale taxi of de hulpdiensten." }
         ],
         sv: [
-          { question: "Kan jag köra direkt in i gamla byn?", answer: "Vanligtvis inte på ett praktiskt sätt. De flesta tycker att det är enklare att stanna nära byns infart och gå sista delen till fots." },
-          { question: "Passar Frigiliana om jag har tungt bagage?", answer: "Det beror på var ert boende ligger, men ni bör räkna med promenader, trappor eller ojämna gator. Att packa lätt är alltid klokt." },
-          { question: "Var bör jag stanna första gången?", answer: "Avenida Carlos Cano 42 är oftast den enklaste platsen för ett första stopp. Därifrån kan ni fortsätta till fots till La AMARA." },
-          { question: "Vad gör jag om jag snabbt behöver lokal hjälp?", answer: "Använd snabbkontaktinformationen på den här sidan om ni behöver en lokal taxi eller larmtjänst." }
+          { question: "Kan jag köra direkt till La AMARAs entré?", answer: "Vanligtvis inte på ett praktiskt sätt. De historiska gränderna är smala och biltrafiken är begränsad, så Avenida Carlos Cano 42 är det rekommenderade första stoppet innan ni fortsätter till fots." },
+          { question: "Är promenaden till La AMARA hanterbar med tungt bagage?", answer: "Den rekommenderade vägen är kort men går uppför på ojämnt underlag och innehåller trappsteg. Med lätthanterligt bagage blir den sista sträckan betydligt enklare." },
+          { question: "Var bör en taxi släppa av mig för La AMARA?", answer: "Avenida Carlos Cano 42 är oftast den enklaste avlämningsplatsen. Därifrån tar den markerade gångvägen till La AMARA cirka fyra minuter." },
+          { question: "Vad gör jag om jag behöver hjälp under ankomsten?", answer: "Använd snabbkontaktinformationen på den här sidan om ni behöver en lokal taxi eller larmtjänst." }
         ]
       }
     }

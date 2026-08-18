@@ -20,6 +20,7 @@ import {
 } from '../../content/arrivalGuideContent';
 import AmaraImage from '../../components/AmaraImage.astro';
 import Navigation from '../../components/Navigation.astro';
+import { resolveOptionalLink } from '../../lib/linkResolver';
 import { normalizeLanguage } from '../../lib/seo/resolve-seo-head';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import type { AmaraLanguage } from '../../types/seo';
@@ -36,11 +37,19 @@ const arrivalSteps = arrivalGuideSteps[currentLang];
 const busRoutes = arrivalGuideBusRoutes[currentLang];
 const ui = arrivalGuideUi;
 const mapHref = 'https://maps.app.goo.gl/S7AzRNc2QMCRyBBN6';
+const gettingToFrigilianaHref = resolveOptionalLink('getting_to_frigiliana', currentLang, {
+  suppressMissing: true
+});
 const c = {
   header: {
     eyebrow: copy.header.eyebrow[currentLang],
     title: copy.header.title[currentLang],
     subtitle: copy.header.subtitle[currentLang]
+  },
+  journeyIntro: {
+    title: copy.content.journeyIntro.title[currentLang],
+    text: copy.content.journeyIntro.text[currentLang],
+    cta: copy.content.journeyIntro.cta[currentLang]
   },
   parking: { title: copy.content.parking.title[currentLang], text: copy.content.parking.text[currentLang] },
   walkingAccess: { title: copy.content.walkingAccess.title[currentLang], text: copy.content.walkingAccess.text[currentLang] },
@@ -105,7 +114,24 @@ const busIntro = c.arrivalByBus.text.split('\n\n')[0];
         </figure>
 
         <div class="mt-8 max-w-4xl md:mt-10">
-          <h2 class="am-text-title text-on-surface">{c.parking.title}</h2>
+          <div class="grid gap-5 border-y border-border-subtle py-6 sm:grid-cols-[minmax(0,1fr)_auto] sm:items-center sm:gap-8">
+            <div>
+              <p class="font-label text-[11px] font-bold uppercase tracking-[0.14em] text-on-surface-variant">
+                {c.journeyIntro.title}
+              </p>
+              <p class="am-text-body mt-3 max-w-2xl leading-relaxed text-on-surface-variant">
+                {c.journeyIntro.text}
+              </p>
+            </div>
+            {gettingToFrigilianaHref && (
+              <a class="am-inline-link am-text-body w-fit shrink-0" href={gettingToFrigilianaHref}>
+                {c.journeyIntro.cta}
+                <span aria-hidden="true"> &rarr;</span>
+              </a>
+            )}
+          </div>
+
+          <h2 class="am-text-title mt-10 text-on-surface">{c.parking.title}</h2>
           <p class="am-text-body mt-5 max-w-3xl leading-relaxed text-on-surface-variant">
             {c.parking.text}
           </p>
