@@ -1177,8 +1177,8 @@ const breadcrumbRentalName = rental.name.replace(/^AMARA\s+/u, '');
             </dl>
 
             {detailRows.length > 0 && (
-              <details class="group border-y border-border-subtle">
-                <summary class="am-accordion__trigger min-h-11 items-center py-5">
+              <details class="group border-y border-border-subtle" data-am-responsive-details>
+                <summary class="am-accordion__trigger min-h-11 items-center py-5 lg:hidden">
                   <span class="font-label text-[12px] font-semibold uppercase tracking-[0.1em] text-on-surface group-hover:text-primary transition-colors">
                     {t(ui.additionalDetails as LocalizedText)}
                   </span>
@@ -1187,7 +1187,7 @@ const breadcrumbRentalName = rental.name.replace(/^AMARA\s+/u, '');
                     <span class="hidden group-open:inline">−</span>
                   </span>
                 </summary>
-                <dl class="bg-surface-container-low px-5 sm:px-6">
+                <dl class="bg-surface-container-low px-5 sm:px-6" data-am-details-content>
                   {detailRows.map(({ label, value, Icon }) => (
                     <div class="grid min-h-[4.5rem] grid-cols-[2.25rem_minmax(0,1fr)] content-center gap-x-4 border-b border-border-subtle py-4 last:border-b-0 md:min-h-[5.75rem] md:py-5">
                       <dt class="col-span-2 grid grid-cols-[2.25rem_minmax(0,1fr)] items-center gap-x-4">
@@ -1412,6 +1412,12 @@ const breadcrumbRentalName = rental.name.replace(/^AMARA\s+/u, '');
 </BaseLayout>
 
 <style is:global>
+  @media (min-width: 64rem) {
+    details[data-am-responsive-details]:not([open]) > [data-am-details-content] {
+      display: block;
+    }
+  }
+
   @media (max-width: 47.999rem) {
     [data-am-page='vacation-rental'] ~ .footer .footer-minimal {
       padding-block: 1.5rem;
