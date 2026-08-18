@@ -5,6 +5,7 @@ import Hero from '../../components/Hero.astro';
 import AmaraImage from '../../components/AmaraImage.astro';
 import FaqAccordion from '../../components/FaqAccordion.astro';
 import EditorialGuideLinkSection from '../../components/editorial/EditorialGuideLinkSection.astro';
+import FrigilianaOrientationMap from '../../components/location/FrigilianaOrientationMap.astro';
 import LocationContextNav from '../../components/location/LocationContextNav.astro';
 import OrderedFrigilianaLocationSections from './OrderedFrigilianaLocationSections.astro';
 import {
@@ -46,6 +47,9 @@ const optionalLink = (token: LinkToken) =>
 const parkingHref = buildOwnedLocalizedPath('frigiliana-parking', currentLang);
 const weatherHref = buildOwnedLocalizedPath('frigiliana-weather', currentLang);
 const gettingThereHref = buildOwnedLocalizedPath('getting-to-frigiliana', currentLang);
+const geographyHref = buildOwnedLocalizedPath('frigiliana-geography', currentLang);
+const airportRouteHref =
+  'https://www.google.com/maps/dir/?api=1&origin=M%C3%A1laga-Costa+del+Sol+Airport&destination=La+AMARA%2C+Calle+Chorruelo+5%2C+29788+Frigiliana&travelmode=driving';
 const stairsHref = optionalLink('frigiliana_stairs');
 const dailyLifeHref = optionalLink('frigiliana_daily_life');
 const comparisonHref = optionalLink('nerja_vs_frigiliana');
@@ -260,6 +264,78 @@ const renderCtas = (subsection: FrigilianaLocationSubsection) => subsection.ctas
                 <p class="am-text-subtitle italic text-on-surface pt-2">{c.introPullLine}</p>
               </div>
             </Hero>
+
+            <section
+              id="where-is-frigiliana"
+              aria-labelledby="where-is-frigiliana-title"
+              class="am-section am-section--tint border-y border-outline-variant/10 py-24 md:py-32 lg:py-36"
+            >
+              <div class="mx-auto grid max-w-6xl items-center gap-14 lg:grid-cols-12 lg:gap-x-20 lg:gap-y-16">
+                <div class="lg:order-2 lg:col-span-5">
+                  <span class="am-text-caption uppercase tracking-[0.28em] text-primary block mb-6">
+                    {c.orientation.eyebrow}
+                  </span>
+                  <h2
+                    id="where-is-frigiliana-title"
+                    class="am-text-title italic text-on-surface tracking-tight mb-8"
+                  >
+                    {c.orientation.title}
+                  </h2>
+                  <div class="space-y-5">
+                    {
+                      c.orientation.paragraphs.map((paragraph) => (
+                        <p class="am-text-body text-on-surface-variant leading-relaxed">
+                          {paragraph}
+                        </p>
+                      ))
+                    }
+                  </div>
+                  <div class="mt-10 flex flex-wrap gap-4">
+                    <a href={geographyHref} class="am-btn am-btn--primary">
+                      {c.orientation.geographyLabel}
+                    </a>
+                    <a
+                      href={airportRouteHref}
+                      class="am-btn am-btn--secondary"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      {c.orientation.routeLabel}
+                      <span aria-hidden="true">↗</span>
+                    </a>
+                  </div>
+                  <a href={gettingThereHref} class="am-cta-link mt-8 inline-block">
+                    {c.orientation.arrivalLabel}
+                  </a>
+                </div>
+
+                <div class="am-mobile-full-bleed lg:order-1 lg:col-span-7">
+                  <FrigilianaOrientationMap
+                    lang={currentLang}
+                    label={c.orientation.mapLabel}
+                    note={c.orientation.mapNote}
+                  />
+                </div>
+
+                <dl class="grid border-y border-outline-variant/20 sm:grid-cols-3 lg:order-3 lg:col-span-12">
+                  {
+                    c.orientation.facts.map((fact, index) => (
+                      <div
+                        class:list={[
+                          'py-6 sm:px-7 lg:py-8',
+                          index > 0 && 'border-t border-outline-variant/20 sm:border-l sm:border-t-0'
+                        ]}
+                      >
+                        <dt class="font-label text-[10px] font-bold uppercase tracking-[0.15em] text-on-surface-variant/70">
+                          {fact.label}
+                        </dt>
+                        <dd class="am-text-subtitle mt-3 text-on-surface">{fact.value}</dd>
+                      </div>
+                    ))
+                  }
+                </dl>
+              </div>
+            </section>
           </div>
         </Fragment>
 

@@ -1,0 +1,251 @@
+---
+import type { AmaraLanguage } from '../../types/seo';
+
+interface Props {
+  label: string;
+  note: string;
+  lang: AmaraLanguage;
+}
+
+const { label, note, lang } = Astro.props;
+const mapCopy: Record<AmaraLanguage, { airport: string; sea: string }> = {
+  en: { airport: 'Málaga Airport', sea: 'MEDITERRANEAN' },
+  de: { airport: 'Flughafen Málaga', sea: 'MITTELMEER' },
+  es: { airport: 'Aeropuerto de Málaga', sea: 'MEDITERRÁNEO' },
+  nl: { airport: 'Luchthaven Málaga', sea: 'MIDDELLANDSE ZEE' },
+  sv: { airport: 'Málagas flygplats', sea: 'MEDELHAVET' }
+};
+const copy = mapCopy[lang];
+---
+
+<figure class="m-0">
+  <div class="overflow-hidden border border-outline-variant/20 bg-surface-container-lowest">
+    <svg
+      class="block h-auto w-full"
+      viewBox="0 0 920 620"
+      role="img"
+      aria-labelledby="frigiliana-orientation-map-title frigiliana-orientation-map-description"
+    >
+      <title id="frigiliana-orientation-map-title">{label}</title>
+      <desc id="frigiliana-orientation-map-description">{note}</desc>
+
+      <rect width="920" height="620" class="map-land" />
+
+      <path
+        d="M0 452 C126 431 237 461 356 440 C485 416 570 451 686 429 C786 411 851 418 920 397 V620 H0 Z"
+        class="map-sea"
+      />
+      <path
+        d="M0 452 C126 431 237 461 356 440 C485 416 570 451 686 429 C786 411 851 418 920 397"
+        class="map-coastline"
+      />
+
+      <g class="map-mountains" aria-hidden="true">
+        <path d="M548 110 L626 51 L682 116 L741 58 L826 139" />
+        <path d="M587 148 L654 92 L706 151 L765 101 L852 174" />
+        <path d="M636 188 L704 139 L759 191 L818 147 L886 208" />
+      </g>
+
+      <path
+        d="M105 412 C227 389 341 408 450 396 C565 383 639 393 716 374 C754 364 777 323 785 267"
+        class="map-road-shadow"
+      />
+      <path
+        d="M105 412 C227 389 341 408 450 396 C565 383 639 393 716 374 C754 364 777 323 785 267"
+        class="map-road"
+      />
+
+      <g class="map-route-points">
+        <circle cx="105" cy="412" r="10" class="map-point" />
+        <circle cx="245" cy="393" r="7" class="map-point-muted" />
+        <circle cx="716" cy="374" r="8" class="map-point" />
+        <circle cx="785" cy="267" r="11" class="map-point" />
+      </g>
+
+      <g class="map-labels">
+        <text x="72" y="376" class="map-label map-label-small">AGP</text>
+        <text x="72" y="397" class="map-label">{copy.airport}</text>
+
+        <text x="215" y="365" class="map-label map-label-small">MÁLAGA</text>
+        <text x="445" y="374" class="map-road-label">A-7 · COSTA DEL SOL</text>
+
+        <text x="683" y="346" class="map-label">NERJA</text>
+        <text x="751" y="239" class="map-label map-label-strong">FRIGILIANA</text>
+        <text x="663" y="477" class="map-water-label">{copy.sea}</text>
+        <text x="651" y="96" class="map-mountain-label">SIERRA ALMIJARA</text>
+      </g>
+
+      <path d="M790 257 L837 217" class="map-callout-line" />
+      <g transform="translate(742 158)">
+        <rect width="151" height="58" rx="1" class="map-callout" />
+        <circle cx="18" cy="20" r="5" class="map-callout-point" />
+        <text x="31" y="24" class="map-callout-title">CASA AMARA</text>
+        <text x="18" y="43" class="map-callout-copy">Calle Chorruelo 5</text>
+      </g>
+
+      <g transform="translate(54 535)" aria-hidden="true">
+        <line x1="0" y1="0" x2="68" y2="0" class="map-legend-line" />
+        <text x="82" y="5" class="map-legend-label">Málaga · Nerja · Frigiliana</text>
+      </g>
+    </svg>
+  </div>
+  <figcaption class="mt-3 font-label text-[10px] font-semibold uppercase tracking-[0.14em] text-on-surface-variant/65">
+    {note}
+  </figcaption>
+</figure>
+
+<style>
+  .map-land {
+    fill: var(--color-surface-container-lowest);
+  }
+
+  .map-sea {
+    fill: #dbe7e7;
+  }
+
+  .map-coastline {
+    fill: none;
+    stroke: color-mix(in srgb, var(--color-on-surface) 42%, transparent);
+    stroke-width: 1.5;
+    vector-effect: non-scaling-stroke;
+  }
+
+  .map-mountains path {
+    fill: none;
+    stroke: color-mix(in srgb, var(--color-primary) 23%, transparent);
+    stroke-width: 1.5;
+    vector-effect: non-scaling-stroke;
+  }
+
+  .map-road-shadow {
+    fill: none;
+    stroke: var(--color-surface-white);
+    stroke-width: 10;
+    stroke-linecap: round;
+    vector-effect: non-scaling-stroke;
+  }
+
+  .map-road {
+    fill: none;
+    stroke: var(--color-primary);
+    stroke-width: 3;
+    stroke-linecap: round;
+    stroke-dasharray: 2 8;
+    vector-effect: non-scaling-stroke;
+  }
+
+  .map-point,
+  .map-callout-point {
+    fill: var(--color-primary);
+    stroke: var(--color-surface-white);
+    stroke-width: 3;
+    vector-effect: non-scaling-stroke;
+  }
+
+  .map-point-muted {
+    fill: var(--color-on-surface-variant);
+    stroke: var(--color-surface-white);
+    stroke-width: 3;
+    vector-effect: non-scaling-stroke;
+  }
+
+  .map-label,
+  .map-road-label,
+  .map-mountain-label,
+  .map-water-label,
+  .map-callout-title,
+  .map-callout-copy,
+  .map-legend-label {
+    font-family: var(--font-label);
+  }
+
+  .map-label {
+    fill: var(--color-on-surface);
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+  }
+
+  .map-label-small,
+  .map-road-label,
+  .map-mountain-label,
+  .map-legend-label {
+    font-size: 11px;
+    letter-spacing: 0.14em;
+  }
+
+  .map-label-strong {
+    fill: var(--color-primary);
+    font-size: 17px;
+  }
+
+  .map-road-label,
+  .map-mountain-label,
+  .map-legend-label {
+    fill: color-mix(in srgb, var(--color-on-surface-variant) 76%, transparent);
+    font-weight: 650;
+  }
+
+  .map-water-label {
+    fill: color-mix(in srgb, var(--color-on-surface-variant) 62%, transparent);
+    font-size: 13px;
+    font-weight: 650;
+    letter-spacing: 0.18em;
+  }
+
+  .map-callout-line {
+    fill: none;
+    stroke: var(--color-primary);
+    stroke-width: 1.5;
+    vector-effect: non-scaling-stroke;
+  }
+
+  .map-callout {
+    fill: var(--color-surface-white);
+    stroke: color-mix(in srgb, var(--color-primary) 42%, transparent);
+    stroke-width: 1;
+    vector-effect: non-scaling-stroke;
+  }
+
+  .map-callout-title {
+    fill: var(--color-on-surface);
+    font-size: 12px;
+    font-weight: 750;
+    letter-spacing: 0.09em;
+  }
+
+  .map-callout-copy {
+    fill: var(--color-on-surface-variant);
+    font-size: 10px;
+    font-weight: 550;
+  }
+
+  .map-legend-line {
+    stroke: var(--color-primary);
+    stroke-width: 3;
+    stroke-linecap: round;
+    stroke-dasharray: 2 8;
+    vector-effect: non-scaling-stroke;
+  }
+
+  @media (max-width: 520px) {
+    .map-label {
+      font-size: 17px;
+    }
+
+    .map-label-small,
+    .map-road-label,
+    .map-mountain-label,
+    .map-legend-label {
+      font-size: 13px;
+    }
+
+    .map-callout-title {
+      font-size: 14px;
+    }
+
+    .map-callout-copy {
+      font-size: 12px;
+    }
+  }
+</style>
