@@ -1149,19 +1149,6 @@ const breadcrumbRentalName = rental.name.replace(/^AMARA\s+/u, '');
                 </div>
               ))}
             </dl>
-            <div class="mt-8 grid grid-cols-[2.5rem_minmax(0,1fr)] gap-4 border-y border-border-subtle bg-surface-container-low px-5 py-5 sm:px-6">
-              <span class="flex h-10 w-10 items-center justify-center rounded-full bg-surface text-primary" aria-hidden="true">
-                <Accessibility class="h-5 w-5" stroke-width={1.5} />
-              </span>
-              <div>
-                <p class="font-label text-[12px] font-semibold tracking-[0.04em] text-on-surface-variant">
-                  {t(ui.labels.access as LocalizedText)}
-                </p>
-                <p class="am-text-body mt-1 leading-relaxed text-on-surface">
-                  {t(rental.accessNote)}
-                </p>
-              </div>
-            </div>
           </div>
         </div>
       </section>
