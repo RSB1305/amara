@@ -284,6 +284,34 @@ export const arrivalGuideBusRoutes = {
 };
 
 export const arrivalGuideUi = {
+  heroAlt: {
+    en: "The green entrance door of La AMARA in Frigiliana's historic quarter",
+    de: "Die grüne Eingangstür von La AMARA in der Altstadt von Frigiliana",
+    es: "La puerta verde de entrada a La AMARA en el casco histórico de Frigiliana",
+    nl: "De groene voordeur van La AMARA in de historische wijk van Frigiliana",
+    sv: "Den gröna entrédörren till La AMARA i Frigilianas historiska kvarter"
+  },
+  openInMaps: {
+    en: "Open route in Google Maps",
+    de: "Route in Google Maps öffnen",
+    es: "Abrir ruta en Google Maps",
+    nl: "Route openen in Google Maps",
+    sv: "Öppna rutten i Google Maps"
+  },
+  expandMap: {
+    en: "Enlarge the walking route map",
+    de: "Karte des Fußwegs vergrößern",
+    es: "Ampliar el mapa del recorrido a pie",
+    nl: "Kaart van de looproute vergroten",
+    sv: "Förstora kartan över gångvägen"
+  },
+  closeMap: {
+    en: "Close map",
+    de: "Karte schließen",
+    es: "Cerrar mapa",
+    nl: "Kaart sluiten",
+    sv: "Stäng kartan"
+  },
   stepLabel: {
     en: "Recommended arrival step by step",
     de: "Empfohlene Ankunft Schritt für Schritt",
