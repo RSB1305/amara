@@ -555,19 +555,26 @@ const tvSizeInches = rental.tvSizeInches ?? (
   rental.city === 'Nerja' ? 50 : rental.city === 'Tarifa' ? 60 : 40
 );
 const formatAmenity = (feature: VacationRentalAmenityFeature) => {
-  const practicalOnlyAmenities = new Set([
+  const featuresShownElsewhere = new Set([
+    'balcony',
     'internetType',
     'licenseNum',
     'parkingType',
+    'patio',
+    'privateTerrace',
     'selfCheckinCheckout'
   ]);
   const hasAirConditioning = rental.amenityFeatures.some(
     (item) => item.name === 'ac' && item.value !== false
   );
 
+  if (feature.name === 'kitchen') {
+    return t(rental.kitchenNote);
+  }
+
   if (
     feature.value === false ||
-    practicalOnlyAmenities.has(feature.name) ||
+    featuresShownElsewhere.has(feature.name) ||
     (feature.name === 'heating' && hasAirConditioning)
   ) {
     return null;
@@ -711,18 +718,6 @@ const factRows: FactRow[] = [
         Icon: Building2
       }]
     : []),
-  {
-    label: t(ui.labels.bedSize as LocalizedText),
-    value: rental.bed.map(formatBed).join(', '),
-    Icon: BedDouble,
-    wide: true
-  },
-  {
-    label: t(ui.labels.kitchen as LocalizedText),
-    value: t(rental.kitchenNote),
-    Icon: CookingPot,
-    wide: true
-  },
   ...(rental.exteriorAreaSqm
     ? []
     : [{
@@ -730,15 +725,7 @@ const factRows: FactRow[] = [
         value: t(rental.outdoorNote),
         Icon: Sun,
         wide: true
-      }]),
-  ...(parkingValue
-    ? [{
-        label: t(ui.labels.parking as LocalizedText),
-        value: localizedParking,
-        Icon: CircleParking,
-        wide: true
-      }]
-    : [])
+      }])
 ];
 
 const vehicleAccessHours = rental.accessFacts.vehicleAccessHours;
