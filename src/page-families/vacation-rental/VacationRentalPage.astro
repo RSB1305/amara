@@ -774,6 +774,10 @@ const scheduleRows = [
     ? [{ label: t(ui.labels.selfCheckin as LocalizedText), value: t(ui.labels.available as LocalizedText), Icon: KeyRound }]
     : [])
 ];
+const descriptionParagraphs = t(rental.description)
+  .split(/\n{2,}/u)
+  .map((paragraph) => paragraph.trim())
+  .filter(Boolean);
 
 const visibleAddress = `${rental.street}, ${rental.zip} ${rental.city}, ${t(localizedRegion)}, ${t(localizedCountry)}`;
 const mapsQuery = `${rental.street}, ${rental.zip} ${rental.city}, ${rental.region}, Spain`;
@@ -1175,14 +1179,22 @@ const breadcrumbRentalName = rental.name.replace(/^AMARA\s+/u, '');
             <h2 id="rental-details-title" class="am-text-title text-on-surface">
               {t(ui.detailsTitle as LocalizedText)}
             </h2>
-            <p
-              class:list={[
-                'am-text-body text-on-surface-variant mt-6 max-w-2xl leading-relaxed',
-                { 'whitespace-pre-line': isFamilySurf }
-              ]}
-            >
-              {t(rental.description)}
-            </p>
+            <div class="mt-6 grid max-w-2xl gap-5">
+              {descriptionParagraphs.map((paragraph) => (
+                <p
+                  class:list={[
+                    'am-text-body text-on-surface-variant leading-relaxed',
+                    { 'whitespace-pre-line': isFamilySurf }
+                  ]}
+                >
+                  {paragraph.split(/(\*\*[^*]+\*\*)/u).filter(Boolean).map((segment) => (
+                    segment.startsWith('**') && segment.endsWith('**')
+                      ? <strong class="font-semibold text-on-surface">{segment.slice(2, -2)}</strong>
+                      : segment
+                  ))}
+                </p>
+              ))}
+            </div>
 
             <dl class="mt-4 bg-surface-container-low px-5 sm:px-6">
               {scheduleRows.map(({ label, value, Icon }) => (
