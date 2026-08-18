@@ -486,6 +486,14 @@ const bathroomUnderfloorHeating: LocalizedText = {
   sv: 'Golvvärme i badrummet'
 };
 
+const lounisAreaLabel: LocalizedText = {
+  en: 'Interior / Private terrace',
+  de: 'Innen / Private Terrasse',
+  es: 'Interior / Terraza privada',
+  nl: 'Binnen / Privéterras',
+  sv: 'Inomhus / Privat terrass'
+};
+
 const outdoorPool: LocalizedText = {
   en: 'Outdoor pool',
   de: 'Außenpool',
@@ -681,9 +689,11 @@ const factRows: FactRow[] = [
   { label: t(ui.labels.bathrooms as LocalizedText), value: String(rental.bathrooms), Icon: Bath },
   ...(rental.interiorAreaSqm
     ? [{
-        label: t((rental.exteriorAreaSqm
-          ? ui.labels.interiorExteriorArea
-          : ui.labels.interiorArea) as LocalizedText),
+        label: rental.key === 'amara-lounis'
+          ? t(lounisAreaLabel)
+          : t((rental.exteriorAreaSqm
+              ? ui.labels.interiorExteriorArea
+              : ui.labels.interiorArea) as LocalizedText),
         value: rental.exteriorAreaSqm
           ? `${rental.interiorAreaSqm} m² / ${rental.exteriorAreaSqm} m²`
           : `${rental.interiorAreaSqm} m²`,
@@ -702,12 +712,14 @@ const factRows: FactRow[] = [
     Icon: CookingPot,
     wide: true
   },
-  {
-    label: t(ui.labels.outdoor as LocalizedText),
-    value: t(rental.outdoorNote),
-    Icon: Sun,
-    wide: true
-  },
+  ...(rental.key === 'amara-lounis'
+    ? []
+    : [{
+        label: t(ui.labels.outdoor as LocalizedText),
+        value: t(rental.outdoorNote),
+        Icon: Sun,
+        wide: true
+      }]),
   ...(parkingValue
     ? [{
         label: t(ui.labels.parking as LocalizedText),
