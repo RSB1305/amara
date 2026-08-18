@@ -7,6 +7,7 @@ import {
   Accessibility,
   Baby,
   BadgeCheck,
+  BadgeEuro,
   Bath,
   BedDouble,
   BedSingle,
@@ -264,11 +265,11 @@ const ui = {
   },
   labels: {
     license: {
-      en: 'License',
-      de: 'Lizenz',
-      es: 'Licencia',
-      nl: 'Licentie',
-      sv: 'Licens'
+      en: 'License number',
+      de: 'Lizenznummer',
+      es: 'Número de licencia',
+      nl: 'Licentienummer',
+      sv: 'Licensnummer'
     },
     guests: {
       en: 'Guests',
@@ -326,12 +327,12 @@ const ui = {
       nl: 'Bedtype en -maat',
       sv: 'Sängtyp och storlek'
     },
-    perNight: {
-      en: 'per night',
-      de: 'pro Nacht',
-      es: 'por noche',
-      nl: 'per nacht',
-      sv: 'per natt'
+    pricePerNight: {
+      en: 'Price per night',
+      de: 'Preis pro Nacht',
+      es: 'Precio por noche',
+      nl: 'Prijs per nacht',
+      sv: 'Pris per natt'
     },
     checkin: {
       en: 'Check-in',
@@ -725,7 +726,17 @@ const factRows: FactRow[] = [
         value: t(rental.outdoorNote),
         Icon: Sun,
         wide: true
-      }])
+      }]),
+  {
+    label: t(ui.labels.pricePerNight as LocalizedText),
+    value: indicativePriceRange,
+    Icon: BadgeEuro
+  },
+  {
+    label: t(ui.labels.license as LocalizedText),
+    value: rental.license,
+    Icon: BadgeCheck
+  }
 ];
 
 const vehicleAccessHours = rental.accessFacts.vehicleAccessHours;
@@ -750,8 +761,7 @@ const detailRows = [
   { label: t(ui.labels.hostLanguages as LocalizedText), value: t(localizedHostLanguages), Icon: Languages },
   ...(parkingValue
     ? [{ label: t(ui.labels.parking as LocalizedText), value: localizedParking, Icon: CircleParking }]
-    : []),
-  { label: t(ui.labels.license as LocalizedText), value: rental.license, Icon: BadgeCheck }
+    : [])
 ];
 
 const scheduleRows = [
@@ -1013,23 +1023,7 @@ const breadcrumbRentalName = rental.name.replace(/^AMARA\s+/u, '');
               ))}
             </ul>
           )}
-          <div class="mt-8">
-            <div class="flex flex-wrap items-baseline gap-x-1.5 gap-y-1">
-              <span class="am-text-title text-primary">
-                {indicativePriceRange}
-              </span>
-              <span class="am-text-caption text-on-surface-variant">
-                / {t(ui.labels.perNight as LocalizedText)}
-              </span>
-            </div>
-            <p class="am-text-caption mt-3 max-w-2xl font-normal leading-relaxed text-on-surface-variant">
-              {t(ui.seasonalPriceNote as LocalizedText)}
-            </p>
-            <p class="am-text-caption mt-1 font-normal text-on-surface-variant">
-              {t(ui.priceChecked as LocalizedText)}: {priceCheckedDate}
-            </p>
-          </div>
-          <div class="grid gap-3 mt-5 sm:flex sm:flex-wrap">
+          <div class="grid gap-3 mt-8 sm:flex sm:flex-wrap">
             <a class="am-btn am-btn--primary w-full justify-center sm:w-auto" href={bookingHref}>
               {t(ui.checkAvailability as LocalizedText)}
             </a>
@@ -1136,6 +1130,14 @@ const breadcrumbRentalName = rental.name.replace(/^AMARA\s+/u, '');
                 </div>
               ))}
             </dl>
+            <div class="mt-7 max-w-3xl border-t border-border-subtle pt-5">
+              <p class="am-text-caption font-normal leading-relaxed text-on-surface-variant">
+                {t(ui.seasonalPriceNote as LocalizedText)}
+              </p>
+              <p class="am-text-caption mt-1 font-normal text-on-surface-variant">
+                {t(ui.priceChecked as LocalizedText)}: {priceCheckedDate}
+              </p>
+            </div>
           </div>
         </div>
       </section>
