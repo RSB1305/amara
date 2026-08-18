@@ -1,7 +1,5 @@
 ---
-import BaseLayout from '../../layouts/BaseLayout.astro';
-import Navigation from '../../components/Navigation.astro';
-import TrustHero from '../../components/hero/TrustHero.astro';
+import TrustPageLayout from '../../layouts/TrustPageLayout.astro';
 import EditorialSplit from '../../components/editorial/EditorialSplit.astro';
 import EditorialDefinitionList from '../../components/editorial/EditorialDefinitionList.astro';
 import EditorialFeatureGrid from '../../components/editorial/EditorialFeatureGrid.astro';
@@ -12,7 +10,7 @@ import { getAboutUsPageData } from '../../content/aboutUsContent';
 import { resolveOptionalLink } from '../../lib/linkResolver';
 import { normalizeLanguage } from '../../lib/seo/resolve-seo-head';
 import type { AmaraLanguage } from '../../types/seo';
-import '@fontsource/newsreader/700.css';
+import '@fontsource/newsreader/latin-700.css';
 
 const { lang = 'es' } = Astro.props;
 const currentLang = normalizeLanguage(lang as AmaraLanguage);
@@ -59,22 +57,20 @@ const heroCtaLinks = page.hero.ctaLinks
   .filter((link): link is { href: string; label: string } => Boolean(link));
 ---
 
-<BaseLayout seo={page.seo} pageLang={currentLang} footerHighlights={page.footerHighlights}>
-  <Navigation
-    currentLang={currentLang}
-    languageToken="about"
-  />
-  <div class="bg-white" data-am-page="about">
-    <div class="w-full max-w-[1400px] mx-auto px-[5vw]">
-    <TrustHero
-      subtitle={page.hero.subtitle}
-      title={page.hero.titleHtml}
-      lead={page.hero.lead}
-      supportText={page.hero.supportText}
-      ctaLinks={heroCtaLinks}
-    />
-
-    <main id="am-main-content" tabindex="-1" class="scroll-mt-[104px] lg:scroll-mt-[112px]">
+<TrustPageLayout
+  seo={page.seo}
+  currentLang={currentLang}
+  languageToken="about"
+  footerHighlights={page.footerHighlights}
+  pageId="about"
+  hero={{
+    subtitle: page.hero.subtitle,
+    title: page.hero.titleHtml,
+    lead: page.hero.lead,
+    supportText: page.hero.supportText,
+    ctaLinks: heroCtaLinks
+  }}
+>
       <EditorialHostProfile
         id="host"
         imageSrc="/images/robert-amara-host.jpg"
@@ -104,7 +100,7 @@ const heroCtaLinks = page.hero.ctaLinks
         </div>
       </EditorialHostProfile>
 
-      <section class="mb-[clamp(8rem,15vw,14rem)]">
+      <section class="mb-[var(--spacing-section-y)]">
         <EditorialSplit title={content.philosophy.title?.[currentLang] ?? ''}>
           <p class="am-text-subtitle leading-[1.5] text-on-surface mb-8">
             {content.philosophy.lead?.[currentLang]}
@@ -124,7 +120,7 @@ const heroCtaLinks = page.hero.ctaLinks
         </EditorialSplit>
       </section>
 
-      <section class="mb-[clamp(8rem,15vw,14rem)] max-w-[800px] mx-auto">
+      <section class="mx-auto mb-[var(--spacing-section-y)] max-w-[800px]">
         <div class="mb-16 text-center">
           <h2 class="am-text-title">{content.principles.title?.[currentLang]}</h2>
           <p class="am-text-body italic text-muted">{content.principles.note?.[currentLang]}</p>
@@ -140,7 +136,7 @@ const heroCtaLinks = page.hero.ctaLinks
       />
 
       <section
-        class="mb-[clamp(8rem,15vw,14rem)] bg-surface py-[clamp(4rem,8vw,8rem)] px-[clamp(2rem,5vw,5rem)] -mx-[5vw]"
+        class="-mx-[5vw] mb-[var(--spacing-section-y)] bg-surface px-[clamp(2rem,5vw,5rem)] py-[clamp(4rem,8vw,8rem)]"
       >
         <h2 class="am-text-title text-center mb-20">{content.quality.title?.[currentLang]}</h2>
         <div class="max-w-[1200px] mx-auto mb-16" data-am-about-quality-grid>
@@ -156,10 +152,7 @@ const heroCtaLinks = page.hero.ctaLinks
         links={closingCtaLinks}
         lang={currentLang}
       />
-    </main>
-    </div>
-  </div>
-</BaseLayout>
+</TrustPageLayout>
 
 <style is:global>
   [data-am-about-quality-grid] .grid > div > div {

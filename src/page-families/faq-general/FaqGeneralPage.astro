@@ -1,7 +1,5 @@
 ---
-import BaseLayout from '../../layouts/BaseLayout.astro';
-import Navigation from '../../components/Navigation.astro';
-import TrustHero from '../../components/hero/TrustHero.astro';
+import TrustPageLayout from '../../layouts/TrustPageLayout.astro';
 import EditorialClosingCta from '../../components/editorial/EditorialClosingCta.astro';
 import type { EditorialClosingCtaLink } from '../../components/editorial/EditorialClosingCta.astro';
 import AmaraImage from '../../components/AmaraImage.astro';
@@ -303,23 +301,23 @@ const sections = copy.sections.map((section, index) => ({
 }));
 ---
 
-<BaseLayout seo={seo} pageLang={currentLang} footerHighlights={footerHighlights}>
-  <Navigation
-    currentLang={currentLang}
-    currentToken="faq_general"
-  />
-
-  <div class="bg-white" data-am-page="faq-general">
-    <div class="w-full max-w-[1400px] mx-auto px-[5vw]" data-lang={currentLang}>
-    <TrustHero
-      subtitle={hero.kicker}
-      title={hero.title}
-      lead={hero.lead}
-      supportText={copy.shared.supportText[currentLang]}
-      ctaLinks={heroCtaLinks}
-      ctaVariant="conversion"
-    />
-      <main id="am-main-content" tabindex="-1" class="space-y-16 scroll-mt-[104px] lg:scroll-mt-[112px]">
+<TrustPageLayout
+  seo={seo}
+  currentLang={currentLang}
+  currentToken="faq_general"
+  footerHighlights={footerHighlights}
+  pageId="faq-general"
+  dataLang={currentLang}
+  mainClass="space-y-16"
+  hero={{
+    subtitle: hero.kicker,
+    title: hero.title,
+    lead: hero.lead,
+    supportText: copy.shared.supportText[currentLang],
+    ctaLinks: heroCtaLinks,
+    ctaVariant: 'conversion'
+  }}
+>
         {sections.map((section) => (
           <section
             class="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-20 items-start border-t border-outline-variant/10 pt-16"
@@ -433,7 +431,4 @@ const sections = copy.sections.map((section, index) => ({
           links={closingCtaLinks}
           lang={currentLang}
         />
-      </main>
-    </div>
-  </div>
-</BaseLayout>
+</TrustPageLayout>

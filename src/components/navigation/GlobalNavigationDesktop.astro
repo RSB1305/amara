@@ -55,6 +55,7 @@ const { groups, navigationLabel } = Astro.props;
                     class:list={[
                       'am-nav__dropdown-link font-label text-[12px] font-bold uppercase tracking-[0.12em]',
                       item.description && 'am-nav__dropdown-link--detailed',
+                      group.id === 'stays' && !item.overview && 'am-nav__dropdown-link--nested',
                       item.overview && 'am-nav__dropdown-link--overview'
                     ]}
                     aria-current={item.isActive ? 'page' : undefined}
@@ -69,6 +70,7 @@ const { groups, navigationLabel } = Astro.props;
                     class:list={[
                       'am-nav__dropdown-link am-is-disabled font-label text-[12px] font-bold uppercase tracking-[0.12em]',
                       item.description && 'am-nav__dropdown-link--detailed',
+                      group.id === 'stays' && !item.overview && 'am-nav__dropdown-link--nested',
                       item.overview && 'am-nav__dropdown-link--overview'
                     ]}
                     aria-disabled="true"
