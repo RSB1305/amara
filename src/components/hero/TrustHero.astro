@@ -8,6 +8,7 @@ interface HeroLink {
 
 interface Props {
   title: string;
+  titleWidth?: 'default' | 'wide';
   subtitle?: string;
   lead: string;
   ctaLinks?: HeroLink[];
@@ -17,6 +18,7 @@ interface Props {
 
 const {
   title,
+  titleWidth = 'default',
   subtitle,
   lead,
   ctaLinks = [],
@@ -31,7 +33,13 @@ const {
       <span class="am-kicker text-primary">{subtitle}</span>
     </div>
   )}
-  <h1 class="am-text-display am-exp-hero__title" set:html={title} />
+  <h1
+    class:list={[
+      'am-text-display am-exp-hero__title',
+      { 'am-exp-hero__title--wide': titleWidth === 'wide' }
+    ]}
+    set:html={title}
+  />
   <p class="am-text-body am-exp-hero__lead text-subtle"><InlineEmphasis text={lead} /></p>
   {supportText && <p class="am-text-body am-hero-support italic text-muted"><InlineEmphasis text={supportText} /></p>}
   {ctaLinks.length > 0 && ctaVariant === 'conversion' && (
@@ -77,9 +85,17 @@ const {
     @apply text-on-surface;
   }
 
+  .am-exp-hero__title.am-exp-hero__title--wide {
+    max-width: none;
+  }
+
   @media (min-width: 1024px) {
     .am-exp-hero__title {
       max-width: 18ch;
+    }
+
+    .am-exp-hero__title.am-exp-hero__title--wide {
+      max-width: none;
     }
   }
 

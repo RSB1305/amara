@@ -1,10 +1,9 @@
 ---
 import InlineEmphasis from '../../components/text/InlineEmphasis.astro';
-import BaseLayout from '../../layouts/BaseLayout.astro';
-import Navigation from '../../components/Navigation.astro';
-import TrustHero from '../../components/hero/TrustHero.astro';
 import EditorialClosingCta from '../../components/editorial/EditorialClosingCta.astro';
 import type { EditorialClosingCtaLink } from '../../components/editorial/EditorialClosingCta.astro';
+import EditorialQuote from '../../components/editorial/EditorialQuote.astro';
+import EditorialSplit from '../../components/editorial/EditorialSplit.astro';
 import AmaraImage from '../../components/AmaraImage.astro';
 import frigilianaLocationImage from '../../assets/images/content/amara-frigiliana-pueblo/JPG_Frigiliana_Pueblo/2000px_72dpi_sRGB/04-frigiliana-pueblo.jpg';
 import nerjaLocationImage from '../../assets/images/home/amara-playa-chaparril-13.webp';
@@ -16,6 +15,7 @@ import {
 } from '../../content/guestReviewsContent';
 import { airbnbReviewEvidence } from '../../content/reviewEvidence';
 import { resolveLink, resolveOptionalLink, type LabeledLink } from '../../lib/linkResolver';
+import TrustPageLayout from '../../layouts/TrustPageLayout.astro';
 import type { AmaraLanguage } from '../../types/seo';
 
 interface Props {
@@ -52,162 +52,153 @@ const closingCtaLinks: EditorialClosingCtaLink[] = [
 ];
 ---
 
-<BaseLayout seo={seo} pageLang={currentLang} footerHighlights={footerHighlights}>
-  <Navigation
-    currentLang={currentLang}
-    languageToken="reviews_hub"
-  />
-  <div class="bg-white" data-am-page="guest-reviews">
-    <div class="w-full max-w-[1400px] mx-auto px-[5vw]">
-    <TrustHero
-      subtitle={copy.hero.subtitle[currentLang]}
-      title={copy.hero.title[currentLang]}
-      lead={copy.hero.lead[currentLang]}
-      supportText={copy.hero.supportText[currentLang]}
-      ctaLinks={heroCtaLinks}
-      ctaVariant="conversion"
-    />
-
-    <main id="am-main-content" tabindex="-1" class="scroll-mt-[104px] lg:scroll-mt-[112px]">
-      <!-- The opening split mirrors the About page: one anchored title, one dense proof column. -->
-      <section class="am-reviews-section">
-        <div class="am-reviews-split">
-          <div class="am-reviews-split__left">
-            <h2 class="am-text-title">{copy.sections.summaryTitle[currentLang]}</h2>
-          </div>
-          <div class="am-reviews-split__right">
-            <p class="am-text-subtitle text-on-surface mb-8"><InlineEmphasis text={copy.sections.summaryLead[currentLang]} /></p>
-            <p class="am-text-caption text-on-surface-variant mb-6">
-              <a
-                class="am-inline-link"
-                href={airbnbReviewEvidence.sourceUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                {copy.sections.evidenceSource[currentLang]}
-              </a>
-            </p>
-            <p class="am-text-body text-subtle">
-              {copy.sections.summaryBodyOne[currentLang]}
-            </p>
-          </div>
-        </div>
+<TrustPageLayout
+  seo={seo}
+  currentLang={currentLang}
+  languageToken="reviews_hub"
+  footerHighlights={footerHighlights}
+  pageId="guest-reviews"
+  hero={{
+    subtitle: copy.hero.subtitle[currentLang],
+    title: copy.hero.title[currentLang],
+    titleWidth: 'wide',
+    lead: copy.hero.lead[currentLang],
+    supportText: copy.hero.supportText[currentLang],
+    ctaLinks: heroCtaLinks,
+    ctaVariant: 'conversion'
+  }}
+>
+      <section class="mb-[var(--spacing-section-y)]">
+        <EditorialSplit title={copy.sections.summaryTitle[currentLang]}>
+          <p class="am-text-subtitle text-on-surface"><InlineEmphasis text={copy.sections.summaryLead[currentLang]} /></p>
+          <p class="am-text-caption text-on-surface-variant">
+            <a
+              class="am-inline-link"
+              href={airbnbReviewEvidence.sourceUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              {copy.sections.evidenceSource[currentLang]}
+            </a>
+          </p>
+          <p class="am-text-body text-subtle">{copy.sections.summaryBodyOne[currentLang]}</p>
+        </EditorialSplit>
       </section>
 
-      <section class="am-reviews-section am-reviews-quote-block">
-        <blockquote class="am-text-title italic am-reviews-quote">
-          &ldquo;{copy.sections.quote[currentLang]}&rdquo;
-        </blockquote>
-      </section>
+      <div class="mb-[var(--spacing-section-y)]">
+        <EditorialQuote quote={copy.sections.quote[currentLang]} />
+      </div>
 
-      <section class="am-reviews-section">
-        <div class="am-reviews-section-header">
+      <section class="mb-[var(--spacing-section-y)]">
+        <div class="mx-auto mb-16 max-w-[760px] text-center">
           <h2 class="am-text-title">{copy.sections.reviewsTitle[currentLang]}</h2>
-          <p class="am-text-body text-muted italic am-reviews-section-note"><InlineEmphasis text={copy.sections.reviewsNote[currentLang]} /></p>
+          <p class="am-text-body italic text-muted"><InlineEmphasis text={copy.sections.reviewsNote[currentLang]} /></p>
         </div>
 
-        <div class="am-reviews-grid">
+        <div class="grid gap-[clamp(2rem,4vw,3rem)] lg:grid-cols-3">
           {copy.reviews.map((review) => (
-            <article class="am-reviews-card">
-              <p class="am-text-caption text-on-surface/60 am-reviews-card__meta">{review.meta[currentLang]}</p>
-              <p class="am-text-body text-strong am-reviews-card__copy">&ldquo;{review.copy[currentLang]}&rdquo;</p>
+            <article class="border border-on-surface/5 bg-surface p-[clamp(2rem,3vw,2.5rem)]">
+              <p class="am-text-caption mb-6 text-on-surface/60 opacity-75">{review.meta[currentLang]}</p>
+              <p class="am-text-body leading-[1.85] text-strong">&ldquo;{review.copy[currentLang]}&rdquo;</p>
             </article>
           ))}
         </div>
       </section>
 
-      <section class="am-reviews-section am-reviews-proof">
-        <div class="am-reviews-proof__header">
+      <section class="mx-auto mb-[var(--spacing-section-y)] max-w-[900px]">
+        <div class="mx-auto mb-16 max-w-[760px] text-center">
           <h2 class="am-text-title">{copy.sections.mentionsTitle[currentLang]}</h2>
-          <p class="am-text-body text-muted italic am-reviews-proof__note"><InlineEmphasis text={copy.sections.mentionsNote[currentLang]} /></p>
+          <p class="am-text-body italic text-muted"><InlineEmphasis text={copy.sections.mentionsNote[currentLang]} /></p>
         </div>
 
-        <div class="am-reviews-list">
+        <div class="border-t-2 border-on-surface">
           {copy.proofPoints[currentLang].map((item) => (
-            <div class="am-reviews-list__item">
-              <p class="am-text-body text-strong am-reviews-list__copy"><InlineEmphasis text={item} /></p>
+            <div class="grid border-b border-on-surface/10 py-[1.8rem]">
+              <p class="am-text-body m-0 text-strong"><InlineEmphasis text={item} /></p>
             </div>
           ))}
         </div>
       </section>
 
-      <!-- Awards are grouped clearly, but kept editorial rather than widget-like. -->
-      <section class="am-reviews-section am-reviews-awards">
-        <div class="am-reviews-awards__header">
-          <h2 class="am-text-title am-reviews-awards__title">{copy.sections.awardsTitle[currentLang]}</h2>
+      <section class="-mx-[5vw] mb-[var(--spacing-section-y)] bg-surface px-[clamp(2rem,5vw,5rem)] py-[clamp(4rem,8vw,8rem)]">
+        <div class="mx-auto mb-16 max-w-[760px] text-center">
+          <h2 class="am-text-title mb-6">{copy.sections.awardsTitle[currentLang]}</h2>
           <p class="am-text-body text-subtle"><InlineEmphasis text={copy.sections.awardsBody[currentLang]} /></p>
-          <p class="am-text-body text-muted italic am-reviews-awards__source"><InlineEmphasis text={copy.sections.awardsSource[currentLang]} /></p>
+          <p class="am-text-body italic text-muted"><InlineEmphasis text={copy.sections.awardsSource[currentLang]} /></p>
         </div>
 
-        <div class="am-reviews-awards__grid">
-          <div class="am-reviews-awards__group">
-            <h3 class="am-text-caption am-reviews-awards__label">Frigiliana</h3>
-            <ul class="am-text-body text-on-surface am-reviews-ul">
+        <div class="mx-auto grid max-w-[1100px] gap-[clamp(2rem,4vw,4rem)] lg:grid-cols-2">
+          <div class="border border-on-surface/5 bg-white p-[clamp(2rem,4vw,3rem)] shadow-[var(--shadow-editorial-card)]">
+            <h3 class="am-text-caption mb-6 border-b border-on-surface/10 pb-[0.6rem] text-muted">Frigiliana</h3>
+            <ul class="am-text-body m-0 list-none p-0 text-on-surface">
               {copy.awards.frigiliana.map((award) => (
-                <li>{formatAward(award)}</li>
+                <li class="relative mb-4 pl-5 before:absolute before:left-0 before:text-on-surface/35 before:content-['-'] last:mb-0">{formatAward(award)}</li>
               ))}
             </ul>
           </div>
 
-          <div class="am-reviews-awards__group">
-            <h3 class="am-text-caption am-reviews-awards__label">Nerja & Tarifa</h3>
-            <ul class="am-text-body text-on-surface am-reviews-ul">
+          <div class="border border-on-surface/5 bg-white p-[clamp(2rem,4vw,3rem)] shadow-[var(--shadow-editorial-card)]">
+            <h3 class="am-text-caption mb-6 border-b border-on-surface/10 pb-[0.6rem] text-muted">Nerja & Tarifa</h3>
+            <ul class="am-text-body m-0 list-none p-0 text-on-surface">
               {copy.awards.coast.map((award) => (
-                <li>{formatAward(award)}</li>
+                <li class="relative mb-4 pl-5 before:absolute before:left-0 before:text-on-surface/35 before:content-['-'] last:mb-0">{formatAward(award)}</li>
               ))}
             </ul>
           </div>
         </div>
       </section>
 
-      <section class="am-reviews-section am-reviews-locations">
-        <div class="am-reviews-locations__header">
+      <section class="mb-[var(--spacing-section-y)]">
+        <div class="mx-auto mb-16 max-w-[760px] text-center">
           <h2 class="am-text-title">{copy.sections.locationTitle[currentLang]}</h2>
           <p class="am-text-body text-subtle"><InlineEmphasis text={copy.sections.locationLead[currentLang]} /></p>
         </div>
 
-        <div class="am-reviews-locations__trio">
-          <a href={resolveLink('location_frigiliana', currentLang)} class="am-card-link am-reviews-location">
-            <div class="am-reviews-location__image">
+        <div class="grid gap-[clamp(2rem,4vw,4rem)] lg:grid-cols-3">
+          <a href={resolveLink('location_frigiliana', currentLang)} class="am-card-link group block">
+            <div class="mb-6 aspect-[3/4] overflow-hidden bg-on-surface/[0.03]">
               <AmaraImage
                 src={frigilianaLocationImage}
                 alt=""
                 profile="card"
+                class="block h-full w-full object-cover [transition:transform_0.45s_ease] group-hover:scale-[1.025] group-focus-visible:scale-[1.025] motion-reduce:transition-none"
                 sizes="(max-width: 1000px) 90vw, (max-width: 1555px) 29vw, 420px"
               />
             </div>
-            <div class="am-reviews-location__caption">
-              <h3 class="am-text-subtitle am-reviews-location__title">Frigiliana</h3>
+            <div>
+              <h3 class="am-text-subtitle mb-2 text-on-surface">Frigiliana</h3>
               <p class="am-text-body text-subtle"><InlineEmphasis text={copy.sections.locationFrigiliana[currentLang]} /></p>
             </div>
           </a>
 
-          <a href={resolveLink('location_nerja', currentLang)} class="am-card-link am-reviews-location">
-            <div class="am-reviews-location__image">
+          <a href={resolveLink('location_nerja', currentLang)} class="am-card-link group block">
+            <div class="mb-6 aspect-[3/4] overflow-hidden bg-on-surface/[0.03]">
               <AmaraImage
                 src={nerjaLocationImage}
                 alt=""
                 profile="card"
+                class="block h-full w-full object-cover [transition:transform_0.45s_ease] group-hover:scale-[1.025] group-focus-visible:scale-[1.025] motion-reduce:transition-none"
                 sizes="(max-width: 1000px) 90vw, (max-width: 1555px) 29vw, 420px"
               />
             </div>
-            <div class="am-reviews-location__caption">
-              <h3 class="am-text-subtitle am-reviews-location__title">Nerja</h3>
+            <div>
+              <h3 class="am-text-subtitle mb-2 text-on-surface">Nerja</h3>
               <p class="am-text-body text-subtle"><InlineEmphasis text={copy.sections.locationNerja[currentLang]} /></p>
             </div>
           </a>
 
-          <a href={resolveLink('location_tarifa', currentLang)} class="am-card-link am-reviews-location">
-            <div class="am-reviews-location__image">
+          <a href={resolveLink('location_tarifa', currentLang)} class="am-card-link group block">
+            <div class="mb-6 aspect-[3/4] overflow-hidden bg-on-surface/[0.03]">
               <AmaraImage
                 src={tarifaLocationImage}
                 alt=""
                 profile="card"
+                class="block h-full w-full object-cover [transition:transform_0.45s_ease] group-hover:scale-[1.025] group-focus-visible:scale-[1.025] motion-reduce:transition-none"
                 sizes="(max-width: 1000px) 90vw, (max-width: 1555px) 29vw, 420px"
               />
             </div>
-            <div class="am-reviews-location__caption">
-              <h3 class="am-text-subtitle am-reviews-location__title">Tarifa</h3>
+            <div>
+              <h3 class="am-text-subtitle mb-2 text-on-surface">Tarifa</h3>
               <p class="am-text-body text-subtle"><InlineEmphasis text={copy.sections.locationTarifa[currentLang]} /></p>
             </div>
           </a>
@@ -220,228 +211,4 @@ const closingCtaLinks: EditorialClosingCtaLink[] = [
         links={closingCtaLinks}
         lang={currentLang}
       />
-    </main>
-    </div>
-  </div>
-</BaseLayout>
-
-<style>
-  @reference "../../styles/global.css";
-
-  .am-reviews-section {
-    margin-bottom: clamp(8rem, 15vw, 14rem);
-  }
-
-  .am-reviews-split {
-    display: grid;
-    grid-template-columns: 1.2fr 1.8fr;
-    gap: clamp(4rem, 8vw, 8rem);
-  }
-
-  .am-reviews-split__left .am-text-title {
-    position: sticky;
-    top: 2rem;
-  }
-
-  .am-reviews-split__right {
-    max-width: 65ch;
-  }
-
-  .am-reviews-split__right p {
-    margin-bottom: 1.5rem;
-  }
-
-  .am-reviews-quote-block {
-    padding: clamp(4rem, 8vw, 8rem) 0;
-    text-align: center;
-    max-width: 1000px;
-    margin-left: auto;
-    margin-right: auto;
-  }
-
-  .am-reviews-quote {
-    line-height: 1.15;
-    letter-spacing: -0.02em;
-    @apply text-on-surface;
-    margin: 0;
-  }
-
-  .am-reviews-section-header,
-  .am-reviews-proof__header,
-  .am-reviews-awards__header,
-  .am-reviews-locations__header {
-    text-align: center;
-    max-width: 760px;
-    margin: 0 auto 4rem;
-  }
-
-  .am-reviews-section-note,
-  .am-reviews-proof__note,
-  .am-reviews-awards__source {
-    @apply text-muted;
-    font-style: italic;
-  }
-
-  .am-reviews-grid {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: clamp(2rem, 4vw, 3rem);
-  }
-
-  .am-reviews-card {
-    @apply bg-surface border border-on-surface/5;
-    padding: clamp(2rem, 3vw, 2.5rem);
-  }
-
-  .am-reviews-card__meta {
-    margin-bottom: 1.5rem;
-    opacity: 0.75;
-  }
-
-  .am-reviews-card__copy {
-    @apply text-strong;
-    line-height: 1.85;
-  }
-
-  .am-reviews-proof {
-    max-width: 900px;
-    margin-left: auto;
-    margin-right: auto;
-  }
-
-  .am-reviews-list {
-    border-top: 2px solid var(--color-on-surface);
-  }
-
-  .am-reviews-list__item {
-    display: grid;
-    grid-template-columns: 1fr;
-    padding: 1.8rem 0;
-    @apply border-b border-on-surface/10;
-  }
-
-  .am-reviews-list__copy {
-    margin: 0;
-    @apply text-strong;
-  }
-
-  .am-reviews-awards {
-    @apply bg-surface;
-    padding: clamp(4rem, 8vw, 8rem) clamp(2rem, 5vw, 5rem);
-    margin-left: -5vw;
-    margin-right: -5vw;
-  }
-
-  .am-reviews-awards__title {
-    margin-bottom: 1.5rem;
-  }
-
-  .am-reviews-awards__grid {
-    max-width: 1100px;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: clamp(2rem, 4vw, 4rem);
-  }
-
-  .am-reviews-awards__group {
-    @apply bg-white border border-on-surface/5;
-    padding: clamp(2rem, 4vw, 3rem);
-    box-shadow: var(--shadow-editorial-card);
-  }
-
-  .am-reviews-awards__label {
-    @apply text-muted border-b border-on-surface/10;
-    margin-bottom: 1.5rem;
-    padding-bottom: 0.6rem;
-  }
-
-  .am-reviews-ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-  }
-
-  .am-reviews-ul li {
-    margin-bottom: 1rem;
-    position: relative;
-    padding-left: 1.25rem;
-    @apply text-on-surface;
-  }
-
-  .am-reviews-ul li::before {
-    content: "-";
-    position: absolute;
-    left: 0;
-    @apply text-on-surface/35;
-  }
-
-  .am-reviews-locations__trio {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: clamp(2rem, 4vw, 4rem);
-  }
-
-  .am-reviews-location {
-    text-decoration: none;
-    color: inherit;
-    display: block;
-  }
-
-  .am-reviews-location__image {
-    aspect-ratio: 3 / 4;
-    @apply bg-on-surface/[0.03];
-    overflow: hidden;
-    margin-bottom: 1.5rem;
-  }
-
-  .am-reviews-location__image :global(img) {
-    display: block;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.45s ease;
-  }
-
-  .am-reviews-location:hover .am-reviews-location__image :global(img),
-  .am-reviews-location:focus-visible .am-reviews-location__image :global(img) {
-    transform: scale(1.025);
-  }
-
-  .am-reviews-location__title {
-    margin-bottom: 0.5rem;
-    @apply text-on-surface;
-  }
-
-  @media (max-width: 1000px) {
-    .am-reviews-grid,
-    .am-reviews-locations__trio,
-    .am-reviews-awards__grid,
-    .am-reviews-split {
-      grid-template-columns: 1fr;
-    }
-
-    .am-reviews-split__left .am-text-title {
-      position: static;
-    }
-  }
-
-  @media (max-width: 600px) {
-    .am-reviews-hero__links {
-      flex-direction: column;
-      align-items: center;
-      gap: 1rem;
-      justify-content: center;
-    }
-
-    .am-reviews-hero__dot {
-      display: none;
-    }
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    .am-reviews-location__image :global(img) {
-      transition: none;
-    }
-  }
-</style>
+</TrustPageLayout>

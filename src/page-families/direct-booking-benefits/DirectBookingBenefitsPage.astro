@@ -1,7 +1,5 @@
 ---
-import BaseLayout from '../../layouts/BaseLayout.astro';
-import Navigation from '../../components/Navigation.astro';
-import TrustHero from '../../components/hero/TrustHero.astro';
+import TrustPageLayout from '../../layouts/TrustPageLayout.astro';
 import EditorialQuote from '../../components/editorial/EditorialQuote.astro';
 import EditorialDefinitionList from '../../components/editorial/EditorialDefinitionList.astro';
 import EditorialSplit from '../../components/editorial/EditorialSplit.astro';
@@ -56,40 +54,23 @@ const inlineLinks = ([
   .filter((link): link is { href: string; label: string } => Boolean(link));
 ---
 
-<BaseLayout seo={seo} pageLang={currentLang} footerHighlights={footerHighlights}>
+<TrustPageLayout
+  seo={seo}
+  currentLang={currentLang}
+  languageToken="direct_booking_benefits"
+  footerHighlights={footerHighlights}
+  pageId="direct-booking-benefits"
+  hero={{
+    subtitle: copy.hero.subtitle[currentLang],
+    title: copy.hero.title[currentLang],
+    lead: copy.hero.lead[currentLang],
+    supportText: copy.hero.supportText[currentLang],
+    ctaLinks: heroCtaLinks,
+    ctaVariant: 'conversion'
+  }}
+>
 
-  <Navigation
-
-    currentLang={currentLang}
-
-    languageToken="direct_booking_benefits"
-
-  />
-
-  <div class="bg-white" data-am-page="direct-booking-benefits">
-    <div class="w-full max-w-[1400px] mx-auto px-[5vw]">
-
-    <TrustHero
-
-      subtitle={copy.hero.subtitle[currentLang]}
-
-      title={copy.hero.title[currentLang]}
-
-      lead={copy.hero.lead[currentLang]}
-
-      supportText={copy.hero.supportText[currentLang]}
-
-      ctaLinks={heroCtaLinks}
-
-      ctaVariant="conversion"
-
-    />
-
-
-
-    <main id="am-main-content" tabindex="-1" class="scroll-mt-[104px] lg:scroll-mt-[112px]">
-
-      <section class="mb-[clamp(8rem,15vw,14rem)]">
+      <section class="mb-[var(--spacing-section-y)]">
 
         <EditorialSplit title={copy.sections.benefitsTitle[currentLang]}>
 
@@ -124,7 +105,7 @@ const inlineLinks = ([
 
 
 
-      <div class="mb-[clamp(8rem,15vw,14rem)]">
+      <div class="mb-[var(--spacing-section-y)]">
 
         <EditorialQuote quote={copy.sections.quote[currentLang]} />
 
@@ -132,7 +113,7 @@ const inlineLinks = ([
 
 
 
-      <section class="mb-[clamp(8rem,15vw,14rem)]">
+      <section class="mb-[var(--spacing-section-y)]">
 
         <EditorialSplit title={copy.sections.whyTitle[currentLang]}>
 
@@ -154,7 +135,7 @@ const inlineLinks = ([
 
 
 
-      <section class="mb-[clamp(8rem,15vw,14rem)] bg-surface py-[clamp(4rem,8vw,8rem)] px-[clamp(2rem,5vw,5rem)] -mx-[5vw]">
+      <section class="-mx-[5vw] mb-[var(--spacing-section-y)] bg-surface px-[clamp(2rem,5vw,5rem)] py-[clamp(4rem,8vw,8rem)]">
 
         <EditorialStatement title={copy.sections.promiseTitle[currentLang]}>
 
@@ -194,14 +175,7 @@ const inlineLinks = ([
 
       />
 
-    </main>
-
-    </div>
-
-  </div>
-
-</BaseLayout>
-
+</TrustPageLayout>
 
 
 

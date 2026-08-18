@@ -30,7 +30,7 @@ const { imageSrc, imageAlt, title, role, stats, id, intro = [] } = Astro.props;
 <div
   id={id}
   class:list={[
-    'grid grid-cols-1 lg:grid-cols-[4fr_6fr] gap-[clamp(4rem,8vw,8rem)] items-start mb-[clamp(8rem,15vw,14rem)]',
+    'grid grid-cols-1 lg:grid-cols-[4fr_6fr] gap-[clamp(4rem,8vw,8rem)] items-start mb-[var(--spacing-section-y)]',
     { 'scroll-mt-[104px] lg:scroll-mt-[112px]': id }
   ]}
 >

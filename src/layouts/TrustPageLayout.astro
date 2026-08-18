@@ -1,0 +1,77 @@
+---
+import Navigation from '../components/Navigation.astro';
+import TrustHero from '../components/hero/TrustHero.astro';
+import type { LinkToken } from '../lib/linkResolver';
+import type { AmaraAuthoringSeo, AmaraLanguage } from '../types/seo';
+import BaseLayout from './BaseLayout.astro';
+
+interface HeroLink {
+  href: string;
+  label: string;
+}
+
+interface Props {
+  seo: AmaraAuthoringSeo;
+  currentLang: AmaraLanguage;
+  pageId: string;
+  currentToken?: LinkToken;
+  languageToken?: LinkToken;
+  footerHighlights?: { token: LinkToken; label: string }[];
+  dataLang?: AmaraLanguage;
+  mainClass?: string;
+  hero: {
+    title: string;
+    titleWidth?: 'default' | 'wide';
+    lead: string;
+    subtitle?: string;
+    supportText?: string;
+    ctaLinks?: HeroLink[];
+    ctaVariant?: 'editorial' | 'conversion';
+  };
+}
+
+const {
+  seo,
+  currentLang,
+  pageId,
+  currentToken,
+  languageToken,
+  footerHighlights,
+  dataLang,
+  mainClass,
+  hero
+} = Astro.props;
+---
+
+<BaseLayout seo={seo} pageLang={currentLang} footerHighlights={footerHighlights}>
+  <Navigation
+    currentLang={currentLang}
+    currentToken={currentToken}
+    languageToken={languageToken}
+  />
+
+  <div class="bg-white" data-am-page={pageId}>
+    <div class="mx-auto w-full max-w-[1400px] px-[5vw]" data-lang={dataLang}>
+      <TrustHero
+        subtitle={hero.subtitle}
+        title={hero.title}
+        titleWidth={hero.titleWidth}
+        lead={hero.lead}
+        supportText={hero.supportText}
+        ctaLinks={hero.ctaLinks}
+        ctaVariant={hero.ctaVariant}
+      />
+
+      <main
+        id="am-main-content"
+        tabindex="-1"
+        class:list={[
+          'scroll-mt-[104px] lg:scroll-mt-[112px]',
+          mainClass
+        ]}
+      >
+        <slot />
+      </main>
+    </div>
+  </div>
+</BaseLayout>
