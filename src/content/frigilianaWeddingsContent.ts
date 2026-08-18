@@ -3,7 +3,8 @@ import type { AmaraAuthoringSeo, AmaraLanguage } from '../types/seo';
 type WeddingPlanningLinkToken =
   | 'getting_to_frigiliana'
   | 'frigiliana_parking'
-  | 'frigiliana_stairs';
+  | 'frigiliana_stairs'
+  | 'weather_frigiliana';
 
 interface FrigilianaWeddingsCopy {
   hero: {
@@ -155,7 +156,7 @@ export const frigilianaWeddingsContent: Record<
       paragraphs: [
         'Casa AMARA is on Calle Chorruelo, where it meets Calle Real, around 15 metres from San Antonio church. There is no transfer from the accommodation to the ceremony and no long walk through the village in wedding clothes.',
         'During a booked stay, the couple or guests can get ready in their own accommodation, take a final moment in private and walk over when it is time.',
-        'The short distance is just as useful afterwards: guests staying at AMARA return to the house in a few steps before continuing with the rest of their stay in Frigiliana.'
+        'The short distance is just as useful afterwards: guests staying at AMARA return to the house in a few steps. If the reception is elsewhere, arrange the taxi, shuttle or pickup with the venue or wedding planner in good time.'
       ],
       distance: '≈ 15 m',
       distanceLabel: 'from Casa AMARA to San Antonio church',
@@ -164,7 +165,7 @@ export const frigilianaWeddingsContent: Record<
     stayOptions: {
       title: 'Stay at AMARA',
       intro:
-        'Casa AMARA contains four independent stays for two guests each. Depending on availability, a wedding booking can be kept small or bring a close group together in the same house.',
+        'For couples and wedding guests looking for accommodation in Frigiliana, Casa AMARA offers four independent stays for two guests each. Depending on availability, a wedding booking can be kept small or bring a close group together in the same house.',
       items: [
         {
           eyebrow: 'ONE STAY',
@@ -193,7 +194,7 @@ export const frigilianaWeddingsContent: Record<
     prepare: {
       title: 'Get ready without a long journey',
       intro:
-        'On a wedding day, a short distance matters most in the final hour. A booked AMARA stay gives you a private base next to the church rather than a hotel room or villa outside the village.',
+        'This quiet preparation before the ceremony is often called getting ready. In the final hour, a booked AMARA stay gives you a private base next to the church rather than a hotel room or villa outside the village.',
       items: [
         {
           title: 'A private place before the ceremony',
@@ -240,6 +241,13 @@ export const frigilianaWeddingsContent: Record<
             'Frigiliana is a hillside village. Check routes and steps when elderly relatives, small children or formal shoes are part of the day.',
           linkLabel: 'Village streets and stairs',
           linkToken: 'frigiliana_stairs'
+        },
+        {
+          title: 'Plan for the weather and season',
+          text:
+            'Check typical temperatures, rain and evening conditions so clothing, walking times and transfers suit your date.',
+          linkLabel: 'Weather in Frigiliana',
+          linkToken: 'weather_frigiliana'
         }
       ],
       churchNote:
@@ -317,7 +325,7 @@ export const frigilianaWeddingsContent: Record<
       paragraphs: [
         'Casa AMARA liegt in der Calle Chorruelo am Übergang zur Calle Real, rund 15 Meter von der Kirche San Antonio entfernt. Zwischen Unterkunft und Trauung braucht ihr keinen Transfer und keinen langen Weg durch das Dorf in festlicher Kleidung.',
         'Während eures gebuchten Aufenthalts könnt ihr euch im eigenen Apartment fertig machen, letzte Details vorbereiten und noch einen ruhigen Moment haben, bevor ihr zur Kirche hinübergeht.',
-        'Auch später ist die kurze Entfernung angenehm: Wer bei AMARA übernachtet, ist mit wenigen Schritten wieder im Haus und kann den Aufenthalt in Frigiliana ohne zusätzliche Fahrt fortsetzen.'
+        'Auch später ist die kurze Entfernung angenehm: Wer bei AMARA übernachtet, ist mit wenigen Schritten wieder im Haus. Liegt die Hochzeitsfeier anschließend an einem anderen Ort, stimmt Taxi, Shuttle oder Abholung frühzeitig mit der Feierlocation oder dem Wedding Planner ab.'
       ],
       distance: '≈ 15 m',
       distanceLabel: 'von Casa AMARA bis zur Kirche San Antonio',
@@ -326,7 +334,7 @@ export const frigilianaWeddingsContent: Record<
     stayOptions: {
       title: 'Übernachten bei AMARA',
       intro:
-        'Casa AMARA besteht aus vier eigenständigen Unterkünften für jeweils zwei Gäste. Je nach Verfügbarkeit kann eure Hochzeitsbuchung klein bleiben oder eine enge Gruppe im selben Haus zusammenbringen.',
+        'Als Unterkunft für Hochzeitsgäste in Frigiliana bietet Casa AMARA vier eigenständige Unterkünfte für jeweils zwei Gäste. Je nach Verfügbarkeit kann eure Hochzeitsbuchung klein bleiben oder eine enge Gruppe im selben Haus zusammenbringen.',
       items: [
         {
           eyebrow: 'EINE UNTERKUNFT',
@@ -355,7 +363,7 @@ export const frigilianaWeddingsContent: Record<
     prepare: {
       title: 'Vor der Hochzeit in Ruhe fertig machen',
       intro:
-        'Am Hochzeitstag zählt der kurze Weg besonders in der letzten Stunde. Eine gebuchte AMARA-Unterkunft gibt euch einen privaten Rückzugsort direkt neben der Kirche – statt eines Hotelzimmers oder einer Villa außerhalb des Dorfes.',
+        'Die ruhige Vorbereitung vor der Trauung wird häufig als Getting Ready bezeichnet. Gerade in der letzten Stunde gibt euch eine gebuchte AMARA-Unterkunft einen privaten Rückzugsort direkt neben der Kirche – statt eines Hotelzimmers oder einer Villa außerhalb des Dorfes.',
       items: [
         {
           title: 'Ein privater Ort vor der Trauung',
@@ -402,6 +410,13 @@ export const frigilianaWeddingsContent: Record<
             'Frigiliana liegt am Hang. Prüft Wege und Stufen frühzeitig, wenn ältere Angehörige, kleine Kinder oder festliche Schuhe Teil des Tages sind.',
           linkLabel: 'Gassen und Treppen in Frigiliana',
           linkToken: 'frigiliana_stairs'
+        },
+        {
+          title: 'Wetter und Jahreszeit einplanen',
+          text:
+            'Prüft typische Temperaturen, Regen und die Bedingungen am Abend, damit Kleidung, Fußwege und Transfers zu eurem Termin passen.',
+          linkLabel: 'Wetter in Frigiliana',
+          linkToken: 'weather_frigiliana'
         }
       ],
       churchNote:
@@ -479,7 +494,7 @@ export const frigilianaWeddingsContent: Record<
       paragraphs: [
         'Casa AMARA está en la calle Chorruelo, junto al comienzo de la calle Real, a unos 15 metros de la iglesia de San Antonio. No necesitáis traslado hasta la ceremonia ni un largo paseo por el pueblo con la ropa de boda.',
         'Durante vuestra estancia reservada podéis prepararos en vuestro propio alojamiento, ultimar detalles y disfrutar de un momento tranquilo antes de cruzar hacia la iglesia.',
-        'La distancia también se agradece después: quienes se alojan en AMARA vuelven a la casa en pocos pasos y continúan su estancia en Frigiliana sin otro trayecto.'
+        'La distancia también se agradece después: quienes se alojan en AMARA vuelven a la casa en pocos pasos. Si la celebración continúa en otro lugar, acordad con tiempo el taxi, traslado o recogida con el espacio de celebración o wedding planner.'
       ],
       distance: '≈ 15 m',
       distanceLabel: 'desde Casa AMARA hasta la iglesia de San Antonio',
@@ -488,7 +503,7 @@ export const frigilianaWeddingsContent: Record<
     stayOptions: {
       title: 'Alojarse en AMARA',
       intro:
-        'Casa AMARA reúne cuatro alojamientos independientes para dos huéspedes cada uno. Según disponibilidad, la reserva de boda puede ser pequeña o reunir a un grupo cercano dentro de la misma casa.',
+        'Como alojamiento para invitados de boda en Frigiliana, Casa AMARA reúne cuatro alojamientos independientes para dos huéspedes cada uno. Según disponibilidad, la reserva puede ser pequeña o reunir a un grupo cercano dentro de la misma casa.',
       items: [
         {
           eyebrow: 'UN ALOJAMIENTO',
@@ -517,7 +532,7 @@ export const frigilianaWeddingsContent: Record<
     prepare: {
       title: 'Prepararse con calma antes de la boda',
       intro:
-        'El día de la boda, la distancia corta importa especialmente durante la última hora. Un alojamiento AMARA reservado os da una base privada junto a la iglesia, en lugar de un hotel o una villa fuera del pueblo.',
+        'Esta preparación tranquila antes de la ceremonia suele llamarse getting ready. Durante la última hora, un alojamiento AMARA reservado os da una base privada junto a la iglesia, en lugar de un hotel o una villa fuera del pueblo.',
       items: [
         {
           title: 'Un espacio privado antes de la ceremonia',
@@ -564,6 +579,13 @@ export const frigilianaWeddingsContent: Record<
             'Frigiliana está en una ladera. Revisad rutas y peldaños si participan familiares mayores, niños pequeños o zapatos de vestir.',
           linkLabel: 'Calles y escaleras de Frigiliana',
           linkToken: 'frigiliana_stairs'
+        },
+        {
+          title: 'Tener en cuenta el tiempo y la estación',
+          text:
+            'Consultad las temperaturas habituales, la lluvia y las condiciones al anochecer para adaptar la ropa, los trayectos a pie y los traslados a la fecha elegida.',
+          linkLabel: 'Tiempo y clima en Frigiliana',
+          linkToken: 'weather_frigiliana'
         }
       ],
       churchNote:
@@ -641,7 +663,7 @@ export const frigilianaWeddingsContent: Record<
       paragraphs: [
         'Casa AMARA ligt aan Calle Chorruelo, bij de overgang naar Calle Real, op ongeveer 15 meter van de San Antonio-kerk. Tussen verblijf en ceremonie is geen transfer of lange wandeling in feestkleding nodig.',
         'Tijdens jullie geboekte verblijf kunnen jullie je in de eigen accommodatie klaarmaken, de laatste details verzorgen en nog even tot rust komen voordat jullie naar de kerk lopen.',
-        'Ook daarna is de korte afstand prettig: gasten die bij AMARA slapen, zijn in een paar stappen terug in het huis en hoeven voor hun verblijf in Frigiliana niet opnieuw op pad.'
+        'Ook daarna is de korte afstand prettig: gasten die bij AMARA slapen, zijn in een paar stappen terug in het huis. Vindt het feest daarna op een andere locatie plaats, stem taxi, shuttle of ophaalpunt dan tijdig af met de feestlocatie of weddingplanner.'
       ],
       distance: '≈ 15 m',
       distanceLabel: 'van Casa AMARA naar de San Antonio-kerk',
@@ -650,7 +672,7 @@ export const frigilianaWeddingsContent: Record<
     stayOptions: {
       title: 'Overnachten bij AMARA',
       intro:
-        'Casa AMARA bestaat uit vier zelfstandige verblijven voor elk twee gasten. Afhankelijk van de beschikbaarheid kan de bruiloftsboeking klein blijven of een hechte groep in hetzelfde huis samenbrengen.',
+        'Als accommodatie voor bruiloftsgasten in Frigiliana biedt Casa AMARA vier zelfstandige verblijven voor elk twee gasten. Afhankelijk van de beschikbaarheid kan de boeking klein blijven of een hechte groep in hetzelfde huis samenbrengen.',
       items: [
         {
           eyebrow: 'ÉÉN VERBLIJF',
@@ -679,7 +701,7 @@ export const frigilianaWeddingsContent: Record<
     prepare: {
       title: 'Rustig klaarmaken voor de bruiloft',
       intro:
-        'Op de trouwdag telt de korte afstand vooral in het laatste uur. Een geboekt AMARA-verblijf geeft jullie een privébasis naast de kerk, in plaats van een hotelkamer of villa buiten het dorp.',
+        'Deze rustige voorbereiding voor de ceremonie wordt vaak de getting ready genoemd. In het laatste uur geeft een geboekt AMARA-verblijf jullie een privébasis naast de kerk, in plaats van een hotelkamer of villa buiten het dorp.',
       items: [
         {
           title: 'Een privéplek voor de ceremonie',
@@ -726,6 +748,13 @@ export const frigilianaWeddingsContent: Record<
             'Frigiliana ligt tegen een helling. Controleer routes en treden wanneer oudere familieleden, kleine kinderen of nette schoenen deel van de dag zijn.',
           linkLabel: 'Straatjes en trappen in Frigiliana',
           linkToken: 'frigiliana_stairs'
+        },
+        {
+          title: 'Houd rekening met weer en seizoen',
+          text:
+            'Bekijk gebruikelijke temperaturen, regen en avondomstandigheden, zodat kleding, looproutes en transfers bij jullie datum passen.',
+          linkLabel: 'Weer in Frigiliana',
+          linkToken: 'weather_frigiliana'
         }
       ],
       churchNote:
@@ -803,7 +832,7 @@ export const frigilianaWeddingsContent: Record<
       paragraphs: [
         'Casa AMARA ligger på Calle Chorruelo vid övergången till Calle Real, cirka 15 meter från San Antonio-kyrkan. Mellan boendet och vigseln behövs ingen transfer eller lång promenad genom byn i bröllopskläder.',
         'Under er bokade vistelse kan ni göra er i ordning i det egna boendet, förbereda de sista detaljerna och få en lugn stund innan ni går över till kyrkan.',
-        'Den korta sträckan är lika värdefull efteråt: gäster som bor på AMARA är tillbaka i huset på några få steg och slipper ännu en resa under vistelsen.'
+        'Den korta sträckan är lika värdefull efteråt: gäster som bor på AMARA är tillbaka i huset på några få steg. Om festen fortsätter på en annan plats bör taxi, transfer eller upphämtning stämmas av i god tid med festplatsen eller bröllopskoordinatorn.'
       ],
       distance: '≈ 15 m',
       distanceLabel: 'från Casa AMARA till San Antonio-kyrkan',
@@ -812,7 +841,7 @@ export const frigilianaWeddingsContent: Record<
     stayOptions: {
       title: 'Bo hos AMARA',
       intro:
-        'Casa AMARA består av fyra fristående boenden för två gäster vardera. Beroende på tillgänglighet kan bröllopsbokningen vara liten eller samla en nära grupp i samma hus.',
+        'Som boende för bröllopsgäster i Frigiliana erbjuder Casa AMARA fyra fristående boenden för två gäster vardera. Beroende på tillgänglighet kan bokningen vara liten eller samla en nära grupp i samma hus.',
       items: [
         {
           eyebrow: 'ETT BOENDE',
@@ -841,7 +870,7 @@ export const frigilianaWeddingsContent: Record<
     prepare: {
       title: 'Gör er i ordning utan en lång resa',
       intro:
-        'På bröllopsdagen betyder den korta sträckan mest under den sista timmen. Ett bokat AMARA-boende ger er en privat bas bredvid kyrkan i stället för ett hotellrum eller en villa utanför byn.',
+        'Den lugna förberedelsen före vigseln kallas ofta getting ready. Under den sista timmen ger ett bokat AMARA-boende er en privat bas bredvid kyrkan i stället för ett hotellrum eller en villa utanför byn.',
       items: [
         {
           title: 'En privat plats före vigseln',
@@ -888,6 +917,13 @@ export const frigilianaWeddingsContent: Record<
             'Frigiliana ligger på en sluttning. Kontrollera vägar och trappsteg när äldre släktingar, små barn eller fina skor är en del av dagen.',
           linkLabel: 'Gränder och trappor i Frigiliana',
           linkToken: 'frigiliana_stairs'
+        },
+        {
+          title: 'Planera efter väder och årstid',
+          text:
+            'Kontrollera normala temperaturer, regn och kvällsförhållanden så att kläder, promenader och transfer passar ert datum.',
+          linkLabel: 'Vädret i Frigiliana',
+          linkToken: 'weather_frigiliana'
         }
       ],
       churchNote:
