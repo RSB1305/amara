@@ -55,6 +55,7 @@ const { groups, cta, showBookingCta, navigationLabel } = Astro.props;
                     href={item.href}
                     class:list={[
                       item.description && 'am-nav-mobile__detailed-link',
+                      group.id === 'stays' && !item.overview && 'am-nav-mobile__nested-link',
                       item.overview && 'am-nav-mobile__overview-link'
                     ]}
                     aria-current={item.isActive ? 'page' : undefined}
@@ -69,6 +70,7 @@ const { groups, cta, showBookingCta, navigationLabel } = Astro.props;
                     class:list={[
                       'am-is-disabled',
                       item.description && 'am-nav-mobile__detailed-link',
+                      group.id === 'stays' && !item.overview && 'am-nav-mobile__nested-link',
                       item.overview && 'am-nav-mobile__overview-link'
                     ]}
                     aria-disabled="true"
