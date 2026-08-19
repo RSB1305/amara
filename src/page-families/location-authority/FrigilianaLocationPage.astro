@@ -319,17 +319,17 @@ const renderCtas = (subsection: FrigilianaLocationSubsection) => subsection.ctas
                     c.orientation.facts.map((fact, index) => (
                       <div
                         class:list={[
-                          'py-6 sm:px-7 lg:py-8',
+                          'min-w-0 py-6 sm:px-7 lg:py-8',
                           index > 0 && 'border-t border-outline-variant/20 sm:border-l sm:border-t-0'
                         ]}
                       >
-                        <div class="flex items-center gap-3">
+                        <div class="flex min-w-0 items-center gap-3">
                           <LocationGuideIcon name={orientationFactIcons[index]} />
-                          <dt class="font-label text-[10px] font-bold uppercase tracking-[0.15em] text-on-surface-variant/70">
+                          <dt class="font-label min-w-0 text-[10px] font-bold uppercase tracking-[0.15em] text-on-surface-variant/70 [overflow-wrap:anywhere]">
                             {fact.label}
                           </dt>
                         </div>
-                        <dd class="am-text-subtitle mt-3 text-on-surface">{fact.value}</dd>
+                        <dd class="am-text-subtitle mt-3 min-w-0 hyphens-auto text-on-surface [overflow-wrap:anywhere]">{fact.value}</dd>
                       </div>
                     ))
                   }

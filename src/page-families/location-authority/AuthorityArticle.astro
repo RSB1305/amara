@@ -155,14 +155,14 @@ if (presentation === 'guide' && !guideVisual) {
       {facts.map((fact, index) => (
         <div
           class:list={[
-            'border-t border-primary/30 pt-5',
+            'min-w-0 border-t border-primary/30 pt-5',
             factIcons[index] && 'grid grid-cols-[1.5rem_minmax(0,1fr)] items-start gap-3'
           ]}
         >
           {factIcons[index] && <LocationGuideIcon name={factIcons[index]} class="mt-0.5 h-5 w-5" />}
-          <div>
-            <dt class="font-label text-[10px] font-bold uppercase tracking-[0.14em] text-primary">{fact.label}</dt>
-            <dd class="am-text-subtitle mt-3 text-on-surface">{fact.value}</dd>
+          <div class="min-w-0">
+            <dt class="font-label min-w-0 text-[10px] font-bold uppercase tracking-[0.14em] text-primary [overflow-wrap:anywhere]">{fact.label}</dt>
+            <dd class="am-text-subtitle mt-3 min-w-0 hyphens-auto text-on-surface [overflow-wrap:anywhere]">{fact.value}</dd>
           </div>
         </div>
       ))}
