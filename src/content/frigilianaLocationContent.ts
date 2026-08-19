@@ -53,6 +53,7 @@ export interface FrigilianaLocationPlanning {
   weather: FrigilianaLocationPlanningLink;
   faq: FrigilianaLocationPlanningLink;
   filmLocations: FrigilianaLocationPlanningLink;
+  oldTown: FrigilianaLocationPlanningLink;
   reviews: FrigilianaLocationPlanningLink;
   amenities: FrigilianaLocationPlanningLink;
 }
@@ -319,6 +320,7 @@ export const frigilianaLocationCopy = {
       "weather": { "label": "Wetter und Jahreszeiten", "text": "Monatswetter, Terrassenzeit und passende Saison einordnen." },
       "faq": { "label": "Häufige Fragen zu Frigiliana", "text": "Kurze Antworten zu Anreise, Parken, Dorfstruktur, Übernachten, Veranstaltungen und Wandern." },
       "filmLocations": { "label": "Netflix-Drehorte in Frigiliana", "text": "Nachvollziehen, wo der Netflix-Thriller Dos Tumbas gedreht wurde und was das für die Altstadt bedeutet." },
+      "oldTown": { "label": "Altstadt und Geschichte", "text": "Die zwölf Keramiktafeln, El Ingenio und die Geschichte von 1569 im Ortskern nachvollziehen." },
       "reviews": { "label": "Gästebewertungen", "text": "Lesen, was Gäste nach ihrem Aufenthalt erwähnen." },
       "amenities": { "label": "Komfort und Ausstattung", "text": "Komfortdetails der AMARA Unterkünfte vor der Buchung prüfen." }
     },
@@ -514,6 +516,7 @@ export const frigilianaLocationCopy = {
       "weather": { "label": "Weather & seasons", "text": "Plan monthly weather, terrace time and the right season." },
       "faq": { "label": "Frigiliana FAQ", "text": "Short answers on arrival, parking, village layout, staying overnight, events and hiking." },
       "filmLocations": { "label": "Netflix filming locations", "text": "See where the Netflix thriller Dos Tumbas was filmed and what it means for the old town." },
+      "oldTown": { "label": "Old town & history", "text": "Follow the twelve ceramic panels, El Ingenio and the 1569 history through the protected centre." },
       "reviews": { "label": "Guest reviews", "text": "Read what guests mention after staying with AMARA." },
       "amenities": { "label": "Comfort & Amenities", "text": "Check the comfort details of AMARA stays before booking." }
     },
@@ -714,6 +717,7 @@ export const frigilianaLocationCopy = {
       "weather": { "label": "Clima y estaciones", "text": "Elegir época, terrazas y planes con el clima de cada mes." },
       "faq": { "label": "Preguntas frecuentes sobre Frigiliana", "text": "Respuestas breves sobre llegada, aparcamiento, estructura del pueblo, alojamiento, eventos y senderismo." },
       "filmLocations": { "label": "Localizaciones de Netflix", "text": "Ver dónde se rodó el thriller de Netflix Dos Tumbas y qué significa para el casco antiguo." },
+      "oldTown": { "label": "Casco antiguo e historia", "text": "Seguir los doce paneles de cerámica, El Ingenio y la historia de 1569 por el centro protegido." },
       "reviews": { "label": "Reseñas de huéspedes", "text": "Leer qué cuentan los huéspedes después de alojarse con AMARA." },
       "amenities": { "label": "Confort y servicios", "text": "Revisar el confort de los alojamientos AMARA antes de reservar." }
     },
@@ -908,6 +912,7 @@ export const frigilianaLocationCopy = {
       "weather": { "label": "Weer & seizoenen", "text": "Kies maand, terrasmomenten en seizoen met meer context." },
       "faq": { "label": "Veelgestelde vragen over Frigiliana", "text": "Korte antwoorden over aankomst, parkeren, dorpsstructuur, overnachten, evenementen en wandelen." },
       "filmLocations": { "label": "Netflix-filmlocaties", "text": "Zien waar de Netflix-thriller Dos Tumbas is gefilmd en wat dat betekent voor de oude kern." },
+      "oldTown": { "label": "Oude kern & geschiedenis", "text": "Volg de twaalf keramische panelen, El Ingenio en de geschiedenis van 1569 door de beschermde kern." },
       "reviews": { "label": "Gastbeoordelingen", "text": "Lees wat gasten na een verblijf bij AMARA vertellen." },
       "amenities": { "label": "Comfort en voorzieningen", "text": "Controleer het comfort van AMARA-verblijven vóór het boeken." }
     },
@@ -1102,6 +1107,7 @@ export const frigilianaLocationCopy = {
       "weather": { "label": "Väder & årstider", "text": "Planera månad, terrasser och rätt säsong med mer sammanhang." },
       "faq": { "label": "Vanliga frågor om Frigiliana", "text": "Korta svar om ankomst, parkering, byns struktur, övernattning, evenemang och vandring." },
       "filmLocations": { "label": "Netflix inspelningsplatser", "text": "Se var Netflix-thrillern Dos Tumbas spelades in och vad det betyder för gamla stan." },
+      "oldTown": { "label": "Gamla stan & historia", "text": "Följ de tolv keramikpanelerna, El Ingenio och historien från 1569 genom den skyddade kärnan." },
       "reviews": { "label": "Gästrecensioner", "text": "Läs vad gäster berättar efter en vistelse hos AMARA." },
       "amenities": { "label": "Komfort och bekvämligheter", "text": "Kontrollera komforten i AMARA-boendena före bokning." }
     },

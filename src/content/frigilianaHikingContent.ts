@@ -147,7 +147,7 @@ export const frigilianaHikingContent: Record<
       title:
         'Hiking & nature around Frigiliana — into the Sierra Almijara',
       paragraphs: [
-        'The trails of Sierras de Tejeda, Almijara y Alhama Natural Park begin directly behind Frigiliana, across limestone peaks, pine forest and open slopes above the Mediterranean.',
+        'Above Frigiliana the slopes rise quickly into the Sierra Almijara. Parts of the municipality lie within the Sierras de Tejeda, Almijara y Alhama Natural Park, and the higher routes lead into rocky peaks, pine forest and open slopes above the Mediterranean.',
         'The selection below is arranged by effort, from a short circuit above the village to the summit of El Fuerte.',
         'Suitable GPX tracks for these routes are available on Komoot and Wikiloc.'
       ],
@@ -205,17 +205,7 @@ export const frigilianaHikingContent: Record<
             experience:
               'Old irrigation channels, the avocado valley and the sea in the evening light.',
             text:
-              'Follow the old irrigation channels, or acequias, above the village. This mostly level, levada-style path keeps the avocado valley and the sea in view throughout. Start near the Lízar reservoir or the castle ruins above the old town. It is particularly lovely at sunset.'
-          },
-          {
-            title: 'Historic-quarter circuit (Barribarto)',
-            duration: 'approx. 45 min',
-            distance: 'approx. 2 km',
-            difficulty: 'steps / steep',
-            experience:
-              'Moorish lanes and twelve ceramic panels tell Frigiliana’s story as you walk.',
-            text:
-              'Wander through the upper Moorish quarter, with cobbled lanes, archways and hand-painted ceramic panels. Follow all twelve panels for a short, self-guided introduction to the Morisco uprising.'
+              'Follow the old irrigation channels, or acequias, above the village. This mostly level, levada-style path keeps the avocado valley and the sea in view throughout. Start near the Lízar reservoir or the sparse remains of the Castillo de Lízar, the medieval fortification on the ridge above the old town. It is particularly lovely at sunset.'
           }
         ]
       },
@@ -265,7 +255,7 @@ export const frigilianaHikingContent: Record<
             experience:
               'Frigiliana’s grand panorama — on clear days, as far as the Sierra Nevada and the African coast.',
             text:
-              'Frigiliana’s signature hike climbs directly behind the village. The historic fortress site commands a wide panorama, reaching the Sierra Nevada and across to the African coast on clear days. Start early for the cool morning air. The path is steep and rocky.'
+              'Frigiliana’s signature hike climbs directly behind the village. El Fuerte is a natural rock stronghold rather than a built castle — this is where Morisco families took refuge in 1569 — and the summit opens a wide panorama, reaching the Sierra Nevada and across to the African coast on clear days. Start early for the cool morning air. The path is steep and rocky.'
           },
           {
             title: 'El Acebuchal circuit',
@@ -275,7 +265,17 @@ export const frigilianaHikingContent: Record<
             experience:
               'Pine forest, a lost village and a rustic lunch stop in one walk.',
             text:
-              'Walk through pine forest to the “lost village” of El Acebuchal, abandoned after the Civil War and lovingly restored. It is an ideal combination of nature and a rustic lunch stop. Reserve a table at the village restaurant in advance and carry some cash.'
+              'Walk through pine forest to the “lost village” of El Acebuchal, which belongs to the neighbouring municipality of Cómpeta. It was abandoned after the Civil War and has been lovingly restored. It is an ideal combination of nature and a rustic lunch stop. Reserve a table at the village restaurant in advance and carry some cash.'
+          },
+          {
+            title: 'GR 249 · stage 6 (Frigiliana → Cómpeta)',
+            duration: 'full day',
+            distance: 'approx. 23.8 km',
+            difficulty: 'challenging',
+            experience:
+              'The one long-distance stage that starts in the village itself.',
+            text:
+              'Stage 6 of the Gran Senda de Málaga is the only officially waymarked long-distance route in the municipality. It is a full day of walking to Cómpeta, so plan the return journey before you set off. Start early, carry plenty of water and treat it as a day hike rather than an afternoon walk.'
           }
         ]
       }
@@ -296,6 +296,11 @@ export const frigilianaHikingContent: Record<
           title: 'Navigation',
           text:
             'The trails are natural and not manicured. We recommend a GPX app such as Komoot or Wikiloc.'
+        },
+        {
+          title: 'Waymarking',
+          text:
+            'Apart from stage 6 of the GR 249, the local routes are marked by the town hall rather than homologated as official GR, PR-A or SL-A trails. Signage can be sparse, so do not rely on it alone.'
         },
         {
           title: 'Water',
@@ -348,7 +353,7 @@ export const frigilianaHikingContent: Record<
       title:
         'Wandern & Natur rund um Frigiliana — unterwegs in der Sierra Almijara',
       paragraphs: [
-        'Direkt hinter Frigiliana beginnen die Wege des Naturparks Sierras de Tejeda, Almijara y Alhama: schroffe Kalksteingipfel, Pinienwald und offene Blicke bis zum Mittelmeer.',
+        'Oberhalb von Frigiliana steigt das Gelände schnell in die Sierra Almijara an. Teile des Gemeindegebiets liegen im Naturpark Sierras de Tejeda, Almijara y Alhama; die höheren Routen führen in schroffe Gipfel, Pinienwald und offene Blicke bis zum Mittelmeer.',
         'Unten findet ihr unsere Auswahl nach Anstrengung sortiert — von einer kurzen Runde oberhalb des Dorfes bis zum Gipfel des El Fuerte.',
         'Passende GPX-Spuren zu diesen Wegen findet ihr auf Komoot und Wikiloc.'
       ],
@@ -406,17 +411,7 @@ export const frigilianaHikingContent: Record<
             experience:
               'Alte Bewässerungskanäle, Avocadotal und Meer im Licht des Sonnenuntergangs.',
             text:
-              'Folgt den alten Bewässerungskanälen (acequias) oberhalb des Dorfes. Der fast flache Weg führt am Avocadotal entlang und blickt zum Meer. Ihr könnt am Lízar-Stausee oder an der Burgruine oberhalb der Altstadt beginnen; am späten Nachmittag liegt die Strecke im weicheren Licht.'
-          },
-          {
-            title: 'Runde durchs historische Viertel (Barribarto)',
-            duration: 'ca. 45 Min.',
-            distance: 'ca. 2 km',
-            difficulty: 'Treppen/steil',
-            experience:
-              'Maurische Gassen und zwölf Keramiktafeln erzählen Frigilianas Geschichte im Vorbeigehen.',
-            text:
-              'Geht durch das obere maurische Viertel mit seinen Kopfsteinpflastergassen, Torbögen und handbemalten Keramiktafeln. Die zwölf Tafeln erzählen der Reihe nach vom Morisken-Aufstand.'
+              'Folgt den alten Bewässerungskanälen (acequias) oberhalb des Dorfes. Der fast flache Weg führt am Avocadotal entlang und blickt zum Meer. Ihr könnt am Lízar-Stausee oder an den spärlichen Resten des Castillo de Lízar beginnen, der mittelalterlichen Befestigungsanlage auf dem Bergkamm über der Altstadt; am späten Nachmittag liegt die Strecke im weicheren Licht.'
           }
         ]
       },
@@ -466,7 +461,7 @@ export const frigilianaHikingContent: Record<
             experience:
               'Frigilianas großer Rundumblick — an klaren Tagen bis zur Sierra Nevada und zur afrikanischen Küste.',
             text:
-              'Die Signatur-Wanderung, die direkt hinter Frigiliana aufsteigt. Ein historischer Festungsplatz mit weitem Rundumblick — an klaren Tagen bis zur Sierra Nevada und hinüber zur afrikanischen Küste. Timing: Früh starten (kühle Morgenluft). Der Weg ist steil und felsig.'
+              'Die Signatur-Wanderung, die direkt hinter Frigiliana aufsteigt. El Fuerte ist ein natürlicher Felsrückzugsraum, keine gebaute Burg — hier verschanzten sich 1569 die moriskischen Familien. Vom Gipfel reicht der Blick an klaren Tagen bis zur Sierra Nevada und hinüber zur afrikanischen Küste. Timing: Früh starten (kühle Morgenluft). Der Weg ist steil und felsig.'
           },
           {
             title: 'El Acebuchal-Runde',
@@ -476,7 +471,17 @@ export const frigilianaHikingContent: Record<
             experience:
               'Pinienwald, verlorenes Dorf und rustikale Mittagspause in einer Tour.',
             text:
-              'Eine Wanderung durch Pinienwald zum „verlorenen Dorf“ El Acebuchal — ein nach dem Bürgerkrieg verlassener und restaurierter Weiler. Reserviert im Dorfrestaurant vorab einen Tisch und nehmt Bargeld mit.'
+              'Eine Wanderung durch Pinienwald zum „verlorenen Dorf“ El Acebuchal, das zur Nachbargemeinde Cómpeta gehört — ein nach dem Bürgerkrieg verlassener und restaurierter Weiler. Reserviert im Dorfrestaurant vorab einen Tisch und nehmt Bargeld mit.'
+          },
+          {
+            title: 'GR 249 · Etappe 6 (Frigiliana → Cómpeta)',
+            duration: 'Tagestour',
+            distance: 'ca. 23,8 km',
+            difficulty: 'anspruchsvoll',
+            experience:
+              'Die einzige Fernwanderetappe, die direkt im Dorf beginnt.',
+            text:
+              'Etappe 6 der Gran Senda de Málaga ist der einzige offiziell markierte Fernwanderweg im Gemeindegebiet. Bis Cómpeta ist es ein voller Wandertag — klärt die Rückfahrt, bevor ihr losgeht. Früh starten, ausreichend Wasser mitnehmen und die Etappe als Tagestour planen, nicht als Nachmittagsrunde.'
           }
         ]
       }
@@ -497,6 +502,11 @@ export const frigilianaHikingContent: Record<
           title: 'Orientierung',
           text:
             'Die Wege sind naturbelassen. Wir empfehlen GPX-Apps wie Komoot oder Wikiloc.'
+        },
+        {
+          title: 'Markierung',
+          text:
+            'Außer der Etappe 6 des GR 249 sind die örtlichen Routen von der Gemeinde markiert und nicht als offizielle GR-, PR-A- oder SL-A-Wege homologiert. Die Beschilderung kann dünn sein — verlasst euch nicht allein darauf.'
         },
         {
           title: 'Wasser',
@@ -549,7 +559,7 @@ export const frigilianaHikingContent: Record<
       title:
         'Senderismo y naturaleza alrededor de Frigiliana — caminos de la Sierra Almijara',
       paragraphs: [
-        'Los senderos del Parque Natural de las Sierras de Tejeda, Almijara y Alhama empiezan justo detrás de Frigiliana, entre cumbres calizas, pinares y laderas abiertas sobre el Mediterráneo.',
+        'Por encima de Frigiliana el terreno gana altura rápidamente hacia la Sierra Almijara. Parte del término municipal se encuentra dentro del Parque Natural de las Sierras de Tejeda, Almijara y Alhama, y las rutas altas llevan hasta cumbres rocosas, pinares y laderas abiertas sobre el Mediterráneo.',
         'Hemos ordenado la selección por esfuerzo, desde una ruta corta sobre el pueblo hasta la cumbre de El Fuerte.',
         'En Komoot y Wikiloc encontraréis tracks GPX adecuados para estas rutas.'
       ],
@@ -607,17 +617,7 @@ export const frigilianaHikingContent: Record<
             experience:
               'Acequias históricas, el valle de aguacates y el mar a la luz del atardecer.',
             text:
-              'Seguid las antiguas acequias por encima del pueblo. Es un camino prácticamente llano, al estilo de las levadas, con vistas constantes sobre el valle de aguacates y el mar. Se puede empezar junto al embalse de Lízar o cerca de las ruinas del castillo, por encima del casco antiguo. Al atardecer resulta especialmente bonito.'
-          },
-          {
-            title: 'Recorrido por el casco histórico (Barribarto)',
-            duration: 'aprox. 45 min',
-            distance: 'aprox. 2 km',
-            difficulty: 'escalones / cuestas',
-            experience:
-              'Calles moriscas y doce paneles de cerámica cuentan la historia de Frigiliana durante el paseo.',
-            text:
-              'Pasead por la parte alta del antiguo barrio morisco, entre calles empedradas, arcos y paneles de cerámica pintados a mano. Seguid los doce paneles para descubrir por vuestra cuenta una breve historia de la rebelión de los moriscos.'
+              'Seguid las antiguas acequias por encima del pueblo. Es un camino prácticamente llano, al estilo de las levadas, con vistas constantes sobre el valle de aguacates y el mar. Se puede empezar junto al embalse de Lízar o cerca de los escasos restos del Castillo de Lízar, la fortificación medieval del cerro que domina el casco antiguo. Al atardecer resulta especialmente bonito.'
           }
         ]
       },
@@ -667,7 +667,7 @@ export const frigilianaHikingContent: Record<
             experience:
               'La gran panorámica de Frigiliana — en días despejados, hasta Sierra Nevada y la costa africana.',
             text:
-              'La ruta emblemática de Frigiliana asciende directamente por detrás del pueblo. El antiguo enclave defensivo ofrece una panorámica inmensa que, en días despejados, alcanza Sierra Nevada y la costa africana. Empezad temprano para aprovechar el aire fresco de la mañana. El camino es empinado y pedregoso.'
+              'La ruta emblemática de Frigiliana asciende directamente por detrás del pueblo. El Fuerte es un refugio rocoso natural, no un castillo construido: aquí se hicieron fuertes las familias moriscas en 1569. Desde la cumbre, en días despejados, la panorámica alcanza Sierra Nevada y la costa africana. Empezad temprano para aprovechar el aire fresco de la mañana. El camino es empinado y pedregoso.'
           },
           {
             title: 'Ruta circular de El Acebuchal',
@@ -677,7 +677,17 @@ export const frigilianaHikingContent: Record<
             experience:
               'Pinar, pueblo perdido y un almuerzo rústico en una misma ruta.',
             text:
-              'La ruta atraviesa pinares hasta llegar al “pueblo perdido” de El Acebuchal, abandonado después de la Guerra Civil y restaurado con mucho cuidado. Combina perfectamente naturaleza y una parada para un almuerzo rústico. Reservad mesa con antelación en el restaurante del pueblo y llevad algo de efectivo.'
+              'La ruta atraviesa pinares hasta llegar al “pueblo perdido” de El Acebuchal, que pertenece al municipio vecino de Cómpeta. Fue abandonado después de la Guerra Civil y restaurado con mucho cuidado. Combina perfectamente naturaleza y una parada para un almuerzo rústico. Reservad mesa con antelación en el restaurante del pueblo y llevad algo de efectivo.'
+          },
+          {
+            title: 'GR 249 · etapa 6 (Frigiliana → Cómpeta)',
+            duration: 'jornada completa',
+            distance: 'aprox. 23,8 km',
+            difficulty: 'exigente',
+            experience:
+              'La única etapa de gran recorrido que arranca en el propio pueblo.',
+            text:
+              'La etapa 6 de la Gran Senda de Málaga es el único sendero de gran recorrido oficialmente señalizado del término municipal. Hasta Cómpeta es una jornada completa de marcha: organizad la vuelta antes de salir. Empezad temprano, llevad agua suficiente y planteadla como ruta de día entero, no como paseo de tarde.'
           }
         ]
       }
@@ -699,6 +709,11 @@ export const frigilianaHikingContent: Record<
           title: 'Orientación',
           text:
             'Los senderos se mantienen en estado natural. Recomendamos una aplicación con GPX, como Komoot o Wikiloc.'
+        },
+        {
+          title: 'Señalización',
+          text:
+            'Salvo la etapa 6 del GR 249, las rutas locales están señalizadas por el ayuntamiento y no homologadas como senderos oficiales GR, PR-A o SL-A. La señalización puede ser escasa: no dependáis solo de ella.'
         },
         {
           title: 'Agua',
@@ -751,7 +766,7 @@ export const frigilianaHikingContent: Record<
       title:
         'Wandelen en natuur rond Frigiliana — de Sierra Almijara in',
       paragraphs: [
-        'De paden van natuurpark Sierras de Tejeda, Almijara y Alhama beginnen direct achter Frigiliana, tussen kalkpieken, dennenbossen en open hellingen boven de Middellandse Zee.',
+        'Boven Frigiliana loopt het terrein snel op richting de Sierra Almijara. Delen van de gemeente liggen in natuurpark Sierras de Tejeda, Almijara y Alhama, en de hogere routes voeren naar rotsachtige toppen, dennenbossen en open hellingen boven de Middellandse Zee.',
         'Hieronder staat de selectie op inspanning gerangschikt, van een korte ronde boven het dorp tot de top van El Fuerte.',
         'Bij deze routes zijn passende GPX-tracks te vinden op Komoot en Wikiloc.'
       ],
@@ -809,17 +824,7 @@ export const frigilianaHikingContent: Record<
             experience:
               'Oude irrigatiekanalen, de avocadovallei en de zee in het avondlicht.',
             text:
-              'Volg de oude irrigatiekanalen, de acequias, boven het dorp. Dit vrijwel vlakke pad in levadastijl biedt voortdurend uitzicht over de avocadovallei en de zee. Jullie kunnen beginnen bij het Lízar-reservoir of bij de kasteelruïne boven de oude kern. Vooral bij zonsondergang is het hier prachtig.'
-          },
-          {
-            title: 'Rondje door de oude kern (Barribarto)',
-            duration: 'ca. 45 min.',
-            distance: 'ca. 2 km',
-            difficulty: 'trappen / steil',
-            experience:
-              'Moorse straatjes en twaalf keramische panelen vertellen onderweg het verhaal van Frigiliana.',
-            text:
-              'Dwaal door de hoger gelegen Moorse wijk, langs geplaveide straatjes, poorten en handbeschilderde keramische panelen. Volg alle twaalf panelen voor een korte wandeling door de geschiedenis van de opstand van de Morisken.'
+              'Volg de oude irrigatiekanalen, de acequias, boven het dorp. Dit vrijwel vlakke pad in levadastijl biedt voortdurend uitzicht over de avocadovallei en de zee. Jullie kunnen beginnen bij het Lízar-reservoir of bij de schaarse resten van het Castillo de Lízar, de middeleeuwse vesting op de bergkam boven de oude kern. Vooral bij zonsondergang is het hier prachtig.'
           }
         ]
       },
@@ -869,7 +874,7 @@ export const frigilianaHikingContent: Record<
             experience:
               'Het grote panorama van Frigiliana — op heldere dagen tot de Sierra Nevada en de Afrikaanse kust.',
             text:
-              'De kenmerkende wandeling van Frigiliana klimt direct achter het dorp omhoog. Vanaf de historische vestingplek reikt het panorama op heldere dagen tot de Sierra Nevada en de Afrikaanse kust. Vertrek vroeg voor de koele ochtendlucht. Het pad is steil en rotsachtig.'
+              'De kenmerkende wandeling van Frigiliana klimt direct achter het dorp omhoog. El Fuerte is een natuurlijke rotsschuilplaats en geen gebouwd kasteel — hier verschansten zich in 1569 de Moriskse families. Vanaf de top reikt het panorama op heldere dagen tot de Sierra Nevada en de Afrikaanse kust. Vertrek vroeg voor de koele ochtendlucht. Het pad is steil en rotsachtig.'
           },
           {
             title: 'Rondwandeling El Acebuchal',
@@ -879,7 +884,17 @@ export const frigilianaHikingContent: Record<
             experience:
               'Dennenbos, een verloren dorp en een rustieke lunch in één wandeling.',
             text:
-              'De wandeling loopt door dennenbos naar het “verloren dorp” El Acebuchal, dat na de Burgeroorlog werd verlaten en liefdevol is hersteld. Het is een mooie combinatie van natuur en een rustieke lunchpauze. Reserveer vooraf een tafel in het dorpsrestaurant en neem contant geld mee.'
+              'De wandeling loopt door dennenbos naar het “verloren dorp” El Acebuchal, dat tot de buurgemeente Cómpeta behoort. Het werd na de Burgeroorlog verlaten en is liefdevol hersteld. Het is een mooie combinatie van natuur en een rustieke lunchpauze. Reserveer vooraf een tafel in het dorpsrestaurant en neem contant geld mee.'
+          },
+          {
+            title: 'GR 249 · etappe 6 (Frigiliana → Cómpeta)',
+            duration: 'hele dag',
+            distance: 'ca. 23,8 km',
+            difficulty: 'zwaar',
+            experience:
+              'De enige langeafstandsetappe die in het dorp zelf begint.',
+            text:
+              'Etappe 6 van de Gran Senda de Málaga is de enige officieel bewegwijzerde langeafstandsroute in de gemeente. Naar Cómpeta is het een volle wandeldag: regel de terugreis voordat jullie vertrekken. Vertrek vroeg, neem voldoende water mee en plan het als dagtocht, niet als middagwandeling.'
           }
         ]
       }
@@ -901,6 +916,11 @@ export const frigilianaHikingContent: Record<
           title: 'Navigatie',
           text:
             'De paden zijn natuurlijk en niet aangelegd. Wij raden een GPX-app zoals Komoot of Wikiloc aan.'
+        },
+        {
+          title: 'Bewegwijzering',
+          text:
+            'Behalve etappe 6 van de GR 249 zijn de lokale routes door de gemeente gemarkeerd en niet gehomologeerd als officiële GR-, PR-A- of SL-A-paden. De bewegwijzering kan schaars zijn: vertrouw er niet alleen op.'
         },
         {
           title: 'Water',
@@ -953,7 +973,7 @@ export const frigilianaHikingContent: Record<
       title:
         'Vandring och natur runt Frigiliana — ut i Sierra Almijara',
       paragraphs: [
-        'Lederna i naturparken Sierras de Tejeda, Almijara y Alhama börjar direkt bakom Frigiliana, bland kalkstenstoppar, pinjeskog och öppna sluttningar ovanför Medelhavet.',
+        'Ovanför Frigiliana stiger terrängen snabbt upp mot Sierra Almijara. Delar av kommunen ligger i naturparken Sierras de Tejeda, Almijara y Alhama, och de högre lederna leder in bland klippiga toppar, pinjeskog och öppna sluttningar ovanför Medelhavet.',
         'Förslagen nedan är ordnade efter ansträngningsnivå, från en kort slinga ovanför byn till toppen av El Fuerte.',
         'Passande GPX-spår för turerna finns på Komoot och Wikiloc.'
       ],
@@ -1011,17 +1031,7 @@ export const frigilianaHikingContent: Record<
             experience:
               'Gamla bevattningskanaler, avokadodalen och havet i kvällsljuset.',
             text:
-              'Följ de gamla bevattningskanalerna, acequias, ovanför byn. Den nästan helt flacka leden påminner om Madeiras levador och ger hela tiden utsikt över avokadodalen och havet. Börja vid Lízar-reservoaren eller slottsruinen ovanför gamla stan. Särskilt fin vid solnedgången.'
-          },
-          {
-            title: 'Rundslinga genom gamla stan (Barribarto)',
-            duration: 'ca 45 min.',
-            distance: 'ca 2 km',
-            difficulty: 'trappor / brant',
-            experience:
-              'Moriska gränder och tolv keramikpaneler berättar Frigilianas historia längs vägen.',
-            text:
-              'Strosa genom den övre moriska stadsdelen, bland kullerstensgränder, valv och handmålade keramikpaneler. Följ de tolv panelerna för en kort vandring på egen hand genom historien om moriskernas uppror.'
+              'Följ de gamla bevattningskanalerna, acequias, ovanför byn. Den nästan helt flacka leden påminner om Madeiras levador och ger hela tiden utsikt över avokadodalen och havet. Börja vid Lízar-reservoaren eller vid de sparsamma resterna av Castillo de Lízar, den medeltida befästningen på bergskammen ovanför gamla stan. Särskilt fin vid solnedgången.'
           }
         ]
       },
@@ -1071,7 +1081,7 @@ export const frigilianaHikingContent: Record<
             experience:
               'Frigilianas stora panorama — klara dagar ända till Sierra Nevada och Afrikas kust.',
             text:
-              'Frigilianas signaturvandring stiger direkt bakom byn. Från den historiska fästningsplatsen öppnar sig ett stort panorama som klara dagar når Sierra Nevada och Afrikas kust. Börja tidigt för att ta vara på den svala morgonluften. Leden är brant och stenig.'
+              'Frigilianas signaturvandring stiger direkt bakom byn. El Fuerte är en naturlig klippfästning, inte en byggd borg — här förskansade sig de moriskiska familjerna 1569. Från toppen når panoramat klara dagar Sierra Nevada och Afrikas kust. Börja tidigt för att ta vara på den svala morgonluften. Leden är brant och stenig.'
           },
           {
             title: 'Rundslingan till El Acebuchal',
@@ -1081,7 +1091,17 @@ export const frigilianaHikingContent: Record<
             experience:
               'Pinjeskog, en förlorad by och en rustik lunchpaus på samma tur.',
             text:
-              'Vandringen går genom pinjeskog till den “förlorade byn” El Acebuchal, som övergavs efter inbördeskriget och senare restaurerades med stor omsorg. Det är en fin kombination av natur och en rustik lunchpaus. Boka bord på byrestaurangen i förväg och ta med kontanter.'
+              'Vandringen går genom pinjeskog till den “förlorade byn” El Acebuchal, som hör till grannkommunen Cómpeta. Byn övergavs efter inbördeskriget och restaurerades senare med stor omsorg. Det är en fin kombination av natur och en rustik lunchpaus. Boka bord på byrestaurangen i förväg och ta med kontanter.'
+          },
+          {
+            title: 'GR 249 · etapp 6 (Frigiliana → Cómpeta)',
+            duration: 'heldag',
+            distance: 'ca 23,8 km',
+            difficulty: 'krävande',
+            experience:
+              'Den enda långfärdsetappen som startar i själva byn.',
+            text:
+              'Etapp 6 av Gran Senda de Málaga är den enda officiellt markerade långfärdsleden i kommunen. Till Cómpeta är det en hel vandringsdag – ordna hemresan innan ni ger er av. Starta tidigt, ta med gott om vatten och planera den som en heldagstur, inte som en eftermiddagspromenad.'
           }
         ]
       }
@@ -1103,6 +1123,11 @@ export const frigilianaHikingContent: Record<
           title: 'Navigation',
           text:
             'Lederna är naturliga och inte tillrättalagda. Vi rekommenderar en GPX-app som Komoot eller Wikiloc.'
+        },
+        {
+          title: 'Markering',
+          text:
+            'Bortsett från etapp 6 av GR 249 är de lokala lederna markerade av kommunen och inte homologerade som officiella GR-, PR-A- eller SL-A-leder. Skyltningen kan vara gles – förlita er inte enbart på den.'
         },
         {
           title: 'Vatten',

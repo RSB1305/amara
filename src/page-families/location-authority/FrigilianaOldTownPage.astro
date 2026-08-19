@@ -1,0 +1,296 @@
+---
+import Hero from '../../components/Hero.astro';
+import Navigation from '../../components/Navigation.astro';
+import LocationContextNav from '../../components/location/LocationContextNav.astro';
+import EditorialClosingCta from '../../components/editorial/EditorialClosingCta.astro';
+import EditorialFeatureGrid from '../../components/editorial/EditorialFeatureGrid.astro';
+import {
+  frigilianaOldTownCopy,
+  frigilianaOldTownExternalLinks,
+  frigilianaOldTownSeo
+} from '../../content/frigilianaOldTownContent';
+import LocationAuthorityLayout from '../../layouts/LocationAuthorityLayout.astro';
+import { resolveOptionalLink, type LabeledLink } from '../../lib/linkResolver';
+import { normalizeLanguage } from '../../lib/seo/resolve-seo-head';
+import type { AmaraLanguage } from '../../types/seo';
+
+interface Props {
+  lang?: string;
+}
+
+type LocalizedRow = { readonly [K in AmaraLanguage]: string };
+
+const { lang = 'es' } = Astro.props;
+const currentLang = normalizeLanguage(lang as AmaraLanguage);
+const copy = frigilianaOldTownCopy;
+
+function t(row: LocalizedRow): string {
+  return row[currentLang] ?? row.en;
+}
+
+const footerHighlights: LabeledLink[] = [
+  {
+    token: 'frigiliana_old_town',
+    label: t(copy.footerHighlights.oldTown)
+  },
+  {
+    token: 'frigiliana_events_authority',
+    label: t(copy.footerHighlights.festivals)
+  },
+  {
+    token: 'frigiliana_market',
+    label: t(copy.footerHighlights.market)
+  }
+];
+
+const sights = copy.sights.items.map((item) => ({
+  title: t(item.title),
+  subline: t(item.subline),
+  text: t(item.text)
+}));
+
+const historySteps = copy.history.items.map((item) => ({
+  title: t(item.title),
+  subline: t(item.subline),
+  text: t(item.text)
+}));
+
+const preservedCards = copy.preserved.items.map((item) => ({
+  title: t(item.title),
+  copy: t(item.text)
+}));
+
+const heritageItems = copy.livingHeritage.items.map((item) => ({
+  title: t(item.title),
+  text: t(item.text)
+}));
+
+const combineItems = copy.combine.items.map((item) => ({
+  title: t(item.title),
+  text: t(item.text),
+  linkLabel: t(item.linkLabel),
+  href: resolveOptionalLink(item.token, currentLang, { suppressMissing: true })
+}));
+
+const heroImage = {
+  src: '/images/amara-frigiliana-pueblo/JPG_Frigiliana_Pueblo/2000px_72dpi_sRGB/04-frigiliana-pueblo.jpg',
+  width: 2000,
+  height: 1333
+};
+---
+
+<LocationAuthorityLayout
+  seo={frigilianaOldTownSeo}
+  pageLang={currentLang}
+  showContextNavigation={false}
+  footerHighlights={footerHighlights}
+>
+  <Navigation
+    slot="navigation"
+    currentLang={currentLang}
+    languageToken="frigiliana_old_town"
+  />
+  <LocationContextNav activeId="oldTown" lang={currentLang} />
+
+  <div data-am-page="frigiliana-old-town">
+    <div class="w-full">
+      <div id="intro">
+        <Hero
+          imageSrc={heroImage.src}
+          imageAlt={t(copy.hero.imageAlt)}
+          imageWidth={heroImage.width}
+          imageHeight={heroImage.height}
+        >
+          <span class="am-text-caption text-primary mb-8 block">
+            {t(copy.hero.kicker)}
+          </span>
+          <h1 class="am-text-display italic text-on-surface mb-10 tracking-tighter">
+            {t(copy.hero.title)}
+          </h1>
+          <div class="pl-10 border-l border-primary/20 max-w-xl space-y-6">
+            {
+              copy.hero.paragraphs.map((paragraph) => (
+                <p class="am-text-body text-on-surface-variant leading-relaxed">
+                  {t(paragraph)}
+                </p>
+              ))
+            }
+          </div>
+        </Hero>
+      </div>
+
+      <section id="sights" class="am-section bg-surface">
+        <div class="max-w-3xl mb-16">
+          <h2 class="am-text-title italic text-on-surface tracking-tight mb-6">
+            {t(copy.sights.title)}
+          </h2>
+          <p class="am-text-body text-on-surface-variant leading-relaxed">
+            {t(copy.sights.intro)}
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-x-12 gap-y-16">
+          {
+            sights.map((item) => (
+              <article class="border-t border-outline-variant/25 pt-8">
+                <h3 class="am-text-subtitle text-on-surface mb-3">
+                  {item.title}
+                </h3>
+                <p class="am-text-caption normal-case tracking-normal text-primary mb-4">
+                  {item.subline}
+                </p>
+                <p class="am-text-body text-on-surface-variant leading-relaxed">
+                  {item.text}
+                </p>
+              </article>
+            ))
+          }
+        </div>
+      </section>
+
+      <section id="history" class="am-section bg-surface-container-low">
+        <div class="max-w-3xl mb-16">
+          <h2 class="am-text-title italic text-on-surface tracking-tight mb-6">
+            {t(copy.history.title)}
+          </h2>
+          <p class="am-text-body text-on-surface-variant leading-relaxed">
+            {t(copy.history.intro)}
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-x-16 gap-y-14">
+          {
+            historySteps.map((item) => (
+              <article class="border-t border-outline-variant/25 pt-8">
+                <h3 class="am-text-subtitle text-on-surface mb-3">
+                  {item.title}
+                </h3>
+                <p class="am-text-caption normal-case tracking-normal text-primary mb-4">
+                  {item.subline}
+                </p>
+                <p class="am-text-body text-on-surface-variant leading-relaxed">
+                  {item.text}
+                </p>
+              </article>
+            ))
+          }
+        </div>
+      </section>
+
+      <section id="preserved" class="am-section bg-surface">
+        <div class="max-w-3xl mb-16">
+          <h2 class="am-text-title italic text-on-surface tracking-tight mb-6">
+            {t(copy.preserved.title)}
+          </h2>
+          <p class="am-text-body text-on-surface-variant leading-relaxed">
+            {t(copy.preserved.intro)}
+          </p>
+        </div>
+
+        <EditorialFeatureGrid cards={preservedCards} />
+      </section>
+
+      <section id="living-heritage" class="am-section bg-surface-container-low">
+        <div class="max-w-3xl mb-16">
+          <h2 class="am-text-title italic text-on-surface tracking-tight mb-6">
+            {t(copy.livingHeritage.title)}
+          </h2>
+          <p class="am-text-body text-on-surface-variant leading-relaxed">
+            {t(copy.livingHeritage.intro)}
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-x-16 gap-y-14">
+          {
+            heritageItems.map((item) => (
+              <article class="border-t border-outline-variant/25 pt-8">
+                <h3 class="am-text-subtitle text-on-surface mb-5">
+                  {item.title}
+                </h3>
+                <p class="am-text-body text-on-surface-variant leading-relaxed">
+                  {item.text}
+                </p>
+              </article>
+            ))
+          }
+        </div>
+      </section>
+
+      <section class="am-section bg-surface">
+        <div class="max-w-3xl mb-16">
+          <h2 class="am-text-title italic text-on-surface tracking-tight mb-6">
+            {t(copy.combine.title)}
+          </h2>
+          <p class="am-text-body text-on-surface-variant leading-relaxed">
+            {t(copy.combine.intro)}
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-x-12 gap-y-14">
+          {
+            combineItems.map((item) => (
+              <article class="border-t border-outline-variant/25 pt-8">
+                <h3 class="am-text-subtitle text-on-surface mb-5">
+                  {item.title}
+                </h3>
+                <p class="am-text-body text-on-surface-variant leading-relaxed">
+                  {item.text}
+                </p>
+                {item.href && (
+                  <p class="mt-5 am-text-body">
+                    <a href={item.href} class="am-inline-link">
+                      {item.linkLabel}
+                      <span aria-hidden="true"> &rarr;</span>
+                    </a>
+                  </p>
+                )}
+              </article>
+            ))
+          }
+        </div>
+      </section>
+
+      <section class="am-section bg-surface-container-low">
+        <div class="max-w-3xl">
+          <h2 class="am-text-title italic text-on-surface tracking-tight mb-6">
+            {t(copy.sources.title)}
+          </h2>
+          <p class="am-text-body text-on-surface-variant leading-relaxed">
+            {t(copy.sources.text)}
+          </p>
+          <p class="mt-6 am-text-body">
+            <a
+              href={frigilianaOldTownExternalLinks.officialMonuments}
+              class="am-inline-link"
+              target="_blank"
+              rel="noopener"
+            >
+              {t(copy.sources.linkLabel)}
+              <span aria-hidden="true"> &rarr;</span>
+            </a>
+          </p>
+        </div>
+      </section>
+
+      <section class="max-w-screen-2xl mx-auto px-6 pt-24 pb-24 md:px-12">
+        <EditorialClosingCta
+          title={t(copy.closing.title)}
+          lead={t(copy.closing.lead)}
+          lang={currentLang}
+          links={[
+            {
+              token: 'romantic_hideaways',
+              label: t(copy.closing.apartmentsCta),
+              style: 'primary'
+            },
+            {
+              token: 'book',
+              label: t(copy.closing.availabilityCta),
+              style: 'secondary'
+            }
+          ]}
+        />
+      </section>
+    </div>
+  </div>
+</LocationAuthorityLayout>

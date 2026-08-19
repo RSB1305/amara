@@ -366,6 +366,13 @@ const PUBLIC_ROUTE_LABELS: Partial<Record<string, Record<AmaraLanguage, string>>
     nl: 'Netflix-locaties',
     sv: 'Netflix-platser'
   },
+  'frigiliana-old-town': {
+    en: 'Old Town & History',
+    de: 'Altstadt & Geschichte',
+    es: 'Casco antiguo e historia',
+    nl: 'Oude kern & geschiedenis',
+    sv: 'Gamla stan & historia'
+  },
   'frigiliana-hospitality-property-for-sale': {
     en: 'Property for Sale',
     de: 'Immobilie zu verkaufen',
@@ -436,7 +443,8 @@ const FRIGILIANA_EXPERIENCE_SLUGS = new Set([
   'frigiliana-festivals',
   'frigiliana-market',
   'frigiliana-day-trips',
-  'frigiliana-wellness'
+  'frigiliana-wellness',
+  'frigiliana-old-town'
 ]);
 
 const NERJA_EXPERIENCE_SLUGS = new Set([

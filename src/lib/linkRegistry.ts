@@ -135,6 +135,13 @@ booking_stay_terms: {
       nl: buildOwnedLocalizedPath('frigiliana-netflix-dos-tumbas', 'nl'),
       sv: buildOwnedLocalizedPath('frigiliana-netflix-dos-tumbas', 'sv')
     },
+    frigiliana_old_town: {
+      en: buildOwnedLocalizedPath('frigiliana-old-town', 'en'),
+      de: buildOwnedLocalizedPath('frigiliana-old-town', 'de'),
+      es: buildOwnedLocalizedPath('frigiliana-old-town', 'es'),
+      nl: buildOwnedLocalizedPath('frigiliana-old-town', 'nl'),
+      sv: buildOwnedLocalizedPath('frigiliana-old-town', 'sv')
+    },
 
     /* =========================================================
        LOCATIONS
