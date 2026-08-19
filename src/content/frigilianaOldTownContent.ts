@@ -19,8 +19,9 @@ export const frigilianaOldTownSeo: AmaraAuthoringSeo = {
   version: '2026-08-19-frigiliana-old-town-v1.0-B',
   pageType: 'B',
   entityKey: 'amara-brand',
+  /* og:image is emitted as an absolute URL, so it must stay inside the published image contract. */
   ogImage:
-    '/images/amara-frigiliana-pueblo/JPG_Frigiliana_Pueblo/2000px_72dpi_sRGB/04-frigiliana-pueblo.jpg',
+    '/images/amara-frigiliana-pueblo/JPG_Frigiliana_Pueblo/2000px_72dpi_sRGB/02-frigiliana-pueblo.jpg',
   languages: {
     en: {
       title: 'Frigiliana Old Town: What to See & the Story Behind It',
