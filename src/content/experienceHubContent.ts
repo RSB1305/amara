@@ -23,7 +23,10 @@ type ExperienceLinkToken =
   | 'frigiliana_wellness_authority'
   | 'nerja_nightlife_authority';
 
-type ExperienceDiscoveryLinkToken = 'romantic_hideaways' | 'frigiliana_weddings';
+type ExperienceDiscoveryLinkToken =
+  | 'romantic_hideaways'
+  | 'frigiliana_weddings'
+  | 'frigiliana_old_town';
 
 interface ExperienceDiscoveryLink {
   label: string;
@@ -412,6 +415,10 @@ export const experienceHubContent: Record<
         {
           label: 'Getting married in Frigiliana',
           token: 'frigiliana_weddings'
+        },
+        {
+          label: 'Old town & history',
+          token: 'frigiliana_old_town'
         }
       ]
     },
@@ -575,6 +582,10 @@ export const experienceHubContent: Record<
         {
           label: 'Heiraten in Frigiliana',
           token: 'frigiliana_weddings'
+        },
+        {
+          label: 'Altstadt & Geschichte',
+          token: 'frigiliana_old_town'
         }
       ]
     },
@@ -737,6 +748,10 @@ export const experienceHubContent: Record<
         {
           label: 'Casarse en Frigiliana',
           token: 'frigiliana_weddings'
+        },
+        {
+          label: 'Casco antiguo e historia',
+          token: 'frigiliana_old_town'
         }
       ]
     },
@@ -899,6 +914,10 @@ export const experienceHubContent: Record<
         {
           label: 'Trouwen in Frigiliana',
           token: 'frigiliana_weddings'
+        },
+        {
+          label: 'Oude kern & geschiedenis',
+          token: 'frigiliana_old_town'
         }
       ]
     },
@@ -1061,6 +1080,10 @@ export const experienceHubContent: Record<
         {
           label: 'Gifta sig i Frigiliana',
           token: 'frigiliana_weddings'
+        },
+        {
+          label: 'Gamla stan & historia',
+          token: 'frigiliana_old_town'
         }
       ]
     },

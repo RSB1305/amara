@@ -254,7 +254,7 @@ export const frigilianaFestivalsContent: Record<
               place: 'Frigiliana',
               dateStatus: 'Programme varies by year',
               summary:
-                'Frigiliana honours San Sebastián with a local religious and community celebration. Procession details and accompanying activities depend on the annual programme.',
+                'Frigiliana has two patron saints, and San Sebastián is honoured here around 20 January with a mass and procession. Until 1966 this was also the village’s main fair; poor winter weather led the council to move the fair to June. Procession details and accompanying activities depend on the annual programme.',
               officialHref: officialLinks.frigilianaTraditions
             },
             {
@@ -313,7 +313,7 @@ export const frigilianaFestivalsContent: Record<
               place: 'Frigiliana',
               dateStatus: 'Traditional period; programme varies',
               summary:
-                'Flower-covered crosses appear around the village, accompanied by food, music and neighbourhood hospitality. Locations and activities vary.',
+                'Flower-covered crosses appear around the village, accompanied by food, music and neighbourhood hospitality. The tradition was revived in 1981 after a long interruption, and neighbours still prepare arropía, a sweet made with miel de caña, to go with it. Locations and activities vary.',
               officialHref: officialLinks.frigilianaTraditions
             },
             {
@@ -331,7 +331,7 @@ export const frigilianaFestivalsContent: Record<
               place: 'Frigiliana',
               dateStatus: 'Traditional period; programme varies',
               summary:
-                'Frigiliana’s fair brings concerts, attractions and community events over several days. The exact schedule and traffic arrangements change annually.',
+                'Frigiliana’s main fair, moved here from January in 1967 and tied to the village’s other patron, San Antonio de Padua. It brings a romería, concerts, attractions and community events over several days. The exact schedule and traffic arrangements change annually.',
               officialHref: officialLinks.frigilianaTraditions
             },
             {
@@ -435,7 +435,7 @@ export const frigilianaFestivalsContent: Record<
           place: 'Frigiliana historic quarter',
           dateStatus: 'Dates officially confirmed',
           description:
-            'Frigiliana’s largest cultural weekend brings together music, a medieval market, street performances and food traditions in the old town. The village feels completely different from an ordinary summer evening.',
+            'Frigiliana’s largest cultural weekend brings together music, a craft market of around 150 stalls, street performances and a tapas route through the old town. It is a modern cultural festival, created by the municipality in 2006, rather than an old village tradition — and the village feels completely different from an ordinary summer evening.',
           planningNote:
             'Arrive well before the evening peak, wear shoes suited to steep cobbled streets and do not count on parking close to the historic centre. Confirm individual concerts and programme times when the full schedule is released.',
           officialHref: officialLinks.threeCultures2026
@@ -446,7 +446,7 @@ export const frigilianaFestivalsContent: Record<
           place: 'Frigiliana & Nerja',
           dateStatus: 'Movable religious dates',
           description:
-            'Incense, bands, candlelight and slow processions create a powerful atmosphere. This is a living religious tradition, not a staged visitor event, and the tone varies from quiet anticipation to dense evening crowds.',
+            'Incense, bands, candlelight and slow processions create a powerful atmosphere. This is a living religious tradition, not a staged visitor event, and the tone varies from quiet anticipation to dense evening crowds. Frigiliana’s most striking moment is the Procesión de la Soledad on Good Friday night, when women in black mourning dress accompany the Virgin in silence through the darkened lanes of the Barribarto.',
           planningNote:
             'Choose one procession rather than trying to follow everything. Allow extra time for road closures, avoid crossing a procession route and reserve dinner with flexibility.'
         },
@@ -616,7 +616,7 @@ export const frigilianaFestivalsContent: Record<
               place: 'Frigiliana',
               dateStatus: 'Programm wechselt jährlich',
               summary:
-                'Frigiliana ehrt San Sebastián mit einem religiösen und gemeinschaftlichen Fest. Ablauf der Prozession und Begleitveranstaltungen richten sich nach dem jeweiligen Jahresprogramm.',
+                'Frigiliana hat zwei Schutzpatrone; San Sebastián wird um den 20. Januar mit Messe und Prozession geehrt. Bis 1966 war das zugleich die Hauptferia des Ortes — wegen des unbeständigen Winterwetters verlegte der Gemeinderat sie in den Juni. Ablauf der Prozession und Begleitveranstaltungen richten sich nach dem jeweiligen Jahresprogramm.',
               officialHref: officialLinks.frigilianaTraditions
             },
             {
@@ -675,7 +675,7 @@ export const frigilianaFestivalsContent: Record<
               place: 'Frigiliana',
               dateStatus: 'Traditionelle Zeit; Programm variabel',
               summary:
-                'Im Dorf erscheinen mit Blumen geschmückte Kreuze, begleitet von Essen, Musik und nachbarschaftlicher Gastfreundschaft. Orte und Aktivitäten wechseln.',
+                'Im Dorf erscheinen mit Blumen geschmückte Kreuze, begleitet von Essen, Musik und nachbarschaftlicher Gastfreundschaft. Der Brauch wurde 1981 nach langer Unterbrechung wiederbelebt; dazu bereiten die Nachbarschaften bis heute Arropía zu, eine Süßspeise aus Miel de Caña. Orte und Aktivitäten wechseln.',
               officialHref: officialLinks.frigilianaTraditions
             },
             {
@@ -693,7 +693,7 @@ export const frigilianaFestivalsContent: Record<
               place: 'Frigiliana',
               dateStatus: 'Traditionelle Zeit; Programm variabel',
               summary:
-                'Frigilianas Feria bringt über mehrere Tage Konzerte, Fahrgeschäfte und gemeinschaftliche Veranstaltungen ins Dorf. Zeitplan und Verkehrsführung ändern sich jährlich.',
+                'Die Hauptferia des Ortes, 1967 vom Januar hierher verlegt und mit dem anderen Schutzpatron San Antonio de Padua verbunden. Sie bringt über mehrere Tage Romería, Konzerte, Fahrgeschäfte und gemeinschaftliche Veranstaltungen ins Dorf. Zeitplan und Verkehrsführung ändern sich jährlich.',
               officialHref: officialLinks.frigilianaTraditions
             },
             {
@@ -798,7 +798,7 @@ export const frigilianaFestivalsContent: Record<
           place: 'Altstadt von Frigiliana',
           dateStatus: 'Termine offiziell bestätigt',
           description:
-            'Frigilianas größtes Kulturwochenende verbindet Musik, Mittelaltermarkt, Straßenkunst und kulinarische Traditionen in der Altstadt. Das Dorf fühlt sich dann völlig anders an als an einem gewöhnlichen Sommerabend.',
+            'Frigilianas größtes Kulturwochenende verbindet Musik, einen Kunsthandwerksmarkt mit rund 150 Ständen, Straßenkunst und eine Tapas-Route durch die Altstadt. Es ist ein modernes Kulturfestival, das die Gemeinde 2006 ins Leben gerufen hat, und kein alter Dorfbrauch — das Dorf fühlt sich dann völlig anders an als an einem gewöhnlichen Sommerabend.',
           planningNote:
             'Kommt deutlich vor dem abendlichen Höhepunkt, tragt Schuhe für steile Pflastergassen und rechnet nicht mit einem Parkplatz nahe der Altstadt. Prüft einzelne Konzerte und Uhrzeiten, sobald das vollständige Programm erscheint.',
           officialHref: officialLinks.threeCultures2026
@@ -809,7 +809,7 @@ export const frigilianaFestivalsContent: Record<
           place: 'Frigiliana & Nerja',
           dateStatus: 'Bewegliche religiöse Termine',
           description:
-            'Weihrauch, Musikkapellen, Kerzenlicht und langsame Prozessionen schaffen eine intensive Atmosphäre. Dies ist eine lebendige religiöse Tradition und keine inszenierte Besucherattraktion; die Stimmung reicht von stiller Erwartung bis zu dichtem abendlichem Andrang.',
+            'Weihrauch, Musikkapellen, Kerzenlicht und langsame Prozessionen schaffen eine intensive Atmosphäre. Dies ist eine lebendige religiöse Tradition und keine inszenierte Besucherattraktion; die Stimmung reicht von stiller Erwartung bis zu dichtem abendlichem Andrang. Der eindrücklichste Moment in Frigiliana ist die Procesión de la Soledad in der Nacht des Karfreitags, wenn Frauen in schwarzer Trauerkleidung die Madonna schweigend durch die abgedunkelten Gassen des Barribarto begleiten.',
           planningNote:
             'Wählt eine Prozession aus, statt alles verfolgen zu wollen. Plant zusätzliche Zeit für Straßensperren ein, kreuzt keine Prozessionsroute und reserviert das Abendessen mit etwas Flexibilität.'
         },
@@ -979,7 +979,7 @@ export const frigilianaFestivalsContent: Record<
               place: 'Frigiliana',
               dateStatus: 'El programa varía cada año',
               summary:
-                'Frigiliana honra a San Sebastián con una celebración religiosa y vecinal. Los detalles de la procesión y las actividades paralelas dependen del programa anual.',
+                'Frigiliana tiene dos patrones, y a San Sebastián se le honra hacia el 20 de enero con misa y procesión. Hasta 1966 esa fue también la feria principal del pueblo; el mal tiempo invernal llevó al ayuntamiento a trasladarla a junio. Los detalles de la procesión y las actividades paralelas dependen del programa anual.',
               officialHref: officialLinks.frigilianaTraditions
             },
             {
@@ -1038,7 +1038,7 @@ export const frigilianaFestivalsContent: Record<
               place: 'Frigiliana',
               dateStatus: 'Periodo tradicional; programa variable',
               summary:
-                'Por el pueblo aparecen cruces cubiertas de flores, acompañadas de comida, música y hospitalidad vecinal. Los puntos y las actividades varían.',
+                'Por el pueblo aparecen cruces cubiertas de flores, acompañadas de comida, música y hospitalidad vecinal. La tradición se recuperó en 1981 tras una larga interrupción, y los vecinos siguen preparando arropía, un dulce elaborado con miel de caña. Los puntos y las actividades varían.',
               officialHref: officialLinks.frigilianaTraditions
             },
             {
@@ -1056,7 +1056,7 @@ export const frigilianaFestivalsContent: Record<
               place: 'Frigiliana',
               dateStatus: 'Periodo tradicional; programa variable',
               summary:
-                'La feria de Frigiliana reúne durante varios días conciertos, atracciones y actividades vecinales. El horario y la regulación del tráfico cambian cada año.',
+                'La feria principal del pueblo, trasladada aquí desde enero en 1967 y vinculada al otro patrón, San Antonio de Padua. Reúne durante varios días romería, conciertos, atracciones y actividades vecinales. El horario y la regulación del tráfico cambian cada año.',
               officialHref: officialLinks.frigilianaTraditions
             },
             {
@@ -1161,7 +1161,7 @@ export const frigilianaFestivalsContent: Record<
           place: 'Casco histórico de Frigiliana',
           dateStatus: 'Fechas confirmadas oficialmente',
           description:
-            'El gran fin de semana cultural de Frigiliana reúne música, mercado medieval, espectáculos callejeros y tradiciones gastronómicas en el casco antiguo. El pueblo se siente completamente distinto a una noche normal de verano.',
+            'El gran fin de semana cultural de Frigiliana reúne música, un mercado artesanal de unos 150 puestos, espectáculos callejeros y una ruta de la tapa por el casco antiguo. Es un festival cultural moderno, creado por el ayuntamiento en 2006, y no una tradición antigua del pueblo: durante esos días Frigiliana se siente completamente distinta a una noche normal de verano.',
           planningNote:
             'Llegad bastante antes del momento de mayor afluencia, llevad calzado apropiado para las calles empedradas y empinadas y no contéis con aparcar cerca del casco histórico. Comprobad los conciertos y horarios cuando se publique el programa completo.',
           officialHref: officialLinks.threeCultures2026
@@ -1172,7 +1172,7 @@ export const frigilianaFestivalsContent: Record<
           place: 'Frigiliana y Nerja',
           dateStatus: 'Fechas religiosas móviles',
           description:
-            'El incienso, las bandas, las velas y el paso lento de las procesiones crean un ambiente muy intenso. Es una tradición religiosa viva, no un espectáculo preparado para visitantes, y puede pasar de la espera silenciosa a calles muy concurridas por la noche.',
+            'El incienso, las bandas, las velas y el paso lento de las procesiones crean un ambiente muy intenso. Es una tradición religiosa viva, no un espectáculo preparado para visitantes, y puede pasar de la espera silenciosa a calles muy concurridas por la noche. El momento más impresionante en Frigiliana es la Procesión de la Soledad, la noche del Viernes Santo, cuando las mujeres de riguroso luto acompañan en silencio a la Virgen por las calles a oscuras del Barribarto.',
           planningNote:
             'Elegid una procesión en vez de intentar seguirlas todas. Dejad margen para los cortes de tráfico, no crucéis el recorrido procesional y reservad la cena con flexibilidad.'
         },
@@ -1342,7 +1342,7 @@ export const frigilianaFestivalsContent: Record<
               place: 'Frigiliana',
               dateStatus: 'Programma verschilt per jaar',
               summary:
-                'Frigiliana eert San Sebastián met een religieuze en lokale viering. Details van de processie en extra activiteiten hangen af van het jaarprogramma.',
+                'Frigiliana heeft twee patroonheiligen; San Sebastián wordt rond 20 januari geëerd met een mis en een processie. Tot 1966 was dit ook de belangrijkste feria van het dorp — vanwege het wisselvallige winterweer verplaatste de gemeenteraad die naar juni. Details van de processie en extra activiteiten hangen af van het jaarprogramma.',
               officialHref: officialLinks.frigilianaTraditions
             },
             {
@@ -1401,7 +1401,7 @@ export const frigilianaFestivalsContent: Record<
               place: 'Frigiliana',
               dateStatus: 'Traditionele periode; programma wisselt',
               summary:
-                'Door het dorp verschijnen met bloemen bedekte kruisen, begeleid door eten, muziek en gastvrijheid van de buurten. Locaties en activiteiten variëren.',
+                'Door het dorp verschijnen met bloemen bedekte kruisen, begeleid door eten, muziek en gastvrijheid van de buurten. De traditie werd in 1981 na een lange onderbreking nieuw leven ingeblazen, en de buurten maken er nog steeds arropía bij, een zoete lekkernij van miel de caña. Locaties en activiteiten variëren.',
               officialHref: officialLinks.frigilianaTraditions
             },
             {
@@ -1419,7 +1419,7 @@ export const frigilianaFestivalsContent: Record<
               place: 'Frigiliana',
               dateStatus: 'Traditionele periode; programma wisselt',
               summary:
-                'Frigiliana’s feria brengt meerdere dagen concerten, attracties en activiteiten voor de gemeenschap. Programma en verkeersmaatregelen veranderen jaarlijks.',
+                'De belangrijkste feria van het dorp, in 1967 vanuit januari hierheen verplaatst en verbonden met de andere patroonheilige, San Antonio de Padua. Meerdere dagen lang zijn er een romería, concerten, attracties en activiteiten voor de gemeenschap. Programma en verkeersmaatregelen veranderen jaarlijks.',
               officialHref: officialLinks.frigilianaTraditions
             },
             {
@@ -1524,7 +1524,7 @@ export const frigilianaFestivalsContent: Record<
           place: 'Historisch centrum van Frigiliana',
           dateStatus: 'Data officieel bevestigd',
           description:
-            'Frigiliana’s grootste culturele weekend combineert muziek, een middeleeuwse markt, straatvoorstellingen en culinaire tradities in de oude wijk. Het dorp voelt volledig anders dan op een gewone zomeravond.',
+            'Frigiliana’s grootste culturele weekend combineert muziek, een ambachtsmarkt met zo’n 150 kramen, straatvoorstellingen en een tapasroute door de oude wijk. Het is een modern cultureel festival dat de gemeente in 2006 in het leven riep en geen oude dorpstraditie — het dorp voelt dan volledig anders dan op een gewone zomeravond.',
           planningNote:
             'Kom ruim vóór de avondpiek, draag schoenen voor steile geplaveide straten en reken niet op parkeren vlak bij het centrum. Controleer afzonderlijke concerten en tijden zodra het volledige programma verschijnt.',
           officialHref: officialLinks.threeCultures2026
@@ -1535,7 +1535,7 @@ export const frigilianaFestivalsContent: Record<
           place: 'Frigiliana & Nerja',
           dateStatus: 'Verschuivende religieuze data',
           description:
-            'Wierook, muziekkorpsen, kaarslicht en trage processies scheppen een krachtige sfeer. Dit is een levende religieuze traditie, geen voorstelling voor bezoekers, en de stemming loopt uiteen van stille verwachting tot dichte avondmenigten.',
+            'Wierook, muziekkorpsen, kaarslicht en trage processies scheppen een krachtige sfeer. Dit is een levende religieuze traditie, geen voorstelling voor bezoekers, en de stemming loopt uiteen van stille verwachting tot dichte avondmenigten. Het indrukwekkendste moment in Frigiliana is de Procesión de la Soledad in de nacht van Goede Vrijdag, wanneer vrouwen in zwarte rouwkleding de Maagd zwijgend door de verduisterde straatjes van het Barribarto begeleiden.',
           planningNote:
             'Kies één processie in plaats van alles te willen volgen. Houd extra tijd vrij voor wegafsluitingen, steek een processieroute niet over en reserveer het diner met enige flexibiliteit.'
         },
@@ -1705,7 +1705,7 @@ export const frigilianaFestivalsContent: Record<
               place: 'Frigiliana',
               dateStatus: 'Programmet varierar från år till år',
               summary:
-                'Frigiliana hedrar San Sebastián med ett religiöst och lokalt firande. Processionens detaljer och kringaktiviteter beror på årets program.',
+                'Frigiliana har två skyddshelgon, och San Sebastián hedras kring den 20 januari med mässa och procession. Fram till 1966 var detta också byns huvudferia — det ostadiga vintervädret fick kommunfullmäktige att flytta den till juni. Processionens detaljer och kringaktiviteter beror på årets program.',
               officialHref: officialLinks.frigilianaTraditions
             },
             {
@@ -1764,7 +1764,7 @@ export const frigilianaFestivalsContent: Record<
               place: 'Frigiliana',
               dateStatus: 'Traditionell period; varierande program',
               summary:
-                'Blomsterklädda kors syns runt om i byn, tillsammans med mat, musik och gästfrihet från kvarteren. Platser och aktiviteter varierar.',
+                'Blomsterklädda kors syns runt om i byn, tillsammans med mat, musik och gästfrihet från kvarteren. Traditionen återupptogs 1981 efter ett långt uppehåll, och kvarteren gör fortfarande arropía till den – en sötsak kokt på miel de caña. Platser och aktiviteter varierar.',
               officialHref: officialLinks.frigilianaTraditions
             },
             {
@@ -1782,7 +1782,7 @@ export const frigilianaFestivalsContent: Record<
               place: 'Frigiliana',
               dateStatus: 'Traditionell period; varierande program',
               summary:
-                'Frigilianas feria bjuder under flera dagar på konserter, attraktioner och aktiviteter för byn. Program och trafiklösningar ändras varje år.',
+                'Byns huvudferia, flyttad hit från januari 1967 och knuten till det andra skyddshelgonet, San Antonio de Padua. Under flera dagar bjuder den på romería, konserter, attraktioner och aktiviteter för byn. Program och trafiklösningar ändras varje år.',
               officialHref: officialLinks.frigilianaTraditions
             },
             {
@@ -1887,7 +1887,7 @@ export const frigilianaFestivalsContent: Record<
           place: 'Frigilianas historiska kvarter',
           dateStatus: 'Datumen är officiellt bekräftade',
           description:
-            'Frigilianas största kulturhelg förenar musik, medeltidsmarknad, gatuföreställningar och mattraditioner i den gamla bydelen. Byn känns helt annorlunda än under en vanlig sommarkväll.',
+            'Frigilianas största kulturhelg förenar musik, en hantverksmarknad med omkring 150 stånd, gatuföreställningar och en tapasrunda genom den gamla bydelen. Det är en modern kulturfestival som kommunen startade 2006, inte en gammal bytradition — och byn känns helt annorlunda än under en vanlig sommarkväll.',
           planningNote:
             'Kom i god tid före kvällens mest intensiva timmar, använd skor för branta kullerstensgator och räkna inte med parkering nära centrum. Kontrollera enskilda konserter och tider när hela programmet släpps.',
           officialHref: officialLinks.threeCultures2026
@@ -1898,7 +1898,7 @@ export const frigilianaFestivalsContent: Record<
           place: 'Frigiliana & Nerja',
           dateStatus: 'Rörliga religiösa datum',
           description:
-            'Rökelse, musikkårer, levande ljus och långsamma processioner skapar en stark stämning. Det här är en levande religiös tradition, inte en iscensatt turistattraktion, och känslan växlar mellan tyst förväntan och täta kvällsfolkmassor.',
+            'Rökelse, musikkårer, levande ljus och långsamma processioner skapar en stark stämning. Det här är en levande religiös tradition, inte en iscensatt turistattraktion, och känslan växlar mellan tyst förväntan och täta kvällsfolkmassor. Det starkaste ögonblicket i Frigiliana är Procesión de la Soledad på långfredagsnatten, när kvinnor i svart sorgdräkt tyst följer Madonnan genom Barribartos nedsläckta gränder.',
           planningNote:
             'Välj en procession i stället för att försöka följa allt. Lägg in extra tid för vägavstängningar, korsa inte processionsrutten och boka middag med viss flexibilitet.'
         },

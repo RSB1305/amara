@@ -16,6 +16,7 @@ export type FrigilianaAuthoritySubnavId =
   | 'weather'
   | 'winter'
   | 'dosTumbas'
+  | 'oldTown'
   | 'faq';
 
 export type FrigilianaAuthoritySubnavItem = {
@@ -98,6 +99,13 @@ const currentPageLabels: Record<
     es: 'Localizaciones Netflix',
     nl: 'Netflix-locaties',
     sv: 'Netflix-platser'
+  },
+  oldTown: {
+    en: 'Old Town & History',
+    de: 'Altstadt & Geschichte',
+    es: 'Casco antiguo e historia',
+    nl: 'Oude kern & geschiedenis',
+    sv: 'Gamla stan & historia'
   },
   faq: {
     en: 'FAQ',
