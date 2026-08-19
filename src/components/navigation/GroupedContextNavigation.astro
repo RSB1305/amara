@@ -1,0 +1,205 @@
+---
+import { ChevronDown } from '@lucide/astro';
+import type {
+  ContextNavigationGroup,
+  ContextNavigationItem
+} from './ContextNavigation.astro';
+
+interface Props {
+  activeId?: string;
+  context: 'experience' | 'location';
+  currentPageLabel: string;
+  groups: ContextNavigationGroup[];
+  mobileLabel: string;
+  navigationAriaLabel: string;
+}
+
+const {
+  activeId,
+  context,
+  currentPageLabel,
+  groups,
+  mobileLabel,
+  navigationAriaLabel
+} = Astro.props;
+
+const isLiveItem = (item: ContextNavigationItem) =>
+  item.status !== 'future' && Boolean(item.href);
+
+const itemClasses = (item: ContextNavigationItem) => [
+  'flex min-h-10 w-full items-center border-l-2 px-4 py-2 font-label text-[10px] font-medium uppercase tracking-[0.06em] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-primary/25',
+  item.id === activeId
+    ? 'border-primary bg-primary/[0.05] font-semibold text-on-surface'
+    : 'border-transparent text-on-surface-variant hover:border-primary/45 hover:bg-primary/[0.03] hover:text-on-surface'
+];
+---
+
+<div data-am-grouped-context-navigation>
+  <nav
+    aria-label={navigationAriaLabel}
+    class="hidden xl:block"
+    data-am-grouped-context-desktop
+  >
+    <ul class="flex items-center justify-end gap-1">
+      {
+        groups.map((group) => {
+          const isActiveGroup = group.items.some((item) => item.id === activeId);
+
+          return (
+            <li class="relative">
+              <details class="group" data-am-context-group={group.id}>
+                <summary
+                  class:list={[
+                    'flex min-h-8 cursor-pointer list-none items-center gap-1.5 border-b px-3 font-label text-[10px] font-medium uppercase tracking-[0.06em] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/25 [&::-webkit-details-marker]:hidden',
+                    isActiveGroup
+                      ? 'border-primary font-semibold text-on-surface'
+                      : 'border-transparent text-on-surface-variant hover:border-primary/45 hover:text-on-surface'
+                  ]}
+                >
+                  <span>{group.label}</span>
+                  <ChevronDown
+                    aria-hidden="true"
+                    class="size-3 transition-transform duration-200 group-open:rotate-180"
+                    stroke-width={1.5}
+                  />
+                </summary>
+
+                <div class="absolute right-0 top-[calc(100%+0.45rem)] z-50 w-72 border border-outline-variant/20 bg-surface p-2 shadow-[0_18px_45px_rgba(35,30,24,0.14)]">
+                  <ul>
+                    {group.items.map((item) => (
+                      <li
+                        data-am-context-sibling
+                        data-am-context-sibling-status={isLiveItem(item) ? 'live' : 'future'}
+                        data-am-experience-sibling={context === 'experience' ? '' : undefined}
+                        data-am-location-sibling={context === 'location' ? '' : undefined}
+                      >
+                        {isLiveItem(item) ? (
+                          <a
+                            href={item.href}
+                            aria-current={item.id === activeId ? 'page' : undefined}
+                            class:list={itemClasses(item)}
+                          >
+                            {item.label}
+                          </a>
+                        ) : (
+                          <span
+                            aria-disabled="true"
+                            class="flex min-h-10 w-full items-center px-4 py-2 font-label text-[10px] font-medium uppercase tracking-[0.06em] text-on-surface-variant/55"
+                          >
+                            {item.label}
+                          </span>
+                        )}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </details>
+            </li>
+          );
+        })
+      }
+    </ul>
+  </nav>
+
+  <nav
+    aria-label={navigationAriaLabel}
+    class="xl:hidden"
+    data-am-grouped-context-mobile
+  >
+    <details class="group border border-outline-variant/20 bg-surface">
+      <summary class="flex min-h-11 cursor-pointer list-none items-center justify-between gap-4 px-3 font-label focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-primary/25 [&::-webkit-details-marker]:hidden">
+        <span class="min-w-0">
+          <span class="block text-[9px] font-semibold uppercase tracking-[0.12em] text-primary">
+            {mobileLabel}
+          </span>
+          <span class="block truncate text-[10px] font-medium uppercase tracking-[0.06em] text-on-surface">
+            {currentPageLabel}
+          </span>
+        </span>
+        <ChevronDown
+          aria-hidden="true"
+          class="size-3.5 shrink-0 transition-transform duration-200 group-open:rotate-180"
+          stroke-width={1.5}
+        />
+      </summary>
+
+      <div class="border-t border-outline-variant/15 px-3 py-3">
+        <div class="grid gap-4 sm:grid-cols-3">
+          {groups.map((group) => (
+            <section aria-labelledby={`am-context-group-${group.id}`}>
+              <h2
+                id={`am-context-group-${group.id}`}
+                class="px-3 pb-1.5 font-label text-[9px] font-semibold uppercase tracking-[0.12em] text-primary"
+              >
+                {group.label}
+              </h2>
+              <ul>
+                {group.items.map((item) => (
+                  <li
+                    data-am-context-sibling
+                    data-am-context-sibling-status={isLiveItem(item) ? 'live' : 'future'}
+                    data-am-experience-sibling={context === 'experience' ? '' : undefined}
+                    data-am-location-sibling={context === 'location' ? '' : undefined}
+                  >
+                    {isLiveItem(item) ? (
+                      <a
+                        href={item.href}
+                        aria-current={item.id === activeId ? 'page' : undefined}
+                        class:list={itemClasses(item)}
+                      >
+                        {item.label}
+                      </a>
+                    ) : (
+                      <span
+                        aria-disabled="true"
+                        class="flex min-h-10 w-full items-center px-4 py-2 font-label text-[10px] font-medium uppercase tracking-[0.06em] text-on-surface-variant/55"
+                      >
+                        {item.label}
+                      </span>
+                    )}
+                  </li>
+                ))}
+              </ul>
+            </section>
+          ))}
+        </div>
+      </div>
+    </details>
+  </nav>
+</div>
+
+<script>
+  const closeDetails = (details: HTMLDetailsElement) => {
+    details.open = false;
+  };
+
+  document.querySelectorAll<HTMLElement>('[data-am-grouped-context-navigation]').forEach((root) => {
+    const allDetails = Array.from(root.querySelectorAll<HTMLDetailsElement>('details'));
+    const desktopDetails = Array.from(
+      root.querySelectorAll<HTMLDetailsElement>('[data-am-grouped-context-desktop] details')
+    );
+
+    desktopDetails.forEach((details) => {
+      details.addEventListener('toggle', () => {
+        if (!details.open) return;
+        desktopDetails.forEach((sibling) => {
+          if (sibling !== details) closeDetails(sibling);
+        });
+      });
+    });
+
+    root.addEventListener('keydown', (event) => {
+      if (event.key !== 'Escape') return;
+      const openDetails = allDetails.find((details) => details.open);
+      if (!openDetails) return;
+
+      closeDetails(openDetails);
+      openDetails.querySelector<HTMLElement>('summary')?.focus();
+    });
+
+    document.addEventListener('pointerdown', (event) => {
+      if (event.target instanceof Node && root.contains(event.target)) return;
+      allDetails.forEach(closeDetails);
+    });
+  });
+</script>

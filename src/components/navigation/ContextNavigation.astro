@@ -17,7 +17,14 @@ export interface ContextNavigationItem {
   status?: 'live' | 'future';
 }
 
+export interface ContextNavigationGroup {
+  id: string;
+  items: ContextNavigationItem[];
+  label: string;
+}
+
 import DestinationBranchSwitcher from './DestinationBranchSwitcher.astro';
+import GroupedContextNavigation from './GroupedContextNavigation.astro';
 
 interface Props {
   activeId?: string;
@@ -27,7 +34,10 @@ interface Props {
   breadcrumbAriaLabel: string;
   breadcrumbs: ContextNavigationBreadcrumb[];
   context: 'experience' | 'location';
-  items: ContextNavigationItem[];
+  currentPageLabel?: string;
+  groups?: ContextNavigationGroup[];
+  items?: ContextNavigationItem[];
+  mobileNavigationLabel?: string;
   retainActiveItem?: boolean;
   switcherAriaLabel: string;
   wrapItems?: boolean;
@@ -41,7 +51,10 @@ const {
   breadcrumbAriaLabel,
   breadcrumbs,
   context,
-  items,
+  currentPageLabel,
+  groups = [],
+  items = [],
+  mobileNavigationLabel,
   retainActiveItem = false,
   switcherAriaLabel,
   wrapItems = false
@@ -104,7 +117,7 @@ const visibleItems = activeId && !retainActiveItem
         )
       }
 
-      {(branches.length > 0 || visibleItems.length > 0) && (
+      {(branches.length > 0 || groups.length > 0 || visibleItems.length > 0) && (
       <div class="flex min-w-0 flex-col gap-3 xl:ml-auto xl:items-end">
         {branches.length > 0 && activeBranchId && branchSwitcherAriaLabel && (
           <DestinationBranchSwitcher
@@ -113,7 +126,16 @@ const visibleItems = activeId && !retainActiveItem
             items={branches}
           />
         )}
-        {visibleItems.length > 0 && (
+        {groups.length > 0 && currentPageLabel && mobileNavigationLabel ? (
+          <GroupedContextNavigation
+            activeId={activeId}
+            context={context}
+            currentPageLabel={currentPageLabel}
+            groups={groups}
+            mobileLabel={mobileNavigationLabel}
+            navigationAriaLabel={switcherAriaLabel}
+          />
+        ) : visibleItems.length > 0 && (
       <nav aria-label={switcherAriaLabel} class="min-w-0">
         <ul
           class:list={[
