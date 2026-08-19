@@ -1,11 +1,11 @@
 ---
-import InlineEmphasis from '../../components/text/InlineEmphasis.astro';
 import LocationAuthorityLayout from '../../layouts/LocationAuthorityLayout.astro';
 import Navigation from '../../components/Navigation.astro';
 import EditorialClosingCta from '../../components/editorial/EditorialClosingCta.astro';
 import EditorialGuideLinkSection from '../../components/editorial/EditorialGuideLinkSection.astro';
 import LocationContextNav from '../../components/location/LocationContextNav.astro';
 import HairlineStatCard from '../../components/location/HairlineStatCard.astro';
+import LocationGuideHero from '../../components/location/LocationGuideHero.astro';
 import SeasonalPillar from '../../components/location/SeasonalPillar.astro';
 import {
   frigilianaPreFooterCopy,
@@ -113,6 +113,13 @@ const copy = {
       es: 'Los días pueden ser calurosos, mientras que Frigiliana puede sentirse más fresca que Nerja tras la puesta de sol. Comparad las estaciones y consultad la previsión actual antes de planear cuestas, terraza y equipaje.',
       nl: 'Overdag kan het heet zijn, terwijl Frigiliana na zonsondergang frisser kan aanvoelen dan Nerja. Vergelijk de seizoenen en bekijk de actuele verwachting voordat jullie steile wandelingen, terrastijd en bagage plannen.',
       sv: 'Dagarna kan vara varma, medan Frigiliana kan kännas svalare än Nerja efter solnedgång. Jämför årstiderna och kontrollera den aktuella prognosen innan ni planerar branta promenader, terrasskvällar och packning.'
+    },
+    imageAlt: {
+      en: 'White houses in Frigiliana in warm evening light',
+      de: 'Weiße Häuser in Frigiliana im warmen Abendlicht',
+      es: 'Casas blancas de Frigiliana con la luz cálida del atardecer',
+      nl: 'Witte huizen in Frigiliana in warm avondlicht',
+      sv: 'Vita hus i Frigiliana i varmt kvällsljus'
     }
   },
   glance: {
@@ -359,9 +366,15 @@ const relatedLinks = [
     text: t(copy.related.links.winterText)
   }
 ];
+
+const heroImage = {
+  src: '/images/amara-frigiliana-pueblo/JPG_Frigiliana_Pueblo/2000px_72dpi_sRGB/06-frigiliana-pueblo.jpg',
+  width: 2000,
+  height: 1333
+};
 ---
 
-<LocationAuthorityLayout seo={seo} pageLang={currentLang} showContextNavigation={false} bodyBackgroundClass="bg-white">
+<LocationAuthorityLayout seo={seo} pageLang={currentLang} showContextNavigation={false}>
   <Navigation
     slot="navigation"
     currentLang={currentLang}
@@ -370,15 +383,19 @@ const relatedLinks = [
 
   <LocationContextNav activeId="weather" lang={currentLang} />
 
-  <div data-am-page="frigiliana-weather">
-    <div class="w-full max-w-screen-2xl mx-auto px-6 md:px-12 pt-20 pb-20">
-      <header class="mb-20 border-b border-black/10 pb-12">
-        <span class="am-text-caption text-primary mb-4 block">{t(copy.header.eyebrow)}</span>
-        <h1 class="am-text-display italic text-on-surface mb-6">{t(copy.header.h1)}</h1>
-        <p class="am-text-body text-on-surface-variant italic opacity-70 max-w-2xl"><InlineEmphasis text={t(copy.header.lead)} /></p>
-      </header>
+  <div data-am-page="frigiliana-weather" data-am-presentation="guide">
+    <LocationGuideHero
+      eyebrow={t(copy.header.eyebrow)}
+      title={t(copy.header.h1)}
+      paragraphs={[t(copy.header.lead)]}
+      imageSrc={heroImage.src}
+      imageAlt={t(copy.header.imageAlt)}
+      imageWidth={heroImage.width}
+      imageHeight={heroImage.height}
+    />
 
-      <div class="pt-8 space-y-20">
+    <div class="mx-auto w-full max-w-screen-2xl px-6 py-24 md:px-12 md:py-32">
+      <div class="space-y-24">
         {/* 1) Weather at a Glance */}
         <section class="grid gap-10 lg:grid-cols-12 items-start">
           <div class="lg:col-span-8 space-y-6">

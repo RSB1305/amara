@@ -1,6 +1,5 @@
 ---
 import InlineEmphasis from '../../components/text/InlineEmphasis.astro';
-import Hero from '../../components/Hero.astro';
 import AmaraImage from '../../components/AmaraImage.astro';
 import FaqAccordion from '../../components/FaqAccordion.astro';
 import Navigation from '../../components/Navigation.astro';
@@ -8,6 +7,7 @@ import EditorialClosingCta from '../../components/editorial/EditorialClosingCta.
 import EditorialGuideLinkSection from '../../components/editorial/EditorialGuideLinkSection.astro';
 import HairlineStatCard from '../../components/location/HairlineStatCard.astro';
 import LocationContextNav from '../../components/location/LocationContextNav.astro';
+import LocationGuideHero from '../../components/location/LocationGuideHero.astro';
 import {
   frigilianaStreetsStairsCopy,
   frigilianaStreetsStairsSeo
@@ -122,29 +122,18 @@ const proofImage = {
   />
   <LocationContextNav activeId="stay" lang={currentLang} />
 
-  <div data-am-page="frigiliana-streets-stairs">
+  <div data-am-page="frigiliana-streets-stairs" data-am-presentation="guide">
     <div class="w-full">
-      <Hero
+      <LocationGuideHero
+        eyebrow={t(copy.hero.eyebrow)}
+        title={t(copy.hero.title)}
+        paragraphs={[t(copy.hero.lead), t(copy.hero.body)]}
         imageSrc={heroImage.src}
         imageAlt={t(copy.hero.imageAlt)}
         imageWidth={heroImage.width}
         imageHeight={heroImage.height}
       >
-        <span class="am-text-caption text-primary mb-8 block">
-          {t(copy.hero.eyebrow)}
-        </span>
-        <h1 class="am-text-display italic text-on-surface mb-10 tracking-tighter">
-          {t(copy.hero.title)}
-        </h1>
-        <div class="pl-7 border-l border-primary/20 max-w-xl mb-12 space-y-5 md:pl-10 md:mb-14 md:space-y-6">
-          <p class="am-text-body text-on-surface-variant leading-relaxed">
-            {t(copy.hero.lead)}
-          </p>
-          <p class="am-text-body text-on-surface-variant leading-relaxed">
-            {t(copy.hero.body)}
-          </p>
-        </div>
-        <div class="flex flex-wrap gap-4">
+        <div slot="actions" class="flex flex-wrap gap-4">
           <a href="#location-models" class="am-btn am-btn--primary">
             {t(copy.hero.primaryCta)}
           </a>
@@ -152,9 +141,9 @@ const proofImage = {
             {t(copy.hero.secondaryCta)}
           </a>
         </div>
-      </Hero>
+      </LocationGuideHero>
 
-      <section class="max-w-screen-2xl mx-auto px-6 md:px-12 pb-24 md:pb-32">
+      <section class="max-w-screen-2xl mx-auto px-6 py-24 md:px-12 md:py-32">
         <div class="max-w-4xl mb-14 md:mb-16">
           <span class="am-text-caption uppercase tracking-[0.35em] text-primary block mb-6">
             {t(copy.principle.eyebrow)}

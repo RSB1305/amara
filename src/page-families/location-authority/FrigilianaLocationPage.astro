@@ -2,12 +2,12 @@
 import InlineEmphasis from '../../components/text/InlineEmphasis.astro';
 import LocationAuthorityLayout from '../../layouts/LocationAuthorityLayout.astro';
 import Navigation from '../../components/Navigation.astro';
-import Hero from '../../components/Hero.astro';
 import AmaraImage from '../../components/AmaraImage.astro';
 import FaqAccordion from '../../components/FaqAccordion.astro';
 import EditorialGuideLinkSection from '../../components/editorial/EditorialGuideLinkSection.astro';
 import FrigilianaOrientationMap from '../../components/location/FrigilianaOrientationMap.astro';
 import LocationContextNav from '../../components/location/LocationContextNav.astro';
+import LocationGuideHero from '../../components/location/LocationGuideHero.astro';
 import OrderedFrigilianaLocationSections from './OrderedFrigilianaLocationSections.astro';
 import {
   frigilianaLocationCopy,
@@ -238,34 +238,21 @@ const renderCtas = (subsection: FrigilianaLocationSubsection) => subsection.ctas
   <div class="overflow-x-hidden">
     <LocationContextNav activeId="intro" lang={currentLang} />
 
-    <div data-am-page="frigiliana-location">
+    <div data-am-page="frigiliana-location" data-am-presentation="guide">
       <OrderedFrigilianaLocationSections order={sectionOrder}>
         <Fragment slot="hero">
           <div id="intro">
-            <Hero
+            <LocationGuideHero
+              eyebrow={c.heroKicker}
+              title={c.h1}
+              paragraphs={c.intro}
+              accent={c.introPullLine}
               imageSrc={heroImage.src}
               imageAlt={heroImage.alt}
               imageWidth={heroImage.width}
               imageHeight={heroImage.height}
               imageSizes={heroImage.sizes}
-            >
-              <span class="am-text-caption uppercase tracking-[0.35em] text-primary block mb-6">
-                {c.heroKicker}
-              </span>
-              <h1
-                class="am-text-title italic text-on-surface mb-10 tracking-tight break-normal hyphens-none [overflow-wrap:normal]"
-              >
-                {c.h1}
-              </h1>
-              <div class="max-w-xl space-y-6 border-l border-primary/20 pl-8 md:pl-10">
-                {
-                  c.intro.map((paragraph) => (
-                    <p class="am-text-body text-on-surface-variant leading-relaxed"><InlineEmphasis text={paragraph} /></p>
-                  ))
-                }
-                <p class="am-text-subtitle italic text-on-surface pt-2"><InlineEmphasis text={c.introPullLine} /></p>
-              </div>
-            </Hero>
+            />
 
             <section
               id="where-is-frigiliana"

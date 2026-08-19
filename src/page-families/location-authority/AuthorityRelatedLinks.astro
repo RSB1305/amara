@@ -23,15 +23,23 @@ interface Props {
   /** The column count this page delivers for its related grid. */
   columns: 'md:grid-cols-2' | 'md:grid-cols-3';
   resolveHref: RequiredLinkResolver;
+  presentation?: 'article' | 'guide';
 }
 
-const { related, columns, resolveHref } = Astro.props;
+const { related, columns, resolveHref, presentation = 'article' } = Astro.props;
 ---
 
 <section class="border-b border-border-subtle bg-inverse-surface px-6 py-20 text-inverted-on-surface md:px-12 md:py-28">
   <div class="mx-auto max-w-screen-2xl">
     <p class="font-label text-[11px] font-bold uppercase tracking-[0.18em] text-primary-fixed-dim">{related.eyebrow}</p>
-    <h2 class="am-text-title mt-5 max-w-3xl text-balance text-inverted-on-surface">{related.title}</h2>
+    <h2
+      class:list={[
+        'am-text-title mt-5 max-w-3xl text-balance text-inverted-on-surface',
+        presentation === 'guide' && 'italic'
+      ]}
+    >
+      {related.title}
+    </h2>
     <div class:list={['mt-12 grid gap-x-10', columns]}>
       {related.links.map((link) => (
         <a
