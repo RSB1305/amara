@@ -75,6 +75,12 @@ const FRIGILIANA_EXPERIENCE_DETAIL_SLUGS = new Set([
   'frigiliana-wellness'
 ]);
 
+const FRIGILIANA_EXPERIENCE_NAVIGATION_SLUGS = new Set([
+  ...FRIGILIANA_EXPERIENCE_DETAIL_SLUGS,
+  'frigiliana-old-town',
+  'frigiliana-netflix-dos-tumbas'
+]);
+
 const NERJA_EXPERIENCE_DETAIL_SLUGS = new Set([
   'nerja-beaches',
   'nerja-day-trips',
@@ -82,6 +88,11 @@ const NERJA_EXPERIENCE_DETAIL_SLUGS = new Set([
   'nerja-balcon-de-europa',
   'nerja-caves',
   'nerja-nightlife'
+]);
+
+const NERJA_EXPERIENCE_NAVIGATION_SLUGS = new Set([
+  ...NERJA_EXPERIENCE_DETAIL_SLUGS,
+  'nerja-verano-azul'
 ]);
 
 const NON_DEFAULT_LANGUAGES = new Set(['de', 'en', 'nl', 'sv']);
@@ -173,6 +184,28 @@ function getVisibleRentalSlugs(html, pageUrl) {
   return slugs;
 }
 
+function getExperienceSiblingSlugs(html, pageUrl) {
+  const slugs = new Set();
+
+  for (const match of html.matchAll(
+    /<li\b[^>]*\bdata-am-experience-sibling\b[^>]*>([\s\S]*?)<\/li>/gi
+  )) {
+    const href = match[1].match(/<a\b[^>]*\bhref=["']([^"']+)["'][^>]*>/i)?.[1];
+
+    if (!href) {
+      continue;
+    }
+
+    try {
+      slugs.add(getOwnedSlug(new URL(href, pageUrl).pathname));
+    } catch {
+      continue;
+    }
+  }
+
+  return slugs;
+}
+
 function getExperienceHubPath(pathname, hubSlug) {
   const language = pathname.split('/').filter(Boolean)[0];
 
@@ -185,7 +218,7 @@ function getExperienceFamily(slug) {
   if (FRIGILIANA_EXPERIENCE_DETAIL_SLUGS.has(slug)) {
     return {
       hubSlug: 'frigiliana-experience',
-      detailSlugs: FRIGILIANA_EXPERIENCE_DETAIL_SLUGS,
+      navigationSlugs: FRIGILIANA_EXPERIENCE_NAVIGATION_SLUGS,
       requiresPrefooter: true
     };
   }
@@ -193,7 +226,7 @@ function getExperienceFamily(slug) {
   if (NERJA_EXPERIENCE_DETAIL_SLUGS.has(slug)) {
     return {
       hubSlug: 'nerja-experience',
-      detailSlugs: NERJA_EXPERIENCE_DETAIL_SLUGS,
+      navigationSlugs: NERJA_EXPERIENCE_NAVIGATION_SLUGS,
       requiresPrefooter: false
     };
   }
@@ -534,19 +567,23 @@ export function runStructuredDataAudit({
         report(file, 'experience detail is missing its related-guides pre-footer');
       }
 
-      const siblingLinkCount = [
-        ...html.matchAll(/\bdata-am-experience-sibling\b/g)
-      ].length;
+      const siblingSlugs = getExperienceSiblingSlugs(html, webPage.url);
+      const missingSiblingSlugs = [...experienceFamily.navigationSlugs].filter(
+        (slug) => !siblingSlugs.has(slug)
+      );
+      const unexpectedSiblingSlugs = [...siblingSlugs].filter(
+        (slug) => !experienceFamily.navigationSlugs.has(slug)
+      );
       const recommendationCount = [
         ...html.matchAll(/\bdata-am-experience-recommendation\b/g)
       ].length;
 
-      const expectedSiblingLinkCount = experienceFamily.detailSlugs.size - 1;
-
-      if (siblingLinkCount !== expectedSiblingLinkCount) {
+      if (missingSiblingSlugs.length > 0 || unexpectedSiblingSlugs.length > 0) {
         report(
           file,
-          `experience family navigation contains ${siblingLinkCount} of ${expectedSiblingLinkCount} available guides`
+          'experience family navigation targets differ from the live guide set: ' +
+            `missing=${JSON.stringify(missingSiblingSlugs)}, ` +
+            `unexpected=${JSON.stringify(unexpectedSiblingSlugs)}`
         );
       }
 
