@@ -209,12 +209,13 @@ export const frigilianaParkingCopy = {
           'Aangegeven openbaar parkeren',
           'Skyltad allmän parkering'
         ),
+        /** MAINTENANCE: Plaza de las Tres Culturas tariff, checked August 2026. Re-check before each release. */
         summary: l(
-          'Look for current visitor-parking signs around Plaza de las Tres Culturas and the lower village. This is usually the clearest starting point for a first visit.',
-          'Achtet rund um die Plaza de las Tres Culturas und im unteren Ort auf die aktuelle Besucherparkplatz-Beschilderung. Für den ersten Besuch ist das meist der klarste Ausgangspunkt.',
-          'Buscad la señalización actual para visitantes en torno a la Plaza de las Tres Culturas y la zona baja. Suele ser el punto de partida más claro para una primera visita.',
-          'Let op actuele bezoekersborden rond Plaza de las Tres Culturas en in het lagere dorp. Dit is meestal het duidelijkste vertrekpunt voor een eerste bezoek.',
-          'Leta efter aktuell besöksskyltning kring Plaza de las Tres Culturas och den nedre byn. Det är oftast den tydligaste utgångspunkten vid ett första besök.'
+          'Look for current visitor-parking signs around Plaza de las Tres Culturas and the lower village. This is usually the clearest starting point for a first visit. In August 2026 the central car park under Plaza de las Tres Culturas was signed at 0.0417 € per minute with a daily cap of 15 €; tariffs can change.',
+          'Achtet rund um die Plaza de las Tres Culturas und im unteren Ort auf die aktuelle Besucherparkplatz-Beschilderung. Für den ersten Besuch ist das meist der klarste Ausgangspunkt. Im August 2026 war der zentrale Parkplatz unter der Plaza de las Tres Culturas mit 0,0417 € pro Minute und höchstens 15 € pro Tag ausgewiesen; Tarife können sich ändern.',
+          'Buscad la señalización actual para visitantes en torno a la Plaza de las Tres Culturas y la zona baja. Suele ser el punto de partida más claro para una primera visita. En agosto de 2026 el aparcamiento central bajo la Plaza de las Tres Culturas estaba señalizado a 0,0417 € por minuto, con un máximo de 15 € al día; las tarifas pueden cambiar.',
+          'Let op actuele bezoekersborden rond Plaza de las Tres Culturas en in het lagere dorp. Dit is meestal het duidelijkste vertrekpunt voor een eerste bezoek. In augustus 2026 stond de centrale parkeergarage onder Plaza de las Tres Culturas aangegeven op € 0,0417 per minuut met een dagmaximum van € 15; tarieven kunnen veranderen.',
+          'Leta efter aktuell besöksskyltning kring Plaza de las Tres Culturas och den nedre byn. Det är oftast den tydligaste utgångspunkten vid ett första besök. I augusti 2026 var den centrala parkeringen under Plaza de las Tres Culturas skyltad till 0,0417 € per minut med ett dygnstak på 15 €; taxorna kan ändras.'
         ),
         bestFor: l(
           'A simple, sign-led arrival without trying to enter the historic lanes.',
@@ -224,11 +225,11 @@ export const frigilianaParkingCopy = {
           'En enkel ankomst enligt skyltningen utan att försöka köra in i de historiska gränderna.'
         ),
         remember: l(
-          'Check the displayed terms, height limits, opening access, and payment information before leaving the car.',
-          'Prüft vor dem Abstellen die vor Ort angegebenen Bedingungen, Höhenbegrenzungen, Zufahrt und Zahlungsinformationen.',
-          'Comprobad las condiciones indicadas, el límite de altura, el acceso y la información de pago antes de dejar el coche.',
-          'Controleer vóór het parkeren de aangegeven voorwaarden, hoogtebeperking, toegang en betaalinformatie.',
-          'Kontrollera angivna villkor, höjdbegränsning, infart och betalningsinformation innan ni lämnar bilen.'
+          'Check the displayed terms, height limits, opening access, and payment information before leaving the car. This is the paid option; for a longer stay, also look at permitted street parking below.',
+          'Prüft vor dem Abstellen die vor Ort angegebenen Bedingungen, Höhenbegrenzungen, Zufahrt und Zahlungsinformationen. Das ist die kostenpflichtige Variante; für längere Aufenthalte lohnt auch ein Blick auf das erlaubte Straßenparken weiter unten.',
+          'Comprobad las condiciones indicadas, el límite de altura, el acceso y la información de pago antes de dejar el coche. Esta es la opción de pago; para estancias largas, mirad también el aparcamiento permitido en calle que aparece más abajo.',
+          'Controleer vóór het parkeren de aangegeven voorwaarden, hoogtebeperking, toegang en betaalinformatie. Dit is de betaalde optie; bekijk voor een langer verblijf ook het toegestane straatparkeren hieronder.',
+          'Kontrollera angivna villkor, höjdbegränsning, infart och betalningsinformation innan ni lämnar bilen. Detta är det avgiftsbelagda alternativet; vid längre vistelser är det värt att också titta på tillåten gatuparkering nedan.'
         )
       },
       {
