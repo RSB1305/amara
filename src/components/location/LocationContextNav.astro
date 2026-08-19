@@ -9,6 +9,7 @@ import {
   getFrigilianaAuthorityActiveTopic,
   getFrigilianaAuthorityCurrentPageLabel,
   getFrigilianaAuthoritySubnav,
+  getFrigilianaAuthoritySubnavGroups,
   type FrigilianaAuthoritySubnavId,
   type FrigilianaAuthoritySubnavItem
 } from '../../lib/frigiliana/frigilianaAuthoritySubnav';
@@ -24,6 +25,7 @@ interface Props {
 
 const { activeId, items, lang } = Astro.props;
 const navigationItems = items ?? getFrigilianaAuthoritySubnav(lang);
+const navigationGroups = items ? [] : getFrigilianaAuthoritySubnavGroups(lang);
 const activeTopicId = getFrigilianaAuthorityActiveTopic(activeId);
 const currentLabel = getFrigilianaAuthorityCurrentPageLabel(activeId, lang);
 const isOverview = activeId === 'intro';
@@ -32,27 +34,33 @@ const labels: Record<
   AmaraLanguage,
   {
     breadcrumb: string;
+    guide: string;
     switcher: string;
   }
 > = {
   en: {
     breadcrumb: 'Breadcrumb',
+    guide: 'Frigiliana guide',
     switcher: 'Frigiliana guide navigation'
   },
   de: {
     breadcrumb: 'Brotkrümelnavigation',
+    guide: 'Frigiliana-Guide',
     switcher: 'Navigation im Frigiliana-Guide'
   },
   es: {
     breadcrumb: 'Migas de pan',
+    guide: 'Guía de Frigiliana',
     switcher: 'Navegación de la guía de Frigiliana'
   },
   nl: {
     breadcrumb: 'Broodkruimelnavigatie',
+    guide: 'Frigiliana-gids',
     switcher: 'Navigatie van de Frigiliana-gids'
   },
   sv: {
     breadcrumb: 'Brödsmulenavigering',
+    guide: 'Frigiliana-guide',
     switcher: 'Navigering i Frigiliana-guiden'
   }
 };
@@ -93,7 +101,10 @@ if (!isOverview) {
   breadcrumbAriaLabel={copy.breadcrumb}
   breadcrumbs={breadcrumbs}
   context="location"
-  items={navigationItems}
+  currentPageLabel={currentLabel ?? frigilianaLabel}
+  groups={navigationGroups}
+  items={items ? navigationItems : []}
+  mobileNavigationLabel={copy.guide}
   retainActiveItem={true}
   switcherAriaLabel={copy.switcher}
   wrapItems={true}

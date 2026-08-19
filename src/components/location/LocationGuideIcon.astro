@@ -1,0 +1,109 @@
+---
+import {
+  ArrowLeftRight,
+  BusFront,
+  CalendarDays,
+  CarFront,
+  CarTaxiFront,
+  Clock3,
+  CloudRain,
+  Croissant,
+  Footprints,
+  Handshake,
+  House,
+  Map,
+  MapPin,
+  Mountain,
+  Pill,
+  PlaneLanding,
+  Repeat2,
+  Route,
+  ShoppingBasket,
+  Store,
+  Sun,
+  Sunset,
+  ThermometerSun,
+  Trees,
+  WavesHorizontal
+} from '@lucide/astro';
+
+export type LocationGuideIconName =
+  | 'airport'
+  | 'rental-car'
+  | 'private-transfer'
+  | 'taxi'
+  | 'bus'
+  | 'journey-time'
+  | 'distance'
+  | 'elevation'
+  | 'walking-surface'
+  | 'frequency'
+  | 'municipality'
+  | 'village-square'
+  | 'protected-landscape'
+  | 'local-shops'
+  | 'bakery'
+  | 'supermarket'
+  | 'walkable'
+  | 'pharmacy'
+  | 'opening-hours'
+  | 'longer-stay'
+  | 'comparison'
+  | 'temperature'
+  | 'evening'
+  | 'rainfall'
+  | 'sunshine'
+  | 'coast'
+  | 'village';
+
+interface Props {
+  name: LocationGuideIconName;
+  class?: string;
+}
+
+const { name, class: className = 'h-5 w-5' } = Astro.props;
+
+/**
+ * One semantic icon vocabulary keeps practical Location guides aligned with
+ * the accommodation fact language while allowing the underlying glyphs to
+ * change centrally in a later AMARA design refresh.
+ */
+const icons = {
+  airport: PlaneLanding,
+  'rental-car': CarFront,
+  'private-transfer': Handshake,
+  taxi: CarTaxiFront,
+  bus: BusFront,
+  'journey-time': Clock3,
+  distance: Route,
+  elevation: Mountain,
+  'walking-surface': Footprints,
+  frequency: Repeat2,
+  municipality: Map,
+  'village-square': MapPin,
+  'protected-landscape': Trees,
+  'local-shops': ShoppingBasket,
+  bakery: Croissant,
+  supermarket: Store,
+  walkable: Footprints,
+  pharmacy: Pill,
+  'opening-hours': Clock3,
+  'longer-stay': CalendarDays,
+  comparison: ArrowLeftRight,
+  temperature: ThermometerSun,
+  evening: Sunset,
+  rainfall: CloudRain,
+  sunshine: Sun,
+  coast: WavesHorizontal,
+  village: House
+} satisfies Record<LocationGuideIconName, typeof BusFront>;
+
+const Icon = icons[name];
+---
+
+<Icon
+  class:list={['shrink-0 text-primary', className]}
+  stroke-width={1.5}
+  aria-hidden="true"
+  data-am-location-icon={name}
+/>

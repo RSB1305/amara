@@ -2,6 +2,7 @@
 import InlineEmphasis from '../../components/text/InlineEmphasis.astro';
 import Navigation from '../../components/Navigation.astro';
 import LocationContextNav from '../../components/location/LocationContextNav.astro';
+import type { LocationGuideIconName } from '../../components/location/LocationGuideIcon.astro';
 import {
   frigilianaGeographyContent,
   frigilianaGeographySeo
@@ -12,6 +13,7 @@ import { normalizeLanguage } from '../../lib/seo/resolve-seo-head';
 import type { AmaraLanguage } from '../../types/seo';
 import AuthorityArticle from './AuthorityArticle.astro';
 import AuthorityRelatedLinks from './AuthorityRelatedLinks.astro';
+import AuthoritySectionCardGrid from './AuthoritySectionCardGrid.astro';
 import AuthorityTextSection from './AuthorityTextSection.astro';
 
 interface Props {
@@ -31,6 +33,13 @@ const footerHighlights: LabeledLink[] = [
   { token: 'frigiliana_geography', label: content.navLabel },
   { token: 'getting_to_frigiliana', label: content.related.links[0].label },
   { token: 'frigiliana_stairs', label: content.related.links[1].label }
+];
+const [hillsideSection, historicSection, landscapeSection, sierraSection, staySection] = content.sections;
+const landscapeSections = [historicSection, landscapeSection, sierraSection];
+const landscapeIcons: LocationGuideIconName[] = [
+  'village-square',
+  'coast',
+  'protected-landscape'
 ];
 ---
 
@@ -54,19 +63,18 @@ const footerHighlights: LabeledLink[] = [
     authorName={frigilianaGeographySeo.article!.authorName}
     authorHref={aboutHref}
     facts={content.facts}
+    factIcons={['municipality', 'elevation', 'village-square', 'protected-landscape']}
     sources={content.sources}
     closing={content.closing}
+    presentation="guide"
+    guideVisual={{
+      eyebrow: content.orientation.eyebrow,
+      mark: '36° N',
+      note: content.facts[1].value
+    }}
     primaryCta={{ href: arrivalHref, label: content.closing.arrivalLabel }}
     secondaryCta={{ href: stayHref, label: content.closing.stayLabel }}
   >
-    <div
-      slot="hero-mark"
-      aria-hidden="true"
-      class="hidden font-serif text-[clamp(3.5rem,8vw,8.5rem)] leading-[0.72] text-primary/10 lg:col-span-4 lg:block"
-    >
-      36° N
-    </div>
-
     <section
       aria-labelledby="frigiliana-orientation-title"
       class="border-b border-border-subtle bg-inverse-surface px-6 py-20 text-inverted-on-surface md:px-12 md:py-28"
@@ -96,14 +104,17 @@ const footerHighlights: LabeledLink[] = [
       </div>
     </section>
 
-    {content.sections.map((section, index) => (
-      <AuthorityTextSection section={section} index={index} />
-    ))}
+    <AuthorityTextSection section={hillsideSection} index={0} presentation="guide" />
+
+    <AuthoritySectionCardGrid sections={landscapeSections} icons={landscapeIcons} />
+
+    <AuthorityTextSection section={staySection} index={0} presentation="guide" />
 
     <AuthorityRelatedLinks
       related={content.related}
       columns="md:grid-cols-2"
       resolveHref={requiredLink}
+      presentation="guide"
     />
   </AuthorityArticle>
 </LocationAuthorityLayout>

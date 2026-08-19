@@ -1,0 +1,135 @@
+---
+interface ClimateMonth {
+  month: string;
+  high: number;
+  low: number;
+  rain: number;
+  sunHours: number;
+}
+
+interface SourceLink {
+  label: string;
+  href: string;
+}
+
+interface Props {
+  eyebrow: string;
+  title: string;
+  intro: string;
+  months: ClimateMonth[];
+  labels: {
+    month: string;
+    high: string;
+    low: string;
+    rain: string;
+    sunHours: string;
+  };
+  chartLabels: {
+    temperature: string;
+    rainfall: string;
+  };
+  sourceTitle: string;
+  sourceText: string;
+  sources: SourceLink[];
+}
+
+const {
+  eyebrow,
+  title,
+  intro,
+  months,
+  labels,
+  chartLabels,
+  sourceTitle,
+  sourceText,
+  sources
+} = Astro.props;
+
+const maxRain = Math.max(...months.map((month) => month.rain));
+---
+
+<section class="border-y border-border-subtle bg-surface-container-low" data-am-climate-table>
+  <div class="mx-auto max-w-screen-2xl px-6 py-20 md:px-12 md:py-28">
+    <header class="grid gap-8 lg:grid-cols-12 lg:gap-16">
+      <div class="lg:col-span-4">
+        <p class="am-text-caption uppercase tracking-[0.18em] text-primary">{eyebrow}</p>
+        <h2 class="am-text-title mt-5 text-balance italic text-on-surface">{title}</h2>
+      </div>
+      <p class="am-text-body max-w-3xl leading-relaxed text-on-surface-variant lg:col-span-7 lg:col-start-6">
+        {intro}
+      </p>
+    </header>
+
+    <div class="mt-14 overflow-x-auto pb-3">
+      <div class="min-w-[900px] border-y border-outline-variant/20" aria-hidden="true">
+        <div class="grid grid-cols-12">
+          {months.map((month) => (
+            <div class="border-r border-outline-variant/15 px-3 py-5 last:border-r-0">
+              <p class="font-label text-[10px] font-bold uppercase tracking-[0.16em] text-on-surface-variant/65">
+                {month.month}
+              </p>
+              <p class="mt-4 font-serif text-[clamp(1.5rem,2.2vw,2.25rem)] leading-none text-on-surface">
+                {month.high}°
+              </p>
+              <p class="mt-2 font-label text-[11px] tabular-nums text-on-surface-variant/65">
+                {month.low}°
+              </p>
+              <div class="mt-5 flex h-20 items-end border-b border-outline-variant/20">
+                <div
+                  class="w-full bg-primary/55"
+                  style={`height: ${Math.max(3, (month.rain / maxRain) * 100)}%`}
+                ></div>
+              </div>
+              <p class="mt-2 font-label text-[10px] tabular-nums text-on-surface-variant/65">
+                {month.rain} mm
+              </p>
+            </div>
+          ))}
+        </div>
+        <div class="flex items-center gap-8 border-t border-outline-variant/15 px-3 py-3 font-label text-[10px] font-semibold uppercase tracking-[0.14em] text-on-surface-variant/60">
+          <span>{chartLabels.temperature}</span>
+          <span class="flex items-center gap-2"><span class="h-2 w-2 bg-primary/55"></span>{chartLabels.rainfall}</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="mt-10 overflow-x-auto">
+      <table class="w-full min-w-[760px] border-collapse text-left">
+        <thead>
+          <tr class="border-b border-outline-variant/25 font-label text-[10px] font-bold uppercase tracking-[0.14em] text-on-surface-variant/65">
+            <th class="py-4 pr-5">{labels.month}</th>
+            <th class="px-5 py-4 text-right">{labels.high}</th>
+            <th class="px-5 py-4 text-right">{labels.low}</th>
+            <th class="px-5 py-4 text-right">{labels.rain}</th>
+            <th class="py-4 pl-5 text-right">{labels.sunHours}</th>
+          </tr>
+        </thead>
+        <tbody>
+          {months.map((month) => (
+            <tr class="border-b border-outline-variant/15 am-text-body text-on-surface-variant">
+              <th class="py-4 pr-5 font-normal text-on-surface">{month.month}</th>
+              <td class="px-5 py-4 text-right tabular-nums">{month.high} °C</td>
+              <td class="px-5 py-4 text-right tabular-nums">{month.low} °C</td>
+              <td class="px-5 py-4 text-right tabular-nums">{month.rain} mm</td>
+              <td class="py-4 pl-5 text-right tabular-nums">{month.sunHours} h</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+
+    <footer class="mt-10 grid gap-4 border-l border-primary/35 pl-6 lg:grid-cols-[auto_1fr] lg:gap-8">
+      <p class="font-label text-[10px] font-bold uppercase tracking-[0.16em] text-primary">{sourceTitle}</p>
+      <div>
+        <p class="am-text-body max-w-4xl leading-relaxed text-on-surface-variant">{sourceText}</p>
+        <div class="mt-4 flex flex-wrap gap-x-6 gap-y-2">
+          {sources.map((source) => (
+            <a class="am-text-caption text-on-surface underline decoration-primary/40 underline-offset-4 hover:decoration-primary" href={source.href} rel="noreferrer" target="_blank">
+              {source.label}
+            </a>
+          ))}
+        </div>
+      </div>
+    </footer>
+  </div>
+</section>

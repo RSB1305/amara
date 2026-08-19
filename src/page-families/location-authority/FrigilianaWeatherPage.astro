@@ -1,11 +1,13 @@
 ---
-import InlineEmphasis from '../../components/text/InlineEmphasis.astro';
 import LocationAuthorityLayout from '../../layouts/LocationAuthorityLayout.astro';
 import Navigation from '../../components/Navigation.astro';
 import EditorialClosingCta from '../../components/editorial/EditorialClosingCta.astro';
 import EditorialGuideLinkSection from '../../components/editorial/EditorialGuideLinkSection.astro';
 import LocationContextNav from '../../components/location/LocationContextNav.astro';
 import HairlineStatCard from '../../components/location/HairlineStatCard.astro';
+import LocationClimateTable from '../../components/location/LocationClimateTable.astro';
+import type { LocationGuideIconName } from '../../components/location/LocationGuideIcon.astro';
+import LocationGuideHero from '../../components/location/LocationGuideHero.astro';
 import SeasonalPillar from '../../components/location/SeasonalPillar.astro';
 import {
   frigilianaPreFooterCopy,
@@ -21,6 +23,12 @@ interface Props {
 
 const { lang = 'es' } = Astro.props;
 const currentLang = normalizeLanguage(lang as AmaraLanguage);
+const patternFactIcons: LocationGuideIconName[] = [
+  'elevation',
+  'temperature',
+  'rainfall',
+  'sunshine'
+];
 const locationBase = buildOwnedLocalizedPath('frigiliana-location', currentLang);
 const arrivalGuideHref = buildOwnedLocalizedPath('directions-arrival-guide', currentLang);
 const parkingHref = buildOwnedLocalizedPath('frigiliana-parking', currentLang);
@@ -113,6 +121,13 @@ const copy = {
       es: 'Los días pueden ser calurosos, mientras que Frigiliana puede sentirse más fresca que Nerja tras la puesta de sol. Comparad las estaciones y consultad la previsión actual antes de planear cuestas, terraza y equipaje.',
       nl: 'Overdag kan het heet zijn, terwijl Frigiliana na zonsondergang frisser kan aanvoelen dan Nerja. Vergelijk de seizoenen en bekijk de actuele verwachting voordat jullie steile wandelingen, terrastijd en bagage plannen.',
       sv: 'Dagarna kan vara varma, medan Frigiliana kan kännas svalare än Nerja efter solnedgång. Jämför årstiderna och kontrollera den aktuella prognosen innan ni planerar branta promenader, terrasskvällar och packning.'
+    },
+    imageAlt: {
+      en: 'White houses in Frigiliana in warm evening light',
+      de: 'Weiße Häuser in Frigiliana im warmen Abendlicht',
+      es: 'Casas blancas de Frigiliana con la luz cálida del atardecer',
+      nl: 'Witte huizen in Frigiliana in warm avondlicht',
+      sv: 'Vita hus i Frigiliana i varmt kvällsljus'
     }
   },
   glance: {
@@ -124,62 +139,62 @@ const copy = {
       sv: 'Vädret i korthet'
     },
     intro: {
-      en: 'Frigiliana sits above the coast. Exposed terraces, shaded lanes and steep routes can feel different through the day, so a current forecast matters more than a fixed climate figure.',
-      de: 'Frigiliana liegt oberhalb der Küste. Offene Terrassen, schattige Gassen und steile Wege können sich im Tagesverlauf unterschiedlich anfühlen; deshalb ist die aktuelle Vorhersage wichtiger als ein fester Klimawert.',
-      es: 'Frigiliana está por encima de la costa. Las terrazas expuestas, las calles con sombra y las cuestas pueden sentirse distintas a lo largo del día, por lo que importa más la previsión actual que una cifra climática fija.',
-      nl: 'Frigiliana ligt boven de kust. Open terrassen, schaduwrijke steegjes en steile routes kunnen door de dag heen anders aanvoelen; daarom telt de actuele verwachting zwaarder dan een vast klimaatcijfer.',
-      sv: 'Frigiliana ligger ovanför kusten. Öppna terrasser, skuggiga gränder och branta stråk kan kännas olika under dagen, så en aktuell prognos är viktigare än ett fast klimatvärde.'
+      en: 'Long-term averages describe a hot, very dry summer and a cooler, wetter late autumn and winter. They are useful for choosing a month; the forecast for your dates still decides the actual day.',
+      de: 'Langjährige Mittelwerte zeigen einen heißen, sehr trockenen Sommer und einen kühleren, niederschlagsreicheren Spätherbst und Winter. Sie helfen bei der Monatswahl; für den konkreten Tag zählt weiterhin die Vorhersage.',
+      es: 'Las medias a largo plazo muestran un verano caluroso y muy seco y un final de otoño e invierno más frescos y lluviosos. Sirven para elegir mes; para cada día concreto manda la previsión.',
+      nl: 'Langjarige gemiddelden laten een hete, zeer droge zomer en een koeler, natter laat najaar en winter zien. Ze helpen bij de maandkeuze; voor de dag zelf blijft de verwachting bepalend.',
+      sv: 'Långtidsmedel visar en het och mycket torr sommar samt en svalare och regnigare senhöst och vinter. De hjälper vid val av månad; prognosen för era datum avgör den enskilda dagen.'
     },
     stats: {
       sun: {
-        label: { en: 'Sun', de: 'Sonne', es: 'Sol', nl: 'Zon', sv: 'Sol' },
+        label: { en: 'Warmest month', de: 'Wärmster Monat', es: 'Mes más cálido', nl: 'Warmste maand', sv: 'Varmaste månad' },
         value: {
-          en: 'Often bright',
-          de: 'Oft hell',
-          es: 'A menudo luminoso',
-          nl: 'Vaak helder',
-          sv: 'Ofta ljust'
+          en: 'August · 27.1 °C',
+          de: 'August · 27,1 °C',
+          es: 'Agosto · 27,1 °C',
+          nl: 'Augustus · 27,1 °C',
+          sv: 'Augusti · 27,1 °C'
         },
         note: {
-          en: 'On clear days, plan shade for exposed midday walks.',
-          de: 'Plant an klaren Tagen Schatten für Wege in der Mittagssonne ein.',
-          es: 'En días despejados, buscad sombra para caminar al mediodía.',
-          nl: 'Plan op heldere dagen schaduw voor open wandelroutes rond de middag.',
-          sv: 'Planera skugga för öppna promenader mitt på dagen när vädret är klart.'
+          en: 'Modelled average monthly maximum, not the hottest possible day.',
+          de: 'Modelliertes mittleres Monatsmaximum, nicht der heißeste mögliche Tag.',
+          es: 'Máxima media mensual modelizada, no el día más caluroso posible.',
+          nl: 'Gemodelleerd gemiddeld maandmaximum, niet de heetst mogelijke dag.',
+          sv: 'Modellerat genomsnittligt månadsmaximum, inte den varmaste möjliga dagen.'
         }
       },
       evening: {
-        label: { en: 'Evenings', de: 'Abende', es: 'Tardes', nl: 'Avonden', sv: 'Kvällar' },
+        label: { en: 'Summer nights', de: 'Sommernächte', es: 'Noches de verano', nl: 'Zomernachten', sv: 'Sommarnätter' },
         value: {
-          en: 'Can feel fresher',
-          de: 'Kann sich frischer anfühlen',
-          es: 'Puede sentirse más fresco',
-          nl: 'Kan frisser aanvoelen',
-          sv: 'Kan kännas svalare'
+          en: '≈ 20 °C',
+          de: '≈ 20 °C',
+          es: '≈ 20 °C',
+          nl: '≈ 20 °C',
+          sv: '≈ 20 °C'
         },
         note: {
-          en: 'Compared with Nerja after sunset; conditions still vary.',
-          de: 'Im Vergleich zu Nerja nach Sonnenuntergang; die Bedingungen variieren.',
-          es: 'Frente a Nerja tras la puesta de sol; las condiciones varían.',
-          nl: 'Vergeleken met Nerja na zonsondergang; de omstandigheden wisselen.',
-          sv: 'Jämfört med Nerja efter solnedgång; förhållandena varierar.'
+          en: 'Average monthly minimum: 19.9 °C in July and 20.4 °C in August.',
+          de: 'Mittleres Monatsminimum: 19,9 °C im Juli und 20,4 °C im August.',
+          es: 'Mínima media mensual: 19,9 °C en julio y 20,4 °C en agosto.',
+          nl: 'Gemiddeld maandminimum: 19,9 °C in juli en 20,4 °C in augustus.',
+          sv: 'Genomsnittligt månadsminimum: 19,9 °C i juli och 20,4 °C i augusti.'
         }
       },
       nights: {
-        label: { en: 'Nights', de: 'Nächte', es: 'Noches', nl: 'Nachten', sv: 'Nätter' },
+        label: { en: 'Rainfall range', de: 'Niederschlagsspanne', es: 'Rango de lluvia', nl: 'Neerslagbereik', sv: 'Nederbördsintervall' },
         value: {
-          en: 'Plan a layer',
-          de: 'Eine Schicht einplanen',
-          es: 'Llevad una capa',
-          nl: 'Plan een extra laag',
-          sv: 'Planera ett extra lager'
+          en: '2–77 mm',
+          de: '2–77 mm',
+          es: '2–77 mm',
+          nl: '2–77 mm',
+          sv: '2–77 mm'
         },
         note: {
-          en: 'Check the forecast for the nights of your stay.',
-          de: 'Prüft die Vorhersage für die Nächte eures Aufenthalts.',
-          es: 'Consultad la previsión para las noches de vuestra estancia.',
-          nl: 'Bekijk de verwachting voor de nachten van jullie verblijf.',
-          sv: 'Kontrollera prognosen för nätterna under vistelsen.'
+          en: 'Average monthly rainfall runs from about 2 mm in July to 77 mm in December.',
+          de: 'Der mittlere Monatsniederschlag reicht von etwa 2 mm im Juli bis 77 mm im Dezember.',
+          es: 'La lluvia media mensual va de unos 2 mm en julio a 77 mm en diciembre.',
+          nl: 'De gemiddelde maandneerslag loopt van circa 2 mm in juli tot 77 mm in december.',
+          sv: 'Den genomsnittliga månadsnederbörden går från cirka 2 mm i juli till 77 mm i december.'
         }
       }
     }
@@ -193,43 +208,43 @@ const copy = {
       sv: 'Läget i sluttningen'
     },
     body: {
-      en: 'The village centre sits at approximately 315 metres above sea level. That geographic fact does not establish a fixed temperature difference: high-summer days can still be hot, and the current forecast should guide evening plans.',
-      de: 'Der Ortskern liegt ungefähr 315 Meter über dem Meer. Diese geografische Angabe belegt keinen festen Temperaturunterschied: Im Hochsommer kann es tagsüber weiterhin heiß sein, und für den Abend zählt die aktuelle Vorhersage.',
-      es: 'El casco urbano está a unos 315 metros sobre el nivel del mar. Este dato geográfico no demuestra una diferencia térmica fija: en pleno verano los días pueden seguir siendo calurosos y conviene guiarse por la previsión actual para la tarde.',
-      nl: 'De dorpskern ligt op ongeveer 315 meter boven zeeniveau. Dat geografische gegeven bewijst geen vast temperatuurverschil: hoogzomerse dagen kunnen nog steeds heet zijn en voor de avond telt de actuele verwachting.',
-      sv: 'Byns centrum ligger cirka 315 meter över havet. Det geografiska faktumet visar ingen fast temperaturskillnad: högsommardagar kan fortfarande vara heta och kvällsplaner bör utgå från den aktuella prognosen.'
+      en: 'Frigiliana has a hot-summer Mediterranean pattern: summer is markedly drier than the cooler half of the year. The figures below are planning averages for the village, not limits and not a forecast.',
+      de: 'Frigiliana folgt einem Mittelmeerklima mit heißen Sommern: Der Sommer ist deutlich trockener als die kühlere Jahreshälfte. Die folgenden Werte sind Planungsmittel für den Ort, keine Grenzwerte und keine Vorhersage.',
+      es: 'Frigiliana presenta un patrón mediterráneo de verano caluroso: el verano es mucho más seco que la mitad fresca del año. Las cifras siguientes son medias orientativas del pueblo, no límites ni una previsión.',
+      nl: 'Frigiliana heeft een mediterraan patroon met hete zomers: de zomer is duidelijk droger dan het koelere deel van het jaar. De cijfers hieronder zijn planningsgemiddelden voor het dorp, geen grenzen en geen verwachting.',
+      sv: 'Frigiliana har ett medelhavsmönster med heta somrar: sommaren är tydligt torrare än den svalare delen av året. Siffrorna nedan är planeringsmedel för byn, inte gränser eller prognoser.'
     },
     facts: {
       title: {
         en: [
           { label: 'Altitude', value: '≈ 315 m', description: 'Approximate elevation of the village centre; not a climate measurement.', emphasize: false },
-          { label: 'Clear weather', value: 'Plan shade', description: 'Use the current forecast for exposed midday walks.', emphasize: true },
-          { label: 'After sunset', value: 'Can feel fresher', description: 'Compared with Nerja; no fixed difference is claimed.', emphasize: false },
-          { label: 'Distance to Coast', value: '7 km', description: 'A short drive to the beaches of Nerja.', emphasize: false }
+          { label: 'Annual mean', value: '15.9 °C', description: 'Modelled mean temperature across the year.', emphasize: true },
+          { label: 'Annual rainfall', value: '≈ 471 mm', description: 'Long-term modelled total; strongly concentrated outside summer.', emphasize: false },
+          { label: 'Daily sunshine', value: '6.6–12.5 h', description: 'Monthly average range from winter to early summer.', emphasize: false }
         ],
         de: [
           { label: 'Höhenlage', value: '≈ 315 m', description: 'Ungefähre Höhe des Ortskerns; kein Klimamesswert.', emphasize: false },
-          { label: 'Klares Wetter', value: 'Schatten einplanen', description: 'Für offene Mittagswege gilt die aktuelle Vorhersage.', emphasize: true },
-          { label: 'Nach Sonnenuntergang', value: 'Kann sich frischer anfühlen', description: 'Im Vergleich zu Nerja; ohne festen Unterschied.', emphasize: false },
-          { label: 'Zur Küste', value: '7 km', description: 'Kurze Fahrt zu Nerjas Stränden.', emphasize: false }
+          { label: 'Jahresmittel', value: '15,9 °C', description: 'Modellierte mittlere Temperatur über das gesamte Jahr.', emphasize: true },
+          { label: 'Jahresniederschlag', value: '≈ 471 mm', description: 'Langjähriger modellierter Gesamtwert; stark außerhalb des Sommers konzentriert.', emphasize: false },
+          { label: 'Sonne pro Tag', value: '6,6–12,5 h', description: 'Monatliche Mittelspanne vom Winter bis zum Frühsommer.', emphasize: false }
         ],
         es: [
           { label: 'Altitud', value: '≈ 315 m', description: 'Altura aproximada del casco urbano; no es una medición climática.', emphasize: false },
-          { label: 'Tiempo despejado', value: 'Buscad sombra', description: 'Para caminar al mediodía, consultad la previsión actual.', emphasize: true },
-          { label: 'Tras la puesta de sol', value: 'Puede sentirse más fresco', description: 'Frente a Nerja; sin afirmar una diferencia fija.', emphasize: false },
-          { label: 'A la costa', value: '7 km', description: 'A un corto trayecto de las playas de Nerja.', emphasize: false }
+          { label: 'Media anual', value: '15,9 °C', description: 'Temperatura media modelizada para todo el año.', emphasize: true },
+          { label: 'Lluvia anual', value: '≈ 471 mm', description: 'Total modelizado a largo plazo, concentrado fuera del verano.', emphasize: false },
+          { label: 'Sol diario', value: '6,6–12,5 h', description: 'Rango de medias mensuales del invierno al inicio del verano.', emphasize: false }
         ],
         nl: [
           { label: 'Hoogte', value: '≈ 315 m', description: 'Hoogte van de dorpskern bij benadering; geen klimaatmeting.', emphasize: false },
-          { label: 'Helder weer', value: 'Plan schaduw', description: 'Gebruik de actuele verwachting voor open middagwandelingen.', emphasize: true },
-          { label: 'Na zonsondergang', value: 'Kan frisser aanvoelen', description: 'Vergeleken met Nerja; zonder vast verschil te claimen.', emphasize: false },
-          { label: 'Naar de kust', value: '7 km', description: 'Korte rit naar de stranden van Nerja.', emphasize: false }
+          { label: 'Jaargemiddelde', value: '15,9 °C', description: 'Gemodelleerde gemiddelde temperatuur over het jaar.', emphasize: true },
+          { label: 'Jaarneerslag', value: '≈ 471 mm', description: 'Langjarig gemodelleerd totaal, vooral buiten de zomer.', emphasize: false },
+          { label: 'Zon per dag', value: '6,6–12,5 u', description: 'Bereik van maandgemiddelden van winter tot vroege zomer.', emphasize: false }
         ],
         sv: [
           { label: 'Höjd', value: '≈ 315 m', description: 'Ungefärlig höjd för byns centrum; inget klimatmått.', emphasize: false },
-          { label: 'Klart väder', value: 'Planera skugga', description: 'Utgå från den aktuella prognosen för öppna promenader mitt på dagen.', emphasize: true },
-          { label: 'Efter solnedgång', value: 'Kan kännas svalare', description: 'Jämfört med Nerja; ingen fast skillnad anges.', emphasize: false },
-          { label: 'Till kusten', value: '7 km', description: 'Kort bilresa till Nerjas stränder.', emphasize: false }
+          { label: 'Årsmedel', value: '15,9 °C', description: 'Modellerad medeltemperatur över hela året.', emphasize: true },
+          { label: 'Årsnederbörd', value: '≈ 471 mm', description: 'Långsiktigt modellerad totalsumma, främst utanför sommaren.', emphasize: false },
+          { label: 'Sol per dag', value: '6,6–12,5 h', description: 'Månadsmedel från vinter till försommar.', emphasize: false }
         ]
       }
     }
@@ -248,6 +263,48 @@ const copy = {
       es: 'Comparad el calor del día, las horas más frescas y para qué sirve mejor cada estación.',
       nl: 'Vergelijk de warmte overdag, de koelere uren en waar elk seizoen het meest geschikt voor is.',
       sv: 'Jämför dagsvärme, svalare timmar och vad varje årstid passar bäst för.'
+    }
+  },
+  climateData: {
+    eyebrow: {
+      en: '12-month climate profile',
+      de: 'Klimaprofil für 12 Monate',
+      es: 'Perfil climático de 12 meses',
+      nl: 'Klimaatprofiel van 12 maanden',
+      sv: 'Klimatprofil för 12 månader'
+    },
+    title: {
+      en: 'Temperature, rain and sun — month by month',
+      de: 'Temperatur, Regen und Sonne – Monat für Monat',
+      es: 'Temperatura, lluvia y sol — mes a mes',
+      nl: 'Temperatuur, regen en zon — maand voor maand',
+      sv: 'Temperatur, regn och sol – månad för månad'
+    },
+    intro: {
+      en: 'The table uses one consistent point dataset for Frigiliana. Temperature and rainfall cover 1991–2021; sunshine covers 1999–2019. Values are modelled long-term averages and can differ from a particular year, heatwave or shaded street.',
+      de: 'Die Tabelle verwendet einen einheitlichen Punktdatensatz für Frigiliana. Temperatur und Niederschlag umfassen 1991–2021, die Sonnenscheindauer 1999–2019. Es sind modellierte Langzeitmittel und keine Aussage über ein einzelnes Jahr, eine Hitzewelle oder eine schattige Gasse.',
+      es: 'La tabla utiliza un único conjunto de datos puntuales para Frigiliana. Temperatura y lluvia cubren 1991–2021; el sol, 1999–2019. Son medias modelizadas a largo plazo y pueden diferir de un año concreto, una ola de calor o una calle con sombra.',
+      nl: 'De tabel gebruikt één consistente puntdataset voor Frigiliana. Temperatuur en neerslag beslaan 1991–2021; zonuren 1999–2019. Het zijn gemodelleerde langjarige gemiddelden en geen voorspelling voor een specifiek jaar, een hittegolf of een schaduwrijke straat.',
+      sv: 'Tabellen använder en sammanhållen punktdatamängd för Frigiliana. Temperatur och nederbörd omfattar 1991–2021; soltimmar 1999–2019. Värdena är modellerade långtidsmedel och kan skilja sig från ett enskilt år, en värmebölja eller en skuggig gränd.'
+    },
+    labels: {
+      month: { en: 'Month', de: 'Monat', es: 'Mes', nl: 'Maand', sv: 'Månad' },
+      high: { en: 'Avg. maximum', de: 'Mittl. Maximum', es: 'Máxima media', nl: 'Gem. maximum', sv: 'Medelmaximum' },
+      low: { en: 'Avg. minimum', de: 'Mittl. Minimum', es: 'Mínima media', nl: 'Gem. minimum', sv: 'Medelminimum' },
+      rain: { en: 'Rainfall', de: 'Niederschlag', es: 'Lluvia', nl: 'Neerslag', sv: 'Nederbörd' },
+      sunHours: { en: 'Sun / day', de: 'Sonne / Tag', es: 'Sol / día', nl: 'Zon / dag', sv: 'Sol / dag' }
+    },
+    chartLabels: {
+      temperature: { en: 'Average maximum / minimum', de: 'Mittleres Maximum / Minimum', es: 'Máxima / mínima media', nl: 'Gemiddeld maximum / minimum', sv: 'Medelmaximum / minimum' },
+      rainfall: { en: 'Monthly rainfall', de: 'Monatsniederschlag', es: 'Lluvia mensual', nl: 'Maandneerslag', sv: 'Månadsnederbörd' }
+    },
+    sourceTitle: { en: 'Data basis', de: 'Datengrundlage', es: 'Base de datos', nl: 'Databasis', sv: 'Dataunderlag' },
+    sourceText: {
+      en: 'Numerical values: Climate-Data.org point model for Frigiliana. AEMET’s official 1991–2020 climate maps provide the methodological reference for Spain, but the exact Frigiliana raster cell is not presented here as a measured station series. We therefore do not use these figures for a numerical Nerja comparison.',
+      de: 'Zahlenwerte: Punktmodell von Climate-Data.org für Frigiliana. Die offiziellen AEMET-Klimakarten 1991–2020 bilden den methodischen Referenzrahmen für Spanien; die exakte Rasterzelle Frigilianas wird hier jedoch nicht als gemessene Stationsreihe ausgegeben. Deshalb verwenden wir diese Werte nicht für einen Zahlenvergleich mit Nerja.',
+      es: 'Valores numéricos: modelo puntual de Climate-Data.org para Frigiliana. Los mapas climáticos oficiales de AEMET 1991–2020 son la referencia metodológica para España, pero aquí no presentamos la celda exacta de Frigiliana como una serie medida en estación. Por ello no usamos estas cifras para comparar numéricamente con Nerja.',
+      nl: 'Cijfers: puntmodel van Climate-Data.org voor Frigiliana. De officiële AEMET-klimaatkaarten 1991–2020 vormen het methodische kader voor Spanje, maar de exacte rastercel van Frigiliana wordt hier niet als gemeten stationsreeks gepresenteerd. Daarom gebruiken we deze cijfers niet voor een numerieke vergelijking met Nerja.',
+      sv: 'Siffervärden: Climate-Data.orgs punktmodell för Frigiliana. AEMET:s officiella klimatkartor 1991–2020 är den metodiska referensen för Spanien, men den exakta rastercellen för Frigiliana presenteras inte här som en uppmätt stationsserie. Därför används siffrorna inte för en numerisk jämförelse med Nerja.'
     }
   },
   notice: {
@@ -337,6 +394,91 @@ const copy = {
 
 const t = <T extends Record<AmaraLanguage, string>>(row: T) => row[currentLang] ?? row.en;
 
+const climateValues = [
+  { high: 12.4, low: 6.6, rain: 60, sunHours: 6.8 },
+  { high: 12.7, low: 6.9, rain: 51, sunHours: 7.6 },
+  { high: 14.5, low: 8.5, rain: 51, sunHours: 8.8 },
+  { high: 16.3, low: 10.3, rain: 42, sunHours: 10.1 },
+  { high: 19.5, low: 13.1, rain: 26, sunHours: 11.6 },
+  { high: 23.8, low: 17.1, rain: 9, sunHours: 12.5 },
+  { high: 27, low: 19.9, rain: 2, sunHours: 12.2 },
+  { high: 27.1, low: 20.4, rain: 4, sunHours: 11.2 },
+  { high: 23.5, low: 17.4, rain: 21, sunHours: 10.1 },
+  { high: 20, low: 14.3, rain: 58, sunHours: 8.7 },
+  { high: 15.2, low: 9.8, rain: 70, sunHours: 7.4 },
+  { high: 13.2, low: 7.8, rain: 77, sunHours: 6.6 }
+];
+
+const climateMonthLabels: Record<AmaraLanguage, string[]> = {
+  en: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+  de: ['Jan', 'Feb', 'Mär', 'Apr', 'Mai', 'Jun', 'Jul', 'Aug', 'Sep', 'Okt', 'Nov', 'Dez'],
+  es: ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul', 'Ago', 'Sep', 'Oct', 'Nov', 'Dic'],
+  nl: ['Jan', 'Feb', 'Mrt', 'Apr', 'Mei', 'Jun', 'Jul', 'Aug', 'Sep', 'Okt', 'Nov', 'Dec'],
+  sv: ['Jan', 'Feb', 'Mar', 'Apr', 'Maj', 'Jun', 'Jul', 'Aug', 'Sep', 'Okt', 'Nov', 'Dec']
+};
+
+const climateMonths = climateValues.map((month, index) => ({
+  month: climateMonthLabels[currentLang][index],
+  ...month
+}));
+
+const climateSources = [
+  {
+    label: currentLang === 'de'
+      ? 'Climate-Data.org · Monatswerte Frigiliana'
+      : currentLang === 'es'
+        ? 'Climate-Data.org · valores mensuales de Frigiliana'
+        : currentLang === 'nl'
+          ? 'Climate-Data.org · maandwaarden Frigiliana'
+          : currentLang === 'sv'
+            ? 'Climate-Data.org · månadsvärden för Frigiliana'
+            : 'Climate-Data.org · Frigiliana monthly values',
+    href: 'https://en.climate-data.org/europe/spain/andalusia/frigiliana-220227/'
+  },
+  {
+    label: currentLang === 'de'
+      ? 'AEMET · Klimakarten Spanien 1991–2020'
+      : currentLang === 'es'
+        ? 'AEMET · mapas climáticos de España 1991–2020'
+        : currentLang === 'nl'
+          ? 'AEMET · klimaatkaarten Spanje 1991–2020'
+          : currentLang === 'sv'
+            ? 'AEMET · klimatkartor Spanien 1991–2020'
+            : 'AEMET · Spain climate maps 1991–2020',
+    href: 'https://www.aemet.es/es/conocermas/recursos_en_linea/publicaciones_y_estudios/publicaciones/detalles/MapasclimaticosdeEspana'
+  }
+];
+
+const seasonalLabels = {
+  high: currentLang === 'de'
+    ? 'Mittl. Maximum'
+    : currentLang === 'es'
+      ? 'Máxima media'
+      : currentLang === 'nl'
+        ? 'Gem. maximum'
+        : currentLang === 'sv'
+          ? 'Medelmaximum'
+          : 'Average high',
+  low: currentLang === 'de'
+    ? 'Mittl. Minimum'
+    : currentLang === 'es'
+      ? 'Mínima media'
+      : currentLang === 'nl'
+        ? 'Gem. minimum'
+        : currentLang === 'sv'
+          ? 'Medelminimum'
+          : 'Average low',
+  practical: currentLang === 'de'
+    ? 'Praktischer Hinweis'
+    : currentLang === 'es'
+      ? 'Consejo práctico'
+      : currentLang === 'nl'
+        ? 'Praktische tip'
+        : currentLang === 'sv'
+          ? 'Praktiskt råd'
+          : 'Practical note'
+};
+
 const relatedLinks = [
   {
     href: `${locationBase}#where-to-stay`,
@@ -359,9 +501,15 @@ const relatedLinks = [
     text: t(copy.related.links.winterText)
   }
 ];
+
+const heroImage = {
+  src: '/images/amara-frigiliana-pueblo/JPG_Frigiliana_Pueblo/2000px_72dpi_sRGB/06-frigiliana-pueblo.jpg',
+  width: 2000,
+  height: 1333
+};
 ---
 
-<LocationAuthorityLayout seo={seo} pageLang={currentLang} showContextNavigation={false} bodyBackgroundClass="bg-white">
+<LocationAuthorityLayout seo={seo} pageLang={currentLang} showContextNavigation={false}>
   <Navigation
     slot="navigation"
     currentLang={currentLang}
@@ -370,15 +518,19 @@ const relatedLinks = [
 
   <LocationContextNav activeId="weather" lang={currentLang} />
 
-  <div data-am-page="frigiliana-weather">
-    <div class="w-full max-w-screen-2xl mx-auto px-6 md:px-12 pt-20 pb-20">
-      <header class="mb-20 border-b border-black/10 pb-12">
-        <span class="am-text-caption text-primary mb-4 block">{t(copy.header.eyebrow)}</span>
-        <h1 class="am-text-display italic text-on-surface mb-6">{t(copy.header.h1)}</h1>
-        <p class="am-text-body text-on-surface-variant italic opacity-70 max-w-2xl"><InlineEmphasis text={t(copy.header.lead)} /></p>
-      </header>
+  <div data-am-page="frigiliana-weather" data-am-presentation="guide">
+    <LocationGuideHero
+      eyebrow={t(copy.header.eyebrow)}
+      title={t(copy.header.h1)}
+      paragraphs={[t(copy.header.lead)]}
+      imageSrc={heroImage.src}
+      imageAlt={t(copy.header.imageAlt)}
+      imageWidth={heroImage.width}
+      imageHeight={heroImage.height}
+    />
 
-      <div class="pt-8 space-y-20">
+    <div class="mx-auto w-full max-w-screen-2xl px-6 py-24 md:px-12 md:py-32">
+      <div class="space-y-24">
         {/* 1) Weather at a Glance */}
         <section class="grid gap-10 lg:grid-cols-12 items-start">
           <div class="lg:col-span-8 space-y-6">
@@ -389,16 +541,19 @@ const relatedLinks = [
           </div>
           <div class="lg:col-span-4 space-y-4">
             <HairlineStatCard
+              icon="temperature"
               label={t(copy.glance.stats.sun.label)}
               value={t(copy.glance.stats.sun.value)}
               description={t(copy.glance.stats.sun.note)}
             />
             <HairlineStatCard
+              icon="evening"
               label={t(copy.glance.stats.evening.label)}
               value={t(copy.glance.stats.evening.value)}
               description={t(copy.glance.stats.evening.note)}
             />
             <HairlineStatCard
+              icon="rainfall"
               label={t(copy.glance.stats.nights.label)}
               value={t(copy.glance.stats.nights.value)}
               description={t(copy.glance.stats.nights.note)}
@@ -416,24 +571,41 @@ const relatedLinks = [
           </div>
 
           <div class="grid grid-cols-2 md:grid-cols-4 gap-10 md:gap-16">
-            {(copy.pattern.facts.title[currentLang] ?? copy.pattern.facts.title.en).map((item) => (
-              <div>
-                <div class="h-px w-10 bg-outline-variant/25"></div>
-                <div class="mt-4 am-text-caption uppercase tracking-[0.18em] text-on-surface-variant/70">
-                  {item.label}
-                </div>
-                <div class:list={['mt-2 am-text-subtitle tracking-tight text-on-surface', item.emphasize ? 'font-normal' : '']}>
-                  {item.value}
-                </div>
-                <p class="mt-3 am-text-body leading-relaxed text-on-surface-variant/80 max-w-[44ch]">
-                  {item.description}
-                </p>
-              </div>
+            {(copy.pattern.facts.title[currentLang] ?? copy.pattern.facts.title.en).map((item, index) => (
+              <HairlineStatCard
+                icon={patternFactIcons[index]}
+                label={item.label}
+                value={item.value}
+                description={item.description}
+                emphasize={item.emphasize}
+              />
             ))}
           </div>
         </section>
 
-        {/* 3) Best Time to Stay (AI Studio composition) */}
+        {/* 3) Month-by-month climate evidence */}
+        <LocationClimateTable
+          eyebrow={t(copy.climateData.eyebrow)}
+          title={t(copy.climateData.title)}
+          intro={t(copy.climateData.intro)}
+          months={climateMonths}
+          labels={{
+            month: t(copy.climateData.labels.month),
+            high: t(copy.climateData.labels.high),
+            low: t(copy.climateData.labels.low),
+            rain: t(copy.climateData.labels.rain),
+            sunHours: t(copy.climateData.labels.sunHours)
+          }}
+          chartLabels={{
+            temperature: t(copy.climateData.chartLabels.temperature),
+            rainfall: t(copy.climateData.chartLabels.rainfall)
+          }}
+          sourceTitle={t(copy.climateData.sourceTitle)}
+          sourceText={t(copy.climateData.sourceText)}
+          sources={climateSources}
+        />
+
+        {/* 4) Best Time to Stay */}
         <section>
           <div class="mb-12 max-w-2xl">
             <h2 class="am-text-title text-on-surface mb-4">{t(copy.seasons.title)}</h2>
@@ -447,6 +619,11 @@ const relatedLinks = [
               eyebrow={currentLang === 'de' ? 'März – Mai' : currentLang === 'es' ? 'Marzo – mayo' : currentLang === 'nl' ? 'Maart – mei' : currentLang === 'sv' ? 'Mars – maj' : 'March - May'}
               title={currentLang === 'de' ? 'Frühling' : currentLang === 'es' ? 'Primavera' : currentLang === 'nl' ? 'Lente' : currentLang === 'sv' ? 'Vår' : 'Spring'}
               subtitle={currentLang === 'de' ? 'Erwachen & Wildblumen' : currentLang === 'es' ? 'Despertar y flores' : currentLang === 'nl' ? 'Ontwaken & wilde bloemen' : currentLang === 'sv' ? 'Uppvaknande & vildblommor' : 'Awakening & Wildflowers'}
+              highTemp="≈ 17 °C"
+              lowTemp="≈ 11 °C"
+              highLabel={seasonalLabels.high}
+              lowLabel={seasonalLabels.low}
+              practicalLabel={seasonalLabels.practical}
               vibe={currentLang === 'de'
                 ? 'Kühle Morgen und warme, helle Nachmittage. Das Tal ist grün – ideal für lange Wanderungen im Naturpark, bevor ihr den Abend auf der Terrasse ausklingen lasst.'
                 : currentLang === 'es'
@@ -470,6 +647,11 @@ const relatedLinks = [
               eyebrow={currentLang === 'de' ? 'Juni – August' : currentLang === 'es' ? 'Junio – agosto' : currentLang === 'nl' ? 'Juni – augustus' : currentLang === 'sv' ? 'Juni – augusti' : 'June - August'}
               title={currentLang === 'de' ? 'Sommer' : currentLang === 'es' ? 'Verano' : currentLang === 'nl' ? 'Zomer' : currentLang === 'sv' ? 'Sommar' : 'Summer'}
               subtitle={currentLang === 'de' ? 'Heiße Tage & mildere Abende' : currentLang === 'es' ? 'Días calurosos y noches más suaves' : currentLang === 'nl' ? 'Hete dagen & zachtere avonden' : currentLang === 'sv' ? 'Heta dagar & mildare kvällar' : 'Hot Days & Gentler Evenings'}
+              highTemp="≈ 26 °C"
+              lowTemp="≈ 19 °C"
+              highLabel={seasonalLabels.high}
+              lowLabel={seasonalLabels.low}
+              practicalLabel={seasonalLabels.practical}
               vibe={currentLang === 'de'
                 ? 'Im Hochsommer kann es tagsüber heiß werden. Plant offene Wege außerhalb der Mittagshitze und richtet eure Abendpläne nach der aktuellen Vorhersage.'
                 : currentLang === 'es'
@@ -493,6 +675,11 @@ const relatedLinks = [
               eyebrow={currentLang === 'de' ? 'Sept – Nov' : currentLang === 'es' ? 'Sept – nov' : currentLang === 'nl' ? 'Sep – nov' : currentLang === 'sv' ? 'Sep – nov' : 'Sept - Nov'}
               title={currentLang === 'de' ? 'Herbst' : currentLang === 'es' ? 'Otoño' : currentLang === 'nl' ? 'Herfst' : currentLang === 'sv' ? 'Höst' : 'Autumn'}
               subtitle={currentLang === 'de' ? 'Ernte & goldenes Licht' : currentLang === 'es' ? 'Cosecha y luz dorada' : currentLang === 'nl' ? 'Oogst & gouden licht' : currentLang === 'sv' ? 'Skörd & gyllene ljus' : 'Harvest & Golden Light'}
+              highTemp="≈ 20 °C"
+              lowTemp="≈ 14 °C"
+              highLabel={seasonalLabels.high}
+              lowLabel={seasonalLabels.low}
+              practicalLabel={seasonalLabels.practical}
               isHighlighted={true}
               vibe={currentLang === 'de'
                 ? 'Die Hitze kann nachlassen, das Licht wird goldener und die Mango- und Avocadoernte beginnt. Richtet Strandtage nach der aktuellen Wetterlage und den Meeresbedingungen.'
@@ -517,6 +704,11 @@ const relatedLinks = [
               eyebrow={currentLang === 'de' ? 'Dez – Feb' : currentLang === 'es' ? 'Dic – feb' : currentLang === 'nl' ? 'Dec – feb' : currentLang === 'sv' ? 'Dec – feb' : 'Dec - Feb'}
               title={currentLang === 'de' ? 'Winter' : currentLang === 'es' ? 'Invierno' : currentLang === 'nl' ? 'Winter' : currentLang === 'sv' ? 'Vinter' : 'Winter'}
               subtitle={currentLang === 'de' ? 'Ruhig & klarer Himmel' : currentLang === 'es' ? 'Tranquilo y cielo claro' : currentLang === 'nl' ? 'Rustig & heldere lucht' : currentLang === 'sv' ? 'Lugnt & klar himmel' : 'Quiet & Clear Skies'}
+              highTemp="≈ 13 °C"
+              lowTemp="≈ 7 °C"
+              highLabel={seasonalLabels.high}
+              lowLabel={seasonalLabels.low}
+              practicalLabel={seasonalLabels.practical}
               vibe={currentLang === 'de'
                 ? 'Ruhig, mit wechselnden Winterbedingungen. Sonnige Tage können sich für ein Mittagessen draußen eignen; für den Abend gehören warme Schichten ins Gepäck.'
                 : currentLang === 'es'
@@ -539,7 +731,7 @@ const relatedLinks = [
           </div>
         </section>
 
-        {/* 4) What Overnight Guests Actually Notice */}
+        {/* 5) What Overnight Guests Actually Notice */}
         <section class="rounded-editorial border border-outline-variant/10 bg-surface px-10 py-10">
           <h2 class="am-text-title italic text-on-surface">{t(copy.notice.title)}</h2>
           <p class="mt-6 am-text-body text-on-surface-variant leading-relaxed italic max-w-3xl">

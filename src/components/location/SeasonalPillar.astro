@@ -8,8 +8,11 @@ interface Props {
   /** Optional temperature guidance; keep optional to avoid dashboard feel. */
   highTemp?: string;
   lowTemp?: string;
+  highLabel?: string;
+  lowLabel?: string;
   vibe?: string;
   hint?: string;
+  practicalLabel?: string;
   isHighlighted?: boolean;
 
   /** Back-compat: older prop names used in early drafts. */
@@ -24,8 +27,11 @@ const {
   subtitle,
   highTemp,
   lowTemp,
+  highLabel = 'Average high',
+  lowLabel = 'Average low',
   vibe,
   hint,
+  practicalLabel = 'Practical note',
   isHighlighted = false,
   season,
   feel,
@@ -60,7 +66,7 @@ const resolvedHint = hint ?? practicalHint ?? '';
       {highTemp && (
         <div class="flex flex-col gap-1">
           <span class="am-text-caption uppercase tracking-[0.18em] text-on-surface-variant/70">
-            HIGH
+            {highLabel}
           </span>
           <span class="am-text-body font-normal text-on-surface">
             {highTemp}
@@ -70,7 +76,7 @@ const resolvedHint = hint ?? practicalHint ?? '';
       {lowTemp && (
         <div class="flex flex-col gap-1">
           <span class="am-text-caption uppercase tracking-[0.18em] text-on-surface-variant/70">
-            LOW
+            {lowLabel}
           </span>
           <span class="am-text-body font-normal text-on-surface">
             {lowTemp}
@@ -90,7 +96,7 @@ const resolvedHint = hint ?? practicalHint ?? '';
     <div class="mt-auto pt-8">
       <div class="border-t border-outline-variant/10 pt-5">
         <div class="am-text-caption uppercase tracking-[0.18em] text-primary/80">
-          Practical note
+          {practicalLabel}
         </div>
         <p class="mt-2 am-text-body text-on-surface-variant leading-relaxed">
           {resolvedHint}

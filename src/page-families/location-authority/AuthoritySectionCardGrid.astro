@@ -1,0 +1,57 @@
+---
+import LocationGuideIcon, {
+  type LocationGuideIconName
+} from '../../components/location/LocationGuideIcon.astro';
+import InlineEmphasis from '../../components/text/InlineEmphasis.astro';
+
+interface AuthoritySection {
+  id: string;
+  eyebrow: string;
+  title: string;
+  paragraphs: string[];
+}
+
+interface Props {
+  sections: AuthoritySection[];
+  icons: LocationGuideIconName[];
+  sectionDataAttribute?: `data-am-${string}`;
+}
+
+const { sections, icons, sectionDataAttribute } = Astro.props;
+---
+
+<div class="border-b border-border-subtle bg-surface-container-low px-6 py-20 md:px-12 md:py-28">
+  <div class="mx-auto grid max-w-screen-2xl gap-14 lg:grid-cols-3 lg:gap-10">
+    {sections.map((section, index) => {
+      const sectionAttributes = sectionDataAttribute
+        ? { [sectionDataAttribute]: section.id }
+        : {};
+
+      return (
+        <article
+          id={section.id}
+          class="min-w-0 scroll-mt-32 border-t border-primary/30 pt-6 lg:pt-8"
+          data-am-authority-layout="card"
+          {...sectionAttributes}
+        >
+          <div class="flex min-w-0 items-center gap-3 text-primary">
+            <LocationGuideIcon name={icons[index]} />
+            <p class="font-label min-w-0 text-[11px] font-bold uppercase tracking-[0.18em] [overflow-wrap:anywhere]">
+              {section.eyebrow}
+            </p>
+          </div>
+          <h2 class="am-text-subtitle mt-6 min-w-0 max-w-md text-balance hyphens-auto text-on-surface [overflow-wrap:anywhere]">
+            {section.title}
+          </h2>
+          <div class="mt-7 space-y-5">
+            {section.paragraphs.map((paragraph) => (
+              <p class="am-text-body min-w-0 hyphens-auto leading-relaxed text-on-surface-variant [overflow-wrap:anywhere]">
+                <InlineEmphasis text={paragraph} />
+              </p>
+            ))}
+          </div>
+        </article>
+      );
+    })}
+  </div>
+</div>

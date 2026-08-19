@@ -2,12 +2,15 @@
 import InlineEmphasis from '../../components/text/InlineEmphasis.astro';
 import LocationAuthorityLayout from '../../layouts/LocationAuthorityLayout.astro';
 import Navigation from '../../components/Navigation.astro';
-import Hero from '../../components/Hero.astro';
 import AmaraImage from '../../components/AmaraImage.astro';
 import FaqAccordion from '../../components/FaqAccordion.astro';
 import EditorialGuideLinkSection from '../../components/editorial/EditorialGuideLinkSection.astro';
 import FrigilianaOrientationMap from '../../components/location/FrigilianaOrientationMap.astro';
 import LocationContextNav from '../../components/location/LocationContextNav.astro';
+import LocationGuideIcon, {
+  type LocationGuideIconName
+} from '../../components/location/LocationGuideIcon.astro';
+import LocationGuideHero from '../../components/location/LocationGuideHero.astro';
 import OrderedFrigilianaLocationSections from './OrderedFrigilianaLocationSections.astro';
 import {
   frigilianaLocationCopy,
@@ -60,6 +63,11 @@ const availabilityHref = optionalLink('book');
 const exploreHubHref = optionalLink('frigiliana_experience_hub');
 const dayTripsHref = optionalLink('frigiliana_daytrips_authority');
 const journeyBridge = 'journeyBridge' in c ? c.journeyBridge : undefined;
+const orientationFactIcons: LocationGuideIconName[] = [
+  'distance',
+  'airport',
+  'elevation'
+];
 
 const frigilianaStayLinks = [
   { label: 'Farah', href: optionalLink('farah') },
@@ -238,34 +246,21 @@ const renderCtas = (subsection: FrigilianaLocationSubsection) => subsection.ctas
   <div class="overflow-x-hidden">
     <LocationContextNav activeId="intro" lang={currentLang} />
 
-    <div data-am-page="frigiliana-location">
+    <div data-am-page="frigiliana-location" data-am-presentation="guide">
       <OrderedFrigilianaLocationSections order={sectionOrder}>
         <Fragment slot="hero">
           <div id="intro">
-            <Hero
+            <LocationGuideHero
+              eyebrow={c.heroKicker}
+              title={c.h1}
+              paragraphs={c.intro}
+              accent={c.introPullLine}
               imageSrc={heroImage.src}
               imageAlt={heroImage.alt}
               imageWidth={heroImage.width}
               imageHeight={heroImage.height}
               imageSizes={heroImage.sizes}
-            >
-              <span class="am-text-caption uppercase tracking-[0.35em] text-primary block mb-6">
-                {c.heroKicker}
-              </span>
-              <h1
-                class="am-text-title italic text-on-surface mb-10 tracking-tight break-normal hyphens-none [overflow-wrap:normal]"
-              >
-                {c.h1}
-              </h1>
-              <div class="max-w-xl space-y-6 border-l border-primary/20 pl-8 md:pl-10">
-                {
-                  c.intro.map((paragraph) => (
-                    <p class="am-text-body text-on-surface-variant leading-relaxed"><InlineEmphasis text={paragraph} /></p>
-                  ))
-                }
-                <p class="am-text-subtitle italic text-on-surface pt-2"><InlineEmphasis text={c.introPullLine} /></p>
-              </div>
-            </Hero>
+            />
 
             <section
               id="where-is-frigiliana"
@@ -324,14 +319,17 @@ const renderCtas = (subsection: FrigilianaLocationSubsection) => subsection.ctas
                     c.orientation.facts.map((fact, index) => (
                       <div
                         class:list={[
-                          'py-6 sm:px-7 lg:py-8',
+                          'min-w-0 py-6 sm:px-7 lg:py-8',
                           index > 0 && 'border-t border-outline-variant/20 sm:border-l sm:border-t-0'
                         ]}
                       >
-                        <dt class="font-label text-[10px] font-bold uppercase tracking-[0.15em] text-on-surface-variant/70">
-                          {fact.label}
-                        </dt>
-                        <dd class="am-text-subtitle mt-3 text-on-surface">{fact.value}</dd>
+                        <div class="flex min-w-0 items-center gap-3">
+                          <LocationGuideIcon name={orientationFactIcons[index]} />
+                          <dt class="font-label min-w-0 text-[10px] font-bold uppercase tracking-[0.15em] text-on-surface-variant/70 [overflow-wrap:anywhere]">
+                            {fact.label}
+                          </dt>
+                        </div>
+                        <dd class="am-text-subtitle mt-3 min-w-0 hyphens-auto text-on-surface [overflow-wrap:anywhere]">{fact.value}</dd>
                       </div>
                     ))
                   }
