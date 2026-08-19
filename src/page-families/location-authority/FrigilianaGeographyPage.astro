@@ -2,6 +2,7 @@
 import InlineEmphasis from '../../components/text/InlineEmphasis.astro';
 import Navigation from '../../components/Navigation.astro';
 import LocationContextNav from '../../components/location/LocationContextNav.astro';
+import type { LocationGuideIconName } from '../../components/location/LocationGuideIcon.astro';
 import {
   frigilianaGeographyContent,
   frigilianaGeographySeo
@@ -12,6 +13,7 @@ import { normalizeLanguage } from '../../lib/seo/resolve-seo-head';
 import type { AmaraLanguage } from '../../types/seo';
 import AuthorityArticle from './AuthorityArticle.astro';
 import AuthorityRelatedLinks from './AuthorityRelatedLinks.astro';
+import AuthoritySectionCardGrid from './AuthoritySectionCardGrid.astro';
 import AuthorityTextSection from './AuthorityTextSection.astro';
 
 interface Props {
@@ -31,6 +33,13 @@ const footerHighlights: LabeledLink[] = [
   { token: 'frigiliana_geography', label: content.navLabel },
   { token: 'getting_to_frigiliana', label: content.related.links[0].label },
   { token: 'frigiliana_stairs', label: content.related.links[1].label }
+];
+const [hillsideSection, historicSection, landscapeSection, sierraSection, staySection] = content.sections;
+const landscapeSections = [historicSection, landscapeSection, sierraSection];
+const landscapeIcons: LocationGuideIconName[] = [
+  'village-square',
+  'coast',
+  'protected-landscape'
 ];
 ---
 
@@ -95,9 +104,11 @@ const footerHighlights: LabeledLink[] = [
       </div>
     </section>
 
-    {content.sections.map((section, index) => (
-      <AuthorityTextSection section={section} index={index} presentation="guide" />
-    ))}
+    <AuthorityTextSection section={hillsideSection} index={0} presentation="guide" />
+
+    <AuthoritySectionCardGrid sections={landscapeSections} icons={landscapeIcons} />
+
+    <AuthorityTextSection section={staySection} index={0} presentation="guide" />
 
     <AuthorityRelatedLinks
       related={content.related}
