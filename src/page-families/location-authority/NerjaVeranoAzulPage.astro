@@ -1,0 +1,143 @@
+---
+import Navigation from '../../components/Navigation.astro';
+import ExperienceContextNav from '../../components/experience/ExperienceContextNav.astro';
+import {
+  nerjaVeranoAzulContent,
+  nerjaVeranoAzulSeo
+} from '../../content/nerjaVeranoAzulContent';
+import LocationAuthorityLayout from '../../layouts/LocationAuthorityLayout.astro';
+import { createRequiredLinkResolver, type LabeledLink } from '../../lib/linkResolver';
+import { normalizeLanguage } from '../../lib/seo/resolve-seo-head';
+import type { AmaraLanguage } from '../../types/seo';
+import AuthorityArticle from './AuthorityArticle.astro';
+import AuthorityRelatedLinks from './AuthorityRelatedLinks.astro';
+import AuthorityTextSection from './AuthorityTextSection.astro';
+
+interface Props {
+  lang?: string;
+}
+
+const { lang = 'es' } = Astro.props;
+const currentLang = normalizeLanguage(lang as AmaraLanguage);
+const content = nerjaVeranoAzulContent[currentLang];
+
+const requiredLink = createRequiredLinkResolver(currentLang, 'Nerja Verano Azul');
+
+const aboutHref = requiredLink('about');
+const propertyHref = requiredLink('playa');
+const footerHighlights: LabeledLink[] = [
+  { token: 'nerja_experience_hub', label: content.footerHighlights.experience },
+  { token: 'nerja_beaches_authority', label: content.footerHighlights.beaches },
+  { token: 'nerja_balcon_de_europa', label: content.footerHighlights.balance }
+];
+---
+
+<LocationAuthorityLayout
+  seo={nerjaVeranoAzulSeo}
+  pageLang={currentLang}
+  showContextNavigation={false}
+  footerHighlights={footerHighlights}
+>
+  <Navigation
+    slot="navigation"
+    currentLang={currentLang}
+    languageToken="nerja_verano_azul"
+  />
+  <ExperienceContextNav currentId="veranoAzul" destination="nerja" lang={currentLang} />
+
+  <AuthorityArticle
+    pageId="nerja-verano-azul"
+    lang={currentLang}
+    hero={content.hero}
+    authorName={nerjaVeranoAzulSeo.article!.authorName}
+    authorHref={aboutHref}
+    facts={content.facts}
+    sources={content.sources}
+    closing={content.closing}
+    primaryCta={{ href: requiredLink('nerja_experience_hub'), label: content.closing.experienceLabel }}
+    secondaryCta={{ href: propertyHref, label: content.closing.propertyLabel }}
+  >
+    <section id="trailer" class="am-section bg-surface">
+      <div class="max-w-4xl mx-auto w-full">
+        {/* 
+          Consent-safe click-to-load video: no YouTube request until the visitor
+          takes action and requests playback.
+        */}
+        <div
+          class="relative aspect-video w-full border border-outline-variant/20 bg-black overflow-hidden"
+          data-trailer
+          data-trailer-src="https://www.youtube-nocookie.com/embed/KCGDdL5sE8Y?autoplay=1"
+          data-trailer-title={content.trailer.label}
+        >
+          <div class="absolute inset-0 flex flex-col items-center justify-center gap-5 px-6 text-center">
+            <p class="am-text-body text-white/75 max-w-md leading-relaxed">
+              {content.trailer.privacyNote}
+            </p>
+            <button type="button" class="am-btn am-btn--inverse am-btn--primary" data-trailer-load>
+              {content.trailer.loadAction}
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    {content.sections.map((section, index) => (
+      <AuthorityTextSection section={section} index={index} />
+    ))}
+
+    <section id="following-verano-azul-today" class="am-section bg-surface">
+      <div class="mx-auto grid max-w-screen-2xl gap-10 lg:grid-cols-12 lg:gap-20">
+        <div class="lg:col-span-4">
+          <p class="font-label text-[11px] font-bold uppercase tracking-[0.18em] text-primary">
+            {content.itinerary.eyebrow}
+          </p>
+          <h2 class="am-text-title mt-5 text-balance text-on-surface">
+            {content.itinerary.title}
+          </h2>
+          <p class="am-text-body mt-6 leading-relaxed text-on-surface-variant">
+            {content.itinerary.intro}
+          </p>
+        </div>
+        <div class="lg:col-span-8">
+          <div class="grid gap-6">
+            {
+              content.itinerary.links.map((item) => (
+                <article class="border-t border-border-subtle pt-6">
+                  <h3 class="am-text-subtitle text-on-surface">
+                    <a href={requiredLink(item.token)}>{item.label}</a>
+                  </h3>
+                  <p class="mt-2 am-text-body leading-relaxed text-on-surface-variant">{item.text}</p>
+                </article>
+              ))
+            }
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <AuthorityRelatedLinks
+      related={content.related}
+      columns="md:grid-cols-3"
+      resolveHref={requiredLink}
+    />
+  </AuthorityArticle>
+</LocationAuthorityLayout>
+
+<script is:inline>
+  (function () {
+    var frame = document.querySelector('[data-trailer]');
+    var button = frame && frame.querySelector('[data-trailer-load]');
+    if (!frame || !button) return;
+
+    button.addEventListener('click', function () {
+      var iframe = document.createElement('iframe');
+      iframe.className = 'w-full h-full';
+      iframe.src = frame.dataset.trailerSrc;
+      iframe.title = frame.dataset.trailerTitle || '';
+      iframe.allow =
+        'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
+      iframe.allowFullscreen = true;
+      frame.replaceChildren(iframe);
+    });
+  })();
+</script>

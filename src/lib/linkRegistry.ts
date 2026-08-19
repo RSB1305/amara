@@ -15,8 +15,8 @@ function buildGroupEnquiry(subject: string, body: string): string {
  */
 
 export const linkRegistry = {
-  version: '2026-08-18-registry-v4.6',
-  updated_at: '2026-08-18',
+    version: '2026-08-18-registry-v4.6',
+  updated_at: '2026-08-19',
   base: '/',
   links: {
     /* =========================================================
@@ -217,6 +217,13 @@ booking_stay_terms: {
       es: buildOwnedLocalizedPath('nerja-caves', 'es'),
       nl: buildOwnedLocalizedPath('nerja-caves', 'nl'),
       sv: buildOwnedLocalizedPath('nerja-caves', 'sv')
+    },
+    nerja_verano_azul: {
+      en: buildOwnedLocalizedPath('nerja-verano-azul', 'en'),
+      de: buildOwnedLocalizedPath('nerja-verano-azul', 'de'),
+      es: buildOwnedLocalizedPath('nerja-verano-azul', 'es'),
+      nl: buildOwnedLocalizedPath('nerja-verano-azul', 'nl'),
+      sv: buildOwnedLocalizedPath('nerja-verano-azul', 'sv')
     },
     nerja_balcon_de_europa: {
       en: buildOwnedLocalizedPath('nerja-balcon-de-europa', 'en'),

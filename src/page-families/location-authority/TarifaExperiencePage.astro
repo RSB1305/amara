@@ -3,7 +3,7 @@ import InlineEmphasis from '../../components/text/InlineEmphasis.astro';
 import Hero from '../../components/Hero.astro';
 import Navigation from '../../components/Navigation.astro';
 import EditorialClosingCta from '../../components/editorial/EditorialClosingCta.astro';
-import TarifaContextNav from '../../components/location/TarifaContextNav.astro';
+import ExperienceContextNav from '../../components/experience/ExperienceContextNav.astro';
 import {
   TARIFA_EXPERIENCE_TOKEN,
   tarifaExperienceContent,
@@ -44,11 +44,7 @@ const footerHighlights: LabeledLink[] = [
     currentToken={TARIFA_EXPERIENCE_TOKEN}
     languageToken={TARIFA_EXPERIENCE_TOKEN}
   />
-  <TarifaContextNav
-    activeId="experience"
-    currentLabel={copy.breadcrumbLabel}
-    lang={currentLang}
-  />
+  <ExperienceContextNav destination="tarifa" lang={currentLang} />
 
   <article class="bg-surface" data-am-page="tarifa-experience">
     <Hero

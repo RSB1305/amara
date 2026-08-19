@@ -33,6 +33,7 @@ export const STATIC_CANONICAL_PUBLIC_SLUGS = Object.freeze([
   'nerja-weather',
   'nerja-where-to-stay',
   'nerja-nightlife',
+  'nerja-verano-azul',
   'nerja-experience',
   'tarifa-location',
   'getting-to-tarifa',

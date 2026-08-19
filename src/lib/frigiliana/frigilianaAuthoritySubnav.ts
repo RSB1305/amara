@@ -1,8 +1,12 @@
 import {
+  getLocationGuideClusterLabels,
+  LOCATION_GUIDE_CLUSTER_IDS,
+  LOCATION_GUIDE_CLUSTER_TOPICS,
   getLocationGuideTopicLabels,
+  type LocationGuideClusterId,
   type LocationGuideTopicId
 } from '../location/locationGuideTopics';
-import { resolveLink } from '../linkResolver';
+import { resolveLink, type LinkToken } from '../linkResolver';
 import type { AmaraLanguage } from '../../types/seo';
 
 export type FrigilianaAuthoritySubnavId =
@@ -19,12 +23,7 @@ export type FrigilianaAuthoritySubnavId =
   | 'oldTown'
   | 'faq';
 
-export type FrigilianaAuthorityTopicId =
-  | LocationGuideTopicId
-  | 'history-architecture'
-  | 'overview'
-  | 'parking'
-  | 'practical-faq';
+export type FrigilianaAuthorityTopicId = LocationGuideTopicId;
 
 export type FrigilianaAuthoritySubnavItem = {
   id: FrigilianaAuthorityTopicId;
@@ -34,48 +33,9 @@ export type FrigilianaAuthoritySubnavItem = {
 };
 
 export type FrigilianaAuthoritySubnavGroup = {
-  id: 'place-stay' | 'arrival-mobility' | 'daily-life';
+  id: LocationGuideClusterId;
   items: FrigilianaAuthoritySubnavItem[];
   label: string;
-};
-
-const clusterLabels: Record<
-  AmaraLanguage,
-  Record<FrigilianaAuthoritySubnavGroup['id'], string>
-> = {
-  en: {
-    'place-stay': 'Place & Stay',
-    'arrival-mobility': 'Arrival & Mobility',
-    'daily-life': 'Daily Life & Services'
-  },
-  de: {
-    'place-stay': 'Ort & Aufenthalt',
-    'arrival-mobility': 'Anreise & Mobilität',
-    'daily-life': 'Alltag & Services'
-  },
-  es: {
-    'place-stay': 'Lugar y estancia',
-    'arrival-mobility': 'Llegada y movilidad',
-    'daily-life': 'Vida diaria y servicios'
-  },
-  nl: {
-    'place-stay': 'Plaats & verblijf',
-    'arrival-mobility': 'Aankomst & mobiliteit',
-    'daily-life': 'Dagelijks leven & voorzieningen'
-  },
-  sv: {
-    'place-stay': 'Plats & vistelse',
-    'arrival-mobility': 'Ankomst & mobilitet',
-    'daily-life': 'Vardag & service'
-  }
-};
-
-const overviewLabels: Record<AmaraLanguage, string> = {
-  en: 'Overview',
-  de: 'Überblick',
-  es: 'Resumen',
-  nl: 'Overzicht',
-  sv: 'Översikt'
 };
 
 const currentPageLabels: Record<
@@ -125,11 +85,11 @@ const currentPageLabels: Record<
     sv: 'Vardag & service'
   },
   parking: {
-    en: 'Parking',
-    de: 'Parken',
-    es: 'Aparcamiento',
-    nl: 'Parkeren',
-    sv: 'Parkering'
+    en: 'Parking & Accessibility',
+    de: 'Parken & Erreichbarkeit',
+    es: 'Aparcamiento y acceso',
+    nl: 'Parkeren & toegankelijkheid',
+    sv: 'Parkering & tillgänglighet'
   },
   weather: {
     en: 'Weather & Seasons',
@@ -168,29 +128,55 @@ const currentPageLabels: Record<
   }
 };
 
-export function getFrigilianaAuthorityCurrentPageLabel(
-  id: FrigilianaAuthoritySubnavId,
+const topicLinks: Record<LocationGuideTopicId, LinkToken | undefined> = {
+  'arrival-mobility': 'getting_to_frigiliana',
+  'geography-orientation': 'frigiliana_geography',
+  'where-to-stay': 'frigiliana_stairs',
+  'weather-seasons': 'weather_frigiliana',
+  'winter-stays': 'frigiliana_winter_stays',
+  'parking-accessibility': 'frigiliana_parking',
+  'shopping-markets': 'frigiliana_market',
+  'health-emergency': undefined,
+  'practical-local-rules': undefined
+};
+
+const makeTopicItem = (
+  topicId: LocationGuideTopicId,
   currentLang: AmaraLanguage
-): string {
-  return currentPageLabels[id][currentLang];
-}
+): FrigilianaAuthoritySubnavItem => {
+  const topicLabels = getLocationGuideTopicLabels(currentLang);
+  const token = topicLinks[topicId];
+
+  return token
+    ? {
+        id: topicId,
+        label: topicLabels[topicId],
+        status: 'live',
+        href: resolveLink(token, currentLang)
+      }
+    : {
+        id: topicId,
+        label: topicLabels[topicId],
+        status: 'future'
+      };
+};
 
 export function getFrigilianaAuthorityActiveTopic(
   id: FrigilianaAuthoritySubnavId
 ): FrigilianaAuthorityTopicId | undefined {
-  const topicByPage: Partial<
-    Record<FrigilianaAuthoritySubnavId, FrigilianaAuthorityTopicId>
-  > = {
-    intro: 'overview',
+  const topicByPage: Partial<Record<FrigilianaAuthoritySubnavId, FrigilianaAuthorityTopicId>> = {
+    intro: undefined,
     arrival: 'arrival-mobility',
     geography: 'geography-orientation',
-    dailyLife: 'daily-life-services',
-    parking: 'parking',
+    dailyLife: 'shopping-markets',
+    parking: 'parking-accessibility',
     stay: 'where-to-stay',
     weather: 'weather-seasons',
     winter: 'winter-stays',
-    oldTown: 'history-architecture',
-    faq: 'practical-faq'
+    oldTown: 'geography-orientation',
+    faq: 'practical-local-rules',
+    comparison: 'where-to-stay',
+    dosTumbas: 'practical-local-rules'
   };
 
   return topicByPage[id];
@@ -199,125 +185,25 @@ export function getFrigilianaAuthorityActiveTopic(
 export function getFrigilianaAuthoritySubnavGroups(
   currentLang: AmaraLanguage
 ): FrigilianaAuthoritySubnavGroup[] {
-  const labels = getLocationGuideTopicLabels(currentLang);
+  const labels = getLocationGuideClusterLabels(currentLang);
+  const topicIdsByCluster = LOCATION_GUIDE_CLUSTER_TOPICS;
 
-  return [
-    {
-      id: 'place-stay',
-      label: clusterLabels[currentLang]['place-stay'],
-      items: [
-        {
-          id: 'overview',
-          label: overviewLabels[currentLang],
-          status: 'live',
-          href: resolveLink('location_frigiliana', currentLang)
-        },
-        {
-          id: 'geography-orientation',
-          label: labels['geography-orientation'],
-          status: 'live',
-          href: resolveLink('frigiliana_geography', currentLang)
-        },
-        {
-          id: 'history-architecture',
-          label: currentPageLabels.oldTown[currentLang],
-          status: 'live',
-          href: resolveLink('frigiliana_old_town', currentLang)
-        },
-        {
-          id: 'where-to-stay',
-          label: labels['where-to-stay'],
-          status: 'live',
-          href: resolveLink('frigiliana_stairs', currentLang)
-        },
-        {
-          id: 'weather-seasons',
-          label: labels['weather-seasons'],
-          status: 'live',
-          href: resolveLink('weather_frigiliana', currentLang)
-        }
-      ]
-    },
-    {
-      id: 'arrival-mobility',
-      label: clusterLabels[currentLang]['arrival-mobility'],
-      items: [
-        {
-          id: 'arrival-mobility',
-          label: labels['arrival-mobility'],
-          status: 'live',
-          href: resolveLink('getting_to_frigiliana', currentLang)
-        },
-        {
-          id: 'parking',
-          label: currentPageLabels.parking[currentLang],
-          status: 'live',
-          href: resolveLink('frigiliana_parking', currentLang)
-        }
-      ]
-    },
-    {
-      id: 'daily-life',
-      label: clusterLabels[currentLang]['daily-life'],
-      items: [
-        {
-          id: 'daily-life-services',
-          label: labels['daily-life-services'],
-          status: 'live',
-          href: resolveLink('frigiliana_daily_life', currentLang)
-        },
-        {
-          id: 'practical-faq',
-          label: currentPageLabels.faq[currentLang],
-          status: 'live',
-          href: resolveLink('frigiliana_faq', currentLang)
-        }
-      ]
-    }
-  ];
+  return LOCATION_GUIDE_CLUSTER_IDS.map((clusterId) => ({
+    id: clusterId,
+    label: labels[clusterId],
+    items: topicIdsByCluster[clusterId].map((topicId) => makeTopicItem(topicId, currentLang))
+  }));
 }
 
 export function getFrigilianaAuthoritySubnav(
   currentLang: AmaraLanguage
 ): FrigilianaAuthoritySubnavItem[] {
-  const labels = getLocationGuideTopicLabels(currentLang);
+  return getFrigilianaAuthoritySubnavGroups(currentLang).flatMap((group) => group.items);
+}
 
-  return [
-    {
-      id: 'arrival-mobility',
-      label: labels['arrival-mobility'],
-      status: 'live',
-      href: resolveLink('getting_to_frigiliana', currentLang)
-    },
-    {
-      id: 'geography-orientation',
-      label: labels['geography-orientation'],
-      status: 'live',
-      href: resolveLink('frigiliana_geography', currentLang)
-    },
-    {
-      id: 'history-architecture',
-      label: currentPageLabels.oldTown[currentLang],
-      status: 'live',
-      href: resolveLink('frigiliana_old_town', currentLang)
-    },
-    {
-      id: 'where-to-stay',
-      label: labels['where-to-stay'],
-      status: 'live',
-      href: resolveLink('frigiliana_stairs', currentLang)
-    },
-    {
-      id: 'weather-seasons',
-      label: labels['weather-seasons'],
-      status: 'live',
-      href: resolveLink('weather_frigiliana', currentLang)
-    },
-    {
-      id: 'daily-life-services',
-      label: labels['daily-life-services'],
-      status: 'live',
-      href: resolveLink('frigiliana_daily_life', currentLang)
-    }
-  ];
+export function getFrigilianaAuthorityCurrentPageLabel(
+  id: FrigilianaAuthoritySubnavId,
+  currentLang: AmaraLanguage
+): string {
+  return currentPageLabels[id][currentLang];
 }

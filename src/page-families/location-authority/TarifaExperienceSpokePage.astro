@@ -2,7 +2,7 @@
 import InlineEmphasis from '../../components/text/InlineEmphasis.astro';
 import Navigation from '../../components/Navigation.astro';
 import EditorialByline from '../../components/editorial/EditorialByline.astro';
-import TarifaContextNav from '../../components/location/TarifaContextNav.astro';
+import ExperienceContextNav from '../../components/experience/ExperienceContextNav.astro';
 import type {
   LocalizedExperienceText,
   TarifaExperienceSpokeContent
@@ -47,11 +47,7 @@ const footerHighlights: LabeledLink[] = [
     currentLang={currentLang}
     languageToken={content.token}
   />
-  <TarifaContextNav
-    activeId={content.id}
-    currentLabel={t(content.breadcrumbLabel)}
-    lang={currentLang}
-  />
+  <ExperienceContextNav currentId={content.id} destination="tarifa" lang={currentLang} />
 
   <article class="bg-surface" data-am-page={`tarifa-${content.id}`} data-am-experience-spoke={content.id}>
     <header class="overflow-hidden border-b border-border-subtle bg-surface px-6 py-20 md:px-12 md:py-28 lg:py-36">

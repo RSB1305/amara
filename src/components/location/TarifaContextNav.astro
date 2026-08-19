@@ -1,17 +1,26 @@
 ---
 /**
- * Tarifa-local context navigation with explicit parent and child levels.
+ * Tarifa local context navigation with explicit parent and child levels.
  */
-import type { ContextNavigationBreadcrumb } from '../navigation/ContextNavigation.astro';
-import DestinationBranchSwitcher from '../navigation/DestinationBranchSwitcher.astro';
+import ContextNavigation, {
+  type ContextNavigationBreadcrumb,
+  type ContextNavigationGroup
+} from '../navigation/ContextNavigation.astro';
 import {
   getTarifaAuthoritySubnav,
   type TarifaAuthorityBranchId,
+  type TarifaAuthorityChild,
   type TarifaAuthorityChildId,
   type TarifaAuthoritySubnavId
 } from '../../lib/tarifa/tarifaAuthoritySubnav';
 import { resolveOptionalLink } from '../../lib/linkResolver';
 import { getDestinationBranchNavigation } from '../../lib/location/destinationBranchNavigation';
+import {
+  getLocationGuideClusterLabels,
+  LOCATION_GUIDE_CLUSTER_IDS,
+  LOCATION_GUIDE_CLUSTER_TOPICS,
+  type LocationGuideClusterId
+} from '../../lib/location/locationGuideTopics';
 import type { AmaraLanguage } from '../../types/seo';
 
 interface Props {
@@ -22,52 +31,154 @@ interface Props {
   lang: AmaraLanguage;
 }
 
-const { activeId, activeChildId, currentLabel, childLabel, lang } = Astro.props;
+const {
+  activeId,
+  activeChildId,
+  currentLabel,
+  childLabel,
+  lang
+} = Astro.props;
+
 const navigationItems = getTarifaAuthoritySubnav(lang);
-const activeBranchId: TarifaAuthorityBranchId =
-  activeId === 'overview' ? 'location' : 'experience';
-const inferredChildId: TarifaAuthorityChildId | undefined =
-  activeChildId ??
-  (activeId !== 'overview' && activeId !== 'experience' ? activeId : undefined);
-const activeBranch = navigationItems.find((item) => item.id === activeBranchId);
-
-if (!activeBranch) {
-  throw new Error(`[Tarifa context navigation] Missing branch: ${activeBranchId}`);
-}
-
-// A stable five-topic row keeps the primary location decisions visible across hubs and spokes.
-const visibleTopics = activeBranch.children;
+const locationBranch = navigationItems.find((branch) => branch.id === 'location');
+const experienceBranch = navigationItems.find((branch) => branch.id === 'experience');
 
 const labels: Record<
   AmaraLanguage,
   {
     breadcrumb: string;
-    topics: string;
+    guide: string;
+    switcher: string;
+    experience: string;
+    experienceDining: string;
+    experienceNature: string;
+    experienceCulture: string;
   }
 > = {
   en: {
     breadcrumb: 'Breadcrumb',
-    topics: 'Tarifa guide topics'
+    guide: 'Tarifa guide',
+    switcher: 'Tarifa guide navigation',
+    experience: 'Experience',
+    experienceDining: 'Dining & Taste',
+    experienceNature: 'Nature & Outdoors',
+    experienceCulture: 'Culture & Day Trips'
   },
   de: {
     breadcrumb: 'Brotkrümelnavigation',
-    topics: 'Themen im Tarifa-Guide'
+    guide: 'Tarifa-Guide',
+    switcher: 'Navigation im Tarifa-Guide',
+    experience: 'Erlebnisse',
+    experienceDining: 'Kulinarik & Genuss',
+    experienceNature: 'Natur & Outdoor',
+    experienceCulture: 'Kultur & Ausflüge'
   },
   es: {
     breadcrumb: 'Migas de pan',
-    topics: 'Temas de la guía de Tarifa'
+    guide: 'Guía de Tarifa',
+    switcher: 'Navegación de la guía de Tarifa',
+    experience: 'Experiencias',
+    experienceDining: 'Gastronomía & Sabor',
+    experienceNature: 'Naturaleza & Aire Libre',
+    experienceCulture: 'Cultura & Excursiones'
   },
   nl: {
     breadcrumb: 'Broodkruimelnavigatie',
-    topics: 'Onderwerpen in de Tarifa-gids'
+    guide: 'Tarifa-gids',
+    switcher: 'Navigatie van de Tarifa-gids',
+    experience: 'Ervaringen',
+    experienceDining: 'Culinair & Genieten',
+    experienceNature: 'Natuur & Buitenleven',
+    experienceCulture: 'Cultuur & Dagtrips'
   },
   sv: {
     breadcrumb: 'Brödsmulenavigering',
-    topics: 'Ämnen i Tarifa-guiden'
+    guide: 'Tarifa-guide',
+    switcher: 'Navigering i Tarifa-guiden',
+    experience: 'Upplevelser',
+    experienceDining: 'Mat & Smaker',
+    experienceNature: 'Natur & Friluftsliv',
+    experienceCulture: 'Kultur & Dagsutflykter'
   }
 };
 
 const copy = labels[lang];
+const locationClusterLabels = getLocationGuideClusterLabels(lang);
+
+const locationTopicsById = new Map(
+  (locationBranch?.children ?? []).map((child) => [child.id, child] as const)
+);
+
+const pickLocationTopics = (ids: readonly TarifaAuthorityChildId[]) =>
+  ids
+    .map((id) => locationTopicsById.get(id))
+    .filter((topic): topic is TarifaAuthorityChild => topic !== undefined);
+const experienceTopicsById = new Map(
+  (experienceBranch?.children ?? []).map((child) => [child.id, child] as const)
+);
+
+const pickExperienceTopics = (ids: readonly TarifaAuthorityChildId[]) =>
+  ids
+    .map((id) => experienceTopicsById.get(id))
+    .filter((topic): topic is TarifaAuthorityChild => topic !== undefined);
+
+const locationGroups: ContextNavigationGroup[] = [
+  ...LOCATION_GUIDE_CLUSTER_IDS.map((clusterId: LocationGuideClusterId) => ({
+    id: `tarifa-${clusterId}`,
+    label: locationClusterLabels[clusterId],
+    items: pickLocationTopics(LOCATION_GUIDE_CLUSTER_TOPICS[clusterId])
+  }))
+].filter((group) => group.items.length > 0);
+
+const experienceGroups: ContextNavigationGroup[] = [
+  {
+    id: 'tarifa-experience-dining',
+    label: copy.experienceDining,
+    items: pickExperienceTopics(['food-evening-life'])
+  },
+  {
+    id: 'tarifa-experience-nature',
+    label: copy.experienceNature,
+    items: pickExperienceTopics(['beaches', 'wind'])
+  },
+  {
+    id: 'tarifa-experience-culture',
+    label: copy.experienceCulture,
+    items: pickExperienceTopics(['nature-wildlife', 'old-town-history', 'bolonia-baelo-claudia'])
+  }
+].filter((group) => group.items.length > 0);
+
+const locationTopicIds = new Set((locationBranch?.children ?? []).map((topic) => topic.id));
+const experienceTopicIds = new Set((experienceBranch?.children ?? []).map((topic) => topic.id));
+
+const inferredChildId: TarifaAuthorityChildId | undefined =
+  activeChildId ??
+  (activeId !== 'overview' && activeId !== 'experience' ? activeId : undefined);
+
+const activeBranchId: TarifaAuthorityBranchId =
+  activeId === 'overview'
+    ? 'location'
+    : activeId === 'experience'
+      ? 'experience'
+      : inferredChildId
+        ? locationTopicIds.has(inferredChildId)
+          ? 'location'
+          : experienceTopicIds.has(inferredChildId)
+            ? 'experience'
+            : 'location'
+        : 'location';
+
+const navigationGroups: ContextNavigationGroup[] =
+  activeBranchId === 'experience' ? experienceGroups : locationGroups;
+
+const allChildren = navigationGroups.flatMap((group) => group.items);
+const activeTopicId = inferredChildId
+  ? allChildren.find((item) => item.id === inferredChildId)?.id
+  : undefined;
+const currentPageLabel = activeTopicId
+  ? allChildren.find((item) => item.id === activeTopicId)?.label
+  : currentLabel;
+
 const branchNavigation = getDestinationBranchNavigation('tarifa', lang);
 const homeHref = resolveOptionalLink('home', lang, {
   suppressMissing: true
@@ -95,7 +206,9 @@ const breadcrumbs: ContextNavigationBreadcrumb[] = [
 
 if (activeBranchId === 'experience' && activeId !== 'experience') {
   breadcrumbs.push({
-    label: navigationItems.find((item) => item.id === 'experience')?.label ?? 'Experience',
+    label:
+      navigationItems.find((item) => item.id === 'experience')?.label ??
+      copy.experience,
     href: experienceHref ?? undefined
   });
 }
@@ -107,95 +220,20 @@ if (activeId !== 'overview') {
 if (childLabel) {
   breadcrumbs.push({ label: childLabel });
 }
-
 ---
 
-<div
-  class="border-b border-outline-variant/10 bg-surface"
-  data-am-context-navigation
-  data-am-experience-context={activeBranchId === 'experience' ? '' : undefined}
-  data-am-location-context={activeBranchId === 'location' ? '' : undefined}
-  data-am-tarifa-context-navigation
->
-  <div class="mx-auto max-w-screen-2xl px-6 py-5 md:px-12">
-    <div class="flex flex-col gap-5 xl:flex-row xl:items-start xl:justify-between">
-      <nav aria-label={copy.breadcrumb}>
-        <ol class="flex flex-wrap items-center gap-2 font-label text-[10px] font-semibold uppercase tracking-[0.14em] text-on-surface/70">
-          {breadcrumbs.map((breadcrumb, index) => {
-            const isCurrent = index === breadcrumbs.length - 1;
-
-            return (
-              <>
-                {index > 0 && (
-                  <li aria-hidden="true" class="text-outline-variant/60">/</li>
-                )}
-                <li
-                  aria-current={isCurrent ? 'page' : undefined}
-                  class:list={[isCurrent && 'text-on-surface']}
-                >
-                  {breadcrumb.href && !isCurrent ? (
-                    <a href={breadcrumb.href} class="transition-colors hover:text-primary">
-                      {breadcrumb.label}
-                    </a>
-                  ) : (
-                    breadcrumb.label
-                  )}
-                </li>
-              </>
-            );
-          })}
-        </ol>
-      </nav>
-
-      <div class="flex min-w-0 flex-col gap-3 xl:ml-auto xl:items-end">
-        <DestinationBranchSwitcher
-          activeId={activeBranchId}
-          ariaLabel={branchNavigation.ariaLabel}
-          items={branchNavigation.items}
-        />
-        <nav
-          aria-label={copy.topics}
-          class="min-w-0 xl:flex-1"
-          data-am-tarifa-topic-navigation
-        >
-          <ul
-            class="flex flex-wrap items-center gap-x-0.5 gap-y-1 xl:flex-nowrap xl:justify-end"
-            data-am-tarifa-topic-branch={activeBranchId}
-          >
-            {visibleTopics.map((topic) => {
-              const isActiveTopic = topic.id === inferredChildId;
-
-              return (
-                <li data-am-tarifa-topic={topic.id} data-am-tarifa-topic-status={topic.status}>
-                  {topic.status === 'live' ? (
-                    <a
-                      href={topic.href}
-                      aria-current={isActiveTopic ? 'page' : undefined}
-                      class:list={[
-                        'inline-flex min-h-8 items-center border-b px-2 font-label text-[10px] font-medium uppercase tracking-[0.06em] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/25',
-                        isActiveTopic
-                          ? 'border-primary font-semibold text-on-surface'
-                          : 'border-transparent text-on-surface-variant hover:border-primary/45 hover:text-on-surface'
-                      ]}
-                      data-am-tarifa-child={topic.id}
-                    >
-                      {topic.label}
-                    </a>
-                  ) : (
-                    <span
-                      aria-disabled="true"
-                      class="inline-flex min-h-8 items-center px-2 font-label text-[10px] font-medium uppercase tracking-[0.06em] text-on-surface-variant/55"
-                      data-am-tarifa-child={topic.id}
-                    >
-                      {topic.label}
-                    </span>
-                  )}
-                </li>
-              );
-            })}
-          </ul>
-        </nav>
-      </div>
-    </div>
-  </div>
-</div>
+<ContextNavigation
+  activeBranchId={activeBranchId}
+  activeId={activeTopicId}
+  branches={branchNavigation.items}
+  branchSwitcherAriaLabel={branchNavigation.ariaLabel}
+  breadcrumbAriaLabel={copy.breadcrumb}
+  breadcrumbs={breadcrumbs}
+  context="location"
+  currentPageLabel={currentPageLabel}
+  groups={navigationGroups}
+  mobileNavigationLabel={copy.guide}
+  retainActiveItem={true}
+  switcherAriaLabel={copy.switcher}
+  items={[]}
+/>

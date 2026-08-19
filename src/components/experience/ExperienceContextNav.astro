@@ -2,6 +2,7 @@
 /** Destination-specific, crawlable navigation for experience hubs and spokes. */
 import ContextNavigation, {
   type ContextNavigationBreadcrumb,
+  type ContextNavigationGroup,
   type ContextNavigationItem
 } from '../navigation/ContextNavigation.astro';
 import {
@@ -14,21 +15,154 @@ import {
   nerjaExperienceHubContent,
   type NerjaExperienceThemeId
 } from '../../content/nerjaExperienceHubContent';
-import { resolveOptionalLink } from '../../lib/linkResolver';
+import { resolveOptionalLink, type LinkToken } from '../../lib/linkResolver';
 import { getDestinationBranchNavigation } from '../../lib/location/destinationBranchNavigation';
+import { getTarifaAuthoritySubnav } from '../../lib/tarifa/tarifaAuthoritySubnav';
 import type { AmaraLanguage } from '../../types/seo';
 
-export type NerjaExperienceId = NerjaExperienceThemeId;
+type ClusterLabelKey = 'cluster1' | 'cluster2' | 'cluster3' | 'cluster4';
+type NerjaExperienceId = NerjaExperienceThemeId;
+type FrigilianaAdditionalExperienceId = 'oldTown' | 'dosTumbas';
+type TarifaExperienceId =
+  | 'food-evening-life'
+  | 'nature-wildlife'
+  | 'old-town-history'
+  | 'bolonia-baelo-claudia'
+  | 'beaches'
+  | 'wind';
+type FrigilianaExperienceId = ExperienceId | FrigilianaAdditionalExperienceId;
 
 interface Props {
-  currentId?: ExperienceId | NerjaExperienceId;
-  destination?: 'frigiliana' | 'nerja';
+  currentId?: FrigilianaExperienceId | NerjaExperienceId | TarifaExperienceId;
+  destination?: 'frigiliana' | 'nerja' | 'tarifa';
   lang: AmaraLanguage;
 }
 
 const { currentId, destination = 'frigiliana', lang } = Astro.props;
 const branchNavigation = getDestinationBranchNavigation(destination, lang);
 const sharedNavigation = experienceNavigationContent[lang];
+
+const clusterLabels: Record<
+  'frigiliana' | 'nerja' | 'tarifa',
+  Record<
+    AmaraLanguage,
+    Record<ClusterLabelKey | 'mobileLabel', string>
+  >
+> = {
+  frigiliana: {
+    en: {
+      cluster1: 'Food & Local Flavours',
+      cluster2: 'Mountains & Coast',
+      cluster3: 'Culture & Village Life',
+      cluster4: 'Slow Time & Day Trips',
+      mobileLabel: 'Experiences'
+    },
+    de: {
+      cluster1: 'Kulinarik & Genuss',
+      cluster2: 'Berge & Küste',
+      cluster3: 'Kultur & Dorfleben',
+      cluster4: 'Auszeit & Ausflüge',
+      mobileLabel: 'Erlebnisse'
+    },
+    es: {
+      cluster1: 'Gastronomía & sabores locales',
+      cluster2: 'Montaña & costa',
+      cluster3: 'Cultura & vida de pueblo',
+      cluster4: 'Pausa & excursiones',
+      mobileLabel: 'Experiencias'
+    },
+    nl: {
+      cluster1: 'Culinair & genieten',
+      cluster2: 'Bergen & kust',
+      cluster3: 'Cultuur & dorpsleven',
+      cluster4: 'Ontspanning & uitstapjes',
+      mobileLabel: 'Ervaringen'
+    },
+    sv: {
+      cluster1: 'Mat & njutning',
+      cluster2: 'Berg & kust',
+      cluster3: 'Kultur & byliv',
+      cluster4: 'Avkoppling & utflykter',
+      mobileLabel: 'Upplevelser'
+    }
+  },
+  nerja: {
+    en: {
+      cluster1: 'Sea & Coast',
+      cluster2: 'Food & Evening Life',
+      cluster3: 'Culture & Landmarks',
+      cluster4: 'Day Trips & Surroundings',
+      mobileLabel: 'Experiences'
+    },
+    de: {
+      cluster1: 'Meer & Küste',
+      cluster2: 'Genuss & Abendleben',
+      cluster3: 'Kultur & Wahrzeichen',
+      cluster4: 'Ausflüge & Umgebung',
+      mobileLabel: 'Erlebnisse'
+    },
+    es: {
+      cluster1: 'Mar & costa',
+      cluster2: 'Gastronomía & vida nocturna',
+      cluster3: 'Cultura & lugares emblemáticos',
+      cluster4: 'Excursiones & alrededores',
+      mobileLabel: 'Experiencias'
+    },
+    nl: {
+      cluster1: 'Zee & kust',
+      cluster2: 'Eten & avondleven',
+      cluster3: 'Cultuur & bezienswaardigheden',
+      cluster4: 'Dagtochten & omgeving',
+      mobileLabel: 'Ervaringen'
+    },
+    sv: {
+      cluster1: 'Hav & kust',
+      cluster2: 'Mat & kvällliv',
+      cluster3: 'Kultur & sevärdheter',
+      cluster4: 'Utflykter & omgivningar',
+      mobileLabel: 'Upplevelser'
+    }
+  },
+  tarifa: {
+    en: {
+      cluster1: 'Wind & Atlantic',
+      cluster2: 'Landscape & Heritage',
+      cluster3: 'Old Town & History',
+      cluster4: 'Food & Evenings',
+      mobileLabel: 'Experiences'
+    },
+    de: {
+      cluster1: 'Wind & Atlantik',
+      cluster2: 'Landschaft & Erbe',
+      cluster3: 'Altstadt & Geschichte',
+      cluster4: 'Genuss & Abende',
+      mobileLabel: 'Erlebnisse'
+    },
+    es: {
+      cluster1: 'Viento & Atlántico',
+      cluster2: 'Paisaje & patrimonio',
+      cluster3: 'Casco antiguo & historia',
+      cluster4: 'Gastronomía & ambiente nocturno',
+      mobileLabel: 'Experiencias'
+    },
+    nl: {
+      cluster1: 'Wind & Atlantische kust',
+      cluster2: 'Landschap & erfgoed',
+      cluster3: 'Oude stad & geschiedenis',
+      cluster4: 'Eten & avonden',
+      mobileLabel: 'Ervaringen'
+    },
+    sv: {
+      cluster1: 'Vind & Atlanten',
+      cluster2: 'Landskap & kulturarv',
+      cluster3: 'Gamla stan & historia',
+      cluster4: 'Mat & kvällar',
+      mobileLabel: 'Upplevelser'
+    }
+  }
+};
+
+const labels = clusterLabels[destination][lang];
 
 const nerjaLabels: Record<
   AmaraLanguage,
@@ -59,38 +193,248 @@ const nerjaLabels: Record<
   }
 };
 
-const destinationLabel = destination === 'frigiliana' ? 'Frigiliana' : 'Nerja';
-const locationToken = destination === 'frigiliana' ? 'location_frigiliana' : 'location_nerja';
-const hubToken = destination === 'frigiliana'
-  ? 'frigiliana_experience_hub'
-  : 'nerja_experience_hub';
+const destinationSpecificExperienceCopy: Record<
+  'frigiliana' | 'nerja' | 'tarifa',
+  {
+    breadcrumb: string;
+    switcher: string;
+  }
+> = {
+  frigiliana: {
+    breadcrumb: sharedNavigation.breadcrumbLabel,
+    switcher: sharedNavigation.switcherLabel
+  },
+  nerja: {
+    breadcrumb: nerjaLabels[lang].breadcrumb,
+    switcher: nerjaLabels[lang].switcher
+  },
+  tarifa: {
+    breadcrumb: sharedNavigation.breadcrumbLabel,
+    switcher: sharedNavigation.switcherLabel
+  }
+};
+
+const destinationLabel: Record<'frigiliana' | 'nerja' | 'tarifa', string> = {
+  frigiliana: 'Frigiliana',
+  nerja: 'Nerja',
+  tarifa: 'Tarifa'
+};
+
+const destinationHubToken: Record<'frigiliana' | 'nerja' | 'tarifa', LinkToken> = {
+  frigiliana: 'frigiliana_experience_hub',
+  nerja: 'nerja_experience_hub',
+  tarifa: 'tarifa_experience_hub'
+};
+
+const destinationLocationToken: Record<'frigiliana' | 'nerja' | 'tarifa', LinkToken> = {
+  frigiliana: 'location_frigiliana',
+  nerja: 'location_nerja',
+  tarifa: 'location_tarifa'
+};
+
+const frigilianaDestinationLabels: Record<
+  FrigilianaAdditionalExperienceId,
+  Record<AmaraLanguage, string>
+> = {
+  oldTown: {
+    en: 'History & Architecture',
+    de: 'Geschichte & Baukultur',
+    es: 'Historia y arquitectura',
+    nl: 'Geschiedenis & architectuur',
+    sv: 'Historia & arkitektur'
+  },
+  dosTumbas: {
+    en: 'Netflix filming locations',
+    de: 'Netflix-Drehorte',
+    es: 'Localizaciones Netflix',
+    nl: 'Netflix-locaties',
+    sv: 'Netflix-platser'
+  }
+};
+
+const locationToken = destinationLocationToken[destination];
+const hubToken = destinationHubToken[destination];
 const locationHref = resolveOptionalLink(locationToken, lang, { suppressMissing: true });
 const hubHref = resolveOptionalLink(hubToken, lang, { suppressMissing: true });
 
-const frigilianaSiblingLinks: ContextNavigationItem[] = experienceHubContent[lang].catalog.order
-  .filter((id) => id !== 'nightlife')
-  .map((id) => {
-    const definition = experienceCatalog[id];
-    const href = resolveOptionalLink(definition.token, lang, { suppressMissing: true });
+const frigilianaSiblingLinks: ContextNavigationItem[] = [
+  ...experienceHubContent[lang].catalog.order
+    .filter((id) => id !== 'nightlife')
+    .map((id) => {
+      const definition = experienceCatalog[id];
+      const href = resolveOptionalLink(definition.token, lang, {
+        suppressMissing: true
+      });
 
-    return href ? { id, href, label: sharedNavigation.labels[id] } : null;
+      return {
+        id,
+        href: href ?? undefined,
+        label: sharedNavigation.labels[id],
+        status: (href ? 'live' : 'future') as ContextNavigationItem['status']
+      };
+    }),
+  ...[
+    {
+      id: 'oldTown' as const,
+      token: 'frigiliana_old_town',
+      labels: frigilianaDestinationLabels.oldTown
+    },
+    {
+      id: 'dosTumbas' as const,
+      token: 'frigiliana_netflix_dos_tumbas',
+      labels: frigilianaDestinationLabels.dosTumbas
+    }
+  ].map(({ id, token, labels: extraLabels }) => {
+    const href = resolveOptionalLink(token as LinkToken, lang, { suppressMissing: true });
+
+    return {
+      id,
+      href: href ?? undefined,
+      label: extraLabels[lang],
+      status: (href ? 'live' : 'future') as ContextNavigationItem['status']
+    };
   })
-  .filter((item) => item !== null);
+];
 
-const nerjaCopy = nerjaLabels[lang];
-const nerjaSiblingLinks: ContextNavigationItem[] = nerjaExperienceHubContent[lang].themes.map((theme) => ({
-  id: theme.id,
-  href: resolveOptionalLink(theme.token, lang, { suppressMissing: true }) ?? undefined,
-  label: theme.title
-}));
+const nerjaSiblingLinks: ContextNavigationItem[] = nerjaExperienceHubContent[lang].themes.map(
+  (theme) => ({
+    id: theme.id,
+    href: resolveOptionalLink(theme.token as LinkToken, lang, { suppressMissing: true }) ?? undefined,
+    label: theme.title,
+    status: (resolveOptionalLink(theme.token as LinkToken, lang, {
+      suppressMissing: true
+    }) ? 'live' : 'future') as ContextNavigationItem['status']
+  })
+);
 
-const items = destination === 'frigiliana' ? frigilianaSiblingLinks : nerjaSiblingLinks;
-const experienceBreadcrumb = destination === 'frigiliana'
-  ? sharedNavigation.breadcrumbLabel
-  : nerjaCopy.breadcrumb;
-const switcherLabel = destination === 'frigiliana'
-  ? sharedNavigation.switcherLabel
-  : nerjaCopy.switcher;
+const tarifaChildren = getTarifaAuthoritySubnav(lang)
+  .find((branch) => branch.id === 'experience')
+  ?.children ?? [];
+
+const tarifaSiblingLinks = [
+  'wind',
+  'beaches',
+  'nature-wildlife',
+  'bolonia-baelo-claudia',
+  'old-town-history',
+  'food-evening-life'
+].reduce<ContextNavigationItem[]>((acc, id) => {
+  const matchedItem = tarifaChildren.find((item) => item.id === id);
+
+  if (!matchedItem) {
+    return acc;
+  }
+
+  acc.push({
+    id: matchedItem.id,
+    label: matchedItem.label,
+    href: matchedItem.status === 'live' ? matchedItem.href : undefined,
+    status: matchedItem.status
+  });
+
+  return acc;
+}, []);
+
+const selectNavigationGroups = (
+  siblingLinks: readonly ContextNavigationItem[],
+  clusters: Array<{ id: string; label: ClusterLabelKey; itemIds: readonly string[] }>
+) =>
+  clusters
+    .map((cluster) => ({
+      id: cluster.id,
+      label: labels[cluster.label],
+      items: cluster.itemIds
+        .map((itemId) => siblingLinks.find((item) => item.id === itemId))
+        .filter((item): item is ContextNavigationItem => item !== undefined)
+    }))
+    .filter((group) => group.items.length > 0);
+
+const frigilianaGroups: ContextNavigationGroup[] = selectNavigationGroups(frigilianaSiblingLinks, [
+  {
+    id: 'frigiliana-dining',
+    label: 'cluster1',
+    itemIds: ['restaurants', 'market']
+  },
+  {
+    id: 'frigiliana-mountains',
+    label: 'cluster2',
+    itemIds: ['hiking', 'beaches']
+  },
+  {
+    id: 'frigiliana-culture',
+    label: 'cluster3',
+    itemIds: ['oldTown', 'festivals', 'dosTumbas']
+  },
+  {
+    id: 'frigiliana-rest',
+    label: 'cluster4',
+    itemIds: ['wellness', 'dayTrips']
+  }
+]);
+
+const nerjaGroups: ContextNavigationGroup[] = selectNavigationGroups(nerjaSiblingLinks, [
+  {
+    id: 'nerja-coast',
+    label: 'cluster1',
+    itemIds: ['beaches']
+  },
+  {
+    id: 'nerja-food-evening',
+    label: 'cluster2',
+    itemIds: ['food', 'nightlife']
+  },
+  {
+    id: 'nerja-culture',
+    label: 'cluster3',
+    itemIds: ['balcon', 'caves', 'veranoAzul']
+  },
+  {
+    id: 'nerja-daytrips',
+    label: 'cluster4',
+    itemIds: ['dayTrips']
+  }
+]);
+
+const tarifaGroups: ContextNavigationGroup[] = selectNavigationGroups(
+  tarifaSiblingLinks,
+  [
+    {
+      id: 'tarifa-atlantic',
+      label: 'cluster1',
+      itemIds: ['wind', 'beaches']
+    },
+    {
+      id: 'tarifa-landscape',
+      label: 'cluster2',
+      itemIds: ['nature-wildlife', 'bolonia-baelo-claudia']
+    },
+    {
+      id: 'tarifa-town',
+      label: 'cluster3',
+      itemIds: ['old-town-history']
+    },
+    {
+      id: 'tarifa-evenings',
+      label: 'cluster4',
+      itemIds: ['food-evening-life']
+    }
+  ]
+);
+
+const navigationGroups =
+  destination === 'frigiliana'
+    ? frigilianaGroups
+    : destination === 'tarifa'
+      ? tarifaGroups
+      : nerjaGroups;
+const items =
+  destination === 'frigiliana'
+    ? frigilianaSiblingLinks
+    : destination === 'tarifa'
+      ? tarifaSiblingLinks
+      : nerjaSiblingLinks;
+const experienceBreadcrumb = destinationSpecificExperienceCopy[destination].breadcrumb;
+const switcherLabel = destinationSpecificExperienceCopy[destination].switcher;
 const currentLabel = currentId
   ? items.find((item) => item.id === currentId)?.label
   : undefined;
@@ -98,7 +442,7 @@ const currentLabel = currentId
 const homeHref = resolveOptionalLink('home', lang, { suppressMissing: true });
 const breadcrumbs: ContextNavigationBreadcrumb[] = [
   { label: 'AMARA', href: homeHref ?? undefined },
-  { label: destinationLabel, href: locationHref ?? undefined },
+  { label: destinationLabel[destination], href: locationHref ?? undefined },
   {
     label: experienceBreadcrumb,
     href: currentId ? hubHref ?? undefined : undefined
@@ -115,7 +459,10 @@ const breadcrumbs: ContextNavigationBreadcrumb[] = [
   breadcrumbAriaLabel={sharedNavigation.breadcrumbAriaLabel}
   breadcrumbs={breadcrumbs}
   context="experience"
-  items={items}
+  currentPageLabel={currentLabel ?? experienceBreadcrumb}
+  groups={navigationGroups}
+  items={[]}
+  mobileNavigationLabel={labels.mobileLabel}
   switcherAriaLabel={switcherLabel}
   wrapItems={true}
 />

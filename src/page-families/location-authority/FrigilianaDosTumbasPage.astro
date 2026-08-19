@@ -1,9 +1,9 @@
 ---
 import Hero from '../../components/Hero.astro';
 import Navigation from '../../components/Navigation.astro';
-import LocationContextNav from '../../components/location/LocationContextNav.astro';
 import EditorialClosingCta from '../../components/editorial/EditorialClosingCta.astro';
 import EditorialFeatureGrid from '../../components/editorial/EditorialFeatureGrid.astro';
+import ExperienceContextNav from '../../components/experience/ExperienceContextNav.astro';
 import {
   frigilianaDosTumbasContent,
   frigilianaDosTumbasSeo
@@ -61,7 +61,7 @@ const heroImage = {
     currentLang={currentLang}
     languageToken="frigiliana_netflix_dos_tumbas"
   />
-  <LocationContextNav activeId="dosTumbas" lang={currentLang} />
+  <ExperienceContextNav currentId="dosTumbas" destination="frigiliana" lang={currentLang} />
 
   <div data-am-page="frigiliana-netflix-dos-tumbas">
     <div class="w-full">

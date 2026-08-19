@@ -1,8 +1,12 @@
 import {
+  getLocationGuideClusterLabels,
   getLocationGuideTopicLabels,
+  LOCATION_GUIDE_CLUSTER_IDS,
+  LOCATION_GUIDE_CLUSTER_TOPICS,
+  type LocationGuideClusterId,
   type LocationGuideTopicId
 } from '../location/locationGuideTopics';
-import { resolveLink } from '../linkResolver';
+import { resolveLink, type LinkToken } from '../linkResolver';
 import type { AmaraLanguage } from '../../types/seo';
 
 export type NerjaAuthoritySubnavId = 'intro' | LocationGuideTopicId;
@@ -14,40 +18,60 @@ export type NerjaAuthoritySubnavItem = {
   status: 'live' | 'future';
 };
 
+export type NerjaAuthoritySubnavGroup = {
+  id: LocationGuideClusterId;
+  items: NerjaAuthoritySubnavItem[];
+  label: string;
+};
+
+const topicLinks: Record<LocationGuideTopicId, LinkToken | undefined> = {
+  'arrival-mobility': 'getting_to_nerja',
+  'geography-orientation': 'nerja_geography',
+  'where-to-stay': 'nerja_where_to_stay',
+  'weather-seasons': 'nerja_weather',
+  'winter-stays': undefined,
+  'parking-accessibility': undefined,
+  'shopping-markets': 'nerja_daily_life',
+  'health-emergency': undefined,
+  'practical-local-rules': undefined
+};
+
+const makeTopicItem = (
+  topicId: LocationGuideTopicId,
+  currentLang: AmaraLanguage
+): NerjaAuthoritySubnavItem => {
+  const topicLabels = getLocationGuideTopicLabels(currentLang);
+  const token = topicLinks[topicId];
+
+  return token
+    ? {
+        id: topicId,
+        label: topicLabels[topicId],
+        status: 'live',
+        href: resolveLink(token, currentLang)
+      }
+    : {
+        id: topicId,
+        label: topicLabels[topicId],
+        status: 'future'
+      };
+};
+
+export function getNerjaAuthoritySubnavGroups(
+  currentLang: AmaraLanguage
+): NerjaAuthoritySubnavGroup[] {
+  const labels = getLocationGuideClusterLabels(currentLang);
+  const topicIdsByCluster = LOCATION_GUIDE_CLUSTER_TOPICS;
+
+  return LOCATION_GUIDE_CLUSTER_IDS.map((clusterId) => ({
+    id: clusterId,
+    label: labels[clusterId],
+    items: topicIdsByCluster[clusterId].map((topicId) => makeTopicItem(topicId, currentLang))
+  }));
+}
+
 export function getNerjaAuthoritySubnav(
   currentLang: AmaraLanguage
 ): NerjaAuthoritySubnavItem[] {
-  const labels = getLocationGuideTopicLabels(currentLang);
-  return [
-    {
-      id: 'arrival-mobility',
-      label: labels['arrival-mobility'],
-      status: 'live',
-      href: resolveLink('getting_to_nerja', currentLang)
-    },
-    {
-      id: 'geography-orientation',
-      label: labels['geography-orientation'],
-      status: 'live',
-      href: resolveLink('nerja_geography', currentLang)
-    },
-    {
-      id: 'where-to-stay',
-      label: labels['where-to-stay'],
-      status: 'live',
-      href: resolveLink('nerja_where_to_stay', currentLang)
-    },
-    {
-      id: 'weather-seasons',
-      label: labels['weather-seasons'],
-      status: 'live',
-      href: resolveLink('nerja_weather', currentLang)
-    },
-    {
-      id: 'daily-life-services',
-      label: labels['daily-life-services'],
-      status: 'live',
-      href: resolveLink('nerja_daily_life', currentLang)
-    }
-  ];
+  return getNerjaAuthoritySubnavGroups(currentLang).flatMap((group) => group.items);
 }

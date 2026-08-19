@@ -3,10 +3,12 @@
  * Nerja location-family wrapper for the shared AMARA context navigation.
  */
 import ContextNavigation, {
-  type ContextNavigationBreadcrumb
+  type ContextNavigationBreadcrumb,
+  type ContextNavigationGroup
 } from '../navigation/ContextNavigation.astro';
 import {
   getNerjaAuthoritySubnav,
+  getNerjaAuthoritySubnavGroups,
   type NerjaAuthoritySubnavId
 } from '../../lib/nerja/nerjaAuthoritySubnav';
 import { resolveOptionalLink } from '../../lib/linkResolver';
@@ -16,49 +18,66 @@ import type { AmaraLanguage } from '../../types/seo';
 interface Props {
   activeId: NerjaAuthoritySubnavId;
   childLabel?: string;
+  currentLabel?: string;
   lang: AmaraLanguage;
 }
 
-const { activeId, childLabel, lang } = Astro.props;
+const { activeId, childLabel, currentLabel, lang } = Astro.props;
+
 const navigationItems = getNerjaAuthoritySubnav(lang);
+const navigationGroups = getNerjaAuthoritySubnavGroups(lang);
 
 const labels: Record<
   AmaraLanguage,
   {
     breadcrumb: string;
+    guide: string;
     switcher: string;
   }
 > = {
   en: {
     breadcrumb: 'Breadcrumb',
+    guide: 'Nerja guide',
     switcher: 'Nerja guide navigation'
   },
   de: {
     breadcrumb: 'Brotkrümelnavigation',
+    guide: 'Nerja-Guide',
     switcher: 'Navigation im Nerja-Guide'
   },
   es: {
     breadcrumb: 'Migas de pan',
+    guide: 'Guía de Nerja',
     switcher: 'Navegación de la guía de Nerja'
   },
   nl: {
     breadcrumb: 'Broodkruimelnavigatie',
+    guide: 'Nerja-gids',
     switcher: 'Navigatie van de Nerja-gids'
   },
   sv: {
     breadcrumb: 'Brödsmulenavigering',
+    guide: 'Nerja-guide',
     switcher: 'Navigering i Nerja-guiden'
   }
 };
 
 const copy = labels[lang];
+
 const branchNavigation = getDestinationBranchNavigation('nerja', lang);
+
 const homeHref = resolveOptionalLink('home', lang, {
   suppressMissing: true
 });
 const nerjaHref = resolveOptionalLink('location_nerja', lang, {
   suppressMissing: true
 });
+
+const activeTopicLabel = navigationItems.find((topic) => topic.id === activeId)?.label;
+const currentTopicLabel =
+  activeId === 'intro'
+    ? currentLabel
+    : activeTopicLabel;
 
 const breadcrumbs: ContextNavigationBreadcrumb[] = [
   {
@@ -67,22 +86,40 @@ const breadcrumbs: ContextNavigationBreadcrumb[] = [
   },
   {
     label: 'Nerja',
-    href: childLabel ? nerjaHref ?? undefined : undefined
-  },
-  ...(childLabel ? [{ label: childLabel }] : [])
+    href:
+      childLabel || activeId !== 'intro'
+        ? nerjaHref ?? undefined
+        : undefined
+  }
 ];
+
+if (childLabel) {
+  breadcrumbs.push({ label: childLabel });
+} else if (activeId !== 'intro' && currentTopicLabel) {
+  breadcrumbs.push({ label: currentTopicLabel });
+}
+
+const currentPageLabel =
+  childLabel ??
+  currentLabel ??
+  currentTopicLabel ??
+  'Nerja';
+
+const groups: ContextNavigationGroup[] = navigationGroups;
 ---
 
 <ContextNavigation
   activeBranchId="location"
-  activeId={activeId}
+  activeId={activeId === 'intro' ? undefined : activeId}
   branches={branchNavigation.items}
   branchSwitcherAriaLabel={branchNavigation.ariaLabel}
   breadcrumbAriaLabel={copy.breadcrumb}
   breadcrumbs={breadcrumbs}
   context="location"
-  items={navigationItems}
+  currentPageLabel={currentPageLabel}
+  groups={groups}
+  items={[]}
+  mobileNavigationLabel={copy.guide}
   retainActiveItem={true}
   switcherAriaLabel={copy.switcher}
-  wrapItems={true}
 />

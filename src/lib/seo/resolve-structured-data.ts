@@ -226,6 +226,13 @@ const PUBLIC_ROUTE_LABELS: Partial<Record<string, Record<AmaraLanguage, string>>
     nl: 'Uitgaan in Nerja',
     sv: 'Kvällsliv i Nerja'
   },
+  'nerja-verano-azul': {
+    en: 'Verano Azul',
+    de: 'Verano Azul',
+    es: 'Verano Azul',
+    nl: 'Verano Azul',
+    sv: 'Verano Azul'
+  },
   'tarifa-location': {
     en: 'Tarifa',
     de: 'Tarifa',
@@ -454,7 +461,8 @@ const NERJA_EXPERIENCE_SLUGS = new Set([
   'nerja-food',
   'nerja-balcon-de-europa',
   'nerja-caves',
-  'nerja-nightlife'
+  'nerja-nightlife',
+  'nerja-verano-azul'
 ]);
 
 const TARIFA_LOCATION_GUIDE_SLUGS = new Set([

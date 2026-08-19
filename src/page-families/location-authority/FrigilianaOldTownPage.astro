@@ -1,9 +1,9 @@
 ---
 import Hero from '../../components/Hero.astro';
 import Navigation from '../../components/Navigation.astro';
-import LocationContextNav from '../../components/location/LocationContextNav.astro';
 import EditorialClosingCta from '../../components/editorial/EditorialClosingCta.astro';
 import EditorialFeatureGrid from '../../components/editorial/EditorialFeatureGrid.astro';
+import ExperienceContextNav from '../../components/experience/ExperienceContextNav.astro';
 import {
   frigilianaOldTownCopy,
   frigilianaOldTownExternalLinks,
@@ -90,7 +90,7 @@ const heroImage = {
     currentLang={currentLang}
     languageToken="frigiliana_old_town"
   />
-  <LocationContextNav activeId="oldTown" lang={currentLang} />
+  <ExperienceContextNav currentId="oldTown" destination="frigiliana" lang={currentLang} />
 
   <div data-am-page="frigiliana-old-town">
     <div class="w-full">
