@@ -19,8 +19,12 @@ export type FrigilianaAuthoritySubnavId =
   | 'oldTown'
   | 'faq';
 
+export type FrigilianaAuthorityTopicId =
+  | LocationGuideTopicId
+  | 'history-architecture';
+
 export type FrigilianaAuthoritySubnavItem = {
-  id: LocationGuideTopicId;
+  id: FrigilianaAuthorityTopicId;
   label: string;
   href?: string;
   status: 'live' | 'future';
@@ -101,11 +105,11 @@ const currentPageLabels: Record<
     sv: 'Netflix-platser'
   },
   oldTown: {
-    en: 'Old Town & History',
-    de: 'Altstadt & Geschichte',
-    es: 'Casco antiguo e historia',
-    nl: 'Oude kern & geschiedenis',
-    sv: 'Gamla stan & historia'
+    en: 'History & Architecture',
+    de: 'Geschichte & Baukultur',
+    es: 'Historia y arquitectura',
+    nl: 'Geschiedenis & architectuur',
+    sv: 'Historia & arkitektur'
   },
   faq: {
     en: 'FAQ',
@@ -125,9 +129,9 @@ export function getFrigilianaAuthorityCurrentPageLabel(
 
 export function getFrigilianaAuthorityActiveTopic(
   id: FrigilianaAuthoritySubnavId
-): LocationGuideTopicId | undefined {
+): FrigilianaAuthorityTopicId | undefined {
   const topicByPage: Partial<
-    Record<FrigilianaAuthoritySubnavId, LocationGuideTopicId>
+    Record<FrigilianaAuthoritySubnavId, FrigilianaAuthorityTopicId>
   > = {
     arrival: 'arrival-mobility',
     geography: 'geography-orientation',
@@ -135,7 +139,8 @@ export function getFrigilianaAuthorityActiveTopic(
     parking: 'arrival-mobility',
     stay: 'where-to-stay',
     weather: 'weather-seasons',
-    winter: 'winter-stays'
+    winter: 'winter-stays',
+    oldTown: 'history-architecture'
   };
 
   return topicByPage[id];
@@ -158,6 +163,12 @@ export function getFrigilianaAuthoritySubnav(
       label: labels['geography-orientation'],
       status: 'live',
       href: resolveLink('frigiliana_geography', currentLang)
+    },
+    {
+      id: 'history-architecture',
+      label: currentPageLabels.oldTown[currentLang],
+      status: 'live',
+      href: resolveLink('frigiliana_old_town', currentLang)
     },
     {
       id: 'where-to-stay',
