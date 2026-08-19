@@ -270,11 +270,11 @@ export const cinematicApartments: CinematicAptDef[] = [
       sv: 'Frigiliana • 2 gäster'
     },
     desc: {
-      en: 'A small, cosy double room in Frigiliana’s old town, with a compact kitchenette for coffee or a light meal and **just one step at the entrance**.',
-      de: 'Ein kleines, gemütliches Doppelzimmer in Frigilianas Altstadt, mit kleiner Teeküche für einen Kaffee oder eine kleine Mahlzeit und **nur einer Stufe am Eingang**.',
-      es: 'Una habitación doble pequeña y acogedora en el casco antiguo de Frigiliana, con una pequeña zona de cocina para preparar un café o una comida ligera y **un único escalón en la entrada**.',
-      nl: 'Een kleine, knusse tweepersoonskamer in de oude kern van Frigiliana, met een kleine kitchenette voor koffie of een lichte maaltijd en **slechts één trede bij de ingang**.',
-      sv: 'Ett litet, ombonat dubbelrum i Frigilianas gamla stad, med ett litet pentry för kaffe eller en enklare måltid och **bara ett trappsteg vid entrén**.'
+      en: 'A compact, cosy suite in Frigiliana’s old town, with a separate bedroom, tea kitchen for coffee or a light meal and **just one step at the entrance**.',
+      de: 'Eine kompakte, gemütliche Suite in Frigilianas Altstadt, mit separatem Schlafzimmer, Teeküche für einen Kaffee oder eine kleine Mahlzeit und **nur einer Stufe am Eingang**.',
+      es: 'Una suite compacta y acogedora en el casco antiguo de Frigiliana, con dormitorio separado, zona de café y té para una bebida o comida ligera y **un único escalón en la entrada**.',
+      nl: 'Een compacte, knusse suite in de oude kern van Frigiliana, met aparte slaapkamer, kitchenette voor koffie of een lichte maaltijd en **slechts één trede bij de ingang**.',
+      sv: 'En kompakt, ombonad svit i Frigilianas gamla stad, med separat sovrum, pentry för kaffe eller en enklare måltid och **bara ett trappsteg vid entrén**.'
     },
     imageAlt: {
       en: 'Bright bedroom with a green wooden window and brick arches in AMARA Farah, Frigiliana',

@@ -13,7 +13,7 @@ export interface GettingToFrigilianaOption {
 }
 
 export const gettingToFrigilianaSeo: AmaraAuthoringSeo = {
-  version: '2026-07-27-getting-to-frigiliana-v1.0-A',
+  version: '2026-08-18-getting-to-frigiliana-v1.1-A',
   pageType: 'A',
   entityKey: 'amara-brand',
   ogImage: '/images/amara-frigiliana-pueblo/JPG_Frigiliana_Pueblo/2000px_72dpi_sRGB/01-frigiliana-pueblo.jpg',
@@ -570,11 +570,11 @@ export const gettingToFrigilianaCopy = {
       sv: 'Det är enkelt att nå byn. Att ta sig runt i den är något annat.'
     } satisfies LocalizedText,
     body: {
-      en: 'Frigiliana rises steeply above the coast. The historic lanes include slopes, steps, and limited vehicle access, so parking location and luggage matter more than the distance on a map suggests.',
-      de: 'Frigiliana steigt steil über der Küste an. In den historischen Gassen gibt es Steigungen, Treppen und eingeschränkten Fahrzeugzugang. Deshalb sind Parkplatzlage und Gepäck wichtiger, als die Entfernung auf der Karte vermuten lässt.',
-      es: 'Frigiliana se eleva con bastante desnivel sobre la costa. Sus calles históricas tienen cuestas, escaleras y acceso limitado para vehículos; por eso importan más el aparcamiento y el equipaje de lo que sugiere el mapa.',
-      nl: 'Frigiliana ligt steil boven de kust. De historische straatjes hebben hellingen, trappen en beperkte autotoegang. Daarom zijn parkeerplek en bagage belangrijker dan de afstand op de kaart doet vermoeden.',
-      sv: 'Frigiliana reser sig brant över kusten. De historiska gränderna har lutningar, trappor och begränsad biltrafik, så parkering och bagage spelar större roll än kartavståndet antyder.'
+      en: 'Frigiliana rises steeply above the coast. The historic lanes include slopes, steps, and limited vehicle access, so the final approach depends on where you are staying. If you are arriving at La AMARA, continue with the dedicated guide for the recommended drop-off point and the walking route to the green door.',
+      de: 'Frigiliana steigt steil über der Küste an. In den historischen Gassen gibt es Steigungen, Treppen und eingeschränkten Fahrzeugzugang. Deshalb hängt die letzte Etappe von eurer Unterkunft ab. Wenn ihr bei La AMARA ankommt, führt euch der eigene Guide zum empfohlenen Ausstiegspunkt und weiter zu Fuß bis zur grünen Tür.',
+      es: 'Frigiliana se eleva con bastante desnivel sobre la costa. Sus calles históricas tienen cuestas, escaleras y acceso limitado para vehículos, por lo que el último tramo depende de vuestro alojamiento. Si llegáis a La AMARA, continuad con la guía específica para ver el punto recomendado para bajar y el camino a pie hasta la puerta verde.',
+      nl: 'Frigiliana ligt steil boven de kust. De historische straatjes hebben hellingen, trappen en beperkte autotoegang, waardoor het laatste traject afhangt van jullie verblijf. Komen jullie naar La AMARA, ga dan verder met de aparte gids voor de aanbevolen afzetplek en de looproute naar de groene deur.',
+      sv: 'Frigiliana reser sig brant över kusten. De historiska gränderna har lutningar, trappor och begränsad biltrafik, så den sista sträckan beror på var ni bor. Om ni ska till La AMARA fortsätter ni med den särskilda guiden till den rekommenderade avlämningsplatsen och gångvägen fram till den gröna dörren.'
     } satisfies LocalizedText,
     parkingCta: {
       en: 'Understand parking in Frigiliana',
@@ -584,11 +584,11 @@ export const gettingToFrigilianaCopy = {
       sv: 'Förstå parkering i Frigiliana'
     } satisfies LocalizedText,
     bookedCta: {
-      en: 'Already booked? Arrival at AMARA',
-      de: 'Bereits gebucht? Anreise zu AMARA',
-      es: '¿Ya habéis reservado? Llegada a AMARA',
-      nl: 'Al geboekt? Aankomst bij AMARA',
-      sv: 'Redan bokat? Ankomst till AMARA'
+      en: 'Continue to the La AMARA door',
+      de: 'Weiter bis zur Tür von La AMARA',
+      es: 'Continuar hasta la puerta de La AMARA',
+      nl: 'Verder naar de deur van La AMARA',
+      sv: 'Fortsätt till La AMARAs dörr'
     } satisfies LocalizedText,
     imageAlt: {
       en: 'Stepped historic lane in Frigiliana',

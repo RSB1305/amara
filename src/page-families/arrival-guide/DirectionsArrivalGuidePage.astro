@@ -1,15 +1,16 @@
 ---
+import {
+  BusFront,
+  CarFront,
+  CircleParking,
+  Footprints,
+  Luggage,
+  MapPin,
+  Phone,
+  ShieldAlert,
+  X
+} from '@lucide/astro';
 import InlineEmphasis from '../../components/text/InlineEmphasis.astro';
-/**
- * AMARA v3 Arrival Guide
- * Guest-facing operational arrival page for La AMARA.
- *
- * Architectural intent:
- * - This page is treated as a practical utility page for existing or arriving guests.
- * - It must remain operational, calm, and easy to scan.
- * - It is intentionally not positioned as a Typ D conversion page.
- * - SEO still runs through the global resolver contract already used by UtilityLayout.
- */
 import {
   arrivalGuideBusRoutes,
   arrivalGuideCopy,
@@ -17,12 +18,11 @@ import {
   arrivalGuideSteps,
   arrivalGuideUi
 } from '../../content/arrivalGuideContent';
-import FaqAccordion from '../../components/FaqAccordion.astro';
 import AmaraImage from '../../components/AmaraImage.astro';
 import Navigation from '../../components/Navigation.astro';
-import LocationContextNav from '../../components/location/LocationContextNav.astro';
+import { resolveOptionalLink } from '../../lib/linkResolver';
 import { normalizeLanguage } from '../../lib/seo/resolve-seo-head';
-import LocationAuthorityLayout from '../../layouts/LocationAuthorityLayout.astro';
+import BaseLayout from '../../layouts/BaseLayout.astro';
 import type { AmaraLanguage } from '../../types/seo';
 
 interface Props {
@@ -33,16 +33,23 @@ const { lang = 'es' } = Astro.props;
 const currentLang = normalizeLanguage(lang as AmaraLanguage);
 const seo = arrivalGuideSeo;
 const copy = arrivalGuideCopy;
-const arrivalSteps = arrivalGuideSteps;
-const busRoutes = arrivalGuideBusRoutes;
+const arrivalSteps = arrivalGuideSteps[currentLang];
+const busRoutes = arrivalGuideBusRoutes[currentLang];
 const ui = arrivalGuideUi;
+const mapHref = 'https://maps.app.goo.gl/S7AzRNc2QMCRyBBN6';
+const gettingToFrigilianaHref = resolveOptionalLink('getting_to_frigiliana', currentLang, {
+  suppressMissing: true
+});
 const c = {
-  nav: { brand: copy.nav.brand[currentLang], links: copy.nav.links.map((l) => ({ token: l.token, label: l.label[currentLang] })) },
   header: {
     eyebrow: copy.header.eyebrow[currentLang],
     title: copy.header.title[currentLang],
-    subtitle: copy.header.subtitle[currentLang],
-    backLinkWord: copy.header.backLinkWord[currentLang]
+    subtitle: copy.header.subtitle[currentLang]
+  },
+  journeyIntro: {
+    title: copy.content.journeyIntro.title[currentLang],
+    text: copy.content.journeyIntro.text[currentLang],
+    cta: copy.content.journeyIntro.cta[currentLang]
   },
   parking: { title: copy.content.parking.title[currentLang], text: copy.content.parking.text[currentLang] },
   walkingAccess: { title: copy.content.walkingAccess.title[currentLang], text: copy.content.walkingAccess.text[currentLang] },
@@ -55,272 +62,396 @@ const c = {
     title: copy.content.arrivalByBus.title[currentLang],
     text: copy.content.arrivalByBus.text[currentLang]
   },
-  arrivalSection: {
-    title: copy.content.arrivalSection.title[currentLang],
-    steps: [
-      {
-        num: '01',
-        headline: copy.content.arrivalByBus.title[currentLang],
-        text: copy.content.arrivalSection.busStep[currentLang]
-      },
-      {
-        num: '02',
-        headline: copy.content.walkingAccess.title[currentLang],
-        text: copy.content.walkingAccess.text[currentLang]
-      },
-      {
-        num: '03',
-        headline: copy.content.luggageAdvice.title[currentLang],
-        text: copy.content.luggageAdvice.text[currentLang]
-      }
-    ]
-  },
   luggageAdvice: { title: copy.content.luggageAdvice.title[currentLang], text: copy.content.luggageAdvice.text[currentLang] },
   faq: { title: copy.content.faq.title[currentLang], items: copy.content.faq.items[currentLang] },
-  sidebar: copy.sidebar,
-  footer: { brand: copy.footer.brand[currentLang], rights: copy.footer.rights[currentLang] }
+  sidebar: copy.sidebar
 };
+const arrivalTipParagraphs = c.arrivalTip.text.split('\n\n');
+const busIntro = c.arrivalByBus.text.split('\n\n')[0];
 ---
 
-<LocationAuthorityLayout seo={seo} pageLang={currentLang} showContextNavigation={false} bodyBackgroundClass="bg-white">
+<BaseLayout
+  seo={seo}
+  pageLang={currentLang}
+  contextBreadcrumbTitle={c.header.title}
+>
   <Navigation
-    slot="navigation"
     currentLang={currentLang}
     languageToken="arrival_guide"
   />
-  <LocationContextNav activeId="arrival" lang={currentLang} />
 
-  <div data-am-page="frigiliana-arrival-guide">
-    <div class="w-full max-w-screen-2xl mx-auto px-6 md:px-12 pt-20 pb-20">
-      <header class="mb-20 border-b border-black/10 pb-12">
-        <span class="am-text-caption text-primary mb-4 block">{c.header.eyebrow}</span>
-        <h1 class="am-text-display italic text-on-surface mb-6">{c.header.title}</h1>
-        <p class="am-text-body text-on-surface-variant italic opacity-70 max-w-2xl"><InlineEmphasis text={c.header.subtitle} /></p>
-      </header>
+  <main
+    id="am-main-content"
+    tabindex="-1"
+    class="min-h-screen scroll-mt-[104px] bg-surface lg:scroll-mt-[112px]"
+    data-am-page="frigiliana-arrival-guide"
+  >
+    <div class="mx-auto w-full max-w-screen-2xl px-6 pb-6 md:px-12 md:pb-16">
+      <section class="border-b border-border-subtle pb-14 pt-8 md:pb-20">
+        <div class="max-w-4xl">
+          <p class="font-label text-[11px] font-bold uppercase tracking-[0.14em] text-on-surface-variant">
+            {c.header.eyebrow}
+          </p>
+          <h1 class="am-text-display mt-5 max-w-4xl text-balance text-on-surface">
+            {c.header.title}
+          </h1>
+          <p class="am-text-title mt-5 max-w-4xl text-balance text-on-surface">
+            <InlineEmphasis text={c.header.subtitle} />
+          </p>
+        </div>
 
-      <div class="pt-8 space-y-20">
-        {/* Operational orientation start (Arrival Guide): intro + step-by-step module */}
-        <section class="grid gap-10 lg:grid-cols-12 items-start">
-          <div class="lg:col-span-8 space-y-6">
-            <h2 class="am-text-title italic text-on-surface">{c.parking.title}</h2>
+        <figure class="am-mobile-full-bleed mt-8 aspect-[16/9] max-h-[720px] overflow-hidden bg-surface-container-low md:mt-10">
+          <AmaraImage
+            src="/images/amara-entrada/casa-amara-frigiliana-fuerra-ii.jpg"
+            alt={ui.heroAlt[currentLang]}
+            profile="hero"
+            sizes="(max-width: 639px) 100vw, (max-width: 767px) calc(100vw - 3rem), (max-width: 1535px) calc(100vw - 6rem), 1440px"
+            class="h-full w-full object-cover"
+            loading="eager"
+            fetchpriority="high"
+            decoding="async"
+          />
+        </figure>
 
-            <p class="am-text-body text-on-surface-variant leading-relaxed italic max-w-3xl">
-              {c.parking.text}
-            </p>
+        <div class="mt-8 max-w-4xl md:mt-10">
+          <div class="grid gap-5 border-y border-border-subtle py-6 sm:grid-cols-[minmax(0,1fr)_auto] sm:items-center sm:gap-8">
+            <div>
+              <p class="font-label text-[11px] font-bold uppercase tracking-[0.14em] text-on-surface-variant">
+                {c.journeyIntro.title}
+              </p>
+              <p class="am-text-body mt-3 max-w-2xl leading-relaxed text-on-surface-variant">
+                {c.journeyIntro.text}
+              </p>
+            </div>
+            {gettingToFrigilianaHref && (
+              <a class="am-inline-link am-text-body w-fit shrink-0" href={gettingToFrigilianaHref}>
+                {c.journeyIntro.cta}
+                <span aria-hidden="true"> &rarr;</span>
+              </a>
+            )}
+          </div>
 
-            <div class="rounded-editorial border border-outline-variant/5 bg-surface p-8">
-              <h3 class="am-text-caption uppercase tracking-[0.18em] text-primary mb-5">
+          <h2 class="am-text-title mt-10 text-on-surface">{c.parking.title}</h2>
+          <p class="am-text-body mt-5 max-w-3xl leading-relaxed text-on-surface-variant">
+            {c.parking.text}
+          </p>
+          <div class="mt-8 grid gap-3 sm:flex sm:flex-wrap">
+            <a
+              class="am-btn am-btn--primary w-full justify-center sm:w-auto"
+              href={mapHref}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              {ui.openInMaps[currentLang]}
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section class="border-b border-border-subtle py-12 md:py-16" aria-labelledby="arrival-facts-title">
+        <div class="flex flex-col gap-8">
+          <h2 id="arrival-facts-title" class="am-text-subtitle text-on-surface">
+            {c.sidebar.title[currentLang]}
+          </h2>
+          <dl class="grid grid-cols-2 gap-x-5 gap-y-7 sm:gap-x-10 sm:gap-y-8 lg:grid-cols-4">
+            <div class="grid grid-cols-[2rem_minmax(0,1fr)] items-start gap-x-2.5 sm:grid-cols-[2.5rem_minmax(0,1fr)] sm:gap-x-4">
+              <dt class="col-span-2 grid grid-cols-[2rem_minmax(0,1fr)] items-start gap-x-2.5 sm:grid-cols-[2.5rem_minmax(0,1fr)] sm:gap-x-4">
+                <span class="flex h-8 w-8 items-center justify-center rounded-full bg-surface-container-low text-primary sm:h-10 sm:w-10" aria-hidden="true">
+                  <MapPin class="h-5 w-5" stroke-width={1.5} />
+                </span>
+                <span class="min-w-0 pt-0.5 font-label text-[12px] font-semibold tracking-[0.04em] text-on-surface-variant">
+                  {c.sidebar.address[currentLang]}
+                </span>
+              </dt>
+              <dd class="am-text-body col-start-2 mt-1 leading-relaxed text-on-surface">
+                Calle Chorruelo 5<br />29788 Frigiliana
+              </dd>
+            </div>
+
+            <div class="grid grid-cols-[2rem_minmax(0,1fr)] items-start gap-x-2.5 sm:grid-cols-[2.5rem_minmax(0,1fr)] sm:gap-x-4">
+              <dt class="col-span-2 grid grid-cols-[2rem_minmax(0,1fr)] items-start gap-x-2.5 sm:grid-cols-[2.5rem_minmax(0,1fr)] sm:gap-x-4">
+                <span class="flex h-8 w-8 items-center justify-center rounded-full bg-surface-container-low text-primary sm:h-10 sm:w-10" aria-hidden="true">
+                  <CircleParking class="h-5 w-5" stroke-width={1.5} />
+                </span>
+                <span class="min-w-0 pt-0.5 font-label text-[12px] font-semibold tracking-[0.04em] text-on-surface-variant">
+                  {c.sidebar.dropOff[currentLang]}
+                </span>
+              </dt>
+              <dd class="am-text-body col-start-2 mt-1 leading-relaxed text-on-surface">Avenida Carlos Cano 42</dd>
+            </div>
+
+            <div class="grid grid-cols-[2rem_minmax(0,1fr)] items-start gap-x-2.5 sm:grid-cols-[2.5rem_minmax(0,1fr)] sm:gap-x-4">
+              <dt class="col-span-2 grid grid-cols-[2rem_minmax(0,1fr)] items-start gap-x-2.5 sm:grid-cols-[2.5rem_minmax(0,1fr)] sm:gap-x-4">
+                <span class="flex h-8 w-8 items-center justify-center rounded-full bg-surface-container-low text-primary sm:h-10 sm:w-10" aria-hidden="true">
+                  <Footprints class="h-5 w-5" stroke-width={1.5} />
+                </span>
+                <span class="min-w-0 pt-0.5 font-label text-[12px] font-semibold tracking-[0.04em] text-on-surface-variant">
+                  {c.sidebar.walkingDistance[currentLang]}
+                </span>
+              </dt>
+              <dd class="am-text-body col-start-2 mt-1 leading-relaxed text-on-surface">
+                <InlineEmphasis text={c.sidebar.walkingValue[currentLang]} />
+              </dd>
+            </div>
+
+            <div class="grid grid-cols-[2rem_minmax(0,1fr)] items-start gap-x-2.5 sm:grid-cols-[2.5rem_minmax(0,1fr)] sm:gap-x-4">
+              <dt class="col-span-2 grid grid-cols-[2rem_minmax(0,1fr)] items-start gap-x-2.5 sm:grid-cols-[2.5rem_minmax(0,1fr)] sm:gap-x-4">
+                <span class="flex h-8 w-8 items-center justify-center rounded-full bg-surface-container-low text-primary sm:h-10 sm:w-10" aria-hidden="true">
+                  <BusFront class="h-5 w-5" stroke-width={1.5} />
+                </span>
+                <span class="min-w-0 pt-0.5 font-label text-[12px] font-semibold tracking-[0.04em] text-on-surface-variant">
+                  {c.sidebar.busStop[currentLang]}
+                </span>
+              </dt>
+              <dd class="am-text-body col-start-2 mt-1 leading-relaxed text-on-surface">Parada de Autobús · C. Real</dd>
+            </div>
+          </dl>
+        </div>
+      </section>
+
+      <section class="border-b border-border-subtle py-12 md:py-16" aria-labelledby="arrival-car-title">
+        <div class="grid gap-12 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)]">
+          <div>
+            <div class="flex items-center gap-3">
+              <span class="flex h-10 w-10 items-center justify-center rounded-full bg-surface-container-low text-primary" aria-hidden="true">
+                <CarFront class="h-5 w-5" stroke-width={1.5} />
+              </span>
+              <h2 id="arrival-car-title" class="am-text-title text-on-surface">{c.arrivalTip.title}</h2>
+            </div>
+            <div class="mt-6 grid max-w-2xl gap-5">
+              {arrivalTipParagraphs.map((paragraph) => (
+                <p class="am-text-body leading-relaxed text-on-surface-variant">{paragraph}</p>
+              ))}
+            </div>
+            <div class="mt-7 border-t border-border-subtle pt-5">
+              <p class="am-text-body leading-relaxed text-on-surface-variant">
+                <strong class="font-semibold text-on-surface">{c.sidebar.taxiNoteLabel[currentLang]}:</strong>
+                {' '}{c.arrivalTip.taxiNote}
+              </p>
+            </div>
+          </div>
+
+          <div class="self-start border-y border-border-subtle">
+            <div class="flex min-h-11 items-center py-5">
+              <h3 class="font-label text-[12px] font-semibold uppercase tracking-[0.1em] text-on-surface">
                 {ui.stepLabel[currentLang]}
               </h3>
-              <ol class="space-y-4">
-                {arrivalSteps[currentLang].map((step, index) => (
-                  <li class="flex gap-4">
-                    <span class="mt-0.5 shrink-0 am-text-caption uppercase tracking-[0.18em] text-primary/70">
-                      {String(index + 1).padStart(2, '0')}
-                    </span>
-                    <span class="am-text-body text-on-surface leading-relaxed">{step}</span>
-                  </li>
-                ))}
-              </ol>
             </div>
-
-            <section class="space-y-6 pt-10">
-              <h2 class="am-text-title italic text-on-surface">{c.arrivalTip.title}</h2>
-
-              <div class="space-y-6">
-                <p class="am-text-body text-on-surface-variant leading-relaxed italic max-w-3xl">
-                  {c.arrivalTip.text.split('\n\n')[0]}
-                </p>
-
-                <p class="am-text-body text-on-surface-variant leading-relaxed max-w-3xl">
-                  {c.arrivalTip.text.split('\n\n').slice(1).join('\n\n')}
-                </p>
-
-                <p class="am-text-body text-on-surface-variant leading-relaxed max-w-3xl">
-                  <strong class="text-on-surface">{c.sidebar.taxiNoteLabel[currentLang]}:</strong> {c.arrivalTip.taxiNote}
-                </p>
-              </div>
-            </section>
-
-            <section class="space-y-8 pt-10">
-              <h2 class="am-text-title italic text-on-surface">{c.arrivalByBus.title}</h2>
-
-              <div class="space-y-6">
-                <p class="am-text-body text-on-surface-variant leading-relaxed italic max-w-3xl">
-                  {c.arrivalByBus.text.split('\n\n')[0]}
-                </p>
-
-                <div class="rounded-editorial border border-outline-variant/5 bg-surface p-8 max-w-3xl">
-                  <h3 class="am-text-caption uppercase tracking-[0.18em] text-primary mb-6">
-                    {ui.routeChoice[currentLang]}
-                  </h3>
-
-                  <div class="space-y-6">
-                    {busRoutes[currentLang].map((route) => (
-                      <article class="border-b border-outline-variant/10 pb-6 last:border-b-0 last:pb-0">
-                        <h3 class="am-text-subtitle text-on-surface font-normal leading-snug">{route.title}</h3>
-                        <p class="am-text-caption uppercase tracking-[0.18em] opacity-50 mt-2 mb-3">
-                          {route.meta}
-                        </p>
-                        <p class="am-text-body text-on-surface-variant leading-relaxed">
-                          {route.text}
-                        </p>
-                      </article>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            </section>
+            <ol class="bg-surface-container-low px-5 sm:px-6">
+              {arrivalSteps.map((step, index) => (
+                <li class="grid min-h-[4.5rem] grid-cols-[2.25rem_minmax(0,1fr)] content-center gap-x-4 border-b border-border-subtle py-4 last:border-b-0 md:min-h-[5.25rem] md:py-5">
+                  <span class="flex h-9 w-9 items-center justify-center rounded-full bg-surface font-label text-[11px] font-bold text-primary" aria-hidden="true">
+                    {String(index + 1).padStart(2, '0')}
+                  </span>
+                  <span class="am-text-body self-center leading-relaxed text-on-surface">{step}</span>
+                </li>
+              ))}
+            </ol>
           </div>
+        </div>
+      </section>
 
-          <div class="lg:col-span-4">
-            <div class="space-y-6">
-              <div class="p-8 bg-surface border border-outline-variant/5 rounded-editorial">
-                <h3 class="am-text-subtitle italic text-on-surface mb-8">{c.sidebar.title[currentLang]}</h3>
+      <section class="border-b border-border-subtle py-12 md:py-16" aria-labelledby="arrival-map-title">
+        <div class="grid gap-10 lg:grid-cols-[minmax(0,1.15fr)_minmax(0,0.85fr)] lg:items-center">
+          <figure class="am-mobile-full-bleed overflow-hidden bg-surface-container-low md:mx-0 md:w-full">
+            <button
+              type="button"
+              class="group block w-full cursor-zoom-in focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[-2px] focus-visible:outline-primary"
+              data-am-map-open
+              aria-haspopup="dialog"
+              aria-label={ui.expandMap[currentLang]}
+            >
+              <AmaraImage
+                src="/images/arrival-map.jpg"
+                alt={c.sidebar.mapTitle[currentLang]}
+                profile="gallery"
+                sizes="(max-width: 1023px) 100vw, 60vw"
+                class="h-auto w-full transition-transform duration-700 ease-out group-hover:scale-[1.01] motion-reduce:transition-none motion-reduce:group-hover:scale-100"
+                loading="lazy"
+                decoding="async"
+              />
+            </button>
+          </figure>
 
-                <div class="space-y-6">
-                  <div class="border-b border-outline-variant/10 pb-4">
-                    <span class="am-text-caption uppercase tracking-[0.18em] opacity-50 mb-2 block">
-                      {c.sidebar.address[currentLang]}
-                    </span>
-                    <p class="am-text-body text-on-surface leading-relaxed">Calle Chorruelo 5<br />29788 Frigiliana</p>
-                  </div>
-
-                  <div class="border-b border-outline-variant/10 pb-4">
-                    <span class="am-text-caption uppercase tracking-[0.18em] opacity-50 mb-2 block">
-                      {c.sidebar.dropOff[currentLang]}
-                    </span>
-                    <p class="am-text-body text-on-surface leading-relaxed">Avenida Carlos Cano 42</p>
-                  </div>
-
-                  <div class="border-b border-outline-variant/10 pb-4">
-                    <span class="am-text-caption uppercase tracking-[0.18em] opacity-50 mb-2 block">
-                      {c.sidebar.walkingDistance[currentLang]}
-                    </span>
-                    <p class="am-text-body text-on-surface leading-relaxed"><InlineEmphasis text={c.sidebar.walkingValue[currentLang]} /></p>
-                  </div>
-
-                  <div>
-                    <span class="am-text-caption uppercase tracking-[0.18em] opacity-50 mb-2 block">
-                      {c.sidebar.busStop[currentLang]}
-                    </span>
-                    <p class="am-text-body text-on-surface leading-relaxed">Parada de Autobus - C. Real</p>
-                  </div>
-                </div>
-              </div>
-
-              <div class="space-y-6">
-                <div class="rounded-editorial overflow-hidden border border-outline-variant/5 bg-surface">
-                  <button
-                    type="button"
-                    class="block w-full"
-                    data-am-map-open
-                    aria-haspopup="dialog"
-                  >
-                    <AmaraImage
-                      src="/images/arrival-map.jpg"
-                      alt="Walking route from Avenida Carlos Cano 42 to La AMARA Frigiliana"
-                      profile="gallery"
-                      sizes="(max-width: 1023px) calc(100vw - 3rem), 50vw"
-                      class="w-full h-auto"
-                      loading="lazy"
-                      decoding="async"
-                    />
-                  </button>
-                </div>
-
-                <div>
-                  <a
-                    href="https://maps.app.goo.gl/S7AzRNc2QMCRyBBN6"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    class="am-cta-link"
-                  >
-                    Open route in Google Maps
-                  </a>
-                </div>
-              </div>
-
-              <div class="p-8 bg-surface border border-outline-variant/5 rounded-editorial max-w-xl">
-                <h3 class="am-text-caption mb-8 text-primary">{c.sidebar.quickContact[currentLang]}</h3>
-                <ul class="space-y-6">
-                  <li class="flex flex-col border-b border-outline-variant/10 pb-4">
-                    <span class="am-text-caption uppercase opacity-50 mb-1">{c.sidebar.taxi[currentLang]}</span>
-                    <span class="am-text-body font-bold text-on-surface">+34 952 533 131</span>
-                  </li>
-                  <li class="flex flex-col">
-                    <span class="am-text-caption uppercase opacity-50 mb-1">{c.sidebar.emergency[currentLang]}</span>
-                    <span class="am-text-body font-bold text-primary">112</span>
-                  </li>
-                </ul>
-              </div>
+          <div>
+            <p class="font-label text-[11px] font-bold uppercase tracking-[0.14em] text-on-surface-variant">
+              {c.sidebar.routeTitle[currentLang]}
+            </p>
+            <h2 id="arrival-map-title" class="am-text-title mt-4 text-balance text-on-surface">
+              {c.sidebar.mapTitle[currentLang]}
+            </h2>
+            <p class="am-text-body mt-5 leading-relaxed text-on-surface-variant">
+              <InlineEmphasis text={c.sidebar.walkingValue[currentLang]} />
+            </p>
+            <div class="mt-7 grid gap-3 sm:flex sm:flex-wrap">
+              <a
+                class="am-btn am-btn--secondary w-full justify-center sm:w-auto"
+                href={mapHref}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {ui.openInMaps[currentLang]}
+              </a>
             </div>
           </div>
-        </section>
+        </div>
+      </section>
 
-        <section class="space-y-6">
-          <h2 class="am-text-title italic text-on-surface">{c.walkingAccess.title}</h2>
-          <p class="am-text-body text-on-surface-variant leading-relaxed italic max-w-3xl">
-            {c.walkingAccess.text}
-          </p>
-        </section>
+      <section class="border-b border-border-subtle py-12 md:py-16" aria-labelledby="arrival-bus-title">
+        <div class="grid gap-10 lg:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)]">
+          <div class="max-w-xl">
+            <div class="flex items-center gap-3">
+              <span class="flex h-10 w-10 items-center justify-center rounded-full bg-surface-container-low text-primary" aria-hidden="true">
+                <BusFront class="h-5 w-5" stroke-width={1.5} />
+              </span>
+              <h2 id="arrival-bus-title" class="am-text-title text-on-surface">{c.arrivalByBus.title}</h2>
+            </div>
+            <p class="am-text-body mt-6 leading-relaxed text-on-surface-variant">{busIntro}</p>
+          </div>
 
-        <section class="space-y-6">
-          <h2 class="am-text-title italic text-on-surface">{c.luggageAdvice.title}</h2>
-          <p class="am-text-body text-on-surface-variant leading-relaxed italic max-w-3xl">
-            {c.luggageAdvice.text}
-          </p>
-        </section>
+          <div>
+            <h3 class="font-label text-[12px] font-semibold uppercase tracking-[0.1em] text-on-surface">
+              {ui.routeChoice[currentLang]}
+            </h3>
+            <div class="mt-5 border-y border-border-subtle">
+              {busRoutes.map((route) => (
+                <article class="border-b border-border-subtle py-6 last:border-b-0">
+                  <p class="font-label text-[11px] font-bold uppercase tracking-[0.14em] text-primary">{route.meta}</p>
+                  <h3 class="am-text-subtitle mt-3 text-on-surface">{route.title}</h3>
+                  <p class="am-text-body mt-3 leading-relaxed text-on-surface-variant">{route.text}</p>
+                </article>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
 
-        <FaqAccordion
-          arrivalTitle={c.arrivalSection.title}
-          steps={c.arrivalSection.steps}
-          faqTitle={c.faq.title}
-          items={c.faq.items}
-        />
-      </div>
+      <section class="border-b border-border-subtle py-12 md:py-16">
+        <div class="grid gap-10 lg:grid-cols-2 lg:gap-16">
+          <article>
+            <div class="flex items-center gap-3">
+              <span class="flex h-10 w-10 items-center justify-center rounded-full bg-surface-container-low text-primary" aria-hidden="true">
+                <Footprints class="h-5 w-5" stroke-width={1.5} />
+              </span>
+              <h2 class="am-text-subtitle text-on-surface">{c.walkingAccess.title}</h2>
+            </div>
+            <p class="am-text-body mt-5 max-w-2xl leading-relaxed text-on-surface-variant">{c.walkingAccess.text}</p>
+          </article>
+
+          <article class="border-t border-border-subtle pt-8 lg:border-l lg:border-t-0 lg:pl-10 lg:pt-0">
+            <div class="flex items-center gap-3">
+              <span class="flex h-10 w-10 items-center justify-center rounded-full bg-surface-container-low text-primary" aria-hidden="true">
+                <Luggage class="h-5 w-5" stroke-width={1.5} />
+              </span>
+              <h2 class="am-text-subtitle text-on-surface">{c.luggageAdvice.title}</h2>
+            </div>
+            <p class="am-text-body mt-5 max-w-2xl leading-relaxed text-on-surface-variant">{c.luggageAdvice.text}</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="border-b border-border-subtle py-12 md:py-16" aria-labelledby="arrival-contact-title">
+        <div class="grid gap-10 lg:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)]">
+          <h2 id="arrival-contact-title" class="am-text-subtitle text-on-surface">
+            {c.sidebar.quickContact[currentLang]}
+          </h2>
+          <dl class="grid gap-0 bg-surface-container-low px-5 sm:grid-cols-2 sm:px-6">
+            <div class="grid min-h-[5.5rem] grid-cols-[2.25rem_minmax(0,1fr)] content-center gap-x-4 border-b border-border-subtle py-4 sm:border-b-0 sm:border-r sm:pr-6">
+              <dt class="col-span-2 grid grid-cols-[2.25rem_minmax(0,1fr)] items-center gap-x-4">
+                <span class="flex h-9 w-9 items-center justify-center rounded-full bg-surface text-primary" aria-hidden="true">
+                  <Phone class="h-[1.125rem] w-[1.125rem]" stroke-width={1.5} />
+                </span>
+                <span class="font-label text-[12px] font-semibold tracking-[0.04em] text-on-surface-variant">
+                  {c.sidebar.taxi[currentLang]}
+                </span>
+              </dt>
+              <dd class="am-text-body col-start-2 mt-1 font-semibold text-on-surface">
+                <a class="am-link" href="tel:+34952533131">+34 952 533 131</a>
+              </dd>
+            </div>
+            <div class="grid min-h-[5.5rem] grid-cols-[2.25rem_minmax(0,1fr)] content-center gap-x-4 py-4 sm:pl-6">
+              <dt class="col-span-2 grid grid-cols-[2.25rem_minmax(0,1fr)] items-center gap-x-4">
+                <span class="flex h-9 w-9 items-center justify-center rounded-full bg-surface text-primary" aria-hidden="true">
+                  <ShieldAlert class="h-[1.125rem] w-[1.125rem]" stroke-width={1.5} />
+                </span>
+                <span class="font-label text-[12px] font-semibold tracking-[0.04em] text-on-surface-variant">
+                  {c.sidebar.emergency[currentLang]}
+                </span>
+              </dt>
+              <dd class="am-text-body col-start-2 mt-1 font-semibold text-on-surface">
+                <a class="am-link" href="tel:112">112</a>
+              </dd>
+            </div>
+          </dl>
+        </div>
+      </section>
+
+      <section class="pb-6 pt-12 md:py-16" aria-labelledby="arrival-faq-title">
+        <div class="grid gap-10 lg:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)]">
+          <div>
+            <h2 id="arrival-faq-title" class="am-text-title text-on-surface">{c.faq.title}</h2>
+          </div>
+          <div class="border-t border-border-subtle">
+            {c.faq.items.map((item) => (
+              <details class="group border-b border-border-subtle">
+                <summary class="am-accordion__trigger min-h-11 items-center py-5">
+                  <span class="font-label pr-6 text-[12px] font-semibold uppercase tracking-[0.1em] text-on-surface transition-colors group-hover:text-primary">
+                    {item.question}
+                  </span>
+                  <span class="am-accordion__indicator" aria-hidden="true">
+                    <span class="group-open:hidden">+</span>
+                    <span class="hidden group-open:inline">−</span>
+                  </span>
+                </summary>
+                <p class="am-text-body max-w-2xl pb-6 leading-relaxed text-on-surface-variant">{item.answer}</p>
+              </details>
+            ))}
+          </div>
+        </div>
+      </section>
     </div>
-  </div>
+  </main>
 
-  <dialog id="map-overlay" class="am-map-dialog" data-am-map-overlay aria-label="Expanded route map">
+  <dialog
+    id="map-overlay"
+    class="am-map-dialog"
+    data-am-map-overlay
+    aria-label={c.sidebar.mapTitle[currentLang]}
+  >
     <div class="relative w-full" data-am-map-panel>
       <button
         type="button"
-        class="absolute top-4 right-4 text-on-primary am-text-subtitle"
+        class="absolute right-4 top-4 z-10 flex h-11 w-11 items-center justify-center rounded-full bg-on-surface text-surface transition-colors hover:bg-primary focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
         data-am-map-close
+        aria-label={ui.closeMap[currentLang]}
       >
-        ✕
+        <X class="h-5 w-5" stroke-width={1.75} aria-hidden="true" />
       </button>
 
       <AmaraImage
         src="/images/arrival-map.jpg"
-        alt="Expanded route map"
+        alt={c.sidebar.mapTitle[currentLang]}
         profile="gallery"
         sizes="90vw"
-        class="w-full h-auto rounded-editorial"
+        class="h-auto w-full"
         loading="lazy"
         decoding="async"
       />
 
       <div class="mt-4 text-center">
         <a
-          href="https://www.google.com/maps/dir/Avenida+Carlos+Cano+42,+Frigiliana/Calle+Chorruelo+5,+Frigiliana"
+          href={mapHref}
           target="_blank"
           rel="noopener noreferrer"
-          class="am-cta-link am-cta-link--inverse"
+          class="am-btn am-btn--secondary am-btn--inverse"
         >
-          Open route in Google Maps
+          {ui.openInMaps[currentLang]}
         </a>
       </div>
     </div>
   </dialog>
 
   <script>
-    // Map overlay behaviour. This was four inline onclick attributes, one of them
-    // using the deprecated global `event`. A native <dialog> handles the modal
-    // contract itself: top layer, focus trap, background inert, Escape to dismiss
-    // and focus restored to the trigger. Only backdrop-dismiss needs wiring, and
-    // the markup stays free of behaviour so a strict CSP remains possible.
     (() => {
       const dialog = document.querySelector<HTMLDialogElement>('[data-am-map-overlay]');
       const opener = document.querySelector<HTMLElement>('[data-am-map-open]');
@@ -329,22 +460,13 @@ const c = {
 
       opener.addEventListener('click', () => dialog.showModal());
       closer.addEventListener('click', () => dialog.close());
-
-      // A click on ::backdrop reports the dialog itself as the target; a click on
-      // the panel reports an element inside it. The panel has no full-bleed wrapper
-      // above it, so this distinction actually holds for real pointer events.
-      dialog.addEventListener('click', (e) => {
-        if (e.target === dialog) dialog.close();
+      dialog.addEventListener('click', (event) => {
+        if (event.target === dialog) dialog.close();
       });
     })();
   </script>
 
   <style>
-    /*
-     * The dialog is the panel box, not a full-viewport layer: ::backdrop supplies the
-     * dimming. That keeps a real backdrop click targeting the dialog element rather
-     * than an intermediate wrapper.
-     */
     .am-map-dialog {
       max-width: min(64rem, 92vw);
       width: 100%;
@@ -355,7 +477,15 @@ const c = {
     }
 
     .am-map-dialog::backdrop {
-      background: rgb(0 0 0 / 0.7);
+      background: rgb(0 0 0 / 0.72);
+    }
+
+    summary::-webkit-details-marker {
+      display: none;
+    }
+
+    summary {
+      list-style: none;
     }
   </style>
-</LocationAuthorityLayout>
+</BaseLayout>

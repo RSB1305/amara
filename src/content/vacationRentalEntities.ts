@@ -117,6 +117,11 @@ interface FamilySurfConversionLocale {
 
 const languages: AmaraLanguage[] = ['en', 'de', 'es', 'nl', 'sv'];
 
+export function formatVacationRentalBedDimensions(label: string): string | undefined {
+  const dimensions = /^(\d+)\s*x\s*(\d+)$/i.exec(label.trim());
+  return dimensions ? `${dimensions[1]} × ${dimensions[2]} cm` : undefined;
+}
+
 export function formatVacationRentalPriceRange(
   pricing: VacationRentalPricing,
   lang: AmaraLanguage,
@@ -229,18 +234,18 @@ export const vacationRentalEntities: VacationRentalEntity[] = [
       'https://www.airbnb.com/rooms/52229175'
     ],
     seoTitle: {
-      en: 'Farah: cosy double room in Frigiliana | AMARA',
-      de: 'Farah: gemütliches Doppelzimmer in Frigiliana | AMARA',
-      es: 'Farah: habitación doble acogedora en Frigiliana | AMARA',
-      nl: 'Farah: knusse tweepersoonskamer in Frigiliana | AMARA',
-      sv: 'Farah: ombonat dubbelrum i Frigiliana | AMARA'
+      en: 'Farah: compact suite in Frigiliana | AMARA',
+      de: 'Farah: kompakte Suite in Frigiliana | AMARA',
+      es: 'Farah: suite compacta en Frigiliana | AMARA',
+      nl: 'Farah: compacte suite in Frigiliana | AMARA',
+      sv: 'Farah: kompakt svit i Frigiliana | AMARA'
     },
     seoDescription: {
-      en: 'AMARA Farah in historic Frigiliana: a small, cosy double room for 2 guests. One step at the entrance and none after that.',
-      de: 'AMARA Farah in der Altstadt von Frigiliana: ein kleines, gemütliches Doppelzimmer für 2 Gäste. Eine Stufe am Eingang, danach keine mehr.',
-      es: 'AMARA Farah en el casco antiguo de Frigiliana: una habitación doble pequeña y acogedora para 2 huéspedes. Un escalón en la entrada y ninguno más.',
-      nl: 'AMARA Farah in het oude Frigiliana: een kleine, knusse tweepersoonskamer voor 2 gasten. Eén trede bij de ingang en daarna geen meer.',
-      sv: 'AMARA Farah i gamla Frigiliana: ett litet, ombonat dubbelrum för 2 gäster. Ett trappsteg vid entrén, inga fler därefter.'
+      en: 'AMARA Farah in historic Frigiliana: a compact suite for 2 with a separate bedroom and tea kitchen. One step at the entrance and none after that.',
+      de: 'AMARA Farah in Frigilianas Altstadt: eine kompakte Suite für 2 mit separatem Schlafzimmer und Teeküche. Eine Stufe am Eingang, danach keine mehr.',
+      es: 'AMARA Farah en el casco antiguo de Frigiliana: una suite compacta para 2 con dormitorio separado y zona de café y té. Un escalón en la entrada y ninguno más.',
+      nl: 'AMARA Farah in het oude Frigiliana: een compacte suite voor 2 met aparte slaapkamer en kitchenette. Eén trede bij de ingang en daarna geen meer.',
+      sv: 'AMARA Farah i gamla Frigiliana: en kompakt svit för 2 med separat sovrum och pentry. Ett trappsteg vid entrén, inga fler därefter.'
     },
     eyebrow: {
       en: 'Frigiliana old town',
@@ -257,11 +262,11 @@ export const vacationRentalEntities: VacationRentalEntity[] = [
       sv: 'För kortare vistelser i Frigilianas gamla stad'
     },
     lead: {
-      en: 'Farah is a small, cosy double room in Frigiliana’s historic centre — ideal for guests who like to make coffee and prepare a light meal.',
-      de: 'Farah ist ein kleines, gemütliches Doppelzimmer im historischen Zentrum von Frigiliana – ideal für Gäste, die sich gern einen Kaffee und eine kleine Mahlzeit zubereiten.',
-      es: 'Farah es una habitación doble pequeña y acogedora en el centro histórico de Frigiliana, ideal para quienes disfrutan preparando un café y una comida ligera.',
-      nl: 'Farah is een kleine, knusse tweepersoonskamer in het historische centrum van Frigiliana – ideaal voor gasten die graag koffie en een kleine maaltijd klaarmaken.',
-      sv: 'Farah är ett litet, ombonat dubbelrum i Frigilianas historiska centrum – perfekt för gäster som gärna ordnar kaffe och en enklare måltid.'
+      en: 'Farah is a compact, self-contained suite in Frigiliana’s historic centre, with a separate bedroom and tea kitchen for coffee and light meals.',
+      de: 'Farah ist eine kompakte, abgeschlossene Suite im historischen Zentrum von Frigiliana – mit separatem Schlafzimmer und Teeküche für Kaffee und kleine Mahlzeiten.',
+      es: 'Farah es una suite compacta e independiente en el centro histórico de Frigiliana, con dormitorio separado y zona de café y té para preparar bebidas y comidas ligeras.',
+      nl: 'Farah is een compacte, zelfstandige suite in het historische centrum van Frigiliana, met aparte slaapkamer en kitchenette voor koffie en lichte maaltijden.',
+      sv: 'Farah är en kompakt, självständig svit i Frigilianas historiska centrum, med separat sovrum och pentry för kaffe och enklare måltider.'
     },
     description: {
       en: 'Farah has two separate rooms: the bedroom and a tea kitchen with a refrigerator. A stool at the worktop can also serve as a small desk. The compact setup is designed for shorter stays; there is no full kitchen or private outdoor space.',
@@ -426,11 +431,11 @@ export const vacationRentalEntities: VacationRentalEntity[] = [
       sv: 'Den största av husets fyra lägenheter, medvetet bara för två. Lounis murar hör till husets äldsta byggnadsdelar: moriskt murverk, återfunna ursprungliga golvplattor och en privat terrass med en åtta meter djup historisk brunn.'
     },
     description: {
-      en: 'The private terrace looks across the mango and avocado groves of Frigiliana Campo, with the sea beyond. Sun reaches it around midday and stays until evening; mornings remain pleasantly shaded. Set into the terrace is an exceptionally well-preserved eight-metre historic well, exclusive to Lounis. It still holds water and is secured by a sturdy grate; the water is not used as domestic or drinking water. Behind it are the Moroccan-style outdoor shower and, to its left, a sheltered nook we call our “cave”. According to the story passed down with the house, chickens were once kept there. Today it is a quiet, intimate retreat that feels especially protected in the soft evening light. During the 2020–2022 restoration, old walls and beautiful exposed brickwork emerged; our architect recognised Moorish construction. Beneath later floor coverings we also discovered the apartment’s original historic tiles and carefully restored them. A fully equipped kitchen and a light-filled bathroom with a large window and double shower complete the apartment. A hammock and two loungers wait outside: birds in the morning, sun from midday, silence at night.',
-      de: 'Von der privaten Terrasse blickt ihr über die Mango- und Avocadoplantagen des Frigiliana Campo bis zum Meer. Ab etwa Mittag liegt sie in der Sonne; morgens bleibt sie angenehm schattig. In die Terrasse ist ein außergewöhnlich gut erhaltener, acht Meter tiefer historischer Brunnen eingelassen, der ausschließlich zu Lounis gehört. Er führt bis heute Wasser und ist mit einem stabilen Gitter gesichert; als Haus- oder Trinkwasser wird es nicht genutzt. Hinter dem Brunnen liegen die marokkanisch gestaltete Außendusche und links davon eine kleine geschützte Nische, die wir unsere „Höhle“ nennen. Nach der überlieferten Geschichte des Hauses wurden dort früher Hühner gehalten. Heute ist sie ein stiller, intimer Rückzugsort, der sich im warmen Abendlicht besonders geborgen anfühlt. Bei der Restaurierung von 2020 bis 2022 kamen alte Mauern und besonders schönes Sichtmauerwerk zum Vorschein; unser Architekt erkannte darin maurische Bauweise. Unter späteren Bodenbelägen entdeckten wir außerdem die originalen historischen Fliesen des Apartments und restaurierten sie sorgfältig. Dazu kommen eine voll ausgestattete Küche sowie ein lichtdurchflutetes Badezimmer mit großem Fenster und Doppeldusche. Draußen warten Hängematte und zwei Sonnenliegen: morgens Vögel, ab Mittag Sonne, nachts Stille.',
-      es: 'Desde la terraza privada se contemplan las plantaciones de mango y aguacate del campo de Frigiliana, con el mar al fondo. El sol llega hacia el mediodía y se queda hasta la tarde; por la mañana hay una sombra agradable. Integrado en la terraza se conserva un pozo histórico de ocho metros de profundidad que pertenece exclusivamente a Lounis. Todavía tiene agua y está protegido por una rejilla resistente; el agua no se utiliza en la vivienda ni como agua potable. Detrás está la ducha exterior de inspiración marroquí y, a su izquierda, un pequeño rincón resguardado al que llamamos nuestra «cueva». Según la historia que nos transmitieron sobre la casa, antiguamente se criaban gallinas allí. Hoy es un refugio íntimo y tranquilo que, con la luz suave del atardecer, transmite una especial sensación de cobijo. Durante la restauración de 2020 a 2022 aparecieron muros antiguos y un precioso ladrillo visto; nuestro arquitecto reconoció una construcción andalusí. Bajo pavimentos posteriores descubrimos también las baldosas históricas originales del apartamento y las restauramos cuidadosamente. Completan el espacio una cocina totalmente equipada y un baño lleno de luz, con gran ventana y ducha doble. Fuera esperan la hamaca y dos tumbonas: pájaros por la mañana, sol desde el mediodía y silencio por la noche.',
-      nl: 'Vanaf het privéterras kijk je over de mango- en avocadoplantages van het Frigiliana Campo, met de zee daarachter. Rond het middaguur komt de zon en die blijft tot de avond; ’s ochtends is er aangename schaduw. In het terras ligt een uitzonderlijk goed bewaarde historische put van acht meter diep, exclusief voor Lounis. De put bevat nog altijd water en is beveiligd met een stevig rooster; het water wordt niet gebruikt als huishoud- of drinkwater. Achter de put ligt de Marokkaans vormgegeven buitendouche en links daarvan een beschutte nis die we onze “grot” noemen. Volgens de overgeleverde geschiedenis van het huis werden daar vroeger kippen gehouden. Nu is het een stille, intieme plek die in het zachte avondlicht een bijzonder geborgen gevoel geeft. Tijdens de restauratie van 2020 tot 2022 kwamen oude muren en prachtig zichtbaar metselwerk tevoorschijn; onze architect herkende de Moorse bouwwijze. Onder latere vloerbedekking vonden we bovendien de originele historische vloertegels van het appartement, die we zorgvuldig hebben gerestaureerd. Verder zijn er een volledig uitgeruste keuken en een lichte badkamer met een groot raam en dubbele douche. Buiten wachten een hangmat en twee ligstoelen: vogels in de ochtend, zon vanaf de middag en stilte in de nacht.',
-      sv: 'Från den privata terrassen ser du ut över mango- och avokadoodlingarna i Frigiliana Campo, med havet bakom. Solen når terrassen kring middagstid och stannar till kvällen; på morgonen finns behaglig skugga. I terrassen ligger en ovanligt välbevarad historisk brunn, åtta meter djup och exklusiv för Lounis. Brunnen är fortfarande vattenförande och säkrad med ett stabilt galler; vattnet används inte som hushålls- eller dricksvatten. Bakom brunnen finns den marockanskt utformade uteduschen och till vänster en skyddad liten nisch som vi kallar vår “grotta”. Enligt husets muntligt traderade historia hölls höns där förr. I dag är det en stilla, intim plats som känns särskilt ombonad i det mjuka kvällsljuset. Vid restaureringen 2020–2022 kom gamla murar och vackert synligt tegel fram; vår arkitekt kände igen moriskt byggnadssätt. Under senare golvlager fann vi också lägenhetens ursprungliga historiska golvplattor och restaurerade dem omsorgsfullt. Ett fullt utrustat kök och ett ljust badrum med stort fönster och dubbeldusch fullbordar lägenheten. Utomhus väntar hängmattan och två solstolar: fåglar på morgonen, sol från middagstid och tystnad om natten.'
+      en: 'From the **private terrace**, the view stretches across the mango and avocado groves of Frigiliana Campo to the sea. It is pleasantly shaded in the morning, then catches the sun from around midday into the evening.\n\nAt its heart is an **exceptionally well-preserved eight-metre historic well**, exclusive to Lounis. It still holds water, is secured by a sturdy grate and is not used for domestic or drinking water. Behind it are the Moroccan-style outdoor shower and our sheltered “cave” — once said to have housed chickens, now a quiet retreat.\n\nThe 2020–2022 restoration revealed **Moorish masonry and the apartment’s original historic floor tiles**, both carefully preserved.\n\nA fully equipped kitchen and a light-filled bathroom with a large window and double shower complete the apartment. Outside, a hammock and two loungers await: birds in the morning, sun from midday, silence at night.',
+      de: 'Von der **privaten Terrasse** blickt ihr über die Mango- und Avocadoplantagen des Frigiliana Campo bis zum Meer. Morgens liegt sie angenehm im Schatten, ab etwa Mittag bis in den Abend in der Sonne.\n\nIhr außergewöhnlichstes Detail ist der **acht Meter tiefe historische Brunnen**, der ausschließlich zu Lounis gehört. Er führt noch Wasser, ist mit einem stabilen Gitter gesichert und wird weder als Haus- noch als Trinkwasser genutzt. Dahinter liegen die marokkanisch gestaltete Außendusche und unsere geschützte „Höhle“ – früher sollen hier Hühner gelebt haben, heute ist sie ein stiller Rückzugsort.\n\nBei der Restaurierung von 2020 bis 2022 kamen **maurisches Mauerwerk und die originalen historischen Fliesen** des Apartments zum Vorschein. Beides wurde sorgfältig erhalten und prägt heute den besonderen Charakter von Lounis.\n\nEine voll ausgestattete Küche und ein lichtdurchflutetes Badezimmer mit großem Fenster und Doppeldusche ergänzen das Apartment. Draußen warten eine Hängematte und zwei Sonnenliegen: morgens Vögel, ab Mittag Sonne, nachts Stille.',
+      es: 'Desde la **terraza privada**, la vista se extiende sobre las plantaciones de mango y aguacate del campo de Frigiliana hasta el mar. Por la mañana permanece agradablemente sombreada; desde alrededor del mediodía recibe el sol hasta la tarde.\n\nSu elemento más singular es el **pozo histórico de ocho metros de profundidad**, exclusivo de Lounis. Todavía conserva agua, está protegido por una rejilla resistente y no se utiliza como agua doméstica ni potable. Detrás se encuentran la ducha exterior de inspiración marroquí y nuestra «cueva» resguardada: antiguamente se criaban gallinas allí; hoy es un refugio tranquilo.\n\nDurante la restauración de 2020 a 2022 salieron a la luz **mampostería andalusí y las baldosas históricas originales** del apartamento. Ambas se conservaron cuidadosamente y definen hoy el carácter especial de Lounis.\n\nCompletan el apartamento una cocina totalmente equipada y un baño luminoso con gran ventana y ducha doble. Fuera esperan una hamaca y dos tumbonas: pájaros por la mañana, sol desde el mediodía y silencio por la noche.',
+      nl: 'Vanaf het **privéterras** kijk je over de mango- en avocadoplantages van het Frigiliana Campo tot aan zee. ’s Ochtends ligt het terras aangenaam in de schaduw; vanaf ongeveer het middaguur blijft de zon tot in de avond.\n\nDe blikvanger is de **uitzonderlijk goed bewaarde historische put van acht meter diep**, exclusief voor Lounis. De put bevat nog altijd water, is beveiligd met een stevig rooster en wordt niet gebruikt als huishoud- of drinkwater. Daarachter liggen de Marokkaans vormgegeven buitendouche en onze beschutte “grot” — vroeger zouden hier kippen hebben gezeten, nu is het een stille plek om je terug te trekken.\n\nBij de restauratie van 2020 tot 2022 kwamen **Moors metselwerk en de originele historische vloertegels** van het appartement tevoorschijn. Beide zijn zorgvuldig behouden en bepalen nu het bijzondere karakter van Lounis.\n\nEen volledig uitgeruste keuken en een lichte badkamer met een groot raam en dubbele douche maken het appartement compleet. Buiten wachten een hangmat en twee ligstoelen: vogels in de ochtend, zon vanaf de middag en stilte in de nacht.',
+      sv: 'Från den **privata terrassen** sträcker sig utsikten över mango- och avokadoodlingarna i Frigiliana Campo ända till havet. På morgonen ligger terrassen behagligt i skugga; från omkring middagstid har den sol till kvällen.\n\nTerrassens mest särpräglade inslag är den **ovanligt välbevarade historiska brunnen, åtta meter djup**, som är exklusiv för Lounis. Brunnen innehåller fortfarande vatten, är säkrad med ett stabilt galler och används varken som hushålls- eller dricksvatten. Bakom den finns den marockanskt utformade uteduschen och vår skyddade “grotta” — förr sägs höns ha hållits här, i dag är det en stilla plats för avkoppling.\n\nVid restaureringen 2020–2022 kom **moriskt murverk och lägenhetens ursprungliga historiska golvplattor** fram. Båda bevarades varsamt och präglar i dag Lounis speciella karaktär.\n\nEtt fullt utrustat kök och ett ljust badrum med stort fönster och dubbeldusch fullbordar lägenheten. Utomhus väntar en hängmatta och två solstolar: fåglar på morgonen, sol från middagstid och tystnad om natten.'
     },
     highlights: {
       en: ['Eight-metre private well and sheltered “cave” nook', 'Moorish walls and rediscovered original floor tiles', 'Sun from midday, step-free to the cafés'],
@@ -1126,25 +1131,25 @@ export const vacationRentalEntities: VacationRentalEntity[] = [
       'https://www.airbnb.com/rooms/803371111851036443'
     ],
     seoTitle: {
-      en: 'AMARA Family & Surf | Romantic Tarifa Stay with Pool & Parking',
-      de: 'AMARA Family & Surf | Romantisch wohnen in Tarifa mit Pool & Garage',
-      es: 'AMARA Family & Surf | Estancia romántica en Tarifa con piscina y garaje',
-      nl: 'AMARA Family & Surf | Romantisch verblijf in Tarifa met zwembad & garage',
-      sv: 'AMARA Family & Surf | Romantiskt boende i Tarifa med pool & garage'
+      en: 'Family & Surf: Tarifa with Pool & Parking | AMARA',
+      de: 'Family & Surf: Tarifa mit Pool & Garage | AMARA',
+      es: 'Family & Surf: Tarifa con piscina y garaje | AMARA',
+      nl: 'Family & Surf: Tarifa met zwembad en garage | AMARA',
+      sv: 'Family & Surf: Tarifa med pool och garage | AMARA'
     },
     seoDescription: {
-      en: 'A spacious Tarifa stay for couples, with Atlantic sunset terrace, pool and underground parking. Kitesurf lessons and equipment can be arranged before arrival.',
-      de: 'Großzügige Tarifa-Unterkunft für Paare mit Atlantikterrasse, Pool und Tiefgarage. Kitekurs und Material können schon vor der Anreise organisiert werden.',
-      es: 'Alojamiento amplio en Tarifa para parejas, con terraza al Atlántico, piscina y garaje privado. Clases y material de kitesurf pueden organizarse antes de llegar.',
-      nl: 'Ruim verblijf in Tarifa voor stellen met Atlantisch terras, zwembad en eigen garage. Kitesurflessen en materiaal kunnen vóór aankomst worden geregeld.',
-      sv: 'Rymligt boende i Tarifa för par med Atlantterrass, pool och eget garage. Kitesurflektioner och utrustning kan ordnas redan före ankomsten.'
+      en: 'A spacious Tarifa stay for two or parents with younger children, with Atlantic terrace, shared pool and underground parking. Kitesurfing can be arranged before arrival.',
+      de: 'Großzügige Tarifa-Unterkunft für zwei oder Eltern mit jüngeren Kindern, mit Atlantikterrasse, Gemeinschaftspool und Tiefgarage. Kitesurfen kann vorab organisiert werden.',
+      es: 'Alojamiento amplio en Tarifa para dos o para padres con niños pequeños, con terraza al Atlántico, piscina comunitaria y garaje. El kitesurf puede organizarse antes de llegar.',
+      nl: 'Ruim verblijf in Tarifa voor twee of ouders met jonge kinderen, met Atlantisch terras, gedeeld zwembad en eigen garage. Kitesurfen kan vooraf worden geregeld.',
+      sv: 'Rymligt boende i Tarifa för två eller föräldrar med yngre barn, med Atlantterrass, gemensam pool och eget garage. Kitesurfing kan ordnas före ankomsten.'
     },
     eyebrow: {
-      en: 'AMARA Romantic Stays · Tarifa',
-      de: 'AMARA Romantic Stays · Tarifa',
-      es: 'AMARA Romantic Stays · Tarifa',
-      nl: 'AMARA Romantic Stays · Tarifa',
-      sv: 'AMARA Romantic Stays · Tarifa'
+      en: 'Tarifa · Atlantic terrace and pool',
+      de: 'Tarifa · Atlantikterrasse und Pool',
+      es: 'Tarifa · Terraza atlántica y piscina',
+      nl: 'Tarifa · Atlantisch terras en zwembad',
+      sv: 'Tarifa · Atlantterrass och pool'
     },
     headline: {
       en: 'Atlantic sunsets and the freedom to surf',
@@ -1155,24 +1160,24 @@ export const vacationRentalEntities: VacationRentalEntity[] = [
     },
     lead: {
       en: [
-        'A spacious two-level Tarifa home that works beautifully for two, with Atlantic views from the private terrace and room to slow down between active days by the sea.',
-        `For couples who kitesurf — or want to learn — our cooperation with Tarifa Surf Club makes the sport unusually easy to build into the stay. And if you now travel with younger children: this is the one AMARA stay where a separate bunk-bed room gives you that flexibility, without changing the apartment's couple-first character.`
+        'A spacious two-level Tarifa home with Atlantic views from the private terrace and room to slow down between active days by the sea. Its main bedroom and separate bunk-bed room work well for two or for parents travelling with younger children.',
+        'For guests who kitesurf — or want to learn — our cooperation with Tarifa Surf Club makes the sport unusually easy to build into the stay.'
       ].join('\n\n'),
       de: [
-        'Eine großzügige Tarifa-Unterkunft auf zwei Ebenen, die wunderbar für zwei funktioniert: mit Atlantikblick von der privaten Terrasse und viel Raum zum Ankommen zwischen aktiven Tagen am Meer.',
-        'Für Paare, die kiten – oder es lernen möchten –, macht unsere Kooperation mit dem Tarifa Surf Club den Sport besonders unkompliziert. Und wenn ihr inzwischen mit kleineren Kindern reist: Als einzige AMARA-Unterkunft bietet Family & Surf mit dem separaten Hochbettzimmer diese Flexibilität – ohne dass die Wohnung ihren Charakter für Paare verliert.'
+        'Eine großzügige Tarifa-Unterkunft auf zwei Ebenen mit Atlantikblick von der privaten Terrasse und viel Raum zum Ankommen zwischen aktiven Tagen am Meer. Hauptschlafzimmer und separates Hochbettzimmer passen gut für zwei oder für Eltern mit jüngeren Kindern.',
+        'Für Gäste, die kiten – oder es lernen möchten –, macht unsere Kooperation mit dem Tarifa Surf Club den Sport besonders unkompliziert.'
       ].join('\n\n'),
       es: [
-        'Una casa amplia en Tarifa, distribuida en dos niveles y especialmente agradable para dos, con vistas al Atlántico desde la terraza privada y espacio para descansar entre días activos junto al mar.',
-        'Para parejas que practican kitesurf —o quieren aprender— nuestra colaboración con Tarifa Surf Club facilita mucho la experiencia. Y si ahora viajáis con niños pequeños: este es el único alojamiento AMARA donde el dormitorio separado con litera aporta esa flexibilidad, sin que el apartamento deje de estar pensado para dos.'
+        'Una casa amplia en Tarifa, distribuida en dos niveles, con vistas al Atlántico desde la terraza privada y espacio para descansar entre días activos junto al mar. El dormitorio principal y la habitación separada con litera funcionan bien para dos o para padres con niños pequeños.',
+        'Para quienes practican kitesurf —o quieren aprender— nuestra colaboración con Tarifa Surf Club facilita mucho la experiencia.'
       ].join('\n\n'),
       nl: [
-        'Een ruime woning in Tarifa over twee niveaus die uitstekend werkt voor twee, met Atlantisch uitzicht vanaf het eigen terras en ruimte om tot rust te komen tussen actieve dagen aan zee.',
-        'Voor stellen die kitesurfen — of het willen leren — maakt onze samenwerking met Tarifa Surf Club de sport bijzonder eenvoudig onderdeel van de reis. Reizen jullie inmiddels met jonge kinderen: dit is het enige AMARA-verblijf waar de aparte kamer met stapelbed die flexibiliteit biedt, zonder dat de woning haar couple-first karakter verliest.'
+        'Een ruime woning in Tarifa over twee niveaus, met Atlantisch uitzicht vanaf het eigen terras en ruimte om tot rust te komen tussen actieve dagen aan zee. De hoofdslaapkamer en aparte kamer met stapelbed werken goed voor twee of voor ouders met jonge kinderen.',
+        'Voor gasten die kitesurfen — of het willen leren — maakt onze samenwerking met Tarifa Surf Club de sport bijzonder eenvoudig onderdeel van de reis.'
       ].join('\n\n'),
       sv: [
-        'Ett rymligt boende i Tarifa på två plan som fungerar mycket bra för två, med Atlantutsikt från den privata terrassen och gott om plats att varva ner mellan aktiva dagar vid havet.',
-        'För par som kitesurfar — eller vill lära sig — gör samarbetet med Tarifa Surf Club sporten ovanligt enkel att lägga in i vistelsen. Reser ni numera med yngre barn: det här är det enda AMARA-boendet där ett separat rum med våningssäng ger den flexibiliteten, utan att boendet tappar sitt fokus på par.'
+        'Ett rymligt boende i Tarifa på två plan, med Atlantutsikt från den privata terrassen och gott om plats att varva ner mellan aktiva dagar vid havet. Huvudsovrummet och det separata rummet med våningssäng passar bra för två eller föräldrar med yngre barn.',
+        'För gäster som kitesurfar — eller vill lära sig — gör samarbetet med Tarifa Surf Club sporten ovanligt enkel att lägga in i vistelsen.'
       ].join('\n\n')
     },
     description: {
@@ -1341,7 +1346,7 @@ export const familySurfConversionContent: Record<AmaraLanguage, FamilySurfConver
       title: 'Travelling with younger children?',
       paragraphs: [
         'The second bedroom has a bunk bed with two single sleeping places. That makes the apartment particularly practical for parents travelling with younger children while keeping the main bedroom to themselves.',
-        'We describe the apartment as accommodating up to four guests because that is its technical capacity — but it is not positioned as a conventional four-adult sleeping arrangement.'
+        'The apartment accommodates up to four guests, but the sleeping layout is best suited to two adults with one or two younger children rather than four adults.'
       ]
     }
   },
@@ -1358,10 +1363,10 @@ export const familySurfConversionContent: Record<AmaraLanguage, FamilySurfConver
       ctaToken: 'tarifa_wind_kitesurfing_authority'
     },
     family: {
-      title: 'Ihr reist inzwischen mit kleineren Kindern?',
+      title: 'Reist ihr mit jüngeren Kindern?',
       paragraphs: [
         'Im zweiten Schlafzimmer befindet sich ein Hochbett mit zwei einzelnen Schlafplätzen. Dadurch können Eltern ihr eigenes Schlafzimmer behalten, während die Kinder einen separaten Schlafbereich haben.',
-        'Die technische Belegung der Wohnung beträgt vier Personen. Wir möchten sie dennoch nicht als klassische Unterkunft für vier Erwachsene positionieren. Besonders gut passt die Aufteilung zu einem Paar oder zu Eltern mit jüngeren Kindern.'
+        'Die Wohnung bietet Platz für bis zu vier Gäste. Die Schlafaufteilung passt jedoch besser zu zwei Erwachsenen mit einem oder zwei jüngeren Kindern als zu vier Erwachsenen.'
       ]
     }
   },
@@ -1378,9 +1383,10 @@ export const familySurfConversionContent: Record<AmaraLanguage, FamilySurfConver
       ctaToken: 'tarifa_wind_kitesurfing_authority'
     },
     family: {
+      title: '¿Viajáis con niños pequeños?',
       paragraphs: [
         'El segundo dormitorio dispone de una litera con dos camas individuales. Por eso la distribución funciona especialmente bien para padres que viajan con niños pequeños y quieren conservar su propio dormitorio.',
-        'La capacidad técnica es de cuatro personas, pero no presentamos la vivienda como una configuración convencional para cuatro adultos.'
+        'El alojamiento admite hasta cuatro huéspedes, pero la distribución resulta más adecuada para dos adultos con uno o dos niños pequeños que para cuatro adultos.'
       ]
     }
   },
@@ -1397,9 +1403,10 @@ export const familySurfConversionContent: Record<AmaraLanguage, FamilySurfConver
       ctaToken: 'tarifa_wind_kitesurfing_authority'
     },
     family: {
+      title: 'Reizen jullie met jonge kinderen?',
       paragraphs: [
         'De tweede slaapkamer heeft een stapelbed met twee aparte slaapplaatsen. Dat maakt de woning bijzonder praktisch voor ouders met jonge kinderen die hun eigen slaapkamer willen behouden.',
-        'De technische capaciteit is vier personen, maar we positioneren de woning niet als een standaard slaapopstelling voor vier volwassenen.'
+        'De woning biedt plaats aan maximaal vier gasten, maar de slaapindeling past beter bij twee volwassenen met een of twee jonge kinderen dan bij vier volwassenen.'
       ]
     }
   },
@@ -1416,9 +1423,10 @@ export const familySurfConversionContent: Record<AmaraLanguage, FamilySurfConver
       ctaToken: 'tarifa_wind_kitesurfing_authority'
     },
     family: {
+      title: 'Reser ni med yngre barn?',
       paragraphs: [
         'Det andra sovrummet har en våningssäng med två separata sovplatser. Det passar särskilt bra för föräldrar med yngre barn som vill behålla huvudsovrummet för sig själva.',
-        'Den tekniska kapaciteten är fyra personer, men boendet positioneras inte som en vanlig sovlösning för fyra vuxna.'
+        'Boendet rymmer upp till fyra gäster, men sovlösningen passar bättre för två vuxna med ett eller två yngre barn än för fyra vuxna.'
       ]
     }
   }
