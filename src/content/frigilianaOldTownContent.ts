@@ -68,6 +68,10 @@ export const frigilianaOldTownSeo: AmaraAuthoringSeo = {
  * Penon is dated 11 June 1569, El Ingenio is an early-18th-century industrial
  * build, and the Three Cultures narrative is presented as a modern cultural
  * institution rather than documented medieval demography.
+ *
+ * No production superlative is claimed for miel de caña. The "only factory in
+ * Europe" line is factually wrong, and the narrower mainland-Europe version is
+ * only institutionally claimed, not independently verified.
  */
 export const frigilianaOldTownCopy = {
   footerHighlights: {
@@ -194,11 +198,11 @@ export const frigilianaOldTownCopy = {
           'En fabrik i drift, inte ett museum'
         ),
         text: l(
-          'The large building at the lower end of the village is often described as a count’s palace. Archive research published in 2023 places it more precisely: it was built around 1725 as an industrial sugar works and was fully operating by 1728. Today it houses the Nuestra Señora del Carmen factory, the last traditional producer of miel de caña on the European mainland. It is a production site, so do not count on going in.',
-          'Das große Gebäude am unteren Ortsrand wird oft als Grafenpalast beschrieben. Eine 2023 veröffentlichte Archivforschung ordnet es genauer ein: Es entstand um 1725 als industrielles Zuckerwerk und war 1728 voll in Betrieb. Heute arbeitet dort die Fabrik Nuestra Señora del Carmen, der letzte traditionelle Miel-de-Caña-Hersteller auf dem europäischen Festland. Es ist eine Produktionsstätte — rechnet nicht mit einer Besichtigung.',
-          'El gran edificio de la parte baja suele describirse como un palacio condal. Una investigación de archivo publicada en 2023 lo sitúa con más precisión: se levantó hacia 1725 como ingenio azucarero industrial y estaba plenamente operativo en 1728. Hoy alberga la fábrica Nuestra Señora del Carmen, el último productor tradicional de miel de caña de la Europa continental. Es un espacio de producción: no deis por hecho que se puede visitar.',
-          'Het grote gebouw aan de onderkant van het dorp wordt vaak een grafelijk paleis genoemd. Archiefonderzoek uit 2023 plaatst het preciezer: het werd rond 1725 gebouwd als industriële suikerfabriek en draaide in 1728 volledig. Vandaag huist er de fabriek Nuestra Señora del Carmen, de laatste traditionele producent van miel de caña op het Europese vasteland. Het is een productielocatie; reken niet op een bezoek.',
-          'Den stora byggnaden i byns nedre del beskrivs ofta som ett grevligt palats. Arkivforskning publicerad 2023 placerar den mer exakt: den uppfördes omkring 1725 som ett industriellt sockerbruk och var i full drift 1728. I dag rymmer den fabriken Nuestra Señora del Carmen, den sista traditionella tillverkaren av miel de caña på det europeiska fastlandet. Det är en produktionsplats – räkna inte med att komma in.'
+          'The large building at the lower end of the village is often described as a count’s palace. Archive research published in 2023 places it more precisely: it was built around 1725 as an industrial sugar works and was fully operating by 1728. Today it houses the Nuestra Señora del Carmen factory, where miel de caña is still made — a concentrated cane syrup with a long local production tradition. It is a production site, so do not count on going in.',
+          'Das große Gebäude am unteren Ortsrand wird oft als Grafenpalast beschrieben. Eine 2023 veröffentlichte Archivforschung ordnet es genauer ein: Es entstand um 1725 als industrielles Zuckerwerk und war 1728 voll in Betrieb. Heute arbeitet dort die Fabrik Nuestra Señora del Carmen, in der bis heute Miel de Caña hergestellt wird — ein konzentrierter Zuckerrohrsirup mit langer lokaler Produktionstradition. Es ist eine Produktionsstätte — rechnet nicht mit einer Besichtigung.',
+          'El gran edificio de la parte baja suele describirse como un palacio condal. Una investigación de archivo publicada en 2023 lo sitúa con más precisión: se levantó hacia 1725 como ingenio azucarero industrial y estaba plenamente operativo en 1728. Hoy alberga la fábrica Nuestra Señora del Carmen, donde se sigue elaborando miel de caña: un jarabe concentrado de caña de azúcar con una larga tradición productiva local. Es un espacio de producción: no deis por hecho que se puede visitar.',
+          'Het grote gebouw aan de onderkant van het dorp wordt vaak een grafelijk paleis genoemd. Archiefonderzoek uit 2023 plaatst het preciezer: het werd rond 1725 gebouwd als industriële suikerfabriek en draaide in 1728 volledig. Vandaag huist er de fabriek Nuestra Señora del Carmen, waar tot op vandaag miel de caña wordt gemaakt — een geconcentreerde rietsuikersiroop met een lange lokale productietraditie. Het is een productielocatie; reken niet op een bezoek.',
+          'Den stora byggnaden i byns nedre del beskrivs ofta som ett grevligt palats. Arkivforskning publicerad 2023 placerar den mer exakt: den uppfördes omkring 1725 som ett industriellt sockerbruk och var i full drift 1728. I dag rymmer den fabriken Nuestra Señora del Carmen, där miel de caña fortfarande tillverkas – en koncentrerad sockerrörssirap med lång lokal produktionstradition. Det är en produktionsplats – räkna inte med att komma in.'
         )
       },
       {
