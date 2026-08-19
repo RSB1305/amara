@@ -7,6 +7,7 @@ import EditorialClosingCta from '../../components/editorial/EditorialClosingCta.
 import EditorialGuideLinkSection from '../../components/editorial/EditorialGuideLinkSection.astro';
 import HairlineStatCard from '../../components/location/HairlineStatCard.astro';
 import LocationContextNav from '../../components/location/LocationContextNav.astro';
+import type { LocationGuideIconName } from '../../components/location/LocationGuideIcon.astro';
 import LocationGuideHero from '../../components/location/LocationGuideHero.astro';
 import {
   frigilianaStreetsStairsCopy,
@@ -36,6 +37,13 @@ const factors = copy.factors.items.map((item) => ({
   value: t(item.value),
   note: t(item.note)
 }));
+
+const factorIcons: LocationGuideIconName[] = [
+  'distance',
+  'elevation',
+  'walking-surface',
+  'frequency'
+];
 
 const locationModels = copy.models.items.map((item) => ({
   number: item.number,
@@ -158,8 +166,9 @@ const proofImage = {
         <h3 class="am-text-subtitle text-on-surface mb-10 md:mb-12">{t(copy.factors.title)}</h3>
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-12 gap-y-10 md:gap-y-12">
           {
-            factors.map((factor) => (
+            factors.map((factor, index) => (
               <HairlineStatCard
+                icon={factorIcons[index]}
                 label={factor.label}
                 value={factor.value}
                 description={factor.note}

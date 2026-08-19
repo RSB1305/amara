@@ -6,6 +6,7 @@ import EditorialGuideLinkSection from '../../components/editorial/EditorialGuide
 import LocationContextNav from '../../components/location/LocationContextNav.astro';
 import HairlineStatCard from '../../components/location/HairlineStatCard.astro';
 import LocationClimateTable from '../../components/location/LocationClimateTable.astro';
+import type { LocationGuideIconName } from '../../components/location/LocationGuideIcon.astro';
 import LocationGuideHero from '../../components/location/LocationGuideHero.astro';
 import SeasonalPillar from '../../components/location/SeasonalPillar.astro';
 import {
@@ -22,6 +23,12 @@ interface Props {
 
 const { lang = 'es' } = Astro.props;
 const currentLang = normalizeLanguage(lang as AmaraLanguage);
+const patternFactIcons: LocationGuideIconName[] = [
+  'elevation',
+  'temperature',
+  'rainfall',
+  'sunshine'
+];
 const locationBase = buildOwnedLocalizedPath('frigiliana-location', currentLang);
 const arrivalGuideHref = buildOwnedLocalizedPath('directions-arrival-guide', currentLang);
 const parkingHref = buildOwnedLocalizedPath('frigiliana-parking', currentLang);
@@ -534,16 +541,19 @@ const heroImage = {
           </div>
           <div class="lg:col-span-4 space-y-4">
             <HairlineStatCard
+              icon="temperature"
               label={t(copy.glance.stats.sun.label)}
               value={t(copy.glance.stats.sun.value)}
               description={t(copy.glance.stats.sun.note)}
             />
             <HairlineStatCard
+              icon="evening"
               label={t(copy.glance.stats.evening.label)}
               value={t(copy.glance.stats.evening.value)}
               description={t(copy.glance.stats.evening.note)}
             />
             <HairlineStatCard
+              icon="rainfall"
               label={t(copy.glance.stats.nights.label)}
               value={t(copy.glance.stats.nights.value)}
               description={t(copy.glance.stats.nights.note)}
@@ -561,19 +571,14 @@ const heroImage = {
           </div>
 
           <div class="grid grid-cols-2 md:grid-cols-4 gap-10 md:gap-16">
-            {(copy.pattern.facts.title[currentLang] ?? copy.pattern.facts.title.en).map((item) => (
-              <div>
-                <div class="h-px w-10 bg-outline-variant/25"></div>
-                <div class="mt-4 am-text-caption uppercase tracking-[0.18em] text-on-surface-variant/70">
-                  {item.label}
-                </div>
-                <div class:list={['mt-2 am-text-subtitle tracking-tight text-on-surface', item.emphasize ? 'font-normal' : '']}>
-                  {item.value}
-                </div>
-                <p class="mt-3 am-text-body leading-relaxed text-on-surface-variant/80 max-w-[44ch]">
-                  {item.description}
-                </p>
-              </div>
+            {(copy.pattern.facts.title[currentLang] ?? copy.pattern.facts.title.en).map((item, index) => (
+              <HairlineStatCard
+                icon={patternFactIcons[index]}
+                label={item.label}
+                value={item.value}
+                description={item.description}
+                emphasize={item.emphasize}
+              />
             ))}
           </div>
         </section>

@@ -6,6 +6,9 @@ import EditorialClosingCta from '../../components/editorial/EditorialClosingCta.
 import EditorialGuideLinkSection from '../../components/editorial/EditorialGuideLinkSection.astro';
 import HairlineStatCard from '../../components/location/HairlineStatCard.astro';
 import LocationContextNav from '../../components/location/LocationContextNav.astro';
+import LocationGuideIcon, {
+  type LocationGuideIconName
+} from '../../components/location/LocationGuideIcon.astro';
 import LocationGuideHero from '../../components/location/LocationGuideHero.astro';
 import {
   gettingToFrigilianaCopy,
@@ -45,6 +48,8 @@ const facts = copy.facts.items.map((item) => ({
   note: t(item.note)
 }));
 
+const factIcons: LocationGuideIconName[] = ['airport', 'journey-time', 'bus'];
+
 const optionLabels = {
   timing: t(copy.options.labels.timing),
   bestFor: t(copy.options.labels.bestFor),
@@ -60,6 +65,12 @@ const options = copy.options.items.map((item) => ({
   bestFor: t(item.bestFor),
   consideration: t(item.consideration)
 }));
+
+const optionIcons = {
+  car: ['rental-car'],
+  transfer: ['private-transfer', 'taxi'],
+  bus: ['bus']
+} satisfies Record<(typeof options)[number]['id'], LocationGuideIconName[]>;
 
 const publicTransportSteps = copy.publicTransport.steps.map((step) => ({
   num: step.num,
@@ -171,8 +182,9 @@ const approachImage = {
         </div>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-x-14 gap-y-12">
           {
-            facts.map((fact) => (
+            facts.map((fact, index) => (
               <HairlineStatCard
+                icon={factIcons[index]}
                 label={fact.label}
                 value={fact.value}
                 description={fact.note}
@@ -203,10 +215,17 @@ const approachImage = {
             {
               options.map((option, index) => (
                 <article class="border-t border-outline-variant/25 pt-8">
-                  <div class="flex items-baseline justify-between gap-6 mb-10">
-                    <span class="am-text-caption uppercase tracking-[0.2em] text-primary">
-                      {option.kicker}
-                    </span>
+                  <div class="flex items-start justify-between gap-6 mb-10">
+                    <div class="flex items-center gap-3">
+                      <span class="flex items-center gap-2" aria-hidden="true">
+                        {optionIcons[option.id].map((icon) => (
+                          <LocationGuideIcon name={icon} class="h-5 w-5" />
+                        ))}
+                      </span>
+                      <span class="am-text-caption uppercase tracking-[0.2em] text-primary">
+                        {option.kicker}
+                      </span>
+                    </div>
                     <span
                       class="font-headline text-[clamp(2.5rem,5vw,4.75rem)] italic leading-none text-outline-variant/45"
                       aria-hidden="true"

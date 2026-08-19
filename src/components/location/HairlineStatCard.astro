@@ -1,4 +1,8 @@
 ---
+import LocationGuideIcon, {
+  type LocationGuideIconName
+} from './LocationGuideIcon.astro';
+
 interface Props {
   label: string;
   value: string;
@@ -8,19 +12,32 @@ interface Props {
   align?: 'left' | 'center';
   /** Slightly stronger emphasis for key facts. */
   emphasize?: boolean;
+  /** Optional semantic symbol from the shared Location guide vocabulary. */
+  icon?: LocationGuideIconName;
 
   /** Back-compat: older prop name used in early drafts. */
   note?: string;
 }
 
-const { label, value, description, note, align = 'left', emphasize = false } = Astro.props;
+const {
+  label,
+  value,
+  description,
+  note,
+  align = 'left',
+  emphasize = false,
+  icon
+} = Astro.props;
 const resolvedDescription = description ?? note;
 const isCenter = align === 'center';
 ---
 
 <article class="px-0 py-0">
   <div class:list={['flex flex-col', isCenter ? 'items-center text-center' : 'items-start text-left']}>
-    <div class="h-px w-10 bg-outline-variant/25"></div>
+    <div class:list={['flex items-center gap-3 text-primary', isCenter && 'justify-center']}>
+      {icon && <LocationGuideIcon name={icon} />}
+      <div class:list={['h-px bg-outline-variant/25', icon ? 'w-8' : 'w-10']}></div>
+    </div>
     <div class="mt-4 am-text-caption uppercase tracking-[0.18em] text-on-surface-variant/70">
       {label}
     </div>

@@ -1,5 +1,8 @@
 ---
 import EditorialByline from '../../components/editorial/EditorialByline.astro';
+import LocationGuideIcon, {
+  type LocationGuideIconName
+} from '../../components/location/LocationGuideIcon.astro';
 import LocationGuideEvidence from '../../components/location/LocationGuideEvidence.astro';
 import LocationGuideHero from '../../components/location/LocationGuideHero.astro';
 import InlineEmphasis from '../../components/text/InlineEmphasis.astro';
@@ -46,6 +49,8 @@ interface Props {
   authorName: string;
   authorHref: string;
   facts: Fact[];
+  /** Optional symbols for the fact strip; positional to preserve existing content models. */
+  factIcons?: LocationGuideIconName[];
   sources: {
     eyebrow: string;
     title: string;
@@ -77,6 +82,7 @@ const {
   authorName,
   authorHref,
   facts,
+  factIcons = [],
   sources,
   closing,
   primaryCta,
@@ -146,10 +152,18 @@ if (presentation === 'guide' && !guideVisual) {
 
   <section class="border-b border-border-subtle bg-surface-container-low px-6 py-16 md:px-12 md:py-20">
     <dl class="mx-auto grid max-w-screen-2xl gap-x-10 gap-y-8 sm:grid-cols-2 lg:grid-cols-4">
-      {facts.map((fact) => (
-        <div class="border-t border-primary/30 pt-5">
-          <dt class="font-label text-[10px] font-bold uppercase tracking-[0.14em] text-primary">{fact.label}</dt>
-          <dd class="am-text-subtitle mt-3 text-on-surface">{fact.value}</dd>
+      {facts.map((fact, index) => (
+        <div
+          class:list={[
+            'border-t border-primary/30 pt-5',
+            factIcons[index] && 'grid grid-cols-[1.5rem_minmax(0,1fr)] items-start gap-3'
+          ]}
+        >
+          {factIcons[index] && <LocationGuideIcon name={factIcons[index]} class="mt-0.5 h-5 w-5" />}
+          <div>
+            <dt class="font-label text-[10px] font-bold uppercase tracking-[0.14em] text-primary">{fact.label}</dt>
+            <dd class="am-text-subtitle mt-3 text-on-surface">{fact.value}</dd>
+          </div>
         </div>
       ))}
     </dl>
