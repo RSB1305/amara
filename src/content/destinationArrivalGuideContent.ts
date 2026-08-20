@@ -1,4 +1,5 @@
 import type { ImageMetadata } from 'astro';
+import type { ArrivalJourneyGraphicData } from '../components/location/ArrivalJourneyGraphic.astro';
 import type { LocationGuideIconName } from '../components/location/LocationGuideIcon.astro';
 import {
   gettingToFrigilianaCopy,
@@ -86,6 +87,7 @@ export interface ArrivalGuidePageContent {
     updated?: string;
     note?: string;
   };
+  heroVisual: ArrivalJourneyGraphicData;
   author?: {
     name: string;
     token: LinkToken;
@@ -201,6 +203,107 @@ const ui = {
   }
 } satisfies Record<AmaraLanguage, Record<string, string>>;
 
+const visualUi = {
+  en: {
+    eyebrow: 'Arrival orientation', airport: 'Closest airport', distance: 'By road', time: 'Typical drive',
+    frigilianaRegion: 'Axarquía · Sierra Almijara', nerjaRegion: 'Costa del Sol · Axarquía', tarifaRegion: 'Strait of Gibraltar',
+    aria: 'Map-style arrival overview for', coast: 'Coastal connection', coastValue: 'Nerja · 6 km · approx. 10 min',
+    setting: 'Setting', frigilianaSetting: 'White village above the Mediterranean',
+    beach: 'Nearest beach', beachValue: 'Torrecilla · approx. 200 m', oldTown: 'Old town', oldTownValue: 'Balcón de Europa · approx. 500 m',
+    centre: 'Town centre', centreValue: 'Old Town · 10–15 min on foot', arrival: 'At AMARA', arrivalValue: 'Reserved underground parking'
+  },
+  de: {
+    eyebrow: 'Anreise & Orientierung', airport: 'Nächster Flughafen', distance: 'Straßendistanz', time: 'Typische Fahrzeit',
+    frigilianaRegion: 'Axarquía · Sierra Almijara', nerjaRegion: 'Costa del Sol · Axarquía', tarifaRegion: 'Straße von Gibraltar',
+    aria: 'Kartografische Anreiseübersicht für', coast: 'Verbindung zur Küste', coastValue: 'Nerja · 6 km · ca. 10 Min.',
+    setting: 'Lage', frigilianaSetting: 'Weißes Bergdorf über dem Mittelmeer',
+    beach: 'Nächster Strand', beachValue: 'Torrecilla · ca. 200 m', oldTown: 'Altstadt', oldTownValue: 'Balcón de Europa · ca. 500 m',
+    centre: 'Ortszentrum', centreValue: 'Altstadt · 10–15 Min. zu Fuß', arrival: 'Bei AMARA', arrivalValue: 'Reservierter Tiefgaragenplatz'
+  },
+  es: {
+    eyebrow: 'Llegada y orientación', airport: 'Aeropuerto más cercano', distance: 'Por carretera', time: 'Tiempo habitual',
+    frigilianaRegion: 'Axarquía · Sierra Almijara', nerjaRegion: 'Costa del Sol · Axarquía', tarifaRegion: 'Estrecho de Gibraltar',
+    aria: 'Resumen cartográfico de llegada a', coast: 'Conexión con la costa', coastValue: 'Nerja · 6 km · aprox. 10 min',
+    setting: 'Entorno', frigilianaSetting: 'Pueblo blanco sobre el Mediterráneo',
+    beach: 'Playa más cercana', beachValue: 'Torrecilla · aprox. 200 m', oldTown: 'Casco antiguo', oldTownValue: 'Balcón de Europa · aprox. 500 m',
+    centre: 'Centro', centreValue: 'Casco antiguo · 10–15 min a pie', arrival: 'En AMARA', arrivalValue: 'Aparcamiento subterráneo reservado'
+  },
+  nl: {
+    eyebrow: 'Aankomst & oriëntatie', airport: 'Dichtstbijzijnde luchthaven', distance: 'Over de weg', time: 'Gebruikelijke rijtijd',
+    frigilianaRegion: 'Axarquía · Sierra Almijara', nerjaRegion: 'Costa del Sol · Axarquía', tarifaRegion: 'Straat van Gibraltar',
+    aria: 'Kaartoverzicht van de reis naar', coast: 'Verbinding met de kust', coastValue: 'Nerja · 6 km · ca. 10 min',
+    setting: 'Ligging', frigilianaSetting: 'Wit bergdorp boven de Middellandse Zee',
+    beach: 'Dichtstbijzijnde strand', beachValue: 'Torrecilla · ca. 200 m', oldTown: 'Oude centrum', oldTownValue: 'Balcón de Europa · ca. 500 m',
+    centre: 'Centrum', centreValue: 'Oude centrum · 10–15 min lopen', arrival: 'Bij AMARA', arrivalValue: 'Gereserveerde ondergrondse parking'
+  },
+  sv: {
+    eyebrow: 'Ankomst & orientering', airport: 'Närmaste flygplats', distance: 'Vägavstånd', time: 'Normal körtid',
+    frigilianaRegion: 'Axarquía · Sierra Almijara', nerjaRegion: 'Costa del Sol · Axarquía', tarifaRegion: 'Gibraltarsundet',
+    aria: 'Kartöversikt för resan till', coast: 'Förbindelse till kusten', coastValue: 'Nerja · 6 km · ca 10 min',
+    setting: 'Läge', frigilianaSetting: 'Vit bergsby ovanför Medelhavet',
+    beach: 'Närmaste strand', beachValue: 'Torrecilla · ca 200 m', oldTown: 'Gamla stan', oldTownValue: 'Balcón de Europa · ca 500 m',
+    centre: 'Centrum', centreValue: 'Gamla stan · 10–15 min till fots', arrival: 'Vid AMARA', arrivalValue: 'Reserverad underjordisk parkering'
+  }
+} satisfies Record<AmaraLanguage, Record<string, string>>;
+
+function arrivalHeroVisual(
+  place: ArrivalGuideDestination,
+  lang: AmaraLanguage
+): ArrivalJourneyGraphicData {
+  const labels = visualUi[lang];
+  const shared = {
+    place,
+    eyebrow: labels.eyebrow,
+    airportLabel: labels.airport,
+    distanceLabel: labels.distance,
+    timeLabel: labels.time
+  } as const;
+
+  if (place === 'frigiliana') {
+    return {
+      ...shared,
+      destination: 'Frigiliana',
+      region: labels.frigilianaRegion,
+      primaryAirport: { code: 'AGP', name: 'Málaga', distance: '≈ 66 km', time: '≈ 50 min' },
+      context: [
+        { label: labels.coast, value: labels.coastValue },
+        { label: labels.setting, value: labels.frigilianaSetting }
+      ],
+      ariaLabel: `${labels.aria} Frigiliana`
+    };
+  }
+
+  if (place === 'nerja') {
+    return {
+      ...shared,
+      destination: 'Nerja',
+      region: labels.nerjaRegion,
+      primaryAirport: { code: 'AGP', name: 'Málaga', distance: '≈ 61 km', time: '≈ 50 min' },
+      context: [
+        { label: labels.beach, value: labels.beachValue },
+        { label: labels.oldTown, value: labels.oldTownValue }
+      ],
+      ariaLabel: `${labels.aria} Nerja`
+    };
+  }
+
+  return {
+    ...shared,
+    destination: 'Tarifa',
+    region: labels.tarifaRegion,
+    primaryAirport: { code: 'GIB', name: 'Gibraltar', distance: '≈ 50 km', time: '≈ 30 min' },
+    otherAirports: [
+      { code: 'AGP', distance: '≈ 150 km', time: '≈ 1 h 40' },
+      { code: 'XRY', distance: '≈ 135 km', time: '≈ 1 h' }
+    ],
+    context: [
+      { label: labels.centre, value: labels.centreValue },
+      { label: labels.arrival, value: labels.arrivalValue }
+    ],
+    ariaLabel: `${labels.aria} Tarifa`
+  };
+}
+
 const sectionCard = (
   section: { id: string; eyebrow: string; title: string; paragraphs: readonly string[] },
   icon: LocationGuideIconName
@@ -238,6 +341,7 @@ function frigilianaGuide(lang: AmaraLanguage): ArrivalGuidePageContent {
       title: text(copy.hero.title, lang),
       standfirst: `${text(copy.hero.lead, lang)} ${text(copy.hero.body, lang)}`
     },
+    heroVisual: arrivalHeroVisual('frigiliana', lang),
     factsTitle: text(copy.facts.title, lang),
     facts: copy.facts.items.map((fact) => ({
       label: text(fact.label, lang),
@@ -339,6 +443,7 @@ function nerjaGuide(lang: AmaraLanguage): ArrivalGuidePageContent {
     navLabel: content.navLabel,
     seo: gettingToNerjaSeo,
     hero: content.hero,
+    heroVisual: arrivalHeroVisual('nerja', lang),
     author: articleAuthor(gettingToNerjaSeo),
     factsTitle: ui[lang].factsTitle,
     facts: content.facts,
@@ -403,6 +508,7 @@ function tarifaGuide(lang: AmaraLanguage): ArrivalGuidePageContent {
     navLabel: content.navLabel,
     seo: gettingToTarifaSeo,
     hero: content.hero,
+    heroVisual: arrivalHeroVisual('tarifa', lang),
     author: articleAuthor(gettingToTarifaSeo),
     factsTitle: ui[lang].factsTitle,
     facts: content.facts,

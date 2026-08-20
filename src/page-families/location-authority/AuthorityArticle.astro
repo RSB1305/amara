@@ -1,5 +1,8 @@
 ---
 import EditorialByline from '../../components/editorial/EditorialByline.astro';
+import ArrivalJourneyGraphic, {
+  type ArrivalJourneyGraphicData
+} from '../../components/location/ArrivalJourneyGraphic.astro';
 import ExperienceArticleHero from '../../components/experience/ExperienceArticleHero.astro';
 import LocationGuideIcon, {
   type LocationGuideIconName
@@ -77,6 +80,7 @@ interface Props {
     mark: string;
     note?: string;
   };
+  arrivalVisual?: ArrivalJourneyGraphicData;
   weatherVisual?: {
     eyebrow: string;
     mark: string;
@@ -102,6 +106,7 @@ const {
   secondaryCta,
   presentation = 'article',
   guideVisual,
+  arrivalVisual,
   weatherVisual,
   heroMark
 } = Astro.props;
@@ -116,8 +121,8 @@ const byline = authorName && authorHref && hero.updated && hero.note
     }
   : undefined;
 
-if (presentation === 'guide' && !guideVisual) {
-  throw new Error('[AMARA] Guide AuthorityArticle requires guideVisual content.');
+if (presentation === 'guide' && !guideVisual && !arrivalVisual) {
+  throw new Error('[AMARA] Guide AuthorityArticle requires guideVisual or arrivalVisual content.');
 }
 
 if (presentation === 'weather' && !weatherVisual) {
@@ -154,14 +159,19 @@ if (presentation === 'article' && !byline) {
         title={hero.title}
         paragraphs={[hero.standfirst]}
         topic={topic}
+        visualBreakpoint={arrivalVisual ? 'lg' : 'md'}
       >
         {byline && <EditorialByline slot="meta" {...byline} />}
-        <LocationGuideEvidence
-          slot="visual"
-          eyebrow={guideVisual!.eyebrow}
-          mark={guideVisual!.mark}
-          note={guideVisual!.note}
-        />
+        {arrivalVisual ? (
+          <ArrivalJourneyGraphic slot="visual" data={arrivalVisual} />
+        ) : (
+          <LocationGuideEvidence
+            slot="visual"
+            eyebrow={guideVisual!.eyebrow}
+            mark={guideVisual!.mark}
+            note={guideVisual!.note}
+          />
+        )}
       </LocationGuideHero>
     ) : (
       <ExperienceArticleHero
