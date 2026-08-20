@@ -205,7 +205,7 @@ const ui = {
 
 const visualUi = {
   en: {
-    eyebrow: 'Arrival orientation', airport: 'Closest airport', distance: 'By road', time: 'Typical drive',
+    eyebrow: 'Arrival orientation', airport: 'Closest airport', mainAirport: 'Main airport', distance: 'By road', time: 'Typical drive',
     frigilianaRegion: 'Axarquía · Sierra Almijara', nerjaRegion: 'Costa del Sol · Axarquía', tarifaRegion: 'Strait of Gibraltar',
     aria: 'Map-style arrival overview for', coast: 'Coastal connection', coastValue: 'Nerja · 6 km · approx. 10 min',
     setting: 'Setting', frigilianaSetting: 'White village above the Mediterranean',
@@ -213,7 +213,7 @@ const visualUi = {
     centre: 'Town centre', centreValue: 'Old Town · 10–15 min on foot', arrival: 'At AMARA', arrivalValue: 'Reserved underground parking'
   },
   de: {
-    eyebrow: 'Anreise & Orientierung', airport: 'Nächster Flughafen', distance: 'Straßendistanz', time: 'Typische Fahrzeit',
+    eyebrow: 'Anreise & Orientierung', airport: 'Nächster Flughafen', mainAirport: 'Hauptflughafen', distance: 'Straßendistanz', time: 'Typische Fahrzeit',
     frigilianaRegion: 'Axarquía · Sierra Almijara', nerjaRegion: 'Costa del Sol · Axarquía', tarifaRegion: 'Straße von Gibraltar',
     aria: 'Kartografische Anreiseübersicht für', coast: 'Verbindung zur Küste', coastValue: 'Nerja · 6 km · ca. 10 Min.',
     setting: 'Lage', frigilianaSetting: 'Weißes Bergdorf über dem Mittelmeer',
@@ -221,7 +221,7 @@ const visualUi = {
     centre: 'Ortszentrum', centreValue: 'Altstadt · 10–15 Min. zu Fuß', arrival: 'Bei AMARA', arrivalValue: 'Reservierter Tiefgaragenplatz'
   },
   es: {
-    eyebrow: 'Llegada y orientación', airport: 'Aeropuerto más cercano', distance: 'Por carretera', time: 'Tiempo habitual',
+    eyebrow: 'Llegada y orientación', airport: 'Aeropuerto más cercano', mainAirport: 'Aeropuerto principal', distance: 'Por carretera', time: 'Tiempo habitual',
     frigilianaRegion: 'Axarquía · Sierra Almijara', nerjaRegion: 'Costa del Sol · Axarquía', tarifaRegion: 'Estrecho de Gibraltar',
     aria: 'Resumen cartográfico de llegada a', coast: 'Conexión con la costa', coastValue: 'Nerja · 6 km · aprox. 10 min',
     setting: 'Entorno', frigilianaSetting: 'Pueblo blanco sobre el Mediterráneo',
@@ -229,7 +229,7 @@ const visualUi = {
     centre: 'Centro', centreValue: 'Casco antiguo · 10–15 min a pie', arrival: 'En AMARA', arrivalValue: 'Aparcamiento subterráneo reservado'
   },
   nl: {
-    eyebrow: 'Aankomst & oriëntatie', airport: 'Dichtstbijzijnde luchthaven', distance: 'Over de weg', time: 'Gebruikelijke rijtijd',
+    eyebrow: 'Aankomst & oriëntatie', airport: 'Dichtstbijzijnde luchthaven', mainAirport: 'Belangrijkste luchthaven', distance: 'Over de weg', time: 'Gebruikelijke rijtijd',
     frigilianaRegion: 'Axarquía · Sierra Almijara', nerjaRegion: 'Costa del Sol · Axarquía', tarifaRegion: 'Straat van Gibraltar',
     aria: 'Kaartoverzicht van de reis naar', coast: 'Verbinding met de kust', coastValue: 'Nerja · 6 km · ca. 10 min',
     setting: 'Ligging', frigilianaSetting: 'Wit bergdorp boven de Middellandse Zee',
@@ -237,7 +237,7 @@ const visualUi = {
     centre: 'Centrum', centreValue: 'Oude centrum · 10–15 min lopen', arrival: 'Bij AMARA', arrivalValue: 'Gereserveerde ondergrondse parking'
   },
   sv: {
-    eyebrow: 'Ankomst & orientering', airport: 'Närmaste flygplats', distance: 'Vägavstånd', time: 'Normal körtid',
+    eyebrow: 'Ankomst & orientering', airport: 'Närmaste flygplats', mainAirport: 'Huvudflygplats', distance: 'Vägavstånd', time: 'Normal körtid',
     frigilianaRegion: 'Axarquía · Sierra Almijara', nerjaRegion: 'Costa del Sol · Axarquía', tarifaRegion: 'Gibraltarsundet',
     aria: 'Kartöversikt för resan till', coast: 'Förbindelse till kusten', coastValue: 'Nerja · 6 km · ca 10 min',
     setting: 'Läge', frigilianaSetting: 'Vit bergsby ovanför Medelhavet',
@@ -291,9 +291,10 @@ function arrivalHeroVisual(
     ...shared,
     destination: 'Tarifa',
     region: labels.tarifaRegion,
-    primaryAirport: { code: 'GIB', name: 'Gibraltar', distance: '≈ 50 km', time: '≈ 30 min' },
+    airportLabel: labels.mainAirport,
+    primaryAirport: { code: 'AGP', name: 'Málaga', distance: '≈ 150 km', time: '≈ 1 h 40' },
     otherAirports: [
-      { code: 'AGP', distance: '≈ 150 km', time: '≈ 1 h 40' },
+      { code: 'GIB', distance: '≈ 50 km', time: '≈ 30 min' },
       { code: 'XRY', distance: '≈ 135 km', time: '≈ 1 h' }
     ],
     context: [
