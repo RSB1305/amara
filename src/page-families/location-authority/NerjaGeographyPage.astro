@@ -53,6 +53,8 @@ const footerHighlights: LabeledLink[] = [
 
   <AuthorityArticle
     pageId="nerja-geography"
+    family="location"
+    topic="geography"
     lang={currentLang}
     hero={content.hero}
     authorName={nerjaGeographySeo.article!.authorName}
@@ -62,15 +64,13 @@ const footerHighlights: LabeledLink[] = [
     closing={content.closing}
     primaryCta={{ href: propertyHref, label: content.closing.propertyLabel }}
     secondaryCta={{ href: locationHref, label: content.closing.locationLabel }}
+    presentation="guide"
+    guideVisual={{
+      eyebrow: content.facts[0].label,
+      mark: '36° N',
+      note: content.facts[0].value
+    }}
   >
-    <div
-      slot="hero-mark"
-      aria-hidden="true"
-      class="hidden font-serif text-[clamp(3.5rem,8vw,8.5rem)] leading-[0.72] text-primary/10 lg:col-span-4 lg:block"
-    >
-      36° N
-    </div>
-
     <section
       aria-labelledby="nerja-orientation-title"
       class="border-b border-border-subtle bg-inverse-surface px-6 py-20 text-inverted-on-surface md:px-12 md:py-28"

@@ -46,13 +46,13 @@ interface NerjaLocationHubLocale {
 }
 
 const seo: AmaraAuthoringSeo = {
-  version: '2026-08-13-nerja-location-hub-v1.0',
+  version: '2026-08-20-nerja-location-hub-v1.1',
   pageType: 'A',
   entityKey: 'amara-brand',
   ogImage: '/images/amara-frigiliana-pueblo/nerja-coast-aerial.jpeg',
   article: {
     datePublished: '2026-08-13',
-    dateModified: '2026-08-13',
+    dateModified: '2026-08-20',
     authorName: 'Robert Sebastian Böhmer',
     authorType: 'Person',
     authorSlug: 'amara-about-us'
@@ -177,11 +177,14 @@ export const nerjaLocationHubContent: {
       },
       seasons: {
         eyebrow: 'Weather, seasons & longer stays',
-        title: 'Nerja changes pace more than it changes identity',
+        title: 'Use weather for the conditions and daily life for the ordinary weeks',
         paragraphs: [
-          'Summer brings the busiest beaches and the greatest pressure on roads and parking. Spring and autumn often give more room for walking and regional days out, while winter shifts the balance toward local routines and longer indoor evenings.',
-          'For a longer stay, apartment comfort and daily convenience matter more than a checklist of sights. AMARA Playa has heating and air conditioning, a full kitchen and washing machine, so the apartment can support ordinary weeks as well as beach weekends.'
-        ]
+          'The Weather guide answers what conditions to expect: heat, rain, seasonal differences and what the forecast for your dates still needs to decide. Winter is often quieter, but it can also mean wetter periods and longer evenings indoors.',
+          'The Daily Life guide answers a different question: whether Nerja works when the stay lasts for several ordinary weeks. Groceries, pharmacies, repeated walks, cooking, laundry and the choice between car-free days and regional outings then matter more than a sightseeing list.',
+          'AMARA Playa is one practical example rather than a promise about every address: its central position supports many routines on foot, while heating and air conditioning, a full kitchen and a washing machine make time indoors and everyday tasks easier.',
+          'A central longer stay can remain largely car-free when most days stay in Nerja. A car becomes more useful when repeated trips to Maro, Frigiliana or the wider Axarquía are part of the plan.'
+        ],
+        link: { label: 'See how ordinary weeks work in Nerja', token: 'nerja_daily_life' }
       },
       amara: {
         eyebrow: 'Your Nerja base',
@@ -288,11 +291,14 @@ export const nerjaLocationHubContent: {
       },
       seasons: {
         eyebrow: 'Wetter, Jahreszeiten & längere Aufenthalte',
-        title: 'Nerja wechselt eher das Tempo als seinen Charakter',
+        title: 'Der Wetter-Guide erklärt die Bedingungen, der Alltags-Guide die normalen Wochen',
         paragraphs: [
-          'Im Sommer sind Strände voller und Straßen sowie Parkplätze stärker beansprucht. Frühling und Herbst lassen oft mehr Raum für Spaziergänge und Ausflüge; im Winter rücken lokale Routinen und längere Abende in der Wohnung nach vorn.',
-          'Bei einem längeren Aufenthalt zählen Wohnkomfort und Alltag stärker als eine Sehenswürdigkeitenliste. AMARA Playa bietet Heizung und Klimaanlage, eine vollständige Küche und eine Waschmaschine – passend für normale Wochen ebenso wie für Strandtage.'
-        ]
+          'Der Wetter-Guide beantwortet, mit welchen Bedingungen ihr rechnen solltet: Hitze, Regen, saisonale Unterschiede und alles, was erst die Vorhersage für eure Reisedaten klärt. Im Winter ist Nerja oft ruhiger, zugleich sind feuchtere Phasen und längere Abende drinnen möglich.',
+          'Der Alltags-Guide beantwortet eine andere Frage: Funktioniert Nerja, wenn aus dem Urlaub mehrere normale Wochen werden? Dann zählen Einkäufe, Apotheken, wiederkehrende Wege, Kochen, Wäsche und die Entscheidung zwischen autofreien Tagen und Ausflügen stärker als eine Sehenswürdigkeitenliste.',
+          'AMARA Playa ist dafür ein praktisches Beispiel und keine Aussage über jede Adresse: Die zentrale Lage unterstützt viele Routinen zu Fuß; Heizung und Klimaanlage, eine vollständige Küche und eine Waschmaschine erleichtern Zeit in der Wohnung und normale Aufgaben.',
+          'Ein längerer Aufenthalt im Zentrum kann weitgehend autofrei bleiben, wenn die meisten Tage in Nerja stattfinden. Für regelmäßige Fahrten nach Maro, Frigiliana oder in die weitere Axarquía wird ein Auto nützlicher.'
+        ],
+        link: { label: 'So funktionieren normale Wochen in Nerja', token: 'nerja_daily_life' }
       },
       amara: {
         eyebrow: 'Eure Basis in Nerja',
@@ -399,11 +405,14 @@ export const nerjaLocationHubContent: {
       },
       seasons: {
         eyebrow: 'Tiempo, temporadas y estancias largas',
-        title: 'Nerja cambia más de ritmo que de identidad',
+        title: 'El tiempo explica las condiciones; la vida diaria, las semanas normales',
         paragraphs: [
-          'En verano aumentan la ocupación de playas y la presión sobre tráfico y aparcamiento. Primavera y otoño suelen dejar más espacio para caminar y explorar la comarca; en invierno cobran peso las rutinas locales y las tardes en casa.',
-          'En estancias largas importan más el confort y el día a día que una lista de visitas. AMARA Playa dispone de calefacción y aire acondicionado, cocina completa y lavadora, útil tanto para semanas normales como para días de playa.'
-        ]
+          'La guía del Tiempo responde qué condiciones podéis esperar: calor, lluvia, diferencias estacionales y todo lo que todavía debe decidir la previsión para vuestras fechas. El invierno suele ser más tranquilo, pero también puede traer periodos más húmedos y tardes más largas dentro de casa.',
+          'La guía de Vida diaria responde otra pregunta: ¿funciona Nerja cuando la estancia dura varias semanas normales? Entonces pesan más la compra, las farmacias, los recorridos repetidos, cocinar, lavar la ropa y elegir entre días sin coche y excursiones que una lista de visitas.',
+          'AMARA Playa es un ejemplo práctico, no una promesa sobre cualquier dirección: su ubicación céntrica permite resolver muchas rutinas a pie, mientras que la calefacción y el aire acondicionado, la cocina completa y la lavadora facilitan el tiempo dentro y las tareas cotidianas.',
+          'Una estancia larga en el centro puede seguir siendo en gran parte sin coche si la mayoría de los días transcurren en Nerja. El coche resulta más útil cuando el plan incluye viajes frecuentes a Maro, Frigiliana o el resto de la Axarquía.'
+        ],
+        link: { label: 'Ver cómo funcionan las semanas normales en Nerja', token: 'nerja_daily_life' }
       },
       amara: {
         eyebrow: 'Vuestra base en Nerja',
@@ -510,11 +519,14 @@ export const nerjaLocationHubContent: {
       },
       seasons: {
         eyebrow: 'Weer, seizoenen & langer verblijf',
-        title: 'Nerja verandert eerder van tempo dan van karakter',
+        title: 'Het weer gaat over omstandigheden, het dagelijks leven over gewone weken',
         paragraphs: [
-          'In de zomer zijn stranden drukker en staan wegen en parkeerplaatsen meer onder druk. Lente en herfst geven vaak meer ruimte om te wandelen en de streek te verkennen; in de winter worden lokale routines en langere avonden binnen belangrijker.',
-          'Bij een langer verblijf tellen wooncomfort en dagelijks gemak zwaarder dan een lijst bezienswaardigheden. AMARA Playa heeft verwarming en airconditioning, een complete keuken en wasmachine – passend bij gewone weken én stranddagen.'
-        ]
+          'De Weergids beantwoordt welke omstandigheden je kunt verwachten: warmte, regen, verschillen tussen seizoenen en wat de verwachting voor jullie data nog moet uitwijzen. In de winter is Nerja vaak rustiger, maar er kunnen ook nattere perioden en langere avonden binnen zijn.',
+          'De gids Dagelijks leven beantwoordt een andere vraag: werkt Nerja wanneer het verblijf uit meerdere gewone weken bestaat? Boodschappen, apotheken, terugkerende wandelingen, koken, wassen en de keuze tussen autovrije dagen en uitstapjes tellen dan zwaarder dan een lijst bezienswaardigheden.',
+          'AMARA Playa is één praktisch voorbeeld en geen belofte voor ieder adres: de centrale ligging ondersteunt veel routines te voet, terwijl verwarming en airconditioning, een complete keuken en een wasmachine tijd binnen en dagelijkse taken makkelijker maken.',
+          'Een langer verblijf in het centrum kan grotendeels autovrij blijven als de meeste dagen zich in Nerja afspelen. Een auto wordt nuttiger voor regelmatige ritten naar Maro, Frigiliana of de rest van de Axarquía.'
+        ],
+        link: { label: 'Bekijk hoe gewone weken in Nerja werken', token: 'nerja_daily_life' }
       },
       amara: {
         eyebrow: 'Jullie uitvalsbasis in Nerja',
@@ -621,11 +633,14 @@ export const nerjaLocationHubContent: {
       },
       seasons: {
         eyebrow: 'Väder, årstider & längre vistelser',
-        title: 'Nerja byter tempo mer än identitet',
+        title: 'Vädret beskriver förhållandena, vardagsguiden de vanliga veckorna',
         paragraphs: [
-          'Sommaren ger mer folk på stränderna och större tryck på vägar och parkering. Vår och höst ger ofta mer utrymme för promenader och utflykter; på vintern blir lokala rutiner och längre kvällar hemma viktigare.',
-          'Vid en längre vistelse väger bostadskomfort och vardag tyngre än en lista över sevärdheter. AMARA Playa har värme och luftkonditionering, fullt kök och tvättmaskin – för vanliga veckor såväl som stranddagar.'
-        ]
+          'Väderguiden svarar på vilka förhållanden ni kan vänta er: värme, regn, årstidsskillnader och det som prognosen för era datum fortfarande måste avgöra. Vintern är ofta lugnare, men kan också ge blötare perioder och längre kvällar inomhus.',
+          'Vardagsguiden svarar på en annan fråga: fungerar Nerja när vistelsen består av flera vanliga veckor? Matinköp, apotek, återkommande promenader, matlagning, tvätt och valet mellan bilfria dagar och utflykter väger då tyngre än en lista över sevärdheter.',
+          'AMARA Playa är ett praktiskt exempel, inte ett löfte om varje adress: det centrala läget stödjer många rutiner till fots, medan värme och luftkonditionering, fullt kök och tvättmaskin gör tid inomhus och vardagssysslor enklare.',
+          'En längre central vistelse kan förbli i stort sett bilfri när de flesta dagarna tillbringas i Nerja. Bil blir mer användbar för återkommande resor till Maro, Frigiliana eller övriga Axarquía.'
+        ],
+        link: { label: 'Se hur vanliga veckor fungerar i Nerja', token: 'nerja_daily_life' }
       },
       amara: {
         eyebrow: 'Er bas i Nerja',

@@ -1,8 +1,7 @@
 ---
 import InlineEmphasis from '../../components/text/InlineEmphasis.astro';
-import Hero from '../../components/Hero.astro';
+import LocationExperienceHero from '../../components/location/LocationExperienceHero.astro';
 import Navigation from '../../components/Navigation.astro';
-import EditorialByline from '../../components/editorial/EditorialByline.astro';
 import EditorialClosingCta from '../../components/editorial/EditorialClosingCta.astro';
 import EditorialFeatureGrid from '../../components/editorial/EditorialFeatureGrid.astro';
 import ExperienceContextNav from '../../components/experience/ExperienceContextNav.astro';
@@ -32,7 +31,7 @@ const footerHighlights: LabeledLink[] = [
   { token: 'nerja_beaches_authority', label: copy.related.items[0].title },
   { token: 'nerja_nightlife_authority', label: copy.related.items[1].title }
 ];
-const heroImage = { src: '/images/amara-frigiliana-pueblo/nerja-coast-aerial.jpeg', width: 2000, height: 1333 };
+const heroImage = { src: '/images/amara-frigiliana-pueblo/nerja-coast-aerial.jpeg', width: 2000 };
 ---
 
 <LocationAuthorityLayout seo={nerjaFoodSeo} pageLang={currentLang} footerHighlights={footerHighlights}>
@@ -40,12 +39,22 @@ const heroImage = { src: '/images/amara-frigiliana-pueblo/nerja-coast-aerial.jpe
   <ExperienceContextNav currentId="food" destination="nerja" lang={currentLang} />
 
   <div data-am-page="nerja-food">
-    <Hero imageSrc={heroImage.src} imageAlt={copy.hero.imageAlt} imageWidth={heroImage.width} imageHeight={heroImage.height}>
-      <span class="am-text-caption mb-8 block text-primary">{copy.hero.kicker}</span>
-      <h1 class="am-text-display mb-10 italic tracking-tighter text-on-surface">{copy.hero.title}</h1>
-      <div class="max-w-xl space-y-6 border-l border-primary/20 pl-10">{copy.hero.paragraphs.map((paragraph) => <p class="am-text-body leading-relaxed text-on-surface-variant"><InlineEmphasis text={paragraph} /></p>)}</div>
-      {nerjaFoodSeo.article && <EditorialByline lang={currentLang} authorName={nerjaFoodSeo.article.authorName} authorHref={aboutHref} updated={updated[currentLang]} note={shared.planning.note} />}
-    </Hero>
+    <LocationExperienceHero
+      topic="food"
+      eyebrow={copy.hero.kicker}
+      title={copy.hero.title}
+      paragraphs={copy.hero.paragraphs}
+      imageSrc={heroImage.src}
+      imageAlt={copy.hero.imageAlt}
+      imageWidth={heroImage.width}
+      byline={nerjaFoodSeo.article ? {
+        lang: currentLang,
+        authorName: nerjaFoodSeo.article.authorName,
+        authorHref: aboutHref,
+        updated: updated[currentLang],
+        note: shared.planning.note
+      } : undefined}
+    />
 
     <section id="choose" class="am-section am-section--tint">
       <div class="mb-16 max-w-3xl"><h2 class="am-text-title mb-6 italic tracking-tight text-on-surface">{copy.overview.title}</h2><p class="am-text-body leading-relaxed text-on-surface-variant"><InlineEmphasis text={copy.overview.intro} /></p></div>

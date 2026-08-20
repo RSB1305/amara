@@ -1,7 +1,7 @@
 import type { GuestGuideEntry, LocalizedText } from '../types/guestGuide';
 import { buildBookingLandingUrl } from '../lib/directBooking';
 
-const TARIFA_SUPPORT_WHATSAPP = 'https://wa.me/34604440964';
+const TARIFA_SUPPORT_EMAIL = 'mailto:hola@amara-lodging.es';
 const TARIFA_GOOGLE_REVIEW_URL = 'https://g.page/r/CfOMtRVdxhzKEAE/review';
 
 const NEED_HELP: LocalizedText = {
@@ -111,7 +111,7 @@ const tarifaFamilySurfHub: GuestGuideEntry = {
   type: 'hub',
   slug: 'guestwelcome-tarifa-family-surf',
   entityKey: 'amara-family-surf',
-  supportHref: TARIFA_SUPPORT_WHATSAPP,
+  supportHref: TARIFA_SUPPORT_EMAIL,
   supportLabel: NEED_HELP,
   seoTitle: {
     en: 'Tarifa Guest Guide | AMARA',
@@ -271,7 +271,7 @@ const tarifaFamilySurfApartment: GuestGuideEntry = {
   slug: 'tarifa-guest-apartment',
   entityKey: 'amara-family-surf',
   backSlug: 'guestwelcome-tarifa-family-surf',
-  supportHref: TARIFA_SUPPORT_WHATSAPP,
+  supportHref: TARIFA_SUPPORT_EMAIL,
   supportLabel: NEED_HELP,
   seoTitle: tarifaText(
     'Your Apartment | AMARA Tarifa',
@@ -1132,7 +1132,7 @@ const tarifaFamilySurfLocalEssentials: GuestGuideEntry = {
   slug: 'tarifa-guest-local-essentials',
   entityKey: 'amara-family-surf',
   backSlug: 'guestwelcome-tarifa-family-surf',
-  supportHref: TARIFA_SUPPORT_WHATSAPP,
+  supportHref: TARIFA_SUPPORT_EMAIL,
   supportLabel: NEED_HELP,
   seoTitle: tarifaText(
     'Local Essentials | AMARA Tarifa',
@@ -1877,7 +1877,7 @@ const tarifaFamilySurfLocalGuide: GuestGuideEntry = {
   slug: 'tarifa-guest-local-guide',
   entityKey: 'amara-family-surf',
   backSlug: 'guestwelcome-tarifa-family-surf',
-  supportHref: TARIFA_SUPPORT_WHATSAPP,
+  supportHref: TARIFA_SUPPORT_EMAIL,
   supportLabel: NEED_HELP,
   seoTitle: tarifaText(
     'Local Guide | AMARA Tarifa',
@@ -1994,7 +1994,7 @@ const tarifaFamilySurfFoodDrink: GuestGuideEntry = {
   slug: 'tarifa-guest-food-drink',
   entityKey: 'amara-family-surf',
   backSlug: 'tarifa-guest-local-guide',
-  supportHref: TARIFA_SUPPORT_WHATSAPP,
+  supportHref: TARIFA_SUPPORT_EMAIL,
   supportLabel: NEED_HELP,
   seoTitle: tarifaText(
     'Food & Drinks | AMARA Tarifa',
@@ -2577,7 +2577,7 @@ const tarifaFamilySurfBeaches: GuestGuideEntry = {
   slug: 'tarifa-guest-beaches',
   entityKey: 'amara-family-surf',
   backSlug: 'tarifa-guest-local-guide',
-  supportHref: TARIFA_SUPPORT_WHATSAPP,
+  supportHref: TARIFA_SUPPORT_EMAIL,
   supportLabel: NEED_HELP,
   seoTitle: tarifaText(
     'Beaches | AMARA Tarifa',
@@ -2830,7 +2830,7 @@ const tarifaFamilySurfActivities: GuestGuideEntry = {
   slug: 'tarifa-guest-activities',
   entityKey: 'amara-family-surf',
   backSlug: 'tarifa-guest-local-guide',
-  supportHref: TARIFA_SUPPORT_WHATSAPP,
+  supportHref: TARIFA_SUPPORT_EMAIL,
   supportLabel: NEED_HELP,
   seoTitle: tarifaText(
     'Activities & No-Wind Days | AMARA Tarifa',
@@ -3307,7 +3307,7 @@ const tarifaFamilySurfSightseeing: GuestGuideEntry = {
   slug: 'tarifa-guest-sightseeing',
   entityKey: 'amara-family-surf',
   backSlug: 'tarifa-guest-local-guide',
-  supportHref: TARIFA_SUPPORT_WHATSAPP,
+  supportHref: TARIFA_SUPPORT_EMAIL,
   supportLabel: NEED_HELP,
   seoTitle: tarifaText(
     'Sightseeing | AMARA Tarifa',
@@ -3652,7 +3652,7 @@ const tarifaFamilySurfNightlife: GuestGuideEntry = {
   slug: 'tarifa-nightlife',
   entityKey: 'amara-family-surf',
   backSlug: 'tarifa-guest-local-guide',
-  supportHref: TARIFA_SUPPORT_WHATSAPP,
+  supportHref: TARIFA_SUPPORT_EMAIL,
   supportLabel: NEED_HELP,
   seoTitle: tarifaText(
     'Nightlife | AMARA Tarifa',
@@ -3842,7 +3842,7 @@ const tarifaFamilySurfKitesurfing: GuestGuideEntry = {
   slug: 'tarifa-guest-kitesurfing',
   entityKey: 'amara-family-surf',
   backSlug: 'guestwelcome-tarifa-family-surf',
-  supportHref: TARIFA_SUPPORT_WHATSAPP,
+  supportHref: TARIFA_SUPPORT_EMAIL,
   supportLabel: NEED_HELP,
   seoTitle: tarifaText(
     "Kitesurfing Guide | AMARA Tarifa",

@@ -40,6 +40,7 @@ const SWEEP_LANGUAGE: AmaraLanguage = 'es';
 interface AuthorityArticleLocale {
   hero: { title: string; standfirst: string; note: string; updated: string; mark?: string };
   facts: Array<{ label: string; value: string }>;
+  comparison?: { places: Array<{ july: string }> };
   sections: Array<{ id: string; eyebrow: string; title: string; paragraphs: string[] }>;
   related?: {
     eyebrow: string;
@@ -96,7 +97,7 @@ const AUTHORITY_PAGES: AuthorityPage[] = [
     routeToken: 'getting_to_nerja',
     pageId: 'getting-to-nerja',
     content: gettingToNerjaContent,
-    heroMark: () => 'Nerja',
+    heroMark: (locale) => locale.facts[0].value,
     relatedColumns: null,
     blockBeforeSections: null,
     blockAfterSections: null,
@@ -111,7 +112,7 @@ const AUTHORITY_PAGES: AuthorityPage[] = [
     routeToken: 'getting_to_tarifa',
     pageId: 'getting-to-tarifa',
     content: gettingToTarifaContent,
-    heroMark: () => 'Tarifa',
+    heroMark: (locale) => locale.facts[0].value,
     relatedColumns: null,
     blockBeforeSections: null,
     blockAfterSections: null,
@@ -156,7 +157,7 @@ const AUTHORITY_PAGES: AuthorityPage[] = [
     routeToken: 'nerja_daily_life',
     pageId: 'nerja-daily-life',
     content: nerjaDailyLifeContent,
-    heroMark: null,
+    heroMark: (locale) => locale.facts[0].value,
     relatedColumns: 'md:grid-cols-2',
     blockBeforeSections: null,
     blockAfterSections: null,
@@ -186,7 +187,7 @@ const AUTHORITY_PAGES: AuthorityPage[] = [
     routeToken: 'tarifa_daily_life',
     pageId: 'tarifa-daily-life',
     content: tarifaDailyLifeContent,
-    heroMark: () => '5 min',
+    heroMark: (locale) => locale.facts[0].value,
     relatedColumns: 'md:grid-cols-2',
     blockBeforeSections: null,
     blockAfterSections: null,
@@ -216,7 +217,7 @@ const AUTHORITY_PAGES: AuthorityPage[] = [
     routeToken: 'tarifa_weather',
     pageId: 'tarifa-weather',
     content: tarifaWeatherContent,
-    heroMark: () => '23.9°',
+    heroMark: (locale) => locale.comparison?.places[0].july ?? '',
     relatedColumns: 'md:grid-cols-3',
     blockBeforeSections: null,
     blockAfterSections: null,
@@ -373,7 +374,7 @@ for (const entry of AUTHORITY_PAGES) {
     await expect(byline.locator('span').last()).toHaveText(locale.hero.note);
 
     // Decorative hero mark.
-    const heroMark = article.locator('header [aria-hidden="true"]');
+    const heroMark = article.locator('header [data-am-hero-mark]');
     if (entry.heroMark) {
       await expect(heroMark).toHaveCount(1);
       await expect(heroMark).toHaveText(entry.heroMark(locale));

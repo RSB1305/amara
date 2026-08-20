@@ -1,5 +1,5 @@
 ---
-import Hero from '../../components/Hero.astro';
+import LocationExperienceHero from '../../components/location/LocationExperienceHero.astro';
 import Navigation from '../../components/Navigation.astro';
 import EditorialClosingCta from '../../components/editorial/EditorialClosingCta.astro';
 import ExperienceContextNav from '../../components/experience/ExperienceContextNav.astro';
@@ -45,24 +45,21 @@ const footerHighlights: LabeledLink[] = [
   />
   <ExperienceContextNav destination="nerja" lang={currentLang} />
 
-  <article class="bg-surface" data-am-page="nerja-experience-hub">
-    <Hero
+  <article class="bg-surface" data-am-page="nerja-experience-hub" data-am-family="experience" data-am-role="hub">
+    <LocationExperienceHero
+      role="hub"
+      topic="overview"
+      eyebrow={copy.hero.eyebrow}
+      title={copy.hero.title}
+      paragraphs={[copy.hero.standfirst]}
       imageSrc="/images/amara-frigiliana-pueblo/nerja-coast-aerial.jpeg"
       imageAlt={copy.hero.imageAlt}
       imageWidth={2000}
-      imageHeight={1333}
-    >
-      <span class="am-text-caption mb-8 block text-primary">{copy.hero.eyebrow}</span>
-      <h1 class="am-text-display mb-10 text-balance italic tracking-tighter text-on-surface">
-        {copy.hero.title}
-      </h1>
-      <p class="am-text-body max-w-xl border-l border-primary/20 pl-10 leading-relaxed text-on-surface-variant">
-        {copy.hero.standfirst}
-      </p>
-      <p class="mt-12">
-        <a href="#experiences" class="am-btn am-btn--primary">{copy.intro.eyebrow}</a>
-      </p>
-    </Hero>
+      actions={[
+        { href: '#experiences', label: copy.intro.eyebrow, style: 'primary' }
+      ]}
+      balanceTitle
+    />
 
     <section id="experiences" class="am-section am-section--plain">
       <div class="grid grid-cols-1 gap-10 border-b border-outline-variant/20 pb-14 lg:grid-cols-12 lg:items-end">

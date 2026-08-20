@@ -119,7 +119,7 @@ const visibleItems = activeId && !retainActiveItem
 
       {(branches.length > 0 || groups.length > 0 || visibleItems.length > 0) && (
       <div class="flex min-w-0 flex-col gap-3 xl:ml-auto xl:items-end">
-        {branches.length > 0 && activeBranchId && branchSwitcherAriaLabel && (
+        {branches.length > 0 && branchSwitcherAriaLabel && (
           <DestinationBranchSwitcher
             activeId={activeBranchId}
             ariaLabel={branchSwitcherAriaLabel}

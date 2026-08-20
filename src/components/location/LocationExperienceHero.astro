@@ -1,0 +1,133 @@
+---
+import type { ImageMetadata } from 'astro';
+import Hero from '../Hero.astro';
+import EditorialByline from '../editorial/EditorialByline.astro';
+import InlineEmphasis from '../text/InlineEmphasis.astro';
+import type { AmaraLanguage } from '../../types/seo';
+
+interface HeroAction {
+  href: string;
+  label: string;
+  style: 'primary' | 'secondary';
+}
+
+interface HeroByline {
+  lang: AmaraLanguage;
+  authorName: string;
+  authorHref: string;
+  updated: string;
+  note: string;
+}
+
+interface Props {
+  eyebrow: string;
+  title: string;
+  paragraphs: string[];
+  imageSrc: ImageMetadata | string;
+  imageAlt: string;
+  imageWidth?: number;
+  imageSizes?: string;
+  accent?: string;
+  actions?: HeroAction[];
+  balanceTitle?: boolean;
+  byline?: HeroByline;
+  presentation?: 'editorial' | 'location' | 'plain';
+  role?: 'hub' | 'spoke';
+  topic?: string;
+}
+
+const {
+  eyebrow,
+  title,
+  paragraphs,
+  imageSrc,
+  imageAlt,
+  imageWidth,
+  imageSizes,
+  accent,
+  actions = [],
+  balanceTitle = false,
+  byline,
+  presentation = 'editorial',
+  role = 'spoke',
+  topic
+} = Astro.props;
+---
+
+<Hero
+  imageSrc={imageSrc}
+  imageAlt={imageAlt}
+  imageWidth={imageWidth}
+  imageSizes={imageSizes}
+  align="start"
+  family="experience"
+  role={role}
+  topic={topic}
+>
+  {
+    presentation === 'plain' ? (
+      <>
+        <p class="am-text-caption mb-6 text-primary">{eyebrow}</p>
+        <h1 class="am-text-display max-w-4xl text-balance text-on-surface">
+          {title}
+        </h1>
+        <div class="mt-8 max-w-3xl space-y-5">
+          {paragraphs.map((paragraph) => (
+            <p class="am-text-body leading-relaxed text-on-surface-variant">
+              <InlineEmphasis text={paragraph} />
+            </p>
+          ))}
+        </div>
+      </>
+    ) : (
+      <>
+        <span class="am-text-caption mb-8 block text-primary">{eyebrow}</span>
+        <h1
+          class:list={[
+            'am-text-display mb-10 italic tracking-tighter text-on-surface',
+            balanceTitle && 'text-balance'
+          ]}
+        >
+          {title}
+        </h1>
+        <div
+          class:list={[
+            'border-l border-primary/20',
+            accent
+              ? 'max-w-3xl space-y-6 pl-8 md:pl-10'
+              : presentation === 'location'
+                ? 'max-w-xl space-y-5 pl-10'
+                : 'max-w-xl space-y-6 pl-10'
+          ]}
+        >
+          {accent && (
+            <p class="am-text-subtitle italic leading-relaxed text-on-surface">
+              <InlineEmphasis text={accent} />
+            </p>
+          )}
+          {paragraphs.map((paragraph) => (
+            <p class="am-text-body leading-relaxed text-on-surface-variant">
+              <InlineEmphasis text={paragraph} />
+            </p>
+          ))}
+        </div>
+        {actions.length > 0 && (
+          <div
+            class:list={[
+              'flex flex-wrap',
+              actions.length > 1 ? 'mt-14' : 'mt-12',
+              presentation === 'location' ? 'gap-8' : 'gap-4'
+            ]}
+          >
+            {actions.map((action) => (
+              <a href={action.href} class={`am-btn am-btn--${action.style}`}>
+                {action.label}
+              </a>
+            ))}
+          </div>
+        )}
+        {byline && <EditorialByline {...byline} />}
+      </>
+    )
+  }
+</Hero>

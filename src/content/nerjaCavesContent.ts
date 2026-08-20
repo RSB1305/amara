@@ -49,7 +49,7 @@ export interface NerjaCavesLocale {
 
 const article = {
   datePublished: '2026-08-14',
-  dateModified: '2026-08-14',
+  dateModified: '2026-08-20',
   authorName: 'Robert Sebastian Böhmer',
   authorType: 'Person' as const,
   authorSlug: 'amara-about-us'
@@ -57,13 +57,15 @@ const article = {
 
 const sharedSources = {
   official: 'https://cuevadenerja.es/salas-de-la-cueva-de-nerja/',
+  access: 'https://cuevadenerja.es/como-llegar-a-la-cueva-de-nerja/',
+  cuevaTren: 'https://cuevadenerja.es/tren-a-la-cueva-de-nerja/',
   dating:
     'https://www.uco.es/investigacion/ucci/es/noticias-gen/item/3001-cuestionan-la-autoria-neandertal-del-arte-rupestre-a-traves-de-la-cueva-de-nerja',
   provincia: 'https://www.malaga.es/en/laprovincia/naturaleza/lis_cd-1690/cueva-de-nerja'
 };
 
 export const nerjaCavesSeo: AmaraAuthoringSeo = {
-  version: '2026-08-14-nerja-caves-v1.0',
+  version: '2026-08-20-nerja-caves-v1.1',
   pageType: 'B',
   entityKey: 'amara-brand',
   article,
@@ -163,6 +165,16 @@ export const nerjaCavesContent: Record<AmaraLanguage, NerjaCavesLocale> = {
           'The painted chambers are not on the route at all and cannot be seen. They are presented instead through high-resolution scans and virtual reality at the Museo de Nerja on Plaza de España — which is the honest way to visit them.',
           'One practical warning: the route has more than 458 steps up and down, with damp ground in places. It is not accessible, and pushchairs and wheelchairs cannot be taken in.'
         ]
+      },
+      {
+        id: 'getting-there',
+        eyebrow: 'Getting there',
+        title: 'The cave is by Maro, not in central Nerja',
+        paragraphs: [
+          'From Nerja, the realistic choices are a private car, taxi or a scheduled coach towards the cave and Maro. The operator has parking at the cave site, but current access, charges and opening arrangements should be checked before the visit rather than copied into a permanent guide.',
+          'For public transport, use the current operator and Alsa journey information: stops and service patterns can change, and the final walk depends on the service selected. A taxi is the simplest door-to-door alternative when timing, luggage or mobility makes that connection awkward.',
+          'The operator’s CuevaTren page currently states that the tourist road train is not available in its products. Do not plan around an old timetable; check the official page again if the service is important to your day.'
+        ]
       }
     ],
     personal: {
@@ -202,6 +214,16 @@ export const nerjaCavesContent: Record<AmaraLanguage, NerjaCavesLocale> = {
           label: 'Fundación Cueva de Nerja · The halls',
           text: 'The operator on the galleries, the column and what is open to visitors.',
           href: sharedSources.official
+        },
+        {
+          label: 'Fundación Cueva de Nerja · How to get there',
+          text: 'The operator on access by car, scheduled coach and parking at the cave site.',
+          href: sharedSources.access
+        },
+        {
+          label: 'Fundación Cueva de Nerja · CuevaTren status',
+          text: 'The operator currently marks the tourist road train as unavailable in its products.',
+          href: sharedSources.cuevaTren
         },
         {
           label: 'Universidad de Córdoba · Questioning the Neanderthal authorship',
@@ -279,6 +301,16 @@ export const nerjaCavesContent: Record<AmaraLanguage, NerjaCavesLocale> = {
           'Die bemalten Kammern liegen gar nicht am Weg und sind nicht zu sehen. Sie werden stattdessen über hochauflösende Scans und Virtual Reality im Museo de Nerja an der Plaza de España gezeigt – und das ist der ehrliche Weg, sie zu besuchen.',
           'Ein praktischer Hinweis: Der Rundgang führt über mehr als 458 Stufen auf und ab, streckenweise auf feuchtem Untergrund. Er ist nicht barrierefrei; Kinderwagen und Rollstühle können nicht mitgenommen werden.'
         ]
+      },
+      {
+        id: 'getting-there',
+        eyebrow: 'Anreise zur Höhle',
+        title: 'Die Höhle liegt bei Maro und nicht im Zentrum von Nerja',
+        paragraphs: [
+          'Von Nerja sind privates Auto, Taxi oder ein Linienbus in Richtung Höhle und Maro die realistischen Möglichkeiten. Am Höhlengelände gibt es laut Betreiber Parkplätze; aktuelle Zufahrt, Gebühren und Betriebsbedingungen solltet ihr vor dem Besuch prüfen, statt sie dauerhaft aus einem Reise-Guide zu übernehmen.',
+          'Für öffentliche Verkehrsmittel nutzt ihr die aktuellen Angaben des Betreibers und die Alsa-Reiseauskunft: Haltestellen und Verbindungen können sich ändern, und der letzte Fußweg hängt von der gewählten Fahrt ab. Ein Taxi ist die einfachste direkte Alternative, wenn Zeiten, Gepäck oder Mobilität den Anschluss umständlich machen.',
+          'Auf der CuevaTren-Seite erklärt der Betreiber derzeit, dass der touristische Straßenzug in seinen Produkten nicht verfügbar ist. Plant nicht mit einem alten Fahrplan; prüft die offizielle Seite erneut, falls der Zug für euren Tag wichtig wäre.'
+        ]
       }
     ],
     personal: {
@@ -318,6 +350,16 @@ export const nerjaCavesContent: Record<AmaraLanguage, NerjaCavesLocale> = {
           label: 'Fundación Cueva de Nerja · Die Säle',
           text: 'Der Betreiber zu Galerien, Säule und dem, was Besuchern offensteht.',
           href: sharedSources.official
+        },
+        {
+          label: 'Fundación Cueva de Nerja · Anreise',
+          text: 'Der Betreiber zur Anreise mit Auto und Linienbus sowie zum Parken am Höhlengelände.',
+          href: sharedSources.access
+        },
+        {
+          label: 'Fundación Cueva de Nerja · Status des CuevaTren',
+          text: 'Der Betreiber kennzeichnet den touristischen Straßenzug derzeit als nicht in seinen Produkten verfügbar.',
+          href: sharedSources.cuevaTren
         },
         {
           label: 'Universidad de Córdoba · Zweifel an der Neandertaler-Autorschaft',
@@ -395,6 +437,16 @@ export const nerjaCavesContent: Record<AmaraLanguage, NerjaCavesLocale> = {
           'Las cámaras pintadas no están en el recorrido y no pueden verse. Se presentan mediante escaneados de alta resolución y realidad virtual en el Museo de Nerja, en la Plaza de España: esa es la forma honesta de visitarlas.',
           'Un aviso práctico: el recorrido supera los 458 escalones de subida y bajada, con suelo húmedo en tramos. No es accesible, y no se admiten carritos ni sillas de ruedas.'
         ]
+      },
+      {
+        id: 'getting-there',
+        eyebrow: 'Cómo llegar',
+        title: 'La cueva está junto a Maro, no en el centro de Nerja',
+        paragraphs: [
+          'Desde Nerja, las opciones realistas son coche privado, taxi o autobús de línea hacia la cueva y Maro. La fundación dispone de aparcamiento en el recinto, pero conviene comprobar accesos, tarifas y condiciones vigentes antes de la visita en lugar de fijarlos en una guía permanente.',
+          'Para el transporte público, consultad la información actual de la fundación y el buscador de Alsa: las paradas y servicios pueden cambiar, y el último tramo a pie depende de la opción elegida. El taxi es la alternativa directa más sencilla si los horarios, el equipaje o la movilidad complican esa conexión.',
+          'La página oficial de CuevaTren indica actualmente que el tren turístico por carretera no está disponible en los productos de la fundación. No planifiquéis el día con un horario antiguo; volved a consultar la página oficial si el servicio es importante para vosotros.'
+        ]
       }
     ],
     personal: {
@@ -434,6 +486,16 @@ export const nerjaCavesContent: Record<AmaraLanguage, NerjaCavesLocale> = {
           label: 'Fundación Cueva de Nerja · Las salas',
           text: 'La fundación sobre las galerías, la columna y lo que se puede visitar.',
           href: sharedSources.official
+        },
+        {
+          label: 'Fundación Cueva de Nerja · Cómo llegar',
+          text: 'La fundación sobre el acceso en coche y autobús de línea y el aparcamiento del recinto.',
+          href: sharedSources.access
+        },
+        {
+          label: 'Fundación Cueva de Nerja · Estado de CuevaTren',
+          text: 'La fundación indica actualmente que el tren turístico no está disponible en sus productos.',
+          href: sharedSources.cuevaTren
         },
         {
           label: 'Universidad de Córdoba · Se cuestiona la autoría neandertal',
@@ -511,6 +573,16 @@ export const nerjaCavesContent: Record<AmaraLanguage, NerjaCavesLocale> = {
           'De beschilderde kamers liggen niet aan de route en zijn niet te zien. Ze worden getoond via hogeresolutiescans en virtual reality in het Museo de Nerja aan de Plaza de España — dat is de eerlijke manier om ze te bezoeken.',
           'Een praktische waarschuwing: de route telt meer dan 458 treden omhoog en omlaag, plaatselijk met vochtige ondergrond. Hij is niet toegankelijk; kinderwagens en rolstoelen kunnen niet mee.'
         ]
+      },
+      {
+        id: 'getting-there',
+        eyebrow: 'Erheen reizen',
+        title: 'De grot ligt bij Maro, niet in centraal Nerja',
+        paragraphs: [
+          'Vanuit Nerja zijn een eigen auto, taxi of lijndienst richting de grot en Maro de realistische keuzes. Volgens de beheerder is er parkeergelegenheid op het grotterrein, maar controleer toegang, kosten en actuele opening vooraf in plaats van die gegevens permanent in een reisgids vast te leggen.',
+          'Gebruik voor openbaar vervoer de actuele informatie van de beheerder en de reisplanner van Alsa: haltes en diensten kunnen veranderen en de laatste wandeling hangt af van de gekozen verbinding. Een taxi is het eenvoudigste directe alternatief wanneer tijden, bagage of mobiliteit de aansluiting lastig maken.',
+          'De officiële CuevaTren-pagina vermeldt momenteel dat het toeristische wegtreintje niet beschikbaar is in de producten van de beheerder. Plan niet met een oude dienstregeling; controleer de officiële pagina opnieuw als deze dienst belangrijk is voor jullie dag.'
+        ]
       }
     ],
     personal: {
@@ -550,6 +622,16 @@ export const nerjaCavesContent: Record<AmaraLanguage, NerjaCavesLocale> = {
           label: 'Fundación Cueva de Nerja · De zalen',
           text: 'De beheerder over de galerijen, de zuil en wat open is voor bezoekers.',
           href: sharedSources.official
+        },
+        {
+          label: 'Fundación Cueva de Nerja · Bereikbaarheid',
+          text: 'De beheerder over toegang per auto en lijndienst en parkeren op het grotterrein.',
+          href: sharedSources.access
+        },
+        {
+          label: 'Fundación Cueva de Nerja · Status CuevaTren',
+          text: 'De beheerder vermeldt momenteel dat het toeristische wegtreintje niet beschikbaar is in zijn producten.',
+          href: sharedSources.cuevaTren
         },
         {
           label: 'Universidad de Córdoba · Twijfel over neanderthalerauteurschap',
@@ -627,6 +709,16 @@ export const nerjaCavesContent: Record<AmaraLanguage, NerjaCavesLocale> = {
           'De målade kamrarna ligger inte längs rutten och går inte att se. De visas i stället genom högupplösta skanningar och virtuell verklighet på Museo de Nerja vid Plaza de España — och det är det ärliga sättet att besöka dem.',
           'En praktisk varning: rutten har över 458 trappsteg upp och ner, delvis på fuktigt underlag. Den är inte tillgänglighetsanpassad; barnvagnar och rullstolar kan inte tas med.'
         ]
+      },
+      {
+        id: 'getting-there',
+        eyebrow: 'Ta sig dit',
+        title: 'Grottan ligger vid Maro, inte i centrala Nerja',
+        paragraphs: [
+          'Från Nerja är egen bil, taxi eller linjebuss mot grottan och Maro de realistiska alternativen. Enligt anläggningen finns parkering vid grottområdet, men kontrollera aktuell infart, avgift och öppethållande före besöket i stället för att låsa uppgifterna i en permanent guide.',
+          'För kollektivtrafik använder ni anläggningens aktuella information och Alsas reseplanerare: hållplatser och trafikupplägg kan ändras, och den sista promenaden beror på vald förbindelse. Taxi är det enklaste direkta alternativet när tider, bagage eller rörlighet gör anslutningen besvärlig.',
+          'Den officiella CuevaTren-sidan anger för närvarande att turisttåget på väg inte finns tillgängligt i anläggningens produkter. Planera inte efter en gammal tidtabell; kontrollera den officiella sidan igen om tjänsten är viktig för er dag.'
+        ]
       }
     ],
     personal: {
@@ -666,6 +758,16 @@ export const nerjaCavesContent: Record<AmaraLanguage, NerjaCavesLocale> = {
           label: 'Fundación Cueva de Nerja · Salarna',
           text: 'Anläggningen om gallerierna, pelaren och vad som är öppet för besökare.',
           href: sharedSources.official
+        },
+        {
+          label: 'Fundación Cueva de Nerja · Ta sig dit',
+          text: 'Anläggningen om tillfart med bil och linjebuss samt parkering vid grottområdet.',
+          href: sharedSources.access
+        },
+        {
+          label: 'Fundación Cueva de Nerja · CuevaTren-status',
+          text: 'Anläggningen anger för närvarande att turisttåget inte finns tillgängligt i dess produkter.',
+          href: sharedSources.cuevaTren
         },
         {
           label: 'Universidad de Córdoba · Neandertalarnas upphovsmannaskap ifrågasatt',

@@ -1,5 +1,5 @@
 ---
-import Hero from '../../components/Hero.astro';
+import LocationExperienceHero from '../../components/location/LocationExperienceHero.astro';
 import Navigation from '../../components/Navigation.astro';
 import AmaraImage from '../../components/AmaraImage.astro';
 import EditorialClosingCta from '../../components/editorial/EditorialClosingCta.astro';
@@ -47,8 +47,7 @@ const combineItems = copy.combine.items.map((item) => ({
 
 const heroImage = {
   src: '/images/wellness/frigiliana-wellness-2.jpeg',
-  width: 1512,
-  height: 1512
+  width: 1512
 };
 
 const providerImages = {
@@ -71,28 +70,15 @@ const providerImages = {
 
   <div data-am-page="frigiliana-wellness">
     <div class="w-full">
-      <Hero
+      <LocationExperienceHero
+        topic="wellness"
+        eyebrow={copy.hero.kicker}
+        title={copy.hero.title}
+        paragraphs={copy.hero.paragraphs}
         imageSrc={heroImage.src}
         imageAlt={copy.hero.imageAlt}
         imageWidth={heroImage.width}
-        imageHeight={heroImage.height}
-      >
-        <span class="am-text-caption text-primary mb-8 block">
-          {copy.hero.kicker}
-        </span>
-        <h1 class="am-text-display italic text-on-surface mb-10 tracking-tighter">
-          {copy.hero.title}
-        </h1>
-        <div class="pl-10 border-l border-primary/20 max-w-xl space-y-6">
-          {
-            copy.hero.paragraphs.map((paragraph) => (
-              <p class="am-text-body text-on-surface-variant leading-relaxed">
-                {paragraph}
-              </p>
-            ))
-          }
-        </div>
-      </Hero>
+      />
 
       <section
         id="choose"

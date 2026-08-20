@@ -1,5 +1,5 @@
 ---
-import Hero from '../../components/Hero.astro';
+import LocationTopicHero from '../../components/location/LocationTopicHero.astro';
 import Navigation from '../../components/Navigation.astro';
 import EditorialClosingCta from '../../components/editorial/EditorialClosingCta.astro';
 import EditorialGuideLinkSection from '../../components/editorial/EditorialGuideLinkSection.astro';
@@ -112,8 +112,7 @@ const footerHighlights: LabeledLink[] = [
 
 const heroImage = {
   src: '/images/amara-frigiliana-pueblo/JPG_Frigiliana_Pueblo/2000px_72dpi_sRGB/02-frigiliana-pueblo.jpg',
-  width: 2000,
-  height: 1333
+  width: 2000
 };
 ---
 
@@ -130,43 +129,21 @@ const heroImage = {
   />
   <LocationContextNav activeId="faq" lang={currentLang} />
 
-  <div data-am-page="frigiliana-faq">
+  <div data-am-page="frigiliana-faq" data-am-family="location" data-am-role="spoke" data-am-topic="faq">
     <div class="w-full">
-      <Hero
+      <LocationTopicHero
+        eyebrow={t(copy.hero.eyebrow)}
+        title={t(copy.hero.title)}
+        paragraphs={[t(copy.hero.lead), t(copy.hero.body)]}
         imageSrc={heroImage.src}
         imageAlt={t(copy.hero.imageAlt)}
         imageWidth={heroImage.width}
-        imageHeight={heroImage.height}
-      >
-        <span class="am-text-caption text-primary mb-8 block">
-          {t(copy.hero.eyebrow)}
-        </span>
-        <h1 class="am-text-display italic text-on-surface mb-10 tracking-tighter">
-          {t(copy.hero.title)}
-        </h1>
-        <div class="pl-10 border-l border-primary/20 max-w-xl mb-14 space-y-6">
-          <p class="am-text-body text-on-surface-variant leading-relaxed">
-            {t(copy.hero.lead)}
-          </p>
-          <p class="am-text-body text-on-surface-variant leading-relaxed">
-            {t(copy.hero.body)}
-          </p>
-        </div>
-        <div class="flex flex-wrap gap-4">
-          <a
-            href="#faq-sections"
-            class="am-btn am-btn--primary"
-          >
-            {t(copy.hero.primaryCta)}
-          </a>
-          <a
-            href={gettingHereHref}
-            class="am-btn am-btn--secondary"
-          >
-            {t(copy.hero.secondaryCta)}
-          </a>
-        </div>
-      </Hero>
+        actions={[
+          { href: '#faq-sections', label: t(copy.hero.primaryCta), style: 'primary' },
+          { href: gettingHereHref, label: t(copy.hero.secondaryCta), style: 'secondary' }
+        ]}
+        topic="faq"
+      />
 
       <section class="max-w-screen-2xl mx-auto px-6 md:px-12 pb-32">
         <div class="max-w-3xl mb-14">

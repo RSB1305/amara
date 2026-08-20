@@ -10,7 +10,7 @@ import LocationContextNav from '../../components/location/LocationContextNav.ast
 import LocationGuideIcon, {
   type LocationGuideIconName
 } from '../../components/location/LocationGuideIcon.astro';
-import LocationGuideHero from '../../components/location/LocationGuideHero.astro';
+import LocationHubHero from '../../components/location/LocationHubHero.astro';
 import OrderedFrigilianaLocationSections from './OrderedFrigilianaLocationSections.astro';
 import {
   frigilianaLocationCopy,
@@ -201,7 +201,6 @@ const heroImage = {
   src: '/images/amara-frigiliana-pueblo/JPG_Frigiliana_Pueblo/2000px_72dpi_sRGB/04-frigiliana-pueblo.jpg',
   alt: frigilianaLocationHeroImageAlt[currentLang],
   width: 2000,
-  height: 1125,
   sizes: '(max-width: 767px) calc(100vw - 3rem), (max-width: 1023px) 60vw, 40vw'
 };
 
@@ -246,11 +245,11 @@ const renderCtas = (subsection: FrigilianaLocationSubsection) => subsection.ctas
   <div class="overflow-x-hidden">
     <LocationContextNav activeId="intro" lang={currentLang} />
 
-    <div data-am-page="frigiliana-location" data-am-presentation="guide">
+    <div data-am-page="frigiliana-location" data-am-family="location" data-am-role="hub" data-am-presentation="guide">
       <OrderedFrigilianaLocationSections order={sectionOrder}>
         <Fragment slot="hero">
           <div id="intro">
-            <LocationGuideHero
+            <LocationHubHero
               eyebrow={c.heroKicker}
               title={c.h1}
               paragraphs={c.intro}
@@ -258,7 +257,6 @@ const renderCtas = (subsection: FrigilianaLocationSubsection) => subsection.ctas
               imageSrc={heroImage.src}
               imageAlt={heroImage.alt}
               imageWidth={heroImage.width}
-              imageHeight={heroImage.height}
               imageSizes={heroImage.sizes}
             />
 

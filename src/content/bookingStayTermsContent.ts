@@ -25,11 +25,9 @@ interface BookingStayTermsLocale {
     name: string;
     tradingAs: string;
     address: string;
-    taxId: string;
     status: string;
     statusValue: string;
     email: string;
-    phone: string;
     country: string;
   };
   sections: BookingStayTermSection[];
@@ -54,11 +52,9 @@ export const bookingStayTermsContent: Record<AmaraLanguage, BookingStayTermsLoca
       name: 'Name',
       tradingAs: 'Trading as',
       address: 'Address',
-      taxId: 'Spanish Tax ID (NIE)',
       status: 'Status',
       statusValue: 'Private host – not registered in the commercial register',
       email: 'Email',
-      phone: 'Phone',
       country: 'Spain'
     },
     sections: [
@@ -191,11 +187,9 @@ export const bookingStayTermsContent: Record<AmaraLanguage, BookingStayTermsLoca
       name: 'Name',
       tradingAs: 'Handelnd unter',
       address: 'Anschrift',
-      taxId: 'Spanische Steuer-ID (NIE)',
       status: 'Status',
       statusValue: 'Privater Gastgeber – nicht im Handelsregister eingetragen',
       email: 'E-Mail',
-      phone: 'Telefon',
       country: 'Spanien'
     },
     sections: [
@@ -328,11 +322,9 @@ export const bookingStayTermsContent: Record<AmaraLanguage, BookingStayTermsLoca
       name: 'Nombre',
       tradingAs: 'Nombre comercial',
       address: 'Domicilio',
-      taxId: 'NIE',
       status: 'Condición',
       statusValue: 'Anfitrión particular – no inscrito en el Registro Mercantil',
       email: 'Correo electrónico',
-      phone: 'Teléfono',
       country: 'España'
     },
     sections: [
@@ -465,11 +457,9 @@ export const bookingStayTermsContent: Record<AmaraLanguage, BookingStayTermsLoca
       name: 'Naam',
       tradingAs: 'Handelend onder de naam',
       address: 'Adres',
-      taxId: 'Spaans fiscaal nummer (NIE)',
       status: 'Status',
       statusValue: 'Particuliere verhuurder – niet ingeschreven in het handelsregister',
       email: 'E-mail',
-      phone: 'Telefoon',
       country: 'Spanje'
     },
     sections: [
@@ -602,11 +592,9 @@ export const bookingStayTermsContent: Record<AmaraLanguage, BookingStayTermsLoca
       name: 'Namn',
       tradingAs: 'Verksam under namnet',
       address: 'Adress',
-      taxId: 'Spanskt skatte-ID (NIE)',
       status: 'Status',
       statusValue: 'Privat värd – inte registrerad i handelsregistret',
       email: 'E-post',
-      phone: 'Telefon',
       country: 'Spanien'
     },
     sections: [

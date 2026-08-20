@@ -34,7 +34,6 @@ const identityRows = [
   { label: copy.identity.name, value: legalIdentity.name },
   { label: copy.identity.tradingAs, value: legalIdentity.tradingName },
   { label: copy.identity.address, value: `${legalIdentityAddress}, ${copy.identity.country}` },
-  { label: copy.identity.taxId, value: legalIdentity.taxId },
   { label: copy.identity.status, value: copy.identity.statusValue }
 ];
 
@@ -84,10 +83,6 @@ const privacyHref = resolveLink('legal_notice', currentLang);
             <div class="grid gap-1">
               <dt class="font-label text-[11px] font-bold uppercase tracking-[0.12em] text-on-surface">{copy.identity.email}</dt>
               <dd><a class="am-inline-link" href={`mailto:${legalIdentity.email}`}>{legalIdentity.email}</a></dd>
-            </div>
-            <div class="grid gap-1">
-              <dt class="font-label text-[11px] font-bold uppercase tracking-[0.12em] text-on-surface">{copy.identity.phone}</dt>
-              <dd><a class="am-inline-link" href={`tel:${legalIdentity.phoneHref}`}>{legalIdentity.phoneDisplay}</a></dd>
             </div>
           </dl>
         </section>

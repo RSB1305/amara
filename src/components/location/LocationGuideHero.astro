@@ -11,8 +11,9 @@ interface Props {
   imageSrc?: ImageMetadata | string;
   imageAlt?: string;
   imageWidth?: number;
-  imageHeight?: number;
   imageSizes?: string;
+  role?: 'hub' | 'spoke';
+  topic?: string;
 }
 
 const {
@@ -23,7 +24,9 @@ const {
   imageSrc,
   imageAlt,
   imageWidth = 1080,
-  imageSizes = '(max-width: 767px) 100vw, (max-width: 1023px) 44vw, 36vw'
+  imageSizes = '(max-width: 767px) 100vw, (max-width: 1023px) 44vw, 36vw',
+  role = 'spoke',
+  topic
 } = Astro.props;
 
 const hasVisualSlot = Astro.slots.has('visual');
@@ -37,7 +40,10 @@ if (!hasVisualSlot && (!imageSrc || !imageAlt)) {
 
 <header
   class="border-b border-border-subtle bg-surface px-6 py-16 md:px-12 md:py-24 lg:py-28"
+  data-am-family="location"
   data-am-guide-hero
+  data-am-role={role}
+  data-am-topic={topic}
 >
   <div class="mx-auto grid max-w-screen-2xl items-start gap-14 md:grid-cols-12 lg:gap-20">
     <div class="md:col-span-7">

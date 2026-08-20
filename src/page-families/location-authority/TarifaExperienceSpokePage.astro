@@ -1,7 +1,7 @@
 ---
 import InlineEmphasis from '../../components/text/InlineEmphasis.astro';
 import Navigation from '../../components/Navigation.astro';
-import EditorialByline from '../../components/editorial/EditorialByline.astro';
+import ExperienceArticleHero from '../../components/experience/ExperienceArticleHero.astro';
 import ExperienceContextNav from '../../components/experience/ExperienceContextNav.astro';
 import type {
   LocalizedExperienceText,
@@ -49,36 +49,26 @@ const footerHighlights: LabeledLink[] = [
   />
   <ExperienceContextNav currentId={content.id} destination="tarifa" lang={currentLang} />
 
-  <article class="bg-surface" data-am-page={`tarifa-${content.id}`} data-am-experience-spoke={content.id}>
-    <header class="overflow-hidden border-b border-border-subtle bg-surface px-6 py-20 md:px-12 md:py-28 lg:py-36">
-      <div class="mx-auto grid max-w-screen-2xl gap-14 lg:grid-cols-12 lg:items-start lg:gap-16">
-        <div class="lg:col-span-8">
-          <p class="font-label text-[11px] font-bold uppercase tracking-[0.2em] text-primary">
-            {t(content.hero.eyebrow)}
-          </p>
-          <h1 class="am-text-display mt-7 max-w-6xl text-balance text-on-surface">
-            {t(content.hero.title)}
-          </h1>
-        </div>
-        <div class="border-l border-primary/30 pl-6 lg:col-span-4 lg:pl-9">
-          <p class="am-text-subtitle text-balance leading-relaxed text-on-surface-variant">
-            {t(content.hero.standfirst)}
-          </p>
-        </div>
-        <div class="lg:col-span-8">
-          <EditorialByline
-            lang={currentLang}
-            authorName={content.seo.article!.authorName}
-            authorHref={aboutHref}
-            updated={t(content.hero.updated)}
-            note={t(content.hero.note)}
-          />
-        </div>
-        <div aria-hidden="true" class="hidden text-right font-serif text-[clamp(3.5rem,8vw,8.5rem)] leading-[0.72] text-primary/10 lg:col-span-4 lg:block">
-          Tarifa
-        </div>
-      </div>
-    </header>
+  <article
+    class="bg-surface"
+    data-am-page={`tarifa-${content.id}`}
+    data-am-family="experience"
+    data-am-role="spoke"
+    data-am-topic={content.id}
+    data-am-experience-spoke={content.id}
+  >
+    <ExperienceArticleHero
+      eyebrow={t(content.hero.eyebrow)}
+      title={t(content.hero.title)}
+      standfirst={t(content.hero.standfirst)}
+      lang={currentLang}
+      authorName={content.seo.article!.authorName}
+      authorHref={aboutHref}
+      updated={t(content.hero.updated)}
+      note={t(content.hero.note)}
+      mark="Tarifa"
+      topic={content.id}
+    />
 
     <section class="border-b border-border-subtle bg-surface-container-low px-6 py-16 md:px-12 md:py-20">
       <dl class="mx-auto grid max-w-screen-2xl gap-x-10 gap-y-8 md:grid-cols-3">

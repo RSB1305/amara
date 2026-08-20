@@ -42,7 +42,7 @@ export interface NerjaDailyLifeLocale {
 
 const article = {
   datePublished: '2026-08-13',
-  dateModified: '2026-08-16',
+  dateModified: '2026-08-20',
   authorName: 'Robert Sebastian Böhmer',
   authorType: 'Person' as const,
   authorSlug: 'amara-about-us'
@@ -60,7 +60,7 @@ const sharedSources = {
 };
 
 export const nerjaDailyLifeSeo: AmaraAuthoringSeo = {
-  version: '2026-08-16-nerja-daily-life-v1.1',
+  version: '2026-08-20-nerja-daily-life-v1.2',
   pageType: 'A',
   entityKey: 'amara-brand',
   article,
@@ -155,6 +155,17 @@ export const nerjaDailyLifeContent: Record<AmaraLanguage, NerjaDailyLifeLocale> 
         paragraphs: [
           'Some smaller businesses use split hours, while larger supermarkets and visitor-facing shops may stay open through. Sundays, public holidays and seasonal changes create further differences.',
           'The reliable rule is to check the specific business rather than assume one fixed siesta or Sunday pattern for the whole town. Evening life still starts later than many northern European guests expect, but normal errands do not all follow the same clock.'
+        ]
+      },
+      {
+        id: 'longer-stays',
+        eyebrow: 'Several weeks in Nerja',
+        title: 'What changes when the stay lasts weeks rather than days?',
+        paragraphs: [
+          'After the first sightseeing days, repeated routines shape the stay: buying groceries, collecting a prescription, cooking an ordinary meal, doing laundry and deciding whether the evening belongs outside or at home. Nerja works well at this slower scale because central services and the coast can remain part of the same walking day.',
+          'Winter usually brings a quieter town rhythm, but it also makes indoor comfort and flexible plans more important. Temperature, rainfall and the forecast for your dates belong in the Weather guide; for daily life, check whether the accommodation has the heating or air conditioning, kitchen and laundry setup you will actually use.',
+          'AMARA Playa is one practical central example: it has a full kitchen, washing machine, heating and air conditioning, while groceries, pharmacies, Torrecilla and the centre can fit into normal routes on foot. Those features support ordinary weeks without turning every day into an outing.',
+          'A central longer stay can therefore remain largely car-free. A car becomes useful when repeated regional shopping, Maro, Frigiliana or wider Axarquía days are part of the routine rather than occasional exceptions.'
         ]
       },
       {
@@ -287,6 +298,17 @@ export const nerjaDailyLifeContent: Record<AmaraLanguage, NerjaDailyLifeLocale> 
         ]
       },
       {
+        id: 'longer-stays',
+        eyebrow: 'Mehrere Wochen in Nerja',
+        title: 'Was ändert sich, wenn der Aufenthalt Wochen statt Tage dauert?',
+        paragraphs: [
+          'Nach den ersten Besichtigungstagen prägen wiederkehrende Routinen den Aufenthalt: Lebensmittel kaufen, ein Rezept einlösen, ein normales Essen kochen, Wäsche waschen und entscheiden, ob der Abend draußen oder zu Hause stattfindet. Nerja funktioniert in diesem langsameren Maßstab gut, weil zentrale Versorgung und Küste Teil desselben Tages zu Fuß bleiben können.',
+          'Im Winter wird der Rhythmus des Ortes meist ruhiger, zugleich gewinnen Wohnkomfort und flexible Pläne an Bedeutung. Temperatur, Niederschlag und die Vorhersage für eure Reisedaten gehören in den Wetter-Guide; für den Alltag prüft ihr, ob Unterkunft, Heizung oder Klimaanlage, Küche und Waschmöglichkeit zu dem passen, was ihr wirklich nutzt.',
+          'AMARA Playa ist dafür ein praktisches Beispiel im Zentrum: Die Wohnung hat eine vollständige Küche, Waschmaschine, Heizung und Klimaanlage; Lebensmittelgeschäfte, Apotheken, Torrecilla und das Zentrum passen in normale Wege zu Fuß. So tragen die Merkmale gewöhnliche Wochen, ohne jeden Tag zum Ausflug zu machen.',
+          'Ein längerer Aufenthalt im Zentrum kann deshalb weitgehend autofrei bleiben. Ein Auto wird nützlicher, wenn regelmäßige größere Einkäufe, Maro, Frigiliana oder weitere Tage in der Axarquía zur Routine und nicht zur Ausnahme werden.'
+        ]
+      },
+      {
         id: 'without-a-car',
         eyebrow: 'Fortbewegung',
         title: 'In zentraler Lage bleibt der normale Alltag weitgehend autofrei',
@@ -413,6 +435,17 @@ export const nerjaDailyLifeContent: Record<AmaraLanguage, NerjaDailyLifeLocale> 
         paragraphs: [
           'Algunos negocios pequeños trabajan con horario partido, mientras grandes supermercados y comercios orientados al visitante pueden abrir de forma continua. Domingos, festivos y temporada añaden más diferencias.',
           'La regla fiable es comprobar el negocio concreto, no suponer una siesta fija o una norma dominical para todo el pueblo. La noche empieza más tarde de lo habitual para muchos huéspedes del norte de Europa, pero los recados no siguen todos el mismo reloj.'
+        ]
+      },
+      {
+        id: 'longer-stays',
+        eyebrow: 'Varias semanas en Nerja',
+        title: '¿Qué cambia cuando la estancia dura semanas y no días?',
+        paragraphs: [
+          'Después de las primeras visitas, mandan las rutinas que se repiten: hacer la compra, recoger una receta, cocinar una comida normal, poner una lavadora y decidir si la tarde continúa fuera o en casa. Nerja funciona bien a este ritmo más lento porque los servicios del centro y la costa pueden seguir formando parte del mismo día a pie.',
+          'En invierno el pueblo suele adoptar un ritmo más tranquilo, pero también ganan importancia el confort interior y los planes flexibles. La temperatura, la lluvia y la previsión para vuestras fechas pertenecen a la guía del Tiempo; para la vida diaria, comprobad que el alojamiento tenga la calefacción o el aire acondicionado, la cocina y la lavadora que realmente utilizaréis.',
+          'AMARA Playa es un ejemplo práctico en el centro: dispone de cocina completa, lavadora, calefacción y aire acondicionado, mientras que supermercados, farmacias, Torrecilla y el centro caben en recorridos normales a pie. Esas prestaciones sostienen semanas corrientes sin convertir cada día en una excursión.',
+          'Por eso, una estancia larga y céntrica puede seguir siendo en gran parte sin coche. El coche resulta útil cuando las compras regionales, Maro, Frigiliana o los días por el resto de la Axarquía pasan a formar parte de la rutina y no son excepciones.'
         ]
       },
       {
@@ -545,6 +578,17 @@ export const nerjaDailyLifeContent: Record<AmaraLanguage, NerjaDailyLifeLocale> 
         ]
       },
       {
+        id: 'longer-stays',
+        eyebrow: 'Meerdere weken in Nerja',
+        title: 'Wat verandert er wanneer het verblijf weken in plaats van dagen duurt?',
+        paragraphs: [
+          'Na de eerste dagen met bezienswaardigheden bepalen terugkerende routines het verblijf: boodschappen doen, een recept ophalen, een gewone maaltijd koken, wassen en kiezen of de avond buiten of thuis plaatsvindt. Nerja werkt goed op dit rustigere tempo, omdat voorzieningen in het centrum en de kust deel kunnen blijven van dezelfde wandeldag.',
+          'In de winter wordt het ritme van de plaats meestal rustiger, maar worden comfort binnen en flexibele plannen ook belangrijker. Temperatuur, regen en de verwachting voor jullie data horen bij de Weergids; kijk voor het dagelijks leven of de accommodatie de verwarming of airconditioning, keuken en wasvoorziening heeft die je werkelijk gebruikt.',
+          'AMARA Playa is één praktisch centraal voorbeeld: het appartement heeft een complete keuken, wasmachine, verwarming en airconditioning, terwijl supermarkten, apotheken, Torrecilla en het centrum in normale looproutes passen. Die kenmerken ondersteunen gewone weken zonder van iedere dag een uitstapje te maken.',
+          'Een langer centraal verblijf kan daardoor grotendeels autovrij blijven. Een auto wordt nuttig wanneer grotere regionale inkopen, Maro, Frigiliana of dagen in de rest van de Axarquía onderdeel van de routine worden in plaats van uitzonderingen.'
+        ]
+      },
+      {
         id: 'without-a-car',
         eyebrow: 'Onderweg',
         title: 'Vanuit centraal Nerja kan het gewone leven grotendeels zonder auto',
@@ -671,6 +715,17 @@ export const nerjaDailyLifeContent: Record<AmaraLanguage, NerjaDailyLifeLocale> 
         paragraphs: [
           'Vissa mindre verksamheter använder delade öppettider, medan större mataffärer och besöksinriktade butiker ibland håller öppet genom dagen. Söndagar, helgdagar och säsongsskiften skapar ytterligare skillnader.',
           'Den pålitliga regeln är att kontrollera den enskilda verksamheten i stället för att anta ett fast siesta- eller söndagsmönster för hela staden. Kvällslivet börjar fortfarande senare än många nordeuropeiska gäster väntar sig, men vanliga ärenden följer inte alla samma klocka.'
+        ]
+      },
+      {
+        id: 'longer-stays',
+        eyebrow: 'Flera veckor i Nerja',
+        title: 'Vad förändras när vistelsen varar i veckor i stället för dagar?',
+        paragraphs: [
+          'Efter de första dagarna med sevärdheter formar återkommande rutiner vistelsen: handla mat, hämta ett recept, laga en vanlig måltid, tvätta och avgöra om kvällen ska tillbringas ute eller hemma. Nerja fungerar väl i detta lugnare tempo eftersom service i centrum och kusten kan förbli delar av samma dag till fots.',
+          'På vintern blir ortens rytm oftast lugnare, men komfort inomhus och flexibla planer blir också viktigare. Temperatur, regn och prognosen för era datum hör hemma i Väderguiden; för vardagen bör ni kontrollera att boendet har den värme eller luftkonditionering, det kök och den tvättmöjlighet ni faktiskt använder.',
+          'AMARA Playa är ett praktiskt centralt exempel: lägenheten har fullt kök, tvättmaskin, värme och luftkonditionering, samtidigt som mataffärer, apotek, Torrecilla och centrum ryms i vanliga promenadrutter. De egenskaperna stödjer vardagsveckor utan att varje dag måste bli en utflykt.',
+          'En längre central vistelse kan därför förbli i stort sett bilfri. Bil blir användbar när större regionala inköp, Maro, Frigiliana eller dagar i övriga Axarquía blir en del av rutinen i stället för enstaka undantag.'
         ]
       },
       {
