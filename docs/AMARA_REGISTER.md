@@ -1,12 +1,12 @@
 ---
 document_id: AMARA-REG-001
 title: AMARA Register
-version: 1.6.0
+version: 1.7.0
 status: ACTIVE
 authority_class: LIVING BINDING REGISTER
 activation_state: ACTIVE
 effective_from: 2026-08-14
-last_modified: 2026-08-20T18:28:21+02:00
+last_modified: 2026-08-20T18:45:28+02:00
 canonical_path: /docs/AMARA_REGISTER.md
 ---
 
@@ -20,13 +20,13 @@ The AMARA Register is the single source for active documents, authority classes,
 
 | Slot | Document owner | Version/status | Class | Canonical/current source |
 |---|---|---|---|---|
-| 01 | AMARA System Constitution | 5.1.1 ACTIVE | PRINCIPLE / governing | `docs/standards/01_AMARA_System_Constitution_V5.md` |
-| 02 | AMARA Astro & Design Architecture Contract | 4.1.0 ACTIVE INTERIM | CONTRACT / governing | `docs/interim/03_AMARA_Astro_Technical_Standard_V4.md` + current repository implementation |
+| 01 | AMARA System Constitution | 5.2.0 ACTIVE | PRINCIPLE / governing | `docs/standards/01_AMARA_System_Constitution_V5.md` |
+| 02 | AMARA Astro & Design Architecture Contract | 4.2.0 ACTIVE INTERIM | CONTRACT / governing | `docs/interim/03_AMARA_Astro_Technical_Standard_V4.md` + current repository implementation |
 | 03 | AMARA Runtime, SEO & Data Contract | PENDING Package 2 | CONTRACT / governing | Interim snapshot: `docs/interim/04_AMARA_Runtime_and_SEO_Standard_V4.md` + current repository implementation |
 | 04 | AMARA URL, Route & Link Contract | PENDING Package 2 | CONTRACT / governing | Interim snapshot: `docs/interim/05_AMARA_URL_and_Route_Infrastructure_V4.md` + Decision Register |
-| 05 | AMARA Governance, Execution & Documentation Lifecycle | 5.6.0 ACTIVE | CONTRACT / governing | `docs/standards/05_AMARA_Governance_Execution_and_Documentation_Lifecycle_V5.md` |
+| 05 | AMARA Governance, Execution & Documentation Lifecycle | 5.7.0 ACTIVE | CONTRACT / governing | `docs/standards/05_AMARA_Governance_Execution_and_Documentation_Lifecycle_V5.md` |
 | 06 | AMARA Performance & Delivery Standard | PENDING Package 2 | PRINCIPLE/CONTRACT / governing | Interim snapshot: `docs/interim/07_AMARA_Performance_Standard_V2.md` |
-| 07 | AMARA Register | 1.6.0 ACTIVE | LIVING BINDING REGISTER | `docs/AMARA_REGISTER.md` |
+| 07 | AMARA Register | 1.7.0 ACTIVE | LIVING BINDING REGISTER | `docs/AMARA_REGISTER.md` |
 | 08 | AMARA Guest Utility Feature Contract | PENDING Package 2/3 | FEATURE CONTRACT | Interim snapshot: `docs/interim/08_AMARA_Guest_Utility_Architecture_V2.md` |
 | 09 | AMARA Content Production & Localization Playbook | PENDING Package 2/3 | OPERATIONAL PLAYBOOK / non-governing | Interim snapshot: `docs/interim/10_AMARA_Content_Production_and_Localization_Playbook_V1_2.md` |
 | 10 | AMARA Frigiliana–Nerja SEO Strategy | PENDING Package 2/3 | WORKING STRATEGY / non-governing | Interim snapshot: `docs/interim/09_AMARA_Frigiliana_Nerja_SEO_Strategy_V2_1.md` |
@@ -79,6 +79,12 @@ Current operational feature owner during transition:
 | DR-SCHEMA-001 | Collection/ItemList schema is not mandatory; any implementation must reflect visible real items and stay in the central resolver. | ACTIVE CURRENT DECISION |
 | DR-UTILITY-001 | Guest Guide remains a separate noindex utility shell and is not a Type D conversion surface by principle. | APPROVED; code reconciliation pending |
 | DR-SURFACE-001 | Strategic A/B/C/D job and technical surface type should be separate; field reconciliation is a later controlled workstream. | IMPLEMENTATION PENDING |
+
+### Design and presentation
+
+| ID | Decision | Status |
+|---|---|---|
+| DR-DESIGN-MOBILE-001 | AMARA is Mobile First. Narrow mobile is the primary design, composition and visual-QA context for guest-facing interfaces; tablet and desktop progressively enhance it. User-visible work must not be developed Desktop first and repaired for Mobile afterward. Normative owner: System Constitution; implementation consequences: active Astro & Design contract. | ACTIVE |
 
 ### URL/route
 
@@ -156,6 +162,7 @@ Routine new evidence/ideas may be captured here or in the relevant working evide
 | 2026-08-20 | Evidence & Knowledge architecture | Activated a durable non-public knowledge layer, separated evidence from public authoring and presentation, and established Frigiliana parking as the first controlled pilot. Astro Standard 4.1.0, Register 1.4.0. | DR-EVIDENCE-001–002, TR-CONTENT-002 | this revision |
 | 2026-08-20T16:35:01+02:00 | Location & Experience information architecture | Established the shared Location information model, destination-specific Experience inventories, intent-based ownership and conditional publication forms. Preserved research-specific proposals as non-normative hypotheses rather than changing pages or routes. Register 1.5.0. | DR-IA-001–004, DR-EVIDENCE-001–002, TR-CONTENT-001 | this revision |
 | 2026-08-20T18:28:21+02:00 | Git execution lifecycle | Made atomic local commit the default end of completed Class 0–2 implementation; separated PUSH transport from MERGE/release; placed validation in the change/commit cycle; established reusable evidence and a read-only release gate. Governance 5.6.0, Register 1.6.0. | DR-EXEC-001, DR-EXEC-005, DR-EXEC-007, DR-EXEC-009, DR-EXEC-010 | this revision |
+| 2026-08-20T18:45:28+02:00 | Mobile First | Established narrow Mobile as the primary design, composition, implementation and proportionate visual-QA context for guest-facing interfaces; Desktop progressively enhances it. Constitution 5.2.0, Astro Standard 4.2.0, Governance 5.7.0, Register 1.7.0; daily rule added to `AGENTS.md`. | DR-DESIGN-MOBILE-001 | this revision |
 
 ## 5. Intentional supersessions
 
@@ -199,3 +206,4 @@ Separate controlled workstreams remain for:
 | 1.4.0 | 2026-08-20 | Activated the Evidence & Knowledge owner and the separation between durable evidence, public authoring and presentation. | this revision |
 | 1.5.0 | 2026-08-20T16:35:01+02:00 | Activated the Location & Experience information-architecture principles and separated stable decisions from open research hypotheses. | this revision |
 | 1.6.0 | 2026-08-20T18:28:21+02:00 | Separated ordinary PUSH transport from MERGE/release, made completed Class 0–2 work commit by default, and added reusable-validation/read-only-release decisions DR-EXEC-009–010. Governance 5.6.0. | this revision |
+| 1.7.0 | 2026-08-20T18:45:28+02:00 | Recorded DR-DESIGN-MOBILE-001 and activated Constitution 5.2.0, Astro Standard 4.2.0 and Governance 5.7.0 with the daily `AGENTS.md` Mobile First rule. | this revision |

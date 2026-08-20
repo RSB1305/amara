@@ -1,11 +1,11 @@
 ---
 document_id: AMARA-SYS-001
 title: AMARA System Constitution
-version: 5.1.1
+version: 5.2.0
 status: ACTIVE
 authority_class: PRINCIPLE / SYSTEM CONSTITUTION
 effective_from: 2026-08-14
-last_modified: 2026-08-14T12:59:47+02:00
+last_modified: 2026-08-20T18:45:28+02:00
 canonical_path: /docs/standards/01_AMARA_System_Constitution_V5.md
 supersedes:
   - AMARA System V4.2 - Master Architecture
@@ -18,6 +18,7 @@ decision_refs:
   - DR-BOOK-001
   - DR-SURFACE-001
   - DR-BOOT-001
+  - DR-DESIGN-MOBILE-001
 ---
 
 # AMARA System Constitution V5
@@ -48,7 +49,23 @@ The durable operating principles are:
 - measurement over theoretical optimization;
 - scalability over local shortcuts.
 
-## 2. Astro-only website runtime and external-service boundary
+## 2. Mobile First
+
+AMARA is a mobile-first guest experience.
+
+For public and guest-facing user interfaces:
+
+- the narrow mobile viewport is the primary composition context;
+- information hierarchy, section order, hero treatment, copy density, imagery, cards, CTAs and interactions must work naturally on mobile first;
+- tablet and desktop progressively enhance the mobile composition;
+- desktop space may improve presentation but must not become the conceptual source from which mobile is later compressed or repaired;
+- a page that works well on desktop but poorly on mobile is **not complete**.
+
+Mobile First does not make desktop quality secondary or optional. AMARA must be excellent across viewport sizes; Mobile First defines the starting point and priority, not an excuse for weak desktop presentation.
+
+Implementation consequences are owned by the active Astro & Design contract. Proportionate visual-QA consequences are owned by AMARA Governance, Execution & Documentation Lifecycle.
+
+## 3. Astro-only website runtime and external-service boundary
 
 AMARA's **website runtime is Astro-native and Astro-only**.
 
@@ -60,7 +77,7 @@ The current booking/availability/checkout boundary remains an active operational
 
 A shorthand statement such as "AMARA is Astro-only" must therefore be interpreted as a website-runtime statement unless the operator explicitly approves a change to an external operational contract.
 
-## 3. Authority model
+## 4. Authority model
 
 The active AMARA documentation is defined by the AMARA Register, not by a fixed document count embedded in prose.
 
@@ -78,7 +95,7 @@ Authority order:
 
 Material repository/document divergence is resolved through the Reality Reconciliation process in Governance.
 
-## 4. Rule classes
+## 5. Rule classes
 
 AMARA separates statement types so that temporary choices cannot silently become permanent law.
 
@@ -91,29 +108,29 @@ AMARA separates statement types so that temporary choices cannot silently become
 - **INVENTORY** — generated or audited description of current reality.
 - **ARCHIVE** — historical evidence with no current operational authority.
 
-## 5. Responsibility layers
+## 6. Responsibility layers
 
 AMARA separates responsibility into six conceptual layers.
 
-### 5.1 Strategy
+### 6.1 Strategy
 Defines why a public page exists, its dominant job, audience, parent/child role and desired guest decision.
 
-### 5.2 Evidence and data
+### 6.2 Evidence and data
 Defines what AMARA is allowed to claim: verified property facts, location facts, reviews, measurements, approved external evidence and approved operational data.
 
-### 5.3 Authoring
+### 6.3 Authoring
 Owns localized meaning, section composition, approved link intent, content objects and page-specific SEO authoring inputs.
 
-### 5.4 Presentation
+### 6.4 Presentation
 Layouts own document structure. Shared components own reusable UI. Styling follows the active Astro & Design contract without parallel systems.
 
-### 5.5 Runtime
+### 6.5 Runtime
 Central runtime owners resolve metadata, structured data, language clustering, route/link behavior and other shared technical contracts.
 
-### 5.6 Delivery
+### 6.6 Delivery
 Astro produces static output by default. Cloudflare Pages is the current delivery layer. Delivery providers do not define AMARA strategy or authoring architecture.
 
-## 6. Strategic public page jobs
+## 7. Strategic public page jobs
 
 A/B/C/D remains the strategic model for applicable public content pages. It is not a universal technical label for every surface.
 
@@ -139,13 +156,13 @@ Primary question: **Is this the right stay or action for me now?**
 
 Typical responsibilities include specific accommodation selection, availability/booking pathways, product differentiation, conversion-relevant objections and explicitly approved conversion offers.
 
-## 7. Surface types outside A/B/C/D
+## 8. Surface types outside A/B/C/D
 
 Entry/home, guest utility, legal/privacy, internal/system tools and other non-marketing operational surfaces should not be forced into A/B/C/D merely to satisfy a technical field.
 
 The long-term runtime model should distinguish strategic page job from technical surface type. Repository reconciliation remains a separate implementation workstream.
 
-## 8. Dominant Page Job Rule
+## 9. Dominant Page Job Rule
 
 Every applicable public content page has one dominant job. Title, H1, the majority of content and the primary outcome must support it.
 
@@ -153,7 +170,7 @@ Secondary proof, caveats, trust evidence, contextual AMARA application, commerci
 
 This replaces the former absolute interpretation of intent purity.
 
-## 9. Place-first and decision-first content
+## 10. Place-first and decision-first content
 
 AMARA is organized around the real stay decision, not content volume or keyword inventory.
 
@@ -163,7 +180,7 @@ For Type A location content, the preferred logic is:
 
 Not every place fact requires an AMARA mention. Not every AMARA connection must be framed as an advantage.
 
-## 10. Conversion integrity
+## 11. Conversion integrity
 
 AMARA should not pressure users into booking before the relevant decision is clear.
 
@@ -174,7 +191,7 @@ AMARA should not pressure users into booking before the relevant decision is cle
 
 A persistent or secondary booking route is permitted for already-qualified users when it does not displace the dominant page job.
 
-## 11. Multilingual source of truth
+## 12. Multilingual source of truth
 
 AMARA supports English, German, Spanish, Dutch and Swedish.
 
@@ -200,7 +217,7 @@ Locale-specific examples, emphasis or additional depth are allowed only when the
 
 English may be used as a practical semantic working reference when useful, but it is not a mandatory sentence or content master for the other locales.
 
-## 12. Protected contracts, not permanent freezes
+## 13. Protected contracts, not permanent freezes
 
 Shared runtime owners, route/link infrastructure, navigation, design tokens, image pipelines and similar high-risk systems may be designated protected contracts.
 
@@ -208,7 +225,7 @@ Protected means the current owner/rationale are known, changes require explicit 
 
 Protected does not mean permanently correct. Historical mechanisms must not survive solely because they are old, already implemented or defended by a guardrail.
 
-## 13. Decision hierarchy
+## 14. Decision hierarchy
 
 When choices conflict:
 
@@ -221,7 +238,7 @@ When choices conflict:
 7. design preference;
 8. implementation convenience.
 
-## 14. Documentation activation principle
+## 15. Documentation activation principle
 
 Canonical Markdown in the approved repository branch is the source of truth. A document is ACTIVE when:
 
@@ -230,7 +247,7 @@ Canonical Markdown in the approved repository branch is the source of truth. A d
 
 PDFs and ChatGPT project attachments are optional snapshots/backups. Their presence, absence or freshness does not determine activation.
 
-## 15. Strategic definition of done
+## 16. Strategic definition of done
 
 A public content page is strategically complete when its dominant job is explicit, its audience and hierarchy are understood, its main uncertainty is materially reduced, claims are supportable, secondary content remains subordinate, an appropriate next step exists and no other page's primary ownership has been displaced.
 
@@ -241,3 +258,4 @@ A public content page is strategically complete when its dominant job is explici
 | 5.0.0 | 2026-08-13 | Consolidated Master V4.2 and Core V4; introduced dominant-job and multilingual SSOT reform direction. | DR-DOC-003, DR-SURFACE-001 | historical package snapshot |
 | 5.1.0 | 2026-08-14T09:28:00+02:00 | **ACTIVE.** Established the repository-Markdown SSOT/revision-control model; clarified Astro-only as the website-runtime contract while preserving governed external operational boundaries; clarified multilingual SSOT so meaning depth, required information and material nuance remain mandatory across locales. | DR-DOC-001, DR-DOC-005, DR-PLATFORM-001, DR-BOOK-001 | 5c59674 |
 | 5.1.1 | 2026-08-14T12:59:47+02:00 | Corrected stale bootstrap metadata to reflect the already-active canonical SSOT; no strategic content changed. | DR-DOC-006 | this revision |
+| 5.2.0 | 2026-08-20T18:45:28+02:00 | Established Mobile First as the governing guest-experience principle: narrow mobile is the primary composition context and tablet/desktop progressively enhance it. | DR-DESIGN-MOBILE-001 | this revision |

@@ -18,6 +18,16 @@ Documentation is reference material, not a cumulative checklist. Using an existi
 
 Build AMARA as a premium-feeling Astro website with simple, repeatable architecture: standardized patterns, pragmatic reuse, calm professional output and no overengineering.
 
+## MOBILE FIRST
+
+**MOBILE FIRST:** AMARA is designed for mobile guests first. For user-visible work, compose and inspect the narrow mobile experience before Desktop. Desktop enhances Mobile; never build Desktop first and repair Mobile afterward.
+
+The governing principle is owned by the System Constitution, with implementation consequences in the active Astro & Design contract and proportionate QA in Governance.
+
+- When layout or composition can change, think Mobile first during implementation, not only during QA.
+- A Desktop screenshot or Desktop browser check alone is not sufficient evidence for a user-visible layout change.
+- Mobile QA remains proportionate; do not manufacture a large responsive test matrix for small work.
+
 ## AMARA FAST
 
 FAST is the default for normal Class 0–2 work:

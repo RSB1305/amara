@@ -1,7 +1,7 @@
 ---
 document_id: AMARA-INT-ASTRO-003
 title: AMARA Astro Technical Standard V4
-version: 4.1.0
+version: 4.2.0
 status: ACTIVE
 authority_class: CONTRACT / GOVERNING INTERIM
 source_type: INTERIM SNAPSHOT FROM APPROVED PDF + APPROVED REPOSITORY AMENDMENT
@@ -9,7 +9,13 @@ source_attachment: "03_AMARA_Astro_Technical_Standard_V4 (1).pdf"
 source_sha256: b3d8a3e780b29b5be42922aec838c7f56f455184cca8336d9a0f3564ba43f9aa
 snapshot_created: 2026-08-14T09:08:00+02:00
 migration_state: PENDING PACKAGE 2/3 NORMALIZATION
-last_modified: 2026-08-20
+effective_from: 2026-08-10
+last_modified: 2026-08-20T18:45:28+02:00
+canonical_path: /docs/interim/03_AMARA_Astro_Technical_Standard_V4.md
+decision_refs:
+  - DR-EVIDENCE-001
+  - DR-EVIDENCE-002
+  - DR-DESIGN-MOBILE-001
 ---
 
 # AMARA Astro Technical Standard V4 — Interim Markdown Snapshot
@@ -22,7 +28,7 @@ last_modified: 2026-08-20
 
 AMARA Astro Technical Standard V4
 Status                                                ACTIVE
-Version                                               4.1.0
+Version                                               4.2.0
 Effective date                                        2026-08-10
 Runtime                                               Astro
 Styling                                               Tailwind CSS + AMARA global tokens + scoped component
@@ -240,9 +246,36 @@ New topic work follows this direction:
 
 The typed contract in `knowledge/schema.ts` is the executable repository owner for knowledge-record shape. It must remain presentation-agnostic and must not become a second routing, runtime or styling system.
 
+17. Mobile-first design and implementation
+
+The System Constitution owns Mobile First as AMARA's governing guest-experience principle. For every new or materially revised user-visible page, component or layout composition, implementation must:
+
+1. start from the narrow/mobile composition;
+2. establish mobile information hierarchy and vertical rhythm first;
+3. add tablet and desktop enhancements through responsive rules;
+4. avoid desktop-only composition assumptions that collapse poorly on narrow screens.
+
+On mobile, implementation must pay particular attention to:
+
+- H1/H2 hierarchy and line breaks;
+- hero crop and image priority;
+- section spacing;
+- text density and paragraph length;
+- card stacking and order;
+- CTA visibility and reachability;
+- navigation and dialogs;
+- touch targets;
+- horizontal overflow;
+- image sizing;
+- accidental double gutters or padding;
+- content that becomes disproportionately long or repetitive when stacked vertically.
+
+Reuse existing AMARA tokens, breakpoints and components. Mobile First does not authorize a parallel mobile design system, new breakpoints or new design tokens. Validation depth and the primary mobile-QA rule are governed by AMARA Governance, Execution & Documentation Lifecycle.
+
 ## Revision history
 
 | Version | Date | Change |
 |---|---|---|
 | 4.0 | 2026-08-10 | Approved source standard preserved as the interim Markdown snapshot. |
 | 4.1.0 | 2026-08-20 | Added the approved Evidence & Knowledge boundary and executable repository ownership model. |
+| 4.2.0 | 2026-08-20T18:45:28+02:00 | Added the Mobile First implementation contract for narrow-first composition and progressive tablet/desktop enhancement. |

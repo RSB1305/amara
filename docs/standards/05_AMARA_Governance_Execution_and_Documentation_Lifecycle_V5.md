@@ -1,11 +1,11 @@
 ---
 document_id: AMARA-GOV-005
 title: AMARA Governance, Execution & Documentation Lifecycle
-version: 5.6.0
+version: 5.7.0
 status: ACTIVE
 authority_class: GOVERNING CONTRACT
 effective_from: 2026-08-14
-last_modified: 2026-08-20T18:28:21+02:00
+last_modified: 2026-08-20T18:45:28+02:00
 canonical_path: /docs/standards/05_AMARA_Governance_Execution_and_Documentation_Lifecycle_V5.md
 supersedes:
   - AMARA Governance & Execution Standard V4.2
@@ -28,6 +28,7 @@ decision_refs:
   - DR-EXEC-009
   - DR-EXEC-010
   - DR-BOOT-001
+  - DR-DESIGN-MOBILE-001
 ---
 
 # AMARA Governance, Execution & Documentation Lifecycle V5
@@ -192,6 +193,24 @@ Never reset, discard, stage, commit or rewrite unrelated work for convenience.
 - **Level B — bounded Class 2/local composition:** affected surface plus the relevant technical check, focused guardrails and heading/link checks that test the changed scope. For several related pages, validate their affected scope. A **full production build is not automatic**; run it only when the change creates a realistic compilation, rendering or generated-output risk.
 - **Level C — Class 3 / shared-infrastructure implementation:** production build plus broad relevant guardrails, representative/system-wide consumers, affected languages/routes and migration/canonical/schema/link validation as applicable. Documentation-only Class-3 governance work uses document/diff/metadata/consistency validation and does not require product tests or a production build when no product artifact changes.
 - **Level D — isolated committed-state/worktree validation:** only for a concrete clean-state need.
+
+### Mobile-first visual QA
+
+The System Constitution owns Mobile First as the governing guest-experience principle, and the active Astro & Design contract owns its implementation consequences.
+
+For any implementation that can materially change visible layout, composition, hierarchy or interaction, **Mobile is the primary browser-QA viewport and Desktop is the secondary confirmation viewport**. Default working references are approximately `390 × 844` for primary Mobile and `1280–1440 px` wide for Desktop. The exact device model is not the contract; the purpose is to inspect a realistic narrow viewport first.
+
+Validation remains proportionate to the changed risk:
+
+- a text or value change with no plausible layout effect requires no browser test;
+- a copy change that can alter wrapping, height or layout is inspected on the affected page on Mobile first;
+- a local page or layout change is inspected on Mobile first, followed by one Desktop sanity check;
+- a shared navigation or component change uses representative Mobile and Desktop consumers;
+- Class-3 visual/design infrastructure receives broader responsive validation appropriate to its blast radius.
+
+Do not automatically test five languages across multiple phones and desktop widths unless the changed risk specifically requires it.
+
+For user-visible layout/composition work, **a task is not visually complete until the affected Mobile surface is acceptable**. A successful Desktop rendering cannot compensate for a broken, crowded, awkward or incomplete mobile experience. A Desktop screenshot or Desktop browser check alone is not sufficient evidence for such a change.
 
 A wrong visible page is FAIL even when tests pass.
 
@@ -441,3 +460,4 @@ Project attachments/PDFs are not activation gates.
 | 5.4.0 | 2026-08-14T12:30:00+02:00 | Added two deterministic FAST preflight checks to the validation ladder: repository-wide new-page duplication check before creating a public page/route/guide, and a five-locale structural completeness check before committing multilingual changes. Both are performed by the implementing agent; neither introduces a mandatory second agent. | DR-EXEC-003, DR-EXEC-004 | 0e2b26a |
 | 5.5.0 | 2026-08-14T12:59:47+02:00 | Made `AGENTS.md` sufficient for daily Class 0–2 work; limited owner reads to architecture/SSOT, protected-contract and concrete-conflict triggers; bounded FAST preflights; prohibited incidental validation tooling, documentation and inventories; established result-first turn completion. | DR-EXEC-001–008, DR-AGENT-001 | this revision |
 | 5.6.0 | 2026-08-20T18:28:21+02:00 | Established atomic local commit as the normal end of completed Class 0–2 implementation; separated PUSH transport from MERGE/release; moved validation to the change/commit cycle; made release gates read-only and reusable-evidence based. | DR-EXEC-001, DR-EXEC-005, DR-EXEC-007, DR-EXEC-009, DR-EXEC-010 | this revision |
+| 5.7.0 | 2026-08-20T18:45:28+02:00 | Made Mobile the primary viewport for proportionate visual QA, with Desktop as secondary confirmation, and required an acceptable affected Mobile surface for visual completion. | DR-DESIGN-MOBILE-001 | this revision |
