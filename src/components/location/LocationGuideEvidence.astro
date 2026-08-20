@@ -9,19 +9,23 @@ const { eyebrow, mark, note } = Astro.props;
 ---
 
 <aside
-  class="flex aspect-[3/4] min-h-full flex-col justify-between overflow-hidden bg-inverse-surface px-8 py-9 text-inverted-on-surface md:px-10 md:py-12"
+  class="flex aspect-[3/4] min-h-full flex-col justify-between overflow-hidden bg-inverse-surface py-9 text-inverted-on-surface md:py-12"
   data-am-guide-evidence
 >
-  <div>
+  <div class="mx-8 md:mx-10">
     <p class="am-text-caption font-bold uppercase tracking-[0.2em] text-primary-fixed-dim">
       {eyebrow}
     </p>
-    <p class="am-text-display mt-8 text-balance italic text-inverted-on-surface" aria-hidden="true">
+    <p
+      class="am-text-display mt-8 text-balance italic text-inverted-on-surface"
+      aria-hidden="true"
+      data-am-hero-mark
+    >
       {mark}
     </p>
   </div>
 
-  <div class="border-t border-inverted-on-surface/20 pt-7">
+  <div class="mx-8 border-t border-inverted-on-surface/20 pt-7 md:mx-10">
     <div class="mb-6 h-px w-12 bg-primary-fixed-dim"></div>
     {
       note && (
