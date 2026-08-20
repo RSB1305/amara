@@ -122,45 +122,47 @@ const serializedGallery = JSON.stringify({ images: lightboxImages, labels }).rep
   {labels.browse}
 </p>
 
-<div
-  class="am-mobile-full-bleed mt-5 flex snap-x snap-proximity gap-3 overflow-x-auto overscroll-x-contain scroll-px-6 px-6 pb-4 sm:mt-8 sm:grid sm:snap-none sm:grid-cols-2 sm:overflow-visible sm:px-0 sm:pb-0 lg:grid-cols-4"
-  data-am-rental-gallery-grid
-  role="region"
-  aria-label={labels.dialogLabel}
->
-  {previewImages.map((image, index) => (
+<div class="am-mobile-full-bleed max-sm:overflow-x-clip">
+  <div
+    class="mt-5 flex snap-x snap-proximity gap-3 overflow-x-auto overscroll-x-contain scroll-px-6 px-6 pb-4 sm:mt-8 sm:grid sm:snap-none sm:grid-cols-2 sm:overflow-visible sm:px-0 sm:pb-0 lg:grid-cols-4"
+    data-am-rental-gallery-grid
+    role="region"
+    aria-label={labels.dialogLabel}
+  >
+    {previewImages.map((image, index) => (
+      <button
+        type="button"
+        class="group relative aspect-[4/3] w-[82vw] max-w-[22rem] shrink-0 snap-start overflow-hidden bg-surface-container-low focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary sm:w-auto sm:max-w-none sm:shrink sm:snap-none"
+        data-am-rental-photo-open
+        data-am-photo-index={index + 1}
+        aria-haspopup="dialog"
+        aria-label={`${labels.openPhoto}: ${previewAlts[index] ?? labels.photo}`}
+      >
+        <AmaraImage
+          src={image}
+          alt={previewAlts[index] ?? ''}
+          profile="gallery"
+          sizes="(max-width: 639px) 82vw, (max-width: 1023px) 50vw, 25vw"
+          class="h-full w-full object-cover transition-transform duration-500 ease-out group-hover:scale-[1.025] motion-reduce:transition-none motion-reduce:group-hover:scale-100"
+          loading="lazy"
+          decoding="async"
+        />
+        <span class="pointer-events-none absolute inset-0 bg-on-surface/0 transition-colors duration-300 group-hover:bg-on-surface/10 motion-reduce:transition-none" aria-hidden="true"></span>
+      </button>
+    ))}
+
     <button
       type="button"
-      class="group relative aspect-[4/3] w-[82vw] max-w-[22rem] shrink-0 snap-start overflow-hidden bg-surface-container-low focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary sm:w-auto sm:max-w-none sm:shrink sm:snap-none"
+      class="group flex aspect-[4/3] w-[82vw] max-w-[22rem] shrink-0 snap-start flex-col items-center justify-center gap-3 border border-border-subtle bg-surface-container-low px-6 text-center text-on-surface transition-colors duration-300 hover:bg-surface-container focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary motion-reduce:transition-none sm:w-auto sm:max-w-none sm:shrink sm:snap-none"
       data-am-rental-photo-open
-      data-am-photo-index={index + 1}
+      data-am-photo-index="0"
       aria-haspopup="dialog"
-      aria-label={`${labels.openPhoto}: ${previewAlts[index] ?? labels.photo}`}
     >
-      <AmaraImage
-        src={image}
-        alt={previewAlts[index] ?? ''}
-        profile="gallery"
-        sizes="(max-width: 639px) 82vw, (max-width: 1023px) 50vw, 25vw"
-        class="h-full w-full object-cover transition-transform duration-500 ease-out group-hover:scale-[1.025] motion-reduce:transition-none motion-reduce:group-hover:scale-100"
-        loading="lazy"
-        decoding="async"
-      />
-      <span class="pointer-events-none absolute inset-0 bg-on-surface/0 transition-colors duration-300 group-hover:bg-on-surface/10 motion-reduce:transition-none" aria-hidden="true"></span>
+      <Images class="h-7 w-7 text-primary transition-transform duration-300 group-hover:scale-105 motion-reduce:transition-none motion-reduce:group-hover:scale-100" stroke-width={1.4} aria-hidden="true" />
+      <span class="font-label text-[12px] font-bold uppercase tracking-[0.12em]">{labels.viewAll}</span>
+      <span class="am-text-body text-on-surface-variant">{images.length} {labels.photos}</span>
     </button>
-  ))}
-
-  <button
-    type="button"
-    class="group flex aspect-[4/3] w-[82vw] max-w-[22rem] shrink-0 snap-start flex-col items-center justify-center gap-3 border border-border-subtle bg-surface-container-low px-6 text-center text-on-surface transition-colors duration-300 hover:bg-surface-container focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary motion-reduce:transition-none sm:w-auto sm:max-w-none sm:shrink sm:snap-none"
-    data-am-rental-photo-open
-    data-am-photo-index="0"
-    aria-haspopup="dialog"
-  >
-    <Images class="h-7 w-7 text-primary transition-transform duration-300 group-hover:scale-105 motion-reduce:transition-none motion-reduce:group-hover:scale-100" stroke-width={1.4} aria-hidden="true" />
-    <span class="font-label text-[12px] font-bold uppercase tracking-[0.12em]">{labels.viewAll}</span>
-    <span class="am-text-body text-on-surface-variant">{images.length} {labels.photos}</span>
-  </button>
+  </div>
 </div>
 
 <dialog
