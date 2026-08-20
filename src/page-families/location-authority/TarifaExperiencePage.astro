@@ -14,6 +14,7 @@ import LocationAuthorityLayout from '../../layouts/LocationAuthorityLayout.astro
 import { createRequiredLinkResolver, type LabeledLink } from '../../lib/linkResolver';
 import { normalizeLanguage } from '../../lib/seo/resolve-seo-head';
 import type { AmaraLanguage } from '../../types/seo';
+import AuthorityTextSection from './AuthorityTextSection.astro';
 
 interface Props {
   lang?: string;
@@ -100,36 +101,27 @@ const footerHighlights: LabeledLink[] = [
     </section>
 
     {copy.sections.map((section, index) => (
-      <section
-        id={section.id}
-        class:list={[
-          'border-b border-border-subtle px-6 py-20 md:px-12 md:py-28',
-          index % 2 === 0 ? 'bg-surface' : 'bg-surface-container-low'
-        ]}
-      >
-        <div class="mx-auto grid max-w-screen-2xl gap-10 lg:grid-cols-[minmax(0,0.62fr)_minmax(0,1.38fr)] lg:gap-20">
-          <div>
-            <p class="font-label text-[10px] font-bold uppercase tracking-[0.16em] text-primary">
-              {String(index + 1).padStart(2, '0')}
+      <>
+        <AuthorityTextSection
+          section={{
+            id: section.id,
+            eyebrow: String(index + 1).padStart(2, '0'),
+            title: section.title,
+            paragraphs: section.paragraphs
+          }}
+          index={index}
+          data-am-experience-section={section.id}
+        />
+        {section.cta && (
+          <div class="border-b border-border-subtle bg-surface px-6 py-8 md:px-12">
+            <p class="mx-auto max-w-screen-2xl text-right">
+              <a href={requiredLink(section.cta.token)} class="am-inline-link">
+                {section.cta.label}<span aria-hidden="true"> →</span>
+              </a>
             </p>
-            <h2 class="am-text-title mt-5 max-w-xl text-balance text-on-surface">
-              {section.title}
-            </h2>
           </div>
-          <div class="max-w-3xl space-y-5">
-            {section.paragraphs.map((paragraph) => (
-              <p class="am-text-body leading-relaxed text-on-surface-variant"><InlineEmphasis text={paragraph} /></p>
-            ))}
-            {section.cta && (
-              <p class="pt-4">
-                <a href={requiredLink(section.cta.token)} class="am-inline-link">
-                  {section.cta.label}<span aria-hidden="true"> →</span>
-                </a>
-              </p>
-            )}
-          </div>
-        </div>
-      </section>
+        )}
+      </>
     ))}
 
     <section class="bg-surface px-6 pt-24 md:px-12 md:pt-32">
