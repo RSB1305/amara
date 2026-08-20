@@ -1,5 +1,6 @@
 import type { LinkToken } from '../lib/linkResolver';
 import type { AmaraAuthoringSeo, AmaraLanguage } from '../types/seo';
+import { climateDataSourceUrls, locationClimateProfiles } from './locationClimateData';
 
 export interface TarifaWeatherSection {
   id: string;
@@ -51,14 +52,14 @@ export interface TarifaWeatherLocale {
 
 const article = {
   datePublished: '2026-08-13',
-  dateModified: '2026-08-13',
+  dateModified: '2026-08-20',
   authorName: 'Robert Sebastian Böhmer',
   authorType: 'Person' as const,
   authorSlug: 'amara-about-us'
 };
 
 export const tarifaWeatherSeo: AmaraAuthoringSeo = {
-  version: '2026-08-13-tarifa-weather-v1.0',
+  version: '2026-08-20-tarifa-weather-v1.1',
   pageType: 'A',
   entityKey: 'amara-brand',
   article,
@@ -77,13 +78,13 @@ export const tarifaWeatherSeo: AmaraAuthoringSeo = {
     },
     es: {
       title: 'Tiempo en Tarifa: estaciones y mejor época para viajar',
-      description: 'Clima, estaciones, Levante y Poniente en Tarifa: con 23,9 °C de media en julio, mucho más suave que el interior de Andalucía.',
+      description: 'Clima, estaciones, Levante y Poniente en Tarifa, con valores mensuales coherentes para planificar una estancia real en AMARA.',
       robots: 'index, follow',
       canonical: 'auto'
     },
     nl: {
       title: 'Weer en klimaat in Tarifa: seizoenen en beste reistijd',
-      description: 'Weer, seizoenen, Levante en Poniente in Tarifa: met 23,9 °C gemiddeld in juli blijft het milder dan het Andalusische binnenland.',
+      description: 'Weer, seizoenen, Levante en Poniente in Tarifa, met consistente maandwaarden voor een echt verblijf bij AMARA.',
       robots: 'index, follow',
       canonical: 'auto'
     },
@@ -97,17 +98,17 @@ export const tarifaWeatherSeo: AmaraAuthoringSeo = {
 };
 
 const sharedSources = {
-  tarifaNormals: 'https://www.aemet.es/es/serviciosclimaticos/datosclimatologicos/valoresclimatologicos?k=and&l=6001',
-  sevillaNormals: 'https://www.aemet.es/es/serviciosclimaticos/datosclimatologicos/valoresclimatologicos?k=and&l=5783',
-  cordobaNormals: 'https://www.aemet.es/es/serviciosclimaticos/datosclimatologicos/valoresclimatologicos?k=and&l=5402',
+  climateTarifa: climateDataSourceUrls.tarifa,
+  climateNerja: climateDataSourceUrls.nerja,
+  climateFrigiliana: climateDataSourceUrls.frigiliana,
   juntaWind: 'https://www.juntadeandalucia.es/medioambiente/portal/landing-page/-/asset_publisher/4V1kD5gLiJkq/content/viento/20151',
   valdevaquerosRoad: 'https://www.juntadeandalucia.es/organismos/fomentoarticulaciondelterritorioyvivienda/servicios/actualidad/noticias/detalle/516190.html'
 } as const;
 
 const comparisonPlaces = [
-  { place: 'Tarifa', july: '23.9°C', august: '24.5°C' },
-  { place: 'Sevilla Airport', july: '36.0°C', august: '35.5°C' },
-  { place: 'Córdoba Airport', july: '36.9°C', august: '36.5°C' }
+  { place: 'Tarifa', july: `${locationClimateProfiles.tarifa[6].high.toFixed(1)}°C`, august: `${locationClimateProfiles.tarifa[7].high.toFixed(1)}°C` },
+  { place: 'Nerja', july: `${locationClimateProfiles.nerja[6].high.toFixed(1)}°C`, august: `${locationClimateProfiles.nerja[7].high.toFixed(1)}°C` },
+  { place: 'Frigiliana', july: `${locationClimateProfiles.frigiliana[6].high.toFixed(1)}°C`, august: `${locationClimateProfiles.frigiliana[7].high.toFixed(1)}°C` }
 ];
 
 export const tarifaWeatherContent: Record<AmaraLanguage, TarifaWeatherLocale> = {
@@ -117,23 +118,23 @@ export const tarifaWeatherContent: Record<AmaraLanguage, TarifaWeatherLocale> = 
       eyebrow: 'Tarifa weather guide',
       title: 'Tarifa weather & seasons',
       standfirst: 'Tarifa does not have one single holiday season. Its coastal climate, Levante and Poniente shape how a multi-day stay feels — and from AMARA in La Marina, the useful question is how to make each kind of day work well.',
-      note: 'A host-written climate guide based on official normals. Climate averages describe a pattern, not the forecast for your dates.',
+      note: 'A host-written guide using the same Climate-Data.org point-model basis as Nerja and Frigiliana. Climate averages describe a pattern, not the forecast for your dates.',
       updated: 'Climate evidence reviewed August 2026'
     },
     facts: [
-      { label: 'Climate evidence', value: 'AEMET 1981–2010 normals' },
-      { label: 'Summer pattern', value: 'Mild for inland Andalusia · very dry' },
+      { label: 'Climate evidence', value: 'Climate-Data.org point model' },
+      { label: 'Summer pattern', value: 'Warm · very dry · often windy' },
       { label: 'Wind names', value: 'Levante · Poniente' },
       { label: 'AMARA base', value: 'La Marina · Mar Adriático 29' }
     ],
     comparison: {
-      eyebrow: 'A useful summer comparison',
-      title: 'Tarifa is structurally milder than inland Andalusia in midsummer',
-      intro: 'AEMET’s 1981–2010 average daily maxima show a clear coastal–inland difference. These are monthly climate averages, not a ceiling or a promise for any individual day.',
+      eyebrow: 'One consistent summer comparison',
+      title: 'Tarifa, Nerja and Frigiliana on the same data basis',
+      intro: 'The comparison uses the Climate-Data.org point model for all three places. These are modelled monthly average daily maxima, not a ceiling or a promise for any individual day.',
       periodLabel: 'Average daily maximum',
       monthLabels: ['July', 'August'],
       places: comparisonPlaces,
-      note: 'July / August · AEMET 1981–2010 normals'
+      note: 'July / August · temperature and rainfall period 1991–2021'
     },
     sections: [
       {
@@ -141,8 +142,8 @@ export const tarifaWeatherContent: Record<AmaraLanguage, TarifaWeatherLocale> = 
         eyebrow: '01 · The broad pattern',
         title: 'Tarifa climate at a glance',
         paragraphs: [
-          'Tarifa’s position on the Strait gives it a maritime climate: summer maximums are moderated compared with inland Andalusia, while the year remains windy and the colder half carries much more of the rain.',
-          'For a real stay, that means summer heat assumptions borrowed from Seville or Córdoba can mislead, but so can the idea that every coastal day will be calm and cloudless. Check the forecast for the dates, then keep one flexible option in the day.',
+          'Tarifa’s position on the Strait gives it a maritime climate: summers are warm and very dry, the year remains windy and the colder half carries much more of the rain.',
+          'For a real stay, generic Andalusian summer assumptions can mislead, but so can the idea that every coastal day will be calm and cloudless. Check the forecast for the dates, then keep one flexible option in the day.',
           'At AMARA, a supermarket directly opposite makes a quick change of meal or beach plan simple, while the Old Town remains about 10–15 minutes away on foot when the weather suits a walk.'
         ]
       },
@@ -169,9 +170,9 @@ export const tarifaWeatherContent: Record<AmaraLanguage, TarifaWeatherLocale> = 
       {
         id: 'summer',
         eyebrow: '04 · Summer',
-        title: 'Dry, bright and milder than inland Andalusia',
+        title: 'Dry, bright and shaped by the wind',
         paragraphs: [
-          'AEMET normals show very little rain in Tarifa in June, July and August. Average daily maxima are 23.9°C in July and 24.5°C in August, far below the corresponding inland readings at Sevilla and Córdoba airports.',
+          'The shared Climate-Data.org dataset shows very little rain in Tarifa in June, July and August. Average daily maxima are 27.5°C in July and 27.7°C in August; on the same model basis, Nerja and Frigiliana both record 27.0°C in July and 27.1°C in August.',
           'That comparison describes the climate, not tomorrow’s temperature. Summer can still bring strong sun, warm spells and persistent wind, so shade, water, sun protection and a current forecast remain part of the day.',
           'AMARA’s air-conditioning provides cooling at home. From La Marina you can walk to the Old Town in roughly 10–15 minutes or use the practical westbound route for the Atlantic coast, choosing timing and destination for the day’s conditions.'
         ]
@@ -181,7 +182,7 @@ export const tarifaWeatherContent: Record<AmaraLanguage, TarifaWeatherLocale> = 
         eyebrow: '05 · Autumn',
         title: 'A gradual seasonal change, not an instant switch',
         paragraphs: [
-          'September still sits close to the summer pattern in AEMET’s temperature and rainfall normals, while October and November show a marked rise in average rainfall and a steady fall in temperature.',
+          'September still sits close to the summer pattern in the shared model data, while October and November show a marked rise in average rainfall and a steady fall in temperature.',
           'Autumn can therefore offer rewarding beach, walking and town days, but a longer stay benefits from decisions made one or two days at a time rather than a fixed week of outdoor plans.',
           'At AMARA, the supermarket opposite is useful when weather changes the evening, and the apartment’s heating, cooling and wood-burning fireplace make it easier to move between a warm afternoon and a cooler or wetter night.'
         ]
@@ -191,7 +192,7 @@ export const tarifaWeatherContent: Record<AmaraLanguage, TarifaWeatherLocale> = 
         eyebrow: '06 · Winter',
         title: 'Mild coastal temperatures, with more wind and rain in the mix',
         paragraphs: [
-          'Winter in Tarifa remains mild in coastal-climate terms, but AEMET normals place much more rainfall in December, January and February than in summer. Wind and passing fronts can define individual days.',
+          'Winter in Tarifa remains mild in coastal-climate terms, but the shared model data show much more rainfall in December, January and February than in summer. Wind and passing fronts can define individual days.',
           'The season rewards a stay with indoor comfort, useful everyday services and the freedom to move a walk or coastal outing to the better part of the forecast. It should not be sold as guaranteed winter sun.',
           'AMARA offers heating, cooling-and-heating air-conditioning and a wood-burning fireplace, with groceries directly opposite. This is only the seasonal overview; a dedicated winter-stay guide will cover longer routines separately.'
         ]
@@ -229,13 +230,13 @@ export const tarifaWeatherContent: Record<AmaraLanguage, TarifaWeatherLocale> = 
     },
     sources: {
       eyebrow: 'Evidence',
-      title: 'Official climate and wind sources',
-      intro: 'Climate statements use AEMET’s official 1981–2010 normals. Wind and dune-road context comes from the Junta de Andalucía.',
+      title: 'Climate and wind sources',
+      intro: 'Monthly climate figures use one Climate-Data.org point-model method across Tarifa, Nerja and Frigiliana. Wind and dune-road context comes from the Junta de Andalucía.',
       checked: 'Sources reviewed August 2026',
       links: [
-        { label: 'AEMET · Tarifa normals', text: 'Monthly temperature, rainfall and rain-day averages for station 6001.', href: sharedSources.tarifaNormals },
-        { label: 'AEMET · Sevilla Airport normals', text: 'Official inland comparison for the July and August average daily maxima.', href: sharedSources.sevillaNormals },
-        { label: 'AEMET · Córdoba Airport normals', text: 'Official inland comparison for the July and August average daily maxima.', href: sharedSources.cordobaNormals },
+        { label: 'Climate-Data.org · Tarifa', text: 'Monthly temperature and rainfall for 1991–2021; sunshine for 1999–2019.', href: sharedSources.climateTarifa },
+        { label: 'Climate-Data.org · Nerja', text: 'Point-model basis for the consistent July and August comparison.', href: sharedSources.climateNerja },
+        { label: 'Climate-Data.org · Frigiliana', text: 'Point-model basis for the consistent July and August comparison.', href: sharedSources.climateFrigiliana },
         { label: 'Junta de Andalucía · Wind in Andalusia', text: 'Regional account of Levante and Poniente around the Strait.', href: sharedSources.juntaWind },
         { label: 'Junta de Andalucía · Valdevaqueros dune road', text: '2024 works removing dune sand from the A-2325 toward Punta Paloma.', href: sharedSources.valdevaquerosRoad }
       ]
@@ -254,33 +255,33 @@ export const tarifaWeatherContent: Record<AmaraLanguage, TarifaWeatherLocale> = 
       eyebrow: 'Tarifa Wetter-Guide',
       title: 'Wetter & Jahreszeiten in Tarifa',
       standfirst: 'Tarifa hat nicht nur eine einzige Reisesaison. Küstenklima, Levante und Poniente prägen mehrtägige Aufenthalte – und bei AMARA in La Marina zählt vor allem, wie sich aus jedem Wetter ein guter Tag machen lässt.',
-      note: 'Ein von Gastgebern verfasster Klima-Guide auf Basis offizieller Normalwerte. Klimamittel beschreiben ein Muster, nicht die Vorhersage für eure Reisedaten.',
+      note: 'Ein von Gastgebern verfasster Guide auf derselben Climate-Data.org-Punktmodellbasis wie Nerja und Frigiliana. Klimamittel beschreiben ein Muster, nicht die Vorhersage für eure Reisedaten.',
       updated: 'Klimadaten geprüft im August 2026'
     },
     facts: [
-      { label: 'Klimadaten', value: 'AEMET-Normalwerte 1981–2010' },
-      { label: 'Sommermuster', value: 'Milder als im andalusischen Inland · sehr trocken' },
+      { label: 'Klimadaten', value: 'Climate-Data.org-Punktmodell' },
+      { label: 'Sommermuster', value: 'Warm · sehr trocken · oft windig' },
       { label: 'Windnamen', value: 'Levante · Poniente' },
       { label: 'AMARA-Basis', value: 'La Marina · Mar Adriático 29' }
     ],
     comparison: {
-      eyebrow: 'Ein hilfreicher Sommervergleich',
-      title: 'Tarifas Hochsommer ist klimatisch deutlich milder als das andalusische Inland',
-      intro: 'Die mittleren Tageshöchstwerte von AEMET für 1981–2010 zeigen den klaren Unterschied zwischen Küste und Inland. Es sind Monatsmittel, keine Obergrenze und kein Versprechen für einzelne Tage.',
+      eyebrow: 'Ein einheitlicher Sommervergleich',
+      title: 'Tarifa, Nerja und Frigiliana auf derselben Datengrundlage',
+      intro: 'Der Vergleich verwendet für alle drei Orte das Climate-Data.org-Punktmodell. Es sind modellierte Monatsmittel der Tageshöchstwerte, keine Obergrenze und kein Versprechen für einzelne Tage.',
       periodLabel: 'Mittleres Tagesmaximum',
       monthLabels: ['Juli', 'August'],
       places: [
-        { place: 'Tarifa', july: '23,9 °C', august: '24,5 °C' },
-        { place: 'Flughafen Sevilla', july: '36,0 °C', august: '35,5 °C' },
-        { place: 'Flughafen Córdoba', july: '36,9 °C', august: '36,5 °C' }
+        { place: 'Tarifa', july: '27,5 °C', august: '27,7 °C' },
+        { place: 'Nerja', july: '27,0 °C', august: '27,1 °C' },
+        { place: 'Frigiliana', july: '27,0 °C', august: '27,1 °C' }
       ],
-      note: 'Juli / August · AEMET-Normalwerte 1981–2010'
+      note: 'Juli / August · Temperatur- und Niederschlagszeitraum 1991–2021'
     },
     sections: [
       {
         id: 'climate-at-a-glance', eyebrow: '01 · Das große Muster', title: 'Tarifas Klima auf einen Blick', paragraphs: [
-          'Die Lage an der Meerenge gibt Tarifa ein maritim geprägtes Klima: Die sommerlichen Höchstwerte sind gegenüber dem andalusischen Inland gedämpft, Wind begleitet das Jahr und deutlich mehr Regen fällt in der kühleren Jahreshälfte.',
-          'Für den Aufenthalt heißt das: Sommererwartungen aus Sevilla oder Córdoba passen hier ebenso wenig wie die Annahme, jeder Küstentag sei windstill und wolkenlos. Prüft die Vorhersage und haltet eine Tagesoption flexibel.',
+          'Die Lage an der Meerenge gibt Tarifa ein maritim geprägtes Klima: Die Sommer sind warm und sehr trocken, Wind begleitet das Jahr und deutlich mehr Regen fällt in der kühleren Jahreshälfte.',
+          'Für den Aufenthalt heißt das: Allgemeine andalusische Sommererwartungen passen hier ebenso wenig wie die Annahme, jeder Küstentag sei windstill und wolkenlos. Prüft die Vorhersage und haltet eine Tagesoption flexibel.',
           'Bei AMARA erleichtert der Supermarkt direkt gegenüber einen spontanen Wechsel von Essens- oder Strandplänen; die Altstadt bleibt bei passendem Wetter etwa 10–15 Gehminuten entfernt.'
         ]
       },
@@ -299,22 +300,22 @@ export const tarifaWeatherContent: Record<AmaraLanguage, TarifaWeatherLocale> = 
         ]
       },
       {
-        id: 'summer', eyebrow: '04 · Sommer', title: 'Trocken, hell und milder als im Inland', paragraphs: [
-          'Die AEMET-Normalwerte zeigen für Juni, Juli und August sehr wenig Niederschlag. Tarifas mittlere Tageshöchstwerte liegen im Juli bei 23,9 °C und im August bei 24,5 °C – weit unter Sevilla und Córdoba.',
+        id: 'summer', eyebrow: '04 · Sommer', title: 'Trocken, hell und vom Wind geprägt', paragraphs: [
+          'Der gemeinsame Climate-Data.org-Datensatz zeigt für Juni, Juli und August sehr wenig Niederschlag. Tarifas mittlere Tageshöchstwerte liegen im Juli bei 27,5 °C und im August bei 27,7 °C; auf derselben Modellbasis liegen Nerja und Frigiliana bei 27,0 °C und 27,1 °C.',
           'Dieser Vergleich beschreibt das Klima, nicht die Temperatur von morgen. Auch im Sommer gehören starke Sonne, warme Phasen und anhaltender Wind zu den Möglichkeiten; Schatten, Wasser, Sonnenschutz und die aktuelle Vorhersage bleiben wichtig.',
           'Bei AMARA kühlt die Klimaanlage das Apartment. Von La Marina erreicht ihr die Altstadt in etwa 10–15 Minuten zu Fuß oder fahrt praktisch nach Westen an die Atlantikküste – passend zu Bedingungen und Tageszeit.'
         ]
       },
       {
         id: 'autumn', eyebrow: '05 · Herbst', title: 'Ein allmählicher Wechsel statt plötzlichem Saisonende', paragraphs: [
-          'Der September liegt in den Temperatur- und Niederschlagswerten von AEMET noch nah am Sommer; im Oktober und November steigt der mittlere Regen deutlich, während die Temperaturen nach und nach sinken.',
+          'Der September liegt in den gemeinsamen Modelldaten noch nah am Sommer; im Oktober und November steigt der mittlere Regen deutlich, während die Temperaturen nach und nach sinken.',
           'Strand, Spaziergänge und Stadt können im Herbst sehr lohnend sein. Bei einem längeren Aufenthalt lohnt es sich jedoch, ein bis zwei Tage im Voraus zu entscheiden statt eine ganze Outdoor-Woche festzulegen.',
           'Bei AMARA hilft der Supermarkt gegenüber, wenn das Wetter den Abend verändert; Heizung, Kühl- und Heizklimaanlage sowie Holzkamin fangen den Wechsel zwischen warmem Nachmittag und kühlerer oder nasser Nacht auf.'
         ]
       },
       {
         id: 'winter', eyebrow: '06 · Winter', title: 'Mildes Küstenklima, aber mehr Wind und Regen', paragraphs: [
-          'Der Winter bleibt für ein Küstenklima mild, doch die AEMET-Normalwerte weisen für Dezember, Januar und Februar viel mehr Niederschlag aus als für den Sommer. Wind und Fronten können einzelne Tage prägen.',
+          'Der Winter bleibt für ein Küstenklima mild, doch die gemeinsamen Modelldaten weisen für Dezember, Januar und Februar viel mehr Niederschlag aus als für den Sommer. Wind und Fronten können einzelne Tage prägen.',
           'Eine gute Winterbasis bietet Innenkomfort, praktische Versorgung und die Freiheit, Spaziergang oder Küstenausflug in das bessere Wetterfenster zu schieben. Garantierter Wintersonnenschein wäre das falsche Versprechen.',
           'AMARA bietet Heizung, Klimaanlage mit Kühl- und Heizfunktion und einen Holzkamin; Lebensmittel gibt es direkt gegenüber. Hier bleibt es beim Überblick – längere Winterroutinen gehören in den eigenen Winter-Guide.'
         ]
@@ -343,10 +344,10 @@ export const tarifaWeatherContent: Record<AmaraLanguage, TarifaWeatherLocale> = 
       ]
     },
     sources: {
-      eyebrow: 'Belege', title: 'Offizielle Klima- und Windquellen', intro: 'Die Klimaaussagen beruhen auf den offiziellen AEMET-Normalwerten 1981–2010. Wind- und Dünenstraßenkontext stammen von der Junta de Andalucía.', checked: 'Quellen geprüft im August 2026', links: [
-        { label: 'AEMET · Normalwerte Tarifa', text: 'Monatswerte für Temperatur, Niederschlag und Regentage an Station 6001.', href: sharedSources.tarifaNormals },
-        { label: 'AEMET · Normalwerte Flughafen Sevilla', text: 'Offizieller Inlandvergleich für die mittleren Tageshöchstwerte im Juli und August.', href: sharedSources.sevillaNormals },
-        { label: 'AEMET · Normalwerte Flughafen Córdoba', text: 'Offizieller Inlandvergleich für die mittleren Tageshöchstwerte im Juli und August.', href: sharedSources.cordobaNormals },
+      eyebrow: 'Belege', title: 'Klima- und Windquellen', intro: 'Die monatlichen Klimawerte verwenden für Tarifa, Nerja und Frigiliana einheitlich das Climate-Data.org-Punktmodell. Wind- und Dünenstraßenkontext stammen von der Junta de Andalucía.', checked: 'Quellen geprüft im August 2026', links: [
+        { label: 'Climate-Data.org · Tarifa', text: 'Monatswerte für Temperatur und Niederschlag 1991–2021; Sonnenschein 1999–2019.', href: sharedSources.climateTarifa },
+        { label: 'Climate-Data.org · Nerja', text: 'Punktmodellbasis für den einheitlichen Vergleich im Juli und August.', href: sharedSources.climateNerja },
+        { label: 'Climate-Data.org · Frigiliana', text: 'Punktmodellbasis für den einheitlichen Vergleich im Juli und August.', href: sharedSources.climateFrigiliana },
         { label: 'Junta de Andalucía · Wind in Andalusien', text: 'Regionale Einordnung von Levante und Poniente rund um die Meerenge.', href: sharedSources.juntaWind },
         { label: 'Junta de Andalucía · Straße an der Valdevaqueros-Düne', text: 'Arbeiten von 2024 zur Sandräumung auf der A-2325 Richtung Punta Paloma.', href: sharedSources.valdevaquerosRoad }
       ]
@@ -356,25 +357,25 @@ export const tarifaWeatherContent: Record<AmaraLanguage, TarifaWeatherLocale> = 
   es: {
     navLabel: 'Tiempo y estaciones',
     hero: {
-      eyebrow: 'Guía del tiempo en Tarifa', title: 'Tiempo y estaciones en Tarifa', standfirst: 'Tarifa no tiene una única temporada de vacaciones. Su clima costero, el Levante y el Poniente cambian el ritmo de una estancia de varios días; desde AMARA, en La Marina, lo importante es saber aprovechar bien cada tipo de jornada.', note: 'Una guía climática escrita por anfitriones y basada en valores normales oficiales. Las medias describen un patrón, no el pronóstico para vuestras fechas.', updated: 'Datos climáticos revisados en agosto de 2026'
+      eyebrow: 'Guía del tiempo en Tarifa', title: 'Tiempo y estaciones en Tarifa', standfirst: 'Tarifa no tiene una única temporada de vacaciones. Su clima costero, el Levante y el Poniente cambian el ritmo de una estancia de varios días; desde AMARA, en La Marina, lo importante es saber aprovechar bien cada tipo de jornada.', note: 'Una guía escrita por anfitriones con la misma base de modelo puntual de Climate-Data.org que Nerja y Frigiliana. Las medias describen un patrón, no el pronóstico para vuestras fechas.', updated: 'Datos climáticos revisados en agosto de 2026'
     },
     facts: [
-      { label: 'Evidencia climática', value: 'Valores normales AEMET 1981–2010' },
-      { label: 'Patrón de verano', value: 'Más suave que el interior andaluz · muy seco' },
+      { label: 'Evidencia climática', value: 'Modelo puntual de Climate-Data.org' },
+      { label: 'Patrón de verano', value: 'Cálido · muy seco · a menudo ventoso' },
       { label: 'Vientos', value: 'Levante · Poniente' },
       { label: 'Base AMARA', value: 'La Marina · Mar Adriático 29' }
     ],
     comparison: {
-      eyebrow: 'Una comparación útil de verano', title: 'El pleno verano de Tarifa es climáticamente mucho más suave que el interior andaluz', intro: 'Las máximas diarias medias de AEMET para 1981–2010 muestran una diferencia clara entre costa e interior. Son medias mensuales, no un límite ni una promesa para un día concreto.', periodLabel: 'Máxima diaria media', monthLabels: ['Julio', 'Agosto'], places: [
-        { place: 'Tarifa', july: '23,9 °C', august: '24,5 °C' },
-        { place: 'Aeropuerto de Sevilla', july: '36,0 °C', august: '35,5 °C' },
-        { place: 'Aeropuerto de Córdoba', july: '36,9 °C', august: '36,5 °C' }
-      ], note: 'Julio / agosto · valores normales AEMET 1981–2010'
+      eyebrow: 'Una comparación de verano coherente', title: 'Tarifa, Nerja y Frigiliana con la misma base de datos', intro: 'La comparación utiliza el modelo puntual de Climate-Data.org para los tres lugares. Son máximas diarias medias mensuales modelizadas, no un límite ni una promesa para un día concreto.', periodLabel: 'Máxima diaria media', monthLabels: ['Julio', 'Agosto'], places: [
+        { place: 'Tarifa', july: '27,5 °C', august: '27,7 °C' },
+        { place: 'Nerja', july: '27,0 °C', august: '27,1 °C' },
+        { place: 'Frigiliana', july: '27,0 °C', august: '27,1 °C' }
+      ], note: 'Julio / agosto · periodo de temperatura y lluvia 1991–2021'
     },
     sections: [
       { id: 'climate-at-a-glance', eyebrow: '01 · El patrón general', title: 'El clima de Tarifa de un vistazo', paragraphs: [
-        'La situación de Tarifa en el Estrecho crea un clima marítimo: las máximas estivales son más moderadas que en el interior andaluz, el viento acompaña todo el año y la mitad más fresca concentra mucha más lluvia.',
-        'Para una estancia real, no conviene trasladar aquí las expectativas de calor de Sevilla o Córdoba, ni esperar que todos los días costeros sean tranquilos y despejados. Mirad la previsión y dejad una alternativa abierta.',
+        'La situación de Tarifa en el Estrecho crea un clima marítimo: los veranos son cálidos y muy secos, el viento acompaña todo el año y la mitad más fresca concentra mucha más lluvia.',
+        'Para una estancia real, no conviene trasladar sin más expectativas genéricas del verano andaluz, ni esperar que todos los días costeros sean tranquilos y despejados. Mirad la previsión y dejad una alternativa abierta.',
         'En AMARA, el supermercado justo enfrente simplifica un cambio de comida o de plan de playa; cuando apetece caminar, el casco antiguo queda a unos 10–15 minutos a pie.'
       ] },
       { id: 'levante-poniente', eyebrow: '02 · Dos nombres cotidianos', title: 'Levante y Poniente durante una estancia normal', paragraphs: [
@@ -387,8 +388,8 @@ export const tarifaWeatherContent: Record<AmaraLanguage, TarifaWeatherLocale> = 
         'Es una buena época para combinar pueblo, costa y paisaje si lleváis capas ligeras, una opción para la lluvia y ninguna exigencia de tardes siempre veraniegas.',
         'En AMARA, el aire acondicionado con frío y calor, la calefacción y la chimenea de leña aportan confort en noches frescas; la salida práctica hacia el oeste permite aprovechar una buena ventana en la costa.'
       ] },
-      { id: 'summer', eyebrow: '04 · Verano', title: 'Seco, luminoso y más suave que el interior', paragraphs: [
-        'Los valores normales de AEMET muestran muy poca lluvia en junio, julio y agosto. En Tarifa, las máximas diarias medias son 23,9 °C en julio y 24,5 °C en agosto, muy por debajo de Sevilla y Córdoba.',
+      { id: 'summer', eyebrow: '04 · Verano', title: 'Seco, luminoso y marcado por el viento', paragraphs: [
+        'El conjunto común de Climate-Data.org muestra muy poca lluvia en junio, julio y agosto. En Tarifa, las máximas diarias medias son 27,5 °C en julio y 27,7 °C en agosto; con la misma base, Nerja y Frigiliana registran 27,0 °C y 27,1 °C.',
         'La comparación describe el clima, no la temperatura de mañana. Sol intenso, episodios cálidos y viento persistente siguen siendo posibles; sombra, agua, protección solar y previsión actual forman parte del día.',
         'El aire acondicionado refresca AMARA. Desde La Marina podéis caminar unos 10–15 minutos al casco antiguo o salir cómodamente hacia la costa atlántica, eligiendo horario y destino según las condiciones.'
       ] },
@@ -398,7 +399,7 @@ export const tarifaWeatherContent: Record<AmaraLanguage, TarifaWeatherLocale> = 
         'En AMARA, el supermercado enfrente ayuda cuando cambia la tarde; calefacción, frío y calor por aire acondicionado y chimenea de leña acompañan el paso de una tarde templada a una noche fresca o lluviosa.'
       ] },
       { id: 'winter', eyebrow: '06 · Invierno', title: 'Temperaturas costeras suaves, con más viento y lluvia', paragraphs: [
-        'El invierno de Tarifa sigue siendo suave en términos de clima costero, pero las normales de AEMET sitúan mucha más lluvia en diciembre, enero y febrero que en verano. El viento y los frentes pueden marcar días concretos.',
+        'El invierno de Tarifa sigue siendo suave en términos de clima costero, pero los datos comunes del modelo sitúan mucha más lluvia en diciembre, enero y febrero que en verano. El viento y los frentes pueden marcar días concretos.',
         'La temporada pide confort interior, servicios cotidianos útiles y libertad para mover un paseo o una salida a la costa a la mejor parte del pronóstico. No debe venderse como sol invernal garantizado.',
         'AMARA dispone de calefacción, aire acondicionado con frío y calor y chimenea de leña, con compras justo enfrente. Aquí damos solo la visión estacional; las rutinas largas tendrán su propia guía de invierno.'
       ] },
@@ -419,10 +420,10 @@ export const tarifaWeatherContent: Record<AmaraLanguage, TarifaWeatherLocale> = 
       { token: 'tarifa_wind_kitesurfing_authority', label: 'Viento y deportes acuáticos', text: 'La guía especializada para sistemas de viento, seguridad y decisiones en el agua.' },
       { token: 'tarifa_winter_stays', label: 'Estancias de invierno', text: 'La guía específica para una estancia más tranquila y larga con el tiempo cambiante del Atlántico.' }
     ] },
-    sources: { eyebrow: 'Fuentes', title: 'Fuentes oficiales de clima y viento', intro: 'Las afirmaciones climáticas utilizan los valores normales oficiales de AEMET 1981–2010. El contexto de viento y carretera junto a la duna procede de la Junta de Andalucía.', checked: 'Fuentes revisadas en agosto de 2026', links: [
-      { label: 'AEMET · Valores normales de Tarifa', text: 'Medias mensuales de temperatura, precipitación y días de lluvia de la estación 6001.', href: sharedSources.tarifaNormals },
-      { label: 'AEMET · Valores normales de Sevilla Aeropuerto', text: 'Comparación interior oficial de las máximas diarias medias de julio y agosto.', href: sharedSources.sevillaNormals },
-      { label: 'AEMET · Valores normales de Córdoba Aeropuerto', text: 'Comparación interior oficial de las máximas diarias medias de julio y agosto.', href: sharedSources.cordobaNormals },
+    sources: { eyebrow: 'Fuentes', title: 'Fuentes de clima y viento', intro: 'Los valores climáticos mensuales usan de forma coherente el modelo puntual de Climate-Data.org para Tarifa, Nerja y Frigiliana. El contexto de viento y carretera junto a la duna procede de la Junta de Andalucía.', checked: 'Fuentes revisadas en agosto de 2026', links: [
+      { label: 'Climate-Data.org · Tarifa', text: 'Temperatura y lluvia mensuales de 1991–2021; sol de 1999–2019.', href: sharedSources.climateTarifa },
+      { label: 'Climate-Data.org · Nerja', text: 'Base del modelo puntual para la comparación coherente de julio y agosto.', href: sharedSources.climateNerja },
+      { label: 'Climate-Data.org · Frigiliana', text: 'Base del modelo puntual para la comparación coherente de julio y agosto.', href: sharedSources.climateFrigiliana },
       { label: 'Junta de Andalucía · Viento en Andalucía', text: 'Descripción regional del Levante y el Poniente en el entorno del Estrecho.', href: sharedSources.juntaWind },
       { label: 'Junta de Andalucía · Carretera de la duna de Valdevaqueros', text: 'Trabajos de 2024 para retirar arena de la A-2325 hacia Punta Paloma.', href: sharedSources.valdevaquerosRoad }
     ] },
@@ -430,22 +431,22 @@ export const tarifaWeatherContent: Record<AmaraLanguage, TarifaWeatherLocale> = 
   },
   nl: {
     navLabel: 'Weer & seizoenen',
-    hero: { eyebrow: 'Weergids voor Tarifa', title: 'Weer & seizoenen in Tarifa', standfirst: 'Tarifa kent niet één vakantieseizoen. Het kustklimaat, de Levante en de Poniente bepalen het ritme van een verblijf van meerdere dagen – en vanuit AMARA in La Marina draait het vooral om wat op elke dag prettig werkt.', note: 'Een door hosts geschreven klimaatgids op basis van officiële klimaatnormalen. Gemiddelden beschrijven een patroon, niet de verwachting voor jullie reisdata.', updated: 'Klimaatbronnen gecontroleerd in augustus 2026' },
+    hero: { eyebrow: 'Weergids voor Tarifa', title: 'Weer & seizoenen in Tarifa', standfirst: 'Tarifa kent niet één vakantieseizoen. Het kustklimaat, de Levante en de Poniente bepalen het ritme van een verblijf van meerdere dagen – en vanuit AMARA in La Marina draait het vooral om wat op elke dag prettig werkt.', note: 'Een door hosts geschreven gids met dezelfde Climate-Data.org-puntmodelbasis als Nerja en Frigiliana. Gemiddelden beschrijven een patroon, niet de verwachting voor jullie reisdata.', updated: 'Klimaatbronnen gecontroleerd in augustus 2026' },
     facts: [
-      { label: 'Klimaatbron', value: 'AEMET-normalen 1981–2010' },
-      { label: 'Zomerpatroon', value: 'Milder dan het Andalusische binnenland · zeer droog' },
+      { label: 'Klimaatbron', value: 'Climate-Data.org-puntmodel' },
+      { label: 'Zomerpatroon', value: 'Warm · zeer droog · vaak winderig' },
       { label: 'Windnamen', value: 'Levante · Poniente' },
       { label: 'AMARA-basis', value: 'La Marina · Mar Adriático 29' }
     ],
-    comparison: { eyebrow: 'Een nuttige zomervergelijking', title: 'Tarifa is midden in de zomer structureel milder dan het Andalusische binnenland', intro: 'De gemiddelde dagelijkse maxima van AEMET voor 1981–2010 laten een duidelijk verschil tussen kust en binnenland zien. Het zijn maandgemiddelden, geen bovengrens of belofte voor een losse dag.', periodLabel: 'Gemiddeld dagelijks maximum', monthLabels: ['Juli', 'Augustus'], places: [
-      { place: 'Tarifa', july: '23,9 °C', august: '24,5 °C' },
-      { place: 'Luchthaven Sevilla', july: '36,0 °C', august: '35,5 °C' },
-      { place: 'Luchthaven Córdoba', july: '36,9 °C', august: '36,5 °C' }
-    ], note: 'Juli / augustus · AEMET-normalen 1981–2010' },
+    comparison: { eyebrow: 'Een consistente zomervergelijking', title: 'Tarifa, Nerja en Frigiliana op dezelfde databasis', intro: 'De vergelijking gebruikt voor alle drie de plaatsen het Climate-Data.org-puntmodel. Het zijn gemodelleerde maandgemiddelden van de dagelijkse maxima, geen bovengrens of belofte voor een losse dag.', periodLabel: 'Gemiddeld dagelijks maximum', monthLabels: ['Juli', 'Augustus'], places: [
+      { place: 'Tarifa', july: '27,5 °C', august: '27,7 °C' },
+      { place: 'Nerja', july: '27,0 °C', august: '27,1 °C' },
+      { place: 'Frigiliana', july: '27,0 °C', august: '27,1 °C' }
+    ], note: 'Juli / augustus · periode temperatuur en neerslag 1991–2021' },
     sections: [
       { id: 'climate-at-a-glance', eyebrow: '01 · Het grote patroon', title: 'Het klimaat van Tarifa in het kort', paragraphs: [
-        'Door de ligging aan de Straat van Gibraltar heeft Tarifa een zeeklimaat: zomerse maxima worden getemperd vergeleken met het Andalusische binnenland, wind hoort bij het jaar en de koelere helft krijgt veel meer regen.',
-        'Voor een echt verblijf zijn zomerverwachtingen uit Sevilla of Córdoba dus misleidend, maar hetzelfde geldt voor het idee dat elke kustdag windstil en wolkeloos is. Bekijk de verwachting en houd één dagoptie flexibel.',
+        'Door de ligging aan de Straat van Gibraltar heeft Tarifa een zeeklimaat: de zomers zijn warm en zeer droog, wind hoort bij het jaar en de koelere helft krijgt veel meer regen.',
+        'Voor een echt verblijf zijn algemene verwachtingen van een Andalusische zomer dus misleidend, maar hetzelfde geldt voor het idee dat elke kustdag windstil en wolkeloos is. Bekijk de verwachting en houd één dagoptie flexibel.',
         'Bij AMARA maakt de supermarkt direct aan de overkant een snelle wissel van eet- of strandplan eenvoudig; bij geschikt weer ligt de oude stad op ongeveer 10–15 minuten lopen.'
       ] },
       { id: 'levante-poniente', eyebrow: '02 · Twee vertrouwde namen', title: 'Levante & Poniente tijdens een gewone vakantie', paragraphs: [
@@ -458,8 +459,8 @@ export const tarifaWeatherContent: Record<AmaraLanguage, TarifaWeatherLocale> = 
         'Het is een fijne tijd om stad, kust en landschap te combineren, mits lichte lagen, een regenoptie en geen verwachting van uitsluitend zomerse middagen in het plan zitten.',
         'Bij AMARA bieden airconditioning voor koelen en verwarmen, verwarming en de houtgestookte open haard comfort op koelere avonden; de praktische westelijke route helpt een mooie periode aan de kust te benutten.'
       ] },
-      { id: 'summer', eyebrow: '04 · Zomer', title: 'Droog, helder en milder dan het binnenland', paragraphs: [
-        'De AEMET-normalen laten in juni, juli en augustus zeer weinig regen zien. In Tarifa zijn de gemiddelde dagelijkse maxima 23,9 °C in juli en 24,5 °C in augustus, veel lager dan bij Sevilla en Córdoba.',
+      { id: 'summer', eyebrow: '04 · Zomer', title: 'Droog, helder en gevormd door de wind', paragraphs: [
+        'De gezamenlijke Climate-Data.org-dataset laat in juni, juli en augustus zeer weinig regen zien. In Tarifa zijn de gemiddelde dagelijkse maxima 27,5 °C in juli en 27,7 °C in augustus; op dezelfde basis komen Nerja en Frigiliana uit op 27,0 °C en 27,1 °C.',
         'Die vergelijking beschrijft het klimaat, niet de temperatuur van morgen. Felle zon, warme perioden en aanhoudende wind blijven mogelijk; schaduw, water, zonbescherming en de actuele verwachting horen bij de dag.',
         'AMARA heeft airconditioning om te koelen. Vanuit La Marina lopen jullie in circa 10–15 minuten naar de oude stad of rijden praktisch westwaarts naar de Atlantische kust, afgestemd op tijd en omstandigheden.'
       ] },
@@ -469,7 +470,7 @@ export const tarifaWeatherContent: Record<AmaraLanguage, TarifaWeatherLocale> = 
         'Bij AMARA is de supermarkt tegenover handig als het weer de avond verandert; verwarming, koelen en verwarmen via de airconditioning en de houtgestookte open haard vangen het verschil tussen middag en avond op.'
       ] },
       { id: 'winter', eyebrow: '06 · Winter', title: 'Milde kusttemperaturen, met meer wind en regen', paragraphs: [
-        'De winter in Tarifa blijft mild naar kustmaatstaven, maar AEMET plaatst veel meer regen in december, januari en februari dan in de zomer. Wind en passerende fronten kunnen losse dagen bepalen.',
+        'De winter in Tarifa blijft mild naar kustmaatstaven, maar de gezamenlijke modeldata plaatsen veel meer regen in december, januari en februari dan in de zomer. Wind en passerende fronten kunnen losse dagen bepalen.',
         'Dit seizoen vraagt om binnencomfort, bruikbare dagelijkse voorzieningen en vrijheid om wandeling of kustrit naar het betere deel van de verwachting te schuiven. Gegarandeerde winterzon zou geen eerlijk verhaal zijn.',
         'AMARA heeft verwarming, airconditioning voor koelen en verwarmen en een houtgestookte open haard, met boodschappen direct aan de overkant. Langere winterroutines krijgen later hun eigen gids.'
       ] },
@@ -490,10 +491,10 @@ export const tarifaWeatherContent: Record<AmaraLanguage, TarifaWeatherLocale> = 
       { token: 'tarifa_wind_kitesurfing_authority', label: 'Wind & watersport', text: 'De specialistische gids voor windsystemen, veiligheid en watersportkeuzes.' },
       { token: 'tarifa_winter_stays', label: 'Winterverblijven', text: 'De aparte gids voor een rustiger, langer verblijf met wisselvallig Atlantisch weer.' }
     ] },
-    sources: { eyebrow: 'Bronnen', title: 'Officiële klimaat- en windbronnen', intro: 'Klimaatuitspraken gebruiken de officiële AEMET-normalen voor 1981–2010. Context over wind en de duinweg komt van de Junta de Andalucía.', checked: 'Bronnen gecontroleerd in augustus 2026', links: [
-      { label: 'AEMET · Normalen Tarifa', text: 'Maandgemiddelden voor temperatuur, neerslag en regendagen van station 6001.', href: sharedSources.tarifaNormals },
-      { label: 'AEMET · Normalen luchthaven Sevilla', text: 'Officiële vergelijking voor de gemiddelde dagelijkse maxima in juli en augustus.', href: sharedSources.sevillaNormals },
-      { label: 'AEMET · Normalen luchthaven Córdoba', text: 'Officiële vergelijking voor de gemiddelde dagelijkse maxima in juli en augustus.', href: sharedSources.cordobaNormals },
+    sources: { eyebrow: 'Bronnen', title: 'Klimaat- en windbronnen', intro: 'De maandelijkse klimaatwaarden gebruiken voor Tarifa, Nerja en Frigiliana consequent het Climate-Data.org-puntmodel. Context over wind en de duinweg komt van de Junta de Andalucía.', checked: 'Bronnen gecontroleerd in augustus 2026', links: [
+      { label: 'Climate-Data.org · Tarifa', text: 'Maandelijkse temperatuur en neerslag voor 1991–2021; zon voor 1999–2019.', href: sharedSources.climateTarifa },
+      { label: 'Climate-Data.org · Nerja', text: 'Puntmodelbasis voor de consistente vergelijking in juli en augustus.', href: sharedSources.climateNerja },
+      { label: 'Climate-Data.org · Frigiliana', text: 'Puntmodelbasis voor de consistente vergelijking in juli en augustus.', href: sharedSources.climateFrigiliana },
       { label: 'Junta de Andalucía · Wind in Andalusië', text: 'Regionale toelichting op Levante en Poniente rond de Straat.', href: sharedSources.juntaWind },
       { label: 'Junta de Andalucía · Weg bij de duin van Valdevaqueros', text: 'Werkzaamheden uit 2024 om zand van de A-2325 naar Punta Paloma te verwijderen.', href: sharedSources.valdevaquerosRoad }
     ] },
@@ -501,22 +502,22 @@ export const tarifaWeatherContent: Record<AmaraLanguage, TarifaWeatherLocale> = 
   },
   sv: {
     navLabel: 'Väder & årstider',
-    hero: { eyebrow: 'Väderguide för Tarifa', title: 'Väder & årstider i Tarifa', standfirst: 'Tarifa har inte bara en enda semestersäsong. Kustklimatet, Levante och Poniente formar en vistelse över flera dagar – och från AMARA i La Marina är den viktiga frågan hur varje sorts dag kan bli riktigt bra.', note: 'En klimatguide skriven av värdar och baserad på officiella normalvärden. Klimatgenomsnitt beskriver ett mönster, inte prognosen för era datum.', updated: 'Klimatkällor granskade i augusti 2026' },
+    hero: { eyebrow: 'Väderguide för Tarifa', title: 'Väder & årstider i Tarifa', standfirst: 'Tarifa har inte bara en enda semestersäsong. Kustklimatet, Levante och Poniente formar en vistelse över flera dagar – och från AMARA i La Marina är den viktiga frågan hur varje sorts dag kan bli riktigt bra.', note: 'En guide skriven av värdar med samma punktmodell från Climate-Data.org som Nerja och Frigiliana. Klimatgenomsnitt beskriver ett mönster, inte prognosen för era datum.', updated: 'Klimatkällor granskade i augusti 2026' },
     facts: [
-      { label: 'Klimatunderlag', value: 'AEMET-normalvärden 1981–2010' },
-      { label: 'Sommarmönster', value: 'Mildare än Andalusiens inland · mycket torrt' },
+      { label: 'Klimatunderlag', value: 'Climate-Data.orgs punktmodell' },
+      { label: 'Sommarmönster', value: 'Varmt · mycket torrt · ofta blåsigt' },
       { label: 'Vindnamn', value: 'Levante · Poniente' },
       { label: 'AMARA-bas', value: 'La Marina · Mar Adriático 29' }
     ],
-    comparison: { eyebrow: 'En användbar sommarjämförelse', title: 'Tarifa är klimatmässigt betydligt mildare än Andalusiens inland mitt i sommaren', intro: 'AEMET:s genomsnittliga dagshögsta för 1981–2010 visar en tydlig skillnad mellan kust och inland. Det är månadsmedel, inte ett tak eller ett löfte för en enskild dag.', periodLabel: 'Genomsnittligt dagshögsta', monthLabels: ['Juli', 'Augusti'], places: [
-      { place: 'Tarifa', july: '23,9 °C', august: '24,5 °C' },
-      { place: 'Sevillas flygplats', july: '36,0 °C', august: '35,5 °C' },
-      { place: 'Córdobas flygplats', july: '36,9 °C', august: '36,5 °C' }
-    ], note: 'Juli / augusti · AEMET-normalvärden 1981–2010' },
+    comparison: { eyebrow: 'En enhetlig sommarjämförelse', title: 'Tarifa, Nerja och Frigiliana på samma databas', intro: 'Jämförelsen använder Climate-Data.orgs punktmodell för alla tre orterna. Det är modellerade månadsmedel för dagshögsta, inte ett tak eller ett löfte för en enskild dag.', periodLabel: 'Genomsnittligt dagshögsta', monthLabels: ['Juli', 'Augusti'], places: [
+      { place: 'Tarifa', july: '27,5 °C', august: '27,7 °C' },
+      { place: 'Nerja', july: '27,0 °C', august: '27,1 °C' },
+      { place: 'Frigiliana', july: '27,0 °C', august: '27,1 °C' }
+    ], note: 'Juli / augusti · temperatur- och nederbördsperiod 1991–2021' },
     sections: [
       { id: 'climate-at-a-glance', eyebrow: '01 · Det stora mönstret', title: 'Tarifas klimat i korthet', paragraphs: [
-        'Läget vid Gibraltarsundet ger Tarifa ett maritimt klimat: sommarens högsta temperaturer dämpas jämfört med Andalusiens inland, vinden följer året och den svalare halvan får betydligt mer regn.',
-        'För en riktig vistelse kan sommarförväntningar från Sevilla eller Córdoba därför bli fel – men också tanken att varje kustdag är vindstilla och molnfri. Kontrollera prognosen och håll ett alternativ öppet.',
+        'Läget vid Gibraltarsundet ger Tarifa ett maritimt klimat: somrarna är varma och mycket torra, vinden följer året och den svalare halvan får betydligt mer regn.',
+        'För en riktig vistelse kan generella förväntningar på en andalusisk sommar därför bli fel – men också tanken att varje kustdag är vindstilla och molnfri. Kontrollera prognosen och håll ett alternativ öppet.',
         'På AMARA gör stormarknaden mittemot ett snabbt byte av middags- eller strandplan enkelt; när vädret passar ligger gamla stan ungefär 10–15 minuters promenad bort.'
       ] },
       { id: 'levante-poniente', eyebrow: '02 · Två namn ni ofta hör', title: 'Levante & Poniente under en vanlig Tarifavistelse', paragraphs: [
@@ -529,18 +530,18 @@ export const tarifaWeatherContent: Record<AmaraLanguage, TarifaWeatherLocale> = 
         'Det är en fin tid för stad, kust och landskap om packningen innehåller lager, planen ett regnalternativ och ingen förväntan om att varje eftermiddag känns som sommar.',
         'På AMARA ger luftkonditionering för kyla och värme, uppvärmning och den vedeldade eldstaden komfort på svalare kvällar; den praktiska vägen västerut hjälper er att utnyttja en ljus stund vid kusten.'
       ] },
-      { id: 'summer', eyebrow: '04 · Sommar', title: 'Torrt, ljust och mildare än inlandet', paragraphs: [
-        'AEMET:s normalvärden visar mycket lite regn i juni, juli och augusti. I Tarifa är genomsnittligt dagshögsta 23,9 °C i juli och 24,5 °C i augusti, klart lägre än i Sevilla och Córdoba.',
+      { id: 'summer', eyebrow: '04 · Sommar', title: 'Torrt, ljust och präglat av vinden', paragraphs: [
+        'Den gemensamma datamängden från Climate-Data.org visar mycket lite regn i juni, juli och augusti. I Tarifa är genomsnittligt dagshögsta 27,5 °C i juli och 27,7 °C i augusti; på samma grund ligger Nerja och Frigiliana på 27,0 °C och 27,1 °C.',
         'Jämförelsen beskriver klimatet, inte morgondagens temperatur. Stark sol, varma perioder och ihållande vind är fortfarande möjliga; skugga, vatten, solskydd och aktuell prognos hör till dagen.',
         'AMARA har luftkonditionering för svalka. Från La Marina går ni till gamla stan på cirka 10–15 minuter eller kör enkelt västerut mot Atlantkusten, med tid och mål valda efter dagens förhållanden.'
       ] },
       { id: 'autumn', eyebrow: '05 · Höst', title: 'En gradvis förändring, inte ett plötsligt slut', paragraphs: [
-        'September ligger fortfarande nära sommaren i AEMET:s temperatur- och nederbördsnormaler; oktober och november visar tydligt mer genomsnittligt regn och gradvis lägre temperaturer.',
+        'September ligger fortfarande nära sommaren i de gemensamma modelldata; oktober och november visar tydligt mer genomsnittligt regn och gradvis lägre temperaturer.',
         'Hösten kan ge fina dagar för strand, promenader och stad. Under en längre vistelse fungerar beslut en eller två dagar i taget bättre än en helt låst utomhusvecka.',
         'På AMARA hjälper stormarknaden mittemot när vädret ändrar kvällen; uppvärmning, kyla och värme via luftkonditionering samt vedeldad eldstad möter skiftet mellan varm eftermiddag och sval eller blöt kväll.'
       ] },
       { id: 'winter', eyebrow: '06 · Vinter', title: 'Milt kustklimat, men mer vind och regn', paragraphs: [
-        'Vintern i Tarifa är mild i kustklimatets mening, men AEMET:s normaler placerar mycket mer regn i december, januari och februari än på sommaren. Vind och fronter kan prägla enskilda dagar.',
+        'Vintern i Tarifa är mild i kustklimatets mening, men de gemensamma modelldata placerar mycket mer regn i december, januari och februari än på sommaren. Vind och fronter kan prägla enskilda dagar.',
         'Säsongen belönar inomhuskomfort, praktisk vardagsservice och frihet att flytta promenad eller kustutflykt till prognosens bättre del. Garanterad vintersol vore inget ärligt löfte.',
         'AMARA har uppvärmning, luftkonditionering för kyla och värme samt vedeldad eldstad, med matbutik mitt emot. Här stannar vi vid översikten; längre vinterrutiner får en egen guide.'
       ] },
@@ -561,10 +562,10 @@ export const tarifaWeatherContent: Record<AmaraLanguage, TarifaWeatherLocale> = 
       { token: 'tarifa_wind_kitesurfing_authority', label: 'Vind & vattensport', text: 'Specialistguiden för vindsystem, säkerhet och beslut om vattensport.' },
       { token: 'tarifa_winter_stays', label: 'Vintervistelser', text: 'Den särskilda guiden för en lugnare, längre vistelse med omväxlande Atlantväder.' }
     ] },
-    sources: { eyebrow: 'Källor', title: 'Officiella klimat- och vindkällor', intro: 'Klimatuppgifterna använder AEMET:s officiella normalvärden för 1981–2010. Vind- och dynvägskontext kommer från Junta de Andalucía.', checked: 'Källor granskade i augusti 2026', links: [
-      { label: 'AEMET · Normalvärden för Tarifa', text: 'Månadsmedel för temperatur, nederbörd och regndagar vid station 6001.', href: sharedSources.tarifaNormals },
-      { label: 'AEMET · Normalvärden för Sevillas flygplats', text: 'Officiell inlandjämförelse av genomsnittligt dagshögsta i juli och augusti.', href: sharedSources.sevillaNormals },
-      { label: 'AEMET · Normalvärden för Córdobas flygplats', text: 'Officiell inlandjämförelse av genomsnittligt dagshögsta i juli och augusti.', href: sharedSources.cordobaNormals },
+    sources: { eyebrow: 'Källor', title: 'Klimat- och vindkällor', intro: 'De månatliga klimatuppgifterna använder samma punktmodell från Climate-Data.org för Tarifa, Nerja och Frigiliana. Vind- och dynvägskontext kommer från Junta de Andalucía.', checked: 'Källor granskade i augusti 2026', links: [
+      { label: 'Climate-Data.org · Tarifa', text: 'Månatlig temperatur och nederbörd för 1991–2021; sol för 1999–2019.', href: sharedSources.climateTarifa },
+      { label: 'Climate-Data.org · Nerja', text: 'Punktmodellgrund för den enhetliga jämförelsen i juli och augusti.', href: sharedSources.climateNerja },
+      { label: 'Climate-Data.org · Frigiliana', text: 'Punktmodellgrund för den enhetliga jämförelsen i juli och augusti.', href: sharedSources.climateFrigiliana },
       { label: 'Junta de Andalucía · Vind i Andalusien', text: 'Regional beskrivning av Levante och Poniente kring sundet.', href: sharedSources.juntaWind },
       { label: 'Junta de Andalucía · Vägen vid Valdevaquerosdynen', text: 'Arbeten 2024 för att röja sand från A-2325 mot Punta Paloma.', href: sharedSources.valdevaquerosRoad }
     ] },

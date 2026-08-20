@@ -9,6 +9,7 @@ import LocationClimateTable from '../../components/location/LocationClimateTable
 import type { LocationGuideIconName } from '../../components/location/LocationGuideIcon.astro';
 import LocationWeatherHero from '../../components/location/LocationWeatherHero.astro';
 import SeasonalPillar from '../../components/location/SeasonalPillar.astro';
+import { climateDataSourceUrls, locationClimateProfiles } from '../../content/locationClimateData';
 import {
   frigilianaPreFooterCopy,
   getFrigilianaPreFooterDescription
@@ -35,7 +36,7 @@ const parkingHref = buildOwnedLocalizedPath('frigiliana-parking', currentLang);
 const winterStaysHref = buildOwnedLocalizedPath('frigiliana-winter-stays', currentLang);
 
 const seo: AmaraAuthoringSeo = {
-  version: '2026-04-01-frigiliana-weather-v1.0-A',
+  version: '2026-08-20-frigiliana-weather-v1.1',
   pageType: 'A',
   entityKey: 'amara-brand',
   languages: {
@@ -300,11 +301,11 @@ const copy = {
     },
     sourceTitle: { en: 'Data basis', de: 'Datengrundlage', es: 'Base de datos', nl: 'Databasis', sv: 'Dataunderlag' },
     sourceText: {
-      en: 'Numerical values: Climate-Data.org point model for Frigiliana. AEMET’s official 1991–2020 climate maps provide the methodological reference for Spain, but the exact Frigiliana raster cell is not presented here as a measured station series. We therefore do not use these figures for a numerical Nerja comparison.',
-      de: 'Zahlenwerte: Punktmodell von Climate-Data.org für Frigiliana. Die offiziellen AEMET-Klimakarten 1991–2020 bilden den methodischen Referenzrahmen für Spanien; die exakte Rasterzelle Frigilianas wird hier jedoch nicht als gemessene Stationsreihe ausgegeben. Deshalb verwenden wir diese Werte nicht für einen Zahlenvergleich mit Nerja.',
-      es: 'Valores numéricos: modelo puntual de Climate-Data.org para Frigiliana. Los mapas climáticos oficiales de AEMET 1991–2020 son la referencia metodológica para España, pero aquí no presentamos la celda exacta de Frigiliana como una serie medida en estación. Por ello no usamos estas cifras para comparar numéricamente con Nerja.',
-      nl: 'Cijfers: puntmodel van Climate-Data.org voor Frigiliana. De officiële AEMET-klimaatkaarten 1991–2020 vormen het methodische kader voor Spanje, maar de exacte rastercel van Frigiliana wordt hier niet als gemeten stationsreeks gepresenteerd. Daarom gebruiken we deze cijfers niet voor een numerieke vergelijking met Nerja.',
-      sv: 'Siffervärden: Climate-Data.orgs punktmodell för Frigiliana. AEMET:s officiella klimatkartor 1991–2020 är den metodiska referensen för Spanien, men den exakta rastercellen för Frigiliana presenteras inte här som en uppmätt stationsserie. Därför används siffrorna inte för en numerisk jämförelse med Nerja.'
+      en: 'Numerical values: Climate-Data.org point model for Frigiliana. Temperature and rainfall use 1991–2021; sunshine uses 1999–2019. The provider returns the same monthly values for its Nerja and Frigiliana points. That reflects the model output and does not prove that both local microclimates are identical.',
+      de: 'Zahlenwerte: Punktmodell von Climate-Data.org für Frigiliana. Temperatur und Niederschlag verwenden 1991–2021, die Sonnenscheindauer 1999–2019. Der Anbieter gibt für seine Punkte Nerja und Frigiliana dieselben Monatswerte aus. Das bildet die Modellausgabe ab und beweist nicht, dass beide lokalen Mikroklimata identisch sind.',
+      es: 'Valores numéricos: modelo puntual de Climate-Data.org para Frigiliana. Temperatura y lluvia usan 1991–2021; el sol, 1999–2019. El proveedor ofrece los mismos valores mensuales para sus puntos de Nerja y Frigiliana. Es el resultado del modelo y no demuestra que ambos microclimas locales sean idénticos.',
+      nl: 'Cijfers: puntmodel van Climate-Data.org voor Frigiliana. Temperatuur en neerslag gebruiken 1991–2021; zonuren 1999–2019. De aanbieder geeft voor de punten Nerja en Frigiliana dezelfde maandwaarden. Dat is de modeluitkomst en bewijst niet dat beide lokale microklimaten identiek zijn.',
+      sv: 'Siffervärden: Climate-Data.orgs punktmodell för Frigiliana. Temperatur och nederbörd använder 1991–2021; soltimmar 1999–2019. Leverantören redovisar samma månadsvärden för punkterna Nerja och Frigiliana. Det återger modellresultatet och bevisar inte att de lokala mikroklimaten är identiska.'
     }
   },
   notice: {
@@ -394,21 +395,6 @@ const copy = {
 
 const t = <T extends Record<AmaraLanguage, string>>(row: T) => row[currentLang] ?? row.en;
 
-const climateValues = [
-  { high: 12.4, low: 6.6, rain: 60, sunHours: 6.8 },
-  { high: 12.7, low: 6.9, rain: 51, sunHours: 7.6 },
-  { high: 14.5, low: 8.5, rain: 51, sunHours: 8.8 },
-  { high: 16.3, low: 10.3, rain: 42, sunHours: 10.1 },
-  { high: 19.5, low: 13.1, rain: 26, sunHours: 11.6 },
-  { high: 23.8, low: 17.1, rain: 9, sunHours: 12.5 },
-  { high: 27, low: 19.9, rain: 2, sunHours: 12.2 },
-  { high: 27.1, low: 20.4, rain: 4, sunHours: 11.2 },
-  { high: 23.5, low: 17.4, rain: 21, sunHours: 10.1 },
-  { high: 20, low: 14.3, rain: 58, sunHours: 8.7 },
-  { high: 15.2, low: 9.8, rain: 70, sunHours: 7.4 },
-  { high: 13.2, low: 7.8, rain: 77, sunHours: 6.6 }
-];
-
 const climateMonthLabels: Record<AmaraLanguage, string[]> = {
   en: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
   de: ['Jan', 'Feb', 'Mär', 'Apr', 'Mai', 'Jun', 'Jul', 'Aug', 'Sep', 'Okt', 'Nov', 'Dez'],
@@ -417,7 +403,7 @@ const climateMonthLabels: Record<AmaraLanguage, string[]> = {
   sv: ['Jan', 'Feb', 'Mar', 'Apr', 'Maj', 'Jun', 'Jul', 'Aug', 'Sep', 'Okt', 'Nov', 'Dec']
 };
 
-const climateMonths = climateValues.map((month, index) => ({
+const climateMonths = locationClimateProfiles.frigiliana.map((month, index) => ({
   month: climateMonthLabels[currentLang][index],
   ...month
 }));
@@ -433,19 +419,7 @@ const climateSources = [
           : currentLang === 'sv'
             ? 'Climate-Data.org · månadsvärden för Frigiliana'
             : 'Climate-Data.org · Frigiliana monthly values',
-    href: 'https://en.climate-data.org/europe/spain/andalusia/frigiliana-220227/'
-  },
-  {
-    label: currentLang === 'de'
-      ? 'AEMET · Klimakarten Spanien 1991–2020'
-      : currentLang === 'es'
-        ? 'AEMET · mapas climáticos de España 1991–2020'
-        : currentLang === 'nl'
-          ? 'AEMET · klimaatkaarten Spanje 1991–2020'
-          : currentLang === 'sv'
-            ? 'AEMET · klimatkartor Spanien 1991–2020'
-            : 'AEMET · Spain climate maps 1991–2020',
-    href: 'https://www.aemet.es/es/conocermas/recursos_en_linea/publicaciones_y_estudios/publicaciones/detalles/MapasclimaticosdeEspana'
+    href: climateDataSourceUrls.frigiliana
   }
 ];
 

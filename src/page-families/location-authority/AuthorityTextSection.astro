@@ -1,15 +1,13 @@
 ---
 /**
- * One authored text section of an authority article.
+ * A small presentation family for authored authority sections.
  *
- * The alternating surface, the eyebrow/heading column and the paragraph rhythm
- * are identical across the family; only the paragraph that carries the pull
- * quote and the ground it sits on differ, so those are the sole options. Any
- * `data-am-*` attribute a page already ships on its sections is passed through
- * unchanged.
+ * The content contract stays stable while the visual rhythm rotates through
+ * five restrained editorial compositions. Pages may select a semantic variant;
+ * otherwise the section position creates a predictable, non-repeating sequence.
+ * Existing `data-am-*` ownership attributes pass through unchanged.
  */
 import InlineEmphasis from '../../components/text/InlineEmphasis.astro';
-
 
 interface AuthoritySection {
   id: string;
@@ -20,13 +18,14 @@ interface AuthoritySection {
 
 interface Props {
   section: AuthoritySection;
-  /** Position in the section list; decides the alternating surface. */
+  /** Position in the section list; selects the automatic presentation rhythm. */
   index: number;
-  /** Paragraph carrying the pull quote. Defaults to the closing paragraph. */
+  /** Paragraph carrying extra emphasis where the selected variant supports it. */
   highlightIndex?: number;
-  /** Ground the pull quote sits on; the getting-to pages use the low container. */
+  /** Ground used by an emphasized paragraph on light variants. */
   highlightSurface?: 'bg-surface' | 'bg-surface-container-low';
   presentation?: 'article' | 'guide';
+  variant?: 'auto' | 'lead' | 'columns' | 'inverse' | 'reverse' | 'rail';
   [attribute: `data-am-${string}`]: string | undefined;
 }
 
@@ -36,43 +35,169 @@ const {
   highlightIndex = section.paragraphs.length - 1,
   highlightSurface = 'bg-surface',
   presentation = 'article',
+  variant = 'auto',
   ...sectionAttributes
 } = Astro.props;
+
+const sequence = ['lead', 'columns', 'inverse', 'reverse', 'rail'] as const;
+const resolvedVariant = variant === 'auto' ? sequence[index % sequence.length] : variant;
+const isGuide = presentation === 'guide';
 ---
 
-<section
-  id={section.id}
-  class:list={[
-    'scroll-mt-32 border-b border-border-subtle px-6 py-20 md:px-12 md:py-28',
-    index % 2 === 0 ? 'bg-surface' : 'bg-surface-container-low'
-  ]}
-  {...sectionAttributes}
->
-  <div class="mx-auto grid max-w-screen-2xl gap-10 lg:grid-cols-12 lg:gap-20">
-    <div class="lg:col-span-5">
-      <p class="font-label text-[11px] font-bold uppercase tracking-[0.18em] text-primary">{section.eyebrow}</p>
-      <h2
-        class:list={[
-          'am-text-title mt-5 max-w-xl text-balance text-on-surface',
-          presentation === 'guide' && 'italic'
-        ]}
-      >
-        {section.title}
-      </h2>
-    </div>
-    <div class="max-w-4xl space-y-5 lg:col-span-7">
-      {section.paragraphs.map((paragraph, paragraphIndex) => (
-        <p
+{
+  resolvedVariant === 'lead' && (
+    <section
+      id={section.id}
+      class="scroll-mt-32 border-b border-border-subtle bg-surface px-6 py-20 md:px-12 md:py-28"
+      data-am-authority-layout="lead"
+      {...sectionAttributes}
+    >
+      <div class="mx-auto max-w-screen-2xl">
+        <div class="grid gap-10 lg:grid-cols-12 lg:gap-20">
+          <div class="lg:col-span-7">
+            <p class="font-label text-[11px] font-bold uppercase tracking-[0.18em] text-primary">{section.eyebrow}</p>
+            <h2 class:list={['am-text-title mt-6 max-w-4xl text-balance text-on-surface', isGuide && 'italic']}>{section.title}</h2>
+          </div>
+          {section.paragraphs[0] && (
+            <div class="self-end border-l-2 border-primary/35 bg-surface-container-low px-6 py-6 lg:col-span-5">
+              <p class="am-text-subtitle leading-relaxed text-on-surface"><InlineEmphasis text={section.paragraphs[0]} /></p>
+            </div>
+          )}
+        </div>
+        {section.paragraphs.length > 1 && (
+          <div class="mt-12 grid gap-8 border-t border-border-subtle pt-8 md:grid-cols-2 lg:ml-[42%] lg:mt-16">
+            {section.paragraphs.slice(1).map((paragraph, paragraphOffset) => {
+              const paragraphIndex = paragraphOffset + 1;
+              return (
+                <p
+                  class:list={[
+                    'am-text-body leading-relaxed text-on-surface-variant',
+                    paragraphIndex === highlightIndex && `border-l-2 border-primary/35 ${highlightSurface} px-5 py-4 text-on-surface`
+                  ]}
+                >
+                  <InlineEmphasis text={paragraph} />
+                </p>
+              );
+            })}
+          </div>
+        )}
+      </div>
+    </section>
+  )
+}
+
+{
+  resolvedVariant === 'columns' && (
+    <section
+      id={section.id}
+      class="scroll-mt-32 border-b border-border-subtle bg-surface-container-low px-6 py-20 md:px-12 md:py-28"
+      data-am-authority-layout="columns"
+      {...sectionAttributes}
+    >
+      <div class="mx-auto max-w-screen-2xl">
+        <div class="max-w-5xl">
+          <p class="font-label text-[11px] font-bold uppercase tracking-[0.18em] text-primary">{section.eyebrow}</p>
+          <h2 class:list={['am-text-title mt-6 text-balance text-on-surface', isGuide && 'italic']}>{section.title}</h2>
+        </div>
+        <div
           class:list={[
-            paragraphIndex === 0 ? 'am-text-subtitle' : 'am-text-body',
-            'leading-relaxed text-on-surface-variant',
-            paragraphIndex === highlightIndex &&
-              `border-l-2 border-primary/35 ${highlightSurface} px-6 py-5 text-on-surface`
+            'mt-14 grid gap-8 md:grid-cols-2 lg:gap-12',
+            section.paragraphs.length >= 3 ? 'lg:grid-cols-3' : 'max-w-5xl lg:grid-cols-2'
           ]}
         >
-          <InlineEmphasis text={paragraph} />
-        </p>
-      ))}
-    </div>
-  </div>
-</section>
+          {section.paragraphs.map((paragraph, paragraphIndex) => (
+            <div class="min-w-0 border-t border-primary/35 pt-6">
+              <span class="font-serif text-4xl leading-none text-primary/55">{String(paragraphIndex + 1).padStart(2, '0')}</span>
+              <p class="am-text-body mt-6 hyphens-auto leading-relaxed text-on-surface-variant [overflow-wrap:anywhere]"><InlineEmphasis text={paragraph} /></p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  )
+}
+
+{
+  resolvedVariant === 'inverse' && (
+    <section
+      id={section.id}
+      class="scroll-mt-32 border-b border-border-subtle bg-inverse-surface px-6 py-20 text-inverted-on-surface md:px-12 md:py-28"
+      data-am-authority-layout="inverse"
+      {...sectionAttributes}
+    >
+      <div class="mx-auto grid max-w-screen-2xl gap-12 lg:grid-cols-12 lg:gap-20">
+        <div class="lg:col-span-5">
+          <p class="font-label text-[11px] font-bold uppercase tracking-[0.18em] text-primary-fixed-dim">{section.eyebrow}</p>
+          <h2 class:list={['am-text-title mt-6 max-w-xl text-balance text-inverted-on-surface', isGuide && 'italic']}>{section.title}</h2>
+        </div>
+        <div class="border-y border-inverted-on-surface/20 lg:col-span-7">
+          {section.paragraphs.map((paragraph, paragraphIndex) => (
+            <div class:list={['grid gap-5 py-7 md:grid-cols-[3rem_minmax(0,1fr)]', paragraphIndex > 0 && 'border-t border-inverted-on-surface/20']}>
+              <span class="font-label text-[10px] font-bold uppercase tracking-[0.14em] text-primary-fixed-dim">{String(paragraphIndex + 1).padStart(2, '0')}</span>
+              <p class:list={[paragraphIndex === 0 ? 'am-text-subtitle' : 'am-text-body', 'min-w-0 hyphens-auto leading-relaxed text-inverted-on-surface/75 [overflow-wrap:anywhere]']}>
+                <InlineEmphasis text={paragraph} />
+              </p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  )
+}
+
+{
+  resolvedVariant === 'reverse' && (
+    <section
+      id={section.id}
+      class="scroll-mt-32 border-b border-border-subtle bg-surface px-6 py-20 md:px-12 md:py-28"
+      data-am-authority-layout="reverse"
+      {...sectionAttributes}
+    >
+      <div class="mx-auto grid max-w-screen-2xl gap-12 lg:grid-cols-12 lg:gap-20">
+        <div class="order-2 space-y-5 lg:order-1 lg:col-span-7">
+          {section.paragraphs.map((paragraph, paragraphIndex) => (
+            <p
+              class:list={[
+                paragraphIndex === 0 ? 'am-text-subtitle text-on-surface' : 'am-text-body text-on-surface-variant',
+                'leading-relaxed',
+                paragraphIndex === highlightIndex && `border-l-2 border-primary/35 ${highlightSurface} px-6 py-5 text-on-surface`
+              ]}
+            >
+              <InlineEmphasis text={paragraph} />
+            </p>
+          ))}
+        </div>
+        <div class="order-1 lg:order-2 lg:col-span-5 lg:border-l lg:border-border-subtle lg:pl-12">
+          <p class="font-label text-[11px] font-bold uppercase tracking-[0.18em] text-primary">{section.eyebrow}</p>
+          <h2 class:list={['am-text-title mt-6 max-w-xl text-balance text-on-surface', isGuide && 'italic']}>{section.title}</h2>
+        </div>
+      </div>
+    </section>
+  )
+}
+
+{
+  resolvedVariant === 'rail' && (
+    <section
+      id={section.id}
+      class="scroll-mt-32 border-b border-border-subtle bg-surface-container-low px-6 py-20 md:px-12 md:py-28"
+      data-am-authority-layout="rail"
+      {...sectionAttributes}
+    >
+      <div class="mx-auto max-w-screen-2xl">
+        <div class="grid gap-8 lg:grid-cols-12 lg:items-end lg:gap-20">
+          <p class="font-label text-[11px] font-bold uppercase tracking-[0.18em] text-primary lg:col-span-3">{section.eyebrow}</p>
+          <h2 class:list={['am-text-title max-w-5xl text-balance text-on-surface lg:col-span-9', isGuide && 'italic']}>{section.title}</h2>
+        </div>
+        <div class="mt-12 border-y border-border-subtle lg:ml-[25%]">
+          {section.paragraphs.map((paragraph, paragraphIndex) => (
+            <div class:list={['grid gap-5 py-7 sm:grid-cols-[4rem_minmax(0,1fr)]', paragraphIndex > 0 && 'border-t border-border-subtle']}>
+              <span class="font-serif text-3xl leading-none text-primary/55">{String(paragraphIndex + 1).padStart(2, '0')}</span>
+              <p class="am-text-body min-w-0 hyphens-auto leading-relaxed text-on-surface-variant [overflow-wrap:anywhere]"><InlineEmphasis text={paragraph} /></p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  )
+}

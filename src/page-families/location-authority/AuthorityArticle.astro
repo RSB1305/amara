@@ -22,6 +22,7 @@ import type { AmaraLanguage } from '../../types/seo';
 interface Fact {
   label: string;
   value: string;
+  description?: string;
 }
 
 interface SourceLink {
@@ -45,12 +46,13 @@ interface Props {
     eyebrow: string;
     title: string;
     standfirst: string;
-    updated: string;
-    note: string;
+    updated?: string;
+    note?: string;
   };
-  authorName: string;
-  authorHref: string;
+  authorName?: string;
+  authorHref?: string;
   facts: Fact[];
+  factsTitle?: string;
   /** Optional symbols for the fact strip; positional to preserve existing content models. */
   factIcons?: LocationGuideIconName[];
   sources: {
@@ -92,6 +94,7 @@ const {
   authorName,
   authorHref,
   facts,
+  factsTitle,
   factIcons = [],
   sources,
   closing,
@@ -103,12 +106,26 @@ const {
   heroMark
 } = Astro.props;
 
+const byline = authorName && authorHref && hero.updated && hero.note
+  ? {
+      lang,
+      authorName,
+      authorHref,
+      updated: hero.updated,
+      note: hero.note
+    }
+  : undefined;
+
 if (presentation === 'guide' && !guideVisual) {
   throw new Error('[AMARA] Guide AuthorityArticle requires guideVisual content.');
 }
 
 if (presentation === 'weather' && !weatherVisual) {
   throw new Error('[AMARA] Weather AuthorityArticle requires weatherVisual content.');
+}
+
+if (presentation === 'article' && !byline) {
+  throw new Error('[AMARA] Article AuthorityArticle requires complete author and review metadata.');
 }
 ---
 
@@ -129,13 +146,7 @@ if (presentation === 'weather' && !weatherVisual) {
         evidenceEyebrow={weatherVisual!.eyebrow}
         evidenceMark={weatherVisual!.mark}
         evidenceNote={weatherVisual!.note}
-        byline={{
-          lang,
-          authorName,
-          authorHref,
-          updated: hero.updated,
-          note: hero.note
-        }}
+        byline={byline}
       />
     ) : presentation === 'guide' ? (
       <LocationGuideHero
@@ -144,14 +155,7 @@ if (presentation === 'weather' && !weatherVisual) {
         paragraphs={[hero.standfirst]}
         topic={topic}
       >
-        <EditorialByline
-          slot="meta"
-          lang={lang}
-          authorName={authorName}
-          authorHref={authorHref}
-          updated={hero.updated}
-          note={hero.note}
-        />
+        {byline && <EditorialByline slot="meta" {...byline} />}
         <LocationGuideEvidence
           slot="visual"
           eyebrow={guideVisual!.eyebrow}
@@ -165,10 +169,10 @@ if (presentation === 'weather' && !weatherVisual) {
         title={hero.title}
         standfirst={hero.standfirst}
         lang={lang}
-        authorName={authorName}
-        authorHref={authorHref}
-        updated={hero.updated}
-        note={hero.note}
+        authorName={byline!.authorName}
+        authorHref={byline!.authorHref}
+        updated={byline!.updated}
+        note={byline!.note}
         mark={heroMark}
         topic={topic}
       />
@@ -176,7 +180,9 @@ if (presentation === 'weather' && !weatherVisual) {
   }
 
   <section class="border-b border-border-subtle bg-surface-container-low px-6 py-16 md:px-12 md:py-20">
-    <dl class="mx-auto grid max-w-screen-2xl gap-x-10 gap-y-8 sm:grid-cols-2 lg:grid-cols-4">
+    <div class="mx-auto max-w-screen-2xl">
+      {factsTitle && <h2 class="am-text-title mb-12 text-balance italic text-on-surface">{factsTitle}</h2>}
+    <dl class="grid gap-x-10 gap-y-8 sm:grid-cols-2 lg:grid-cols-4">
       {facts.map((fact, index) => (
         <div
           class:list={[
@@ -188,10 +194,12 @@ if (presentation === 'weather' && !weatherVisual) {
           <div class="min-w-0">
             <dt class="font-label min-w-0 text-[10px] font-bold uppercase tracking-[0.14em] text-primary [overflow-wrap:anywhere]">{fact.label}</dt>
             <dd class="am-text-subtitle mt-3 min-w-0 hyphens-auto text-on-surface [overflow-wrap:anywhere]">{fact.value}</dd>
+            {fact.description && <p class="am-text-body mt-3 leading-relaxed text-on-surface-variant">{fact.description}</p>}
           </div>
         </div>
       ))}
     </dl>
+    </div>
   </section>
 
   <slot />

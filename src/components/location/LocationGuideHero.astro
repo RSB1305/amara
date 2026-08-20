@@ -12,6 +12,7 @@ interface Props {
   imageAlt?: string;
   imageWidth?: number;
   imageSizes?: string;
+  family?: 'location' | 'experience';
   role?: 'hub' | 'spoke';
   topic?: string;
 }
@@ -25,6 +26,7 @@ const {
   imageAlt,
   imageWidth = 1080,
   imageSizes = '(max-width: 767px) 100vw, (max-width: 1023px) 44vw, 36vw',
+  family = 'location',
   role = 'spoke',
   topic
 } = Astro.props;
@@ -40,7 +42,7 @@ if (!hasVisualSlot && (!imageSrc || !imageAlt)) {
 
 <header
   class="border-b border-border-subtle bg-surface px-6 py-16 md:px-12 md:py-24 lg:py-28"
-  data-am-family="location"
+  data-am-family={family}
   data-am-guide-hero
   data-am-role={role}
   data-am-topic={topic}
