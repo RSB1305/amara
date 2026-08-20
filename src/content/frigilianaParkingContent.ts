@@ -1,4 +1,6 @@
 import type { AmaraAuthoringSeo, AmaraLanguage } from '../types/seo';
+import type { EvidenceReferenceMap } from '../../knowledge/schema';
+import type { FrigilianaParkingFactId } from '../../knowledge/facts/locations/frigiliana/parking';
 
 type LocalizedText = Record<AmaraLanguage, string>;
 
@@ -15,6 +17,48 @@ export const frigilianaParkingExternalLinks = {
   liveParkingMap:
     'https://www.google.com/maps/search/?api=1&query=aparcamiento+publico+Frigiliana'
 } as const;
+
+export const frigilianaParkingEvidence = {
+  hero: {
+    factIds: [
+      'frigiliana.parking.old-town.vehicle-access-regulated',
+      'frigiliana.parking.final-section-often-on-foot',
+      'frigiliana.parking.live-signs-govern'
+    ],
+    purpose: 'Supports the high-level arrival expectation without promising door-to-door access.'
+  },
+  facts: {
+    factIds: [
+      'frigiliana.parking.old-town.vehicle-access-regulated',
+      'frigiliana.parking.final-walk-terrain-varies',
+      'frigiliana.parking.availability-not-guaranteed'
+    ],
+    purpose: 'Supports the three practical expectations shown before the detailed options.'
+  },
+  centralGarage: {
+    factIds: [
+      'frigiliana.parking.orientation.lower-village',
+      'frigiliana.parking.central-garage.exists',
+      'frigiliana.parking.central-garage.tariff-2026-08'
+    ],
+    purpose: 'Supports the dated central-garage guidance and tariff observation.'
+  },
+  streetParking: {
+    factIds: [
+      'frigiliana.parking.street-options.dynamic',
+      'frigiliana.parking.live-signs-govern'
+    ],
+    purpose: 'Marks street-parking guidance as dynamic and not a promise of a legal space.'
+  },
+  accessibility: {
+    factIds: [
+      'frigiliana.parking.final-section-often-on-foot',
+      'frigiliana.parking.final-walk-terrain-varies',
+      'frigiliana.parking.drop-off-not-established'
+    ],
+    purpose: 'Keeps general planning advice within the current accessibility claim boundary.'
+  }
+} as const satisfies EvidenceReferenceMap<FrigilianaParkingFactId>;
 
 export const frigilianaParkingSeo: AmaraAuthoringSeo = {
   version: '2026-07-27-frigiliana-parking-v2.0-A',

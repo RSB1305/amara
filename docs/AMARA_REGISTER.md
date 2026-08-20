@@ -1,12 +1,12 @@
 ---
 document_id: AMARA-REG-001
 title: AMARA Register
-version: 1.3.2
+version: 1.4.0
 status: ACTIVE
 authority_class: LIVING BINDING REGISTER
 activation_state: ACTIVE
 effective_from: 2026-08-14
-last_modified: 2026-08-14T12:59:47+02:00
+last_modified: 2026-08-20T15:44:09+02:00
 canonical_path: /docs/AMARA_REGISTER.md
 ---
 
@@ -21,7 +21,7 @@ The AMARA Register is the single source for active documents, authority classes,
 | Slot | Document owner | Version/status | Class | Canonical/current source |
 |---|---|---|---|---|
 | 01 | AMARA System Constitution | 5.1.1 ACTIVE | PRINCIPLE / governing | `docs/standards/01_AMARA_System_Constitution_V5.md` |
-| 02 | AMARA Astro & Design Architecture Contract | PENDING Package 2 | CONTRACT / governing | Interim snapshot: `docs/interim/03_AMARA_Astro_Technical_Standard_V4.md` + current repository implementation |
+| 02 | AMARA Astro & Design Architecture Contract | 4.1.0 ACTIVE INTERIM | CONTRACT / governing | `docs/interim/03_AMARA_Astro_Technical_Standard_V4.md` + current repository implementation |
 | 03 | AMARA Runtime, SEO & Data Contract | PENDING Package 2 | CONTRACT / governing | Interim snapshot: `docs/interim/04_AMARA_Runtime_and_SEO_Standard_V4.md` + current repository implementation |
 | 04 | AMARA URL, Route & Link Contract | PENDING Package 2 | CONTRACT / governing | Interim snapshot: `docs/interim/05_AMARA_URL_and_Route_Infrastructure_V4.md` + Decision Register |
 | 05 | AMARA Governance, Execution & Documentation Lifecycle | 5.5.0 ACTIVE | CONTRACT / governing | `docs/standards/05_AMARA_Governance_Execution_and_Documentation_Lifecycle_V5.md` |
@@ -110,6 +110,8 @@ They do **not** supersede the current implementation. Until a separately aligned
 | TR-CONTENT-001 | Applicable public pages use dominant-job integrity rather than absolute intent isolation. | APPROVED — intentional supersession |
 | TR-CONTENT-002 | Cross-language SSOT is facts, job, evidence, claim boundaries, required information/topics, conversion intent, **meaning depth and material nuance**. No locale may shorten/omit required information. The mandatory English master-language role is superseded; native sentence construction remains locale-specific. | APPROVED — intentional supersession |
 | TR-CONTENT-003 | A/B/C/D applies to strategic public content jobs; utility/legal/entry/system surfaces need not be forced into it. | APPROVED — intentional supersession |
+| DR-EVIDENCE-001 | `knowledge/` is AMARA's durable, non-public Evidence & Knowledge owner for research dossiers, atomic facts, sources, claim boundaries, review state and open questions. Public authoring in `src/content/` is a curated projection of that knowledge; presentation remains owned by page families and components. | ACTIVE |
+| DR-EVIDENCE-002 | Redesigning, shortening or removing public copy must not delete its underlying evidence. New research updates knowledge records through explicit verification or supersession; it does not silently overwrite history or publish itself. | ACTIVE |
 
 ### Analytics/measurement
 
@@ -145,6 +147,7 @@ Routine new evidence/ideas may be captured here or in the relevant working evide
 | 2026-08-14T11:41:00+02:00 | FAST-first execution reform | Reversed the daily execution default from risk-heavy validation to minimum-safe FAST execution; removed mandatory re-review/full-build behavior for normal work; added operator-time proportionality, push batching and SSOT intake/sync. | DR-EXEC-003–008 | 5c59674 |
 | 2026-08-14T12:30:00+02:00 | FAST preflight checks | Added a repository-wide new-page duplication check and a five-locale structural completeness check to the Governance validation ladder, with an operative summary in `AGENTS.md`. Both run inside FAST; no second agent, no new decision ID, no new governance document. Governance 5.4.0, Register 1.3.1. | DR-EXEC-003, DR-EXEC-004 | 0e2b26a |
 | 2026-08-14T12:59:47+02:00 | Execution speed reset | Made `AGENTS.md` sufficient for daily Class 0–2 work, bounded the two FAST preflights, prohibited incidental validation tooling/inventories, activated current SSOT metadata and removed the accidental check scripts/inventory. Governance 5.5.0, Constitution 5.1.1, Register 1.3.2. | DR-AGENT-001, DR-EXEC-001–008, DR-DOC-006 | this revision |
+| 2026-08-20 | Evidence & Knowledge architecture | Activated a durable non-public knowledge layer, separated evidence from public authoring and presentation, and established Frigiliana parking as the first controlled pilot. Astro Standard 4.1.0, Register 1.4.0. | DR-EVIDENCE-001–002, TR-CONTENT-002 | this revision |
 
 ## 5. Intentional supersessions
 
@@ -184,3 +187,4 @@ Separate controlled workstreams remain for:
 | 1.3.0 | 2026-08-14T11:41:00+02:00 | **ACTIVE FAST-first revision.** Added DR-EXEC-003–008 and SSOT Decision Inbox/Sync model; reduced routine validation and push overhead. | 5c59674 |
 | 1.3.1 | 2026-08-14T12:30:00+02:00 | Added the two deterministic FAST preflight rules and recorded Governance 5.4.0. | 0e2b26a |
 | 1.3.2 | 2026-08-14T12:59:47+02:00 | Activated current metadata and recorded the execution speed reset with Governance 5.5.0 and Constitution 5.1.1. | this revision |
+| 1.4.0 | 2026-08-20 | Activated the Evidence & Knowledge owner and the separation between durable evidence, public authoring and presentation. | this revision |

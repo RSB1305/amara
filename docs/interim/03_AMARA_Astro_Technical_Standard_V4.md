@@ -1,14 +1,15 @@
 ---
 document_id: AMARA-INT-ASTRO-003
 title: AMARA Astro Technical Standard V4
-version: 4.0
+version: 4.1.0
 status: ACTIVE
 authority_class: CONTRACT / GOVERNING INTERIM
-source_type: INTERIM SNAPSHOT FROM APPROVED PDF
+source_type: INTERIM SNAPSHOT FROM APPROVED PDF + APPROVED REPOSITORY AMENDMENT
 source_attachment: "03_AMARA_Astro_Technical_Standard_V4 (1).pdf"
 source_sha256: b3d8a3e780b29b5be42922aec838c7f56f455184cca8336d9a0f3564ba43f9aa
 snapshot_created: 2026-08-14T09:08:00+02:00
 migration_state: PENDING PACKAGE 2/3 NORMALIZATION
+last_modified: 2026-08-20
 ---
 
 # AMARA Astro Technical Standard V4 — Interim Markdown Snapshot
@@ -21,7 +22,7 @@ migration_state: PENDING PACKAGE 2/3 NORMALIZATION
 
 AMARA Astro Technical Standard V4
 Status                                                ACTIVE
-Version                                               4.0
+Version                                               4.1.0
 Effective date                                        2026-08-10
 Runtime                                               Astro
 Styling                                               Tailwind CSS + AMARA global tokens + scoped component
@@ -213,3 +214,35 @@ For normal page or component work verify, as relevant:
 - visible output matches the approved reference.
 Validation depth is governed by the Governance & Execution Standard.
 AMARA Astro Technical Standard V4 is binding for all implementation work.
+
+16. Evidence, authoring and presentation boundary
+
+This repository amendment activates the Constitution's Evidence & Data, Authoring and Presentation separation in Astro.
+
+The ownership boundary is:
+
+- `knowledge/` owns durable, non-public research dossiers, sources, atomic facts, verification state, claim boundaries, review dates, supersession and open questions;
+- `src/content/` owns localized public authoring and may reference the knowledge records used for a claim;
+- `src/page-families/` owns page-family composition and selects the authored material needed for a page job;
+- layouts and components own presentation and reusable UI.
+
+Research does not become public merely because it is stored in the repository. A page is a curated projection of the knowledge base, not the knowledge base itself. Public copy may summarize, localize or omit a fact for the page job, but shortening or redesigning a page must not delete the underlying knowledge record.
+
+Knowledge records must keep enough provenance to distinguish verified facts, partial support, first-party observations, unverified leads, disputed claims and superseded information. Volatile facts require a checked date and review expectation. Conflicting evidence is retained and resolved explicitly rather than silently overwritten.
+
+New topic work follows this direction:
+
+1. preserve the research dossier;
+2. register reusable sources;
+3. extract atomic facts, claim boundaries and open questions;
+4. author localized public meaning with evidence references;
+5. assemble it through the approved page family and components.
+
+The typed contract in `knowledge/schema.ts` is the executable repository owner for knowledge-record shape. It must remain presentation-agnostic and must not become a second routing, runtime or styling system.
+
+## Revision history
+
+| Version | Date | Change |
+|---|---|---|
+| 4.0 | 2026-08-10 | Approved source standard preserved as the interim Markdown snapshot. |
+| 4.1.0 | 2026-08-20 | Added the approved Evidence & Knowledge boundary and executable repository ownership model. |
