@@ -122,6 +122,87 @@ runtime key, no rate-limit exposure. The site stays fully static.
 
 ---
 
+## Provider-neutral Booking Gateway direction
+
+**Recorded:** 2026-08-20T21:20:00+02:00  
+**Status:** APPROVED ARCHITECTURE DIRECTION — implementation pending  
+**Current provider:** Lodgify  
+**Portability objective:** a later PMS/booking-provider change (for example to Cloudbeds) must not require a rewrite of AMARA's public booking UI, live-availability surfaces, promotions/last-minute logic or future AI concierge.
+
+This section records the target direction only. It does **not** supersede the current build-time-only API-key contract above and does not authorize a production runtime integration by itself. Any move from build-time API use to a request-time server-side data layer remains a separately confirmed Class-3 implementation.
+
+### Target boundary
+
+AMARA should own a narrow provider-neutral **Booking Gateway**. Public consumers talk to AMARA concepts; provider-specific APIs remain behind an adapter.
+
+Conceptual shape:
+
+```text
+AMARA website / future AI concierge
+            |
+      AMARA Booking Gateway
+            |
+      Booking Provider Adapter
+            |
+   Lodgify today / another provider later
+```
+
+The first implementation should support Lodgify only. Do not build a speculative multi-provider framework or a Cloudbeds adapter before there is a real migration/test requirement.
+
+### Stable AMARA-facing operations
+
+The gateway should expose only the small capability set that AMARA actually needs, for example:
+
+- `getAvailability(...)`
+- `getRates(...)`
+- `getQuote(...)`
+- `findAvailableStays(...)`
+- `findLastMinuteGaps(...)`
+
+Future write capabilities such as reservation creation must be a separate, explicitly approved contract. They are not part of the initial gateway.
+
+### Provider IDs stay behind the adapter
+
+AMARA surfaces should identify stays with stable AMARA keys such as `maha`, `lounis`, `zaid`, `farah`, `playa` and `tarifa`.
+
+Provider identifiers such as Lodgify `propertyId` and `roomTypeId` belong inside the Lodgify adapter/configuration and must not leak into page content, UI components, URL architecture or future concierge prompts. A provider change then replaces the mapping/adapter rather than the AMARA-facing contract.
+
+### Security direction
+
+Provider credentials are server-side secrets only. The browser, public HTML, client JavaScript and future AI-assistant prompts must never receive the provider API key.
+
+For Lodgify specifically, Support confirmed on 2026-08-20 that there is currently no separate read-only/restricted API key. Therefore any future runtime integration must expose only narrowly defined AMARA read operations rather than a generic proxy to arbitrary Lodgify endpoints.
+
+### Lodgify data and checkout split
+
+Lodgify Support confirmed the intended external-site pattern on 2026-08-20:
+
+- AMARA may use the Public API server-side for properties, room types, availability, rates and quotes.
+- Availability should stay close to real time; rates may be cached proportionately; a quote should be refreshed when the guest is ready to proceed.
+- For checkout handoff, Lodgify recommends the **Booking Widget / property-specific Booking Box** rather than creating a booking through the Public API before checkout.
+- The Booking Box redirects a guest into the normal Lodgify checkout for the selected property without creating a booking first.
+- Creating a booking through the Public API before checkout is **not** the approved AMARA path: it immediately blocks availability, triggers automated messages/payment schedules and leaves abandoned bookings that require manual cancellation.
+- The standard Lodgify checkout preserves Lodgify payment processing, payment schedules and built-in/native checkout analytics.
+- Lodgify currently does not document a Public API endpoint that generates a checkout-session URL with pre-populated property/dates/guests; do not reverse-engineer such a URL or session mechanism.
+
+Support also corrected a prior reference to "Checkout a booking at the specified time": that endpoint manages checkout timing on an existing booking and is not the entry point for a new external checkout flow.
+
+### Static-first performance contract
+
+The target gateway must not turn the marketing site into a generally dynamic application. Normal public pages remain static-first. Live booking data should be requested only when a booking-related interaction needs it, and any future server-side route must be narrowly scoped so homepage/content delivery does not inherit booking-runtime cost.
+
+### Migration principle
+
+A future provider migration should ideally change only:
+
+1. provider credentials/bindings;
+2. provider-specific property/room mapping;
+3. the provider adapter and any provider-specific checkout handoff.
+
+AMARA page content, property identity, booking UI, last-minute/promotion logic and future concierge tools should continue to consume the same AMARA-facing gateway contract wherever the replacement provider can supply equivalent capabilities.
+
+---
+
 ## Cutover Runbook
 
 Order matters, and not in the obvious way. Lodgify redirects every non-main domain to its main
