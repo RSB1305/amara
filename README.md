@@ -23,7 +23,7 @@ The dev server runs on port 4321.
 | Command | What it does |
 |---|---|
 | `npm run dev` | Dev server, including the internal tools at `/tools/*` |
-| `npm run typecheck` | Astro + TypeScript check. Fast; run this after any edit. |
+| `npm run typecheck` | Fast targeted check for relevant Astro/TypeScript changes; validation depth is governed by `AGENTS.md`. |
 | `npm run check` | Typecheck plus the slug, fallback and image policy checks |
 | `npm run build` | Production build. Runs `npm run check` first and fails on any error. |
 | `npm run preview` | Serve the built `dist/` locally |

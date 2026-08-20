@@ -32,6 +32,7 @@ The operator's direct implementation request is confirmation. Ask only when unre
 - Do not create new documentation, tests, audit scripts, validation utilities, inventories, npm checks or guardrails unless the operator requests them as deliverables. Existing relevant tooling may be used.
 - No mandatory second-agent review, post-fix re-review, full production build or five-locale browser matrix for normal Class 0–2 work.
 - A successful targeted check closes a normal task.
+- Validation is not cumulative: choose the single smallest sufficient path. Do not routinely run `typecheck` -> `check` -> `build`; `npm run build` already runs its production prebuild/postbuild gates.
 - A normal FAST task should usually deliver its result within roughly 5–10 minutes total. If it will not, report the concrete blocker instead of expanding the process.
 - End result-first. Do not offer optional process, audit, tooling or validation work; offer only meaningful content/product/scope choices when a choice is genuinely needed.
 
@@ -75,7 +76,16 @@ Astro is the sole AMARA website runtime. The active external booking/availabilit
 
 ## Git and validation
 
-Use the smallest validation that directly tests the changed scope. Full builds belong to concrete compile/global risk, Class 3 work or batch/release boundaries.
+Use the smallest validation that directly tests the changed scope. Full builds belong to a specific whole-site rendering or generated-output risk, applicable Class 3 work, or batch/release boundaries. Merely editing Astro/TypeScript or consuming an existing shared component is not by itself global risk.
+
+For sandboxed PowerShell Astro commands, disable telemetry in the same invocation:
+
+```powershell
+$env:ASTRO_TELEMETRY_DISABLED='1'; npm run typecheck
+$env:ASTRO_TELEMETRY_DISABLED='1'; $env:PUBLIC_SITE_URL='https://amara-lodging.es'; npm run build
+```
+
+Do not precede the build with `npm run check` merely out of habit; the build already invokes the required production lifecycle.
 
 Inspect the working tree, preserve unrelated changes, stage only explicit task files, verify the staged set and `git diff --cached --check`, and make one coherent local commit when requested. Do not push without explicit instruction.
 
