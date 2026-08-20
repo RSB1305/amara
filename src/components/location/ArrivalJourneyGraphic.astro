@@ -286,22 +286,22 @@ const diagram = diagrams[data.place];
 
   .map-node--destination .node-dot,
   .map-node--airport .airport-symbol {
-    fill: var(--color-primary-fixed-dim);
+    fill: var(--color-inverse-on-surface);
     opacity: 1;
   }
 
   .map-node--airport .node-halo {
-    stroke: var(--color-primary-fixed-dim);
-    opacity: 0.7;
+    stroke: var(--color-inverse-on-surface);
+    opacity: 0.82;
   }
 
   .map-node--airport-secondary .node-halo {
-    opacity: 0.42;
+    opacity: 0.58;
   }
 
   .airport-symbol {
-    fill: currentColor;
-    opacity: 0.7;
+    fill: var(--color-inverse-on-surface);
+    opacity: 0.82;
   }
 
   .node-label,
@@ -334,10 +334,12 @@ const diagram = diagrams[data.place];
   }
 
   .map-node--airport .node-label {
+    fill: var(--color-inverse-on-surface);
     font-size: 16px;
   }
 
   .map-node--airport-secondary .node-label {
+    fill: var(--color-inverse-on-surface);
     font-size: 14px;
   }
 

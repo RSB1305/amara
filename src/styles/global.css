@@ -50,6 +50,13 @@
   /** Sustainability editorial band (About Us); paired surface + on-surface */
   --color-sustainability-surface: #dcefe6;
   --color-sustainability-on-surface: #1d3128;
+
+  /** Location + Experience editorial palette — Mediterranean landscape, clay and sun-washed planting */
+  --color-editorial-forest: #29443a;
+  --color-editorial-terracotta: #8f4639;
+  --color-editorial-coral: #e59687;
+  --color-editorial-sage: #e5ebe2;
+  --color-editorial-clay: #f1e1dc;
   --color-btn-primary-text: #fbf9f5;
   --color-primary-alpha-80: rgb(120 86 17 / 0.8);
 
@@ -82,6 +89,30 @@
 
   /** Primary solid button hover — surface shift (replaces opacity-only hover) */
   --color-btn-primary-hover-bg: color-mix(in srgb, var(--color-on-surface) 90%, white);
+}
+
+/**
+ * Location and Experience keep the shared AMARA component system while using
+ * a warmer destination-editorial palette. The scope deliberately stops at
+ * each family root, so navigation, rentals and booking surfaces retain their
+ * established neutral-and-gold identity.
+ */
+:where([data-am-family="location"]) {
+  --color-primary: var(--color-editorial-terracotta);
+  --color-primary-container: var(--color-editorial-terracotta);
+  --color-inverse-surface: var(--color-editorial-forest);
+  --color-inverted-surface: var(--color-editorial-forest);
+  --color-primary-fixed-dim: var(--color-editorial-coral);
+  --color-surface-container-low: var(--color-editorial-sage);
+}
+
+:where([data-am-family="experience"]) {
+  --color-primary: var(--color-editorial-terracotta);
+  --color-primary-container: var(--color-editorial-terracotta);
+  --color-inverse-surface: var(--color-editorial-forest);
+  --color-inverted-surface: var(--color-editorial-forest);
+  --color-primary-fixed-dim: var(--color-editorial-coral);
+  --color-surface-container-low: var(--color-editorial-clay);
 }
 
 /**
