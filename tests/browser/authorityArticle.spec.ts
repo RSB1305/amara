@@ -83,6 +83,8 @@ interface AuthorityPage {
   blockBeforeSections: string | null;
   /** Block rendered between the text sections and the related links. */
   blockAfterSections: string | null;
+  /** Shared arrival-family modules, in their delivered order. */
+  arrivalModules: string[] | null;
   interleaved: InterleavedBlock[];
   /** Attribute each text section carries in addition to its id. */
   sectionMarkerAttribute: string | null;
@@ -101,7 +103,8 @@ const AUTHORITY_PAGES: AuthorityPage[] = [
     relatedColumns: null,
     blockBeforeSections: null,
     blockAfterSections: null,
-    interleaved: [{ afterSectionIndex: 2, kind: 'stay-bridge' }],
+    arrivalModules: ['gateways', 'options', 'mobility', 'parking', 'final-mile'],
+    interleaved: [],
     sectionMarkerAttribute: null,
     closingCtas: [
       { token: 'location_nerja', labelKey: 'locationLabel', className: PRIMARY_CTA_CLASS },
@@ -116,7 +119,8 @@ const AUTHORITY_PAGES: AuthorityPage[] = [
     relatedColumns: null,
     blockBeforeSections: null,
     blockAfterSections: null,
-    interleaved: [{ afterSectionIndex: 2, kind: 'stay-bridge' }],
+    arrivalModules: ['gateways', 'options', 'mobility', 'parking'],
+    interleaved: [],
     sectionMarkerAttribute: null,
     closingCtas: [
       { token: 'location_tarifa', labelKey: 'locationLabel', className: PRIMARY_CTA_CLASS },
@@ -131,6 +135,7 @@ const AUTHORITY_PAGES: AuthorityPage[] = [
     relatedColumns: 'md:grid-cols-2',
     blockBeforeSections: null,
     blockAfterSections: null,
+    arrivalModules: null,
     interleaved: [],
     sectionMarkerAttribute: null,
     closingCtas: [
@@ -146,6 +151,7 @@ const AUTHORITY_PAGES: AuthorityPage[] = [
     relatedColumns: 'md:grid-cols-2',
     blockBeforeSections: null,
     blockAfterSections: 'section:our-visit',
+    arrivalModules: null,
     interleaved: [],
     sectionMarkerAttribute: null,
     closingCtas: [
@@ -161,6 +167,7 @@ const AUTHORITY_PAGES: AuthorityPage[] = [
     relatedColumns: 'md:grid-cols-2',
     blockBeforeSections: null,
     blockAfterSections: null,
+    arrivalModules: null,
     interleaved: [],
     sectionMarkerAttribute: null,
     closingCtas: [
@@ -176,6 +183,7 @@ const AUTHORITY_PAGES: AuthorityPage[] = [
     relatedColumns: 'md:grid-cols-2',
     blockBeforeSections: 'orientation:nerja',
     blockAfterSections: null,
+    arrivalModules: null,
     interleaved: [],
     sectionMarkerAttribute: null,
     closingCtas: [
@@ -191,6 +199,7 @@ const AUTHORITY_PAGES: AuthorityPage[] = [
     relatedColumns: 'md:grid-cols-2',
     blockBeforeSections: null,
     blockAfterSections: null,
+    arrivalModules: null,
     interleaved: [],
     sectionMarkerAttribute: 'data-am-daily-life-section',
     closingCtas: [
@@ -206,6 +215,7 @@ const AUTHORITY_PAGES: AuthorityPage[] = [
     relatedColumns: 'md:grid-cols-2',
     blockBeforeSections: 'orientation:tarifa',
     blockAfterSections: null,
+    arrivalModules: null,
     interleaved: [],
     sectionMarkerAttribute: null,
     closingCtas: [
@@ -221,7 +231,11 @@ const AUTHORITY_PAGES: AuthorityPage[] = [
     relatedColumns: 'md:grid-cols-3',
     blockBeforeSections: null,
     blockAfterSections: null,
-    interleaved: [{ afterSectionIndex: 0, kind: 'comparison' }],
+    arrivalModules: null,
+    interleaved: [
+      { afterSectionIndex: 0, kind: 'comparison' },
+      { afterSectionIndex: 0, kind: 'climate-table' }
+    ],
     sectionMarkerAttribute: null,
     closingCtas: [
       { token: 'location_tarifa', labelKey: 'locationLabel', className: PRIMARY_CTA_CLASS },
@@ -236,6 +250,7 @@ const AUTHORITY_PAGES: AuthorityPage[] = [
     relatedColumns: 'md:grid-cols-2',
     blockBeforeSections: null,
     blockAfterSections: null,
+    arrivalModules: null,
     interleaved: [],
     sectionMarkerAttribute: 'data-am-winter-stays-section',
     closingCtas: [
@@ -292,12 +307,15 @@ const articleBlocks = (page: Page, pageId: string): Promise<BlockFingerprint[]> 
   page.$$eval(`article[data-am-page="${pageId}"] > *`, (nodes) =>
     nodes.map((node) => {
       const orientation = node.getAttribute('data-am-orientation');
+      const arrivalModule = node.getAttribute('data-am-arrival-module');
       const marker =
         node.getAttribute('data-am-daily-life-section') ??
         node.getAttribute('data-am-winter-stays-section');
 
       if (node.tagName === 'HEADER') return { kind: 'header', marker: null };
       if (orientation) return { kind: `orientation:${orientation}`, marker: null };
+      if (arrivalModule) return { kind: `arrival:${arrivalModule}`, marker: null };
+      if (node.hasAttribute('data-am-climate-table')) return { kind: 'climate-table', marker: null };
       if (node.id) return { kind: `section:${node.id}`, marker };
       if (node.querySelector('dl')) return { kind: 'facts', marker: null };
       if (node.querySelector('figure')) return { kind: 'stay-bridge', marker: null };
@@ -320,18 +338,25 @@ function expectedBlocks(entry: AuthorityPage, locale: AuthorityArticleLocale): B
     blocks.push({ kind: entry.blockBeforeSections, marker: null });
   }
 
-  locale.sections.forEach((section, index) => {
-    blocks.push({
-      kind: `section:${section.id}`,
-      marker: entry.sectionMarkerAttribute ? section.id : null
-    });
+  if (entry.arrivalModules) {
+    blocks.push(...entry.arrivalModules.map((module) => ({
+      kind: `arrival:${module}`,
+      marker: null
+    })));
+  } else {
+    locale.sections.forEach((section, index) => {
+      blocks.push({
+        kind: `section:${section.id}`,
+        marker: entry.sectionMarkerAttribute ? section.id : null
+      });
 
-    for (const block of entry.interleaved) {
-      if (block.afterSectionIndex === index) {
-        blocks.push({ kind: block.kind, marker: null });
+      for (const block of entry.interleaved) {
+        if (block.afterSectionIndex === index) {
+          blocks.push({ kind: block.kind, marker: null });
+        }
       }
-    }
-  });
+    });
+  }
 
   if (entry.blockAfterSections) {
     blocks.push({ kind: entry.blockAfterSections, marker: null });
@@ -389,17 +414,23 @@ for (const entry of AUTHORITY_PAGES) {
     await expect(facts.locator('dd')).toHaveText(locale.facts.map((fact) => fact.value));
 
     // Text sections keep their ids, headings and paragraph counts.
-    for (const section of locale.sections) {
-      const sectionRoot = article.locator(`section[id="${section.id}"]`);
-      await expect(sectionRoot).toHaveCount(1);
-      await expect(sectionRoot.locator('h2')).toHaveText(section.title);
-      // One eyebrow paragraph precedes the authored body paragraphs.
-      await expect(sectionRoot.locator('p')).toHaveCount(section.paragraphs.length + 1);
+    if (!entry.arrivalModules) {
+      for (const section of locale.sections) {
+        const sectionRoot = article.locator(`section[id="${section.id}"]`);
+        await expect(sectionRoot).toHaveCount(1);
+        await expect(sectionRoot.locator('h2')).toHaveText(section.title);
+        // One eyebrow paragraph precedes the authored body paragraphs.
+        await expect(sectionRoot.locator('p')).toHaveCount(section.paragraphs.length + 1);
+      }
     }
 
     // Internal related links resolve through the registry.
     if (locale.related) {
-      const relatedGrid = article.locator(
+      const firstRelatedHref = resolveLink(locale.related.links[0].token, SWEEP_LANGUAGE);
+      const relatedSection = article.locator(
+        `:scope > section:has(a[href="${firstRelatedHref}"])`
+      );
+      const relatedGrid = relatedSection.locator(
         `div${byClassToken(entry.relatedColumns as string)}`
       );
       await expect(relatedGrid).toHaveCount(1);
@@ -419,7 +450,10 @@ for (const entry of AUTHORITY_PAGES) {
     }
 
     // External sources open in a new tab with a safe rel.
-    const sourceLinks = article.locator('a[target="_blank"]');
+    const sourceSection = article.locator(
+      `:scope > section:not([data-am-climate-table]):has(a[href="${locale.sources.links[0].href}"])`
+    );
+    const sourceLinks = sourceSection.locator('a[target="_blank"]');
     await expect(sourceLinks).toHaveCount(locale.sources.links.length);
 
     for (const [index, source] of locale.sources.links.entries()) {
@@ -446,21 +480,32 @@ for (const entry of AUTHORITY_PAGES) {
   });
 }
 
-test('the getting-to pages bridge to the stay after the third text section', async ({ page }) => {
-  for (const pageId of ['getting-to-nerja', 'getting-to-tarifa']) {
-    const entry = authorityPage(pageId);
-    const locale = entry.content[SWEEP_LANGUAGE];
+test('the destination arrival pages use the shared module order', async ({ page }) => {
+  const pages: Array<{ routeToken: LinkToken; pageId: string; modules: string[] }> = [
+    {
+      routeToken: 'getting_to_frigiliana',
+      pageId: 'getting-to-frigiliana',
+      modules: ['options', 'journey-steps', 'final-mile']
+    },
+    {
+      routeToken: 'getting_to_nerja',
+      pageId: 'getting-to-nerja',
+      modules: ['gateways', 'options', 'mobility', 'parking', 'final-mile']
+    },
+    {
+      routeToken: 'getting_to_tarifa',
+      pageId: 'getting-to-tarifa',
+      modules: ['gateways', 'options', 'mobility', 'parking']
+    }
+  ];
+
+  for (const entry of pages) {
     await openPage(page, resolveLink(entry.routeToken, SWEEP_LANGUAGE));
+    const modules = (await articleBlocks(page, entry.pageId))
+      .filter((block) => block.kind.startsWith('arrival:'))
+      .map((block) => block.kind.replace('arrival:', ''));
 
-    const blocks = await articleBlocks(page, pageId);
-    const bridgeIndex = blocks.findIndex((block) => block.kind === 'stay-bridge');
-    const thirdSectionIndex = blocks.findIndex(
-      (block) => block.kind === `section:${locale.sections[2].id}`
-    );
-
-    expect(thirdSectionIndex, pageId).toBeGreaterThan(-1);
-    expect(bridgeIndex, pageId).toBe(thirdSectionIndex + 1);
-    await expect(page.locator(`article[data-am-page="${pageId}"] figure img`)).toHaveCount(1);
+    expect(modules, entry.pageId).toEqual(entry.modules);
   }
 });
 
@@ -518,13 +563,17 @@ test('tarifa-weather places the comparison block after the first text section', 
 
   const blocks = await articleBlocks(page, 'tarifa-weather');
   const comparisonIndex = blocks.findIndex((block) => block.kind === 'comparison');
+  const climateTableIndex = blocks.findIndex((block) => block.kind === 'climate-table');
   const firstSectionIndex = blocks.findIndex(
     (block) => block.kind === `section:${locale.sections[0].id}`
   );
 
   expect(comparisonIndex).toBe(firstSectionIndex + 1);
+  expect(climateTableIndex).toBe(comparisonIndex + 1);
   await expect(
-    page.locator('article[data-am-page="tarifa-weather"] .tabular-nums')
+    page.locator(
+      'article[data-am-page="tarifa-weather"] > section:not([data-am-climate-table]) .tabular-nums'
+    )
   ).toHaveCount(locale.comparison.places.length * 2);
 });
 
@@ -536,7 +585,10 @@ for (const language of LANGUAGES) {
     const article = page.locator('article[data-am-page="tarifa-weather"]');
     await expect(article.locator('h1')).toHaveText(locale.hero.title);
 
-    const relatedLinks = article.locator(`div${byClassToken('md:grid-cols-3')} a`);
+    const firstRelatedHref = resolveLink(locale.related.links[0].token, language);
+    const relatedLinks = article
+      .locator(`:scope > section:has(a[href="${firstRelatedHref}"])`)
+      .locator(`div${byClassToken('md:grid-cols-3')} a`);
     await expect(relatedLinks).toHaveCount(locale.related.links.length);
 
     for (const [index, link] of locale.related.links.entries()) {
