@@ -65,13 +65,13 @@ const maxRain = Math.max(...months.map((month) => month.rain));
         <div class="grid grid-cols-12">
           {months.map((month) => (
             <div class="border-r border-outline-variant/15 px-3 py-5 last:border-r-0">
-              <p class="font-label text-[10px] font-bold uppercase tracking-[0.16em] text-on-surface-variant/65">
+              <p class="font-label text-[10px] font-bold uppercase tracking-[0.16em] text-muted">
                 {month.month}
               </p>
               <p class="mt-4 font-serif text-[clamp(1.5rem,2.2vw,2.25rem)] leading-none text-on-surface">
                 {month.high}°
               </p>
-              <p class="mt-2 font-label text-[11px] tabular-nums text-on-surface-variant/65">
+              <p class="mt-2 font-label text-[11px] tabular-nums text-muted">
                 {month.low}°
               </p>
               <div class="mt-5 flex h-20 items-end border-b border-outline-variant/20">
@@ -80,13 +80,13 @@ const maxRain = Math.max(...months.map((month) => month.rain));
                   style={`height: ${Math.max(3, (month.rain / maxRain) * 100)}%`}
                 ></div>
               </div>
-              <p class="mt-2 font-label text-[10px] tabular-nums text-on-surface-variant/65">
+              <p class="mt-2 font-label text-[10px] tabular-nums text-muted">
                 {month.rain} mm
               </p>
             </div>
           ))}
         </div>
-        <div class="flex items-center gap-8 border-t border-outline-variant/15 px-3 py-3 font-label text-[10px] font-semibold uppercase tracking-[0.14em] text-on-surface-variant/60">
+        <div class="flex items-center gap-8 border-t border-outline-variant/15 px-3 py-3 font-label text-[10px] font-semibold uppercase tracking-[0.14em] text-muted">
           <span>{chartLabels.temperature}</span>
           <span class="flex items-center gap-2"><span class="h-2 w-2 bg-primary/55"></span>{chartLabels.rainfall}</span>
         </div>
@@ -96,7 +96,7 @@ const maxRain = Math.max(...months.map((month) => month.rain));
     <div class="mt-10 overflow-x-auto">
       <table class="w-full min-w-[760px] border-collapse text-left">
         <thead>
-          <tr class="border-b border-outline-variant/25 font-label text-[10px] font-bold uppercase tracking-[0.14em] text-on-surface-variant/65">
+          <tr class="border-b border-outline-variant/25 font-label text-[10px] font-bold uppercase tracking-[0.14em] text-muted">
             <th class="py-4 pr-5">{labels.month}</th>
             <th class="px-5 py-4 text-right">{labels.high}</th>
             <th class="px-5 py-4 text-right">{labels.low}</th>
