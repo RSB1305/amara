@@ -169,6 +169,9 @@ const footerHighlights: LabeledLink[] = [
             {content.seasons.paragraphs.map((paragraph, index) => (
               <p class:list={[index === 0 ? 'am-text-subtitle' : 'am-text-body', 'leading-relaxed text-on-surface-variant']}>{paragraph}</p>
             ))}
+            {content.seasons.link && (
+              <a href={featureHref(content.seasons.link)} class="am-cta-link mt-8 inline-flex">{content.seasons.link.label}</a>
+            )}
           </div>
         </div>
       </div>

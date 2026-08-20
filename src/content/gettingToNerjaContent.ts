@@ -36,14 +36,14 @@ export interface GettingToNerjaLocale {
 
 const article = {
   datePublished: '2026-08-13',
-  dateModified: '2026-08-13',
+  dateModified: '2026-08-20',
   authorName: 'Robert Sebastian Böhmer',
   authorType: 'Person' as const,
   authorSlug: 'amara-about-us'
 };
 
 export const gettingToNerjaSeo: AmaraAuthoringSeo = {
-  version: '2026-08-13-getting-to-nerja-v1.0',
+  version: '2026-08-20-getting-to-nerja-v1.1',
   pageType: 'A',
   entityKey: 'amara-brand',
   ogImage: '/images/amara-frigiliana-pueblo/nerja-coast-aerial.jpeg',
@@ -86,7 +86,13 @@ const sources = {
   malagaAirport: 'https://www.aena.es/en/malaga-costa-del-sol/getting-there/bus.html',
   granadaAirport: 'https://www.aena.es/en/f.g.l.-granada-jaen/how-to-get-there/bus.html',
   alsa: 'https://www.alsa.com/en/web/bus/home',
-  nerjaMobility: 'https://www.nerja.es/File/Agenda_Urbana_Nerja_2030.pdf'
+  nerjaMobility: 'https://www.nerja.es/File/Agenda_Urbana_Nerja_2030.pdf',
+  municipalParking:
+    'https://www.nerja.es/el-ayuntamiento-sigue-mejorando-los-aparcamientos-municipales-con-la-pintura-integral-del-verano-azul/',
+  burrianaParking:
+    'https://www.nerja.es/el-aparcamiento-municipal-de-burriana-contara-con-un-sistema-inteligente-de-guiado-de-plazas-libres/',
+  tuesdayMarket:
+    'https://www.nerja.es/disponible-la-nueva-aplicacion-mercadillos-del-sur/'
 } as const;
 
 export const gettingToNerjaContent: Record<AmaraLanguage, GettingToNerjaLocale> = {
@@ -177,13 +183,23 @@ export const gettingToNerjaContent: Record<AmaraLanguage, GettingToNerjaLocale> 
         ]
       },
       {
-        id: 'parking',
-        eyebrow: '08 · Parking & last mile',
-        title: 'Plan parking as part of arrival, not as an afterthought',
+        id: 'parking-strategy',
+        eyebrow: '08 · Parking strategy',
+        title: 'Choose the right part of Nerja before you start looking for a space',
         paragraphs: [
-          'Nerja has municipal parking facilities, including the Balcón de Europa, Parque Verano Azul and Burriana areas. Availability, tariffs, access and street rules can change, especially during busy periods.',
-          'A public garage can be calmer than circling central streets, while street parking may mean a longer walk. Neither option should be presented as guaranteed until you check the current situation for the arrival date.',
-          'AMARA Playa has no private parking space. If you arrive by car, keep luggage handling and a legal parking alternative in the plan; exact check-in instructions will be shared privately after booking.'
+          'For central Nerja and AMARA Playa, begin with central alternatives such as the municipal facilities at Balcón de Europa and Parque Verano Azul, then compare them with legal street parking. Burriana has its own municipal parking context on the eastern side of town; it is useful for a Burriana day, not an automatic substitute for parking near Torrecilla or the centre. Burriana sits below parts of central Nerja: parking above the beach can be practical and the walk down may feel easy, but the return includes a noticeable uphill section. Factor that into plans with reduced mobility, small children, heavy beach equipment or hot weather.',
+          'For central Nerja, it can be more practical to choose a legal parking area before entering the tightest streets and treat a short walk as part of the plan rather than circling for the closest possible space. A public facility can be calmer than repeated searching, while a legal street space may leave a longer walk. Keep a second option in mind during busy periods. Availability, access, tariffs and street restrictions can change, so neither public nor street parking should be treated as guaranteed for a particular arrival.',
+          'Pressure rises in high season and around events. Tuesday market activity affects the Almijara area, so check current market and traffic arrangements before relying on that part of town as a parking alternative.'
+        ]
+      },
+      {
+        id: 'parking-last-mile',
+        eyebrow: '09 · Luggage & last mile',
+        title: 'Separate the luggage stop from the final parking place',
+        paragraphs: [
+          'AMARA Playa has no private parking space. Do not plan on leaving the car at the building or finding an immediate space on Calle Castilla Pérez.',
+          'If current street rules allow a legal luggage stop, treat it only as the arrival step; one person can handle the bags while the driver continues to the chosen public facility or legal street space. If stopping is not permitted or practical, use a taxi for the final leg rather than blocking access.',
+          'Keep a second parking option in mind and expect that the final space may involve a walk. Exact building-access and check-in instructions are shared privately after booking, but they do not include guaranteed parking.'
         ]
       }
     ],
@@ -196,7 +212,10 @@ export const gettingToNerjaContent: Record<AmaraLanguage, GettingToNerjaLocale> 
         { label: 'Aena · Málaga Airport buses', text: 'Official confirmation of the Nerja–Airport Alsa connection.', href: sources.malagaAirport },
         { label: 'Aena · Granada Airport bus', text: 'Official airport-to-Granada connection and bus-station stop.', href: sources.granadaAirport },
         { label: 'Alsa journey planner', text: 'Current coach routes, times, fares and tickets.', href: sources.alsa },
-        { label: 'Nerja Urban Agenda 2030', text: 'Municipal context for bus arrival, taxis, pedestrian streets and mobility.', href: sources.nerjaMobility }
+        { label: 'Nerja Urban Agenda 2030', text: 'Municipal context for bus arrival, taxis, pedestrian streets and mobility.', href: sources.nerjaMobility },
+        { label: 'Nerja municipality · Central parking', text: 'Current municipal confirmation of the Balcón de Europa and Parque Verano Azul facilities.', href: sources.municipalParking },
+        { label: 'Nerja municipality · Burriana parking', text: 'Current municipal information for the separate Burriana parking facility.', href: sources.burrianaParking },
+        { label: 'Nerja municipality · Tuesday market', text: 'Municipal confirmation of the Tuesday market in the Almijara area; current arrangements should still be checked.', href: sources.tuesdayMarket }
       ]
     },
     closing: {
@@ -294,13 +313,23 @@ export const gettingToNerjaContent: Record<AmaraLanguage, GettingToNerjaLocale> 
         ]
       },
       {
-        id: 'parking',
-        eyebrow: '08 · Parken & letzte Etappe',
-        title: 'Parken gehört zur Anreiseplanung, nicht ans Ende',
+        id: 'parking-strategy',
+        eyebrow: '08 · Parkstrategie',
+        title: 'Wählt zuerst den passenden Teil Nerjas und sucht dann nach einem Stellplatz',
         paragraphs: [
-          'Nerja hat kommunale Parkmöglichkeiten unter anderem am Balcón de Europa, im Parque Verano Azul und bei Burriana. Verfügbarkeit, Tarife, Zufahrt und Straßenregeln können sich besonders in vollen Zeiten ändern.',
-          'Ein Parkhaus ist oft ruhiger als die Suche in zentralen Straßen; beim Straßenparken kann der Fußweg länger werden. Beides ist erst dann sicher, wenn ihr die aktuelle Lage für den Anreisetag prüft.',
-          'AMARA Playa hat keinen privaten Stellplatz. Plant bei Autoanreise Gepäckhandling und eine legale Alternative ein; genaue Check-in-Hinweise erhaltet ihr nach der Buchung privat.'
+          'Für Zentral-Nerja und AMARA Playa beginnt ihr mit zentralen Alternativen wie den kommunalen Anlagen am Balcón de Europa und im Parque Verano Azul und vergleicht sie mit legalem Straßenparken. Burriana hat östlich des Zentrums eine eigene kommunale Parksituation; sie passt zu einem Tag in Burriana, ist aber kein automatischer Ersatz für einen Stellplatz bei Torrecilla oder im Zentrum. Burriana liegt unterhalb einiger Teile von Zentral-Nerja: Oberhalb des Strandes zu parken kann praktisch sein und der Hinweg bergab leicht wirken, doch der Rückweg enthält einen spürbaren Anstieg. Berücksichtigt das bei eingeschränkter Mobilität, kleinen Kindern, schwerer Strandausrüstung oder großer Hitze.',
+          'Für Zentral-Nerja kann es praktischer sein, eine legale Parkmöglichkeit zu wählen, bevor ihr in die engsten Straßen fahrt, und einen kurzen Fußweg einzuplanen, statt für den nächstmöglichen Platz weitere Runden zu drehen. Eine öffentliche Anlage kann ruhiger sein als wiederholte Suche; ein legaler Straßenplatz kann einen längeren Weg bedeuten. Haltet in vollen Zeiten eine zweite Möglichkeit bereit. Verfügbarkeit, Zufahrt, Tarife und Straßenregeln ändern sich, deshalb ist keine der beiden Möglichkeiten für einen bestimmten Anreisetag garantiert.',
+          'In der Hochsaison und bei Veranstaltungen steigt der Druck. Der Dienstagsmarkt prägt das Almijara-Gebiet; prüft deshalb aktuelle Markt- und Verkehrsregelungen, bevor ihr dort mit einer Parkalternative rechnet.'
+        ]
+      },
+      {
+        id: 'parking-last-mile',
+        eyebrow: '09 · Gepäck & letzte Etappe',
+        title: 'Trennt den Gepäckstopp vom endgültigen Stellplatz',
+        paragraphs: [
+          'AMARA Playa hat keinen privaten Stellplatz. Plant weder damit, das Auto am Gebäude stehen zu lassen, noch mit einem sofort freien Platz in der Calle Castilla Pérez.',
+          'Erlauben die aktuellen Straßenregeln einen legalen Gepäckstopp, ist das nur der erste Anreiseschritt: Eine Person übernimmt die Koffer, während der Fahrer zur gewählten öffentlichen Anlage oder zu einem legalen Straßenplatz weiterfährt. Ist ein Halt nicht erlaubt oder sinnvoll, nutzt für die letzte Etappe ein Taxi, statt die Zufahrt zu blockieren.',
+          'Haltet eine zweite Parkmöglichkeit bereit und rechnet damit, vom endgültigen Stellplatz zu laufen. Genaue Gebäude- und Check-in-Hinweise erhaltet ihr nach der Buchung privat; eine Parkplatzgarantie gehört nicht dazu.'
         ]
       }
     ],
@@ -313,7 +342,10 @@ export const gettingToNerjaContent: Record<AmaraLanguage, GettingToNerjaLocale> 
         { label: 'Aena · Busse am Flughafen Málaga', text: 'Offizielle Bestätigung der Alsa-Verbindung Nerja–Flughafen.', href: sources.malagaAirport },
         { label: 'Aena · Flughafenbus Granada', text: 'Offizielle Verbindung nach Granada mit Halt am Busbahnhof.', href: sources.granadaAirport },
         { label: 'Alsa-Reiseplaner', text: 'Aktuelle Buslinien, Zeiten, Preise und Tickets.', href: sources.alsa },
-        { label: 'Stadtentwicklungsplan Nerja 2030', text: 'Kommunale Angaben zu Busankunft, Taxis, Fußgängerstraßen und Mobilität.', href: sources.nerjaMobility }
+        { label: 'Stadtentwicklungsplan Nerja 2030', text: 'Kommunale Angaben zu Busankunft, Taxis, Fußgängerstraßen und Mobilität.', href: sources.nerjaMobility },
+        { label: 'Gemeinde Nerja · Zentrales Parken', text: 'Aktuelle kommunale Bestätigung der Anlagen Balcón de Europa und Parque Verano Azul.', href: sources.municipalParking },
+        { label: 'Gemeinde Nerja · Parken in Burriana', text: 'Aktuelle kommunale Informationen zur eigenständigen Parkanlage in Burriana.', href: sources.burrianaParking },
+        { label: 'Gemeinde Nerja · Dienstagsmarkt', text: 'Kommunale Bestätigung des Dienstagsmarkts im Almijara-Gebiet; aktuelle Regelungen sind weiterhin zu prüfen.', href: sources.tuesdayMarket }
       ]
     },
     closing: {
@@ -411,13 +443,23 @@ export const gettingToNerjaContent: Record<AmaraLanguage, GettingToNerjaLocale> 
         ]
       },
       {
-        id: 'parking',
-        eyebrow: '08 · Aparcamiento y último tramo',
-        title: 'Incluid el aparcamiento en la llegada desde el principio',
+        id: 'parking-strategy',
+        eyebrow: '08 · Estrategia de aparcamiento',
+        title: 'Elegid primero la zona de Nerja y buscad después dónde aparcar',
         paragraphs: [
-          'Nerja dispone de aparcamientos municipales en zonas como Balcón de Europa, Parque Verano Azul y Burriana. Disponibilidad, tarifas, accesos y normas pueden cambiar, sobre todo en periodos de mucha afluencia.',
-          'Un parking público puede ser más tranquilo que dar vueltas por calles céntricas; aparcar en la calle puede exigir caminar más. Ninguna opción debe considerarse garantizada sin revisar la situación del día.',
-          'AMARA Playa no tiene plaza privada. Si llegáis en coche, planificad equipaje y una alternativa legal; las instrucciones exactas de entrada se comparten en privado después de reservar.'
+          'Para el centro de Nerja y AMARA Playa, empezad por alternativas céntricas como los aparcamientos municipales del Balcón de Europa y Parque Verano Azul y comparadlas con estacionamiento legal en la calle. Burriana tiene su propio aparcamiento municipal al este; sirve para un día en Burriana, pero no sustituye automáticamente a una plaza cerca de Torrecilla o del centro. Burriana queda por debajo de algunas zonas del centro: aparcar por encima de la playa puede resultar práctico y bajar a pie parecer fácil, pero la vuelta incluye una subida apreciable. Tenedlo en cuenta si hay movilidad reducida, niños pequeños, equipo de playa pesado o mucho calor.',
+          'En el centro de Nerja puede resultar más práctico elegir una zona de estacionamiento legal antes de entrar en las calles más estrechas y aceptar un breve paseo que seguir circulando en busca de la plaza más cercana. Un aparcamiento público puede resultar más tranquilo que repetir la búsqueda; una plaza legal en la calle puede exigir caminar más. Tened una segunda alternativa durante los periodos de mayor afluencia. Disponibilidad, accesos, tarifas y restricciones cambian, así que ninguna de las dos opciones está garantizada para una llegada concreta.',
+          'La presión aumenta en temporada alta y durante eventos. El mercadillo de los martes afecta a la zona de Almijara: comprobad las disposiciones actuales del mercado y del tráfico antes de contar con ese sector como alternativa.'
+        ]
+      },
+      {
+        id: 'parking-last-mile',
+        eyebrow: '09 · Equipaje y último tramo',
+        title: 'Separad la descarga del lugar donde dejaréis el coche',
+        paragraphs: [
+          'AMARA Playa no tiene plaza privada. No planifiquéis dejar el coche en el edificio ni encontrar una plaza inmediata en Calle Castilla Pérez.',
+          'Si las normas vigentes permiten una parada legal para el equipaje, tomadla solo como primer paso: una persona puede ocuparse de las maletas mientras quien conduce sigue hasta el aparcamiento público elegido o una plaza legal en la calle. Si parar no está permitido o no es práctico, usad un taxi para el último tramo en vez de bloquear el acceso.',
+          'Llevad pensada una segunda opción y asumid que quizá toque caminar desde la plaza final. Las instrucciones exactas de acceso y entrada se comparten en privado después de reservar, pero no incluyen aparcamiento garantizado.'
         ]
       }
     ],
@@ -430,7 +472,10 @@ export const gettingToNerjaContent: Record<AmaraLanguage, GettingToNerjaLocale> 
         { label: 'Aena · Autobuses del aeropuerto de Málaga', text: 'Confirmación oficial de la conexión Alsa Nerja–Aeropuerto.', href: sources.malagaAirport },
         { label: 'Aena · Autobús del aeropuerto de Granada', text: 'Conexión oficial con Granada y parada en la estación de autobuses.', href: sources.granadaAirport },
         { label: 'Buscador de Alsa', text: 'Rutas, horarios, tarifas y billetes actualizados.', href: sources.alsa },
-        { label: 'Agenda Urbana Nerja 2030', text: 'Información municipal sobre autobuses, taxis, calles peatonales y movilidad.', href: sources.nerjaMobility }
+        { label: 'Agenda Urbana Nerja 2030', text: 'Información municipal sobre autobuses, taxis, calles peatonales y movilidad.', href: sources.nerjaMobility },
+        { label: 'Ayuntamiento de Nerja · Aparcamientos céntricos', text: 'Confirmación municipal actual de los aparcamientos Balcón de Europa y Parque Verano Azul.', href: sources.municipalParking },
+        { label: 'Ayuntamiento de Nerja · Aparcamiento de Burriana', text: 'Información municipal actual del aparcamiento independiente de Burriana.', href: sources.burrianaParking },
+        { label: 'Ayuntamiento de Nerja · Mercadillo de los martes', text: 'Confirmación municipal del mercadillo en Almijara; conviene comprobar también la organización vigente.', href: sources.tuesdayMarket }
       ]
     },
     closing: {
@@ -528,13 +573,23 @@ export const gettingToNerjaContent: Record<AmaraLanguage, GettingToNerjaLocale> 
         ]
       },
       {
-        id: 'parking',
-        eyebrow: '08 · Parkeren & laatste stuk',
-        title: 'Neem parkeren vanaf het begin mee in de aankomst',
+        id: 'parking-strategy',
+        eyebrow: '08 · Parkeerstrategie',
+        title: 'Kies eerst het juiste deel van Nerja en zoek daarna een plek',
         paragraphs: [
-          'Nerja heeft gemeentelijke parkeerfaciliteiten rond onder meer Balcón de Europa, Parque Verano Azul en Burriana. Beschikbaarheid, tarieven, toegang en straatregels kunnen veranderen, vooral in drukke perioden.',
-          'Een garage kan rustiger zijn dan rondjes door het centrum; straatparkeren kan een langere wandeling betekenen. Geen van beide is gegarandeerd zonder de actuele situatie te controleren.',
-          'AMARA Playa heeft geen privéparkeerplaats. Plan bij aankomst per auto de bagage en een legaal alternatief; exacte incheckinformatie volgt privé na de boeking.'
+          'Voor centraal Nerja en AMARA Playa begin je met centrale alternatieven zoals de gemeentelijke voorzieningen bij Balcón de Europa en Parque Verano Azul en vergelijk je die met legaal straatparkeren. Burriana heeft aan de oostkant een eigen gemeentelijke parkeersituatie; die past bij een dag in Burriana, maar is niet automatisch een vervanging voor parkeren bij Torrecilla of het centrum. Burriana ligt lager dan delen van centraal Nerja: parkeren boven het strand kan praktisch zijn en de wandeling omlaag gemakkelijk voelen, maar de terugweg bevat een merkbaar stuk bergop. Houd daar rekening mee bij beperkte mobiliteit, kleine kinderen, zware strandspullen of warm weer.',
+          'Voor centraal Nerja kan het praktischer zijn om vóór de smalste straten een legale parkeerplek te kiezen en een korte wandeling in te plannen dan rond te blijven rijden voor de dichtstbijzijnde plek. Een openbare voorziening kan rustiger zijn dan herhaald zoeken; een legale plek op straat kan een langere wandeling betekenen. Houd tijdens drukke perioden een tweede optie achter de hand. Beschikbaarheid, toegang, tarieven en straatbeperkingen veranderen, dus geen van beide opties is voor een bepaalde aankomst gegarandeerd.',
+          'In het hoogseizoen en rond evenementen neemt de druk toe. De dinsdagmarkt beïnvloedt het Almijara-gebied; controleer daarom de actuele markt- en verkeerssituatie voordat je daar op een parkeeralternatief rekent.'
+        ]
+      },
+      {
+        id: 'parking-last-mile',
+        eyebrow: '09 · Bagage & laatste stuk',
+        title: 'Houd de bagagestop en de uiteindelijke parkeerplek apart',
+        paragraphs: [
+          'AMARA Playa heeft geen privéparkeerplaats. Ga er niet van uit dat de auto bij het gebouw kan blijven staan of dat er direct plek is aan Calle Castilla Pérez.',
+          'Als de actuele straatregels een legale bagagestop toelaten, zie die dan alleen als aankomststap: één persoon neemt de koffers mee terwijl de bestuurder doorrijdt naar de gekozen openbare voorziening of een legale straatplek. Is stoppen niet toegestaan of niet praktisch, gebruik dan een taxi voor het laatste stuk in plaats van de toegang te blokkeren.',
+          'Houd een tweede parkeeroptie achter de hand en reken op een wandeling vanaf de uiteindelijke plek. Precieze gebouw- en incheckinformatie volgt privé na de boeking, maar daar hoort geen parkeergarantie bij.'
         ]
       }
     ],
@@ -547,7 +602,10 @@ export const gettingToNerjaContent: Record<AmaraLanguage, GettingToNerjaLocale> 
         { label: 'Aena · Bussen Málaga Airport', text: 'Officiële bevestiging van de Alsa-verbinding Nerja–Airport.', href: sources.malagaAirport },
         { label: 'Aena · Bus Granada Airport', text: 'Officiële verbinding naar Granada met halte bij het busstation.', href: sources.granadaAirport },
         { label: 'Alsa-reisplanner', text: 'Actuele routes, tijden, tarieven en tickets.', href: sources.alsa },
-        { label: 'Nerja Urban Agenda 2030', text: 'Gemeentelijke context voor busaankomst, taxi’s, voetgangersstraten en mobiliteit.', href: sources.nerjaMobility }
+        { label: 'Nerja Urban Agenda 2030', text: 'Gemeentelijke context voor busaankomst, taxi’s, voetgangersstraten en mobiliteit.', href: sources.nerjaMobility },
+        { label: 'Gemeente Nerja · Centraal parkeren', text: 'Actuele gemeentelijke bevestiging van de voorzieningen Balcón de Europa en Parque Verano Azul.', href: sources.municipalParking },
+        { label: 'Gemeente Nerja · Parkeren in Burriana', text: 'Actuele gemeentelijke informatie over de afzonderlijke voorziening in Burriana.', href: sources.burrianaParking },
+        { label: 'Gemeente Nerja · Dinsdagmarkt', text: 'Gemeentelijke bevestiging van de dinsdagmarkt in Almijara; controleer ook de actuele organisatie.', href: sources.tuesdayMarket }
       ]
     },
     closing: {
@@ -645,13 +703,23 @@ export const gettingToNerjaContent: Record<AmaraLanguage, GettingToNerjaLocale> 
         ]
       },
       {
-        id: 'parking',
-        eyebrow: '08 · Parkering & sista sträckan',
-        title: 'Ta med parkeringen från början av ankomstplanen',
+        id: 'parking-strategy',
+        eyebrow: '08 · Parkeringsstrategi',
+        title: 'Välj rätt del av Nerja innan ni börjar leta efter plats',
         paragraphs: [
-          'Nerja har kommunal parkering bland annat vid Balcón de Europa, Parque Verano Azul och Burriana. Tillgänglighet, priser, infart och gaturegler kan ändras, särskilt under välbesökta perioder.',
-          'Ett garage kan vara lugnare än att köra runt i centrum; gatuparkering kan innebära längre promenad. Inget alternativ är garanterat utan kontroll för den aktuella dagen.',
-          'AMARA Playa har ingen privat parkeringsplats. Planera bagage och ett lagligt alternativ vid bilankomst; exakta incheckningsinstruktioner delas privat efter bokning.'
+          'För centrala Nerja och AMARA Playa börjar ni med centrala alternativ som de kommunala anläggningarna vid Balcón de Europa och Parque Verano Azul och jämför dem med laglig gatuparkering. Burriana har sin egen kommunala parkeringssituation österut; den passar en dag i Burriana men ersätter inte automatiskt parkering nära Torrecilla eller centrum. Burriana ligger nedanför delar av centrala Nerja: parkering ovanför stranden kan vara praktisk och promenaden ner kännas enkel, men på återvägen väntar en märkbar uppförssträcka. Ta hänsyn till det vid nedsatt rörlighet, små barn, tung strandutrustning eller varmt väder.',
+          'För centrala Nerja kan det vara mer praktiskt att välja en laglig parkeringsplats innan ni kör in på de trängsta gatorna och räkna in en kort promenad, i stället för att köra runt efter närmaste möjliga plats. En offentlig anläggning kan vara lugnare än upprepad sökning; en laglig gatuplats kan innebära en längre promenad. Ha ett andra alternativ i åtanke under välbesökta perioder. Tillgänglighet, infart, priser och gaturestriktioner ändras, så inget av alternativen är garanterat för en viss ankomst.',
+          'Trycket ökar under högsäsong och vid evenemang. Tisdagsmarknaden påverkar Almijaraområdet, så kontrollera aktuella marknads- och trafikarrangemang innan ni räknar med området som parkeringsalternativ.'
+        ]
+      },
+      {
+        id: 'parking-last-mile',
+        eyebrow: '09 · Bagage & sista sträckan',
+        title: 'Skilj bagagestoppet från den slutliga parkeringsplatsen',
+        paragraphs: [
+          'AMARA Playa har ingen privat parkeringsplats. Planera inte att lämna bilen vid byggnaden eller att hitta en omedelbar plats på Calle Castilla Pérez.',
+          'Om aktuella gaturegler tillåter ett lagligt bagagestopp är det bara ankomststeget: en person tar hand om väskorna medan föraren fortsätter till den valda offentliga anläggningen eller en laglig gatuplats. Om ett stopp inte är tillåtet eller praktiskt, använd taxi för sista sträckan i stället för att blockera tillträdet.',
+          'Ha ett andra parkeringsalternativ i åtanke och räkna med en promenad från den slutliga platsen. Exakta byggnads- och incheckningsinstruktioner delas privat efter bokning, men de omfattar ingen parkeringsgaranti.'
         ]
       }
     ],
@@ -664,7 +732,10 @@ export const gettingToNerjaContent: Record<AmaraLanguage, GettingToNerjaLocale> 
         { label: 'Aena · Bussar vid Málaga Airport', text: 'Officiell bekräftelse av Alsa-förbindelsen Nerja–Airport.', href: sources.malagaAirport },
         { label: 'Aena · Buss vid Granada Airport', text: 'Officiell anslutning till Granada med stopp vid busstationen.', href: sources.granadaAirport },
         { label: 'Alsas reseplanerare', text: 'Aktuella linjer, tider, priser och biljetter.', href: sources.alsa },
-        { label: 'Nerja Urban Agenda 2030', text: 'Kommunal information om bussankomst, taxi, gågator och mobilitet.', href: sources.nerjaMobility }
+        { label: 'Nerja Urban Agenda 2030', text: 'Kommunal information om bussankomst, taxi, gågator och mobilitet.', href: sources.nerjaMobility },
+        { label: 'Nerja kommun · Central parkering', text: 'Aktuell kommunal bekräftelse av anläggningarna Balcón de Europa och Parque Verano Azul.', href: sources.municipalParking },
+        { label: 'Nerja kommun · Parkering i Burriana', text: 'Aktuell kommunal information om den separata anläggningen i Burriana.', href: sources.burrianaParking },
+        { label: 'Nerja kommun · Tisdagsmarknaden', text: 'Kommunal bekräftelse av tisdagsmarknaden i Almijara; kontrollera även aktuella arrangemang.', href: sources.tuesdayMarket }
       ]
     },
     closing: {
