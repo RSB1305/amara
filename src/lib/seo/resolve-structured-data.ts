@@ -22,7 +22,6 @@ interface BrandEntity {
   key: 'amara-brand';
   name: 'AMARA';
   url: string;
-  telephone: string;
   email: string;
   street: string;
   city: string;
@@ -53,7 +52,6 @@ const BRAND_ENTITY: BrandEntity = {
   key: 'amara-brand',
   name: 'AMARA',
   url: 'https://amara-lodging.es/',
-  telephone: '+34 604 44 09 64',
   email: 'hola@amara-lodging.es',
   street: 'Calle Chorruelo 5',
   city: 'Frigiliana',
@@ -870,7 +868,6 @@ function buildBrandNode(entity: BrandEntity, origin: string) {
     '@id': `${base}/#organization`,
     name: entity.name,
     url: `${base}/`,
-    telephone: entity.telephone,
     email: entity.email,
     sameAs,
     address: {
@@ -1015,7 +1012,6 @@ function buildVacationRentalNode(
     identifier: entity.identifier,
     name: entity.name,
     url: canonicalUrl,
-    telephone: BRAND_ENTITY.telephone,
     email: BRAND_ENTITY.email,
     image: images,
     latitude: entity.latitude,
