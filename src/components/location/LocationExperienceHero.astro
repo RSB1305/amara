@@ -32,6 +32,8 @@ interface Props {
   balanceTitle?: boolean;
   byline?: HeroByline;
   presentation?: 'editorial' | 'location' | 'plain';
+  role?: 'hub' | 'spoke';
+  topic?: string;
 }
 
 const {
@@ -46,7 +48,9 @@ const {
   actions = [],
   balanceTitle = false,
   byline,
-  presentation = 'editorial'
+  presentation = 'editorial',
+  role = 'spoke',
+  topic
 } = Astro.props;
 ---
 
@@ -56,6 +60,9 @@ const {
   imageWidth={imageWidth}
   imageSizes={imageSizes}
   align="start"
+  family="experience"
+  role={role}
+  topic={topic}
 >
   {
     presentation === 'plain' ? (

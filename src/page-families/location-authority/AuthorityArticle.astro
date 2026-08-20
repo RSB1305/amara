@@ -1,22 +1,22 @@
 ---
 import EditorialByline from '../../components/editorial/EditorialByline.astro';
+import ExperienceArticleHero from '../../components/experience/ExperienceArticleHero.astro';
 import LocationGuideIcon, {
   type LocationGuideIconName
 } from '../../components/location/LocationGuideIcon.astro';
 import LocationGuideEvidence from '../../components/location/LocationGuideEvidence.astro';
 import LocationGuideHero from '../../components/location/LocationGuideHero.astro';
+import LocationWeatherHero from '../../components/location/LocationWeatherHero.astro';
 import InlineEmphasis from '../../components/text/InlineEmphasis.astro';
 import type { AmaraLanguage } from '../../types/seo';
 
 /**
- * The invariant frame of a location-authority article.
+ * The invariant frame of a destination-authority article.
  *
- * It owns the parts that ten authority pages repeat without variation: the
- * article root and its page contract attribute, the editorial header with the
- * single H1 and byline, the fact strip, the external source list and the
- * closing block. Everything between the fact strip and the sources is authored
- * by the page itself, so page-specific blocks and their DOM position stay
- * visible where they belong.
+ * It owns the shared family/topic contract, hero selection, fact strip,
+ * external source list and closing block. Everything between the fact strip
+ * and the sources remains authored by the page, so topic-specific modules and
+ * their DOM position stay visible where they belong.
  */
 
 interface Fact {
@@ -38,6 +38,8 @@ interface ClosingCta {
 interface Props {
   /** Value of the article's `data-am-page` contract attribute. */
   pageId: string;
+  family: 'location' | 'experience';
+  topic: string;
   lang: AmaraLanguage;
   hero: {
     eyebrow: string;
@@ -66,17 +68,25 @@ interface Props {
   /** The filled button, always rendered ahead of the secondary link. */
   primaryCta: ClosingCta;
   secondaryCta: ClosingCta;
-  /** Opt-in guide presentation; legacy consumers keep the article header. */
-  presentation?: 'article' | 'guide';
+  /** Family-owned hero presentation for editorial, guide and weather topics. */
+  presentation?: 'article' | 'guide' | 'weather';
   guideVisual?: {
     eyebrow: string;
     mark: string;
     note?: string;
   };
+  weatherVisual?: {
+    eyebrow: string;
+    mark: string;
+    note?: string;
+  };
+  heroMark?: string;
 }
 
 const {
   pageId,
+  family,
+  topic,
   lang,
   hero,
   authorName,
@@ -88,21 +98,51 @@ const {
   primaryCta,
   secondaryCta,
   presentation = 'article',
-  guideVisual
+  guideVisual,
+  weatherVisual,
+  heroMark
 } = Astro.props;
 
 if (presentation === 'guide' && !guideVisual) {
   throw new Error('[AMARA] Guide AuthorityArticle requires guideVisual content.');
 }
+
+if (presentation === 'weather' && !weatherVisual) {
+  throw new Error('[AMARA] Weather AuthorityArticle requires weatherVisual content.');
+}
 ---
 
-<article class="bg-surface" data-am-page={pageId} data-am-presentation={presentation}>
+<article
+  class="bg-surface"
+  data-am-page={pageId}
+  data-am-family={family}
+  data-am-role="spoke"
+  data-am-topic={topic}
+  data-am-presentation={presentation}
+>
   {
-    presentation === 'guide' ? (
+    presentation === 'weather' ? (
+      <LocationWeatherHero
+        eyebrow={hero.eyebrow}
+        title={hero.title}
+        paragraphs={[hero.standfirst]}
+        evidenceEyebrow={weatherVisual!.eyebrow}
+        evidenceMark={weatherVisual!.mark}
+        evidenceNote={weatherVisual!.note}
+        byline={{
+          lang,
+          authorName,
+          authorHref,
+          updated: hero.updated,
+          note: hero.note
+        }}
+      />
+    ) : presentation === 'guide' ? (
       <LocationGuideHero
         eyebrow={hero.eyebrow}
         title={hero.title}
         paragraphs={[hero.standfirst]}
+        topic={topic}
       >
         <EditorialByline
           slot="meta"
@@ -120,33 +160,18 @@ if (presentation === 'guide' && !guideVisual) {
         />
       </LocationGuideHero>
     ) : (
-      <header class="overflow-hidden border-b border-border-subtle bg-surface px-6 py-20 md:px-12 md:py-28 lg:py-36">
-        <div class="mx-auto grid max-w-screen-2xl gap-14 lg:grid-cols-12 lg:items-start lg:gap-16">
-          <div class="lg:col-span-8">
-            <p class="font-label text-[11px] font-bold uppercase tracking-[0.2em] text-primary">
-              {hero.eyebrow}
-            </p>
-            <h1 class="am-text-display mt-7 max-w-6xl text-balance text-on-surface">
-              {hero.title}
-            </h1>
-          </div>
-          <div class="border-l border-primary/30 pl-6 lg:col-span-4 lg:pl-9">
-            <p class="am-text-subtitle text-balance leading-relaxed text-on-surface-variant">
-              <InlineEmphasis text={hero.standfirst} />
-            </p>
-          </div>
-          <div class="lg:col-span-8">
-            <EditorialByline
-              lang={lang}
-              authorName={authorName}
-              authorHref={authorHref}
-              updated={hero.updated}
-              note={hero.note}
-            />
-          </div>
-          <slot name="hero-mark" />
-        </div>
-      </header>
+      <ExperienceArticleHero
+        eyebrow={hero.eyebrow}
+        title={hero.title}
+        standfirst={hero.standfirst}
+        lang={lang}
+        authorName={authorName}
+        authorHref={authorHref}
+        updated={hero.updated}
+        note={hero.note}
+        mark={heroMark}
+        topic={topic}
+      />
     )
   }
 
@@ -178,7 +203,7 @@ if (presentation === 'guide' && !guideVisual) {
         <h2
           class:list={[
             'am-text-title mt-5 text-balance text-on-surface',
-            presentation === 'guide' && 'italic'
+            presentation !== 'article' && 'italic'
           ]}
         >
           {sources.title}
@@ -212,7 +237,7 @@ if (presentation === 'guide' && !guideVisual) {
         <h2
           class:list={[
             'am-text-display mt-6 text-balance text-on-surface',
-            presentation === 'guide' && 'italic'
+            presentation !== 'article' && 'italic'
           ]}
         >
           {closing.title}

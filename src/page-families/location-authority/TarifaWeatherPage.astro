@@ -55,6 +55,8 @@ const footerHighlights: LabeledLink[] = [
 
   <AuthorityArticle
     pageId="tarifa-weather"
+    family="location"
+    topic="weather"
     lang={currentLang}
     hero={content.hero}
     authorName={tarifaWeatherSeo.article!.authorName}
@@ -64,15 +66,13 @@ const footerHighlights: LabeledLink[] = [
     closing={content.closing}
     primaryCta={{ href: locationHref, label: content.closing.locationLabel }}
     secondaryCta={{ href: areasHref, label: content.closing.areasLabel }}
+    presentation="weather"
+    weatherVisual={{
+      eyebrow: content.comparison.periodLabel,
+      mark: content.comparison.places[0].july,
+      note: content.facts[1].value
+    }}
   >
-    <div
-      slot="hero-mark"
-      aria-hidden="true"
-      class="hidden font-serif text-[clamp(3.5rem,8vw,8.5rem)] leading-[0.72] text-primary/10 lg:col-span-4 lg:block"
-    >
-      23.9°
-    </div>
-
     {content.sections.map((section, index) => (
       <>
         <AuthorityTextSection section={section} index={index} />

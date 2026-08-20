@@ -46,15 +46,16 @@ const footerHighlights: LabeledLink[] = [
   />
   <ExperienceContextNav destination="tarifa" lang={currentLang} />
 
-  <article class="bg-surface" data-am-page="tarifa-experience">
+  <article class="bg-surface" data-am-page="tarifa-experience" data-am-family="experience" data-am-role="hub">
     <LocationExperienceHero
+      role="hub"
+      topic="overview"
       eyebrow={`Tarifa · ${copy.navLabel}`}
       title={copy.hero.title}
       paragraphs={copy.hero.lead}
       imageSrc="/images/amara-tarifa/amara-tarifa-apartment10.webp"
       imageAlt={copy.hero.imageAlt}
       imageWidth={1080}
-      presentation="plain"
     />
 
     {/*

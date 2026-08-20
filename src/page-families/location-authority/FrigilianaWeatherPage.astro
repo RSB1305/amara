@@ -7,7 +7,7 @@ import LocationContextNav from '../../components/location/LocationContextNav.ast
 import HairlineStatCard from '../../components/location/HairlineStatCard.astro';
 import LocationClimateTable from '../../components/location/LocationClimateTable.astro';
 import type { LocationGuideIconName } from '../../components/location/LocationGuideIcon.astro';
-import LocationGuideHero from '../../components/location/LocationGuideHero.astro';
+import LocationWeatherHero from '../../components/location/LocationWeatherHero.astro';
 import SeasonalPillar from '../../components/location/SeasonalPillar.astro';
 import {
   frigilianaPreFooterCopy,
@@ -502,10 +502,6 @@ const relatedLinks = [
   }
 ];
 
-const heroImage = {
-  src: '/images/amara-frigiliana-pueblo/JPG_Frigiliana_Pueblo/2000px_72dpi_sRGB/06-frigiliana-pueblo.jpg',
-  width: 2000
-};
 ---
 
 <LocationAuthorityLayout seo={seo} pageLang={currentLang} showContextNavigation={false}>
@@ -517,14 +513,14 @@ const heroImage = {
 
   <LocationContextNav activeId="weather" lang={currentLang} />
 
-  <div data-am-page="frigiliana-weather" data-am-presentation="guide">
-    <LocationGuideHero
+  <div data-am-page="frigiliana-weather" data-am-family="location" data-am-role="spoke" data-am-topic="weather" data-am-presentation="weather">
+    <LocationWeatherHero
       eyebrow={t(copy.header.eyebrow)}
       title={t(copy.header.h1)}
       paragraphs={[t(copy.header.lead)]}
-      imageSrc={heroImage.src}
-      imageAlt={t(copy.header.imageAlt)}
-      imageWidth={heroImage.width}
+      evidenceEyebrow={t(copy.glance.stats.sun.label)}
+      evidenceMark={t(copy.glance.stats.sun.value)}
+      evidenceNote={t(copy.glance.stats.sun.note)}
     />
 
     <div class="mx-auto w-full max-w-screen-2xl px-6 py-24 md:px-12 md:py-32">

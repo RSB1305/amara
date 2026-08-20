@@ -2,7 +2,7 @@
 import InlineEmphasis from '../../components/text/InlineEmphasis.astro';
 import LocationAuthorityLayout from '../../layouts/LocationAuthorityLayout.astro';
 import Navigation from '../../components/Navigation.astro';
-import LocationExperienceHero from '../../components/location/LocationExperienceHero.astro';
+import LocationTopicHero from '../../components/location/LocationTopicHero.astro';
 import EssenceGrid from '../../components/EssenceGrid.astro';
 import PhotoShow from '../../components/PhotoShow.astro';
 import FaqAccordion from '../../components/FaqAccordion.astro';
@@ -171,10 +171,10 @@ const footerHighlights: LabeledLink[] = [
   />
   <NerjaContextNav activeId="where-to-stay" childLabel={whereToStayLabel} lang={currentLang} />
 
-  <div data-am-page="nerja-where-to-stay">
+  <div data-am-page="nerja-where-to-stay" data-am-family="location" data-am-role="spoke" data-am-topic="where-to-stay">
     <div class="w-full">
       <div id="intro">
-        <LocationExperienceHero
+        <LocationTopicHero
           eyebrow={c.hero.eyebrow}
           title={c.hero.h1}
           paragraphs={c.hero.body}
@@ -186,7 +186,7 @@ const footerHighlights: LabeledLink[] = [
             { href: '#where-to-stay-in-nerja', label: c.hero.ctaMain, style: 'primary' },
             { href: '#nerja-frigiliana', label: c.hero.ctaAlt, style: 'secondary' }
           ]}
-          presentation="location"
+          topic="where-to-stay"
         />
       </div>
 

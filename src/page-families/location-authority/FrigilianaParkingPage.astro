@@ -1,5 +1,5 @@
 ---
-import LocationExperienceHero from '../../components/location/LocationExperienceHero.astro';
+import LocationTopicHero from '../../components/location/LocationTopicHero.astro';
 import AmaraImage from '../../components/AmaraImage.astro';
 import FaqAccordion from '../../components/FaqAccordion.astro';
 import Navigation from '../../components/Navigation.astro';
@@ -127,9 +127,9 @@ const timingImage = {
   />
   <LocationContextNav activeId="parking" lang={currentLang} />
 
-  <div data-am-page="frigiliana-parking">
+  <div data-am-page="frigiliana-parking" data-am-family="location" data-am-role="spoke" data-am-topic="parking">
     <div class="w-full">
-      <LocationExperienceHero
+      <LocationTopicHero
         eyebrow={t(copy.hero.eyebrow)}
         title={t(copy.hero.title)}
         paragraphs={[t(copy.hero.lead), t(copy.hero.body)]}
@@ -140,6 +140,7 @@ const timingImage = {
           { href: '#parking-options', label: t(copy.hero.primaryCta), style: 'primary' },
           { href: streetsHref, label: t(copy.hero.secondaryCta), style: 'secondary' }
         ]}
+        topic="parking"
       />
 
       <section class="max-w-screen-2xl mx-auto px-6 md:px-12 pb-32">

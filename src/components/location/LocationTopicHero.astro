@@ -1,0 +1,72 @@
+---
+import type { ImageMetadata } from 'astro';
+import EditorialByline from '../editorial/EditorialByline.astro';
+import LocationGuideHero from './LocationGuideHero.astro';
+import type { AmaraLanguage } from '../../types/seo';
+
+interface HeroAction {
+  href: string;
+  label: string;
+  style: 'primary' | 'secondary';
+}
+
+interface Byline {
+  lang: AmaraLanguage;
+  authorName: string;
+  authorHref: string;
+  updated: string;
+  note: string;
+}
+
+interface Props {
+  eyebrow: string;
+  title: string;
+  paragraphs: string[];
+  accent?: string;
+  imageSrc: ImageMetadata | string;
+  imageAlt: string;
+  imageWidth?: number;
+  imageSizes?: string;
+  actions?: HeroAction[];
+  byline?: Byline;
+  topic: string;
+}
+
+const {
+  eyebrow,
+  title,
+  paragraphs,
+  accent,
+  imageSrc,
+  imageAlt,
+  imageWidth,
+  imageSizes,
+  actions = [],
+  byline,
+  topic
+} = Astro.props;
+---
+
+<LocationGuideHero
+  eyebrow={eyebrow}
+  title={title}
+  paragraphs={paragraphs}
+  accent={accent}
+  imageSrc={imageSrc}
+  imageAlt={imageAlt}
+  imageWidth={imageWidth}
+  imageSizes={imageSizes}
+  role="spoke"
+  topic={topic}
+>
+  {byline && <EditorialByline slot="meta" {...byline} />}
+  {actions.length > 0 && (
+    <div slot="actions" class="flex flex-wrap gap-4">
+      {actions.map((action) => (
+        <a href={action.href} class={`am-btn am-btn--${action.style}`}>
+          {action.label}
+        </a>
+      ))}
+    </div>
+  )}
+</LocationGuideHero>

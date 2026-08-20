@@ -1,5 +1,5 @@
 ---
-import LocationExperienceHero from '../../components/location/LocationExperienceHero.astro';
+import LocationTopicHero from '../../components/location/LocationTopicHero.astro';
 import Navigation from '../../components/Navigation.astro';
 import LocationContextNav from '../../components/location/LocationContextNav.astro';
 import {
@@ -92,10 +92,10 @@ const heroImage = {
   />
   <LocationContextNav activeId="comparison" lang={currentLang} />
 
-  <div data-am-page="frigiliana-or-nerja">
+  <div data-am-page="frigiliana-or-nerja" data-am-family="location" data-am-role="spoke" data-am-topic="comparison">
     <div class="w-full">
       <div id="intro">
-        <LocationExperienceHero
+        <LocationTopicHero
           eyebrow={copy.hero.eyebrow}
           title={copy.hero.title}
           accent={copy.hero.lead}
@@ -103,6 +103,7 @@ const heroImage = {
           imageSrc={heroImage.src}
           imageAlt={copy.hero.imageAlt}
           imageWidth={heroImage.width}
+          topic="comparison"
         />
       </div>
 

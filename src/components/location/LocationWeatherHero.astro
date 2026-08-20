@@ -1,0 +1,50 @@
+---
+import EditorialByline from '../editorial/EditorialByline.astro';
+import LocationGuideEvidence from './LocationGuideEvidence.astro';
+import LocationGuideHero from './LocationGuideHero.astro';
+import type { AmaraLanguage } from '../../types/seo';
+
+interface Byline {
+  lang: AmaraLanguage;
+  authorName: string;
+  authorHref: string;
+  updated: string;
+  note: string;
+}
+
+interface Props {
+  eyebrow: string;
+  title: string;
+  paragraphs: string[];
+  evidenceEyebrow: string;
+  evidenceMark: string;
+  evidenceNote?: string;
+  byline?: Byline;
+}
+
+const {
+  eyebrow,
+  title,
+  paragraphs,
+  evidenceEyebrow,
+  evidenceMark,
+  evidenceNote,
+  byline
+} = Astro.props;
+---
+
+<LocationGuideHero
+  eyebrow={eyebrow}
+  title={title}
+  paragraphs={paragraphs}
+  role="spoke"
+  topic="weather"
+>
+  {byline && <EditorialByline slot="meta" {...byline} />}
+  <LocationGuideEvidence
+    slot="visual"
+    eyebrow={evidenceEyebrow}
+    mark={evidenceMark}
+    note={evidenceNote}
+  />
+</LocationGuideHero>

@@ -4,6 +4,7 @@ import tarifaStayImage from '../../assets/images/home/amara-tarifa-apartment01.w
 import AmaraImage from '../../components/AmaraImage.astro';
 import Navigation from '../../components/Navigation.astro';
 import EditorialByline from '../../components/editorial/EditorialByline.astro';
+import LocationExperienceHero from '../../components/location/LocationExperienceHero.astro';
 import TarifaContextNav from '../../components/location/TarifaContextNav.astro';
 import {
   tarifaGuideContent,
@@ -130,8 +131,34 @@ const ui = {
     es: 'Salón de AMARA Family & Surf en Tarifa',
     nl: 'Woonruimte van AMARA Family & Surf in Tarifa',
     sv: 'Vardagsrum på AMARA Family & Surf i Tarifa'
+  },
+  beachesImageAlt: {
+    en: 'View from AMARA over Tarifa toward the Atlantic coast',
+    de: 'Blick von AMARA über Tarifa zur Atlantikküste',
+    es: 'Vista desde AMARA sobre Tarifa hacia la costa atlántica',
+    nl: 'Uitzicht vanaf AMARA over Tarifa richting de Atlantische kust',
+    sv: 'Utsikt från AMARA över Tarifa mot Atlantkusten'
+  },
+  windImageAlt: {
+    en: 'Surf details in the bedroom at AMARA Family & Surf in Tarifa',
+    de: 'Surfdetails im Schlafzimmer von AMARA Family & Surf in Tarifa',
+    es: 'Detalles de surf en el dormitorio de AMARA Family & Surf en Tarifa',
+    nl: 'Surfdetails in de slaapkamer van AMARA Family & Surf in Tarifa',
+    sv: 'Surfdetaljer i sovrummet på AMARA Family & Surf i Tarifa'
   }
 } satisfies Record<string, LocalizedText>;
+
+const topicHeroMedia = content.id === 'beaches'
+  ? {
+      src: '/images/amara-tarifa/amara-tarifa-apartment23.webp',
+      alt: t(ui.beachesImageAlt)
+    }
+  : content.id === 'wind'
+    ? {
+        src: '/images/amara-tarifa/amara-tarifa-apartment21.webp',
+        alt: t(ui.windImageAlt)
+      }
+    : undefined;
 
 const footerHighlights: LabeledLink[] = [
   { token: 'location_tarifa', label: 'Tarifa' },
@@ -359,31 +386,29 @@ const footerHighlights: LabeledLink[] = [
       </section>
     </article>
   ) : topicContent ? (
-  <article class="bg-surface" data-am-page={`tarifa-${content.id}`}>
-    <header class="border-b border-border-subtle bg-surface px-6 py-20 md:px-12 md:py-28">
-      <div class="mx-auto max-w-screen-2xl">
-        <div class="max-w-5xl">
-          <p class="font-label text-[11px] font-bold uppercase tracking-[0.18em] text-primary">
-            {t(topicContent.hero.eyebrow)}
-          </p>
-          <h1 class="am-text-display mt-7 max-w-5xl text-balance text-on-surface">
-            {t(topicContent.hero.title)}
-          </h1>
-          <p class="am-text-title mt-9 max-w-4xl text-balance leading-relaxed text-on-surface-variant">
-            {t(topicContent.hero.lead)}
-          </p>
-          {content.seo.article && (
-            <EditorialByline
-              lang={currentLang}
-              authorName={content.seo.article.authorName}
-              authorHref={aboutHref}
-              updated={t(topicContent.hero.updated)}
-              note={t(topicContent.hero.editorialNote)}
-            />
-          )}
-        </div>
-      </div>
-    </header>
+  <article
+    class="bg-surface"
+    data-am-page={`tarifa-${content.id}`}
+    data-am-family="experience"
+    data-am-role="spoke"
+    data-am-topic={content.id}
+  >
+    <LocationExperienceHero
+      eyebrow={t(topicContent.hero.eyebrow)}
+      title={t(topicContent.hero.title)}
+      paragraphs={[t(topicContent.hero.lead)]}
+      imageSrc={topicHeroMedia!.src}
+      imageAlt={topicHeroMedia!.alt}
+      imageWidth={1600}
+      topic={content.id}
+      byline={{
+        lang: currentLang,
+        authorName: content.seo.article!.authorName,
+        authorHref: aboutHref,
+        updated: t(topicContent.hero.updated),
+        note: t(topicContent.hero.editorialNote)
+      }}
+    />
 
     <section class="border-b border-border-subtle bg-surface-container-low px-6 py-8 md:px-12">
       <dl class="mx-auto grid max-w-screen-2xl gap-8 md:grid-cols-3">

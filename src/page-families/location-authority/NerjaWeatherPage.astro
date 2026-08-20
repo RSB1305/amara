@@ -4,6 +4,7 @@ import Navigation from '../../components/Navigation.astro';
 import EditorialClosingCta from '../../components/editorial/EditorialClosingCta.astro';
 import EditorialGuideLinkSection from '../../components/editorial/EditorialGuideLinkSection.astro';
 import NerjaContextNav from '../../components/location/NerjaContextNav.astro';
+import LocationWeatherHero from '../../components/location/LocationWeatherHero.astro';
 import HairlineStatCard from '../../components/location/HairlineStatCard.astro';
 import SeasonalPillar from '../../components/location/SeasonalPillar.astro';
 import { buildOwnedLocalizedPath } from '../../lib/routeOwnership';
@@ -544,7 +545,7 @@ const seasonLabels = {
 };
 ---
 
-<LocationAuthorityLayout seo={seo} pageLang={currentLang} showContextNavigation={false} bodyBackgroundClass="bg-white">
+<LocationAuthorityLayout seo={seo} pageLang={currentLang} showContextNavigation={false}>
   <Navigation
     slot="navigation"
     currentLang={currentLang}
@@ -553,15 +554,19 @@ const seasonLabels = {
 
   <NerjaContextNav activeId="weather-seasons" childLabel={t(copy.header.h1)} lang={currentLang} />
 
-  <div data-am-page="nerja-weather">
-    <div class="w-full max-w-screen-2xl mx-auto px-6 md:px-12 pt-20 pb-20">
-      <header class="mb-20 border-b border-black/10 pb-12">
-        <span class="am-text-caption text-primary mb-4 block">{t(copy.header.eyebrow)}</span>
-        <h1 class="am-text-display italic text-on-surface mb-6">{t(copy.header.h1)}</h1>
-        <p class="am-text-body text-on-surface-variant italic opacity-70 max-w-2xl">{t(copy.header.lead)}</p>
-      </header>
+  <div data-am-page="nerja-weather" data-am-family="location" data-am-role="spoke" data-am-topic="weather" data-am-presentation="weather">
+    <LocationWeatherHero
+      eyebrow={t(copy.header.eyebrow)}
+      title={t(copy.header.h1)}
+      paragraphs={[t(copy.header.lead)]}
+      evidenceEyebrow={t(copy.glance.stats.sea.label)}
+      evidenceMark={t(copy.glance.stats.sea.value)}
+      evidenceNote={t(copy.glance.stats.sea.note)}
+    />
 
-      <div class="pt-8 space-y-20">
+    <div class="w-full max-w-screen-2xl mx-auto px-6 md:px-12 py-20 md:py-28">
+
+      <div class="space-y-20">
         <section class="grid gap-10 lg:grid-cols-12 items-start">
           <div class="lg:col-span-8 space-y-6">
             <h2 class="am-text-title italic text-on-surface">{t(copy.glance.title)}</h2>
