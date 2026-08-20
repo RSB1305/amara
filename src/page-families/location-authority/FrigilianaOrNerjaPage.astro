@@ -1,5 +1,5 @@
 ---
-import Hero from '../../components/Hero.astro';
+import LocationExperienceHero from '../../components/location/LocationExperienceHero.astro';
 import Navigation from '../../components/Navigation.astro';
 import LocationContextNav from '../../components/location/LocationContextNav.astro';
 import {
@@ -75,8 +75,7 @@ const footerHighlights: LabeledLink[] = [
 
 const heroImage = {
   src: '/images/amara-frigiliana-pueblo/JPG_Frigiliana_Pueblo/2000px_72dpi_sRGB/02-frigiliana-pueblo.jpg',
-  width: 2000,
-  height: 1333
+  width: 2000
 };
 ---
 
@@ -96,31 +95,15 @@ const heroImage = {
   <div data-am-page="frigiliana-or-nerja">
     <div class="w-full">
       <div id="intro">
-        <Hero
+        <LocationExperienceHero
+          eyebrow={copy.hero.eyebrow}
+          title={copy.hero.title}
+          accent={copy.hero.lead}
+          paragraphs={copy.hero.body}
           imageSrc={heroImage.src}
           imageAlt={copy.hero.imageAlt}
           imageWidth={heroImage.width}
-          imageHeight={heroImage.height}
-        >
-          <span class="am-text-caption text-primary mb-8 block">
-            {copy.hero.eyebrow}
-          </span>
-          <h1 class="am-text-display italic text-on-surface mb-10 tracking-tighter">
-            {copy.hero.title}
-          </h1>
-          <div class="pl-8 md:pl-10 border-l border-primary/20 max-w-3xl space-y-6">
-            <p class="am-text-subtitle italic text-on-surface leading-relaxed">
-              {copy.hero.lead}
-            </p>
-            {
-              copy.hero.body.map((paragraph) => (
-                <p class="am-text-body text-on-surface-variant leading-relaxed">
-                  {paragraph}
-                </p>
-              ))
-            }
-          </div>
-        </Hero>
+        />
       </div>
 
       <section

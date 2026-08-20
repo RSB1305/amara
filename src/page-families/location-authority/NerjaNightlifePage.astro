@@ -1,5 +1,5 @@
 ---
-import Hero from '../../components/Hero.astro';
+import LocationExperienceHero from '../../components/location/LocationExperienceHero.astro';
 import Navigation from '../../components/Navigation.astro';
 import EditorialClosingCta from '../../components/editorial/EditorialClosingCta.astro';
 import EditorialFeatureGrid from '../../components/editorial/EditorialFeatureGrid.astro';
@@ -46,7 +46,6 @@ const combineItems = copy.combine.items.map((item) => ({
 const heroImage = {
   src: '/images/amara-playa/apartment/chaparril-13.webp',
   width: 1600,
-  height: 1067,
   sizes:
     '(max-width: 767px) calc(100vw - 3rem), (max-width: 1023px) 60vw, 40vw'
 };
@@ -66,29 +65,15 @@ const heroImage = {
 
   <div data-am-page="nerja-nightlife">
     <div class="w-full">
-      <Hero
+      <LocationExperienceHero
+        eyebrow={copy.hero.kicker}
+        title={copy.hero.title}
+        paragraphs={copy.hero.paragraphs}
         imageSrc={heroImage.src}
         imageAlt={copy.hero.imageAlt}
         imageWidth={heroImage.width}
-        imageHeight={heroImage.height}
         imageSizes={heroImage.sizes}
-      >
-        <span class="am-text-caption text-primary mb-8 block">
-          {copy.hero.kicker}
-        </span>
-        <h1 class="am-text-display italic text-on-surface mb-10 tracking-tighter">
-          {copy.hero.title}
-        </h1>
-        <div class="pl-10 border-l border-primary/20 max-w-xl space-y-6">
-          {
-            copy.hero.paragraphs.map((paragraph) => (
-              <p class="am-text-body text-on-surface-variant leading-relaxed">
-                {paragraph}
-              </p>
-            ))
-          }
-        </div>
-      </Hero>
+      />
 
       <section
         id="overview"

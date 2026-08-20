@@ -1,6 +1,6 @@
 ---
 import InlineEmphasis from '../../components/text/InlineEmphasis.astro';
-import Hero from '../../components/Hero.astro';
+import LocationExperienceHero from '../../components/location/LocationExperienceHero.astro';
 import Navigation from '../../components/Navigation.astro';
 import EditorialClosingCta from '../../components/editorial/EditorialClosingCta.astro';
 import EditorialFeatureGrid from '../../components/editorial/EditorialFeatureGrid.astro';
@@ -28,7 +28,7 @@ const footerHighlights: LabeledLink[] = [
   { token: 'nerja_beaches_authority', label: copy.related.items[0].title },
   { token: 'nerja_food_authority', label: copy.related.items[1].title }
 ];
-const heroImage = { src: '/images/amara-frigiliana-pueblo/nerja-coast-aerial.jpeg', width: 2000, height: 1333 };
+const heroImage = { src: '/images/amara-frigiliana-pueblo/nerja-coast-aerial.jpeg', width: 2000 };
 ---
 
 <LocationAuthorityLayout seo={nerjaDayTripsSeo} pageLang={currentLang} footerHighlights={footerHighlights}>
@@ -36,13 +36,14 @@ const heroImage = { src: '/images/amara-frigiliana-pueblo/nerja-coast-aerial.jpe
   <ExperienceContextNav currentId="dayTrips" destination="nerja" lang={currentLang} />
 
   <div data-am-page="nerja-day-trips">
-    <Hero imageSrc={heroImage.src} imageAlt={copy.hero.imageAlt} imageWidth={heroImage.width} imageHeight={heroImage.height}>
-      <span class="am-text-caption mb-8 block text-primary">{copy.hero.kicker}</span>
-      <h1 class="am-text-display mb-10 italic tracking-tighter text-on-surface">{copy.hero.title}</h1>
-      <div class="max-w-xl space-y-6 border-l border-primary/20 pl-10">
-        {copy.hero.paragraphs.map((paragraph) => <p class="am-text-body leading-relaxed text-on-surface-variant"><InlineEmphasis text={paragraph} /></p>)}
-      </div>
-    </Hero>
+    <LocationExperienceHero
+      eyebrow={copy.hero.kicker}
+      title={copy.hero.title}
+      paragraphs={copy.hero.paragraphs}
+      imageSrc={heroImage.src}
+      imageAlt={copy.hero.imageAlt}
+      imageWidth={heroImage.width}
+    />
 
     <section id="overview" class="am-section am-section--tint">
       <div class="mb-16 max-w-3xl">

@@ -1,6 +1,6 @@
 ---
 import InlineEmphasis from '../../components/text/InlineEmphasis.astro';
-import Hero from '../../components/Hero.astro';
+import LocationExperienceHero from '../../components/location/LocationExperienceHero.astro';
 import Navigation from '../../components/Navigation.astro';
 import EditorialClosingCta from '../../components/editorial/EditorialClosingCta.astro';
 import ExperienceContextNav from '../../components/experience/ExperienceContextNav.astro';
@@ -47,21 +47,15 @@ const footerHighlights: LabeledLink[] = [
   <ExperienceContextNav destination="tarifa" lang={currentLang} />
 
   <article class="bg-surface" data-am-page="tarifa-experience">
-    <Hero
+    <LocationExperienceHero
+      eyebrow={`Tarifa · ${copy.navLabel}`}
+      title={copy.hero.title}
+      paragraphs={copy.hero.lead}
       imageSrc="/images/amara-tarifa/amara-tarifa-apartment10.webp"
       imageAlt={copy.hero.imageAlt}
       imageWidth={1080}
-    >
-      <p class="am-text-caption mb-6 text-primary">Tarifa · {copy.navLabel}</p>
-      <h1 class="am-text-display max-w-4xl text-balance text-on-surface">
-        {copy.hero.title}
-      </h1>
-      <div class="mt-8 max-w-3xl space-y-5">
-        {copy.hero.lead.map((paragraph) => (
-          <p class="am-text-body leading-relaxed text-on-surface-variant"><InlineEmphasis text={paragraph} /></p>
-        ))}
-      </div>
-    </Hero>
+      presentation="plain"
+    />
 
     {/*
       The six-topic link list was removed: it repeated the context navigation

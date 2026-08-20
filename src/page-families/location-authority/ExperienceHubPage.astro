@@ -1,6 +1,6 @@
 ---
 import AmaraImage from '../../components/AmaraImage.astro';
-import Hero from '../../components/Hero.astro';
+import LocationExperienceHero from '../../components/location/LocationExperienceHero.astro';
 import Navigation from '../../components/Navigation.astro';
 import EditorialClosingCta from '../../components/editorial/EditorialClosingCta.astro';
 import ExperienceContextNav from '../../components/experience/ExperienceContextNav.astro';
@@ -69,8 +69,7 @@ const footerHighlights: LabeledLink[] = [
 
 const heroImage = {
   src: '/images/hero-frigiliana.jpg',
-  width: 1080,
-  height: 721
+  width: 1080
 };
 ---
 
@@ -89,33 +88,17 @@ const heroImage = {
 
   <div data-am-page="frigiliana-experience-hub">
     <div class="w-full">
-      <Hero
+      <LocationExperienceHero
+        eyebrow={copy.hero.kicker}
+        title={copy.hero.title}
+        paragraphs={copy.hero.paragraphs}
         imageSrc={heroImage.src}
         imageAlt={copy.hero.imageAlt}
         imageWidth={heroImage.width}
-        imageHeight={heroImage.height}
-      >
-        <span class="am-text-caption text-primary mb-8 block">
-          {copy.hero.kicker}
-        </span>
-        <h1 class="am-text-display italic text-on-surface mb-10 tracking-tighter">
-          {copy.hero.title}
-        </h1>
-        <div class="max-w-xl space-y-6 border-l border-primary/20 pl-10">
-          {
-            copy.hero.paragraphs.map((paragraph) => (
-              <p class="am-text-body leading-relaxed text-on-surface-variant">
-                {paragraph}
-              </p>
-            ))
-          }
-        </div>
-        <p class="mt-12">
-          <a href="#moods" class="am-btn am-btn--primary">
-            {copy.hero.exploreCta}
-          </a>
-        </p>
-      </Hero>
+        actions={[
+          { href: '#moods', label: copy.hero.exploreCta, style: 'primary' }
+        ]}
+      />
 
       <section
         id="editorial"
