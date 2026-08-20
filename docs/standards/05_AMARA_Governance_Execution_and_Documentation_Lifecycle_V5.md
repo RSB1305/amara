@@ -1,11 +1,11 @@
 ---
 document_id: AMARA-GOV-005
 title: AMARA Governance, Execution & Documentation Lifecycle
-version: 5.5.0
+version: 5.6.0
 status: ACTIVE
 authority_class: GOVERNING CONTRACT
 effective_from: 2026-08-14
-last_modified: 2026-08-14T12:59:47+02:00
+last_modified: 2026-08-20T18:28:21+02:00
 canonical_path: /docs/standards/05_AMARA_Governance_Execution_and_Documentation_Lifecycle_V5.md
 supersedes:
   - AMARA Governance & Execution Standard V4.2
@@ -19,12 +19,14 @@ decision_refs:
   - DR-AGENT-001
   - DR-EXEC-001
   - DR-EXEC-002
-  - DR-EXEC-008
-  - DR-EXEC-007
-  - DR-EXEC-006
-  - DR-EXEC-005
-  - DR-EXEC-004
   - DR-EXEC-003
+  - DR-EXEC-004
+  - DR-EXEC-005
+  - DR-EXEC-006
+  - DR-EXEC-007
+  - DR-EXEC-008
+  - DR-EXEC-009
+  - DR-EXEC-010
   - DR-BOOT-001
 ---
 
@@ -48,11 +50,15 @@ Handovers, TODOs, audits, inventories, maintenance notes and suggested next step
 
 For normal Class 0–2 work:
 
+**understand -> implement -> proportionate targeted validation -> atomic local commit**
+
 1. understand the requested result and identify the smallest complete implementation scope;
 2. implement with existing approved patterns;
-3. run targeted validation against the changed scope;
-4. stage exact files and create one atomic local commit when included in the work order;
+3. run proportionate targeted validation against the actual risk of the changed scope;
+4. stage exact files and create one atomic local commit;
 5. push or deploy only with separate permission.
+
+A completed Class 0–2 implementation ends with an atomic local commit unless the operator explicitly says not to commit or the work is analysis/draft only. The operator does not need to specify test depth, staging or commit mechanics; the system owns those technical decisions.
 
 The operator's direct implementation request is confirmation. Class 0–2 work does not require a separate analysis/recommendation/approval sequence.
 
@@ -64,7 +70,7 @@ Architecture/SSOT work and changes to protected Class-3 contracts require releva
 
 After confirmation, the implementation agent may complete the agreed local cycle without repeatedly asking for the same approval:
 
-**implement -> targeted validation -> exact staging -> staged-set verification -> atomic commit**
+**implement -> proportionate targeted validation -> exact staging -> staged-set verification -> atomic commit**
 
 Return to alignment only when a Stop Criterion is triggered.
 
@@ -133,7 +139,7 @@ File count is not a quality metric. Partial migrations are forbidden when they w
 
 For normal FAST implementation:
 
-**one bounded objective -> one implementation pass -> targeted validation -> one atomic local commit**
+**one bounded objective -> one implementation pass -> proportionate targeted validation -> one atomic local commit**
 
 A fresh implementation chat is useful only when it reduces a concrete context-risk: workstream change with substantial unrelated history, ambiguous context compression, contradictory instructions, or repeated corrective loops. Do not create a fresh chat as ritual overhead when the current context is already clean.
 
@@ -182,12 +188,14 @@ Never reset, discard, stage, commit or rewrite unrelated work for convenience.
 
 ## 17. Validation ladder
 
-- **Level A — FAST / Class 0–1:** changed value/text, targeted source/diff check, `git diff --check`, and only the focused policy/unit check directly related to the change. Browser-check only when visible output can plausibly regress.
-- **Level B — bounded Class 2:** exact affected-page browser sanity, targeted compile/type check where relevant, focused guardrails and heading/link checks that test the changed surface. A **full production build is not automatic**; run it only when the change can materially affect compilation/global output or at the next batch/release boundary.
-- **Level C — Class 3 / shared infrastructure:** production build plus full relevant guardrails, representative/system-wide consumers, affected languages/routes and migration/canonical/schema/link validation as relevant.
+- **Level A — text/value/translation and Class 0–1:** changed value/text, targeted source/diff check, `git diff --check`, and only the focused policy/unit check directly related to the change. Browser-check only when visible output can plausibly regress.
+- **Level B — bounded Class 2/local composition:** affected surface plus the relevant technical check, focused guardrails and heading/link checks that test the changed scope. For several related pages, validate their affected scope. A **full production build is not automatic**; run it only when the change creates a realistic compilation, rendering or generated-output risk.
+- **Level C — Class 3 / shared-infrastructure implementation:** production build plus broad relevant guardrails, representative/system-wide consumers, affected languages/routes and migration/canonical/schema/link validation as applicable. Documentation-only Class-3 governance work uses document/diff/metadata/consistency validation and does not require product tests or a production build when no product artifact changes.
 - **Level D — isolated committed-state/worktree validation:** only for a concrete clean-state need.
 
 A wrong visible page is FAIL even when tests pass.
+
+Validation belongs to the change/commit cycle. Reuse successful evidence unless a later code-changing commit, changed environment or concrete new doubt invalidates it. Do not repeat a successful check merely because the branch is later pushed or presented for merge.
 
 FAST validation may use existing relevant tooling. It must not create permanent tests, scripts, npm checks, inventories, validation utilities, compatibility gates or other guardrails merely to prove the current task.
 
@@ -205,9 +213,9 @@ For a normal FAST task, one successful targeted validation after implementation 
 
 ## 18. Stop Criteria
 
-Stop before commit when scope exceeds confirmation, an unexpected protected contract is required, a new public route/path/token is unexpectedly needed, a material claim/page job is unclear, validation fails without understood cause, an out-of-scope regression appears, unrelated tracked work cannot be separated, staged files exceed scope, remote divergence affects a requested push, or document/repository reality materially disagree. Ask the operator only when the unresolved point meets the material ambiguity/high-risk threshold in section 3.
+Stop before commit when scope exceeds confirmation, an unexpected protected contract is required, a new public route/path/token is unexpectedly needed, a material claim/page job is unclear, validation fails without understood cause, an out-of-scope regression appears, unrelated tracked work cannot be separated, staged files exceed scope, or document/repository reality materially disagree. Remote divergence is a separate mandatory stop for a requested push. Ask the operator only when the unresolved point meets the material ambiguity/high-risk threshold in section 3.
 
-## 19. Git and push rules
+## 19. Git, push and merge rules
 
 Git is a primary safety boundary.
 
@@ -215,11 +223,66 @@ Git is a primary safety boundary.
 - stage only explicit approved paths;
 - verify `git diff --cached --name-only` and `git diff --cached --check`;
 - one atomic commit per coherent objective;
-- commit is not push for normal implementation work;
-- validated local commits should normally be **batched into intentional release/push points** instead of triggering a micro-push after every small change;
-- push/deployment only when explicitly requested or already included in the confirmed instruction;
+- a completed Class 0–2 implementation ends in an atomic local commit unless the operator explicitly excludes it or the work is analysis/draft only;
+- commit, push and merge are separate lifecycle points;
+- push and merge only when explicitly requested or already included in the confirmed instruction;
 - never force-push without separate explicit approval;
 - do not leave a documentation/SSOT staging set occupying the index across unrelated workstreams: once approved, either commit it promptly or remove it from staging while preserving the working copy before switching workstreams.
+
+### 19.1 Operator model
+
+The operator's two normal Git actions are:
+
+- **PUSH** — secure the already validated and committed state of the current branch on GitHub;
+- **MERGE** — take the finished branch through its required PR/checks and integrate it into `main`.
+
+The operator does not need to direct staging, commits, test types, Playwright, build gates or release-batch mechanics. Those remain system responsibilities at the appropriate lifecycle point.
+
+### 19.2 PUSH — transport only
+
+`PUSH`, "pushen", "bitte pushen" or equivalent unambiguous wording authorizes only safe transport of the already locally validated and committed current branch to GitHub.
+
+The normal push procedure is:
+
+1. inspect the current branch;
+2. inspect `git status` and confirm that finished work belonging to the intended state is committed;
+3. check remote freshness and ahead/behind for the current branch;
+4. when there is no divergence, push the current branch;
+5. report the push result and local/remote state briefly.
+
+A normal push does **not** start new tests, browser checks, production builds, release gates or contract suites; change project files; repair or rewrite tests; create a PR; merge; wait for GitHub Actions; or wait for Cloudflare. If the branch push automatically triggers a Cloudflare preview, mention it briefly without treating it as a reason for local revalidation or waiting.
+
+Remote divergence is a stop condition. Never automatically pull, rebase, merge or force-push. If a normal push cannot be completed in roughly 2–3 minutes, stop and report the concrete Git/remote blocker instead of expanding the process.
+
+### 19.3 MERGE — controlled release integration
+
+`MERGE`, "mergen", "bitte mergen" or equivalent unambiguous wording authorizes taking the finished branch as a release candidate through the necessary PR/checks and into `main`.
+
+The merge workstream may:
+
+1. push any finished, previously validated commits that are not yet remote;
+2. create or update the PR;
+3. reuse still-valid local validation evidence since the last code-changing commit;
+4. run only missing risk-proportionate release validation;
+5. wait for required GitHub CI checks;
+6. merge into `main` when green;
+7. report the result briefly.
+
+Do not duplicate a valid test merely because release has begun. If GitHub CI independently runs the same gate, do not automatically run the full equivalent locally immediately beforehand without a concrete reason.
+
+### 19.4 Read-only release gate
+
+A release/merge gate must not silently change the project state it examines. If a gate fails, classify the cause briefly, stop the merge and report the failure. Do not change production code, pages or tests inside the gate.
+
+A required correction is a new implementation cycle:
+
+**fix -> proportionate targeted validation -> atomic local commit -> push -> continue release**
+
+### 19.5 External build budget and batching
+
+Treat the operator-reported Cloudflare Pages limit of 500 builds as a hard shared budget. Multiple validated local commits may be batched into intentional release points, but a deliberate backup/security push is always legitimate.
+
+An ordinary push is a transport point, not a release gate. External build cost does not justify oversized or repeated local validation before pushing. More detailed release-scope, workflow-trigger and external-cost review belongs to MERGE/release. At that boundary, identify the exact batch, expected GitHub Actions and Cloudflare builds, and prefer one intentional PR and merge for the finished release candidate.
 
 ### Documentation-only SSOT exception
 
@@ -305,6 +368,8 @@ A process is itself a governance failure when its expected cost materially excee
 
 When two safe methods exist, prefer the one that reaches a verified user-visible result with less operator intervention and less repeated analysis.
 
+Tests belong to the implementation change and its commit evidence, not to ordinary push transport. Release work reuses still-valid evidence and adds only missing risk-proportionate checks.
+
 ## 32. SSOT intake and sync
 
 The command **`Bitte in die AMARA SSOT aufnehmen: ...`** means: classify the new information as evidence, decision, contract impact or principle and record/recommend the smallest correct owner change. It does **not** require immediate versioning of every owner document.
@@ -375,3 +440,4 @@ Project attachments/PDFs are not activation gates.
 | 5.3.0 | 2026-08-14T11:41:00+02:00 | **ACTIVE FAST-first revision.** Made minimum-safe FAST execution the default for Class 0/1 and bounded Class 2 work; removed ritual post-fix re-review/full-build defaults; added operator-time proportionality, push batching and SSOT intake/sync. | DR-EXEC-003, DR-EXEC-004, DR-EXEC-005, DR-EXEC-006, DR-EXEC-007, DR-EXEC-008 | 5c59674 |
 | 5.4.0 | 2026-08-14T12:30:00+02:00 | Added two deterministic FAST preflight checks to the validation ladder: repository-wide new-page duplication check before creating a public page/route/guide, and a five-locale structural completeness check before committing multilingual changes. Both are performed by the implementing agent; neither introduces a mandatory second agent. | DR-EXEC-003, DR-EXEC-004 | 0e2b26a |
 | 5.5.0 | 2026-08-14T12:59:47+02:00 | Made `AGENTS.md` sufficient for daily Class 0–2 work; limited owner reads to architecture/SSOT, protected-contract and concrete-conflict triggers; bounded FAST preflights; prohibited incidental validation tooling, documentation and inventories; established result-first turn completion. | DR-EXEC-001–008, DR-AGENT-001 | this revision |
+| 5.6.0 | 2026-08-20T18:28:21+02:00 | Established atomic local commit as the normal end of completed Class 0–2 implementation; separated PUSH transport from MERGE/release; moved validation to the change/commit cycle; made release gates read-only and reusable-evidence based. | DR-EXEC-001, DR-EXEC-005, DR-EXEC-007, DR-EXEC-009, DR-EXEC-010 | this revision |

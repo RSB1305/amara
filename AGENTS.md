@@ -22,7 +22,9 @@ Build AMARA as a premium-feeling Astro website with simple, repeatable architect
 
 FAST is the default for normal Class 0–2 work:
 
-**understand -> implement -> targeted validate -> exact stage -> atomic local commit**
+**understand -> implement -> proportionate targeted validation -> atomic local commit**
+
+A completed Class 0–2 implementation ends with an atomic local commit after successful proportionate validation unless the operator explicitly says not to commit or the work is analysis/draft only. Exact staging remains a technical safety step, not an operator task.
 
 The operator's direct implementation request is confirmation. Ask only when unresolved ambiguity would materially change the result, create substantial avoidable rework or trigger an irreversible/high-risk action.
 
@@ -33,6 +35,8 @@ The operator's direct implementation request is confirmation. Ask only when unre
 - No mandatory second-agent review, post-fix re-review, full production build or five-locale browser matrix for normal Class 0–2 work.
 - A successful targeted check closes a normal task.
 - Validation is not cumulative: choose the single smallest sufficient path. Do not routinely run `typecheck` -> `check` -> `build`; `npm run build` already runs its production prebuild/postbuild gates.
+- Match validation to actual change risk: text, numbers and translations need a small focused check; local page/composition work needs the affected surface plus a relevant technical check; related multi-page work needs its affected scope and a build only for realistic build risk; Class 3/shared-infrastructure implementation needs broad relevant checks and a build. Documentation-only Class-3 governance work uses document/diff/metadata/consistency checks without product tests or a production build.
+- Reuse successful validation unless a later code-changing commit, changed environment or concrete new doubt invalidates it.
 - A normal FAST task should usually deliver its result within roughly 5–10 minutes total. If it will not, report the concrete blocker instead of expanding the process.
 - End result-first. Do not offer optional process, audit, tooling or validation work; offer only meaningful content/product/scope choices when a choice is genuinely needed.
 
@@ -76,7 +80,7 @@ Astro is the sole AMARA website runtime. The active external booking/availabilit
 
 ## Git and validation
 
-Use the smallest validation that directly tests the changed scope. Full builds belong to a specific whole-site rendering or generated-output risk, applicable Class 3 work, or batch/release boundaries. Merely editing Astro/TypeScript or consuming an existing shared component is not by itself global risk.
+Use the smallest validation that directly tests the changed scope. Full builds belong to a specific whole-site rendering or generated-output risk, shared-infrastructure implementation, or missing risk-proportionate release evidence. Merely editing Astro/TypeScript or consuming an existing shared component is not by itself global risk.
 
 For sandboxed PowerShell Astro commands, disable telemetry in the same invocation:
 
@@ -87,23 +91,51 @@ $env:ASTRO_TELEMETRY_DISABLED='1'; $env:PUBLIC_SITE_URL='https://amara-lodging.e
 
 Do not precede the build with `npm run check` merely out of habit; the build already invokes the required production lifecycle.
 
-Inspect the working tree, preserve unrelated changes, stage only explicit task files, verify the staged set and `git diff --cached --check`, and make one coherent local commit when requested. Do not push without explicit instruction.
+Inspect the working tree, preserve unrelated changes, stage only explicit task files, verify the staged set and `git diff --cached --check`, and make one coherent local commit for a completed Class 0–2 implementation unless the operator explicitly excludes the commit or the work is analysis/draft only. Do not push or merge without explicit instruction.
+
+## Daily Git operator model
+
+The operator's two normal Git actions are:
+
+- **PUSH** — secure the already validated and committed state of the current branch on GitHub.
+- **MERGE** — take the finished branch through the required PR/checks and integrate it into `main`.
+
+The operator does not need to direct staging, commits, test types, Playwright, build gates or release batches. The system selects and performs those technical details at the appropriate lifecycle point.
+
+### PUSH — transport only
+
+`PUSH`, "pushen", "bitte pushen" or an equivalent unambiguous instruction means only: transfer the already locally validated and committed state of the current branch safely to GitHub.
+
+For a normal push, check the current branch and status, confirm the finished work is committed, check remote freshness/ahead-behind, and push the current branch only when there is no divergence. Report the push result and local/remote state briefly.
+
+A normal push starts no new tests, browser checks, production builds, release gates or contract suites; changes no files; repairs no tests; creates no PR; performs no merge; and does not wait for GitHub Actions or Cloudflare. An automatically triggered Cloudflare preview may be mentioned without waiting for it or adding local validation.
+
+Remote divergence is a stop condition. Do not automatically pull, rebase, merge or force-push. If a normal push cannot be completed in roughly 2–3 minutes, stop and report the concrete Git/remote blocker instead of expanding the process.
+
+### MERGE — release integration
+
+`MERGE`, "mergen", "bitte mergen" or an equivalent unambiguous instruction means: take the finished branch as a release candidate through PR/checks and integrate it into `main`.
+
+A merge may push finished commits, create or update the PR, reuse still-valid local validation since the last code-changing commit, run only missing risk-proportionate release validation, await required GitHub CI checks and merge when green. Do not duplicate an equivalent local gate immediately before GitHub CI without a concrete reason.
+
+The release/merge gate is read-only. If a gate fails, classify the cause briefly, stop the merge and report it. Do not change production code, pages or tests inside the gate. A necessary correction returns to the normal cycle: **fix -> proportionate validation -> atomic commit -> push -> continue release**.
 
 ## External build budget and release batching
 
 Treat the operator-reported Cloudflare Pages limit of 500 builds as a hard shared budget. A local commit consumes no external build; a branch push, pull-request update or merge can trigger GitHub Actions and Cloudflare builds.
 
-- Keep validated Class 0–2 changes and behavior-preserving cleanup commits local by default, and batch them into intentional release points.
-- Do not propose or perform a separate push or pull request for every micro change. Do not use remote CI or Cloudflare as the first validation when the relevant checks can run locally.
-- Before requesting or performing any push, inspect the active workflow and deployment triggers and tell the operator the exact commits and scope in the batch, the expected GitHub Actions runs and Cloudflare builds through pull request and merge, and why this is a sensible release boundary.
-- Push authorization applies only to the named batch after that cost disclosure. It does not authorize additional update or fix pushes; finish known local corrections first and batch necessary follow-up fixes whenever practical.
-- Use targeted validation while accumulating local commits. Run the complete release validation once at the batch boundary, then prefer one branch push, one pull request and one merge for the approved batch.
-- Exceptions require either an urgent production or security need, or an explicit operator override after the external build cost has been disclosed.
+- Multiple validated local commits may be batched into intentional release points to conserve external builds, but a deliberate backup/security push is always legitimate.
+- Do not use remote CI or Cloudflare as the first implementation validation when the relevant checks can run locally.
+- An ordinary push remains transport, not a release gate; external build cost does not justify repeating local validation before it.
+- Before merge/release, inspect relevant workflow/deployment triggers, identify the exact release scope and disclose the expected GitHub Actions and Cloudflare cost. Prefer one intentional PR and merge for the finished batch.
+- Finish known corrections before the release boundary and batch follow-up pushes where practical. Each additional fix push still requires authorization within the active merge/release workstream.
 
 ## Operator commands
 
+- `PUSH` — secure the validated, committed current branch on GitHub; no new validation or release work.
+- `MERGE` — take the finished branch through the necessary PR/checks and merge it into `main`.
 - `AMARA FAST: ...` — minimum-safe FAST execution.
-- `AMARA RELEASE BATCH` — report the accumulated scope and expected external build cost, run the release gate once and request approval for one intentional push and pull request.
+- `AMARA RELEASE BATCH` — legacy explicit release-batch form; apply the MERGE/release rules to the named accumulated scope.
 - `Bitte in die AMARA SSOT aufnehmen: ...` — classify and recommend/place the item in the smallest correct SSOT owner or inbox.
 - `AMARA SSOT SYNC` — consolidate pending SSOT items once and update only owners whose normative meaning changed.
 - `OK, in die SSOT übernehmen.` — authorize the already-aligned documentation-only canonical update.

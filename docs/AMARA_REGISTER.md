@@ -1,12 +1,12 @@
 ---
 document_id: AMARA-REG-001
 title: AMARA Register
-version: 1.5.0
+version: 1.6.0
 status: ACTIVE
 authority_class: LIVING BINDING REGISTER
 activation_state: ACTIVE
 effective_from: 2026-08-14
-last_modified: 2026-08-20T16:35:01+02:00
+last_modified: 2026-08-20T18:28:21+02:00
 canonical_path: /docs/AMARA_REGISTER.md
 ---
 
@@ -24,9 +24,9 @@ The AMARA Register is the single source for active documents, authority classes,
 | 02 | AMARA Astro & Design Architecture Contract | 4.1.0 ACTIVE INTERIM | CONTRACT / governing | `docs/interim/03_AMARA_Astro_Technical_Standard_V4.md` + current repository implementation |
 | 03 | AMARA Runtime, SEO & Data Contract | PENDING Package 2 | CONTRACT / governing | Interim snapshot: `docs/interim/04_AMARA_Runtime_and_SEO_Standard_V4.md` + current repository implementation |
 | 04 | AMARA URL, Route & Link Contract | PENDING Package 2 | CONTRACT / governing | Interim snapshot: `docs/interim/05_AMARA_URL_and_Route_Infrastructure_V4.md` + Decision Register |
-| 05 | AMARA Governance, Execution & Documentation Lifecycle | 5.5.0 ACTIVE | CONTRACT / governing | `docs/standards/05_AMARA_Governance_Execution_and_Documentation_Lifecycle_V5.md` |
+| 05 | AMARA Governance, Execution & Documentation Lifecycle | 5.6.0 ACTIVE | CONTRACT / governing | `docs/standards/05_AMARA_Governance_Execution_and_Documentation_Lifecycle_V5.md` |
 | 06 | AMARA Performance & Delivery Standard | PENDING Package 2 | PRINCIPLE/CONTRACT / governing | Interim snapshot: `docs/interim/07_AMARA_Performance_Standard_V2.md` |
-| 07 | AMARA Register | 1.5.0 ACTIVE | LIVING BINDING REGISTER | `docs/AMARA_REGISTER.md` |
+| 07 | AMARA Register | 1.6.0 ACTIVE | LIVING BINDING REGISTER | `docs/AMARA_REGISTER.md` |
 | 08 | AMARA Guest Utility Feature Contract | PENDING Package 2/3 | FEATURE CONTRACT | Interim snapshot: `docs/interim/08_AMARA_Guest_Utility_Architecture_V2.md` |
 | 09 | AMARA Content Production & Localization Playbook | PENDING Package 2/3 | OPERATIONAL PLAYBOOK / non-governing | Interim snapshot: `docs/interim/10_AMARA_Content_Production_and_Localization_Playbook_V1_2.md` |
 | 10 | AMARA Frigiliana–Nerja SEO Strategy | PENDING Package 2/3 | WORKING STRATEGY / non-governing | Interim snapshot: `docs/interim/09_AMARA_Frigiliana_Nerja_SEO_Strategy_V2_1.md` |
@@ -55,14 +55,16 @@ Current operational feature owner during transition:
 | DR-DOC-006 | Activation is determined by canonical repository Markdown + ACTIVE Register entry; attachment/PDF synchronization is not an activation gate. | APPROVED |
 | DR-BOOT-001 | A documentation bootstrap or material SSOT migration must pass a read-only compatibility gate with explicit conflict classification before writes are authorized. | APPROVED |
 | DR-AGENT-001 | `AGENTS.md` is the model-neutral daily operating contract and vendor files contain no independent policy. For normal Class 0–2 work it is sufficient context; Register/owner reading is triggered only by architecture/SSOT work, protected-contract change or concrete conflict. | ACTIVE |
-| DR-EXEC-001 | After scope confirmation: implement -> targeted validate -> exact stage -> atomic commit; push remains separately controlled except an explicitly approved documentation-only SSOT activation. | APPROVED |
+| DR-EXEC-001 | A completed normal Class 0–2 implementation ends after proportionate targeted validation with an atomic local commit unless the operator explicitly excludes the commit or the work is analysis/draft only. Push and merge remain separately controlled. | APPROVED |
 | DR-EXEC-002 | Normal work uses one bounded objective and does not repeat settled research without contradiction. A fresh chat is used only when context risk justifies it. | APPROVED |
 | DR-EXEC-003 | **FAST is the default execution posture** for Class 0, Class 1 and bounded Class 2 work. Deep process requires a concrete shared/infrastructure risk, unresolved contradiction or release gate. | APPROVED |
 | DR-EXEC-004 | A successful targeted implementation validation closes a normal FAST task; no mandatory post-fix re-review. | APPROVED |
-| DR-EXEC-005 | Full production builds are not the default for content/local-page work; use them for concrete compile/global risk, Class 3 work or sensible batch/release boundaries. | APPROVED |
+| DR-EXEC-005 | Full production builds are not the default for content/local-page work; use them for concrete compile/global risk, shared-infrastructure implementation or missing risk-proportionate release evidence. Documentation-only governance changes do not require a product build. | APPROVED |
 | DR-EXEC-006 | Operator time, attention, AI credits, builds and deployments are first-class constraints; process cost must be proportional to realistic failure impact. | APPROVED |
-| DR-EXEC-007 | Validated local commits should normally be batched into intentional push/release points instead of automatic micro-pushes. | APPROVED |
+| DR-EXEC-007 | Validated local commits may be batched into intentional release points to conserve external builds, while a deliberate backup/security push remains legitimate. Push transport and merge/release are distinct lifecycle points. | APPROVED |
 | DR-EXEC-008 | Routine new SSOT information may enter an intake queue and be consolidated at `AMARA SSOT SYNC`; do not version multiple owner documents several times per day without a real urgent contract need. | APPROVED |
+| DR-EXEC-009 | Validation belongs to the change/commit cycle, not to ordinary push transport. A normal push performs no new validation or project edits. | APPROVED |
+| DR-EXEC-010 | Merge/release reuses still-valid validation evidence. The release gate is read-only; failure stops the gate before any corrective implementation, which must return to the normal fix/validate/commit cycle. | APPROVED |
 | DR-GOV-001 | Conversational shorthand or a new isolated statement cannot silently supersede an ACTIVE contract; apparent conflicts trigger Reality Reconciliation and explicit contract-level confirmation. | APPROVED |
 
 ### Platform/runtime/links
@@ -153,6 +155,7 @@ Routine new evidence/ideas may be captured here or in the relevant working evide
 | 2026-08-14T12:59:47+02:00 | Execution speed reset | Made `AGENTS.md` sufficient for daily Class 0–2 work, bounded the two FAST preflights, prohibited incidental validation tooling/inventories, activated current SSOT metadata and removed the accidental check scripts/inventory. Governance 5.5.0, Constitution 5.1.1, Register 1.3.2. | DR-AGENT-001, DR-EXEC-001–008, DR-DOC-006 | this revision |
 | 2026-08-20 | Evidence & Knowledge architecture | Activated a durable non-public knowledge layer, separated evidence from public authoring and presentation, and established Frigiliana parking as the first controlled pilot. Astro Standard 4.1.0, Register 1.4.0. | DR-EVIDENCE-001–002, TR-CONTENT-002 | this revision |
 | 2026-08-20T16:35:01+02:00 | Location & Experience information architecture | Established the shared Location information model, destination-specific Experience inventories, intent-based ownership and conditional publication forms. Preserved research-specific proposals as non-normative hypotheses rather than changing pages or routes. Register 1.5.0. | DR-IA-001–004, DR-EVIDENCE-001–002, TR-CONTENT-001 | this revision |
+| 2026-08-20T18:28:21+02:00 | Git execution lifecycle | Made atomic local commit the default end of completed Class 0–2 implementation; separated PUSH transport from MERGE/release; placed validation in the change/commit cycle; established reusable evidence and a read-only release gate. Governance 5.6.0, Register 1.6.0. | DR-EXEC-001, DR-EXEC-005, DR-EXEC-007, DR-EXEC-009, DR-EXEC-010 | this revision |
 
 ## 5. Intentional supersessions
 
@@ -166,6 +169,7 @@ The following are active intentional supersessions, not accidental deletions:
 - fixed active-document count -> living Register;
 - attachment/PDF activation gate -> canonical repository Markdown + Register activation;
 - universal full-build expectation for small edits -> risk-proportional validation.
+- push/release coupling and mandatory pre-push release analysis -> ordinary PUSH as transport-only, with validation in the change/commit cycle and release work owned by MERGE.
 
 No current booking/availability/checkout implementation, current route output, runtime resolver, URL helper, CSS/token system or analytics runtime is intentionally changed by the bootstrap itself. The URL **policy doctrine** changes only as explicitly recorded above; current implementation remains protected.
 
@@ -194,3 +198,4 @@ Separate controlled workstreams remain for:
 | 1.3.2 | 2026-08-14T12:59:47+02:00 | Activated current metadata and recorded the execution speed reset with Governance 5.5.0 and Constitution 5.1.1. | this revision |
 | 1.4.0 | 2026-08-20 | Activated the Evidence & Knowledge owner and the separation between durable evidence, public authoring and presentation. | this revision |
 | 1.5.0 | 2026-08-20T16:35:01+02:00 | Activated the Location & Experience information-architecture principles and separated stable decisions from open research hypotheses. | this revision |
+| 1.6.0 | 2026-08-20T18:28:21+02:00 | Separated ordinary PUSH transport from MERGE/release, made completed Class 0–2 work commit by default, and added reusable-validation/read-only-release decisions DR-EXEC-009–010. Governance 5.6.0. | this revision |
