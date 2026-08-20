@@ -5,8 +5,10 @@ import EditorialClosingCta from '../../components/editorial/EditorialClosingCta.
 import EditorialGuideLinkSection from '../../components/editorial/EditorialGuideLinkSection.astro';
 import NerjaContextNav from '../../components/location/NerjaContextNav.astro';
 import LocationWeatherHero from '../../components/location/LocationWeatherHero.astro';
+import LocationClimateTable from '../../components/location/LocationClimateTable.astro';
 import HairlineStatCard from '../../components/location/HairlineStatCard.astro';
 import SeasonalPillar from '../../components/location/SeasonalPillar.astro';
+import { climateDataSourceUrls, locationClimateProfiles } from '../../content/locationClimateData';
 import { buildOwnedLocalizedPath } from '../../lib/routeOwnership';
 import { normalizeLanguage } from '../../lib/seo/resolve-seo-head';
 import type { AmaraAuthoringSeo, AmaraLanguage } from '../../types/seo';
@@ -23,12 +25,12 @@ const arrivalHref = buildOwnedLocalizedPath('getting-to-nerja', currentLang);
 const whereToStayHref = buildOwnedLocalizedPath('nerja-where-to-stay', currentLang);
 
 const seo: AmaraAuthoringSeo = {
-  version: '2026-08-13-nerja-weather-v1.0',
+  version: '2026-08-20-nerja-weather-v1.1',
   pageType: 'A',
   entityKey: 'amara-brand',
   article: {
     datePublished: '2026-08-13',
-    dateModified: '2026-08-14',
+    dateModified: '2026-08-20',
     authorName: 'Robert Sebastian Böhmer',
     authorType: 'Person',
     authorSlug: 'amara-about-us'
@@ -238,6 +240,48 @@ const copy = {
       ]
     }
   },
+  climateData: {
+    eyebrow: {
+      en: '12-month climate profile',
+      de: 'Klimaprofil für 12 Monate',
+      es: 'Perfil climático de 12 meses',
+      nl: 'Klimaatprofiel van 12 maanden',
+      sv: 'Klimatprofil för 12 månader'
+    },
+    title: {
+      en: 'Temperature, rain and sun — month by month',
+      de: 'Temperatur, Regen und Sonne – Monat für Monat',
+      es: 'Temperatura, lluvia y sol — mes a mes',
+      nl: 'Temperatuur, regen en zon — maand voor maand',
+      sv: 'Temperatur, regn och sol – månad för månad'
+    },
+    intro: {
+      en: 'The table uses the same Climate-Data.org point-model method as the Frigiliana weather page. Temperature and rainfall cover 1991–2021; sunshine covers 1999–2019. Values are modelled long-term averages, not a forecast for a particular stay.',
+      de: 'Die Tabelle verwendet dieselbe Climate-Data.org-Punktmodell-Methode wie die Wetterseite für Frigiliana. Temperatur und Niederschlag umfassen 1991–2021, die Sonnenscheindauer 1999–2019. Es sind modellierte Langzeitmittel und keine Vorhersage für einen konkreten Aufenthalt.',
+      es: 'La tabla utiliza el mismo método de modelo puntual de Climate-Data.org que la página del tiempo de Frigiliana. Temperatura y lluvia cubren 1991–2021; el sol, 1999–2019. Son medias modelizadas a largo plazo, no una previsión para una estancia concreta.',
+      nl: 'De tabel gebruikt dezelfde Climate-Data.org-puntmodelmethode als de weerpagina van Frigiliana. Temperatuur en neerslag beslaan 1991–2021; zonuren 1999–2019. Het zijn gemodelleerde langjarige gemiddelden, geen verwachting voor een specifiek verblijf.',
+      sv: 'Tabellen använder samma punktmodell från Climate-Data.org som vädersidan för Frigiliana. Temperatur och nederbörd omfattar 1991–2021; soltimmar 1999–2019. Värdena är modellerade långtidsmedel, inte en prognos för en viss vistelse.'
+    },
+    labels: {
+      month: { en: 'Month', de: 'Monat', es: 'Mes', nl: 'Maand', sv: 'Månad' },
+      high: { en: 'Avg. maximum', de: 'Mittl. Maximum', es: 'Máxima media', nl: 'Gem. maximum', sv: 'Medelmaximum' },
+      low: { en: 'Avg. minimum', de: 'Mittl. Minimum', es: 'Mínima media', nl: 'Gem. minimum', sv: 'Medelminimum' },
+      rain: { en: 'Rainfall', de: 'Niederschlag', es: 'Lluvia', nl: 'Neerslag', sv: 'Nederbörd' },
+      sunHours: { en: 'Sun / day', de: 'Sonne / Tag', es: 'Sol / día', nl: 'Zon / dag', sv: 'Sol / dag' }
+    },
+    chartLabels: {
+      temperature: { en: 'Average maximum / minimum', de: 'Mittleres Maximum / Minimum', es: 'Máxima / mínima media', nl: 'Gemiddeld maximum / minimum', sv: 'Medelmaximum / minimum' },
+      rainfall: { en: 'Monthly rainfall', de: 'Monatsniederschlag', es: 'Lluvia mensual', nl: 'Maandneerslag', sv: 'Månadsnederbörd' }
+    },
+    sourceTitle: { en: 'Data basis', de: 'Datengrundlage', es: 'Base de datos', nl: 'Databasis', sv: 'Dataunderlag' },
+    sourceText: {
+      en: 'Numerical values: Climate-Data.org point model for Nerja. The provider returns the same monthly values for its Nerja and Frigiliana points. That reflects the model output and does not prove that both local microclimates are identical.',
+      de: 'Zahlenwerte: Punktmodell von Climate-Data.org für Nerja. Der Anbieter gibt für seine Punkte Nerja und Frigiliana dieselben Monatswerte aus. Das bildet die Modellausgabe ab und beweist nicht, dass beide lokalen Mikroklimata identisch sind.',
+      es: 'Valores numéricos: modelo puntual de Climate-Data.org para Nerja. El proveedor ofrece los mismos valores mensuales para sus puntos de Nerja y Frigiliana. Es el resultado del modelo y no demuestra que ambos microclimas locales sean idénticos.',
+      nl: 'Cijfers: puntmodel van Climate-Data.org voor Nerja. De aanbieder geeft voor de punten Nerja en Frigiliana dezelfde maandwaarden. Dat is de modeluitkomst en bewijst niet dat beide lokale microklimaten identiek zijn.',
+      sv: 'Siffervärden: Climate-Data.orgs punktmodell för Nerja. Leverantören redovisar samma månadsvärden för punkterna Nerja och Frigiliana. Det återger modellresultatet och bevisar inte att de lokala mikroklimaten är identiska.'
+    }
+  },
   seasons: {
     title: {
       en: 'Best time to stay',
@@ -256,18 +300,18 @@ const copy = {
   },
   compare: {
     title: {
-      en: 'Nerja or Frigiliana? The difference is in the night',
-      de: 'Nerja oder Frigiliana? Der Unterschied liegt in der Nacht',
-      es: '¿Nerja o Frigiliana? La diferencia está en la noche',
-      nl: 'Nerja of Frigiliana? Het verschil zit in de nacht',
-      sv: 'Nerja eller Frigiliana? Skillnaden ligger i natten'
+      en: 'Nerja and Frigiliana: what the data can — and cannot — show',
+      de: 'Nerja und Frigiliana: Was die Daten zeigen – und was nicht',
+      es: 'Nerja y Frigiliana: lo que muestran los datos y lo que no',
+      nl: 'Nerja en Frigiliana: wat de data wel en niet laten zien',
+      sv: 'Nerja och Frigiliana: vad data kan – och inte kan – visa'
     },
     body: {
-      en: 'The two are fifteen minutes apart, with roughly 295 metres of altitude between the town centres — Nerja at about 20 metres, Frigiliana at about 315. You would expect it to be noticeably cooler up there. On a high-summer afternoon the difference is small: both get similarly hot during the day.',
-      de: 'Die beiden liegen fünfzehn Minuten auseinander, und zwischen den Ortskernen liegen rund 295 Höhenmeter – Nerja auf etwa 20, Frigiliana auf etwa 315 Metern. Man würde erwarten, dass es oben spürbar kühler ist. An einem Hochsommernachmittag ist der Unterschied aber gering: Beide Orte werden tagsüber ähnlich heiß.',
-      es: 'Los separan quince minutos y unos 295 metros de altitud entre ambos cascos urbanos: Nerja a unos 20 metros, Frigiliana a unos 315. Cabría esperar que arriba hiciera bastante menos calor. Una tarde de pleno verano la diferencia es pequeña: de día ambos alcanzan calores parecidos.',
-      nl: 'Ze liggen vijftien minuten uit elkaar, met zo’n 295 hoogtemeters tussen beide dorpskernen — Nerja op ongeveer 20 meter, Frigiliana op ongeveer 315. Je zou verwachten dat het daarboven merkbaar koeler is. Op een hoogzomerse middag is het verschil klein: overdag worden beide even heet.',
-      sv: 'De ligger femton minuter isär, med omkring 295 höjdmeter mellan de två ortskärnorna — Nerja på ungefär 20 meter, Frigiliana på ungefär 315. Man skulle vänta sig att det är märkbart svalare däruppe. En högsommareftermiddag är skillnaden liten: dagtid blir båda ungefär lika varma.'
+      en: 'The two are only about fifteen minutes apart, but their centres differ by roughly 295 metres in altitude. Climate-Data.org nevertheless returns identical monthly temperature, rainfall and sunshine values for both point pages. This is useful for a consistent broad comparison, but too coarse to quantify a local night-time or street-level difference.',
+      de: 'Die beiden liegen nur rund fünfzehn Minuten auseinander, zwischen ihren Ortskernen liegen aber etwa 295 Höhenmeter. Climate-Data.org gibt dennoch für beide Punktseiten identische Monatswerte für Temperatur, Niederschlag und Sonne aus. Das ermöglicht einen einheitlichen groben Vergleich, ist aber zu grob, um lokale Unterschiede bei Nacht oder auf Straßenebene zu beziffern.',
+      es: 'Los separan solo unos quince minutos, pero hay alrededor de 295 metros de altitud entre sus cascos urbanos. Aun así, Climate-Data.org ofrece valores mensuales idénticos de temperatura, lluvia y sol para ambos puntos. Sirven para una comparación general coherente, pero no para cuantificar diferencias locales nocturnas o a escala de calle.',
+      nl: 'Ze liggen maar ongeveer vijftien minuten uit elkaar, maar tussen beide kernen zit circa 295 meter hoogteverschil. Toch geeft Climate-Data.org voor beide puntpagina’s identieke maandwaarden voor temperatuur, neerslag en zon. Dat maakt een consistente globale vergelijking mogelijk, maar is te grof om lokale verschillen ’s nachts of op straatniveau te becijferen.',
+      sv: 'De ligger bara omkring femton minuter från varandra, men höjdskillnaden mellan ortskärnorna är cirka 295 meter. Climate-Data.org redovisar ändå identiska månadsvärden för temperatur, nederbörd och sol för båda punkterna. Det ger en enhetlig grov jämförelse men är för grovt för att kvantifiera lokala skillnader nattetid eller på gatunivå.'
     },
     verdict: {
       en: 'The currently defensible distinction is qualitative: Nerja can remain milder at night, while Frigiliana can feel fresher after sunset. Conditions vary, so use the forecast for your dates; no fixed temperature gap is claimed.',
@@ -276,12 +320,12 @@ const copy = {
       nl: 'Het verschil dat nu te onderbouwen is, blijft kwalitatief: de nachten kunnen in Nerja zachter zijn en Frigiliana kan na zonsondergang frisser aanvoelen. De omstandigheden wisselen; gebruik de verwachting voor jullie data, zonder een vast temperatuurverschil aan te nemen.',
       sv: 'Den skillnad som nu kan beläggas är kvalitativ: nätterna kan vara mildare i Nerja, medan Frigiliana kan kännas svalare efter solnedgång. Förhållandena varierar; använd prognosen för era datum och räkna inte med en fast temperaturskillnad.'
     },
-    pending: {
-      en: 'We are currently checking the monthly figures for both places against the official AEMET normals for 1991–2020. Until that is settled we deliberately give no numbers here.',
-      de: 'Die Monatswerte für beide Orte prüfen wir derzeit gegen die amtlichen AEMET-Normalwerte 1991–2020. Bis das geklärt ist, verzichten wir hier bewusst auf Zahlen.',
-      es: 'Estamos contrastando los valores mensuales de ambos lugares con los valores normales oficiales de AEMET 1991–2020. Hasta que se resuelva, aquí renunciamos deliberadamente a las cifras.',
-      nl: 'We toetsen de maandwaarden voor beide plaatsen momenteel aan de officiële AEMET-normalen 1991–2020. Tot dat is uitgezocht geven we hier bewust geen cijfers.',
-      sv: 'Vi stämmer just nu av månadsvärdena för båda orterna mot AEMET:s officiella normalvärden 1991–2020. Tills det är utrett anger vi medvetet inga siffror här.'
+    modelNote: {
+      en: 'The table above is therefore a shared model baseline, not evidence that the two places feel identical on a particular evening.',
+      de: 'Die Tabelle oben ist deshalb eine gemeinsame Modellbasis – kein Beleg dafür, dass sich beide Orte an einem bestimmten Abend gleich anfühlen.',
+      es: 'Por eso, la tabla anterior es una base común del modelo, no una prueba de que ambos lugares se sientan iguales una tarde concreta.',
+      nl: 'De tabel hierboven is daarom een gezamenlijke modelbasis, geen bewijs dat beide plaatsen op een bepaalde avond hetzelfde aanvoelen.',
+      sv: 'Tabellen ovan är därför en gemensam modellbas, inte ett belägg för att orterna känns likadana en viss kväll.'
     }
   },
   notice: {
@@ -431,6 +475,34 @@ const copy = {
 };
 
 const t = <T extends Record<AmaraLanguage, string>>(row: T) => row[currentLang] ?? row.en;
+
+const climateMonthLabels: Record<AmaraLanguage, string[]> = {
+  en: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+  de: ['Jan', 'Feb', 'Mär', 'Apr', 'Mai', 'Jun', 'Jul', 'Aug', 'Sep', 'Okt', 'Nov', 'Dez'],
+  es: ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul', 'Ago', 'Sep', 'Oct', 'Nov', 'Dic'],
+  nl: ['Jan', 'Feb', 'Mrt', 'Apr', 'Mei', 'Jun', 'Jul', 'Aug', 'Sep', 'Okt', 'Nov', 'Dec'],
+  sv: ['Jan', 'Feb', 'Mar', 'Apr', 'Maj', 'Jun', 'Jul', 'Aug', 'Sep', 'Okt', 'Nov', 'Dec']
+};
+
+const climateMonths = locationClimateProfiles.nerja.map((month, index) => ({
+  month: climateMonthLabels[currentLang][index],
+  ...month
+}));
+
+const climateSources = [
+  {
+    label: currentLang === 'de'
+      ? 'Climate-Data.org · Monatswerte Nerja'
+      : currentLang === 'es'
+        ? 'Climate-Data.org · valores mensuales de Nerja'
+        : currentLang === 'nl'
+          ? 'Climate-Data.org · maandwaarden Nerja'
+          : currentLang === 'sv'
+            ? 'Climate-Data.org · månadsvärden för Nerja'
+            : 'Climate-Data.org · Nerja monthly values',
+    href: climateDataSourceUrls.nerja
+  }
+];
 
 const patternFacts = copy.pattern.facts[currentLang] ?? copy.pattern.facts.en;
 
@@ -615,6 +687,27 @@ const seasonLabels = {
           </div>
         </section>
 
+        <LocationClimateTable
+          eyebrow={t(copy.climateData.eyebrow)}
+          title={t(copy.climateData.title)}
+          intro={t(copy.climateData.intro)}
+          months={climateMonths}
+          labels={{
+            month: t(copy.climateData.labels.month),
+            high: t(copy.climateData.labels.high),
+            low: t(copy.climateData.labels.low),
+            rain: t(copy.climateData.labels.rain),
+            sunHours: t(copy.climateData.labels.sunHours)
+          }}
+          chartLabels={{
+            temperature: t(copy.climateData.chartLabels.temperature),
+            rainfall: t(copy.climateData.chartLabels.rainfall)
+          }}
+          sourceTitle={t(copy.climateData.sourceTitle)}
+          sourceText={t(copy.climateData.sourceText)}
+          sources={climateSources}
+        />
+
         <section>
           <div class="mb-12 max-w-2xl">
             <h2 class="am-text-title text-on-surface mb-4">{t(copy.seasons.title)}</h2>
@@ -665,7 +758,7 @@ const seasonLabels = {
           </p>
 
           <p class="mt-8 max-w-3xl am-text-body leading-relaxed text-muted italic">
-            {t(copy.compare.pending)}
+            {t(copy.compare.modelNote)}
           </p>
         </section>
 

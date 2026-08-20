@@ -1,7 +1,9 @@
 ---
 import InlineEmphasis from '../../components/text/InlineEmphasis.astro';
 import Navigation from '../../components/Navigation.astro';
+import LocationClimateTable from '../../components/location/LocationClimateTable.astro';
 import TarifaContextNav from '../../components/location/TarifaContextNav.astro';
+import { climateDataSourceUrls, locationClimateProfiles } from '../../content/locationClimateData';
 import {
   tarifaWeatherContent,
   tarifaWeatherSeo
@@ -21,6 +23,62 @@ interface Props {
 const { lang = 'es' } = Astro.props;
 const currentLang = normalizeLanguage(lang as AmaraLanguage);
 const content = tarifaWeatherContent[currentLang];
+
+const climateTableCopy = {
+  en: {
+    eyebrow: '12-month climate profile', title: 'Temperature, rain and sun — month by month',
+    intro: 'The table uses the same Climate-Data.org point-model method as the Nerja and Frigiliana weather pages. Temperature and rainfall cover 1991–2021; sunshine covers 1999–2019. Values are modelled long-term averages, not a forecast for a particular stay.',
+    month: 'Month', high: 'Avg. maximum', low: 'Avg. minimum', rain: 'Rainfall', sun: 'Sun / day',
+    temperature: 'Average maximum / minimum', rainfall: 'Monthly rainfall', sourceTitle: 'Data basis',
+    sourceText: 'Numerical values: Climate-Data.org point model for Tarifa. All three AMARA weather pages now use the same variables and reference periods.',
+    sourceLabel: 'Climate-Data.org · Tarifa monthly values'
+  },
+  de: {
+    eyebrow: 'Klimaprofil für 12 Monate', title: 'Temperatur, Regen und Sonne – Monat für Monat',
+    intro: 'Die Tabelle verwendet dieselbe Climate-Data.org-Punktmodell-Methode wie die Wetterseiten für Nerja und Frigiliana. Temperatur und Niederschlag umfassen 1991–2021, die Sonnenscheindauer 1999–2019. Es sind modellierte Langzeitmittel und keine Vorhersage für einen konkreten Aufenthalt.',
+    month: 'Monat', high: 'Mittl. Maximum', low: 'Mittl. Minimum', rain: 'Niederschlag', sun: 'Sonne / Tag',
+    temperature: 'Mittleres Maximum / Minimum', rainfall: 'Monatsniederschlag', sourceTitle: 'Datengrundlage',
+    sourceText: 'Zahlenwerte: Punktmodell von Climate-Data.org für Tarifa. Alle drei AMARA-Wetterseiten verwenden jetzt dieselben Variablen und Referenzzeiträume.',
+    sourceLabel: 'Climate-Data.org · Monatswerte Tarifa'
+  },
+  es: {
+    eyebrow: 'Perfil climático de 12 meses', title: 'Temperatura, lluvia y sol — mes a mes',
+    intro: 'La tabla utiliza el mismo método de modelo puntual de Climate-Data.org que las páginas del tiempo de Nerja y Frigiliana. Temperatura y lluvia cubren 1991–2021; el sol, 1999–2019. Son medias modelizadas a largo plazo, no una previsión para una estancia concreta.',
+    month: 'Mes', high: 'Máxima media', low: 'Mínima media', rain: 'Lluvia', sun: 'Sol / día',
+    temperature: 'Máxima / mínima media', rainfall: 'Lluvia mensual', sourceTitle: 'Base de datos',
+    sourceText: 'Valores numéricos: modelo puntual de Climate-Data.org para Tarifa. Las tres páginas meteorológicas de AMARA usan ahora las mismas variables y periodos de referencia.',
+    sourceLabel: 'Climate-Data.org · valores mensuales de Tarifa'
+  },
+  nl: {
+    eyebrow: 'Klimaatprofiel van 12 maanden', title: 'Temperatuur, regen en zon — maand voor maand',
+    intro: 'De tabel gebruikt dezelfde Climate-Data.org-puntmodelmethode als de weerpagina’s van Nerja en Frigiliana. Temperatuur en neerslag beslaan 1991–2021; zonuren 1999–2019. Het zijn gemodelleerde langjarige gemiddelden, geen verwachting voor een specifiek verblijf.',
+    month: 'Maand', high: 'Gem. maximum', low: 'Gem. minimum', rain: 'Neerslag', sun: 'Zon / dag',
+    temperature: 'Gemiddeld maximum / minimum', rainfall: 'Maandneerslag', sourceTitle: 'Databasis',
+    sourceText: 'Cijfers: puntmodel van Climate-Data.org voor Tarifa. Alle drie de AMARA-weerpagina’s gebruiken nu dezelfde variabelen en referentieperioden.',
+    sourceLabel: 'Climate-Data.org · maandwaarden Tarifa'
+  },
+  sv: {
+    eyebrow: 'Klimatprofil för 12 månader', title: 'Temperatur, regn och sol – månad för månad',
+    intro: 'Tabellen använder samma punktmodell från Climate-Data.org som vädersidorna för Nerja och Frigiliana. Temperatur och nederbörd omfattar 1991–2021; soltimmar 1999–2019. Värdena är modellerade långtidsmedel, inte en prognos för en viss vistelse.',
+    month: 'Månad', high: 'Medelmaximum', low: 'Medelminimum', rain: 'Nederbörd', sun: 'Sol / dag',
+    temperature: 'Medelmaximum / minimum', rainfall: 'Månadsnederbörd', sourceTitle: 'Dataunderlag',
+    sourceText: 'Siffervärden: Climate-Data.orgs punktmodell för Tarifa. Alla tre AMARA-vädersidor använder nu samma variabler och referensperioder.',
+    sourceLabel: 'Climate-Data.org · månadsvärden för Tarifa'
+  }
+}[currentLang];
+
+const climateMonthLabels: Record<AmaraLanguage, string[]> = {
+  en: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+  de: ['Jan', 'Feb', 'Mär', 'Apr', 'Mai', 'Jun', 'Jul', 'Aug', 'Sep', 'Okt', 'Nov', 'Dez'],
+  es: ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul', 'Ago', 'Sep', 'Oct', 'Nov', 'Dic'],
+  nl: ['Jan', 'Feb', 'Mrt', 'Apr', 'Mei', 'Jun', 'Jul', 'Aug', 'Sep', 'Okt', 'Nov', 'Dec'],
+  sv: ['Jan', 'Feb', 'Mar', 'Apr', 'Maj', 'Jun', 'Jul', 'Aug', 'Sep', 'Okt', 'Nov', 'Dec']
+};
+
+const climateMonths = locationClimateProfiles.tarifa.map((month, index) => ({
+  month: climateMonthLabels[currentLang][index],
+  ...month
+}));
 
 const requiredLink = createRequiredLinkResolver(currentLang, 'Tarifa weather');
 
@@ -78,6 +136,7 @@ const footerHighlights: LabeledLink[] = [
         <AuthorityTextSection section={section} index={index} />
 
         {index === 0 && (
+          <>
           <section class="border-b border-border-subtle bg-inverse-surface px-6 py-20 text-inverted-on-surface md:px-12 md:py-28">
             <div class="mx-auto grid max-w-screen-2xl gap-12 lg:grid-cols-12 lg:gap-20">
               <div class="lg:col-span-4">
@@ -106,6 +165,28 @@ const footerHighlights: LabeledLink[] = [
               </div>
             </div>
           </section>
+
+          <LocationClimateTable
+            eyebrow={climateTableCopy.eyebrow}
+            title={climateTableCopy.title}
+            intro={climateTableCopy.intro}
+            months={climateMonths}
+            labels={{
+              month: climateTableCopy.month,
+              high: climateTableCopy.high,
+              low: climateTableCopy.low,
+              rain: climateTableCopy.rain,
+              sunHours: climateTableCopy.sun
+            }}
+            chartLabels={{
+              temperature: climateTableCopy.temperature,
+              rainfall: climateTableCopy.rainfall
+            }}
+            sourceTitle={climateTableCopy.sourceTitle}
+            sourceText={climateTableCopy.sourceText}
+            sources={[{ label: climateTableCopy.sourceLabel, href: climateDataSourceUrls.tarifa }]}
+          />
+          </>
         )}
       </>
     ))}
