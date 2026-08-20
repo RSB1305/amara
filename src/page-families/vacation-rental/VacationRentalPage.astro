@@ -52,6 +52,7 @@ import { trustLabels } from '../../content/trustLabels';
 import { getVacationRentalImageAlts } from '../../content/vacationRentalImageAlts';
 import { resolveOptionalLink, type LabeledLink } from '../../lib/linkResolver';
 import { buildRentalBookingUrl } from '../../lib/directBooking';
+import type { DestinationId } from '../../lib/location/destinationBranchNavigation';
 import { normalizeLanguage } from '../../lib/seo/resolve-seo-head';
 import type { AmaraLanguage } from '../../types/seo';
 
@@ -954,6 +955,14 @@ const visibleImages = rental.images.slice(0, 8);
 const heroImage = visibleImages[0];
 const imageAlts = getVacationRentalImageAlts(rental, currentLang);
 const breadcrumbRentalName = rental.name.replace(/^AMARA\s+/u, '');
+const contextDestination: DestinationId | undefined =
+  rental.city === 'Frigiliana'
+    ? 'frigiliana'
+    : rental.city === 'Nerja'
+      ? 'nerja'
+      : rental.city === 'Tarifa'
+        ? 'tarifa'
+        : undefined;
 ---
 
 <BaseLayout
@@ -961,6 +970,7 @@ const breadcrumbRentalName = rental.name.replace(/^AMARA\s+/u, '');
   pageLang={currentLang}
   footerHighlights={footerHighlights}
   contextBreadcrumbTitle={`${breadcrumbRentalName}, ${rental.city}`}
+  contextDestination={contextDestination}
 >
   <Navigation
     currentLang={currentLang}

@@ -7,6 +7,10 @@ import ContextNavigation, {
   type ContextNavigationItem
 } from './ContextNavigation.astro';
 import { trustLabels, trustSectionLabels } from '../../content/trustLabels';
+import {
+  getDestinationBranchNavigation,
+  type DestinationId
+} from '../../lib/location/destinationBranchNavigation';
 import { resolveLink } from '../../lib/linkResolver';
 import type { AmaraLanguage } from '../../types/seo';
 
@@ -16,6 +20,7 @@ interface Props {
   breadcrumbTitle?: string;
   pathname: string;
   isStay?: boolean;
+  destination?: DestinationId;
 }
 
 const {
@@ -23,7 +28,8 @@ const {
   pageTitle,
   breadcrumbTitle: breadcrumbTitleOverride,
   pathname,
-  isStay = false
+  isStay = false,
+  destination
 } = Astro.props;
 
 const labels: Record<
@@ -190,10 +196,11 @@ const trustItems: ContextNavigationItem[] = [
 ];
 
 /**
- * Stay pages carry no context navigation. The row competed with the booking CTA
- * directly beneath it and repeated links the footer already offers; the arrival
- * guide now sits in the page's own "Plan your stay" section, where a guest looks
- * for it. Breadcrumbs are unaffected — they render from `breadcrumbs`, not here.
+ * Stay pages carry no sibling subnavigation. The fuller row competed with the
+ * booking CTA directly beneath it and repeated links the footer already offers;
+ * only the destination-level Location / Experiences branches may appear beside
+ * the breadcrumb. The arrival guide remains in the page's own "Plan your stay"
+ * section, where a guest looks for it.
  */
 const stayItems: ContextNavigationItem[] = [];
 
@@ -202,6 +209,9 @@ const items = isStay || isLegalDocument
   : isTrustFamilyPage
     ? trustItems
     : genericItems;
+const branchNavigation = isStay && destination
+  ? getDestinationBranchNavigation(destination, lang)
+  : undefined;
 const activeId = items.find(
   (item) => item.href !== undefined && normalizePath(item.href) === currentPath
 )?.id;
@@ -218,6 +228,8 @@ const breadcrumbs = isHome ? [] : [
   activeId={activeId}
   breadcrumbAriaLabel={copy.breadcrumb}
   breadcrumbs={breadcrumbs}
+  branches={branchNavigation?.items}
+  branchSwitcherAriaLabel={branchNavigation?.ariaLabel}
   context="experience"
   items={items}
   switcherAriaLabel={copy.switcher}
