@@ -1,6 +1,6 @@
 ---
 import type { ImageMetadata } from 'astro';
-import { Image } from 'astro:assets';
+import { getImage, Image } from 'astro:assets';
 import {
   getAmaraImageProfile,
   type AmaraImageProfile
@@ -19,6 +19,8 @@ interface Props {
   widths?: number[];
   sizes?: string;
   quality?: number;
+  avifQuality?: number;
+  preferAvif?: boolean;
 }
 
 const {
@@ -32,25 +34,57 @@ const {
   width,
   widths,
   sizes,
-  quality
+  quality,
+  avifQuality,
+  preferAvif = false
 } = Astro.props;
 
 const image = resolveAmaraImageSource(src);
 const preset = getAmaraImageProfile(profile);
 const outputWidth = width ?? preset.width;
 const outputWidths = widths ?? preset.widths;
+const outputSizes = sizes ?? preset.sizes;
+const avif = preferAvif
+  ? await getImage({
+      src: image,
+      width: outputWidth,
+      widths: outputWidths,
+      sizes: outputSizes,
+      quality: avifQuality ?? preset.avifQuality,
+      format: 'avif'
+    })
+  : null;
 ---
 
-<Image
-  src={image}
-  alt={alt}
-  width={outputWidth}
-  widths={outputWidths}
-  sizes={sizes ?? preset.sizes}
-  quality={quality ?? preset.quality}
-  format="webp"
-  class={className}
-  loading={loading}
-  decoding={decoding}
-  fetchpriority={fetchpriority}
-/>
+{avif ? (
+  <picture class="contents">
+    <source srcset={avif.srcSet.attribute} sizes={outputSizes} type="image/avif" />
+    <Image
+      src={image}
+      alt={alt}
+      width={outputWidth}
+      widths={outputWidths}
+      sizes={outputSizes}
+      quality={quality ?? preset.quality}
+      format="webp"
+      class={className}
+      loading={loading}
+      decoding={decoding}
+      fetchpriority={fetchpriority}
+    />
+  </picture>
+) : (
+  <Image
+    src={image}
+    alt={alt}
+    width={outputWidth}
+    widths={outputWidths}
+    sizes={outputSizes}
+    quality={quality ?? preset.quality}
+    format="webp"
+    class={className}
+    loading={loading}
+    decoding={decoding}
+    fetchpriority={fetchpriority}
+  />
+)}

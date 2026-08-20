@@ -9,6 +9,7 @@ interface AmaraImageProfileConfig {
   widths: number[];
   sizes: string;
   quality: number;
+  avifQuality: number;
 }
 
 export const amaraImageProfiles: Record<AmaraImageProfile, AmaraImageProfileConfig> = {
@@ -20,25 +21,29 @@ export const amaraImageProfiles: Record<AmaraImageProfile, AmaraImageProfileConf
     width: 1920,
     widths: [480, 640, 768, 960, 1280, 1536, 1920],
     sizes: '100vw',
-    quality: 70
+    quality: 70,
+    avifQuality: 50
   },
   card: {
     width: 900,
     widths: [320, 480, 600, 900],
     sizes: '(max-width: 767px) calc(100vw - 3rem), (max-width: 1535px) 50vw, 720px',
-    quality: 72
+    quality: 72,
+    avifQuality: 50
   },
   gallery: {
     width: 1200,
     widths: [320, 480, 640, 900, 1200],
     sizes: '(max-width: 639px) calc(100vw - 3rem), (max-width: 1023px) 50vw, 25vw',
-    quality: 72
+    quality: 72,
+    avifQuality: 50
   },
   background: {
     width: 1920,
     widths: [480, 640, 960, 1280, 1536, 1920],
     sizes: '100vw',
-    quality: 62
+    quality: 62,
+    avifQuality: 48
   }
 };
 

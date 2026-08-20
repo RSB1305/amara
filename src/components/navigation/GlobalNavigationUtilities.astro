@@ -34,6 +34,7 @@ const { currentLang, languageOptions, cta, showBookingCta, utilityLabels } = Ast
         aria-label={utilityLabels.selectLanguage}
         aria-haspopup="true"
         aria-expanded="false"
+        aria-controls="am-nav-language-menu"
         data-am-language-trigger
       >
         <svg
@@ -53,7 +54,7 @@ const { currentLang, languageOptions, cta, showBookingCta, utilityLabels } = Ast
         </svg>
       </button>
 
-      <div class="am-nav__language-popover" data-am-language-panel>
+      <div id="am-nav-language-menu" class="am-nav__language-popover" data-am-language-panel>
         <div class="min-w-[144px] bg-surface/95 backdrop-blur-md border border-outline-variant/15 rounded-overlay shadow-lg shadow-black/5 py-3 px-3">
           <div class="flex flex-col gap-1">
             {languageOptions.map((lang) => (

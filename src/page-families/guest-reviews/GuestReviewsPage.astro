@@ -98,7 +98,7 @@ const closingCtaLinks: EditorialClosingCtaLink[] = [
         <div class="grid gap-[clamp(2rem,4vw,3rem)] lg:grid-cols-3">
           {copy.reviews.map((review) => (
             <article class="border border-on-surface/5 bg-surface p-[clamp(2rem,3vw,2.5rem)]">
-              <p class="am-text-caption mb-6 text-on-surface/60 opacity-75">{review.meta[currentLang]}</p>
+              <p class="am-text-caption mb-6 text-muted">{review.meta[currentLang]}</p>
               <p class="am-text-body leading-[1.85] text-strong">&ldquo;{review.copy[currentLang]}&rdquo;</p>
             </article>
           ))}

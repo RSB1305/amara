@@ -131,7 +131,6 @@
     visibility 160ms ease;
 }
 
-[data-am-navigation] .am-nav__language:hover .am-nav__language-popover,
 [data-am-navigation] .am-nav__language[data-open="true"] .am-nav__language-popover {
   opacity: 1;
   visibility: visible;

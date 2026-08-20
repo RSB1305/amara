@@ -34,6 +34,94 @@ const {
   introBody
 } = Astro.props;
 const widgetId = 'am-weather-widget';
+const weatherTranslations = {
+  de: {
+    now: 'Aktuell', uv: 'UV-Index', uvLow: 'niedrig', uvMid: 'Schutz empfohlen', uvHigh: 'hoher Schutz empfohlen',
+    wind: 'Wind', windUnit: 'km/h', knotsShort: 'kn',
+    windLight: 'leicht', windModerate: 'mäßig', windStrong: 'stark', windVeryStrong: 'sehr stark',
+    windyModerate: 'Heute windig · Für Strandpläne lohnt ein kurzer Wind-Check',
+    windyStrong: 'Heute deutlich windig · Der Wind prägt den Tag in Tarifa spürbar',
+    hourly: 'Nächste Stunden', days: 'Nächste Tage',
+    sunnyHighUv: 'Heute sonnig · Hoher UV-Index rund um die Mittagszeit',
+    sunnyWarm: 'Heute freundlich und warm · Perfekt für draußen',
+    partlyCloudy: 'Heute leicht wechselhaft · Angenehme Temperaturen',
+    cloudy: 'Heute eher bewölkt · Mild im Tagesverlauf',
+    rain: 'Heute etwas Regen möglich · Lieber leicht vorbereitet sein',
+    storm: 'Heute unbeständiger · Bitte Wetterlage im Blick behalten',
+    fallback: 'Heute freundliches Wetter',
+    dayNames: ['So', 'Mo', 'Di', 'Mi', 'Do', 'Fr', 'Sa'],
+    weather: { 0: 'Sonnig', 1: 'Meist sonnig', 2: 'Teilweise bewölkt', 3: 'Bewölkt', 45: 'Nebel', 48: 'Nebel', 51: 'Leichter Nieselregen', 53: 'Nieselregen', 55: 'Stärkerer Nieselregen', 61: 'Leichter Regen', 63: 'Regen', 65: 'Starker Regen', 71: 'Schnee', 80: 'Regenschauer', 81: 'Regenschauer', 82: 'Starke Schauer', 95: 'Gewitter' }
+  },
+  en: {
+    now: 'Now', uv: 'UV Index', uvLow: 'low', uvMid: 'protection recommended', uvHigh: 'high protection recommended',
+    wind: 'Wind', windUnit: 'km/h', knotsShort: 'kn',
+    windLight: 'light', windModerate: 'moderate', windStrong: 'strong', windVeryStrong: 'very strong',
+    windyModerate: 'Windy today · Worth checking wind conditions for beach plans',
+    windyStrong: 'Very windy today · Wind will noticeably shape the day in Tarifa',
+    hourly: 'Next hours', days: 'Next days',
+    sunnyHighUv: 'Sunny today · High UV around midday',
+    sunnyWarm: 'Sunny and warm today · Great weather for being outside',
+    partlyCloudy: 'Partly cloudy today · Pleasant temperatures overall',
+    cloudy: 'More clouds today · Mild throughout the day',
+    rain: 'A bit of rain is possible today · Best to stay lightly prepared',
+    storm: 'Less settled today · Worth keeping an eye on the forecast',
+    fallback: 'Comfortable weather today',
+    dayNames: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
+    weather: { 0: 'Sunny', 1: 'Mostly sunny', 2: 'Partly cloudy', 3: 'Cloudy', 45: 'Foggy', 48: 'Foggy', 51: 'Light drizzle', 53: 'Drizzle', 55: 'Heavier drizzle', 61: 'Light rain', 63: 'Rain', 65: 'Heavy rain', 71: 'Snow', 80: 'Showers', 81: 'Showers', 82: 'Heavy showers', 95: 'Thunderstorm' }
+  },
+  es: {
+    now: 'Ahora', uv: 'Índice UV', uvLow: 'bajo', uvMid: 'protección recomendada', uvHigh: 'alta protección recomendada',
+    wind: 'Viento', windUnit: 'km/h', knotsShort: 'kn',
+    windLight: 'suave', windModerate: 'moderado', windStrong: 'fuerte', windVeryStrong: 'muy fuerte',
+    windyModerate: 'Hoy hará viento · Conviene revisar el viento para planes de playa',
+    windyStrong: 'Hoy hará bastante viento · El viento marcará claramente el día en Tarifa',
+    hourly: 'Próximas horas', days: 'Próximos días',
+    sunnyHighUv: 'Hoy hace sol · Índice UV alto alrededor del mediodía',
+    sunnyWarm: 'Hoy estará soleado y agradable · Ideal para estar fuera',
+    partlyCloudy: 'Hoy habrá algunas nubes · Temperaturas agradables',
+    cloudy: 'Hoy más bien nublado · Ambiente suave durante el día',
+    rain: 'Hoy puede caer algo de lluvia · Mejor ir un poco preparado',
+    storm: 'Hoy el tiempo estará más inestable · Conviene mirar el pronóstico',
+    fallback: 'Tiempo agradable hoy',
+    dayNames: ['Dom', 'Lun', 'Mar', 'Mié', 'Jue', 'Vie', 'Sáb'],
+    weather: { 0: 'Soleado', 1: 'Mayormente soleado', 2: 'Parcialmente nublado', 3: 'Nublado', 45: 'Niebla', 48: 'Niebla', 51: 'Llovizna ligera', 53: 'Llovizna', 55: 'Llovizna más intensa', 61: 'Lluvia ligera', 63: 'Lluvia', 65: 'Lluvia fuerte', 71: 'Nieve', 80: 'Chubascos', 81: 'Chubascos', 82: 'Chubascos fuertes', 95: 'Tormenta' }
+  },
+  nl: {
+    now: 'Nu', uv: 'UV-index', uvLow: 'laag', uvMid: 'bescherming aanbevolen', uvHigh: 'sterke bescherming aanbevolen',
+    wind: 'Wind', windUnit: 'km/h', knotsShort: 'kn',
+    windLight: 'licht', windModerate: 'matig', windStrong: 'sterk', windVeryStrong: 'zeer sterk',
+    windyModerate: 'Vandaag winderig · Handig om de wind te checken voor strandplannen',
+    windyStrong: 'Vandaag duidelijk winderig · De wind bepaalt merkbaar de dag in Tarifa',
+    hourly: 'Komende uren', days: 'Komende dagen',
+    sunnyHighUv: 'Vandaag zonnig · Hoge UV rond de middag',
+    sunnyWarm: 'Vandaag zonnig en warm · Heerlijk weer om buiten te zijn',
+    partlyCloudy: 'Vandaag deels bewolkt · Aangename temperaturen',
+    cloudy: 'Vandaag meer bewolking · Zacht door de dag heen',
+    rain: 'Vandaag kans op wat regen · Handig om voorbereid te zijn',
+    storm: 'Vandaag wat onstabieler · Houd de voorspelling even in de gaten',
+    fallback: 'Vandaag aangenaam weer',
+    dayNames: ['Zo', 'Ma', 'Di', 'Wo', 'Do', 'Vr', 'Za'],
+    weather: { 0: 'Zonnig', 1: 'Meestal zonnig', 2: 'Halfbewolkt', 3: 'Bewolkt', 45: 'Mist', 48: 'Mist', 51: 'Lichte motregen', 53: 'Motregen', 55: 'Sterkere motregen', 61: 'Lichte regen', 63: 'Regen', 65: 'Zware regen', 71: 'Sneeuw', 80: 'Buien', 81: 'Buien', 82: 'Zware buien', 95: 'Onweer' }
+  },
+  sv: {
+    now: 'Nu', uv: 'UV-index', uvLow: 'låg', uvMid: 'skydd rekommenderas', uvHigh: 'starkt skydd rekommenderas',
+    wind: 'Vind', windUnit: 'km/h', knotsShort: 'kn',
+    windLight: 'svag', windModerate: 'måttlig', windStrong: 'stark', windVeryStrong: 'mycket stark',
+    windyModerate: 'Blåsigt idag · Bra att kontrollera vinden för strandplaner',
+    windyStrong: 'Mycket blåsigt idag · Vinden kommer tydligt att prägla dagen i Tarifa',
+    hourly: 'Kommande timmar', days: 'Kommande dagar',
+    sunnyHighUv: 'Soligt idag · Hög UV runt mitt på dagen',
+    sunnyWarm: 'Soligt och varmt idag · Härligt väder för att vara ute',
+    partlyCloudy: 'Delvis molnigt idag · Behagliga temperaturer',
+    cloudy: 'Mer moln idag · Milt under dagen',
+    rain: 'Lite regn kan komma idag · Bra att vara lätt förberedd',
+    storm: 'Mer ostadigt idag · Värt att hålla koll på prognosen',
+    fallback: 'Behagligt väder idag',
+    dayNames: ['Sön', 'Mån', 'Tis', 'Ons', 'Tor', 'Fre', 'Lör'],
+    weather: { 0: 'Soligt', 1: 'Mestadels soligt', 2: 'Delvis molnigt', 3: 'Molnigt', 45: 'Dimma', 48: 'Dimma', 51: 'Lätt duggregn', 53: 'Duggregn', 55: 'Kraftigare duggregn', 61: 'Lätt regn', 63: 'Regn', 65: 'Kraftigt regn', 71: 'Snö', 80: 'Skurar', 81: 'Skurar', 82: 'Kraftiga skurar', 95: 'Åska' }
+  }
+} as const;
+const translations = weatherTranslations[lang];
 ---
 
 <details class="am-ios-details" id={widgetId}>
@@ -44,7 +132,7 @@ const widgetId = 'am-weather-widget';
       </span>
       <span class="am-ios-item__text">
         <span class="am-ios-title">{title}</span>
-        <span class="am-ios-subtitle" data-weather-subtitle>{loadingLabel}</span>
+        <span class="am-ios-subtitle min-h-[1.95rem]" data-weather-subtitle>{loadingLabel}</span>
       </span>
     </span>
     <span class="am-ios-chevron" aria-hidden="true">&rsaquo;</span>
@@ -89,101 +177,13 @@ const widgetId = 'am-weather-widget';
   </div>
 </details>
 
-<script define:vars={{ lat, lon, lang, windMode, widgetId }}>
+<script define:vars={{ lat, lon, translations, windMode, widgetId }}>
   (function () {
     const root = document.getElementById(widgetId);
     if (!root) return;
 
-    const i18n = {
-      de: {
-        now: 'Aktuell', uv: 'UV-Index', uvLow: 'niedrig', uvMid: 'Schutz empfohlen', uvHigh: 'hoher Schutz empfohlen',
-        wind: 'Wind', windUnit: 'km/h', knotsShort: 'kn',
-        windLight: 'leicht', windModerate: 'mäßig', windStrong: 'stark', windVeryStrong: 'sehr stark',
-        windyModerate: 'Heute windig · Für Strandpläne lohnt ein kurzer Wind-Check',
-        windyStrong: 'Heute deutlich windig · Der Wind prägt den Tag in Tarifa spürbar',
-        hourly: 'Nächste Stunden', days: 'Nächste Tage',
-        sunnyHighUv: 'Heute sonnig · Hoher UV-Index rund um die Mittagszeit',
-        sunnyWarm: 'Heute freundlich und warm · Perfekt für draußen',
-        partlyCloudy: 'Heute leicht wechselhaft · Angenehme Temperaturen',
-        cloudy: 'Heute eher bewölkt · Mild im Tagesverlauf',
-        rain: 'Heute etwas Regen möglich · Lieber leicht vorbereitet sein',
-        storm: 'Heute unbeständiger · Bitte Wetterlage im Blick behalten',
-        fallback: 'Heute freundliches Wetter',
-        dayNames: ['So', 'Mo', 'Di', 'Mi', 'Do', 'Fr', 'Sa'],
-        weather: { 0: 'Sonnig', 1: 'Meist sonnig', 2: 'Teilweise bewölkt', 3: 'Bewölkt', 45: 'Nebel', 48: 'Nebel', 51: 'Leichter Nieselregen', 53: 'Nieselregen', 55: 'Stärkerer Nieselregen', 61: 'Leichter Regen', 63: 'Regen', 65: 'Starker Regen', 71: 'Schnee', 80: 'Regenschauer', 81: 'Regenschauer', 82: 'Starke Schauer', 95: 'Gewitter' }
-      },
-      en: {
-        now: 'Now', uv: 'UV Index', uvLow: 'low', uvMid: 'protection recommended', uvHigh: 'high protection recommended',
-        wind: 'Wind', windUnit: 'km/h', knotsShort: 'kn',
-        windLight: 'light', windModerate: 'moderate', windStrong: 'strong', windVeryStrong: 'very strong',
-        windyModerate: 'Windy today · Worth checking wind conditions for beach plans',
-        windyStrong: 'Very windy today · Wind will noticeably shape the day in Tarifa',
-        hourly: 'Next hours', days: 'Next days',
-        sunnyHighUv: 'Sunny today · High UV around midday',
-        sunnyWarm: 'Sunny and warm today · Great weather for being outside',
-        partlyCloudy: 'Partly cloudy today · Pleasant temperatures overall',
-        cloudy: 'More clouds today · Mild throughout the day',
-        rain: 'A bit of rain is possible today · Best to stay lightly prepared',
-        storm: 'Less settled today · Worth keeping an eye on the forecast',
-        fallback: 'Comfortable weather today',
-        dayNames: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
-        weather: { 0: 'Sunny', 1: 'Mostly sunny', 2: 'Partly cloudy', 3: 'Cloudy', 45: 'Foggy', 48: 'Foggy', 51: 'Light drizzle', 53: 'Drizzle', 55: 'Heavier drizzle', 61: 'Light rain', 63: 'Rain', 65: 'Heavy rain', 71: 'Snow', 80: 'Showers', 81: 'Showers', 82: 'Heavy showers', 95: 'Thunderstorm' }
-      },
-      es: {
-        now: 'Ahora', uv: 'Índice UV', uvLow: 'bajo', uvMid: 'protección recomendada', uvHigh: 'alta protección recomendada',
-        wind: 'Viento', windUnit: 'km/h', knotsShort: 'kn',
-        windLight: 'suave', windModerate: 'moderado', windStrong: 'fuerte', windVeryStrong: 'muy fuerte',
-        windyModerate: 'Hoy hará viento · Conviene revisar el viento para planes de playa',
-        windyStrong: 'Hoy hará bastante viento · El viento marcará claramente el día en Tarifa',
-        hourly: 'Próximas horas', days: 'Próximos días',
-        sunnyHighUv: 'Hoy hace sol · Índice UV alto alrededor del mediodía',
-        sunnyWarm: 'Hoy estará soleado y agradable · Ideal para estar fuera',
-        partlyCloudy: 'Hoy habrá algunas nubes · Temperaturas agradables',
-        cloudy: 'Hoy más bien nublado · Ambiente suave durante el día',
-        rain: 'Hoy puede caer algo de lluvia · Mejor ir un poco preparado',
-        storm: 'Hoy el tiempo estará más inestable · Conviene mirar el pronóstico',
-        fallback: 'Tiempo agradable hoy',
-        dayNames: ['Dom', 'Lun', 'Mar', 'Mié', 'Jue', 'Vie', 'Sáb'],
-        weather: { 0: 'Soleado', 1: 'Mayormente soleado', 2: 'Parcialmente nublado', 3: 'Nublado', 45: 'Niebla', 48: 'Niebla', 51: 'Llovizna ligera', 53: 'Llovizna', 55: 'Llovizna más intensa', 61: 'Lluvia ligera', 63: 'Lluvia', 65: 'Lluvia fuerte', 71: 'Nieve', 80: 'Chubascos', 81: 'Chubascos', 82: 'Chubascos fuertes', 95: 'Tormenta' }
-      },
-      nl: {
-        now: 'Nu', uv: 'UV-index', uvLow: 'laag', uvMid: 'bescherming aanbevolen', uvHigh: 'sterke bescherming aanbevolen',
-        wind: 'Wind', windUnit: 'km/h', knotsShort: 'kn',
-        windLight: 'licht', windModerate: 'matig', windStrong: 'sterk', windVeryStrong: 'zeer sterk',
-        windyModerate: 'Vandaag winderig · Handig om de wind te checken voor strandplannen',
-        windyStrong: 'Vandaag duidelijk winderig · De wind bepaalt merkbaar de dag in Tarifa',
-        hourly: 'Komende uren', days: 'Komende dagen',
-        sunnyHighUv: 'Vandaag zonnig · Hoge UV rond de middag',
-        sunnyWarm: 'Vandaag zonnig en warm · Heerlijk weer om buiten te zijn',
-        partlyCloudy: 'Vandaag deels bewolkt · Aangename temperaturen',
-        cloudy: 'Vandaag meer bewolking · Zacht door de dag heen',
-        rain: 'Vandaag kans op wat regen · Handig om voorbereid te zijn',
-        storm: 'Vandaag wat onstabieler · Houd de voorspelling even in de gaten',
-        fallback: 'Vandaag aangenaam weer',
-        dayNames: ['Zo', 'Ma', 'Di', 'Wo', 'Do', 'Vr', 'Za'],
-        weather: { 0: 'Zonnig', 1: 'Meestal zonnig', 2: 'Halfbewolkt', 3: 'Bewolkt', 45: 'Mist', 48: 'Mist', 51: 'Lichte motregen', 53: 'Motregen', 55: 'Sterkere motregen', 61: 'Lichte regen', 63: 'Regen', 65: 'Zware regen', 71: 'Sneeuw', 80: 'Buien', 81: 'Buien', 82: 'Zware buien', 95: 'Onweer' }
-      },
-      sv: {
-        now: 'Nu', uv: 'UV-index', uvLow: 'låg', uvMid: 'skydd rekommenderas', uvHigh: 'starkt skydd rekommenderas',
-        wind: 'Vind', windUnit: 'km/h', knotsShort: 'kn',
-        windLight: 'svag', windModerate: 'måttlig', windStrong: 'stark', windVeryStrong: 'mycket stark',
-        windyModerate: 'Blåsigt idag · Bra att kontrollera vinden för strandplaner',
-        windyStrong: 'Mycket blåsigt idag · Vinden kommer tydligt att prägla dagen i Tarifa',
-        hourly: 'Kommande timmar', days: 'Kommande dagar',
-        sunnyHighUv: 'Soligt idag · Hög UV runt mitt på dagen',
-        sunnyWarm: 'Soligt och varmt idag · Härligt väder för att vara ute',
-        partlyCloudy: 'Delvis molnigt idag · Behagliga temperaturer',
-        cloudy: 'Mer moln idag · Milt under dagen',
-        rain: 'Lite regn kan komma idag · Bra att vara lätt förberedd',
-        storm: 'Mer ostadigt idag · Värt att hålla koll på prognosen',
-        fallback: 'Behagligt väder idag',
-        dayNames: ['Sön', 'Mån', 'Tis', 'Ons', 'Tor', 'Fre', 'Lör'],
-        weather: { 0: 'Soligt', 1: 'Mestadels soligt', 2: 'Delvis molnigt', 3: 'Molnigt', 45: 'Dimma', 48: 'Dimma', 51: 'Lätt duggregn', 53: 'Duggregn', 55: 'Kraftigare duggregn', 61: 'Lätt regn', 63: 'Regn', 65: 'Kraftigt regn', 71: 'Snö', 80: 'Skurar', 81: 'Skurar', 82: 'Kraftiga skurar', 95: 'Åska' }
-      }
-    };
-
     const icons = { 0: '☀️', 1: '🌤️', 2: '⛅', 3: '☁️', 45: '🌫️', 48: '🌫️', 51: '🌦️', 53: '🌦️', 55: '🌦️', 61: '🌧️', 63: '🌧️', 65: '🌧️', 71: '❄️', 80: '🌦️', 81: '🌦️', 82: '🌧️', 95: '⛈️' };
-    const t = i18n[lang] || i18n.en;
+    const t = translations;
     const showWind = Boolean(windMode);
 
     const hourlyLabelEl = root.querySelector('[data-weather-hourly-label]');

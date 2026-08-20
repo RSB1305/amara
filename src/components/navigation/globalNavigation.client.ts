@@ -95,6 +95,12 @@ function initGlobalNavigation(): void {
     languageTrigger.setAttribute('aria-expanded', open ? 'true' : 'false');
   };
 
+  const closeLanguage = (): void => {
+    setLanguageOpen(false);
+    language?.removeAttribute('data-activation-open');
+    language?.removeAttribute('data-hover-suppressed');
+  };
+
   const setDesktopGroupExpanded = (group: HTMLElement, expanded: boolean): void => {
     const trigger = group.querySelector<HTMLElement>('.am-nav__group-trigger');
     const dropdown = group.querySelector<HTMLElement>('.am-nav__dropdown');
@@ -178,7 +184,7 @@ function initGlobalNavigation(): void {
       : menuTrigger.getAttribute('data-label-open');
     if (nextLabel !== null) menuTrigger.setAttribute('aria-label', nextLabel);
     document.documentElement.classList.toggle('am-nav-lock', open);
-    setLanguageOpen(false);
+    closeLanguage();
     setMobileBackgroundInert(open);
 
     if (open) {
@@ -201,20 +207,46 @@ function initGlobalNavigation(): void {
   if (language && languageTrigger) {
     languageTrigger.addEventListener('click', (event) => {
       event.stopPropagation();
+
+      if (desktopQuery.matches) {
+        if (language.hasAttribute('data-activation-open')) {
+          const suppressHover = language.matches(':hover');
+          closeLanguage();
+          if (suppressHover) language.setAttribute('data-hover-suppressed', 'true');
+          return;
+        }
+
+        language.setAttribute('data-activation-open', 'true');
+        language.removeAttribute('data-hover-suppressed');
+        setLanguageOpen(true);
+        return;
+      }
+
       setLanguageOpen(languageTrigger.getAttribute('aria-expanded') !== 'true');
+    });
+
+    language.addEventListener('pointerenter', () => {
+      if (!desktopQuery.matches || language.hasAttribute('data-hover-suppressed')) return;
+      if (!language.hasAttribute('data-activation-open')) setLanguageOpen(true);
+    });
+
+    language.addEventListener('pointerleave', () => {
+      language.removeAttribute('data-hover-suppressed');
+      if (!desktopQuery.matches || language.hasAttribute('data-activation-open')) return;
+      setLanguageOpen(false);
     });
   }
 
   document.addEventListener('click', (event) => {
     const target = event.target;
     if (language && target instanceof Node && language.contains(target)) return;
-    setLanguageOpen(false);
+    closeLanguage();
   });
 
   document.addEventListener('keydown', (event) => {
     if (event.key !== 'Escape') return;
     if (languageTrigger && languageTrigger.getAttribute('aria-expanded') === 'true') {
-      setLanguageOpen(false);
+      closeLanguage();
       languageTrigger.focus();
       return;
     }

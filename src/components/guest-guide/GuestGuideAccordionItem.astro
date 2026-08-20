@@ -88,7 +88,15 @@ const mapLabel = `${title} — Google Maps`;
       </figure>
     ))}
     {video && video.src && (
-      <video class="am-ios-video-native" controls playsinline preload="metadata" aria-label={video.title}>
+      <video
+        class="am-ios-video-native"
+        controls
+        playsinline
+        preload="none"
+        width="1280"
+        height="720"
+        aria-label={video.title}
+      >
         <source src={video.src} type="video/mp4" />
       </video>
     )}
