@@ -1,0 +1,430 @@
+---
+import AmaraImage from '../../components/AmaraImage.astro';
+import FaqAccordion from '../../components/FaqAccordion.astro';
+import Navigation from '../../components/Navigation.astro';
+import EditorialGuideLinkSection from '../../components/editorial/EditorialGuideLinkSection.astro';
+import LocationContextNav from '../../components/location/LocationContextNav.astro';
+import LocationGuideIcon from '../../components/location/LocationGuideIcon.astro';
+import NerjaContextNav from '../../components/location/NerjaContextNav.astro';
+import TarifaContextNav from '../../components/location/TarifaContextNav.astro';
+import InlineEmphasis from '../../components/text/InlineEmphasis.astro';
+import {
+  getArrivalGuideContent,
+  type ArrivalGuideDestination
+} from '../../content/destinationArrivalGuideContent';
+import LocationAuthorityLayout from '../../layouts/LocationAuthorityLayout.astro';
+import { createRequiredLinkResolver, resolveOptionalLink } from '../../lib/linkResolver';
+import { normalizeLanguage } from '../../lib/seo/resolve-seo-head';
+import type { AmaraLanguage } from '../../types/seo';
+import AuthorityArticle from './AuthorityArticle.astro';
+
+/**
+ * The single page-family template for destination arrival guides.
+ *
+ * Destination adapters select only a content record. Module order, visual
+ * hierarchy and responsive behavior are owned here and therefore change once
+ * for Frigiliana, Nerja and Tarifa together.
+ */
+interface Props {
+  destination: ArrivalGuideDestination;
+  lang?: string;
+}
+
+const { destination, lang = 'es' } = Astro.props;
+const currentLang = normalizeLanguage(lang as AmaraLanguage);
+const content = getArrivalGuideContent(destination, currentLang);
+const requiredLink = createRequiredLinkResolver(currentLang, `${destination} arrival guide`);
+
+const authorHref = content.author ? requiredLink(content.author.token) : undefined;
+const primaryCta = {
+  href: requiredLink(content.closing.primary.token),
+  label: content.closing.primary.label
+};
+const secondaryCta = {
+  href: requiredLink(content.closing.secondary.token),
+  label: content.closing.secondary.label
+};
+
+const finalMileLinks = content.finalMile?.links?.map((link) => ({
+  href: requiredLink(link.token),
+  label: link.label
+})) ?? [];
+
+const relatedLinks = content.related?.links.flatMap((link) => {
+  const href = resolveOptionalLink(link.token, currentLang, { suppressMissing: true });
+  return href ? [{ href, label: link.label, text: link.text ?? '' }] : [];
+}) ?? [];
+
+const optionGridClass = content.options.items.length === 2
+  ? 'lg:grid-cols-2'
+  : 'lg:grid-cols-3';
+const gatewayGridClass = content.gateways?.items.length === 1
+  ? 'lg:grid-cols-1'
+  : 'lg:grid-cols-2';
+const mobilityGridClass = content.mobility?.items.length === 2
+  ? 'lg:grid-cols-2'
+  : 'lg:grid-cols-3';
+---
+
+<LocationAuthorityLayout
+  seo={content.seo}
+  pageLang={currentLang}
+  showContextNavigation={false}
+  footerHighlights={content.footerHighlights}
+>
+  <Navigation
+    slot="navigation"
+    currentLang={currentLang}
+    languageToken={content.languageToken}
+  />
+
+  {
+    destination === 'frigiliana' ? (
+      <LocationContextNav activeId="arrival" lang={currentLang} />
+    ) : destination === 'nerja' ? (
+      <NerjaContextNav activeId="arrival-mobility" childLabel={content.navLabel} lang={currentLang} />
+    ) : (
+      <TarifaContextNav
+        activeId="overview"
+        activeChildId="arrival-mobility"
+        currentLabel="Tarifa"
+        childLabel={content.navLabel}
+        lang={currentLang}
+      />
+    )
+  }
+
+  <AuthorityArticle
+    pageId={content.pageId}
+    family="location"
+    topic="arrival"
+    lang={currentLang}
+    hero={content.hero}
+    authorName={content.author?.name}
+    authorHref={authorHref}
+    factsTitle={content.factsTitle}
+    facts={content.facts}
+    factIcons={content.factIcons}
+    sources={content.sources}
+    closing={content.closing}
+    primaryCta={primaryCta}
+    secondaryCta={secondaryCta}
+    presentation="guide"
+    guideVisual={{
+      eyebrow: content.facts[0]?.label ?? content.hero.eyebrow,
+      mark: content.facts[0]?.value ?? content.hero.title,
+      note: content.facts[1]?.value
+    }}
+  >
+    {
+      content.gateways && (
+        <section
+          class="border-b border-border-subtle bg-surface px-6 py-20 md:px-12 md:py-28"
+          data-am-arrival-module="gateways"
+        >
+          <div class="mx-auto max-w-screen-2xl">
+            <header class="mb-12 max-w-4xl md:mb-16">
+              <p class="font-label text-[11px] font-bold uppercase tracking-[0.18em] text-primary">
+                {content.gateways.eyebrow}
+              </p>
+              <h2 class="am-text-title mt-5 text-balance italic text-on-surface">
+                {content.gateways.title}
+              </h2>
+              {content.gateways.intro && (
+                <p class="am-text-body mt-6 max-w-3xl leading-relaxed text-on-surface-variant">
+                  <InlineEmphasis text={content.gateways.intro} />
+                </p>
+              )}
+            </header>
+
+            <div class:list={['grid border-y border-border-subtle', gatewayGridClass]}>
+              {content.gateways.items.map((item, index) => (
+                <article
+                  class:list={[
+                    'p-7 md:p-10 lg:p-12',
+                    index > 0 && 'border-t border-border-subtle lg:border-l lg:border-t-0'
+                  ]}
+                >
+                  <div class="flex items-center justify-between gap-6">
+                    <LocationGuideIcon name={item.icon} class="h-6 w-6" />
+                    <span class="am-text-subtitle italic text-primary/65">
+                      {String(index + 1).padStart(2, '0')}
+                    </span>
+                  </div>
+                  <p class="font-label mt-8 text-[10px] font-bold uppercase tracking-[0.16em] text-primary">
+                    {item.eyebrow}
+                  </p>
+                  <h3 class="am-text-title mt-4 text-balance text-on-surface">{item.title}</h3>
+                  <p class="am-text-body mt-7 max-w-2xl leading-relaxed text-on-surface-variant">
+                    <InlineEmphasis text={item.summary} />
+                  </p>
+                  {item.details.map((detail) => (
+                    <p class="am-text-body mt-6 border-t border-border-subtle pt-6 leading-relaxed text-on-surface-variant">
+                      <InlineEmphasis text={detail} />
+                    </p>
+                  ))}
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
+      )
+    }
+
+    <section
+      class="border-b border-border-subtle bg-surface-container-low px-6 py-20 md:px-12 md:py-28"
+      data-am-arrival-module="options"
+    >
+      <div class="mx-auto max-w-screen-2xl">
+        <header class="mb-12 grid gap-8 lg:grid-cols-12 lg:items-end md:mb-16">
+          <div class="lg:col-span-7">
+            <p class="font-label text-[11px] font-bold uppercase tracking-[0.18em] text-primary">
+              {content.options.eyebrow}
+            </p>
+            <h2 class="am-text-title mt-5 text-balance italic text-on-surface">
+              {content.options.title}
+            </h2>
+          </div>
+          {content.options.intro && (
+            <p class="am-text-body max-w-2xl leading-relaxed text-on-surface-variant lg:col-span-5">
+              <InlineEmphasis text={content.options.intro} />
+            </p>
+          )}
+        </header>
+
+        <div class:list={['grid gap-px overflow-hidden border border-border-subtle bg-border-subtle', optionGridClass]}>
+          {content.options.items.map((item, index) => (
+            <article class="flex min-w-0 flex-col bg-surface p-7 md:p-10 lg:p-12">
+              <div class="flex items-center justify-between gap-6">
+                <LocationGuideIcon name={item.icon} class="h-6 w-6" />
+                <span class="am-text-subtitle italic text-primary/65">
+                  {String(index + 1).padStart(2, '0')}
+                </span>
+              </div>
+              <p class="font-label mt-8 text-[10px] font-bold uppercase tracking-[0.16em] text-primary">
+                {item.eyebrow}
+              </p>
+              <h3 class="am-text-title mt-4 text-balance text-on-surface">{item.title}</h3>
+              <p class="am-text-body mt-7 leading-relaxed text-on-surface-variant">
+                <InlineEmphasis text={item.summary} />
+              </p>
+
+              {item.details.map((detail) => (
+                <p class="am-text-body mt-6 border-t border-border-subtle pt-6 leading-relaxed text-on-surface-variant">
+                  <InlineEmphasis text={detail} />
+                </p>
+              ))}
+
+              {(item.timing || item.bestFor || item.consideration) && (
+                <dl class="mt-8 border-t border-border-subtle">
+                  {item.timing && (
+                    <div class="border-b border-border-subtle py-5">
+                      <dt class="font-label text-[10px] font-bold uppercase tracking-[0.14em] text-primary">
+                        {content.options.labels.timing}
+                      </dt>
+                      <dd class="am-text-body mt-3 leading-relaxed text-on-surface-variant">
+                        <InlineEmphasis text={item.timing} />
+                      </dd>
+                    </div>
+                  )}
+                  {item.bestFor && (
+                    <div class="border-b border-border-subtle py-5">
+                      <dt class="font-label text-[10px] font-bold uppercase tracking-[0.14em] text-primary">
+                        {content.options.labels.bestFor}
+                      </dt>
+                      <dd class="am-text-body mt-3 leading-relaxed text-on-surface-variant">
+                        <InlineEmphasis text={item.bestFor} />
+                      </dd>
+                    </div>
+                  )}
+                  {item.consideration && (
+                    <div class="border-b border-border-subtle py-5">
+                      <dt class="font-label text-[10px] font-bold uppercase tracking-[0.14em] text-primary">
+                        {content.options.labels.consideration}
+                      </dt>
+                      <dd class="am-text-body mt-3 leading-relaxed text-on-surface-variant">
+                        <InlineEmphasis text={item.consideration} />
+                      </dd>
+                    </div>
+                  )}
+                </dl>
+              )}
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    {
+      content.journeySteps && (
+        <div data-am-arrival-module="journey-steps">
+          <FaqAccordion
+            arrivalTitle={content.journeySteps.title}
+            steps={content.journeySteps.steps}
+            faqTitle={content.journeySteps.faqTitle}
+            items={content.journeySteps.faq}
+          />
+        </div>
+      )
+    }
+
+    {
+      content.mobility && (
+        <section
+          class="border-b border-border-subtle bg-inverse-surface px-6 py-20 text-inverted-on-surface md:px-12 md:py-28"
+          data-am-arrival-module="mobility"
+        >
+          <div class="mx-auto max-w-screen-2xl">
+            <header class="mb-12 max-w-4xl md:mb-16">
+              <p class="font-label text-[11px] font-bold uppercase tracking-[0.18em] text-primary-fixed">
+                {content.mobility.eyebrow}
+              </p>
+              <h2 class="am-text-title mt-5 text-balance italic text-inverted-on-surface">
+                {content.mobility.title}
+              </h2>
+              {content.mobility.intro && (
+                <p class="am-text-body mt-6 max-w-3xl leading-relaxed text-inverted-on-surface/75">
+                  <InlineEmphasis text={content.mobility.intro} />
+                </p>
+              )}
+            </header>
+
+            <div class:list={['grid gap-px overflow-hidden border border-white/15 bg-white/15', mobilityGridClass]}>
+              {content.mobility.items.map((item) => (
+                <article class="bg-inverse-surface p-7 md:p-10 lg:p-12">
+                  <LocationGuideIcon name={item.icon} class="h-6 w-6 text-primary-fixed" />
+                  <p class="font-label mt-8 text-[10px] font-bold uppercase tracking-[0.16em] text-primary-fixed">
+                    {item.eyebrow}
+                  </p>
+                  <h3 class="am-text-title mt-4 text-balance text-inverted-on-surface">{item.title}</h3>
+                  <p class="am-text-body mt-7 leading-relaxed text-inverted-on-surface/75">
+                    <InlineEmphasis text={item.summary} />
+                  </p>
+                  {item.details.map((detail) => (
+                    <p class="am-text-body mt-6 border-t border-white/15 pt-6 leading-relaxed text-inverted-on-surface/75">
+                      <InlineEmphasis text={detail} />
+                    </p>
+                  ))}
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
+      )
+    }
+
+    {
+      content.parking && (
+        <section
+          id={content.parking.id}
+          class="border-b border-border-subtle bg-surface px-6 py-20 md:px-12 md:py-28"
+          data-am-arrival-module="parking"
+        >
+          <div class="mx-auto grid max-w-screen-2xl gap-10 lg:grid-cols-12 lg:gap-20">
+            <header class="lg:col-span-5">
+              <div class="flex items-center gap-4">
+                <LocationGuideIcon name={content.parking.icon} class="h-6 w-6" />
+                <p class="font-label text-[11px] font-bold uppercase tracking-[0.18em] text-primary">
+                  {content.parking.eyebrow}
+                </p>
+              </div>
+              <h2 class="am-text-title mt-6 text-balance italic text-on-surface">
+                {content.parking.title}
+              </h2>
+            </header>
+            <div class="border-t border-border-subtle lg:col-span-7">
+              {[content.parking.summary, ...content.parking.details].map((paragraph, index) => (
+                <div class="grid grid-cols-[2.5rem_minmax(0,1fr)] gap-5 border-b border-border-subtle py-7 md:grid-cols-[3.5rem_minmax(0,1fr)] md:py-9">
+                  <span class="am-text-subtitle italic text-primary/65">
+                    {String(index + 1).padStart(2, '0')}
+                  </span>
+                  <p class="am-text-body leading-relaxed text-on-surface-variant">
+                    <InlineEmphasis text={paragraph} />
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      )
+    }
+
+    {
+      content.finalMile && (
+        <section
+          class="border-b border-border-subtle bg-surface-container-low px-6 py-20 md:px-12 md:py-28"
+          data-am-arrival-module="final-mile"
+        >
+          <div class:list={[
+            'mx-auto max-w-screen-2xl',
+            content.finalMile.image && 'grid overflow-hidden bg-surface lg:grid-cols-2'
+          ]}>
+            {content.finalMile.image && (
+              <figure class="am-mobile-full-bleed min-h-[320px] bg-surface-container-high lg:min-h-[560px]">
+                <AmaraImage
+                  src={content.finalMile.image.src}
+                  alt={content.finalMile.image.alt}
+                  profile="gallery"
+                  class="h-full w-full object-cover"
+                  sizes="(max-width: 1023px) 100vw, 50vw"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </figure>
+            )}
+            <div class:list={[
+              'flex flex-col justify-center',
+              content.finalMile.image ? 'p-8 md:p-12 lg:p-16' : 'mx-auto max-w-5xl'
+            ]}>
+              <p class="font-label text-[11px] font-bold uppercase tracking-[0.18em] text-primary">
+                {content.finalMile.eyebrow}
+              </p>
+              <h2 class="am-text-title mt-5 text-balance italic text-on-surface">
+                {content.finalMile.title}
+              </h2>
+              {content.finalMile.paragraphs.map((paragraph) => (
+                <p class="am-text-body mt-7 max-w-3xl leading-relaxed text-on-surface-variant">
+                  <InlineEmphasis text={paragraph} />
+                </p>
+              ))}
+              {content.finalMile.steps && (
+                <div class="mt-10 border-t border-border-subtle">
+                  {content.finalMile.steps.map((step, index) => (
+                    <div class="grid grid-cols-[2rem_minmax(0,1fr)] gap-5 border-b border-border-subtle py-6 md:grid-cols-[3rem_minmax(0,1fr)]">
+                      {content.finalMile?.stepIcons?.[index] ? (
+                        <LocationGuideIcon name={content.finalMile.stepIcons[index]} class="mt-1 h-5 w-5" />
+                      ) : (
+                        <span class="am-text-subtitle italic text-primary/65">{index + 1}</span>
+                      )}
+                      <p class="am-text-body leading-relaxed text-on-surface-variant">
+                        <InlineEmphasis text={step} />
+                      </p>
+                    </div>
+                  ))}
+                </div>
+              )}
+              {finalMileLinks.length > 0 && (
+                <div class="mt-10 flex flex-wrap gap-x-8 gap-y-4">
+                  {finalMileLinks.map((link) => (
+                    <a href={link.href} class="am-cta-link">{link.label}</a>
+                  ))}
+                </div>
+              )}
+            </div>
+          </div>
+        </section>
+      )
+    }
+
+    {
+      content.related && relatedLinks.length > 0 && (
+        <EditorialGuideLinkSection
+          eyebrow={content.related.eyebrow}
+          title={content.related.title}
+          intro={content.related.intro}
+          links={relatedLinks}
+        />
+      )
+    }
+  </AuthorityArticle>
+</LocationAuthorityLayout>
