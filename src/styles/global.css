@@ -51,12 +51,10 @@
   --color-sustainability-surface: #dcefe6;
   --color-sustainability-on-surface: #1d3128;
 
-  /** Location + Experience editorial palette — Mediterranean landscape, clay and sun-washed planting */
-  --color-editorial-forest: #29443a;
-  --color-editorial-terracotta: #8f4639;
-  --color-editorial-coral: #e59687;
-  --color-editorial-sage: #e5ebe2;
-  --color-editorial-clay: #f1e1dc;
+  /** Location + Experience editorial palette — warm stone, umber and restrained hotel gold */
+  --color-editorial-umber: #5b403a;
+  --color-editorial-gold: #d4b17b;
+  --color-editorial-stone: #ece7df;
   --color-btn-primary-text: #fbf9f5;
   --color-primary-alpha-80: rgb(120 86 17 / 0.8);
 
@@ -98,21 +96,17 @@
  * established neutral-and-gold identity.
  */
 :where([data-am-family="location"]) {
-  --color-primary: var(--color-editorial-terracotta);
-  --color-primary-container: var(--color-editorial-terracotta);
-  --color-inverse-surface: var(--color-editorial-forest);
-  --color-inverted-surface: var(--color-editorial-forest);
-  --color-primary-fixed-dim: var(--color-editorial-coral);
-  --color-surface-container-low: var(--color-editorial-sage);
+  --color-inverse-surface: var(--color-editorial-umber);
+  --color-inverted-surface: var(--color-editorial-umber);
+  --color-primary-fixed-dim: var(--color-editorial-gold);
+  --color-surface-container-low: var(--color-editorial-stone);
 }
 
 :where([data-am-family="experience"]) {
-  --color-primary: var(--color-editorial-terracotta);
-  --color-primary-container: var(--color-editorial-terracotta);
-  --color-inverse-surface: var(--color-editorial-forest);
-  --color-inverted-surface: var(--color-editorial-forest);
-  --color-primary-fixed-dim: var(--color-editorial-coral);
-  --color-surface-container-low: var(--color-editorial-clay);
+  --color-inverse-surface: var(--color-editorial-umber);
+  --color-inverted-surface: var(--color-editorial-umber);
+  --color-primary-fixed-dim: var(--color-editorial-gold);
+  --color-surface-container-low: var(--color-editorial-stone);
 }
 
 /**
