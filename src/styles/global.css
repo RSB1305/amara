@@ -51,10 +51,6 @@
   --color-sustainability-surface: #dcefe6;
   --color-sustainability-on-surface: #1d3128;
 
-  /** Location + Experience editorial palette — warm stone, umber and restrained hotel gold */
-  --color-editorial-umber: #5b403a;
-  --color-editorial-gold: #d4b17b;
-  --color-editorial-stone: #ece7df;
   --color-btn-primary-text: #fbf9f5;
   --color-primary-alpha-80: rgb(120 86 17 / 0.8);
 
@@ -87,26 +83,6 @@
 
   /** Primary solid button hover — surface shift (replaces opacity-only hover) */
   --color-btn-primary-hover-bg: color-mix(in srgb, var(--color-on-surface) 90%, white);
-}
-
-/**
- * Location and Experience keep the shared AMARA component system while using
- * a warmer destination-editorial palette. The scope deliberately stops at
- * each family root, so navigation, rentals and booking surfaces retain their
- * established neutral-and-gold identity.
- */
-:where([data-am-family="location"]) {
-  --color-inverse-surface: var(--color-editorial-umber);
-  --color-inverted-surface: var(--color-editorial-umber);
-  --color-primary-fixed-dim: var(--color-editorial-gold);
-  --color-surface-container-low: var(--color-editorial-stone);
-}
-
-:where([data-am-family="experience"]) {
-  --color-inverse-surface: var(--color-editorial-umber);
-  --color-inverted-surface: var(--color-editorial-umber);
-  --color-primary-fixed-dim: var(--color-editorial-gold);
-  --color-surface-container-low: var(--color-editorial-stone);
 }
 
 /**

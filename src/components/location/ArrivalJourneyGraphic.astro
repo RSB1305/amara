@@ -22,6 +22,12 @@ export interface ArrivalJourneyGraphicData {
     label: string;
     value: string;
   }>;
+  mapLabels?: {
+    morocco: string;
+    tangier: string;
+    strait: string;
+    ferry: string;
+  };
   ariaLabel: string;
 }
 
@@ -74,15 +80,17 @@ const diagrams = {
       'M281 111 C320 132 352 143 384 165 C420 190 440 216 469 242'
     ],
     routes: [
-      'M426 74 C406 142 382 208 350 258 C321 299 284 320 244 334',
-      'M382 216 C348 248 308 281 244 334',
-      'M119 86 C146 155 176 218 210 276 C224 300 234 318 244 334'
+      'M426 74 C406 137 383 198 352 242 C328 276 307 297 278 316',
+      'M382 216 C348 247 321 280 278 316',
+      'M119 86 C146 151 176 211 211 263 C235 290 252 304 278 316'
     ],
+    oppositeCoast: 'M34 400 C118 373 190 386 257 369 C331 349 417 366 506 337',
+    ferryRoute: 'M257 369 C260 352 267 334 278 316',
     nodes: [
       { x: 426, y: 74, code: 'AGP', kind: 'airport' },
       { x: 119, y: 86, code: 'XRY', kind: 'airport-secondary' },
       { x: 382, y: 216, code: 'GIB', kind: 'airport-secondary' },
-      { x: 244, y: 334, code: 'AMARA', kind: 'destination' }
+      { x: 278, y: 316, code: 'AMARA', kind: 'destination' }
     ],
     sea: 'ATLÁNTICO · MEDITERRÁNEO'
   }
@@ -101,7 +109,7 @@ const diagram = diagrams[data.place];
       <p class="font-label text-[9px] font-bold uppercase tracking-[0.22em] text-primary-fixed-dim">
         {data.eyebrow}
       </p>
-      <p class="am-text-title mt-3 italic text-inverted-on-surface">{data.destination}</p>
+      <p class="arrival-graphic__destination mt-3 italic text-inverted-on-surface">{data.destination}</p>
     </div>
     <p class="max-w-32 pt-1 text-right font-label text-[9px] font-semibold uppercase leading-relaxed tracking-[0.15em] text-inverted-on-surface/45">
       {data.region}
@@ -135,6 +143,25 @@ const diagram = diagrams[data.place];
         {diagram.terrain.map((path) => <path d={path} />)}
       </g>
       <path class="coast-line" d={diagram.coast} />
+
+      {data.place === 'tarifa' && data.mapLabels && (
+        <>
+          <path class="opposite-coast-line" d={diagrams.tarifa.oppositeCoast} />
+          <path class="route-ferry" d={diagrams.tarifa.ferryRoute} />
+          <g class="ferry-symbol" transform="translate(264 343)">
+            <path d="M-12 3 L-8 10 C-3 13 3 13 8 10 L12 3 Z" />
+            <path d="M-7 3 V-4 H7 V3 M-3 -4 V-9 H3 V-4" />
+          </g>
+          <g class="map-node map-node--context" transform="translate(257 369)">
+            <circle class="node-halo" r="11" />
+            <circle class="node-dot" r="3.5" />
+            <text class="node-label" x="-13" y="-9" text-anchor="end">{data.mapLabels.tangier}</text>
+          </g>
+          <text class="ferry-label" x="230" y="344" text-anchor="end">{data.mapLabels.ferry}</text>
+          <text class="strait-label" x="303" y="348">{data.mapLabels.strait}</text>
+          <text class="map-region-label" x="340" y="392">{data.mapLabels.morocco}</text>
+        </>
+      )}
 
       <g class="route-lines">
         {diagram.routes.map((path, index) => (
@@ -173,7 +200,12 @@ const diagram = diagrams[data.place];
             y={node.kind === 'context' ? -12 : 4}
             text-anchor={node.x > 370 ? 'end' : 'start'}
           >
-            {node.code}
+            {node.kind === 'airport' ? (
+              <>
+                <tspan class="airport-code">{data.primaryAirport.code}</tspan>
+                <tspan class="airport-city"> · {data.primaryAirport.name}</tspan>
+              </>
+            ) : node.code}
           </text>
         </g>
       ))}
@@ -234,6 +266,14 @@ const diagram = diagrams[data.place];
       linear-gradient(145deg, color-mix(in srgb, var(--color-inverse-surface) 93%, black), var(--color-inverse-surface));
   }
 
+  .arrival-graphic__destination {
+    font-family: var(--font-headline);
+    font-size: clamp(1.75rem, 4vw, 2.65rem);
+    font-weight: 300;
+    line-height: 1.08;
+    letter-spacing: -0.015em;
+  }
+
   .terrain-lines path {
     fill: none;
     stroke: currentColor;
@@ -246,6 +286,13 @@ const diagram = diagrams[data.place];
     stroke: currentColor;
     stroke-width: 1.4;
     opacity: 0.32;
+  }
+
+  .opposite-coast-line {
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.25;
+    opacity: 0.28;
   }
 
   .route-lines path {
@@ -265,6 +312,23 @@ const diagram = diagrams[data.place];
     stroke-width: 1;
     stroke-dasharray: 2 8;
     opacity: 0.27;
+  }
+
+  .route-ferry {
+    fill: none;
+    stroke: var(--color-primary-fixed-dim);
+    stroke-width: 1.6;
+    stroke-linecap: round;
+    stroke-dasharray: 4 5;
+  }
+
+  .ferry-symbol path {
+    fill: none;
+    stroke: var(--color-inverse-on-surface);
+    stroke-width: 1.15;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    opacity: 0.88;
   }
 
   .node-halo {
@@ -338,6 +402,12 @@ const diagram = diagrams[data.place];
     font-size: 16px;
   }
 
+  .airport-city {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+  }
+
   .map-node--airport-secondary .node-label {
     fill: var(--color-inverse-on-surface);
     font-size: 14px;
@@ -347,6 +417,33 @@ const diagram = diagrams[data.place];
     font-size: 7px;
     font-weight: 600;
     opacity: 0.2;
+  }
+
+  .ferry-label,
+  .strait-label,
+  .map-region-label {
+    fill: currentColor;
+    font-family: var(--font-label);
+    font-weight: 700;
+    text-transform: uppercase;
+  }
+
+  .ferry-label {
+    font-size: 7px;
+    letter-spacing: 0.12em;
+    opacity: 0.64;
+  }
+
+  .strait-label {
+    font-size: 6.5px;
+    letter-spacing: 0.1em;
+    opacity: 0.44;
+  }
+
+  .map-region-label {
+    font-size: 9px;
+    letter-spacing: 0.16em;
+    opacity: 0.72;
   }
 
   .compass path,
