@@ -210,9 +210,9 @@ export const frigilianaDailyLifeContent: Record<
       title: 'Daily-life questions',
       items: [
         { question: 'Can you buy groceries in Frigiliana?', answer: 'Yes. Several small local shops cover normal food, drink, breakfast and cooking needs, and Eroski City offers a larger local option.' },
-        { question: 'Do I have to shop in Nerja?', answer: 'No. Nerja is useful for a larger basket or specialist products, but normal holiday shopping works in Frigiliana.' },
+        { question: 'Do you have to shop in Nerja?', answer: 'No. Nerja is useful for a larger basket or specialist products, but normal holiday shopping works in Frigiliana.' },
         { question: 'Is there a larger supermarket in Frigiliana?', answer: 'Yes. Eroski City in the newer lower village is larger than the small historic-centre shops, though smaller than the large formats in Nerja.' },
-        { question: 'Do I need a car in Frigiliana?', answer: 'Not for ordinary village life. A car adds flexibility for larger shops, the coast and regional outings.' },
+        { question: 'Do you need a car in Frigiliana?', answer: 'Not for ordinary village life. A car adds flexibility for larger shops, the coast and regional outings.' },
         { question: 'Can you shop on Sundays?', answer: 'Yes, there are Sunday options, especially in summer. Hours vary by business and season, so check the specific shop.' },
         { question: 'Are there pharmacy and medical services?', answer: 'Frigiliana has a pharmacy. For more serious needs, Centro de Salud Nerja is the practical public health point.' }
       ]
@@ -349,9 +349,9 @@ export const frigilianaDailyLifeContent: Record<
       title: 'Fragen zum Alltag',
       items: [
         { question: 'Kann man in Frigiliana Lebensmittel einkaufen?', answer: 'Ja. Mehrere kleine Läden decken normale Lebensmittel, Getränke, Frühstück und Kochbasics ab; Eroski City ergänzt als größerer Markt vor Ort.' },
-        { question: 'Muss ich zum Einkaufen nach Nerja?', answer: 'Nein. Nerja ist für größere Warenkörbe oder spezielle Produkte praktisch, der normale Ferienalltag funktioniert aber in Frigiliana.' },
+        { question: 'Müsst ihr zum Einkaufen nach Nerja?', answer: 'Nein. Nerja ist für größere Warenkörbe oder spezielle Produkte praktisch, der normale Ferienalltag funktioniert aber in Frigiliana.' },
         { question: 'Gibt es einen größeren Supermarkt in Frigiliana?', answer: 'Ja. Eroski City im neueren unteren Ort ist größer als die kleinen Läden im historischen Zentrum, aber kleiner als die großen Formate in Nerja.' },
-        { question: 'Brauche ich in Frigiliana ein Auto?', answer: 'Nicht für den normalen Dorfalltag. Ein Auto schafft Flexibilität für größere Einkäufe, Küstentage und Ausflüge.' },
+        { question: 'Braucht ihr in Frigiliana ein Auto?', answer: 'Nicht für den normalen Dorfalltag. Ein Auto schafft Flexibilität für größere Einkäufe, Küstentage und Ausflüge.' },
         { question: 'Kann man sonntags einkaufen?', answer: 'Ja, es gibt sonntags Möglichkeiten, besonders im Sommer. Die Zeiten unterscheiden sich nach Betrieb und Saison.' },
         { question: 'Gibt es eine Apotheke und medizinische Versorgung?', answer: 'Frigiliana hat eine Apotheke. Für ernsthaftere Anliegen ist das Centro de Salud Nerja die praktische öffentliche Anlaufstelle.' }
       ]
@@ -488,9 +488,9 @@ export const frigilianaDailyLifeContent: Record<
       title: 'Preguntas sobre el día a día',
       items: [
         { question: '¿Se pueden comprar alimentos en Frigiliana?', answer: 'Sí. Varias tiendas pequeñas cubren alimentación, bebidas, desayuno y básicos; Eroski City añade una opción local mayor.' },
-        { question: '¿Tengo que comprar en Nerja?', answer: 'No. Nerja es útil para una cesta grande o productos específicos, pero la compra normal de vacaciones funciona en Frigiliana.' },
+        { question: '¿Tenéis que comprar en Nerja?', answer: 'No. Nerja es útil para una cesta grande o productos específicos, pero la compra normal de vacaciones funciona en Frigiliana.' },
         { question: '¿Hay un supermercado más grande en Frigiliana?', answer: 'Sí. Eroski City, en la parte baja más nueva, es mayor que las tiendas del casco histórico, aunque menor que los grandes formatos de Nerja.' },
-        { question: '¿Necesito coche en Frigiliana?', answer: 'No para la rutina del pueblo. El coche aporta flexibilidad para compras grandes, costa y excursiones.' },
+        { question: '¿Necesitáis coche en Frigiliana?', answer: 'No para la rutina del pueblo. El coche aporta flexibilidad para compras grandes, costa y excursiones.' },
         { question: '¿Se puede comprar los domingos?', answer: 'Sí, hay opciones dominicales, especialmente en verano. Los horarios cambian según comercio y temporada.' },
         { question: '¿Hay farmacia y asistencia médica?', answer: 'Frigiliana tiene farmacia. Para necesidades más serias, el Centro de Salud Nerja es la referencia pública práctica.' }
       ]
@@ -533,7 +533,7 @@ export const frigilianaDailyLifeContent: Record<
       eyebrow: 'Frigiliana · Dagelijks leven & voorzieningen',
       title: 'Dagelijks leven en voorzieningen in Frigiliana',
       standfirst:
-        'Tijdens een gewone vakantie kun je **de dagelijkse behoeften in Frigiliana zelf regelen**. Rond de historische kern liggen verschillende kleine voedingswinkels en een bakker; in het nieuwere benedendorp vult Eroski City het aanbod aan. Nerja is handig voor een grotere winkelronde of specifieke producten, maar niet noodzakelijk om het dagelijks leven in Frigiliana te laten werken.',
+        'Tijdens een gewone vakantie kunnen jullie **de dagelijkse behoeften in Frigiliana zelf regelen**. Rond de historische kern liggen verschillende kleine voedingswinkels en een bakker; in het nieuwere benedendorp vult Eroski City het aanbod aan. Nerja is handig voor een grotere winkelronde of specifieke producten, maar niet noodzakelijk om het dagelijks leven in Frigiliana te laten werken.',
       note: 'Deze gids combineert actuele lokale feiten met ervaring uit meer dan 500 Frigiliana-gasten per jaar.',
       updated: 'Gepubliceerd in augustus 2026'
     },
@@ -626,11 +626,11 @@ export const frigilianaDailyLifeContent: Record<
     faq: {
       title: 'Vragen over het dagelijks leven',
       items: [
-        { question: 'Kun je boodschappen doen in Frigiliana?', answer: 'Ja. Verschillende kleine winkels dekken voeding, drank, ontbijt en kookbasics; Eroski City biedt een grotere lokale optie.' },
-        { question: 'Moet ik voor boodschappen naar Nerja?', answer: 'Nee. Nerja is handig voor een grote kar of specifieke producten, maar gewone vakantieboodschappen werken in Frigiliana.' },
+        { question: 'Kunnen jullie boodschappen doen in Frigiliana?', answer: 'Ja. Verschillende kleine winkels dekken voeding, drank, ontbijt en kookbasics; Eroski City biedt een grotere lokale optie.' },
+        { question: 'Moeten jullie voor boodschappen naar Nerja?', answer: 'Nee. Nerja is handig voor een grote kar of specifieke producten, maar gewone vakantieboodschappen werken in Frigiliana.' },
         { question: 'Is er een grotere supermarkt in Frigiliana?', answer: 'Ja. Eroski City in het nieuwere benedendorp is groter dan de winkels in de historische kern, maar kleiner dan de grote formules in Nerja.' },
-        { question: 'Heb ik een auto nodig in Frigiliana?', answer: 'Niet voor het gewone dorpsleven. Een auto biedt flexibiliteit voor grote boodschappen, kustdagen en uitstapjes.' },
-        { question: 'Kun je op zondag boodschappen doen?', answer: 'Ja, er zijn zondagse mogelijkheden, vooral in de zomer. Tijden verschillen per winkel en seizoen.' },
+        { question: 'Hebben jullie een auto nodig in Frigiliana?', answer: 'Niet voor het gewone dorpsleven. Een auto biedt flexibiliteit voor grote boodschappen, kustdagen en uitstapjes.' },
+        { question: 'Kunnen jullie op zondag boodschappen doen?', answer: 'Ja, er zijn zondagse mogelijkheden, vooral in de zomer. Tijden verschillen per winkel en seizoen.' },
         { question: 'Zijn er een apotheek en medische zorg?', answer: 'Frigiliana heeft een apotheek. Voor ernstigere behoeften is Centro de Salud Nerja het praktische openbare zorgpunt.' }
       ]
     },
@@ -638,7 +638,7 @@ export const frigilianaDailyLifeContent: Record<
       eyebrow: 'Plan de details',
       title: 'Gebruik voor elke volgende keuze de specialistische gids',
       links: [
-        { token: 'frigiliana_market', label: 'Donderdagmarkt', text: 'Marktdag, locatie en wat je kunt verwachten.' },
+        { token: 'frigiliana_market', label: 'Donderdagmarkt', text: 'Marktdag, locatie en wat jullie kunnen verwachten.' },
         { token: 'frigiliana_stairs', label: 'Dorpsstructuur & trappen', text: 'Hoe niveaus en treden dagelijkse routes beïnvloeden.' },
         { token: 'getting_to_frigiliana', label: 'Aankomst & vervoer', text: 'Bus, transfer, auto en de officiële bron voor het actuele rooster.' },
         { token: 'frigiliana_parking', label: 'Parkeren', text: 'Hoe de auto past bij een verblijf en de laatste benadering.' },
@@ -766,9 +766,9 @@ export const frigilianaDailyLifeContent: Record<
       title: 'Frågor om vardagen',
       items: [
         { question: 'Kan man köpa mat i Frigiliana?', answer: 'Ja. Flera små butiker täcker mat, dryck, frukost och basvaror; Eroski City ger ett större lokalt alternativ.' },
-        { question: 'Måste jag handla i Nerja?', answer: 'Nej. Nerja är praktiskt för en större korg eller särskilda produkter, men vanliga semesterinköp fungerar i Frigiliana.' },
+        { question: 'Måste ni handla i Nerja?', answer: 'Nej. Nerja är praktiskt för en större korg eller särskilda produkter, men vanliga semesterinköp fungerar i Frigiliana.' },
         { question: 'Finns det en större mataffär i Frigiliana?', answer: 'Ja. Eroski City i den nyare nedre bydelen är större än butikerna i den historiska byn, men mindre än de stora formaten i Nerja.' },
-        { question: 'Behöver jag bil i Frigiliana?', answer: 'Inte för den vanliga byvardagen. Bil ger flexibilitet för större handling, kustdagar och utflykter.' },
+        { question: 'Behöver ni bil i Frigiliana?', answer: 'Inte för den vanliga byvardagen. Bil ger flexibilitet för större handling, kustdagar och utflykter.' },
         { question: 'Går det att handla på söndagar?', answer: 'Ja, det finns söndagsalternativ, särskilt på sommaren. Tiderna varierar med butik och säsong.' },
         { question: 'Finns apotek och sjukvård?', answer: 'Frigiliana har apotek. För allvarligare behov är Centro de Salud Nerja den praktiska offentliga vårdpunkten.' }
       ]

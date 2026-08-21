@@ -477,7 +477,7 @@ export const tarifaDailyLifeContent: Record<AmaraLanguage, TarifaDailyLifeLocale
     hero: {
       eyebrow: 'Praktische gids voor Tarifa',
       title: 'Dagelijks leven in Tarifa',
-      standfirst: 'Tijdens een verblijf van enkele dagen of weken worden gewone vragen belangrijk: waar doen jullie boodschappen, **welke zaken kunnen te voet**, wanneer is een auto handig en kun je hier professioneel werken? Vanuit AMARA Family & Surf in La Marina zijn de antwoorden verrassend concreet.',
+      standfirst: 'Tijdens een verblijf van enkele dagen of weken worden gewone vragen belangrijk: waar doen jullie boodschappen, **welke zaken kunnen te voet**, wanneer is een auto handig en kunnen jullie hier professioneel werken? Vanuit AMARA Family & Surf in La Marina zijn de antwoorden verrassend concreet.',
       note: 'Een persoonlijke gids van jullie hosts over stabiele dagelijkse patronen. Controleer actuele openingstijden, wachtdiensten en voorzieningen altijd bij de verantwoordelijke aanbieder.',
       updated: 'Voorzieningen en wandelroutes gecontroleerd in augustus 2026'
     },
@@ -497,7 +497,7 @@ export const tarifaDailyLifeContent: Record<AmaraLanguage, TarifaDailyLifeLocale
       },
       {
         id: 'groceries-shopping', eyebrow: '02 · Boodschappen en basiszaken', title: 'Supermarkten & gewone winkels', paragraphs: [
-          'Tarifa heeft de normale winkelvoorzieningen voor een verblijf waarin jullie zelf koken. Voor een doorsnee boodschappenmand hoef je de stad niet uit, al verschillen assortiment, voorraad en opening per winkel en seizoen.',
+          'Tarifa heeft de normale winkelvoorzieningen voor een verblijf waarin jullie zelf koken. Voor een doorsnee boodschappenmand hoeven jullie de stad niet uit, al verschillen assortiment, voorraad en opening per winkel en seizoen.',
           'Met een goed gelegen verblijf zijn dagelijkse boodschappen zonder auto eenvoudig. Voor een grote weekvoorraad, volumineuze aankopen of een combinatie met strand en omgeving wordt rijden nuttiger.',
           'Aan Mar Adriático 29 ligt de supermarkt direct aan de overkant. De volledige keuken van AMARA maakt echt koken praktisch, terwijl de auto voor een paar ontbrekende producten gewoon in de ondergrondse garage kan blijven.'
         ]

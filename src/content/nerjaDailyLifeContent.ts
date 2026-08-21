@@ -562,7 +562,7 @@ export const nerjaDailyLifeContent: Record<AmaraLanguage, NerjaDailyLifeLocale> 
       {
         id: 'health-services',
         eyebrow: 'Zorg & noodgevallen',
-        title: 'Wat je wilt weten vóór je het nodig hebt',
+        title: 'Wat jullie willen weten vóór jullie het nodig hebben',
         paragraphs: [
           'Nerja heeft een eigen gezondheidscentrum binnen de Servicio Andaluz de Salud en een ruime keuze aan apotheken verspreid over de plaats.',
           'Openingstijden verschillen. Gebruik daarom de actuele informatie over de Farmacia de Guardia wanneer het tijdstip belangrijk is. Deze pagina behandelt zorg alleen als praktische locatiecontext, niet als medisch advies.'
@@ -583,7 +583,7 @@ export const nerjaDailyLifeContent: Record<AmaraLanguage, NerjaDailyLifeLocale> 
         title: 'Wat verandert er wanneer het verblijf weken in plaats van dagen duurt?',
         paragraphs: [
           'Na de eerste dagen met bezienswaardigheden bepalen terugkerende routines het verblijf: boodschappen doen, een recept ophalen, een gewone maaltijd koken, wassen en kiezen of de avond buiten of thuis plaatsvindt. Nerja werkt goed op dit rustigere tempo, omdat voorzieningen in het centrum en de kust deel kunnen blijven van dezelfde wandeldag.',
-          'In de winter wordt het ritme van de plaats meestal rustiger, maar worden comfort binnen en flexibele plannen ook belangrijker. Temperatuur, regen en de verwachting voor jullie data horen bij de Weergids; kijk voor het dagelijks leven of de accommodatie de verwarming of airconditioning, keuken en wasvoorziening heeft die je werkelijk gebruikt.',
+          'In de winter wordt het ritme van de plaats meestal rustiger, maar worden comfort binnen en flexibele plannen ook belangrijker. Temperatuur, regen en de verwachting voor jullie data horen bij de Weergids; kijk voor het dagelijks leven of de accommodatie de verwarming of airconditioning, keuken en wasvoorziening heeft die jullie werkelijk gebruiken.',
           'AMARA Playa is één praktisch centraal voorbeeld: het appartement heeft een complete keuken, wasmachine, verwarming en airconditioning, terwijl supermarkten, apotheken, Torrecilla en het centrum in normale looproutes passen. Die kenmerken ondersteunen gewone weken zonder van iedere dag een uitstapje te maken.',
           'Een langer centraal verblijf kan daardoor grotendeels autovrij blijven. Een auto wordt nuttig wanneer grotere regionale inkopen, Maro, Frigiliana of dagen in de rest van de Axarquía onderdeel van de routine worden in plaats van uitzonderingen.'
         ]
@@ -636,7 +636,7 @@ export const nerjaDailyLifeContent: Record<AmaraLanguage, NerjaDailyLifeLocale> 
       eyebrow: 'Achter deze gids',
       title: 'Bronnen voor de praktische gegevens',
       intro:
-        'Overheidsinstanties en openbare registers. Omdat openingstijden, marktindeling en diensten kunnen veranderen, controleer je tijdgevoelige details het best bij de actuele bron.',
+        'Overheidsinstanties en openbare registers. Omdat openingstijden, marktindeling en diensten kunnen veranderen, controleren jullie tijdgevoelige details het best bij de actuele bron.',
       checked: 'Bronnen gecontroleerd in augustus 2026.',
       links: [
         {

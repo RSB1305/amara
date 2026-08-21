@@ -264,7 +264,7 @@ export const frigilianaLocationCopy = {
           "ctas": []
         },
         {
-          "title": "Und wenn ich lieber direkt am Meer wohnen möchte?",
+          "title": "Und wenn ihr lieber direkt am Meer wohnen möchtet?",
           "paragraphs": [
             "Wenn Strandnähe und ein Küstenort den Tagesrhythmus bestimmen sollen, passt Nerja möglicherweise besser. Wenn ihr Dorfleben, ruhigere Morgen und Abende und die Altstadt als Basis sucht, ist Frigiliana die bewusst andere Wahl.",
             "Beides ist nah beieinander – aber der Urlaub fühlt sich unterschiedlich an."
@@ -288,11 +288,11 @@ export const frigilianaLocationCopy = {
     "faq": {
       "title": "Praktische Fragen",
       "items": [
-        { "question": "Brauchen wir in Frigiliana ein Auto?", "answer": "Nein. Für Frigiliana selbst braucht ihr im Alltag meist kein Auto, und auch ein einfacher Ausflug nach Nerja oder zum Strand ist mit dem Bus möglich. Wir empfehlen einen Mietwagen trotzdem, wenn ihr flexibel bleiben, größere Einkäufe erledigen oder Orte wie Maro und die weitere Umgebung erkunden möchtet." },
-        { "question": "Wie funktioniert das Parken, wenn wir in Frigiliana übernachten?", "answer": "Viele Informationen zum Parken in Frigiliana richten sich an Tagesbesucher, die zur gleichen Zeit ins Dorf kommen. Für Übernachtungsgäste sieht der Rhythmus etwas anders aus: Nach unserer Erfahrung ist die Situation am späteren Nachmittag und Abend häufig entspannter als während der Hauptzeit der Tagesbesucher. Einen freien Parkplatz können wir dennoch nicht garantieren – besonders im Sommer, an Wochenenden oder bei Veranstaltungen." },
+        { "question": "Braucht ihr in Frigiliana ein Auto?", "answer": "Nein. Für Frigiliana selbst braucht ihr im Alltag meist kein Auto, und auch ein einfacher Ausflug nach Nerja oder zum Strand ist mit dem Bus möglich. Wir empfehlen einen Mietwagen trotzdem, wenn ihr flexibel bleiben, größere Einkäufe erledigen oder Orte wie Maro und die weitere Umgebung erkunden möchtet." },
+        { "question": "Wie funktioniert das Parken, wenn ihr in Frigiliana übernachtet?", "answer": "Viele Informationen zum Parken in Frigiliana richten sich an Tagesbesucher, die zur gleichen Zeit ins Dorf kommen. Für Übernachtungsgäste sieht der Rhythmus etwas anders aus: Nach unserer Erfahrung ist die Situation am späteren Nachmittag und Abend häufig entspannter als während der Hauptzeit der Tagesbesucher. Einen freien Parkplatz können wir dennoch nicht garantieren – besonders im Sommer, an Wochenenden oder bei Veranstaltungen." },
         { "question": "Ist Frigiliana sehr steil?", "answer": "Frigiliana liegt am Hang, und Steigungen sowie Treppen gehören zum historischen Dorf. Entscheidend ist deshalb nicht nur, wie weit eure Unterkunft auf der Karte vom Zentrum entfernt liegt, sondern wie hoch sie liegt und welchen Weg ihr mehrmals täglich zurücklegt. Zwischen dem vergleichsweise niedrigeren historischen Zentrum und den höheren Gassen des Barribarto kann das im Urlaub einen spürbaren Unterschied machen." },
-        { "question": "Kommen wir ohne Auto nach Nerja und zum Strand?", "answer": "Ja. Für einen unkomplizierten Tag in Nerja oder am Strand könnt ihr Frigiliana auch ohne Mietwagen als Ausgangspunkt nutzen. Ein Auto gibt euch allerdings deutlich mehr Freiheit, wenn ihr verschiedene Strände, Maro oder andere Orte der Region miteinander verbinden möchtet." },
-        { "question": "Was sollten wir bei der Anreise mit Gepäck beachten?", "answer": "Frigiliana ist ein historisches Bergdorf mit schmalen Gassen, Steigungen und – je nach genauer Lage – Treppen oder einem letzten Stück zu Fuß. Packt deshalb am besten so, dass ihr euer Gepäck auf dem letzten Abschnitt gut selbst tragen könnt. Wie dieser letzte Weg konkret aussieht, hängt von eurer Unterkunft und eurem Anreiseweg ab." }
+        { "question": "Kommt ihr ohne Auto nach Nerja und zum Strand?", "answer": "Ja. Für einen unkomplizierten Tag in Nerja oder am Strand könnt ihr Frigiliana auch ohne Mietwagen als Ausgangspunkt nutzen. Ein Auto gibt euch allerdings deutlich mehr Freiheit, wenn ihr verschiedene Strände, Maro oder andere Orte der Region miteinander verbinden möchtet." },
+        { "question": "Was solltet ihr bei der Anreise mit Gepäck beachten?", "answer": "Frigiliana ist ein historisches Bergdorf mit schmalen Gassen, Steigungen und – je nach genauer Lage – Treppen oder einem letzten Stück zu Fuß. Packt deshalb am besten so, dass ihr euer Gepäck auf dem letzten Abschnitt gut selbst tragen könnt. Wie dieser letzte Weg konkret aussieht, hängt von eurer Unterkunft und eurem Anreiseweg ab." }
       ]
     },
     "seasons": {
@@ -459,7 +459,7 @@ export const frigilianaLocationCopy = {
           "ctas": []
         },
         {
-          "title": "What if I would rather stay beside the sea?",
+          "title": "What if you would rather stay beside the sea?",
           "paragraphs": [
             "If beach access and a coastal town should shape each day, Nerja may suit you better. If you want village life, quieter mornings and evenings, and the old town as your base, Frigiliana is the deliberately different choice.",
             "They are close together, but the holiday feels different."
@@ -483,11 +483,11 @@ export const frigilianaLocationCopy = {
     "faq": {
       "title": "Practical questions",
       "items": [
-        { "question": "Do we need a car in Frigiliana?", "answer": "No. You can manage everyday life in Frigiliana very well without a car, and a straightforward trip to Nerja or the beach is also possible by bus. We still recommend hiring a car if you want more flexibility for larger grocery shops, Maro or exploring more of the surrounding region." },
+        { "question": "Do you need a car in Frigiliana?", "answer": "No. You can manage everyday life in Frigiliana very well without a car, and a straightforward trip to Nerja or the beach is also possible by bus. We still recommend hiring a car if you want more flexibility for larger grocery shops, Maro or exploring more of the surrounding region." },
         { "question": "What is parking like when staying overnight in Frigiliana?", "answer": "A lot of parking advice about Frigiliana is written for day visitors who tend to arrive at similar times. Overnight guests have a different rhythm. In our experience, parking is often more relaxed later in the afternoon and evening than during the main day-visitor period. A free space can never be guaranteed, however, especially in summer, at weekends or during local events." },
         { "question": "Is Frigiliana very steep?", "answer": "Frigiliana is built on a hillside, so slopes and steps are part of the historic village. What matters is not only how far your accommodation appears to be from the centre on a map, but also its elevation and the route you may walk several times a day. Staying in the comparatively lower historic centre can feel noticeably different from staying higher up in the Barribarto." },
-        { "question": "Can we get to Nerja and the beach without a car?", "answer": "Yes. Frigiliana can work perfectly well as a base for a simple day in Nerja or at the beach without a hire car. A car does give you much more freedom if you want to combine different beaches, Maro and other places around the region." },
-        { "question": "What should we know about arriving with luggage?", "answer": "Frigiliana is a historic hillside village with narrow streets, slopes and, depending on the exact location, steps or a final section that needs to be covered on foot. It is therefore worth packing so that you can comfortably carry your luggage for that last part of the journey. The exact approach depends on your accommodation and how you arrive." },
+        { "question": "Can you get to Nerja and the beach without a car?", "answer": "Yes. Frigiliana can work perfectly well as a base for a simple day in Nerja or at the beach without a hire car. A car does give you much more freedom if you want to combine different beaches, Maro and other places around the region." },
+        { "question": "What should you know about arriving with luggage?", "answer": "Frigiliana is a historic hillside village with narrow streets, slopes and, depending on the exact location, steps or a final section that needs to be covered on foot. It is therefore worth packing so that you can comfortably carry your luggage for that last part of the journey. The exact approach depends on your accommodation and how you arrive." },
         { "question": "Is Frigiliana worth staying overnight, or is a day trip enough?", "answer": "A day trip can show you Frigiliana’s main streets, viewpoints and whitewashed old town. Staying overnight changes the experience: the village becomes quieter after many day visitors leave, you can have dinner and walk home through the old streets, and the next morning begins before the daytime activity returns. If Frigiliana is one stop on a wider Andalusia trip, staying for one or more nights can also give the journey a slower village chapter between larger destinations." }
       ]
     },
@@ -661,7 +661,7 @@ export const frigilianaLocationCopy = {
           "ctas": []
         },
         {
-          "title": "¿Y si prefiero alojarme junto al mar?",
+          "title": "¿Y si preferís alojaros junto al mar?",
           "paragraphs": [
             "Si queréis que la playa y una localidad costera marquen el ritmo diario, quizá encaje mejor Nerja. Si buscáis vida de pueblo, mañanas y noches más tranquilas y el casco antiguo como base, Frigiliana es una elección deliberadamente distinta.",
             "Están muy cerca, pero las vacaciones se viven de otra manera."
@@ -685,11 +685,11 @@ export const frigilianaLocationCopy = {
     "faq": {
       "title": "Preguntas prácticas",
       "items": [
-        { "question": "¿Necesitamos coche para alojarnos en Frigiliana?", "answer": "No. Para el día a día en Frigiliana podéis moveros perfectamente sin coche, y también es posible ir en autobús a Nerja o pasar un día en la playa. Aun así, recomendamos alquilar un coche si queréis tener más libertad para hacer compras grandes, visitar Maro o descubrir otros lugares de la zona." },
-        { "question": "¿Cómo es el aparcamiento si nos alojamos en Frigiliana?", "answer": "Gran parte de la información sobre aparcamiento en Frigiliana está pensada para quienes visitan el pueblo solo durante unas horas y suelen llegar en momentos similares. Para quienes se alojan aquí, el ritmo es diferente. Según nuestra experiencia, a última hora de la tarde y por la noche suele haber algo más de tranquilidad que durante las horas de mayor afluencia de visitantes. Aun así, nunca podemos garantizar una plaza libre, especialmente en verano, los fines de semana o durante eventos." },
+        { "question": "¿Necesitáis coche para alojaros en Frigiliana?", "answer": "No. Para el día a día en Frigiliana podéis moveros perfectamente sin coche, y también es posible ir en autobús a Nerja o pasar un día en la playa. Aun así, recomendamos alquilar un coche si queréis tener más libertad para hacer compras grandes, visitar Maro o descubrir otros lugares de la zona." },
+        { "question": "¿Cómo es el aparcamiento si os alojáis en Frigiliana?", "answer": "Gran parte de la información sobre aparcamiento en Frigiliana está pensada para quienes visitan el pueblo solo durante unas horas y suelen llegar en momentos similares. Para quienes se alojan aquí, el ritmo es diferente. Según nuestra experiencia, a última hora de la tarde y por la noche suele haber algo más de tranquilidad que durante las horas de mayor afluencia de visitantes. Aun así, nunca podemos garantizar una plaza libre, especialmente en verano, los fines de semana o durante eventos." },
         { "question": "¿Frigiliana tiene muchas cuestas?", "answer": "Frigiliana está construida sobre una ladera, por lo que las cuestas y las escaleras forman parte del casco histórico. Por eso no importa solo la distancia que aparece en el mapa, sino también a qué altura se encuentra vuestro alojamiento y qué recorrido vais a repetir varias veces al día. Alojarse en la parte relativamente más baja del casco histórico puede sentirse bastante diferente a quedarse en las calles más altas del Barribarto." },
-        { "question": "¿Podemos ir a Nerja y a la playa sin coche?", "answer": "Sí. Para pasar un día sencillo en Nerja o en la playa, Frigiliana también funciona como base sin necesidad de alquilar coche. Con coche tendréis, eso sí, mucha más libertad para combinar distintas playas, Maro y otros lugares de la comarca." },
-        { "question": "¿Qué debemos tener en cuenta si llegamos con equipaje?", "answer": "Frigiliana es un pueblo histórico de montaña, con calles estrechas, pendientes y, según la ubicación exacta, escaleras o un último tramo que hay que recorrer a pie. Conviene preparar el equipaje pensando en que quizá tengáis que cargarlo durante esa parte final. El recorrido concreto depende de vuestro alojamiento y de cómo lleguéis al pueblo." }
+        { "question": "¿Podéis ir a Nerja y a la playa sin coche?", "answer": "Sí. Para pasar un día sencillo en Nerja o en la playa, Frigiliana también funciona como base sin necesidad de alquilar coche. Con coche tendréis, eso sí, mucha más libertad para combinar distintas playas, Maro y otros lugares de la comarca." },
+        { "question": "¿Qué debéis tener en cuenta si llegáis con equipaje?", "answer": "Frigiliana es un pueblo histórico de montaña, con calles estrechas, pendientes y, según la ubicación exacta, escaleras o un último tramo que hay que recorrer a pie. Conviene preparar el equipaje pensando en que quizá tengáis que cargarlo durante esa parte final. El recorrido concreto depende de vuestro alojamiento y de cómo lleguéis al pueblo." }
       ]
     },
     "seasons": {
@@ -815,8 +815,8 @@ export const frigilianaLocationCopy = {
       "paragraphs": [
         "Frigiliana klimt tegen de heuvel op. Straatjes verdwijnen achter hoeken, trappen leiden naar een volgend niveau en hogerop openen zich nieuwe uitzichten over daken en richting zee. Die topografie bepaalt een groot deel van de schoonheid van het dorp.",
         "Dat stijgen en dalen hoort bij een wandeling; bij een verblijf van meerdere dagen telt de precieze ligging. Huizen hoog in het Barribarto kunnen prachtig zijn, maar de trappen en hellingen horen dan bij elke weg naar huis.",
-        "Onze vier verblijven liggen aan Calle Chorruelo naast San Antonio – in de oude kern en daarbinnen relatief laag. Frigiliana blijft een heuveldorp; vanuit deze lagere positie kan de dagelijkse route minder hoogteverschil hebben dan vanuit een verblijf hoog in Barribarto. Tijdens een langer verblijf merk je dat verschil in het dagelijks leven.",
-        "Het maakt verschil of je een helling vrijwillig verkent of die meerdere keren per dag naar je accommodatie aflegt."
+        "Onze vier verblijven liggen aan Calle Chorruelo naast San Antonio – in de oude kern en daarbinnen relatief laag. Frigiliana blijft een heuveldorp; vanuit deze lagere positie kan de dagelijkse route minder hoogteverschil hebben dan vanuit een verblijf hoog in Barribarto. Tijdens een langer verblijf merken jullie dat verschil in het dagelijks leven.",
+        "Het maakt verschil of jullie een helling vrijwillig verkennen of die meerdere keren per dag naar jullie accommodatie afleggen."
       ],
       "subsections": [
         {
@@ -848,7 +848,7 @@ export const frigilianaLocationCopy = {
       ],
       "subsections": [
         {
-          "title": "Heb je daarvoor een auto nodig?",
+          "title": "Hebben jullie daarvoor een auto nodig?",
           "paragraphs": [
             "Een huurauto geeft de meeste vrijheid voor verschillende stranden, Maro en uitstapjes in de regio, maar is niet noodzakelijk voor een verblijf in Frigiliana.",
             "De bus kan geschikt zijn voor een eenvoudige dag in Nerja of aan het strand; ook een taxi is mogelijk. Wie vooral in het dorp blijft en af en toe naar de kust wil, kan daarom zonder huurauto uit de voeten. De juiste keuze hangt af van hoeveel jullie willen ontdekken."
@@ -856,7 +856,7 @@ export const frigilianaLocationCopy = {
           "ctas": []
         },
         {
-          "title": "En als ik liever direct aan zee verblijf?",
+          "title": "En als jullie liever direct aan zee verblijven?",
           "paragraphs": [
             "Als strand en kustplaats het dagelijkse ritme moeten bepalen, past Nerja misschien beter. Zoeken jullie dorpsleven, rustigere ochtenden en avonden en de oude kern als basis, dan is Frigiliana bewust een andere keuze.",
             "Ze liggen dicht bij elkaar, maar de vakantie voelt anders."
@@ -880,11 +880,11 @@ export const frigilianaLocationCopy = {
     "faq": {
       "title": "Praktische vragen",
       "items": [
-        { "question": "Hebben we een auto nodig in Frigiliana?", "answer": "Nee. Voor het dagelijks leven in Frigiliana kunnen jullie prima zonder auto, en ook voor een eenvoudige dagtrip naar Nerja of het strand is de bus een goede optie. We raden een huurauto wel aan als jullie graag flexibel willen zijn, grotere boodschappen willen doen of bijvoorbeeld Maro en meer van de omgeving willen ontdekken." },
-        { "question": "Hoe werkt parkeren als we in Frigiliana overnachten?", "answer": "Veel informatie over parkeren in Frigiliana is gericht op dagjesmensen die vaak rond dezelfde tijd in het dorp aankomen. Voor gasten die hier overnachten ziet het ritme er anders uit. Onze ervaring is dat het later in de middag en 's avonds vaak rustiger is dan tijdens de drukste uren met dagbezoekers. Een vrije parkeerplaats kunnen we echter nooit garanderen, zeker niet in de zomer, in het weekend of tijdens evenementen." },
+        { "question": "Hebben jullie een auto nodig in Frigiliana?", "answer": "Nee. Voor het dagelijks leven in Frigiliana kunnen jullie prima zonder auto, en ook voor een eenvoudige dagtrip naar Nerja of het strand is de bus een goede optie. We raden een huurauto wel aan als jullie graag flexibel willen zijn, grotere boodschappen willen doen of bijvoorbeeld Maro en meer van de omgeving willen ontdekken." },
+        { "question": "Hoe werkt parkeren als jullie in Frigiliana overnachten?", "answer": "Veel informatie over parkeren in Frigiliana is gericht op dagjesmensen die vaak rond dezelfde tijd in het dorp aankomen. Voor gasten die hier overnachten ziet het ritme er anders uit. Onze ervaring is dat het later in de middag en 's avonds vaak rustiger is dan tijdens de drukste uren met dagbezoekers. Een vrije parkeerplaats kunnen we echter nooit garanderen, zeker niet in de zomer, in het weekend of tijdens evenementen." },
         { "question": "Is Frigiliana erg steil?", "answer": "Frigiliana ligt tegen een heuvel, waardoor hellingen en trappen bij het historische dorp horen. Het gaat daarom niet alleen om de afstand tot het centrum op de kaart, maar ook om hoe hoog jullie accommodatie ligt en welke route jullie meerdere keren per dag lopen. Verblijven in het relatief lager gelegen historische centrum kan in de praktijk duidelijk anders aanvoelen dan een accommodatie hoger in het Barribarto." },
-        { "question": "Kunnen we zonder auto naar Nerja en het strand?", "answer": "Ja. Voor een ontspannen dag in Nerja of aan het strand kunnen jullie Frigiliana ook zonder huurauto als uitvalsbasis gebruiken. Met een auto hebben jullie wel veel meer vrijheid om verschillende stranden, Maro en andere plaatsen in de omgeving met elkaar te combineren." },
-        { "question": "Waar moeten we rekening mee houden als we met bagage aankomen?", "answer": "Frigiliana is een historisch dorp tegen de heuvel, met smalle straatjes, hellingen en, afhankelijk van de exacte locatie, trappen of een laatste stuk dat te voet moet worden afgelegd. Het is daarom verstandig om zo in te pakken dat jullie de bagage tijdens dat laatste deel zelf goed kunnen dragen. De precieze route hangt af van jullie accommodatie en de manier waarop jullie aankomen." }
+        { "question": "Kunnen jullie zonder auto naar Nerja en het strand?", "answer": "Ja. Voor een ontspannen dag in Nerja of aan het strand kunnen jullie Frigiliana ook zonder huurauto als uitvalsbasis gebruiken. Met een auto hebben jullie wel veel meer vrijheid om verschillende stranden, Maro en andere plaatsen in de omgeving met elkaar te combineren." },
+        { "question": "Waar moeten jullie rekening mee houden als jullie met bagage aankomen?", "answer": "Frigiliana is een historisch dorp tegen de heuvel, met smalle straatjes, hellingen en, afhankelijk van de exacte locatie, trappen of een laatste stuk dat te voet moet worden afgelegd. Het is daarom verstandig om zo in te pakken dat jullie de bagage tijdens dat laatste deel zelf goed kunnen dragen. De precieze route hangt af van jullie accommodatie en de manier waarop jullie aankomen." }
       ]
     },
     "seasons": {
@@ -895,7 +895,7 @@ export const frigilianaLocationCopy = {
       "subsections": [
         { "title": "Lente – buiten zijn, met dorp en kust", "paragraphs": ["De lente past bij wandelen, terrassen en uitstapjes: 's ochtends door het dorp, later naar zee of het landschap in en 's avonds terug naar Frigiliana. Dorp en kust laten zich dan heel natuurlijk combineren."], "ctas": [] },
         { "title": "Zomer – vroeg op pad, naar zee en 's avonds terug", "paragraphs": ["In de zomer passen dorpswandelingen het best bij ochtend en avond; de warmere uren horen eerder bij de kust. Bij terugkomst zorgt airconditioning in de appartementen voor comfort en een rustige afsluiting van de dag."], "ctas": [] },
-        { "title": "Herfst – meer ruimte voor dorp en regio", "paragraphs": ["In de herfst verdeel je de dag vaak gemakkelijker tussen de oude kern, kust en uitstapjes in de regio zonder dat de grootste hitte het ritme sterk bepaalt. Dat past bij wie meer van de omgeving wil zien."], "ctas": [] },
+        { "title": "Herfst – meer ruimte voor dorp en regio", "paragraphs": ["In de herfst verdelen jullie de dag vaak gemakkelijker tussen de oude kern, kust en uitstapjes in de regio zonder dat de grootste hitte het ritme sterk bepaalt. Dat past bij wie meer van de omgeving wil zien."], "ctas": [] },
         { "title": "Winter – geen zomer, maar een ander Andalusië", "paragraphs": ["De winter belooft geen zomer: avonden kunnen koel zijn en comfort binnen telt. Alle appartementen hebben verwarming; Lounis, Zaid en Maha daarnaast een pelletkachel. Zo blijft het historische huis ook buiten de warme maanden een aangename plek."], "ctas": [ { "token": "WEATHER", "label": "Bekijk weer en seizoenen" } ] }
       ],
       "ctas": []
@@ -1051,7 +1051,7 @@ export const frigilianaLocationCopy = {
           "ctas": []
         },
         {
-          "title": "Och om jag hellre vill bo vid havet?",
+          "title": "Och om ni hellre vill bo vid havet?",
           "paragraphs": [
             "Om strand och kuststad ska styra dagsrytmen passar Nerja kanske bättre. Där ligger havet närmare vardagen. Om ni söker byliv, lugnare morgnar och kvällar och gamla stan som bas är Frigiliana ett medvetet annorlunda val.",
             "De ligger nära varandra, men semestern känns annorlunda."
@@ -1075,11 +1075,11 @@ export const frigilianaLocationCopy = {
     "faq": {
       "title": "Praktiska frågor",
       "items": [
-        { "question": "Behöver vi bil när vi bor i Frigiliana?", "answer": "Nej. I själva Frigiliana klarar ni er bra utan bil, och det går också att ta bussen till Nerja eller stranden för en enkel dagsutflykt. Vi rekommenderar ändå hyrbil om ni vill ha större frihet för större matinköp, utflykter till Maro eller för att upptäcka mer av området." },
-        { "question": "Hur fungerar parkeringen när man övernattar i Frigiliana?", "answer": "Mycket av informationen om parkering i Frigiliana riktar sig till dagsbesökare som ofta kommer till byn ungefär samtidigt. För den som bor här ser rytmen annorlunda ut. Vår erfarenhet är att det ofta är lugnare senare på eftermiddagen och på kvällen än under de mest intensiva timmarna för dagsbesök. Vi kan däremot aldrig garantera en ledig plats, särskilt inte på sommaren, under helger eller vid evenemang." },
+        { "question": "Behöver ni bil när ni bor i Frigiliana?", "answer": "Nej. I själva Frigiliana klarar ni er bra utan bil, och det går också att ta bussen till Nerja eller stranden för en enkel dagsutflykt. Vi rekommenderar ändå hyrbil om ni vill ha större frihet för större matinköp, utflykter till Maro eller för att upptäcka mer av området." },
+        { "question": "Hur fungerar parkeringen när ni övernattar i Frigiliana?", "answer": "Mycket av informationen om parkering i Frigiliana riktar sig till dagsbesökare som ofta kommer till byn ungefär samtidigt. För den som bor här ser rytmen annorlunda ut. Vår erfarenhet är att det ofta är lugnare senare på eftermiddagen och på kvällen än under de mest intensiva timmarna för dagsbesök. Vi kan däremot aldrig garantera en ledig plats, särskilt inte på sommaren, under helger eller vid evenemang." },
         { "question": "Är Frigiliana mycket brant?", "answer": "Frigiliana ligger på en sluttning, så backar och trappor är en naturlig del av den historiska byn. Det viktiga är därför inte bara hur långt boendet ser ut att ligga från centrum på kartan, utan också hur högt det ligger och vilken väg ni kommer att gå flera gånger om dagen. Att bo i den relativt lägre delen av den historiska byn kan kännas märkbart annorlunda än att bo högre upp i Barribarto." },
-        { "question": "Kan vi ta oss till Nerja och stranden utan bil?", "answer": "Ja. För en enkel dag i Nerja eller på stranden fungerar Frigiliana bra som bas även utan hyrbil. Med bil får ni däremot betydligt större frihet om ni vill kombinera olika stränder, Maro och andra platser i området." },
-        { "question": "Vad bör vi tänka på när vi anländer med bagage?", "answer": "Frigiliana är en historisk by på en sluttning, med smala gränder, backar och, beroende på exakt läge, trappor eller en sista sträcka som behöver tas till fots. Packa därför gärna så att ni kan bära bagaget utan problem under den sista delen. Den exakta vägen beror på boendet och hur ni anländer." }
+        { "question": "Kan ni ta er till Nerja och stranden utan bil?", "answer": "Ja. För en enkel dag i Nerja eller på stranden fungerar Frigiliana bra som bas även utan hyrbil. Med bil får ni däremot betydligt större frihet om ni vill kombinera olika stränder, Maro och andra platser i området." },
+        { "question": "Vad bör ni tänka på när ni anländer med bagage?", "answer": "Frigiliana är en historisk by på en sluttning, med smala gränder, backar och, beroende på exakt läge, trappor eller en sista sträcka som behöver tas till fots. Packa därför gärna så att ni kan bära bagaget utan problem under den sista delen. Den exakta vägen beror på boendet och hur ni anländer." }
       ]
     },
     "seasons": {

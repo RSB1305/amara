@@ -148,7 +148,7 @@ export const nerjaLocationHubContent: {
         title: 'The right Nerja area depends on the day you want at your door',
         paragraphs: [
           'Nerja is not one continuous resort strip. Each area changes the balance between beach access, old-town evenings, gradients, parking and quiet.',
-          'For a short stay, the most useful question is often not “Which area is best?” but “Which journeys do we want to repeat every day?”'
+          'For a short stay, the most useful question is often not “Which area is best?” but “Which journeys do you want to repeat every day?”'
         ],
         archetypes: [
           { title: 'Torrecilla & Chaparril', consequence: 'Beach, central errands and the old town can form one walking routine.' },
@@ -191,7 +191,7 @@ export const nerjaLocationHubContent: {
         title: 'From guest to host in Nerja',
         paragraphs: [
           'For years we were holiday guests in this exact apartment. We enjoyed our time here so much that we did not hesitate for a second when we heard it was for sale.',
-          'If we had to describe it in a few words: absolute cosiness and the perfect location. You are right in the centre, yet the apartment faces away from the street and stays wonderfully quiet — crowned by a sea view. You do not need a car here.',
+          'In a few words: central, set back from the street and calm, with a sea view. Most everyday Nerja plans work well on foot from here, so you will rarely need a car in town.',
           'The location is hard to beat: barely 500 metres to the Balcón de Europa and just 200 metres to Torrecilla beach. Walk a few hundred metres further and you reach small, secluded coves.',
           'The building belongs in an honest plan, too: the apartment is on the fifth floor with a lift, but there are five steps outside and five inside before you reach it. No private parking is supplied.'
         ],
@@ -262,7 +262,7 @@ export const nerjaLocationHubContent: {
         title: 'Die passende Lage hängt davon ab, was täglich vor der Tür liegen soll',
         paragraphs: [
           'Nerja ist kein durchgehender Ferienkorridor. Jede Lage verschiebt das Verhältnis zwischen Strand, Altstadtabenden, Steigungen, Parken und Ruhe.',
-          'Für einen kurzen Aufenthalt ist deshalb oft nicht „Welche Lage ist die beste?“ die richtige Frage, sondern „Welche Wege möchten wir jeden Tag wiederholen?“'
+          'Für einen kurzen Aufenthalt ist deshalb oft nicht „Welche Lage ist die beste?“ die richtige Frage, sondern „Welche Wege möchtet ihr jeden Tag wiederholen?“'
         ],
         archetypes: [
           { title: 'Torrecilla & Chaparril', consequence: 'Strand, Einkäufe und Altstadt lassen sich zu einer Fußroutine verbinden.' },
@@ -305,7 +305,7 @@ export const nerjaLocationHubContent: {
         title: 'Vom Gast zum Gastgeber in Nerja',
         paragraphs: [
           'Jahrelang waren wir selbst Urlaubsgäste in genau dieser Wohnung. Wir haben die Zeit hier so sehr genossen, dass wir keine Sekunde zögern mussten, als wir erfuhren, dass sie zum Verkauf steht.',
-          'In wenigen Worten: absolute Gemütlichkeit und die perfekte Lage. Man ist mitten im Zentrum, und trotzdem liegt die Wohnung nach hinten heraus und bleibt herrlich ruhig – gekrönt von einem wunderbaren Meerblick. Ein Auto braucht man hier nicht.',
+          'In wenigen Worten: zentral, nach hinten ausgerichtet und ruhig, mit Meerblick. Die meisten Alltagswege in Nerja funktionieren von hier gut zu Fuß, sodass ihr im Ort nur selten ein Auto braucht.',
           'Die Lage ist schwer zu schlagen: knapp 500 Meter zum Balcón de Europa und gerade einmal 200 Meter zum Strand Torrecilla. Wer ein paar hundert Meter weiter geht, erreicht abgelegene, ruhige kleine Buchten.',
           'Auch das Gebäude gehört zur ehrlichen Planung: Die Wohnung liegt im fünften Stock mit Aufzug, davor gibt es außen fünf und innen weitere fünf Stufen. Ein privater Stellplatz ist nicht vorhanden.'
         ],
@@ -376,7 +376,7 @@ export const nerjaLocationHubContent: {
         title: 'La zona adecuada depende de lo que queráis tener cada día al salir',
         paragraphs: [
           'Nerja no es una única franja turística. Cada zona cambia el equilibrio entre playa, noches en el centro, cuestas, aparcamiento y tranquilidad.',
-          'Para una estancia corta, la pregunta más útil no suele ser “¿qué zona es mejor?”, sino “¿qué recorridos queremos repetir a diario?”'
+          'Para una estancia corta, la pregunta más útil no suele ser “¿qué zona es mejor?”, sino “¿qué recorridos queréis repetir a diario?”'
         ],
         archetypes: [
           { title: 'Torrecilla y Chaparril', consequence: 'Playa, compras y casco antiguo pueden formar una sola rutina a pie.' },
@@ -419,7 +419,7 @@ export const nerjaLocationHubContent: {
         title: 'De huéspedes a anfitriones en Nerja',
         paragraphs: [
           'Durante años fuimos nosotros mismos huéspedes en este mismo apartamento. Disfrutamos tanto del tiempo aquí que no dudamos ni un segundo cuando supimos que se vendía.',
-          'Si tuviéramos que resumirlo: comodidad absoluta y la ubicación perfecta. Estáis en pleno centro y, aun así, el apartamento da a la parte trasera y se mantiene maravillosamente tranquilo, coronado por unas vistas al mar. Aquí no hace falta coche.',
+          'En pocas palabras: una ubicación céntrica, orientada a la parte trasera y tranquila, con vistas al mar. Desde aquí podéis resolver a pie la mayoría de los planes diarios en Nerja, por lo que rara vez necesitaréis coche dentro del pueblo.',
           'La ubicación es difícil de superar: apenas 500 metros hasta el Balcón de Europa y solo 200 metros hasta la playa de Torrecilla. Unos cientos de metros más allá se llega a pequeñas calas apartadas y tranquilas.',
           'El edificio también forma parte de una planificación honesta: el apartamento está en una quinta planta con ascensor, pero hay cinco escalones fuera y otros cinco dentro antes de llegar a él. No incluye aparcamiento privado.'
         ],
@@ -445,14 +445,14 @@ export const nerjaLocationHubContent: {
       hero: {
         eyebrow: 'Nerja locatiegids',
         title: 'Nerja, van ochtenden aan zee tot avonden in de oude stad',
-        standfirst: 'In Nerja kun je veel te voet doen, maar de stranden en buurten leveren heel verschillende verblijven op. Dit overzicht helpt bij aankomst, locatiekeuze en vervoer – voor wie langer blijft dan een dagtrip.',
+        standfirst: 'In Nerja kunnen jullie veel te voet doen, maar de stranden en buurten leveren heel verschillende verblijven op. Dit overzicht helpt bij aankomst, locatiekeuze en vervoer – voor wie langer blijft dan een dagtrip.',
         note: 'Een gids van jullie host voor verblijfsgasten, met AMARA Playa als praktisch vertrekpunt.',
         updated: 'Gecontroleerd in augustus 2026'
       },
       discovery: {
-        eyebrow: 'Je verblijf plannen',
-        title: 'Zes vragen die je verblijf in Nerja bepalen',
-        intro: 'Begin bij je echte dagritme: aankomst, strandkeuze, lopen, boodschappen en uitstapjes buiten de stad.',
+        eyebrow: 'Jullie verblijf plannen',
+        title: 'Zes vragen die jullie verblijf in Nerja bepalen',
+        intro: 'Begin bij jullie echte dagritme: aankomst, strandkeuze, lopen, boodschappen en uitstapjes buiten de stad.',
         items: [
           { number: '01', title: 'Naar Nerja reizen', text: 'Luchthavens, aankomst per bus en het laatste stuk naar Calle Castilla Pérez 60.', label: 'Aankomst & mobiliteit', token: 'getting_to_nerja' },
           { number: '02', title: 'De stad lezen', text: 'Zeekant, oude centrum, oostelijke stranden en de heuvels erachter.', label: 'Geografie & oriëntatie', token: 'nerja_geography' },
@@ -477,9 +477,9 @@ export const nerjaLocationHubContent: {
       },
       arrival: {
         eyebrow: 'Aankomst & mobiliteit',
-        title: 'Reis naar het adres en bepaal daarna hoeveel auto je nodig hebt',
+        title: 'Reis naar het adres en bepaal daarna hoeveel auto jullie nodig hebben',
         paragraphs: [
-          'Málaga-Costa del Sol is de belangrijkste luchthaven voor Nerja. Aena vermeldt een rechtstreekse Alsa-verbinding tussen de luchthaven en Nerja; Granada is een alternatief waarbij je doorgaans overstapt bij het busstation van Granada.',
+          'Málaga-Costa del Sol is de belangrijkste luchthaven voor Nerja. Aena vermeldt een rechtstreekse Alsa-verbinding tussen de luchthaven en Nerja; Granada is een alternatief waarbij jullie doorgaans overstappen bij het busstation van Granada.',
           'In centraal Nerja verlopen veel strand-, restaurant- en boodschappendagen prima te voet. Een auto is vooral waardevol als Maro, Frigiliana, de Axarquía of meerdere regionale uitstapjes belangrijk zijn.',
           'AMARA Playa ligt aan Calle Castilla Pérez 60. Het appartement heeft geen parkeerplaats, dus plan een openbare garage of straatplek en ga niet uit van parkeren voor de deur.'
         ],
@@ -487,10 +487,10 @@ export const nerjaLocationHubContent: {
       },
       areas: {
         eyebrow: 'Waar overnachten',
-        title: 'De juiste buurt hangt af van wat je dagelijks voor de deur wilt',
+        title: 'De juiste buurt hangt af van wat jullie dagelijks voor de deur willen',
         paragraphs: [
           'Nerja is geen aaneengesloten vakantiezone. Elke buurt verschuift de balans tussen strand, avonden in het centrum, hellingen, parkeren en rust.',
-          'Voor een kort verblijf is de handigste vraag vaak niet “Welke buurt is het best?”, maar “Welke routes willen we elke dag opnieuw lopen?”'
+          'Voor een kort verblijf is de handigste vraag vaak niet “Welke buurt is het best?”, maar “Welke routes willen jullie elke dag opnieuw lopen?”'
         ],
         archetypes: [
           { title: 'Torrecilla & Chaparril', consequence: 'Strand, dagelijkse winkels en oude centrum passen in één wandelritme.' },
@@ -504,7 +504,7 @@ export const nerjaLocationHubContent: {
         eyebrow: 'Stranden & routes',
         title: 'Ook in een badplaats blijft de keuze van het strand belangrijk',
         paragraphs: [
-          'Torrecilla, El Chucho, Calahonda, Carabeo en Burriana zijn niet hetzelfde. Toegang, voorzieningen, trappen en de terugweg naar je verblijf bepalen hoe de stranddag voelt.',
+          'Torrecilla, El Chucho, Calahonda, Carabeo en Burriana zijn niet hetzelfde. Toegang, voorzieningen, trappen en de terugweg naar jullie verblijf bepalen hoe de stranddag voelt.',
           'Vanaf AMARA Playa is Torrecilla ongeveer 200 meter. Even zwemmen of later op de dag teruggaan is daardoor eenvoudig; andere stranden blijven bewuste wandelingen of af en toe een rit per taxi of auto.'
         ]
       },
@@ -521,7 +521,7 @@ export const nerjaLocationHubContent: {
         eyebrow: 'Weer, seizoenen & langer verblijf',
         title: 'Het weer gaat over omstandigheden, het dagelijks leven over gewone weken',
         paragraphs: [
-          'De Weergids beantwoordt welke omstandigheden je kunt verwachten: warmte, regen, verschillen tussen seizoenen en wat de verwachting voor jullie data nog moet uitwijzen. In de winter is Nerja vaak rustiger, maar er kunnen ook nattere perioden en langere avonden binnen zijn.',
+          'De Weergids beantwoordt welke omstandigheden jullie kunnen verwachten: warmte, regen, verschillen tussen seizoenen en wat de verwachting voor jullie data nog moet uitwijzen. In de winter is Nerja vaak rustiger, maar er kunnen ook nattere perioden en langere avonden binnen zijn.',
           'De gids Dagelijks leven beantwoordt een andere vraag: werkt Nerja wanneer het verblijf uit meerdere gewone weken bestaat? Boodschappen, apotheken, terugkerende wandelingen, koken, wassen en de keuze tussen autovrije dagen en uitstapjes tellen dan zwaarder dan een lijst bezienswaardigheden.',
           'AMARA Playa is één praktisch voorbeeld en geen belofte voor ieder adres: de centrale ligging ondersteunt veel routines te voet, terwijl verwarming en airconditioning, een complete keuken en een wasmachine tijd binnen en dagelijkse taken makkelijker maken.',
           'Een langer verblijf in het centrum kan grotendeels autovrij blijven als de meeste dagen zich in Nerja afspelen. Een auto wordt nuttiger voor regelmatige ritten naar Maro, Frigiliana of de rest van de Axarquía.'
@@ -533,7 +533,7 @@ export const nerjaLocationHubContent: {
         title: 'Van gast naar gastheer in Nerja',
         paragraphs: [
           'Jarenlang waren we zelf vakantiegasten in precies dit appartement. We genoten er zo van dat we geen seconde twijfelden toen we hoorden dat het te koop stond.',
-          'In een paar woorden: absolute gezelligheid en de perfecte ligging. Je zit midden in het centrum en toch ligt het appartement aan de achterzijde en blijft het heerlijk rustig — bekroond met zeezicht. Een auto heb je hier niet nodig.',
+          'Kort samengevat: centraal, aan de achterzijde en rustig, met zeezicht. Vanuit hier kunnen jullie de meeste dagelijkse plannen in Nerja te voet doen, waardoor jullie in het dorp zelden een auto nodig hebben.',
           'De ligging is moeilijk te verslaan: nog geen 500 meter tot de Balcón de Europa en slechts 200 meter tot het strand Torrecilla. Een paar honderd meter verder liggen afgelegen, rustige baaitjes.',
           'Ook het gebouw hoort bij een eerlijke planning: het appartement ligt op de vijfde verdieping met lift, maar vóór de lift zijn er buiten vijf en binnen nog vijf treden. Er is geen eigen parkeerplaats.'
         ],
@@ -550,7 +550,7 @@ export const nerjaLocationHubContent: {
         eyebrow: 'Verder dan het adres',
         title: 'Nerja is een plek om te verblijven, geen lijst om af te vinken',
         paragraphs: [
-          'De locatie bepaalt het dagritme; de ervaring ontstaat uit wat je ermee doet. Strandochtenden, avonden in het oude centrum, Maro, Frigiliana en de Axarquía zijn te combineren zonder iedere dag hetzelfde in te delen.'
+          'De locatie bepaalt het dagritme; de ervaring ontstaat uit wat jullie ermee doen. Strandochtenden, avonden in het oude centrum, Maro, Frigiliana en de Axarquía zijn te combineren zonder iedere dag hetzelfde in te delen.'
         ],
         link: { label: 'Ontdek ervaringen in Nerja', token: 'nerja_experience_hub' }
       }
@@ -604,7 +604,7 @@ export const nerjaLocationHubContent: {
         title: 'Rätt område beror på vad ni vill ha utanför dörren varje dag',
         paragraphs: [
           'Nerja är inte ett enda sammanhängande semesterstråk. Varje område ändrar balansen mellan strand, kvällar i centrum, backar, parkering och lugn.',
-          'För en kort vistelse är den bästa frågan ofta inte ”Vilket område är bäst?” utan ”Vilka sträckor vill vi göra varje dag?”'
+          'För en kort vistelse är den bästa frågan ofta inte ”Vilket område är bäst?” utan ”Vilka sträckor vill ni göra varje dag?”'
         ],
         archetypes: [
           { title: 'Torrecilla & Chaparril', consequence: 'Strand, vardagsinköp och gamla stan ryms i en promenadrutin.' },
@@ -647,7 +647,7 @@ export const nerjaLocationHubContent: {
         title: 'Från gäst till värd i Nerja',
         paragraphs: [
           'I flera år var vi själva semestergäster i precis den här lägenheten. Vi trivdes så bra att vi inte tvekade en sekund när vi fick veta att den var till salu.',
-          'Med några få ord: absolut mysighet och det perfekta läget. Ni bor mitt i centrum, och ändå vetter lägenheten mot baksidan och förblir härligt tyst — krönt av havsutsikt. Här behöver ni ingen bil.',
+          'Kort sagt: centralt, vänt från gatan och lugnt, med havsutsikt. Härifrån fungerar de flesta vardagsplaner i Nerja bra till fots, så inne i byn behöver ni sällan bil.',
           'Läget är svårslaget: knappt 500 meter till Balcón de Europa och bara 200 meter till stranden Torrecilla. Går man några hundra meter till når man små, avskilda och lugna vikar.',
           'Även byggnaden hör till en ärlig planering: lägenheten ligger på femte våningen med hiss, men före hissen finns fem trappsteg utomhus och fem inomhus. Privat parkering ingår inte.'
         ],

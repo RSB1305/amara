@@ -77,7 +77,7 @@ export const nerjaLocationCopy = {
       'Where you stay in Nerja makes a real difference.\n\nSome parts of town put the beach, restaurants and everyday errands within an easy walk. In others, hills, steps or parking become part of the daily routine. This guide helps you understand those differences before you choose your base.',
       'Wo ihr in Nerja wohnt, macht im Urlaub einen spürbaren Unterschied.\n\nIn manchen Vierteln erreicht ihr Strand, Restaurants und alles für den Alltag bequem zu Fuß. Anderswo gehören Steigungen, Treppen oder die Parkplatzsuche automatisch zum Tagesablauf. Dieser Guide zeigt euch die Unterschiede, bevor ihr euch für eine Lage entscheidet.',
       'La zona de Nerja que elijáis cambia bastante la experiencia.\n\nEn algunos barrios podéis ir andando con facilidad a la playa, a los restaurantes y a las tiendas del día a día. En otros, las cuestas, las escaleras o el aparcamiento condicionan más los planes. Esta guía os ayuda a entender esas diferencias antes de decidir dónde alojaros.',
-      'Waar je in Nerja verblijft, bepaalt voor een groot deel hoe je vakantie eruitziet.\n\nIn sommige buurten loop je zo naar het strand, restaurants en winkels. Elders horen heuvels, trappen of zoeken naar een parkeerplek bij de dag. Met deze gids kun je de verschillen afwegen voordat je een buurt kiest.',
+      'Waar jullie in Nerja verblijven, bepaalt voor een groot deel hoe jullie vakantie eruitziet.\n\nIn sommige buurten lopen jullie zo naar het strand, restaurants en winkels. Elders horen heuvels, trappen of zoeken naar een parkeerplek bij de dag. Met deze gids kunnen jullie de verschillen afwegen voordat jullie een buurt kiezen.',
       'Var ni bor i Nerja påverkar semestern mer än man först kan tro.\n\nI vissa områden är det enkelt att promenera till stranden, restaurangerna och vardagens ärenden. På andra håll blir backar, trappor eller parkering en del av planeringen. Här får ni hjälp att förstå skillnaderna innan ni väljer område.'
     ),
     ctaMain: localized(
@@ -108,14 +108,14 @@ export const nerjaLocationCopy = {
       'Four things to know before choosing where to stay',
       'Vier Dinge, die ihr vor der Wahl eurer Wohnlage wissen solltet',
       'Cuatro cosas que conviene saber antes de elegir zona',
-      'Vier dingen om te weten voordat je een buurt kiest',
+      'Vier dingen om te weten voordat jullie een buurt kiezen',
       'Fyra saker att tänka på innan ni väljer område'
     ),
     intro: localized(
       'A place can look close on the map and still feel very different once you start walking it every day. In Nerja, four things matter most: the centre, the coast, the hills and whether you want to rely on a car.',
       'Auf der Karte kann ein Ziel ganz nah wirken und sich im Urlaubsalltag trotzdem anders anfühlen. In Nerja kommt es vor allem auf vier Dinge an: Zentrum, Küste, Höhenunterschiede und die Frage, ob ihr auf ein Auto angewiesen sein möchtet.',
       'Un lugar puede parecer cercano en el mapa y sentirse muy distinto cuando hacéis el recorrido cada día. En Nerja conviene fijarse sobre todo en cuatro cosas: el centro, la costa, las cuestas y cuánto queréis depender del coche.',
-      'Op de kaart kan iets dichtbij lijken, terwijl de dagelijkse wandeling heel anders aanvoelt. In Nerja zijn vooral vier dingen belangrijk: het centrum, de kust, de hoogteverschillen en de vraag of je op een auto wilt leunen.',
+      'Op de kaart kan iets dichtbij lijken, terwijl de dagelijkse wandeling heel anders aanvoelt. In Nerja zijn vooral vier dingen belangrijk: het centrum, de kust, de hoogteverschillen en de vraag of jullie op een auto willen leunen.',
       'En plats kan se nära ut på kartan men kännas helt annorlunda när ni går sträckan varje dag. I Nerja är fyra saker särskilt viktiga: centrum, kusten, backarna och hur beroende ni vill vara av bil.'
     ),
     items: [
@@ -125,7 +125,7 @@ export const nerjaLocationCopy = {
           'Much of central Nerja works well on foot',
           'Vieles im Zentrum von Nerja lässt sich gut zu Fuß erledigen',
           'Buena parte del centro de Nerja se disfruta a pie',
-          'In een groot deel van het centrum kun je prima lopen',
+          'In een groot deel van het centrum kunnen jullie prima lopen',
           'Stora delar av centrala Nerja fungerar bra till fots'
         ),
         text: localized(
@@ -184,7 +184,7 @@ export const nerjaLocationCopy = {
           'A central stay can work very well without a car. Further out, or if you plan to explore the wider region regularly, having one gives you much more flexibility.',
           'Bei einer zentralen Unterkunft kommt ihr sehr gut ohne Auto aus. In den äußeren Vierteln oder für regelmäßige Ausflüge in die Umgebung verschafft es euch deutlich mehr Freiheit.',
           'Si os alojáis en una zona céntrica, podéis moveros muy bien sin coche. En los barrios más alejados o si queréis recorrer la comarca con frecuencia, tenerlo os dará mucha más libertad.',
-          'Wie centraal verblijft, kan heel goed zonder auto. In de buitenwijken, of als je vaak de omgeving wilt verkennen, geeft een auto veel meer vrijheid.',
+          'Wie centraal verblijft, kan heel goed zonder auto. In de buitenwijken, of als jullie vaak de omgeving willen verkennen, geeft een auto veel meer vrijheid.',
           'Bor ni centralt går det ofta utmärkt utan bil. Längre från centrum, eller om ni vill göra många utflykter i trakten, ger bilen betydligt större frihet.'
         )
       }
@@ -209,7 +209,7 @@ export const nerjaLocationCopy = {
       'There is no single area that suits everyone. Start with what you want to do most days — beach, old town, easy walking, more residential surroundings — and choose the part of Nerja that makes that easiest.',
       'Es gibt keine Lage, die für alle passt. Überlegt zuerst, was euren Urlaub prägen soll – Strand, Altstadt, kurze Fußwege oder ein ruhigeres Wohnviertel – und wählt dann den Teil Nerjas, in dem das am einfachsten gelingt.',
       'No hay una zona que encaje con todo el mundo. Pensad primero qué queréis hacer la mayoría de los días — playa, casco antiguo, trayectos sencillos a pie o un entorno más residencial — y elegid la parte de Nerja que os lo ponga más fácil.',
-      'Er is niet één buurt die voor iedereen werkt. Bedenk eerst wat je op de meeste dagen wilt doen — naar het strand, de oude stad in, makkelijk lopen of juist rustiger wonen — en kies de plek in Nerja waar dat het vanzelfsprekendst is.',
+      'Er is niet één buurt die voor iedereen werkt. Bedenk eerst wat jullie op de meeste dagen willen doen — naar het strand, de oude stad in, makkelijk lopen of juist rustiger wonen — en kies de plek in Nerja waar dat het vanzelfsprekendst is.',
       'Det finns inget område som passar alla. Börja med det ni helst vill göra de flesta dagar – gå till stranden, röra er i gamla stan, ha enkla promenader eller bo mer avskilt – och välj den del av Nerja som gör det lättast.'
     ),
     goodForLabel: localized('Good for', 'Gut für', 'Ideal para', 'Past bij', 'Passar'),
@@ -406,8 +406,8 @@ export const nerjaLocationCopy = {
           title: 'Oude centrum / Balcón de Europa',
           paragraphs: [
             'Rond het Balcón de Europa en in de straten van de oude stad ligt het autoluwe hart van Nerja.',
-            'Restaurants, winkels, uitzichtpunten en het avondleven beginnen voor de deur. Daardoor kun je bijna alles wat je dagelijks nodig hebt te voet doen.',
-            'Met een auto is deze buurt minder handig. Bovendien liggen sommige kleine stranden onder het centrum en bereik je ze via een helling of trap.'
+            'Restaurants, winkels, uitzichtpunten en het avondleven beginnen voor de deur. Daardoor kunnen jullie bijna alles wat jullie dagelijks nodig hebben te voet doen.',
+            'Met een auto is deze buurt minder handig. Bovendien liggen sommige kleine stranden onder het centrum en bereiken jullie ze via een helling of trap.'
           ],
           goodFor: 'Gasten die het oude centrum en de avondsfeer van Nerja elke dag om zich heen willen hebben.'
         },
@@ -416,7 +416,7 @@ export const nerjaLocationCopy = {
           title: 'Torrecilla / west-centraal Nerja',
           paragraphs: [
             'Torrecilla ligt aan de westkant van het centrum, vlak bij het strand en toch midden in het gewone leven van Nerja.',
-            'Vanuit deze buurt combineer je de kust, restaurants, winkels en wandelingen naar het centrum zonder voor ieder uitstapje de auto nodig te hebben.',
+            'Vanuit deze buurt combineren jullie de kust, restaurants, winkels en wandelingen naar het centrum zonder voor ieder uitstapje de auto nodig te hebben.',
             'Torrecilla voelt als een deel van de stad en niet als een afzonderlijk vakantiepark. Voor veel gasten is dat juist de charme.'
           ],
           goodFor: 'Gasten die strand en centrum zonder veel plannen op één dag willen combineren.'
@@ -425,7 +425,7 @@ export const nerjaLocationCopy = {
           kicker: '03',
           title: 'Carabeo / Parador',
           paragraphs: [
-            'Ten oosten van het Balcón blijf je rond Carabeo en het Parador dicht bij het centrum, terwijl de kust nadrukkelijker aanwezig is.',
+            'Ten oosten van het Balcón blijven jullie rond Carabeo en het Parador dicht bij het centrum, terwijl de kust nadrukkelijker aanwezig is.',
             'De oude stad ligt nog steeds op loopafstand. De kleinere baaien en kustroutes liggen beneden aan de kliffen.',
             'Naar die stranden gaan vaak trappen. Ook bereikbaarheid en parkeren verschillen per straat, dus de precieze ligging is hier belangrijk.'
           ],
@@ -437,7 +437,7 @@ export const nerjaLocationCopy = {
           paragraphs: [
             'Burriana past bij gasten voor wie de meeste dagen om het strand mogen draaien.',
             'Restaurants, strandvoorzieningen en lange uren aan zee zijn dichtbij. Houd wel rekening met de terugweg naar centraal Nerja: die gaat merkbaar omhoog.',
-            'Een afstand die op de kaart kort lijkt, kan daardoor anders aanvoelen wanneer je hem tijdens de vakantie een paar keer loopt.'
+            'Een afstand die op de kaart kort lijkt, kan daardoor anders aanvoelen wanneer jullie hem tijdens de vakantie een paar keer lopen.'
           ],
           goodFor: 'Gasten die liever het strand direct bij de hand hebben dan iedere avond naar de oude stad lopen.'
         },
@@ -446,7 +446,7 @@ export const nerjaLocationCopy = {
           title: 'Capistrana / San Juan de Capistrana',
           paragraphs: [
             'De woonclusters Capistrana en San Juan de Capistrana liggen hoger en buiten het centrale kustweefsel.',
-            'Je vindt er vaker ruimte, tuinen, zwembaden of huizen in villastijl, maar helling en precieze straat bepalen de dagelijkse routes.',
+            'Jullie vinden er vaker ruimte, tuinen, zwembaden of huizen in villastijl, maar helling en precieze straat bepalen de dagelijkse routes.',
             'Behandel dit als een eigen woonmodel en controleer de exacte route in plaats van alle adressen gelijk te stellen.'
           ],
           goodFor: 'Gasten die een woonomgeving waarderen en hellingen en vervoer voor het precieze adres controleren.'
@@ -532,7 +532,7 @@ export const nerjaLocationCopy = {
       'What changes when you stay close to one or the other',
       'Was sich ändert, wenn eines von beiden vor der Tür liegt',
       'Qué cambia al alojarse cerca de uno u otro',
-      'Wat er verandert als je dicht bij het een of het ander verblijft',
+      'Wat er verandert als jullie dicht bij het een of het ander verblijven',
       'Vad som förändras när ni bor nära det ena eller det andra'
     ),
     intro: localized(
@@ -565,7 +565,7 @@ export const nerjaLocationCopy = {
             'Desde una zona muy orientada al mar, como Burriana, salir por la tarde al casco antiguo requiere algo más de organización por la subida de vuelta.'
           ],
           [
-            'Even gaan zwemmen wordt heerlijk eenvoudig. Tussen twee strandmomenten door loop je terug naar het appartement en een groot deel van de dag speelt zich bij zee af.',
+            'Even gaan zwemmen wordt heerlijk eenvoudig. Tussen twee strandmomenten door lopen jullie terug naar het appartement en een groot deel van de dag speelt zich bij zee af.',
             'Vanuit een echte strandbuurt als Burriana vraagt een avond in de oude stad wel iets meer planning, vanwege de klim terug.'
           ],
           [
@@ -610,7 +610,7 @@ export const nerjaLocationCopy = {
           'Think about the walk you will repeat',
           'Denkt an den Weg, den ihr jeden Tag geht',
           'Pensad en el recorrido que vais a repetir',
-          'Denk aan de wandeling die je steeds opnieuw maakt',
+          'Denk aan de wandeling die jullie steeds opnieuw maken',
           'Tänk på promenaden ni kommer att göra varje dag'
         ),
         paragraphs: localized(
@@ -627,8 +627,8 @@ export const nerjaLocationCopy = {
             'Torrecilla permite combinar costa y centro con relativa facilidad. En Carabeo, el centro queda cerca, pero para llegar al agua suele haber escaleras. En Burriana, disfrutar de la playa es sencillo y la vuelta desde el pueblo exige algo más.'
           ],
           [
-            'De route die je iedere dag loopt, zegt meer dan een getal op de kaart.',
-            'Vanuit Torrecilla combineer je kust en centrum vrij gemakkelijk. Rond Carabeo blijft het centrum dichtbij, maar naar het water gaan vaak trappen. In Burriana is het strandleven eenvoudig en kost de terugweg uit de stad wat meer moeite.'
+            'De route die jullie iedere dag lopen, zegt meer dan een getal op de kaart.',
+            'Vanuit Torrecilla combineren jullie kust en centrum vrij gemakkelijk. Rond Carabeo blijft het centrum dichtbij, maar naar het water gaan vaak trappen. In Burriana is het strandleven eenvoudig en kost de terugweg uit de stad wat meer moeite.'
           ],
           [
             'Sträckan ni går varje dag säger mer än en siffra på kartan.',
@@ -651,14 +651,14 @@ export const nerjaLocationCopy = {
       'On Foot, by Car & What to Know About Parking',
       'Zu Fuß, mit dem Auto und was ihr über das Parken wissen solltet',
       'A pie, en coche y lo que conviene saber sobre aparcamiento',
-      'Te voet, met de auto en wat je moet weten over parkeren',
+      'Te voet, met de auto en wat jullie moeten weten over parkeren',
       'Till fots, med bil och vad ni bör veta om parkering'
     ),
     intro: localized(
       'Whether you need a car depends less on Nerja itself than on where you stay and what you plan to do.',
       'Ob ihr ein Auto braucht, hängt weniger von Nerja selbst ab als von eurer Wohnlage und euren Urlaubsplänen.',
       'Necesitar coche depende menos de Nerja en general que de la zona donde os alojéis y de los planes que tengáis.',
-      'Of je een auto nodig hebt, hangt minder af van Nerja zelf dan van je verblijfplaats en je plannen.',
+      'Of jullie een auto nodig hebben, hangt minder af van Nerja zelf dan van jullie verblijfplaats en jullie plannen.',
       'Om ni behöver bil beror mindre på Nerja i sig och mer på var ni bor och vad ni vill göra.'
     ),
     cards: [
@@ -708,8 +708,8 @@ export const nerjaLocationCopy = {
             'También resulta útil si queréis visitar con frecuencia Frigiliana, otros puntos de la costa o el interior de Andalucía en lugar de pasar la mayoría de los días en Nerja.'
           ],
           [
-            'Verder buiten het centrum geeft een auto je veel meer vrijheid.',
-            'Ook als je geregeld Frigiliana, de rest van de kust of het binnenland van Andalusië wilt verkennen, is hij handig. Dat geldt vooral wanneer je niet de meeste dagen in Nerja zelf blijft.'
+            'Verder buiten het centrum geeft een auto jullie veel meer vrijheid.',
+            'Ook als jullie geregeld Frigiliana, de rest van de kust of het binnenland van Andalusië willen verkennen, is hij handig. Dat geldt vooral wanneer jullie niet de meeste dagen in Nerja zelf blijven.'
           ],
           [
             'Längre från centrum ger bilen betydligt större frihet.',
@@ -734,7 +734,7 @@ export const nerjaLocationCopy = {
           ],
           [
             'Wie centraal verblijft, kan soms meer werk aan de auto hebben dan gemak.',
-            'In drukke periodes is parkeren lastiger en in sommige voetgangersstraten kun je niet tot aan de deur rijden. Kies je een buurt waar de dagelijkse dingen te voet kunnen, dan laat je de auto staan tot je hem echt nodig hebt.'
+            'In drukke periodes is parkeren lastiger en in sommige voetgangersstraten kunnen jullie niet tot aan de deur rijden. Kiezen jullie een buurt waar de dagelijkse dingen te voet kunnen, dan laten jullie de auto staan tot jullie hem echt nodig hebben.'
           ],
           [
             'Bor ni centralt kan bilen ibland ge mer besvär än nytta.',
@@ -756,21 +756,21 @@ export const nerjaLocationCopy = {
       'Nerja & Frigiliana — Choose Your Base',
       'Nerja & Frigiliana – wählt euren Ausgangspunkt',
       'Nerja y Frigiliana: elegid dónde alojaros',
-      'Nerja & Frigiliana — kies waar je verblijft',
+      'Nerja & Frigiliana — kies waar jullie verblijven',
       'Nerja & Frigiliana – välj var ni vill bo'
     ),
     intro: localized(
       'You do not have to choose between experiencing Nerja and experiencing Frigiliana.\n\nThey are close enough to be part of the same stay. The more useful question is simply:',
       'Ihr müsst euch nicht zwischen Nerja und Frigiliana entscheiden.\n\nBeide Orte lassen sich gut in einem Aufenthalt verbinden. Die hilfreichere Frage lautet deshalb:',
       'No tenéis que renunciar a Nerja para conocer Frigiliana, ni al revés.\n\nLos dos lugares pueden formar parte del mismo viaje. La pregunta que de verdad ayuda a elegir es:',
-      'Je hoeft niet te kiezen tussen Nerja beleven en Frigiliana ontdekken.\n\nDe twee plaatsen passen prima in dezelfde vakantie. De vraag die je wel helpt kiezen is:',
+      'Jullie hoeven niet te kiezen tussen Nerja beleven en Frigiliana ontdekken.\n\nDe twee plaatsen passen prima in dezelfde vakantie. De vraag die jullie wel helpt kiezen is:',
       'Ni behöver inte välja bort Nerja för att uppleva Frigiliana, eller tvärtom.\n\nBåda ryms i samma semester. Frågan som faktiskt hjälper er att välja är:'
     ),
     prompt: localized(
       'Where would you rather wake up each morning?',
       'Wo möchtet ihr morgens lieber aufwachen?',
       '¿Dónde preferís despertaros cada mañana?',
-      'Waar word je het liefst iedere ochtend wakker?',
+      'Waar worden jullie het liefst iedere ochtend wakker?',
       'Var vill ni helst vakna varje morgon?'
     ),
     profiles: [
@@ -790,7 +790,7 @@ export const nerjaLocationCopy = {
           'Choose Frigiliana when you want the historic village itself to feel like home — village streets and evenings, an elevated setting and a different pace when you return at the end of the day.',
           'Frigiliana passt zu euch, wenn das historische Dorf euer Zuhause auf Zeit sein soll: Gassen und Abende im Ort, die erhöhte Lage und ein anderer Rhythmus, wenn ihr am Ende des Tages zurückkehrt.',
           'Elegid Frigiliana si queréis sentir el pueblo histórico como vuestro hogar durante unos días: sus calles y sus tardes, la posición elevada y otro ritmo al volver al final de la jornada.',
-          'Kies Frigiliana als het historische dorp als thuis mag voelen: de straten en avonden in het dorp, de hogere ligging en een ander tempo wanneer je aan het einde van de dag terugkomt.',
+          'Kies Frigiliana als het historische dorp als thuis mag voelen: de straten en avonden in het dorp, de hogere ligging en een ander tempo wanneer jullie aan het einde van de dag terugkomen.',
           'Välj Frigiliana om den historiska byn ska kännas som hemma under resan: gränderna och kvällarna, läget ovanför kusten och ett annat tempo när ni återvänder efter dagens utflykt.'
         )
       }
@@ -799,14 +799,14 @@ export const nerjaLocationCopy = {
       'Whichever base you choose, the other place remains close enough to enjoy during your stay.',
       'Wo ihr auch wohnt: Der andere Ort bleibt nah genug für einen Besuch während eures Aufenthalts.',
       'Elijáis el lugar que elijáis, el otro queda lo bastante cerca para disfrutarlo durante el viaje.',
-      'Waar je ook verblijft, de andere plaats blijft dichtbij genoeg om tijdens de vakantie te bezoeken.',
+      'Waar jullie ook verblijven, de andere plaats blijft dichtbij genoeg om tijdens de vakantie te bezoeken.',
       'Oavsett var ni bor finns den andra platsen nära nog för ett besök under semestern.'
     ),
     bridge: localized(
       'Choose where you want to wake up. Experience both.',
       'Wählt, wo ihr aufwachen möchtet. Erlebt beides.',
       'Elegid dónde queréis despertar. Disfrutad de los dos lugares.',
-      'Kies waar je wakker wilt worden. Beleef ze allebei.',
+      'Kies waar jullie wakker willen worden. Beleef ze allebei.',
       'Välj var ni vill vakna. Upplev båda.'
     ),
     cta: localized(
@@ -934,7 +934,7 @@ export const nerjaLocationCopy = {
           'The balcony has a side view towards the sea.',
           'Vom Balkon geht der Blick seitlich zum Meer.',
           'El balcón tiene vistas laterales hacia el mar.',
-          'Vanaf het balkon kijk je zijdelings richting zee.',
+          'Vanaf het balkon kijken jullie zijdelings richting zee.',
           'Från balkongen syns havet åt sidan.'
         )
       }
@@ -955,7 +955,7 @@ export const nerjaLocationCopy = {
           'What do you want outside the door?',
           'Was möchtet ihr direkt vor der Tür haben?',
           '¿Qué queréis tener nada más salir?',
-          'Wat wil je voor de deur hebben?',
+          'Wat willen jullie voor de deur hebben?',
           'Vad vill ni ha utanför dörren?'
         ),
         t: localized(
@@ -972,7 +972,7 @@ export const nerjaLocationCopy = {
           'Which walk will you repeat every day?',
           'Welchen Weg werdet ihr jeden Tag gehen?',
           '¿Qué recorrido vais a repetir cada día?',
-          'Welke wandeling maak je iedere dag?',
+          'Welke wandeling maken jullie iedere dag?',
           'Vilken sträcka kommer ni att gå varje dag?'
         ),
         t: localized(
@@ -996,7 +996,7 @@ export const nerjaLocationCopy = {
           'Do you want to leave it parked most days, use it mainly for excursions or depend on it for everyday life?',
           'Soll es die meiste Zeit stehen, vor allem für Ausflüge dienen oder zu euren täglichen Wegen gehören?',
           '¿Queréis dejarlo aparcado casi todos los días, usarlo sobre todo para excursiones o depender de él a diario?',
-          'Wil je hem meestal laten staan, vooral voor uitstapjes gebruiken of er dagelijks op aangewezen zijn?',
+          'Willen jullie hem meestal laten staan, vooral voor uitstapjes gebruiken of er dagelijks op aangewezen zijn?',
           'Ska den stå parkerad de flesta dagar, främst användas för utflykter eller behövas i vardagen?'
         )
       }
@@ -1021,7 +1021,7 @@ export const nerjaLocationCopy = {
           'The Old Town, Torrecilla and Carabeo can all work well without a car if the exact location gives you practical walking routes to the places you expect to use most. If both the beach and central Nerja matter to you, Torrecilla is one option worth considering.',
           'Altstadt, Torrecilla und Carabeo können alle gut ohne Auto funktionieren, wenn die konkrete Adresse praktische Fußwege zu euren wichtigsten Zielen bietet. Wenn euch sowohl der Strand als auch das Zentrum wichtig sind, lohnt es sich, Torrecilla näher anzusehen.',
           'El casco antiguo, Torrecilla y Carabeo pueden funcionar bien sin coche si la ubicación concreta ofrece recorridos cómodos a pie hacia los lugares que más vais a utilizar. Si os importan tanto la playa como el centro, Torrecilla es una de las zonas que conviene valorar.',
-          'In het oude centrum, Torrecilla en Carabeo kun je goed zonder auto, zolang de precieze locatie prettige looproutes biedt naar de plekken waar je vaak naartoe wilt. Zijn zowel het strand als het centrum belangrijk, dan is Torrecilla het bekijken waard.',
+          'In het oude centrum, Torrecilla en Carabeo kunnen jullie goed zonder auto, zolang de precieze locatie prettige looproutes biedt naar de plekken waar jullie vaak naartoe willen. Zijn zowel het strand als het centrum belangrijk, dan is Torrecilla het bekijken waard.',
           'Gamla stan, Torrecilla och Carabeo kan alla fungera bra utan bil, förutsatt att den exakta adressen ger smidiga promenadvägar till platserna ni oftast vill besöka. Om både stranden och centrum är viktiga är Torrecilla ett område att titta närmare på.'
         )
       },
@@ -1037,27 +1037,27 @@ export const nerjaLocationCopy = {
       },
       {
         q: localized(
-          'Should we stay near the beach or near the old town?',
-          'Sollten wir am Strand oder nahe der Altstadt wohnen?',
+          'Should you stay near the beach or near the old town?',
+          'Solltet ihr am Strand oder nahe der Altstadt wohnen?',
           '¿Conviene alojarse cerca de la playa o del casco antiguo?',
-          'Kunnen we beter bij het strand of de oude stad verblijven?',
-          'Ska vi bo nära stranden eller gamla stan?'
+          'Kunnen jullie beter bij het strand of de oude stad verblijven?',
+          'Ska ni bo nära stranden eller gamla stan?'
         ),
         a: localized(
           'Stay close to the beach if going easily back and forth to the sea matters most. Stay in or near the old town if restaurants and evening life should happen almost automatically once you step outside. Torrecilla and Carabeo sit between those two priorities in different ways.',
           'Wohnt nahe am Strand, wenn ihr möglichst unkompliziert zwischen Unterkunft und Meer wechseln möchtet. Wählt die Altstadt oder ihre Umgebung, wenn Restaurants und Abende direkt vor der Tür beginnen sollen. Torrecilla und Carabeo verbinden diese beiden Wünsche jeweils auf ihre eigene Weise.',
           'Alojaos cerca de la playa si lo más importante es poder ir y volver del mar con facilidad. Elegid el casco antiguo o sus alrededores si queréis tener restaurantes y ambiente de tarde nada más salir. Torrecilla y Carabeo combinan esas dos prioridades de formas distintas.',
-          'Verblijf dicht bij het strand als je vooral makkelijk heen en weer naar zee wilt. Kies de oude stad of de directe omgeving als restaurants en het avondleven voor de deur moeten beginnen. Torrecilla en Carabeo combineren die wensen ieder op een andere manier.',
+          'Verblijf dicht bij het strand als jullie vooral makkelijk heen en weer naar zee willen. Kies de oude stad of de directe omgeving als restaurants en het avondleven voor de deur moeten beginnen. Torrecilla en Carabeo combineren die wensen ieder op een andere manier.',
           'Bo nära stranden om det viktigaste är att enkelt kunna gå fram och tillbaka till havet. Välj gamla stan eller området intill om restauranger och kvällsliv ska börja utanför dörren. Torrecilla och Carabeo förenar de två önskemålen på olika sätt.'
         )
       },
       {
-        q: localized('Do we need a car in Nerja?', 'Brauchen wir in Nerja ein Auto?', '¿Necesitamos coche en Nerja?', 'Hebben we een auto nodig in Nerja?', 'Behöver vi bil i Nerja?'),
+        q: localized('Do you need a car in Nerja?', 'Braucht ihr in Nerja ein Auto?', '¿Necesitáis coche en Nerja?', 'Hebben jullie een auto nodig in Nerja?', 'Behöver ni bil i Nerja?'),
         a: localized(
           'Not necessarily. If you choose a central location, you can spend much of the stay on foot. A car becomes more useful further from the centre or when you want to explore the wider region regularly.',
           'Nicht unbedingt. Bei einer zentralen Unterkunft könnt ihr einen großen Teil des Aufenthalts zu Fuß verbringen. Weiter außerhalb oder für regelmäßige Ausflüge in die Region wird ein Auto nützlicher.',
           'No necesariamente. Si elegís una zona céntrica, podéis pasar buena parte de la estancia a pie. El coche resulta más útil lejos del centro o si queréis recorrer la comarca con frecuencia.',
-          'Niet per se. Vanuit een centrale buurt kun je een groot deel van de vakantie te voet doen. Verder buiten het centrum, of als je vaak de omgeving wilt verkennen, komt een auto beter van pas.',
+          'Niet per se. Vanuit een centrale buurt kunnen jullie een groot deel van de vakantie te voet doen. Verder buiten het centrum, of als jullie vaak de omgeving willen verkennen, komt een auto beter van pas.',
           'Inte nödvändigtvis. Väljer ni ett centralt läge kan ni tillbringa en stor del av vistelsen till fots. Längre från centrum, eller om ni ofta vill utforska trakten, är det mer praktiskt med bil.'
         )
       },
@@ -1073,23 +1073,23 @@ export const nerjaLocationCopy = {
           'Many guests can walk the route, but the important part is the return. Heading back towards central Nerja involves a noticeable climb, so it is better to judge the route by the uphill walk you will repeat rather than by the distance on the map alone.',
           'Viele Gäste können die Strecke gut zu Fuß gehen, doch entscheidend ist der Rückweg. Richtung Zentrum geht es spürbar bergauf. Bewertet die Lage deshalb nach diesem wiederkehrenden Anstieg und nicht nur nach der Entfernung auf der Karte.',
           'Muchas personas pueden hacer el recorrido a pie, pero lo importante es la vuelta. El regreso hacia el centro de Nerja incluye una subida apreciable, así que conviene valorar el trayecto por ese tramo que repetiréis y no solo por la distancia del mapa.',
-          'Veel gasten kunnen de route prima lopen, maar let vooral op de terugweg. Richting centraal Nerja gaat het merkbaar omhoog. Beoordeel de ligging daarom op die klim die je vaker maakt, en niet alleen op de afstand op de kaart.',
+          'Veel gasten kunnen de route prima lopen, maar let vooral op de terugweg. Richting centraal Nerja gaat het merkbaar omhoog. Beoordeel de ligging daarom op die klim die jullie vaker maken, en niet alleen op de afstand op de kaart.',
           'Många gäster kan gå sträckan, men det är återvägen som är viktig. Tillbaka mot centrala Nerja väntar en tydlig uppförsbacke. Bedöm därför vägen utifrån den återkommande stigningen, inte bara avståndet på kartan.'
         )
       },
       {
         q: localized(
-          'Can we combine Nerja and Frigiliana in one stay?',
-          'Können wir Nerja und Frigiliana in einem Aufenthalt verbinden?',
-          '¿Podemos combinar Nerja y Frigiliana en el mismo viaje?',
-          'Kunnen we Nerja en Frigiliana in één vakantie combineren?',
-          'Kan vi kombinera Nerja och Frigiliana under samma semester?'
+          'Can you combine Nerja and Frigiliana in one stay?',
+          'Könnt ihr Nerja und Frigiliana in einem Aufenthalt verbinden?',
+          '¿Podéis combinar Nerja y Frigiliana en el mismo viaje?',
+          'Kunnen jullie Nerja en Frigiliana in één vakantie combineren?',
+          'Kan ni kombinera Nerja och Frigiliana under samma semester?'
         ),
         a: localized(
           'Yes. Think of them as two nearby bases with different everyday atmospheres. Choose Nerja if you want to wake up by the coast, or Frigiliana if you want to wake up in the village — and include the other in your stay.',
           'Ja. Beide Orte liegen nah beieinander, bieten im Alltag aber eine andere Atmosphäre. Wählt Nerja, wenn ihr morgens an der Küste aufwachen möchtet, oder Frigiliana für das Dorfgefühl – und besucht den jeweils anderen Ort während eures Aufenthalts.',
           'Sí. Son dos lugares cercanos con ambientes cotidianos diferentes. Elegid Nerja si queréis despertar junto a la costa o Frigiliana si preferís hacerlo en el pueblo, e incluid el otro lugar en el viaje.',
-          'Ja. Het zijn twee plekken dicht bij elkaar, ieder met een andere sfeer in het dagelijks leven. Kies Nerja als je aan de kust wilt wakker worden, of Frigiliana als je liever in het dorp wakker wordt, en bezoek de andere plaats tijdens je vakantie.',
+          'Ja. Het zijn twee plekken dicht bij elkaar, ieder met een andere sfeer in het dagelijks leven. Kies Nerja als jullie aan de kust willen wakker worden, of Frigiliana als jullie liever in het dorp wakker worden, en bezoek de andere plaats tijdens jullie vakantie.',
           'Ja. De ligger nära varandra men har olika känsla i vardagen. Välj Nerja om ni vill vakna vid kusten eller Frigiliana om ni hellre vaknar i byn, och besök den andra platsen under semestern.'
         )
       }

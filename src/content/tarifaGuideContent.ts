@@ -167,7 +167,7 @@ const sharedEditorialNote = l(
   'An independent AMARA orientation guide for planning your stay — not a live conditions service.',
   'Ein unabhängiger AMARA-Guide zur Reiseplanung – kein Live-Dienst für aktuelle Bedingungen.',
   'Una guía independiente de AMARA para planificar la estancia; no es un servicio de condiciones en directo.',
-  'Een onafhankelijke AMARA-gids voor je reisplanning — geen live informatiedienst.',
+  'Een onafhankelijke AMARA-gids voor jullie reisplanning — geen live informatiedienst.',
   'En oberoende AMARA-guide för reseplanering – inte en tjänst för liveförhållanden.'
 );
 
@@ -224,7 +224,7 @@ const overviewDescriptions = l(
   'Where should you stay in Tarifa? Compare the Old Town, La Marina, Los Lances and countryside for walkability, beaches, parking, wind and everyday life.',
   'Welche Lage passt zu eurem Tarifa-Aufenthalt? Vergleicht Altstadt, La Marina, Los Lances und Umland nach Fußläufigkeit, Strand, Auto, Parken und Alltag.',
   '¿Dónde alojarse en Tarifa? Compara casco antiguo, La Marina, Los Lances y alrededores según playa, coche, aparcamiento, distancias y vida diaria.',
-  'Waar kun je het beste verblijven in Tarifa? Vergelijk oude stad, La Marina, Los Lances en buitengebied op strand, lopen, parkeren, auto en dagelijks gemak.',
+  'Waar kunnen jullie het beste verblijven in Tarifa? Vergelijk oude stad, La Marina, Los Lances en buitengebied op strand, lopen, parkeren, auto en dagelijks gemak.',
   'Var är bäst att bo i Tarifa? Jämför gamla stan, La Marina, Los Lances och landsbygden utifrån strand, gångavstånd, bil, parkering och vardag.'
 );
 
@@ -305,9 +305,9 @@ export const overview: TarifaLocationGuideContent = {
           'A central stay can work very well without one, particularly if your priority is the Old Town, nearby beaches and everyday life on foot.',
           'A car becomes more valuable when you want to visit different Atlantic beaches, reach Valdevaqueros or Punta Paloma regularly, explore the region or build kitesurfing into several days of the stay.',
           'The more important question is therefore not simply:',
-          '“Do I need a car?”',
+          '“Do you need a car?”',
           'but:',
-          '“Will I want to use it every day — and how easy will that be from where I stay?”',
+          '“Will you want to use it every day — and how easy will that be from where you stay?”',
           'That distinction matters particularly in busy periods.'
         ]
       },
@@ -456,7 +456,7 @@ export const overview: TarifaLocationGuideContent = {
       car: {
         id: 'car-and-parking',
         title: 'Braucht man in Tarifa ein Auto?',
-        paragraphs: ['Nicht unbedingt.', 'Wenn ihr zentral wohnt und euch vor allem Altstadt, nahe Strände und ein Alltag zu Fuß interessieren, lässt sich Tarifa sehr gut ohne tägliche Autofahrten erleben.', 'Ein Auto wird wertvoller, sobald unterschiedliche Strände, Valdevaqueros, Punta Paloma, regionale Ausflüge oder regelmäßiges Kitesurfen Teil des Aufenthalts werden.', 'Deshalb ist die wichtigere Frage nicht:', '„Brauchen wir ein Auto?“', 'sondern:', '„Wie häufig wollen wir es benutzen – und wie unkompliziert funktioniert das von unserer Unterkunft aus?“']
+        paragraphs: ['Nicht unbedingt.', 'Wenn ihr zentral wohnt und euch vor allem Altstadt, nahe Strände und ein Alltag zu Fuß interessieren, lässt sich Tarifa sehr gut ohne tägliche Autofahrten erleben.', 'Ein Auto wird wertvoller, sobald unterschiedliche Strände, Valdevaqueros, Punta Paloma, regionale Ausflüge oder regelmäßiges Kitesurfen Teil des Aufenthalts werden.', 'Deshalb ist die wichtigere Frage nicht:', '„Braucht ihr ein Auto?“', 'sondern:', '„Wie häufig wollt ihr es benutzen – und wie unkompliziert funktioniert das von eurer Unterkunft aus?“']
       },
       wind: {
         id: 'wind-and-location',
@@ -537,7 +537,7 @@ export const overview: TarifaLocationGuideContent = {
       car: {
         id: 'car-and-parking',
         title: '¿Hace falta coche?',
-        paragraphs: ['No necesariamente.', 'Desde una zona urbana podéis disfrutar gran parte de Tarifa andando.', 'El coche empieza a aportar mucho más valor si queréis moveros entre diferentes playas, ir regularmente a Valdevaqueros, descubrir los alrededores o practicar kitesurf varios días.', 'La pregunta más útil es:', '¿cuántas veces vamos a querer mover el coche durante la estancia y qué fácil será hacerlo desde nuestro alojamiento?']
+        paragraphs: ['No necesariamente.', 'Desde una zona urbana podéis disfrutar gran parte de Tarifa andando.', 'El coche empieza a aportar mucho más valor si queréis moveros entre diferentes playas, ir regularmente a Valdevaqueros, descubrir los alrededores o practicar kitesurf varios días.', 'La pregunta más útil es:', '¿cuántas veces vais a querer mover el coche durante la estancia y qué fácil será hacerlo desde vuestro alojamiento?']
       },
       wind: {
         id: 'wind-and-location',
@@ -585,7 +585,7 @@ export const overview: TarifaLocationGuideContent = {
         eyebrow: 'AMARA locatiegids',
         title: 'Waar overnachten in Tarifa: kies de uitvalsbasis die bij jullie past',
         lead: [
-          'Tarifa is compact, maar waar je verblijft heeft veel invloed op hoe een verblijf van meerdere dagen eruitziet.',
+          'Tarifa is compact, maar waar jullie verblijven heeft veel invloed op hoe een verblijf van meerdere dagen eruitziet.',
           'De oude stad, La Marina, de kust richting Los Lances en het buitengebied bieden allemaal een ander dagelijks ritme.',
           'De belangrijkste vraag is daarom niet welke buurt algemeen het beste is, maar:',
           'hoe willen jullie Tarifa gebruiken?'
@@ -609,7 +609,7 @@ export const overview: TarifaLocationGuideContent = {
             paragraphs: [
               'Officiële plandocumenten gebruiken de naam La Marina I voor een deel van het nieuwere stedelijke weefsel. Als gidsmodel blijft “La Marina” een praktische oriëntatie en geen exact begrensde toeristische wijk.',
               'De oude stad blijft bereikbaar te voet, terwijl de auto gemakkelijker onderdeel kan blijven van het verblijf voor stranden, kitesurfen en uitstapjes.',
-              'Je hebt niet direct de historische sfeer voor de deur, maar krijgt daar meer flexibiliteit voor terug.'
+              'Jullie hebben niet direct de historische sfeer voor de deur, maar krijgen daar meer flexibiliteit voor terug.'
             ]
           },
           {
@@ -632,23 +632,23 @@ export const overview: TarifaLocationGuideContent = {
       },
       car: {
         id: 'car-and-parking',
-        title: 'Heb je een auto nodig?',
+        title: 'Hebben jullie een auto nodig?',
         paragraphs: [
           'Niet per se.',
           'Vanuit Tarifa zelf kan veel te voet.',
           'Een auto wordt vooral waardevol wanneer verschillende stranden, Valdevaqueros, de regio of regelmatig kitesurfen onderdeel van jullie verblijf zijn.',
           'Daarom is de betere vraag:',
-          'hoe vaak willen we de auto gebruiken en hoe gemakkelijk is dat vanuit onze accommodatie?'
+          'hoe vaak willen jullie de auto gebruiken en hoe gemakkelijk is dat vanuit jullie accommodatie?'
         ]
       },
       wind: {
         id: 'wind-and-location',
-        title: 'Wat betekent de wind voor je verblijfplaats?',
+        title: 'Wat betekent de wind voor jullie verblijfplaats?',
         paragraphs: [
           'Wind hoort bij Tarifa.',
           'Open kustlocaties ervaren de omstandigheden anders dan dichter bebouwde stedelijke zones. De werkelijke bruikbaarheid van terrassen en balkons hangt bovendien af van de specifieke ligging en beschutting.',
-          'Voor kitesurfers speelt ook mee hoe gemakkelijk je richting de westelijke spots rijdt.',
-          'De gedetailleerde strandkeuze hoort bij onze Experience-gids. Voor Location is vooral belangrijk dat de wind bepaalt hoe je een plek gebruikt.'
+          'Voor kitesurfers speelt ook mee hoe gemakkelijk jullie richting de westelijke spots rijden.',
+          'De gedetailleerde strandkeuze hoort bij onze Experience-gids. Voor Location is vooral belangrijk dat de wind bepaalt hoe jullie een plek gebruiken.'
         ],
         links: [
           { label: 'Ontdek Tarifa', token: 'tarifa_experience_hub' },
@@ -666,16 +666,16 @@ export const overview: TarifaLocationGuideContent = {
       stayFits: {
         title: 'Vier soorten reizen, vier verschillende prioriteiten',
         items: [
-          { title: 'Stellen', paragraphs: ['De oude stad is sterk als restaurants en sfeer vooropstaan.', 'La Marina wordt interessant wanneer je hetzelfde stadsleven te voet wilt combineren met meer vrijheid voor de auto.'] },
-          { title: 'Stellen die kitesurfen of surfen', paragraphs: ['Je hoeft stad en sport niet tegenover elkaar te zetten.', 'Een stedelijke base met gemakkelijke toegang richting de westelijke stranden kan beide combineren.'] },
+          { title: 'Stellen', paragraphs: ['De oude stad is sterk als restaurants en sfeer vooropstaan.', 'La Marina wordt interessant wanneer jullie hetzelfde stadsleven te voet willen combineren met meer vrijheid voor de auto.'] },
+          { title: 'Stellen die kitesurfen of surfen', paragraphs: ['Jullie hoeven stad en sport niet tegenover elkaar te zetten.', 'Een stedelijke base met gemakkelijke toegang richting de westelijke stranden kan beide combineren.'] },
           { title: 'Stellen die met jonge kinderen reizen', paragraphs: ['Boodschappen, auto, verschillende strandopties en praktische terugwegen worden dan belangrijker.'] },
-          { title: 'Langere verblijven', paragraphs: ['Hoe langer je blijft, hoe belangrijker dagelijkse logistiek wordt.'] }
+          { title: 'Langere verblijven', paragraphs: ['Hoe langer jullie blijven, hoe belangrijker dagelijkse logistiek wordt.'] }
         ]
       },
       dailyLife: {
         id: 'daily-life',
         title: 'Dagelijks gemak telt',
-        paragraphs: ['Kun je gemakkelijk boodschappen doen?', 'Kun je lopen naar het avondeten?', 'Kan de auto blijven staan als je hem niet nodig hebt?', 'Kun je hem zonder gedoe gebruiken wanneer je verder langs de kust wilt?', 'Een goede locatie maakt deze dingen vanzelfsprekend.']
+        paragraphs: ['Kunnen jullie gemakkelijk boodschappen doen?', 'Kunnen jullie lopen naar het avondeten?', 'Kan de auto blijven staan als jullie hem niet nodig hebben?', 'Kunnen jullie hem zonder gedoe gebruiken wanneer jullie verder langs de kust willen?', 'Een goede locatie maakt deze dingen vanzelfsprekend.']
       },
       tradeoffs: {
         title: 'Elke locatie heeft een compromis',
@@ -732,7 +732,7 @@ export const overview: TarifaLocationGuideContent = {
       car: {
         id: 'car-and-parking',
         title: 'Behöver man bil i Tarifa?',
-        paragraphs: ['Inte nödvändigtvis.', 'Från en central urban bas fungerar mycket till fots.', 'Bilen blir framför allt värdefull om ni vill besöka olika stränder, åka ofta till Valdevaqueros, utforska regionen eller kitesurfa flera dagar.', 'Den viktigare frågan är därför:', 'hur ofta vill vi använda bilen och hur enkelt är det från där vi bor?']
+        paragraphs: ['Inte nödvändigtvis.', 'Från en central urban bas fungerar mycket till fots.', 'Bilen blir framför allt värdefull om ni vill besöka olika stränder, åka ofta till Valdevaqueros, utforska regionen eller kitesurfa flera dagar.', 'Den viktigare frågan är därför:', 'hur ofta vill ni använda bilen och hur enkelt är det från där ni bor?']
       },
       wind: {
         id: 'wind-and-location',

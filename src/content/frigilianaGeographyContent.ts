@@ -492,8 +492,8 @@ export const frigilianaGeographyContent: Record<
         eyebrow: 'Wat dit betekent voor een verblijf',
         title: 'Een dagelijkse route is afstand plus hoogteverschil en trappen',
         paragraphs: [
-          'In Frigiliana beschrijft een korte afstand op de kaart de wandeling niet volledig. Hoogteverschil, trappen en herhaalde beklimmingen tellen mee, vooral als je een route meerdere keren per dag loopt of met bagage, boodschappen of een kinderwagen.',
-          'Geografie verklaart waarom locaties anders aanvoelen, maar kiest er geen voor je. Voor de gedetailleerde vergelijking van de lagere historische straten, Barribarto, het benedendorp en het buitengebied ga je verder naar de gids Waar overnachten.'
+          'In Frigiliana beschrijft een korte afstand op de kaart de wandeling niet volledig. Hoogteverschil, trappen en herhaalde beklimmingen tellen mee, vooral als jullie een route meerdere keren per dag lopen of met bagage, boodschappen of een kinderwagen.',
+          'Geografie verklaart waarom locaties anders aanvoelen, maar kiest er geen voor jullie. Voor de gedetailleerde vergelijking van de lagere historische straten, Barribarto, het benedendorp en het buitengebied gaan jullie verder naar de gids Waar overnachten.'
         ]
       }
     ],
@@ -521,7 +521,7 @@ export const frigilianaGeographyContent: Record<
     closing: {
       eyebrow: 'Volgende stap',
       title: 'Plan de klim voordat die de dagelijkse route wordt.',
-      body: 'Gebruik de geografie om het dorp te begrijpen en kies daarna de aankomst en ligging die bij je dagen passen.',
+      body: 'Gebruik de geografie om het dorp te begrijpen en kies daarna de aankomst en ligging die bij jullie dagen passen.',
       arrivalLabel: 'Plan aankomst & mobiliteit',
       stayLabel: 'Vergelijk waar te verblijven'
     }

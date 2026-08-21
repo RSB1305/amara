@@ -113,7 +113,7 @@ export const tarifaLocationContent: {
       hero: {
         eyebrow: 'Tarifa · Location & stay',
         title: 'Staying in Tarifa – the Atlantic off your balcony, Africa on the horizon',
-        standfirst: 'Tarifa is a village at the southernmost point of Europe where almost everything is walkable. And yet where you stay shapes every day here: the wind on your balcony, the hunt for a parking space in August, and how the evening ends. I lived in Tarifa myself before we started hosting guests here.',
+        standfirst: 'Tarifa is a village at the southernmost point of Europe where almost everything is walkable. And yet where you stay shapes every day here: the wind on your balcony, the hunt for a parking space in August, and how the evening ends. Our connection to Tarifa began before we started hosting here: Robert lived in the town himself.',
         note: 'An AMARA guide written from experience – not a live service for wind and weather.',
         updated: 'Reviewed August 2026'
       },
@@ -137,7 +137,7 @@ export const tarifaLocationContent: {
         paragraphs: [
           'Most of our guests fly into Málaga and drive about an hour and a half on the motorway. Gibraltar really only works for guests from the UK, hardly anyone arrives by bus, and a few cross by ferry from Morocco.',
           'In Tarifa itself you do not need the car. We actively recommend not driving inside the village – only out of it. In July and August a reserved space is worth its weight in gold: you park once and leave the car where it is.',
-          'There is one place where the car really matters: the kite beaches to the west. If you take lessons with Tarifa Surf Club you will usually find a lift with other students – but I would not rely on it.'
+          'There is one place where the car really matters: the kite beaches to the west. If you take lessons with Tarifa Surf Club you will usually find a lift with other students – but we would not rely on it.'
         ],
         link: { label: 'Plan your journey to Tarifa', token: 'getting_to_tarifa' }
       },
@@ -190,7 +190,7 @@ export const tarifaLocationContent: {
         paragraphs: [
           'The balcony faces west. Which means: every evening the sun drops into the Atlantic in front of you. And when the air is clear, Africa lies opposite – not as an idea on a map, but as a coast you can see.',
           'The bedroom sits above it, with the same view. You wake up with the sea. What guests say most often on arrival: that the apartment is even more beautiful than in the photos.',
-          'I lived in Tarifa myself – kitesurfing, friends, a few months at a time. When this apartment came up for sale, we bought it and modernised it. Because of the evenings. And because it simply works day to day.',
+          'Our connection to Tarifa is personal: Robert lived here for months at a time, kitesurfing and building friendships. When this apartment came up for sale, we bought it and modernised it. Because of the evenings. And because it simply works day to day.',
           'Honestly: if you need historic Tarifa right outside your door, we are the wrong choice. And the pool belongs to the complex, not the apartment – open roughly from mid-May to mid-September, depending on the weather.'
         ],
         facts: [
@@ -222,7 +222,7 @@ export const tarifaLocationContent: {
       hero: {
         eyebrow: 'Tarifa · Lage & Aufenthalt',
         title: 'In Tarifa übernachten – der Atlantik vor dem Balkon, Afrika am Horizont',
-        standfirst: 'Tarifa ist ein Dorf am südlichsten Punkt Europas, in dem fast alles zu Fuß geht. Und trotzdem entscheidet die Wohnlage hier über jeden Tag: über den Wind auf eurem Balkon, über die Parkplatzsuche im August und darüber, wie der Abend endet. Ich habe selbst in Tarifa gewohnt, bevor wir hier Gäste empfangen haben.',
+        standfirst: 'Tarifa ist ein Dorf am südlichsten Punkt Europas, in dem fast alles zu Fuß geht. Und trotzdem entscheidet die Wohnlage hier über jeden Tag: über den Wind auf eurem Balkon, über die Parkplatzsuche im August und darüber, wie der Abend endet. Unsere Verbindung zu Tarifa begann schon vor der ersten Vermietung: Robert hat selbst im Ort gelebt.',
         note: 'Ein AMARA-Guide aus eigener Erfahrung – keine Live-Auskunft zu Wind und Wetter.',
         updated: 'Geprüft im August 2026'
       },
@@ -246,7 +246,7 @@ export const tarifaLocationContent: {
         paragraphs: [
           'Die meisten unserer Gäste fliegen nach Málaga und fahren von dort rund anderthalb Stunden über die Autobahn. Gibraltar funktioniert praktisch nur für Gäste aus Großbritannien, mit dem Bus kommt kaum jemand, und ganz wenige setzen mit dem Schiff aus Marokko über.',
           'In Tarifa selbst braucht ihr das Auto nicht. Wir empfehlen sogar ausdrücklich, im Ort nicht zu fahren – nur hinaus. Im Juli und August ist ein fester Stellplatz dann Gold wert: Ihr stellt das Auto ab und lasst es stehen.',
-          'Wirklich nötig wird das Auto an einer Stelle: für die Kite-Strände im Westen. Wer beim Tarifa Surf Club Unterricht nimmt, findet meist eine Mitfahrgelegenheit unter den anderen Schülern – fest verlassen würde ich mich nicht darauf.'
+          'Wirklich nötig wird das Auto an einer Stelle: für die Kite-Strände im Westen. Wer beim Tarifa Surf Club Unterricht nimmt, findet meist eine Mitfahrgelegenheit unter den anderen Schülern – fest verlassen würden wir uns nicht darauf.'
         ],
         link: { label: 'Anreise nach Tarifa planen', token: 'getting_to_tarifa' }
       },
@@ -299,7 +299,7 @@ export const tarifaLocationContent: {
         paragraphs: [
           'Der Balkon zeigt nach Westen. Das heißt: Jeden Abend fällt die Sonne vor euch in den Atlantik. Und wenn die Luft klar ist, liegt Afrika gegenüber – nicht als Idee auf einer Landkarte, sondern als Küste, die man sieht.',
           'Darüber liegt das Schlafzimmer, mit demselben Blick. Ihr wacht mit dem Meer auf. Was Gäste beim Ankommen am häufigsten sagen: dass die Wohnung in echt schöner ist als auf den Fotos.',
-          'Ich habe in Tarifa selbst gewohnt – Kitesurfen, Freunde, immer wieder ein paar Monate. Als diese Wohnung zum Verkauf stand, haben wir sie gekauft und modernisiert. Wegen der Abende. Und weil sie im Alltag einfach funktioniert.',
+          'Unsere Verbindung zu Tarifa ist persönlich: Robert hat hier immer wieder mehrere Monate gelebt, zum Kitesurfen und mit Freunden. Als diese Wohnung zum Verkauf stand, haben wir sie gekauft und modernisiert. Wegen der Abende. Und weil sie im Alltag einfach funktioniert.',
           'Ehrlich gesagt: Wer das historische Tarifa direkt vor der Tür braucht, ist bei uns falsch. Und der Pool gehört zur Anlage, nicht zur Wohnung – je nach Witterung etwa von Mitte Mai bis Mitte September.'
         ],
         facts: [
@@ -331,7 +331,7 @@ export const tarifaLocationContent: {
       hero: {
         eyebrow: 'Tarifa · Ubicación y estancia',
         title: 'Alojarse en Tarifa: el Atlántico frente al balcón, África en el horizonte',
-        standfirst: 'Tarifa es un pueblo en el punto más meridional de Europa donde casi todo se hace a pie. Y aun así, dónde os alojáis marca cada día: el viento en vuestro balcón, la búsqueda de aparcamiento en agosto y cómo termina la tarde. Yo mismo viví en Tarifa antes de que empezáramos a recibir huéspedes aquí.',
+        standfirst: 'Tarifa es un pueblo en el punto más meridional de Europa donde casi todo se hace a pie. Y aun así, dónde os alojáis marca cada día: el viento en vuestro balcón, la búsqueda de aparcamiento en agosto y cómo termina la tarde. Nuestra relación con Tarifa empezó antes de recibir huéspedes aquí: Robert vivió en el pueblo.',
         note: 'Una guía de AMARA escrita desde la experiencia; no es un servicio de condiciones en directo.',
         updated: 'Revisado en agosto de 2026'
       },
@@ -355,7 +355,7 @@ export const tarifaLocationContent: {
         paragraphs: [
           'La mayoría de nuestros huéspedes vuela a Málaga y conduce desde allí alrededor de hora y media por autopista. Gibraltar funciona prácticamente solo para huéspedes del Reino Unido, en autobús llega poca gente y unos pocos cruzan en barco desde Marruecos.',
           'En Tarifa no necesitáis el coche. De hecho recomendamos no conducir dentro del pueblo, solo salir de él. En julio y agosto una plaza fija vale oro: dejáis el coche aparcado y os olvidáis de él.',
-          'Hay un caso en el que el coche sí importa: las playas de kite del oeste. Quien recibe clases con Tarifa Surf Club suele encontrar sitio en el coche de otros alumnos, aunque yo no contaría con ello de forma fija.'
+          'Hay un caso en el que el coche sí importa: las playas de kite del oeste. Quien recibe clases con Tarifa Surf Club suele encontrar sitio en el coche de otros alumnos, aunque nosotros no contaríamos con ello de forma fija.'
         ],
         link: { label: 'Planificar la llegada a Tarifa', token: 'getting_to_tarifa' }
       },
@@ -408,7 +408,7 @@ export const tarifaLocationContent: {
         paragraphs: [
           'El balcón mira al oeste. Es decir: cada tarde el sol cae en el Atlántico delante de vosotros. Y cuando el aire está limpio, África queda enfrente; no como una idea en un mapa, sino como una costa que se ve.',
           'Encima está el dormitorio, con la misma vista. Os despertáis con el mar. Lo que más dicen los huéspedes al llegar: que el apartamento es aún más bonito que en las fotos.',
-          'Yo viví en Tarifa: kitesurf, amigos, temporadas de varios meses. Cuando este apartamento salió a la venta, lo compramos y lo reformamos. Por las tardes. Y porque en el día a día simplemente funciona.',
+          'Nuestra relación con Tarifa es personal: Robert vivió aquí temporadas de varios meses, entre kitesurf y amigos. Cuando este apartamento salió a la venta, lo compramos y lo reformamos. Por las tardes. Y porque en el día a día simplemente funciona.',
           'Con sinceridad: si necesitáis la Tarifa histórica justo en la puerta, no somos la opción adecuada. Y la piscina es de la comunidad, no del apartamento; abre aproximadamente de mediados de mayo a mediados de septiembre, según el tiempo.'
         ],
         facts: [
@@ -440,7 +440,7 @@ export const tarifaLocationContent: {
       hero: {
         eyebrow: 'Tarifa · Ligging & verblijf',
         title: 'Overnachten in Tarifa – de Atlantische Oceaan voor het balkon, Afrika aan de horizon',
-        standfirst: 'Tarifa is een dorp op het zuidelijkste punt van Europa waar bijna alles te voet gaat. En toch bepaalt jullie ligging hier elke dag: de wind op jullie balkon, het zoeken naar een parkeerplek in augustus en hoe de avond eindigt. Ik heb zelf in Tarifa gewoond voordat we hier gasten ontvingen.',
+        standfirst: 'Tarifa is een dorp op het zuidelijkste punt van Europa waar bijna alles te voet gaat. En toch bepaalt jullie ligging hier elke dag: de wind op jullie balkon, het zoeken naar een parkeerplek in augustus en hoe de avond eindigt. Onze band met Tarifa begon voordat we hier gasten ontvingen: Robert woonde zelf in het dorp.',
         note: 'Een AMARA-gids uit eigen ervaring — geen live informatiedienst voor wind en weer.',
         updated: 'Gecontroleerd in augustus 2026'
       },
@@ -464,7 +464,7 @@ export const tarifaLocationContent: {
         paragraphs: [
           'De meeste van onze gasten vliegen naar Málaga en rijden vandaar ongeveer anderhalf uur over de snelweg. Gibraltar werkt praktisch alleen voor gasten uit het Verenigd Koninkrijk, met de bus komt bijna niemand, en enkelen steken met de boot over vanuit Marokko.',
           'In Tarifa zelf hebben jullie de auto niet nodig. We raden zelfs uitdrukkelijk aan niet in het dorp te rijden, alleen eruit. In juli en augustus is een vaste parkeerplaats goud waard: jullie zetten de auto neer en laten hem staan.',
-          'Op één punt is de auto wel nodig: de kitestranden in het westen. Wie les neemt bij Tarifa Surf Club vindt meestal een lift bij andere cursisten — maar daar zou ik niet vast op rekenen.'
+          'Op één punt is de auto wel nodig: de kitestranden in het westen. Wie les neemt bij Tarifa Surf Club vindt meestal een lift bij andere cursisten — maar daar zouden we niet vast op rekenen.'
         ],
         link: { label: 'De reis naar Tarifa plannen', token: 'getting_to_tarifa' }
       },
@@ -507,7 +507,7 @@ export const tarifaLocationContent: {
         title: 'Vanaf september is Tarifa een andere plek',
         paragraphs: [
           'Juli en augustus zijn Tarifa op vol volume: volle stranden, \'s avonds het hele dorp op straat, de kitescene op haar levendigst. Precies daarvoor komen veel mensen — en terecht. Het enige wat die weken echt energie kost, is een parkeerplek zoeken. Bij ons speelt dat niet: de plek in de ondergrondse garage is van jullie.',
-          'Vanaf september wordt het rustiger. Je merkt de rust, je raakt aan de praat met de mensen uit het dorp, je leert er mensen kennen. Voor ons is dat de mooiste tijd hier.',
+          'Vanaf september wordt het rustiger. Jullie merken de rust, raken aan de praat met mensen uit het dorp en leren hier mensen kennen. Voor ons is dat de mooiste tijd van het jaar.',
           'Bij een langer verblijf telt iets anders dan de afstand tot het strand: dat de woning droog is, dat ze warm wordt en dat er een plek is om te werken. Precies daar schieten veel huizen in de oude stad tekort.'
         ]
       },
@@ -515,9 +515,9 @@ export const tarifaLocationContent: {
         eyebrow: 'Ons appartement',
         title: 'Waarom wij onze gasten in La Marina ontvangen',
         paragraphs: [
-          'Het balkon ligt op het westen. Dat betekent: elke avond valt de zon voor jullie in de Atlantische Oceaan. En bij heldere lucht ligt Afrika ertegenover — niet als idee op een kaart, maar als kust die je ziet.',
+          'Het balkon ligt op het westen. Dat betekent: elke avond valt de zon voor jullie in de Atlantische Oceaan. En bij heldere lucht ligt Afrika ertegenover — niet als idee op een kaart, maar als kust die jullie zien.',
           'Daarboven ligt de slaapkamer, met hetzelfde uitzicht. Jullie worden wakker met de zee. Wat gasten bij aankomst het vaakst zeggen: dat het appartement in het echt nog mooier is dan op de foto\'s.',
-          'Ik heb zelf in Tarifa gewoond — kitesurfen, vrienden, telkens een paar maanden. Toen dit appartement te koop stond, hebben we het gekocht en gemoderniseerd. Vanwege de avonden. En omdat het in het dagelijks leven gewoon werkt.',
+          'Onze band met Tarifa is persoonlijk: Robert woonde hier telkens enkele maanden, om te kitesurfen en tijd met vrienden door te brengen. Toen dit appartement te koop stond, hebben we het gekocht en gemoderniseerd. Vanwege de avonden. En omdat het in het dagelijks leven gewoon werkt.',
           'Eerlijk gezegd: wie het historische Tarifa direct voor de deur nodig heeft, zit bij ons verkeerd. En het zwembad hoort bij het complex, niet bij het appartement — afhankelijk van het weer ongeveer van half mei tot half september.'
         ],
         facts: [
@@ -549,7 +549,7 @@ export const tarifaLocationContent: {
       hero: {
         eyebrow: 'Tarifa · Läge & vistelse',
         title: 'Bo i Tarifa – Atlanten utanför balkongen, Afrika vid horisonten',
-        standfirst: 'Tarifa är en by på Europas sydligaste punkt där nästan allt går att nå till fots. Ändå avgör var ni bor varje dag här: vinden på er balkong, jakten på en parkeringsplats i augusti och hur kvällen slutar. Jag bodde själv i Tarifa innan vi började ta emot gäster här.',
+        standfirst: 'Tarifa är en by på Europas sydligaste punkt där nästan allt går att nå till fots. Ändå avgör var ni bor varje dag här: vinden på er balkong, jakten på en parkeringsplats i augusti och hur kvällen slutar. Vår relation till Tarifa började innan vi tog emot gäster här: Robert bodde själv i byn.',
         note: 'En AMARA-guide ur egen erfarenhet – inte en tjänst för aktuella vind- och väderförhållanden.',
         updated: 'Granskad i augusti 2026'
       },
@@ -573,7 +573,7 @@ export const tarifaLocationContent: {
         paragraphs: [
           'De flesta av våra gäster flyger till Málaga och kör därifrån ungefär en och en halv timme på motorvägen. Gibraltar fungerar i praktiken bara för gäster från Storbritannien, med buss kommer nästan ingen, och några få tar båten från Marocko.',
           'I Tarifa behöver ni inte bilen. Vi rekommenderar till och med uttryckligen att inte köra inne i byn – bara ut ur den. I juli och augusti är en fast plats guld värd: ni ställer bilen och låter den stå.',
-          'På ett ställe behövs bilen på riktigt: kitestränderna i väster. Den som tar lektioner hos Tarifa Surf Club hittar oftast skjuts med andra elever – men jag skulle inte räkna med det.'
+          'På ett ställe behövs bilen på riktigt: kitestränderna i väster. Den som tar lektioner hos Tarifa Surf Club hittar oftast skjuts med andra elever – men vi skulle inte räkna med det.'
         ],
         link: { label: 'Planera resan till Tarifa', token: 'getting_to_tarifa' }
       },
@@ -626,7 +626,7 @@ export const tarifaLocationContent: {
         paragraphs: [
           'Balkongen vetter mot väster. Det betyder: varje kväll faller solen ner i Atlanten framför er. Och när luften är klar ligger Afrika mittemot – inte som en idé på en karta, utan som en kust man ser.',
           'Ovanför ligger sovrummet, med samma utsikt. Ni vaknar med havet. Det gästerna oftast säger vid ankomsten: att lägenheten är ännu vackrare i verkligheten än på bilderna.',
-          'Jag bodde själv i Tarifa – kitesurfing, vänner, några månader i taget. När den här lägenheten kom ut till försäljning köpte vi den och renoverade. På grund av kvällarna. Och för att den helt enkelt fungerar i vardagen.',
+          'Vår relation till Tarifa är personlig: Robert bodde här några månader i taget, för kitesurfingen och vännerna. När den här lägenheten kom ut till försäljning köpte vi den och renoverade. På grund av kvällarna. Och för att den helt enkelt fungerar i vardagen.',
           'Ärligt talat: den som behöver det historiska Tarifa direkt utanför dörren är fel hos oss. Och poolen tillhör anläggningen, inte lägenheten – öppen ungefär från mitten av maj till mitten av september, beroende på vädret.'
         ],
         facts: [
