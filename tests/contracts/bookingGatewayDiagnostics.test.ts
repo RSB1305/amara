@@ -1,12 +1,16 @@
 import { expect, test } from '@playwright/test';
 import { createBookingRoute } from '../../booking-gateway/gateway.mjs';
+import { createLodgifyClient } from '../../booking-gateway/lodgify-adapter.mjs';
+import {
+  getLodgifyDiscoveryMapping,
+  getLodgifyStayMapping
+} from '../../booking-gateway/stays.mjs';
 
 type BookingOperation = 'availability' | 'rates' | 'quote';
 
 const SECRET = 'unit-test-api-key-must-not-log';
-const PROPERTY_ID = 'provider-property-id-must-not-log';
-const ROOM_ID = 'provider-room-id-must-not-log';
 const PROVIDER_BODY = 'provider-response-body-must-not-log';
+const MAHA_MAPPING = getLodgifyStayMapping('maha');
 
 function isoDay(daysFromToday: number): string {
   const date = new Date();
@@ -14,19 +18,15 @@ function isoDay(daysFromToday: number): string {
   return date.toISOString().slice(0, 10);
 }
 
+const CALENDAR_START = isoDay(10);
+const CALENDAR_END = isoDay(11);
+const QUOTE_DEPARTURE = isoDay(12);
+
 function jsonResponse(payload: unknown, status = 200): Response {
   return new Response(JSON.stringify(payload), {
     status,
     headers: { 'Content-Type': 'application/json' }
   });
-}
-
-function resolvedProperty(): Response {
-  return jsonResponse([{ id: PROPERTY_ID, name: 'Maha' }]);
-}
-
-function resolvedRoom(): Response {
-  return jsonResponse([{ id: ROOM_ID, name: 'Only room' }]);
 }
 
 function fetchSequence(...steps: Array<Response | Error>): typeof fetch {
@@ -40,18 +40,16 @@ function fetchSequence(...steps: Array<Response | Error>): typeof fetch {
 }
 
 function bookingRequest(operation: BookingOperation): Request {
-  const arrival = isoDay(10);
-  const departure = isoDay(12);
   const params = operation === 'quote'
     ? new URLSearchParams({
         stay: 'maha',
-        arrival,
-        departure,
+        arrival: CALENDAR_START,
+        departure: QUOTE_DEPARTURE,
         adults: '2',
         children: '0',
         pets: '0'
       })
-    : new URLSearchParams({ stay: 'maha', start: arrival, end: isoDay(11) });
+    : new URLSearchParams({ stay: 'maha', start: CALENDAR_START, end: CALENDAR_END });
   return new Request(`https://amara.test/api/booking/${operation}?${params}`);
 }
 
@@ -59,7 +57,11 @@ async function runRoute(operation: BookingOperation, fetchImpl: typeof fetch) {
   const originalFetch = globalThis.fetch;
   const originalConsoleError = console.error;
   const logs: unknown[][] = [];
-  globalThis.fetch = fetchImpl;
+  const providerUrls: string[] = [];
+  globalThis.fetch = (async (input: RequestInfo | URL, init?: RequestInit) => {
+    providerUrls.push(String(input));
+    return fetchImpl(input, init);
+  }) as typeof fetch;
   console.error = (...args: unknown[]) => {
     logs.push(args);
   };
@@ -69,7 +71,7 @@ async function runRoute(operation: BookingOperation, fetchImpl: typeof fetch) {
       request: bookingRequest(operation),
       env: { LODGIFY_API_KEY: SECRET }
     });
-    return { response, logs };
+    return { response, logs, providerUrls };
   } finally {
     globalThis.fetch = originalFetch;
     console.error = originalConsoleError;
@@ -81,7 +83,14 @@ function diagnosticFrom(logs: unknown[][]): Record<string, unknown> {
   expect(logs[0]).toHaveLength(1);
   expect(typeof logs[0][0]).toBe('string');
   const serialized = String(logs[0][0]);
-  for (const forbidden of [SECRET, PROPERTY_ID, ROOM_ID, PROVIDER_BODY, 'X-ApiKey', 'guest']) {
+  for (const forbidden of [
+    SECRET,
+    MAHA_MAPPING.propertyId,
+    MAHA_MAPPING.roomTypeId,
+    PROVIDER_BODY,
+    'X-ApiKey',
+    'guest'
+  ]) {
     expect(serialized).not.toContain(forbidden);
   }
   return JSON.parse(serialized) as Record<string, unknown>;
@@ -89,7 +98,10 @@ function diagnosticFrom(logs: unknown[][]): Record<string, unknown> {
 
 async function expectGenericProviderFailure(response: Response) {
   expect(response.status).toBe(502);
-  expect(await response.json()).toEqual({
+  const body = await response.text();
+  expect(body).not.toContain(MAHA_MAPPING.propertyId);
+  expect(body).not.toContain(MAHA_MAPPING.roomTypeId);
+  expect(JSON.parse(body)).toEqual({
     error: {
       code: 'booking_data_unavailable',
       message: 'Live booking data is temporarily unavailable.'
@@ -97,31 +109,86 @@ async function expectGenericProviderFailure(response: Response) {
   });
 }
 
-test('logs a safe properties HTTP diagnostic without changing the public response', async () => {
-  const { response, logs } = await runRoute(
+test('uses the verified Maha mapping directly and logs a safe availability HTTP diagnostic', async () => {
+  const { response, logs, providerUrls } = await runRoute(
     'availability',
     fetchSequence(jsonResponse({ message: PROVIDER_BODY }, 401))
   );
 
   await expectGenericProviderFailure(response);
+  expect(providerUrls).toHaveLength(1);
+  expect(new URL(providerUrls[0]).pathname).toBe(
+    `/v2/availability/${MAHA_MAPPING.propertyId}/${MAHA_MAPPING.roomTypeId}`
+  );
+  expect(providerUrls[0]).not.toContain('/v2/properties');
+  expect(providerUrls[0]).not.toContain('/rooms');
   expect(diagnosticFrom(logs)).toEqual({
     operation: 'availability',
-    providerStep: 'properties',
+    providerStep: 'availability',
     providerHttpStatus: 401,
     category: 'http'
   });
 });
 
-test('logs a safe rooms network diagnostic', async () => {
-  const { response, logs } = await runRoute(
+test('returns public availability without provider IDs after one direct provider request', async () => {
+  const { response, logs, providerUrls } = await runRoute(
     'availability',
-    fetchSequence(resolvedProperty(), new Error(`${PROVIDER_BODY} ${PROPERTY_ID}`))
+    fetchSequence(jsonResponse([{
+      property_id: MAHA_MAPPING.propertyId,
+      room_type_id: MAHA_MAPPING.roomTypeId,
+      periods: [{
+        start: CALENDAR_START,
+        end: CALENDAR_END,
+        available: true,
+        closed_period: null
+      }]
+    }]))
+  );
+
+  expect(response.status).toBe(200);
+  const body = await response.text();
+  expect(body).not.toContain(MAHA_MAPPING.propertyId);
+  expect(body).not.toContain(MAHA_MAPPING.roomTypeId);
+  expect(JSON.parse(body)).toEqual({
+    stay: 'maha',
+    start: CALENDAR_START,
+    end: CALENDAR_END,
+    days: [
+      { date: CALENDAR_START, available: true },
+      { date: CALENDAR_END, available: true }
+    ]
+  });
+  expect(providerUrls).toHaveLength(1);
+  expect(logs).toHaveLength(0);
+});
+
+test('keeps dynamic property and room discovery available to the sandbox', async () => {
+  const client = createLodgifyClient({
+    apiKey: SECRET,
+    fetchImpl: fetchSequence(
+      jsonResponse([{ id: 'sandbox-property', name: 'Maha' }]),
+      jsonResponse([{ id: 'sandbox-room', name: 'Only room' }])
+    )
+  });
+
+  await expect(client.resolveStay(getLodgifyDiscoveryMapping('maha'))).resolves.toEqual({
+    propertyId: 'sandbox-property',
+    propertyName: 'Maha',
+    roomTypeId: 'sandbox-room',
+    roomTypeName: 'Only room'
+  });
+});
+
+test('logs a safe rates network diagnostic', async () => {
+  const { response, logs } = await runRoute(
+    'rates',
+    fetchSequence(new Error(PROVIDER_BODY))
   );
 
   await expectGenericProviderFailure(response);
   expect(diagnosticFrom(logs)).toEqual({
-    operation: 'availability',
-    providerStep: 'rooms',
+    operation: 'rates',
+    providerStep: 'rates',
     category: 'network'
   });
 });
@@ -129,7 +196,7 @@ test('logs a safe rooms network diagnostic', async () => {
 test('logs malformed availability JSON without exposing provider context', async () => {
   const { response, logs } = await runRoute(
     'availability',
-    fetchSequence(resolvedProperty(), resolvedRoom(), new Response(PROVIDER_BODY))
+    fetchSequence(new Response(PROVIDER_BODY))
   );
 
   await expectGenericProviderFailure(response);
@@ -143,7 +210,7 @@ test('logs malformed availability JSON without exposing provider context', async
 test('logs a rates normalization diagnostic', async () => {
   const { response, logs } = await runRoute(
     'rates',
-    fetchSequence(resolvedProperty(), resolvedRoom(), jsonResponse({ body: PROVIDER_BODY }))
+    fetchSequence(jsonResponse({ body: PROVIDER_BODY }))
   );
 
   await expectGenericProviderFailure(response);
@@ -157,11 +224,7 @@ test('logs a rates normalization diagnostic', async () => {
 test('keeps quote-unavailable public while logging only the safe quote status', async () => {
   const { response, logs } = await runRoute(
     'quote',
-    fetchSequence(
-      resolvedProperty(),
-      resolvedRoom(),
-      jsonResponse({ error: { code: 'private-code', message: PROVIDER_BODY } }, 422)
-    )
+    fetchSequence(jsonResponse({ error: { code: 'private-code', message: PROVIDER_BODY } }, 422))
   );
 
   expect(response.status).toBe(409);

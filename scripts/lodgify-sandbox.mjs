@@ -11,7 +11,7 @@ import {
   quoteSummary,
   rateOptionMatches,
 } from '../booking-gateway/lodgify-adapter.mjs';
-import { getLodgifyStayMapping } from '../booking-gateway/stays.mjs';
+import { getLodgifyDiscoveryMapping } from '../booking-gateway/stays.mjs';
 
 const WINDOW_DAYS = 45;
 const GUESTS = Object.freeze({ adults: 2, children: 0, pets: 0 });
@@ -100,7 +100,7 @@ function findCandidate(availability, rates) {
 async function main(apiKey) {
   try {
     const client = createLodgifyClient({ apiKey });
-    const mahaMapping = getLodgifyStayMapping('maha');
+    const mahaMapping = getLodgifyDiscoveryMapping('maha');
     const resolved = await client.resolveStay(mahaMapping);
     status.AUTH = 'PASS';
     status.PROPERTY = 'PASS';

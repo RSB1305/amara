@@ -9,9 +9,18 @@ export const AMARA_STAY_KEYS = Object.freeze([
 
 const AMARA_STAY_KEY_SET = new Set(AMARA_STAY_KEYS);
 
-// Maha is the only stay whose Lodgify property and single-room resolution has
-// been verified by the sandbox MVP. Provider IDs remain internal to the adapter.
+// Production uses only provider IDs verified by the sandbox MVP. This module is
+// server-only and must never be imported by browser code or serialized publicly.
 const LODGIFY_STAY_MAPPINGS = Object.freeze({
+  maha: Object.freeze({
+    propertyId: '408325',
+    roomTypeId: '474288',
+  }),
+});
+
+// Discovery remains an explicit sandbox concern for controlled verification of
+// future stays. Production requests never consume these dynamic selectors.
+const LODGIFY_DISCOVERY_MAPPINGS = Object.freeze({
   maha: Object.freeze({
     propertyNamePattern: /\bmaha\b/i,
     roomStrategy: 'single',
@@ -24,4 +33,8 @@ export function isAmaraStayKey(stay) {
 
 export function getLodgifyStayMapping(stay) {
   return LODGIFY_STAY_MAPPINGS[stay];
+}
+
+export function getLodgifyDiscoveryMapping(stay) {
+  return LODGIFY_DISCOVERY_MAPPINGS[stay];
 }

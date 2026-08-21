@@ -42,29 +42,28 @@ function logProviderError(operationName, error) {
   console.error(JSON.stringify(diagnostic));
 }
 
-async function withResolvedStay(apiKey, providerMapping, operation) {
+async function withMappedStay(apiKey, providerMapping, operation) {
   if (typeof apiKey !== 'string' || !apiKey.trim()) {
     throw new BookingGatewayError(503, 'service_unavailable', 'Live booking data is unavailable.');
   }
   const client = createLodgifyClient({ apiKey });
-  const resolved = await client.resolveStay(providerMapping);
-  return operation(client, resolved);
+  return operation(client, providerMapping);
 }
 
 async function availability(request, apiKey) {
   const input = parseCalendarRequest(request);
-  const days = await withResolvedStay(apiKey, input.providerMapping, async (client, resolved) => {
+  const days = await withMappedStay(apiKey, input.providerMapping, async (client, mapping) => {
     return withProviderStep('availability', async () => {
       const payload = await client.getAvailability(
-        resolved.propertyId,
-        resolved.roomTypeId,
+        mapping.propertyId,
+        mapping.roomTypeId,
         input.start,
         input.end,
       );
       return normalizeAvailability(
         payload,
-        resolved.propertyId,
-        resolved.roomTypeId,
+        mapping.propertyId,
+        mapping.roomTypeId,
         input.start,
         input.end,
       );
@@ -75,11 +74,11 @@ async function availability(request, apiKey) {
 
 async function rates(request, apiKey) {
   const input = parseCalendarRequest(request);
-  const days = await withResolvedStay(apiKey, input.providerMapping, async (client, resolved) => {
+  const days = await withMappedStay(apiKey, input.providerMapping, async (client, mapping) => {
     return withProviderStep('rates', async () => {
       const payload = await client.getRates(
-        resolved.propertyId,
-        resolved.roomTypeId,
+        mapping.propertyId,
+        mapping.roomTypeId,
         input.start,
         input.end,
       );
@@ -101,11 +100,11 @@ async function rates(request, apiKey) {
 
 async function quote(request, apiKey) {
   const input = parseQuoteRequest(request);
-  const summary = await withResolvedStay(apiKey, input.providerMapping, async (client, resolved) => {
+  const summary = await withMappedStay(apiKey, input.providerMapping, async (client, mapping) => {
     return withProviderStep('quote', async () => {
       const payload = await client.getQuote(
-        resolved.propertyId,
-        resolved.roomTypeId,
+        mapping.propertyId,
+        mapping.roomTypeId,
         input.arrival,
         input.departure,
         input.guests,
