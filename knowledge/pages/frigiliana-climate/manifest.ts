@@ -5,8 +5,8 @@ export const frigilianaClimateKnowledge = defineKnowledgePageManifest({
   destination: 'frigiliana',
   topic: 'climate-seasons',
   createdAt: '2026-08-21T14:24:23+02:00',
-  updatedAt: '2026-08-21T14:24:23+02:00',
-  status: 'awaiting-research',
+  updatedAt: '2026-08-21T14:35:11+02:00',
+  status: 'research-received',
   driveFolder: {
     id: '1EQa8NwKyKEG9HuzNwLBwe2D6VjItYT3v',
     url: 'https://drive.google.com/drive/folders/1EQa8NwKyKEG9HuzNwLBwe2D6VjItYT3v',

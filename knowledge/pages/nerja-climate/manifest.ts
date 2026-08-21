@@ -5,8 +5,8 @@ export const nerjaClimateKnowledge = defineKnowledgePageManifest({
   destination: 'nerja',
   topic: 'climate-seasons',
   createdAt: '2026-08-21T14:24:23+02:00',
-  updatedAt: '2026-08-21T14:24:23+02:00',
-  status: 'awaiting-research',
+  updatedAt: '2026-08-21T14:35:11+02:00',
+  status: 'research-received',
   driveFolder: {
     id: '1NR0CQC9Gp1EOaj42w2phdQ9XGMKYhrn5',
     url: 'https://drive.google.com/drive/folders/1NR0CQC9Gp1EOaj42w2phdQ9XGMKYhrn5',

@@ -2,7 +2,7 @@
 research_run_id: 2026-08-21__142423__climate-seasons__research-001
 document_type: pre-research-gap-matrix
 created_at: 2026-08-21T14:24:23+02:00
-status: BASELINE
+status: PARTIAL_INPUT_RECEIVED
 subjects:
   - frigiliana
   - nerja
@@ -79,3 +79,12 @@ Der neue Research-Lauf muss keine vierte allgemeine Klimabeschreibung erzeugen. 
 4. Erst danach die öffentlichen Klima-&-Jahreszeiten-Seiten in einem gemeinsamen Implementierungsdurchlauf angleichen.
 
 Kein vorhandener öffentlicher Inhalt wird durch diese Matrix gelöscht oder bereits als verifiziert behandelt.
+
+## Eingangsstatus vom 21.08.2026
+
+- Der GPT-Rohbericht wurde unverändert im vorgesehenen Drive-Ordner registriert.
+- Ein Gemini-Bericht oder weiterer externer Input liegt derzeit nicht vor.
+- GPT hat den Auftrag als methodischen Abstimmungs- und Forschungsplan beantwortet, nicht als ausgeführte Klimaauswertung.
+- Der Bericht enthält keine vollständigen Ortsdossiers, keine belastbaren Monatstabellen, keine atomaren Fakten und keine außerhalb des Chat-Kontexts direkt nutzbaren Quellenlinks.
+- Verwendbar sind vorläufig nur methodische Kandidaten: AEMET 1991–2020 als bevorzugte Stationsbasis, REDIAM zur regionalen Validierung, ERA5-Land als Kontrollbasis sowie Copernicus Marine beziehungsweise Puertos del Estado für geeignete Meeres- und Windfragen.
+- Diese Kandidaten sind noch keine verifizierten Seitenfakten. Die öffentlichen Seiten und ihre bestehenden Zahlen bleiben unverändert.
