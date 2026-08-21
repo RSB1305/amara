@@ -10,6 +10,8 @@ import {
   frigilianaPreFooterCopy,
   getFrigilianaPreFooterDescription
 } from './frigilianaPreFooterContent';
+import { frigilianaDailyLifeContent } from './frigilianaDailyLifeContent';
+import { frigilianaParkingCopy } from './frigilianaParkingContent';
 import { gettingToNerjaContent, gettingToNerjaSeo } from './gettingToNerjaContent';
 import { gettingToTarifaContent, gettingToTarifaSeo } from './gettingToTarifaContent';
 import type { LinkToken } from '../lib/linkResolver';
@@ -95,7 +97,7 @@ export interface ArrivalGuidePageContent {
   factsTitle: string;
   facts: ArrivalGuideFact[];
   factIcons: LocationGuideIconName[];
-  gateways?: ArrivalGuideSection;
+  gateways: ArrivalGuideSection;
   options: ArrivalGuideSection & {
     labels: {
       timing: string;
@@ -103,10 +105,10 @@ export interface ArrivalGuidePageContent {
       consideration: string;
     };
   };
-  journeySteps?: ArrivalGuideSteps;
-  mobility?: ArrivalGuideSection;
-  parking?: ArrivalGuideCard;
-  finalMile?: ArrivalGuideFinalMile;
+  journeySteps: ArrivalGuideSteps;
+  mobility: ArrivalGuideSection;
+  parking: ArrivalGuideCard;
+  finalMile: ArrivalGuideFinalMile;
   sources: {
     eyebrow: string;
     title: string;
@@ -114,7 +116,7 @@ export interface ArrivalGuidePageContent {
     checked: string;
     links: ArrivalGuideSource[];
   };
-  related?: {
+  related: {
     eyebrow: string;
     title: string;
     intro: string;
@@ -200,6 +202,44 @@ const ui = {
     bestFor: 'Passar bäst för',
     consideration: 'Tänk på',
     nextStep: 'Fortsätt planera'
+  }
+} satisfies Record<AmaraLanguage, Record<string, string>>;
+
+const structureUi = {
+  en: {
+    routeTitle: 'Plan the journey in three decisions', faqTitle: 'Questions before departure',
+    airportQuestion: 'Which airport or gateway is the practical choice?', carQuestion: 'Do we need a car during the stay?', finalLegQuestion: 'Where does public transport end?',
+    finalMileEyebrow: 'The final leg', finalMileTitle: 'Continue all the way to the accommodation',
+    relatedEyebrow: 'Continue planning', relatedTitle: 'Connect arrival with location and stay', relatedIntro: 'Arrival shapes the first hour; the right location shapes every day after it.',
+    locationText: 'Return to the complete destination overview.', areasText: 'Compare the areas that fit the stay you want.'
+  },
+  de: {
+    routeTitle: 'Die Reise in drei Entscheidungen planen', faqTitle: 'Fragen vor der Abreise',
+    airportQuestion: 'Welcher Flughafen oder Ausgangspunkt ist praktisch?', carQuestion: 'Brauchen wir während des Aufenthalts ein Auto?', finalLegQuestion: 'Wo endet der öffentliche Verkehr?',
+    finalMileEyebrow: 'Die letzte Etappe', finalMileTitle: 'Die Anreise bis zur Unterkunft zu Ende planen',
+    relatedEyebrow: 'Weiter planen', relatedTitle: 'Anreise, Lage und Aufenthalt zusammen denken', relatedIntro: 'Die Anreise prägt die erste Stunde; die richtige Lage prägt jeden Tag danach.',
+    locationText: 'Zur vollständigen Ortsübersicht zurückkehren.', areasText: 'Die Lagen vergleichen, die zum gewünschten Aufenthalt passen.'
+  },
+  es: {
+    routeTitle: 'Planificad el viaje en tres decisiones', faqTitle: 'Preguntas antes de salir',
+    airportQuestion: '¿Qué aeropuerto o punto de llegada resulta más práctico?', carQuestion: '¿Necesitamos coche durante la estancia?', finalLegQuestion: '¿Dónde termina el transporte público?',
+    finalMileEyebrow: 'El último tramo', finalMileTitle: 'Planificad el trayecto hasta el alojamiento',
+    relatedEyebrow: 'Seguir planificando', relatedTitle: 'Conectad llegada, ubicación y estancia', relatedIntro: 'La llegada define la primera hora; la ubicación adecuada define cada día posterior.',
+    locationText: 'Volved a la guía completa del destino.', areasText: 'Comparad las zonas que encajan con la estancia deseada.'
+  },
+  nl: {
+    routeTitle: 'Plan de reis in drie beslissingen', faqTitle: 'Vragen voor vertrek',
+    airportQuestion: 'Welke luchthaven of aankomstplek is praktisch?', carQuestion: 'Hebben we tijdens het verblijf een auto nodig?', finalLegQuestion: 'Waar eindigt het openbaar vervoer?',
+    finalMileEyebrow: 'Het laatste traject', finalMileTitle: 'Plan de reis helemaal tot aan de accommodatie',
+    relatedEyebrow: 'Verder plannen', relatedTitle: 'Verbind aankomst, ligging en verblijf', relatedIntro: 'De aankomst bepaalt het eerste uur; de juiste ligging bepaalt elke dag daarna.',
+    locationText: 'Ga terug naar het volledige bestemmingsoverzicht.', areasText: 'Vergelijk de gebieden die bij het gewenste verblijf passen.'
+  },
+  sv: {
+    routeTitle: 'Planera resan i tre beslut', faqTitle: 'Frågor före avresan',
+    airportQuestion: 'Vilken flygplats eller ankomstpunkt är mest praktisk?', carQuestion: 'Behöver vi bil under vistelsen?', finalLegQuestion: 'Var slutar kollektivtrafiken?',
+    finalMileEyebrow: 'Den sista sträckan', finalMileTitle: 'Planera resan hela vägen till boendet',
+    relatedEyebrow: 'Fortsätt planera', relatedTitle: 'Koppla samman ankomst, läge och vistelse', relatedIntro: 'Ankomsten formar den första timmen; rätt läge formar varje dag därefter.',
+    locationText: 'Gå tillbaka till den fullständiga destinationsguiden.', areasText: 'Jämför områdena som passar vistelsen ni vill ha.'
   }
 } satisfies Record<AmaraLanguage, Record<string, string>>;
 
@@ -334,8 +374,40 @@ function articleAuthor(seo: AmaraAuthoringSeo): ArrivalGuidePageContent['author'
     : undefined;
 }
 
+function relatedGuides(
+  lang: AmaraLanguage,
+  locationToken: LinkToken,
+  locationLabel: string,
+  areasToken: LinkToken,
+  areasLabel: string
+): ArrivalGuidePageContent['related'] {
+  const labels = structureUi[lang];
+  return {
+    eyebrow: labels.relatedEyebrow,
+    title: labels.relatedTitle,
+    intro: labels.relatedIntro,
+    links: [
+      { token: locationToken, label: locationLabel, text: labels.locationText },
+      { token: areasToken, label: areasLabel, text: labels.areasText }
+    ]
+  };
+}
+
 function frigilianaGuide(lang: AmaraLanguage): ArrivalGuidePageContent {
   const copy = gettingToFrigilianaCopy;
+  const localizedFacts = copy.facts.items.map((fact) => ({
+    label: text(fact.label, lang),
+    value: text(fact.value, lang),
+    description: text(fact.note, lang)
+  }));
+  const dailyMobility = frigilianaDailyLifeContent[lang].sections.find(
+    (section) => section.id === 'daily-life-without-a-car'
+  );
+  if (!dailyMobility) {
+    throw new Error('[AMARA] Frigiliana arrival guide requires the car-free mobility section.');
+  }
+  const localConnection = copy.publicTransport.steps[2];
+  const flexibleCar = copy.options.items[0];
   const optionIcons = {
     car: 'rental-car',
     transfer: 'private-transfer',
@@ -355,12 +427,20 @@ function frigilianaGuide(lang: AmaraLanguage): ArrivalGuidePageContent {
     },
     heroVisual: arrivalHeroVisual('frigiliana', lang),
     factsTitle: text(copy.facts.title, lang),
-    facts: copy.facts.items.map((fact) => ({
-      label: text(fact.label, lang),
-      value: text(fact.value, lang),
-      description: text(fact.note, lang)
-    })),
+    facts: localizedFacts,
     factIcons: ['airport', 'journey-time', 'bus'],
+    gateways: {
+      eyebrow: ui[lang].gatewaysEyebrow,
+      title: ui[lang].gatewaysTitle,
+      items: [{
+        id: 'malaga-airport',
+        eyebrow: localizedFacts[0].label,
+        title: localizedFacts[0].value,
+        summary: localizedFacts[0].description,
+        details: localizedFacts.slice(1).map((fact) => `${fact.label}: ${fact.value}. ${fact.description}`),
+        icon: 'airport'
+      }]
+    },
     options: {
       eyebrow: text(copy.options.eyebrow, lang),
       title: text(copy.options.title, lang),
@@ -394,6 +474,37 @@ function frigilianaGuide(lang: AmaraLanguage): ArrivalGuidePageContent {
         question: text(item.question, lang),
         answer: text(item.answer, lang)
       }))
+    },
+    mobility: {
+      eyebrow: ui[lang].mobilityEyebrow,
+      title: ui[lang].mobilityTitle,
+      items: [
+        sectionCard(dailyMobility, 'walkable'),
+        {
+          id: 'nerja-connection',
+          eyebrow: text(copy.publicTransport.title, lang),
+          title: text(localConnection.title, lang),
+          summary: text(localConnection.text, lang),
+          details: [],
+          icon: 'bus'
+        },
+        {
+          id: 'regional-flexibility',
+          eyebrow: text(flexibleCar.kicker, lang),
+          title: text(flexibleCar.title, lang),
+          summary: text(flexibleCar.bestFor, lang),
+          details: [text(flexibleCar.consideration, lang)],
+          icon: 'rental-car'
+        }
+      ]
+    },
+    parking: {
+      id: 'parking-strategy',
+      eyebrow: text(frigilianaParkingCopy.hero.eyebrow, lang),
+      title: text(frigilianaParkingCopy.hero.title, lang),
+      summary: text(frigilianaParkingCopy.hero.lead, lang),
+      details: [text(frigilianaParkingCopy.hero.body, lang)],
+      icon: 'rental-car'
     },
     finalMile: {
       eyebrow: text(copy.reality.eyebrow, lang),
@@ -476,6 +587,20 @@ function nerjaGuide(lang: AmaraLanguage): ArrivalGuidePageContent {
       },
       items: [sectionCard(car, 'rental-car'), sectionCard(bus, 'bus')]
     },
+    journeySteps: {
+      title: structureUi[lang].routeTitle,
+      steps: [
+        { num: '01', headline: airports.title, text: airports.paragraphs[0] },
+        { num: '02', headline: decision.title, text: decision.paragraphs[0] },
+        { num: '03', headline: finalMile.title, text: finalMile.paragraphs[0] }
+      ],
+      faqTitle: structureUi[lang].faqTitle,
+      faq: [
+        { question: structureUi[lang].airportQuestion, answer: airports.paragraphs[0] },
+        { question: structureUi[lang].carQuestion, answer: withoutCar.paragraphs[0] },
+        { question: structureUi[lang].finalLegQuestion, answer: bus.paragraphs[1] }
+      ]
+    },
     mobility: {
       eyebrow: ui[lang].mobilityEyebrow,
       title: ui[lang].mobilityTitle,
@@ -493,6 +618,13 @@ function nerjaGuide(lang: AmaraLanguage): ArrivalGuidePageContent {
       steps: finalMile.paragraphs,
       stepIcons: ['taxi', 'rental-car', 'walkable']
     },
+    related: relatedGuides(
+      lang,
+      'location_nerja',
+      content.closing.locationLabel,
+      'nerja_where_to_stay',
+      content.closing.areasLabel
+    ),
     sources: content.sources,
     closing: {
       eyebrow: content.closing.eyebrow,
@@ -540,12 +672,40 @@ function tarifaGuide(lang: AmaraLanguage): ArrivalGuidePageContent {
       },
       items: [sectionCard(car, 'rental-car'), sectionCard(bus, 'bus')]
     },
+    journeySteps: {
+      title: structureUi[lang].routeTitle,
+      steps: [
+        { num: '01', headline: airports.title, text: airports.paragraphs[0] },
+        { num: '02', headline: ui[lang].optionsTitle, text: `${car.paragraphs[0]} ${bus.paragraphs[0]}` },
+        { num: '03', headline: structureUi[lang].finalMileTitle, text: bus.paragraphs[2] }
+      ],
+      faqTitle: structureUi[lang].faqTitle,
+      faq: [
+        { question: structureUi[lang].airportQuestion, answer: airports.paragraphs[0] },
+        { question: structureUi[lang].carQuestion, answer: withoutCar.paragraphs[0] },
+        { question: structureUi[lang].finalLegQuestion, answer: bus.paragraphs[1] }
+      ]
+    },
     mobility: {
       eyebrow: ui[lang].mobilityEyebrow,
       title: ui[lang].mobilityTitle,
       items: [sectionCard(withoutCar, 'walkable'), sectionCard(westernCoast, 'coast')]
     },
     parking: sectionCard(parking, 'rental-car'),
+    finalMile: {
+      eyebrow: structureUi[lang].finalMileEyebrow,
+      title: structureUi[lang].finalMileTitle,
+      paragraphs: [bus.paragraphs[2]],
+      steps: [car.paragraphs[2], bus.paragraphs[1], port.paragraphs[1]],
+      stepIcons: ['rental-car', 'taxi', 'coast']
+    },
+    related: relatedGuides(
+      lang,
+      'location_tarifa',
+      content.closing.locationLabel,
+      'tarifa_where_to_stay',
+      content.closing.areasLabel
+    ),
     sources: content.sources,
     closing: {
       eyebrow: content.closing.eyebrow,

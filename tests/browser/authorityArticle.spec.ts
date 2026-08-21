@@ -98,11 +98,11 @@ const AUTHORITY_PAGES: AuthorityPage[] = [
     routeToken: 'getting_to_nerja',
     pageId: 'getting-to-nerja',
     content: gettingToNerjaContent,
-    heroMark: (locale) => locale.facts[0].value,
-    relatedColumns: null,
+    heroMark: null,
+    relatedColumns: 'md:grid-cols-2',
     blockBeforeSections: null,
     blockAfterSections: null,
-    arrivalModules: ['gateways', 'options', 'mobility', 'parking', 'final-mile'],
+    arrivalModules: ['gateways', 'options', 'journey-steps', 'mobility', 'parking', 'final-mile'],
     interleaved: [],
     sectionMarkerAttribute: null,
     closingCtas: [
@@ -114,11 +114,11 @@ const AUTHORITY_PAGES: AuthorityPage[] = [
     routeToken: 'getting_to_tarifa',
     pageId: 'getting-to-tarifa',
     content: gettingToTarifaContent,
-    heroMark: (locale) => locale.facts[0].value,
-    relatedColumns: null,
+    heroMark: null,
+    relatedColumns: 'md:grid-cols-2',
     blockBeforeSections: null,
     blockAfterSections: null,
-    arrivalModules: ['gateways', 'options', 'mobility', 'parking'],
+    arrivalModules: ['gateways', 'options', 'journey-steps', 'mobility', 'parking', 'final-mile'],
     interleaved: [],
     sectionMarkerAttribute: null,
     closingCtas: [
@@ -446,6 +446,11 @@ for (const entry of AUTHORITY_PAGES) {
         );
         await expect(relatedLinks.nth(index).locator('span').first()).toHaveText(link.label);
       }
+    } else if (entry.relatedColumns) {
+      const relatedSection = article.locator('[data-am-component="editorial-guide-link-section"]');
+      await expect(relatedSection).toHaveCount(1);
+      await expect(relatedSection.locator(`div${byClassToken(entry.relatedColumns)}`)).toHaveCount(1);
+      await expect(relatedSection.locator('a')).toHaveCount(2);
     } else {
       expect(entry.relatedColumns).toBeNull();
     }
@@ -482,21 +487,22 @@ for (const entry of AUTHORITY_PAGES) {
 }
 
 test('the destination arrival pages use the shared module order', async ({ page }) => {
+  const sharedModules = ['gateways', 'options', 'journey-steps', 'mobility', 'parking', 'final-mile'];
   const pages: Array<{ routeToken: LinkToken; pageId: string; modules: string[] }> = [
     {
       routeToken: 'getting_to_frigiliana',
       pageId: 'getting-to-frigiliana',
-      modules: ['options', 'journey-steps', 'final-mile']
+      modules: sharedModules
     },
     {
       routeToken: 'getting_to_nerja',
       pageId: 'getting-to-nerja',
-      modules: ['gateways', 'options', 'mobility', 'parking', 'final-mile']
+      modules: sharedModules
     },
     {
       routeToken: 'getting_to_tarifa',
       pageId: 'getting-to-tarifa',
-      modules: ['gateways', 'options', 'mobility', 'parking']
+      modules: sharedModules
     }
   ];
 
