@@ -200,7 +200,7 @@ export const expandedComfortAmenityPropertyIds = new Set([
   '408326',
   '408324',
   '408323',
-  '408325',
+  'maha',
   '408327',
   '544478'
 ]);
@@ -221,7 +221,7 @@ export const comfortAmenityExclusionsByPropertyId: Record<
       'kitchen'
     ]
   },
-  '408325': {
+  maha: {
     keys: ['washing-machine']
   },
   '408327': {
@@ -242,7 +242,7 @@ export const comfortAmenityOverridesByPropertyId: Record<
   '408323': {
     fireplace: pelletStoveOverride
   },
-  '408325': {
+  maha: {
     fireplace: pelletStoveOverride
   },
   '544478': {

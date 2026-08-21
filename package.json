@@ -23,7 +23,8 @@
     "check:slug-policy": "node scripts/check-public-slug-policy.mjs",
     "check:fallback-policy": "node scripts/check-fallback-policy.mjs",
     "check:image-policy": "node scripts/check-image-policy.mjs",
-    "check:structured-data": "node scripts/check-structured-data.mjs"
+    "check:structured-data": "node scripts/check-structured-data.mjs",
+    "sandbox:lodgify": "node --env-file-if-exists=.env scripts/lodgify-sandbox.mjs"
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.7.3",
