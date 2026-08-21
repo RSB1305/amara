@@ -1,682 +1,172 @@
 import type { AmaraAuthoringSeo, AmaraLanguage } from '../types/seo';
 import { vacationRentalEntitiesByKey } from './vacationRentalEntities';
+import type { WinterStaysLocale } from './winterStaysContent';
 
-type StayKey = 'lounis' | 'zaid' | 'maha';
-
-interface WinterStayCardCopy {
-  title: string;
-  text: string;
-  cta: string;
-  imageAlt: string;
-}
-
-interface FrigilianaWinterStaysCopy {
-  hero: {
-    kicker: string;
-    title: string;
-    paragraphs: string[];
-    cta: string;
-    imageAlt: string;
-  };
-  village: {
-    title: string;
-    paragraphs: string[];
-    weatherLink: string;
-  };
-  comfort: {
-    title: string;
-    paragraphs: string[];
-    imageAlt: string;
-  };
-  pelletStays: {
-    title: string;
-    stays: Record<StayKey, WinterStayCardCopy>;
-  };
-  farah: {
-    title: string;
-    paragraphs: string[];
-    cta: string;
-    imageAlt: string;
-  };
-  coast: {
-    title: string;
-    paragraphs: string[];
-    cta: string;
-    imageAlt: string;
-  };
-  duration: {
-    title: string;
-    paragraphs: string[];
-  };
-  planning: {
-    title: string;
-    weather: { text: string; link: string };
-    whereToStay: { text: string; link: string };
-    comparison: { text: string; link: string };
-  };
-  finalCta: {
-    title: string;
-    paragraphs: string[];
-    cta: string;
-  };
-}
-
-const frigilianaWinterRentalKeys = [
-  'amara-farah',
-  'amara-lounis',
-  'amara-zaid',
-  'amara-maha'
-] as const;
-const pelletStoveRentalKeys = ['amara-lounis', 'amara-zaid', 'amara-maha'] as const;
-const hasAmenity = (key: (typeof frigilianaWinterRentalKeys)[number], name: string) =>
+const winterRentalKeys = ['amara-farah', 'amara-lounis', 'amara-zaid', 'amara-maha'] as const;
+const pelletStoveKeys = ['amara-lounis', 'amara-zaid', 'amara-maha'] as const;
+const hasAmenity = (key: (typeof winterRentalKeys)[number], name: string) =>
   vacationRentalEntitiesByKey[key].amenityFeatures.some(
     (feature) => feature.name === name && feature.value === true
   );
 
 if (
-  !frigilianaWinterRentalKeys.every((key) => hasAmenity(key, 'heating'))
-  || !frigilianaWinterRentalKeys.every(
-    (key) => vacationRentalEntitiesByKey[key].bathroomUnderfloorHeating
-  )
-  || !pelletStoveRentalKeys.every((key) => hasAmenity(key, 'pelletStove'))
+  !winterRentalKeys.every((key) => hasAmenity(key, 'heating'))
+  || !winterRentalKeys.every((key) => vacationRentalEntitiesByKey[key].bathroomUnderfloorHeating)
+  || !pelletStoveKeys.every((key) => hasAmenity(key, 'pelletStove'))
 ) {
-  throw new Error(
-    '[Frigiliana Winter Stays] Seasonal equipment copy is out of sync with vacationRentalEntities.'
-  );
+  throw new Error('[Frigiliana Winter Stays] Winter-comfort copy is out of sync with vacationRentalEntities.');
 }
 
+const article = {
+  datePublished: '2026-08-11',
+  dateModified: '2026-08-21',
+  authorName: 'Robert Sebastian Böhmer',
+  authorType: 'Person' as const,
+  authorSlug: 'amara-about-us'
+};
+
 export const frigilianaWinterStaysSeo: AmaraAuthoringSeo = {
-  version: '2026-08-11-frigiliana-winter-stays-v1.0-D',
-  pageType: 'D',
+  version: '2026-08-21-frigiliana-winter-stays-v2.0',
+  pageType: 'A',
   entityKey: 'amara-brand',
-  ogImage: '/images/hero-frigiliana.jpg',
+  article,
   languages: {
-    en: {
-      title: 'Heated Winter Stays in Frigiliana | AMARA',
-      description:
-        'Stay in Frigiliana for a winter break of a few days to three weeks, with heating, bathroom underfloor heating, pellet stoves and the Mediterranean coast nearby.',
-      robots: 'index, follow',
-      canonical: 'auto'
-    },
-    de: {
-      title: 'Winterurlaub in Frigiliana | Beheizte Unterkünfte | AMARA',
-      description:
-        'Winterurlaub in Frigiliana für ein paar Tage bis drei Wochen: historisches Dorf, Heizung, Fußbodenheizung im Bad, Pelletofen und die Küste bei Nerja ganz nah.',
-      robots: 'index, follow',
-      canonical: 'auto'
-    },
-    es: {
-      title: 'Invierno en Frigiliana | Alojamientos con calefacción | AMARA',
-      description:
-        'Alojaos en Frigiliana unos días o hasta tres semanas en invierno, con calefacción, suelo radiante en los baños, estufas de pellets y la costa de Nerja cerca.',
-      robots: 'index, follow',
-      canonical: 'auto'
-    },
-    nl: {
-      title: 'Verwarmde winterverblijven in Frigiliana | AMARA',
-      description:
-        'Verblijf enkele dagen tot drie weken in Frigiliana in de winter, met verwarming, vloerverwarming in de badkamers, pelletkachels en de kust bij Nerja dichtbij.',
-      robots: 'index, follow',
-      canonical: 'auto'
-    },
-    sv: {
-      title: 'Uppvärmda vinterboenden i Frigiliana | AMARA',
-      description:
-        'Bo i Frigiliana några dagar eller upp till tre veckor på vintern, med värme, golvvärme i badrummen, pelletskaminer och Nerjas kust nära.',
-      robots: 'index, follow',
-      canonical: 'auto'
-    }
+    en: { title: 'Frigiliana in Winter: Winter Sun & Longer Stays', description: 'Discover winter in Frigiliana: quieter village days, hill walks, realistic weather planning and heated AMARA stays for a few nights to three weeks.', robots: 'index, follow', canonical: 'auto' },
+    de: { title: 'Frigiliana im Winter: Wintersonne & längere Aufenthalte', description: 'Entdeckt Frigiliana im Winter: ruhigere Dorftage, Wanderungen, ehrliche Wetterplanung und beheizte AMARA-Unterkünfte für einige Nächte bis drei Wochen.', robots: 'index, follow', canonical: 'auto' },
+    es: { title: 'Frigiliana en invierno: sol y estancias más largas', description: 'Descubrid Frigiliana en invierno: días tranquilos, rutas, planificación realista y alojamientos AMARA con calefacción para unas noches o hasta tres semanas.', robots: 'index, follow', canonical: 'auto' },
+    nl: { title: 'Frigiliana in de winter: winterzon & langer verblijf', description: 'Ontdek Frigiliana in de winter: rustige dorpsdagen, wandelingen, eerlijke weersplanning en verwarmde AMARA-verblijven voor enkele nachten tot drie weken.', robots: 'index, follow', canonical: 'auto' },
+    sv: { title: 'Frigiliana på vintern: vintersol & längre vistelser', description: 'Upptäck Frigiliana på vintern: lugnare dagar, vandring, realistisk väderplanering och uppvärmda AMARA-boenden för några nätter till tre veckor.', robots: 'index, follow', canonical: 'auto' }
   }
 };
 
-/** English is the semantic source of truth; every locale preserves the approved page job and depth. */
-export const frigilianaWinterStaysContent: Record<
-  AmaraLanguage,
-  FrigilianaWinterStaysCopy
-> = {
+const sourceHrefs = {
+  travelIntent: 'https://etc-corporate.org/reports/monitoring-sentiment-for-intra-european-travel-autumn-25-winter-2026/',
+  streets: 'https://turismofrigiliana.es/es/las-calles.html',
+  elFuerte: 'https://www.turismofrigiliana.es/es/el-fuerte.html'
+} as const;
+
+export const frigilianaWinterStaysContent: Record<AmaraLanguage, WinterStaysLocale> = {
   en: {
-    hero: {
-      kicker: 'WINTER IN ANDALUSIA',
-      title: 'Winter stays in Frigiliana',
-      paragraphs: [
-        'Frigiliana settles into a different rhythm in winter. The lanes become quieter, walking and hiking are more comfortable, and Nerja, Maro and the Mediterranean remain close enough for days by the coast.',
-        'Spend your winter days among the white houses of the old village – for a few nights, a week or up to three weeks.',
-        'And when you come home in the evening, something that matters far less in summer becomes important: a historic house that is comfortable indoors too.'
-      ],
-      cta: 'Check winter availability',
-      imageAlt: 'White houses and quiet lanes in the historic village of Frigiliana'
-    },
-    village: {
-      title: 'Frigiliana when the village slows down',
-      paragraphs: [
-        'Many people first discover Frigiliana on a summer day. Winter brings a different experience.',
-        'Morning starts inside the old village. Walk out for breakfast or through the lanes, use the milder part of the day for a walk or hike, then head towards Nerja or the coast if you feel like the sea.',
-        'In the evening, you return to Frigiliana. Restaurants and village life remain part of the stay, while the summer crowds are much less present.',
-        "For guests who want mild winter days together with the feeling of actually living somewhere for a while, this is one of Frigiliana's most appealing seasons."
-      ],
-      weatherLink: 'Weather & Seasons'
-    },
-    comfort: {
-      title: 'Winter outside. Comfort inside.',
-      paragraphs: [
-        'A historic Andalusian house feels different in winter than it does in high summer, so indoor comfort matters.',
-        '**All four AMARA stays in Frigiliana have heating.** Casa AMARA also has underfloor heating in the bathrooms.',
-        'Lounis, Zaid and Maha add a pellet stove.',
-        'Fast Wi-Fi, generous bathrooms and large showers bring everyday comfort inside a house whose historic fabric has developed over centuries.',
-        'Spend the day exploring Frigiliana and the surrounding area, then come home to a warm and comfortable place in the evening.'
-      ],
-      imageAlt: 'Historic sitting room inside AMARA Lounis in Frigiliana'
-    },
-    pelletStays: {
-      title: 'Three stays with pellet stoves',
-      stays: {
-        lounis: {
-          title: 'Lounis',
-          text: 'Historic rooms, a private terrace and a pellet stove make Lounis a strong choice for couples spending a winter break or a little longer in the heart of Frigiliana.',
-          cta: 'View Lounis',
-          imageAlt: 'Private terrace at AMARA Lounis in historic Frigiliana'
-        },
-        zaid: {
-          title: 'Zaid',
-          text: 'Zaid combines its historic-village location with a private terrace, heating and a pellet stove – well suited to days outside and quieter winter evenings at home.',
-          cta: 'View Zaid',
-          imageAlt: 'Private terrace at AMARA Zaid in historic Frigiliana'
-        },
-        maha: {
-          title: 'Maha',
-          text: 'Alongside its pellet stove, Maha has a 64 m² private terrace and an outdoor kitchen, giving you particularly generous private outdoor space for a longer winter holiday.',
-          cta: 'View Maha',
-          imageAlt: 'Large private terrace and outdoor kitchen at AMARA Maha in Frigiliana'
-        }
-      }
-    },
-    farah: {
-      title: 'Farah for a shorter winter break',
-      paragraphs: [
-        'Farah offers an intimate stay in the heart of historic Frigiliana.',
-        "Heating is part of the stay, together with Casa AMARA's position near San Antonio in the heart of the old village.",
-        'For a shorter winter break, that can be a very simple combination: Frigiliana outside the door and a comfortable place to return to in the evening.'
-      ],
-      cta: 'View Farah',
-      imageAlt: 'Historic interior at AMARA Farah in the old village of Frigiliana'
-    },
-    coast: {
-      title: 'Frigiliana at home. Nerja and the sea for the day.',
-      paragraphs: [
-        'Village and coast work particularly well together in winter.',
-        'Frigiliana can be where you wake up in the morning and come home in the evening, while Nerja, Maro and the coast remain part of your days.',
-        'A hire car gives you more freedom for coastal walks, larger grocery shops and wider day trips. For a straightforward day in Nerja, the bus can also work.',
-        'If immediate beach access matters more to you than living in the historic village, AMARA Playa in Nerja may be the better fit.'
-      ],
-      cta: 'Explore Frigiliana & Nerja',
-      imageAlt: 'Mediterranean coast at Nerja below the hills around Frigiliana'
-    },
-    duration: {
-      title: 'From a few winter nights to three weeks',
-      paragraphs: [
-        'A winter stay at AMARA can last a few nights, a week or up to three weeks.',
-        'You may simply want a short break. You may have a full week. Or you may want two or three weeks to travel more slowly and let Frigiliana become home for a little while.',
-        'That leaves plenty of time for the village, the surrounding landscape and days beside the Mediterranean.'
-      ]
-    },
-    planning: {
-      title: 'Plan winter in Frigiliana',
-      weather: {
-        text: 'For temperatures, rainfall, seasonal differences and month-by-month planning, continue to our',
-        link: 'Weather & Seasons guide'
-      },
-      whereToStay: {
-        text: 'For slopes, stairs and the practical differences between parts of the village, use our',
-        link: 'Where to Stay guide'
-      },
-      comparison: {
-        text: 'And for the way Frigiliana and Nerja can work together during the same holiday, continue to our',
-        link: 'Frigiliana & Nerja comparison'
-      }
-    },
-    finalCta: {
-      title: 'Your winter at Casa AMARA',
-      paragraphs: [
-        'Winter shows a quieter side of Frigiliana, with more room for the village, the surrounding landscape and days shaped at your own pace.',
-        'In the evening, return to a historic house where old walls, modern heating, warm bathrooms and – in three stays – pellet stoves are all part of the winter experience.'
-      ],
-      cta: 'Check winter availability'
-    }
+    navLabel: 'Winter Stays',
+    hero: { eyebrow: 'Winter stays · Frigiliana', title: 'A winter that makes room for the village', standfirst: 'Frigiliana in winter is not a promise of permanent sunshine. It is a chance to exchange northern darkness and summer intensity for brighter days, quieter lanes and time outdoors when conditions cooperate. The historic village remains steep, evenings can feel cool and some plans stay weather-dependent. That is precisely why the right home matters: a comfortable base for slow mornings, hill walks, coast days and evenings indoors.', note: 'Destination facts are source-based. Home details come from AMARA’s current property records and should be checked again when booking.', updated: 'Research and property records reviewed August 2026', mark: 'WINTER' },
+    facts: [
+      { label: 'The appeal', value: 'Village rhythm instead of peak-season intensity' },
+      { label: 'Underfoot', value: 'Narrow, winding and steep historic streets' },
+      { label: 'Plan for', value: 'Flexible days and cooler evenings' },
+      { label: 'At AMARA', value: 'Heating · warm bathroom floors · three pellet stoves' }
+    ],
+    sections: [
+      { id: 'when-summer-leaves', eyebrow: '01 · Why winter', title: 'Why leave northern winter for Frigiliana?', paragraphs: ['The attraction is not a guaranteed temperature. It is the combination of daylight, outdoor possibilities and a different pace. European travel research also points to fewer crowds, lower costs and avoiding extreme heat as important reasons for shifting trips away from peak months.', 'Frigiliana gives that choice a strong sense of place: white houses, a real hillside village and the Mediterranean landscape close by. Winter works best for guests who want to experience the destination rather than reproduce a summer beach holiday.'] },
+      { id: 'northern-winter', eyebrow: '02 · Local winter', title: 'The village after the day visitors thin out', paragraphs: ['The historic centre does not become flat or effortless in winter. Its narrow, winding and steep lanes remain part of everyday life, while quieter periods can make it easier to notice the architecture and landscape around them.', 'Do not plan around the assumption that every restaurant or service keeps summer hours. Check what matters for your dates and treat the village’s slower rhythm as part of the stay, not as a promise that everything will be open.'] },
+      { id: 'winter-light', eyebrow: '03 · A realistic day', title: 'Build the day around what the weather gives you', paragraphs: ['A good winter day might begin slowly in the village, use the clearer middle hours for the streets or a walk, and leave Nerja or the coast as an option rather than an obligation. The El Fuerte route starts in Frigiliana, but its steps and exposed terrain require a current conditions check.', 'If rain or wind changes the plan, the day is not lost. A long lunch, time at home or a cultural stop towards Nerja belongs in a realistic winter itinerary. Flexibility is more useful than a rigid checklist.'] },
+      { id: 'changing-days', eyebrow: '04 · Weather boundary', title: 'Seasonal guidance is not your forecast', paragraphs: ['The climate guide explains long-term patterns, rainfall and the differences between the village and coast. For a winter stay, the practical message is simpler: bring layers, expect variation and check the official forecast before walks or longer outdoor plans.', 'We do not transfer Torrox’s historic “best climate” claim to Frigiliana, and we do not promise a particular daytime temperature. A winter page should help you make decisions, not turn climate averages into a guarantee.'] },
+      { id: 'quieter-tarifa', eyebrow: '05 · Stay longer', title: 'From a short reset to three unhurried weeks', paragraphs: ['A few nights can provide a change of scene; one to three weeks allow routines to develop. You can alternate village days, coast days and time at home instead of trying to fit every highlight into one forecast window.', 'AMARA’s current Frigiliana offer is for holiday stays of a few nights up to three weeks. It is not presented as residential overwintering or an open-ended monthly rental. Current availability and conditions apply.'] },
+      { id: 'winter-day', eyebrow: '06 · Home comfort', title: 'In winter, the house becomes part of the destination', paragraphs: ['All four AMARA stays in Frigiliana have heating and bathroom underfloor heating in the current property records. Lounis, Zaid and Maha also have pellet stoves. Those are practical differences when the evening is spent at home.', 'Historic character does not remove the need for ordinary comfort. Choose by the space, terrace and equipment that fit your stay, and confirm any feature that is decisive for you before booking.'] },
+      { id: 'home-matters', eyebrow: '07 · Fit and non-fit', title: 'Who will enjoy Frigiliana in winter — and who may not', paragraphs: ['It can suit couples, walkers, slow travellers and guests who value village atmosphere more than constant entertainment. It also works well when the coast is an option but does not need to be outside the door.', 'It may be a poor fit if steep streets are a serious barrier, if guaranteed beach weather is essential or if you expect every summer business and service to operate unchanged. Honest fit is more useful than a universal recommendation.'] },
+      { id: 'who-enjoys-winter', eyebrow: '08 · Plan with local context', title: 'Separate stable knowledge from today’s conditions', paragraphs: ['Use the Weather & Seasons guide for climate context and the Where to Stay guide for slopes, stairs and daily routes. Then check the forecast, current opening hours and transport for your actual dates.', 'AMARA’s role is to explain the village and the homes clearly. Personal winter routines and business recommendations will be added only when they can be dated and distinguished from general destination facts.'] },
+      { id: 'amara-la-marina', eyebrow: '09 · Your winter base', title: 'Choose the Frigiliana stay that fits your winter', paragraphs: ['Farah is the more compact option, while Lounis, Zaid and Maha add pellet stoves and different private outdoor spaces. The right choice depends on how long you stay, how much time you expect to spend at home and which features matter most.', 'Start with the winter proposition, compare the individual homes and then check live availability. The page does not need a climate superlative: the real offer is a memorable village and a comfortable place to return to.'] }
+    ],
+    related: { eyebrow: 'Continue planning', title: 'Put climate, terrain and location together', links: [
+      { token: 'weather_frigiliana', label: 'Weather & Seasons', text: 'Climate patterns, seasons and the official forecast boundary.' },
+      { token: 'frigiliana_stairs', label: 'Where to Stay', text: 'Slopes, stairs and how different parts of the village affect daily life.' },
+      { token: 'frigiliana_geography', label: 'Geography & Orientation', text: 'Understand the hillside village, the coast and the wider landscape.' },
+      { token: 'nerja_vs_frigiliana', label: 'Frigiliana or Nerja?', text: 'Compare village life with staying directly on the coast.' }
+    ] },
+    sources: { eyebrow: 'Evidence and boundaries', title: 'What this guide can support', intro: 'Official destination sources support the terrain and route context. European travel research informs the motive layer. Property comfort comes from AMARA’s current internal records rather than an external climate claim.', checked: 'Sources reviewed 21 August 2026', links: [
+      { label: 'European Travel Commission · winter travel sentiment', text: 'European travel intent and the boundary between stated plans and actual bookings.', href: sourceHrefs.travelIntent },
+      { label: 'Turismo de Frigiliana · historic streets', text: 'Official description of the old quarter’s narrow, winding and steep lanes.', href: sourceHrefs.streets },
+      { label: 'Turismo de Frigiliana · El Fuerte', text: 'Official route context beginning in the village.', href: sourceHrefs.elFuerte }
+    ] },
+    closing: { eyebrow: 'Winter, without the sales fiction', title: 'Stay for the village — choose the home for the evening', body: 'Frigiliana in winter rewards guests who want atmosphere, landscape and time rather than guaranteed summer conditions. Compare the AMARA homes, decide which winter comforts matter and check current availability for your dates.', locationLabel: 'Explore Frigiliana', propertyLabel: 'Check winter availability' }
   },
   de: {
-    hero: {
-      kicker: 'WINTER IN ANDALUSIEN',
-      title: 'Winterurlaub in Frigiliana',
-      paragraphs: [
-        'Im Winter verändert Frigiliana seinen Rhythmus. Die Gassen werden ruhiger, Spaziergänge und Wanderungen angenehmer und Nerja, Maro und das Mittelmeer bleiben für den Tag ganz in der Nähe.',
-        'Ihr verbringt eure Wintertage zwischen den alten weißen Häusern Frigilianas – für ein paar Tage, eine Woche oder bis zu drei Wochen.',
-        'Und wenn ihr am Abend zurückkommt, zählt etwas, das im Sommer kaum jemand erwähnt: ein Zuhause, in dem ihr euch auch drinnen wohlfühlt.'
-      ],
-      cta: 'Winterverfügbarkeit prüfen',
-      imageAlt: 'Weiße Häuser und ruhige Gassen im historischen Frigiliana'
-    },
-    village: {
-      title: 'Frigiliana, wenn das Dorf ruhiger wird',
-      paragraphs: [
-        'Viele lernen Frigiliana an einem Sommertag kennen. Im Winter erlebt ihr das Dorf anders.',
-        'Morgens beginnt der Tag direkt in der Altstadt. Ihr geht zu Fuß zum Frühstück oder durch die Gassen, nutzt die milderen Stunden für einen Spaziergang oder eine Wanderung und könnt später nach Nerja oder an die Küste fahren.',
-        'Am Abend kehrt ihr wieder nach Frigiliana zurück. Restaurants und Dorfleben bleiben Teil des Aufenthalts, während die großen Besucherströme des Sommers den Tag deutlich weniger prägen.',
-        'Wenn ihr milde Wintertage mit einem Ort verbinden möchtet, an dem ihr wirklich einige Tage lebt, zeigt Frigiliana gerade in dieser Jahreszeit eine besonders schöne Seite.'
-      ],
-      weatherLink: 'Mehr über Wetter & Jahreszeiten'
-    },
-    comfort: {
-      title: 'Winter draußen. Komfort drinnen.',
-      paragraphs: [
-        'Ein historisches andalusisches Haus fühlt sich im Winter anders an als im Hochsommer. Deshalb ist für uns Winterkomfort ein wichtiges Thema.',
-        '**Alle vier AMARA-Unterkünfte in Frigiliana verfügen über Heizung.** In Casa AMARA gibt es außerdem Fußbodenheizung in den Badezimmern.',
-        'In Lounis, Zaid und Maha gehört zusätzlich ein Pelletofen zur Ausstattung.',
-        'Dazu kommen schnelles WLAN, großzügige Badezimmer und große Duschen – moderner Komfort innerhalb eines Hauses, dessen historische Substanz über Jahrhunderte gewachsen ist.',
-        'So könnt ihr morgens Frigiliana und die Umgebung entdecken und euch abends auf einen warmen, komfortablen Rückzugsort freuen.'
-      ],
-      imageAlt: 'Historischer Wohnbereich von AMARA Lounis in Frigiliana'
-    },
-    pelletStays: {
-      title: 'Drei Unterkünfte mit Pelletofen',
-      stays: {
-        lounis: {
-          title: 'Lounis',
-          text: 'Historische Räume, eigene Terrasse und Pelletofen. Lounis passt besonders gut zu Paaren, die einige Wintertage oder auch etwas länger mitten in Frigiliana verbringen möchten.',
-          cta: 'Lounis ansehen',
-          imageAlt: 'Private Terrasse von AMARA Lounis im historischen Frigiliana'
-        },
-        zaid: {
-          title: 'Zaid',
-          text: 'Zaid verbindet die Lage im historischen Dorf mit privater Terrasse, Heizung und Pelletofen – für Tage draußen und ruhigere Winterabende zuhause.',
-          cta: 'Zaid ansehen',
-          imageAlt: 'Private Terrasse von AMARA Zaid im historischen Frigiliana'
-        },
-        maha: {
-          title: 'Maha',
-          text: 'Maha bietet zusätzlich zum Pelletofen eine 64 m² große private Terrasse und eine Outdoor-Küche. Gerade für einen längeren Winterurlaub bietet sie besonders viel privaten Außenraum.',
-          cta: 'Maha ansehen',
-          imageAlt: 'Große private Terrasse mit Outdoor-Küche von AMARA Maha in Frigiliana'
-        }
-      }
-    },
-    farah: {
-      title: 'Farah für einen kürzeren Winteraufenthalt',
-      paragraphs: [
-        'Farah ist ein persönlicher Rückzugsort mitten im historischen Frigiliana.',
-        'Auch hier gehört Heizung zum Aufenthalt, ebenso die Lage in Casa AMARA nahe San Antonio und damit direkt im alten Dorf.',
-        'Für einen kürzeren Winterurlaub kann genau diese Kombination interessant sein: Frigiliana vor der Haustür und ein komfortabler Rückzugsort für den Abend.'
-      ],
-      cta: 'Farah ansehen',
-      imageAlt: 'Historisches Interieur von AMARA Farah in Frigilianas Altstadt'
-    },
-    coast: {
-      title: 'Frigiliana zuhause. Nerja und das Meer für den Tag.',
-      paragraphs: [
-        'Im Winter lassen sich Dorf und Küste besonders gut miteinander verbinden.',
-        'Frigiliana kann der Ort sein, an dem ihr morgens aufwacht und abends nach Hause kommt. Nerja, Maro und die Küste bleiben Teil eurer Urlaubstage.',
-        'Für Strandspaziergänge, größere Einkäufe oder weitere Ausflüge gibt euch ein Mietwagen zusätzliche Freiheit. Für einen entspannten Tag in Nerja könnt ihr auch den Bus nehmen.',
-        'Wenn für euch unmittelbare Strandnähe wichtiger ist als das Wohnen im historischen Dorf, kann AMARA Playa in Nerja die passendere Wahl sein.'
-      ],
-      cta: 'Frigiliana & Nerja entdecken',
-      imageAlt: 'Mittelmeerküste bei Nerja unterhalb der Hügel von Frigiliana'
-    },
-    duration: {
-      title: 'Von ein paar Wintertagen bis zu drei Wochen',
-      paragraphs: [
-        'Euer Winterurlaub bei AMARA kann ein paar Nächte, eine Woche oder bis zu drei Wochen dauern.',
-        'Vielleicht möchtet ihr nur einige Tage raus. Vielleicht habt ihr eine Woche Zeit. Oder ihr nehmt euch zwei oder drei Wochen, reist langsamer und lasst Frigiliana für eine Weile zu eurem Zuhause werden.',
-        'So bleibt viel Zeit für das Dorf, die Umgebung und Tage am Mittelmeer.'
-      ]
-    },
-    planning: {
-      title: 'Winter in Frigiliana planen',
-      weather: {
-        text: 'Wenn ihr mehr über die Jahreszeit selbst wissen möchtet, findet ihr Temperaturen, Regen, saisonale Unterschiede und Reisezeitinformationen in unserem',
-        link: 'Wetter- und Jahreszeitenguide'
-      },
-      whereToStay: {
-        text: 'Wenn euch Lage, Treppen und tägliche Wege interessieren, erklärt unser',
-        link: 'Where-to-Stay-Guide die verschiedenen Bereiche Frigilianas'
-      },
-      comparison: {
-        text: 'Und wenn ihr wissen möchtet, wie sich Frigiliana und Nerja im selben Urlaub ergänzen, führt euch unser',
-        link: 'Vergleich durch beide Aufenthaltsmodelle'
-      }
-    },
-    finalCta: {
-      title: 'Euer Winter in Casa AMARA',
-      paragraphs: [
-        'Im Winter zeigt Frigiliana eine ruhigere Seite: mehr Raum für das Dorf, die Landschaft und Tage, die ihr nach eurem eigenen Tempo gestaltet.',
-        'Am Abend kommt ihr zurück in ein historisches Haus, in dem alte Mauern, moderne Heizung, warme Badezimmer und – in drei Unterkünften – der Pelletofen zusammengehören.'
-      ],
-      cta: 'Winterverfügbarkeit prüfen'
-    }
+    navLabel: 'Winteraufenthalte',
+    hero: { eyebrow: 'Winteraufenthalte · Frigiliana', title: 'Ein Winter mit mehr Raum für das Dorf', standfirst: 'Frigiliana im Winter ist kein Versprechen auf dauerhaften Sonnenschein. Es ist die Möglichkeit, nordeuropäische Dunkelheit und sommerliche Intensität gegen hellere Tage, ruhigere Gassen und Zeit draußen einzutauschen, wenn das Wetter mitspielt. Das historische Dorf bleibt steil, Abende können kühl wirken und manche Pläne bleiben wetterabhängig. Genau deshalb zählt das richtige Zuhause: als komfortable Basis für langsame Morgen, Wanderungen, Küstentage und Abende drinnen.', note: 'Ortsfakten sind quellenbasiert. Angaben zu den Unterkünften stammen aus den aktuellen AMARA-Objektdaten und sollten bei der Buchung bestätigt werden.', updated: 'Recherche und Objektdaten geprüft im August 2026', mark: 'WINTER' },
+    facts: [
+      { label: 'Der Reiz', value: 'Dorfleben statt Hochsaison-Intensität' },
+      { label: 'Unterwegs', value: 'Enge, verwinkelte und steile Altstadtgassen' },
+      { label: 'Einplanen', value: 'Flexible Tage und kühlere Abende' },
+      { label: 'Bei AMARA', value: 'Heizung · warme Badböden · drei Pelletöfen' }
+    ],
+    sections: [
+      { id: 'when-summer-leaves', eyebrow: '01 · Warum Winter', title: 'Warum dem nordeuropäischen Winter nach Frigiliana entkommen?', paragraphs: ['Der Reiz ist keine garantierte Temperatur, sondern die Verbindung aus Tageslicht, Möglichkeiten draußen und einem anderen Tempo. Europäische Reiseforschung nennt außerdem weniger Andrang, geringere Kosten und das Vermeiden extremer Hitze als wichtige Motive für Reisen außerhalb der Spitzenmonate.', 'Frigiliana gibt dieser Entscheidung einen unverwechselbaren Ort: weiße Häuser, ein echtes Hangdorf und die Mittelmeerlandschaft in der Nähe. Der Winter passt am besten, wenn ihr das Reiseziel erleben und keinen Sommer-Strandurlaub nachstellen möchtet.'] },
+      { id: 'northern-winter', eyebrow: '02 · Lokaler Winter', title: 'Das Dorf, wenn weniger Tagesgäste unterwegs sind', paragraphs: ['Die Altstadt wird im Winter weder flach noch mühelos. Enge, verwinkelte und steile Gassen bleiben Teil des Alltags; in ruhigeren Phasen fallen Architektur und Landschaft dafür stärker auf.', 'Plant nicht mit der Annahme, dass jedes Restaurant oder jeder Service die Sommerzeiten behält. Prüft, was für eure Reisedaten wichtig ist, und versteht den langsameren Rhythmus als Teil des Aufenthalts – nicht als Versprechen, dass alles geöffnet bleibt.'] },
+      { id: 'winter-light', eyebrow: '03 · Ein realistischer Tag', title: 'Nutzt, was der jeweilige Tag möglich macht', paragraphs: ['Ein guter Wintertag kann langsam im Dorf beginnen, die klareren Stunden für die Gassen oder eine Wanderung nutzen und Nerja oder die Küste als Möglichkeit offenlassen. Die Route El Fuerte beginnt in Frigiliana; Stufen und exponiertes Gelände verlangen jedoch eine aktuelle Prüfung der Bedingungen.', 'Wenn Regen oder Wind den Plan ändert, ist der Tag nicht verloren. Ein langes Mittagessen, Zeit zuhause oder ein kultureller Abstecher Richtung Nerja gehören zu einem realistischen Winterprogramm. Flexibilität ist wertvoller als eine starre Liste.'] },
+      { id: 'changing-days', eyebrow: '04 · Wettergrenze', title: 'Saisonale Orientierung ist keine Vorhersage', paragraphs: ['Der Klima-Guide erklärt langfristige Muster, Niederschlag und die Unterschiede zwischen Dorf und Küste. Für euren Winteraufenthalt zählt vor allem: Kleidung in Schichten, wechselnde Bedingungen und die offizielle Vorhersage vor Wanderungen oder längeren Outdoor-Plänen.', 'Wir übertragen die historische Torrox-Aussage vom „besten Klima“ nicht auf Frigiliana und versprechen keine bestimmte Tagestemperatur. Eine Winterseite soll Entscheidungen erleichtern und keine Klimamittelwerte als Garantie verkaufen.'] },
+      { id: 'quieter-tarifa', eyebrow: '05 · Länger bleiben', title: 'Vom kurzen Tapetenwechsel bis zu drei ruhigen Wochen', paragraphs: ['Ein paar Nächte schaffen Abstand; in ein bis drei Wochen entstehen Routinen. Dorf-, Küsten- und Zuhause-Tage lassen sich abwechseln, statt alle Höhepunkte in ein einziges Wetterfenster zu pressen.', 'Das aktuelle Frigiliana-Angebot von AMARA umfasst Ferienaufenthalte von einigen Nächten bis zu drei Wochen. Es wird nicht als dauerhaftes Überwintern oder offene Monatsmiete angeboten. Es gelten die aktuellen Konditionen und Verfügbarkeiten.'] },
+      { id: 'winter-day', eyebrow: '06 · Wohnkomfort', title: 'Im Winter wird das Zuhause Teil des Reiseziels', paragraphs: ['Alle vier AMARA-Unterkünfte in Frigiliana verfügen laut aktuellen Objektdaten über Heizung und Fußbodenheizung im Bad. Lounis, Zaid und Maha haben zusätzlich einen Pelletofen. Diese praktischen Unterschiede zählen, wenn der Abend zuhause stattfindet.', 'Historischer Charakter ersetzt keinen Alltagskomfort. Wählt nach Raum, Terrasse und Ausstattung, die zu eurem Aufenthalt passen, und bestätigt vor der Buchung jedes Merkmal, das für euch entscheidend ist.'] },
+      { id: 'home-matters', eyebrow: '07 · Passt – oder passt nicht', title: 'Wer Frigiliana im Winter genießen wird', paragraphs: ['Die Jahreszeit kann zu Paaren, Wandernden, Slow Travellern und Gästen passen, denen Dorfatmosphäre wichtiger ist als ständige Unterhaltung. Sie funktioniert auch gut, wenn die Küste eine Option sein darf, aber nicht vor der Haustür liegen muss.', 'Weniger passend ist sie, wenn steile Wege ein großes Hindernis sind, garantiertes Strandwetter unverzichtbar ist oder alle Sommerangebote unverändert verfügbar sein sollen. Ehrliche Passung hilft mehr als eine pauschale Empfehlung.'] },
+      { id: 'who-enjoys-winter', eyebrow: '08 · Mit Ortskenntnis planen', title: 'Trennt stabiles Wissen von den Bedingungen heute', paragraphs: ['Nutzt „Wetter & Jahreszeiten“ für den Klimakontext und „Wo übernachten“ für Steigungen, Treppen und tägliche Wege. Prüft anschließend Vorhersage, Öffnungszeiten und Verkehr für eure konkreten Reisedaten.', 'AMARA erklärt Dorf und Unterkünfte so klar wie möglich. Persönliche Winterroutinen und Empfehlungen zu Betrieben ergänzen wir nur, wenn sie datiert und sauber von allgemeinen Ortsfakten getrennt werden können.'] },
+      { id: 'amara-la-marina', eyebrow: '09 · Eure Winterbasis', title: 'Wählt die Unterkunft, die zu eurem Winter passt', paragraphs: ['Farah ist die kompaktere Option; Lounis, Zaid und Maha ergänzen einen Pelletofen und unterschiedliche private Außenbereiche. Welche Unterkunft passt, hängt von Aufenthaltsdauer, Zeit zuhause und euren wichtigsten Ausstattungswünschen ab.', 'Beginnt mit dem Wintergefühl, vergleicht dann die einzelnen Unterkünfte und prüft die Live-Verfügbarkeit. Die Seite braucht keinen Klima-Superlativ: Das echte Angebot ist ein besonderes Dorf und ein komfortabler Rückzugsort.'] }
+    ],
+    related: { eyebrow: 'Weiter planen', title: 'Klima, Wege und Lage zusammendenken', links: [
+      { token: 'weather_frigiliana', label: 'Wetter & Jahreszeiten', text: 'Klimamuster, Jahreszeiten und die Grenze zur aktuellen Vorhersage.' },
+      { token: 'frigiliana_stairs', label: 'Wo übernachten', text: 'Steigungen, Treppen und die Unterschiede im Alltag der verschiedenen Lagen.' },
+      { token: 'frigiliana_geography', label: 'Geografie & Orientierung', text: 'Das Hangdorf, die Küste und die größere Landschaft verstehen.' },
+      { token: 'nerja_vs_frigiliana', label: 'Frigiliana oder Nerja?', text: 'Dorfleben mit einem Aufenthalt direkt an der Küste vergleichen.' }
+    ] },
+    sources: { eyebrow: 'Belege und Grenzen', title: 'Was dieser Guide belastbar sagen kann', intro: 'Offizielle Ortsquellen belegen Gelände und Routenkontext. Europäische Reiseforschung trägt die Motivebene. Der Wohnkomfort stammt aus den aktuellen AMARA-Objektdaten und nicht aus einem Klima-Werbeversprechen.', checked: 'Quellen geprüft am 21. August 2026', links: [
+      { label: 'European Travel Commission · Reisestimmung im Winter', text: 'Europäische Reiseabsichten und die Grenze zwischen Planung und tatsächlicher Buchung.', href: sourceHrefs.travelIntent },
+      { label: 'Turismo de Frigiliana · historische Gassen', text: 'Offizielle Beschreibung der engen, verwinkelten und steilen Altstadtwege.', href: sourceHrefs.streets },
+      { label: 'Turismo de Frigiliana · El Fuerte', text: 'Offizieller Routenkontext mit Start im Dorf.', href: sourceHrefs.elFuerte }
+    ] },
+    closing: { eyebrow: 'Winter ohne Verkaufsfiktion', title: 'Kommt wegen des Dorfes – wählt das Zuhause für den Abend', body: 'Frigiliana im Winter passt zu Gästen, die Atmosphäre, Landschaft und Zeit wichtiger finden als garantierte Sommerbedingungen. Vergleicht die AMARA-Unterkünfte, entscheidet über euren Winterkomfort und prüft die aktuelle Verfügbarkeit.', locationLabel: 'Frigiliana entdecken', propertyLabel: 'Winterverfügbarkeit prüfen' }
   },
   es: {
-    hero: {
-      kicker: 'INVIERNO EN ANDALUCÍA',
-      title: 'Alojarse en Frigiliana en invierno',
-      paragraphs: [
-        'En invierno Frigiliana cambia de ritmo. Las calles están más tranquilas, caminar y hacer rutas resulta más agradable y Nerja, Maro y el Mediterráneo siguen estando cerca para pasar el día junto al mar.',
-        'Podéis vivir vuestros días de invierno entre las casas blancas del casco antiguo durante unas noches, una semana o hasta tres semanas.',
-        'Y al volver por la tarde cobra importancia algo que en verano apenas se nota: sentirse a gusto también dentro de una casa histórica.'
-      ],
-      cta: 'Consultar disponibilidad en invierno',
-      imageAlt: 'Casas blancas y calles tranquilas del casco histórico de Frigiliana'
-    },
-    village: {
-      title: 'Frigiliana cuando el pueblo se tranquiliza',
-      paragraphs: [
-        'Mucha gente conoce Frigiliana por primera vez durante una visita de verano. El invierno permite vivirlo de otra manera.',
-        'La mañana empieza en pleno casco antiguo. Podéis salir andando a desayunar, recorrer las calles, aprovechar las horas más suaves para caminar o hacer una ruta y después acercaros a Nerja o a la costa.',
-        'Por la tarde volvéis a Frigiliana. Los restaurantes y la vida del pueblo siguen formando parte de la estancia, mientras la afluencia de visitantes del verano tiene mucho menos peso en el día.',
-        'Para quienes quieren combinar días suaves de invierno con la sensación de vivir durante un tiempo en un pueblo de verdad, esta estación tiene un encanto especial.'
-      ],
-      weatherLink: 'Clima y estaciones'
-    },
-    comfort: {
-      title: 'Invierno fuera. Confort dentro.',
-      paragraphs: [
-        'Una casa histórica andaluza se vive de forma distinta en invierno que en pleno verano, por eso el confort interior importa.',
-        '**Los cuatro alojamientos AMARA de Frigiliana tienen calefacción.** Casa AMARA cuenta además con suelo radiante en los baños.',
-        'Lounis, Zaid y Maha disponen también de estufa de pellets.',
-        'El wifi rápido, los baños amplios y las duchas grandes aportan comodidad cotidiana dentro de una casa cuya estructura histórica se ha formado a lo largo de los siglos.',
-        'Así podéis pasar el día descubriendo Frigiliana y sus alrededores y volver por la tarde a un espacio cálido y confortable.'
-      ],
-      imageAlt: 'Sala de estar histórica de AMARA Lounis en Frigiliana'
-    },
-    pelletStays: {
-      title: 'Tres alojamientos con estufa de pellets',
-      stays: {
-        lounis: {
-          title: 'Lounis',
-          text: 'Estancias históricas, terraza privada y estufa de pellets. Lounis funciona muy bien para parejas que quieren pasar unos días de invierno, o algo más de tiempo, en pleno Frigiliana.',
-          cta: 'Ver Lounis',
-          imageAlt: 'Terraza privada de AMARA Lounis en el Frigiliana histórico'
-        },
-        zaid: {
-          title: 'Zaid',
-          text: 'Zaid combina su ubicación en el pueblo histórico con terraza privada, calefacción y estufa de pellets, ideal para días fuera y tardes de invierno más tranquilas en casa.',
-          cta: 'Ver Zaid',
-          imageAlt: 'Terraza privada de AMARA Zaid en el Frigiliana histórico'
-        },
-        maha: {
-          title: 'Maha',
-          text: 'Además de la estufa de pellets, Maha ofrece una terraza privada de 64 m² y cocina exterior, con mucho espacio exterior privado para unas vacaciones de invierno algo más largas.',
-          cta: 'Ver Maha',
-          imageAlt: 'Gran terraza privada con cocina exterior de AMARA Maha en Frigiliana'
-        }
-      }
-    },
-    farah: {
-      title: 'Farah para una escapada de invierno más corta',
-      paragraphs: [
-        'Farah ofrece una estancia íntima y sencilla en pleno Frigiliana histórico.',
-        'Cuenta con calefacción y comparte la ubicación de Casa AMARA junto a San Antonio, directamente dentro del casco antiguo.',
-        'Para una escapada de invierno más corta puede ser una combinación muy cómoda: Frigiliana al salir por la puerta y un lugar agradable al que volver por la tarde.'
-      ],
-      cta: 'Ver Farah',
-      imageAlt: 'Interior histórico de AMARA Farah en el casco antiguo de Frigiliana'
-    },
-    coast: {
-      title: 'Frigiliana como casa. Nerja y el mar durante el día.',
-      paragraphs: [
-        'En invierno el pueblo y la costa se combinan especialmente bien.',
-        'Frigiliana puede ser el lugar donde despertáis y al que volvéis por la tarde, mientras Nerja, Maro y la costa forman parte de vuestros días.',
-        'Un coche de alquiler os da más libertad para paseos junto al mar, compras grandes y excursiones por la zona. Para un día sencillo en Nerja también puede servir el autobús.',
-        'Si para vosotros pesa más tener la playa inmediatamente cerca que vivir en el pueblo histórico, AMARA Playa en Nerja puede encajar mejor.'
-      ],
-      cta: 'Descubrir Frigiliana y Nerja',
-      imageAlt: 'Costa mediterránea de Nerja bajo las colinas de Frigiliana'
-    },
-    duration: {
-      title: 'De unas noches de invierno a tres semanas',
-      paragraphs: [
-        'Una estancia de invierno en AMARA puede durar unas noches, una semana o hasta tres semanas.',
-        'Quizá queráis simplemente una escapada. Tal vez tengáis una semana. O quizá dos o tres semanas para viajar con más calma y convertir Frigiliana en casa durante un tiempo.',
-        'Así queda tiempo de sobra para disfrutar del pueblo, el paisaje y los días junto al Mediterráneo.'
-      ]
-    },
-    planning: {
-      title: 'Planear el invierno en Frigiliana',
-      weather: {
-        text: 'Para temperaturas, lluvia, diferencias entre estaciones y planificación por meses, consultad nuestra guía de',
-        link: 'Clima y estaciones'
-      },
-      whereToStay: {
-        text: 'Para conocer cuestas, escaleras y diferencias prácticas entre las distintas zonas del pueblo, utilizad nuestra guía',
-        link: 'Dónde alojarse'
-      },
-      comparison: {
-        text: 'Y para entender cómo Frigiliana y Nerja pueden complementarse durante las mismas vacaciones, continuad con nuestra comparación',
-        link: 'Frigiliana y Nerja'
-      }
-    },
-    finalCta: {
-      title: 'Vuestro invierno en Casa AMARA',
-      paragraphs: [
-        'El invierno muestra una cara más tranquila de Frigiliana, con más espacio para el pueblo, el paisaje y días vividos a vuestro propio ritmo.',
-        'Al caer la tarde volvéis a una casa histórica donde los muros antiguos, la calefacción moderna, los baños cálidos y –en tres alojamientos– las estufas de pellets forman parte de la experiencia de invierno.'
-      ],
-      cta: 'Consultar disponibilidad en invierno'
-    }
+    navLabel: 'Estancias de invierno',
+    hero: { eyebrow: 'Estancias de invierno · Frigiliana', title: 'Un invierno con más espacio para el pueblo', standfirst: 'Frigiliana en invierno no promete sol permanente. Ofrece cambiar la oscuridad del norte y la intensidad del verano por días más luminosos, calles tranquilas y tiempo al aire libre cuando acompañan las condiciones. El casco histórico sigue siendo empinado, las tardes pueden sentirse frescas y algunos planes dependen del tiempo. Por eso importa la casa adecuada: una base cómoda para mañanas lentas, rutas, días de costa y tardes en el interior.', note: 'Los datos del destino proceden de fuentes. La información de las casas procede de los registros actuales de AMARA y debe confirmarse al reservar.', updated: 'Investigación y datos de las casas revisados en agosto de 2026', mark: 'INVIERNO' },
+    facts: [{ label: 'El atractivo', value: 'Ritmo de pueblo frente a la intensidad estival' }, { label: 'El terreno', value: 'Calles estrechas, sinuosas y empinadas' }, { label: 'Conviene prever', value: 'Días flexibles y tardes más frescas' }, { label: 'En AMARA', value: 'Calefacción · suelo radiante · tres estufas de pellets' }],
+    sections: [
+      { id: 'when-summer-leaves', eyebrow: '01 · Por qué invierno', title: '¿Por qué cambiar el invierno del norte por Frigiliana?', paragraphs: ['El atractivo no es una temperatura garantizada, sino la combinación de luz, posibilidades al aire libre y otro ritmo. La investigación europea también señala menos aglomeraciones, ahorro y evitar el calor extremo como motivos para viajar fuera de los meses punta.', 'Frigiliana aporta un lugar con identidad: casas blancas, un pueblo real en la ladera y el paisaje mediterráneo cerca. Funciona mejor para quien quiere vivir el destino y no reproducir unas vacaciones de playa en verano.'] },
+      { id: 'northern-winter', eyebrow: '02 · Invierno local', title: 'El pueblo cuando disminuyen las visitas del día', paragraphs: ['El casco histórico no deja de ser empinado en invierno. Las calles estrechas y sinuosas siguen formando parte de la vida cotidiana, aunque con menos afluencia se perciben mejor la arquitectura y el paisaje.', 'No deis por hecho que todos los negocios mantienen el horario de verano. Comprobad lo importante para vuestras fechas y entended el ritmo pausado como parte de la estancia, no como promesa de que todo estará abierto.'] },
+      { id: 'winter-light', eyebrow: '03 · Un día realista', title: 'Construid el día con lo que permita el tiempo', paragraphs: ['Un buen día puede empezar despacio en el pueblo, aprovechar las horas más claras para pasear o caminar y dejar Nerja o la costa como opción. La ruta de El Fuerte parte de Frigiliana, pero sus escalones y terreno expuesto exigen comprobar las condiciones.', 'Si la lluvia o el viento cambian el plan, el día no está perdido. Una comida larga, tiempo en casa o una visita cultural hacia Nerja también forman parte de un invierno realista.'] },
+      { id: 'changing-days', eyebrow: '04 · Límite meteorológico', title: 'La orientación estacional no es una previsión', paragraphs: ['La guía climática explica patrones, lluvia y diferencias entre pueblo y costa. Para la estancia importan las capas de ropa, aceptar variación y consultar la previsión oficial antes de rutas largas.', 'No trasladamos a Frigiliana la antigua afirmación climática de Torrox ni prometemos temperaturas concretas. La página debe ayudar a decidir, no convertir medias en garantías.'] },
+      { id: 'quieter-tarifa', eyebrow: '05 · Quedarse más', title: 'De una pausa breve a tres semanas tranquilas', paragraphs: ['Unas noches cambian el escenario; entre una y tres semanas permiten crear rutinas y alternar pueblo, costa y casa según el tiempo.', 'La oferta actual de AMARA en Frigiliana comprende estancias vacacionales de unas noches hasta tres semanas. No se presenta como alquiler residencial o mensual abierto; rigen disponibilidad y condiciones actuales.'] },
+      { id: 'winter-day', eyebrow: '06 · Confort en casa', title: 'En invierno, la casa forma parte del destino', paragraphs: ['Los cuatro alojamientos AMARA en Frigiliana tienen calefacción y suelo radiante en el baño según los registros actuales. Lounis, Zaid y Maha cuentan además con estufa de pellets.', 'El carácter histórico no sustituye la comodidad diaria. Elegid según espacio, terraza y equipamiento, y confirmad antes de reservar cualquier detalle decisivo.'] },
+      { id: 'home-matters', eyebrow: '07 · Encaja o no encaja', title: 'Quién disfrutará Frigiliana en invierno', paragraphs: ['Puede encajar con parejas, senderistas y viajeros lentos que valoran el ambiente del pueblo más que el entretenimiento continuo, y con quienes quieren la costa como opción.', 'Encaja menos si las cuestas son un obstáculo serio, necesitáis tiempo de playa garantizado o esperáis que toda la oferta de verano funcione igual.'] },
+      { id: 'who-enjoys-winter', eyebrow: '08 · Planificar con contexto', title: 'Separad el conocimiento estable de las condiciones actuales', paragraphs: ['Usad Clima y estaciones para el contexto y Dónde alojarse para cuestas, escaleras y recorridos. Después comprobad previsión, horarios y transporte para vuestras fechas.', 'AMARA explica pueblo y casas con claridad. Las rutinas personales y recomendaciones de negocios solo se añadirán cuando puedan fecharse y distinguirse de los hechos generales.'] },
+      { id: 'amara-la-marina', eyebrow: '09 · Vuestra base', title: 'Elegid la casa que encaje con vuestro invierno', paragraphs: ['Farah es la opción más compacta; Lounis, Zaid y Maha añaden estufa de pellets y distintos espacios exteriores privados. La elección depende de duración, tiempo en casa y prioridades.', 'Comparad los alojamientos y consultad la disponibilidad real. La propuesta no necesita un superlativo climático: consiste en un pueblo singular y una casa cómoda a la que volver.'] }
+    ],
+    related: { eyebrow: 'Seguir planificando', title: 'Unid clima, terreno y ubicación', links: [{ token: 'weather_frigiliana', label: 'Clima y estaciones', text: 'Patrones climáticos, estaciones y previsión actual.' }, { token: 'frigiliana_stairs', label: 'Dónde alojarse', text: 'Cuestas, escaleras y diferencias prácticas entre zonas.' }, { token: 'frigiliana_geography', label: 'Geografía y orientación', text: 'El pueblo en ladera, la costa y el paisaje.' }, { token: 'nerja_vs_frigiliana', label: '¿Frigiliana o Nerja?', text: 'Comparad el pueblo con una estancia junto al mar.' }] },
+    sources: { eyebrow: 'Pruebas y límites', title: 'Qué puede sostener esta guía', intro: 'Las fuentes oficiales sostienen el contexto del terreno y las rutas; la investigación europea aporta los motivos. El confort procede de los registros internos actuales de AMARA.', checked: 'Fuentes revisadas el 21 de agosto de 2026', links: [{ label: 'European Travel Commission · viajes de invierno', text: 'Intención europea y diferencia entre planes y reservas.', href: sourceHrefs.travelIntent }, { label: 'Turismo de Frigiliana · calles históricas', text: 'Descripción oficial de las calles estrechas, sinuosas y empinadas.', href: sourceHrefs.streets }, { label: 'Turismo de Frigiliana · El Fuerte', text: 'Contexto oficial de la ruta que comienza en el pueblo.', href: sourceHrefs.elFuerte }] },
+    closing: { eyebrow: 'Invierno sin ficción comercial', title: 'Venid por el pueblo; elegid la casa para la tarde', body: 'Frigiliana en invierno recompensa a quien busca ambiente, paisaje y tiempo, no condiciones estivales garantizadas. Comparad las casas AMARA y consultad la disponibilidad actual.', locationLabel: 'Descubrir Frigiliana', propertyLabel: 'Consultar disponibilidad' }
   },
   nl: {
-    hero: {
-      kicker: 'WINTER IN ANDALUSIË',
-      title: 'Winterverblijf in Frigiliana',
-      paragraphs: [
-        'In de winter krijgt Frigiliana een ander ritme. De straatjes worden rustiger, wandelen is aangenamer en Nerja, Maro en de Middellandse Zee blijven dichtbij voor een dag aan de kust.',
-        'Breng jullie winterdagen door tussen de witte huizen van het oude dorp – een paar nachten, een week of maximaal drie weken.',
-        "Wanneer jullie 's avonds thuiskomen, wordt iets belangrijk dat in de zomer veel minder opvalt: ook binnen comfortabel kunnen wonen in een historisch huis."
-      ],
-      cta: 'Bekijk winterbeschikbaarheid',
-      imageAlt: 'Witte huizen en rustige straatjes in het historische Frigiliana'
-    },
-    village: {
-      title: 'Frigiliana wanneer het dorp rustiger wordt',
-      paragraphs: [
-        'Veel mensen leren Frigiliana kennen tijdens een zomerse dagtrip. In de winter ervaren jullie het dorp anders.',
-        'De ochtend begint midden in de oude kern. Loop naar buiten voor ontbijt of een wandeling door de straatjes, gebruik de mildere uren voor een langere wandeling en rijd later eventueel naar Nerja of de kust.',
-        "'s Avonds keren jullie terug naar Frigiliana. Restaurants en het dorpsleven blijven onderdeel van het verblijf, terwijl de grote bezoekersstromen van de zomer veel minder bepalend zijn.",
-        'Voor wie milde winterdagen wil combineren met een plek waar je werkelijk enkele dagen woont, is dit een bijzonder fijne tijd om Frigiliana te ervaren.'
-      ],
-      weatherLink: 'Weer & seizoenen'
-    },
-    comfort: {
-      title: 'Winter buiten. Comfort binnen.',
-      paragraphs: [
-        'Een historisch Andalusisch huis voelt in de winter anders dan midden in de zomer. Daarom is comfort binnenshuis belangrijk.',
-        '**Alle vier de AMARA-verblijven in Frigiliana hebben verwarming.** Casa AMARA heeft bovendien vloerverwarming in de badkamers.',
-        'Lounis, Zaid en Maha hebben daarnaast een pelletkachel.',
-        'Snelle wifi, ruime badkamers en grote douches zorgen voor hedendaags comfort binnen een huis waarvan de historische structuur door de eeuwen heen is gegroeid.',
-        "Zo kunnen jullie overdag Frigiliana en de omgeving ontdekken en 's avonds terugkeren naar een warme, comfortabele plek."
-      ],
-      imageAlt: 'Historische zitkamer van AMARA Lounis in Frigiliana'
-    },
-    pelletStays: {
-      title: 'Drie verblijven met pelletkachel',
-      stays: {
-        lounis: {
-          title: 'Lounis',
-          text: 'Historische kamers, een privéterras en pelletkachel maken Lounis geschikt voor stellen die enkele winterdagen of wat langer midden in Frigiliana willen verblijven.',
-          cta: 'Bekijk Lounis',
-          imageAlt: 'Privéterras van AMARA Lounis in historisch Frigiliana'
-        },
-        zaid: {
-          title: 'Zaid',
-          text: 'Zaid combineert de ligging in het historische dorp met een privéterras, verwarming en pelletkachel – prettig na dagen buiten en voor rustige winteravonden thuis.',
-          cta: 'Bekijk Zaid',
-          imageAlt: 'Privéterras van AMARA Zaid in historisch Frigiliana'
-        },
-        maha: {
-          title: 'Maha',
-          text: 'Naast de pelletkachel heeft Maha een privéterras van 64 m² en een buitenkeuken, met bijzonder veel privé-buitenruimte voor een langer winterverblijf.',
-          cta: 'Bekijk Maha',
-          imageAlt: 'Groot privéterras met buitenkeuken van AMARA Maha in Frigiliana'
-        }
-      }
-    },
-    farah: {
-      title: 'Farah voor een korter winterverblijf',
-      paragraphs: [
-        'Farah biedt een intiem en eenvoudig verblijf midden in historisch Frigiliana.',
-        'Ook hier hoort verwarming bij het verblijf, samen met de ligging van Casa AMARA vlak bij San Antonio in de oude dorpskern.',
-        "Voor een kortere wintervakantie kan dat precies genoeg zijn: Frigiliana direct buiten de deur en een comfortabele plek om 's avonds naar terug te keren."
-      ],
-      cta: 'Bekijk Farah',
-      imageAlt: 'Historisch interieur van AMARA Farah in de oude kern van Frigiliana'
-    },
-    coast: {
-      title: 'Frigiliana als thuis. Nerja en de zee voor overdag.',
-      paragraphs: [
-        'In de winter passen dorp en kust bijzonder goed bij elkaar.',
-        "Frigiliana kan de plek zijn waar jullie wakker worden en 's avonds thuiskomen, terwijl Nerja, Maro en de kust onderdeel blijven van de dag.",
-        'Een huurauto geeft meer vrijheid voor wandelingen aan zee, grotere boodschappen en uitstapjes in de omgeving. Voor een eenvoudige dag in Nerja kan ook de bus werken.',
-        'Als directe toegang tot het strand belangrijker is dan wonen in het historische dorp, kan AMARA Playa in Nerja beter passen.'
-      ],
-      cta: 'Ontdek Frigiliana & Nerja',
-      imageAlt: 'Middellandse Zeekust bij Nerja onder de heuvels rond Frigiliana'
-    },
-    duration: {
-      title: 'Van enkele winternachten tot drie weken',
-      paragraphs: [
-        'Een winterverblijf bij AMARA kan enkele nachten, een week of maximaal drie weken duren.',
-        'Misschien willen jullie er gewoon even tussenuit. Misschien hebben jullie een hele week. Of twee of drie weken om rustiger te reizen en Frigiliana tijdelijk als thuis te ervaren.',
-        'Dat geeft volop tijd voor het dorp, het landschap en dagen aan de Middellandse Zee.'
-      ]
-    },
-    planning: {
-      title: 'Plan de winter in Frigiliana',
-      weather: {
-        text: 'Voor temperaturen, regen, seizoensverschillen en planning per maand vinden jullie meer in onze gids',
-        link: 'Weer & seizoenen'
-      },
-      whereToStay: {
-        text: 'Voor hellingen, trappen en de praktische verschillen tussen delen van het dorp is er onze gids',
-        link: 'Waar overnachten'
-      },
-      comparison: {
-        text: 'En voor de manier waarop Frigiliana en Nerja elkaar tijdens dezelfde vakantie aanvullen, lees onze vergelijking',
-        link: 'Frigiliana & Nerja'
-      }
-    },
-    finalCta: {
-      title: 'Jullie winter in Casa AMARA',
-      paragraphs: [
-        'In de winter laat Frigiliana een rustigere kant zien, met meer ruimte voor het dorp, het landschap en dagen in jullie eigen tempo.',
-        "'s Avonds keren jullie terug naar een historisch huis waar oude muren, moderne verwarming, warme badkamers en – in drie verblijven – pelletkachels samen deel uitmaken van de winterervaring."
-      ],
-      cta: 'Bekijk winterbeschikbaarheid'
-    }
+    navLabel: 'Winterverblijven',
+    hero: { eyebrow: 'Winterverblijven · Frigiliana', title: 'Een winter met meer ruimte voor het dorp', standfirst: 'Frigiliana in de winter belooft geen permanente zon. Het biedt de kans om noordelijke duisternis en zomerse drukte te verruilen voor lichtere dagen, rustige straatjes en tijd buiten wanneer het weer meewerkt. Het historische dorp blijft steil, avonden kunnen fris aanvoelen en plannen blijven deels weersafhankelijk. Juist daarom telt het juiste huis: een comfortabele basis voor trage ochtenden, wandelingen, kustdagen en avonden binnen.', note: 'Bestemmingsfeiten zijn brongebaseerd. Huisdetails komen uit de actuele AMARA-objectgegevens en moeten bij boeking worden bevestigd.', updated: 'Onderzoek en objectgegevens gecontroleerd in augustus 2026', mark: 'WINTER' },
+    facts: [{ label: 'De aantrekkingskracht', value: 'Dorpsritme in plaats van hoogseizoendrukte' }, { label: 'Onderweg', value: 'Smalle, kronkelende en steile straten' }, { label: 'Reken op', value: 'Flexibele dagen en frisse avonden' }, { label: 'Bij AMARA', value: 'Verwarming · warme badkamervloeren · drie pelletkachels' }],
+    sections: [
+      { id: 'when-summer-leaves', eyebrow: '01 · Waarom winter', title: 'Waarom de Noord-Europese winter inruilen voor Frigiliana?', paragraphs: ['De aantrekkingskracht is geen gegarandeerde temperatuur, maar daglicht, buitenmogelijkheden en een ander tempo. Europees onderzoek noemt ook minder drukte, lagere kosten en het vermijden van extreme hitte als motieven voor reizen buiten de piekmaanden.', 'Frigiliana geeft die keuze karakter: witte huizen, een echt heuveldorp en het mediterrane landschap dichtbij. De winter past bij wie de bestemming wil beleven en geen zomerse strandvakantie wil nabootsen.'] },
+      { id: 'northern-winter', eyebrow: '02 · Lokale winter', title: 'Het dorp wanneer er minder dagbezoekers zijn', paragraphs: ['De oude kern wordt in de winter niet vlak of moeiteloos. Smalle, kronkelende en steile straten blijven deel van het dagelijks leven; in rustigere periodes vallen architectuur en landschap sterker op.', 'Ga er niet van uit dat elke zaak zomeruren houdt. Controleer wat voor jullie data belangrijk is en zie het tragere ritme als onderdeel van het verblijf.'] },
+      { id: 'winter-light', eyebrow: '03 · Een realistische dag', title: 'Bouw de dag rond wat het weer toelaat', paragraphs: ['Begin rustig in het dorp, gebruik heldere uren voor de straatjes of een wandeling en houd Nerja of de kust als optie. De route El Fuerte begint in Frigiliana, maar trappen en blootgesteld terrein vragen een actuele controle.', 'Verandert regen of wind het plan, dan is de dag niet verloren. Een lange lunch, tijd thuis of cultuur richting Nerja hoort bij een realistische winter.'] },
+      { id: 'changing-days', eyebrow: '04 · Weersgrens', title: 'Seizoensinformatie is geen voorspelling', paragraphs: ['De klimaatgids beschrijft patronen en verschillen tussen dorp en kust. Neem laagjes mee, verwacht variatie en controleer de officiële verwachting voor langere buitenplannen.', 'We nemen de historische klimaatclaim van Torrox niet over voor Frigiliana en beloven geen vaste temperatuur. Gemiddelden zijn geen garantie.'] },
+      { id: 'quieter-tarifa', eyebrow: '05 · Langer blijven', title: 'Van een korte pauze tot drie rustige weken', paragraphs: ['Enkele nachten geven afstand; één tot drie weken laten routines ontstaan en geven ruimte om dorp, kust en thuisdagen af te wisselen.', 'AMARA biedt in Frigiliana momenteel vakanties van enkele nachten tot drie weken, niet een open residentiële of maandelijkse huur. Actuele voorwaarden gelden.'] },
+      { id: 'winter-day', eyebrow: '06 · Comfort thuis', title: 'In de winter wordt het huis onderdeel van de bestemming', paragraphs: ['Alle vier AMARA-verblijven hebben volgens de actuele objectgegevens verwarming en vloerverwarming in de badkamer. Lounis, Zaid en Maha hebben ook een pelletkachel.', 'Kies op ruimte, terras en uitrusting en bevestig vóór boeking ieder detail dat doorslaggevend is.'] },
+      { id: 'home-matters', eyebrow: '07 · Past wel of niet', title: 'Wie Frigiliana in de winter zal waarderen', paragraphs: ['Het past bij stellen, wandelaars en langzame reizigers die dorpssfeer belangrijker vinden dan continu vermaak en de kust als optie zien.', 'Het past minder bij wie steile straten moeilijk vindt, gegarandeerd strandweer nodig heeft of verwacht dat alles als in de zomer werkt.'] },
+      { id: 'who-enjoys-winter', eyebrow: '08 · Plannen met context', title: 'Scheid vaste kennis van de omstandigheden van vandaag', paragraphs: ['Gebruik Weer & seizoenen voor klimaat en Waar verblijven voor hellingen, trappen en routes. Controleer daarna verwachting, openingstijden en vervoer voor jullie data.', 'Persoonlijke routines en bedrijfstips voegen we alleen toe wanneer ze gedateerd en duidelijk als ervaring te herkennen zijn.'] },
+      { id: 'amara-la-marina', eyebrow: '09 · Jullie winterbasis', title: 'Kies het verblijf dat bij jullie winter past', paragraphs: ['Farah is compacter; Lounis, Zaid en Maha voegen pelletkachels en verschillende buitenruimtes toe. De keuze hangt af van duur, tijd thuis en prioriteiten.', 'Vergelijk de huizen en controleer live beschikbaarheid. Het echte aanbod is een bijzonder dorp en een comfortabele plek om naar terug te keren.'] }
+    ],
+    related: { eyebrow: 'Verder plannen', title: 'Combineer klimaat, terrein en ligging', links: [{ token: 'weather_frigiliana', label: 'Weer & seizoenen', text: 'Klimaatpatronen, seizoenen en actuele verwachting.' }, { token: 'frigiliana_stairs', label: 'Waar verblijven', text: 'Hellingen, trappen en dagelijkse verschillen per zone.' }, { token: 'frigiliana_geography', label: 'Geografie & oriëntatie', text: 'Het heuveldorp, de kust en het landschap.' }, { token: 'nerja_vs_frigiliana', label: 'Frigiliana of Nerja?', text: 'Vergelijk het dorp met direct verblijf aan de kust.' }] },
+    sources: { eyebrow: 'Bewijs en grenzen', title: 'Wat deze gids kan onderbouwen', intro: 'Officiële bronnen onderbouwen terrein en route; Europees onderzoek de motivaties. Comfort komt uit actuele interne AMARA-objectgegevens.', checked: 'Bronnen gecontroleerd op 21 augustus 2026', links: [{ label: 'European Travel Commission · winterreizen', text: 'Europese intentie en het verschil tussen plannen en boekingen.', href: sourceHrefs.travelIntent }, { label: 'Turismo de Frigiliana · historische straten', text: 'Officiële beschrijving van smalle, kronkelende en steile straten.', href: sourceHrefs.streets }, { label: 'Turismo de Frigiliana · El Fuerte', text: 'Officiële routecontext vanuit het dorp.', href: sourceHrefs.elFuerte }] },
+    closing: { eyebrow: 'Winter zonder verkoopfictie', title: 'Kom voor het dorp; kies het huis voor de avond', body: 'Frigiliana in de winter past bij gasten die sfeer, landschap en tijd waarderen boven gegarandeerde zomercondities. Vergelijk de AMARA-huizen en bekijk de actuele beschikbaarheid.', locationLabel: 'Ontdek Frigiliana', propertyLabel: 'Bekijk winterbeschikbaarheid' }
   },
   sv: {
-    hero: {
-      kicker: 'VINTER I ANDALUSIEN',
-      title: 'Vintervistelse i Frigiliana',
-      paragraphs: [
-        'På vintern får Frigiliana ett annat tempo. Gränderna blir lugnare, promenader och vandringar behagligare och Nerja, Maro och Medelhavet finns fortfarande nära för dagar vid kusten.',
-        'Tillbringa vinterdagarna bland de vita husen i den gamla byn – några nätter, en vecka eller upp till tre veckor.',
-        'När ni kommer hem på kvällen blir något som märks mycket mindre på sommaren viktigt: att också ha det varmt och bekvämt inne i ett historiskt hus.'
-      ],
-      cta: 'Se tillgänglighet i vinter',
-      imageAlt: 'Vita hus och lugna gränder i historiska Frigiliana'
-    },
-    village: {
-      title: 'Frigiliana när byn blir lugnare',
-      paragraphs: [
-        'Många möter Frigiliana första gången under en sommardag. På vintern får ni uppleva byn på ett annat sätt.',
-        'Morgonen börjar mitt i den gamla byn. Gå ut för frukost eller en promenad i gränderna, använd dagens mildare timmar till en längre vandring och åk sedan vidare mot Nerja eller kusten om ni vill ha havet.',
-        'På kvällen återvänder ni till Frigiliana. Restauranger och byliv fortsätter att vara en del av vistelsen, medan sommarens stora besöksströmmar spelar en mindre roll.',
-        'För er som vill kombinera mildare vinterdagar med känslan av att faktiskt bo på en plats under en tid är vintern en fin tid att upptäcka Frigiliana.'
-      ],
-      weatherLink: 'Väder & årstider'
-    },
-    comfort: {
-      title: 'Vinter ute. Komfort inne.',
-      paragraphs: [
-        'Ett historiskt andalusiskt hus känns annorlunda på vintern än mitt i högsommaren. Därför spelar komforten inomhus stor roll.',
-        '**Alla fyra AMARA-boenden i Frigiliana har uppvärmning.** Casa AMARA har dessutom golvvärme i badrummen.',
-        'Lounis, Zaid och Maha har också pelletskamin.',
-        'Snabbt wifi, rymliga badrum och stora duschar ger modern vardagskomfort i ett hus vars historiska struktur vuxit fram under århundraden.',
-        'Tillbringa dagen i Frigiliana och omgivningarna och kom sedan hem till en varm och bekväm plats på kvällen.'
-      ],
-      imageAlt: 'Historiskt vardagsrum på AMARA Lounis i Frigiliana'
-    },
-    pelletStays: {
-      title: 'Tre boenden med pelletskamin',
-      stays: {
-        lounis: {
-          title: 'Lounis',
-          text: 'Historiska rum, privat terrass och pelletskamin gör Lounis till ett bra val för par som vill tillbringa några vinterdagar eller lite längre mitt i Frigiliana.',
-          cta: 'Se Lounis',
-          imageAlt: 'Privat terrass på AMARA Lounis i historiska Frigiliana'
-        },
-        zaid: {
-          title: 'Zaid',
-          text: 'Zaid kombinerar läget i den historiska byn med privat terrass, uppvärmning och pelletskamin – bra för dagar ute och lugnare vinterkvällar hemma.',
-          cta: 'Se Zaid',
-          imageAlt: 'Privat terrass på AMARA Zaid i historiska Frigiliana'
-        },
-        maha: {
-          title: 'Maha',
-          text: 'Utöver pelletskaminen har Maha en privat terrass på 64 m² och ett utomhuskök, vilket ger gott om privat utomhusutrymme under en längre vintersemester.',
-          cta: 'Se Maha',
-          imageAlt: 'Stor privat terrass med utomhuskök på AMARA Maha i Frigiliana'
-        }
-      }
-    },
-    farah: {
-      title: 'Farah för en kortare vintervistelse',
-      paragraphs: [
-        'Farah är ett personligt och enkelt val mitt i historiska Frigiliana.',
-        'Här finns uppvärmning, tillsammans med Casa AMARA:s läge nära San Antonio direkt i den gamla byn.',
-        'För en kortare vintersemester kan det vara en enkel och fin kombination: Frigiliana utanför dörren och en bekväm plats att komma hem till på kvällen.'
-      ],
-      cta: 'Se Farah',
-      imageAlt: 'Historisk interiör på AMARA Farah i Frigilianas gamla by'
-    },
-    coast: {
-      title: 'Frigiliana som hemma. Nerja och havet på dagen.',
-      paragraphs: [
-        'På vintern passar by och kust särskilt bra tillsammans.',
-        'Frigiliana kan vara platsen där ni vaknar på morgonen och kommer hem på kvällen, medan Nerja, Maro och kusten fortsätter att vara en del av dagarna.',
-        'En hyrbil ger större frihet för promenader längs havet, större inköp och utflykter i området. För en enkel dag i Nerja kan även bussen fungera.',
-        'Om direkt närhet till stranden är viktigare än att bo i den historiska byn kan AMARA Playa i Nerja passa bättre.'
-      ],
-      cta: 'Upptäck Frigiliana & Nerja',
-      imageAlt: 'Medelhavskusten vid Nerja nedanför kullarna kring Frigiliana'
-    },
-    duration: {
-      title: 'Från några vinternätter till tre veckor',
-      paragraphs: [
-        'En vintervistelse hos AMARA kan vara några nätter, en vecka eller upp till tre veckor.',
-        'Kanske vill ni bara komma bort några dagar. Kanske har ni en hel vecka. Eller två eller tre veckor för att resa långsammare och låta Frigiliana bli hemma för en liten stund.',
-        'Det ger gott om tid för byn, landskapet och dagar vid Medelhavet.'
-      ]
-    },
-    planning: {
-      title: 'Planera vintern i Frigiliana',
-      weather: {
-        text: 'För temperaturer, regn, skillnader mellan årstiderna och planering månad för månad finns vår guide',
-        link: 'Väder & årstider'
-      },
-      whereToStay: {
-        text: 'För backar, trappor och de praktiska skillnaderna mellan olika delar av byn finns vår guide',
-        link: 'Var ska man bo'
-      },
-      comparison: {
-        text: 'Och för hur Frigiliana och Nerja kan komplettera varandra under samma semester kan ni läsa vår jämförelse',
-        link: 'Frigiliana & Nerja'
-      }
-    },
-    finalCta: {
-      title: 'Er vinter i Casa AMARA',
-      paragraphs: [
-        'På vintern visar Frigiliana en lugnare sida, med mer utrymme för byn, landskapet och dagar i ert eget tempo.',
-        'På kvällen kommer ni hem till ett historiskt hus där gamla väggar, modern uppvärmning, varma badrum och – i tre boenden – pelletskaminer tillsammans blir en del av vintervistelsen.'
-      ],
-      cta: 'Se tillgänglighet i vinter'
-    }
+    navLabel: 'Vintervistelser',
+    hero: { eyebrow: 'Vintervistelser · Frigiliana', title: 'En vinter med mer plats för byn', standfirst: 'Frigiliana på vintern lovar inte ständig sol. Det ger möjlighet att byta nordligt mörker och sommarens intensitet mot ljusare dagar, lugnare gränder och tid utomhus när vädret tillåter. Den historiska byn är fortfarande brant, kvällarna kan kännas svala och vissa planer förblir väderberoende. Därför betyder rätt hem mycket: en bekväm bas för långsamma morgnar, vandring, kustdagar och kvällar inomhus.', note: 'Fakta om platsen bygger på källor. Hemdetaljer kommer från AMARAs aktuella objektdata och bör bekräftas vid bokning.', updated: 'Research och objektdata granskade i augusti 2026', mark: 'VINTER' },
+    facts: [{ label: 'Lockelsen', value: 'Byrytm i stället för högsäsongens intensitet' }, { label: 'Under fötterna', value: 'Smala, slingrande och branta gator' }, { label: 'Planera för', value: 'Flexibla dagar och svalare kvällar' }, { label: 'Hos AMARA', value: 'Värme · varma badrumsgolv · tre pelletskaminer' }],
+    sections: [
+      { id: 'when-summer-leaves', eyebrow: '01 · Varför vinter', title: 'Varför lämna den nordiska vintern för Frigiliana?', paragraphs: ['Lockelsen är inte en garanterad temperatur utan dagsljus, möjligheter utomhus och ett annat tempo. Europeisk forskning nämner också färre folkmassor, lägre kostnader och att undvika extrem värme som skäl att resa utanför toppmånaderna.', 'Frigiliana ger valet en tydlig plats: vita hus, en riktig by på sluttningen och medelhavslandskapet nära. Vintern passar den som vill uppleva destinationen och inte återskapa en sommarsemester.'] },
+      { id: 'northern-winter', eyebrow: '02 · Lokal vinter', title: 'Byn när färre dagsbesökare är på plats', paragraphs: ['Gamla stan blir inte platt eller enkel på vintern. Smala, slingrande och branta gator förblir del av vardagen, men i lugnare perioder framträder arkitekturen och landskapet tydligare.', 'Räkna inte med att alla verksamheter håller sommartider. Kontrollera det som är viktigt för era datum och se det långsammare tempot som en del av vistelsen.'] },
+      { id: 'winter-light', eyebrow: '03 · En realistisk dag', title: 'Bygg dagen kring vad vädret tillåter', paragraphs: ['Börja långsamt i byn, använd klara timmar till gränder eller vandring och låt Nerja eller kusten vara ett alternativ. El Fuerte börjar i Frigiliana men trappor och exponerad terräng kräver aktuell kontroll.', 'Om regn eller vind ändrar planen är dagen inte förlorad. En lång lunch, tid hemma eller kultur mot Nerja hör till en realistisk vinter.'] },
+      { id: 'changing-days', eyebrow: '04 · Vädergräns', title: 'Säsongsvägledning är inte en prognos', paragraphs: ['Klimatguiden förklarar mönster och skillnader mellan by och kust. Ta lager, vänta variation och kontrollera den officiella prognosen före längre utomhusplaner.', 'Vi överför inte Torrox historiska klimatpåstående till Frigiliana och lovar ingen bestämd temperatur. Medelvärden är inga garantier.'] },
+      { id: 'quieter-tarifa', eyebrow: '05 · Stanna längre', title: 'Från en kort paus till tre lugna veckor', paragraphs: ['Några nätter ger miljöombyte; en till tre veckor låter rutiner växa och ger utrymme för by-, kust- och hemmadagar.', 'AMARAs aktuella erbjudande i Frigiliana är semestervistelser från några nätter till tre veckor, inte öppen bostads- eller månadshyra. Aktuella villkor gäller.'] },
+      { id: 'winter-day', eyebrow: '06 · Komfort hemma', title: 'På vintern blir hemmet en del av destinationen', paragraphs: ['Alla fyra AMARA-boenden har enligt aktuell objektdata värme och golvvärme i badrummet. Lounis, Zaid och Maha har också pelletskamin.', 'Välj efter yta, terrass och utrustning och bekräfta före bokning varje detalj som är avgörande för er.'] },
+      { id: 'home-matters', eyebrow: '07 · Passar eller inte', title: 'Vem uppskattar Frigiliana på vintern?', paragraphs: ['Det kan passa par, vandrare och långsamma resenärer som värderar byatmosfär mer än ständig underhållning och ser kusten som ett alternativ.', 'Det passar mindre om branta gator är ett stort hinder, garanterat strandväder krävs eller allt förväntas fungera som på sommaren.'] },
+      { id: 'who-enjoys-winter', eyebrow: '08 · Planera med sammanhang', title: 'Skilj stabil kunskap från dagens villkor', paragraphs: ['Använd Väder & årstider för klimat och Var ska man bo för backar, trappor och vägar. Kontrollera sedan prognos, öppettider och transport för era datum.', 'Personliga rutiner och företagstips läggs bara till när de kan dateras och tydligt märkas som erfarenhet.'] },
+      { id: 'amara-la-marina', eyebrow: '09 · Er vinterbas', title: 'Välj boendet som passar er vinter', paragraphs: ['Farah är kompaktare; Lounis, Zaid och Maha erbjuder pelletskaminer och olika privata uteplatser. Valet beror på längd, tid hemma och prioriteringar.', 'Jämför hemmen och kontrollera live-tillgänglighet. Det verkliga erbjudandet är en minnesvärd by och ett bekvämt hem att återvända till.'] }
+    ],
+    related: { eyebrow: 'Planera vidare', title: 'Kombinera klimat, terräng och läge', links: [{ token: 'weather_frigiliana', label: 'Väder & årstider', text: 'Klimatmönster, årstider och aktuell prognos.' }, { token: 'frigiliana_stairs', label: 'Var ska man bo', text: 'Backar, trappor och vardagliga skillnader mellan områden.' }, { token: 'frigiliana_geography', label: 'Geografi & orientering', text: 'Sluttningsbyn, kusten och landskapet.' }, { token: 'nerja_vs_frigiliana', label: 'Frigiliana eller Nerja?', text: 'Jämför byliv med boende direkt vid kusten.' }] },
+    sources: { eyebrow: 'Underlag och gränser', title: 'Vad guiden kan stödja', intro: 'Officiella källor stödjer terräng och rutt; europeisk forskning motiv. Komfort kommer från aktuell intern AMARA-objektdata.', checked: 'Källor granskade 21 augusti 2026', links: [{ label: 'European Travel Commission · vinterresor', text: 'Europeisk resavsikt och skillnaden mellan planer och bokningar.', href: sourceHrefs.travelIntent }, { label: 'Turismo de Frigiliana · historiska gator', text: 'Officiell beskrivning av smala, slingrande och branta gator.', href: sourceHrefs.streets }, { label: 'Turismo de Frigiliana · El Fuerte', text: 'Officiell ruttkontext från byn.', href: sourceHrefs.elFuerte }] },
+    closing: { eyebrow: 'Vinter utan säljfiktion', title: 'Kom för byn; välj hemmet för kvällen', body: 'Frigiliana på vintern passar gäster som värderar atmosfär, landskap och tid mer än garanterade sommarvillkor. Jämför AMARA-hemmen och se aktuell tillgänglighet.', locationLabel: 'Upptäck Frigiliana', propertyLabel: 'Kontrollera vintertillgänglighet' }
   }
 };

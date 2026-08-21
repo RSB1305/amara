@@ -1,0 +1,47 @@
+---
+import Navigation from '../../components/Navigation.astro';
+import TarifaContextNav from '../../components/location/TarifaContextNav.astro';
+import { tarifaParkingContent, tarifaParkingSeo } from '../../content/tarifaParkingContent';
+import LocationAuthorityLayout from '../../layouts/LocationAuthorityLayout.astro';
+import { createRequiredLinkResolver, type LabeledLink } from '../../lib/linkResolver';
+import { normalizeLanguage } from '../../lib/seo/resolve-seo-head';
+import type { AmaraLanguage } from '../../types/seo';
+import ParkingAuthorityArticle from './ParkingAuthorityArticle.astro';
+
+interface Props { lang?: string; }
+
+const { lang = 'es' } = Astro.props;
+const currentLang = normalizeLanguage(lang as AmaraLanguage);
+const content = tarifaParkingContent[currentLang];
+const requiredLink = createRequiredLinkResolver(currentLang, 'Tarifa parking');
+
+const aboutHref = requiredLink('about');
+const locationHref = requiredLink('location_tarifa');
+const propertyHref = requiredLink('casa');
+const footerHighlights: LabeledLink[] = [
+  { token: 'tarifa_parking', label: content.navLabel },
+  { token: 'getting_to_tarifa', label: content.related.links[0].label },
+  { token: 'tarifa_beaches_authority', label: content.related.links[1].label }
+];
+---
+
+<LocationAuthorityLayout seo={tarifaParkingSeo} pageLang={currentLang} showContextNavigation={false} footerHighlights={footerHighlights}>
+  <Navigation slot="navigation" currentLang={currentLang} languageToken="tarifa_parking" />
+  <TarifaContextNav
+    activeId="overview"
+    activeChildId="parking-accessibility"
+    currentLabel="Tarifa"
+    childLabel={content.navLabel}
+    lang={currentLang}
+  />
+  <ParkingAuthorityArticle
+    pageId="tarifa-parking"
+    lang={currentLang}
+    content={content}
+    seo={tarifaParkingSeo}
+    authorHref={aboutHref}
+    locationHref={locationHref}
+    propertyHref={propertyHref}
+    resolveHref={requiredLink}
+  />
+</LocationAuthorityLayout>

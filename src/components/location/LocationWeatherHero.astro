@@ -17,8 +17,10 @@ interface Props {
   title: string;
   paragraphs: string[];
   evidenceEyebrow: string;
-  evidenceMark: string;
+  evidenceMark?: string;
   evidenceNote?: string;
+  evidenceSummary?: string;
+  evidenceItems?: Array<{ label: string; value: string }>;
   byline?: Byline;
 }
 
@@ -29,6 +31,8 @@ const {
   evidenceEyebrow,
   evidenceMark,
   evidenceNote,
+  evidenceSummary,
+  evidenceItems = [],
   byline
 } = Astro.props;
 ---
@@ -46,5 +50,7 @@ const {
     eyebrow={evidenceEyebrow}
     mark={evidenceMark}
     note={evidenceNote}
+    summary={evidenceSummary}
+    items={evidenceItems}
   />
 </LocationGuideHero>

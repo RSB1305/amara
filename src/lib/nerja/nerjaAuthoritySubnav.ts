@@ -29,8 +29,8 @@ const topicLinks: Record<LocationGuideTopicId, LinkToken | undefined> = {
   'geography-orientation': 'nerja_geography',
   'where-to-stay': 'nerja_where_to_stay',
   'weather-seasons': 'nerja_weather',
-  'winter-stays': undefined,
-  'parking-accessibility': undefined,
+  'winter-stays': 'nerja_winter_stays',
+  'parking-accessibility': 'nerja_parking',
   'shopping-markets': 'nerja_daily_life',
   'health-emergency': undefined,
   'practical-local-rules': undefined

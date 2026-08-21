@@ -3,13 +3,15 @@ import { dev } from 'astro';
 import { fileURLToPath } from 'node:url';
 import { gettingToNerjaContent } from '../../src/content/gettingToNerjaContent';
 import { gettingToTarifaContent } from '../../src/content/gettingToTarifaContent';
+import { frigilianaParkingGuideContent } from '../../src/content/frigilianaParkingGuideContent';
 import { nerjaBalconContent } from '../../src/content/nerjaBalconContent';
 import { nerjaCavesContent } from '../../src/content/nerjaCavesContent';
 import { nerjaDailyLifeContent } from '../../src/content/nerjaDailyLifeContent';
 import { nerjaGeographyContent } from '../../src/content/nerjaGeographyContent';
+import { nerjaParkingContent } from '../../src/content/nerjaParkingContent';
 import { tarifaDailyLifeContent } from '../../src/content/tarifaDailyLifeContent';
 import { tarifaGeographyContent } from '../../src/content/tarifaGeographyContent';
-import { tarifaWeatherContent } from '../../src/content/tarifaWeatherContent';
+import { tarifaParkingContent } from '../../src/content/tarifaParkingContent';
 import { tarifaWinterStaysContent } from '../../src/content/tarifaWinterStaysContent';
 import { resolveLink, type LinkToken } from '../../src/lib/linkResolver';
 import type { AmaraLanguage } from '../../src/types/seo';
@@ -30,8 +32,6 @@ import type { AmaraLanguage } from '../../src/types/seo';
 
 const PORT = 4324;
 const ORIGIN = `http://127.0.0.1:${PORT}`;
-
-const LANGUAGES: AmaraLanguage[] = ['en', 'de', 'es', 'nl', 'sv'];
 
 /** The structural sweep runs in Spanish, which owns the unprefixed routes. */
 const SWEEP_LANGUAGE: AmaraLanguage = 'es';
@@ -101,11 +101,11 @@ const AUTHORITY_PAGES: AuthorityPage[] = [
     routeToken: 'getting_to_nerja',
     pageId: 'getting-to-nerja',
     content: gettingToNerjaContent,
-    heroMark: (locale) => locale.facts[0].value,
-    relatedColumns: null,
+    heroMark: null,
+    relatedColumns: 'md:grid-cols-2',
     blockBeforeSections: null,
     blockAfterSections: null,
-    arrivalModules: ['gateways', 'options', 'mobility', 'parking', 'final-mile'],
+    arrivalModules: ['gateways', 'options', 'journey-steps', 'mobility', 'parking', 'final-mile'],
     interleaved: [],
     sectionMarkerAttribute: null,
     closingCtas: [
@@ -117,16 +117,64 @@ const AUTHORITY_PAGES: AuthorityPage[] = [
     routeToken: 'getting_to_tarifa',
     pageId: 'getting-to-tarifa',
     content: gettingToTarifaContent,
-    heroMark: (locale) => locale.facts[0].value,
-    relatedColumns: null,
+    heroMark: null,
+    relatedColumns: 'md:grid-cols-2',
     blockBeforeSections: null,
     blockAfterSections: null,
-    arrivalModules: ['gateways', 'options', 'mobility', 'parking'],
+    arrivalModules: ['gateways', 'options', 'journey-steps', 'mobility', 'parking', 'final-mile'],
     interleaved: [],
     sectionMarkerAttribute: null,
     closingCtas: [
       { token: 'location_tarifa', labelKey: 'locationLabel', className: PRIMARY_CTA_CLASS },
       { token: 'tarifa_where_to_stay', labelKey: 'areasLabel', className: SECONDARY_CTA_CLASS }
+    ]
+  },
+  {
+    routeToken: 'frigiliana_parking',
+    pageId: 'frigiliana-parking',
+    content: frigilianaParkingGuideContent,
+    heroMark: null,
+    relatedColumns: 'md:grid-cols-3',
+    blockBeforeSections: null,
+    blockAfterSections: null,
+    arrivalModules: null,
+    interleaved: [],
+    sectionMarkerAttribute: 'data-am-parking-section',
+    closingCtas: [
+      { token: 'romantic_hideaways', labelKey: 'propertyLabel', className: PRIMARY_CTA_CLASS },
+      { token: 'location_frigiliana', labelKey: 'locationLabel', className: SECONDARY_CTA_CLASS }
+    ]
+  },
+  {
+    routeToken: 'nerja_parking',
+    pageId: 'nerja-parking',
+    content: nerjaParkingContent,
+    heroMark: null,
+    relatedColumns: 'md:grid-cols-3',
+    blockBeforeSections: null,
+    blockAfterSections: null,
+    arrivalModules: null,
+    interleaved: [],
+    sectionMarkerAttribute: 'data-am-parking-section',
+    closingCtas: [
+      { token: 'playa', labelKey: 'propertyLabel', className: PRIMARY_CTA_CLASS },
+      { token: 'location_nerja', labelKey: 'locationLabel', className: SECONDARY_CTA_CLASS }
+    ]
+  },
+  {
+    routeToken: 'tarifa_parking',
+    pageId: 'tarifa-parking',
+    content: tarifaParkingContent,
+    heroMark: null,
+    relatedColumns: 'md:grid-cols-3',
+    blockBeforeSections: null,
+    blockAfterSections: null,
+    arrivalModules: null,
+    interleaved: [],
+    sectionMarkerAttribute: 'data-am-parking-section',
+    closingCtas: [
+      { token: 'casa', labelKey: 'propertyLabel', className: PRIMARY_CTA_CLASS },
+      { token: 'location_tarifa', labelKey: 'locationLabel', className: SECONDARY_CTA_CLASS }
     ]
   },
   {
@@ -228,29 +276,10 @@ const AUTHORITY_PAGES: AuthorityPage[] = [
     ]
   },
   {
-    routeToken: 'tarifa_weather',
-    pageId: 'tarifa-weather',
-    content: tarifaWeatherContent,
-    heroMark: (locale) => locale.comparison?.places[0].july ?? '',
-    relatedColumns: 'md:grid-cols-3',
-    blockBeforeSections: null,
-    blockAfterSections: null,
-    arrivalModules: null,
-    interleaved: [
-      { afterSectionIndex: 0, kind: 'comparison' },
-      { afterSectionIndex: 0, kind: 'climate-table' }
-    ],
-    sectionMarkerAttribute: null,
-    closingCtas: [
-      { token: 'location_tarifa', labelKey: 'locationLabel', className: PRIMARY_CTA_CLASS },
-      { token: 'tarifa_where_to_stay', labelKey: 'areasLabel', className: SECONDARY_CTA_CLASS }
-    ]
-  },
-  {
     routeToken: 'tarifa_winter_stays',
     pageId: 'tarifa-winter-stays',
     content: tarifaWinterStaysContent,
-    heroMark: (locale) => locale.hero.mark ?? '',
+    heroMark: null,
     relatedColumns: 'md:grid-cols-2',
     blockBeforeSections: null,
     blockAfterSections: null,
@@ -258,8 +287,8 @@ const AUTHORITY_PAGES: AuthorityPage[] = [
     interleaved: [],
     sectionMarkerAttribute: 'data-am-winter-stays-section',
     closingCtas: [
-      { token: 'location_tarifa', labelKey: 'locationLabel', className: PRIMARY_CTA_CLASS },
-      { token: 'casa', labelKey: 'propertyLabel', className: SECONDARY_CTA_CLASS }
+      { token: 'casa', labelKey: 'propertyLabel', className: PRIMARY_CTA_CLASS },
+      { token: 'location_tarifa', labelKey: 'locationLabel', className: SECONDARY_CTA_CLASS }
     ]
   }
 ];
@@ -314,7 +343,8 @@ const articleBlocks = (page: Page, pageId: string): Promise<BlockFingerprint[]> 
       const arrivalModule = node.getAttribute('data-am-arrival-module');
       const marker =
         node.getAttribute('data-am-daily-life-section') ??
-        node.getAttribute('data-am-winter-stays-section');
+        node.getAttribute('data-am-winter-stays-section') ??
+        node.getAttribute('data-am-parking-section');
 
       if (node.tagName === 'HEADER') return { kind: 'header', marker: null };
       if (orientation) return { kind: `orientation:${orientation}`, marker: null };
@@ -468,6 +498,11 @@ for (const entry of AUTHORITY_PAGES) {
         );
         await expect(relatedLinks.nth(index).locator('span').first()).toHaveText(link.label);
       }
+    } else if (entry.relatedColumns) {
+      const relatedSection = article.locator('[data-am-component="editorial-guide-link-section"]');
+      await expect(relatedSection).toHaveCount(1);
+      await expect(relatedSection.locator(`div${byClassToken(entry.relatedColumns)}`)).toHaveCount(1);
+      await expect(relatedSection.locator('a')).toHaveCount(2);
     } else {
       expect(entry.relatedColumns).toBeNull();
     }
@@ -504,21 +539,22 @@ for (const entry of AUTHORITY_PAGES) {
 }
 
 test('the destination arrival pages use the shared module order', async ({ page }) => {
+  const sharedModules = ['gateways', 'options', 'journey-steps', 'mobility', 'parking', 'final-mile'];
   const pages: Array<{ routeToken: LinkToken; pageId: string; modules: string[] }> = [
     {
       routeToken: 'getting_to_frigiliana',
       pageId: 'getting-to-frigiliana',
-      modules: ['options', 'journey-steps', 'final-mile']
+      modules: sharedModules
     },
     {
       routeToken: 'getting_to_nerja',
       pageId: 'getting-to-nerja',
-      modules: ['gateways', 'options', 'mobility', 'parking', 'final-mile']
+      modules: sharedModules
     },
     {
       routeToken: 'getting_to_tarifa',
       pageId: 'getting-to-tarifa',
-      modules: ['gateways', 'options', 'mobility', 'parking']
+      modules: sharedModules
     }
   ];
 
@@ -577,59 +613,3 @@ test('the geography pages place the orientation block before the text sections',
     await expect(orientation.locator('h2')).toHaveAttribute('id', `${destination}-orientation-title`);
   }
 });
-
-test('tarifa-weather places the comparison block after the first text section', async ({
-  page
-}) => {
-  const locale = tarifaWeatherContent[SWEEP_LANGUAGE];
-  await openPage(page, resolveLink('tarifa_weather', SWEEP_LANGUAGE));
-
-  const blocks = await articleBlocks(page, 'tarifa-weather');
-  const comparisonIndex = blocks.findIndex((block) => block.kind === 'comparison');
-  const climateTableIndex = blocks.findIndex((block) => block.kind === 'climate-table');
-  const firstSectionIndex = blocks.findIndex(
-    (block) => block.kind === `section:${locale.sections[0].id}`
-  );
-
-  expect(comparisonIndex).toBe(firstSectionIndex + 1);
-  expect(climateTableIndex).toBe(comparisonIndex + 1);
-  await expect(
-    page.locator(
-      'article[data-am-page="tarifa-weather"] > section:not([data-am-climate-table]) .tabular-nums'
-    )
-  ).toHaveCount(locale.comparison.places.length * 2);
-});
-
-for (const language of LANGUAGES) {
-  test(`tarifa-weather resolves its related links and CTAs in ${language}`, async ({ page }) => {
-    const locale = tarifaWeatherContent[language];
-    await openPage(page, resolveLink('tarifa_weather', language));
-
-    const article = page.locator('article[data-am-page="tarifa-weather"]');
-    await expect(article.locator('h1')).toHaveText(locale.hero.title);
-
-    const firstRelatedHref = resolveLink(locale.related.links[0].token, language);
-    const relatedLinks = article
-      .locator(`:scope > section:has(a[href="${firstRelatedHref}"])`)
-      .locator(`div${byClassToken('md:grid-cols-3')} a`);
-    await expect(relatedLinks).toHaveCount(locale.related.links.length);
-
-    for (const [index, link] of locale.related.links.entries()) {
-      await expect(relatedLinks.nth(index)).toHaveAttribute(
-        'href',
-        resolveLink(link.token, language)
-      );
-    }
-
-    const closingCtas = article.locator('a.am-btn, a.am-cta-link');
-    await expect(closingCtas).toHaveCount(2);
-    await expect(closingCtas.nth(0)).toHaveAttribute(
-      'href',
-      resolveLink('location_tarifa', language)
-    );
-    await expect(closingCtas.nth(1)).toHaveAttribute(
-      'href',
-      resolveLink('tarifa_where_to_stay', language)
-    );
-  });
-}

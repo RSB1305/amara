@@ -1,0 +1,10 @@
+---
+import TarifaParkingPage from '../../page-families/location-authority/TarifaParkingPage.astro';
+import { getOwnedPageStaticPaths } from '../../lib/routeOwnership';
+import type { AmaraLanguage } from '../../types/seo';
+
+export function getStaticPaths() { return getOwnedPageStaticPaths(); }
+const { lang } = Astro.params as { lang: AmaraLanguage };
+---
+
+<TarifaParkingPage lang={lang} />

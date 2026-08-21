@@ -1,0 +1,41 @@
+---
+import Navigation from '../../components/Navigation.astro';
+import NerjaContextNav from '../../components/location/NerjaContextNav.astro';
+import { nerjaParkingContent, nerjaParkingSeo } from '../../content/nerjaParkingContent';
+import LocationAuthorityLayout from '../../layouts/LocationAuthorityLayout.astro';
+import { createRequiredLinkResolver, type LabeledLink } from '../../lib/linkResolver';
+import { normalizeLanguage } from '../../lib/seo/resolve-seo-head';
+import type { AmaraLanguage } from '../../types/seo';
+import ParkingAuthorityArticle from './ParkingAuthorityArticle.astro';
+
+interface Props { lang?: string; }
+
+const { lang = 'es' } = Astro.props;
+const currentLang = normalizeLanguage(lang as AmaraLanguage);
+const content = nerjaParkingContent[currentLang];
+const requiredLink = createRequiredLinkResolver(currentLang, 'Nerja parking');
+
+const aboutHref = requiredLink('about');
+const locationHref = requiredLink('location_nerja');
+const propertyHref = requiredLink('playa');
+const footerHighlights: LabeledLink[] = [
+  { token: 'nerja_parking', label: content.navLabel },
+  { token: 'getting_to_nerja', label: content.related.links[0].label },
+  { token: 'nerja_where_to_stay', label: content.related.links[1].label }
+];
+---
+
+<LocationAuthorityLayout seo={nerjaParkingSeo} pageLang={currentLang} showContextNavigation={false} footerHighlights={footerHighlights}>
+  <Navigation slot="navigation" currentLang={currentLang} languageToken="nerja_parking" />
+  <NerjaContextNav activeId="parking-accessibility" childLabel={content.navLabel} lang={currentLang} />
+  <ParkingAuthorityArticle
+    pageId="nerja-parking"
+    lang={currentLang}
+    content={content}
+    seo={nerjaParkingSeo}
+    authorHref={aboutHref}
+    locationHref={locationHref}
+    propertyHref={propertyHref}
+    resolveHref={requiredLink}
+  />
+</LocationAuthorityLayout>

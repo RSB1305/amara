@@ -246,6 +246,20 @@ booking_stay_terms: {
       nl: buildOwnedLocalizedPath('nerja-weather', 'nl'),
       sv: buildOwnedLocalizedPath('nerja-weather', 'sv')
     },
+    nerja_winter_stays: {
+      en: buildOwnedLocalizedPath('nerja-winter-stays', 'en'),
+      de: buildOwnedLocalizedPath('nerja-winter-stays', 'de'),
+      es: buildOwnedLocalizedPath('nerja-winter-stays', 'es'),
+      nl: buildOwnedLocalizedPath('nerja-winter-stays', 'nl'),
+      sv: buildOwnedLocalizedPath('nerja-winter-stays', 'sv')
+    },
+    nerja_parking: {
+      en: buildOwnedLocalizedPath('nerja-parking', 'en'),
+      de: buildOwnedLocalizedPath('nerja-parking', 'de'),
+      es: buildOwnedLocalizedPath('nerja-parking', 'es'),
+      nl: buildOwnedLocalizedPath('nerja-parking', 'nl'),
+      sv: buildOwnedLocalizedPath('nerja-parking', 'sv')
+    },
     nerja_where_to_stay: {
       en: buildOwnedLocalizedPath('nerja-where-to-stay', 'en'),
       de: buildOwnedLocalizedPath('nerja-where-to-stay', 'de'),
@@ -361,6 +375,13 @@ booking_stay_terms: {
       es: buildOwnedLocalizedPath('tarifa-bolonia-baelo-claudia', 'es'),
       nl: buildOwnedLocalizedPath('tarifa-bolonia-baelo-claudia', 'nl'),
       sv: buildOwnedLocalizedPath('tarifa-bolonia-baelo-claudia', 'sv')
+    },
+    tarifa_parking: {
+      en: buildOwnedLocalizedPath('tarifa-parking', 'en'),
+      de: buildOwnedLocalizedPath('tarifa-parking', 'de'),
+      es: buildOwnedLocalizedPath('tarifa-parking', 'es'),
+      nl: buildOwnedLocalizedPath('tarifa-parking', 'nl'),
+      sv: buildOwnedLocalizedPath('tarifa-parking', 'sv')
     },
 
     /* =========================================================

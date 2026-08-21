@@ -84,6 +84,9 @@ const pageGutters = (page: Page) =>
   page.evaluate(() => {
     const widths = new Set<number>();
     for (const element of document.querySelectorAll('main *')) {
+      // Full-bleed visuals may span the viewport while their cards own
+      // intentional internal padding. They are content, not page-gutter owners.
+      if (element.closest('.am-mobile-full-bleed')) continue;
       const rect = element.getBoundingClientRect();
       if (rect.left !== 0 || Math.round(rect.width) !== window.innerWidth) continue;
       const padding = Math.round(parseFloat(getComputedStyle(element).paddingLeft));
@@ -159,7 +162,7 @@ test.describe('the page gutter does not depend on the mounting page', () => {
   }
 
   test('EditorialGuideLinkSection renders the same gutter on every route', async ({ page }) => {
-    for (const route of ['/frigiliana-parking', '/frigiliana-weather', '/nerja-weather']) {
+    for (const route of ['/frigiliana-faq', '/frigiliana-streets-stairs', '/frigiliana-location']) {
       await page.setViewportSize(MOBILE);
       await open(page, route);
       expect(

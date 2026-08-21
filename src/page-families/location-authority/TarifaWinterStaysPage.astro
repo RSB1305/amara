@@ -9,9 +9,7 @@ import LocationAuthorityLayout from '../../layouts/LocationAuthorityLayout.astro
 import { createRequiredLinkResolver, type LabeledLink } from '../../lib/linkResolver';
 import { normalizeLanguage } from '../../lib/seo/resolve-seo-head';
 import type { AmaraLanguage } from '../../types/seo';
-import AuthorityArticle from './AuthorityArticle.astro';
-import AuthorityRelatedLinks from './AuthorityRelatedLinks.astro';
-import AuthorityTextSection from './AuthorityTextSection.astro';
+import WinterStaysAuthorityArticle from './WinterStaysAuthorityArticle.astro';
 
 interface Props {
   lang?: string;
@@ -52,38 +50,14 @@ const footerHighlights: LabeledLink[] = [
     lang={currentLang}
   />
 
-  <AuthorityArticle
+  <WinterStaysAuthorityArticle
     pageId="tarifa-winter-stays"
-    family="location"
-    topic="winter-stays"
     lang={currentLang}
-    hero={content.hero}
-    authorName={tarifaWinterStaysSeo.article!.authorName}
+    content={content}
+    seo={tarifaWinterStaysSeo}
     authorHref={aboutHref}
-    facts={content.facts}
-    sources={content.sources}
-    closing={content.closing}
-    primaryCta={{ href: locationHref, label: content.closing.locationLabel }}
-    secondaryCta={{ href: propertyHref, label: content.closing.propertyLabel }}
-    presentation="guide"
-    guideVisual={{
-      eyebrow: content.facts[0].label,
-      mark: content.hero.mark,
-      note: content.facts[0].value
-    }}
-  >
-    {content.sections.map((section, index) => (
-      <AuthorityTextSection
-        section={section}
-        index={index}
-        data-am-winter-stays-section={section.id}
-      />
-    ))}
-
-    <AuthorityRelatedLinks
-      related={content.related}
-      columns="md:grid-cols-2"
-      resolveHref={requiredLink}
-    />
-  </AuthorityArticle>
+    locationHref={locationHref}
+    propertyHref={propertyHref}
+    resolveHref={requiredLink}
+  />
 </LocationAuthorityLayout>

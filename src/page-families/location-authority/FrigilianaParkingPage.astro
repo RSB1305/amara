@@ -1,348 +1,44 @@
 ---
-import LocationTopicHero from '../../components/location/LocationTopicHero.astro';
-import AmaraImage from '../../components/AmaraImage.astro';
-import FaqAccordion from '../../components/FaqAccordion.astro';
 import Navigation from '../../components/Navigation.astro';
-import EditorialClosingCta from '../../components/editorial/EditorialClosingCta.astro';
-import EditorialGuideLinkSection from '../../components/editorial/EditorialGuideLinkSection.astro';
-import HairlineStatCard from '../../components/location/HairlineStatCard.astro';
 import LocationContextNav from '../../components/location/LocationContextNav.astro';
 import {
-  frigilianaParkingCopy,
-  frigilianaParkingExternalLinks,
-  frigilianaParkingSeo
-} from '../../content/frigilianaParkingContent';
-import {
-  frigilianaPreFooterCopy,
-  getFrigilianaPreFooterDescription
-} from '../../content/frigilianaPreFooterContent';
-import { frigilianaStreetsStairsCopy } from '../../content/frigilianaStreetsStairsContent';
+  frigilianaParkingGuideContent,
+  frigilianaParkingGuideSeo
+} from '../../content/frigilianaParkingGuideContent';
 import LocationAuthorityLayout from '../../layouts/LocationAuthorityLayout.astro';
-import { resolveOptionalLink, type LabeledLink } from '../../lib/linkResolver';
-import { buildOwnedLocalizedPath } from '../../lib/routeOwnership';
+import { createRequiredLinkResolver, type LabeledLink } from '../../lib/linkResolver';
 import { normalizeLanguage } from '../../lib/seo/resolve-seo-head';
 import type { AmaraLanguage } from '../../types/seo';
+import ParkingAuthorityArticle from './ParkingAuthorityArticle.astro';
 
-interface Props {
-  lang?: string;
-}
-
-type LocalizedRow = { readonly [K in AmaraLanguage]: string };
+interface Props { lang?: string; }
 
 const { lang = 'es' } = Astro.props;
 const currentLang = normalizeLanguage(lang as AmaraLanguage);
-const copy = frigilianaParkingCopy;
+const content = frigilianaParkingGuideContent[currentLang];
+const requiredLink = createRequiredLinkResolver(currentLang, 'Frigiliana parking');
 
-function t(row: LocalizedRow): string {
-  return row[currentLang] ?? row.en;
-}
-
-const streetsHref = buildOwnedLocalizedPath('frigiliana-streets-stairs', currentLang);
-
-const facts = copy.facts.items.map((item) => ({
-  label: t(item.label),
-  value: t(item.value),
-  note: t(item.note)
-}));
-
-const options = copy.options.items.map((item) => ({
-  number: item.number,
-  title: t(item.title),
-  summary: t(item.summary),
-  bestFor: t(item.bestFor),
-  remember: t(item.remember)
-}));
-
-const arrivalSteps = copy.arrival.steps.map((step) => ({
-  num: step.num,
-  headline: t(step.title),
-  text: t(step.text)
-}));
-
-const faqItems = copy.arrival.faq.map((item) => ({
-  question: t(item.question),
-  answer: t(item.answer)
-}));
-
-const liveInfoLinks = copy.liveInfo.links.map((link) => ({
-  href:
-    frigilianaParkingExternalLinks[
-      link.key as keyof typeof frigilianaParkingExternalLinks
-    ],
-  label: t(link.label),
-  text: t(link.text)
-}));
-
-const relatedLinks = copy.related.links.flatMap((link) => {
-  const href = resolveOptionalLink(link.token, currentLang, {
-    suppressMissing: true
-  });
-
-  return href
-    ? [{
-        href,
-        label: t(link.label),
-        text: getFrigilianaPreFooterDescription(link.token, currentLang)
-      }]
-    : [];
-});
-
+const aboutHref = requiredLink('about');
+const locationHref = requiredLink('location_frigiliana');
+const propertyHref = requiredLink('romantic_hideaways');
 const footerHighlights: LabeledLink[] = [
-  {
-    token: 'frigiliana_parking',
-    label: t(copy.nav.links[1].label)
-  },
-  {
-    token: 'frigiliana_stairs',
-    label: t(copy.nav.links[2].label)
-  },
-  {
-    token: 'getting_to_frigiliana',
-    label: t(copy.related.links[1].label)
-  }
+  { token: 'frigiliana_parking', label: content.navLabel },
+  { token: 'getting_to_frigiliana', label: content.related.links[0].label },
+  { token: 'frigiliana_stairs', label: content.related.links[1].label }
 ];
-
-const heroImage = {
-  src: '/images/amara-frigiliana-pueblo/JPG_Frigiliana_Pueblo/2000px_72dpi_sRGB/01-frigiliana-pueblo.jpg',
-  width: 2000
-};
-
-const timingImage = {
-  src: '/images/amara-frigiliana-pueblo/JPG_Frigiliana_Pueblo/2000px_72dpi_sRGB/03-frigiliana-pueblo.jpg',
-  width: 2000,
-  height: 1333
-};
 ---
 
-<LocationAuthorityLayout
-  seo={frigilianaParkingSeo}
-  pageLang={currentLang}
-  showContextNavigation={false}
-  footerHighlights={footerHighlights}
->
-  <Navigation
-    slot="navigation"
-    currentLang={currentLang}
-    languageToken="frigiliana_parking"
-  />
+<LocationAuthorityLayout seo={frigilianaParkingGuideSeo} pageLang={currentLang} showContextNavigation={false} footerHighlights={footerHighlights}>
+  <Navigation slot="navigation" currentLang={currentLang} languageToken="frigiliana_parking" />
   <LocationContextNav activeId="parking" lang={currentLang} />
-
-  <div data-am-page="frigiliana-parking" data-am-family="location" data-am-role="spoke" data-am-topic="parking">
-    <div class="w-full">
-      <LocationTopicHero
-        eyebrow={t(copy.hero.eyebrow)}
-        title={t(copy.hero.title)}
-        paragraphs={[t(copy.hero.lead), t(copy.hero.body)]}
-        imageSrc={heroImage.src}
-        imageAlt={t(copy.hero.imageAlt)}
-        imageWidth={heroImage.width}
-        actions={[
-          { href: '#parking-options', label: t(copy.hero.primaryCta), style: 'primary' },
-          { href: streetsHref, label: t(copy.hero.secondaryCta), style: 'secondary' }
-        ]}
-        topic="parking"
-      />
-
-      <section class="max-w-screen-2xl mx-auto px-6 md:px-12 pb-32">
-        <div class="max-w-3xl mb-14">
-          <h2 class="am-text-title italic text-on-surface tracking-tight">
-            {t(copy.facts.title)}
-          </h2>
-        </div>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-x-14 gap-y-12">
-          {
-            facts.map((fact) => (
-              <HairlineStatCard
-                label={fact.label}
-                value={fact.value}
-                description={fact.note}
-              />
-            ))
-          }
-        </div>
-      </section>
-
-      <section
-        id="parking-options"
-        class="bg-surface-container-low border-y border-outline-variant/5"
-      >
-        <div class="max-w-screen-2xl mx-auto px-6 md:px-12 py-32">
-          <div class="max-w-3xl mb-20">
-            <span class="am-text-caption uppercase tracking-[0.35em] text-primary block mb-6">
-              {t(copy.options.eyebrow)}
-            </span>
-            <h2 class="am-text-title italic text-on-surface tracking-tight mb-8">
-              {t(copy.options.title)}
-            </h2>
-            <p class="am-text-body text-on-surface-variant leading-relaxed">
-              {t(copy.options.intro)}
-            </p>
-          </div>
-
-          <div class="grid grid-cols-1 lg:grid-cols-3 gap-x-12 gap-y-16">
-            {
-              options.map((option) => (
-                <article class="border-t border-outline-variant/25 pt-8">
-                  <div class="flex items-baseline justify-between gap-6 mb-10">
-                    <h3 class="am-text-subtitle text-on-surface">{option.title}</h3>
-                    <span
-                      class="font-headline text-[clamp(2.5rem,5vw,4.75rem)] italic leading-none text-outline-variant/45"
-                      aria-hidden="true"
-                    >
-                      {option.number}
-                    </span>
-                  </div>
-                  <p class="am-text-body text-on-surface-variant leading-relaxed">
-                    {option.summary}
-                  </p>
-                  <dl class="mt-10 divide-y divide-outline-variant/10 border-y border-outline-variant/10">
-                    <div class="py-6">
-                      <dt class="am-text-caption uppercase tracking-[0.16em] text-primary mb-3">
-                        {t(copy.options.labels.bestFor)}
-                      </dt>
-                      <dd class="am-text-body text-on-surface-variant leading-relaxed">
-                        {option.bestFor}
-                      </dd>
-                    </div>
-                    <div class="py-6">
-                      <dt class="am-text-caption uppercase tracking-[0.16em] text-primary mb-3">
-                        {t(copy.options.labels.remember)}
-                      </dt>
-                      <dd class="am-text-body text-on-surface-variant leading-relaxed">
-                        {option.remember}
-                      </dd>
-                    </div>
-                  </dl>
-                </article>
-              ))
-            }
-          </div>
-        </div>
-      </section>
-
-      <FaqAccordion
-        arrivalTitle={t(copy.arrival.title)}
-        steps={arrivalSteps}
-        faqTitle={t(copy.arrival.faqTitle)}
-        items={faqItems}
-      />
-
-      <section class="bg-surface-container-low border-y border-outline-variant/5">
-        <div class="max-w-screen-2xl mx-auto px-6 md:px-12 py-32">
-          <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
-            <div class="am-mobile-full-bleed lg:col-span-6">
-              <AmaraImage
-                src={timingImage.src}
-                alt={t(copy.timing.imageAlt)}
-                profile="card"
-                class="w-full aspect-[4/3] object-cover"
-                loading="lazy"
-                decoding="async"
-              />
-            </div>
-            <div class="lg:col-span-6 lg:pl-10">
-              <span class="am-text-caption uppercase tracking-[0.35em] text-primary block mb-6">
-                {t(copy.timing.eyebrow)}
-              </span>
-              <h2 class="am-text-title italic text-on-surface tracking-tight mb-8">
-                {t(copy.timing.title)}
-              </h2>
-              <p class="am-text-body text-on-surface-variant leading-relaxed max-w-xl">
-                {t(copy.timing.body)}
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section class="max-w-screen-2xl mx-auto px-6 md:px-12 py-28">
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
-          <h2 class="lg:col-span-5 am-text-title italic text-on-surface tracking-tight">
-            {t(copy.walk.title)}
-          </h2>
-          <div class="lg:col-span-6 lg:col-start-7">
-            <p class="am-text-body text-on-surface-variant leading-relaxed mb-8">
-              {t(copy.walk.body)}
-            </p>
-            <a href={streetsHref} class="am-cta-link">{t(copy.walk.cta)}</a>
-          </div>
-        </div>
-      </section>
-
-      <section class="bg-surface-container-low border-y border-outline-variant/5">
-        <div class="max-w-screen-2xl mx-auto px-6 md:px-12 py-32">
-          <div class="grid grid-cols-1 lg:grid-cols-12 gap-16">
-            <div class="lg:col-span-4">
-              <span class="am-text-caption uppercase tracking-[0.35em] text-primary block mb-6">
-                {t(copy.liveInfo.eyebrow)}
-              </span>
-              <h2 class="am-text-title italic text-on-surface tracking-tight mb-8">
-                {t(copy.liveInfo.title)}
-              </h2>
-              <p class="am-text-body text-on-surface-variant leading-relaxed mb-6">
-                {t(copy.liveInfo.intro)}
-              </p>
-              <p class="am-text-caption uppercase tracking-[0.14em] text-muted">
-                {t(copy.liveInfo.checked)}
-              </p>
-            </div>
-            <div class="lg:col-span-8 border-t border-outline-variant/15">
-              {
-                liveInfoLinks.map((link) => (
-                  <a
-                    href={link.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    class="am-card-link group grid grid-cols-[1fr_auto] gap-8 py-9 border-b border-outline-variant/15"
-                  >
-                    <span>
-                      <span class="am-text-subtitle text-on-surface block mb-3 group-hover:text-primary transition-colors">
-                        {link.label}
-                      </span>
-                      <span class="am-text-body text-on-surface-variant leading-relaxed">
-                        {link.text}
-                      </span>
-                    </span>
-                    <span
-                      class="am-text-subtitle text-primary transition-transform group-hover:translate-x-1 group-hover:-translate-y-1"
-                      aria-hidden="true"
-                    >
-                      ↗
-                    </span>
-                  </a>
-                ))
-              }
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <EditorialGuideLinkSection
-        eyebrow={frigilianaPreFooterCopy.eyebrow[currentLang]}
-        title={t(copy.related.title)}
-        intro={frigilianaPreFooterCopy.intro[currentLang]}
-        links={relatedLinks}
-      />
-
-      <section class="max-w-screen-2xl mx-auto px-6 md:px-12 pt-8">
-        <EditorialClosingCta
-          title={t(copy.closing.title)}
-          lead={t(copy.closing.lead)}
-          lang={currentLang}
-          links={[
-            {
-              token: 'romantic_hideaways',
-              label: t(frigilianaStreetsStairsCopy.closing.staysCta),
-              style: 'primary'
-            },
-            {
-              token: 'frigiliana_stairs',
-              label: t(copy.closing.streetsCta),
-              style: 'secondary'
-            }
-          ]}
-        />
-      </section>
-    </div>
-  </div>
+  <ParkingAuthorityArticle
+    pageId="frigiliana-parking"
+    lang={currentLang}
+    content={content}
+    seo={frigilianaParkingGuideSeo}
+    authorHref={aboutHref}
+    locationHref={locationHref}
+    propertyHref={propertyHref}
+    resolveHref={requiredLink}
+  />
 </LocationAuthorityLayout>

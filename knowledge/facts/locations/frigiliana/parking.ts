@@ -1,8 +1,9 @@
 import { defineKnowledgeFacts } from '../../../schema';
 import type { FrigilianaParkingSourceId } from '../../../sources/locations/frigilianaParkingSources';
+import type { ParkingAccessibilitySourceId } from '../../../sources/locations/parkingAccessibilitySources';
 
 type ParkingFactInput = Parameters<typeof defineKnowledgeFacts>[0][number] & {
-  sourceIds: readonly FrigilianaParkingSourceId[];
+  sourceIds: readonly (FrigilianaParkingSourceId | ParkingAccessibilitySourceId)[];
 };
 
 const facts = [
@@ -153,6 +154,48 @@ const facts = [
     volatility: 'medium',
     claimBoundary:
       'This records a knowledge gap. It must not be rewritten as a claim that no legal drop-off point exists.'
+  },
+  {
+    id: 'frigiliana.parking.historic-ordinance-and-repeal-gap',
+    subject: 'frigiliana',
+    topic: 'parking',
+    statement:
+      'A historic-centre traffic ordinance entered into force in 2011, and the municipality began a public consultation toward its repeal in 2018.',
+    status: 'verified',
+    sourceIds: ['frigiliana-parking-traffic-ordinance-2011', 'frigiliana-parking-repeal-consultation-2018'],
+    checkedAt: '2026-08-21',
+    reviewAfter: '2026-11-21',
+    volatility: 'medium',
+    claimBoundary:
+      'These are historical procedural facts. They do not establish which provisions, replacement rules or enforcement practices apply in 2026.'
+  },
+  {
+    id: 'frigiliana.parking.operator-day-visitor-rhythm',
+    subject: 'frigiliana',
+    topic: 'parking',
+    statement:
+      'The AMARA operator observes that day visitors tend to concentrate from later morning into early afternoon, while overnight guests often leave for the coast around late morning and return later in the afternoon.',
+    status: 'first-party-observation',
+    sourceIds: ['amara-parking-operator-note-2026-08'],
+    checkedAt: '2026-08-21',
+    reviewAfter: '2027-02-21',
+    volatility: 'medium',
+    claimBoundary:
+      'Personal operating experience only. Exact clock times and relative visitor volumes require structured observation before publication as a general pattern.'
+  },
+  {
+    id: 'frigiliana.parking.day-and-overnight-demand-differ',
+    subject: 'frigiliana',
+    topic: 'parking',
+    statement:
+      'AMARA’s operator experience indicates that parking needs for day visitors and overnight guests can occur at different times and should not be treated as one identical user journey.',
+    status: 'first-party-observation',
+    sourceIds: ['amara-parking-operator-note-2026-08'],
+    checkedAt: '2026-08-21',
+    reviewAfter: '2027-02-21',
+    volatility: 'medium',
+    claimBoundary:
+      'Useful for page structure and first-party guidance, not a measured occupancy claim or parking-availability guarantee.'
   }
 ] as const satisfies readonly ParkingFactInput[];
 
