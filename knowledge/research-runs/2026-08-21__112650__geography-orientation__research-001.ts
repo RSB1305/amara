@@ -5,8 +5,8 @@ export const geographyOrientationResearch001 = defineKnowledgeResearchRun({
   topic: 'Geography and orientation',
   subjects: ['frigiliana', 'nerja', 'tarifa'],
   createdAt: '2026-08-21T11:26:50+02:00',
-  updatedAt: '2026-08-21T11:49:45+02:00',
-  status: 'raw-received',
+  updatedAt: '2026-08-21T12:01:15+02:00',
+  status: 'normalized',
   promptPath: 'knowledge/prompts/locations/2026-08-21__112650__geography-orientation__research-001.md',
   promptDriveFile: {
     id: '13oumAGPHGugLDJK8OvjjlFbu5-l1fNZA',
@@ -16,7 +16,7 @@ export const geographyOrientationResearch001 = defineKnowledgeResearchRun({
   driveFolder: {
     id: '1HL7uYADn_GHrQCMsD7Qsv9duZtSNdCBA',
     url: 'https://drive.google.com/drive/folders/1HL7uYADn_GHrQCMsD7Qsv9duZtSNdCBA',
-    path: 'AMARA – Research Vault/00_INBOX/2026-08-21__112650__geography-orientation__research-001',
+    path: 'AMARA – Research Vault/90_ARCHIVE/2026-08-21__112650__geography-orientation__research-001',
   },
   inputs: [
     {
@@ -26,7 +26,7 @@ export const geographyOrientationResearch001 = defineKnowledgeResearchRun({
         url: 'https://drive.google.com/drive/folders/1KF_kS6PAelMy3OcpObJ1-9u3aGed-HaE',
         path: '02_GPT_RAW',
       },
-      status: 'uploaded',
+      status: 'ingested',
       receivedAt: '2026-08-21T11:45:23+02:00',
       artifact: {
         id: '11ZjsIz5meqYP4-3p8spzi-8_y-zpi3VN',
@@ -45,7 +45,7 @@ export const geographyOrientationResearch001 = defineKnowledgeResearchRun({
         url: 'https://drive.google.com/drive/folders/1Uhe1UE2HKWaw-XjbgAQDJ_kt9r570E8w',
         path: '03_GEMINI_RAW',
       },
-      status: 'uploaded',
+      status: 'ingested',
       receivedAt: '2026-08-21T11:49:45+02:00',
       sourceUrl: 'https://share.gemini.google/2GOcS8O1NGO2',
       artifact: {

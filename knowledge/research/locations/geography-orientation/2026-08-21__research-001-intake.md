@@ -2,7 +2,8 @@
 research_run_id: 2026-08-21__112650__geography-orientation__research-001
 document_type: raw-research-intake
 created_at: 2026-08-21T11:49:45+02:00
-status: RAW_RECEIVED
+normalized_at: 2026-08-21T12:01:15+02:00
+status: PRESERVED_RECEIPT
 subjects:
   - frigiliana
   - nerja
@@ -10,6 +11,8 @@ subjects:
 ---
 
 # Geography & Orientation — raw research intake
+
+> Normalization is complete. The canonical evaluation is `knowledge/research/locations/geography-orientation/2026-08-21__research-001-synthesis.md`; this intake record remains as the receipt history.
 
 This record documents receipt and preservation only. No claim has been verified, rejected or approved for public use at this stage.
 
