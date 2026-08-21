@@ -1,5 +1,8 @@
 ---
 import EditorialByline from '../../components/editorial/EditorialByline.astro';
+import ArrivalJourneyGraphic, {
+  type ArrivalJourneyGraphicData
+} from '../../components/location/ArrivalJourneyGraphic.astro';
 import ExperienceArticleHero from '../../components/experience/ExperienceArticleHero.astro';
 import LocationGuideIcon, {
   type LocationGuideIconName
@@ -82,6 +85,7 @@ interface Props {
     body: string;
     items: Array<{ label: string; value: string }>;
   };
+  arrivalVisual?: ArrivalJourneyGraphicData;
   weatherVisual?: {
     eyebrow: string;
     mark: string;
@@ -108,6 +112,7 @@ const {
   presentation = 'article',
   guideVisual,
   guideSummary,
+  arrivalVisual,
   weatherVisual,
   heroMark
 } = Astro.props;
@@ -122,8 +127,8 @@ const byline = authorName && authorHref && hero.updated && hero.note
     }
   : undefined;
 
-if (presentation === 'guide' && !guideVisual && !guideSummary) {
-  throw new Error('[AMARA] Guide AuthorityArticle requires visual or summary content.');
+if (presentation === 'guide' && !guideVisual && !guideSummary && !arrivalVisual) {
+  throw new Error('[AMARA] Guide AuthorityArticle requires visual, summary or arrival content.');
 }
 
 if (presentation === 'weather' && !weatherVisual) {
@@ -161,9 +166,12 @@ if (presentation === 'article' && !byline) {
         paragraphs={guideSummary ? [] : [hero.standfirst]}
         topic={topic}
         visualBeforeMetaOnMobile={Boolean(guideSummary)}
+        visualBreakpoint={arrivalVisual ? 'lg' : 'md'}
       >
         {byline && <EditorialByline slot="meta" {...byline} />}
-        {guideSummary ? (
+        {arrivalVisual ? (
+          <ArrivalJourneyGraphic slot="visual" data={arrivalVisual} />
+        ) : guideSummary ? (
           <LocationGuideEvidence
             slot="visual"
             eyebrow={guideSummary.eyebrow}

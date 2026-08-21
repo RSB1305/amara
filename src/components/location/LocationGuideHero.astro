@@ -16,6 +16,7 @@ interface Props {
   role?: 'hub' | 'spoke';
   topic?: string;
   visualBeforeMetaOnMobile?: boolean;
+  visualBreakpoint?: 'md' | 'lg';
 }
 
 const {
@@ -30,7 +31,8 @@ const {
   family = 'location',
   role = 'spoke',
   topic,
-  visualBeforeMetaOnMobile = false
+  visualBeforeMetaOnMobile = false,
+  visualBreakpoint = 'md'
 } = Astro.props;
 
 const hasVisualSlot = Astro.slots.has('visual');
@@ -49,8 +51,18 @@ if (!hasVisualSlot && (!imageSrc || !imageAlt)) {
   data-am-role={role}
   data-am-topic={topic}
 >
-  <div class="mx-auto grid max-w-screen-2xl items-start gap-14 md:grid-cols-12 lg:gap-20">
-    <div class:list={['md:col-span-7', visualBeforeMetaOnMobile && 'contents md:block']}>
+  <div
+    class:list={[
+      'mx-auto grid max-w-screen-2xl items-start gap-14 lg:gap-20',
+      visualBreakpoint === 'lg' ? 'lg:grid-cols-12' : 'md:grid-cols-12'
+    ]}
+  >
+    <div
+      class:list={[
+        visualBreakpoint === 'lg' ? 'lg:col-span-7' : 'md:col-span-7',
+        visualBeforeMetaOnMobile && 'contents md:block'
+      ]}
+    >
       <div class="order-1">
         <p class="am-text-caption font-bold uppercase tracking-[0.2em] text-primary">
           {eyebrow}
@@ -85,7 +97,13 @@ if (!hasVisualSlot && (!imageSrc || !imageAlt)) {
       {hasActionsSlot && <div class="mt-10"><slot name="actions" /></div>}
     </div>
 
-    <div class:list={['am-mobile-full-bleed md:col-span-5', visualBeforeMetaOnMobile && 'order-2 md:order-none']}>
+    <div
+      class:list={[
+        'am-mobile-full-bleed',
+        visualBreakpoint === 'lg' ? 'lg:col-span-5' : 'md:col-span-5',
+        visualBeforeMetaOnMobile && 'order-2 md:order-none'
+      ]}
+    >
       {
         hasVisualSlot ? (
           <slot name="visual" />

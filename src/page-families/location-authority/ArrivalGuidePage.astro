@@ -110,11 +110,7 @@ const mobilityGridClass = content.mobility?.items.length === 2
     primaryCta={primaryCta}
     secondaryCta={secondaryCta}
     presentation="guide"
-    guideVisual={{
-      eyebrow: content.facts[0]?.label ?? content.hero.eyebrow,
-      mark: content.facts[0]?.value ?? content.hero.title,
-      note: content.facts[1]?.value
-    }}
+    arrivalVisual={content.heroVisual}
   >
     {
       content.gateways && (
