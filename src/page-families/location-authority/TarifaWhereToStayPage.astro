@@ -1,7 +1,5 @@
 ---
-import InlineEmphasis from '../../components/text/InlineEmphasis.astro';
 import tarifaStayImage from '../../assets/images/home/amara-tarifa-apartment01.webp';
-import AmaraImage from '../../components/AmaraImage.astro';
 import Navigation from '../../components/Navigation.astro';
 import LocationTopicHero from '../../components/location/LocationTopicHero.astro';
 import TarifaContextNav from '../../components/location/TarifaContextNav.astro';
@@ -10,6 +8,8 @@ import LocationAuthorityLayout from '../../layouts/LocationAuthorityLayout.astro
 import { createRequiredLinkResolver, type LabeledLink } from '../../lib/linkResolver';
 import { normalizeLanguage } from '../../lib/seo/resolve-seo-head';
 import type { AmaraLanguage } from '../../types/seo';
+import WhereToStayAuthorityBody from './WhereToStayAuthorityBody.astro';
+import type { WhereToStayAuthorityContent } from './whereToStayAuthority';
 
 interface Props {
   lang?: string;
@@ -141,6 +141,73 @@ const footerHighlights: LabeledLink[] = [
   { token: 'tarifa_where_to_stay', label: breadcrumbLabels[currentLang] },
   { token: 'tarifa_beaches_authority', label: copy.beaches }
 ];
+
+const moduleLabels = {
+  en: { fit: 'Best fit', daily: 'Everyday life', tradeoff: 'Keep in mind', amara: 'AMARA in Tarifa' },
+  de: { fit: 'Passt gut für', daily: 'Im Alltag', tradeoff: 'Bedenkt dabei', amara: 'AMARA in Tarifa' },
+  es: { fit: 'Encaja con', daily: 'En el día a día', tradeoff: 'Tened en cuenta', amara: 'AMARA en Tarifa' },
+  nl: { fit: 'Past bij', daily: 'In het dagelijks ritme', tradeoff: 'Houd rekening met', amara: 'AMARA in Tarifa' },
+  sv: { fit: 'Passar för', daily: 'I vardagen', tradeoff: 'Tänk på', amara: 'AMARA i Tarifa' }
+}[currentLang];
+
+const stayContent: WhereToStayAuthorityContent = {
+  decision: {
+    eyebrow: copy.howEyebrow,
+    title: copy.howTitle,
+    intro: content.car.paragraphs,
+    points: content.microLocations.items.map((area, index) => ({
+      label: String(index + 1).padStart(2, '0'),
+      title: area.title,
+      text: area.fit ?? area.paragraphs[0]
+    }))
+  },
+  areas: {
+    id: 'where-to-stay-areas',
+    eyebrow: copy.settingsEyebrow,
+    title: content.microLocations.title,
+    intro: content.microLocations.clarification,
+    labels: { fit: moduleLabels.fit, daily: moduleLabels.daily, tradeoff: moduleLabels.tradeoff },
+    items: content.microLocations.items.map((area, index) => ({
+      number: String(index + 1).padStart(2, '0'),
+      title: area.title,
+      paragraphs: area.paragraphs,
+      fit: area.fit
+    }))
+  },
+  tradeoffs: {
+    eyebrow: copy.comparisonEyebrow,
+    title: copy.comparisonTitle,
+    intro: [content.tradeoffs.intro, ...(content.tradeoffs.closing ?? [])].filter(Boolean).join(' '),
+    items: content.tradeoffs.items.map((item) => ({ paragraphs: [item] }))
+  },
+  mobility: {
+    id: 'car-wind-everyday-life',
+    eyebrow: copy.dimensionsEyebrow,
+    title: copy.dimensionsTitle,
+    intro: [],
+    items: [content.car, content.wind, content.dailyLife].map((section) => ({
+      title: section.title,
+      paragraphs: section.paragraphs,
+      actions: 'links' in section && section.links
+        ? section.links.map((link) => ({ href: requiredLink(link.token), label: link.label }))
+        : undefined
+    }))
+  },
+  fit: {
+    eyebrow: copy.fitEyebrow,
+    title: content.stayFits.title,
+    intro: [],
+    items: content.stayFits.items
+  },
+  amara: {
+    eyebrow: moduleLabels.amara,
+    title: content.amara.title,
+    paragraphs: content.amara.paragraphs,
+    facts: content.amara.facts,
+    image: { src: tarifaStayImage, alt: content.amara.imageAlt },
+    action: { href: stayHref, label: content.closing.secondary.label }
+  }
+};
 ---
 
 <LocationAuthorityLayout
@@ -185,141 +252,7 @@ const footerHighlights: LabeledLink[] = [
       } : undefined}
     />
 
-    <section class="border-b border-border-subtle bg-surface-container-low px-6 py-20 md:px-12 md:py-28" data-am-stay-module="decision">
-      <div class="mx-auto grid max-w-screen-2xl gap-12 lg:grid-cols-12 lg:gap-20">
-        <div class="lg:col-span-5">
-          <p class="font-label text-[11px] font-bold uppercase tracking-[0.18em] text-primary">{copy.howEyebrow}</p>
-          <h2 class="am-text-title mt-5 max-w-xl text-balance text-on-surface">{copy.howTitle}</h2>
-        </div>
-        <div class="max-w-4xl space-y-5 lg:col-span-7">
-          {content.car.paragraphs.map((paragraph) => (
-            <p class="am-text-body leading-relaxed text-on-surface-variant"><InlineEmphasis text={paragraph} /></p>
-          ))}
-        </div>
-      </div>
-    </section>
-
-    <section class="border-b border-border-subtle bg-surface px-6 py-24 md:px-12 md:py-32" data-am-stay-module="areas">
-      <div class="mx-auto max-w-screen-2xl">
-        <p class="font-label text-[11px] font-bold uppercase tracking-[0.18em] text-primary">{copy.settingsEyebrow}</p>
-        <h2 class="am-text-display mt-6 max-w-4xl text-balance text-on-surface">{content.microLocations.title}</h2>
-        <div class="mt-16 border-t border-border-subtle">
-          {content.microLocations.items.map((area, index) => (
-            <section class="grid gap-8 border-b border-border-subtle py-12 lg:grid-cols-12 lg:gap-16 lg:py-16">
-              <div class="lg:col-span-5">
-                <span class="font-label text-[10px] font-bold uppercase tracking-[0.16em] text-primary">0{index + 1}</span>
-                <h3 class="am-text-title mt-4 max-w-xl text-balance text-on-surface">{area.title}</h3>
-                {area.fit && <p class="am-text-subtitle mt-7 border-l border-primary/30 pl-5 text-on-surface"><InlineEmphasis text={area.fit} /></p>}
-              </div>
-              <div class="max-w-4xl space-y-5 lg:col-span-7">
-                {area.paragraphs.map((paragraph) => (
-                  <p class="am-text-body leading-relaxed text-on-surface-variant"><InlineEmphasis text={paragraph} /></p>
-                ))}
-              </div>
-            </section>
-          ))}
-        </div>
-        <aside class="mt-12 grid gap-6 border-l-2 border-primary/35 bg-surface-container-low px-7 py-9 md:px-10 lg:grid-cols-12 lg:gap-16">
-          <h2 class="am-text-subtitle text-on-surface lg:col-span-5">{copy.contextTitle}</h2>
-          <p class="am-text-body leading-relaxed text-on-surface-variant lg:col-span-7"><InlineEmphasis text={content.microLocations.clarification} /></p>
-        </aside>
-      </div>
-    </section>
-
-    <section class="border-b border-border-subtle bg-inverse-surface px-6 py-20 text-inverted-on-surface md:px-12 md:py-28" data-am-stay-module="tradeoffs">
-      <div class="mx-auto grid max-w-screen-2xl gap-12 lg:grid-cols-12 lg:gap-20">
-        <div class="lg:col-span-5">
-          <p class="font-label text-[11px] font-bold uppercase tracking-[0.18em] text-primary-fixed-dim">{copy.comparisonEyebrow}</p>
-          <h2 class="am-text-title mt-5 text-balance text-inverted-on-surface">{copy.comparisonTitle}</h2>
-          {content.tradeoffs.intro && <p class="am-text-body mt-6 leading-relaxed text-inverted-on-surface/70"><InlineEmphasis text={content.tradeoffs.intro} /></p>}
-        </div>
-        <ol class="border-y border-inverted-on-surface/20 lg:col-span-7">
-          {content.tradeoffs.items.map((item, index) => (
-            <li class:list={['grid grid-cols-[auto_1fr] gap-5 py-6', index > 0 && 'border-t border-inverted-on-surface/20']}>
-              <span class="font-label text-[10px] font-bold uppercase tracking-[0.14em] text-primary-fixed-dim">0{index + 1}</span>
-              <span class="am-text-body leading-relaxed text-inverted-on-surface/80">{item}</span>
-            </li>
-          ))}
-        </ol>
-      </div>
-    </section>
-
-    <section class="border-b border-border-subtle bg-surface-container-low px-6 py-20 md:px-12 md:py-28" data-am-stay-module="mobility">
-      <div class="mx-auto max-w-screen-2xl">
-        <div class="max-w-4xl">
-          <p class="font-label text-[11px] font-bold uppercase tracking-[0.18em] text-primary">{copy.dimensionsEyebrow}</p>
-          <h2 class="am-text-title mt-5 text-balance text-on-surface">{copy.dimensionsTitle}</h2>
-        </div>
-        <div class="mt-12 grid gap-8 lg:grid-cols-2 lg:gap-12">
-          {[content.wind, content.dailyLife].map((section) => (
-            <section class="border-t border-border-subtle bg-surface px-7 pb-9 pt-8 md:px-9 md:pb-11">
-              <h3 class="am-text-subtitle text-balance text-on-surface">{section.title}</h3>
-              <div class="mt-6 space-y-4">
-                {section.paragraphs.map((paragraph) => (
-                  <p class="am-text-body leading-relaxed text-on-surface-variant"><InlineEmphasis text={paragraph} /></p>
-                ))}
-              </div>
-              {'links' in section && section.links && (
-                <div class="mt-7 flex flex-wrap gap-x-6 gap-y-3">
-                  {section.links.map((link) => (
-                    <a href={requiredLink(link.token)} class="am-cta-link">{link.label}</a>
-                  ))}
-                </div>
-              )}
-            </section>
-          ))}
-        </div>
-      </div>
-    </section>
-
-    <section class="border-b border-border-subtle bg-surface px-6 py-20 md:px-12 md:py-28" data-am-stay-module="fit">
-      <div class="mx-auto max-w-screen-2xl">
-        <p class="font-label text-[11px] font-bold uppercase tracking-[0.18em] text-primary">{copy.fitEyebrow}</p>
-        <h2 class="am-text-title mt-5 max-w-3xl text-balance text-on-surface">{content.stayFits.title}</h2>
-        <div class="mt-12 grid gap-x-10 md:grid-cols-2">
-          {content.stayFits.items.map((item) => (
-            <section class="border-t border-border-subtle py-8">
-              <h3 class="am-text-subtitle text-on-surface">{item.title}</h3>
-              <div class="mt-5 space-y-4">
-                {item.paragraphs.map((paragraph) => (
-                  <p class="am-text-body leading-relaxed text-on-surface-variant"><InlineEmphasis text={paragraph} /></p>
-                ))}
-              </div>
-            </section>
-          ))}
-        </div>
-      </div>
-    </section>
-
-    <section class="border-b border-border-subtle bg-surface-container-low px-6 py-20 md:px-12 md:py-28" data-am-stay-module="amara">
-      <div class="mx-auto grid max-w-screen-2xl overflow-hidden bg-surface lg:grid-cols-2">
-        <figure class="am-mobile-full-bleed min-h-[360px] bg-surface-container-high lg:min-h-[580px]">
-          <AmaraImage
-            src={tarifaStayImage}
-            alt={content.amara.imageAlt}
-            profile="gallery"
-            class="h-full w-full object-cover"
-            sizes="(max-width: 1023px) 100vw, 50vw"
-            loading="lazy"
-            decoding="async"
-          />
-        </figure>
-        <div class="flex flex-col justify-center p-8 md:p-14 lg:p-16">
-          <h2 class="am-text-title text-balance text-on-surface">{content.amara.title}</h2>
-          <div class="mt-7 space-y-5">
-            {content.amara.paragraphs.map((paragraph) => (
-              <p class="am-text-body leading-relaxed text-on-surface-variant"><InlineEmphasis text={paragraph} /></p>
-            ))}
-          </div>
-          <ul class="mt-7 space-y-3 border-l border-primary/30 pl-5">
-            {content.amara.facts.map((fact) => (
-              <li class="am-text-body leading-relaxed text-on-surface">{fact}</li>
-            ))}
-          </ul>
-          <a href={stayHref} class="am-cta-link mt-9 inline-flex self-start">{content.closing.secondary.label}</a>
-        </div>
-      </div>
-    </section>
+    <WhereToStayAuthorityBody content={stayContent} />
 
     <section class="bg-surface px-6 py-24 md:px-12 md:py-32">
       <div class="mx-auto grid max-w-screen-2xl gap-10 lg:grid-cols-12 lg:items-end lg:gap-20">

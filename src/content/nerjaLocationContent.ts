@@ -199,11 +199,11 @@ export const nerjaLocationCopy = {
       'Var ska man bo i Nerja?'
     ),
     title: localized(
-      'Five different ways to stay in Nerja',
-      'Fünf unterschiedliche Wohnlagen in Nerja',
-      'Cinco formas distintas de alojarse en Nerja',
-      'Vijf verschillende manieren om in Nerja te verblijven',
-      'Fem olika sätt att bo i Nerja'
+      'Six ways to stay in Nerja',
+      'Sechs Wohnlagen in Nerja',
+      'Seis zonas para alojarse en Nerja',
+      'Zes verblijfsgebieden in Nerja',
+      'Sex sätt att bo i Nerja'
     ),
     intro: localized(
       'There is no single area that suits everyone. Start with what you want to do most days — beach, old town, easy walking, more residential surroundings — and choose the part of Nerja that makes that easiest.',
