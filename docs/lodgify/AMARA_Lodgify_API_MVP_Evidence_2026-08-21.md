@@ -104,6 +104,16 @@ Support ticket **1273213**, dated **2026-08-20**, confirmed:
 - the standard Lodgify checkout preserves the payment flow and native analytics;
 - there is no documented Public API checkout-session link for the desired prefilled handoff, so AMARA must not reverse-engineer a URL or session mechanism.
 
+### Cloudflare Preview throttle evidence
+
+On 2026-08-21, one direct Availability request through the Cloudflare Preview gateway returned
+HTTP `429`; the safe server diagnostic recorded `providerStep=availability` and
+`providerHttpStatus=429`. Lodgify Support confirmed in ticket **1273213** that its API protection
+considers the source IP in addition to the API key and identified Cloudflare shared egress as the
+likely cause. The agreed mitigation is allowlisting the central server-side User-Agent
+`AMARA-Booking-Gateway/1.0`. Following Support's instruction, AMARA will make no further real test
+requests until the allowlist is confirmed.
+
 ## Provider portability
 
 AMARA-facing booking contracts should remain provider-neutral, with Lodgify as the first adapter. A later change to a provider such as Cloudbeds should ideally affect credentials, adapter mapping and checkout handoff rather than AMARA's public booking UI, property identities or consumer contracts.

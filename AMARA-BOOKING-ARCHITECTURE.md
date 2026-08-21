@@ -141,6 +141,20 @@ AMARA website / future approved consumer
 
 The implementation supports Lodgify only. There is no speculative Cloudbeds adapter.
 
+### Sole Lodgify integration path
+
+All server-side Lodgify API traffic from AMARA must run through the central AMARA Booking Gateway
+and its Lodgify adapter. This applies to availability, rates and quotes and to future last-minute,
+promotion, accommodation-search and AI/concierge capabilities. No AMARA feature may create a
+parallel direct Lodgify API integration.
+
+The adapter centrally sets the allowlist-relevant `User-Agent` to
+`AMARA-Booking-Gateway/1.0`. API credentials, provider IDs, provider and User-Agent behavior, and
+provider error handling remain gateway/adapter infrastructure responsibilities. In particular, a
+future AI/concierge agent must know and use only stable AMARA-facing gateway operations, not
+Lodgify-specific details. A later change of website framework, hosting platform or booking provider
+should not unnecessarily change that AMARA-facing interface.
+
 ### Public routes and stable operations
 
 The public Cloudflare Pages Function routes are:
