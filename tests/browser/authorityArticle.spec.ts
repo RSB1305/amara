@@ -88,6 +88,8 @@ interface AuthorityPage {
   interleaved: InterleavedBlock[];
   /** Attribute each text section carries in addition to its id. */
   sectionMarkerAttribute: string | null;
+  /** Whether the supporting chapters render inside one shared card grid. */
+  groupSupportingSections?: boolean;
   closingCtas: [ClosingCta, ClosingCta];
 }
 
@@ -179,13 +181,14 @@ const AUTHORITY_PAGES: AuthorityPage[] = [
     routeToken: 'nerja_geography',
     pageId: 'nerja-geography',
     content: nerjaGeographyContent,
-    heroMark: () => '36° N',
+    heroMark: null,
     relatedColumns: 'md:grid-cols-2',
     blockBeforeSections: 'orientation:nerja',
     blockAfterSections: null,
     arrivalModules: null,
     interleaved: [],
     sectionMarkerAttribute: null,
+    groupSupportingSections: true,
     closingCtas: [
       { token: 'playa', labelKey: 'propertyLabel', className: PRIMARY_CTA_CLASS },
       { token: 'location_nerja', labelKey: 'locationLabel', className: SECONDARY_CTA_CLASS }
@@ -211,13 +214,14 @@ const AUTHORITY_PAGES: AuthorityPage[] = [
     routeToken: 'tarifa_geography',
     pageId: 'tarifa-geography',
     content: tarifaGeographyContent,
-    heroMark: () => '36° N',
+    heroMark: null,
     relatedColumns: 'md:grid-cols-2',
     blockBeforeSections: 'orientation:tarifa',
     blockAfterSections: null,
     arrivalModules: null,
     interleaved: [],
     sectionMarkerAttribute: null,
+    groupSupportingSections: true,
     closingCtas: [
       { token: 'location_tarifa', labelKey: 'locationLabel', className: PRIMARY_CTA_CLASS },
       { token: 'tarifa_experience_hub', labelKey: 'experienceLabel', className: SECONDARY_CTA_CLASS }
@@ -316,6 +320,12 @@ const articleBlocks = (page: Page, pageId: string): Promise<BlockFingerprint[]> 
       if (orientation) return { kind: `orientation:${orientation}`, marker: null };
       if (arrivalModule) return { kind: `arrival:${arrivalModule}`, marker: null };
       if (node.hasAttribute('data-am-climate-table')) return { kind: 'climate-table', marker: null };
+      const groupedSectionIds = Array.from(
+        node.querySelectorAll<HTMLElement>('[data-am-authority-layout="card"][id]')
+      ).map((section) => section.id);
+      if (groupedSectionIds.length > 0) {
+        return { kind: `section-group:${groupedSectionIds.join(',')}`, marker: null };
+      }
       if (node.id) return { kind: `section:${node.id}`, marker };
       if (node.querySelector('dl')) return { kind: 'facts', marker: null };
       if (node.querySelector('figure')) return { kind: 'stay-bridge', marker: null };
@@ -343,6 +353,19 @@ function expectedBlocks(entry: AuthorityPage, locale: AuthorityArticleLocale): B
       kind: `arrival:${module}`,
       marker: null
     })));
+  } else if (entry.groupSupportingSections) {
+    const [leadSection, ...remainingSections] = locale.sections;
+    const practicalSection = remainingSections.pop();
+    const supportingSections = remainingSections;
+
+    blocks.push({ kind: `section:${leadSection.id}`, marker: null });
+    blocks.push({
+      kind: `section-group:${supportingSections.map((section) => section.id).join(',')}`,
+      marker: null
+    });
+    if (practicalSection) {
+      blocks.push({ kind: `section:${practicalSection.id}`, marker: null });
+    }
   } else {
     locale.sections.forEach((section, index) => {
       blocks.push({
@@ -408,7 +431,7 @@ for (const entry of AUTHORITY_PAGES) {
     }
 
     // Fact strip.
-    const facts = article.locator('dl');
+    const facts = article.locator(':scope > section').first().locator('dl');
     await expect(facts).toHaveCount(1);
     await expect(facts.locator('dt')).toHaveText(locale.facts.map((fact) => fact.label));
     await expect(facts.locator('dd')).toHaveText(locale.facts.map((fact) => fact.value));
@@ -416,7 +439,7 @@ for (const entry of AUTHORITY_PAGES) {
     // Text sections keep their ids, headings and paragraph counts.
     if (!entry.arrivalModules) {
       for (const section of locale.sections) {
-        const sectionRoot = article.locator(`section[id="${section.id}"]`);
+        const sectionRoot = article.locator(`[id="${section.id}"]`);
         await expect(sectionRoot).toHaveCount(1);
         await expect(sectionRoot.locator('h2')).toHaveText(section.title);
         // One eyebrow paragraph precedes the authored body paragraphs.
