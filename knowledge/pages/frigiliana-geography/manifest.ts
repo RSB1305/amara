@@ -5,8 +5,8 @@ export const frigilianaGeographyKnowledge = defineKnowledgePageManifest({
   destination: 'frigiliana',
   topic: 'geography-orientation',
   createdAt: '2026-08-21T11:26:50+02:00',
-  updatedAt: '2026-08-21T11:26:50+02:00',
-  status: 'awaiting-research',
+  updatedAt: '2026-08-21T11:49:45+02:00',
+  status: 'research-received',
   driveFolder: {
     id: '1Lj0kiPAHq0_OZUOCpc00IP1degUBTckL',
     url: 'https://drive.google.com/drive/folders/1Lj0kiPAHq0_OZUOCpc00IP1degUBTckL',

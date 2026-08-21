@@ -81,11 +81,20 @@ export interface KnowledgeDriveFile {
   path: string;
 }
 
+export interface KnowledgeRawArtifact extends KnowledgeDriveFile {
+  mimeType: string;
+  sizeBytes: number;
+  preservation: 'original-upload' | 'rendered-text-export';
+  originalName?: string;
+}
+
 export interface KnowledgeResearchInput {
   provider: KnowledgeResearchProvider;
   destination: KnowledgeDriveFolder;
   status: 'awaiting-upload' | 'uploaded' | 'ingested';
   receivedAt?: string;
+  sourceUrl?: string;
+  artifact?: KnowledgeRawArtifact;
 }
 
 export interface KnowledgeResearchRun {
@@ -93,6 +102,7 @@ export interface KnowledgeResearchRun {
   topic: string;
   subjects: readonly string[];
   createdAt: string;
+  updatedAt: string;
   status: KnowledgeResearchRunStatus;
   promptPath: string;
   promptDriveFile: KnowledgeDriveFile;
@@ -116,7 +126,7 @@ export interface KnowledgePageManifest {
   topic: string;
   createdAt: string;
   updatedAt: string;
-  status: 'awaiting-research' | 'normalizing' | 'ready' | 'needs-review';
+  status: 'awaiting-research' | 'research-received' | 'normalizing' | 'ready' | 'needs-review';
   driveFolder: KnowledgeDriveFolder;
   publicContentPath: string;
   researchRunIds: readonly string[];

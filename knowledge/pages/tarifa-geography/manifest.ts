@@ -5,8 +5,8 @@ export const tarifaGeographyKnowledge = defineKnowledgePageManifest({
   destination: 'tarifa',
   topic: 'geography-orientation',
   createdAt: '2026-08-21T11:26:50+02:00',
-  updatedAt: '2026-08-21T11:26:50+02:00',
-  status: 'awaiting-research',
+  updatedAt: '2026-08-21T11:49:45+02:00',
+  status: 'research-received',
   driveFolder: {
     id: '18j95VcyhCe2aOsRX0XmXFKHZ07TForA1',
     url: 'https://drive.google.com/drive/folders/18j95VcyhCe2aOsRX0XmXFKHZ07TForA1',

@@ -1,10 +1,10 @@
 ---
 document_id: AMARA-KNOWLEDGE-OPS-001
 title: AMARA Research and Knowledge Workflow
-version: 1.0.0
+version: 1.0.1
 status: ACTIVE
 created_at: 2026-08-21T11:26:50+02:00
-last_modified: 2026-08-21T11:26:50+02:00
+last_modified: 2026-08-21T11:49:45+02:00
 ---
 
 # AMARA Research and Knowledge Workflow
@@ -37,11 +37,16 @@ The current combined Geography & Orientation run is:
 
 - run ID: `2026-08-21__112650__geography-orientation__research-001`
 - created: `2026-08-21T11:26:50+02:00`
-- status: `awaiting-raw`
+- status: `raw-received`
 - Drive: [open upload run](https://drive.google.com/drive/folders/1HL7uYADn_GHrQCMsD7Qsv9duZtSNdCBA)
 - exact prompt: [open research brief](https://drive.google.com/file/d/13oumAGPHGugLDJK8OvjjlFbu5-l1fNZA/view?usp=drivesdk)
 
-Upload GPT output to `02_GPT_RAW`, Gemini output to `03_GEMINI_RAW`, source exports to `04_SOURCE_MATERIAL` and human context to `05_OPERATOR_NOTES`. The original files remain unchanged after ingestion.
+GPT and Gemini raw inputs are present in `02_GPT_RAW` and `03_GEMINI_RAW`. Source exports belong in `04_SOURCE_MATERIAL` and human context in `05_OPERATOR_NOTES`. Original uploads remain unchanged after ingestion; where a provider exposes only a share page, the archive records the capture method and preserves the share URL.
+
+| Provider | Received | Canonical raw filename | Preservation |
+|---|---|---|---|
+| GPT Deep Research | 2026-08-21T11:45:23+02:00 | `2026-08-21__114446__gpt__geography-orientation__raw.md` | Original Markdown upload; filename normalized only |
+| Gemini Deep Research | 2026-08-21T11:49:45+02:00 | `2026-08-21__114907__gemini__geography-orientation__raw.txt` | Rendered main-content text capture; source share URL retained |
 
 ## Git structure
 
@@ -72,3 +77,4 @@ A page can become shorter or change layout without reducing its knowledge base. 
 | Timestamp | Version | Change |
 |---|---:|---|
 | 2026-08-21T11:26:50+02:00 | 1.0.0 | Established the Drive raw archive, Git evaluation layer, page manifests and immutable timestamped research runs. |
+| 2026-08-21T11:49:45+02:00 | 1.0.1 | Recorded both raw research inputs, normalized filenames and advanced the Geography & Orientation run to `raw-received`. |
