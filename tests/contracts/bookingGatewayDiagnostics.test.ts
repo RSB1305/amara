@@ -179,6 +179,39 @@ test('keeps dynamic property and room discovery available to the sandbox', async
   });
 });
 
+test('identifies every Lodgify request with the central server-side user agent', async () => {
+  const requests: RequestInit[] = [];
+  const client = createLodgifyClient({
+    apiKey: SECRET,
+    fetchImpl: (async (input: RequestInfo | URL, init?: RequestInit) => {
+      requests.push(init ?? {});
+      const pathname = new URL(String(input)).pathname;
+      if (pathname === '/v2/properties') {
+        return jsonResponse([{ id: 'sandbox-property', name: 'Maha' }]);
+      }
+      if (pathname.endsWith('/rooms')) {
+        return jsonResponse([{ id: 'sandbox-room', name: 'Only room' }]);
+      }
+      return jsonResponse({});
+    }) as typeof fetch
+  });
+
+  await client.resolveStay(getLodgifyDiscoveryMapping('maha'));
+  await client.getAvailability('property', 'room', CALENDAR_START, CALENDAR_END);
+  await client.getRates('property', 'room', CALENDAR_START, CALENDAR_END);
+  await client.getQuote('property', 'room', CALENDAR_START, QUOTE_DEPARTURE);
+
+  expect(requests).toHaveLength(5);
+  for (const request of requests) {
+    expect(request.method).toBe('GET');
+    expect(request.headers).toEqual({
+      'X-ApiKey': SECRET,
+      Accept: 'application/json',
+      'User-Agent': 'AMARA-Booking-Gateway/1.0'
+    });
+  }
+});
+
 test('logs a safe rates network diagnostic', async () => {
   const { response, logs } = await runRoute(
     'rates',

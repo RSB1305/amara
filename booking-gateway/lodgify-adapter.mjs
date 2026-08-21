@@ -1,5 +1,6 @@
 const API_ORIGIN = 'https://api.lodgify.com';
 const REQUEST_TIMEOUT_MS = 20_000;
+const LODGIFY_USER_AGENT = 'AMARA-Booking-Gateway/1.0';
 
 export class LodgifyProviderError extends Error {
   constructor(message, options = {}) {
@@ -36,7 +37,11 @@ export function createLodgifyClient({ apiKey, fetchImpl = fetch }) {
     try {
       response = await fetchImpl(url, {
         method: 'GET',
-        headers: { 'X-ApiKey': apiKey, Accept: 'application/json' },
+        headers: {
+          'X-ApiKey': apiKey,
+          Accept: 'application/json',
+          'User-Agent': LODGIFY_USER_AGENT,
+        },
         signal: AbortSignal.timeout(REQUEST_TIMEOUT_MS),
       });
     } catch (error) {
