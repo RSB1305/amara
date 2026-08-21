@@ -3,12 +3,15 @@ import { dev } from 'astro';
 import { fileURLToPath } from 'node:url';
 import { gettingToNerjaContent } from '../../src/content/gettingToNerjaContent';
 import { gettingToTarifaContent } from '../../src/content/gettingToTarifaContent';
+import { frigilianaParkingGuideContent } from '../../src/content/frigilianaParkingGuideContent';
 import { nerjaBalconContent } from '../../src/content/nerjaBalconContent';
 import { nerjaCavesContent } from '../../src/content/nerjaCavesContent';
 import { nerjaDailyLifeContent } from '../../src/content/nerjaDailyLifeContent';
 import { nerjaGeographyContent } from '../../src/content/nerjaGeographyContent';
+import { nerjaParkingContent } from '../../src/content/nerjaParkingContent';
 import { tarifaDailyLifeContent } from '../../src/content/tarifaDailyLifeContent';
 import { tarifaGeographyContent } from '../../src/content/tarifaGeographyContent';
+import { tarifaParkingContent } from '../../src/content/tarifaParkingContent';
 import { tarifaWinterStaysContent } from '../../src/content/tarifaWinterStaysContent';
 import { resolveLink, type LinkToken } from '../../src/lib/linkResolver';
 import type { AmaraLanguage } from '../../src/types/seo';
@@ -124,6 +127,54 @@ const AUTHORITY_PAGES: AuthorityPage[] = [
     closingCtas: [
       { token: 'location_tarifa', labelKey: 'locationLabel', className: PRIMARY_CTA_CLASS },
       { token: 'tarifa_where_to_stay', labelKey: 'areasLabel', className: SECONDARY_CTA_CLASS }
+    ]
+  },
+  {
+    routeToken: 'frigiliana_parking',
+    pageId: 'frigiliana-parking',
+    content: frigilianaParkingGuideContent,
+    heroMark: null,
+    relatedColumns: 'md:grid-cols-3',
+    blockBeforeSections: null,
+    blockAfterSections: null,
+    arrivalModules: null,
+    interleaved: [],
+    sectionMarkerAttribute: 'data-am-parking-section',
+    closingCtas: [
+      { token: 'romantic_hideaways', labelKey: 'propertyLabel', className: PRIMARY_CTA_CLASS },
+      { token: 'location_frigiliana', labelKey: 'locationLabel', className: SECONDARY_CTA_CLASS }
+    ]
+  },
+  {
+    routeToken: 'nerja_parking',
+    pageId: 'nerja-parking',
+    content: nerjaParkingContent,
+    heroMark: null,
+    relatedColumns: 'md:grid-cols-3',
+    blockBeforeSections: null,
+    blockAfterSections: null,
+    arrivalModules: null,
+    interleaved: [],
+    sectionMarkerAttribute: 'data-am-parking-section',
+    closingCtas: [
+      { token: 'playa', labelKey: 'propertyLabel', className: PRIMARY_CTA_CLASS },
+      { token: 'location_nerja', labelKey: 'locationLabel', className: SECONDARY_CTA_CLASS }
+    ]
+  },
+  {
+    routeToken: 'tarifa_parking',
+    pageId: 'tarifa-parking',
+    content: tarifaParkingContent,
+    heroMark: null,
+    relatedColumns: 'md:grid-cols-3',
+    blockBeforeSections: null,
+    blockAfterSections: null,
+    arrivalModules: null,
+    interleaved: [],
+    sectionMarkerAttribute: 'data-am-parking-section',
+    closingCtas: [
+      { token: 'casa', labelKey: 'propertyLabel', className: PRIMARY_CTA_CLASS },
+      { token: 'location_tarifa', labelKey: 'locationLabel', className: SECONDARY_CTA_CLASS }
     ]
   },
   {
@@ -292,7 +343,8 @@ const articleBlocks = (page: Page, pageId: string): Promise<BlockFingerprint[]> 
       const arrivalModule = node.getAttribute('data-am-arrival-module');
       const marker =
         node.getAttribute('data-am-daily-life-section') ??
-        node.getAttribute('data-am-winter-stays-section');
+        node.getAttribute('data-am-winter-stays-section') ??
+        node.getAttribute('data-am-parking-section');
 
       if (node.tagName === 'HEADER') return { kind: 'header', marker: null };
       if (orientation) return { kind: `orientation:${orientation}`, marker: null };

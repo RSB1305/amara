@@ -343,6 +343,20 @@ const PUBLIC_ROUTE_LABELS: Partial<Record<string, Record<AmaraLanguage, string>>
     nl: 'Parkeren',
     sv: 'Parkering'
   },
+  'nerja-parking': {
+    en: 'Parking & Accessibility',
+    de: 'Parken & Erreichbarkeit',
+    es: 'Aparcamiento y acceso',
+    nl: 'Parkeren & toegankelijkheid',
+    sv: 'Parkering & tillgänglighet'
+  },
+  'tarifa-parking': {
+    en: 'Parking & Accessibility',
+    de: 'Parken & Erreichbarkeit',
+    es: 'Aparcamiento y acceso',
+    nl: 'Parkeren & toegankelijkheid',
+    sv: 'Parkering & tillgänglighet'
+  },
   'frigiliana-weather': {
     en: 'Weather & Seasons',
     de: 'Wetter & Jahreszeiten',
@@ -477,7 +491,8 @@ const TARIFA_LOCATION_GUIDE_SLUGS = new Set([
   'tarifa-where-to-stay',
   'tarifa-weather',
   'tarifa-daily-life',
-  'tarifa-winter-stays'
+  'tarifa-winter-stays',
+  'tarifa-parking'
 ]);
 
 const TARIFA_EXPERIENCE_SLUGS = new Set([
@@ -509,7 +524,8 @@ const NERJA_LOCATION_GUIDE_SLUGS = new Set([
   'nerja-location',
   'getting-to-nerja',
   'nerja-where-to-stay',
-  'nerja-winter-stays'
+  'nerja-winter-stays',
+  'nerja-parking'
 ]);
 
 const PRIMARY_TRUST_PAGE_SLUGS = new Set([

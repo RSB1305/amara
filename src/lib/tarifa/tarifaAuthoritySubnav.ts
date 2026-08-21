@@ -161,7 +161,7 @@ const locationChildren: Record<LocationGuideTopicId, LinkToken | undefined> = {
   'where-to-stay': 'tarifa_where_to_stay',
   'weather-seasons': 'tarifa_weather',
   'winter-stays': 'tarifa_winter_stays',
-  'parking-accessibility': undefined,
+  'parking-accessibility': 'tarifa_parking',
   'shopping-markets': 'tarifa_daily_life',
   'health-emergency': undefined,
   'practical-local-rules': undefined

@@ -55,5 +55,19 @@ export const frigilianaParkingOpenQuestions = defineKnowledgeOpenQuestions([
     preferredEvidence: 'Current municipal parking map and dated on-site signage for each named area.',
     status: 'open',
     createdAt: '2026-08-20'
+  },
+  {
+    id: 'frigiliana.parking.question-day-overnight-rhythm',
+    subject: 'frigiliana',
+    topic: 'parking',
+    question:
+      'Can the observed difference between day-visitor and overnight-guest parking times be documented across representative weekdays, weekends and seasons?',
+    priority: 'medium',
+    reason:
+      'The operator insight is distinctive and commercially relevant, but exact time windows should not be generalized from memory alone.',
+    preferredEvidence:
+      'Dated host logs or structured observations at the main parking context across high, shoulder and low season.',
+    status: 'open',
+    createdAt: '2026-08-21'
   }
 ] as const);

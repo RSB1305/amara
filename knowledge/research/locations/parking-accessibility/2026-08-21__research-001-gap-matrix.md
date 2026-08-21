@@ -1,8 +1,8 @@
 ---
 research_run_id: 2026-08-21__184630__parking-accessibility__research-001
-document_type: pre-research-gap-matrix
+document_type: normalized-gap-matrix
 created_at: 2026-08-21T18:46:30+02:00
-status: AWAITING_RESEARCH
+status: NORMALIZED
 subjects:
   - frigiliana
   - nerja
@@ -13,15 +13,15 @@ subjects:
 
 ## Scope
 
-Diese Matrix sichert den vorhandenen Wissens- und Seitenstand vor dem Research. Sie gibt weder drei eigenständige Parkseiten noch einen gemeinsamen öffentlichen Baukasten frei. Die Recherche entscheidet je Destination zwischen eigenständiger Seite, Anreise-Modul, sauber getrenntem Mischmodell und vorläufigem Verzicht.
+Diese Matrix dokumentiert die Architekturentscheidung nach GPT-Research, Prüfung tragender Primärquellen und Aufnahme des Betreiberwissens. Alle drei Destinationen erhalten eine eigenständige Seite mit einem gemeinsamen semantischen Baukasten; das knappe Parkmodul in „Anreise & Mobilität“ bleibt als Einstieg erhalten.
 
 ## Aktueller Architekturstand
 
 | Ort | Öffentlicher Stand | Git-Knowledge-Stand | Hauptfrage |
 |---|---|---|---|
-| Frigiliana | eigenständige Park-/Zugänglichkeitsseite plus Parkmodul in „Anreise & Mobilität“ | Fakten, Quellen und offene Fragen vorhanden | Bleibt die eigenständige Seite fachlich und SEO-seitig gerechtfertigt, und ist ihre Abgrenzung sauber? |
-| Nerja | Parken nur in „Anreise & Mobilität“ | neuer leerer Zielspeicher für normalisierte Fakten und offene Fragen | Rechtfertigen Suchintention und Ortskomplexität eine eigenständige Seite? |
-| Tarifa | Parken nur in „Anreise & Mobilität“ | neuer leerer Zielspeicher für normalisierte Fakten und offene Fragen | Braucht Tarifa einen Ortsguide, oder gehören Altstadt-, Strand- und Unterkunftsparken in getrennte bestehende Owner? |
+| Frigiliana | eigenständige Seite plus Parkmodul in „Anreise & Mobilität“ | normalisierte Fakten, Quellen und offene Fragen | historischer Kern, letzter Weg und Tages-/Übernachtungsrhythmus |
+| Nerja | neue eigenständige Seite plus Parkmodul in „Anreise & Mobilität“ | normalisierte Fakten, Quellen und offene Fragen | Zentrum, Verano Azul und Burriana als unterschiedliche Parkkontexte |
+| Tarifa | neue eigenständige Seite plus Parkmodul in „Anreise & Mobilität“ | normalisierte Fakten, Quellen und offene Fragen | Stadt/Strand-Trennung, Hochsaison und AMARA-Garage |
 
 ## Zu prüfender gemeinsamer Inhaltsrahmen
 
@@ -38,22 +38,22 @@ Diese Matrix sichert den vorhandenen Wissens- und Seitenstand vor dem Research. 
 11. FAQ;
 12. Quellen und verwandte Guides.
 
-Dieser Rahmen ist eine Research-Hypothese. Module dürfen entfallen, optional werden oder einem anderen Guide zugewiesen werden.
+Der öffentliche Baukasten konsolidiert diese Hypothese in sechs Kernkapitel: Parkrealität, Ankunft/Gepäck, während des Aufenthalts, letzter Weg/Zugänglichkeit, Saison/Live-Regeln und AMARA-Grenze. FAQ wird erst ergänzt, wenn neue belastbare Nutzerfragen eigenständige Antworten rechtfertigen.
 
 ## Vorhandene und fehlende Evidenz
 
 | Evidenzfeld | Frigiliana | Nerja | Tarifa |
 |---|---|---|---|
-| offizielle Parkregeln und Zonen | teilweise/offen | fehlt | fehlt |
-| konkrete Parkoptionen | teilweise, dynamisch | nicht normalisiert | nicht normalisiert |
+| offizielle Parkregeln und Zonen | historisch, aktueller Stand offen | mehrere Anlagen belegt, Gesamtregel offen | Systemwechsel belegt, Gesamtregel offen |
+| konkrete Parkoptionen | zentrale Garage beobachtet | Balcón, Verano Azul und Burriana belegt | private AMARA-Garage als Baseline; öffentliche Kontexte dynamisch |
 | Tarife und Öffnungszeiten | datierte Beobachtung, volatil | fehlt | fehlt |
 | Zufahrt und Drop-off | offen | nicht normalisiert | nicht normalisiert |
 | letzter Weg und Terrain | allgemein teilweise | fehlt | fehlt |
 | barrierearme Routen | offen | fehlt | fehlt |
-| saisonaler Parkdruck | nicht belastbar normalisiert | fehlt | fehlt |
+| saisonaler Parkdruck | Betreiber-Rhythmus, keine Statistik | keine belastbare Belegung | Betreiber-Erfahrung Juli/August |
 | EV/Ladepunkte | fehlt | fehlt | fehlt |
-| Suchintention/SEO | fehlt | fehlt | fehlt |
-| Property-spezifischer Nachweis | routenabhängig offen | AMARA Playa zu bestätigen | Family & Surf Garage zu bestätigen |
+| Suchintention/SEO | eigenständiger Planungsjob bestätigt | eigenständiger Kontextjob bestätigt | eigenständiger Saison-/Kontextjob bestätigt |
+| Property-spezifischer Nachweis | routenabhängig offen | Street-parking-Baseline, Property Pack offen | Garage-Baseline, Maße und Route offen |
 
 ## Claim-Grenzen vor Research
 
@@ -73,10 +73,10 @@ Dieser Rahmen ist eine Research-Hypothese. Module dürfen entfallen, optional we
 | Nerja durable topic folder | `1sQx2aPUfNWmssda3NpQRFWnWf23qln9U` |
 | Tarifa durable topic folder | `1jkOsn2qRwF_a7mw871MH21PzVDqMsLVo` |
 
-## Nach Eingang der Rohrecherche
+## Nächster Research-Zyklus
 
-1. GPT- und Gemini-Ergebnisse unverändert in ihre Provider-Ordner legen.
-2. Eingänge im Run-Manifest dokumentieren, ohne ältere Artefakte zu überschreiben.
-3. Quellen, Fakten, Konflikte und offene Fragen je Ort normalisieren.
-4. Architekturmodell A/B/C/D je Destination begründen.
-5. Erst nach Abstimmung gegebenenfalls Page-Manifeste, Routen oder öffentliche Inhalte anlegen beziehungsweise ändern.
+1. Aktuelle kommunale Zonen, Tarife, Öffnungszeiten und Zahlungsarten erheben.
+2. AMARA Playa und Family & Surf mit datierten Property Packs prüfen.
+3. Frigiliana-Rhythmus mit strukturierten Beobachtungen validieren.
+4. Tarifa-Strandparken je Strandguide statt als Universalregel erfassen.
+5. Neue Ergebnisse mit neuer Run-ID ergänzen und atomare Fakten explizit supersedieren.
