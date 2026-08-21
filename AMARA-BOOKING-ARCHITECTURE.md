@@ -86,61 +86,51 @@ elsewhere. It is not a clickable CTA and must not be removed as "leftover".
 
 ---
 
-## Lodgify API Key
+## Lodgify API key and server boundary
 
-The key is **build-time only**. It never reaches the browser and never runs at request time.
+`LODGIFY_API_KEY` is a **server-side secret only**. Lodgify API keys are account-wide and can read
+reservations and guest data and can perform write operations, so exposing the credential would be
+a privacy and operational incident.
 
-Lodgify API keys are account-wide and can read reservations and guest data, so runtime exposure
-would be a privacy incident, not just a billing risk. Build-time use is the containment.
+- Production: encrypted Cloudflare Pages Function secret/binding named `LODGIFY_API_KEY`
+- Local sandbox only: `.env` (covered by `.gitignore`)
+- Never: browser JavaScript, public HTML, a `PUBLIC_` environment variable, URL, response, log,
+  prompt or Git
 
-- Storage: Cloudflare Pages → Settings → Environment variables, encrypted, Production build env
-- Local: `.env` (already covered by `.gitignore`)
-- Never: committed, pasted into a chat tool, or read at runtime
+Astro pages do not read this binding. The static build makes no Lodgify request, so a provider
+outage cannot block or slow a normal page build or page load.
 
-### What the API may write
-
-Only volatile numbers: **price, minimum stay, availability**.
-
-Photos, amenities, descriptions, alt texts and SEO copy are hand-authored in five languages in
-`src/content/vacationRentalEntities.ts` and guarded by `scripts/check-image-policy.mjs`. A
-nightly job that overwrites them would destroy editorial work silently. This boundary is not
-negotiable.
-
-### Build resilience
-
-`npm run build` hard-aborts on policy violations. A Lodgify outage must not join that list —
-the fetch needs a last-known-good fallback so an unreachable API cannot block a deploy.
-
-### Why build-time
-
-Prices baked into HTML are readable by Google and AI assistants. Prices fetched by JavaScript
-after a click are invisible to them — which is why the embedded Lodgify Search widget
-complements static prices but cannot replace them.
-
-Because the widget handles live availability, **no SSR is required**: no Cloudflare adapter, no
-runtime key, no rate-limit exposure. The site stays fully static.
+The provider adapter contains fixed GET operations only. It does not expose a generic provider
+path or HTTP method and does not implement reservation, guest, payment, create, update or cancel
+operations. Photos, amenities, descriptions, alt texts and SEO copy remain hand-authored in five
+languages in `src/content/vacationRentalEntities.ts`; operational data cannot overwrite them.
 
 ---
 
-## Provider-neutral Booking Gateway direction
+## Provider-neutral Booking Gateway v1
 
 **Recorded:** 2026-08-20T21:20:00+02:00  
-**Status:** APPROVED ARCHITECTURE DIRECTION — implementation pending  
+**Implemented:** 2026-08-21T07:59:00+02:00
+**Status:** ACTIVE CONTRACT — implemented locally; deployment/push not performed
 **Current provider:** Lodgify  
 **Portability objective:** a later PMS/booking-provider change (for example to Cloudbeds) must not require a rewrite of AMARA's public booking UI, live-availability surfaces, promotions/last-minute logic or future AI concierge.
 
-This section records the target direction only. It does **not** supersede the current build-time-only API-key contract above and does not authorize a production runtime integration by itself. Any move from build-time API use to a request-time server-side data layer remains a separately confirmed Class-3 implementation.
+This section supersedes the former absolute build-time-only API rule with one narrow request-time
+exception: Cloudflare Pages Functions may call the approved read-only Booking Gateway after an
+explicit booking interaction. It does not turn Astro into an SSR runtime.
 
-**MVP verification, 2026-08-21:** Lodgify API sandbox MVP verified PASS: authentication, property/room resolution, availability, rates and quote. See [the non-normative evidence record](docs/lodgify/AMARA_Lodgify_API_MVP_Evidence_2026-08-21.md). This verification does not authorize a production runtime; implementation remains pending.
+**MVP verification, 2026-08-21:** Lodgify API sandbox MVP verified PASS: authentication,
+property/room resolution, availability, rates and quote. The production adapter and sandbox now
+share the same request and normalization core. See [the non-normative evidence record](docs/lodgify/AMARA_Lodgify_API_MVP_Evidence_2026-08-21.md).
 
-### Target boundary
+### Implemented boundary
 
-AMARA should own a narrow provider-neutral **Booking Gateway**. Public consumers talk to AMARA concepts; provider-specific APIs remain behind an adapter.
+AMARA owns a narrow provider-neutral **Booking Gateway**. Public consumers talk to AMARA concepts; provider-specific APIs remain behind an adapter.
 
 Conceptual shape:
 
 ```text
-AMARA website / future AI concierge
+AMARA website / future approved consumer
             |
       AMARA Booking Gateway
             |
@@ -149,31 +139,54 @@ AMARA website / future AI concierge
    Lodgify today / another provider later
 ```
 
-The first implementation should support Lodgify only. Do not build a speculative multi-provider framework or a Cloudbeds adapter before there is a real migration/test requirement.
+The implementation supports Lodgify only. There is no speculative Cloudbeds adapter.
 
-### Stable AMARA-facing operations
+### Public routes and stable operations
 
-The gateway should expose only the small capability set that AMARA actually needs, for example:
+The public Cloudflare Pages Function routes are:
+
+- `GET /api/booking/availability`
+- `GET /api/booking/rates`
+- `GET /api/booking/quote`
+
+They expose only the matching AMARA-facing operations:
 
 - `getAvailability(...)`
 - `getRates(...)`
 - `getQuote(...)`
-- `findAvailableStays(...)`
-- `findLastMinuteGaps(...)`
 
-Future write capabilities such as reservation creation must be a separate, explicitly approved contract. They are not part of the initial gateway.
+All inputs use a known AMARA stay key and strict ISO dates. Calendar windows are limited to 45
+days, quotes require departure after arrival, dates are limited to a plausible future horizon,
+and adult/child/pet counts are bounded. Unknown query parameters, duplicate values, arbitrary
+URLs and provider IDs are rejected. Future write capabilities require a separate explicitly
+approved contract.
+
+Responses contain only AMARA-relevant availability days, public nightly rate options and quote
+totals. Rates may contain multiple options with different minimum/maximum stays. A calendar rate
+is orientation only; the current quote is authoritative and AMARA must never calculate a binding
+total as nightly rate multiplied by nights.
 
 ### Provider IDs stay behind the adapter
 
 AMARA surfaces should identify stays with stable AMARA keys such as `maha`, `lounis`, `zaid`, `farah`, `playa` and `tarifa`.
 
-Provider identifiers such as Lodgify `propertyId` and `roomTypeId` belong inside the Lodgify adapter/configuration and must not leak into page content, UI components, URL architecture or future concierge prompts. A provider change then replaces the mapping/adapter rather than the AMARA-facing contract.
+Provider identifiers such as Lodgify `propertyId` and `roomTypeId` belong inside the Lodgify
+adapter/mapping and must not leak into page content, UI components, public URLs, JSON responses or
+future concierge prompts. `maha` is the only configured v1 canary: its unique property and single
+room-type resolution is the flow verified by the MVP. `lounis`, `zaid`, `farah`, `playa` and
+`tarifa` are recognized AMARA keys but deliberately return `stay_unconfigured` until a controlled
+provider-ID discovery verifies their mappings. IDs must not be guessed.
 
-### Security direction
+### Security and failure boundary
 
-Provider credentials are server-side secrets only. The browser, public HTML, client JavaScript and future AI-assistant prompts must never receive the provider API key.
+Lodgify Support confirmed on 2026-08-20 that there is no separate read-only/restricted API key.
+The gateway therefore accepts GET only, uses fixed provider paths and returns small controlled JSON
+errors. Provider error objects, stack traces, provider IDs and credential details are never public.
+All v1 responses use `Cache-Control: no-store`; long-lived caching remains measurement-led.
 
-For Lodgify specifically, Support confirmed on 2026-08-20 that there is currently no separate read-only/restricted API key. Therefore any future runtime integration must expose only narrowly defined AMARA read operations rather than a generic proxy to arbitrary Lodgify endpoints.
+Before a visible production consumer is activated, Cloudflare account configuration must add a
+rate-limit/WAF rule scoped to `/api/booking/*`. The limit must be tuned from observed booking
+traffic and provider limits. An in-memory Function counter is not an acceptable substitute.
 
 ### Lodgify data and checkout split
 
@@ -191,7 +204,12 @@ Support also corrected a prior reference to "Checkout a booking at the specified
 
 ### Static-first performance contract
 
-The target gateway must not turn the marketing site into a generally dynamic application. Normal public pages remain static-first. Live booking data should be requested only when a booking-related interaction needs it, and any future server-side route must be narrowly scoped so homepage/content delivery does not inherit booking-runtime cost.
+Astro remains static output with no adapter and no global server-runtime change. Homepage, rental,
+Location, Explore and Trust pages make no Lodgify request during normal page load. The Functions
+directory is deployed separately beside `dist/`; it adds no browser bundle and runs only when one
+of the three API routes is explicitly requested. `public/_routes.json` restricts Cloudflare Pages
+Function invocation to `/api/booking/*`, so normal static assets do not run through the Worker.
+This workstream adds no calendar UI, header, layout, homepage or rental-page JavaScript.
 
 ### Migration principle
 
