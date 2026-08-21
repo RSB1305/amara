@@ -1,14 +1,15 @@
 ---
 document_id: AMARA-INT-CONTENT-010
-title: AMARA Content Production & Localization Playbook V1.2
-version: 1.2
+title: AMARA Content Production & Localization Playbook V1.3
+version: 1.3.0
 status: ACTIVE
 authority_class: OPERATIONAL PLAYBOOK / NON-GOVERNING INTERIM
-source_type: INTERIM SNAPSHOT FROM APPROVED PDF
+source_type: INTERIM SNAPSHOT FROM APPROVED PDF + APPROVED REPOSITORY AMENDMENT
 source_attachment: "10_AMARA_Content_Production_and_Localization_Playbook_V1_2(1).pdf"
 source_sha256: adab58c901709b270fb264498158f2cb3010006bac7dfea18e6358627a0f10ae
 snapshot_created: 2026-08-14T09:08:00+02:00
 migration_state: PENDING PACKAGE 2/3 NORMALIZATION
+last_modified: 2026-08-21T22:14:30+02:00
 ---
 
 # AMARA Content Production & Localization Playbook V1.2 — Interim Markdown Snapshot
@@ -669,3 +670,44 @@ implementation lives in an Astro page, a content object, or another internal own
 that intent into the smallest safe edit.
 The goal is not more copy or more process. The goal is more truth, better selection, more natural
 language, and the smallest workflow that can deliver those outcomes safely.
+
+## Approved repository amendment — collective host voice
+
+This operational amendment implements `TR-CONTENT-004` without changing the evidence, localization or page-job contracts above.
+
+17. Collective host perspective
+
+Normal public editorial copy speaks as AMARA's hosts in the collective first person and addresses guests in the plural second person:
+
+| Locale | AMARA host perspective | Guest address |
+|---|---|---|
+| EN | we / us / our | you / your, plural in context |
+| DE | wir / uns / unser | ihr / euch / euer |
+| ES (Spain) | nosotros / nos / nuestro | vosotros / os / vuestro |
+| NL | wij/we / ons/onze | jullie |
+| SV | vi / oss / vår | ni / er / ert/era |
+
+The perspective is binding; repetitive pronoun insertion is not. Each locale may omit pronouns or restructure sentences wherever that is the natural native-language choice. Legal, privacy, system and other explicitly formal surfaces may use the voice appropriate to their job.
+
+18. Evidence-to-host-voice bridge
+
+Knowledge records are deliberately neutral and source-oriented. Public authoring must transform them into useful, fluent host guidance rather than publish dossier or database language. The transformation may add selection, sequence, explanation and an honest host recommendation, but it must preserve:
+
+- verification status and source scope;
+- checked date, volatility and review need;
+- claim boundaries and unresolved uncertainty;
+- the distinction between external evidence and first-party observation;
+- required information, meaning depth and material nuance across locales.
+
+The authorial voice answers who is speaking; provenance answers how AMARA knows. An official or secondary fact may be explained confidently in AMARA's host voice, but it must not be rewritten as something the hosts personally saw, measured or experienced unless the knowledge record supports first-party status.
+
+19. Native drafting application
+
+All five editions receive the same required facts, page job, claim boundaries and intended meaning. EN is not a sentence template. Each edition is drafted and reviewed as native copy, including its own sentence rhythm, transitions, directness and natural use of plural address.
+
+## Revision history
+
+| Version | Timestamp | Change |
+|---|---|---|
+| 1.2 | 2026-08-10 | Approved source playbook preserved as the interim Markdown snapshot. |
+| 1.3.0 | 2026-08-21T22:14:30+02:00 | Added the collective host perspective, plural guest-address matrix and evidence-to-host-voice workflow. |

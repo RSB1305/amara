@@ -1,14 +1,15 @@
 ---
 document_id: AMARA-INT-PERF-007
-title: AMARA Performance Standard V2
-version: 2.0
+title: AMARA Performance Standard V2.1
+version: 2.1.0
 status: ACTIVE
 authority_class: PRINCIPLE / CONTRACT / GOVERNING INTERIM
-source_type: INTERIM SNAPSHOT FROM APPROVED PDF
+source_type: INTERIM SNAPSHOT FROM APPROVED PDF + APPROVED REPOSITORY AMENDMENT
 source_attachment: "07_AMARA_Performance_Standard_V2(1).pdf"
 source_sha256: 21e146ba615c2b95e65e029f2ecfc59934062cbbfe72ecd12aba0abf22842286
 snapshot_created: 2026-08-14T09:08:00+02:00
 migration_state: PENDING PACKAGE 2/3 NORMALIZATION
+last_modified: 2026-08-21T22:14:30+02:00
 ---
 
 # AMARA Performance Standard V2 — Interim Markdown Snapshot
@@ -158,3 +159,40 @@ A performance change is complete when:
 - representative pages are verified;
 - the change does not create unnecessary complexity.
 AMARA Performance Standard V2 is binding.
+
+## Approved repository amendment — measurable targets and budget baselining
+
+This amendment extends the approved snapshot without changing its measurement-led, FAST-compatible operating model.
+
+15. Measurable targets
+
+For representative production-built pages measured under a documented mobile Lighthouse profile, AMARA targets:
+
+- Lighthouse Performance score of at least 90;
+- lab LCP of at most 2.5 seconds;
+- lab CLS of at most 0.1.
+
+Where sufficient real-user field data exists, AMARA targets the 75th percentile thresholds:
+
+- INP of at most 200 milliseconds;
+- LCP of at most 2.5 seconds;
+- CLS of at most 0.1.
+
+INP is a field target and must not be represented as a result established by a local Lighthouse run. Field targets apply only when the relevant Astro page has sufficient representative production data.
+
+16. CSS and JavaScript budgets
+
+Static pages should ship no client-side JavaScript unless a concrete user benefit justifies it. Every hydrated component must be intentional. Quantitative per-page CSS and JavaScript budgets are established only after a representative production-build baseline records transfer, cache and execution behavior.
+
+During an explicitly commissioned performance audit, shipped CSS and JavaScript coverage should be reviewed and material unused delivery should be explained before budgets are set. A suspected legacy implementation is an audit hypothesis until repository or runtime evidence confirms it; it is not a canonical performance fact.
+
+17. Validation scope
+
+These targets are project performance objectives, not an automatic Lighthouse gate for every Class 0–2 FAST task. Measure them for explicit performance work, relevant global delivery changes and agreed release or audit boundaries. Use the smallest targeted validation for ordinary content and local-page work.
+
+## Revision history
+
+| Version | Timestamp | Change |
+|---|---|---|
+| 2.0 | 2026-08-10 | Approved source standard preserved as the interim Markdown snapshot. |
+| 2.1.0 | 2026-08-21T22:14:30+02:00 | Added documented lab and field targets, evidence-led asset-budget baselining and FAST-compatible validation scope. |

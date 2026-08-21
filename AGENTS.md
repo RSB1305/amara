@@ -62,6 +62,8 @@ The cross-language SSOT is facts, page job, evidence, claim boundaries, required
 
 Every locale must be natural and market-native. Do not shorten away required information, weaken meaning or remove material nuance. Use correct visible-language characters; infrastructure identifiers follow the active route contract.
 
+Public editorial copy speaks from AMARA's collective host perspective and addresses guests in the plural form natural to EN, DE, ES, NL and SV. This voice must not turn researched or third-party evidence into an invented first-party observation.
+
 The Navigation booking CTA must have a native localized label in EN, DE, ES, NL and SV.
 
 ## FAST preflights

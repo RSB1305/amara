@@ -1,12 +1,12 @@
 ---
 document_id: AMARA-REG-001
 title: AMARA Register
-version: 1.6.0
+version: 1.7.0
 status: ACTIVE
 authority_class: LIVING BINDING REGISTER
 activation_state: ACTIVE
 effective_from: 2026-08-14
-last_modified: 2026-08-21T11:26:50+02:00
+last_modified: 2026-08-21T22:14:30+02:00
 canonical_path: /docs/AMARA_REGISTER.md
 ---
 
@@ -25,10 +25,10 @@ The AMARA Register is the single source for active documents, authority classes,
 | 03 | AMARA Runtime, SEO & Data Contract | PENDING Package 2 | CONTRACT / governing | Interim snapshot: `docs/interim/04_AMARA_Runtime_and_SEO_Standard_V4.md` + current repository implementation |
 | 04 | AMARA URL, Route & Link Contract | PENDING Package 2 | CONTRACT / governing | Interim snapshot: `docs/interim/05_AMARA_URL_and_Route_Infrastructure_V4.md` + Decision Register |
 | 05 | AMARA Governance, Execution & Documentation Lifecycle | 5.5.0 ACTIVE | CONTRACT / governing | `docs/standards/05_AMARA_Governance_Execution_and_Documentation_Lifecycle_V5.md` |
-| 06 | AMARA Performance & Delivery Standard | PENDING Package 2 | PRINCIPLE/CONTRACT / governing | Interim snapshot: `docs/interim/07_AMARA_Performance_Standard_V2.md` |
-| 07 | AMARA Register | 1.6.0 ACTIVE | LIVING BINDING REGISTER | `docs/AMARA_REGISTER.md` |
+| 06 | AMARA Performance & Delivery Standard | 2.1.0 ACTIVE INTERIM | PRINCIPLE/CONTRACT / governing | `docs/interim/07_AMARA_Performance_Standard_V2.md` |
+| 07 | AMARA Register | 1.7.0 ACTIVE | LIVING BINDING REGISTER | `docs/AMARA_REGISTER.md` |
 | 08 | AMARA Guest Utility Feature Contract | PENDING Package 2/3 | FEATURE CONTRACT | Interim snapshot: `docs/interim/08_AMARA_Guest_Utility_Architecture_V2.md` |
-| 09 | AMARA Content Production & Localization Playbook | PENDING Package 2/3 | OPERATIONAL PLAYBOOK / non-governing | Interim snapshot: `docs/interim/10_AMARA_Content_Production_and_Localization_Playbook_V1_2.md` |
+| 09 | AMARA Content Production & Localization Playbook | 1.3.0 ACTIVE INTERIM | OPERATIONAL PLAYBOOK / non-governing | `docs/interim/10_AMARA_Content_Production_and_Localization_Playbook_V1_2.md` |
 | 10 | AMARA Frigiliana–Nerja SEO Strategy | PENDING Package 2/3 | WORKING STRATEGY / non-governing | Interim snapshot: `docs/interim/09_AMARA_Frigiliana_Nerja_SEO_Strategy_V2_1.md` |
 
 ### Transition rule
@@ -110,6 +110,7 @@ They do **not** supersede the current implementation. Until a separately aligned
 | TR-CONTENT-001 | Applicable public pages use dominant-job integrity rather than absolute intent isolation. | APPROVED — intentional supersession |
 | TR-CONTENT-002 | Cross-language SSOT is facts, job, evidence, claim boundaries, required information/topics, conversion intent, **meaning depth and material nuance**. No locale may shorten/omit required information. The mandatory English master-language role is superseded; native sentence construction remains locale-specific. | APPROVED — intentional supersession |
 | TR-CONTENT-003 | A/B/C/D applies to strategic public content jobs; utility/legal/entry/system surfaces need not be forced into it. | APPROVED — intentional supersession |
+| TR-CONTENT-004 | Normal public editorial copy speaks from AMARA's collective host perspective and addresses guests in the plural form natural to EN, DE, ES, NL and SV. This is a perspective rule, not a requirement to repeat pronouns unnaturally. Native authoring may transform verified knowledge into useful host guidance, but it must preserve provenance, verification status, claim boundaries and uncertainty; researched or third-party evidence must not be presented as invented first-party observation. | ACTIVE |
 | DR-EVIDENCE-001 | `knowledge/` is AMARA's durable, non-public Evidence & Knowledge owner for research dossiers, atomic facts, sources, claim boundaries, review state and open questions. Public authoring in `src/content/` is a curated projection of that knowledge; presentation remains owned by page families and components. | ACTIVE |
 | DR-EVIDENCE-002 | Redesigning, shortening or removing public copy must not delete its underlying evidence. New research updates knowledge records through explicit verification or supersession; it does not silently overwrite history or publish itself. | ACTIVE |
 | DR-EVIDENCE-003 | Google Drive is AMARA's immutable archive for timestamped raw research inputs; Git `knowledge/` is the canonical versioned evaluation and page-coverage layer. Stable Drive folder IDs are recorded in run/page manifests. Raw uploads never publish directly, and later research uses a new run instead of overwriting an earlier one. | ACTIVE |
@@ -155,6 +156,8 @@ Routine new evidence/ideas may be captured here or in the relevant working evide
 | 2026-08-20 | Evidence & Knowledge architecture | Activated a durable non-public knowledge layer, separated evidence from public authoring and presentation, and established Frigiliana parking as the first controlled pilot. Astro Standard 4.1.0, Register 1.4.0. | DR-EVIDENCE-001–002, TR-CONTENT-002 | this revision |
 | 2026-08-20T16:35:01+02:00 | Location & Experience information architecture | Established the shared Location information model, destination-specific Experience inventories, intent-based ownership and conditional publication forms. Preserved research-specific proposals as non-normative hypotheses rather than changing pages or routes. Register 1.5.0. | DR-IA-001–004, DR-EVIDENCE-001–002, TR-CONTENT-001 | this revision |
 | 2026-08-21T11:26:50+02:00 | Research archive and knowledge workflow | Established timestamped immutable raw research runs in Google Drive, stable Drive references in Git, and page-level knowledge/coverage manifests for Frigiliana, Nerja and Tarifa Geography & Orientation. Register 1.6.0. | DR-EVIDENCE-001–003, TR-CONTENT-002 | this revision |
+| 2026-08-21T22:14:30+02:00 | Measurable performance policy | Activated Performance Standard 2.1.0 with documented mobile lab targets, field p75 targets, post-baseline asset budgets and FAST-compatible measurement scope. | Performance Standard §§15–17 | this revision |
+| 2026-08-21T22:14:30+02:00 | Collective host voice | Activated the collective host perspective, plural guest address and evidence-to-host-voice boundary; added the operative detail in Content Playbook 1.3.0 and the daily summary in `AGENTS.md`. | TR-CONTENT-004, DR-EVIDENCE-001–003 | this revision |
 
 ## 5. Intentional supersessions
 
@@ -197,3 +200,4 @@ Separate controlled workstreams remain for:
 | 1.4.0 | 2026-08-20 | Activated the Evidence & Knowledge owner and the separation between durable evidence, public authoring and presentation. | this revision |
 | 1.5.0 | 2026-08-20T16:35:01+02:00 | Activated the Location & Experience information-architecture principles and separated stable decisions from open research hypotheses. | this revision |
 | 1.6.0 | 2026-08-21T11:26:50+02:00 | Activated the immutable raw-research archive workflow and stable Drive-to-Git knowledge references. | this revision |
+| 1.7.0 | 2026-08-21T22:14:30+02:00 | Activated Performance Standard 2.1.0 and the collective host-voice/evidence-provenance contract with Content Playbook 1.3.0. | this revision |
