@@ -131,6 +131,8 @@ runtime key, no rate-limit exposure. The site stays fully static.
 
 This section records the target direction only. It does **not** supersede the current build-time-only API-key contract above and does not authorize a production runtime integration by itself. Any move from build-time API use to a request-time server-side data layer remains a separately confirmed Class-3 implementation.
 
+**MVP verification, 2026-08-21:** Lodgify API sandbox MVP verified PASS: authentication, property/room resolution, availability, rates and quote. See [the non-normative evidence record](docs/lodgify/AMARA_Lodgify_API_MVP_Evidence_2026-08-21.md). This verification does not authorize a production runtime; implementation remains pending.
+
 ### Target boundary
 
 AMARA should own a narrow provider-neutral **Booking Gateway**. Public consumers talk to AMARA concepts; provider-specific APIs remain behind an adapter.
