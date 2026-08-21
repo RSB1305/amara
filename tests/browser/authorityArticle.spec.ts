@@ -9,7 +9,6 @@ import { nerjaDailyLifeContent } from '../../src/content/nerjaDailyLifeContent';
 import { nerjaGeographyContent } from '../../src/content/nerjaGeographyContent';
 import { tarifaDailyLifeContent } from '../../src/content/tarifaDailyLifeContent';
 import { tarifaGeographyContent } from '../../src/content/tarifaGeographyContent';
-import { tarifaWeatherContent } from '../../src/content/tarifaWeatherContent';
 import { tarifaWinterStaysContent } from '../../src/content/tarifaWinterStaysContent';
 import { resolveLink, type LinkToken } from '../../src/lib/linkResolver';
 import type { AmaraLanguage } from '../../src/types/seo';
@@ -30,8 +29,6 @@ import type { AmaraLanguage } from '../../src/types/seo';
 
 const PORT = 4324;
 const ORIGIN = `http://127.0.0.1:${PORT}`;
-
-const LANGUAGES: AmaraLanguage[] = ['en', 'de', 'es', 'nl', 'sv'];
 
 /** The structural sweep runs in Spanish, which owns the unprefixed routes. */
 const SWEEP_LANGUAGE: AmaraLanguage = 'es';
@@ -225,25 +222,6 @@ const AUTHORITY_PAGES: AuthorityPage[] = [
     closingCtas: [
       { token: 'location_tarifa', labelKey: 'locationLabel', className: PRIMARY_CTA_CLASS },
       { token: 'tarifa_experience_hub', labelKey: 'experienceLabel', className: SECONDARY_CTA_CLASS }
-    ]
-  },
-  {
-    routeToken: 'tarifa_weather',
-    pageId: 'tarifa-weather',
-    content: tarifaWeatherContent,
-    heroMark: (locale) => locale.comparison?.places[0].july ?? '',
-    relatedColumns: 'md:grid-cols-3',
-    blockBeforeSections: null,
-    blockAfterSections: null,
-    arrivalModules: null,
-    interleaved: [
-      { afterSectionIndex: 0, kind: 'comparison' },
-      { afterSectionIndex: 0, kind: 'climate-table' }
-    ],
-    sectionMarkerAttribute: null,
-    closingCtas: [
-      { token: 'location_tarifa', labelKey: 'locationLabel', className: PRIMARY_CTA_CLASS },
-      { token: 'tarifa_where_to_stay', labelKey: 'areasLabel', className: SECONDARY_CTA_CLASS }
     ]
   },
   {
@@ -577,59 +555,3 @@ test('the geography pages place the orientation block before the text sections',
     await expect(orientation.locator('h2')).toHaveAttribute('id', `${destination}-orientation-title`);
   }
 });
-
-test('tarifa-weather places the comparison block after the first text section', async ({
-  page
-}) => {
-  const locale = tarifaWeatherContent[SWEEP_LANGUAGE];
-  await openPage(page, resolveLink('tarifa_weather', SWEEP_LANGUAGE));
-
-  const blocks = await articleBlocks(page, 'tarifa-weather');
-  const comparisonIndex = blocks.findIndex((block) => block.kind === 'comparison');
-  const climateTableIndex = blocks.findIndex((block) => block.kind === 'climate-table');
-  const firstSectionIndex = blocks.findIndex(
-    (block) => block.kind === `section:${locale.sections[0].id}`
-  );
-
-  expect(comparisonIndex).toBe(firstSectionIndex + 1);
-  expect(climateTableIndex).toBe(comparisonIndex + 1);
-  await expect(
-    page.locator(
-      'article[data-am-page="tarifa-weather"] > section:not([data-am-climate-table]) .tabular-nums'
-    )
-  ).toHaveCount(locale.comparison.places.length * 2);
-});
-
-for (const language of LANGUAGES) {
-  test(`tarifa-weather resolves its related links and CTAs in ${language}`, async ({ page }) => {
-    const locale = tarifaWeatherContent[language];
-    await openPage(page, resolveLink('tarifa_weather', language));
-
-    const article = page.locator('article[data-am-page="tarifa-weather"]');
-    await expect(article.locator('h1')).toHaveText(locale.hero.title);
-
-    const firstRelatedHref = resolveLink(locale.related.links[0].token, language);
-    const relatedLinks = article
-      .locator(`:scope > section:has(a[href="${firstRelatedHref}"])`)
-      .locator(`div${byClassToken('md:grid-cols-3')} a`);
-    await expect(relatedLinks).toHaveCount(locale.related.links.length);
-
-    for (const [index, link] of locale.related.links.entries()) {
-      await expect(relatedLinks.nth(index)).toHaveAttribute(
-        'href',
-        resolveLink(link.token, language)
-      );
-    }
-
-    const closingCtas = article.locator('a.am-btn, a.am-cta-link');
-    await expect(closingCtas).toHaveCount(2);
-    await expect(closingCtas.nth(0)).toHaveAttribute(
-      'href',
-      resolveLink('location_tarifa', language)
-    );
-    await expect(closingCtas.nth(1)).toHaveAttribute(
-      'href',
-      resolveLink('tarifa_where_to_stay', language)
-    );
-  });
-}

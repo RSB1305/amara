@@ -1,200 +1,49 @@
 ---
-import InlineEmphasis from '../../components/text/InlineEmphasis.astro';
 import Navigation from '../../components/Navigation.astro';
-import LocationClimateTable from '../../components/location/LocationClimateTable.astro';
 import TarifaContextNav from '../../components/location/TarifaContextNav.astro';
-import { climateDataSourceUrls, locationClimateProfiles } from '../../content/locationClimateData';
 import {
-  tarifaWeatherContent,
-  tarifaWeatherSeo
-} from '../../content/tarifaWeatherContent';
+  getWeatherAuthorityContent,
+  getWeatherSeo,
+  weatherForecastUrls,
+  weatherMonthLabels
+} from '../../content/locationWeatherAuthorityContent';
+import { climateDataSourceUrls, locationClimateProfiles } from '../../content/locationClimateData';
 import LocationAuthorityLayout from '../../layouts/LocationAuthorityLayout.astro';
 import { createRequiredLinkResolver, type LabeledLink } from '../../lib/linkResolver';
 import { normalizeLanguage } from '../../lib/seo/resolve-seo-head';
 import type { AmaraLanguage } from '../../types/seo';
-import AuthorityArticle from './AuthorityArticle.astro';
-import AuthorityRelatedLinks from './AuthorityRelatedLinks.astro';
-import AuthorityTextSection from './AuthorityTextSection.astro';
+import WeatherAuthorityBody from './WeatherAuthorityBody.astro';
 
-interface Props {
-  lang?: string;
-}
+interface Props { lang?: string; }
 
 const { lang = 'es' } = Astro.props;
 const currentLang = normalizeLanguage(lang as AmaraLanguage);
-const content = tarifaWeatherContent[currentLang];
-
-const climateTableCopy = {
-  en: {
-    eyebrow: '12-month climate profile', title: 'Temperature, rain and sun — month by month',
-    intro: 'The table uses the same Climate-Data.org point-model method as the Nerja and Frigiliana weather pages. Temperature and rainfall cover 1991–2021; sunshine covers 1999–2019. Values are modelled long-term averages, not a forecast for a particular stay.',
-    month: 'Month', high: 'Avg. maximum', low: 'Avg. minimum', rain: 'Rainfall', sun: 'Sun / day',
-    temperature: 'Average maximum / minimum', rainfall: 'Monthly rainfall', sourceTitle: 'Data basis',
-    sourceText: 'Numerical values: Climate-Data.org point model for Tarifa. All three AMARA weather pages now use the same variables and reference periods.',
-    sourceLabel: 'Climate-Data.org · Tarifa monthly values'
-  },
-  de: {
-    eyebrow: 'Klimaprofil für 12 Monate', title: 'Temperatur, Regen und Sonne – Monat für Monat',
-    intro: 'Die Tabelle verwendet dieselbe Climate-Data.org-Punktmodell-Methode wie die Wetterseiten für Nerja und Frigiliana. Temperatur und Niederschlag umfassen 1991–2021, die Sonnenscheindauer 1999–2019. Es sind modellierte Langzeitmittel und keine Vorhersage für einen konkreten Aufenthalt.',
-    month: 'Monat', high: 'Mittl. Maximum', low: 'Mittl. Minimum', rain: 'Niederschlag', sun: 'Sonne / Tag',
-    temperature: 'Mittleres Maximum / Minimum', rainfall: 'Monatsniederschlag', sourceTitle: 'Datengrundlage',
-    sourceText: 'Zahlenwerte: Punktmodell von Climate-Data.org für Tarifa. Alle drei AMARA-Wetterseiten verwenden jetzt dieselben Variablen und Referenzzeiträume.',
-    sourceLabel: 'Climate-Data.org · Monatswerte Tarifa'
-  },
-  es: {
-    eyebrow: 'Perfil climático de 12 meses', title: 'Temperatura, lluvia y sol — mes a mes',
-    intro: 'La tabla utiliza el mismo método de modelo puntual de Climate-Data.org que las páginas del tiempo de Nerja y Frigiliana. Temperatura y lluvia cubren 1991–2021; el sol, 1999–2019. Son medias modelizadas a largo plazo, no una previsión para una estancia concreta.',
-    month: 'Mes', high: 'Máxima media', low: 'Mínima media', rain: 'Lluvia', sun: 'Sol / día',
-    temperature: 'Máxima / mínima media', rainfall: 'Lluvia mensual', sourceTitle: 'Base de datos',
-    sourceText: 'Valores numéricos: modelo puntual de Climate-Data.org para Tarifa. Las tres páginas meteorológicas de AMARA usan ahora las mismas variables y periodos de referencia.',
-    sourceLabel: 'Climate-Data.org · valores mensuales de Tarifa'
-  },
-  nl: {
-    eyebrow: 'Klimaatprofiel van 12 maanden', title: 'Temperatuur, regen en zon — maand voor maand',
-    intro: 'De tabel gebruikt dezelfde Climate-Data.org-puntmodelmethode als de weerpagina’s van Nerja en Frigiliana. Temperatuur en neerslag beslaan 1991–2021; zonuren 1999–2019. Het zijn gemodelleerde langjarige gemiddelden, geen verwachting voor een specifiek verblijf.',
-    month: 'Maand', high: 'Gem. maximum', low: 'Gem. minimum', rain: 'Neerslag', sun: 'Zon / dag',
-    temperature: 'Gemiddeld maximum / minimum', rainfall: 'Maandneerslag', sourceTitle: 'Databasis',
-    sourceText: 'Cijfers: puntmodel van Climate-Data.org voor Tarifa. Alle drie de AMARA-weerpagina’s gebruiken nu dezelfde variabelen en referentieperioden.',
-    sourceLabel: 'Climate-Data.org · maandwaarden Tarifa'
-  },
-  sv: {
-    eyebrow: 'Klimatprofil för 12 månader', title: 'Temperatur, regn och sol – månad för månad',
-    intro: 'Tabellen använder samma punktmodell från Climate-Data.org som vädersidorna för Nerja och Frigiliana. Temperatur och nederbörd omfattar 1991–2021; soltimmar 1999–2019. Värdena är modellerade långtidsmedel, inte en prognos för en viss vistelse.',
-    month: 'Månad', high: 'Medelmaximum', low: 'Medelminimum', rain: 'Nederbörd', sun: 'Sol / dag',
-    temperature: 'Medelmaximum / minimum', rainfall: 'Månadsnederbörd', sourceTitle: 'Dataunderlag',
-    sourceText: 'Siffervärden: Climate-Data.orgs punktmodell för Tarifa. Alla tre AMARA-vädersidor använder nu samma variabler och referensperioder.',
-    sourceLabel: 'Climate-Data.org · månadsvärden för Tarifa'
-  }
-}[currentLang];
-
-const climateMonthLabels: Record<AmaraLanguage, string[]> = {
-  en: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
-  de: ['Jan', 'Feb', 'Mär', 'Apr', 'Mai', 'Jun', 'Jul', 'Aug', 'Sep', 'Okt', 'Nov', 'Dez'],
-  es: ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul', 'Ago', 'Sep', 'Oct', 'Nov', 'Dic'],
-  nl: ['Jan', 'Feb', 'Mrt', 'Apr', 'Mei', 'Jun', 'Jul', 'Aug', 'Sep', 'Okt', 'Nov', 'Dec'],
-  sv: ['Jan', 'Feb', 'Mar', 'Apr', 'Maj', 'Jun', 'Jul', 'Aug', 'Sep', 'Okt', 'Nov', 'Dec']
-};
-
-const climateMonths = locationClimateProfiles.tarifa.map((month, index) => ({
-  month: climateMonthLabels[currentLang][index],
+const destination = 'tarifa' as const;
+const content = getWeatherAuthorityContent(destination, currentLang);
+const seo = getWeatherSeo(destination);
+const requiredLink = createRequiredLinkResolver(currentLang, 'Tarifa weather');
+const months = locationClimateProfiles[destination].map((month, index) => ({
+  month: weatherMonthLabels[currentLang][index],
   ...month
 }));
-
-const requiredLink = createRequiredLinkResolver(currentLang, 'Tarifa weather');
-
-const aboutHref = requiredLink('about');
-const locationHref = requiredLink('location_tarifa');
-const areasHref = requiredLink('tarifa_where_to_stay');
 const footerHighlights: LabeledLink[] = [
   { token: 'tarifa_weather', label: content.navLabel },
   { token: 'tarifa_geography', label: content.related.links[0].label },
-  { token: 'tarifa_where_to_stay', label: content.closing.areasLabel }
+  { token: 'tarifa_where_to_stay', label: content.related.links[1].label }
 ];
 ---
 
-<LocationAuthorityLayout
-  seo={tarifaWeatherSeo}
-  pageLang={currentLang}
-  showContextNavigation={false}
-  footerHighlights={footerHighlights}
->
-  <Navigation
-    slot="navigation"
-    currentLang={currentLang}
-    languageToken="tarifa_weather"
-  />
-  <TarifaContextNav
-    activeId="overview"
-    activeChildId="weather-seasons"
-    currentLabel="Tarifa"
-    childLabel={content.navLabel}
-    lang={currentLang}
-  />
-
-  <AuthorityArticle
+<LocationAuthorityLayout seo={seo} pageLang={currentLang} showContextNavigation={false} footerHighlights={footerHighlights}>
+  <Navigation slot="navigation" currentLang={currentLang} languageToken="tarifa_weather" />
+  <TarifaContextNav activeId="overview" activeChildId="weather-seasons" currentLabel="Tarifa" childLabel={content.navLabel} lang={currentLang} />
+  <WeatherAuthorityBody
     pageId="tarifa-weather"
-    family="location"
-    topic="weather"
-    lang={currentLang}
-    hero={content.hero}
-    authorName={tarifaWeatherSeo.article!.authorName}
-    authorHref={aboutHref}
-    facts={content.facts}
-    sources={content.sources}
-    closing={content.closing}
-    primaryCta={{ href: locationHref, label: content.closing.locationLabel }}
-    secondaryCta={{ href: areasHref, label: content.closing.areasLabel }}
-    presentation="weather"
-    weatherVisual={{
-      eyebrow: content.comparison.periodLabel,
-      mark: content.comparison.places[0].july,
-      note: content.facts[1].value
-    }}
-  >
-    {content.sections.map((section, index) => (
-      <>
-        <AuthorityTextSection section={section} index={index} />
-
-        {index === 0 && (
-          <>
-          <section class="border-b border-border-subtle bg-inverse-surface px-6 py-20 text-inverted-on-surface md:px-12 md:py-28">
-            <div class="mx-auto grid max-w-screen-2xl gap-12 lg:grid-cols-12 lg:gap-20">
-              <div class="lg:col-span-4">
-                <p class="font-label text-[11px] font-bold uppercase tracking-[0.18em] text-primary-fixed-dim">{content.comparison.eyebrow}</p>
-                <h2 class="am-text-title mt-5 text-balance text-inverted-on-surface">{content.comparison.title}</h2>
-                <p class="am-text-body mt-6 leading-relaxed text-inverted-on-surface/70"><InlineEmphasis text={content.comparison.intro} /></p>
-              </div>
-              <div class="lg:col-span-8">
-                <p class="font-label text-[10px] font-bold uppercase tracking-[0.14em] text-primary-fixed-dim">{content.comparison.periodLabel}</p>
-                <div class="mt-5 border-t border-inverted-on-surface/20">
-                  <div class="grid grid-cols-[1fr_auto_auto] gap-5 border-b border-inverted-on-surface/20 py-4 md:gap-10">
-                    <span aria-hidden="true"></span>
-                    {content.comparison.monthLabels.map((month) => (
-                      <span class="min-w-16 text-right font-label text-[10px] font-semibold uppercase tracking-[0.12em] text-inverted-on-surface/60">{month}</span>
-                    ))}
-                  </div>
-                  {content.comparison.places.map((place) => (
-                    <div class="grid grid-cols-[1fr_auto_auto] items-baseline gap-5 border-b border-inverted-on-surface/20 py-6 md:gap-10">
-                      <p class="am-text-subtitle text-inverted-on-surface"><InlineEmphasis text={place.place} /></p>
-                      <p class="min-w-16 text-right am-text-body tabular-nums text-inverted-on-surface/75"><span class="sr-only">{content.comparison.monthLabels[0]} </span>{place.july}</p>
-                      <p class="min-w-16 text-right am-text-body tabular-nums text-inverted-on-surface/75"><span class="sr-only">{content.comparison.monthLabels[1]} </span>{place.august}</p>
-                    </div>
-                  ))}
-                </div>
-                <p class="mt-5 font-label text-[10px] font-semibold uppercase tracking-[0.12em] text-inverted-on-surface/55">{content.comparison.note}</p>
-              </div>
-            </div>
-          </section>
-
-          <LocationClimateTable
-            eyebrow={climateTableCopy.eyebrow}
-            title={climateTableCopy.title}
-            intro={climateTableCopy.intro}
-            months={climateMonths}
-            labels={{
-              month: climateTableCopy.month,
-              high: climateTableCopy.high,
-              low: climateTableCopy.low,
-              rain: climateTableCopy.rain,
-              sunHours: climateTableCopy.sun
-            }}
-            chartLabels={{
-              temperature: climateTableCopy.temperature,
-              rainfall: climateTableCopy.rainfall
-            }}
-            sourceTitle={climateTableCopy.sourceTitle}
-            sourceText={climateTableCopy.sourceText}
-            sources={[{ label: climateTableCopy.sourceLabel, href: climateDataSourceUrls.tarifa }]}
-          />
-          </>
-        )}
-      </>
-    ))}
-
-    <AuthorityRelatedLinks
-      related={content.related}
-      columns="md:grid-cols-3"
-      resolveHref={requiredLink}
-    />
-  </AuthorityArticle>
+    content={content}
+    months={months}
+    climateSource={{ label: content.sources.links[0].label, href: climateDataSourceUrls[destination] }}
+    forecastHref={weatherForecastUrls[destination]}
+    resolveHref={requiredLink}
+    primaryHref={requiredLink('location_tarifa')}
+    secondaryHref={requiredLink('tarifa_where_to_stay')}
+  />
 </LocationAuthorityLayout>

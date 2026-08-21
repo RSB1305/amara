@@ -12,7 +12,7 @@ export const tarifaClimateKnowledge = defineKnowledgePageManifest({
     url: 'https://drive.google.com/drive/folders/1GCJwGuy0_N3rRpQZNluPg0Hwk7Ainz8S',
     path: 'AMARA – Research Vault/10_LOCATIONS/tarifa/tarifa-climate',
   },
-  publicContentPath: 'src/content/tarifaWeatherContent.ts',
+  publicContentPath: 'src/page-families/location-authority/TarifaWeatherPage.astro',
   researchRunIds: ['2026-08-21__142423__climate-seasons__research-001'],
   coverage: [
     { authoringArea: 'climate-at-a-glance', purpose: 'State the Strait and coastal long-term pattern without daily guarantees.', factIds: [], status: 'baseline-unmapped' },

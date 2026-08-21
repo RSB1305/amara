@@ -86,31 +86,31 @@ const labels: Record<AmaraLanguage, LocationGuideTopicLabels> = {
 const clusterLabels: Record<AmaraLanguage, LocationGuideClusterLabels> = {
   en: {
     'orientation-areas': 'Orientation & Areas',
-    'climate-seasons': 'Climate & Seasons',
+    'climate-seasons': 'Climate & Travel Timing',
     'arrival-parking': 'Arrival & Parking',
     'daily-life-essentials': 'Daily Life & Essentials'
   },
   de: {
     'orientation-areas': 'Orientierung & Lagen',
-    'climate-seasons': 'Klima & Jahreszeiten',
+    'climate-seasons': 'Klima & Reisezeit',
     'arrival-parking': 'Anreise & Parken',
     'daily-life-essentials': 'Alltag & Versorgung'
   },
   es: {
     'orientation-areas': 'Orientación y zonas',
-    'climate-seasons': 'Clima y estaciones',
+    'climate-seasons': 'Clima y época de viaje',
     'arrival-parking': 'Llegada y aparcamiento',
     'daily-life-essentials': 'Vida diaria y servicios'
   },
   nl: {
     'orientation-areas': 'Oriëntatie & gebieden',
-    'climate-seasons': 'Klimaat & seizoenen',
+    'climate-seasons': 'Klimaat & reistijd',
     'arrival-parking': 'Aankomst & parkeren',
     'daily-life-essentials': 'Dagelijks leven & voorzieningen'
   },
   sv: {
     'orientation-areas': 'Orientering & områden',
-    'climate-seasons': 'Klimat & årstider',
+    'climate-seasons': 'Klimat & restid',
     'arrival-parking': 'Ankomst & parkering',
     'daily-life-essentials': 'Vardag & service'
   }
