@@ -1,14 +1,10 @@
 ---
-import InlineEmphasis from '../../components/text/InlineEmphasis.astro';
-import AmaraImage from '../../components/AmaraImage.astro';
 import FaqAccordion from '../../components/FaqAccordion.astro';
 import Navigation from '../../components/Navigation.astro';
 import EditorialClosingCta from '../../components/editorial/EditorialClosingCta.astro';
 import EditorialGuideLinkSection from '../../components/editorial/EditorialGuideLinkSection.astro';
-import HairlineStatCard from '../../components/location/HairlineStatCard.astro';
 import LocationContextNav from '../../components/location/LocationContextNav.astro';
-import type { LocationGuideIconName } from '../../components/location/LocationGuideIcon.astro';
-import LocationGuideHero from '../../components/location/LocationGuideHero.astro';
+import LocationTopicHero from '../../components/location/LocationTopicHero.astro';
 import {
   frigilianaStreetsStairsCopy,
   frigilianaStreetsStairsSeo
@@ -17,6 +13,8 @@ import LocationAuthorityLayout from '../../layouts/LocationAuthorityLayout.astro
 import { resolveOptionalLink, type LabeledLink } from '../../lib/linkResolver';
 import { normalizeLanguage } from '../../lib/seo/resolve-seo-head';
 import type { AmaraLanguage } from '../../types/seo';
+import WhereToStayAuthorityBody from './WhereToStayAuthorityBody.astro';
+import type { WhereToStayAuthorityContent } from './whereToStayAuthority';
 
 interface Props {
   lang?: string;
@@ -37,13 +35,6 @@ const factors = copy.factors.items.map((item) => ({
   value: t(item.value),
   note: t(item.note)
 }));
-
-const factorIcons: LocationGuideIconName[] = [
-  'distance',
-  'elevation',
-  'walking-surface',
-  'frequency'
-];
 
 const locationModels = copy.models.items.map((item) => ({
   number: item.number,
@@ -114,6 +105,60 @@ const proofImage = {
   width: 2000,
   height: 1333
 };
+
+const stayContent: WhereToStayAuthorityContent = {
+  decision: {
+    eyebrow: t(copy.principle.eyebrow),
+    title: t(copy.principle.title),
+    intro: [t(copy.principle.body)],
+    points: factors.map((factor) => ({ label: factor.label, title: factor.value, text: factor.note }))
+  },
+  areas: {
+    id: 'location-models',
+    eyebrow: t(copy.models.eyebrow),
+    title: t(copy.models.title),
+    intro: t(copy.models.intro),
+    labels: {
+      fit: t(copy.models.labels.fit),
+      daily: t(copy.models.labels.daily),
+      tradeoff: t(copy.models.labels.tradeoff)
+    },
+    items: locationModels.map((model) => ({
+      number: model.number,
+      title: model.title,
+      paragraphs: [model.summary],
+      fit: model.fit,
+      daily: model.daily,
+      tradeoff: model.tradeoff
+    }))
+  },
+  tradeoffs: {
+    eyebrow: t(copy.models.labels.tradeoff),
+    title: t(copy.models.title),
+    intro: t(copy.models.intro),
+    items: locationModels.map((model) => ({ title: model.title, paragraphs: [model.tradeoff] }))
+  },
+  mobility: {
+    id: 'daily-route',
+    eyebrow: t(copy.dailyRoute.eyebrow),
+    title: t(copy.dailyRoute.title),
+    intro: [t(copy.dailyRoute.intro)],
+    items: dailyRouteSteps.map((step) => ({ number: step.number, title: step.label })),
+    conclusion: t(copy.dailyRoute.conclusion)
+  },
+  fit: {
+    eyebrow: t(copy.fitGuide.eyebrow),
+    title: t(copy.fitGuide.title),
+    intro: [t(copy.fitGuide.intro)],
+    items: fitGuideItems.map((item) => ({ title: item.title, paragraphs: [item.text] }))
+  },
+  amara: {
+    eyebrow: t(copy.proof.eyebrow),
+    title: t(copy.proof.title),
+    paragraphs: copy.proof.paragraphs.map(t),
+    image: { src: proofImage.src, alt: t(copy.proof.imageAlt) }
+  }
+};
 ---
 
 <LocationAuthorityLayout
@@ -131,7 +176,7 @@ const proofImage = {
 
   <div data-am-page="frigiliana-streets-stairs" data-am-family="location" data-am-role="spoke" data-am-topic="where-to-stay" data-am-presentation="guide">
     <div class="w-full">
-      <LocationGuideHero
+      <LocationTopicHero
         topic="where-to-stay"
         eyebrow={t(copy.hero.eyebrow)}
         title={t(copy.hero.title)}
@@ -139,201 +184,13 @@ const proofImage = {
         imageSrc={heroImage.src}
         imageAlt={t(copy.hero.imageAlt)}
         imageWidth={heroImage.width}
-      >
-        <div slot="actions" class="flex flex-wrap gap-4">
-          <a href="#location-models" class="am-btn am-btn--primary">
-            {t(copy.hero.primaryCta)}
-          </a>
-          <a href="#daily-route" class="am-btn am-btn--secondary">
-            {t(copy.hero.secondaryCta)}
-          </a>
-        </div>
-      </LocationGuideHero>
+        actions={[
+          { href: '#location-models', label: t(copy.hero.primaryCta), style: 'primary' },
+          { href: '#daily-route', label: t(copy.hero.secondaryCta), style: 'secondary' }
+        ]}
+      />
 
-      <section class="max-w-screen-2xl mx-auto px-6 py-24 md:px-12 md:py-32">
-        <div class="max-w-4xl mb-14 md:mb-16">
-          <span class="am-text-caption uppercase tracking-[0.35em] text-primary block mb-6">
-            {t(copy.principle.eyebrow)}
-          </span>
-          <h2 class="am-text-title italic text-on-surface tracking-tight mb-8">
-            {t(copy.principle.title)}
-          </h2>
-          <p class="am-text-body text-on-surface-variant leading-relaxed max-w-3xl">
-            {t(copy.principle.body)}
-          </p>
-        </div>
-        <h3 class="am-text-subtitle text-on-surface mb-10 md:mb-12">{t(copy.factors.title)}</h3>
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-12 gap-y-10 md:gap-y-12">
-          {
-            factors.map((factor, index) => (
-              <HairlineStatCard
-                icon={factorIcons[index]}
-                label={factor.label}
-                value={factor.value}
-                description={factor.note}
-              />
-            ))
-          }
-        </div>
-      </section>
-
-      <section
-        id="location-models"
-        class="bg-surface-container-low border-y border-outline-variant/5"
-      >
-        <div class="max-w-screen-2xl mx-auto px-6 md:px-12 py-24 md:py-32">
-          <div class="max-w-3xl mb-16 md:mb-20">
-            <span class="am-text-caption uppercase tracking-[0.35em] text-primary block mb-6">
-              {t(copy.models.eyebrow)}
-            </span>
-            <h2 class="am-text-title italic text-on-surface tracking-tight mb-8">
-              {t(copy.models.title)}
-            </h2>
-            <p class="am-text-body text-on-surface-variant leading-relaxed">
-              {t(copy.models.intro)}
-            </p>
-          </div>
-
-          <div class="grid grid-cols-1 lg:grid-cols-2 gap-x-16 gap-y-16 lg:gap-y-20">
-            {
-              locationModels.map((model) => (
-                <article class="border-t border-outline-variant/25 pt-8">
-                  <div class="flex items-start justify-between gap-6 mb-8">
-                    <h3 class="am-text-subtitle text-on-surface max-w-md">{model.title}</h3>
-                    <span
-                      class="font-headline text-[clamp(2.5rem,5vw,4.5rem)] italic leading-none text-outline-variant/45"
-                      aria-hidden="true"
-                    >
-                      {model.number}
-                    </span>
-                  </div>
-                  <p class="am-text-body text-on-surface-variant leading-relaxed max-w-xl">
-                    {model.summary}
-                  </p>
-                  <dl class="mt-8 divide-y divide-outline-variant/10 border-y border-outline-variant/10">
-                    <div class="py-5">
-                      <dt class="am-text-caption uppercase tracking-[0.16em] text-primary mb-3">
-                        {t(copy.models.labels.fit)}
-                      </dt>
-                      <dd class="am-text-body text-on-surface leading-relaxed">
-                        {model.fit}
-                      </dd>
-                    </div>
-                    <div class="py-5">
-                      <dt class="am-text-caption uppercase tracking-[0.16em] text-primary mb-3">
-                        {t(copy.models.labels.daily)}
-                      </dt>
-                      <dd class="am-text-body text-on-surface-variant leading-relaxed">
-                        {model.daily}
-                      </dd>
-                    </div>
-                    <div class="py-5">
-                      <dt class="am-text-caption uppercase tracking-[0.16em] text-primary mb-3">
-                        {t(copy.models.labels.tradeoff)}
-                      </dt>
-                      <dd class="am-text-body text-on-surface-variant leading-relaxed">
-                        {model.tradeoff}
-                      </dd>
-                    </div>
-                  </dl>
-                </article>
-              ))
-            }
-          </div>
-        </div>
-      </section>
-
-      <section class="max-w-screen-2xl mx-auto px-6 md:px-12 py-24 md:py-32">
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
-          <div class="am-mobile-full-bleed lg:col-span-6">
-            <AmaraImage
-              src={proofImage.src}
-              alt={t(copy.proof.imageAlt)}
-              profile="card"
-              class="w-full aspect-[4/3] object-cover"
-              loading="lazy"
-              decoding="async"
-            />
-          </div>
-          <div class="lg:col-span-6 lg:pl-10">
-            <span class="am-text-caption uppercase tracking-[0.35em] text-primary block mb-6">
-              {t(copy.proof.eyebrow)}
-            </span>
-            <h2 class="am-text-title italic text-on-surface tracking-tight mb-8">
-              {t(copy.proof.title)}
-            </h2>
-            <div class="space-y-6 max-w-xl">
-              {
-                copy.proof.paragraphs.map((paragraph) => (
-                  <p class="am-text-body text-on-surface-variant leading-relaxed"><InlineEmphasis text={t(paragraph)} /></p>
-                ))
-              }
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section
-        id="daily-route"
-        class="bg-surface-container-low border-y border-outline-variant/5"
-      >
-        <div class="max-w-screen-2xl mx-auto px-6 md:px-12 py-24 md:py-32">
-          <div class="grid grid-cols-1 lg:grid-cols-12 gap-14 lg:gap-16 items-start">
-            <div class="lg:col-span-5">
-              <span class="am-text-caption uppercase tracking-[0.35em] text-primary block mb-6">
-                {t(copy.dailyRoute.eyebrow)}
-              </span>
-              <h2 class="am-text-title italic text-on-surface tracking-tight mb-8">
-                {t(copy.dailyRoute.title)}
-              </h2>
-              <p class="am-text-body text-on-surface-variant leading-relaxed mb-8">
-                {t(copy.dailyRoute.intro)}
-              </p>
-              <p class="am-text-body text-on-surface leading-relaxed border-l border-primary/30 pl-7">
-                {t(copy.dailyRoute.conclusion)}
-              </p>
-            </div>
-            <ol class="lg:col-span-7 border-t border-outline-variant/15">
-              {
-                dailyRouteSteps.map((step) => (
-                  <li class="grid grid-cols-[auto_1fr] gap-6 md:gap-8 items-center py-6 md:py-7 border-b border-outline-variant/15">
-                    <span class="font-headline text-4xl italic leading-none text-outline-variant/60" aria-hidden="true">
-                      {step.number}
-                    </span>
-                    <span class="am-text-subtitle text-on-surface">{step.label}</span>
-                  </li>
-                ))
-              }
-            </ol>
-          </div>
-        </div>
-      </section>
-
-      <section class="max-w-screen-2xl mx-auto px-6 md:px-12 py-24 md:py-32">
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
-          <div class="lg:col-span-4">
-            <span class="am-text-caption uppercase tracking-[0.35em] text-primary block mb-6">
-              {t(copy.fitGuide.eyebrow)}
-            </span>
-            <h2 class="am-text-title italic text-on-surface tracking-tight mb-8">
-              {t(copy.fitGuide.title)}
-            </h2>
-            <p class="am-text-body text-on-surface-variant leading-relaxed">
-              {t(copy.fitGuide.intro)}
-            </p>
-          </div>
-          <div class="lg:col-span-7 lg:col-start-6 grid grid-cols-1 sm:grid-cols-2 gap-x-10 gap-y-10">
-            {
-              fitGuideItems.map((item) => (
-                <article class="border-t border-outline-variant/20 pt-7">
-                  <h3 class="am-text-subtitle text-on-surface mb-5">{item.title}</h3>
-                  <p class="am-text-body text-on-surface-variant leading-relaxed"><InlineEmphasis text={item.text} /></p>
-                </article>
-              ))
-            }
-          </div>
-        </div>
-      </section>
+      <WhereToStayAuthorityBody content={stayContent} />
 
       <FaqAccordion
         arrivalTitle={t(copy.selfCheck.title)}

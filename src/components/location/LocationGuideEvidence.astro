@@ -1,38 +1,77 @@
 ---
+import InlineEmphasis from '../text/InlineEmphasis.astro';
+
 interface Props {
   eyebrow: string;
-  mark: string;
+  mark?: string;
   note?: string;
+  summary?: string;
+  items?: Array<{ label: string; value: string }>;
 }
 
-const { eyebrow, mark, note } = Astro.props;
+const { eyebrow, mark, note, summary, items = [] } = Astro.props;
+
+if (!mark && !summary) {
+  throw new Error('[AMARA] LocationGuideEvidence requires a mark or summary content.');
+}
 ---
 
-<aside
-  class="flex aspect-[3/4] min-h-full flex-col justify-between overflow-hidden bg-inverse-surface py-9 text-inverted-on-surface md:py-12"
-  data-am-guide-evidence
->
-  <div class="mx-8 md:mx-10">
-    <p class="am-text-caption font-bold uppercase tracking-[0.2em] text-primary-fixed-dim">
-      {eyebrow}
-    </p>
-    <p
-      class="am-text-display mt-8 text-balance italic text-inverted-on-surface"
-      aria-hidden="true"
-      data-am-hero-mark
+{
+  summary ? (
+    <aside
+      class="overflow-hidden bg-inverse-surface px-8 py-9 text-inverted-on-surface md:px-10 md:py-11"
+      data-am-guide-evidence
+      data-am-guide-summary
     >
-      {mark}
-    </p>
-  </div>
-
-  <div class="mx-8 border-t border-inverted-on-surface/20 pt-7 md:mx-10">
-    <div class="mb-6 h-px w-12 bg-primary-fixed-dim"></div>
-    {
-      note && (
-        <p class="am-text-body max-w-sm leading-relaxed text-inverted-on-surface/75">
-          {note}
+      <p class="am-text-caption font-bold uppercase tracking-[0.2em] text-primary-fixed-dim">
+        {eyebrow}
+      </p>
+      <p class="am-text-body mt-6 max-w-xl text-balance leading-relaxed text-inverted-on-surface/85">
+        <InlineEmphasis text={summary} />
+      </p>
+      {items.length > 0 && (
+        <dl class="mt-8 border-t border-inverted-on-surface/20">
+          {items.map((item) => (
+            <div class="grid grid-cols-[minmax(0,0.42fr)_minmax(0,0.58fr)] gap-4 border-b border-inverted-on-surface/20 py-4">
+              <dt class="font-label text-[10px] font-bold uppercase tracking-[0.14em] text-primary-fixed-dim">
+                {item.label}
+              </dt>
+              <dd class="text-sm leading-relaxed text-inverted-on-surface/75">
+                {item.value}
+              </dd>
+            </div>
+          ))}
+        </dl>
+      )}
+    </aside>
+  ) : (
+    <aside
+      class="flex aspect-[3/4] min-h-full flex-col justify-between overflow-hidden bg-inverse-surface py-9 text-inverted-on-surface md:py-12"
+      data-am-guide-evidence
+    >
+      <div class="mx-8 md:mx-10">
+        <p class="am-text-caption font-bold uppercase tracking-[0.2em] text-primary-fixed-dim">
+          {eyebrow}
         </p>
-      )
-    }
-  </div>
-</aside>
+        <p
+          class="am-text-display mt-8 text-balance italic text-inverted-on-surface"
+          aria-hidden="true"
+          data-am-hero-mark
+        >
+          {mark}
+        </p>
+      </div>
+
+      <div class="mx-8 border-t border-inverted-on-surface/20 pt-7 md:mx-10">
+        <div class="mb-6 h-px w-12 bg-primary-fixed-dim"></div>
+        {
+          note && (
+            <p class="am-text-body max-w-sm leading-relaxed text-inverted-on-surface/75">
+              {note}
+            </p>
+          )
+        }
+      </div>
+    </aside>
+  )
+}

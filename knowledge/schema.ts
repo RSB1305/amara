@@ -65,9 +65,81 @@ export interface EvidenceReferenceMap<FactId extends string = string> {
   };
 }
 
+export type KnowledgeResearchProvider = 'gpt-deep-research' | 'gemini-deep-research' | 'operator-provided';
+
+export type KnowledgeResearchRunStatus = 'awaiting-raw' | 'raw-received' | 'normalized' | 'archived';
+
+export interface KnowledgeDriveFolder {
+  id: string;
+  url: string;
+  path: string;
+}
+
+export interface KnowledgeDriveFile {
+  id: string;
+  url: string;
+  path: string;
+}
+
+export interface KnowledgeRawArtifact extends KnowledgeDriveFile {
+  mimeType: string;
+  sizeBytes: number;
+  preservation: 'original-upload' | 'rendered-text-export';
+  originalName?: string;
+}
+
+export interface KnowledgeResearchInput {
+  provider: KnowledgeResearchProvider;
+  destination: KnowledgeDriveFolder;
+  status: 'awaiting-upload' | 'uploaded' | 'ingested';
+  receivedAt?: string;
+  sourceUrl?: string;
+  artifact?: KnowledgeRawArtifact;
+}
+
+export interface KnowledgeResearchRun {
+  id: string;
+  topic: string;
+  subjects: readonly string[];
+  createdAt: string;
+  updatedAt: string;
+  status: KnowledgeResearchRunStatus;
+  promptPath: string;
+  promptDriveFile: KnowledgeDriveFile;
+  driveFolder: KnowledgeDriveFolder;
+  inputs: readonly KnowledgeResearchInput[];
+}
+
+export type KnowledgeCoverageStatus = 'baseline-unmapped' | 'partial' | 'covered' | 'gap' | 'excluded';
+
+export interface KnowledgeCoverageEntry {
+  authoringArea: string;
+  purpose: string;
+  factIds: readonly string[];
+  status: KnowledgeCoverageStatus;
+  notes?: string;
+}
+
+export interface KnowledgePageManifest {
+  id: string;
+  destination: string;
+  topic: string;
+  createdAt: string;
+  updatedAt: string;
+  status: 'awaiting-research' | 'research-received' | 'normalizing' | 'ready' | 'needs-review';
+  driveFolder: KnowledgeDriveFolder;
+  publicContentPath: string;
+  researchRunIds: readonly string[];
+  coverage: readonly KnowledgeCoverageEntry[];
+}
+
 export const defineKnowledgeSources = <const T extends readonly KnowledgeSource[]>(sources: T): T => sources;
 
 export const defineKnowledgeFacts = <const T extends readonly KnowledgeFact[]>(facts: T): T => facts;
 
 export const defineKnowledgeOpenQuestions = <const T extends readonly KnowledgeOpenQuestion[]>(questions: T): T =>
   questions;
+
+export const defineKnowledgeResearchRun = <const T extends KnowledgeResearchRun>(run: T): T => run;
+
+export const defineKnowledgePageManifest = <const T extends KnowledgePageManifest>(manifest: T): T => manifest;

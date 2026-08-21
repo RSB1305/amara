@@ -4,7 +4,7 @@ import { stayCollectionLabels } from './stayCollectionLabels';
 type LocalizedText = Record<AmaraLanguage, string>;
 
 export const frigilianaStreetsStairsSeo: AmaraAuthoringSeo = {
-  version: '2026-08-10-frigiliana-micro-location-v2.0-A',
+  version: '2026-08-21-frigiliana-micro-location-v3.0',
   pageType: 'A',
   entityKey: 'amara-brand',
   ogImage: '/images/amara-frigiliana-pueblo/JPG_Frigiliana_Pueblo/2000px_72dpi_sRGB/08-frigiliana-pueblo.jpg',
@@ -325,11 +325,49 @@ export const frigilianaStreetsStairsCopy = {
       {
         number: '03',
         title: {
-          en: 'Lower / modern village',
-          de: 'Unterer / neuerer Ortsteil',
-          es: 'Zona baja / más moderna',
-          nl: 'Lager / moderner dorpsdeel',
-          sv: 'Nedre / modernare bydel'
+          en: 'Ensanche / Ingenio transition',
+          de: 'Ensanche / Übergang am Ingenio',
+          es: 'Ensanche / transición del Ingenio',
+          nl: 'Ensanche / overgang bij El Ingenio',
+          sv: 'Ensanche / övergången vid El Ingenio'
+        } satisfies LocalizedText,
+        summary: {
+          en: 'Around El Ingenio, El Apero, Maquinillas and San Sebastián, the historic fabric meets a later transition area with its own settlement history.',
+          de: 'Rund um El Ingenio, El Apero, Maquinillas und San Sebastián trifft das historische Gefüge auf einen später entstandenen Übergangsbereich.',
+          es: 'En torno a El Ingenio, El Apero, Maquinillas y San Sebastián, el tejido histórico enlaza con una zona de transición posterior.',
+          nl: 'Rond El Ingenio, El Apero, Maquinillas en San Sebastián gaat de historische structuur over in een later overgangsgebied.',
+          sv: 'Kring El Ingenio, El Apero, Maquinillas och San Sebastián möter den historiska strukturen ett senare övergångsområde.'
+        } satisfies LocalizedText,
+        fit: {
+          en: 'You want a position between old-village atmosphere, arrival routes and the later parts of town.',
+          de: 'Ihr sucht eine Lage zwischen historischem Dorf, Ankunftswegen und den späteren Ortsteilen.',
+          es: 'Buscáis una posición entre el pueblo histórico, las rutas de llegada y las zonas posteriores.',
+          nl: 'Jullie zoeken een ligging tussen het oude dorp, aankomstroutes en de latere dorpsdelen.',
+          sv: 'Ni söker ett läge mellan den historiska byn, ankomstvägarna och de senare delarna.'
+        } satisfies LocalizedText,
+        daily: {
+          en: 'The area can connect several parts of Frigiliana, but the exact street still determines slope, steps and vehicle approach.',
+          de: 'Der Bereich verbindet mehrere Teile Frigilianas; Steigung, Stufen und Zufahrt hängen trotzdem von der genauen Straße ab.',
+          es: 'La zona conecta varias partes de Frigiliana, pero la calle concreta sigue determinando pendiente, escalones y acceso en coche.',
+          nl: 'Het gebied verbindt verschillende delen van Frigiliana, maar straat en ingang bepalen nog steeds helling, trappen en autotoegang.',
+          sv: 'Området binder samman flera delar av Frigiliana, men exakt gata avgör fortfarande lutning, trappor och bilväg.'
+        } satisfies LocalizedText,
+        tradeoff: {
+          en: 'Ensanche is a morphological transition, not a promise of flat or step-free access.',
+          de: 'Ensanche bezeichnet einen städtebaulichen Übergang, keine Garantie für ebene oder stufenfreie Wege.',
+          es: 'Ensanche describe una transición urbana, no una garantía de recorridos llanos o sin escalones.',
+          nl: 'Ensanche is een stedenbouwkundige overgang, geen garantie voor vlakke of trapvrije routes.',
+          sv: 'Ensanche är en stadsbyggnadsmässig övergång, inte en garanti för plana eller trappfria vägar.'
+        } satisfies LocalizedText
+      },
+      {
+        number: '04',
+        title: {
+          en: 'Modern southern village',
+          de: 'Moderner südlicher Ort',
+          es: 'Zona moderna al sur',
+          nl: 'Moderner zuidelijk dorpsdeel',
+          sv: 'Modernare södra bydel'
         } satisfies LocalizedText,
         summary: {
           en: 'Areas below or beyond the oldest lanes can offer a more practical relationship with roads, services and everyday movement, depending on the exact street.',
@@ -361,7 +399,7 @@ export const frigilianaStreetsStairsCopy = {
         } satisfies LocalizedText
       },
       {
-        number: '04',
+        number: '05',
         title: {
           en: 'Countryside / hillside',
           de: 'Landschaft / Hanglage',
@@ -417,11 +455,11 @@ export const frigilianaStreetsStairsCopy = {
     } satisfies LocalizedText,
     paragraphs: [
       {
-        en: 'Casa AMARA is about 15 metres from San Antonio church, inside the historic centre and comparatively low within it. The village begins essentially outside the door, while guests do not need to climb to the highest Barribarto lanes every time they return.',
-        de: 'Casa AMARA liegt rund 15 Meter von der Kirche San Antonio entfernt, mitten im historischen Zentrum und darin vergleichsweise weit unten. Das Dorf beginnt praktisch vor der Tür, ohne dass Gäste bei jeder Rückkehr bis in die höchsten Gassen des Barribarto hinaufmüssen.',
-        es: 'Casa AMARA está a unos 15 metros de la iglesia de San Antonio, dentro del casco histórico y en una cota relativamente baja. El pueblo empieza prácticamente al salir, sin tener que subir hasta las calles más altas del Barribarto en cada regreso.',
-        nl: 'Casa AMARA ligt op ongeveer 15 meter van de kerk van San Antonio, midden in de historische kern en daarbinnen relatief laag. Het dorp begint vrijwel bij de voordeur, zonder dat gasten bij iedere terugkeer naar de hoogste straatjes van Barribarto hoeven te klimmen.',
-        sv: 'Casa AMARA ligger cirka 15 meter från San Antonio-kyrkan, inne i den historiska bykärnan och jämförelsevis långt ner. Byn börjar i stort sett utanför dörren, utan att gäster behöver gå upp till Barribartos högsta gränder varje gång de kommer hem.'
+        en: 'Casa AMARA is near San Antonio church, inside the historic centre and comparatively low within it. The village begins essentially outside the door, while guests do not need to climb to the highest Barribarto lanes every time they return.',
+        de: 'Casa AMARA liegt nahe der Kirche San Antonio, mitten im historischen Zentrum und darin vergleichsweise weit unten. Das Dorf beginnt praktisch vor der Tür, ohne dass Gäste bei jeder Rückkehr bis in die höchsten Gassen des Barribarto hinaufmüssen.',
+        es: 'Casa AMARA está cerca de la iglesia de San Antonio, dentro del casco histórico y en una cota relativamente baja. El pueblo empieza prácticamente al salir, sin tener que subir hasta las calles más altas del Barribarto en cada regreso.',
+        nl: 'Casa AMARA ligt vlak bij de kerk van San Antonio, midden in de historische kern en daarbinnen relatief laag. Het dorp begint vrijwel bij de voordeur, zonder dat gasten bij iedere terugkeer naar de hoogste straatjes van Barribarto hoeven te klimmen.',
+        sv: 'Casa AMARA ligger nära San Antonio-kyrkan, inne i den historiska bykärnan och jämförelsevis långt ner. Byn börjar i stort sett utanför dörren, utan att gäster behöver gå upp till Barribartos högsta gränder varje gång de kommer hem.'
       } satisfies LocalizedText,
       {
         en: 'That does not make the route flat, step-free or universally easy. It simply shows why two stays in the same historic village can create different daily walks.',
@@ -520,7 +558,17 @@ export const frigilianaStreetsStairsCopy = {
         } satisfies LocalizedText
       },
       {
-        title: { en: 'Lower / modern village', de: 'Unterer / neuerer Ortsteil', es: 'Zona baja / más moderna', nl: 'Lager / moderner dorpsdeel', sv: 'Nedre / modernare bydel' } satisfies LocalizedText,
+        title: { en: 'Ensanche / Ingenio transition', de: 'Ensanche / Übergang am Ingenio', es: 'Ensanche / transición del Ingenio', nl: 'Ensanche / overgang bij El Ingenio', sv: 'Ensanche / övergången vid El Ingenio' } satisfies LocalizedText,
+        text: {
+          en: 'Best fit if you want a bridge between the historic village, arrival routes and later Frigiliana.',
+          de: 'Passt gut, wenn ihr einen Übergang zwischen historischem Dorf, Ankunftswegen und späteren Ortsteilen sucht.',
+          es: 'Encaja si buscáis un puente entre el pueblo histórico, las rutas de llegada y las zonas posteriores.',
+          nl: 'Past als jullie een overgang zoeken tussen het historische dorp, aankomstroutes en de latere delen.',
+          sv: 'Passar om ni söker en övergång mellan den historiska byn, ankomstvägarna och senare delar.'
+        } satisfies LocalizedText
+      },
+      {
+        title: { en: 'Modern southern village', de: 'Moderner südlicher Ort', es: 'Zona moderna al sur', nl: 'Moderner zuidelijk dorpsdeel', sv: 'Modernare södra bydel' } satisfies LocalizedText,
         text: {
           en: 'Best fit if practical daily movement matters more than living directly inside the historic core.',
           de: 'Passt gut, wenn praktische Alltagswege wichtiger sind als das Wohnen direkt in der Altstadt.',

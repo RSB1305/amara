@@ -1,9 +1,7 @@
 ---
-import InlineEmphasis from '../../components/text/InlineEmphasis.astro';
 import LocationAuthorityLayout from '../../layouts/LocationAuthorityLayout.astro';
 import Navigation from '../../components/Navigation.astro';
 import LocationTopicHero from '../../components/location/LocationTopicHero.astro';
-import EssenceGrid from '../../components/EssenceGrid.astro';
 import PhotoShow from '../../components/PhotoShow.astro';
 import FaqAccordion from '../../components/FaqAccordion.astro';
 import NerjaContextNav from '../../components/location/NerjaContextNav.astro';
@@ -15,6 +13,8 @@ import { resolveOptionalLink, type LinkToken, type LabeledLink } from '../../lib
 import { getLocationGuideTopicLabels } from '../../lib/location/locationGuideTopics';
 import { normalizeLanguage } from '../../lib/seo/resolve-seo-head';
 import type { AmaraLanguage } from '../../types/seo';
+import WhereToStayAuthorityBody from './WhereToStayAuthorityBody.astro';
+import type { WhereToStayAuthorityContent } from './whereToStayAuthority';
 
 interface Props {
   lang?: string;
@@ -135,6 +135,64 @@ const heroImage = {
   sizes: '(max-width: 767px) calc(100vw - 3rem), (max-width: 1023px) 60vw, 40vw'
 };
 
+const areaLabels = {
+  en: { daily: 'Everyday life', tradeoff: 'Keep in mind' },
+  de: { daily: 'Im Alltag', tradeoff: 'Bedenkt dabei' },
+  es: { daily: 'En el día a día', tradeoff: 'Tened en cuenta' },
+  nl: { daily: 'In het dagelijks ritme', tradeoff: 'Houd rekening met' },
+  sv: { daily: 'I vardagen', tradeoff: 'Tänk på' }
+}[currentLang];
+
+const stayContent: WhereToStayAuthorityContent = {
+  decision: {
+    eyebrow: c.essence.eyebrow,
+    title: c.essence.title,
+    intro: [c.essence.intro],
+    points: c.essence.items.map((item) => ({ label: item.kicker, title: item.headline, text: item.text }))
+  },
+  areas: {
+    id: 'where-to-stay-in-nerja',
+    eyebrow: c.areas.eyebrow,
+    title: c.areas.title,
+    intro: c.areas.intro,
+    labels: { fit: c.areas.goodForLabel, daily: areaLabels.daily, tradeoff: areaLabels.tradeoff },
+    items: c.areas.items.map((item) => ({
+      number: item.kicker,
+      title: item.title,
+      paragraphs: item.paragraphs,
+      fit: item.goodFor
+    }))
+  },
+  tradeoffs: {
+    eyebrow: c.beaches.eyebrow,
+    title: c.beaches.title,
+    intro: c.beaches.intro,
+    items: c.beaches.items.map((item) => ({ title: item.title, paragraphs: item.paragraphs })),
+    action: beachesHref ? { href: beachesHref, label: c.beaches.cta } : undefined
+  },
+  mobility: {
+    id: 'practical-nerja',
+    eyebrow: c.practical.eyebrow,
+    title: c.practical.title,
+    intro: [c.practical.intro],
+    items: c.practical.cards.map((card) => ({ title: card.title, paragraphs: card.paragraphs }))
+  },
+  fit: {
+    eyebrow: c.comparison.eyebrow,
+    title: c.comparison.title,
+    intro: [...c.comparison.intro, c.comparison.prompt, c.comparison.outro],
+    items: c.comparison.profiles.map((profile) => ({ title: profile.title, paragraphs: [profile.text] })),
+    action: { href: comparisonHref, label: c.comparison.cta }
+  },
+  amara: {
+    eyebrow: c.playa.eyebrow,
+    title: c.playa.title,
+    paragraphs: c.playa.paragraphs,
+    image: { src: c.gallery.images[0].src, alt: c.gallery.images[0].alt },
+    action: { href: playaHref, label: c.playa.cta }
+  }
+};
+
 const footerHighlights: LabeledLink[] = [
   {
     token: 'playa',
@@ -190,157 +248,9 @@ const footerHighlights: LabeledLink[] = [
         />
       </div>
 
-      <section id="key-facts" class="am-section am-section--tint w-full max-w-none mx-0 border-t-0 px-0 py-0">
-        <EssenceGrid
-          eyebrow={c.essence.eyebrow}
-          title={c.essence.title}
-          intro={c.essence.intro}
-          items={c.essence.items}
-        />
-      </section>
+      <WhereToStayAuthorityBody content={stayContent} />
 
-      <section id="where-to-stay-in-nerja" class="am-section am-section--plain w-full max-w-none mx-0 border-t-0 px-0">
-        <div class="max-w-screen-2xl mx-auto px-6 md:px-12 py-40 border-t border-outline-variant/5">
-          <div class="max-w-3xl mb-20">
-            <span class="am-text-caption uppercase tracking-[0.4em] text-primary block mb-6">{c.areas.eyebrow}</span>
-            <h2 class="am-text-title italic text-on-surface tracking-tight mb-8">{c.areas.title}</h2>
-            <p class="am-text-body text-on-surface-variant leading-relaxed"><InlineEmphasis text={c.areas.intro} /></p>
-          </div>
-
-          <div class="grid grid-cols-1 xl:grid-cols-2 gap-x-20 border-t border-outline-variant/20">
-            {
-              c.areas.items.map((item) => (
-                <article class="grid grid-cols-[3.5rem_minmax(0,1fr)] gap-6 py-12 border-b border-outline-variant/20">
-                  <span class="am-text-subtitle italic text-primary" aria-hidden="true">{item.kicker}</span>
-                  <div>
-                    <h3 class="am-text-subtitle text-on-surface mb-4">{item.title}</h3>
-                    <div class="mt-7 space-y-5">
-                      {item.paragraphs.map((paragraph) => (
-                        <p class="am-text-body text-on-surface-variant leading-relaxed"><InlineEmphasis text={paragraph} /></p>
-                      ))}
-                    </div>
-                    <p class="am-text-body text-on-surface leading-relaxed mt-8 border-l border-primary/30 pl-6">
-                      <strong class="am-text-caption uppercase tracking-[0.18em] text-primary mr-2">{c.areas.goodForLabel}:</strong>
-                      {item.goodFor}
-                    </p>
-                  </div>
-                </article>
-              ))
-            }
-          </div>
-        </div>
-      </section>
-
-      <section id="nerja-beaches" class="am-section am-section--tint w-full max-w-none mx-0 border-t-0 px-0">
-        <div class="max-w-screen-2xl mx-auto px-6 md:px-12 py-40 border-t border-outline-variant/5">
-          <div class="grid grid-cols-1 lg:grid-cols-12 gap-16">
-            <div class="lg:col-span-5">
-              <span class="am-text-caption uppercase tracking-[0.4em] text-primary block mb-6">{c.beaches.eyebrow}</span>
-              <h2 class="am-text-title italic text-on-surface tracking-tight mb-8">{c.beaches.title}</h2>
-              <p class="am-text-body text-on-surface-variant leading-relaxed max-w-xl mb-10"><InlineEmphasis text={c.beaches.intro} /></p>
-              {beachesHref && (
-                <a href={beachesHref} class="am-cta-link">{c.beaches.cta}</a>
-              )}
-            </div>
-            <div class="lg:col-span-7 space-y-12">
-              {
-                c.beaches.items.map((item) => (
-                  <article class="border-t border-outline-variant/20 pt-8">
-                    <h3 class="am-text-subtitle italic text-on-surface mb-4">{item.title}</h3>
-                    <div class="space-y-5">
-                      {item.paragraphs.map((paragraph) => (
-                        <p class="am-text-body text-on-surface-variant leading-relaxed"><InlineEmphasis text={paragraph} /></p>
-                      ))}
-                    </div>
-                  </article>
-                ))
-              }
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section id="practical-nerja" class="am-section am-section--plain w-full max-w-none mx-0 border-t-0 px-0">
-        <div class="max-w-screen-2xl mx-auto px-6 md:px-12 py-40 border-t border-outline-variant/5">
-          <div class="max-w-3xl mb-20">
-            <span class="am-text-caption uppercase tracking-[0.4em] text-primary block mb-6">{c.practical.eyebrow}</span>
-            <h2 class="am-text-title italic text-on-surface tracking-tight mb-8">{c.practical.title}</h2>
-            <p class="am-text-body text-on-surface-variant leading-relaxed"><InlineEmphasis text={c.practical.intro} /></p>
-          </div>
-          <div class="grid grid-cols-1 lg:grid-cols-3 gap-12">
-            {
-                c.practical.cards.map((card) => (
-                  <article class="border-l border-outline-variant/20 pl-8 py-3">
-                    <h3 class="am-text-subtitle italic text-on-surface mb-6">{card.title}</h3>
-                    <div class="space-y-5">
-                      {card.paragraphs.map((paragraph) => (
-                        <p class="am-text-body text-on-surface-variant leading-relaxed">
-                          {paragraph}
-                        </p>
-                      ))}
-                    </div>
-                </article>
-              ))
-            }
-          </div>
-        </div>
-      </section>
-
-      <section id="nerja-frigiliana" class="am-section am-section--tint w-full max-w-none mx-0 border-t-0 px-0">
-        <div class="max-w-screen-2xl mx-auto px-6 md:px-12 py-40 border-t border-outline-variant/5">
-          <div class="max-w-3xl mb-20">
-            <span class="am-text-caption uppercase tracking-[0.4em] text-primary block mb-6">{c.comparison.eyebrow}</span>
-            <h2 class="am-text-title italic text-on-surface tracking-tight mb-8">{c.comparison.title}</h2>
-            <div class="space-y-5">
-              {c.comparison.intro.map((paragraph) => (
-                <p class="am-text-body text-on-surface-variant leading-relaxed"><InlineEmphasis text={paragraph} /></p>
-              ))}
-            </div>
-            <p class="am-text-subtitle italic text-on-surface mt-8"><InlineEmphasis text={c.comparison.prompt} /></p>
-          </div>
-          <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-16">
-            {
-              c.comparison.profiles.map((profile) => (
-                <article class="border-l border-primary/30 pl-8 py-3">
-                  <h3 class="am-text-subtitle italic text-on-surface mb-5">{profile.title}</h3>
-                  <p class="am-text-body text-on-surface-variant leading-relaxed"><InlineEmphasis text={profile.text} /></p>
-                </article>
-              ))
-            }
-          </div>
-          <p class="am-text-body text-on-surface-variant leading-relaxed max-w-3xl mb-12"><InlineEmphasis text={c.comparison.outro} /></p>
-          <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-8 border-t border-outline-variant/20 pt-10">
-            <p class="am-text-subtitle italic text-on-surface max-w-2xl"><InlineEmphasis text={c.comparison.bridge} /></p>
-            <a href={comparisonHref} class="am-cta-link shrink-0">{c.comparison.cta}</a>
-          </div>
-        </div>
-      </section>
-
-      <div id="amara-playa" class="am-section am-section--plain w-full max-w-none mx-0 border-t-0 px-0">
-        <section class="max-w-screen-2xl mx-auto px-6 md:px-12 py-40 border-t border-outline-variant/5">
-          <div class="grid grid-cols-1 lg:grid-cols-12 gap-16">
-            <div class="lg:col-span-5">
-              <span class="am-text-caption uppercase tracking-[0.4em] text-primary block mb-6">{c.playa.eyebrow}</span>
-              <h2 class="am-text-title italic text-on-surface tracking-tight">{c.playa.title}</h2>
-            </div>
-            <div class="lg:col-span-7">
-              <div class="space-y-6">
-                {c.playa.paragraphs.map((paragraph) => (
-                  <p class="am-text-body text-on-surface-variant leading-relaxed"><InlineEmphasis text={paragraph} /></p>
-                ))}
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <PhotoShow eyebrow={c.gallery.eyebrow} title={c.gallery.title} images={c.gallery.images} />
-
-        <div class="max-w-screen-2xl mx-auto px-6 md:px-12 py-24 border-b border-outline-variant/5">
-          <div class="max-w-3xl ml-auto">
-            <a href={playaHref} class="am-btn am-btn--primary">{c.playa.cta}</a>
-          </div>
-        </div>
-      </div>
+      <PhotoShow eyebrow={c.gallery.eyebrow} title={c.gallery.title} images={c.gallery.images} />
 
       <section class="am-section am-section--tint w-full max-w-none mx-0 border-t-0 px-0 py-0">
         <FaqAccordion

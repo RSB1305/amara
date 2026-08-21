@@ -48,7 +48,7 @@ export interface FrigilianaGeographyLocale {
 
 const article = {
   datePublished: '2026-08-16',
-  dateModified: '2026-08-18',
+  dateModified: '2026-08-21',
   authorName: 'Robert Sebastian Böhmer',
   authorType: 'Person' as const,
   authorSlug: 'amara-about-us'
@@ -56,16 +56,14 @@ const article = {
 
 const sharedSources = {
   sima: 'https://www.juntadeandalucia.es/institutodeestadisticaycartografia/sima/ficha.htm?mun=29053',
-  simaAltitude: 'https://ws089.juntadeandalucia.es/sima/info.htm?f=a03',
-  tourismSituation: 'https://www.turismofrigiliana.es/es/situacion.html',
-  tourismEn: 'https://www.turismofrigiliana.es/en/frigiliana-el-fuerte-en.html',
-  tourismEs: 'https://turismofrigiliana.es/es/el-fuerte.html',
+  aemet: 'https://www.aemet.es/es/eltiempo/prediccion/municipios/frigiliana-id29053',
+  heritage: 'https://www.juntadeandalucia.es/boja/2015/23/26',
   naturalPark:
-    'https://www.juntadeandalucia.es/medioambiente/portal/areas-tematicas/espacios-protegidos/legislacion-autonomica-nacional/parques-naturales/parque-natural-sierras-de-tejeda-almijara-y-alhama'
+    'https://www.juntadeandalucia.es/medioambiente/portal/web/ventanadelvisitante/detalle-buscador-mapa/-/asset_publisher/Jlbxh2qB3NwR/content/sierras-de-tejeda-almijara-y-alhama-2/255035'
 };
 
 export const frigilianaGeographySeo: AmaraAuthoringSeo = {
-  version: '2026-08-18-frigiliana-geography-v1.1',
+  version: '2026-08-21-frigiliana-geography-v2.0',
   pageType: 'A',
   entityKey: 'amara-brand',
   article,
@@ -73,35 +71,35 @@ export const frigilianaGeographySeo: AmaraAuthoringSeo = {
     en: {
       title: 'Where Is Frigiliana? Málaga, Nerja & Sierra Almijara',
       description:
-        'Find Frigiliana in eastern Málaga province, 6 km from Nerja, and understand how its Sierra Almijara hillside shapes walking and a stay.',
+        'Understand Frigiliana’s hillside structure: Barribarto, Barribajo, Calle Real, El Ingenio and the Sierra Almijara context.',
       robots: 'index, follow',
       canonical: 'auto'
     },
     de: {
       title: 'Wo liegt Frigiliana? Málaga, Nerja & Sierra Almijara',
       description:
-        'Frigiliana liegt im Osten der Provinz Málaga, 6 km von Nerja entfernt. Versteht die Hanglage zwischen Altstadt und Sierra Almijara.',
+        'Frigilianas Hangstruktur verstehen: Barribarto, Barribajo, Calle Real, El Ingenio und der Kontext der Sierra Almijara.',
       robots: 'index, follow',
       canonical: 'auto'
     },
     es: {
       title: 'Dónde está Frigiliana: Málaga, Nerja y Sierra Almijara',
       description:
-        'Frigiliana está al este de la provincia de Málaga, a 6 km de Nerja. Comprended su ladera entre el casco histórico y la Sierra Almijara.',
+        'Comprended la estructura en ladera de Frigiliana: Barribarto, Barribajo, calle Real, El Ingenio y el contexto de Sierra Almijara.',
       robots: 'index, follow',
       canonical: 'auto'
     },
     nl: {
       title: 'Waar ligt Frigiliana? Málaga, Nerja & Sierra Almijara',
       description:
-        'Frigiliana ligt in het oosten van de provincie Málaga, 6 km van Nerja. Begrijp de helling tussen de oude kern en Sierra Almijara.',
+        'Begrijp Frigiliana’s hellingstructuur: Barribarto, Barribajo, Calle Real, El Ingenio en de context van Sierra Almijara.',
       robots: 'index, follow',
       canonical: 'auto'
     },
     sv: {
       title: 'Var ligger Frigiliana? Málaga, Nerja & Sierra Almijara',
       description:
-        'Frigiliana ligger i östra Málagaprovinsen, 6 km från Nerja. Förstå sluttningen mellan gamla stan och Sierra Almijara.',
+        'Förstå Frigilianas sluttning: Barribarto, Barribajo, Calle Real, El Ingenio och sammanhanget kring Sierra Almijara.',
       robots: 'index, follow',
       canonical: 'auto'
     }
@@ -116,28 +114,28 @@ export const frigilianaGeographyContent: Record<
     navLabel: 'Geography & orientation',
     hero: {
       eyebrow: 'Frigiliana · Geography & orientation',
-      title: 'Where is Frigiliana?',
+      title: 'Where is Frigiliana? Between Nerja and Sierra Almijara',
       standfirst:
-        'Frigiliana is in the Axarquía in the east of Málaga province, **about 6 kilometres inland from Nerja**. The village rises from lower terrain towards the Sierra Almijara, so its location is best understood from the Mediterranean coast upwards.',
-      note: 'The official altitude figure is a Town Hall reference, not one altitude for the whole village.',
+        'Frigiliana is a **40.49 km² hillside municipality in the Axarquía**. Its protected historic fabric is organised by the terrain: Barribajo follows the Calle Real axis, Barribarto occupies the medieval core above it, and El Ingenio separates the older settlement from later ridge development.',
+      note: 'Official datasets use 315–318 metres for the principal-settlement reference; neither figure is the altitude of every street.',
       updated: 'Published August 2026'
     },
     facts: [
       { label: 'Municipality', value: '40.49 km²' },
-      { label: 'Official altitude reference', value: '318 m at the Town Hall' },
-      { label: 'Plaza del Ingenio', value: 'About 290 m' },
-      { label: 'Protected landscape', value: 'Sierras de Tejeda, Almijara y Alhama' }
+      { label: 'Official reference', value: '315–318 m · principal settlement' },
+      { label: 'Historic core', value: 'Barribarto · medieval origin' },
+      { label: 'Natural-park context', value: '40,647.74 ha · wider protected landscape' }
     ],
     orientation: {
-      eyebrow: 'Read the village upwards',
-      title: 'Four stages from the lower square to the mountain edge',
+      eyebrow: 'Read the settlement as a sequence',
+      title: 'Four anchors explain the village before any route begins',
       intro:
-        'A vertical sequence is more useful here than a flat compass. It explains why a short horizontal distance can include a meaningful climb.',
+        'The official heritage record gives a clearer mental map than a single elevation: later ridge development, El Ingenio, Calle Real and the medieval core form a connected uphill structure.',
       items: [
-        { label: 'Lower reference', value: 'Plaza del Ingenio · about 290 m' },
-        { label: 'Historic climb', value: 'Calle Real rises through the old village' },
-        { label: 'Upper historic quarter', value: 'Barribarto · its highest part' },
-        { label: 'Mountain transition', value: 'Pozo de Lízar · 419 m, then the Sierra' }
+        { label: 'Later settlement', value: 'South of El Ingenio · ridge between ravine and approach road' },
+        { label: 'Settlement hinge', value: 'El Ingenio · transition between older and later fabric' },
+        { label: 'Historic axis', value: 'Barribajo · organised along Calle Real' },
+        { label: 'Medieval origin', value: 'Barribarto · castle-hill core' }
       ]
     },
     sections: [
@@ -153,28 +151,28 @@ export const frigilianaGeographyContent: Record<
       {
         id: 'historic-quarter',
         eyebrow: 'The historic quarter',
-        title: 'Plaza del Ingenio, Calle Real and Barribarto form a visible climb',
+        title: 'El Ingenio, Calle Real and Barribarto explain the historic structure',
         paragraphs: [
-          'Official tourism information places Plaza del Ingenio at approximately 290 metres. From there the El Fuerte route passes along Calle Real and climbs through the historic quarter, making the change in level part of the village’s everyday structure rather than a separate mountain excursion.',
-          'Barribarto is officially described as the highest part of the historic quarter. No single exact altitude is needed to understand the relationship: the old village rises above the lower square through narrow streets and steps.'
+          'The protected-ensemble record identifies Barribarto as the original medieval core around the castle hill and Barribajo as the fabric organised along Calle Real. El Ingenio stands between this older settlement and the later southern expansion.',
+          'Main streets tend to follow the contours; smaller transverse streets take steeper lines and many include steps. This is a documented settlement pattern, not a claim that every historic address has the same access.'
         ]
       },
       {
         id: 'lower-landscape',
-        eyebrow: 'The landscape below',
-        title: 'The village is read against lower valleys and terraced slopes',
+        eyebrow: 'The later settlement',
+        title: 'The village continues south on a ridge, not on one level plane',
         paragraphs: [
-          'Looking down from the historic streets reveals why the settlement feels elevated. Lower ground, cultivated terraces and valley-shaped folds sit beneath the village while the built form holds the hillside above them.',
-          'This wider setting matters for orientation, but it is not a trail guide. The useful point for a stay is that approaching the village from below and moving within its historic core are both shaped by relief.'
+          'The official heritage description places the later part of Frigiliana south of El Ingenio on the ridge between the Higuerón ravine and the approach road. The built village therefore has more than an “upper old town” and a “lower village”.',
+          'This distinction is useful for orientation, but it does not prove an exact gradient, step count or vehicle route for an accommodation. Those require address-level evidence.'
         ]
       },
       {
         id: 'sierra-almijara',
         eyebrow: 'The Sierra Almijara',
-        title: 'Historic streets turn into mountain terrain quickly',
+        title: 'The village belongs to a much larger mountain context',
         paragraphs: [
-          'The official route reaches Pozo de Lízar at 419 metres, a concrete reference showing how quickly the terrain rises beyond the historic quarter. From this edge the relationship with the Sierra Almijara becomes immediate, without needing an unverified minimum or maximum altitude for the municipality.',
-          'Frigiliana and Nerja are both municipalities within the Sierras de Tejeda, Almijara y Alhama Natural Park. The protected landscape covers approximately 40,657 hectares across Málaga and Granada and places the village within a much larger mountain system.'
+          'Frigiliana is one of the municipalities associated with the Sierras de Tejeda, Almijara y Alhama Natural Park on the Málaga side of the Axarquía. The protected landscape covers 40,647.74 hectares.',
+          'That establishes the mountain context, not that every street or the entire municipality lies inside the protected boundary. Public orientation should keep the village, municipality and park as three related but distinct geographies.'
         ]
       },
       {
@@ -199,14 +197,13 @@ export const frigilianaGeographyContent: Record<
       eyebrow: 'Behind this guide',
       title: 'Official geographic references',
       intro:
-        'The Axarquía setting and 6-kilometre distance from Nerja follow the official location page. The municipal area and 318-metre Town Hall reference come from SIMA; Plaza del Ingenio, Barribarto and Pozo de Lízar follow official Frigiliana tourism information.',
+        'SIMA and AEMET provide the municipal and principal-settlement references. The protected-ensemble decree supplies the settlement morphology; the Junta visitor record supplies the wider natural-park context.',
       checked: 'Sources checked in August 2026.',
       links: [
-        { label: 'Frigiliana Tourism · Location', text: 'Official setting in the Axarquía and distance from Nerja.', href: sharedSources.tourismSituation },
-        { label: 'SIMA · Frigiliana', text: 'Official municipal area and altitude reference.', href: sharedSources.sima },
-        { label: 'SIMA · Altitude definition', text: 'Defines municipal altitude at the Town Hall of the principal settlement.', href: sharedSources.simaAltitude },
-        { label: 'Frigiliana Tourism · El Fuerte', text: 'Official route description for Plaza del Ingenio, Barribarto and Pozo de Lízar.', href: sharedSources.tourismEn },
-        { label: 'Junta de Andalucía · Natural Park', text: 'Official protected-area extent and included municipalities.', href: sharedSources.naturalPark }
+        { label: 'SIMA · Frigiliana', text: 'Official municipal area and principal-settlement reference.', href: sharedSources.sima },
+        { label: 'AEMET · Frigiliana', text: 'Official forecast reference and warning that municipal altitude can vary.', href: sharedSources.aemet },
+        { label: 'BOJA · Historic ensemble', text: 'Official morphology of Barribarto, Barribajo, El Ingenio and the later expansion.', href: sharedSources.heritage },
+        { label: 'Junta de Andalucía · Natural Park', text: 'Official protected-area extent and municipality context.', href: sharedSources.naturalPark }
       ]
     },
     closing: {
@@ -221,28 +218,28 @@ export const frigilianaGeographyContent: Record<
     navLabel: 'Geografie & Orientierung',
     hero: {
       eyebrow: 'Frigiliana · Geografie & Orientierung',
-      title: 'Wo liegt Frigiliana?',
+      title: 'Wo liegt Frigiliana? Zwischen Nerja und Sierra Almijara',
       standfirst:
-        'Frigiliana liegt in der Axarquía im Osten der Provinz Málaga, **etwa 6 Kilometer landeinwärts von Nerja**. Das Dorf steigt vom tieferen Gelände zur Sierra Almijara an; seine Lage versteht ihr deshalb am besten von der Mittelmeerküste aus nach oben.',
-      note: 'Die amtliche Höhenangabe bezieht sich auf das Rathaus und ist keine einheitliche Höhe des ganzen Dorfes.',
+        'Frigiliana ist eine **40,49 km² große Hanggemeinde in der Axarquía**. Das geschützte historische Gefüge folgt dem Relief: Barribajo liegt an der Achse der Calle Real, Barribarto bildet den mittelalterlichen Kern darüber, und El Ingenio trennt den älteren Ort von der späteren Bebauung auf dem Bergrücken.',
+      note: 'Amtliche Datensätze verwenden 315–318 Meter als Referenz für den Hauptort; keine der beiden Angaben gilt für jede Straße.',
       updated: 'Veröffentlicht im August 2026'
     },
     facts: [
       { label: 'Gemeindegebiet', value: '40,49 km²' },
-      { label: 'Amtlicher Höhenbezug', value: '318 m am Rathaus' },
-      { label: 'Plaza del Ingenio', value: 'Etwa 290 m' },
-      { label: 'Geschützte Landschaft', value: 'Sierras de Tejeda, Almijara y Alhama' }
+      { label: 'Amtlicher Bezug', value: '315–318 m · Hauptort' },
+      { label: 'Historischer Kern', value: 'Barribarto · mittelalterlicher Ursprung' },
+      { label: 'Naturparkkontext', value: '40.647,74 ha · größere Schutzlandschaft' }
     ],
     orientation: {
-      eyebrow: 'Das Dorf von unten nach oben lesen',
-      title: 'Vier Stufen vom unteren Platz bis zum Gebirgsrand',
+      eyebrow: 'Den Ort als Abfolge lesen',
+      title: 'Vier Anker erklären das Dorf vor jedem einzelnen Weg',
       intro:
-        'Eine vertikale Abfolge ist hier hilfreicher als ein flacher Kompass. Sie erklärt, warum eine kurze horizontale Entfernung einen spürbaren Anstieg enthalten kann.',
+        'Der amtliche Denkmalschutztext liefert die bessere mentale Karte als eine einzelne Höhenzahl: spätere Bebauung, El Ingenio, Calle Real und der mittelalterliche Kern bilden eine zusammenhängende Hangstruktur.',
       items: [
-        { label: 'Unterer Bezugspunkt', value: 'Plaza del Ingenio · etwa 290 m' },
-        { label: 'Historischer Anstieg', value: 'Die Calle Real führt hinauf durch den alten Ort' },
-        { label: 'Obere Altstadt', value: 'Barribarto · ihr höchster Teil' },
-        { label: 'Übergang ins Gebirge', value: 'Pozo de Lízar · 419 m, danach die Sierra' }
+        { label: 'Späterer Ortsteil', value: 'Südlich von El Ingenio · Bergrücken zwischen Schlucht und Zufahrt' },
+        { label: 'Siedlungsscharnier', value: 'El Ingenio · Übergang zwischen älterem und späterem Gefüge' },
+        { label: 'Historische Achse', value: 'Barribajo · entlang der Calle Real organisiert' },
+        { label: 'Mittelalterlicher Ursprung', value: 'Barribarto · Kern am Burghügel' }
       ]
     },
     sections: [
@@ -258,28 +255,28 @@ export const frigilianaGeographyContent: Record<
       {
         id: 'historic-quarter',
         eyebrow: 'Die Altstadt',
-        title: 'Plaza del Ingenio, Calle Real und Barribarto bilden einen sichtbaren Anstieg',
+        title: 'El Ingenio, Calle Real und Barribarto erklären die historische Struktur',
         paragraphs: [
-          'Die offizielle Tourismusinformation verortet die Plaza del Ingenio auf ungefähr 290 Metern. Von dort führt die Route zum El Fuerte über die Calle Real durch die Altstadt hinauf. Der Höhenwechsel gehört damit zur alltäglichen Struktur des Dorfes und ist keine getrennte Bergtour.',
-          'Barribarto wird amtlich als höchster Teil der Altstadt beschrieben. Eine exakte Höhe ist für dieses Verhältnis nicht nötig: Der historische Ort steigt vom unteren Platz über enge Gassen und Treppen an.'
+          'Der geschützte Ensembletext bezeichnet Barribarto als ursprünglichen mittelalterlichen Kern am Burghügel und Barribajo als Bebauung entlang der Calle Real. El Ingenio steht zwischen diesem älteren Ort und der späteren Erweiterung nach Süden.',
+          'Die Hauptgassen folgen eher den Höhenlinien; kleinere Querverbindungen nehmen steilere Linien und enthalten häufig Stufen. Das ist ein belegtes Siedlungsmuster, keine Aussage, dass jede historische Adresse gleich zugänglich ist.'
         ]
       },
       {
         id: 'lower-landscape',
-        eyebrow: 'Die Landschaft darunter',
-        title: 'Unterhalb des Dorfes liegen Täler und terrassierte Hänge',
+        eyebrow: 'Der spätere Ortsteil',
+        title: 'Frigiliana setzt sich nach Süden auf einem Bergrücken fort',
         paragraphs: [
-          'Der Blick aus den historischen Gassen zeigt, warum sich der Ort erhöht anfühlt. Tieferes Gelände, bewirtschaftete Terrassen und talförmige Einschnitte liegen unterhalb, während die Bebauung den Hang darüber hält.',
-          'Diese weitere Landschaft hilft bei der Orientierung, ist hier aber kein Wanderführer. Für einen Aufenthalt zählt, dass sowohl die Anfahrt von unten als auch die Wege in der Altstadt vom Relief geprägt sind.'
+          'Die amtliche Beschreibung verortet den späteren Teil Frigilianas südlich von El Ingenio auf dem Bergrücken zwischen der Schlucht des Higuerón und der Zufahrtsstraße. Der bebaute Ort besteht deshalb aus mehr als „oberer Altstadt“ und „Unterdorf“.',
+          'Diese Unterscheidung hilft bei der Orientierung, beweist aber weder Gefälle noch Stufenzahl oder Fahrzeugroute einer Unterkunft. Dafür braucht es adressgenaue Daten.'
         ]
       },
       {
         id: 'sierra-almijara',
         eyebrow: 'Die Sierra Almijara',
-        title: 'Historische Gassen gehen schnell in Berggelände über',
+        title: 'Das Dorf gehört zu einem wesentlich größeren Gebirgskontext',
         paragraphs: [
-          'Die offizielle Route erreicht den Pozo de Lízar auf 419 Metern. Dieser konkrete Referenzpunkt zeigt, wie schnell das Gelände jenseits der Altstadt ansteigt, ohne eine ungeprüfte minimale oder maximale Höhe der Gemeinde zu benötigen.',
-          'Frigiliana und Nerja liegen beide im Naturpark Sierras de Tejeda, Almijara y Alhama. Das Schutzgebiet umfasst rund 40.657 Hektar in Málaga und Granada und bindet das Dorf in ein weit größeres Gebirgssystem ein.'
+          'Frigiliana gehört zu den Gemeinden im Umfeld des Naturparks Sierras de Tejeda, Almijara y Alhama auf der Málaga-Seite der Axarquía. Die geschützte Landschaft umfasst 40.647,74 Hektar.',
+          'Damit ist der Gebirgskontext belegt, nicht aber, dass jede Straße oder das gesamte Gemeindegebiet innerhalb der Schutzgrenze liegt. Ort, Gemeinde und Naturpark bleiben drei verbundene, aber unterschiedliche Räume.'
         ]
       },
       {
@@ -304,14 +301,13 @@ export const frigilianaGeographyContent: Record<
       eyebrow: 'Belege hinter dem Guide',
       title: 'Amtliche geografische Referenzen',
       intro:
-        'Die Lage in der Axarquía und die Entfernung von 6 Kilometern zu Nerja folgen der offiziellen Ortsbeschreibung. Gemeindefläche und der 318-Meter-Bezug am Rathaus stammen aus SIMA; Plaza del Ingenio, Barribarto und Pozo de Lízar aus der offiziellen Tourismusinformation.',
+        'SIMA und AEMET liefern Gemeinde- und Hauptortreferenzen. Das Dekret zum historischen Ensemble beschreibt die Siedlungsstruktur; der Besucher-Datensatz der Junta belegt den größeren Naturparkkontext.',
       checked: 'Quellen geprüft im August 2026.',
       links: [
-        { label: 'Frigiliana Tourism · Lage', text: 'Offizielle Einordnung in die Axarquía und Entfernung zu Nerja.', href: sharedSources.tourismSituation },
-        { label: 'SIMA · Frigiliana', text: 'Amtliche Gemeindefläche und Höhenreferenz.', href: sharedSources.sima },
-        { label: 'SIMA · Definition der Höhenangabe', text: 'Definiert die Gemeindehöhe am Rathaus des Hauptortes.', href: sharedSources.simaAltitude },
-        { label: 'Frigiliana Tourism · El Fuerte', text: 'Offizielle Route mit Angaben zu Plaza del Ingenio, Barribarto und Pozo de Lízar.', href: sharedSources.tourismEn },
-        { label: 'Junta de Andalucía · Naturpark', text: 'Amtliche Fläche des Schutzgebiets und beteiligte Gemeinden.', href: sharedSources.naturalPark }
+        { label: 'SIMA · Frigiliana', text: 'Amtliche Gemeindefläche und Hauptortreferenz.', href: sharedSources.sima },
+        { label: 'AEMET · Frigiliana', text: 'Amtliche Wetterreferenz und Hinweis auf Höhenunterschiede innerhalb einer Gemeinde.', href: sharedSources.aemet },
+        { label: 'BOJA · Historisches Ensemble', text: 'Amtliche Struktur von Barribarto, Barribajo, El Ingenio und der späteren Erweiterung.', href: sharedSources.heritage },
+        { label: 'Junta de Andalucía · Naturpark', text: 'Amtliche Fläche des Schutzgebiets und Gemeindekontext.', href: sharedSources.naturalPark }
       ]
     },
     closing: {
@@ -326,28 +322,28 @@ export const frigilianaGeographyContent: Record<
     navLabel: 'Geografía y orientación',
     hero: {
       eyebrow: 'Frigiliana · Geografía y orientación',
-      title: '¿Dónde está Frigiliana?',
+      title: '¿Dónde está Frigiliana? Entre Nerja y la Sierra Almijara',
       standfirst:
-        'Frigiliana está en la Axarquía, al este de la provincia de Málaga, **a unos 6 kilómetros hacia el interior desde Nerja**. El pueblo asciende desde las cotas inferiores hacia la Sierra Almijara; por eso su ubicación se entiende mejor desde la costa mediterránea hacia arriba.',
-      note: 'La altitud oficial es una referencia medida en el Ayuntamiento, no una única cota para todo el pueblo.',
+        'Frigiliana es un **municipio de ladera de 40,49 km² en la Axarquía**. Su conjunto histórico protegido responde al relieve: Barribajo sigue el eje de la calle Real, Barribarto ocupa el núcleo medieval por encima y El Ingenio separa el asentamiento antiguo de la expansión posterior sobre la loma.',
+      note: 'Las fuentes oficiales utilizan 315–318 metros como referencia del núcleo principal; ninguna cifra representa todas las calles.',
       updated: 'Publicado en agosto de 2026'
     },
     facts: [
       { label: 'Municipio', value: '40,49 km²' },
-      { label: 'Referencia oficial de altitud', value: '318 m en el Ayuntamiento' },
-      { label: 'Plaza del Ingenio', value: 'Unos 290 m' },
-      { label: 'Paisaje protegido', value: 'Sierras de Tejeda, Almijara y Alhama' }
+      { label: 'Referencia oficial', value: '315–318 m · núcleo principal' },
+      { label: 'Núcleo histórico', value: 'Barribarto · origen medieval' },
+      { label: 'Contexto del parque', value: '40.647,74 ha · paisaje protegido mayor' }
     ],
     orientation: {
-      eyebrow: 'Leer el pueblo de abajo arriba',
-      title: 'Cuatro etapas desde la plaza inferior hasta la sierra',
+      eyebrow: 'Leer el asentamiento como una secuencia',
+      title: 'Cuatro referencias explican el pueblo antes de elegir una ruta',
       intro:
-        'Aquí resulta más útil una secuencia vertical que una brújula plana. Así se entiende por qué una distancia horizontal corta puede esconder una subida apreciable.',
+        'El expediente patrimonial ofrece un mapa mental más útil que una sola cota: expansión posterior, El Ingenio, calle Real y núcleo medieval forman una estructura continua sobre la ladera.',
       items: [
-        { label: 'Referencia inferior', value: 'Plaza del Ingenio · unos 290 m' },
-        { label: 'Subida histórica', value: 'La calle Real asciende por el casco antiguo' },
-        { label: 'Casco histórico alto', value: 'Barribarto · su parte más elevada' },
-        { label: 'Transición a la montaña', value: 'Pozo de Lízar · 419 m, después la sierra' }
+        { label: 'Expansión posterior', value: 'Al sur de El Ingenio · loma entre barranco y carretera' },
+        { label: 'Bisagra urbana', value: 'El Ingenio · transición entre tejido antiguo y posterior' },
+        { label: 'Eje histórico', value: 'Barribajo · organizado a lo largo de la calle Real' },
+        { label: 'Origen medieval', value: 'Barribarto · núcleo de la colina del castillo' }
       ]
     },
     sections: [
@@ -363,28 +359,28 @@ export const frigilianaGeographyContent: Record<
       {
         id: 'historic-quarter',
         eyebrow: 'El casco histórico',
-        title: 'Plaza del Ingenio, calle Real y Barribarto forman una subida visible',
+        title: 'El Ingenio, calle Real y Barribarto explican la estructura histórica',
         paragraphs: [
-          'La información turística oficial sitúa la plaza del Ingenio a unos 290 metros. Desde allí, la ruta de El Fuerte continúa por la calle Real y asciende a través del casco histórico. El cambio de cota forma parte de la estructura cotidiana del pueblo, no de una excursión de montaña separada.',
-          'Barribarto está descrito oficialmente como la parte más alta del casco histórico. No hace falta inventar una altitud exacta para comprender la relación: el pueblo antiguo sube desde la plaza inferior por calles estrechas y escaleras.'
+          'El expediente del conjunto protegido identifica Barribarto como núcleo medieval original en torno a la colina del castillo y Barribajo como el tejido organizado por la calle Real. El Ingenio queda entre este asentamiento antiguo y la ampliación posterior hacia el sur.',
+          'Las calles principales tienden a seguir las curvas de nivel; las conexiones transversales son más pronunciadas y muchas tienen escalones. Es un patrón documentado, no una afirmación sobre el acceso a cada dirección.'
         ]
       },
       {
         id: 'lower-landscape',
-        eyebrow: 'El paisaje inferior',
-        title: 'El pueblo se eleva sobre valles y laderas abancaladas',
+        eyebrow: 'La ampliación posterior',
+        title: 'Frigiliana continúa hacia el sur sobre una loma',
         paragraphs: [
-          'Las vistas desde las calles históricas explican por qué el núcleo se percibe elevado. Debajo aparecen terrenos más bajos, terrazas cultivadas y pliegues con forma de valle, mientras el caserío se mantiene sobre la ladera.',
-          'Ese marco ayuda a orientarse, pero esta no es una guía de senderismo. Para una estancia importa que tanto la aproximación desde abajo como los desplazamientos dentro del casco histórico estén condicionados por el relieve.'
+          'La descripción oficial sitúa la parte posterior de Frigiliana al sur de El Ingenio, sobre la loma entre el barranco del Higuerón y la carretera de acceso. El pueblo construido es, por tanto, más complejo que una simple oposición entre casco alto y zona baja.',
+          'Esta distinción orienta, pero no demuestra la pendiente, el número de escalones ni el acceso en vehículo de un alojamiento concreto. Eso exige pruebas por dirección.'
         ]
       },
       {
         id: 'sierra-almijara',
         eyebrow: 'La Sierra Almijara',
-        title: 'Las calles históricas se convierten pronto en terreno de montaña',
+        title: 'El pueblo forma parte de un contexto montañoso mucho mayor',
         paragraphs: [
-          'La ruta oficial alcanza el Pozo de Lízar a 419 metros, una referencia concreta que muestra la rapidez con la que el terreno asciende más allá del casco histórico. No es necesario publicar una altitud municipal mínima o máxima que todavía no está verificada.',
-          'Frigiliana y Nerja forman parte del Parque Natural Sierras de Tejeda, Almijara y Alhama. El espacio protegido abarca aproximadamente 40.657 hectáreas entre Málaga y Granada e integra el pueblo en un sistema montañoso mucho mayor.'
+          'Frigiliana figura entre los municipios vinculados al Parque Natural Sierras de Tejeda, Almijara y Alhama en la vertiente malagueña de la Axarquía. El paisaje protegido abarca 40.647,74 hectáreas.',
+          'Esto acredita el contexto montañoso, no que todas las calles o todo el municipio estén dentro del límite protegido. Pueblo, término municipal y parque son geografías relacionadas, pero distintas.'
         ]
       },
       {
@@ -409,14 +405,13 @@ export const frigilianaGeographyContent: Record<
       eyebrow: 'Fuentes de la guía',
       title: 'Referencias geográficas oficiales',
       intro:
-        'La ubicación en la Axarquía y los 6 kilómetros hasta Nerja proceden de la página oficial de situación. La superficie municipal y la referencia de 318 metros en el Ayuntamiento proceden de SIMA; plaza del Ingenio, Barribarto y Pozo de Lízar siguen la información turística oficial.',
+        'SIMA y AEMET aportan las referencias municipales y del núcleo principal. El decreto del conjunto histórico documenta la morfología urbana; la Junta aporta el contexto del parque natural.',
       checked: 'Fuentes comprobadas en agosto de 2026.',
       links: [
-        { label: 'Turismo de Frigiliana · Situación', text: 'Ubicación oficial en la Axarquía y distancia hasta Nerja.', href: sharedSources.tourismSituation },
-        { label: 'SIMA · Frigiliana', text: 'Superficie municipal y referencia oficial de altitud.', href: sharedSources.sima },
-        { label: 'SIMA · Definición de altitud', text: 'Define la altitud municipal en el Ayuntamiento del núcleo principal.', href: sharedSources.simaAltitude },
-        { label: 'Turismo de Frigiliana · El Fuerte', text: 'Ruta oficial con datos de plaza del Ingenio, Barribarto y Pozo de Lízar.', href: sharedSources.tourismEs },
-        { label: 'Junta de Andalucía · Parque Natural', text: 'Extensión oficial del espacio protegido y municipios incluidos.', href: sharedSources.naturalPark }
+        { label: 'SIMA · Frigiliana', text: 'Superficie municipal y referencia del núcleo principal.', href: sharedSources.sima },
+        { label: 'AEMET · Frigiliana', text: 'Referencia oficial y advertencia sobre variación de altitud municipal.', href: sharedSources.aemet },
+        { label: 'BOJA · Conjunto histórico', text: 'Morfología oficial de Barribarto, Barribajo, El Ingenio y la ampliación posterior.', href: sharedSources.heritage },
+        { label: 'Junta de Andalucía · Parque Natural', text: 'Extensión oficial del espacio protegido y contexto municipal.', href: sharedSources.naturalPark }
       ]
     },
     closing: {
@@ -431,28 +426,28 @@ export const frigilianaGeographyContent: Record<
     navLabel: 'Geografie & oriëntatie',
     hero: {
       eyebrow: 'Frigiliana · Geografie & oriëntatie',
-      title: 'Waar ligt Frigiliana?',
+      title: 'Waar ligt Frigiliana? Tussen Nerja en Sierra Almijara',
       standfirst:
-        'Frigiliana ligt in de Axarquía, in het oosten van de provincie Málaga, **ongeveer 6 kilometer landinwaarts van Nerja**. Het dorp loopt vanaf het lagere terrein op naar de Sierra Almijara; de ligging wordt daarom het duidelijkst vanaf de Middellandse Zeekust omhoog.',
-      note: 'De officiële hoogte is een referentie bij het stadhuis, niet één hoogte voor het hele dorp.',
+        'Frigiliana is een **hellinggemeente van 40,49 km² in de Axarquía**. Het beschermde historische weefsel volgt het reliëf: Barribajo ligt langs Calle Real, Barribarto vormt de middeleeuwse kern erboven en El Ingenio scheidt het oudere dorp van de latere uitbreiding op de kam.',
+      note: 'Officiële bronnen gebruiken 315–318 meter als referentie voor de hoofdplaats; geen van beide waarden geldt voor elke straat.',
       updated: 'Gepubliceerd in augustus 2026'
     },
     facts: [
       { label: 'Gemeente', value: '40,49 km²' },
-      { label: 'Officiële hoogtereferentie', value: '318 m bij het stadhuis' },
-      { label: 'Plaza del Ingenio', value: 'Ongeveer 290 m' },
-      { label: 'Beschermd landschap', value: 'Sierras de Tejeda, Almijara y Alhama' }
+      { label: 'Officiële referentie', value: '315–318 m · hoofdplaats' },
+      { label: 'Historische kern', value: 'Barribarto · middeleeuwse oorsprong' },
+      { label: 'Natuurparkcontext', value: '40.647,74 ha · groter beschermd landschap' }
     ],
     orientation: {
-      eyebrow: 'Lees het dorp van beneden naar boven',
-      title: 'Vier stappen van het lagere plein naar de bergrand',
+      eyebrow: 'Lees de nederzetting als een reeks',
+      title: 'Vier ankers verklaren het dorp vóór een afzonderlijke route',
       intro:
-        'Een verticale volgorde is hier nuttiger dan een platte windroos. Zo wordt duidelijk waarom een korte horizontale afstand toch een behoorlijke klim kan bevatten.',
+        'Het officiële erfgoeddossier geeft een betere mentale kaart dan één hoogte: latere uitbreiding, El Ingenio, Calle Real en de middeleeuwse kern vormen een verbonden hellingstructuur.',
       items: [
-        { label: 'Lager referentiepunt', value: 'Plaza del Ingenio · ongeveer 290 m' },
-        { label: 'Historische klim', value: 'Calle Real stijgt door het oude dorp' },
-        { label: 'Hogere historische kern', value: 'Barribarto · het hoogste deel' },
-        { label: 'Overgang naar de bergen', value: 'Pozo de Lízar · 419 m, daarna de Sierra' }
+        { label: 'Latere uitbreiding', value: 'Ten zuiden van El Ingenio · kam tussen ravijn en toegangsweg' },
+        { label: 'Scharnierpunt', value: 'El Ingenio · overgang tussen ouder en later weefsel' },
+        { label: 'Historische as', value: 'Barribajo · georganiseerd langs Calle Real' },
+        { label: 'Middeleeuwse oorsprong', value: 'Barribarto · kern op de kasteelheuvel' }
       ]
     },
     sections: [
@@ -468,28 +463,28 @@ export const frigilianaGeographyContent: Record<
       {
         id: 'historic-quarter',
         eyebrow: 'De historische kern',
-        title: 'Plaza del Ingenio, Calle Real en Barribarto vormen een zichtbare klim',
+        title: 'El Ingenio, Calle Real en Barribarto verklaren de historische structuur',
         paragraphs: [
-          'De officiële toeristische informatie plaatst Plaza del Ingenio op ongeveer 290 meter. Vanaf daar loopt de El Fuerte-route via Calle Real omhoog door de historische kern. Het hoogteverschil hoort dus bij de dagelijkse structuur van het dorp en is geen losstaande bergtocht.',
-          'Barribarto wordt officieel omschreven als het hoogste deel van de historische kern. Een exacte hoogte is niet nodig om de verhouding te begrijpen: het oude dorp stijgt vanaf het lagere plein via smalle straten en trappen.'
+          'Het beschermde-ensembledossier benoemt Barribarto als de oorspronkelijke middeleeuwse kern rond de kasteelheuvel en Barribajo als het weefsel langs Calle Real. El Ingenio ligt tussen dit oudere dorp en de latere uitbreiding naar het zuiden.',
+          'Hoofdstraten volgen meestal de hoogtelijnen; dwarsverbindingen zijn steiler en hebben vaak trappen. Dat is een gedocumenteerd patroon, geen uitspraak over de toegang tot elk adres.'
         ]
       },
       {
         id: 'lower-landscape',
-        eyebrow: 'Het landschap beneden',
-        title: 'Het dorp ligt boven valleien en terrashellingen',
+        eyebrow: 'De latere uitbreiding',
+        title: 'Frigiliana loopt zuidwaarts door over een bergrug',
         paragraphs: [
-          'Het uitzicht vanuit de historische straten laat zien waarom de kern verhoogd aanvoelt. Lager terrein, bebouwde terrassen en dalvormige plooien liggen onder het dorp, terwijl de bebouwing de helling erboven bezet.',
-          'Die ruimere omgeving helpt bij de oriëntatie, maar dit is geen wandelroute. Voor een verblijf telt dat zowel de benadering van beneden als de verplaatsingen in de historische kern door het reliëf worden bepaald.'
+          'De officiële beschrijving plaatst het latere deel van Frigiliana ten zuiden van El Ingenio op de kam tussen het Higuerónravijn en de toegangsweg. Het bebouwde dorp is dus complexer dan alleen een hoge oude kern en een laag dorp.',
+          'Dit helpt bij oriëntatie, maar bewijst geen helling, aantal treden of voertuigroute voor een accommodatie. Daarvoor is adresgebonden bewijs nodig.'
         ]
       },
       {
         id: 'sierra-almijara',
         eyebrow: 'De Sierra Almijara',
-        title: 'Historische straten gaan snel over in bergterrein',
+        title: 'Het dorp maakt deel uit van een veel grotere bergcontext',
         paragraphs: [
-          'De officiële route bereikt Pozo de Lízar op 419 meter. Dit concrete referentiepunt laat zien hoe snel het terrein voorbij de historische kern stijgt, zonder een niet-geverifieerde minimale of maximale gemeentehoogte te publiceren.',
-          'Frigiliana en Nerja liggen beide in het natuurpark Sierras de Tejeda, Almijara y Alhama. Het beschermde landschap beslaat ongeveer 40.657 hectare in Málaga en Granada en plaatst het dorp in een veel groter bergsysteem.'
+          'Frigiliana is een van de gemeenten die verbonden zijn met het natuurpark Sierras de Tejeda, Almijara y Alhama aan de Málaga-zijde van de Axarquía. Het beschermde landschap beslaat 40.647,74 hectare.',
+          'Dat bevestigt de bergcontext, niet dat elke straat of de hele gemeente binnen de beschermde grens ligt. Dorp, gemeente en park blijven drie verwante maar verschillende geografieën.'
         ]
       },
       {
@@ -514,14 +509,13 @@ export const frigilianaGeographyContent: Record<
       eyebrow: 'Bronnen van deze gids',
       title: 'Officiële geografische referenties',
       intro:
-        'De ligging in de Axarquía en de afstand van 6 kilometer tot Nerja volgen de officiële locatiepagina. De gemeenteoppervlakte en de referentie van 318 meter bij het stadhuis komen van SIMA; Plaza del Ingenio, Barribarto en Pozo de Lízar volgen de officiële toeristische informatie.',
+        'SIMA en AEMET leveren de gemeente- en hoofdplaatsreferenties. Het beschermingsbesluit beschrijft de nederzettingsstructuur; de Junta levert de bredere natuurparkcontext.',
       checked: 'Bronnen gecontroleerd in augustus 2026.',
       links: [
-        { label: 'Frigiliana Tourism · Ligging', text: 'Officiële ligging in de Axarquía en afstand tot Nerja.', href: sharedSources.tourismSituation },
-        { label: 'SIMA · Frigiliana', text: 'Officiële gemeenteoppervlakte en hoogtereferentie.', href: sharedSources.sima },
-        { label: 'SIMA · Definitie van hoogte', text: 'Definieert de gemeentehoogte bij het stadhuis van de hoofdplaats.', href: sharedSources.simaAltitude },
-        { label: 'Frigiliana Tourism · El Fuerte', text: 'Officiële routebeschrijving voor Plaza del Ingenio, Barribarto en Pozo de Lízar.', href: sharedSources.tourismEn },
-        { label: 'Junta de Andalucía · Natuurpark', text: 'Officiële omvang van het beschermde gebied en deelnemende gemeenten.', href: sharedSources.naturalPark }
+        { label: 'SIMA · Frigiliana', text: 'Officiële gemeenteoppervlakte en hoofdplaatsreferentie.', href: sharedSources.sima },
+        { label: 'AEMET · Frigiliana', text: 'Officiële referentie en waarschuwing over hoogteverschillen binnen de gemeente.', href: sharedSources.aemet },
+        { label: 'BOJA · Historisch ensemble', text: 'Officiële morfologie van Barribarto, Barribajo, El Ingenio en de latere uitbreiding.', href: sharedSources.heritage },
+        { label: 'Junta de Andalucía · Natuurpark', text: 'Officiële omvang van het beschermde gebied en gemeentecontext.', href: sharedSources.naturalPark }
       ]
     },
     closing: {
@@ -536,28 +530,28 @@ export const frigilianaGeographyContent: Record<
     navLabel: 'Geografi & orientering',
     hero: {
       eyebrow: 'Frigiliana · Geografi & orientering',
-      title: 'Var ligger Frigiliana?',
+      title: 'Var ligger Frigiliana? Mellan Nerja och Sierra Almijara',
       standfirst:
-        'Frigiliana ligger i Axarquía i den östra delen av Málagaprovinsen, **omkring 6 kilometer inåt land från Nerja**. Byn stiger från lägre terräng mot Sierra Almijara, så läget blir tydligast när det läses från Medelhavskusten och uppåt.',
-      note: 'Den officiella höjden är en referens vid stadshuset, inte en enda höjd för hela byn.',
+        'Frigiliana är en **sluttande kommun på 40,49 km² i Axarquía**. Den skyddade historiska strukturen följer reliefen: Barribajo ligger längs Calle Real, Barribarto bildar den medeltida kärnan ovanför och El Ingenio skiljer den äldre byn från senare bebyggelse på åsen.',
+      note: 'Officiella källor använder 315–318 meter som referens för huvudorten; ingen av siffrorna gäller varje gata.',
       updated: 'Publicerad i augusti 2026'
     },
     facts: [
       { label: 'Kommun', value: '40,49 km²' },
-      { label: 'Officiell höjdreferens', value: '318 m vid stadshuset' },
-      { label: 'Plaza del Ingenio', value: 'Omkring 290 m' },
-      { label: 'Skyddat landskap', value: 'Sierras de Tejeda, Almijara y Alhama' }
+      { label: 'Officiell referens', value: '315–318 m · huvudorten' },
+      { label: 'Historisk kärna', value: 'Barribarto · medeltida ursprung' },
+      { label: 'Naturparkskontext', value: '40 647,74 ha · större skyddat landskap' }
     ],
     orientation: {
-      eyebrow: 'Läs byn nedifrån och upp',
-      title: 'Fyra steg från det lägre torget till bergskanten',
+      eyebrow: 'Läs bebyggelsen som en följd',
+      title: 'Fyra ankare förklarar byn före varje enskild väg',
       intro:
-        'En vertikal följd är mer användbar här än en platt kompass. Den förklarar varför ett kort horisontellt avstånd kan innehålla en tydlig stigning.',
+        'Det officiella kulturmiljöunderlaget ger en bättre mental karta än en höjdsiffra: senare utbyggnad, El Ingenio, Calle Real och den medeltida kärnan bildar en sammanhängande sluttning.',
       items: [
-        { label: 'Lägre referenspunkt', value: 'Plaza del Ingenio · omkring 290 m' },
-        { label: 'Historisk stigning', value: 'Calle Real leder upp genom den gamla byn' },
-        { label: 'Övre historiska kvarter', value: 'Barribarto · dess högsta del' },
-        { label: 'Övergång till bergen', value: 'Pozo de Lízar · 419 m, sedan Sierran' }
+        { label: 'Senare utbyggnad', value: 'Söder om El Ingenio · ås mellan ravin och tillfartsväg' },
+        { label: 'Bebyggelsens gångjärn', value: 'El Ingenio · övergång mellan äldre och senare struktur' },
+        { label: 'Historisk axel', value: 'Barribajo · organiserat längs Calle Real' },
+        { label: 'Medeltida ursprung', value: 'Barribarto · kärnan på borgkullen' }
       ]
     },
     sections: [
@@ -573,28 +567,28 @@ export const frigilianaGeographyContent: Record<
       {
         id: 'historic-quarter',
         eyebrow: 'Den historiska byn',
-        title: 'Plaza del Ingenio, Calle Real och Barribarto bildar en tydlig stigning',
+        title: 'El Ingenio, Calle Real och Barribarto förklarar den historiska strukturen',
         paragraphs: [
-          'Den officiella turistinformationen placerar Plaza del Ingenio på cirka 290 meter. Därifrån fortsätter El Fuerte-leden via Calle Real upp genom den historiska byn. Höjdskillnaden är därmed en del av byns vardagsstruktur och inte en separat bergstur.',
-          'Barribarto beskrivs officiellt som den högsta delen av det historiska kvarteret. En exakt höjd behövs inte för att förstå sambandet: den gamla byn stiger från det lägre torget via smala gator och trappor.'
+          'Underlaget för det skyddade området beskriver Barribarto som den ursprungliga medeltida kärnan kring borgkullen och Barribajo som strukturen längs Calle Real. El Ingenio ligger mellan denna äldre by och den senare utvidgningen söderut.',
+          'Huvudgator följer oftast höjdkurvorna; tvärförbindelser är brantare och har ofta trappor. Det är ett dokumenterat mönster, inte ett påstående om tillträdet till varje adress.'
         ]
       },
       {
         id: 'lower-landscape',
-        eyebrow: 'Landskapet nedanför',
-        title: 'Byn ligger ovanför dalar och terrasserade sluttningar',
+        eyebrow: 'Den senare utbyggnaden',
+        title: 'Frigiliana fortsätter söderut på en ås',
         paragraphs: [
-          'Utsikten från de historiska gatorna visar varför byn upplevs ligga högt. Lägre mark, odlade terrasser och dalformade veck ligger nedanför medan bebyggelsen håller sluttningen ovanför.',
-          'Den större omgivningen hjälper orienteringen, men detta är ingen vandringsbeskrivning. För en vistelse är poängen att både ankomsten nedifrån och vägarna inom den historiska byn formas av reliefen.'
+          'Den officiella beskrivningen placerar Frigilianas senare del söder om El Ingenio på åsen mellan Higuerónravinen och tillfartsvägen. Den byggda byn är därför mer komplex än en enkel övre gammal by och nedre stadsdel.',
+          'Det hjälper orienteringen men bevisar inte lutning, antal trappsteg eller bilväg till ett boende. Det kräver adressbunden dokumentation.'
         ]
       },
       {
         id: 'sierra-almijara',
         eyebrow: 'Sierra Almijara',
-        title: 'Historiska gator övergår snabbt i bergsterräng',
+        title: 'Byn ingår i ett mycket större bergssammanhang',
         paragraphs: [
-          'Den officiella rutten når Pozo de Lízar på 419 meter. Det är en konkret referens som visar hur snabbt terrängen stiger bortom den historiska byn, utan att ange en obekräftad lägsta eller högsta höjd för kommunen.',
-          'Både Frigiliana och Nerja ingår i naturparken Sierras de Tejeda, Almijara y Alhama. Det skyddade landskapet omfattar cirka 40 657 hektar i Málaga och Granada och placerar byn i ett mycket större bergssystem.'
+          'Frigiliana är en av kommunerna med anknytning till naturparken Sierras de Tejeda, Almijara y Alhama på Málagasidan av Axarquía. Det skyddade landskapet omfattar 40 647,74 hektar.',
+          'Det bekräftar bergskontexten, inte att varje gata eller hela kommunen ligger inom skyddsgränsen. By, kommun och park är tre närliggande men skilda geografier.'
         ]
       },
       {
@@ -619,14 +613,13 @@ export const frigilianaGeographyContent: Record<
       eyebrow: 'Källorna bakom guiden',
       title: 'Officiella geografiska referenser',
       intro:
-        'Läget i Axarquía och avståndet på 6 kilometer till Nerja följer den officiella lägesbeskrivningen. Kommunytan och referensen på 318 meter vid stadshuset kommer från SIMA; Plaza del Ingenio, Barribarto och Pozo de Lízar följer Frigilianas officiella turistinformation.',
+        'SIMA och AEMET ger kommun- och huvudortsreferenserna. Beslutet om det historiska området beskriver bebyggelsens struktur; Junta de Andalucía ger naturparkens större sammanhang.',
       checked: 'Källor kontrollerade i augusti 2026.',
       links: [
-        { label: 'Frigiliana Tourism · Läge', text: 'Officiellt läge i Axarquía och avstånd till Nerja.', href: sharedSources.tourismSituation },
-        { label: 'SIMA · Frigiliana', text: 'Officiell kommunyta och höjdreferens.', href: sharedSources.sima },
-        { label: 'SIMA · Definition av höjd', text: 'Definierar kommunhöjden vid huvudortens stadshus.', href: sharedSources.simaAltitude },
-        { label: 'Frigiliana Tourism · El Fuerte', text: 'Officiell ruttbeskrivning för Plaza del Ingenio, Barribarto och Pozo de Lízar.', href: sharedSources.tourismEn },
-        { label: 'Junta de Andalucía · Naturpark', text: 'Officiell omfattning för det skyddade området och ingående kommuner.', href: sharedSources.naturalPark }
+        { label: 'SIMA · Frigiliana', text: 'Officiell kommunyta och huvudortsreferens.', href: sharedSources.sima },
+        { label: 'AEMET · Frigiliana', text: 'Officiell referens och varning om höjdskillnader inom kommunen.', href: sharedSources.aemet },
+        { label: 'BOJA · Historiskt område', text: 'Officiell morfologi för Barribarto, Barribajo, El Ingenio och senare utbyggnad.', href: sharedSources.heritage },
+        { label: 'Junta de Andalucía · Naturpark', text: 'Officiell omfattning och kommunalt sammanhang.', href: sharedSources.naturalPark }
       ]
     },
     closing: {

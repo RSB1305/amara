@@ -1,7 +1,7 @@
 ---
-import InlineEmphasis from '../../components/text/InlineEmphasis.astro';
 import Navigation from '../../components/Navigation.astro';
 import NerjaContextNav from '../../components/location/NerjaContextNav.astro';
+import type { LocationGuideIconName } from '../../components/location/LocationGuideIcon.astro';
 import {
   nerjaGeographyContent,
   nerjaGeographySeo
@@ -11,8 +11,8 @@ import { createRequiredLinkResolver, type LabeledLink } from '../../lib/linkReso
 import { normalizeLanguage } from '../../lib/seo/resolve-seo-head';
 import type { AmaraLanguage } from '../../types/seo';
 import AuthorityArticle from './AuthorityArticle.astro';
+import GeographyAuthorityBody from './GeographyAuthorityBody.astro';
 import AuthorityRelatedLinks from './AuthorityRelatedLinks.astro';
-import AuthorityTextSection from './AuthorityTextSection.astro';
 
 interface Props {
   lang?: string;
@@ -31,6 +31,11 @@ const footerHighlights: LabeledLink[] = [
   { token: 'nerja_geography', label: content.navLabel },
   { token: 'getting_to_nerja', label: content.related.links[0].label },
   { token: 'nerja_where_to_stay', label: content.related.links[1].label }
+];
+const landscapeIcons: LocationGuideIconName[] = [
+  'village',
+  'elevation',
+  'coast'
 ];
 ---
 
@@ -65,49 +70,24 @@ const footerHighlights: LabeledLink[] = [
     primaryCta={{ href: propertyHref, label: content.closing.propertyLabel }}
     secondaryCta={{ href: locationHref, label: content.closing.locationLabel }}
     presentation="guide"
-    guideVisual={{
-      eyebrow: content.facts[0].label,
-      mark: '36° N',
-      note: content.facts[0].value
+    guideSummary={{
+      eyebrow: content.navLabel,
+      body: content.hero.standfirst,
+      items: content.facts.slice(0, 3)
     }}
   >
-    <section
-      aria-labelledby="nerja-orientation-title"
-      class="border-b border-border-subtle bg-inverse-surface px-6 py-20 text-inverted-on-surface md:px-12 md:py-28"
-      data-am-orientation="nerja"
-    >
-      <div class="mx-auto grid max-w-screen-2xl gap-12 lg:grid-cols-12 lg:gap-20">
-        <div class="lg:col-span-4">
-          <p class="font-label text-[11px] font-bold uppercase tracking-[0.18em] text-primary-fixed-dim">{content.orientation.eyebrow}</p>
-          <h2 id="nerja-orientation-title" class="am-text-title mt-5 text-balance text-inverted-on-surface">{content.orientation.title}</h2>
-          <p class="am-text-body mt-6 leading-relaxed text-inverted-on-surface/70"><InlineEmphasis text={content.orientation.intro} /></p>
-        </div>
-        <ol class="grid border-y border-inverted-on-surface/20 sm:grid-cols-2 lg:col-span-8">
-          {content.orientation.items.map((item, index) => (
-            <li
-              class:list={[
-                'border-inverted-on-surface/20 px-1 py-6 sm:px-7',
-                index > 1 && 'border-t',
-                index % 2 === 1 && 'sm:border-l'
-              ]}
-              data-am-orientation-point={index + 1}
-            >
-              <span class="font-label text-[10px] font-bold uppercase tracking-[0.14em] text-primary-fixed-dim">{item.label}</span>
-              <span class="am-text-subtitle mt-3 block text-inverted-on-surface">{item.value}</span>
-            </li>
-          ))}
-        </ol>
-      </div>
-    </section>
-
-    {content.sections.map((section, index) => (
-      <AuthorityTextSection section={section} index={index} />
-    ))}
+    <GeographyAuthorityBody
+      destination="nerja"
+      orientation={content.orientation}
+      sections={content.sections}
+      middleIcons={landscapeIcons}
+    />
 
     <AuthorityRelatedLinks
       related={content.related}
       columns="md:grid-cols-2"
       resolveHref={requiredLink}
+      presentation="guide"
     />
   </AuthorityArticle>
 </LocationAuthorityLayout>
