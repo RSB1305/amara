@@ -279,7 +279,7 @@ const AUTHORITY_PAGES: AuthorityPage[] = [
     routeToken: 'tarifa_winter_stays',
     pageId: 'tarifa-winter-stays',
     content: tarifaWinterStaysContent,
-    heroMark: (locale) => locale.hero.mark ?? '',
+    heroMark: null,
     relatedColumns: 'md:grid-cols-2',
     blockBeforeSections: null,
     blockAfterSections: null,
@@ -287,8 +287,8 @@ const AUTHORITY_PAGES: AuthorityPage[] = [
     interleaved: [],
     sectionMarkerAttribute: 'data-am-winter-stays-section',
     closingCtas: [
-      { token: 'location_tarifa', labelKey: 'locationLabel', className: PRIMARY_CTA_CLASS },
-      { token: 'casa', labelKey: 'propertyLabel', className: SECONDARY_CTA_CLASS }
+      { token: 'casa', labelKey: 'propertyLabel', className: PRIMARY_CTA_CLASS },
+      { token: 'location_tarifa', labelKey: 'locationLabel', className: SECONDARY_CTA_CLASS }
     ]
   }
 ];
