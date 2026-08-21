@@ -1,45 +1,5 @@
-import type { LinkToken } from '../lib/linkResolver';
 import type { AmaraAuthoringSeo, AmaraLanguage } from '../types/seo';
-
-export interface TarifaWinterStaysSection {
-  id: string;
-  eyebrow: string;
-  title: string;
-  paragraphs: string[];
-}
-
-export interface TarifaWinterStaysLocale {
-  navLabel: string;
-  hero: {
-    eyebrow: string;
-    title: string;
-    standfirst: string;
-    note: string;
-    updated: string;
-    mark: string;
-  };
-  facts: Array<{ label: string; value: string }>;
-  sections: TarifaWinterStaysSection[];
-  related: {
-    eyebrow: string;
-    title: string;
-    links: Array<{ token: LinkToken; label: string; text: string }>;
-  };
-  sources: {
-    eyebrow: string;
-    title: string;
-    intro: string;
-    checked: string;
-    links: Array<{ label: string; text: string; href: string }>;
-  };
-  closing: {
-    eyebrow: string;
-    title: string;
-    body: string;
-    locationLabel: string;
-    propertyLabel: string;
-  };
-}
+import type { WinterStaysLocale } from './winterStaysContent';
 
 /**
  * Primary intent: the lived proposition of a multi-day or multi-week Tarifa winter stay.
@@ -51,19 +11,19 @@ export interface TarifaWinterStaysLocale {
  * NL Tarifa in de winter / winter in Tarifa / winterweer / winterverblijf / lang verblijf / winterzon / werken op afstand;
  * SV Tarifa på vintern / vinter i Tarifa / vinterväder / vintervistelse / längre vistelse / vintersol / distansarbete.
  * Entities: Tarifa, La Marina, Mar Adriático 29, AMARA Family & Surf, the Atlantic coast,
- * Strait of Gibraltar, Africa, the Atlas Mountains, TAF CoWorking and Tarifa Old Town.
+ * Strait of Gibraltar, Africa, the Atlas Mountains and Tarifa Old Town.
  */
 
 const article = {
   datePublished: '2026-08-13',
-  dateModified: '2026-08-13',
+  dateModified: '2026-08-21',
   authorName: 'Robert Sebastian Böhmer',
   authorType: 'Person' as const,
   authorSlug: 'amara-about-us'
 };
 
 export const tarifaWinterStaysSeo: AmaraAuthoringSeo = {
-  version: '2026-08-13-tarifa-winter-stays-v1.0',
+  version: '2026-08-21-tarifa-winter-stays-v2.0',
   pageType: 'A',
   entityKey: 'amara-brand',
   article,
@@ -104,11 +64,11 @@ export const tarifaWinterStaysSeo: AmaraAuthoringSeo = {
 const sourceHrefs = {
   tarifaNormals: 'https://www.aemet.es/es/serviciosclimaticos/datosclimatologicos/valoresclimatologicos?k=and&l=6001',
   tarifaViewpoints: 'https://turismodetarifa.com/que-hacer/parques-naturales-senderismo/',
-  tarifaBeaches: 'https://turismodetarifa.com/playas/',
-  taf: 'https://tarifairforce.com/pages/coworking-1'
+  tarifaWind: 'https://www.juntadeandalucia.es/medioambiente/portal/landing-page-%C3%ADndice/-/asset_publisher/zX2ouZa4r1Rf/content/viento/20151',
+  travelIntent: 'https://etc-corporate.org/reports/monitoring-sentiment-for-intra-european-travel-autumn-25-winter-2026/'
 } as const;
 
-export const tarifaWinterStaysContent: Record<AmaraLanguage, TarifaWinterStaysLocale> = {
+export const tarifaWinterStaysContent: Record<AmaraLanguage, WinterStaysLocale> = {
   en: {
     navLabel: 'Winter Stays',
     hero: {
@@ -173,7 +133,7 @@ export const tarifaWinterStaysContent: Record<AmaraLanguage, TarifaWinterStaysLo
         paragraphs: [
           'Summer can feel anonymous and highly transient. In our winter experience, there is usually less high-season pressure and more room for spontaneous everyday choices — but a popular restaurant can still be busy, a parking space elsewhere can still be hard to find and a beach is never promised empty.',
           'What changes most for us is familiarity. Seeing the same people again at a café, on a town walk or beside the Atlantic can make Tarifa feel more personal and connected, even when those encounters remain no more than a nod or a brief exchange.',
-          'From AMARA, the Old Town is about 10–15 minutes away on foot and normal shopping is directly opposite. That lets winter days move naturally between home and town without turning every meal, walk or errand into a planned event.'
+          'AMARA’s La Marina setting keeps everyday shopping and the Old Town within the same practical part of Tarifa. Check the actual route for your mobility and pace rather than treating an estimated walking time as a promise.'
         ]
       },
       {
@@ -192,7 +152,7 @@ export const tarifaWinterStaysContent: Record<AmaraLanguage, TarifaWinterStaysLo
         title: 'Why the home matters more in winter',
         paragraphs: [
           'A summer stay can revolve around being outside. In winter, the quality of the home becomes part of the destination: somewhere to read, cook, work when necessary, dry clothes after a changing day and spend an evening without needing to go out.',
-          'AMARA Family & Surf has verified Wi-Fi, heating, hot-and-cold air-conditioning, a wood-burning fireplace, a full kitchen, washing machine and comfortable living areas. These are practical features, not mood-setting adjectives.',
+          'AMARA’s current property records list Wi-Fi, heating, hot-and-cold air-conditioning, a wood-burning fireplace, a full kitchen and washing machine. Confirm any feature that is decisive for your stay when booking.',
           'Over several weeks, those basics create continuity. You can cook a normal meal, keep laundry moving and warm the house for the evening, making a mixed-weather day feel like part of real winter life rather than lost holiday time.'
         ]
       },
@@ -202,7 +162,7 @@ export const tarifaWinterStaysContent: Record<AmaraLanguage, TarifaWinterStaysLo
         title: 'Who will enjoy Tarifa in winter',
         paragraphs: [
           'Winter can suit couples, longer stays, guests taking a break from darker northern months, surf- or kite-oriented travellers and people who prefer calm town life to peak-season intensity. It rewards flexibility more than a checklist of guaranteed conditions.',
-          'For guests who need to work during part of a longer stay, the combination is practical: a comfortable private home for focused hours, professional coworking infrastructure at nearby TAF when needed, and daylight, coast and town life afterwards. We do not assume that every winter guest works.',
+          'For guests who need to work during part of a longer stay, Wi-Fi and a private home can make focused hours possible. Confirm that the workspace and connection suit your needs; we do not turn every winter stay into a workation story.',
           'Guests seeking the warmest sea, dense high-season energy, the broadest seasonal opening or a trip built almost entirely around beach heat may prefer summer. Winter asks you to value changing days, indoor comfort and a slower relationship with the town.'
         ]
       },
@@ -211,7 +171,7 @@ export const tarifaWinterStaysContent: Record<AmaraLanguage, TarifaWinterStaysLo
         eyebrow: '09 · Your winter base',
         title: 'Winter at AMARA in La Marina',
         paragraphs: [
-          'AMARA Family & Surf is at Mar Adriático 29 in La Marina. The supermarket is directly opposite, the Old Town is approximately 10–15 minutes away on foot, and practical westbound access keeps the Atlantic coast within easy reach.',
+          'AMARA Family & Surf is in La Marina, between everyday Tarifa and the wider Atlantic coast. Shopping and the Old Town are part of the local routine, but current businesses and the route that suits you should be checked for your dates.',
           'A reserved underground space removes the daily question of where to leave your own car at home; it does not promise parking at beaches or in town. Inside, heating, hot-and-cold air-conditioning, the fireplace, kitchen, washing machine, Wi-Fi and living space support the routines of a stay measured in weeks.',
           'That is the winter proposition: a milder southern season outside, a comfortable real home inside and normal Tarifa life close by. Winter is not the lesser version of Tarifa. It is a different version — and for some guests, perhaps the more rewarding one.'
         ]
@@ -222,7 +182,7 @@ export const tarifaWinterStaysContent: Record<AmaraLanguage, TarifaWinterStaysLo
       title: 'Plan the winter stay without repeating the same guide',
       links: [
         { token: 'tarifa_weather', label: 'Weather & Seasons', text: 'Official climate evidence, Levante, Poniente and the limits of any seasonal expectation.' },
-        { token: 'tarifa_daily_life', label: 'Daily Life & Services', text: 'Groceries, healthcare, normal errands and the full coworking detail for a longer stay.' },
+        { token: 'tarifa_daily_life', label: 'Daily Life & Services', text: 'Groceries, healthcare, normal errands and practical planning for a longer stay.' },
         { token: 'tarifa_beaches_authority', label: 'Beaches & coast', text: 'Choose between the urban shore and the wider Atlantic coast for the day you have.' },
         { token: 'tarifa_wind_kitesurfing_authority', label: 'Wind & watersports', text: 'Technical wind, safety and water-sports planning belongs in the specialist guide.' },
         { token: 'casa', label: 'AMARA Family & Surf', text: 'See the home when its winter role and practical setting are clear.' }
@@ -231,13 +191,13 @@ export const tarifaWinterStaysContent: Record<AmaraLanguage, TarifaWinterStaysLo
     sources: {
       eyebrow: 'Evidence and perspective',
       title: 'Official facts, clearly separated from host experience',
-      intro: 'Climate, viewpoint, coast and coworking facts use current official or first-party sources. The quieter, more familiar winter feeling is explicitly Robert’s host perspective.',
-      checked: 'Sources reviewed 13 August 2026',
+      intro: 'Climate, wind and viewpoint facts use current official sources. The quieter winter feeling is explicitly Robert’s host perspective; property details come from AMARA’s current records.',
+      checked: 'Sources reviewed 21 August 2026',
       links: [
         { label: 'AEMET · Tarifa climate normals', text: 'Official monthly temperature, rainfall and rain-day averages for station 6001.', href: sourceHrefs.tarifaNormals },
         { label: 'Turismo de Tarifa · parks and walking routes', text: 'Official viewpoint context, including Africa and the Atlas Mountains on clear days.', href: sourceHrefs.tarifaViewpoints },
-        { label: 'Turismo de Tarifa · beaches', text: 'Official orientation to Tarifa’s Atlantic and Mediterranean coastline.', href: sourceHrefs.tarifaBeaches },
-        { label: 'TAF CoWorking · official information', text: 'Current professional work infrastructure near AMARA.', href: sourceHrefs.taf }
+        { label: 'Junta de Andalucía · wind in the Strait', text: 'Official qualitative context for Levante and Poniente.', href: sourceHrefs.tarifaWind },
+        { label: 'European Travel Commission · winter travel sentiment', text: 'European travel intentions and the boundary between survey plans and bookings.', href: sourceHrefs.travelIntent }
       ]
     },
     closing: {
@@ -297,7 +257,7 @@ export const tarifaWinterStaysContent: Record<AmaraLanguage, TarifaWinterStaysLo
         id: 'quieter-tarifa', eyebrow: '05 · Vertrautheit statt Intensität', title: 'Die ruhigere Seite von Tarifa', paragraphs: [
           'Der Sommer kann anonym und sehr flüchtig wirken. Nach unserer Wintererfahrung gibt es meist weniger Hochsaisondruck und mehr Raum für spontane Alltagsentscheidungen. Trotzdem kann ein beliebtes Restaurant voll sein, ein Parkplatz anderswo schwer zu finden und kein Strand wird als leer versprochen.',
           'Für uns verändert sich vor allem die Vertrautheit. Dieselben Menschen wieder im Café, beim Weg durch den Ort oder am Atlantik zu sehen, kann Tarifa persönlicher und verbundener wirken lassen — selbst wenn es nur bei einem Nicken oder kurzen Austausch bleibt.',
-          'Von AMARA erreicht ihr die Altstadt in ungefähr 10–15 Minuten zu Fuß, die normalen Einkäufe liegen direkt gegenüber. So fließen Wintertage natürlich zwischen Zuhause und Ort, ohne dass jede Mahlzeit, jeder Weg oder jede Besorgung zum geplanten Programmpunkt wird.'
+          'AMARAs Lage in La Marina verbindet alltägliche Einkäufe und Altstadt im selben praktischen Teil Tarifas. Prüft die konkrete Route für eure Mobilität und euer Tempo, statt eine geschätzte Gehzeit als Versprechen zu verstehen.'
         ]
       },
       {
@@ -310,20 +270,20 @@ export const tarifaWinterStaysContent: Record<AmaraLanguage, TarifaWinterStaysLo
       {
         id: 'home-matters', eyebrow: '07 · Komfort wird wesentlich', title: 'Warum das Zuhause im Winter wichtiger wird', paragraphs: [
           'Ein Sommeraufenthalt kann fast vollständig draußen stattfinden. Im Winter wird die Qualität des Zuhauses Teil des Reiseziels: zum Lesen, Kochen, bei Bedarf Arbeiten, Trocknen von Kleidung nach wechselndem Wetter und für einen Abend, an dem ihr nicht ausgehen müsst.',
-          'Für AMARA Family & Surf sind WLAN, Heizung, Klimaanlage zum Kühlen und Heizen, Holzkamin, vollständige Küche, Waschmaschine und komfortable Wohnbereiche bestätigt. Das sind praktische Eigenschaften, keine inszenierte Stimmung.',
+          'Die aktuellen AMARA-Objektdaten nennen WLAN, Heizung, Klimaanlage zum Kühlen und Heizen, Holzkamin, vollständige Küche und Waschmaschine. Bestätigt bei der Buchung jedes Merkmal, das für euch entscheidend ist.',
           'Über mehrere Wochen schaffen diese Grundlagen Kontinuität. Ihr könnt normal kochen, Wäsche waschen und das Haus am Abend wärmen. So fühlt sich ein Tag mit gemischtem Wetter wie echtes Winterleben an und nicht wie verlorene Urlaubszeit.'
         ]
       },
       {
         id: 'who-enjoys-winter', eyebrow: '08 · Für wen diese Jahreszeit passt', title: 'Wer Tarifa im Winter genießen wird', paragraphs: [
           'Der Winter kann zu Paaren, längeren Aufenthalten, einer Pause von dunkleren nördlichen Monaten, Surf- oder Kite-Reisenden und Menschen passen, die ruhiges Ortsleben der Hochsaisonintensität vorziehen. Er belohnt Flexibilität mehr als eine Liste garantierter Bedingungen.',
-          'Wenn ihr während eines längeren Aufenthalts teilweise arbeiten müsst, ist die Kombination praktisch: ein komfortables privates Zuhause für konzentrierte Stunden, professionelle Coworking-Infrastruktur beim nahe gelegenen TAF nach Bedarf und danach Tageslicht, Küste und Ortsleben. Wir setzen nicht voraus, dass alle Wintergäste arbeiten.',
+          'Wenn ihr während eines längeren Aufenthalts teilweise arbeiten müsst, können WLAN und ein privates Zuhause konzentrierte Stunden ermöglichen. Bestätigt, ob Arbeitsplatz und Verbindung passen; nicht jeder Winteraufenthalt ist eine Workation.',
           'Wenn ihr das wärmste Meer, dichte Hochsaisonenergie, die breiteste saisonale Öffnung oder eine Reise fast nur für Strandhitze sucht, ist der Sommer wahrscheinlich passender. Im Winter müsst ihr wechselnde Tage, Komfort drinnen und eine langsamere Beziehung zum Ort schätzen.'
         ]
       },
       {
         id: 'amara-la-marina', eyebrow: '09 · Eure Winterbasis', title: 'Winter bei AMARA in La Marina', paragraphs: [
-          'AMARA Family & Surf liegt an der Mar Adriático 29 in La Marina. Der Supermarkt ist direkt gegenüber, die Altstadt ungefähr 10–15 Minuten zu Fuß entfernt und die praktische Ausfahrt Richtung Westen hält die Atlantikküste gut erreichbar.',
+          'AMARA Family & Surf liegt in La Marina zwischen dem alltäglichen Tarifa und der weiteren Atlantikküste. Einkaufen und Altstadt gehören zum lokalen Alltag; aktuelle Betriebe und die passende Route prüft ihr für eure Reisedaten.',
           'Ein reservierter Tiefgaragenplatz klärt, wo euer eigenes Auto zu Hause steht; er verspricht keine Parkmöglichkeit an Stränden oder in der Stadt. Drinnen unterstützen Heizung, Klimaanlage, Kamin, Küche, Waschmaschine, WLAN und Wohnraum Routinen über mehrere Wochen.',
           'Das ist die Winteridee: draußen ein milderer südlicher Winter, drinnen ein komfortables echtes Zuhause und das normale Tarifa ganz nah. Der Winter ist nicht die kleinere Version von Tarifa. Er ist eine andere — und für manche Gäste vielleicht die lohnendere.'
         ]
@@ -343,13 +303,13 @@ export const tarifaWinterStaysContent: Record<AmaraLanguage, TarifaWinterStaysLo
     sources: {
       eyebrow: 'Belege und Perspektive',
       title: 'Offizielle Fakten, klar getrennt von Gastgebererfahrung',
-      intro: 'Klima-, Aussichtspunkt-, Küsten- und Coworking-Angaben nutzen aktuelle offizielle oder direkte Quellen. Das ruhigere, vertrautere Wintergefühl ist ausdrücklich Roberts Perspektive als Gastgeber.',
-      checked: 'Quellen geprüft am 13. August 2026',
+      intro: 'Klima-, Wind- und Aussichtsfakten nutzen aktuelle offizielle Quellen. Das ruhigere Wintergefühl ist ausdrücklich Roberts Perspektive; Objektdetails stammen aus den aktuellen AMARA-Daten.',
+      checked: 'Quellen geprüft am 21. August 2026',
       links: [
         { label: 'AEMET · Klimanormalwerte Tarifa', text: 'Offizielle Monatswerte für Temperatur, Niederschlag und Regentage an Station 6001.', href: sourceHrefs.tarifaNormals },
         { label: 'Turismo de Tarifa · Naturparks und Wege', text: 'Offizielle Aussichtsinformationen, einschließlich Afrika und Atlas an klaren Tagen.', href: sourceHrefs.tarifaViewpoints },
-        { label: 'Turismo de Tarifa · Strände', text: 'Offizielle Orientierung zur Atlantik- und Mittelmeerküste von Tarifa.', href: sourceHrefs.tarifaBeaches },
-        { label: 'TAF CoWorking · offizielle Information', text: 'Aktuelle professionelle Arbeitsinfrastruktur nahe AMARA.', href: sourceHrefs.taf }
+        { label: 'Junta de Andalucía · Wind an der Meerenge', text: 'Offizieller qualitativer Kontext zu Levante und Poniente.', href: sourceHrefs.tarifaWind },
+        { label: 'European Travel Commission · Winterreisen', text: 'Europäische Reiseabsichten und die Grenze zwischen Plan und Buchung.', href: sourceHrefs.travelIntent }
       ]
     },
     closing: {
@@ -409,7 +369,7 @@ export const tarifaWinterStaysContent: Record<AmaraLanguage, TarifaWinterStaysLo
         id: 'quieter-tarifa', eyebrow: '05 · Familiaridad frente a intensidad', title: 'El lado más tranquilo de Tarifa', paragraphs: [
           'El verano puede resultar anónimo y muy transitorio. En nuestra experiencia invernal suele haber menos presión de temporada alta y más margen para decisiones espontáneas. Aun así, un restaurante popular puede llenarse, aparcar en otro lugar puede ser difícil y nunca prometemos playas vacías.',
           'Lo que más cambia para nosotros es la familiaridad. Volver a ver a las mismas personas en una cafetería, por el centro o junto al Atlántico puede hacer que Tarifa se sienta más personal y conectada, aunque el encuentro no pase de un saludo.',
-          'Desde AMARA, el casco antiguo está a unos 10–15 minutos andando y las compras diarias, justo enfrente. Así, los días de invierno fluyen entre casa y localidad sin convertir cada comida, paseo o recado en un acontecimiento programado.'
+          'La ubicación de AMARA en La Marina mantiene las compras cotidianas y el casco antiguo dentro de la misma parte práctica de Tarifa. Comprobad el recorrido adecuado para vuestra movilidad y ritmo, sin convertir un tiempo estimado en promesa.'
         ]
       },
       {
@@ -429,13 +389,13 @@ export const tarifaWinterStaysContent: Record<AmaraLanguage, TarifaWinterStaysLo
       {
         id: 'who-enjoys-winter', eyebrow: '08 · Para quién es esta estación', title: 'Quién disfrutará Tarifa en invierno', paragraphs: [
           'El invierno puede gustar a parejas, estancias largas, personas que descansan de los meses oscuros del norte, viajeros de surf o kite y quienes prefieren una vida local tranquila a la intensidad máxima. Recompensa la flexibilidad más que una lista de condiciones garantizadas.',
-          'Para quienes necesiten trabajar durante parte de una estancia larga, la combinación es práctica: una casa privada cómoda para concentrarse, infraestructura profesional de coworking en el cercano TAF cuando haga falta y luz, costa y vida urbana después. No suponemos que todos los huéspedes de invierno trabajen.',
+          'Para quienes necesiten trabajar durante parte de una estancia larga, el wifi y una casa privada pueden permitir horas de concentración. Confirmad si espacio y conexión responden a vuestras necesidades; no convertimos cada estancia en una historia de teletrabajo.',
           'Quienes busquen el mar más cálido, mucha energía de temporada alta, la máxima oferta estacional o un viaje casi íntegramente de calor y playa quizá prefieran el verano. El invierno pide valorar los días cambiantes, el confort interior y una relación más lenta con Tarifa.'
         ]
       },
       {
         id: 'amara-la-marina', eyebrow: '09 · Vuestra base de invierno', title: 'El invierno en AMARA, en La Marina', paragraphs: [
-          'AMARA Family & Surf está en Mar Adriático 29, en La Marina. El supermercado queda justo enfrente, el casco antiguo a unos 10–15 minutos andando y la salida práctica hacia poniente mantiene cerca la costa atlántica.',
+          'AMARA Family & Surf está en La Marina, entre el Tarifa cotidiano y la costa atlántica. Compras y casco antiguo forman parte de la rutina local, pero conviene comprobar negocios y recorridos actuales para las fechas concretas.',
           'La plaza reservada en el garaje subterráneo resuelve dónde dejar vuestro coche en casa; no promete estacionamiento en playas ni en el centro. Dentro, calefacción, aire acondicionado, chimenea, cocina, lavadora, Wi-Fi y espacio de estar respaldan rutinas de varias semanas.',
           'Esa es la propuesta invernal: una estación meridional más suave fuera, una casa real y cómoda dentro y la vida normal de Tarifa cerca. El invierno no es una versión menor de Tarifa. Es una versión distinta y, para algunos huéspedes, quizá la más gratificante.'
         ]
@@ -446,7 +406,7 @@ export const tarifaWinterStaysContent: Record<AmaraLanguage, TarifaWinterStaysLo
       title: 'Planificad el invierno sin repetir la misma guía',
       links: [
         { token: 'tarifa_weather', label: 'Tiempo y estaciones', text: 'Datos climáticos oficiales, Levante, Poniente y límites de cualquier expectativa estacional.' },
-        { token: 'tarifa_daily_life', label: 'Vida diaria y servicios', text: 'Compras, atención sanitaria, recados y toda la información de coworking.' },
+        { token: 'tarifa_daily_life', label: 'Vida diaria y servicios', text: 'Compras, atención sanitaria, recados y planificación práctica.' },
         { token: 'tarifa_beaches_authority', label: 'Playas y costa', text: 'Elegid entre la costa urbana y el Atlántico occidental para el día concreto.' },
         { token: 'tarifa_wind_kitesurfing_authority', label: 'Viento y deportes acuáticos', text: 'La planificación técnica de viento, seguridad y agua pertenece a la guía especializada.' },
         { token: 'casa', label: 'AMARA Family & Surf', text: 'Ved la casa cuando su función invernal y su ubicación hayan quedado claras.' }
@@ -455,13 +415,13 @@ export const tarifaWinterStaysContent: Record<AmaraLanguage, TarifaWinterStaysLo
     sources: {
       eyebrow: 'Evidencia y perspectiva',
       title: 'Datos oficiales separados de la experiencia del anfitrión',
-      intro: 'Los datos de clima, miradores, costa y coworking usan fuentes oficiales o directas actuales. La sensación de un invierno tranquilo y familiar es expresamente la perspectiva de Robert como anfitrión.',
-      checked: 'Fuentes revisadas el 13 de agosto de 2026',
+      intro: 'Los datos de clima, viento y miradores usan fuentes oficiales. La sensación de un invierno tranquilo es la perspectiva expresa de Robert; los detalles de la casa proceden de los registros actuales de AMARA.',
+      checked: 'Fuentes revisadas el 21 de agosto de 2026',
       links: [
         { label: 'AEMET · valores normales de Tarifa', text: 'Medias oficiales mensuales de temperatura, precipitación y días de lluvia de la estación 6001.', href: sourceHrefs.tarifaNormals },
         { label: 'Turismo de Tarifa · parques y senderos', text: 'Información oficial de vistas, incluida África y el Atlas en días claros.', href: sourceHrefs.tarifaViewpoints },
-        { label: 'Turismo de Tarifa · playas', text: 'Orientación oficial sobre el litoral atlántico y mediterráneo.', href: sourceHrefs.tarifaBeaches },
-        { label: 'TAF CoWorking · información oficial', text: 'Infraestructura profesional de trabajo actual cerca de AMARA.', href: sourceHrefs.taf }
+        { label: 'Junta de Andalucía · viento en el Estrecho', text: 'Contexto cualitativo oficial sobre Levante y Poniente.', href: sourceHrefs.tarifaWind },
+        { label: 'European Travel Commission · viajes de invierno', text: 'Intenciones europeas y límite entre planes y reservas.', href: sourceHrefs.travelIntent }
       ]
     },
     closing: {
@@ -521,7 +481,7 @@ export const tarifaWinterStaysContent: Record<AmaraLanguage, TarifaWinterStaysLo
         id: 'quieter-tarifa', eyebrow: '05 · Vertrouwdheid boven intensiteit', title: 'De rustigere kant van Tarifa', paragraphs: [
           'De zomer kan anoniem en zeer vluchtig aanvoelen. In onze winterervaring is er doorgaans minder hoogseizoendruk en meer ruimte voor spontane keuzes. Toch kan een populair restaurant vol zijn, parkeren elders lastig blijven en wordt geen strand als leeg beloofd.',
           'Wat voor ons het meest verandert, is vertrouwdheid. Dezelfde mensen opnieuw zien in een café, tijdens een wandeling door de stad of langs de Atlantische Oceaan kan Tarifa persoonlijker en meer verbonden laten voelen, ook als het bij een knikje of kort gesprek blijft.',
-          'Vanaf AMARA is de oude stad ongeveer 10–15 minuten lopen en liggen de dagelijkse boodschappen direct aan de overkant. Zo bewegen winterdagen natuurlijk tussen thuis en stad zonder dat elke maaltijd, wandeling of boodschap een gepland evenement wordt.'
+          'AMARA’s ligging in La Marina houdt dagelijkse boodschappen en de oude stad binnen hetzelfde praktische deel van Tarifa. Controleer de route voor jullie mobiliteit en tempo in plaats van een geschatte looptijd als belofte te zien.'
         ]
       },
       {
@@ -541,13 +501,13 @@ export const tarifaWinterStaysContent: Record<AmaraLanguage, TarifaWinterStaysLo
       {
         id: 'who-enjoys-winter', eyebrow: '08 · Voor wie dit seizoen werkt', title: 'Wie Tarifa in de winter zal waarderen', paragraphs: [
           'De winter kan aantrekkelijk zijn voor stellen, langere verblijven, gasten die ontsnappen aan donkere noordelijke maanden, surf- of kitereizigers en mensen die kalm stadsleven verkiezen boven hoogseizoenintensiteit. Flexibiliteit wordt meer beloond dan een lijst gegarandeerde omstandigheden.',
-          'Voor gasten die tijdens een langer verblijf deels moeten werken, is de combinatie praktisch: een comfortabel privéhuis voor geconcentreerde uren, professionele coworkinginfrastructuur bij het nabijgelegen TAF wanneer nodig en daarna daglicht, kust en stadsleven. We nemen niet aan dat elke wintergast werkt.',
+          'Voor gasten die tijdens een langer verblijf deels moeten werken, kunnen wifi en een privéhuis geconcentreerde uren mogelijk maken. Bevestig of werkplek en verbinding passen; niet ieder winterverblijf is een workation.',
           'Wie de warmste zee, veel hoogseizoenenergie, het breedste seizoensaanbod of vooral strandwarmte zoekt, kiest mogelijk beter de zomer. De winter vraagt waardering voor veranderlijke dagen, comfort binnen en een langzamere relatie met de stad.'
         ]
       },
       {
         id: 'amara-la-marina', eyebrow: '09 · Jullie winterbasis', title: 'Winter bij AMARA in La Marina', paragraphs: [
-          'AMARA Family & Surf ligt aan Mar Adriático 29 in La Marina. De supermarkt ligt direct aan de overkant, de oude stad op ongeveer 10–15 minuten lopen en de praktische route westwaarts houdt de Atlantische kust goed bereikbaar.',
+          'AMARA Family & Surf ligt in La Marina tussen het dagelijkse Tarifa en de Atlantische kust. Winkels en de oude stad horen bij de lokale routine; controleer actuele zaken en een passende route voor jullie data.',
           'Een gereserveerde ondergrondse plek lost op waar jullie eigen auto thuis staat; ze belooft geen parking bij stranden of in de stad. Binnen ondersteunen verwarming, airconditioning, open haard, keuken, wasmachine, wifi en leefruimte routines van meerdere weken.',
           'Dat is het winterverhaal: buiten een milder zuidelijk seizoen, binnen een comfortabel echt huis en het normale leven van Tarifa dichtbij. De winter is geen mindere versie van Tarifa. Het is een andere — en voor sommige gasten misschien de meest waardevolle.'
         ]
@@ -558,7 +518,7 @@ export const tarifaWinterStaysContent: Record<AmaraLanguage, TarifaWinterStaysLo
       title: 'Plan het winterverblijf zonder dezelfde gids te herhalen',
       links: [
         { token: 'tarifa_weather', label: 'Weer & seizoenen', text: 'Officiële klimaatgegevens, Levante, Poniente en de grenzen van seizoensverwachtingen.' },
-        { token: 'tarifa_daily_life', label: 'Dagelijks leven & voorzieningen', text: 'Boodschappen, zorg, normale taken en alle coworkingdetails voor langer verblijf.' },
+        { token: 'tarifa_daily_life', label: 'Dagelijks leven & voorzieningen', text: 'Boodschappen, zorg, normale taken en praktische planning.' },
         { token: 'tarifa_beaches_authority', label: 'Stranden & kust', text: 'Kies voor de concrete dag tussen stadskust en de bredere Atlantische kust.' },
         { token: 'tarifa_wind_kitesurfing_authority', label: 'Wind & watersport', text: 'Technische wind-, veiligheids- en watersportplanning staat in de specialistische gids.' },
         { token: 'casa', label: 'AMARA Family & Surf', text: 'Bekijk het huis wanneer zijn winterrol en praktische ligging duidelijk zijn.' }
@@ -567,13 +527,13 @@ export const tarifaWinterStaysContent: Record<AmaraLanguage, TarifaWinterStaysLo
     sources: {
       eyebrow: 'Onderbouwing en perspectief',
       title: 'Officiële feiten, duidelijk gescheiden van hostervaring',
-      intro: 'Klimaat-, uitzicht-, kust- en coworkingfeiten gebruiken actuele officiële of directe bronnen. Het rustigere, vertrouwdere wintergevoel is uitdrukkelijk Roberts perspectief als host.',
-      checked: 'Bronnen gecontroleerd op 13 augustus 2026',
+      intro: 'Klimaat-, wind- en uitzichtfeiten gebruiken officiële bronnen. Het rustigere wintergevoel is Roberts expliciete perspectief; huisdetails komen uit actuele AMARA-records.',
+      checked: 'Bronnen gecontroleerd op 21 augustus 2026',
       links: [
         { label: 'AEMET · klimaatnormalen Tarifa', text: 'Officiële maandwaarden voor temperatuur, neerslag en regendagen van station 6001.', href: sourceHrefs.tarifaNormals },
         { label: 'Turismo de Tarifa · natuurparken en routes', text: 'Officiële uitzichtinformatie, inclusief Afrika en de Atlas op heldere dagen.', href: sourceHrefs.tarifaViewpoints },
-        { label: 'Turismo de Tarifa · stranden', text: 'Officiële oriëntatie op de Atlantische en mediterrane kust.', href: sourceHrefs.tarifaBeaches },
-        { label: 'TAF CoWorking · officiële informatie', text: 'Actuele professionele werkinfrastructuur nabij AMARA.', href: sourceHrefs.taf }
+        { label: 'Junta de Andalucía · wind in de Straat', text: 'Officiële kwalitatieve context voor Levante en Poniente.', href: sourceHrefs.tarifaWind },
+        { label: 'European Travel Commission · winterreizen', text: 'Europese intenties en de grens tussen plan en boeking.', href: sourceHrefs.travelIntent }
       ]
     },
     closing: {
@@ -633,7 +593,7 @@ export const tarifaWinterStaysContent: Record<AmaraLanguage, TarifaWinterStaysLo
         id: 'quieter-tarifa', eyebrow: '05 · Igenkänning framför intensitet', title: 'Tarifas lugnare sida', paragraphs: [
           'Sommaren kan kännas anonym och mycket tillfällig. Enligt vår vintererfarenhet är trycket från högsäsongen oftast lägre och det finns mer rum för spontana vardagsval. Ändå kan en populär restaurang vara full, parkering på annan plats svår och ingen strand lovas tom.',
           'Det som förändras mest för oss är igenkänningen. Att se samma människor igen på ett kafé, under en promenad i stan eller vid Atlanten kan få Tarifa att kännas mer personligt och sammanbundet, även om mötet stannar vid en nick eller kort växling.',
-          'Från AMARA är det ungefär 10–15 minuters promenad till Gamla stan och vanliga inköp finns direkt mittemot. Vinterdagarna kan därför röra sig naturligt mellan hem och stad utan att varje måltid, promenad eller ärende blir ett planerat evenemang.'
+          'AMARAs läge i La Marina håller vardagsinköp och Gamla stan inom samma praktiska del av Tarifa. Kontrollera rutten för er rörlighet och takt i stället för att behandla en uppskattad gångtid som ett löfte.'
         ]
       },
       {
@@ -646,20 +606,20 @@ export const tarifaWinterStaysContent: Record<AmaraLanguage, TarifaWinterStaysLo
       {
         id: 'home-matters', eyebrow: '07 · Komfort blir avgörande', title: 'Varför hemmet betyder mer på vintern', paragraphs: [
           'En sommarvistelse kan nästan helt kretsa kring utomhuslivet. På vintern blir hemmets kvalitet en del av destinationen: en plats att läsa, laga mat, arbeta vid behov, torka kläder efter skiftande väder och tillbringa en kväll utan att behöva gå ut.',
-          'AMARA Family & Surf har bekräftat wifi, värme, luftkonditionering för kyla och värme, vedeldad eldstad, fullständigt kök, tvättmaskin och bekväma sällskapsytor. Det är praktiska egenskaper, inte stämningsskapande adjektiv.',
+          'AMARAs aktuella objektdata anger wifi, värme, luftkonditionering för kyla och värme, vedeldad eldstad, fullständigt kök och tvättmaskin. Bekräfta varje avgörande funktion vid bokning.',
           'Över flera veckor skapar grunderna kontinuitet. Ni kan laga vanlig mat, hålla tvätten igång och värma hemmet inför kvällen. Då blir en dag med blandat väder en del av vinterlivet i stället för förlorad semestertid.'
         ]
       },
       {
         id: 'who-enjoys-winter', eyebrow: '08 · Vem säsongen passar', title: 'Vem kommer att uppskatta Tarifa på vintern', paragraphs: [
           'Vintern kan passa par, längre vistelser, gäster som tar paus från mörkare nordliga månader, surf- eller kiteresenärer och personer som föredrar lugnt stadsliv framför högsäsongens intensitet. Flexibilitet belönas mer än en lista med garanterade villkor.',
-          'För gäster som behöver arbeta under en del av en längre vistelse är kombinationen praktisk: ett bekvämt privat hem för fokuserade timmar, professionell coworkinginfrastruktur på närliggande TAF när det behövs och dagsljus, kust och stadsliv efteråt. Vi antar inte att alla vintergäster arbetar.',
+          'För gäster som behöver arbeta under en del av en längre vistelse kan wifi och ett privat hem möjliggöra fokuserade timmar. Bekräfta att arbetsplats och anslutning passar; varje vintervistelse är inte en workation.',
           'Den som söker varmast hav, tät högsäsongsenergi, bredast säsongsutbud eller en resa nästan helt byggd kring strandvärme kan föredra sommaren. Vintern kräver att ni uppskattar växlande dagar, komfort inomhus och en långsammare relation till staden.'
         ]
       },
       {
         id: 'amara-la-marina', eyebrow: '09 · Er vinterbas', title: 'Vinter på AMARA i La Marina', paragraphs: [
-          'AMARA Family & Surf ligger på Mar Adriático 29 i La Marina. Stormarknaden finns direkt mittemot, Gamla stan cirka 10–15 minuters promenad bort och den praktiska vägen västerut håller Atlantkusten lättillgänglig.',
+          'AMARA Family & Surf ligger i La Marina mellan vardagens Tarifa och Atlantkusten. Inköp och Gamla stan hör till den lokala rutinen; kontrollera aktuella verksamheter och en lämplig rutt för era datum.',
           'En reserverad underjordisk plats löser var den egna bilen står hemma; den lovar inte parkering vid stränder eller i stan. Inomhus stödjer värme, luftkonditionering, eldstad, kök, tvättmaskin, wifi och sällskapsytor rutiner över flera veckor.',
           'Det är vinterns erbjudande: en mildare sydlig säsong utanför, ett bekvämt verkligt hem innanför och Tarifas vanliga liv nära. Vintern är inte en mindre version av Tarifa. Den är en annan — och för vissa gäster kanske den mer givande.'
         ]
@@ -670,7 +630,7 @@ export const tarifaWinterStaysContent: Record<AmaraLanguage, TarifaWinterStaysLo
       title: 'Planera vintervistelsen utan att upprepa samma guide',
       links: [
         { token: 'tarifa_weather', label: 'Väder & årstider', text: 'Officiella klimatdata, Levante, Poniente och gränserna för säsongsförväntningar.' },
-        { token: 'tarifa_daily_life', label: 'Vardag & service', text: 'Inköp, vård, vanliga ärenden och fullständig coworkinginformation.' },
+        { token: 'tarifa_daily_life', label: 'Vardag & service', text: 'Inköp, vård, vanliga ärenden och praktisk planering.' },
         { token: 'tarifa_beaches_authority', label: 'Stränder & kust', text: 'Välj mellan stadskusten och den vidare Atlantkusten för den konkreta dagen.' },
         { token: 'tarifa_wind_kitesurfing_authority', label: 'Vind & vattensport', text: 'Teknisk vind-, säkerhets- och vattensportplanering finns i specialistguiden.' },
         { token: 'casa', label: 'AMARA Family & Surf', text: 'Se hemmet när dess vinterroll och praktiska läge är tydliga.' }
@@ -679,13 +639,13 @@ export const tarifaWinterStaysContent: Record<AmaraLanguage, TarifaWinterStaysLo
     sources: {
       eyebrow: 'Underlag och perspektiv',
       title: 'Officiella fakta tydligt skilda från värderfarenhet',
-      intro: 'Fakta om klimat, utsikt, kust och coworking använder aktuella officiella eller direkta källor. Den lugnare, mer välbekanta vinterkänslan är uttryckligen Roberts perspektiv som värd.',
-      checked: 'Källor granskade den 13 augusti 2026',
+      intro: 'Fakta om klimat, vind och utsikt använder officiella källor. Den lugnare vinterkänslan är Roberts uttryckliga perspektiv; hemuppgifter kommer från aktuella AMARA-register.',
+      checked: 'Källor granskade den 21 augusti 2026',
       links: [
         { label: 'AEMET · klimatnormaler för Tarifa', text: 'Officiella månadsvärden för temperatur, nederbörd och regndagar vid station 6001.', href: sourceHrefs.tarifaNormals },
         { label: 'Turismo de Tarifa · naturparker och leder', text: 'Officiell utsiktsinformation, inklusive Afrika och Atlas på klara dagar.', href: sourceHrefs.tarifaViewpoints },
-        { label: 'Turismo de Tarifa · stränder', text: 'Officiell orientering till Atlant- och Medelhavskusten.', href: sourceHrefs.tarifaBeaches },
-        { label: 'TAF CoWorking · officiell information', text: 'Aktuell professionell arbetsinfrastruktur nära AMARA.', href: sourceHrefs.taf }
+        { label: 'Junta de Andalucía · vind i sundet', text: 'Officiell kvalitativ kontext för Levante och Poniente.', href: sourceHrefs.tarifaWind },
+        { label: 'European Travel Commission · vinterresor', text: 'Europeiska avsikter och gränsen mellan plan och bokning.', href: sourceHrefs.travelIntent }
       ]
     },
     closing: {

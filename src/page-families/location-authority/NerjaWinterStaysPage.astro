@@ -1,10 +1,10 @@
 ---
 import Navigation from '../../components/Navigation.astro';
-import TarifaContextNav from '../../components/location/TarifaContextNav.astro';
+import NerjaContextNav from '../../components/location/NerjaContextNav.astro';
 import {
-  tarifaWinterStaysContent,
-  tarifaWinterStaysSeo
-} from '../../content/tarifaWinterStaysContent';
+  nerjaWinterStaysContent,
+  nerjaWinterStaysSeo
+} from '../../content/nerjaWinterStaysContent';
 import LocationAuthorityLayout from '../../layouts/LocationAuthorityLayout.astro';
 import { createRequiredLinkResolver, type LabeledLink } from '../../lib/linkResolver';
 import { normalizeLanguage } from '../../lib/seo/resolve-seo-head';
@@ -17,22 +17,21 @@ interface Props {
 
 const { lang = 'es' } = Astro.props;
 const currentLang = normalizeLanguage(lang as AmaraLanguage);
-const content = tarifaWinterStaysContent[currentLang];
-
-const requiredLink = createRequiredLinkResolver(currentLang, 'Tarifa winter stays');
+const content = nerjaWinterStaysContent[currentLang];
+const requiredLink = createRequiredLinkResolver(currentLang, 'Nerja winter stays');
 
 const aboutHref = requiredLink('about');
-const locationHref = requiredLink('location_tarifa');
-const propertyHref = requiredLink('casa');
+const locationHref = requiredLink('location_nerja');
+const propertyHref = requiredLink('playa');
 const footerHighlights: LabeledLink[] = [
-  { token: 'tarifa_winter_stays', label: content.navLabel },
-  { token: 'tarifa_weather', label: content.related.links[0].label },
-  { token: 'tarifa_daily_life', label: content.related.links[1].label }
+  { token: 'nerja_winter_stays', label: content.navLabel },
+  { token: 'nerja_weather', label: content.related.links[0].label },
+  { token: 'nerja_where_to_stay', label: content.related.links[1].label }
 ];
 ---
 
 <LocationAuthorityLayout
-  seo={tarifaWinterStaysSeo}
+  seo={nerjaWinterStaysSeo}
   pageLang={currentLang}
   showContextNavigation={false}
   footerHighlights={footerHighlights}
@@ -40,21 +39,19 @@ const footerHighlights: LabeledLink[] = [
   <Navigation
     slot="navigation"
     currentLang={currentLang}
-    languageToken="tarifa_winter_stays"
+    languageToken="nerja_winter_stays"
   />
-  <TarifaContextNav
-    activeId="overview"
-    activeChildId="winter-stays"
-    currentLabel="Tarifa"
+  <NerjaContextNav
+    activeId="winter-stays"
     childLabel={content.navLabel}
     lang={currentLang}
   />
 
   <WinterStaysAuthorityArticle
-    pageId="tarifa-winter-stays"
+    pageId="nerja-winter-stays"
     lang={currentLang}
     content={content}
-    seo={tarifaWinterStaysSeo}
+    seo={nerjaWinterStaysSeo}
     authorHref={aboutHref}
     locationHref={locationHref}
     propertyHref={propertyHref}

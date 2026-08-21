@@ -5,7 +5,7 @@ export const tarifaWinterStaysKnowledge = defineKnowledgePageManifest({
   destination: 'tarifa',
   topic: 'winter-stays',
   createdAt: '2026-08-21T17:19:24+02:00',
-  updatedAt: '2026-08-21T17:19:24+02:00',
+  updatedAt: '2026-08-21T18:32:00+02:00',
   status: 'needs-review',
   driveFolder: {
     id: '1nWymxiU-IzfILM0t5rzISp8ZivLYfOgd',

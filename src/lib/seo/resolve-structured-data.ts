@@ -133,6 +133,13 @@ const PUBLIC_ROUTE_LABELS: Partial<Record<string, Record<AmaraLanguage, string>>
     nl: 'Winterverblijven',
     sv: 'Vintervistelser'
   },
+  'nerja-winter-stays': {
+    en: 'Winter Stays',
+    de: 'Winteraufenthalte',
+    es: 'Estancias de invierno',
+    nl: 'Winterverblijven',
+    sv: 'Vintervistelser'
+  },
   'frigiliana-experience': {
     en: 'Experiences',
     de: 'Erlebnisse',
@@ -501,7 +508,8 @@ const FRIGILIANA_LOCATION_GUIDE_SLUGS = new Set([
 const NERJA_LOCATION_GUIDE_SLUGS = new Set([
   'nerja-location',
   'getting-to-nerja',
-  'nerja-where-to-stay'
+  'nerja-where-to-stay',
+  'nerja-winter-stays'
 ]);
 
 const PRIMARY_TRUST_PAGE_SLUGS = new Set([

@@ -5,7 +5,7 @@ export const frigilianaWinterStaysKnowledge = defineKnowledgePageManifest({
   destination: 'frigiliana',
   topic: 'winter-stays',
   createdAt: '2026-08-21T17:19:24+02:00',
-  updatedAt: '2026-08-21T17:19:24+02:00',
+  updatedAt: '2026-08-21T18:32:00+02:00',
   status: 'needs-review',
   driveFolder: {
     id: '1epXT7IKdXDk9tCUWMLJSm_YXMEUJp3Te',

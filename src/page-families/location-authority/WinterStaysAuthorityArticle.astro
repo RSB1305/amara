@@ -1,0 +1,67 @@
+---
+import type { AmaraAuthoringSeo, AmaraLanguage } from '../../types/seo';
+import type { RequiredLinkResolver } from '../../lib/linkResolver';
+import type { WinterStaysLocale } from '../../content/winterStaysContent';
+import AuthorityArticle from './AuthorityArticle.astro';
+import AuthorityRelatedLinks from './AuthorityRelatedLinks.astro';
+import AuthorityTextSection from './AuthorityTextSection.astro';
+
+interface Props {
+  pageId: string;
+  lang: AmaraLanguage;
+  content: WinterStaysLocale;
+  seo: AmaraAuthoringSeo;
+  authorHref: string;
+  locationHref: string;
+  propertyHref: string;
+  resolveHref: RequiredLinkResolver;
+}
+
+const {
+  pageId,
+  lang,
+  content,
+  seo,
+  authorHref,
+  locationHref,
+  propertyHref,
+  resolveHref
+} = Astro.props;
+---
+
+<AuthorityArticle
+  pageId={pageId}
+  family="location"
+  topic="winter-stays"
+  lang={lang}
+  hero={content.hero}
+  authorName={seo.article!.authorName}
+  authorHref={authorHref}
+  facts={content.facts}
+  sources={content.sources}
+  closing={content.closing}
+  primaryCta={{ href: propertyHref, label: content.closing.propertyLabel }}
+  secondaryCta={{ href: locationHref, label: content.closing.locationLabel }}
+  presentation="guide"
+  guideSummary={{
+    eyebrow: content.navLabel,
+    body: content.hero.standfirst,
+    items: content.facts.slice(0, 3)
+  }}
+>
+  {content.sections.map((section, index) => (
+    <AuthorityTextSection
+      section={section}
+      index={index}
+      presentation="guide"
+      data-am-winter-stays-section={section.id}
+    />
+  ))}
+
+  <AuthorityRelatedLinks
+    related={content.related}
+    columns="md:grid-cols-2"
+    resolveHref={resolveHref}
+    presentation="guide"
+  />
+</AuthorityArticle>
