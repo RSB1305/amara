@@ -1,0 +1,6 @@
+import { defineKnowledgeOpenQuestions } from '../../../schema';
+
+export const tarifaWhereToStayOpenQuestions = defineKnowledgeOpenQuestions([
+  { id: 'tarifa.stay.question.current-historic-access', subject: 'tarifa', topic: 'where-to-stay-areas', question: 'What vehicle-access, loading and exemption rules apply to Tarifa’s historic centre in 2026?', priority: 'high', reason: 'The located municipal notice is historical and cannot be silently treated as the current complete rule.', preferredEvidence: 'Current ordinance, ZBE/access map, municipal notice and enforcement guidance.', status: 'open', createdAt: '2026-08-21' },
+  { id: 'tarifa.stay.question.amara-evidence-pack', subject: 'tarifa', topic: 'where-to-stay-areas', question: 'What property evidence supports Family & Surf’s garage, opposite-supermarket, Old Town/strand routes, westbound driving route and entrance accessibility?', priority: 'high', reason: 'The current statements are operator-authored and precise distances lack a reproducible method.', preferredEvidence: 'Property documents, entrance and garage coordinates, dated photographs and measured walking/driving routes.', status: 'open', createdAt: '2026-08-21' }
+] as const);

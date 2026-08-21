@@ -150,7 +150,7 @@ const proofImage = {
         </div>
       </LocationGuideHero>
 
-      <section class="max-w-screen-2xl mx-auto px-6 py-24 md:px-12 md:py-32">
+      <section class="max-w-screen-2xl mx-auto px-6 py-24 md:px-12 md:py-32" data-am-stay-module="decision">
         <div class="max-w-4xl mb-14 md:mb-16">
           <span class="am-text-caption uppercase tracking-[0.35em] text-primary block mb-6">
             {t(copy.principle.eyebrow)}
@@ -180,6 +180,7 @@ const proofImage = {
       <section
         id="location-models"
         class="bg-surface-container-low border-y border-outline-variant/5"
+        data-am-stay-module="areas"
       >
         <div class="max-w-screen-2xl mx-auto px-6 md:px-12 py-24 md:py-32">
           <div class="max-w-3xl mb-16 md:mb-20">
@@ -243,39 +244,27 @@ const proofImage = {
         </div>
       </section>
 
-      <section class="max-w-screen-2xl mx-auto px-6 md:px-12 py-24 md:py-32">
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
-          <div class="am-mobile-full-bleed lg:col-span-6">
-            <AmaraImage
-              src={proofImage.src}
-              alt={t(copy.proof.imageAlt)}
-              profile="card"
-              class="w-full aspect-[4/3] object-cover"
-              loading="lazy"
-              decoding="async"
-            />
+      <section class="border-b border-outline-variant/5 bg-inverse-surface px-6 py-20 text-inverted-on-surface md:px-12 md:py-28" data-am-stay-module="tradeoffs">
+        <div class="mx-auto grid max-w-screen-2xl gap-10 lg:grid-cols-12 lg:gap-20">
+          <div class="lg:col-span-4">
+            <p class="am-text-caption uppercase tracking-[0.35em] text-primary-fixed-dim">{t(copy.models.eyebrow)}</p>
+            <h2 class="am-text-title mt-5 italic text-inverted-on-surface">{t(copy.models.title)}</h2>
           </div>
-          <div class="lg:col-span-6 lg:pl-10">
-            <span class="am-text-caption uppercase tracking-[0.35em] text-primary block mb-6">
-              {t(copy.proof.eyebrow)}
-            </span>
-            <h2 class="am-text-title italic text-on-surface tracking-tight mb-8">
-              {t(copy.proof.title)}
-            </h2>
-            <div class="space-y-6 max-w-xl">
-              {
-                copy.proof.paragraphs.map((paragraph) => (
-                  <p class="am-text-body text-on-surface-variant leading-relaxed"><InlineEmphasis text={t(paragraph)} /></p>
-                ))
-              }
-            </div>
-          </div>
+          <ol class="border-y border-inverted-on-surface/20 lg:col-span-8">
+            {locationModels.map((model) => (
+              <li class="grid gap-3 border-b border-inverted-on-surface/20 py-6 last:border-b-0 sm:grid-cols-[3rem_minmax(0,1fr)]">
+                <span class="font-label text-[10px] font-bold tracking-[0.14em] text-primary-fixed-dim">{model.number}</span>
+                <p class="am-text-body leading-relaxed text-inverted-on-surface/80"><InlineEmphasis text={model.tradeoff} /></p>
+              </li>
+            ))}
+          </ol>
         </div>
       </section>
 
       <section
         id="daily-route"
         class="bg-surface-container-low border-y border-outline-variant/5"
+        data-am-stay-module="mobility"
       >
         <div class="max-w-screen-2xl mx-auto px-6 md:px-12 py-24 md:py-32">
           <div class="grid grid-cols-1 lg:grid-cols-12 gap-14 lg:gap-16 items-start">
@@ -309,7 +298,7 @@ const proofImage = {
         </div>
       </section>
 
-      <section class="max-w-screen-2xl mx-auto px-6 md:px-12 py-24 md:py-32">
+      <section class="max-w-screen-2xl mx-auto px-6 md:px-12 py-24 md:py-32" data-am-stay-module="fit">
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
           <div class="lg:col-span-4">
             <span class="am-text-caption uppercase tracking-[0.35em] text-primary block mb-6">
@@ -331,6 +320,30 @@ const proofImage = {
                 </article>
               ))
             }
+          </div>
+        </div>
+      </section>
+
+      <section class="max-w-screen-2xl mx-auto px-6 md:px-12 py-24 md:py-32" data-am-stay-module="amara">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+          <div class="am-mobile-full-bleed lg:col-span-6">
+            <AmaraImage
+              src={proofImage.src}
+              alt={t(copy.proof.imageAlt)}
+              profile="card"
+              class="w-full aspect-[4/3] object-cover"
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
+          <div class="lg:col-span-6 lg:pl-10">
+            <span class="am-text-caption uppercase tracking-[0.35em] text-primary block mb-6">{t(copy.proof.eyebrow)}</span>
+            <h2 class="am-text-title italic text-on-surface tracking-tight mb-8">{t(copy.proof.title)}</h2>
+            <div class="space-y-6 max-w-xl">
+              {copy.proof.paragraphs.map((paragraph) => (
+                <p class="am-text-body text-on-surface-variant leading-relaxed"><InlineEmphasis text={t(paragraph)} /></p>
+              ))}
+            </div>
           </div>
         </div>
       </section>

@@ -2,7 +2,8 @@
 research_run_id: 2026-08-21__130535__where-to-stay-areas__research-001
 document_type: pre-research-gap-matrix
 created_at: 2026-08-21T13:05:35+02:00
-status: AWAITING_RESEARCH
+status: NORMALIZED
+normalized_at: 2026-08-21T13:39:46+02:00
 subjects:
   - frigiliana
   - nerja
@@ -64,3 +65,10 @@ Die Wissensmenge, Kapitelzahl und lokale Schwerpunktsetzung dürfen je Ort unter
 4. Erst danach die drei öffentlichen Seiten in einem gemeinsamen Implementierungsdurchlauf anpassen.
 
 Kein vorhandener öffentlicher Inhalt wird durch diese Matrix gelöscht oder bereits als verifiziert behandelt.
+
+## Ergebnis des Research-Durchlaufs
+
+- Beide Rohberichte wurden unverändert beziehungsweise als vollständiger Text-Export archiviert.
+- Die belastbaren Aussagen wurden in Quellen, Fakten, Claim-Grenzen und offene Fragen normalisiert.
+- Die drei Seiten folgen nun demselben sechsmoduligen Inhaltsvertrag; lokale Tiefe bleibt erhalten.
+- Nicht belegte Gehzeiten, pauschale Zugänglichkeitsversprechen und zu absolute Gebietsbehauptungen wurden nicht übernommen.

@@ -1,0 +1,6 @@
+import { defineKnowledgeOpenQuestions } from '../../../schema';
+
+export const frigilianaWhereToStayOpenQuestions = defineKnowledgeOpenQuestions([
+  { id: 'frigiliana.stay.question.current-access', subject: 'frigiliana', topic: 'where-to-stay-areas', question: 'What vehicle, loading and guest-access rules currently apply to Calle Real, Calle Chorruelo and each Casa AMARA arrival route?', priority: 'high', reason: 'A general historic-centre regulation cannot support address-specific arrival advice.', preferredEvidence: 'Current municipal rule plus dated route inspection, signage photographs and operator arrival procedure.', status: 'open', createdAt: '2026-08-21' },
+  { id: 'frigiliana.stay.question.amara-distance-accessibility', subject: 'frigiliana', topic: 'where-to-stay-areas', question: 'What is the reproducible door-to-reference-point distance to San Antonio and the exact step, gradient and surface profile for each AMARA entrance?', priority: 'high', reason: 'The current 15-metre and accessibility language has no documented measurement basis.', preferredEvidence: 'Entrance coordinates, mapped route, laser/GIS distance, step count, gradient and dated photographs.', status: 'open', createdAt: '2026-08-21' }
+] as const);

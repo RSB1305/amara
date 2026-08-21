@@ -234,7 +234,7 @@ export const overview: TarifaLocationGuideContent = {
   id: 'overview',
   token: 'location_tarifa',
   seo: buildSeo(
-    '2026-08-12-tarifa-location-v3.0',
+    '2026-08-21-tarifa-location-v4.0',
     'A',
     overviewTitles,
     overviewDescriptions,
@@ -270,7 +270,7 @@ export const overview: TarifaLocationGuideContent = {
           {
             title: 'La Marina — for balance',
             paragraphs: [
-              'La Marina sits in the newer urban part of Tarifa and offers a different kind of convenience.',
+              'Official planning documents use the name La Marina I for part of Tarifa’s newer urban fabric. As a visitor-facing model, “La Marina” remains a practical orientation rather than one fixed tourism-neighbourhood boundary.',
               'You are still part of town rather than staying in an isolated beach resort, but everyday logistics and car use can be easier than inside the historic centre. That makes this area particularly interesting for guests who want to combine Tarifa on foot with beaches, kitesurfing or excursions by car.',
               'It does not give you the historic Old Town immediately outside your door. In return, it can offer a more balanced relationship between town, coast and mobility.'
             ],
@@ -401,8 +401,8 @@ export const overview: TarifaLocationGuideContent = {
         facts: [
           'a private underground parking space;',
           'a supermarket directly opposite;',
-          'roughly 10–15 minutes on foot to the Old Town;',
-          `straightforward car access west toward Valdevaqueros and Tarifa's kite beaches.`
+          'the Old Town can be reached on foot, with the exact route and destination determining the walk;',
+          `a position in Tarifa's newer north-western urban fabric, while each westbound driving route depends on current traffic.`
         ],
         imageAlt: 'Living space at AMARA Family & Surf in La Marina, Tarifa'
       },
@@ -436,7 +436,7 @@ export const overview: TarifaLocationGuideContent = {
           },
           {
             title: 'La Marina — wenn ihr vieles miteinander verbinden möchtet',
-            paragraphs: ['La Marina liegt im neueren, urbanen Teil Tarifas.', 'Ihr wohnt weiterhin im Ort und könnt das Stadtleben zu Fuß erreichen, habt aber gleichzeitig bessere Voraussetzungen, das Auto flexibel für Strände, Kitesurfen oder Ausflüge zu nutzen.', 'Die historische Atmosphäre beginnt nicht direkt vor der Haustür. Dafür kann diese Lage im Alltag sehr ausgewogen funktionieren.'],
+            paragraphs: ['Amtliche Planungsunterlagen verwenden für einen Teil des neueren Stadtgefüges die Bezeichnung La Marina I. Als Guide-Begriff bleibt „La Marina“ eine praktische Orientierung und keine trennscharfe touristische Viertelgrenze.', 'Ihr wohnt weiterhin im Ort und könnt das Stadtleben zu Fuß erreichen, habt aber gleichzeitig andere Voraussetzungen für Fahrten zu Stränden, Kitesurfen oder Ausflügen als in der Altstadt.', 'Die historische Atmosphäre beginnt nicht direkt vor der Haustür. Dafür kann diese Lage im Alltag sehr ausgewogen funktionieren.'],
             fit: 'La Marina bietet Paaren, aktiven Gästen, Kitesurfern und bei längeren Aufenthalten eine flexible Basis.'
           },
           {
@@ -491,7 +491,7 @@ export const overview: TarifaLocationGuideContent = {
       amara: {
         title: 'Warum AMARA in La Marina liegt',
         paragraphs: ['AMARA Family & Surf befindet sich in der Urbanización La Marina.', 'Für unsere Gäste verbindet diese Lage mehrere Dinge, die in Tarifa nicht selbstverständlich gleichzeitig funktionieren:', 'Für uns ist La Marina deshalb weniger ein Kompromiss zwischen Stadt und Strand als eine flexible Base:', 'abends zu Fuß in die Altstadt, tagsüber mit dem Auto zum Strand oder Kitesurfen – und bei der Rückkehr kein neues Parkplatzproblem.'],
-        facts: ['eigener Tiefgaragenstellplatz;', 'Supermarkt direkt gegenüber;', 'ungefähr 10–15 Minuten zu Fuß in die Altstadt;', 'unkomplizierte Fahrtrichtung Richtung Valdevaqueros und westliche Kite-Spots.'],
+        facts: ['eigener Tiefgaragenstellplatz;', 'Supermarkt direkt gegenüber;', 'die Altstadt ist zu Fuß erreichbar, wobei Zielpunkt und genaue Route den Weg bestimmen;', 'Lage im neueren nordwestlichen Stadtgefüge; die konkrete Fahrt nach Westen hängt von der aktuellen Verkehrsführung ab.'],
         imageAlt: 'Wohnbereich bei AMARA Family & Surf in La Marina, Tarifa'
       },
       closing: {
@@ -518,7 +518,7 @@ export const overview: TarifaLocationGuideContent = {
           },
           {
             title: 'La Marina — para combinar ciudad, costa y coche',
-            paragraphs: ['La Marina pertenece a la parte urbana más nueva de Tarifa.', 'Seguís estando dentro del pueblo y podéis llegar andando al centro, pero utilizar el coche para playas, kitesurf o excursiones puede resultar mucho más práctico que desde el corazón del casco antiguo.', 'No tenéis la arquitectura histórica nada más salir de casa. A cambio, la zona puede ofrecer un equilibrio muy cómodo para una estancia de varios días.'],
+            paragraphs: ['La documentación urbanística oficial utiliza el nombre La Marina I para una parte del tejido urbano más reciente. Como modelo para visitantes, «La Marina» sigue siendo una orientación práctica, no un barrio turístico con límites exactos.', 'Seguís estando dentro del pueblo y podéis llegar andando al centro, pero la relación con el coche y las salidas hacia las playas difiere de la del casco antiguo.', 'No tenéis la arquitectura histórica nada más salir de casa. A cambio, la zona puede ofrecer un equilibrio muy cómodo para una estancia de varios días.'],
             fit: 'La Marina ofrece una base flexible para parejas, viajeros activos, aficionados al kitesurf y estancias más largas.'
           },
           {
@@ -571,7 +571,7 @@ export const overview: TarifaLocationGuideContent = {
       amara: {
         title: 'Por qué AMARA está en La Marina',
         paragraphs: ['AMARA Family & Surf se encuentra en Urbanización La Marina.', 'Para nuestros huéspedes, la ubicación combina varios elementos prácticos:', 'Para nosotros, eso convierte La Marina en una base especialmente flexible para quienes quieren disfrutar Tarifa a pie y seguir teniendo libertad para moverse por la costa.'],
-        facts: ['plaza propia en garaje subterráneo;', 'supermercado justo enfrente;', 'aproximadamente 10–15 minutos andando al casco antiguo;', 'salida sencilla en coche hacia Valdevaqueros y las playas de kitesurf del oeste.'],
+        facts: ['plaza propia en garaje subterráneo;', 'supermercado justo enfrente;', 'el casco antiguo se puede alcanzar a pie, pero el recorrido depende del destino y de la ruta exacta;', 'posición en el tejido urbano más reciente del noroeste; la salida concreta hacia poniente depende del tráfico vigente.'],
         imageAlt: 'Salón de AMARA Family & Surf en La Marina, Tarifa'
       },
       closing: {
@@ -607,7 +607,7 @@ export const overview: TarifaLocationGuideContent = {
           {
             title: 'La Marina — voor een evenwichtige uitvalsbasis',
             paragraphs: [
-              'La Marina ligt in het nieuwere stedelijke Tarifa.',
+              'Officiële plandocumenten gebruiken de naam La Marina I voor een deel van het nieuwere stedelijke weefsel. Als gidsmodel blijft “La Marina” een praktische oriëntatie en geen exact begrensde toeristische wijk.',
               'De oude stad blijft bereikbaar te voet, terwijl de auto gemakkelijker onderdeel kan blijven van het verblijf voor stranden, kitesurfen en uitstapjes.',
               'Je hebt niet direct de historische sfeer voor de deur, maar krijgt daar meer flexibiliteit voor terug.'
             ]
@@ -684,7 +684,7 @@ export const overview: TarifaLocationGuideContent = {
       amara: {
         title: 'Waarom AMARA in La Marina ligt',
         paragraphs: ['AMARA Family & Surf ligt in Urbanización La Marina.', 'Voor onze gasten betekent dat:', 'Daardoor zien we La Marina als een bijzonder flexibele uitvalsbasis voor gasten die Tarifa te voet willen beleven én vrij willen zijn om met de auto de kust te verkennen.'],
-        facts: ['een eigen ondergrondse parkeerplaats;', 'een supermarkt direct aan de overkant;', 'ongeveer 10–15 minuten lopen naar de oude stad;', 'eenvoudige toegang met de auto richting Valdevaqueros en de westelijke kitesurfstranden.'],
+        facts: ['een eigen ondergrondse parkeerplaats;', 'een supermarkt direct aan de overkant;', 'de oude stad is te voet bereikbaar, waarbij bestemming en exacte route de wandeling bepalen;', 'ligging in het nieuwere noordwestelijke stadsweefsel; de concrete route naar het westen hangt af van het actuele verkeer.'],
         imageAlt: 'Woonruimte van AMARA Family & Surf in La Marina, Tarifa'
       },
       closing: {
@@ -715,7 +715,7 @@ export const overview: TarifaLocationGuideContent = {
           },
           {
             title: 'La Marina — för balans',
-            paragraphs: ['La Marina ligger i den nyare urbana delen av Tarifa.', 'Gamla stan kan fortfarande nås till fots, samtidigt som bilen är lättare att använda för stränder, kitesurfing och utflykter.', 'Den historiska miljön börjar inte precis utanför dörren, men vardagen kan bli mer flexibel.']
+            paragraphs: ['Officiella planeringsdokument använder namnet La Marina I för en del av den nyare stadsstrukturen. Som guidemodell är ”La Marina” en praktisk orientering, inte ett exakt avgränsat turistområde.', 'Gamla stan kan fortfarande nås till fots, medan relationen till bil och utfarter mot stränderna skiljer sig från den historiska kärnan.', 'Den historiska miljön börjar inte precis utanför dörren, men vardagen kan bli mer flexibel.']
           },
           {
             title: 'Los Lances — när stranden står i centrum',
@@ -769,7 +769,7 @@ export const overview: TarifaLocationGuideContent = {
       amara: {
         title: 'Varför AMARA ligger i La Marina',
         paragraphs: ['AMARA Family & Surf ligger i Urbanización La Marina.', 'För våra gäster innebär läget:', 'Därför ser vi La Marina som en särskilt flexibel bas för gäster som vill uppleva Tarifa till fots och samtidigt kunna använda bilen fritt för kust, kitesurfing och utflykter.'],
-        facts: ['egen plats i underjordiskt garage;', 'mataffär direkt mittemot;', 'ungefär 10–15 minuters promenad till gamla stan;', 'enkel bilväg mot Valdevaqueros och de västra kitesurfstränderna.'],
+        facts: ['egen plats i underjordiskt garage;', 'mataffär direkt mittemot;', 'gamla stan kan nås till fots, men målpunkt och exakt väg avgör promenaden;', 'läge i den nyare nordvästra stadsstrukturen; den konkreta vägen västerut beror på aktuell trafik.'],
         imageAlt: 'Vardagsrum på AMARA Family & Surf i La Marina, Tarifa'
       },
       closing: {

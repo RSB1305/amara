@@ -11,7 +11,7 @@ const localized = <T>(en: T, de: T, es: T, nl: T, sv: T): Localized<T> => ({
 });
 
 export const nerjaLocationSeo: AmaraAuthoringSeo = {
-  version: '2026-08-12-nerja-location-v2.1',
+  version: '2026-08-21-nerja-location-v3.0',
   pageType: 'A',
   entityKey: 'amara-brand',
   ogImage: '/images/amara-frigiliana-pueblo/nerja-coast-aerial.jpeg',
@@ -257,13 +257,23 @@ export const nerjaLocationCopy = {
         },
         {
           kicker: '05',
-          title: 'Outer Nerja / Residential Hills',
+          title: 'Capistrana / San Juan de Capistrana',
           paragraphs: [
-            'Areas such as Capistrano, Punta Lara and other residential parts of Nerja offer a different kind of stay.',
-            'You may find more space, residential surroundings, pools or villa-style accommodation, but central Nerja is less likely to be part of a spontaneous walk.',
-            'A car, taxi or local transport therefore becomes more useful, particularly if you expect to move between the accommodation, town and the wider region regularly.'
+            'The Capistrana and San Juan de Capistrana residential clusters sit above and outside the central coastal fabric.',
+            'They can offer more space, gardens, pools or villa-style accommodation, but gradients and the exact street strongly shape everyday routes.',
+            'Treat this as a distinct residential model and check the precise route rather than assuming that every Capistrana address works in the same way.'
           ],
-          goodFor: 'Guests who value space and a more residential setting and are comfortable relying more on transport.'
+          goodFor: 'Guests who value a residential setting and are comfortable checking gradients and transport for the exact address.'
+        },
+        {
+          kicker: '06',
+          title: 'Punta Lara / western residential edge',
+          paragraphs: [
+            'Punta Lara lies on Nerja’s western side and should not be grouped automatically with the residential hills north and east of town.',
+            'The western position creates a different relationship with central Nerja, nearby coast and road access.',
+            'Walking, beach access and car use still depend on the precise urbanisation, street and entrance.'
+          ],
+          goodFor: 'Guests considering western Nerja who want more space and will verify the exact connection to town and coast.'
         }
       ],
       [
@@ -309,13 +319,23 @@ export const nerjaLocationCopy = {
         },
         {
           kicker: '05',
-          title: 'Äußeres Nerja / Wohnviertel am Hang',
+          title: 'Capistrana / San Juan de Capistrana',
           paragraphs: [
-            'Capistrano, Punta Lara und andere Wohnviertel außerhalb des Zentrums bieten eine andere Art, Nerja zu erleben.',
-            'Dort findet ihr eher mehr Platz, Pools, ein ruhiges Wohnumfeld oder Häuser im Villenstil. Dafür gehört ein spontaner Spaziergang ins Zentrum seltener zum Alltag.',
-            'Auto, Taxi oder Nahverkehr werden hier wichtiger, besonders wenn ihr regelmäßig zwischen Unterkunft, Ort und Umgebung unterwegs sein möchtet.'
+            'Die Wohnlagen Capistrana und San Juan de Capistrana liegen oberhalb und außerhalb des zentralen Küstenortes.',
+            'Dort findet ihr eher mehr Platz, Gärten, Pools oder Häuser im Villenstil; Steigungen und die genaue Straße prägen jedoch die täglichen Wege.',
+            'Behandelt diese Lage als eigenes Wohnmodell und prüft die konkrete Route, statt alle Capistrana-Adressen gleichzusetzen.'
           ],
-          goodFor: 'Gäste, die Platz und ein ruhigeres Wohnumfeld schätzen und für ihre Wege gern häufiger Verkehrsmittel nutzen.'
+          goodFor: 'Gäste, die ein Wohnumfeld schätzen und Steigungen sowie Verkehrsmittel für die genaue Adresse prüfen.'
+        },
+        {
+          kicker: '06',
+          title: 'Punta Lara / westlicher Ortsrand',
+          paragraphs: [
+            'Punta Lara liegt am westlichen Rand Nerjas und sollte nicht pauschal mit den Wohnhängen nördlich und östlich des Zentrums zusammengefasst werden.',
+            'Die Westlage schafft ein anderes Verhältnis zu Zentral-Nerja, Küste und Straßenanbindung.',
+            'Fußwege, Strandzugang und Autoeinsatz hängen weiterhin von der genauen Urbanisation, Straße und dem Eingang ab.'
+          ],
+          goodFor: 'Gäste, die den Westen Nerjas erwägen, mehr Raum suchen und die genaue Verbindung zu Ort und Küste prüfen.'
         }
       ],
       [
@@ -361,13 +381,23 @@ export const nerjaLocationCopy = {
         },
         {
           kicker: '05',
-          title: 'Nerja exterior / zonas residenciales en ladera',
+          title: 'Capistrana / San Juan de Capistrana',
           paragraphs: [
-            'Capistrano, Punta Lara y otras zonas residenciales ofrecen una forma distinta de alojarse en Nerja.',
-            'Es más frecuente encontrar amplitud, piscinas, un entorno residencial o casas de estilo villa, pero el centro deja de estar tan presente en los paseos espontáneos.',
-            'El coche, el taxi o el transporte local cobran más importancia, sobre todo si pensáis moveros a menudo entre el alojamiento, el pueblo y el resto de la comarca.'
+            'Las zonas residenciales de Capistrana y San Juan de Capistrana quedan por encima y fuera del tejido costero central.',
+            'Suelen ofrecer más espacio, jardines, piscinas o casas tipo villa, pero las pendientes y la calle concreta condicionan los recorridos diarios.',
+            'Conviene tratarlas como un modelo residencial propio y comprobar la ruta exacta, sin asumir que todas las direcciones funcionan igual.'
           ],
-          goodFor: 'Quienes valoran el espacio y un ambiente más residencial y no les importa depender más del transporte.'
+          goodFor: 'Quienes valoran un entorno residencial y comprobarán pendientes y transporte para la dirección concreta.'
+        },
+        {
+          kicker: '06',
+          title: 'Punta Lara / borde residencial occidental',
+          paragraphs: [
+            'Punta Lara se sitúa en el extremo occidental de Nerja y no debe agruparse automáticamente con las laderas residenciales del norte y el este.',
+            'Su posición crea otra relación con el centro, la costa cercana y el acceso por carretera.',
+            'Los recorridos a pie, el acceso a la playa y el uso del coche siguen dependiendo de la urbanización, la calle y la entrada concretas.'
+          ],
+          goodFor: 'Quienes consideran el oeste de Nerja, buscan más espacio y comprobarán la conexión exacta con el pueblo y la costa.'
         }
       ],
       [
@@ -413,13 +443,23 @@ export const nerjaLocationCopy = {
         },
         {
           kicker: '05',
-          title: 'Buitenwijken / woonbuurten op de heuvels',
+          title: 'Capistrana / San Juan de Capistrana',
           paragraphs: [
-            'Capistrano, Punta Lara en andere woonbuurten laten een heel andere kant van Nerja zien.',
-            'Je vindt er vaker meer ruimte, zwembaden, een rustige woonomgeving of huizen in villastijl. Even spontaan naar het centrum lopen ligt er minder voor de hand.',
-            'Een auto, taxi of lokaal vervoer komt hier vaker van pas, zeker als je geregeld tussen je verblijf, de stad en de omgeving wilt reizen.'
+            'De woonclusters Capistrana en San Juan de Capistrana liggen hoger en buiten het centrale kustweefsel.',
+            'Je vindt er vaker ruimte, tuinen, zwembaden of huizen in villastijl, maar helling en precieze straat bepalen de dagelijkse routes.',
+            'Behandel dit als een eigen woonmodel en controleer de exacte route in plaats van alle adressen gelijk te stellen.'
           ],
-          goodFor: 'Gasten die ruimte en een rustige woonomgeving waarderen en het niet erg vinden vaker vervoer te gebruiken.'
+          goodFor: 'Gasten die een woonomgeving waarderen en hellingen en vervoer voor het precieze adres controleren.'
+        },
+        {
+          kicker: '06',
+          title: 'Punta Lara / westelijke woonrand',
+          paragraphs: [
+            'Punta Lara ligt aan de westkant van Nerja en hoort niet automatisch bij de woonheuvels ten noorden en oosten van het centrum.',
+            'De westelijke ligging geeft een andere relatie tot centraal Nerja, de nabije kust en de wegverbinding.',
+            'Wandelroutes, strandtoegang en autogebruik blijven afhankelijk van de precieze urbanisatie, straat en ingang.'
+          ],
+          goodFor: 'Gasten die westelijk Nerja overwegen, meer ruimte zoeken en de exacte verbinding met stad en kust controleren.'
         }
       ],
       [
@@ -465,13 +505,23 @@ export const nerjaLocationCopy = {
         },
         {
           kicker: '05',
-          title: 'Yttre Nerja / bostadsområden på höjden',
+          title: 'Capistrana / San Juan de Capistrana',
           paragraphs: [
-            'Capistrano, Punta Lara och andra bostadsområden visar en annan sida av Nerja.',
-            'Här finns oftare större ytor, pooler, lugna kvarter eller villaboende. Däremot ligger en spontan promenad till centrum inte lika nära till hands.',
-            'Bil, taxi eller lokaltrafik blir därför viktigare, särskilt om ni ofta vill ta er mellan boendet, staden och utflyktsmål i trakten.'
+            'Bostadsklustren Capistrana och San Juan de Capistrana ligger högre och utanför den centrala kustbebyggelsen.',
+            'Här finns ofta mer utrymme, trädgårdar, pooler eller villaboende, men lutning och exakt gata formar vardagsvägarna.',
+            'Behandla detta som en egen boendemodell och kontrollera den exakta vägen i stället för att likställa alla adresser.'
           ],
-          goodFor: 'Gäster som uppskattar utrymme och lugna bostadskvarter och gärna använder transport oftare.'
+          goodFor: 'Gäster som uppskattar bostadsmiljö och kontrollerar lutningar och transport för den exakta adressen.'
+        },
+        {
+          kicker: '06',
+          title: 'Punta Lara / västra bostadskanten',
+          paragraphs: [
+            'Punta Lara ligger i västra Nerja och bör inte automatiskt grupperas med bostadssluttningarna norr och öster om centrum.',
+            'Det västra läget skapar ett annat förhållande till centrala Nerja, den närliggande kusten och väganslutningen.',
+            'Gångvägar, strandtillgång och bilanvändning beror fortfarande på exakt urbanisation, gata och entré.'
+          ],
+          goodFor: 'Gäster som överväger västra Nerja, söker mer utrymme och kontrollerar den exakta kopplingen till stad och kust.'
         }
       ]
     )
