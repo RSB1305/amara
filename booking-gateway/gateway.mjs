@@ -1,4 +1,5 @@
 import {
+  annotateLodgifyProviderError,
   createLodgifyClient,
   LodgifyProviderError,
   normalizeAvailability,
@@ -10,6 +11,36 @@ import {
   parseCalendarRequest,
   parseQuoteRequest,
 } from './request-contract.mjs';
+
+const PROVIDER_STEPS = new Set(['properties', 'rooms', 'availability', 'rates', 'quote']);
+const PROVIDER_ERROR_CATEGORIES = new Set([
+  'network',
+  'http',
+  'malformed_response',
+  'normalization',
+]);
+
+async function withProviderStep(providerStep, operation) {
+  try {
+    return await operation();
+  } catch (error) {
+    throw annotateLodgifyProviderError(error, providerStep);
+  }
+}
+
+function logProviderError(operationName, error) {
+  const diagnostic = {
+    operation: operationName,
+    providerStep: PROVIDER_STEPS.has(error.providerStep) ? error.providerStep : operationName,
+  };
+  if (Number.isInteger(error.httpStatus) && error.httpStatus >= 100 && error.httpStatus <= 599) {
+    diagnostic.providerHttpStatus = error.httpStatus;
+  }
+  diagnostic.category = PROVIDER_ERROR_CATEGORIES.has(error.category)
+    ? error.category
+    : 'normalization';
+  console.error(JSON.stringify(diagnostic));
+}
 
 async function withResolvedStay(apiKey, providerMapping, operation) {
   if (typeof apiKey !== 'string' || !apiKey.trim()) {
@@ -23,19 +54,21 @@ async function withResolvedStay(apiKey, providerMapping, operation) {
 async function availability(request, apiKey) {
   const input = parseCalendarRequest(request);
   const days = await withResolvedStay(apiKey, input.providerMapping, async (client, resolved) => {
-    const payload = await client.getAvailability(
-      resolved.propertyId,
-      resolved.roomTypeId,
-      input.start,
-      input.end,
-    );
-    return normalizeAvailability(
-      payload,
-      resolved.propertyId,
-      resolved.roomTypeId,
-      input.start,
-      input.end,
-    );
+    return withProviderStep('availability', async () => {
+      const payload = await client.getAvailability(
+        resolved.propertyId,
+        resolved.roomTypeId,
+        input.start,
+        input.end,
+      );
+      return normalizeAvailability(
+        payload,
+        resolved.propertyId,
+        resolved.roomTypeId,
+        input.start,
+        input.end,
+      );
+    });
   });
   return { stay: input.stay, start: input.start, end: input.end, days };
 }
@@ -43,23 +76,25 @@ async function availability(request, apiKey) {
 async function rates(request, apiKey) {
   const input = parseCalendarRequest(request);
   const days = await withResolvedStay(apiKey, input.providerMapping, async (client, resolved) => {
-    const payload = await client.getRates(
-      resolved.propertyId,
-      resolved.roomTypeId,
-      input.start,
-      input.end,
-    );
-    return normalizeRates(payload, input.start, input.end).map((day) => ({
-      date: day.date,
-      currency: day.currency,
-      options: day.priceOptions.map((option) => ({
-        nightlyRate: option.pricePerDay,
-        minStay: option.minStay,
-        maxStay: option.maxStay,
-        additionalGuestsFrom: option.additionalGuestsStartsFrom,
-        additionalGuestRate: option.pricePerAdditionalGuest,
-      })),
-    }));
+    return withProviderStep('rates', async () => {
+      const payload = await client.getRates(
+        resolved.propertyId,
+        resolved.roomTypeId,
+        input.start,
+        input.end,
+      );
+      return normalizeRates(payload, input.start, input.end).map((day) => ({
+        date: day.date,
+        currency: day.currency,
+        options: day.priceOptions.map((option) => ({
+          nightlyRate: option.pricePerDay,
+          minStay: option.minStay,
+          maxStay: option.maxStay,
+          additionalGuestsFrom: option.additionalGuestsStartsFrom,
+          additionalGuestRate: option.pricePerAdditionalGuest,
+        })),
+      }));
+    });
   });
   return { stay: input.stay, start: input.start, end: input.end, days };
 }
@@ -67,14 +102,16 @@ async function rates(request, apiKey) {
 async function quote(request, apiKey) {
   const input = parseQuoteRequest(request);
   const summary = await withResolvedStay(apiKey, input.providerMapping, async (client, resolved) => {
-    const payload = await client.getQuote(
-      resolved.propertyId,
-      resolved.roomTypeId,
-      input.arrival,
-      input.departure,
-      input.guests,
-    );
-    return quoteSummary(payload);
+    return withProviderStep('quote', async () => {
+      const payload = await client.getQuote(
+        resolved.propertyId,
+        resolved.roomTypeId,
+        input.arrival,
+        input.departure,
+        input.guests,
+      );
+      return quoteSummary(payload);
+    });
   });
   return {
     stay: input.stay,
@@ -122,6 +159,9 @@ export function createBookingRoute(operationName) {
           { error: { code: error.code, message: error.message } },
           error.status,
         );
+      }
+      if (error instanceof LodgifyProviderError) {
+        logProviderError(operationName, error);
       }
       if (
         operationName === 'quote'

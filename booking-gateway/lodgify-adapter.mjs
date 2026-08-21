@@ -6,9 +6,19 @@ export class LodgifyProviderError extends Error {
     super(message);
     this.name = 'LodgifyProviderError';
     this.httpStatus = options.httpStatus;
+    this.providerStep = options.providerStep;
+    this.category = options.category;
     this.providerCode = options.providerCode;
     this.providerMessage = options.providerMessage;
   }
+}
+
+export function annotateLodgifyProviderError(error, providerStep, category = 'normalization') {
+  if (error instanceof LodgifyProviderError) {
+    error.providerStep ??= providerStep;
+    error.category ??= category;
+  }
+  return error;
 }
 
 export function createLodgifyClient({ apiKey, fetchImpl = fetch }) {
@@ -32,6 +42,7 @@ export function createLodgifyClient({ apiKey, fetchImpl = fetch }) {
     } catch (error) {
       throw new LodgifyProviderError(
         `Network failure while contacting Lodgify: ${safeErrorText(error?.message, 200) ?? 'unknown error'}`,
+        { providerStep: options.providerStep, category: 'network' },
       );
     }
 
@@ -43,6 +54,8 @@ export function createLodgifyClient({ apiKey, fetchImpl = fetch }) {
         `Lodgify GET ${pathname} failed (HTTP ${response.status}).`,
         {
           httpStatus: response.status,
+          providerStep: options.providerStep,
+          category: 'http',
           providerCode: safeProviderError?.code,
           providerMessage: safeProviderError?.message,
         },
@@ -52,44 +65,75 @@ export function createLodgifyClient({ apiKey, fetchImpl = fetch }) {
     try {
       return await response.json();
     } catch {
-      throw new LodgifyProviderError(`Lodgify GET ${pathname} returned malformed JSON.`);
+      throw new LodgifyProviderError(
+        `Lodgify GET ${pathname} returned malformed JSON.`,
+        { providerStep: options.providerStep, category: 'malformed_response' },
+      );
     }
   }
 
   function listProperties() {
-    return requestJson('/v2/properties', { page: 1, size: 100, includeCount: false });
+    return requestJson(
+      '/v2/properties',
+      { page: 1, size: 100, includeCount: false },
+      { providerStep: 'properties' },
+    );
   }
 
   function listPropertyRooms(propertyId) {
-    return requestJson(`/v2/properties/${encodeURIComponent(propertyId)}/rooms`);
+    return requestJson(
+      `/v2/properties/${encodeURIComponent(propertyId)}/rooms`,
+      {},
+      { providerStep: 'rooms' },
+    );
+  }
+
+  async function withProviderStep(providerStep, operation) {
+    try {
+      return await operation();
+    } catch (error) {
+      throw annotateLodgifyProviderError(error, providerStep);
+    }
   }
 
   async function resolveStay(mapping) {
-    const properties = arrayFrom(
+    const properties = await withProviderStep('properties', async () => arrayFrom(
       await listProperties(),
       ['items', 'properties', 'data'],
-    );
+    ));
     const matches = properties.filter((property) => mapping.propertyNamePattern.test(nameOf(property)));
     if (matches.length !== 1) {
-      throw new LodgifyProviderError('The configured stay did not resolve to exactly one Lodgify property.');
+      throw new LodgifyProviderError(
+        'The configured stay did not resolve to exactly one Lodgify property.',
+        { providerStep: 'properties', category: 'normalization' },
+      );
     }
 
     const propertyId = idOf(matches[0]);
     if (propertyId === undefined) {
-      throw new LodgifyProviderError('The configured Lodgify property has no ID.');
+      throw new LodgifyProviderError(
+        'The configured Lodgify property has no ID.',
+        { providerStep: 'properties', category: 'normalization' },
+      );
     }
 
-    const rooms = arrayFrom(
+    const rooms = await withProviderStep('rooms', async () => arrayFrom(
       await listPropertyRooms(propertyId),
       ['items', 'rooms', 'roomTypes', 'data'],
-    );
+    ));
     if (mapping.roomStrategy !== 'single' || rooms.length !== 1) {
-      throw new LodgifyProviderError('The configured stay did not resolve to exactly one Lodgify room type.');
+      throw new LodgifyProviderError(
+        'The configured stay did not resolve to exactly one Lodgify room type.',
+        { providerStep: 'rooms', category: 'normalization' },
+      );
     }
 
     const roomTypeId = idOf(rooms[0]);
     if (roomTypeId === undefined) {
-      throw new LodgifyProviderError('The configured Lodgify room type has no ID.');
+      throw new LodgifyProviderError(
+        'The configured Lodgify room type has no ID.',
+        { providerStep: 'rooms', category: 'normalization' },
+      );
     }
 
     return {
@@ -108,6 +152,7 @@ export function createLodgifyClient({ apiKey, fetchImpl = fetch }) {
         end: `${end}T23:59:59.999Z`,
         includeDetails: false,
       },
+      { providerStep: 'availability' },
     );
   }
 
@@ -117,7 +162,7 @@ export function createLodgifyClient({ apiKey, fetchImpl = fetch }) {
       roomTypeId,
       startDate: start,
       endDate: end,
-    });
+    }, { providerStep: 'rates' });
   }
 
   function getQuote(propertyId, roomTypeId, arrival, departure, guests = {}) {
@@ -140,7 +185,7 @@ export function createLodgifyClient({ apiKey, fetchImpl = fetch }) {
     return requestJson(
       `/v2/quote/${encodeURIComponent(propertyId)}`,
       query,
-      { captureSafeError: true },
+      { captureSafeError: true, providerStep: 'quote' },
     );
   }
 
