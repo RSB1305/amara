@@ -2,7 +2,8 @@
 research_run_id: 2026-08-21__161609__winter-stays__research-001
 document_type: pre-research-gap-matrix
 created_at: 2026-08-21T16:16:09+02:00
-status: AWAITING_RAW
+status: NORMALIZED
+normalized_at: 2026-08-21T17:19:24+02:00
 subjects:
   - frigiliana
   - nerja
@@ -84,3 +85,12 @@ Der Run `2026-08-21__142423__climate-seasons__research-001` bleibt für Klimanor
 7. Erst nach abgestimmter Synthese öffentliche Inhalte oder Routen ändern.
 
 Kein vorhandener öffentlicher Inhalt wird durch diese Matrix gelöscht oder bereits als verifiziert behandelt.
+
+## Ergebnis des Research-Durchlaufs
+
+- GPT-Rohbericht und natives Gemini-Dokument einschließlich vollständigem Text-Export wurden unverändert archiviert.
+- Die direkten Primär- und institutionellen Quellen des GPT-Berichts wurden gezielt gegengeprüft.
+- Gemini wurde als Lead- und Fragenquelle bewahrt; unbelegte Temperatur-, Ganzjahres-, Mobilitäts- und Property-Claims wurden nicht atomisiert.
+- Markt-, SEO-, Orts-, Property- und First-Party-Evidenz wurden getrennt normalisiert.
+- Drei Seitenmanifeste bilden die elf Module ab und markieren vorhandene Coverage, offene Property-Nachweise und die fehlende Nerja-Seite.
+- Detaillierte Klimadaten bleiben beim separaten Klima-Run und werden nicht parallel neu angelegt.
