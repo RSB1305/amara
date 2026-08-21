@@ -77,6 +77,11 @@ interface Props {
     mark: string;
     note?: string;
   };
+  guideSummary?: {
+    eyebrow: string;
+    body: string;
+    items: Array<{ label: string; value: string }>;
+  };
   weatherVisual?: {
     eyebrow: string;
     mark: string;
@@ -102,6 +107,7 @@ const {
   secondaryCta,
   presentation = 'article',
   guideVisual,
+  guideSummary,
   weatherVisual,
   heroMark
 } = Astro.props;
@@ -116,8 +122,8 @@ const byline = authorName && authorHref && hero.updated && hero.note
     }
   : undefined;
 
-if (presentation === 'guide' && !guideVisual) {
-  throw new Error('[AMARA] Guide AuthorityArticle requires guideVisual content.');
+if (presentation === 'guide' && !guideVisual && !guideSummary) {
+  throw new Error('[AMARA] Guide AuthorityArticle requires visual or summary content.');
 }
 
 if (presentation === 'weather' && !weatherVisual) {
@@ -152,16 +158,26 @@ if (presentation === 'article' && !byline) {
       <LocationGuideHero
         eyebrow={hero.eyebrow}
         title={hero.title}
-        paragraphs={[hero.standfirst]}
+        paragraphs={guideSummary ? [] : [hero.standfirst]}
         topic={topic}
+        visualBeforeMetaOnMobile={Boolean(guideSummary)}
       >
         {byline && <EditorialByline slot="meta" {...byline} />}
-        <LocationGuideEvidence
-          slot="visual"
-          eyebrow={guideVisual!.eyebrow}
-          mark={guideVisual!.mark}
-          note={guideVisual!.note}
-        />
+        {guideSummary ? (
+          <LocationGuideEvidence
+            slot="visual"
+            eyebrow={guideSummary.eyebrow}
+            summary={guideSummary.body}
+            items={guideSummary.items}
+          />
+        ) : (
+          <LocationGuideEvidence
+            slot="visual"
+            eyebrow={guideVisual!.eyebrow}
+            mark={guideVisual!.mark}
+            note={guideVisual!.note}
+          />
+        )}
       </LocationGuideHero>
     ) : (
       <ExperienceArticleHero

@@ -2,6 +2,7 @@
 import InlineEmphasis from '../../components/text/InlineEmphasis.astro';
 import Navigation from '../../components/Navigation.astro';
 import NerjaContextNav from '../../components/location/NerjaContextNav.astro';
+import type { LocationGuideIconName } from '../../components/location/LocationGuideIcon.astro';
 import {
   nerjaGeographyContent,
   nerjaGeographySeo
@@ -12,6 +13,7 @@ import { normalizeLanguage } from '../../lib/seo/resolve-seo-head';
 import type { AmaraLanguage } from '../../types/seo';
 import AuthorityArticle from './AuthorityArticle.astro';
 import AuthorityRelatedLinks from './AuthorityRelatedLinks.astro';
+import AuthoritySectionCardGrid from './AuthoritySectionCardGrid.astro';
 import AuthorityTextSection from './AuthorityTextSection.astro';
 
 interface Props {
@@ -31,6 +33,13 @@ const footerHighlights: LabeledLink[] = [
   { token: 'nerja_geography', label: content.navLabel },
   { token: 'getting_to_nerja', label: content.related.links[0].label },
   { token: 'nerja_where_to_stay', label: content.related.links[1].label }
+];
+const [coastSection, builtUpSection, sierraSection, riverSection, staySection] = content.sections;
+const landscapeSections = [builtUpSection, sierraSection, riverSection];
+const landscapeIcons: LocationGuideIconName[] = [
+  'village',
+  'elevation',
+  'coast'
 ];
 ---
 
@@ -65,10 +74,10 @@ const footerHighlights: LabeledLink[] = [
     primaryCta={{ href: propertyHref, label: content.closing.propertyLabel }}
     secondaryCta={{ href: locationHref, label: content.closing.locationLabel }}
     presentation="guide"
-    guideVisual={{
-      eyebrow: content.facts[0].label,
-      mark: '36° N',
-      note: content.facts[0].value
+    guideSummary={{
+      eyebrow: content.navLabel,
+      body: content.hero.standfirst,
+      items: [content.facts[1], content.facts[2], content.facts[3]]
     }}
   >
     <section
@@ -100,14 +109,17 @@ const footerHighlights: LabeledLink[] = [
       </div>
     </section>
 
-    {content.sections.map((section, index) => (
-      <AuthorityTextSection section={section} index={index} />
-    ))}
+    <AuthorityTextSection section={coastSection} index={0} presentation="guide" />
+
+    <AuthoritySectionCardGrid sections={landscapeSections} icons={landscapeIcons} />
+
+    <AuthorityTextSection section={staySection} index={0} presentation="guide" />
 
     <AuthorityRelatedLinks
       related={content.related}
       columns="md:grid-cols-2"
       resolveHref={requiredLink}
+      presentation="guide"
     />
   </AuthorityArticle>
 </LocationAuthorityLayout>

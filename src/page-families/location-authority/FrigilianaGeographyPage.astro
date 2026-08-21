@@ -69,10 +69,10 @@ const landscapeIcons: LocationGuideIconName[] = [
     sources={content.sources}
     closing={content.closing}
     presentation="guide"
-    guideVisual={{
-      eyebrow: content.orientation.eyebrow,
-      mark: '36° N',
-      note: content.facts[1].value
+    guideSummary={{
+      eyebrow: content.navLabel,
+      body: content.hero.standfirst,
+      items: [content.facts[1], content.facts[2], content.facts[3]]
     }}
     primaryCta={{ href: arrivalHref, label: content.closing.arrivalLabel }}
     secondaryCta={{ href: stayHref, label: content.closing.stayLabel }}

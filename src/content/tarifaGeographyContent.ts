@@ -48,14 +48,14 @@ export interface TarifaGeographyLocale {
 
 const article = {
   datePublished: '2026-08-13',
-  dateModified: '2026-08-13',
+  dateModified: '2026-08-21',
   authorName: 'Robert Sebastian Böhmer',
   authorType: 'Person' as const,
   authorSlug: 'amara-about-us'
 };
 
 export const tarifaGeographySeo: AmaraAuthoringSeo = {
-  version: '2026-08-13-tarifa-geography-v1.0',
+  version: '2026-08-21-tarifa-geography-v1.1',
   pageType: 'A',
   entityKey: 'amara-brand',
   article,
@@ -95,6 +95,7 @@ export const tarifaGeographySeo: AmaraAuthoringSeo = {
 
 const sharedSources = {
   ign: 'https://www.ign.es/web/preguntas-frecuentes',
+  officialTarifa: 'https://www.andalucia.org/listing/tarifa/19308102/',
   naturalPark: 'https://www.juntadeandalucia.es/medioambiente/portal/areas-tematicas/espacios-protegidos/legislacion-autonomica-nacional/parques-naturales/parque-natural-del-estrecho',
   tarifaNature: 'https://turismodetarifa.com/que-hacer/parques-naturales-senderismo/',
   coastalPlan: 'https://www.juntadeandalucia.es/boja/2003/18/1',
@@ -108,7 +109,7 @@ export const tarifaGeographyContent: Record<AmaraLanguage, TarifaGeographyLocale
     navLabel: 'Geography & Orientation',
     hero: {
       eyebrow: 'Tarifa geography guide',
-      title: 'Where Tarifa is',
+      title: 'Where is Tarifa? Europe’s southernmost mainland city',
       standfirst: 'Tarifa is not simply a town at the bottom of Spain. It sits **at Europe’s southern edge, beside the Strait of Gibraltar**, with the Atlantic opening west and the Mediterranean setting continuing east. From AMARA in La Marina, that geography becomes a practical way to plan each day.',
       note: 'A host-written guide to reading Tarifa’s landscape. Wind, visibility, currents and water conditions remain dynamic.',
       updated: 'Geography checked in August 2026'
@@ -125,12 +126,9 @@ export const tarifaGeographyContent: Record<AmaraLanguage, TarifaGeographyLocale
       intro: 'These are the fixed reference points behind the guide. They form a simple spatial sequence without pretending that a diagram can replace a current route or conditions check.',
       items: [
         { label: 'Your base', value: 'AMARA Family & Surf · La Marina' },
-        { label: 'Town core', value: 'Old Town' },
-        { label: 'Passenger edge', value: 'Port of Tarifa · 2.1 km, about 8 min by car' },
-        { label: 'Southern landmark', value: 'Isla de las Palomas' },
+        { label: 'Town to southern landmark', value: 'Old Town · Port of Tarifa · Isla de las Palomas' },
         { label: 'West', value: 'Atlantic · Los Lances beach access 400–500 m · Valdevaqueros' },
-        { label: 'East', value: 'Strait-facing Mediterranean setting' },
-        { label: 'South', value: 'Africa across the Strait' }
+        { label: 'East and south', value: 'Mediterranean side of the Strait · Africa across the water' }
       ]
     },
     sections: [
@@ -232,6 +230,7 @@ export const tarifaGeographyContent: Record<AmaraLanguage, TarifaGeographyLocale
       checked: 'Sources checked in August 2026.',
       links: [
         { label: 'Instituto Geográfico Nacional · Punta de Tarifa', text: 'Official coordinates for Spain’s southern geographic reference point.', href: sharedSources.ign },
+        { label: 'Official Andalusian Tourism · Tarifa', text: 'Public destination profile identifying Tarifa as Europe’s southernmost city.', href: sharedSources.officialTarifa },
         { label: 'Junta de Andalucía · El Estrecho Natural Park', text: 'Official context for the Atlantic–Mediterranean and Europe–Africa setting.', href: sharedSources.naturalPark },
         { label: 'Tarifa Tourism · Natural parks and landscape', text: 'Local public information on coast, relief and Isla de las Palomas.', href: sharedSources.tarifaNature },
         { label: 'Junta de Andalucía · Coastal management plan', text: 'Detailed official geography, geology and topography of the Algeciras–Tarifa coast.', href: sharedSources.coastalPlan },
@@ -252,7 +251,7 @@ export const tarifaGeographyContent: Record<AmaraLanguage, TarifaGeographyLocale
     navLabel: 'Geografie & Orientierung',
     hero: {
       eyebrow: 'Geografie-Guide Tarifa',
-      title: 'Wo Tarifa liegt',
+      title: 'Wo liegt Tarifa? Die südlichste Stadt des europäischen Festlands',
       standfirst: 'Tarifa ist nicht einfach ein Ort am unteren Rand Spaniens. Die Stadt liegt **am Südrand Europas, an der Straße von Gibraltar**: westlich öffnet sich der Atlantik, östlich setzt sich die mediterrane Küstenwelt fort. Von AMARA in La Marina wird diese Lage zur praktischen Orientierung für jeden Tag.',
       note: 'Ein Gastgeber-Guide zum Lesen der Landschaft. Wind, Sicht, Strömung und Wasserbedingungen bleiben dynamisch.',
       updated: 'Geografie geprüft im August 2026'
@@ -269,12 +268,9 @@ export const tarifaGeographyContent: Record<AmaraLanguage, TarifaGeographyLocale
       intro: 'Diese festen Bezugspunkte tragen den Guide. Sie ergeben eine einfache räumliche Folge, ohne eine aktuelle Routen- oder Bedingungsprüfung zu ersetzen.',
       items: [
         { label: 'Euer Ausgangspunkt', value: 'AMARA Family & Surf · La Marina' },
-        { label: 'Historischer Kern', value: 'Altstadt' },
-        { label: 'Am Wasser', value: 'Hafen von Tarifa · 2,1 km, etwa 8 Autominuten' },
-        { label: 'Südlicher Bezugspunkt', value: 'Isla de las Palomas' },
+        { label: 'Stadt bis Südspitze', value: 'Altstadt · Hafen von Tarifa · Isla de las Palomas' },
         { label: 'Westen', value: 'Atlantik · Strandzugang Los Lances 400–500 m · Valdevaqueros' },
-        { label: 'Osten', value: 'Mediterrane Seite der Meerenge' },
-        { label: 'Süden', value: 'Afrika jenseits der Meerenge' }
+        { label: 'Osten und Süden', value: 'Mediterrane Seite der Meerenge · Afrika jenseits des Wassers' }
       ]
     },
     sections: [
@@ -333,6 +329,7 @@ export const tarifaGeographyContent: Record<AmaraLanguage, TarifaGeographyLocale
       eyebrow: 'Belege hinter dem Guide', title: 'Quellen zu Geografie und Zeit', intro: 'Die festen geografischen Aussagen stammen aus spanischen Karten- und Umweltquellen. Wind, Sicht, Wasser und Sonnenzeiten verändern sich weiterhin nach Datum und Bedingungen.', checked: 'Quellen geprüft im August 2026.',
       links: [
         { label: 'Instituto Geográfico Nacional · Punta de Tarifa', text: 'Offizielle Koordinaten des südlichen geografischen Bezugspunkts Spaniens.', href: sharedSources.ign },
+        { label: 'Offizieller Andalusien-Tourismus · Tarifa', text: 'Öffentliches Ortsprofil mit Tarifa als südlichster Stadt Europas.', href: sharedSources.officialTarifa },
         { label: 'Junta de Andalucía · Naturpark El Estrecho', text: 'Offizieller Kontext zu Atlantik, Mittelmeer, Europa und Afrika.', href: sharedSources.naturalPark },
         { label: 'Tarifa Tourismus · Naturparks und Landschaft', text: 'Öffentliche Ortsinformation zu Küste, Relief und Isla de las Palomas.', href: sharedSources.tarifaNature },
         { label: 'Junta de Andalucía · Küstenplan', text: 'Offizielle Geografie, Geologie und Topografie der Küste Algeciras–Tarifa.', href: sharedSources.coastalPlan },
@@ -345,10 +342,10 @@ export const tarifaGeographyContent: Record<AmaraLanguage, TarifaGeographyLocale
   },
   es: {
     navLabel: 'Geografía y orientación',
-    hero: { eyebrow: 'Guía geográfica de Tarifa', title: 'Dónde está Tarifa', standfirst: 'Tarifa no es solo una localidad en el extremo sur de España. Está **en el borde meridional de Europa, junto al Estrecho de Gibraltar**: el Atlántico se abre hacia el oeste y el entorno mediterráneo continúa al este. Desde AMARA, en La Marina, esa geografía se convierte en una orientación práctica para cada día.', note: 'Una guía escrita por vuestros anfitriones para leer el paisaje. El viento, la visibilidad, las corrientes y el estado del agua siguen siendo dinámicos.', updated: 'Geografía comprobada en agosto de 2026' },
+    hero: { eyebrow: 'Guía geográfica de Tarifa', title: '¿Dónde está Tarifa? La ciudad más meridional de la Europa continental', standfirst: 'Tarifa no es solo una localidad en el extremo sur de España. Está **en el borde meridional de Europa, junto al Estrecho de Gibraltar**: el Atlántico se abre hacia el oeste y el entorno mediterráneo continúa al este. Desde AMARA, en La Marina, esa geografía se convierte en una orientación práctica para cada día.', note: 'Una guía escrita por vuestros anfitriones para leer el paisaje. El viento, la visibilidad, las corrientes y el estado del agua siguen siendo dinámicos.', updated: 'Geografía comprobada en agosto de 2026' },
     facts: [ { label: 'Referencia meridional', value: 'Punta de Tarifa · casi 36° N exactos' }, { label: 'Entorno marítimo', value: 'Atlántico · Estrecho · Mediterráneo' }, { label: 'Al otro lado', value: 'África al sur' }, { label: 'Base AMARA', value: 'La Marina · Mar Adriático 29' } ],
     orientation: { eyebrow: 'Orientación de un vistazo', title: 'Leed la ciudad desde AMARA hasta el agua', intro: 'Estos puntos fijos sostienen la guía. Forman una secuencia espacial sencilla sin sustituir una ruta actual ni la consulta de las condiciones.', items: [
-      { label: 'Vuestra base', value: 'AMARA Family & Surf · La Marina' }, { label: 'Núcleo histórico', value: 'Casco antiguo' }, { label: 'Borde de pasajeros', value: 'Puerto de Tarifa · 2,1 km, unos 8 min en coche' }, { label: 'Referencia meridional', value: 'Isla de las Palomas' }, { label: 'Oeste', value: 'Atlántico · acceso a Los Lances 400–500 m · Valdevaqueros' }, { label: 'Este', value: 'Lado mediterráneo del Estrecho' }, { label: 'Sur', value: 'África al otro lado del Estrecho' }
+      { label: 'Vuestra base', value: 'AMARA Family & Surf · La Marina' }, { label: 'De la ciudad al extremo sur', value: 'Casco antiguo · Puerto de Tarifa · Isla de las Palomas' }, { label: 'Oeste', value: 'Atlántico · acceso a Los Lances 400–500 m · Valdevaqueros' }, { label: 'Este y sur', value: 'Lado mediterráneo del Estrecho · África al otro lado del agua' }
     ] },
     sections: [
       { id: 'strait-of-gibraltar', eyebrow: '01 · El paso estrecho', title: 'El Estrecho de Gibraltar marca la escala', paragraphs: [ 'El Estrecho conecta el océano Atlántico con el mar Mediterráneo y separa el sur de Europa del norte de África. Tarifa ocupa su orilla norte, cerca de la entrada occidental.', 'El horizonte pertenece así a un corredor, no solo a una extensión de mar abierto. En días despejados se ve África; la bruma, las nubes y el viento pueden transformar la misma vista al día siguiente.', 'Desde AMARA en La Marina, el casco antiguo, el puerto y la Isla de las Palomas forman una línea práctica hacia el Estrecho. El apartamento es vuestra base urbana, no una dirección portuaria ni frente al mar.' ] },
@@ -364,16 +361,16 @@ export const tarifaGeographyContent: Record<AmaraLanguage, TarifaGeographyLocale
       { token: 'getting_to_tarifa', label: 'Llegada y movilidad', text: 'Carretera, autobús, aeropuertos, puerto y el último tramo hasta AMARA.' }, { token: 'tarifa_where_to_stay', label: 'Dónde alojarse / zonas', text: 'Comparad las diferencias diarias entre los entornos de alojamiento.' }, { token: 'tarifa_wind_kitesurfing_authority', label: 'Viento y deportes acuáticos', text: 'Pasad del contexto geográfico al detalle técnico y a las condiciones actuales.' }, { token: 'tarifa_experience_hub', label: 'Experiencias en Tarifa', text: 'Convertid la orientación en playas, naturaleza, historia y excursiones.' }
     ] },
     sources: { eyebrow: 'Base documental de la guía', title: 'Fuentes de geografía y horario', intro: 'Las afirmaciones geográficas fijas proceden de cartografía y fuentes ambientales españolas. El viento, la visibilidad, el agua y las horas solares varían según fecha y condiciones.', checked: 'Fuentes comprobadas en agosto de 2026.', links: [
-      { label: 'Instituto Geográfico Nacional · Punta de Tarifa', text: 'Coordenadas oficiales de la referencia geográfica meridional de España.', href: sharedSources.ign }, { label: 'Junta de Andalucía · Parque Natural del Estrecho', text: 'Contexto oficial de Atlántico, Mediterráneo, Europa y África.', href: sharedSources.naturalPark }, { label: 'Turismo de Tarifa · Parques y paisaje', text: 'Información pública local sobre costa, relieve e Isla de las Palomas.', href: sharedSources.tarifaNature }, { label: 'Junta de Andalucía · Plan del frente litoral', text: 'Geografía, geología y topografía oficiales de la costa Algeciras–Tarifa.', href: sharedSources.coastalPlan }, { label: 'AEMET · Vientos en el Estrecho', text: 'Contexto meteorológico sobre topografía, Levante y Poniente.', href: sharedSources.aemetWind }, { label: 'BOE · Hora de verano española', text: 'Fechas oficiales y adelanto de una hora en verano.', href: sharedSources.summerTime }, { label: 'Puerto de Tarifa · Horas solares de junio', text: 'Cálculos por fecha de amanecer, atardecer y mediodía solar.', href: sharedSources.solarTime }
+      { label: 'Instituto Geográfico Nacional · Punta de Tarifa', text: 'Coordenadas oficiales de la referencia geográfica meridional de España.', href: sharedSources.ign }, { label: 'Turismo oficial de Andalucía · Tarifa', text: 'Perfil público que identifica Tarifa como la ciudad más meridional de Europa.', href: sharedSources.officialTarifa }, { label: 'Junta de Andalucía · Parque Natural del Estrecho', text: 'Contexto oficial de Atlántico, Mediterráneo, Europa y África.', href: sharedSources.naturalPark }, { label: 'Turismo de Tarifa · Parques y paisaje', text: 'Información pública local sobre costa, relieve e Isla de las Palomas.', href: sharedSources.tarifaNature }, { label: 'Junta de Andalucía · Plan del frente litoral', text: 'Geografía, geología y topografía oficiales de la costa Algeciras–Tarifa.', href: sharedSources.coastalPlan }, { label: 'AEMET · Vientos en el Estrecho', text: 'Contexto meteorológico sobre topografía, Levante y Poniente.', href: sharedSources.aemetWind }, { label: 'BOE · Hora de verano española', text: 'Fechas oficiales y adelanto de una hora en verano.', href: sharedSources.summerTime }, { label: 'Puerto de Tarifa · Horas solares de junio', text: 'Cálculos por fecha de amanecer, atardecer y mediodía solar.', href: sharedSources.solarTime }
     ] },
     closing: { eyebrow: 'Mantened la orientación', title: 'Que la dirección dé forma al día, sin imponerlo', body: 'El mapa de Tarifa resulta útil cuando conserva flexibilidad: ciudad a pie, costa occidental cuando acompañan las condiciones y el Estrecho como referencia constante. Volved a la guía de ubicación o continuad con las experiencias que permite esta geografía.', locationLabel: 'Volver a Ubicación Tarifa', experienceLabel: 'Explorar experiencias en Tarifa' }
   },
   nl: {
     navLabel: 'Geografie & oriëntatie',
-    hero: { eyebrow: 'Geografiegids Tarifa', title: 'Waar Tarifa ligt', standfirst: 'Tarifa is niet zomaar een stad onderaan Spanje. Ze ligt **aan de zuidrand van Europa, bij de Straat van Gibraltar**: de Atlantische Oceaan opent zich naar het westen en het mediterrane kustlandschap loopt oostwaarts door. Vanaf AMARA in La Marina wordt die geografie een praktische manier om elke dag te plannen.', note: 'Een gids van jullie hosts om het landschap te lezen. Wind, zicht, stromingen en watercondities blijven veranderlijk.', updated: 'Geografie gecontroleerd in augustus 2026' },
+    hero: { eyebrow: 'Geografiegids Tarifa', title: 'Waar ligt Tarifa? De zuidelijkste stad op het Europese vasteland', standfirst: 'Tarifa is niet zomaar een stad onderaan Spanje. Ze ligt **aan de zuidrand van Europa, bij de Straat van Gibraltar**: de Atlantische Oceaan opent zich naar het westen en het mediterrane kustlandschap loopt oostwaarts door. Vanaf AMARA in La Marina wordt die geografie een praktische manier om elke dag te plannen.', note: 'Een gids van jullie hosts om het landschap te lezen. Wind, zicht, stromingen en watercondities blijven veranderlijk.', updated: 'Geografie gecontroleerd in augustus 2026' },
     facts: [ { label: 'Zuidelijk oriëntatiepunt', value: 'Punta de Tarifa · bijna exact 36° N' }, { label: 'Waterlandschap', value: 'Atlantische Oceaan · Straat · Middellandse Zee' }, { label: 'Aan de overkant', value: 'Afrika in het zuiden' }, { label: 'AMARA-basis', value: 'La Marina · Mar Adriático 29' } ],
     orientation: { eyebrow: 'Oriëntatie in één oogopslag', title: 'Lees de stad vanaf AMARA tot aan het water', intro: 'Deze vaste punten dragen de gids. Samen vormen ze een eenvoudige ruimtelijke reeks, zonder een actuele route- of conditiecheck te vervangen.', items: [
-      { label: 'Jullie basis', value: 'AMARA Family & Surf · La Marina' }, { label: 'Historische kern', value: 'Oude stad' }, { label: 'Passagiersrand', value: 'Haven van Tarifa · 2,1 km, ongeveer 8 min met de auto' }, { label: 'Zuidelijk oriëntatiepunt', value: 'Isla de las Palomas' }, { label: 'West', value: 'Atlantische Oceaan · strandtoegang Los Lances 400–500 m · Valdevaqueros' }, { label: 'Oost', value: 'Mediterrane zijde van de Straat' }, { label: 'Zuid', value: 'Afrika aan de overkant' }
+      { label: 'Jullie basis', value: 'AMARA Family & Surf · La Marina' }, { label: 'Van stad tot zuidpunt', value: 'Oude stad · Haven van Tarifa · Isla de las Palomas' }, { label: 'West', value: 'Atlantische Oceaan · strandtoegang Los Lances 400–500 m · Valdevaqueros' }, { label: 'Oost en zuid', value: 'Mediterrane zijde van de Straat · Afrika aan de overkant' }
     ] },
     sections: [
       { id: 'strait-of-gibraltar', eyebrow: '01 · De smalle doorgang', title: 'De Straat van Gibraltar bepaalt de schaal', paragraphs: [ 'De Straat verbindt de Atlantische Oceaan met de Middellandse Zee en scheidt Zuid-Europa van Noord-Afrika. Tarifa ligt aan de noordelijke oever, dicht bij de westelijke ingang.', 'De horizon hoort daardoor bij een corridor, niet bij één open zeezicht. Op heldere dagen is Afrika zichtbaar; nevel, bewolking en wind kunnen hetzelfde uitzicht een dag later volledig veranderen.', 'Vanaf AMARA in La Marina vormen de oude stad, haven en Isla de las Palomas een praktische lijn naar de Straat. Het appartement is jullie stadsbasis, geen adres aan de haven of direct aan het water.' ] },
@@ -389,16 +386,16 @@ export const tarifaGeographyContent: Record<AmaraLanguage, TarifaGeographyLocale
       { token: 'getting_to_tarifa', label: 'Aankomst & mobiliteit', text: 'Weg, bus, luchthavens, haven en het laatste deel naar AMARA.' }, { token: 'tarifa_where_to_stay', label: 'Waar overnachten / gebieden', text: 'Vergelijk de dagelijkse verschillen tussen Tarifas verblijfssettings.' }, { token: 'tarifa_wind_kitesurfing_authority', label: 'Wind & watersport', text: 'Ga van geografische context naar technische windinformatie en actuele planning.' }, { token: 'tarifa_experience_hub', label: 'Tarifa beleven', text: 'Vertaal de oriëntatie naar stranden, natuur, geschiedenis en uitstappen.' }
     ] },
     sources: { eyebrow: 'Onderbouwing van de gids', title: 'Bronnen voor geografie en tijd', intro: 'De vaste geografische uitspraken komen uit Spaanse kaarten en milieubronnen. Wind, zicht, water en zonnetijden blijven per datum en conditie veranderen.', checked: 'Bronnen gecontroleerd in augustus 2026.', links: [
-      { label: 'Instituto Geográfico Nacional · Punta de Tarifa', text: 'Officiële coördinaten van Spanjes zuidelijke geografische referentiepunt.', href: sharedSources.ign }, { label: 'Junta de Andalucía · Natuurpark El Estrecho', text: 'Officiële context voor Atlantische Oceaan, Middellandse Zee, Europa en Afrika.', href: sharedSources.naturalPark }, { label: 'Toerisme Tarifa · Natuurparken en landschap', text: 'Lokale openbare informatie over kust, reliëf en Isla de las Palomas.', href: sharedSources.tarifaNature }, { label: 'Junta de Andalucía · Kustbeheerplan', text: 'Officiële geografie, geologie en topografie van de kust Algeciras–Tarifa.', href: sharedSources.coastalPlan }, { label: 'AEMET · Wind in de Straat van Gibraltar', text: 'Meteorologische context voor topografie, Levante en Poniente.', href: sharedSources.aemetWind }, { label: 'BOE · Spaanse zomertijd', text: 'Officiële data en de zomerse klokverschuiving van één uur.', href: sharedSources.summerTime }, { label: 'Haven Tarifa · Zonnetijden in juni', text: 'Datumgebonden berekeningen voor zonsopkomst, zonsondergang en zonnemiddag.', href: sharedSources.solarTime }
+      { label: 'Instituto Geográfico Nacional · Punta de Tarifa', text: 'Officiële coördinaten van Spanjes zuidelijke geografische referentiepunt.', href: sharedSources.ign }, { label: 'Officieel toerisme van Andalusië · Tarifa', text: 'Openbaar bestemmingsprofiel dat Tarifa aanduidt als de zuidelijkste stad van Europa.', href: sharedSources.officialTarifa }, { label: 'Junta de Andalucía · Natuurpark El Estrecho', text: 'Officiële context voor Atlantische Oceaan, Middellandse Zee, Europa en Afrika.', href: sharedSources.naturalPark }, { label: 'Toerisme Tarifa · Natuurparken en landschap', text: 'Lokale openbare informatie over kust, reliëf en Isla de las Palomas.', href: sharedSources.tarifaNature }, { label: 'Junta de Andalucía · Kustbeheerplan', text: 'Officiële geografie, geologie en topografie van de kust Algeciras–Tarifa.', href: sharedSources.coastalPlan }, { label: 'AEMET · Wind in de Straat van Gibraltar', text: 'Meteorologische context voor topografie, Levante en Poniente.', href: sharedSources.aemetWind }, { label: 'BOE · Spaanse zomertijd', text: 'Officiële data en de zomerse klokverschuiving van één uur.', href: sharedSources.summerTime }, { label: 'Haven Tarifa · Zonnetijden in juni', text: 'Datumgebonden berekeningen voor zonsopkomst, zonsondergang en zonnemiddag.', href: sharedSources.solarTime }
     ] },
     closing: { eyebrow: 'Houd jullie oriëntatie', title: 'Laat richting de dag vormen, niet dicteren', body: 'Tarifas kaart werkt het best wanneer ze flexibel blijft: stad te voet, westkust als de condities passen en de Straat als vast referentiepunt. Ga terug naar de locatiegids of verder naar de ervaringen die deze geografie mogelijk maakt.', locationLabel: 'Terug naar Tarifa Locatie', experienceLabel: 'Ontdek ervaringen in Tarifa' }
   },
   sv: {
     navLabel: 'Geografi & orientering',
-    hero: { eyebrow: 'Geografiguide Tarifa', title: 'Var Tarifa ligger', standfirst: 'Tarifa är inte bara en stad längst ned i Spanien. Den ligger **vid Europas sydkant, intill Gibraltarsund**: Atlanten öppnar sig västerut och den mediterrana kustmiljön fortsätter österut. Från AMARA i La Marina blir geografin ett praktiskt sätt att planera varje dag.', note: 'En värdskriven guide till landskapet. Vind, sikt, strömmar och vattenförhållanden förändras fortfarande.', updated: 'Geografin granskad i augusti 2026' },
+    hero: { eyebrow: 'Geografiguide Tarifa', title: 'Var ligger Tarifa? Europas sydligaste stad på fastlandet', standfirst: 'Tarifa är inte bara en stad längst ned i Spanien. Den ligger **vid Europas sydkant, intill Gibraltarsund**: Atlanten öppnar sig västerut och den mediterrana kustmiljön fortsätter österut. Från AMARA i La Marina blir geografin ett praktiskt sätt att planera varje dag.', note: 'En värdskriven guide till landskapet. Vind, sikt, strömmar och vattenförhållanden förändras fortfarande.', updated: 'Geografin granskad i augusti 2026' },
     facts: [ { label: 'Sydligt riktmärke', value: 'Punta de Tarifa · nästan exakt 36° N' }, { label: 'Vattenläge', value: 'Atlanten · sundet · Medelhavet' }, { label: 'På andra sidan', value: 'Afrika i söder' }, { label: 'AMARA-bas', value: 'La Marina · Mar Adriático 29' } ],
     orientation: { eyebrow: 'Orientering i korthet', title: 'Läs staden från AMARA till vattnet', intro: 'De här fasta punkterna bär guiden. De bildar en enkel rumslig följd utan att ersätta en aktuell rutt- eller förhållandekontroll.', items: [
-      { label: 'Er bas', value: 'AMARA Family & Surf · La Marina' }, { label: 'Historisk kärna', value: 'Gamla stan' }, { label: 'Passagerarkant', value: 'Tarifas hamn · 2,1 km, cirka 8 min med bil' }, { label: 'Sydligt riktmärke', value: 'Isla de las Palomas' }, { label: 'Väst', value: 'Atlanten · Los Lances 400–500 m bort · Valdevaqueros' }, { label: 'Öst', value: 'Sundets mediterrana sida' }, { label: 'Söder', value: 'Afrika på andra sidan sundet' }
+      { label: 'Er bas', value: 'AMARA Family & Surf · La Marina' }, { label: 'Från stad till sydspets', value: 'Gamla stan · Tarifas hamn · Isla de las Palomas' }, { label: 'Väst', value: 'Atlanten · Los Lances 400–500 m bort · Valdevaqueros' }, { label: 'Öst och söder', value: 'Sundets mediterrana sida · Afrika på andra sidan vattnet' }
     ] },
     sections: [
       { id: 'strait-of-gibraltar', eyebrow: '01 · Den smala passagen', title: 'Gibraltarsund sätter skalan', paragraphs: [ 'Sundet förbinder Atlanten med Medelhavet och skiljer södra Europa från norra Afrika. Tarifa ligger på dess norra sida nära den västra infarten.', 'Horisonten är därför del av en korridor, inte bara en öppen havsvy. Klara dagar syns Afrika; dis, moln och vind kan förändra samma utsikt helt nästa dag.', 'Från AMARA i La Marina bildar Gamla stan, hamnen och Isla de las Palomas en praktisk linje mot sundet. Lägenheten är er bas i staden, inte en adress vid hamnen eller direkt vid vattnet.' ] },
@@ -414,7 +411,7 @@ export const tarifaGeographyContent: Record<AmaraLanguage, TarifaGeographyLocale
       { token: 'getting_to_tarifa', label: 'Ankomst & mobilitet', text: 'Väg, buss, flygplatser, hamn och sista sträckan till AMARA.' }, { token: 'tarifa_where_to_stay', label: 'Var ska man bo / områden', text: 'Jämför vardagsskillnaderna mellan Tarifas boendemiljöer.' }, { token: 'tarifa_wind_kitesurfing_authority', label: 'Vind & vattensport', text: 'Gå från geografiskt sammanhang till teknisk vindinformation och aktuell planering.' }, { token: 'tarifa_experience_hub', label: 'Upplev Tarifa', text: 'Gör orienteringen till stränder, natur, historia och utflykter.' }
     ] },
     sources: { eyebrow: 'Underlag för guiden', title: 'Källor om geografi och tid', intro: 'De fasta geografiska uppgifterna kommer från spanska kart- och miljökällor. Vind, sikt, vatten och soltider varierar fortfarande efter datum och förhållanden.', checked: 'Källor granskade i augusti 2026.', links: [
-      { label: 'Instituto Geográfico Nacional · Punta de Tarifa', text: 'Officiella koordinater för Spaniens sydliga geografiska referenspunkt.', href: sharedSources.ign }, { label: 'Junta de Andalucía · Naturparken El Estrecho', text: 'Officiellt sammanhang för Atlanten, Medelhavet, Europa och Afrika.', href: sharedSources.naturalPark }, { label: 'Tarifas turistbyrå · Naturparker och landskap', text: 'Lokal offentlig information om kust, relief och Isla de las Palomas.', href: sharedSources.tarifaNature }, { label: 'Junta de Andalucía · Kustplan', text: 'Officiell geografi, geologi och topografi för kusten Algeciras–Tarifa.', href: sharedSources.coastalPlan }, { label: 'AEMET · Vindar i Gibraltarsund', text: 'Meteorologiskt sammanhang för topografi, Levante och Poniente.', href: sharedSources.aemetWind }, { label: 'BOE · Spansk sommartid', text: 'Officiella datum och den en timme långa sommaromställningen.', href: sharedSources.summerTime }, { label: 'Tarifas hamn · Soltider i juni', text: 'Datumberoende beräkningar för soluppgång, solnedgång och solmiddag.', href: sharedSources.solarTime }
+      { label: 'Instituto Geográfico Nacional · Punta de Tarifa', text: 'Officiella koordinater för Spaniens sydliga geografiska referenspunkt.', href: sharedSources.ign }, { label: 'Andalusiens officiella turism · Tarifa', text: 'Offentlig destinationsprofil som identifierar Tarifa som Europas sydligaste stad.', href: sharedSources.officialTarifa }, { label: 'Junta de Andalucía · Naturparken El Estrecho', text: 'Officiellt sammanhang för Atlanten, Medelhavet, Europa och Afrika.', href: sharedSources.naturalPark }, { label: 'Tarifas turistbyrå · Naturparker och landskap', text: 'Lokal offentlig information om kust, relief och Isla de las Palomas.', href: sharedSources.tarifaNature }, { label: 'Junta de Andalucía · Kustplan', text: 'Officiell geografi, geologi och topografi för kusten Algeciras–Tarifa.', href: sharedSources.coastalPlan }, { label: 'AEMET · Vindar i Gibraltarsund', text: 'Meteorologiskt sammanhang för topografi, Levante och Poniente.', href: sharedSources.aemetWind }, { label: 'BOE · Spansk sommartid', text: 'Officiella datum och den en timme långa sommaromställningen.', href: sharedSources.summerTime }, { label: 'Tarifas hamn · Soltider i juni', text: 'Datumberoende beräkningar för soluppgång, solnedgång och solmiddag.', href: sharedSources.solarTime }
     ] },
     closing: { eyebrow: 'Behåll riktningen', title: 'Låt riktningen forma dagen, inte styra den', body: 'Tarifas karta är mest användbar när den förblir flexibel: staden till fots, västkusten när förhållandena passar och sundet som fast referens. Gå tillbaka till lägesguiden eller vidare till upplevelserna som geografin möjliggör.', locationLabel: 'Tillbaka till Tarifa lägesguide', experienceLabel: 'Upptäck upplevelser i Tarifa' }
   }

@@ -48,7 +48,7 @@ export interface FrigilianaGeographyLocale {
 
 const article = {
   datePublished: '2026-08-16',
-  dateModified: '2026-08-18',
+  dateModified: '2026-08-21',
   authorName: 'Robert Sebastian Böhmer',
   authorType: 'Person' as const,
   authorSlug: 'amara-about-us'
@@ -65,7 +65,7 @@ const sharedSources = {
 };
 
 export const frigilianaGeographySeo: AmaraAuthoringSeo = {
-  version: '2026-08-18-frigiliana-geography-v1.1',
+  version: '2026-08-21-frigiliana-geography-v1.2',
   pageType: 'A',
   entityKey: 'amara-brand',
   article,
@@ -116,7 +116,7 @@ export const frigilianaGeographyContent: Record<
     navLabel: 'Geography & orientation',
     hero: {
       eyebrow: 'Frigiliana · Geography & orientation',
-      title: 'Where is Frigiliana?',
+      title: 'Where is Frigiliana? Between Nerja and Sierra Almijara',
       standfirst:
         'Frigiliana is in the Axarquía in the east of Málaga province, **about 6 kilometres inland from Nerja**. The village rises from lower terrain towards the Sierra Almijara, so its location is best understood from the Mediterranean coast upwards.',
       note: 'The official altitude figure is a Town Hall reference, not one altitude for the whole village.',
@@ -221,7 +221,7 @@ export const frigilianaGeographyContent: Record<
     navLabel: 'Geografie & Orientierung',
     hero: {
       eyebrow: 'Frigiliana · Geografie & Orientierung',
-      title: 'Wo liegt Frigiliana?',
+      title: 'Wo liegt Frigiliana? Zwischen Nerja und Sierra Almijara',
       standfirst:
         'Frigiliana liegt in der Axarquía im Osten der Provinz Málaga, **etwa 6 Kilometer landeinwärts von Nerja**. Das Dorf steigt vom tieferen Gelände zur Sierra Almijara an; seine Lage versteht ihr deshalb am besten von der Mittelmeerküste aus nach oben.',
       note: 'Die amtliche Höhenangabe bezieht sich auf das Rathaus und ist keine einheitliche Höhe des ganzen Dorfes.',
@@ -326,7 +326,7 @@ export const frigilianaGeographyContent: Record<
     navLabel: 'Geografía y orientación',
     hero: {
       eyebrow: 'Frigiliana · Geografía y orientación',
-      title: '¿Dónde está Frigiliana?',
+      title: '¿Dónde está Frigiliana? Entre Nerja y la Sierra Almijara',
       standfirst:
         'Frigiliana está en la Axarquía, al este de la provincia de Málaga, **a unos 6 kilómetros hacia el interior desde Nerja**. El pueblo asciende desde las cotas inferiores hacia la Sierra Almijara; por eso su ubicación se entiende mejor desde la costa mediterránea hacia arriba.',
       note: 'La altitud oficial es una referencia medida en el Ayuntamiento, no una única cota para todo el pueblo.',
@@ -431,7 +431,7 @@ export const frigilianaGeographyContent: Record<
     navLabel: 'Geografie & oriëntatie',
     hero: {
       eyebrow: 'Frigiliana · Geografie & oriëntatie',
-      title: 'Waar ligt Frigiliana?',
+      title: 'Waar ligt Frigiliana? Tussen Nerja en Sierra Almijara',
       standfirst:
         'Frigiliana ligt in de Axarquía, in het oosten van de provincie Málaga, **ongeveer 6 kilometer landinwaarts van Nerja**. Het dorp loopt vanaf het lagere terrein op naar de Sierra Almijara; de ligging wordt daarom het duidelijkst vanaf de Middellandse Zeekust omhoog.',
       note: 'De officiële hoogte is een referentie bij het stadhuis, niet één hoogte voor het hele dorp.',
@@ -536,7 +536,7 @@ export const frigilianaGeographyContent: Record<
     navLabel: 'Geografi & orientering',
     hero: {
       eyebrow: 'Frigiliana · Geografi & orientering',
-      title: 'Var ligger Frigiliana?',
+      title: 'Var ligger Frigiliana? Mellan Nerja och Sierra Almijara',
       standfirst:
         'Frigiliana ligger i Axarquía i den östra delen av Málagaprovinsen, **omkring 6 kilometer inåt land från Nerja**. Byn stiger från lägre terräng mot Sierra Almijara, så läget blir tydligast när det läses från Medelhavskusten och uppåt.',
       note: 'Den officiella höjden är en referens vid stadshuset, inte en enda höjd för hela byn.',

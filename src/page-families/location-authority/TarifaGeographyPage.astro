@@ -2,6 +2,7 @@
 import InlineEmphasis from '../../components/text/InlineEmphasis.astro';
 import Navigation from '../../components/Navigation.astro';
 import TarifaContextNav from '../../components/location/TarifaContextNav.astro';
+import type { LocationGuideIconName } from '../../components/location/LocationGuideIcon.astro';
 import {
   tarifaGeographyContent,
   tarifaGeographySeo
@@ -12,6 +13,7 @@ import { normalizeLanguage } from '../../lib/seo/resolve-seo-head';
 import type { AmaraLanguage } from '../../types/seo';
 import AuthorityArticle from './AuthorityArticle.astro';
 import AuthorityRelatedLinks from './AuthorityRelatedLinks.astro';
+import AuthoritySectionCardGrid from './AuthoritySectionCardGrid.astro';
 import AuthorityTextSection from './AuthorityTextSection.astro';
 
 interface Props {
@@ -31,6 +33,23 @@ const footerHighlights: LabeledLink[] = [
   { token: 'tarifa_geography', label: content.navLabel },
   { token: 'getting_to_tarifa', label: content.related.links[0].label },
   { token: 'tarifa_where_to_stay', label: content.related.links[1].label }
+];
+const [straitSection, atlanticSection, continentsSection, landscapeSection, topographySection, daylightSection, windSection, staySection] = content.sections;
+const landscapeSections = [
+  atlanticSection,
+  continentsSection,
+  landscapeSection,
+  topographySection,
+  daylightSection,
+  windSection
+];
+const landscapeIcons: LocationGuideIconName[] = [
+  'coast',
+  'comparison',
+  'protected-landscape',
+  'elevation',
+  'evening',
+  'coast'
 ];
 ---
 
@@ -67,10 +86,10 @@ const footerHighlights: LabeledLink[] = [
     primaryCta={{ href: locationHref, label: content.closing.locationLabel }}
     secondaryCta={{ href: experienceHref, label: content.closing.experienceLabel }}
     presentation="guide"
-    guideVisual={{
-      eyebrow: content.facts[0].label,
-      mark: '36° N',
-      note: content.facts[0].value
+    guideSummary={{
+      eyebrow: content.navLabel,
+      body: content.hero.standfirst,
+      items: [content.facts[0], content.facts[1], content.facts[2]]
     }}
   >
     <section
@@ -102,14 +121,17 @@ const footerHighlights: LabeledLink[] = [
       </div>
     </section>
 
-    {content.sections.map((section, index) => (
-      <AuthorityTextSection section={section} index={index} />
-    ))}
+    <AuthorityTextSection section={straitSection} index={0} presentation="guide" />
+
+    <AuthoritySectionCardGrid sections={landscapeSections} icons={landscapeIcons} />
+
+    <AuthorityTextSection section={staySection} index={0} presentation="guide" />
 
     <AuthorityRelatedLinks
       related={content.related}
       columns="md:grid-cols-2"
       resolveHref={requiredLink}
+      presentation="guide"
     />
   </AuthorityArticle>
 </LocationAuthorityLayout>

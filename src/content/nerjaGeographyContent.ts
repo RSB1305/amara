@@ -48,7 +48,7 @@ export interface NerjaGeographyLocale {
 
 const article = {
   datePublished: '2026-08-13',
-  dateModified: '2026-08-16',
+  dateModified: '2026-08-21',
   authorName: 'Robert Sebastian Böhmer',
   authorType: 'Person' as const,
   authorSlug: 'amara-about-us'
@@ -74,7 +74,7 @@ const sharedSources = {
 };
 
 export const nerjaGeographySeo: AmaraAuthoringSeo = {
-  version: '2026-08-16-nerja-geography-v2.0',
+  version: '2026-08-21-nerja-geography-v2.1',
   pageType: 'A',
   entityKey: 'amara-brand',
   article,
@@ -122,7 +122,7 @@ export const nerjaGeographyContent: Record<AmaraLanguage, NerjaGeographyLocale> 
     navLabel: 'Geography & orientation',
     hero: {
       eyebrow: 'Nerja · Geography & orientation',
-      title: 'From the Mediterranean to the high Sierra in one compact municipality',
+      title: 'Where is Nerja? Between the Mediterranean and Sierra Almijara',
       standfirst:
         'Nerja combines beaches close to sea level, an elevated central coast, rising residential slopes and high Sierra Almijara terrain. The municipality climbs from the Mediterranean to around 1,830 metres in the Navachica area, so elevation changes how even short distances feel.',
       note: 'Official reference figures and rounded terrain-based orientation values are identified separately below.',
@@ -237,7 +237,7 @@ export const nerjaGeographyContent: Record<AmaraLanguage, NerjaGeographyLocale> 
     navLabel: 'Geografie & Orientierung',
     hero: {
       eyebrow: 'Nerja · Geografie & Orientierung',
-      title: 'Vom Mittelmeer bis ins Hochgebirge – in einer kompakten Gemeinde',
+      title: 'Wo liegt Nerja? Zwischen Mittelmeer und Sierra Almijara',
       standfirst:
         'Nerja verbindet Strände nahe dem Meeresspiegel, eine erhöhte zentrale Küstenlage, ansteigende Wohngebiete und das Hochgebirge der Sierra Almijara. Das Gemeindegebiet reicht vom Meer bis auf rund 1.830 Meter im Bereich der Navachica – deshalb verändert die Höhe selbst kurze Wege.',
       note: 'Amtliche Referenzwerte und gerundete Orientierungswerte aus Geländedaten werden unten klar getrennt.',
@@ -344,7 +344,7 @@ export const nerjaGeographyContent: Record<AmaraLanguage, NerjaGeographyLocale> 
     navLabel: 'Geografía y orientación',
     hero: {
       eyebrow: 'Nerja · Geografía y orientación',
-      title: 'Del Mediterráneo a la alta sierra dentro de un municipio compacto',
+      title: '¿Dónde está Nerja? Entre el Mediterráneo y la Sierra Almijara',
       standfirst:
         'Nerja reúne playas próximas al nivel del mar, un frente costero central elevado, zonas residenciales que suben por la ladera y la alta Sierra Almijara. El municipio asciende desde el Mediterráneo hasta unos 1.830 metros en el entorno de Navachica; por eso el desnivel transforma incluso los trayectos cortos.',
       note: 'A continuación se distinguen los datos oficiales de referencia y las cotas orientativas redondeadas obtenidas del terreno.',
@@ -451,7 +451,7 @@ export const nerjaGeographyContent: Record<AmaraLanguage, NerjaGeographyLocale> 
     navLabel: 'Geografie & oriëntatie',
     hero: {
       eyebrow: 'Nerja · Geografie & oriëntatie',
-      title: 'Van de Middellandse Zee naar het hooggebergte binnen één compacte gemeente',
+      title: 'Waar ligt Nerja? Tussen de Middellandse Zee en Sierra Almijara',
       standfirst:
         'Nerja combineert stranden rond zeeniveau, een verhoogde centrale kuststrook, oplopende woonwijken en het hoge terrein van de Sierra Almijara. De gemeente stijgt van de zee tot ongeveer 1.830 meter in de omgeving van Navachica, waardoor hoogteverschil zelfs korte afstanden anders laat aanvoelen.',
       note: 'Officiële referentiewaarden en afgeronde oriëntatiewaarden uit terreingegevens worden hieronder duidelijk onderscheiden.',
@@ -558,7 +558,7 @@ export const nerjaGeographyContent: Record<AmaraLanguage, NerjaGeographyLocale> 
     navLabel: 'Geografi & orientering',
     hero: {
       eyebrow: 'Nerja · Geografi & orientering',
-      title: 'Från Medelhavet till hög Sierra inom en kompakt kommun',
+      title: 'Var ligger Nerja? Mellan Medelhavet och Sierra Almijara',
       standfirst:
         'Nerja förenar stränder nära havsnivån, ett upphöjt centralt kustparti, stigande bostadsområden och Sierra Almijaras höga terräng. Kommunen reser sig från Medelhavet till omkring 1 830 meter i Navachicaområdet, så höjdskillnaden påverkar även hur korta sträckor känns.',
       note: 'Officiella referensvärden och avrundade orienteringsvärden från terrängdata skiljs tydligt åt nedan.',
