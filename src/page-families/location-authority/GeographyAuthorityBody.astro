@@ -1,0 +1,75 @@
+---
+import InlineEmphasis from '../../components/text/InlineEmphasis.astro';
+import type { LocationGuideIconName } from '../../components/location/LocationGuideIcon.astro';
+import AuthoritySectionCardGrid from './AuthoritySectionCardGrid.astro';
+import AuthorityTextSection from './AuthorityTextSection.astro';
+
+interface GeographySection {
+  id: string;
+  eyebrow: string;
+  title: string;
+  paragraphs: string[];
+}
+
+interface Props {
+  destination: string;
+  orientation: {
+    eyebrow: string;
+    title: string;
+    intro: string;
+    items: Array<{ label: string; value: string }>;
+  };
+  sections: GeographySection[];
+  middleIcons: LocationGuideIconName[];
+}
+
+const { destination, orientation, sections, middleIcons } = Astro.props;
+
+if (sections.length < 3) {
+  throw new Error(`[AMARA] ${destination} geography requires a lead, supporting chapters and a practical conclusion.`);
+}
+
+const leadSection = sections[0];
+const practicalSection = sections[sections.length - 1];
+const supportingSections = sections.slice(1, -1);
+
+if (supportingSections.length !== middleIcons.length) {
+  throw new Error(`[AMARA] ${destination} geography section and icon counts must match.`);
+}
+---
+
+<section
+  aria-labelledby={`${destination}-orientation-title`}
+  class="border-b border-border-subtle bg-inverse-surface px-6 py-16 text-inverted-on-surface sm:py-20 md:px-12 md:py-28"
+  data-am-orientation={destination}
+>
+  <div class="mx-auto grid max-w-screen-2xl gap-10 lg:grid-cols-12 lg:gap-20">
+    <div class="lg:col-span-4">
+      <p class="font-label text-[11px] font-bold uppercase tracking-[0.18em] text-primary-fixed-dim">{orientation.eyebrow}</p>
+      <h2 id={`${destination}-orientation-title`} class="am-text-title mt-5 text-balance text-inverted-on-surface">{orientation.title}</h2>
+      <p class="am-text-body mt-5 max-w-prose leading-relaxed text-inverted-on-surface/75 sm:mt-6"><InlineEmphasis text={orientation.intro} /></p>
+    </div>
+    <ol class="grid border-y border-inverted-on-surface/20 sm:grid-cols-2 lg:col-span-8">
+      {orientation.items.map((item, index) => (
+        <li
+          class:list={[
+            'min-w-0 border-inverted-on-surface/20 py-6 sm:px-7',
+            index > 0 && 'border-t sm:border-t-0',
+            index > 1 && 'sm:border-t',
+            index % 2 === 1 && 'sm:border-l'
+          ]}
+          data-am-orientation-point={index + 1}
+        >
+          <span class="font-label block text-[10px] font-bold uppercase tracking-[0.14em] text-primary-fixed-dim">{item.label}</span>
+          <span class="am-text-subtitle mt-3 block min-w-0 hyphens-auto text-inverted-on-surface [overflow-wrap:anywhere]">{item.value}</span>
+        </li>
+      ))}
+    </ol>
+  </div>
+</section>
+
+<AuthorityTextSection section={leadSection} index={0} presentation="guide" />
+
+<AuthoritySectionCardGrid sections={supportingSections} icons={middleIcons} />
+
+<AuthorityTextSection section={practicalSection} index={4} presentation="guide" variant="rail" />
