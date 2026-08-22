@@ -2,8 +2,10 @@
 import tarifaStayImage from '../../assets/images/home/amara-tarifa-apartment01.webp';
 import Navigation from '../../components/Navigation.astro';
 import LocationTopicHero from '../../components/location/LocationTopicHero.astro';
+import WhereToStayOrientationGraphic from '../../components/location/WhereToStayOrientationGraphic.astro';
 import TarifaContextNav from '../../components/location/TarifaContextNav.astro';
 import { tarifaWhereToStayContent } from '../../content/tarifaWhereToStayContent';
+import { whereToStayOrientationGraphicContent } from '../../content/whereToStayOrientationGraphicContent';
 import LocationAuthorityLayout from '../../layouts/LocationAuthorityLayout.astro';
 import { createRequiredLinkResolver, type LabeledLink } from '../../lib/linkResolver';
 import { normalizeLanguage } from '../../lib/seo/resolve-seo-head';
@@ -17,6 +19,7 @@ interface Props {
 
 const { lang = 'es' } = Astro.props;
 const currentLang = normalizeLanguage(lang as AmaraLanguage);
+const orientationGraphic = whereToStayOrientationGraphicContent.tarifa[currentLang];
 const content = tarifaWhereToStayContent.location[currentLang];
 const requiredLink = createRequiredLinkResolver(currentLang, 'Tarifa where to stay');
 const aboutHref = requiredLink('about');
@@ -241,8 +244,6 @@ const stayContent: WhereToStayAuthorityContent = {
       eyebrow={content.hero.eyebrow}
       title={content.hero.title}
       paragraphs={content.hero.lead}
-      imageSrc={tarifaStayImage}
-      imageAlt={content.amara.imageAlt}
       topic="where-to-stay"
       byline={tarifaWhereToStayContent.seo.article ? {
         lang: currentLang,
@@ -251,7 +252,9 @@ const stayContent: WhereToStayAuthorityContent = {
         updated: content.hero.updated,
         note: copy.editorialNote
       } : undefined}
-    />
+    >
+      <WhereToStayOrientationGraphic slot="visual" data={orientationGraphic} />
+    </LocationTopicHero>
 
     <WhereToStayAuthorityBody content={stayContent} />
 

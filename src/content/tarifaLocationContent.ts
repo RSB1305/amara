@@ -112,7 +112,7 @@ export const tarifaLocationContent: {
     en: {
       hero: {
         eyebrow: 'Tarifa · Location & stay',
-        title: 'Staying in Tarifa – the Atlantic off your balcony, Africa on the horizon',
+        title: 'Welcome to Tarifa',
         standfirst: 'Tarifa is a village at the southernmost point of Europe where almost everything is walkable. And yet where you stay shapes every day here: the wind on your balcony, the hunt for a parking space in August, and how the evening ends. Our connection to Tarifa began before we started hosting here: Robert lived in the town himself.',
         note: 'An AMARA guide written from experience – not a live service for wind and weather.',
         updated: 'Reviewed August 2026'
@@ -221,7 +221,7 @@ export const tarifaLocationContent: {
     de: {
       hero: {
         eyebrow: 'Tarifa · Lage & Aufenthalt',
-        title: 'In Tarifa übernachten – der Atlantik vor dem Balkon, Afrika am Horizont',
+        title: 'Herzlich willkommen in Tarifa',
         standfirst: 'Tarifa ist ein Dorf am südlichsten Punkt Europas, in dem fast alles zu Fuß geht. Und trotzdem entscheidet die Wohnlage hier über jeden Tag: über den Wind auf eurem Balkon, über die Parkplatzsuche im August und darüber, wie der Abend endet. Unsere Verbindung zu Tarifa begann schon vor der ersten Vermietung: Robert hat selbst im Ort gelebt.',
         note: 'Ein AMARA-Guide aus eigener Erfahrung – keine Live-Auskunft zu Wind und Wetter.',
         updated: 'Geprüft im August 2026'
@@ -330,7 +330,7 @@ export const tarifaLocationContent: {
     es: {
       hero: {
         eyebrow: 'Tarifa · Ubicación y estancia',
-        title: 'Alojarse en Tarifa: el Atlántico frente al balcón, África en el horizonte',
+        title: 'Bienvenidos a Tarifa',
         standfirst: 'Tarifa es un pueblo en el punto más meridional de Europa donde casi todo se hace a pie. Y aun así, dónde os alojáis marca cada día: el viento en vuestro balcón, la búsqueda de aparcamiento en agosto y cómo termina la tarde. Nuestra relación con Tarifa empezó antes de recibir huéspedes aquí: Robert vivió en el pueblo.',
         note: 'Una guía de AMARA escrita desde la experiencia; no es un servicio de condiciones en directo.',
         updated: 'Revisado en agosto de 2026'
@@ -439,7 +439,7 @@ export const tarifaLocationContent: {
     nl: {
       hero: {
         eyebrow: 'Tarifa · Ligging & verblijf',
-        title: 'Overnachten in Tarifa – de Atlantische Oceaan voor het balkon, Afrika aan de horizon',
+        title: 'Welkom in Tarifa',
         standfirst: 'Tarifa is een dorp op het zuidelijkste punt van Europa waar bijna alles te voet gaat. En toch bepaalt jullie ligging hier elke dag: de wind op jullie balkon, het zoeken naar een parkeerplek in augustus en hoe de avond eindigt. Onze band met Tarifa begon voordat we hier gasten ontvingen: Robert woonde zelf in het dorp.',
         note: 'Een AMARA-gids uit eigen ervaring — geen live informatiedienst voor wind en weer.',
         updated: 'Gecontroleerd in augustus 2026'
@@ -548,7 +548,7 @@ export const tarifaLocationContent: {
     sv: {
       hero: {
         eyebrow: 'Tarifa · Läge & vistelse',
-        title: 'Bo i Tarifa – Atlanten utanför balkongen, Afrika vid horisonten',
+        title: 'Välkomna till Tarifa',
         standfirst: 'Tarifa är en by på Europas sydligaste punkt där nästan allt går att nå till fots. Ändå avgör var ni bor varje dag här: vinden på er balkong, jakten på en parkeringsplats i augusti och hur kvällen slutar. Vår relation till Tarifa började innan vi tog emot gäster här: Robert bodde själv i byn.',
         note: 'En AMARA-guide ur egen erfarenhet – inte en tjänst för aktuella vind- och väderförhållanden.',
         updated: 'Granskad i augusti 2026'

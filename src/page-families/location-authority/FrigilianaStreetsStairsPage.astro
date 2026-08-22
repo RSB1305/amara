@@ -5,10 +5,12 @@ import EditorialClosingCta from '../../components/editorial/EditorialClosingCta.
 import EditorialGuideLinkSection from '../../components/editorial/EditorialGuideLinkSection.astro';
 import LocationContextNav from '../../components/location/LocationContextNav.astro';
 import LocationTopicHero from '../../components/location/LocationTopicHero.astro';
+import WhereToStayOrientationGraphic from '../../components/location/WhereToStayOrientationGraphic.astro';
 import {
   frigilianaStreetsStairsCopy,
   frigilianaStreetsStairsSeo
 } from '../../content/frigilianaStreetsStairsContent';
+import { whereToStayOrientationGraphicContent } from '../../content/whereToStayOrientationGraphicContent';
 import LocationAuthorityLayout from '../../layouts/LocationAuthorityLayout.astro';
 import { resolveOptionalLink, type LabeledLink } from '../../lib/linkResolver';
 import { normalizeLanguage } from '../../lib/seo/resolve-seo-head';
@@ -25,6 +27,7 @@ type LocalizedRow = { readonly [K in AmaraLanguage]: string };
 const { lang = 'es' } = Astro.props;
 const currentLang = normalizeLanguage(lang as AmaraLanguage);
 const copy = frigilianaStreetsStairsCopy;
+const orientationGraphic = whereToStayOrientationGraphicContent.frigiliana[currentLang];
 
 function t(row: LocalizedRow): string {
   return row[currentLang] ?? row.en;
@@ -94,11 +97,6 @@ const footerHighlights: LabeledLink[] = [
     label: t(copy.related.links[2].label)
   }
 ];
-
-const heroImage = {
-  src: '/images/amara-frigiliana-pueblo/JPG_Frigiliana_Pueblo/2000px_72dpi_sRGB/08-frigiliana-pueblo.jpg',
-  width: 2000
-};
 
 const proofImage = {
   src: '/images/amara-frigiliana-pueblo/JPG_Frigiliana_Pueblo/2000px_72dpi_sRGB/04-frigiliana-pueblo.jpg',
@@ -182,14 +180,13 @@ const stayContent: WhereToStayAuthorityContent = {
         eyebrow={t(copy.hero.eyebrow)}
         title={t(copy.hero.title)}
         paragraphs={[t(copy.hero.lead), t(copy.hero.body)]}
-        imageSrc={heroImage.src}
-        imageAlt={t(copy.hero.imageAlt)}
-        imageWidth={heroImage.width}
         actions={[
           { href: '#location-models', label: t(copy.hero.primaryCta), style: 'primary' },
           { href: '#daily-route', label: t(copy.hero.secondaryCta), style: 'secondary' }
         ]}
-      />
+      >
+        <WhereToStayOrientationGraphic slot="visual" data={orientationGraphic} />
+      </LocationTopicHero>
 
       <WhereToStayAuthorityBody content={stayContent} />
 

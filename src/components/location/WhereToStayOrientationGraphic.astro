@@ -1,0 +1,129 @@
+---
+import type { WhereToStayOrientationGraphicData } from '../../content/whereToStayOrientationGraphicContent';
+
+interface Props {
+  data: WhereToStayOrientationGraphicData;
+}
+
+const { data } = Astro.props;
+const l = data.labels;
+---
+
+<aside
+  class="area-graphic flex min-h-full flex-col overflow-hidden bg-inverse-surface text-inverted-on-surface"
+  data-am-area-graphic={data.place}
+  aria-label={data.ariaLabel}
+>
+  <div class="flex items-start justify-between gap-6 px-7 pb-2 pt-8 sm:px-9 sm:pt-10 lg:px-10">
+    <div>
+      <p class="font-label text-[9px] font-bold uppercase tracking-[0.22em] text-primary-fixed-dim">{data.eyebrow}</p>
+      <p class="mt-3 font-headline text-3xl italic text-inverted-on-surface">{data.title}</p>
+    </div>
+    <p class="max-w-32 pt-1 text-right font-label text-[9px] font-semibold uppercase leading-relaxed tracking-[0.15em] text-inverted-on-surface/45">{data.region}</p>
+  </div>
+
+  <div class="flex flex-1 items-center px-3 pb-2 sm:px-5 lg:px-6">
+    {data.place === 'frigiliana' && (
+      <svg viewBox="0 0 560 430" class="block h-auto w-full" role="img" aria-hidden="true">
+        <g class="contours">
+          <path d="M18 376 C112 354 182 367 249 326 C320 282 380 275 542 177" />
+          <path d="M27 330 C122 306 191 321 258 280 C332 235 393 227 536 139" />
+          <path d="M56 278 C136 260 206 270 277 229 C344 190 414 176 522 105" />
+          <path d="M102 225 C175 208 238 215 307 177 C366 145 426 129 500 78" />
+        </g>
+        <g class="zones">
+          <path d="M35 365 L183 331 L220 365 L64 405 Z" />
+          <path d="M180 315 L298 254 L333 286 L220 354 Z" />
+          <path d="M292 241 L403 177 L438 211 L333 278 Z" />
+          <path d="M392 163 L506 92 L530 128 L438 202 Z" />
+        </g>
+        <path class="route route--primary" d="M77 365 C164 340 214 316 278 270 C329 234 365 216 408 184" />
+        <path class="route route--secondary" d="M408 184 C447 160 472 143 502 118" />
+        <text class="route-label" x="208" y="319" transform="rotate(-24 208 319)">{l.calleReal}</text>
+        <text class="route-label" x="425" y="171" transform="rotate(-31 425 171)">{l.calleChorruelo}</text>
+        <text class="zone-label" x="70" y="386">{l.lower}</text>
+        <text class="zone-label" x="199" y="292">{l.transition}</text>
+        <text class="zone-label" x="315" y="221">{l.historic}</text>
+        <text class="zone-label" x="418" y="111">{l.upper}</text>
+        <g class="landmark" transform="translate(424 168)">
+          <rect x="-5" y="-15" width="10" height="13" rx="1" />
+          <path d="M-8 -15 L0 -23 L8 -15 M0 -23 V-31 M-4 -27 H4" />
+          <text x="-14" y="-29" text-anchor="end">{l.church}</text>
+        </g>
+        <g class="landmark landmark--amara" transform="translate(452 151)">
+          <circle r="6" />
+          <circle class="halo" r="14" />
+          <text x="13" y="4">{l.amara}</text>
+        </g>
+        <path class="relationship" d="M431 161 L445 154" />
+      </svg>
+    )}
+
+    {data.place === 'nerja' && (
+      <svg viewBox="0 0 560 430" class="block h-auto w-full" role="img" aria-hidden="true">
+        <g class="contours">
+          <path d="M46 119 C168 83 314 95 516 42" />
+          <path d="M56 156 C189 121 332 132 531 78" />
+          <path d="M72 194 C211 160 361 174 542 120" />
+        </g>
+        <path class="coast" d="M18 310 C86 283 137 300 196 273 C244 250 285 270 333 242 C382 214 424 234 473 262 C508 282 529 276 548 266" />
+        <path class="sea-fill" d="M18 310 C86 283 137 300 196 273 C244 250 285 270 333 242 C382 214 424 234 473 262 C508 282 529 276 548 266 L548 430 L18 430 Z" />
+        <text class="sea-label" x="331" y="380">{l.sea}</text>
+        <g class="district district--soft"><path d="M35 244 L115 224 L138 280 L57 298 Z" /><text x="69" y="258">{l.puntaLara}</text></g>
+        <g class="district district--amara"><path d="M130 218 L220 206 L233 267 L145 279 Z" /><text x="151" y="232">{l.torrecilla}</text></g>
+        <g class="district"><path d="M222 178 L319 174 L333 239 L238 255 Z" /><text x="237" y="201">{l.oldTown}</text></g>
+        <g class="district district--soft"><path d="M319 166 L391 170 L406 231 L337 239 Z" /><text x="337" y="193">{l.carabeo}</text></g>
+        <g class="district"><path d="M406 192 L512 222 L493 279 L411 242 Z" /><text x="428" y="226">{l.burriana}</text></g>
+        <g class="district district--upper"><path d="M315 84 L473 59 L493 139 L337 158 Z" /><text x="343" y="111">{l.hills}</text></g>
+        <g class="landmark landmark--amara" transform="translate(181 246)">
+          <circle r="6" /><circle class="halo" r="14" /><text x="13" y="4">{l.amara}</text>
+        </g>
+      </svg>
+    )}
+
+    {data.place === 'tarifa' && (
+      <svg viewBox="0 0 560 430" class="block h-auto w-full" role="img" aria-hidden="true">
+        <g class="contours">
+          <path d="M112 102 C211 72 326 82 510 48" />
+          <path d="M99 143 C214 108 343 121 530 84" />
+          <path d="M91 185 C224 147 367 162 544 122" />
+        </g>
+        <path class="coast" d="M18 321 C118 285 205 293 286 273 C362 255 431 275 548 242" />
+        <path class="sea-fill" d="M18 321 C118 285 205 293 286 273 C362 255 431 275 548 242 L548 430 L18 430 Z" />
+        <text class="sea-label" x="331" y="380">{l.sea}</text>
+        <g class="district district--soft"><path d="M34 238 L180 207 L203 281 L62 311 Z" /><text x="77" y="255">{l.losLances}</text></g>
+        <g class="district district--amara"><path d="M199 191 L324 178 L340 262 L218 278 Z" /><text x="227" y="215">{l.laMarina}</text></g>
+        <g class="district"><path d="M341 165 L453 164 L479 240 L354 257 Z" /><text x="372" y="195">{l.oldTown}</text></g>
+        <g class="district district--upper"><path d="M276 72 L489 49 L518 130 L310 155 Z" /><text x="341" y="102">{l.campo}</text></g>
+        <g class="landmark landmark--amara" transform="translate(271 242)">
+          <circle r="6" /><circle class="halo" r="14" /><text x="13" y="4">{l.amara}</text>
+        </g>
+      </svg>
+    )}
+  </div>
+
+  <p class="px-7 pb-7 text-right font-label text-[8px] font-semibold uppercase tracking-[0.16em] text-inverted-on-surface/40 sm:px-9 lg:px-10">{data.note}</p>
+</aside>
+
+<style>
+  .area-graphic { container-type: inline-size; }
+  .contours path { fill: none; stroke: color-mix(in srgb, var(--color-inverted-on-surface) 13%, transparent); stroke-width: 1; }
+  .zones path, .district path { fill: color-mix(in srgb, var(--color-primary-fixed-dim) 9%, transparent); stroke: color-mix(in srgb, var(--color-primary-fixed-dim) 34%, transparent); stroke-width: 1; }
+  .district--soft path { fill: color-mix(in srgb, var(--color-inverted-on-surface) 4%, transparent); }
+  .district--upper path { fill: color-mix(in srgb, var(--color-primary-fixed-dim) 5%, transparent); stroke-dasharray: 4 4; }
+  .district--amara path { fill: color-mix(in srgb, var(--color-primary-fixed-dim) 15%, transparent); }
+  .route { fill: none; stroke-linecap: round; }
+  .route--primary { stroke: var(--color-primary-fixed-dim); stroke-width: 3; }
+  .route--secondary { stroke: color-mix(in srgb, var(--color-primary-fixed-dim) 72%, transparent); stroke-width: 2; stroke-dasharray: 5 4; }
+  .route-label, .zone-label, .district text, .sea-label { font-family: var(--font-label); text-transform: uppercase; }
+  .route-label { fill: var(--color-primary-fixed-dim); font-size: 8px; font-weight: 700; letter-spacing: 0.12em; }
+  .zone-label, .district text { fill: color-mix(in srgb, var(--color-inverted-on-surface) 75%, transparent); font-size: 8.5px; font-weight: 650; letter-spacing: 0.08em; }
+  .coast { fill: none; stroke: color-mix(in srgb, var(--color-primary-fixed-dim) 70%, transparent); stroke-width: 2; }
+  .sea-fill { fill: color-mix(in srgb, var(--color-primary-fixed-dim) 6%, transparent); }
+  .sea-label { fill: color-mix(in srgb, var(--color-inverted-on-surface) 24%, transparent); font-size: 10px; font-weight: 700; letter-spacing: 0.25em; }
+  .landmark { color: var(--color-primary-fixed-dim); fill: none; stroke: currentColor; stroke-width: 1.5; }
+  .landmark text { fill: var(--color-inverted-on-surface); stroke: none; font-family: var(--font-label); font-size: 8.5px; font-weight: 700; letter-spacing: 0.08em; }
+  .landmark--amara > circle:first-child { fill: var(--color-primary-fixed-dim); stroke: none; }
+  .landmark--amara .halo { fill: none; stroke: color-mix(in srgb, var(--color-primary-fixed-dim) 34%, transparent); }
+  .relationship { fill: none; stroke: color-mix(in srgb, var(--color-primary-fixed-dim) 60%, transparent); stroke-width: 1; stroke-dasharray: 2 2; }
+</style>

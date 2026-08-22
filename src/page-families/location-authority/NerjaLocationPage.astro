@@ -2,6 +2,7 @@
 import LocationAuthorityLayout from '../../layouts/LocationAuthorityLayout.astro';
 import Navigation from '../../components/Navigation.astro';
 import LocationTopicHero from '../../components/location/LocationTopicHero.astro';
+import WhereToStayOrientationGraphic from '../../components/location/WhereToStayOrientationGraphic.astro';
 import PhotoShow from '../../components/PhotoShow.astro';
 import FaqAccordion from '../../components/FaqAccordion.astro';
 import NerjaContextNav from '../../components/location/NerjaContextNav.astro';
@@ -9,6 +10,7 @@ import {
   nerjaLocationCopy,
   nerjaLocationSeo
 } from '../../content/nerjaLocationContent';
+import { whereToStayOrientationGraphicContent } from '../../content/whereToStayOrientationGraphicContent';
 import { resolveOptionalLink, type LinkToken, type LabeledLink } from '../../lib/linkResolver';
 import { getLocationGuideTopicLabels } from '../../lib/location/locationGuideTopics';
 import { normalizeLanguage } from '../../lib/seo/resolve-seo-head';
@@ -22,6 +24,7 @@ interface Props {
 
 const { lang = 'es' } = Astro.props;
 const currentLang = normalizeLanguage(lang as AmaraLanguage);
+const orientationGraphic = whereToStayOrientationGraphicContent.nerja[currentLang];
 const whereToStayLabel = getLocationGuideTopicLabels(currentLang)['where-to-stay'];
 const seo = nerjaLocationSeo;
 const copy = nerjaLocationCopy;
@@ -128,13 +131,6 @@ const c = {
   }
 };
 
-const heroImage = {
-  src: '/images/amara-frigiliana-pueblo/nerja-coast-aerial.jpeg',
-  alt: c.hero.imageAlt,
-  width: 666,
-  sizes: '(max-width: 767px) calc(100vw - 3rem), (max-width: 1023px) 60vw, 40vw'
-};
-
 const areaLabels = {
   en: { daily: 'Everyday life', tradeoff: 'Keep in mind' },
   de: { daily: 'Im Alltag', tradeoff: 'Bedenkt dabei' },
@@ -237,16 +233,14 @@ const footerHighlights: LabeledLink[] = [
           eyebrow={c.hero.eyebrow}
           title={c.hero.h1}
           paragraphs={c.hero.body}
-          imageSrc={heroImage.src}
-          imageAlt={heroImage.alt}
-          imageWidth={heroImage.width}
-          imageSizes={heroImage.sizes}
           actions={[
             { href: '#where-to-stay-in-nerja', label: c.hero.ctaMain, style: 'primary' },
             { href: '#nerja-frigiliana', label: c.hero.ctaAlt, style: 'secondary' }
           ]}
           topic="where-to-stay"
-        />
+        >
+          <WhereToStayOrientationGraphic slot="visual" data={orientationGraphic} />
+        </LocationTopicHero>
       </div>
 
       <WhereToStayAuthorityBody content={stayContent} />

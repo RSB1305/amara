@@ -102,7 +102,7 @@ export const nerjaLocationHubContent: {
     en: {
       hero: {
         eyebrow: 'Nerja location guide',
-        title: 'Nerja, from beach mornings to old-town evenings',
+        title: 'Welcome to Nerja',
         standfirst: 'Nerja is compact enough for many days on foot, yet its beaches and neighbourhoods create very different stays. This is the overview for choosing how you want to arrive, move and live here for more than a day trip.',
         note: 'A host-written guide for overnight guests, with AMARA Playa as the practical point of reference.',
         updated: 'Reviewed August 2026'
@@ -216,7 +216,7 @@ export const nerjaLocationHubContent: {
     de: {
       hero: {
         eyebrow: 'Nerja Lage-Guide',
-        title: 'Nerja – vom Morgen am Strand bis zum Abend in der Altstadt',
+        title: 'Herzlich willkommen in Nerja',
         standfirst: 'In Nerja lässt sich vieles zu Fuß erledigen, trotzdem entstehen je nach Strand und Wohnlage ganz unterschiedliche Aufenthalte. Dieser Überblick hilft euch bei Anreise, Lagewahl und Mobilität – für mehr als nur einen Tagesausflug.',
         note: 'Ein Gastgeber-Guide für Übernachtungsgäste, mit AMARA Playa als praktischem Bezugspunkt.',
         updated: 'Geprüft im August 2026'
@@ -330,7 +330,7 @@ export const nerjaLocationHubContent: {
     es: {
       hero: {
         eyebrow: 'Guía de ubicación de Nerja',
-        title: 'Nerja, de las mañanas de playa a las noches del casco antiguo',
+        title: 'Bienvenidos a Nerja',
         standfirst: 'Nerja permite hacer muchos planes a pie, pero sus playas y barrios ofrecen estancias muy distintas. Este recorrido os ayuda a elegir cómo llegar, moveros y vivir el pueblo más allá de una excursión de un día.',
         note: 'Una guía escrita por vuestro anfitrión, con AMARA Playa como punto de referencia práctico.',
         updated: 'Revisado en agosto de 2026'
@@ -444,7 +444,7 @@ export const nerjaLocationHubContent: {
     nl: {
       hero: {
         eyebrow: 'Nerja locatiegids',
-        title: 'Nerja, van ochtenden aan zee tot avonden in de oude stad',
+        title: 'Welkom in Nerja',
         standfirst: 'In Nerja kunnen jullie veel te voet doen, maar de stranden en buurten leveren heel verschillende verblijven op. Dit overzicht helpt bij aankomst, locatiekeuze en vervoer – voor wie langer blijft dan een dagtrip.',
         note: 'Een gids van jullie host voor verblijfsgasten, met AMARA Playa als praktisch vertrekpunt.',
         updated: 'Gecontroleerd in augustus 2026'
@@ -558,7 +558,7 @@ export const nerjaLocationHubContent: {
     sv: {
       hero: {
         eyebrow: 'Nerja lägesguide',
-        title: 'Nerja, från strandmorgnar till kvällar i gamla stan',
+        title: 'Välkomna till Nerja',
         standfirst: 'Mycket i Nerja fungerar till fots, men stränderna och områdena ger helt olika vistelser. Den här överblicken hjälper er att välja ankomst, läge och vardagsrörelser för mer än en dagsutflykt.',
         note: 'En guide från er värd för övernattande gäster, med AMARA Playa som praktisk utgångspunkt.',
         updated: 'Granskad i augusti 2026'

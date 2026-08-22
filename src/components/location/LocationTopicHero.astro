@@ -23,8 +23,8 @@ interface Props {
   title: string;
   paragraphs: string[];
   accent?: string;
-  imageSrc: ImageMetadata | string;
-  imageAlt: string;
+  imageSrc?: ImageMetadata | string;
+  imageAlt?: string;
   imageWidth?: number;
   imageSizes?: string;
   actions?: HeroAction[];
@@ -45,6 +45,12 @@ const {
   byline,
   topic
 } = Astro.props;
+
+const hasVisualSlot = Astro.slots.has('visual');
+
+if (!hasVisualSlot && (!imageSrc || !imageAlt)) {
+  throw new Error('[AMARA] LocationTopicHero requires either an image or a visual slot.');
+}
 ---
 
 <LocationGuideHero
@@ -59,6 +65,7 @@ const {
   role="spoke"
   topic={topic}
 >
+  {hasVisualSlot && <div slot="visual" class="h-full"><slot name="visual" /></div>}
   {byline && <EditorialByline slot="meta" {...byline} />}
   {actions.length > 0 && (
     <div slot="actions" class="flex flex-wrap gap-4">
