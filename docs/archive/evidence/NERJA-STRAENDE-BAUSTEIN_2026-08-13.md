@@ -2,7 +2,7 @@
 
 **Stand:** 13. August 2026
 **Herkunft:** Aus der zurückgenommenen Seite `nerja-beaches` gesichert.
-**Ziel:** Einbau in [frigilianaBeachesContent.ts](src/content/frigilianaBeachesContent.ts) — die Seite, die inhaltlich bereits die Nerja-Strände abdeckt.
+**Ziel:** Einbau in [frigilianaBeachesContent.ts](../../../src/content/frigilianaBeachesContent.ts) — die Seite, die inhaltlich bereits die Nerja-Strände abdeckt.
 
 Der Text stammt aus Roberts eigener Schilderung. Er ist in fünf Sprachen fertig, damit er nicht neu erzeugt werden muss.
 

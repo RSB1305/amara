@@ -81,7 +81,7 @@ Gibt es behördliche Warnungen zu Hitze, Waldbrandgefahr oder Sturzfluten, die i
 
 Pro Frage: Antwort, Quelle mit Link, Datum des Quellenstands. Bei strittigen Punkten die Positionen nebeneinander, nicht zusammengeführt.
 
-Am Ende bitte eine kurze Liste: **Welche Angaben veralten voraussichtlich innerhalb von zwölf Monaten?** Die kommen bei uns ins Wartungsprotokoll ([CONTENT-WARTUNGSPUNKTE.md](CONTENT-WARTUNGSPUNKTE.md)) statt fest in den Text.
+Am Ende bitte eine kurze Liste: **Welche Angaben veralten voraussichtlich innerhalb von zwölf Monaten?** Die kommen bei uns ins Wartungsprotokoll ([CONTENT-WARTUNGSPUNKTE.md](../../../CONTENT-WARTUNGSPUNKTE.md)) statt fest in den Text.
 
 ---
 

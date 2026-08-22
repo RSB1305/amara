@@ -2,7 +2,7 @@
 
 **Stand:** 13. August 2026
 **Anlass:** Zwei Datensätze für Nerja widersprechen sich. Solange das ungeklärt ist, stehen die Wetterseite Nerja und die Vergleichstabelle Nerja/Frigiliana auf unsicherem Fundament.
-**Wartungspunkt:** W-04 in [CONTENT-WARTUNGSPUNKTE.md](CONTENT-WARTUNGSPUNKTE.md)
+**Wartungspunkt:** W-04 in [CONTENT-WARTUNGSPUNKTE.md](../../../CONTENT-WARTUNGSPUNKTE.md)
 
 ---
 

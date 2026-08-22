@@ -95,7 +95,7 @@ Die AEMET-Rasterwerte 1991–2020 für beide Ortskoordinaten. Erst damit lassen 
 
 **Ebenfalls vor jeder Umsetzung neu prüfen:** ob der öffentliche AEMET-Webviewer „Valores climatológicos normales" noch auf 1981–2010 steht oder inzwischen auf 1991–2020 umgestellt wurde.
 
-Siehe [NERJA-FRIGILIANA-KLIMA-RECHERCHE-2_2026-08-14.md](NERJA-FRIGILIANA-KLIMA-RECHERCHE-2_2026-08-14.md).
+Siehe [NERJA-FRIGILIANA-KLIMA-RECHERCHE-2_2026-08-14.md](docs/archive/evidence/NERJA-FRIGILIANA-KLIMA-RECHERCHE-2_2026-08-14.md).
 
 ### Aktueller Stand auf der Seite
 

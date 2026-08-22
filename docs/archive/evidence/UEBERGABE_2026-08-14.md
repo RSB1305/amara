@@ -93,7 +93,7 @@ Nach Suchvolumen: **Balcón de Europa** (Material da: Kultstatus, authentisches 
 
 ## 5. Offene Wartungspunkte
 
-Vollständig in [CONTENT-WARTUNGSPUNKTE.md](CONTENT-WARTUNGSPUNKTE.md).
+Vollständig in [CONTENT-WARTUNGSPUNKTE.md](../../../CONTENT-WARTUNGSPUNKTE.md).
 
 | | Punkt | Status |
 |---|---|---|
