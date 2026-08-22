@@ -1,0 +1,24 @@
+---
+import { amenityIcons } from './amenityIcons';
+
+const iconEntries = Object.entries(amenityIcons);
+---
+
+<!--
+  One hidden source per amenity vocabulary entry keeps repeated inventory rows
+  compact while preserving the stable Lucide glyph selected for each label.
+-->
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  width="0"
+  height="0"
+  class="absolute h-0 w-0 overflow-hidden"
+  aria-hidden="true"
+  focusable="false"
+>
+  <defs>
+    {iconEntries.map(([id, Icon]) => (
+      <Icon id={`am-amenity-icon-${id}`} stroke-width={1.5} />
+    ))}
+  </defs>
+</svg>

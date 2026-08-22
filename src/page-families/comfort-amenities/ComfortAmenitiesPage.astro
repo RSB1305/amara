@@ -7,6 +7,7 @@ import type { EditorialClosingCtaLink } from '../../components/editorial/Editori
 import AmenitySpecRow, {
   type AmenitySpecIcon
 } from '../../components/amenities/AmenitySpecRow.astro';
+import AmenityIconSprite from '../../components/amenities/AmenityIconSprite.astro';
 import {
   comfortAmenityExclusionsByPropertyId,
   comfortAmenityOverridesByPropertyId,
@@ -316,6 +317,7 @@ const closingCtaLinks: EditorialClosingCtaLink[] = [
 ---
 
 <BaseLayout seo={seo} pageLang={currentLang} footerHighlights={footerHighlights}>
+  <AmenityIconSprite />
   <Navigation
     currentLang={currentLang}
     languageToken="amenities"
