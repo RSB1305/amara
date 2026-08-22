@@ -156,11 +156,11 @@ export const frigilianaStreetsStairsCopy = {
       sv: 'En kort linje på kartan är bara början.'
     } satisfies LocalizedText,
     body: {
-      en: 'Frigiliana is walkable for many guests, but distance alone says little about an ordinary day. Elevation, steps, paving and the number of times you return all matter — after breakfast, with groceries, after the beach and again after dinner.',
-      de: 'Viele Gäste können Frigiliana gut zu Fuß erleben, doch die Entfernung allein sagt wenig über einen normalen Urlaubstag aus. Höhenunterschied, Stufen, Pflaster und die Zahl eurer Rückwege zählen zusammen – nach dem Frühstück, mit Einkäufen, nach dem Strand und noch einmal nach dem Abendessen.',
-      es: 'Muchos huéspedes recorren Frigiliana bien a pie, pero la distancia por sí sola dice poco sobre un día normal. Importan el desnivel, los escalones, el pavimento y cuántas veces volvéis: después del desayuno, con la compra, tras la playa y de nuevo después de cenar.',
-      nl: 'Voor veel gasten is Frigiliana goed te voet te doen, maar afstand alleen zegt weinig over een gewone vakantiedag. Hoogteverschil, trappen, bestrating en het aantal terugwegen tellen samen: na het ontbijt, met boodschappen, na het strand en opnieuw na het diner.',
-      sv: 'Många gäster kan uppleva Frigiliana bra till fots, men avståndet säger inte allt om en vanlig semesterdag. Höjdskillnad, trappor, stenläggning och antalet hemvägar spelar tillsammans roll – efter frukost, med inköp, efter stranden och igen efter middagen.'
+      en: 'Frigiliana is walkable, but distance alone says little about an ordinary day. Elevation, steps, paving and the number of times you return all matter — after breakfast, with groceries, after the beach and again after dinner.',
+      de: 'Frigiliana lässt sich gut zu Fuß erleben, doch die Entfernung allein sagt wenig über einen normalen Urlaubstag aus. Höhenunterschied, Stufen, Pflaster und die Zahl eurer Rückwege zählen zusammen – nach dem Frühstück, mit Einkäufen, nach dem Strand und noch einmal nach dem Abendessen.',
+      es: 'Frigiliana se recorre bien a pie, pero la distancia por sí sola dice poco sobre un día normal. Importan el desnivel, los escalones, el pavimento y cuántas veces volvéis: después del desayuno, con la compra, tras la playa y de nuevo después de cenar.',
+      nl: 'Frigiliana is goed te voet te doen, maar afstand alleen zegt weinig over een gewone vakantiedag. Hoogteverschil, trappen, bestrating en het aantal terugwegen tellen samen: na het ontbijt, met boodschappen, na het strand en opnieuw na het diner.',
+      sv: 'Frigiliana går bra att uppleva till fots, men avståndet säger inte allt om en vanlig semesterdag. Höjdskillnad, trappor, stenläggning och antalet hemvägar spelar tillsammans roll – efter frukost, med inköp, efter stranden och igen efter middagen.'
     } satisfies LocalizedText
   },
   factors: {
@@ -234,11 +234,11 @@ export const frigilianaStreetsStairsCopy = {
       sv: 'Välj rätt rytm, inte det ”bästa området”'
     } satisfies LocalizedText,
     intro: {
-      en: 'These are practical location types, not fixed neighbourhood boundaries. Conditions can change from one street or property entrance to the next.',
-      de: 'Das sind praktische Lagetypen, keine festen Viertelgrenzen. Schon zwischen zwei Gassen oder Hauseingängen können sich die Bedingungen verändern.',
-      es: 'Son tipos de ubicación útiles para decidir, no límites oficiales. Las condiciones pueden cambiar de una calle o una entrada a la siguiente.',
-      nl: 'Dit zijn praktische soorten ligging, geen officiële buurtgrenzen. De situatie kan per straat of zelfs per ingang verschillen.',
-      sv: 'Det här är praktiska lägestyper, inte fasta områdesgränser. Förutsättningarna kan skilja sig mellan två gränder eller entréer.'
+      en: 'Four practical types of location. In Frigiliana the conditions can differ from one street to the next.',
+      de: 'Vier praktische Lagetypen. In Frigiliana können sich die Bedingungen schon zwischen zwei Gassen unterscheiden.',
+      es: 'Cuatro tipos de ubicación prácticos. En Frigiliana las condiciones pueden cambiar de una calle a la siguiente.',
+      nl: 'Vier praktische soorten ligging. In Frigiliana kan de situatie per straat verschillen.',
+      sv: 'Fyra praktiska lägestyper. I Frigiliana kan förutsättningarna skilja sig mellan två gränder.'
     } satisfies LocalizedText,
     labels: {
       fit: { en: 'Best fit if', de: 'Passt gut, wenn', es: 'Encaja si', nl: 'Past goed als', sv: 'Passar om' } satisfies LocalizedText,
@@ -277,11 +277,11 @@ export const frigilianaStreetsStairsCopy = {
           sv: 'Många turer börjar till fots och hemvägen innebär i regel mindre stigning än från högt uppe i Barribarto.'
         } satisfies LocalizedText,
         tradeoff: {
-          en: 'Historic and lower do not mean flat or step-free. The exact street and entrance still determine the final route.',
-          de: 'Historisch und weiter unten bedeutet weder eben noch stufenfrei. Die genaue Gasse und der Eingang bleiben entscheidend.',
-          es: 'Histórico y bajo no significa llano ni sin escalones. La calle y la entrada exactas siguen siendo decisivas.',
-          nl: 'Historisch en lager betekent niet vlak of trapvrij. De precieze straat en ingang blijven bepalend.',
-          sv: 'Historiskt och längre ner betyder inte plant eller trappfritt. Exakt gränd och entré är fortfarande avgörande.'
+          en: 'Even down here Frigiliana is a hillside village: cobbles and the occasional flight of steps are part of the walk.',
+          de: 'Auch hier unten bleibt Frigiliana ein Hangdorf: Kopfsteinpflaster und einzelne Treppen gehören zum Weg.',
+          es: 'También aquí abajo Frigiliana sigue siendo un pueblo en cuesta: el empedrado y algún tramo de escaleras forman parte del camino.',
+          nl: 'Ook hier beneden blijft Frigiliana een heuveldorp: kasseien en af en toe een trap horen bij de route.',
+          sv: 'Även här nere är Frigiliana en by i sluttning: kullersten och enstaka trappor hör till vägen.'
         } satisfies LocalizedText
       },
       {
@@ -391,11 +391,11 @@ export const frigilianaStreetsStairsCopy = {
           sv: 'Vissa lägen innebär färre återkommande stigningar och enklare kontakt med bil eller service.'
         } satisfies LocalizedText,
         tradeoff: {
-          en: 'The old village may no longer begin immediately outside the door. Confirm both the walking route and actual road access.',
-          de: 'Die historische Altstadt beginnt möglicherweise nicht direkt vor der Tür. Prüft sowohl den Fußweg als auch die tatsächliche Zufahrt.',
-          es: 'El pueblo histórico quizá ya no empiece al salir por la puerta. Comprobad tanto el camino a pie como el acceso real por carretera.',
-          nl: 'Het oude dorp begint mogelijk niet direct bij de voordeur. Controleer zowel de wandelroute als de werkelijke toegang over de weg.',
-          sv: 'Den gamla byn börjar kanske inte direkt utanför dörren. Kontrollera både gångvägen och den faktiska väganslutningen.'
+          en: 'The old village no longer starts at your door, but a short walk away.',
+          de: 'Die Altstadt beginnt hier nicht vor der Haustür, sondern nach einem kurzen Weg.',
+          es: 'El casco histórico ya no empieza en la puerta, sino tras un paseo corto.',
+          nl: 'De oude kern begint hier niet bij de voordeur, maar na een korte wandeling.',
+          sv: 'Gamla byn börjar inte utanför dörren här, utan efter en kort promenad.'
         } satisfies LocalizedText
       },
       {
@@ -429,11 +429,11 @@ export const frigilianaStreetsStairsCopy = {
           sv: 'Frigiliana blir oftast en plats ni tar er in till, snarare än något som börjar utanför dörren.'
         } satisfies LocalizedText,
         tradeoff: {
-          en: 'A car is usually the practical basis for meals, shopping and village visits. Confirm the exact approach with the accommodation.',
-          de: 'Für Essen, Einkäufe und Dorfbesuche ist ein Auto meist die praktische Grundlage. Klärt die genaue Zufahrt mit der Unterkunft.',
-          es: 'El coche suele ser la base práctica para comer, comprar y visitar el pueblo. Confirmad el acceso concreto con el alojamiento.',
-          nl: 'Een auto is meestal de praktische basis voor eten, boodschappen en dorpsbezoek. Bevestig de precieze aanrijroute bij de accommodatie.',
-          sv: 'Bil är oftast den praktiska grunden för måltider, inköp och bybesök. Bekräfta den exakta tillfarten med boendet.'
+          en: 'Meals, shopping and trips into the village all run on the car.',
+          de: 'Essen, Einkäufe und Dorfbesuche laufen hier über das Auto.',
+          es: 'Las comidas, la compra y las visitas al pueblo dependen del coche.',
+          nl: 'Eten, boodschappen en dorpsbezoek gaan hier allemaal met de auto.',
+          sv: 'Måltider, inköp och besök i byn går alla via bilen.'
         } satisfies LocalizedText
       }
     ]
@@ -462,11 +462,11 @@ export const frigilianaStreetsStairsCopy = {
         sv: 'Casa AMARA ligger nära San Antonio-kyrkan, inne i den historiska bykärnan och jämförelsevis långt ner. Byn börjar i stort sett utanför dörren, utan att gäster behöver gå upp till Barribartos högsta gränder varje gång de kommer hem.'
       } satisfies LocalizedText,
       {
-        en: 'That does not make the route flat, step-free or universally easy. It simply shows why two stays in the same historic village can create different daily walks.',
-        de: 'Dadurch wird der Weg weder eben noch stufenfrei oder für alle gleichermaßen leicht. Das Beispiel zeigt lediglich, warum zwei Unterkünfte in derselben Altstadt ganz unterschiedliche Alltagswege bedeuten können.',
-        es: 'Eso no convierte el recorrido en llano, sin escalones ni fácil para todo el mundo. Solo demuestra por qué dos alojamientos dentro del mismo casco histórico pueden generar recorridos diarios distintos.',
-        nl: 'Dat maakt de route niet vlak, trapvrij of voor iedereen eenvoudig. Het laat alleen zien waarom twee verblijven in hetzelfde historische dorp heel andere dagelijkse routes kunnen geven.',
-        sv: 'Det gör inte vägen plan, trappfri eller enkel för alla. Exemplet visar bara varför två boenden i samma historiska by kan ge olika vardagsvägar.'
+        en: 'Two stays inside the same historic village can still mean very different daily walks — which is exactly why the address matters more here than the map suggests.',
+        de: 'Zwei Unterkünfte in derselben Altstadt können trotzdem sehr unterschiedliche Alltagswege bedeuten – genau deshalb zählt die Adresse hier mehr, als die Karte vermuten lässt.',
+        es: 'Dos alojamientos dentro del mismo casco histórico pueden suponer recorridos diarios muy distintos: por eso aquí la dirección importa más de lo que sugiere el mapa.',
+        nl: 'Twee verblijven in dezelfde historische kern kunnen toch heel andere dagelijkse routes betekenen — precies daarom telt het adres hier zwaarder dan de kaart doet vermoeden.',
+        sv: 'Två boenden i samma historiska by kan ändå innebära mycket olika vardagsvägar – just därför betyder adressen mer här än kartan antyder.'
       } satisfies LocalizedText
     ],
     imageAlt: {
@@ -643,41 +643,41 @@ export const frigilianaStreetsStairsCopy = {
       {
         question: { en: 'Is Frigiliana very steep?', de: 'Ist Frigiliana sehr steil?', es: '¿Frigiliana tiene muchas cuestas?', nl: 'Is Frigiliana erg steil?', sv: 'Är Frigiliana mycket brant?' } satisfies LocalizedText,
         answer: {
-          en: 'The historic village follows a hillside, so many routes include noticeable gradients, steps or both. The exact experience depends strongly on the street and entrance.',
-          de: 'Der historische Ort folgt dem Hang, deshalb gehören zu vielen Wegen deutliche Steigungen, Stufen oder beides. Entscheidend sind die genaue Gasse und der Eingang.',
-          es: 'El pueblo histórico sigue la ladera, por lo que muchos recorridos tienen pendientes, escalones o ambas cosas. La experiencia depende mucho de la calle y la entrada.',
-          nl: 'De historische kern volgt de heuvel, waardoor veel routes duidelijke hellingen, trappen of beide hebben. De precieze straat en ingang bepalen de ervaring.',
-          sv: 'Den historiska byn följer sluttningen, så många vägar har tydliga lutningar, trappor eller båda. Upplevelsen beror mycket på exakt gränd och entré.'
+          en: 'The historic village follows a hillside, so many routes include noticeable gradients, steps or both. How much you notice depends on where you sleep.',
+          de: 'Der historische Ort folgt dem Hang, deshalb gehören zu vielen Wegen deutliche Steigungen, Stufen oder beides. Wie sehr ihr das merkt, hängt davon ab, wo ihr wohnt.',
+          es: 'El pueblo histórico sigue la ladera, así que muchos recorridos tienen pendientes, escalones o ambas cosas. Cuánto lo notéis depende de dónde durmáis.',
+          nl: 'De historische kern volgt de heuvel, waardoor veel routes hellingen, trappen of beide hebben. Hoeveel jullie daarvan merken hangt af van waar jullie slapen.',
+          sv: 'Den historiska byn följer sluttningen, så många vägar har lutningar, trappor eller båda. Hur mycket ni märker av det beror på var ni bor.'
         } satisfies LocalizedText
       },
       {
         question: { en: 'Can I avoid stairs completely?', de: 'Kann ich Treppen vollständig vermeiden?', es: '¿Puedo evitar por completo las escaleras?', nl: 'Kan ik trappen volledig vermijden?', sv: 'Går det att undvika trappor helt?' } satisfies LocalizedText,
         answer: {
-          en: 'Some routes avoid steps, but that does not guarantee a flat surface or step-free entrance. Confirm the complete route to the door.',
-          de: 'Einige Wege vermeiden Stufen, sind deshalb aber nicht automatisch eben oder bis zur Tür stufenfrei. Bestätigt den vollständigen Weg.',
-          es: 'Algunos recorridos evitan escalones, pero eso no garantiza un suelo llano ni una entrada sin peldaños. Confirmad todo el camino hasta la puerta.',
-          nl: 'Sommige routes vermijden trappen, maar zijn daardoor niet automatisch vlak of trapvrij tot aan de deur. Bevestig de volledige route.',
-          sv: 'Vissa vägar undviker trappor men är därför inte automatiskt plana eller trappfria fram till dörren. Bekräfta hela vägen.'
+          en: 'Some routes avoid steps but still run over gradients and cobbles. For our four apartments on Calle Chorruelo we will describe the whole route to the door before you book — just ask us.',
+          de: 'Einige Wege kommen ohne Treppen aus, führen aber weiterhin über Steigungen und Kopfsteinpflaster. Für unsere vier Wohnungen in der Calle Chorruelo beschreiben wir euch den Weg bis zur Tür gern schon vor der Buchung – fragt uns einfach.',
+          es: 'Algunos recorridos evitan los escalones, pero siguen teniendo pendiente y empedrado. Para nuestros cuatro apartamentos de la calle Chorruelo os describimos el camino completo hasta la puerta antes de reservar: solo tenéis que preguntarnos.',
+          nl: 'Sommige routes vermijden trappen, maar lopen nog steeds over hellingen en kasseien. Voor onze vier appartementen aan de Calle Chorruelo beschrijven we de hele route tot aan de deur graag vóór het boeken — vraag het ons gerust.',
+          sv: 'Vissa vägar undviker trappor men går ändå över lutningar och kullersten. För våra fyra lägenheter på Calle Chorruelo beskriver vi gärna hela vägen fram till dörren innan ni bokar – fråga oss bara.'
         } satisfies LocalizedText
       },
       {
         question: { en: 'Which part is easiest for repeated walking?', de: 'Welche Lage ist für häufige Wege am praktischsten?', es: '¿Qué zona resulta más práctica para caminar varias veces al día?', nl: 'Welk deel is het praktischst voor herhaalde wandelingen?', sv: 'Vilken del är mest praktisk för flera promenader om dagen?' } satisfies LocalizedText,
         answer: {
-          en: 'Lower positions often involve less elevation than upper Barribarto, but “lower” never guarantees flat or step-free access. Compare the exact route and entrance.',
-          de: 'Weiter unten gelegene Unterkünfte bedeuten oft weniger Höhenunterschied als im oberen Barribarto. „Unten“ garantiert aber weder ebene noch stufenfreie Wege.',
-          es: 'Las ubicaciones más bajas suelen acumular menos desnivel que el Barribarto alto, pero “abajo” nunca garantiza un recorrido llano o sin escalones.',
-          nl: 'Lagere plekken hebben vaak minder hoogteverschil dan hoog Barribarto, maar “lager” garandeert nooit een vlakke of trapvrije route.',
-          sv: 'Lägre lägen innebär ofta mindre höjdskillnad än övre Barribarto, men ”lägre” garanterar aldrig en plan eller trappfri väg.'
+          en: 'Lower positions involve less climbing than upper Barribarto. Our own apartments are on Calle Chorruelo beside San Antonio, in the lower part of the old town.',
+          de: 'Weiter unten gelegene Unterkünfte bedeuten weniger Anstieg als im oberen Barribarto. Unsere eigenen Wohnungen liegen in der Calle Chorruelo bei San Antonio, im unteren Teil der Altstadt.',
+          es: 'Las ubicaciones más bajas acumulan menos desnivel que el Barribarto alto. Nuestros apartamentos están en la calle Chorruelo, junto a San Antonio, en la parte baja del casco antiguo.',
+          nl: 'Lagere plekken vragen minder klimwerk dan hoog Barribarto. Onze eigen appartementen liggen aan de Calle Chorruelo bij San Antonio, in het lagere deel van de oude kern.',
+          sv: 'Lägre lägen innebär mindre stigning än övre Barribarto. Våra egna lägenheter ligger på Calle Chorruelo vid San Antonio, i gamla stans nedre del.'
         } satisfies LocalizedText
       },
       {
         question: { en: 'What should I check about a specific street?', de: 'Was sollte ich bei einer konkreten Gasse prüfen?', es: '¿Qué debo comprobar sobre una calle concreta?', nl: 'Wat moet ik controleren bij een specifieke straat?', sv: 'Vad bör jag kontrollera för en viss gränd?' } satisfies LocalizedText,
         answer: {
-          en: 'Ask about gradient, steps, paving, the final entrance, the realistic vehicle point and how often you expect to walk the route each day.',
-          de: 'Fragt nach Steigung, Stufen, Pflaster, dem letzten Eingang, einem realistischen Haltepunkt und danach, wie oft ihr den Weg täglich gehen werdet.',
-          es: 'Preguntad por la pendiente, los escalones, el pavimento, la entrada, el punto realista para el vehículo y cuántas veces recorreréis el camino.',
-          nl: 'Vraag naar helling, trappen, bestrating, de ingang, een realistisch voertuigpunt en hoe vaak jullie de route dagelijks verwachten te lopen.',
-          sv: 'Fråga om lutning, trappor, stenläggning, entrén, en realistisk fordonsplats och hur ofta ni väntas gå vägen varje dag.'
+          en: 'Gradient, steps, paving, the final entrance, where a car can realistically stop — and how often you will walk it each day. For our own stays we are happy to answer all of that in advance.',
+          de: 'Steigung, Stufen, Pflaster, den letzten Eingang, einen realistischen Haltepunkt fürs Auto – und wie oft ihr den Weg täglich geht. Für unsere eigenen Unterkünfte beantworten wir das gern vorab.',
+          es: 'La pendiente, los escalones, el pavimento, la entrada, dónde puede parar el coche de verdad y cuántas veces recorreréis el camino al día. Para nuestros alojamientos os lo contamos con gusto antes de reservar.',
+          nl: 'Helling, trappen, bestrating, de ingang, waar een auto realistisch kan stoppen — en hoe vaak jullie de route per dag lopen. Voor onze eigen verblijven beantwoorden we dat graag vooraf.',
+          sv: 'Lutning, trappor, stenläggning, entrén, var en bil realistiskt kan stanna – och hur ofta ni går vägen varje dag. För våra egna boenden svarar vi gärna på allt det i förväg.'
         } satisfies LocalizedText
       }
     ]
