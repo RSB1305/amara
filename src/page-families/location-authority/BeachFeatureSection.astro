@@ -1,0 +1,29 @@
+---
+import EditorialFeatureGrid from '../../components/editorial/EditorialFeatureGrid.astro';
+import InlineEmphasis from '../../components/text/InlineEmphasis.astro';
+
+interface FeatureItem {
+  title: string;
+  text: string;
+}
+
+interface Props {
+  id: string;
+  title: string;
+  intro: string;
+  items: readonly FeatureItem[];
+  emphasizeText?: boolean;
+}
+
+const { id, title, intro, items, emphasizeText = false } = Astro.props;
+---
+
+<section id={id} class="am-section am-section--tint">
+  <div class="mb-16 max-w-3xl">
+    <h2 class="am-text-title mb-6 italic tracking-tight text-on-surface">{title}</h2>
+    <p class="am-text-body leading-relaxed text-on-surface-variant">
+      {emphasizeText ? <InlineEmphasis text={intro} /> : intro}
+    </p>
+  </div>
+  <EditorialFeatureGrid cards={items.map((item) => ({ title: item.title, copy: item.text }))} />
+</section>

@@ -14,6 +14,8 @@ import LocationAuthorityLayout from '../../layouts/LocationAuthorityLayout.astro
 import { createRequiredLinkResolver, type LabeledLink } from '../../lib/linkResolver';
 import { normalizeLanguage } from '../../lib/seo/resolve-seo-head';
 import type { AmaraLanguage } from '../../types/seo';
+import BeachFeatureSection from './BeachFeatureSection.astro';
+import BeachSectionList from './BeachSectionList.astro';
 
 interface Props { lang?: string; }
 
@@ -51,46 +53,27 @@ const heroImage = {
       imageWidth={heroImage.width}
     />
 
-    <section id="coast" class="am-section am-section--tint">
-      <div class="mb-16 max-w-3xl">
-        <h2 class="am-text-title mb-6 italic tracking-tight text-on-surface">{copy.overview.title}</h2>
-        <p class="am-text-body leading-relaxed text-on-surface-variant"><InlineEmphasis text={copy.overview.intro} /></p>
-      </div>
-      <EditorialFeatureGrid cards={copy.overview.items.map((item) => ({ title: item.title, copy: item.text }))} />
-    </section>
+    <BeachFeatureSection
+      id="coast"
+      title={copy.overview.title}
+      intro={copy.overview.intro}
+      items={copy.overview.items}
+      emphasizeText
+    />
 
-    {shared.beachSections.map((section, index) => (
-      <section id={section.id} class:list={['am-section', index % 2 === 0 ? 'am-section--plain' : 'am-section--tint']}>
-        <div class="mb-16 max-w-3xl">
-          <h2 class="am-text-title mb-6 italic tracking-tight text-on-surface">{section.title}</h2>
-          <p class="am-text-body leading-relaxed text-on-surface-variant"><InlineEmphasis text={section.intro} /></p>
-        </div>
-        <div class="grid grid-cols-1 gap-x-16 gap-y-14 lg:grid-cols-2">
-          {section.beaches.map((beach, beachIndex) => {
-            const titleId = `${section.id}-beach-${beachIndex}`;
-            return (
-              <article class="flex h-full flex-col border-t border-outline-variant/25 pt-8" aria-labelledby={titleId}>
-                <h3 id={titleId} class="am-text-subtitle mb-5 text-on-surface lg:min-h-[2.3em]">{beach.title}</h3>
-                <div class="mb-6 flex flex-wrap lg:min-h-8">
-                  <span class="rounded-pill border border-outline-variant/30 bg-surface-container-lowest px-3 py-1 am-text-caption normal-case tracking-normal text-primary"><span class="font-bold">{shared.beachCardLabels.bestFor}:</span>{' '}{beach.bestFor}</span>
-                </div>
-                <p class="am-text-body leading-relaxed text-on-surface-variant"><InlineEmphasis text={beach.description} /></p>
-                <p class="mt-6 border-l border-primary/20 bg-surface-container-low px-4 py-3 am-text-body leading-relaxed text-on-surface-variant lg:mt-auto"><span class="font-bold text-primary">{shared.beachCardLabels.tip}:</span>{' '}{beach.tip}</p>
-                <p class="mt-5 am-text-body"><a href={beach.mapHref} target="_blank" rel="noopener noreferrer" class="am-inline-link">{shared.beachCardLabels.map}<span aria-hidden="true"> ↗</span></a></p>
-              </article>
-            );
-          })}
-        </div>
-      </section>
-    ))}
+    <BeachSectionList
+      sections={shared.beachSections}
+      labels={shared.beachCardLabels}
+      emphasizeText
+    />
 
-    <section id="conditions" class="am-section am-section--tint">
-      <div class="mb-16 max-w-3xl">
-        <h2 class="am-text-title mb-6 italic tracking-tight text-on-surface">{shared.conditions.title}</h2>
-        <p class="am-text-body leading-relaxed text-on-surface-variant"><InlineEmphasis text={shared.conditions.intro} /></p>
-      </div>
-      <EditorialFeatureGrid cards={shared.conditions.items.map((item) => ({ title: item.title, copy: item.text }))} />
-    </section>
+    <BeachFeatureSection
+      id="conditions"
+      title={shared.conditions.title}
+      intro={shared.conditions.intro}
+      items={shared.conditions.items}
+      emphasizeText
+    />
 
     <section id="practical" class="am-section am-section--plain">
       <div class="mb-16 max-w-3xl">

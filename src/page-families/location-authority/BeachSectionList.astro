@@ -1,0 +1,93 @@
+---
+import InlineEmphasis from '../../components/text/InlineEmphasis.astro';
+
+interface BeachCard {
+  title: string;
+  bestFor: string;
+  description: string;
+  tip: string;
+  mapHref: string;
+}
+
+interface BeachSection {
+  id: string;
+  title: string;
+  intro: string;
+  beaches: readonly BeachCard[];
+}
+
+interface Props {
+  sections: readonly BeachSection[];
+  labels: {
+    bestFor: string;
+    tip: string;
+    map: string;
+  };
+  emphasizeText?: boolean;
+}
+
+const { sections, labels, emphasizeText = false } = Astro.props;
+---
+
+{
+  sections.map((section, index) => (
+    <section
+      id={section.id}
+      class:list={[
+        'am-section',
+        index % 2 === 0 ? 'am-section--plain' : 'am-section--tint'
+      ]}
+    >
+      <div class="mb-16 max-w-3xl">
+        <h2 class="am-text-title mb-6 italic tracking-tight text-on-surface">{section.title}</h2>
+        <p class="am-text-body leading-relaxed text-on-surface-variant">
+          {emphasizeText ? <InlineEmphasis text={section.intro} /> : section.intro}
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 gap-x-16 gap-y-14 lg:grid-cols-2">
+        {section.beaches.map((beach, beachIndex) => {
+          const titleId = `${section.id}-beach-${beachIndex}`;
+
+          return (
+            <article
+              class="flex h-full flex-col border-t border-outline-variant/25 pt-8"
+              aria-labelledby={titleId}
+            >
+              <h3 id={titleId} class="am-text-subtitle mb-5 text-on-surface lg:min-h-[2.3em]">
+                {beach.title}
+              </h3>
+
+              <div class="mb-6 flex flex-wrap lg:min-h-8">
+                <span class="rounded-pill border border-outline-variant/30 bg-surface-container-lowest px-3 py-1 am-text-caption normal-case tracking-normal text-primary">
+                  <span class="font-bold">{labels.bestFor}:</span>{' '}
+                  {beach.bestFor}
+                </span>
+              </div>
+
+              <p class="am-text-body leading-relaxed text-on-surface-variant">
+                {emphasizeText ? <InlineEmphasis text={beach.description} /> : beach.description}
+              </p>
+
+              <p class="mt-6 border-l border-primary/20 bg-surface-container-low px-4 py-3 am-text-body leading-relaxed text-on-surface-variant lg:mt-auto">
+                <span class="font-bold text-primary">{labels.tip}:</span>{' '}
+                {beach.tip}
+              </p>
+
+              <p class="mt-5 am-text-body">
+                <a
+                  href={beach.mapHref}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="am-inline-link"
+                >
+                  {labels.map}<span aria-hidden="true"> ↗</span>
+                </a>
+              </p>
+            </article>
+          );
+        })}
+      </div>
+    </section>
+  ))
+}
