@@ -233,7 +233,8 @@ export const frigilianaLocationCopy = {
       "paragraphs": [
         "Frigiliana zieht sich den Hang hinauf. Gassen verschwinden hinter Hausecken, Treppen führen auf die nächste Ebene, und weiter oben öffnen sich neue Blicke über Dächer und Meer. Diese Topografie macht einen großen Teil der Schönheit des Dorfes aus.",
         "Für einen Spaziergang gehört dieses Auf und Ab dazu; bei einem mehrtägigen Aufenthalt zählt jedoch die genaue Lage. Häuser im oberen Barribarto sind reizvoll, doch Treppen und Steigungen werden dort Teil jedes Heimwegs.",
-        "Unsere vier Unterkünfte liegen in der Calle Chorruelo bei San Antonio – mitten in der Altstadt und darin vergleichsweise weit unten. Frigiliana bleibt auch hier ein Hangdorf; durch die niedrigere Lage kann der tägliche Rückweg weniger Höhenmeter umfassen als zu Unterkünften hoch im Barribarto. Für den Alltag eines längeren Aufenthalts ist das ein spürbarer Unterschied."
+        "Unsere vier Unterkünfte liegen in der Calle Chorruelo bei San Antonio – mitten in der Altstadt und darin vergleichsweise weit unten. Frigiliana bleibt auch hier ein Hangdorf; durch die niedrigere Lage kann der tägliche Rückweg weniger Höhenmeter umfassen als zu Unterkünften hoch im Barribarto. Für den Alltag eines längeren Aufenthalts ist das ein spürbarer Unterschied.",
+      "Von der Hauptstraße unten sind es zu unserer Tür rund 150 Meter und etwa 30 Höhenmeter – durchgehend bergauf, über Kopfsteinpflaster und ungefähr 30 Stufen. Je nach Tempo drei bis fünf Minuten. Wir gehen diesen Weg mehrmals am Tag, wenn wir da sind; er gehört zu Frigiliana wie die weißen Wände und die engen Gassen."
       ],
       "subsections": [
         {
@@ -422,7 +423,8 @@ export const frigilianaLocationCopy = {
       "paragraphs": [
         "Frigiliana climbs the hillside. Lanes disappear around corners, steps reach the next level, and higher up new views open across rooftops and towards the sea. This topography is a large part of the village's beauty.",
         "That rise and fall is part of a walk; over several days, the exact location of your stay matters. Houses high in the Barribarto can be beautiful, but their stairs and slopes become part of every journey home.",
-        "Our four stays are on Calle Chorruelo beside San Antonio – in the old town and comparatively low within it. Frigiliana remains a hillside village; from this lower position, the daily route can involve less elevation than a stay high in Barribarto. Over a longer stay, that becomes a meaningful everyday difference."
+        "Our four stays are on Calle Chorruelo beside San Antonio – in the old town and comparatively low within it. Frigiliana remains a hillside village; from this lower position, the daily route can involve less elevation than a stay high in Barribarto. Over a longer stay, that becomes a meaningful everyday difference.",
+      "From the main road below it is about 150 metres and some 30 metres of ascent to our door — steeply uphill the whole way, over cobbles and around 30 steps. Three to five minutes at your own pace. We walk it several times a day when we are there; it belongs to Frigiliana as much as the white walls and the narrow lanes."
       ],
       "subsections": [
         {
@@ -618,7 +620,8 @@ export const frigilianaLocationCopy = {
       "paragraphs": [
         "Frigiliana sube por la ladera. Las calles desaparecen tras las esquinas, las escaleras llevan al siguiente nivel y más arriba se abren nuevas vistas sobre los tejados y hacia el mar.",
         "Ese desnivel forma parte del paseo; durante una estancia de varios días, la ubicación exacta importa. Las casas de la parte alta del Barribarto pueden ser preciosas, pero sus escaleras y pendientes acompañan cada regreso.",
-        "Nuestros cuatro alojamientos están en la calle Chorruelo, junto a San Antonio: en el casco antiguo y en una cota relativamente baja. Frigiliana sigue siendo un pueblo en cuesta; desde esta posición, el recorrido diario puede acumular menos desnivel que desde un alojamiento en lo alto del Barribarto. Durante una estancia larga, esa diferencia se nota en el día a día."
+        "Nuestros cuatro alojamientos están en la calle Chorruelo, junto a San Antonio: en el casco antiguo y en una cota relativamente baja. Frigiliana sigue siendo un pueblo en cuesta; desde esta posición, el recorrido diario puede acumular menos desnivel que desde un alojamiento en lo alto del Barribarto. Durante una estancia larga, esa diferencia se nota en el día a día.",
+      "Desde la carretera principal, abajo, hay unos 150 metros y unos 30 metros de desnivel hasta nuestra puerta: cuesta arriba todo el camino, sobre empedrado y con unos 30 escalones. Entre tres y cinco minutos a vuestro ritmo. Nosotros lo subimos varias veces al día cuando estamos allí; forma parte de Frigiliana tanto como las paredes blancas y las calles estrechas."
       ],
       "subsections": [
         {
@@ -807,7 +810,8 @@ export const frigilianaLocationCopy = {
       "paragraphs": [
         "Frigiliana klimt tegen de heuvel op. Straatjes verdwijnen achter hoeken, trappen leiden naar een volgend niveau en hogerop openen zich nieuwe uitzichten over daken en richting zee. Die topografie bepaalt een groot deel van de schoonheid van het dorp.",
         "Dat stijgen en dalen hoort bij een wandeling; bij een verblijf van meerdere dagen telt de precieze ligging. Huizen hoog in het Barribarto kunnen prachtig zijn, maar de trappen en hellingen horen dan bij elke weg naar huis.",
-        "Onze vier verblijven liggen aan Calle Chorruelo naast San Antonio – in de oude kern en daarbinnen relatief laag. Frigiliana blijft een heuveldorp; vanuit deze lagere positie kan de dagelijkse route minder hoogteverschil hebben dan vanuit een verblijf hoog in Barribarto. Tijdens een langer verblijf merken jullie dat verschil in het dagelijks leven."
+        "Onze vier verblijven liggen aan Calle Chorruelo naast San Antonio – in de oude kern en daarbinnen relatief laag. Frigiliana blijft een heuveldorp; vanuit deze lagere positie kan de dagelijkse route minder hoogteverschil hebben dan vanuit een verblijf hoog in Barribarto. Tijdens een langer verblijf merken jullie dat verschil in het dagelijks leven.",
+      "Vanaf de hoofdweg beneden is het ongeveer 150 meter en zo veel als 30 meter hoogteverschil tot onze deur — de hele weg stevig omhoog, over kasseien en met ongeveer 30 treden. Drie tot vijf minuten in jullie eigen tempo. Wij lopen het meerdere keren per dag als we er zijn; het hoort bij Frigiliana net als de witte muren en de smalle straatjes."
       ],
       "subsections": [
         {
@@ -996,7 +1000,8 @@ export const frigilianaLocationCopy = {
       "paragraphs": [
         "Frigiliana klättrar uppför sluttningen. Gränder försvinner runt hörn, trappor leder till nästa nivå och högre upp öppnas nya vyer över taken och mot havet. Topografin är en stor del av byns skönhet och gör varje promenad annorlunda.",
         "Nivåskillnaderna hör till en promenad; under flera dagar spelar boendets exakta läge större roll. Hus högt uppe i Barribarto kan vara vackra, men trappor och backar blir då en del av varje väg hem.",
-        "Våra fyra boenden ligger på Calle Chorruelo vid San Antonio – i gamla stan och jämförelsevis långt ner. Frigiliana är fortfarande en by på en sluttning; från det lägre läget kan den dagliga vägen innebära mindre höjdskillnad än från ett boende högt uppe i Barribarto. Under en vistelse på flera dagar blir det en tydlig skillnad i vardagen."
+        "Våra fyra boenden ligger på Calle Chorruelo vid San Antonio – i gamla stan och jämförelsevis långt ner. Frigiliana är fortfarande en by på en sluttning; från det lägre läget kan den dagliga vägen innebära mindre höjdskillnad än från ett boende högt uppe i Barribarto. Under en vistelse på flera dagar blir det en tydlig skillnad i vardagen.",
+      "Från huvudvägen nedanför är det ungefär 150 meter och cirka 30 höjdmeter upp till vår dörr – brant uppför hela vägen, över kullersten och med omkring 30 trappsteg. Tre till fem minuter i er egen takt. Vi går den flera gånger om dagen när vi är där; den hör till Frigiliana lika mycket som de vita väggarna och de smala gränderna."
       ],
       "subsections": [
         {
