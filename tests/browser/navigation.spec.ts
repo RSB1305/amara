@@ -263,6 +263,64 @@ test('the slotted navigation on a location authority page keeps its full contrac
   await expect(triggers.first()).toBeFocused();
 });
 
+test('the grouped guide navigation uses one responsive DOM tree', async ({ page }) => {
+  await page.setViewportSize(MOBILE_VIEWPORT);
+  await openPage(page, '/de/frigiliana-winter-stays');
+
+  const root = page.locator('[data-am-grouped-context-navigation]');
+  const disclosure = root.locator('[data-am-context-disclosure]');
+  const summary = disclosure.locator('summary');
+  const panel = root.locator('[data-am-context-panel]');
+  const grid = panel.locator(':scope > div');
+
+  await expect(root).toHaveCount(1);
+  await expect(root.locator('nav')).toHaveCount(1);
+  await expect(disclosure).toHaveCount(1);
+  await expect(root.locator('[data-am-context-sibling]')).toHaveCount(9);
+  await expect(panel).toBeHidden();
+
+  const headingIds = await root.locator('h2[id^="am-context-group-"]').evaluateAll(
+    (headings) => headings.map((heading) => heading.id)
+  );
+  expect(new Set(headingIds).size).toBe(headingIds.length);
+
+  await summary.click();
+  await expect(disclosure).toHaveAttribute('open', '');
+  await expect(panel).toBeVisible();
+  expect(
+    await grid.evaluate((element) => getComputedStyle(element).gridTemplateColumns.split(' ').length)
+  ).toBe(1);
+
+  await page.setViewportSize(DESKTOP_VIEWPORT);
+  expect(
+    await grid.evaluate((element) => getComputedStyle(element).gridTemplateColumns.split(' ').length)
+  ).toBe(3);
+
+  await page.keyboard.press('Escape');
+  await expect(disclosure).not.toHaveAttribute('open', '');
+  await expect(summary).toBeFocused();
+});
+
+test('the grouped guide disclosure remains usable without JavaScript', async ({ browser }) => {
+  const context = await browser.newContext({
+    javaScriptEnabled: false,
+    viewport: MOBILE_VIEWPORT
+  });
+  const page = await context.newPage();
+
+  try {
+    await openPage(page, '/de/frigiliana-winter-stays');
+
+    const disclosure = page.locator('[data-am-context-disclosure]');
+    await disclosure.locator('summary').click();
+
+    await expect(disclosure).toHaveAttribute('open', '');
+    await expect(disclosure.locator('[data-am-context-sibling]')).toHaveCount(9);
+  } finally {
+    await context.close();
+  }
+});
+
 for (const language of LANGUAGES) {
   test(`the booking labels stay localized in ${language}`, async ({ page }) => {
     await openPage(page, resolveLink('home', language));

@@ -37,76 +37,12 @@ const itemClasses = (item: ContextNavigationItem) => [
 <div data-am-grouped-context-navigation>
   <nav
     aria-label={navigationAriaLabel}
-    class="hidden xl:block"
-    data-am-grouped-context-desktop
+    class="w-full xl:w-auto"
   >
-    <ul class="flex items-center justify-end gap-1">
-      {
-        groups.map((group) => {
-          const isActiveGroup = group.items.some((item) => item.id === activeId);
-
-          return (
-            <li class="relative">
-              <details class="group" data-am-context-group={group.id}>
-                <summary
-                  class:list={[
-                    'flex min-h-8 cursor-pointer list-none items-center gap-1.5 border-b px-3 font-label text-[10px] font-medium uppercase tracking-[0.06em] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/25 [&::-webkit-details-marker]:hidden',
-                    isActiveGroup
-                      ? 'border-primary font-semibold text-on-surface'
-                      : 'border-transparent text-on-surface-variant hover:border-primary/45 hover:text-on-surface'
-                  ]}
-                >
-                  <span>{group.label}</span>
-                  <ChevronDown
-                    aria-hidden="true"
-                    class="size-3 transition-transform duration-200 group-open:rotate-180"
-                    stroke-width={1.5}
-                  />
-                </summary>
-
-                <div class="absolute right-0 top-[calc(100%+0.45rem)] z-50 w-72 border border-outline-variant/20 bg-surface p-2 shadow-[0_18px_45px_rgba(35,30,24,0.14)]">
-                  <ul>
-                    {group.items.map((item) => (
-                      <li
-                        data-am-context-sibling
-                        data-am-context-sibling-status={isLiveItem(item) ? 'live' : 'future'}
-                        data-am-experience-sibling={context === 'experience' ? '' : undefined}
-                        data-am-location-sibling={context === 'location' ? '' : undefined}
-                      >
-                        {isLiveItem(item) ? (
-                          <a
-                            href={item.href}
-                            aria-current={item.id === activeId ? 'page' : undefined}
-                            class:list={itemClasses(item)}
-                          >
-                            {item.label}
-                          </a>
-                        ) : (
-                          <span
-                            aria-disabled="true"
-                            class="flex min-h-10 w-full items-center px-4 py-2 font-label text-[10px] font-medium uppercase tracking-[0.06em] text-muted"
-                          >
-                            {item.label}
-                          </span>
-                        )}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </details>
-            </li>
-          );
-        })
-      }
-    </ul>
-  </nav>
-
-  <nav
-    aria-label={navigationAriaLabel}
-    class="xl:hidden"
-    data-am-grouped-context-mobile
-  >
-    <details class="group border border-outline-variant/20 bg-surface">
+    <details
+      class="group relative w-full border border-outline-variant/20 bg-surface xl:min-w-72 xl:w-auto"
+      data-am-context-disclosure
+    >
       <summary class="flex min-h-11 cursor-pointer list-none items-center justify-between gap-4 px-3 font-label focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-primary/25 [&::-webkit-details-marker]:hidden">
         <span class="min-w-0">
           <span class="block text-[9px] font-semibold uppercase tracking-[0.12em] text-primary">
@@ -123,8 +59,11 @@ const itemClasses = (item: ContextNavigationItem) => [
         />
       </summary>
 
-      <div class="border-t border-outline-variant/15 px-3 py-3">
-        <div class="grid gap-4 sm:grid-cols-3">
+      <div
+        class="border-t border-outline-variant/15 px-3 py-3 xl:absolute xl:right-0 xl:top-[calc(100%+0.45rem)] xl:z-50 xl:w-[min(72rem,calc(100vw-6rem))] xl:border xl:border-outline-variant/20 xl:bg-surface xl:p-5 xl:shadow-[0_18px_45px_rgba(35,30,24,0.14)]"
+        data-am-context-panel
+      >
+        <div class="grid gap-4 md:grid-cols-2 lg:grid-cols-3 lg:gap-x-6 xl:gap-x-8">
           {groups.map((group) => (
             <section aria-labelledby={`am-context-group-${group.id}`}>
               <h2
@@ -174,32 +113,19 @@ const itemClasses = (item: ContextNavigationItem) => [
   };
 
   document.querySelectorAll<HTMLElement>('[data-am-grouped-context-navigation]').forEach((root) => {
-    const allDetails = Array.from(root.querySelectorAll<HTMLDetailsElement>('details'));
-    const desktopDetails = Array.from(
-      root.querySelectorAll<HTMLDetailsElement>('[data-am-grouped-context-desktop] details')
-    );
-
-    desktopDetails.forEach((details) => {
-      details.addEventListener('toggle', () => {
-        if (!details.open) return;
-        desktopDetails.forEach((sibling) => {
-          if (sibling !== details) closeDetails(sibling);
-        });
-      });
-    });
+    const disclosure = root.querySelector<HTMLDetailsElement>('[data-am-context-disclosure]');
+    if (!disclosure) return;
 
     root.addEventListener('keydown', (event) => {
-      if (event.key !== 'Escape') return;
-      const openDetails = allDetails.find((details) => details.open);
-      if (!openDetails) return;
+      if (event.key !== 'Escape' || !disclosure.open) return;
 
-      closeDetails(openDetails);
-      openDetails.querySelector<HTMLElement>('summary')?.focus();
+      closeDetails(disclosure);
+      disclosure.querySelector<HTMLElement>('summary')?.focus();
     });
 
     document.addEventListener('pointerdown', (event) => {
       if (event.target instanceof Node && root.contains(event.target)) return;
-      allDetails.forEach(closeDetails);
+      closeDetails(disclosure);
     });
   });
 </script>
