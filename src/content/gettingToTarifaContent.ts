@@ -114,7 +114,7 @@ export const gettingToTarifaContent: Record<AmaraLanguage, GettingToTarifaLocale
         paragraphs: [
           'Tarifa is reached by the N-340: the approach from Málaga runs via the western Costa del Sol and Algeciras, while the Cádiz-side approach comes through the Atlantic coast corridor. Traffic and road conditions can change the final part of either journey.',
           'For an overnight stay, “Tarifa” is not a precise enough destination. Set your navigation for Mar Adriático 29 before entering town, especially when you are arriving with luggage or after dark.',
-          'AMARA Family & Surf is in La Marina and includes a reserved underground parking space. Detailed building and garage access belongs in the private arrival information sent to booked guests, so it is not reproduced on this public page.'
+          'AMARA Family & Surf is in La Marina and includes a reserved underground parking space. Booked guests receive the exact building and garage access with their arrival information.'
         ]
       },
       {
@@ -220,7 +220,7 @@ export const gettingToTarifaContent: Record<AmaraLanguage, GettingToTarifaLocale
         id: 'by-car', eyebrow: '01 · Mit dem Auto', title: 'Mit dem Auto zu AMARA', paragraphs: [
           'Tarifa erreicht ihr über die N-340: Von Málaga führt die Strecke über die westliche Costa del Sol und Algeciras, von Cádiz kommt ihr durch den Küstenkorridor am Atlantik. Verkehr und Straßenlage können den letzten Abschnitt beider Routen verändern.',
           'Für eine Übernachtung reicht „Tarifa“ als Navigationsziel nicht aus. Gebt Mar Adriático 29 schon vor der Einfahrt in den Ort ein – besonders mit Gepäck oder bei einer Ankunft nach Einbruch der Dunkelheit.',
-          'AMARA Family & Surf liegt in La Marina und verfügt über einen reservierten Tiefgaragenstellplatz. Genaue Hinweise zu Gebäude und Garage erhalten gebuchte Gäste privat; sie gehören nicht auf diese öffentliche Seite.'
+          'AMARA Family & Surf liegt in La Marina und verfügt über einen reservierten Tiefgaragenstellplatz. Die genauen Hinweise zu Gebäude und Garage bekommt ihr mit euren Anreiseinformationen.'
         ]
       },
       {

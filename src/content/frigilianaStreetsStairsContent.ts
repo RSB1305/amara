@@ -353,11 +353,11 @@ export const frigilianaStreetsStairsCopy = {
           sv: 'Området binder samman flera delar av Frigiliana, men exakt gata avgör fortfarande lutning, trappor och bilväg.'
         } satisfies LocalizedText,
         tradeoff: {
-          en: 'Ensanche is a morphological transition, not a promise of flat or step-free access.',
-          de: 'Ensanche bezeichnet einen städtebaulichen Übergang, keine Garantie für ebene oder stufenfreie Wege.',
-          es: 'Ensanche describe una transición urbana, no una garantía de recorridos llanos o sin escalones.',
-          nl: 'Ensanche is een stedenbouwkundige overgang, geen garantie voor vlakke of trapvrije routes.',
-          sv: 'Ensanche är en stadsbyggnadsmässig övergång, inte en garanti för plana eller trappfria vägar.'
+          en: 'The Ensanche sits between the historic core and the newer village, so streets vary more here than anywhere else in Frigiliana.',
+          de: 'Der Ensanche liegt zwischen historischem Kern und neuerem Ortsteil – die Straßen unterscheiden sich hier stärker als anderswo in Frigiliana.',
+          es: 'El Ensanche está entre el casco histórico y la parte nueva, así que las calles varían aquí más que en ningún otro punto de Frigiliana.',
+          nl: 'De Ensanche ligt tussen de historische kern en het nieuwere dorpsdeel, waardoor de straten hier meer verschillen dan elders in Frigiliana.',
+          sv: 'Ensanche ligger mellan den historiska kärnan och den nyare bydelen, så gatorna skiljer sig mer här än någon annanstans i Frigiliana.'
         } satisfies LocalizedText
       },
       {

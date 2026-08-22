@@ -146,13 +146,13 @@ export const tarifaLocationContent: {
         title: 'Old Town or La Marina – and what that means every day',
         paragraphs: [
           'If you really want to stay in the Old Town, stay in the Old Town. That is not a half measure – it is a decision with daily consequences.',
-          'In the Old Town it means: luggage over cobblestones, heat in summer, noise and parties until late, and a parking space at least ten to fifteen minutes away. And something few people mention: the old houses in the centre are damp, and mould is a common issue there.',
+          'In the Old Town that means luggage over cobblestones, heat in summer, evenings that stay lively until late, and a parking space at least ten to fifteen minutes away. In return you are inside the walls, and everything historic starts at your door.',
           'La Marina is the opposite: modern and quiet, with your own parking space and the beach five minutes down the road. In exchange, the history does not start outside your door but ten to fifteen minutes later – along the sea, entering the Old Town from below.'
         ],
         archetypes: [
-          { title: 'Old Town', consequence: 'History at the door. In exchange: heat, noise, damp – and parking far outside.' },
+          { title: 'Old Town', consequence: 'History at the door. In exchange: heat, lively nights – and parking well outside.' },
           { title: 'La Marina', consequence: 'Modern and quiet, own parking space, beach in five minutes. The Old Town is a walk away.' },
-          { title: 'Los Lances corridor', consequence: 'Front-line sea views – but mostly much older buildings, where damp is a known problem.' },
+          { title: 'Los Lances corridor', consequence: 'Front-line sea views and quick beach access – with more of the day organised around the car.' },
           { title: 'Countryside & hills', consequence: 'Campo: complete quiet and plenty of nature – daily life then organises itself around the car.' }
         ],
         link: { label: 'Compare Tarifa’s areas in depth', token: 'tarifa_where_to_stay' }
@@ -161,7 +161,7 @@ export const tarifaLocationContent: {
         eyebrow: 'Wind & seasons',
         title: 'The wind decides which beach works today',
         paragraphs: [
-          'Tarifa is wind-driven, above all in the shoulder and low seasons. If you cannot deal with that, you will not be happy here. If you accept it, you get exactly the place Tarifa is famous for.',
+          'Tarifa is wind-driven, above all in the shoulder and low seasons. Plan with the wind rather than against it and you get exactly the place Tarifa is famous for.',
           'In a strong Levante only Valdevaqueros really works – that is where the rescue boats are and where everything is set up for it. The small, family-friendly Playa Chica is not a good choice then.',
           'On days like that, how your accommodation is oriented matters. Our balcony faces the sea; the Levante hits the back of the building. Only in a Poniente does it get windy at the front too – and Poniente is far less frequent.'
         ],
@@ -191,7 +191,7 @@ export const tarifaLocationContent: {
           'The balcony faces west. Which means: every evening the sun drops into the Atlantic in front of you. And when the air is clear, Africa lies opposite – not as an idea on a map, but as a coast you can see.',
           'The bedroom sits above it, with the same view. You wake up with the sea. What guests say most often on arrival: that the apartment is even more beautiful than in the photos.',
           'Our connection to Tarifa is personal: Robert lived here for months at a time, kitesurfing and building friendships. When this apartment came up for sale, we bought it and modernised it. Because of the evenings. And because it simply works day to day.',
-          'Honestly: if you need historic Tarifa right outside your door, we are the wrong choice. And the pool belongs to the complex, not the apartment – open roughly from mid-May to mid-September, depending on the weather.'
+          'One thing worth saying plainly: if you want historic Tarifa right outside your door, the Old Town will suit you better than we do. And the pool belongs to the complex, not the apartment – open roughly from mid-May to mid-September, depending on the weather.'
         ],
         facts: [
           '75 m² over two levels – bedroom with sea view',
@@ -255,13 +255,13 @@ export const tarifaLocationContent: {
         title: 'Altstadt oder La Marina – und was das jeden Tag bedeutet',
         paragraphs: [
           'Wer unbedingt in der Altstadt wohnen will, sollte in der Altstadt wohnen. Das ist keine halbe Sache – das ist eine Entscheidung mit Folgen, jeden Tag.',
-          'In der Altstadt heißt das: Gepäck über Kopfsteinpflaster, im Sommer Hitze, Lärm und Party bis spät, und ein Parkplatz mindestens zehn bis fünfzehn Minuten entfernt. Dazu kommt etwas, das selten jemand erwähnt: Die alten Häuser im Zentrum sind feucht, Schimmel ist dort ein verbreitetes Thema.',
+          'In der Altstadt heißt das: Gepäck über Kopfsteinpflaster, im Sommer Hitze, Abende, die lange lebhaft bleiben, und ein Parkplatz mindestens zehn bis fünfzehn Minuten entfernt. Dafür wohnt ihr innerhalb der Mauern, und alles Historische beginnt vor der Haustür.',
           'La Marina ist das Gegenteil: modern und ruhig, mit eigenem Stellplatz und dem Strand fünf Minuten die Straße runter. Dafür beginnt die Geschichte nicht vor der Haustür, sondern zehn bis fünfzehn Minuten später – am Meer entlang, unten in die Altstadt hinein.'
         ],
         archetypes: [
-          { title: 'Altstadt', consequence: 'Geschichte vor der Tür. Dafür Hitze, Lärm, Feuchtigkeit – und Parken weit außerhalb.' },
+          { title: 'Altstadt', consequence: 'Geschichte vor der Tür. Dafür Hitze, lebhafte Nächte – und Parken weit außerhalb.' },
           { title: 'La Marina', consequence: 'Modern und ruhig, eigener Stellplatz, Strand in fünf Minuten. Die Altstadt liegt einen Spaziergang entfernt.' },
-          { title: 'Los-Lances-Korridor', consequence: 'Erste Meereslinie – dafür meist deutlich ältere Gebäude, in denen Feuchtigkeit ein bekanntes Problem ist.' },
+          { title: 'Los-Lances-Korridor', consequence: 'Erste Meereslinie und kurze Wege an den Strand – dafür organisiert sich mehr vom Tag ums Auto.' },
           { title: 'Umland & Hügel', consequence: 'Campo: absolute Ruhe und viel Natur – der Alltag organisiert sich dann ums Auto.' }
         ],
         link: { label: 'Tarifas Lagen im Detail vergleichen', token: 'tarifa_where_to_stay' }
@@ -270,7 +270,7 @@ export const tarifaLocationContent: {
         eyebrow: 'Wind & Jahreszeiten',
         title: 'Der Wind entscheidet, welcher Strand heute geht',
         paragraphs: [
-          'Tarifa ist windgetrieben, vor allem in Vor- und Nebensaison. Wer damit nicht umgehen kann, wird hier nicht glücklich. Wer ihn annimmt, bekommt genau den Ort, für den Tarifa berühmt ist.',
+          'Tarifa ist windgetrieben, vor allem in Vor- und Nebensaison. Wer mit dem Wind plant statt gegen ihn, bekommt genau den Ort, für den Tarifa berühmt ist.',
           'Bei starkem Levante funktioniert praktisch nur Valdevaqueros – dort sind die Rettungsboote, dort ist alles darauf eingestellt. Die kleine, familienfreundliche Playa Chica ist dann keine gute Wahl.',
           'An solchen Tagen zählt, wie eure Unterkunft steht. Unser Balkon liegt auf der Meerseite; der Levante trifft die Rückseite des Hauses. Nur bei Poniente wird es auch vorne windig – und Poniente gibt es deutlich seltener.'
         ],
@@ -300,7 +300,7 @@ export const tarifaLocationContent: {
           'Der Balkon zeigt nach Westen. Das heißt: Jeden Abend fällt die Sonne vor euch in den Atlantik. Und wenn die Luft klar ist, liegt Afrika gegenüber – nicht als Idee auf einer Landkarte, sondern als Küste, die man sieht.',
           'Darüber liegt das Schlafzimmer, mit demselben Blick. Ihr wacht mit dem Meer auf. Was Gäste beim Ankommen am häufigsten sagen: dass die Wohnung in echt schöner ist als auf den Fotos.',
           'Unsere Verbindung zu Tarifa ist persönlich: Robert hat hier immer wieder mehrere Monate gelebt, zum Kitesurfen und mit Freunden. Als diese Wohnung zum Verkauf stand, haben wir sie gekauft und modernisiert. Wegen der Abende. Und weil sie im Alltag einfach funktioniert.',
-          'Ehrlich gesagt: Wer das historische Tarifa direkt vor der Tür braucht, ist bei uns falsch. Und der Pool gehört zur Anlage, nicht zur Wohnung – je nach Witterung etwa von Mitte Mai bis Mitte September.'
+          'Eines sagen wir offen: Wenn ihr das historische Tarifa direkt vor der Tür haben möchtet, passt die Altstadt besser zu euch als wir. Und der Pool gehört zur Anlage, nicht zur Wohnung – je nach Witterung etwa von Mitte Mai bis Mitte September.'
         ],
         facts: [
           '75 m² auf zwei Ebenen – Schlafzimmer mit Meerblick',
@@ -364,13 +364,13 @@ export const tarifaLocationContent: {
         title: 'Casco antiguo o La Marina: qué significa cada día',
         paragraphs: [
           'Quien quiera alojarse sí o sí en el casco antiguo, que se aloje en el casco antiguo. No es una solución a medias: es una decisión con consecuencias diarias.',
-          'En el casco antiguo eso significa: equipaje sobre adoquines, calor en verano, ruido y fiesta hasta tarde, y aparcamiento como mínimo a diez o quince minutos. Y algo que casi nadie menciona: las casas antiguas del centro son húmedas y el moho es allí un problema frecuente.',
+          'En el casco antiguo eso significa: equipaje sobre adoquines, calor en verano, noches que siguen animadas hasta tarde y aparcamiento como mínimo a diez o quince minutos. A cambio vivís dentro de las murallas y todo lo histórico empieza en vuestra puerta.',
           'La Marina es lo contrario: moderna y tranquila, con plaza de garaje propia y la playa cinco minutos calle abajo. A cambio, la historia no empieza en la puerta, sino diez o quince minutos después, junto al mar y entrando al casco antiguo por su parte baja.'
         ],
         archetypes: [
-          { title: 'Casco Antiguo', consequence: 'Historia en la puerta. A cambio: calor, ruido, humedad y aparcar lejos.' },
+          { title: 'Casco Antiguo', consequence: 'Historia en la puerta. A cambio: calor, noches animadas y aparcar lejos.' },
           { title: 'La Marina', consequence: 'Moderna y tranquila, plaza propia, playa en cinco minutos. El casco antiguo queda a un paseo.' },
-          { title: 'Corredor de Los Lances', consequence: 'Primera línea de mar, pero con edificios bastante más antiguos en los que la humedad es un problema conocido.' },
+          { title: 'Corredor de Los Lances', consequence: 'Primera línea de mar y playa a un paso, con más parte del día organizada en torno al coche.' },
           { title: 'Campo y colinas', consequence: 'El campo: tranquilidad absoluta y mucha naturaleza; la vida diaria se organiza entonces alrededor del coche.' }
         ],
         link: { label: 'Comparar en detalle las zonas de Tarifa', token: 'tarifa_where_to_stay' }
@@ -379,7 +379,7 @@ export const tarifaLocationContent: {
         eyebrow: 'Viento y estaciones',
         title: 'El viento decide qué playa funciona hoy',
         paragraphs: [
-          'Tarifa está marcada por el viento, sobre todo en temporada media y baja. Quien no sepa convivir con eso no será feliz aquí. Quien lo acepte, se lleva exactamente el lugar por el que Tarifa es famosa.',
+          'Tarifa está marcada por el viento, sobre todo en temporada media y baja. Si planificáis con el viento y no contra él, os lleváis exactamente el lugar por el que Tarifa es famosa.',
           'Con levante fuerte solo funciona de verdad Valdevaqueros: allí están las lanchas de rescate y todo está preparado para ello. La pequeña Playa Chica, ideal para familias, no es entonces buena elección.',
           'En esos días importa cómo está orientado vuestro alojamiento. Nuestro balcón da al mar; el levante golpea la parte trasera del edificio. Solo con poniente entra viento por delante, y el poniente es bastante menos frecuente.'
         ],
@@ -409,7 +409,7 @@ export const tarifaLocationContent: {
           'El balcón mira al oeste. Es decir: cada tarde el sol cae en el Atlántico delante de vosotros. Y cuando el aire está limpio, África queda enfrente; no como una idea en un mapa, sino como una costa que se ve.',
           'Encima está el dormitorio, con la misma vista. Os despertáis con el mar. Lo que más dicen los huéspedes al llegar: que el apartamento es aún más bonito que en las fotos.',
           'Nuestra relación con Tarifa es personal: Robert vivió aquí temporadas de varios meses, entre kitesurf y amigos. Cuando este apartamento salió a la venta, lo compramos y lo reformamos. Por las tardes. Y porque en el día a día simplemente funciona.',
-          'Con sinceridad: si necesitáis la Tarifa histórica justo en la puerta, no somos la opción adecuada. Y la piscina es de la comunidad, no del apartamento; abre aproximadamente de mediados de mayo a mediados de septiembre, según el tiempo.'
+          'Lo decimos con claridad: si queréis la Tarifa histórica justo en la puerta, el casco antiguo os encajará mejor que nosotros. Y la piscina es de la comunidad, no del apartamento; abre aproximadamente de mediados de mayo a mediados de septiembre, según el tiempo.'
         ],
         facts: [
           '75 m² en dos niveles: dormitorio con vistas al mar',
@@ -473,13 +473,13 @@ export const tarifaLocationContent: {
         title: 'Oude stad of La Marina – en wat dat elke dag betekent',
         paragraphs: [
           'Wie per se in de oude stad wil verblijven, moet in de oude stad verblijven. Dat is geen halve keuze — dat is een besluit met dagelijkse gevolgen.',
-          'In de oude stad betekent dat: bagage over kasseien, hitte in de zomer, geluid en feest tot laat, en een parkeerplek op minstens tien tot vijftien minuten afstand. En iets wat zelden iemand noemt: de oude huizen in het centrum zijn vochtig, schimmel is daar een bekend probleem.',
+          'In de oude stad betekent dat: bagage over kasseien, hitte in de zomer, avonden die tot laat levendig blijven, en een parkeerplek op minstens tien tot vijftien minuten afstand. Daar staat tegenover dat jullie binnen de muren wonen en alles wat historisch is voor de deur begint.',
           'La Marina is het tegenovergestelde: modern en rustig, met een eigen parkeerplaats en het strand vijf minuten de straat af. Daarvoor begint de geschiedenis niet voor de deur, maar tien tot vijftien minuten later — langs zee, onderaan de oude stad binnen.'
         ],
         archetypes: [
-          { title: 'Oude stad', consequence: 'Geschiedenis voor de deur. Daartegenover: hitte, geluid, vocht — en ver parkeren.' },
+          { title: 'Oude stad', consequence: 'Geschiedenis voor de deur. Daartegenover: hitte, levendige nachten — en ver parkeren.' },
           { title: 'La Marina', consequence: 'Modern en rustig, eigen parkeerplaats, strand in vijf minuten. De oude stad ligt op een wandeling afstand.' },
-          { title: 'Los-Lances-corridor', consequence: 'Eerste lijn aan zee – maar meestal duidelijk oudere gebouwen, waar vocht een bekend probleem is.' },
+          { title: 'Los-Lances-corridor', consequence: 'Eerste lijn aan zee en het strand vlakbij – maar meer van de dag draait om de auto.' },
           { title: 'Buitengebied & heuvels', consequence: 'Campo: absolute rust en veel natuur – het dagelijks leven draait dan om de auto.' }
         ],
         link: { label: 'Vergelijk de gebieden van Tarifa uitgebreid', token: 'tarifa_where_to_stay' }
@@ -488,7 +488,7 @@ export const tarifaLocationContent: {
         eyebrow: 'Wind & seizoenen',
         title: 'De wind bepaalt welk strand vandaag werkt',
         paragraphs: [
-          'Tarifa wordt door wind bepaald, vooral in het voor- en naseizoen. Wie daar niet mee om kan gaan, wordt hier niet gelukkig. Wie hem accepteert, krijgt precies de plek waar Tarifa om bekendstaat.',
+          'Tarifa wordt door wind bepaald, vooral in het voor- en naseizoen. Plannen jullie mét de wind in plaats van ertegen, dan krijgen jullie precies de plek waar Tarifa om bekendstaat.',
           'Bij sterke levante werkt praktisch alleen Valdevaqueros — daar liggen de reddingsboten en daar is alles erop ingericht. Het kleine, gezinsvriendelijke Playa Chica is dan geen goede keuze.',
           'Op zulke dagen telt hoe jullie verblijf georiënteerd is. Ons balkon ligt aan de zeezijde; de levante raakt de achterkant van het gebouw. Alleen bij poniente wordt het ook aan de voorkant winderig — en poniente komt duidelijk minder vaak voor.'
         ],
@@ -518,7 +518,7 @@ export const tarifaLocationContent: {
           'Het balkon ligt op het westen. Dat betekent: elke avond valt de zon voor jullie in de Atlantische Oceaan. En bij heldere lucht ligt Afrika ertegenover — niet als idee op een kaart, maar als kust die jullie zien.',
           'Daarboven ligt de slaapkamer, met hetzelfde uitzicht. Jullie worden wakker met de zee. Wat gasten bij aankomst het vaakst zeggen: dat het appartement in het echt nog mooier is dan op de foto\'s.',
           'Onze band met Tarifa is persoonlijk: Robert woonde hier telkens enkele maanden, om te kitesurfen en tijd met vrienden door te brengen. Toen dit appartement te koop stond, hebben we het gekocht en gemoderniseerd. Vanwege de avonden. En omdat het in het dagelijks leven gewoon werkt.',
-          'Eerlijk gezegd: wie het historische Tarifa direct voor de deur nodig heeft, zit bij ons verkeerd. En het zwembad hoort bij het complex, niet bij het appartement — afhankelijk van het weer ongeveer van half mei tot half september.'
+          'Eén ding zeggen we open: willen jullie het historische Tarifa direct voor de deur, dan past de oude stad beter bij jullie dan wij. En het zwembad hoort bij het complex, niet bij het appartement — afhankelijk van het weer ongeveer van half mei tot half september.'
         ],
         facts: [
           '75 m² op twee niveaus – slaapkamer met zeezicht',
@@ -582,13 +582,13 @@ export const tarifaLocationContent: {
         title: 'Gamla stan eller La Marina – och vad det betyder varje dag',
         paragraphs: [
           'Den som absolut vill bo i gamla stan ska bo i gamla stan. Det är ingen halvmesyr – det är ett beslut med konsekvenser varje dag.',
-          'I gamla stan innebär det: bagage över kullersten, hetta på sommaren, ljud och fest till sent, och en parkeringsplats minst tio till femton minuter bort. Dessutom något som sällan nämns: de gamla husen i centrum är fuktiga, och mögel är ett vanligt problem där.',
+          'I gamla stan innebär det: bagage över kullersten, hetta på sommaren, kvällar som är livliga länge, och en parkeringsplats minst tio till femton minuter bort. I gengäld bor ni innanför murarna, och allt historiskt börjar utanför dörren.',
           'La Marina är motsatsen: modernt och lugnt, med egen parkeringsplats och stranden fem minuter nedför gatan. I gengäld börjar historien inte utanför dörren, utan tio till femton minuter senare – längs havet, in i gamla stan underifrån.'
         ],
         archetypes: [
-          { title: 'Gamla stan', consequence: 'Historia utanför dörren. I gengäld hetta, ljud, fukt – och parkering långt bort.' },
+          { title: 'Gamla stan', consequence: 'Historia utanför dörren. I gengäld hetta, livliga nätter – och parkering långt bort.' },
           { title: 'La Marina', consequence: 'Modernt och lugnt, egen parkeringsplats, strand på fem minuter. Gamla stan ligger en promenad bort.' },
-          { title: 'Los Lances-korridoren', consequence: 'Första havslinjen – men oftast betydligt äldre byggnader, där fukt är ett känt problem.' },
+          { title: 'Los Lances-korridoren', consequence: 'Första havslinjen och nära till stranden – men mer av dagen kretsar kring bilen.' },
           { title: 'Landsbygd & kullar', consequence: 'Campo: absolut lugn och mycket natur – vardagen organiseras då kring bilen.' }
         ],
         link: { label: 'Jämför Tarifas områden på djupet', token: 'tarifa_where_to_stay' }
@@ -597,7 +597,7 @@ export const tarifaLocationContent: {
         eyebrow: 'Vind & årstider',
         title: 'Vinden avgör vilken strand som fungerar idag',
         paragraphs: [
-          'Tarifa präglas av vind, framför allt under för- och lågsäsong. Den som inte kan hantera det blir inte lycklig här. Den som accepterar den får precis den plats Tarifa är känd för.',
+          'Tarifa präglas av vind, framför allt under för- och lågsäsong. Planerar ni med vinden i stället för mot den får ni precis den plats Tarifa är känd för.',
           'Vid stark levante fungerar i praktiken bara Valdevaqueros – där finns räddningsbåtarna och där är allt anpassat för det. Den lilla, familjevänliga Playa Chica är då inget bra val.',
           'Sådana dagar spelar det roll hur boendet ligger. Vår balkong vetter mot havet; levanten träffar husets baksida. Bara vid poniente blir det blåsigt även framtill – och poniente förekommer betydligt mer sällan.'
         ],
@@ -627,7 +627,7 @@ export const tarifaLocationContent: {
           'Balkongen vetter mot väster. Det betyder: varje kväll faller solen ner i Atlanten framför er. Och när luften är klar ligger Afrika mittemot – inte som en idé på en karta, utan som en kust man ser.',
           'Ovanför ligger sovrummet, med samma utsikt. Ni vaknar med havet. Det gästerna oftast säger vid ankomsten: att lägenheten är ännu vackrare i verkligheten än på bilderna.',
           'Vår relation till Tarifa är personlig: Robert bodde här några månader i taget, för kitesurfingen och vännerna. När den här lägenheten kom ut till försäljning köpte vi den och renoverade. På grund av kvällarna. Och för att den helt enkelt fungerar i vardagen.',
-          'Ärligt talat: den som behöver det historiska Tarifa direkt utanför dörren är fel hos oss. Och poolen tillhör anläggningen, inte lägenheten – öppen ungefär från mitten av maj till mitten av september, beroende på vädret.'
+          'En sak säger vi rakt ut: vill ni ha det historiska Tarifa direkt utanför dörren passar gamla stan er bättre än vi gör. Och poolen tillhör anläggningen, inte lägenheten – öppen ungefär från mitten av maj till mitten av september, beroende på vädret.'
         ],
         facts: [
           '75 m² på två plan – sovrum med havsutsikt',

@@ -54,6 +54,7 @@ const gettingThereHref = buildOwnedLocalizedPath('getting-to-frigiliana', curren
 const geographyHref = buildOwnedLocalizedPath('frigiliana-geography', currentLang);
 const airportRouteHref =
   'https://www.google.com/maps/dir/?api=1&origin=M%C3%A1laga-Costa+del+Sol+Airport&destination=La+AMARA%2C+Calle+Chorruelo+5%2C+29788+Frigiliana&travelmode=driving';
+const aboutHref = optionalLink('about');
 const stairsHref = optionalLink('frigiliana_stairs');
 const dailyLifeHref = optionalLink('frigiliana_daily_life');
 const comparisonHref = optionalLink('nerja_vs_frigiliana');
@@ -258,6 +259,13 @@ const renderCtas = (subsection: FrigilianaLocationSubsection) => subsection.ctas
               imageAlt={heroImage.alt}
               imageWidth={heroImage.width}
               imageSizes={heroImage.sizes}
+              byline={frigilianaLocationSeo.article && aboutHref ? {
+                lang: currentLang,
+                authorName: frigilianaLocationSeo.article.authorName,
+                authorHref: aboutHref,
+                updated: c.heroUpdated,
+                note: c.heroNote
+              } : undefined}
             />
 
             <section

@@ -120,7 +120,7 @@ export const nerjaGeographyContent: Record<AmaraLanguage, NerjaGeographyLocale> 
       title: 'Where is Nerja? Between the Mediterranean and Sierra Almijara',
       standfirst:
         'Nerja is an **85.07 km² coastal municipality with four statistical population centres**. Its principal settlement has an official 22-metre reference, while the Sierra Almijara rises close behind the coast and Navachica reaches 1,832 metres in the wider mountain system.',
-      note: 'The 22-metre figure is a principal-settlement reference. Exact route gradients and Navachica’s status within the municipal boundary still require separate evidence.',
+      note: 'The 22-metre figure refers to the main settlement. Individual routes differ in gradient and surface.',
       updated: 'Reviewed August 2026'
     },
     facts: [
@@ -184,7 +184,7 @@ export const nerjaGeographyContent: Record<AmaraLanguage, NerjaGeographyLocale> 
         title: 'Combine distance with gradient',
         paragraphs: [
           'A short line on a map does not establish an equally easy walk. The 22-metre town reference and the high Sierra context are useful at municipal scale, but neither replaces the gradient, surface and steps of a specific route.',
-          'For repeated returns, summer heat, luggage or a pushchair, check the exact origin and destination. The geography page explains why that check matters; the detailed accommodation and area choice belongs in the Where to Stay guide.'
+          'For repeated returns, summer heat, luggage or a pushchair, check the exact origin and destination before you book.'
         ]
       }
     ],
@@ -446,7 +446,7 @@ export const nerjaGeographyContent: Record<AmaraLanguage, NerjaGeographyLocale> 
       title: 'Waar ligt Nerja? Tussen de Middellandse Zee en Sierra Almijara',
       standfirst:
         'Nerja is een **kustgemeente van 85,07 km² met vier statistische woonkernen**. De hoofdplaats heeft een officiële referentie van 22 meter; vlak achter de kust rijst de Sierra Almijara op, waar Navachica in het bredere bergsysteem 1.832 meter bereikt.',
-      note: 'De 22 meter is een referentie voor de hoofdplaats. Routehellingen en de positie van Navachica ten opzichte van de gemeentegrens vragen apart bewijs.',
+      note: 'De 22 meter is een referentie voor de hoofdplaats. Afzonderlijke routes verschillen in helling en ondergrond.',
       updated: 'Gecontroleerd in augustus 2026'
     },
     facts: [

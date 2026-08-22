@@ -87,6 +87,8 @@ export interface FrigilianaLocationOrientation {
 export interface FrigilianaLocationPageCopy {
   heroKicker: string;
   h1: string;
+  heroUpdated: string;
+  heroNote: string;
   intro: string[];
   introPullLine: string;
   orientation: FrigilianaLocationOrientation;
@@ -107,6 +109,13 @@ export const frigilianaLocationSeo: AmaraAuthoringSeo = {
   version: '2026-08-18-frigiliana-location-v2.1',
   pageType: 'A',
   entityKey: 'amara-brand',
+  article: {
+    datePublished: '2026-08-18',
+    dateModified: '2026-08-22',
+    authorName: 'Robert Sebastian Böhmer',
+    authorType: 'Person' as const,
+    authorSlug: 'amara-about-us'
+  },
   ogImage: '/images/amara-lounis/15-amara-frigiliana.jpg',
   languages: {
   "de": {
@@ -164,6 +173,8 @@ export const frigilianaLocationCopy = {
   "de": {
     "heroKicker": "FRIGILIANA · ANDALUSIEN",
     "h1": "Herzlich willkommen in Frigiliana",
+    "heroUpdated": "Geprüft im August 2026",
+    "heroNote": "Ein Gastgeber-Guide für Übernachtungsgäste – geschrieben aus unserem Alltag in der Calle Chorruelo.",
     "intro": [
       "Frigiliana gilt als eines der schönsten weißen Dörfer Spaniens. Viele kommen für ein paar Stunden wegen der weißen Häuser, verwinkelten Gassen, farbigen Türen und Ausblicke bis zum Mittelmeer.",
       "Wer bleibt, erlebt mehr: Wenn die Tagesbesucher gehen, werden die Gassen ruhiger; am nächsten Morgen seid ihr schon da, bevor der Ort wieder voller wird.",
@@ -359,6 +370,8 @@ export const frigilianaLocationCopy = {
   "en": {
     "heroKicker": "FRIGILIANA · ANDALUSIA",
     "h1": "Welcome to Frigiliana",
+    "heroUpdated": "Reviewed August 2026",
+    "heroNote": "A host-written guide for overnight guests, based on our own everyday life in Calle Chorruelo.",
     "intro": [
       "Frigiliana is known as one of Spain's most beautiful white villages. Many people come for a few hours to see its white houses, winding lanes, coloured doors and views towards the Mediterranean.",
       "Staying changes the experience: the lanes quieten as day visitors leave, and the next morning you are already here before the village becomes busier again.",
@@ -561,6 +574,8 @@ export const frigilianaLocationCopy = {
   "es": {
     "heroKicker": "FRIGILIANA · ANDALUCÍA",
     "h1": "Bienvenidos a Frigiliana",
+    "heroUpdated": "Revisado en agosto de 2026",
+    "heroNote": "Una guía escrita por vuestros anfitriones, desde nuestro día a día en la calle Chorruelo.",
     "intro": [
       "Frigiliana está considerado uno de los pueblos blancos más bonitos de España. Muchos vienen unas horas para ver sus casas blancas, callejuelas, puertas de colores y vistas hacia el Mediterráneo.",
       "Quedarse cambia la experiencia: cuando se marchan los visitantes del día, las calles recuperan la calma; a la mañana siguiente ya estáis aquí antes de que el pueblo vuelva a animarse.",
@@ -756,6 +771,8 @@ export const frigilianaLocationCopy = {
   "nl": {
     "heroKicker": "FRIGILIANA · ANDALUSIË",
     "h1": "Welkom in Frigiliana",
+    "heroUpdated": "Gecontroleerd in augustus 2026",
+    "heroNote": "Een gids van jullie hosts voor verblijfsgasten, geschreven vanuit ons dagelijks leven in de Calle Chorruelo.",
     "intro": [
       "Frigiliana geldt als een van de mooiste witte dorpen van Spanje. Veel bezoekers komen een paar uur voor de witte huizen, kronkelstraatjes, gekleurde deuren en uitzichten richting de Middellandse Zee.",
       "Blijven overnachten verandert de ervaring: wanneer de dagjesmensen vertrekken, worden de straten rustiger; de volgende ochtend zijn jullie er al voordat het dorp weer levendiger wordt.",
@@ -951,6 +968,8 @@ export const frigilianaLocationCopy = {
   "sv": {
     "heroKicker": "FRIGILIANA · ANDALUSIEN",
     "h1": "Välkomna till Frigiliana",
+    "heroUpdated": "Granskad i augusti 2026",
+    "heroNote": "En guide från era värdar för övernattande gäster, skriven ur vår vardag på Calle Chorruelo.",
     "intro": [
       "Frigiliana räknas som en av Spaniens vackraste vita byar. Många kommer några timmar för de vita husen, vindlande gränderna, färgade dörrarna och utsikten mot Medelhavet.",
       "Att stanna över natten förändrar upplevelsen: när dagsbesökarna lämnar blir gränderna lugnare, och nästa morgon är ni redan här innan byn blir livligare igen.",

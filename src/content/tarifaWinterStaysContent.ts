@@ -92,7 +92,7 @@ export const tarifaWinterStaysContent: Record<AmaraLanguage, WinterStaysLocale> 
         title: 'Tarifa when summer leaves',
         paragraphs: [
           'Winter has always been one of Robert’s favourite times in Tarifa. After the highly transient rhythm of summer, the town feels smaller, calmer and more familiar to us — not empty, and not reduced to a town populated only by residents.',
-          'Over a longer winter stay, the same faces often appear again in cafés, around town, on the beach and within ordinary routines. That repetition is a first-hand observation, not a promise that a guest will make friends or have the same social experience.',
+          'Over a longer winter stay, the same faces start to reappear in cafés, around town, on the beach and in ordinary routines. That familiarity is one of the quieter pleasures of the season.',
           'The practical consequence is time. A few summer days can be built around highlights; several winter weeks allow Tarifa to become a place you temporarily live in. AMARA in La Marina gives that slower rhythm a real home rather than a short-break base.'
         ]
       },
@@ -172,16 +172,16 @@ export const tarifaWinterStaysContent: Record<AmaraLanguage, WinterStaysLocale> 
         title: 'Winter at AMARA in La Marina',
         paragraphs: [
           'AMARA Family & Surf is in La Marina, between everyday Tarifa and the wider Atlantic coast. Shopping and the Old Town are part of the local routine, but current businesses and the route that suits you should be checked for your dates.',
-          'A reserved underground space removes the daily question of where to leave your own car at home; it does not promise parking at beaches or in town. Inside, heating, hot-and-cold air-conditioning, the fireplace, kitchen, washing machine, Wi-Fi and living space support the routines of a stay measured in weeks.',
+          'A reserved underground space settles where your own car sleeps. For beaches and the town centre in season, allow a little extra time. Inside, heating, hot-and-cold air-conditioning, the fireplace, kitchen, washing machine, Wi-Fi and living space support the routines of a stay measured in weeks.',
           'That is the winter proposition: a milder southern season outside, a comfortable real home inside and normal Tarifa life close by. Winter is not the lesser version of Tarifa. It is a different version — and for some guests, perhaps the more rewarding one.'
         ]
       }
     ],
     related: {
       eyebrow: 'Continue with the practical detail',
-      title: 'Plan the winter stay without repeating the same guide',
+      title: 'Where to go from here',
       links: [
-        { token: 'tarifa_weather', label: 'Weather & Seasons', text: 'Official climate evidence, Levante, Poniente and the limits of any seasonal expectation.' },
+        { token: 'tarifa_weather', label: 'Weather & Seasons', text: 'Official climate figures, and how Levante and Poniente shape the season.' },
         { token: 'tarifa_daily_life', label: 'Daily Life & Services', text: 'Groceries, healthcare, normal errands and practical planning for a longer stay.' },
         { token: 'tarifa_beaches_authority', label: 'Beaches & coast', text: 'Choose between the urban shore and the wider Atlantic coast for the day you have.' },
         { token: 'tarifa_wind_kitesurfing_authority', label: 'Wind & watersports', text: 'Technical wind, safety and water-sports planning belongs in the specialist guide.' },
@@ -214,7 +214,7 @@ export const tarifaWinterStaysContent: Record<AmaraLanguage, WinterStaysLocale> 
       eyebrow: 'Ein persönlicher Winterguide für Tarifa',
       title: 'Der Winter ist nicht die kleinere Version von Tarifa',
       standfirst: 'Der Sommer bringt Intensität. Im Winter entstehen Freiräume für Tageslicht, Atlantikspaziergänge, wechselndes Wetter und den normalen Rhythmus des Ortes. Wenn ihr länger als ein paar Tage bleiben könnt, erlebt ihr möglicherweise **gerade diese ruhigere Seite als die wertvollere**.',
-      note: 'Geschrieben aus Roberts eigener Erfahrung als Gastgeber. Persönliche Beobachtungen beschreiben, wie wir den Winter über die Jahre erlebt haben; sie sind kein Versprechen für jeden Tag und jeden Aufenthalt.',
+      note: 'Geschrieben aus Roberts eigener Erfahrung als Gastgeber. Die persönlichen Beobachtungen beschreiben, wie wir den Winter über die Jahre erlebt haben.',
       updated: 'Gastgeberperspektive und Quellen geprüft im August 2026',
       mark: 'WINTER'
     },
@@ -228,7 +228,7 @@ export const tarifaWinterStaysContent: Record<AmaraLanguage, WinterStaysLocale> 
       {
         id: 'when-summer-leaves', eyebrow: '01 · Ein anderes Tarifa', title: 'Tarifa, wenn der Sommer vorbei ist', paragraphs: [
           'Der Winter war für Robert schon immer eine der liebsten Zeiten in Tarifa. Nach dem sehr flüchtigen Sommerrhythmus wirkt der Ort auf uns kleiner, ruhiger und vertrauter — nicht leer und auch nicht wie ein Ort, in dem fast nur Einheimische leben.',
-          'Während eines längeren Winteraufenthalts begegnen euch in Cafés, im Ort, am Strand und in alltäglichen Abläufen oft dieselben Gesichter wieder. Das ist eine persönliche Beobachtung und kein Versprechen, dass ihr Freundschaften schließt oder dieselbe soziale Erfahrung macht.',
+          'Während eines längeren Winteraufenthalts begegnen euch in Cafés, im Ort, am Strand und in alltäglichen Abläufen bald dieselben Gesichter wieder. Diese Vertrautheit gehört für uns zum Schönsten an der Jahreszeit.',
           'Der praktische Unterschied ist Zeit. Einige Sommertage drehen sich leicht um Höhepunkte; in mehreren Winterwochen kann Tarifa vorübergehend zum eigenen Alltag werden. AMARA in La Marina gibt diesem langsameren Rhythmus ein richtiges Zuhause statt nur eine Basis für einen Kurztrip.'
         ]
       },
@@ -284,7 +284,7 @@ export const tarifaWinterStaysContent: Record<AmaraLanguage, WinterStaysLocale> 
       {
         id: 'amara-la-marina', eyebrow: '09 · Eure Winterbasis', title: 'Winter bei AMARA in La Marina', paragraphs: [
           'AMARA Family & Surf liegt in La Marina zwischen dem alltäglichen Tarifa und der weiteren Atlantikküste. Einkaufen und Altstadt gehören zum lokalen Alltag; aktuelle Betriebe und die passende Route prüft ihr für eure Reisedaten.',
-          'Ein reservierter Tiefgaragenplatz klärt, wo euer eigenes Auto zu Hause steht; er verspricht keine Parkmöglichkeit an Stränden oder in der Stadt. Drinnen unterstützen Heizung, Klimaanlage, Kamin, Küche, Waschmaschine, WLAN und Wohnraum Routinen über mehrere Wochen.',
+          'Ein reservierter Tiefgaragenplatz klärt, wo euer eigenes Auto zu Hause steht. Für Strände und die Innenstadt plant in der Saison etwas mehr Zeit ein. Drinnen unterstützen Heizung, Klimaanlage, Kamin, Küche, Waschmaschine, WLAN und Wohnraum Routinen über mehrere Wochen.',
           'Das ist die Winteridee: draußen ein milderer südlicher Winter, drinnen ein komfortables echtes Zuhause und das normale Tarifa ganz nah. Der Winter ist nicht die kleinere Version von Tarifa. Er ist eine andere — und für manche Gäste vielleicht die lohnendere.'
         ]
       }
@@ -326,7 +326,7 @@ export const tarifaWinterStaysContent: Record<AmaraLanguage, WinterStaysLocale> 
       eyebrow: 'Una guía personal del invierno en Tarifa',
       title: 'El invierno no es una versión menor de Tarifa',
       standfirst: 'El verano trae intensidad. El invierno deja espacio para la luz, los paseos junto al Atlántico, el tiempo cambiante y el ritmo normal de la localidad. Para quienes pueden quedarse más de unos días, **esa versión tranquila quizá sea la más gratificante**.',
-      note: 'Escrita desde la experiencia directa de Robert como anfitrión. Las observaciones personales cuentan cómo hemos vivido el invierno a lo largo del tiempo; no prometen que cada día o cada estancia sean iguales.',
+      note: 'Escrita desde la experiencia directa de Robert como anfitrión. Las observaciones personales cuentan cómo hemos vivido el invierno a lo largo del tiempo.',
       updated: 'Perspectiva del anfitrión y fuentes revisadas en agosto de 2026',
       mark: 'INVIERNO'
     },
@@ -396,7 +396,7 @@ export const tarifaWinterStaysContent: Record<AmaraLanguage, WinterStaysLocale> 
       {
         id: 'amara-la-marina', eyebrow: '09 · Vuestra base de invierno', title: 'El invierno en AMARA, en La Marina', paragraphs: [
           'AMARA Family & Surf está en La Marina, entre el Tarifa cotidiano y la costa atlántica. Compras y casco antiguo forman parte de la rutina local, pero conviene comprobar negocios y recorridos actuales para las fechas concretas.',
-          'La plaza reservada en el garaje subterráneo resuelve dónde dejar vuestro coche en casa; no promete estacionamiento en playas ni en el centro. Dentro, calefacción, aire acondicionado, chimenea, cocina, lavadora, Wi-Fi y espacio de estar respaldan rutinas de varias semanas.',
+          'La plaza reservada en el garaje subterráneo resuelve dónde dejar vuestro coche en casa. Para playas y centro en temporada, contad con algo más de tiempo. Dentro, calefacción, aire acondicionado, chimenea, cocina, lavadora, Wi-Fi y espacio de estar respaldan rutinas de varias semanas.',
           'Esa es la propuesta invernal: una estación meridional más suave fuera, una casa real y cómoda dentro y la vida normal de Tarifa cerca. El invierno no es una versión menor de Tarifa. Es una versión distinta y, para algunos huéspedes, quizá la más gratificante.'
         ]
       }
@@ -452,7 +452,7 @@ export const tarifaWinterStaysContent: Record<AmaraLanguage, WinterStaysLocale> 
       {
         id: 'when-summer-leaves', eyebrow: '01 · Een ander Tarifa', title: 'Tarifa wanneer de zomer vertrekt', paragraphs: [
           'De winter is altijd een van Roberts favoriete periodes in Tarifa geweest. Na het zeer vluchtige zomerritme voelt de stad voor ons kleiner, rustiger en vertrouwder — niet leeg en ook niet alsof er vooral inwoners zouden zijn.',
-          'Tijdens een langer winterverblijf verschijnen bekende gezichten geregeld opnieuw in cafés, in de stad, op het strand en binnen dagelijkse routines. Dat is een persoonlijke observatie, geen belofte dat jullie vrienden maken of dezelfde sociale ervaring krijgen.',
+          'Tijdens een langer winterverblijf duiken dezelfde gezichten al snel weer op in cafés, in de stad, op het strand en in dagelijkse routines. Die vertrouwdheid hoort voor ons bij het mooiste van het seizoen.',
           'Het praktische verschil is tijd. Enkele zomerdagen draaien gemakkelijk om hoogtepunten; in meerdere winterweken kan Tarifa tijdelijk een plek worden waar jullie leven. AMARA in La Marina geeft dat langzamere ritme een echt thuis in plaats van alleen een uitvalsbasis voor een korte reis.'
         ]
       },
@@ -508,7 +508,7 @@ export const tarifaWinterStaysContent: Record<AmaraLanguage, WinterStaysLocale> 
       {
         id: 'amara-la-marina', eyebrow: '09 · Jullie winterbasis', title: 'Winter bij AMARA in La Marina', paragraphs: [
           'AMARA Family & Surf ligt in La Marina tussen het dagelijkse Tarifa en de Atlantische kust. Winkels en de oude stad horen bij de lokale routine; controleer actuele zaken en een passende route voor jullie data.',
-          'Een gereserveerde ondergrondse plek lost op waar jullie eigen auto thuis staat; ze belooft geen parking bij stranden of in de stad. Binnen ondersteunen verwarming, airconditioning, open haard, keuken, wasmachine, wifi en leefruimte routines van meerdere weken.',
+          'Een gereserveerde ondergrondse plek lost op waar jullie eigen auto thuis staat. Reken voor stranden en het centrum in het seizoen op wat extra tijd. Binnen ondersteunen verwarming, airconditioning, open haard, keuken, wasmachine, wifi en leefruimte routines van meerdere weken.',
           'Dat is het winterverhaal: buiten een milder zuidelijk seizoen, binnen een comfortabel echt huis en het normale leven van Tarifa dichtbij. De winter is geen mindere versie van Tarifa. Het is een andere — en voor sommige gasten misschien de meest waardevolle.'
         ]
       }
@@ -550,7 +550,7 @@ export const tarifaWinterStaysContent: Record<AmaraLanguage, WinterStaysLocale> 
       eyebrow: 'En personlig vinterguide till Tarifa',
       title: 'Vintern är inte en mindre version av Tarifa',
       standfirst: 'Sommaren ger intensitet. Vintern lämnar utrymme för dagsljus, promenader vid Atlanten, växlande väder och stadens vanliga rytm. För er som kan stanna längre än några dagar kan **den lugnare versionen vara den mest givande**.',
-      note: 'Skriven utifrån Roberts egen erfarenhet som värd. Personliga observationer beskriver hur vintern har känts för oss över tid; de lovar inte att varje dag eller vistelse blir likadan.',
+      note: 'Skriven utifrån Roberts egen erfarenhet som värd. De personliga observationerna beskriver hur vintern har känts för oss över tid.',
       updated: 'Värdperspektiv och källor granskade i augusti 2026',
       mark: 'VINTER'
     },
@@ -620,7 +620,7 @@ export const tarifaWinterStaysContent: Record<AmaraLanguage, WinterStaysLocale> 
       {
         id: 'amara-la-marina', eyebrow: '09 · Er vinterbas', title: 'Vinter på AMARA i La Marina', paragraphs: [
           'AMARA Family & Surf ligger i La Marina mellan vardagens Tarifa och Atlantkusten. Inköp och Gamla stan hör till den lokala rutinen; kontrollera aktuella verksamheter och en lämplig rutt för era datum.',
-          'En reserverad underjordisk plats löser var den egna bilen står hemma; den lovar inte parkering vid stränder eller i stan. Inomhus stödjer värme, luftkonditionering, eldstad, kök, tvättmaskin, wifi och sällskapsytor rutiner över flera veckor.',
+          'En reserverad underjordisk plats löser var den egna bilen står hemma. Räkna med lite extra tid för stränder och centrum under säsong. Inomhus stödjer värme, luftkonditionering, eldstad, kök, tvättmaskin, wifi och sällskapsytor rutiner över flera veckor.',
           'Det är vinterns erbjudande: en mildare sydlig säsong utanför, ett bekvämt verkligt hem innanför och Tarifas vanliga liv nära. Vintern är inte en mindre version av Tarifa. Den är en annan — och för vissa gäster kanske den mer givande.'
         ]
       }

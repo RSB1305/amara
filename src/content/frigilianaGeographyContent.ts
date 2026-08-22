@@ -154,7 +154,7 @@ export const frigilianaGeographyContent: Record<
         title: 'El Ingenio, Calle Real and Barribarto explain the historic structure',
         paragraphs: [
           'The protected-ensemble record identifies Barribarto as the original medieval core around the castle hill and Barribajo as the fabric organised along Calle Real. El Ingenio stands between this older settlement and the later southern expansion.',
-          'Main streets tend to follow the contours; smaller transverse streets take steeper lines and many include steps. This is a documented settlement pattern, not a claim that every historic address has the same access.'
+          'Main streets tend to follow the contours; smaller transverse streets take steeper lines and many include steps.'
         ]
       },
       {
@@ -258,7 +258,7 @@ export const frigilianaGeographyContent: Record<
         title: 'El Ingenio, Calle Real und Barribarto erklären die historische Struktur',
         paragraphs: [
           'Der geschützte Ensembletext bezeichnet Barribarto als ursprünglichen mittelalterlichen Kern am Burghügel und Barribajo als Bebauung entlang der Calle Real. El Ingenio steht zwischen diesem älteren Ort und der späteren Erweiterung nach Süden.',
-          'Die Hauptgassen folgen eher den Höhenlinien; kleinere Querverbindungen nehmen steilere Linien und enthalten häufig Stufen. Das ist ein belegtes Siedlungsmuster, keine Aussage, dass jede historische Adresse gleich zugänglich ist.'
+          'Die Hauptgassen folgen eher den Höhenlinien; kleinere Querverbindungen nehmen steilere Linien und enthalten häufig Stufen.'
         ]
       },
       {
@@ -362,7 +362,7 @@ export const frigilianaGeographyContent: Record<
         title: 'El Ingenio, calle Real y Barribarto explican la estructura histórica',
         paragraphs: [
           'El expediente del conjunto protegido identifica Barribarto como núcleo medieval original en torno a la colina del castillo y Barribajo como el tejido organizado por la calle Real. El Ingenio queda entre este asentamiento antiguo y la ampliación posterior hacia el sur.',
-          'Las calles principales tienden a seguir las curvas de nivel; las conexiones transversales son más pronunciadas y muchas tienen escalones. Es un patrón documentado, no una afirmación sobre el acceso a cada dirección.'
+          'Las calles principales tienden a seguir las curvas de nivel; las conexiones transversales son más pronunciadas y muchas tienen escalones.'
         ]
       },
       {

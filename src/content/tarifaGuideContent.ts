@@ -270,7 +270,7 @@ export const overview: TarifaLocationGuideContent = {
           {
             title: 'La Marina — for balance',
             paragraphs: [
-              'Official planning documents use the name La Marina I for part of Tarifa’s newer urban fabric. As a visitor-facing model, “La Marina” remains a practical orientation rather than one fixed tourism-neighbourhood boundary.',
+              '“La Marina” is how the newer part of town is known in practice. Official planning documents call part of it La Marina I; either way it describes the same area west of the centre.',
               'You are still part of town rather than staying in an isolated beach resort, but everyday logistics and car use can be easier than inside the historic centre. That makes this area particularly interesting for guests who want to combine Tarifa on foot with beaches, kitesurfing or excursions by car.',
               'It does not give you the historic Old Town immediately outside your door. In return, it can offer a more balanced relationship between town, coast and mobility.'
             ],
@@ -318,7 +318,7 @@ export const overview: TarifaLocationGuideContent = {
           'Wind is part of Tarifa, but it should not determine every accommodation decision.',
           'Open coastal locations experience the conditions differently from more built-up parts of town, and the value of a terrace or outdoor space can depend on its actual orientation and shelter.',
           'For watersports travellers, another factor matters just as much: how easily can you leave town toward the western kite and surf areas?',
-          'The detailed question of which beach or activity works in which conditions belongs in our Tarifa experience and wind guides. For choosing a base, the relevant point is simpler:',
+          'Which beach or activity suits a given day is a question for the experience and wind guides. For choosing where to stay, the point is simpler:',
           'wind changes how you use the location, not whether Tarifa works at all.'
         ],
         links: [
@@ -715,7 +715,7 @@ export const overview: TarifaLocationGuideContent = {
           },
           {
             title: 'La Marina — för balans',
-            paragraphs: ['Officiella planeringsdokument använder namnet La Marina I för en del av den nyare stadsstrukturen. Som guidemodell är ”La Marina” en praktisk orientering, inte ett exakt avgränsat turistområde.', 'Gamla stan kan fortfarande nås till fots, medan relationen till bil och utfarter mot stränderna skiljer sig från den historiska kärnan.', 'Den historiska miljön börjar inte precis utanför dörren, men vardagen kan bli mer flexibel.']
+            paragraphs: ['”La Marina” är namnet på den nyare delen av staden i praktiken. Officiella planeringsdokument kallar en del av den La Marina I – det handlar om samma område väster om centrum.', 'Gamla stan kan fortfarande nås till fots, medan relationen till bil och utfarter mot stränderna skiljer sig från den historiska kärnan.', 'Den historiska miljön börjar inte precis utanför dörren, men vardagen kan bli mer flexibel.']
           },
           {
             title: 'Los Lances — när stranden står i centrum',
