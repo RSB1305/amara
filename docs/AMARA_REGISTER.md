@@ -1,12 +1,12 @@
 ---
 document_id: AMARA-REG-001
 title: AMARA Register
-version: 1.7.0
+version: 1.8.0
 status: ACTIVE
 authority_class: LIVING BINDING REGISTER
 activation_state: ACTIVE
 effective_from: 2026-08-14
-last_modified: 2026-08-21T22:14:30+02:00
+last_modified: 2026-08-22T06:48:59+02:00
 canonical_path: /docs/AMARA_REGISTER.md
 ---
 
@@ -118,6 +118,7 @@ They do **not** supersede the current implementation. Until a separately aligned
 | DR-IA-002 | Location uses one shared semantic information model across destinations: **Orientation & Areas**, **Climate & Seasons**, **Arrival & Parking**, and **Daily Life & Essentials**, with the current nine topic units beneath them. This model is a coverage and authoring framework, not a requirement that every topic or destination have an identical standalone public route. | ACTIVE |
 | DR-IA-003 | A Location topic may be published as a hub section, standalone guide, short public planning note or private guest content. A standalone public page requires an independent pre-booking or trip-planning job with sufficient durable value; keyword opportunity or cross-destination symmetry alone is insufficient. | ACTIVE |
 | DR-IA-004 | Experience uses the shared AMARA design family but keeps a destination-specific editorial taxonomy and page inventory. A full narrative has one canonical public owner for its primary intent, while verified facts may be projected into more than one page without duplicating the knowledge record. | ACTIVE |
+| DR-IA-005 | Within **Daily Life & Essentials**, **Supermarkets & Everyday Shopping** is a Location planning topic; a weekly market or market visit as an outing remains an Experience topic. Location may include only the bounded market facts that materially affect everyday shopping or access. The three Daily Life topic families may share one Mobile-First semantic template across destinations, with topic- and destination-specific optional modules. Existing Daily Life routes remain overview hubs; each standalone topic route still requires the evidence and durable-job test in DR-IA-003. | ACTIVE |
 
 ### Analytics/measurement
 
@@ -158,6 +159,7 @@ Routine new evidence/ideas may be captured here or in the relevant working evide
 | 2026-08-21T11:26:50+02:00 | Research archive and knowledge workflow | Established timestamped immutable raw research runs in Google Drive, stable Drive references in Git, and page-level knowledge/coverage manifests for Frigiliana, Nerja and Tarifa Geography & Orientation. Register 1.6.0. | DR-EVIDENCE-001–003, TR-CONTENT-002 | this revision |
 | 2026-08-21T22:14:30+02:00 | Measurable performance policy | Activated Performance Standard 2.1.0 with documented mobile lab targets, field p75 targets, post-baseline asset budgets and FAST-compatible measurement scope. | Performance Standard §§15–17 | this revision |
 | 2026-08-21T22:14:30+02:00 | Collective host voice | Activated the collective host perspective, plural guest address and evidence-to-host-voice boundary; added the operative detail in Content Playbook 1.3.0 and the daily summary in `AGENTS.md`. | TR-CONTENT-004, DR-EVIDENCE-001–003 | this revision |
+| 2026-08-22T06:48:59+02:00 | Daily Life topic ownership and research intake | Separated everyday supermarket planning from weekly-market Experience content, approved a shared Mobile-First topic-family direction subject to the existing standalone-page evidence gate, and opened three cross-destination raw-research runs with nine page coverage manifests. Register 1.8.0. | DR-IA-001–005, DR-EVIDENCE-001–003 | this revision |
 
 ## 5. Intentional supersessions
 
@@ -201,3 +203,4 @@ Separate controlled workstreams remain for:
 | 1.5.0 | 2026-08-20T16:35:01+02:00 | Activated the Location & Experience information-architecture principles and separated stable decisions from open research hypotheses. | this revision |
 | 1.6.0 | 2026-08-21T11:26:50+02:00 | Activated the immutable raw-research archive workflow and stable Drive-to-Git knowledge references. | this revision |
 | 1.7.0 | 2026-08-21T22:14:30+02:00 | Activated Performance Standard 2.1.0 and the collective host-voice/evidence-provenance contract with Content Playbook 1.3.0. | this revision |
+| 1.8.0 | 2026-08-22T06:48:59+02:00 | Clarified Supermarkets versus weekly-market ownership, approved the evidence-gated shared Daily Life topic-family direction and registered its three research runs. | this revision |

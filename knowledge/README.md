@@ -1,10 +1,10 @@
 ---
 document_id: AMARA-KNOWLEDGE-OPS-001
 title: AMARA Research and Knowledge Workflow
-version: 1.0.2
+version: 1.1.0
 status: ACTIVE
 created_at: 2026-08-21T11:26:50+02:00
-last_modified: 2026-08-21T12:01:15+02:00
+last_modified: 2026-08-22T06:48:59+02:00
 ---
 
 # AMARA Research and Knowledge Workflow
@@ -50,6 +50,18 @@ The normalized synthesis is `knowledge/research/locations/geography-orientation/
 | GPT Deep Research | 2026-08-21T11:45:23+02:00 | `2026-08-21__114446__gpt__geography-orientation__raw.md` | Original Markdown upload; filename normalized only |
 | Gemini Deep Research | 2026-08-21T11:49:45+02:00 | `2026-08-21__114907__gemini__geography-orientation__raw.txt` | Rendered main-content text capture; source share URL retained |
 
+## Open Daily Life research intake
+
+Three cross-destination runs are issued and awaiting raw inputs:
+
+| Topic | Run | Drive | Publication state |
+|---|---|---|---|
+| Supermarkets & Everyday Shopping | `2026-08-22__064102__supermarkets-everyday-shopping__research-001` | [open run](https://drive.google.com/drive/folders/1LXzvwCnCDNsRZg5ncPkahPJERroaqFdD) | Nine-page family not yet evidence-approved; three destination manifests are `awaiting-research`. |
+| Health & Emergency Planning | `2026-08-22__064103__health-emergency__research-001` | [open run](https://drive.google.com/drive/folders/1sEVnMDg75TqhEgroNPJGUtHTXVbVX2nh) | Public/private/live boundary must be resolved before authoring. |
+| Practical & Local Rules | `2026-08-22__064104__practical-local-rules__research-001` | [open run](https://drive.google.com/drive/folders/1n65iJYtUImeGYkLCgr2lubwAToWpo4Hj) | Ownership, volatility and standalone-page value must be resolved before authoring. |
+
+Each run has the standard `01_PROMPT`, `02_GPT_RAW`, `03_GEMINI_RAW`, `04_SOURCE_MATERIAL` and `05_OPERATOR_NOTES` folders. Durable destination folders exist for all nine candidate pages under `10_LOCATIONS`. The exact prompts are stored in Git and Drive. Sources and atomic facts are intentionally not created until raw research is ingested and evaluated.
+
 ## Git structure
 
 - `prompts/` stores the exact research brief used for a run.
@@ -81,3 +93,4 @@ A page can become shorter or change layout without reducing its knowledge base. 
 | 2026-08-21T11:26:50+02:00 | 1.0.0 | Established the Drive raw archive, Git evaluation layer, page manifests and immutable timestamped research runs. |
 | 2026-08-21T11:49:45+02:00 | 1.0.1 | Recorded both raw research inputs, normalized filenames and advanced the Geography & Orientation run to `raw-received`. |
 | 2026-08-21T12:01:15+02:00 | 1.0.2 | Normalized both raw reports into destination sources, atomic facts, conflicts, open questions and page coverage; archived the raw run without changing its Drive ID. |
+| 2026-08-22T06:48:59+02:00 | 1.1.0 | Opened the three Daily Life research runs, registered nine destination page manifests and preserved the evidence gate before public authoring. |
