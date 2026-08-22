@@ -400,12 +400,13 @@ function frigilianaGuide(lang: AmaraLanguage): ArrivalGuidePageContent {
     value: text(fact.value, lang),
     description: text(fact.note, lang)
   }));
-  const dailyMobility = frigilianaDailyLifeContent[lang].sections.find(
-    (section) => section.id === 'daily-life-without-a-car'
-  );
-  if (!dailyMobility) {
-    throw new Error('[AMARA] Frigiliana arrival guide requires the car-free mobility section.');
-  }
+  const dailyLife = frigilianaDailyLifeContent[lang];
+  const dailyMobility = {
+    id: 'daily-life-without-a-car',
+    eyebrow: dailyLife.sections[0].eyebrow,
+    title: dailyLife.sections[0].title,
+    paragraphs: [dailyLife.mobilitySummary]
+  };
   const localConnection = copy.publicTransport.steps[2];
   const flexibleCar = copy.options.items[0];
   const optionIcons = {

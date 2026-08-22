@@ -135,9 +135,15 @@ const topicLinks: Record<LocationGuideTopicId, LinkToken | undefined> = {
   'weather-seasons': 'weather_frigiliana',
   'winter-stays': 'frigiliana_winter_stays',
   'parking-accessibility': 'frigiliana_parking',
-  'shopping-markets': 'frigiliana_market',
-  'health-emergency': undefined,
-  'practical-local-rules': undefined
+  'shopping-markets': 'frigiliana_daily_life',
+  'health-emergency': 'frigiliana_daily_life',
+  'practical-local-rules': 'frigiliana_daily_life'
+};
+
+const topicAnchors: Partial<Record<LocationGuideTopicId, string>> = {
+  'shopping-markets': 'supermarkets-everyday-shopping',
+  'health-emergency': 'health-emergency',
+  'practical-local-rules': 'good-to-know'
 };
 
 const makeTopicItem = (
@@ -152,7 +158,7 @@ const makeTopicItem = (
         id: topicId,
         label: topicLabels[topicId],
         status: 'live',
-        href: resolveLink(token, currentLang)
+        href: `${resolveLink(token, currentLang)}${topicAnchors[topicId] ? `#${topicAnchors[topicId]}` : ''}`
       }
     : {
         id: topicId,

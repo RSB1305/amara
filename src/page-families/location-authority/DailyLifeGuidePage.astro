@@ -1,0 +1,110 @@
+---
+import Navigation from '../../components/Navigation.astro';
+import LocationContextNav from '../../components/location/LocationContextNav.astro';
+import NerjaContextNav from '../../components/location/NerjaContextNav.astro';
+import TarifaContextNav from '../../components/location/TarifaContextNav.astro';
+import {
+  dailyLifeGuideContent,
+  dailyLifeGuideSeo,
+  type DailyLifeDestination
+} from '../../content/dailyLifeGuideContent';
+import LocationAuthorityLayout from '../../layouts/LocationAuthorityLayout.astro';
+import { createRequiredLinkResolver, type LabeledLink, type LinkToken } from '../../lib/linkResolver';
+import { normalizeLanguage } from '../../lib/seo/resolve-seo-head';
+import type { AmaraLanguage } from '../../types/seo';
+import AuthorityArticle from './AuthorityArticle.astro';
+import AuthorityRelatedLinks from './AuthorityRelatedLinks.astro';
+import DailyLifeGuideSections from './DailyLifeGuideSections.astro';
+
+interface Props {
+  destination: DailyLifeDestination;
+  lang?: string;
+}
+
+const { destination, lang = 'es' } = Astro.props;
+const currentLang = normalizeLanguage(lang as AmaraLanguage);
+const content = dailyLifeGuideContent[destination][currentLang];
+const seo = dailyLifeGuideSeo[destination];
+
+const config: Record<DailyLifeDestination, {
+  label: string;
+  languageToken: LinkToken;
+  locationToken: LinkToken;
+  arrivalToken: LinkToken;
+  parkingToken: LinkToken;
+}> = {
+  frigiliana: { label: 'Frigiliana', languageToken: 'frigiliana_daily_life', locationToken: 'location_frigiliana', arrivalToken: 'getting_to_frigiliana', parkingToken: 'frigiliana_parking' },
+  nerja: { label: 'Nerja', languageToken: 'nerja_daily_life', locationToken: 'location_nerja', arrivalToken: 'getting_to_nerja', parkingToken: 'nerja_parking' },
+  tarifa: { label: 'Tarifa', languageToken: 'tarifa_daily_life', locationToken: 'location_tarifa', arrivalToken: 'getting_to_tarifa', parkingToken: 'tarifa_parking' }
+};
+
+const pageConfig = config[destination];
+const requiredLink = createRequiredLinkResolver(currentLang, `${pageConfig.label} daily life`);
+const aboutHref = requiredLink('about');
+const availabilityHref = requiredLink('book');
+const locationHref = requiredLink(pageConfig.locationToken);
+
+const footerHighlights: LabeledLink[] = [
+  { token: pageConfig.languageToken, label: content.navLabel },
+  { token: pageConfig.arrivalToken, label: content.related.links[0].label },
+  { token: pageConfig.parkingToken, label: content.related.links[1].label }
+];
+---
+
+<LocationAuthorityLayout
+  seo={seo}
+  pageLang={currentLang}
+  showContextNavigation={false}
+  footerHighlights={footerHighlights}
+>
+  <Navigation slot="navigation" currentLang={currentLang} languageToken={pageConfig.languageToken} />
+
+  {destination === 'frigiliana' && <LocationContextNav activeId="dailyLife" lang={currentLang} />}
+  {destination === 'nerja' && <NerjaContextNav activeId="shopping-markets" childLabel={content.navLabel} lang={currentLang} />}
+  {destination === 'tarifa' && (
+    <TarifaContextNav
+      activeId="overview"
+      activeChildId="shopping-markets"
+      currentLabel="Tarifa"
+      childLabel={content.navLabel}
+      lang={currentLang}
+    />
+  )}
+
+  <AuthorityArticle
+    pageId={`${destination}-daily-life`}
+    family="location"
+    topic="daily-life"
+    lang={currentLang}
+    hero={content.hero}
+    authorName={seo.article!.authorName}
+    authorHref={aboutHref}
+    facts={content.facts}
+    factIcons={['supermarket', 'walkable', 'pharmacy', 'opening-hours']}
+    sources={content.sources}
+    closing={content.closing}
+    primaryCta={{ href: availabilityHref, label: content.closing.availabilityLabel }}
+    secondaryCta={{ href: locationHref, label: content.closing.locationLabel }}
+    presentation="guide"
+    guideVisual={{
+      eyebrow: content.facts[0].label,
+      mark: pageConfig.label,
+      note: content.facts[0].value
+    }}
+  >
+    <DailyLifeGuideSections sections={content.sections} />
+
+    <AuthorityRelatedLinks
+      related={content.related}
+      columns="md:grid-cols-3"
+      resolveHref={requiredLink}
+      presentation="guide"
+    />
+  </AuthorityArticle>
+</LocationAuthorityLayout>
+
+<style>
+  :global(article[data-am-topic='daily-life']) {
+    overflow-x: clip;
+  }
+</style>

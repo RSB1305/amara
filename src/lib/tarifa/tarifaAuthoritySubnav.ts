@@ -163,8 +163,14 @@ const locationChildren: Record<LocationGuideTopicId, LinkToken | undefined> = {
   'winter-stays': 'tarifa_winter_stays',
   'parking-accessibility': 'tarifa_parking',
   'shopping-markets': 'tarifa_daily_life',
-  'health-emergency': undefined,
-  'practical-local-rules': undefined
+  'health-emergency': 'tarifa_daily_life',
+  'practical-local-rules': 'tarifa_daily_life'
+};
+
+const locationAnchors: Partial<Record<LocationGuideTopicId, string>> = {
+  'shopping-markets': 'supermarkets-everyday-shopping',
+  'health-emergency': 'health-emergency',
+  'practical-local-rules': 'good-to-know'
 };
 
 const toLocationChild = (topicId: LocationGuideTopicId, currentLang: AmaraLanguage): TarifaAuthorityChild => {
@@ -176,7 +182,7 @@ const toLocationChild = (topicId: LocationGuideTopicId, currentLang: AmaraLangua
         id: topicId,
         label: labelsByTopic[topicId],
         status: 'live',
-        href: resolveLink(token, currentLang)
+        href: `${resolveLink(token, currentLang)}${locationAnchors[topicId] ? `#${locationAnchors[topicId]}` : ''}`
       }
     : {
         id: topicId,

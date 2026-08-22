@@ -1,0 +1,92 @@
+---
+import LocationGuideIcon, {
+  type LocationGuideIconName
+} from '../../components/location/LocationGuideIcon.astro';
+import InlineEmphasis from '../../components/text/InlineEmphasis.astro';
+import type { DailyLifeGuideSection } from '../../content/dailyLifeGuideContent';
+
+interface Props {
+  sections: DailyLifeGuideSection[];
+}
+
+const { sections } = Astro.props;
+const icons: LocationGuideIconName[] = ['supermarket', 'pharmacy', 'opening-hours'];
+---
+
+<div>
+  {
+    sections.map((section, index) => (
+      <section
+        id={section.id}
+        class:list={[
+          'scroll-mt-32 border-b border-border-subtle px-6 py-20 md:px-12 md:py-28',
+          index % 2 === 0 ? 'bg-surface-container-low' : 'bg-surface'
+        ]}
+        data-am-daily-life-section={section.id}
+      >
+        <div class="mx-auto grid max-w-screen-2xl gap-12 lg:grid-cols-12 lg:gap-20">
+          <header class="lg:col-span-4">
+            <div class="flex items-center gap-3 text-primary">
+              <LocationGuideIcon name={icons[index]} />
+              <p class="font-label text-[11px] font-bold uppercase tracking-[0.18em]">
+                {section.eyebrow}
+              </p>
+            </div>
+            <h2 class="am-text-title mt-6 max-w-xl text-balance italic text-on-surface">
+              {section.title}
+            </h2>
+            <div class="mt-7 space-y-5">
+              {section.intro.map((paragraph) => (
+                <p class="am-text-body leading-relaxed text-on-surface-variant">
+                  <InlineEmphasis text={paragraph} />
+                </p>
+              ))}
+            </div>
+          </header>
+
+          <div class="grid gap-8 sm:grid-cols-2 lg:col-span-8">
+            <article class="border-t border-primary/30 pt-6">
+              <p class="font-label text-[10px] font-bold uppercase tracking-[0.16em] text-primary">
+                {section.localContext.eyebrow}
+              </p>
+              <h3 class="am-text-subtitle mt-4 text-balance text-on-surface">
+                {section.localContext.title}
+              </h3>
+              <div class="mt-6 space-y-5">
+                {section.localContext.paragraphs.map((paragraph) => (
+                  <p class="am-text-body leading-relaxed text-on-surface-variant">
+                    <InlineEmphasis text={paragraph} />
+                  </p>
+                ))}
+              </div>
+            </article>
+
+            <article class="border-t border-primary/30 pt-6">
+              <p class="font-label text-[10px] font-bold uppercase tracking-[0.16em] text-primary">
+                {section.amaraContext.eyebrow}
+              </p>
+              <h3 class="am-text-subtitle mt-4 text-balance text-on-surface">
+                {section.amaraContext.title}
+              </h3>
+              <div class="mt-6 space-y-5">
+                {section.amaraContext.paragraphs.map((paragraph) => (
+                  <p class="am-text-body leading-relaxed text-on-surface-variant">
+                    <InlineEmphasis text={paragraph} />
+                  </p>
+                ))}
+              </div>
+            </article>
+
+            {section.guestGuideNote && (
+              <aside class="border-l-2 border-primary/45 bg-surface-container-high px-6 py-5 sm:col-span-2">
+                <p class="am-text-body leading-relaxed text-on-surface">
+                  <InlineEmphasis text={section.guestGuideNote} />
+                </p>
+              </aside>
+            )}
+          </div>
+        </div>
+      </section>
+    ))
+  }
+</div>

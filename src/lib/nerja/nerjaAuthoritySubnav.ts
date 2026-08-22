@@ -32,8 +32,14 @@ const topicLinks: Record<LocationGuideTopicId, LinkToken | undefined> = {
   'winter-stays': 'nerja_winter_stays',
   'parking-accessibility': 'nerja_parking',
   'shopping-markets': 'nerja_daily_life',
-  'health-emergency': undefined,
-  'practical-local-rules': undefined
+  'health-emergency': 'nerja_daily_life',
+  'practical-local-rules': 'nerja_daily_life'
+};
+
+const topicAnchors: Partial<Record<LocationGuideTopicId, string>> = {
+  'shopping-markets': 'supermarkets-everyday-shopping',
+  'health-emergency': 'health-emergency',
+  'practical-local-rules': 'good-to-know'
 };
 
 const makeTopicItem = (
@@ -48,7 +54,7 @@ const makeTopicItem = (
         id: topicId,
         label: topicLabels[topicId],
         status: 'live',
-        href: resolveLink(token, currentLang)
+        href: `${resolveLink(token, currentLang)}${topicAnchors[topicId] ? `#${topicAnchors[topicId]}` : ''}`
       }
     : {
         id: topicId,
