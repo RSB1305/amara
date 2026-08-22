@@ -1,7 +1,7 @@
 ---
 document_id: AMARA-INT-CONTENT-010
-title: AMARA Content Production & Localization Playbook V1.3
-version: 1.3.0
+title: AMARA Content Production & Localization Playbook V1.4
+version: 1.4.0
 status: ACTIVE
 authority_class: OPERATIONAL PLAYBOOK / NON-GOVERNING INTERIM
 source_type: INTERIM SNAPSHOT FROM APPROVED PDF + APPROVED REPOSITORY AMENDMENT
@@ -9,7 +9,7 @@ source_attachment: "10_AMARA_Content_Production_and_Localization_Playbook_V1_2(1
 source_sha256: adab58c901709b270fb264498158f2cb3010006bac7dfea18e6358627a0f10ae
 snapshot_created: 2026-08-14T09:08:00+02:00
 migration_state: PENDING PACKAGE 2/3 NORMALIZATION
-last_modified: 2026-08-21T22:14:30+02:00
+last_modified: 2026-08-22T07:48:36+02:00
 ---
 
 # AMARA Content Production & Localization Playbook V1.2 — Interim Markdown Snapshot
@@ -705,9 +705,20 @@ The authorial voice answers who is speaking; provenance answers how AMARA knows.
 
 All five editions receive the same required facts, page job, claim boundaries and intended meaning. EN is not a sentence template. Each edition is drafted and reviewed as native copy, including its own sentence rhythm, transitions, directness and natural use of plural address.
 
+20. Public-to-guest depth and transition copy
+
+Public copy must satisfy the page's durable search, trust and stay-decision job before it refers to the Digital Guest Guide. It should explain what prospective guests need in order to understand the destination or make a booking decision, while exact property routes, live operational contacts, current opening checks, house or community instructions and accommodation-specific host recommendations belong to the booked-guest layer.
+
+Where that deeper layer is relevant, use one concise transition block per page after the useful public core, not repeated boilerplate after individual sections. The meaning is:
+
+> What guests need before booking is explained here. After booking, AMARA provides the concrete recommendations, routes and current information for their accommodation in the Digital Guest Guide.
+
+This is a meaning reference, not an English master sentence. Each locale writes it natively in the collective host voice and plural guest address. The associated CTA uses the approved centralized booking/availability path and a natural availability or accommodation-selection intent. It must not imply that essential safety information is withheld until booking.
+
 ## Revision history
 
 | Version | Timestamp | Change |
 |---|---|---|
 | 1.2 | 2026-08-10 | Approved source playbook preserved as the interim Markdown snapshot. |
 | 1.3.0 | 2026-08-21T22:14:30+02:00 | Added the collective host perspective, plural guest-address matrix and evidence-to-host-voice workflow. |
+| 1.4.0 | 2026-08-22T07:48:36+02:00 | Added the public-to-booked-guest depth boundary and the native contextual transition-block rule. |

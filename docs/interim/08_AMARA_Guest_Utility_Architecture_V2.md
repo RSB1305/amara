@@ -1,14 +1,15 @@
 ---
 document_id: AMARA-INT-UTILITY-008
-title: AMARA Guest Utility Architecture V2
-version: 2.0
+title: AMARA Guest Utility Architecture V2.1
+version: 2.1.0
 status: ACTIVE
 authority_class: FEATURE CONTRACT / INTERIM
-source_type: INTERIM SNAPSHOT FROM APPROVED PDF
+source_type: INTERIM SNAPSHOT FROM APPROVED PDF + APPROVED REPOSITORY AMENDMENT
 source_attachment: "08_AMARA_Guest_Utility_Architecture_V2(1).pdf"
 source_sha256: 873664ad2c175cb8a5fcb2b219c5b89ff605a8986445862cf59b10a7480db032
 snapshot_created: 2026-08-14T09:08:00+02:00
 migration_state: PENDING PACKAGE 2/3 NORMALIZATION
+last_modified: 2026-08-22T07:48:36+02:00
 ---
 
 # AMARA Guest Utility Architecture V2 — Interim Markdown Snapshot
@@ -121,3 +122,30 @@ This document is a feature architecture reference, not a governing constitution.
 If it conflicts with AMARA Core, Astro Technical, Runtime/SEO, URL/Route, Governance, or Performance
 standards, those governing documents prevail.
 AMARA Guest Utility Architecture V2 defines the current public/guest separation model.
+
+## Approved repository amendment — public versus booked-guest depth
+
+This amendment implements `DR-GUEST-001` without changing the Guest Guide shell, indexing or booking-boundary contracts above.
+
+11. Public usefulness and booked-guest value
+
+Public destination content must remain useful from search or direct entry and must answer its dominant pre-booking or trip-planning question. It is not a teaser that withholds the answer solely to force a booking. Essential safety information, material booking limitations and universal emergency orientation must not depend on Guest Guide access.
+
+The Digital Guest Guide is the deeper operational layer for guests preparing for or already taking an AMARA stay. It may contain:
+
+- property-specific routes, map points, access details and arrival steps;
+- current contacts, opening checks and official live-service links;
+- concrete host recommendations and dated first-party observations;
+- property, community, waste and other stay-specific instructions;
+- low-friction actions needed during the actual stay.
+
+Public pages should normally give the durable context, meaningful alternatives and planning implications. They may then explain once, after the useful public core, that more detailed and accommodation-specific guidance is supplied to booked guests in the Digital Guest Guide. Do not repeat this message after every section or use Guest Utility as a hidden dependency for public comprehension.
+
+The transition block must be native in EN, DE, ES, NL and SV, use the collective host perspective and plural guest address, and point to the approved booking or availability path rather than exposing private Guest Guide routes. Its booking CTA follows the active centralized booking contract; the preferred intent is availability or accommodation selection rather than a claim that safety-critical information is available only after payment.
+
+## Revision history
+
+| Version | Timestamp | Change |
+|---|---|---|
+| 2.0 | 2026-08-10 | Approved source architecture preserved as the interim Markdown snapshot. |
+| 2.1.0 | 2026-08-22T07:48:36+02:00 | Added the public-usefulness, booked-guest operational-depth and contextual transition-block boundary. |
