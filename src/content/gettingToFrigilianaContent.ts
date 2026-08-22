@@ -252,11 +252,11 @@ export const gettingToFrigilianaCopy = {
       sv: 'Tre praktiska sätt att ta sig hit'
     } satisfies LocalizedText,
     intro: {
-      en: 'There is no single best choice for every stay. Compare flexibility, effort, and the connection after landing.',
-      de: 'Es gibt nicht für jeden Aufenthalt dieselbe beste Lösung. Vergleicht Flexibilität, Aufwand und die Weiterfahrt nach der Landung.',
-      es: 'No existe una opción perfecta para todas las estancias. Comparad flexibilidad, esfuerzo y la conexión después del aterrizaje.',
-      nl: 'Er is niet één beste keuze voor elk verblijf. Vergelijk vrijheid, inspanning en de aansluiting na de landing.',
-      sv: 'Det finns inget enda alternativ som passar alla vistelser. Jämför frihet, ansträngning och anslutningen efter landning.'
+      en: 'We always take a rental car ourselves. It costs extra, but the flexibility has been worth it every time. Transfers and buses work too — compare effort, cost and the connection after landing.',
+      de: 'Wir selbst nehmen immer einen Mietwagen. Er kostet extra, aber die Flexibilität war es uns bisher jedes Mal wert. Transfer und Bus funktionieren ebenfalls – vergleicht Aufwand, Kosten und die Weiterfahrt nach der Landung.',
+      es: 'Nosotros siempre alquilamos coche. Cuesta más, pero la flexibilidad nos ha compensado cada vez. El transfer y el autobús también funcionan: comparad esfuerzo, coste y la conexión después de aterrizar.',
+      nl: 'Zelf nemen we altijd een huurauto. Dat kost extra, maar de vrijheid was het ons tot nu toe elke keer waard. Transfer en bus werken ook — vergelijk moeite, kosten en de aansluiting na de landing.',
+      sv: 'Själva tar vi alltid hyrbil. Det kostar extra, men friheten har varit värd det varje gång. Transfer och buss fungerar också – jämför besvär, kostnad och anslutningen efter landningen.'
     } satisfies LocalizedText,
     labels: {
       timing: {
@@ -570,11 +570,18 @@ export const gettingToFrigilianaCopy = {
       sv: 'Det är enkelt att nå byn. Att ta sig runt i den är något annat.'
     } satisfies LocalizedText,
     body: {
-      en: 'Frigiliana rises steeply above the coast. The historic lanes include slopes, steps, and limited vehicle access, so the final approach depends on where you are staying. If you are arriving at La AMARA, continue with the dedicated guide for the recommended drop-off point and the walking route to the green door.',
-      de: 'Frigiliana steigt steil über der Küste an. In den historischen Gassen gibt es Steigungen, Treppen und eingeschränkten Fahrzeugzugang. Deshalb hängt die letzte Etappe von eurer Unterkunft ab. Wenn ihr bei La AMARA ankommt, führt euch der eigene Guide zum empfohlenen Ausstiegspunkt und weiter zu Fuß bis zur grünen Tür.',
-      es: 'Frigiliana se eleva con bastante desnivel sobre la costa. Sus calles históricas tienen cuestas, escaleras y acceso limitado para vehículos, por lo que el último tramo depende de vuestro alojamiento. Si llegáis a La AMARA, continuad con la guía específica para ver el punto recomendado para bajar y el camino a pie hasta la puerta verde.',
-      nl: 'Frigiliana ligt steil boven de kust. De historische straatjes hebben hellingen, trappen en beperkte autotoegang, waardoor het laatste traject afhangt van jullie verblijf. Komen jullie naar La AMARA, ga dan verder met de aparte gids voor de aanbevolen afzetplek en de looproute naar de groene deur.',
-      sv: 'Frigiliana reser sig brant över kusten. De historiska gränderna har lutningar, trappor och begränsad biltrafik, så den sista sträckan beror på var ni bor. Om ni ska till La AMARA fortsätter ni med den särskilda guiden till den rekommenderade avlämningsplatsen och gångvägen fram till den gröna dörren.'
+      en: 'Frigiliana rises steeply above the coast, and only two streets really run through the village: Calle Real and its continuation, Calle Chorruelo. Both are very narrow, and because of the day visitors the local police usually close them from around ten or eleven in the morning until roughly five in the afternoon.',
+      de: 'Frigiliana steigt steil über der Küste an, und durch das Dorf führen praktisch nur zwei Straßen: die Calle Real und ihre Verlängerung, die Calle Chorruelo. Beide sind sehr eng – und weil tagsüber viele Tagesbesucher kommen, sperrt die örtliche Polizei sie meist zwischen zehn und elf Uhr bis etwa 17 Uhr.',
+      es: 'Frigiliana se eleva con fuerte desnivel sobre la costa y por el pueblo solo pasan realmente dos calles: la calle Real y su prolongación, la calle Chorruelo. Ambas son muy estrechas y, por la afluencia de visitantes de día, la policía local suele cerrarlas entre las diez u once de la mañana y las cinco de la tarde aproximadamente.',
+      nl: 'Frigiliana ligt steil boven de kust en door het dorp lopen eigenlijk maar twee straten: Calle Real en het verlengde daarvan, Calle Chorruelo. Beide zijn erg smal, en vanwege de dagbezoekers sluit de lokale politie ze meestal van ongeveer tien of elf uur in de ochtend tot een uur of vijf in de middag.',
+      sv: 'Frigiliana reser sig brant över kusten, och genom byn går egentligen bara två gator: Calle Real och dess förlängning Calle Chorruelo. Båda är mycket smala, och på grund av dagsbesökarna stänger den lokala polisen dem oftast från omkring tio eller elva på förmiddagen till cirka fem på eftermiddagen.'
+    } satisfies LocalizedText,
+    access: {
+      en: 'So plan your arrival for the early morning or the later afternoon. From the main road below the old town it is about 150 metres over cobbles to our front door, with roughly 30 steps and a noticeable climb — three to five minutes depending on your pace. In Frigiliana the height almost always matters more than the distance.',
+      de: 'Plant eure Ankunft deshalb am besten für den frühen Vormittag oder den späteren Nachmittag. Von der Hauptstraße unterhalb der Altstadt sind es zu unserer Haustür rund 150 Meter über Kopfsteinpflaster, mit etwa 30 Stufen und spürbar bergauf – je nach Kondition drei bis fünf Minuten. In Frigiliana zählen die Höhenmeter fast immer mehr als die Entfernung.',
+      es: 'Por eso conviene planificar la llegada para primera hora de la mañana o para la tarde. Desde la carretera principal, bajo el casco antiguo, hay unos 150 metros de empedrado hasta nuestra puerta, con alrededor de 30 escalones y una subida que se nota: entre tres y cinco minutos según el ritmo. En Frigiliana casi siempre cuenta más el desnivel que la distancia.',
+      nl: 'Plan jullie aankomst daarom het liefst vroeg in de ochtend of later in de middag. Vanaf de hoofdweg onder de oude kern is het ongeveer 150 meter over kasseien tot onze voordeur, met ongeveer 30 treden en een stevige klim — drie tot vijf minuten, afhankelijk van jullie tempo. In Frigiliana telt het hoogteverschil bijna altijd zwaarder dan de afstand.',
+      sv: 'Planera därför ankomsten till tidig förmiddag eller senare eftermiddag. Från huvudvägen nedanför gamla stan är det ungefär 150 meter över kullersten till vår ytterdörr, med omkring 30 trappsteg och en tydlig stigning – tre till fem minuter beroende på tempo. I Frigiliana är det nästan alltid höjdmetrarna som räknas mer än avståndet.'
     } satisfies LocalizedText,
     parkingCta: {
       en: 'Understand parking in Frigiliana',
