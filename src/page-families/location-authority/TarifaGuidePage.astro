@@ -178,12 +178,13 @@ const footerHighlights: LabeledLink[] = [
     slot="navigation"
     currentLang={currentLang}
     languageToken={content.token}
-  />
-  <TarifaContextNav
-    activeId={content.id}
-    currentLabel={t(content.breadcrumbLabel)}
-    lang={currentLang}
-  />
+  >
+    <TarifaContextNav slot="context-navigation"
+      activeId={content.id}
+      currentLabel={t(content.breadcrumbLabel)}
+      lang={currentLang}
+    />
+  </Navigation>
 
   {locationCopy ? (
     <article class="bg-surface" data-am-page="tarifa-overview">

@@ -40,8 +40,9 @@ const footerHighlights: LabeledLink[] = [
     slot="navigation"
     currentLang={currentLang}
     languageToken="frigiliana_winter_stays"
-  />
-  <LocationContextNav activeId="winter" lang={currentLang} />
+  >
+    <LocationContextNav slot="context-navigation" activeId="winter" lang={currentLang} />
+  </Navigation>
 
   <WinterStaysAuthorityArticle
     pageId="frigiliana-winter-stays"

@@ -83,8 +83,9 @@ const heroImage = {
     currentLang={currentLang}
     currentToken="frigiliana_experience_hub"
     languageToken="frigiliana_experience_hub"
-  />
-  <ExperienceContextNav lang={currentLang} />
+  >
+    <ExperienceContextNav slot="context-navigation" lang={currentLang} />
+  </Navigation>
 
   <div data-am-page="frigiliana-experience-hub" data-am-family="experience" data-am-role="hub">
     <div class="w-full">

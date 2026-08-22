@@ -34,10 +34,12 @@ function initGlobalNavigation(): void {
   const languageTrigger = header.querySelector<HTMLElement>('[data-am-language-trigger]');
   const desktopGroups = Array.from(header.querySelectorAll<HTMLElement>('.am-nav__group'));
   const desktopQuery = window.matchMedia(DESKTOP_QUERY);
+  const hasContextNavigation = header.hasAttribute('data-am-navigation-contextual');
   const interactionRoot = header.closest<HTMLElement>('[data-am-interaction-root]');
 
   let mobileInertRecords: InertRecord[] = [];
   let mobileBackgroundIsInert = false;
+  let scrollFrameRequested = false;
 
   const collectMobileInertTargets = (): HTMLElement[] => {
     const targets: HTMLElement[] = [];
@@ -177,7 +179,12 @@ function initGlobalNavigation(): void {
 
   const setMenuOpen = (open: boolean): void => {
     if (!menuTrigger || !mobileMenu) return;
-    mobileMenu.hidden = !open;
+    if (mobileMenu.classList.contains('am-nav-mobile--contextual')) {
+      mobileMenu.hidden = false;
+      mobileMenu.toggleAttribute('data-am-contextual-closed', !open);
+    } else {
+      mobileMenu.hidden = !open;
+    }
     menuTrigger.setAttribute('aria-expanded', open ? 'true' : 'false');
     const nextLabel = open
       ? menuTrigger.getAttribute('data-label-close')
@@ -268,11 +275,34 @@ function initGlobalNavigation(): void {
     }
   });
 
+  const syncScrollState = (): void => {
+    scrollFrameRequested = false;
+    const hidden = hasContextNavigation && desktopQuery.matches && window.scrollY > 64;
+    const wasHidden = header.getAttribute('data-am-scroll-hidden') === 'true';
+    if (hidden === wasHidden) return;
+
+    header.setAttribute('data-am-scroll-hidden', hidden ? 'true' : 'false');
+    if (hidden) {
+      closeDesktopGroups();
+      closeLanguage();
+    }
+  };
+
+  const requestScrollSync = (): void => {
+    if (scrollFrameRequested) return;
+    scrollFrameRequested = true;
+    window.requestAnimationFrame(syncScrollState);
+  };
+
+  window.addEventListener('scroll', requestScrollSync, { passive: true });
+
   const handleDesktopChange = (event: MediaQueryListEvent): void => {
     if (event.matches) setMenuOpen(false);
     closeDesktopGroups();
+    syncScrollState();
   };
   if (desktopQuery.addEventListener) desktopQuery.addEventListener('change', handleDesktopChange);
+  syncScrollState();
 }
 
 initGlobalNavigation();

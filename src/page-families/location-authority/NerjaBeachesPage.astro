@@ -36,8 +36,9 @@ const heroImage = {
 ---
 
 <LocationAuthorityLayout seo={nerjaBeachesSeo} pageLang={currentLang} footerHighlights={footerHighlights}>
-  <Navigation slot="navigation" currentLang={currentLang} languageToken="nerja_beaches_authority" />
-  <ExperienceContextNav currentId="beaches" destination="nerja" lang={currentLang} />
+  <Navigation slot="navigation" currentLang={currentLang} languageToken="nerja_beaches_authority" >
+    <ExperienceContextNav slot="context-navigation" currentId="beaches" destination="nerja" lang={currentLang} />
+  </Navigation>
 
   <div data-am-page="nerja-beaches">
     <LocationExperienceHero

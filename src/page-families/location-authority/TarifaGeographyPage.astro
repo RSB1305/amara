@@ -52,14 +52,15 @@ const landscapeIcons: LocationGuideIconName[] = [
     slot="navigation"
     currentLang={currentLang}
     languageToken="tarifa_geography"
-  />
-  <TarifaContextNav
-    activeId="overview"
-    activeChildId="geography-orientation"
-    currentLabel="Tarifa"
-    childLabel={content.navLabel}
-    lang={currentLang}
-  />
+  >
+    <TarifaContextNav slot="context-navigation"
+      activeId="overview"
+      activeChildId="geography-orientation"
+      currentLabel="Tarifa"
+      childLabel={content.navLabel}
+      lang={currentLang}
+    />
+  </Navigation>
 
   <AuthorityArticle
     pageId="tarifa-geography"

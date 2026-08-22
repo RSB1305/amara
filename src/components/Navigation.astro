@@ -30,6 +30,7 @@ interface Props {
 }
 
 const { currentLang, currentToken, languageToken, showBookingCta = true } = Astro.props;
+const hasContextNavigation = Astro.slots.has('context-navigation');
 
 const { brandHref, utilityLabels, groups, languageOptions, cta } = createGlobalNavigationModel({
   currentLang,
@@ -40,8 +41,9 @@ const { brandHref, utilityLabels, groups, languageOptions, cta } = createGlobalN
 ---
 
 <header
-  class="fixed top-0 left-0 w-full z-[100] border-b border-outline-variant/5 bg-surface px-6 py-5 lg:px-12 lg:py-6"
+  class="fixed top-0 left-0 w-full z-[100] border-b border-outline-variant/5 bg-surface px-6 py-5 lg:px-12 lg:py-4"
   data-am-navigation
+  data-am-navigation-contextual={hasContextNavigation ? '' : undefined}
 >
   <div class="am-nav max-w-screen-2xl mx-auto">
     <div class="am-nav__brand">
@@ -69,10 +71,15 @@ const { brandHref, utilityLabels, groups, languageOptions, cta } = createGlobalN
   <GlobalNavigationMobile
     groups={groups}
     cta={cta}
+    hasContextNavigation={hasContextNavigation}
     showBookingCta={showBookingCta}
     navigationLabel={utilityLabels.mobileNavigation}
-  />
+  >
+    {hasContextNavigation && <slot name="context-navigation" />}
+  </GlobalNavigationMobile>
 </header>
+
+{hasContextNavigation && <div class="am-nav-context-spacer" aria-hidden="true"></div>}
 
 <script>
   import './navigation/globalNavigation.client';

@@ -41,14 +41,15 @@ const footerHighlights: LabeledLink[] = [
     slot="navigation"
     currentLang={currentLang}
     languageToken="tarifa_winter_stays"
-  />
-  <TarifaContextNav
-    activeId="overview"
-    activeChildId="winter-stays"
-    currentLabel="Tarifa"
-    childLabel={content.navLabel}
-    lang={currentLang}
-  />
+  >
+    <TarifaContextNav slot="context-navigation"
+      activeId="overview"
+      activeChildId="winter-stays"
+      currentLabel="Tarifa"
+      childLabel={content.navLabel}
+      lang={currentLang}
+    />
+  </Navigation>
 
   <WinterStaysAuthorityArticle
     pageId="tarifa-winter-stays"

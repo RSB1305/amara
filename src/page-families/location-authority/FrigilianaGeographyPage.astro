@@ -49,8 +49,9 @@ const landscapeIcons: LocationGuideIconName[] = [
     slot="navigation"
     currentLang={currentLang}
     languageToken="frigiliana_geography"
-  />
-  <LocationContextNav activeId="geography" lang={currentLang} />
+  >
+    <LocationContextNav slot="context-navigation" activeId="geography" lang={currentLang} />
+  </Navigation>
 
   <AuthorityArticle
     pageId="frigiliana-geography"

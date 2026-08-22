@@ -34,10 +34,8 @@ interface Props {
   breadcrumbAriaLabel: string;
   breadcrumbs: ContextNavigationBreadcrumb[];
   context: 'experience' | 'location';
-  currentPageLabel?: string;
   groups?: ContextNavigationGroup[];
   items?: ContextNavigationItem[];
-  mobileNavigationLabel?: string;
   retainActiveItem?: boolean;
   switcherAriaLabel: string;
   wrapItems?: boolean;
@@ -51,10 +49,8 @@ const {
   breadcrumbAriaLabel,
   breadcrumbs,
   context,
-  currentPageLabel,
   groups = [],
   items = [],
-  mobileNavigationLabel,
   retainActiveItem = false,
   switcherAriaLabel,
   wrapItems = false
@@ -67,19 +63,52 @@ const visibleItems = activeId && !retainActiveItem
   : items;
 ---
 
-<div
-  class="border-b border-outline-variant/10 bg-surface"
-  data-am-context-navigation
-  data-am-experience-context={context === 'experience' ? '' : undefined}
-  data-am-location-context={context === 'location' ? '' : undefined}
->
-  <div class="mx-auto max-w-screen-2xl px-6 py-5 md:px-12">
-    <div class="flex flex-col gap-5 xl:min-h-8 xl:flex-row xl:items-start xl:justify-between">
+<div data-am-context-navigation-shell={groups.length > 0 ? '' : undefined}>
+  <div
+    class="border-b border-outline-variant/10 bg-surface"
+    data-am-context-navigation
+    data-am-context-navigation-grouped={groups.length > 0 ? '' : undefined}
+    data-am-experience-context={context === 'experience' ? '' : undefined}
+    data-am-location-context={context === 'location' ? '' : undefined}
+  >
+  <div
+    class:list={[
+      'mx-auto max-w-screen-2xl px-6 md:px-12',
+      groups.length > 0 ? 'py-1.5 xl:py-1' : 'py-5'
+    ]}
+    data-am-context-inner
+  >
+    <div
+      class:list={[
+        groups.length > 0
+          ? 'grid min-h-10 grid-cols-[minmax(0,1fr)_auto_auto] items-center gap-x-2 md:gap-x-3'
+          : 'flex flex-col gap-5 xl:min-h-8',
+        groups.length > 0
+          ? undefined
+          : 'xl:flex-row xl:items-start xl:justify-between'
+      ]}
+      data-am-context-layout={groups.length > 0 ? '' : undefined}
+    >
       {
         breadcrumbs.length > 0 && (
-      <div class="flex flex-wrap items-center justify-between gap-x-8 gap-y-3">
+      <div
+        class:list={[
+          'min-w-0',
+          groups.length > 0
+            ? 'overflow-hidden'
+            : 'flex flex-wrap items-center justify-between gap-x-8 gap-y-3'
+        ]}
+        data-am-context-breadcrumb-row
+      >
         <nav aria-label={breadcrumbAriaLabel}>
-          <ol class="flex flex-wrap items-center gap-2 font-label text-[10px] font-semibold uppercase tracking-[0.14em] text-on-surface/70">
+          <ol
+            class:list={[
+              'flex items-center font-label font-semibold uppercase text-on-surface/70',
+              groups.length > 0
+                ? 'min-w-0 flex-nowrap gap-1 text-[9px] tracking-[0.08em] md:gap-2 xl:text-[10px] xl:tracking-[0.14em]'
+                : 'flex-wrap gap-2 text-[10px] tracking-[0.14em]'
+            ]}
+          >
             {
               breadcrumbs.map((breadcrumb, index) => {
                 const isCurrent = index === breadcrumbs.length - 1;
@@ -87,13 +116,22 @@ const visibleItems = activeId && !retainActiveItem
                 return (
                   <>
                     {index > 0 && (
-                      <li aria-hidden="true" class="text-outline-variant/60">
+                      <li
+                        aria-hidden="true"
+                        class="text-outline-variant/60"
+                        data-am-context-mobile-hidden={index > 1 ? '' : undefined}
+                      >
                         /
                       </li>
                     )}
                     <li
                       aria-current={isCurrent ? 'page' : undefined}
-                      class:list={[isCurrent && 'text-on-surface']}
+                      class:list={[
+                        'truncate',
+                        index < 2 && 'shrink-0',
+                        isCurrent && 'text-on-surface'
+                      ]}
+                      data-am-context-mobile-hidden={index > 1 ? '' : undefined}
                     >
                       {breadcrumb.href && !isCurrent ? (
                         <a
@@ -118,7 +156,15 @@ const visibleItems = activeId && !retainActiveItem
       }
 
       {(branches.length > 0 || groups.length > 0 || visibleItems.length > 0) && (
-      <div class="flex min-w-0 flex-col gap-3 xl:ml-auto xl:items-end">
+      <div
+        class:list={[
+          'flex min-w-0 gap-3',
+          groups.length > 0
+            ? 'contents'
+            : 'flex-col xl:ml-auto xl:items-end'
+        ]}
+        data-am-context-toolbar={groups.length > 0 ? '' : undefined}
+      >
         {branches.length > 0 && branchSwitcherAriaLabel && (
           <DestinationBranchSwitcher
             activeId={activeBranchId}
@@ -126,13 +172,11 @@ const visibleItems = activeId && !retainActiveItem
             items={branches}
           />
         )}
-        {groups.length > 0 && currentPageLabel && mobileNavigationLabel ? (
+        {groups.length > 0 ? (
           <GroupedContextNavigation
             activeId={activeId}
             context={context}
-            currentPageLabel={currentPageLabel}
             groups={groups}
-            mobileLabel={mobileNavigationLabel}
             navigationAriaLabel={switcherAriaLabel}
           />
         ) : visibleItems.length > 0 && (
@@ -190,4 +234,48 @@ const visibleItems = activeId && !retainActiveItem
       )}
     </div>
   </div>
+  </div>
 </div>
+
+<style>
+  @media (max-width: 1279px) {
+    [data-am-context-navigation-shell] {
+      min-height: 53px;
+    }
+
+    [data-am-context-navigation][data-am-context-navigation-grouped]
+      [data-am-context-mobile-hidden] {
+      display: none;
+    }
+  }
+
+  @media (min-width: 1280px) {
+    [data-am-context-layout] {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 52rem);
+      align-items: start;
+      column-gap: 2rem;
+    }
+
+    [data-am-context-breadcrumb-row] {
+      grid-column: 1;
+      grid-row: 1;
+      padding-top: 0.5rem;
+    }
+
+    [data-am-context-toolbar] {
+      grid-column: 2;
+      grid-row: 1;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      gap: 0.25rem 0.75rem;
+    }
+
+    [data-am-context-toolbar] [data-am-grouped-context-navigation] {
+      flex-basis: 100%;
+      width: 100%;
+    }
+  }
+
+</style>

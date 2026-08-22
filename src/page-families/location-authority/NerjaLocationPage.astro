@@ -226,8 +226,9 @@ const footerHighlights: LabeledLink[] = [
     slot="navigation"
     currentLang={currentLang}
     languageToken="nerja_where_to_stay"
-  />
-  <NerjaContextNav activeId="where-to-stay" childLabel={whereToStayLabel} lang={currentLang} />
+  >
+    <NerjaContextNav slot="context-navigation" activeId="where-to-stay" childLabel={whereToStayLabel} lang={currentLang} />
+  </Navigation>
 
   <div data-am-page="nerja-where-to-stay" data-am-family="location" data-am-role="spoke" data-am-topic="where-to-stay">
     <div class="w-full">

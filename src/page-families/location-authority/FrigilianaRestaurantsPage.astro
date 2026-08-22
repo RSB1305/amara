@@ -66,8 +66,9 @@ const heroImage = {
     slot="navigation"
     currentLang={currentLang}
     languageToken="frigiliana_food_authority"
-  />
-  <ExperienceContextNav currentId="restaurants" lang={currentLang} />
+  >
+    <ExperienceContextNav slot="context-navigation" currentId="restaurants" lang={currentLang} />
+  </Navigation>
 
   <div data-am-page="frigiliana-restaurants">
     <div class="w-full">

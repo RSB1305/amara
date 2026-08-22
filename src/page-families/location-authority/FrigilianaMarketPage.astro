@@ -104,8 +104,9 @@ const ingenioImage = {
     slot="navigation"
     currentLang={currentLang}
     languageToken="frigiliana_market"
-  />
-  <ExperienceContextNav currentId="market" lang={currentLang} />
+  >
+    <ExperienceContextNav slot="context-navigation" currentId="market" lang={currentLang} />
+  </Navigation>
 
   <div data-am-page="frigiliana-market">
     <div class="w-full">

@@ -44,8 +44,9 @@ const footerHighlights: LabeledLink[] = [
     currentLang={currentLang}
     currentToken={TARIFA_EXPERIENCE_TOKEN}
     languageToken={TARIFA_EXPERIENCE_TOKEN}
-  />
-  <ExperienceContextNav destination="tarifa" lang={currentLang} />
+  >
+    <ExperienceContextNav slot="context-navigation" destination="tarifa" lang={currentLang} />
+  </Navigation>
 
   <article class="bg-surface" data-am-page="tarifa-experience" data-am-family="experience" data-am-role="hub">
     <LocationExperienceHero

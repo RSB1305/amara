@@ -42,8 +42,9 @@ const footerHighlights: LabeledLink[] = [
     slot="navigation"
     currentLang={currentLang}
     languageToken="nerja_verano_azul"
-  />
-  <ExperienceContextNav currentId="veranoAzul" destination="nerja" lang={currentLang} />
+  >
+    <ExperienceContextNav slot="context-navigation" currentId="veranoAzul" destination="nerja" lang={currentLang} />
+  </Navigation>
 
   <AuthorityArticle
     pageId="nerja-verano-azul"

@@ -47,7 +47,6 @@ const labels: Record<
   AmaraLanguage,
   {
     breadcrumb: string;
-    guide: string;
     switcher: string;
     experience: string;
     experienceDining: string;
@@ -57,7 +56,6 @@ const labels: Record<
 > = {
   en: {
     breadcrumb: 'Breadcrumb',
-    guide: 'Tarifa guide',
     switcher: 'Tarifa guide navigation',
     experience: 'Experience',
     experienceDining: 'Dining & Taste',
@@ -66,7 +64,6 @@ const labels: Record<
   },
   de: {
     breadcrumb: 'Brotkrümelnavigation',
-    guide: 'Tarifa-Guide',
     switcher: 'Navigation im Tarifa-Guide',
     experience: 'Erlebnisse',
     experienceDining: 'Kulinarik & Genuss',
@@ -75,7 +72,6 @@ const labels: Record<
   },
   es: {
     breadcrumb: 'Migas de pan',
-    guide: 'Guía de Tarifa',
     switcher: 'Navegación de la guía de Tarifa',
     experience: 'Experiencias',
     experienceDining: 'Gastronomía & Sabor',
@@ -84,7 +80,6 @@ const labels: Record<
   },
   nl: {
     breadcrumb: 'Broodkruimelnavigatie',
-    guide: 'Tarifa-gids',
     switcher: 'Navigatie van de Tarifa-gids',
     experience: 'Ervaringen',
     experienceDining: 'Culinair & Genieten',
@@ -93,7 +88,6 @@ const labels: Record<
   },
   sv: {
     breadcrumb: 'Brödsmulenavigering',
-    guide: 'Tarifa-guide',
     switcher: 'Navigering i Tarifa-guiden',
     experience: 'Upplevelser',
     experienceDining: 'Mat & Smaker',
@@ -175,10 +169,6 @@ const allChildren = navigationGroups.flatMap((group) => group.items);
 const activeTopicId = inferredChildId
   ? allChildren.find((item) => item.id === inferredChildId)?.id
   : undefined;
-const currentPageLabel = activeTopicId
-  ? allChildren.find((item) => item.id === activeTopicId)?.label
-  : currentLabel;
-
 const branchNavigation = getDestinationBranchNavigation('tarifa', lang);
 const homeHref = resolveOptionalLink('home', lang, {
   suppressMissing: true
@@ -230,9 +220,7 @@ if (childLabel) {
   breadcrumbAriaLabel={copy.breadcrumb}
   breadcrumbs={breadcrumbs}
   context="location"
-  currentPageLabel={currentPageLabel}
   groups={navigationGroups}
-  mobileNavigationLabel={copy.guide}
   retainActiveItem={true}
   switcherAriaLabel={copy.switcher}
   items={[]}

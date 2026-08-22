@@ -60,8 +60,9 @@ const heroImage = {
     slot="navigation"
     currentLang={currentLang}
     languageToken="nerja_nightlife_authority"
-  />
-  <ExperienceContextNav currentId="nightlife" destination="nerja" lang={currentLang} />
+  >
+    <ExperienceContextNav slot="context-navigation" currentId="nightlife" destination="nerja" lang={currentLang} />
+  </Navigation>
 
   <div data-am-page="nerja-nightlife">
     <div class="w-full">

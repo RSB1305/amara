@@ -126,8 +126,9 @@ const heroImage = {
     slot="navigation"
     currentLang={currentLang}
     languageToken="frigiliana_faq"
-  />
-  <LocationContextNav activeId="faq" lang={currentLang} />
+  >
+    <LocationContextNav slot="context-navigation" activeId="faq" lang={currentLang} />
+  </Navigation>
 
   <div data-am-page="frigiliana-faq" data-am-family="location" data-am-role="spoke" data-am-topic="faq">
     <div class="w-full">

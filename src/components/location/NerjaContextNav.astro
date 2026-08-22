@@ -31,33 +31,27 @@ const labels: Record<
   AmaraLanguage,
   {
     breadcrumb: string;
-    guide: string;
     switcher: string;
   }
 > = {
   en: {
     breadcrumb: 'Breadcrumb',
-    guide: 'Nerja guide',
     switcher: 'Nerja guide navigation'
   },
   de: {
     breadcrumb: 'Brotkrümelnavigation',
-    guide: 'Nerja-Guide',
     switcher: 'Navigation im Nerja-Guide'
   },
   es: {
     breadcrumb: 'Migas de pan',
-    guide: 'Guía de Nerja',
     switcher: 'Navegación de la guía de Nerja'
   },
   nl: {
     breadcrumb: 'Broodkruimelnavigatie',
-    guide: 'Nerja-gids',
     switcher: 'Navigatie van de Nerja-gids'
   },
   sv: {
     breadcrumb: 'Brödsmulenavigering',
-    guide: 'Nerja-guide',
     switcher: 'Navigering i Nerja-guiden'
   }
 };
@@ -99,12 +93,6 @@ if (childLabel) {
   breadcrumbs.push({ label: currentTopicLabel });
 }
 
-const currentPageLabel =
-  childLabel ??
-  currentLabel ??
-  currentTopicLabel ??
-  'Nerja';
-
 const groups: ContextNavigationGroup[] = navigationGroups;
 ---
 
@@ -116,10 +104,8 @@ const groups: ContextNavigationGroup[] = navigationGroups;
   breadcrumbAriaLabel={copy.breadcrumb}
   breadcrumbs={breadcrumbs}
   context="location"
-  currentPageLabel={currentPageLabel}
   groups={groups}
   items={[]}
-  mobileNavigationLabel={copy.guide}
   retainActiveItem={true}
   switcherAriaLabel={copy.switcher}
 />

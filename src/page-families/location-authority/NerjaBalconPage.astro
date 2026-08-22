@@ -43,8 +43,9 @@ const footerHighlights: LabeledLink[] = [
     slot="navigation"
     currentLang={currentLang}
     languageToken="nerja_balcon_de_europa"
-  />
-  <ExperienceContextNav currentId="balcon" destination="nerja" lang={currentLang} />
+  >
+    <ExperienceContextNav slot="context-navigation" currentId="balcon" destination="nerja" lang={currentLang} />
+  </Navigation>
 
   <AuthorityArticle
     pageId="nerja-balcon-de-europa"

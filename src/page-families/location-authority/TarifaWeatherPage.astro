@@ -34,8 +34,9 @@ const footerHighlights: LabeledLink[] = [
 ---
 
 <LocationAuthorityLayout seo={seo} pageLang={currentLang} showContextNavigation={false} footerHighlights={footerHighlights}>
-  <Navigation slot="navigation" currentLang={currentLang} languageToken="tarifa_weather" />
-  <TarifaContextNav activeId="overview" activeChildId="weather-seasons" currentLabel="Tarifa" childLabel={content.navLabel} lang={currentLang} />
+  <Navigation slot="navigation" currentLang={currentLang} languageToken="tarifa_weather" >
+    <TarifaContextNav slot="context-navigation" activeId="overview" activeChildId="weather-seasons" currentLabel="Tarifa" childLabel={content.navLabel} lang={currentLang} />
+  </Navigation>
   <WeatherAuthorityBody
     pageId="tarifa-weather"
     content={content}

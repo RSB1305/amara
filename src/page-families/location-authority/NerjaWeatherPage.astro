@@ -29,8 +29,9 @@ const months = locationClimateProfiles[destination].map((month, index) => ({
 ---
 
 <LocationAuthorityLayout seo={seo} pageLang={currentLang} showContextNavigation={false}>
-  <Navigation slot="navigation" currentLang={currentLang} languageToken="nerja_weather" />
-  <NerjaContextNav activeId="weather-seasons" childLabel={content.navLabel} lang={currentLang} />
+  <Navigation slot="navigation" currentLang={currentLang} languageToken="nerja_weather" >
+    <NerjaContextNav slot="context-navigation" activeId="weather-seasons" childLabel={content.navLabel} lang={currentLang} />
+  </Navigation>
   <WeatherAuthorityBody
     pageId="nerja-weather"
     content={content}

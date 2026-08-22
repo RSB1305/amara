@@ -220,14 +220,15 @@ const stayContent: WhereToStayAuthorityContent = {
     slot="navigation"
     currentLang={currentLang}
     languageToken={tarifaWhereToStayContent.token}
-  />
-  <TarifaContextNav
-    activeId="overview"
-    activeChildId="where-to-stay"
-    currentLabel="Tarifa"
-    childLabel={breadcrumbLabels[currentLang]}
-    lang={currentLang}
-  />
+  >
+    <TarifaContextNav slot="context-navigation"
+      activeId="overview"
+      activeChildId="where-to-stay"
+      currentLabel="Tarifa"
+      childLabel={breadcrumbLabels[currentLang]}
+      lang={currentLang}
+    />
+  </Navigation>
 
   <article
     class="bg-surface"

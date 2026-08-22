@@ -29,8 +29,9 @@ const months = locationClimateProfiles[destination].map((month, index) => ({
 ---
 
 <LocationAuthorityLayout seo={seo} pageLang={currentLang} showContextNavigation={false}>
-  <Navigation slot="navigation" currentLang={currentLang} languageToken="weather_frigiliana" />
-  <LocationContextNav activeId="weather" lang={currentLang} />
+  <Navigation slot="navigation" currentLang={currentLang} languageToken="weather_frigiliana" >
+    <LocationContextNav slot="context-navigation" activeId="weather" lang={currentLang} />
+  </Navigation>
   <WeatherAuthorityBody
     pageId="frigiliana-weather"
     content={content}

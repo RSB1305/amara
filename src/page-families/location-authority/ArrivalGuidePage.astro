@@ -76,23 +76,29 @@ const mobilityGridClass = content.mobility?.items.length === 2
     slot="navigation"
     currentLang={currentLang}
     languageToken={content.languageToken}
-  />
-
-  {
-    destination === 'frigiliana' ? (
-      <LocationContextNav activeId="arrival" lang={currentLang} />
-    ) : destination === 'nerja' ? (
-      <NerjaContextNav activeId="arrival-mobility" childLabel={content.navLabel} lang={currentLang} />
-    ) : (
-      <TarifaContextNav
-        activeId="overview"
-        activeChildId="arrival-mobility"
-        currentLabel="Tarifa"
-        childLabel={content.navLabel}
-        lang={currentLang}
-      />
-    )
-  }
+  >
+    {
+      destination === 'frigiliana' ? (
+        <LocationContextNav slot="context-navigation" activeId="arrival" lang={currentLang} />
+      ) : destination === 'nerja' ? (
+        <NerjaContextNav
+          slot="context-navigation"
+          activeId="arrival-mobility"
+          childLabel={content.navLabel}
+          lang={currentLang}
+        />
+      ) : (
+        <TarifaContextNav
+          slot="context-navigation"
+          activeId="overview"
+          activeChildId="arrival-mobility"
+          currentLabel="Tarifa"
+          childLabel={content.navLabel}
+          lang={currentLang}
+        />
+      )
+    }
+  </Navigation>
 
   <AuthorityArticle
     pageId={content.pageId}

@@ -57,19 +57,29 @@ const footerHighlights: LabeledLink[] = [
   showContextNavigation={false}
   footerHighlights={footerHighlights}
 >
-  <Navigation slot="navigation" currentLang={currentLang} languageToken={pageConfig.languageToken} />
-
-  {destination === 'frigiliana' && <LocationContextNav activeId="dailyLife" lang={currentLang} />}
-  {destination === 'nerja' && <NerjaContextNav activeId="shopping-markets" childLabel={content.navLabel} lang={currentLang} />}
-  {destination === 'tarifa' && (
-    <TarifaContextNav
-      activeId="overview"
-      activeChildId="shopping-markets"
-      currentLabel="Tarifa"
-      childLabel={content.navLabel}
-      lang={currentLang}
-    />
-  )}
+  <Navigation slot="navigation" currentLang={currentLang} languageToken={pageConfig.languageToken}>
+    {destination === 'frigiliana' && (
+      <LocationContextNav slot="context-navigation" activeId="dailyLife" lang={currentLang} />
+    )}
+    {destination === 'nerja' && (
+      <NerjaContextNav
+        slot="context-navigation"
+        activeId="shopping-markets"
+        childLabel={content.navLabel}
+        lang={currentLang}
+      />
+    )}
+    {destination === 'tarifa' && (
+      <TarifaContextNav
+        slot="context-navigation"
+        activeId="overview"
+        activeChildId="shopping-markets"
+        currentLabel="Tarifa"
+        childLabel={content.navLabel}
+        lang={currentLang}
+      />
+    )}
+  </Navigation>
 
   <AuthorityArticle
     pageId={`${destination}-daily-life`}

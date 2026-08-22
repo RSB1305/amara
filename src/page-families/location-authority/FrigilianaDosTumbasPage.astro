@@ -59,8 +59,9 @@ const heroImage = {
     slot="navigation"
     currentLang={currentLang}
     languageToken="frigiliana_netflix_dos_tumbas"
-  />
-  <ExperienceContextNav currentId="dosTumbas" destination="frigiliana" lang={currentLang} />
+  >
+    <ExperienceContextNav slot="context-navigation" currentId="dosTumbas" destination="frigiliana" lang={currentLang} />
+  </Navigation>
 
   <div data-am-page="frigiliana-netflix-dos-tumbas">
     <div class="w-full">

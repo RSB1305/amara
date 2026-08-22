@@ -44,46 +44,38 @@ const sharedNavigation = experienceNavigationContent[lang];
 
 const clusterLabels: Record<
   'frigiliana' | 'nerja' | 'tarifa',
-  Record<
-    AmaraLanguage,
-    Record<ClusterLabelKey | 'mobileLabel', string>
-  >
+  Record<AmaraLanguage, Record<ClusterLabelKey, string>>
 > = {
   frigiliana: {
     en: {
       cluster1: 'Food & Local Flavours',
       cluster2: 'Mountains & Coast',
       cluster3: 'Culture & Village Life',
-      cluster4: 'Slow Time & Day Trips',
-      mobileLabel: 'Experiences'
+      cluster4: 'Slow Time & Day Trips'
     },
     de: {
       cluster1: 'Kulinarik & Genuss',
       cluster2: 'Berge & Küste',
       cluster3: 'Kultur & Dorfleben',
-      cluster4: 'Auszeit & Ausflüge',
-      mobileLabel: 'Erlebnisse'
+      cluster4: 'Auszeit & Ausflüge'
     },
     es: {
       cluster1: 'Gastronomía & sabores locales',
       cluster2: 'Montaña & costa',
       cluster3: 'Cultura & vida de pueblo',
-      cluster4: 'Pausa & excursiones',
-      mobileLabel: 'Experiencias'
+      cluster4: 'Pausa & excursiones'
     },
     nl: {
       cluster1: 'Culinair & genieten',
       cluster2: 'Bergen & kust',
       cluster3: 'Cultuur & dorpsleven',
-      cluster4: 'Ontspanning & uitstapjes',
-      mobileLabel: 'Ervaringen'
+      cluster4: 'Ontspanning & uitstapjes'
     },
     sv: {
       cluster1: 'Mat & njutning',
       cluster2: 'Berg & kust',
       cluster3: 'Kultur & byliv',
-      cluster4: 'Avkoppling & utflykter',
-      mobileLabel: 'Upplevelser'
+      cluster4: 'Avkoppling & utflykter'
     }
   },
   nerja: {
@@ -91,36 +83,31 @@ const clusterLabels: Record<
       cluster1: 'Sea & Coast',
       cluster2: 'Food & Evening Life',
       cluster3: 'Culture & Landmarks',
-      cluster4: 'Day Trips & Surroundings',
-      mobileLabel: 'Experiences'
+      cluster4: 'Day Trips & Surroundings'
     },
     de: {
       cluster1: 'Meer & Küste',
       cluster2: 'Genuss & Abendleben',
       cluster3: 'Kultur & Wahrzeichen',
-      cluster4: 'Ausflüge & Umgebung',
-      mobileLabel: 'Erlebnisse'
+      cluster4: 'Ausflüge & Umgebung'
     },
     es: {
       cluster1: 'Mar & costa',
       cluster2: 'Gastronomía & vida nocturna',
       cluster3: 'Cultura & lugares emblemáticos',
-      cluster4: 'Excursiones & alrededores',
-      mobileLabel: 'Experiencias'
+      cluster4: 'Excursiones & alrededores'
     },
     nl: {
       cluster1: 'Zee & kust',
       cluster2: 'Eten & avondleven',
       cluster3: 'Cultuur & bezienswaardigheden',
-      cluster4: 'Dagtochten & omgeving',
-      mobileLabel: 'Ervaringen'
+      cluster4: 'Dagtochten & omgeving'
     },
     sv: {
       cluster1: 'Hav & kust',
       cluster2: 'Mat & kvällliv',
       cluster3: 'Kultur & sevärdheter',
-      cluster4: 'Utflykter & omgivningar',
-      mobileLabel: 'Upplevelser'
+      cluster4: 'Utflykter & omgivningar'
     }
   },
   tarifa: {
@@ -128,36 +115,31 @@ const clusterLabels: Record<
       cluster1: 'Wind & Atlantic',
       cluster2: 'Landscape & Heritage',
       cluster3: 'Old Town & History',
-      cluster4: 'Food & Evenings',
-      mobileLabel: 'Experiences'
+      cluster4: 'Food & Evenings'
     },
     de: {
       cluster1: 'Wind & Atlantik',
       cluster2: 'Landschaft & Erbe',
       cluster3: 'Altstadt & Geschichte',
-      cluster4: 'Genuss & Abende',
-      mobileLabel: 'Erlebnisse'
+      cluster4: 'Genuss & Abende'
     },
     es: {
       cluster1: 'Viento & Atlántico',
       cluster2: 'Paisaje & patrimonio',
       cluster3: 'Casco antiguo & historia',
-      cluster4: 'Gastronomía & ambiente nocturno',
-      mobileLabel: 'Experiencias'
+      cluster4: 'Gastronomía & ambiente nocturno'
     },
     nl: {
       cluster1: 'Wind & Atlantische kust',
       cluster2: 'Landschap & erfgoed',
       cluster3: 'Oude stad & geschiedenis',
-      cluster4: 'Eten & avonden',
-      mobileLabel: 'Ervaringen'
+      cluster4: 'Eten & avonden'
     },
     sv: {
       cluster1: 'Vind & Atlanten',
       cluster2: 'Landskap & kulturarv',
       cluster3: 'Gamla stan & historia',
-      cluster4: 'Mat & kvällar',
-      mobileLabel: 'Upplevelser'
+      cluster4: 'Mat & kvällar'
     }
   }
 };
@@ -459,10 +441,8 @@ const breadcrumbs: ContextNavigationBreadcrumb[] = [
   breadcrumbAriaLabel={sharedNavigation.breadcrumbAriaLabel}
   breadcrumbs={breadcrumbs}
   context="experience"
-  currentPageLabel={currentLabel ?? experienceBreadcrumb}
   groups={navigationGroups}
   items={[]}
-  mobileNavigationLabel={labels.mobileLabel}
   switcherAriaLabel={switcherLabel}
   wrapItems={true}
 />

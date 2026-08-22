@@ -29,8 +29,9 @@ const footerHighlights: LabeledLink[] = [
 ---
 
 <LocationAuthorityLayout seo={frigilianaParkingGuideSeo} pageLang={currentLang} showContextNavigation={false} footerHighlights={footerHighlights}>
-  <Navigation slot="navigation" currentLang={currentLang} languageToken="frigiliana_parking" />
-  <LocationContextNav activeId="parking" lang={currentLang} />
+  <Navigation slot="navigation" currentLang={currentLang} languageToken="frigiliana_parking" >
+    <LocationContextNav slot="context-navigation" activeId="parking" lang={currentLang} />
+  </Navigation>
   <ParkingAuthorityArticle
     pageId="frigiliana-parking"
     lang={currentLang}

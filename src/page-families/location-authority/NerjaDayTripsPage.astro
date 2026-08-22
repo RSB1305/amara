@@ -32,8 +32,9 @@ const heroImage = { src: '/images/amara-frigiliana-pueblo/nerja-coast-aerial.jpe
 ---
 
 <LocationAuthorityLayout seo={nerjaDayTripsSeo} pageLang={currentLang} footerHighlights={footerHighlights}>
-  <Navigation slot="navigation" currentLang={currentLang} languageToken="nerja_daytrips_authority" />
-  <ExperienceContextNav currentId="dayTrips" destination="nerja" lang={currentLang} />
+  <Navigation slot="navigation" currentLang={currentLang} languageToken="nerja_daytrips_authority" >
+    <ExperienceContextNav slot="context-navigation" currentId="dayTrips" destination="nerja" lang={currentLang} />
+  </Navigation>
 
   <div data-am-page="nerja-day-trips">
     <LocationExperienceHero

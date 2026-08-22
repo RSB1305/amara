@@ -89,8 +89,9 @@ const heroImage = {
     slot="navigation"
     currentLang={currentLang}
     languageToken="nerja_vs_frigiliana"
-  />
-  <LocationContextNav activeId="comparison" lang={currentLang} />
+  >
+    <LocationContextNav slot="context-navigation" activeId="comparison" lang={currentLang} />
+  </Navigation>
 
   <div data-am-page="frigiliana-or-nerja" data-am-family="location" data-am-role="spoke" data-am-topic="comparison">
     <div class="w-full">

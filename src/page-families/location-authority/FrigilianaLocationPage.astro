@@ -240,11 +240,11 @@ const renderCtas = (subsection: FrigilianaLocationSubsection) => subsection.ctas
     slot="navigation"
     currentLang={currentLang}
     languageToken="location_frigiliana"
-  />
+  >
+    <LocationContextNav slot="context-navigation" activeId="intro" lang={currentLang} />
+  </Navigation>
 
   <div class="overflow-x-hidden">
-    <LocationContextNav activeId="intro" lang={currentLang} />
-
     <div data-am-page="frigiliana-location" data-am-family="location" data-am-role="hub" data-am-presentation="guide">
       <OrderedFrigilianaLocationSections order={sectionOrder}>
         <Fragment slot="hero">

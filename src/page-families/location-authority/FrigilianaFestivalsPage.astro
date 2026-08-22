@@ -59,8 +59,9 @@ const heroImage = {
     slot="navigation"
     currentLang={currentLang}
     languageToken="frigiliana_events_authority"
-  />
-  <ExperienceContextNav currentId="festivals" lang={currentLang} />
+  >
+    <ExperienceContextNav slot="context-navigation" currentId="festivals" lang={currentLang} />
+  </Navigation>
 
   <div data-am-page="frigiliana-festivals">
     <div class="w-full">

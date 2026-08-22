@@ -40,8 +40,9 @@ const footerHighlights: LabeledLink[] = [
     slot="navigation"
     currentLang={currentLang}
     languageToken={nerjaLocationHubContent.token}
-  />
-  <NerjaContextNav activeId="intro" lang={currentLang} />
+  >
+    <NerjaContextNav slot="context-navigation" activeId="intro" lang={currentLang} />
+  </Navigation>
 
   <article class="bg-surface" data-am-page="nerja-location-hub" data-am-family="location" data-am-role="hub">
     <LocationHubHero

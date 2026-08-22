@@ -53,8 +53,9 @@ const heroImage = {
     slot="navigation"
     currentLang={currentLang}
     languageToken="frigiliana_hiking_authority"
-  />
-  <ExperienceContextNav currentId="hiking" lang={currentLang} />
+  >
+    <ExperienceContextNav slot="context-navigation" currentId="hiking" lang={currentLang} />
+  </Navigation>
 
   <div data-am-page="frigiliana-hiking">
     <div class="w-full">

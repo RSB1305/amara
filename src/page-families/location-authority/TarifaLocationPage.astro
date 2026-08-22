@@ -39,8 +39,9 @@ const footerHighlights: LabeledLink[] = [
     slot="navigation"
     currentLang={currentLang}
     languageToken={tarifaLocationContent.token}
-  />
-  <TarifaContextNav activeId="overview" currentLabel="Tarifa" lang={currentLang} />
+  >
+    <TarifaContextNav slot="context-navigation" activeId="overview" currentLabel="Tarifa" lang={currentLang} />
+  </Navigation>
 
   <article class="bg-surface" data-am-page="tarifa-location-hub" data-am-family="location" data-am-role="hub">
     <LocationHubHero

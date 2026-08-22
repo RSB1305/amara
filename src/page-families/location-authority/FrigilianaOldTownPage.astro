@@ -88,8 +88,9 @@ const heroImage = {
     slot="navigation"
     currentLang={currentLang}
     languageToken="frigiliana_old_town"
-  />
-  <ExperienceContextNav currentId="oldTown" destination="frigiliana" lang={currentLang} />
+  >
+    <ExperienceContextNav slot="context-navigation" currentId="oldTown" destination="frigiliana" lang={currentLang} />
+  </Navigation>
 
   <div data-am-page="frigiliana-old-town">
     <div class="w-full">

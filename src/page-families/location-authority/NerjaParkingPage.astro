@@ -26,8 +26,9 @@ const footerHighlights: LabeledLink[] = [
 ---
 
 <LocationAuthorityLayout seo={nerjaParkingSeo} pageLang={currentLang} showContextNavigation={false} footerHighlights={footerHighlights}>
-  <Navigation slot="navigation" currentLang={currentLang} languageToken="nerja_parking" />
-  <NerjaContextNav activeId="parking-accessibility" childLabel={content.navLabel} lang={currentLang} />
+  <Navigation slot="navigation" currentLang={currentLang} languageToken="nerja_parking" >
+    <NerjaContextNav slot="context-navigation" activeId="parking-accessibility" childLabel={content.navLabel} lang={currentLang} />
+  </Navigation>
   <ParkingAuthorityArticle
     pageId="nerja-parking"
     lang={currentLang}

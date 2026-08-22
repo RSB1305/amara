@@ -53,8 +53,9 @@ const localizedSections = content.sections.map((section) => ({
     slot="navigation"
     currentLang={currentLang}
     languageToken={content.token}
-  />
-  <ExperienceContextNav currentId={content.id} destination="tarifa" lang={currentLang} />
+  >
+    <ExperienceContextNav slot="context-navigation" currentId={content.id} destination="tarifa" lang={currentLang} />
+  </Navigation>
 
   <article
     class="bg-surface"

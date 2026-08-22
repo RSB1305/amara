@@ -26,14 +26,15 @@ const footerHighlights: LabeledLink[] = [
 ---
 
 <LocationAuthorityLayout seo={tarifaParkingSeo} pageLang={currentLang} showContextNavigation={false} footerHighlights={footerHighlights}>
-  <Navigation slot="navigation" currentLang={currentLang} languageToken="tarifa_parking" />
-  <TarifaContextNav
-    activeId="overview"
-    activeChildId="parking-accessibility"
-    currentLabel="Tarifa"
-    childLabel={content.navLabel}
-    lang={currentLang}
-  />
+  <Navigation slot="navigation" currentLang={currentLang} languageToken="tarifa_parking" >
+    <TarifaContextNav slot="context-navigation"
+      activeId="overview"
+      activeChildId="parking-accessibility"
+      currentLabel="Tarifa"
+      childLabel={content.navLabel}
+      lang={currentLang}
+    />
+  </Navigation>
   <ParkingAuthorityArticle
     pageId="tarifa-parking"
     lang={currentLang}

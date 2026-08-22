@@ -65,8 +65,9 @@ const providerImages = {
     slot="navigation"
     currentLang={currentLang}
     languageToken="frigiliana_wellness_authority"
-  />
-  <ExperienceContextNav currentId="wellness" lang={currentLang} />
+  >
+    <ExperienceContextNav slot="context-navigation" currentId="wellness" lang={currentLang} />
+  </Navigation>
 
   <div data-am-page="frigiliana-wellness">
     <div class="w-full">

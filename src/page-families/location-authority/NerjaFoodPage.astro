@@ -35,8 +35,9 @@ const heroImage = { src: '/images/amara-frigiliana-pueblo/nerja-coast-aerial.jpe
 ---
 
 <LocationAuthorityLayout seo={nerjaFoodSeo} pageLang={currentLang} footerHighlights={footerHighlights}>
-  <Navigation slot="navigation" currentLang={currentLang} languageToken="nerja_food_authority" />
-  <ExperienceContextNav currentId="food" destination="nerja" lang={currentLang} />
+  <Navigation slot="navigation" currentLang={currentLang} languageToken="nerja_food_authority" >
+    <ExperienceContextNav slot="context-navigation" currentId="food" destination="nerja" lang={currentLang} />
+  </Navigation>
 
   <div data-am-page="nerja-food">
     <LocationExperienceHero

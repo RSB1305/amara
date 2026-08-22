@@ -57,6 +57,17 @@ const openPage = (page: Page, path: string) =>
 const isInert = (page: Page, selector: string) =>
   page.locator(selector).evaluate((element) => (element as HTMLElement).inert);
 
+const expectContextNavigationPinned = (page: Page) =>
+  expect
+    .poll(
+      () =>
+        page
+          .locator('[data-am-context-navigation]')
+          .evaluate((element) => Math.round(element.getBoundingClientRect().top)),
+      { timeout: 1_000 }
+    )
+    .toBeLessThanOrEqual(1);
+
 /**
  * Everything the header sits next to inside the interaction root. The component walks
  * this branch itself, so the test asserts the resulting containment rather than a
@@ -265,57 +276,113 @@ test('the slotted navigation on a location authority page keeps its full contrac
 
 test('the grouped guide navigation uses one responsive DOM tree', async ({ page }) => {
   await page.setViewportSize(MOBILE_VIEWPORT);
-  await openPage(page, '/de/frigiliana-winter-stays');
+  await openPage(page, '/de/frigiliana-location');
 
   const root = page.locator('[data-am-grouped-context-navigation]');
-  const disclosure = root.locator('[data-am-context-disclosure]');
-  const summary = disclosure.locator('summary');
   const panel = root.locator('[data-am-context-panel]');
-  const grid = panel.locator(':scope > div');
+  const groupGrid = panel.locator('[data-am-context-groups]');
+  const groupDisclosures = groupGrid.locator('[data-am-context-group]');
 
   await expect(root).toHaveCount(1);
   await expect(root.locator('nav')).toHaveCount(1);
-  await expect(disclosure).toHaveCount(1);
   await expect(root.locator('[data-am-context-sibling]')).toHaveCount(9);
-  await expect(panel).toBeHidden();
+  await expect(groupDisclosures).toHaveCount(4);
+  await expect(root).toBeHidden();
+  await expect(page.locator('[data-am-context-disclosure]')).toHaveCount(0);
 
-  const headingIds = await root.locator('h2[id^="am-context-group-"]').evaluateAll(
-    (headings) => headings.map((heading) => heading.id)
-  );
-  expect(new Set(headingIds).size).toBe(headingIds.length);
-
-  await summary.click();
-  await expect(disclosure).toHaveAttribute('open', '');
+  await page.locator('[data-am-menu-trigger]').click();
+  await expect(root).toBeVisible();
   await expect(panel).toBeVisible();
+  await groupDisclosures.first().locator('summary').click();
+  await expect(groupGrid.locator('[data-am-context-group][open]')).toHaveCount(1);
   expect(
-    await grid.evaluate((element) => getComputedStyle(element).gridTemplateColumns.split(' ').length)
+    await groupGrid.evaluate(
+      (element) => getComputedStyle(element).gridTemplateColumns.split(' ').length
+    )
   ).toBe(1);
 
   await page.setViewportSize(DESKTOP_VIEWPORT);
   expect(
-    await grid.evaluate((element) => getComputedStyle(element).gridTemplateColumns.split(' ').length)
-  ).toBe(3);
-
-  await page.keyboard.press('Escape');
-  await expect(disclosure).not.toHaveAttribute('open', '');
-  await expect(summary).toBeFocused();
+    await groupGrid.evaluate(
+      (element) => getComputedStyle(element).gridTemplateColumns.split(' ').length
+    )
+  ).toBe(4);
+  expect(await panel.evaluate((element) => getComputedStyle(element).position)).toBe('static');
 });
 
-test('the grouped guide disclosure remains usable without JavaScript', async ({ browser }) => {
+test('the context navigation never introduces a second menu trigger', async ({ page }) => {
+  await page.setViewportSize(MOBILE_VIEWPORT);
+  await openPage(page, '/de/frigiliana-location');
+
+  const globalTrigger = page.locator('[data-am-menu-trigger]');
+  const groupedNavigation = page.locator('[data-am-grouped-context-navigation]');
+
+  await expect(globalTrigger).toBeVisible();
+  await expect(page.locator('[data-am-context-disclosure]')).toHaveCount(0);
+  await expect(groupedNavigation).toBeHidden();
+
+  await page.setViewportSize({ width: 1180, height: 900 });
+  await expect(globalTrigger).toBeHidden();
+  await expect(groupedNavigation).toBeHidden();
+
+  await page.setViewportSize(DESKTOP_VIEWPORT);
+  await expect(globalTrigger).toBeHidden();
+  await expect(groupedNavigation).toBeVisible();
+
+  await page.evaluate(() => window.scrollTo(0, 200));
+  await expect(page.locator('[data-am-navigation]')).toHaveAttribute(
+    'data-am-scroll-hidden',
+    'true'
+  );
+  await expectContextNavigationPinned(page);
+
+  await page.evaluate(() => window.scrollTo(0, 0));
+  await expect(page.locator('[data-am-navigation]')).toHaveAttribute(
+    'data-am-scroll-hidden',
+    'false'
+  );
+});
+
+test('the contextual scroll contract covers location and experience hubs and spokes', async ({
+  page
+}) => {
+  await page.setViewportSize(DESKTOP_VIEWPORT);
+
+  const representativeRoutes = [
+    '/de/frigiliana-location',
+    '/de/frigiliana-geography',
+    '/de/frigiliana-experience',
+    '/de/frigiliana-beaches',
+    '/de/nerja-caves',
+    '/de/tarifa-beaches'
+  ];
+
+  for (const route of representativeRoutes) {
+    await openPage(page, route);
+
+    const header = page.locator('[data-am-navigation]');
+    await expect(header.locator('[data-am-context-navigation]')).toHaveCount(1);
+
+    await page.evaluate(() => window.scrollTo(0, 200));
+    await expect(header).toHaveAttribute('data-am-scroll-hidden', 'true');
+    await expectContextNavigationPinned(page);
+  }
+});
+
+test('the desktop grouped navigation remains available without JavaScript', async ({ browser }) => {
   const context = await browser.newContext({
     javaScriptEnabled: false,
-    viewport: MOBILE_VIEWPORT
+    viewport: DESKTOP_VIEWPORT
   });
   const page = await context.newPage();
 
   try {
-    await openPage(page, '/de/frigiliana-winter-stays');
+    await openPage(page, '/de/frigiliana-location');
 
-    const disclosure = page.locator('[data-am-context-disclosure]');
-    await disclosure.locator('summary').click();
-
-    await expect(disclosure).toHaveAttribute('open', '');
-    await expect(disclosure.locator('[data-am-context-sibling]')).toHaveCount(9);
+    const groupedNavigation = page.locator('[data-am-grouped-context-navigation]');
+    await expect(groupedNavigation).toBeVisible();
+    await expect(groupedNavigation.locator('[data-am-context-group]')).toHaveCount(4);
+    await expect(groupedNavigation.locator('[data-am-context-sibling]')).toHaveCount(9);
   } finally {
     await context.close();
   }

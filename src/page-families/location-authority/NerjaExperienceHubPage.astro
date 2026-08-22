@@ -42,8 +42,9 @@ const footerHighlights: LabeledLink[] = [
     currentLang={currentLang}
     currentToken="nerja_experience_hub"
     languageToken="nerja_experience_hub"
-  />
-  <ExperienceContextNav destination="nerja" lang={currentLang} />
+  >
+    <ExperienceContextNav slot="context-navigation" destination="nerja" lang={currentLang} />
+  </Navigation>
 
   <article class="bg-surface" data-am-page="nerja-experience-hub" data-am-family="experience" data-am-role="hub">
     <LocationExperienceHero

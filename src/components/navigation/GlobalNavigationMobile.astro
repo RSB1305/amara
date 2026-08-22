@@ -12,14 +12,29 @@ import type { ResolvedGlobalNavGroup, ResolvedNavigationCta } from './globalNavi
 interface Props {
   groups: ResolvedGlobalNavGroup[];
   cta: ResolvedNavigationCta;
+  hasContextNavigation?: boolean;
   showBookingCta: boolean;
   navigationLabel: string;
 }
 
-const { groups, cta, showBookingCta, navigationLabel } = Astro.props;
+const {
+  groups,
+  cta,
+  hasContextNavigation = false,
+  showBookingCta,
+  navigationLabel
+} = Astro.props;
 ---
 
-<div id="amara-mobile-menu" class="am-nav-mobile" data-am-mobile-menu hidden>
+<div
+  id="amara-mobile-menu"
+  class:list={['am-nav-mobile', hasContextNavigation && 'am-nav-mobile--contextual']}
+  data-am-mobile-menu
+  data-am-contextual-closed={hasContextNavigation ? '' : undefined}
+  hidden={hasContextNavigation ? undefined : true}
+>
+  {hasContextNavigation && <div class="am-nav-mobile__context"><slot /></div>}
+
   <nav class="am-nav-mobile__inner" aria-label={navigationLabel}>
     <div class="am-nav-mobile__groups">
       {groups.map((group) => (

@@ -49,12 +49,13 @@ const landscapeIcons: LocationGuideIconName[] = [
     slot="navigation"
     currentLang={currentLang}
     languageToken="nerja_geography"
-  />
-  <NerjaContextNav
-    activeId="geography-orientation"
-    childLabel={content.navLabel}
-    lang={currentLang}
-  />
+  >
+    <NerjaContextNav slot="context-navigation"
+      activeId="geography-orientation"
+      childLabel={content.navLabel}
+      lang={currentLang}
+    />
+  </Navigation>
 
   <AuthorityArticle
     pageId="nerja-geography"
