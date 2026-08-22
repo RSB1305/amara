@@ -41,7 +41,15 @@ interface AuthorityArticleLocale {
   hero: { title: string; standfirst: string; note: string; updated: string; mark?: string };
   facts: Array<{ label: string; value: string }>;
   comparison?: { places: Array<{ july: string }> };
-  sections: Array<{ id: string; eyebrow: string; title: string; paragraphs: string[] }>;
+  sections: Array<{
+    id: string;
+    eyebrow: string;
+    title: string;
+    paragraphs: string[];
+    localContext?: { paragraphs: string[] };
+    amaraContext?: { paragraphs: string[] };
+    guestGuideNote?: string;
+  }>;
   related?: {
     eyebrow: string;
     title: string;
@@ -213,15 +221,15 @@ const AUTHORITY_PAGES: AuthorityPage[] = [
     routeToken: 'nerja_daily_life',
     pageId: 'nerja-daily-life',
     content: nerjaDailyLifeContent,
-    heroMark: (locale) => locale.facts[0].value,
-    relatedColumns: 'md:grid-cols-2',
+    heroMark: () => 'Nerja',
+    relatedColumns: 'md:grid-cols-3',
     blockBeforeSections: null,
     blockAfterSections: null,
     arrivalModules: null,
     interleaved: [],
-    sectionMarkerAttribute: null,
+    sectionMarkerAttribute: 'data-am-daily-life-section',
     closingCtas: [
-      { token: 'playa', labelKey: 'propertyLabel', className: PRIMARY_CTA_CLASS },
+      { token: 'book', labelKey: 'availabilityLabel', className: PRIMARY_CTA_CLASS },
       { token: 'location_nerja', labelKey: 'locationLabel', className: SECONDARY_CTA_CLASS }
     ]
   },
@@ -246,16 +254,16 @@ const AUTHORITY_PAGES: AuthorityPage[] = [
     routeToken: 'tarifa_daily_life',
     pageId: 'tarifa-daily-life',
     content: tarifaDailyLifeContent,
-    heroMark: (locale) => locale.facts[0].value,
-    relatedColumns: 'md:grid-cols-2',
+    heroMark: () => 'Tarifa',
+    relatedColumns: 'md:grid-cols-3',
     blockBeforeSections: null,
     blockAfterSections: null,
     arrivalModules: null,
     interleaved: [],
     sectionMarkerAttribute: 'data-am-daily-life-section',
     closingCtas: [
-      { token: 'location_tarifa', labelKey: 'locationLabel', className: PRIMARY_CTA_CLASS },
-      { token: 'casa', labelKey: 'propertyLabel', className: SECONDARY_CTA_CLASS }
+      { token: 'book', labelKey: 'availabilityLabel', className: PRIMARY_CTA_CLASS },
+      { token: 'location_tarifa', labelKey: 'locationLabel', className: SECONDARY_CTA_CLASS }
     ]
   },
   {
@@ -472,8 +480,11 @@ for (const entry of AUTHORITY_PAGES) {
         const sectionRoot = article.locator(`[id="${section.id}"]`);
         await expect(sectionRoot).toHaveCount(1);
         await expect(sectionRoot.locator('h2')).toHaveText(section.title);
-        // One eyebrow paragraph precedes the authored body paragraphs.
-        await expect(sectionRoot.locator('p')).toHaveCount(section.paragraphs.length + 1);
+        const usesContextColumns = section.localContext && section.amaraContext;
+        const expectedParagraphCount = usesContextColumns
+          ? section.paragraphs.length + 3 + (section.guestGuideNote ? 1 : 0)
+          : section.paragraphs.length + 1;
+        await expect(sectionRoot.locator('p')).toHaveCount(expectedParagraphCount);
       }
     }
 
