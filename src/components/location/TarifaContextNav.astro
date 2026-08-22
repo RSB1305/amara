@@ -14,7 +14,7 @@ import {
   type TarifaAuthoritySubnavId
 } from '../../lib/tarifa/tarifaAuthoritySubnav';
 import { resolveOptionalLink } from '../../lib/linkResolver';
-import { getDestinationBranchNavigation } from '../../lib/location/destinationBranchNavigation';
+import { getDestinationContextNavigation } from '../../lib/location/destinationBranchNavigation';
 import {
   getLocationGuideClusterLabels,
   LOCATION_GUIDE_CLUSTER_IDS,
@@ -46,8 +46,6 @@ const experienceBranch = navigationItems.find((branch) => branch.id === 'experie
 const labels: Record<
   AmaraLanguage,
   {
-    breadcrumb: string;
-    switcher: string;
     experience: string;
     experienceDining: string;
     experienceNature: string;
@@ -55,40 +53,30 @@ const labels: Record<
   }
 > = {
   en: {
-    breadcrumb: 'Breadcrumb',
-    switcher: 'Tarifa guide navigation',
     experience: 'Experience',
     experienceDining: 'Dining & Taste',
     experienceNature: 'Nature & Outdoors',
     experienceCulture: 'Culture & Day Trips'
   },
   de: {
-    breadcrumb: 'Brotkrümelnavigation',
-    switcher: 'Navigation im Tarifa-Guide',
     experience: 'Erlebnisse',
     experienceDining: 'Kulinarik & Genuss',
     experienceNature: 'Natur & Outdoor',
     experienceCulture: 'Kultur & Ausflüge'
   },
   es: {
-    breadcrumb: 'Migas de pan',
-    switcher: 'Navegación de la guía de Tarifa',
     experience: 'Experiencias',
     experienceDining: 'Gastronomía & Sabor',
     experienceNature: 'Naturaleza & Aire Libre',
     experienceCulture: 'Cultura & Excursiones'
   },
   nl: {
-    breadcrumb: 'Broodkruimelnavigatie',
-    switcher: 'Navigatie van de Tarifa-gids',
     experience: 'Ervaringen',
     experienceDining: 'Culinair & Genieten',
     experienceNature: 'Natuur & Buitenleven',
     experienceCulture: 'Cultuur & Dagtrips'
   },
   sv: {
-    breadcrumb: 'Brödsmulenavigering',
-    switcher: 'Navigering i Tarifa-guiden',
     experience: 'Upplevelser',
     experienceDining: 'Mat & Smaker',
     experienceNature: 'Natur & Friluftsliv',
@@ -169,13 +157,7 @@ const allChildren = navigationGroups.flatMap((group) => group.items);
 const activeTopicId = inferredChildId
   ? allChildren.find((item) => item.id === inferredChildId)?.id
   : undefined;
-const branchNavigation = getDestinationBranchNavigation('tarifa', lang);
-const homeHref = resolveOptionalLink('home', lang, {
-  suppressMissing: true
-});
-const tarifaHref = resolveOptionalLink('location_tarifa', lang, {
-  suppressMissing: true
-});
+const contextNavigation = getDestinationContextNavigation('tarifa', lang);
 const experienceHref = resolveOptionalLink('tarifa_experience_hub', lang, {
   suppressMissing: true
 });
@@ -183,14 +165,14 @@ const experienceHref = resolveOptionalLink('tarifa_experience_hub', lang, {
 const breadcrumbs: ContextNavigationBreadcrumb[] = [
   {
     label: 'AMARA',
-    href: homeHref ?? undefined
+    href: contextNavigation.homeHref ?? undefined
   },
   {
-    label: 'Tarifa',
+    label: contextNavigation.destinationName,
     href:
       activeBranchId === 'location' && !inferredChildId
         ? undefined
-        : tarifaHref ?? undefined
+        : contextNavigation.destinationHref ?? undefined
   }
 ];
 
@@ -215,13 +197,13 @@ if (childLabel) {
 <ContextNavigation
   activeBranchId={activeBranchId}
   activeId={activeTopicId}
-  branches={branchNavigation.items}
-  branchSwitcherAriaLabel={branchNavigation.ariaLabel}
-  breadcrumbAriaLabel={copy.breadcrumb}
+  branches={contextNavigation.branchNavigation.items}
+  branchSwitcherAriaLabel={contextNavigation.branchNavigation.ariaLabel}
+  breadcrumbAriaLabel={contextNavigation.breadcrumbAriaLabel}
   breadcrumbs={breadcrumbs}
   context="location"
   groups={navigationGroups}
   retainActiveItem={true}
-  switcherAriaLabel={copy.switcher}
+  switcherAriaLabel={contextNavigation.switcherAriaLabel}
   items={[]}
 />

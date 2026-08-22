@@ -1,4 +1,4 @@
-import { resolveLink, type LinkToken } from '../linkResolver';
+import { resolveLink, resolveOptionalLink, type LinkToken } from '../linkResolver';
 import type { AmaraLanguage } from '../../types/seo';
 
 export type DestinationBranchId = 'location' | 'experience';
@@ -53,6 +53,41 @@ const tokens: Record<
   }
 };
 
+const destinationNames: Record<DestinationId, string> = {
+  frigiliana: 'Frigiliana',
+  nerja: 'Nerja',
+  tarifa: 'Tarifa'
+};
+
+const contextLabels: Record<
+  AmaraLanguage,
+  {
+    breadcrumb: string;
+    guideNavigation: (destination: string) => string;
+  }
+> = {
+  en: {
+    breadcrumb: 'Breadcrumb',
+    guideNavigation: (destination) => `${destination} guide navigation`
+  },
+  de: {
+    breadcrumb: 'Brotkrümelnavigation',
+    guideNavigation: (destination) => `Navigation im ${destination}-Guide`
+  },
+  es: {
+    breadcrumb: 'Migas de pan',
+    guideNavigation: (destination) => `Navegación de la guía de ${destination}`
+  },
+  nl: {
+    breadcrumb: 'Broodkruimelnavigatie',
+    guideNavigation: (destination) => `Navigatie van de ${destination}-gids`
+  },
+  sv: {
+    breadcrumb: 'Brödsmulenavigering',
+    guideNavigation: (destination) => `Navigering i ${destination}-guiden`
+  }
+};
+
 export function getDestinationBranchNavigation(
   destination: DestinationId,
   lang: AmaraLanguage
@@ -74,5 +109,31 @@ export function getDestinationBranchNavigation(
         href: resolveLink(destinationTokens.experience, lang)
       }
     ]
+  };
+}
+
+/**
+ * Resolves the destination-level copy and links shared by location context
+ * wrappers. Destination-specific hierarchy and grouping remain with each
+ * wrapper because those page-family contracts intentionally differ.
+ */
+export function getDestinationContextNavigation(
+  destination: DestinationId,
+  lang: AmaraLanguage
+) {
+  const destinationName = destinationNames[destination];
+  const copy = contextLabels[lang];
+
+  return {
+    branchNavigation: getDestinationBranchNavigation(destination, lang),
+    breadcrumbAriaLabel: copy.breadcrumb,
+    switcherAriaLabel: copy.guideNavigation(destinationName),
+    homeHref: resolveOptionalLink('home', lang, {
+      suppressMissing: true
+    }),
+    destinationHref: resolveOptionalLink(tokens[destination].location, lang, {
+      suppressMissing: true
+    }),
+    destinationName
   };
 }

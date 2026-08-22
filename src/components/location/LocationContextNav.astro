@@ -13,8 +13,7 @@ import {
   type FrigilianaAuthoritySubnavId,
   type FrigilianaAuthoritySubnavItem
 } from '../../lib/frigiliana/frigilianaAuthoritySubnav';
-import { resolveOptionalLink } from '../../lib/linkResolver';
-import { getDestinationBranchNavigation } from '../../lib/location/destinationBranchNavigation';
+import { getDestinationContextNavigation } from '../../lib/location/destinationBranchNavigation';
 import type { AmaraLanguage } from '../../types/seo';
 
 interface Props {
@@ -30,74 +29,35 @@ const activeTopicId = getFrigilianaAuthorityActiveTopic(activeId);
 const currentLabel = getFrigilianaAuthorityCurrentPageLabel(activeId, lang);
 const isOverview = activeId === 'intro';
 
-const labels: Record<
-  AmaraLanguage,
-  {
-    breadcrumb: string;
-    switcher: string;
-  }
-> = {
-  en: {
-    breadcrumb: 'Breadcrumb',
-    switcher: 'Frigiliana guide navigation'
-  },
-  de: {
-    breadcrumb: 'Brotkrümelnavigation',
-    switcher: 'Navigation im Frigiliana-Guide'
-  },
-  es: {
-    breadcrumb: 'Migas de pan',
-    switcher: 'Navegación de la guía de Frigiliana'
-  },
-  nl: {
-    breadcrumb: 'Broodkruimelnavigatie',
-    switcher: 'Navigatie van de Frigiliana-gids'
-  },
-  sv: {
-    breadcrumb: 'Brödsmulenavigering',
-    switcher: 'Navigering i Frigiliana-guiden'
-  }
-};
-
-const copy = labels[lang];
-const branchNavigation = getDestinationBranchNavigation('frigiliana', lang);
-const homeHref = resolveOptionalLink('home', lang, {
-  suppressMissing: true
-});
-const guideHref = resolveOptionalLink('location_frigiliana', lang, {
-  suppressMissing: true
-});
-
-/** Brand name is identical across all supported languages, so it needs no localization. */
-const frigilianaLabel = 'Frigiliana';
+const contextNavigation = getDestinationContextNavigation('frigiliana', lang);
 
 const breadcrumbs: ContextNavigationBreadcrumb[] = [
   {
     label: 'AMARA',
-    href: homeHref ?? undefined
+    href: contextNavigation.homeHref ?? undefined
   },
   {
-    label: frigilianaLabel,
-    href: !isOverview ? guideHref ?? undefined : undefined
+    label: contextNavigation.destinationName,
+    href: !isOverview ? contextNavigation.destinationHref ?? undefined : undefined
   }
 ];
 
 if (!isOverview) {
-  breadcrumbs.push({ label: currentLabel ?? frigilianaLabel });
+  breadcrumbs.push({ label: currentLabel ?? contextNavigation.destinationName });
 }
 ---
 
 <ContextNavigation
   activeBranchId="location"
   activeId={activeTopicId}
-  branches={branchNavigation.items}
-  branchSwitcherAriaLabel={branchNavigation.ariaLabel}
-  breadcrumbAriaLabel={copy.breadcrumb}
+  branches={contextNavigation.branchNavigation.items}
+  branchSwitcherAriaLabel={contextNavigation.branchNavigation.ariaLabel}
+  breadcrumbAriaLabel={contextNavigation.breadcrumbAriaLabel}
   breadcrumbs={breadcrumbs}
   context="location"
   groups={navigationGroups}
   items={items ? navigationItems : []}
   retainActiveItem={true}
-  switcherAriaLabel={copy.switcher}
+  switcherAriaLabel={contextNavigation.switcherAriaLabel}
   wrapItems={true}
 />

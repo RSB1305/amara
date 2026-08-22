@@ -11,8 +11,7 @@ import {
   getNerjaAuthoritySubnavGroups,
   type NerjaAuthoritySubnavId
 } from '../../lib/nerja/nerjaAuthoritySubnav';
-import { resolveOptionalLink } from '../../lib/linkResolver';
-import { getDestinationBranchNavigation } from '../../lib/location/destinationBranchNavigation';
+import { getDestinationContextNavigation } from '../../lib/location/destinationBranchNavigation';
 import type { AmaraLanguage } from '../../types/seo';
 
 interface Props {
@@ -27,45 +26,7 @@ const { activeId, childLabel, currentLabel, lang } = Astro.props;
 const navigationItems = getNerjaAuthoritySubnav(lang);
 const navigationGroups = getNerjaAuthoritySubnavGroups(lang);
 
-const labels: Record<
-  AmaraLanguage,
-  {
-    breadcrumb: string;
-    switcher: string;
-  }
-> = {
-  en: {
-    breadcrumb: 'Breadcrumb',
-    switcher: 'Nerja guide navigation'
-  },
-  de: {
-    breadcrumb: 'Brotkrümelnavigation',
-    switcher: 'Navigation im Nerja-Guide'
-  },
-  es: {
-    breadcrumb: 'Migas de pan',
-    switcher: 'Navegación de la guía de Nerja'
-  },
-  nl: {
-    breadcrumb: 'Broodkruimelnavigatie',
-    switcher: 'Navigatie van de Nerja-gids'
-  },
-  sv: {
-    breadcrumb: 'Brödsmulenavigering',
-    switcher: 'Navigering i Nerja-guiden'
-  }
-};
-
-const copy = labels[lang];
-
-const branchNavigation = getDestinationBranchNavigation('nerja', lang);
-
-const homeHref = resolveOptionalLink('home', lang, {
-  suppressMissing: true
-});
-const nerjaHref = resolveOptionalLink('location_nerja', lang, {
-  suppressMissing: true
-});
+const contextNavigation = getDestinationContextNavigation('nerja', lang);
 
 const activeTopicLabel = navigationItems.find((topic) => topic.id === activeId)?.label;
 const currentTopicLabel =
@@ -76,13 +37,13 @@ const currentTopicLabel =
 const breadcrumbs: ContextNavigationBreadcrumb[] = [
   {
     label: 'AMARA',
-    href: homeHref ?? undefined
+    href: contextNavigation.homeHref ?? undefined
   },
   {
-    label: 'Nerja',
+    label: contextNavigation.destinationName,
     href:
       childLabel || activeId !== 'intro'
-        ? nerjaHref ?? undefined
+        ? contextNavigation.destinationHref ?? undefined
         : undefined
   }
 ];
@@ -99,13 +60,13 @@ const groups: ContextNavigationGroup[] = navigationGroups;
 <ContextNavigation
   activeBranchId="location"
   activeId={activeId === 'intro' ? undefined : activeId}
-  branches={branchNavigation.items}
-  branchSwitcherAriaLabel={branchNavigation.ariaLabel}
-  breadcrumbAriaLabel={copy.breadcrumb}
+  branches={contextNavigation.branchNavigation.items}
+  branchSwitcherAriaLabel={contextNavigation.branchNavigation.ariaLabel}
+  breadcrumbAriaLabel={contextNavigation.breadcrumbAriaLabel}
   breadcrumbs={breadcrumbs}
   context="location"
   groups={groups}
   items={[]}
   retainActiveItem={true}
-  switcherAriaLabel={copy.switcher}
+  switcherAriaLabel={contextNavigation.switcherAriaLabel}
 />
