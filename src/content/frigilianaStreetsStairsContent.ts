@@ -370,8 +370,8 @@ export const frigilianaStreetsStairsCopy = {
           sv: 'Modernare södra bydel'
         } satisfies LocalizedText,
         summary: {
-          en: 'Areas below or beyond the oldest lanes can offer a more practical relationship with roads, services and everyday movement, depending on the exact street.',
-          de: 'Unterhalb oder außerhalb der ältesten Gassen kann das Verhältnis zu Straßen, Angeboten und Alltagswegen praktischer sein – abhängig von der genauen Lage.',
+          en: 'Areas below or beyond the oldest lanes can offer a more practical relationship with roads, services and everyday movement.',
+          de: 'Unterhalb oder außerhalb der ältesten Gassen kann das Verhältnis zu Straßen, Angeboten und Alltagswegen praktischer sein.',
           es: 'Las zonas por debajo o fuera de las calles más antiguas pueden ofrecer una relación más práctica con las vías, los servicios y los recorridos diarios, según la calle.',
           nl: 'Delen onder of buiten de oudste straatjes kunnen praktischer liggen voor wegen, voorzieningen en dagelijkse routes, afhankelijk van de precieze straat.',
           sv: 'Områden nedanför eller utanför de äldsta gränderna kan ge ett mer praktiskt förhållande till vägar, service och vardagsrörelser, beroende på exakt gata.'
@@ -408,8 +408,8 @@ export const frigilianaStreetsStairsCopy = {
           sv: 'Landsbygd / sluttning'
         } satisfies LocalizedText,
         summary: {
-          en: 'A stay outside the village can prioritise space, privacy and a rural setting, with views where the individual property provides them.',
-          de: 'Außerhalb des Ortes können Raum, Privatsphäre und ländliche Umgebung im Vordergrund stehen; Ausblicke hängen von der einzelnen Unterkunft ab.',
+          en: 'A stay outside the village prioritises space, privacy and a rural setting, with views where the individual property provides them.',
+          de: 'Außerhalb des Ortes stehen Raum, Privatsphäre und Landschaft im Vordergrund; Ausblicke hängen von der einzelnen Unterkunft ab.',
           es: 'Alojarse fuera del pueblo puede dar prioridad al espacio, la privacidad y el entorno rural, con vistas cuando la propiedad concreta las ofrece.',
           nl: 'Buiten het dorp kunnen ruimte, privacy en een landelijke omgeving vooropstaan, met uitzicht waar de specifieke accommodatie dat biedt.',
           sv: 'Utanför byn kan utrymme, avskildhet och lantlig miljö stå i centrum, med utsikt där den enskilda bostaden erbjuder det.'
@@ -455,11 +455,11 @@ export const frigilianaStreetsStairsCopy = {
     } satisfies LocalizedText,
     paragraphs: [
       {
-        en: 'Casa AMARA is near San Antonio church, inside the historic centre and comparatively low within it. The village begins essentially outside the door, while guests do not need to climb to the highest Barribarto lanes every time they return.',
-        de: 'Casa AMARA liegt nahe der Kirche San Antonio, mitten im historischen Zentrum und darin vergleichsweise weit unten. Das Dorf beginnt praktisch vor der Tür, ohne dass Gäste bei jeder Rückkehr bis in die höchsten Gassen des Barribarto hinaufmüssen.',
-        es: 'Casa AMARA está cerca de la iglesia de San Antonio, dentro del casco histórico y en una cota relativamente baja. El pueblo empieza prácticamente al salir, sin tener que subir hasta las calles más altas del Barribarto en cada regreso.',
-        nl: 'Casa AMARA ligt vlak bij de kerk van San Antonio, midden in de historische kern en daarbinnen relatief laag. Het dorp begint vrijwel bij de voordeur, zonder dat gasten bij iedere terugkeer naar de hoogste straatjes van Barribarto hoeven te klimmen.',
-        sv: 'Casa AMARA ligger nära San Antonio-kyrkan, inne i den historiska bykärnan och jämförelsevis långt ner. Byn börjar i stort sett utanför dörren, utan att gäster behöver gå upp till Barribartos högsta gränder varje gång de kommer hem.'
+        en: 'Casa AMARA is near San Antonio church, inside the historic centre and comparatively low within it. From the main road below it is about 150 metres uphill to the door, with around 30 steps — so you never climb to the highest Barribarto lanes on your way home.',
+        de: 'Casa AMARA liegt nahe der Kirche San Antonio, mitten im historischen Zentrum und darin vergleichsweise weit unten. Von der Hauptstraße unten sind es rund 150 Meter bergauf bis zur Tür, mit etwa 30 Stufen – ihr müsst also auf keinem Heimweg bis in die höchsten Gassen des Barribarto hinauf.',
+        es: 'Casa AMARA está cerca de la iglesia de San Antonio, dentro del casco histórico y en una cota relativamente baja. Desde la carretera principal hay unos 150 metros cuesta arriba hasta la puerta, con unos 30 escalones: así que nunca subiréis hasta las calles más altas del Barribarto al volver a casa.',
+        nl: 'Casa AMARA ligt vlak bij de kerk van San Antonio, midden in de historische kern en daarbinnen relatief laag. Vanaf de hoofdweg beneden is het ongeveer 150 meter omhoog tot de deur, met zo ongeveer 30 treden — jullie hoeven op de terugweg dus nooit naar de hoogste straatjes van Barribarto.',
+        sv: 'Casa AMARA ligger nära San Antonio-kyrkan, inne i den historiska bykärnan och jämförelsevis långt ner. Från huvudvägen nedanför är det ungefär 150 meter uppför till dörren, med omkring 30 trappsteg – ni behöver alltså aldrig gå upp till Barribartos högsta gränder på väg hem.'
       } satisfies LocalizedText,
       {
         en: 'Two stays inside the same historic village can still mean very different daily walks — which is exactly why the address matters more here than the map suggests.',
