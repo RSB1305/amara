@@ -1975,7 +1975,7 @@ const tarifaFamilySurfLocalGuide: GuestGuideEntry = {
         {
           kind: 'link',
           icon: 'moon',
-          targetSlug: 'tarifa-nightlife',
+          targetSlug: 'tarifa-guest-nightlife',
           title: tarifaText(
             'Nightlife',
             'Nachtleben',
@@ -3649,7 +3649,7 @@ const tarifaFamilySurfSightseeing: GuestGuideEntry = {
 
 const tarifaFamilySurfNightlife: GuestGuideEntry = {
   type: 'detail',
-  slug: 'tarifa-nightlife',
+  slug: 'tarifa-guest-nightlife',
   entityKey: 'amara-family-surf',
   backSlug: 'tarifa-guest-local-guide',
   supportHref: TARIFA_SUPPORT_EMAIL,

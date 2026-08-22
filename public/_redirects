@@ -358,3 +358,12 @@
 /de/tarifa-guest-guide /de/guestwelcome-tarifa-family-surf 301
 /nl/tarifa-guest-guide /nl/guestwelcome-tarifa-family-surf 301
 /sv/tarifa-guest-guide /sv/guestwelcome-tarifa-family-surf 301
+
+# Tarifa Guest Guide nightlife moved onto the tarifa-guest-<topic> convention
+# used by its nine sibling pages. The old slug may be in guest material.
+/tarifa-nightlife /tarifa-guest-nightlife 301
+/es/tarifa-nightlife /tarifa-guest-nightlife 301
+/en/tarifa-nightlife /en/tarifa-guest-nightlife 301
+/de/tarifa-nightlife /de/tarifa-guest-nightlife 301
+/nl/tarifa-nightlife /nl/tarifa-guest-nightlife 301
+/sv/tarifa-nightlife /sv/tarifa-guest-nightlife 301
