@@ -172,11 +172,11 @@ export const frigilianaLocationCopy = {
   nav: frigilianaLocationNav,
   "de": {
     "heroKicker": "FRIGILIANA · ANDALUSIEN",
-    "h1": "Herzlich willkommen in Frigiliana",
+    "h1": "Urlaub in Frigiliana: im weißen Dorf wohnen, statt es zu besuchen",
     "heroUpdated": "Geprüft im August 2026",
     "heroNote": "Ein Gastgeber-Guide für Übernachtungsgäste – geschrieben aus unserem Alltag in der Calle Chorruelo.",
     "intro": [
-      "Frigiliana gilt als eines der schönsten weißen Dörfer Spaniens. Viele kommen für ein paar Stunden wegen der weißen Häuser, verwinkelten Gassen, farbigen Türen und Ausblicke bis zum Mittelmeer.",
+      "Herzlich willkommen in Frigiliana. Der Ort gilt als eines der schönsten weißen Dörfer Spaniens; viele kommen für ein paar Stunden wegen der weißen Häuser, verwinkelten Gassen, farbigen Türen und Ausblicke bis zum Mittelmeer.",
       "Wer bleibt, erlebt mehr: Wenn die Tagesbesucher gehen, werden die Gassen ruhiger; am nächsten Morgen seid ihr schon da, bevor der Ort wieder voller wird.",
       "Über mehrere Tage wird das Dorf zum Ausgangspunkt eures Urlaubs – für Frühstück und Abendessen zu Fuß, Ausflüge ans Meer und die Rückkehr in die Altstadt."
     ],
@@ -362,11 +362,11 @@ export const frigilianaLocationCopy = {
   },
   "en": {
     "heroKicker": "FRIGILIANA · ANDALUSIA",
-    "h1": "Welcome to Frigiliana",
+    "h1": "A holiday in Frigiliana: living in the white village, not just visiting it",
     "heroUpdated": "Reviewed August 2026",
     "heroNote": "A host-written guide for overnight guests, based on our own everyday life in Calle Chorruelo.",
     "intro": [
-      "Frigiliana is known as one of Spain's most beautiful white villages. Many people come for a few hours to see its white houses, winding lanes, coloured doors and views towards the Mediterranean.",
+      "Welcome to Frigiliana. It is known as one of Spain's most beautiful white villages, and many people come for a few hours to see its white houses, winding lanes, coloured doors and views towards the Mediterranean.",
       "Staying changes the experience: the lanes quieten as day visitors leave, and the next morning you are already here before the village becomes busier again.",
       "Over several days, the village becomes the base for your holiday – breakfast and dinner on foot, time by the sea, and a return to the old town."
     ],
@@ -559,11 +559,11 @@ export const frigilianaLocationCopy = {
   },
   "es": {
     "heroKicker": "FRIGILIANA · ANDALUCÍA",
-    "h1": "Bienvenidos a Frigiliana",
+    "h1": "Vacaciones en Frigiliana: vivir el pueblo blanco, no solo visitarlo",
     "heroUpdated": "Revisado en agosto de 2026",
     "heroNote": "Una guía escrita por vuestros anfitriones, desde nuestro día a día en la calle Chorruelo.",
     "intro": [
-      "Frigiliana está considerado uno de los pueblos blancos más bonitos de España. Muchos vienen unas horas para ver sus casas blancas, callejuelas, puertas de colores y vistas hacia el Mediterráneo.",
+      "Bienvenidos a Frigiliana. Está considerado uno de los pueblos blancos más bonitos de España, y muchos vienen unas horas para ver sus casas blancas, callejuelas, puertas de colores y vistas hacia el Mediterráneo.",
       "Quedarse cambia la experiencia: cuando se marchan los visitantes del día, las calles recuperan la calma; a la mañana siguiente ya estáis aquí antes de que el pueblo vuelva a animarse.",
       "Durante varios días, el pueblo se convierte en la base de las vacaciones: desayunos y cenas a pie, escapadas al mar y regreso al casco antiguo."
     ],
@@ -749,11 +749,11 @@ export const frigilianaLocationCopy = {
   },
   "nl": {
     "heroKicker": "FRIGILIANA · ANDALUSIË",
-    "h1": "Welkom in Frigiliana",
+    "h1": "Vakantie in Frigiliana: in het witte dorp wonen, niet het alleen bezoeken",
     "heroUpdated": "Gecontroleerd in augustus 2026",
     "heroNote": "Een gids van jullie hosts voor verblijfsgasten, geschreven vanuit ons dagelijks leven in de Calle Chorruelo.",
     "intro": [
-      "Frigiliana geldt als een van de mooiste witte dorpen van Spanje. Veel bezoekers komen een paar uur voor de witte huizen, kronkelstraatjes, gekleurde deuren en uitzichten richting de Middellandse Zee.",
+      "Welkom in Frigiliana. Het dorp geldt als een van de mooiste witte dorpen van Spanje; veel bezoekers komen een paar uur voor de witte huizen, kronkelstraatjes, gekleurde deuren en uitzichten richting de Middellandse Zee.",
       "Blijven overnachten verandert de ervaring: wanneer de dagjesmensen vertrekken, worden de straten rustiger; de volgende ochtend zijn jullie er al voordat het dorp weer levendiger wordt.",
       "Tijdens een verblijf van enkele dagen wordt het dorp de basis van jullie vakantie: ontbijten en dineren op loopafstand, tijd aan zee en thuiskomen in de oude kern."
     ],
@@ -939,11 +939,11 @@ export const frigilianaLocationCopy = {
   },
   "sv": {
     "heroKicker": "FRIGILIANA · ANDALUSIEN",
-    "h1": "Välkomna till Frigiliana",
+    "h1": "Semester i Frigiliana: att bo i den vita byn, inte bara besöka den",
     "heroUpdated": "Granskad i augusti 2026",
     "heroNote": "En guide från era värdar för övernattande gäster, skriven ur vår vardag på Calle Chorruelo.",
     "intro": [
-      "Frigiliana räknas som en av Spaniens vackraste vita byar. Många kommer några timmar för de vita husen, vindlande gränderna, färgade dörrarna och utsikten mot Medelhavet.",
+      "Välkomna till Frigiliana. Byn räknas som en av Spaniens vackraste vita byar, och många kommer några timmar för de vita husen, vindlande gränderna, färgade dörrarna och utsikten mot Medelhavet.",
       "Att stanna över natten förändrar upplevelsen: när dagsbesökarna lämnar blir gränderna lugnare, och nästa morgon är ni redan här innan byn blir livligare igen.",
       "Under några dagar blir byn basen för semestern – frukost och middag till fots, tid vid havet och hemkomst till gamla stan."
     ],

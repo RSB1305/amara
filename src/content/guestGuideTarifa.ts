@@ -3683,11 +3683,11 @@ const tarifaFamilySurfNightlife: GuestGuideEntry = {
     'Nattliv'
   ),
   intro: tarifaText(
-    "At Europe's southernmost point, Tarifa's surfer spirit, open-minded travellers and locals blend into a relaxed yet vibrant crowd.",
-    'Am südlichsten Punkt Europas verschmelzen Tarifas Surfer-Spirit, weltoffene Reisende und Einheimische zu einem entspannten und zugleich lebendigen Publikum.',
-    'En el punto más meridional de Europa, el espíritu surfero de Tarifa, los viajeros de mente abierta y la gente local se mezclan en un ambiente relajado y vibrante.',
-    'Op het zuidelijkste punt van Europa vormen de surfersfeer van Tarifa, ruimdenkende reizigers en locals samen een ontspannen maar levendig publiek.',
-    'På Europas sydligaste punkt möts Tarifas surfkultur, öppensinnade resenärer och lokalbor i en avslappnad men livfull atmosfär.'
+    "At the southernmost point of the European mainland, Tarifa's surfer spirit, open-minded travellers and locals blend into a relaxed yet vibrant crowd.",
+    'Am südlichsten Punkt des europäischen Festlands verschmelzen Tarifas Surfer-Spirit, weltoffene Reisende und Einheimische zu einem entspannten und zugleich lebendigen Publikum.',
+    'En el punto más meridional de la Europa continental, el espíritu surfero de Tarifa, los viajeros de mente abierta y la gente local se mezclan en un ambiente relajado y vibrante.',
+    'Op het zuidelijkste punt van het Europese vasteland vormen de surfersfeer van Tarifa, ruimdenkende reizigers en locals samen een ontspannen maar levendig publiek.',
+    'På det europeiska fastlandets sydligaste punkt möts Tarifas surfkultur, öppensinnade resenärer och lokalbor i en avslappnad men livfull atmosfär.'
   ),
   categories: [
     {

@@ -112,14 +112,14 @@ export const tarifaLocationContent: {
     en: {
       hero: {
         eyebrow: 'Tarifa · Location & stay',
-        title: 'Welcome to Tarifa',
-        standfirst: 'Tarifa is a village at the southernmost point of Europe where almost everything is walkable. And yet where you stay shapes every day here: the wind on your balcony, the hunt for a parking space in August, and how the evening ends. Our connection to Tarifa began before we started hosting here: Robert lived in the town himself.',
+        title: 'A holiday in Tarifa: wind, the Atlantic and Africa on the horizon',
+        standfirst: 'Welcome to Tarifa, the southernmost town on the European mainland, where almost everything is walkable. And yet where you stay shapes every day here: the wind on your balcony, the hunt for a parking space in August, and how the evening ends. Our connection to Tarifa began before we started hosting here: Robert lived in the town himself.',
         note: 'An AMARA guide written from experience – not a live service for wind and weather.',
         updated: 'Reviewed August 2026'
       },
       geography: {
         eyebrow: 'Where you are',
-        title: 'The southernmost point of Europe, with Africa opposite',
+        title: 'The southernmost point of the mainland, with Africa opposite',
         paragraphs: [
           'Tarifa sits where the Atlantic passes into the Strait of Gibraltar – the southernmost point of mainland Europe. On a clear day the Moroccan coast lies so close that you can see it from the balcony. Not as an idea on a map, but as a coastline with mountains above it.',
           'The village itself is small. Old Town, newer quarter and the beach edge sit close enough together that you reach almost everything on foot. What lies further out – the western kite beaches, Bolonia, the Strait – is minutes away by car.'
@@ -221,14 +221,14 @@ export const tarifaLocationContent: {
     de: {
       hero: {
         eyebrow: 'Tarifa · Lage & Aufenthalt',
-        title: 'Herzlich willkommen in Tarifa',
-        standfirst: 'Tarifa ist ein Dorf am südlichsten Punkt Europas, in dem fast alles zu Fuß geht. Und trotzdem entscheidet die Wohnlage hier über jeden Tag: über den Wind auf eurem Balkon, über die Parkplatzsuche im August und darüber, wie der Abend endet. Unsere Verbindung zu Tarifa begann schon vor der ersten Vermietung: Robert hat selbst im Ort gelebt.',
+        title: 'Urlaub in Tarifa: Wind, Atlantik und Afrika am Horizont',
+        standfirst: 'Herzlich willkommen in Tarifa, der südlichsten Stadt des europäischen Festlands, in der fast alles zu Fuß geht. Und trotzdem entscheidet die Wohnlage hier über jeden Tag: über den Wind auf eurem Balkon, über die Parkplatzsuche im August und darüber, wie der Abend endet. Unsere Verbindung zu Tarifa begann schon vor der ersten Vermietung: Robert hat selbst im Ort gelebt.',
         note: 'Ein AMARA-Guide aus eigener Erfahrung – keine Live-Auskunft zu Wind und Wetter.',
         updated: 'Geprüft im August 2026'
       },
       geography: {
         eyebrow: 'Wo ihr seid',
-        title: 'Am südlichsten Punkt Europas, mit Afrika gegenüber',
+        title: 'Am südlichsten Punkt des Festlands, mit Afrika gegenüber',
         paragraphs: [
           'Tarifa liegt dort, wo der Atlantik in die Straße von Gibraltar übergeht – am südlichsten Punkt des europäischen Festlands. Bei klarer Luft liegt die marokkanische Küste so nah gegenüber, dass ihr sie vom Balkon aus seht. Nicht als Idee auf einer Landkarte, sondern als Küstenlinie mit Bergen darüber.',
           'Der Ort selbst ist klein. Altstadt, neuerer Teil und Strandkante liegen so dicht beieinander, dass ihr fast alles zu Fuß erreicht. Was weiter draußen liegt – die westlichen Kite-Strände, Bolonia, die Meerenge – ist in Minuten mit dem Auto da.'
@@ -330,14 +330,14 @@ export const tarifaLocationContent: {
     es: {
       hero: {
         eyebrow: 'Tarifa · Ubicación y estancia',
-        title: 'Bienvenidos a Tarifa',
-        standfirst: 'Tarifa es un pueblo en el punto más meridional de Europa donde casi todo se hace a pie. Y aun así, dónde os alojáis marca cada día: el viento en vuestro balcón, la búsqueda de aparcamiento en agosto y cómo termina la tarde. Nuestra relación con Tarifa empezó antes de recibir huéspedes aquí: Robert vivió en el pueblo.',
+        title: 'Vacaciones en Tarifa: viento, Atlántico y África en el horizonte',
+        standfirst: 'Bienvenidos a Tarifa, la ciudad más meridional de la Europa continental, donde casi todo se hace a pie. Y aun así, dónde os alojáis marca cada día: el viento en vuestro balcón, la búsqueda de aparcamiento en agosto y cómo termina la tarde. Nuestra relación con Tarifa empezó antes de recibir huéspedes aquí: Robert vivió en el pueblo.',
         note: 'Una guía de AMARA escrita desde la experiencia; no es un servicio de condiciones en directo.',
         updated: 'Revisado en agosto de 2026'
       },
       geography: {
         eyebrow: 'Dónde estáis',
-        title: 'El punto más meridional de Europa, con África enfrente',
+        title: 'El punto más meridional de la Europa continental, con África enfrente',
         paragraphs: [
           'Tarifa se sitúa donde el Atlántico pasa al Estrecho de Gibraltar, en el punto más meridional de la Europa continental. Con el aire limpio, la costa marroquí queda tan cerca que se ve desde el balcón. No como una idea en un mapa, sino como una línea de costa con montañas encima.',
           'El pueblo en sí es pequeño. Casco antiguo, parte nueva y borde de playa están tan próximos que casi todo se alcanza andando. Lo que queda más lejos —las playas de kite del oeste, Bolonia, el Estrecho— está a minutos en coche.'
@@ -439,14 +439,14 @@ export const tarifaLocationContent: {
     nl: {
       hero: {
         eyebrow: 'Tarifa · Ligging & verblijf',
-        title: 'Welkom in Tarifa',
-        standfirst: 'Tarifa is een dorp op het zuidelijkste punt van Europa waar bijna alles te voet gaat. En toch bepaalt jullie ligging hier elke dag: de wind op jullie balkon, het zoeken naar een parkeerplek in augustus en hoe de avond eindigt. Onze band met Tarifa begon voordat we hier gasten ontvingen: Robert woonde zelf in het dorp.',
+        title: 'Vakantie in Tarifa: wind, de Atlantische Oceaan en Afrika aan de horizon',
+        standfirst: 'Welkom in Tarifa, de zuidelijkste stad op het Europese vasteland, waar bijna alles te voet gaat. En toch bepaalt jullie ligging hier elke dag: de wind op jullie balkon, het zoeken naar een parkeerplek in augustus en hoe de avond eindigt. Onze band met Tarifa begon voordat we hier gasten ontvingen: Robert woonde zelf in het dorp.',
         note: 'Een AMARA-gids uit eigen ervaring — geen live informatiedienst voor wind en weer.',
         updated: 'Gecontroleerd in augustus 2026'
       },
       geography: {
         eyebrow: 'Waar jullie zijn',
-        title: 'Het zuidelijkste punt van Europa, met Afrika ertegenover',
+        title: 'Het zuidelijkste punt van het vasteland, met Afrika ertegenover',
         paragraphs: [
           'Tarifa ligt waar de Atlantische Oceaan overgaat in de Straat van Gibraltar — het zuidelijkste punt van het Europese vasteland. Bij heldere lucht ligt de Marokkaanse kust zo dichtbij dat jullie hem vanaf het balkon zien. Niet als idee op een kaart, maar als kustlijn met bergen erboven.',
           'Het dorp zelf is klein. Oude stad, nieuwer deel en de strandrand liggen zo dicht bij elkaar dat jullie bijna alles lopend bereiken. Wat verder weg ligt — de westelijke kitestranden, Bolonia, de Straat — is minuten rijden.'
@@ -548,14 +548,14 @@ export const tarifaLocationContent: {
     sv: {
       hero: {
         eyebrow: 'Tarifa · Läge & vistelse',
-        title: 'Välkomna till Tarifa',
-        standfirst: 'Tarifa är en by på Europas sydligaste punkt där nästan allt går att nå till fots. Ändå avgör var ni bor varje dag här: vinden på er balkong, jakten på en parkeringsplats i augusti och hur kvällen slutar. Vår relation till Tarifa började innan vi tog emot gäster här: Robert bodde själv i byn.',
+        title: 'Semester i Tarifa: vind, Atlanten och Afrika vid horisonten',
+        standfirst: 'Välkomna till Tarifa, den sydligaste staden på det europeiska fastlandet, där nästan allt går att nå till fots. Ändå avgör var ni bor varje dag här: vinden på er balkong, jakten på en parkeringsplats i augusti och hur kvällen slutar. Vår relation till Tarifa började innan vi tog emot gäster här: Robert bodde själv i byn.',
         note: 'En AMARA-guide ur egen erfarenhet – inte en tjänst för aktuella vind- och väderförhållanden.',
         updated: 'Granskad i augusti 2026'
       },
       geography: {
         eyebrow: 'Var ni är',
-        title: 'Europas sydligaste punkt, med Afrika mittemot',
+        title: 'Fastlandets sydligaste punkt, med Afrika mittemot',
         paragraphs: [
           'Tarifa ligger där Atlanten övergår i Gibraltarsundet – på det europeiska fastlandets sydligaste punkt. När luften är klar ligger den marockanska kusten så nära att ni ser den från balkongen. Inte som en idé på en karta, utan som en kustlinje med berg ovanför.',
           'Själva byn är liten. Gamla stan, den nyare delen och strandkanten ligger så tätt att ni når nästan allt till fots. Det som ligger längre bort – kitestränderna i väster, Bolonia, sundet – är minuter bort med bil.'
