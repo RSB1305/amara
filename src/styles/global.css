@@ -210,6 +210,30 @@
     text-transform: uppercase;
   }
 
+  /* The wide caption that sits above a section heading. It was authored as
+   * `am-text-caption uppercase tracking-[…] block` with four different tracking
+   * values for the same role — 0.4em, 0.35em, 0.3em and 0.25em — and a single
+   * page used two of them for the same kind of caption. The role now fixes the
+   * tracking at the value the majority of call sites already used, so the step
+   * is adjustable in one place instead of twenty-seven. */
+  .am-text-section-caption {
+    display: block;
+    font-family: var(--font-label);
+    font-size: clamp(0.6875rem, 0.62rem + 0.35vw, 0.8125rem);
+    font-weight: 700;
+    line-height: 1.3;
+    letter-spacing: 0.4em;
+    text-transform: uppercase;
+  }
+
+  /* The inline uppercase caption. `am-text-caption` already carries the tracking
+   * this role wants, so the modifier only adds the case change; call sites that
+   * still override tracking are recorded as exceptions in the typography
+   * baseline rather than being silently normalised here. */
+  .am-text-caption--upper {
+    text-transform: uppercase;
+  }
+
   .am-kicker {
     font-family: var(--font-body);
     font-size: 1rem;
