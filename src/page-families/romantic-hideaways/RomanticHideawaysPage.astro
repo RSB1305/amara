@@ -7,6 +7,8 @@ import type { ImageMetadata } from 'astro';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Navigation from '../../components/Navigation.astro';
 import TrustHero from '../../components/hero/TrustHero.astro';
+import AmaraPageShell from '../../components/layout/AmaraPageShell.astro';
+import AmaraSection from '../../components/layout/AmaraSection.astro';
 import ApartmentCard from '../../components/location/ApartmentCard.astro';
 import ApartmentGrid from '../../components/location/ApartmentGrid.astro';
 import GuestReviewsSummary from '../../components/location/GuestReviewsSummary.astro';
@@ -397,7 +399,7 @@ const footerHighlights: LabeledLink[] = [
   { token: 'instagram', label: t({ en: 'Instagram', de: 'Instagram', es: 'Instagram', nl: 'Instagram', sv: 'Instagram' }) }
 ];
 
-const featureChipsByLang: Record<AmaraLanguage, { label: string; note?: string }[]> = {
+const reviewFeaturesByLang: Record<AmaraLanguage, { label: string; note?: string }[]> = {
   en: [
     { label: 'Cleanliness' },
     { label: 'Quiet nights' },
@@ -670,139 +672,138 @@ const apartmentsWithLinks = apartmentRows.filter(
     languageToken="romantic_hideaways"
   />
 
-  <main id="am-main-content" tabindex="-1" class="bg-surface min-h-screen relative overflow-hidden scroll-mt-[104px] lg:scroll-mt-[112px]" data-am-page="romantic-hideaways">
-    <div class="w-full max-w-screen-2xl mx-auto px-6 md:px-12 pb-20">
-      <section class="pt-8 pb-16 md:pb-24 relative z-10">
-        <TrustHero
-          subtitle={t(copy.heroSubtitle)}
-          title={t(copy.heroTitleHtml)}
-          lead={t(copy.heroLead)}
-          ctaVariant="conversion"
-          ctaLinks={[
-            { href: collectionHref, label: t(copy.ctaCollection) },
-            ...(bookHref ? [{ href: bookHref, label: t(copy.ctaBook) }] : [])
-          ]}
-        />
+  <AmaraPageShell family="romantic-hideaways" dataLang={currentLang}>
+    <AmaraSection variant="hero" dataComponent="stay-collection-hero">
+      <TrustHero
+        subtitle={t(copy.heroSubtitle)}
+        title={t(copy.heroTitleHtml)}
+        lead={t(copy.heroLead)}
+        spacing="section"
+        ctaVariant="conversion"
+        ctaLinks={[
+          { href: collectionHref, label: t(copy.ctaCollection) },
+          ...(bookHref ? [{ href: bookHref, label: t(copy.ctaBook) }] : [])
+        ]}
+      />
 
-        <div class="max-w-2xl space-y-5 mt-8 am-text-body text-on-surface-variant leading-relaxed">
-          {tArr(copy.prose).map((html) => (
-            <p set:html={html} />
-          ))}
-        </div>
+      <div class="max-w-2xl space-y-5 mt-8 am-text-body text-on-surface-variant leading-relaxed">
+        {tArr(copy.prose).map((html) => (
+          <p set:html={html} />
+        ))}
+      </div>
 
-        <div
-          class="flex flex-wrap items-center gap-x-8 gap-y-4 mt-12 pt-8 border-t border-border-subtle am-text-body text-on-surface-variant"
-          id="direct-booking"
-        >
-          <span>{t(copy.trustBooking)}</span>
-          <span>{t(copy.trustAirbnb)}</span>
-          {
-            directBookingHref ? (
-              <a class="am-inline-link" href={directBookingHref}>{t(copy.trustDirect)}</a>
-            ) : (
-              <span class="am-inline-link am-is-disabled" aria-disabled="true">{t(copy.trustDirect)}</span>
-            )
-          }
-        </div>
-      </section>
-
-      <section
-        class="py-14 md:py-20 border-t border-border-subtle relative z-10"
-        aria-labelledby="decision-title"
+      <div
+        class="flex flex-wrap items-center gap-x-8 gap-y-4 mt-12 pt-8 border-t border-border-subtle am-text-body text-on-surface-variant"
+        id="direct-booking"
       >
-        <div class="grid gap-10 lg:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)] lg:items-start">
-          <div class="max-w-2xl">
-            <p class="text-on-surface-variant am-text-label">
-              {t(copy.decisionEyebrow)}
-            </p>
-            <h2 id="decision-title" class="am-text-title tracking-tight mt-4">
-              {t(copy.decisionTitle)}
-            </h2>
-            <p class="am-text-body text-on-surface-variant mt-5 leading-relaxed">
-              {t(copy.decisionIntro)}
-            </p>
-          </div>
+        <span>{t(copy.trustBooking)}</span>
+        <span>{t(copy.trustAirbnb)}</span>
+        {
+          directBookingHref ? (
+            <a class="am-inline-link" href={directBookingHref}>{t(copy.trustDirect)}</a>
+          ) : (
+            <span class="am-inline-link am-is-disabled" aria-disabled="true">{t(copy.trustDirect)}</span>
+          )
+        }
+      </div>
+    </AmaraSection>
 
-          <div class="grid gap-8 md:grid-cols-3">
-            {decisionItems.map((item) => (
-              <article class="border-t border-border-subtle pt-5">
-                <p class="text-primary am-text-label">
-                  {item.kicker}
-                </p>
-                <h3 class="am-text-subtitle text-on-surface mt-4">
-                  {item.title}
-                </h3>
-                <p class="am-text-body text-on-surface-variant mt-3 leading-relaxed">
-                  {item.body}
-                </p>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section
-        id="booking"
-        class="scroll-mt-36 md:scroll-mt-40 py-16 md:py-24 border-t border-border-subtle relative z-10"
-        aria-labelledby="collection-title"
-      >
-        <div class="flex flex-col gap-6 max-w-3xl">
-          <h2 id="collection-title" class="am-text-title tracking-tight">{t(copy.collectionTitle)}</h2>
-          <p class="am-text-body text-on-surface-variant">{t(copy.collectionIntro)}</p>
-        </div>
-
-        <ApartmentGrid>
-          {
-            apartmentsWithLinks.map((apt, index) => (
-              <ApartmentCard
-                href={apt.href}
-                imageSrc={apt.image}
-                imageAlt={t(apt.imageAlt)}
-                loading={index === 0 ? 'eager' : 'lazy'}
-                fetchpriority={index === 0 ? 'high' : undefined}
-                meta={apt.meta}
-                title={apt.title}
-                description={apt.description}
-                ctaLabel={apt.ctaLabel}
-              />
-            ))
-          }
-        </ApartmentGrid>
-      </section>
-
-      <section class="py-14 md:py-20 border-t border-border-subtle relative z-10" aria-labelledby="location-bridge-title">
-        <div class="max-w-3xl">
-          <p class="text-on-surface-variant am-text-label">
-            {t(copy.locationBridgeEyebrow)}
+    <AmaraSection labelledby="decision-title" dataComponent="stay-decision-guide">
+      <div class="grid gap-10 lg:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)] lg:items-start">
+        <div class="max-w-2xl">
+          <p class="am-text-eyebrow text-primary">
+            {t(copy.decisionEyebrow)}
           </p>
-          <h2 id="location-bridge-title" class="am-text-title tracking-tight mt-4">
-            {t(copy.locationBridgeTitle)}
+          <h2 id="decision-title" class="am-text-title tracking-tight mt-4">
+            {t(copy.decisionTitle)}
           </h2>
           <p class="am-text-body text-on-surface-variant mt-5 leading-relaxed">
-            {t(copy.locationBridgeBody)}
+            {t(copy.decisionIntro)}
           </p>
-          <div class="flex flex-wrap gap-3 mt-7">
-            {
-              locationBridgeLinks.map((link) => (
-                <a class="am-btn am-btn--secondary" href={link.href}>{link.label}</a>
-              ))
-            }
-          </div>
         </div>
-      </section>
 
-      {
-        reviewsHref && (
+        <div class="grid gap-8 md:grid-cols-3">
+          {decisionItems.map((item) => (
+            <article class="border-t border-border-subtle pt-5">
+              <p class="text-primary am-text-label">
+                {item.kicker}
+              </p>
+              <h3 class="am-text-subtitle text-on-surface mt-4">
+                {item.title}
+              </h3>
+              <p class="am-text-body text-on-surface-variant mt-3 leading-relaxed">
+                {item.body}
+              </p>
+            </article>
+          ))}
+        </div>
+      </div>
+    </AmaraSection>
+
+    <AmaraSection
+      id="booking"
+      class="scroll-mt-36 md:scroll-mt-40"
+      labelledby="collection-title"
+      dataComponent="stay-collection"
+    >
+      <div class="flex flex-col gap-6 max-w-3xl">
+        <h2 id="collection-title" class="am-text-title tracking-tight">{t(copy.collectionTitle)}</h2>
+        <p class="am-text-body text-on-surface-variant">{t(copy.collectionIntro)}</p>
+      </div>
+
+      <ApartmentGrid>
+        {
+          apartmentsWithLinks.map((apt, index) => (
+            <ApartmentCard
+              href={apt.href}
+              imageSrc={apt.image}
+              imageAlt={t(apt.imageAlt)}
+              loading={index === 0 ? 'eager' : 'lazy'}
+              fetchpriority={index === 0 ? 'high' : undefined}
+              meta={apt.meta}
+              title={apt.title}
+              description={apt.description}
+              ctaLabel={apt.ctaLabel}
+            />
+          ))
+        }
+      </ApartmentGrid>
+    </AmaraSection>
+
+    <AmaraSection labelledby="location-bridge-title" dataComponent="location-bridge">
+      <div class="max-w-3xl">
+        <p class="am-text-eyebrow text-primary">
+          {t(copy.locationBridgeEyebrow)}
+        </p>
+        <h2 id="location-bridge-title" class="am-text-title tracking-tight mt-4">
+          {t(copy.locationBridgeTitle)}
+        </h2>
+        <p class="am-text-body text-on-surface-variant mt-5 leading-relaxed">
+          {t(copy.locationBridgeBody)}
+        </p>
+        <div class="flex flex-wrap gap-3 mt-7">
+          {
+            locationBridgeLinks.map((link) => (
+              <a class="am-btn am-btn--secondary" href={link.href}>{link.label}</a>
+            ))
+          }
+        </div>
+      </div>
+    </AmaraSection>
+
+    {
+      reviewsHref && (
+        <AmaraSection variant="closing" labelledby="guest-reviews-title" dataComponent="guest-reviews-summary">
           <GuestReviewsSummary
             eyebrow={t(copy.reviewsEyebrow)}
             headline={t(copy.reviewsHeadline)}
             body={t(copy.reviewsBody)}
             reviewsHref={reviewsHref}
             reviewsCtaLabel={t(copy.reviewsCta)}
-            features={featureChipsByLang[currentLang]}
+            features={reviewFeaturesByLang[currentLang]}
           />
-        )
-      }
-    </div>
-  </main>
+        </AmaraSection>
+      )
+    }
+  </AmaraPageShell>
 </BaseLayout>

@@ -1,6 +1,6 @@
 ---
 /**
- * Trust band: guest rating headline, supporting copy, feature chips, reviews CTA.
+ * Guest-review summary content rendered inside the shared AMARA section system.
  */
 interface Feature {
   label: string;
@@ -19,11 +19,11 @@ interface Props {
 const { eyebrow, headline, body, reviewsHref, reviewsCtaLabel, features } = Astro.props;
 ---
 
-<section id="am-trust-badge" class="am-guest-reviews-summary" aria-label="Guest reviews summary">
+<div id="am-trust-badge" class="am-guest-reviews-summary">
   <div class="am-guest-reviews-summary__inner">
     <div class="am-guest-reviews-summary__copy">
-      <p class="am-guest-reviews-summary__eyebrow am-text-caption text-on-surface-variant">{eyebrow}</p>
-      <h2 class="am-guest-reviews-summary__headline am-text-title text-on-surface">
+      <p class="am-guest-reviews-summary__eyebrow am-text-eyebrow text-primary">{eyebrow}</p>
+      <h2 id="guest-reviews-title" class="am-guest-reviews-summary__headline am-text-title text-on-surface">
         <span class="am-guest-reviews-summary__star am-gold" aria-hidden="true">★</span>
         {headline}
       </h2>
@@ -33,50 +33,37 @@ const { eyebrow, headline, body, reviewsHref, reviewsCtaLabel, features } = Astr
       </div>
     </div>
 
-    <div class="am-guest-reviews-summary__chips" aria-label="Highlighted guest features">
+    <ul class="am-guest-reviews-summary__features" aria-label="Highlighted guest features">
       {
         features.map((feature) => (
-          <span class="am-guest-reviews-summary__chip am-text-body">
+          <li class="am-guest-reviews-summary__feature am-text-body">
             {feature.label}
-            {feature.note && <span class="am-guest-reviews-summary__chip-note am-text-caption text-muted">{feature.note}</span>}
-          </span>
+            {feature.note && <span class="am-guest-reviews-summary__feature-note am-text-caption text-muted">{feature.note}</span>}
+          </li>
         ))
       }
-    </div>
+    </ul>
   </div>
-</section>
+</div>
 
 <style>
   @reference "../../styles/global.css";
 
   .am-guest-reviews-summary {
-    position: relative;
-    z-index: 10;
-    max-width: 96rem;
-    margin-left: auto;
-    margin-right: auto;
-    padding: 6rem 1.5rem;
-    border-top: 1px solid var(--color-border-subtle);
-  }
-
-  @media (min-width: 768px) {
-    .am-guest-reviews-summary {
-      padding-left: 3rem;
-      padding-right: 3rem;
-    }
+    width: 100%;
   }
 
   .am-guest-reviews-summary__inner {
     display: flex;
     flex-direction: column;
-    gap: 4rem;
+    gap: 2.5rem;
     align-items: flex-start;
   }
 
   @media (min-width: 1024px) {
     .am-guest-reviews-summary__inner {
       flex-direction: row;
-      gap: 4rem;
+      gap: clamp(3rem, 6vw, 6rem);
     }
   }
 
@@ -86,7 +73,6 @@ const { eyebrow, headline, body, reviewsHref, reviewsCtaLabel, features } = Astr
   }
 
   .am-guest-reviews-summary__eyebrow {
-    letter-spacing: 0.05em;
     margin: 0 0 1.5rem 0;
   }
 
@@ -107,34 +93,41 @@ const { eyebrow, headline, body, reviewsHref, reviewsCtaLabel, features } = Astr
     margin-top: 0.5rem;
   }
 
-  .am-guest-reviews-summary__chips {
+  .am-guest-reviews-summary__features {
     flex: 1 1 0%;
     width: 100%;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.75rem;
-    padding-top: 0;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    border-top: 1px solid var(--color-border-subtle);
   }
 
   @media (min-width: 1024px) {
-    .am-guest-reviews-summary__chips {
+    .am-guest-reviews-summary__features {
       padding-top: 3rem;
+      border-top: 0;
     }
   }
 
-  .am-guest-reviews-summary__chip {
-    display: inline-flex;
+  .am-guest-reviews-summary__feature {
+    display: flex;
     align-items: center;
     gap: 0.375rem;
-    padding: 0.625rem 1.25rem;
-    border: 1px solid var(--color-outline-variant);
-    border-radius: var(--radius-pill);
+    min-height: 3.5rem;
+    padding: 0.75rem 0;
+    border-bottom: 1px solid var(--color-border-subtle);
     line-height: 1.4;
     color: var(--color-on-surface-variant);
-    background-color: var(--color-surface-container-lowest);
   }
 
-  .am-guest-reviews-summary__chip-note {
+  .am-guest-reviews-summary__feature:nth-child(even) {
+    padding-left: 1rem;
+  }
+
+  .am-guest-reviews-summary__feature-note {
     margin-left: 0.25rem;
   }
 </style>

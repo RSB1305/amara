@@ -1,5 +1,6 @@
 ---
 interface Props {
+  id?: string;
   labelledby?: string;
   variant?: 'default' | 'hero' | 'compact' | 'closing';
   divider?: boolean;
@@ -8,6 +9,7 @@ interface Props {
 }
 
 const {
+  id,
   labelledby,
   variant = 'default',
   divider = true,
@@ -17,6 +19,7 @@ const {
 ---
 
 <section
+  id={id}
   class:list={[
     'am-page-section',
     `am-page-section--${variant}`,
