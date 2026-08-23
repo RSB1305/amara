@@ -9,7 +9,7 @@ import TarifaContextNav from '../../components/location/TarifaContextNav.astro';
 import {
   tarifaGuideContent,
   type LocalizedText,
-  type TarifaGuideContent
+  type TarifaGuideId
 } from '../../content/tarifaGuideContent';
 import LocationAuthorityLayout from '../../layouts/LocationAuthorityLayout.astro';
 import { createRequiredLinkResolver, type LabeledLink } from '../../lib/linkResolver';
@@ -17,11 +17,12 @@ import { normalizeLanguage } from '../../lib/seo/resolve-seo-head';
 import type { AmaraLanguage } from '../../types/seo';
 
 interface Props {
-  content: TarifaGuideContent;
+  guide: TarifaGuideId;
   lang?: string;
 }
 
-const { content, lang = 'es' } = Astro.props;
+const { guide, lang = 'es' } = Astro.props;
+const content = tarifaGuideContent[guide];
 const currentLang = normalizeLanguage(lang as AmaraLanguage);
 const t = (value: LocalizedText) => value[currentLang];
 const requiredLink = createRequiredLinkResolver(currentLang, 'Tarifa guide');

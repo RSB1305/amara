@@ -1,5 +1,5 @@
 ---
-import TarifaWindKitesurfingPage from '../../page-families/location-authority/TarifaWindKitesurfingPage.astro';
+import TarifaGuidePage from '../../page-families/location-authority/TarifaGuidePage.astro';
 import { getOwnedPageStaticPaths } from '../../lib/routeOwnership';
 import type { AmaraLanguage } from '../../types/seo';
 
@@ -10,5 +10,5 @@ export function getStaticPaths() {
 const { lang } = Astro.params as { lang: AmaraLanguage };
 ---
 
-<TarifaWindKitesurfingPage lang={lang} />
+<TarifaGuidePage guide="wind" lang={lang} />
 
