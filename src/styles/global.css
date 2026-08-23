@@ -508,6 +508,8 @@
     overflow-x: clip;
     scroll-margin-top: 6.5rem;
     background: var(--color-surface);
+    padding-inline: clamp(0.5rem, 1vw, 0.875rem);
+    padding-bottom: clamp(0.5rem, 1vw, 0.875rem);
   }
 
   .am-page-shell__frame {
@@ -515,6 +517,7 @@
     max-width: var(--container-page);
     margin-inline: auto;
     padding-inline: var(--spacing-page-gutter);
+    background: var(--color-surface-white);
   }
 
   .am-page-section {

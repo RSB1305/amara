@@ -337,7 +337,7 @@ const closingCtaLinks: EditorialClosingCtaLink[] = [
       <div class="mx-auto max-w-[76rem]" aria-label={page.sections.inventoryAria}>
         <h2 id="amenities-inventory-title" class="mb-6 am-text-title text-on-surface">{page.sections.inventoryTitle}</h2>
 
-        <div class="am-page-band mb-12 border-y border-outline-variant/30 bg-surface-container-low py-6">
+        <div class="am-page-band mb-12 border-y border-outline-variant/30 py-6">
             <p id="property-filter-label" class="am-text-caption mb-4 font-semibold text-on-surface">
               {amenityFilterCopy.propertyLabel}
             </p>
@@ -350,7 +350,7 @@ const closingCtaLinks: EditorialClosingCtaLink[] = [
               {propertyFilters.map((filter) => (
                 <button
                   type="button"
-                  class="filter-chip inline-flex min-h-11 max-w-full items-center justify-center whitespace-normal rounded-full border border-outline-variant/50 bg-white px-3 py-2 text-center am-text-caption font-medium text-on-surface transition-colors hover:border-primary hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/25 focus-visible:ring-offset-2 md:shrink-0 md:whitespace-nowrap md:px-4"
+                  class="filter-chip am-text-annotation"
                   data-property-filter={filter.key}
                   aria-pressed={filter.key === 'all' ? 'true' : 'false'}
                 >
@@ -371,7 +371,7 @@ const closingCtaLinks: EditorialClosingCtaLink[] = [
               {amenityFilters.map((filter) => (
                 <button
                   type="button"
-                  class="filter-chip inline-flex min-h-11 max-w-full items-center justify-center whitespace-normal rounded-full border border-outline-variant/50 bg-white px-3 py-2 text-center am-text-caption font-medium text-on-surface transition-colors hover:border-primary hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/25 focus-visible:ring-offset-2 md:shrink-0 md:whitespace-nowrap md:px-4"
+                  class="filter-chip am-text-annotation"
                   data-amenity-filter={filter.key}
                   aria-pressed={filter.key === 'all' ? 'true' : 'false'}
                 >
@@ -381,7 +381,7 @@ const closingCtaLinks: EditorialClosingCtaLink[] = [
             </div>
         </div>
 
-          <div id="amenity-inventory" class="grid gap-4" aria-live="polite">
+          <div id="amenity-inventory" class="border-t border-border-subtle" aria-live="polite">
             <p
               class="am-text-body mb-12 border-y border-outline-variant/30 py-8 text-on-surface-variant"
               data-filter-empty
@@ -398,7 +398,7 @@ const closingCtaLinks: EditorialClosingCtaLink[] = [
 
               return (
               <article
-                class="border border-outline-variant/10 bg-surface-white px-5 py-10 sm:px-8 md:py-12"
+                class="border-b border-border-subtle py-10 last:border-b-0 md:py-14"
                 data-rental-id={property.id}
                 data-expanded-amenities={hasExpandedAmenities ? 'true' : 'false'}
               >
@@ -419,7 +419,7 @@ const closingCtaLinks: EditorialClosingCtaLink[] = [
 
                   {amenityRows.length > 0 && (
                     <section class="mt-9" data-amenity-section>
-                      <h4 class="am-text-subtitle text-on-surface">
+                      <h4 class="am-text-label text-primary">
                         {amenityFilterCopy.amenityHeading}
                       </h4>
                       <ul class="mt-4 grid list-none gap-x-12 p-0 md:grid-cols-2">
@@ -534,10 +534,44 @@ const closingCtaLinks: EditorialClosingCtaLink[] = [
 </script>
 
 <style>
+  .filter-chip {
+    display: inline-flex;
+    min-height: 2.75rem;
+    max-width: 100%;
+    align-items: center;
+    justify-content: center;
+    padding: 0.5rem 0.75rem;
+    border: 1px solid color-mix(in srgb, var(--color-outline-variant) 50%, transparent);
+    border-radius: var(--radius-control);
+    background: var(--color-surface-white);
+    color: var(--color-on-surface);
+    text-align: center;
+    white-space: normal;
+    transition: border-color 180ms ease, background-color 180ms ease, color 180ms ease;
+  }
+
+  .filter-chip:hover {
+    border-color: var(--color-primary);
+    color: var(--color-primary);
+  }
+
+  .filter-chip:focus-visible {
+    outline: 2px solid color-mix(in srgb, var(--color-primary) 35%, transparent);
+    outline-offset: 2px;
+  }
+
   .filter-chip[aria-pressed='true'] {
     border-color: var(--color-primary);
     background-color: var(--color-primary);
     color: var(--color-on-primary);
+  }
+
+  @media (min-width: 48rem) {
+    .filter-chip {
+      flex-shrink: 0;
+      padding-inline: 1rem;
+      white-space: nowrap;
+    }
   }
 
   /* The filter uses the `hidden` attribute as its single source of truth. The rows it
