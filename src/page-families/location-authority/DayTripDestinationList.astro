@@ -1,0 +1,82 @@
+---
+import InlineEmphasis from '../../components/text/InlineEmphasis.astro';
+
+interface DayTripDestination {
+  id: string;
+  kicker: string;
+  title: string;
+  summary: string;
+  facts: readonly {
+    label: string;
+    value: string;
+  }[];
+  planningTitle: string;
+  callout: string;
+  details: string;
+  officialHref: string;
+  officialLabel: string;
+}
+
+interface Props {
+  destinations: readonly DayTripDestination[];
+  emphasizeText?: boolean;
+}
+
+const { destinations, emphasizeText = false } = Astro.props;
+---
+
+{
+  destinations.map((destination, index) => (
+    <section
+      id={destination.id}
+      class:list={[
+        'am-section',
+        index % 2 === 0 ? 'am-section--plain' : 'am-section--tint'
+      ]}
+    >
+      <div class="mb-16 max-w-3xl">
+        <p class="am-text-caption mb-5 text-primary">{destination.kicker}</p>
+        <h2 class="am-text-title mb-6 italic tracking-tight text-on-surface">
+          {destination.title}
+        </h2>
+        <p class="am-text-body leading-relaxed text-on-surface-variant">
+          {emphasizeText ? <InlineEmphasis text={destination.summary} /> : destination.summary}
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 gap-x-16 gap-y-14 lg:grid-cols-12">
+        <article class="border-t border-outline-variant/25 pt-8 lg:col-span-5">
+          <dl class="space-y-7">
+            {destination.facts.map((fact) => (
+              <div>
+                <dt class="am-text-caption mb-2 text-primary">{fact.label}</dt>
+                <dd class="am-text-body leading-relaxed text-on-surface-variant">{fact.value}</dd>
+              </div>
+            ))}
+          </dl>
+        </article>
+
+        <article class="border-t border-outline-variant/25 pt-8 lg:col-span-7">
+          <h3 class="am-text-subtitle mb-6 text-on-surface">{destination.planningTitle}</h3>
+          <p class="border-l border-primary/20 bg-surface-container-low px-4 py-3 am-text-body leading-relaxed text-on-surface-variant">
+            {emphasizeText ? <InlineEmphasis text={destination.callout} /> : destination.callout}
+          </p>
+          <p class="mt-7 am-text-body leading-relaxed text-on-surface-variant">
+            {emphasizeText ? <InlineEmphasis text={destination.details} /> : destination.details}
+          </p>
+          <p class="mt-7 am-text-body">
+            <a
+              href={destination.officialHref}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="am-inline-link"
+            >
+              {destination.officialLabel}
+              <span aria-hidden="true"> →</span>
+            </a>
+          </p>
+        </article>
+      </div>
+    </section>
+  ))
+}

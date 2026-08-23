@@ -12,7 +12,7 @@ import LocationAuthorityLayout from '../../layouts/LocationAuthorityLayout.astro
 import { resolveOptionalLink, type LabeledLink } from '../../lib/linkResolver';
 import { normalizeLanguage } from '../../lib/seo/resolve-seo-head';
 import type { AmaraLanguage } from '../../types/seo';
-import BeachFeatureSection from './BeachFeatureSection.astro';
+import AuthorityFeatureSection from './AuthorityFeatureSection.astro';
 import BeachSectionList from './BeachSectionList.astro';
 
 interface Props {
@@ -78,7 +78,7 @@ const heroImage = {
         imageWidth={heroImage.width}
       />
 
-      <BeachFeatureSection
+      <AuthorityFeatureSection
         id="coast"
         title={copy.overview.title}
         intro={copy.overview.intro}
@@ -87,7 +87,7 @@ const heroImage = {
 
       <BeachSectionList sections={copy.beachSections} labels={copy.beachCardLabels} />
 
-      <BeachFeatureSection
+      <AuthorityFeatureSection
         id="conditions"
         title={copy.conditions.title}
         intro={copy.conditions.intro}

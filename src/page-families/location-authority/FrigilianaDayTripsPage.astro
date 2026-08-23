@@ -13,6 +13,8 @@ import LocationAuthorityLayout from '../../layouts/LocationAuthorityLayout.astro
 import { resolveOptionalLink, type LabeledLink } from '../../lib/linkResolver';
 import { normalizeLanguage } from '../../lib/seo/resolve-seo-head';
 import type { AmaraLanguage } from '../../types/seo';
+import AuthorityFeatureSection from './AuthorityFeatureSection.astro';
+import DayTripDestinationList from './DayTripDestinationList.astro';
 
 interface Props {
   lang?: string;
@@ -102,90 +104,14 @@ const heroImage = {
         />
       </section>
 
-      {
-        copy.destinations.map((destination, index) => (
-          <section
-            id={destination.id}
-            class:list={[
-              'am-section',
-              index % 2 === 0 ? 'am-section--plain' : 'am-section--tint'
-            ]}
-          >
-            <div class="max-w-3xl mb-16">
-              <p class="am-text-caption text-primary mb-5">
-                {destination.kicker}
-              </p>
-              <h2 class="am-text-title italic text-on-surface tracking-tight mb-6">
-                {destination.title}
-              </h2>
-              <p class="am-text-body text-on-surface-variant leading-relaxed">
-                {destination.summary}
-              </p>
-            </div>
+      <DayTripDestinationList destinations={copy.destinations} />
 
-            <div class="grid grid-cols-1 lg:grid-cols-12 gap-x-16 gap-y-14">
-              <article class="lg:col-span-5 border-t border-outline-variant/25 pt-8">
-                <dl class="space-y-7">
-                  {destination.facts.map((fact) => (
-                    <div>
-                      <dt class="am-text-caption text-primary mb-2">
-                        {fact.label}
-                      </dt>
-                      <dd class="am-text-body text-on-surface-variant leading-relaxed">
-                        {fact.value}
-                      </dd>
-                    </div>
-                  ))}
-                </dl>
-              </article>
-
-              <article class="lg:col-span-7 border-t border-outline-variant/25 pt-8">
-                <h3 class="am-text-subtitle text-on-surface mb-6">
-                  {destination.planningTitle}
-                </h3>
-                <p class="border-l border-primary/20 bg-surface-container-low px-4 py-3 am-text-body leading-relaxed text-on-surface-variant">
-                  {destination.callout}
-                </p>
-                <p class="mt-7 am-text-body text-on-surface-variant leading-relaxed">
-                  {destination.details}
-                </p>
-                <p class="mt-7 am-text-body">
-                  <a
-                    href={destination.officialHref}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    class="am-inline-link"
-                  >
-                    {destination.officialLabel}
-                    <span aria-hidden="true"> &rarr;</span>
-                  </a>
-                </p>
-              </article>
-            </div>
-          </section>
-        ))
-      }
-
-      <section
+      <AuthorityFeatureSection
         id="practical"
-        class="am-section am-section--tint"
-      >
-        <div class="max-w-3xl mb-16">
-          <h2 class="am-text-title italic text-on-surface tracking-tight mb-6">
-            {copy.practical.title}
-          </h2>
-          <p class="am-text-body text-on-surface-variant leading-relaxed">
-            {copy.practical.intro}
-          </p>
-        </div>
-
-        <EditorialFeatureGrid
-          cards={copy.practical.items.map((item) => ({
-            title: item.title,
-            copy: item.text
-          }))}
-        />
-      </section>
+        title={copy.practical.title}
+        intro={copy.practical.intro}
+        items={copy.practical.items}
+      />
 
       <section class="am-section am-section--plain">
         <div class="max-w-3xl mb-16">
