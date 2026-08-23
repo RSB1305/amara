@@ -1,30 +1,19 @@
 import {
-  getLocationGuideClusterLabels,
-  getLocationGuideTopicLabels,
-  LOCATION_GUIDE_CLUSTER_IDS,
-  LOCATION_GUIDE_CLUSTER_TOPICS,
-  type LocationGuideClusterId,
-  type LocationGuideTopicId
-} from '../location/locationGuideTopics';
-import { resolveLink, type LinkToken } from '../linkResolver';
+  buildAuthoritySubnavGroups,
+  buildAuthoritySubnavItems,
+  type AuthoritySubnavGroup,
+  type AuthoritySubnavItem,
+  type LocationTopicLinks
+} from '../location/authoritySubnav';
+import type { LocationGuideTopicId } from '../location/locationGuideTopics';
 import type { AmaraLanguage } from '../../types/seo';
 
 export type NerjaAuthoritySubnavId = 'intro' | LocationGuideTopicId;
+export type NerjaAuthoritySubnavItem = AuthoritySubnavItem;
+export type NerjaAuthoritySubnavGroup = AuthoritySubnavGroup;
 
-export type NerjaAuthoritySubnavItem = {
-  id: LocationGuideTopicId;
-  label: string;
-  href?: string;
-  status: 'live' | 'future';
-};
-
-export type NerjaAuthoritySubnavGroup = {
-  id: LocationGuideClusterId;
-  items: NerjaAuthoritySubnavItem[];
-  label: string;
-};
-
-const topicLinks: Record<LocationGuideTopicId, LinkToken | undefined> = {
+/** Nerja publishes all nine topics; three of them share the daily-life page. */
+const topicLinks: LocationTopicLinks = {
   'arrival-mobility': 'getting_to_nerja',
   'geography-orientation': 'nerja_geography',
   'where-to-stay': 'nerja_where_to_stay',
@@ -36,48 +25,14 @@ const topicLinks: Record<LocationGuideTopicId, LinkToken | undefined> = {
   'practical-local-rules': 'nerja_daily_life'
 };
 
-const topicAnchors: Partial<Record<LocationGuideTopicId, string>> = {
-  'shopping-markets': 'supermarkets-everyday-shopping',
-  'health-emergency': 'health-emergency',
-  'practical-local-rules': 'good-to-know'
-};
-
-const makeTopicItem = (
-  topicId: LocationGuideTopicId,
-  currentLang: AmaraLanguage
-): NerjaAuthoritySubnavItem => {
-  const topicLabels = getLocationGuideTopicLabels(currentLang);
-  const token = topicLinks[topicId];
-
-  return token
-    ? {
-        id: topicId,
-        label: topicLabels[topicId],
-        status: 'live',
-        href: `${resolveLink(token, currentLang)}${topicAnchors[topicId] ? `#${topicAnchors[topicId]}` : ''}`
-      }
-    : {
-        id: topicId,
-        label: topicLabels[topicId],
-        status: 'future'
-      };
-};
-
 export function getNerjaAuthoritySubnavGroups(
   currentLang: AmaraLanguage
 ): NerjaAuthoritySubnavGroup[] {
-  const labels = getLocationGuideClusterLabels(currentLang);
-  const topicIdsByCluster = LOCATION_GUIDE_CLUSTER_TOPICS;
-
-  return LOCATION_GUIDE_CLUSTER_IDS.map((clusterId) => ({
-    id: clusterId,
-    label: labels[clusterId],
-    items: topicIdsByCluster[clusterId].map((topicId) => makeTopicItem(topicId, currentLang))
-  }));
+  return buildAuthoritySubnavGroups(topicLinks, currentLang);
 }
 
 export function getNerjaAuthoritySubnav(
   currentLang: AmaraLanguage
 ): NerjaAuthoritySubnavItem[] {
-  return getNerjaAuthoritySubnavGroups(currentLang).flatMap((group) => group.items);
+  return buildAuthoritySubnavItems(topicLinks, currentLang);
 }

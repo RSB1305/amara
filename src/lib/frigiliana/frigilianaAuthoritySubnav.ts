@@ -1,12 +1,11 @@
 import {
-  getLocationGuideClusterLabels,
-  LOCATION_GUIDE_CLUSTER_IDS,
-  LOCATION_GUIDE_CLUSTER_TOPICS,
-  getLocationGuideTopicLabels,
-  type LocationGuideClusterId,
-  type LocationGuideTopicId
-} from '../location/locationGuideTopics';
-import { resolveLink, type LinkToken } from '../linkResolver';
+  buildAuthoritySubnavGroups,
+  buildAuthoritySubnavItems,
+  type AuthoritySubnavGroup,
+  type AuthoritySubnavItem,
+  type LocationTopicLinks
+} from '../location/authoritySubnav';
+import type { LocationGuideTopicId } from '../location/locationGuideTopics';
 import type { AmaraLanguage } from '../../types/seo';
 
 export type FrigilianaAuthoritySubnavId =
@@ -24,20 +23,14 @@ export type FrigilianaAuthoritySubnavId =
   | 'faq';
 
 export type FrigilianaAuthorityTopicId = LocationGuideTopicId;
+export type FrigilianaAuthoritySubnavItem = AuthoritySubnavItem;
+export type FrigilianaAuthoritySubnavGroup = AuthoritySubnavGroup;
 
-export type FrigilianaAuthoritySubnavItem = {
-  id: FrigilianaAuthorityTopicId;
-  label: string;
-  href?: string;
-  status: 'live' | 'future';
-};
-
-export type FrigilianaAuthoritySubnavGroup = {
-  id: LocationGuideClusterId;
-  items: FrigilianaAuthoritySubnavItem[];
-  label: string;
-};
-
+/**
+ * Frigiliana names its own pages in the breadcrumb rather than reusing the
+ * topic labels, because several of its pages carry a narrative job that the
+ * generic topic name does not describe.
+ */
 const currentPageLabels: Record<
   FrigilianaAuthoritySubnavId,
   Record<AmaraLanguage, string>
@@ -127,8 +120,11 @@ const currentPageLabels: Record<
     sv: 'FAQ'
   }
 };
-
-const topicLinks: Record<LocationGuideTopicId, LinkToken | undefined> = {
+/**
+ * Frigiliana publishes all nine topics. `where-to-stay` points at the streets
+ * and stairs page, which is where the village's own areas are explained.
+ */
+const topicLinks: LocationTopicLinks = {
   'arrival-mobility': 'getting_to_frigiliana',
   'geography-orientation': 'frigiliana_geography',
   'where-to-stay': 'frigiliana_stairs',
@@ -138,33 +134,6 @@ const topicLinks: Record<LocationGuideTopicId, LinkToken | undefined> = {
   'shopping-markets': 'frigiliana_daily_life',
   'health-emergency': 'frigiliana_daily_life',
   'practical-local-rules': 'frigiliana_daily_life'
-};
-
-const topicAnchors: Partial<Record<LocationGuideTopicId, string>> = {
-  'shopping-markets': 'supermarkets-everyday-shopping',
-  'health-emergency': 'health-emergency',
-  'practical-local-rules': 'good-to-know'
-};
-
-const makeTopicItem = (
-  topicId: LocationGuideTopicId,
-  currentLang: AmaraLanguage
-): FrigilianaAuthoritySubnavItem => {
-  const topicLabels = getLocationGuideTopicLabels(currentLang);
-  const token = topicLinks[topicId];
-
-  return token
-    ? {
-        id: topicId,
-        label: topicLabels[topicId],
-        status: 'live',
-        href: `${resolveLink(token, currentLang)}${topicAnchors[topicId] ? `#${topicAnchors[topicId]}` : ''}`
-      }
-    : {
-        id: topicId,
-        label: topicLabels[topicId],
-        status: 'future'
-      };
 };
 
 export function getFrigilianaAuthorityActiveTopic(
@@ -191,20 +160,13 @@ export function getFrigilianaAuthorityActiveTopic(
 export function getFrigilianaAuthoritySubnavGroups(
   currentLang: AmaraLanguage
 ): FrigilianaAuthoritySubnavGroup[] {
-  const labels = getLocationGuideClusterLabels(currentLang);
-  const topicIdsByCluster = LOCATION_GUIDE_CLUSTER_TOPICS;
-
-  return LOCATION_GUIDE_CLUSTER_IDS.map((clusterId) => ({
-    id: clusterId,
-    label: labels[clusterId],
-    items: topicIdsByCluster[clusterId].map((topicId) => makeTopicItem(topicId, currentLang))
-  }));
+  return buildAuthoritySubnavGroups(topicLinks, currentLang);
 }
 
 export function getFrigilianaAuthoritySubnav(
   currentLang: AmaraLanguage
 ): FrigilianaAuthoritySubnavItem[] {
-  return getFrigilianaAuthoritySubnavGroups(currentLang).flatMap((group) => group.items);
+  return buildAuthoritySubnavItems(topicLinks, currentLang);
 }
 
 export function getFrigilianaAuthorityCurrentPageLabel(
