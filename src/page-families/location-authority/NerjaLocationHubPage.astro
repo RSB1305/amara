@@ -1,4 +1,5 @@
 ---
+import LocationAreasBand from './LocationAreasBand.astro';
 import InlineEmphasis from '../../components/text/InlineEmphasis.astro';
 import nerjaStayImage from '../../assets/images/home/amara-playa-chaparril-13.webp';
 import AmaraImage from '../../components/AmaraImage.astro';
@@ -104,31 +105,13 @@ const footerHighlights: LabeledLink[] = [
       </div>
     </section>
 
-    <section class="border-b border-border-subtle bg-inverse-surface px-6 py-24 text-inverted-on-surface md:px-12 md:py-32 lg:py-40">
-      <div class="mx-auto max-w-screen-2xl">
-        <div class="grid gap-12 lg:grid-cols-12 lg:gap-20">
-          <div class="lg:col-span-5">
-            <p class="am-text-eyebrow text-primary-fixed-dim">{content.areas.eyebrow}</p>
-            <h2 class="am-text-display mt-6 text-balance text-inverted-on-surface">{content.areas.title}</h2>
-          </div>
-          <div class="space-y-5 lg:col-span-7">
-            {content.areas.paragraphs.map((paragraph) => (
-              <p class="am-text-body leading-relaxed text-inverted-on-surface/75"><InlineEmphasis text={paragraph} /></p>
-            ))}
-          </div>
-        </div>
-        <div class="mt-16 grid gap-x-8 md:grid-cols-2 lg:mt-24 lg:grid-cols-4">
-          {content.areas.archetypes.map((area, index) => (
-            <div class="border-t border-inverted-on-surface/20 py-7">
-              <span class="text-primary-fixed-dim am-text-label am-text-label--sm">0{index + 1}</span>
-              <h3 class="am-text-subtitle mt-4 text-inverted-on-surface">{area.title}</h3>
-              <p class="am-text-body mt-3 leading-relaxed text-inverted-on-surface/70"><InlineEmphasis text={area.consequence} /></p>
-            </div>
-          ))}
-        </div>
-        <a href={featureHref(content.areas.link)} class="am-btn am-btn--primary mt-10">{content.areas.link?.label}</a>
-      </div>
-    </section>
+    <LocationAreasBand
+      eyebrow={content.areas.eyebrow}
+      title={content.areas.title}
+      paragraphs={content.areas.paragraphs}
+      archetypes={content.areas.archetypes}
+      link={content.areas.link ? { href: featureHref(content.areas.link), label: content.areas.link.label } : undefined}
+    />
 
     <div class="border-b border-border-subtle bg-surface">
       <div class="mx-auto grid max-w-screen-2xl lg:grid-cols-2">
