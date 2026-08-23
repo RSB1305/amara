@@ -2,10 +2,18 @@
 interface Props {
   family: string;
   dataLang?: string;
+  documentVersion?: string;
+  publishedAt?: string;
   class?: string;
 }
 
-const { family, dataLang, class: className } = Astro.props;
+const {
+  family,
+  dataLang,
+  documentVersion,
+  publishedAt,
+  class: className
+} = Astro.props;
 ---
 
 <main
@@ -14,6 +22,8 @@ const { family, dataLang, class: className } = Astro.props;
   class:list={['am-page-shell', className]}
   data-am-page={family}
   data-lang={dataLang}
+  data-document-version={documentVersion}
+  data-published-at={publishedAt}
 >
   <div class="am-page-shell__frame">
     <slot />

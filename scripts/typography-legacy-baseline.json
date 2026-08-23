@@ -102,10 +102,6 @@
   "src/page-families/arrival-guide/DirectionsArrivalGuidePage.astro": {
     "text-[11px]": 1
   },
-  "src/page-families/booking-stay-terms/BookingStayTermsPage.astro": {
-    "text-[11px]": 3,
-    "tracking-[0.12em]": 3
-  },
   "src/page-families/location-authority/AuthorityArticle.astro": {
     "text-[10px]": 1,
     "tracking-[0.12em]": 1

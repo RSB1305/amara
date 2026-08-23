@@ -5,6 +5,8 @@ import InlineEmphasis from '../../components/text/InlineEmphasis.astro';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Navigation from '../../components/Navigation.astro';
 import TrustHero from '../../components/hero/TrustHero.astro';
+import AmaraPageShell from '../../components/layout/AmaraPageShell.astro';
+import AmaraSection from '../../components/layout/AmaraSection.astro';
 import {
   BOOKING_STAY_TERMS_PUBLISHED_AT,
   BOOKING_STAY_TERMS_VERSION,
@@ -46,55 +48,69 @@ const privacyHref = resolveLink('legal_notice', currentLang);
   seo={seo}
   pageLang={currentLang}
   contextBreadcrumbTitle={copy.hero.title.replaceAll('&shy;', '')}
-  bodyBackgroundClass="bg-surface-container-lowest"
 >
   <Navigation currentLang={currentLang} languageToken="booking_stay_terms" />
 
-  <div class="bg-surface-container-lowest" data-am-page="booking-stay-terms" data-document-version={BOOKING_STAY_TERMS_VERSION} data-published-at={BOOKING_STAY_TERMS_PUBLISHED_AT}>
-    <div class="mx-auto w-full max-w-[1400px] px-[5vw]" data-lang={currentLang}>
-      <TrustHero subtitle={copy.hero.subtitle} title={copy.hero.title} lead={copy.hero.lead} />
+  <AmaraPageShell
+    family="booking-stay-terms"
+    dataLang={currentLang}
+    documentVersion={BOOKING_STAY_TERMS_VERSION}
+    publishedAt={BOOKING_STAY_TERMS_PUBLISHED_AT}
+  >
+    <AmaraSection variant="hero" dataComponent="booking-terms-hero">
+      <TrustHero
+        subtitle={copy.hero.subtitle}
+        title={copy.hero.title}
+        lead={copy.hero.lead}
+        spacing="section"
+      />
+    </AmaraSection>
 
-      <main id="am-main-content" tabindex="-1" class="mx-auto max-w-screen-lg scroll-mt-[104px] pb-28 lg:scroll-mt-[112px]">
-        <div class="space-y-14 md:space-y-16">
-          {(copy.sections as BookingStayTermSection[]).map((section) => (
-            <section id={section.id} class="scroll-mt-32 border-t border-outline-variant/15 pt-8" aria-labelledby={`${section.id}-title`}>
-              <h2 id={`${section.id}-title`} class="am-text-title italic text-on-surface">{section.title}</h2>
-              <div class="mt-6 max-w-3xl space-y-4">
-                {section.paragraphs.map((paragraph) => (
-                  <p class="am-text-body text-on-surface-variant"><InlineEmphasis text={paragraph} /></p>
-                ))}
-                {section.bullets && (
-                  <ul class="space-y-3 pl-5 am-text-body text-on-surface-variant marker:text-primary">
-                    {section.bullets.map((item) => <li class="pl-2">{item}</li>)}
-                  </ul>
-                )}
-              </div>
-            </section>
-          ))}
-        </div>
-
-        <section class="mt-16 border-t border-outline-variant/15 pt-8 md:mt-20" aria-labelledby="contracting-party">
-          <h2 id="contracting-party" class="am-text-subtitle italic text-on-surface">{copy.identity.heading}</h2>
-          <dl class="mt-6 grid gap-x-10 gap-y-5 am-text-body text-on-surface-variant md:grid-cols-2">
-            {identityRows.map((row) => (
-              <div class="grid gap-1">
-                <dt class="font-label text-[11px] font-bold uppercase tracking-[0.12em] text-on-surface">{row.label}</dt>
-                <dd>{row.value}</dd>
-              </div>
+    <div class="mx-auto max-w-screen-lg">
+      {(copy.sections as BookingStayTermSection[]).map((section) => (
+        <AmaraSection
+          id={section.id}
+          class="scroll-mt-32"
+          labelledby={`${section.id}-title`}
+          dataComponent="booking-term-section"
+        >
+          <h2 id={`${section.id}-title`} class="am-text-title text-on-surface">{section.title}</h2>
+          <div class="mt-6 max-w-3xl space-y-4">
+            {section.paragraphs.map((paragraph) => (
+              <p class="am-text-body text-on-surface-variant"><InlineEmphasis text={paragraph} /></p>
             ))}
-            <div class="grid gap-1">
-              <dt class="font-label text-[11px] font-bold uppercase tracking-[0.12em] text-on-surface">{copy.identity.email}</dt>
-              <dd><a class="am-inline-link" href={`mailto:${legalIdentity.email}`}>{legalIdentity.email}</a></dd>
-            </div>
-          </dl>
-        </section>
+            {section.bullets && (
+              <ul class="space-y-3 pl-5 am-text-body text-on-surface-variant marker:text-primary">
+                {section.bullets.map((item) => <li class="pl-2">{item}</li>)}
+              </ul>
+            )}
+          </div>
+        </AmaraSection>
+      ))}
 
-        <aside class="mt-16 border-l-2 border-primary/60 bg-surface-container-low px-7 py-6 md:mt-20 md:px-8" aria-label={copy.privacyLinkLabel}>
+      <AmaraSection labelledby="contracting-party" dataComponent="booking-terms-contracting-party">
+        <h2 id="contracting-party" class="am-text-title text-on-surface">{copy.identity.heading}</h2>
+        <dl class="mt-6 grid gap-x-10 gap-y-5 am-text-body text-on-surface-variant md:grid-cols-2">
+          {identityRows.map((row) => (
+            <div class="grid gap-1">
+              <dt class="am-text-label text-on-surface">{row.label}</dt>
+              <dd>{row.value}</dd>
+            </div>
+          ))}
+          <div class="grid gap-1">
+            <dt class="am-text-label text-on-surface">{copy.identity.email}</dt>
+            <dd><a class="am-inline-link" href={`mailto:${legalIdentity.email}`}>{legalIdentity.email}</a></dd>
+          </div>
+        </dl>
+      </AmaraSection>
+
+      <AmaraSection variant="compact" divider={false} dataComponent="booking-terms-version">
+        <aside class="border-l-2 border-primary/60 pl-5 sm:pl-7" aria-label={copy.privacyLinkLabel}>
           <p class="am-text-body text-on-surface-variant"><InlineEmphasis text={copy.closingNote} /></p>
           <a class="am-cta-link mt-4 inline-flex" href={privacyHref}>{copy.privacyLinkLabel}</a>
-          <p class="mt-5 font-label text-[11px] font-bold uppercase tracking-[0.12em] text-on-surface-variant">{copy.versionNote}</p>
+          <p class="am-text-label mt-5 text-on-surface-variant">{copy.versionNote}</p>
         </aside>
-      </main>
+      </AmaraSection>
     </div>
-  </div>
+  </AmaraPageShell>
 </BaseLayout>

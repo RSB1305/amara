@@ -23,7 +23,7 @@ export const bookingStayTermsContent = {
   },
   hero: {
     subtitle: l("Clear and reliable.", "Klar und verlässlich.", "Claras y fiables.", "Helder en betrouwbaar.", "Tydliga och tillförlitliga."),
-    title: l("Booking Terms", "Buchungsbedingungen", "Condiciones de reserva", "Boekingsvoorwaarden", "Bokningsvillkor"),
+    title: l("Booking Terms", "Buchungs&shy;bedingungen", "Condiciones de reserva", "Boekings&shy;voorwaarden", "Boknings&shy;villkor"),
     lead: l("The general terms for **direct bookings with AMARA Lodging**.", "Die allgemeinen Bedingungen für **Direktbuchungen bei AMARA Lodging**.", "Las condiciones generales para las **reservas directas con AMARA Lodging**.", "De algemene voorwaarden voor **rechtstreekse boekingen bij AMARA Lodging**.", "De allmänna villkoren för **direktbokningar hos AMARA Lodging**.")
   },
   identity: {
