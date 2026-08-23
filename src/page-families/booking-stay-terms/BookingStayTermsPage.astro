@@ -1,4 +1,6 @@
 ---
+import { resolveLocale } from '../../types/content';
+import type { BookingStayTermSection } from '../../content/bookingStayTermsContent';
 import InlineEmphasis from '../../components/text/InlineEmphasis.astro';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Navigation from '../../components/Navigation.astro';
@@ -15,18 +17,18 @@ import type { AmaraAuthoringSeo, AmaraLanguage } from '../../types/seo';
 
 const { lang = 'es' } = Astro.props;
 const currentLang = normalizeLanguage(lang as AmaraLanguage);
-const copy = bookingStayTermsContent[currentLang];
+const copy = resolveLocale(bookingStayTermsContent, currentLang);
 
 const seo: AmaraAuthoringSeo = {
   version: '2026-08-17-booking-stay-terms-v1.0-C',
   pageType: 'C',
   entityKey: 'amara-brand',
   languages: {
-    en: { ...bookingStayTermsContent.en.seo, robots: 'index, follow', canonical: 'auto' },
-    de: { ...bookingStayTermsContent.de.seo, robots: 'index, follow', canonical: 'auto' },
-    es: { ...bookingStayTermsContent.es.seo, robots: 'index, follow', canonical: 'auto' },
-    nl: { ...bookingStayTermsContent.nl.seo, robots: 'index, follow', canonical: 'auto' },
-    sv: { ...bookingStayTermsContent.sv.seo, robots: 'index, follow', canonical: 'auto' }
+    en: { ...resolveLocale(bookingStayTermsContent.seo, 'en'), robots: 'index, follow', canonical: 'auto' },
+    de: { ...resolveLocale(bookingStayTermsContent.seo, 'de'), robots: 'index, follow', canonical: 'auto' },
+    es: { ...resolveLocale(bookingStayTermsContent.seo, 'es'), robots: 'index, follow', canonical: 'auto' },
+    nl: { ...resolveLocale(bookingStayTermsContent.seo, 'nl'), robots: 'index, follow', canonical: 'auto' },
+    sv: { ...resolveLocale(bookingStayTermsContent.seo, 'sv'), robots: 'index, follow', canonical: 'auto' }
   }
 };
 
@@ -54,7 +56,7 @@ const privacyHref = resolveLink('legal_notice', currentLang);
 
       <main id="am-main-content" tabindex="-1" class="mx-auto max-w-screen-lg scroll-mt-[104px] pb-28 lg:scroll-mt-[112px]">
         <div class="space-y-14 md:space-y-16">
-          {copy.sections.map((section) => (
+          {(copy.sections as BookingStayTermSection[]).map((section) => (
             <section id={section.id} class="scroll-mt-32 border-t border-outline-variant/15 pt-8" aria-labelledby={`${section.id}-title`}>
               <h2 id={`${section.id}-title`} class="am-text-title italic text-on-surface">{section.title}</h2>
               <div class="mt-6 max-w-3xl space-y-4">

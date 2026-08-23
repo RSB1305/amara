@@ -1,3 +1,4 @@
+import { resolveLocale } from '../types/content';
 import type { LocalizedText } from '../types/content';
 import type { ImageMetadata } from 'astro';
 import type { ArrivalJourneyGraphicData } from '../components/location/ArrivalJourneyGraphic.astro';
@@ -557,7 +558,7 @@ function frigilianaGuide(lang: AmaraLanguage): ArrivalGuidePageContent {
 }
 
 function nerjaGuide(lang: AmaraLanguage): ArrivalGuidePageContent {
-  const content = gettingToNerjaContent[lang];
+  const content = resolveLocale(gettingToNerjaContent, lang);
   const [decision, car, bus, airports, withoutCar, beaches, dayTrips, parking, finalMile] = content.sections;
 
   return {
@@ -643,7 +644,7 @@ function nerjaGuide(lang: AmaraLanguage): ArrivalGuidePageContent {
 }
 
 function tarifaGuide(lang: AmaraLanguage): ArrivalGuidePageContent {
-  const content = gettingToTarifaContent[lang];
+  const content = resolveLocale(gettingToTarifaContent, lang);
   const [car, bus, airports, port, withoutCar, westernCoast, parking] = content.sections;
 
   return {

@@ -1,4 +1,5 @@
 ---
+import { resolveLocale } from '../../types/content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Navigation from '../../components/Navigation.astro';
 import AmaraImage from '../../components/AmaraImage.astro';
@@ -19,7 +20,7 @@ interface Props {
 
 const { lang = 'es' } = Astro.props;
 const currentLang = normalizeLanguage(lang as AmaraLanguage);
-const page = propertySaleContent[currentLang];
+const page = resolveLocale(propertySaleContent, currentLang);
 const propertySaleBrandLabels: Record<AmaraLanguage, string> = {
   en: 'Property for sale',
   de: 'Immobilie zum Verkauf',

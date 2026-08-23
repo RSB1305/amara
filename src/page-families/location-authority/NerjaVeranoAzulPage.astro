@@ -1,4 +1,5 @@
 ---
+import { resolveLocale } from '../../types/content';
 import Navigation from '../../components/Navigation.astro';
 import ExperienceContextNav from '../../components/experience/ExperienceContextNav.astro';
 import {
@@ -19,7 +20,7 @@ interface Props {
 
 const { lang = 'es' } = Astro.props;
 const currentLang = normalizeLanguage(lang as AmaraLanguage);
-const content = nerjaVeranoAzulContent[currentLang];
+const content = resolveLocale(nerjaVeranoAzulContent, currentLang);
 
 const requiredLink = createRequiredLinkResolver(currentLang, 'Nerja Verano Azul');
 

@@ -1,4 +1,5 @@
 ---
+import { resolveLocale } from '../../types/content';
 import AmaraImage from '../../components/AmaraImage.astro';
 import Navigation from '../../components/Navigation.astro';
 import ExperienceContextNav from '../../components/experience/ExperienceContextNav.astro';
@@ -20,7 +21,7 @@ interface Props {
 const { page, lang = 'es' } = Astro.props;
 const currentLang = normalizeLanguage(lang as AmaraLanguage);
 const isCaves = page === 'caves';
-const content = isCaves ? nerjaCavesContent[currentLang] : nerjaBalconContent[currentLang];
+const content = isCaves ? resolveLocale(nerjaCavesContent, currentLang) : resolveLocale(nerjaBalconContent, currentLang);
 const seo = isCaves ? nerjaCavesSeo : nerjaBalconSeo;
 const languageToken = isCaves ? 'nerja_caves' : 'nerja_balcon_de_europa';
 const contextId = isCaves ? 'caves' : 'balcon';
@@ -33,7 +34,7 @@ const requiredLink = createRequiredLinkResolver(
 const aboutHref = requiredLink('about');
 const locationHref = requiredLink('location_nerja');
 const propertyHref = requiredLink('playa');
-const personal = isCaves ? nerjaCavesContent[currentLang].personal : null;
+const personal = isCaves ? resolveLocale(nerjaCavesContent, currentLang).personal : null;
 const footerHighlights: LabeledLink[] = isCaves
   ? [
       { token: 'nerja_caves', label: content.navLabel },

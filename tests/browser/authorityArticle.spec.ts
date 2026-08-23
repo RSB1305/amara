@@ -110,7 +110,7 @@ const AUTHORITY_PAGES: AuthorityPage[] = [
   {
     routeToken: 'getting_to_nerja',
     pageId: 'getting-to-nerja',
-    content: (lang) => gettingToNerjaContent[lang],
+    content: (lang) => resolveLocale(gettingToNerjaContent, lang),
     heroMark: null,
     relatedColumns: 'md:grid-cols-2',
     blockBeforeSections: null,
@@ -126,7 +126,7 @@ const AUTHORITY_PAGES: AuthorityPage[] = [
   {
     routeToken: 'getting_to_tarifa',
     pageId: 'getting-to-tarifa',
-    content: (lang) => gettingToTarifaContent[lang],
+    content: (lang) => resolveLocale(gettingToTarifaContent, lang),
     heroMark: null,
     relatedColumns: 'md:grid-cols-2',
     blockBeforeSections: null,
@@ -190,7 +190,7 @@ const AUTHORITY_PAGES: AuthorityPage[] = [
   {
     routeToken: 'nerja_balcon_de_europa',
     pageId: 'nerja-balcon-de-europa',
-    content: (lang) => nerjaBalconContent[lang],
+    content: (lang) => resolveLocale(nerjaBalconContent, lang),
     heroMark: null,
     relatedColumns: 'md:grid-cols-2',
     blockBeforeSections: null,
@@ -206,7 +206,7 @@ const AUTHORITY_PAGES: AuthorityPage[] = [
   {
     routeToken: 'nerja_caves',
     pageId: 'nerja-caves',
-    content: (lang) => nerjaCavesContent[lang],
+    content: (lang) => resolveLocale(nerjaCavesContent, lang),
     heroMark: null,
     relatedColumns: 'md:grid-cols-2',
     blockBeforeSections: null,
@@ -288,7 +288,7 @@ const AUTHORITY_PAGES: AuthorityPage[] = [
   {
     routeToken: 'tarifa_winter_stays',
     pageId: 'tarifa-winter-stays',
-    content: (lang) => tarifaWinterStaysContent[lang],
+    content: (lang) => resolveLocale(tarifaWinterStaysContent, lang),
     heroMark: null,
     relatedColumns: 'md:grid-cols-2',
     blockBeforeSections: null,
