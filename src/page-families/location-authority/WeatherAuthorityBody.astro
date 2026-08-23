@@ -4,6 +4,7 @@ import LocationClimateTable from '../../components/location/LocationClimateTable
 import SeasonalPillar from '../../components/location/SeasonalPillar.astro';
 import LocationWeatherHero from '../../components/location/LocationWeatherHero.astro';
 import AuthorityRelatedLinks from './AuthorityRelatedLinks.astro';
+import LocationModule from './LocationModule.astro';
 import type { LocationClimateMonth } from '../../content/locationClimateData';
 import type { WeatherAuthorityContent } from './weatherAuthority';
 
@@ -48,7 +49,7 @@ const {
     evidenceItems={content.hero.summaryItems}
   />
 
-  <section class="border-b border-border-subtle bg-surface px-6 py-20 md:px-12 md:py-28" data-am-weather-module="factors">
+  <LocationModule data-am-weather-module="factors">
     <div class="mx-auto grid max-w-screen-2xl gap-12 lg:grid-cols-12 lg:gap-20">
       <div class="lg:col-span-5">
         <p class="am-text-eyebrow text-primary">{content.factors.eyebrow}</p>
@@ -71,7 +72,7 @@ const {
         ))}
       </div>
     </div>
-  </section>
+  </LocationModule>
 
   <div data-am-weather-module="monthly-data">
     <LocationClimateTable
@@ -96,7 +97,7 @@ const {
     />
   </div>
 
-  <section class="border-b border-border-subtle bg-surface-container-low px-6 py-20 md:px-12 md:py-28" data-am-weather-module="seasons">
+  <LocationModule surface="tint" data-am-weather-module="seasons">
     <div class="mx-auto max-w-screen-2xl">
       <div class="max-w-3xl">
         <p class="am-text-eyebrow text-primary">{content.seasons.eyebrow}</p>
@@ -116,9 +117,9 @@ const {
         ))}
       </div>
     </div>
-  </section>
+  </LocationModule>
 
-  <section class="border-b border-border-subtle bg-inverse-surface px-6 py-20 text-inverted-on-surface md:px-12 md:py-28" data-am-weather-module="travel-fit">
+  <LocationModule surface="inverse" data-am-weather-module="travel-fit">
     <div class="mx-auto grid max-w-screen-2xl gap-12 lg:grid-cols-12 lg:gap-20">
       <div class="lg:col-span-5">
         <p class="am-text-eyebrow text-primary-fixed-dim">{content.bestTime.eyebrow}</p>
@@ -134,9 +135,9 @@ const {
         ))}
       </div>
     </div>
-  </section>
+  </LocationModule>
 
-  <section class="border-b border-border-subtle bg-surface px-6 py-20 md:px-12 md:py-28" data-am-weather-module="practical">
+  <LocationModule data-am-weather-module="practical">
     <div class="mx-auto grid max-w-screen-2xl gap-12 lg:grid-cols-12 lg:gap-20">
       <div class="lg:col-span-7">
         <p class="am-text-eyebrow text-primary">{content.practical.eyebrow}</p>
@@ -156,9 +157,9 @@ const {
         </ul>
       </div>
     </div>
-  </section>
+  </LocationModule>
 
-  <section class="border-b border-border-subtle bg-surface-container-low px-6 py-20 md:px-12 md:py-28" data-am-weather-module="forecast">
+  <LocationModule surface="tint" data-am-weather-module="forecast">
     <div class="mx-auto grid max-w-screen-2xl gap-10 lg:grid-cols-12 lg:gap-20">
       <div class="lg:col-span-5">
         <p class="am-text-eyebrow text-primary">{content.forecast.eyebrow}</p>
@@ -173,9 +174,9 @@ const {
         <a href={forecastHref} target="_blank" rel="noopener noreferrer" class="am-cta-link mt-8 inline-flex">{content.forecast.cta}</a>
       </div>
     </div>
-  </section>
+  </LocationModule>
 
-  <section class="border-b border-border-subtle bg-surface px-6 py-20 md:px-12 md:py-28" data-am-weather-module="sources">
+  <LocationModule data-am-weather-module="sources">
     <div class="mx-auto grid max-w-screen-2xl gap-12 lg:grid-cols-12 lg:gap-20">
       <div class="lg:col-span-4">
         <p class="am-text-eyebrow text-primary">{content.sources.eyebrow}</p>
@@ -195,11 +196,11 @@ const {
         ))}
       </div>
     </div>
-  </section>
+  </LocationModule>
 
   <AuthorityRelatedLinks related={content.related} columns="md:grid-cols-3" resolveHref={resolveHref} />
 
-  <section class="bg-surface px-6 py-24 md:px-12 md:py-32">
+  <LocationModule spacing="closing" divider={false}>
     <div class="mx-auto grid max-w-screen-2xl gap-10 lg:grid-cols-12 lg:items-end lg:gap-20">
       <div class="lg:col-span-7">
         <p class="am-text-eyebrow text-primary">{content.closing.eyebrow}</p>
@@ -213,5 +214,5 @@ const {
         </div>
       </div>
     </div>
-  </section>
+  </LocationModule>
 </article>

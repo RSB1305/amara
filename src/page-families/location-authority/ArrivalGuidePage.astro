@@ -17,6 +17,7 @@ import { createRequiredLinkResolver, resolveOptionalLink } from '../../lib/linkR
 import { normalizeLanguage } from '../../lib/seo/resolve-seo-head';
 import type { AmaraLanguage } from '../../types/seo';
 import AuthorityArticle from './AuthorityArticle.astro';
+import LocationModule from './LocationModule.astro';
 
 /**
  * The single page-family template for destination arrival guides.
@@ -120,8 +121,7 @@ const mobilityGridClass = content.mobility?.items.length === 2
   >
     {
       content.gateways && (
-        <section
-          class="border-b border-border-subtle bg-surface px-6 py-20 md:px-12 md:py-28"
+        <LocationModule
           data-am-arrival-module="gateways"
         >
           <div class="mx-auto max-w-screen-2xl">
@@ -169,12 +169,12 @@ const mobilityGridClass = content.mobility?.items.length === 2
               ))}
             </div>
           </div>
-        </section>
+        </LocationModule>
       )
     }
 
-    <section
-      class="border-b border-border-subtle bg-surface-container-low px-6 py-20 md:px-12 md:py-28"
+    <LocationModule
+      surface="tint"
       data-am-arrival-module="options"
     >
       <div class="mx-auto max-w-screen-2xl">
@@ -255,7 +255,7 @@ const mobilityGridClass = content.mobility?.items.length === 2
           ))}
         </div>
       </div>
-    </section>
+    </LocationModule>
 
     {
       content.journeySteps && (
@@ -272,8 +272,8 @@ const mobilityGridClass = content.mobility?.items.length === 2
 
     {
       content.mobility && (
-        <section
-          class="border-b border-border-subtle bg-inverse-surface px-6 py-20 text-inverted-on-surface md:px-12 md:py-28"
+        <LocationModule
+          surface="inverse"
           data-am-arrival-module="mobility"
         >
           <div class="mx-auto max-w-screen-2xl">
@@ -311,15 +311,14 @@ const mobilityGridClass = content.mobility?.items.length === 2
               ))}
             </div>
           </div>
-        </section>
+        </LocationModule>
       )
     }
 
     {
       content.parking && (
-        <section
+        <LocationModule
           id={content.parking.id}
-          class="border-b border-border-subtle bg-surface px-6 py-20 md:px-12 md:py-28"
           data-am-arrival-module="parking"
         >
           <div class="mx-auto grid max-w-screen-2xl gap-10 lg:grid-cols-12 lg:gap-20">
@@ -347,14 +346,14 @@ const mobilityGridClass = content.mobility?.items.length === 2
               ))}
             </div>
           </div>
-        </section>
+        </LocationModule>
       )
     }
 
     {
       content.finalMile && (
-        <section
-          class="border-b border-border-subtle bg-surface-container-low px-6 py-20 md:px-12 md:py-28"
+        <LocationModule
+          surface="tint"
           data-am-arrival-module="final-mile"
         >
           <div class:list={[
@@ -414,7 +413,7 @@ const mobilityGridClass = content.mobility?.items.length === 2
               )}
             </div>
           </div>
-        </section>
+        </LocationModule>
       )
     }
 

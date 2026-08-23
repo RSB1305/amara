@@ -8,6 +8,7 @@
  * Existing `data-am-*` ownership attributes pass through unchanged.
  */
 import InlineEmphasis from '../../components/text/InlineEmphasis.astro';
+import LocationModule from './LocationModule.astro';
 
 interface AuthoritySection {
   id: string;
@@ -46,9 +47,9 @@ const isGuide = presentation === 'guide';
 
 {
   resolvedVariant === 'lead' && (
-    <section
+    <LocationModule
       id={section.id}
-      class="scroll-mt-32 border-b border-border-subtle bg-surface px-6 py-20 md:px-12 md:py-28"
+      class="scroll-mt-32"
       data-am-authority-layout="lead"
       {...sectionAttributes}
     >
@@ -82,15 +83,16 @@ const isGuide = presentation === 'guide';
           </div>
         )}
       </div>
-    </section>
+    </LocationModule>
   )
 }
 
 {
   resolvedVariant === 'columns' && (
-    <section
+    <LocationModule
       id={section.id}
-      class="scroll-mt-32 border-b border-border-subtle bg-surface-container-low px-6 py-20 md:px-12 md:py-28"
+      surface="tint"
+      class="scroll-mt-32"
       data-am-authority-layout="columns"
       {...sectionAttributes}
     >
@@ -113,15 +115,16 @@ const isGuide = presentation === 'guide';
           ))}
         </div>
       </div>
-    </section>
+    </LocationModule>
   )
 }
 
 {
   resolvedVariant === 'inverse' && (
-    <section
+    <LocationModule
       id={section.id}
-      class="scroll-mt-32 border-b border-border-subtle bg-inverse-surface px-6 py-20 text-inverted-on-surface md:px-12 md:py-28"
+      surface="inverse"
+      class="scroll-mt-32"
       data-am-authority-layout="inverse"
       {...sectionAttributes}
     >
@@ -141,15 +144,15 @@ const isGuide = presentation === 'guide';
           ))}
         </div>
       </div>
-    </section>
+    </LocationModule>
   )
 }
 
 {
   resolvedVariant === 'reverse' && (
-    <section
+    <LocationModule
       id={section.id}
-      class="scroll-mt-32 border-b border-border-subtle bg-surface px-6 py-20 md:px-12 md:py-28"
+      class="scroll-mt-32"
       data-am-authority-layout="reverse"
       {...sectionAttributes}
     >
@@ -172,15 +175,16 @@ const isGuide = presentation === 'guide';
           <h2 class:list={['am-text-title mt-6 max-w-xl text-balance text-on-surface', isGuide && 'italic']}>{section.title}</h2>
         </div>
       </div>
-    </section>
+    </LocationModule>
   )
 }
 
 {
   resolvedVariant === 'rail' && (
-    <section
+    <LocationModule
       id={section.id}
-      class="scroll-mt-32 border-b border-border-subtle bg-surface-container-low px-6 py-20 md:px-12 md:py-28"
+      surface="tint"
+      class="scroll-mt-32"
       data-am-authority-layout="rail"
       {...sectionAttributes}
     >
@@ -198,6 +202,6 @@ const isGuide = presentation === 'guide';
           ))}
         </div>
       </div>
-    </section>
+    </LocationModule>
   )
 }

@@ -3,6 +3,7 @@ import InlineEmphasis from '../../components/text/InlineEmphasis.astro';
 import AmaraImage from '../../components/AmaraImage.astro';
 import Hero from '../../components/Hero.astro';
 import AmaraPageShell from '../../components/layout/AmaraPageShell.astro';
+import AmaraSection from '../../components/layout/AmaraSection.astro';
 import Navigation from '../../components/Navigation.astro';
 import churchImage from '../../assets/images/content/amara-frigiliana-pueblo/JPG_Frigiliana_Pueblo/2000px_72dpi_sRGB/01-frigiliana-pueblo.jpg';
 import villageImage from '../../assets/images/content/hero-frigiliana.jpg';
@@ -80,7 +81,7 @@ const parishHref = 'https://diocesismalaga.es/parroquias/145/san-antonio-de-padu
     languageToken="frigiliana_weddings"
   />
 
-  <AmaraPageShell family="frigiliana-weddings" dataLang={currentLang} flush>
+  <AmaraPageShell family="frigiliana-weddings" dataLang={currentLang} flush whiteCanvas>
     <Hero imageSrc={churchImage} imageAlt={copy.hero.imageAlt}>
       <span class="am-text-label mb-8 block text-primary">
         {copy.hero.kicker}
@@ -101,8 +102,8 @@ const parishHref = 'https://diocesismalaga.es/parroquias/145/san-antonio-de-padu
       </a>
     </Hero>
 
-    <section class="border-t border-outline-variant/5 bg-surface-white">
-      <div class="mx-auto grid max-w-screen-2xl items-center gap-12 px-6 py-20 md:px-12 md:py-28 lg:grid-cols-12 lg:gap-16">
+    <AmaraSection dataComponent="wedding-village">
+      <div class="mx-auto grid max-w-screen-2xl items-center gap-12 px-6 md:px-12 lg:grid-cols-12 lg:gap-16">
         <div class="max-w-2xl lg:col-span-5">
           <h2 class="am-text-title text-on-surface">
             {copy.village.title}
@@ -124,13 +125,14 @@ const parishHref = 'https://diocesismalaga.es/parroquias/145/san-antonio-de-padu
           />
         </div>
       </div>
-    </section>
+    </AmaraSection>
 
-    <section
+    <AmaraSection
       id="wedding-stay"
-      class="scroll-mt-36 border-t border-outline-variant/5 bg-surface-white"
+      dataComponent="wedding-stay"
+      class="scroll-mt-36"
     >
-      <div class="mx-auto max-w-screen-2xl px-6 py-20 md:px-12 md:py-28">
+      <div class="mx-auto max-w-screen-2xl px-6 md:px-12">
         <h2 class="am-text-title max-w-3xl text-on-surface">
           {copy.stayOptions.title}
         </h2>
@@ -197,10 +199,10 @@ const parishHref = 'https://diocesismalaga.es/parroquias/145/san-antonio-de-padu
           </div>
         </div>
       </div>
-    </section>
+    </AmaraSection>
 
-    <section class="border-t border-outline-variant/5 bg-surface-white">
-      <div class="mx-auto grid max-w-screen-2xl items-center gap-12 px-6 py-20 md:px-12 md:py-28 lg:grid-cols-12 lg:gap-16">
+    <AmaraSection dataComponent="wedding-prepare">
+      <div class="mx-auto grid max-w-screen-2xl items-center gap-12 px-6 md:px-12 lg:grid-cols-12 lg:gap-16">
         <div class="max-w-2xl lg:col-span-5">
           <h2 class="am-text-title text-on-surface">
             {copy.prepare.title}
@@ -233,10 +235,10 @@ const parishHref = 'https://diocesismalaga.es/parroquias/145/san-antonio-de-padu
           />
         </div>
       </div>
-    </section>
+    </AmaraSection>
 
-    <section class="border-t border-outline-variant/5 bg-surface-white">
-      <div class="mx-auto max-w-screen-2xl px-6 py-20 md:px-12 md:py-28">
+    <AmaraSection dataComponent="wedding-planning">
+      <div class="mx-auto max-w-screen-2xl px-6 md:px-12">
         <div class="max-w-3xl">
           <h2 class="am-text-title text-on-surface">
             {copy.planning.title}
@@ -270,10 +272,10 @@ const parishHref = 'https://diocesismalaga.es/parroquias/145/san-antonio-de-padu
           </a>.
         </p>
       </div>
-    </section>
+    </AmaraSection>
 
-    <section class="border-t border-outline-variant/5 bg-surface-white">
-      <div class="mx-auto max-w-5xl px-6 py-20 md:px-12 md:py-28">
+    <AmaraSection dataComponent="wedding-faq">
+      <div class="mx-auto max-w-5xl px-6 md:px-12">
         <h2 class="am-text-title max-w-3xl text-on-surface">
           {copy.faq.title}
         </h2>
@@ -296,10 +298,10 @@ const parishHref = 'https://diocesismalaga.es/parroquias/145/san-antonio-de-padu
           ))}
         </div>
       </div>
-    </section>
+    </AmaraSection>
 
-    <section class="border-t border-outline-variant/5 bg-on-surface text-surface">
-      <div class="mx-auto max-w-4xl px-6 py-20 text-center md:px-12 md:py-28">
+    <AmaraSection variant="closing" divider={false} dataComponent="wedding-closing" class="bg-on-surface text-surface">
+      <div class="mx-auto max-w-4xl text-center">
         <h2 class="am-text-title text-surface">
           {copy.closing.title}
         </h2>
@@ -310,7 +312,7 @@ const parishHref = 'https://diocesismalaga.es/parroquias/145/san-antonio-de-padu
         </div>
         <a class="am-btn am-btn--primary mt-9" href={links.book}>{copy.closing.cta}</a>
       </div>
-    </section>
+    </AmaraSection>
   </AmaraPageShell>
 </BaseLayout>
 

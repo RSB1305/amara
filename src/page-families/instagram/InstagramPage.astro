@@ -2,6 +2,8 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Navigation from '../../components/Navigation.astro';
 import AmaraImage from '../../components/AmaraImage.astro';
+import AmaraPageShell from '../../components/layout/AmaraPageShell.astro';
+import AmaraSection from '../../components/layout/AmaraSection.astro';
 import { resolveOptionalLink } from '../../lib/linkResolver';
 import { normalizeLanguage } from '../../lib/seo/resolve-seo-head';
 import type { AmaraAuthoringSeo, AmaraLanguage } from '../../types/seo';
@@ -106,11 +108,11 @@ const apartmentsHref = resolveOptionalLink('romantic_hideaways', currentLang, { 
     currentToken="instagram_landing"
   />
 
-  <main id="am-main-content" tabindex="-1" class="bg-white scroll-mt-[104px] lg:scroll-mt-[112px]">
-    <section class="mx-auto max-w-screen-2xl px-6 py-16 md:px-12 md:py-24 lg:py-32">
+  <AmaraPageShell family="instagram" dataLang={currentLang} whiteCanvas>
+    <AmaraSection variant="hero" divider={false} dataComponent="instagram-landing">
       <div class="grid grid-cols-1 gap-16 lg:grid-cols-12 lg:items-end lg:gap-12">
         <header class="lg:col-span-7">
-          <span class="mb-8 block am-text-caption am-text-caption--upper text-primary">
+          <span class="mb-8 block am-text-label text-primary">
             {copy.kicker[currentLang]}
           </span>
           <h1 class="max-w-[12ch] am-text-display text-on-surface">
@@ -122,7 +124,7 @@ const apartmentsHref = resolveOptionalLink('romantic_hideaways', currentLang, { 
           <p class="max-w-xl am-text-body text-on-surface-variant">
             {copy.lead[currentLang]}
           </p>
-          <p class="mt-6 max-w-xl am-text-body italic text-muted">
+          <p class="mt-6 max-w-xl am-text-body text-muted">
             {copy.support[currentLang]}
           </p>
           <div class="mt-10 flex flex-col items-start gap-5 sm:flex-row sm:items-center sm:gap-8">
@@ -171,6 +173,6 @@ const apartmentsHref = resolveOptionalLink('romantic_hideaways', currentLang, { 
           decoding="async"
         />
       </div>
-    </section>
-  </main>
+    </AmaraSection>
+  </AmaraPageShell>
 </BaseLayout>

@@ -2,6 +2,7 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Navigation from '../../components/Navigation.astro';
 import HomeCinematicMain from '../../components/home/HomeCinematicMain.astro';
+import AmaraPageShell from '../../components/layout/AmaraPageShell.astro';
 import { createAmaraImage } from '../../lib/images/amaraImageProfiles';
 import { resolveOptionalLink } from '../../lib/linkResolver';
 import { normalizeLanguage } from '../../lib/seo/resolve-seo-head';
@@ -161,7 +162,7 @@ const guideLinks = cinematicGuideLinks
     currentLang={currentLang}
     languageToken="home"
   />
-  <div data-am-page="home">
+  <AmaraPageShell family="home" dataLang={currentLang} flush whiteCanvas>
     <div class="w-full max-w-screen-2xl mx-auto px-0 pb-20 sm:px-6 md:px-12">
       <HomeCinematicMain
         heroImageSrc={heroImage.src}
@@ -201,5 +202,5 @@ const guideLinks = cinematicGuideLinks
         trustBookingHref={trustBookingHref}
       />
     </div>
-  </div>
+  </AmaraPageShell>
 </BaseLayout>

@@ -3,6 +3,8 @@ import { resolveLocale } from '../../types/content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Navigation from '../../components/Navigation.astro';
 import AmaraImage from '../../components/AmaraImage.astro';
+import AmaraPageShell from '../../components/layout/AmaraPageShell.astro';
+import AmaraSection from '../../components/layout/AmaraSection.astro';
 import EditorialFeatureGrid from '../../components/editorial/EditorialFeatureGrid.astro';
 import InlineEmphasis from '../../components/text/InlineEmphasis.astro';
 import {
@@ -46,18 +48,12 @@ const enquiryHref = resolveOptionalLink('property_sale_enquiry', currentLang, {
     showBookingCta={false}
   />
 
-  <main
-    id="am-main-content"
-    tabindex="-1"
-    class="bg-surface min-h-screen scroll-mt-[104px] lg:scroll-mt-[112px]"
-    data-am-page="property-sale"
-    data-property="casa-amara"
-  >
-    <div class="w-full max-w-screen-2xl mx-auto px-6 md:px-12 pb-24">
-      <section
-        class="pt-8 pb-14 md:pb-20 border-b border-border-subtle"
-        aria-labelledby="property-sale-hero-title"
-        data-property-sale-module="hero"
+  <AmaraPageShell family="property-sale" dataLang={currentLang} whiteCanvas>
+    <div data-property="casa-amara">
+      <AmaraSection
+        variant="hero"
+        labelledby="property-sale-hero-title"
+        dataComponent="property-sale-hero"
       >
         <div class="max-w-5xl">
           <p class="text-on-surface-variant am-text-label">
@@ -94,12 +90,11 @@ const enquiryHref = resolveOptionalLink('property_sale_enquiry', currentLang, {
             decoding="async"
           />
         </figure>
-      </section>
+      </AmaraSection>
 
-      <section
-        class="py-12 md:py-16 border-b border-border-subtle"
-        aria-labelledby="property-sale-snapshot-title"
-        data-property-sale-module="snapshot"
+      <AmaraSection
+        labelledby="property-sale-snapshot-title"
+        dataComponent="property-sale-snapshot"
       >
         <div class="max-w-3xl">
           <p class="text-on-surface-variant am-text-label">
@@ -127,12 +122,11 @@ const enquiryHref = resolveOptionalLink('property_sale_enquiry', currentLang, {
             ))
           }
         </dl>
-      </section>
+      </AmaraSection>
 
-      <section
-        class="py-12 md:py-16 border-b border-border-subtle"
-        aria-labelledby="property-sale-position-title"
-        data-property-sale-module="position"
+      <AmaraSection
+        labelledby="property-sale-position-title"
+        dataComponent="property-sale-position"
       >
         <div class="grid gap-12 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)]">
           <div>
@@ -181,12 +175,11 @@ const enquiryHref = resolveOptionalLink('property_sale_enquiry', currentLang, {
             </dl>
           </div>
         </div>
-      </section>
+      </AmaraSection>
 
-      <section
-        class="py-12 md:py-16 border-b border-border-subtle"
-        aria-labelledby="property-sale-units-title"
-        data-property-sale-module="units"
+      <AmaraSection
+        labelledby="property-sale-units-title"
+        dataComponent="property-sale-units"
       >
         <div class="grid gap-8 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] lg:items-end">
           <div>
@@ -210,12 +203,11 @@ const enquiryHref = resolveOptionalLink('property_sale_enquiry', currentLang, {
         <div class="mt-12">
           <EditorialFeatureGrid cards={page.units.items} />
         </div>
-      </section>
+      </AmaraSection>
 
-      <section
-        class="py-12 md:py-16 border-b border-border-subtle"
-        aria-labelledby="property-sale-use-cases-title"
-        data-property-sale-module="use-cases"
+      <AmaraSection
+        labelledby="property-sale-use-cases-title"
+        dataComponent="property-sale-use-cases"
       >
         <div class="max-w-4xl">
           <p class="text-on-surface-variant am-text-label">
@@ -247,12 +239,13 @@ const enquiryHref = resolveOptionalLink('property_sale_enquiry', currentLang, {
         <p class="am-text-body text-on-surface-variant mt-10 max-w-5xl border-l border-primary/40 pl-5 leading-relaxed">
           <InlineEmphasis text={page.useCases.requirements} />
         </p>
-      </section>
+      </AmaraSection>
 
-      <section
-        class="py-12 md:py-16"
-        aria-labelledby="property-sale-enquiry-title"
-        data-property-sale-module="enquiry"
+      <AmaraSection
+        variant="closing"
+        divider={false}
+        labelledby="property-sale-enquiry-title"
+        dataComponent="property-sale-enquiry"
       >
         <div class="grid gap-12 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)]">
           <div>
@@ -324,7 +317,7 @@ const enquiryHref = resolveOptionalLink('property_sale_enquiry', currentLang, {
             </div>
           </div>
         </div>
-      </section>
+      </AmaraSection>
     </div>
-  </main>
+  </AmaraPageShell>
 </BaseLayout>

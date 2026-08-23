@@ -1,0 +1,48 @@
+---
+interface Props {
+  id?: string;
+  labelledby?: string;
+  surface?: 'white' | 'tint' | 'inverse';
+  spacing?: 'standard' | 'compact' | 'closing';
+  divider?: boolean;
+  class?: string;
+  [attribute: `data-am-${string}`]: string | undefined;
+}
+
+const {
+  id,
+  labelledby,
+  surface = 'white',
+  spacing = 'standard',
+  divider = true,
+  class: className,
+  ...moduleAttributes
+} = Astro.props;
+
+const surfaceClass = {
+  white: 'bg-surface',
+  tint: 'bg-surface-container-low',
+  inverse: 'bg-inverse-surface text-inverted-on-surface'
+}[surface];
+
+const spacingClass = {
+  standard: 'py-20 md:py-28',
+  compact: 'py-16 md:py-20',
+  closing: 'py-24 md:py-32'
+}[spacing];
+---
+
+<section
+  id={id}
+  class:list={[
+    'px-6 md:px-12',
+    spacingClass,
+    surfaceClass,
+    { 'border-b border-border-subtle': divider },
+    className
+  ]}
+  aria-labelledby={labelledby}
+  {...moduleAttributes}
+>
+  <slot />
+</section>
