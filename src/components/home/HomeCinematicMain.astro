@@ -34,6 +34,7 @@ interface Props {
   heroKicker: string;
   heroLead: string;
   scrollHint: string;
+  welcomeMessage: string;
   philosophyHeadlinePart1: string;
   philosophyHeadlineAccent: string;
   philosophyLabel: string;
@@ -72,6 +73,7 @@ const {
   heroKicker,
   heroLead,
   scrollHint,
+  welcomeMessage,
   philosophyHeadlinePart1,
   philosophyHeadlineAccent,
   philosophyLabel,
@@ -142,6 +144,15 @@ const {
       <div class="h-12 w-px bg-gradient-to-b from-inverted-on-surface-muted to-transparent"></div>
     </div>
   </section>
+
+  <div
+    class="relative z-[2] bg-surface-white px-6 py-16 text-center md:px-12 md:py-24"
+    data-am-home-welcome
+  >
+    <p lang="es" class="am-text-title text-balance italic text-primary">
+      {welcomeMessage}
+    </p>
+  </div>
 
   <section class="relative z-[2] mx-auto max-w-screen-xl px-6 py-32 md:px-12 md:py-48">
     <div class="grid grid-cols-1 items-center gap-16 lg:grid-cols-12 lg:gap-8">

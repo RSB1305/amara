@@ -9,6 +9,9 @@ import { stayCollectionLabels } from './stayCollectionLabels';
 
 export type CopyRow = Record<AmaraLanguage, string>;
 
+/** Deliberately Spanish in every locale as AMARA's fixed hospitality welcome. */
+export const cinematicWelcome = 'Bienvenidos a AMARA';
+
 export const cinematicHeroKicker: CopyRow = {
   en: 'Holiday stays in Andalusia',
   de: 'Ferienunterkünfte in Andalusien',
