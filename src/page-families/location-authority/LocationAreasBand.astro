@@ -21,7 +21,9 @@ interface Props {
   title: string;
   paragraphs: string[];
   archetypes: LocationAreaArchetype[];
-  link?: { href: string; label: string };
+  /** Rendered whenever present. `href` may be absent, matching the pages this
+   * band replaced, where an unresolved link produced an anchor without one. */
+  link?: { href?: string; label: string };
 }
 
 const { eyebrow, title, paragraphs, archetypes, link } = Astro.props;
