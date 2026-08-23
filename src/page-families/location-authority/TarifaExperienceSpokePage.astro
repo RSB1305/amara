@@ -84,7 +84,7 @@ const localizedSections = content.sections.map((section) => ({
       <dl class="mx-auto grid max-w-screen-2xl gap-x-10 gap-y-8 md:grid-cols-3">
         {content.facts.map((fact) => (
           <div class="border-t border-primary/30 pt-5">
-            <dt class="font-label text-[10px] font-bold uppercase tracking-[0.14em] text-primary">{t(fact.label)}</dt>
+            <dt class="text-primary am-text-label am-text-label--sm">{t(fact.label)}</dt>
             <dd class="am-text-subtitle mt-3 text-on-surface">{t(fact.value)}</dd>
           </div>
         ))}

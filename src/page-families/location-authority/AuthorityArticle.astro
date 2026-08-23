@@ -216,7 +216,7 @@ if (presentation === 'article' && !byline) {
         >
           {factIcons[index] && <LocationGuideIcon name={factIcons[index]} class="mt-0.5 h-5 w-5" />}
           <div class="min-w-0">
-            <dt class="font-label min-w-0 text-[10px] font-bold uppercase tracking-[0.14em] text-primary [overflow-wrap:anywhere]">{fact.label}</dt>
+            <dt class="min-w-0 text-primary [overflow-wrap:anywhere] am-text-label am-text-label--sm">{fact.label}</dt>
             <dd class="am-text-subtitle mt-3 min-w-0 hyphens-auto text-on-surface [overflow-wrap:anywhere]">{fact.value}</dd>
             {fact.description && <p class="am-text-body mt-3 leading-relaxed text-on-surface-variant">{fact.description}</p>}
           </div>

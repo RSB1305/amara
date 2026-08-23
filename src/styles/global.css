@@ -174,6 +174,42 @@
     letter-spacing: 0.16em;
   }
 
+  /* Label roles. These carry the whole label treatment — family, weight, size,
+   * tracking and case — so a label in markup is one class plus its colour, not a
+   * six-class recipe rebuilt per page. `--sm` and `--wide` are the two size and
+   * tracking steps the page families actually distinguish; anything outside them
+   * belongs in a role here rather than in an arbitrary value at the call site. */
+  .am-text-label {
+    font-family: var(--font-label);
+    font-size: 0.6875rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+  }
+
+  .am-text-label--sm {
+    font-size: 0.625rem;
+  }
+
+  .am-text-label--wide {
+    letter-spacing: 0.16em;
+  }
+
+  /* Annotation role: the semibold, wider, lower-tracked note used for source
+   * lines, table meta and inline qualifiers. Distinct from the label roles by
+   * weight and by not being uppercase on its own. */
+  .am-text-annotation {
+    font-family: var(--font-label);
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+  }
+
+  .am-text-annotation--wide {
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
   .am-kicker {
     font-family: var(--font-body);
     font-size: 1rem;

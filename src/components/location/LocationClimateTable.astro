@@ -65,7 +65,7 @@ const maxRain = Math.max(...months.map((month) => month.rain));
         <div class="grid grid-cols-12">
           {months.map((month) => (
             <div class="border-r border-outline-variant/15 px-3 py-5 last:border-r-0">
-              <p class="font-label text-[10px] font-bold uppercase tracking-[0.16em] text-muted">
+              <p class="text-muted am-text-label am-text-label--sm am-text-label--wide">
                 {month.month}
               </p>
               <p class="mt-4 font-serif text-[clamp(1.5rem,2.2vw,2.25rem)] leading-none text-on-surface">
@@ -96,7 +96,7 @@ const maxRain = Math.max(...months.map((month) => month.rain));
     <div class="mt-10 overflow-x-auto">
       <table class="w-full min-w-[760px] border-collapse text-left">
         <thead>
-          <tr class="border-b border-outline-variant/25 font-label text-[10px] font-bold uppercase tracking-[0.14em] text-muted">
+          <tr class="border-b border-outline-variant/25 text-muted am-text-label am-text-label--sm">
             <th class="py-4 pr-5">{labels.month}</th>
             <th class="px-5 py-4 text-right">{labels.high}</th>
             <th class="px-5 py-4 text-right">{labels.low}</th>
@@ -119,7 +119,7 @@ const maxRain = Math.max(...months.map((month) => month.rain));
     </div>
 
     <footer class="mt-10 grid gap-4 border-l border-primary/35 pl-6 lg:grid-cols-[auto_1fr] lg:gap-8">
-      <p class="font-label text-[10px] font-bold uppercase tracking-[0.16em] text-primary">{sourceTitle}</p>
+      <p class="text-primary am-text-label am-text-label--sm am-text-label--wide">{sourceTitle}</p>
       <div>
         <p class="am-text-body max-w-4xl leading-relaxed text-on-surface-variant">{sourceText}</p>
         <div class="mt-4 flex flex-wrap gap-x-6 gap-y-2">

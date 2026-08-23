@@ -34,7 +34,7 @@ const { content } = Astro.props;
             index % 2 === 1 && 'sm:border-l sm:border-border-subtle'
           ]}
         >
-          <span class="font-label text-[10px] font-bold uppercase tracking-[0.14em] text-primary">
+          <span class="text-primary am-text-label am-text-label--sm">
             {point.label ?? String(index + 1).padStart(2, '0')}
           </span>
           {point.title && <h3 class="am-text-subtitle mt-4 text-balance text-on-surface">{point.title}</h3>}
@@ -84,7 +84,7 @@ const { content } = Astro.props;
               <dl class="border-y border-border-subtle lg:col-span-3 lg:border-y-0 lg:border-l lg:pl-8">
                 {details.map((detail, index) => (
                   <div class:list={['py-5 lg:first:pt-0', index > 0 && 'border-t border-border-subtle']}>
-                    <dt class="font-label text-[10px] font-bold uppercase tracking-[0.14em] text-primary">{detail.label}</dt>
+                    <dt class="text-primary am-text-label am-text-label--sm">{detail.label}</dt>
                     <dd class="am-text-body mt-3 leading-relaxed text-on-surface"><InlineEmphasis text={detail.text} /></dd>
                   </div>
                 ))}

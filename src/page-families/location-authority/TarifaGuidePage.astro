@@ -416,7 +416,7 @@ const footerHighlights: LabeledLink[] = [
       <dl class="mx-auto grid max-w-screen-2xl gap-8 md:grid-cols-3">
         {topicContent.facts.map((fact) => (
           <div class="border-l border-primary/25 pl-5">
-            <dt class="font-label text-[10px] font-bold uppercase tracking-[0.14em] text-on-surface-variant">
+            <dt class="text-on-surface-variant am-text-label am-text-label--sm">
               {t(fact.label)}
             </dt>
             <dd class="am-text-subtitle mt-2 text-on-surface">{t(fact.value)}</dd>
@@ -436,7 +436,7 @@ const footerHighlights: LabeledLink[] = [
         <div class="mx-auto max-w-screen-2xl">
           <div class="grid gap-10 lg:grid-cols-[minmax(0,0.72fr)_minmax(0,1.28fr)] lg:gap-20">
             <div class="max-w-xl">
-              <p class="font-label text-[11px] font-bold uppercase tracking-[0.16em] text-primary">
+              <p class="text-primary am-text-label am-text-label--wide">
                 {t(section.eyebrow)}
               </p>
               <h2 class="am-text-title mt-5 text-balance text-on-surface">{t(section.title)}</h2>
@@ -445,7 +445,7 @@ const footerHighlights: LabeledLink[] = [
             <div class="grid gap-5 sm:grid-cols-2">
               {section.cards.map((card) => (
                 <section class="border-t border-border-subtle bg-surface/70 px-5 pb-7 pt-6">
-                  <p class="font-label text-[10px] font-bold uppercase tracking-[0.14em] text-primary">
+                  <p class="text-primary am-text-label am-text-label--sm">
                     {t(card.kicker)}
                   </p>
                   <h3 class="am-text-subtitle mt-4 text-on-surface">{t(card.title)}</h3>
@@ -460,7 +460,7 @@ const footerHighlights: LabeledLink[] = [
 
     <aside class="bg-inverse-surface px-6 py-16 text-inverted-on-surface md:px-12 md:py-20">
       <div class="mx-auto grid max-w-screen-2xl gap-8 lg:grid-cols-[0.65fr_1.35fr] lg:gap-20">
-        <p class="font-label text-[11px] font-bold uppercase tracking-[0.16em] text-primary-fixed-dim">
+        <p class="text-primary-fixed-dim am-text-label am-text-label--wide">
           {t(topicContent.notice.eyebrow)}
         </p>
         <div>
@@ -494,7 +494,7 @@ const footerHighlights: LabeledLink[] = [
     <section class="border-b border-border-subtle bg-surface-container-low px-6 py-16 md:px-12 md:py-20">
       <div class="mx-auto grid max-w-screen-2xl gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:gap-20">
         <div>
-          <p class="font-label text-[11px] font-bold uppercase tracking-[0.16em] text-primary">
+          <p class="text-primary am-text-label am-text-label--wide">
             {t(ui.sourcesEyebrow)}
           </p>
           <h2 class="am-text-title mt-5 text-on-surface">{t(ui.sourcesTitle)}</h2>
@@ -522,7 +522,7 @@ const footerHighlights: LabeledLink[] = [
 
     <section class="border-b border-border-subtle bg-surface px-6 py-20 md:px-12 md:py-24">
       <div class="mx-auto max-w-screen-2xl">
-        <p class="font-label text-[11px] font-bold uppercase tracking-[0.16em] text-primary">
+        <p class="text-primary am-text-label am-text-label--wide">
           {t(ui.relatedEyebrow)}
         </p>
         <h2 class="am-text-title mt-5 text-on-surface">{t(ui.relatedTitle)}</h2>
@@ -533,7 +533,7 @@ const footerHighlights: LabeledLink[] = [
               class="group border border-border-subtle bg-surface-container-low p-7 transition-colors hover:border-primary/40"
             >
               <h3 class="am-text-subtitle text-on-surface">{t(guide.breadcrumbLabel)}</h3>
-              <span class="mt-6 inline-flex font-label text-[10px] font-bold uppercase tracking-[0.14em] text-primary">
+              <span class="mt-6 inline-flex text-primary am-text-label am-text-label--sm">
                 {t(ui.readGuide)} <span aria-hidden="true" class="ml-2 transition-transform group-hover:translate-x-1">→</span>
               </span>
             </a>
@@ -554,7 +554,7 @@ const footerHighlights: LabeledLink[] = [
           />
         </figure>
         <div class="flex flex-col justify-center p-8 md:p-14 lg:p-16">
-          <p class="font-label text-[11px] font-bold uppercase tracking-[0.16em] text-primary">
+          <p class="text-primary am-text-label am-text-label--wide">
             {t(ui.stayEyebrow)}
           </p>
           <h2 class="am-text-title mt-6 text-balance text-on-surface">{t(ui.stayTitle)}</h2>

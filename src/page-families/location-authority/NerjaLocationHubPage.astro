@@ -81,7 +81,7 @@ const footerHighlights: LabeledLink[] = [
         <dl class="self-end border-y border-border-subtle lg:col-span-5">
           {content.orientation.markers.map((marker, index) => (
             <div class:list={['grid grid-cols-[0.65fr_1.35fr] gap-6 py-7', index > 0 && 'border-t border-border-subtle']}>
-              <dt class="font-label text-[10px] font-bold uppercase tracking-[0.14em] text-primary">{marker.label}</dt>
+              <dt class="text-primary am-text-label am-text-label--sm">{marker.label}</dt>
               <dd class="am-text-subtitle text-on-surface">{marker.value}</dd>
             </div>
           ))}
@@ -120,7 +120,7 @@ const footerHighlights: LabeledLink[] = [
         <div class="mt-16 grid gap-x-8 md:grid-cols-2 lg:mt-24 lg:grid-cols-4">
           {content.areas.archetypes.map((area, index) => (
             <div class="border-t border-inverted-on-surface/20 py-7">
-              <span class="font-label text-[10px] font-bold uppercase tracking-[0.14em] text-primary-fixed-dim">0{index + 1}</span>
+              <span class="text-primary-fixed-dim am-text-label am-text-label--sm">0{index + 1}</span>
               <h3 class="am-text-subtitle mt-4 text-inverted-on-surface">{area.title}</h3>
               <p class="am-text-body mt-3 leading-relaxed text-inverted-on-surface/70"><InlineEmphasis text={area.consequence} /></p>
             </div>
