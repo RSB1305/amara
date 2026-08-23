@@ -12,6 +12,7 @@ import LocationAuthorityLayout from '../../layouts/LocationAuthorityLayout.astro
 import { resolveOptionalLink, type LabeledLink } from '../../lib/linkResolver';
 import { normalizeLanguage } from '../../lib/seo/resolve-seo-head';
 import type { AmaraLanguage } from '../../types/seo';
+import AuthorityFeatureSection from './AuthorityFeatureSection.astro';
 import GuideLinkCardSection from './GuideLinkCardSection.astro';
 
 interface Props {
@@ -78,32 +79,14 @@ const heroImage = {
         imageSizes={heroImage.sizes}
       />
 
-      <section
+      <AuthorityFeatureSection
         id="overview"
-        class="am-section am-section--tint"
-      >
-        <div class="max-w-3xl mb-16">
-          <p class="am-text-caption text-primary mb-5">
-            {copy.overview.kicker}
-          </p>
-          <h2 class="am-text-title italic text-on-surface tracking-tight mb-6">
-            {copy.overview.title}
-          </h2>
-          <p class="am-text-body text-on-surface-variant leading-relaxed">
-            {copy.overview.intro}
-          </p>
-          <p class="mt-6 am-text-caption normal-case tracking-normal text-on-surface-variant">
-            {copy.overview.reviewed}
-          </p>
-        </div>
-
-        <EditorialFeatureGrid
-          cards={copy.overview.items.map((item) => ({
-            title: item.title,
-            copy: item.text
-          }))}
-        />
-      </section>
+        title={copy.overview.title}
+        intro={copy.overview.intro}
+        items={copy.overview.items}
+        eyebrow={copy.overview.kicker}
+        reviewed={copy.overview.reviewed}
+      />
 
       <section
         id="areas"
@@ -248,48 +231,20 @@ const heroImage = {
         </div>
       </section>
 
-      <section
+      <AuthorityFeatureSection
         id="seasons"
-        class="am-section am-section--tint"
-      >
-        <div class="max-w-3xl mb-16">
-          <h2 class="am-text-title italic text-on-surface tracking-tight mb-6">
-            {copy.seasonality.title}
-          </h2>
-          <p class="am-text-body text-on-surface-variant leading-relaxed">
-            {copy.seasonality.intro}
-          </p>
-        </div>
+        title={copy.seasonality.title}
+        intro={copy.seasonality.intro}
+        items={copy.seasonality.items}
+        footerCallout={{ text: copy.seasonality.note, surface: 'lowest' }}
+      />
 
-        <EditorialFeatureGrid
-          cards={copy.seasonality.items.map((item) => ({
-            title: item.title,
-            copy: item.text
-          }))}
-        />
-
-        <p class="mt-12 border-l border-primary/20 bg-surface-container-lowest px-4 py-3 am-text-body leading-relaxed text-on-surface-variant max-w-3xl">
-          {copy.seasonality.note}
-        </p>
-      </section>
-
-      <section class="am-section am-section--plain">
-        <div class="max-w-3xl mb-16">
-          <h2 class="am-text-title italic text-on-surface tracking-tight mb-6">
-            {copy.travelerFit.title}
-          </h2>
-          <p class="am-text-body text-on-surface-variant leading-relaxed">
-            {copy.travelerFit.intro}
-          </p>
-        </div>
-
-        <EditorialFeatureGrid
-          cards={copy.travelerFit.items.map((item) => ({
-            title: item.title,
-            copy: item.text
-          }))}
-        />
-      </section>
+      <AuthorityFeatureSection
+        title={copy.travelerFit.title}
+        intro={copy.travelerFit.intro}
+        items={copy.travelerFit.items}
+        surface="plain"
+      />
 
       <section
         id="planning"

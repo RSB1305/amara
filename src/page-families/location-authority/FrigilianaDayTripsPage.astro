@@ -2,7 +2,6 @@
 import LocationExperienceHero from '../../components/location/LocationExperienceHero.astro';
 import Navigation from '../../components/Navigation.astro';
 import EditorialClosingCta from '../../components/editorial/EditorialClosingCta.astro';
-import EditorialFeatureGrid from '../../components/editorial/EditorialFeatureGrid.astro';
 import ExperienceContextNav from '../../components/experience/ExperienceContextNav.astro';
 import ExperiencePreFooter from '../../components/experience/ExperiencePreFooter.astro';
 import {
@@ -78,32 +77,14 @@ const heroImage = {
         imageWidth={heroImage.width}
       />
 
-      <section
+      <AuthorityFeatureSection
         id="overview"
-        class="am-section am-section--tint"
-      >
-        <div class="max-w-3xl mb-16">
-          <h2 class="am-text-title italic text-on-surface tracking-tight mb-6">
-            {copy.overview.title}
-          </h2>
-          <p class="am-text-body text-on-surface-variant leading-relaxed">
-            {copy.overview.intro}
-          </p>
-          <p class="mt-8 border-l border-primary/20 bg-surface-container-lowest px-4 py-3 am-text-body leading-relaxed text-on-surface-variant">
-            {copy.overview.rule}
-          </p>
-          <p class="mt-6 am-text-caption normal-case tracking-normal text-on-surface-variant">
-            {copy.overview.reviewed}
-          </p>
-        </div>
-
-        <EditorialFeatureGrid
-          cards={copy.overview.items.map((item) => ({
-            title: item.title,
-            copy: item.text
-          }))}
-        />
-      </section>
+        title={copy.overview.title}
+        intro={copy.overview.intro}
+        items={copy.overview.items}
+        headerCallout={{ text: copy.overview.rule, surface: 'lowest' }}
+        reviewed={copy.overview.reviewed}
+      />
 
       <DayTripDestinationList destinations={copy.destinations} />
 

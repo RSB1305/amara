@@ -3,7 +3,6 @@ import type { LabeledLink } from '../../lib/linkResolver';
 import LocationExperienceHero from '../../components/location/LocationExperienceHero.astro';
 import Navigation from '../../components/Navigation.astro';
 import EditorialClosingCta from '../../components/editorial/EditorialClosingCta.astro';
-import EditorialFeatureGrid from '../../components/editorial/EditorialFeatureGrid.astro';
 import ExperienceContextNav from '../../components/experience/ExperienceContextNav.astro';
 import ExperiencePreFooter from '../../components/experience/ExperiencePreFooter.astro';
 import HikingRouteStatStrip from './HikingRouteStatStrip.astro';
@@ -14,6 +13,7 @@ import {
 import LocationAuthorityLayout from '../../layouts/LocationAuthorityLayout.astro';
 import { normalizeLanguage } from '../../lib/seo/resolve-seo-head';
 import type { AmaraLanguage } from '../../types/seo';
+import AuthorityFeatureSection from './AuthorityFeatureSection.astro';
 
 interface Props {
   lang?: string;
@@ -123,33 +123,18 @@ const heroImage = {
         ))
       }
 
-      <section
+      <AuthorityFeatureSection
         id="practical"
-        class="am-section am-section--tint"
-      >
-        <h2 class="am-text-title italic text-on-surface tracking-tight mb-16">
-          {copy.practical.title}
-        </h2>
-        <EditorialFeatureGrid cards={copy.practical.items.map((item) => ({
-          title: item.title,
-          copy: item.text
-        }))} />
-      </section>
+        title={copy.practical.title}
+        items={copy.practical.items}
+      />
 
-      <section class="am-section am-section--plain">
-        <div class="max-w-3xl mb-16">
-          <h2 class="am-text-title italic text-on-surface tracking-tight mb-6">
-            {copy.combine.title}
-          </h2>
-          <p class="am-text-body text-on-surface-variant leading-relaxed">
-            {copy.combine.intro}
-          </p>
-        </div>
-        <EditorialFeatureGrid cards={copy.combine.items.map((item) => ({
-          title: item.title,
-          copy: item.text
-        }))} />
-      </section>
+      <AuthorityFeatureSection
+        title={copy.combine.title}
+        intro={copy.combine.intro}
+        items={copy.combine.items}
+        surface="plain"
+      />
 
       <ExperiencePreFooter currentId="hiking" lang={currentLang} />
 

@@ -2,7 +2,6 @@
 import LocationExperienceHero from '../../components/location/LocationExperienceHero.astro';
 import Navigation from '../../components/Navigation.astro';
 import EditorialClosingCta from '../../components/editorial/EditorialClosingCta.astro';
-import EditorialFeatureGrid from '../../components/editorial/EditorialFeatureGrid.astro';
 import ExperienceContextNav from '../../components/experience/ExperienceContextNav.astro';
 import ExperiencePreFooter from '../../components/experience/ExperiencePreFooter.astro';
 import {
@@ -13,6 +12,7 @@ import LocationAuthorityLayout from '../../layouts/LocationAuthorityLayout.astro
 import { resolveOptionalLink, type LabeledLink } from '../../lib/linkResolver';
 import { normalizeLanguage } from '../../lib/seo/resolve-seo-head';
 import type { AmaraLanguage } from '../../types/seo';
+import AuthorityFeatureSection from './AuthorityFeatureSection.astro';
 import GuideLinkCardSection from './GuideLinkCardSection.astro';
 
 interface Props {
@@ -76,29 +76,13 @@ const heroImage = {
         imageWidth={heroImage.width}
       />
 
-      <section
+      <AuthorityFeatureSection
         id="choose"
-        class="am-section am-section--tint"
-      >
-        <div class="max-w-3xl mb-16">
-          <h2 class="am-text-title italic text-on-surface tracking-tight mb-6">
-            {copy.overview.title}
-          </h2>
-          <p class="am-text-body text-on-surface-variant leading-relaxed">
-            {copy.overview.intro}
-          </p>
-          <p class="mt-6 am-text-caption normal-case tracking-normal text-on-surface-variant">
-            {copy.overview.reviewed}
-          </p>
-        </div>
-
-        <EditorialFeatureGrid
-          cards={copy.overview.items.map((item) => ({
-            title: item.title,
-            copy: item.text
-          }))}
-        />
-      </section>
+        title={copy.overview.title}
+        intro={copy.overview.intro}
+        items={copy.overview.items}
+        reviewed={copy.overview.reviewed}
+      />
 
       <section
         id="calendar"
@@ -240,30 +224,14 @@ const heroImage = {
         </div>
       </section>
 
-      <section
+      <AuthorityFeatureSection
         id="planning"
-        class="am-section am-section--plain"
-      >
-        <div class="max-w-3xl mb-16">
-          <h2 class="am-text-title italic text-on-surface tracking-tight mb-6">
-            {copy.planning.title}
-          </h2>
-          <p class="am-text-body text-on-surface-variant leading-relaxed">
-            {copy.planning.intro}
-          </p>
-        </div>
-
-        <EditorialFeatureGrid
-          cards={copy.planning.items.map((item) => ({
-            title: item.title,
-            copy: item.text
-          }))}
-        />
-
-        <p class="mt-12 border-l border-primary/20 bg-surface-container-low px-4 py-3 am-text-body leading-relaxed text-on-surface-variant max-w-3xl">
-          {copy.planning.note}
-        </p>
-      </section>
+        title={copy.planning.title}
+        intro={copy.planning.intro}
+        items={copy.planning.items}
+        surface="plain"
+        footerCallout={{ text: copy.planning.note }}
+      />
 
       <GuideLinkCardSection
         title={copy.combine.title}
