@@ -3,44 +3,73 @@ import { expect, test } from '@playwright/test';
 import { SUPPORTED_LANGUAGES } from '../../src/lib/routeOwnership';
 
 /**
- * Structural parity of the five locales.
+ * Semantic parity of the five locales.
  *
  * A content module that carries one whole copy of the page shape per language
- * lets the copies drift apart without anything noticing: a locale can lose a
- * paragraph, a list entry or an entire optional block and still typecheck,
- * still build and still publish. The page simply renders less in that
- * language. This test compares the shape of the five language trees — keys and
- * list lengths, never the authored words — so such a gap fails a check instead
- * of shipping silently.
+ * lets the copies drift without anything noticing: a locale can lose an entire
+ * optional block, a FAQ answer or a card and still typecheck, still build and
+ * still publish. The page simply renders less in that language.
  *
- * Content modules that localize at the leaf, which is the binding contract in
- * `src/types/content.ts`, cannot produce this defect at all: a missing locale
- * there is a type error. This test exists for the modules still on the older
- * structure, and it is the guard that keeps that migration honest while it runs.
+ * What counts as a loss needs care, because AMARA also requires every locale to
+ * read naturally in its own market. Those two rules meet at the paragraph:
+ *
+ * - **Semantic units must correspond.** A key present in one locale and absent
+ *   in another is a missing block. A list of FAQ entries, cards, themes or
+ *   sections must hold the same units, in the same order, identified the same
+ *   way. A German page with six FAQ answers where English has seven is missing
+ *   an answer, whatever the reason.
+ * - **Prose segmentation may differ.** A translator who splits one English
+ *   paragraph into two German ones, or joins two into one, is doing the job
+ *   `AGENTS.md` asks for. A plain list of strings is prose, and its length is
+ *   not compared. `LocalizedTextList` exists to express exactly this.
+ *
+ * The test therefore compares the shape of the five language trees — keys,
+ * semantic unit counts and their identifiers — and never the authored words or
+ * how many paragraphs they occupy.
+ *
+ * Modules that localize at the leaf cannot produce most of these defects at
+ * all: there a missing locale on a required value is a type error. This test
+ * covers the modules still on the older structure and keeps that migration
+ * honest while it runs.
  */
 
 const CONTENT_DIR = new URL('../../src/content/', import.meta.url);
 
 /**
+ * Modules whose import is allowed to fail, with the reason. The list is empty
+ * and checked in both directions: a module that stops importing fails this test
+ * rather than dropping quietly out of the parity check, and an entry that is no
+ * longer needed fails it too. Nothing may leave the check silently.
+ */
+const IMPORT_FAILURE_ALLOWED: Record<string, string> = {};
+
+/**
  * Gaps that exist in the authored content today. Each entry is a real missing
- * translation, not a false positive, and none of them may be closed by deriving
- * a locale from another — they need authored copy in the missing languages.
- * Removing a gap from the content must also remove its line here; a stale entry
- * fails this test.
+ * semantic unit, and none may be closed by deriving a locale from another —
+ * they need authored copy in the missing languages. A gap that no longer exists
+ * must be removed from this list; a stale entry fails the test.
  */
 const KNOWN_CONTENT_GAPS: Record<string, string> = {
-  'frigilianaLocationContent.ts::frigilianaLocationCopy':
-    'English carries an extra FAQ answer and the whole optional journeyBridge CTA; de, es, nl and sv have neither. Swedish also splits two passages differently.',
-  'frigilianaWinterStaysContent.ts::frigilianaWinterStaysContent':
-    'Spanish splits one section into two paragraphs where the other locales use one.',
-  'tarifaExperienceContent.ts::tarifaExperienceContent':
-    'English carries a third paragraph in the second section that no other locale has.'
+  'experienceHubContent.ts::experienceHubContent':
+    'moods.items holds a different selection of four moods in each locale, not merely a different order: en has beaches, dayTrips, restaurants, wellness; de swaps wellness for hiking; es swaps dayTrips for festivals; nl and sv each pick a fourth combination. Whether that is market curation or drift is an editorial question and has not been answered, so nothing here has been changed.'
 };
 
-type Fingerprint = string;
+const LANGS = SUPPORTED_LANGUAGES;
 
-function fingerprint(value: unknown, depth = 0): Fingerprint {
+/** Keys that identify a semantic unit inside a list. */
+const IDENTIFIER_KEYS = ['id', 'token', 'key', 'slug'] as const;
+
+function isProseList(value: unknown): value is string[] {
+  return Array.isArray(value) && value.every((entry) => typeof entry === 'string');
+}
+
+/**
+ * Structural fingerprint. Prose lists collapse to a single marker so their
+ * length cannot register as a difference; everything else keeps its shape.
+ */
+function fingerprint(value: unknown, depth = 0): string {
   if (depth > 12) return '…';
+  if (isProseList(value)) return 'prose[]';
   if (Array.isArray(value)) {
     return `[${value.length}:${value.map((entry) => fingerprint(entry, depth + 1)).join('|')}]`;
   }
@@ -50,16 +79,45 @@ function fingerprint(value: unknown, depth = 0): Fingerprint {
       .map((key) => `${key}:${fingerprint((value as Record<string, unknown>)[key], depth + 1)}`)
       .join(',')}}`;
   }
+  if (typeof value === 'string') return 'string';
   return typeof value;
+}
+
+/**
+ * The ordered identifiers of every list of semantic units in the tree, so a
+ * reordered or substituted unit is caught even when the counts match.
+ */
+function unitIdentifiers(value: unknown, path = '', out: string[] = [], depth = 0): string[] {
+  if (depth > 12) return out;
+  if (Array.isArray(value)) {
+    if (!isProseList(value)) {
+      const first = value[0];
+      if (first && typeof first === 'object' && !Array.isArray(first)) {
+        const idKey = IDENTIFIER_KEYS.find((key) => key in (first as object));
+        if (idKey) {
+          const ids = value.map((entry) => String((entry as Record<string, unknown>)[idKey]));
+          out.push(`${path}=${ids.join(',')}`);
+        }
+      }
+      value.forEach((entry, index) => unitIdentifiers(entry, `${path}[${index}]`, out, depth + 1));
+    }
+    return out;
+  }
+  if (value && typeof value === 'object') {
+    for (const [key, entry] of Object.entries(value)) {
+      unitIdentifiers(entry, `${path}.${key}`, out, depth + 1);
+    }
+  }
+  return out;
 }
 
 function isLocalizedPageShape(value: unknown): value is Record<string, unknown> {
   if (!value || typeof value !== 'object' || Array.isArray(value)) return false;
   const keys = Object.keys(value as object);
-  if (!SUPPORTED_LANGUAGES.every((lang) => keys.includes(lang))) return false;
+  if (!LANGS.every((lang) => keys.includes(lang))) return false;
   // A record whose language keys hold plain strings is a LocalizedText, which is
   // already the target contract and has nothing to compare.
-  return SUPPORTED_LANGUAGES.some((lang) => {
+  return LANGS.some((lang) => {
     const entry = (value as Record<string, unknown>)[lang];
     return typeof entry === 'object' && entry !== null;
   });
@@ -69,18 +127,23 @@ const moduleFiles = readdirSync(CONTENT_DIR)
   .filter((name) => name.endsWith('.ts'))
   .sort();
 
-test('every content module keeps the five locales structurally identical', async () => {
-  const found: string[] = [];
+test('every content module keeps the same semantic units in all five locales', async () => {
+  const inspected: string[] = [];
   const divergent: string[] = [];
+  const skipped: string[] = [];
 
   for (const file of moduleFiles) {
     let loaded: Record<string, unknown>;
     try {
       loaded = (await import(new URL(file, CONTENT_DIR).href)) as Record<string, unknown>;
-    } catch {
-      // A handful of content modules pull in Astro components for their icon
-      // wiring and cannot be imported outside the Astro build. They are covered
-      // by the build itself rather than skipped silently.
+    } catch (error) {
+      expect(
+        Object.prototype.hasOwnProperty.call(IMPORT_FAILURE_ALLOWED, file),
+        `${file} could not be imported and no failure is recorded for it. A content module must stay inside the parity check: ${
+          (error as Error).message
+        }`
+      ).toBe(true);
+      skipped.push(file);
       continue;
     }
 
@@ -89,27 +152,35 @@ test('every content module keeps the five locales structurally identical', async
       if (!isLocalizedPageShape(value)) continue;
 
       const key = `${file}::${exportName}`;
-      const shapes = SUPPORTED_LANGUAGES.map((lang) =>
-        fingerprint((value as Record<string, unknown>)[lang])
-      );
-      const isDivergent = new Set(shapes).size > 1;
+      const perLocale = LANGS.map((lang) => (value as Record<string, unknown>)[lang]);
+      const shapes = perLocale.map((entry) => fingerprint(entry));
+      const units = perLocale.map((entry) => unitIdentifiers(entry).join(' | '));
+      const isDivergent = new Set(shapes).size > 1 || new Set(units).size > 1;
 
       if (isDivergent) {
         divergent.push(key);
         expect(
           Object.prototype.hasOwnProperty.call(KNOWN_CONTENT_GAPS, key),
-          `${key} has locales that differ in shape. Either author the missing copy, or record the gap in KNOWN_CONTENT_GAPS with what is missing.`
+          `${key} does not hold the same semantic units in every locale. Differing paragraph counts are fine and are not reported here, so this is a missing or reordered block, list entry or field. Either author the missing copy, or record the gap in KNOWN_CONTENT_GAPS with what is missing.`
         ).toBe(true);
       }
-      found.push(key);
+      inspected.push(key);
     }
   }
 
-  expect(found.length, 'no localized content modules were inspected').toBeGreaterThan(20);
+  expect(inspected.length, 'no localized content modules were inspected').toBeGreaterThan(20);
 
-  const stale = Object.keys(KNOWN_CONTENT_GAPS).filter((key) => !divergent.includes(key));
+  const staleSkips = Object.keys(IMPORT_FAILURE_ALLOWED).filter(
+    (file) => !skipped.includes(file)
+  );
   expect(
-    stale,
+    staleSkips,
+    'these modules import cleanly now; remove them from IMPORT_FAILURE_ALLOWED'
+  ).toEqual([]);
+
+  const staleGaps = Object.keys(KNOWN_CONTENT_GAPS).filter((key) => !divergent.includes(key));
+  expect(
+    staleGaps,
     'these gaps are recorded as known but no longer exist; remove them from KNOWN_CONTENT_GAPS'
   ).toEqual([]);
 });

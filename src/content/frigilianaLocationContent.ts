@@ -299,7 +299,8 @@ export const frigilianaLocationCopy = {
         { "question": "Wie funktioniert das Parken, wenn ihr in Frigiliana übernachtet?", "answer": "Als Übernachtungsgäste kommt ihr außerhalb des Tagesandrangs an, und nach unserer Erfahrung ist die Lage am späten Nachmittag und Abend häufig entspannter. Im Sommer, an Wochenenden und bei Veranstaltungen kann es trotzdem voll sein." },
         { "question": "Ist Frigiliana sehr steil?", "answer": "Frigiliana liegt am Hang, und Steigungen sowie Treppen gehören zum historischen Dorf. Entscheidend ist deshalb nicht nur, wie weit eure Unterkunft auf der Karte vom Zentrum entfernt liegt, sondern wie hoch sie liegt und welchen Weg ihr mehrmals täglich zurücklegt. Zwischen dem vergleichsweise niedrigeren historischen Zentrum und den höheren Gassen des Barribarto kann das im Urlaub einen spürbaren Unterschied machen." },
         { "question": "Kommt ihr ohne Auto nach Nerja und zum Strand?", "answer": "Ja, mit dem Bus. Wollt ihr an einem Tag mehrere Strände, Maro oder weitere Orte der Region verbinden, ist ein Mietwagen deutlich bequemer." },
-        { "question": "Was solltet ihr bei der Anreise mit Gepäck beachten?", "answer": "Frigiliana ist ein historisches Bergdorf mit schmalen Gassen und Steigungen; zu vielen Unterkünften gehört ein letztes Stück zu Fuß. Packt deshalb am besten so, dass ihr euer Gepäck selbst tragen könnt. Zu unserer Tür sind es von der Hauptstraße unten rund 150 Meter bergauf mit etwa 30 Stufen." }
+        { "question": "Was solltet ihr bei der Anreise mit Gepäck beachten?", "answer": "Frigiliana ist ein historisches Bergdorf mit schmalen Gassen und Steigungen; zu vielen Unterkünften gehört ein letztes Stück zu Fuß. Packt deshalb am besten so, dass ihr euer Gepäck selbst tragen könnt. Zu unserer Tür sind es von der Hauptstraße unten rund 150 Meter bergauf mit etwa 30 Stufen." },
+        { "question": "Lohnt sich in Frigiliana eine Übernachtung, oder reicht ein Tagesausflug?", "answer": "Bei einem Tagesausflug seht ihr die Hauptgassen, die Aussichtspunkte und die weiß getünchte Altstadt. Eine Übernachtung verändert das Erlebnis: Das Dorf wird ruhiger, sobald viele Tagesgäste abgereist sind, ihr könnt essen gehen und durch die alten Gassen nach Hause laufen, und der nächste Morgen beginnt, bevor der Tagesbetrieb zurückkehrt. Wenn Frigiliana eine Station auf einer größeren Andalusien-Reise ist, bekommt die Reise mit einer oder mehreren Nächten außerdem ein langsameres Dorfkapitel zwischen den großen Zielen." }
       ]
     },
     "seasons": {
@@ -330,6 +331,12 @@ export const frigilianaLocationCopy = {
       "oldTown": { "label": "Geschichte & Baukultur", "text": "Die zwölf Keramiktafeln, El Ingenio und die Geschichte von 1569 im Ortskern nachvollziehen." },
       "reviews": { "label": "Gästebewertungen", "text": "Lesen, was Gäste nach ihrem Aufenthalt erwähnen." },
       "amenities": { "label": "Komfort und Ausstattung", "text": "Komfortdetails der AMARA Unterkünfte vor der Buchung prüfen." }
+    },
+    "journeyBridge": {
+      "eyebrow": "MEHR VON ANDALUSIEN SEHEN?",
+      "title": "Frigiliana kann der ruhige Teil eurer Reise sein.",
+      "text": "Málaga, Granada, Ronda und der Caminito del Rey gehören für viele zu einer größeren Andalusien-Reise. Wenn ihr in Frigiliana wohnt, wird das Dorf zu dem Ort, an dem sich zwischen den großen Tagen das Tempo ändert – mit alten Gassen, ruhigen Abenden und der Mittelmeerküste ringsum.",
+      "ctaLabel": "Tagesausflüge ab Frigiliana planen"
     },
     "exploreBridge": {
       "eyebrow": "ENTDECKEN",
@@ -686,7 +693,8 @@ export const frigilianaLocationCopy = {
         { "question": "¿Cómo es el aparcamiento si os alojáis en Frigiliana?", "answer": "Gran parte de la información sobre aparcamiento en Frigiliana está pensada para quienes visitan el pueblo solo durante unas horas y suelen llegar en momentos similares. Para quienes se alojan aquí, el ritmo es diferente. Según nuestra experiencia, a última hora de la tarde y por la noche suele haber algo más de tranquilidad que durante las horas de mayor afluencia de visitantes. Aun así, nunca podemos garantizar una plaza libre, especialmente en verano, los fines de semana o durante eventos." },
         { "question": "¿Frigiliana tiene muchas cuestas?", "answer": "Frigiliana está construida sobre una ladera, por lo que las cuestas y las escaleras forman parte del casco histórico. Por eso no importa solo la distancia que aparece en el mapa, sino también a qué altura se encuentra vuestro alojamiento y qué recorrido vais a repetir varias veces al día. Alojarse en la parte relativamente más baja del casco histórico puede sentirse bastante diferente a quedarse en las calles más altas del Barribarto." },
         { "question": "¿Podéis ir a Nerja y a la playa sin coche?", "answer": "Sí, en autobús. Si queréis combinar varias playas, Maro u otros lugares de la comarca en un mismo día, el coche resulta mucho más cómodo." },
-        { "question": "¿Qué debéis tener en cuenta si llegáis con equipaje?", "answer": "Frigiliana es un pueblo histórico en ladera, con calles estrechas y pendientes, y casi todos los alojamientos terminan con un tramo a pie. Preparad el equipaje pensando en que tendréis que cargarlo. Hasta nuestra puerta hay unos 150 metros cuesta arriba desde la carretera principal, con unos 30 escalones." }
+        { "question": "¿Qué debéis tener en cuenta si llegáis con equipaje?", "answer": "Frigiliana es un pueblo histórico en ladera, con calles estrechas y pendientes, y casi todos los alojamientos terminan con un tramo a pie. Preparad el equipaje pensando en que tendréis que cargarlo. Hasta nuestra puerta hay unos 150 metros cuesta arriba desde la carretera principal, con unos 30 escalones." },
+        { "question": "¿Merece la pena dormir en Frigiliana o basta con una excursión de un día?", "answer": "Una visita de un día os deja ver las calles principales, los miradores y el casco antiguo encalado. Pernoctar cambia la experiencia: el pueblo se queda más tranquilo cuando se marchan muchos visitantes de día, podéis cenar y volver caminando por las calles antiguas, y la mañana siguiente empieza antes de que regrese el movimiento diurno. Si Frigiliana es una parada dentro de un viaje más amplio por Andalucía, una o varias noches añaden además un capítulo de pueblo, más pausado, entre destinos grandes." }
       ]
     },
     "seasons": {
@@ -717,6 +725,12 @@ export const frigilianaLocationCopy = {
       "oldTown": { "label": "Historia y arquitectura", "text": "Seguir los doce paneles de cerámica, El Ingenio y la historia de 1569 por el centro protegido." },
       "reviews": { "label": "Reseñas de huéspedes", "text": "Leer qué cuentan los huéspedes después de alojarse con AMARA." },
       "amenities": { "label": "Confort y servicios", "text": "Revisar el confort de los alojamientos AMARA antes de reservar." }
+    },
+    "journeyBridge": {
+      "eyebrow": "¿QUERÉIS VER MÁS DE ANDALUCÍA?",
+      "title": "Dejad que Frigiliana sea la parte tranquila del viaje.",
+      "text": "Málaga, Granada, Ronda y el Caminito del Rey pueden formar parte de un viaje más amplio por Andalucía. Si os alojáis en Frigiliana, el pueblo se convierte en el lugar donde el ritmo cambia entre las jornadas más largas: calles antiguas, tardes sin prisa y la costa mediterránea alrededor.",
+      "ctaLabel": "Planificar excursiones desde Frigiliana"
     },
     "exploreBridge": {
       "eyebrow": "DESCUBRIR",
@@ -876,7 +890,8 @@ export const frigilianaLocationCopy = {
         { "question": "Hoe werkt parkeren als jullie in Frigiliana overnachten?", "answer": "Als overnachtende gasten komen jullie buiten de dagdrukte aan, en onze ervaring is dat het later in de middag en 's avonds vaak rustiger is. In de zomer, in het weekend en tijdens evenementen kan het nog steeds vol zijn." },
         { "question": "Is Frigiliana erg steil?", "answer": "Frigiliana ligt tegen een heuvel, waardoor hellingen en trappen bij het historische dorp horen. Het gaat daarom niet alleen om de afstand tot het centrum op de kaart, maar ook om hoe hoog jullie accommodatie ligt en welke route jullie meerdere keren per dag lopen. Verblijven in het relatief lager gelegen historische centrum kan in de praktijk duidelijk anders aanvoelen dan een accommodatie hoger in het Barribarto." },
         { "question": "Kunnen jullie zonder auto naar Nerja en het strand?", "answer": "Ja, met de bus. Willen jullie op één dag meerdere stranden, Maro of andere plaatsen in de regio combineren, dan is een huurauto veel comfortabeler." },
-        { "question": "Waar moeten jullie rekening mee houden als jullie met bagage aankomen?", "answer": "Frigiliana is een historisch dorp tegen de heuvel, met smalle straatjes en hellingen; bij vrijwel elk verblijf hoort een laatste stuk te voet. Pak dus zo in dat jullie de bagage zelf kunnen dragen. Tot onze deur is het ongeveer 150 meter omhoog vanaf de hoofdweg beneden, met zo ongeveer 30 treden." }
+        { "question": "Waar moeten jullie rekening mee houden als jullie met bagage aankomen?", "answer": "Frigiliana is een historisch dorp tegen de heuvel, met smalle straatjes en hellingen; bij vrijwel elk verblijf hoort een laatste stuk te voet. Pak dus zo in dat jullie de bagage zelf kunnen dragen. Tot onze deur is het ongeveer 150 meter omhoog vanaf de hoofdweg beneden, met zo ongeveer 30 treden." },
+        { "question": "Is overnachten in Frigiliana de moeite waard, of volstaat een dagtocht?", "answer": "Met een dagtocht zien jullie de hoofdstraatjes, de uitzichtpunten en de witgekalkte oude kern. Blijven slapen verandert de ervaring: het dorp wordt rustiger zodra veel dagbezoekers zijn vertrokken, jullie kunnen uit eten gaan en door de oude straatjes naar huis lopen, en de volgende ochtend begint voordat de dagdrukte terugkeert. Is Frigiliana een halte op een grotere rondreis door Andalusië, dan geeft één of meer nachten de reis bovendien een rustiger dorpshoofdstuk tussen de grote bestemmingen." }
       ]
     },
     "seasons": {
@@ -907,6 +922,12 @@ export const frigilianaLocationCopy = {
       "oldTown": { "label": "Geschiedenis & architectuur", "text": "Volg de twaalf keramische panelen, El Ingenio en de geschiedenis van 1569 door de beschermde kern." },
       "reviews": { "label": "Gastbeoordelingen", "text": "Lees wat gasten na een verblijf bij AMARA vertellen." },
       "amenities": { "label": "Comfort en voorzieningen", "text": "Controleer het comfort van AMARA-verblijven vóór het boeken." }
+    },
+    "journeyBridge": {
+      "eyebrow": "MEER VAN ANDALUSIË ZIEN?",
+      "title": "Laat Frigiliana het rustige deel van de reis zijn.",
+      "text": "Málaga, Granada, Ronda en de Caminito del Rey horen vaak bij een grotere rondreis door Andalusië. Als jullie in Frigiliana verblijven, wordt het dorp de plek waar het tempo tussen de grote dagen verandert — met oude straatjes, rustige avonden en de Middellandse Zee om jullie heen.",
+      "ctaLabel": "Dagtochten vanuit Frigiliana plannen"
     },
     "exploreBridge": {
       "eyebrow": "ONTDEKKEN",
@@ -1069,7 +1090,8 @@ export const frigilianaLocationCopy = {
         { "question": "Hur fungerar parkeringen när ni övernattar i Frigiliana?", "answer": "Som övernattande gäster kommer ni utanför dagsrusningen, och vår erfarenhet är att det ofta är lugnare senare på eftermiddagen och på kvällen. På sommaren, under helger och vid evenemang kan det ändå vara fullt." },
         { "question": "Är Frigiliana mycket brant?", "answer": "Frigiliana ligger på en sluttning, så backar och trappor är en naturlig del av den historiska byn. Det viktiga är därför inte bara hur långt boendet ser ut att ligga från centrum på kartan, utan också hur högt det ligger och vilken väg ni kommer att gå flera gånger om dagen. Att bo i den relativt lägre delen av den historiska byn kan kännas märkbart annorlunda än att bo högre upp i Barribarto." },
         { "question": "Kan ni ta er till Nerja och stranden utan bil?", "answer": "Ja, med buss. Vill ni kombinera flera stränder, Maro eller andra platser i regionen samma dag är hyrbil betydligt bekvämare." },
-        { "question": "Vad bör ni tänka på när ni anländer med bagage?", "answer": "Frigiliana är en historisk by på en sluttning, med smala gränder och backar, och nästan alla boenden slutar med en sträcka till fots. Packa så att ni kan bära bagaget själva. Till vår dörr är det ungefär 150 meter uppför från huvudvägen nedanför, med omkring 30 trappsteg." }
+        { "question": "Vad bör ni tänka på när ni anländer med bagage?", "answer": "Frigiliana är en historisk by på en sluttning, med smala gränder och backar, och nästan alla boenden slutar med en sträcka till fots. Packa så att ni kan bära bagaget själva. Till vår dörr är det ungefär 150 meter uppför från huvudvägen nedanför, med omkring 30 trappsteg." },
+        { "question": "Är det värt att övernatta i Frigiliana, eller räcker en dagsutflykt?", "answer": "En dagsutflykt visar er byns huvudgränder, utsiktsplatser och den vitkalkade gamla kärnan. Att stanna över natten förändrar upplevelsen: byn blir lugnare när många dagsbesökare har åkt, ni kan äta middag och gå hem genom de gamla gränderna, och nästa morgon börjar innan dagsrörelsen är tillbaka. Är Frigiliana en anhalt på en större rundresa i Andalusien ger en eller flera nätter dessutom resan ett långsammare bykapitel mellan de större målen." }
       ]
     },
     "seasons": {
@@ -1100,6 +1122,12 @@ export const frigilianaLocationCopy = {
       "oldTown": { "label": "Historia & arkitektur", "text": "Följ de tolv keramikpanelerna, El Ingenio och historien från 1569 genom den skyddade kärnan." },
       "reviews": { "label": "Gästrecensioner", "text": "Läs vad gäster berättar efter en vistelse hos AMARA." },
       "amenities": { "label": "Komfort och bekvämligheter", "text": "Kontrollera komforten i AMARA-boendena före bokning." }
+    },
+    "journeyBridge": {
+      "eyebrow": "VILL NI SE MER AV ANDALUSIEN?",
+      "title": "Låt Frigiliana bli resans lugna del.",
+      "text": "Málaga, Granada, Ronda och Caminito del Rey ingår ofta i en större rundresa i Andalusien. Om ni bor i Frigiliana blir byn platsen där tempot växlar mellan de stora dagarna – med gamla gränder, stillsamma kvällar och Medelhavskusten runt omkring.",
+      "ctaLabel": "Planera utflykter från Frigiliana"
     },
     "exploreBridge": {
       "eyebrow": "UPPTÄCK",

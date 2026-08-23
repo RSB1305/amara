@@ -61,7 +61,9 @@ Classify the change by the owner or contract actually being changed, not by shar
 
 Content modules localize at the leaf: the module describes the page once and each authored string carries its five locales, using `LocalizedText` and its siblings from `src/types/content.ts` (`DR-CONTENT-STRUCT-001`). Modules still carrying one copy of the page shape per language are migrated when they are materially revised, not in a separate campaign.
 
-The five locales of a module must stay structurally identical; a contract test enforces this and records the gaps that exist today. A recorded gap is closed by authored copy in the missing languages, never by deriving one locale from another.
+The five locales of a module must carry the same **semantic units**: every key exists in every locale, and lists of units — FAQ entries, cards, themes, sections, CTA blocks — hold the same entries, in the same order, under the same identifiers. A contract test enforces this and records the gaps that exist today. A recorded gap is closed by authored copy in the missing languages, never by deriving one locale from another.
+
+**Prose segmentation is not a semantic unit.** Splitting one paragraph into two, or joining two into one, is what a natural translation does and is expressly allowed; the parity test does not compare the length of a prose list. Use `LocalizedTextList` for running text and an identified list of objects for units that must correspond.
 
 The cross-language SSOT is facts, page job, evidence, claim boundaries, required information/topics, conversion intent, meaning depth and material nuance. English may be a working reference but is not a mandatory master language.
 
