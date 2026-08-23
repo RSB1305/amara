@@ -6,6 +6,7 @@ interface Props {
   publishedAt?: string;
   flush?: boolean;
   whiteCanvas?: boolean;
+  edgeToEdge?: boolean;
   class?: string;
 }
 
@@ -16,6 +17,7 @@ const {
   publishedAt,
   flush = false,
   whiteCanvas = false,
+  edgeToEdge = false,
   class: className
 } = Astro.props;
 ---
@@ -27,7 +29,8 @@ const {
     'am-page-shell',
     {
       'am-page-shell--flush': flush,
-      'am-page-shell--white-canvas': whiteCanvas
+      'am-page-shell--white-canvas': whiteCanvas,
+      'am-page-shell--edge-to-edge': edgeToEdge
     },
     className
   ]}

@@ -30,6 +30,39 @@
     transform 180ms ease;
 }
 
+/**
+ * The home hero may own the opening viewport. Its opt-in header starts over the
+ * image, then returns to the canonical solid navigation once the page scrolls.
+ */
+[data-am-navigation][data-am-navigation-appearance="overlay"]:not([data-am-overlay-scrolled="true"]) {
+  border-bottom-color: transparent;
+  background: linear-gradient(180deg, rgba(22, 18, 14, 0.58) 0%, rgba(22, 18, 14, 0) 100%);
+}
+
+[data-am-navigation][data-am-navigation-appearance="overlay"] {
+  transition:
+    background-color 180ms ease,
+    border-color 180ms ease;
+}
+
+[data-am-navigation][data-am-navigation-appearance="overlay"]:not([data-am-overlay-scrolled="true"]) .am-nav__brand span:first-child,
+[data-am-navigation][data-am-navigation-appearance="overlay"]:not([data-am-overlay-scrolled="true"]) .am-nav__link,
+[data-am-navigation][data-am-navigation-appearance="overlay"]:not([data-am-overlay-scrolled="true"]) .am-nav__icon-button {
+  color: var(--color-inverted-on-surface);
+}
+
+[data-am-navigation][data-am-navigation-appearance="overlay"]:not([data-am-overlay-scrolled="true"]) .am-nav__brand span:last-child {
+  color: color-mix(in srgb, var(--color-inverted-on-surface) 72%, transparent);
+}
+
+[data-am-navigation][data-am-navigation-appearance="overlay"]:not([data-am-overlay-scrolled="true"]) .am-nav__language::before {
+  background-color: color-mix(in srgb, var(--color-inverted-on-surface) 34%, transparent);
+}
+
+[data-am-navigation][data-am-navigation-appearance="overlay"]:not([data-am-overlay-scrolled="true"]) .am-nav__link::after {
+  background: var(--color-inverted-on-surface);
+}
+
 [data-am-navigation] .am-nav-mobile--contextual {
   transition: top 180ms ease;
 }

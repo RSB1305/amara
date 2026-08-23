@@ -35,6 +35,7 @@ function initGlobalNavigation(): void {
   const desktopGroups = Array.from(header.querySelectorAll<HTMLElement>('.am-nav__group'));
   const desktopQuery = window.matchMedia(DESKTOP_QUERY);
   const hasContextNavigation = header.hasAttribute('data-am-navigation-contextual');
+  const hasOverlayAppearance = header.getAttribute('data-am-navigation-appearance') === 'overlay';
   const interactionRoot = header.closest<HTMLElement>('[data-am-interaction-root]');
 
   let mobileInertRecords: InertRecord[] = [];
@@ -277,6 +278,9 @@ function initGlobalNavigation(): void {
 
   const syncScrollState = (): void => {
     scrollFrameRequested = false;
+    if (hasOverlayAppearance) {
+      header.setAttribute('data-am-overlay-scrolled', window.scrollY > 32 ? 'true' : 'false');
+    }
     const hidden = hasContextNavigation && desktopQuery.matches && window.scrollY > 64;
     const wasHidden = header.getAttribute('data-am-scroll-hidden') === 'true';
     if (hidden === wasHidden) return;

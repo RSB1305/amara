@@ -530,6 +530,17 @@
     --color-surface: var(--color-surface-white);
   }
 
+  /** Opt-in cinematic pages may let their opening image meet every viewport edge. */
+  .am-page-shell--edge-to-edge {
+    max-width: none;
+    padding-inline: 0;
+    padding-bottom: 0;
+  }
+
+  .am-page-shell--edge-to-edge .am-page-shell__frame {
+    max-width: none;
+  }
+
   .am-page-section {
     padding-block: var(--spacing-page-section);
   }
