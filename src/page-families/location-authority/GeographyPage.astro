@@ -19,6 +19,7 @@ import {
 import LocationAuthorityLayout from '../../layouts/LocationAuthorityLayout.astro';
 import { createRequiredLinkResolver, type LabeledLink } from '../../lib/linkResolver';
 import { normalizeLanguage } from '../../lib/seo/resolve-seo-head';
+import { resolveLocale } from '../../types/content';
 import type { AmaraLanguage } from '../../types/seo';
 import AuthorityArticle from './AuthorityArticle.astro';
 import GeographyAuthorityBody from './GeographyAuthorityBody.astro';
@@ -91,7 +92,7 @@ const config = (() => {
     };
   }
 
-  const content = tarifaGeographyContent[currentLang];
+  const content = resolveLocale(tarifaGeographyContent, currentLang);
   const requiredLink = createRequiredLinkResolver(currentLang, 'Tarifa geography');
 
   return {

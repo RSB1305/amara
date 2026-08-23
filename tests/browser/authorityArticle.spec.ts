@@ -1,3 +1,4 @@
+import { resolveLocale } from '../../src/types/content';
 import { expect, test, type Page } from '@playwright/test';
 import { dev } from 'astro';
 import { fileURLToPath } from 'node:url';
@@ -82,7 +83,8 @@ interface AuthorityPage {
   routeToken: LinkToken;
   /** The `data-am-page` value on the article root. */
   pageId: string;
-  content: Record<AmaraLanguage, AuthorityArticleLocale>;
+  /** Resolves the entry copy for one language, whichever structure the module uses. */
+  content: (lang: AmaraLanguage) => AuthorityArticleLocale;
   /** Oversized decorative hero mark, or null where the page renders none. */
   heroMark: ((locale: AuthorityArticleLocale) => string) | null;
   /** Responsive column class of the related-link grid; null where absent. */
@@ -108,7 +110,7 @@ const AUTHORITY_PAGES: AuthorityPage[] = [
   {
     routeToken: 'getting_to_nerja',
     pageId: 'getting-to-nerja',
-    content: gettingToNerjaContent,
+    content: (lang) => gettingToNerjaContent[lang],
     heroMark: null,
     relatedColumns: 'md:grid-cols-2',
     blockBeforeSections: null,
@@ -124,7 +126,7 @@ const AUTHORITY_PAGES: AuthorityPage[] = [
   {
     routeToken: 'getting_to_tarifa',
     pageId: 'getting-to-tarifa',
-    content: gettingToTarifaContent,
+    content: (lang) => gettingToTarifaContent[lang],
     heroMark: null,
     relatedColumns: 'md:grid-cols-2',
     blockBeforeSections: null,
@@ -140,7 +142,7 @@ const AUTHORITY_PAGES: AuthorityPage[] = [
   {
     routeToken: 'frigiliana_parking',
     pageId: 'frigiliana-parking',
-    content: frigilianaParkingGuideContent,
+    content: (lang) => frigilianaParkingGuideContent[lang],
     heroMark: null,
     relatedColumns: 'md:grid-cols-3',
     blockBeforeSections: null,
@@ -156,7 +158,7 @@ const AUTHORITY_PAGES: AuthorityPage[] = [
   {
     routeToken: 'nerja_parking',
     pageId: 'nerja-parking',
-    content: nerjaParkingContent,
+    content: (lang) => nerjaParkingContent[lang],
     heroMark: null,
     relatedColumns: 'md:grid-cols-3',
     blockBeforeSections: null,
@@ -172,7 +174,7 @@ const AUTHORITY_PAGES: AuthorityPage[] = [
   {
     routeToken: 'tarifa_parking',
     pageId: 'tarifa-parking',
-    content: tarifaParkingContent,
+    content: (lang) => tarifaParkingContent[lang],
     heroMark: null,
     relatedColumns: 'md:grid-cols-3',
     blockBeforeSections: null,
@@ -188,7 +190,7 @@ const AUTHORITY_PAGES: AuthorityPage[] = [
   {
     routeToken: 'nerja_balcon_de_europa',
     pageId: 'nerja-balcon-de-europa',
-    content: nerjaBalconContent,
+    content: (lang) => nerjaBalconContent[lang],
     heroMark: null,
     relatedColumns: 'md:grid-cols-2',
     blockBeforeSections: null,
@@ -204,7 +206,7 @@ const AUTHORITY_PAGES: AuthorityPage[] = [
   {
     routeToken: 'nerja_caves',
     pageId: 'nerja-caves',
-    content: nerjaCavesContent,
+    content: (lang) => nerjaCavesContent[lang],
     heroMark: null,
     relatedColumns: 'md:grid-cols-2',
     blockBeforeSections: null,
@@ -220,7 +222,7 @@ const AUTHORITY_PAGES: AuthorityPage[] = [
   {
     routeToken: 'nerja_daily_life',
     pageId: 'nerja-daily-life',
-    content: nerjaDailyLifeContent,
+    content: (lang) => nerjaDailyLifeContent[lang],
     heroMark: () => 'Nerja',
     relatedColumns: 'md:grid-cols-3',
     blockBeforeSections: null,
@@ -236,7 +238,7 @@ const AUTHORITY_PAGES: AuthorityPage[] = [
   {
     routeToken: 'nerja_geography',
     pageId: 'nerja-geography',
-    content: nerjaGeographyContent,
+    content: (lang) => nerjaGeographyContent[lang],
     heroMark: null,
     relatedColumns: 'md:grid-cols-2',
     blockBeforeSections: 'orientation:nerja',
@@ -253,7 +255,7 @@ const AUTHORITY_PAGES: AuthorityPage[] = [
   {
     routeToken: 'tarifa_daily_life',
     pageId: 'tarifa-daily-life',
-    content: tarifaDailyLifeContent,
+    content: (lang) => tarifaDailyLifeContent[lang],
     heroMark: () => 'Tarifa',
     relatedColumns: 'md:grid-cols-3',
     blockBeforeSections: null,
@@ -269,7 +271,7 @@ const AUTHORITY_PAGES: AuthorityPage[] = [
   {
     routeToken: 'tarifa_geography',
     pageId: 'tarifa-geography',
-    content: tarifaGeographyContent,
+    content: (lang) => resolveLocale(tarifaGeographyContent, lang),
     heroMark: null,
     relatedColumns: 'md:grid-cols-2',
     blockBeforeSections: 'orientation:tarifa',
@@ -286,7 +288,7 @@ const AUTHORITY_PAGES: AuthorityPage[] = [
   {
     routeToken: 'tarifa_winter_stays',
     pageId: 'tarifa-winter-stays',
-    content: tarifaWinterStaysContent,
+    content: (lang) => tarifaWinterStaysContent[lang],
     heroMark: null,
     relatedColumns: 'md:grid-cols-2',
     blockBeforeSections: null,
@@ -434,7 +436,7 @@ function expectedBlocks(entry: AuthorityPage, locale: AuthorityArticleLocale): B
 
 for (const entry of AUTHORITY_PAGES) {
   test(`${entry.pageId} keeps its delivered authority article contract`, async ({ page }) => {
-    const locale = entry.content[SWEEP_LANGUAGE];
+    const locale = entry.content(SWEEP_LANGUAGE);
     await openPage(page, resolveLink(entry.routeToken, SWEEP_LANGUAGE));
 
     const article = page.locator(`article[data-am-page="${entry.pageId}"]`);
@@ -581,7 +583,7 @@ test('the destination arrival pages use the shared module order', async ({ page 
 
 test('nerja-caves places the personal visit block before the related links', async ({ page }) => {
   const entry = authorityPage('nerja-caves');
-  const locale = entry.content[SWEEP_LANGUAGE];
+  const locale = entry.content(SWEEP_LANGUAGE);
   await openPage(page, resolveLink(entry.routeToken, SWEEP_LANGUAGE));
 
   const blocks = await articleBlocks(page, 'nerja-caves');
@@ -603,7 +605,7 @@ test('the geography pages place the orientation block before the text sections',
     ['tarifa-geography', 'tarifa']
   ]) {
     const entry = authorityPage(pageId);
-    const locale = entry.content[SWEEP_LANGUAGE] as OrientedLocale;
+    const locale = entry.content(SWEEP_LANGUAGE) as OrientedLocale;
     await openPage(page, resolveLink(entry.routeToken, SWEEP_LANGUAGE));
 
     const blocks = await articleBlocks(page, pageId);

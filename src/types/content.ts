@@ -51,3 +51,56 @@ export function localized<TValue>(
 ): TValue {
   return value[currentLang];
 }
+
+/**
+ * The shape a leaf-localized structure has once one language is chosen: every
+ * `LocalizedText` becomes the string for that language and everything around it
+ * keeps its shape.
+ */
+export type Resolved<TValue> = TValue extends LocalizedText
+  ? string
+  : TValue extends readonly (infer TItem)[]
+    ? Resolved<TItem>[]
+    : TValue extends object
+      ? { [TKey in keyof TValue]: Resolved<TValue[TKey]> }
+      : TValue;
+
+const LANGUAGE_KEYS: readonly AmaraLanguage[] = ['en', 'de', 'es', 'nl', 'sv'];
+
+function isLocalizedText(value: object): value is LocalizedText {
+  const keys = Object.keys(value);
+  return (
+    keys.length === LANGUAGE_KEYS.length &&
+    LANGUAGE_KEYS.every(
+      (lang) => lang in value && typeof (value as Record<string, unknown>)[lang] === 'string'
+    )
+  );
+}
+
+/**
+ * Resolve a whole leaf-localized content tree for one language.
+ *
+ * This is what makes the leaf-level contract cheap to adopt: a page keeps
+ * reading a plain structure of strings, exactly as it did when the module
+ * carried one copy per language, and the choice of language happens once at the
+ * page boundary instead of being threaded through every renderer.
+ */
+export function resolveLocale<TValue>(
+  value: TValue,
+  currentLang: AmaraLanguage
+): Resolved<TValue> {
+  if (Array.isArray(value)) {
+    return value.map((item) => resolveLocale(item, currentLang)) as Resolved<TValue>;
+  }
+  if (value && typeof value === 'object') {
+    if (isLocalizedText(value)) {
+      return value[currentLang] as Resolved<TValue>;
+    }
+    const out: Record<string, unknown> = {};
+    for (const [key, item] of Object.entries(value)) {
+      out[key] = resolveLocale(item, currentLang);
+    }
+    return out as Resolved<TValue>;
+  }
+  return value as Resolved<TValue>;
+}
