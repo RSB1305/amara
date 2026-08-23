@@ -1,0 +1,183 @@
+{
+  "src/components/EssenceGrid.astro": {
+    "leading-[1.1]": 1
+  },
+  "src/components/FaqAccordion.astro": {
+    "tracking-[0.2em]": 2
+  },
+  "src/components/Navigation.astro": {
+    "text-[8px]": 1,
+    "tracking-[0.5em]": 1
+  },
+  "src/components/PhotoShow.astro": {
+    "tracking-[0.2em]": 1
+  },
+  "src/components/editorial/EditorialByline.astro": {
+    "text-[10px]": 1,
+    "tracking-[0.12em]": 1
+  },
+  "src/components/editorial/EditorialHostProfile.astro": {
+    "tracking-[0.1em]": 1
+  },
+  "src/components/editorial/EditorialQuote.astro": {
+    "leading-[1.15]": 1
+  },
+  "src/components/editorial/SustainabilityBand.astro": {
+    "leading-[1.5]": 1,
+    "text-[var(--color-sustainability-on-surface)]": 4,
+    "tracking-[0.1em]": 1
+  },
+  "src/components/experience/ExperienceArticleHero.astro": {
+    "leading-[0.72]": 1,
+    "text-[11px]": 1,
+    "text-[clamp(3.5rem,8vw,8.5rem)]": 1,
+    "tracking-[0.2em]": 1
+  },
+  "src/components/experience/ExperiencePreFooter.astro": {
+    "text-[10px]": 1,
+    "tracking-[0.16em]": 1
+  },
+  "src/components/location/ArrivalJourneyGraphic.astro": {
+    "text-[13px]": 1,
+    "text-[9px]": 3,
+    "tracking-[0.12em]": 1,
+    "tracking-[0.15em]": 1,
+    "tracking-[0.22em]": 1
+  },
+  "src/components/location/ClimateExperienceSection.astro": {
+    "tracking-[0.2em]": 1
+  },
+  "src/components/location/FrigilianaOrientationMap.astro": {
+    "text-[10px]": 1,
+    "tracking-[0.14em]": 1
+  },
+  "src/components/location/HairlineStatCard.astro": {
+    "tracking-[0.18em]": 1
+  },
+  "src/components/location/LocationClimateTable.astro": {
+    "text-[10px]": 2,
+    "text-[11px]": 1,
+    "text-[clamp(1.5rem,2.2vw,2.25rem)]": 1,
+    "tracking-[0.14em]": 1,
+    "tracking-[0.18em]": 1
+  },
+  "src/components/location/LocationGuideEvidence.astro": {
+    "tracking-[0.2em]": 2
+  },
+  "src/components/location/LocationGuideHero.astro": {
+    "tracking-[0.2em]": 1
+  },
+  "src/components/location/SeasonalPillar.astro": {
+    "tracking-[0.18em]": 4
+  },
+  "src/components/location/WhereToStayOrientationGraphic.astro": {
+    "text-[8px]": 1,
+    "text-[9px]": 2,
+    "tracking-[0.15em]": 1,
+    "tracking-[0.16em]": 1,
+    "tracking-[0.22em]": 1
+  },
+  "src/components/navigation/ContextNavigation.astro": {
+    "text-[10px]": 4,
+    "text-[9px]": 1,
+    "tracking-[0.06em]": 2,
+    "tracking-[0.08em]": 1,
+    "tracking-[0.14em]": 2
+  },
+  "src/components/navigation/DestinationBranchSwitcher.astro": {
+    "text-[10px]": 1,
+    "tracking-[0.08em]": 1
+  },
+  "src/components/navigation/GlobalNavigationDesktop.astro": {
+    "text-[12px]": 3,
+    "tracking-[0.12em]": 2,
+    "tracking-[0.14em]": 1
+  },
+  "src/components/navigation/GlobalNavigationUtilities.astro": {
+    "text-[13px]": 1
+  },
+  "src/components/navigation/GroupedContextNavigation.astro": {
+    "text-[10px]": 3,
+    "text-[9px]": 1,
+    "tracking-[0.06em]": 3,
+    "tracking-[0.08em]": 1
+  },
+  "src/components/vacation-rental/RentalPhotoGallery.astro": {
+    "text-[11px]": 1,
+    "text-[12px]": 2,
+    "tracking-[0.08em]": 1,
+    "tracking-[0.12em]": 1,
+    "tracking-[0.1em]": 1
+  },
+  "src/page-families/amara-about-us/AboutUsPage.astro": {
+    "leading-[1.5]": 1,
+    "text-[11px]": 1,
+    "tracking-[0.1em]": 1
+  },
+  "src/page-families/arrival-guide/DirectionsArrivalGuidePage.astro": {
+    "text-[11px]": 1
+  },
+  "src/page-families/booking-stay-terms/BookingStayTermsPage.astro": {
+    "text-[11px]": 3,
+    "tracking-[0.12em]": 3
+  },
+  "src/page-families/direct-booking-benefits/DirectBookingBenefitsPage.astro": {
+    "leading-[1.5]": 1,
+    "leading-[1.8]": 5
+  },
+  "src/page-families/faq-general/FaqGeneralPage.astro": {
+    "tracking-[0.18em]": 2
+  },
+  "src/page-families/guest-reviews/GuestReviewsPage.astro": {
+    "leading-[1.85]": 1
+  },
+  "src/page-families/location-authority/AuthorityArticle.astro": {
+    "text-[10px]": 1,
+    "tracking-[0.12em]": 1
+  },
+  "src/page-families/location-authority/ExperienceHubPage.astro": {
+    "text-[10px]": 2,
+    "text-[11px]": 1,
+    "tracking-[0.16em]": 3
+  },
+  "src/page-families/location-authority/FrigilianaFaqPage.astro": {
+    "text-[clamp(2.75rem,5vw,5rem)]": 1
+  },
+  "src/page-families/location-authority/FrigilianaLocationPage.astro": {
+    "text-[10px]": 1,
+    "tracking-[0.15em]": 1
+  },
+  "src/page-families/location-authority/FrigilianaMarketPage.astro": {
+    "text-[clamp(2.5rem,5vw,4.75rem)]": 1,
+    "tracking-[0.16em]": 2
+  },
+  "src/page-families/location-authority/NerjaExperienceHubPage.astro": {
+    "text-[10px]": 1,
+    "tracking-[0.16em]": 1
+  },
+  "src/page-families/location-authority/TarifaExperienceSpokePage.astro": {
+    "text-[10px]": 1,
+    "tracking-[0.12em]": 1
+  },
+  "src/page-families/location-authority/WeatherAuthorityBody.astro": {
+    "text-[10px]": 2,
+    "tracking-[0.12em]": 1,
+    "tracking-[0.14em]": 1
+  },
+  "src/page-families/location-authority/WhereToStayAuthorityBody.astro": {
+    "text-[10px]": 1,
+    "tracking-[0.14em]": 1
+  },
+  "src/page-families/vacation-rental/VacationRentalPage.astro": {
+    "text-[11px]": 1,
+    "text-[12px]": 2,
+    "tracking-[0.1em]": 1
+  },
+  "src/pages/_tools/converter/index.astro": {
+    "leading-[0.95]": 1,
+    "text-[#4A4A4A]": 1,
+    "text-[#666]": 1,
+    "text-[11px]": 1,
+    "tracking-[0.15em]": 1
+  }
+}

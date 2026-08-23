@@ -14,8 +14,8 @@
     "test": "npm run test:contracts && npm run test:browser",
     "test:contracts": "playwright test --config=playwright.contracts.config.ts",
     "test:browser": "playwright test --config=playwright.browser.config.ts",
-    "prebuild": "npm run typecheck && npm run check:slug-policy && npm run check:fallback-policy && npm run check:image-policy",
-    "check": "npm run typecheck && npm run check:slug-policy && npm run check:fallback-policy && npm run check:image-policy",
+    "prebuild": "npm run typecheck && npm run check:slug-policy && npm run check:fallback-policy && npm run check:image-policy && npm run check:typography-policy",
+    "check": "npm run typecheck && npm run check:slug-policy && npm run check:fallback-policy && npm run check:image-policy && npm run check:typography-policy",
     "build": "astro build",
     "postbuild": "node scripts/postbuild.mjs && node scripts/check-image-policy.mjs --dist",
     "preview": "astro preview",
@@ -23,7 +23,8 @@
     "check:slug-policy": "node scripts/check-public-slug-policy.mjs",
     "check:fallback-policy": "node scripts/check-fallback-policy.mjs",
     "check:image-policy": "node scripts/check-image-policy.mjs",
-    "check:structured-data": "node scripts/check-structured-data.mjs"
+    "check:structured-data": "node scripts/check-structured-data.mjs",
+    "check:typography-policy": "node scripts/check-typography-policy.mjs"
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.7.3",
