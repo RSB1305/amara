@@ -1,5 +1,5 @@
 ---
-import FrigilianaWinterStaysPage from '../../page-families/seasonal-conversion/FrigilianaWinterStaysPage.astro';
+import WinterStaysPage from '../../page-families/location-authority/WinterStaysPage.astro';
 import { getOwnedPageStaticPaths } from '../../lib/routeOwnership';
 import type { AmaraLanguage } from '../../types/seo';
 
@@ -10,4 +10,4 @@ export function getStaticPaths() {
 const { lang } = Astro.params as { lang: AmaraLanguage };
 ---
 
-<FrigilianaWinterStaysPage lang={lang} />
+<WinterStaysPage destination="frigiliana" lang={lang} />

@@ -1,5 +1,5 @@
 ---
-import TarifaWinterStaysPage from '../../page-families/location-authority/TarifaWinterStaysPage.astro';
+import WinterStaysPage from '../../page-families/location-authority/WinterStaysPage.astro';
 import { getOwnedPageStaticPaths } from '../../lib/routeOwnership';
 import type { AmaraLanguage } from '../../types/seo';
 
@@ -10,4 +10,4 @@ export function getStaticPaths() {
 const { lang } = Astro.params as { lang: AmaraLanguage };
 ---
 
-<TarifaWinterStaysPage lang={lang} />
+<WinterStaysPage destination="tarifa" lang={lang} />

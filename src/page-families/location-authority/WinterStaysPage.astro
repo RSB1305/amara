@@ -1,0 +1,121 @@
+---
+import Navigation from '../../components/Navigation.astro';
+import LocationContextNav from '../../components/location/LocationContextNav.astro';
+import NerjaContextNav from '../../components/location/NerjaContextNav.astro';
+import TarifaContextNav from '../../components/location/TarifaContextNav.astro';
+import {
+  frigilianaWinterStaysContent,
+  frigilianaWinterStaysSeo
+} from '../../content/frigilianaWinterStaysContent';
+import {
+  nerjaWinterStaysContent,
+  nerjaWinterStaysSeo
+} from '../../content/nerjaWinterStaysContent';
+import {
+  tarifaWinterStaysContent,
+  tarifaWinterStaysSeo
+} from '../../content/tarifaWinterStaysContent';
+import LocationAuthorityLayout from '../../layouts/LocationAuthorityLayout.astro';
+import { createRequiredLinkResolver, type LabeledLink } from '../../lib/linkResolver';
+import { normalizeLanguage } from '../../lib/seo/resolve-seo-head';
+import type { AmaraLanguage } from '../../types/seo';
+import WinterStaysAuthorityArticle from './WinterStaysAuthorityArticle.astro';
+
+type Destination = 'frigiliana' | 'nerja' | 'tarifa';
+
+interface Props {
+  destination: Destination;
+  lang?: string;
+}
+
+const { destination, lang = 'es' } = Astro.props;
+const currentLang = normalizeLanguage(lang as AmaraLanguage);
+
+const contentByDestination = {
+  frigiliana: frigilianaWinterStaysContent,
+  nerja: nerjaWinterStaysContent,
+  tarifa: tarifaWinterStaysContent
+} as const;
+const seoByDestination = {
+  frigiliana: frigilianaWinterStaysSeo,
+  nerja: nerjaWinterStaysSeo,
+  tarifa: tarifaWinterStaysSeo
+} as const;
+const config = {
+  frigiliana: {
+    resolverName: 'Frigiliana winter stays',
+    languageToken: 'frigiliana_winter_stays',
+    locationToken: 'location_frigiliana',
+    propertyToken: 'book',
+    footerTokens: ['weather_frigiliana', 'frigiliana_stairs']
+  },
+  nerja: {
+    resolverName: 'Nerja winter stays',
+    languageToken: 'nerja_winter_stays',
+    locationToken: 'location_nerja',
+    propertyToken: 'playa',
+    footerTokens: ['nerja_weather', 'nerja_where_to_stay']
+  },
+  tarifa: {
+    resolverName: 'Tarifa winter stays',
+    languageToken: 'tarifa_winter_stays',
+    locationToken: 'location_tarifa',
+    propertyToken: 'casa',
+    footerTokens: ['tarifa_weather', 'tarifa_daily_life']
+  }
+} as const;
+
+const content = contentByDestination[destination][currentLang];
+const seo = seoByDestination[destination];
+const pageConfig = config[destination];
+const requiredLink = createRequiredLinkResolver(currentLang, pageConfig.resolverName);
+const footerHighlights: LabeledLink[] = [
+  { token: pageConfig.languageToken, label: content.navLabel },
+  { token: pageConfig.footerTokens[0], label: content.related.links[0].label },
+  { token: pageConfig.footerTokens[1], label: content.related.links[1].label }
+];
+---
+
+<LocationAuthorityLayout
+  seo={seo}
+  pageLang={currentLang}
+  showContextNavigation={false}
+  footerHighlights={footerHighlights}
+>
+  <Navigation
+    slot="navigation"
+    currentLang={currentLang}
+    languageToken={pageConfig.languageToken}
+  >
+    {destination === 'frigiliana' && (
+      <LocationContextNav slot="context-navigation" activeId="winter" lang={currentLang} />
+    )}
+    {destination === 'nerja' && (
+      <NerjaContextNav slot="context-navigation"
+        activeId="winter-stays"
+        childLabel={content.navLabel}
+        lang={currentLang}
+      />
+    )}
+    {destination === 'tarifa' && (
+      <TarifaContextNav slot="context-navigation"
+        activeId="overview"
+        activeChildId="winter-stays"
+        currentLabel="Tarifa"
+        childLabel={content.navLabel}
+        lang={currentLang}
+      />
+    )}
+  </Navigation>
+
+  <WinterStaysAuthorityArticle
+    pageId={`${destination}-winter-stays`}
+    lang={currentLang}
+    content={content}
+    seo={seo}
+    authorHref={requiredLink('about')}
+    locationHref={requiredLink(pageConfig.locationToken)}
+    propertyHref={requiredLink(pageConfig.propertyToken)}
+    resolveHref={requiredLink}
+  />
+</LocationAuthorityLayout>
