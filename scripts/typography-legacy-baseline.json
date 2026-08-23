@@ -1,4 +1,12 @@
 {
+  "_note": [
+    "This file is a legacy ratchet, not a register of justified exceptions.",
+    "It records the typographic arbitrary values that still exist, so their number",
+    "can only go down and a new one cannot appear unnoticed. An entry here has NOT",
+    "been reviewed and found necessary — most have not been looked at at all.",
+    "Resolve one by adding or using a role in src/styles/global.css, then re-run",
+    "this check with --update to bank the progress."
+  ],
   "src/components/EssenceGrid.astro": {
     "leading-[1.1]": 1
   },
@@ -24,7 +32,6 @@
   },
   "src/components/editorial/SustainabilityBand.astro": {
     "leading-[1.5]": 1,
-    "text-[var(--color-sustainability-on-surface)]": 4,
     "tracking-[0.1em]": 1
   },
   "src/components/experience/ExperienceArticleHero.astro": {
@@ -175,8 +182,6 @@
   },
   "src/pages/_tools/converter/index.astro": {
     "leading-[0.95]": 1,
-    "text-[#4A4A4A]": 1,
-    "text-[#666]": 1,
     "text-[11px]": 1,
     "tracking-[0.15em]": 1
   }
