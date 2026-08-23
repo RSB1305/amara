@@ -134,6 +134,7 @@ const copy = {
   },
   sections: [
     {
+      id: 'booking-payment',
       topic: {
         en: 'Booking & Payment',
         de: 'Buchung & Zahlung',
@@ -165,6 +166,7 @@ const copy = {
       ]
     },
     {
+      id: 'stay-comfort',
       topic: {
         en: 'Stay & Comfort',
         de: 'Aufenthalt & Komfort',
@@ -204,6 +206,7 @@ const copy = {
       ]
     },
     {
+      id: 'house-rules',
       topic: {
         en: 'House Rules & Policies',
         de: 'Hausregeln',
@@ -235,6 +238,7 @@ const copy = {
       ]
     },
     {
+      id: 'trust-policies',
       topic: {
         en: 'Trust & House Rules',
         de: 'Vertrauen & Hausregeln',
@@ -291,6 +295,7 @@ const closingCtaLinks: EditorialClosingCtaLink[] = [
 ];
 
 const sections = copy.sections.map((section, index) => ({
+  id: section.id,
   topic: section.topic[currentLang],
   image: section.image,
   alt: section.alt[currentLang],
@@ -319,42 +324,43 @@ const sections = copy.sections.map((section, index) => ({
   }}
 >
   {sections.map((section) => (
-    <AmaraSection>
+    <AmaraSection
+      labelledby={`faq-${section.id}-title`}
+      dataComponent="stay-faq-topic"
+    >
       <div class="grid grid-cols-1 items-start gap-10 lg:grid-cols-2 lg:gap-20" data-lang={currentLang}>
         <div class:list={['min-w-0 self-start', { 'lg:order-2': section.reverse }]}>
-          <div class="border border-outline-variant/10 bg-surface-container-lowest px-5 pb-6 pt-4 sm:px-6 sm:pb-8 md:px-8 lg:px-10 lg:pb-10 lg:pt-6">
-            <div class="mb-6">
-              <span class="am-text-section-caption text-primary mb-3">
-                {copy.shared.sectionBadge[currentLang]}
-              </span>
-              <h2 class="am-text-title italic tracking-tight text-on-surface">
-                {section.topic}
-              </h2>
-            </div>
+          <div class="mb-8">
+            <p class="am-text-eyebrow text-primary mb-3">
+              {copy.shared.sectionBadge[currentLang]}
+            </p>
+            <h2 id={`faq-${section.id}-title`} class="am-text-title tracking-tight text-on-surface">
+              {section.topic}
+            </h2>
+          </div>
 
-            <div class="divide-y divide-outline-variant/15 border-y border-outline-variant/15">
-              {section.items.map((item) => (
-                <details class="group py-6">
-                  <summary class="am-accordion__trigger">
-                    <span class="min-w-0 am-text-annotation am-text-annotation--wide text-on-surface transition-colors group-hover:text-primary">
-                      {item.question}
-                    </span>
-                    <span class="am-accordion__indicator" aria-hidden="true">
-                      <span class="group-open:hidden">+</span>
-                      <span class="hidden group-open:inline">-</span>
-                    </span>
-                  </summary>
-                  <p class="am-text-body max-w-2xl pt-4 text-on-surface-variant">
-                    {item.answer}
-                  </p>
-                </details>
-              ))}
-            </div>
+          <div class="divide-y divide-outline-variant/15 border-y border-outline-variant/15">
+            {section.items.map((item) => (
+              <details class="group py-6">
+                <summary class="am-accordion__trigger">
+                  <span class="min-w-0 am-text-annotation am-text-annotation--wide text-on-surface transition-colors group-hover:text-primary">
+                    {item.question}
+                  </span>
+                  <span class="am-accordion__indicator" aria-hidden="true">
+                    <span class="group-open:hidden">+</span>
+                    <span class="hidden group-open:inline">-</span>
+                  </span>
+                </summary>
+                <p class="am-text-body max-w-2xl pt-4 text-on-surface-variant">
+                  {item.answer}
+                </p>
+              </details>
+            ))}
           </div>
         </div>
 
         <div class:list={['min-w-0 self-start', { 'lg:order-1': section.reverse }]}>
-          <figure class="am-mobile-full-bleed am-mobile-full-bleed--fluid overflow-hidden border border-outline-variant/10 bg-surface-container-low">
+          <figure class="am-mobile-full-bleed am-mobile-full-bleed--fluid overflow-hidden bg-surface-container-low">
             <div class="aspect-16/10">
               <AmaraImage
                 src={section.image}
@@ -371,11 +377,13 @@ const sections = copy.sections.map((section, index) => ({
     </AmaraSection>
   ))}
 
-        <EditorialClosingCta
-          title={copy.shared.closingTitle[currentLang]}
-          lead={copy.shared.closingLead[currentLang]}
-          links={closingCtaLinks}
-          lang={currentLang}
-          spacing="page"
-        />
+  <EditorialClosingCta
+    title={copy.shared.closingTitle[currentLang]}
+    titleId="stay-faq-next-step-title"
+    lead={copy.shared.closingLead[currentLang]}
+    links={closingCtaLinks}
+    lang={currentLang}
+    spacing="page"
+    dataComponent="stay-faq-next-step"
+  />
 </TrustPageLayout>
