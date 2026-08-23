@@ -1,6 +1,6 @@
 import type { LocalizedText } from '../types/content';
 export type { LocalizedText };
-import type { AmaraEntityKey, AmaraLanguage } from './seo';
+import type { AmaraEntityKey } from './seo';
 
 
 export type GuestGuideIconName =

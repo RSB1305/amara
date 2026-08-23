@@ -227,37 +227,37 @@ export const gettingToNerjaContent = {
       {
         label: l("Aena · Málaga Airport buses", "Aena · Busse am Flughafen Málaga", "Aena · Autobuses del aeropuerto de Málaga", "Aena · Bussen Málaga Airport", "Aena · Bussar vid Málaga Airport"),
         text: l("Official confirmation of the Nerja–Airport Alsa connection.", "Offizielle Bestätigung der Alsa-Verbindung Nerja–Flughafen.", "Confirmación oficial de la conexión Alsa Nerja–Aeropuerto.", "Officiële bevestiging van de Alsa-verbinding Nerja–Airport.", "Officiell bekräftelse av Alsa-förbindelsen Nerja–Airport."),
-        href: "https://www.aena.es/en/malaga-costa-del-sol/getting-there/bus.html"
+        href: sources.malagaAirport
       },
       {
         label: l("Aena · Granada Airport bus", "Aena · Flughafenbus Granada", "Aena · Autobús del aeropuerto de Granada", "Aena · Bus Granada Airport", "Aena · Buss vid Granada Airport"),
         text: l("Official airport-to-Granada connection and bus-station stop.", "Offizielle Verbindung nach Granada mit Halt am Busbahnhof.", "Conexión oficial con Granada y parada en la estación de autobuses.", "Officiële verbinding naar Granada met halte bij het busstation.", "Officiell anslutning till Granada med stopp vid busstationen."),
-        href: "https://www.aena.es/en/f.g.l.-granada-jaen/how-to-get-there/bus.html"
+        href: sources.granadaAirport
       },
       {
         label: l("Alsa journey planner", "Alsa-Reiseplaner", "Buscador de Alsa", "Alsa-reisplanner", "Alsas reseplanerare"),
         text: l("Current coach routes, times, fares and tickets.", "Aktuelle Buslinien, Zeiten, Preise und Tickets.", "Rutas, horarios, tarifas y billetes actualizados.", "Actuele routes, tijden, tarieven en tickets.", "Aktuella linjer, tider, priser och biljetter."),
-        href: "https://www.alsa.com/en/web/bus/home"
+        href: sources.alsa
       },
       {
         label: l("Nerja Urban Agenda 2030", "Stadtentwicklungsplan Nerja 2030", "Agenda Urbana Nerja 2030", "Nerja Urban Agenda 2030", "Nerja Urban Agenda 2030"),
         text: l("Municipal context for bus arrival, taxis, pedestrian streets and mobility.", "Kommunale Angaben zu Busankunft, Taxis, Fußgängerstraßen und Mobilität.", "Información municipal sobre autobuses, taxis, calles peatonales y movilidad.", "Gemeentelijke context voor busaankomst, taxi’s, voetgangersstraten en mobiliteit.", "Kommunal information om bussankomst, taxi, gågator och mobilitet."),
-        href: "https://www.nerja.es/File/Agenda_Urbana_Nerja_2030.pdf"
+        href: sources.nerjaMobility
       },
       {
         label: l("Nerja municipality · Central parking", "Gemeinde Nerja · Zentrales Parken", "Ayuntamiento de Nerja · Aparcamientos céntricos", "Gemeente Nerja · Centraal parkeren", "Nerja kommun · Central parkering"),
         text: l("Current municipal confirmation of the Balcón de Europa and Parque Verano Azul facilities.", "Aktuelle kommunale Bestätigung der Anlagen Balcón de Europa und Parque Verano Azul.", "Confirmación municipal actual de los aparcamientos Balcón de Europa y Parque Verano Azul.", "Actuele gemeentelijke bevestiging van de voorzieningen Balcón de Europa en Parque Verano Azul.", "Aktuell kommunal bekräftelse av anläggningarna Balcón de Europa och Parque Verano Azul."),
-        href: "https://www.nerja.es/el-ayuntamiento-sigue-mejorando-los-aparcamientos-municipales-con-la-pintura-integral-del-verano-azul/"
+        href: sources.municipalParking
       },
       {
         label: l("Nerja municipality · Burriana parking", "Gemeinde Nerja · Parken in Burriana", "Ayuntamiento de Nerja · Aparcamiento de Burriana", "Gemeente Nerja · Parkeren in Burriana", "Nerja kommun · Parkering i Burriana"),
         text: l("Current municipal information for the separate Burriana parking facility.", "Aktuelle kommunale Informationen zur eigenständigen Parkanlage in Burriana.", "Información municipal actual del aparcamiento independiente de Burriana.", "Actuele gemeentelijke informatie over de afzonderlijke voorziening in Burriana.", "Aktuell kommunal information om den separata anläggningen i Burriana."),
-        href: "https://www.nerja.es/el-aparcamiento-municipal-de-burriana-contara-con-un-sistema-inteligente-de-guiado-de-plazas-libres/"
+        href: sources.burrianaParking
       },
       {
         label: l("Nerja municipality · Tuesday market", "Gemeinde Nerja · Dienstagsmarkt", "Ayuntamiento de Nerja · Mercadillo de los martes", "Gemeente Nerja · Dinsdagmarkt", "Nerja kommun · Tisdagsmarknaden"),
         text: l("Municipal confirmation of the Tuesday market in the Almijara area; current arrangements should still be checked.", "Kommunale Bestätigung des Dienstagsmarkts im Almijara-Gebiet; aktuelle Regelungen sind weiterhin zu prüfen.", "Confirmación municipal del mercadillo en Almijara; conviene comprobar también la organización vigente.", "Gemeentelijke bevestiging van de dinsdagmarkt in Almijara; controleer ook de actuele organisatie.", "Kommunal bekräftelse av tisdagsmarknaden i Almijara; kontrollera även aktuella arrangemang."),
-        href: "https://www.nerja.es/disponible-la-nueva-aplicacion-mercadillos-del-sur/"
+        href: sources.tuesdayMarket
       }
     ]
   },

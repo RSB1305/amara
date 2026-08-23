@@ -202,32 +202,32 @@ export const gettingToTarifaContent = {
       {
         label: l("Tarifa Tourism · How to arrive", "Tourismus Tarifa · Anreise", "Turismo de Tarifa · Cómo llegar", "Toerisme Tarifa · Bereikbaarheid", "Tarifas turistbyrå · Resa hit"),
         text: l("Road, airport, rail, ferry and coach overview for Tarifa.", "Überblick zu Straße, Flughafen, Bahn, Fähre und Bus.", "Resumen de carretera, aeropuertos, tren, ferry y autobús.", "Overzicht van weg, luchthavens, trein, ferry en bus.", "Översikt över väg, flygplatser, tåg, färja och buss."),
-        href: "https://turismodetarifa.com/en/how-to-arrive/"
+        href: sharedSources.tarifaTourism
       },
       {
         label: l("Aena · Málaga Airport buses", "Aena · Busse ab Flughafen Málaga", "Aena · Autobuses desde Málaga Airport", "Aena · Bussen vanaf Málaga Airport", "Aena · Bussar från Málaga Airport"),
         text: l("Current intercity and long-distance connections from Málaga Airport.", "Aktuelle Überland- und Fernbusverbindungen ab Málaga Airport.", "Conexiones interurbanas y de largo recorrido actuales.", "Actuele intercity- en langeafstandsverbindingen.", "Aktuella regionala och långväga förbindelser."),
-        href: "https://www.aena.es/en/malaga-costa-del-sol/getting-there/bus.html"
+        href: sharedSources.malagaAirport
       },
       {
         label: l("Aena · Jerez Airport buses", "Aena · Busse ab Flughafen Jerez", "Aena · Autobuses desde Jerez Airport", "Aena · Bussen vanaf Jerez Airport", "Aena · Bussar från Jerez Airport"),
         text: l("Current bus connections from Jerez Airport toward Jerez and Cádiz.", "Aktuelle Busverbindungen ab Jerez Airport Richtung Jerez und Cádiz.", "Conexiones actuales hacia Jerez y Cádiz.", "Actuele verbindingen richting Jerez en Cádiz.", "Aktuella förbindelser mot Jerez och Cádiz."),
-        href: "https://www.aena.es/en/jerez/getting-there/bus.html"
+        href: sharedSources.jerezAirport
       },
       {
         label: l("Campo de Gibraltar Transport Consortium", "Verkehrsverbund Campo de Gibraltar", "Consorcio de Transporte del Campo de Gibraltar", "Vervoersconsortium Campo de Gibraltar", "Campo de Gibraltars transportkonsortium"),
         text: l("Live regional routes and schedules, including Algeciras–Tarifa.", "Aktuelle regionale Linien und Fahrzeiten, darunter Algeciras–Tarifa.", "Líneas y horarios regionales actuales, incluida Algeciras–Tarifa.", "Actuele regionale routes en tijden, waaronder Algeciras–Tarifa.", "Aktuella regionala linjer och tider, bland annat Algeciras–Tarifa."),
-        href: "https://siu.ctmcg.es/es/horarios.php"
+        href: sharedSources.campoGibraltar
       },
       {
         label: l("Transportes Generales Comes", "Transportes Generales Comes", "Transportes Generales Comes", "Transportes Generales Comes", "Transportes Generales Comes"),
         text: l("Coach search, tickets and current Tarifa stop information.", "Bussuche, Fahrkarten und aktuelle Hinweise zur Haltestelle Tarifa.", "Buscador, billetes e información actual de la parada de Tarifa.", "Buszoeker, tickets en actuele informatie over de halte in Tarifa.", "Bussökning, biljetter och aktuell information om hållplatsen i Tarifa."),
-        href: "https://www.tgcomes.es/"
+        href: sharedSources.comes
       },
       {
         label: l("Port of Algeciras Bay · Tarifa passenger terminal", "Hafen der Bucht von Algeciras · Passagierterminal Tarifa", "Puerto Bahía de Algeciras · Terminal de pasajeros de Tarifa", "Haven van de Baai van Algeciras · Passagiersterminal Tarifa", "Algecirasbuktens hamn · Passagerarterminalen i Tarifa"),
         text: l("Official port information for the Tarifa passenger terminal.", "Offizielle Hafeninformationen zum Passagierterminal in Tarifa.", "Información portuaria oficial sobre la terminal de pasajeros de Tarifa.", "Officiële haveninformatie over de passagiersterminal in Tarifa.", "Officiell hamninformation om passagerarterminalen i Tarifa."),
-        href: "https://www.apba.es/en/"
+        href: sharedSources.portMap
       }
     ]
   },

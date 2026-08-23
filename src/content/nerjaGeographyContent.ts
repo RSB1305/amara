@@ -197,32 +197,32 @@ export const nerjaGeographyContent = {
       {
         label: l("SIMA · Nerja", "SIMA · Nerja", "SIMA · Nerja", "SIMA · Nerja", "SIMA · Nerja"),
         text: l("Official municipal area and reference data.", "Amtliche Fläche und Referenzdaten der Gemeinde.", "Superficie y datos oficiales de referencia del municipio.", "Officiële oppervlakte en referentiegegevens van de gemeente.", "Officiell kommunyta och referensuppgifter."),
-        href: "https://www.juntadeandalucia.es/institutodeestadisticaycartografia/sima/ficha.htm?mun=29075"
+        href: sharedSources.sima
       },
       {
         label: l("SIMA · Population centres", "SIMA · Siedlungskerne", "SIMA · Núcleos de población", "SIMA · Woonkernen", "SIMA · Befolkningskärnor"),
         text: l("Official list of Nerja, Maro, Imaroga and Macaca.", "Amtliche Liste von Nerja, Maro, Imaroga und Macaca.", "Lista oficial de Nerja, Maro, Imaroga y Macaca.", "Officiële lijst van Nerja, Maro, Imaroga en Macaca.", "Officiell lista över Nerja, Maro, Imaroga och Macaca."),
-        href: "https://www.juntadeandalucia.es/institutodeestadisticaycartografia/sima/nucleos.htm?CodMuni=29075"
+        href: sharedSources.populationCentres
       },
       {
         label: l("BOJA · Sierra plan", "BOJA · Sierra-Plan", "BOJA · Plan de la sierra", "BOJA · Sierraplan", "BOJA · Sierraplan"),
         text: l("Official coastal-mountain relief and Navachica elevation.", "Amtliches Küstengebirge und Höhenangabe der Navachica.", "Relieve litoral oficial y altitud de Navachica.", "Officieel kustgebergte en hoogte van Navachica.", "Officiellt kustberg och Navachicas höjd."),
-        href: "https://www.juntadeandalucia.es/boja/1999/95/2"
+        href: sharedSources.sierraPlan
       },
       {
         label: l("Ayuntamiento de Nerja · Lower Río Chíllar", "Ayuntamiento de Nerja · Unterer Río Chíllar", "Ayuntamiento de Nerja · Río Chíllar inferior", "Ayuntamiento de Nerja · Benedenloop Río Chíllar", "Ayuntamiento de Nerja · Nedre Río Chíllar"),
         text: l("Municipal orientation from the mouth to the quarry.", "Gemeindeorientierung von der Mündung bis zum Steinbruch.", "Orientación municipal desde la desembocadura hasta la cantera.", "Oriëntatie van monding tot groeve.", "Orientering från mynning till stenbrott."),
-        href: "https://www.nerja.es/el-ayuntamiento-acomete-el-desbroce-y-limpieza-del-rio-chillar/"
+        href: sharedSources.chillarLower
       },
       {
         label: l("Nerja Turismo · Coastline", "Nerja Turismo · Küste", "Nerja Turismo · Costa", "Nerja Turismo · Kust", "Nerja Turismo · Kust"),
         text: l("Official tourism source reporting 13 kilometres.", "Amtliche Tourismusquelle mit 13 Kilometern.", "Fuente turística oficial que indica 13 kilómetros.", "Officiële toerismebron met 13 kilometer.", "Officiell turistkälla med 13 kilometer."),
-        href: "https://www.nerjaturismo.es/"
+        href: sharedSources.coastline13
       },
       {
         label: l("Nerja Turismo · Beaches", "Nerja Turismo · Strände", "Nerja Turismo · Playas", "Nerja Turismo · Stranden", "Nerja Turismo · Stränder"),
         text: l("Official tourism source reporting 14 kilometres.", "Amtliche Tourismusquelle mit 14 Kilometern.", "Fuente turística oficial que indica 14 kilómetros.", "Officiële toerismebron met 14 kilometer.", "Officiell turistkälla med 14 kilometer."),
-        href: "https://www.nerjaturismo.es/playas/"
+        href: sharedSources.coastline14
       }
     ]
   },

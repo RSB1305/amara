@@ -11,88 +11,9 @@ export type CasaAmaraGroupGuideToken =
   | 'frigiliana_stairs'
   | 'location_frigiliana';
 
-type StayToken = 'farah' | 'lounis' | 'zaid' | 'maha';
 
-interface CasaAmaraGroupsCopy {
-  hero: {
-    kicker: string;
-    title: string;
-    lead: string;
-    facts: string;
-    qualifier: string;
-    primaryCta: string;
-    secondaryCta: string;
-    imageAlt: string;
-  };
-  model: {
-    eyebrow: string;
-    title: string;
-    intro: string;
-    options: Array<{ guests: string; title: string; text: string }>;
-    note: string;
-  };
-  stays: {
-    eyebrow: string;
-    title: string;
-    intro: string;
-    contexts: Record<StayToken, string>;
-    linkLabel: string;
-    labels: {
-      guests: string;
-      bathroom: string;
-      bed: string;
-      kitchen: string;
-      outdoor: string;
-      access: string;
-    };
-  };
-  connection: {
-    eyebrow: string;
-    title: string;
-    paragraphs: string[];
-    facts: Array<{ title: string; text: string }>;
-    imageAlt: string;
-  };
-  fit: {
-    eyebrow: string;
-    title: string;
-    intro: string;
-    worksTitle: string;
-    works: string[];
-    limitsTitle: string;
-    limits: string[];
-    note: string;
-    imageAlt: string;
-  };
-  location: {
-    eyebrow: string;
-    title: string;
-    paragraphs: string[];
-    links: Array<{ token: CasaAmaraGroupGuideToken; label: string; text: string }>;
-  };
-  booking: {
-    eyebrow: string;
-    title: string;
-    paragraphs: string[];
-    steps: Array<{ num: string; headline: string; text: string }>;
-    primaryCta: string;
-    secondaryCta: string;
-  };
-  faq: {
-    title: string;
-    items: Array<{ question: string; answer: string }>;
-  };
-  closing: {
-    title: string;
-    text: string;
-    cta: string;
-  };
-  footer: {
-    groups: string;
-    location: string;
-    stays: string;
-  };
-}
+
+
 
 export const casaAmaraGroupsSeo: AmaraAuthoringSeo = {
   version: '2026-08-18-casa-amara-groups-v1.0-D',

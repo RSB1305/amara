@@ -233,37 +233,37 @@ export const tarifaGeographyContent = {
       {
         label: l("SIMA · Tarifa", "SIMA · Tarifa", "SIMA · Tarifa", "SIMA · Tarifa", "SIMA · Tarifa"),
         text: l("Official municipal area, principal-settlement reference and population-centre count.", "Amtliche Gemeindefläche, Hauptortreferenz und Zahl der Siedlungskerne.", "Superficie municipal, referencia del núcleo y número de núcleos.", "Gemeenteoppervlakte, hoofdplaatsreferentie en woonkernen.", "Kommunyta, huvudortsreferens och ortskärnor."),
-        href: "https://www.juntadeandalucia.es/institutodeestadisticaycartografia/sima/ficha.htm?mun=11035"
+        href: sharedSources.sima
       },
       {
         label: l("Instituto Geográfico Nacional · Punta de Tarifa", "Instituto Geográfico Nacional · Punta de Tarifa", "IGN · Punta de Tarifa", "IGN · Punta de Tarifa", "IGN · Punta de Tarifa"),
         text: l("Official coordinates for Spain’s southern geographic reference point.", "Offizielle Koordinaten des südlichen geografischen Bezugspunkts Spaniens.", "Coordenadas oficiales de la referencia meridional.", "Officiële coördinaten van het zuidelijke referentiepunt.", "Officiella koordinater för sydpunkten."),
-        href: "https://www.ign.es/web/preguntas-frecuentes"
+        href: sharedSources.ign
       },
       {
         label: l("Tarifa Tourism · Isla de Tarifa", "Tarifa Tourismus · Isla de Tarifa", "Turismo de Tarifa · Isla de Tarifa", "Toerisme Tarifa · Isla de Tarifa", "Tarifas turistbyrå · Isla de Tarifa"),
         text: l("Official local causeway history and two-seas orientation.", "Amtliche Ortsinformation zu Dammgeschichte und Zwei-Meere-Orientierung.", "Historia del dique y orientación local de los dos mares.", "Damgeschiedenis en lokale tweezeeënoriëntatie.", "Vallens historia och lokal tvåhavskarta."),
-        href: "https://turismodetarifa.com/que-visitar/isla-tarifa/"
+        href: sharedSources.island
       },
       {
         label: l("MITECO · Strait and Alborán", "MITECO · Meerenge und Alborán", "MITECO · Estrecho y Alborán", "MITECO · Straat en Alborán", "MITECO · Sundet och Alborán"),
         text: l("Official dimensions, water exchange and transition-zone context.", "Amtliche Maße, Wasseraustausch und Übergangszone.", "Dimensiones, intercambio de aguas y zona de transición.", "Afmetingen, wateruitwisseling en overgangszone.", "Dimensioner, vattenutbyte och övergångszon."),
-        href: "https://www.miteco.gob.es/content/dam/miteco/es/costas/temas/proteccion-medio-marino/I_Marco%20General_Estrecho%20y%20Alboran_tcm30-130896.pdf"
+        href: sharedSources.marineFramework
       },
       {
         label: l("MITECO · Europe–Africa distance", "MITECO · Europa–Afrika-Abstand", "MITECO · Europa–África", "MITECO · Europa–Afrika", "MITECO · Europa–Afrika"),
         text: l("Official regional minimum separation of approximately 14.4 kilometres.", "Amtlicher regionaler Minimalabstand von rund 14,4 Kilometern.", "Distancia mínima regional aproximada de 14,4 km.", "Regionale minimumafstand van circa 14,4 km.", "Regionalt minimiavstånd cirka 14,4 km."),
-        href: "https://www.miteco.gob.es/content/dam/miteco/es/costas/temas/proteccion-medio-marino/parteiiianalisiseconomicoysocialdmesal_tcm30-498343.pdf"
+        href: sharedSources.continentalDistance
       },
       {
         label: l("Ayuntamiento de Tarifa · Coast", "Ayuntamiento de Tarifa · Küste", "Ayuntamiento de Tarifa · Costa", "Ayuntamiento de Tarifa · Kust", "Ayuntamiento de Tarifa · Kust"),
         text: l("Municipal Atlantic and Mediterranean coastline classification.", "Kommunale Zuordnung zu Atlantik und Mittelmeer.", "Clasificación atlántica y mediterránea del litoral.", "Atlantische en mediterrane kustclassificatie.", "Atlantisk och mediterran kustklassning."),
-        href: "https://www.aytotarifa.com/wp-content/uploads/2024/11/Plan-de-Emergencia-municipal-Ayuntamiento-de-Tarifa.pdf"
+        href: sharedSources.emergencyPlan
       },
       {
         label: l("Junta de Andalucía · Los Lances", "Junta de Andalucía · Los Lances", "Junta de Andalucía · Los Lances", "Junta de Andalucía · Los Lances", "Junta de Andalucía · Los Lances"),
         text: l("Official protected-area size and location.", "Amtliche Fläche und Lage des Schutzgebiets.", "Superficie protegida y ubicación.", "Beschermde oppervlakte en ligging.", "Skyddad yta och läge."),
-        href: "https://www.juntadeandalucia.es/medioambiente/portal/web/ventanadelvisitante/detalle-buscador-mapa/-/asset_publisher/Jlbxh2qB3NwR/content/playa-de-los-lances/255035"
+        href: sharedSources.losLances
       }
     ]
   },

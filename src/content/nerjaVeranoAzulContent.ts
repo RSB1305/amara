@@ -12,60 +12,9 @@ export interface NerjaVeranoAzulSection {
   paragraphs: string[];
 }
 
-type NerjaVeranoAzulItineraryToken =
-  | 'nerja_beaches_authority'
-  | 'nerja_balcon_de_europa'
-  | 'nerja_caves'
-  | 'nerja_experience_hub';
 
-interface NerjaVeranoAzulLocale {
-  navLabel: string;
-  breadcrumbLabel: string;
-  hero: {
-    eyebrow: string;
-    title: string;
-    standfirst: string;
-    note: string;
-    updated: string;
-  };
-  facts: Array<{ label: string; value: string }>;
-  trailer: {
-    label: string;
-    privacyNote: string;
-    loadAction: string;
-  };
-  sections: NerjaVeranoAzulSection[];
-  itinerary: {
-    eyebrow: string;
-    title: string;
-    intro: string;
-    links: Array<{ token: NerjaVeranoAzulItineraryToken; label: string; text: string }>;
-  };
-  related: {
-    eyebrow: string;
-    title: string;
-    links: Array<{ token: LinkToken; label: string; text: string }>;
-  };
-  sources: {
-    eyebrow: string;
-    title: string;
-    intro: string;
-    checked: string;
-    links: Array<{ label: string; text: string; href: string }>;
-  };
-  closing: {
-    eyebrow: string;
-    title: string;
-    body: string;
-    propertyLabel: string;
-    experienceLabel: string;
-  };
-  footerHighlights: {
-    experience: string;
-    beaches: string;
-    balance: string;
-  };
-}
+
+
 
 const article = {
   datePublished: '2026-08-19',
@@ -303,32 +252,32 @@ export const nerjaVeranoAzulContent = {
       {
         label: l("RTVE · Verano Azul archive page", "RTVE · Verano Azul-Übersicht", "RTVE · Ficha de Verano Azul", "RTVE · Verano Azul dossier", "RTVE · Verano Azul-översikt"),
         text: l("Main RTVE reference entry with public coverage.", "Öffentliche RTVE-Referenz zur Serie.", "Referencia pública de la serie.", "Publieke informatie over de serie.", "Offentlig serieöversikt med grundfakta."),
-        href: "https://www.rtve.es/rtve/20180413/verano-azul/1713840.shtml"
+        href: officialSources.rtveStory
       },
       {
         label: l("RTVE · How Verano Azul was filmed", "RTVE · Produktionshinweise", "RTVE · Cómo se rodó", "RTVE · Productieproces", "RTVE · Inspelningsupplägg"),
         text: l("Production context and filming process notes.", "Kontext zu Arbeitsweise und Produktionsabläufen.", "Información de proceso de rodaje y contexto.", "Bron over het maakproces en de opnamen.", "Bakgrund till arbetsmetod och inspelning."),
-        href: "https://www.rtve.es/play/noticias/20111010/como-rodamos-verano-azul/465995.shtml"
+        href: officialSources.rtveProduction
       },
       {
         label: l("Ayuntamiento de Nerja · Director profile", "Ayuntamiento · Mercero-Notiz", "Ayuntamiento de Nerja · Perfil", "Ayuntamiento de Nerja · Profiel", "Ayuntamiento de Nerja · Profil"),
         text: l("Municipal remembrance around Antonio Mercero and local context.", "Kommunaler Kontext zu Antonio Mercero.", "Texto municipal de referencia histórica.", "Gemeentelijke bron rond auteur en context.", "Kommunal kontext kring berättelse och arv."),
-        href: "https://www.nerja.es/fallece-antonio-mercero-director-verano-azul/"
+        href: officialSources.municipality.profile
       },
       {
         label: l("Ayuntamiento de Nerja · AR route launch", "Ayuntamiento · AR-Route", "Ayuntamiento de Nerja · Ruta de RA", "Ayuntamiento de Nerja · AR-route", "Ayuntamiento de Nerja · AR-rutt"),
         text: l("Municipal context for the 2023 route and its purpose.", "Kommunale Darstellung der neuen AR-Route.", "Publicación sobre la ruta turística con RA.", "Officiële informatie over de route met augmented reality.", "Information om kommunal AR-rutt och syfte."),
-        href: "https://www.nerja.es/nerja-pone-en-marcha-la-ruta-turistica-de-verano-azul-con-una-aplicacion-de-realidad-aumentada/"
+        href: officialSources.municipality.route
       },
       {
         label: l("Ayuntamiento de Nerja · 40th anniversary", "Ayuntamiento · 40-Jahres-Gedenken", "Ayuntamiento de Nerja · 40 aniversario", "Ayuntamiento de Nerja · 40-jarig", "Ayuntamiento de Nerja · 40-årsjubileum"),
         text: l("Municipal acknowledgement of the start of filming and memory milestones.", "Kommunale Erinnerung an den Drehbeginn.", "Referencia local sobre inicio de rodaje.", "Gemeentelijke context rond het begin van de opnamen.", "Kommunal markering av inspelningsstartens milstolpe."),
-        href: "https://www.nerja.es/nerja-conmemora-el-40-aniversario-del-inicio-del-rodaje-de-verano-azul/"
+        href: officialSources.municipality.anniversary
       },
       {
         label: l("Ayuntamiento de Nerja · La Dorada memorial context", "Ayuntamiento · La-Dorada-Kontext", "Ayuntamiento de Nerja · La Dorada", "Ayuntamiento de Nerja · La Dorada", "Ayuntamiento de Nerja · La Dorada"),
         text: l("Municipal reference for the La Dorada replica and commemorative framing.", "Kommunaler Bezug zu Erinnerung und Rezeption.", "Referencia municipal para el planteamiento de memoria.", "Gemeentelijke bron voor de hedendaagse herinneringsbenadering.", "Kommunal kontext för minnesramen kring La Dorada."),
-        href: "https://www.nerja.es/las-anforas-de-verano-azul-se-instalan-en-la-casa-consistorial/"
+        href: officialSources.municipality.anforas
       }
     ]
   },

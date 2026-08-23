@@ -191,22 +191,22 @@ export const frigilianaGeographyContent = {
       {
         label: l("SIMA · Frigiliana", "SIMA · Frigiliana", "SIMA · Frigiliana", "SIMA · Frigiliana", "SIMA · Frigiliana"),
         text: l("Official municipal area and principal-settlement reference.", "Amtliche Gemeindefläche und Hauptortreferenz.", "Superficie municipal y referencia del núcleo principal.", "Officiële gemeenteoppervlakte en hoofdplaatsreferentie.", "Officiell kommunyta och huvudortsreferens."),
-        href: "https://www.juntadeandalucia.es/institutodeestadisticaycartografia/sima/ficha.htm?mun=29053"
+        href: sharedSources.sima
       },
       {
         label: l("AEMET · Frigiliana", "AEMET · Frigiliana", "AEMET · Frigiliana", "AEMET · Frigiliana", "AEMET · Frigiliana"),
         text: l("Official forecast reference and warning that municipal altitude can vary.", "Amtliche Wetterreferenz und Hinweis auf Höhenunterschiede innerhalb einer Gemeinde.", "Referencia oficial y advertencia sobre variación de altitud municipal.", "Officiële referentie en waarschuwing over hoogteverschillen binnen de gemeente.", "Officiell referens och varning om höjdskillnader inom kommunen."),
-        href: "https://www.aemet.es/es/eltiempo/prediccion/municipios/frigiliana-id29053"
+        href: sharedSources.aemet
       },
       {
         label: l("BOJA · Historic ensemble", "BOJA · Historisches Ensemble", "BOJA · Conjunto histórico", "BOJA · Historisch ensemble", "BOJA · Historiskt område"),
         text: l("Official morphology of Barribarto, Barribajo, El Ingenio and the later expansion.", "Amtliche Struktur von Barribarto, Barribajo, El Ingenio und der späteren Erweiterung.", "Morfología oficial de Barribarto, Barribajo, El Ingenio y la ampliación posterior.", "Officiële morfologie van Barribarto, Barribajo, El Ingenio en de latere uitbreiding.", "Officiell morfologi för Barribarto, Barribajo, El Ingenio och senare utbyggnad."),
-        href: "https://www.juntadeandalucia.es/boja/2015/23/26"
+        href: sharedSources.heritage
       },
       {
         label: l("Junta de Andalucía · Natural Park", "Junta de Andalucía · Naturpark", "Junta de Andalucía · Parque Natural", "Junta de Andalucía · Natuurpark", "Junta de Andalucía · Naturpark"),
         text: l("Official protected-area extent and municipality context.", "Amtliche Fläche des Schutzgebiets und Gemeindekontext.", "Extensión oficial del espacio protegido y contexto municipal.", "Officiële omvang van het beschermde gebied en gemeentecontext.", "Officiell omfattning och kommunalt sammanhang."),
-        href: "https://www.juntadeandalucia.es/medioambiente/portal/web/ventanadelvisitante/detalle-buscador-mapa/-/asset_publisher/Jlbxh2qB3NwR/content/sierras-de-tejeda-almijara-y-alhama-2/255035"
+        href: sharedSources.naturalPark
       }
     ]
   },

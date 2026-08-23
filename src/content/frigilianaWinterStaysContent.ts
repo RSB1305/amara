@@ -2,7 +2,6 @@ import type { LinkToken } from '../lib/linkResolver';
 import type { LocalizedText, LocalizedTextList } from '../types/content';
 import type { AmaraAuthoringSeo } from '../types/seo';
 import { vacationRentalEntitiesByKey } from './vacationRentalEntities';
-import type { WinterStaysLocale } from './winterStaysContent';
 
 /** One authored string in the five AMARA locales, in EN, DE, ES, NL, SV order. */
 const l = (en: string, de: string, es: string, nl: string, sv: string): LocalizedText => ({ en, de, es, nl, sv });
@@ -202,17 +201,17 @@ export const frigilianaWinterStaysContent = {
       {
         label: l("European Travel Commission · winter travel sentiment", "European Travel Commission · Reisestimmung im Winter", "European Travel Commission · viajes de invierno", "European Travel Commission · winterreizen", "European Travel Commission · vinterresor"),
         text: l("European travel intent and the boundary between stated plans and actual bookings.", "Europäische Reiseabsichten und die Grenze zwischen Planung und tatsächlicher Buchung.", "Intención europea y diferencia entre planes y reservas.", "Europese intentie en het verschil tussen plannen en boekingen.", "Europeisk resavsikt och skillnaden mellan planer och bokningar."),
-        href: "https://etc-corporate.org/reports/monitoring-sentiment-for-intra-european-travel-autumn-25-winter-2026/"
+        href: sourceHrefs.travelIntent
       },
       {
         label: l("Turismo de Frigiliana · historic streets", "Turismo de Frigiliana · historische Gassen", "Turismo de Frigiliana · calles históricas", "Turismo de Frigiliana · historische straten", "Turismo de Frigiliana · historiska gator"),
         text: l("Official description of the old quarter’s narrow, winding and steep lanes.", "Offizielle Beschreibung der engen, verwinkelten und steilen Altstadtwege.", "Descripción oficial de las calles estrechas, sinuosas y empinadas.", "Officiële beschrijving van smalle, kronkelende en steile straten.", "Officiell beskrivning av smala, slingrande och branta gator."),
-        href: "https://turismofrigiliana.es/es/las-calles.html"
+        href: sourceHrefs.streets
       },
       {
         label: l("Turismo de Frigiliana · El Fuerte", "Turismo de Frigiliana · El Fuerte", "Turismo de Frigiliana · El Fuerte", "Turismo de Frigiliana · El Fuerte", "Turismo de Frigiliana · El Fuerte"),
         text: l("Official route context beginning in the village.", "Offizieller Routenkontext mit Start im Dorf.", "Contexto oficial de la ruta que comienza en el pueblo.", "Officiële routecontext vanuit het dorp.", "Officiell ruttkontext från byn."),
-        href: "https://www.turismofrigiliana.es/es/el-fuerte.html"
+        href: sourceHrefs.elFuerte
       }
     ]
   },

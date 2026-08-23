@@ -226,27 +226,27 @@ export const nerjaCavesContent = {
       {
         label: l("Fundación Cueva de Nerja · The halls", "Fundación Cueva de Nerja · Die Säle", "Fundación Cueva de Nerja · Las salas", "Fundación Cueva de Nerja · De zalen", "Fundación Cueva de Nerja · Salarna"),
         text: l("The operator on the galleries, the column and what is open to visitors.", "Der Betreiber zu Galerien, Säule und dem, was Besuchern offensteht.", "La fundación sobre las galerías, la columna y lo que se puede visitar.", "De beheerder over de galerijen, de zuil en wat open is voor bezoekers.", "Anläggningen om gallerierna, pelaren och vad som är öppet för besökare."),
-        href: "https://cuevadenerja.es/salas-de-la-cueva-de-nerja/"
+        href: sharedSources.official
       },
       {
         label: l("Fundación Cueva de Nerja · How to get there", "Fundación Cueva de Nerja · Anreise", "Fundación Cueva de Nerja · Cómo llegar", "Fundación Cueva de Nerja · Bereikbaarheid", "Fundación Cueva de Nerja · Ta sig dit"),
         text: l("The operator on access by car, scheduled coach and parking at the cave site.", "Der Betreiber zur Anreise mit Auto und Linienbus sowie zum Parken am Höhlengelände.", "La fundación sobre el acceso en coche y autobús de línea y el aparcamiento del recinto.", "De beheerder over toegang per auto en lijndienst en parkeren op het grotterrein.", "Anläggningen om tillfart med bil och linjebuss samt parkering vid grottområdet."),
-        href: "https://cuevadenerja.es/como-llegar-a-la-cueva-de-nerja/"
+        href: sharedSources.access
       },
       {
         label: l("Fundación Cueva de Nerja · CuevaTren status", "Fundación Cueva de Nerja · Status des CuevaTren", "Fundación Cueva de Nerja · Estado de CuevaTren", "Fundación Cueva de Nerja · Status CuevaTren", "Fundación Cueva de Nerja · CuevaTren-status"),
         text: l("The operator currently marks the tourist road train as unavailable in its products.", "Der Betreiber kennzeichnet den touristischen Straßenzug derzeit als nicht in seinen Produkten verfügbar.", "La fundación indica actualmente que el tren turístico no está disponible en sus productos.", "De beheerder vermeldt momenteel dat het toeristische wegtreintje niet beschikbaar is in zijn producten.", "Anläggningen anger för närvarande att turisttåget inte finns tillgängligt i dess produkter."),
-        href: "https://cuevadenerja.es/tren-a-la-cueva-de-nerja/"
+        href: sharedSources.cuevaTren
       },
       {
         label: l("Universidad de Córdoba · Questioning the Neanderthal authorship", "Universidad de Córdoba · Zweifel an der Neandertaler-Autorschaft", "Universidad de Córdoba · Se cuestiona la autoría neandertal", "Universidad de Córdoba · Twijfel over neanderthalerauteurschap", "Universidad de Córdoba · Neandertalarnas upphovsmannaskap ifrågasatt"),
         text: l("The university on the study that revised the dating of the paintings.", "Die Universität zur Studie, die die Datierung der Malereien revidiert hat.", "La universidad sobre el estudio que revisó la datación de las pinturas.", "De universiteit over de studie die de datering van de schilderingen herzag.", "Universitetet om studien som reviderade dateringen av målningarna."),
-        href: "https://www.uco.es/investigacion/ucci/es/noticias-gen/item/3001-cuestionan-la-autoria-neandertal-del-arte-rupestre-a-traves-de-la-cueva-de-nerja"
+        href: sharedSources.dating
       },
       {
         label: l("Diputación de Málaga · Cueva de Nerja", "Diputación de Málaga · Cueva de Nerja", "Diputación de Málaga · Cueva de Nerja", "Diputación de Málaga · Cueva de Nerja", "Diputación de Málaga · Cueva de Nerja"),
         text: l("Public provincial information on the cave and its setting.", "Öffentliche Provinzinformation zur Höhle und ihrer Umgebung.", "Información pública provincial sobre la cueva y su entorno.", "Openbare provinciale informatie over de grot en haar omgeving.", "Offentlig provinsinformation om grottan och dess omgivning."),
-        href: "https://www.malaga.es/en/laprovincia/naturaleza/lis_cd-1690/cueva-de-nerja"
+        href: sharedSources.provincia
       }
     ]
   },

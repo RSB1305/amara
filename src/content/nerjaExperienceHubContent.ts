@@ -14,34 +14,9 @@ export type NerjaExperienceThemeId =
   | 'food'
   | 'nightlife';
 
-type NerjaExperienceTheme = {
-  id: NerjaExperienceThemeId;
-  title: string;
-  text: string;
-  linkLabel: string;
-  token: LinkToken;
-};
 
-type NerjaExperienceHubCopy = {
-  hero: {
-    eyebrow: string;
-    title: string;
-    standfirst: string;
-    imageAlt: string;
-  };
-  intro: {
-    eyebrow: string;
-    title: string;
-    text: string;
-  };
-  themes: NerjaExperienceTheme[];
-  closing: {
-    eyebrow: string;
-    title: string;
-    text: string;
-    stayLabel: string;
-  };
-};
+
+
 
 export const nerjaExperienceHubSeo: AmaraAuthoringSeo = {
   version: '2026-08-14-nerja-experience-hub-v1.0-B',

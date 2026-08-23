@@ -1,7 +1,6 @@
 import type { LinkToken } from '../lib/linkResolver';
 import type { LocalizedText } from '../types/content';
 import type { AmaraAuthoringSeo } from '../types/seo';
-import type { WinterStaysLocale } from './winterStaysContent';
 
 /** One authored string in the five AMARA locales, in EN, DE, ES, NL, SV order. */
 const l = (en: string, de: string, es: string, nl: string, sv: string): LocalizedText => ({ en, de, es, nl, sv });
@@ -233,22 +232,22 @@ export const tarifaWinterStaysContent = {
       {
         label: l("AEMET · Tarifa climate normals", "AEMET · Klimanormalwerte Tarifa", "AEMET · valores normales de Tarifa", "AEMET · klimaatnormalen Tarifa", "AEMET · klimatnormaler för Tarifa"),
         text: l("Official monthly temperature, rainfall and rain-day averages for station 6001.", "Offizielle Monatswerte für Temperatur, Niederschlag und Regentage an Station 6001.", "Medias oficiales mensuales de temperatura, precipitación y días de lluvia de la estación 6001.", "Officiële maandwaarden voor temperatuur, neerslag en regendagen van station 6001.", "Officiella månadsvärden för temperatur, nederbörd och regndagar vid station 6001."),
-        href: "https://www.aemet.es/es/serviciosclimaticos/datosclimatologicos/valoresclimatologicos?k=and&l=6001"
+        href: sourceHrefs.tarifaNormals
       },
       {
         label: l("Turismo de Tarifa · parks and walking routes", "Turismo de Tarifa · Naturparks und Wege", "Turismo de Tarifa · parques y senderos", "Turismo de Tarifa · natuurparken en routes", "Turismo de Tarifa · naturparker och leder"),
         text: l("Official viewpoint context, including Africa and the Atlas Mountains on clear days.", "Offizielle Aussichtsinformationen, einschließlich Afrika und Atlas an klaren Tagen.", "Información oficial de vistas, incluida África y el Atlas en días claros.", "Officiële uitzichtinformatie, inclusief Afrika en de Atlas op heldere dagen.", "Officiell utsiktsinformation, inklusive Afrika och Atlas på klara dagar."),
-        href: "https://turismodetarifa.com/que-hacer/parques-naturales-senderismo/"
+        href: sourceHrefs.tarifaViewpoints
       },
       {
         label: l("Junta de Andalucía · wind in the Strait", "Junta de Andalucía · Wind an der Meerenge", "Junta de Andalucía · viento en el Estrecho", "Junta de Andalucía · wind in de Straat", "Junta de Andalucía · vind i sundet"),
         text: l("Official qualitative context for Levante and Poniente.", "Offizieller qualitativer Kontext zu Levante und Poniente.", "Contexto cualitativo oficial sobre Levante y Poniente.", "Officiële kwalitatieve context voor Levante en Poniente.", "Officiell kvalitativ kontext för Levante och Poniente."),
-        href: "https://www.juntadeandalucia.es/medioambiente/portal/landing-page-%C3%ADndice/-/asset_publisher/zX2ouZa4r1Rf/content/viento/20151"
+        href: sourceHrefs.tarifaWind
       },
       {
         label: l("European Travel Commission · winter travel sentiment", "European Travel Commission · Winterreisen", "European Travel Commission · viajes de invierno", "European Travel Commission · winterreizen", "European Travel Commission · vinterresor"),
         text: l("European travel intentions and the boundary between survey plans and bookings.", "Europäische Reiseabsichten und die Grenze zwischen Plan und Buchung.", "Intenciones europeas y límite entre planes y reservas.", "Europese intenties en de grens tussen plan en boeking.", "Europeiska avsikter och gränsen mellan plan och bokning."),
-        href: "https://etc-corporate.org/reports/monitoring-sentiment-for-intra-european-travel-autumn-25-winter-2026/"
+        href: sourceHrefs.travelIntent
       }
     ]
   },

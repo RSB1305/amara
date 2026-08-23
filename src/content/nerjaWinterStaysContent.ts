@@ -2,7 +2,6 @@ import type { LinkToken } from '../lib/linkResolver';
 import type { LocalizedText } from '../types/content';
 import type { AmaraAuthoringSeo } from '../types/seo';
 import { vacationRentalEntitiesByKey } from './vacationRentalEntities';
-import type { WinterStaysLocale } from './winterStaysContent';
 
 /** One authored string in the five AMARA locales, in EN, DE, ES, NL, SV order. */
 const l = (en: string, de: string, es: string, nl: string, sv: string): LocalizedText => ({ en, de, es, nl, sv });
@@ -190,22 +189,22 @@ export const nerjaWinterStaysContent = {
       {
         label: l("European Travel Commission · winter travel sentiment", "European Travel Commission · Reisestimmung im Winter", "European Travel Commission · invierno", "European Travel Commission · winter", "European Travel Commission · vinter"),
         text: l("European intentions and the boundary between survey plans and bookings.", "Absichten und Grenze zwischen Befragungsplan und Buchung.", "Intenciones y diferencia entre planes y reservas.", "Intenties versus boekingen.", "Avsikter jämfört med bokningar."),
-        href: "https://etc-corporate.org/reports/monitoring-sentiment-for-intra-european-travel-autumn-25-winter-2026/"
+        href: sourceHrefs.travelIntent
       },
       {
         label: l("Cueva de Nerja · 2026 opening information", "Cueva de Nerja · Öffnungszeiten 2026", "Cueva de Nerja · horarios 2026", "Cueva de Nerja · uren 2026", "Cueva de Nerja · tider 2026"),
         text: l("Published year-round pattern with specified closure dates.", "Veröffentlichtes Jahresmuster mit benannten Schließtagen.", "Patrón anual publicado con cierres.", "Gepubliceerd jaarpatroon.", "Publicerat årsmönster."),
-        href: "https://cuevadenerja.es/"
+        href: sourceHrefs.cave
       },
       {
         label: l("Museo de Nerja · opening and programme", "Museo de Nerja · Öffnung und Programm", "Museo de Nerja · horarios y programa", "Museo de Nerja · uren en programma", "Museo de Nerja · tider och program"),
         text: l("Published hours and cultural activity information.", "Veröffentlichte Zeiten und Kulturinformationen.", "Información cultural publicada.", "Gepubliceerde cultuurinformatie.", "Publicerad kulturinformation."),
-        href: "https://cuevadenerja.es/museodenerja/"
+        href: sourceHrefs.museum
       },
       {
         label: l("Ayuntamiento de Nerja · beach surveillance", "Ayuntamiento de Nerja · Strandüberwachung", "Ayuntamiento · vigilancia de playas", "Gemeente · strandbewaking", "Kommunen · strandbevakning"),
         text: l("Municipal description of the seasonal summer service.", "Kommunale Beschreibung des saisonalen Sommerdienstes.", "Descripción del servicio estival.", "Beschrijving zomerdienst.", "Beskrivning av sommartjänst."),
-        href: "https://www.nerja.es/el-servicio-de-vigilancia-y-socorrismo-de-playas-se-amplia-hasta-los-50-efectivos/"
+        href: sourceHrefs.lifeguards
       }
     ]
   },

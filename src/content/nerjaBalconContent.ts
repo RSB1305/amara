@@ -207,12 +207,12 @@ export const nerjaBalconContent = {
       {
         label: l("Ayuntamiento de Nerja", "Ayuntamiento de Nerja", "Ayuntamiento de Nerja", "Ayuntamiento de Nerja", "Ayuntamiento de Nerja"),
         text: l("The municipality, for current local information and announcements.", "Die Gemeinde, für aktuelle örtliche Informationen und Ankündigungen.", "El ayuntamiento, para información local actual y avisos.", "De gemeente, voor actuele lokale informatie en mededelingen.", "Kommunen, för aktuell lokal information och meddelanden."),
-        href: "https://www.nerja.es/"
+        href: sharedSources.municipality
       },
       {
         label: l("Cultura Nerja", "Cultura Nerja", "Cultura Nerja", "Cultura Nerja", "Cultura Nerja"),
         text: l("The municipal culture service, for heritage and the current programme.", "Das städtische Kulturamt, für Kulturerbe und aktuelles Programm.", "El servicio municipal de cultura, para patrimonio y programación.", "De gemeentelijke cultuurdienst, voor erfgoed en programmering.", "Kommunens kulturförvaltning, för kulturarv och aktuellt program."),
-        href: "https://cultura.nerja.es/"
+        href: sharedSources.culture
       }
     ]
   },

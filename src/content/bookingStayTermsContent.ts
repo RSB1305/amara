@@ -14,31 +14,7 @@ export interface BookingStayTermSection {
   bullets?: string[];
 }
 
-interface BookingStayTermsLocale {
-  seo: {
-    title: string;
-    description: string;
-  };
-  hero: {
-    subtitle: string;
-    title: string;
-    lead: string;
-  };
-  identity: {
-    heading: string;
-    name: string;
-    tradingAs: string;
-    address: string;
-    status: string;
-    statusValue: string;
-    email: string;
-    country: string;
-  };
-  sections: BookingStayTermSection[];
-  privacyLinkLabel: string;
-  closingNote: string;
-  versionNote: string;
-}
+
 
 export const bookingStayTermsContent = {
   seo: {
