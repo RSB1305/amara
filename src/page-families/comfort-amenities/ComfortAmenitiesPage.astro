@@ -1,9 +1,8 @@
 ---
-import BaseLayout from '../../layouts/BaseLayout.astro';
-import Navigation from '../../components/Navigation.astro';
-import TrustHero from '../../components/hero/TrustHero.astro';
+import TrustPageLayout from '../../layouts/TrustPageLayout.astro';
 import EditorialClosingCta from '../../components/editorial/EditorialClosingCta.astro';
 import type { EditorialClosingCtaLink } from '../../components/editorial/EditorialClosingCta.astro';
+import AmaraSection from '../../components/layout/AmaraSection.astro';
 import AmenitySpecRow, {
   type AmenitySpecIcon
 } from '../../components/amenities/AmenitySpecRow.astro';
@@ -316,31 +315,29 @@ const closingCtaLinks: EditorialClosingCtaLink[] = [
 ];
 ---
 
-<BaseLayout seo={seo} pageLang={currentLang} footerHighlights={footerHighlights}>
+<TrustPageLayout
+  seo={seo}
+  currentLang={currentLang}
+  languageToken="amenities"
+  footerHighlights={footerHighlights}
+  pageId="amenities"
+  dataLang={currentLang}
+  hero={{
+    subtitle: page.hero.subtitle,
+    title: page.hero.title,
+    lead: page.hero.lead,
+    supportText: page.hero.supportText,
+    ctaLinks: heroCtaLinks,
+    ctaVariant: 'conversion'
+  }}
+>
   <AmenityIconSprite />
-  <Navigation
-    currentLang={currentLang}
-    languageToken="amenities"
-  />
+  <div id="am-page-amenities" class="font-body text-on-surface" data-current-lang={currentLang}>
+    <AmaraSection labelledby="amenities-inventory-title">
+      <div class="mx-auto max-w-[76rem]" aria-label={page.sections.inventoryAria}>
+        <h2 id="amenities-inventory-title" class="mb-6 am-text-title text-on-surface">{page.sections.inventoryTitle}</h2>
 
-  <div id="am-page-amenities" class="font-body bg-white text-on-surface" data-am-page="amenities" data-current-lang={currentLang}>
-      <div class="bg-white max-w-[1400px] mx-auto px-[5vw]">
-        <TrustHero
-          subtitle={page.hero.subtitle}
-          title={page.hero.title}
-          lead={page.hero.lead}
-          supportText={page.hero.supportText}
-          ctaLinks={heroCtaLinks}
-          ctaVariant="conversion"
-        />
-      </div>
-
-      <main id="am-main-content" tabindex="-1" class="w-full max-w-[76rem] mx-auto px-6 max-md:px-4 scroll-mt-[104px] lg:scroll-mt-[112px]">
-
-        <section class="mb-12" aria-label={page.sections.inventoryAria}>
-          <h2 class="mb-4 am-text-title text-on-surface">{page.sections.inventoryTitle}</h2>
-
-          <div class="mb-12 border-y border-outline-variant/30 py-6">
+        <div class="am-page-band mb-12 border-y border-outline-variant/30 bg-surface-container-low py-6">
             <p id="property-filter-label" class="am-text-caption mb-4 font-semibold text-on-surface">
               {amenityFilterCopy.propertyLabel}
             </p>
@@ -382,9 +379,9 @@ const closingCtaLinks: EditorialClosingCtaLink[] = [
                 </button>
               ))}
             </div>
-          </div>
+        </div>
 
-          <div id="amenity-inventory" aria-live="polite">
+          <div id="amenity-inventory" class="grid gap-4" aria-live="polite">
             <p
               class="am-text-body mb-12 border-y border-outline-variant/30 py-8 text-on-surface-variant"
               data-filter-empty
@@ -401,7 +398,7 @@ const closingCtaLinks: EditorialClosingCtaLink[] = [
 
               return (
               <article
-                class="mb-14"
+                class="border border-outline-variant/10 bg-surface-white px-5 py-10 sm:px-8 md:py-12"
                 data-rental-id={property.id}
                 data-expanded-amenities={hasExpandedAmenities ? 'true' : 'false'}
               >
@@ -444,24 +441,23 @@ const closingCtaLinks: EditorialClosingCtaLink[] = [
             })}
           </div>
 
-          <div class="am-prose max-w-[46rem]">
+          <div class="am-prose mt-12 max-w-[46rem]">
             <p class="mt-4 am-text-body leading-relaxed text-on-surface-variant">
               <strong>{page.noteTitle}</strong> {page.noteText}
             </p>
-
           </div>
-        </section>
+      </div>
+    </AmaraSection>
 
-        <EditorialClosingCta
-          title={closing.title}
-          lead={closing.lead}
-          links={closingCtaLinks}
-          lang={currentLang}
-        />
-      </main>
-
+    <EditorialClosingCta
+      title={closing.title}
+      lead={closing.lead}
+      links={closingCtaLinks}
+      lang={currentLang}
+      spacing="page"
+    />
   </div>
-</BaseLayout>
+</TrustPageLayout>
 
 <script>
   const amenitiesPage = document.querySelector<HTMLElement>('#am-page-amenities');
