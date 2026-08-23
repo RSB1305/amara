@@ -32,7 +32,7 @@ const {
   <!-- Global navigation stays before the layout-owned page shell to preserve banner semantics across this page family. -->
   <slot name="navigation" />
 
-  <AmaraPageShell family="location-authority" dataLang={pageLang} flush>
+  <AmaraPageShell family="location-authority" dataLang={pageLang} flush whiteCanvas>
     <slot />
   </AmaraPageShell>
 </BaseLayout>

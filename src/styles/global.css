@@ -525,6 +525,11 @@
     padding-inline: 0;
   }
 
+  /** White is the canonical hospitality canvas; inset and evidence surfaces retain their contrast tokens. */
+  .am-page-shell--white-canvas .am-page-shell__frame {
+    --color-surface: var(--color-surface-white);
+  }
+
   .am-page-section {
     padding-block: var(--spacing-page-section);
   }
