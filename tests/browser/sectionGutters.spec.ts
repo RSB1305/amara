@@ -73,34 +73,49 @@ const guttersOf = (page: Page, selector: string) =>
     );
 
 /**
- * Distinct left padding of every page-gutter owner inside `main`.
+ * Distinct left padding of every page-gutter owner inside the white page frame.
  *
  * A gutter owner is identified structurally rather than by class: it spans the
- * full viewport width and contributes horizontal padding. Cards, inset copy and
- * controls sit inside a grid or a narrower max-width and are therefore excluded,
- * which keeps internal component padding out of the page-gutter contract.
+ * full page-frame width and contributes horizontal padding. The frame itself is
+ * intentionally inset from the viewport by the hospitality canvas border.
+ * Cards, inset copy and controls sit inside a grid or a narrower max-width and
+ * are therefore excluded, which keeps internal component padding out of the
+ * page-gutter contract.
  */
 const pageGutters = (page: Page) =>
   page.evaluate(() => {
+    const frame = document.querySelector('.am-page-shell__frame');
+    if (!frame) throw new Error('Expected the canonical AMARA page frame.');
+    const frameRect = frame.getBoundingClientRect();
     const widths = new Set<number>();
     for (const element of document.querySelectorAll('main *')) {
       // Full-bleed visuals may span the viewport while their cards own
       // intentional internal padding. They are content, not page-gutter owners.
       if (element.closest('.am-mobile-full-bleed')) continue;
       const rect = element.getBoundingClientRect();
-      if (rect.left !== 0 || Math.round(rect.width) !== window.innerWidth) continue;
+      if (
+        Math.abs(rect.left - frameRect.left) > 1 ||
+        Math.abs(rect.width - frameRect.width) > 1
+      ) {
+        continue;
+      }
       const padding = Math.round(parseFloat(getComputedStyle(element).paddingLeft));
       if (padding > 0) widths.add(padding);
     }
     return [...widths].sort((a, b) => a - b);
   });
 
-/** Left edge of the first authored block inside a container, from the viewport. */
+/** Left edge of the first authored block relative to its section shell. */
 const contentInsetOf = (page: Page, selector: string) =>
   page.locator(selector).evaluateAll((elements) =>
     elements.map((element) => {
       const rect = element.getBoundingClientRect();
-      return Math.round(rect.left + parseFloat(getComputedStyle(element).paddingLeft));
+      const section = element.closest('section');
+      if (!section) throw new Error('Expected authored content inside a section shell.');
+      const sectionRect = section.getBoundingClientRect();
+      return Math.round(
+        rect.left + parseFloat(getComputedStyle(element).paddingLeft) - sectionRect.left
+      );
     })
   );
 
