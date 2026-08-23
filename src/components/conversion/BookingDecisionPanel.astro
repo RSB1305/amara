@@ -1,0 +1,88 @@
+---
+interface ActionLink {
+  href: string;
+  label: string;
+}
+
+interface Props {
+  priceLabel: string;
+  price: string;
+  primary: ActionLink;
+  secondary?: ActionLink;
+  supportLinks?: ActionLink[];
+}
+
+const {
+  priceLabel,
+  price,
+  primary,
+  secondary,
+  supportLinks = []
+} = Astro.props;
+---
+
+<div class="am-booking-decision" data-am-component="booking-decision">
+  <div class="am-booking-decision__price">
+    <p class="am-text-label text-on-surface-variant">{priceLabel}</p>
+    <p class="am-text-subtitle mt-1 text-on-surface">{price}</p>
+  </div>
+
+  <div class="am-booking-decision__actions">
+    <a class="am-btn am-btn--primary w-full justify-center sm:w-auto" href={primary.href}>
+      {primary.label}
+    </a>
+    {secondary && (
+      <a class="am-btn am-btn--secondary w-full justify-center sm:w-auto" href={secondary.href}>
+        {secondary.label}
+      </a>
+    )}
+  </div>
+
+  {supportLinks.length > 0 && (
+    <div class="am-booking-decision__support am-text-caption font-normal">
+      {supportLinks.map((link) => (
+        <a class="am-inline-link" href={link.href}>{link.label}</a>
+      ))}
+    </div>
+  )}
+</div>
+
+<style>
+  .am-booking-decision {
+    display: grid;
+    gap: 1.25rem;
+    margin-top: 2rem;
+    padding-block: 1.25rem;
+    border-block: 1px solid var(--color-border-subtle);
+  }
+
+  .am-booking-decision__actions {
+    display: grid;
+    gap: 0.75rem;
+  }
+
+  .am-booking-decision__support {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem 1.25rem;
+    color: var(--color-on-surface-variant);
+  }
+
+  @media (min-width: 40rem) {
+    .am-booking-decision {
+      grid-template-columns: minmax(9rem, 1fr) auto;
+      align-items: center;
+      column-gap: 2rem;
+    }
+
+    .am-booking-decision__actions {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    .am-booking-decision__support {
+      grid-column: 1 / -1;
+    }
+  }
+</style>

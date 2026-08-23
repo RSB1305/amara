@@ -1,7 +1,7 @@
 ---
 document_id: AMARA-INT-ASTRO-003
 title: AMARA Astro Technical Standard V4
-version: 4.1.0
+version: 4.2.0
 status: ACTIVE
 authority_class: CONTRACT / GOVERNING INTERIM
 source_type: INTERIM SNAPSHOT FROM APPROVED PDF + APPROVED REPOSITORY AMENDMENT
@@ -9,7 +9,7 @@ source_attachment: "03_AMARA_Astro_Technical_Standard_V4 (1).pdf"
 source_sha256: b3d8a3e780b29b5be42922aec838c7f56f455184cca8336d9a0f3564ba43f9aa
 snapshot_created: 2026-08-14T09:08:00+02:00
 migration_state: PENDING PACKAGE 2/3 NORMALIZATION
-last_modified: 2026-08-20
+last_modified: 2026-08-23T13:54:40+02:00
 ---
 
 # AMARA Astro Technical Standard V4 — Interim Markdown Snapshot
@@ -126,6 +126,20 @@ AMARA uses a restrained editorial hierarchy:
 - clear H2/H3 hierarchy;
 - no decorative heading inflation.
 Existing am-text-* typography classes are the preferred semantic text scale.
+
+6.1 Mobile-first responsive page contract
+
+AMARA uses one mobile-first responsive design system. The mobile composition is the canonical source
+layout; larger viewports progressively enhance space, imagery and column structure without changing the
+page's semantic order, dominant job or conversion path.
+
+The operational consequences are:
+- authored DOM order follows the narrow-screen reading and decision sequence;
+- base layout rules define the mobile composition and `min-width` enhancements add space or columns;
+- mobile and desktop do not use separate page templates or separate content hierarchies;
+- a page family owns one repeatable composition across all five locales;
+- a larger viewport may strengthen imagery and place related units beside one another, but it must not move
+  a primary action behind a different information path or change which content carries the page's job.
 
 7. Hero contract
 Hero media is not a card.
@@ -246,3 +260,4 @@ The typed contract in `knowledge/schema.ts` is the executable repository owner f
 |---|---|---|
 | 4.0 | 2026-08-10 | Approved source standard preserved as the interim Markdown snapshot. |
 | 4.1.0 | 2026-08-20 | Added the approved Evidence & Knowledge boundary and executable repository ownership model. |
+| 4.2.0 | 2026-08-23T13:54:40+02:00 | Activated the canonical mobile-first composition contract and progressive-enhancement boundary for all public page families. |

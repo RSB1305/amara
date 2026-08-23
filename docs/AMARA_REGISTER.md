@@ -1,12 +1,12 @@
 ---
 document_id: AMARA-REG-001
 title: AMARA Register
-version: 1.13.0
+version: 1.14.0
 status: ACTIVE
 authority_class: LIVING BINDING REGISTER
 activation_state: ACTIVE
 effective_from: 2026-08-14
-last_modified: 2026-08-23T12:51:40+02:00
+last_modified: 2026-08-23T13:54:40+02:00
 canonical_path: /docs/AMARA_REGISTER.md
 ---
 
@@ -21,7 +21,7 @@ The AMARA Register is the single source for active documents, authority classes,
 | Slot | Document owner | Version/status | Class | Canonical/current source |
 |---|---|---|---|---|
 | 01 | AMARA System Constitution | 5.1.1 ACTIVE | PRINCIPLE / governing | `docs/standards/01_AMARA_System_Constitution_V5.md` |
-| 02 | AMARA Astro & Design Architecture Contract | 4.1.0 ACTIVE INTERIM | CONTRACT / governing | `docs/interim/03_AMARA_Astro_Technical_Standard_V4.md` + current repository implementation |
+| 02 | AMARA Astro & Design Architecture Contract | 4.2.0 ACTIVE INTERIM | CONTRACT / governing | `docs/interim/03_AMARA_Astro_Technical_Standard_V4.md` + current repository implementation |
 | 03 | AMARA Runtime, SEO & Data Contract | PENDING Package 2 | CONTRACT / governing | Interim snapshot: `docs/interim/04_AMARA_Runtime_and_SEO_Standard_V4.md` + current repository implementation |
 | 04 | AMARA URL, Route & Link Contract | PENDING Package 2 | CONTRACT / governing | Interim snapshot: `docs/interim/05_AMARA_URL_and_Route_Infrastructure_V4.md` + Decision Register |
 | 05 | AMARA Governance, Execution & Documentation Lifecycle | 5.5.0 ACTIVE | CONTRACT / governing | `docs/standards/05_AMARA_Governance_Execution_and_Documentation_Lifecycle_V5.md` |
@@ -110,6 +110,7 @@ They do **not** supersede the current implementation. Until a separately aligned
 |---|---|---|
 | DR-DESIGN-001 | The typography roles in `src/styles/global.css` are the sole owner of text size, weight, tracking and case. Typographic arbitrary Tailwind values are policy-checked against a recorded baseline in `scripts/typography-baseline.json`, which fails on a new value and on a resolved value that has not been banked. A genuine exception stays possible and is recorded there rather than argued at review time. | ACTIVE |
 | DR-DESIGN-002 | A visual treatment that appears at more than one call site is a role or a component, not a repeated class recipe. Where several spellings of one role are found, the role is fixed at the value the majority of call sites already used, and the resulting step becomes adjustable in one place. | ACTIVE |
+| DR-DESIGN-003 | AMARA uses one mobile-first responsive design system. The mobile composition is the canonical source layout; larger viewports progressively enhance space, imagery and column structure without changing the page's semantic order, dominant job or conversion path. | ACTIVE |
 
 ### Content/localization
 
@@ -178,6 +179,7 @@ Routine new evidence/ideas may be captured here or in the relevant working evide
 | 2026-08-23T11:40:00+02:00 | Semantic parity boundary | Separated semantic units from prose segmentation in the locale parity contract, so a translator's paragraph split is no longer treated as a missing paragraph while a missing FAQ answer, CTA block or card still is. Closed the Frigiliana location gap with authored copy in de, es, nl and sv, and unified the Nerja experience theme order across locales. Register 1.11.0. | DR-CONTENT-STRUCT-002, TR-CONTENT-002, TR-CONTENT-004 | this revision |
 | 2026-08-23T12:20:00+02:00 | Parity scope and market curation | Limited the parity contract to what the test actually verifies — identity only where units carry a stable identifier — and held the number of identifier-less unit lists so it can fall but not rise. Gave the Frigiliana location FAQ stable ids, closing the example the audit named. Recorded deliberate per-market selection as a declared exception rather than a content gap. Register 1.12.0. | DR-CONTENT-STRUCT-002, DR-CONTENT-STRUCT-003 | this revision |
 | 2026-08-23T12:51:40+02:00 | Experiential authority | Activated truthful, active, situation-led public authoring for new and materially revised editorial copy while preserving page job, evidence, provenance, caveats and safety. Added the operational method in Content Playbook 1.5.0 and the daily summary in `AGENTS.md`. Register 1.13.0. | TR-CONTENT-004–005, TR-CONTENT-002, DR-EVIDENCE-001–002 | this revision |
+| 2026-08-23T13:54:40+02:00 | Mobile-first page architecture | Activated one canonical mobile composition with progressive larger-viewport enhancement, and introduced the shared page shell, section rhythm and early booking-decision pattern through the vacation-rental reference family. Astro Standard 4.2.0, Register 1.14.0. | DR-DESIGN-001–003 | this revision |
 
 ## 5. Intentional supersessions
 
@@ -227,3 +229,4 @@ Separate controlled workstreams remain for:
 | 1.11.0 | 2026-08-23T11:40:00+02:00 | Drew the semantic-unit versus prose-segmentation boundary in the parity contract and recorded the content decisions taken under it. | this revision |
 | 1.12.0 | 2026-08-23T12:20:00+02:00 | Scoped the parity guarantee to identifier-bearing units and introduced the declared market-curation exception. | this revision |
 | 1.13.0 | 2026-08-23T12:51:40+02:00 | Activated experiential authority as the public-authoring rule and recorded its evidence, safety and page-type boundaries. | this revision |
+| 1.14.0 | 2026-08-23T13:54:40+02:00 | Activated the canonical mobile-first page contract and its first shared implementation in the vacation-rental family. | this revision |

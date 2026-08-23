@@ -1,0 +1,30 @@
+---
+interface Props {
+  labelledby?: string;
+  variant?: 'default' | 'hero' | 'compact' | 'closing';
+  divider?: boolean;
+  dataComponent?: string;
+  class?: string;
+}
+
+const {
+  labelledby,
+  variant = 'default',
+  divider = true,
+  dataComponent,
+  class: className
+} = Astro.props;
+---
+
+<section
+  class:list={[
+    'am-page-section',
+    `am-page-section--${variant}`,
+    { 'am-page-section--divided': divider },
+    className
+  ]}
+  aria-labelledby={labelledby}
+  data-am-component={dataComponent}
+>
+  <slot />
+</section>

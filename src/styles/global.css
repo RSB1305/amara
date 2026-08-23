@@ -65,6 +65,15 @@
   --spacing-macro-120: clamp(5rem, 12vw, 7.5rem);
   --spacing-macro-160: clamp(6.5rem, 16vw, 10rem);
 
+  /**
+   * Mobile-first public page contract. The narrow composition owns the
+   * canonical reading order; wider viewports enhance only measure and rhythm.
+   */
+  --spacing-page-gutter: 1.5rem;
+  --spacing-page-section: clamp(3rem, 7vw, 5rem);
+  --spacing-page-section-compact: clamp(2.25rem, 5vw, 3.5rem);
+  --container-page: 96rem;
+
   /** Shape roles: restrained editorial surfaces, clear controls, and true pills */
   --radius-editorial: 0.125rem;
   --radius-overlay: 0.5rem;
@@ -488,6 +497,57 @@
     line-height: 1;
     font-weight: 400;
     color: var(--color-primary-alpha-80);
+  }
+
+  /**
+   * Canonical AMARA public page shell. Base rules are the mobile composition;
+   * breakpoint rules only increase space and available layout width.
+   */
+  .am-page-shell {
+    min-height: 100vh;
+    overflow-x: clip;
+    scroll-margin-top: 6.5rem;
+    background: var(--color-surface);
+  }
+
+  .am-page-shell__frame {
+    width: 100%;
+    max-width: var(--container-page);
+    margin-inline: auto;
+    padding-inline: var(--spacing-page-gutter);
+  }
+
+  .am-page-section {
+    padding-block: var(--spacing-page-section);
+  }
+
+  .am-page-section--hero {
+    padding-top: var(--spacing-page-section-compact);
+  }
+
+  .am-page-section--compact {
+    padding-block: var(--spacing-page-section-compact);
+  }
+
+  .am-page-section--closing {
+    padding-top: var(--spacing-page-section);
+    padding-bottom: var(--spacing-page-section-compact);
+  }
+
+  .am-page-section--divided {
+    border-bottom: 1px solid var(--color-border-subtle);
+  }
+
+  @media (min-width: 48rem) {
+    .am-page-shell__frame {
+      --spacing-page-gutter: 3rem;
+    }
+  }
+
+  @media (min-width: 64rem) {
+    .am-page-shell {
+      scroll-margin-top: 7rem;
+    }
   }
 
   /**

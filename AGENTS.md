@@ -50,6 +50,7 @@ Classify the change by the owner or contract actually being changed, not by shar
 ## Implementation rules
 
 - Prefer existing AMARA architecture. Do not create parallel systems, duplicate authoring models or speculative abstractions.
+- AMARA uses one mobile-first responsive design system. The mobile composition is the canonical source layout; larger viewports progressively enhance space, imagery and columns without changing semantic order, dominant job or conversion path.
 - Preserve hierarchy, section rhythm, spacing, typography and component consistency. Do not redesign during cleanup or refactoring unless redesign is the objective.
 - Shared Navigation, Footer, Hero, FAQ, CTA and Layout changes have broad blast radius; keep them minimal and validate representative consumers.
 - Use existing `linkRegistry.ts` and `routeOwnership.ts` contracts where applicable. Do not invent silent fallbacks, aliases or token behavior.

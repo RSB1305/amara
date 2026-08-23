@@ -109,13 +109,6 @@
     "tracking-[0.06em]": 3,
     "tracking-[0.08em]": 1
   },
-  "src/components/vacation-rental/RentalPhotoGallery.astro": {
-    "text-[11px]": 1,
-    "text-[12px]": 2,
-    "tracking-[0.08em]": 1,
-    "tracking-[0.12em]": 1,
-    "tracking-[0.1em]": 1
-  },
   "src/page-families/amara-about-us/AboutUsPage.astro": {
     "leading-[1.5]": 1,
     "text-[11px]": 1,
@@ -174,11 +167,6 @@
   "src/page-families/location-authority/WhereToStayAuthorityBody.astro": {
     "text-[10px]": 1,
     "tracking-[0.14em]": 1
-  },
-  "src/page-families/vacation-rental/VacationRentalPage.astro": {
-    "text-[11px]": 1,
-    "text-[12px]": 2,
-    "tracking-[0.1em]": 1
   },
   "src/pages/_tools/converter/index.astro": {
     "leading-[0.95]": 1,
