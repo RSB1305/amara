@@ -38,7 +38,6 @@ import {
   cinematicGuideTitle,
   cinematicGuideLinks
 } from '../../content/homeCinematicCopy';
-import { airbnbRatingLabel, airbnbReviewEvidence } from '../../content/reviewEvidence';
 import imgHeroLounis from '../../assets/images/home/amara-lounis-15-amara-frigiliana.jpg';
 import imgFarah from '../../assets/images/home/amara-farah-67-amara-frigiliana.jpg';
 import imgZaid from '../../assets/images/home/amara-zaid-terraza-5.jpg';
@@ -69,42 +68,43 @@ const currentLang = normalizeLanguage(lang as AmaraLanguage);
 const t = <T extends Record<AmaraLanguage, string>>(row: T) => row[currentLang] ?? row.en;
 
 const seo: AmaraAuthoringSeo = {
-  version: '2026-04-04-amara-home-cinematic-v3.0-A',
+  version: '2026-08-23-amara-home-romantic-hideaways-v4.0-A',
   pageType: 'A',
   entityKey: 'amara-brand',
   ogImage: heroImage.src,
   languages: {
     en: {
-      title: 'Holiday Apartments in Frigiliana, Nerja & Tarifa',
+      title: 'AMARA — Romantic Hideaways in Andalusia',
       description:
-        'Historic apartments with private terraces in Frigiliana, a beach apartment in Nerja and an Atlantic-view penthouse in Tarifa, all managed directly by AMARA.',
+        'Special places for shared time as a couple: six individual stays in Frigiliana, Nerja and Tarifa, personally hosted and bookable direct with AMARA.',
       robots: 'index, follow',
       canonical: 'auto'
     },
     de: {
-      title: 'Individuelle Ferienunterkünfte in Frigiliana, Nerja & Tarifa',
-      description: `Historische Apartments mit privaten Terrassen, ein Strandapartment in Nerja und ein Penthouse in Tarifa. Persönlich geführt, mit ${airbnbReviewEvidence.reviewCountLabel} Gästebewertungen und durchschnittlich ${airbnbRatingLabel.de}/5.`,
+      title: 'AMARA — Romantic Hideaways in Andalusien',
+      description:
+        'Besondere Orte für gemeinsame Zeit zu zweit: sechs individuelle Unterkünfte in Frigiliana, Nerja und Tarifa, persönlich betreut und direkt bei AMARA buchbar.',
       robots: 'index, follow',
       canonical: 'auto'
     },
     es: {
-      title: 'Apartamentos en Frigiliana, Nerja y Tarifa',
+      title: 'AMARA — Romantic Hideaways en Andalucía',
       description:
-        'Apartamentos históricos con terraza en Frigiliana, un apartamento junto al mar en Nerja y un ático con vistas al Atlántico en Tarifa, gestionados directamente por AMARA.',
+        'Lugares especiales para compartir tiempo en pareja: seis alojamientos únicos en Frigiliana, Nerja y Tarifa, con atención personal y reserva directa con AMARA.',
       robots: 'index, follow',
       canonical: 'auto'
     },
     nl: {
-      title: 'Vakantieappartementen in Frigiliana, Nerja & Tarifa',
+      title: 'AMARA — Romantic Hideaways in Andalusië',
       description:
-        'Historische appartementen met privéterras in Frigiliana, een strandappartement in Nerja en een penthouse met Atlantisch uitzicht in Tarifa, rechtstreeks beheerd door AMARA.',
+        'Bijzondere plekken voor waardevolle tijd samen: zes individuele verblijven in Frigiliana, Nerja en Tarifa, persoonlijk beheerd en direct te boeken bij AMARA.',
       robots: 'index, follow',
       canonical: 'auto'
     },
     sv: {
-      title: 'Semesterlägenheter i Frigiliana, Nerja & Tarifa',
+      title: 'AMARA — Romantic Hideaways i Andalusien',
       description:
-        'Historiska lägenheter med privat terrass i Frigiliana, en strandlägenhet i Nerja och ett penthouse med utsikt över Atlanten i Tarifa, alla direkt skötta av AMARA.',
+        'Speciella platser för värdefull tid tillsammans: sex individuella boenden i Frigiliana, Nerja och Tarifa, personligt omhändertagna och bokningsbara direkt.',
       robots: 'index, follow',
       canonical: 'auto'
     }

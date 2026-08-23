@@ -13,19 +13,19 @@ export type CopyRow = Record<AmaraLanguage, string>;
 export const cinematicWelcome = 'Bienvenidos a AMARA';
 
 export const cinematicHeroKicker: CopyRow = {
-  en: 'Holiday stays in Andalusia',
-  de: 'Ferienunterkünfte in Andalusien',
-  es: 'Alojamientos en Andalucía',
-  nl: 'Vakantieverblijven in Andalusië',
-  sv: 'Semesterboenden i Andalusien'
+  en: 'Romantic Hideaways',
+  de: 'Romantic Hideaways',
+  es: 'Romantic Hideaways',
+  nl: 'Romantic Hideaways',
+  sv: 'Romantic Hideaways'
 };
 
 export const cinematicHeroLead: CopyRow = {
-  en: 'Between whitewashed lanes, the Mediterranean and the Atlantic. Six distinctive stays for discovering Andalusia at your own pace.',
-  de: 'Zwischen weißen Gassen, Mittelmeer und Atlantik. Sechs besondere Unterkünfte für euren eigenen Rhythmus in Andalusien.',
-  es: 'Entre callejuelas blancas, el Mediterráneo y el Atlántico. Seis alojamientos con personalidad propia para vivir Andalucía a vuestro ritmo.',
-  nl: 'Tussen witgekalkte straatjes, de Middellandse Zee en de Atlantische Oceaan. Zes bijzondere verblijven om Andalusië in jullie eigen ritme te beleven.',
-  sv: 'Mellan vitkalkade gränder, Medelhavet och Atlanten. Sex personliga boenden för att uppleva Andalusien i er egen takt.'
+  en: 'Special places for shared time as a couple — among Frigiliana’s whitewashed lanes, by the Mediterranean in Nerja and beneath Tarifa’s wide Atlantic sky.',
+  de: 'Besondere Orte für gemeinsame Zeit zu zweit – zwischen Frigilianas weißen Altstadtgassen, am Mittelmeer in Nerja und unter Tarifas weitem Atlantikhimmel.',
+  es: 'Lugares especiales para compartir tiempo en pareja: entre las callejuelas blancas de Frigiliana, junto al Mediterráneo en Nerja y bajo el inmenso cielo atlántico de Tarifa.',
+  nl: 'Bijzondere plekken voor waardevolle tijd samen — tussen de witgekalkte straatjes van Frigiliana, aan de Middellandse Zee in Nerja en onder de weidse Atlantische hemel van Tarifa.',
+  sv: 'Speciella platser för värdefull tid tillsammans — bland Frigilianas vitkalkade gränder, vid Medelhavet i Nerja och under Tarifas vida atlanthimmel.'
 };
 
 export const cinematicHeroImageAlt: CopyRow = {
@@ -45,19 +45,19 @@ export const cinematicScrollHint: CopyRow = {
 };
 
 export const cinematicPhilosophyPart1: CopyRow = {
-  en: 'Six stays. Each with a story of its own.',
-  de: 'Sechs Unterkünfte. Jede mit ihrer eigenen Geschichte.',
-  es: 'Seis alojamientos. Cada uno con su propia historia.',
-  nl: 'Zes verblijven. Elk met een eigen verhaal.',
-  sv: 'Sex boenden. Alla med sin egen historia.'
+  en: 'Six Romantic Hideaways.',
+  de: 'Sechs Romantic Hideaways.',
+  es: 'Seis Romantic Hideaways.',
+  nl: 'Zes Romantic Hideaways.',
+  sv: 'Sex Romantic Hideaways.'
 };
 
 export const cinematicPhilosophyAccent: CopyRow = {
-  en: 'Which one will become part of yours?',
-  de: 'Welche wird Teil eurer?',
-  es: '¿Cuál formará parte de la vuestra?',
-  nl: 'Welk wordt deel van jullie verhaal?',
-  sv: 'Vilket blir en del av er?'
+  en: 'Which one feels like your place?',
+  de: 'Welcher Ort fühlt sich nach euch an?',
+  es: '¿Cuál puede ser vuestro lugar?',
+  nl: 'Welke plek voelt als die van jullie?',
+  sv: 'Vilken plats känns som er?'
 };
 
 export const cinematicPhilosophyLabel: CopyRow = {
@@ -69,11 +69,11 @@ export const cinematicPhilosophyLabel: CopyRow = {
 };
 
 export const cinematicPhilosophyP1: CopyRow = {
-  en: 'AMARA brings together six individually furnished holiday stays in Frigiliana, Nerja and Tarifa — among whitewashed old-town lanes, along the Mediterranean coast and beneath Tarifa’s wide Atlantic sky. **We look after every stay ourselves**, know its story and its character, and want you to feel at home from the moment you arrive.',
-  de: 'AMARA vereint sechs individuell eingerichtete Ferienunterkünfte in Frigiliana, Nerja und Tarifa – zwischen weißen Altstadtgassen, mediterraner Küste und weitem Atlantikhimmel. **Wir betreuen jede Unterkunft selbst**, kennen ihre Geschichte und ihre Eigenheiten und möchten, dass ihr euch vom ersten Moment an angekommen fühlt.',
-  es: 'AMARA reúne seis alojamientos vacacionales con personalidad propia en Frigiliana, Nerja y Tarifa: entre callejuelas blancas, la costa mediterránea y el inmenso cielo atlántico de Tarifa. **Cuidamos personalmente cada alojamiento**, conocemos su historia y sus particularidades y queremos que os sintáis en casa desde el primer momento.',
-  nl: 'AMARA brengt zes individueel ingerichte vakantieverblijven in Frigiliana, Nerja en Tarifa samen — tussen witgekalkte straatjes, aan de Middellandse Zeekust en onder de weidse Atlantische hemel van Tarifa. **We beheren elk verblijf zelf**, kennen het verhaal en de eigenheid ervan en willen dat jullie je vanaf het eerste moment thuis voelen.',
-  sv: 'AMARA samlar sex individuellt inredda semesterboenden i Frigiliana, Nerja och Tarifa — bland vitkalkade gränder, längs Medelhavskusten och under Tarifas vida atlanthimmel. **Vi tar hand om varje boende själva**, känner dess historia och karaktär och vill att ni ska känna er hemma från första stund.'
+  en: 'AMARA brings together six individually furnished Romantic Hideaways in Frigiliana, Nerja and Tarifa. Each offers a different setting for time together: among old-town lanes, close to the Mediterranean or beneath Tarifa’s wide Atlantic sky. **We look after every stay ourselves**, know its story and its character, and help you choose the place that feels right for the two of you. Family & Surf in Tarifa is as much a generous hideaway for two as it is a stay for up to four guests.',
+  de: 'AMARA vereint sechs individuell eingerichtete Romantic Hideaways in Frigiliana, Nerja und Tarifa. Jedes schafft auf seine eigene Weise Raum für gemeinsame Zeit: in weißen Altstadtgassen, nah am Mittelmeer oder unter Tarifas weitem Atlantikhimmel. **Wir betreuen jede Unterkunft selbst**, kennen ihre Geschichte und ihre Eigenheiten und helfen euch, den Ort zu finden, der zu euch passt. Family & Surf in Tarifa ist ebenso ein großzügiges Hideaway für zwei wie eine Unterkunft für bis zu vier Gäste.',
+  es: 'AMARA reúne seis Romantic Hideaways con personalidad propia en Frigiliana, Nerja y Tarifa. Cada uno ofrece un escenario distinto para compartir tiempo juntos: entre callejuelas del casco antiguo, cerca del Mediterráneo o bajo el inmenso cielo atlántico de Tarifa. **Cuidamos personalmente cada alojamiento**, conocemos su historia y sus particularidades y os ayudamos a encontrar el lugar que encaja con vosotros. Family & Surf en Tarifa es tanto un refugio amplio para dos como un alojamiento para un máximo de cuatro huéspedes.',
+  nl: 'AMARA brengt zes individueel ingerichte Romantic Hideaways in Frigiliana, Nerja en Tarifa samen. Elk biedt een andere omgeving voor tijd samen: tussen straatjes in de oude stad, dicht bij de Middellandse Zee of onder de weidse Atlantische hemel van Tarifa. **We beheren elk verblijf zelf**, kennen het verhaal en de eigenheid ervan en helpen jullie de plek te kiezen die bij jullie past. Family & Surf in Tarifa is zowel een royale hideaway voor twee als een verblijf voor maximaal vier gasten.',
+  sv: 'AMARA samlar sex individuellt inredda Romantic Hideaways i Frigiliana, Nerja och Tarifa. Varje boende ger sin egen inramning åt tiden tillsammans: bland gränder i gamla stan, nära Medelhavet eller under Tarifas vida atlanthimmel. **Vi tar hand om varje boende själva**, känner dess historia och karaktär och hjälper er att välja platsen som känns rätt för just er. Family & Surf i Tarifa är både ett rymligt hideaway för två och ett boende för upp till fyra gäster.'
 };
 
 export const cinematicPhilosophyP2: CopyRow = {
@@ -85,27 +85,27 @@ export const cinematicPhilosophyP2: CopyRow = {
 };
 
 export const cinematicCollectionEyebrow: CopyRow = {
-  en: 'Our stays',
-  de: 'Unsere Unterkünfte',
-  es: 'Nuestros alojamientos',
-  nl: 'Onze verblijven',
-  sv: 'Våra boenden'
+  en: 'Our Romantic Hideaways',
+  de: 'Unsere Romantic Hideaways',
+  es: 'Nuestros Romantic Hideaways',
+  nl: 'Onze Romantic Hideaways',
+  sv: 'Våra Romantic Hideaways'
 };
 
 export const cinematicCollectionTitle: CopyRow = {
-  en: 'Which one suits your trip?',
-  de: 'Welche passt zu euch?',
-  es: '¿Cuál encaja con vuestro viaje?',
-  nl: 'Welk verblijf past bij jullie reis?',
-  sv: 'Vilket boende passar er resa?'
+  en: 'Find the hideaway for your time together.',
+  de: 'Findet das Hideaway für eure gemeinsame Zeit.',
+  es: 'Encontrad vuestro lugar para compartir tiempo juntos.',
+  nl: 'Vind de hideaway voor jullie tijd samen.',
+  sv: 'Hitta ert hideaway för tiden tillsammans.'
 };
 
 export const cinematicTrustQuote: CopyRow = {
-  en: 'Our guests can judge AMARA better than we can.',
-  de: 'Unsere Gäste können AMARA besser beurteilen als wir selbst.',
-  es: 'Nuestros huéspedes pueden hablar de AMARA mejor que nosotros.',
-  nl: 'Onze gasten kunnen AMARA beter beoordelen dan wijzelf.',
-  sv: 'Våra gäster kan bedöma AMARA bättre än vi själva.'
+  en: 'The most honest proof comes from the guests who stayed with us.',
+  de: 'Den ehrlichsten Beweis liefern die Gäste, die bei uns gewohnt haben.',
+  es: 'La prueba más sincera está en las palabras de quienes se han alojado con nosotros.',
+  nl: 'Het eerlijkste bewijs komt van de gasten die bij ons verbleven.',
+  sv: 'Det mest uppriktiga beviset kommer från gästerna som har bott hos oss.'
 };
 
 export const cinematicTrustCta: CopyRow = {
@@ -233,11 +233,11 @@ export const navSoonBadge: CopyRow = {
 
 /** Four chips — trust band */
 export const cinematicTrustChips: Record<AmaraLanguage, string[]> = {
-  en: ['Sea views', 'Private terraces', 'Direct host contact', 'Verified guest reviews'],
-  de: ['Meerblick', 'Private Terrassen', 'Ruhige Lagen', 'Hochwertige Betten'],
-  es: ['Vistas al mar', 'Terrazas privadas', 'Contacto directo con el anfitrión', 'Reseñas verificadas'],
-  nl: ['Zeezicht', 'Privéterrassen', 'Direct contact met de host', 'Geverifieerde beoordelingen'],
-  sv: ['Havsutsikt', 'Privata terrasser', 'Direktkontakt med värden', 'Verifierade recensioner']
+  en: ['Real property details', 'Six individual stays', 'Personal host contact', 'Verified guest reviews'],
+  de: ['Konkrete Unterkunftsdetails', 'Sechs individuelle Unterkünfte', 'Persönlicher Kontakt', 'Verifizierte Gästebewertungen'],
+  es: ['Detalles reales de cada alojamiento', 'Seis alojamientos únicos', 'Contacto personal', 'Reseñas verificadas'],
+  nl: ['Concrete details per verblijf', 'Zes individuele verblijven', 'Persoonlijk contact', 'Geverifieerde beoordelingen'],
+  sv: ['Konkreta detaljer om varje boende', 'Sex individuella boenden', 'Personlig kontakt', 'Verifierade recensioner']
 };
 
 export type CinematicAptToken = 'farah' | 'lounis' | 'zaid' | 'maha' | 'playa' | 'casa';
@@ -459,22 +459,22 @@ export const cinematicApartments: CinematicAptDef[] = [
     token: 'casa',
     name: 'Family & Surf',
     subtitle: {
-      en: 'Penthouse',
-      de: 'Penthouse in Tarifa für bis zu vier Gäste',
-      es: 'Ático',
-      nl: 'Penthouse',
-      sv: 'Penthouse'
+      en: 'Atlantic-view penthouse for 2–4 guests',
+      de: 'Penthouse mit Atlantikblick für 2–4 Gäste',
+      es: 'Ático con vistas al Atlántico para 2–4 huéspedes',
+      nl: 'Penthouse met Atlantisch uitzicht voor 2–4 gasten',
+      sv: 'Penthouse med utsikt över Atlanten för 2–4 gäster'
     },
     meta: {
-      en: 'Tarifa • Family stay',
-      de: 'Tarifa • Familienaufenthalt',
-      es: 'Tarifa • estancia familiar',
-      nl: 'Tarifa • gezinsverblijf',
-      sv: 'Tarifa • familjevistelse'
+      en: 'Tarifa • 2–4 guests',
+      de: 'Tarifa • 2–4 Gäste',
+      es: 'Tarifa • 2–4 huéspedes',
+      nl: 'Tarifa • 2–4 gasten',
+      sv: 'Tarifa • 2–4 gäster'
     },
     desc: {
       en: '**Two floors, two bedrooms and two bathrooms**, with a terrace facing the Atlantic. Suitable for couples and families of up to four.',
-      de: '**Zwei Schlafzimmer, zwei Bäder**, direkter Atlantikblick, Gemeinschaftspool und ein reservierter Tiefgaragenplatz.',
+      de: '**Zwei Etagen, zwei Schlafzimmer und zwei Bäder**, dazu eine Terrasse mit Atlantikblick. Großzügig für zwei und geeignet für Familien mit bis zu vier Gästen.',
       es: '**Dos plantas, dos dormitorios y dos baños**, con terraza frente al Atlántico. Para parejas y familias de hasta cuatro personas.',
       nl: '**Twee verdiepingen, twee slaapkamers en twee badkamers**, met een terras op de Atlantische Oceaan. Voor stellen en gezinnen tot vier personen.',
       sv: '**Två våningar, två sovrum och två badrum** samt en terrass mot Atlanten. Passar både par och familjer på upp till fyra personer.'
