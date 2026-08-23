@@ -1,5 +1,5 @@
 ---
-import GettingToNerjaPage from '../../page-families/location-authority/GettingToNerjaPage.astro';
+import ArrivalGuidePage from '../../page-families/location-authority/ArrivalGuidePage.astro';
 import { getOwnedPageStaticPaths } from '../../lib/routeOwnership';
 import type { AmaraLanguage } from '../../types/seo';
 
@@ -10,4 +10,4 @@ export function getStaticPaths() {
 const { lang } = Astro.params as { lang: AmaraLanguage };
 ---
 
-<GettingToNerjaPage lang={lang} />
+<ArrivalGuidePage destination="nerja" lang={lang} />
