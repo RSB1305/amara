@@ -13,6 +13,7 @@ import { resolveOptionalLink, type LabeledLink } from '../../lib/linkResolver';
 import { normalizeLanguage } from '../../lib/seo/resolve-seo-head';
 import type { AmaraLanguage } from '../../types/seo';
 import AuthorityFeatureSection from './AuthorityFeatureSection.astro';
+import GuideLinkCardSection from './GuideLinkCardSection.astro';
 import RestaurantSectionList from './RestaurantSectionList.astro';
 
 interface Props {
@@ -109,39 +110,11 @@ const heroImage = {
         items={copy.planning.items}
       />
 
-      <section class="am-section am-section--plain">
-        <div class="max-w-3xl mb-16">
-          <h2 class="am-text-title italic text-on-surface tracking-tight mb-6">
-            {copy.combine.title}
-          </h2>
-          <p class="am-text-body text-on-surface-variant leading-relaxed">
-            {copy.combine.intro}
-          </p>
-        </div>
-
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-x-16 gap-y-14">
-          {
-            combineItems.map((item) => (
-              <article class="border-t border-outline-variant/25 pt-8">
-                <h3 class="am-text-subtitle text-on-surface mb-5">
-                  {item.title}
-                </h3>
-                <p class="am-text-body text-on-surface-variant leading-relaxed">
-                  {item.text}
-                </p>
-                {item.href && (
-                  <p class="mt-5 am-text-body">
-                    <a href={item.href} class="am-inline-link">
-                      {item.linkLabel}
-                      <span aria-hidden="true"> →</span>
-                    </a>
-                  </p>
-                )}
-              </article>
-            ))
-          }
-        </div>
-      </section>
+      <GuideLinkCardSection
+        title={copy.combine.title}
+        intro={copy.combine.intro}
+        items={combineItems}
+      />
 
       <ExperiencePreFooter currentId="restaurants" lang={currentLang} />
 
