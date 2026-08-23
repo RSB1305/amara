@@ -1,5 +1,5 @@
 ---
-import NerjaBalconPage from '../../page-families/location-authority/NerjaBalconPage.astro';
+import NerjaExperienceArticlePage from '../../page-families/location-authority/NerjaExperienceArticlePage.astro';
 import { getOwnedPageStaticPaths } from '../../lib/routeOwnership';
 import type { AmaraLanguage } from '../../types/seo';
 
@@ -10,4 +10,4 @@ export function getStaticPaths() {
 const { lang } = Astro.params as { lang: AmaraLanguage };
 ---
 
-<NerjaBalconPage lang={lang} />
+<NerjaExperienceArticlePage page="balcon" lang={lang} />
