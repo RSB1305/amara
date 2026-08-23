@@ -37,7 +37,7 @@ const currentLang = normalizeLanguage(lang as AmaraLanguage);
 
 const config = (() => {
   if (destination === 'frigiliana') {
-    const content = frigilianaGeographyContent[currentLang];
+    const content = resolveLocale(frigilianaGeographyContent, currentLang);
     const requiredLink = createRequiredLinkResolver(currentLang, 'Frigiliana geography');
 
     return {
@@ -65,7 +65,7 @@ const config = (() => {
   }
 
   if (destination === 'nerja') {
-    const content = nerjaGeographyContent[currentLang];
+    const content = resolveLocale(nerjaGeographyContent, currentLang);
     const requiredLink = createRequiredLinkResolver(currentLang, 'Nerja geography');
 
     return {

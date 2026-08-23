@@ -238,7 +238,7 @@ const AUTHORITY_PAGES: AuthorityPage[] = [
   {
     routeToken: 'nerja_geography',
     pageId: 'nerja-geography',
-    content: (lang) => nerjaGeographyContent[lang],
+    content: (lang) => resolveLocale(nerjaGeographyContent, lang),
     heroMark: null,
     relatedColumns: 'md:grid-cols-2',
     blockBeforeSections: 'orientation:nerja',
