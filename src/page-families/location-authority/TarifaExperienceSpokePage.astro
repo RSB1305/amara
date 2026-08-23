@@ -3,9 +3,10 @@ import InlineEmphasis from '../../components/text/InlineEmphasis.astro';
 import Navigation from '../../components/Navigation.astro';
 import ExperienceArticleHero from '../../components/experience/ExperienceArticleHero.astro';
 import ExperienceContextNav from '../../components/experience/ExperienceContextNav.astro';
-import type {
-  LocalizedExperienceText,
-  TarifaExperienceSpokeContent
+import {
+  tarifaExperienceSpokeContent,
+  type TarifaExperienceSpokeId,
+  type LocalizedExperienceText
 } from '../../content/tarifaExperienceSpokeContent';
 import LocationAuthorityLayout from '../../layouts/LocationAuthorityLayout.astro';
 import { createRequiredLinkResolver, type LabeledLink } from '../../lib/linkResolver';
@@ -14,11 +15,12 @@ import type { AmaraLanguage } from '../../types/seo';
 import AuthorityTextSection from './AuthorityTextSection.astro';
 
 interface Props {
-  content: TarifaExperienceSpokeContent;
+  spoke: TarifaExperienceSpokeId;
   lang?: string;
 }
 
-const { content, lang = 'es' } = Astro.props;
+const { spoke, lang = 'es' } = Astro.props;
+const content = tarifaExperienceSpokeContent[spoke];
 const currentLang = normalizeLanguage(lang as AmaraLanguage);
 const t = (value: LocalizedExperienceText) => value[currentLang];
 
