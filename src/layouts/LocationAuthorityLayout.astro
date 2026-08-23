@@ -1,6 +1,7 @@
 ---
 import type { LinkToken } from '../lib/linkResolver';
 // src/layouts/LocationAuthorityLayout.astro
+import AmaraPageShell from '../components/layout/AmaraPageShell.astro';
 import BaseLayout from './BaseLayout.astro';
 import type { AmaraAuthoringSeo, AmaraLanguage } from '../types/seo';
 
@@ -28,10 +29,10 @@ const {
   showContextNavigation={showContextNavigation}
   bodyBackgroundClass={bodyBackgroundClass}
 >
-  <!-- Global navigation stays before the layout-owned main landmark to preserve banner semantics across this page family. -->
+  <!-- Global navigation stays before the layout-owned page shell to preserve banner semantics across this page family. -->
   <slot name="navigation" />
 
-  <main id="am-main-content" tabindex="-1" class="scroll-mt-[104px] lg:scroll-mt-[112px]">
+  <AmaraPageShell family="location-authority" dataLang={pageLang} flush>
     <slot />
-  </main>
+  </AmaraPageShell>
 </BaseLayout>
