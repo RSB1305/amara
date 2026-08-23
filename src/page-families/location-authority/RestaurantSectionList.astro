@@ -1,0 +1,134 @@
+---
+import InlineEmphasis from '../../components/text/InlineEmphasis.astro';
+
+interface RestaurantCard {
+  title: string;
+  bestFor: string;
+  description: string;
+  tip: string;
+  goodToKnow: string;
+  mapHref: string;
+  websiteHref: string;
+}
+
+interface RestaurantSection {
+  id: string;
+  title: string;
+  intro: string;
+  restaurants: readonly RestaurantCard[];
+}
+
+interface Props {
+  sections: readonly RestaurantSection[];
+  labels: {
+    bestFor: string;
+    tip: string;
+    goodToKnow: string;
+    map: string;
+    website: string;
+  };
+  emphasizeText?: boolean;
+}
+
+const { sections, labels, emphasizeText = false } = Astro.props;
+---
+
+{
+  sections.map((section, sectionIndex) => (
+    <section
+      id={section.id}
+      class:list={[
+        'am-section',
+        sectionIndex % 2 === 0 ? 'am-section--plain' : 'am-section--tint'
+      ]}
+    >
+      <div class="mb-16 max-w-3xl">
+        <h2 class="am-text-title mb-6 italic tracking-tight text-on-surface">{section.title}</h2>
+        <p class="am-text-body leading-relaxed text-on-surface-variant">
+          {emphasizeText ? <InlineEmphasis text={section.intro} /> : section.intro}
+        </p>
+      </div>
+
+      <div
+        class:list={[
+          section.restaurants.length === 1
+            ? 'max-w-3xl'
+            : 'grid grid-cols-1 gap-x-10 gap-y-14 lg:grid-cols-2 xl:grid-cols-3'
+        ]}
+      >
+        {section.restaurants.map((restaurant, restaurantIndex) => {
+          const titleId = `${section.id}-restaurant-${restaurantIndex}`;
+          const hasGridPeers = section.restaurants.length > 1;
+
+          return (
+            <article
+              class="flex h-full flex-col border-t border-outline-variant/25 pt-8"
+              aria-labelledby={titleId}
+            >
+              <h3 id={titleId} class="am-text-subtitle mb-5 text-on-surface lg:min-h-[2.8em]">
+                {restaurant.title}
+              </h3>
+
+              <div class="mb-6 flex flex-wrap items-start lg:min-h-[4.25rem]">
+                <span class="rounded-pill border border-outline-variant/30 bg-surface-container-lowest px-3 py-1 am-text-caption normal-case tracking-normal text-primary">
+                  <span class="font-bold">{labels.bestFor}:</span>{' '}
+                  {restaurant.bestFor}
+                </span>
+              </div>
+
+              <p
+                class:list={[
+                  'am-text-body leading-relaxed text-on-surface-variant',
+                  hasGridPeers && 'lg:min-h-[8.5rem]'
+                ]}
+              >
+                {emphasizeText ? <InlineEmphasis text={restaurant.description} /> : restaurant.description}
+              </p>
+
+              <div class="mt-6">
+                <p
+                  class:list={[
+                    'border-l border-primary/20 bg-surface-container-low px-4 py-3 am-text-body leading-relaxed text-on-surface-variant',
+                    hasGridPeers && 'lg:min-h-[12rem]'
+                  ]}
+                >
+                  <span class="font-bold text-primary">{labels.tip}:</span>{' '}
+                  {restaurant.tip}
+                </p>
+
+                <p
+                  class:list={[
+                    'mt-5 am-text-body leading-relaxed text-on-surface-variant',
+                    hasGridPeers && 'lg:min-h-[9.5rem]'
+                  ]}
+                >
+                  <span class="font-bold text-on-surface">{labels.goodToKnow}:</span>{' '}
+                  {restaurant.goodToKnow}
+                </p>
+              </div>
+
+              <p class="mt-5 flex flex-wrap gap-x-5 gap-y-2 am-text-body lg:mt-auto">
+                <a
+                  href={restaurant.mapHref}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="am-inline-link"
+                >
+                  {labels.map}<span aria-hidden="true"> ↗</span>
+                </a>
+                <a
+                  href={restaurant.websiteHref}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="am-inline-link"
+                >
+                  {labels.website}<span aria-hidden="true"> ↗</span>
+                </a>
+              </p>
+            </article>
+          );
+        })}
+      </div>
+    </section>
+  ))
+}

@@ -3,7 +3,6 @@ import InlineEmphasis from '../../components/text/InlineEmphasis.astro';
 import LocationExperienceHero from '../../components/location/LocationExperienceHero.astro';
 import Navigation from '../../components/Navigation.astro';
 import EditorialClosingCta from '../../components/editorial/EditorialClosingCta.astro';
-import EditorialFeatureGrid from '../../components/editorial/EditorialFeatureGrid.astro';
 import ExperienceContextNav from '../../components/experience/ExperienceContextNav.astro';
 import {
   nerjaFoodPageContent,
@@ -14,6 +13,8 @@ import LocationAuthorityLayout from '../../layouts/LocationAuthorityLayout.astro
 import { createRequiredLinkResolver, type LabeledLink } from '../../lib/linkResolver';
 import { normalizeLanguage } from '../../lib/seo/resolve-seo-head';
 import type { AmaraLanguage } from '../../types/seo';
+import AuthorityFeatureSection from './AuthorityFeatureSection.astro';
+import RestaurantSectionList from './RestaurantSectionList.astro';
 
 interface Props { lang?: string; }
 
@@ -57,35 +58,27 @@ const heroImage = { src: '/images/amara-frigiliana-pueblo/nerja-coast-aerial.jpe
       } : undefined}
     />
 
-    <section id="choose" class="am-section am-section--tint">
-      <div class="mb-16 max-w-3xl"><h2 class="am-text-title mb-6 italic tracking-tight text-on-surface">{copy.overview.title}</h2><p class="am-text-body leading-relaxed text-on-surface-variant"><InlineEmphasis text={copy.overview.intro} /></p></div>
-      <EditorialFeatureGrid cards={copy.overview.items.map((item) => ({ title: item.title, copy: item.text }))} />
-    </section>
+    <AuthorityFeatureSection
+      id="choose"
+      title={copy.overview.title}
+      intro={copy.overview.intro}
+      items={copy.overview.items}
+      emphasizeText
+    />
 
-    {restaurantSections.map((section, sectionIndex) => (
-      <section id={section.id} class:list={['am-section', sectionIndex % 2 === 0 ? 'am-section--plain' : 'am-section--tint']}>
-        <div class="mb-16 max-w-3xl"><h2 class="am-text-title mb-6 italic tracking-tight text-on-surface">{section.title}</h2><p class="am-text-body leading-relaxed text-on-surface-variant"><InlineEmphasis text={section.intro} /></p></div>
-        <div class="grid grid-cols-1 gap-x-10 gap-y-14 lg:grid-cols-2 xl:grid-cols-3">
-          {section.restaurants.map((restaurant, restaurantIndex) => {
-            const titleId = `${section.id}-restaurant-${restaurantIndex}`;
-            return (
-              <article class="flex h-full flex-col border-t border-outline-variant/25 pt-8" aria-labelledby={titleId}>
-                <h3 id={titleId} class="am-text-subtitle mb-5 text-on-surface lg:min-h-[2.8em]">{restaurant.title}</h3>
-                <div class="mb-6 flex flex-wrap items-start lg:min-h-[4.25rem]"><span class="rounded-pill border border-outline-variant/30 bg-surface-container-lowest px-3 py-1 am-text-caption normal-case tracking-normal text-primary"><span class="font-bold">{shared.cardLabels.bestFor}:</span>{' '}{restaurant.bestFor}</span></div>
-                <p class="am-text-body leading-relaxed text-on-surface-variant lg:min-h-[8.5rem]"><InlineEmphasis text={restaurant.description} /></p>
-                <div class="mt-6"><p class="border-l border-primary/20 bg-surface-container-low px-4 py-3 am-text-body leading-relaxed text-on-surface-variant lg:min-h-[12rem]"><span class="font-bold text-primary">{shared.cardLabels.tip}:</span>{' '}{restaurant.tip}</p><p class="mt-5 am-text-body leading-relaxed text-on-surface-variant lg:min-h-[9.5rem]"><span class="font-bold text-on-surface">{shared.cardLabels.goodToKnow}:</span>{' '}{restaurant.goodToKnow}</p></div>
-                <p class="mt-5 flex flex-wrap gap-x-5 gap-y-2 am-text-body lg:mt-auto"><a href={restaurant.mapHref} target="_blank" rel="noopener noreferrer" class="am-inline-link">{shared.cardLabels.map}<span aria-hidden="true"> ↗</span></a><a href={restaurant.websiteHref} target="_blank" rel="noopener noreferrer" class="am-inline-link">{shared.cardLabels.website}<span aria-hidden="true"> ↗</span></a></p>
-              </article>
-            );
-          })}
-        </div>
-      </section>
-    ))}
+    <RestaurantSectionList
+      sections={restaurantSections}
+      labels={shared.cardLabels}
+      emphasizeText
+    />
 
-    <section id="planning" class="am-section am-section--tint">
-      <div class="mb-16 max-w-3xl"><h2 class="am-text-title mb-6 italic tracking-tight text-on-surface">{shared.planning.title}</h2><p class="am-text-body leading-relaxed text-on-surface-variant"><InlineEmphasis text={shared.planning.intro} /></p></div>
-      <EditorialFeatureGrid cards={planningItems.map((item) => ({ title: item.title, copy: item.text }))} />
-    </section>
+    <AuthorityFeatureSection
+      id="planning"
+      title={shared.planning.title}
+      intro={shared.planning.intro}
+      items={planningItems}
+      emphasizeText
+    />
 
     <section class="am-section am-section--plain">
       <div class="mb-12 max-w-3xl"><h2 class="am-text-title italic tracking-tight text-on-surface">{copy.related.title}</h2></div>
