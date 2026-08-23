@@ -11,23 +11,47 @@ interface Props {
   intro: string;
   items: readonly GuideLinkCard[];
   surface?: 'plain' | 'tint' | 'surface';
+  columns?: 2 | 3;
+  headerLinkNote?: {
+    before: string;
+    href: string | null;
+    label: string;
+    after: string;
+  };
 }
 
-const { title, intro, items, surface = 'plain' } = Astro.props;
+const {
+  title,
+  intro,
+  items,
+  surface = 'plain',
+  columns = 2,
+  headerLinkNote
+} = Astro.props;
 const surfaceClass = surface === 'tint'
   ? 'am-section--tint'
   : surface === 'surface'
     ? 'bg-surface'
     : 'am-section--plain';
+const gridClass = columns === 3
+  ? 'grid-cols-1 gap-x-12 gap-y-14 lg:grid-cols-3'
+  : 'grid-cols-1 gap-x-16 gap-y-14 lg:grid-cols-2';
 ---
 
 <section class:list={['am-section', surfaceClass]}>
   <div class="mb-16 max-w-3xl">
     <h2 class="am-text-title mb-6 italic tracking-tight text-on-surface">{title}</h2>
     <p class="am-text-body leading-relaxed text-on-surface-variant">{intro}</p>
+    {headerLinkNote?.href && (
+      <p class="mt-5 am-text-body leading-relaxed text-on-surface-variant">
+        {headerLinkNote.before}<a href={headerLinkNote.href} class="am-inline-link">
+          {headerLinkNote.label}
+        </a>{headerLinkNote.after}
+      </p>
+    )}
   </div>
 
-  <div class="grid grid-cols-1 gap-x-16 gap-y-14 lg:grid-cols-2">
+  <div class:list={['grid', gridClass]}>
     {items.map((item) => (
       <article class="border-t border-outline-variant/25 pt-8">
         <h3 class="am-text-subtitle mb-5 text-on-surface">{item.title}</h3>
