@@ -166,13 +166,6 @@
     text-transform: uppercase;
   }
 
-  .am-text-micro {
-    font-family: var(--font-label);
-    font-size: clamp(0.5rem, 0.45rem + 0.25vw, 0.6875rem);
-    font-weight: 700;
-    line-height: 1.2;
-    letter-spacing: 0.16em;
-  }
 
   /* Label roles. These carry the whole label treatment — family, weight, size,
    * tracking and case — so a label in markup is one class plus its colour, not a

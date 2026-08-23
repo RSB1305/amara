@@ -1,12 +1,12 @@
 ---
 document_id: AMARA-REG-001
 title: AMARA Register
-version: 1.9.0
+version: 1.10.0
 status: ACTIVE
 authority_class: LIVING BINDING REGISTER
 activation_state: ACTIVE
 effective_from: 2026-08-14
-last_modified: 2026-08-22T07:48:36+02:00
+last_modified: 2026-08-23T10:25:00+02:00
 canonical_path: /docs/AMARA_REGISTER.md
 ---
 
@@ -63,6 +63,7 @@ Current operational feature owner during transition:
 | DR-EXEC-006 | Operator time, attention, AI credits, builds and deployments are first-class constraints; process cost must be proportional to realistic failure impact. | APPROVED |
 | DR-EXEC-007 | Validated local commits should normally be batched into intentional push/release points instead of automatic micro-pushes. | APPROVED |
 | DR-EXEC-008 | Routine new SSOT information may enter an intake queue and be consolidated at `AMARA SSOT SYNC`; do not version multiple owner documents several times per day without a real urgent contract need. | APPROVED |
+| DR-EXEC-009 | After a material release batch, the area that batch actually changed may be reviewed for repeated content, renderer and presentation patterns and consolidated behaviour-preservingly, including the shared owners inside that area. The slot is bounded by the changed area; it is not an opening for repository-wide refactoring, redesign or new features, and it does not lower the Class 3 alignment requirement for contracts outside that area. | ACTIVE |
 | DR-GOV-001 | Conversational shorthand or a new isolated statement cannot silently supersede an ACTIVE contract; apparent conflicts trigger Reality Reconciliation and explicit contract-level confirmation. | APPROVED |
 
 ### Platform/runtime/links
@@ -103,6 +104,13 @@ They do **not** supersede the current implementation. Until a separately aligned
 | DR-PERF-001 | `build.inlineStylesheets: 'auto'` is the current CSS delivery decision. | ACTIVE |
 | DR-PERF-002 | Current self-hosted font strategy remains; no preload by default without measured delay. | ACTIVE |
 
+### Design system
+
+| ID | Decision | Status |
+|---|---|---|
+| DR-DESIGN-001 | The typography roles in `src/styles/global.css` are the sole owner of text size, weight, tracking and case. Typographic arbitrary Tailwind values are policy-checked against a recorded baseline in `scripts/typography-baseline.json`, which fails on a new value and on a resolved value that has not been banked. A genuine exception stays possible and is recorded there rather than argued at review time. | ACTIVE |
+| DR-DESIGN-002 | A visual treatment that appears at more than one call site is a role or a component, not a repeated class recipe. Where several spellings of one role are found, the role is fixed at the value the majority of call sites already used, and the resulting step becomes adjustable in one place. | ACTIVE |
+
 ### Content/localization
 
 | ID | Principle | Status |
@@ -114,6 +122,8 @@ They do **not** supersede the current implementation. Until a separately aligned
 | DR-EVIDENCE-001 | `knowledge/` is AMARA's durable, non-public Evidence & Knowledge owner for research dossiers, atomic facts, sources, claim boundaries, review state and open questions. Public authoring in `src/content/` is a curated projection of that knowledge; presentation remains owned by page families and components. | ACTIVE |
 | DR-EVIDENCE-002 | Redesigning, shortening or removing public copy must not delete its underlying evidence. New research updates knowledge records through explicit verification or supersession; it does not silently overwrite history or publish itself. | ACTIVE |
 | DR-EVIDENCE-003 | Google Drive is AMARA's immutable archive for timestamped raw research inputs; Git `knowledge/` is the canonical versioned evaluation and page-coverage layer. Stable Drive folder IDs are recorded in run/page manifests. Raw uploads never publish directly, and later research uses a new run instead of overwriting an earlier one. | ACTIVE |
+| DR-CONTENT-STRUCT-001 | Public content modules localize at the leaf: the module describes the page once and each authored string carries its five locales. `src/types/content.ts` is the owner of that contract and of `LocalizedText`, `LocalizedTextList`, `Localized<T>` and `LocalizedTextSection`. Modules that still carry one whole copy of the page shape per language are migrated as they are materially revised, not in a separate campaign. This is a structural rule only; it does not permit deriving one locale from another, and TR-CONTENT-002 continues to govern meaning depth and material nuance. | ACTIVE |
+| DR-CONTENT-STRUCT-002 | The five locales of a content module must stay structurally identical — same keys, same list lengths. Parity is enforced by contract test rather than by review. Gaps that exist today are recorded there with what is missing; a recorded gap may only be closed by authored copy in the missing languages, and a gap that no longer exists must be removed from the record. | ACTIVE |
 | DR-IA-001 | Public destination information is organized into distinct **Location** and **Experience** branches. Private guest utility content and the non-public Evidence & Knowledge layer remain separate. A subject is assigned by its primary user job and decision context, not merely by a shared topic word; bounded reuse of underlying facts is allowed. | ACTIVE |
 | DR-IA-002 | Location uses one shared semantic information model across destinations: **Orientation & Areas**, **Climate & Seasons**, **Arrival & Parking**, and **Daily Life & Essentials**, with the current nine topic units beneath them. This model is a coverage and authoring framework, not a requirement that every topic or destination have an identical standalone public route. | ACTIVE |
 | DR-IA-003 | A Location topic may be published as a hub section, standalone guide, short public planning note or private guest content. A standalone public page requires an independent pre-booking or trip-planning job with sufficient durable value; keyword opportunity or cross-destination symmetry alone is insufficient. | ACTIVE |
@@ -162,6 +172,7 @@ Routine new evidence/ideas may be captured here or in the relevant working evide
 | 2026-08-21T22:14:30+02:00 | Collective host voice | Activated the collective host perspective, plural guest address and evidence-to-host-voice boundary; added the operative detail in Content Playbook 1.3.0 and the daily summary in `AGENTS.md`. | TR-CONTENT-004, DR-EVIDENCE-001–003 | this revision |
 | 2026-08-22T06:48:59+02:00 | Daily Life topic ownership and research intake | Separated everyday supermarket planning from weekly-market Experience content, approved a shared Mobile-First topic-family direction subject to the existing standalone-page evidence gate, and opened three cross-destination raw-research runs with nine page coverage manifests. Register 1.8.0. | DR-IA-001–005, DR-EVIDENCE-001–003 | this revision |
 | 2026-08-22T07:48:36+02:00 | Public and booked-guest information boundary | Activated the public-usefulness and booked-guest operational-depth split, including a single native transition block and the safety-information exception. Guest Utility 2.1.0, Content Playbook 1.4.0, Register 1.9.0. | DR-GUEST-001, TR-CONTENT-004, DR-IA-001–003 | this revision |
+| 2026-08-23T10:25:00+02:00 | Content structure, typography ownership and the consolidation slot | Activated leaf-level localization as the binding content-structure contract with `src/types/content.ts` as its owner, enforced five-locale structural parity by contract test, made the typography roles the enforced owner of text treatment, and opened a bounded post-batch consolidation slot. Register 1.10.0. | DR-CONTENT-STRUCT-001–002, DR-DESIGN-001–002, DR-EXEC-009 | this revision |
 
 ## 5. Intentional supersessions
 
@@ -207,3 +218,4 @@ Separate controlled workstreams remain for:
 | 1.7.0 | 2026-08-21T22:14:30+02:00 | Activated Performance Standard 2.1.0 and the collective host-voice/evidence-provenance contract with Content Playbook 1.3.0. | this revision |
 | 1.8.0 | 2026-08-22T06:48:59+02:00 | Clarified Supermarkets versus weekly-market ownership, approved the evidence-gated shared Daily Life topic-family direction and registered its three research runs. | this revision |
 | 1.9.0 | 2026-08-22T07:48:36+02:00 | Activated the public-usefulness, booked-guest operational-depth and contextual transition-block boundary. | this revision |
+| 1.10.0 | 2026-08-23T10:25:00+02:00 | Activated the leaf-level content localization contract, five-locale structural parity enforcement, typography role ownership and the bounded post-batch consolidation slot. | this revision |

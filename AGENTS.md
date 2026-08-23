@@ -53,10 +53,15 @@ Classify the change by the owner or contract actually being changed, not by shar
 - Preserve hierarchy, section rhythm, spacing, typography and component consistency. Do not redesign during cleanup or refactoring unless redesign is the objective.
 - Shared Navigation, Footer, Hero, FAQ, CTA and Layout changes have broad blast radius; keep them minimal and validate representative consumers.
 - Use existing `linkRegistry.ts` and `routeOwnership.ts` contracts where applicable. Do not invent silent fallbacks, aliases or token behavior.
+- Text size, weight, tracking and case come from the typography roles in `src/styles/global.css`. A typographic arbitrary Tailwind value fails `check:typography-policy` unless it is deliberately recorded in the baseline. A treatment used at more than one call site is a role, not a repeated recipe.
 - Keep Astro simple and client JavaScript minimal unless it provides a concrete user benefit.
 - Code must be production-ready, narrow and consistent with project conventions. Comments explain architectural intent in professional English.
 
 ## Localization
+
+Content modules localize at the leaf: the module describes the page once and each authored string carries its five locales, using `LocalizedText` and its siblings from `src/types/content.ts` (`DR-CONTENT-STRUCT-001`). Modules still carrying one copy of the page shape per language are migrated when they are materially revised, not in a separate campaign.
+
+The five locales of a module must stay structurally identical; a contract test enforces this and records the gaps that exist today. A recorded gap is closed by authored copy in the missing languages, never by deriving one locale from another.
 
 The cross-language SSOT is facts, page job, evidence, claim boundaries, required information/topics, conversion intent, meaning depth and material nuance. English may be a working reference but is not a mandatory master language.
 
@@ -65,6 +70,18 @@ Every locale must be natural and market-native. Do not shorten away required inf
 Public editorial copy speaks from AMARA's collective host perspective and addresses guests in the plural form natural to EN, DE, ES, NL and SV. This voice must not turn researched or third-party evidence into an invented first-party observation.
 
 The Navigation booking CTA must have a native localized label in EN, DE, ES, NL and SV.
+
+## Consolidation slot
+
+FAST optimizes each task locally, which is right for the task and, repeated often enough, produces duplication no single task is responsible for. This slot is the counterweight (`DR-EXEC-009`).
+
+After a material release batch, the area that batch actually changed may be reviewed for repeated content, renderer and presentation patterns and consolidated. Within that area this is expected work, not scope creep, and it may touch the shared owners that live inside it.
+
+- The changed area bounds the slot. It is not an opening for repository-wide refactoring.
+- Consolidation preserves behaviour. Prove it: compare the built output before and after, and treat a visible difference as a finding rather than an acceptable side effect.
+- Where one role has several spellings, fix it at the value most call sites already use, and say in the commit how many sites shift.
+- No redesign, no new features, no content shortening. A genuinely distinct page job stays distinct.
+- Contracts outside the changed area keep their normal Class 3 alignment requirement.
 
 ## FAST preflights
 
