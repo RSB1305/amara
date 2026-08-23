@@ -1,8 +1,8 @@
+import type { LocalizedText } from '../types/content';
 import type { LinkToken } from '../lib/linkResolver';
 import type { AmaraAuthoringSeo, AmaraLanguage } from '../types/seo';
 import { trustLabels } from './trustLabels';
 
-type LocalizedText = Record<AmaraLanguage, string>;
 
 interface AboutUsSection {
   title?: LocalizedText;

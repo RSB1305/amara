@@ -1,6 +1,6 @@
-import type { AmaraAuthoringSeo, AmaraLanguage } from '../types/seo';
+import type { LocalizedText } from '../types/content';
+import type { AmaraAuthoringSeo } from '../types/seo';
 
-type LocalizedText = Record<AmaraLanguage, string>;
 
 const l = (
   en: string,

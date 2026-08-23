@@ -1,8 +1,9 @@
+import type { LocalizedText } from '../types/content';
+export type { LocalizedText };
 import type { LinkToken } from '../lib/linkResolver';
 import type { AmaraAuthoringSeo, AmaraLanguage } from '../types/seo';
 
 export type TarifaGuideId = 'overview' | 'wind' | 'beaches';
-export type LocalizedText = Record<AmaraLanguage, string>;
 
 export interface TarifaGuideCard {
   kicker: LocalizedText;

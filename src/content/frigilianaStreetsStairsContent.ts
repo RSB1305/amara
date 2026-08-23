@@ -1,7 +1,7 @@
-import type { AmaraAuthoringSeo, AmaraLanguage } from '../types/seo';
+import type { LocalizedText } from '../types/content';
+import type { AmaraAuthoringSeo } from '../types/seo';
 import { stayCollectionLabels } from './stayCollectionLabels';
 
-type LocalizedText = Record<AmaraLanguage, string>;
 
 export const frigilianaStreetsStairsSeo: AmaraAuthoringSeo = {
   version: '2026-08-21-frigiliana-micro-location-v3.0',

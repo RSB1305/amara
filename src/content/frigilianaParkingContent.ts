@@ -1,8 +1,8 @@
-import type { AmaraAuthoringSeo, AmaraLanguage } from '../types/seo';
+import type { LocalizedText } from '../types/content';
+import type { AmaraAuthoringSeo } from '../types/seo';
 import type { EvidenceReferenceMap } from '../../knowledge/schema';
 import type { FrigilianaParkingFactId } from '../../knowledge/facts/locations/frigiliana/parking';
 
-type LocalizedText = Record<AmaraLanguage, string>;
 
 const l = (
   en: string,

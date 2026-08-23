@@ -1,10 +1,10 @@
+import type { LocalizedText } from '../types/content';
 import type { AmaraLanguage } from '../types/seo';
 import type {
   VacationRentalEntity,
   VacationRentalEntityKey
 } from './vacationRentalEntities';
 
-type LocalizedText = Record<AmaraLanguage, string>;
 
 const imageAltSubjects = {
   bedroom: {

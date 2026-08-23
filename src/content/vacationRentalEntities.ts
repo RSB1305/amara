@@ -1,3 +1,4 @@
+import type { LocalizedText } from '../types/content';
 import type {
   AmaraAuthoringSeo,
   AmaraEntityKey,
@@ -6,7 +7,6 @@ import type {
 
 export type VacationRentalEntityKey = Exclude<AmaraEntityKey, 'amara-brand'>;
 export type VacationRentalToken = 'farah' | 'lounis' | 'zaid' | 'maha' | 'playa' | 'casa';
-type LocalizedText = Record<AmaraLanguage, string>;
 
 export interface VacationRentalBed {
   numberOfBeds: number;

@@ -1,3 +1,4 @@
+import type { LocalizedText } from '../types/content';
 import type { ImageMetadata } from 'astro';
 import type { ArrivalJourneyGraphicData } from '../components/location/ArrivalJourneyGraphic.astro';
 import type { LocationGuideIconName } from '../components/location/LocationGuideIcon.astro';
@@ -132,7 +133,6 @@ export interface ArrivalGuidePageContent {
   footerHighlights: ArrivalGuideLink[];
 }
 
-type LocalizedText = Record<AmaraLanguage, string>;
 
 const text = (row: LocalizedText, lang: AmaraLanguage): string => row[lang] ?? row.en;
 const withoutLegacyNumber = (value: string): string => value.replace(/^\d+\s*[·.:–—-]\s*/u, '');

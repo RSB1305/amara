@@ -1,7 +1,7 @@
+import type { LocalizedText } from '../types/content';
 import type { AmenitySpecIcon } from '../components/amenities/AmenitySpecRow.astro';
 import type { AmaraLanguage } from '../types/seo';
 
-type LocalizedText = Record<AmaraLanguage, string>;
 
 export type ComfortAmenityCategory =
   | 'essentials'

@@ -1,6 +1,7 @@
+import type { LocalizedText } from '../types/content';
+export type { LocalizedText };
 import type { AmaraEntityKey, AmaraLanguage } from './seo';
 
-export type LocalizedText = Record<AmaraLanguage, string>;
 
 export type GuestGuideIconName =
   | 'accommodation'

@@ -1,7 +1,8 @@
+import type { LocalizedText } from '../types/content';
+export type { LocalizedText };
 import type { AmaraLanguage } from '../types/seo';
 import type { VacationRentalEntity } from './vacationRentalEntities';
 
-export type LocalizedText = Record<AmaraLanguage, string>;
 
 export const vacationRentalHostLanguages: LocalizedText = {
   en: 'German, English and Spanish',

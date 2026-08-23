@@ -1,6 +1,6 @@
+import type { LocalizedText } from '../types/content';
 import type { AmaraLanguage } from '../types/seo';
 
-type LocalizedText = Record<AmaraLanguage, string>;
 
 export const frigilianaPreFooterCopy: {
   eyebrow: LocalizedText;
