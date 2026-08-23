@@ -1,5 +1,5 @@
 ---
-import FrigilianaParkingPage from '../../page-families/location-authority/FrigilianaParkingPage.astro';
+import ParkingPage from '../../page-families/location-authority/ParkingPage.astro';
 import { getOwnedPageStaticPaths } from '../../lib/routeOwnership';
 import type { AmaraLanguage } from '../../types/seo';
 
@@ -10,4 +10,4 @@ export function getStaticPaths() {
 const { lang } = Astro.params as { lang: AmaraLanguage };
 ---
 
-<FrigilianaParkingPage lang={lang} />
+<ParkingPage destination="frigiliana" lang={lang} />

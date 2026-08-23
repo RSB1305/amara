@@ -1,0 +1,101 @@
+---
+import Navigation from '../../components/Navigation.astro';
+import LocationContextNav from '../../components/location/LocationContextNav.astro';
+import NerjaContextNav from '../../components/location/NerjaContextNav.astro';
+import TarifaContextNav from '../../components/location/TarifaContextNav.astro';
+import {
+  frigilianaParkingGuideContent,
+  frigilianaParkingGuideSeo
+} from '../../content/frigilianaParkingGuideContent';
+import { nerjaParkingContent, nerjaParkingSeo } from '../../content/nerjaParkingContent';
+import { tarifaParkingContent, tarifaParkingSeo } from '../../content/tarifaParkingContent';
+import LocationAuthorityLayout from '../../layouts/LocationAuthorityLayout.astro';
+import { createRequiredLinkResolver, type LabeledLink } from '../../lib/linkResolver';
+import { normalizeLanguage } from '../../lib/seo/resolve-seo-head';
+import type { AmaraLanguage } from '../../types/seo';
+import ParkingAuthorityArticle from './ParkingAuthorityArticle.astro';
+
+type Destination = 'frigiliana' | 'nerja' | 'tarifa';
+
+interface Props {
+  destination: Destination;
+  lang?: string;
+}
+
+const { destination, lang = 'es' } = Astro.props;
+const currentLang = normalizeLanguage(lang as AmaraLanguage);
+
+const contentByDestination = {
+  frigiliana: frigilianaParkingGuideContent,
+  nerja: nerjaParkingContent,
+  tarifa: tarifaParkingContent
+} as const;
+const seoByDestination = {
+  frigiliana: frigilianaParkingGuideSeo,
+  nerja: nerjaParkingSeo,
+  tarifa: tarifaParkingSeo
+} as const;
+const config = {
+  frigiliana: {
+    resolverName: 'Frigiliana parking',
+    languageToken: 'frigiliana_parking',
+    locationToken: 'location_frigiliana',
+    propertyToken: 'romantic_hideaways',
+    footerTokens: ['getting_to_frigiliana', 'frigiliana_stairs']
+  },
+  nerja: {
+    resolverName: 'Nerja parking',
+    languageToken: 'nerja_parking',
+    locationToken: 'location_nerja',
+    propertyToken: 'playa',
+    footerTokens: ['getting_to_nerja', 'nerja_where_to_stay']
+  },
+  tarifa: {
+    resolverName: 'Tarifa parking',
+    languageToken: 'tarifa_parking',
+    locationToken: 'location_tarifa',
+    propertyToken: 'casa',
+    footerTokens: ['getting_to_tarifa', 'tarifa_beaches_authority']
+  }
+} as const;
+
+const content = contentByDestination[destination][currentLang];
+const seo = seoByDestination[destination];
+const pageConfig = config[destination];
+const requiredLink = createRequiredLinkResolver(currentLang, pageConfig.resolverName);
+const footerHighlights: LabeledLink[] = [
+  { token: pageConfig.languageToken, label: content.navLabel },
+  { token: pageConfig.footerTokens[0], label: content.related.links[0].label },
+  { token: pageConfig.footerTokens[1], label: content.related.links[1].label }
+];
+---
+
+<LocationAuthorityLayout seo={seo} pageLang={currentLang} showContextNavigation={false} footerHighlights={footerHighlights}>
+  <Navigation slot="navigation" currentLang={currentLang} languageToken={pageConfig.languageToken} >
+    {destination === 'frigiliana' && (
+      <LocationContextNav slot="context-navigation" activeId="parking" lang={currentLang} />
+    )}
+    {destination === 'nerja' && (
+      <NerjaContextNav slot="context-navigation" activeId="parking-accessibility" childLabel={content.navLabel} lang={currentLang} />
+    )}
+    {destination === 'tarifa' && (
+      <TarifaContextNav slot="context-navigation"
+        activeId="overview"
+        activeChildId="parking-accessibility"
+        currentLabel="Tarifa"
+        childLabel={content.navLabel}
+        lang={currentLang}
+      />
+    )}
+  </Navigation>
+  <ParkingAuthorityArticle
+    pageId={`${destination}-parking`}
+    lang={currentLang}
+    content={content}
+    seo={seo}
+    authorHref={requiredLink('about')}
+    locationHref={requiredLink(pageConfig.locationToken)}
+    propertyHref={requiredLink(pageConfig.propertyToken)}
+    resolveHref={requiredLink}
+  />
+</LocationAuthorityLayout>

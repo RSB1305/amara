@@ -1,5 +1,5 @@
 ---
-import NerjaParkingPage from '../../page-families/location-authority/NerjaParkingPage.astro';
+import ParkingPage from '../../page-families/location-authority/ParkingPage.astro';
 import { getOwnedPageStaticPaths } from '../../lib/routeOwnership';
 import type { AmaraLanguage } from '../../types/seo';
 
@@ -7,4 +7,4 @@ export function getStaticPaths() { return getOwnedPageStaticPaths(); }
 const { lang } = Astro.params as { lang: AmaraLanguage };
 ---
 
-<NerjaParkingPage lang={lang} />
+<ParkingPage destination="nerja" lang={lang} />
