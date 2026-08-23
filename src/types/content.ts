@@ -15,12 +15,14 @@ import type { AmaraLanguage } from './seo';
  *
  * - **One structure definition.** The page shape exists once instead of five
  *   times, so a change to it is one edit rather than five that must agree.
- * - **Less duplication.** The thirteen modules migrated so far went from 8,252
- *   lines to 3,395 without a word of copy being removed.
+ * - **Less duplication.** Migrated modules consistently lose over half their
+ *   lines without a word of copy being removed; the shape simply stops being
+ *   repeated per language.
  * - **Visible semantic parity.** With the locales side by side at each value, a
  *   missing translation is a hole you can see, and for a required value it is a
  *   type error. Under the old structure a locale could quietly lose an entire
- *   block and still build.
+ *   block and still build — and a list of units could quietly hold different
+ *   ones, which is why the parity contract has to work harder there.
  * - **Safer maintenance.** Editing one sentence means editing one place, not
  *   finding the same sentence in five distant parts of the file.
  *
@@ -64,6 +66,24 @@ export interface LocalizedTextSection {
   title: LocalizedText;
   paragraphs: LocalizedTextList;
 }
+
+/**
+ * Declares a list whose *selection* is authored per market rather than
+ * translated: the locales deliberately hold different entries, not the same
+ * entries in another language.
+ *
+ * This is a narrow, opt-in exception to the locale parity contract, and it is
+ * declared beside the data rather than in a list of paths kept somewhere else,
+ * so it cannot drift out of step with what it describes. It exempts the marked
+ * list from having to hold the same units in every locale; every other rule
+ * still applies, and every list that does not carry it is still held to full
+ * parity.
+ *
+ * Use it only where the difference is an editorial decision about a market. A
+ * list that merely happens to have drifted apart is a content gap, and marking
+ * it here would hide exactly what the contract exists to surface.
+ */
+export const MARKET_CURATED = 'market-curated';
 
 /** Resolve a single localized value for the language currently being rendered. */
 export function localized<TValue>(

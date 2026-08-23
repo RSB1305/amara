@@ -1,3 +1,4 @@
+import { MARKET_CURATED } from '../types/content';
 import type { AmaraAuthoringSeo, AmaraLanguage } from '../types/seo';
 import { stayCollectionLabels } from './stayCollectionLabels';
 
@@ -74,6 +75,18 @@ interface ExperienceHubPageCopy {
   moods: {
     title: string;
     intro: string;
+    /**
+     * Declares that `items` below is chosen per market rather than translated.
+     *
+     * Each locale leads with the four experiences its readers arrive looking
+     * for — German with hiking, Spanish with the festival calendar, Dutch with
+     * walking, Swedish with wellness — and gives each one its own mood phrase
+     * rather than a translation of the English label. Without this declaration
+     * the locale parity contract would read five different selections as drift
+     * and report a content gap, which is precisely what it should do for every
+     * list that does not carry it.
+     */
+    curation: typeof MARKET_CURATED;
     items: {
       label: string;
       id: ExperienceId;
@@ -401,6 +414,7 @@ export const experienceHubContent: Record<
       title: 'What would you like to do today?',
       intro:
         'Choose an activity to open the full guide with locations, practical notes and planning advice.',
+      curation: MARKET_CURATED,
       items: [
         { label: 'Sea air', id: 'beaches' },
         { label: 'A cultural detour', id: 'dayTrips' },
@@ -568,6 +582,7 @@ export const experienceHubContent: Record<
       title: 'Was möchtet ihr heute unternehmen?',
       intro:
         'Wählt eine Aktivität und öffnet den vollständigen Guide mit Orten, praktischen Hinweisen und Planungstipps.',
+      curation: MARKET_CURATED,
       items: [
         { label: 'Raus in die Natur', id: 'hiking' },
         { label: 'Kultur entdecken', id: 'dayTrips' },
@@ -734,6 +749,7 @@ export const experienceHubContent: Record<
       title: '¿Qué queréis hacer hoy?',
       intro:
         'Elegid una actividad para abrir la guía completa con lugares, consejos prácticos y ayuda para planificar.',
+      curation: MARKET_CURATED,
       items: [
         { label: 'Comer bien', id: 'restaurants' },
         { label: 'Vivir el pueblo', id: 'festivals' },
@@ -900,6 +916,7 @@ export const experienceHubContent: Record<
       title: 'Wat willen jullie vandaag doen?',
       intro:
         'Kies een activiteit en open de volledige gids met locaties, praktische informatie en planningstips.',
+      curation: MARKET_CURATED,
       items: [
         { label: 'Naar zee', id: 'beaches' },
         { label: 'Actief naar buiten', id: 'hiking' },
@@ -1066,6 +1083,7 @@ export const experienceHubContent: Record<
       title: 'Vad vill ni göra i dag?',
       intro:
         'Välj en aktivitet och öppna hela guiden med platser, praktisk information och planeringsråd.',
+      curation: MARKET_CURATED,
       items: [
         { label: 'Havsluft', id: 'beaches' },
         { label: 'En riktigt lugn dag', id: 'wellness' },
