@@ -4,6 +4,7 @@ interface Props {
   dataLang?: string;
   documentVersion?: string;
   publishedAt?: string;
+  flush?: boolean;
   class?: string;
 }
 
@@ -12,6 +13,7 @@ const {
   dataLang,
   documentVersion,
   publishedAt,
+  flush = false,
   class: className
 } = Astro.props;
 ---
@@ -19,7 +21,7 @@ const {
 <main
   id="am-main-content"
   tabindex="-1"
-  class:list={['am-page-shell', className]}
+  class:list={['am-page-shell', { 'am-page-shell--flush': flush }, className]}
   data-am-page={family}
   data-lang={dataLang}
   data-document-version={documentVersion}

@@ -520,6 +520,11 @@
     background: var(--color-surface-white);
   }
 
+  /** Full-width page families retain their own established module gutters. */
+  .am-page-shell--flush .am-page-shell__frame {
+    padding-inline: 0;
+  }
+
   .am-page-section {
     padding-block: var(--spacing-page-section);
   }

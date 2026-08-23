@@ -2,6 +2,7 @@
 import InlineEmphasis from '../../components/text/InlineEmphasis.astro';
 import AmaraImage from '../../components/AmaraImage.astro';
 import Hero from '../../components/Hero.astro';
+import AmaraPageShell from '../../components/layout/AmaraPageShell.astro';
 import Navigation from '../../components/Navigation.astro';
 import churchImage from '../../assets/images/content/amara-frigiliana-pueblo/JPG_Frigiliana_Pueblo/2000px_72dpi_sRGB/01-frigiliana-pueblo.jpg';
 import villageImage from '../../assets/images/content/hero-frigiliana.jpg';
@@ -79,20 +80,15 @@ const parishHref = 'https://diocesismalaga.es/parroquias/145/san-antonio-de-padu
     languageToken="frigiliana_weddings"
   />
 
-  <main
-    id="am-main-content"
-    tabindex="-1"
-    class="min-h-screen overflow-hidden scroll-mt-[104px] lg:scroll-mt-[112px]"
-    data-am-page="frigiliana-weddings"
-  >
+  <AmaraPageShell family="frigiliana-weddings" dataLang={currentLang} flush>
     <Hero imageSrc={churchImage} imageAlt={copy.hero.imageAlt}>
-      <span class="am-text-caption mb-8 block text-primary">
+      <span class="am-text-label mb-8 block text-primary">
         {copy.hero.kicker}
       </span>
-      <h1 class="am-text-display mb-7 break-words italic tracking-tighter text-on-surface md:mb-8">
+      <h1 class="am-text-display mb-7 break-words text-on-surface md:mb-8">
         {copy.hero.title}
       </h1>
-      <p class="am-text-subtitle max-w-2xl italic leading-relaxed text-on-surface">
+      <p class="am-text-subtitle max-w-2xl leading-relaxed text-on-surface">
         {copy.hero.lead}
       </p>
       <div class="mt-8 max-w-2xl space-y-5 border-l border-primary/20 pl-6 md:pl-10">
@@ -105,10 +101,10 @@ const parishHref = 'https://diocesismalaga.es/parroquias/145/san-antonio-de-padu
       </a>
     </Hero>
 
-    <section class="border-t border-outline-variant/5 bg-surface-container-low">
+    <section class="border-t border-outline-variant/5 bg-surface-white">
       <div class="mx-auto grid max-w-screen-2xl items-center gap-12 px-6 py-20 md:px-12 md:py-28 lg:grid-cols-12 lg:gap-16">
         <div class="max-w-2xl lg:col-span-5">
-          <h2 class="am-text-title italic tracking-tight text-on-surface">
+          <h2 class="am-text-title text-on-surface">
             {copy.village.title}
           </h2>
           <div class="mt-8 space-y-5">
@@ -132,10 +128,10 @@ const parishHref = 'https://diocesismalaga.es/parroquias/145/san-antonio-de-padu
 
     <section
       id="wedding-stay"
-      class="scroll-mt-36 border-t border-outline-variant/5 bg-surface"
+      class="scroll-mt-36 border-t border-outline-variant/5 bg-surface-white"
     >
       <div class="mx-auto max-w-screen-2xl px-6 py-20 md:px-12 md:py-28">
-        <h2 class="am-text-title max-w-3xl italic tracking-tight text-on-surface">
+        <h2 class="am-text-title max-w-3xl text-on-surface">
           {copy.stayOptions.title}
         </h2>
 
@@ -203,10 +199,10 @@ const parishHref = 'https://diocesismalaga.es/parroquias/145/san-antonio-de-padu
       </div>
     </section>
 
-    <section class="border-t border-outline-variant/5 bg-surface-container-low">
+    <section class="border-t border-outline-variant/5 bg-surface-white">
       <div class="mx-auto grid max-w-screen-2xl items-center gap-12 px-6 py-20 md:px-12 md:py-28 lg:grid-cols-12 lg:gap-16">
         <div class="max-w-2xl lg:col-span-5">
-          <h2 class="am-text-title italic tracking-tight text-on-surface">
+          <h2 class="am-text-title text-on-surface">
             {copy.prepare.title}
           </h2>
           <p class="am-text-body mt-6 leading-relaxed text-on-surface-variant">
@@ -239,10 +235,10 @@ const parishHref = 'https://diocesismalaga.es/parroquias/145/san-antonio-de-padu
       </div>
     </section>
 
-    <section class="border-t border-outline-variant/5 bg-surface">
+    <section class="border-t border-outline-variant/5 bg-surface-white">
       <div class="mx-auto max-w-screen-2xl px-6 py-20 md:px-12 md:py-28">
         <div class="max-w-3xl">
-          <h2 class="am-text-title italic tracking-tight text-on-surface">
+          <h2 class="am-text-title text-on-surface">
             {copy.planning.title}
           </h2>
           <p class="am-text-body mt-6 leading-relaxed text-on-surface-variant">
@@ -276,9 +272,9 @@ const parishHref = 'https://diocesismalaga.es/parroquias/145/san-antonio-de-padu
       </div>
     </section>
 
-    <section class="border-t border-outline-variant/5 bg-surface-container-low">
+    <section class="border-t border-outline-variant/5 bg-surface-white">
       <div class="mx-auto max-w-5xl px-6 py-20 md:px-12 md:py-28">
-        <h2 class="am-text-title max-w-3xl italic tracking-tight text-on-surface">
+        <h2 class="am-text-title max-w-3xl text-on-surface">
           {copy.faq.title}
         </h2>
         <div class="mt-12 divide-y divide-outline-variant/15 border-y border-outline-variant/15">
@@ -304,7 +300,7 @@ const parishHref = 'https://diocesismalaga.es/parroquias/145/san-antonio-de-padu
 
     <section class="border-t border-outline-variant/5 bg-on-surface text-surface">
       <div class="mx-auto max-w-4xl px-6 py-20 text-center md:px-12 md:py-28">
-        <h2 class="am-text-title italic tracking-tight text-surface">
+        <h2 class="am-text-title text-surface">
           {copy.closing.title}
         </h2>
         <div class="mx-auto mt-8 max-w-3xl space-y-5">
@@ -315,7 +311,7 @@ const parishHref = 'https://diocesismalaga.es/parroquias/145/san-antonio-de-padu
         <a class="am-btn am-btn--primary mt-9" href={links.book}>{copy.closing.cta}</a>
       </div>
     </section>
-  </main>
+  </AmaraPageShell>
 </BaseLayout>
 
 <style>
