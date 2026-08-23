@@ -1,0 +1,199 @@
+---
+import Navigation from '../../components/Navigation.astro';
+import LocationContextNav from '../../components/location/LocationContextNav.astro';
+import NerjaContextNav from '../../components/location/NerjaContextNav.astro';
+import TarifaContextNav from '../../components/location/TarifaContextNav.astro';
+import type { LocationGuideIconName } from '../../components/location/LocationGuideIcon.astro';
+import {
+  frigilianaGeographyContent,
+  frigilianaGeographySeo
+} from '../../content/frigilianaGeographyContent';
+import {
+  nerjaGeographyContent,
+  nerjaGeographySeo
+} from '../../content/nerjaGeographyContent';
+import {
+  tarifaGeographyContent,
+  tarifaGeographySeo
+} from '../../content/tarifaGeographyContent';
+import LocationAuthorityLayout from '../../layouts/LocationAuthorityLayout.astro';
+import { createRequiredLinkResolver, type LabeledLink } from '../../lib/linkResolver';
+import { normalizeLanguage } from '../../lib/seo/resolve-seo-head';
+import type { AmaraLanguage } from '../../types/seo';
+import AuthorityArticle from './AuthorityArticle.astro';
+import GeographyAuthorityBody from './GeographyAuthorityBody.astro';
+import AuthorityRelatedLinks from './AuthorityRelatedLinks.astro';
+
+type Destination = 'frigiliana' | 'nerja' | 'tarifa';
+
+interface Props {
+  destination: Destination;
+  lang?: string;
+}
+
+const { destination, lang = 'es' } = Astro.props;
+const currentLang = normalizeLanguage(lang as AmaraLanguage);
+
+const config = (() => {
+  if (destination === 'frigiliana') {
+    const content = frigilianaGeographyContent[currentLang];
+    const requiredLink = createRequiredLinkResolver(currentLang, 'Frigiliana geography');
+
+    return {
+      content,
+      seo: frigilianaGeographySeo,
+      requiredLink,
+      languageToken: 'frigiliana_geography' as const,
+      pageId: 'frigiliana-geography',
+      footerHighlights: [
+        { token: 'frigiliana_geography', label: content.navLabel },
+        { token: 'getting_to_frigiliana', label: content.related.links[0].label },
+        { token: 'frigiliana_stairs', label: content.related.links[1].label }
+      ] satisfies LabeledLink[],
+      factIcons: ['municipality', 'elevation', 'village-square', 'protected-landscape'] as LocationGuideIconName[],
+      landscapeIcons: ['village-square', 'coast', 'protected-landscape'] as LocationGuideIconName[],
+      primaryCta: {
+        href: requiredLink('getting_to_frigiliana'),
+        label: content.closing.arrivalLabel
+      },
+      secondaryCta: {
+        href: requiredLink('frigiliana_stairs'),
+        label: content.closing.stayLabel
+      }
+    };
+  }
+
+  if (destination === 'nerja') {
+    const content = nerjaGeographyContent[currentLang];
+    const requiredLink = createRequiredLinkResolver(currentLang, 'Nerja geography');
+
+    return {
+      content,
+      seo: nerjaGeographySeo,
+      requiredLink,
+      languageToken: 'nerja_geography' as const,
+      pageId: 'nerja-geography',
+      footerHighlights: [
+        { token: 'nerja_geography', label: content.navLabel },
+        { token: 'getting_to_nerja', label: content.related.links[0].label },
+        { token: 'nerja_where_to_stay', label: content.related.links[1].label }
+      ] satisfies LabeledLink[],
+      factIcons: undefined,
+      landscapeIcons: ['village', 'elevation', 'coast'] as LocationGuideIconName[],
+      primaryCta: {
+        href: requiredLink('playa'),
+        label: content.closing.propertyLabel
+      },
+      secondaryCta: {
+        href: requiredLink('location_nerja'),
+        label: content.closing.locationLabel
+      }
+    };
+  }
+
+  const content = tarifaGeographyContent[currentLang];
+  const requiredLink = createRequiredLinkResolver(currentLang, 'Tarifa geography');
+
+  return {
+    content,
+    seo: tarifaGeographySeo,
+    requiredLink,
+    languageToken: 'tarifa_geography' as const,
+    pageId: 'tarifa-geography',
+    footerHighlights: [
+      { token: 'tarifa_geography', label: content.navLabel },
+      { token: 'getting_to_tarifa', label: content.related.links[0].label },
+      { token: 'tarifa_where_to_stay', label: content.related.links[1].label }
+    ] satisfies LabeledLink[],
+    factIcons: undefined,
+    landscapeIcons: [
+      'coast',
+      'comparison',
+      'protected-landscape',
+      'elevation',
+      'evening',
+      'coast'
+    ] as LocationGuideIconName[],
+    primaryCta: {
+      href: requiredLink('location_tarifa'),
+      label: content.closing.locationLabel
+    },
+    secondaryCta: {
+      href: requiredLink('tarifa_experience_hub'),
+      label: content.closing.experienceLabel
+    }
+  };
+})();
+
+const { content } = config;
+const aboutHref = config.requiredLink('about');
+---
+
+<LocationAuthorityLayout
+  seo={config.seo}
+  pageLang={currentLang}
+  showContextNavigation={false}
+  footerHighlights={config.footerHighlights}
+>
+  <Navigation
+    slot="navigation"
+    currentLang={currentLang}
+    languageToken={config.languageToken}
+  >
+    {destination === 'frigiliana' && (
+      <LocationContextNav slot="context-navigation" activeId="geography" lang={currentLang} />
+    )}
+    {destination === 'nerja' && (
+      <NerjaContextNav slot="context-navigation"
+        activeId="geography-orientation"
+        childLabel={content.navLabel}
+        lang={currentLang}
+      />
+    )}
+    {destination === 'tarifa' && (
+      <TarifaContextNav slot="context-navigation"
+        activeId="overview"
+        activeChildId="geography-orientation"
+        currentLabel="Tarifa"
+        childLabel={content.navLabel}
+        lang={currentLang}
+      />
+    )}
+  </Navigation>
+
+  <AuthorityArticle
+    pageId={config.pageId}
+    family="location"
+    topic="geography"
+    lang={currentLang}
+    hero={content.hero}
+    authorName={config.seo.article!.authorName}
+    authorHref={aboutHref}
+    facts={content.facts}
+    factIcons={config.factIcons}
+    sources={content.sources}
+    closing={content.closing}
+    primaryCta={config.primaryCta}
+    secondaryCta={config.secondaryCta}
+    presentation="guide"
+    guideSummary={{
+      eyebrow: content.navLabel,
+      body: content.hero.standfirst,
+      items: content.facts.slice(0, 3)
+    }}
+  >
+    <GeographyAuthorityBody
+      destination={destination}
+      orientation={content.orientation}
+      sections={content.sections}
+      middleIcons={config.landscapeIcons}
+    />
+
+    <AuthorityRelatedLinks
+      related={content.related}
+      columns="md:grid-cols-2"
+      resolveHref={config.requiredLink}
+      presentation="guide"
+    />
+  </AuthorityArticle>
+</LocationAuthorityLayout>

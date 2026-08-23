@@ -1,5 +1,5 @@
 ---
-import TarifaGeographyPage from '../../page-families/location-authority/TarifaGeographyPage.astro';
+import GeographyPage from '../../page-families/location-authority/GeographyPage.astro';
 import { getOwnedPageStaticPaths } from '../../lib/routeOwnership';
 import type { AmaraLanguage } from '../../types/seo';
 
@@ -10,4 +10,4 @@ export function getStaticPaths() {
 const { lang } = Astro.params as { lang: AmaraLanguage };
 ---
 
-<TarifaGeographyPage lang={lang} />
+<GeographyPage destination="tarifa" lang={lang} />
