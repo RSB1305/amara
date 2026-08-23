@@ -35,6 +35,7 @@
  * image, then returns to the canonical solid navigation once the page scrolls.
  */
 [data-am-navigation][data-am-navigation-appearance="overlay"]:not([data-am-overlay-scrolled="true"]) {
+  border-bottom-width: 0;
   border-bottom-color: transparent;
   background: linear-gradient(180deg, rgba(22, 18, 14, 0.58) 0%, rgba(22, 18, 14, 0) 100%);
 }
