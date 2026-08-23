@@ -1,17 +1,18 @@
 ---
 document_id: AMARA-SYS-001
 title: AMARA System Constitution
-version: 5.1.1
+version: 5.2.0
 status: ACTIVE
 authority_class: PRINCIPLE / SYSTEM CONSTITUTION
 effective_from: 2026-08-14
-last_modified: 2026-08-14T12:59:47+02:00
+last_modified: 2026-08-23T19:30:21+02:00
 canonical_path: /docs/standards/01_AMARA_System_Constitution_V5.md
 supersedes:
   - AMARA System V4.2 - Master Architecture
   - AMARA Core V4 - Strategic Constitution
 activation_state: ACTIVE
 decision_refs:
+  - DR-BRAND-001
   - DR-DOC-001
   - DR-DOC-003
   - DR-PLATFORM-001
@@ -24,10 +25,17 @@ decision_refs:
 
 ## 1. Purpose and system identity
 
-AMARA is a structured destination platform for overnight guests and a direct-booking environment for real AMARA stays.
+AMARA is a hospitality brand built around **AMARA — Romantic Hideaways**: **special places for shared time as a couple.** Across Frigiliana, Nerja and Tarifa, it creates distinctive retreats in Andalusia for guests who consciously want to spend meaningful time together.
+
+AMARA's structured destination platform, Location Authority, Experience, Trust, Stays and Direct Booking systems help guests understand the place and the stay, build confidence and choose a suitable hideaway. These systems serve and substantiate the brand; they do not replace it.
+
+Romantic Hideaways is proved through real, property-specific qualities rather than interchangeable romance or luxury adjectives. Depending on the individual stay, relevant proof may include privacy, atmosphere, private outdoor spaces, terraces, hammocks, comfortable high-quality beds, historic old-town settings, proximity to the sea, sea views, sunset views, personal contact and personal hosting. **Not every hideaway has every attribute**, and no portfolio-level positioning permits an unsupported property-level claim.
+
+Guest capacity above two does not exclude a stay from the Romantic Hideaways positioning when that stay is also a credible, high-quality setting for shared time as a couple. AMARA Family & Surf in Tarifa is part of the same AMARA — Romantic Hideaways brand and must not be separated into a competing brand category.
 
 Its durable objectives are to:
 
+- build a coherent Romantic Hideaways hospitality brand;
 - build long-term destination authority;
 - reduce uncertainty in the stay decision;
 - connect destination understanding with suitable AMARA stays;
@@ -35,6 +43,8 @@ Its durable objectives are to:
 - support direct booking without turning informational pages into sales pages;
 - scale across destinations and five languages without losing structural clarity;
 - remain understandable and maintainable at 500+ page scale.
+
+In the long term, AMARA should be recognizable first as a coherent Romantic Hideaways hospitality brand, supported by a structured destination knowledge system, a consistent set of real lodging entities, a trustworthy direct-booking environment and a platform that explains stay decisions.
 
 AMARA is not a generic travel blog, an OTA clone, a collection of unrelated SEO landing pages, or a second parallel platform.
 
@@ -241,3 +251,4 @@ A public content page is strategically complete when its dominant job is explici
 | 5.0.0 | 2026-08-13 | Consolidated Master V4.2 and Core V4; introduced dominant-job and multilingual SSOT reform direction. | DR-DOC-003, DR-SURFACE-001 | historical package snapshot |
 | 5.1.0 | 2026-08-14T09:28:00+02:00 | **ACTIVE.** Established the repository-Markdown SSOT/revision-control model; clarified Astro-only as the website-runtime contract while preserving governed external operational boundaries; clarified multilingual SSOT so meaning depth, required information and material nuance remain mandatory across locales. | DR-DOC-001, DR-DOC-005, DR-PLATFORM-001, DR-BOOK-001 | 5c59674 |
 | 5.1.1 | 2026-08-14T12:59:47+02:00 | Corrected stale bootstrap metadata to reflect the already-active canonical SSOT; no strategic content changed. | DR-DOC-006 | this revision |
+| 5.2.0 | 2026-08-23T19:30:21+02:00 | Restored AMARA — Romantic Hideaways and special places for shared time as a couple as the primary hospitality brand core; placed the destination, trust, stays and direct-booking systems in their supporting role; and established the property-specific proof and capacity boundaries. | DR-BRAND-001 | this revision |

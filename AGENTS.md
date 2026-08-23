@@ -18,6 +18,8 @@ Documentation is reference material, not a cumulative checklist. Using an existi
 
 Build AMARA as a premium-feeling Astro website with simple, repeatable architecture: standardized patterns, pragmatic reuse, calm professional output and no overengineering.
 
+Public editorial and design work must preserve the active Constitution brand core: **AMARA — Romantic Hideaways — special places for shared time as a couple.** This is a brand positioning, not a claim that every stay has every romantic feature; property-specific claims remain evidence-based.
+
 ## AMARA FAST
 
 FAST is the default for normal Class 0–2 work:

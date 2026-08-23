@@ -1,12 +1,12 @@
 ---
 document_id: AMARA-REG-001
 title: AMARA Register
-version: 1.14.0
+version: 1.15.0
 status: ACTIVE
 authority_class: LIVING BINDING REGISTER
 activation_state: ACTIVE
 effective_from: 2026-08-14
-last_modified: 2026-08-23T13:54:40+02:00
+last_modified: 2026-08-23T19:30:21+02:00
 canonical_path: /docs/AMARA_REGISTER.md
 ---
 
@@ -20,13 +20,13 @@ The AMARA Register is the single source for active documents, authority classes,
 
 | Slot | Document owner | Version/status | Class | Canonical/current source |
 |---|---|---|---|---|
-| 01 | AMARA System Constitution | 5.1.1 ACTIVE | PRINCIPLE / governing | `docs/standards/01_AMARA_System_Constitution_V5.md` |
+| 01 | AMARA System Constitution | 5.2.0 ACTIVE | PRINCIPLE / governing | `docs/standards/01_AMARA_System_Constitution_V5.md` |
 | 02 | AMARA Astro & Design Architecture Contract | 4.2.0 ACTIVE INTERIM | CONTRACT / governing | `docs/interim/03_AMARA_Astro_Technical_Standard_V4.md` + current repository implementation |
 | 03 | AMARA Runtime, SEO & Data Contract | PENDING Package 2 | CONTRACT / governing | Interim snapshot: `docs/interim/04_AMARA_Runtime_and_SEO_Standard_V4.md` + current repository implementation |
 | 04 | AMARA URL, Route & Link Contract | PENDING Package 2 | CONTRACT / governing | Interim snapshot: `docs/interim/05_AMARA_URL_and_Route_Infrastructure_V4.md` + Decision Register |
 | 05 | AMARA Governance, Execution & Documentation Lifecycle | 5.5.0 ACTIVE | CONTRACT / governing | `docs/standards/05_AMARA_Governance_Execution_and_Documentation_Lifecycle_V5.md` |
 | 06 | AMARA Performance & Delivery Standard | 2.1.0 ACTIVE INTERIM | PRINCIPLE/CONTRACT / governing | `docs/interim/07_AMARA_Performance_Standard_V2.md` |
-| 07 | AMARA Register | 1.13.0 ACTIVE | LIVING BINDING REGISTER | `docs/AMARA_REGISTER.md` |
+| 07 | AMARA Register | 1.15.0 ACTIVE | LIVING BINDING REGISTER | `docs/AMARA_REGISTER.md` |
 | 08 | AMARA Guest Utility Feature Contract | 2.1.0 ACTIVE INTERIM | FEATURE CONTRACT | `docs/interim/08_AMARA_Guest_Utility_Architecture_V2.md` |
 | 09 | AMARA Content Production & Localization Playbook | 1.5.0 ACTIVE INTERIM | OPERATIONAL PLAYBOOK / non-governing | `docs/interim/10_AMARA_Content_Production_and_Localization_Playbook_V1_2.md` |
 | 10 | AMARA Frigiliana–Nerja SEO Strategy | PENDING Package 2/3 | WORKING STRATEGY / non-governing | Interim snapshot: `docs/interim/09_AMARA_Frigiliana_Nerja_SEO_Strategy_V2_1.md` |
@@ -65,6 +65,12 @@ Current operational feature owner during transition:
 | DR-EXEC-008 | Routine new SSOT information may enter an intake queue and be consolidated at `AMARA SSOT SYNC`; do not version multiple owner documents several times per day without a real urgent contract need. | APPROVED |
 | DR-EXEC-009 | After a material release batch, the area that batch actually changed may be reviewed for repeated content, renderer and presentation patterns and consolidated behaviour-preservingly, including the shared owners inside that area. The slot is bounded by the changed area; it is not an opening for repository-wide refactoring, redesign or new features, and it does not lower the Class 3 alignment requirement for contracts outside that area. | ACTIVE |
 | DR-GOV-001 | Conversational shorthand or a new isolated statement cannot silently supersede an ACTIVE contract; apparent conflicts trigger Reality Reconciliation and explicit contract-level confirmation. | APPROVED |
+
+### Brand
+
+| ID | Decision | Status |
+|---|---|---|
+| DR-BRAND-001 | AMARA's central brand core is **AMARA — Romantic Hideaways**, with the core promise **special places for shared time as a couple**. Destination Authority, Experience, Trust, Stays and Direct Booking support and substantiate this positioning; they do not replace it. Full normative rule: AMARA System Constitution. | ACTIVE |
 
 ### Platform/runtime/links
 
@@ -180,6 +186,7 @@ Routine new evidence/ideas may be captured here or in the relevant working evide
 | 2026-08-23T12:20:00+02:00 | Parity scope and market curation | Limited the parity contract to what the test actually verifies — identity only where units carry a stable identifier — and held the number of identifier-less unit lists so it can fall but not rise. Gave the Frigiliana location FAQ stable ids, closing the example the audit named. Recorded deliberate per-market selection as a declared exception rather than a content gap. Register 1.12.0. | DR-CONTENT-STRUCT-002, DR-CONTENT-STRUCT-003 | this revision |
 | 2026-08-23T12:51:40+02:00 | Experiential authority | Activated truthful, active, situation-led public authoring for new and materially revised editorial copy while preserving page job, evidence, provenance, caveats and safety. Added the operational method in Content Playbook 1.5.0 and the daily summary in `AGENTS.md`. Register 1.13.0. | TR-CONTENT-004–005, TR-CONTENT-002, DR-EVIDENCE-001–002 | this revision |
 | 2026-08-23T13:54:40+02:00 | Mobile-first page architecture | Activated one canonical mobile composition with progressive larger-viewport enhancement, and introduced the shared page shell, section rhythm and early booking-decision pattern through the vacation-rental reference family. Astro Standard 4.2.0, Register 1.14.0. | DR-DESIGN-001–003 | this revision |
+| 2026-08-23T19:30:21+02:00 | Romantic Hideaways brand core | Restored AMARA — Romantic Hideaways and special places for shared time as a couple as the primary hospitality brand position while preserving Destination Authority, Experience, Trust, Stays and Direct Booking as supporting systems. Constitution 5.2.0, Register 1.15.0. | DR-BRAND-001 | this revision |
 
 ## 5. Intentional supersessions
 
@@ -230,3 +237,4 @@ Separate controlled workstreams remain for:
 | 1.12.0 | 2026-08-23T12:20:00+02:00 | Scoped the parity guarantee to identifier-bearing units and introduced the declared market-curation exception. | this revision |
 | 1.13.0 | 2026-08-23T12:51:40+02:00 | Activated experiential authority as the public-authoring rule and recorded its evidence, safety and page-type boundaries. | this revision |
 | 1.14.0 | 2026-08-23T13:54:40+02:00 | Activated the canonical mobile-first page contract and its first shared implementation in the vacation-rental family. | this revision |
+| 1.15.0 | 2026-08-23T19:30:21+02:00 | Registered Romantic Hideaways and special places for shared time as a couple as AMARA's primary hospitality brand core, owned normatively by Constitution 5.2.0. | this revision |
