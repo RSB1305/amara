@@ -1,5 +1,5 @@
 ---
-import TarifaDailyLifePage from '../../page-families/location-authority/TarifaDailyLifePage.astro';
+import DailyLifeGuidePage from '../../page-families/location-authority/DailyLifeGuidePage.astro';
 import { getOwnedPageStaticPaths } from '../../lib/routeOwnership';
 import type { AmaraLanguage } from '../../types/seo';
 
@@ -10,4 +10,4 @@ export function getStaticPaths() {
 const { lang } = Astro.params as { lang: AmaraLanguage };
 ---
 
-<TarifaDailyLifePage lang={lang} />
+<DailyLifeGuidePage destination="tarifa" lang={lang} />

@@ -1,5 +1,5 @@
 ---
-import FrigilianaDailyLifePage from '../../page-families/location-authority/FrigilianaDailyLifePage.astro';
+import DailyLifeGuidePage from '../../page-families/location-authority/DailyLifeGuidePage.astro';
 import { getOwnedPageStaticPaths } from '../../lib/routeOwnership';
 import type { AmaraLanguage } from '../../types/seo';
 
@@ -10,4 +10,4 @@ export function getStaticPaths() {
 const { lang } = Astro.params as { lang: AmaraLanguage };
 ---
 
-<FrigilianaDailyLifePage lang={lang} />
+<DailyLifeGuidePage destination="frigiliana" lang={lang} />
