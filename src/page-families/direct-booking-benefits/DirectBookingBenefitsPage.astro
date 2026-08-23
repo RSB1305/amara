@@ -3,7 +3,6 @@ import TrustPageLayout from '../../layouts/TrustPageLayout.astro';
 import EditorialQuote from '../../components/editorial/EditorialQuote.astro';
 import EditorialDefinitionList from '../../components/editorial/EditorialDefinitionList.astro';
 import EditorialSplit from '../../components/editorial/EditorialSplit.astro';
-import EditorialStatement from '../../components/editorial/EditorialStatement.astro';
 import EditorialClosingCta from '../../components/editorial/EditorialClosingCta.astro';
 import AmaraSection from '../../components/layout/AmaraSection.astro';
 import type { EditorialClosingCtaLink } from '../../components/editorial/EditorialClosingCta.astro';
@@ -70,64 +69,72 @@ const inlineLinks = ([
     ctaVariant: 'conversion'
   }}
 >
-  <AmaraSection>
-        <EditorialSplit title={copy.sections.benefitsTitle[currentLang]}>
-          <div class="mb-10">
-            <EditorialDefinitionList items={directBookingDefinitionItems} />
-          </div>
-          <p class="am-text-body text-muted italic mb-8">
-            <InlineEmphasis text={copy.sections.tip[currentLang]} />
-          </p>
-          <div class="flex flex-col sm:flex-row flex-wrap items-center justify-center gap-4 sm:gap-6">
-            {inlineLinks.map((link) => (
-              <>
-                <a
-                  href={link.href}
-                  class="am-cta-link"
-                >
-                  {link.label}
-                </a>
-              </>
-            ))}
-          </div>
-        </EditorialSplit>
+  <AmaraSection labelledby="direct-booking-benefits-title" dataComponent="direct-booking-benefits">
+    <EditorialSplit
+      title={copy.sections.benefitsTitle[currentLang]}
+      titleId="direct-booking-benefits-title"
+    >
+      <div class="mb-10">
+        <EditorialDefinitionList items={directBookingDefinitionItems} />
+      </div>
+      <p class="am-text-body text-muted italic mb-8">
+        <InlineEmphasis text={copy.sections.tip[currentLang]} />
+      </p>
+      <div class="flex flex-col flex-wrap items-start gap-4 sm:flex-row sm:items-center sm:gap-6">
+        {inlineLinks.map((link) => (
+          <a href={link.href} class="am-cta-link">
+            {link.label}
+          </a>
+        ))}
+      </div>
+    </EditorialSplit>
   </AmaraSection>
 
-  <AmaraSection>
-        <EditorialQuote quote={copy.sections.quote[currentLang]} />
+  <AmaraSection variant="compact" dataComponent="direct-booking-quote">
+    <EditorialQuote quote={copy.sections.quote[currentLang]} />
   </AmaraSection>
 
-  <AmaraSection>
-        <EditorialSplit title={copy.sections.whyTitle[currentLang]}>
-          <p class="am-text-subtitle text-on-surface mb-8">
-            {copy.sections.whyLead[currentLang]}
-          </p>
-          <p class="am-text-body text-subtle">
-            <InlineEmphasis text={copy.sections.whyBody[currentLang]} />
-          </p>
-        </EditorialSplit>
+  <AmaraSection labelledby="direct-booking-why-title" dataComponent="direct-booking-rationale">
+    <EditorialSplit
+      title={copy.sections.whyTitle[currentLang]}
+      titleId="direct-booking-why-title"
+    >
+      <p class="am-text-subtitle text-on-surface mb-8">
+        {copy.sections.whyLead[currentLang]}
+      </p>
+      <p class="am-text-body text-subtle">
+        <InlineEmphasis text={copy.sections.whyBody[currentLang]} />
+      </p>
+    </EditorialSplit>
   </AmaraSection>
 
-  <AmaraSection class="am-page-band">
-        <EditorialStatement title={copy.sections.promiseTitle[currentLang]}>
-          <p class="am-text-body text-subtle">
-            <InlineEmphasis text={copy.sections.promiseP1[currentLang]} />
-          </p>
-          <p class="am-text-body text-subtle">
-            <InlineEmphasis text={copy.sections.promiseP2[currentLang]} />
-          </p>
-          <p class="am-text-body text-muted italic mt-8">
-            <InlineEmphasis text={copy.sections.promiseNote[currentLang]} />
-          </p>
-        </EditorialStatement>
+  <AmaraSection labelledby="direct-booking-promise-title" dataComponent="direct-booking-promise">
+    <div class="grid gap-10 lg:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)] lg:gap-20">
+      <h2 id="direct-booking-promise-title" class="am-text-title text-on-surface">
+        {copy.sections.promiseTitle[currentLang]}
+      </h2>
+      <div class="flex max-w-[65ch] flex-col gap-5 border-t border-border-subtle pt-6">
+        <p class="am-text-body text-subtle">
+          <InlineEmphasis text={copy.sections.promiseP1[currentLang]} />
+        </p>
+        <p class="am-text-body text-subtle">
+          <InlineEmphasis text={copy.sections.promiseP2[currentLang]} />
+        </p>
+        <p class="am-text-body text-muted italic mt-3">
+          <InlineEmphasis text={copy.sections.promiseNote[currentLang]} />
+        </p>
+      </div>
+    </div>
   </AmaraSection>
 
-      <EditorialClosingCta
-        title={copy.sections.ctaTitle[currentLang]}
-        lead={copy.sections.ctaLead[currentLang]}
-        links={closingCtaLinks}
-        lang={currentLang}
-        spacing="page"
-      />
+  <EditorialClosingCta
+    title={copy.sections.ctaTitle[currentLang]}
+    titleId="direct-booking-next-step-title"
+    lead={copy.sections.ctaLead[currentLang]}
+    links={closingCtaLinks}
+    lang={currentLang}
+    spacing="page"
+    dataComponent="direct-booking-next-step"
+  />
 </TrustPageLayout>
 

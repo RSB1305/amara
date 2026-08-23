@@ -20,14 +20,16 @@ export interface EditorialClosingCtaLink {
 
 interface Props {
   title: string;
+  titleId?: string;
   lead: string;
   note?: string;
   links: EditorialClosingCtaLink[];
   lang: AmaraLanguage;
   spacing?: 'legacy' | 'page';
+  dataComponent?: string;
 }
 
-const { title, lead, note, links, lang, spacing = 'legacy' } = Astro.props;
+const { title, titleId, lead, note, links, lang, spacing = 'legacy', dataComponent } = Astro.props;
 
 const linkClass = 'am-cta-link';
 const disabledClass = 'am-cta-link am-is-disabled';
@@ -38,9 +40,11 @@ const hasButtonLinks = links.some((link) => link.style === 'primary' || link.sty
   class:list={[
     { 'am-page-section am-page-section--closing': spacing === 'page' }
   ]}
+  aria-labelledby={titleId}
+  data-am-component={dataComponent}
 >
   <div class:list={['text-center max-w-[800px] mx-auto', { 'pb-20': spacing === 'legacy' }]}>
-    <h2 class="am-text-title text-on-surface mb-8">
+    <h2 id={titleId} class="am-text-title text-on-surface mb-8">
       {title}
     </h2>
     <p class={`am-text-body text-subtle ${note ? 'mb-4' : 'mb-16'}`}>
