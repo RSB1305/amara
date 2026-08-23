@@ -75,7 +75,7 @@
   --font-headline: "Newsreader", serif;
   --font-body: "Plus Jakarta Sans", sans-serif;
   --font-label: "Plus Jakarta Sans", sans-serif;
-  /** Display XL — one step above am-section-title; editorial, tight */
+  /** Display XL — one step above am-text-title; editorial, tight */
   --font-size-display-xl: clamp(3.5rem, 6.5vw, 5.75rem);
   --line-height-display-xl: 1.02;
   --letter-spacing-display-xl: -0.025em;
@@ -188,19 +188,6 @@
     color: var(--color-gold);
   }
 
-  /**
-   * @deprecated Use `.am-text-title` from the AMARA Typography System. Kept for backward compatibility.
-   * Shared editorial / trust section titles (About, Guest Reviews, Sustainability band, etc.).
-   * Single source of truth for headline scale across page families.
-   */
-  .am-section-title {
-    @apply font-headline text-on-surface;
-    font-size: clamp(2.5rem, 4.5vw, 4rem);
-    line-height: 1.08;
-    font-weight: 300;
-    margin: 0;
-  }
-
   .am-cta-link {
     @apply text-on-surface;
     --am-cta-underline: var(--color-border-subtle);
@@ -265,15 +252,6 @@
 
   .am-cta-link--accent:hover {
     --am-cta-underline: var(--color-primary);
-  }
-
-  .am-cta-link--inverse {
-    color: var(--color-inverted-on-surface);
-    --am-cta-underline: color-mix(in srgb, var(--color-inverted-on-surface) 35%, transparent);
-  }
-
-  .am-cta-link--inverse:hover {
-    --am-cta-underline: var(--color-inverted-on-surface);
   }
 
   .am-cta-group {
@@ -470,11 +448,6 @@
   }
 
   .am-section--plain {
-    @apply bg-white;
-  }
-
-  /** Type A insight modules (image-led split); same band tone as plain */
-  .am-section--insight {
     @apply bg-white;
   }
 
