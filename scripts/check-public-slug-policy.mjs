@@ -6,6 +6,7 @@ import {
   DYNAMIC_CANONICAL_PUBLIC_SLUGS,
   STATIC_CANONICAL_PUBLIC_SLUGS
 } from '../src/lib/canonicalPublicSlugs.mjs';
+import { parseAstroRedirects } from '../src/lib/redirectInfrastructure.mjs';
 
 const workspaceRoot = fileURLToPath(new URL('..', import.meta.url));
 const approvedSlugs = new Set(CANONICAL_PUBLIC_SLUGS);
@@ -85,10 +86,6 @@ function walk(relativeDirectory) {
   }
 
   return files;
-}
-
-function getLineNumber(source, index) {
-  return source.slice(0, index).split('\n').length;
 }
 
 function isInternalPath(target) {
@@ -179,34 +176,6 @@ export function parseCloudflareRedirects(source) {
   return { rules, violations: parseViolations };
 }
 
-export function parseAstroRedirects(source) {
-  const normalizedSource = source.replace(/\r\n/g, '\n');
-  const parseViolations = [];
-  const rules = [];
-  const redirectsBlock = normalizedSource.match(
-    /redirects:\s*\{([\s\S]*?)\n\s*\},\n\s*i18n:/
-  );
-
-  if (!redirectsBlock) {
-    parseViolations.push('Unable to inspect redirects in astro.config.mjs.');
-    return { rules, violations: parseViolations };
-  }
-
-  const blockStart = redirectsBlock.index + redirectsBlock[0].indexOf(redirectsBlock[1]);
-  const redirectPattern = /['"]([^'"]+)['"]\s*:\s*['"]([^'"]+)['"]/g;
-  let match;
-
-  while ((match = redirectPattern.exec(redirectsBlock[1])) !== null) {
-    rules.push({
-      source: match[1],
-      target: match[2],
-      line: getLineNumber(normalizedSource, blockStart + match.index)
-    });
-  }
-
-  return { rules, violations: parseViolations };
-}
-
 function findRedirectLoops(rules) {
   const edges = new Map();
   const loops = new Map();
@@ -248,12 +217,11 @@ function findRedirectLoops(rules) {
 
 export function auditRedirectInfrastructure({
   cloudflareSource,
-  astroConfigSource,
   currentRoutePaths,
   bookingOrigin
 }) {
   const cloudflareResult = parseCloudflareRedirects(cloudflareSource);
-  const astroResult = parseAstroRedirects(astroConfigSource);
+  const astroResult = parseAstroRedirects(cloudflareSource);
   const auditViolations = [
     ...cloudflareResult.violations,
     ...astroResult.violations
@@ -358,7 +326,7 @@ export function auditRedirectInfrastructure({
   for (const astroRule of astroResult.rules) {
     if (!isInternalPath(astroRule.target) || !currentRoutePaths.has(astroRule.target)) {
       auditViolations.push(
-        `astro.config.mjs:${astroRule.line}: redirect target "${astroRule.target}" is not a current canonical Astro path.`
+        `public/_redirects:${astroRule.line}: marked Astro redirect target "${astroRule.target}" is not a current canonical Astro path.`
       );
     }
 
@@ -366,12 +334,12 @@ export function auditRedirectInfrastructure({
 
     if (!cloudflareRule) {
       auditViolations.push(
-        `Astro/Cloudflare drift: ${astroRule.source} -> ${astroRule.target} exists only in astro.config.mjs.`
+        `Marked Astro redirect ${astroRule.source} -> ${astroRule.target} is missing from the Cloudflare rule set.`
       );
     } else if (cloudflareRule.target !== astroRule.target) {
       auditViolations.push(
-        `Astro/Cloudflare drift: ${astroRule.source} targets ${astroRule.target} in astro.config.mjs ` +
-          `but ${cloudflareRule.target} in public/_redirects.`
+        `Marked Astro redirect ${astroRule.source} targets ${astroRule.target}, ` +
+          `but the Cloudflare rule targets ${cloudflareRule.target}.`
       );
     }
   }
@@ -511,7 +479,6 @@ if (!bookingOriginMatch) {
 
 const redirectAudit = auditRedirectInfrastructure({
   cloudflareSource: readFileSync(join(workspaceRoot, 'public/_redirects'), 'utf8'),
-  astroConfigSource: readFileSync(join(workspaceRoot, 'astro.config.mjs'), 'utf8'),
   currentRoutePaths,
   bookingOrigin: bookingOriginMatch?.[1] ?? ''
 });

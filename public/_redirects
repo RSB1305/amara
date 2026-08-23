@@ -6,6 +6,51 @@
 # - Current live canonical routes must not redirect to another locale.
 # - Legacy topic pages consolidate to the closest current authority page.
 
+# Exact legacy aliases also emitted by Astro for local and static routing.
+# Sources and targets are authored here once for both runtimes.
+# @astro-redirects:start
+/de/frigiliana-oder-nerja /de/frigiliana-or-nerja 301
+/arrival-parking-guide /getting-to-frigiliana 301
+/es/arrival-parking-guide /getting-to-frigiliana 301
+/es/frigiliana-arrival-parking-guide /getting-to-frigiliana 301
+/de/arrival-parking-guide /de/getting-to-frigiliana 301
+/de/frigiliana-arrival-parking-guide /de/getting-to-frigiliana 301
+/en/arrival-parking-guide /en/getting-to-frigiliana 301
+/en/frigiliana-arrival-parking-guide /en/getting-to-frigiliana 301
+/nl/arrival-parking-guide /nl/getting-to-frigiliana 301
+/nl/frigiliana-arrival-parking-guide /nl/getting-to-frigiliana 301
+/sv/arrival-parking-guide /sv/getting-to-frigiliana 301
+/sv/frigiliana-arrival-parking-guide /sv/getting-to-frigiliana 301
+/es/frigiliana-faq /frigiliana-faq 301
+/mercado-de-frigiliana /frigiliana-market 301
+/es/frigiliana-market /frigiliana-market 301
+/es/mercado-de-frigiliana /frigiliana-market 301
+/de/frigiliana-markt /de/frigiliana-market 301
+/nl/frigiliana-markt /nl/frigiliana-market 301
+/sv/frigiliana-marknaden /sv/frigiliana-market 301
+/frigiliana-stairs-layout /frigiliana-streets-stairs 301
+/es/frigiliana-stairs-layout /frigiliana-streets-stairs 301
+/de/frigiliana-stairs-layout /de/frigiliana-streets-stairs 301
+/en/frigiliana-stairs-layout /en/frigiliana-streets-stairs 301
+/nl/frigiliana-stairs-layout /nl/frigiliana-streets-stairs 301
+/sv/frigiliana-stairs-layout /sv/frigiliana-streets-stairs 301
+/frigiliana-village-structure-stairs /frigiliana-streets-stairs 301
+/es/frigiliana-village-structure-stairs /frigiliana-streets-stairs 301
+/de/frigiliana-village-structure-stairs /de/frigiliana-streets-stairs 301
+/en/frigiliana-village-structure-stairs /en/frigiliana-streets-stairs 301
+/nl/frigiliana-village-structure-stairs /nl/frigiliana-streets-stairs 301
+/sv/frigiliana-village-structure-stairs /sv/frigiliana-streets-stairs 301
+/de/frigiliana-ort-struktur-und-treppen /de/frigiliana-streets-stairs 301
+/es/estructura-y-escaleras-del-sitio-de-frigiliana /frigiliana-streets-stairs 301
+/nl/structuur-en-trappen-van-de-frigiliana-site /nl/frigiliana-streets-stairs 301
+/sv/frigiliana-tomtens-struktur-och-trappor /sv/frigiliana-streets-stairs 301
+/explore-frigiliana-nerja /frigiliana-experience 301
+/de/explore-frigiliana-nerja /de/frigiliana-experience 301
+/en/explore-frigiliana-nerja /en/frigiliana-experience 301
+/nl/explore-frigiliana-nerja /nl/frigiliana-experience 301
+/sv/explore-frigiliana-nerja /sv/frigiliana-experience 301
+# @astro-redirects:end
+
 # Locale normalization
 /es / 301
 /es/ / 301
@@ -32,13 +77,11 @@
 /es/comfort-amenities /comfort-amenities 301
 /es/direct-booking-benefits /direct-booking-benefits 301
 /es/faq-general /faq-general 301
-/es/frigiliana-faq /frigiliana-faq 301
 /es/frigiliana-location /frigiliana-location 301
 /es/nerja-location /nerja-location 301
 /es/nerja-nightlife /nerja-nightlife 301
 /es/nerja-experience /nerja-experience 301
 /es/tarifa-location /tarifa-location 301
-/es/frigiliana-market /frigiliana-market 301
 /es/frigiliana-beaches /frigiliana-beaches 301
 /es/frigiliana-hiking /frigiliana-hiking 301
 /es/frigiliana-day-trips /frigiliana-day-trips 301
@@ -69,13 +112,6 @@
 /sv/la-amara-lounis-casa-rural-frigiliana /sv/la-amara-lounis 301
 /en/la-amara-family-surf-with-oceanview-and-pool /en/la-amara-family-and-surf 301
 /sv/amara-family-surf-with-oceanview-and-pool /sv/la-amara-family-and-surf 301
-
-# The former combined experience hub now resolves to the destination-specific Frigiliana hub.
-/explore-frigiliana-nerja /frigiliana-experience 301
-/de/explore-frigiliana-nerja /de/frigiliana-experience 301
-/en/explore-frigiliana-nerja /en/frigiliana-experience 301
-/nl/explore-frigiliana-nerja /nl/frigiliana-experience 301
-/sv/explore-frigiliana-nerja /sv/frigiliana-experience 301
 
 # Apartment listing legacy URLs
 /es/la-amara-farah-habitacion-doble-romantica /la-amara-farah 301
@@ -137,20 +173,6 @@
 /sv/vanliga-fragor1 /sv/faq-general 301
 /sv/vanliga-fragor /sv/faq-general 301
 
-# Frigiliana arrival planning
-/arrival-parking-guide /getting-to-frigiliana 301
-/en/arrival-parking-guide /en/getting-to-frigiliana 301
-/de/arrival-parking-guide /de/getting-to-frigiliana 301
-/es/arrival-parking-guide /getting-to-frigiliana 301
-/nl/arrival-parking-guide /nl/getting-to-frigiliana 301
-/sv/arrival-parking-guide /sv/getting-to-frigiliana 301
-/en/frigiliana-arrival-parking-guide /en/getting-to-frigiliana 301
-/de/frigiliana-arrival-parking-guide /de/getting-to-frigiliana 301
-/es/frigiliana-arrival-parking-guide /getting-to-frigiliana 301
-/nl/frigiliana-arrival-parking-guide /nl/getting-to-frigiliana 301
-/sv/frigiliana-arrival-parking-guide /sv/getting-to-frigiliana 301
-/de/frigiliana-oder-nerja /de/frigiliana-or-nerja 301
-
 # Frigiliana authority duplicates
 /en/frigiliana-location-amara /en/frigiliana-location 301
 /de/frigi-standort-evo /de/frigiliana-location 301
@@ -163,22 +185,6 @@
 /sv/plats-amara /sv/frigiliana-location 301
 
 # Frigiliana structure and comparison topics
-/frigiliana-stairs-layout /frigiliana-streets-stairs 301
-/es/frigiliana-stairs-layout /frigiliana-streets-stairs 301
-/de/frigiliana-stairs-layout /de/frigiliana-streets-stairs 301
-/en/frigiliana-stairs-layout /en/frigiliana-streets-stairs 301
-/nl/frigiliana-stairs-layout /nl/frigiliana-streets-stairs 301
-/sv/frigiliana-stairs-layout /sv/frigiliana-streets-stairs 301
-/frigiliana-village-structure-stairs /frigiliana-streets-stairs 301
-/es/frigiliana-village-structure-stairs /frigiliana-streets-stairs 301
-/de/frigiliana-village-structure-stairs /de/frigiliana-streets-stairs 301
-/en/frigiliana-village-structure-stairs /en/frigiliana-streets-stairs 301
-/nl/frigiliana-village-structure-stairs /nl/frigiliana-streets-stairs 301
-/sv/frigiliana-village-structure-stairs /sv/frigiliana-streets-stairs 301
-/de/frigiliana-ort-struktur-und-treppen /de/frigiliana-streets-stairs 301
-/es/estructura-y-escaleras-del-sitio-de-frigiliana /frigiliana-streets-stairs 301
-/nl/structuur-en-trappen-van-de-frigiliana-site /nl/frigiliana-streets-stairs 301
-/sv/frigiliana-tomtens-struktur-och-trappor /sv/frigiliana-streets-stairs 301
 /en/frigiliana-near-nerja /en/frigiliana-or-nerja 301
 /de/nerja /de/nerja-location 301
 /es/nerja /nerja-location 301
@@ -263,11 +269,6 @@
 /es/frigiliana-de-noche /frigiliana-location 301
 /nl/frigiliana-s-nachts /nl/frigiliana-location 301
 /sv/frigiliana-pa-natten /sv/frigiliana-location 301
-/mercado-de-frigiliana /frigiliana-market 301
-/de/frigiliana-markt /de/frigiliana-market 301
-/es/mercado-de-frigiliana /frigiliana-market 301
-/nl/frigiliana-markt /nl/frigiliana-market 301
-/sv/frigiliana-marknaden /sv/frigiliana-market 301
 /en/frigiliana-supermarkets /en/frigiliana-faq 301
 /de/supermarkte /de/frigiliana-faq 301
 /es/supermercados /frigiliana-faq 301

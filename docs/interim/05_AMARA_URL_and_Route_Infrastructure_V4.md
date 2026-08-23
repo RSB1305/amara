@@ -126,6 +126,10 @@ The system must avoid:
 - redirects that accidentally create translated-slug architecture.
 Legacy aliases are redirects, not active canonical routes.
 
+`public/_redirects` is the sole authored redirect-rule source. Rules inside its
+`@astro-redirects` section are also consumed by Astro for local and static
+routing; their sources and targets must not be duplicated in `astro.config.mjs`.
+
 11. Cloudflare cutover boundary
 Cloudflare Pages is the target marketing-site delivery platform.
 Until final cutover, the public domain may still serve the legacy Lodgify-hosted marketing site. This does not

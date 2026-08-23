@@ -1,9 +1,11 @@
 // @ts-check
+import { readFileSync } from 'node:fs';
 import { defineConfig } from 'astro/config';
 import tailwindcss from '@tailwindcss/vite';
 import sitemap from '@astrojs/sitemap';
 import { guestGuideEntries } from './src/content/guestGuideEntries.ts';
 import { stablePublicImages } from './src/integrations/stablePublicImages.ts';
+import { buildAstroRedirects } from './src/lib/redirectInfrastructure.mjs';
 
 // Internal tools live in src/pages/_tools, which Astro's file router ignores because
 // of the underscore. They are mounted as real /tools/* routes only where they are
@@ -56,6 +58,9 @@ function requirePublicSiteUrlForProduction() {
 }
 
 const siteOrigin = process.env.PUBLIC_SITE_URL?.trim() || 'https://amara-lodging.es';
+const astroRedirects = buildAstroRedirects(
+  readFileSync(new URL('./public/_redirects', import.meta.url), 'utf8')
+);
 
 const sitemapLocalePrefixes = new Set(['de', 'en', 'es', 'nl', 'sv']);
 const sitemapExcludedSlugs = new Set([
@@ -143,48 +148,7 @@ export default defineConfig({
     inlineStylesheets: 'auto'
   },
   trailingSlash: 'never',
-  redirects: {
-    '/de/frigiliana-oder-nerja': '/de/frigiliana-or-nerja',
-    '/arrival-parking-guide': '/getting-to-frigiliana',
-    '/es/arrival-parking-guide': '/getting-to-frigiliana',
-    '/es/frigiliana-arrival-parking-guide': '/getting-to-frigiliana',
-    '/de/arrival-parking-guide': '/de/getting-to-frigiliana',
-    '/de/frigiliana-arrival-parking-guide': '/de/getting-to-frigiliana',
-    '/en/arrival-parking-guide': '/en/getting-to-frigiliana',
-    '/en/frigiliana-arrival-parking-guide': '/en/getting-to-frigiliana',
-    '/nl/arrival-parking-guide': '/nl/getting-to-frigiliana',
-    '/nl/frigiliana-arrival-parking-guide': '/nl/getting-to-frigiliana',
-    '/sv/arrival-parking-guide': '/sv/getting-to-frigiliana',
-    '/sv/frigiliana-arrival-parking-guide': '/sv/getting-to-frigiliana',
-    '/es/frigiliana-faq': '/frigiliana-faq',
-    '/mercado-de-frigiliana': '/frigiliana-market',
-    '/es/frigiliana-market': '/frigiliana-market',
-    '/es/mercado-de-frigiliana': '/frigiliana-market',
-    '/de/frigiliana-markt': '/de/frigiliana-market',
-    '/nl/frigiliana-markt': '/nl/frigiliana-market',
-    '/sv/frigiliana-marknaden': '/sv/frigiliana-market',
-    '/frigiliana-stairs-layout': '/frigiliana-streets-stairs',
-    '/es/frigiliana-stairs-layout': '/frigiliana-streets-stairs',
-    '/de/frigiliana-stairs-layout': '/de/frigiliana-streets-stairs',
-    '/en/frigiliana-stairs-layout': '/en/frigiliana-streets-stairs',
-    '/nl/frigiliana-stairs-layout': '/nl/frigiliana-streets-stairs',
-    '/sv/frigiliana-stairs-layout': '/sv/frigiliana-streets-stairs',
-    '/frigiliana-village-structure-stairs': '/frigiliana-streets-stairs',
-    '/es/frigiliana-village-structure-stairs': '/frigiliana-streets-stairs',
-    '/de/frigiliana-village-structure-stairs': '/de/frigiliana-streets-stairs',
-    '/en/frigiliana-village-structure-stairs': '/en/frigiliana-streets-stairs',
-    '/nl/frigiliana-village-structure-stairs': '/nl/frigiliana-streets-stairs',
-    '/sv/frigiliana-village-structure-stairs': '/sv/frigiliana-streets-stairs',
-    '/de/frigiliana-ort-struktur-und-treppen': '/de/frigiliana-streets-stairs',
-    '/es/estructura-y-escaleras-del-sitio-de-frigiliana': '/frigiliana-streets-stairs',
-    '/nl/structuur-en-trappen-van-de-frigiliana-site': '/nl/frigiliana-streets-stairs',
-    '/sv/frigiliana-tomtens-struktur-och-trappor': '/sv/frigiliana-streets-stairs',
-    '/explore-frigiliana-nerja': '/frigiliana-experience',
-    '/de/explore-frigiliana-nerja': '/de/frigiliana-experience',
-    '/en/explore-frigiliana-nerja': '/en/frigiliana-experience',
-    '/nl/explore-frigiliana-nerja': '/nl/frigiliana-experience',
-    '/sv/explore-frigiliana-nerja': '/sv/frigiliana-experience'
-  },
+  redirects: astroRedirects,
   i18n: {
     defaultLocale: 'es',
     locales: ['de', 'en', 'es', 'nl', 'sv'],
