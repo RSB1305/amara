@@ -1,7 +1,7 @@
 ---
 document_id: AMARA-INT-CONTENT-010
-title: AMARA Content Production & Localization Playbook V1.4
-version: 1.4.0
+title: AMARA Content Production & Localization Playbook V1.5
+version: 1.5.0
 status: ACTIVE
 authority_class: OPERATIONAL PLAYBOOK / NON-GOVERNING INTERIM
 source_type: INTERIM SNAPSHOT FROM APPROVED PDF + APPROVED REPOSITORY AMENDMENT
@@ -9,7 +9,7 @@ source_attachment: "10_AMARA_Content_Production_and_Localization_Playbook_V1_2(1
 source_sha256: adab58c901709b270fb264498158f2cb3010006bac7dfea18e6358627a0f10ae
 snapshot_created: 2026-08-14T09:08:00+02:00
 migration_state: PENDING PACKAGE 2/3 NORMALIZATION
-last_modified: 2026-08-22T07:48:36+02:00
+last_modified: 2026-08-23T12:51:40+02:00
 ---
 
 # AMARA Content Production & Localization Playbook V1.2 — Interim Markdown Snapshot
@@ -715,6 +715,51 @@ Where that deeper layer is relevant, use one concise transition block per page a
 
 This is a meaning reference, not an English master sentence. Each locale writes it natively in the collective host voice and plural guest address. The associated CTA uses the approved centralized booking/availability path and a natural availability or accommodation-selection intent. It must not imply that essential safety information is withheld until booking.
 
+## Approved repository amendment — experiential authority
+
+This operational amendment implements `TR-CONTENT-005` without changing the page-job, evidence, localization, public/guest-depth or safety contracts above.
+
+21. Experiential authority
+
+New and materially revised public editorial copy should help guests mentally enter a truthful situation rather than only observe a classification from outside. Where the page job permits it, connect:
+
+> Scene or condition -> guest movement or choice -> stay consequence -> verified guidance or constraint -> useful next step
+
+This is an authoring lens, not a mandatory paragraph template. A direct answer still comes first when the search intent or page job requires one. The copy may then make that answer usable through concrete verbs, spatial or temporal progression, real alternatives and the practical consequence of choosing one path over another.
+
+Prefer details that let guests rehearse a real decision: the route they would walk, the point at which an evening changes, the condition that changes a beach choice, the way an arrival or several-night stay actually works, or the feature they would use. The detail must be verified and relevant. Do not add decorative atmosphere merely to make prose feel vivid.
+
+Experiential authority is not:
+
+- stronger adjectives, generic excitement or lifestyle slogans;
+- invented sounds, smells, routines, emotions, crowd behaviour or weather effects;
+- converting researched or third-party evidence into a claimed first-party memory;
+- hiding the direct answer behind a scene-setting introduction;
+- softening a limitation, current restriction, safety boundary or uncertainty;
+- forcing every paragraph into second-person narration.
+
+22. Page-type calibration
+
+- **Type A — Location Authority:** put physical, logistical or climatic reality into the context of arrival, walking, parking, daily use or several consecutive nights, then explain the stay consequence and decision.
+- **Type B — Explore:** let the guest follow a plausible sequence, transition or choice through the experience, then provide the practical context needed to select it.
+- **Type C — Trust:** show the real hosting action, operating practice, evidence or responsibility that makes the claim credible; do not manufacture an emotional scene.
+- **Type D — Conversion:** show how a verified property feature, layout, location or constraint changes the way guests would use the stay and choose between real options.
+- **Utility, legal, system and safety-critical surfaces:** prioritize exact instruction, current facts and unambiguous action. Use active language where it improves clarity, but do not add narrative for its own sake.
+
+23. Experiential-authority pass
+
+Apply this pass when creating public editorial copy or materially revising an existing page. A factual micro correction, link fix or isolated wording repair does not trigger a rewrite of adjacent content.
+
+Ask:
+
+1. Can guests picture the relevant situation without invented atmosphere?
+2. Does the copy connect the situation to an action, choice or stay consequence?
+3. Are active verbs and specific detail doing work that abstract category language previously carried?
+4. Is every first-party observation genuinely supported as first-party knowledge?
+5. Are the direct answer, required information, limitations, uncertainty and safety still intact?
+6. Does each locale express the same meaning naturally rather than copy the sentence mechanics of another language?
+7. Does the page still fulfil its dominant job without becoming a diary, brochure or operational manual?
+
 ## Revision history
 
 | Version | Timestamp | Change |
@@ -722,3 +767,4 @@ This is a meaning reference, not an English master sentence. Each locale writes 
 | 1.2 | 2026-08-10 | Approved source playbook preserved as the interim Markdown snapshot. |
 | 1.3.0 | 2026-08-21T22:14:30+02:00 | Added the collective host perspective, plural guest-address matrix and evidence-to-host-voice workflow. |
 | 1.4.0 | 2026-08-22T07:48:36+02:00 | Added the public-to-booked-guest depth boundary and the native contextual transition-block rule. |
+| 1.5.0 | 2026-08-23T12:51:40+02:00 | Added experiential authority, page-type calibration and the material-revision editorial pass. |

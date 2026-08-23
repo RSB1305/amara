@@ -73,6 +73,8 @@ Every locale must be natural and market-native. Do not shorten away required inf
 
 Public editorial copy speaks from AMARA's collective host perspective and addresses guests in the plural form natural to EN, DE, ES, NL and SV. This voice must not turn researched or third-party evidence into an invented first-party observation.
 
+New and materially revised public editorial copy uses **experiential authority** (`TR-CONTENT-005`): place guests in a concrete, truthful situation and connect the relevant scene or condition to movement, choice, stay consequence and a useful next step. Prefer active verbs and specific verified detail to distant category language. Do not invent atmosphere or first-party experience, and do not weaken the page job, direct answer, evidence, caveats, safety or provenance. Calibrate the technique to the page type; utility, legal, system and safety-critical copy prioritizes instruction clarity. A micro correction does not trigger an adjacent rewrite.
+
 The Navigation booking CTA must have a native localized label in EN, DE, ES, NL and SV.
 
 ## Consolidation slot

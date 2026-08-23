@@ -1,12 +1,12 @@
 ---
 document_id: AMARA-REG-001
 title: AMARA Register
-version: 1.12.0
+version: 1.13.0
 status: ACTIVE
 authority_class: LIVING BINDING REGISTER
 activation_state: ACTIVE
 effective_from: 2026-08-14
-last_modified: 2026-08-23T12:20:00+02:00
+last_modified: 2026-08-23T12:51:40+02:00
 canonical_path: /docs/AMARA_REGISTER.md
 ---
 
@@ -26,9 +26,9 @@ The AMARA Register is the single source for active documents, authority classes,
 | 04 | AMARA URL, Route & Link Contract | PENDING Package 2 | CONTRACT / governing | Interim snapshot: `docs/interim/05_AMARA_URL_and_Route_Infrastructure_V4.md` + Decision Register |
 | 05 | AMARA Governance, Execution & Documentation Lifecycle | 5.5.0 ACTIVE | CONTRACT / governing | `docs/standards/05_AMARA_Governance_Execution_and_Documentation_Lifecycle_V5.md` |
 | 06 | AMARA Performance & Delivery Standard | 2.1.0 ACTIVE INTERIM | PRINCIPLE/CONTRACT / governing | `docs/interim/07_AMARA_Performance_Standard_V2.md` |
-| 07 | AMARA Register | 1.9.0 ACTIVE | LIVING BINDING REGISTER | `docs/AMARA_REGISTER.md` |
+| 07 | AMARA Register | 1.13.0 ACTIVE | LIVING BINDING REGISTER | `docs/AMARA_REGISTER.md` |
 | 08 | AMARA Guest Utility Feature Contract | 2.1.0 ACTIVE INTERIM | FEATURE CONTRACT | `docs/interim/08_AMARA_Guest_Utility_Architecture_V2.md` |
-| 09 | AMARA Content Production & Localization Playbook | 1.4.0 ACTIVE INTERIM | OPERATIONAL PLAYBOOK / non-governing | `docs/interim/10_AMARA_Content_Production_and_Localization_Playbook_V1_2.md` |
+| 09 | AMARA Content Production & Localization Playbook | 1.5.0 ACTIVE INTERIM | OPERATIONAL PLAYBOOK / non-governing | `docs/interim/10_AMARA_Content_Production_and_Localization_Playbook_V1_2.md` |
 | 10 | AMARA Frigiliana–Nerja SEO Strategy | PENDING Package 2/3 | WORKING STRATEGY / non-governing | Interim snapshot: `docs/interim/09_AMARA_Frigiliana_Nerja_SEO_Strategy_V2_1.md` |
 
 ### Transition rule
@@ -119,6 +119,7 @@ They do **not** supersede the current implementation. Until a separately aligned
 | TR-CONTENT-002 | Cross-language SSOT is facts, job, evidence, claim boundaries, required information/topics, conversion intent, **meaning depth and material nuance**. No locale may shorten/omit required information. The mandatory English master-language role is superseded; native sentence construction remains locale-specific. | APPROVED — intentional supersession |
 | TR-CONTENT-003 | A/B/C/D applies to strategic public content jobs; utility/legal/entry/system surfaces need not be forced into it. | APPROVED — intentional supersession |
 | TR-CONTENT-004 | Normal public editorial copy speaks from AMARA's collective host perspective and addresses guests in the plural form natural to EN, DE, ES, NL and SV. This is a perspective rule, not a requirement to repeat pronouns unnaturally. Native authoring may transform verified knowledge into useful host guidance, but it must preserve provenance, verification status, claim boundaries and uncertainty; researched or third-party evidence must not be presented as invented first-party observation. | ACTIVE |
+| TR-CONTENT-005 | New and materially revised public editorial copy uses **experiential authority**: it places guests in a concrete, truthful situation and connects the relevant scene or condition to movement, choice, stay consequence and a useful next step. Active verbs and specific verified detail are preferred to distant category language, but the technique is calibrated to the page job and must not weaken direct answers, evidence, caveats, safety, provenance or native-language quality. It does not authorize invented atmosphere, guest behaviour or first-party observation. Utility, legal, system and safety-critical copy prioritizes instruction clarity, and a micro correction does not trigger an adjacent rewrite. | ACTIVE |
 | DR-EVIDENCE-001 | `knowledge/` is AMARA's durable, non-public Evidence & Knowledge owner for research dossiers, atomic facts, sources, claim boundaries, review state and open questions. Public authoring in `src/content/` is a curated projection of that knowledge; presentation remains owned by page families and components. | ACTIVE |
 | DR-EVIDENCE-002 | Redesigning, shortening or removing public copy must not delete its underlying evidence. New research updates knowledge records through explicit verification or supersession; it does not silently overwrite history or publish itself. | ACTIVE |
 | DR-EVIDENCE-003 | Google Drive is AMARA's immutable archive for timestamped raw research inputs; Git `knowledge/` is the canonical versioned evaluation and page-coverage layer. Stable Drive folder IDs are recorded in run/page manifests. Raw uploads never publish directly, and later research uses a new run instead of overwriting an earlier one. | ACTIVE |
@@ -176,6 +177,7 @@ Routine new evidence/ideas may be captured here or in the relevant working evide
 | 2026-08-23T10:25:00+02:00 | Content structure, typography ownership and the consolidation slot | Activated leaf-level localization as the binding content-structure contract with `src/types/content.ts` as its owner, enforced five-locale structural parity by contract test, made the typography roles the enforced owner of text treatment, and opened a bounded post-batch consolidation slot. Register 1.10.0. | DR-CONTENT-STRUCT-001–002, DR-DESIGN-001–002, DR-EXEC-009 | this revision |
 | 2026-08-23T11:40:00+02:00 | Semantic parity boundary | Separated semantic units from prose segmentation in the locale parity contract, so a translator's paragraph split is no longer treated as a missing paragraph while a missing FAQ answer, CTA block or card still is. Closed the Frigiliana location gap with authored copy in de, es, nl and sv, and unified the Nerja experience theme order across locales. Register 1.11.0. | DR-CONTENT-STRUCT-002, TR-CONTENT-002, TR-CONTENT-004 | this revision |
 | 2026-08-23T12:20:00+02:00 | Parity scope and market curation | Limited the parity contract to what the test actually verifies — identity only where units carry a stable identifier — and held the number of identifier-less unit lists so it can fall but not rise. Gave the Frigiliana location FAQ stable ids, closing the example the audit named. Recorded deliberate per-market selection as a declared exception rather than a content gap. Register 1.12.0. | DR-CONTENT-STRUCT-002, DR-CONTENT-STRUCT-003 | this revision |
+| 2026-08-23T12:51:40+02:00 | Experiential authority | Activated truthful, active, situation-led public authoring for new and materially revised editorial copy while preserving page job, evidence, provenance, caveats and safety. Added the operational method in Content Playbook 1.5.0 and the daily summary in `AGENTS.md`. Register 1.13.0. | TR-CONTENT-004–005, TR-CONTENT-002, DR-EVIDENCE-001–002 | this revision |
 
 ## 5. Intentional supersessions
 
@@ -224,3 +226,4 @@ Separate controlled workstreams remain for:
 | 1.10.0 | 2026-08-23T10:25:00+02:00 | Activated the leaf-level content localization contract, five-locale structural parity enforcement, typography role ownership and the bounded post-batch consolidation slot. | this revision |
 | 1.11.0 | 2026-08-23T11:40:00+02:00 | Drew the semantic-unit versus prose-segmentation boundary in the parity contract and recorded the content decisions taken under it. | this revision |
 | 1.12.0 | 2026-08-23T12:20:00+02:00 | Scoped the parity guarantee to identifier-bearing units and introduced the declared market-curation exception. | this revision |
+| 1.13.0 | 2026-08-23T12:51:40+02:00 | Activated experiential authority as the public-authoring rule and recorded its evidence, safety and page-type boundaries. | this revision |
