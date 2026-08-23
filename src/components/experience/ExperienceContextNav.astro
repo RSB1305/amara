@@ -1,5 +1,6 @@
 ---
 /** Destination-specific, crawlable navigation for experience hubs and spokes. */
+import { resolveLocale } from '../../types/content';
 import ContextNavigation, {
   type ContextNavigationBreadcrumb,
   type ContextNavigationGroup,
@@ -278,7 +279,7 @@ const frigilianaSiblingLinks: ContextNavigationItem[] = [
   })
 ];
 
-const nerjaSiblingLinks: ContextNavigationItem[] = nerjaExperienceHubContent[lang].themes.map(
+const nerjaSiblingLinks: ContextNavigationItem[] = resolveLocale(nerjaExperienceHubContent, lang).themes.map(
   (theme) => ({
     id: theme.id,
     href: resolveOptionalLink(theme.token as LinkToken, lang, { suppressMissing: true }) ?? undefined,

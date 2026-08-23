@@ -66,14 +66,7 @@ const config = {
   }
 } as const;
 
-// Frigiliana has not moved to leaf localization yet: one of its Spanish sections
-// carries a paragraph the other locales do not, which the parity record tracks
-// and which a transposition cannot express. It keeps the older structure until
-// that copy is authored.
-const content =
-  destination === 'frigiliana'
-    ? contentByDestination.frigiliana[currentLang]
-    : resolveLocale(contentByDestination[destination], currentLang);
+const content = resolveLocale(contentByDestination[destination], currentLang);
 const seo = seoByDestination[destination];
 const pageConfig = config[destination];
 const requiredLink = createRequiredLinkResolver(currentLang, pageConfig.resolverName);

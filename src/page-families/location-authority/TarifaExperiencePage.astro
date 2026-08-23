@@ -1,4 +1,6 @@
 ---
+import type { TarifaExperienceSection } from '../../content/tarifaExperienceContent';
+import { resolveLocale } from '../../types/content';
 import InlineEmphasis from '../../components/text/InlineEmphasis.astro';
 import LocationExperienceHero from '../../components/location/LocationExperienceHero.astro';
 import Navigation from '../../components/Navigation.astro';
@@ -22,7 +24,7 @@ interface Props {
 
 const { lang = 'es' } = Astro.props;
 const currentLang = normalizeLanguage(lang as AmaraLanguage);
-const copy = tarifaExperienceContent[currentLang];
+const copy = resolveLocale(tarifaExperienceContent, currentLang);
 const requiredLink = createRequiredLinkResolver(currentLang, 'Tarifa Experience');
 
 const footerHighlights: LabeledLink[] = [
@@ -101,7 +103,7 @@ const footerHighlights: LabeledLink[] = [
       </div>
     </section>
 
-    {copy.sections.map((section, index) => (
+    {(copy.sections as TarifaExperienceSection[]).map((section, index) => (
       <>
         <AuthorityTextSection
           section={{

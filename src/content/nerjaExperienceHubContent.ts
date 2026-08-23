@@ -1,5 +1,9 @@
+import type { LocalizedText } from '../types/content';
 import type { LinkToken } from '../lib/linkResolver';
-import type { AmaraAuthoringSeo, AmaraLanguage } from '../types/seo';
+import type { AmaraAuthoringSeo } from '../types/seo';
+
+/** One authored string in the five AMARA locales, in EN, DE, ES, NL, SV order. */
+const l = (en: string, de: string, es: string, nl: string, sv: string): LocalizedText => ({ en, de, es, nl, sv });
 
 export type NerjaExperienceThemeId =
   | 'beaches'
@@ -78,120 +82,73 @@ export const nerjaExperienceHubSeo: AmaraAuthoringSeo = {
   }
 };
 
-export const nerjaExperienceHubContent: Record<AmaraLanguage, NerjaExperienceHubCopy> = {
-  en: {
-    hero: {
-      eyebrow: 'Experiences in Nerja',
-      title: 'Sea, old streets and evenings with more movement.',
-      standfirst: 'Nerja has its own rhythm: mornings by the Mediterranean, cultural landmarks close to town and a wider choice after sunset. This guide keeps that experience separate from village life in Frigiliana.',
-      imageAlt: 'Aerial view of Nerja and the Mediterranean coast'
-    },
-    intro: {
-      eyebrow: 'Choose the kind of day',
-      title: 'Start with the coast, then add one clear experience.',
-      text: 'Start with the two essentials—beaches and food—then choose a day trip, the Balcón, the caves or the kind of evening that fits your stay.'
-    },
-    themes: [
-      { id: 'beaches', title: 'Beaches & coast', text: 'Compare easy town beaches with the more natural coves towards Maro, then choose by access, conditions and the pace you want.', token: 'nerja_beaches_authority', linkLabel: 'Open the beach guide' },
-      { id: 'food', title: 'Food & restaurants', text: 'Choose between seafood tapas, a paella lunch by the beach and a special dinner worth reserving.', token: 'nerja_food_authority', linkLabel: 'Open the food guide' },
-      { id: 'dayTrips', title: 'Day trips', text: 'Compare Málaga, Granada, Caminito del Rey and Ronda without trying to turn several destinations into one rushed day.', token: 'nerja_daytrips_authority', linkLabel: 'Open the day-trip guide' },
-      { id: 'balcon', title: 'Balcón & Old Town', text: 'Use the Balcón de Europa as the starting point for sea views, pedestrian streets and an unhurried walk through central Nerja.', token: 'nerja_balcon_de_europa', linkLabel: 'Open the Balcón guide' },
-      { id: 'caves', title: 'Nerja Caves', text: 'Plan the cave visit as a distinct cultural experience, with realistic timing and the practical details that matter before arrival.', token: 'nerja_caves', linkLabel: 'Open the cave guide' },
-      { id: 'veranoAzul', title: 'Verano Azul', text: 'Explore where the series changed Nerja and why the town still carries its landmarks in local memory.', token: 'nerja_verano_azul', linkLabel: 'Open the Verano Azul guide' },
-      { id: 'nightlife', title: 'Evening life', text: 'Choose between dinner and a terrace, live music or a livelier late evening—this is a Nerja experience, not a Frigiliana promise.', token: 'nerja_nightlife_authority', linkLabel: 'Open the evening guide' }
-    ],
-    closing: { eyebrow: 'Stay close to the sea', title: 'Let Nerja set its own rhythm.', text: 'AMARA Playa gives you a quiet base close to the coast while the town’s beaches, old streets and evenings remain within easy reach.', stayLabel: 'View AMARA Playa' }
+export const nerjaExperienceHubContent = {
+  hero: {
+    eyebrow: l("Experiences in Nerja", "Erlebnisse in Nerja", "Experiencias en Nerja", "Ervaringen in Nerja", "Upplevelser i Nerja"),
+    title: l("Sea, old streets and evenings with more movement.", "Meer, Altstadt und Abende mit mehr Bewegung.", "Mar, calles antiguas y noches con más movimiento.", "Zee, oude straten en avonden met meer levendigheid.", "Hav, gamla gränder och kvällar med mer rörelse."),
+    standfirst: l("Nerja has its own rhythm: mornings by the Mediterranean, cultural landmarks close to town and a wider choice after sunset. This guide keeps that experience separate from village life in Frigiliana.", "Nerja hat einen eigenen Rhythmus: morgens ans Mittelmeer, kulturelle Orte nah am Zentrum und nach Sonnenuntergang mehr Auswahl. Dieser Guide trennt das Küstenerlebnis klar vom Dorfleben in Frigiliana.", "Nerja tiene un ritmo propio: mañanas junto al Mediterráneo, lugares culturales cerca del centro y más opciones al caer la tarde. Esta guía separa claramente esa experiencia de la vida de pueblo en Frigiliana.", "Nerja heeft een eigen ritme: ochtenden aan de Middellandse Zee, culturele plekken dicht bij het centrum en meer keuze na zonsondergang. Deze gids houdt dat duidelijk gescheiden van het dorpsleven in Frigiliana.", "Nerja har sin egen rytm: morgnar vid Medelhavet, kultur nära centrum och fler val efter solnedgången. Guiden skiljer tydligt den upplevelsen från bylivet i Frigiliana."),
+    imageAlt: l("Aerial view of Nerja and the Mediterranean coast", "Luftaufnahme von Nerja und der Mittelmeerküste", "Vista aérea de Nerja y la costa mediterránea", "Luchtfoto van Nerja en de Middellandse Zeekust", "Flygvy över Nerja och Medelhavskusten")
   },
-  de: {
-    hero: {
-      eyebrow: 'Erlebnisse in Nerja',
-      title: 'Meer, Altstadt und Abende mit mehr Bewegung.',
-      standfirst: 'Nerja hat einen eigenen Rhythmus: morgens ans Mittelmeer, kulturelle Orte nah am Zentrum und nach Sonnenuntergang mehr Auswahl. Dieser Guide trennt das Küstenerlebnis klar vom Dorfleben in Frigiliana.',
-      imageAlt: 'Luftaufnahme von Nerja und der Mittelmeerküste'
-    },
-    intro: {
-      eyebrow: 'Wählt euren Tag',
-      title: 'Beginnt an der Küste und ergänzt ein klares Erlebnis.',
-      text: 'Beginnt mit den beiden Grundlagen – Stränden und Essen – und wählt danach Tagesausflug, Balcón, Höhlen oder den Abend, der zu eurem Aufenthalt passt.'
-    },
-    themes: [
-      { id: 'beaches', title: 'Strände & Küste', text: 'Vergleicht gut erreichbare Stadtstrände mit den natürlicheren Buchten Richtung Maro und wählt nach Zugang, Bedingungen und gewünschtem Tempo.', token: 'nerja_beaches_authority', linkLabel: 'Strandguide öffnen' },
-      { id: 'food', title: 'Essen & Restaurants', text: 'Wählt zwischen Seafood-Tapas, Paella zum Strandlunch und einem besonderen Dinner mit Reservierung.', token: 'nerja_food_authority', linkLabel: 'Food-Guide öffnen' },
-      { id: 'dayTrips', title: 'Tagesausflüge', text: 'Vergleicht Málaga, Granada, den Caminito del Rey und Ronda, ohne mehrere Ziele in einen gehetzten Tag zu pressen.', token: 'nerja_daytrips_authority', linkLabel: 'Tagesausflugs-Guide öffnen' },
-      { id: 'balcon', title: 'Balcón & Altstadt', text: 'Nutzt den Balcón de Europa als Ausgangspunkt für Meerblick, Fußgängerzonen und einen entspannten Rundgang durch Nerjas Zentrum.', token: 'nerja_balcon_de_europa', linkLabel: 'Balcón-Guide öffnen' },
-      { id: 'caves', title: 'Höhlen von Nerja', text: 'Plant den Höhlenbesuch als eigenständiges Kulturerlebnis – mit realistischem Zeitbedarf und den wichtigen Details vor der Ankunft.', token: 'nerja_caves', linkLabel: 'Höhlen-Guide öffnen' },
-      { id: 'veranoAzul', title: 'Verano Azul', text: 'Erfahrt, wo die Serie gedreht wurde und warum Nerja als Serienort noch immer im kulturellen Gedächtnis verankert ist.', token: 'nerja_verano_azul', linkLabel: 'Verano Azul-Guide öffnen' },
-      { id: 'nightlife', title: 'Abendleben', text: 'Wählt zwischen Essen und Terrasse, Live-Musik oder einem lebhafteren späten Abend. Das ist ein Nerja-Erlebnis, kein Versprechen für Frigiliana.', token: 'nerja_nightlife_authority', linkLabel: 'Abend-Guide öffnen' }
-    ],
-    closing: { eyebrow: 'Nah am Meer wohnen', title: 'Lasst Nerja seinen eigenen Rhythmus bestimmen.', text: 'AMARA Playa ist eure ruhige Basis nahe der Küste, während Strände, Altstadt und Nerjas Abende gut erreichbar bleiben.', stayLabel: 'AMARA Playa ansehen' }
+  intro: {
+    eyebrow: l("Choose the kind of day", "Wählt euren Tag", "Elegid el tipo de día", "Kies het soort dag", "Välj dagens riktning"),
+    title: l("Start with the coast, then add one clear experience.", "Beginnt an der Küste und ergänzt ein klares Erlebnis.", "Empezad por la costa y añadid una experiencia clara.", "Begin aan de kust en voeg één duidelijke ervaring toe.", "Börja vid kusten och lägg till en tydlig upplevelse."),
+    text: l("Start with the two essentials—beaches and food—then choose a day trip, the Balcón, the caves or the kind of evening that fits your stay.", "Beginnt mit den beiden Grundlagen – Stränden und Essen – und wählt danach Tagesausflug, Balcón, Höhlen oder den Abend, der zu eurem Aufenthalt passt.", "Empezad por las dos prioridades —playas y gastronomía— y elegid después una excursión, el Balcón, las cuevas o la noche que encaje con la estancia.", "Begin met de twee basiskeuzes — stranden en eten — en kies daarna een dagtocht, het Balcón, de grotten of de avond die bij jullie verblijf past.", "Börja med de två grunderna — stränder och mat — och välj sedan en dagsutflykt, Balcón, grottorna eller den kväll som passar vistelsen.")
   },
-  es: {
-    hero: {
-      eyebrow: 'Experiencias en Nerja',
-      title: 'Mar, calles antiguas y noches con más movimiento.',
-      standfirst: 'Nerja tiene un ritmo propio: mañanas junto al Mediterráneo, lugares culturales cerca del centro y más opciones al caer la tarde. Esta guía separa claramente esa experiencia de la vida de pueblo en Frigiliana.',
-      imageAlt: 'Vista aérea de Nerja y la costa mediterránea'
+  themes: [
+    {
+      id: "beaches",
+      title: l("Beaches & coast", "Strände & Küste", "Playas y costa", "Stranden & kust", "Stränder & kust"),
+      text: l("Compare easy town beaches with the more natural coves towards Maro, then choose by access, conditions and the pace you want.", "Vergleicht gut erreichbare Stadtstrände mit den natürlicheren Buchten Richtung Maro und wählt nach Zugang, Bedingungen und gewünschtem Tempo.", "Comparad las playas urbanas de acceso sencillo con las calas más naturales hacia Maro y elegid según el acceso, las condiciones y el ritmo del día.", "Vergelijk makkelijk bereikbare stadsstranden met natuurlijkere baaien richting Maro en kies op basis van toegang, omstandigheden en tempo.", "Jämför lättillgängliga stadsstränder med naturligare vikar mot Maro och välj efter tillgång, förhållanden och önskat tempo."),
+      token: "nerja_beaches_authority" as LinkToken,
+      linkLabel: l("Open the beach guide", "Strandguide öffnen", "Abrir la guía de playas", "Open de strandgids", "Öppna strandguiden")
     },
-    intro: {
-      eyebrow: 'Elegid el tipo de día',
-      title: 'Empezad por la costa y añadid una experiencia clara.',
-      text: 'Empezad por las dos prioridades —playas y gastronomía— y elegid después una excursión, el Balcón, las cuevas o la noche que encaje con la estancia.'
+    {
+      id: "food",
+      title: l("Food & restaurants", "Essen & Restaurants", "Gastronomía y restaurantes", "Eten & restaurants", "Mat & restauranger"),
+      text: l("Choose between seafood tapas, a paella lunch by the beach and a special dinner worth reserving.", "Wählt zwischen Seafood-Tapas, Paella zum Strandlunch und einem besonderen Dinner mit Reservierung.", "Elegid entre tapas de pescado, una paella a mediodía junto a la playa y una cena especial con reserva.", "Kies tussen vistapas, een paellalunch bij het strand en een bijzonder diner dat een reservering verdient.", "Välj mellan fisktapas, paellalunch vid stranden och en speciell middag som förtjänar en bokning."),
+      token: "nerja_food_authority" as LinkToken,
+      linkLabel: l("Open the food guide", "Food-Guide öffnen", "Abrir la guía gastronómica", "Open de foodgids", "Öppna matguiden")
     },
-    themes: [
-      { id: 'beaches', title: 'Playas y costa', text: 'Comparad las playas urbanas de acceso sencillo con las calas más naturales hacia Maro y elegid según el acceso, las condiciones y el ritmo del día.', token: 'nerja_beaches_authority', linkLabel: 'Abrir la guía de playas' },
-      { id: 'food', title: 'Gastronomía y restaurantes', text: 'Elegid entre tapas de pescado, una paella a mediodía junto a la playa y una cena especial con reserva.', token: 'nerja_food_authority', linkLabel: 'Abrir la guía gastronómica' },
-      { id: 'dayTrips', title: 'Excursiones', text: 'Comparad Málaga, Granada, Caminito del Rey y Ronda sin intentar meter varios destinos en una jornada acelerada.', token: 'nerja_daytrips_authority', linkLabel: 'Abrir la guía de excursiones' },
-      { id: 'balcon', title: 'Balcón y casco antiguo', text: 'Tomad el Balcón de Europa como punto de partida para disfrutar del mar, las calles peatonales y un paseo tranquilo por el centro.', token: 'nerja_balcon_de_europa', linkLabel: 'Abrir la guía del Balcón' },
-      { id: 'caves', title: 'Cueva de Nerja', text: 'Planificad la visita como una experiencia cultural propia, con tiempos realistas y la información práctica necesaria antes de llegar.', token: 'nerja_caves', linkLabel: 'Abrir la guía de la cueva' },
-      { id: 'veranoAzul', title: 'Verano Azul', text: 'Revelad por qué la serie sigue viva en la memoria de generaciones y qué partes de Nerja siguen identificando ese legado.', token: 'nerja_verano_azul', linkLabel: 'Abrir la guía de Verano Azul' },
-      { id: 'nightlife', title: 'Vida nocturna', text: 'Elegid entre cena y terraza, música en directo o una noche más animada. Es una experiencia de Nerja, no una promesa de Frigiliana.', token: 'nerja_nightlife_authority', linkLabel: 'Abrir la guía de la noche' }
-    ],
-    closing: { eyebrow: 'Alojarse cerca del mar', title: 'Dejad que Nerja marque su propio ritmo.', text: 'AMARA Playa ofrece una base tranquila cerca de la costa, con las playas, el casco antiguo y las noches de Nerja a vuestro alcance.', stayLabel: 'Ver AMARA Playa' }
-  },
-  nl: {
-    hero: {
-      eyebrow: 'Ervaringen in Nerja',
-      title: 'Zee, oude straten en avonden met meer levendigheid.',
-      standfirst: 'Nerja heeft een eigen ritme: ochtenden aan de Middellandse Zee, culturele plekken dicht bij het centrum en meer keuze na zonsondergang. Deze gids houdt dat duidelijk gescheiden van het dorpsleven in Frigiliana.',
-      imageAlt: 'Luchtfoto van Nerja en de Middellandse Zeekust'
+    {
+      id: "dayTrips",
+      title: l("Day trips", "Tagesausflüge", "Excursiones", "Dagtochten", "Dagsutflykter"),
+      text: l("Compare Málaga, Granada, Caminito del Rey and Ronda without trying to turn several destinations into one rushed day.", "Vergleicht Málaga, Granada, den Caminito del Rey und Ronda, ohne mehrere Ziele in einen gehetzten Tag zu pressen.", "Comparad Málaga, Granada, Caminito del Rey y Ronda sin intentar meter varios destinos en una jornada acelerada.", "Vergelijk Málaga, Granada, Caminito del Rey en Ronda zonder meerdere bestemmingen in één gehaaste dag te persen.", "Jämför Málaga, Granada, Caminito del Rey och Ronda utan att pressa flera resmål in i en stressig dag."),
+      token: "nerja_daytrips_authority" as LinkToken,
+      linkLabel: l("Open the day-trip guide", "Tagesausflugs-Guide öffnen", "Abrir la guía de excursiones", "Open de dagtochtengids", "Öppna utflyktsguiden")
     },
-    intro: {
-      eyebrow: 'Kies het soort dag',
-      title: 'Begin aan de kust en voeg één duidelijke ervaring toe.',
-      text: 'Begin met de twee basiskeuzes — stranden en eten — en kies daarna een dagtocht, het Balcón, de grotten of de avond die bij jullie verblijf past.'
+    {
+      id: "balcon",
+      title: l("Balcón & Old Town", "Balcón & Altstadt", "Balcón y casco antiguo", "Balcón & oude stad", "Balcón & gamla stan"),
+      text: l("Use the Balcón de Europa as the starting point for sea views, pedestrian streets and an unhurried walk through central Nerja.", "Nutzt den Balcón de Europa als Ausgangspunkt für Meerblick, Fußgängerzonen und einen entspannten Rundgang durch Nerjas Zentrum.", "Tomad el Balcón de Europa como punto de partida para disfrutar del mar, las calles peatonales y un paseo tranquilo por el centro.", "Gebruik het Balcón de Europa als vertrekpunt voor zeezicht, autovrije straten en een ontspannen wandeling door het centrum.", "Använd Balcón de Europa som startpunkt för havsutsikt, gågator och en lugn promenad genom centrala Nerja."),
+      token: "nerja_balcon_de_europa" as LinkToken,
+      linkLabel: l("Open the Balcón guide", "Balcón-Guide öffnen", "Abrir la guía del Balcón", "Open de Balcón-gids", "Öppna Balcón-guiden")
     },
-    themes: [
-      { id: 'beaches', title: 'Stranden & kust', text: 'Vergelijk makkelijk bereikbare stadsstranden met natuurlijkere baaien richting Maro en kies op basis van toegang, omstandigheden en tempo.', token: 'nerja_beaches_authority', linkLabel: 'Open de strandgids' },
-      { id: 'food', title: 'Eten & restaurants', text: 'Kies tussen vistapas, een paellalunch bij het strand en een bijzonder diner dat een reservering verdient.', token: 'nerja_food_authority', linkLabel: 'Open de foodgids' },
-      { id: 'dayTrips', title: 'Dagtochten', text: 'Vergelijk Málaga, Granada, Caminito del Rey en Ronda zonder meerdere bestemmingen in één gehaaste dag te persen.', token: 'nerja_daytrips_authority', linkLabel: 'Open de dagtochtengids' },
-      { id: 'balcon', title: 'Balcón & oude stad', text: 'Gebruik het Balcón de Europa als vertrekpunt voor zeezicht, autovrije straten en een ontspannen wandeling door het centrum.', token: 'nerja_balcon_de_europa', linkLabel: 'Open de Balcón-gids' },
-      { id: 'caves', title: 'Grotten van Nerja', text: 'Plan de grotten als een zelfstandige culturele ervaring, met realistische tijden en praktische informatie voor vertrek.', token: 'nerja_caves', linkLabel: 'Open de grottengids' },
-      { id: 'veranoAzul', title: 'Verano Azul', text: 'Ontdek waarom de serie nog steeds mee-evolueert met de manier waarop men naar Nerja kijkt.', token: 'nerja_verano_azul', linkLabel: 'Open de Verano Azul-gids' },
-      { id: 'nightlife', title: 'Avondleven', text: 'Kies tussen diner en terras, livemuziek of een levendigere late avond. Dit hoort bij Nerja, niet bij de belofte van Frigiliana.', token: 'nerja_nightlife_authority', linkLabel: 'Open de avondgids' }
-    ],
-    closing: { eyebrow: 'Dicht bij zee verblijven', title: 'Laat Nerja zijn eigen ritme bepalen.', text: 'AMARA Playa is een rustige uitvalsbasis bij de kust, terwijl stranden, oude straten en avondleven dichtbij blijven.', stayLabel: 'Bekijk AMARA Playa' }
-  },
-  sv: {
-    hero: {
-      eyebrow: 'Upplevelser i Nerja',
-      title: 'Hav, gamla gränder och kvällar med mer rörelse.',
-      standfirst: 'Nerja har sin egen rytm: morgnar vid Medelhavet, kultur nära centrum och fler val efter solnedgången. Guiden skiljer tydligt den upplevelsen från bylivet i Frigiliana.',
-      imageAlt: 'Flygvy över Nerja och Medelhavskusten'
+    {
+      id: "caves",
+      title: l("Nerja Caves", "Höhlen von Nerja", "Cueva de Nerja", "Grotten van Nerja", "Nerjagrottorna"),
+      text: l("Plan the cave visit as a distinct cultural experience, with realistic timing and the practical details that matter before arrival.", "Plant den Höhlenbesuch als eigenständiges Kulturerlebnis – mit realistischem Zeitbedarf und den wichtigen Details vor der Ankunft.", "Planificad la visita como una experiencia cultural propia, con tiempos realistas y la información práctica necesaria antes de llegar.", "Plan de grotten als een zelfstandige culturele ervaring, met realistische tijden en praktische informatie voor vertrek.", "Planera grottbesöket som en egen kulturupplevelse med realistisk tidsåtgång och praktiska detaljer före ankomsten."),
+      token: "nerja_caves" as LinkToken,
+      linkLabel: l("Open the cave guide", "Höhlen-Guide öffnen", "Abrir la guía de la cueva", "Open de grottengids", "Öppna grottguiden")
     },
-    intro: {
-      eyebrow: 'Välj dagens riktning',
-      title: 'Börja vid kusten och lägg till en tydlig upplevelse.',
-      text: 'Börja med de två grunderna — stränder och mat — och välj sedan en dagsutflykt, Balcón, grottorna eller den kväll som passar vistelsen.'
+    {
+      id: "veranoAzul",
+      title: l("Verano Azul", "Verano Azul", "Verano Azul", "Verano Azul", "Verano Azul"),
+      text: l("Explore where the series changed Nerja and why the town still carries its landmarks in local memory.", "Erfahrt, wo die Serie gedreht wurde und warum Nerja als Serienort noch immer im kulturellen Gedächtnis verankert ist.", "Revelad por qué la serie sigue viva en la memoria de generaciones y qué partes de Nerja siguen identificando ese legado.", "Ontdek waarom de serie nog steeds mee-evolueert met de manier waarop men naar Nerja kijkt.", "Upptäck varför serien fortfarande sätter tonen i hur Nerja minns platsen."),
+      token: "nerja_verano_azul" as LinkToken,
+      linkLabel: l("Open the Verano Azul guide", "Verano Azul-Guide öffnen", "Abrir la guía de Verano Azul", "Open de Verano Azul-gids", "Öppna Verano Azul-guiden")
     },
-    themes: [
-      { id: 'beaches', title: 'Stränder & kust', text: 'Jämför lättillgängliga stadsstränder med naturligare vikar mot Maro och välj efter tillgång, förhållanden och önskat tempo.', token: 'nerja_beaches_authority', linkLabel: 'Öppna strandguiden' },
-      { id: 'food', title: 'Mat & restauranger', text: 'Välj mellan fisktapas, paellalunch vid stranden och en speciell middag som förtjänar en bokning.', token: 'nerja_food_authority', linkLabel: 'Öppna matguiden' },
-      { id: 'dayTrips', title: 'Dagsutflykter', text: 'Jämför Málaga, Granada, Caminito del Rey och Ronda utan att pressa flera resmål in i en stressig dag.', token: 'nerja_daytrips_authority', linkLabel: 'Öppna utflyktsguiden' },
-      { id: 'balcon', title: 'Balcón & gamla stan', text: 'Använd Balcón de Europa som startpunkt för havsutsikt, gågator och en lugn promenad genom centrala Nerja.', token: 'nerja_balcon_de_europa', linkLabel: 'Öppna Balcón-guiden' },
-      { id: 'caves', title: 'Nerjagrottorna', text: 'Planera grottbesöket som en egen kulturupplevelse med realistisk tidsåtgång och praktiska detaljer före ankomsten.', token: 'nerja_caves', linkLabel: 'Öppna grottguiden' },
-      { id: 'veranoAzul', title: 'Verano Azul', text: 'Upptäck varför serien fortfarande sätter tonen i hur Nerja minns platsen.', token: 'nerja_verano_azul', linkLabel: 'Öppna Verano Azul-guiden' },
-      { id: 'nightlife', title: 'Kvällsliv', text: 'Välj mellan middag och terrass, livemusik eller en livligare sen kväll. Det är en Nerja-upplevelse, inte ett Frigiliana-löfte.', token: 'nerja_nightlife_authority', linkLabel: 'Öppna kvällsguiden' }
-    ],
-    closing: { eyebrow: 'Bo nära havet', title: 'Låt Nerja sätta sin egen rytm.', text: 'AMARA Playa är en lugn bas nära kusten, med stränder, gamla gränder och Nerjas kvällar inom räckhåll.', stayLabel: 'Se AMARA Playa' }
+    {
+      id: "nightlife",
+      title: l("Evening life", "Abendleben", "Vida nocturna", "Avondleven", "Kvällsliv"),
+      text: l("Choose between dinner and a terrace, live music or a livelier late evening—this is a Nerja experience, not a Frigiliana promise.", "Wählt zwischen Essen und Terrasse, Live-Musik oder einem lebhafteren späten Abend. Das ist ein Nerja-Erlebnis, kein Versprechen für Frigiliana.", "Elegid entre cena y terraza, música en directo o una noche más animada. Es una experiencia de Nerja, no una promesa de Frigiliana.", "Kies tussen diner en terras, livemuziek of een levendigere late avond. Dit hoort bij Nerja, niet bij de belofte van Frigiliana.", "Välj mellan middag och terrass, livemusik eller en livligare sen kväll. Det är en Nerja-upplevelse, inte ett Frigiliana-löfte."),
+      token: "nerja_nightlife_authority" as LinkToken,
+      linkLabel: l("Open the evening guide", "Abend-Guide öffnen", "Abrir la guía de la noche", "Open de avondgids", "Öppna kvällsguiden")
+    }
+  ],
+  closing: {
+    eyebrow: l("Stay close to the sea", "Nah am Meer wohnen", "Alojarse cerca del mar", "Dicht bij zee verblijven", "Bo nära havet"),
+    title: l("Let Nerja set its own rhythm.", "Lasst Nerja seinen eigenen Rhythmus bestimmen.", "Dejad que Nerja marque su propio ritmo.", "Laat Nerja zijn eigen ritme bepalen.", "Låt Nerja sätta sin egen rytm."),
+    text: l("AMARA Playa gives you a quiet base close to the coast while the town’s beaches, old streets and evenings remain within easy reach.", "AMARA Playa ist eure ruhige Basis nahe der Küste, während Strände, Altstadt und Nerjas Abende gut erreichbar bleiben.", "AMARA Playa ofrece una base tranquila cerca de la costa, con las playas, el casco antiguo y las noches de Nerja a vuestro alcance.", "AMARA Playa is een rustige uitvalsbasis bij de kust, terwijl stranden, oude straten en avondleven dichtbij blijven.", "AMARA Playa är en lugn bas nära kusten, med stränder, gamla gränder och Nerjas kvällar inom räckhåll."),
+    stayLabel: l("View AMARA Playa", "AMARA Playa ansehen", "Ver AMARA Playa", "Bekijk AMARA Playa", "Se AMARA Playa")
   }
 };

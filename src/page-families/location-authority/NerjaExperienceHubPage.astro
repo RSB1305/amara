@@ -1,4 +1,5 @@
 ---
+import { resolveLocale } from '../../types/content';
 import LocationExperienceHero from '../../components/location/LocationExperienceHero.astro';
 import Navigation from '../../components/Navigation.astro';
 import EditorialClosingCta from '../../components/editorial/EditorialClosingCta.astro';
@@ -18,7 +19,7 @@ interface Props {
 
 const { lang = 'es' } = Astro.props;
 const currentLang = normalizeLanguage(lang as AmaraLanguage);
-const copy = nerjaExperienceHubContent[currentLang];
+const copy = resolveLocale(nerjaExperienceHubContent, currentLang);
 
 const themes = copy.themes.map((theme) => ({
   ...theme,
