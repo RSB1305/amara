@@ -1,5 +1,4 @@
 ---
-import InlineEmphasis from '../../components/text/InlineEmphasis.astro';
 import LocationExperienceHero from '../../components/location/LocationExperienceHero.astro';
 import Navigation from '../../components/Navigation.astro';
 import EditorialClosingCta from '../../components/editorial/EditorialClosingCta.astro';
@@ -14,6 +13,7 @@ import { createRequiredLinkResolver, type LabeledLink } from '../../lib/linkReso
 import { normalizeLanguage } from '../../lib/seo/resolve-seo-head';
 import type { AmaraLanguage } from '../../types/seo';
 import AuthorityFeatureSection from './AuthorityFeatureSection.astro';
+import ExperienceRelatedSection from './ExperienceRelatedSection.astro';
 import RestaurantSectionList from './RestaurantSectionList.astro';
 
 interface Props { lang?: string; }
@@ -80,10 +80,11 @@ const heroImage = { src: '/images/amara-frigiliana-pueblo/nerja-coast-aerial.jpe
       emphasizeText
     />
 
-    <section class="am-section am-section--plain">
-      <div class="mb-12 max-w-3xl"><h2 class="am-text-title italic tracking-tight text-on-surface">{copy.related.title}</h2></div>
-      <div class="grid grid-cols-1 gap-x-16 gap-y-12 lg:grid-cols-2">{copy.related.items.map((item) => <article class="border-t border-outline-variant/25 pt-8"><h3 class="am-text-subtitle text-on-surface">{item.title}</h3><p class="mt-4 am-text-body leading-relaxed text-on-surface-variant"><InlineEmphasis text={item.text} /></p><p class="mt-6"><a href={requiredLink(item.token)} class="am-inline-link">{item.label}<span aria-hidden="true"> →</span></a></p></article>)}</div>
-    </section>
+    <ExperienceRelatedSection
+      title={copy.related.title}
+      items={copy.related.items}
+      resolveHref={requiredLink}
+    />
 
     <section class="mx-auto max-w-screen-2xl px-6 pt-24 md:px-12"><EditorialClosingCta title={copy.closing.title} lead={copy.closing.lead} lang={currentLang} links={[{ token: 'playa', label: copy.closing.propertyLabel, style: 'primary' }, { token: 'nerja_experience_hub', label: copy.closing.hubLabel, style: 'secondary' }]} /></section>
   </div>
