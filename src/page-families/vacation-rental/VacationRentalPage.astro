@@ -52,11 +52,19 @@ import {
   bedTypeLabels,
   bunkBedLabel,
   coolingAndHeating,
+  getVacationRentalSunLoungerLabel,
+  getVacationRentalTvLabel,
+  getVacationRentalVehicleAccessLabel,
   highSpeedFiberInternet,
   outdoorPool,
   privateTerraceAreaLabel,
   terraceAreaLabel,
-  ui
+  ui,
+  vacationRentalCountryLabel,
+  vacationRentalHostLanguages,
+  vacationRentalPriceLocales,
+  vacationRentalRegionLabel,
+  type LocalizedText
 } from '../../content/vacationRentalPageContent';
 import { directBookingTrustSignals } from '../../content/directBookingBenefitsContent';
 import { airbnbRatingLabel, airbnbReviewEvidence } from '../../content/reviewEvidence';
@@ -74,7 +82,6 @@ interface Props {
   lang?: string;
 }
 
-type LocalizedText = Record<AmaraLanguage, string>;
 type ExternalReviewPlatform = 'airbnb' | 'booking';
 
 const { rental: rentalProp, lang = 'es' } = Astro.props;
@@ -125,14 +132,7 @@ const formatAmenity = (feature: VacationRentalAmenityFeature) => {
   }
 
   if (feature.name === 'tv') {
-    const tvLabels: LocalizedText = {
-      en: `${tvSizeInches}″ Flat-screen TV`,
-      de: `${tvSizeInches}″ Flachbild-TV`,
-      es: `TV de pantalla plana de ${tvSizeInches}″`,
-      nl: `${tvSizeInches}″ flatscreen-tv`,
-      sv: `${tvSizeInches}″ platt-TV`
-    };
-    return t(tvLabels);
+    return t(getVacationRentalTvLabel(tvSizeInches));
   }
 
   if (feature.name === 'pool' && rental.amenityFeatures.some((item) => item.name === 'poolType')) {
@@ -144,14 +144,7 @@ const formatAmenity = (feature: VacationRentalAmenityFeature) => {
   }
 
   if (feature.name === 'sunLoungers' && typeof feature.value === 'string') {
-    const sunLoungerLabels: LocalizedText = {
-      en: `${feature.value} sun loungers`,
-      de: `${feature.value} Sonnenliegen`,
-      es: `${feature.value} tumbonas`,
-      nl: `${feature.value} ligbedden`,
-      sv: `${feature.value} solstolar`
-    };
-    return t(sunLoungerLabels);
+    return t(getVacationRentalSunLoungerLabel(feature.value));
   }
 
   const label = t(amenityLabels[feature.name] ?? {
@@ -182,39 +175,8 @@ const formatBed = (bed: VacationRentalEntity['bed'][number]) => {
     : `${count}${t(bedTypeLabels[bed.typeOfBed])}`;
 };
 
-const localizedHostLanguages: LocalizedText = {
-  en: 'German, English and Spanish',
-  de: 'Deutsch, Englisch und Spanisch',
-  es: 'alemán, inglés y español',
-  nl: 'Duits, Engels en Spaans',
-  sv: 'tyska, engelska och spanska'
-};
-
-const localizedRegion: LocalizedText = {
-  en: 'Andalusia',
-  de: 'Andalusien',
-  es: 'Andalucía',
-  nl: 'Andalusië',
-  sv: 'Andalusien'
-};
-
-const localizedCountry: LocalizedText = {
-  en: 'Spain',
-  de: 'Spanien',
-  es: 'España',
-  nl: 'Spanje',
-  sv: 'Spanien'
-};
-
 const indicativePriceRange = formatVacationRentalPriceRange(rental.pricing, currentLang, 'symbol');
-const priceLocale: Record<AmaraLanguage, string> = {
-  en: 'en-GB',
-  de: 'de-DE',
-  es: 'es-ES',
-  nl: 'nl-NL',
-  sv: 'sv-SE'
-};
-const priceCheckedDate = new Intl.DateTimeFormat(priceLocale[currentLang], {
+const priceCheckedDate = new Intl.DateTimeFormat(vacationRentalPriceLocales[currentLang], {
   dateStyle: 'medium',
   timeZone: 'UTC'
 }).format(new Date(`${rental.pricing.lastVerified}T00:00:00Z`));
@@ -276,13 +238,7 @@ const factRows: FactRow[] = [
 
 const vehicleAccessHours = rental.accessFacts.vehicleAccessHours;
 const localizedVehicleAccess: LocalizedText | undefined = vehicleAccessHours
-  ? {
-      en: `Until ${vehicleAccessHours.until} and from ${vehicleAccessHours.from}`,
-      de: `Bis ${vehicleAccessHours.until} Uhr und ab ${vehicleAccessHours.from} Uhr`,
-      es: `Hasta las ${vehicleAccessHours.until} y a partir de las ${vehicleAccessHours.from}`,
-      nl: `Tot ${vehicleAccessHours.until.replace(':', '.')} uur en vanaf ${vehicleAccessHours.from.replace(':', '.')} uur`,
-      sv: `Fram till kl. ${vehicleAccessHours.until.replace(':', '.')} och från kl. ${vehicleAccessHours.from.replace(':', '.')}`
-    }
+  ? getVacationRentalVehicleAccessLabel(vehicleAccessHours)
   : undefined;
 
 const detailRows = [
@@ -293,7 +249,7 @@ const detailRows = [
     ? [{ label: t(ui.labels.vehicleAccess as LocalizedText), value: t(localizedVehicleAccess), Icon: CarFront }]
     : []),
   { label: t(ui.labels.pets as LocalizedText), value: t(rental.petsNote), Icon: PawPrint },
-  { label: t(ui.labels.hostLanguages as LocalizedText), value: t(localizedHostLanguages), Icon: Languages },
+  { label: t(ui.labels.hostLanguages as LocalizedText), value: t(vacationRentalHostLanguages), Icon: Languages },
   ...(parkingValue
     ? [{ label: t(ui.labels.parking as LocalizedText), value: localizedParking, Icon: CircleParking }]
     : [])
@@ -311,7 +267,7 @@ const descriptionParagraphs = t(rental.description)
   .map((paragraph) => paragraph.trim())
   .filter(Boolean);
 
-const visibleAddress = `${rental.street}, ${rental.zip} ${rental.city}, ${t(localizedRegion)}, ${t(localizedCountry)}`;
+const visibleAddress = `${rental.street}, ${rental.zip} ${rental.city}, ${t(vacationRentalRegionLabel)}, ${t(vacationRentalCountryLabel)}`;
 const mapsQuery = `${rental.street}, ${rental.zip} ${rental.city}, ${rental.region}, Spain`;
 const mapsHref = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(mapsQuery)}`;
 const addressNoteSegments = rental.addressNote

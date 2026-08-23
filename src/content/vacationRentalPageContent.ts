@@ -1,7 +1,65 @@
 import type { AmaraLanguage } from '../types/seo';
 import type { VacationRentalEntity } from './vacationRentalEntities';
 
-type LocalizedText = Record<AmaraLanguage, string>;
+export type LocalizedText = Record<AmaraLanguage, string>;
+
+export const vacationRentalHostLanguages: LocalizedText = {
+  en: 'German, English and Spanish',
+  de: 'Deutsch, Englisch und Spanisch',
+  es: 'alemán, inglés y español',
+  nl: 'Duits, Engels en Spaans',
+  sv: 'tyska, engelska och spanska'
+};
+
+export const vacationRentalRegionLabel: LocalizedText = {
+  en: 'Andalusia',
+  de: 'Andalusien',
+  es: 'Andalucía',
+  nl: 'Andalusië',
+  sv: 'Andalusien'
+};
+
+export const vacationRentalCountryLabel: LocalizedText = {
+  en: 'Spain',
+  de: 'Spanien',
+  es: 'España',
+  nl: 'Spanje',
+  sv: 'Spanien'
+};
+
+export const vacationRentalPriceLocales: Record<AmaraLanguage, string> = {
+  en: 'en-GB',
+  de: 'de-DE',
+  es: 'es-ES',
+  nl: 'nl-NL',
+  sv: 'sv-SE'
+};
+
+export const getVacationRentalTvLabel = (sizeInches: number): LocalizedText => ({
+  en: `${sizeInches}″ Flat-screen TV`,
+  de: `${sizeInches}″ Flachbild-TV`,
+  es: `TV de pantalla plana de ${sizeInches}″`,
+  nl: `${sizeInches}″ flatscreen-tv`,
+  sv: `${sizeInches}″ platt-TV`
+});
+
+export const getVacationRentalSunLoungerLabel = (count: string): LocalizedText => ({
+  en: `${count} sun loungers`,
+  de: `${count} Sonnenliegen`,
+  es: `${count} tumbonas`,
+  nl: `${count} ligbedden`,
+  sv: `${count} solstolar`
+});
+
+export const getVacationRentalVehicleAccessLabel = (
+  hours: NonNullable<VacationRentalEntity['accessFacts']['vehicleAccessHours']>
+): LocalizedText => ({
+  en: `Until ${hours.until} and from ${hours.from}`,
+  de: `Bis ${hours.until} Uhr und ab ${hours.from} Uhr`,
+  es: `Hasta las ${hours.until} y a partir de las ${hours.from}`,
+  nl: `Tot ${hours.until.replace(':', '.')} uur en vanaf ${hours.from.replace(':', '.')} uur`,
+  sv: `Fram till kl. ${hours.until.replace(':', '.')} och från kl. ${hours.from.replace(':', '.')}`
+});
 
 export const ui = {
   checkAvailability: {
