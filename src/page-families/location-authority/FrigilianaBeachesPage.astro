@@ -13,6 +13,7 @@ import { resolveOptionalLink, type LabeledLink } from '../../lib/linkResolver';
 import { normalizeLanguage } from '../../lib/seo/resolve-seo-head';
 import type { AmaraLanguage } from '../../types/seo';
 import AuthorityFeatureSection from './AuthorityFeatureSection.astro';
+import BeachPracticalSection from './BeachPracticalSection.astro';
 import BeachSectionList from './BeachSectionList.astro';
 import GuideLinkCardSection from './GuideLinkCardSection.astro';
 
@@ -95,45 +96,13 @@ const heroImage = {
         items={copy.conditions.items}
       />
 
-      <section
-        id="practical"
-        class="am-section am-section--plain"
-      >
-        <div class="max-w-3xl mb-16">
-          <h2 class="am-text-title italic text-on-surface tracking-tight mb-6">
-            {copy.practical.title}
-          </h2>
-          <p class="am-text-body text-on-surface-variant leading-relaxed">
-            {copy.practical.intro}
-          </p>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-x-10 gap-y-12">
-          {
-            copy.practical.items.map((item) => (
-              <div>
-                <div class="min-h-[4rem] mb-4 pb-2 border-b border-on-surface/10 flex items-start">
-                  <h3 class="am-text-caption uppercase tracking-wider leading-tight text-on-surface m-0">
-                    {item.title}
-                  </h3>
-                </div>
-                <p class="am-text-body text-on-surface-variant m-0">
-                  {item.text}
-                </p>
-              </div>
-            ))
-          }
-        </div>
-
-        <p class="mt-12 border-l border-primary/20 bg-surface-container-low px-4 py-3 am-text-body leading-relaxed text-on-surface-variant max-w-3xl">
-          {copy.practical.accessNote.before}<a
-            href={copy.practical.accessNote.href}
-            target="_blank"
-            rel="noopener noreferrer"
-            class="am-inline-link"
-          >{copy.practical.accessNote.label}</a>{copy.practical.accessNote.after}
-        </p>
-      </section>
+      <BeachPracticalSection
+        title={copy.practical.title}
+        intro={copy.practical.intro}
+        items={copy.practical.items}
+        accessNote={copy.practical.accessNote}
+        columns={3}
+      />
 
       <GuideLinkCardSection
         title={copy.combine.title}

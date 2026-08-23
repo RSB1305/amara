@@ -1,0 +1,67 @@
+---
+import InlineEmphasis from '../../components/text/InlineEmphasis.astro';
+
+interface PracticalItem {
+  title: string;
+  text: string;
+}
+
+interface Props {
+  title: string;
+  intro: string;
+  items: readonly PracticalItem[];
+  accessNote: {
+    before: string;
+    href: string;
+    label: string;
+    after: string;
+  };
+  columns: 3 | 4;
+  emphasizeText?: boolean;
+}
+
+const {
+  title,
+  intro,
+  items,
+  accessNote,
+  columns,
+  emphasizeText = false
+} = Astro.props;
+const gridClass = columns === 3
+  ? 'grid-cols-1 gap-x-10 gap-y-12 md:grid-cols-3'
+  : 'grid-cols-1 gap-x-8 gap-y-16 sm:grid-cols-2 lg:grid-cols-4';
+---
+
+<section id="practical" class="am-section am-section--plain">
+  <div class="mb-16 max-w-3xl">
+    <h2 class="am-text-title mb-6 italic tracking-tight text-on-surface">{title}</h2>
+    <p class="am-text-body leading-relaxed text-on-surface-variant">
+      {emphasizeText ? <InlineEmphasis text={intro} /> : intro}
+    </p>
+  </div>
+
+  <div class:list={['grid', gridClass]}>
+    {items.map((item) => (
+      <div>
+        <div class="flex min-h-[4rem] items-start border-b border-on-surface/10 pb-2 mb-4">
+          <h3 class="m-0 am-text-caption uppercase leading-tight tracking-wider text-on-surface">
+            {item.title}
+          </h3>
+        </div>
+        <p class="m-0 am-text-body text-on-surface-variant">
+          {emphasizeText ? <InlineEmphasis text={item.text} /> : item.text}
+        </p>
+      </div>
+    ))}
+  </div>
+
+  <p class="mt-12 max-w-3xl border-l border-primary/20 bg-surface-container-low px-4 py-3 am-text-body leading-relaxed text-on-surface-variant">
+    {accessNote.before}<a
+      href={accessNote.href}
+      target="_blank"
+      rel="noopener noreferrer"
+      class="am-inline-link"
+    >{accessNote.label}</a>{accessNote.after}
+  </p>
+</section>

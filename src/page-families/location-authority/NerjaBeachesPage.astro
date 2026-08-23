@@ -1,9 +1,7 @@
 ---
-import InlineEmphasis from '../../components/text/InlineEmphasis.astro';
 import LocationExperienceHero from '../../components/location/LocationExperienceHero.astro';
 import Navigation from '../../components/Navigation.astro';
 import EditorialClosingCta from '../../components/editorial/EditorialClosingCta.astro';
-import EditorialFeatureGrid from '../../components/editorial/EditorialFeatureGrid.astro';
 import ExperienceContextNav from '../../components/experience/ExperienceContextNav.astro';
 import { frigilianaBeachesContent } from '../../content/frigilianaBeachesContent';
 import {
@@ -15,6 +13,7 @@ import { createRequiredLinkResolver, type LabeledLink } from '../../lib/linkReso
 import { normalizeLanguage } from '../../lib/seo/resolve-seo-head';
 import type { AmaraLanguage } from '../../types/seo';
 import AuthorityFeatureSection from './AuthorityFeatureSection.astro';
+import BeachPracticalSection from './BeachPracticalSection.astro';
 import BeachSectionList from './BeachSectionList.astro';
 import ExperienceRelatedSection from './ExperienceRelatedSection.astro';
 
@@ -76,14 +75,14 @@ const heroImage = {
       emphasizeText
     />
 
-    <section id="practical" class="am-section am-section--plain">
-      <div class="mb-16 max-w-3xl">
-        <h2 class="am-text-title mb-6 italic tracking-tight text-on-surface">{shared.practical.title}</h2>
-        <p class="am-text-body leading-relaxed text-on-surface-variant"><InlineEmphasis text={shared.practical.intro} /></p>
-      </div>
-      <EditorialFeatureGrid cards={shared.practical.items.map((item) => ({ title: item.title, copy: item.text }))} />
-      <p class="mt-12 max-w-3xl border-l border-primary/20 bg-surface-container-low px-4 py-3 am-text-body leading-relaxed text-on-surface-variant">{shared.practical.accessNote.before}<a href={shared.practical.accessNote.href} target="_blank" rel="noopener noreferrer" class="am-inline-link">{shared.practical.accessNote.label}</a>{shared.practical.accessNote.after}</p>
-    </section>
+    <BeachPracticalSection
+      title={shared.practical.title}
+      intro={shared.practical.intro}
+      items={shared.practical.items}
+      accessNote={shared.practical.accessNote}
+      columns={4}
+      emphasizeText
+    />
 
     <ExperienceRelatedSection
       title={copy.related.title}
