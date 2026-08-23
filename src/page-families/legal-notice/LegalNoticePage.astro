@@ -2,6 +2,8 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Navigation from '../../components/Navigation.astro';
 import TrustHero from '../../components/hero/TrustHero.astro';
+import AmaraPageShell from '../../components/layout/AmaraPageShell.astro';
+import AmaraSection from '../../components/layout/AmaraSection.astro';
 import { legalIdentity, legalIdentityAddress } from '../../content/legalIdentity';
 import { normalizeLanguage } from '../../lib/seo/resolve-seo-head';
 import type { AmaraAuthoringSeo, AmaraLanguage } from '../../types/seo';
@@ -50,7 +52,8 @@ const seo: AmaraAuthoringSeo = {
 const linkClass = 'am-inline-link';
 const specsClass = 'space-y-4 text-on-surface-variant am-text-body';
 const specsItemClass = 'grid gap-2 md:grid-cols-[minmax(0,18rem)_1fr]';
-const cardClass = 'bg-surface-container-lowest border border-outline-variant/10 px-8 py-8 md:px-10 md:py-10';
+const cardClass = 'border-t border-border-subtle pt-6';
+const documentSectionClass = 'am-page-section am-page-section--default am-page-section--divided';
 
 const heroCopy = {
   en: {
@@ -87,18 +90,20 @@ const heroCopy = {
     languageToken="legal_notice"
   />
 
-  <div class="bg-white" data-am-page="legal-notice">
-    <div class="w-full max-w-[1400px] mx-auto px-[5vw]" data-lang={currentLang}>
+  <AmaraPageShell family="legal-notice" dataLang={currentLang}>
+    <AmaraSection variant="hero" dataComponent="legal-notice-hero">
       <TrustHero
         subtitle={heroCopy.subtitle}
         title={heroCopy.title}
         lead={heroCopy.lead}
+        spacing="section"
       />
+    </AmaraSection>
 
-      <div class="max-w-screen-lg mx-auto pb-28">
+    <div class="legal-notice-formal-headings mx-auto max-w-screen-lg">
       {currentLang === 'en' && (
-        <main id="am-main-content" tabindex="-1" lang="en" aria-label="Legal (EN)" class="legal-notice-formal-headings space-y-16 scroll-mt-[104px] lg:scroll-mt-[112px]">
-          <section class="space-y-6" aria-label="Responsible party">
+        <div lang="en" aria-label="Legal (EN)">
+          <section class={documentSectionClass} data-am-component="legal-notice-section" aria-label="Responsible party">
             <h2 class="am-text-title italic text-on-surface">Responsible for this Website</h2>
             <div class={cardClass}>
               <ul class={specsClass} aria-label="Contact details">
@@ -111,7 +116,7 @@ const heroCopy = {
             </div>
           </section>
 
-          <section class="space-y-6" aria-label="Licenses">
+          <section class={documentSectionClass} data-am-component="legal-notice-section" aria-label="Licenses">
             <h2 class="am-text-title italic text-on-surface">Rental Licenses &amp; Registrations</h2>
             <div class="space-y-6">
               <div class={cardClass}>
@@ -139,7 +144,7 @@ const heroCopy = {
             <p class="am-text-body text-on-surface-variant italic">Private holiday rental. Not a registered company.</p>
           </section>
 
-          <section class="space-y-6" aria-label="Consumer protection">
+          <section class={documentSectionClass} data-am-component="legal-notice-section" aria-label="Consumer protection">
             <h2 class="am-text-title italic text-on-surface">Consumer Protection</h2>
             <div class={cardClass}>
               <div class="space-y-6">
@@ -149,7 +154,7 @@ const heroCopy = {
             </div>
           </section>
 
-          <section class="space-y-6" aria-label="Privacy Policy">
+          <section class={documentSectionClass} data-am-component="legal-notice-section" aria-label="Privacy Policy">
             <h2 class="am-text-title italic text-on-surface">Privacy Policy</h2>
             <p class="am-text-body text-on-surface-variant">Last updated: <strong class="text-on-surface">August 12, 2026</strong></p>
             <div class={cardClass}>
@@ -164,12 +169,12 @@ const heroCopy = {
               </div>
             </div>
           </section>
-        </main>
+        </div>
       )}
 
       {currentLang === 'de' && (
-        <main id="am-main-content" tabindex="-1" lang="de" aria-label="Rechtliches (DE)" class="legal-notice-formal-headings space-y-16 scroll-mt-[104px] lg:scroll-mt-[112px]">
-          <section class="space-y-6" aria-label="Verantwortlich">
+        <div lang="de" aria-label="Rechtliches (DE)">
+          <section class={documentSectionClass} data-am-component="legal-notice-section" aria-label="Verantwortlich">
             <h2 class="am-text-title italic text-on-surface">Verantwortlich für diese Website</h2>
             <div class={cardClass}>
               <ul class={specsClass} aria-label="Kontaktdaten">
@@ -181,7 +186,7 @@ const heroCopy = {
               </ul>
             </div>
           </section>
-          <section class="space-y-6" aria-label="Lizenzen">
+          <section class={documentSectionClass} data-am-component="legal-notice-section" aria-label="Lizenzen">
             <h2 class="am-text-title italic text-on-surface">Vermietungs&shy;lizenzen &amp; Registrierungen</h2>
             <div class="space-y-6">
               <div class={cardClass}>
@@ -208,7 +213,7 @@ const heroCopy = {
             </div>
             <p class="am-text-body text-on-surface-variant italic">Private Ferienvermietung. Kein eingetragenes Unternehmen, kein Handelsregistereintrag.</p>
           </section>
-          <section class="space-y-6" aria-label="Verbraucherschutz">
+          <section class={documentSectionClass} data-am-component="legal-notice-section" aria-label="Verbraucherschutz">
             <h2 class="am-text-title italic text-on-surface">Verbraucherschutz &amp; Streitbeilegung</h2>
             <div class={cardClass}>
               <div class="space-y-6">
@@ -217,7 +222,7 @@ const heroCopy = {
               </div>
             </div>
           </section>
-          <section class="space-y-6" aria-label="Datenschutz">
+          <section class={documentSectionClass} data-am-component="legal-notice-section" aria-label="Datenschutz">
             <h2 class="am-text-title italic text-on-surface">Datenschutz&shy;erklärung</h2>
             <p class="am-text-body text-on-surface-variant">Stand: <strong class="text-on-surface">12.08.2026</strong></p>
             <div class={cardClass}>
@@ -232,12 +237,12 @@ const heroCopy = {
               </div>
             </div>
           </section>
-        </main>
+        </div>
       )}
 
       {currentLang === 'es' && (
-        <main id="am-main-content" tabindex="-1" lang="es" aria-label="Legal (ES)" class="legal-notice-formal-headings space-y-16 scroll-mt-[104px] lg:scroll-mt-[112px]">
-          <section class="space-y-6" aria-label="Responsable">
+        <div lang="es" aria-label="Legal (ES)">
+          <section class={documentSectionClass} data-am-component="legal-notice-section" aria-label="Responsable">
             <h2 class="am-text-title italic text-on-surface">Responsable de la web</h2>
             <div class={cardClass}>
               <ul class={specsClass} aria-label="Datos de contacto">
@@ -249,7 +254,7 @@ const heroCopy = {
               </ul>
             </div>
           </section>
-          <section class="space-y-6" aria-label="Licencias">
+          <section class={documentSectionClass} data-am-component="legal-notice-section" aria-label="Licencias">
             <h2 class="am-text-title italic text-on-surface">Licencias turísticas y registros</h2>
             <div class="space-y-6">
               <div class={cardClass}><h3 class="am-text-subtitle italic text-on-surface mb-6">Nerja</h3><ul class={specsClass}><li class={specsItemClass}><strong class="text-on-surface">Licencia regional</strong> <span>VFT/MA/19212</span></li><li class={specsItemClass}><strong class="text-on-surface">Registro (NRUA)</strong> <span><code class="break-all font-mono am-text-body text-on-surface">ESFCTU0000290130000818750000000000000000VUT/MA/192120</code></span></li></ul></div>
@@ -258,11 +263,11 @@ const heroCopy = {
             </div>
             <p class="am-text-body text-on-surface-variant italic">Alquiler vacacional privado. Arrendador particular - No inscrito en el Registro Mercantil.</p>
           </section>
-          <section class="space-y-6" aria-label="Protección consumidor">
+          <section class={documentSectionClass} data-am-component="legal-notice-section" aria-label="Protección consumidor">
             <h2 class="am-text-title italic text-on-surface">Protección al consumidor</h2>
             <div class={cardClass}><p class="am-text-body text-on-surface-variant"><strong class="text-on-surface">Hojas de Quejas y Reclamaciones:</strong><br />Existen Hojas de Quejas y Reclamaciones de la Junta de Andalucía a disposición del consumidor y usuario que las solicite.</p></div>
           </section>
-          <section class="space-y-6" aria-label="Privacidad">
+          <section class={documentSectionClass} data-am-component="legal-notice-section" aria-label="Privacidad">
             <h2 class="am-text-title italic text-on-surface">Política de Privacidad</h2>
             <p class="am-text-body text-on-surface-variant">Última actualización: <strong class="text-on-surface">12/08/2026</strong></p>
             <div class={cardClass}>
@@ -277,16 +282,16 @@ const heroCopy = {
               </div>
             </div>
           </section>
-        </main>
+        </div>
       )}
 
       {currentLang === 'nl' && (
-        <main id="am-main-content" tabindex="-1" lang="nl" aria-label="Juridisch (NL)" class="legal-notice-formal-headings space-y-16 scroll-mt-[104px] lg:scroll-mt-[112px]">
-          <section class="space-y-6" aria-label="Verantwoordelijk">
+        <div lang="nl" aria-label="Juridisch (NL)">
+          <section class={documentSectionClass} data-am-component="legal-notice-section" aria-label="Verantwoordelijk">
             <h2 class="am-text-title italic text-on-surface">Verantwoordelijk voor deze website</h2>
             <div class={cardClass}><ul class={specsClass} aria-label="Contactgegevens"><li class={specsItemClass}><strong class="text-on-surface">Naam</strong> <span>{legalIdentity.name}</span></li><li class={specsItemClass}><strong class="text-on-surface">Adres</strong> <span>{legalIdentityAddress}, Spanje</span></li><li class={specsItemClass}><strong class="text-on-surface">Status</strong> <span>Particuliere verhuurder – Geen inschrijving in het handelsregister</span></li><li class={specsItemClass}><strong class="text-on-surface">Land</strong> <span>Spanje</span></li><li class={specsItemClass}><strong class="text-on-surface">E-mail</strong> <span><a class={linkClass} href={`mailto:${legalIdentity.email}`}>{legalIdentity.email}</a></span></li></ul></div>
           </section>
-          <section class="space-y-6" aria-label="Licenties">
+          <section class={documentSectionClass} data-am-component="legal-notice-section" aria-label="Licenties">
             <h2 class="am-text-title italic text-on-surface">Verhuurlicenties &amp; registraties</h2>
             <div class="space-y-6">
               <div class={cardClass}><h3 class="am-text-subtitle italic text-on-surface mb-6">Nerja</h3><ul class={specsClass}><li class={specsItemClass}><strong class="text-on-surface">Regionale licentie</strong> <span>VFT/MA/19212</span></li><li class={specsItemClass}><strong class="text-on-surface">Registratie (NRUA)</strong> <span><code class="break-all font-mono am-text-body text-on-surface">ESFCTU0000290130000818750000000000000000VUT/MA/192120</code></span></li></ul></div>
@@ -295,7 +300,7 @@ const heroCopy = {
             </div>
             <p class="am-text-body text-on-surface-variant italic">Particuliere vakantieverhuur. Geen geregistreerd bedrijf.</p>
           </section>
-          <section class="space-y-6" aria-label="Privacy">
+          <section class={documentSectionClass} data-am-component="legal-notice-section" aria-label="Privacy">
             <h2 class="am-text-title italic text-on-surface">Privacybeleid</h2>
             <p class="am-text-body text-on-surface-variant">Laatste update: <strong class="text-on-surface">12-08-2026</strong></p>
             <div class={cardClass}>
@@ -310,16 +315,16 @@ const heroCopy = {
               </div>
             </div>
           </section>
-        </main>
+        </div>
       )}
 
       {currentLang === 'sv' && (
-        <main id="am-main-content" tabindex="-1" lang="sv" aria-label="Juridik (SV)" class="legal-notice-formal-headings space-y-16 scroll-mt-[104px] lg:scroll-mt-[112px]">
-          <section class="space-y-6" aria-label="Ansvarig">
+        <div lang="sv" aria-label="Juridik (SV)">
+          <section class={documentSectionClass} data-am-component="legal-notice-section" aria-label="Ansvarig">
             <h2 class="am-text-title italic text-on-surface">Ansvarig för denna webbplats</h2>
             <div class={cardClass}><ul class={specsClass} aria-label="Kontaktuppgifter"><li class={specsItemClass}><strong class="text-on-surface">Namn</strong> <span>{legalIdentity.name}</span></li><li class={specsItemClass}><strong class="text-on-surface">Adress</strong> <span>{legalIdentityAddress}, Spanien</span></li><li class={specsItemClass}><strong class="text-on-surface">Status</strong> <span>Privat uthyrare – Ingen registrering i handelsregistret</span></li><li class={specsItemClass}><strong class="text-on-surface">Land</strong> <span>Spanien</span></li><li class={specsItemClass}><strong class="text-on-surface">E-post</strong> <span><a class={linkClass} href={`mailto:${legalIdentity.email}`}>{legalIdentity.email}</a></span></li></ul></div>
           </section>
-          <section class="space-y-6" aria-label="Licenser">
+          <section class={documentSectionClass} data-am-component="legal-notice-section" aria-label="Licenser">
             <h2 class="am-text-title italic text-on-surface">Uthyrningslicenser &amp; registreringar</h2>
             <div class="space-y-6">
               <div class={cardClass}><h3 class="am-text-subtitle italic text-on-surface mb-6">Nerja</h3><ul class={specsClass}><li class={specsItemClass}><strong class="text-on-surface">Regional licens</strong> <span>VFT/MA/19212</span></li><li class={specsItemClass}><strong class="text-on-surface">Registrering (NRUA)</strong> <span><code class="break-all font-mono am-text-body text-on-surface">ESFCTU0000290130000818750000000000000000VUT/MA/192120</code></span></li></ul></div>
@@ -328,7 +333,7 @@ const heroCopy = {
             </div>
             <p class="am-text-body text-on-surface-variant italic">Privat semesteruthyrning. Inget registrerat företag.</p>
           </section>
-          <section class="space-y-6" aria-label="Integritet">
+          <section class={documentSectionClass} data-am-component="legal-notice-section" aria-label="Integritet">
             <h2 class="am-text-title italic text-on-surface">Integritetspolicy</h2>
             <p class="am-text-body text-on-surface-variant">Senast uppdaterad: <strong class="text-on-surface">2026-08-12</strong></p>
             <div class={cardClass}>
@@ -343,11 +348,10 @@ const heroCopy = {
               </div>
             </div>
           </section>
-        </main>
+        </div>
       )}
-      </div>
     </div>
-  </div>
+  </AmaraPageShell>
 </BaseLayout>
 
 <style>
