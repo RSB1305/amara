@@ -1,5 +1,5 @@
 ---
-import NerjaWeatherPage from '../../page-families/location-authority/NerjaWeatherPage.astro';
+import WeatherPage from '../../page-families/location-authority/WeatherPage.astro';
 import { getOwnedPageStaticPaths } from '../../lib/routeOwnership';
 import type { AmaraLanguage } from '../../types/seo';
 
@@ -10,4 +10,4 @@ export function getStaticPaths() {
 const { lang } = Astro.params as { lang: AmaraLanguage };
 ---
 
-<NerjaWeatherPage lang={lang} />
+<WeatherPage destination="nerja" lang={lang} />

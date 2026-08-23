@@ -1,0 +1,94 @@
+---
+import Navigation from '../../components/Navigation.astro';
+import LocationContextNav from '../../components/location/LocationContextNav.astro';
+import NerjaContextNav from '../../components/location/NerjaContextNav.astro';
+import TarifaContextNav from '../../components/location/TarifaContextNav.astro';
+import {
+  getWeatherAuthorityContent,
+  getWeatherSeo,
+  weatherForecastUrls,
+  weatherMonthLabels
+} from '../../content/locationWeatherAuthorityContent';
+import { climateDataSourceUrls, locationClimateProfiles } from '../../content/locationClimateData';
+import LocationAuthorityLayout from '../../layouts/LocationAuthorityLayout.astro';
+import { createRequiredLinkResolver, type LabeledLink } from '../../lib/linkResolver';
+import { normalizeLanguage } from '../../lib/seo/resolve-seo-head';
+import type { AmaraLanguage } from '../../types/seo';
+import WeatherAuthorityBody from './WeatherAuthorityBody.astro';
+
+type Destination = 'frigiliana' | 'nerja' | 'tarifa';
+
+interface Props {
+  destination: Destination;
+  lang?: string;
+}
+
+const { destination, lang = 'es' } = Astro.props;
+const currentLang = normalizeLanguage(lang as AmaraLanguage);
+const content = getWeatherAuthorityContent(destination, currentLang);
+const seo = getWeatherSeo(destination);
+
+const config = {
+  frigiliana: {
+    resolverName: 'Frigiliana weather',
+    languageToken: 'weather_frigiliana',
+    primaryToken: 'location_frigiliana',
+    secondaryToken: 'frigiliana_stairs'
+  },
+  nerja: {
+    resolverName: 'Nerja weather',
+    languageToken: 'nerja_weather',
+    primaryToken: 'location_nerja',
+    secondaryToken: 'nerja_where_to_stay'
+  },
+  tarifa: {
+    resolverName: 'Tarifa weather',
+    languageToken: 'tarifa_weather',
+    primaryToken: 'location_tarifa',
+    secondaryToken: 'tarifa_where_to_stay'
+  }
+} as const satisfies Record<Destination, {
+  resolverName: string;
+  languageToken: string;
+  primaryToken: string;
+  secondaryToken: string;
+}>;
+
+const pageConfig = config[destination];
+const requiredLink = createRequiredLinkResolver(currentLang, pageConfig.resolverName);
+const months = locationClimateProfiles[destination].map((month, index) => ({
+  month: weatherMonthLabels[currentLang][index],
+  ...month
+}));
+const footerHighlights: LabeledLink[] | undefined = destination === 'tarifa'
+  ? [
+      { token: 'tarifa_weather', label: content.navLabel },
+      { token: 'tarifa_geography', label: content.related.links[0].label },
+      { token: 'tarifa_where_to_stay', label: content.related.links[1].label }
+    ]
+  : undefined;
+---
+
+<LocationAuthorityLayout seo={seo} pageLang={currentLang} showContextNavigation={false} footerHighlights={footerHighlights}>
+  <Navigation slot="navigation" currentLang={currentLang} languageToken={pageConfig.languageToken} >
+    {destination === 'frigiliana' && (
+      <LocationContextNav slot="context-navigation" activeId="weather" lang={currentLang} />
+    )}
+    {destination === 'nerja' && (
+      <NerjaContextNav slot="context-navigation" activeId="weather-seasons" childLabel={content.navLabel} lang={currentLang} />
+    )}
+    {destination === 'tarifa' && (
+      <TarifaContextNav slot="context-navigation" activeId="overview" activeChildId="weather-seasons" currentLabel="Tarifa" childLabel={content.navLabel} lang={currentLang} />
+    )}
+  </Navigation>
+  <WeatherAuthorityBody
+    pageId={`${destination}-weather`}
+    content={content}
+    months={months}
+    climateSource={{ label: content.sources.links[0].label, href: climateDataSourceUrls[destination] }}
+    forecastHref={weatherForecastUrls[destination]}
+    resolveHref={requiredLink}
+    primaryHref={requiredLink(pageConfig.primaryToken)}
+    secondaryHref={requiredLink(pageConfig.secondaryToken)}
+  />
+</LocationAuthorityLayout>
