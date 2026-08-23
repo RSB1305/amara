@@ -2,7 +2,7 @@
 import AmaraImage from '../../components/AmaraImage.astro';
 import LocationExperienceHero from '../../components/location/LocationExperienceHero.astro';
 import Navigation from '../../components/Navigation.astro';
-import EditorialClosingCta from '../../components/editorial/EditorialClosingCta.astro';
+import GuideClosingSection from './GuideClosingSection.astro';
 import ExperienceContextNav from '../../components/experience/ExperienceContextNav.astro';
 import {
   experienceCatalog,
@@ -324,25 +324,23 @@ const heroImage = {
         </div>
       </section>
 
-      <section class="mx-auto max-w-screen-2xl px-6 pt-24 md:px-12">
-        <EditorialClosingCta
-          title={copy.closing.title}
-          lead={copy.closing.lead}
-          lang={currentLang}
-          links={[
-            {
-              token: 'romantic_hideaways',
-              label: copy.closing.staysCta,
-              style: 'primary'
-            },
-            {
-              token: 'book',
-              label: copy.closing.availabilityCta,
-              style: 'secondary'
-            }
-          ]}
-        />
-      </section>
+      <GuideClosingSection
+        title={copy.closing.title}
+        lead={copy.closing.lead}
+        lang={currentLang}
+        links={[
+          {
+            token: 'romantic_hideaways',
+            label: copy.closing.staysCta,
+            style: 'primary'
+          },
+          {
+            token: 'book',
+            label: copy.closing.availabilityCta,
+            style: 'secondary'
+          }
+        ]}
+      />
     </div>
   </div>
 </LocationAuthorityLayout>

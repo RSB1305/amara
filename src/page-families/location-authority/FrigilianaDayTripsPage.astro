@@ -1,7 +1,7 @@
 ---
 import LocationExperienceHero from '../../components/location/LocationExperienceHero.astro';
 import Navigation from '../../components/Navigation.astro';
-import EditorialClosingCta from '../../components/editorial/EditorialClosingCta.astro';
+import GuideClosingSection from './GuideClosingSection.astro';
 import ExperienceContextNav from '../../components/experience/ExperienceContextNav.astro';
 import ExperiencePreFooter from '../../components/experience/ExperiencePreFooter.astro';
 import {
@@ -103,8 +103,7 @@ const heroImage = {
 
       <ExperiencePreFooter currentId="dayTrips" lang={currentLang} />
 
-      <section class="max-w-screen-2xl mx-auto px-6 pt-24 md:px-12">
-        <EditorialClosingCta
+      <GuideClosingSection
           title={copy.closing.title}
           lead={copy.closing.lead}
           lang={currentLang}
@@ -120,8 +119,7 @@ const heroImage = {
               style: 'secondary'
             }
           ]}
-        />
-      </section>
+      />
     </div>
   </div>
 </LocationAuthorityLayout>

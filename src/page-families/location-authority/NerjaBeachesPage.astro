@@ -1,7 +1,7 @@
 ---
 import LocationExperienceHero from '../../components/location/LocationExperienceHero.astro';
 import Navigation from '../../components/Navigation.astro';
-import EditorialClosingCta from '../../components/editorial/EditorialClosingCta.astro';
+import GuideClosingSection from './GuideClosingSection.astro';
 import ExperienceContextNav from '../../components/experience/ExperienceContextNav.astro';
 import { frigilianaBeachesContent } from '../../content/frigilianaBeachesContent';
 import {
@@ -91,8 +91,6 @@ const heroImage = {
       surface="tint"
     />
 
-    <section class="mx-auto max-w-screen-2xl px-6 pt-24 md:px-12">
-      <EditorialClosingCta title={copy.closing.title} lead={copy.closing.lead} lang={currentLang} links={[{ token: 'playa', label: copy.closing.propertyLabel, style: 'primary' }, { token: 'nerja_experience_hub', label: copy.closing.hubLabel, style: 'secondary' }]} />
-    </section>
+    <GuideClosingSection title={copy.closing.title} lead={copy.closing.lead} lang={currentLang} links={[{ token: 'playa', label: copy.closing.propertyLabel, style: 'primary' }, { token: 'nerja_experience_hub', label: copy.closing.hubLabel, style: 'secondary' }]} />
   </div>
 </LocationAuthorityLayout>

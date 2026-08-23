@@ -1,0 +1,24 @@
+---
+import EditorialClosingCta, {
+  type EditorialClosingCtaLink
+} from '../../components/editorial/EditorialClosingCta.astro';
+import type { AmaraLanguage } from '../../types/seo';
+
+interface Props {
+  title: string;
+  lead: string;
+  lang: AmaraLanguage;
+  links: EditorialClosingCtaLink[];
+}
+
+const { title, lead, lang, links } = Astro.props;
+---
+
+<section class="mx-auto max-w-screen-2xl px-6 pt-24 md:px-12">
+  <EditorialClosingCta
+    title={title}
+    lead={lead}
+    lang={lang}
+    links={links}
+  />
+</section>
