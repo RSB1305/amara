@@ -5,6 +5,7 @@ import EditorialDefinitionList from '../../components/editorial/EditorialDefinit
 import EditorialSplit from '../../components/editorial/EditorialSplit.astro';
 import EditorialStatement from '../../components/editorial/EditorialStatement.astro';
 import EditorialClosingCta from '../../components/editorial/EditorialClosingCta.astro';
+import AmaraSection from '../../components/layout/AmaraSection.astro';
 import type { EditorialClosingCtaLink } from '../../components/editorial/EditorialClosingCta.astro';
 import InlineEmphasis from '../../components/text/InlineEmphasis.astro';
 import {
@@ -69,23 +70,14 @@ const inlineLinks = ([
     ctaVariant: 'conversion'
   }}
 >
-
-      <section class="mb-[var(--spacing-section-y)]">
-
+  <AmaraSection>
         <EditorialSplit title={copy.sections.benefitsTitle[currentLang]}>
-
           <div class="mb-10">
-
             <EditorialDefinitionList items={directBookingDefinitionItems} />
-
           </div>
-
-          <p class="am-text-body leading-[1.8] text-muted italic mb-8">
-
+          <p class="am-text-body text-muted italic mb-8">
             <InlineEmphasis text={copy.sections.tip[currentLang]} />
-
           </p>
-
           <div class="flex flex-col sm:flex-row flex-wrap items-center justify-center gap-4 sm:gap-6">
             {inlineLinks.map((link) => (
               <>
@@ -98,98 +90,44 @@ const inlineLinks = ([
               </>
             ))}
           </div>
-
         </EditorialSplit>
+  </AmaraSection>
 
-      </section>
-
-
-
-      <div class="mb-[var(--spacing-section-y)]">
-
+  <AmaraSection>
         <EditorialQuote quote={copy.sections.quote[currentLang]} />
+  </AmaraSection>
 
-      </div>
-
-
-
-      <section class="mb-[var(--spacing-section-y)]">
-
+  <AmaraSection>
         <EditorialSplit title={copy.sections.whyTitle[currentLang]}>
-
-          <p class="am-text-subtitle leading-[1.5] text-on-surface mb-8">
-
+          <p class="am-text-subtitle text-on-surface mb-8">
             {copy.sections.whyLead[currentLang]}
-
           </p>
-
-          <p class="am-text-body leading-[1.8] text-subtle">
-
+          <p class="am-text-body text-subtle">
             <InlineEmphasis text={copy.sections.whyBody[currentLang]} />
-
           </p>
-
         </EditorialSplit>
+  </AmaraSection>
 
-      </section>
-
-
-
-      <section class="-mx-[5vw] mb-[var(--spacing-section-y)] bg-surface px-[clamp(2rem,5vw,5rem)] py-[clamp(4rem,8vw,8rem)]">
-
+  <AmaraSection class="am-page-band bg-surface-container-low">
         <EditorialStatement title={copy.sections.promiseTitle[currentLang]}>
-
-          <p class="am-text-body leading-[1.8] text-subtle">
-
+          <p class="am-text-body text-subtle">
             <InlineEmphasis text={copy.sections.promiseP1[currentLang]} />
-
           </p>
-
-          <p class="am-text-body leading-[1.8] text-subtle">
-
+          <p class="am-text-body text-subtle">
             <InlineEmphasis text={copy.sections.promiseP2[currentLang]} />
-
           </p>
-
-          <p class="am-text-body leading-[1.8] text-muted italic mt-8">
-
+          <p class="am-text-body text-muted italic mt-8">
             <InlineEmphasis text={copy.sections.promiseNote[currentLang]} />
-
           </p>
-
         </EditorialStatement>
-
-      </section>
-
-
+  </AmaraSection>
 
       <EditorialClosingCta
-
         title={copy.sections.ctaTitle[currentLang]}
-
         lead={copy.sections.ctaLead[currentLang]}
-
         links={closingCtaLinks}
-
         lang={currentLang}
-
+        spacing="page"
       />
-
 </TrustPageLayout>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 

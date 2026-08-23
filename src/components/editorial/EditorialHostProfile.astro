@@ -30,7 +30,7 @@ const { imageSrc, imageAlt, title, role, stats, id, intro = [] } = Astro.props;
 <div
   id={id}
   class:list={[
-    'grid grid-cols-1 lg:grid-cols-[4fr_6fr] gap-[clamp(4rem,8vw,8rem)] items-start mb-[var(--spacing-section-y)]',
+    'grid grid-cols-1 gap-10 items-start lg:grid-cols-[4fr_6fr] lg:gap-[clamp(4rem,8vw,8rem)]',
     { 'scroll-mt-[104px] lg:scroll-mt-[112px]': id }
   ]}
 >
@@ -63,7 +63,7 @@ const { imageSrc, imageAlt, title, role, stats, id, intro = [] } = Astro.props;
       {
         stats.map((stat) => (
           <div>
-            <dt class="am-text-caption uppercase tracking-[0.1em] text-on-surface/70 mb-2">{stat.label}</dt>
+            <dt class="am-text-label text-on-surface/70 mb-2">{stat.label}</dt>
             <dd class="am-text-body text-on-surface m-0">{stat.value}</dd>
           </div>
         ))

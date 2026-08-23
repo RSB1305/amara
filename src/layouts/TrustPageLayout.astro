@@ -1,6 +1,8 @@
 ---
 import Navigation from '../components/Navigation.astro';
 import TrustHero from '../components/hero/TrustHero.astro';
+import AmaraPageShell from '../components/layout/AmaraPageShell.astro';
+import AmaraSection from '../components/layout/AmaraSection.astro';
 import type { LinkToken } from '../lib/linkResolver';
 import type { AmaraAuthoringSeo, AmaraLanguage } from '../types/seo';
 import BaseLayout from './BaseLayout.astro';
@@ -50,8 +52,8 @@ const {
     languageToken={languageToken}
   />
 
-  <div class="bg-white" data-am-page={pageId}>
-    <div class="mx-auto w-full max-w-[1400px] px-[5vw]" data-lang={dataLang}>
+  <AmaraPageShell family={pageId} dataLang={dataLang}>
+    <AmaraSection variant="hero">
       <TrustHero
         subtitle={hero.subtitle}
         title={hero.title}
@@ -60,18 +62,12 @@ const {
         supportText={hero.supportText}
         ctaLinks={hero.ctaLinks}
         ctaVariant={hero.ctaVariant}
+        spacing="section"
       />
+    </AmaraSection>
 
-      <main
-        id="am-main-content"
-        tabindex="-1"
-        class:list={[
-          'scroll-mt-[104px] lg:scroll-mt-[112px]',
-          mainClass
-        ]}
-      >
-        <slot />
-      </main>
+    <div class:list={['am-trust-flow', mainClass]}>
+      <slot />
     </div>
-  </div>
+  </AmaraPageShell>
 </BaseLayout>

@@ -4,6 +4,7 @@ import EditorialClosingCta from '../../components/editorial/EditorialClosingCta.
 import type { EditorialClosingCtaLink } from '../../components/editorial/EditorialClosingCta.astro';
 import EditorialQuote from '../../components/editorial/EditorialQuote.astro';
 import EditorialSplit from '../../components/editorial/EditorialSplit.astro';
+import AmaraSection from '../../components/layout/AmaraSection.astro';
 import AmaraImage from '../../components/AmaraImage.astro';
 import frigilianaLocationImage from '../../assets/images/content/amara-frigiliana-pueblo/JPG_Frigiliana_Pueblo/2000px_72dpi_sRGB/04-frigiliana-pueblo.jpg';
 import nerjaLocationImage from '../../assets/images/home/amara-playa-chaparril-13.webp';
@@ -68,7 +69,7 @@ const closingCtaLinks: EditorialClosingCtaLink[] = [
     ctaVariant: 'conversion'
   }}
 >
-      <section class="mb-[var(--spacing-section-y)]">
+  <AmaraSection>
         <EditorialSplit title={copy.sections.summaryTitle[currentLang]}>
           <p class="am-text-subtitle text-on-surface"><InlineEmphasis text={copy.sections.summaryLead[currentLang]} /></p>
           <p class="am-text-caption text-on-surface-variant">
@@ -83,30 +84,31 @@ const closingCtaLinks: EditorialClosingCtaLink[] = [
           </p>
           <p class="am-text-body text-subtle">{copy.sections.summaryBodyOne[currentLang]}</p>
         </EditorialSplit>
-      </section>
+  </AmaraSection>
 
-      <div class="mb-[var(--spacing-section-y)]">
+  <AmaraSection>
         <EditorialQuote quote={copy.sections.quote[currentLang]} />
-      </div>
+  </AmaraSection>
 
-      <section class="mb-[var(--spacing-section-y)]">
-        <div class="mx-auto mb-16 max-w-[760px] text-center">
+  <AmaraSection>
+        <div class="mx-auto mb-12 max-w-[760px] text-center md:mb-16">
           <h2 class="am-text-title">{copy.sections.reviewsTitle[currentLang]}</h2>
           <p class="am-text-body italic text-muted"><InlineEmphasis text={copy.sections.reviewsNote[currentLang]} /></p>
         </div>
 
         <div class="grid gap-[clamp(2rem,4vw,3rem)] lg:grid-cols-3">
           {copy.reviews.map((review) => (
-            <article class="border border-on-surface/5 bg-surface p-[clamp(2rem,3vw,2.5rem)]">
+            <article class="border border-on-surface/5 bg-surface-container-lowest p-[clamp(2rem,3vw,2.5rem)]">
               <p class="am-text-caption mb-6 text-muted">{review.meta[currentLang]}</p>
-              <p class="am-text-body leading-[1.85] text-strong">&ldquo;{review.copy[currentLang]}&rdquo;</p>
+              <p class="am-text-body text-strong">&ldquo;{review.copy[currentLang]}&rdquo;</p>
             </article>
           ))}
         </div>
-      </section>
+  </AmaraSection>
 
-      <section class="mx-auto mb-[var(--spacing-section-y)] max-w-[900px]">
-        <div class="mx-auto mb-16 max-w-[760px] text-center">
+  <AmaraSection>
+      <div class="mx-auto max-w-[900px]">
+        <div class="mx-auto mb-12 max-w-[760px] text-center md:mb-16">
           <h2 class="am-text-title">{copy.sections.mentionsTitle[currentLang]}</h2>
           <p class="am-text-body italic text-muted"><InlineEmphasis text={copy.sections.mentionsNote[currentLang]} /></p>
         </div>
@@ -118,17 +120,18 @@ const closingCtaLinks: EditorialClosingCtaLink[] = [
             </div>
           ))}
         </div>
-      </section>
+      </div>
+  </AmaraSection>
 
-      <section class="-mx-[5vw] mb-[var(--spacing-section-y)] bg-surface px-[clamp(2rem,5vw,5rem)] py-[clamp(4rem,8vw,8rem)]">
-        <div class="mx-auto mb-16 max-w-[760px] text-center">
+  <AmaraSection class="am-page-band bg-surface-container-low">
+        <div class="mx-auto mb-12 max-w-[760px] text-center md:mb-16">
           <h2 class="am-text-title mb-6">{copy.sections.awardsTitle[currentLang]}</h2>
           <p class="am-text-body text-subtle"><InlineEmphasis text={copy.sections.awardsBody[currentLang]} /></p>
           <p class="am-text-body italic text-muted"><InlineEmphasis text={copy.sections.awardsSource[currentLang]} /></p>
         </div>
 
         <div class="mx-auto grid max-w-[1100px] gap-[clamp(2rem,4vw,4rem)] lg:grid-cols-2">
-          <div class="border border-on-surface/5 bg-white p-[clamp(2rem,4vw,3rem)] shadow-[var(--shadow-editorial-card)]">
+          <div class="border border-on-surface/5 bg-surface-container-lowest p-[clamp(2rem,4vw,3rem)] shadow-[var(--shadow-editorial-card)]">
             <h3 class="am-text-caption mb-6 border-b border-on-surface/10 pb-[0.6rem] text-muted">Frigiliana</h3>
             <ul class="am-text-body m-0 list-none p-0 text-on-surface">
               {copy.awards.frigiliana.map((award) => (
@@ -137,7 +140,7 @@ const closingCtaLinks: EditorialClosingCtaLink[] = [
             </ul>
           </div>
 
-          <div class="border border-on-surface/5 bg-white p-[clamp(2rem,4vw,3rem)] shadow-[var(--shadow-editorial-card)]">
+          <div class="border border-on-surface/5 bg-surface-container-lowest p-[clamp(2rem,4vw,3rem)] shadow-[var(--shadow-editorial-card)]">
             <h3 class="am-text-caption mb-6 border-b border-on-surface/10 pb-[0.6rem] text-muted">Nerja & Tarifa</h3>
             <ul class="am-text-body m-0 list-none p-0 text-on-surface">
               {copy.awards.coast.map((award) => (
@@ -146,10 +149,10 @@ const closingCtaLinks: EditorialClosingCtaLink[] = [
             </ul>
           </div>
         </div>
-      </section>
+  </AmaraSection>
 
-      <section class="mb-[var(--spacing-section-y)]">
-        <div class="mx-auto mb-16 max-w-[760px] text-center">
+  <AmaraSection>
+        <div class="mx-auto mb-12 max-w-[760px] text-center md:mb-16">
           <h2 class="am-text-title">{copy.sections.locationTitle[currentLang]}</h2>
           <p class="am-text-body text-subtle"><InlineEmphasis text={copy.sections.locationLead[currentLang]} /></p>
         </div>
@@ -203,12 +206,13 @@ const closingCtaLinks: EditorialClosingCtaLink[] = [
             </div>
           </a>
         </div>
-      </section>
+  </AmaraSection>
 
       <EditorialClosingCta
         title={copy.sections.nextTitle[currentLang]}
         lead={copy.sections.nextLead[currentLang]}
         links={closingCtaLinks}
         lang={currentLang}
+        spacing="page"
       />
 </TrustPageLayout>

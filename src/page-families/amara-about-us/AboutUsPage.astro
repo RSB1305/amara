@@ -6,6 +6,7 @@ import EditorialFeatureGrid from '../../components/editorial/EditorialFeatureGri
 import SustainabilityBand from '../../components/editorial/SustainabilityBand.astro';
 import EditorialHostProfile from '../../components/editorial/EditorialHostProfile.astro';
 import EditorialClosingCta from '../../components/editorial/EditorialClosingCta.astro';
+import AmaraSection from '../../components/layout/AmaraSection.astro';
 import { getAboutUsPageData } from '../../content/aboutUsContent';
 import { resolveOptionalLink } from '../../lib/linkResolver';
 import { normalizeLanguage } from '../../lib/seo/resolve-seo-head';
@@ -71,6 +72,7 @@ const heroCtaLinks = page.hero.ctaLinks
     ctaLinks: heroCtaLinks
   }}
 >
+  <AmaraSection>
       <EditorialHostProfile
         id="host"
         imageSrc="/images/robert-amara-host.jpg"
@@ -81,7 +83,7 @@ const heroCtaLinks = page.hero.ctaLinks
         stats={hostStats}
       >
         <div class="flex flex-wrap items-center gap-x-5 gap-y-2" aria-label={content.host.contactLabel[currentLang]}>
-          <span class="font-label text-[11px] font-semibold uppercase tracking-[0.1em] text-on-surface-variant">
+          <span class="am-text-label text-on-surface-variant">
             {content.host.contactLabel[currentLang]}:
           </span>
           <a class="am-inline-link" href="mailto:hola@amara-lodging.es">hola@amara-lodging.es</a>
@@ -98,10 +100,11 @@ const heroCtaLinks = page.hero.ctaLinks
           </div>
         </div>
       </EditorialHostProfile>
+  </AmaraSection>
 
-      <section class="mb-[var(--spacing-section-y)]">
+  <AmaraSection>
         <EditorialSplit title={content.philosophy.title?.[currentLang] ?? ''}>
-          <p class="am-text-subtitle leading-[1.5] text-on-surface mb-8">
+          <p class="am-text-subtitle text-on-surface mb-8">
             {content.philosophy.lead?.[currentLang]}
           </p>
           {content.philosophy.paragraphs
@@ -109,23 +112,24 @@ const heroCtaLinks = page.hero.ctaLinks
             .map((paragraph) => (
               <p class="am-text-body text-subtle">{paragraph[currentLang]}</p>
             ))}
-          <div class="h-16 w-full shrink-0" aria-hidden="true"></div>
-          <h3 class="am-text-subtitle font-normal text-on-surface mb-4">{content.philosophy.subtitle?.[currentLang]}</h3>
+          <h3 class="am-text-subtitle mt-6 font-normal text-on-surface mb-4">{content.philosophy.subtitle?.[currentLang]}</h3>
           {content.philosophy.items
             ?.filter((item) => item.copy[currentLang].trim() !== '')
             .map((item) => (
               <p class="am-text-body text-subtle">{item.copy[currentLang]}</p>
             ))}
         </EditorialSplit>
-      </section>
+  </AmaraSection>
 
-      <section class="mx-auto mb-[var(--spacing-section-y)] max-w-[800px]">
-        <div class="mb-16 text-center">
+  <AmaraSection>
+      <div class="mx-auto max-w-[800px]">
+        <div class="mb-12 text-center md:mb-16">
           <h2 class="am-text-title">{content.principles.title?.[currentLang]}</h2>
           <p class="am-text-body italic text-muted">{content.principles.note?.[currentLang]}</p>
         </div>
         <EditorialDefinitionList items={principlesDefinitionItems} />
-      </section>
+      </div>
+  </AmaraSection>
 
       <SustainabilityBand
         title={content.sustainability.title?.[currentLang] ?? ''}
@@ -134,15 +138,13 @@ const heroCtaLinks = page.hero.ctaLinks
         listColumns={sustainabilityListColumns}
       />
 
-      <section
-        class="-mx-[5vw] mb-[var(--spacing-section-y)] bg-surface px-[clamp(2rem,5vw,5rem)] py-[clamp(4rem,8vw,8rem)]"
-      >
-        <h2 class="am-text-title text-center mb-20">{content.quality.title?.[currentLang]}</h2>
-        <div class="max-w-[1200px] mx-auto mb-16" data-am-about-quality-grid>
+  <AmaraSection class="am-page-band bg-surface-container-low">
+        <h2 class="am-text-title mb-12 text-center md:mb-16">{content.quality.title?.[currentLang]}</h2>
+        <div class="mx-auto mb-12 max-w-[1200px] md:mb-16" data-am-about-quality-grid>
           <EditorialFeatureGrid cards={qualityFeatureCards} />
         </div>
         <p class="am-text-body text-center italic text-muted">{content.quality.note?.[currentLang]}</p>
-      </section>
+  </AmaraSection>
 
       <EditorialClosingCta
         title={content.closingCta.title?.[currentLang] ?? ''}
@@ -150,6 +152,7 @@ const heroCtaLinks = page.hero.ctaLinks
         note={content.closingCta.note?.[currentLang]}
         links={closingCtaLinks}
         lang={currentLang}
+        spacing="page"
       />
 </TrustPageLayout>
 

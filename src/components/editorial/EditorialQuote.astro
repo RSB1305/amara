@@ -17,8 +17,7 @@ const { quote, author, source } = Astro.props;
 const attribution = author ?? source;
 ---
 
-<section class="am-direct-section py-[clamp(4rem,8vw,8rem)] text-center max-w-[1000px] mx-auto">
-  <blockquote class="am-text-title leading-[1.15] italic text-on-surface m-0">
+<blockquote class="am-text-title mx-auto max-w-[1000px] text-center italic text-on-surface m-0">
     &ldquo;{quote}&rdquo;
     {
       attribution && (
@@ -27,5 +26,4 @@ const attribution = author ?? source;
         </footer>
       )
     }
-  </blockquote>
-</section>
+</blockquote>

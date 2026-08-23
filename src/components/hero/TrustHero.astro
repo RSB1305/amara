@@ -14,6 +14,7 @@ interface Props {
   ctaLinks?: HeroLink[];
   ctaVariant?: 'editorial' | 'conversion';
   supportText?: string;
+  spacing?: 'standalone' | 'section';
 }
 
 const {
@@ -23,14 +24,15 @@ const {
   lead,
   ctaLinks = [],
   ctaVariant = 'editorial',
-  supportText
+  supportText,
+  spacing = 'standalone'
 } = Astro.props;
 ---
 
-<div class="am-exp-hero">
+<div class:list={['am-exp-hero', { 'am-exp-hero--section': spacing === 'section' }]}>
   {subtitle && (
     <div class="am-exp-hero__meta">
-      <span class="am-kicker text-primary">{subtitle}</span>
+      <span class="am-text-label text-on-surface-variant">{subtitle}</span>
     </div>
   )}
   <h1
@@ -72,15 +74,19 @@ const {
     padding: clamp(2rem, 4vw, 2.5rem) 0 clamp(4rem, 8vw, 8rem);
   }
 
+  .am-exp-hero--section {
+    padding: 0;
+  }
+
   .am-exp-hero__meta {
     display: flex;
     gap: 1.5rem;
-    margin-bottom: 3rem;
+    margin-bottom: 1.25rem;
   }
 
   .am-exp-hero__title {
     max-width: 12ch;
-    margin: 0 0 2.5rem 0;
+    margin: 0 0 2rem 0;
     text-wrap: balance;
     @apply text-on-surface;
   }
@@ -100,7 +106,7 @@ const {
   }
 
   .am-exp-hero__lead {
-    max-width: 35ch;
+    max-width: 42rem;
   }
 
   .am-hero-support {

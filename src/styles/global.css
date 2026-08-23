@@ -538,6 +538,11 @@
     border-bottom: 1px solid var(--color-border-subtle);
   }
 
+  .am-page-band {
+    margin-inline: calc(var(--spacing-page-gutter) * -1);
+    padding-inline: var(--spacing-page-gutter);
+  }
+
   @media (min-width: 48rem) {
     .am-page-shell__frame {
       --spacing-page-gutter: 3rem;

@@ -22,7 +22,7 @@ const { title, subtitle, lead, listColumns } = Astro.props;
 ---
 
 <section
-  class="am-exp-section -mx-[5vw] mb-[var(--spacing-section-y)] bg-[var(--color-sustainability-surface)] px-[clamp(2rem,5vw,5rem)] py-[clamp(4rem,8vw,8rem)] text-[var(--color-sustainability-on-surface)]"
+  class="am-page-band am-page-section am-page-section--divided bg-[var(--color-sustainability-surface)] text-[var(--color-sustainability-on-surface)]"
 >
   <div class="max-w-[1200px] mx-auto grid grid-cols-1 lg:grid-cols-[1fr_2fr] gap-[clamp(4rem,8vw,8rem)]">
     <header class="flex flex-col gap-2">
@@ -30,14 +30,14 @@ const { title, subtitle, lead, listColumns } = Astro.props;
       <p class="am-kicker opacity-70">{subtitle}</p>
     </header>
     <div>
-      <p class="am-text-subtitle leading-[1.5] text-[var(--color-sustainability-on-surface)] mb-8 m-0">
+      <p class="am-text-subtitle text-[var(--color-sustainability-on-surface)] mb-8 m-0">
         <InlineEmphasis text={lead} />
       </p>
       <div class="grid grid-cols-1 md:grid-cols-2 gap-12 mt-16">
         {
           listColumns.map((column) => (
             <div>
-              <h3 class="am-text-caption uppercase tracking-[0.1em] text-[color:color-mix(in_srgb,var(--color-sustainability-on-surface)_70%,transparent)] mb-6 pb-2 border-b border-[color:color-mix(in_srgb,var(--color-sustainability-on-surface)_18%,transparent)] m-0">
+              <h3 class="am-text-label text-[color:color-mix(in_srgb,var(--color-sustainability-on-surface)_70%,transparent)] mb-6 pb-2 border-b border-[color:color-mix(in_srgb,var(--color-sustainability-on-surface)_18%,transparent)] m-0">
                 {column.label}
               </h3>
               <ul class="list-none p-0 m-0 am-text-body text-[var(--color-sustainability-on-surface)]">

@@ -3,6 +3,7 @@ import TrustPageLayout from '../../layouts/TrustPageLayout.astro';
 import EditorialClosingCta from '../../components/editorial/EditorialClosingCta.astro';
 import type { EditorialClosingCtaLink } from '../../components/editorial/EditorialClosingCta.astro';
 import AmaraImage from '../../components/AmaraImage.astro';
+import AmaraSection from '../../components/layout/AmaraSection.astro';
 import { trustLabels } from '../../content/trustLabels';
 import { resolveOptionalLink, type LabeledLink } from '../../lib/linkResolver';
 import { normalizeLanguage } from '../../lib/seo/resolve-seo-head';
@@ -308,7 +309,6 @@ const sections = copy.sections.map((section, index) => ({
   footerHighlights={footerHighlights}
   pageId="faq-general"
   dataLang={currentLang}
-  mainClass="space-y-16"
   hero={{
     subtitle: hero.kicker,
     title: hero.title,
@@ -318,117 +318,64 @@ const sections = copy.sections.map((section, index) => ({
     ctaVariant: 'conversion'
   }}
 >
-        {sections.map((section) => (
-          <section
-            class="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-20 items-start border-t border-outline-variant/10 pt-16"
-            data-lang={currentLang}
-          >
-            {section.reverse ? (
-              <>
-                <div class="min-w-0 self-start">
-                  <figure class="am-mobile-full-bleed am-mobile-full-bleed--fluid border border-outline-variant/10 bg-surface-container-low overflow-hidden">
-                    <div class="aspect-16/10">
-                      <AmaraImage
-                        src={section.image}
-                        alt={section.alt}
-                        profile="card"
-                        class="w-full h-full object-cover"
-                        loading="lazy"
-                        decoding="async"
-                      />
-                    </div>
-                  </figure>
-                </div>
+  {sections.map((section) => (
+    <AmaraSection>
+      <div class="grid grid-cols-1 items-start gap-10 lg:grid-cols-2 lg:gap-20" data-lang={currentLang}>
+        <div class:list={['min-w-0 self-start', { 'lg:order-2': section.reverse }]}>
+          <div class="border border-outline-variant/10 bg-surface-container-lowest px-5 pb-6 pt-4 sm:px-6 sm:pb-8 md:px-8 lg:px-10 lg:pb-10 lg:pt-6">
+            <div class="mb-6">
+              <span class="am-text-section-caption text-primary mb-3">
+                {copy.shared.sectionBadge[currentLang]}
+              </span>
+              <h2 class="am-text-title italic tracking-tight text-on-surface">
+                {section.topic}
+              </h2>
+            </div>
 
-                <div class="min-w-0 self-start">
-                  <div class="border border-outline-variant/10 bg-surface-container-lowest px-8 pb-8 pt-4 md:px-10 md:pb-10 md:pt-5 lg:px-12 lg:pb-12 lg:pt-6">
-                    <div class="mb-6">
-                      <span class="am-text-section-caption text-primary mb-3">
-                        {copy.shared.sectionBadge[currentLang]}
-                      </span>
-                      <h2 class="am-text-title italic tracking-tight text-on-surface">
-                        {section.topic}
-                      </h2>
-                    </div>
+            <div class="divide-y divide-outline-variant/15 border-y border-outline-variant/15">
+              {section.items.map((item) => (
+                <details class="group py-6">
+                  <summary class="am-accordion__trigger">
+                    <span class="min-w-0 am-text-annotation am-text-annotation--wide text-on-surface transition-colors group-hover:text-primary">
+                      {item.question}
+                    </span>
+                    <span class="am-accordion__indicator" aria-hidden="true">
+                      <span class="group-open:hidden">+</span>
+                      <span class="hidden group-open:inline">-</span>
+                    </span>
+                  </summary>
+                  <p class="am-text-body max-w-2xl pt-4 text-on-surface-variant">
+                    {item.answer}
+                  </p>
+                </details>
+              ))}
+            </div>
+          </div>
+        </div>
 
-                    <div class="divide-y divide-outline-variant/15 border-y border-outline-variant/15">
-                      {section.items.map((item) => (
-                        <details class="group py-6">
-                          <summary class="am-accordion__trigger">
-                            <span class="min-w-0 am-text-caption uppercase tracking-[0.18em] text-on-surface group-hover:text-primary transition-colors leading-relaxed">
-                              {item.question}
-                            </span>
-                            <span class="am-accordion__indicator" aria-hidden="true">
-                              <span class="group-open:hidden">+</span>
-                              <span class="hidden group-open:inline">-</span>
-                            </span>
-                          </summary>
-                          <p class="pt-4 am-text-body text-on-surface-variant leading-relaxed max-w-2xl">
-                            {item.answer}
-                          </p>
-                        </details>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-              </>
-            ) : (
-              <>
-                <div class="min-w-0 self-start">
-                  <div class="border border-outline-variant/10 bg-surface-container-lowest px-8 pb-8 pt-4 md:px-10 md:pb-10 md:pt-5 lg:px-12 lg:pb-12 lg:pt-6">
-                    <div class="mb-6">
-                      <span class="am-text-section-caption text-primary mb-3">
-                        {copy.shared.sectionBadge[currentLang]}
-                      </span>
-                      <h2 class="am-text-title italic tracking-tight text-on-surface">
-                        {section.topic}
-                      </h2>
-                    </div>
-
-                    <div class="divide-y divide-outline-variant/15 border-y border-outline-variant/15">
-                      {section.items.map((item) => (
-                        <details class="group py-6">
-                          <summary class="am-accordion__trigger">
-                            <span class="min-w-0 am-text-caption uppercase tracking-[0.18em] text-on-surface group-hover:text-primary transition-colors leading-relaxed">
-                              {item.question}
-                            </span>
-                            <span class="am-accordion__indicator" aria-hidden="true">
-                              <span class="group-open:hidden">+</span>
-                              <span class="hidden group-open:inline">-</span>
-                            </span>
-                          </summary>
-                          <p class="pt-4 am-text-body text-on-surface-variant leading-relaxed max-w-2xl">
-                            {item.answer}
-                          </p>
-                        </details>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-
-                <div class="min-w-0 self-start">
-                  <figure class="am-mobile-full-bleed am-mobile-full-bleed--fluid border border-outline-variant/10 bg-surface-container-low overflow-hidden">
-                    <div class="aspect-16/10">
-                      <AmaraImage
-                        src={section.image}
-                        alt={section.alt}
-                        profile="card"
-                        class="w-full h-full object-cover"
-                        loading="lazy"
-                        decoding="async"
-                      />
-                    </div>
-                  </figure>
-                </div>
-              </>
-            )}
-          </section>
-        ))}
+        <div class:list={['min-w-0 self-start', { 'lg:order-1': section.reverse }]}>
+          <figure class="am-mobile-full-bleed am-mobile-full-bleed--fluid overflow-hidden border border-outline-variant/10 bg-surface-container-low">
+            <div class="aspect-16/10">
+              <AmaraImage
+                src={section.image}
+                alt={section.alt}
+                profile="card"
+                class="h-full w-full object-cover"
+                loading="lazy"
+                decoding="async"
+              />
+            </div>
+          </figure>
+        </div>
+      </div>
+    </AmaraSection>
+  ))}
 
         <EditorialClosingCta
           title={copy.shared.closingTitle[currentLang]}
           lead={copy.shared.closingLead[currentLang]}
           links={closingCtaLinks}
           lang={currentLang}
+          spacing="page"
         />
 </TrustPageLayout>

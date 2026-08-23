@@ -24,17 +24,22 @@ interface Props {
   note?: string;
   links: EditorialClosingCtaLink[];
   lang: AmaraLanguage;
+  spacing?: 'legacy' | 'page';
 }
 
-const { title, lead, note, links, lang } = Astro.props;
+const { title, lead, note, links, lang, spacing = 'legacy' } = Astro.props;
 
 const linkClass = 'am-cta-link';
 const disabledClass = 'am-cta-link am-is-disabled';
 const hasButtonLinks = links.some((link) => link.style === 'primary' || link.style === 'secondary');
 ---
 
-<section>
-  <div class="text-center max-w-[800px] mx-auto pb-20">
+<section
+  class:list={[
+    { 'am-page-section am-page-section--closing': spacing === 'page' }
+  ]}
+>
+  <div class:list={['text-center max-w-[800px] mx-auto', { 'pb-20': spacing === 'legacy' }]}>
     <h2 class="am-text-title text-on-surface mb-8">
       {title}
     </h2>
