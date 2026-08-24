@@ -27,11 +27,11 @@ const copy = {
     sv: 'Kontrollera aktuell tillgänglighet och pris för Maha'
   },
   intro: {
-    en: 'Choose your dates and number of guests. We request live booking data only after you select Check price & availability.',
-    de: 'Wählt Reisedaten und Gästezahl. Live-Buchungsdaten fragen wir erst ab, nachdem ihr Preis & Verfügbarkeit prüfen gewählt habt.',
-    es: 'Elegid las fechas y el número de huéspedes. Solo consultamos los datos de reserva en directo cuando pulsáis Consultar precio y disponibilidad.',
-    nl: 'Kies jullie data en het aantal gasten. We vragen live boekingsgegevens pas op nadat jullie Prijs en beschikbaarheid controleren kiezen.',
-    sv: 'Välj datum och antal gäster. Vi hämtar livebokningsdata först när ni väljer Kontrollera pris och tillgänglighet.'
+    en: 'Open the calendar to see live availability and indicative nightly prices. We request booking data only when you start choosing dates.',
+    de: 'Öffnet den Kalender, um Live-Verfügbarkeit und orientierende Übernachtungspreise zu sehen. Buchungsdaten fragen wir erst ab, wenn ihr Reisedaten auswählt.',
+    es: 'Abrid el calendario para ver la disponibilidad en directo y precios orientativos por noche. Solo consultamos datos de reserva cuando empezáis a elegir fechas.',
+    nl: 'Open de kalender voor live beschikbaarheid en indicatieve nachtprijzen. We vragen boekingsgegevens pas op wanneer jullie data gaan kiezen.',
+    sv: 'Öppna kalendern för att se live-tillgänglighet och vägledande nattpriser. Vi hämtar bokningsdata först när ni börjar välja datum.'
   },
   arrival: {
     en: 'Arrival',
@@ -69,18 +69,18 @@ const copy = {
     sv: '{count} gäster'
   },
   submit: {
-    en: 'Check price & availability',
-    de: 'Preis & Verfügbarkeit prüfen',
-    es: 'Consultar precio y disponibilidad',
-    nl: 'Prijs en beschikbaarheid controleren',
-    sv: 'Kontrollera pris och tillgänglighet'
+    en: 'Check current total price',
+    de: 'Aktuellen Gesamtpreis prüfen',
+    es: 'Consultar el precio total actual',
+    nl: 'Actuele totaalprijs controleren',
+    sv: 'Kontrollera aktuellt totalpris'
   },
   loading: {
-    en: 'Checking live availability…',
-    de: 'Live-Verfügbarkeit wird geprüft…',
-    es: 'Consultando la disponibilidad en directo…',
-    nl: 'Live beschikbaarheid wordt gecontroleerd…',
-    sv: 'Kontrollerar live-tillgänglighet…'
+    en: 'Checking the current total price…',
+    de: 'Aktueller Gesamtpreis wird geprüft…',
+    es: 'Consultando el precio total actual…',
+    nl: 'Actuele totaalprijs wordt gecontroleerd…',
+    sv: 'Kontrollerar aktuellt totalpris…'
   },
   available: {
     en: 'Available',
@@ -97,11 +97,11 @@ const copy = {
     sv: 'Inte tillgängligt'
   },
   unavailableBody: {
-    en: 'Maha is not available for every night in this date range. Please choose different dates.',
-    de: 'Maha ist in diesem Zeitraum nicht für jede Nacht verfügbar. Bitte wählt andere Reisedaten.',
-    es: 'Maha no está disponible todas las noches de este periodo. Elegid otras fechas.',
-    nl: 'Maha is niet voor elke nacht in deze periode beschikbaar. Kies andere data.',
-    sv: 'Maha är inte tillgängligt varje natt under perioden. Välj andra datum.'
+    en: 'Maha is not available for this stay. Please choose different dates.',
+    de: 'Maha ist für diesen Aufenthalt nicht verfügbar. Bitte wählt andere Reisedaten.',
+    es: 'Maha no está disponible para esta estancia. Elegid otras fechas.',
+    nl: 'Maha is niet beschikbaar voor dit verblijf. Kies andere data.',
+    sv: 'Maha är inte tillgängligt för denna vistelse. Välj andra datum.'
   },
   totalPrice: {
     en: 'Total price',
@@ -125,18 +125,18 @@ const copy = {
     sv: '{count} nätter'
   },
   quoteNote: {
-    en: 'Current quote for these dates. This check does not create or hold a reservation.',
-    de: 'Aktuelle Quote für diese Reisedaten. Die Prüfung erstellt oder blockiert keine Reservierung.',
-    es: 'Presupuesto actual para estas fechas. La consulta no crea ni bloquea una reserva.',
-    nl: 'Actuele prijsopgave voor deze data. Deze controle maakt of blokkeert geen reservering.',
-    sv: 'Aktuell offert för dessa datum. Kontrollen skapar eller blockerar ingen bokning.'
+    en: 'Current total price for these dates. This check does not create or hold a reservation.',
+    de: 'Aktueller Gesamtpreis für diese Reisedaten. Die Prüfung erstellt oder blockiert keine Reservierung.',
+    es: 'Precio total actual para estas fechas. La consulta no crea ni bloquea una reserva.',
+    nl: 'Actuele totaalprijs voor deze data. Deze controle maakt of blokkeert geen reservering.',
+    sv: 'Aktuellt totalpris för dessa datum. Kontrollen skapar eller blockerar ingen bokning.'
   },
   invalidDates: {
-    en: 'Departure must be after arrival and the stay may be no longer than 45 nights.',
-    de: 'Die Abreise muss nach der Anreise liegen; der Aufenthalt darf höchstens 45 Nächte dauern.',
-    es: 'La salida debe ser posterior a la llegada y la estancia no puede superar 45 noches.',
-    nl: 'Vertrek moet na aankomst liggen en het verblijf mag maximaal 45 nachten duren.',
-    sv: 'Avresan måste vara efter ankomsten och vistelsen får vara högst 45 nätter.'
+    en: 'Choose a valid stay of no more than 45 nights.',
+    de: 'Wählt einen gültigen Aufenthalt von höchstens 45 Nächten.',
+    es: 'Elegid una estancia válida de un máximo de 45 noches.',
+    nl: 'Kies een geldig verblijf van maximaal 45 nachten.',
+    sv: 'Välj en giltig vistelse på högst 45 nätter.'
   },
   error: {
     en: 'Live booking data is currently unavailable. Please try again shortly.',
@@ -144,6 +144,71 @@ const copy = {
     es: 'Los datos de reserva en directo no están disponibles ahora. Volved a intentarlo en breve.',
     nl: 'De live boekingsgegevens zijn nu niet beschikbaar. Probeer het zo opnieuw.',
     sv: 'Livebokningsdata är inte tillgängliga just nu. Försök igen om en liten stund.'
+  },
+  chooseArrival: {
+    en: 'Choose arrival', de: 'Anreise wählen', es: 'Elegir llegada', nl: 'Aankomst kiezen', sv: 'Välj ankomst'
+  },
+  chooseDeparture: {
+    en: 'Choose departure', de: 'Abreise wählen', es: 'Elegir salida', nl: 'Vertrek kiezen', sv: 'Välj avresa'
+  },
+  calendarTitle: {
+    en: 'Choose your stay', de: 'Aufenthalt wählen', es: 'Elegid vuestra estancia', nl: 'Kies jullie verblijf', sv: 'Välj er vistelse'
+  },
+  calendarHelp: {
+    en: 'Choose an available arrival date. Nightly prices are indicative; the total price is checked after your departure is selected.',
+    de: 'Wählt ein verfügbares Anreisedatum. Übernachtungspreise dienen zur Orientierung; den Gesamtpreis prüfen wir nach Auswahl der Abreise.',
+    es: 'Elegid una fecha de llegada disponible. Los precios por noche son orientativos; consultamos el total al elegir la salida.',
+    nl: 'Kies een beschikbare aankomstdatum. Nachtprijzen zijn indicatief; na de vertrekkeuze controleren we de totaalprijs.',
+    sv: 'Välj ett tillgängligt ankomstdatum. Nattpriserna är vägledande; totalpriset kontrolleras när avresan är vald.'
+  },
+  departureHelp: {
+    en: 'Now choose a departure. Only dates that keep every night available and match the stay rules can be selected.',
+    de: 'Wählt jetzt die Abreise. Nur Daten, bei denen jede Nacht verfügbar ist und die Aufenthaltsregeln passen, sind auswählbar.',
+    es: 'Elegid ahora la salida. Solo se pueden seleccionar fechas con todas las noches disponibles y que cumplan las reglas de estancia.',
+    nl: 'Kies nu het vertrek. Alleen data waarbij elke nacht beschikbaar is en de verblijfsregels passen, zijn selecteerbaar.',
+    sv: 'Välj nu avresa. Endast datum där varje natt är tillgänglig och vistelsereglerna uppfylls kan väljas.'
+  },
+  loadingCalendar: {
+    en: 'Loading live availability and nightly prices…',
+    de: 'Live-Verfügbarkeit und Übernachtungspreise werden geladen…',
+    es: 'Cargando disponibilidad y precios por noche…',
+    nl: 'Live beschikbaarheid en nachtprijzen worden geladen…',
+    sv: 'Läser in live-tillgänglighet och nattpriser…'
+  },
+  calendarError: {
+    en: 'The live calendar is currently unavailable. No reservation has been created or held.',
+    de: 'Der Live-Kalender ist derzeit nicht verfügbar. Es wurde keine Reservierung erstellt oder blockiert.',
+    es: 'El calendario en directo no está disponible ahora. No se ha creado ni bloqueado ninguna reserva.',
+    nl: 'De live kalender is nu niet beschikbaar. Er is geen reservering gemaakt of geblokkeerd.',
+    sv: 'Livekalendern är inte tillgänglig just nu. Ingen bokning har skapats eller blockerats.'
+  },
+  previousMonth: {
+    en: 'Previous month', de: 'Vorheriger Monat', es: 'Mes anterior', nl: 'Vorige maand', sv: 'Föregående månad'
+  },
+  nextMonth: {
+    en: 'Next month', de: 'Nächster Monat', es: 'Mes siguiente', nl: 'Volgende maand', sv: 'Nästa månad'
+  },
+  closeCalendar: {
+    en: 'Close calendar', de: 'Kalender schließen', es: 'Cerrar calendario', nl: 'Kalender sluiten', sv: 'Stäng kalendern'
+  },
+  clearDates: {
+    en: 'Clear dates', de: 'Daten löschen', es: 'Borrar fechas', nl: 'Data wissen', sv: 'Rensa datum'
+  },
+  availableDay: {
+    en: 'available', de: 'verfügbar', es: 'disponible', nl: 'beschikbaar', sv: 'tillgängligt'
+  },
+  unavailableDay: {
+    en: 'not available', de: 'nicht verfügbar', es: 'no disponible', nl: 'niet beschikbaar', sv: 'inte tillgängligt'
+  },
+  invalidDeparture: {
+    en: 'not selectable as departure',
+    de: 'nicht als Abreise auswählbar',
+    es: 'no seleccionable como salida',
+    nl: 'niet selecteerbaar als vertrek',
+    sv: 'kan inte väljas som avresa'
+  },
+  fromPrice: {
+    en: 'from {price}', de: 'ab {price}', es: 'desde {price}', nl: 'vanaf {price}', sv: 'från {price}'
   }
 } satisfies Record<string, LocalizedText>;
 
@@ -176,7 +241,7 @@ const guestOptions = Array.from({ length: occupancy }, (_, index) => index + 1);
     <div class="am-booking-canary__panel self-start bg-surface-container-low p-5 sm:p-7">
       <form method="get" data-am-booking-form>
         <div class="grid gap-5 sm:grid-cols-3">
-          <label class="block">
+          <label class="block am-booking-canary__native-date">
             <span class="am-text-label text-on-surface-variant">
               {t(copy.arrival)}
             </span>
@@ -188,8 +253,19 @@ const guestOptions = Array.from({ length: occupancy }, (_, index) => index + 1);
               data-am-booking-arrival
             />
           </label>
+          <div class="am-booking-canary__date-trigger" hidden data-am-booking-arrival-trigger-wrap>
+            <span class="am-text-label text-on-surface-variant">{t(copy.arrival)}</span>
+            <button
+              class="am-booking-canary__control am-booking-canary__trigger am-text-body mt-2"
+              type="button"
+              aria-expanded="false"
+              data-am-booking-arrival-trigger
+            >
+              <span data-am-booking-arrival-value>{t(copy.chooseArrival)}</span>
+            </button>
+          </div>
 
-          <label class="block">
+          <label class="block am-booking-canary__native-date">
             <span class="am-text-label text-on-surface-variant">
               {t(copy.departure)}
             </span>
@@ -201,6 +277,17 @@ const guestOptions = Array.from({ length: occupancy }, (_, index) => index + 1);
               data-am-booking-departure
             />
           </label>
+          <div class="am-booking-canary__date-trigger" hidden data-am-booking-departure-trigger-wrap>
+            <span class="am-text-label text-on-surface-variant">{t(copy.departure)}</span>
+            <button
+              class="am-booking-canary__control am-booking-canary__trigger am-text-body mt-2"
+              type="button"
+              aria-expanded="false"
+              data-am-booking-departure-trigger
+            >
+              <span data-am-booking-departure-value>{t(copy.chooseDeparture)}</span>
+            </button>
+          </div>
 
           <label class="block">
             <span class="am-text-label text-on-surface-variant">
@@ -218,6 +305,60 @@ const guestOptions = Array.from({ length: occupancy }, (_, index) => index + 1);
               ))}
             </select>
           </label>
+        </div>
+
+        <div
+          class="am-booking-calendar mt-6 border-y border-border-subtle bg-surface"
+          hidden
+          data-am-booking-calendar
+        >
+          <div class="am-booking-calendar__header">
+            <div>
+              <p class="am-text-label text-on-surface-variant">{t(copy.calendarTitle)}</p>
+              <p
+                class="am-text-caption mt-2 font-normal leading-relaxed text-on-surface-variant"
+                role="status"
+                aria-live="polite"
+                data-am-booking-calendar-status
+              >
+                {t(copy.calendarHelp)}
+              </p>
+            </div>
+            <button
+              class="am-booking-calendar__text-action am-text-label"
+              type="button"
+              data-am-booking-calendar-close
+            >
+              {t(copy.closeCalendar)}
+            </button>
+          </div>
+
+          <div class="am-booking-calendar__navigation">
+            <button
+              class="am-booking-calendar__nav-button"
+              type="button"
+              aria-label={t(copy.previousMonth)}
+              data-am-booking-calendar-prev
+            >←</button>
+            <button
+              class="am-booking-calendar__nav-button"
+              type="button"
+              aria-label={t(copy.nextMonth)}
+              data-am-booking-calendar-next
+            >→</button>
+          </div>
+
+          <div class="am-booking-calendar__months" data-am-booking-calendar-months></div>
+
+          <div class="am-booking-calendar__footer">
+            <button
+              class="am-booking-calendar__text-action am-text-label"
+              type="button"
+              data-am-booking-calendar-clear
+            >
+              {t(copy.clearDates)}
+            </button>
+          </div>
         </div>
 
         <button
@@ -251,7 +392,7 @@ const guestOptions = Array.from({ length: occupancy }, (_, index) => index + 1);
   </div>
 </AmaraSection>
 
-<style>
+<style is:global>
   .am-booking-canary__panel,
   .am-booking-canary__result {
     border-radius: var(--radius-editorial);
@@ -274,212 +415,205 @@ const guestOptions = Array.from({ length: occupancy }, (_, index) => index + 1);
   }
 
   .am-booking-canary__control:focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+  }
+
+  [data-am-booking-enhanced='true'] .am-booking-canary__native-date {
+    display: none;
+  }
+
+  .am-booking-canary__trigger {
+    display: flex;
+    align-items: center;
+    text-align: left;
+  }
+
+  .am-booking-canary__trigger[aria-expanded='true'] {
     border-color: var(--color-primary);
     box-shadow: 0 0 0 1px var(--color-primary);
   }
+
+  .am-booking-calendar {
+    padding: 1.25rem 0;
+  }
+
+  .am-booking-calendar__header,
+  .am-booking-calendar__footer,
+  .am-booking-calendar__navigation {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+
+  .am-booking-calendar__header {
+    padding: 0 0.25rem 1rem;
+  }
+
+  .am-booking-calendar__navigation {
+    justify-content: flex-end;
+    border-top: 1px solid var(--color-outline-variant);
+    padding: 0.75rem 0.25rem;
+  }
+
+  .am-booking-calendar__footer {
+    justify-content: flex-end;
+    border-top: 1px solid var(--color-outline-variant);
+    margin-top: 1rem;
+    padding: 1rem 0.25rem 0;
+  }
+
+  .am-booking-calendar__text-action {
+    flex: 0 0 auto;
+    border-bottom: 1px solid var(--color-border-subtle);
+    color: var(--color-on-surface);
+  }
+
+  .am-booking-calendar__nav-button {
+    display: inline-flex;
+    min-height: 2.75rem;
+    min-width: 2.75rem;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--color-outline-variant);
+    border-radius: var(--radius-control);
+    color: var(--color-on-surface);
+    font-size: 1.25rem;
+  }
+
+  .am-booking-calendar button:focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+  }
+
+  .am-booking-calendar__nav-button:disabled {
+    cursor: not-allowed;
+    opacity: 0.35;
+  }
+
+  .am-booking-calendar__months {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 1.75rem;
+  }
+
+  .am-booking-calendar__month {
+    min-width: 0;
+  }
+
+  .am-booking-calendar__month-title {
+    min-height: 2.25rem;
+    padding: 0 0.25rem 0.75rem;
+    color: var(--color-on-surface);
+    font-family: var(--font-heading);
+    font-size: 1.25rem;
+    font-weight: 400;
+    text-transform: capitalize;
+  }
+
+  .am-booking-calendar__weekdays,
+  .am-booking-calendar__days {
+    display: grid;
+    grid-template-columns: repeat(7, minmax(0, 1fr));
+  }
+
+  .am-booking-calendar__weekdays {
+    border-bottom: 1px solid var(--color-outline-variant);
+  }
+
+  .am-booking-calendar__weekday {
+    padding: 0.45rem 0.1rem;
+    text-align: center;
+  }
+
+  .am-booking-calendar__days {
+    row-gap: 0.25rem;
+    padding-top: 0.35rem;
+  }
+
+  .am-booking-calendar__day,
+  .am-booking-calendar__blank {
+    min-width: 0;
+    min-height: 4.25rem;
+  }
+
+  .am-booking-calendar__day {
+    position: relative;
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.2rem;
+    border: 1px solid transparent;
+    color: var(--color-on-surface);
+    transition: background-color 150ms ease, border-color 150ms ease;
+  }
+
+  .am-booking-calendar__day:not(:disabled):hover {
+    border-color: var(--color-primary);
+  }
+
+  .am-booking-calendar__day:disabled {
+    cursor: not-allowed;
+    color: color-mix(in srgb, var(--color-on-surface-variant) 42%, transparent);
+  }
+
+  .am-booking-calendar__day:disabled .am-booking-calendar__day-number {
+    text-decoration: line-through;
+    text-decoration-thickness: 1px;
+  }
+
+  .am-booking-calendar__day[data-range='middle'] {
+    background: color-mix(in srgb, var(--color-primary) 10%, var(--color-surface));
+  }
+
+  .am-booking-calendar__day[data-range='start'],
+  .am-booking-calendar__day[data-range='end'] {
+    border-color: var(--color-primary);
+    background: var(--color-primary);
+    color: var(--color-on-primary);
+  }
+
+  .am-booking-calendar__day-number {
+    font-family: var(--font-body);
+    font-size: 1rem;
+    font-weight: 650;
+    line-height: 1;
+  }
+
+  .am-booking-calendar__day-price {
+    max-width: 100%;
+    color: var(--color-on-surface-variant);
+    font-family: var(--font-label);
+    font-size: 0.7rem;
+    font-weight: 500;
+    line-height: 1.2;
+    text-align: center;
+    white-space: normal;
+  }
+
+  .am-booking-calendar__day[data-range='start'] .am-booking-calendar__day-price,
+  .am-booking-calendar__day[data-range='end'] .am-booking-calendar__day-price {
+    color: var(--color-on-primary);
+  }
+
+  @media (min-width: 64rem) {
+    .am-booking-calendar__months {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1.25rem;
+    }
+
+    .am-booking-calendar__day,
+    .am-booking-calendar__blank {
+      min-height: 4.5rem;
+    }
+  }
 </style>
 
-<script is:inline>
-  (() => {
-    const DAY_MS = 86_400_000;
-    const MAX_NIGHTS = 45;
+<script>
+  import { enhanceMahaBookingCalendars } from '../../scripts/mahaBookingCalendar';
 
-    const isoDay = (date) => date.toISOString().slice(0, 10);
-    const addDays = (value, days) => {
-      const date = new Date(`${value}T00:00:00.000Z`);
-      date.setUTCDate(date.getUTCDate() + days);
-      return isoDay(date);
-    };
-
-    document.querySelectorAll('[data-am-booking-canary]').forEach((container) => {
-      if (container.dataset.amBookingEnhanced === 'true') return;
-      container.dataset.amBookingEnhanced = 'true';
-
-      const copy = JSON.parse(container.dataset.amBookingCopy || '{}');
-      const language = container.dataset.amBookingLanguage || 'en';
-      const form = container.querySelector('[data-am-booking-form]');
-      const arrivalInput = container.querySelector('[data-am-booking-arrival]');
-      const departureInput = container.querySelector('[data-am-booking-departure]');
-      const guestsInput = container.querySelector('[data-am-booking-guests]');
-      const submit = container.querySelector('[data-am-booking-submit]');
-      const result = container.querySelector('[data-am-booking-result]');
-      const status = container.querySelector('[data-am-booking-status]');
-      const summary = container.querySelector('[data-am-booking-summary]');
-      const priceWrap = container.querySelector('[data-am-booking-price-wrap]');
-      const price = container.querySelector('[data-am-booking-price]');
-      const note = container.querySelector('[data-am-booking-note]');
-      if (!form || !arrivalInput || !departureInput || !guestsInput || !submit || !result) return;
-
-      const today = isoDay(new Date());
-      const latest = addDays(today, 730);
-      arrivalInput.min = today;
-      arrivalInput.max = latest;
-      departureInput.min = addDays(today, 1);
-      departureInput.max = latest;
-
-      const replaceCount = (template, count) => template.replace('{count}', String(count));
-      const nightLabel = (count) => replaceCount(count === 1 ? copy.night : copy.nights, count);
-      const guestLabel = (count) => replaceCount(
-        count === 1 ? copy.guestOption : copy.guestOptionPlural,
-        count,
-      );
-      const formatDate = (value) => new Intl.DateTimeFormat(language, {
-        day: 'numeric',
-        month: 'short',
-        year: 'numeric',
-        timeZone: 'UTC',
-      }).format(new Date(`${value}T00:00:00.000Z`));
-
-      const showState = ({ state, title, body, priceText, detail }) => {
-        result.hidden = false;
-        result.dataset.state = state;
-        status.textContent = title;
-        summary.textContent = body;
-        priceWrap.hidden = !priceText;
-        price.textContent = priceText || '';
-        note.textContent = detail || '';
-      };
-
-      const clearResult = () => {
-        result.hidden = true;
-        result.removeAttribute('data-state');
-      };
-
-      const fetchJson = async (path, searchParams) => {
-        const response = await fetch(`${path}?${searchParams}`, {
-          method: 'GET',
-          credentials: 'same-origin',
-          headers: { Accept: 'application/json' },
-        });
-        let payload;
-        try {
-          payload = await response.json();
-        } catch {
-          payload = {};
-        }
-        if (!response.ok) {
-          const requestError = new Error('Booking gateway request failed.');
-          requestError.code = payload?.error?.code;
-          throw requestError;
-        }
-        return payload;
-      };
-
-      arrivalInput.addEventListener('change', () => {
-        arrivalInput.setCustomValidity('');
-        departureInput.setCustomValidity('');
-        if (arrivalInput.value) {
-          departureInput.min = addDays(arrivalInput.value, 1);
-          if (departureInput.value && departureInput.value <= arrivalInput.value) {
-            departureInput.value = '';
-          }
-        }
-        clearResult();
-      });
-      departureInput.addEventListener('change', () => {
-        departureInput.setCustomValidity('');
-        clearResult();
-      });
-      guestsInput.addEventListener('change', clearResult);
-
-      form.addEventListener('submit', async (event) => {
-        event.preventDefault();
-        arrivalInput.setCustomValidity('');
-        departureInput.setCustomValidity('');
-        if (!form.reportValidity()) return;
-
-        const arrival = arrivalInput.value;
-        const departure = departureInput.value;
-        const guests = Number(guestsInput.value);
-        const nights = Math.round(
-          (Date.parse(`${departure}T00:00:00.000Z`) - Date.parse(`${arrival}T00:00:00.000Z`)) / DAY_MS,
-        );
-        if (!Number.isInteger(nights) || nights < 1 || nights > MAX_NIGHTS) {
-          departureInput.setCustomValidity(copy.invalidDates);
-          departureInput.reportValidity();
-          return;
-        }
-
-        submit.disabled = true;
-        submit.textContent = copy.loading;
-        form.setAttribute('aria-busy', 'true');
-        showState({ state: 'loading', title: copy.loading, body: '', detail: '' });
-
-        try {
-          const lastNight = addDays(departure, -1);
-          const availabilityParams = new URLSearchParams({
-            stay: 'maha',
-            start: arrival,
-            end: lastNight,
-          });
-          const availability = await fetchJson('/api/booking/availability', availabilityParams);
-          const expectedDates = Array.from({ length: nights }, (_, index) => addDays(arrival, index));
-          const available = availability?.stay === 'maha'
-            && availability?.start === arrival
-            && availability?.end === lastNight
-            && Array.isArray(availability?.days)
-            && availability.days.length === nights
-            && availability.days.every((day, index) => (
-              day?.date === expectedDates[index] && day?.available === true
-            ));
-
-          if (!available) {
-            showState({
-              state: 'unavailable',
-              title: copy.unavailable,
-              body: copy.unavailableBody,
-              detail: `${formatDate(arrival)} – ${formatDate(departure)}`,
-            });
-            return;
-          }
-
-          const quoteParams = new URLSearchParams({
-            stay: 'maha',
-            arrival,
-            departure,
-            adults: String(guests),
-            children: '0',
-            pets: '0',
-          });
-          const quote = await fetchJson('/api/booking/quote', quoteParams);
-          if (
-            quote?.stay !== 'maha'
-            || quote?.arrival !== arrival
-            || quote?.departure !== departure
-            || typeof quote?.currency !== 'string'
-            || !Number.isFinite(quote?.grossTotal)
-          ) {
-            throw new Error('Booking gateway quote contract failed.');
-          }
-
-          const formattedPrice = new Intl.NumberFormat(language, {
-            style: 'currency',
-            currency: quote.currency,
-          }).format(quote.grossTotal);
-          showState({
-            state: 'available',
-            title: copy.available,
-            body: `${formatDate(arrival)} – ${formatDate(departure)} · ${nightLabel(nights)} · ${guestLabel(guests)}`,
-            priceText: formattedPrice,
-            detail: copy.quoteNote,
-          });
-        } catch (error) {
-          if (error?.code === 'quote_unavailable') {
-            showState({
-              state: 'unavailable',
-              title: copy.unavailable,
-              body: copy.unavailableBody,
-              detail: `${formatDate(arrival)} – ${formatDate(departure)}`,
-            });
-          } else {
-            showState({ state: 'error', title: copy.error, body: '', detail: '' });
-          }
-        } finally {
-          submit.disabled = false;
-          submit.textContent = copy.submit;
-          form.removeAttribute('aria-busy');
-        }
-      });
-    });
-  })();
+  enhanceMahaBookingCalendars();
 </script>
