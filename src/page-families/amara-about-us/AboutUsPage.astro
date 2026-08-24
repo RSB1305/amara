@@ -7,6 +7,7 @@ import SustainabilityBand from '../../components/editorial/SustainabilityBand.as
 import EditorialHostProfile from '../../components/editorial/EditorialHostProfile.astro';
 import EditorialClosingCta from '../../components/editorial/EditorialClosingCta.astro';
 import AmaraSection from '../../components/layout/AmaraSection.astro';
+import InlineEmphasis from '../../components/text/InlineEmphasis.astro';
 import { getAboutUsPageData } from '../../content/aboutUsContent';
 import { resolveOptionalLink } from '../../lib/linkResolver';
 import { normalizeLanguage } from '../../lib/seo/resolve-seo-head';
@@ -116,7 +117,7 @@ const heroCtaLinks = page.hero.ctaLinks
           {content.philosophy.items
             ?.filter((item) => item.copy[currentLang].trim() !== '')
             .map((item) => (
-              <p class="am-text-body text-subtle">{item.copy[currentLang]}</p>
+              <p class="am-text-body text-subtle"><InlineEmphasis text={item.copy[currentLang]} /></p>
             ))}
         </EditorialSplit>
   </AmaraSection>
