@@ -26,7 +26,7 @@ const { activeId, ariaLabel, items } = Astro.props;
             href={item.href}
             aria-current={isActive ? 'page' : undefined}
             class:list={[
-              'inline-flex min-h-8 items-center border-b-2 px-3 font-label text-[10px] font-bold uppercase tracking-[0.08em] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/25',
+              'inline-flex min-h-8 items-center border-b-2 px-3 am-text-nav-context transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/25',
               isActive
                 ? 'border-primary text-on-surface'
                 : 'border-transparent text-on-surface-variant hover:border-outline hover:text-on-surface'

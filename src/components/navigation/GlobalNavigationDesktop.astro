@@ -24,7 +24,7 @@ const { groups, navigationLabel } = Astro.props;
       <li class="am-nav__group">
         <button
           type="button"
-          class="am-nav__link am-nav__group-trigger font-label text-[12px] font-bold uppercase tracking-[0.14em] text-on-surface transition-colors"
+          class="am-nav__link am-nav__group-trigger am-text-nav-primary text-on-surface transition-colors"
           aria-controls={group.dropdownId}
           aria-expanded="false"
           aria-current={group.isActive ? 'page' : undefined}
@@ -53,7 +53,7 @@ const { groups, navigationLabel } = Astro.props;
                   <a
                     href={item.href}
                     class:list={[
-                      'am-nav__dropdown-link font-label text-[12px] font-bold uppercase tracking-[0.12em]',
+                      'am-nav__dropdown-link am-text-nav-primary',
                       item.description && 'am-nav__dropdown-link--detailed',
                       group.id === 'stays' && !item.overview && 'am-nav__dropdown-link--nested',
                       item.overview && 'am-nav__dropdown-link--overview'
@@ -68,7 +68,7 @@ const { groups, navigationLabel } = Astro.props;
                 ) : (
                   <span
                     class:list={[
-                      'am-nav__dropdown-link am-is-disabled font-label text-[12px] font-bold uppercase tracking-[0.12em]',
+                      'am-nav__dropdown-link am-is-disabled am-text-nav-primary',
                       item.description && 'am-nav__dropdown-link--detailed',
                       group.id === 'stays' && !item.overview && 'am-nav__dropdown-link--nested',
                       item.overview && 'am-nav__dropdown-link--overview'

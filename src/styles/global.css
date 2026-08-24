@@ -197,6 +197,31 @@
     letter-spacing: 0.16em;
   }
 
+  /* Navigation roles. Navigation had built its own label system by hand across
+   * six files: the same four-class recipe repeated per call site, in eight
+   * spellings that differed by a weight step or 0.02em of tracking. These two
+   * roles name the two tiers that actually exist — the primary header nav and
+   * the quieter context bar beneath it — each fixed at the value the majority
+   * of its call sites already used (DR-DESIGN-002).
+   *
+   * They are deliberately lighter and tighter than `am-text-label`, which is
+   * the editorial label and is not what navigation wants. */
+  .am-text-nav-primary {
+    font-family: var(--font-label);
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+
+  .am-text-nav-context {
+    font-family: var(--font-label);
+    font-size: 0.625rem;
+    font-weight: 400;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+
   /* Annotation role: the semibold, wider, lower-tracked note used for source
    * lines, table meta and inline qualifiers. Distinct from the label roles by
    * weight and by not being uppercase on its own. */

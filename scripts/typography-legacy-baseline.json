@@ -75,29 +75,18 @@
     "tracking-[0.22em]": 1
   },
   "src/components/navigation/ContextNavigation.astro": {
-    "text-[10px]": 4,
+    "text-[10px]": 2,
     "text-[9px]": 1,
-    "tracking-[0.06em]": 2,
     "tracking-[0.08em]": 1,
     "tracking-[0.14em]": 2
-  },
-  "src/components/navigation/DestinationBranchSwitcher.astro": {
-    "text-[10px]": 1,
-    "tracking-[0.08em]": 1
-  },
-  "src/components/navigation/GlobalNavigationDesktop.astro": {
-    "text-[12px]": 3,
-    "tracking-[0.12em]": 2,
-    "tracking-[0.14em]": 1
   },
   "src/components/navigation/GlobalNavigationUtilities.astro": {
     "text-[13px]": 1
   },
   "src/components/navigation/GroupedContextNavigation.astro": {
-    "text-[10px]": 3,
+    "text-[10px]": 1,
     "text-[9px]": 1,
-    "tracking-[0.06em]": 3,
-    "tracking-[0.08em]": 1
+    "tracking-[0.06em]": 2
   },
   "src/page-families/arrival-guide/DirectionsArrivalGuidePage.astro": {
     "text-[11px]": 1

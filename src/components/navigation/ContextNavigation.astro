@@ -207,7 +207,7 @@ const visibleItems = activeId && !retainActiveItem
                       href={item.href}
                       aria-current={isActiveItem ? 'page' : undefined}
                       class:list={[
-                        'inline-flex min-h-8 items-center border-b px-2 font-label text-[10px] font-normal uppercase tracking-[0.06em] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/25',
+                        'inline-flex min-h-8 items-center border-b px-2 am-text-nav-context transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/25',
                         isActiveItem
                           ? 'border-primary font-bold text-on-surface'
                           : 'border-transparent text-on-surface-variant hover:border-primary/45 hover:text-on-surface'
@@ -218,7 +218,7 @@ const visibleItems = activeId && !retainActiveItem
                   ) : (
                     <span
                       aria-disabled="true"
-                      class="inline-flex min-h-8 items-center px-2 font-label text-[10px] font-normal uppercase tracking-[0.06em] text-muted"
+                      class="inline-flex min-h-8 items-center px-2 am-text-nav-context text-muted"
                     >
                       {item.label}
                     </span>
