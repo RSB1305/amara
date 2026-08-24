@@ -46,6 +46,11 @@ const monthEnd = (date: Date) =>
   new Date(Date.UTC(date.getUTCFullYear(), date.getUTCMonth() + 1, 0));
 
 const monthKey = (date: Date) => isoDay(date).slice(0, 7);
+const validIsoInput = (value: string | null) => {
+  if (!value || !/^\d{4}-\d{2}-\d{2}$/.test(value)) return '';
+  const parsed = dateFromIso(value);
+  return Number.isNaN(parsed.valueOf()) || isoDay(parsed) !== value ? '' : value;
+};
 
 const nightsBetween = (arrival: string, departure: string) =>
   Math.round(
@@ -163,6 +168,26 @@ export function enhanceMahaBookingCalendars() {
     arrivalInput.max = latest;
     departureInput.min = addDays(today, 1);
     departureInput.max = latest;
+
+    const initialParams = new URLSearchParams(window.location.search);
+    const initialArrival = validIsoInput(initialParams.get('arrival'));
+    const initialDeparture = validIsoInput(initialParams.get('departure'));
+    const initialGuests = Number(initialParams.get('guests'));
+    if (guestsInput.querySelector('option[value="' + initialGuests + '"]')) {
+      guestsInput.value = String(initialGuests);
+    }
+    if (
+      initialArrival >= today &&
+      initialDeparture > initialArrival &&
+      initialDeparture <= latest &&
+      nightsBetween(initialArrival, initialDeparture) <= MAX_NIGHTS
+    ) {
+      arrivalInput.value = initialArrival;
+      departureInput.value = initialDeparture;
+      departureInput.min = addDays(initialArrival, 1);
+      selectionMode = 'departure';
+      anchorMonth = monthStart(initialArrival);
+    }
 
     const visibleMonthCount = () => (desktopQuery.matches ? 2 : 1);
     const maxAnchorMonth = () => addMonths(lastMonth, -(visibleMonthCount() - 1));

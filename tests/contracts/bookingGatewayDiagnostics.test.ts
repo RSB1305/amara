@@ -2,6 +2,7 @@ import { expect, test } from '@playwright/test';
 import { createBookingRoute } from '../../booking-gateway/gateway.mjs';
 import { createLodgifyClient } from '../../booking-gateway/lodgify-adapter.mjs';
 import {
+  AMARA_STAY_KEYS,
   getLodgifyDiscoveryMapping,
   getLodgifyStayMapping
 } from '../../booking-gateway/stays.mjs';
@@ -177,6 +178,17 @@ test('keeps dynamic property and room discovery available to the sandbox', async
     roomTypeId: 'sandbox-room',
     roomTypeName: 'Only room'
   });
+});
+
+test('keeps discovery selectors for all stays while production exposes only verified mappings', () => {
+  expect(AMARA_STAY_KEYS).toEqual(['maha', 'lounis', 'zaid', 'farah', 'playa', 'tarifa']);
+  for (const stay of AMARA_STAY_KEYS) {
+    expect(getLodgifyDiscoveryMapping(stay)).toMatchObject({ roomStrategy: 'single' });
+  }
+  expect(getLodgifyStayMapping('maha')).toBeDefined();
+  for (const stay of AMARA_STAY_KEYS.filter((key) => key !== 'maha')) {
+    expect(getLodgifyStayMapping(stay)).toBeUndefined();
+  }
 });
 
 test('identifies every Lodgify request with the central server-side user agent', async () => {

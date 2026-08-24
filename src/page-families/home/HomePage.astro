@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Navigation from '../../components/Navigation.astro';
+import StaySearchFinder from '../../components/booking/StaySearchFinder.astro';
 import HomeCinematicMain from '../../components/home/HomeCinematicMain.astro';
 import AmaraPageShell from '../../components/layout/AmaraPageShell.astro';
 import { createAmaraImage } from '../../lib/images/amaraImageProfiles';
@@ -206,7 +207,8 @@ const placesProps = cinematicPlaces
   .filter((place): place is NonNullable<typeof place> => Boolean(place));
 
 const trustReviewsHref = resolveOptionalLink('reviews_hub', currentLang, { suppressMissing: true });
-const trustBookingHref = resolveOptionalLink('book', currentLang, { suppressMissing: true });
+const staySearchResultsHref = resolveOptionalLink('stay_search_results', currentLang, { suppressMissing: true });
+const trustBookingHref = staySearchResultsHref ? '#stay-search' : null;
 const bridgeHref = resolveOptionalLink('nerja_vs_frigiliana', currentLang, { suppressMissing: true });
 const collectionCtaHref = resolveOptionalLink('romantic_hideaways', currentLang, { suppressMissing: true });
 const directHref = resolveOptionalLink('direct_booking_benefits', currentLang, { suppressMissing: true });
@@ -240,6 +242,7 @@ const quoteTranslationNote = currentLang === 'de' ? null : t(cinematicQuoteTrans
     currentLang={currentLang}
     languageToken="home"
     appearance="overlay"
+    showBookingCta={false}
   />
   <AmaraPageShell
     family="home"
@@ -316,7 +319,15 @@ const quoteTranslationNote = currentLang === 'de' ? null : t(cinematicQuoteTrans
         honeymoonTitle={t(cinematicHoneymoonTitle)}
         honeymoonHref={honeymoonHref}
         honeymoonCtaLabel={t(cinematicHoneymoonCtaLabel)}
-      />
+      >
+        {staySearchResultsHref && (
+          <StaySearchFinder
+            slot="bookingFinder"
+            lang={currentLang}
+            action={staySearchResultsHref}
+          />
+        )}
+      </HomeCinematicMain>
     </div>
   </AmaraPageShell>
 </BaseLayout>

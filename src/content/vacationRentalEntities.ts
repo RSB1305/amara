@@ -7,6 +7,7 @@ import type {
 
 export type VacationRentalEntityKey = Exclude<AmaraEntityKey, 'amara-brand'>;
 export type VacationRentalToken = 'farah' | 'lounis' | 'zaid' | 'maha' | 'playa' | 'casa';
+export type VacationRentalBookingKey = 'farah' | 'lounis' | 'zaid' | 'maha' | 'playa' | 'tarifa';
 
 export interface VacationRentalBed {
   numberOfBeds: number;
@@ -43,8 +44,11 @@ export interface VacationRentalPricing {
 export interface VacationRentalEntity {
   key: VacationRentalEntityKey;
   token: VacationRentalToken;
+  /** Stable AMARA-facing Booking Gateway key; never a provider identifier. */
+  bookingKey: VacationRentalBookingKey;
   slug: string;
   identifier: string;
+  /** Stable authored card-join key; never a provider property ID. */
   propertyId: string;
   name: string;
   shortName: string;
@@ -204,9 +208,10 @@ export const vacationRentalEntities: VacationRentalEntity[] = [
   {
     key: 'amara-farah',
     token: 'farah',
+    bookingKey: 'farah',
     slug: 'la-amara-farah',
-    identifier: 'amara-lodging-408326',
-    propertyId: '408326',
+    identifier: 'amara-lodging-farah',
+    propertyId: 'farah',
     name: 'AMARA Farah',
     shortName: 'Farah',
     additionalType: 'VacationRental',
@@ -365,9 +370,10 @@ export const vacationRentalEntities: VacationRentalEntity[] = [
   {
     key: 'amara-lounis',
     token: 'lounis',
+    bookingKey: 'lounis',
     slug: 'la-amara-lounis',
-    identifier: 'amara-lodging-408324',
-    propertyId: '408324',
+    identifier: 'amara-lodging-lounis',
+    propertyId: 'lounis',
     name: 'AMARA Lounis',
     shortName: 'Lounis',
     additionalType: 'Apartment',
@@ -544,9 +550,10 @@ export const vacationRentalEntities: VacationRentalEntity[] = [
   {
     key: 'amara-zaid',
     token: 'zaid',
+    bookingKey: 'zaid',
     slug: 'la-amara-zaid',
-    identifier: 'amara-lodging-408323',
-    propertyId: '408323',
+    identifier: 'amara-lodging-zaid',
+    propertyId: 'zaid',
     name: 'AMARA Zaid',
     shortName: 'Zaid',
     additionalType: 'Apartment',
@@ -719,6 +726,7 @@ export const vacationRentalEntities: VacationRentalEntity[] = [
   {
     key: 'amara-maha',
     token: 'maha',
+    bookingKey: 'maha',
     slug: 'la-amara-maha',
     identifier: 'amara-lodging-maha',
     propertyId: 'maha',
@@ -897,9 +905,10 @@ export const vacationRentalEntities: VacationRentalEntity[] = [
   {
     key: 'amara-playa',
     token: 'playa',
+    bookingKey: 'playa',
     slug: 'la-amara-playa',
-    identifier: 'amara-lodging-408327',
-    propertyId: '408327',
+    identifier: 'amara-lodging-playa',
+    propertyId: 'playa',
     name: 'AMARA Playa',
     shortName: 'Playa',
     additionalType: 'Apartment',
@@ -1084,9 +1093,10 @@ export const vacationRentalEntities: VacationRentalEntity[] = [
   {
     key: 'amara-family-surf',
     token: 'casa',
+    bookingKey: 'tarifa',
     slug: 'la-amara-family-and-surf',
-    identifier: 'amara-lodging-544478',
-    propertyId: '544478',
+    identifier: 'amara-lodging-family-surf',
+    propertyId: 'casa',
     name: 'AMARA Family & Surf',
     shortName: 'Family & Surf',
     additionalType: 'House',

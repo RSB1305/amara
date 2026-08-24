@@ -21,8 +21,28 @@ const LODGIFY_STAY_MAPPINGS = Object.freeze({
 // Discovery remains an explicit sandbox concern for controlled verification of
 // future stays. Production requests never consume these dynamic selectors.
 const LODGIFY_DISCOVERY_MAPPINGS = Object.freeze({
+  farah: Object.freeze({
+    propertyNamePattern: /\bfarah\b/i,
+    roomStrategy: 'single',
+  }),
+  lounis: Object.freeze({
+    propertyNamePattern: /\blounis\b/i,
+    roomStrategy: 'single',
+  }),
+  zaid: Object.freeze({
+    propertyNamePattern: /\bzaid\b/i,
+    roomStrategy: 'single',
+  }),
   maha: Object.freeze({
     propertyNamePattern: /\bmaha\b/i,
+    roomStrategy: 'single',
+  }),
+  playa: Object.freeze({
+    propertyNamePattern: /\bplaya\b/i,
+    roomStrategy: 'single',
+  }),
+  tarifa: Object.freeze({
+    propertyNamePattern: /\b(?:AMARA\s+)?Family\s*(?:&|and)\s*Surf\b/i,
     roomStrategy: 'single',
   }),
 });

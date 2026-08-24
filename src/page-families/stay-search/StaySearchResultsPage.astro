@@ -1,0 +1,160 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Navigation from '../../components/Navigation.astro';
+import StaySearchFinder from '../../components/booking/StaySearchFinder.astro';
+import AmaraPageShell from '../../components/layout/AmaraPageShell.astro';
+import AmaraSection from '../../components/layout/AmaraSection.astro';
+import ApartmentCard from '../../components/location/ApartmentCard.astro';
+import { staySearchCopy, staySearchLocale } from '../../content/staySearchContent';
+import { vacationRentalEntities } from '../../content/vacationRentalEntities';
+import { resolveLink, resolveOptionalLink } from '../../lib/linkResolver';
+import { normalizeLanguage } from '../../lib/seo/resolve-seo-head';
+import type { AmaraAuthoringSeo, AmaraLanguage } from '../../types/seo';
+
+interface Props {
+  lang?: string;
+}
+
+const { lang = 'es' } = Astro.props;
+const currentLang = normalizeLanguage(lang as AmaraLanguage);
+const t = (value: Record<AmaraLanguage, string>) => value[currentLang] ?? value.en;
+const action = resolveLink('stay_search_results', currentLang);
+const copy = Object.fromEntries(
+  Object.entries(staySearchCopy).map(([key, value]) => [key, t(value)])
+);
+const seo: AmaraAuthoringSeo = {
+  version: '2026-08-24-stay-search-results-v1.0-D',
+  pageType: 'D',
+  schemaType: 'none',
+  entityKey: 'amara-brand',
+  languages: {
+    en: { title: 'Find an available AMARA stay', description: 'Check current availability and total prices for AMARA stays.', robots: 'noindex, follow', canonical: 'auto' },
+    de: { title: 'Verfügbare AMARA-Unterkunft finden', description: 'Prüft aktuelle Verfügbarkeit und Gesamtpreise der AMARA-Unterkünfte.', robots: 'noindex, follow', canonical: 'auto' },
+    es: { title: 'Encontrar un alojamiento AMARA disponible', description: 'Consultad disponibilidad y precios totales actuales de los alojamientos AMARA.', robots: 'noindex, follow', canonical: 'auto' },
+    nl: { title: 'Een beschikbaar AMARA-verblijf vinden', description: 'Bekijk actuele beschikbaarheid en totaalprijzen van AMARA-verblijven.', robots: 'noindex, follow', canonical: 'auto' },
+    sv: { title: 'Hitta ett tillgängligt AMARA-boende', description: 'Kontrollera aktuell tillgänglighet och totalpris för AMARA-boenden.', robots: 'noindex, follow', canonical: 'auto' }
+  }
+};
+const firstSentence = (value: string) => {
+  const end = value.indexOf('.');
+  return end === -1 ? value : value.slice(0, end + 1);
+};
+const guestCapacity = (count: number) => {
+  const template = t(count === 1 ? staySearchCopy.guest : staySearchCopy.guestsPlural);
+  return template.replace('{count}', String(count));
+};
+const cards = vacationRentalEntities.flatMap((rental) => {
+  const href = resolveOptionalLink(rental.token, currentLang, { suppressMissing: true });
+  if (!href) return [];
+  return [{
+    rental,
+    href,
+    destination: rental.city.toLowerCase()
+  }];
+});
+---
+
+<BaseLayout seo={seo} pageLang={currentLang}>
+  <Navigation currentLang={currentLang} languageToken="stay_search_results" />
+
+  <AmaraPageShell family="stay-search-results" dataLang={currentLang}>
+    <AmaraSection variant="hero" labelledby="stay-search-title">
+      <div class="max-w-3xl">
+        <p class="am-text-eyebrow text-primary">{t(staySearchCopy.resultsEyebrow)}</p>
+        <h1 id="stay-search-title" class="am-text-title mt-4 text-on-surface">
+          {t(staySearchCopy.resultsTitle)}
+        </h1>
+      </div>
+
+      <div class="mt-8">
+        <StaySearchFinder lang={currentLang} action={action} variant="results" />
+      </div>
+    </AmaraSection>
+
+    <AmaraSection labelledby="stay-results-heading" dataComponent="stay-search-results">
+      <div
+        data-am-stay-search-results
+        data-am-stay-search-language={staySearchLocale[currentLang]}
+        data-am-stay-search-copy={JSON.stringify(copy)}
+      >
+        <div class="max-w-3xl border-b border-border-subtle pb-7">
+          <p class="am-text-body text-on-surface-variant" data-am-stay-search-summary></p>
+          <p class="am-text-body mt-4 text-on-surface" role="status" aria-live="polite" data-am-stay-search-state>
+            {t(staySearchCopy.invalidSearch)}
+          </p>
+        </div>
+
+        <div class="mt-8 border border-border-subtle bg-surface-container-low p-5" hidden data-am-stay-search-warning>
+          <p class="am-text-body text-on-surface">{t(staySearchCopy.partialError)}</p>
+        </div>
+
+        <div class="mt-10" hidden data-am-stay-search-available>
+          <h2 id="stay-results-heading" class="am-text-subtitle text-on-surface">
+            {t(staySearchCopy.resultsTitle)}
+          </h2>
+          <div class="am-stay-results-grid mt-8" data-am-stay-search-grid>
+            {cards.map(({ rental, href, destination }) => (
+              <ApartmentCard
+                href={href}
+                imageSrc={rental.images[0]}
+                imageAlt={rental.imageAlt[currentLang] ?? rental.imageAlt.en}
+                meta={`${rental.city} · ${guestCapacity(rental.occupancy)}`}
+                title={rental.name}
+                description={firstSentence(rental.lead[currentLang] ?? rental.lead.en)}
+                ctaLabel={t(staySearchCopy.viewStay)}
+                linkAriaLabel={`${t(staySearchCopy.viewStay)}: ${rental.name}`}
+                dataStay={rental.bookingKey}
+                dataDestination={destination}
+                dataOccupancy={rental.occupancy}
+                totalPriceLabel={t(staySearchCopy.totalPrice)}
+                hidden
+              />
+            ))}
+          </div>
+        </div>
+
+        <div class="mt-10 max-w-2xl border-t border-border-subtle pt-7" hidden data-am-stay-search-empty>
+          <p class="am-text-body text-on-surface" data-am-stay-search-empty-copy></p>
+          <a
+            class="am-btn am-btn--secondary mt-6"
+            href={action}
+            hidden
+            data-am-stay-search-all-link
+          >
+            {t(staySearchCopy.allDestinationsCta)}
+          </a>
+        </div>
+      </div>
+    </AmaraSection>
+  </AmaraPageShell>
+</BaseLayout>
+
+<style is:global>
+  .am-stay-results-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 3rem 2rem;
+  }
+
+  .am-stay-results-grid .am-apartment-card[hidden] {
+    display: none;
+  }
+
+  @media (min-width: 48rem) {
+    .am-stay-results-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  @media (min-width: 64rem) {
+    .am-stay-results-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+  }
+</style>
+
+<script>
+  import { enhanceStaySearchResults } from '../../scripts/staySearchResults';
+
+  enhanceStaySearchResults();
+</script>
