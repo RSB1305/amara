@@ -180,14 +180,14 @@ test('keeps dynamic property and room discovery available to the sandbox', async
   });
 });
 
-test('keeps discovery selectors for all stays while production exposes only verified mappings', () => {
+test('keeps discovery selectors and verified production mappings for all stays', () => {
   expect(AMARA_STAY_KEYS).toEqual(['maha', 'lounis', 'zaid', 'farah', 'playa', 'tarifa']);
   for (const stay of AMARA_STAY_KEYS) {
     expect(getLodgifyDiscoveryMapping(stay)).toMatchObject({ roomStrategy: 'single' });
-  }
-  expect(getLodgifyStayMapping('maha')).toBeDefined();
-  for (const stay of AMARA_STAY_KEYS.filter((key) => key !== 'maha')) {
-    expect(getLodgifyStayMapping(stay)).toBeUndefined();
+    expect(getLodgifyStayMapping(stay)).toEqual({
+      propertyId: expect.stringMatching(/^\d+$/),
+      roomTypeId: expect.stringMatching(/^\d+$/)
+    });
   }
 });
 
