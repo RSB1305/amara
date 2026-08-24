@@ -50,6 +50,7 @@ export const comfortAmenityFilterCopy: Record<
     propertyLabel: string;
     allProperties: string;
     amenityLabel: string;
+    keyFactsHeading: string;
     amenityHeading: string;
     noResults: string;
   }
@@ -58,6 +59,7 @@ export const comfortAmenityFilterCopy: Record<
     propertyLabel: 'Choose a stay',
     allProperties: 'All stays',
     amenityLabel: 'Filter by amenity',
+    keyFactsHeading: 'Key facts',
     amenityHeading: 'Amenities',
     noResults: 'No amenities match your current filters.'
   },
@@ -65,6 +67,7 @@ export const comfortAmenityFilterCopy: Record<
     propertyLabel: 'Unterkunft auswählen',
     allProperties: 'Alle Unterkünfte',
     amenityLabel: 'Ausstattung filtern',
+    keyFactsHeading: 'Eckdaten',
     amenityHeading: 'Ausstattung',
     noResults: 'Keine Ausstattung entspricht der aktuellen Filterauswahl.'
   },
@@ -72,6 +75,7 @@ export const comfortAmenityFilterCopy: Record<
     propertyLabel: 'Elegid un alojamiento',
     allProperties: 'Todos los alojamientos',
     amenityLabel: 'Filtrar por equipamiento',
+    keyFactsHeading: 'Datos clave',
     amenityHeading: 'Equipamiento',
     noResults: 'Ningún elemento del equipamiento coincide con los filtros seleccionados.'
   },
@@ -79,6 +83,7 @@ export const comfortAmenityFilterCopy: Record<
     propertyLabel: 'Kies een verblijf',
     allProperties: 'Alle verblijven',
     amenityLabel: 'Filter op voorziening',
+    keyFactsHeading: 'Kerngegevens',
     amenityHeading: 'Voorzieningen',
     noResults: 'Geen voorzieningen komen overeen met de geselecteerde filters.'
   },
@@ -86,6 +91,7 @@ export const comfortAmenityFilterCopy: Record<
     propertyLabel: 'Välj boende',
     allProperties: 'Alla boenden',
     amenityLabel: 'Filtrera efter bekvämlighet',
+    keyFactsHeading: 'Nyckelfakta',
     amenityHeading: 'Bekvämligheter',
     noResults: 'Inga bekvämligheter matchar de valda filtren.'
   }
