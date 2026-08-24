@@ -11,6 +11,7 @@ import choiceImage from '../../assets/images/home/amara-zaid-terraza-5.jpg';
 import momentsImage from '../../assets/images/home/amara-tarifa-apartment01.webp';
 import { honeymoonContent, honeymoonSeo } from '../../content/honeymoonContent';
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import { createAmaraImage } from '../../lib/images/amaraImageProfiles';
 import { createRequiredLinkResolver, type LabeledLink } from '../../lib/linkResolver';
 import { normalizeLanguage } from '../../lib/seo/resolve-seo-head';
 import { resolveLocale } from '../../types/content';
@@ -23,7 +24,8 @@ interface Props {
 const { lang = 'es' } = Astro.props;
 const currentLang = normalizeLanguage(lang as AmaraLanguage);
 const copy = resolveLocale(honeymoonContent, currentLang);
-const seo = { ...honeymoonSeo, ogImage: heroImage.src };
+const seoHeroImage = await createAmaraImage(heroImage, 'hero');
+const seo = { ...honeymoonSeo, ogImage: seoHeroImage.src };
 const requiredLink = createRequiredLinkResolver(currentLang, 'Honeymoon in Andalusia');
 
 const links = {
