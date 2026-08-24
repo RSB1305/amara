@@ -1342,19 +1342,19 @@ const frigilianaEssentials: GuestGuideEntry = {
         {
           icon: 'warning',
           title: {
-            en: 'Emergency – Call 112',
-            de: 'Notfall – 112 anrufen',
-            es: 'Emergencias – Llamar al 112',
-            nl: 'Noodgeval – Bel 112',
-            sv: 'Nödsituation – Ring 112'
+            en: 'Medical emergency – Call 061 or 112',
+            de: 'Medizinischer Notfall – 061 oder 112 anrufen',
+            es: 'Emergencia médica – Llamad al 061 o al 112',
+            nl: 'Medisch noodgeval – Bel 061 of 112',
+            sv: 'Medicinsk nödsituation – Ring 061 eller 112'
           },
           body: [
             {
-              en: '<strong>Emergency – Call 112</strong> (Spain-wide emergency number).',
-              de: '<strong>Notfall – 112 anrufen</strong> (spanienweite Notrufnummer).',
-              es: '<strong>Emergencias – Llamad al 112</strong> (número de emergencias de toda España).',
-              nl: '<strong>Noodgeval – Bel 112</strong> (het alarmnummer voor heel Spanje).',
-              sv: '<strong>Nödsituation – Ring 112</strong> (larmnummer i hela Spanien).'
+              en: '<strong>Life-threatening medical emergency:</strong> call <strong>061</strong>. For any general emergency in Spain, call <strong>112</strong>. For urgent medical help without immediate danger to life in Málaga province, call <strong>+34 951 03 14 37</strong>.',
+              de: '<strong>Lebensbedrohlicher medizinischer Notfall:</strong> Wählt <strong>061</strong>. Für allgemeine Notfälle in Spanien wählt ihr <strong>112</strong>. Für dringende medizinische Hilfe ohne unmittelbare Lebensgefahr in der Provinz Málaga ruft ihr <strong>+34 951 03 14 37</strong> an.',
+              es: '<strong>Emergencia médica con riesgo vital:</strong> llamad al <strong>061</strong>. Para cualquier emergencia general en España, llamad al <strong>112</strong>. Para asistencia médica urgente sin riesgo vital inmediato en la provincia de Málaga, llamad al <strong>+34 951 03 14 37</strong>.',
+              nl: '<strong>Levensbedreigende medische noodsituatie:</strong> bel <strong>061</strong>. Voor algemene noodgevallen in Spanje bellen jullie <strong>112</strong>. Voor dringende medische hulp zonder direct levensgevaar in de provincie Málaga bellen jullie <strong>+34 951 03 14 37</strong>.',
+              sv: '<strong>Livshotande medicinsk nödsituation:</strong> ring <strong>061</strong>. För allmänna nödsituationer i Spanien ringer ni <strong>112</strong>. För brådskande medicinsk hjälp utan omedelbar livsfara i Málagaprovinsen ringer ni <strong>+34 951 03 14 37</strong>.'
             },
             {
               en: '<strong>If the emergency happens while you are inside the house:</strong><br>Please share this address with emergency services:<br><strong>Calle Chorruelo 5<br>29788 Frigiliana</strong>',
@@ -1368,19 +1368,19 @@ const frigilianaEssentials: GuestGuideEntry = {
         {
           icon: 'medical',
           title: {
-            en: '24-Hour Medical Assistance',
-            de: '24-Stunden medizinische Versorgung',
-            es: 'Asistencia médica 24 horas',
-            nl: '24-uurs medische hulp',
-            sv: 'Medicinsk hjälp dygnet runt'
+            en: 'Centro de Salud Nerja',
+            de: 'Centro de Salud Nerja',
+            es: 'Centro de Salud Nerja',
+            nl: 'Centro de Salud Nerja',
+            sv: 'Centro de Salud Nerja'
           },
           body: [
             {
-              en: 'For non-emergency medical care, the nearest 24-hour public health center is <a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Centro+de+Salud+Nerja" target="_blank" rel="noopener"><strong>Centro de Salud Nerja</strong></a>, about <strong>10–15 minutes by car</strong>.',
-              de: 'Für nicht akute medizinische Anliegen ist das nächstgelegene 24-Stunden-Gesundheitszentrum das <a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Centro+de+Salud+Nerja" target="_blank" rel="noopener"><strong>Centro de Salud Nerja</strong></a>, etwa <strong>10–15 Autominuten entfernt</strong>.',
-              es: 'Para asuntos médicos que no sean una emergencia, el centro de salud público de 24 horas más cercano es el <a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Centro+de+Salud+Nerja" target="_blank" rel="noopener"><strong>Centro de Salud Nerja</strong></a>, a unos <strong>10–15 minutos en coche</strong>.',
-              nl: 'Voor niet-spoedeisende medische zaken is het dichtstbijzijnde 24-uurs gezondheidscentrum <a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Centro+de+Salud+Nerja" target="_blank" rel="noopener"><strong>Centro de Salud Nerja</strong></a>, op ongeveer <strong>10–15 minuten rijden</strong>.',
-              sv: 'För icke-akuta medicinska ärenden är närmaste dygnet-runt-öppna vårdcentral <a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Centro+de+Salud+Nerja" target="_blank" rel="noopener"><strong>Centro de Salud Nerja</strong></a>, cirka <strong>10–15 minuter med bil</strong>.'
+              en: 'For non-emergency public medical care, use <a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Centro+de+Salud+Nerja" target="_blank" rel="noopener"><strong>Centro de Salud Nerja</strong></a>, about <strong>10–15 minutes by car</strong>.',
+              de: 'Für öffentliche medizinische Hilfe ohne Notfall nutzt ihr das <a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Centro+de+Salud+Nerja" target="_blank" rel="noopener"><strong>Centro de Salud Nerja</strong></a>, etwa <strong>10–15 Autominuten entfernt</strong>.',
+              es: 'Para atención médica pública sin emergencia, acudid al <a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Centro+de+Salud+Nerja" target="_blank" rel="noopener"><strong>Centro de Salud Nerja</strong></a>, a unos <strong>10–15 minutos en coche</strong>.',
+              nl: 'Voor openbare medische zorg zonder noodgeval gaan jullie naar <a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Centro+de+Salud+Nerja" target="_blank" rel="noopener"><strong>Centro de Salud Nerja</strong></a>, op ongeveer <strong>10–15 minuten rijden</strong>.',
+              sv: 'För offentlig vård utan nödläge använder ni <a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Centro+de+Salud+Nerja" target="_blank" rel="noopener"><strong>Centro de Salud Nerja</strong></a>, cirka <strong>10–15 minuter med bil</strong>.'
             },
             {
               en: '<strong>C. Carlos Millón, s/n<br>29780 Nerja, Málaga</strong>',
@@ -1388,6 +1388,13 @@ const frigilianaEssentials: GuestGuideEntry = {
               es: '<strong>C. Carlos Millón, s/n<br>29780 Nerja, Málaga</strong>',
               nl: '<strong>C. Carlos Millón, s/n<br>29780 Nerja, Málaga</strong>',
               sv: '<strong>C. Carlos Millón, s/n<br>29780 Nerja, Málaga</strong>'
+            },
+            {
+              en: '<strong>Centre:</strong> <a class="am-link" href="tel:+34951289662">+34 951 28 96 62</a><br><strong>Salud Responde / appointments:</strong> <a class="am-link" href="tel:+34955545060">+34 955 54 50 60</a><br><br>The current SAS directory lists the centre as open throughout Monday to Friday. Services and hours can change, so call before travelling outside normal daytime hours or at a weekend.',
+              de: '<strong>Zentrum:</strong> <a class="am-link" href="tel:+34951289662">+34 951 28 96 62</a><br><strong>Salud Responde / Termine:</strong> <a class="am-link" href="tel:+34955545060">+34 955 54 50 60</a><br><br>Das aktuelle SAS-Verzeichnis führt das Zentrum montags bis freitags durchgehend geöffnet. Servicezeiten können sich ändern; ruft deshalb vor einem Weg außerhalb der üblichen Tageszeiten oder am Wochenende an.',
+              es: '<strong>Centro:</strong> <a class="am-link" href="tel:+34951289662">+34 951 28 96 62</a><br><strong>Salud Responde / citas:</strong> <a class="am-link" href="tel:+34955545060">+34 955 54 50 60</a><br><br>El directorio actual del SAS muestra el centro abierto de forma continuada de lunes a viernes. Los servicios y horarios pueden cambiar; llamad antes de desplazaros fuera del horario diurno habitual o durante el fin de semana.',
+              nl: '<strong>Centrum:</strong> <a class="am-link" href="tel:+34951289662">+34 951 28 96 62</a><br><strong>Salud Responde / afspraken:</strong> <a class="am-link" href="tel:+34955545060">+34 955 54 50 60</a><br><br>In de actuele SAS-gids staat het centrum van maandag tot en met vrijdag doorlopend als geopend vermeld. Diensten en openingstijden kunnen veranderen; bel daarom vóór een bezoek buiten normale uren overdag of in het weekend.',
+              sv: '<strong>Vårdcentralen:</strong> <a class="am-link" href="tel:+34951289662">+34 951 28 96 62</a><br><strong>Salud Responde / tidsbokning:</strong> <a class="am-link" href="tel:+34955545060">+34 955 54 50 60</a><br><br>I SAS aktuella register anges vårdcentralen som öppen hela måndag till fredag. Tjänster och öppettider kan ändras; ring därför före ett besök utanför normala dagtider eller på helgen.'
             }
           ]
         },
@@ -6304,19 +6311,19 @@ const nerjaEssentials: GuestGuideEntry = {
         {
           icon: 'warning',
           title: {
-            en: 'Emergency – Call 112',
-            de: 'Notfall – 112 anrufen',
-            es: 'Emergencias – Llamar al 112',
-            nl: 'Noodgeval – Bel 112',
-            sv: 'Nödsituation – Ring 112'
+            en: 'Medical emergency – Call 061 or 112',
+            de: 'Medizinischer Notfall – 061 oder 112 anrufen',
+            es: 'Emergencia médica – Llamad al 061 o al 112',
+            nl: 'Medisch noodgeval – Bel 061 of 112',
+            sv: 'Medicinsk nödsituation – Ring 061 eller 112'
           },
           body: [
             {
-              en: '<strong>Emergency – Call 112</strong> (Spain-wide emergency number).',
-              de: '<strong>Notfall – 112 anrufen</strong> (spanienweite Notrufnummer).',
-              es: '<strong>Emergencias – Llamad al 112</strong> (número de emergencias de toda España).',
-              nl: '<strong>Noodgeval – Bel 112</strong> (het alarmnummer voor heel Spanje).',
-              sv: '<strong>Nödsituation – Ring 112</strong> (larmnummer i hela Spanien).'
+              en: '<strong>Life-threatening medical emergency:</strong> call <strong>061</strong>. For any general emergency in Spain, call <strong>112</strong>. For urgent medical help without immediate danger to life in Málaga province, call <strong>+34 951 03 14 37</strong>.',
+              de: '<strong>Lebensbedrohlicher medizinischer Notfall:</strong> Wählt <strong>061</strong>. Für allgemeine Notfälle in Spanien wählt ihr <strong>112</strong>. Für dringende medizinische Hilfe ohne unmittelbare Lebensgefahr in der Provinz Málaga ruft ihr <strong>+34 951 03 14 37</strong> an.',
+              es: '<strong>Emergencia médica con riesgo vital:</strong> llamad al <strong>061</strong>. Para cualquier emergencia general en España, llamad al <strong>112</strong>. Para asistencia médica urgente sin riesgo vital inmediato en la provincia de Málaga, llamad al <strong>+34 951 03 14 37</strong>.',
+              nl: '<strong>Levensbedreigende medische noodsituatie:</strong> bel <strong>061</strong>. Voor algemene noodgevallen in Spanje bellen jullie <strong>112</strong>. Voor dringende medische hulp zonder direct levensgevaar in de provincie Málaga bellen jullie <strong>+34 951 03 14 37</strong>.',
+              sv: '<strong>Livshotande medicinsk nödsituation:</strong> ring <strong>061</strong>. För allmänna nödsituationer i Spanien ringer ni <strong>112</strong>. För brådskande medicinsk hjälp utan omedelbar livsfara i Málagaprovinsen ringer ni <strong>+34 951 03 14 37</strong>.'
             },
             {
               en: '<strong>If the emergency happens while you are inside the house:</strong><br>Please share this address with emergency services:<br><strong>Calle Castilla Pérez 60<br>Apartment 5-2<br>29780 Nerja</strong>',
@@ -6330,19 +6337,19 @@ const nerjaEssentials: GuestGuideEntry = {
         {
           icon: 'medical',
           title: {
-            en: '24-Hour Medical Assistance',
-            de: '24-Stunden medizinische Versorgung',
-            es: 'Asistencia médica 24 horas',
-            nl: '24-uurs medische hulp',
-            sv: 'Medicinsk hjälp dygnet runt'
+            en: 'Centro de Salud Nerja',
+            de: 'Centro de Salud Nerja',
+            es: 'Centro de Salud Nerja',
+            nl: 'Centro de Salud Nerja',
+            sv: 'Centro de Salud Nerja'
           },
           body: [
             {
-              en: 'For non-emergency medical care, the nearest 24-hour public health center is <a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Centro+de+Salud+Nerja" target="_blank" rel="noopener"><strong>Centro de Salud Nerja</strong></a>, about <strong>10 minutes on foot</strong>.',
-              de: 'Für nicht akute medizinische Anliegen ist das nächstgelegene 24-Stunden-Gesundheitszentrum das <a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Centro+de+Salud+Nerja" target="_blank" rel="noopener"><strong>Centro de Salud Nerja</strong></a>, etwa <strong>10 Minuten zu Fuß entfernt</strong>.',
-              es: 'Para asuntos médicos que no sean una emergencia, el centro de salud público de 24 horas más cercano es el <a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Centro+de+Salud+Nerja" target="_blank" rel="noopener"><strong>Centro de Salud Nerja</strong></a>, a unos <strong>10 minutos a pie</strong>.',
-              nl: 'Voor niet-spoedeisende medische zaken is het dichtstbijzijnde 24-uurs gezondheidscentrum <a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Centro+de+Salud+Nerja" target="_blank" rel="noopener"><strong>Centro de Salud Nerja</strong></a>, op ongeveer <strong>10 minuten lopen</strong>.',
-              sv: 'För icke-akuta medicinska ärenden är närmaste dygnet-runt-öppna vårdcentral <a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Centro+de+Salud+Nerja" target="_blank" rel="noopener"><strong>Centro de Salud Nerja</strong></a>, cirka <strong>10 minuter till fots</strong>.'
+              en: 'For non-emergency public medical care, use <a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Centro+de+Salud+Nerja" target="_blank" rel="noopener"><strong>Centro de Salud Nerja</strong></a>, about <strong>10 minutes on foot</strong>.',
+              de: 'Für öffentliche medizinische Hilfe ohne Notfall nutzt ihr das <a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Centro+de+Salud+Nerja" target="_blank" rel="noopener"><strong>Centro de Salud Nerja</strong></a>, etwa <strong>10 Minuten zu Fuß entfernt</strong>.',
+              es: 'Para atención médica pública sin emergencia, acudid al <a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Centro+de+Salud+Nerja" target="_blank" rel="noopener"><strong>Centro de Salud Nerja</strong></a>, a unos <strong>10 minutos a pie</strong>.',
+              nl: 'Voor openbare medische zorg zonder noodgeval gaan jullie naar <a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Centro+de+Salud+Nerja" target="_blank" rel="noopener"><strong>Centro de Salud Nerja</strong></a>, op ongeveer <strong>10 minuten lopen</strong>.',
+              sv: 'För offentlig vård utan nödläge använder ni <a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Centro+de+Salud+Nerja" target="_blank" rel="noopener"><strong>Centro de Salud Nerja</strong></a>, cirka <strong>10 minuter till fots</strong>.'
             },
             {
               en: '<strong>C. Carlos Millón, s/n<br>29780 Nerja, Málaga</strong>',
@@ -6350,6 +6357,13 @@ const nerjaEssentials: GuestGuideEntry = {
               es: '<strong>C. Carlos Millón, s/n<br>29780 Nerja, Málaga</strong>',
               nl: '<strong>C. Carlos Millón, s/n<br>29780 Nerja, Málaga</strong>',
               sv: '<strong>C. Carlos Millón, s/n<br>29780 Nerja, Málaga</strong>'
+            },
+            {
+              en: '<strong>Centre:</strong> <a class="am-link" href="tel:+34951289662">+34 951 28 96 62</a><br><strong>Salud Responde / appointments:</strong> <a class="am-link" href="tel:+34955545060">+34 955 54 50 60</a><br><br>The current SAS directory lists the centre as open throughout Monday to Friday. Services and hours can change, so call before travelling outside normal daytime hours or at a weekend.',
+              de: '<strong>Zentrum:</strong> <a class="am-link" href="tel:+34951289662">+34 951 28 96 62</a><br><strong>Salud Responde / Termine:</strong> <a class="am-link" href="tel:+34955545060">+34 955 54 50 60</a><br><br>Das aktuelle SAS-Verzeichnis führt das Zentrum montags bis freitags durchgehend geöffnet. Servicezeiten können sich ändern; ruft deshalb vor einem Weg außerhalb der üblichen Tageszeiten oder am Wochenende an.',
+              es: '<strong>Centro:</strong> <a class="am-link" href="tel:+34951289662">+34 951 28 96 62</a><br><strong>Salud Responde / citas:</strong> <a class="am-link" href="tel:+34955545060">+34 955 54 50 60</a><br><br>El directorio actual del SAS muestra el centro abierto de forma continuada de lunes a viernes. Los servicios y horarios pueden cambiar; llamad antes de desplazaros fuera del horario diurno habitual o durante el fin de semana.',
+              nl: '<strong>Centrum:</strong> <a class="am-link" href="tel:+34951289662">+34 951 28 96 62</a><br><strong>Salud Responde / afspraken:</strong> <a class="am-link" href="tel:+34955545060">+34 955 54 50 60</a><br><br>In de actuele SAS-gids staat het centrum van maandag tot en met vrijdag doorlopend als geopend vermeld. Diensten en openingstijden kunnen veranderen; bel daarom vóór een bezoek buiten normale uren overdag of in het weekend.',
+              sv: '<strong>Vårdcentralen:</strong> <a class="am-link" href="tel:+34951289662">+34 951 28 96 62</a><br><strong>Salud Responde / tidsbokning:</strong> <a class="am-link" href="tel:+34955545060">+34 955 54 50 60</a><br><br>I SAS aktuella register anges vårdcentralen som öppen hela måndag till fredag. Tjänster och öppettider kan ändras; ring därför före ett besök utanför normala dagtider eller på helgen.'
             }
           ]
         },
