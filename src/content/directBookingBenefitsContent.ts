@@ -16,6 +16,13 @@ export const directBookingTrustSignals = {
     nl: 'Onze laagste beschikbare prijs',
     sv: 'Vårt lägsta tillgängliga pris'
   },
+  midStayCleaning: {
+    en: 'Complimentary mid-stay cleaning from eight nights',
+    de: 'Kostenlose Zwischenreinigung ab acht Nächten',
+    es: 'Limpieza gratuita a mitad de estancia a partir de ocho noches',
+    nl: 'Gratis tussentijdse schoonmaak vanaf acht nachten',
+    sv: 'Kostnadsfri mellanstädning från åtta nätter'
+  },
   directHostContact: {
     en: 'Direct line to host',
     de: 'Direkter Kontakt zum Gastgeber',
@@ -24,9 +31,42 @@ export const directBookingTrustSignals = {
     sv: 'Direktkontakt med värden'
   }
 } satisfies Record<
-  'directWithAmara' | 'lowestAvailablePrice' | 'directHostContact',
+  'directWithAmara' | 'lowestAvailablePrice' | 'midStayCleaning' | 'directHostContact',
   Record<AmaraLanguage, string>
 >;
+
+/**
+ * Refund tiers of the AMARA direct-booking rate, as configured in Lodgify.
+ * Held here so the conversion copy and the terms page state one policy.
+ * Lodgify stays authoritative for the individual booking; if the rate is
+ * reconfigured there, these values move with it.
+ */
+export const cancellationRefundTiers = {
+  fullRefundDaysBeforeArrival: 14,
+  halfRefundDaysBeforeArrival: 7
+} as const;
+
+const fullDays = cancellationRefundTiers.fullRefundDaysBeforeArrival;
+const halfDays = cancellationRefundTiers.halfRefundDaysBeforeArrival;
+
+/** Short assurance badge shown beside a booking CTA. */
+export const cancellationAssuranceBadge = {
+  en: `Free cancellation up to ${fullDays} days before arrival`,
+  de: `Bis ${fullDays} Tage vor Anreise kostenlos stornieren`,
+  es: `Cancelación gratuita hasta ${fullDays} días antes de la llegada`,
+  nl: `Gratis annuleren tot ${fullDays} dagen voor aankomst`,
+  sv: `Avboka utan kostnad fram till ${fullDays} dagar före ankomst`
+} satisfies Record<AmaraLanguage, string>;
+
+/** The same policy stated in full, including the partial-refund window. */
+export const cancellationAssuranceDetail = {
+  en: `Cancel ${fullDays} days or more before arrival and your prepayment is refunded in full. Up to ${halfDays} days before arrival, half of it comes back.`,
+  de: `Storniert ihr ${fullDays} Tage oder früher vor Anreise, erstatten wir die Anzahlung vollständig. Bis ${halfDays} Tage vor Anreise bekommt ihr die Hälfte zurück.`,
+  es: `Si canceláis ${fullDays} días antes de la llegada o más, os devolvemos el anticipo íntegro. Hasta ${halfDays} días antes de la llegada, recuperáis la mitad.`,
+  nl: `Annuleren jullie ${fullDays} dagen of meer voor aankomst, dan betalen we de aanbetaling volledig terug. Tot ${halfDays} dagen voor aankomst krijgen jullie de helft terug.`,
+  sv: `Avbokar ni ${fullDays} dagar eller mer före ankomst betalar vi tillbaka hela handpenningen. Fram till ${halfDays} dagar före ankomst får ni tillbaka hälften.`
+} satisfies Record<AmaraLanguage, string>;
+
 
 export const directBookingBenefitsSeo: AmaraAuthoringSeo = {
 

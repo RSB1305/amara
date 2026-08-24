@@ -9,14 +9,29 @@ import { normalizeLanguage } from '../../lib/seo/resolve-seo-head';
 import type { AmaraAuthoringSeo, AmaraLanguage } from '../../types/seo';
 import {
   formatVacationRentalFromPrice,
+  vacationRentalEntities,
   vacationRentalEntitiesByToken
 } from '../../content/vacationRentalEntities';
+import {
+  airbnbRatingLabel,
+  superhostLabel,
+  travellerReviewAwardLabel,
+  completedStaysLabel
+} from '../../content/reviewEvidence';
+import {
+  cancellationAssuranceBadge,
+  cancellationAssuranceDetail,
+  directBookingTrustSignals
+} from '../../content/directBookingBenefitsContent';
 import {
   cinematicApartments,
   type CinematicAptToken,
   cinematicHeroKicker,
   cinematicHeroLead,
   cinematicHeroImageAlt,
+  cinematicHeroProofRating,
+  cinematicHostLabel,
+  cinematicHostAvatarAlt,
   cinematicScrollHint,
   cinematicWelcome,
   cinematicPhilosophyPart1,
@@ -24,9 +39,23 @@ import {
   cinematicPhilosophyLabel,
   cinematicPhilosophyP1,
   cinematicPhilosophyP2,
+  cinematicPlaces,
+  cinematicPlacesEyebrow,
+  cinematicPlacesTitle,
+  cinematicPlacesCountLabel,
+  cinematicBridgeEyebrow,
+  cinematicBridgeTitle,
+  cinematicBridgeBody,
+  cinematicBridgeQuote,
+  cinematicBridgeQuoteAttribution,
+  cinematicBridgeCtaLabel,
+  cinematicQuoteTranslationNote,
   cinematicCollectionEyebrow,
   cinematicCollectionTitle,
+  cinematicCollectionCtaLabel,
+  cinematicFactTerraceLabel,
   cinematicTrustQuote,
+  cinematicTrustQuoteAttribution,
   cinematicTrustCta,
   cinematicTrustCtaPrimary,
   cinematicTrustChips,
@@ -34,9 +63,12 @@ import {
   cinematicStatRatingValue,
   cinematicStatReviewsLabel,
   cinematicStatRatingLabel,
-  cinematicGuideEyebrow,
-  cinematicGuideTitle,
-  cinematicGuideLinks
+  cinematicDirectEyebrow,
+  cinematicDirectTitle,
+  cinematicDirectCtaLabel,
+  cinematicHoneymoonEyebrow,
+  cinematicHoneymoonTitle,
+  cinematicHoneymoonCtaLabel
 } from '../../content/homeCinematicCopy';
 import imgHeroLounis from '../../assets/images/home/amara-lounis-15-amara-frigiliana.jpg';
 import imgFarah from '../../assets/images/home/amara-farah-67-amara-frigiliana.jpg';
@@ -44,6 +76,7 @@ import imgZaid from '../../assets/images/home/amara-zaid-terraza-5.jpg';
 import imgMaha from '../../assets/images/home/amara-maha-29-amara-frigiliana.jpg';
 import imgPlaya from '../../assets/images/home/amara-playa-chaparril-13.webp';
 import imgCasa from '../../assets/images/home/amara-tarifa-apartment01.webp';
+import imgHost from '../../assets/images/content/robert-amara-host.jpg';
 
 const homeImageByToken: Record<CinematicAptToken, typeof imgHeroLounis> = {
   farah: imgFarah,
@@ -56,6 +89,7 @@ const homeImageByToken: Record<CinematicAptToken, typeof imgHeroLounis> = {
 
 const heroImage = await createAmaraImage(imgHeroLounis, 'hero', { quality: 50 });
 const trustImage = await createAmaraImage(imgZaid, 'background', { quality: 55 });
+const hostAvatar = await createAmaraImage(imgHost, 'card', { quality: 60 });
 const homeHeroSizes = '100vw';
 
 interface Props {
@@ -68,7 +102,7 @@ const currentLang = normalizeLanguage(lang as AmaraLanguage);
 const t = <T extends Record<AmaraLanguage, string>>(row: T) => row[currentLang] ?? row.en;
 
 const seo: AmaraAuthoringSeo = {
-  version: '2026-08-23-amara-home-romantic-hideaways-v4.0-A',
+  version: '2026-08-24-amara-home-romantic-hideaways-v5.0-A',
   pageType: 'A',
   entityKey: 'amara-brand',
   ogImage: heroImage.src,
@@ -111,50 +145,94 @@ const seo: AmaraAuthoringSeo = {
   }
 };
 
+/**
+ * Card facts come from the rental entities so the four Frigiliana stays read as
+ * four different places. Guest count is deliberately absent: five of six carry
+ * the same value and it differentiates nothing on the home.
+ */
 const cinematicApartmentsProps = (
   await Promise.all(
-  cinematicApartments.map(async (apt) => {
-    const exploreHref = resolveOptionalLink(apt.token, currentLang, { suppressMissing: true });
-    if (!exploreHref) {
-      return null;
-    }
+    cinematicApartments.map(async (apt) => {
+      const exploreHref = resolveOptionalLink(apt.token, currentLang, { suppressMissing: true });
+      if (!exploreHref) {
+        return null;
+      }
 
-    const rental = vacationRentalEntitiesByToken[apt.token];
-    const optimized = await createAmaraImage(homeImageByToken[apt.token], 'card', { quality: 60 });
-    return {
-      id: apt.id,
-      name: apt.name,
-      subtitle: t(apt.subtitle),
-      meta: t(apt.meta),
-      price: formatVacationRentalFromPrice(rental.pricing, currentLang),
-      desc: t(apt.desc),
-      imgAlt: t(apt.imageAlt),
-      img: optimized.src,
-      imgWidth: optimized.attributes.width as number,
-      imgHeight: optimized.attributes.height as number,
-      imgSrcSet: optimized.srcSet.attribute,
-      imgSizes: `(max-width: 639px) 100vw, ${optimized.attributes.sizes as string}`,
-      exploreHref,
-      exploreLabel: t(apt.exploreLabel)
-    };
-  })
+      const rental = vacationRentalEntitiesByToken[apt.token];
+      const optimized = await createAmaraImage(homeImageByToken[apt.token], 'card', { quality: 60 });
+      return {
+        id: apt.id,
+        name: apt.name,
+        subtitle: t(apt.subtitle),
+        city: rental.city,
+        interiorFact: rental.interiorAreaSqm ? `${rental.interiorAreaSqm} m²` : null,
+        terraceFact: rental.exteriorAreaSqm
+          ? `${t(cinematicFactTerraceLabel)} ${rental.exteriorAreaSqm} m²`
+          : null,
+        viewNote: t(rental.viewNote as Record<AmaraLanguage, string>),
+        price: formatVacationRentalFromPrice(rental.pricing, currentLang),
+        desc: t(apt.desc),
+        imgAlt: t(apt.imageAlt),
+        img: optimized.src,
+        imgWidth: optimized.attributes.width as number,
+        imgHeight: optimized.attributes.height as number,
+        imgSrcSet: optimized.srcSet.attribute,
+        imgSizes: `(max-width: 639px) 100vw, ${optimized.attributes.sizes as string}`,
+        exploreHref,
+        exploreLabel: t(apt.exploreLabel)
+      };
+    })
   )
 ).filter((apt): apt is NonNullable<typeof apt> => Boolean(apt));
 
+/** Stay counts are derived, so the places band cannot drift from the inventory. */
+const placesProps = cinematicPlaces
+  .map((place) => {
+    const href = resolveOptionalLink(place.token, currentLang, { suppressMissing: true });
+    if (!href) {
+      return null;
+    }
+    const stayCount = vacationRentalEntities.filter((entity) => entity.city === place.city).length;
+    return {
+      id: place.id,
+      city: place.city,
+      countLabel: t(cinematicPlacesCountLabel).replace('{n}', String(stayCount)),
+      character: t(place.character),
+      travel: t(place.travel),
+      href,
+      ctaLabel: t(place.ctaLabel)
+    };
+  })
+  .filter((place): place is NonNullable<typeof place> => Boolean(place));
+
 const trustReviewsHref = resolveOptionalLink('reviews_hub', currentLang, { suppressMissing: true });
 const trustBookingHref = resolveOptionalLink('book', currentLang, { suppressMissing: true });
-const guideLinks = cinematicGuideLinks
-  .map((link) => {
-    const href = resolveOptionalLink(link.token, currentLang, { suppressMissing: true });
-    return href
-      ? {
-          href,
-          label: t(link.label),
-          text: t(link.text)
-        }
-      : null;
-  })
-  .filter((link): link is { href: string; label: string; text: string } => Boolean(link));
+const bridgeHref = resolveOptionalLink('nerja_vs_frigiliana', currentLang, { suppressMissing: true });
+const collectionCtaHref = resolveOptionalLink('romantic_hideaways', currentLang, { suppressMissing: true });
+const directHref = resolveOptionalLink('direct_booking_benefits', currentLang, { suppressMissing: true });
+const honeymoonHref = resolveOptionalLink('honeymoon', currentLang, { suppressMissing: true });
+const hostAboutHref = resolveOptionalLink('about', currentLang, { suppressMissing: true });
+
+/** The hero carries two signals only; the trust band holds the rest. */
+const heroProof = [t(superhostLabel), t(cinematicHeroProofRating)];
+
+const trustChips = [
+  t(travellerReviewAwardLabel),
+  t(completedStaysLabel),
+  ...cinematicTrustChips[currentLang]
+];
+
+const directBenefits = [
+  t(directBookingTrustSignals.lowestAvailablePrice),
+  t(directBookingTrustSignals.midStayCleaning),
+  t(directBookingTrustSignals.directHostContact)
+];
+
+/**
+ * Both displayed guest reviews are German originals. Other locales show a
+ * translation, and the note keeps that provenance visible.
+ */
+const quoteTranslationNote = currentLang === 'de' ? null : t(cinematicQuoteTranslationNote);
 ---
 
 <BaseLayout seo={seo} pageLang={currentLang}>
@@ -181,8 +259,15 @@ const guideLinks = cinematicGuideLinks
         heroImageAlt={t(cinematicHeroImageAlt)}
         heroKicker={t(cinematicHeroKicker)}
         heroLead={t(cinematicHeroLead)}
+        heroProof={heroProof}
         scrollHint={t(cinematicScrollHint)}
         welcomeMessage={cinematicWelcome}
+        hostAvatarSrc={hostAvatar.src}
+        hostAvatarSrcSet={hostAvatar.srcSet.attribute}
+        hostAvatarSizes="40px"
+        hostAvatarAlt={t(cinematicHostAvatarAlt)}
+        hostAboutHref={hostAboutHref}
+        hostAboutLabel={t(cinematicHostLabel)}
         philosophyHeadlinePart1={t(cinematicPhilosophyPart1)}
         philosophyHeadlineAccent={t(cinematicPhilosophyAccent)}
         philosophyLabel={t(cinematicPhilosophyLabel)}
@@ -192,23 +277,45 @@ const guideLinks = cinematicGuideLinks
         statRatingValue={t(cinematicStatRatingValue)}
         statReviewsLabel={t(cinematicStatReviewsLabel)}
         statRatingLabel={t(cinematicStatRatingLabel)}
-        guideEyebrow={t(cinematicGuideEyebrow)}
-        guideTitle={t(cinematicGuideTitle)}
-        guideLinks={guideLinks}
+        placesEyebrow={t(cinematicPlacesEyebrow)}
+        placesTitle={t(cinematicPlacesTitle)}
+        places={placesProps}
+        bridgeEyebrow={t(cinematicBridgeEyebrow)}
+        bridgeTitle={t(cinematicBridgeTitle)}
+        bridgeBody={t(cinematicBridgeBody)}
+        bridgeQuote={t(cinematicBridgeQuote)}
+        bridgeQuoteAttribution={t(cinematicBridgeQuoteAttribution)}
+        bridgeHref={bridgeHref}
+        bridgeCtaLabel={t(cinematicBridgeCtaLabel)}
         collectionEyebrow={t(cinematicCollectionEyebrow)}
         collectionTitle={t(cinematicCollectionTitle)}
         apartments={cinematicApartmentsProps}
+        collectionCtaHref={collectionCtaHref}
+        collectionCtaLabel={t(cinematicCollectionCtaLabel)}
         trustBgSrc={trustImage.src}
         trustBgSrcSet={trustImage.srcSet.attribute}
         trustBgSizes={trustImage.attributes.sizes as string}
         trustImageWidth={trustImage.attributes.width as number}
         trustImageHeight={trustImage.attributes.height as number}
         trustQuote={t(cinematicTrustQuote)}
-        trustChips={cinematicTrustChips[currentLang]}
+        trustQuoteAttribution={t(cinematicTrustQuoteAttribution)}
+        trustChips={trustChips}
         trustCta={t(cinematicTrustCta)}
         trustReviewsHref={trustReviewsHref}
         trustCtaPrimary={t(cinematicTrustCtaPrimary)}
         trustBookingHref={trustBookingHref}
+        quoteTranslationNote={quoteTranslationNote}
+        directEyebrow={t(cinematicDirectEyebrow)}
+        directTitle={t(cinematicDirectTitle)}
+        directBenefits={directBenefits}
+        cancellationBadge={t(cancellationAssuranceBadge)}
+        cancellationDetail={t(cancellationAssuranceDetail)}
+        directHref={directHref}
+        directCtaLabel={t(cinematicDirectCtaLabel)}
+        honeymoonEyebrow={t(cinematicHoneymoonEyebrow)}
+        honeymoonTitle={t(cinematicHoneymoonTitle)}
+        honeymoonHref={honeymoonHref}
+        honeymoonCtaLabel={t(cinematicHoneymoonCtaLabel)}
       />
     </div>
   </AmaraPageShell>

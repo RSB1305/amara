@@ -100,12 +100,24 @@ export const cinematicCollectionTitle: CopyRow = {
   sv: 'Hitta ert hideaway för tiden tillsammans.'
 };
 
+/**
+ * Verbatim guest review, German original. The trust band shows a guest voice,
+ * not AMARA talking about reviews; translations are marked as translations.
+ */
 export const cinematicTrustQuote: CopyRow = {
-  en: 'The most honest proof comes from the guests who stayed with us.',
-  de: 'Den ehrlichsten Beweis liefern die Gäste, die bei uns gewohnt haben.',
-  es: 'La prueba más sincera está en las palabras de quienes se han alojado con nosotros.',
-  nl: 'Het eerlijkste bewijs komt van de gasten die bij ons verbleven.',
-  sv: 'Det mest uppriktiga beviset kommer från gästerna som har bott hos oss.'
+  en: 'We especially enjoyed the hours on the balcony, with that dreamlike view of the surrounding mountains and the Andalusian coast.',
+  de: 'Besonders die Stunden auf dem Balkon mit dem traumhaften Blick auf die umliegenden Berge und die andalusische Küste haben wir sehr genossen.',
+  es: 'Disfrutamos especialmente de las horas en el balcón, con esas vistas de ensueño a las montañas de alrededor y a la costa andaluza.',
+  nl: 'We genoten vooral van de uren op het balkon, met dat droomachtige uitzicht op de omliggende bergen en de Andalusische kust.',
+  sv: 'Vi njöt särskilt av timmarna på balkongen, med den drömlika utsikten över bergen runt omkring och den andalusiska kusten.'
+};
+
+export const cinematicTrustQuoteAttribution: CopyRow = {
+  en: 'Filip, Berlin · Airbnb review, May 2026',
+  de: 'Filip, Berlin · Airbnb-Bewertung, Mai 2026',
+  es: 'Filip, Berlín · reseña en Airbnb, mayo de 2026',
+  nl: 'Filip, Berlijn · Airbnb-beoordeling, mei 2026',
+  sv: 'Filip, Berlin · Airbnb-omdöme, maj 2026'
 };
 
 export const cinematicTrustCta: CopyRow = {
@@ -231,13 +243,13 @@ export const navSoonBadge: CopyRow = {
   sv: 'Snart'
 };
 
-/** Four chips — trust band */
+/** Authored trust-band chips; the evidence chips are prepended at render. */
 export const cinematicTrustChips: Record<AmaraLanguage, string[]> = {
-  en: ['Real property details', 'Six individual stays', 'Personal host contact', 'Verified guest reviews'],
-  de: ['Konkrete Unterkunftsdetails', 'Sechs individuelle Unterkünfte', 'Persönlicher Kontakt', 'Verifizierte Gästebewertungen'],
-  es: ['Detalles reales de cada alojamiento', 'Seis alojamientos únicos', 'Contacto personal', 'Reseñas verificadas'],
-  nl: ['Concrete details per verblijf', 'Zes individuele verblijven', 'Persoonlijk contact', 'Geverifieerde beoordelingen'],
-  sv: ['Konkreta detaljer om varje boende', 'Sex individuella boenden', 'Personlig kontakt', 'Verifierade recensioner']
+  en: ['Real property details', 'Personal host contact'],
+  de: ['Konkrete Unterkunftsdetails', 'Persönlicher Kontakt'],
+  es: ['Detalles reales de cada alojamiento', 'Contacto personal'],
+  nl: ['Concrete details per verblijf', 'Persoonlijk contact'],
+  sv: ['Konkreta detaljer om varje boende', 'Personlig kontakt']
 };
 
 export type CinematicAptToken = 'farah' | 'lounis' | 'zaid' | 'maha' | 'playa' | 'casa';
@@ -247,7 +259,6 @@ export interface CinematicAptDef {
   token: CinematicAptToken;
   name: string;
   subtitle: CopyRow;
-  meta: CopyRow;
   desc: CopyRow;
   imageAlt: CopyRow;
   exploreLabel: CopyRow;
@@ -264,13 +275,6 @@ export const cinematicApartments: CinematicAptDef[] = [
       es: 'Para estancias cortas en Frigiliana',
       nl: 'Voor een kort verblijf in Frigiliana',
       sv: 'För kortare vistelser i Frigiliana'
-    },
-    meta: {
-      en: 'Frigiliana • 2 guests',
-      de: 'Frigiliana • 2 Gäste',
-      es: 'Frigiliana • 2 huéspedes',
-      nl: 'Frigiliana • 2 gasten',
-      sv: 'Frigiliana • 2 gäster'
     },
     desc: {
       en: 'A compact, cosy suite in Frigiliana’s old town, with a separate bedroom, tea kitchen for coffee or a light meal and **just one step at the entrance**.',
@@ -305,13 +309,6 @@ export const cinematicApartments: CinematicAptDef[] = [
       nl: 'Historisch appartement',
       sv: 'Historisk lägenhet'
     },
-    meta: {
-      en: 'Frigiliana • 2 guests',
-      de: 'Frigiliana • 2 Gäste',
-      es: 'Frigiliana • 2 huéspedes',
-      nl: 'Frigiliana • 2 gasten',
-      sv: 'Frigiliana • 2 gäster'
-    },
     desc: {
       en: 'Views across the mango and avocado plantations to the sea. The terrace stays shaded in the morning and **gets sun from around midday**.',
       de: 'Blick über die Mango- und Avocadoplantagen bis zum Meer. Morgens liegt die Terrasse im Schatten, **ab Mittag in der Sonne**.',
@@ -344,13 +341,6 @@ export const cinematicApartments: CinematicAptDef[] = [
       es: 'Apartamento con terraza',
       nl: 'Terrasappartement',
       sv: 'Terrasslägenhet'
-    },
-    meta: {
-      en: 'Frigiliana • 2 guests',
-      de: 'Frigiliana • 2 Gäste',
-      es: 'Frigiliana • 2 huéspedes',
-      nl: 'Frigiliana • 2 gasten',
-      sv: 'Frigiliana • 2 gäster'
     },
     desc: {
       en: 'A private terrace one floor above Lounis, with a wider view and **the broadest bed in Casa AMARA at 180 × 200 cm**.',
@@ -385,13 +375,6 @@ export const cinematicApartments: CinematicAptDef[] = [
       nl: 'Appartement in oude stad',
       sv: 'Lägenhet i gamla stan'
     },
-    meta: {
-      en: 'Frigiliana • 2 guests',
-      de: 'Frigiliana • 2 Gäste',
-      es: 'Frigiliana • 2 huéspedes',
-      nl: 'Frigiliana • 2 gasten',
-      sv: 'Frigiliana • 2 gäster'
-    },
     desc: {
       en: '**The largest terrace in the house: 64 m²**, with an outdoor kitchen and the widest view. Maha sits at the top of Casa AMARA.',
       de: '**Die größte Terrasse im Haus**, mit Außenküche und weitem Blick. Das Apartment liegt ganz oben in Casa AMARA.',
@@ -424,13 +407,6 @@ export const cinematicApartments: CinematicAptDef[] = [
       es: 'Apartamento de playa en Nerja',
       nl: 'Strandappartement Nerja',
       sv: 'Strandlägenhet Nerja'
-    },
-    meta: {
-      en: 'Nerja • 2 guests',
-      de: 'Nerja • 2 Gäste',
-      es: 'Nerja • 2 huéspedes',
-      nl: 'Nerja • 2 gasten',
-      sv: 'Nerja • 2 gäster'
     },
     desc: {
       en: '200 metres from Torrecilla beach and 500 metres from the Balcón de Europa. Fifth floor with lift, side sea view and a 200 × 200 cm bed.',
@@ -465,13 +441,6 @@ export const cinematicApartments: CinematicAptDef[] = [
       nl: 'Penthouse met Atlantisch uitzicht voor 2–4 gasten',
       sv: 'Penthouse med utsikt över Atlanten för 2–4 gäster'
     },
-    meta: {
-      en: 'Tarifa • 2–4 guests',
-      de: 'Tarifa • 2–4 Gäste',
-      es: 'Tarifa • 2–4 huéspedes',
-      nl: 'Tarifa • 2–4 gasten',
-      sv: 'Tarifa • 2–4 gäster'
-    },
     desc: {
       en: '**Two floors, two bedrooms and two bathrooms**, with a terrace facing the Atlantic. Suitable for couples and families of up to four.',
       de: '**Zwei Etagen, zwei Schlafzimmer und zwei Bäder**, dazu eine Terrasse mit Atlantikblick. Großzügig für zwei und geeignet für Familien mit bis zu vier Gästen.',
@@ -495,3 +464,317 @@ export const cinematicApartments: CinematicAptDef[] = [
     }
   }
 ];
+/* =========================================================
+   HERO PROOF STRIP
+   Two signals only — the hero stays calm by design.
+========================================================= */
+
+export const cinematicHeroProofRating: CopyRow = {
+  en: `${airbnbRatingLabel.en} from ${airbnbReviewEvidence.reviewCountLabel} Airbnb reviews`,
+  de: `${airbnbRatingLabel.de} aus ${airbnbReviewEvidence.reviewCountLabel} Airbnb-Bewertungen`,
+  es: `${airbnbRatingLabel.es} de ${airbnbReviewEvidence.reviewCountLabel} reseñas en Airbnb`,
+  nl: `${airbnbRatingLabel.nl} uit ${airbnbReviewEvidence.reviewCountLabel} Airbnb-beoordelingen`,
+  sv: `${airbnbRatingLabel.sv} från ${airbnbReviewEvidence.reviewCountLabel} Airbnb-omdömen`
+};
+
+/* =========================================================
+   THREE PLACES
+   The home weights the locations deliberately: four of the six stays
+   are in Frigiliana, so Frigiliana leads this section.
+========================================================= */
+
+export const cinematicPlacesEyebrow: CopyRow = {
+  en: 'Three places, one host',
+  de: 'Drei Orte, ein Gastgeber',
+  es: 'Tres lugares, un anfitrión',
+  nl: 'Drie plekken, één gastheer',
+  sv: 'Tre platser, en värd'
+};
+
+export const cinematicPlacesTitle: CopyRow = {
+  en: 'A mountain village, a town by the sea and an Atlantic coast. We host in all three.',
+  de: 'Ein Bergdorf, eine Stadt am Meer und eine Atlantikküste. An allen drei Orten sind wir zu Hause.',
+  es: 'Un pueblo de montaña, una ciudad junto al mar y una costa atlántica. Estamos en los tres.',
+  nl: 'Een bergdorp, een stad aan zee en een Atlantische kust. Op alle drie zijn we thuis.',
+  sv: 'En bergsby, en stad vid havet och en atlantkust. På alla tre är vi hemma.'
+};
+
+/** `{n}` is replaced with the number of stays actually registered for the place. */
+export const cinematicPlacesCountLabel: CopyRow = {
+  en: '{n} of six hideaways',
+  de: '{n} von sechs Hideaways',
+  es: '{n} de seis hideaways',
+  nl: '{n} van zes hideaways',
+  sv: '{n} av sex hideaways'
+};
+
+export interface CinematicPlaceDef {
+  id: 'frigiliana' | 'nerja' | 'tarifa';
+  /** Matches the `city` value carried by the vacation rental entities. */
+  city: 'Frigiliana' | 'Nerja' | 'Tarifa';
+  token: LinkToken;
+  character: CopyRow;
+  /** Only distances and durations already verified in AMARA content are stated. */
+  travel: CopyRow;
+  ctaLabel: CopyRow;
+}
+
+export const cinematicPlaces: CinematicPlaceDef[] = [
+  {
+    id: 'frigiliana',
+    city: 'Frigiliana',
+    token: 'location_frigiliana',
+    character: {
+      en: 'A white mountain village above the mango and avocado plantations. Four of our stays are here, all in Casa AMARA in the protected old town.',
+      de: 'Ein weißes Bergdorf über den Mango- und Avocadoplantagen. Vier unserer Unterkünfte liegen hier, alle in Casa AMARA in der historischen Altstadt.',
+      es: 'Un pueblo blanco de montaña sobre los cultivos de mango y aguacate. Cuatro de nuestros alojamientos están aquí, todos en Casa AMARA, en el casco antiguo protegido.',
+      nl: 'Een wit bergdorp boven de mango- en avocadoplantages. Vier van onze verblijven liggen hier, allemaal in Casa AMARA in de beschermde oude kern.',
+      sv: 'En vit bergsby ovanför mango- och avokadoodlingarna. Fyra av våra boenden ligger här, alla i Casa AMARA i den skyddade gamla stadskärnan.'
+    },
+    travel: {
+      en: '50–60 minutes by car from Málaga airport · 10–15 minutes to Nerja',
+      de: '50–60 Minuten mit dem Auto ab Flughafen Málaga · 10–15 Minuten nach Nerja',
+      es: '50–60 minutos en coche desde el aeropuerto de Málaga · 10–15 minutos a Nerja',
+      nl: '50–60 minuten met de auto vanaf de luchthaven van Málaga · 10–15 minuten naar Nerja',
+      sv: '50–60 minuter med bil från Málagas flygplats · 10–15 minuter till Nerja'
+    },
+    ctaLabel: {
+      en: 'Frigiliana as a place to stay',
+      de: 'Frigiliana als Ort zum Wohnen',
+      es: 'Frigiliana como lugar donde alojarse',
+      nl: 'Frigiliana als plek om te verblijven',
+      sv: 'Frigiliana som plats att bo på'
+    }
+  },
+  {
+    id: 'nerja',
+    city: 'Nerja',
+    token: 'location_nerja',
+    character: {
+      en: 'The Mediterranean, the Balcón de Europa and a town that keeps working all year round. One apartment, fifth floor with a lift.',
+      de: 'Das Mittelmeer, der Balcón de Europa und eine Stadt, die das ganze Jahr über funktioniert. Ein Apartment, im fünften Stock mit Aufzug.',
+      es: 'El Mediterráneo, el Balcón de Europa y una ciudad que funciona todo el año. Un apartamento, en la quinta planta con ascensor.',
+      nl: 'De Middellandse Zee, het Balcón de Europa en een stad die het hele jaar door blijft draaien. Eén appartement, vijfde verdieping met lift.',
+      sv: 'Medelhavet, Balcón de Europa och en stad som fungerar året om. En lägenhet, femte våningen med hiss.'
+    },
+    travel: {
+      en: '200 metres to Torrecilla beach · 10–15 minutes to Frigiliana',
+      de: '200 Meter zum Strand von Torrecilla · 10–15 Minuten nach Frigiliana',
+      es: '200 metros hasta la playa de Torrecilla · 10–15 minutos a Frigiliana',
+      nl: '200 meter naar het strand van Torrecilla · 10–15 minuten naar Frigiliana',
+      sv: '200 meter till Torrecillastranden · 10–15 minuter till Frigiliana'
+    },
+    ctaLabel: {
+      en: 'Nerja as a place to stay',
+      de: 'Nerja als Ort zum Wohnen',
+      es: 'Nerja como lugar donde alojarse',
+      nl: 'Nerja als plek om te verblijven',
+      sv: 'Nerja som plats att bo på'
+    }
+  },
+  {
+    id: 'tarifa',
+    city: 'Tarifa',
+    token: 'location_tarifa',
+    character: {
+      en: 'Where the Mediterranean meets the Atlantic, with wind, wide beaches and Africa on the horizon. One penthouse over two floors.',
+      de: 'Wo das Mittelmeer auf den Atlantik trifft, mit Wind, weiten Stränden und Afrika am Horizont. Ein Penthouse über zwei Etagen.',
+      es: 'Donde el Mediterráneo se encuentra con el Atlántico, con viento, playas amplias y África en el horizonte. Un ático de dos plantas.',
+      nl: 'Waar de Middellandse Zee de Atlantische Oceaan ontmoet, met wind, brede stranden en Afrika aan de horizon. Eén penthouse over twee verdiepingen.',
+      sv: 'Där Medelhavet möter Atlanten, med vind, vida stränder och Afrika vid horisonten. Ett penthouse över två våningar.'
+    },
+    travel: {
+      en: '10–15 minutes on foot to the old town · supermarket directly opposite',
+      de: '10–15 Minuten zu Fuß in die Altstadt · Supermarkt direkt gegenüber',
+      es: '10–15 minutos a pie hasta el casco antiguo · supermercado justo enfrente',
+      nl: '10–15 minuten lopen naar de oude stad · supermarkt direct aan de overkant',
+      sv: '10–15 minuters promenad till Gamla stan · stormarknad direkt mittemot'
+    },
+    ctaLabel: {
+      en: 'Tarifa as a place to stay',
+      de: 'Tarifa als Ort zum Wohnen',
+      es: 'Tarifa como lugar donde alojarse',
+      nl: 'Tarifa als plek om te verblijven',
+      sv: 'Tarifa som plats att bo på'
+    }
+  }
+];
+
+/* =========================================================
+   NERJA / FRIGILIANA BRIDGE
+   Most arriving search interest names Nerja, while four of the six
+   stays are in Frigiliana. This band exists to close that gap
+   honestly instead of leaving the two locations as parallel silos.
+========================================================= */
+
+export const cinematicBridgeEyebrow: CopyRow = {
+  en: 'Nerja or Frigiliana?',
+  de: 'Nerja oder Frigiliana?',
+  es: '¿Nerja o Frigiliana?',
+  nl: 'Nerja of Frigiliana?',
+  sv: 'Nerja eller Frigiliana?'
+};
+
+export const cinematicBridgeTitle: CopyRow = {
+  en: 'Fifteen minutes apart, and two quite different holidays.',
+  de: 'Fünfzehn Minuten auseinander – und zwei ziemlich verschiedene Urlaube.',
+  es: 'A quince minutos el uno del otro, y dos vacaciones bastante distintas.',
+  nl: 'Vijftien minuten uit elkaar, en twee heel verschillende vakanties.',
+  sv: 'Femton minuter isär – och två ganska olika semestrar.'
+};
+
+export const cinematicBridgeBody: CopyRow = {
+  en: 'Nerja puts the sea on your doorstep, with a promenade and everything open the whole year. Frigiliana gives you a village that goes quiet after dinner, a view across the plantations and a short drive to those same beaches. Plenty of guests come for one and spend their evenings in the other.',
+  de: 'Nerja legt euch das Meer vor die Tür, mit Promenade und ganzjährig geöffneten Adressen. Frigiliana gibt euch ein Dorf, das nach dem Abendessen still wird, den Blick über die Plantagen und eine kurze Fahrt zu genau diesen Stränden. Viele Gäste kommen wegen des einen und verbringen die Abende im anderen.',
+  es: 'Nerja os pone el mar en la puerta, con paseo marítimo y todo abierto durante todo el año. Frigiliana os da un pueblo que se queda en silencio después de cenar, vistas sobre los cultivos y un trayecto corto hasta esas mismas playas. Muchos huéspedes vienen por uno y acaban pasando las tardes en el otro.',
+  nl: 'Nerja legt de zee voor jullie deur, met een boulevard en het hele jaar alles open. Frigiliana geeft jullie een dorp dat na het eten stil wordt, uitzicht over de plantages en een korte rit naar diezelfde stranden. Veel gasten komen voor het een en brengen hun avonden door in het ander.',
+  sv: 'Nerja lägger havet utanför dörren, med strandpromenad och allt öppet året om. Frigiliana ger er en by som tystnar efter middagen, utsikt över odlingarna och en kort körtur till samma stränder. Många gäster kommer för det ena och tillbringar kvällarna i det andra.'
+};
+
+/**
+ * Verbatim guest review, German original. Translations are marked as such in
+ * the other locales: a citation is never re-authored as if the guest had said
+ * it in that language.
+ */
+export const cinematicBridgeQuote: CopyRow = {
+  en: 'We had actually planned to spend most of our time in Nerja (we had a rental car), but in the end we were mostly in Frigiliana in the evenings for dinner, because it is simply so beautiful there.',
+  de: 'Wir hatten eigentlich geplant, die meiste Zeit in Nerja zu verbringen (wir hatten ein Mietauto), aber waren dann doch vor allem abends zum Essen in Frigiliana, weil es einfach so schön dort ist.',
+  es: 'En realidad habíamos planeado pasar la mayor parte del tiempo en Nerja (teníamos coche de alquiler), pero al final cenábamos sobre todo en Frigiliana, porque sencillamente es preciosa.',
+  nl: 'We waren eigenlijk van plan het grootste deel van de tijd in Nerja door te brengen (we hadden een huurauto), maar uiteindelijk waren we ’s avonds vooral in Frigiliana om te eten, omdat het daar gewoon zo mooi is.',
+  sv: 'Vi hade egentligen planerat att tillbringa största delen av tiden i Nerja (vi hade hyrbil), men till slut var vi mest i Frigiliana på kvällarna för att äta, för det är helt enkelt så vackert där.'
+};
+
+export const cinematicBridgeQuoteAttribution: CopyRow = {
+  en: 'Vivian · Airbnb review, August 2026',
+  de: 'Vivian · Airbnb-Bewertung, August 2026',
+  es: 'Vivian · reseña en Airbnb, agosto de 2026',
+  nl: 'Vivian · Airbnb-beoordeling, augustus 2026',
+  sv: 'Vivian · Airbnb-omdöme, augusti 2026'
+};
+
+export const cinematicBridgeCtaLabel: CopyRow = {
+  en: 'Compare Nerja and Frigiliana',
+  de: 'Nerja und Frigiliana vergleichen',
+  es: 'Comparar Nerja y Frigiliana',
+  nl: 'Nerja en Frigiliana vergelijken',
+  sv: 'Jämför Nerja och Frigiliana'
+};
+
+/** Shown with a translated citation so the provenance stays visible. */
+export const cinematicQuoteTranslationNote: CopyRow = {
+  en: 'Translated from the German original.',
+  de: 'Im deutschen Original.',
+  es: 'Traducido del original en alemán.',
+  nl: 'Vertaald uit het Duitse origineel.',
+  sv: 'Översatt från det tyska originalet.'
+};
+
+/* =========================================================
+   COLLECTION CARD FACTS
+   Interior and terrace areas come from the rental entities, so the
+   four Frigiliana stays finally read as four different places.
+========================================================= */
+
+export const cinematicFactInteriorLabel: CopyRow = {
+  en: 'Interior',
+  de: 'Wohnfläche',
+  es: 'Superficie',
+  nl: 'Woonoppervlak',
+  sv: 'Boyta'
+};
+
+export const cinematicFactTerraceLabel: CopyRow = {
+  en: 'Terrace',
+  de: 'Terrasse',
+  es: 'Terraza',
+  nl: 'Terras',
+  sv: 'Terrass'
+};
+
+export const cinematicCollectionCtaLabel: CopyRow = {
+  en: 'Compare all six side by side',
+  de: 'Alle sechs im Vergleich',
+  es: 'Comparar los seis',
+  nl: 'Alle zes vergelijken',
+  sv: 'Jämför alla sex'
+};
+
+/* =========================================================
+   DIRECT BOOKING
+   The reason to book here rather than through a platform. The claims
+   themselves are owned by directBookingBenefitsContent.ts.
+========================================================= */
+
+export const cinematicDirectEyebrow: CopyRow = {
+  en: 'Booking direct with AMARA',
+  de: 'Direkt bei AMARA buchen',
+  es: 'Reservar directamente con AMARA',
+  nl: 'Direct boeken bij AMARA',
+  sv: 'Boka direkt hos AMARA'
+};
+
+export const cinematicDirectTitle: CopyRow = {
+  en: 'The same stay, without the platform in between.',
+  de: 'Derselbe Aufenthalt, ohne Plattform dazwischen.',
+  es: 'La misma estancia, sin plataforma de por medio.',
+  nl: 'Hetzelfde verblijf, zonder platform ertussen.',
+  sv: 'Samma vistelse, utan plattform emellan.'
+};
+
+export const cinematicDirectCtaLabel: CopyRow = {
+  en: 'What booking direct gives you',
+  de: 'Was euch die Direktbuchung bringt',
+  es: 'Qué os aporta reservar directamente',
+  nl: 'Wat direct boeken jullie oplevert',
+  sv: 'Vad direktbokning ger er'
+};
+
+/* =========================================================
+   POSITIONING
+========================================================= */
+
+export const cinematicHoneymoonEyebrow: CopyRow = {
+  en: 'Honeymoon',
+  de: 'Flitterwochen',
+  es: 'Luna de miel',
+  nl: 'Huwelijksreis',
+  sv: 'Smekmånad'
+};
+
+export const cinematicHoneymoonTitle: CopyRow = {
+  en: 'Planning the first trip as a married couple?',
+  de: 'Plant ihr die erste Reise als Ehepaar?',
+  es: '¿Estáis planeando el primer viaje como pareja casada?',
+  nl: 'Plannen jullie de eerste reis als getrouwd stel?',
+  sv: 'Planerar ni den första resan som gifta?'
+};
+
+export const cinematicHoneymoonCtaLabel: CopyRow = {
+  en: 'Hideaways for a honeymoon',
+  de: 'Hideaways für die Flitterwochen',
+  es: 'Hideaways para la luna de miel',
+  nl: 'Hideaways voor de huwelijksreis',
+  sv: 'Hideaways för smekmånaden'
+};
+
+/* =========================================================
+   HOST
+   The brand leads; the host appears at avatar scale with a route
+   to the full story on the about page.
+========================================================= */
+
+export const cinematicHostLabel: CopyRow = {
+  en: 'Meet your hosts',
+  de: 'Lernt eure Gastgeber kennen',
+  es: 'Conoced a vuestros anfitriones',
+  nl: 'Maak kennis met jullie gastheren',
+  sv: 'Lär känna era värdar'
+};
+
+export const cinematicHostAvatarAlt: CopyRow = {
+  en: 'Robert, host of the AMARA stays in Andalusia',
+  de: 'Robert, Gastgeber der AMARA-Unterkünfte in Andalusien',
+  es: 'Robert, anfitrión de los alojamientos AMARA en Andalucía',
+  nl: 'Robert, gastheer van de AMARA-verblijven in Andalusië',
+  sv: 'Robert, värd för AMARA-boendena i Andalusien'
+};
