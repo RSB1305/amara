@@ -140,7 +140,7 @@ export const linkRegistry = {
     zaid: buildOwnedLinks('la-amara-zaid'),
     maha: buildOwnedLinks('la-amara-maha'),
     playa: buildOwnedLinks('la-amara-playa'),
-    casa: buildOwnedLinks('la-amara-family-and-surf'),
+    tarifa: buildOwnedLinks('la-amara-family-and-surf'),
     /* =========================================================
        EXTERNAL UTILITY
     ========================================================= */

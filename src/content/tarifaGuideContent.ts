@@ -27,7 +27,7 @@ export interface TarifaGuideSource {
 export interface TarifaLocationLink {
   label: string;
   token:
-    | 'casa'
+    | 'tarifa'
     | 'tarifa_experience_hub'
     | 'tarifa_beaches_authority'
     | 'tarifa_wind_kitesurfing_authority';
@@ -410,7 +410,7 @@ export const overview: TarifaLocationGuideContent = {
       closing: {
         title: 'Once you know how you want Tarifa to work for you, choosing where to stay becomes much easier.',
         primary: { label: 'Explore what to do in Tarifa', token: 'tarifa_experience_hub' },
-        secondary: { label: 'Discover AMARA Family & Surf', token: 'casa' }
+        secondary: { label: 'Discover AMARA Family & Surf', token: 'tarifa' }
       }
     },
     de: {
@@ -498,7 +498,7 @@ export const overview: TarifaLocationGuideContent = {
       closing: {
         title: 'Wenn ihr wisst, wie ihr Tarifa nutzen möchtet, wird die Wahl der richtigen Lage deutlich einfacher.',
         primary: { label: 'Tarifa erleben', token: 'tarifa_experience_hub' },
-        secondary: { label: 'AMARA Family & Surf entdecken', token: 'casa' }
+        secondary: { label: 'AMARA Family & Surf entdecken', token: 'tarifa' }
       }
     },
     es: {
@@ -578,7 +578,7 @@ export const overview: TarifaLocationGuideContent = {
       closing: {
         title: 'Cuando sabéis cómo queréis vivir Tarifa, elegir dónde alojaros resulta mucho más fácil.',
         primary: { label: 'Descubrir qué hacer en Tarifa', token: 'tarifa_experience_hub' },
-        secondary: { label: 'Conocer AMARA Family & Surf', token: 'casa' }
+        secondary: { label: 'Conocer AMARA Family & Surf', token: 'tarifa' }
       }
     },
     nl: {
@@ -691,7 +691,7 @@ export const overview: TarifaLocationGuideContent = {
       closing: {
         title: 'Als jullie weten hoe jullie Tarifa willen gebruiken, wordt kiezen waar jullie verblijven veel eenvoudiger.',
         primary: { label: 'Ontdek Tarifa', token: 'tarifa_experience_hub' },
-        secondary: { label: 'Bekijk AMARA Family & Surf', token: 'casa' }
+        secondary: { label: 'Bekijk AMARA Family & Surf', token: 'tarifa' }
       }
     },
     sv: {
@@ -776,7 +776,7 @@ export const overview: TarifaLocationGuideContent = {
       closing: {
         title: 'När ni vet hur ni vill använda Tarifa blir det mycket enklare att välja var ni ska bo.',
         primary: { label: 'Upplev Tarifa', token: 'tarifa_experience_hub' },
-        secondary: { label: 'Se AMARA Family & Surf', token: 'casa' }
+        secondary: { label: 'Se AMARA Family & Surf', token: 'tarifa' }
       }
     }
   }

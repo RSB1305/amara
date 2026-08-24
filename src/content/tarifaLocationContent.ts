@@ -8,7 +8,7 @@ export type TarifaLocationHubLinkToken =
   | 'tarifa_experience_hub'
   | 'tarifa_beaches_authority'
   | 'tarifa_wind_kitesurfing_authority'
-  | 'casa';
+  | 'tarifa';
 
 export interface TarifaLocationHubLink {
   label: string;
@@ -201,7 +201,7 @@ export const tarifaLocationContent: {
           'Two desks – and dry through the winter'
         ],
         imageAlt: 'AMARA Family & Surf in La Marina, Tarifa',
-        link: { label: 'View AMARA Family & Surf', token: 'casa' }
+        link: { label: 'View AMARA Family & Surf', token: 'tarifa' }
       },
       experience: {
         eyebrow: 'Your days here',
@@ -310,7 +310,7 @@ export const tarifaLocationContent: {
           'Zwei Schreibtische – und im Winter trocken'
         ],
         imageAlt: 'AMARA Family & Surf in La Marina, Tarifa',
-        link: { label: 'AMARA Family & Surf ansehen', token: 'casa' }
+        link: { label: 'AMARA Family & Surf ansehen', token: 'tarifa' }
       },
       experience: {
         eyebrow: 'Eure Tage hier',
@@ -419,7 +419,7 @@ export const tarifaLocationContent: {
           'Dos escritorios, y seco en invierno'
         ],
         imageAlt: 'AMARA Family & Surf en La Marina, Tarifa',
-        link: { label: 'Ver AMARA Family & Surf', token: 'casa' }
+        link: { label: 'Ver AMARA Family & Surf', token: 'tarifa' }
       },
       experience: {
         eyebrow: 'Vuestros días aquí',
@@ -528,7 +528,7 @@ export const tarifaLocationContent: {
           'Twee bureaus – en droog in de winter'
         ],
         imageAlt: 'AMARA Family & Surf in La Marina, Tarifa',
-        link: { label: 'Bekijk AMARA Family & Surf', token: 'casa' }
+        link: { label: 'Bekijk AMARA Family & Surf', token: 'tarifa' }
       },
       experience: {
         eyebrow: 'Jullie dagen hier',
@@ -637,7 +637,7 @@ export const tarifaLocationContent: {
           'Två skrivbord – och torrt på vintern'
         ],
         imageAlt: 'AMARA Family & Surf i La Marina, Tarifa',
-        link: { label: 'Visa AMARA Family & Surf', token: 'casa' }
+        link: { label: 'Visa AMARA Family & Surf', token: 'tarifa' }
       },
       experience: {
         eyebrow: 'Era dagar här',

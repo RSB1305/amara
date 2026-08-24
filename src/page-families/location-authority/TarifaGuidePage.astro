@@ -26,7 +26,7 @@ const content = tarifaGuideContent[guide];
 const currentLang = normalizeLanguage(lang as AmaraLanguage);
 const t = (value: LocalizedText) => value[currentLang];
 const requiredLink = createRequiredLinkResolver(currentLang, 'Tarifa guide');
-const stayHref = requiredLink('casa');
+const stayHref = requiredLink('tarifa');
 const bookHref = requiredLink('book');
 const aboutHref = requiredLink('about');
 const topicContent = content.id === 'overview' ? undefined : content;

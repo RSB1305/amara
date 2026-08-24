@@ -440,7 +440,7 @@ const apartmentImages: Record<ApartmentToken, ImageMetadata> = {
   zaid: imgLounisTerrace,
   maha: imgMaha,
   playa: imgPlaya,
-  casa: imgTarifa
+  tarifa: imgTarifa
 };
 
 const guestCountLabels: Record<AmaraLanguage, (count: number) => string> = {
@@ -535,7 +535,7 @@ const selectionSignalsByToken: Record<ApartmentToken, SelectionSignal[]> = {
   zaid: ['kitchen', 'washingMachine', 'outdoor'],
   maha: ['kitchen', 'noWashingMachine', 'outdoor'],
   playa: ['bedSize', 'kitchen', 'washingMachine', 'outdoor'],
-  casa: ['kitchen', 'washingMachine', 'pool', 'parking']
+  tarifa: ['kitchen', 'washingMachine', 'pool', 'parking']
 };
 
 function amenityValue(
@@ -595,7 +595,7 @@ function selectionSignal(
 }
 
 function physicalAccessSummary(token: ApartmentToken, rental: VacationRentalEntity): string {
-  if (token === 'playa' || token === 'casa') return rental.accessNote[currentLang];
+  if (token === 'playa' || token === 'tarifa') return rental.accessNote[currentLang];
 
   const summary = token === 'zaid' && currentLang === 'sv'
     ? `Ett trappsteg vid huvudentrén och därefter ${rental.accessFacts.insideBuildingStepsToUnitOrLift} trappsteg upp till lägenheten.`
@@ -606,7 +606,7 @@ function physicalAccessSummary(token: ApartmentToken, rental: VacationRentalEnti
 }
 
 function cardDescription(token: ApartmentToken, rental: VacationRentalEntity): string {
-  const lead = token === 'casa'
+  const lead = token === 'tarifa'
     ? firstSentence(rental.lead[currentLang])
     : rental.lead[currentLang];
   const signals = selectionSignalsByToken[token]

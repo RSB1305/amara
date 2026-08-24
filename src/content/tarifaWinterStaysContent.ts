@@ -217,7 +217,7 @@ export const tarifaWinterStaysContent = {
         text: l("Technical wind, safety and water-sports planning belongs in the specialist guide.", "Technische Wind-, Sicherheits- und Wassersportplanung steht im Spezialguide.", "La planificación técnica de viento, seguridad y agua pertenece a la guía especializada.", "Technische wind-, veiligheids- en watersportplanning staat in de specialistische gids.", "Teknisk vind-, säkerhets- och vattensportplanering finns i specialistguiden.")
       },
       {
-        token: "casa" as LinkToken,
+        token: "tarifa" as LinkToken,
         label: l("AMARA Family & Surf", "AMARA Family & Surf", "AMARA Family & Surf", "AMARA Family & Surf", "AMARA Family & Surf"),
         text: l("See the home when its winter role and practical setting are clear.", "Seht euch das Zuhause an, wenn seine Winterrolle und Lage klar sind.", "Ved la casa cuando su función invernal y su ubicación hayan quedado claras.", "Bekijk het huis wanneer zijn winterrol en praktische ligging duidelijk zijn.", "Se hemmet när dess vinterroll och praktiska läge är tydliga.")
       }

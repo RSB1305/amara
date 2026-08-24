@@ -6,7 +6,7 @@ import type {
 } from '../types/seo';
 
 export type VacationRentalEntityKey = Exclude<AmaraEntityKey, 'amara-brand'>;
-export type VacationRentalToken = 'farah' | 'lounis' | 'zaid' | 'maha' | 'playa' | 'casa';
+export type VacationRentalToken = 'farah' | 'lounis' | 'zaid' | 'maha' | 'playa' | 'tarifa';
 export type VacationRentalBookingKey = 'farah' | 'lounis' | 'zaid' | 'maha' | 'playa' | 'tarifa';
 
 export interface VacationRentalBed {
@@ -1092,11 +1092,11 @@ export const vacationRentalEntities: VacationRentalEntity[] = [
   },
   {
     key: 'amara-family-surf',
-    token: 'casa',
+    token: 'tarifa',
     bookingKey: 'tarifa',
     slug: 'la-amara-family-and-surf',
     identifier: 'amara-lodging-family-surf',
-    propertyId: 'casa',
+    propertyId: 'tarifa',
     name: 'AMARA Family & Surf',
     shortName: 'Family & Surf',
     additionalType: 'House',

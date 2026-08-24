@@ -12,7 +12,7 @@ export const TARIFA_EXPERIENCE_TOKEN = 'tarifa_experience_hub' as const;
 
 export type TarifaExperienceLinkToken =
   | 'location_tarifa'
-  | 'casa'
+  | 'tarifa'
   | 'tarifa_beaches_authority'
   | 'tarifa_wind_kitesurfing_authority'
   | 'tarifa_food_evening_life'
@@ -246,7 +246,7 @@ export const tarifaExperienceContent = {
     title: l("For us, Tarifa is the most beautiful place on this planet.", "Tarifa ist für uns der schönste Ort auf diesem Planeten.", "Para nosotros, Tarifa es el lugar más bonito de este planeta.", "Voor ons is Tarifa de mooiste plek op deze planeet.", "För oss är Tarifa den vackraste platsen på den här planeten."),
     lead: l("Once you know which days you want to spend here, all that is missing is where you wake up.", "Wenn ihr wisst, welche Tage ihr hier verbringen wollt, fehlt nur noch der Ort, an dem ihr aufwacht.", "Cuando sabéis qué días queréis pasar aquí, solo falta el lugar donde despertar.", "Als jullie weten welke dagen jullie hier willen doorbrengen, ontbreekt alleen nog de plek waar jullie wakker worden.", "När ni vet vilka dagar ni vill tillbringa här återstår bara platsen där ni vaknar."),
     ctaLabel: l("View AMARA Family & Surf", "AMARA Family & Surf ansehen", "Ver AMARA Family & Surf", "Bekijk AMARA Family & Surf", "Visa AMARA Family & Surf"),
-    token: "casa" as LinkToken,
+    token: "tarifa" as LinkToken,
     secondaryLabel: l("Where to stay in Tarifa", "Wo in Tarifa übernachten?", "Dónde alojarse en Tarifa", "Waar overnachten in Tarifa?", "Var ska man bo i Tarifa?"),
     secondaryToken: "location_tarifa" as LinkToken
   }

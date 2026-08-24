@@ -203,19 +203,19 @@ export const comfortAmenityCategoryOptions: ComfortAmenityCategoryOption[] = [
  * Property-specific exclusions below preserve verified differences in the rental SSOT.
  */
 export const expandedComfortAmenityPropertyIds = new Set([
-  '408326',
-  '408324',
-  '408323',
+  'farah',
+  'lounis',
+  'zaid',
   'maha',
-  '408327',
-  '544478'
+  'playa',
+  'tarifa'
 ]);
 
 export const comfortAmenityExclusionsByPropertyId: Record<
   string,
   { categories?: ComfortAmenityCategory[]; keys?: string[] }
 > = {
-  '408326': {
+  farah: {
     categories: ['outdoor'],
     keys: [
       'washing-machine',
@@ -230,10 +230,10 @@ export const comfortAmenityExclusionsByPropertyId: Record<
   maha: {
     keys: ['washing-machine']
   },
-  '408327': {
+  playa: {
     keys: ['outdoor-shower', 'fireplace', 'sun-loungers', 'carbon-monoxide-alarm']
   },
-  '544478': {
+  tarifa: {
     keys: ['outdoor-shower', 'sun-loungers']
   }
 };
@@ -242,16 +242,16 @@ export const comfortAmenityOverridesByPropertyId: Record<
   string,
   Record<string, ComfortAmenityOverride>
 > = {
-  '408324': {
+  lounis: {
     fireplace: pelletStoveOverride
   },
-  '408323': {
+  zaid: {
     fireplace: pelletStoveOverride
   },
   maha: {
     fireplace: pelletStoveOverride
   },
-  '544478': {
+  tarifa: {
     fireplace: {
       title: {
         en: 'Wood-burning fireplace',

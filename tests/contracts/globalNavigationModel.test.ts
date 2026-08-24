@@ -41,7 +41,7 @@ const DESTINATION_SLUGS: Record<string, string> = {
 
 const EXPECTED_GROUP_TOKENS: Record<string, LinkToken[]> = {
   locations: ['location_frigiliana', 'location_nerja', 'location_tarifa'],
-  stays: ['romantic_hideaways', 'farah', 'lounis', 'zaid', 'maha', 'playa', 'casa'],
+  stays: ['romantic_hideaways', 'farah', 'lounis', 'zaid', 'maha', 'playa', 'tarifa'],
   aboutAmara: ['about', 'reviews_hub', 'direct_booking_benefits', 'amenities', 'faq_general']
 };
 
