@@ -53,7 +53,7 @@ const {
   />
 
   <AmaraPageShell family={pageId} dataLang={dataLang}>
-    <AmaraSection variant="hero" dataComponent="trust-hero">
+    <AmaraSection variant="hero" dataComponent="trust-hero" class="am-trust-page__hero">
       <TrustHero
         subtitle={hero.subtitle}
         title={hero.title}
@@ -71,3 +71,19 @@ const {
     </div>
   </AmaraPageShell>
 </BaseLayout>
+
+<style>
+  :global(.am-trust-page__hero.am-page-section--divided) {
+    position: relative;
+    border-bottom: 0;
+  }
+
+  :global(.am-trust-page__hero.am-page-section--divided)::after {
+    position: absolute;
+    right: var(--spacing-page-gutter);
+    bottom: 0;
+    left: var(--spacing-page-gutter);
+    border-bottom: 1px solid var(--color-border-subtle);
+    content: '';
+  }
+</style>
