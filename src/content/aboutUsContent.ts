@@ -231,36 +231,36 @@ export const aboutUsContent: AboutUsContent = {
         sv: 'Den tanken styr hur vi väljer, förbereder och utvecklar varje AMARA-boende. Vi fokuserar särskilt på det som fortfarande spelar roll när bilderna redan har gjort sitt jobb: hur bra ni sover, hur naturligt rummen fungerar, om detaljerna faktiskt hjälper och om ni helt enkelt kan komma fram och börja njuta av er tid.'
       }
     ],
-    subtitle: { en: 'AMARA means love.', de: 'AMARA bedeutet Liebe.', es: 'AMARA significa amor.', nl: 'AMARA betekent liefde.', sv: 'AMARA betyder kärlek.' },
+    subtitle: { en: 'AMARA means love', de: 'AMARA bedeutet Liebe', es: 'AMARA significa amor', nl: 'AMARA betekent liefde', sv: 'AMARA betyder kärlek' },
     items: [
       {
         title: { en: '', de: '', es: '', nl: '', sv: '' },
         copy: {
-          en: 'For us, that means care for the details that genuinely improve a stay — quietly, consistently and with purpose.',
-          de: 'Für uns heißt das: Sorgfalt bei den Details, die einen Aufenthalt tatsächlich besser machen – unaufdringlich, konsequent und mit einem klaren Sinn.',
-          es: 'Para nosotros, eso significa cuidar los detalles que de verdad mejoran una estancia: con discreción, constancia y sentido.',
-          nl: 'Voor ons betekent dat aandacht voor de details die een verblijf werkelijk beter maken — rustig, consequent en met een duidelijke bedoeling.',
-          sv: 'För oss betyder det omsorg om detaljerna som faktiskt gör vistelsen bättre – diskret, konsekvent och med mening.'
+          en: 'Guests ask about the name more often than about anything else here. In Spanish, amara is a real form of the verb amar, to love — the same Latin root that gives Italian amore and French amour. In Arabic the three letters ʿ-m-r carry a different sense: to inhabit a place and make it flourish. Frigiliana has lived from both of those threads for centuries, and its Festival de las Tres Culturas still names them. The word holds both meanings, and so does the work: to love a place, and to bring a house back to life. Casa AMARA, restored between 2020 and 2022, is the second one made literal.',
+          de: 'Nach dem Namen werden wir häufiger gefragt als nach allem anderen auf dieser Seite. Im Spanischen ist amara eine echte Form des Verbs amar, lieben – dieselbe lateinische Wurzel, aus der das italienische amore und das französische amour kommen. Im Arabischen tragen die drei Laute ʿ-m-r eine andere Bedeutung: einen Ort bewohnen und ihn aufblühen lassen. Frigiliana lebt seit Jahrhunderten von beiden Strängen, und sein Festival de las Tres Culturas benennt sie bis heute. Das Wort trägt beide Bedeutungen, und die Arbeit ebenso: einen Ort lieben und ein Haus wieder zum Leben bringen. Casa AMARA, von 2020 bis 2022 restauriert, ist das Zweite ganz wörtlich genommen.',
+          es: 'Nos preguntan por el nombre más que por cualquier otra cosa de esta página. En español, amara es una forma real del verbo amar, la misma raíz latina de la que vienen el italiano amore y el francés amour. En árabe, las tres letras ʿ-m-r llevan otro sentido: habitar un lugar y hacerlo florecer. Frigiliana vive de ambos hilos desde hace siglos, y su Festival de las Tres Culturas los sigue nombrando. La palabra guarda los dos significados, y el trabajo también: querer un lugar y devolver la vida a una casa. Casa AMARA, restaurada entre 2020 y 2022, es lo segundo tomado al pie de la letra.',
+          nl: 'Naar de naam wordt vaker gevraagd dan naar iets anders op deze pagina. In het Spaans is amara een echte vorm van het werkwoord amar, liefhebben — dezelfde Latijnse stam die het Italiaanse amore en het Franse amour oplevert. In het Arabisch dragen de drie letters ʿ-m-r een andere betekenis: een plek bewonen en tot bloei brengen. Frigiliana leeft al eeuwen van beide draden, en het Festival de las Tres Culturas noemt ze nog altijd. Het woord draagt beide betekenissen, en het werk net zo: van een plek houden en een huis weer tot leven brengen. Casa AMARA, tussen 2020 en 2022 gerestaureerd, is het tweede heel letterlijk genomen.',
+          sv: 'Vi får fler frågor om namnet än om något annat på den här sidan. På spanska är amara en verklig form av verbet amar, att älska — samma latinska rot som ger italienskans amore och franskans amour. På arabiska bär de tre ljuden ʿ-m-r en annan innebörd: att bebo en plats och få den att blomstra. Frigiliana har levt av båda trådarna i århundraden, och byns Festival de las Tres Culturas nämner dem än i dag. Ordet rymmer båda betydelserna, och arbetet likaså: att älska en plats och att väcka ett hus till liv igen. Casa AMARA, restaurerat mellan 2020 och 2022, är det andra taget bokstavligt.'
         }
       },
       {
         title: { en: '', de: '', es: '', nl: '', sv: '' },
         copy: {
-          en: '',
-          de: '',
-          es: '',
-          nl: '',
-          sv: ''
+          en: 'Love is a large word for a holiday rental, so here is the practical version: people do their best work on the things they love. That is the whole argument behind the name. We choose the places because we want to be in them, we furnish them with things we would live with ourselves, and we look after every stay personally rather than handing it to an agency. None of that shows up as a line on a feature list. It shows up as a stay where the small things happen to be right.',
+          de: 'Liebe ist ein großes Wort für eine Ferienwohnung, deshalb die praktische Fassung: Man macht das am besten, was man gern macht. Mehr steckt hinter dem Namen nicht. Wir wählen die Orte, weil wir selbst dort sein wollen, richten sie mit Dingen ein, mit denen wir selbst leben würden, und betreuen jeden Aufenthalt persönlich statt über eine Agentur. Nichts davon steht als Zeile in einer Ausstattungsliste. Es zeigt sich daran, dass die Kleinigkeiten stimmen.',
+          es: 'Amor es una palabra grande para un alojamiento vacacional, así que va la versión práctica: uno hace mejor aquello que quiere hacer. Ese es todo el argumento del nombre. Elegimos los lugares porque queremos estar en ellos, los amueblamos con cosas con las que viviríamos nosotros y cuidamos cada estancia en persona, sin delegarla en una agencia. Nada de eso aparece como una línea en una lista de servicios. Se nota en que los pequeños detalles están bien resueltos.',
+          nl: 'Liefde is een groot woord voor een vakantiewoning, dus hier de praktische versie: je doet het beste werk aan de dingen waar je van houdt. Meer zit er niet achter de naam. We kiezen de plekken omdat we er zelf willen zijn, richten ze in met spullen waar we zelf mee zouden leven, en verzorgen elk verblijf persoonlijk in plaats van via een bureau. Niets daarvan staat als regel in een voorzieningenlijst. Het blijkt uit een verblijf waarin de kleine dingen kloppen.',
+          sv: 'Kärlek är ett stort ord för ett semesterboende, så här kommer den praktiska versionen: man gör bäst det man tycker om att göra. Mer ligger det inte bakom namnet. Vi väljer platserna för att vi själva vill vara där, inreder dem med saker vi själva skulle leva med, och sköter varje vistelse personligen i stället för att lämna över den till en förmedlare. Inget av det står som en rad i en utrustningslista. Det märks på att de små sakerna stämmer.'
         }
       },
       {
         title: { en: '', de: '', es: '', nl: '', sv: '' },
         copy: {
-          en: '',
-          de: '',
-          es: '',
-          nl: '',
-          sv: ''
+          en: 'For us, that means care for the details that genuinely improve a stay — quietly, consistently and with purpose. It is also why AMARA is set up for two. Guests come to us for a honeymoon, for the days around a wedding in Frigiliana, or simply for time together that is worth taking off work for. A place put together with affection is a better place to spend that time in.',
+          de: 'Für uns heißt das: Sorgfalt bei den Details, die einen Aufenthalt tatsächlich besser machen – unaufdringlich, konsequent und mit einem klaren Sinn. Und es ist der Grund, warum AMARA auf zwei Menschen ausgelegt ist. Gäste kommen zu uns für die Flitterwochen, für die Tage rund um eine Hochzeit in Frigiliana oder einfach für gemeinsame Zeit, für die es sich lohnt, freizunehmen. Ein Ort, der mit Zuneigung entstanden ist, ist ein besserer Ort für diese Zeit.',
+          es: 'Para nosotros, eso significa cuidar los detalles que de verdad mejoran una estancia: con discreción, constancia y sentido. Y es también la razón por la que AMARA está pensada para dos. Hay huéspedes que vienen de luna de miel, para los días alrededor de una boda en Frigiliana, o simplemente por un tiempo juntos por el que merece la pena pedir vacaciones. Un lugar hecho con cariño es un lugar mejor para pasar ese tiempo.',
+          nl: 'Voor ons betekent dat aandacht voor de details die een verblijf werkelijk beter maken — rustig, consequent en met een duidelijke bedoeling. Het is ook de reden dat AMARA op twee personen is ingericht. Gasten komen bij ons voor een huwelijksreis, voor de dagen rond een bruiloft in Frigiliana, of gewoon voor tijd samen waarvoor het de moeite waard is vrij te nemen. Een plek die met genegenheid is gemaakt, is een betere plek om die tijd door te brengen.',
+          sv: 'För oss betyder det omsorg om detaljerna som faktiskt gör vistelsen bättre – diskret, konsekvent och med mening. Det är också skälet till att AMARA är gjort för två. Gäster kommer till oss på smekmånad, för dagarna kring ett bröllop i Frigiliana, eller helt enkelt för tid tillsammans som är värd att ta ledigt för. En plats som skapats med tillgivenhet är en bättre plats att tillbringa den tiden på.'
         }
       }
     ]

@@ -112,7 +112,7 @@ const heroCtaLinks = page.hero.ctaLinks
             .map((paragraph) => (
               <p class="am-text-body text-subtle">{paragraph[currentLang]}</p>
             ))}
-          <h3 class="am-text-subtitle mt-6 font-normal text-on-surface mb-4">{content.philosophy.subtitle?.[currentLang]}</h3>
+          <h3 class="am-text-subtitle mt-6 font-normal text-on-surface mb-4">{content.philosophy.subtitle?.[currentLang]}<span aria-hidden="true"> ❤︎</span></h3>
           {content.philosophy.items
             ?.filter((item) => item.copy[currentLang].trim() !== '')
             .map((item) => (
