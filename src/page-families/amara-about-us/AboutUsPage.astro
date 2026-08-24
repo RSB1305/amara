@@ -129,11 +129,14 @@ const heroCtaLinks = page.hero.ctaLinks
               <p class="am-text-body text-subtle"><InlineEmphasis text={item.copy[currentLang]} /></p>
             ))}
           {philosophyLinks.length > 0 && (
-            <p class="am-text-body text-subtle mt-2 flex flex-wrap gap-x-6 gap-y-2">
-              {philosophyLinks.map((link) => (
-                <a class="am-link" href={link.href}>{link.label}</a>
+            <div class="mt-8 flex flex-wrap items-center gap-x-6 gap-y-3">
+              {philosophyLinks.map((link, index) => (
+                <>
+                  {index > 0 && <span class="hidden sm:inline text-on-surface/60">&middot;</span>}
+                  <a href={link.href} class="am-cta-link">{link.label}</a>
+                </>
               ))}
-            </p>
+            </div>
           )}
         </EditorialSplit>
   </AmaraSection>
