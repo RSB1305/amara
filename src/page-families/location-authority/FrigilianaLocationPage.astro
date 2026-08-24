@@ -490,7 +490,7 @@ const renderCtas = (subsection: FrigilianaLocationSubsection) => subsection.ctas
                 </div>
 
                 <aside class="border-l border-primary/25 pl-7 lg:col-span-4 lg:col-start-9 lg:pl-9">
-                  <h3 class="am-text-body font-semibold text-on-surface mb-6">{villageParking.title}</h3>
+                  <h3 class="am-text-body font-bold text-on-surface mb-6">{villageParking.title}</h3>
                   <div class="space-y-4">
                     {
                       villageParking.paragraphs.map((paragraph) => (
@@ -766,7 +766,7 @@ const renderCtas = (subsection: FrigilianaLocationSubsection) => subsection.ctas
                   {
                     decisionStaysCta && (
                       <div class="lg:col-span-6">
-                        <p class="am-text-body font-semibold text-on-surface mb-6"><InlineEmphasis text={decisionStaysCta.label} /></p>
+                        <p class="am-text-body font-bold text-on-surface mb-6"><InlineEmphasis text={decisionStaysCta.label} /></p>
                         <div class="flex flex-wrap items-center gap-x-7 gap-y-4">
                           {frigilianaStayLinks.map((stay) => (
                             <a href={stay.href} class="am-cta-link">{stay.label}</a>
