@@ -205,7 +205,15 @@ test('desktop calendar loads only on open, enforces stay rules and quotes a vali
 
   const arrivalButton = dayButton(page, arrival);
   await expect(arrivalButton).toBeEnabled();
-  await expect(arrivalButton).toContainText('from');
+  const pricePrefix = arrivalButton.locator('.am-booking-calendar__day-price-prefix');
+  const priceAmount = arrivalButton.locator('.am-booking-calendar__day-price-amount');
+  await expect(pricePrefix).toHaveText('from');
+  await expect(priceAmount).toContainText('€');
+  const [prefixBox, amountBox] = await Promise.all([
+    pricePrefix.boundingBox(),
+    priceAmount.boundingBox()
+  ]);
+  expect(prefixBox?.y).toBeLessThan(amountBox?.y ?? 0);
   await arrivalButton.click();
 
   await expect(dayButton(page, futureIso(4))).toBeDisabled();
@@ -262,6 +270,16 @@ test('mobile calendar shows one full-width month without horizontal overflow', a
   await page.getByRole('button', { name: 'Aankomst kiezen' }).click();
   await expect.poll(() => requests.length).toBe(2);
   await expect(page.locator('[data-am-booking-month]')).toHaveCount(1);
+
+  const firstAvailableDay = page.locator('button[data-am-booking-day]:enabled').first();
+  const pricePrefix = firstAvailableDay.locator('.am-booking-calendar__day-price-prefix');
+  const priceAmount = firstAvailableDay.locator('.am-booking-calendar__day-price-amount');
+  await expect(pricePrefix).toHaveText('vanaf');
+  const [prefixBox, amountBox] = await Promise.all([
+    pricePrefix.boundingBox(),
+    priceAmount.boundingBox()
+  ]);
+  expect(prefixBox?.y).toBeLessThan(amountBox?.y ?? 0);
 
   const measurements = await page.locator('[data-am-booking-calendar]').evaluate((calendar) => {
     const firstDay = calendar.querySelector<HTMLElement>('[data-am-booking-day]');

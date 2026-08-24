@@ -422,16 +422,20 @@ export function enhanceStayBookingCalendars() {
         Number.POSITIVE_INFINITY
       );
 
-    const priceLabel = (day: CalendarDay | undefined) => {
+    const priceDetails = (day: CalendarDay | undefined) => {
       const amount = lowestNightlyPrice(day);
-      if (!Number.isFinite(amount) || !day?.currency) return '';
+      if (!Number.isFinite(amount) || !day?.currency) return undefined;
       const formatted = new Intl.NumberFormat(language, {
         style: 'currency',
         currency: day.currency,
         minimumFractionDigits: 0,
         maximumFractionDigits: 0
       }).format(Number(amount));
-      return copy.fromPrice.replace('{price}', formatted);
+      return {
+        label: copy.fromPrice.replace('{price}', formatted),
+        prefix: copy.fromPrice.replace('{price}', '').trim(),
+        amount: formatted
+      };
     };
 
     const applyRange = (preview = '') => {
@@ -451,8 +455,8 @@ export function enhanceStayBookingCalendars() {
       const parts = [formatFullDate(value)];
       if (day?.available === true) {
         parts.push(copy.availableDay);
-        const orientation = priceLabel(day);
-        if (orientation) parts.push(orientation);
+        const price = priceDetails(day);
+        if (price) parts.push(price.label);
         if (!selectable && selectionMode === 'departure') parts.push(copy.invalidDeparture);
       } else {
         parts.push(copy.unavailableDay);
@@ -518,11 +522,17 @@ export function enhanceStayBookingCalendars() {
         dayNumber.className = 'am-booking-calendar__day-number';
         dayNumber.textContent = String(number);
         button.append(dayNumber);
-        const orientation = day?.available === true ? priceLabel(day) : '';
-        if (orientation) {
+        const price = day?.available === true ? priceDetails(day) : undefined;
+        if (price) {
           const priceText = document.createElement('span');
           priceText.className = 'am-booking-calendar__day-price';
-          priceText.textContent = orientation;
+          const pricePrefix = document.createElement('span');
+          pricePrefix.className = 'am-booking-calendar__day-price-prefix';
+          pricePrefix.textContent = price.prefix;
+          const priceAmount = document.createElement('span');
+          priceAmount.className = 'am-booking-calendar__day-price-amount';
+          priceAmount.textContent = price.amount;
+          priceText.append(pricePrefix, priceAmount);
           button.append(priceText);
         }
         days.append(button);
