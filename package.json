@@ -25,6 +25,7 @@
     "check:fallback-policy": "node scripts/check-fallback-policy.mjs",
     "check:image-policy": "node scripts/check-image-policy.mjs",
     "check:structured-data": "node scripts/check-structured-data.mjs",
+    "sandbox:lodgify": "node --env-file-if-exists=.env scripts/lodgify-sandbox.mjs",
     "check:typography-policy": "node scripts/check-typography-policy.mjs"
   },
   "dependencies": {

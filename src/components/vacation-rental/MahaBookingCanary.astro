@@ -1,0 +1,485 @@
+---
+import type { AmaraLanguage } from '../../types/seo';
+import AmaraSection from '../layout/AmaraSection.astro';
+
+interface Props {
+  lang: AmaraLanguage;
+  occupancy: number;
+}
+
+type LocalizedText = Record<AmaraLanguage, string>;
+
+const { lang, occupancy } = Astro.props;
+
+const copy = {
+  kicker: {
+    en: 'Live availability',
+    de: 'Live-Verfügbarkeit',
+    es: 'Disponibilidad en directo',
+    nl: 'Live beschikbaarheid',
+    sv: 'Live-tillgänglighet'
+  },
+  title: {
+    en: 'Check current availability and price for Maha',
+    de: 'Aktuelle Verfügbarkeit und Preis für Maha prüfen',
+    es: 'Consulta la disponibilidad y el precio actual de Maha',
+    nl: 'Controleer de actuele beschikbaarheid en prijs voor Maha',
+    sv: 'Kontrollera aktuell tillgänglighet och pris för Maha'
+  },
+  intro: {
+    en: 'Choose your dates and number of guests. We request live booking data only after you select Check price & availability.',
+    de: 'Wählt Reisedaten und Gästezahl. Live-Buchungsdaten fragen wir erst ab, nachdem ihr Preis & Verfügbarkeit prüfen gewählt habt.',
+    es: 'Elegid las fechas y el número de huéspedes. Solo consultamos los datos de reserva en directo cuando pulsáis Consultar precio y disponibilidad.',
+    nl: 'Kies jullie data en het aantal gasten. We vragen live boekingsgegevens pas op nadat jullie Prijs en beschikbaarheid controleren kiezen.',
+    sv: 'Välj datum och antal gäster. Vi hämtar livebokningsdata först när ni väljer Kontrollera pris och tillgänglighet.'
+  },
+  arrival: {
+    en: 'Arrival',
+    de: 'Anreise',
+    es: 'Llegada',
+    nl: 'Aankomst',
+    sv: 'Ankomst'
+  },
+  departure: {
+    en: 'Departure',
+    de: 'Abreise',
+    es: 'Salida',
+    nl: 'Vertrek',
+    sv: 'Avresa'
+  },
+  guests: {
+    en: 'Guests',
+    de: 'Gäste',
+    es: 'Huéspedes',
+    nl: 'Gasten',
+    sv: 'Gäster'
+  },
+  guestOption: {
+    en: '{count} guest',
+    de: '{count} Gast',
+    es: '{count} huésped',
+    nl: '{count} gast',
+    sv: '{count} gäst'
+  },
+  guestOptionPlural: {
+    en: '{count} guests',
+    de: '{count} Gäste',
+    es: '{count} huéspedes',
+    nl: '{count} gasten',
+    sv: '{count} gäster'
+  },
+  submit: {
+    en: 'Check price & availability',
+    de: 'Preis & Verfügbarkeit prüfen',
+    es: 'Consultar precio y disponibilidad',
+    nl: 'Prijs en beschikbaarheid controleren',
+    sv: 'Kontrollera pris och tillgänglighet'
+  },
+  loading: {
+    en: 'Checking live availability…',
+    de: 'Live-Verfügbarkeit wird geprüft…',
+    es: 'Consultando la disponibilidad en directo…',
+    nl: 'Live beschikbaarheid wordt gecontroleerd…',
+    sv: 'Kontrollerar live-tillgänglighet…'
+  },
+  available: {
+    en: 'Available',
+    de: 'Verfügbar',
+    es: 'Disponible',
+    nl: 'Beschikbaar',
+    sv: 'Tillgängligt'
+  },
+  unavailable: {
+    en: 'Not available',
+    de: 'Nicht verfügbar',
+    es: 'No disponible',
+    nl: 'Niet beschikbaar',
+    sv: 'Inte tillgängligt'
+  },
+  unavailableBody: {
+    en: 'Maha is not available for every night in this date range. Please choose different dates.',
+    de: 'Maha ist in diesem Zeitraum nicht für jede Nacht verfügbar. Bitte wählt andere Reisedaten.',
+    es: 'Maha no está disponible todas las noches de este periodo. Elegid otras fechas.',
+    nl: 'Maha is niet voor elke nacht in deze periode beschikbaar. Kies andere data.',
+    sv: 'Maha är inte tillgängligt varje natt under perioden. Välj andra datum.'
+  },
+  totalPrice: {
+    en: 'Total price',
+    de: 'Gesamtpreis',
+    es: 'Precio total',
+    nl: 'Totaalprijs',
+    sv: 'Totalpris'
+  },
+  night: {
+    en: '{count} night',
+    de: '{count} Nacht',
+    es: '{count} noche',
+    nl: '{count} nacht',
+    sv: '{count} natt'
+  },
+  nights: {
+    en: '{count} nights',
+    de: '{count} Nächte',
+    es: '{count} noches',
+    nl: '{count} nachten',
+    sv: '{count} nätter'
+  },
+  quoteNote: {
+    en: 'Current quote for these dates. This check does not create or hold a reservation.',
+    de: 'Aktuelle Quote für diese Reisedaten. Die Prüfung erstellt oder blockiert keine Reservierung.',
+    es: 'Presupuesto actual para estas fechas. La consulta no crea ni bloquea una reserva.',
+    nl: 'Actuele prijsopgave voor deze data. Deze controle maakt of blokkeert geen reservering.',
+    sv: 'Aktuell offert för dessa datum. Kontrollen skapar eller blockerar ingen bokning.'
+  },
+  invalidDates: {
+    en: 'Departure must be after arrival and the stay may be no longer than 45 nights.',
+    de: 'Die Abreise muss nach der Anreise liegen; der Aufenthalt darf höchstens 45 Nächte dauern.',
+    es: 'La salida debe ser posterior a la llegada y la estancia no puede superar 45 noches.',
+    nl: 'Vertrek moet na aankomst liggen en het verblijf mag maximaal 45 nachten duren.',
+    sv: 'Avresan måste vara efter ankomsten och vistelsen får vara högst 45 nätter.'
+  },
+  error: {
+    en: 'Live booking data is currently unavailable. Please try again shortly.',
+    de: 'Die Live-Buchungsdaten sind derzeit nicht verfügbar. Bitte versucht es in Kürze erneut.',
+    es: 'Los datos de reserva en directo no están disponibles ahora. Volved a intentarlo en breve.',
+    nl: 'De live boekingsgegevens zijn nu niet beschikbaar. Probeer het zo opnieuw.',
+    sv: 'Livebokningsdata är inte tillgängliga just nu. Försök igen om en liten stund.'
+  }
+} satisfies Record<string, LocalizedText>;
+
+const t = (value: LocalizedText) => value[lang] ?? value.en;
+const clientCopy = Object.fromEntries(
+  Object.entries(copy).map(([key, value]) => [key, t(value)])
+);
+const guestOptions = Array.from({ length: occupancy }, (_, index) => index + 1);
+---
+
+<AmaraSection labelledby="maha-booking-canary-title" dataComponent="maha-booking-canary">
+  <div
+    data-am-booking-canary
+    data-am-booking-language={lang}
+    data-am-booking-copy={JSON.stringify(clientCopy)}
+  >
+    <div class="grid gap-8 lg:grid-cols-[minmax(0,0.75fr)_minmax(0,1.25fr)] lg:gap-14">
+    <div class="max-w-xl">
+      <p class="am-text-label text-on-surface-variant">
+        {t(copy.kicker)}
+      </p>
+      <h2 id="maha-booking-canary-title" class="am-text-title mt-4 text-balance text-on-surface">
+        {t(copy.title)}
+      </h2>
+      <p class="am-text-body mt-5 leading-relaxed text-on-surface-variant">
+        {t(copy.intro)}
+      </p>
+    </div>
+
+    <div class="am-booking-canary__panel self-start bg-surface-container-low p-5 sm:p-7">
+      <form method="get" data-am-booking-form>
+        <div class="grid gap-5 sm:grid-cols-3">
+          <label class="block">
+            <span class="am-text-label text-on-surface-variant">
+              {t(copy.arrival)}
+            </span>
+            <input
+              class="am-booking-canary__control am-text-body mt-2"
+              type="date"
+              name="arrival"
+              required
+              data-am-booking-arrival
+            />
+          </label>
+
+          <label class="block">
+            <span class="am-text-label text-on-surface-variant">
+              {t(copy.departure)}
+            </span>
+            <input
+              class="am-booking-canary__control am-text-body mt-2"
+              type="date"
+              name="departure"
+              required
+              data-am-booking-departure
+            />
+          </label>
+
+          <label class="block">
+            <span class="am-text-label text-on-surface-variant">
+              {t(copy.guests)}
+            </span>
+            <select
+              class="am-booking-canary__control am-text-body mt-2"
+              name="guests"
+              data-am-booking-guests
+            >
+              {guestOptions.map((count) => (
+                <option value={count} selected={count === Math.min(2, occupancy)}>
+                  {t(count === 1 ? copy.guestOption : copy.guestOptionPlural).replace('{count}', String(count))}
+                </option>
+              ))}
+            </select>
+          </label>
+        </div>
+
+        <button
+          class="am-btn am-btn--primary mt-6 w-full justify-center sm:w-auto"
+          type="submit"
+          data-am-booking-submit
+        >
+          {t(copy.submit)}
+        </button>
+      </form>
+
+      <div
+        class="am-booking-canary__result mt-6 border border-border-subtle bg-surface p-5"
+        role="status"
+        aria-live="polite"
+        hidden
+        data-am-booking-result
+      >
+        <p class="am-text-label text-on-surface-variant" data-am-booking-status></p>
+        <p class="am-text-body mt-3 text-on-surface" data-am-booking-summary></p>
+        <div class="mt-5 border-t border-border-subtle pt-4" hidden data-am-booking-price-wrap>
+          <p class="am-text-label text-on-surface-variant">
+            {t(copy.totalPrice)}
+          </p>
+          <p class="am-text-title mt-2 text-on-surface" data-am-booking-price></p>
+        </div>
+        <p class="am-text-caption mt-4 font-normal leading-relaxed text-on-surface-variant" data-am-booking-note></p>
+      </div>
+    </div>
+  </div>
+  </div>
+</AmaraSection>
+
+<style>
+  .am-booking-canary__panel,
+  .am-booking-canary__result {
+    border-radius: var(--radius-editorial);
+  }
+
+  .am-booking-canary__panel {
+    box-shadow: var(--shadow-editorial-card);
+  }
+
+  .am-booking-canary__control {
+    min-height: 3rem;
+    width: 100%;
+    border: 1px solid var(--color-outline-variant);
+    border-radius: var(--radius-control);
+    background: var(--color-surface);
+    padding: 0.5rem 0.75rem;
+    color: var(--color-on-surface);
+    outline: none;
+    transition: border-color 180ms ease, box-shadow 180ms ease;
+  }
+
+  .am-booking-canary__control:focus-visible {
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 1px var(--color-primary);
+  }
+</style>
+
+<script is:inline>
+  (() => {
+    const DAY_MS = 86_400_000;
+    const MAX_NIGHTS = 45;
+
+    const isoDay = (date) => date.toISOString().slice(0, 10);
+    const addDays = (value, days) => {
+      const date = new Date(`${value}T00:00:00.000Z`);
+      date.setUTCDate(date.getUTCDate() + days);
+      return isoDay(date);
+    };
+
+    document.querySelectorAll('[data-am-booking-canary]').forEach((container) => {
+      if (container.dataset.amBookingEnhanced === 'true') return;
+      container.dataset.amBookingEnhanced = 'true';
+
+      const copy = JSON.parse(container.dataset.amBookingCopy || '{}');
+      const language = container.dataset.amBookingLanguage || 'en';
+      const form = container.querySelector('[data-am-booking-form]');
+      const arrivalInput = container.querySelector('[data-am-booking-arrival]');
+      const departureInput = container.querySelector('[data-am-booking-departure]');
+      const guestsInput = container.querySelector('[data-am-booking-guests]');
+      const submit = container.querySelector('[data-am-booking-submit]');
+      const result = container.querySelector('[data-am-booking-result]');
+      const status = container.querySelector('[data-am-booking-status]');
+      const summary = container.querySelector('[data-am-booking-summary]');
+      const priceWrap = container.querySelector('[data-am-booking-price-wrap]');
+      const price = container.querySelector('[data-am-booking-price]');
+      const note = container.querySelector('[data-am-booking-note]');
+      if (!form || !arrivalInput || !departureInput || !guestsInput || !submit || !result) return;
+
+      const today = isoDay(new Date());
+      const latest = addDays(today, 730);
+      arrivalInput.min = today;
+      arrivalInput.max = latest;
+      departureInput.min = addDays(today, 1);
+      departureInput.max = latest;
+
+      const replaceCount = (template, count) => template.replace('{count}', String(count));
+      const nightLabel = (count) => replaceCount(count === 1 ? copy.night : copy.nights, count);
+      const guestLabel = (count) => replaceCount(
+        count === 1 ? copy.guestOption : copy.guestOptionPlural,
+        count,
+      );
+      const formatDate = (value) => new Intl.DateTimeFormat(language, {
+        day: 'numeric',
+        month: 'short',
+        year: 'numeric',
+        timeZone: 'UTC',
+      }).format(new Date(`${value}T00:00:00.000Z`));
+
+      const showState = ({ state, title, body, priceText, detail }) => {
+        result.hidden = false;
+        result.dataset.state = state;
+        status.textContent = title;
+        summary.textContent = body;
+        priceWrap.hidden = !priceText;
+        price.textContent = priceText || '';
+        note.textContent = detail || '';
+      };
+
+      const clearResult = () => {
+        result.hidden = true;
+        result.removeAttribute('data-state');
+      };
+
+      const fetchJson = async (path, searchParams) => {
+        const response = await fetch(`${path}?${searchParams}`, {
+          method: 'GET',
+          credentials: 'same-origin',
+          headers: { Accept: 'application/json' },
+        });
+        let payload;
+        try {
+          payload = await response.json();
+        } catch {
+          payload = {};
+        }
+        if (!response.ok) {
+          const requestError = new Error('Booking gateway request failed.');
+          requestError.code = payload?.error?.code;
+          throw requestError;
+        }
+        return payload;
+      };
+
+      arrivalInput.addEventListener('change', () => {
+        arrivalInput.setCustomValidity('');
+        departureInput.setCustomValidity('');
+        if (arrivalInput.value) {
+          departureInput.min = addDays(arrivalInput.value, 1);
+          if (departureInput.value && departureInput.value <= arrivalInput.value) {
+            departureInput.value = '';
+          }
+        }
+        clearResult();
+      });
+      departureInput.addEventListener('change', () => {
+        departureInput.setCustomValidity('');
+        clearResult();
+      });
+      guestsInput.addEventListener('change', clearResult);
+
+      form.addEventListener('submit', async (event) => {
+        event.preventDefault();
+        arrivalInput.setCustomValidity('');
+        departureInput.setCustomValidity('');
+        if (!form.reportValidity()) return;
+
+        const arrival = arrivalInput.value;
+        const departure = departureInput.value;
+        const guests = Number(guestsInput.value);
+        const nights = Math.round(
+          (Date.parse(`${departure}T00:00:00.000Z`) - Date.parse(`${arrival}T00:00:00.000Z`)) / DAY_MS,
+        );
+        if (!Number.isInteger(nights) || nights < 1 || nights > MAX_NIGHTS) {
+          departureInput.setCustomValidity(copy.invalidDates);
+          departureInput.reportValidity();
+          return;
+        }
+
+        submit.disabled = true;
+        submit.textContent = copy.loading;
+        form.setAttribute('aria-busy', 'true');
+        showState({ state: 'loading', title: copy.loading, body: '', detail: '' });
+
+        try {
+          const lastNight = addDays(departure, -1);
+          const availabilityParams = new URLSearchParams({
+            stay: 'maha',
+            start: arrival,
+            end: lastNight,
+          });
+          const availability = await fetchJson('/api/booking/availability', availabilityParams);
+          const expectedDates = Array.from({ length: nights }, (_, index) => addDays(arrival, index));
+          const available = availability?.stay === 'maha'
+            && availability?.start === arrival
+            && availability?.end === lastNight
+            && Array.isArray(availability?.days)
+            && availability.days.length === nights
+            && availability.days.every((day, index) => (
+              day?.date === expectedDates[index] && day?.available === true
+            ));
+
+          if (!available) {
+            showState({
+              state: 'unavailable',
+              title: copy.unavailable,
+              body: copy.unavailableBody,
+              detail: `${formatDate(arrival)} – ${formatDate(departure)}`,
+            });
+            return;
+          }
+
+          const quoteParams = new URLSearchParams({
+            stay: 'maha',
+            arrival,
+            departure,
+            adults: String(guests),
+            children: '0',
+            pets: '0',
+          });
+          const quote = await fetchJson('/api/booking/quote', quoteParams);
+          if (
+            quote?.stay !== 'maha'
+            || quote?.arrival !== arrival
+            || quote?.departure !== departure
+            || typeof quote?.currency !== 'string'
+            || !Number.isFinite(quote?.grossTotal)
+          ) {
+            throw new Error('Booking gateway quote contract failed.');
+          }
+
+          const formattedPrice = new Intl.NumberFormat(language, {
+            style: 'currency',
+            currency: quote.currency,
+          }).format(quote.grossTotal);
+          showState({
+            state: 'available',
+            title: copy.available,
+            body: `${formatDate(arrival)} – ${formatDate(departure)} · ${nightLabel(nights)} · ${guestLabel(guests)}`,
+            priceText: formattedPrice,
+            detail: copy.quoteNote,
+          });
+        } catch (error) {
+          if (error?.code === 'quote_unavailable') {
+            showState({
+              state: 'unavailable',
+              title: copy.unavailable,
+              body: copy.unavailableBody,
+              detail: `${formatDate(arrival)} – ${formatDate(departure)}`,
+            });
+          } else {
+            showState({ state: 'error', title: copy.error, body: '', detail: '' });
+          }
+        } finally {
+          submit.disabled = false;
+          submit.textContent = copy.submit;
+          form.removeAttribute('aria-busy');
+        }
+      });
+    });
+  })();
+</script>

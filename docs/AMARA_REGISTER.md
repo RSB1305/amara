@@ -1,12 +1,12 @@
 ---
 document_id: AMARA-REG-001
 title: AMARA Register
-version: 1.15.0
+version: 1.16.0
 status: ACTIVE
 authority_class: LIVING BINDING REGISTER
 activation_state: ACTIVE
 effective_from: 2026-08-14
-last_modified: 2026-08-23T19:30:21+02:00
+last_modified: 2026-08-24T13:09:22+02:00
 canonical_path: /docs/AMARA_REGISTER.md
 ---
 
@@ -26,7 +26,7 @@ The AMARA Register is the single source for active documents, authority classes,
 | 04 | AMARA URL, Route & Link Contract | PENDING Package 2 | CONTRACT / governing | Interim snapshot: `docs/interim/05_AMARA_URL_and_Route_Infrastructure_V4.md` + Decision Register |
 | 05 | AMARA Governance, Execution & Documentation Lifecycle | 5.5.0 ACTIVE | CONTRACT / governing | `docs/standards/05_AMARA_Governance_Execution_and_Documentation_Lifecycle_V5.md` |
 | 06 | AMARA Performance & Delivery Standard | 2.1.0 ACTIVE INTERIM | PRINCIPLE/CONTRACT / governing | `docs/interim/07_AMARA_Performance_Standard_V2.md` |
-| 07 | AMARA Register | 1.15.0 ACTIVE | LIVING BINDING REGISTER | `docs/AMARA_REGISTER.md` |
+| 07 | AMARA Register | 1.16.0 ACTIVE | LIVING BINDING REGISTER | `docs/AMARA_REGISTER.md` |
 | 08 | AMARA Guest Utility Feature Contract | 2.1.0 ACTIVE INTERIM | FEATURE CONTRACT | `docs/interim/08_AMARA_Guest_Utility_Architecture_V2.md` |
 | 09 | AMARA Content Production & Localization Playbook | 1.5.0 ACTIVE INTERIM | OPERATIONAL PLAYBOOK / non-governing | `docs/interim/10_AMARA_Content_Production_and_Localization_Playbook_V1_2.md` |
 | 10 | AMARA Frigiliana–Nerja SEO Strategy | PENDING Package 2/3 | WORKING STRATEGY / non-governing | Interim snapshot: `docs/interim/09_AMARA_Frigiliana_Nerja_SEO_Strategy_V2_1.md` |
@@ -39,7 +39,7 @@ Current operational feature owner during transition:
 
 | Feature | Status | Current owner | Repository reality |
 |---|---|---|---|
-| External booking / availability / checkout boundary | ACTIVE INTERIM CONTRACT | `AMARA-BOOKING-ARCHITECTURE.md` | Centralized through `src/lib/directBooking.ts`; changes require separate architecture alignment. |
+| External booking / availability / checkout boundary | ACTIVE INTERIM CONTRACT | `AMARA-BOOKING-ARCHITECTURE.md` | Checkout URLs remain centralized through `src/lib/directBooking.ts`; static Astro is extended only by the narrow Cloudflare Pages read-only Booking Gateway. |
 
 ## 3. Decision Register
 
@@ -77,7 +77,7 @@ Current operational feature owner during transition:
 | ID | Decision | Status |
 |---|---|---|
 | DR-PLATFORM-001 | AMARA's website runtime is Astro-native and Astro-only. Explicitly governed external operational services may remain active behind narrow boundaries and do not become a second website runtime. | APPROVED |
-| DR-BOOK-001 | The current external booking / availability / checkout boundary remains ACTIVE. Its repository owner is `AMARA-BOOKING-ARCHITECTURE.md`, with URL construction centralized in `src/lib/directBooking.ts`. Changes or replacement require a separate aligned architecture workstream. | ACTIVE CURRENT IMPLEMENTATION |
+| DR-BOOK-001 | The external booking / availability / checkout boundary remains ACTIVE under `AMARA-BOOKING-ARCHITECTURE.md`. Checkout URL construction stays centralized in `src/lib/directBooking.ts`; normal Astro pages stay static, while fixed GET-only Cloudflare Pages routes may expose provider-neutral availability, rates and authoritative quotes after an explicit booking interaction. Provider credentials and IDs remain server-side, and all booking/payment writes remain outside the contract. | ACTIVE CURRENT IMPLEMENTATION |
 | DR-RUNTIME-001 | BaseLayout plus the central SEO head resolver remain the sole normal public head owner. | ACTIVE CURRENT IMPLEMENTATION |
 | DR-RUNTIME-002 | `resolveStructuredData()` remains the normal sole JSON-LD owner. | ACTIVE CURRENT IMPLEMENTATION |
 | DR-LINK-001 | Registry token + resolver remain the authored semantic internal-link contract. | ACTIVE CURRENT IMPLEMENTATION |
@@ -187,6 +187,7 @@ Routine new evidence/ideas may be captured here or in the relevant working evide
 | 2026-08-23T12:51:40+02:00 | Experiential authority | Activated truthful, active, situation-led public authoring for new and materially revised editorial copy while preserving page job, evidence, provenance, caveats and safety. Added the operational method in Content Playbook 1.5.0 and the daily summary in `AGENTS.md`. Register 1.13.0. | TR-CONTENT-004–005, TR-CONTENT-002, DR-EVIDENCE-001–002 | this revision |
 | 2026-08-23T13:54:40+02:00 | Mobile-first page architecture | Activated one canonical mobile composition with progressive larger-viewport enhancement, and introduced the shared page shell, section rhythm and early booking-decision pattern through the vacation-rental reference family. Astro Standard 4.2.0, Register 1.14.0. | DR-DESIGN-001–003 | this revision |
 | 2026-08-23T19:30:21+02:00 | Romantic Hideaways brand core | Restored AMARA — Romantic Hideaways and special places for shared time as a couple as the primary hospitality brand position while preserving Destination Authority, Experience, Trust, Stays and Direct Booking as supporting systems. Constitution 5.2.0, Register 1.15.0. | DR-BRAND-001 | this revision |
+| 2026-08-24T13:09:22+02:00 | Booking Gateway v1 integration | Activated the proven read-only Booking Gateway on current Main with fixed Cloudflare Pages GET routes, server-only provider credentials/IDs, static-first page delivery and provider-owned checkout. Register 1.16.0. | DR-PLATFORM-001, DR-BOOK-001 | this revision |
 
 ## 5. Intentional supersessions
 
@@ -201,7 +202,7 @@ The following are active intentional supersessions, not accidental deletions:
 - attachment/PDF activation gate -> canonical repository Markdown + Register activation;
 - universal full-build expectation for small edits -> risk-proportional validation.
 
-No current booking/availability/checkout implementation, current route output, runtime resolver, URL helper, CSS/token system or analytics runtime is intentionally changed by the bootstrap itself. The URL **policy doctrine** changes only as explicitly recorded above; current implementation remains protected.
+The booking exception is limited to the three read-only Cloudflare Pages Function routes recorded in `DR-BOOK-001`; it does not alter checkout ownership or make normal Astro pages dynamic. No current route output, runtime resolver, URL helper, CSS/token system or analytics runtime is otherwise changed. The URL **policy doctrine** changes only as explicitly recorded above; current implementation remains protected.
 
 ## 6. Remaining controlled workstreams
 
@@ -238,3 +239,4 @@ Separate controlled workstreams remain for:
 | 1.13.0 | 2026-08-23T12:51:40+02:00 | Activated experiential authority as the public-authoring rule and recorded its evidence, safety and page-type boundaries. | this revision |
 | 1.14.0 | 2026-08-23T13:54:40+02:00 | Activated the canonical mobile-first page contract and its first shared implementation in the vacation-rental family. | this revision |
 | 1.15.0 | 2026-08-23T19:30:21+02:00 | Registered Romantic Hideaways and special places for shared time as a couple as AMARA's primary hospitality brand core, owned normatively by Constitution 5.2.0. | this revision |
+| 1.16.0 | 2026-08-24T13:09:22+02:00 | Activated the narrow read-only Booking Gateway runtime boundary while preserving static Astro delivery, the current design/conversion architecture and provider-owned checkout. | this revision |
