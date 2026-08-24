@@ -25,8 +25,8 @@ function buildGroupEnquiry(subject: string, body: string): string {
  */
 
 export const linkRegistry = {
-  version: '2026-08-23-registry-v4.7',
-  updated_at: '2026-08-23',
+  version: '2026-08-24-registry-v4.8',
+  updated_at: '2026-08-24',
   base: '/',
   links: {
     /* =========================================================
@@ -47,6 +47,7 @@ export const linkRegistry = {
     reviews_hub: buildOwnedLinks('guest-reviews'),
     instagram_landing: buildOwnedLinks('instagram'),
     romantic_hideaways: buildOwnedLinks('romantic-hideaways'),
+    stay_search_results: buildOwnedLinks('find-a-stay'),
     honeymoon: buildOwnedLinks('honeymoon'),
     casa_amara_groups: buildOwnedLinks('casa-amara-4-8-guests'),
     property_sale: buildOwnedLinks('frigiliana-hospitality-property-for-sale'),
@@ -139,7 +140,7 @@ export const linkRegistry = {
     zaid: buildOwnedLinks('la-amara-zaid'),
     maha: buildOwnedLinks('la-amara-maha'),
     playa: buildOwnedLinks('la-amara-playa'),
-    casa: buildOwnedLinks('la-amara-family-and-surf'),
+    tarifa: buildOwnedLinks('la-amara-family-and-surf'),
     /* =========================================================
        EXTERNAL UTILITY
     ========================================================= */

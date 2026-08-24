@@ -183,7 +183,7 @@ const AUTHORITY_PAGES: AuthorityPage[] = [
     interleaved: [],
     sectionMarkerAttribute: 'data-am-parking-section',
     closingCtas: [
-      { token: 'casa', labelKey: 'propertyLabel', className: PRIMARY_CTA_CLASS },
+      { token: 'tarifa', labelKey: 'propertyLabel', className: PRIMARY_CTA_CLASS },
       { token: 'location_tarifa', labelKey: 'locationLabel', className: SECONDARY_CTA_CLASS }
     ]
   },
@@ -297,7 +297,7 @@ const AUTHORITY_PAGES: AuthorityPage[] = [
     interleaved: [],
     sectionMarkerAttribute: 'data-am-winter-stays-section',
     closingCtas: [
-      { token: 'casa', labelKey: 'propertyLabel', className: PRIMARY_CTA_CLASS },
+      { token: 'tarifa', labelKey: 'propertyLabel', className: PRIMARY_CTA_CLASS },
       { token: 'location_tarifa', labelKey: 'locationLabel', className: SECONDARY_CTA_CLASS }
     ]
   }

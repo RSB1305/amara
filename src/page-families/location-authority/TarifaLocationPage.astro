@@ -22,7 +22,7 @@ const currentLang = normalizeLanguage(lang as AmaraLanguage);
 const content = tarifaLocationContent.locales[currentLang];
 const requiredLink = createRequiredLinkResolver(currentLang, 'Tarifa location hub');
 const aboutHref = requiredLink('about');
-const stayHref = requiredLink('casa');
+const stayHref = requiredLink('tarifa');
 const footerHighlights: LabeledLink[] = [
   { token: 'location_tarifa', label: 'Tarifa' },
   { token: 'tarifa_where_to_stay', label: content.areas.link?.label ?? 'Where to stay' },
@@ -192,7 +192,7 @@ const footerHighlights: LabeledLink[] = [
             title={content.closing.title}
             lead={content.closing.lead}
             lang={currentLang}
-            links={[{ token: 'casa', label: content.closing.ctaLabel, style: 'primary' }]}
+            links={[{ token: 'tarifa', label: content.closing.ctaLabel, style: 'primary' }]}
           />
         </div>
       </section>

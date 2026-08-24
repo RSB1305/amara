@@ -252,7 +252,7 @@ export const cinematicTrustChips: Record<AmaraLanguage, string[]> = {
   sv: ['Konkreta detaljer om varje boende', 'Personlig kontakt']
 };
 
-export type CinematicAptToken = 'farah' | 'lounis' | 'zaid' | 'maha' | 'playa' | 'casa';
+export type CinematicAptToken = 'farah' | 'lounis' | 'zaid' | 'maha' | 'playa' | 'tarifa';
 
 export interface CinematicAptDef {
   id: string;
@@ -431,8 +431,8 @@ export const cinematicApartments: CinematicAptDef[] = [
     }
   },
   {
-    id: 'casa',
-    token: 'casa',
+    id: 'tarifa',
+    token: 'tarifa',
     name: 'Family & Surf',
     subtitle: {
       en: 'Atlantic-view penthouse for 2–4 guests',

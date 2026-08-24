@@ -17,6 +17,12 @@ interface Props {
   title: string;
   description: string;
   ctaLabel: string;
+  linkAriaLabel?: string;
+  dataStay?: string;
+  dataDestination?: string;
+  dataOccupancy?: number;
+  totalPriceLabel?: string;
+  hidden?: boolean;
 }
 
 const {
@@ -28,13 +34,31 @@ const {
   meta,
   title,
   description,
-  ctaLabel
+  ctaLabel,
+  linkAriaLabel = `View ${title}`,
+  dataStay,
+  dataDestination,
+  dataOccupancy,
+  totalPriceLabel,
+  hidden = false
 } = Astro.props;
 ---
 
-<div class="am-apartment-card am-apartment-card--hover">
+<div
+  class="am-apartment-card am-apartment-card--hover"
+  hidden={hidden}
+  data-am-stay-result={dataStay}
+  data-am-stay-destination={dataDestination}
+  data-am-stay-occupancy={dataOccupancy}
+>
   <figure class="am-apartment-card__figure">
-    <a href={href} aria-label={`View ${title}`} class="am-card-link am-apartment-card__image-link">
+    <a
+      href={href}
+      aria-label={linkAriaLabel}
+      class="am-card-link am-apartment-card__image-link"
+      data-am-stay-result-link={dataStay}
+      data-am-stay-result-base-href={dataStay ? href : undefined}
+    >
       <AmaraImage
         src={imageSrc}
         alt={imageAlt}
@@ -50,8 +74,22 @@ const {
     <small class="am-apartment-card__meta am-text-caption text-on-surface-variant">{meta}</small>
     <h3 class="am-apartment-card__title am-text-subtitle text-on-surface">{title}</h3>
     <p class="am-apartment-card__description am-text-body text-on-surface-variant"><InlineEmphasis text={description} /></p>
+    {dataStay && (
+      <>
+        <p class="am-apartment-card__stay-summary am-text-caption text-on-surface-variant" hidden data-am-stay-result-summary></p>
+        <div class="am-apartment-card__price" hidden data-am-stay-result-price-wrap>
+          <span class="am-text-label text-on-surface-variant">{totalPriceLabel}</span>
+          <strong class="am-text-subtitle text-primary" data-am-stay-result-price></strong>
+        </div>
+      </>
+    )}
     <div class="am-apartment-card__cta-wrap">
-      <a class="am-btn am-btn--secondary" href={href}>{ctaLabel}</a>
+      <a
+        class="am-btn am-btn--secondary"
+        href={href}
+        data-am-stay-result-link={dataStay}
+        data-am-stay-result-base-href={dataStay ? href : undefined}
+      >{ctaLabel}</a>
     </div>
   </div>
 </div>
@@ -110,6 +148,20 @@ const {
 
   .am-apartment-card__cta-wrap {
     margin-top: 0.75rem;
+  }
+
+  .am-apartment-card__stay-summary {
+    margin-top: 0.5rem;
+  }
+
+  .am-apartment-card__price {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-top: 0.75rem;
+    border-top: 1px solid var(--color-border-subtle);
+    padding-top: 0.75rem;
   }
 
 </style>

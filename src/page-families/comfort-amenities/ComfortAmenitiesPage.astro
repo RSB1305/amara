@@ -256,6 +256,29 @@ const buildFilterableAmenityRows = (property: Property): AmenityRow[] => {
   ];
 };
 const amenityFilterCopy = comfortAmenityFilterCopy[currentLang];
+
+/**
+ * Amenities are grouped into their catalog categories and disclosed per group.
+ * The page used to render every row of every stay at once — 332 lines on a
+ * twenty-metre scroll — where the rental detail page shows a short list and
+ * puts the remainder behind one accordion. Grouping restores that idiom here:
+ * the key facts stay open, a category opens on demand or when its filter chip
+ * selects it.
+ */
+const amenityCategoryGroups = comfortAmenityCategoryOptions.filter(
+  (category) => category.key !== 'all'
+);
+const buildAmenityGroups = (property: Property) => {
+  const rows = buildFilterableAmenityRows(property);
+
+  return amenityCategoryGroups
+    .map((category) => ({
+      key: category.key,
+      label: category.label[currentLang],
+      rows: rows.filter((row) => row.category === category.key)
+    }))
+    .filter((group) => group.rows.length > 0);
+};
 const amenityFilters = comfortAmenityCategoryOptions.map((category) => ({
   key: category.key,
   label: category.label[currentLang]
@@ -394,7 +417,7 @@ const closingCtaLinks: EditorialClosingCtaLink[] = [
               const factRows = hasExpandedAmenities
                 ? buildKeyFactRows(property)
                 : buildExistingAmenityRows(property);
-              const amenityRows = buildFilterableAmenityRows(property);
+              const amenityGroups = buildAmenityGroups(property);
 
               return (
               <article
@@ -402,8 +425,8 @@ const closingCtaLinks: EditorialClosingCtaLink[] = [
                 data-rental-id={property.id}
                 data-expanded-amenities={hasExpandedAmenities ? 'true' : 'false'}
               >
-                <div>
-                  <h3 class="mb-4 am-text-subtitle text-on-surface">
+                <div class="grid gap-8 lg:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)] lg:gap-10">
+                  <h3 class="am-text-subtitle text-on-surface">
                     <a
                       href={property.href}
                       class="inline-flex transition-colors hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/25 focus-visible:ring-offset-4"
@@ -411,30 +434,55 @@ const closingCtaLinks: EditorialClosingCtaLink[] = [
                       {property.name}
                     </a>
                   </h3>
-                  <ul class="mt-6 grid list-none gap-x-12 p-0 md:grid-cols-2">
-                    {factRows.map((row) => (
-                      <AmenitySpecRow icon={row.icon} label={row.label} value={row.value} />
-                    ))}
-                  </ul>
+                  <div>
+                    <h4 class="am-text-label text-primary">
+                      {amenityFilterCopy.keyFactsHeading}
+                    </h4>
+                    <ul class="mt-4 grid list-none gap-x-10 p-0 sm:grid-cols-2">
+                      {factRows.map((row) => (
+                        <AmenitySpecRow icon={row.icon} label={row.label} value={row.value} />
+                      ))}
+                    </ul>
 
-                  {amenityRows.length > 0 && (
-                    <section class="mt-9" data-amenity-section>
-                      <h4 class="am-text-label text-primary">
-                        {amenityFilterCopy.amenityHeading}
-                      </h4>
-                      <ul class="mt-4 grid list-none gap-x-12 p-0 md:grid-cols-2">
-                        {amenityRows.map((row) => (
-                          <AmenitySpecRow
-                            icon={row.icon}
-                            label={row.label}
-                            value={row.value}
-                            category={row.category}
-                            filterable={true}
-                          />
-                        ))}
-                      </ul>
-                    </section>
-                  )}
+                    {amenityGroups.length > 0 && (
+                      <section class="mt-9" data-amenity-section>
+                        <h4 class="am-text-label text-primary">
+                          {amenityFilterCopy.amenityHeading}
+                        </h4>
+                        <div class="mt-4 border-t border-border-subtle">
+                          {amenityGroups.map((group) => (
+                            <details
+                              class="group border-b border-border-subtle"
+                              data-amenity-group
+                              data-amenity-category={group.key}
+                            >
+                              <summary class="am-accordion__trigger min-h-11 items-center py-4">
+                                <span class="am-text-annotation am-text-annotation--wide text-on-surface transition-colors group-hover:text-primary">
+                                  {group.label} ({group.rows.length})
+                                </span>
+                                <span class="am-accordion__indicator" aria-hidden="true">
+                                  <span class="group-open:hidden">+</span>
+                                  <span class="hidden group-open:inline">−</span>
+                                </span>
+                              </summary>
+                              <ul class="grid list-none gap-x-10 p-0 pb-5 sm:grid-cols-2">
+                                {group.rows.map((row) => (
+                                  <AmenitySpecRow
+                                    icon={row.icon}
+                                    label={row.label}
+                                    value={row.value}
+                                    category={row.category}
+                                    filterable={true}
+                                    variant="amenity"
+                                  />
+                                ))}
+                              </ul>
+                            </details>
+                          ))}
+                        </div>
+                      </section>
+                    )}
+                  </div>
                 </div>
               </article>
               );
@@ -476,6 +524,12 @@ const closingCtaLinks: EditorialClosingCtaLink[] = [
     let selectedCategory = 'all';
     let selectedProperty = 'all';
 
+    /**
+     * The amenity filter now works on the category groups rather than on single
+     * rows: selecting a category leaves that group alone on the card and opens
+     * it, so the filter and the accordion state stay one thing instead of two
+     * that can disagree. `hidden` remains the single source of truth.
+     */
     const applyCombinedFilters = () => {
       amenityFilterButtons.forEach((button) => {
         button.setAttribute(
@@ -490,23 +544,30 @@ const closingCtaLinks: EditorialClosingCtaLink[] = [
         );
       });
 
+      const showAll = selectedCategory === 'all';
       let visiblePropertyCount = 0;
+
       propertyCards.forEach((card) => {
-        const amenityRows = Array.from(
-          card.querySelectorAll<HTMLElement>('[data-amenity-row="true"]')
+        const amenityGroups = Array.from(
+          card.querySelectorAll<HTMLDetailsElement>('[data-amenity-group]')
         );
-        const showAll = selectedCategory === 'all';
         const matchesProperty = selectedProperty === 'all'
           || card.dataset.rentalId === selectedProperty;
-        const matchesAmenity = showAll || amenityRows.some(
-          (row) => row.dataset.amenityCategory === selectedCategory
+        const matchesAmenity = showAll || amenityGroups.some(
+          (group) => group.dataset.amenityCategory === selectedCategory
         );
         const isVisible = matchesProperty && matchesAmenity;
 
         card.hidden = !isVisible;
         if (isVisible) visiblePropertyCount += 1;
-        amenityRows.forEach((row) => {
-          row.hidden = !showAll && row.dataset.amenityCategory !== selectedCategory;
+        amenityGroups.forEach((group) => {
+          const matchesCategory = group.dataset.amenityCategory === selectedCategory;
+          group.hidden = !showAll && !matchesCategory;
+          if (showAll) {
+            group.open = false;
+          } else if (matchesCategory) {
+            group.open = true;
+          }
         });
       });
 
@@ -577,7 +638,7 @@ const closingCtaLinks: EditorialClosingCtaLink[] = [
   /* The filter uses the `hidden` attribute as its single source of truth. The rows it
      targets also carry Tailwind display utilities (flex/grid), so `!important` is the
      intended guarantee that `[hidden]` always wins — not an accidental override. */
-  :global(#am-page-amenities [data-amenity-row][hidden]),
+  :global(#am-page-amenities [data-amenity-group][hidden]),
   :global(#am-page-amenities [data-rental-id][hidden]),
   :global(#am-page-amenities [data-filter-empty][hidden]) {
     display: none !important;

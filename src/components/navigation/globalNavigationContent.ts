@@ -288,7 +288,7 @@ export function createGlobalNavGroups(currentLang: AmaraLanguage): GlobalNavGrou
           sectionLabel: t('locationNerja')
         },
         {
-          token: 'casa',
+          token: 'tarifa',
           label: 'Family & Surf',
           description: t('familySurfMeta'),
           sectionLabel: t('locationTarifa')

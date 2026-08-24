@@ -1,0 +1,294 @@
+import { expect, test, type Page, type Route } from '@playwright/test';
+import { dev } from 'astro';
+import { fileURLToPath } from 'node:url';
+
+const PORT = 4324;
+const ORIGIN = 'http://127.0.0.1:' + PORT;
+const DESKTOP = { width: 1280, height: 900 };
+const MOBILE = { width: 390, height: 844 };
+
+let astroServer: Awaited<ReturnType<typeof dev>> | undefined;
+
+test.beforeAll(async () => {
+  astroServer = await dev({
+    root: fileURLToPath(new URL('../../', import.meta.url)),
+    server: { host: '127.0.0.1', port: PORT },
+    logLevel: 'silent'
+  });
+});
+
+test.afterAll(async () => {
+  await astroServer?.stop();
+});
+
+const futureIso = (days: number) => {
+  const date = new Date();
+  date.setUTCHours(0, 0, 0, 0);
+  date.setUTCDate(date.getUTCDate() + days);
+  return date.toISOString().slice(0, 10);
+};
+
+const enumerateDays = (start: string, end: string) => {
+  const result: string[] = [];
+  const current = new Date(start + 'T00:00:00.000Z');
+  const last = new Date(end + 'T00:00:00.000Z');
+  while (current <= last) {
+    result.push(current.toISOString().slice(0, 10));
+    current.setUTCDate(current.getUTCDate() + 1);
+  }
+  return result;
+};
+
+type MockOptions = {
+  blocked?: Set<string>;
+  minStay?: number;
+  maxStay?: number;
+  calendarError?: boolean;
+  quoteError?: boolean;
+};
+
+const mockGateway = async (page: Page, options: MockOptions = {}) => {
+  const requests: URL[] = [];
+  await page.route('**/api/booking/**', async (route: Route) => {
+    const requestUrl = new URL(route.request().url());
+    requests.push(requestUrl);
+    const operation = requestUrl.pathname.split('/').pop();
+
+    if (operation === 'quote') {
+      if (options.quoteError) {
+        await route.fulfill({
+          status: 502,
+          contentType: 'application/json',
+          body: JSON.stringify({
+            error: {
+              code: 'booking_data_unavailable',
+              message: 'Live booking data is temporarily unavailable.'
+            }
+          })
+        });
+        return;
+      }
+      const adults = Number(requestUrl.searchParams.get('adults'));
+      await route.fulfill({
+        status: 200,
+        contentType: 'application/json',
+        body: JSON.stringify({
+          stay: 'maha',
+          arrival: requestUrl.searchParams.get('arrival'),
+          departure: requestUrl.searchParams.get('departure'),
+          guests: { adults, children: 0, pets: 0 },
+          currency: 'EUR',
+          grossTotal: 866
+        })
+      });
+      return;
+    }
+
+    if (options.calendarError && operation === 'rates') {
+      await route.fulfill({
+        status: 502,
+        contentType: 'application/json',
+        body: JSON.stringify({
+          error: {
+            code: 'booking_data_unavailable',
+            message: 'Live booking data is temporarily unavailable.'
+          }
+        })
+      });
+      return;
+    }
+
+    const start = requestUrl.searchParams.get('start') || '';
+    const end = requestUrl.searchParams.get('end') || '';
+    const days = enumerateDays(start, end);
+    const payload =
+      operation === 'availability'
+        ? {
+            stay: 'maha',
+            start,
+            end,
+            days: days.map((date) => ({
+              date,
+              available: !options.blocked?.has(date)
+            }))
+          }
+        : {
+            stay: 'maha',
+            start,
+            end,
+            days: days.map((date, index) => ({
+              date,
+              currency: 'EUR',
+              options: [
+                {
+                  nightlyRate: index % 2 === 0 ? 117 : 129,
+                  minStay: options.minStay ?? 3,
+                  maxStay: options.maxStay ?? 14,
+                  additionalGuestsFrom: null,
+                  additionalGuestRate: 0
+                }
+              ]
+            }))
+          };
+    await route.fulfill({
+      status: 200,
+      contentType: 'application/json',
+      body: JSON.stringify(payload)
+    });
+  });
+  return requests;
+};
+
+const dayButton = (page: Page, value: string) =>
+  page.locator('[data-am-booking-day="' + value + '"]');
+
+test('desktop calendar loads only on open, enforces stay rules and quotes a valid range', async ({
+  page
+}) => {
+  await page.setViewportSize(DESKTOP);
+  const arrival = futureIso(3);
+  const blocked = futureIso(10);
+  const requests = await mockGateway(page, { blocked: new Set([blocked]), minStay: 3 });
+
+  await page.goto(ORIGIN + '/en/la-amara-maha', { waitUntil: 'domcontentloaded' });
+  expect(requests).toHaveLength(0);
+
+  await page.getByRole('button', { name: 'Choose arrival' }).click();
+  await expect(page.locator('[data-am-booking-calendar]')).toBeVisible();
+  await expect(page.locator('[data-am-booking-month]')).toHaveCount(2);
+  await expect.poll(() => requests.length).toBe(4);
+  expect(requests.filter((request) => request.pathname.endsWith('/availability'))).toHaveLength(2);
+  expect(requests.filter((request) => request.pathname.endsWith('/rates'))).toHaveLength(2);
+
+  const blockedButton = dayButton(page, blocked);
+  await expect(blockedButton).toBeDisabled();
+  await expect(blockedButton.locator('.am-booking-calendar__day-price')).toHaveCount(0);
+
+  const arrivalButton = dayButton(page, arrival);
+  await expect(arrivalButton).toBeEnabled();
+  await expect(arrivalButton).toContainText('from');
+  await arrivalButton.click();
+
+  await expect(dayButton(page, futureIso(4))).toBeDisabled();
+  await expect(dayButton(page, futureIso(5))).toBeDisabled();
+  await expect(dayButton(page, futureIso(6))).toBeEnabled();
+  await expect(dayButton(page, futureIso(11))).toBeDisabled();
+
+  await dayButton(page, futureIso(6)).focus();
+  await page.keyboard.press('ArrowRight');
+  await expect(dayButton(page, futureIso(7))).toBeFocused();
+
+  await dayButton(page, futureIso(6)).click();
+  await expect.poll(() => requests.filter((request) => request.pathname.endsWith('/quote')).length).toBe(1);
+  await expect(page.locator('[data-am-booking-result]')).toHaveAttribute(
+    'data-state',
+    'available'
+  );
+  await expect(page.locator('[data-am-booking-price]')).toContainText('866');
+  await expect(dayButton(page, arrival)).toHaveAttribute('data-range', 'start');
+  await expect(dayButton(page, futureIso(6))).toHaveAttribute('data-range', 'end');
+
+  const publicMarkup = await page.content();
+  expect(publicMarkup).not.toContain('408325');
+  expect(publicMarkup).not.toContain('474288');
+  expect(publicMarkup).not.toContain('LODGIFY_API_KEY');
+  expect(publicMarkup).not.toContain('X-ApiKey');
+});
+
+test('month navigation requests only the newly visible month and reuses session state', async ({
+  page
+}) => {
+  await page.setViewportSize(DESKTOP);
+  const requests = await mockGateway(page);
+  await page.goto(ORIGIN + '/de/la-amara-maha', { waitUntil: 'domcontentloaded' });
+
+  await page.getByRole('button', { name: 'Anreise wählen' }).click();
+  await expect.poll(() => requests.length).toBe(4);
+
+  await page.getByRole('button', { name: 'Nächster Monat' }).click();
+  await expect.poll(() => requests.length).toBe(6);
+
+  await page.getByRole('button', { name: 'Vorheriger Monat' }).click();
+  await page.getByRole('button', { name: 'Nächster Monat' }).click();
+  expect(requests).toHaveLength(6);
+});
+
+test('mobile calendar shows one full-width month without horizontal overflow', async ({
+  page
+}) => {
+  await page.setViewportSize(MOBILE);
+  const requests = await mockGateway(page);
+  await page.goto(ORIGIN + '/nl/la-amara-maha', { waitUntil: 'domcontentloaded' });
+
+  await page.getByRole('button', { name: 'Aankomst kiezen' }).click();
+  await expect.poll(() => requests.length).toBe(2);
+  await expect(page.locator('[data-am-booking-month]')).toHaveCount(1);
+
+  const measurements = await page.locator('[data-am-booking-calendar]').evaluate((calendar) => {
+    const firstDay = calendar.querySelector<HTMLElement>('[data-am-booking-day]');
+    return {
+      calendarWidth: calendar.scrollWidth,
+      calendarClientWidth: calendar.clientWidth,
+      dayHeight: firstDay?.getBoundingClientRect().height ?? 0,
+      pageWidth: document.documentElement.scrollWidth,
+      viewportWidth: window.innerWidth
+    };
+  });
+  expect(measurements.calendarWidth).toBeLessThanOrEqual(measurements.calendarClientWidth);
+  expect(measurements.pageWidth).toBeLessThanOrEqual(measurements.viewportWidth);
+  expect(measurements.dayHeight).toBeGreaterThanOrEqual(44);
+});
+
+test('calendar and quote failures stay generic and never retry automatically', async ({ page }) => {
+  await page.setViewportSize(MOBILE);
+  const calendarRequests = await mockGateway(page, { calendarError: true });
+  await page.goto(ORIGIN + '/sv/la-amara-maha', { waitUntil: 'domcontentloaded' });
+  await page.getByRole('button', { name: 'Välj ankomst' }).click();
+  await expect(page.locator('[data-am-booking-calendar-status]')).toContainText(
+    'inte tillgänglig'
+  );
+  expect(calendarRequests).toHaveLength(2);
+  await page.getByRole('button', { name: 'Stäng kalendern' }).click();
+  await page.getByRole('button', { name: 'Välj ankomst' }).click();
+  expect(calendarRequests).toHaveLength(2);
+});
+
+test('a failed quote exposes only the localized generic error and is not retried', async ({
+  page
+}) => {
+  await page.setViewportSize(DESKTOP);
+  const requests = await mockGateway(page, { quoteError: true });
+  await page.goto(ORIGIN + '/en/la-amara-maha', { waitUntil: 'domcontentloaded' });
+  await page.getByRole('button', { name: 'Choose arrival' }).click();
+  await dayButton(page, futureIso(3)).click();
+  await dayButton(page, futureIso(6)).click();
+
+  await expect(page.locator('[data-am-booking-result]')).toHaveAttribute('data-state', 'error');
+  await expect(page.locator('[data-am-booking-result]')).toContainText(
+    'Live booking data is currently unavailable'
+  );
+  expect(requests.filter((request) => request.pathname.endsWith('/quote'))).toHaveLength(1);
+});
+
+test('all five locales expose native calendar labels and localized total-price language', async ({
+  page
+}) => {
+  const cases = [
+    ['/en/la-amara-maha', 'Choose arrival', 'Current total price'],
+    ['/de/la-amara-maha', 'Anreise wählen', 'Aktueller Gesamtpreis'],
+    ['/la-amara-maha', 'Elegir llegada', 'Precio total actual'],
+    ['/nl/la-amara-maha', 'Aankomst kiezen', 'Actuele totaalprijs'],
+    ['/sv/la-amara-maha', 'Välj ankomst', 'Aktuellt totalpris']
+  ];
+  const requests = await mockGateway(page);
+
+  for (const [path, arrivalLabel, noteFragment] of cases) {
+    await page.goto(ORIGIN + path, { waitUntil: 'domcontentloaded' });
+    await expect(page.getByRole('button', { name: arrivalLabel })).toBeVisible();
+    const copy = await page
+      .locator('[data-am-booking-canary]')
+      .getAttribute('data-am-booking-copy');
+    expect(copy).toContain(noteFragment);
+  }
+  expect(requests).toHaveLength(0);
+});

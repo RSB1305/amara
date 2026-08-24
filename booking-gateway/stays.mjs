@@ -12,17 +12,57 @@ const AMARA_STAY_KEY_SET = new Set(AMARA_STAY_KEYS);
 // Production uses only provider IDs verified by the sandbox MVP. This module is
 // server-only and must never be imported by browser code or serialized publicly.
 const LODGIFY_STAY_MAPPINGS = Object.freeze({
+  zaid: Object.freeze({
+    propertyId: '408323',
+    roomTypeId: '474286',
+  }),
+  lounis: Object.freeze({
+    propertyId: '408324',
+    roomTypeId: '474287',
+  }),
   maha: Object.freeze({
     propertyId: '408325',
     roomTypeId: '474288',
+  }),
+  farah: Object.freeze({
+    propertyId: '408326',
+    roomTypeId: '474289',
+  }),
+  playa: Object.freeze({
+    propertyId: '408327',
+    roomTypeId: '474290',
+  }),
+  tarifa: Object.freeze({
+    propertyId: '544478',
+    roomTypeId: '611138',
   }),
 });
 
 // Discovery remains an explicit sandbox concern for controlled verification of
 // future stays. Production requests never consume these dynamic selectors.
 const LODGIFY_DISCOVERY_MAPPINGS = Object.freeze({
+  farah: Object.freeze({
+    propertyNamePattern: /\bfarah\b/i,
+    roomStrategy: 'single',
+  }),
+  lounis: Object.freeze({
+    propertyNamePattern: /\blounis\b/i,
+    roomStrategy: 'single',
+  }),
+  zaid: Object.freeze({
+    propertyNamePattern: /\bzaid\b/i,
+    roomStrategy: 'single',
+  }),
   maha: Object.freeze({
     propertyNamePattern: /\bmaha\b/i,
+    roomStrategy: 'single',
+  }),
+  playa: Object.freeze({
+    propertyNamePattern: /\bplaya\b/i,
+    roomStrategy: 'single',
+  }),
+  tarifa: Object.freeze({
+    propertyNamePattern: /\b(?:AMARA\s+)?Family\s*(?:&|and)\s*Surf\b/i,
     roomStrategy: 'single',
   }),
 });

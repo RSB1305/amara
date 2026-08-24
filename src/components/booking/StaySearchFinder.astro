@@ -1,0 +1,182 @@
+---
+import { staySearchCopy, staySearchDestinations } from '../../content/staySearchContent';
+import type { AmaraLanguage } from '../../types/seo';
+import BookingDateRangeCalendar from './BookingDateRangeCalendar.astro';
+
+interface Props {
+  lang: AmaraLanguage;
+  action: string;
+  variant?: 'home' | 'results';
+}
+
+const { lang, action, variant = 'home' } = Astro.props;
+const t = (value: Record<AmaraLanguage, string>) => value[lang] ?? value.en;
+const copy = Object.fromEntries(
+  Object.entries(staySearchCopy).map(([key, value]) => [key, t(value)])
+);
+const guestOptions = [1, 2, 3, 4];
+---
+
+<section
+  id={variant === 'home' ? 'stay-search' : undefined}
+  class:list={[
+    'am-stay-search relative z-[3]',
+    variant === 'home'
+      ? 'mx-auto w-[min(100%-3rem,80rem)] -mt-8 bg-surface p-5 md:-mt-10 md:p-7'
+      : 'bg-surface-container-low p-5 md:p-7'
+  ]}
+  aria-label={t(staySearchCopy.eyebrow)}
+  data-am-stay-search-finder
+  data-am-stay-search-language={lang}
+  data-am-stay-search-variant={variant}
+  data-am-stay-search-copy={JSON.stringify(copy)}
+>
+  {variant === 'home' && (
+    <p class="am-text-eyebrow mb-5 text-primary">{t(staySearchCopy.eyebrow)}</p>
+  )}
+
+  <form action={action} method="get" data-am-stay-search-form>
+    <div class="grid gap-4 lg:grid-cols-[1.1fr_1fr_1fr_0.75fr_auto] lg:items-end">
+      <label class="block">
+        <span class="am-text-label text-on-surface-variant">{t(staySearchCopy.destination)}</span>
+        <select
+          class="am-stay-search__control am-text-body mt-2"
+          name="destination"
+          data-am-stay-search-destination
+        >
+          {staySearchDestinations.map((destination) => (
+            <option value={destination.value}>{t(destination.label)}</option>
+          ))}
+        </select>
+      </label>
+
+      <label class="block am-stay-search__native-date">
+        <span class="am-text-label text-on-surface-variant">{t(staySearchCopy.arrival)}</span>
+        <input
+          class="am-stay-search__control am-text-body mt-2"
+          type="date"
+          name="arrival"
+          required
+          data-am-stay-search-arrival
+        />
+      </label>
+      <div class="am-stay-search__date-trigger" hidden data-am-stay-search-arrival-trigger-wrap>
+        <span class="am-text-label text-on-surface-variant">{t(staySearchCopy.arrival)}</span>
+        <button
+          class="am-stay-search__control am-stay-search__trigger am-text-body mt-2"
+          type="button"
+          aria-expanded="false"
+          data-am-stay-search-arrival-trigger
+        >
+          <span data-am-stay-search-arrival-value>{t(staySearchCopy.chooseArrival)}</span>
+        </button>
+      </div>
+
+      <label class="block am-stay-search__native-date">
+        <span class="am-text-label text-on-surface-variant">{t(staySearchCopy.departure)}</span>
+        <input
+          class="am-stay-search__control am-text-body mt-2"
+          type="date"
+          name="departure"
+          required
+          data-am-stay-search-departure
+        />
+      </label>
+      <div class="am-stay-search__date-trigger" hidden data-am-stay-search-departure-trigger-wrap>
+        <span class="am-text-label text-on-surface-variant">{t(staySearchCopy.departure)}</span>
+        <button
+          class="am-stay-search__control am-stay-search__trigger am-text-body mt-2"
+          type="button"
+          aria-expanded="false"
+          data-am-stay-search-departure-trigger
+        >
+          <span data-am-stay-search-departure-value>{t(staySearchCopy.chooseDeparture)}</span>
+        </button>
+      </div>
+
+      <label class="block">
+        <span class="am-text-label text-on-surface-variant">{t(staySearchCopy.guests)}</span>
+        <select
+          class="am-stay-search__control am-text-body mt-2"
+          name="guests"
+          data-am-stay-search-guests
+        >
+          {guestOptions.map((count) => (
+            <option value={count} selected={count === 2}>
+              {t(count === 1 ? staySearchCopy.guest : staySearchCopy.guestsPlural).replace('{count}', String(count))}
+            </option>
+          ))}
+        </select>
+      </label>
+
+      <button class="am-btn am-btn--primary min-h-12 w-full justify-center lg:w-auto" type="submit">
+        {t(staySearchCopy.submit)}
+      </button>
+    </div>
+
+    <BookingDateRangeCalendar
+      title={t(staySearchCopy.calendarTitle)}
+      help={t(staySearchCopy.calendarHelp)}
+      closeLabel={t(staySearchCopy.closeCalendar)}
+      previousMonthLabel={t(staySearchCopy.previousMonth)}
+      nextMonthLabel={t(staySearchCopy.nextMonth)}
+      clearLabel={t(staySearchCopy.clearDates)}
+    />
+
+    <p
+      class="am-text-caption mt-4 font-normal text-error"
+      role="alert"
+      hidden
+      data-am-stay-search-error
+    >
+      {t(staySearchCopy.invalidSearch)}
+    </p>
+  </form>
+</section>
+
+<style is:global>
+  .am-stay-search {
+    border-radius: var(--radius-editorial);
+  }
+
+  .am-stay-search[data-am-stay-search-variant='home'] {
+    box-shadow: var(--shadow-editorial-card);
+  }
+
+  .am-stay-search__control {
+    min-height: 3rem;
+    width: 100%;
+    border: 1px solid var(--color-outline-variant);
+    border-radius: var(--radius-control);
+    background: var(--color-surface);
+    padding: 0.5rem 0.75rem;
+    color: var(--color-on-surface);
+    outline: none;
+  }
+
+  .am-stay-search__control:focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+  }
+
+  [data-am-stay-search-enhanced='true'] .am-stay-search__native-date {
+    display: none;
+  }
+
+  .am-stay-search__trigger {
+    display: flex;
+    align-items: center;
+    text-align: left;
+  }
+
+  .am-stay-search__trigger[aria-expanded='true'] {
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 1px var(--color-primary);
+  }
+</style>
+
+<script>
+  import { enhanceStaySearchFinders } from '../../scripts/staySearchFinder';
+
+  enhanceStaySearchFinders();
+</script>

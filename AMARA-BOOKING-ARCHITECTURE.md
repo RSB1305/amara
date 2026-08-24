@@ -222,9 +222,11 @@ Astro remains static output with no adapter and no global server-runtime change.
 Location, Explore and Trust pages make no Lodgify request during normal page load. The Functions
 directory is deployed separately beside `dist/` and runs only when one of the three API routes is
 explicitly requested. `public/_routes.json` restricts Cloudflare Pages Function invocation to
-`/api/booking/*`, so normal static assets do not run through the Worker. The Maha page alone carries
-a small native interaction script; it requests availability and then a fresh quote only after the
-guest submits dates and guests. No framework hydration package or global booking script is added.
+`/api/booking/*`, so normal static assets do not run through the Worker. Small native interaction
+scripts are limited to the relevant booking surfaces: the Homepage finder selects dates without a
+provider request, a valid submitted search starts availability and quote requests on the static
+Results page, and the Maha calendar requests live data only after guest interaction. No framework
+hydration package or global booking script is added.
 
 ### Migration principle
 

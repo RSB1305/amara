@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Navigation from '../../components/Navigation.astro';
+import StaySearchFinder from '../../components/booking/StaySearchFinder.astro';
 import HomeCinematicMain from '../../components/home/HomeCinematicMain.astro';
 import AmaraPageShell from '../../components/layout/AmaraPageShell.astro';
 import { createAmaraImage } from '../../lib/images/amaraImageProfiles';
@@ -75,7 +76,7 @@ import imgFarah from '../../assets/images/home/amara-farah-67-amara-frigiliana.j
 import imgZaid from '../../assets/images/home/amara-zaid-terraza-5.jpg';
 import imgMaha from '../../assets/images/home/amara-maha-29-amara-frigiliana.jpg';
 import imgPlaya from '../../assets/images/home/amara-playa-chaparril-13.webp';
-import imgCasa from '../../assets/images/home/amara-tarifa-apartment01.webp';
+import imgTarifa from '../../assets/images/home/amara-tarifa-apartment01.webp';
 import imgHost from '../../assets/images/content/robert-amara-host.jpg';
 
 const homeImageByToken: Record<CinematicAptToken, typeof imgHeroLounis> = {
@@ -84,7 +85,7 @@ const homeImageByToken: Record<CinematicAptToken, typeof imgHeroLounis> = {
   zaid: imgZaid,
   maha: imgMaha,
   playa: imgPlaya,
-  casa: imgCasa
+  tarifa: imgTarifa
 };
 
 const heroImage = await createAmaraImage(imgHeroLounis, 'hero', { quality: 50 });
@@ -206,7 +207,8 @@ const placesProps = cinematicPlaces
   .filter((place): place is NonNullable<typeof place> => Boolean(place));
 
 const trustReviewsHref = resolveOptionalLink('reviews_hub', currentLang, { suppressMissing: true });
-const trustBookingHref = resolveOptionalLink('book', currentLang, { suppressMissing: true });
+const staySearchResultsHref = resolveOptionalLink('stay_search_results', currentLang, { suppressMissing: true });
+const trustBookingHref = staySearchResultsHref ? '#stay-search' : null;
 const bridgeHref = resolveOptionalLink('nerja_vs_frigiliana', currentLang, { suppressMissing: true });
 const collectionCtaHref = resolveOptionalLink('romantic_hideaways', currentLang, { suppressMissing: true });
 const directHref = resolveOptionalLink('direct_booking_benefits', currentLang, { suppressMissing: true });
@@ -316,7 +318,15 @@ const quoteTranslationNote = currentLang === 'de' ? null : t(cinematicQuoteTrans
         honeymoonTitle={t(cinematicHoneymoonTitle)}
         honeymoonHref={honeymoonHref}
         honeymoonCtaLabel={t(cinematicHoneymoonCtaLabel)}
-      />
+      >
+        {staySearchResultsHref && (
+          <StaySearchFinder
+            slot="bookingFinder"
+            lang={currentLang}
+            action={staySearchResultsHref}
+          />
+        )}
+      </HomeCinematicMain>
     </div>
   </AmaraPageShell>
 </BaseLayout>

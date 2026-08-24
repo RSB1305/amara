@@ -1,7 +1,7 @@
 import type { LocalizedText, LocalizedTextList } from '../types/content';
 import type { AmaraAuthoringSeo } from '../types/seo';
 
-type HoneymoonStayLinkToken = 'romantic_hideaways' | 'playa' | 'casa';
+type HoneymoonStayLinkToken = 'romantic_hideaways' | 'playa' | 'tarifa';
 type HoneymoonPlanningLinkToken =
   | 'arrival_guide'
   | 'nerja_vs_frigiliana'
@@ -261,7 +261,7 @@ export const honeymoonContent = {
           'AMARA Family & Surf har två våningar, två sovrum, två badrum och en terrass mot Atlanten. Det är rymligt för två och kan också ta emot upp till fyra gäster.'
         ),
         linkLabel: l('View Family & Surf', 'Family & Surf ansehen', 'Ver Family & Surf', 'Bekijk Family & Surf', 'Visa Family & Surf'),
-        linkToken: 'casa' as HoneymoonStayLinkToken
+        linkToken: 'tarifa' as HoneymoonStayLinkToken
       }
     ],
     note: l(

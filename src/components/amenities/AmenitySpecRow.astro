@@ -2,33 +2,62 @@
 import type { AmenitySpecIcon } from './amenityIcons';
 export type { AmenitySpecIcon } from './amenityIcons';
 
+/**
+ * One inventory line in the AMARA row idiom: the Lucide glyph in its round
+ * surface chip, the quiet annotation line and the body line.
+ *
+ * The two variants differ only in which line leads. A key fact is a label above
+ * its value ("Max. occupancy" / "2 guests"), the same order the arrival guide
+ * uses for its contact facts. An amenity is the thing above its qualifier
+ * ("Air conditioning" / "in every room"), the same order the rental detail page
+ * uses. Both keep body copy at its role weight — the emphasis comes from the
+ * size step between the two roles, not from bolding the body.
+ */
 interface Props {
   icon: AmenitySpecIcon;
   label: string;
   value?: string;
   category?: string;
   filterable?: boolean;
+  variant?: 'fact' | 'amenity';
 }
 
-const { icon, label, value, category, filterable = false } = Astro.props;
+const {
+  icon,
+  label,
+  value,
+  category,
+  filterable = false,
+  variant = 'fact'
+} = Astro.props;
 
 const iconHref = `#am-amenity-icon-${icon}`;
 ---
 
 <li
-  class="grid min-h-[4.375rem] grid-cols-[1.75rem_minmax(0,1fr)] items-start gap-3 border-t border-outline-variant/20 py-3 md:min-h-[5.5rem] md:grid-cols-[2rem_minmax(0,1fr)] md:gap-4 md:py-5"
+  class="grid grid-cols-[2rem_minmax(0,1fr)] items-start gap-3 py-2 md:gap-4"
   data-amenity-row={filterable ? 'true' : undefined}
   data-amenity-category={category}
 >
-  <svg
-    viewBox="0 0 24 24"
-    class="mt-0.5 h-5 w-5 text-primary md:h-6 md:w-6"
+  <span
+    class="flex h-8 w-8 items-center justify-center rounded-full bg-surface-container-low text-primary"
     aria-hidden="true"
   >
-    <use href={iconHref} />
-  </svg>
-  <div class="min-w-0">
-    <strong class="am-text-body block font-normal text-on-surface md:font-bold">{label}</strong>
-    {value && <span class="am-text-body mt-0.5 block leading-normal text-on-surface-variant md:mt-1 md:leading-relaxed">{value}</span>}
+    <svg viewBox="0 0 24 24" class="h-5 w-5">
+      <use href={iconHref} />
+    </svg>
+  </span>
+  <div class="min-w-0 pt-1">
+    {variant === 'fact' ? (
+      <>
+        <span class="am-text-annotation block text-on-surface-variant">{label}</span>
+        {value && <span class="am-text-body mt-0.5 block text-on-surface">{value}</span>}
+      </>
+    ) : (
+      <>
+        <span class="am-text-body block text-on-surface">{label}</span>
+        {value && <span class="am-text-annotation mt-1 block text-on-surface-variant">{value}</span>}
+      </>
+    )}
   </div>
 </li>
