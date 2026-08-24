@@ -222,6 +222,33 @@
     text-transform: uppercase;
   }
 
+  /* Orientation-graphic roles. The two location graphics draw one label system
+   * on the inverse surface and had spelled it four ways across six call sites:
+   * 9px at 0.22em, 0.15em and 0.12em plus an 8px note at 0.16em. The eyebrow and
+   * the region were duplicated verbatim between both components. These roles
+   * name the three tiers the graphics actually distinguish — the accent above
+   * the title, the quiet label beside and below it, and its smaller footnote. */
+  .am-text-graphic-eyebrow {
+    font-family: var(--font-label);
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+  }
+
+  .am-text-graphic-label {
+    font-family: var(--font-label);
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+  }
+
+  .am-text-graphic-label--sm {
+    font-size: 8px;
+    letter-spacing: 0.16em;
+  }
+
   /* Annotation role: the semibold, wider, lower-tracked note used for source
    * lines, table meta and inline qualifiers. Distinct from the label roles by
    * weight and by not being uppercase on its own. */
@@ -259,6 +286,15 @@
    * baseline rather than being silently normalised here. */
   .am-text-caption--upper {
     text-transform: uppercase;
+  }
+
+  /* The wider step of the uppercase caption. The same treatment was authored
+   * with three tracking values across fifteen call sites — 0.16em, 0.18em and
+   * 0.2em — and two of them appeared on the same page for the same kind of
+   * caption. The role fixes the step at 0.2em, the value most call sites
+   * already used (DR-DESIGN-002). */
+  .am-text-caption--wide {
+    letter-spacing: 0.2em;
   }
 
   .am-kicker {

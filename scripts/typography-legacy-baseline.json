@@ -35,44 +35,11 @@
     "tracking-[0.16em]": 1
   },
   "src/components/location/ArrivalJourneyGraphic.astro": {
-    "text-[13px]": 1,
-    "text-[9px]": 3,
-    "tracking-[0.12em]": 1,
-    "tracking-[0.15em]": 1,
-    "tracking-[0.22em]": 1
-  },
-  "src/components/location/ClimateExperienceSection.astro": {
-    "tracking-[0.2em]": 1
-  },
-  "src/components/location/FrigilianaOrientationMap.astro": {
-    "text-[10px]": 1,
-    "tracking-[0.14em]": 1
-  },
-  "src/components/location/HairlineStatCard.astro": {
-    "tracking-[0.18em]": 1
+    "text-[13px]": 1
   },
   "src/components/location/LocationClimateTable.astro": {
-    "text-[10px]": 2,
-    "text-[11px]": 1,
-    "text-[clamp(1.5rem,2.2vw,2.25rem)]": 1,
-    "tracking-[0.14em]": 1,
-    "tracking-[0.18em]": 1
-  },
-  "src/components/location/LocationGuideEvidence.astro": {
-    "tracking-[0.2em]": 2
-  },
-  "src/components/location/LocationGuideHero.astro": {
-    "tracking-[0.2em]": 1
-  },
-  "src/components/location/SeasonalPillar.astro": {
-    "tracking-[0.18em]": 4
-  },
-  "src/components/location/WhereToStayOrientationGraphic.astro": {
-    "text-[8px]": 1,
-    "text-[9px]": 2,
-    "tracking-[0.15em]": 1,
-    "tracking-[0.16em]": 1,
-    "tracking-[0.22em]": 1
+    "text-[10px]": 1,
+    "text-[11px]": 1
   },
   "src/components/navigation/ContextNavigation.astro": {
     "text-[10px]": 2,

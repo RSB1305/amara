@@ -52,7 +52,7 @@ const maxRain = Math.max(...months.map((month) => month.rain));
   <div class="mx-auto max-w-screen-2xl px-6 py-20 md:px-12 md:py-28">
     <header class="grid gap-8 lg:grid-cols-12 lg:gap-16">
       <div class="lg:col-span-4">
-        <p class="am-text-caption uppercase tracking-[0.18em] text-primary">{eyebrow}</p>
+        <p class="am-text-caption am-text-caption--upper am-text-caption--wide text-primary">{eyebrow}</p>
         <h2 class="am-text-title mt-5 text-balance italic text-on-surface">{title}</h2>
       </div>
       <p class="am-text-body max-w-3xl leading-relaxed text-on-surface-variant lg:col-span-7 lg:col-start-6">
@@ -68,7 +68,7 @@ const maxRain = Math.max(...months.map((month) => month.rain));
               <p class="text-muted am-text-label am-text-label--sm am-text-label--wide">
                 {month.month}
               </p>
-              <p class="mt-4 font-serif text-[clamp(1.5rem,2.2vw,2.25rem)] leading-none text-on-surface">
+              <p class="mt-4 am-text-subtitle leading-none text-on-surface">
                 {month.high}°
               </p>
               <p class="mt-2 font-label text-[11px] tabular-nums text-muted">
@@ -86,7 +86,7 @@ const maxRain = Math.max(...months.map((month) => month.rain));
             </div>
           ))}
         </div>
-        <div class="flex items-center gap-8 border-t border-outline-variant/15 px-3 py-3 font-label text-[10px] font-bold uppercase tracking-[0.14em] text-muted">
+        <div class="flex items-center gap-8 border-t border-outline-variant/15 px-3 py-3 am-text-label am-text-label--sm text-muted">
           <span>{chartLabels.temperature}</span>
           <span class="flex items-center gap-2"><span class="h-2 w-2 bg-primary/55"></span>{chartLabels.rainfall}</span>
         </div>

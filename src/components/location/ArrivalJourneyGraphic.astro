@@ -106,12 +106,12 @@ const diagram = diagrams[data.place];
 >
   <div class="flex items-start justify-between gap-6 px-7 pb-1 pt-8 sm:px-9 sm:pt-10 md:px-8 lg:px-10">
     <div>
-      <p class="font-label text-[9px] font-bold uppercase tracking-[0.22em] text-primary-fixed-dim">
+      <p class="am-text-graphic-eyebrow text-primary-fixed-dim">
         {data.eyebrow}
       </p>
       <p class="arrival-graphic__destination mt-3 italic text-inverted-on-surface">{data.destination}</p>
     </div>
-    <p class="max-w-32 pt-1 text-right font-label text-[9px] font-bold uppercase leading-relaxed tracking-[0.15em] text-inverted-on-surface/45">
+    <p class="max-w-32 pt-1 text-right am-text-graphic-label leading-relaxed text-inverted-on-surface/45">
       {data.region}
     </p>
   </div>
@@ -239,7 +239,7 @@ const diagram = diagrams[data.place];
     {data.otherAirports && data.otherAirports.length > 0 && (
       <div class="flex flex-wrap gap-x-5 gap-y-2 border-b border-inverted-on-surface/15 py-3">
         {data.otherAirports.map((airport) => (
-          <p class="font-label text-[9px] font-bold uppercase tracking-[0.12em] text-inverted-on-surface/55">
+          <p class="am-text-graphic-label text-inverted-on-surface/55">
             <span class="text-primary-fixed-dim">{airport.code}</span>
             {' · '}{airport.distance}{' · '}{airport.time}
           </p>
