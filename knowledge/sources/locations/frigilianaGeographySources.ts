@@ -12,7 +12,7 @@ export const frigilianaGeographySources = defineKnowledgeSources([
     scope: 'Official municipal area, main-settlement reference altitude, coordinates and population-centre count.',
     limitations:
       'The altitude and coordinates are reference values for the principal settlement, not a complete elevation model for every street or address.',
-    reuse: 'link-and-cite'
+    reuse: 'link-and-cite',
   },
   {
     id: 'aemet-frigiliana-municipal-reference-2026',
@@ -25,11 +25,11 @@ export const frigilianaGeographySources = defineKnowledgeSources([
     scope: 'Official reference altitude and coordinates used for the municipal forecast.',
     limitations:
       'AEMET explicitly warns that a municipal forecast refers to the capital and that altitude can vary substantially within a municipality.',
-    reuse: 'link-and-cite'
+    reuse: 'link-and-cite',
   },
   {
     id: 'boja-frigiliana-historic-ensemble-2015',
-    title: 'Decree 11/2015: Frigiliana historic ensemble',
+    title: 'Decree 183/2014: Frigiliana historic ensemble',
     publisher: 'Junta de Andalucía',
     sourceType: 'official',
     url: 'https://www.juntadeandalucia.es/boja/2015/23/26',
@@ -38,7 +38,7 @@ export const frigilianaGeographySources = defineKnowledgeSources([
     scope: 'Protected historic-settlement morphology, topography, Barribarto, Barribajo, El Ingenio and later expansion.',
     limitations:
       'Descriptions apply to the designated historic ensemble and its documented morphology; they must not be generalized to every Frigiliana address.',
-    reuse: 'link-and-cite'
+    reuse: 'link-and-cite',
   },
   {
     id: 'junta-tejeda-almijara-visitor-record-2026',
@@ -51,8 +51,8 @@ export const frigilianaGeographySources = defineKnowledgeSources([
     scope: 'Official protected-area size, regional setting and included municipalities.',
     limitations:
       'Municipality inclusion does not establish that the whole municipality or the built village lies inside the protected-area boundary.',
-    reuse: 'link-and-cite'
-  }
+    reuse: 'link-and-cite',
+  },
 ] as const);
 
 export type FrigilianaGeographySourceId = (typeof frigilianaGeographySources)[number]['id'];
