@@ -2,6 +2,7 @@
 // The study is intentionally standalone so experimental composition cannot alter public homepage architecture.
 import '../../../styles/global.css';
 import { createAmaraImage } from '../../../lib/images/amaraImageProfiles';
+import { vacationRentalEntitiesByToken } from '../../../content/vacationRentalEntities';
 import {
   cinematicApartments,
   type CinematicAptToken,
@@ -54,10 +55,14 @@ const heroImage = await createAmaraImage(imgLounis, 'hero', { quality: 60 });
 const apartmentStudies = await Promise.all(
   cinematicApartments.map(async (apartment) => {
     const image = await createAmaraImage(imageByApartment[apartment.token], 'card', { quality: 65 });
+    // The public card meta now comes from the rental entities rather than an
+    // authored field, so the study derives the same line instead of reviving it.
+    const rental = vacationRentalEntitiesByToken[apartment.token];
 
     return {
       ...apartment,
-      image
+      image,
+      meta: `${rental.city} • ${rental.occupancy} guests`
     };
   })
 );
@@ -203,7 +208,7 @@ const apartmentStudies = await Promise.all(
                   <div class="property__copy">
                     <span class="property__index">{String(index + 1).padStart(2, '0')}</span>
                     <div>
-                      <p class="property__meta">{english(apartment.meta)}</p>
+                      <p class="property__meta">{apartment.meta}</p>
                       <h3>AMARA {apartment.name}</h3>
                       <p class="property__subtitle">{english(apartment.subtitle)}</p>
                       <p class="property__description">{english(apartment.desc)}</p>

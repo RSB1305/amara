@@ -16,6 +16,7 @@
     "test:browser": "playwright test --config=playwright.browser.config.ts",
     "prebuild": "npm run typecheck && npm run check:slug-policy && npm run check:fallback-policy && npm run check:image-policy && npm run check:typography-policy",
     "check": "npm run typecheck && npm run check:slug-policy && npm run check:fallback-policy && npm run check:image-policy && npm run check:typography-policy",
+    "check:ci": "npm run audit:dependencies && npm run typecheck:tools && npm run typecheck:tests && npm run test:contracts && npm run build",
     "build": "astro build",
     "postbuild": "node scripts/postbuild.mjs && node scripts/check-image-policy.mjs --dist",
     "preview": "astro preview",
