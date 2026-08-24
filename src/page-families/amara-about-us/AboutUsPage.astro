@@ -38,6 +38,15 @@ const sustainabilityListColumns =
     items: column.items.map((item) => item[currentLang])
   })) ?? [];
 
+/** Contextual routes out of the philosophy prose; a missing target drops silently. */
+const philosophyLinks =
+  content.philosophy.links
+    ?.map((link) => {
+      const href = resolveOptionalLink(link.token, currentLang, { suppressMissing: true });
+      return href ? { href, label: link.label[currentLang] } : null;
+    })
+    .filter((link): link is { href: string; label: string } => Boolean(link)) ?? [];
+
 const hostStats =
   content.host.stats?.map((stat) => ({
     label: stat.label[currentLang],
@@ -119,6 +128,13 @@ const heroCtaLinks = page.hero.ctaLinks
             .map((item) => (
               <p class="am-text-body text-subtle"><InlineEmphasis text={item.copy[currentLang]} /></p>
             ))}
+          {philosophyLinks.length > 0 && (
+            <p class="am-text-body text-subtle mt-2 flex flex-wrap gap-x-6 gap-y-2">
+              {philosophyLinks.map((link) => (
+                <a class="am-link" href={link.href}>{link.label}</a>
+              ))}
+            </p>
+          )}
         </EditorialSplit>
   </AmaraSection>
 

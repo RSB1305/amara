@@ -30,6 +30,14 @@ interface AboutUsSection {
     label: LocalizedText;
     items: LocalizedText[];
   }[];
+  /**
+   * Contextual routes out of a prose section. Anchor labels are reused from the
+   * existing site vocabulary so one destination keeps one anchor text.
+   */
+  links?: {
+    token: LinkToken;
+    label: LocalizedText;
+  }[];
 }
 
 interface AboutUsContent {
@@ -261,6 +269,28 @@ export const aboutUsContent: AboutUsContent = {
           es: '**Al final es eso lo que os llega**: no como una línea en una lista de servicios, sino en que los pequeños detalles están bien. Y es la razón por la que AMARA está hecha para dos: una luna de miel, los días alrededor de una boda en Frigiliana o simplemente tiempo juntos por el que merece la pena pedir vacaciones.',
           nl: '**Uiteindelijk is dat wat bij jullie aankomt** — niet als regel in een voorzieningenlijst, maar doordat de kleine dingen kloppen. En het is de reden dat AMARA voor twee gemaakt is: een huwelijksreis, de dagen rond een bruiloft in Frigiliana, of gewoon tijd samen waarvoor het de moeite waard is vrij te nemen.',
           sv: '**Till slut är det just det som når fram till er** — inte som en rad i en utrustningslista, utan genom att de små sakerna stämmer. Och det är skälet till att AMARA är gjort för två: en smekmånad, dagarna kring ett bröllop i Frigiliana, eller helt enkelt tid tillsammans som är värd att ta ledigt för.'
+        }
+      }
+    ],
+    links: [
+      {
+        token: 'honeymoon',
+        label: {
+          en: 'Honeymoon in Andalusia',
+          de: 'Flitterwochen in Andalusien',
+          es: 'Luna de miel en Andalucía',
+          nl: 'Huwelijksreis in Andalusië',
+          sv: 'Smekmånad i Andalusien'
+        }
+      },
+      {
+        token: 'frigiliana_weddings',
+        label: {
+          en: 'Getting married in Frigiliana',
+          de: 'Heiraten in Frigiliana',
+          es: 'Casarse en Frigiliana',
+          nl: 'Trouwen in Frigiliana',
+          sv: 'Gifta sig i Frigiliana'
         }
       }
     ]
