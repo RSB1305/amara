@@ -22,7 +22,9 @@ import AmaraImage from '../../components/AmaraImage.astro';
 import AmaraPageShell from '../../components/layout/AmaraPageShell.astro';
 import AmaraSection from '../../components/layout/AmaraSection.astro';
 import Navigation from '../../components/Navigation.astro';
-import { resolveOptionalLink } from '../../lib/linkResolver';
+import ContextNavigation from '../../components/navigation/ContextNavigation.astro';
+import { getDestinationContextNavigation } from '../../lib/location/destinationBranchNavigation';
+import { createRequiredLinkResolver } from '../../lib/linkResolver';
 import { normalizeLanguage } from '../../lib/seo/resolve-seo-head';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import type { AmaraLanguage } from '../../types/seo';
@@ -38,10 +40,11 @@ const copy = arrivalGuideCopy;
 const arrivalSteps = arrivalGuideSteps[currentLang];
 const busRoutes = arrivalGuideBusRoutes[currentLang];
 const ui = arrivalGuideUi;
+const requiredLink = createRequiredLinkResolver(currentLang, 'arrival guide context navigation');
+const destinationContextNavigation = getDestinationContextNavigation('frigiliana', currentLang);
 const mapHref = 'https://maps.app.goo.gl/S7AzRNc2QMCRyBBN6';
-const gettingToFrigilianaHref = resolveOptionalLink('getting_to_frigiliana', currentLang, {
-  suppressMissing: true
-});
+const gettingToFrigilianaHref = requiredLink('getting_to_frigiliana');
+const parkingHref = requiredLink('frigiliana_parking');
 const c = {
   header: {
     eyebrow: copy.header.eyebrow[currentLang],
@@ -51,7 +54,8 @@ const c = {
   journeyIntro: {
     title: copy.content.journeyIntro.title[currentLang],
     text: copy.content.journeyIntro.text[currentLang],
-    cta: copy.content.journeyIntro.cta[currentLang]
+    cta: copy.content.journeyIntro.cta[currentLang],
+    parkingCta: copy.content.journeyIntro.parkingCta[currentLang]
   },
   parking: { title: copy.content.parking.title[currentLang], text: copy.content.parking.text[currentLang] },
   walkingAccess: { title: copy.content.walkingAccess.title[currentLang], text: copy.content.walkingAccess.text[currentLang] },
@@ -75,12 +79,26 @@ const busIntro = c.arrivalByBus.text.split('\n\n')[0];
 <BaseLayout
   seo={seo}
   pageLang={currentLang}
-  contextBreadcrumbTitle={c.header.title}
+  showContextNavigation={false}
 >
   <Navigation
     currentLang={currentLang}
     languageToken="arrival_guide"
-  />
+  >
+    <ContextNavigation
+      slot="context-navigation"
+      branches={destinationContextNavigation.branchNavigation.items}
+      branchSwitcherAriaLabel={destinationContextNavigation.branchNavigation.ariaLabel}
+      breadcrumbAriaLabel={destinationContextNavigation.breadcrumbAriaLabel}
+      breadcrumbs={[
+        { label: 'AMARA', href: requiredLink('home') },
+        { label: 'Frigiliana', href: requiredLink('location_frigiliana') },
+        { label: c.header.title }
+      ]}
+      context="location"
+      switcherAriaLabel={destinationContextNavigation.switcherAriaLabel}
+    />
+  </Navigation>
 
   <AmaraPageShell family="frigiliana-arrival-guide" dataLang={currentLang} flush whiteCanvas>
     <div class="mx-auto w-full max-w-screen-2xl px-6 pb-6 md:px-12 md:pb-16">
@@ -111,7 +129,7 @@ const busIntro = c.arrivalByBus.text.split('\n\n')[0];
         </figure>
 
         <div class="mt-8 max-w-4xl md:mt-10">
-          <div class="grid gap-5 border-y border-border-subtle py-6 sm:grid-cols-[minmax(0,1fr)_auto] sm:items-center sm:gap-8">
+          <div class="border-y border-border-subtle py-6">
             <div>
               <p class="text-on-surface-variant am-text-label">
                 {c.journeyIntro.title}
@@ -120,12 +138,16 @@ const busIntro = c.arrivalByBus.text.split('\n\n')[0];
                 {c.journeyIntro.text}
               </p>
             </div>
-            {gettingToFrigilianaHref && (
+            <div class="mt-5 flex flex-wrap items-center gap-x-6 gap-y-3">
               <a class="am-inline-link am-text-body w-fit shrink-0" href={gettingToFrigilianaHref}>
                 {c.journeyIntro.cta}
                 <span aria-hidden="true"> &rarr;</span>
               </a>
-            )}
+              <a class="am-inline-link am-text-body w-fit shrink-0" href={parkingHref}>
+                {c.journeyIntro.parkingCta}
+                <span aria-hidden="true"> &rarr;</span>
+              </a>
+            </div>
           </div>
 
           <h2 class="am-text-title mt-10 text-on-surface">{c.parking.title}</h2>

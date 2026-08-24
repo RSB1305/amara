@@ -49,18 +49,18 @@ export const arrivalGuideCopy = {
   content: {
     journeyIntro: {
       title: {
-        en: "First reach Frigiliana",
-        de: "Zuerst nach Frigiliana",
-        es: "Primero, llegar a Frigiliana",
-        nl: "Eerst naar Frigiliana",
-        sv: "Först till Frigiliana"
+        en: "Before arrival",
+        de: "Vor der Ankunft",
+        es: "Antes de llegar",
+        nl: "Voor aankomst",
+        sv: "Före ankomsten"
       },
       text: {
-        en: "If you are still planning the journey from Málaga Airport or Nerja, compare rental car, private transfer and bus options first. This guide takes over once you reach the village.",
-        de: "Wenn ihr die Anreise vom Flughafen Málaga oder von Nerja noch plant, vergleicht zuerst Mietwagen, privaten Transfer und Bus. Dieser Guide übernimmt, sobald ihr Frigiliana erreicht.",
-        es: "Si todavía estáis planificando el trayecto desde el aeropuerto de Málaga o Nerja, comparad primero coche de alquiler, transfer privado y autobús. Esta guía continúa cuando llegáis al pueblo.",
-        nl: "Als jullie de reis vanaf Málaga Airport of Nerja nog plannen, vergelijk dan eerst huurauto, privétransfer en bus. Deze gids neemt het over zodra jullie Frigiliana bereiken.",
-        sv: "Om ni fortfarande planerar resan från Málaga flygplats eller Nerja, jämför först hyrbil, privat transfer och buss. Den här guiden tar vid när ni når byn."
+        en: "If you are still planning the journey from Málaga Airport or Nerja, start with the route to Frigiliana. If you are arriving by car, the parking guide explains the village parking options, restricted access and the final walk. This guide takes over at the recommended drop-off point for La AMARA.",
+        de: "Wenn ihr die Anreise vom Flughafen Málaga oder von Nerja noch plant, beginnt mit der Anreise nach Frigiliana. Wenn ihr mit dem Auto kommt, erklärt der Parkguide die Parkmöglichkeiten im Dorf, die eingeschränkte Zufahrt und den letzten Fußweg. Dieser Guide übernimmt am empfohlenen Ausstiegspunkt für La AMARA.",
+        es: "Si todavía estáis planificando el trayecto desde el aeropuerto de Málaga o Nerja, empezad por cómo llegar a Frigiliana. Si venís en coche, la guía de aparcamiento explica dónde aparcar en el pueblo, las restricciones de acceso y el último tramo a pie. Esta guía continúa en el punto recomendado para bajar junto a La AMARA.",
+        nl: "Als jullie de reis vanaf Málaga Airport of Nerja nog plannen, begin dan met de route naar Frigiliana. Komen jullie met de auto, dan legt de parkeergids uit waar jullie in het dorp kunnen parkeren, welke toegangsbeperkingen er zijn en hoe het laatste stuk te voet verloopt. Deze gids neemt het over bij de aanbevolen afzetplek voor La AMARA.",
+        sv: "Om ni fortfarande planerar resan från Málaga flygplats eller Nerja börjar ni med vägen till Frigiliana. Om ni kommer med bil förklarar parkeringsguiden var ni kan parkera i byn, vilka infartsbegränsningar som gäller och hur den sista promenaden ser ut. Den här guiden tar vid vid den rekommenderade avlämningsplatsen för La AMARA."
       },
       cta: {
         en: "Plan the journey to Frigiliana",
@@ -68,6 +68,13 @@ export const arrivalGuideCopy = {
         es: "Planificar el viaje a Frigiliana",
         nl: "Plan de reis naar Frigiliana",
         sv: "Planera resan till Frigiliana"
+      },
+      parkingCta: {
+        en: "Check parking & access",
+        de: "Parken & Erreichbarkeit prüfen",
+        es: "Consultar aparcamiento y acceso",
+        nl: "Parkeren & bereikbaarheid bekijken",
+        sv: "Se parkering & tillgänglighet"
       }
     },
     parking: {
