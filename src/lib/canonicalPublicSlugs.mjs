@@ -73,6 +73,7 @@ export const STATIC_CANONICAL_PUBLIC_SLUGS = Object.freeze([
   'directions-arrival-guide',
   'honeymoon',
   'find-a-stay',
+  'last-minute-stays',
   'romantic-hideaways'
 ]);
 
