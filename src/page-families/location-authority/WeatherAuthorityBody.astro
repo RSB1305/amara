@@ -63,7 +63,7 @@ const {
       <div class="border-y border-border-subtle lg:col-span-7">
         {content.factors.items.map((item, index) => (
           <article class:list={['grid gap-4 py-7 sm:grid-cols-[3rem_minmax(0,1fr)]', index > 0 && 'border-t border-border-subtle']}>
-            <span class="font-label text-[10px] font-bold tracking-[0.14em] text-primary">{String(index + 1).padStart(2, '0')}</span>
+            <span class="am-text-label am-text-label--sm am-text-label--wide text-primary">{String(index + 1).padStart(2, '0')}</span>
             <div>
               <h3 class="am-text-subtitle text-on-surface">{item.title}</h3>
               <p class="am-text-body mt-3 leading-relaxed text-on-surface-variant"><InlineEmphasis text={item.text} /></p>
@@ -182,7 +182,7 @@ const {
         <p class="am-text-eyebrow text-primary">{content.sources.eyebrow}</p>
         <h2 class="am-text-title mt-5 text-balance italic text-on-surface">{content.sources.title}</h2>
         <p class="am-text-body mt-6 leading-relaxed text-on-surface-variant"><InlineEmphasis text={content.sources.intro} /></p>
-        <p class="mt-6 font-label text-[10px] font-bold uppercase tracking-[0.12em] text-muted">{content.sources.checked}</p>
+        <p class="mt-6 am-text-label am-text-label--sm text-muted">{content.sources.checked}</p>
       </div>
       <div class="border-t border-border-subtle lg:col-span-8">
         {content.sources.links.map((source) => (

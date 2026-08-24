@@ -58,43 +58,6 @@
   "src/page-families/arrival-guide/DirectionsArrivalGuidePage.astro": {
     "text-[11px]": 1
   },
-  "src/page-families/location-authority/AuthorityArticle.astro": {
-    "text-[10px]": 1,
-    "tracking-[0.12em]": 1
-  },
-  "src/page-families/location-authority/ExperienceHubPage.astro": {
-    "text-[10px]": 2,
-    "text-[11px]": 1,
-    "tracking-[0.16em]": 3
-  },
-  "src/page-families/location-authority/FrigilianaFaqPage.astro": {
-    "text-[clamp(2.75rem,5vw,5rem)]": 1
-  },
-  "src/page-families/location-authority/FrigilianaLocationPage.astro": {
-    "text-[10px]": 1,
-    "tracking-[0.15em]": 1
-  },
-  "src/page-families/location-authority/FrigilianaMarketPage.astro": {
-    "text-[clamp(2.5rem,5vw,4.75rem)]": 1,
-    "tracking-[0.16em]": 2
-  },
-  "src/page-families/location-authority/NerjaExperienceHubPage.astro": {
-    "text-[10px]": 1,
-    "tracking-[0.16em]": 1
-  },
-  "src/page-families/location-authority/TarifaExperienceSpokePage.astro": {
-    "text-[10px]": 1,
-    "tracking-[0.12em]": 1
-  },
-  "src/page-families/location-authority/WeatherAuthorityBody.astro": {
-    "text-[10px]": 2,
-    "tracking-[0.12em]": 1,
-    "tracking-[0.14em]": 1
-  },
-  "src/page-families/location-authority/WhereToStayAuthorityBody.astro": {
-    "text-[10px]": 1,
-    "tracking-[0.14em]": 1
-  },
   "src/pages/_tools/converter/index.astro": {
     "leading-[0.95]": 1,
     "text-[11px]": 1,

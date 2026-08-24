@@ -249,6 +249,19 @@
     letter-spacing: 0.16em;
   }
 
+  /* The decorative section numeral. Two authority page families drew the same
+   * aria-hidden figure beside a heading with two different clamps that agree
+   * across almost the whole viewport range and drift apart only at the ends.
+   * The role fixes the ramp on the same foot as `am-text-title` (2.5rem, 5vw)
+   * and states the weight, which until now came from inheritance. Italic stays
+   * in the markup, as everywhere else in this system. */
+  .am-text-ordinal-display {
+    font-family: var(--font-headline);
+    font-size: clamp(2.5rem, 5vw, 4.75rem);
+    font-weight: 400;
+    line-height: 1;
+  }
+
   /* Annotation role: the semibold, wider, lower-tracked note used for source
    * lines, table meta and inline qualifiers. Distinct from the label roles by
    * weight and by not being uppercase on its own. */
