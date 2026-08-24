@@ -53,6 +53,7 @@ const mockGateway = async (page: Page, options: MockOptions = {}) => {
     const requestUrl = new URL(route.request().url());
     requests.push(requestUrl);
     const operation = requestUrl.pathname.split('/').pop();
+    const stay = requestUrl.searchParams.get('stay') || '';
 
     if (operation === 'quote') {
       if (options.quoteError) {
@@ -73,7 +74,7 @@ const mockGateway = async (page: Page, options: MockOptions = {}) => {
         status: 200,
         contentType: 'application/json',
         body: JSON.stringify({
-          stay: 'maha',
+          stay,
           arrival: requestUrl.searchParams.get('arrival'),
           departure: requestUrl.searchParams.get('departure'),
           guests: { adults, children: 0, pets: 0 },
@@ -104,7 +105,7 @@ const mockGateway = async (page: Page, options: MockOptions = {}) => {
     const payload =
       operation === 'availability'
         ? {
-            stay: 'maha',
+            stay,
             start,
             end,
             days: days.map((date) => ({
@@ -113,7 +114,7 @@ const mockGateway = async (page: Page, options: MockOptions = {}) => {
             }))
           }
         : {
-            stay: 'maha',
+            stay,
             start,
             end,
             days: days.map((date, index) => ({
@@ -141,6 +142,44 @@ const mockGateway = async (page: Page, options: MockOptions = {}) => {
 
 const dayButton = (page: Page, value: string) =>
   page.locator('[data-am-booking-day="' + value + '"]');
+
+const stayCases = [
+  { key: 'farah', path: '/en/la-amara-farah', name: 'Farah', occupancy: 2 },
+  { key: 'lounis', path: '/en/la-amara-lounis', name: 'Lounis', occupancy: 2 },
+  { key: 'zaid', path: '/en/la-amara-zaid', name: 'Zaid', occupancy: 2 },
+  { key: 'maha', path: '/en/la-amara-maha', name: 'Maha', occupancy: 2 },
+  { key: 'playa', path: '/en/la-amara-playa', name: 'Playa', occupancy: 2 },
+  {
+    key: 'tarifa',
+    path: '/en/la-amara-family-and-surf',
+    name: 'Family & Surf',
+    occupancy: 4
+  }
+] as const;
+
+test('all six property calendars stay idle on page load and request their stable stay key on open', async ({
+  page
+}) => {
+  await page.setViewportSize(MOBILE);
+  const requests = await mockGateway(page);
+
+  for (const stay of stayCases) {
+    const requestCountBeforePageLoad = requests.length;
+    await page.goto(ORIGIN + stay.path, { waitUntil: 'domcontentloaded' });
+    expect(requests).toHaveLength(requestCountBeforePageLoad);
+
+    const calendar = page.locator('[data-am-stay-booking-calendar]');
+    await expect(calendar).toHaveAttribute('data-am-booking-stay', stay.key);
+    await expect(calendar.getByRole('heading', { level: 2 })).toContainText(stay.name);
+    await expect(calendar.locator('[data-am-booking-guests] option')).toHaveCount(stay.occupancy);
+
+    await page.getByRole('button', { name: 'Choose arrival' }).click();
+    await expect.poll(() => requests.length).toBe(requestCountBeforePageLoad + 2);
+    for (const request of requests.slice(requestCountBeforePageLoad)) {
+      expect(request.searchParams.get('stay')).toBe(stay.key);
+    }
+  }
+});
 
 test('desktop calendar loads only on open, enforces stay rules and quotes a valid range', async ({
   page
@@ -286,7 +325,7 @@ test('all five locales expose native calendar labels and localized total-price l
     await page.goto(ORIGIN + path, { waitUntil: 'domcontentloaded' });
     await expect(page.getByRole('button', { name: arrivalLabel })).toBeVisible();
     const copy = await page
-      .locator('[data-am-booking-canary]')
+      .locator('[data-am-stay-booking-calendar]')
       .getAttribute('data-am-booking-copy');
     expect(copy).toContain(noteFragment);
   }

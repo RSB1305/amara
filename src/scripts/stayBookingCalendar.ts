@@ -61,12 +61,13 @@ const nightsBetween = (arrival: string, departure: string) =>
 const element = <T extends Element>(root: ParentNode, selector: string) =>
   root.querySelector<T>(selector);
 
-export function enhanceMahaBookingCalendars() {
-  document.querySelectorAll<HTMLElement>('[data-am-booking-canary]').forEach((container) => {
+export function enhanceStayBookingCalendars() {
+  document.querySelectorAll<HTMLElement>('[data-am-stay-booking-calendar]').forEach((container) => {
     if (container.dataset.amBookingEnhanced === 'true') return;
 
     const copy = JSON.parse(container.dataset.amBookingCopy || '{}') as BookingCopy;
     const language = container.dataset.amBookingLanguage || 'en';
+    const stay = container.dataset.amBookingStay || '';
     const form = element<HTMLFormElement>(container, '[data-am-booking-form]');
     const arrivalInput = element<HTMLInputElement>(container, '[data-am-booking-arrival]');
     const departureInput = element<HTMLInputElement>(container, '[data-am-booking-departure]');
@@ -117,6 +118,7 @@ export function enhanceMahaBookingCalendars() {
     const note = element<HTMLElement>(container, '[data-am-booking-note]');
 
     if (
+      !stay ||
       !form ||
       !arrivalInput ||
       !departureInput ||
@@ -313,7 +315,7 @@ export function enhanceMahaBookingCalendars() {
       const loading: CacheEntry = { state: 'loading' };
       monthCache.set(key, loading);
       renderCalendar();
-      const params = new URLSearchParams({ stay: 'maha', start: window.start, end: window.end });
+      const params = new URLSearchParams({ stay, start: window.start, end: window.end });
       try {
         const [availability, rates] = await Promise.all([
           fetchJson('/api/booking/availability', params),
@@ -330,7 +332,7 @@ export function enhanceMahaBookingCalendars() {
           | Array<{ date?: string; currency?: string; options?: unknown[] }>
           | undefined;
         const availabilityValid =
-          availability.stay === 'maha' &&
+          availability.stay === stay &&
           availability.start === window.start &&
           availability.end === window.end &&
           Array.isArray(availabilityDays) &&
@@ -340,7 +342,7 @@ export function enhanceMahaBookingCalendars() {
               day.date === expectedDates[index] && typeof day.available === 'boolean'
           );
         const ratesValid =
-          rates.stay === 'maha' &&
+          rates.stay === stay &&
           rates.start === window.start &&
           rates.end === window.end &&
           Array.isArray(rateDays) &&
@@ -616,7 +618,7 @@ export function enhanceMahaBookingCalendars() {
       showState({ state: 'loading', title: copy.loading, body: '', detail: '' });
       try {
         const params = new URLSearchParams({
-          stay: 'maha',
+          stay,
           arrival,
           departure,
           adults: String(guests),
@@ -628,7 +630,7 @@ export function enhanceMahaBookingCalendars() {
           | { adults?: number; children?: number; pets?: number }
           | undefined;
         if (
-          quote.stay !== 'maha' ||
+          quote.stay !== stay ||
           quote.arrival !== arrival ||
           quote.departure !== departure ||
           quoteGuests?.adults !== guests ||
