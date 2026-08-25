@@ -216,10 +216,27 @@ test('desktop calendar loads only on open, enforces stay rules and quotes a vali
   expect(prefixBox?.y).toBeLessThan(amountBox?.y ?? 0);
   await arrivalButton.click();
 
+  await expect(arrivalButton).toHaveAttribute('data-range', 'start');
+  await expect(arrivalButton).toHaveAttribute('data-am-booking-day-state', 'selected');
+  await expect(arrivalButton).toHaveAttribute('aria-label', /selected arrival/);
+  await expect(page.locator('[data-am-booking-calendar-status]')).toContainText(
+    'Minimum stay from this arrival: 3 nights'
+  );
   await expect(dayButton(page, futureIso(4))).toBeDisabled();
   await expect(dayButton(page, futureIso(5))).toBeDisabled();
+  await expect(dayButton(page, futureIso(4))).toHaveAttribute(
+    'data-am-booking-day-state',
+    'restricted'
+  );
+  await expect(dayButton(page, futureIso(4))).toHaveAttribute('aria-label', /available/);
+  await expect(
+    dayButton(page, futureIso(4)).locator('.am-booking-calendar__day-number')
+  ).toHaveCSS('text-decoration-line', 'none');
   await expect(dayButton(page, futureIso(6))).toBeEnabled();
   await expect(dayButton(page, futureIso(11))).toBeDisabled();
+  await expect(
+    dayButton(page, blocked).locator('.am-booking-calendar__day-number')
+  ).toHaveCSS('text-decoration-line', 'line-through');
 
   await dayButton(page, futureIso(6)).focus();
   await page.keyboard.press('ArrowRight');

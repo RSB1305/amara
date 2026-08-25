@@ -217,6 +217,11 @@ const {
     cursor: wait;
   }
 
+  .am-booking-calendar__day[data-am-booking-day-state='restricted'] {
+    cursor: not-allowed;
+    color: var(--color-on-surface-variant);
+  }
+
   .am-booking-calendar__day-loading {
     display: block;
     width: 1.8rem;
