@@ -1,7 +1,7 @@
 ---
 document_id: AMARA-INT-ASTRO-003
 title: AMARA Astro & Design Architecture Contract V4
-version: 4.8.0
+version: 4.8.1
 status: ACTIVE
 authority_class: CONTRACT / GOVERNING INTERIM
 source_type: INTERIM SNAPSHOT FROM APPROVED PDF + APPROVED REPOSITORY AMENDMENT
@@ -9,7 +9,7 @@ source_attachment: "03_AMARA_Astro_Technical_Standard_V4 (1).pdf"
 source_sha256: b3d8a3e780b29b5be42922aec838c7f56f455184cca8336d9a0f3564ba43f9aa
 snapshot_created: 2026-08-14T09:08:00+02:00
 migration_state: PENDING PACKAGE 2/3 NORMALIZATION
-last_modified: 2026-08-25T18:37:51+02:00
+last_modified: 2026-08-25T18:47:39+02:00
 ---
 
 # AMARA Astro & Design Architecture Contract V4 — Interim Markdown Snapshot
@@ -22,7 +22,7 @@ last_modified: 2026-08-25T18:37:51+02:00
 
 AMARA Astro & Design Architecture Contract V4
 Status                                                ACTIVE
-Version                                               4.8.0
+Version                                               4.8.1
 Effective date                                        2026-08-10
 Runtime                                               Astro
 Styling                                               Tailwind CSS + AMARA global tokens + scoped component
@@ -186,11 +186,18 @@ Preserve:
 - keyboard activation;
 - Escape/focus restoration;
 - mobile inert containment;
-
-
+- width containment for localized contextual breadcrumbs and sibling navigation;
 - scroll lock;
 - language-switch behavior.
 Do not refactor navigation incidentally during page work.
+
+Context navigation must not widen the document at any supported mobile viewport. The current breadcrumb may
+truncate inside its available width; sibling links that intentionally remain on one line own their horizontal
+scrolling inside the navigation rail. Long localized labels must never transfer that overflow to the page.
+
+The persistent booking action remains visible in the canonical header. Below 360px it uses the approved native
+compact availability label for EN, DE, ES, NL and SV so the brand, language control, booking path and menu keep
+separate hit areas. Hiding one of those four jobs is not an acceptable width fix.
 
 10. Footer contract
 BaseLayout pages render the canonical footer core.
@@ -418,3 +425,4 @@ with the containing renderer when its composition is materially revised, not as 
 | 4.6.0 | 2026-08-25T17:49:36+02:00 | Activated the semantic hero contract, named the deliberate Trust, Stay, Location, Experience and campaign variants, extracted the Stay decision hero into a production owner and rendered representative production owners in the living styleguide. |
 | 4.7.0 | 2026-08-25T18:22:10+02:00 | Activated semantic classification for card-like and editorial modules, established canonical feature-grid and practical-callout owners, preserved distinct family jobs and replaced the styleguide's simulated cards with production modules. |
 | 4.8.0 | 2026-08-25T18:37:51+02:00 | Activated the shared section rhythm and section-introduction contract, preserved named Trust, Stay and Location/Experience variants, migrated bounded production consumers and classified the older Location shell as controlled legacy. |
+| 4.8.1 | 2026-08-25T18:47:39+02:00 | Corrected mobile width containment in the canonical context navigation so localized current-page breadcrumbs truncate within the rail and sibling links retain contained horizontal scrolling without widening the document; added the native compact booking-label tier below 360px so all four header jobs remain visible. |

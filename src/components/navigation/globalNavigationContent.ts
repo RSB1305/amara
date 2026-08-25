@@ -30,6 +30,15 @@ export const defaultCtaShortLabels: Record<AmaraLanguage, string> = {
   sv: 'Tillgänglighet'
 };
 
+/** Narrowest supported header label; the destination is still the availability search. */
+export const defaultCtaCompactLabels: Record<AmaraLanguage, string> = {
+  en: 'Dates',
+  de: 'Termine',
+  es: 'Fechas',
+  nl: 'Data',
+  sv: 'Datum'
+};
+
 /**
  * One wording covers entering and running the availability search, because to a
  * guest those are the same intention. It stops at the stay page, where choosing

@@ -100,10 +100,10 @@ const visibleItems = activeId && !retainActiveItem
         ]}
         data-am-context-breadcrumb-row
       >
-        <nav aria-label={breadcrumbAriaLabel}>
+        <nav class="min-w-0 max-w-full" aria-label={breadcrumbAriaLabel}>
           <ol
             class:list={[
-              'flex items-center am-text-nav-breadcrumb text-on-surface/70',
+              'flex w-full max-w-full items-center am-text-nav-breadcrumb text-on-surface/70',
               groups.length > 0
                 ? 'am-text-nav-breadcrumb--responsive min-w-0 flex-nowrap gap-1 md:gap-2'
                 : 'flex-wrap gap-2'
@@ -128,7 +128,8 @@ const visibleItems = activeId && !retainActiveItem
                       aria-current={isCurrent ? 'page' : undefined}
                       class:list={[
                         'truncate',
-                        index < 2 && 'shrink-0',
+                        (index === 0 || (index === 1 && !isCurrent)) && 'shrink-0',
+                        isCurrent && 'min-w-0',
                         isCurrent && 'text-on-surface'
                       ]}
                       data-am-context-mobile-hidden={index > 1 ? '' : undefined}
