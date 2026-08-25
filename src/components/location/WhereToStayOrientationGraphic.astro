@@ -26,36 +26,64 @@ const l = data.labels;
     {data.place === 'frigiliana' && (
       <svg viewBox="0 0 560 430" class="block h-auto w-full" role="img" aria-hidden="true">
         <g class="contours">
-          <path d="M18 376 C112 354 182 367 249 326 C320 282 380 275 542 177" />
-          <path d="M27 330 C122 306 191 321 258 280 C332 235 393 227 536 139" />
-          <path d="M56 278 C136 260 206 270 277 229 C344 190 414 176 522 105" />
-          <path d="M102 225 C175 208 238 215 307 177 C366 145 426 129 500 78" />
+          <path d="M32 382 C128 362 225 391 318 350 C402 313 462 316 548 276" />
+          <path d="M27 331 C124 310 217 338 312 296 C402 256 472 260 548 219" />
+          <path d="M24 278 C128 256 215 282 306 240 C399 197 474 202 543 161" />
+          <path d="M42 222 C142 199 222 222 311 179 C394 139 466 140 526 103" />
+          <path d="M75 163 C159 141 229 158 316 119 C385 88 444 83 495 57" />
         </g>
-        <g class="zones">
-          <path d="M35 365 L183 331 L220 365 L64 405 Z" />
-          <path d="M180 315 L298 254 L333 286 L220 354 Z" />
-          <path d="M292 241 L403 177 L438 211 L333 278 Z" />
-          <path d="M392 163 L506 92 L530 128 L438 202 Z" />
+
+        <path class="later-village-shape" d="M190 328 C278 318 363 333 443 302 C489 284 525 280 558 287 L558 430 L204 430 C211 389 208 358 190 328 Z" />
+        <path class="old-town-shape" d="M145 94 C232 67 345 60 438 87 C480 130 500 193 501 252 C458 295 391 326 306 330 C240 315 188 285 154 238 C139 192 137 139 145 94 Z" />
+        <path class="barribarto-shape" d="M252 98 C320 72 392 71 438 91 C472 125 486 168 480 211 C427 228 372 230 319 213 C291 177 270 139 252 98 Z" />
+        <path class="barribajo-shape" d="M202 184 C268 196 333 212 393 239 C411 270 394 297 357 316 C294 317 241 295 203 260 C191 231 191 207 202 184 Z" />
+
+        <g class="village-labels">
+          <text class="map-label map-label--muted" x="207" y="113">{l.oldTown}</text>
+          <text class="map-label" x="332" y="136">{l.barribarto}</text>
+          <text class="map-label" x="274" y="276">{l.barribajo}</text>
+          <text class="map-label map-label--muted" x="360" y="396">{l.laterVillage}</text>
         </g>
-        <path class="route route--primary" d="M77 365 C164 340 214 316 278 270 C329 234 365 216 408 184" />
-        <path class="route route--secondary" d="M408 184 C447 160 472 143 502 118" />
-        <text class="route-label" x="208" y="319" transform="rotate(-24 208 319)">{l.calleReal}</text>
-        <text class="route-label" x="425" y="171" transform="rotate(-31 425 171)">{l.calleChorruelo}</text>
-        <text class="zone-label" x="70" y="386">{l.lower}</text>
-        <text class="zone-label" x="199" y="292">{l.transition}</text>
-        <text class="zone-label" x="315" y="221">{l.historic}</text>
-        <text class="zone-label" x="418" y="111">{l.upper}</text>
-        <g class="landmark" transform="translate(424 168)">
+
+        <path class="main-road-casing" d="M126 12 C116 72 139 119 128 174 C116 233 131 285 194 319 C259 354 344 355 434 326 C482 310 522 304 558 309" />
+        <path class="main-road" d="M126 12 C116 72 139 119 128 174 C116 233 131 285 194 319 C259 354 344 355 434 326 C482 310 522 304 558 309" />
+        <text class="road-label road-label--main" x="112" y="247" transform="rotate(77 112 247)">{l.ma5105}</text>
+        <text class="road-note" x="63" y="250" transform="rotate(77 63 250)">{l.mainRoad}</text>
+
+        <path class="historic-route" d="M433 301 C407 280 397 255 365 241 C322 222 280 211 245 190 C226 178 209 169 197 164" />
+        <path class="historic-route historic-route--restricted" d="M197 164 C180 137 174 106 170 70" />
+        <text class="route-label" x="310" y="214" transform="rotate(23 310 214)">{l.calleReal}</text>
+        <text class="route-label" x="159" y="140" transform="rotate(-79 159 140)">{l.calleChorruelo}</text>
+        <text class="road-note road-note--historic" x="318" y="327" text-anchor="middle">{l.historicAccess}</text>
+
+        <g class="castle" transform="translate(426 97)">
+          <path d="M-10 8 V-7 H-5 V-12 H0 V-7 H5 V-12 H10 V8 Z" />
+          <text x="0" y="-20" text-anchor="middle">{l.castle}</text>
+        </g>
+
+        <g class="steps" transform="translate(394 168)" aria-hidden="true">
+          <path d="M-21 18 H-11 V8 H-1 V-2 H9 V-12 H19" />
+        </g>
+
+        <g class="landmark" transform="translate(181 181)">
           <rect x="-5" y="-15" width="10" height="13" rx="1" />
           <path d="M-8 -15 L0 -23 L8 -15 M0 -23 V-31 M-4 -27 H4" />
-          <text x="-14" y="-29" text-anchor="end">{l.church}</text>
+          <text x="-14" y="11" text-anchor="end">{l.church}</text>
         </g>
-        <g class="landmark landmark--amara" transform="translate(452 151)">
-          <circle r="6" />
-          <circle class="halo" r="14" />
-          <text x="13" y="4">{l.amara}</text>
+
+        <g class="landmark landmark--amara" transform="translate(205 164)">
+          <circle r="7" />
+          <circle class="halo" r="18" />
+          <text class="amara-name" x="17" y="-3">{l.amara}</text>
+          <text class="amara-position" x="17" y="12">{l.amaraPosition}</text>
         </g>
-        <path class="relationship" d="M431 161 L445 154" />
+        <path class="relationship" d="M189 172 L198 167" />
+
+        <g class="location-anchor" transform="translate(257 341)">
+          <circle r="3" />
+          <text x="9" y="4">{l.ingenio}</text>
+        </g>
+        <text class="height-label" x="367" y="288">{l.villageHeight}</text>
       </svg>
     )}
 
@@ -109,14 +137,27 @@ const l = data.labels;
   .area-graphic { container-type: inline-size; }
   .contours path { fill: none; stroke: color-mix(in srgb, var(--color-inverted-on-surface) 13%, transparent); stroke-width: 1; }
   .zones path, .district path { fill: color-mix(in srgb, var(--color-primary-fixed-dim) 9%, transparent); stroke: color-mix(in srgb, var(--color-primary-fixed-dim) 34%, transparent); stroke-width: 1; }
+  .old-town-shape { fill: color-mix(in srgb, var(--color-primary-fixed-dim) 7%, transparent); stroke: color-mix(in srgb, var(--color-primary-fixed-dim) 42%, transparent); stroke-width: 1; }
+  .later-village-shape { fill: color-mix(in srgb, var(--color-inverted-on-surface) 3%, transparent); stroke: color-mix(in srgb, var(--color-inverted-on-surface) 12%, transparent); stroke-width: 1; stroke-dasharray: 4 5; }
+  .barribarto-shape { fill: color-mix(in srgb, var(--color-primary-fixed-dim) 8%, transparent); stroke: color-mix(in srgb, var(--color-primary-fixed-dim) 24%, transparent); stroke-width: 1; }
+  .barribajo-shape { fill: color-mix(in srgb, var(--color-primary-fixed-dim) 4%, transparent); stroke: color-mix(in srgb, var(--color-primary-fixed-dim) 18%, transparent); stroke-width: 1; }
   .district--soft path { fill: color-mix(in srgb, var(--color-inverted-on-surface) 4%, transparent); }
   .district--upper path { fill: color-mix(in srgb, var(--color-primary-fixed-dim) 5%, transparent); stroke-dasharray: 4 4; }
   .district--amara path { fill: color-mix(in srgb, var(--color-primary-fixed-dim) 15%, transparent); }
   .route { fill: none; stroke-linecap: round; }
   .route--primary { stroke: var(--color-primary-fixed-dim); stroke-width: 3; }
   .route--secondary { stroke: color-mix(in srgb, var(--color-primary-fixed-dim) 72%, transparent); stroke-width: 2; stroke-dasharray: 5 4; }
-  .route-label, .zone-label, .district text, .sea-label { font-family: var(--font-label); text-transform: uppercase; }
+  .main-road-casing { fill: none; stroke: color-mix(in srgb, var(--color-inverted-on-surface) 18%, transparent); stroke-width: 12; stroke-linecap: round; }
+  .main-road { fill: none; stroke: color-mix(in srgb, var(--color-inverted-on-surface) 48%, transparent); stroke-width: 4; stroke-linecap: round; }
+  .historic-route { fill: none; stroke: var(--color-primary-fixed-dim); stroke-width: 3; stroke-linecap: round; }
+  .historic-route--restricted { stroke-width: 2.5; stroke-dasharray: 5 4; }
+  .route-label, .road-label, .road-note, .map-label, .zone-label, .district text, .sea-label, .height-label, .location-anchor text { font-family: var(--font-label); text-transform: uppercase; }
   .route-label { fill: var(--color-primary-fixed-dim); font-size: 8px; font-weight: 700; letter-spacing: 0.12em; }
+  .road-label--main { fill: color-mix(in srgb, var(--color-inverted-on-surface) 78%, transparent); font-size: 8.5px; font-weight: 750; letter-spacing: 0.1em; }
+  .road-note { fill: color-mix(in srgb, var(--color-inverted-on-surface) 38%, transparent); font-size: 6.5px; font-weight: 650; letter-spacing: 0.08em; }
+  .road-note--historic { fill: color-mix(in srgb, var(--color-primary-fixed-dim) 62%, transparent); }
+  .map-label { fill: color-mix(in srgb, var(--color-inverted-on-surface) 72%, transparent); font-size: 7.5px; font-weight: 700; letter-spacing: 0.07em; }
+  .map-label--muted { fill: color-mix(in srgb, var(--color-inverted-on-surface) 34%, transparent); letter-spacing: 0.13em; }
   .zone-label, .district text { fill: color-mix(in srgb, var(--color-inverted-on-surface) 75%, transparent); font-size: 8.5px; font-weight: 650; letter-spacing: 0.08em; }
   .coast { fill: none; stroke: color-mix(in srgb, var(--color-primary-fixed-dim) 70%, transparent); stroke-width: 2; }
   .sea-fill { fill: color-mix(in srgb, var(--color-primary-fixed-dim) 6%, transparent); }
@@ -125,5 +166,12 @@ const l = data.labels;
   .landmark text { fill: var(--color-inverted-on-surface); stroke: none; font-family: var(--font-label); font-size: 8.5px; font-weight: 700; letter-spacing: 0.08em; }
   .landmark--amara > circle:first-child { fill: var(--color-primary-fixed-dim); stroke: none; }
   .landmark--amara .halo { fill: none; stroke: color-mix(in srgb, var(--color-primary-fixed-dim) 34%, transparent); }
+  .landmark--amara .amara-name { fill: var(--color-primary-fixed-dim); font-size: 11px; font-weight: 800; letter-spacing: 0.13em; }
+  .landmark--amara .amara-position { fill: color-mix(in srgb, var(--color-inverted-on-surface) 82%, transparent); font-size: 7.5px; font-weight: 650; letter-spacing: 0.04em; }
   .relationship { fill: none; stroke: color-mix(in srgb, var(--color-primary-fixed-dim) 60%, transparent); stroke-width: 1; stroke-dasharray: 2 2; }
+  .castle, .steps { color: color-mix(in srgb, var(--color-inverted-on-surface) 48%, transparent); fill: none; stroke: currentColor; stroke-width: 1.2; }
+  .castle text { fill: color-mix(in srgb, var(--color-inverted-on-surface) 58%, transparent); stroke: none; font-family: var(--font-label); font-size: 7px; font-weight: 700; letter-spacing: 0.07em; text-transform: uppercase; }
+  .location-anchor circle { fill: var(--color-primary-fixed-dim); }
+  .location-anchor text { fill: color-mix(in srgb, var(--color-inverted-on-surface) 62%, transparent); font-size: 7px; font-weight: 700; letter-spacing: 0.06em; }
+  .height-label { fill: color-mix(in srgb, var(--color-inverted-on-surface) 30%, transparent); font-size: 6.5px; font-weight: 650; letter-spacing: 0.08em; }
 </style>
