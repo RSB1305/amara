@@ -4,6 +4,7 @@ import Navigation from '../../components/Navigation.astro';
 import AmaraPageShell from '../../components/layout/AmaraPageShell.astro';
 import AmaraSection from '../../components/layout/AmaraSection.astro';
 import AmaraSectionIntro from '../../components/layout/AmaraSectionIntro.astro';
+import AmaraFormControl from '../../components/forms/AmaraFormControl.astro';
 import ApartmentCard from '../../components/location/ApartmentCard.astro';
 import InlineEmphasis from '../../components/text/InlineEmphasis.astro';
 import {
@@ -93,16 +94,16 @@ const destinationLinks = lastMinuteStaysCopy.destinations.map((destination) => (
           />
           <label class="block">
             <span class="am-text-label text-on-surface-variant">{t(lastMinuteStaysCopy.live.guests)}</span>
-            <select
-              class="am-last-minute__control am-text-body mt-2"
-              data-am-last-minute-guests
+            <AmaraFormControl
+              as="select"
+              data={{ 'data-am-last-minute-guests': '' }}
             >
               {[1, 2, 3, 4].map((count) => (
                 <option value={count} selected={count === 2}>
                   {guestCapacity(count)}
                 </option>
               ))}
-            </select>
+            </AmaraFormControl>
           </label>
         </div>
 
@@ -217,22 +218,6 @@ const destinationLinks = lastMinuteStaysCopy.destinations.map((destination) => (
 </BaseLayout>
 
 <style is:global>
-  .am-last-minute__control {
-    min-height: 3rem;
-    width: 100%;
-    border: 1px solid var(--color-outline-variant);
-    border-radius: var(--radius-control);
-    background: var(--color-surface);
-    padding: 0.5rem 0.75rem;
-    color: var(--color-on-surface);
-    outline: none;
-  }
-
-  .am-last-minute__control:focus-visible {
-    outline: 2px solid var(--color-primary);
-    outline-offset: 2px;
-  }
-
   .am-last-minute-grid {
     display: grid;
     grid-template-columns: minmax(0, 1fr);

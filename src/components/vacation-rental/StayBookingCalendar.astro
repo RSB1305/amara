@@ -4,6 +4,7 @@ import type { VacationRentalBookingKey } from '../../content/vacationRentalEntit
 import BookingDateRangeCalendar from '../booking/BookingDateRangeCalendar.astro';
 import AmaraActionLink from '../actions/AmaraActionLink.astro';
 import AmaraSection from '../layout/AmaraSection.astro';
+import AmaraFormControl from '../forms/AmaraFormControl.astro';
 
 interface Props {
   id?: string;
@@ -296,65 +297,63 @@ const titleId = `${bookingKey}-booking-calendar-title`;
             <span class="am-text-label text-on-surface-variant">
               {t(copy.arrival)}
             </span>
-            <input
-              class="am-stay-booking-calendar__control am-text-body mt-2"
-              type="date"
+            <AmaraFormControl
+              as="input"
               name="arrival"
               required
-              data-am-booking-arrival
+              data={{ 'data-am-booking-arrival': '' }}
             />
           </label>
           <div class="am-stay-booking-calendar__date-trigger" hidden data-am-booking-arrival-trigger-wrap>
             <span class="am-text-label text-on-surface-variant">{t(copy.arrival)}</span>
-            <button
-              class="am-stay-booking-calendar__control am-stay-booking-calendar__trigger am-text-body mt-2"
-              type="button"
-              aria-expanded="false"
-              data-am-booking-arrival-trigger
+            <AmaraFormControl
+              as="button"
+              trigger
+              ariaExpanded={false}
+              data={{ 'data-am-booking-arrival-trigger': '' }}
             >
               <span data-am-booking-arrival-value>{t(copy.chooseArrival)}</span>
-            </button>
+            </AmaraFormControl>
           </div>
 
           <label class="block am-stay-booking-calendar__native-date">
             <span class="am-text-label text-on-surface-variant">
               {t(copy.departure)}
             </span>
-            <input
-              class="am-stay-booking-calendar__control am-text-body mt-2"
-              type="date"
+            <AmaraFormControl
+              as="input"
               name="departure"
               required
-              data-am-booking-departure
+              data={{ 'data-am-booking-departure': '' }}
             />
           </label>
           <div class="am-stay-booking-calendar__date-trigger" hidden data-am-booking-departure-trigger-wrap>
             <span class="am-text-label text-on-surface-variant">{t(copy.departure)}</span>
-            <button
-              class="am-stay-booking-calendar__control am-stay-booking-calendar__trigger am-text-body mt-2"
-              type="button"
-              aria-expanded="false"
-              data-am-booking-departure-trigger
+            <AmaraFormControl
+              as="button"
+              trigger
+              ariaExpanded={false}
+              data={{ 'data-am-booking-departure-trigger': '' }}
             >
               <span data-am-booking-departure-value>{t(copy.chooseDeparture)}</span>
-            </button>
+            </AmaraFormControl>
           </div>
 
           <label class="block">
             <span class="am-text-label text-on-surface-variant">
               {t(copy.guests)}
             </span>
-            <select
-              class="am-stay-booking-calendar__control am-text-body mt-2"
+            <AmaraFormControl
+              as="select"
               name="guests"
-              data-am-booking-guests
+              data={{ 'data-am-booking-guests': '' }}
             >
               {guestOptions.map((count) => (
                 <option value={count} selected={count === Math.min(2, occupancy)}>
                   {t(count === 1 ? copy.guestOption : copy.guestOptionPlural).replace('{count}', String(count))}
                 </option>
               ))}
-            </select>
+            </AmaraFormControl>
           </label>
         </div>
 
@@ -425,36 +424,8 @@ const titleId = `${bookingKey}-booking-calendar-title`;
     box-shadow: var(--shadow-editorial-card);
   }
 
-  .am-stay-booking-calendar__control {
-    min-height: 3rem;
-    width: 100%;
-    border: 1px solid var(--color-outline-variant);
-    border-radius: var(--radius-control);
-    background: var(--color-surface);
-    padding: 0.5rem 0.75rem;
-    color: var(--color-on-surface);
-    outline: none;
-    transition: border-color 180ms ease, box-shadow 180ms ease;
-  }
-
-  .am-stay-booking-calendar__control:focus-visible {
-    outline: 2px solid var(--color-primary);
-    outline-offset: 2px;
-  }
-
   [data-am-booking-enhanced='true'] .am-stay-booking-calendar__native-date {
     display: none;
-  }
-
-  .am-stay-booking-calendar__trigger {
-    display: flex;
-    align-items: center;
-    text-align: left;
-  }
-
-  .am-stay-booking-calendar__trigger[aria-expanded='true'] {
-    border-color: var(--color-primary);
-    box-shadow: 0 0 0 1px var(--color-primary);
   }
 
 </style>

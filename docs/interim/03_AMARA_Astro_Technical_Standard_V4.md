@@ -1,7 +1,7 @@
 ---
 document_id: AMARA-INT-ASTRO-003
 title: AMARA Astro & Design Architecture Contract V4
-version: 4.8.1
+version: 4.9.0
 status: ACTIVE
 authority_class: CONTRACT / GOVERNING INTERIM
 source_type: INTERIM SNAPSHOT FROM APPROVED PDF + APPROVED REPOSITORY AMENDMENT
@@ -9,7 +9,7 @@ source_attachment: "03_AMARA_Astro_Technical_Standard_V4 (1).pdf"
 source_sha256: b3d8a3e780b29b5be42922aec838c7f56f455184cca8336d9a0f3564ba43f9aa
 snapshot_created: 2026-08-14T09:08:00+02:00
 migration_state: PENDING PACKAGE 2/3 NORMALIZATION
-last_modified: 2026-08-25T18:47:39+02:00
+last_modified: 2026-08-25T19:02:14+02:00
 ---
 
 # AMARA Astro & Design Architecture Contract V4 — Interim Markdown Snapshot
@@ -22,7 +22,7 @@ last_modified: 2026-08-25T18:47:39+02:00
 
 AMARA Astro & Design Architecture Contract V4
 Status                                                ACTIVE
-Version                                               4.8.1
+Version                                               4.9.0
 Effective date                                        2026-08-10
 Runtime                                               Astro
 Styling                                               Tailwind CSS + AMARA global tokens + scoped component
@@ -412,6 +412,18 @@ The older `am-section` Location shell is controlled legacy. Existing consumers r
 canonical introduction inside it, but new page-shell work uses `AmaraSection`. Legacy shell migration happens
 with the containing renderer when its composition is materially revised, not as an unbounded class rewrite.
 
+17.9 Form-control contract
+
+`AmaraFormControl` is the canonical production owner for the shared native field surface used by date inputs,
+selects and button-based calendar triggers. It owns minimum hit height, width, border, radius, surface, padding,
+focus, expanded, invalid and disabled states through the `am-form-control` role in `global.css`.
+
+The semantic form, label text, grouping, validation message and client behaviour remain with the consuming job.
+A filter chip, checkbox, radio control, action button or free-form editor is not a form-control variant merely
+because it accepts input. New Stay and booking controls use the production component rather than recreating its
+field recipe locally. The current canonical consumers are the Stay search finder, property booking calendar and
+last-minute guest filter.
+
 ## Revision history
 
 | Version | Date | Change |
@@ -426,3 +438,4 @@ with the containing renderer when its composition is materially revised, not as 
 | 4.7.0 | 2026-08-25T18:22:10+02:00 | Activated semantic classification for card-like and editorial modules, established canonical feature-grid and practical-callout owners, preserved distinct family jobs and replaced the styleguide's simulated cards with production modules. |
 | 4.8.0 | 2026-08-25T18:37:51+02:00 | Activated the shared section rhythm and section-introduction contract, preserved named Trust, Stay and Location/Experience variants, migrated bounded production consumers and classified the older Location shell as controlled legacy. |
 | 4.8.1 | 2026-08-25T18:47:39+02:00 | Corrected mobile width containment in the canonical context navigation so localized current-page breadcrumbs truncate within the rail and sibling links retain contained horizontal scrolling without widening the document; added the native compact booking-label tier below 360px so all four header jobs remain visible. |
+| 4.9.0 | 2026-08-25T19:02:14+02:00 | Activated the canonical native form-control owner, centralized select, date-input and calendar-trigger states, migrated all three repeated public recipes and rendered the production API in the living styleguide. |

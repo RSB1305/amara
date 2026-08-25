@@ -2,6 +2,7 @@
 import { staySearchCopy, staySearchDestinations } from '../../content/staySearchContent';
 import type { AmaraLanguage } from '../../types/seo';
 import AmaraActionButton from '../actions/AmaraActionButton.astro';
+import AmaraFormControl from '../forms/AmaraFormControl.astro';
 import BookingDateRangeCalendar from './BookingDateRangeCalendar.astro';
 
 interface Props {
@@ -46,74 +47,72 @@ const guestOptions = [1, 2, 3, 4];
     <div class="grid grid-cols-2 gap-4 lg:grid-cols-[1.1fr_1fr_1fr_0.75fr_auto] lg:items-end">
       <label class="col-span-2 block lg:col-span-1">
         <span class="am-text-label text-on-surface-variant">{t(staySearchCopy.destination)}</span>
-        <select
-          class="am-stay-search__control am-text-body mt-2"
+        <AmaraFormControl
+          as="select"
           name="destination"
-          data-am-stay-search-destination
+          data={{ 'data-am-stay-search-destination': '' }}
         >
           {staySearchDestinations.map((destination) => (
             <option value={destination.value}>{t(destination.label)}</option>
           ))}
-        </select>
+        </AmaraFormControl>
       </label>
 
       <label class="block am-stay-search__native-date">
         <span class="am-text-label text-on-surface-variant">{t(staySearchCopy.arrival)}</span>
-        <input
-          class="am-stay-search__control am-text-body mt-2"
-          type="date"
+        <AmaraFormControl
+          as="input"
           name="arrival"
           required
-          data-am-stay-search-arrival
+          data={{ 'data-am-stay-search-arrival': '' }}
         />
       </label>
       <div class="am-stay-search__date-trigger" hidden data-am-stay-search-arrival-trigger-wrap>
         <span class="am-text-label text-on-surface-variant">{t(staySearchCopy.arrival)}</span>
-        <button
-          class="am-stay-search__control am-stay-search__trigger am-text-body mt-2"
-          type="button"
-          aria-expanded="false"
-          data-am-stay-search-arrival-trigger
+        <AmaraFormControl
+          as="button"
+          trigger
+          ariaExpanded={false}
+          data={{ 'data-am-stay-search-arrival-trigger': '' }}
         >
           <span data-am-stay-search-arrival-value>{t(staySearchCopy.chooseArrival)}</span>
-        </button>
+        </AmaraFormControl>
       </div>
 
       <label class="block am-stay-search__native-date">
         <span class="am-text-label text-on-surface-variant">{t(staySearchCopy.departure)}</span>
-        <input
-          class="am-stay-search__control am-text-body mt-2"
-          type="date"
+        <AmaraFormControl
+          as="input"
           name="departure"
           required
-          data-am-stay-search-departure
+          data={{ 'data-am-stay-search-departure': '' }}
         />
       </label>
       <div class="am-stay-search__date-trigger" hidden data-am-stay-search-departure-trigger-wrap>
         <span class="am-text-label text-on-surface-variant">{t(staySearchCopy.departure)}</span>
-        <button
-          class="am-stay-search__control am-stay-search__trigger am-text-body mt-2"
-          type="button"
-          aria-expanded="false"
-          data-am-stay-search-departure-trigger
+        <AmaraFormControl
+          as="button"
+          trigger
+          ariaExpanded={false}
+          data={{ 'data-am-stay-search-departure-trigger': '' }}
         >
           <span data-am-stay-search-departure-value>{t(staySearchCopy.chooseDeparture)}</span>
-        </button>
+        </AmaraFormControl>
       </div>
 
       <label class="col-span-2 block lg:col-span-1">
         <span class="am-text-label text-on-surface-variant">{t(staySearchCopy.guests)}</span>
-        <select
-          class="am-stay-search__control am-text-body mt-2"
+        <AmaraFormControl
+          as="select"
           name="guests"
-          data-am-stay-search-guests
+          data={{ 'data-am-stay-search-guests': '' }}
         >
           {guestOptions.map((count) => (
             <option value={count} selected={count === 2}>
               {t(count === 1 ? staySearchCopy.guest : staySearchCopy.guestsPlural).replace('{count}', String(count))}
             </option>
           ))}
-        </select>
+        </AmaraFormControl>
       </label>
 
       <AmaraActionButton variant="primary" class="col-span-2 min-h-12 w-full justify-center lg:col-span-1 lg:w-auto" type="submit">
@@ -153,35 +152,8 @@ const guestOptions = [1, 2, 3, 4];
     border: 1px solid var(--color-outline-variant);
   }
 
-  .am-stay-search__control {
-    min-height: 3rem;
-    width: 100%;
-    border: 1px solid var(--color-outline-variant);
-    border-radius: var(--radius-control);
-    background: var(--color-surface);
-    padding: 0.5rem 0.75rem;
-    color: var(--color-on-surface);
-    outline: none;
-  }
-
-  .am-stay-search__control:focus-visible {
-    outline: 2px solid var(--color-primary);
-    outline-offset: 2px;
-  }
-
   [data-am-stay-search-enhanced='true'] .am-stay-search__native-date {
     display: none;
-  }
-
-  .am-stay-search__trigger {
-    display: flex;
-    align-items: center;
-    text-align: left;
-  }
-
-  .am-stay-search__trigger[aria-expanded='true'] {
-    border-color: var(--color-primary);
-    box-shadow: 0 0 0 1px var(--color-primary);
   }
 
   /**

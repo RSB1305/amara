@@ -17,6 +17,7 @@ import LocationGuideEvidence from '../../../components/location/LocationGuideEvi
 import LocationGuideHero from '../../../components/location/LocationGuideHero.astro';
 import StayHero from '../../../components/hero/StayHero.astro';
 import TrustHero from '../../../components/hero/TrustHero.astro';
+import AmaraFormControl from '../../../components/forms/AmaraFormControl.astro';
 import AmaraSection from '../../../components/layout/AmaraSection.astro';
 import AmaraSectionIntro from '../../../components/layout/AmaraSectionIntro.astro';
 import GuideLinkCardSection from '../../../page-families/location-authority/GuideLinkCardSection.astro';
@@ -121,6 +122,7 @@ const styleguideStayFacts = [
     <a href="#heroes">Hero Families</a>
     <a href="#sections">Sections & Intros</a>
     <a href="#buttons">Buttons</a>
+    <a href="#forms">Forms & Controls</a>
     <a href="#chips">Chips & Status</a>
     <a href="#cards">Cards & Modules</a>
     <a href="#links">Links</a>
@@ -491,6 +493,51 @@ const styleguideStayFacts = [
         </div>
         <div class="sg-component-label" style="margin-top:20px">
           Produktionsowner: <span class="sg-code">AmaraActionButton</span> für Aktionen und Formulare · <span class="sg-code">AmaraActionLink</span> für Navigation · <span class="sg-code">loading</span> gilt nur für echte Buttons · deaktivierte Links werden als nicht-interaktive Labels ausgegeben
+        </div>
+      </div>
+    </section>
+
+    <!-- FORMS AND CONTROLS -->
+    <section class="sg-section" id="forms">
+      <h2 class="sg-section-title">Forms & Controls</h2>
+      <p class="sg-inline-demo" style="margin-bottom:32px">
+        Native inputs, selects and calendar triggers share one controllable field surface. Labels stay in the caller because their wording and grouping belong to the form job.
+      </p>
+      <div class="sg-component-frame">
+        <div class="grid gap-6 md:grid-cols-2">
+          <label class="block">
+            <span class="am-text-label text-on-surface-variant">Destination</span>
+            <AmaraFormControl as="select" name="styleguide-destination">
+              <option>Frigiliana</option>
+              <option>Nerja</option>
+              <option>Tarifa</option>
+            </AmaraFormControl>
+          </label>
+          <label class="block">
+            <span class="am-text-label text-on-surface-variant">Arrival</span>
+            <AmaraFormControl as="input" name="styleguide-arrival" />
+          </label>
+          <div>
+            <span class="am-text-label text-on-surface-variant">Expanded calendar trigger</span>
+            <AmaraFormControl as="button" trigger ariaExpanded={true}>
+              12 September 2026
+            </AmaraFormControl>
+          </div>
+          <label class="block">
+            <span class="am-text-label text-on-surface-variant">Unavailable</span>
+            <AmaraFormControl as="select" name="styleguide-disabled" disabled>
+              <option>No selection available</option>
+            </AmaraFormControl>
+          </label>
+          <label class="block md:col-span-2">
+            <span class="am-text-label text-on-surface-variant">Invalid state</span>
+            <AmaraFormControl as="select" name="styleguide-invalid" ariaInvalid={true}>
+              <option>Choose a valid option</option>
+            </AmaraFormControl>
+          </label>
+        </div>
+        <div class="sg-component-label" style="margin-top:20px">
+          Produktionsowner: <span class="sg-code">AmaraFormControl</span> · native select/date input or button trigger · canonical focus, expanded, invalid and disabled states · production consumers: stay finder, property booking calendar and last-minute filter
         </div>
       </div>
     </section>

@@ -583,6 +583,49 @@
     transform: none;
   }
 
+  /**
+   * Canonical native field surface. Labels remain semantic caller content;
+   * this owner controls the shared input, select and date-trigger treatment.
+   */
+  .am-form-control {
+    min-height: 3rem;
+    width: 100%;
+    border: 1px solid var(--color-outline-variant);
+    border-radius: var(--radius-control);
+    background: var(--color-surface);
+    padding: 0.5rem 0.75rem;
+    color: var(--color-on-surface);
+    outline: none;
+    transition: border-color 180ms ease, box-shadow 180ms ease;
+  }
+
+  .am-form-control:focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+  }
+
+  .am-form-control--trigger {
+    display: flex;
+    align-items: center;
+    text-align: left;
+  }
+
+  .am-form-control--trigger[aria-expanded='true'] {
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 1px var(--color-primary);
+  }
+
+  .am-form-control[aria-invalid='true'] {
+    border-color: var(--color-error);
+    box-shadow: 0 0 0 1px var(--color-error);
+  }
+
+  .am-form-control:disabled,
+  .am-form-control[aria-disabled='true'] {
+    opacity: 0.45;
+    cursor: default;
+  }
+
   .am-btn.am-is-loading {
     cursor: wait;
   }
