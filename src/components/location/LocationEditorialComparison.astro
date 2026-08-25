@@ -4,6 +4,7 @@
  * Presentational only: overlapping imagery + stacked copy (no table layout).
  */
 import AmaraImage from '../AmaraImage.astro';
+import { getAmaraContentModuleAttributes } from '../content/moduleContract';
 
 export interface LocationEditorialComparisonItem {
   kicker?: string;
@@ -26,9 +27,14 @@ interface Props {
 }
 
 const { eyebrow, title, intro, items, imagePrimary, imageSecondary } = Astro.props;
+const moduleAttributes = getAmaraContentModuleAttributes({
+  job: 'editorial-comparison',
+  status: 'family',
+  family: 'location'
+});
 ---
 
-<section class="max-w-screen-2xl mx-auto px-6 md:px-12 py-40 border-t border-outline-variant/5">
+<section {...moduleAttributes} class="max-w-screen-2xl mx-auto px-6 md:px-12 py-40 border-t border-outline-variant/5">
   <div class="grid grid-cols-1 md:grid-cols-12 gap-24 items-center">
     <div class="am-mobile-full-bleed md:col-span-6 relative h-[500px] min-h-[280px]">
       <div class="absolute top-0 left-0 z-20 h-4/5 w-4/5 overflow-hidden">

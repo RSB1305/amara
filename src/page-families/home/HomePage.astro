@@ -2,7 +2,7 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Navigation from '../../components/Navigation.astro';
 import StaySearchFinder from '../../components/booking/StaySearchFinder.astro';
-import HomeCinematicMain from '../../components/home/HomeCinematicMain.astro';
+import HomeCinematicMain, { type CinematicFact } from '../../components/home/HomeCinematicMain.astro';
 import AmaraPageShell from '../../components/layout/AmaraPageShell.astro';
 import { createAmaraImage } from '../../lib/images/amaraImageProfiles';
 import { resolveOptionalLink } from '../../lib/linkResolver';
@@ -33,17 +33,25 @@ import {
   cinematicHeroProofRating,
   cinematicHostLabel,
   cinematicHostAvatarAlt,
-  cinematicScrollHint,
   cinematicWelcome,
   cinematicPhilosophyPart1,
   cinematicPhilosophyAccent,
   cinematicPhilosophyLabel,
   cinematicPhilosophyP1,
-  cinematicPhilosophyP2,
+  cinematicFactInteriorLabel,
+  cinematicFactOutdoorLabel,
+  cinematicFactBedLabel,
+  cinematicFactBalconyLabel,
+  cinematicPriceFromLabel,
+  cinematicPriceUnitLabel,
+  cinematicListConjunction,
+  cinematicPositioningLabel,
+  cinematicPositioningTerraces,
+  cinematicPositioningStoves,
+  cinematicPositioningEntrances,
   cinematicPlaces,
   cinematicPlacesEyebrow,
   cinematicPlacesTitle,
-  cinematicPlacesCountLabel,
   cinematicBridgeEyebrow,
   cinematicBridgeTitle,
   cinematicBridgeBody,
@@ -54,12 +62,10 @@ import {
   cinematicCollectionEyebrow,
   cinematicCollectionTitle,
   cinematicCollectionCtaLabel,
-  cinematicFactTerraceLabel,
   cinematicTrustQuote,
   cinematicTrustQuoteAttribution,
   cinematicTrustCta,
   cinematicTrustCtaPrimary,
-  cinematicTrustChips,
   cinematicStatReviewsValue,
   cinematicStatRatingValue,
   cinematicStatReviewsLabel,
@@ -147,6 +153,79 @@ const seo: AmaraAuthoringSeo = {
 };
 
 /**
+ * The card carries the same three dimensions for every stay so the six can be
+ * compared. The previous version ranked amenity flags and showed the top three,
+ * which quietly lied: four stays have an underfloor-heated bathroom and only
+ * one had room to say so, so its neighbours read as if they did not. A missing
+ * measurement cannot mislead the same way — no terrace figure means no terrace.
+ * The hideaway features are argued on the rental pages, which already carry the
+ * hammock, the outdoor shower and Lounis's historic well.
+ */
+type RentalEntity = (typeof vacationRentalEntities)[number];
+
+const hasFlag = (rental: RentalEntity, name: string) =>
+  rental.amenityFeatures.some((feature) => feature.name === name && feature.value === true);
+
+function cardFacts(rental: RentalEntity): CinematicFact[] {
+  /**
+   * Playa's outdoor space is a balcony and carries no area in the SSOT. It takes
+   * the balcony glyph rather than the terrace one, because the vocabulary
+   * distinguishes them and a symbol has to mean one thing.
+   */
+  const outdoor = rental.exteriorAreaSqm
+    ? { key: 'terrace' as const, value: `${rental.exteriorAreaSqm} m²` }
+    : hasFlag(rental, 'balcony')
+      ? { key: 'balcony' as const, value: t(cinematicFactBalconyLabel) }
+      : null;
+
+  const bed = rental.bed[0]?.label.replace(/\s*x\s*/i, ' × ');
+
+  return [
+    rental.interiorAreaSqm
+      ? { key: 'interior' as const, value: `${rental.interiorAreaSqm} m²`, label: t(cinematicFactInteriorLabel) }
+      : null,
+    outdoor ? { ...outdoor, label: t(cinematicFactOutdoorLabel) } : null,
+    bed ? { key: 'bed' as const, value: bed, label: t(cinematicFactBedLabel) } : null
+  ].filter((fact): fact is CinematicFact => Boolean(fact));
+}
+
+/** "Lounis, Zaid und Maha" — the localized list the proof lines name. */
+function listStays(rentals: RentalEntity[]): string {
+  const names = rentals.map((rental) => rental.shortName || rental.name);
+  if (names.length <= 1) return names.join('');
+  return `${names.slice(0, -1).join(', ')} ${t(cinematicListConjunction)} ${names[names.length - 1]}`;
+}
+
+/**
+ * The proof row under the brand statement. Which stays qualify is derived from
+ * the verified amenity flags, so the claim cannot drift away from the product.
+ *
+ * The lines name the stays rather than counting them. Stated as fractions they
+ * joined the three "{n} of six" labels in the places band, and six fractions on
+ * one page turned the brand statement into arithmetic.
+ */
+const terraceHideaways = vacationRentalEntities.filter(
+  (rental) =>
+    hasFlag(rental, 'privateTerrace') && hasFlag(rental, 'hammock') && hasFlag(rental, 'outdoorShower')
+);
+const stoveStays = vacationRentalEntities.filter(
+  (rental) => hasFlag(rental, 'pelletStove') || hasFlag(rental, 'fireplace')
+);
+const everyStayHasOwnEntrance = vacationRentalEntities.every((rental) =>
+  hasFlag(rental, 'selfCheckinCheckout')
+);
+
+const positioningProofs = [
+  terraceHideaways.length > 0
+    ? t(cinematicPositioningTerraces).replace('{stays}', listStays(terraceHideaways))
+    : null,
+  stoveStays.length > 0
+    ? t(cinematicPositioningStoves).replace('{stays}', listStays(stoveStays))
+    : null,
+  everyStayHasOwnEntrance ? t(cinematicPositioningEntrances) : null
+].filter((proof): proof is string => Boolean(proof));
+
+/**
  * Card facts come from the rental entities so the four Frigiliana stays read as
  * four different places. Guest count is deliberately absent: five of six carry
  * the same value and it differentiates nothing on the home.
@@ -166,12 +245,11 @@ const cinematicApartmentsProps = (
         name: apt.name,
         subtitle: t(apt.subtitle),
         city: rental.city,
-        interiorFact: rental.interiorAreaSqm ? `${rental.interiorAreaSqm} m²` : null,
-        terraceFact: rental.exteriorAreaSqm
-          ? `${t(cinematicFactTerraceLabel)} ${rental.exteriorAreaSqm} m²`
-          : null,
-        viewNote: t(rental.viewNote as Record<AmaraLanguage, string>),
-        price: formatVacationRentalFromPrice(rental.pricing, currentLang),
+        facts: cardFacts(rental),
+        priceFrom: t(cinematicPriceFromLabel),
+        priceAmount: formatVacationRentalFromPrice(rental.pricing, currentLang, false)
+          .replace(new RegExp(`^${t(cinematicPriceFromLabel)}\\s*`, 'i'), ''),
+        priceUnit: t(cinematicPriceUnitLabel),
         desc: t(apt.desc),
         imgAlt: t(apt.imageAlt),
         img: optimized.src,
@@ -179,25 +257,26 @@ const cinematicApartmentsProps = (
         imgHeight: optimized.attributes.height as number,
         imgSrcSet: optimized.srcSet.attribute,
         imgSizes: `(max-width: 639px) 100vw, ${optimized.attributes.sizes as string}`,
-        exploreHref,
-        exploreLabel: t(apt.exploreLabel)
+        exploreHref
       };
     })
   )
 ).filter((apt): apt is NonNullable<typeof apt> => Boolean(apt));
 
-/** Stay counts are derived, so the places band cannot drift from the inventory. */
+/**
+ * The "{n} of six hideaways" label is gone: each place's own copy already opens
+ * with the count ("Four of our stays are here"), so the label restated it as a
+ * fraction beside the city name and made the band read like arithmetic.
+ */
 const placesProps = cinematicPlaces
   .map((place) => {
     const href = resolveOptionalLink(place.token, currentLang, { suppressMissing: true });
     if (!href) {
       return null;
     }
-    const stayCount = vacationRentalEntities.filter((entity) => entity.city === place.city).length;
     return {
       id: place.id,
       city: place.city,
-      countLabel: t(cinematicPlacesCountLabel).replace('{n}', String(stayCount)),
       character: t(place.character),
       travel: t(place.travel),
       href,
@@ -218,11 +297,12 @@ const hostAboutHref = resolveOptionalLink('about', currentLang, { suppressMissin
 /** The hero carries two signals only; the trust band holds the rest. */
 const heroProof = [t(superhostLabel), t(cinematicHeroProofRating)];
 
-const trustChips = [
-  t(travellerReviewAwardLabel),
-  t(completedStaysLabel),
-  ...cinematicTrustChips[currentLang]
-];
+/**
+ * Evidence only. The two authored chips that used to follow — "concrete
+ * property details" and "personal contact" — were claims rather than proof,
+ * and the direct-booking band directly below already makes the second one.
+ */
+const trustChips = [t(travellerReviewAwardLabel), t(completedStaysLabel)];
 
 const directBenefits = [
   t(directBookingTrustSignals.lowestAvailablePrice),
@@ -262,7 +342,6 @@ const quoteTranslationNote = currentLang === 'de' ? null : t(cinematicQuoteTrans
         heroKicker={t(cinematicHeroKicker)}
         heroLead={t(cinematicHeroLead)}
         heroProof={heroProof}
-        scrollHint={t(cinematicScrollHint)}
         welcomeMessage={cinematicWelcome}
         hostAvatarSrc={hostAvatar.src}
         hostAvatarSrcSet={hostAvatar.srcSet.attribute}
@@ -274,7 +353,8 @@ const quoteTranslationNote = currentLang === 'de' ? null : t(cinematicQuoteTrans
         philosophyHeadlineAccent={t(cinematicPhilosophyAccent)}
         philosophyLabel={t(cinematicPhilosophyLabel)}
         philosophyP1={t(cinematicPhilosophyP1)}
-        philosophyP2={t(cinematicPhilosophyP2)}
+        positioningLabel={t(cinematicPositioningLabel)}
+        positioningProofs={positioningProofs}
         statReviewsValue={cinematicStatReviewsValue}
         statRatingValue={t(cinematicStatRatingValue)}
         statReviewsLabel={t(cinematicStatReviewsLabel)}

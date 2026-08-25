@@ -1,5 +1,6 @@
 ---
 import InlineEmphasis from '../../components/text/InlineEmphasis.astro';
+import AmaraSectionIntro from '../../components/layout/AmaraSectionIntro.astro';
 import type { LinkToken, RequiredLinkResolver } from '../../lib/linkResolver';
 
 interface RelatedItem {
@@ -20,9 +21,7 @@ const { title, items, resolveHref, surface = 'plain' } = Astro.props;
 ---
 
 <section class:list={['am-section', surface === 'tint' ? 'am-section--tint' : 'am-section--plain']}>
-  <div class="mb-12 max-w-3xl">
-    <h2 class="am-text-title italic tracking-tight text-on-surface">{title}</h2>
-  </div>
+  <AmaraSectionIntro title={title} variant="editorial" spacing="compact" />
   <div class="grid grid-cols-1 gap-x-16 gap-y-12 lg:grid-cols-2">
     {items.map((item) => (
       <article class="border-t border-outline-variant/25 pt-8">

@@ -23,11 +23,33 @@ export const navigationLanguages: NavigationLanguageOption[] = [
 
 /** Compact label for the mobile header rail, where space next to the menu trigger is tight. */
 export const defaultCtaShortLabels: Record<AmaraLanguage, string> = {
-  en: 'Book',
-  de: 'Buchen',
-  es: 'Reservar',
-  nl: 'Boeken',
-  sv: 'Boka'
+  en: 'Availability',
+  de: 'Verfügbarkeit',
+  es: 'Disponibilidad',
+  nl: 'Beschikbaarheid',
+  sv: 'Tillgänglighet'
+};
+
+/** Narrowest supported header label; the destination is still the availability search. */
+export const defaultCtaCompactLabels: Record<AmaraLanguage, string> = {
+  en: 'Dates',
+  de: 'Termine',
+  es: 'Fechas',
+  nl: 'Data',
+  sv: 'Datum'
+};
+
+/**
+ * One wording covers entering and running the availability search, because to a
+ * guest those are the same intention. It stops at the stay page, where choosing
+ * dates and booking are separate, named steps.
+ */
+export const globalCtaLabels: Record<AmaraLanguage, string> = {
+  en: 'Check availability',
+  de: 'Verfügbarkeit prüfen',
+  es: 'Consultar disponibilidad',
+  nl: 'Beschikbaarheid bekijken',
+  sv: 'Se tillgänglighet'
 };
 
 export type NavigationUtilityLabels = {

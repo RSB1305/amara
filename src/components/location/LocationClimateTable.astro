@@ -71,7 +71,7 @@ const maxRain = Math.max(...months.map((month) => month.rain));
               <p class="mt-4 am-text-subtitle leading-none text-on-surface">
                 {month.high}°
               </p>
-              <p class="mt-2 font-label text-[11px] tabular-nums text-muted">
+              <p class="am-text-data-note mt-2 tabular-nums text-muted">
                 {month.low}°
               </p>
               <div class="mt-5 flex h-20 items-end border-b border-outline-variant/20">
@@ -80,7 +80,7 @@ const maxRain = Math.max(...months.map((month) => month.rain));
                   style={`height: ${Math.max(3, (month.rain / maxRain) * 100)}%`}
                 ></div>
               </div>
-              <p class="mt-2 font-label text-[10px] tabular-nums text-muted">
+              <p class="am-text-data-note am-text-data-note--sm mt-2 tabular-nums text-muted">
                 {month.rain} mm
               </p>
             </div>

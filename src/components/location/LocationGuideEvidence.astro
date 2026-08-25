@@ -1,5 +1,6 @@
 ---
 import InlineEmphasis from '../text/InlineEmphasis.astro';
+import { getAmaraContentModuleAttributes } from '../content/moduleContract';
 
 interface Props {
   eyebrow: string;
@@ -14,11 +15,18 @@ const { eyebrow, mark, note, summary, items = [] } = Astro.props;
 if (!mark && !summary) {
   throw new Error('[AMARA] LocationGuideEvidence requires a mark or summary content.');
 }
+
+const moduleAttributes = getAmaraContentModuleAttributes({
+  job: 'evidence-panel',
+  status: 'family',
+  family: 'location'
+});
 ---
 
 {
   summary ? (
     <aside
+      {...moduleAttributes}
       class="overflow-hidden bg-inverse-surface px-8 py-9 text-inverted-on-surface md:px-10 md:py-11"
       data-am-guide-evidence
       data-am-guide-summary
@@ -46,6 +54,7 @@ if (!mark && !summary) {
     </aside>
   ) : (
     <aside
+      {...moduleAttributes}
       class="flex aspect-[3/4] min-h-full flex-col justify-between overflow-hidden bg-inverse-surface py-9 text-inverted-on-surface md:py-12"
       data-am-guide-evidence
     >

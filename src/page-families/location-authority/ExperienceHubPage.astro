@@ -4,6 +4,7 @@ import LocationExperienceHero from '../../components/location/LocationExperience
 import Navigation from '../../components/Navigation.astro';
 import GuideClosingSection from './GuideClosingSection.astro';
 import ExperienceContextNav from '../../components/experience/ExperienceContextNav.astro';
+import AmaraSectionIntro from '../../components/layout/AmaraSectionIntro.astro';
 import {
   experienceCatalog,
   experienceHubContent,
@@ -269,17 +270,12 @@ const heroImage = {
       </section>
 
       <section id="all" class="am-section am-section--plain">
-        <div class="mb-16 max-w-3xl">
-          <p class="am-text-caption mb-5 text-primary">
-            {copy.catalog.kicker}
-          </p>
-          <h2 class="am-text-title mb-6 italic tracking-tight text-on-surface">
-            {copy.catalog.title}
-          </h2>
-          <p class="am-text-body leading-relaxed text-on-surface-variant">
-            {copy.catalog.intro}
-          </p>
-        </div>
+        <AmaraSectionIntro
+          title={copy.catalog.title}
+          eyebrow={copy.catalog.kicker}
+          intro={copy.catalog.intro}
+          variant="editorial"
+        />
 
         <div class="grid grid-cols-1 gap-x-12 gap-y-14 md:grid-cols-2 xl:grid-cols-4">
           {

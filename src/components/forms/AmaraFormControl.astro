@@ -1,0 +1,67 @@
+---
+type FormControlData = Record<`data-${string}`, string | number | boolean | undefined>;
+
+interface Props {
+  as: 'input' | 'select' | 'button';
+  name?: string;
+  required?: boolean;
+  disabled?: boolean;
+  trigger?: boolean;
+  ariaExpanded?: boolean;
+  ariaInvalid?: boolean;
+  data?: FormControlData;
+  class?: string;
+}
+
+const {
+  as,
+  name,
+  required = false,
+  disabled = false,
+  trigger = false,
+  ariaExpanded,
+  ariaInvalid,
+  data = {},
+  class: className
+} = Astro.props as Props;
+const controlClass = [
+  'am-form-control am-text-body mt-2',
+  trigger && 'am-form-control--trigger',
+  className
+];
+---
+
+{as === 'input' ? (
+  <input
+    {...data}
+    class:list={controlClass}
+    type="date"
+    name={name}
+    required={required}
+    disabled={disabled}
+    aria-invalid={ariaInvalid}
+  />
+) : as === 'select' ? (
+  <select
+    {...data}
+    class:list={controlClass}
+    name={name}
+    required={required}
+    disabled={disabled}
+    aria-invalid={ariaInvalid}
+  >
+    <slot />
+  </select>
+) : (
+  <button
+    {...data}
+    class:list={controlClass}
+    type="button"
+    name={name}
+    disabled={disabled}
+    aria-expanded={ariaExpanded}
+    aria-invalid={ariaInvalid}
+  >
+    <slot />
+  </button>
+)}

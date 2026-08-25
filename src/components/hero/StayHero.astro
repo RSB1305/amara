@@ -1,0 +1,217 @@
+---
+import type { ImageMetadata } from 'astro';
+import type { AstroComponent } from '@lucide/astro';
+import { Check, ShieldCheck } from '@lucide/astro';
+import AmaraImage from '../AmaraImage.astro';
+import AmaraActionLink from '../actions/AmaraActionLink.astro';
+import BookingDecisionPanel from '../conversion/BookingDecisionPanel.astro';
+import AmaraSection from '../layout/AmaraSection.astro';
+import { getAmaraHeroAttributes, type AmaraHeroAction } from './heroContract';
+
+interface KeyFact {
+  label: string;
+  Icon: AstroComponent;
+}
+
+interface BookingDecision {
+  priceLabel: string;
+  price: string;
+  primary: AmaraHeroAction;
+  priceNote?: string;
+  supportLinks?: AmaraHeroAction[];
+}
+
+interface DirectTrust {
+  title: string;
+  signals: string[];
+  links?: AmaraHeroAction[];
+}
+
+interface Props {
+  imageSrc: ImageMetadata | string;
+  imageAlt: string;
+  imageCount: number;
+  galleryLabel: string;
+  eyebrow: string;
+  title: string;
+  headline: string;
+  keyFactsLabel: string;
+  keyFacts: KeyFact[];
+  collectionLink?: AmaraHeroAction;
+  booking: BookingDecision;
+  lead: string;
+  preserveLeadWhitespace?: boolean;
+  highlights?: string[];
+  directTrust?: DirectTrust;
+}
+
+const {
+  imageSrc,
+  imageAlt,
+  imageCount,
+  galleryLabel,
+  eyebrow,
+  title,
+  headline,
+  keyFactsLabel,
+  keyFacts,
+  collectionLink,
+  booking,
+  lead,
+  preserveLeadWhitespace = false,
+  highlights = [],
+  directTrust
+} = Astro.props;
+
+const heroAttributes = getAmaraHeroAttributes({
+  family: 'stay',
+  variant: 'stay-decision',
+  role: 'conversion'
+});
+---
+
+<AmaraSection variant="hero" class="am-stay-hero">
+  <div {...heroAttributes}>
+    <figure class="am-stay-hero__photo relative aspect-[5/4] max-h-[min(720px,62vh)] overflow-hidden bg-surface-container-low md:aspect-[3/2] xl:aspect-[16/9]">
+      <button
+        type="button"
+        class="group block h-full w-full cursor-zoom-in focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[-2px] focus-visible:outline-primary"
+        data-am-rental-photo-open
+        data-am-photo-index="0"
+        aria-haspopup="dialog"
+        aria-label={galleryLabel}
+      >
+        <AmaraImage
+          src={imageSrc}
+          alt={imageAlt}
+          profile="hero"
+          sizes="(max-width: 639px) 100vw, (max-width: 767px) calc(100vw - 3rem), (max-width: 1535px) calc(100vw - 6rem), 1440px"
+          class="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.01] motion-reduce:transition-none motion-reduce:group-hover:scale-100"
+          loading="eager"
+          fetchpriority="high"
+          decoding="async"
+        />
+        <span class="am-hero-photo-count am-text-label" aria-hidden="true">
+          1 / {imageCount}
+        </span>
+      </button>
+    </figure>
+
+    <div class="mt-6 max-w-4xl md:mt-10">
+      <p class="am-text-eyebrow text-primary">{eyebrow}</p>
+      <h1 class="am-text-display mt-3 max-w-4xl text-balance text-on-surface">{title}</h1>
+      <p class="am-text-title mt-4 max-w-4xl text-balance text-on-surface">{headline}</p>
+
+      <ul
+        class="am-text-body mt-6 flex flex-wrap gap-x-5 gap-y-2 text-on-surface"
+        aria-label={keyFactsLabel}
+        data-am-component="stay-key-facts"
+      >
+        {keyFacts.map(({ label, Icon }) => (
+          <li class="inline-flex items-center gap-2">
+            <Icon class="h-4 w-4 shrink-0 text-primary" stroke-width={1.5} aria-hidden="true" />
+            <span>{label}</span>
+          </li>
+        ))}
+      </ul>
+
+      {collectionLink && (
+        <p class="am-text-caption mt-3 font-normal">
+          <AmaraActionLink variant="inline" href={collectionLink.href}>{collectionLink.label}</AmaraActionLink>
+        </p>
+      )}
+
+      <BookingDecisionPanel
+        priceLabel={booking.priceLabel}
+        price={booking.price}
+        primary={booking.primary}
+        primaryInPage
+        priceNote={booking.priceNote}
+        supportLinks={booking.supportLinks}
+      />
+
+      <p
+        class:list={[
+          'am-text-body mt-8 max-w-2xl leading-relaxed text-on-surface-variant',
+          { 'whitespace-pre-line': preserveLeadWhitespace }
+        ]}
+      >
+        {lead}
+      </p>
+    </div>
+
+    {(highlights.length > 0 || directTrust) && (
+      <div class="mt-7 max-w-4xl md:mt-9">
+        {highlights.length > 0 && (
+          <ul class="grid max-w-2xl gap-2">
+            {highlights.map((highlight) => (
+              <li class="am-text-body flex gap-3 leading-relaxed text-on-surface">
+                <Check class="mt-[0.35em] h-4 w-4 shrink-0 text-primary" stroke-width={1.75} aria-hidden="true" />
+                <span class:list={[{ 'whitespace-pre-line': preserveLeadWhitespace }]}>{highlight}</span>
+              </li>
+            ))}
+          </ul>
+        )}
+
+        {directTrust && (
+          <div data-am-component="property-booking-trust" class="mt-7 border-t border-border-subtle pt-5">
+            <div class="grid grid-cols-[1.5rem_minmax(0,1fr)] gap-3">
+              <ShieldCheck class="mt-0.5 h-5 w-5 text-primary" stroke-width={1.5} aria-hidden="true" />
+              <div>
+                <p class="am-text-body font-bold text-on-surface">{directTrust.title}</p>
+                <ul class="am-text-body mt-3 grid gap-x-6 gap-y-2 text-on-surface-variant sm:grid-cols-2">
+                  {directTrust.signals.map((signal) => (
+                    <li class="grid grid-cols-[1rem_minmax(0,1fr)] items-start gap-2">
+                      <Check class="mt-1 h-3.5 w-3.5 text-primary" stroke-width={1.75} aria-hidden="true" />
+                      <span>{signal}</span>
+                    </li>
+                  ))}
+                </ul>
+                {directTrust.links && directTrust.links.length > 0 && (
+                  <div class="am-text-body mt-4 flex flex-wrap gap-x-5 gap-y-2">
+                    {directTrust.links.map((link) => (
+                      <AmaraActionLink variant="inline" href={link.href}>{link.label}</AmaraActionLink>
+                    ))}
+                  </div>
+                )}
+              </div>
+            </div>
+          </div>
+        )}
+      </div>
+    )}
+  </div>
+</AmaraSection>
+
+<style is:global>
+  .am-stay-hero {
+    padding-top: 0;
+  }
+
+  .am-stay-hero__photo {
+    width: calc(100% + var(--spacing-page-gutter) * 2);
+    max-width: none;
+    margin-inline: calc(var(--spacing-page-gutter) * -1);
+  }
+
+  .am-hero-photo-count {
+    position: absolute;
+    right: 0.75rem;
+    bottom: 0.75rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.375rem;
+    border-radius: var(--radius-control);
+    background: rgb(0 0 0 / 0.55);
+    padding: 0.3rem 0.65rem;
+    color: rgb(255 255 255 / 0.95);
+    backdrop-filter: blur(2px);
+  }
+
+  @media (min-width: 48rem) {
+    .am-hero-photo-count {
+      right: 1.25rem;
+      bottom: 1.25rem;
+    }
+  }
+</style>

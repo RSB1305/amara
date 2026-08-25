@@ -11,6 +11,7 @@ import {
   getDestinationBranchNavigation,
   type DestinationId
 } from '../../lib/location/destinationBranchNavigation';
+import { globalCtaLabels } from './globalNavigationContent';
 import { resolveLink } from '../../lib/linkResolver';
 import type { AmaraLanguage } from '../../types/seo';
 
@@ -58,7 +59,7 @@ const labels: Record<
     allStays: 'All stays',
     amenities: trustLabels.amenities.en,
     reviews: trustLabels.reviews_hub.en,
-    checkAvailability: trustLabels.book.en,
+    checkAvailability: globalCtaLabels.en,
     directBookingBenefits: trustLabels.direct_booking_benefits.en,
     faq: trustLabels.faq_general.en,
     arrival: 'Arrival Guide'
@@ -72,7 +73,7 @@ const labels: Record<
     allStays: 'Alle Unterkünfte',
     amenities: trustLabels.amenities.de,
     reviews: trustLabels.reviews_hub.de,
-    checkAvailability: trustLabels.book.de,
+    checkAvailability: globalCtaLabels.de,
     directBookingBenefits: trustLabels.direct_booking_benefits.de,
     faq: trustLabels.faq_general.de,
     arrival: 'Anreise-Guide'
@@ -86,7 +87,7 @@ const labels: Record<
     allStays: 'Todos los alojamientos',
     amenities: trustLabels.amenities.es,
     reviews: trustLabels.reviews_hub.es,
-    checkAvailability: trustLabels.book.es,
+    checkAvailability: globalCtaLabels.es,
     directBookingBenefits: trustLabels.direct_booking_benefits.es,
     faq: trustLabels.faq_general.es,
     arrival: 'Guía de llegada'
@@ -100,7 +101,7 @@ const labels: Record<
     allStays: 'Alle verblijven',
     amenities: trustLabels.amenities.nl,
     reviews: trustLabels.reviews_hub.nl,
-    checkAvailability: trustLabels.book.nl,
+    checkAvailability: globalCtaLabels.nl,
     directBookingBenefits: trustLabels.direct_booking_benefits.nl,
     faq: trustLabels.faq_general.nl,
     arrival: 'Aankomstgids'
@@ -114,7 +115,7 @@ const labels: Record<
     allStays: 'Alla boenden',
     amenities: trustLabels.amenities.sv,
     reviews: trustLabels.reviews_hub.sv,
-    checkAvailability: trustLabels.book.sv,
+    checkAvailability: globalCtaLabels.sv,
     directBookingBenefits: trustLabels.direct_booking_benefits.sv,
     faq: trustLabels.faq_general.sv,
     arrival: 'Ankomstguide'
@@ -179,7 +180,7 @@ const genericItems: ContextNavigationItem[] = [
   { id: 'stays', href: resolveLink('romantic_hideaways', lang), label: copy.allStays },
   { id: 'amenities', href: resolveLink('amenities', lang), label: copy.amenities },
   { id: 'reviews', href: resolveLink('reviews_hub', lang), label: copy.reviews },
-  { id: 'availability', href: resolveLink('book', lang), label: copy.checkAvailability },
+  { id: 'availability', href: resolveLink('stay_search_results', lang), label: copy.checkAvailability },
   { id: 'faq', href: resolveLink('faq_general', lang), label: copy.faq }
 ];
 

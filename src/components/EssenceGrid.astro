@@ -6,6 +6,7 @@
  * Keine Logik, keine Sprache, kein Routing.
  */
 import AmaraImage from './AmaraImage.astro';
+import AmaraActionLink from './actions/AmaraActionLink.astro';
 import InlineEmphasis from './text/InlineEmphasis.astro';
 
 interface GridItem {
@@ -33,7 +34,7 @@ const { eyebrow, title, intro, items } = Astro.props;
     <span class="am-text-section-caption text-primary mb-6">
       {eyebrow}
     </span>
-    <h2 class="am-text-display italic text-on-surface mb-8 tracking-tight leading-[1.1]">
+    <h2 class="am-text-display am-text-display--relaxed italic text-on-surface mb-8 tracking-tight">
       {title}
     </h2>
     <p class="am-text-body text-on-surface-variant opacity-80 italic leading-relaxed">
@@ -61,16 +62,17 @@ const { eyebrow, title, intro, items } = Astro.props;
             <p class="am-text-body text-on-surface-variant leading-relaxed max-w-md mb-8"><InlineEmphasis text={items[0].text} /></p>
             {items[0].linkLabel &&
               (items[0].href ? (
-                <a
+                <AmaraActionLink
                   href={items[0].href}
-                  class="am-cta-link am-cta-link--accent"
+                  variant="editorial"
+                  class="am-cta-link--accent"
                 >
                   {items[0].linkLabel}
-                </a>
+                </AmaraActionLink>
               ) : (
-                <span class="am-cta-link am-cta-link--accent am-is-disabled" aria-disabled="true">
+                <AmaraActionLink variant="editorial" class="am-cta-link--accent" disabled>
                   {items[0].linkLabel}
-                </span>
+                </AmaraActionLink>
               ))}
           </div>
         </div>

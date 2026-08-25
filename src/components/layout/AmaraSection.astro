@@ -1,8 +1,19 @@
 ---
+import {
+  getAmaraSectionAttributes,
+  type AmaraSectionFamily,
+  type AmaraSectionStatus,
+  type AmaraSectionSurface,
+  type AmaraSectionVariant
+} from './sectionContract';
+
 interface Props {
   id?: string;
   labelledby?: string;
-  variant?: 'default' | 'hero' | 'compact' | 'closing';
+  variant?: AmaraSectionVariant;
+  surface?: AmaraSectionSurface;
+  family?: AmaraSectionFamily;
+  status?: AmaraSectionStatus;
   divider?: boolean;
   dataComponent?: string;
   class?: string;
@@ -12,17 +23,23 @@ const {
   id,
   labelledby,
   variant = 'default',
+  surface = 'plain',
+  family = 'shared',
+  status = 'canonical',
   divider = true,
   dataComponent,
   class: className
 } = Astro.props;
+const sectionAttributes = getAmaraSectionAttributes({ variant, surface, family, status });
 ---
 
 <section
+  {...sectionAttributes}
   id={id}
   class:list={[
     'am-page-section',
     `am-page-section--${variant}`,
+    `am-page-section--surface-${surface}`,
     { 'am-page-section--divided': divider },
     className
   ]}

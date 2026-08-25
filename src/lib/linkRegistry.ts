@@ -1,5 +1,4 @@
 import { buildOwnedLocalizedPath } from './routeOwnership';
-import { buildBookingLandingUrl } from './directBooking';
 
 function buildOwnedLinks(slug: string) {
   return {
@@ -33,16 +32,20 @@ export const linkRegistry = {
        CORE
     ========================================================= */
     home: buildOwnedLinks(''),
-    book: {
-      en: buildBookingLandingUrl('en'),
-      de: buildBookingLandingUrl('de'),
-      es: buildBookingLandingUrl('es'),
-      nl: buildBookingLandingUrl('nl'),
-      sv: buildBookingLandingUrl('sv')
-    },
+    /**
+     * `book` now resolves to AMARA's own availability search rather than the
+     * external booking landing page. Every editorial call to action therefore
+     * keeps the guest on the site, where the gateway answers with real dates,
+     * availability and an authoritative total. The external host is entered
+     * only through the validated checkout handoff in `directBooking.ts`, and
+     * the legacy `/{lang}/book/` URLs keep their redirects in `_redirects`.
+     */
+    book: buildOwnedLinks('find-a-stay'),
     about: buildOwnedLinks('amara-about-us'),
     amenities: buildOwnedLinks('comfort-amenities'),
     arrival_guide: buildOwnedLinks('directions-arrival-guide'),
+    nerja_arrival_guide: buildOwnedLinks('nerja-directions-arrival-guide'),
+    tarifa_arrival_guide: buildOwnedLinks('tarifa-directions-arrival-guide'),
     direct_booking_benefits: buildOwnedLinks('direct-booking-benefits'),
     reviews_hub: buildOwnedLinks('guest-reviews'),
     instagram_landing: buildOwnedLinks('instagram'),

@@ -9,9 +9,11 @@ import {
 import {
   BookingGatewayError,
   parseCalendarRequest,
+  parseCheckoutRequest,
   parseQuoteRequest,
   parseSearchCalendarRequest,
 } from './request-contract.mjs';
+import { buildLodgifyCheckoutUrl } from './lodgify-checkout.mjs';
 
 const PROVIDER_STEPS = new Set(['properties', 'rooms', 'availability', 'rates', 'quote']);
 const PROVIDER_ERROR_CATEGORIES = new Set([
@@ -158,14 +160,19 @@ async function searchCalendar(request, apiKey) {
     const ratesByDate = new Map(rateDays.map((day) => [day.date, day]));
     return {
       stay: candidate.stay,
-      days: availabilityDays.map((day) => ({
-        date: day.date,
-        available: day.available,
-        options: (ratesByDate.get(day.date)?.priceOptions ?? []).map((option) => ({
-          minStay: option.minStay,
-          maxStay: option.maxStay,
-        })),
-      })),
+      days: availabilityDays.map((day) => {
+        const rateDay = ratesByDate.get(day.date);
+        return {
+          date: day.date,
+          available: day.available,
+          currency: rateDay?.currency ?? null,
+          options: (rateDay?.priceOptions ?? []).map((option) => ({
+            nightlyRate: option.pricePerDay,
+            minStay: option.minStay,
+            maxStay: option.maxStay,
+          })),
+        };
+      }),
     };
   });
   return {
@@ -200,7 +207,34 @@ async function quote(request, apiKey) {
   };
 }
 
-const OPERATIONS = Object.freeze({ availability, rates, quote, 'search-calendar': searchCalendar });
+function checkout(request) {
+  const input = parseCheckoutRequest(request);
+  const location = buildLodgifyCheckoutUrl({
+    propertyId: input.providerMapping.propertyId,
+    lang: input.lang,
+    currency: input.currency,
+    arrival: input.arrival,
+    departure: input.departure,
+    adults: input.adults,
+  });
+  return new Response(null, {
+    status: 302,
+    headers: {
+      Location: location,
+      'Cache-Control': 'no-store',
+      'Referrer-Policy': 'strict-origin-when-cross-origin',
+      'X-Content-Type-Options': 'nosniff',
+    },
+  });
+}
+
+const OPERATIONS = Object.freeze({
+  availability,
+  rates,
+  quote,
+  checkout,
+  'search-calendar': searchCalendar,
+});
 
 function jsonResponse(body, status, extraHeaders = {}) {
   return new Response(JSON.stringify(body), {
@@ -230,6 +264,7 @@ export function createBookingRoute(operationName) {
 
     try {
       const result = await operation(context.request, context.env?.LODGIFY_API_KEY);
+      if (result instanceof Response) return result;
       return jsonResponse(result, 200);
     } catch (error) {
       if (error instanceof BookingGatewayError) {

@@ -1,0 +1,76 @@
+---
+import InlineEmphasis from '../text/InlineEmphasis.astro';
+import {
+  getAmaraSectionIntroAttributes,
+  type AmaraSectionIntroSpacing,
+  type AmaraSectionIntroVariant,
+  type AmaraSectionStatus
+} from './sectionContract';
+
+interface Props {
+  title: string;
+  titleId?: string;
+  eyebrow?: string;
+  intro?: string;
+  note?: string;
+  variant?: AmaraSectionIntroVariant;
+  spacing?: AmaraSectionIntroSpacing;
+  status?: Exclude<AmaraSectionStatus, 'legacy'>;
+  emphasizeIntro?: boolean;
+  class?: string;
+}
+
+const {
+  title,
+  titleId,
+  eyebrow,
+  intro,
+  note,
+  variant = 'standard',
+  spacing = 'default',
+  status = 'family',
+  emphasizeIntro = false,
+  class: className
+} = Astro.props;
+const introAttributes = getAmaraSectionIntroAttributes({ variant, status });
+const hasDetails = Astro.slots.has('default');
+---
+
+<div
+  {...introAttributes}
+  class:list={[
+    'am-section-intro',
+    `am-section-intro--${variant}`,
+    `am-section-intro--spacing-${spacing}`,
+    className
+  ]}
+>
+  {eyebrow && (
+    <p class:list={[
+      variant === 'standard' ? 'am-text-eyebrow' : 'am-text-caption',
+      'am-section-intro__eyebrow text-primary'
+    ]}>
+      {eyebrow}
+    </p>
+  )}
+  <h2
+    id={titleId}
+    class:list={[
+      'am-section-intro__title am-text-title text-on-surface',
+      { 'italic tracking-tight': variant === 'editorial' }
+    ]}
+  >
+    {title}
+  </h2>
+  {intro && (
+    <p class="am-section-intro__intro am-text-body leading-relaxed text-on-surface-variant">
+      {emphasizeIntro ? <InlineEmphasis text={intro} /> : intro}
+    </p>
+  )}
+  {note && (
+    <p class="am-section-intro__note am-text-body italic text-muted">
+      <InlineEmphasis text={note} />
+    </p>
+  )}
+  {hasDetails && <div class="am-section-intro__details"><slot /></div>}
+</div>

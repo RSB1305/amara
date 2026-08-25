@@ -1,3 +1,4 @@
+
 type ResultsCopy = Record<string, string>;
 type SearchInput = {
   destination: 'all' | 'frigiliana' | 'nerja' | 'tarifa';
@@ -69,8 +70,7 @@ export function enhanceStaySearchResults() {
   document.querySelectorAll<HTMLElement>('[data-am-stay-search-results]').forEach((root) => {
     if (root.dataset.amStaySearchEnhanced === 'true') return;
     root.dataset.amStaySearchEnhanced = 'true';
-    const copy = JSON.parse(root.dataset.amStaySearchCopy || '{}') as ResultsCopy;
-    const language = root.dataset.amStaySearchLanguage || 'en-GB';
+    const copy = JSON.parse(root.dataset.amStaySearchCopy || '{}') as ResultsCopy;    const language = root.dataset.amStaySearchLanguage || 'en-GB';
     const summary = root.querySelector<HTMLElement>('[data-am-stay-search-summary]');
     const state = root.querySelector<HTMLElement>('[data-am-stay-search-state]');
     const warning = root.querySelector<HTMLElement>('[data-am-stay-search-warning]');
@@ -155,6 +155,15 @@ export function enhanceStaySearchResults() {
           const base = link.dataset.amStayResultBaseHref || link.getAttribute('href') || '';
           link.href = cardHref(base);
         });
+        // A result card carries these dates to the stay page rather than into
+        // checkout. The stay's booking module reads them from the query, so the
+        // guest arrives on a filled calendar they can still change, instead of
+        // being committed to one set of dates by pressing a card.
+        const bookingLink = card.querySelector<HTMLAnchorElement>('[data-am-stay-booking-link]');
+        if (!bookingLink) throw new Error('Stay link is missing.');
+        bookingLink.href = cardHref(
+          bookingLink.dataset.amStayResultBaseHref || bookingLink.getAttribute('href') || ''
+        );
         card.hidden = false;
         cardSummary.hidden = false;
         priceWrap.hidden = false;

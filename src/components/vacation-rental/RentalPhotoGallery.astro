@@ -89,8 +89,11 @@ const copy: Record<AmaraLanguage, GalleryCopy> = {
 
 const { images, alts, lang } = Astro.props;
 const labels = copy[lang];
-const previewImages = images.slice(1, 8);
-const previewAlts = alts.slice(1, 8);
+// A curated preview, not the full set: every additional inline photo costs DOM,
+// page length and a decode on scroll, while the lightbox already carries all of
+// them and loads only the photo actually being viewed.
+const previewImages = images.slice(1, 6);
+const previewAlts = alts.slice(1, 6);
 
 // These URLs are generated at build time but are not assigned to the lightbox image
 // until it opens. The browser therefore downloads only requested photos.
@@ -124,7 +127,7 @@ const serializedGallery = JSON.stringify({ images: lightboxImages, labels }).rep
 
 <div class="am-mobile-full-bleed max-sm:overflow-x-clip">
   <div
-    class="mt-5 flex snap-x snap-proximity gap-3 overflow-x-auto overscroll-x-contain scroll-px-6 px-6 pb-4 sm:mt-8 sm:grid sm:snap-none sm:grid-cols-2 sm:overflow-visible sm:px-0 sm:pb-0 lg:grid-cols-4"
+    class="mt-5 flex snap-x snap-mandatory gap-3 overflow-x-auto overscroll-x-contain scroll-px-6 px-6 pb-4 sm:mt-8 sm:grid sm:snap-none sm:grid-cols-2 sm:overflow-visible sm:px-0 sm:pb-0 lg:grid-cols-3"
     data-am-rental-gallery-grid
     role="region"
     aria-label={labels.dialogLabel}
@@ -132,7 +135,7 @@ const serializedGallery = JSON.stringify({ images: lightboxImages, labels }).rep
     {previewImages.map((image, index) => (
       <button
         type="button"
-        class="group relative aspect-[4/3] w-[82vw] max-w-[22rem] shrink-0 snap-start overflow-hidden bg-surface-container-low focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary sm:w-auto sm:max-w-none sm:shrink sm:snap-none"
+        class="group relative aspect-[4/5] w-[88vw] max-w-none shrink-0 snap-center overflow-hidden bg-surface-container-low focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary sm:aspect-[4/3] sm:w-auto sm:shrink sm:snap-none"
         data-am-rental-photo-open
         data-am-photo-index={index + 1}
         aria-haspopup="dialog"
@@ -142,7 +145,7 @@ const serializedGallery = JSON.stringify({ images: lightboxImages, labels }).rep
           src={image}
           alt={previewAlts[index] ?? ''}
           profile="gallery"
-          sizes="(max-width: 639px) 82vw, (max-width: 1023px) 50vw, 25vw"
+          sizes="(max-width: 639px) 88vw, (max-width: 1023px) 50vw, 33vw"
           class="h-full w-full object-cover transition-transform duration-500 ease-out group-hover:scale-[1.025] motion-reduce:transition-none motion-reduce:group-hover:scale-100"
           loading="lazy"
           decoding="async"
@@ -153,7 +156,7 @@ const serializedGallery = JSON.stringify({ images: lightboxImages, labels }).rep
 
     <button
       type="button"
-      class="group flex aspect-[4/3] w-[82vw] max-w-[22rem] shrink-0 snap-start flex-col items-center justify-center gap-3 border border-border-subtle bg-surface-container-low px-6 text-center text-on-surface transition-colors duration-300 hover:bg-surface-container focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary motion-reduce:transition-none sm:w-auto sm:max-w-none sm:shrink sm:snap-none"
+      class="group flex aspect-[4/5] w-[88vw] max-w-none shrink-0 snap-center flex-col items-center justify-center gap-3 border border-border-subtle bg-surface-container-low px-6 text-center text-on-surface transition-colors duration-300 hover:bg-surface-container focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary motion-reduce:transition-none sm:aspect-[4/3] sm:w-auto sm:shrink sm:snap-none"
       data-am-rental-photo-open
       data-am-photo-index="0"
       aria-haspopup="dialog"

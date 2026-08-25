@@ -1,5 +1,14 @@
 import type { AmaraLanguage } from '../types/seo';
 
+export interface CheckoutHandoffInput {
+  stay: string;
+  lang: AmaraLanguage;
+  arrival: string;
+  departure: string;
+  adults: number;
+  currency: string;
+}
+
 /**
  * AMARA Direct Booking — Lodgify checkout host
  *
@@ -41,4 +50,21 @@ export function buildRentalBookingUrl(slug: string, lang: AmaraLanguage): string
 /** Generic availability search landing page on the Lodgify booking site. */
 export function buildBookingLandingUrl(lang: AmaraLanguage): string {
   return buildDirectBookingUrl(lang, 'book/');
+}
+
+/**
+ * Same-origin, provider-neutral handoff used only after AMARA has confirmed a
+ * current quote. The server resolves the stay key to the active provider and
+ * redirects into its checkout; provider IDs never enter AMARA-authored links.
+ */
+export function buildCheckoutHandoffUrl(input: CheckoutHandoffInput): string {
+  const params = new URLSearchParams({
+    stay: input.stay,
+    lang: input.lang,
+    arrival: input.arrival,
+    departure: input.departure,
+    adults: String(input.adults),
+    currency: input.currency
+  });
+  return `/api/booking/checkout?${params.toString()}`;
 }

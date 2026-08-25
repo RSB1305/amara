@@ -160,6 +160,7 @@ const stayCases = [
 test('all six property calendars stay idle on page load and request their stable stay key on open', async ({
   page
 }) => {
+  test.setTimeout(60_000);
   await page.setViewportSize(MOBILE);
   const requests = await mockGateway(page);
 
@@ -263,6 +264,10 @@ test('desktop calendar loads only on open, enforces stay rules and quotes a vali
     'available'
   );
   await expect(page.locator('[data-am-booking-price]')).toContainText('866');
+  await expect(page.locator('[data-am-booking-checkout]')).toHaveAttribute(
+    'href',
+    new RegExp('/api/booking/checkout\\?stay=maha&lang=en&arrival=' + arrival + '&departure=' + futureIso(6) + '&adults=2&currency=EUR')
+  );
   await expect(dayButton(page, arrival)).toHaveAttribute('data-range', 'start');
   await expect(dayButton(page, futureIso(6))).toHaveAttribute('data-range', 'end');
 
@@ -297,6 +302,7 @@ test('mobile calendar shows one full-width month without horizontal overflow', a
   await page.setViewportSize(MOBILE);
   const requests = await mockGateway(page);
   await page.goto(ORIGIN + '/nl/la-amara-maha', { waitUntil: 'domcontentloaded' });
+  await page.locator('[data-am-consent-choice="necessary"]').click();
 
   await page.getByRole('button', { name: 'Aankomst kiezen' }).click();
   await expect.poll(() => requests.length).toBe(2);

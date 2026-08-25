@@ -1,0 +1,25 @@
+---
+import type { HTMLAttributes } from 'astro/types';
+
+export type AmaraMetaChipTone = 'neutral' | 'accent';
+
+interface Props extends Omit<HTMLAttributes<'span'>, 'class' | 'class:list'> {
+  tone?: AmaraMetaChipTone;
+  as?: 'span' | 'div';
+  class?: string;
+}
+
+const {
+  tone = 'neutral',
+  as: Tag = 'span',
+  class: className,
+  ...attributes
+} = Astro.props;
+---
+
+<Tag
+  {...attributes}
+  class:list={['am-meta-chip', `am-meta-chip--${tone}`, 'am-text-caption', className]}
+>
+  <slot />
+</Tag>

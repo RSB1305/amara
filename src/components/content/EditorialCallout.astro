@@ -1,0 +1,29 @@
+---
+import { getAmaraContentModuleAttributes } from './moduleContract';
+
+interface Props {
+  surface?: 'low' | 'lowest';
+  class?: string;
+}
+
+const {
+  surface = 'low',
+  class: className
+} = Astro.props;
+
+const moduleAttributes = getAmaraContentModuleAttributes({
+  job: 'practical-callout',
+  status: 'canonical'
+});
+---
+
+<p
+  {...moduleAttributes}
+  class:list={[
+    'border-l border-primary/20 px-4 py-3 am-text-body leading-relaxed text-on-surface-variant',
+    surface === 'lowest' ? 'bg-surface-container-lowest' : 'bg-surface-container-low',
+    className
+  ]}
+>
+  <slot />
+</p>

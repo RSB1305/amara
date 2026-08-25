@@ -72,9 +72,9 @@ export const trustLabels: Record<
     sv: 'Bokningsvillkor'
   },
   book: {
-    en: 'Check Availability',
+    en: 'Check availability',
     de: 'Verfügbarkeit prüfen',
-    es: 'Ver disponibilidad',
+    es: 'Consultar disponibilidad',
     nl: 'Beschikbaarheid bekijken',
     sv: 'Se tillgänglighet'
   },

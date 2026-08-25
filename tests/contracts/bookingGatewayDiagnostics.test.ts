@@ -7,11 +7,12 @@ import {
   getLodgifyStayMapping
 } from '../../booking-gateway/stays.mjs';
 
-type BookingOperation = 'availability' | 'rates' | 'quote';
+type BookingOperation = 'availability' | 'rates' | 'quote' | 'checkout' | 'search-calendar';
 
 const SECRET = 'unit-test-api-key-must-not-log';
 const PROVIDER_BODY = 'provider-response-body-must-not-log';
 const MAHA_MAPPING = getLodgifyStayMapping('maha');
+const PLAYA_MAPPING = getLodgifyStayMapping('playa');
 
 function isoDay(daysFromToday: number): string {
   const date = new Date();
@@ -50,6 +51,22 @@ function bookingRequest(operation: BookingOperation): Request {
         children: '0',
         pets: '0'
       })
+    : operation === 'checkout'
+      ? new URLSearchParams({
+          stay: 'maha',
+          lang: 'de',
+          arrival: CALENDAR_START,
+          departure: QUOTE_DEPARTURE,
+          adults: '2',
+          currency: 'EUR'
+        })
+    : operation === 'search-calendar'
+      ? new URLSearchParams({
+          destination: 'nerja',
+          guests: '2',
+          start: CALENDAR_START,
+          end: CALENDAR_END
+        })
     : new URLSearchParams({ stay: 'maha', start: CALENDAR_START, end: CALENDAR_END });
   return new Request(`https://amara.test/api/booking/${operation}?${params}`);
 }
@@ -160,6 +177,79 @@ test('returns public availability without provider IDs after one direct provider
     ]
   });
   expect(providerUrls).toHaveLength(1);
+  expect(logs).toHaveLength(0);
+});
+
+test('redirects a validated AMARA stay into the provider-owned checkout without an API call', async () => {
+  const { response, logs, providerUrls } = await runRoute(
+    'checkout',
+    fetchSequence(new Error('Checkout must not call the provider API.'))
+  );
+
+  expect(response.status).toBe(302);
+  const location = new URL(response.headers.get('location') || '');
+  expect(location.origin).toBe('https://checkout.lodgify.com');
+  expect(location.pathname).toBe(`/de/amara/${MAHA_MAPPING.propertyId}/reservation`);
+  expect(Object.fromEntries(location.searchParams)).toEqual({
+    currency: 'EUR',
+    arrival: CALENDAR_START,
+    departure: QUOTE_DEPARTURE,
+    adults: '2'
+  });
+  expect(response.headers.get('cache-control')).toBe('no-store');
+  expect(providerUrls).toHaveLength(0);
+  expect(logs).toHaveLength(0);
+});
+
+test('returns public nightly prices and stay rules in the destination calendar', async () => {
+  const { response, logs, providerUrls } = await runRoute(
+    'search-calendar',
+    fetchSequence(
+      jsonResponse([{
+        property_id: PLAYA_MAPPING.propertyId,
+        room_type_id: PLAYA_MAPPING.roomTypeId,
+        periods: [{
+          start: CALENDAR_START,
+          end: CALENDAR_END,
+          available: true,
+          closed_period: null
+        }]
+      }]),
+      jsonResponse({
+        rate_settings: { currency_code: 'EUR' },
+        calendar_items: [CALENDAR_START, CALENDAR_END].map((date) => ({
+          date,
+          prices: [{
+            price_per_day: 173,
+            min_stay: 5,
+            max_stay: 14,
+            price_per_additional_guest: 0
+          }]
+        }))
+      })
+    )
+  );
+
+  expect(response.status).toBe(200);
+  const body = await response.text();
+  expect(body).not.toContain(PLAYA_MAPPING.propertyId);
+  expect(body).not.toContain(PLAYA_MAPPING.roomTypeId);
+  expect(JSON.parse(body)).toEqual({
+    destination: 'nerja',
+    guests: 2,
+    start: CALENDAR_START,
+    end: CALENDAR_END,
+    stays: [{
+      stay: 'playa',
+      days: [CALENDAR_START, CALENDAR_END].map((date) => ({
+        date,
+        available: true,
+        currency: 'EUR',
+        options: [{ nightlyRate: 173, minStay: 5, maxStay: 14 }]
+      }))
+    }]
+  });
+  expect(providerUrls).toHaveLength(2);
   expect(logs).toHaveLength(0);
 });
 

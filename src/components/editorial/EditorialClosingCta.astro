@@ -6,6 +6,7 @@
  */
 import { resolveOptionalLink, type LinkToken } from '../../lib/linkResolver';
 import type { AmaraLanguage } from '../../types/seo';
+import AmaraActionLink from '../actions/AmaraActionLink.astro';
 import InlineEmphasis from '../text/InlineEmphasis.astro';
 
 export interface EditorialClosingCtaLink {
@@ -31,8 +32,6 @@ interface Props {
 
 const { title, titleId, lead, note, links, lang, spacing = 'legacy', dataComponent } = Astro.props;
 
-const linkClass = 'am-cta-link';
-const disabledClass = 'am-cta-link am-is-disabled';
 const hasButtonLinks = links.some((link) => link.style === 'primary' || link.style === 'secondary');
 ---
 
@@ -58,20 +57,23 @@ const hasButtonLinks = links.some((link) => link.style === 'primary' || link.sty
           const href = isDisabled
             ? null
             : resolveOptionalLink(link.token!, lang, { suppressMissing: true });
-          const resolvedClass = link.style === 'primary'
-            ? 'am-btn am-btn--primary w-full justify-center sm:w-auto'
+          const variant = link.style === 'primary'
+            ? 'primary'
             : link.style === 'secondary'
-              ? 'am-btn am-btn--secondary w-full justify-center sm:w-auto'
-              : linkClass;
+              ? 'secondary'
+              : 'editorial';
+          const className = variant === 'primary' || variant === 'secondary'
+            ? 'w-full justify-center sm:w-auto'
+            : undefined;
           return (
             <>
               {index > 0 && !hasButtonLinks && <span class="hidden sm:inline text-on-surface/60">&middot;</span>}
               {!href ? (
-                <span class={disabledClass} aria-disabled="true">{link.label}</span>
+                <AmaraActionLink variant="editorial" disabled>{link.label}</AmaraActionLink>
               ) : (
-                <a href={href} class={resolvedClass}>
+                <AmaraActionLink href={href} variant={variant} class={className}>
                   {link.label}
-                </a>
+                </AmaraActionLink>
               )}
             </>
           );

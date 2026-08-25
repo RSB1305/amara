@@ -13,6 +13,7 @@ import type {
 } from './globalNavigationModel';
 import type { NavigationUtilityLabels } from './globalNavigationContent';
 import type { AmaraLanguage } from '../../types/seo';
+import AmaraActionLink from '../actions/AmaraActionLink.astro';
 
 interface Props {
   currentLang: AmaraLanguage;
@@ -60,7 +61,7 @@ const { currentLang, languageOptions, cta, showBookingCta, utilityLabels } = Ast
             {languageOptions.map((lang) => (
               <a
                 href={lang.href}
-                class={`font-label text-[13px] transition-colors px-2 py-1.5 rounded-md ${
+                class={`am-text-nav-option transition-colors px-2 py-1.5 rounded-md ${
                   currentLang === lang.code
                     ? 'font-bold text-primary bg-primary/5'
                     : 'text-on-surface/70 hover:text-on-surface hover:bg-surface-container-low'
@@ -75,22 +76,17 @@ const { currentLang, languageOptions, cta, showBookingCta, utilityLabels } = Ast
     </div>
   </div>
 
-  {showBookingCta && (
+  {showBookingCta && !cta.hidden && (
     <div class="am-nav__slot am-nav__slot--cta">
-      {cta.href === null ? (
-        <span class="am-btn am-btn--primary am-is-disabled" aria-disabled="true">
-          <span class="am-nav__cta-label-full">{cta.label}</span>
-          <span class="am-nav__cta-label-short">{cta.shortLabel}</span>
-        </span>
-      ) : (
-        <a
-          href={cta.href}
-          class="am-btn am-btn--primary"
-        >
-          <span class="am-nav__cta-label-full">{cta.label}</span>
-          <span class="am-nav__cta-label-short">{cta.shortLabel}</span>
-        </a>
-      )}
+      <AmaraActionLink
+        href={cta.href ?? undefined}
+        variant="secondary"
+        disabled={cta.href === null}
+      >
+        <span class="am-nav__cta-label-full">{cta.label}</span>
+        <span class="am-nav__cta-label-short">{cta.shortLabel}</span>
+        <span class="am-nav__cta-label-compact">{cta.compactLabel}</span>
+      </AmaraActionLink>
     </div>
   )}
 

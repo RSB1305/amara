@@ -2,18 +2,35 @@
 import type { AmaraLanguage } from '../../types/seo';
 import type { VacationRentalBookingKey } from '../../content/vacationRentalEntities';
 import BookingDateRangeCalendar from '../booking/BookingDateRangeCalendar.astro';
+import AmaraActionLink from '../actions/AmaraActionLink.astro';
 import AmaraSection from '../layout/AmaraSection.astro';
+import AmaraFormControl from '../forms/AmaraFormControl.astro';
 
 interface Props {
+  id?: string;
   lang: AmaraLanguage;
   bookingKey: VacationRentalBookingKey;
   stayName: string;
   occupancy: number;
+  /**
+   * Resilience fallback only. When the gateway cannot answer, a guest must still
+   * reach a booking surface; this link is never the equal of the live module.
+   */
+  fallbackHref?: string;
+  fallbackLabel?: string;
 }
 
 type LocalizedText = Record<AmaraLanguage, string>;
 
-const { lang, bookingKey, stayName, occupancy } = Astro.props;
+const {
+  id,
+  lang,
+  bookingKey,
+  stayName,
+  occupancy,
+  fallbackHref,
+  fallbackLabel
+} = Astro.props;
 
 const copy = {
   kicker: {
@@ -23,19 +40,23 @@ const copy = {
     nl: 'Live beschikbaarheid',
     sv: 'Live-tillgänglighet'
   },
+  // A statement, not a second instruction: the button already asks for dates,
+  // and repeating the verb here made the page read as three nested commands.
   title: {
-    en: 'Check current availability and price for {stay}',
-    de: 'Aktuelle Verfügbarkeit und Preis für {stay} prüfen',
-    es: 'Consulta la disponibilidad y el precio actual de {stay}',
-    nl: 'Controleer de actuele beschikbaarheid en prijs voor {stay}',
-    sv: 'Kontrollera aktuell tillgänglighet och pris för {stay}'
+    en: 'Availability and price for {stay}',
+    de: 'Verfügbarkeit und Preis für {stay}',
+    es: 'Disponibilidad y precio de {stay}',
+    nl: 'Beschikbaarheid en prijs voor {stay}',
+    sv: 'Tillgänglighet och pris för {stay}'
   },
-  intro: {
-    en: 'Open the calendar to see live availability and indicative nightly prices. We request booking data only when you start choosing dates.',
-    de: 'Öffnet den Kalender, um Live-Verfügbarkeit und orientierende Übernachtungspreise zu sehen. Buchungsdaten fragen wir erst ab, wenn ihr Reisedaten auswählt.',
-    es: 'Abrid el calendario para ver la disponibilidad en directo y precios orientativos por noche. Solo consultamos datos de reserva cuando empezáis a elegir fechas.',
-    nl: 'Open de kalender voor live beschikbaarheid en indicatieve nachtprijzen. We vragen boekingsgegevens pas op wanneer jullie data gaan kiezen.',
-    sv: 'Öppna kalendern för att se live-tillgänglighet och vägledande nattpriser. Vi hämtar bokningsdata först när ni börjar välja datum.'
+  // Replaces the former explanatory paragraph: the guest needs the promise, not
+  // a description of the mechanism they are about to use.
+  assurance: {
+    en: 'Live availability · exact total price · no reservation yet',
+    de: 'Live-Verfügbarkeit · exakter Gesamtpreis · noch keine Reservierung',
+    es: 'Disponibilidad en directo · precio total exacto · sin reserva todavía',
+    nl: 'Live beschikbaarheid · exacte totaalprijs · nog geen reservering',
+    sv: 'Live-tillgänglighet · exakt totalpris · ingen bokning ännu'
   },
   arrival: {
     en: 'Arrival',
@@ -71,13 +92,6 @@ const copy = {
     es: '{count} huéspedes',
     nl: '{count} gasten',
     sv: '{count} gäster'
-  },
-  submit: {
-    en: 'Check current total price',
-    de: 'Aktuellen Gesamtpreis prüfen',
-    es: 'Consultar el precio total actual',
-    nl: 'Actuele totaalprijs controleren',
-    sv: 'Kontrollera aktuellt totalpris'
   },
   loading: {
     en: 'Checking the current total price…',
@@ -172,6 +186,13 @@ const copy = {
     nl: 'Kies nu het vertrek. Alleen data waarbij elke nacht beschikbaar is en de verblijfsregels passen, zijn selecteerbaar.',
     sv: 'Välj nu avresa. Endast datum där varje natt är tillgänglig och vistelsereglerna uppfylls kan väljas.'
   },
+  bookNow: {
+    en: 'Book now',
+    de: 'Jetzt buchen',
+    es: 'Reservar ahora',
+    nl: 'Nu boeken',
+    sv: 'Boka nu'
+  },
   minimumStayHelp: {
     en: 'Minimum stay from this arrival: {count} nights. Available dates remain visible; choose a valid departure.',
     de: 'Mindestaufenthalt ab dieser Anreise: {count} Nächte. Verfügbare Tage bleiben sichtbar; wählt eine mögliche Abreise.',
@@ -252,24 +273,21 @@ const guestOptions = Array.from({ length: occupancy }, (_, index) => index + 1);
 const titleId = `${bookingKey}-booking-calendar-title`;
 ---
 
-<AmaraSection labelledby={titleId} dataComponent="stay-booking-calendar">
+<AmaraSection id={id} labelledby={titleId} dataComponent="stay-booking-calendar">
   <div
     data-am-stay-booking-calendar
     data-am-booking-stay={bookingKey}
     data-am-booking-language={lang}
     data-am-booking-copy={JSON.stringify(clientCopy)}
   >
-    <div class="grid gap-8 lg:grid-cols-[minmax(0,0.75fr)_minmax(0,1.25fr)] lg:gap-14">
+    <div class="grid gap-6 lg:grid-cols-[minmax(0,0.75fr)_minmax(0,1.25fr)] lg:gap-14">
     <div class="max-w-xl">
       <p class="am-text-label text-on-surface-variant">
         {t(copy.kicker)}
       </p>
-      <h2 id={titleId} class="am-text-title mt-4 text-balance text-on-surface">
+      <h2 id={titleId} class="am-text-subtitle mt-3 text-balance text-on-surface">
         {t(copy.title).replace('{stay}', stayName)}
       </h2>
-      <p class="am-text-body mt-5 leading-relaxed text-on-surface-variant">
-        {t(copy.intro)}
-      </p>
     </div>
 
     <div class="am-stay-booking-calendar__panel self-start bg-surface-container-low p-5 sm:p-7">
@@ -279,65 +297,63 @@ const titleId = `${bookingKey}-booking-calendar-title`;
             <span class="am-text-label text-on-surface-variant">
               {t(copy.arrival)}
             </span>
-            <input
-              class="am-stay-booking-calendar__control am-text-body mt-2"
-              type="date"
+            <AmaraFormControl
+              as="input"
               name="arrival"
               required
-              data-am-booking-arrival
+              data={{ 'data-am-booking-arrival': '' }}
             />
           </label>
           <div class="am-stay-booking-calendar__date-trigger" hidden data-am-booking-arrival-trigger-wrap>
             <span class="am-text-label text-on-surface-variant">{t(copy.arrival)}</span>
-            <button
-              class="am-stay-booking-calendar__control am-stay-booking-calendar__trigger am-text-body mt-2"
-              type="button"
-              aria-expanded="false"
-              data-am-booking-arrival-trigger
+            <AmaraFormControl
+              as="button"
+              trigger
+              ariaExpanded={false}
+              data={{ 'data-am-booking-arrival-trigger': '' }}
             >
               <span data-am-booking-arrival-value>{t(copy.chooseArrival)}</span>
-            </button>
+            </AmaraFormControl>
           </div>
 
           <label class="block am-stay-booking-calendar__native-date">
             <span class="am-text-label text-on-surface-variant">
               {t(copy.departure)}
             </span>
-            <input
-              class="am-stay-booking-calendar__control am-text-body mt-2"
-              type="date"
+            <AmaraFormControl
+              as="input"
               name="departure"
               required
-              data-am-booking-departure
+              data={{ 'data-am-booking-departure': '' }}
             />
           </label>
           <div class="am-stay-booking-calendar__date-trigger" hidden data-am-booking-departure-trigger-wrap>
             <span class="am-text-label text-on-surface-variant">{t(copy.departure)}</span>
-            <button
-              class="am-stay-booking-calendar__control am-stay-booking-calendar__trigger am-text-body mt-2"
-              type="button"
-              aria-expanded="false"
-              data-am-booking-departure-trigger
+            <AmaraFormControl
+              as="button"
+              trigger
+              ariaExpanded={false}
+              data={{ 'data-am-booking-departure-trigger': '' }}
             >
               <span data-am-booking-departure-value>{t(copy.chooseDeparture)}</span>
-            </button>
+            </AmaraFormControl>
           </div>
 
           <label class="block">
             <span class="am-text-label text-on-surface-variant">
               {t(copy.guests)}
             </span>
-            <select
-              class="am-stay-booking-calendar__control am-text-body mt-2"
+            <AmaraFormControl
+              as="select"
               name="guests"
-              data-am-booking-guests
+              data={{ 'data-am-booking-guests': '' }}
             >
               {guestOptions.map((count) => (
                 <option value={count} selected={count === Math.min(2, occupancy)}>
                   {t(count === 1 ? copy.guestOption : copy.guestOptionPlural).replace('{count}', String(count))}
                 </option>
               ))}
-            </select>
+            </AmaraFormControl>
           </label>
         </div>
 
@@ -350,14 +366,11 @@ const titleId = `${bookingKey}-booking-calendar-title`;
           clearLabel={t(copy.clearDates)}
         />
 
-        <button
-          class="am-btn am-btn--primary mt-6 w-full justify-center sm:w-auto"
-          type="submit"
-          data-am-booking-submit
-        >
-          {t(copy.submit)}
-        </button>
       </form>
+
+      <p class="am-text-caption mt-5 font-normal leading-relaxed text-on-surface-variant">
+        {t(copy.assurance)}
+      </p>
 
       <div
         class="am-stay-booking-calendar__result mt-6 border border-border-subtle bg-surface p-5"
@@ -375,13 +388,33 @@ const titleId = `${bookingKey}-booking-calendar-title`;
           <p class="am-text-title mt-2 text-on-surface" data-am-booking-price></p>
         </div>
         <p class="am-text-caption mt-4 font-normal leading-relaxed text-on-surface-variant" data-am-booking-note></p>
+        <a
+          class="am-btn am-btn--primary mt-5 w-full justify-center sm:w-auto"
+          hidden
+          data-am-booking-checkout
+        >
+          {t(copy.bookNow)}
+        </a>
       </div>
+
+      {fallbackHref && fallbackLabel && (
+        <p class="am-text-caption mt-5 font-normal text-on-surface-variant" data-am-booking-fallback>
+          <AmaraActionLink variant="inline" href={fallbackHref}>{fallbackLabel}</AmaraActionLink>
+        </p>
+      )}
     </div>
   </div>
   </div>
 </AmaraSection>
 
 <style is:global>
+  /* Page-level calls to action scroll here, so the fixed header must not cover
+     the heading the guest was sent to. */
+  [data-am-component='stay-booking-calendar'],
+  [data-am-stay-booking-calendar] {
+    scroll-margin-top: 7rem;
+  }
+
   .am-stay-booking-calendar__panel,
   .am-stay-booking-calendar__result {
     border-radius: var(--radius-editorial);
@@ -391,36 +424,8 @@ const titleId = `${bookingKey}-booking-calendar-title`;
     box-shadow: var(--shadow-editorial-card);
   }
 
-  .am-stay-booking-calendar__control {
-    min-height: 3rem;
-    width: 100%;
-    border: 1px solid var(--color-outline-variant);
-    border-radius: var(--radius-control);
-    background: var(--color-surface);
-    padding: 0.5rem 0.75rem;
-    color: var(--color-on-surface);
-    outline: none;
-    transition: border-color 180ms ease, box-shadow 180ms ease;
-  }
-
-  .am-stay-booking-calendar__control:focus-visible {
-    outline: 2px solid var(--color-primary);
-    outline-offset: 2px;
-  }
-
   [data-am-booking-enhanced='true'] .am-stay-booking-calendar__native-date {
     display: none;
-  }
-
-  .am-stay-booking-calendar__trigger {
-    display: flex;
-    align-items: center;
-    text-align: left;
-  }
-
-  .am-stay-booking-calendar__trigger[aria-expanded='true'] {
-    border-color: var(--color-primary);
-    box-shadow: 0 0 0 1px var(--color-primary);
   }
 
 </style>

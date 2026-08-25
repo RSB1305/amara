@@ -37,12 +37,46 @@ export const staySearchCopy = {
   loadingCalendar: localized({ en: 'Loading live availability for your destination…', de: 'Live-Verfügbarkeit für euer Reiseziel wird geladen…', es: 'Cargando la disponibilidad actual para vuestro destino…', nl: 'Live beschikbaarheid voor jullie bestemming wordt geladen…', sv: 'Aktuell tillgänglighet för ert resmål hämtas…' }),
   calendarError: localized({ en: 'Live availability is currently unavailable. No dates have been treated as unavailable.', de: 'Die Live-Verfügbarkeit ist derzeit nicht erreichbar. Reisedaten wurden deshalb nicht als belegt behandelt.', es: 'La disponibilidad actual no está disponible en este momento. Por ello, ninguna fecha se ha tratado como ocupada.', nl: 'Live beschikbaarheid is momenteel niet bereikbaar. Datums zijn daarom niet als bezet behandeld.', sv: 'Aktuell tillgänglighet kan inte hämtas just nu. Datum har därför inte behandlats som upptagna.' }),
   chooseDepartureHelp: localized({ en: 'Now choose a departure, up to 45 nights after arrival.', de: 'Wählt jetzt eine Abreise, höchstens 45 Nächte nach der Anreise.', es: 'Ahora elegid una salida, hasta 45 noches después de la llegada.', nl: 'Kies nu een vertrek, maximaal 45 nachten na aankomst.', sv: 'Välj nu avresa, högst 45 nätter efter ankomst.' }),
+  minimumStayHelp: localized({
+    en: 'Minimum stay from this arrival: {count} nights. Earliest possible departure: {departure}.',
+    de: 'Mindestaufenthalt ab dieser Anreise: {count} Nächte. Früheste mögliche Abreise: {departure}.',
+    es: 'Estancia mínima desde esta llegada: {count} noches. Primera salida posible: {departure}.',
+    nl: 'Minimumverblijf vanaf deze aankomst: {count} nachten. Vroegst mogelijke vertrekdatum: {departure}.',
+    sv: 'Minsta vistelse från denna ankomst: {count} nätter. Tidigaste möjliga avresa: {departure}.'
+  }),
+  minimumStayViolation: localized({
+    en: 'A minimum stay of {count} nights applies for arrival on {arrival}. Please choose a departure on or after {departure}.',
+    de: 'Bei einer Anreise am {arrival} beträgt der Mindestaufenthalt {count} Nächte. Bitte wählt eine Abreise ab dem {departure}.',
+    es: 'Para una llegada el {arrival}, la estancia mínima es de {count} noches. Elegid una salida a partir del {departure}.',
+    nl: 'Bij aankomst op {arrival} geldt een minimumverblijf van {count} nachten. Kies een vertrek vanaf {departure}.',
+    sv: 'Vid ankomst den {arrival} gäller minst {count} nätter. Välj avresa tidigast den {departure}.'
+  }),
   closeCalendar: localized({ en: 'Close calendar', de: 'Kalender schließen', es: 'Cerrar calendario', nl: 'Kalender sluiten', sv: 'Stäng kalendern' }),
   clearDates: localized({ en: 'Clear dates', de: 'Daten löschen', es: 'Borrar fechas', nl: 'Datums wissen', sv: 'Rensa datum' }),
   previousMonth: localized({ en: 'Previous month', de: 'Vorheriger Monat', es: 'Mes anterior', nl: 'Vorige maand', sv: 'Föregående månad' }),
   nextMonth: localized({ en: 'Next month', de: 'Nächster Monat', es: 'Mes siguiente', nl: 'Volgende maand', sv: 'Nästa månad' }),
   unavailableDay: localized({ en: 'Unavailable', de: 'Nicht wählbar', es: 'No disponible', nl: 'Niet beschikbaar', sv: 'Inte tillgänglig' }),
   availableDay: localized({ en: 'Available', de: 'Wählbar', es: 'Disponible', nl: 'Beschikbaar', sv: 'Tillgänglig' }),
+  invalidDeparture: localized({
+    en: 'not selectable as departure', de: 'nicht als Abreise auswählbar',
+    es: 'no seleccionable como salida', nl: 'niet selecteerbaar als vertrek',
+    sv: 'kan inte väljas som avresa'
+  }),
+  minimumStayDeparture: localized({
+    en: 'minimum stay not reached; select for details',
+    de: 'Mindestaufenthalt noch nicht erreicht; für Details auswählen',
+    es: 'no se alcanza la estancia mínima; seleccionad para ver los detalles',
+    nl: 'minimumverblijf nog niet bereikt; selecteer voor uitleg',
+    sv: 'minsta vistelse har inte uppnåtts; välj för mer information'
+  }),
+  selectedArrival: localized({
+    en: 'selected arrival', de: 'gewählte Anreise', es: 'llegada seleccionada',
+    nl: 'gekozen aankomst', sv: 'vald ankomst'
+  }),
+  fromPrice: localized({
+    en: 'from {price}', de: 'ab {price}', es: 'desde {price}',
+    nl: 'vanaf {price}', sv: 'från {price}'
+  }),
   invalidSearch: localized({ en: 'Please choose a destination, valid dates and the number of guests.', de: 'Bitte wählt ein Reiseziel, gültige Reisedaten und die Gästezahl.', es: 'Elegid un destino, fechas válidas y el número de huéspedes.', nl: 'Kies een bestemming, geldige datums en het aantal gasten.', sv: 'Välj resmål, giltiga datum och antal gäster.' }),
   resultsEyebrow: localized({ en: 'Live stay search', de: 'Live-Unterkunftssuche', es: 'Búsqueda de alojamientos en directo', nl: 'Live zoeken naar verblijven', sv: 'Live-sökning efter boende' }),
   resultsTitle: localized({ en: 'Available AMARA hideaways', de: 'Verfügbare AMARA Hideaways', es: 'Alojamientos AMARA disponibles', nl: 'Beschikbare AMARA-hideaways', sv: 'Tillgängliga AMARA-boenden' }),

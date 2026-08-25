@@ -5,6 +5,8 @@
  */
 import type { ImageMetadata } from 'astro';
 import AmaraImage from '../AmaraImage.astro';
+import AmaraActionLink from '../actions/AmaraActionLink.astro';
+import { getAmaraContentModuleAttributes } from '../content/moduleContract';
 import InlineEmphasis from '../text/InlineEmphasis.astro';
 
 interface Props {
@@ -42,9 +44,15 @@ const {
   totalPriceLabel,
   hidden = false
 } = Astro.props;
+const moduleAttributes = getAmaraContentModuleAttributes({
+  job: 'stay-selection-card',
+  status: 'family',
+  family: 'stay'
+});
 ---
 
 <div
+  {...moduleAttributes}
   class="am-apartment-card am-apartment-card--hover"
   hidden={hidden}
   data-am-stay-result={dataStay}
@@ -52,10 +60,11 @@ const {
   data-am-stay-occupancy={dataOccupancy}
 >
   <figure class="am-apartment-card__figure">
-    <a
+    <AmaraActionLink
       href={href}
+      variant="card"
       aria-label={linkAriaLabel}
-      class="am-card-link am-apartment-card__image-link"
+      class="am-apartment-card__image-link"
       data-am-stay-result-link={dataStay}
       data-am-stay-result-base-href={dataStay ? href : undefined}
     >
@@ -68,7 +77,7 @@ const {
         decoding="async"
         fetchpriority={fetchpriority}
       />
-    </a>
+    </AmaraActionLink>
   </figure>
   <div class="am-apartment-card__body">
     <small class="am-apartment-card__meta am-text-caption text-on-surface-variant">{meta}</small>
@@ -79,17 +88,20 @@ const {
         <p class="am-apartment-card__stay-summary am-text-caption text-on-surface-variant" hidden data-am-stay-result-summary></p>
         <div class="am-apartment-card__price" hidden data-am-stay-result-price-wrap>
           <span class="am-text-label text-on-surface-variant">{totalPriceLabel}</span>
-          <strong class="am-text-subtitle text-primary" data-am-stay-result-price></strong>
+          {/* The price used to share `am-text-subtitle` with the stay's own
+              title above it, so the two read at the same size and the figure
+              won the card. `am-text-price` is the step below. */}
+          <strong class="am-text-price text-primary" data-am-stay-result-price></strong>
         </div>
       </>
     )}
     <div class="am-apartment-card__cta-wrap">
-      <a
-        class="am-btn am-btn--secondary"
+      <AmaraActionLink
+        variant={dataStay ? 'primary' : 'secondary'}
         href={href}
-        data-am-stay-result-link={dataStay}
+        data-am-stay-booking-link={dataStay}
         data-am-stay-result-base-href={dataStay ? href : undefined}
-      >{ctaLabel}</a>
+      >{ctaLabel}</AmaraActionLink>
     </div>
   </div>
 </div>

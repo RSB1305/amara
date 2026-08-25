@@ -3,6 +3,8 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import Navigation from '../../components/Navigation.astro';
 import AmaraPageShell from '../../components/layout/AmaraPageShell.astro';
 import AmaraSection from '../../components/layout/AmaraSection.astro';
+import AmaraSectionIntro from '../../components/layout/AmaraSectionIntro.astro';
+import AmaraFormControl from '../../components/forms/AmaraFormControl.astro';
 import ApartmentCard from '../../components/location/ApartmentCard.astro';
 import InlineEmphasis from '../../components/text/InlineEmphasis.astro';
 import {
@@ -76,32 +78,32 @@ const destinationLinks = lastMinuteStaysCopy.destinations.map((destination) => (
     <AmaraSection labelledby="last-minute-live-title" dataComponent="last-minute-live">
       <div
         data-am-last-minute-stays
+        data-am-last-minute-lang={currentLang}
         data-am-last-minute-language={lastMinuteLocale[currentLang]}
         data-am-last-minute-copy={JSON.stringify(liveCopy)}
         aria-busy="true"
       >
         <div class="grid gap-8 border-b border-border-subtle pb-8 lg:grid-cols-[minmax(0,1fr)_15rem] lg:items-end">
-          <div class="max-w-3xl">
-            <p class="am-text-eyebrow text-primary">{t(lastMinuteStaysCopy.live.eyebrow)}</p>
-            <h2 id="last-minute-live-title" class="am-text-title mt-4 text-on-surface">
-              {t(lastMinuteStaysCopy.live.title)}
-            </h2>
-            <p class="am-text-body mt-5 text-on-surface-variant">
-              {t(lastMinuteStaysCopy.live.intro)}
-            </p>
-          </div>
+          <AmaraSectionIntro
+            title={t(lastMinuteStaysCopy.live.title)}
+            titleId="last-minute-live-title"
+            eyebrow={t(lastMinuteStaysCopy.live.eyebrow)}
+            intro={t(lastMinuteStaysCopy.live.intro)}
+            variant="standard"
+            spacing="none"
+          />
           <label class="block">
             <span class="am-text-label text-on-surface-variant">{t(lastMinuteStaysCopy.live.guests)}</span>
-            <select
-              class="am-last-minute__control am-text-body mt-2"
-              data-am-last-minute-guests
+            <AmaraFormControl
+              as="select"
+              data={{ 'data-am-last-minute-guests': '' }}
             >
               {[1, 2, 3, 4].map((count) => (
                 <option value={count} selected={count === 2}>
                   {guestCapacity(count)}
                 </option>
               ))}
-            </select>
+            </AmaraFormControl>
           </label>
         </div>
 
@@ -114,10 +116,6 @@ const destinationLinks = lastMinuteStaysCopy.destinations.map((destination) => (
           {t(lastMinuteStaysCopy.live.loading)}
         </p>
 
-        <div class="mt-7 border border-border-subtle bg-surface-container-low p-5" hidden data-am-last-minute-warning>
-          <p class="am-text-body text-on-surface">{t(lastMinuteStaysCopy.live.partialError)}</p>
-        </div>
-
         <div class="mt-10" hidden data-am-last-minute-results>
           <div class="am-last-minute-grid">
             {cards.map(({ rental, href, destination }) => (
@@ -128,8 +126,8 @@ const destinationLinks = lastMinuteStaysCopy.destinations.map((destination) => (
                 meta={`${rental.city} · ${guestCapacity(rental.occupancy)}`}
                 title={rental.name}
                 description={firstSentence(rental.lead[currentLang] ?? rental.lead.en)}
-                ctaLabel={t(lastMinuteStaysCopy.live.viewStay)}
-                linkAriaLabel={`${t(lastMinuteStaysCopy.live.viewStay)}: ${rental.name}`}
+                ctaLabel={t(lastMinuteStaysCopy.live.viewStayDetails)}
+                linkAriaLabel={`${t(lastMinuteStaysCopy.live.viewStayDetails)}: ${rental.name}`}
                 dataStay={rental.bookingKey}
                 dataDestination={destination}
                 dataOccupancy={rental.occupancy}
@@ -141,6 +139,9 @@ const destinationLinks = lastMinuteStaysCopy.destinations.map((destination) => (
           <p class="am-text-caption mt-8 max-w-3xl text-on-surface-variant">
             {t(lastMinuteStaysCopy.live.priceNote)}
           </p>
+          <a class="am-btn am-btn--secondary mt-6" href={regularSearchHref}>
+            {t(lastMinuteStaysCopy.live.regularSearch)}
+          </a>
         </div>
 
         <div class="mt-8 max-w-2xl border-t border-border-subtle pt-7" hidden data-am-last-minute-empty>
@@ -169,10 +170,13 @@ const destinationLinks = lastMinuteStaysCopy.destinations.map((destination) => (
     </AmaraSection>
 
     <AmaraSection labelledby="last-minute-destinations-title" dataComponent="last-minute-destinations">
-      <h2 id="last-minute-destinations-title" class="am-text-title max-w-3xl text-on-surface">
-        {t(lastMinuteStaysCopy.destinationsTitle)}
-      </h2>
-      <div class="mt-10 grid gap-10 lg:grid-cols-3 lg:gap-8">
+      <AmaraSectionIntro
+        title={t(lastMinuteStaysCopy.destinationsTitle)}
+        titleId="last-minute-destinations-title"
+        variant="standard"
+        spacing="compact"
+      />
+      <div class="grid gap-10 lg:grid-cols-3 lg:gap-8">
         {destinationLinks.map((destination) => (
           <article class="border-t border-border-subtle pt-6">
             <h3 class="am-text-subtitle text-on-surface">{t(destination.title)}</h3>
@@ -214,22 +218,6 @@ const destinationLinks = lastMinuteStaysCopy.destinations.map((destination) => (
 </BaseLayout>
 
 <style is:global>
-  .am-last-minute__control {
-    min-height: 3rem;
-    width: 100%;
-    border: 1px solid var(--color-outline-variant);
-    border-radius: var(--radius-control);
-    background: var(--color-surface);
-    padding: 0.5rem 0.75rem;
-    color: var(--color-on-surface);
-    outline: none;
-  }
-
-  .am-last-minute__control:focus-visible {
-    outline: 2px solid var(--color-primary);
-    outline-offset: 2px;
-  }
-
   .am-last-minute-grid {
     display: grid;
     grid-template-columns: minmax(0, 1fr);
@@ -251,6 +239,26 @@ const destinationLinks = lastMinuteStaysCopy.destinations.map((destination) => (
   @media (min-width: 48rem) {
     .am-last-minute-grid {
       grid-template-columns: repeat(2, minmax(0, 1fr));
+      row-gap: 0.5rem;
+    }
+
+    .am-last-minute-grid .am-apartment-card {
+      display: grid;
+      grid-row: span 7;
+      grid-template-rows: subgrid;
+      row-gap: 0.5rem;
+    }
+
+    .am-last-minute-grid .am-apartment-card__body {
+      display: contents;
+    }
+
+    .am-last-minute-grid .am-apartment-card__meta {
+      margin-top: 0.75rem;
+    }
+
+    .am-last-minute-grid .am-apartment-card__cta-wrap {
+      padding-bottom: 2.5rem;
     }
   }
 

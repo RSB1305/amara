@@ -83,36 +83,6 @@ const heroCtaLinks = page.hero.ctaLinks
   }}
 >
   <AmaraSection>
-      <EditorialHostProfile
-        id="host"
-        imageSrc="/images/robert-amara-host.jpg"
-        imageAlt={content.host.imageAlt[currentLang]}
-        title={content.host.title?.[currentLang] ?? ''}
-        role={content.host.role[currentLang]}
-        intro={hostIntro}
-        stats={hostStats}
-      >
-        <div class="flex flex-wrap items-center gap-x-5 gap-y-2" aria-label={content.host.contactLabel[currentLang]}>
-          <span class="am-text-label text-on-surface-variant">
-            {content.host.contactLabel[currentLang]}:
-          </span>
-          <a class="am-inline-link" href="mailto:hola@amara-lodging.es">hola@amara-lodging.es</a>
-        </div>
-        <div class="pt-12">
-          <h3 class="am-text-subtitle font-normal text-on-surface mb-4">{content.host.subtitle?.[currentLang]}</h3>
-          <div class="grid grid-cols-1 sm:grid-cols-3 gap-8 mt-8">
-            {content.host.teamItems?.map((item) => (
-              <div>
-                <h4 class="am-text-body font-bold text-on-surface mb-2 m-0">{item.title[currentLang]}</h4>
-                <p class="am-text-body text-subtle m-0">{item.copy[currentLang]}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </EditorialHostProfile>
-  </AmaraSection>
-
-  <AmaraSection>
         <EditorialSplit title={content.philosophy.title?.[currentLang] ?? ''}>
           <p class="am-text-subtitle text-on-surface mb-8">
             {content.philosophy.lead?.[currentLang]}
@@ -151,6 +121,14 @@ const heroCtaLinks = page.hero.ctaLinks
       </div>
   </AmaraSection>
 
+  <AmaraSection class="am-page-band">
+        <h2 class="am-text-title mb-12 text-center md:mb-16">{content.quality.title?.[currentLang]}</h2>
+        <div class="mx-auto mb-12 max-w-[1200px] md:mb-16" data-am-about-quality-grid>
+          <EditorialFeatureGrid cards={qualityFeatureCards} />
+        </div>
+        <p class="am-text-body text-center italic text-muted">{content.quality.note?.[currentLang]}</p>
+  </AmaraSection>
+
       <SustainabilityBand
         title={content.sustainability.title?.[currentLang] ?? ''}
         subtitle={content.sustainability.subtitle?.[currentLang] ?? ''}
@@ -158,12 +136,34 @@ const heroCtaLinks = page.hero.ctaLinks
         listColumns={sustainabilityListColumns}
       />
 
-  <AmaraSection class="am-page-band">
-        <h2 class="am-text-title mb-12 text-center md:mb-16">{content.quality.title?.[currentLang]}</h2>
-        <div class="mx-auto mb-12 max-w-[1200px] md:mb-16" data-am-about-quality-grid>
-          <EditorialFeatureGrid cards={qualityFeatureCards} />
+  <AmaraSection>
+      <EditorialHostProfile
+        id="host"
+        imageSrc="/images/robert-amara-host.jpg"
+        imageAlt={content.host.imageAlt[currentLang]}
+        title={content.host.title?.[currentLang] ?? ''}
+        role={content.host.role[currentLang]}
+        intro={hostIntro}
+        stats={hostStats}
+      >
+        <div class="flex flex-wrap items-center gap-x-5 gap-y-2" aria-label={content.host.contactLabel[currentLang]}>
+          <span class="am-text-label text-on-surface-variant">
+            {content.host.contactLabel[currentLang]}:
+          </span>
+          <a class="am-inline-link" href="mailto:hola@amara-lodging.es">hola@amara-lodging.es</a>
         </div>
-        <p class="am-text-body text-center italic text-muted">{content.quality.note?.[currentLang]}</p>
+        <div class="pt-12">
+          <h3 class="am-text-subtitle font-normal text-on-surface mb-4">{content.host.subtitle?.[currentLang]}</h3>
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-8 mt-8">
+            {content.host.teamItems?.map((item) => (
+              <div>
+                <h4 class="am-text-body font-bold text-on-surface mb-2 m-0">{item.title[currentLang]}</h4>
+                <p class="am-text-body text-subtle m-0">{item.copy[currentLang]}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </EditorialHostProfile>
   </AmaraSection>
 
       <EditorialClosingCta

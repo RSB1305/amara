@@ -1,4 +1,6 @@
 ---
+import AmaraActionLink from '../actions/AmaraActionLink.astro';
+
 export interface EditorialGuideLink {
   href: string;
   label: string;
@@ -37,14 +39,14 @@ const { id, eyebrow, title, intro, links } = Astro.props;
     <div class="grid grid-cols-1 gap-x-12 gap-y-10 md:grid-cols-2 lg:grid-cols-3">
       {
         links.map((link) => (
-          <a href={link.href} class="am-guide-link group">
+          <AmaraActionLink href={link.href} variant="guide" class="group">
             <span class="am-text-section-caption text-primary mb-3">
               {link.label}
             </span>
             <p class="am-text-body text-on-surface-variant leading-relaxed transition-colors group-hover:text-on-surface">
               {link.text}
             </p>
-          </a>
+          </AmaraActionLink>
         ))
       }
     </div>

@@ -1,12 +1,14 @@
 type FinderCopy = Record<string, string>;
 
 type SearchRateOption = {
+  nightlyRate: number;
   minStay: number | null;
   maxStay: number | null;
 };
 
 type SearchCalendarDay = {
   available: boolean;
+  currency: string | null;
   options: SearchRateOption[];
 };
 
@@ -90,6 +92,7 @@ export function enhanceStaySearchFinders() {
     let selectionMode: 'arrival' | 'departure' = 'arrival';
     let activeTrigger = arrivalTrigger;
     let hoverDate = '';
+    let calendarFeedback = '';
     let availabilityGeneration = 0;
     const monthCache = new Map<string, MonthCacheEntry>();
     const stayDays = new Map<string, Map<string, SearchCalendarDay>>();
@@ -149,6 +152,7 @@ export function enhanceStaySearchFinders() {
     const validRateOption = (option: unknown): option is SearchRateOption => {
       const candidate = option as Partial<SearchRateOption> | null;
       return (
+        Number.isFinite(candidate?.nightlyRate) && Number(candidate?.nightlyRate) >= 0 &&
         (candidate?.minStay === null || (
           Number.isInteger(candidate?.minStay) && Number(candidate?.minStay) >= 0
         )) &&
@@ -170,6 +174,56 @@ export function enhanceStaySearchFinders() {
         const day = days.get(value);
         return day?.available === true && day.options.some(validRateOption);
       });
+    };
+    const availableArrivalOptions = () => [...stayDays.values()].flatMap((days) => {
+      const day = days.get(arrival.value);
+      return day?.available === true ? day.options.filter(validRateOption) : [];
+    });
+    const minimumStayForArrival = () => {
+      const options = availableArrivalOptions();
+      if (!options.length) return 1;
+      return Math.min(...options.map((option) =>
+        option.minStay && option.minStay > 0 ? option.minStay : 1
+      ));
+    };
+    const isMinimumStayViolation = (value: string) => {
+      if (!arrival.value || value <= arrival.value) return false;
+      const nights = nightsBetween(arrival.value, value);
+      return nights >= 1 && nights < minimumStayForArrival();
+    };
+    const minimumStayFeedback = () => {
+      const minimumStay = minimumStayForArrival();
+      return copy.minimumStayViolation
+        .replace('{arrival}', formatDate(arrival.value))
+        .replace('{count}', String(minimumStay))
+        .replace('{departure}', formatDate(addDays(arrival.value, minimumStay)));
+    };
+    const hasAvailableDay = (value: string) => [...stayDays.values()].some(
+      (days) => days.get(value)?.available === true
+    );
+    const priceDetails = (value: string) => {
+      const prices = [...stayDays.values()].flatMap((days) => {
+        const day = days.get(value);
+        if (day?.available !== true || !day.currency) return [];
+        return day.options.filter(validRateOption).map((option) => ({
+          amount: option.nightlyRate,
+          currency: day.currency as string
+        }));
+      });
+      const currencies = new Set(prices.map((price) => price.currency));
+      if (!prices.length || currencies.size !== 1) return undefined;
+      const amount = Math.min(...prices.map((price) => price.amount));
+      const formatted = new Intl.NumberFormat(language, {
+        style: 'currency',
+        currency: prices[0].currency,
+        minimumFractionDigits: 0,
+        maximumFractionDigits: 0
+      }).format(amount);
+      return {
+        label: copy.fromPrice.replace('{price}', formatted),
+        prefix: copy.fromPrice.replace('{price}', '').trim(),
+        amount: formatted
+      };
     };
     const canChooseDepartureForStay = (
       days: Map<string, SearchCalendarDay>,
@@ -196,7 +250,12 @@ export function enhanceStaySearchFinders() {
       monthsRoot.querySelectorAll<HTMLElement>('[data-am-booking-day]').forEach((button) => {
         const value = button.dataset.amBookingDay || '';
         button.removeAttribute('data-range');
-        if (!arrival.value || !end || value < arrival.value || value > end) return;
+        if (!arrival.value) return;
+        if (!end) {
+          if (value === arrival.value) button.dataset.range = 'start';
+          return;
+        }
+        if (value < arrival.value || value > end) return;
         button.dataset.range = value === arrival.value ? 'start' : value === end ? 'end' : 'middle';
       });
     };
@@ -255,7 +314,12 @@ export function enhanceStaySearchFinders() {
         );
         const responseStays = payload.stays as Array<{
           stay?: unknown;
-          days?: Array<{ date?: unknown; available?: unknown; options?: unknown }>;
+          days?: Array<{
+            date?: unknown;
+            available?: unknown;
+            currency?: unknown;
+            options?: unknown;
+          }>;
         }> | undefined;
         const stayKeys = Array.isArray(responseStays)
           ? responseStays.map((stay) => stay.stay)
@@ -273,6 +337,9 @@ export function enhanceStaySearchFinders() {
             stay.days.every((day, index) =>
               day.date === expectedDates[index] &&
               typeof day.available === 'boolean' &&
+              (day.currency === null || (
+                typeof day.currency === 'string' && day.currency.trim().length > 0
+              )) &&
               Array.isArray(day.options) &&
               day.options.every(validRateOption)
             )
@@ -286,6 +353,7 @@ export function enhanceStaySearchFinders() {
           stay.days?.forEach((day) => {
             days.set(String(day.date), {
               available: day.available === true,
+              currency: typeof day.currency === 'string' ? day.currency : null,
               options: (day.options as SearchRateOption[]).filter(validRateOption)
             });
           });
@@ -341,18 +409,35 @@ export function enhanceStaySearchFinders() {
         const unresolved = value >= today && value <= latest && monthState !== 'ready';
         const loading = unresolved && monthState !== 'error';
         const isSelectable = !unresolved && selectable(value);
+        const explainsMinimumStay = !unresolved && selectionMode === 'departure' &&
+          hasAvailableDay(value) && !isSelectable && isMinimumStayViolation(value);
         button.type = 'button';
         button.className = 'am-booking-calendar__day';
         button.dataset.amBookingDay = value;
         if (unresolved) button.dataset.amBookingDayState = loading ? 'loading' : 'error';
-        button.disabled = !isSelectable;
-        button.setAttribute('aria-disabled', String(!isSelectable));
+        else if (selectionMode === 'departure' && hasAvailableDay(value) && !isSelectable) {
+          button.dataset.amBookingDayState = value === arrival.value ? 'selected' : 'restricted';
+        }
+        if (explainsMinimumStay) button.dataset.amBookingRestriction = 'minimum-stay';
+        button.disabled = !isSelectable && !explainsMinimumStay;
+        button.setAttribute('aria-disabled', String(!isSelectable && !explainsMinimumStay));
         if (loading) button.setAttribute('aria-busy', 'true');
+        const availabilityLabel = hasAvailableDay(value)
+          ? value === arrival.value && selectionMode === 'departure'
+            ? [copy.availableDay, copy.selectedArrival].join(', ')
+            : !isSelectable && selectionMode === 'departure'
+              ? [
+                  copy.availableDay,
+                  explainsMinimumStay ? copy.minimumStayDeparture : copy.invalidDeparture
+                ].join(', ')
+              : copy.availableDay
+          : copy.unavailableDay;
+        const price = !unresolved && hasAvailableDay(value) ? priceDetails(value) : undefined;
         button.setAttribute('aria-label', [
           formatFullDate(value),
           unresolved
             ? loading ? copy.loadingCalendar : copy.calendarError
-            : isSelectable ? copy.availableDay : copy.unavailableDay
+            : [availabilityLabel, price?.label].filter(Boolean).join(', ')
         ].join(', '));
         button.tabIndex = isSelectable && (value === arrival.value || value === departure.value) ? 0 : -1;
         const number = document.createElement('span');
@@ -364,6 +449,17 @@ export function enhanceStaySearchFinders() {
           loadingIndicator.className = 'am-booking-calendar__day-loading';
           loadingIndicator.setAttribute('aria-hidden', 'true');
           button.append(loadingIndicator);
+        } else if (price) {
+          const priceText = document.createElement('span');
+          priceText.className = 'am-booking-calendar__day-price';
+          const pricePrefix = document.createElement('span');
+          pricePrefix.className = 'am-booking-calendar__day-price-prefix';
+          pricePrefix.textContent = price.prefix;
+          const priceAmount = document.createElement('span');
+          priceAmount.className = 'am-booking-calendar__day-price-amount';
+          priceAmount.textContent = price.amount;
+          priceText.append(pricePrefix, priceAmount);
+          button.append(priceText);
         }
         days.append(button);
       }
@@ -376,11 +472,22 @@ export function enhanceStaySearchFinders() {
       previous.disabled = anchorMonth <= firstMonth || visibleLoading();
       next.disabled = anchorMonth >= maxAnchor() || visibleLoading();
       monthsRoot.setAttribute('aria-busy', String(visibleLoading()));
+      delete status.dataset.amBookingCalendarStatusState;
       if (visibleLoading()) status.textContent = copy.loadingCalendar;
       else if (visibleError()) status.textContent = copy.calendarError;
-      else status.textContent = selectionMode === 'departure'
-        ? copy.chooseDepartureHelp
-        : copy.calendarHelp;
+      else if (calendarFeedback) {
+        status.textContent = calendarFeedback;
+        status.dataset.amBookingCalendarStatusState = 'minimum-stay';
+      }
+      else if (selectionMode === 'departure') {
+        const minimumStay = minimumStayForArrival();
+        status.textContent = minimumStay > 1
+          ? copy.minimumStayHelp
+            .replace('{count}', String(minimumStay))
+            .replace('{departure}', formatDate(addDays(arrival.value, minimumStay)))
+          : copy.chooseDepartureHelp;
+        if (minimumStay > 1) status.dataset.amBookingCalendarStatusState = 'minimum-stay';
+      } else status.textContent = copy.calendarHelp;
       applyRange(hoverDate);
       const focusable = monthsRoot.querySelector<HTMLButtonElement>('[data-am-booking-day]:not(:disabled)');
       if (focusable && !monthsRoot.querySelector('[tabindex="0"]')) focusable.tabIndex = 0;
@@ -416,6 +523,7 @@ export function enhanceStaySearchFinders() {
       departure.min = addDays(today, 1);
       selectionMode = 'arrival';
       hoverDate = '';
+      calendarFeedback = '';
       error.hidden = true;
       updateTriggers();
       render();
@@ -442,14 +550,22 @@ export function enhanceStaySearchFinders() {
         departure.min = addDays(value, 1);
         selectionMode = 'departure';
         hoverDate = '';
+        calendarFeedback = '';
         error.hidden = true;
         updateTriggers();
         render();
         return;
       }
-      if (!canChooseDeparture(value)) return;
+      if (!canChooseDeparture(value)) {
+        if (button.dataset.amBookingRestriction === 'minimum-stay') {
+          calendarFeedback = minimumStayFeedback();
+          render();
+        }
+        return;
+      }
       departure.value = value;
       hoverDate = '';
+      calendarFeedback = '';
       error.hidden = true;
       updateTriggers();
       render();
@@ -459,7 +575,7 @@ export function enhanceStaySearchFinders() {
       const target = event.target;
       if (!(target instanceof Element)) return;
       const button = target.closest<HTMLButtonElement>('[data-am-booking-day]');
-      if (!button || button.disabled) return;
+      if (!button || button.disabled || !canChooseDeparture(button.dataset.amBookingDay || '')) return;
       hoverDate = button.dataset.amBookingDay || '';
       applyRange(hoverDate);
     });
@@ -500,6 +616,7 @@ export function enhanceStaySearchFinders() {
       departure.min = addDays(today, 1);
       selectionMode = 'arrival';
       hoverDate = '';
+      calendarFeedback = '';
       error.hidden = true;
       availabilityGeneration += 1;
       monthCache.clear();

@@ -1,22 +1,9 @@
 ---
 import type { ImageMetadata } from 'astro';
+import AmaraActionLink from '../actions/AmaraActionLink.astro';
 import EditorialByline from '../editorial/EditorialByline.astro';
-import type { AmaraLanguage } from '../../types/seo';
+import type { AmaraHeroByline, AmaraHeroStyledAction } from '../hero/heroContract';
 import LocationGuideHero from './LocationGuideHero.astro';
-
-interface HeroAction {
-  href: string;
-  label: string;
-  style: 'primary' | 'secondary';
-}
-
-interface HeroByline {
-  lang: AmaraLanguage;
-  authorName: string;
-  authorHref: string;
-  updated: string;
-  note: string;
-}
 
 interface Props {
   eyebrow: string;
@@ -27,8 +14,8 @@ interface Props {
   imageWidth?: number;
   imageSizes?: string;
   accent?: string;
-  actions?: HeroAction[];
-  byline?: HeroByline;
+  actions?: AmaraHeroStyledAction[];
+  byline?: AmaraHeroByline;
   role?: 'hub' | 'spoke';
   topic?: string;
 }
@@ -66,9 +53,9 @@ const {
   {actions.length > 0 && (
     <div slot="actions" class="flex flex-wrap gap-4">
       {actions.map((action) => (
-        <a href={action.href} class={`am-btn am-btn--${action.style}`}>
+        <AmaraActionLink href={action.href} variant={action.style}>
           {action.label}
-        </a>
+        </AmaraActionLink>
       ))}
     </div>
   )}

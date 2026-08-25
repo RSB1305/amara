@@ -8,6 +8,7 @@
  * because the two views carry different semantics for the same resolved routes.
  */
 import type { ResolvedGlobalNavGroup, ResolvedNavigationCta } from './globalNavigationModel';
+import AmaraActionLink from '../actions/AmaraActionLink.astro';
 
 interface Props {
   groups: ResolvedGlobalNavGroup[];
@@ -103,16 +104,15 @@ const {
       ))}
     </div>
 
-    {showBookingCta && (
-      cta.href === null ? (
-        <span class="am-btn am-btn--primary am-nav-mobile__cta am-is-disabled" aria-disabled="true">
-          {cta.label}
-        </span>
-      ) : (
-        <a href={cta.href} class="am-btn am-btn--primary am-nav-mobile__cta">
-          {cta.label}
-        </a>
-      )
+    {showBookingCta && !cta.hidden && (
+      <AmaraActionLink
+        href={cta.href ?? undefined}
+        variant="primary"
+        class="am-nav-mobile__cta"
+        disabled={cta.href === null}
+      >
+        {cta.label}
+      </AmaraActionLink>
     )}
   </nav>
 </div>

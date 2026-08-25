@@ -18,6 +18,18 @@ import {
   arrivalGuideSteps,
   arrivalGuideUi
 } from '../../content/arrivalGuideContent';
+import {
+  nerjaArrivalGuideBusRoutes,
+  nerjaArrivalGuideCopy,
+  nerjaArrivalGuideSeo,
+  nerjaArrivalGuideSteps
+} from '../../content/nerjaArrivalGuideContent';
+import {
+  tarifaArrivalGuideBusRoutes,
+  tarifaArrivalGuideCopy,
+  tarifaArrivalGuideSeo,
+  tarifaArrivalGuideSteps
+} from '../../content/tarifaArrivalGuideContent';
 import AmaraImage from '../../components/AmaraImage.astro';
 import AmaraPageShell from '../../components/layout/AmaraPageShell.astro';
 import AmaraSection from '../../components/layout/AmaraSection.astro';
@@ -31,20 +43,86 @@ import type { AmaraLanguage } from '../../types/seo';
 
 interface Props {
   lang?: string;
+  destination?: 'frigiliana' | 'nerja' | 'tarifa';
 }
 
-const { lang = 'es' } = Astro.props;
+const { lang = 'es', destination = 'frigiliana' } = Astro.props;
 const currentLang = normalizeLanguage(lang as AmaraLanguage);
-const seo = arrivalGuideSeo;
-const copy = arrivalGuideCopy;
-const arrivalSteps = arrivalGuideSteps[currentLang];
-const busRoutes = arrivalGuideBusRoutes[currentLang];
 const ui = arrivalGuideUi;
 const requiredLink = createRequiredLinkResolver(currentLang, 'arrival guide context navigation');
-const destinationContextNavigation = getDestinationContextNavigation('frigiliana', currentLang);
-const mapHref = 'https://maps.app.goo.gl/S7AzRNc2QMCRyBBN6';
-const gettingToFrigilianaHref = requiredLink('getting_to_frigiliana');
-const parkingHref = requiredLink('frigiliana_parking');
+
+const variants = {
+  frigiliana: {
+    seo: arrivalGuideSeo,
+    copy: arrivalGuideCopy,
+    steps: arrivalGuideSteps,
+    busRoutes: arrivalGuideBusRoutes,
+    languageToken: 'arrival_guide',
+    locationToken: 'location_frigiliana',
+    journeyToken: 'getting_to_frigiliana',
+    parkingToken: 'frigiliana_parking',
+    label: 'Frigiliana',
+    family: 'frigiliana-arrival-guide',
+    heroImage: '/images/amara-entrada/casa-amara-frigiliana-fuerra-ii.jpg',
+    routeImage: '/images/arrival-map.jpg',
+    mapHref: 'https://maps.app.goo.gl/S7AzRNc2QMCRyBBN6',
+    addressLines: ['Calle Chorruelo 5', '29788 Frigiliana'],
+    dropOffValue: 'Avenida Carlos Cano 42',
+    fourthFactValue: { en: 'Parada de Autobús · C. Real', de: 'Parada de Autobús · C. Real', es: 'Parada de Autobús · C. Real', nl: 'Parada de Autobús · C. Real', sv: 'Parada de Autobús · C. Real' },
+    contactHref: 'tel:+34952533131',
+    contactValue: '+34 952 533 131'
+  },
+  nerja: {
+    seo: nerjaArrivalGuideSeo,
+    copy: nerjaArrivalGuideCopy,
+    steps: nerjaArrivalGuideSteps,
+    busRoutes: nerjaArrivalGuideBusRoutes,
+    languageToken: 'nerja_arrival_guide',
+    locationToken: 'location_nerja',
+    journeyToken: 'getting_to_nerja',
+    parkingToken: 'nerja_parking',
+    label: 'Nerja',
+    family: 'nerja-arrival-guide',
+    heroImage: '/images/amara-playa/apartment/chaparril-13.webp',
+    routeImage: '/images/amara-playa/apartment/chaparril-24.webp',
+    mapHref: 'https://maps.app.goo.gl/E886L2Huw3fXBQTt9',
+    addressLines: ['Calle Castilla Pérez 60', '29780 Nerja'],
+    dropOffValue: 'Calle Castilla Pérez 60',
+    fourthFactValue: { en: 'Public · not guaranteed', de: 'Öffentlich · nicht garantiert', es: 'Público · no garantizado', nl: 'Openbaar · niet gegarandeerd', sv: 'Allmän · inte garanterad' },
+    contactHref: 'https://maps.app.goo.gl/E886L2Huw3fXBQTt9',
+    contactValue: 'Google Maps'
+  },
+  tarifa: {
+    seo: tarifaArrivalGuideSeo,
+    copy: tarifaArrivalGuideCopy,
+    steps: tarifaArrivalGuideSteps,
+    busRoutes: tarifaArrivalGuideBusRoutes,
+    languageToken: 'tarifa_arrival_guide',
+    locationToken: 'location_tarifa',
+    journeyToken: 'getting_to_tarifa',
+    parkingToken: 'tarifa_parking',
+    label: 'Tarifa',
+    family: 'tarifa-arrival-guide',
+    heroImage: '/images/amara-tarifa/amara-tarifa-apartment23.webp',
+    routeImage: '/images/amara-tarifa/amara-tarifa-apartment23.webp',
+    mapHref: 'https://www.google.com/maps/search/?api=1&query=Mar+Adriatico+29+11380+Tarifa',
+    addressLines: ['Mar Adriático 29', '11380 Tarifa'],
+    dropOffValue: 'Las Terrazas de la Marina',
+    fourthFactValue: { en: 'Calle Batalla del Salado', de: 'Calle Batalla del Salado', es: 'Calle Batalla del Salado', nl: 'Calle Batalla del Salado', sv: 'Calle Batalla del Salado' },
+    contactHref: 'https://www.google.com/maps/search/?api=1&query=Mar+Adriatico+29+11380+Tarifa',
+    contactValue: 'Google Maps'
+  }
+} as const;
+
+const variant = variants[destination];
+const seo = variant.seo;
+const copy = variant.copy;
+const arrivalSteps = variant.steps[currentLang];
+const busRoutes = variant.busRoutes[currentLang];
+const destinationContextNavigation = getDestinationContextNavigation(destination, currentLang);
+const mapHref = variant.mapHref;
+const journeyHref = requiredLink(variant.journeyToken);
+const parkingHref = requiredLink(variant.parkingToken);
 const c = {
   header: {
     eyebrow: copy.header.eyebrow[currentLang],
@@ -83,7 +161,7 @@ const busIntro = c.arrivalByBus.text.split('\n\n')[0];
 >
   <Navigation
     currentLang={currentLang}
-    languageToken="arrival_guide"
+    languageToken={variant.languageToken}
   >
     <ContextNavigation
       slot="context-navigation"
@@ -92,7 +170,7 @@ const busIntro = c.arrivalByBus.text.split('\n\n')[0];
       breadcrumbAriaLabel={destinationContextNavigation.breadcrumbAriaLabel}
       breadcrumbs={[
         { label: 'AMARA', href: requiredLink('home') },
-        { label: 'Frigiliana', href: requiredLink('location_frigiliana') },
+        { label: variant.label, href: requiredLink(variant.locationToken) },
         { label: c.header.title }
       ]}
       context="location"
@@ -100,7 +178,7 @@ const busIntro = c.arrivalByBus.text.split('\n\n')[0];
     />
   </Navigation>
 
-  <AmaraPageShell family="frigiliana-arrival-guide" dataLang={currentLang} flush whiteCanvas>
+  <AmaraPageShell family={variant.family} dataLang={currentLang} flush whiteCanvas>
     <div class="mx-auto w-full max-w-screen-2xl px-6 pb-6 md:px-12 md:pb-16">
       <AmaraSection variant="hero" dataComponent="arrival-guide-hero">
         <div class="max-w-4xl">
@@ -117,8 +195,8 @@ const busIntro = c.arrivalByBus.text.split('\n\n')[0];
 
         <figure class="am-mobile-full-bleed mt-8 aspect-[16/9] max-h-[720px] overflow-hidden bg-surface-container-low md:mt-10">
           <AmaraImage
-            src="/images/amara-entrada/casa-amara-frigiliana-fuerra-ii.jpg"
-            alt={ui.heroAlt[currentLang]}
+            src={variant.heroImage}
+            alt={c.header.title}
             profile="hero"
             sizes="(max-width: 639px) 100vw, (max-width: 767px) calc(100vw - 3rem), (max-width: 1535px) calc(100vw - 6rem), 1440px"
             class="h-full w-full object-cover"
@@ -139,7 +217,7 @@ const busIntro = c.arrivalByBus.text.split('\n\n')[0];
               </p>
             </div>
             <div class="mt-5 flex flex-wrap items-center gap-x-6 gap-y-3">
-              <a class="am-inline-link am-text-body w-fit shrink-0" href={gettingToFrigilianaHref}>
+              <a class="am-inline-link am-text-body w-fit shrink-0" href={journeyHref}>
                 {c.journeyIntro.cta}
                 <span aria-hidden="true"> &rarr;</span>
               </a>
@@ -183,7 +261,7 @@ const busIntro = c.arrivalByBus.text.split('\n\n')[0];
                 </span>
               </dt>
               <dd class="am-text-body col-start-2 mt-1 leading-relaxed text-on-surface">
-                Calle Chorruelo 5<br />29788 Frigiliana
+                {variant.addressLines[0]}<br />{variant.addressLines[1]}
               </dd>
             </div>
 
@@ -196,7 +274,7 @@ const busIntro = c.arrivalByBus.text.split('\n\n')[0];
                   {c.sidebar.dropOff[currentLang]}
                 </span>
               </dt>
-              <dd class="am-text-body col-start-2 mt-1 leading-relaxed text-on-surface">Avenida Carlos Cano 42</dd>
+              <dd class="am-text-body col-start-2 mt-1 leading-relaxed text-on-surface">{variant.dropOffValue}</dd>
             </div>
 
             <div class="grid grid-cols-[2rem_minmax(0,1fr)] items-start gap-x-2.5 sm:grid-cols-[2.5rem_minmax(0,1fr)] sm:gap-x-4">
@@ -222,7 +300,7 @@ const busIntro = c.arrivalByBus.text.split('\n\n')[0];
                   {c.sidebar.busStop[currentLang]}
                 </span>
               </dt>
-              <dd class="am-text-body col-start-2 mt-1 leading-relaxed text-on-surface">Parada de Autobús · C. Real</dd>
+              <dd class="am-text-body col-start-2 mt-1 leading-relaxed text-on-surface">{variant.fourthFactValue[currentLang]}</dd>
             </div>
           </dl>
         </div>
@@ -259,7 +337,7 @@ const busIntro = c.arrivalByBus.text.split('\n\n')[0];
             <ol class="bg-surface-container-low px-5 sm:px-6">
               {arrivalSteps.map((step, index) => (
                 <li class="grid min-h-[4.5rem] grid-cols-[2.25rem_minmax(0,1fr)] content-center gap-x-4 border-b border-border-subtle py-4 last:border-b-0 md:min-h-[5.25rem] md:py-5">
-                  <span class="flex h-9 w-9 items-center justify-center rounded-full bg-surface font-label text-[11px] font-bold text-primary" aria-hidden="true">
+                  <span class="am-text-label flex h-9 w-9 items-center justify-center rounded-full bg-surface text-primary" aria-hidden="true">
                     {String(index + 1).padStart(2, '0')}
                   </span>
                   <span class="am-text-body self-center leading-relaxed text-on-surface">{step}</span>
@@ -278,11 +356,11 @@ const busIntro = c.arrivalByBus.text.split('\n\n')[0];
               class="group block w-full cursor-zoom-in focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[-2px] focus-visible:outline-primary"
               data-am-map-open
               aria-haspopup="dialog"
-              aria-label={ui.expandMap[currentLang]}
+              aria-label={destination === 'frigiliana' ? ui.expandMap[currentLang] : c.sidebar.mapTitle[currentLang]}
             >
               <AmaraImage
-                src="/images/arrival-map.jpg"
-                alt={c.sidebar.mapTitle[currentLang]}
+                src={variant.routeImage}
+                alt={destination === 'frigiliana' ? c.sidebar.mapTitle[currentLang] : c.header.title}
                 profile="gallery"
                 sizes="(max-width: 1023px) 100vw, 60vw"
                 class="h-auto w-full transition-transform duration-700 ease-out group-hover:scale-[1.01] motion-reduce:transition-none motion-reduce:group-hover:scale-100"
@@ -378,14 +456,21 @@ const busIntro = c.arrivalByBus.text.split('\n\n')[0];
             <div class="grid min-h-[5.5rem] grid-cols-[2.25rem_minmax(0,1fr)] content-center gap-x-4 border-b border-border-subtle py-4 sm:border-b-0 sm:border-r sm:pr-6">
               <dt class="col-span-2 grid grid-cols-[2.25rem_minmax(0,1fr)] items-center gap-x-4">
                 <span class="flex h-9 w-9 items-center justify-center rounded-full bg-surface text-primary" aria-hidden="true">
-                  <Phone class="h-[1.125rem] w-[1.125rem]" stroke-width={1.5} />
+                  {destination === 'frigiliana'
+                    ? <Phone class="h-[1.125rem] w-[1.125rem]" stroke-width={1.5} />
+                    : <MapPin class="h-[1.125rem] w-[1.125rem]" stroke-width={1.5} />}
                 </span>
                 <span class="am-text-annotation text-on-surface-variant">
                   {c.sidebar.taxi[currentLang]}
                 </span>
               </dt>
               <dd class="am-text-body col-start-2 mt-1 font-bold text-on-surface">
-                <a class="am-link" href="tel:+34952533131">+34 952 533 131</a>
+                <a
+                  class="am-link"
+                  href={variant.contactHref}
+                  target={destination === 'frigiliana' ? undefined : '_blank'}
+                  rel={destination === 'frigiliana' ? undefined : 'noopener noreferrer'}
+                >{variant.contactValue}</a>
               </dd>
             </div>
             <div class="grid min-h-[5.5rem] grid-cols-[2.25rem_minmax(0,1fr)] content-center gap-x-4 py-4 sm:pl-6">
@@ -448,8 +533,8 @@ const busIntro = c.arrivalByBus.text.split('\n\n')[0];
       </button>
 
       <AmaraImage
-        src="/images/arrival-map.jpg"
-        alt={c.sidebar.mapTitle[currentLang]}
+        src={variant.routeImage}
+        alt={destination === 'frigiliana' ? c.sidebar.mapTitle[currentLang] : c.header.title}
         profile="gallery"
         sizes="90vw"
         class="h-auto w-full"

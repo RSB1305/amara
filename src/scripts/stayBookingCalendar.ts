@@ -1,3 +1,6 @@
+import { buildCheckoutHandoffUrl } from '../lib/directBooking';
+import type { AmaraLanguage } from '../types/seo';
+
 type BookingCopy = Record<string, string>;
 
 type RateOption = {
@@ -109,13 +112,13 @@ export function enhanceStayBookingCalendars() {
       container,
       '[data-am-booking-calendar-clear]'
     );
-    const submit = element<HTMLButtonElement>(container, '[data-am-booking-submit]');
     const result = element<HTMLElement>(container, '[data-am-booking-result]');
     const status = element<HTMLElement>(container, '[data-am-booking-status]');
     const summary = element<HTMLElement>(container, '[data-am-booking-summary]');
     const priceWrap = element<HTMLElement>(container, '[data-am-booking-price-wrap]');
     const price = element<HTMLElement>(container, '[data-am-booking-price]');
     const note = element<HTMLElement>(container, '[data-am-booking-note]');
+    const checkout = element<HTMLAnchorElement>(container, '[data-am-booking-checkout]');
 
     if (
       !stay ||
@@ -136,13 +139,13 @@ export function enhanceStayBookingCalendars() {
       !nextButton ||
       !closeButton ||
       !clearButton ||
-      !submit ||
       !result ||
       !status ||
       !summary ||
       !priceWrap ||
       !price ||
-      !note
+      !note ||
+      !checkout
     ) {
       return;
     }
@@ -179,6 +182,9 @@ export function enhanceStayBookingCalendars() {
     if (guestsInput.querySelector('option[value="' + initialGuests + '"]')) {
       guestsInput.value = String(initialGuests);
     }
+    // Dates can arrive from a search result or a last-minute card. They are a
+    // choice the guest already made elsewhere, so the module opens on them.
+    let initialStayApplied = false;
     if (
       initialArrival >= today &&
       initialDeparture > initialArrival &&
@@ -190,6 +196,7 @@ export function enhanceStayBookingCalendars() {
       departureInput.min = addDays(initialArrival, 1);
       selectionMode = 'departure';
       anchorMonth = monthStart(initialArrival);
+      initialStayApplied = true;
     }
 
     const visibleMonthCount = () => (desktopQuery.matches ? 2 : 1);
@@ -241,6 +248,8 @@ export function enhanceStayBookingCalendars() {
       priceText?: string;
       detail: string;
     }) => {
+      checkout.hidden = true;
+      checkout.removeAttribute('href');
       result.hidden = false;
       result.dataset.state = state;
       status.textContent = title;
@@ -253,6 +262,8 @@ export function enhanceStayBookingCalendars() {
     const clearResult = () => {
       result.hidden = true;
       result.removeAttribute('data-state');
+      checkout.hidden = true;
+      checkout.removeAttribute('href');
     };
 
     const fetchJson = async (path: string, searchParams: URLSearchParams) => {
@@ -686,19 +697,23 @@ export function enhanceStayBookingCalendars() {
       activeTrigger.focus();
     };
 
-    const requestQuote = async () => {
+    /**
+     * `trustInput` is set only for dates that arrived in the URL, where the
+     * calendar's own availability map has not been loaded yet and would reject
+     * a perfectly bookable stay. The gateway remains the authority either way:
+     * an unavailable stay comes back as `quote_unavailable`.
+     */
+    const requestQuote = async (trustInput = false) => {
       const arrival = arrivalInput.value;
       const departure = departureInput.value;
       const guests = Number(guestsInput.value);
-      if (!arrival || !departure || !canSelectDeparture(departure)) {
+      if (!arrival || !departure || (!trustInput && !canSelectDeparture(departure))) {
         showState({ state: 'error', title: copy.invalidDates, body: '', detail: '' });
         return;
       }
       const signature = [arrival, departure, guests].join('|');
       if (quoteSignature === signature && result.dataset.state === 'available') return;
       quoteSignature = signature;
-      submit.disabled = true;
-      submit.textContent = copy.loading;
       form.setAttribute('aria-busy', 'true');
       showState({ state: 'loading', title: copy.loading, body: '', detail: '' });
       try {
@@ -745,6 +760,15 @@ export function enhanceStayBookingCalendars() {
           priceText: formattedPrice,
           detail: copy.quoteNote
         });
+        checkout.href = buildCheckoutHandoffUrl({
+          stay,
+          lang: language as AmaraLanguage,
+          arrival,
+          departure,
+          adults: guests,
+          currency: String(quote.currency)
+        });
+        checkout.hidden = false;
       } catch (error) {
         quoteSignature = '';
         const requestError = error as BookingRequestError;
@@ -759,8 +783,6 @@ export function enhanceStayBookingCalendars() {
           showState({ state: 'error', title: copy.error, body: '', detail: '' });
         }
       } finally {
-        submit.disabled = false;
-        submit.textContent = copy.submit;
         form.removeAttribute('aria-busy');
       }
     };
@@ -880,6 +902,8 @@ export function enhanceStayBookingCalendars() {
       if (arrivalInput.value && departureInput.value) void requestQuote();
       else clearResult();
     });
+    // Selecting a departure quotes automatically, so the form carries no submit
+    // control. This handler only keeps an implicit submit from navigating away.
     form.addEventListener('submit', (event) => {
       event.preventDefault();
       if (!arrivalInput.value) {
@@ -891,6 +915,21 @@ export function enhanceStayBookingCalendars() {
         return;
       }
       void requestQuote();
+    });
+
+    // Page-level calls to action hand over to this module in place: they scroll
+    // it into view and open the arrival picker, so the guest never lands on an
+    // inert form and never leaves the page to check availability.
+    document.querySelectorAll<HTMLElement>('[data-am-booking-open]').forEach((trigger) => {
+      trigger.addEventListener('click', (event) => {
+        event.preventDefault();
+        const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        container.scrollIntoView({
+          behavior: reducedMotion ? 'auto' : 'smooth',
+          block: 'start'
+        });
+        void openCalendar('arrival', arrivalTrigger);
+      });
     });
     calendar.addEventListener('keydown', (event) => {
       if (event.key === 'Escape') {
@@ -904,5 +943,9 @@ export function enhanceStayBookingCalendars() {
     });
 
     updateTriggerValues();
+
+    // Arriving with a chosen stay, the guest should see its total straight away
+    // and still be able to change the dates in the same place.
+    if (initialStayApplied) void requestQuote(true);
   });
 }

@@ -1,7 +1,7 @@
 ---
 document_id: AMARA-INT-ASTRO-003
-title: AMARA Astro Technical Standard V4
-version: 4.2.0
+title: AMARA Astro & Design Architecture Contract V4
+version: 4.9.0
 status: ACTIVE
 authority_class: CONTRACT / GOVERNING INTERIM
 source_type: INTERIM SNAPSHOT FROM APPROVED PDF + APPROVED REPOSITORY AMENDMENT
@@ -9,10 +9,10 @@ source_attachment: "03_AMARA_Astro_Technical_Standard_V4 (1).pdf"
 source_sha256: b3d8a3e780b29b5be42922aec838c7f56f455184cca8336d9a0f3564ba43f9aa
 snapshot_created: 2026-08-14T09:08:00+02:00
 migration_state: PENDING PACKAGE 2/3 NORMALIZATION
-last_modified: 2026-08-23T13:54:40+02:00
+last_modified: 2026-08-25T19:02:14+02:00
 ---
 
-# AMARA Astro Technical Standard V4 — Interim Markdown Snapshot
+# AMARA Astro & Design Architecture Contract V4 — Interim Markdown Snapshot
 
 > **INTERIM SNAPSHOT.** This file preserves the wording of the currently approved source document while AMARA migrates active documentation into the repository. Formatting was normalized for Markdown; no substantive rule change is intended by this conversion. Where the System Constitution, Governance or Decision Register explicitly records an intentional supersession, the higher owner governs.
 
@@ -20,9 +20,9 @@ last_modified: 2026-08-23T13:54:40+02:00
 
 ---
 
-AMARA Astro Technical Standard V4
+AMARA Astro & Design Architecture Contract V4
 Status                                                ACTIVE
-Version                                               4.1.0
+Version                                               4.9.0
 Effective date                                        2026-08-10
 Runtime                                               Astro
 Styling                                               Tailwind CSS + AMARA global tokens + scoped component
@@ -142,11 +142,29 @@ The operational consequences are:
   a primary action behind a different information path or change which content carries the page's job.
 
 7. Hero contract
-Hero media is not a card.
-Do not add card borders, shadows, fake frames, or reusable-card radius behavior to hero media.
-Hero geometry and image priority must follow the page family's canonical hero pattern.
-A repeated hero family must use a shared hero component or shared structural contract rather than page-
-specific variants.
+
+`src/components/hero/heroContract.ts` is the canonical semantic owner for public hero classification. It
+does not impose one universal composition. Every production hero owner declares a family, a named variant,
+an optional hub/spoke/conversion role and an optional topic through the shared `data-am-hero-*` attributes.
+This makes the cluster discoverable and governable without erasing page-job differences.
+
+The active family variants are:
+
+- `TrustHero` / `trust-content` for text-led trust and supporting information pages;
+- `StayHero` / `stay-decision` for the image, key facts, booking decision and direct-trust sequence on a stay;
+- `LocationGuideHero` and its thin derivatives / `authority-media` or `authority-evidence` for Location and
+  image-led Experience authority;
+- `ExperienceArticleHero` / `authority-editorial` for narrative Experience articles with standfirst and
+  provenance;
+- `Hero` / `campaign-media` for the bounded campaign/editorial split composition that predates the authority
+  family and remains a named family variant.
+
+Hero media is not a card. Do not add card borders, shadows, fake frames, or reusable-card radius behavior to
+hero media. Hero geometry, semantic order, action path and image priority follow the named family owner. Each
+hero has one page heading; eyebrow, lead/paragraphs, metadata, actions and media are exposed only where the
+family job needs them. A new public hero uses one of these owners. A materially new hero job requires explicit
+classification and a contract/owner change rather than a page-local recipe. Existing direct compositions are
+legacy and migrate when their page-family renderer is materially revised.
 
 8. Images
 Use the canonical Astro image pipeline and AMARA image profiles.
@@ -168,11 +186,18 @@ Preserve:
 - keyboard activation;
 - Escape/focus restoration;
 - mobile inert containment;
-
-
+- width containment for localized contextual breadcrumbs and sibling navigation;
 - scroll lock;
 - language-switch behavior.
 Do not refactor navigation incidentally during page work.
+
+Context navigation must not widen the document at any supported mobile viewport. The current breadcrumb may
+truncate inside its available width; sibling links that intentionally remain on one line own their horizontal
+scrolling inside the navigation rail. Long localized labels must never transfer that overflow to the page.
+
+The persistent booking action remains visible in the canonical header. Below 360px it uses the approved native
+compact availability label for EN, DE, ES, NL and SV so the brand, language control, booking path and menu keep
+separate hit areas. Hiding one of those four jobs is not an acceptable width fix.
 
 10. Footer contract
 BaseLayout pages render the canonical footer core.
@@ -254,6 +279,151 @@ New topic work follows this direction:
 
 The typed contract in `knowledge/schema.ts` is the executable repository owner for knowledge-record shape. It must remain presentation-agnostic and must not become a second routing, runtime or styling system.
 
+17. Design-system control and cross-silo convergence
+
+17.1 Purpose
+
+AMARA's design system is the controlled cross-section of the public page families, not a separate visual layer placed above them. Trust, Stay, Location, Experience, Home and Guest Utility may keep distinct compositions where their page jobs require them, but the same UI job must not acquire a new visual language merely because it appears in another family.
+
+The system distinguishes five statuses:
+
+- **canonical** — the approved shared treatment for a named UI job;
+- **family** — a deliberate variant required by a distinct page-family or surface job;
+- **experimental** — isolated in the internal Design Lab and not approved for public use;
+- **legacy** — existing output that remains valid while it is migrated but may not be copied into new work;
+- **retired** — no longer permitted in active public output.
+
+Visual similarity alone does not make two units the same component. Visual difference alone does not justify two implementations. Classification follows semantic job, interaction, information hierarchy and responsive behaviour.
+
+17.2 Executable ownership
+
+The ownership chain is:
+
+- `src/styles/global.css` owns foundations, tokens, typography roles and genuinely global control/link treatments;
+- shared components own canonical interactive primitives and reusable content modules;
+- page families compose those primitives and modules for their dominant job and may own local layout, but they do not create parallel foundation or control systems;
+- `/tools/styleguide` is the rendered operational reference and must display production tokens and production components rather than restating or imitating them;
+- `/tools/design-lab` owns visual experiments only. An experiment becomes canonical only through an explicitly approved contract/component change;
+- the internal component inventory may describe implementation coverage but cannot define design status independently of this contract and the production component.
+
+A styleguide-only class is tool chrome or demonstration scaffolding. It cannot establish a public AMARA pattern.
+
+17.3 Exception-led convergence
+
+Convergence proceeds by UI job across silos rather than by redesigning one complete page family at a time:
+
+1. compare the same job across representative Trust, Stay, Location and Experience consumers;
+2. group repeated recipes and materially different solutions as an exception cluster;
+3. classify each cluster as canonical, family, experimental, legacy or retired;
+4. select or create the smallest appropriate token, role or component owner;
+5. migrate bounded consumers and validate representative mobile and larger-viewport output;
+6. update the rendered styleguide from the production owner.
+
+Existing public output is not invalid merely because it predates this process. A legacy treatment stays stable until its cluster is selected for migration. New work must not copy a legacy treatment or add another local solution to an already identified shared UI job.
+
+17.4 Primitive roles and current transition state
+
+The current controlled primitive vocabulary is:
+
+- typography through the `am-text-*` roles; the legacy ratchet records zero unresolved arbitrary typography values and fails on any reintroduction;
+- action buttons through `am-btn` with `primary`, `secondary` and the inverse-surface modifier;
+- editorial onward actions through `am-cta-link`;
+- body-copy links through `am-inline-link`;
+- related-guide links through `am-guide-link`;
+- textual links inside a larger linked card treatment through `am-card-link`.
+
+The CSS roles above remain the canonical visual treatments. `AmaraActionLink` owns navigational use of primary, secondary, editorial, inline, guide and card treatments, including inverse, external and non-interactive disabled semantics. `AmaraActionButton` owns local and form actions, including disabled and loading semantics. New consumers use these production components rather than composing the CSS roles directly; bounded direct uses that predate the API remain legacy until their page-family renderer is materially revised.
+
+Chip-like controls and labels must be classified by semantics before canonical implementation:
+
+- a **filter chip** is interactive and exposes its selected state accessibly;
+- a **meta chip** is passive, concise information;
+- a **status badge** communicates a real state rather than decorative emphasis;
+- an **icon surface** contains an icon and is not described or implemented as a chip merely because it is circular.
+
+The production owners are `AmaraFilterChip` for toggle filters with accessible selected and disabled state, `AmaraMetaChip` for passive concise information and `AmaraStatusBadge` for a real communicated state. The Amenities filter and the repeated Location recipes are canonical consumers of those owners. The festival date badge qualifies because it communicates confirmation or date variability; decorative emphasis does not. Icon surfaces remain distinct. Badges that exist only in an internal styleguide are not canonical public components.
+
+17.5 Surfaces, cards and elevation
+
+AMARA does not have one universal card. Stay selection, guide navigation, evidence, comparison and booking decision are different jobs and may use different named modules. Flat editorial composition and hairline separation remain the default; elevation is component-owned and reserved for a demonstrated hierarchy or overlay need. A new generic card recipe is not permitted merely to wrap content visually.
+
+Scoped component styles remain valid ownership. Their existence is not design debt by itself. A scoped treatment becomes a shared-system concern when the same UI job or recipe appears across component or page-family boundaries.
+
+17.6 Cards and content-module contract
+
+AMARA has no universal card component. Card-like appearance does not establish a reusable job. The semantic
+classification owner is `src/components/content/moduleContract.ts`; rendered modules declare their job,
+status and, where applicable, family through `data-am-content-module-*` attributes.
+
+The canonical cross-silo modules are:
+
+- `EditorialFeatureGrid` for non-linked feature, quality or amenity explanations;
+- `EditorialCallout` for a practical consequence, tip or access note, with only the approved low and lowest
+  surfaces.
+
+The deliberate family modules are:
+
+- `GuideLinkCardSection` for Location guide navigation;
+- `ApartmentCard` for stay selection and conversion-aware result states;
+- `LocationGuideEvidence` for verified Location evidence;
+- `LocationEditorialComparison` for editorial place comparison;
+- `BookingDecisionPanel` for a price-context and booking decision;
+- `EditorialStatement` for the bounded elevated trust/statement treatment.
+
+These jobs may not be interchanged because their information hierarchy, interaction and responsive behaviour
+are different. New work uses the owner for its job rather than copying its surface classes. Existing direct
+recipes remain legacy until the containing renderer is materially revised. Elevation remains limited to the
+named owner that demonstrates the hierarchy need; it is not a generic card option.
+
+17.7 Living styleguide contract
+
+Every canonical primitive or module shown in the living styleguide must include, as applicable:
+
+- semantic purpose and when not to use it;
+- production owner and supported API;
+- allowed variants and status;
+- mobile and larger-viewport behaviour;
+- hover, focus, active, disabled, loading and error states;
+- long-label and five-locale considerations;
+- accessibility requirements;
+- at least one real production consumer.
+
+The styleguide is therefore an executable view of the system, not a parallel source of design values. A mismatch is resolved in the production owner or in this contract; it is not patched locally in the styleguide.
+
+17.8 Section rhythm and introduction contract
+
+`src/components/layout/sectionContract.ts` is the semantic classification owner for page sections and
+section introductions. `AmaraSection` owns the canonical page-shell rhythm, divider behaviour and the
+approved plain, tint and inverse surfaces. Its default, hero, compact and closing variants describe page
+position and spacing; they are not page-local design knobs.
+
+`AmaraSectionIntro` owns the recurring eyebrow, H2, lead, note and supplemental-detail hierarchy. Its named
+variants preserve distinct jobs rather than flattening the silos:
+
+- `centered` is the Trust family introduction for evidence and proof groups;
+- `standard` is the direct Stay and utility introduction without editorial italics;
+- `editorial` is the shared Location and Experience introduction for place-led guidance.
+
+The variants share semantic markup, width, responsive spacing and discoverable `data-am-section-intro-*`
+attributes. A materially different split or media-led introduction remains a family composition until its
+own cross-silo job is selected; it must not be forced into this component merely because it contains an H2.
+
+The older `am-section` Location shell is controlled legacy. Existing consumers remain stable and may use the
+canonical introduction inside it, but new page-shell work uses `AmaraSection`. Legacy shell migration happens
+with the containing renderer when its composition is materially revised, not as an unbounded class rewrite.
+
+17.9 Form-control contract
+
+`AmaraFormControl` is the canonical production owner for the shared native field surface used by date inputs,
+selects and button-based calendar triggers. It owns minimum hit height, width, border, radius, surface, padding,
+focus, expanded, invalid and disabled states through the `am-form-control` role in `global.css`.
+
+The semantic form, label text, grouping, validation message and client behaviour remain with the consuming job.
+A filter chip, checkbox, radio control, action button or free-form editor is not a form-control variant merely
+because it accepts input. New Stay and booking controls use the production component rather than recreating its
+field recipe locally. The current canonical consumers are the Stay search finder, property booking calendar and
+last-minute guest filter.
+
 ## Revision history
 
 | Version | Date | Change |
@@ -261,3 +431,11 @@ The typed contract in `knowledge/schema.ts` is the executable repository owner f
 | 4.0 | 2026-08-10 | Approved source standard preserved as the interim Markdown snapshot. |
 | 4.1.0 | 2026-08-20 | Added the approved Evidence & Knowledge boundary and executable repository ownership model. |
 | 4.2.0 | 2026-08-23T13:54:40+02:00 | Activated the canonical mobile-first composition contract and progressive-enhancement boundary for all public page families. |
+| 4.3.0 | 2026-08-25T15:51:22+02:00 | Activated exception-led cross-silo design convergence, explicit design-status classes, executable owner boundaries and the living-styleguide contract without changing public rendering. |
+| 4.4.0 | 2026-08-25T16:33:34+02:00 | Activated the executable action/link and chip/status component owners, migrated bounded cross-silo consumers, and kept icon surfaces and decorative emphasis outside the chip/status vocabulary. |
+| 4.5.0 | 2026-08-25T17:32:07+02:00 | Closed all 32 typography legacy values through canonical or explicitly named special-purpose roles, reduced the ratchet to zero and replaced the styleguide's parallel typography specimens with production roles. |
+| 4.6.0 | 2026-08-25T17:49:36+02:00 | Activated the semantic hero contract, named the deliberate Trust, Stay, Location, Experience and campaign variants, extracted the Stay decision hero into a production owner and rendered representative production owners in the living styleguide. |
+| 4.7.0 | 2026-08-25T18:22:10+02:00 | Activated semantic classification for card-like and editorial modules, established canonical feature-grid and practical-callout owners, preserved distinct family jobs and replaced the styleguide's simulated cards with production modules. |
+| 4.8.0 | 2026-08-25T18:37:51+02:00 | Activated the shared section rhythm and section-introduction contract, preserved named Trust, Stay and Location/Experience variants, migrated bounded production consumers and classified the older Location shell as controlled legacy. |
+| 4.8.1 | 2026-08-25T18:47:39+02:00 | Corrected mobile width containment in the canonical context navigation so localized current-page breadcrumbs truncate within the rail and sibling links retain contained horizontal scrolling without widening the document; added the native compact booking-label tier below 360px so all four header jobs remain visible. |
+| 4.9.0 | 2026-08-25T19:02:14+02:00 | Activated the canonical native form-control owner, centralized select, date-input and calendar-trigger states, migrated all three repeated public recipes and rendered the production API in the living styleguide. |

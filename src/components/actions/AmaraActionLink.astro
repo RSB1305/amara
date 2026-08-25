@@ -1,0 +1,92 @@
+---
+import type { HTMLAttributes } from 'astro/types';
+
+export type AmaraActionLinkVariant =
+  | 'primary'
+  | 'secondary'
+  | 'editorial'
+  | 'inline'
+  | 'guide'
+  | 'card';
+
+interface Props extends Omit<HTMLAttributes<'a'>, 'class' | 'class:list' | 'href'> {
+  href?: string;
+  variant: AmaraActionLinkVariant;
+  inverse?: boolean;
+  /** Opens a deliberately external destination in a new tab with a safe rel contract. */
+  external?: boolean;
+  /** Renders a non-interactive label. A disabled action is never emitted as a clickable anchor. */
+  disabled?: boolean;
+  class?: string;
+}
+
+const {
+  href,
+  variant,
+  inverse = false,
+  external = false,
+  disabled = false,
+  target,
+  rel,
+  class: className,
+  ...attributes
+} = Astro.props;
+
+const variantClasses: Record<AmaraActionLinkVariant, string> = {
+  primary: 'am-btn am-btn--primary',
+  secondary: 'am-btn am-btn--secondary',
+  editorial: 'am-cta-link',
+  inline: 'am-inline-link',
+  guide: 'am-guide-link',
+  card: 'am-card-link'
+};
+
+const isButtonTreatment = variant === 'primary' || variant === 'secondary';
+const isDisabled = disabled === true;
+
+if (inverse && !isButtonTreatment) {
+  throw new Error('[AMARA] AmaraActionLink: inverse is only valid for primary or secondary actions.');
+}
+
+if (!href && !isDisabled) {
+  throw new Error('[AMARA] AmaraActionLink: href is required unless the action is disabled.');
+}
+
+if (external && isDisabled) {
+  throw new Error('[AMARA] AmaraActionLink: a disabled action cannot be external.');
+}
+
+const resolvedTarget = external ? '_blank' : target;
+const relTokens = new Set(String(rel ?? '').split(/\s+/).filter(Boolean));
+
+if (resolvedTarget === '_blank') {
+  relTokens.add('noopener');
+  relTokens.add('noreferrer');
+}
+
+const resolvedRel = relTokens.size > 0 ? Array.from(relTokens).join(' ') : undefined;
+const anchorOnlyAttributes = new Set(['download', 'hreflang', 'ping', 'referrerpolicy']);
+const disabledAttributes = Object.fromEntries(
+  Object.entries(attributes).filter(([name]) => !anchorOnlyAttributes.has(name))
+);
+---
+
+{isDisabled ? (
+  <span
+    {...disabledAttributes}
+    class:list={[variantClasses[variant], 'am-is-disabled', { 'am-btn--inverse': inverse }, className]}
+    aria-disabled="true"
+  >
+    <slot />
+  </span>
+) : (
+  <a
+    {...attributes}
+    href={href}
+    target={resolvedTarget}
+    rel={resolvedRel}
+    class:list={[variantClasses[variant], { 'am-btn--inverse': inverse }, className]}
+  >
+    <slot />
+  </a>
+)}

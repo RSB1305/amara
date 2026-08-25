@@ -23,11 +23,11 @@ const LANGUAGES: AmaraLanguage[] = ['en', 'de', 'es', 'nl', 'sv'];
 
 /** Compact rail labels, mirrored from the component's own short-label table. */
 const SHORT_BOOKING_LABELS: Record<AmaraLanguage, string> = {
-  en: 'Book',
-  de: 'Buchen',
-  es: 'Reservar',
-  nl: 'Boeken',
-  sv: 'Boka'
+  en: 'Availability',
+  de: 'Verfügbarkeit',
+  es: 'Disponibilidad',
+  nl: 'Beschikbaarheid',
+  sv: 'Tillgänglighet'
 };
 
 const MOBILE_VIEWPORT = { width: 390, height: 844 };

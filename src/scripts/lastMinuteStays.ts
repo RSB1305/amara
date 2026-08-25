@@ -1,3 +1,4 @@
+
 type RateOption = {
   nightlyRate: number;
   minStay: number | null;
@@ -20,13 +21,30 @@ type Candidate = {
   departure: string;
   nights: number;
   arrivalIndex: number;
+  window: AvailabilityWindow;
   score: [number, number, number, number];
+};
+
+type AvailabilityWindow = {
+  arrival: string;
+  departure: string;
+  nights: number;
+  startIndex: number;
+  endIndex: number;
+};
+
+type CandidateWindow = {
+  window: AvailabilityWindow;
+  candidates: Candidate[];
+  score: Candidate['score'];
 };
 
 type RequestFailure = Error & { status?: number; code?: string };
 
 const WINDOW_DAYS = 21;
 const CONCURRENCY = 2;
+const MAX_PUBLIC_OFFERS = 4;
+const MAX_QUOTE_ATTEMPTS_PER_STAY = 8;
 
 const isoDay = (date: Date) => date.toISOString().slice(0, 10);
 const addDays = (value: string, amount: number) => {
@@ -135,13 +153,27 @@ function parseRates(
   return days as RateDay[];
 }
 
-function hasPotentialStay(days: CalendarDay[]) {
-  let continuous = 0;
-  for (const day of days) {
-    continuous = day.available ? continuous + 1 : 0;
-    if (continuous >= 2) return true;
+function availabilityWindows(days: CalendarDay[]): AvailabilityWindow[] {
+  const windows: AvailabilityWindow[] = [];
+  let index = 0;
+  while (index < days.length) {
+    if (!days[index]?.available) {
+      index += 1;
+      continue;
+    }
+    const startIndex = index;
+    while (index + 1 < days.length && days[index + 1]?.available) index += 1;
+    const endIndex = index;
+    windows.push({
+      arrival: days[startIndex].date,
+      departure: addDays(days[endIndex].date, 1),
+      nights: endIndex - startIndex + 1,
+      startIndex,
+      endIndex
+    });
+    index += 1;
   }
-  return false;
+  return windows;
 }
 
 function optionAllows(option: RateOption, nights: number) {
@@ -150,41 +182,49 @@ function optionAllows(option: RateOption, nights: number) {
   return minimum <= maximum && nights >= minimum && nights <= maximum;
 }
 
-function chooseCandidate(availability: CalendarDay[], rates: RateDay[]): Candidate | undefined {
-  const candidates: Candidate[] = [];
-  for (let arrivalIndex = 0; arrivalIndex < availability.length - 1; arrivalIndex += 1) {
-    if (!availability[arrivalIndex]?.available) continue;
-    const rateDay = rates[arrivalIndex];
-    if (!rateDay || rateDay.date !== availability[arrivalIndex].date || !rateDay.options.length) {
-      continue;
-    }
-
-    let maximumNights = 0;
-    for (let departureIndex = arrivalIndex + 1; departureIndex < availability.length; departureIndex += 1) {
-      if (!availability[departureIndex]?.available) break;
-      maximumNights = departureIndex - arrivalIndex;
-    }
-
-    for (let nights = 1; nights <= maximumNights; nights += 1) {
-      if (!rateDay.options.some((option) => optionAllows(option, nights))) continue;
-      const practicalLength = nights >= 3 && nights <= 5 ? 0 : Math.min(Math.abs(nights - 4), 10);
-      candidates.push({
-        arrival: availability[arrivalIndex].date,
-        departure: availability[arrivalIndex + nights].date,
-        nights,
-        arrivalIndex,
-        score: [arrivalIndex < 14 ? 0 : 1, practicalLength, arrivalIndex, nights]
-      });
-    }
+function compareScore(left: Candidate['score'], right: Candidate['score']) {
+  for (let index = 0; index < left.length; index += 1) {
+    const difference = left[index] - right[index];
+    if (difference !== 0) return difference;
   }
+  return 0;
+}
 
-  return candidates.sort((left, right) => {
-    for (let index = 0; index < left.score.length; index += 1) {
-      const difference = left.score[index] - right.score[index];
-      if (difference !== 0) return difference;
+function candidateWindows(availability: CalendarDay[], rates: RateDay[]): CandidateWindow[] {
+  return availabilityWindows(availability)
+    .flatMap((window) => {
+      const candidates: Candidate[] = [];
+      for (let arrivalIndex = window.startIndex; arrivalIndex <= window.endIndex; arrivalIndex += 1) {
+        const rateDay = rates[arrivalIndex];
+        if (!rateDay || rateDay.date !== availability[arrivalIndex].date || !rateDay.options.length) {
+          continue;
+        }
+        const maximumNights = window.endIndex - arrivalIndex + 1;
+        for (let nights = 1; nights <= maximumNights; nights += 1) {
+          if (!rateDay.options.some((option) => optionAllows(option, nights))) continue;
+          const practicalLength = nights >= 3 && nights <= 5
+            ? 0
+            : Math.min(Math.abs(nights - 4), 10);
+          candidates.push({
+            arrival: availability[arrivalIndex].date,
+            departure: addDays(availability[arrivalIndex].date, nights),
+            nights,
+            arrivalIndex,
+            window,
+            score: [practicalLength, arrivalIndex < 14 ? 0 : 1, arrivalIndex, nights]
+          });
+        }
+      }
+      if (!candidates.length) return [];
+      candidates.sort((left, right) => left.nights - right.nights || left.arrivalIndex - right.arrivalIndex);
+      const score = candidates.reduce(
+        (best, candidate) => compareScore(candidate.score, best) < 0 ? candidate.score : best,
+        candidates[0].score
+      );
+      return [{ window, candidates, score }];
     }
-    return 0;
-  })[0];
+    )
+    .sort((left, right) => compareScore(left.score, right.score));
 }
 
 export function enhanceLastMinuteStays() {
@@ -196,12 +236,11 @@ export function enhanceLastMinuteStays() {
     const language = root.dataset.amLastMinuteLanguage || 'en-GB';
     const guestsInput = root.querySelector<HTMLSelectElement>('[data-am-last-minute-guests]');
     const status = root.querySelector<HTMLElement>('[data-am-last-minute-status]');
-    const warning = root.querySelector<HTMLElement>('[data-am-last-minute-warning]');
     const results = root.querySelector<HTMLElement>('[data-am-last-minute-results]');
     const empty = root.querySelector<HTMLElement>('[data-am-last-minute-empty]');
     const error = root.querySelector<HTMLElement>('[data-am-last-minute-error]');
     const cards = [...root.querySelectorAll<HTMLElement>('[data-am-stay-result]')];
-    if (!guestsInput || !status || !warning || !results || !empty || !error) return;
+    if (!guestsInput || !status || !results || !empty || !error) return;
 
     let runId = 0;
     const formatDate = (value: string) =>
@@ -210,10 +249,12 @@ export function enhanceLastMinuteStays() {
         month: 'long',
         timeZone: 'UTC'
       }).format(new Date(value + 'T00:00:00.000Z'));
-    const countLabel = (key: 'night' | 'nights' | 'guest' | 'guestsPlural', count: number) =>
+    const countLabel = (
+      key: 'night' | 'nights' | 'guest' | 'guestsPlural' | 'fromNight' | 'fromNights',
+      count: number
+    ) =>
       copy[key].replace('{count}', String(count));
     const reset = () => {
-      warning.hidden = true;
       results.hidden = true;
       empty.hidden = true;
       error.hidden = true;
@@ -232,7 +273,12 @@ export function enhanceLastMinuteStays() {
       reset();
       root.setAttribute('aria-busy', 'true');
       status.textContent = copy.loading;
-      const availableCards: HTMLElement[] = [];
+      const offers: Array<{
+        card: HTMLElement;
+        candidate: Candidate;
+        currency: string;
+        grossTotal: number;
+      }> = [];
       let technicalFailures = 0;
       const eligibleCards = cards.filter(
         (card) => Number(card.dataset.amStayOccupancy) >= guests
@@ -247,69 +293,57 @@ export function enhanceLastMinuteStays() {
             calendarParams
           );
           const availability = parseAvailability(availabilityPayload, stay, start, end);
-          if (!hasPotentialStay(availability)) return;
-
           const ratesPayload = await fetchJson('/api/booking/rates', calendarParams);
           const rates = parseRates(ratesPayload, stay, start, end);
-          const candidate = chooseCandidate(availability, rates);
-          if (!candidate) return;
-
-          const quote = await fetchJson(
-            '/api/booking/quote',
-            new URLSearchParams({
-              stay,
-              arrival: candidate.arrival,
-              departure: candidate.departure,
-              adults: String(guests),
-              children: '0',
-              pets: '0'
-            })
-          );
-          const quoteGuests = quote.guests as
-            | { adults?: unknown; children?: unknown; pets?: unknown }
-            | undefined;
-          if (
-            quote.stay !== stay ||
-            quote.arrival !== candidate.arrival ||
-            quote.departure !== candidate.departure ||
-            quoteGuests?.adults !== guests ||
-            quoteGuests.children !== 0 ||
-            quoteGuests.pets !== 0 ||
-            typeof quote.currency !== 'string' ||
-            !Number.isFinite(quote.grossTotal)
-          ) {
-            throw new Error('Quote contract failed.');
+          const windows = candidateWindows(availability, rates);
+          let quoteAttempts = 0;
+          for (const window of windows) {
+            for (const candidate of window.candidates) {
+              if (quoteAttempts >= MAX_QUOTE_ATTEMPTS_PER_STAY) break;
+              quoteAttempts += 1;
+              try {
+                const quote = await fetchJson(
+                  '/api/booking/quote',
+                  new URLSearchParams({
+                    stay,
+                    arrival: candidate.arrival,
+                    departure: candidate.departure,
+                    adults: String(guests),
+                    children: '0',
+                    pets: '0'
+                  })
+                );
+                const quoteGuests = quote.guests as
+                  | { adults?: unknown; children?: unknown; pets?: unknown }
+                  | undefined;
+                if (
+                  quote.stay !== stay ||
+                  quote.arrival !== candidate.arrival ||
+                  quote.departure !== candidate.departure ||
+                  quoteGuests?.adults !== guests ||
+                  quoteGuests.children !== 0 ||
+                  quoteGuests.pets !== 0 ||
+                  typeof quote.currency !== 'string' ||
+                  !Number.isFinite(quote.grossTotal)
+                ) {
+                  throw new Error('Quote contract failed.');
+                }
+                if (activeRun !== runId) return;
+                offers.push({
+                  card,
+                  candidate,
+                  currency: String(quote.currency),
+                  grossTotal: Number(quote.grossTotal)
+                });
+                return;
+              } catch {
+                // A rate-permitted combination can still be rejected by the live quote.
+                // Continue within the selected availability window before hiding the stay.
+              }
+            }
+            if (quoteAttempts >= MAX_QUOTE_ATTEMPTS_PER_STAY) break;
           }
-          if (activeRun !== runId) return;
-
-          const summary = card.querySelector<HTMLElement>('[data-am-stay-result-summary]');
-          const priceWrap = card.querySelector<HTMLElement>('[data-am-stay-result-price-wrap]');
-          const price = card.querySelector<HTMLElement>('[data-am-stay-result-price]');
-          if (!summary || !priceWrap || !price) throw new Error('Offer card contract failed.');
-          summary.textContent = [
-            formatDate(candidate.arrival) + ' – ' + formatDate(candidate.departure),
-            countLabel(candidate.nights === 1 ? 'night' : 'nights', candidate.nights),
-            countLabel(guests === 1 ? 'guest' : 'guestsPlural', guests)
-          ].join(' · ');
-          price.textContent = new Intl.NumberFormat(language, {
-            style: 'currency',
-            currency: String(quote.currency)
-          }).format(Number(quote.grossTotal));
-          card.querySelectorAll<HTMLAnchorElement>('[data-am-stay-result-link]').forEach((link) => {
-            const base = link.dataset.amStayResultBaseHref || link.getAttribute('href') || '';
-            link.href =
-              base +
-              (base.includes('?') ? '&' : '?') +
-              new URLSearchParams({
-                arrival: candidate.arrival,
-                departure: candidate.departure,
-                guests: String(guests)
-              }).toString();
-          });
-          card.hidden = false;
-          summary.hidden = false;
-          priceWrap.hidden = false;
-          availableCards.push(card);
+          if (quoteAttempts > 0) technicalFailures += 1;
         } catch {
           technicalFailures += 1;
         }
@@ -318,9 +352,56 @@ export function enhanceLastMinuteStays() {
       if (activeRun !== runId) return;
       root.setAttribute('aria-busy', 'false');
       const guestText = countLabel(guests === 1 ? 'guest' : 'guestsPlural', guests);
-      if (availableCards.length > 0) {
+      const selectedOffers = offers
+        .sort((left, right) => compareScore(left.candidate.score, right.candidate.score))
+        .slice(0, MAX_PUBLIC_OFFERS);
+      for (const offer of selectedOffers) {
+        const { card, candidate } = offer;
+        const summary = card.querySelector<HTMLElement>('[data-am-stay-result-summary]');
+        const priceWrap = card.querySelector<HTMLElement>('[data-am-stay-result-price-wrap]');
+        const price = card.querySelector<HTMLElement>('[data-am-stay-result-price]');
+        if (!summary || !priceWrap || !price) continue;
+        const windowDates = formatDate(candidate.window.arrival) + ' – ' + formatDate(candidate.window.departure);
+        const candidateDates = formatDate(candidate.arrival) + ' – ' + formatDate(candidate.departure);
+        const summaryParts = [
+          `${copy.availableWindow} ${windowDates}`,
+          countLabel(candidate.nights === 1 ? 'fromNight' : 'fromNights', candidate.nights)
+        ];
+        if (candidate.window.arrival !== candidate.arrival || candidate.window.departure !== candidate.departure) {
+          summaryParts.push(`${copy.exampleStay} ${candidateDates}`);
+        }
+        summaryParts.push(guestText);
+        summary.textContent = summaryParts.join(' · ');
+        price.textContent = new Intl.NumberFormat(language, {
+          style: 'currency',
+          currency: offer.currency
+        }).format(offer.grossTotal);
+        // The card names an availability window and one example stay inside it.
+        // Sending that example straight into checkout would fix dates the guest
+        // never chose, so every link carries them to the stay page instead,
+        // where the booking module opens on them and they stay changeable.
+        const withDates = (base: string) =>
+          base +
+          (base.includes('?') ? '&' : '?') +
+          new URLSearchParams({
+            arrival: candidate.arrival,
+            departure: candidate.departure,
+            guests: String(guests)
+          }).toString();
+        card.querySelectorAll<HTMLAnchorElement>('[data-am-stay-result-link]').forEach((link) => {
+          link.href = withDates(link.dataset.amStayResultBaseHref || link.getAttribute('href') || '');
+        });
+        const bookingLink = card.querySelector<HTMLAnchorElement>('[data-am-stay-booking-link]');
+        if (!bookingLink) continue;
+        bookingLink.href = withDates(
+          bookingLink.dataset.amStayResultBaseHref || bookingLink.getAttribute('href') || ''
+        );
+        card.hidden = false;
+        summary.hidden = false;
+        priceWrap.hidden = false;
+      }
+      if (selectedOffers.length > 0) {
         results.hidden = false;
-        warning.hidden = technicalFailures === 0;
         status.textContent = copy.ready.replace('{guests}', guestText);
       } else if (technicalFailures > 0) {
         error.hidden = false;

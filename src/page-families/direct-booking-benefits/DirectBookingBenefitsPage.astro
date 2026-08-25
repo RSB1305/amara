@@ -7,6 +7,7 @@ import EditorialClosingCta from '../../components/editorial/EditorialClosingCta.
 import AmaraSection from '../../components/layout/AmaraSection.astro';
 import type { EditorialClosingCtaLink } from '../../components/editorial/EditorialClosingCta.astro';
 import InlineEmphasis from '../../components/text/InlineEmphasis.astro';
+import AmaraActionLink from '../../components/actions/AmaraActionLink.astro';
 import {
   directBookingBenefitsCopy,
   directBookingBenefitsFooterLabels,
@@ -82,9 +83,9 @@ const inlineLinks = ([
       </p>
       <div class="flex flex-col flex-wrap items-start gap-4 sm:flex-row sm:items-center sm:gap-6">
         {inlineLinks.map((link) => (
-          <a href={link.href} class="am-cta-link">
+          <AmaraActionLink href={link.href} variant="editorial">
             {link.label}
-          </a>
+          </AmaraActionLink>
         ))}
       </div>
     </EditorialSplit>

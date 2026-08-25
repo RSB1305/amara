@@ -2,15 +2,7 @@
 import EditorialByline from '../editorial/EditorialByline.astro';
 import LocationGuideEvidence from './LocationGuideEvidence.astro';
 import LocationGuideHero from './LocationGuideHero.astro';
-import type { AmaraLanguage } from '../../types/seo';
-
-interface Byline {
-  lang: AmaraLanguage;
-  authorName: string;
-  authorHref: string;
-  updated: string;
-  note: string;
-}
+import type { AmaraHeroByline } from '../hero/heroContract';
 
 interface Props {
   eyebrow: string;
@@ -21,7 +13,7 @@ interface Props {
   evidenceNote?: string;
   evidenceSummary?: string;
   evidenceItems?: Array<{ label: string; value: string }>;
-  byline?: Byline;
+  byline?: AmaraHeroByline;
 }
 
 const {
@@ -43,6 +35,7 @@ const {
   paragraphs={paragraphs}
   role="spoke"
   topic="weather"
+  variant="authority-evidence"
 >
   {byline && <EditorialByline slot="meta" {...byline} />}
   <LocationGuideEvidence

@@ -135,6 +135,10 @@
     letter-spacing: -0.025em;
   }
 
+  .am-text-display--relaxed {
+    line-height: 1.1;
+  }
+
   .am-text-title {
     font-family: var(--font-headline);
     font-size: clamp(2.5rem, 5vw, 4.25rem);
@@ -157,6 +161,20 @@
     font-weight: 400;
     line-height: 1.65;
     letter-spacing: normal;
+  }
+
+  /* The indicative price on a stay card. It sits between `am-text-body` and
+   * `am-text-subtitle` and exists because neither works: at body scale the
+   * amount disappears, and at subtitle scale it reaches 39.6px on a desktop —
+   * the size of the stay's own name, which is how the price came to be read
+   * before the name it belongs to. The ramp tops out well below the subtitle
+   * so that can't recur as the viewport grows. */
+  .am-text-price {
+    font-family: var(--font-headline);
+    font-size: clamp(1.375rem, 1.2rem + 0.6vw, 1.625rem);
+    font-weight: 300;
+    line-height: 1.15;
+    letter-spacing: -0.01em;
   }
 
   .am-text-caption {
@@ -197,6 +215,16 @@
     letter-spacing: 0.16em;
   }
 
+  /* The small word below the AMARA wordmark is part of the brand lockup, not
+   * an editorial label. Its deliberately wide tracking is controlled here. */
+  .am-text-brand-strapline {
+    font-family: var(--font-label);
+    font-size: 8px;
+    font-weight: 400;
+    letter-spacing: 0.5em;
+    text-transform: uppercase;
+  }
+
   /* Navigation roles. Navigation had built its own label system by hand across
    * six files: the same four-class recipe repeated per call site, in eight
    * spellings that differed by a weight step or 0.02em of tracking. These two
@@ -220,6 +248,37 @@
     font-weight: 400;
     letter-spacing: 0.06em;
     text-transform: uppercase;
+  }
+
+  .am-text-nav-option {
+    font-family: var(--font-label);
+    font-size: 0.8125rem;
+    font-weight: 400;
+    letter-spacing: normal;
+  }
+
+  .am-text-nav-breadcrumb {
+    font-family: var(--font-label);
+    font-size: 0.625rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+  }
+
+  .am-text-nav-breadcrumb--responsive {
+    font-size: 9px;
+    letter-spacing: 0.08em;
+  }
+
+  @media (min-width: 80rem) {
+    .am-text-nav-breadcrumb--responsive {
+      font-size: 0.625rem;
+      letter-spacing: 0.14em;
+    }
+
+    .am-text-nav-context--compact-xl {
+      font-size: 9px;
+    }
   }
 
   /* Orientation-graphic roles. The two location graphics draw one label system
@@ -247,6 +306,36 @@
   .am-text-graphic-label--sm {
     font-size: 8px;
     letter-spacing: 0.16em;
+  }
+
+  .am-text-graphic-value {
+    font-family: var(--font-body);
+    font-size: 0.8125rem;
+    font-weight: 400;
+    line-height: 1.375;
+    letter-spacing: normal;
+  }
+
+  /* Compact numeric annotations in charts and small data graphics. */
+  .am-text-data-note {
+    font-family: var(--font-label);
+    font-size: 0.6875rem;
+    font-weight: 400;
+    line-height: 1.5;
+    letter-spacing: normal;
+  }
+
+  .am-text-data-note--sm {
+    font-size: 0.625rem;
+  }
+
+  /* Decorative, aria-hidden section mark used by Experience article heroes. */
+  .am-text-hero-mark {
+    font-family: var(--font-headline);
+    font-size: clamp(3.5rem, 8vw, 8.5rem);
+    font-weight: 400;
+    line-height: 0.72;
+    letter-spacing: normal;
   }
 
   /* The decorative section numeral. Two authority page families drew the same
@@ -495,6 +584,136 @@
   }
 
   /**
+   * Canonical native field surface. Labels remain semantic caller content;
+   * this owner controls the shared input, select and date-trigger treatment.
+   */
+  .am-form-control {
+    min-height: 3rem;
+    width: 100%;
+    border: 1px solid var(--color-outline-variant);
+    border-radius: var(--radius-control);
+    background: var(--color-surface);
+    padding: 0.5rem 0.75rem;
+    color: var(--color-on-surface);
+    outline: none;
+    transition: border-color 180ms ease, box-shadow 180ms ease;
+  }
+
+  .am-form-control:focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+  }
+
+  .am-form-control--trigger {
+    display: flex;
+    align-items: center;
+    text-align: left;
+  }
+
+  .am-form-control--trigger[aria-expanded='true'] {
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 1px var(--color-primary);
+  }
+
+  .am-form-control[aria-invalid='true'] {
+    border-color: var(--color-error);
+    box-shadow: 0 0 0 1px var(--color-error);
+  }
+
+  .am-form-control:disabled,
+  .am-form-control[aria-disabled='true'] {
+    opacity: 0.45;
+    cursor: default;
+  }
+
+  .am-btn.am-is-loading {
+    cursor: wait;
+  }
+
+  /**
+   * Interactive chips filter an existing result set. They are toggle buttons,
+   * never passive labels or navigation links.
+   */
+  .am-filter-chip {
+    display: inline-flex;
+    min-height: 2.75rem;
+    max-width: 100%;
+    align-items: center;
+    justify-content: center;
+    padding: 0.5rem 0.75rem;
+    border: 1px solid color-mix(in srgb, var(--color-outline-variant) 50%, transparent);
+    border-radius: var(--radius-control);
+    background: var(--color-surface-white);
+    color: var(--color-on-surface);
+    text-align: center;
+    white-space: normal;
+    transition:
+      border-color 180ms ease,
+      background-color 180ms ease,
+      color 180ms ease;
+  }
+
+  .am-filter-chip:hover:not(:disabled) {
+    border-color: var(--color-primary);
+    color: var(--color-primary);
+  }
+
+  .am-filter-chip:focus-visible {
+    outline: 2px solid color-mix(in srgb, var(--color-primary) 35%, transparent);
+    outline-offset: 2px;
+  }
+
+  .am-filter-chip[aria-pressed="true"] {
+    border-color: var(--color-primary);
+    background-color: var(--color-primary);
+    color: var(--color-on-primary);
+  }
+
+  .am-filter-chip:disabled {
+    opacity: 0.45;
+    cursor: default;
+  }
+
+  /** Passive, concise facts. Tone changes emphasis, never semantics. */
+  .am-meta-chip,
+  .am-status-badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.25rem 0.75rem;
+    border-radius: var(--radius-pill);
+    text-transform: none;
+    letter-spacing: normal;
+  }
+
+  .am-meta-chip {
+    border: 1px solid color-mix(in srgb, var(--color-outline-variant) 30%, transparent);
+    background: var(--color-surface-container-lowest);
+  }
+
+  .am-meta-chip--neutral {
+    color: var(--color-on-surface-variant);
+  }
+
+  .am-meta-chip--accent {
+    color: var(--color-primary);
+  }
+
+  /** A status badge communicates a real state, not decorative emphasis. */
+  .am-status-badge {
+    border: 1px solid color-mix(in srgb, var(--color-primary) 20%, transparent);
+    background: var(--color-surface-container-low);
+    color: var(--color-primary);
+  }
+
+  @media (min-width: 48rem) {
+    .am-filter-chip {
+      flex-shrink: 0;
+      padding-inline: 1rem;
+      white-space: nowrap;
+    }
+  }
+
+  /**
    * Inline editorial links (body copy): offset underline, token ink, hover pulls underline toward text.
    */
   .am-inline-link {
@@ -642,6 +861,73 @@
     border-bottom: 1px solid var(--color-border-subtle);
   }
 
+  .am-page-section--surface-tint,
+  .am-page-section--surface-inverse {
+    margin-inline: calc(var(--spacing-page-gutter) * -1);
+    padding-inline: var(--spacing-page-gutter);
+  }
+
+  .am-page-section--surface-tint {
+    background: var(--color-surface);
+  }
+
+  .am-page-section--surface-inverse {
+    --color-on-surface: var(--color-inverted-on-surface);
+    --color-on-surface-variant: var(--color-inverted-on-surface-muted);
+    --color-muted: var(--color-inverted-on-surface-muted);
+    --color-outline-variant: color-mix(in srgb, var(--color-inverted-on-surface) 28%, transparent);
+    --color-border-subtle: color-mix(in srgb, var(--color-inverted-on-surface) 22%, transparent);
+    background: var(--color-inverted-surface);
+    color: var(--color-inverted-on-surface);
+  }
+
+  /**
+   * Canonical section introduction. Variants preserve the distinct jobs of
+   * Trust, Stay and editorial Location/Experience pages while keeping width,
+   * hierarchy and vertical rhythm under one production owner.
+   */
+  .am-section-intro {
+    max-width: 48rem;
+  }
+
+  .am-section-intro--centered {
+    max-width: 47.5rem;
+    margin-inline: auto;
+    text-align: center;
+  }
+
+  .am-section-intro--spacing-default {
+    margin-bottom: 4rem;
+  }
+
+  .am-section-intro--spacing-compact {
+    margin-bottom: 3rem;
+  }
+
+  .am-section-intro--centered.am-section-intro--spacing-default {
+    margin-bottom: 3rem;
+  }
+
+  .am-section-intro__eyebrow {
+    margin-bottom: 1.25rem;
+  }
+
+  .am-section-intro--standard .am-section-intro__eyebrow {
+    margin-bottom: 1rem;
+  }
+
+  .am-section-intro__intro {
+    margin-top: 1.5rem;
+  }
+
+  .am-section-intro__note {
+    margin-top: 0.5rem;
+  }
+
+  .am-section-intro__details {
+    margin-top: 1.25rem;
+  }
+
   .am-page-band {
     margin-inline: calc(var(--spacing-page-gutter) * -1);
     padding-inline: var(--spacing-page-gutter);
@@ -650,6 +936,10 @@
   @media (min-width: 48rem) {
     .am-page-shell__frame {
       --spacing-page-gutter: 3rem;
+    }
+
+    .am-section-intro--centered.am-section-intro--spacing-default {
+      margin-bottom: 4rem;
     }
   }
 

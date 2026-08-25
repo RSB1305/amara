@@ -2,6 +2,33 @@
 // src/pages/tools/component-library/index.astro
 // AMARA Component Library — Internes Tool
 // Nur lokal verfügbar · robots: noindex · niemals deployen
+
+import { designTokenRoot } from '../_designTokens';
+
+/**
+ * The same six font files `global.css` imports, rather than the Google Fonts
+ * CDN this page used to link. A component library that renders the type from a
+ * different source than the site is showing something the site does not have —
+ * and it made an internal tool depend on an external host to look right.
+ */
+import '@fontsource/newsreader/latin-300.css';
+import '@fontsource/newsreader/latin-300-italic.css';
+import '@fontsource/newsreader/latin-400.css';
+import '@fontsource/newsreader/latin-400-italic.css';
+import '@fontsource/plus-jakarta-sans/latin-400.css';
+import '@fontsource/plus-jakarta-sans/latin-700.css';
+
+/**
+ * The palette comes from the design system, not from a copy of it. This page
+ * exists to show what the tokens are, so a hand-written duplicate here is the
+ * one thing it must not contain.
+ */
+const rootCss = designTokenRoot('      ', {
+  // Tool chrome only, deliberately outside the design system.
+  '--color-tool-success': '#2D7D46',
+  '--color-tool-danger': '#B91C1C',
+  '--font-mono': "'SF Mono', 'Fira Code', monospace"
+});
 ---
 
 <!DOCTYPE html>
@@ -10,31 +37,9 @@
   <meta charset="UTF-8" />
   <meta name="robots" content="noindex, nofollow" />
   <title>AMARA Component Library</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,300;0,400;1,300;1,400&family=Plus+Jakarta+Sans:wght@400;700&display=swap" rel="stylesheet" />
+  <style is:inline set:html={rootCss}></style>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    :root {
-      --color-surface: #F5F2ED;
-      --color-surface-white: #ffffff;
-      --color-surface-container-low: #f5f3ef;
-      --color-surface-container: #f2ede6;
-      --color-surface-container-high: #eae8e4;
-      --color-on-surface: #1b1c1a;
-      --color-on-surface-variant: #4e4538;
-      --color-primary: #785611;
-      --color-primary-container: #936e29;
-      --color-outline: #807667;
-      --color-outline-variant: #d2c5b3;
-      --color-muted: #666666;
-      --color-hint: #888888;
-      --color-gold: #b08d55;
-      --color-tool-success: #2D7D46;
-      --font-headline: 'Newsreader', Georgia, serif;
-      --font-body: 'Plus Jakarta Sans', system-ui, sans-serif;
-      --font-mono: 'SF Mono', 'Fira Code', monospace;
-    }
     body { font-family: var(--font-body); background: var(--color-surface); color: var(--color-on-surface); font-size: 14px; line-height: 1.6; }
 
     .shell { display: grid; grid-template-columns: 240px 1fr; min-height: 100vh; }
@@ -150,9 +155,9 @@
     <!-- Stats -->
     <div class="stats">
       <div class="stat"><div class="stat-n" style="color:var(--color-primary)">17</div><div class="stat-l">Total Komponenten</div></div>
-      <div class="stat"><div class="stat-n" style="color:#2D7D46">14</div><div class="stat-l">Active</div></div>
+      <div class="stat"><div class="stat-n" style="color:var(--color-tool-success)">14</div><div class="stat-l">Active</div></div>
       <div class="stat"><div class="stat-n" style="color:var(--color-muted)">3</div><div class="stat-l">Internal only</div></div>
-      <div class="stat"><div class="stat-n" style="color:#B91C1C">0</div><div class="stat-l">Orphans</div></div>
+      <div class="stat"><div class="stat-n" style="color:var(--color-tool-danger)">0</div><div class="stat-l">Orphans</div></div>
       <div class="stat"><div class="stat-n" style="color:var(--color-on-surface)">11</div><div class="stat-l">Page Families</div></div>
     </div>
 

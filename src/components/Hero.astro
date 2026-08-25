@@ -6,6 +6,7 @@
  */
 import type { ImageMetadata } from 'astro';
 import AmaraImage from './AmaraImage.astro';
+import { getAmaraHeroAttributes } from './hero/heroContract';
 
 interface Props {
   imageSrc: ImageMetadata | string;
@@ -28,8 +29,16 @@ const {
   role,
   topic
 } = Astro.props;
+
+const heroAttributes = getAmaraHeroAttributes({
+  family: family ?? 'campaign',
+  variant: 'campaign-media',
+  role,
+  topic
+});
 ---
 <section
+  {...heroAttributes}
   class="max-w-screen-2xl mx-auto px-6 md:px-12 mb-32 pt-12"
   data-am-family={family}
   data-am-role={role}

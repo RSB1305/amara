@@ -1,12 +1,12 @@
 ---
 document_id: AMARA-REG-001
 title: AMARA Register
-version: 1.17.0
+version: 1.27.0
 status: ACTIVE
 authority_class: LIVING BINDING REGISTER
 activation_state: ACTIVE
 effective_from: 2026-08-14
-last_modified: 2026-08-25T05:36:10+02:00
+last_modified: 2026-08-25T19:02:14+02:00
 canonical_path: /docs/AMARA_REGISTER.md
 ---
 
@@ -21,12 +21,12 @@ The AMARA Register is the single source for active documents, authority classes,
 | Slot | Document owner | Version/status | Class | Canonical/current source |
 |---|---|---|---|---|
 | 01 | AMARA System Constitution | 5.2.0 ACTIVE | PRINCIPLE / governing | `docs/standards/01_AMARA_System_Constitution_V5.md` |
-| 02 | AMARA Astro & Design Architecture Contract | 4.2.0 ACTIVE INTERIM | CONTRACT / governing | `docs/interim/03_AMARA_Astro_Technical_Standard_V4.md` + current repository implementation |
+| 02 | AMARA Astro & Design Architecture Contract | 4.9.0 ACTIVE INTERIM | CONTRACT / governing | `docs/interim/03_AMARA_Astro_Technical_Standard_V4.md` + current repository implementation |
 | 03 | AMARA Runtime, SEO & Data Contract | PENDING Package 2 | CONTRACT / governing | Interim snapshot: `docs/interim/04_AMARA_Runtime_and_SEO_Standard_V4.md` + current repository implementation |
 | 04 | AMARA URL, Route & Link Contract | PENDING Package 2 | CONTRACT / governing | Interim snapshot: `docs/interim/05_AMARA_URL_and_Route_Infrastructure_V4.md` + Decision Register |
 | 05 | AMARA Governance, Execution & Documentation Lifecycle | 5.5.0 ACTIVE | CONTRACT / governing | `docs/standards/05_AMARA_Governance_Execution_and_Documentation_Lifecycle_V5.md` |
 | 06 | AMARA Performance & Delivery Standard | 2.1.0 ACTIVE INTERIM | PRINCIPLE/CONTRACT / governing | `docs/interim/07_AMARA_Performance_Standard_V2.md` |
-| 07 | AMARA Register | 1.16.0 ACTIVE | LIVING BINDING REGISTER | `docs/AMARA_REGISTER.md` |
+| 07 | AMARA Register | 1.27.0 ACTIVE | LIVING BINDING REGISTER | `docs/AMARA_REGISTER.md` |
 | 08 | AMARA Guest Utility Feature Contract | 2.1.0 ACTIVE INTERIM | FEATURE CONTRACT | `docs/interim/08_AMARA_Guest_Utility_Architecture_V2.md` |
 | 09 | AMARA Content Production & Localization Playbook | 1.5.0 ACTIVE INTERIM | OPERATIONAL PLAYBOOK / non-governing | `docs/interim/10_AMARA_Content_Production_and_Localization_Playbook_V1_2.md` |
 | 10 | AMARA Frigiliana–Nerja SEO Strategy | PENDING Package 2/3 | WORKING STRATEGY / non-governing | Interim snapshot: `docs/interim/09_AMARA_Frigiliana_Nerja_SEO_Strategy_V2_1.md` |
@@ -39,7 +39,7 @@ Current operational feature owner during transition:
 
 | Feature | Status | Current owner | Repository reality |
 |---|---|---|---|
-| External booking / availability / checkout boundary | ACTIVE INTERIM CONTRACT | `AMARA-BOOKING-ARCHITECTURE.md` | Checkout URLs remain centralized through `src/lib/directBooking.ts`; static Astro is extended only by the narrow Cloudflare Pages read-only Booking Gateway, including the provider-neutral destination calendar used after explicit interaction with the Homepage finder. |
+| External booking / availability / checkout boundary | ACTIVE INTERIM CONTRACT | `AMARA-BOOKING-ARCHITECTURE.md` | Checkout URLs remain centralized through `src/lib/directBooking.ts`; static Astro is extended only by the narrow Cloudflare Pages GET-only Booking Gateway, including live availability, rates, quotes and the validated provider-owned checkout handoff. |
 
 ## 3. Decision Register
 
@@ -77,7 +77,7 @@ Current operational feature owner during transition:
 | ID | Decision | Status |
 |---|---|---|
 | DR-PLATFORM-001 | AMARA's website runtime is Astro-native and Astro-only. Explicitly governed external operational services may remain active behind narrow boundaries and do not become a second website runtime. | APPROVED |
-| DR-BOOK-001 | The external booking / availability / checkout boundary remains ACTIVE under `AMARA-BOOKING-ARCHITECTURE.md`. Checkout URL construction stays centralized in `src/lib/directBooking.ts`; normal Astro pages stay static, while fixed GET-only Cloudflare Pages routes may expose provider-neutral single-stay availability, destination/portfolio calendar availability with stay rules, rates and authoritative quotes after an explicit booking interaction. Provider credentials and IDs remain server-side, and all booking/payment writes remain outside the contract. | ACTIVE CURRENT IMPLEMENTATION |
+| DR-BOOK-001 | The external booking / availability / checkout boundary remains ACTIVE under `AMARA-BOOKING-ARCHITECTURE.md`. Checkout URL construction stays centralized in `src/lib/directBooking.ts`; normal Astro pages stay static, while fixed GET-only Cloudflare Pages routes may expose provider-neutral availability, stay rules, rates and authoritative quotes after an explicit booking interaction, plus a validated no-store redirect into the provider-owned checkout. Provider credentials and mappings remain server-side; a provider ID may appear only in the final external checkout `Location`, and all booking/payment writes remain outside the contract. | ACTIVE CURRENT IMPLEMENTATION |
 | DR-RUNTIME-001 | BaseLayout plus the central SEO head resolver remain the sole normal public head owner. | ACTIVE CURRENT IMPLEMENTATION |
 | DR-RUNTIME-002 | `resolveStructuredData()` remains the normal sole JSON-LD owner. | ACTIVE CURRENT IMPLEMENTATION |
 | DR-LINK-001 | Registry token + resolver remain the authored semantic internal-link contract. | ACTIVE CURRENT IMPLEMENTATION |
@@ -114,9 +114,15 @@ They do **not** supersede the current implementation. Until a separately aligned
 
 | ID | Decision | Status |
 |---|---|---|
-| DR-DESIGN-001 | The typography roles in `src/styles/global.css` are the sole owner of text size, weight, tracking and case. Typographic arbitrary Tailwind values are policy-checked against a recorded baseline in `scripts/typography-baseline.json`, which fails on a new value and on a resolved value that has not been banked. A genuine exception stays possible and is recorded there rather than argued at review time. | ACTIVE |
+| DR-DESIGN-001 | The typography roles in `src/styles/global.css` are the sole owner of text size, weight, tracking and case. Typographic arbitrary Tailwind values are policy-checked against the legacy ratchet in `scripts/typography-legacy-baseline.json`, which fails on a new value and on a resolved value that has not been banked. The ratchet records unresolved legacy, not approved exceptions. | ACTIVE |
 | DR-DESIGN-002 | A visual treatment that appears at more than one call site is a role or a component, not a repeated class recipe. Where several spellings of one role are found, the role is fixed at the value the majority of call sites already used, and the resulting step becomes adjustable in one place. | ACTIVE |
 | DR-DESIGN-003 | AMARA uses one mobile-first responsive design system. The mobile composition is the canonical source layout; larger viewports progressively enhance space, imagery and column structure without changing the page's semantic order, dominant job or conversion path. | ACTIVE |
+| DR-DESIGN-004 | Design convergence is exception-led and compares the same UI job across Trust, Stay, Location, Experience and other surfaces. Treatments are classified as canonical, deliberate family variants, experimental, legacy or retired; neither silo origin nor visual similarity alone determines component ownership. | ACTIVE |
+| DR-DESIGN-005 | `global.css` and production components are the executable design owners. The living styleguide renders those owners and may not define an independent public visual pattern; the Design Lab remains experimental until an explicit promotion decision. | ACTIVE |
+| DR-DESIGN-006 | Public heroes share the semantic classification contract in `src/components/hero/heroContract.ts` but keep named family owners for materially different jobs. Trust content, Stay decision, Location/Experience media authority, Experience editorial authority and bounded campaign media are deliberate `family` variants rather than licenses for page-local hero recipes. | ACTIVE |
+| DR-DESIGN-007 | AMARA has no universal card. `src/components/content/moduleContract.ts` classifies card-like and editorial modules by information job. Editorial feature grids and practical callouts are canonical cross-silo modules; guide navigation, stay selection, evidence, comparison, booking decision and bounded editorial statements remain named family modules with their own production owners. | ACTIVE |
+| DR-DESIGN-008 | `src/components/layout/sectionContract.ts`, `AmaraSection` and `AmaraSectionIntro` own canonical page-section rhythm and recurring section introductions. Trust centered, Stay standard and Location/Experience editorial introductions are deliberate family variants. The older `am-section` Location shell is controlled legacy and is migrated only with a materially revised containing renderer. | ACTIVE |
+| DR-DESIGN-009 | `AmaraFormControl` and the `am-form-control` role own the canonical native select, date-input and button-trigger surface, including focus, expanded, invalid and disabled states. Form meaning, labels, grouping, messages and client behaviour remain with the consuming job; chips, checkboxes, radios, action buttons and free-form editors remain distinct. | ACTIVE |
 
 ### Content/localization
 
@@ -149,13 +155,13 @@ They do **not** supersede the current implementation. Until a separately aligned
 | DR-MEAS-003 | The booking system is the financial source of truth for bookings, revenue, ADR and cancellations; GA4 is journey/attribution data, not accounting SSOT. | ACTIVE |
 | DR-MEAS-004 | Do not add a second tag/CMP layer to the external booking boundary solely to make a consent-status indicator appear complete without a supported architecture benefit. | ACTIVE CURRENT DECISION |
 | DR-MEAS-005 | Do not scrape checkout DOM or undocumented provider variables to recreate purchase tracking. | ACTIVE GUARDRAIL |
-| DR-MEAS-006 | Astro analytics/consent is a separate Class 3 workstream and must not be bundled with DNS, URL reform or unrelated design/SEO changes. | IMPLEMENTATION PENDING |
+| DR-MEAS-006 | Astro owns one consent-gated GA4 layer using measurement ID `G-KJKE3L1HV3`: no Google Analytics script, request or analytics cookie is permitted before explicit analytics consent; rejection leaves the public site usable; the choice is stored for 180 days in the strictly necessary first-party cookie `amara_cookie_consent` and can be changed through the localized footer. Lodgify keeps its separate provider-owned consent mechanism. | ACTIVE IMPLEMENTED |
 | DR-MEAS-007 | Initial new conversion-intent event is `availability_click`, using stable semantic data attributes rather than button text/URL heuristics. | IMPLEMENTATION PENDING |
 | DR-MEAS-008 | Cross-domain continuity across AMARA -> external booking -> checkout must be tested in the live flow, not assumed. | ACTIVE VALIDATION REQUIREMENT |
 | DR-MEAS-009 | 3 observed GA4 purchases versus 24 completed website bookings is an observation ratio, not a technical tracking-failure rate. | ACTIVE INTERPRETATION RULE |
 | DR-MEAS-010 | GA4 event/user data retention is 14 months. | ACTIVE |
 
-The archived analytics evidence record preserves the investigation that supports these decisions. Archive status of the evidence document does not retire derived decisions.
+The archived analytics evidence record preserves the investigation that supports these decisions. Archive status of the evidence document does not retire derived decisions. The current implementation owners are `src/components/AnalyticsConsent.astro` for the localized interface and `src/scripts/analyticsConsent.ts` for preference storage, GA4 loading and withdrawal behavior; `BaseLayout.astro` and `FooterCore.astro` provide the global public-site integration points.
 
 ### SSOT Decision Inbox
 
@@ -189,6 +195,17 @@ Routine new evidence/ideas may be captured here or in the relevant working evide
 | 2026-08-23T19:30:21+02:00 | Romantic Hideaways brand core | Restored AMARA — Romantic Hideaways and special places for shared time as a couple as the primary hospitality brand position while preserving Destination Authority, Experience, Trust, Stays and Direct Booking as supporting systems. Constitution 5.2.0, Register 1.15.0. | DR-BRAND-001 | this revision |
 | 2026-08-24T13:09:22+02:00 | Booking Gateway v1 integration | Activated the proven read-only Booking Gateway on current Main with fixed Cloudflare Pages GET routes, server-only provider credentials/IDs, static-first page delivery and provider-owned checkout. Register 1.16.0. | DR-PLATFORM-001, DR-BOOK-001 | this revision |
 | 2026-08-25T05:36:10+02:00 | Homepage live destination calendar | Added the fourth read-only Booking Gateway route for provider-neutral destination/portfolio availability and stay rules. The static Homepage finder now loads live dates only after calendar interaction and refreshes an open calendar when destination or guest count changes, while the Results quote remains authoritative. Register 1.17.0. | DR-PLATFORM-001, DR-BOOK-001 | this revision |
+| 2026-08-25T11:34:57+02:00 | Homepage calendar orientation prices | Extended the existing destination calendar response with public nightly rates and currency. The Homepage shows the lowest available nightly rate per date as a non-binding “from” price, while same-stay validation and the authoritative Results quote remain unchanged. Register 1.18.0. | DR-BOOK-001 | this revision |
+| 2026-08-25T12:11:40+02:00 | Provider-owned checkout handoff | Added the fifth GET-only Booking Gateway route: after an authoritative quote, AMARA validates stay, locale, dates, guests and currency, resolves the provider mapping server-side and redirects into Lodgify's official Booking Box reservation route without creating or holding a booking. Register 1.19.0. | DR-BOOK-001 | this revision |
+| 2026-08-25T15:10:52+02:00 | Astro consent-gated GA4 | Activated the five-locale Astro consent layer, withheld all GA4 loading until explicit analytics consent, preserved full site use after rejection, added a persistent footer settings entry and kept Lodgify consent separate. Local browser validation proved the pre-consent and rejection paths; deployed GA4 receipt and cross-domain behavior remain live validation work. Register 1.20.0. | DR-MEAS-001, DR-MEAS-004, DR-MEAS-006–008, DR-MEAS-010 | 3458ab9 |
+| 2026-08-25T15:51:22+02:00 | Exception-led design-system control | Established the cross-silo UI-job comparison, canonical/family/experimental/legacy/retired status model, executable owner chain and living-styleguide boundary. Corrected the typography-ratchet path and recorded the current 32-value legacy baseline without changing public rendering. Astro & Design Contract 4.3.0, Register 1.21.0. | DR-DESIGN-001–005 | this revision |
+| 2026-08-25T16:33:34+02:00 | Executable actions, chips and status primitives | Activated the production component APIs for actions/links, interactive filter chips, passive meta chips and real status badges; migrated the bounded shared and Location consumers and updated the living styleguide from those owners. Astro & Design Contract 4.4.0, Register 1.22.0. | DR-DESIGN-002, DR-DESIGN-004–005 | this revision |
+| 2026-08-25T17:32:07+02:00 | Typography legacy closure | Classified and removed all 32 arbitrary typography values across 14 files, activated named roles for the four legitimate special-purpose jobs, reduced the ratchet to zero and made the styleguide render the production typography roles. Astro & Design Contract 4.5.0, Register 1.23.0. | DR-DESIGN-001–002, DR-DESIGN-004–005 | this revision |
+| 2026-08-25T17:49:36+02:00 | Executable hero family contract | Activated one semantic classification API across Trust, Stay, Location and Experience while preserving their distinct page jobs; extracted the Stay decision sequence from its page renderer, kept compatibility hooks and added real production heroes to the living styleguide. Astro & Design Contract 4.6.0, Register 1.24.0. | DR-DESIGN-002, DR-DESIGN-004–006 | this revision |
+| 2026-08-25T18:22:10+02:00 | Executable content-module contract | Classified card-like modules by semantic job, activated canonical production owners for feature grids and practical callouts, marked the distinct Location, Stay, Trust and conversion family modules and removed the styleguide's simulated card patterns. Astro & Design Contract 4.7.0, Register 1.25.0. | DR-DESIGN-002, DR-DESIGN-004–005, DR-DESIGN-007 | this revision |
+| 2026-08-25T18:37:51+02:00 | Executable section and introduction contract | Activated semantic section rhythm, surface and introduction owners; preserved the centered Trust, standard Stay and editorial Location/Experience variants; migrated bounded real consumers and kept the older Location shell as controlled legacy. Astro & Design Contract 4.8.0, Register 1.26.0. | DR-DESIGN-002, DR-DESIGN-004–005, DR-DESIGN-008 | this revision |
+| 2026-08-25T18:47:39+02:00 | Mobile navigation containment | Corrected the canonical breadcrumb flex boundary so long localized current-page labels truncate inside the context rail while sibling links keep their contained horizontal scroller; added a five-locale compact booking-label tier below 360px so brand, language, booking and menu remain distinct. Astro & Design Contract 4.8.1, Register 1.26.1. | DR-DESIGN-003 | this revision |
+| 2026-08-25T19:02:14+02:00 | Executable form-control contract | Centralized the repeated native select, date-input and calendar-trigger treatment, migrated the Stay finder, property calendar and last-minute filter, and added real state specimens to the living styleguide. Astro & Design Contract 4.9.0, Register 1.27.0. | DR-DESIGN-002, DR-DESIGN-004–005, DR-DESIGN-009 | this revision |
 
 ## 5. Intentional supersessions
 
@@ -203,7 +220,7 @@ The following are active intentional supersessions, not accidental deletions:
 - attachment/PDF activation gate -> canonical repository Markdown + Register activation;
 - universal full-build expectation for small edits -> risk-proportional validation.
 
-The booking exception is limited to the four read-only Cloudflare Pages Function routes recorded in `DR-BOOK-001`; it does not alter checkout ownership or make normal Astro pages dynamic. No current route output, runtime resolver, URL helper, CSS/token system or analytics runtime is otherwise changed. The URL **policy doctrine** changes only as explicitly recorded above; current implementation remains protected.
+The booking exception is limited to the five GET-only Cloudflare Pages Function routes recorded in `DR-BOOK-001`; it does not alter checkout ownership or make normal Astro pages dynamic. No current route output, runtime resolver, URL helper or CSS/token system is otherwise changed; the analytics runtime changes only through the consent-gated Astro layer recorded in `DR-MEAS-006`. The URL **policy doctrine** changes only as explicitly recorded above; current implementation remains protected.
 
 ## 6. Remaining controlled workstreams
 
@@ -214,9 +231,10 @@ Separate controlled workstreams remain for:
 - generated current-state inventories;
 - Guest Guide type/surface reconciliation;
 - any later locale-path migration after adoption audit;
-- Astro analytics/consent implementation;
-- `PARK-ANALYTICS-LEGAL-001`: verify the reported mismatch between Legal Notice wording and actual Astro analytics/consent runtime before any future analytics implementation or legal-text change;
+- `DR-MEAS-007`: instrument and validate the approved `availability_click` event through stable semantic attributes;
+- deployed GA4 receipt and `DR-MEAS-008` cross-domain continuity validation across AMARA, Lodgify and checkout;
 - later normalization of the active external booking feature contract/runbook into `/docs/features` without changing its implementation by documentation alone.
+- continued exception-led consolidation of shared modules and remaining legacy consumers, with `/tools/styleguide` maintained as a rendered view of production owners under Astro & Design Contract 4.9.0.
 
 ## Revision history
 
@@ -241,3 +259,15 @@ Separate controlled workstreams remain for:
 | 1.14.0 | 2026-08-23T13:54:40+02:00 | Activated the canonical mobile-first page contract and its first shared implementation in the vacation-rental family. | this revision |
 | 1.15.0 | 2026-08-23T19:30:21+02:00 | Registered Romantic Hideaways and special places for shared time as a couple as AMARA's primary hospitality brand core, owned normatively by Constitution 5.2.0. | this revision |
 | 1.16.0 | 2026-08-24T13:09:22+02:00 | Activated the narrow read-only Booking Gateway runtime boundary while preserving static Astro delivery, the current design/conversion architecture and provider-owned checkout. | this revision |
+| 1.17.0 | 2026-08-25T05:36:10+02:00 | Added the provider-neutral Homepage destination calendar after explicit booking interaction. | this revision |
+| 1.18.0 | 2026-08-25T11:34:57+02:00 | Added non-binding nightly orientation prices to the Homepage destination calendar. | this revision |
+| 1.19.0 | 2026-08-25T12:11:40+02:00 | Activated the validated server-side handoff into Lodgify's provider-owned checkout after an authoritative quote. | this revision |
+| 1.20.0 | 2026-08-25T15:10:52+02:00 | Activated the five-locale consent-gated Astro GA4 layer, recorded its code owners and closed the prior Legal Notice/runtime mismatch while retaining event and live cross-domain validation as controlled follow-up work. | this revision |
+| 1.21.0 | 2026-08-25T15:51:22+02:00 | Activated exception-led cross-silo design convergence and the executable living-styleguide owner model; corrected the typography legacy-ratchet reference. | this revision |
+| 1.22.0 | 2026-08-25T16:33:34+02:00 | Activated executable action/link, filter-chip, meta-chip and status-badge owners and recorded their bounded production migration. | this revision |
+| 1.23.0 | 2026-08-25T17:32:07+02:00 | Closed the 32-value typography legacy baseline at zero and activated the final named production roles used by the migrated consumers. | this revision |
+| 1.24.0 | 2026-08-25T17:49:36+02:00 | Activated the shared semantic hero classification and the deliberate Trust, Stay, Location, Experience and campaign family variants. | this revision |
+| 1.25.0 | 2026-08-25T18:22:10+02:00 | Activated semantic card/content-module classification, the canonical feature-grid and practical-callout owners and the named family module boundary. | this revision |
+| 1.26.0 | 2026-08-25T18:37:51+02:00 | Activated the shared section rhythm, approved surfaces and recurring section-introduction variants while retaining the older Location shell as controlled legacy. | this revision |
+| 1.26.1 | 2026-08-25T18:47:39+02:00 | Corrected mobile containment for contextual breadcrumbs and the narrowest five-locale header while preserving the booking path and contained sibling-link scrolling. | this revision |
+| 1.27.0 | 2026-08-25T19:02:14+02:00 | Activated the canonical native form-control owner and migrated all three repeated public field recipes into its shared state contract. | this revision |

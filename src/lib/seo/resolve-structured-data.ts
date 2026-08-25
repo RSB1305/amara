@@ -76,6 +76,20 @@ const PUBLIC_ROUTE_LABELS: Partial<Record<string, Record<AmaraLanguage, string>>
     nl: 'Aankomst & mobiliteit',
     sv: 'Ankomst & mobilitet'
   },
+  'nerja-directions-arrival-guide': {
+    en: 'AMARA Playa Arrival',
+    de: 'Anreise zu AMARA Playa',
+    es: 'Llegada a AMARA Playa',
+    nl: 'Aankomst bij AMARA Playa',
+    sv: 'Ankomst till AMARA Playa'
+  },
+  'tarifa-directions-arrival-guide': {
+    en: 'AMARA Family & Surf Arrival',
+    de: 'Anreise zu AMARA Family & Surf',
+    es: 'Llegada a AMARA Family & Surf',
+    nl: 'Aankomst bij AMARA Family & Surf',
+    sv: 'Ankomst till AMARA Family & Surf'
+  },
   'faq-general': trustLabels.faq_general,
   'frigiliana-faq': {
     en: 'Frigiliana FAQ',
@@ -487,6 +501,7 @@ const NERJA_EXPERIENCE_SLUGS = new Set([
 const TARIFA_LOCATION_GUIDE_SLUGS = new Set([
   'tarifa-location',
   'getting-to-tarifa',
+  'tarifa-directions-arrival-guide',
   'tarifa-geography',
   'tarifa-where-to-stay',
   'tarifa-weather',
@@ -523,6 +538,7 @@ const FRIGILIANA_LOCATION_GUIDE_SLUGS = new Set([
 const NERJA_LOCATION_GUIDE_SLUGS = new Set([
   'nerja-location',
   'getting-to-nerja',
+  'nerja-directions-arrival-guide',
   'nerja-where-to-stay',
   'nerja-winter-stays',
   'nerja-parking'

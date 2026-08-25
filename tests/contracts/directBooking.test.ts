@@ -5,6 +5,7 @@ import { fileURLToPath } from 'node:url';
 import {
   DIRECT_BOOKING_ORIGIN,
   buildBookingLandingUrl,
+  buildCheckoutHandoffUrl,
   buildRentalBookingUrl
 } from '../../src/lib/directBooking';
 import type { AmaraLanguage } from '../../src/types/seo';
@@ -52,6 +53,23 @@ test('the booking host is not hard-coded outside its owner and legal disclosure'
   }
 
   expect(offenders).toEqual([]);
+});
+
+test('builds a provider-neutral checkout handoff without exposing a provider ID', () => {
+  const href = buildCheckoutHandoffUrl({
+    stay: 'maha',
+    lang: 'de',
+    arrival: '2026-11-16',
+    departure: '2026-11-22',
+    adults: 2,
+    currency: 'EUR'
+  });
+
+  expect(href).toBe(
+    '/api/booking/checkout?stay=maha&lang=de&arrival=2026-11-16&departure=2026-11-22&adults=2&currency=EUR'
+  );
+  expect(href).not.toContain('408325');
+  expect(href).not.toContain('lodgify');
 });
 
 for (const language of languages) {

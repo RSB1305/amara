@@ -5,6 +5,7 @@ import type { EditorialClosingCtaLink } from '../../components/editorial/Editori
 import EditorialQuote from '../../components/editorial/EditorialQuote.astro';
 import EditorialSplit from '../../components/editorial/EditorialSplit.astro';
 import AmaraSection from '../../components/layout/AmaraSection.astro';
+import AmaraSectionIntro from '../../components/layout/AmaraSectionIntro.astro';
 import AmaraImage from '../../components/AmaraImage.astro';
 import frigilianaLocationImage from '../../assets/images/content/amara-frigiliana-pueblo/JPG_Frigiliana_Pueblo/2000px_72dpi_sRGB/04-frigiliana-pueblo.jpg';
 import nerjaLocationImage from '../../assets/images/home/amara-playa-chaparril-13.webp';
@@ -91,10 +92,11 @@ const closingCtaLinks: EditorialClosingCtaLink[] = [
   </AmaraSection>
 
   <AmaraSection>
-        <div class="mx-auto mb-12 max-w-[760px] text-center md:mb-16">
-          <h2 class="am-text-title">{copy.sections.reviewsTitle[currentLang]}</h2>
-          <p class="am-text-body italic text-muted"><InlineEmphasis text={copy.sections.reviewsNote[currentLang]} /></p>
-        </div>
+        <AmaraSectionIntro
+          title={copy.sections.reviewsTitle[currentLang]}
+          note={copy.sections.reviewsNote[currentLang]}
+          variant="centered"
+        />
 
         <div class="grid gap-[clamp(2rem,4vw,3rem)] lg:grid-cols-3">
           {copy.reviews.map((review) => (
@@ -108,10 +110,11 @@ const closingCtaLinks: EditorialClosingCtaLink[] = [
 
   <AmaraSection>
       <div class="mx-auto max-w-[900px]">
-        <div class="mx-auto mb-12 max-w-[760px] text-center md:mb-16">
-          <h2 class="am-text-title">{copy.sections.mentionsTitle[currentLang]}</h2>
-          <p class="am-text-body italic text-muted"><InlineEmphasis text={copy.sections.mentionsNote[currentLang]} /></p>
-        </div>
+        <AmaraSectionIntro
+          title={copy.sections.mentionsTitle[currentLang]}
+          note={copy.sections.mentionsNote[currentLang]}
+          variant="centered"
+        />
 
         <div class="border-t-2 border-on-surface">
           {copy.proofPoints[currentLang].map((item) => (
@@ -124,11 +127,13 @@ const closingCtaLinks: EditorialClosingCtaLink[] = [
   </AmaraSection>
 
   <AmaraSection class="am-page-band">
-        <div class="mx-auto mb-12 max-w-[760px] text-center md:mb-16">
-          <h2 class="am-text-title mb-6">{copy.sections.awardsTitle[currentLang]}</h2>
-          <p class="am-text-body text-subtle"><InlineEmphasis text={copy.sections.awardsBody[currentLang]} /></p>
-          <p class="am-text-body italic text-muted"><InlineEmphasis text={copy.sections.awardsSource[currentLang]} /></p>
-        </div>
+        <AmaraSectionIntro
+          title={copy.sections.awardsTitle[currentLang]}
+          intro={copy.sections.awardsBody[currentLang]}
+          note={copy.sections.awardsSource[currentLang]}
+          variant="centered"
+          emphasizeIntro
+        />
 
         <div class="mx-auto grid max-w-[1100px] gap-[clamp(2rem,4vw,4rem)] lg:grid-cols-2">
           <div class="border border-on-surface/5 bg-surface-container-lowest p-[clamp(2rem,4vw,3rem)] shadow-[var(--shadow-editorial-card)]">
@@ -152,10 +157,12 @@ const closingCtaLinks: EditorialClosingCtaLink[] = [
   </AmaraSection>
 
   <AmaraSection>
-        <div class="mx-auto mb-12 max-w-[760px] text-center md:mb-16">
-          <h2 class="am-text-title">{copy.sections.locationTitle[currentLang]}</h2>
-          <p class="am-text-body text-subtle"><InlineEmphasis text={copy.sections.locationLead[currentLang]} /></p>
-        </div>
+        <AmaraSectionIntro
+          title={copy.sections.locationTitle[currentLang]}
+          intro={copy.sections.locationLead[currentLang]}
+          variant="centered"
+          emphasizeIntro
+        />
 
         <div class="grid gap-[clamp(2rem,4vw,4rem)] lg:grid-cols-3">
           <a href={resolveLink('location_frigiliana', currentLang)} class="am-card-link group block">

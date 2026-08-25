@@ -6,13 +6,14 @@
  * so the Astro components stay presentational and the desktop and mobile views
  * are guaranteed to describe the same resolved routes.
  */
-import { trustLabels } from '../../content/trustLabels';
 import { resolveLink, resolveOptionalLink, type LinkToken } from '../../lib/linkResolver';
 import { isPublicLinkEnabled } from '../../lib/routeOwnership';
 import type { AmaraLanguage } from '../../types/seo';
 import {
   createGlobalNavGroups,
+  defaultCtaCompactLabels,
   defaultCtaShortLabels,
+  globalCtaLabels,
   forcedEnabledNavTokens,
   navigationLanguages,
   navigationUtilityLabels,
@@ -43,7 +44,10 @@ export type ResolvedLanguageOption = {
 export type ResolvedNavigationCta = {
   label: string;
   shortLabel: string;
+  compactLabel: string;
   href: string | null;
+  /** True on the page the call to action would link to; the header omits it there. */
+  hidden: boolean;
 };
 
 export type GlobalNavigationModel = {
@@ -61,7 +65,10 @@ export type GlobalNavigationModelInput = {
   languageToken?: LinkToken;
 };
 
-const CTA_TOKEN: LinkToken = 'book';
+// The global call to action stays inside AMARA: it opens the owned stay search,
+// where availability, dates and the authoritative quote are resolved. The
+// external booking site is reached only through a validated checkout handoff.
+const CTA_TOKEN: LinkToken = 'stay_search_results';
 
 const normalizePath = (path: string) => {
   if (path === '/') return '/';
@@ -130,10 +137,18 @@ export function createGlobalNavigationModel({
     };
   });
 
+  const ctaHref = isPublicLinkEnabled(CTA_TOKEN) ? resolveLink(CTA_TOKEN, currentLang) : null;
+  // A call to action pointing at the page a guest is already reading is noise,
+  // and on the search page it would stand next to the finder it duplicates.
+  const ctaTargetsCurrentPage =
+    ctaHref !== null && normalizePath(ctaHref) === normalizePath(currentPath);
+
   const cta: ResolvedNavigationCta = {
-    label: trustLabels.book[currentLang],
+    label: globalCtaLabels[currentLang],
     shortLabel: defaultCtaShortLabels[currentLang],
-    href: isPublicLinkEnabled(CTA_TOKEN) ? resolveLink(CTA_TOKEN, currentLang) : null
+    compactLabel: defaultCtaCompactLabels[currentLang],
+    href: ctaTargetsCurrentPage ? null : ctaHref,
+    hidden: ctaTargetsCurrentPage
   };
 
   return { brandHref, utilityLabels: navigationUtilityLabels[currentLang] ?? navigationUtilityLabels.en, groups, languageOptions, cta };
