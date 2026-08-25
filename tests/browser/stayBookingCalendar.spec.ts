@@ -222,11 +222,15 @@ test('desktop calendar loads only on open, enforces stay rules and quotes a vali
   await expect(page.locator('[data-am-booking-calendar-status]')).toContainText(
     'Minimum stay from this arrival: 3 nights'
   );
-  await expect(dayButton(page, futureIso(4))).toBeDisabled();
-  await expect(dayButton(page, futureIso(5))).toBeDisabled();
+  await expect(dayButton(page, futureIso(4))).toBeEnabled();
+  await expect(dayButton(page, futureIso(5))).toBeEnabled();
   await expect(dayButton(page, futureIso(4))).toHaveAttribute(
     'data-am-booking-day-state',
     'restricted'
+  );
+  await expect(dayButton(page, futureIso(4))).toHaveAttribute(
+    'data-am-booking-restriction',
+    'minimum-stay'
   );
   await expect(dayButton(page, futureIso(4))).toHaveAttribute('aria-label', /available/);
   await expect(
@@ -237,6 +241,16 @@ test('desktop calendar loads only on open, enforces stay rules and quotes a vali
   await expect(
     dayButton(page, blocked).locator('.am-booking-calendar__day-number')
   ).toHaveCSS('text-decoration-line', 'line-through');
+
+  await dayButton(page, futureIso(4)).click();
+  await expect(page.locator('[data-am-booking-calendar-status]')).toContainText(
+    'A minimum stay of 3 nights applies'
+  );
+  await expect(page.locator('[data-am-booking-calendar-status]')).toContainText(
+    'Please choose a departure on or after'
+  );
+  await expect(page.locator('[data-am-booking-departure]')).toHaveValue('');
+  expect(requests.filter((request) => request.pathname.endsWith('/quote'))).toHaveLength(0);
 
   await dayButton(page, futureIso(6)).focus();
   await page.keyboard.press('ArrowRight');

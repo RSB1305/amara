@@ -165,6 +165,7 @@ export function enhanceStayBookingCalendars() {
     let activeTrigger = arrivalTrigger;
     let hoverDate = '';
     let quoteSignature = '';
+    let calendarFeedback = '';
 
     arrivalInput.min = today;
     arrivalInput.max = latest;
@@ -404,6 +405,21 @@ export function enhanceStayBookingCalendars() {
       );
     };
 
+    const isMinimumStayViolation = (value: string) => {
+      const arrival = arrivalInput.value;
+      if (!arrival || value <= arrival) return false;
+      const nights = nightsBetween(arrival, value);
+      return nights >= 1 && nights < minimumStayForArrival();
+    };
+
+    const minimumStayFeedback = () => {
+      const minimumStay = minimumStayForArrival();
+      return copy.minimumStayViolation
+        .replace('{arrival}', formatDate(arrivalInput.value))
+        .replace('{count}', String(minimumStay))
+        .replace('{departure}', formatDate(addDays(arrivalInput.value, minimumStay)));
+    };
+
     const canSelectArrival = (value: string) => {
       const day = dayData.get(value);
       return (
@@ -478,7 +494,11 @@ export function enhanceStayBookingCalendars() {
         if (value === arrivalInput.value && selectionMode === 'departure') {
           parts.push(copy.selectedArrival);
         } else if (!selectable && selectionMode === 'departure') {
-          parts.push(copy.invalidDeparture);
+          parts.push(
+            isMinimumStayViolation(value)
+              ? copy.minimumStayDeparture
+              : copy.invalidDeparture
+          );
         }
       } else {
         parts.push(copy.unavailableDay);
@@ -529,6 +549,12 @@ export function enhanceStayBookingCalendars() {
         const selectable =
           !unresolved &&
           (selectionMode === 'arrival' ? canSelectArrival(value) : canSelectDeparture(value));
+        const explainsMinimumStay =
+          !unresolved &&
+          selectionMode === 'departure' &&
+          day?.available === true &&
+          !selectable &&
+          isMinimumStayViolation(value);
         const button = document.createElement('button');
         button.type = 'button';
         button.className = 'am-booking-calendar__day';
@@ -538,8 +564,9 @@ export function enhanceStayBookingCalendars() {
           button.dataset.amBookingDayState =
             value === arrivalInput.value ? 'selected' : 'restricted';
         }
-        button.disabled = !selectable;
-        button.setAttribute('aria-disabled', String(!selectable));
+        if (explainsMinimumStay) button.dataset.amBookingRestriction = 'minimum-stay';
+        button.disabled = !selectable && !explainsMinimumStay;
+        button.setAttribute('aria-disabled', String(!selectable && !explainsMinimumStay));
         if (loading) button.setAttribute('aria-busy', 'true');
         button.setAttribute(
           'aria-label',
@@ -596,6 +623,7 @@ export function enhanceStayBookingCalendars() {
       renderNextButton.disabled = anchorMonth >= maxAnchorMonth() || visibleLoading();
       if (visibleLoading()) renderCalendarStatus.textContent = copy.loadingCalendar;
       else if (visibleError()) renderCalendarStatus.textContent = copy.calendarError;
+      else if (calendarFeedback) renderCalendarStatus.textContent = calendarFeedback;
       else if (renderArrivalInput.value && !renderDepartureInput.value) {
         const minimumStay = minimumStayForArrival();
         renderCalendarStatus.textContent = minimumStay > 1
@@ -635,6 +663,7 @@ export function enhanceStayBookingCalendars() {
       trigger: HTMLButtonElement
     ) => {
       selectionMode = mode === 'departure' && arrivalInput.value ? 'departure' : 'arrival';
+      calendarFeedback = '';
       activeTrigger = trigger;
       const selected =
         selectionMode === 'departure'
@@ -747,6 +776,7 @@ export function enhanceStayBookingCalendars() {
       departureInput.min = addDays(today, 1);
       selectionMode = 'arrival';
       hoverDate = '';
+      calendarFeedback = '';
       quoteSignature = '';
       updateTriggerValues();
       clearResult();
@@ -776,15 +806,23 @@ export function enhanceStayBookingCalendars() {
         selectionMode = 'departure';
         activeTrigger = departureTrigger;
         hoverDate = '';
+        calendarFeedback = '';
         quoteSignature = '';
         clearResult();
         updateTriggerValues();
         renderCalendar();
         return;
       }
-      if (!canSelectDeparture(value)) return;
+      if (!canSelectDeparture(value)) {
+        if (button.dataset.amBookingRestriction === 'minimum-stay') {
+          calendarFeedback = minimumStayFeedback();
+          calendarStatus.textContent = calendarFeedback;
+        }
+        return;
+      }
       departureInput.value = value;
       hoverDate = '';
+      calendarFeedback = '';
       quoteSignature = '';
       updateTriggerValues();
       renderCalendar();
@@ -796,7 +834,7 @@ export function enhanceStayBookingCalendars() {
       const target = event.target;
       if (!(target instanceof Element)) return;
       const button = target.closest<HTMLButtonElement>('[data-am-booking-day]');
-      if (!button || button.disabled) return;
+      if (!button || button.disabled || !canSelectDeparture(button.dataset.amBookingDay || '')) return;
       hoverDate = button.dataset.amBookingDay || '';
       applyRange(hoverDate);
     });
