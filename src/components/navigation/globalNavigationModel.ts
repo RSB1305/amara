@@ -6,13 +6,13 @@
  * so the Astro components stay presentational and the desktop and mobile views
  * are guaranteed to describe the same resolved routes.
  */
-import { trustLabels } from '../../content/trustLabels';
 import { resolveLink, resolveOptionalLink, type LinkToken } from '../../lib/linkResolver';
 import { isPublicLinkEnabled } from '../../lib/routeOwnership';
 import type { AmaraLanguage } from '../../types/seo';
 import {
   createGlobalNavGroups,
   defaultCtaShortLabels,
+  globalCtaLabels,
   forcedEnabledNavTokens,
   navigationLanguages,
   navigationUtilityLabels,
@@ -61,7 +61,10 @@ export type GlobalNavigationModelInput = {
   languageToken?: LinkToken;
 };
 
-const CTA_TOKEN: LinkToken = 'book';
+// The global call to action stays inside AMARA: it opens the owned stay search,
+// where availability, dates and the authoritative quote are resolved. The
+// external booking site is reached only through a validated checkout handoff.
+const CTA_TOKEN: LinkToken = 'stay_search_results';
 
 const normalizePath = (path: string) => {
   if (path === '/') return '/';
@@ -131,7 +134,7 @@ export function createGlobalNavigationModel({
   });
 
   const cta: ResolvedNavigationCta = {
-    label: trustLabels.book[currentLang],
+    label: globalCtaLabels[currentLang],
     shortLabel: defaultCtaShortLabels[currentLang],
     href: isPublicLinkEnabled(CTA_TOKEN) ? resolveLink(CTA_TOKEN, currentLang) : null
   };

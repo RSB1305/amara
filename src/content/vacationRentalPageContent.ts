@@ -70,12 +70,14 @@ export const ui = {
     nl: 'Beschikbaarheid bekijken',
     sv: 'Se tillgänglighet'
   },
+  // The guest chooses dates; the price follows from them. Naming both as things
+  // to be chosen reads, in German especially, as if the price were negotiable.
   chooseDates: {
-    en: 'Choose dates & price',
-    de: 'Reisedaten & Preis wählen',
-    es: 'Elegir fechas y precio',
-    nl: 'Data & prijs kiezen',
-    sv: 'Välj datum och pris'
+    en: 'Choose your dates',
+    de: 'Reisedaten wählen',
+    es: 'Elegir fechas',
+    nl: 'Data kiezen',
+    sv: 'Välj datum'
   },
   bookingPageFallback: {
     en: 'Open the booking page',

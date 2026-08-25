@@ -473,8 +473,8 @@ const contextDestination: DestinationId | undefined =
   />
 
   <AmaraPageShell family="vacation-rental">
-      <AmaraSection variant="hero" class="max-md:pt-0">
-        <figure class="am-mobile-full-bleed relative aspect-[5/4] w-full max-h-[min(720px,62vh)] overflow-hidden bg-surface-container-low md:aspect-[3/2] xl:aspect-[16/9]">
+      <AmaraSection variant="hero" class="am-stay-hero">
+        <figure class="am-stay-hero__photo relative aspect-[5/4] max-h-[min(720px,62vh)] overflow-hidden bg-surface-container-low md:aspect-[3/2] xl:aspect-[16/9]">
           <button
             type="button"
             class="group block h-full w-full cursor-zoom-in focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[-2px] focus-visible:outline-primary"
@@ -499,11 +499,11 @@ const contextDestination: DestinationId | undefined =
           </button>
         </figure>
 
-        <div class="mt-7 max-w-4xl md:mt-10">
+        <div class="mt-6 max-w-4xl md:mt-10">
           <p class="am-text-eyebrow text-primary">
             {t(rental.eyebrow)}
           </p>
-          <h1 class="am-text-display text-on-surface mt-4 max-w-4xl text-balance">
+          <h1 class="am-text-display text-on-surface mt-3 max-w-4xl text-balance">
             {rental.name}
           </h1>
           <p class="am-text-title text-on-surface mt-4 max-w-4xl text-balance">
@@ -900,16 +900,6 @@ const contextDestination: DestinationId | undefined =
             </div>
           </div>
         )}
-        <div class="mt-10 flex flex-col gap-4 border-t border-border-subtle pt-8 sm:flex-row sm:items-center sm:justify-between">
-          <p class="am-text-body font-bold text-on-surface">{rental.name}</p>
-          <a
-            class="am-btn am-btn--primary w-full justify-center sm:w-auto"
-            href={bookingSectionHref}
-            data-am-booking-open
-          >
-            {t(ui.chooseDates as LocalizedText)}
-          </a>
-        </div>
       </AmaraSection>
 
       <AmaraSection labelledby="rental-location-title" variant="closing" divider={false}>
@@ -980,18 +970,6 @@ const contextDestination: DestinationId | undefined =
           </div>
         </div>
 
-        <div class="mt-10 flex flex-col items-center gap-4 border-t border-border-subtle pt-8 md:flex-row md:justify-end">
-          <a
-            class="am-btn am-btn--primary w-full justify-center sm:w-auto"
-            href={bookingSectionHref}
-            data-am-booking-open
-          >
-            {t(ui.chooseDates as LocalizedText)}
-          </a>
-          <a class="am-inline-link am-text-caption font-normal md:order-first" href={bookingHref}>
-            {t(ui.bookingPageFallback as LocalizedText)}
-          </a>
-        </div>
       </AmaraSection>
   </AmaraPageShell>
 
@@ -1003,6 +981,28 @@ const contextDestination: DestinationId | undefined =
 </BaseLayout>
 
 <style is:global>
+  /**
+   * The opening photo is the page's first argument, so it meets every viewport
+   * edge and forms the transition from the page ground into the white stay
+   * canvas. `.am-page-shell` already clips horizontally, so escaping the shell
+   * inset and the frame gutter cannot introduce a sideways scroll.
+   */
+  .am-stay-hero {
+    padding-top: 0;
+  }
+
+  .am-stay-hero__photo {
+    /* Reaching the viewport edge means clearing the frame gutter the hero
+       section re-applies inside its own negative margin, plus the shell inset
+       around the frame. Deriving both from the values that create them keeps
+       the photo exactly viewport-wide without counting in the scrollbar, which
+       a viewport unit would. */
+    --am-stay-hero-inset: calc(var(--spacing-page-gutter) + clamp(0.5rem, 1vw, 0.875rem));
+    width: calc(100% + var(--am-stay-hero-inset) * 2);
+    max-width: none;
+    margin-inline: calc(var(--am-stay-hero-inset) * -1);
+  }
+
   /**
    * The hero photo carries the entry into the full gallery. The counter names
    * how much more there is to see without covering the image itself.

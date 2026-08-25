@@ -46,11 +46,11 @@ const EXPECTED_GROUP_TOKENS: Record<string, LinkToken[]> = {
 };
 
 const EXPECTED_CTA_LABELS: Record<AmaraLanguage, string> = {
-  en: 'Check Availability',
-  de: 'Verfügbarkeit prüfen',
-  es: 'Ver disponibilidad',
-  nl: 'Beschikbaarheid bekijken',
-  sv: 'Se tillgänglighet'
+  en: 'Find a stay',
+  de: 'Unterkunft finden',
+  es: 'Buscar alojamiento',
+  nl: 'Verblijf zoeken',
+  sv: 'Hitta boende'
 };
 
 /** The page contexts that currently render the header. */
@@ -152,6 +152,10 @@ test('keeps navigation groups, order, active state, CTA and language options sta
       ]);
       expect(model.cta.label).toBe(EXPECTED_CTA_LABELS[language]);
       expect(model.cta.href).not.toBeNull();
+      // The global call to action opens AMARA's own stay search. A registry
+      // change that sent it back to an external booking host would silently
+      // hand the entry point of every page to a third party.
+      expect(model.cta.href?.startsWith('/')).toBe(true);
       expect(model.brandHref).toBeTruthy();
     }
   }

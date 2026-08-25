@@ -23,11 +23,24 @@ export const navigationLanguages: NavigationLanguageOption[] = [
 
 /** Compact label for the mobile header rail, where space next to the menu trigger is tight. */
 export const defaultCtaShortLabels: Record<AmaraLanguage, string> = {
-  en: 'Book',
-  de: 'Buchen',
-  es: 'Reservar',
-  nl: 'Boeken',
-  sv: 'Boka'
+  en: 'Stays',
+  de: 'Suchen',
+  es: 'Buscar',
+  nl: 'Zoeken',
+  sv: 'Sök'
+};
+
+/**
+ * The global call to action opens AMARA's own stay search, not an external
+ * booking site. It names that destination instead of promising a price check,
+ * which is the job of the live module on a stay page.
+ */
+export const globalCtaLabels: Record<AmaraLanguage, string> = {
+  en: 'Find a stay',
+  de: 'Unterkunft finden',
+  es: 'Buscar alojamiento',
+  nl: 'Verblijf zoeken',
+  sv: 'Hitta boende'
 };
 
 export type NavigationUtilityLabels = {
