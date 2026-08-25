@@ -1,5 +1,6 @@
 ---
 import EditorialFeatureGrid from '../../components/editorial/EditorialFeatureGrid.astro';
+import EditorialCallout from '../../components/content/EditorialCallout.astro';
 import InlineEmphasis from '../../components/text/InlineEmphasis.astro';
 
 interface FeatureItem {
@@ -40,9 +41,6 @@ const {
 } = Astro.props;
 const sectionClass = surface === 'plain' ? 'am-section--plain' : 'am-section--tint';
 const hasHeaderDetails = Boolean(intro || eyebrow || reviewed || headerCallout);
-const calloutSurfaceClass = (value?: 'low' | 'lowest') => value === 'lowest'
-  ? 'bg-surface-container-lowest'
-  : 'bg-surface-container-low';
 ---
 
 <section id={id} class:list={['am-section', sectionClass]}>
@@ -56,12 +54,9 @@ const calloutSurfaceClass = (value?: 'low' | 'lowest') => value === 'lowest'
         </p>
       )}
       {headerCallout && (
-        <p class:list={[
-          'mt-8 max-w-3xl border-l border-primary/20 px-4 py-3 am-text-body leading-relaxed text-on-surface-variant',
-          calloutSurfaceClass(headerCallout.surface)
-        ]}>
+        <EditorialCallout class="mt-8 max-w-3xl" surface={headerCallout.surface}>
           {headerCallout.text}
-        </p>
+        </EditorialCallout>
       )}
       {reviewed && (
         <p class="mt-6 am-text-caption normal-case tracking-normal text-on-surface-variant">
@@ -74,11 +69,8 @@ const calloutSurfaceClass = (value?: 'low' | 'lowest') => value === 'lowest'
   )}
   <EditorialFeatureGrid cards={items.map((item) => ({ title: item.title, copy: item.text }))} />
   {footerCallout && (
-    <p class:list={[
-      'mt-12 max-w-3xl border-l border-primary/20 px-4 py-3 am-text-body leading-relaxed text-on-surface-variant',
-      calloutSurfaceClass(footerCallout.surface)
-    ]}>
+    <EditorialCallout class="mt-12 max-w-3xl" surface={footerCallout.surface}>
       {footerCallout.text}
-    </p>
+    </EditorialCallout>
   )}
 </section>

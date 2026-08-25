@@ -1,7 +1,7 @@
 ---
 document_id: AMARA-INT-ASTRO-003
 title: AMARA Astro & Design Architecture Contract V4
-version: 4.6.0
+version: 4.7.0
 status: ACTIVE
 authority_class: CONTRACT / GOVERNING INTERIM
 source_type: INTERIM SNAPSHOT FROM APPROVED PDF + APPROVED REPOSITORY AMENDMENT
@@ -9,7 +9,7 @@ source_attachment: "03_AMARA_Astro_Technical_Standard_V4 (1).pdf"
 source_sha256: b3d8a3e780b29b5be42922aec838c7f56f455184cca8336d9a0f3564ba43f9aa
 snapshot_created: 2026-08-14T09:08:00+02:00
 migration_state: PENDING PACKAGE 2/3 NORMALIZATION
-last_modified: 2026-08-25T17:49:36+02:00
+last_modified: 2026-08-25T18:22:10+02:00
 ---
 
 # AMARA Astro & Design Architecture Contract V4 — Interim Markdown Snapshot
@@ -342,7 +342,33 @@ AMARA does not have one universal card. Stay selection, guide navigation, eviden
 
 Scoped component styles remain valid ownership. Their existence is not design debt by itself. A scoped treatment becomes a shared-system concern when the same UI job or recipe appears across component or page-family boundaries.
 
-17.6 Living styleguide contract
+17.6 Cards and content-module contract
+
+AMARA has no universal card component. Card-like appearance does not establish a reusable job. The semantic
+classification owner is `src/components/content/moduleContract.ts`; rendered modules declare their job,
+status and, where applicable, family through `data-am-content-module-*` attributes.
+
+The canonical cross-silo modules are:
+
+- `EditorialFeatureGrid` for non-linked feature, quality or amenity explanations;
+- `EditorialCallout` for a practical consequence, tip or access note, with only the approved low and lowest
+  surfaces.
+
+The deliberate family modules are:
+
+- `GuideLinkCardSection` for Location guide navigation;
+- `ApartmentCard` for stay selection and conversion-aware result states;
+- `LocationGuideEvidence` for verified Location evidence;
+- `LocationEditorialComparison` for editorial place comparison;
+- `BookingDecisionPanel` for a price-context and booking decision;
+- `EditorialStatement` for the bounded elevated trust/statement treatment.
+
+These jobs may not be interchanged because their information hierarchy, interaction and responsive behaviour
+are different. New work uses the owner for its job rather than copying its surface classes. Existing direct
+recipes remain legacy until the containing renderer is materially revised. Elevation remains limited to the
+named owner that demonstrates the hierarchy need; it is not a generic card option.
+
+17.7 Living styleguide contract
 
 Every canonical primitive or module shown in the living styleguide must include, as applicable:
 
@@ -368,3 +394,4 @@ The styleguide is therefore an executable view of the system, not a parallel sou
 | 4.4.0 | 2026-08-25T16:33:34+02:00 | Activated the executable action/link and chip/status component owners, migrated bounded cross-silo consumers, and kept icon surfaces and decorative emphasis outside the chip/status vocabulary. |
 | 4.5.0 | 2026-08-25T17:32:07+02:00 | Closed all 32 typography legacy values through canonical or explicitly named special-purpose roles, reduced the ratchet to zero and replaced the styleguide's parallel typography specimens with production roles. |
 | 4.6.0 | 2026-08-25T17:49:36+02:00 | Activated the semantic hero contract, named the deliberate Trust, Stay, Location, Experience and campaign variants, extracted the Stay decision hero into a production owner and rendered representative production owners in the living styleguide. |
+| 4.7.0 | 2026-08-25T18:22:10+02:00 | Activated semantic classification for card-like and editorial modules, established canonical feature-grid and practical-callout owners, preserved distinct family jobs and replaced the styleguide's simulated cards with production modules. |

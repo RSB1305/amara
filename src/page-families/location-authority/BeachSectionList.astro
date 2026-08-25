@@ -1,6 +1,7 @@
 ---
 import InlineEmphasis from '../../components/text/InlineEmphasis.astro';
 import AmaraMetaChip from '../../components/chips/AmaraMetaChip.astro';
+import EditorialCallout from '../../components/content/EditorialCallout.astro';
 
 interface BeachCard {
   title: string;
@@ -70,10 +71,10 @@ const { sections, labels, emphasizeText = false } = Astro.props;
                 {emphasizeText ? <InlineEmphasis text={beach.description} /> : beach.description}
               </p>
 
-              <p class="mt-6 border-l border-primary/20 bg-surface-container-low px-4 py-3 am-text-body leading-relaxed text-on-surface-variant lg:mt-auto">
+              <EditorialCallout class="mt-6 lg:mt-auto">
                 <span class="font-bold text-primary">{labels.tip}:</span>{' '}
                 {beach.tip}
-              </p>
+              </EditorialCallout>
 
               <p class="mt-5 am-text-body">
                 <a

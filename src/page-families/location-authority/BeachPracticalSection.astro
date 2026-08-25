@@ -1,5 +1,6 @@
 ---
 import InlineEmphasis from '../../components/text/InlineEmphasis.astro';
+import EditorialCallout from '../../components/content/EditorialCallout.astro';
 
 interface PracticalItem {
   title: string;
@@ -56,12 +57,12 @@ const gridClass = columns === 3
     ))}
   </div>
 
-  <p class="mt-12 max-w-3xl border-l border-primary/20 bg-surface-container-low px-4 py-3 am-text-body leading-relaxed text-on-surface-variant">
+  <EditorialCallout class="mt-12 max-w-3xl">
     {accessNote.before}<a
       href={accessNote.href}
       target="_blank"
       rel="noopener noreferrer"
       class="am-inline-link"
     >{accessNote.label}</a>{accessNote.after}
-  </p>
+  </EditorialCallout>
 </section>

@@ -1,5 +1,6 @@
 ---
 import AmaraActionLink from '../actions/AmaraActionLink.astro';
+import { getAmaraContentModuleAttributes } from '../content/moduleContract';
 
 interface ActionLink {
   href: string;
@@ -30,9 +31,14 @@ const {
   priceNote,
   supportLinks = []
 } = Astro.props;
+const moduleAttributes = getAmaraContentModuleAttributes({
+  job: 'booking-decision',
+  status: 'family',
+  family: 'conversion'
+});
 ---
 
-<div class="am-booking-decision" data-am-component="booking-decision">
+<div {...moduleAttributes} class="am-booking-decision" data-am-component="booking-decision">
   <div class="am-booking-decision__price">
     <p class="am-text-label text-on-surface-variant">{priceLabel}</p>
     <p class="am-text-subtitle mt-1 text-on-surface">{price}</p>

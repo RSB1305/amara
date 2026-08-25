@@ -1,12 +1,12 @@
 ---
 document_id: AMARA-REG-001
 title: AMARA Register
-version: 1.24.0
+version: 1.25.0
 status: ACTIVE
 authority_class: LIVING BINDING REGISTER
 activation_state: ACTIVE
 effective_from: 2026-08-14
-last_modified: 2026-08-25T17:49:36+02:00
+last_modified: 2026-08-25T18:22:10+02:00
 canonical_path: /docs/AMARA_REGISTER.md
 ---
 
@@ -21,12 +21,12 @@ The AMARA Register is the single source for active documents, authority classes,
 | Slot | Document owner | Version/status | Class | Canonical/current source |
 |---|---|---|---|---|
 | 01 | AMARA System Constitution | 5.2.0 ACTIVE | PRINCIPLE / governing | `docs/standards/01_AMARA_System_Constitution_V5.md` |
-| 02 | AMARA Astro & Design Architecture Contract | 4.6.0 ACTIVE INTERIM | CONTRACT / governing | `docs/interim/03_AMARA_Astro_Technical_Standard_V4.md` + current repository implementation |
+| 02 | AMARA Astro & Design Architecture Contract | 4.7.0 ACTIVE INTERIM | CONTRACT / governing | `docs/interim/03_AMARA_Astro_Technical_Standard_V4.md` + current repository implementation |
 | 03 | AMARA Runtime, SEO & Data Contract | PENDING Package 2 | CONTRACT / governing | Interim snapshot: `docs/interim/04_AMARA_Runtime_and_SEO_Standard_V4.md` + current repository implementation |
 | 04 | AMARA URL, Route & Link Contract | PENDING Package 2 | CONTRACT / governing | Interim snapshot: `docs/interim/05_AMARA_URL_and_Route_Infrastructure_V4.md` + Decision Register |
 | 05 | AMARA Governance, Execution & Documentation Lifecycle | 5.5.0 ACTIVE | CONTRACT / governing | `docs/standards/05_AMARA_Governance_Execution_and_Documentation_Lifecycle_V5.md` |
 | 06 | AMARA Performance & Delivery Standard | 2.1.0 ACTIVE INTERIM | PRINCIPLE/CONTRACT / governing | `docs/interim/07_AMARA_Performance_Standard_V2.md` |
-| 07 | AMARA Register | 1.24.0 ACTIVE | LIVING BINDING REGISTER | `docs/AMARA_REGISTER.md` |
+| 07 | AMARA Register | 1.25.0 ACTIVE | LIVING BINDING REGISTER | `docs/AMARA_REGISTER.md` |
 | 08 | AMARA Guest Utility Feature Contract | 2.1.0 ACTIVE INTERIM | FEATURE CONTRACT | `docs/interim/08_AMARA_Guest_Utility_Architecture_V2.md` |
 | 09 | AMARA Content Production & Localization Playbook | 1.5.0 ACTIVE INTERIM | OPERATIONAL PLAYBOOK / non-governing | `docs/interim/10_AMARA_Content_Production_and_Localization_Playbook_V1_2.md` |
 | 10 | AMARA Frigiliana–Nerja SEO Strategy | PENDING Package 2/3 | WORKING STRATEGY / non-governing | Interim snapshot: `docs/interim/09_AMARA_Frigiliana_Nerja_SEO_Strategy_V2_1.md` |
@@ -120,6 +120,7 @@ They do **not** supersede the current implementation. Until a separately aligned
 | DR-DESIGN-004 | Design convergence is exception-led and compares the same UI job across Trust, Stay, Location, Experience and other surfaces. Treatments are classified as canonical, deliberate family variants, experimental, legacy or retired; neither silo origin nor visual similarity alone determines component ownership. | ACTIVE |
 | DR-DESIGN-005 | `global.css` and production components are the executable design owners. The living styleguide renders those owners and may not define an independent public visual pattern; the Design Lab remains experimental until an explicit promotion decision. | ACTIVE |
 | DR-DESIGN-006 | Public heroes share the semantic classification contract in `src/components/hero/heroContract.ts` but keep named family owners for materially different jobs. Trust content, Stay decision, Location/Experience media authority, Experience editorial authority and bounded campaign media are deliberate `family` variants rather than licenses for page-local hero recipes. | ACTIVE |
+| DR-DESIGN-007 | AMARA has no universal card. `src/components/content/moduleContract.ts` classifies card-like and editorial modules by information job. Editorial feature grids and practical callouts are canonical cross-silo modules; guide navigation, stay selection, evidence, comparison, booking decision and bounded editorial statements remain named family modules with their own production owners. | ACTIVE |
 
 ### Content/localization
 
@@ -199,6 +200,7 @@ Routine new evidence/ideas may be captured here or in the relevant working evide
 | 2026-08-25T16:33:34+02:00 | Executable actions, chips and status primitives | Activated the production component APIs for actions/links, interactive filter chips, passive meta chips and real status badges; migrated the bounded shared and Location consumers and updated the living styleguide from those owners. Astro & Design Contract 4.4.0, Register 1.22.0. | DR-DESIGN-002, DR-DESIGN-004–005 | this revision |
 | 2026-08-25T17:32:07+02:00 | Typography legacy closure | Classified and removed all 32 arbitrary typography values across 14 files, activated named roles for the four legitimate special-purpose jobs, reduced the ratchet to zero and made the styleguide render the production typography roles. Astro & Design Contract 4.5.0, Register 1.23.0. | DR-DESIGN-001–002, DR-DESIGN-004–005 | this revision |
 | 2026-08-25T17:49:36+02:00 | Executable hero family contract | Activated one semantic classification API across Trust, Stay, Location and Experience while preserving their distinct page jobs; extracted the Stay decision sequence from its page renderer, kept compatibility hooks and added real production heroes to the living styleguide. Astro & Design Contract 4.6.0, Register 1.24.0. | DR-DESIGN-002, DR-DESIGN-004–006 | this revision |
+| 2026-08-25T18:22:10+02:00 | Executable content-module contract | Classified card-like modules by semantic job, activated canonical production owners for feature grids and practical callouts, marked the distinct Location, Stay, Trust and conversion family modules and removed the styleguide's simulated card patterns. Astro & Design Contract 4.7.0, Register 1.25.0. | DR-DESIGN-002, DR-DESIGN-004–005, DR-DESIGN-007 | this revision |
 
 ## 5. Intentional supersessions
 
@@ -227,7 +229,7 @@ Separate controlled workstreams remain for:
 - `DR-MEAS-007`: instrument and validate the approved `availability_click` event through stable semantic attributes;
 - deployed GA4 receipt and `DR-MEAS-008` cross-domain continuity validation across AMARA, Lodgify and checkout;
 - later normalization of the active external booking feature contract/runbook into `/docs/features` without changing its implementation by documentation alone.
-- continued exception-led consolidation of shared modules and remaining legacy consumers, with `/tools/styleguide` maintained as a rendered view of production owners under Astro & Design Contract 4.6.0.
+- continued exception-led consolidation of shared modules and remaining legacy consumers, with `/tools/styleguide` maintained as a rendered view of production owners under Astro & Design Contract 4.7.0.
 
 ## Revision history
 
@@ -260,3 +262,4 @@ Separate controlled workstreams remain for:
 | 1.22.0 | 2026-08-25T16:33:34+02:00 | Activated executable action/link, filter-chip, meta-chip and status-badge owners and recorded their bounded production migration. | this revision |
 | 1.23.0 | 2026-08-25T17:32:07+02:00 | Closed the 32-value typography legacy baseline at zero and activated the final named production roles used by the migrated consumers. | this revision |
 | 1.24.0 | 2026-08-25T17:49:36+02:00 | Activated the shared semantic hero classification and the deliberate Trust, Stay, Location, Experience and campaign family variants. | this revision |
+| 1.25.0 | 2026-08-25T18:22:10+02:00 | Activated semantic card/content-module classification, the canonical feature-grid and practical-callout owners and the named family module boundary. | this revision |

@@ -1,4 +1,6 @@
 ---
+import { getAmaraContentModuleAttributes } from '../../components/content/moduleContract';
+
 interface GuideLinkCard {
   title: string;
   text: string;
@@ -36,9 +38,14 @@ const surfaceClass = surface === 'tint'
 const gridClass = columns === 3
   ? 'grid-cols-1 gap-x-12 gap-y-14 lg:grid-cols-3'
   : 'grid-cols-1 gap-x-16 gap-y-14 lg:grid-cols-2';
+const moduleAttributes = getAmaraContentModuleAttributes({
+  job: 'guide-link-grid',
+  status: 'family',
+  family: 'location'
+});
 ---
 
-<section class:list={['am-section', surfaceClass]}>
+<section {...moduleAttributes} class:list={['am-section', surfaceClass]}>
   <div class="mb-16 max-w-3xl">
     <h2 class="am-text-title mb-6 italic tracking-tight text-on-surface">{title}</h2>
     <p class="am-text-body leading-relaxed text-on-surface-variant">{intro}</p>

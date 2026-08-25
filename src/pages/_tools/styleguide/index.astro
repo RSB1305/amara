@@ -8,10 +8,16 @@ import AmaraActionLink from '../../../components/actions/AmaraActionLink.astro';
 import AmaraFilterChip from '../../../components/chips/AmaraFilterChip.astro';
 import AmaraMetaChip from '../../../components/chips/AmaraMetaChip.astro';
 import AmaraStatusBadge from '../../../components/chips/AmaraStatusBadge.astro';
+import EditorialCallout from '../../../components/content/EditorialCallout.astro';
+import BookingDecisionPanel from '../../../components/conversion/BookingDecisionPanel.astro';
+import EditorialFeatureGrid from '../../../components/editorial/EditorialFeatureGrid.astro';
 import ExperienceArticleHero from '../../../components/experience/ExperienceArticleHero.astro';
+import ApartmentCard from '../../../components/location/ApartmentCard.astro';
+import LocationGuideEvidence from '../../../components/location/LocationGuideEvidence.astro';
 import LocationGuideHero from '../../../components/location/LocationGuideHero.astro';
 import StayHero from '../../../components/hero/StayHero.astro';
 import TrustHero from '../../../components/hero/TrustHero.astro';
+import GuideLinkCardSection from '../../../page-families/location-authority/GuideLinkCardSection.astro';
 import { BedDouble, UsersRound } from '@lucide/astro';
 
 const styleguideStayFacts = [
@@ -70,20 +76,6 @@ const styleguideStayFacts = [
     .sg-hero-preview { border: 1px solid var(--color-outline-variant); background: var(--color-surface); margin-bottom: 20px; overflow: hidden; }
     .sg-hero-meta { padding: 14px 16px; border-top: 1px solid var(--color-outline-variant); background: var(--color-surface-white); color: var(--color-muted); font-size: 11px; line-height: 1.6; }
 
-    /* Cards */
-    .sg-card { background: var(--color-surface-white); border: 1px solid var(--color-outline-variant); border-radius: 12px; padding: 24px; box-shadow: var(--shadow-editorial-card); }
-    .sg-card-label { font-size: 10px; letter-spacing: .12em; text-transform: uppercase; color: var(--color-primary); margin-bottom: 8px; display: block; }
-    .sg-card-title { font-family: var(--font-headline); font-size: 22px; font-weight: 300; margin-bottom: 8px; }
-    .sg-card-body { font-size: 13px; color: var(--color-on-surface-variant); line-height: 1.7; }
-
-    .sg-card--inverted {
-      background: var(--color-inverted-surface);
-      border-color: color-mix(in srgb, var(--color-outline-variant) 35%, var(--color-inverted-surface));
-    }
-    .sg-card--inverted .sg-card-label { color: var(--color-primary-fixed-dim); }
-    .sg-card--inverted .sg-card-title { color: var(--color-inverted-on-surface); }
-    .sg-card--inverted .sg-card-body { color: var(--color-inverted-on-surface-muted); }
-
     /* Structure demo */
     .sg-structure { background: var(--color-surface-container-low); border: 2px dashed var(--color-outline-variant); border-radius: 12px; padding: 20px; }
     .sg-structure-label { font-size: 10px; font-family: monospace; color: var(--color-primary); margin-bottom: 12px; display: block; font-weight: 700; }
@@ -127,7 +119,7 @@ const styleguideStayFacts = [
     <a href="#heroes">Hero Families</a>
     <a href="#buttons">Buttons</a>
     <a href="#chips">Chips & Status</a>
-    <a href="#cards">Cards</a>
+    <a href="#cards">Cards & Modules</a>
     <a href="#links">Links</a>
     <div class="sg-nav-section">Utilities</div>
     <a href="#borders">Borders & Dividers</a>
@@ -479,20 +471,86 @@ const styleguideStayFacts = [
       </div>
     </section>
 
-    <!-- CARDS -->
+    <!-- CARDS AND CONTENT MODULES -->
     <section class="sg-section" id="cards">
-      <h2 class="sg-section-title">Cards</h2>
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px">
-        <div class="sg-card">
-          <span class="sg-card-label">Location Authority · Frigiliana</span>
-          <div class="sg-card-title">The Reality of Arrival</div>
-          <div class="sg-card-body">Frigiliana is not a flat coastal resort. It is vertical, stepped, and historic.</div>
+      <h2 class="sg-section-title">Cards & Content Modules</h2>
+      <p class="sg-inline-demo" style="margin-bottom:32px">
+        AMARA besitzt keine Universal-Card. Der Produktionsowner folgt dem Informationsjob: Feature, praktische Hervorhebung, Guide-Navigation, Unterkunftsauswahl, Evidence, Vergleich oder Buchungsentscheidung.
+      </p>
+
+      <span class="sg-label">Canonical · editorial-feature-grid</span>
+      <div class="sg-component-frame">
+        <EditorialFeatureGrid cards={[
+          { title: 'Arrival reality', copy: 'Understand access, gradients and the useful route before choosing a stay.' },
+          { title: 'Daily rhythm', copy: 'Connect practical facts to the way a couple will actually move through the place.' },
+          { title: 'Evidence', copy: 'Keep verified guidance distinct from decorative emphasis.' },
+          { title: 'Next step', copy: 'Give the reader a relevant onward action without forcing conversion.' }
+        ]} />
+        <div class="sg-component-label">Owner: <span class="sg-code">EditorialFeatureGrid</span> · wiederverwendet in Trust, Property und Location · keine verlinkte Auswahlkarte</div>
+      </div>
+
+      <span class="sg-label">Canonical · practical-callout</span>
+      <div class="sg-component-frame">
+        <EditorialCallout>
+          <strong class="text-primary">Good to know:</strong> This treatment is for a practical consequence, tip or access note—not for decorative emphasis.
+        </EditorialCallout>
+        <div class="sg-component-label">Owner: <span class="sg-code">EditorialCallout</span> · zentrale Fläche, Border, Innenabstand und Textrolle · optionale low/lowest surface</div>
+      </div>
+
+      <span class="sg-label">Family · location · guide-link-grid</span>
+      <div class="sg-hero-preview">
+        <GuideLinkCardSection
+          title="Continue planning"
+          intro="Related guidance stays a quiet editorial navigation job rather than becoming a promotional card wall."
+          surface="surface"
+          items={[
+            { title: 'Arrival and parking', text: 'Know where the car stops and where walking begins.', href: '#structure', linkLabel: 'Open the guide' },
+            { title: 'Where to stay', text: 'Match the daily route to the part of town that suits the stay.', href: '#heroes', linkLabel: 'Compare areas' }
+          ]}
+        />
+        <div class="sg-hero-meta">Owner: <span class="sg-code">GuideLinkCardSection</span> · Location family · editorial navigation with optional links</div>
+      </div>
+
+      <span class="sg-label">Family · stay · stay-selection-card</span>
+      <div class="sg-component-frame">
+        <div style="max-width:30rem">
+          <ApartmentCard
+            href="#heroes"
+            imageSrc="/images/hero-frigiliana.jpg"
+            imageAlt="Frigiliana village on the hillside"
+            meta="Frigiliana · 2 guests"
+            title="Casa AMARA"
+            description="A stay-selection card joins a real destination, image, fit and onward decision."
+            ctaLabel="View the stay"
+          />
         </div>
-        <div class="sg-card sg-card--inverted">
-          <span class="sg-card-label">The AMARA Approach</span>
-          <div class="sg-card-title">We select stays that balance village charm.</div>
-          <div class="sg-card-body">Manageable daily movement, maximum atmosphere.</div>
+        <div class="sg-component-label">Owner: <span class="sg-code">ApartmentCard</span> · linked stay selection · image, metadata, description and conversion-aware states</div>
+      </div>
+
+      <span class="sg-label">Family · location · evidence-panel</span>
+      <div class="sg-component-frame">
+        <div style="max-width:34rem">
+          <LocationGuideEvidence
+            eyebrow="Planning evidence"
+            summary="Evidence panels carry a concise authority statement and optional fact rows. They are not a generic inverted card."
+            items={[
+              { label: 'Owner', value: 'LocationGuideEvidence' },
+              { label: 'Use', value: 'Verified orientation or planning evidence' }
+            ]}
+          />
         </div>
+      </div>
+
+      <span class="sg-label">Family · conversion · booking-decision</span>
+      <div class="sg-component-frame">
+        <BookingDecisionPanel
+          priceLabel="From per night"
+          price="€145"
+          primary={{ href: '#buttons', label: 'Choose dates' }}
+          primaryInPage
+          priceNote="A booking decision is a conversion module, not a card treatment to reuse for editorial content."
+        />
+        <div class="sg-component-label">Owner: <span class="sg-code">BookingDecisionPanel</span> · conversion-only · price context and explicit next step</div>
       </div>
     </section>
 

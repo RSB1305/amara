@@ -1,6 +1,7 @@
 ---
 import InlineEmphasis from '../../components/text/InlineEmphasis.astro';
 import AmaraMetaChip from '../../components/chips/AmaraMetaChip.astro';
+import EditorialCallout from '../../components/content/EditorialCallout.astro';
 
 interface RestaurantCard {
   title: string;
@@ -87,15 +88,10 @@ const { sections, labels, emphasizeText = false } = Astro.props;
               </p>
 
               <div class="mt-6">
-                <p
-                  class:list={[
-                    'border-l border-primary/20 bg-surface-container-low px-4 py-3 am-text-body leading-relaxed text-on-surface-variant',
-                    hasGridPeers && 'lg:min-h-[12rem]'
-                  ]}
-                >
+                <EditorialCallout class={hasGridPeers ? 'lg:min-h-[12rem]' : undefined}>
                   <span class="font-bold text-primary">{labels.tip}:</span>{' '}
                   {restaurant.tip}
-                </p>
+                </EditorialCallout>
 
                 <p
                   class:list={[

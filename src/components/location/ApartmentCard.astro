@@ -6,6 +6,7 @@
 import type { ImageMetadata } from 'astro';
 import AmaraImage from '../AmaraImage.astro';
 import AmaraActionLink from '../actions/AmaraActionLink.astro';
+import { getAmaraContentModuleAttributes } from '../content/moduleContract';
 import InlineEmphasis from '../text/InlineEmphasis.astro';
 
 interface Props {
@@ -43,9 +44,15 @@ const {
   totalPriceLabel,
   hidden = false
 } = Astro.props;
+const moduleAttributes = getAmaraContentModuleAttributes({
+  job: 'stay-selection-card',
+  status: 'family',
+  family: 'stay'
+});
 ---
 
 <div
+  {...moduleAttributes}
   class="am-apartment-card am-apartment-card--hover"
   hidden={hidden}
   data-am-stay-result={dataStay}

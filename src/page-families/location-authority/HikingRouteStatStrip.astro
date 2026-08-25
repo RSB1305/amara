@@ -1,6 +1,7 @@
 ---
 import { Clock, Mountain, Route } from '@lucide/astro';
 import AmaraMetaChip from '../../components/chips/AmaraMetaChip.astro';
+import EditorialCallout from '../../components/content/EditorialCallout.astro';
 
 interface Props {
   duration?: string;
@@ -82,12 +83,9 @@ const hasStats = stats.length > 0 || Boolean(difficulty);
     )
   }
 
-  <p
-    class:list={[
-      'border-l border-primary/20 bg-surface-container-low px-4 py-3 am-text-body leading-relaxed text-on-surface-variant lg:min-h-28',
-      hasStats ? 'mt-5' : 'lg:mt-5'
-    ]}
+  <EditorialCallout
+    class={`lg:min-h-28 ${hasStats ? 'mt-5' : 'lg:mt-5'}`}
   >
     <span class="font-bold text-primary">{labels.experience}:</span> {experience}
-  </p>
+  </EditorialCallout>
 </div>
