@@ -1,12 +1,12 @@
 ---
 document_id: AMARA-REG-001
 title: AMARA Register
-version: 1.17.0
+version: 1.18.0
 status: ACTIVE
 authority_class: LIVING BINDING REGISTER
 activation_state: ACTIVE
 effective_from: 2026-08-14
-last_modified: 2026-08-25T05:36:10+02:00
+last_modified: 2026-08-25T11:34:57+02:00
 canonical_path: /docs/AMARA_REGISTER.md
 ---
 
@@ -26,7 +26,7 @@ The AMARA Register is the single source for active documents, authority classes,
 | 04 | AMARA URL, Route & Link Contract | PENDING Package 2 | CONTRACT / governing | Interim snapshot: `docs/interim/05_AMARA_URL_and_Route_Infrastructure_V4.md` + Decision Register |
 | 05 | AMARA Governance, Execution & Documentation Lifecycle | 5.5.0 ACTIVE | CONTRACT / governing | `docs/standards/05_AMARA_Governance_Execution_and_Documentation_Lifecycle_V5.md` |
 | 06 | AMARA Performance & Delivery Standard | 2.1.0 ACTIVE INTERIM | PRINCIPLE/CONTRACT / governing | `docs/interim/07_AMARA_Performance_Standard_V2.md` |
-| 07 | AMARA Register | 1.16.0 ACTIVE | LIVING BINDING REGISTER | `docs/AMARA_REGISTER.md` |
+| 07 | AMARA Register | 1.18.0 ACTIVE | LIVING BINDING REGISTER | `docs/AMARA_REGISTER.md` |
 | 08 | AMARA Guest Utility Feature Contract | 2.1.0 ACTIVE INTERIM | FEATURE CONTRACT | `docs/interim/08_AMARA_Guest_Utility_Architecture_V2.md` |
 | 09 | AMARA Content Production & Localization Playbook | 1.5.0 ACTIVE INTERIM | OPERATIONAL PLAYBOOK / non-governing | `docs/interim/10_AMARA_Content_Production_and_Localization_Playbook_V1_2.md` |
 | 10 | AMARA Frigiliana–Nerja SEO Strategy | PENDING Package 2/3 | WORKING STRATEGY / non-governing | Interim snapshot: `docs/interim/09_AMARA_Frigiliana_Nerja_SEO_Strategy_V2_1.md` |
@@ -39,7 +39,7 @@ Current operational feature owner during transition:
 
 | Feature | Status | Current owner | Repository reality |
 |---|---|---|---|
-| External booking / availability / checkout boundary | ACTIVE INTERIM CONTRACT | `AMARA-BOOKING-ARCHITECTURE.md` | Checkout URLs remain centralized through `src/lib/directBooking.ts`; static Astro is extended only by the narrow Cloudflare Pages read-only Booking Gateway, including the provider-neutral destination calendar used after explicit interaction with the Homepage finder. |
+| External booking / availability / checkout boundary | ACTIVE INTERIM CONTRACT | `AMARA-BOOKING-ARCHITECTURE.md` | Checkout URLs remain centralized through `src/lib/directBooking.ts`; static Astro is extended only by the narrow Cloudflare Pages read-only Booking Gateway, including the provider-neutral destination calendar with live availability, stay rules and nightly orientation prices used after explicit interaction with the Homepage finder. |
 
 ## 3. Decision Register
 
@@ -189,6 +189,7 @@ Routine new evidence/ideas may be captured here or in the relevant working evide
 | 2026-08-23T19:30:21+02:00 | Romantic Hideaways brand core | Restored AMARA — Romantic Hideaways and special places for shared time as a couple as the primary hospitality brand position while preserving Destination Authority, Experience, Trust, Stays and Direct Booking as supporting systems. Constitution 5.2.0, Register 1.15.0. | DR-BRAND-001 | this revision |
 | 2026-08-24T13:09:22+02:00 | Booking Gateway v1 integration | Activated the proven read-only Booking Gateway on current Main with fixed Cloudflare Pages GET routes, server-only provider credentials/IDs, static-first page delivery and provider-owned checkout. Register 1.16.0. | DR-PLATFORM-001, DR-BOOK-001 | this revision |
 | 2026-08-25T05:36:10+02:00 | Homepage live destination calendar | Added the fourth read-only Booking Gateway route for provider-neutral destination/portfolio availability and stay rules. The static Homepage finder now loads live dates only after calendar interaction and refreshes an open calendar when destination or guest count changes, while the Results quote remains authoritative. Register 1.17.0. | DR-PLATFORM-001, DR-BOOK-001 | this revision |
+| 2026-08-25T11:34:57+02:00 | Homepage calendar orientation prices | Extended the existing destination calendar response with public nightly rates and currency. The Homepage shows the lowest available nightly rate per date as a non-binding “from” price, while same-stay validation and the authoritative Results quote remain unchanged. Register 1.18.0. | DR-BOOK-001 | this revision |
 
 ## 5. Intentional supersessions
 

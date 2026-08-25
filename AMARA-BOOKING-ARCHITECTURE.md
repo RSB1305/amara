@@ -183,12 +183,15 @@ totals. Rates may contain multiple options with different minimum/maximum stays.
 is orientation only; the current quote is authoritative and AMARA must never calculate a binding
 total as nightly rate multiplied by nights.
 
-The search-calendar response contains stable AMARA stay keys plus availability and minimum/maximum
-stay rules for the requested destination, guest count and calendar window. It contains no provider
-IDs or prices. The Homepage finder aggregates these per-stay records without mixing accommodations:
-an arrival or departure is selectable only when at least one same accommodation can carry the
-complete stay under its availability and stay rules. The Results page still obtains the
-authoritative quote after submission.
+The search-calendar response contains stable AMARA stay keys plus availability, public nightly
+orientation prices with currency, and minimum/maximum stay rules for the requested destination,
+guest count and calendar window. It contains no provider IDs. The Homepage finder aggregates these
+per-stay records without mixing accommodations: an arrival or departure is selectable only when at
+least one same accommodation can carry the complete stay under its availability and stay rules.
+For each available arrival date it may display the lowest nightly rate across the matching stays as
+an explicitly non-binding “from” price; it never combines availability from one accommodation with
+the rate of another to validate a stay. The Results page still obtains the authoritative quote
+after submission.
 
 ### Provider IDs stay behind the adapter
 

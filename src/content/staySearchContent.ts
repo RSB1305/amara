@@ -73,6 +73,10 @@ export const staySearchCopy = {
     en: 'selected arrival', de: 'gewählte Anreise', es: 'llegada seleccionada',
     nl: 'gekozen aankomst', sv: 'vald ankomst'
   }),
+  fromPrice: localized({
+    en: 'from {price}', de: 'ab {price}', es: 'desde {price}',
+    nl: 'vanaf {price}', sv: 'från {price}'
+  }),
   invalidSearch: localized({ en: 'Please choose a destination, valid dates and the number of guests.', de: 'Bitte wählt ein Reiseziel, gültige Reisedaten und die Gästezahl.', es: 'Elegid un destino, fechas válidas y el número de huéspedes.', nl: 'Kies een bestemming, geldige datums en het aantal gasten.', sv: 'Välj resmål, giltiga datum och antal gäster.' }),
   resultsEyebrow: localized({ en: 'Live stay search', de: 'Live-Unterkunftssuche', es: 'Búsqueda de alojamientos en directo', nl: 'Live zoeken naar verblijven', sv: 'Live-sökning efter boende' }),
   resultsTitle: localized({ en: 'Available AMARA hideaways', de: 'Verfügbare AMARA Hideaways', es: 'Alojamientos AMARA disponibles', nl: 'Beschikbare AMARA-hideaways', sv: 'Tillgängliga AMARA-boenden' }),

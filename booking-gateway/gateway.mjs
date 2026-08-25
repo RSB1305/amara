@@ -158,14 +158,19 @@ async function searchCalendar(request, apiKey) {
     const ratesByDate = new Map(rateDays.map((day) => [day.date, day]));
     return {
       stay: candidate.stay,
-      days: availabilityDays.map((day) => ({
-        date: day.date,
-        available: day.available,
-        options: (ratesByDate.get(day.date)?.priceOptions ?? []).map((option) => ({
-          minStay: option.minStay,
-          maxStay: option.maxStay,
-        })),
-      })),
+      days: availabilityDays.map((day) => {
+        const rateDay = ratesByDate.get(day.date);
+        return {
+          date: day.date,
+          available: day.available,
+          currency: rateDay?.currency ?? null,
+          options: (rateDay?.priceOptions ?? []).map((option) => ({
+            nightlyRate: option.pricePerDay,
+            minStay: option.minStay,
+            maxStay: option.maxStay,
+          })),
+        };
+      }),
     };
   });
   return {

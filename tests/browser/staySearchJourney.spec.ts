@@ -8,12 +8,12 @@ const DESKTOP = { width: 1280, height: 900 };
 const MOBILE = { width: 390, height: 844 };
 const STAYS = ['farah', 'lounis', 'zaid', 'maha', 'playa', 'tarifa'];
 const SEARCH_STAYS = [
-  { stay: 'farah', destination: 'frigiliana', capacity: 2 },
-  { stay: 'lounis', destination: 'frigiliana', capacity: 2 },
-  { stay: 'zaid', destination: 'frigiliana', capacity: 2 },
-  { stay: 'maha', destination: 'frigiliana', capacity: 2 },
-  { stay: 'playa', destination: 'nerja', capacity: 2 },
-  { stay: 'tarifa', destination: 'tarifa', capacity: 4 }
+  { stay: 'farah', destination: 'frigiliana', capacity: 2, nightlyRate: 121 },
+  { stay: 'lounis', destination: 'frigiliana', capacity: 2, nightlyRate: 109 },
+  { stay: 'zaid', destination: 'frigiliana', capacity: 2, nightlyRate: 135 },
+  { stay: 'maha', destination: 'frigiliana', capacity: 2, nightlyRate: 146 },
+  { stay: 'playa', destination: 'nerja', capacity: 2, nightlyRate: 173 },
+  { stay: 'tarifa', destination: 'tarifa', capacity: 4, nightlyRate: 188 }
 ] as const;
 
 let astroServer: Awaited<ReturnType<typeof dev>> | undefined;
@@ -83,7 +83,8 @@ async function mockGateway(page: Page, options: GatewayOptions = {}) {
             days: enumerateDays(start, end).map((date) => ({
               date,
               available: !options.unavailable?.has(candidate.stay),
-              options: [{ minStay: 1, maxStay: 45 }]
+              currency: 'EUR',
+              options: [{ nightlyRate: candidate.nightlyRate, minStay: 3, maxStay: 45 }]
             }))
           }))
         })
@@ -157,6 +158,7 @@ const searchUrl = (destination: string, arrival: string, departure: string, gues
   '&departure=' + departure + '&guests=' + guests;
 
 test('homepage finder refreshes live dates for destination changes and returns quoted stays', async ({ page }) => {
+  test.setTimeout(45_000);
   await page.setViewportSize(DESKTOP);
   const requests = await mockGateway(page);
   const arrival = futureIso(3);
@@ -168,11 +170,19 @@ test('homepage finder refreshes live dates for destination changes and returns q
   await page.getByRole('button', { name: 'Choose arrival' }).click();
   await expect.poll(() => requests.filter((url) => url.pathname.endsWith('/search-calendar')).length).toBe(2);
   await expect(page.locator('.am-booking-calendar__month')).toHaveCount(2);
+  await expect(page.locator('[data-am-booking-day="' + arrival + '"] .am-booking-calendar__day-price')).toContainText('from');
+  await expect(page.locator('[data-am-booking-day="' + arrival + '"] .am-booking-calendar__day-price')).toContainText('€173');
   await page.locator('[data-am-stay-search-destination]').selectOption('frigiliana');
   await expect.poll(() => requests.filter((url) => url.pathname.endsWith('/search-calendar')).length).toBe(4);
+  await expect(page.locator('[data-am-booking-day="' + arrival + '"] .am-booking-calendar__day-price')).toContainText('€109');
   expect(requests.filter((url) => url.pathname.endsWith('/search-calendar')).map((url) =>
     url.searchParams.get('destination'))).toEqual(['nerja', 'nerja', 'frigiliana', 'frigiliana']);
   await page.locator('[data-am-booking-day="' + arrival + '"]').click();
+  await expect(page.locator('[data-am-booking-calendar-status]')).toContainText('Minimum stay');
+  await expect(page.locator('[data-am-booking-calendar-status]')).toHaveAttribute(
+    'data-am-booking-calendar-status-state',
+    'minimum-stay'
+  );
   await page.locator('[data-am-booking-day="' + departure + '"]').click();
   await page.getByRole('button', { name: 'Check availability' }).click();
   await expect(page).toHaveURL(searchUrl('frigiliana', arrival, departure));
