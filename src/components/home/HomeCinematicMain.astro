@@ -20,8 +20,8 @@ export interface CinematicApartment {
   name: string;
   subtitle: string;
   city: string;
-  interiorFact: string | null;
-  terraceFact: string | null;
+  /** Verified hideaway features, derived from the rental SSOT. Never authored. */
+  signals: string[];
   viewNote: string;
   price: string;
   desc: string;
@@ -32,7 +32,6 @@ export interface CinematicApartment {
   imgSrcSet?: string;
   imgSizes?: string;
   exploreHref: string;
-  exploreLabel: string;
 }
 
 export interface CinematicPlace {
@@ -55,7 +54,6 @@ interface Props {
   heroKicker: string;
   heroLead: string;
   heroProof: string[];
-  scrollHint: string;
   welcomeMessage: string;
   hostAvatarSrc: string;
   hostAvatarSrcSet?: string;
@@ -67,7 +65,9 @@ interface Props {
   philosophyHeadlineAccent: string;
   philosophyLabel: string;
   philosophyP1: string;
-  philosophyP2: string;
+  /** Derived counts that evidence the Romantic Hideaways positioning. */
+  positioningLabel: string;
+  positioningProofs: string[];
   statReviewsValue: string;
   statRatingValue: string;
   statReviewsLabel: string;
@@ -124,7 +124,6 @@ const {
   heroKicker,
   heroLead,
   heroProof,
-  scrollHint,
   welcomeMessage,
   hostAvatarSrc,
   hostAvatarSrcSet,
@@ -136,7 +135,8 @@ const {
   philosophyHeadlineAccent,
   philosophyLabel,
   philosophyP1,
-  philosophyP2,
+  positioningLabel,
+  positioningProofs,
   statReviewsValue,
   statRatingValue,
   statReviewsLabel,
@@ -233,10 +233,6 @@ const [leadPlace, ...otherPlaces] = places;
       }
     </div>
 
-    <div class="absolute bottom-12 left-1/2 z-10 hidden -translate-x-1/2 flex-col items-center gap-2 text-inverted-on-surface/80 sm:flex">
-      <span class="am-text-caption uppercase tracking-widest">{scrollHint}</span>
-      <div class="h-12 w-px bg-gradient-to-b from-inverted-on-surface-muted to-transparent"></div>
-    </div>
   </section>
 
   <slot name="bookingFinder" />
@@ -287,7 +283,20 @@ const [leadPlace, ...otherPlaces] = places;
 
       <div class="flex flex-col gap-8 am-text-body text-on-surface-variant lg:col-span-6 lg:col-start-7">
         <div><p><InlineEmphasis text={philosophyP1} /></p></div>
-        <div><p><InlineEmphasis text={philosophyP2} /></p></div>
+        <div>
+          <div class="mb-5 flex items-center gap-4">
+            <div class="h-px w-8 bg-primary"></div>
+            <span class="am-text-caption uppercase tracking-widest text-primary">{positioningLabel}</span>
+          </div>
+          <ul class="flex flex-col gap-3">
+            {positioningProofs.map((proof) => (
+              <li class="flex gap-3">
+                <span class="mt-[0.6em] h-px w-4 shrink-0 bg-outline-variant" aria-hidden="true" />
+                <span>{proof}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
         <div>
           <div class="flex gap-8 border-t border-outline-variant/30 pt-8">
             <div>
@@ -304,11 +313,84 @@ const [leadPlace, ...otherPlaces] = places;
     </div>
   </section>
 
+
+  <section class="relative z-[2] border-y border-outline-variant/10 bg-surface-container-low py-20 md:py-28">
+    <div class="mx-auto max-w-screen-2xl">
+      <div class="mb-14 px-6 text-center md:px-12">
+        <span class="mb-4 block am-text-caption uppercase tracking-widest text-primary">{collectionEyebrow}</span>
+        <h2 class="am-text-title text-on-surface">{collectionTitle}</h2>
+      </div>
+
+      {/* The grid is edge-to-edge below sm so the photograph, not its gutter,
+          carries the card on a phone. Card text keeps the page inset. */}
+      <div class="grid gap-x-8 gap-y-14 sm:grid-cols-2 sm:px-6 lg:grid-cols-3 md:px-12">
+        {
+          apartments.map((apt) => (
+            <article class="group relative flex flex-col">
+              <div class="overflow-hidden">
+                <img
+                  src={apt.img}
+                  srcset={apt.imgSrcSet}
+                  sizes={apt.imgSizes}
+                  alt={apt.imgAlt}
+                  class="aspect-[4/3] w-full object-cover sm:aspect-[4/5] transition-transform duration-[1500ms] ease-out motion-safe:group-hover:scale-[1.03]"
+                  width={apt.imgWidth}
+                  height={apt.imgHeight}
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
+
+              <div class="mt-6 flex flex-1 flex-col px-6 sm:px-0">
+                <span class="am-text-caption uppercase tracking-widest text-on-surface-variant">{apt.city}</span>
+
+                <h3 class="mt-2 am-text-subtitle text-on-surface">
+                  <a class="am-home-card-link" href={apt.exploreHref}>
+                    {apt.name}
+                  </a>
+                </h3>
+                <p class="mt-1 am-text-caption italic text-primary">{apt.subtitle}</p>
+
+                {/* The positioning claim, evidenced per stay. */}
+                <ul class="am-home-card-signals mt-5 flex flex-col gap-1 am-text-annotation text-on-surface-variant">
+                  {apt.signals.map((signal) => (
+                    <li>{signal}</li>
+                  ))}
+                </ul>
+
+                {/* Atmosphere belongs on the rental page on a phone; the grid
+                    is for choosing between six stays, not for reading six. */}
+                <p class="am-home-card-view mt-5 hidden am-text-caption text-on-surface-variant sm:block">
+                  {apt.viewNote}
+                </p>
+                <p class="mt-4 hidden am-text-body text-on-surface-variant sm:block">
+                  <InlineEmphasis text={apt.desc} />
+                </p>
+
+                <p class="mt-5 am-text-annotation text-on-surface sm:mt-auto sm:pt-6">{apt.price}</p>
+              </div>
+            </article>
+          ))
+        }
+      </div>
+
+      {
+        collectionCtaHref && (
+          <div class="mt-16 px-6 text-center md:px-12">
+            <a href={collectionCtaHref} class="am-btn am-btn--secondary">
+              {collectionCtaLabel}
+            </a>
+          </div>
+        )
+      }
+    </div>
+  </section>
+
   {
     leadPlace && (
       <section
         id="places"
-        class="relative z-[2] scroll-mt-[104px] border-y border-outline-variant/10 bg-surface-container-low py-20 md:py-28 lg:scroll-mt-[136px]"
+        class="relative z-[2] scroll-mt-[104px] bg-surface py-20 md:py-28 lg:scroll-mt-[136px]"
       >
         <div class="mx-auto max-w-screen-xl px-6 md:px-12">
           <div class="mb-14 max-w-2xl">
@@ -354,7 +436,7 @@ const [leadPlace, ...otherPlaces] = places;
     )
   }
 
-  <section class="relative z-[2] bg-surface py-20 md:py-28">
+  <section class="relative z-[2] border-y border-outline-variant/10 bg-surface-container-low py-20 md:py-28">
     <div class="mx-auto grid max-w-screen-xl gap-12 px-6 md:px-12 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] lg:items-start">
       <div>
         <span class="mb-4 block am-text-caption uppercase tracking-widest text-primary">{bridgeEyebrow}</span>
@@ -374,77 +456,9 @@ const [leadPlace, ...otherPlaces] = places;
           <span aria-hidden="true">&ldquo;</span>{bridgeQuote}<span aria-hidden="true">&rdquo;</span>
         </blockquote>
         <figcaption class="mt-4 am-text-caption uppercase tracking-widest text-on-surface-variant">
-          {bridgeQuoteAttribution}
+          {bridgeQuoteAttribution}{quoteTranslationNote ? ` · ${quoteTranslationNote}` : ''}
         </figcaption>
-        {
-          quoteTranslationNote && (
-            <p class="mt-2 am-text-caption text-on-surface-variant">{quoteTranslationNote}</p>
-          )
-        }
       </figure>
-    </div>
-  </section>
-
-  <section class="relative z-[2] border-y border-outline-variant/10 bg-surface-container-low py-20 md:py-28">
-    <div class="mx-auto max-w-screen-2xl px-6 md:px-12">
-      <div class="mb-14 text-center">
-        <span class="mb-4 block am-text-caption uppercase tracking-widest text-primary">{collectionEyebrow}</span>
-        <h2 class="am-text-title text-on-surface">{collectionTitle}</h2>
-      </div>
-
-      <div class="grid gap-x-8 gap-y-14 sm:grid-cols-2 lg:grid-cols-3">
-        {
-          apartments.map((apt) => (
-            <article class="group flex flex-col">
-              <div class="overflow-hidden">
-                <img
-                  src={apt.img}
-                  srcset={apt.imgSrcSet}
-                  sizes={apt.imgSizes}
-                  alt={apt.imgAlt}
-                  class="aspect-[3/2] w-full object-cover sm:aspect-[4/5] transition-transform duration-[1500ms] ease-out motion-safe:group-hover:scale-[1.03]"
-                  width={apt.imgWidth}
-                  height={apt.imgHeight}
-                  loading="lazy"
-                  decoding="async"
-                />
-              </div>
-
-              <div class="mt-6 flex flex-1 flex-col">
-                <div class="mb-3 flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
-                  <span class="am-text-caption uppercase tracking-widest text-on-surface-variant">{apt.city}</span>
-                  <span class="am-text-subtitle text-primary">{apt.price}</span>
-                </div>
-
-                <h3 class="mb-1 am-text-subtitle text-on-surface">{apt.name}</h3>
-                <p class="mb-4 am-text-caption italic text-primary">{apt.subtitle}</p>
-
-                <ul class="mb-3 flex flex-wrap gap-x-4 gap-y-1 am-text-caption text-on-surface-variant">
-                  {apt.interiorFact && <li>{apt.interiorFact}</li>}
-                  {apt.terraceFact && <li>{apt.terraceFact}</li>}
-                </ul>
-                <p class="mb-4 am-text-caption text-on-surface-variant">{apt.viewNote}</p>
-
-                <p class="mb-6 am-text-body text-on-surface-variant"><InlineEmphasis text={apt.desc} /></p>
-
-                <a href={apt.exploreHref} class="am-cta-link am-cta-link--accent mt-auto self-start">
-                  {apt.exploreLabel}
-                </a>
-              </div>
-            </article>
-          ))
-        }
-      </div>
-
-      {
-        collectionCtaHref && (
-          <div class="mt-16 text-center">
-            <a href={collectionCtaHref} class="am-btn am-btn--secondary">
-              {collectionCtaLabel}
-            </a>
-          </div>
-        )
-      }
     </div>
   </section>
 
@@ -464,20 +478,15 @@ const [leadPlace, ...otherPlaces] = places;
     </div>
 
     <div class="relative z-10 mx-auto max-w-screen-xl px-6 text-center md:px-12">
-      <span class="am-gold mb-8 block am-text-subtitle" aria-hidden="true">★★★★★</span>
-
+      {/* A guest speaks here, so the type stays at quote scale. Set at title
+          scale this band read as AMARA shouting a testimonial. */}
       <figure>
-        <blockquote class="mx-auto mb-6 max-w-4xl am-text-title text-inverted-on-surface">
+        <blockquote class="mx-auto mb-6 max-w-3xl am-text-subtitle italic text-inverted-on-surface">
           <span aria-hidden="true">&ldquo;</span>{trustQuote}<span aria-hidden="true">&rdquo;</span>
         </blockquote>
         <figcaption class="am-text-caption uppercase tracking-widest text-inverted-on-surface/80">
-          {trustQuoteAttribution}
+          {trustQuoteAttribution}{quoteTranslationNote ? ` · ${quoteTranslationNote}` : ''}
         </figcaption>
-        {
-          quoteTranslationNote && (
-            <p class="mt-2 am-text-caption text-inverted-on-surface/70">{quoteTranslationNote}</p>
-          )
-        }
       </figure>
 
       <div class="mb-12 mt-12 flex flex-wrap justify-center gap-4 md:gap-6">
@@ -557,3 +566,59 @@ const [leadPlace, ...otherPlaces] = places;
     )
   }
 </div>
+
+<style>
+  /**
+   * The whole collection card is the link to its stay. The card previously
+   * carried a separate "<name> entdecken" CTA, which put the word "entdecken"
+   * on the home seven times and added a row of chrome under every card. The
+   * accessible name stays the stay's name; the overlay only extends the hit
+   * area to the card.
+   */
+  .am-home-card-link {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .am-home-card-link::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+  }
+
+  .am-home-card-link:hover {
+    color: var(--color-primary);
+  }
+
+  .am-home-card-link:focus-visible {
+    outline: none;
+  }
+
+  .am-home-card-link:focus-visible::after {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 4px;
+  }
+
+  /**
+   * Cards in a row are equal height, but their variable-length lines are not,
+   * so the text bands under the photographs used to sit a line apart from each
+   * other. Reserving the two variable blocks holds the horizontal rhythm
+   * without forcing every stay to claim the same number of features.
+   */
+  .am-home-card-signals {
+    line-height: 1.5;
+  }
+
+  @media (min-width: 640px) {
+    /* Three lines plus the two 0.25rem gaps between them. */
+    .am-home-card-signals {
+      min-height: calc(3 * 1.5em + 0.5rem);
+    }
+
+    /* Two lines: the view note runs to one line for a stay on the village
+       street and to two for one above the plantations. */
+    .am-home-card-view {
+      min-height: calc(2 * 1.3em);
+    }
+  }
+</style>
