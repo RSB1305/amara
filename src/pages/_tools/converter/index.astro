@@ -379,24 +379,41 @@ const rootCss = designTokenRoot('    ');
     return (html.match(/style\s*=\s*["']/g) || []).length
   }
 
+  /**
+   * Rewrites the palette an AI Studio draft ships with onto AMARA's tokens.
+   *
+   * These used to be written as `--am-color-*`, a namespace that exists nowhere
+   * in the project — the site declares `--color-*` — so every converted file
+   * pointed at tokens that were never defined and silently fell back to
+   * unstyled. The names below are the real ones from `global.css`.
+   *
+   * The mapping is by role, not by nearest colour, because converting to the
+   * brand is the point: a draft's neutral grey border becomes AMARA's warm
+   * stone, and its deep blue becomes the inverse surface, since the palette has
+   * no blue. Those shifts are intended. Where a hex already matches a token
+   * exactly it is noted.
+   */
   function replaceKnownHex(html: string): string {
     const map: Record<string, string> = {
-      '#F9F5EE': 'var(--am-color-surface)',
-      '#F5F0E8': 'var(--am-color-surface)',
-      '#F5F2ED': 'var(--am-color-surface)',
-      '#F9F8F6': 'var(--am-color-surface-alt)',
-      '#1A2B3C': 'var(--am-color-deep-blue)',
-      '#C9A96E': 'var(--am-color-gold)',
-      '#1A1A1A': 'var(--am-color-text-primary)',
-      '#ffffff': 'var(--am-color-white)',
-      '#FFFFFF': 'var(--am-color-white)',
-      '#4A4A4A': 'var(--am-color-text-secondary)',
-      '#666':    'var(--am-color-text-muted)',
-      '#666666': 'var(--am-color-text-muted)',
-      '#888':    'var(--am-color-text-hint)',
-      '#888888': 'var(--am-color-text-hint)',
-      '#E5E5E5': 'var(--am-color-border)',
-      '#A0A0A0': 'var(--am-color-text-on-dark)',
+      // Page ground. #F5F2ED is --color-surface exactly; the other two are drafts of it.
+      '#F9F5EE': 'var(--color-surface)',
+      '#F5F0E8': 'var(--color-surface)',
+      '#F5F2ED': 'var(--color-surface)',
+      '#F9F8F6': 'var(--color-surface-container-lowest)',
+      // AMARA has no blue. The role is "dark section ground".
+      '#1A2B3C': 'var(--color-inverse-surface)',
+      // The decorative gold, not --color-primary: that is the text-safe gold.
+      '#C9A96E': 'var(--color-gold)',
+      '#1A1A1A': 'var(--color-on-surface)',
+      '#ffffff': 'var(--color-surface-white)',
+      '#FFFFFF': 'var(--color-surface-white)',
+      '#4A4A4A': 'var(--color-on-surface-variant)',
+      '#666':    'var(--color-muted)',
+      '#666666': 'var(--color-muted)',
+      '#888':    'var(--color-hint)',
+      '#888888': 'var(--color-hint)',
+      '#E5E5E5': 'var(--color-outline-variant)',
+      '#A0A0A0': 'var(--color-faint)',
     }
     let out = html
     for (const [hex, v] of Object.entries(map)) out = out.split(hex).join(v)
