@@ -2,7 +2,7 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Navigation from '../../components/Navigation.astro';
 import AmaraImage from '../../components/AmaraImage.astro';
-import BookingDecisionPanel from '../../components/conversion/BookingDecisionPanel.astro';
+import StayHero from '../../components/hero/StayHero.astro';
 import AmaraPageShell from '../../components/layout/AmaraPageShell.astro';
 import AmaraSection from '../../components/layout/AmaraSection.astro';
 import RentalPhotoGallery from '../../components/vacation-rental/RentalPhotoGallery.astro';
@@ -14,14 +14,12 @@ import {
   BadgeEuro,
   BedDouble,
   CarFront,
-  Check,
   CircleParking,
   Clock3,
   Eye,
   KeyRound,
   Languages,
-  PawPrint,
-  ShieldCheck
+  PawPrint
 } from '@lucide/astro';
 import type { AstroComponent } from '@lucide/astro';
 import {
@@ -480,128 +478,39 @@ const contextDestination: DestinationId | undefined =
   />
 
   <AmaraPageShell family="vacation-rental">
-      <AmaraSection variant="hero" class="am-stay-hero">
-        <figure class="am-stay-hero__photo relative aspect-[5/4] max-h-[min(720px,62vh)] overflow-hidden bg-surface-container-low md:aspect-[3/2] xl:aspect-[16/9]">
-          <button
-            type="button"
-            class="group block h-full w-full cursor-zoom-in focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[-2px] focus-visible:outline-primary"
-            data-am-rental-photo-open
-            data-am-photo-index="0"
-            aria-haspopup="dialog"
-            aria-label={`${t(ui.galleryTitle as LocalizedText)}: ${rental.name}`}
-          >
-            <AmaraImage
-              src={heroImage}
-              alt={imageAlts[0] ?? t(rental.imageAlt)}
-              profile="hero"
-              sizes="(max-width: 639px) 100vw, (max-width: 767px) calc(100vw - 3rem), (max-width: 1535px) calc(100vw - 6rem), 1440px"
-              class="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.01] motion-reduce:transition-none motion-reduce:group-hover:scale-100"
-              loading="eager"
-              fetchpriority="high"
-              decoding="async"
-            />
-            <span class="am-hero-photo-count am-text-label" aria-hidden="true">
-              1 / {rental.images.length}
-            </span>
-          </button>
-        </figure>
-
-        <div class="mt-6 max-w-4xl md:mt-10">
-          <p class="am-text-eyebrow text-primary">
-            {t(rental.eyebrow)}
-          </p>
-          <h1 class="am-text-display text-on-surface mt-3 max-w-4xl text-balance">
-            {rental.name}
-          </h1>
-          <p class="am-text-title text-on-surface mt-4 max-w-4xl text-balance">
-            {t(rental.headline)}
-          </p>
-
-          <ul
-            class="am-text-body mt-6 flex flex-wrap gap-x-5 gap-y-2 text-on-surface"
-            aria-label={t(ui.keyFactsLabel as LocalizedText)}
-            data-am-component="stay-key-facts"
-          >
-            {keyFacts.map(({ label, Icon }) => (
-              <li class="inline-flex items-center gap-2">
-                <Icon class="h-4 w-4 shrink-0 text-primary" stroke-width={1.5} aria-hidden="true" />
-                <span>{label}</span>
-              </li>
-            ))}
-          </ul>
-
-          {collectionHref && (
-            <p class="am-text-caption mt-3 font-normal">
-              <a class="am-inline-link" href={collectionHref}>
-                {t(stayCollectionLabels.backToCollectionLabel)}
-              </a>
-            </p>
-          )}
-
-          <BookingDecisionPanel
-            priceLabel={t(ui.labels.pricePerNight as LocalizedText)}
-            price={fromPrice}
-            primary={{
-              href: bookingSectionHref,
-              label: t(ui.chooseDates as LocalizedText)
-            }}
-            primaryInPage
-            priceNote={t(ui.indicativePriceNote as LocalizedText)}
-            supportLinks={bookingSupportLinks}
-          />
-
-          <p
-            class:list={[
-              'am-text-body text-on-surface-variant mt-8 max-w-2xl leading-relaxed',
-              { 'whitespace-pre-line': isFamilySurf }
-            ]}
-          >
-            {t(rental.lead)}
-          </p>
-        </div>
-
-        <div class="mt-7 max-w-4xl md:mt-9">
-          {highlights.length > 0 && (
-            <ul class="grid max-w-2xl gap-2">
-              {highlights.map((highlight) => (
-                <li class="am-text-body text-on-surface flex gap-3 leading-relaxed">
-                  <Check class="mt-[0.35em] h-4 w-4 shrink-0 text-primary" stroke-width={1.75} aria-hidden="true" />
-                  <span class:list={[{ 'whitespace-pre-line': isFamilySurf }]}>{highlight}</span>
-                </li>
-              ))}
-            </ul>
-          )}
-
-          <div
-            data-am-component="property-booking-trust"
-            class="mt-7 border-t border-border-subtle pt-5"
-          >
-            <div class="grid grid-cols-[1.5rem_minmax(0,1fr)] gap-3">
-              <ShieldCheck class="mt-0.5 h-5 w-5 text-primary" stroke-width={1.5} aria-hidden="true" />
-              <div>
-                <p class="am-text-body font-bold text-on-surface">
-                  {directBookingTrustSignals.directWithAmara[currentLang]}
-                </p>
-                <ul class="am-text-body mt-3 grid gap-x-6 gap-y-2 text-on-surface-variant sm:grid-cols-2">
-                  {bookingTrustSignals.map((signal) => (
-                    <li class="grid grid-cols-[1rem_minmax(0,1fr)] items-start gap-2">
-                      <Check class="mt-1 h-3.5 w-3.5 text-primary" stroke-width={1.75} aria-hidden="true" />
-                      <span>{signal}</span>
-                    </li>
-                  ))}
-                </ul>
-                {bookingTrustLinks.length > 0 && (
-                  <div class="am-text-body mt-4 flex flex-wrap gap-x-5 gap-y-2">
-                    {bookingTrustLinks.map((link) => (
-                      <a class="am-inline-link" href={link.href}>{link.label}</a>
-                    ))}
-                  </div>
-                )}
-              </div>
-            </div>
-          </div>
-        </div>
-      </AmaraSection>
+      <StayHero
+        imageSrc={heroImage}
+        imageAlt={imageAlts[0] ?? t(rental.imageAlt)}
+        imageCount={rental.images.length}
+        galleryLabel={`${t(ui.galleryTitle as LocalizedText)}: ${rental.name}`}
+        eyebrow={t(rental.eyebrow)}
+        title={rental.name}
+        headline={t(rental.headline)}
+        keyFactsLabel={t(ui.keyFactsLabel as LocalizedText)}
+        keyFacts={keyFacts}
+        collectionLink={collectionHref ? {
+          href: collectionHref,
+          label: t(stayCollectionLabels.backToCollectionLabel)
+        } : undefined}
+        booking={{
+          priceLabel: t(ui.labels.pricePerNight as LocalizedText),
+          price: fromPrice,
+          primary: {
+            href: bookingSectionHref,
+            label: t(ui.chooseDates as LocalizedText)
+          },
+          priceNote: t(ui.indicativePriceNote as LocalizedText),
+          supportLinks: bookingSupportLinks
+        }}
+        lead={t(rental.lead)}
+        preserveLeadWhitespace={isFamilySurf}
+        highlights={highlights}
+        directTrust={{
+          title: directBookingTrustSignals.directWithAmara[currentLang],
+          signals: bookingTrustSignals,
+          links: bookingTrustLinks
+        }}
+      />
 
       <StayBookingCalendar
         id={bookingSectionId}
@@ -988,51 +897,6 @@ const contextDestination: DestinationId | undefined =
 </BaseLayout>
 
 <style is:global>
-  /**
-   * The opening photo is the page's first argument, so it meets every viewport
-   * edge and forms the transition from the page ground into the white stay
-   * canvas. `.am-page-shell` already clips horizontally, so escaping the shell
-   * inset and the frame gutter cannot introduce a sideways scroll.
-   */
-  .am-stay-hero {
-    padding-top: 0;
-  }
-
-  .am-stay-hero__photo {
-    /* The photo fills the white stay canvas exactly, clearing the gutter the
-       hero section re-applies inside its own negative margin. It stops at the
-       canvas edge rather than at the viewport edge, so the page keeps one
-       unbroken white-to-ground boundary instead of the photo overhanging it. */
-    width: calc(100% + var(--spacing-page-gutter) * 2);
-    max-width: none;
-    margin-inline: calc(var(--spacing-page-gutter) * -1);
-  }
-
-  /**
-   * The hero photo carries the entry into the full gallery. The counter names
-   * how much more there is to see without covering the image itself.
-   */
-  .am-hero-photo-count {
-    position: absolute;
-    right: 0.75rem;
-    bottom: 0.75rem;
-    display: inline-flex;
-    align-items: center;
-    gap: 0.375rem;
-    border-radius: var(--radius-control);
-    background: rgb(0 0 0 / 0.55);
-    padding: 0.3rem 0.65rem;
-    color: rgb(255 255 255 / 0.95);
-    backdrop-filter: blur(2px);
-  }
-
-  @media (min-width: 48rem) {
-    .am-hero-photo-count {
-      right: 1.25rem;
-      bottom: 1.25rem;
-    }
-  }
-
   @media (max-width: 47.999rem) {
     [data-am-page='vacation-rental'] ~ .footer .footer-minimal {
       padding-block: 1.5rem;

@@ -3,21 +3,7 @@ import type { ImageMetadata } from 'astro';
 import AmaraActionLink from '../actions/AmaraActionLink.astro';
 import EditorialByline from '../editorial/EditorialByline.astro';
 import LocationGuideHero from './LocationGuideHero.astro';
-import type { AmaraLanguage } from '../../types/seo';
-
-interface HeroAction {
-  href: string;
-  label: string;
-  style: 'primary' | 'secondary';
-}
-
-interface Byline {
-  lang: AmaraLanguage;
-  authorName: string;
-  authorHref: string;
-  updated: string;
-  note: string;
-}
+import type { AmaraHeroByline, AmaraHeroStyledAction } from '../hero/heroContract';
 
 interface Props {
   eyebrow: string;
@@ -28,8 +14,8 @@ interface Props {
   imageAlt?: string;
   imageWidth?: number;
   imageSizes?: string;
-  actions?: HeroAction[];
-  byline?: Byline;
+  actions?: AmaraHeroStyledAction[];
+  byline?: AmaraHeroByline;
   topic: string;
 }
 

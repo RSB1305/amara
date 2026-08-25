@@ -2,15 +2,7 @@
 import type { ImageMetadata } from 'astro';
 import EditorialByline from '../editorial/EditorialByline.astro';
 import LocationGuideHero from './LocationGuideHero.astro';
-import type { AmaraLanguage } from '../../types/seo';
-
-interface Byline {
-  lang: AmaraLanguage;
-  authorName: string;
-  authorHref: string;
-  updated: string;
-  note: string;
-}
+import type { AmaraHeroByline } from '../hero/heroContract';
 
 interface Props {
   eyebrow: string;
@@ -21,7 +13,7 @@ interface Props {
   imageAlt: string;
   imageWidth?: number;
   imageSizes?: string;
-  byline?: Byline;
+  byline?: AmaraHeroByline;
 }
 
 const {

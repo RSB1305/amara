@@ -1,18 +1,16 @@
 ---
 import InlineEmphasis from '../text/InlineEmphasis.astro';
 import AmaraActionLink from '../actions/AmaraActionLink.astro';
-
-interface HeroLink {
-  href: string;
-  label: string;
-}
+import { getAmaraHeroAttributes, type AmaraHeroAction } from './heroContract';
 
 interface Props {
   title: string;
   titleWidth?: 'default' | 'wide';
+  eyebrow?: string;
+  /** Compatibility alias while content models retain the old key. */
   subtitle?: string;
   lead: string;
-  ctaLinks?: HeroLink[];
+  ctaLinks?: AmaraHeroAction[];
   ctaVariant?: 'editorial' | 'conversion';
   supportText?: string;
   spacing?: 'standalone' | 'section';
@@ -21,6 +19,7 @@ interface Props {
 const {
   title,
   titleWidth = 'default',
+  eyebrow,
   subtitle,
   lead,
   ctaLinks = [],
@@ -28,12 +27,19 @@ const {
   supportText,
   spacing = 'standalone'
 } = Astro.props;
+
+const resolvedEyebrow = eyebrow ?? subtitle;
+
+const heroAttributes = getAmaraHeroAttributes({
+  family: 'trust',
+  variant: 'trust-content'
+});
 ---
 
-<div class:list={['am-exp-hero', { 'am-exp-hero--section': spacing === 'section' }]}>
-  {subtitle && (
+<div {...heroAttributes} class:list={['am-exp-hero', { 'am-exp-hero--section': spacing === 'section' }]}>
+  {resolvedEyebrow && (
     <div class="am-exp-hero__meta">
-      <span class="am-text-eyebrow text-primary">{subtitle}</span>
+      <span class="am-text-eyebrow text-primary">{resolvedEyebrow}</span>
     </div>
   )}
   <h1

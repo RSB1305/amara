@@ -1,7 +1,7 @@
 ---
 document_id: AMARA-INT-ASTRO-003
 title: AMARA Astro & Design Architecture Contract V4
-version: 4.5.0
+version: 4.6.0
 status: ACTIVE
 authority_class: CONTRACT / GOVERNING INTERIM
 source_type: INTERIM SNAPSHOT FROM APPROVED PDF + APPROVED REPOSITORY AMENDMENT
@@ -9,7 +9,7 @@ source_attachment: "03_AMARA_Astro_Technical_Standard_V4 (1).pdf"
 source_sha256: b3d8a3e780b29b5be42922aec838c7f56f455184cca8336d9a0f3564ba43f9aa
 snapshot_created: 2026-08-14T09:08:00+02:00
 migration_state: PENDING PACKAGE 2/3 NORMALIZATION
-last_modified: 2026-08-25T17:32:07+02:00
+last_modified: 2026-08-25T17:49:36+02:00
 ---
 
 # AMARA Astro & Design Architecture Contract V4 — Interim Markdown Snapshot
@@ -142,11 +142,29 @@ The operational consequences are:
   a primary action behind a different information path or change which content carries the page's job.
 
 7. Hero contract
-Hero media is not a card.
-Do not add card borders, shadows, fake frames, or reusable-card radius behavior to hero media.
-Hero geometry and image priority must follow the page family's canonical hero pattern.
-A repeated hero family must use a shared hero component or shared structural contract rather than page-
-specific variants.
+
+`src/components/hero/heroContract.ts` is the canonical semantic owner for public hero classification. It
+does not impose one universal composition. Every production hero owner declares a family, a named variant,
+an optional hub/spoke/conversion role and an optional topic through the shared `data-am-hero-*` attributes.
+This makes the cluster discoverable and governable without erasing page-job differences.
+
+The active family variants are:
+
+- `TrustHero` / `trust-content` for text-led trust and supporting information pages;
+- `StayHero` / `stay-decision` for the image, key facts, booking decision and direct-trust sequence on a stay;
+- `LocationGuideHero` and its thin derivatives / `authority-media` or `authority-evidence` for Location and
+  image-led Experience authority;
+- `ExperienceArticleHero` / `authority-editorial` for narrative Experience articles with standfirst and
+  provenance;
+- `Hero` / `campaign-media` for the bounded campaign/editorial split composition that predates the authority
+  family and remains a named family variant.
+
+Hero media is not a card. Do not add card borders, shadows, fake frames, or reusable-card radius behavior to
+hero media. Hero geometry, semantic order, action path and image priority follow the named family owner. Each
+hero has one page heading; eyebrow, lead/paragraphs, metadata, actions and media are exposed only where the
+family job needs them. A new public hero uses one of these owners. A materially new hero job requires explicit
+classification and a contract/owner change rather than a page-local recipe. Existing direct compositions are
+legacy and migrate when their page-family renderer is materially revised.
 
 8. Images
 Use the canonical Astro image pipeline and AMARA image profiles.
@@ -349,3 +367,4 @@ The styleguide is therefore an executable view of the system, not a parallel sou
 | 4.3.0 | 2026-08-25T15:51:22+02:00 | Activated exception-led cross-silo design convergence, explicit design-status classes, executable owner boundaries and the living-styleguide contract without changing public rendering. |
 | 4.4.0 | 2026-08-25T16:33:34+02:00 | Activated the executable action/link and chip/status component owners, migrated bounded cross-silo consumers, and kept icon surfaces and decorative emphasis outside the chip/status vocabulary. |
 | 4.5.0 | 2026-08-25T17:32:07+02:00 | Closed all 32 typography legacy values through canonical or explicitly named special-purpose roles, reduced the ratchet to zero and replaced the styleguide's parallel typography specimens with production roles. |
+| 4.6.0 | 2026-08-25T17:49:36+02:00 | Activated the semantic hero contract, named the deliberate Trust, Stay, Location, Experience and campaign variants, extracted the Stay decision hero into a production owner and rendered representative production owners in the living styleguide. |

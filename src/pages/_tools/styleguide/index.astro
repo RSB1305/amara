@@ -8,6 +8,16 @@ import AmaraActionLink from '../../../components/actions/AmaraActionLink.astro';
 import AmaraFilterChip from '../../../components/chips/AmaraFilterChip.astro';
 import AmaraMetaChip from '../../../components/chips/AmaraMetaChip.astro';
 import AmaraStatusBadge from '../../../components/chips/AmaraStatusBadge.astro';
+import ExperienceArticleHero from '../../../components/experience/ExperienceArticleHero.astro';
+import LocationGuideHero from '../../../components/location/LocationGuideHero.astro';
+import StayHero from '../../../components/hero/StayHero.astro';
+import TrustHero from '../../../components/hero/TrustHero.astro';
+import { BedDouble, UsersRound } from '@lucide/astro';
+
+const styleguideStayFacts = [
+  { label: '2 guests', Icon: UsersRound },
+  { label: '1 bedroom', Icon: BedDouble }
+];
 ---
 
 <!DOCTYPE html>
@@ -57,6 +67,8 @@ import AmaraStatusBadge from '../../../components/chips/AmaraStatusBadge.astro';
     /* Components */
     .sg-component-frame { background: var(--color-surface-white); border: 1px solid var(--color-outline-variant); border-radius: 12px; padding: 32px; margin-bottom: 12px; }
     .sg-component-label { font-size: 10px; letter-spacing: .1em; text-transform: uppercase; color: var(--color-hint); margin-top: 12px; }
+    .sg-hero-preview { border: 1px solid var(--color-outline-variant); background: var(--color-surface); margin-bottom: 20px; overflow: hidden; }
+    .sg-hero-meta { padding: 14px 16px; border-top: 1px solid var(--color-outline-variant); background: var(--color-surface-white); color: var(--color-muted); font-size: 11px; line-height: 1.6; }
 
     /* Cards */
     .sg-card { background: var(--color-surface-white); border: 1px solid var(--color-outline-variant); border-radius: 12px; padding: 24px; box-shadow: var(--shadow-editorial-card); }
@@ -112,6 +124,7 @@ import AmaraStatusBadge from '../../../components/chips/AmaraStatusBadge.astro';
     <a href="#spacing">Spacing</a>
     <a href="#structure">Page Structure</a>
     <div class="sg-nav-section">Components</div>
+    <a href="#heroes">Hero Families</a>
     <a href="#buttons">Buttons</a>
     <a href="#chips">Chips & Status</a>
     <a href="#cards">Cards</a>
@@ -319,6 +332,91 @@ import AmaraStatusBadge from '../../../components/chips/AmaraStatusBadge.astro';
         Das Astro Layout komponiert die globale Seitenstruktur<br>
         Die Page Family besitzt den jeweiligen Seiteninhalt<br>
         Kein <span class="sg-code">style=""</span> inline · kein <span class="sg-code">!important</span> außer SSOT-dokumentiert
+      </div>
+    </section>
+
+    <!-- HERO FAMILIES -->
+    <section class="sg-section" id="heroes">
+      <h2 class="sg-section-title">Hero Families</h2>
+      <p class="sg-inline-demo" style="margin-bottom:28px">
+        Ein gemeinsamer semantischer Vertrag macht alle Hero-Owner auffindbar und steuerbar. Die Geometrie bleibt eine benannte Familienentscheidung: Trust vermittelt Vertrauen, Stay führt zur Buchungsentscheidung, Location verbindet Orientierung mit Bildautorität und Experience darf editorial erzählen.
+      </p>
+
+      <span class="sg-label">Trust · family variant · trust-content</span>
+      <div class="sg-hero-preview">
+        <div style="padding:24px 28px">
+          <TrustHero
+            spacing="section"
+            eyebrow="AMARA Trust"
+            title="Confidence before you arrive"
+            lead="Clear expectations, direct contact and evidence that supports the decision."
+            ctaLinks={[{ href: '#links', label: 'Read the trust guide' }]}
+          />
+        </div>
+        <div class="sg-hero-meta">Owner: <span class="sg-code">TrustHero</span> · text-led · optional editorial or conversion actions · no media requirement</div>
+      </div>
+
+      <span class="sg-label">Stay · family variant · stay-decision</span>
+      <div class="sg-hero-preview">
+        <StayHero
+          imageSrc="/images/hero-frigiliana.jpg"
+          imageAlt="Whitewashed houses in Frigiliana"
+          imageCount={12}
+          galleryLabel="Open the stay gallery"
+          eyebrow="Romantic Hideaway · Frigiliana"
+          title="Casa AMARA"
+          headline="A calm village stay for shared time"
+          keyFactsLabel="Key stay facts"
+          keyFacts={styleguideStayFacts}
+          booking={{
+            priceLabel: 'From per night',
+            price: '€145',
+            primary: { href: '#buttons', label: 'Choose dates' },
+            priceNote: 'Final price depends on dates and occupancy.'
+          }}
+          lead="The opening decision block keeps the stay, its practical fit and the next booking step in one mobile-first sequence."
+          highlights={['Direct host contact', 'Live availability after interaction']}
+          directTrust={{
+            title: 'Book directly with AMARA',
+            signals: ['Clear stay conditions', 'Secure provider-owned checkout']
+          }}
+        />
+        <div class="sg-hero-meta">Owner: <span class="sg-code">StayHero</span> · image-led conversion sequence · gallery entry, key facts, booking decision and trust evidence</div>
+      </div>
+
+      <span class="sg-label">Location · family variant · authority-media</span>
+      <div class="sg-hero-preview">
+        <LocationGuideHero
+          eyebrow="Location Authority · Frigiliana"
+          title="Understand the village before you choose where to stay"
+          paragraphs={['A location hero connects the place, the practical consequence and the visual evidence without turning the image into a card.']}
+          imageSrc="/images/hero-frigiliana.jpg"
+          imageAlt="Frigiliana village on the hillside"
+          role="hub"
+          topic="overview"
+        />
+        <div class="sg-hero-meta">Owner: <span class="sg-code">LocationGuideHero</span> · authority-media or authority-evidence · hub and spoke roles · optional meta and action slots</div>
+      </div>
+
+      <span class="sg-label">Experience · family variant · authority-editorial</span>
+      <div class="sg-hero-preview">
+        <ExperienceArticleHero
+          eyebrow="AMARA Experience"
+          title="A day shaped by place, pace and the way back home"
+          standfirst="The editorial variant gives a narrative standfirst and provenance equal weight without inventing a separate typographic language."
+          lang="en"
+          authorName="AMARA"
+          authorHref="#heroes"
+          updated="25 August 2026"
+          note="AMARA editorial guidance"
+          mark="01"
+          topic="styleguide"
+        />
+        <div class="sg-hero-meta">Owner: <span class="sg-code">ExperienceArticleHero</span> · editorial authority · standfirst, byline and optional graphic mark</div>
+      </div>
+
+      <div class="sg-component-label">
+        Gemeinsamer Owner: <span class="sg-code">heroContract.ts</span> · alle Varianten tragen <span class="sg-code">data-am-hero-family</span>, <span class="sg-code">data-am-hero-variant</span>, Rolle und Status · neue lokale Hero-Rezepte sind neben diesen Familien nicht zulässig
       </div>
     </section>
 

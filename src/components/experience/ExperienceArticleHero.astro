@@ -1,17 +1,15 @@
 ---
 import EditorialByline from '../editorial/EditorialByline.astro';
 import InlineEmphasis from '../text/InlineEmphasis.astro';
-import type { AmaraLanguage } from '../../types/seo';
+import {
+  getAmaraHeroAttributes,
+  type AmaraHeroByline
+} from '../hero/heroContract';
 
-interface Props {
+interface Props extends AmaraHeroByline {
   eyebrow: string;
   title: string;
   standfirst: string;
-  lang: AmaraLanguage;
-  authorName: string;
-  authorHref: string;
-  updated: string;
-  note: string;
   mark?: string;
   topic?: string;
 }
@@ -28,13 +26,18 @@ const {
   mark,
   topic
 } = Astro.props;
+
+const heroAttributes = getAmaraHeroAttributes({
+  family: 'experience',
+  variant: 'authority-editorial',
+  role: 'spoke',
+  topic
+});
 ---
 
 <header
+  {...heroAttributes}
   class="overflow-hidden border-b border-border-subtle bg-surface px-6 py-20 md:px-12 md:py-28 lg:py-36"
-  data-am-family="experience"
-  data-am-role="spoke"
-  data-am-topic={topic}
 >
   <div class="mx-auto grid max-w-screen-2xl gap-14 lg:grid-cols-12 lg:items-start lg:gap-16">
     <div class="lg:col-span-8">
