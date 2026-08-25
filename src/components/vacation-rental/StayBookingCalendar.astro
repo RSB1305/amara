@@ -172,6 +172,13 @@ const copy = {
     nl: 'Kies nu het vertrek. Alleen data waarbij elke nacht beschikbaar is en de verblijfsregels passen, zijn selecteerbaar.',
     sv: 'Välj nu avresa. Endast datum där varje natt är tillgänglig och vistelsereglerna uppfylls kan väljas.'
   },
+  bookNow: {
+    en: 'Book now',
+    de: 'Jetzt buchen',
+    es: 'Reservar ahora',
+    nl: 'Nu boeken',
+    sv: 'Boka nu'
+  },
   minimumStayHelp: {
     en: 'Minimum stay from this arrival: {count} nights. Available dates remain visible; choose a valid departure.',
     de: 'Mindestaufenthalt ab dieser Anreise: {count} Nächte. Verfügbare Tage bleiben sichtbar; wählt eine mögliche Abreise.',
@@ -375,6 +382,13 @@ const titleId = `${bookingKey}-booking-calendar-title`;
           <p class="am-text-title mt-2 text-on-surface" data-am-booking-price></p>
         </div>
         <p class="am-text-caption mt-4 font-normal leading-relaxed text-on-surface-variant" data-am-booking-note></p>
+        <a
+          class="am-btn am-btn--primary mt-5 w-full justify-center sm:w-auto"
+          hidden
+          data-am-booking-checkout
+        >
+          {t(copy.bookNow)}
+        </a>
       </div>
     </div>
   </div>

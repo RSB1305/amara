@@ -92,6 +92,7 @@ export const lastMinuteStaysCopy = {
     exampleStay: l('Example', 'Beispiel', 'Ejemplo', 'Voorbeeld', 'Exempel'),
     totalPrice: l('Confirmed total price', 'Bestätigter Gesamtpreis', 'Precio total confirmado', 'Bevestigde totaalprijs', 'Bekräftat totalpris'),
     viewStay: l('Book these dates', 'Diese Reisedaten buchen', 'Reservar estas fechas', 'Boek deze data', 'Boka dessa datum'),
+    viewStayDetails: l('View stay', 'Unterkunft ansehen', 'Ver alojamiento', 'Verblijf bekijken', 'Visa boendet'),
     night: l('{count} night', '{count} Nacht', '{count} noche', '{count} nacht', '{count} natt'),
     nights: l('{count} nights', '{count} Nächte', '{count} noches', '{count} nachten', '{count} nätter'),
     priceNote: l('The displayed total is a current quote for the dates and guests shown, not a claimed discount. Final conditions appear before confirmation.', 'Der angezeigte Gesamtpreis ist eine aktuelle Quote für die genannten Reisedaten und Gäste, keine Rabattbehauptung. Die endgültigen Bedingungen werden vor der Bestätigung angezeigt.', 'El total mostrado es una cotización actual para las fechas y huéspedes indicados, no una afirmación de descuento. Las condiciones finales aparecen antes de confirmar.', 'Het getoonde totaal is een actuele prijsopgave voor de vermelde data en gasten, geen kortingsclaim. De definitieve voorwaarden verschijnen vóór bevestiging.', 'Det visade totalpriset är en aktuell offert för angivna datum och gäster, inte ett påstående om rabatt. Slutliga villkor visas före bekräftelse.'),

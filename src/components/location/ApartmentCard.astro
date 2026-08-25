@@ -88,10 +88,9 @@ const {
     )}
     <div class="am-apartment-card__cta-wrap">
       <a
-        class="am-btn am-btn--secondary"
+        class:list={['am-btn', dataStay ? 'am-btn--primary' : 'am-btn--secondary']}
         href={href}
-        data-am-stay-result-link={dataStay}
-        data-am-stay-result-base-href={dataStay ? href : undefined}
+        data-am-stay-booking-link={dataStay}
       >{ctaLabel}</a>
     </div>
   </div>

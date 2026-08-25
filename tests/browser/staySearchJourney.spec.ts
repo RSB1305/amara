@@ -235,8 +235,12 @@ test('result handoff preserves provider-neutral search state without property-pa
   await page.goto(searchUrl('frigiliana', arrival, departure));
   const maha = page.locator('[data-am-stay-result="maha"]');
   await expect(maha).toBeVisible();
+  await expect(maha.locator('[data-am-stay-booking-link]')).toHaveAttribute(
+    'href',
+    new RegExp('/api/booking/checkout\\?stay=maha&lang=en&arrival=' + arrival + '&departure=' + departure + '&adults=2&currency=EUR')
+  );
   const beforeHandoff = requests.length;
-  await maha.getByRole('link', { name: /View stay/ }).last().click();
+  await maha.locator('[data-am-stay-result-link]').click();
   await expect(page).toHaveURL(new RegExp('/en/la-amara-maha\\?arrival=' + arrival + '&departure=' + departure + '&guests=2'));
   expect(requests).toHaveLength(beforeHandoff);
   await expect(page.locator('[data-am-booking-arrival-value]')).not.toHaveText('Choose arrival');

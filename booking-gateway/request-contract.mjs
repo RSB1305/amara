@@ -10,6 +10,8 @@ const DAY_MS = 86_400_000;
 const MAX_CALENDAR_DAYS = 45;
 const MAX_STAY_NIGHTS = 45;
 const MAX_ADVANCE_DAYS = 730;
+const CHECKOUT_LANGUAGES = new Set(['en', 'de', 'es', 'nl', 'sv']);
+const CHECKOUT_CURRENCIES = new Set(['EUR']);
 
 export class BookingGatewayError extends Error {
   constructor(status, code, message) {
@@ -103,6 +105,14 @@ export function parseCalendarRequest(request) {
   return { stay, providerMapping, start, end };
 }
 
+function allowedSingleValue(searchParams, key, allowed) {
+  const value = requiredSingleValue(searchParams, key);
+  if (!allowed.has(value)) {
+    fail('invalid_request', `The ${key} parameter is not supported.`);
+  }
+  return value;
+}
+
 export function parseSearchCalendarRequest(request) {
   const searchParams = new URL(request.url).searchParams;
   rejectUnknownParameters(searchParams, new Set(['destination', 'guests', 'start', 'end']));
@@ -148,5 +158,29 @@ export function parseQuoteRequest(request) {
     arrival,
     departure,
     guests: { adults, children, pets },
+  };
+}
+
+export function parseCheckoutRequest(request) {
+  const searchParams = new URL(request.url).searchParams;
+  rejectUnknownParameters(
+    searchParams,
+    new Set(['stay', 'lang', 'arrival', 'departure', 'adults', 'currency']),
+  );
+  const { stay, providerMapping } = parseStay(searchParams);
+  const lang = allowedSingleValue(searchParams, 'lang', CHECKOUT_LANGUAGES);
+  const currency = allowedSingleValue(searchParams, 'currency', CHECKOUT_CURRENCIES);
+  const arrival = dateValue(searchParams, 'arrival');
+  const departure = dateValue(searchParams, 'departure');
+  validateFutureRange(arrival, departure, MAX_STAY_NIGHTS, false);
+  const adults = optionalInteger(searchParams, 'adults', 2, 1, 12);
+  return {
+    stay,
+    providerMapping,
+    lang,
+    currency,
+    arrival,
+    departure,
+    adults,
   };
 }

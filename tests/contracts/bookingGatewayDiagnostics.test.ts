@@ -7,7 +7,7 @@ import {
   getLodgifyStayMapping
 } from '../../booking-gateway/stays.mjs';
 
-type BookingOperation = 'availability' | 'rates' | 'quote' | 'search-calendar';
+type BookingOperation = 'availability' | 'rates' | 'quote' | 'checkout' | 'search-calendar';
 
 const SECRET = 'unit-test-api-key-must-not-log';
 const PROVIDER_BODY = 'provider-response-body-must-not-log';
@@ -51,6 +51,15 @@ function bookingRequest(operation: BookingOperation): Request {
         children: '0',
         pets: '0'
       })
+    : operation === 'checkout'
+      ? new URLSearchParams({
+          stay: 'maha',
+          lang: 'de',
+          arrival: CALENDAR_START,
+          departure: QUOTE_DEPARTURE,
+          adults: '2',
+          currency: 'EUR'
+        })
     : operation === 'search-calendar'
       ? new URLSearchParams({
           destination: 'nerja',
@@ -168,6 +177,27 @@ test('returns public availability without provider IDs after one direct provider
     ]
   });
   expect(providerUrls).toHaveLength(1);
+  expect(logs).toHaveLength(0);
+});
+
+test('redirects a validated AMARA stay into the provider-owned checkout without an API call', async () => {
+  const { response, logs, providerUrls } = await runRoute(
+    'checkout',
+    fetchSequence(new Error('Checkout must not call the provider API.'))
+  );
+
+  expect(response.status).toBe(302);
+  const location = new URL(response.headers.get('location') || '');
+  expect(location.origin).toBe('https://checkout.lodgify.com');
+  expect(location.pathname).toBe(`/de/amara/${MAHA_MAPPING.propertyId}/reservation`);
+  expect(Object.fromEntries(location.searchParams)).toEqual({
+    currency: 'EUR',
+    arrival: CALENDAR_START,
+    departure: QUOTE_DEPARTURE,
+    adults: '2'
+  });
+  expect(response.headers.get('cache-control')).toBe('no-store');
+  expect(providerUrls).toHaveLength(0);
   expect(logs).toHaveLength(0);
 });
 

@@ -83,6 +83,7 @@ export const staySearchCopy = {
   loading: localized({ en: 'Checking current availability and total prices…', de: 'Aktuelle Verfügbarkeit und Gesamtpreise werden geprüft…', es: 'Comprobando disponibilidad y precios totales actuales…', nl: 'Actuele beschikbaarheid en totaalprijzen worden gecontroleerd…', sv: 'Aktuell tillgänglighet och totalpris kontrolleras…' }),
   totalPrice: localized({ en: 'Total price', de: 'Gesamtpreis', es: 'Precio total', nl: 'Totaalprijs', sv: 'Totalpris' }),
   viewStay: localized({ en: 'View stay', de: 'Unterkunft ansehen', es: 'Ver alojamiento', nl: 'Verblijf bekijken', sv: 'Visa boendet' }),
+  bookNow: localized({ en: 'Book now', de: 'Jetzt buchen', es: 'Reservar ahora', nl: 'Nu boeken', sv: 'Boka nu' }),
   night: localized({ en: '{count} night', de: '{count} Nacht', es: '{count} noche', nl: '{count} nacht', sv: '{count} natt' }),
   nights: localized({ en: '{count} nights', de: '{count} Nächte', es: '{count} noches', nl: '{count} nachten', sv: '{count} nätter' }),
   empty: localized({ en: 'No AMARA hideaway is available in {destination} for these dates.', de: 'Für diese Reisedaten ist in {destination} leider kein AMARA Hideaway verfügbar.', es: 'No hay ningún alojamiento AMARA disponible en {destination} para estas fechas.', nl: 'Voor deze datums is in {destination} geen AMARA-hideaway beschikbaar.', sv: 'Inget AMARA-boende är tillgängligt i {destination} för dessa datum.' }),

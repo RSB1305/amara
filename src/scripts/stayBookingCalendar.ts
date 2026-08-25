@@ -1,3 +1,6 @@
+import { buildCheckoutHandoffUrl } from '../lib/directBooking';
+import type { AmaraLanguage } from '../types/seo';
+
 type BookingCopy = Record<string, string>;
 
 type RateOption = {
@@ -116,6 +119,7 @@ export function enhanceStayBookingCalendars() {
     const priceWrap = element<HTMLElement>(container, '[data-am-booking-price-wrap]');
     const price = element<HTMLElement>(container, '[data-am-booking-price]');
     const note = element<HTMLElement>(container, '[data-am-booking-note]');
+    const checkout = element<HTMLAnchorElement>(container, '[data-am-booking-checkout]');
 
     if (
       !stay ||
@@ -142,7 +146,8 @@ export function enhanceStayBookingCalendars() {
       !summary ||
       !priceWrap ||
       !price ||
-      !note
+      !note ||
+      !checkout
     ) {
       return;
     }
@@ -241,6 +246,8 @@ export function enhanceStayBookingCalendars() {
       priceText?: string;
       detail: string;
     }) => {
+      checkout.hidden = true;
+      checkout.removeAttribute('href');
       result.hidden = false;
       result.dataset.state = state;
       status.textContent = title;
@@ -253,6 +260,8 @@ export function enhanceStayBookingCalendars() {
     const clearResult = () => {
       result.hidden = true;
       result.removeAttribute('data-state');
+      checkout.hidden = true;
+      checkout.removeAttribute('href');
     };
 
     const fetchJson = async (path: string, searchParams: URLSearchParams) => {
@@ -745,6 +754,15 @@ export function enhanceStayBookingCalendars() {
           priceText: formattedPrice,
           detail: copy.quoteNote
         });
+        checkout.href = buildCheckoutHandoffUrl({
+          stay,
+          lang: language as AmaraLanguage,
+          arrival,
+          departure,
+          adults: guests,
+          currency: String(quote.currency)
+        });
+        checkout.hidden = false;
       } catch (error) {
         quoteSignature = '';
         const requestError = error as BookingRequestError;

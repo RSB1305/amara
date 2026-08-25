@@ -1,3 +1,6 @@
+import { buildCheckoutHandoffUrl } from '../lib/directBooking';
+import type { AmaraLanguage } from '../types/seo';
+
 type RateOption = {
   nightlyRate: number;
   minStay: number | null;
@@ -232,6 +235,7 @@ export function enhanceLastMinuteStays() {
     root.dataset.amLastMinuteEnhanced = 'true';
 
     const copy = JSON.parse(root.dataset.amLastMinuteCopy || '{}') as Record<string, string>;
+    const lang = (root.dataset.amLastMinuteLang || 'en') as AmaraLanguage;
     const language = root.dataset.amLastMinuteLanguage || 'en-GB';
     const guestsInput = root.querySelector<HTMLSelectElement>('[data-am-last-minute-guests]');
     const status = root.querySelector<HTMLElement>('[data-am-last-minute-status]');
@@ -385,6 +389,16 @@ export function enhanceLastMinuteStays() {
               departure: candidate.departure,
               guests: String(guests)
             }).toString();
+        });
+        const bookingLink = card.querySelector<HTMLAnchorElement>('[data-am-stay-booking-link]');
+        if (!bookingLink) continue;
+        bookingLink.href = buildCheckoutHandoffUrl({
+          stay: card.dataset.amStayResult || '',
+          lang,
+          arrival: candidate.arrival,
+          departure: candidate.departure,
+          adults: guests,
+          currency: offer.currency
         });
         card.hidden = false;
         summary.hidden = false;

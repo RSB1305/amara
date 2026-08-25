@@ -1,3 +1,6 @@
+import { buildCheckoutHandoffUrl } from '../lib/directBooking';
+import type { AmaraLanguage } from '../types/seo';
+
 type ResultsCopy = Record<string, string>;
 type SearchInput = {
   destination: 'all' | 'frigiliana' | 'nerja' | 'tarifa';
@@ -70,6 +73,7 @@ export function enhanceStaySearchResults() {
     if (root.dataset.amStaySearchEnhanced === 'true') return;
     root.dataset.amStaySearchEnhanced = 'true';
     const copy = JSON.parse(root.dataset.amStaySearchCopy || '{}') as ResultsCopy;
+    const lang = (root.dataset.amStaySearchLang || 'en') as AmaraLanguage;
     const language = root.dataset.amStaySearchLanguage || 'en-GB';
     const summary = root.querySelector<HTMLElement>('[data-am-stay-search-summary]');
     const state = root.querySelector<HTMLElement>('[data-am-stay-search-state]');
@@ -154,6 +158,16 @@ export function enhanceStaySearchResults() {
         card.querySelectorAll<HTMLAnchorElement>('[data-am-stay-result-link]').forEach((link) => {
           const base = link.dataset.amStayResultBaseHref || link.getAttribute('href') || '';
           link.href = cardHref(base);
+        });
+        const bookingLink = card.querySelector<HTMLAnchorElement>('[data-am-stay-booking-link]');
+        if (!bookingLink) throw new Error('Booking handoff link is missing.');
+        bookingLink.href = buildCheckoutHandoffUrl({
+          stay,
+          lang,
+          arrival: input.arrival,
+          departure: input.departure,
+          adults: input.guests,
+          currency: String(quote.currency)
         });
         card.hidden = false;
         cardSummary.hidden = false;

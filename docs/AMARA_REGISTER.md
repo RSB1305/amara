@@ -1,12 +1,12 @@
 ---
 document_id: AMARA-REG-001
 title: AMARA Register
-version: 1.18.0
+version: 1.19.0
 status: ACTIVE
 authority_class: LIVING BINDING REGISTER
 activation_state: ACTIVE
 effective_from: 2026-08-14
-last_modified: 2026-08-25T11:34:57+02:00
+last_modified: 2026-08-25T12:11:40+02:00
 canonical_path: /docs/AMARA_REGISTER.md
 ---
 
@@ -26,7 +26,7 @@ The AMARA Register is the single source for active documents, authority classes,
 | 04 | AMARA URL, Route & Link Contract | PENDING Package 2 | CONTRACT / governing | Interim snapshot: `docs/interim/05_AMARA_URL_and_Route_Infrastructure_V4.md` + Decision Register |
 | 05 | AMARA Governance, Execution & Documentation Lifecycle | 5.5.0 ACTIVE | CONTRACT / governing | `docs/standards/05_AMARA_Governance_Execution_and_Documentation_Lifecycle_V5.md` |
 | 06 | AMARA Performance & Delivery Standard | 2.1.0 ACTIVE INTERIM | PRINCIPLE/CONTRACT / governing | `docs/interim/07_AMARA_Performance_Standard_V2.md` |
-| 07 | AMARA Register | 1.18.0 ACTIVE | LIVING BINDING REGISTER | `docs/AMARA_REGISTER.md` |
+| 07 | AMARA Register | 1.19.0 ACTIVE | LIVING BINDING REGISTER | `docs/AMARA_REGISTER.md` |
 | 08 | AMARA Guest Utility Feature Contract | 2.1.0 ACTIVE INTERIM | FEATURE CONTRACT | `docs/interim/08_AMARA_Guest_Utility_Architecture_V2.md` |
 | 09 | AMARA Content Production & Localization Playbook | 1.5.0 ACTIVE INTERIM | OPERATIONAL PLAYBOOK / non-governing | `docs/interim/10_AMARA_Content_Production_and_Localization_Playbook_V1_2.md` |
 | 10 | AMARA Frigiliana–Nerja SEO Strategy | PENDING Package 2/3 | WORKING STRATEGY / non-governing | Interim snapshot: `docs/interim/09_AMARA_Frigiliana_Nerja_SEO_Strategy_V2_1.md` |
@@ -39,7 +39,7 @@ Current operational feature owner during transition:
 
 | Feature | Status | Current owner | Repository reality |
 |---|---|---|---|
-| External booking / availability / checkout boundary | ACTIVE INTERIM CONTRACT | `AMARA-BOOKING-ARCHITECTURE.md` | Checkout URLs remain centralized through `src/lib/directBooking.ts`; static Astro is extended only by the narrow Cloudflare Pages read-only Booking Gateway, including the provider-neutral destination calendar with live availability, stay rules and nightly orientation prices used after explicit interaction with the Homepage finder. |
+| External booking / availability / checkout boundary | ACTIVE INTERIM CONTRACT | `AMARA-BOOKING-ARCHITECTURE.md` | Checkout URLs remain centralized through `src/lib/directBooking.ts`; static Astro is extended only by the narrow Cloudflare Pages GET-only Booking Gateway, including live availability, rates, quotes and the validated provider-owned checkout handoff. |
 
 ## 3. Decision Register
 
@@ -77,7 +77,7 @@ Current operational feature owner during transition:
 | ID | Decision | Status |
 |---|---|---|
 | DR-PLATFORM-001 | AMARA's website runtime is Astro-native and Astro-only. Explicitly governed external operational services may remain active behind narrow boundaries and do not become a second website runtime. | APPROVED |
-| DR-BOOK-001 | The external booking / availability / checkout boundary remains ACTIVE under `AMARA-BOOKING-ARCHITECTURE.md`. Checkout URL construction stays centralized in `src/lib/directBooking.ts`; normal Astro pages stay static, while fixed GET-only Cloudflare Pages routes may expose provider-neutral single-stay availability, destination/portfolio calendar availability with stay rules, rates and authoritative quotes after an explicit booking interaction. Provider credentials and IDs remain server-side, and all booking/payment writes remain outside the contract. | ACTIVE CURRENT IMPLEMENTATION |
+| DR-BOOK-001 | The external booking / availability / checkout boundary remains ACTIVE under `AMARA-BOOKING-ARCHITECTURE.md`. Checkout URL construction stays centralized in `src/lib/directBooking.ts`; normal Astro pages stay static, while fixed GET-only Cloudflare Pages routes may expose provider-neutral availability, stay rules, rates and authoritative quotes after an explicit booking interaction, plus a validated no-store redirect into the provider-owned checkout. Provider credentials and mappings remain server-side; a provider ID may appear only in the final external checkout `Location`, and all booking/payment writes remain outside the contract. | ACTIVE CURRENT IMPLEMENTATION |
 | DR-RUNTIME-001 | BaseLayout plus the central SEO head resolver remain the sole normal public head owner. | ACTIVE CURRENT IMPLEMENTATION |
 | DR-RUNTIME-002 | `resolveStructuredData()` remains the normal sole JSON-LD owner. | ACTIVE CURRENT IMPLEMENTATION |
 | DR-LINK-001 | Registry token + resolver remain the authored semantic internal-link contract. | ACTIVE CURRENT IMPLEMENTATION |
@@ -190,6 +190,7 @@ Routine new evidence/ideas may be captured here or in the relevant working evide
 | 2026-08-24T13:09:22+02:00 | Booking Gateway v1 integration | Activated the proven read-only Booking Gateway on current Main with fixed Cloudflare Pages GET routes, server-only provider credentials/IDs, static-first page delivery and provider-owned checkout. Register 1.16.0. | DR-PLATFORM-001, DR-BOOK-001 | this revision |
 | 2026-08-25T05:36:10+02:00 | Homepage live destination calendar | Added the fourth read-only Booking Gateway route for provider-neutral destination/portfolio availability and stay rules. The static Homepage finder now loads live dates only after calendar interaction and refreshes an open calendar when destination or guest count changes, while the Results quote remains authoritative. Register 1.17.0. | DR-PLATFORM-001, DR-BOOK-001 | this revision |
 | 2026-08-25T11:34:57+02:00 | Homepage calendar orientation prices | Extended the existing destination calendar response with public nightly rates and currency. The Homepage shows the lowest available nightly rate per date as a non-binding “from” price, while same-stay validation and the authoritative Results quote remain unchanged. Register 1.18.0. | DR-BOOK-001 | this revision |
+| 2026-08-25T12:11:40+02:00 | Provider-owned checkout handoff | Added the fifth GET-only Booking Gateway route: after an authoritative quote, AMARA validates stay, locale, dates, guests and currency, resolves the provider mapping server-side and redirects into Lodgify's official Booking Box reservation route without creating or holding a booking. Register 1.19.0. | DR-BOOK-001 | this revision |
 
 ## 5. Intentional supersessions
 
@@ -204,7 +205,7 @@ The following are active intentional supersessions, not accidental deletions:
 - attachment/PDF activation gate -> canonical repository Markdown + Register activation;
 - universal full-build expectation for small edits -> risk-proportional validation.
 
-The booking exception is limited to the four read-only Cloudflare Pages Function routes recorded in `DR-BOOK-001`; it does not alter checkout ownership or make normal Astro pages dynamic. No current route output, runtime resolver, URL helper, CSS/token system or analytics runtime is otherwise changed. The URL **policy doctrine** changes only as explicitly recorded above; current implementation remains protected.
+The booking exception is limited to the five GET-only Cloudflare Pages Function routes recorded in `DR-BOOK-001`; it does not alter checkout ownership or make normal Astro pages dynamic. No current route output, runtime resolver, URL helper, CSS/token system or analytics runtime is otherwise changed. The URL **policy doctrine** changes only as explicitly recorded above; current implementation remains protected.
 
 ## 6. Remaining controlled workstreams
 
@@ -242,3 +243,6 @@ Separate controlled workstreams remain for:
 | 1.14.0 | 2026-08-23T13:54:40+02:00 | Activated the canonical mobile-first page contract and its first shared implementation in the vacation-rental family. | this revision |
 | 1.15.0 | 2026-08-23T19:30:21+02:00 | Registered Romantic Hideaways and special places for shared time as a couple as AMARA's primary hospitality brand core, owned normatively by Constitution 5.2.0. | this revision |
 | 1.16.0 | 2026-08-24T13:09:22+02:00 | Activated the narrow read-only Booking Gateway runtime boundary while preserving static Astro delivery, the current design/conversion architecture and provider-owned checkout. | this revision |
+| 1.17.0 | 2026-08-25T05:36:10+02:00 | Added the provider-neutral Homepage destination calendar after explicit booking interaction. | this revision |
+| 1.18.0 | 2026-08-25T11:34:57+02:00 | Added non-binding nightly orientation prices to the Homepage destination calendar. | this revision |
+| 1.19.0 | 2026-08-25T12:11:40+02:00 | Activated the validated server-side handoff into Lodgify's provider-owned checkout after an authoritative quote. | this revision |

@@ -76,6 +76,7 @@ const destinationLinks = lastMinuteStaysCopy.destinations.map((destination) => (
     <AmaraSection labelledby="last-minute-live-title" dataComponent="last-minute-live">
       <div
         data-am-last-minute-stays
+        data-am-last-minute-lang={currentLang}
         data-am-last-minute-language={lastMinuteLocale[currentLang]}
         data-am-last-minute-copy={JSON.stringify(liveCopy)}
         aria-busy="true"
@@ -125,7 +126,7 @@ const destinationLinks = lastMinuteStaysCopy.destinations.map((destination) => (
                 title={rental.name}
                 description={firstSentence(rental.lead[currentLang] ?? rental.lead.en)}
                 ctaLabel={t(lastMinuteStaysCopy.live.viewStay)}
-                linkAriaLabel={`${t(lastMinuteStaysCopy.live.viewStay)}: ${rental.name}`}
+                linkAriaLabel={`${t(lastMinuteStaysCopy.live.viewStayDetails)}: ${rental.name}`}
                 dataStay={rental.bookingKey}
                 dataDestination={destination}
                 dataOccupancy={rental.occupancy}
