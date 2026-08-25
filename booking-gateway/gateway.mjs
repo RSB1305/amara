@@ -10,6 +10,7 @@ import {
   BookingGatewayError,
   parseCalendarRequest,
   parseQuoteRequest,
+  parseSearchCalendarRequest,
 } from './request-contract.mjs';
 
 const PROVIDER_STEPS = new Set(['properties', 'rooms', 'availability', 'rates', 'quote']);
@@ -19,6 +20,7 @@ const PROVIDER_ERROR_CATEGORIES = new Set([
   'malformed_response',
   'normalization',
 ]);
+const SEARCH_CONCURRENCY = 2;
 
 async function withProviderStep(providerStep, operation) {
   try {
@@ -48,6 +50,21 @@ async function withMappedStay(apiKey, providerMapping, operation) {
   }
   const client = createLodgifyClient({ apiKey });
   return operation(client, providerMapping);
+}
+
+async function runWithConcurrency(items, worker) {
+  let next = 0;
+  const results = new Array(items.length);
+  await Promise.all(Array.from(
+    { length: Math.min(SEARCH_CONCURRENCY, items.length) },
+    async () => {
+      while (next < items.length) {
+        const index = next++;
+        results[index] = await worker(items[index]);
+      }
+    },
+  ));
+  return results;
 }
 
 async function availability(request, apiKey) {
@@ -98,6 +115,68 @@ async function rates(request, apiKey) {
   return { stay: input.stay, start: input.start, end: input.end, days };
 }
 
+async function searchCalendar(request, apiKey) {
+  const input = parseSearchCalendarRequest(request);
+  if (!input.candidates.length) {
+    return {
+      destination: input.destination,
+      guests: input.guests,
+      start: input.start,
+      end: input.end,
+      stays: [],
+    };
+  }
+  if (typeof apiKey !== 'string' || !apiKey.trim()) {
+    throw new BookingGatewayError(503, 'service_unavailable', 'Live booking data is unavailable.');
+  }
+  const client = createLodgifyClient({ apiKey });
+  const stays = await runWithConcurrency(input.candidates, async (candidate) => {
+    const availabilityDays = await withProviderStep('availability', async () => {
+      const payload = await client.getAvailability(
+        candidate.providerMapping.propertyId,
+        candidate.providerMapping.roomTypeId,
+        input.start,
+        input.end,
+      );
+      return normalizeAvailability(
+        payload,
+        candidate.providerMapping.propertyId,
+        candidate.providerMapping.roomTypeId,
+        input.start,
+        input.end,
+      );
+    });
+    const rateDays = await withProviderStep('rates', async () => {
+      const payload = await client.getRates(
+        candidate.providerMapping.propertyId,
+        candidate.providerMapping.roomTypeId,
+        input.start,
+        input.end,
+      );
+      return normalizeRates(payload, input.start, input.end);
+    });
+    const ratesByDate = new Map(rateDays.map((day) => [day.date, day]));
+    return {
+      stay: candidate.stay,
+      days: availabilityDays.map((day) => ({
+        date: day.date,
+        available: day.available,
+        options: (ratesByDate.get(day.date)?.priceOptions ?? []).map((option) => ({
+          minStay: option.minStay,
+          maxStay: option.maxStay,
+        })),
+      })),
+    };
+  });
+  return {
+    destination: input.destination,
+    guests: input.guests,
+    start: input.start,
+    end: input.end,
+    stays,
+  };
+}
+
 async function quote(request, apiKey) {
   const input = parseQuoteRequest(request);
   const summary = await withMappedStay(apiKey, input.providerMapping, async (client, mapping) => {
@@ -121,7 +200,7 @@ async function quote(request, apiKey) {
   };
 }
 
-const OPERATIONS = Object.freeze({ availability, rates, quote });
+const OPERATIONS = Object.freeze({ availability, rates, quote, 'search-calendar': searchCalendar });
 
 function jsonResponse(body, status, extraHeaders = {}) {
   return new Response(JSON.stringify(body), {

@@ -1,12 +1,12 @@
 ---
 document_id: AMARA-REG-001
 title: AMARA Register
-version: 1.16.0
+version: 1.17.0
 status: ACTIVE
 authority_class: LIVING BINDING REGISTER
 activation_state: ACTIVE
 effective_from: 2026-08-14
-last_modified: 2026-08-24T13:09:22+02:00
+last_modified: 2026-08-25T05:36:10+02:00
 canonical_path: /docs/AMARA_REGISTER.md
 ---
 
@@ -39,7 +39,7 @@ Current operational feature owner during transition:
 
 | Feature | Status | Current owner | Repository reality |
 |---|---|---|---|
-| External booking / availability / checkout boundary | ACTIVE INTERIM CONTRACT | `AMARA-BOOKING-ARCHITECTURE.md` | Checkout URLs remain centralized through `src/lib/directBooking.ts`; static Astro is extended only by the narrow Cloudflare Pages read-only Booking Gateway. |
+| External booking / availability / checkout boundary | ACTIVE INTERIM CONTRACT | `AMARA-BOOKING-ARCHITECTURE.md` | Checkout URLs remain centralized through `src/lib/directBooking.ts`; static Astro is extended only by the narrow Cloudflare Pages read-only Booking Gateway, including the provider-neutral destination calendar used after explicit interaction with the Homepage finder. |
 
 ## 3. Decision Register
 
@@ -77,7 +77,7 @@ Current operational feature owner during transition:
 | ID | Decision | Status |
 |---|---|---|
 | DR-PLATFORM-001 | AMARA's website runtime is Astro-native and Astro-only. Explicitly governed external operational services may remain active behind narrow boundaries and do not become a second website runtime. | APPROVED |
-| DR-BOOK-001 | The external booking / availability / checkout boundary remains ACTIVE under `AMARA-BOOKING-ARCHITECTURE.md`. Checkout URL construction stays centralized in `src/lib/directBooking.ts`; normal Astro pages stay static, while fixed GET-only Cloudflare Pages routes may expose provider-neutral availability, rates and authoritative quotes after an explicit booking interaction. Provider credentials and IDs remain server-side, and all booking/payment writes remain outside the contract. | ACTIVE CURRENT IMPLEMENTATION |
+| DR-BOOK-001 | The external booking / availability / checkout boundary remains ACTIVE under `AMARA-BOOKING-ARCHITECTURE.md`. Checkout URL construction stays centralized in `src/lib/directBooking.ts`; normal Astro pages stay static, while fixed GET-only Cloudflare Pages routes may expose provider-neutral single-stay availability, destination/portfolio calendar availability with stay rules, rates and authoritative quotes after an explicit booking interaction. Provider credentials and IDs remain server-side, and all booking/payment writes remain outside the contract. | ACTIVE CURRENT IMPLEMENTATION |
 | DR-RUNTIME-001 | BaseLayout plus the central SEO head resolver remain the sole normal public head owner. | ACTIVE CURRENT IMPLEMENTATION |
 | DR-RUNTIME-002 | `resolveStructuredData()` remains the normal sole JSON-LD owner. | ACTIVE CURRENT IMPLEMENTATION |
 | DR-LINK-001 | Registry token + resolver remain the authored semantic internal-link contract. | ACTIVE CURRENT IMPLEMENTATION |
@@ -188,6 +188,7 @@ Routine new evidence/ideas may be captured here or in the relevant working evide
 | 2026-08-23T13:54:40+02:00 | Mobile-first page architecture | Activated one canonical mobile composition with progressive larger-viewport enhancement, and introduced the shared page shell, section rhythm and early booking-decision pattern through the vacation-rental reference family. Astro Standard 4.2.0, Register 1.14.0. | DR-DESIGN-001–003 | this revision |
 | 2026-08-23T19:30:21+02:00 | Romantic Hideaways brand core | Restored AMARA — Romantic Hideaways and special places for shared time as a couple as the primary hospitality brand position while preserving Destination Authority, Experience, Trust, Stays and Direct Booking as supporting systems. Constitution 5.2.0, Register 1.15.0. | DR-BRAND-001 | this revision |
 | 2026-08-24T13:09:22+02:00 | Booking Gateway v1 integration | Activated the proven read-only Booking Gateway on current Main with fixed Cloudflare Pages GET routes, server-only provider credentials/IDs, static-first page delivery and provider-owned checkout. Register 1.16.0. | DR-PLATFORM-001, DR-BOOK-001 | this revision |
+| 2026-08-25T05:36:10+02:00 | Homepage live destination calendar | Added the fourth read-only Booking Gateway route for provider-neutral destination/portfolio availability and stay rules. The static Homepage finder now loads live dates only after calendar interaction and refreshes an open calendar when destination or guest count changes, while the Results quote remains authoritative. Register 1.17.0. | DR-PLATFORM-001, DR-BOOK-001 | this revision |
 
 ## 5. Intentional supersessions
 
@@ -202,7 +203,7 @@ The following are active intentional supersessions, not accidental deletions:
 - attachment/PDF activation gate -> canonical repository Markdown + Register activation;
 - universal full-build expectation for small edits -> risk-proportional validation.
 
-The booking exception is limited to the three read-only Cloudflare Pages Function routes recorded in `DR-BOOK-001`; it does not alter checkout ownership or make normal Astro pages dynamic. No current route output, runtime resolver, URL helper, CSS/token system or analytics runtime is otherwise changed. The URL **policy doctrine** changes only as explicitly recorded above; current implementation remains protected.
+The booking exception is limited to the four read-only Cloudflare Pages Function routes recorded in `DR-BOOK-001`; it does not alter checkout ownership or make normal Astro pages dynamic. No current route output, runtime resolver, URL helper, CSS/token system or analytics runtime is otherwise changed. The URL **policy doctrine** changes only as explicitly recorded above; current implementation remains protected.
 
 ## 6. Remaining controlled workstreams
 

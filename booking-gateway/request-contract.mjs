@@ -1,5 +1,10 @@
 import { validIsoDay } from './lodgify-adapter.mjs';
-import { getLodgifyStayMapping, isAmaraStayKey } from './stays.mjs';
+import {
+  getLodgifyStayMapping,
+  getSearchStayCandidates,
+  isAmaraSearchDestination,
+  isAmaraStayKey,
+} from './stays.mjs';
 
 const DAY_MS = 86_400_000;
 const MAX_CALENDAR_DAYS = 45;
@@ -96,6 +101,29 @@ export function parseCalendarRequest(request) {
     fail('invalid_request', 'The calendar window is too long.');
   }
   return { stay, providerMapping, start, end };
+}
+
+export function parseSearchCalendarRequest(request) {
+  const searchParams = new URL(request.url).searchParams;
+  rejectUnknownParameters(searchParams, new Set(['destination', 'guests', 'start', 'end']));
+  const destination = requiredSingleValue(searchParams, 'destination').toLowerCase();
+  if (!isAmaraSearchDestination(destination)) {
+    fail('unsupported_destination', 'The requested destination is not supported.');
+  }
+  const guests = optionalInteger(searchParams, 'guests', 2, 1, 4);
+  const start = dateValue(searchParams, 'start');
+  const end = dateValue(searchParams, 'end');
+  const span = validateFutureRange(start, end, MAX_CALENDAR_DAYS - 1, true);
+  if (span + 1 > MAX_CALENDAR_DAYS) {
+    fail('invalid_request', 'The calendar window is too long.');
+  }
+  return {
+    destination,
+    guests,
+    start,
+    end,
+    candidates: getSearchStayCandidates(destination, guests),
+  };
 }
 
 export function parseQuoteRequest(request) {

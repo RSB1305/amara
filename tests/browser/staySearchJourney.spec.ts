@@ -7,6 +7,14 @@ const ORIGIN = 'http://127.0.0.1:' + PORT;
 const DESKTOP = { width: 1280, height: 900 };
 const MOBILE = { width: 390, height: 844 };
 const STAYS = ['farah', 'lounis', 'zaid', 'maha', 'playa', 'tarifa'];
+const SEARCH_STAYS = [
+  { stay: 'farah', destination: 'frigiliana', capacity: 2 },
+  { stay: 'lounis', destination: 'frigiliana', capacity: 2 },
+  { stay: 'zaid', destination: 'frigiliana', capacity: 2 },
+  { stay: 'maha', destination: 'frigiliana', capacity: 2 },
+  { stay: 'playa', destination: 'nerja', capacity: 2 },
+  { stay: 'tarifa', destination: 'tarifa', capacity: 4 }
+] as const;
 
 let astroServer: Awaited<ReturnType<typeof dev>> | undefined;
 
@@ -53,6 +61,35 @@ async function mockGateway(page: Page, options: GatewayOptions = {}) {
     requests.push(url);
     const stay = url.searchParams.get('stay') || '';
     const operation = url.pathname.split('/').pop();
+    if (operation === 'search-calendar') {
+      const destination = url.searchParams.get('destination') || '';
+      const guests = Number(url.searchParams.get('guests'));
+      const start = url.searchParams.get('start') || '';
+      const end = url.searchParams.get('end') || '';
+      const candidates = SEARCH_STAYS.filter((candidate) =>
+        (destination === 'all' || candidate.destination === destination) &&
+        candidate.capacity >= guests
+      );
+      await route.fulfill({
+        status: 200,
+        contentType: 'application/json',
+        body: JSON.stringify({
+          destination,
+          guests,
+          start,
+          end,
+          stays: candidates.map((candidate) => ({
+            stay: candidate.stay,
+            days: enumerateDays(start, end).map((date) => ({
+              date,
+              available: !options.unavailable?.has(candidate.stay),
+              options: [{ minStay: 1, maxStay: 45 }]
+            }))
+          }))
+        })
+      });
+      return;
+    }
     if (options.technicalError?.has(stay) || (operation === 'quote' && options.quoteError?.has(stay))) {
       await route.fulfill({
         status: 502,
@@ -119,23 +156,28 @@ const searchUrl = (destination: string, arrival: string, departure: string, gues
   ORIGIN + '/en/find-a-stay?destination=' + destination + '&arrival=' + arrival +
   '&departure=' + departure + '&guests=' + guests;
 
-test('homepage finder makes no request until submit and returns four quoted Frigiliana stays', async ({ page }) => {
+test('homepage finder refreshes live dates for destination changes and returns quoted stays', async ({ page }) => {
   await page.setViewportSize(DESKTOP);
   const requests = await mockGateway(page);
   const arrival = futureIso(3);
   const departure = futureIso(10);
   await page.goto(ORIGIN + '/en', { waitUntil: 'domcontentloaded' });
   expect(requests).toHaveLength(0);
-  await page.getByRole('button', { name: 'Choose arrival' }).click();
+  await page.locator('[data-am-stay-search-destination]').selectOption('nerja');
   expect(requests).toHaveLength(0);
+  await page.getByRole('button', { name: 'Choose arrival' }).click();
+  await expect.poll(() => requests.filter((url) => url.pathname.endsWith('/search-calendar')).length).toBe(2);
   await expect(page.locator('.am-booking-calendar__month')).toHaveCount(2);
+  await page.locator('[data-am-stay-search-destination]').selectOption('frigiliana');
+  await expect.poll(() => requests.filter((url) => url.pathname.endsWith('/search-calendar')).length).toBe(4);
+  expect(requests.filter((url) => url.pathname.endsWith('/search-calendar')).map((url) =>
+    url.searchParams.get('destination'))).toEqual(['nerja', 'nerja', 'frigiliana', 'frigiliana']);
   await page.locator('[data-am-booking-day="' + arrival + '"]').click();
   await page.locator('[data-am-booking-day="' + departure + '"]').click();
-  await page.locator('[data-am-stay-search-destination]').selectOption('frigiliana');
   await page.getByRole('button', { name: 'Check availability' }).click();
   await expect(page).toHaveURL(searchUrl('frigiliana', arrival, departure));
   await expect(page.locator('[data-am-stay-result]:visible')).toHaveCount(4);
-  expect(requests).toHaveLength(8);
+  expect(requests).toHaveLength(12);
   expect(requests.filter((url) => url.pathname.endsWith('/rates'))).toHaveLength(0);
   await expect(page.locator('[data-am-stay-result-price]:visible').first()).toContainText('€');
   const publicHtml = await page.locator('html').textContent();
@@ -201,7 +243,8 @@ test('mobile finder uses one month and results stay in a single column without o
   await page.goto(ORIGIN + '/en');
   await page.getByRole('button', { name: 'Choose arrival' }).click();
   await expect(page.locator('.am-booking-calendar__month')).toHaveCount(1);
-  expect(requests).toHaveLength(0);
+  await expect.poll(() => requests.length).toBe(1);
+  expect(requests[0].pathname).toContain('/search-calendar');
   expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBeLessThanOrEqual(MOBILE.width);
 
   await page.goto(searchUrl('nerja', futureIso(50), futureIso(57)));
