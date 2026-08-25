@@ -1,5 +1,6 @@
 ---
 import InlineEmphasis from '../text/InlineEmphasis.astro';
+import AmaraActionLink from '../actions/AmaraActionLink.astro';
 
 interface HeroLink {
   href: string;
@@ -47,21 +48,22 @@ const {
   {ctaLinks.length > 0 && ctaVariant === 'conversion' && (
     <div class="am-exp-hero__actions">
       {ctaLinks.map((link, index) => (
-        <a
+        <AmaraActionLink
           href={link.href}
-          class={`am-btn w-full justify-center sm:w-auto ${index === 0 ? 'am-btn--primary' : 'am-btn--secondary'}`}
+          variant={index === 0 ? 'primary' : 'secondary'}
+          class="w-full justify-center sm:w-auto"
         >
           {link.label}
-        </a>
+        </AmaraActionLink>
       ))}
     </div>
   )}
   {ctaLinks.length > 0 && ctaVariant === 'editorial' && (
     <div class="am-cta-group am-cta-group--left mt-8">
       {ctaLinks.map((link) => (
-        <a href={link.href} class="am-cta-link">
+        <AmaraActionLink href={link.href} variant="editorial">
           {link.label}
-        </a>
+        </AmaraActionLink>
       ))}
     </div>
   )}

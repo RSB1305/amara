@@ -1,4 +1,6 @@
 ---
+import AmaraActionLink from '../actions/AmaraActionLink.astro';
+
 /**
  * Guest-review summary content rendered inside the shared AMARA section system.
  */
@@ -29,7 +31,7 @@ const { eyebrow, headline, body, reviewsHref, reviewsCtaLabel, features } = Astr
       </h2>
       <p class="am-guest-reviews-summary__body am-text-body text-on-surface-variant">{body}</p>
       <div class="am-guest-reviews-summary__cta-wrap">
-        <a class="am-btn am-btn--secondary" href={reviewsHref}>{reviewsCtaLabel}</a>
+        <AmaraActionLink variant="secondary" href={reviewsHref}>{reviewsCtaLabel}</AmaraActionLink>
       </div>
     </div>
 

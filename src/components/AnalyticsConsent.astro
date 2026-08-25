@@ -1,6 +1,8 @@
 ---
 import { resolveLink } from '../lib/linkResolver';
 import type { AmaraLanguage } from '../types/seo';
+import AmaraActionButton from './actions/AmaraActionButton.astro';
+import AmaraActionLink from './actions/AmaraActionLink.astro';
 
 interface Props {
   lang: AmaraLanguage;
@@ -78,25 +80,27 @@ const labels = copy[lang];
     <p class="am-text-body text-on-surface-variant">
       {labels.description}
     </p>
-    <a class="am-inline-link" href={resolveLink('legal_notice', lang)}>
+    <AmaraActionLink variant="inline" href={resolveLink('legal_notice', lang)}>
       {labels.details}
-    </a>
+    </AmaraActionLink>
   </div>
   <div class="analytics-consent__actions">
-    <button
+    <AmaraActionButton
       type="button"
-      class="am-btn am-btn--secondary analytics-consent__button"
+      variant="secondary"
+      class="analytics-consent__button"
       data-am-consent-choice="necessary"
     >
       {labels.necessary}
-    </button>
-    <button
+    </AmaraActionButton>
+    <AmaraActionButton
       type="button"
-      class="am-btn am-btn--secondary analytics-consent__button"
+      variant="secondary"
+      class="analytics-consent__button"
       data-am-consent-choice="analytics"
     >
       {labels.analytics}
-    </button>
+    </AmaraActionButton>
   </div>
 </aside>
 

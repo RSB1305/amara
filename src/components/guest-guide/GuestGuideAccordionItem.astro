@@ -2,6 +2,7 @@
 // Native <details>/<summary> + Tailwind `group-open:` — same no-JS technique as FaqAccordion.astro.
 import GuestGuideIcon from './GuestGuideIcon.astro';
 import AmaraImage from '../AmaraImage.astro';
+import AmaraActionLink from '../actions/AmaraActionLink.astro';
 import type { GuestGuideIconName } from '../../types/guestGuide';
 
 interface Props {
@@ -114,14 +115,13 @@ const mapLabel = `${title} — Google Maps`;
     {actions && actions.length > 0 && (
       <div class="am-actions">
         {actions.map((action) => (
-          <a
-            class={`am-btn ${action.variant === 'secondary' ? 'am-btn--secondary' : 'am-btn--primary'}`}
+          <AmaraActionLink
+            variant={action.variant === 'secondary' ? 'secondary' : 'primary'}
             href={action.href}
-            target="_blank"
-            rel="noopener"
+            external
           >
             {action.label}
-          </a>
+          </AmaraActionLink>
         ))}
       </div>
     )}

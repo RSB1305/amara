@@ -307,13 +307,24 @@ import AmaraActionLink from '../../../components/actions/AmaraActionLink.astro';
           <AmaraActionButton variant="primary">Confirm selection</AmaraActionButton>
           <AmaraActionButton variant="secondary">Cancel</AmaraActionButton>
         </div>
+        <span class="sg-label" style="margin-top:28px">Nicht verfügbar und in Bearbeitung</span>
+        <div class="sg-row">
+          <AmaraActionButton variant="primary" disabled>Unavailable</AmaraActionButton>
+          <AmaraActionButton variant="secondary" loading>Loading</AmaraActionButton>
+          <AmaraActionLink variant="secondary" disabled>Route unavailable</AmaraActionLink>
+        </div>
         <span class="sg-label" style="margin-top:28px">Button-Treatment auf Links — Navigation zu einem Ziel</span>
         <div class="sg-row">
           <AmaraActionLink href="#links" variant="primary">Explore AMARA stays</AmaraActionLink>
           <AmaraActionLink href="#links" variant="secondary">Learn more</AmaraActionLink>
         </div>
+        <span class="sg-label" style="margin-top:28px">Inverse Anwendung auf dunkler Fläche</span>
+        <div class="sg-row" style="padding:24px;background:var(--color-inverted-surface);border-radius:var(--radius-card)">
+          <AmaraActionLink href="#links" variant="primary" inverse>Primary inverse</AmaraActionLink>
+          <AmaraActionLink href="#links" variant="secondary" inverse>Secondary inverse</AmaraActionLink>
+        </div>
         <div class="sg-component-label" style="margin-top:20px">
-          Produktionsowner: <span class="sg-code">AmaraActionButton</span> und <span class="sg-code">AmaraActionLink</span> · Varianten: <span class="sg-code">primary</span> / <span class="sg-code">secondary</span>
+          Produktionsowner: <span class="sg-code">AmaraActionButton</span> für Aktionen und Formulare · <span class="sg-code">AmaraActionLink</span> für Navigation · <span class="sg-code">loading</span> gilt nur für echte Buttons · deaktivierte Links werden als nicht-interaktive Labels ausgegeben
         </div>
       </div>
     </section>
@@ -359,8 +370,11 @@ import AmaraActionLink from '../../../components/actions/AmaraActionLink.astro';
         <span class="sg-label" style="margin-top:28px">Text inside a linked card</span>
         <AmaraActionLink href="#cards" variant="card">Open the complete stay story</AmaraActionLink>
 
+        <span class="sg-label" style="margin-top:28px">Deliberately external destination</span>
+        <AmaraActionLink href="https://example.com" variant="editorial" external>Open external source</AmaraActionLink>
+
         <div class="sg-component-label" style="margin-top:16px">
-          Produktionsowner: <span class="sg-code">AmaraActionLink</span> · Varianten: <span class="sg-code">editorial</span>, <span class="sg-code">inline</span>, <span class="sg-code">guide</span>, <span class="sg-code">card</span>
+          Produktionsowner: <span class="sg-code">AmaraActionLink</span> · Varianten: <span class="sg-code">editorial</span>, <span class="sg-code">inline</span>, <span class="sg-code">guide</span>, <span class="sg-code">card</span> · <span class="sg-code">external</span> erzwingt <span class="sg-code">target="_blank"</span> mit sicherem <span class="sg-code">rel</span>
         </div>
       </div>
     </section>

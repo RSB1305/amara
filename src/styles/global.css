@@ -508,6 +508,10 @@
     transform: none;
   }
 
+  .am-btn.am-is-loading {
+    cursor: wait;
+  }
+
   /**
    * Inline editorial links (body copy): offset underline, token ink, hover pulls underline toward text.
    */

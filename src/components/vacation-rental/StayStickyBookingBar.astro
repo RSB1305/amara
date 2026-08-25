@@ -1,4 +1,6 @@
 ---
+import AmaraActionLink from '../actions/AmaraActionLink.astro';
+
 interface Props {
   /** Indicative from-price. The live module owns the exact total. */
   price: string;
@@ -18,13 +20,14 @@ const { price, href, label } = Astro.props;
 <div class="am-stay-sticky-cta" data-am-stay-sticky-cta hidden>
   <div class="am-stay-sticky-cta__inner">
     <p class="am-text-label am-stay-sticky-cta__price">{price}</p>
-    <a
-      class="am-btn am-btn--primary am-stay-sticky-cta__action"
+    <AmaraActionLink
+      variant="primary"
+      class="am-stay-sticky-cta__action"
       href={href}
       data-am-booking-open
     >
       {label}
-    </a>
+    </AmaraActionLink>
   </div>
 </div>
 

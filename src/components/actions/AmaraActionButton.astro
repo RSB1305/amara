@@ -7,6 +7,8 @@ interface Props extends Omit<HTMLAttributes<'button'>, 'class' | 'class:list' | 
   variant: AmaraActionButtonVariant;
   type?: 'button' | 'submit' | 'reset';
   inverse?: boolean;
+  /** Disables the control and exposes its pending state to assistive technology. */
+  loading?: boolean;
   class?: string;
 }
 
@@ -14,6 +16,9 @@ const {
   variant,
   type = 'button',
   inverse = false,
+  loading = false,
+  disabled = false,
+  'aria-busy': ariaBusy,
   class: className,
   ...attributes
 } = Astro.props;
@@ -22,10 +27,12 @@ const {
 <button
   {...attributes}
   type={type}
+  disabled={disabled || loading}
+  aria-busy={loading ? 'true' : ariaBusy}
   class:list={[
     'am-btn',
     `am-btn--${variant}`,
-    { 'am-btn--inverse': inverse },
+    { 'am-btn--inverse': inverse, 'am-is-loading': loading },
     className
   ]}
 >

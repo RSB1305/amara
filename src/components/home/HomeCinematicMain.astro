@@ -14,6 +14,7 @@
  * storytelling belongs on each rental page.
  */
 import { amenityIcons } from '../amenities/amenityIcons';
+import AmaraActionLink from '../actions/AmaraActionLink.astro';
 import InlineEmphasis from '../text/InlineEmphasis.astro';
 
 /**
@@ -245,9 +246,9 @@ const [leadPlace, ...otherPlaces] = places;
       <p class="max-w-xl am-text-body italic text-inverted-on-surface/90"><InlineEmphasis text={heroLead} /></p>
 
       {trustBookingHref && (
-        <a href={trustBookingHref} class="am-btn am-btn--primary am-btn--inverse mt-8">
+        <AmaraActionLink href={trustBookingHref} variant="primary" inverse class="mt-8">
           {trustCtaPrimary}
-        </a>
+        </AmaraActionLink>
       )}
 
       {
@@ -420,9 +421,9 @@ const [leadPlace, ...otherPlaces] = places;
       {
         collectionCtaHref && (
           <div class="mt-16 px-6 text-center md:px-12">
-            <a href={collectionCtaHref} class="am-btn am-btn--secondary">
+            <AmaraActionLink href={collectionCtaHref} variant="secondary">
               {collectionCtaLabel}
-            </a>
+            </AmaraActionLink>
           </div>
         )
       }
@@ -448,9 +449,9 @@ const [leadPlace, ...otherPlaces] = places;
                 <p class="mb-4 am-text-body text-on-surface-variant">{leadPlace.character}</p>
                 <p class="am-text-caption text-on-surface-variant">{leadPlace.travel}</p>
               </div>
-              <a href={leadPlace.href} class="am-cta-link am-cta-link--accent self-start">
+              <AmaraActionLink href={leadPlace.href} variant="editorial" class="am-cta-link--accent self-start">
                 {leadPlace.ctaLabel}
-              </a>
+              </AmaraActionLink>
             </article>
 
             <div class="grid gap-10 sm:grid-cols-2 lg:grid-cols-1">
@@ -461,9 +462,9 @@ const [leadPlace, ...otherPlaces] = places;
                     <p class="mb-4 am-text-body text-on-surface-variant">{place.character}</p>
                     <p class="am-text-caption text-on-surface-variant">{place.travel}</p>
                   </div>
-                  <a href={place.href} class="am-cta-link self-start">
+                  <AmaraActionLink href={place.href} variant="editorial" class="self-start">
                     {place.ctaLabel}
-                  </a>
+                  </AmaraActionLink>
                 </article>
               ))}
             </div>
@@ -481,9 +482,9 @@ const [leadPlace, ...otherPlaces] = places;
         <p class="am-text-body text-on-surface-variant">{bridgeBody}</p>
         {
           bridgeHref && (
-            <a href={bridgeHref} class="am-cta-link am-cta-link--accent mt-8 inline-flex">
+            <AmaraActionLink href={bridgeHref} variant="editorial" class="am-cta-link--accent mt-8 inline-flex">
               {bridgeCtaLabel}
-            </a>
+            </AmaraActionLink>
           )
         }
       </div>
@@ -539,9 +540,9 @@ const [leadPlace, ...otherPlaces] = places;
       <div class="flex flex-wrap justify-center gap-4">
         {
           trustReviewsHref && (
-            <a href={trustReviewsHref} class="am-btn am-btn--secondary">
+            <AmaraActionLink href={trustReviewsHref} variant="secondary">
               {trustCta}
-            </a>
+            </AmaraActionLink>
           )
         }
       </div>
@@ -570,16 +571,16 @@ const [leadPlace, ...otherPlaces] = places;
         <div class="flex flex-wrap gap-4">
           {
             trustBookingHref && (
-              <a href={trustBookingHref} class="am-btn am-btn--primary">
+              <AmaraActionLink href={trustBookingHref} variant="primary">
                 {trustCtaPrimary}
-              </a>
+              </AmaraActionLink>
             )
           }
           {
             directHref && (
-              <a href={directHref} class="am-cta-link self-center">
+              <AmaraActionLink href={directHref} variant="editorial" class="self-center">
                 {directCtaLabel}
-              </a>
+              </AmaraActionLink>
             )
           }
         </div>
@@ -595,9 +596,9 @@ const [leadPlace, ...otherPlaces] = places;
             <span class="mb-3 block am-text-caption uppercase tracking-widest text-primary">{honeymoonEyebrow}</span>
             <h2 class="max-w-xl am-text-subtitle text-on-surface">{honeymoonTitle}</h2>
           </div>
-          <a href={honeymoonHref} class="am-cta-link am-cta-link--accent shrink-0">
+          <AmaraActionLink href={honeymoonHref} variant="editorial" class="am-cta-link--accent shrink-0">
             {honeymoonCtaLabel}
-          </a>
+          </AmaraActionLink>
         </div>
       </section>
     )

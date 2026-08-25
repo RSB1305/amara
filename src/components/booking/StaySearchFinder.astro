@@ -1,6 +1,7 @@
 ---
 import { staySearchCopy, staySearchDestinations } from '../../content/staySearchContent';
 import type { AmaraLanguage } from '../../types/seo';
+import AmaraActionButton from '../actions/AmaraActionButton.astro';
 import BookingDateRangeCalendar from './BookingDateRangeCalendar.astro';
 
 interface Props {
@@ -115,9 +116,9 @@ const guestOptions = [1, 2, 3, 4];
         </select>
       </label>
 
-      <button class="am-btn am-btn--primary col-span-2 min-h-12 w-full justify-center lg:col-span-1 lg:w-auto" type="submit">
+      <AmaraActionButton variant="primary" class="col-span-2 min-h-12 w-full justify-center lg:col-span-1 lg:w-auto" type="submit">
         {t(staySearchCopy.submit)}
-      </button>
+      </AmaraActionButton>
     </div>
 
     <BookingDateRangeCalendar

@@ -1,5 +1,6 @@
 ---
 import type { ImageMetadata } from 'astro';
+import AmaraActionLink from '../actions/AmaraActionLink.astro';
 import EditorialByline from '../editorial/EditorialByline.astro';
 import LocationGuideHero from './LocationGuideHero.astro';
 import type { AmaraLanguage } from '../../types/seo';
@@ -70,9 +71,9 @@ if (!hasVisualSlot && (!imageSrc || !imageAlt)) {
   {actions.length > 0 && (
     <div slot="actions" class="flex flex-wrap gap-4">
       {actions.map((action) => (
-        <a href={action.href} class={`am-btn am-btn--${action.style}`}>
+        <AmaraActionLink href={action.href} variant={action.style}>
           {action.label}
-        </a>
+        </AmaraActionLink>
       ))}
     </div>
   )}

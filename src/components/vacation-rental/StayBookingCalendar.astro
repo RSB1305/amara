@@ -2,6 +2,7 @@
 import type { AmaraLanguage } from '../../types/seo';
 import type { VacationRentalBookingKey } from '../../content/vacationRentalEntities';
 import BookingDateRangeCalendar from '../booking/BookingDateRangeCalendar.astro';
+import AmaraActionLink from '../actions/AmaraActionLink.astro';
 import AmaraSection from '../layout/AmaraSection.astro';
 
 interface Props {
@@ -399,7 +400,7 @@ const titleId = `${bookingKey}-booking-calendar-title`;
 
       {fallbackHref && fallbackLabel && (
         <p class="am-text-caption mt-5 font-normal text-on-surface-variant" data-am-booking-fallback>
-          <a class="am-inline-link" href={fallbackHref}>{fallbackLabel}</a>
+          <AmaraActionLink variant="inline" href={fallbackHref}>{fallbackLabel}</AmaraActionLink>
         </p>
       )}
     </div>

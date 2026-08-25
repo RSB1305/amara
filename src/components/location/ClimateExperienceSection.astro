@@ -1,4 +1,6 @@
 ---
+import AmaraActionLink from '../actions/AmaraActionLink.astro';
+
 /**
  * ClimateExperienceSection — Type A Location Authority
  *
@@ -87,8 +89,8 @@ const {
       <p class="am-text-body leading-snug text-on-surface-variant">{factCoolerVsCoast}</p>
     </div>
 
-    <a href={ctaHref} class="am-cta-link mt-12 inline-block">
+    <AmaraActionLink href={ctaHref} variant="editorial" class="mt-12 inline-block">
       {ctaLabel}
-    </a>
+    </AmaraActionLink>
   </div>
 </div>
