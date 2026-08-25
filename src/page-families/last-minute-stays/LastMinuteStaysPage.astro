@@ -125,7 +125,7 @@ const destinationLinks = lastMinuteStaysCopy.destinations.map((destination) => (
                 meta={`${rental.city} · ${guestCapacity(rental.occupancy)}`}
                 title={rental.name}
                 description={firstSentence(rental.lead[currentLang] ?? rental.lead.en)}
-                ctaLabel={t(lastMinuteStaysCopy.live.viewStay)}
+                ctaLabel={t(lastMinuteStaysCopy.live.viewStayDetails)}
                 linkAriaLabel={`${t(lastMinuteStaysCopy.live.viewStayDetails)}: ${rental.name}`}
                 dataStay={rental.bookingKey}
                 dataDestination={destination}

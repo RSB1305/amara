@@ -102,7 +102,7 @@ const cards = vacationRentalEntities.flatMap((rental) => {
                 meta={`${rental.city} · ${guestCapacity(rental.occupancy)}`}
                 title={rental.name}
                 description={firstSentence(rental.lead[currentLang] ?? rental.lead.en)}
-                ctaLabel={t(staySearchCopy.bookNow)}
+                ctaLabel={t(staySearchCopy.viewStay)}
                 linkAriaLabel={`${t(staySearchCopy.viewStay)}: ${rental.name}`}
                 dataStay={rental.bookingKey}
                 dataDestination={destination}

@@ -103,7 +103,7 @@ const {
       ))}
     </div>
 
-    {showBookingCta && (
+    {showBookingCta && !cta.hidden && (
       cta.href === null ? (
         <span class="am-btn am-btn--primary am-nav-mobile__cta am-is-disabled" aria-disabled="true">
           {cta.label}

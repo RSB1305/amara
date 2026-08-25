@@ -46,11 +46,11 @@ const EXPECTED_GROUP_TOKENS: Record<string, LinkToken[]> = {
 };
 
 const EXPECTED_CTA_LABELS: Record<AmaraLanguage, string> = {
-  en: 'Find a stay',
-  de: 'Unterkunft finden',
-  es: 'Buscar alojamiento',
-  nl: 'Verblijf zoeken',
-  sv: 'Hitta boende'
+  en: 'Check availability',
+  de: 'Verfügbarkeit prüfen',
+  es: 'Consultar disponibilidad',
+  nl: 'Beschikbaarheid bekijken',
+  sv: 'Se tillgänglighet'
 };
 
 /** The page contexts that currently render the header. */

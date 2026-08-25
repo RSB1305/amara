@@ -91,7 +91,6 @@ export const lastMinuteStaysCopy = {
     fromNights: l('bookable from {count} nights', 'buchbar ab {count} Nächten', 'reservable desde {count} noches', 'te boeken vanaf {count} nachten', 'kan bokas från {count} nätter'),
     exampleStay: l('Example', 'Beispiel', 'Ejemplo', 'Voorbeeld', 'Exempel'),
     totalPrice: l('Confirmed total price', 'Bestätigter Gesamtpreis', 'Precio total confirmado', 'Bevestigde totaalprijs', 'Bekräftat totalpris'),
-    viewStay: l('Book these dates', 'Diese Reisedaten buchen', 'Reservar estas fechas', 'Boek deze data', 'Boka dessa datum'),
     viewStayDetails: l('View stay', 'Unterkunft ansehen', 'Ver alojamiento', 'Verblijf bekijken', 'Visa boendet'),
     night: l('{count} night', '{count} Nacht', '{count} noche', '{count} nacht', '{count} natt'),
     nights: l('{count} nights', '{count} Nächte', '{count} noches', '{count} nachten', '{count} nätter'),

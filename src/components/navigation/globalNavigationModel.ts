@@ -44,6 +44,8 @@ export type ResolvedNavigationCta = {
   label: string;
   shortLabel: string;
   href: string | null;
+  /** True on the page the call to action would link to; the header omits it there. */
+  hidden: boolean;
 };
 
 export type GlobalNavigationModel = {
@@ -133,10 +135,17 @@ export function createGlobalNavigationModel({
     };
   });
 
+  const ctaHref = isPublicLinkEnabled(CTA_TOKEN) ? resolveLink(CTA_TOKEN, currentLang) : null;
+  // A call to action pointing at the page a guest is already reading is noise,
+  // and on the search page it would stand next to the finder it duplicates.
+  const ctaTargetsCurrentPage =
+    ctaHref !== null && normalizePath(ctaHref) === normalizePath(currentPath);
+
   const cta: ResolvedNavigationCta = {
     label: globalCtaLabels[currentLang],
     shortLabel: defaultCtaShortLabels[currentLang],
-    href: isPublicLinkEnabled(CTA_TOKEN) ? resolveLink(CTA_TOKEN, currentLang) : null
+    href: ctaTargetsCurrentPage ? null : ctaHref,
+    hidden: ctaTargetsCurrentPage
   };
 
   return { brandHref, utilityLabels: navigationUtilityLabels[currentLang] ?? navigationUtilityLabels.en, groups, languageOptions, cta };

@@ -75,17 +75,17 @@ const { currentLang, languageOptions, cta, showBookingCta, utilityLabels } = Ast
     </div>
   </div>
 
-  {showBookingCta && (
+  {showBookingCta && !cta.hidden && (
     <div class="am-nav__slot am-nav__slot--cta">
       {cta.href === null ? (
-        <span class="am-btn am-btn--primary am-is-disabled" aria-disabled="true">
+        <span class="am-btn am-btn--secondary am-is-disabled" aria-disabled="true">
           <span class="am-nav__cta-label-full">{cta.label}</span>
           <span class="am-nav__cta-label-short">{cta.shortLabel}</span>
         </span>
       ) : (
         <a
           href={cta.href}
-          class="am-btn am-btn--primary"
+          class="am-btn am-btn--secondary"
         >
           <span class="am-nav__cta-label-full">{cta.label}</span>
           <span class="am-nav__cta-label-short">{cta.shortLabel}</span>

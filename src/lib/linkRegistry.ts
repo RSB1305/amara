@@ -33,13 +33,15 @@ export const linkRegistry = {
        CORE
     ========================================================= */
     home: buildOwnedLinks(''),
-    book: {
-      en: buildBookingLandingUrl('en'),
-      de: buildBookingLandingUrl('de'),
-      es: buildBookingLandingUrl('es'),
-      nl: buildBookingLandingUrl('nl'),
-      sv: buildBookingLandingUrl('sv')
-    },
+    /**
+     * `book` now resolves to AMARA's own availability search rather than the
+     * external booking landing page. Every editorial call to action therefore
+     * keeps the guest on the site, where the gateway answers with real dates,
+     * availability and an authoritative total. The external host is entered
+     * only through the validated checkout handoff in `directBooking.ts`, and
+     * the legacy `/{lang}/book/` URLs keep their redirects in `_redirects`.
+     */
+    book: buildOwnedLinks('find-a-stay'),
     about: buildOwnedLinks('amara-about-us'),
     amenities: buildOwnedLinks('comfort-amenities'),
     arrival_guide: buildOwnedLinks('directions-arrival-guide'),

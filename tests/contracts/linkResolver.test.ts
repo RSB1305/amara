@@ -25,13 +25,29 @@ test('every localized registry entry resolves in all supported languages', () =>
   }
 });
 
-test('keeps site, booking and external links in their respective URL spaces', () => {
+test('keeps site and external links in their respective URL spaces', () => {
   expect(resolveLink('home', 'es')).toBe('/');
   expect(resolveLink('home', 'de')).toBe('/de');
-  expect(resolveLink('book', 'es')).toBe('https://amara.lodgify.com/es/book/');
+  expect(resolveLink('book', 'es')).toBe('/find-a-stay');
+  expect(resolveLink('book', 'de')).toBe('/de/find-a-stay');
   expect(resolveLink('instagram', 'sv')).toBe(
     'https://www.instagram.com/amaralodging/'
   );
+});
+
+test('no authored link sends a guest to the booking provider', () => {
+  // Editorial calls to action resolve to AMARA's own availability search. The
+  // provider is entered only through the validated checkout handoff and the
+  // module's fallback link, neither of which is authored in the registry.
+  for (const [token, entry] of Object.entries(linkRegistry.links)) {
+    const urls = typeof entry === 'string' ? [entry] : Object.values(entry);
+
+    for (const url of urls) {
+      expect(url, `${token} must not link to the booking provider`).not.toContain(
+        'lodgify.com'
+      );
+    }
+  }
 });
 
 test('optional and required resolution agree for a known token', () => {
