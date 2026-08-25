@@ -1,10 +1,10 @@
 # AMARA Design System — offene Arbeiten
 
-**Stand:** 2026-08-23
+**Stand:** 2026-08-25
 
-**Gesamtstatus:** OFFEN
+**Gesamtstatus:** IN ARBEIT
 
-**Ausgangspunkt:** Abgleich des ursprünglichen Design-/Architektur-Audits mit dem Repository-Stand `07498ce`
+**Ausgangspunkt:** Ausnahmebasierter Silo-Querschnitt auf Repository-Stand `3b9fb6c`
 
 Diese Datei ist eine operative Statusliste und kein neuer Architekturvertrag. Die Punkte bleiben Kontext, bis der Betreiber sie als konkreten Arbeitsauftrag auswählt.
 
@@ -14,10 +14,22 @@ Diese Datei ist eine operative Statusliste und kein neuer Architekturvertrag. Di
 |---|---|---|---|
 | DS-01 | **OFFEN** | Mobile-First- und Conversion-Prüfung | Die wichtigsten Gästewege — Home, Themen-/Trust-Seite, Unterkunft, Verfügbarkeit und Übergang zu Lodgify — sind auf realistischen Smartphone-Viewports systematisch geprüft. Festgestellte Reibungspunkte sind priorisiert und die kritischen Punkte behoben. |
 | DS-02 | **OFFEN** | Messbare Performance-Basis | Für repräsentative Seitentypen liegen reproduzierbare mobile Messwerte einschließlich Core Web Vitals vor. Erst danach kann belastbar bewertet werden, ob die Umstellung die reale Geschwindigkeit verbessert hat und welche Optimierungen tatsächlich notwendig sind. |
-| DS-03 | **OFFEN** | Lebender AMARA-Styleguide und Typografie-Restbestand | Die inzwischen gemeinsam gesteuerten Layout-, Farb-, Flächen-, Abstands- und Typografie-Rollen sind als anwendbarer Styleguide festgehalten. Die derzeit noch erfassten 99 älteren Typografie-Einzelwerte sind geprüft und echte Duplikate in bestehende Rollen überführt; begründete Ausnahmen bleiben bestehen. |
+| DS-03 | **IN ARBEIT** | Lebender AMARA-Styleguide und Typografie-Restbestand | Der Styleguide rendert Produktions-Tokens und Produktionskomponenten statt eigener Kopien. Die aktuell 32 erfassten Typografie-Legacywerte in 14 Dateien sind geprüft und echte Duplikate in bestehende Rollen überführt; der Legacy-Ratchet bleibt bei jedem Schritt aktuell. |
 | DS-04 | **OFFEN** | Verbleibende Sonderlösungen der Location-Seiten | Die großen individuellen Location-Renderer sind auf tatsächlich wiederkehrende Inhalts- und Präsentationsmuster geprüft. Nur echte Wiederholungen werden konsolidiert; unterschiedliche Seitenaufgaben und Inhalte bleiben erhalten. |
 | DS-05 | **OFFEN** | Lodgify-Übergang und Checkout-Gestaltung | Die technischen Möglichkeiten und die Empfehlung von Lodgify zur Einbindung, insbesondere iFrame versus externer Checkout, sind geklärt. Danach sind Buchungsarchitektur, Datenschutz, mobile Bedienung und der visuelle Übergang verbindlich entschieden und umgesetzt. |
+| DS-06 | **IN ARBEIT** | Cross-Silo-Ausnahmen und Baukasten | Gleiche UI-Aufgaben in Trust, Stay, Location und Experience sind als Cluster klassifiziert. Jedes Cluster ist `canonical`, bewusste `family`-Variante, `experimental`, `legacy` oder `retired`; neue lokale Varianten entstehen nicht neben einem bereits identifizierten gemeinsamen Job. |
+
+## Aktive Ausnahmebasis
+
+| Cluster | Aktueller Befund | Nächste Entscheidung |
+|---|---|---|
+| Typografie | 32 unresolved Legacy-Vorkommen in 14 Dateien; der Guard läuft grün und verhindert Zuwachs. | Nach UI-Job clustern; Rolle verwenden/ergänzen oder als begründete Familiengeometrie behandeln. |
+| Actions und Links | `am-btn` Primary/Secondary/Inverse sowie CTA-, Inline-, Guide- und Card-Link sind zentrale aktuelle Treatments, werden aber noch direkt als Klassen verwendet. | Semantische Einsatzgrenzen bestätigen und eine schmale Produktions-API entwerfen. |
+| Passive Pills | Neun gleiche oder nahe Rezepte in vier Location-Dateien. | Meta-Chip-Rolle oder bewusst getrennte Module bestimmen; Rezept bis dahin nicht weiter kopieren. |
+| Interaktive Chips | Der Amenities-Filter besitzt einen funktional guten, aber lokal definierten `filter-chip`. | Als Referenz prüfen und bei Bestätigung in einen kanonischen Filter-Chip überführen. |
+| Interne Designansichten | Styleguide, Component Library und Design Lab zeigen nicht durchgehend denselben Implementierungsstand; Styleguide-only Badges sind keine öffentlichen Komponenten. | Styleguide auf Produktionsowner umstellen; Bestandsanzeige zusammenführen oder klar trennen. |
+| Scoped Styles | 39 Produktions-Astrodateien besitzen component-owned Styles. Das ist vertragskonform; nur siloübergreifend wiederholte UI-Jobs sind Konsolidierungskandidaten. | Nicht pauschal zentralisieren, sondern ausnahme- und jobbezogen prüfen. |
 
 ## Bereits erreichte Ausgangslage
 
-Die zentralen öffentlichen Seitenfamilien verwenden inzwischen deutlich mehr gemeinsame Layout-, Section- und Typografie-Steuerung. Die verbleibenden Arbeiten sind daher eine gezielte Professionalisierung des neuen gemeinsamen Systems und kein Anlass für einen vollständigen Neuaufbau.
+Die zentralen öffentlichen Seitenfamilien verwenden inzwischen deutlich mehr gemeinsame Layout-, Section- und Typografie-Steuerung. Die verbleibenden Arbeiten sind daher eine gezielte Professionalisierung des neuen gemeinsamen Systems und kein Anlass für einen vollständigen Neuaufbau. Der normative Steuerungsrahmen für diese Arbeit steht in Astro & Design Architecture Contract 4.3.0; diese Datei hält nur Arbeitsstand und Ausnahmebasis.

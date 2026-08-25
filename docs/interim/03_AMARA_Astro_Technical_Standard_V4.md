@@ -1,7 +1,7 @@
 ---
 document_id: AMARA-INT-ASTRO-003
-title: AMARA Astro Technical Standard V4
-version: 4.2.0
+title: AMARA Astro & Design Architecture Contract V4
+version: 4.3.0
 status: ACTIVE
 authority_class: CONTRACT / GOVERNING INTERIM
 source_type: INTERIM SNAPSHOT FROM APPROVED PDF + APPROVED REPOSITORY AMENDMENT
@@ -9,10 +9,10 @@ source_attachment: "03_AMARA_Astro_Technical_Standard_V4 (1).pdf"
 source_sha256: b3d8a3e780b29b5be42922aec838c7f56f455184cca8336d9a0f3564ba43f9aa
 snapshot_created: 2026-08-14T09:08:00+02:00
 migration_state: PENDING PACKAGE 2/3 NORMALIZATION
-last_modified: 2026-08-23T13:54:40+02:00
+last_modified: 2026-08-25T15:51:22+02:00
 ---
 
-# AMARA Astro Technical Standard V4 — Interim Markdown Snapshot
+# AMARA Astro & Design Architecture Contract V4 — Interim Markdown Snapshot
 
 > **INTERIM SNAPSHOT.** This file preserves the wording of the currently approved source document while AMARA migrates active documentation into the repository. Formatting was normalized for Markdown; no substantive rule change is intended by this conversion. Where the System Constitution, Governance or Decision Register explicitly records an intentional supersession, the higher owner governs.
 
@@ -20,9 +20,9 @@ last_modified: 2026-08-23T13:54:40+02:00
 
 ---
 
-AMARA Astro Technical Standard V4
+AMARA Astro & Design Architecture Contract V4
 Status                                                ACTIVE
-Version                                               4.1.0
+Version                                               4.3.0
 Effective date                                        2026-08-10
 Runtime                                               Astro
 Styling                                               Tailwind CSS + AMARA global tokens + scoped component
@@ -254,6 +254,91 @@ New topic work follows this direction:
 
 The typed contract in `knowledge/schema.ts` is the executable repository owner for knowledge-record shape. It must remain presentation-agnostic and must not become a second routing, runtime or styling system.
 
+17. Design-system control and cross-silo convergence
+
+17.1 Purpose
+
+AMARA's design system is the controlled cross-section of the public page families, not a separate visual layer placed above them. Trust, Stay, Location, Experience, Home and Guest Utility may keep distinct compositions where their page jobs require them, but the same UI job must not acquire a new visual language merely because it appears in another family.
+
+The system distinguishes five statuses:
+
+- **canonical** — the approved shared treatment for a named UI job;
+- **family** — a deliberate variant required by a distinct page-family or surface job;
+- **experimental** — isolated in the internal Design Lab and not approved for public use;
+- **legacy** — existing output that remains valid while it is migrated but may not be copied into new work;
+- **retired** — no longer permitted in active public output.
+
+Visual similarity alone does not make two units the same component. Visual difference alone does not justify two implementations. Classification follows semantic job, interaction, information hierarchy and responsive behaviour.
+
+17.2 Executable ownership
+
+The ownership chain is:
+
+- `src/styles/global.css` owns foundations, tokens, typography roles and genuinely global control/link treatments;
+- shared components own canonical interactive primitives and reusable content modules;
+- page families compose those primitives and modules for their dominant job and may own local layout, but they do not create parallel foundation or control systems;
+- `/tools/styleguide` is the rendered operational reference and must display production tokens and production components rather than restating or imitating them;
+- `/tools/design-lab` owns visual experiments only. An experiment becomes canonical only through an explicitly approved contract/component change;
+- the internal component inventory may describe implementation coverage but cannot define design status independently of this contract and the production component.
+
+A styleguide-only class is tool chrome or demonstration scaffolding. It cannot establish a public AMARA pattern.
+
+17.3 Exception-led convergence
+
+Convergence proceeds by UI job across silos rather than by redesigning one complete page family at a time:
+
+1. compare the same job across representative Trust, Stay, Location and Experience consumers;
+2. group repeated recipes and materially different solutions as an exception cluster;
+3. classify each cluster as canonical, family, experimental, legacy or retired;
+4. select or create the smallest appropriate token, role or component owner;
+5. migrate bounded consumers and validate representative mobile and larger-viewport output;
+6. update the rendered styleguide from the production owner.
+
+Existing public output is not invalid merely because it predates this process. A legacy treatment stays stable until its cluster is selected for migration. New work must not copy a legacy treatment or add another local solution to an already identified shared UI job.
+
+17.4 Primitive roles and current transition state
+
+The current controlled primitive vocabulary is:
+
+- typography through the `am-text-*` roles; unresolved arbitrary typography values remain legacy, not approved exceptions;
+- action buttons through `am-btn` with `primary`, `secondary` and the inverse-surface modifier;
+- editorial onward actions through `am-cta-link`;
+- body-copy links through `am-inline-link`;
+- related-guide links through `am-guide-link`;
+- textual links inside a larger linked card treatment through `am-card-link`.
+
+The CSS roles above are canonical current treatments. A narrow production-component API for actions and links remains implementation work; until it exists, page families use these roles directly and do not introduce additional visual variants.
+
+Chip-like controls and labels must be classified by semantics before canonical implementation:
+
+- a **filter chip** is interactive and exposes its selected state accessibly;
+- a **meta chip** is passive, concise information;
+- a **status badge** communicates a real state rather than decorative emphasis;
+- an **icon surface** contains an icon and is not described or implemented as a chip merely because it is circular.
+
+The existing amenities filter is a legitimate functional reference but is still locally owned. Repeated passive pill recipes in Location content are a legacy consolidation cluster. Badges that exist only in an internal styleguide are not canonical public components.
+
+17.5 Surfaces, cards and elevation
+
+AMARA does not have one universal card. Stay selection, guide navigation, evidence, comparison and booking decision are different jobs and may use different named modules. Flat editorial composition and hairline separation remain the default; elevation is component-owned and reserved for a demonstrated hierarchy or overlay need. A new generic card recipe is not permitted merely to wrap content visually.
+
+Scoped component styles remain valid ownership. Their existence is not design debt by itself. A scoped treatment becomes a shared-system concern when the same UI job or recipe appears across component or page-family boundaries.
+
+17.6 Living styleguide contract
+
+Every canonical primitive or module shown in the living styleguide must include, as applicable:
+
+- semantic purpose and when not to use it;
+- production owner and supported API;
+- allowed variants and status;
+- mobile and larger-viewport behaviour;
+- hover, focus, active, disabled, loading and error states;
+- long-label and five-locale considerations;
+- accessibility requirements;
+- at least one real production consumer.
+
+The styleguide is therefore an executable view of the system, not a parallel source of design values. A mismatch is resolved in the production owner or in this contract; it is not patched locally in the styleguide.
+
 ## Revision history
 
 | Version | Date | Change |
@@ -261,3 +346,4 @@ The typed contract in `knowledge/schema.ts` is the executable repository owner f
 | 4.0 | 2026-08-10 | Approved source standard preserved as the interim Markdown snapshot. |
 | 4.1.0 | 2026-08-20 | Added the approved Evidence & Knowledge boundary and executable repository ownership model. |
 | 4.2.0 | 2026-08-23T13:54:40+02:00 | Activated the canonical mobile-first composition contract and progressive-enhancement boundary for all public page families. |
+| 4.3.0 | 2026-08-25T15:51:22+02:00 | Activated exception-led cross-silo design convergence, explicit design-status classes, executable owner boundaries and the living-styleguide contract without changing public rendering. |

@@ -1,12 +1,12 @@
 ---
 document_id: AMARA-REG-001
 title: AMARA Register
-version: 1.20.0
+version: 1.21.0
 status: ACTIVE
 authority_class: LIVING BINDING REGISTER
 activation_state: ACTIVE
 effective_from: 2026-08-14
-last_modified: 2026-08-25T15:10:52+02:00
+last_modified: 2026-08-25T15:51:22+02:00
 canonical_path: /docs/AMARA_REGISTER.md
 ---
 
@@ -21,7 +21,7 @@ The AMARA Register is the single source for active documents, authority classes,
 | Slot | Document owner | Version/status | Class | Canonical/current source |
 |---|---|---|---|---|
 | 01 | AMARA System Constitution | 5.2.0 ACTIVE | PRINCIPLE / governing | `docs/standards/01_AMARA_System_Constitution_V5.md` |
-| 02 | AMARA Astro & Design Architecture Contract | 4.2.0 ACTIVE INTERIM | CONTRACT / governing | `docs/interim/03_AMARA_Astro_Technical_Standard_V4.md` + current repository implementation |
+| 02 | AMARA Astro & Design Architecture Contract | 4.3.0 ACTIVE INTERIM | CONTRACT / governing | `docs/interim/03_AMARA_Astro_Technical_Standard_V4.md` + current repository implementation |
 | 03 | AMARA Runtime, SEO & Data Contract | PENDING Package 2 | CONTRACT / governing | Interim snapshot: `docs/interim/04_AMARA_Runtime_and_SEO_Standard_V4.md` + current repository implementation |
 | 04 | AMARA URL, Route & Link Contract | PENDING Package 2 | CONTRACT / governing | Interim snapshot: `docs/interim/05_AMARA_URL_and_Route_Infrastructure_V4.md` + Decision Register |
 | 05 | AMARA Governance, Execution & Documentation Lifecycle | 5.5.0 ACTIVE | CONTRACT / governing | `docs/standards/05_AMARA_Governance_Execution_and_Documentation_Lifecycle_V5.md` |
@@ -114,9 +114,11 @@ They do **not** supersede the current implementation. Until a separately aligned
 
 | ID | Decision | Status |
 |---|---|---|
-| DR-DESIGN-001 | The typography roles in `src/styles/global.css` are the sole owner of text size, weight, tracking and case. Typographic arbitrary Tailwind values are policy-checked against a recorded baseline in `scripts/typography-baseline.json`, which fails on a new value and on a resolved value that has not been banked. A genuine exception stays possible and is recorded there rather than argued at review time. | ACTIVE |
+| DR-DESIGN-001 | The typography roles in `src/styles/global.css` are the sole owner of text size, weight, tracking and case. Typographic arbitrary Tailwind values are policy-checked against the legacy ratchet in `scripts/typography-legacy-baseline.json`, which fails on a new value and on a resolved value that has not been banked. The ratchet records unresolved legacy, not approved exceptions. | ACTIVE |
 | DR-DESIGN-002 | A visual treatment that appears at more than one call site is a role or a component, not a repeated class recipe. Where several spellings of one role are found, the role is fixed at the value the majority of call sites already used, and the resulting step becomes adjustable in one place. | ACTIVE |
 | DR-DESIGN-003 | AMARA uses one mobile-first responsive design system. The mobile composition is the canonical source layout; larger viewports progressively enhance space, imagery and column structure without changing the page's semantic order, dominant job or conversion path. | ACTIVE |
+| DR-DESIGN-004 | Design convergence is exception-led and compares the same UI job across Trust, Stay, Location, Experience and other surfaces. Treatments are classified as canonical, deliberate family variants, experimental, legacy or retired; neither silo origin nor visual similarity alone determines component ownership. | ACTIVE |
+| DR-DESIGN-005 | `global.css` and production components are the executable design owners. The living styleguide renders those owners and may not define an independent public visual pattern; the Design Lab remains experimental until an explicit promotion decision. | ACTIVE |
 
 ### Content/localization
 
@@ -192,6 +194,7 @@ Routine new evidence/ideas may be captured here or in the relevant working evide
 | 2026-08-25T11:34:57+02:00 | Homepage calendar orientation prices | Extended the existing destination calendar response with public nightly rates and currency. The Homepage shows the lowest available nightly rate per date as a non-binding “from” price, while same-stay validation and the authoritative Results quote remain unchanged. Register 1.18.0. | DR-BOOK-001 | this revision |
 | 2026-08-25T12:11:40+02:00 | Provider-owned checkout handoff | Added the fifth GET-only Booking Gateway route: after an authoritative quote, AMARA validates stay, locale, dates, guests and currency, resolves the provider mapping server-side and redirects into Lodgify's official Booking Box reservation route without creating or holding a booking. Register 1.19.0. | DR-BOOK-001 | this revision |
 | 2026-08-25T15:10:52+02:00 | Astro consent-gated GA4 | Activated the five-locale Astro consent layer, withheld all GA4 loading until explicit analytics consent, preserved full site use after rejection, added a persistent footer settings entry and kept Lodgify consent separate. Local browser validation proved the pre-consent and rejection paths; deployed GA4 receipt and cross-domain behavior remain live validation work. Register 1.20.0. | DR-MEAS-001, DR-MEAS-004, DR-MEAS-006–008, DR-MEAS-010 | 3458ab9 |
+| 2026-08-25T15:51:22+02:00 | Exception-led design-system control | Established the cross-silo UI-job comparison, canonical/family/experimental/legacy/retired status model, executable owner chain and living-styleguide boundary. Corrected the typography-ratchet path and recorded the current 32-value legacy baseline without changing public rendering. Astro & Design Contract 4.3.0, Register 1.21.0. | DR-DESIGN-001–005 | this revision |
 
 ## 5. Intentional supersessions
 
@@ -220,6 +223,7 @@ Separate controlled workstreams remain for:
 - `DR-MEAS-007`: instrument and validate the approved `availability_click` event through stable semantic attributes;
 - deployed GA4 receipt and `DR-MEAS-008` cross-domain continuity validation across AMARA, Lodgify and checkout;
 - later normalization of the active external booking feature contract/runbook into `/docs/features` without changing its implementation by documentation alone.
+- exception-led consolidation of shared primitives and modules, followed by rebuilding `/tools/styleguide` as a rendered view of production owners under Astro & Design Contract 4.3.0.
 
 ## Revision history
 
@@ -248,3 +252,4 @@ Separate controlled workstreams remain for:
 | 1.18.0 | 2026-08-25T11:34:57+02:00 | Added non-binding nightly orientation prices to the Homepage destination calendar. | this revision |
 | 1.19.0 | 2026-08-25T12:11:40+02:00 | Activated the validated server-side handoff into Lodgify's provider-owned checkout after an authoritative quote. | this revision |
 | 1.20.0 | 2026-08-25T15:10:52+02:00 | Activated the five-locale consent-gated Astro GA4 layer, recorded its code owners and closed the prior Legal Notice/runtime mismatch while retaining event and live cross-domain validation as controlled follow-up work. | this revision |
+| 1.21.0 | 2026-08-25T15:51:22+02:00 | Activated exception-led cross-silo design convergence and the executable living-styleguide owner model; corrected the typography legacy-ratchet reference. | this revision |
