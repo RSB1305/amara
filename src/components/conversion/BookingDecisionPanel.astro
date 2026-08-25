@@ -8,7 +8,14 @@ interface Props {
   priceLabel: string;
   price: string;
   primary: ActionLink;
+  /**
+   * Set when the primary action stays on the page and hands over to an in-page
+   * booking module. The module resolves the exact total itself, so the link
+   * must not behave like a departure to an external booking site.
+   */
+  primaryInPage?: boolean;
   secondary?: ActionLink;
+  priceNote?: string;
   supportLinks?: ActionLink[];
 }
 
@@ -16,7 +23,9 @@ const {
   priceLabel,
   price,
   primary,
+  primaryInPage = false,
   secondary,
+  priceNote,
   supportLinks = []
 } = Astro.props;
 ---
@@ -28,7 +37,11 @@ const {
   </div>
 
   <div class="am-booking-decision__actions">
-    <a class="am-btn am-btn--primary w-full justify-center sm:w-auto" href={primary.href}>
+    <a
+      class="am-btn am-btn--primary w-full justify-center sm:w-auto"
+      href={primary.href}
+      data-am-booking-open={primaryInPage ? '' : undefined}
+    >
       {primary.label}
     </a>
     {secondary && (
@@ -37,6 +50,12 @@ const {
       </a>
     )}
   </div>
+
+  {priceNote && (
+    <p class="am-booking-decision__note am-text-caption font-normal leading-relaxed">
+      {priceNote}
+    </p>
+  )}
 
   {supportLinks.length > 0 && (
     <div class="am-booking-decision__support am-text-caption font-normal">
@@ -61,11 +80,19 @@ const {
     gap: 0.75rem;
   }
 
+  .am-booking-decision__note,
+  .am-booking-decision__support {
+    color: var(--color-on-surface-variant);
+  }
+
+  .am-booking-decision__note {
+    margin-top: -0.5rem;
+  }
+
   .am-booking-decision__support {
     display: flex;
     flex-wrap: wrap;
     gap: 0.5rem 1.25rem;
-    color: var(--color-on-surface-variant);
   }
 
   @media (min-width: 40rem) {
@@ -81,8 +108,14 @@ const {
       justify-content: flex-end;
     }
 
+    .am-booking-decision__note,
     .am-booking-decision__support {
       grid-column: 1 / -1;
+    }
+
+    .am-booking-decision__note {
+      margin-top: 0;
+      max-width: 42rem;
     }
   }
 </style>

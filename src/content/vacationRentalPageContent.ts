@@ -70,6 +70,34 @@ export const ui = {
     nl: 'Beschikbaarheid bekijken',
     sv: 'Se tillgänglighet'
   },
+  chooseDates: {
+    en: 'Choose dates & price',
+    de: 'Reisedaten & Preis wählen',
+    es: 'Elegir fechas y precio',
+    nl: 'Data & prijs kiezen',
+    sv: 'Välj datum och pris'
+  },
+  bookingPageFallback: {
+    en: 'Open the booking page',
+    de: 'Buchungsseite öffnen',
+    es: 'Abrir la página de reservas',
+    nl: 'Boekingspagina openen',
+    sv: 'Öppna bokningssidan'
+  },
+  indicativePriceNote: {
+    en: 'Indicative and season-dependent. The exact total for your dates comes from the live calendar below.',
+    de: 'Richtwert, saisonabhängig. Den genauen Gesamtpreis für eure Reisedaten zeigt der Live-Kalender unten.',
+    es: 'Precio orientativo según la temporada. El precio total exacto para vuestras fechas lo da el calendario en directo.',
+    nl: 'Indicatief en afhankelijk van het seizoen. De exacte totaalprijs voor jullie data komt uit de live kalender.',
+    sv: 'Vägledande och säsongsberoende. Det exakta totalpriset för era datum kommer från livekalendern nedan.'
+  },
+  keyFactsLabel: {
+    en: 'Key facts at a glance',
+    de: 'Eckdaten auf einen Blick',
+    es: 'Datos clave de un vistazo',
+    nl: 'Kerngegevens in één oogopslag',
+    sv: 'Nyckelfakta i korthet'
+  },
   readReviews: {
     en: 'Read guest reviews',
     de: 'Gästebewertungen lesen',
@@ -275,6 +303,37 @@ export const ui = {
       es: 'Dormitorios',
       nl: 'Slaapkamers',
       sv: 'Sovrum'
+    },
+    // The facts table labels a column and is capitalised accordingly. The hero
+    // row reads as a running phrase, so it needs its own casing and plural per
+    // language rather than a reused column heading.
+    guestsInline: {
+      en: '{count} guests',
+      de: '{count} Gäste',
+      es: '{count} huéspedes',
+      nl: '{count} gasten',
+      sv: '{count} gäster'
+    },
+    guestInline: {
+      en: '{count} guest',
+      de: '{count} Gast',
+      es: '{count} huésped',
+      nl: '{count} gast',
+      sv: '{count} gäst'
+    },
+    bedroomsInline: {
+      en: '{count} bedrooms',
+      de: '{count} Schlafzimmer',
+      es: '{count} dormitorios',
+      nl: '{count} slaapkamers',
+      sv: '{count} sovrum'
+    },
+    bedroomInline: {
+      en: '{count} bedroom',
+      de: '{count} Schlafzimmer',
+      es: '{count} dormitorio',
+      nl: '{count} slaapkamer',
+      sv: '{count} sovrum'
     },
     bathrooms: {
       en: 'Bathrooms',

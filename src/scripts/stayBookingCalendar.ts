@@ -112,7 +112,6 @@ export function enhanceStayBookingCalendars() {
       container,
       '[data-am-booking-calendar-clear]'
     );
-    const submit = element<HTMLButtonElement>(container, '[data-am-booking-submit]');
     const result = element<HTMLElement>(container, '[data-am-booking-result]');
     const status = element<HTMLElement>(container, '[data-am-booking-status]');
     const summary = element<HTMLElement>(container, '[data-am-booking-summary]');
@@ -140,7 +139,6 @@ export function enhanceStayBookingCalendars() {
       !nextButton ||
       !closeButton ||
       !clearButton ||
-      !submit ||
       !result ||
       !status ||
       !summary ||
@@ -706,8 +704,6 @@ export function enhanceStayBookingCalendars() {
       const signature = [arrival, departure, guests].join('|');
       if (quoteSignature === signature && result.dataset.state === 'available') return;
       quoteSignature = signature;
-      submit.disabled = true;
-      submit.textContent = copy.loading;
       form.setAttribute('aria-busy', 'true');
       showState({ state: 'loading', title: copy.loading, body: '', detail: '' });
       try {
@@ -777,8 +773,6 @@ export function enhanceStayBookingCalendars() {
           showState({ state: 'error', title: copy.error, body: '', detail: '' });
         }
       } finally {
-        submit.disabled = false;
-        submit.textContent = copy.submit;
         form.removeAttribute('aria-busy');
       }
     };
@@ -898,6 +892,8 @@ export function enhanceStayBookingCalendars() {
       if (arrivalInput.value && departureInput.value) void requestQuote();
       else clearResult();
     });
+    // Selecting a departure quotes automatically, so the form carries no submit
+    // control. This handler only keeps an implicit submit from navigating away.
     form.addEventListener('submit', (event) => {
       event.preventDefault();
       if (!arrivalInput.value) {
@@ -909,6 +905,21 @@ export function enhanceStayBookingCalendars() {
         return;
       }
       void requestQuote();
+    });
+
+    // Page-level calls to action hand over to this module in place: they scroll
+    // it into view and open the arrival picker, so the guest never lands on an
+    // inert form and never leaves the page to check availability.
+    document.querySelectorAll<HTMLElement>('[data-am-booking-open]').forEach((trigger) => {
+      trigger.addEventListener('click', (event) => {
+        event.preventDefault();
+        const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        container.scrollIntoView({
+          behavior: reducedMotion ? 'auto' : 'smooth',
+          block: 'start'
+        });
+        void openCalendar('arrival', arrivalTrigger);
+      });
     });
     calendar.addEventListener('keydown', (event) => {
       if (event.key === 'Escape') {

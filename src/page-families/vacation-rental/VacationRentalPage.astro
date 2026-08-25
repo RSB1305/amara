@@ -7,6 +7,7 @@ import AmaraPageShell from '../../components/layout/AmaraPageShell.astro';
 import AmaraSection from '../../components/layout/AmaraSection.astro';
 import RentalPhotoGallery from '../../components/vacation-rental/RentalPhotoGallery.astro';
 import StayBookingCalendar from '../../components/vacation-rental/StayBookingCalendar.astro';
+import StayStickyBookingBar from '../../components/vacation-rental/StayStickyBookingBar.astro';
 import {
   Accessibility,
   BadgeCheck,
@@ -31,6 +32,7 @@ import {
   buildVacationRentalSeo,
   familySurfConversionContent,
   formatVacationRentalBedDimensions,
+  formatVacationRentalFromPrice,
   formatVacationRentalPriceRange,
   vacationRentalEntitiesByKey,
   type VacationRentalAmenityFeature,
@@ -414,6 +416,39 @@ const locationBody = locationLinks.length > 0
 const visibleImages = rental.images.slice(0, 8);
 const heroImage = visibleImages[0];
 const imageAlts = getVacationRentalImageAlts(rental, currentLang);
+// The live booking module owns the conversion path. Page-level calls to action
+// hand over to it in place; the external booking site stays available as the
+// resilience fallback when the gateway cannot answer.
+const bookingSectionId = `${rental.bookingKey}-booking`;
+const bookingSectionHref = `#${bookingSectionId}`;
+const fromPrice = formatVacationRentalFromPrice(rental.pricing, currentLang, false);
+// The compact key facts answer the suitability question before the price does:
+// a guest who needs more beds should be able to leave on the first screen.
+const keyFacts: { label: string; Icon: AstroComponent }[] = [
+  {
+    label: t(
+      (rental.occupancy === 1 ? ui.labels.guestInline : ui.labels.guestsInline) as LocalizedText
+    ).replace('{count}', String(rental.occupancy)),
+    Icon: amenityIcons.occupancy
+  },
+  {
+    label: t(
+      (rental.bedrooms === 1 ? ui.labels.bedroomInline : ui.labels.bedroomsInline) as LocalizedText
+    ).replace('{count}', String(rental.bedrooms)),
+    Icon: amenityIcons.bed
+  },
+  {
+    label: t(bedTypeLabels[rental.bed[0].typeOfBed]),
+    Icon: BedDouble
+  },
+  ...(hasAmenity('privateTerrace')
+    ? [{ label: t(amenityLabels.privateTerrace), Icon: amenityIcons.terrace }]
+    : hasAmenity('patio')
+      ? [{ label: t(amenityLabels.patio), Icon: amenityIcons.terrace }]
+      : hasAmenity('balcony')
+        ? [{ label: t(amenityLabels.balcony), Icon: amenityIcons.terrace }]
+        : [])
+];
 const breadcrumbRentalName = rental.name.replace(/^AMARA\s+/u, '');
 const contextDestination: DestinationId | undefined =
   rental.city === 'Frigiliana'
@@ -438,44 +473,8 @@ const contextDestination: DestinationId | undefined =
   />
 
   <AmaraPageShell family="vacation-rental">
-      <AmaraSection variant="hero">
-        <div class="max-w-4xl">
-          <p class="am-text-eyebrow text-primary">
-            {t(rental.eyebrow)}
-          </p>
-          <h1 class="am-text-display text-on-surface mt-5 max-w-4xl text-balance">
-            {rental.name}
-          </h1>
-          <p class="am-text-title text-on-surface mt-5 max-w-4xl text-balance">
-            {t(rental.headline)}
-          </p>
-          <p
-            class:list={[
-              'am-text-body text-on-surface-variant mt-6 max-w-2xl leading-relaxed',
-              { 'whitespace-pre-line': isFamilySurf }
-            ]}
-          >
-            {t(rental.lead)}
-          </p>
-
-          <BookingDecisionPanel
-            priceLabel={t(ui.labels.pricePerNight as LocalizedText)}
-            price={indicativePriceRange}
-            primary={{
-              href: bookingHref,
-              label: t(ui.checkAvailability as LocalizedText)
-            }}
-            secondary={collectionHref
-              ? {
-                  href: collectionHref,
-                  label: t(stayCollectionLabels.backToCollectionLabel)
-                }
-              : undefined}
-            supportLinks={bookingSupportLinks}
-          />
-        </div>
-
-        <figure class="am-mobile-full-bleed mt-8 aspect-[16/9] max-h-[720px] overflow-hidden bg-surface-container-low md:mt-10">
+      <AmaraSection variant="hero" class="max-md:pt-0">
+        <figure class="am-mobile-full-bleed relative aspect-[5/4] w-full max-h-[min(720px,62vh)] overflow-hidden bg-surface-container-low md:aspect-[3/2] xl:aspect-[16/9]">
           <button
             type="button"
             class="group block h-full w-full cursor-zoom-in focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[-2px] focus-visible:outline-primary"
@@ -494,10 +493,67 @@ const contextDestination: DestinationId | undefined =
               fetchpriority="high"
               decoding="async"
             />
+            <span class="am-hero-photo-count am-text-label" aria-hidden="true">
+              1 / {rental.images.length}
+            </span>
           </button>
         </figure>
 
-        <div class="mt-8 max-w-4xl md:mt-10">
+        <div class="mt-7 max-w-4xl md:mt-10">
+          <p class="am-text-eyebrow text-primary">
+            {t(rental.eyebrow)}
+          </p>
+          <h1 class="am-text-display text-on-surface mt-4 max-w-4xl text-balance">
+            {rental.name}
+          </h1>
+          <p class="am-text-title text-on-surface mt-4 max-w-4xl text-balance">
+            {t(rental.headline)}
+          </p>
+
+          <ul
+            class="am-text-body mt-6 flex flex-wrap gap-x-5 gap-y-2 text-on-surface"
+            aria-label={t(ui.keyFactsLabel as LocalizedText)}
+            data-am-component="stay-key-facts"
+          >
+            {keyFacts.map(({ label, Icon }) => (
+              <li class="inline-flex items-center gap-2">
+                <Icon class="h-4 w-4 shrink-0 text-primary" stroke-width={1.5} aria-hidden="true" />
+                <span>{label}</span>
+              </li>
+            ))}
+          </ul>
+
+          {collectionHref && (
+            <p class="am-text-caption mt-3 font-normal">
+              <a class="am-inline-link" href={collectionHref}>
+                {t(stayCollectionLabels.backToCollectionLabel)}
+              </a>
+            </p>
+          )}
+
+          <BookingDecisionPanel
+            priceLabel={t(ui.labels.pricePerNight as LocalizedText)}
+            price={fromPrice}
+            primary={{
+              href: bookingSectionHref,
+              label: t(ui.chooseDates as LocalizedText)
+            }}
+            primaryInPage
+            priceNote={t(ui.indicativePriceNote as LocalizedText)}
+            supportLinks={bookingSupportLinks}
+          />
+
+          <p
+            class:list={[
+              'am-text-body text-on-surface-variant mt-8 max-w-2xl leading-relaxed',
+              { 'whitespace-pre-line': isFamilySurf }
+            ]}
+          >
+            {t(rental.lead)}
+          </p>
+        </div>
+
+        <div class="mt-7 max-w-4xl md:mt-9">
           {highlights.length > 0 && (
             <ul class="grid max-w-2xl gap-2">
               {highlights.map((highlight) => (
@@ -527,36 +583,6 @@ const contextDestination: DestinationId | undefined =
                     </li>
                   ))}
                 </ul>
-                {hostProfileHref && (
-                  <a
-                    class="group mt-5 inline-flex items-center gap-3 border-t border-border-subtle pt-4 text-left no-underline"
-                    href={hostProfileHref}
-                    data-am-host-profile-link
-                  >
-                    <span class="h-12 w-12 shrink-0 overflow-hidden rounded-full bg-surface-container-low">
-                      <AmaraImage
-                        src="/images/robert-amara-host.jpg"
-                        alt=""
-                        profile="card"
-                        width={96}
-                        widths={[48, 96]}
-                        sizes="48px"
-                        class="h-full w-full object-cover"
-                        loading="lazy"
-                        decoding="async"
-                      />
-                    </span>
-                    <span class="min-w-0">
-                      <span class="am-text-label block text-on-surface-variant">
-                        {t(ui.hostProfile as LocalizedText)}
-                      </span>
-                      <span class="am-text-body mt-0.5 inline-flex items-center gap-2 font-bold text-on-surface">
-                        Robert Sebastian Böhmer
-                        <span class="transition-transform duration-300 group-hover:translate-x-0.5 motion-reduce:transition-none" aria-hidden="true">→</span>
-                      </span>
-                    </span>
-                  </a>
-                )}
                 {bookingTrustLinks.length > 0 && (
                   <div class="am-text-body mt-4 flex flex-wrap gap-x-5 gap-y-2">
                     {bookingTrustLinks.map((link) => (
@@ -571,10 +597,13 @@ const contextDestination: DestinationId | undefined =
       </AmaraSection>
 
       <StayBookingCalendar
+        id={bookingSectionId}
         lang={currentLang}
         bookingKey={rental.bookingKey}
         stayName={rental.shortName}
         occupancy={rental.occupancy}
+        fallbackHref={bookingHref}
+        fallbackLabel={t(ui.bookingPageFallback as LocalizedText)}
       />
 
       <AmaraSection labelledby="rental-facts-title">
@@ -647,7 +676,38 @@ const contextDestination: DestinationId | undefined =
               ))}
             </div>
 
-            <dl class="mt-4 bg-surface-container-low px-5 sm:px-6">
+            {hostProfileHref && (
+              <a
+                class="group mt-8 inline-flex items-center gap-4 border-t border-border-subtle pt-5 text-left no-underline"
+                href={hostProfileHref}
+                data-am-host-profile-link
+              >
+                <span class="h-12 w-12 shrink-0 overflow-hidden rounded-full bg-surface-container-low">
+                  <AmaraImage
+                    src="/images/robert-amara-host.jpg"
+                    alt=""
+                    profile="card"
+                    width={96}
+                    widths={[48, 96]}
+                    sizes="48px"
+                    class="h-full w-full object-cover"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </span>
+                <span class="min-w-0">
+                  <span class="am-text-label block text-on-surface-variant">
+                    {t(ui.hostProfile as LocalizedText)}
+                  </span>
+                  <span class="am-text-body mt-0.5 inline-flex items-center gap-2 font-bold text-on-surface">
+                    Robert Sebastian Böhmer
+                    <span class="transition-transform duration-300 group-hover:translate-x-0.5 motion-reduce:transition-none" aria-hidden="true">→</span>
+                  </span>
+                </span>
+              </a>
+            )}
+
+            <dl class="mt-8 bg-surface-container-low px-5 sm:px-6">
               {scheduleRows.map(({ label, value, Icon }) => (
                 <div class="grid min-h-[4.5rem] grid-cols-[2.25rem_minmax(0,1fr)] content-center gap-x-4 border-b border-border-subtle py-4 first:border-t last:border-b-0 md:min-h-[5.75rem] md:py-5">
                   <dt class="col-span-2 grid grid-cols-[2.25rem_minmax(0,1fr)] items-center gap-x-4">
@@ -842,8 +902,12 @@ const contextDestination: DestinationId | undefined =
         )}
         <div class="mt-10 flex flex-col gap-4 border-t border-border-subtle pt-8 sm:flex-row sm:items-center sm:justify-between">
           <p class="am-text-body font-bold text-on-surface">{rental.name}</p>
-          <a class="am-btn am-btn--primary w-full justify-center sm:w-auto" href={bookingHref}>
-            {t(ui.checkAvailability as LocalizedText)}
+          <a
+            class="am-btn am-btn--primary w-full justify-center sm:w-auto"
+            href={bookingSectionHref}
+            data-am-booking-open
+          >
+            {t(ui.chooseDates as LocalizedText)}
           </a>
         </div>
       </AmaraSection>
@@ -916,16 +980,54 @@ const contextDestination: DestinationId | undefined =
           </div>
         </div>
 
-        <div class="mt-10 flex justify-center border-t border-border-subtle pt-8 md:justify-end">
-          <a class="am-btn am-btn--primary w-full justify-center sm:w-auto" href={bookingHref}>
-            {t(ui.checkAvailability as LocalizedText)}
+        <div class="mt-10 flex flex-col items-center gap-4 border-t border-border-subtle pt-8 md:flex-row md:justify-end">
+          <a
+            class="am-btn am-btn--primary w-full justify-center sm:w-auto"
+            href={bookingSectionHref}
+            data-am-booking-open
+          >
+            {t(ui.chooseDates as LocalizedText)}
+          </a>
+          <a class="am-inline-link am-text-caption font-normal md:order-first" href={bookingHref}>
+            {t(ui.bookingPageFallback as LocalizedText)}
           </a>
         </div>
       </AmaraSection>
   </AmaraPageShell>
+
+  <StayStickyBookingBar
+    price={fromPrice}
+    href={bookingSectionHref}
+    label={t(ui.chooseDates as LocalizedText)}
+  />
 </BaseLayout>
 
 <style is:global>
+  /**
+   * The hero photo carries the entry into the full gallery. The counter names
+   * how much more there is to see without covering the image itself.
+   */
+  .am-hero-photo-count {
+    position: absolute;
+    right: 0.75rem;
+    bottom: 0.75rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.375rem;
+    border-radius: var(--radius-control);
+    background: rgb(0 0 0 / 0.55);
+    padding: 0.3rem 0.65rem;
+    color: rgb(255 255 255 / 0.95);
+    backdrop-filter: blur(2px);
+  }
+
+  @media (min-width: 48rem) {
+    .am-hero-photo-count {
+      right: 1.25rem;
+      bottom: 1.25rem;
+    }
+  }
+
   @media (max-width: 47.999rem) {
     [data-am-page='vacation-rental'] ~ .footer .footer-minimal {
       padding-block: 1.5rem;
