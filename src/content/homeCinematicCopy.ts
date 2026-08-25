@@ -790,6 +790,18 @@ export const cinematicHostAvatarAlt: CopyRow = {
    already carry the hammock, the outdoor shower and the historic well.
 ========================================================= */
 
+/**
+ * Screen-reader names for the three measurements. The glyph carries them
+ * visually; without these the row would read as three bare numbers.
+ */
+export const cinematicFactOutdoorLabel: CopyRow = {
+  en: 'Outdoor area',
+  de: 'Außenbereich',
+  es: 'Zona exterior',
+  nl: 'Buitenruimte',
+  sv: 'Uteplats'
+};
+
 export const cinematicFactBedLabel: CopyRow = {
   en: 'Bed',
   de: 'Bett',
@@ -815,12 +827,13 @@ export const cinematicPriceFromLabel: CopyRow = {
   sv: 'från'
 };
 
+/** Set solid against the amount: "90 €/Nacht". */
 export const cinematicPriceUnitLabel: CopyRow = {
-  en: 'per night',
-  de: 'pro Nacht',
-  es: 'por noche',
-  nl: 'per nacht',
-  sv: 'per natt'
+  en: '/night',
+  de: '/Nacht',
+  es: '/noche',
+  nl: '/nacht',
+  sv: '/natt'
 };
 
 /* =========================================================

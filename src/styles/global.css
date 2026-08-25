@@ -159,6 +159,20 @@
     letter-spacing: normal;
   }
 
+  /* The indicative price on a stay card. It sits between `am-text-body` and
+   * `am-text-subtitle` and exists because neither works: at body scale the
+   * amount disappears, and at subtitle scale it reaches 39.6px on a desktop —
+   * the size of the stay's own name, which is how the price came to be read
+   * before the name it belongs to. The ramp tops out well below the subtitle
+   * so that can't recur as the viewport grows. */
+  .am-text-price {
+    font-family: var(--font-headline);
+    font-size: clamp(1.375rem, 1.2rem + 0.6vw, 1.625rem);
+    font-weight: 300;
+    line-height: 1.15;
+    letter-spacing: -0.01em;
+  }
+
   .am-text-caption {
     font-family: var(--font-label);
     font-size: clamp(0.6875rem, 0.62rem + 0.35vw, 0.8125rem);

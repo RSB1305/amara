@@ -13,7 +13,25 @@
  * blocks: choosing between six stays needs them side by side, and the full
  * storytelling belongs on each rental page.
  */
+import { BedDouble, Scaling, Trees } from '@lucide/astro';
 import InlineEmphasis from '../text/InlineEmphasis.astro';
+
+/**
+ * Only the three glyphs the card needs. The shared `AmenityIconSprite` emits
+ * every entry in the amenity vocabulary — around sixty symbols — which is the
+ * right trade on the amenities page and the wrong one here.
+ */
+const factIcons = { interior: Scaling, outdoor: Trees, bed: BedDouble } as const;
+
+export type CinematicFactKey = keyof typeof factIcons;
+
+export interface CinematicFact {
+  key: CinematicFactKey;
+  /** Already localized; the glyph carries what the word used to say. */
+  value: string;
+  /** Names the measurement for screen readers, which cannot see the glyph. */
+  label: string;
+}
 
 export interface CinematicApartment {
   id: string;
@@ -21,9 +39,8 @@ export interface CinematicApartment {
   subtitle: string;
   city: string;
   /** The same three measurements for every stay, derived from the rental SSOT. */
-  facts: string[];
-  viewNote: string;
-  /** Split so the amount reads at body scale and the rest recedes. */
+  facts: CinematicFact[];
+  /** Split so the amount reads and the rest recedes. */
   priceFrom: string;
   priceAmount: string;
   priceUnit: string;
@@ -353,27 +370,38 @@ const [leadPlace, ...otherPlaces] = places;
                 </h3>
                 <p class="mt-1 am-text-caption italic text-primary">{apt.subtitle}</p>
 
-                {/* The same three measurements on every card, so the six compare. */}
-                <ul class="am-home-card-facts mt-5 flex flex-wrap am-text-annotation text-on-surface-variant">
-                  {apt.facts.map((fact) => (
-                    <li>{fact}</li>
-                  ))}
-                </ul>
-
                 {/* Atmosphere belongs on the rental page on a phone; the grid
                     is for choosing between six stays, not for reading six. */}
-                <p class="am-home-card-view mt-5 hidden am-text-caption text-on-surface-variant sm:block">
-                  {apt.viewNote}
-                </p>
                 <p class="mt-4 hidden am-text-body text-on-surface-variant sm:block">
                   <InlineEmphasis text={apt.desc} />
                 </p>
 
-                <p class="mt-5 flex flex-wrap items-baseline gap-x-1.5 text-on-surface sm:mt-auto sm:pt-6">
-                  <span class="am-text-annotation text-on-surface-variant">{apt.priceFrom}</span>
-                  <span class="am-text-body">{apt.priceAmount}</span>
-                  <span class="am-text-annotation text-on-surface-variant">{apt.priceUnit}</span>
-                </p>
+                {/* Measurements left, price right, on one baseline at the foot
+                    of the card. The glyph replaces the word, so the row reads
+                    as figures rather than as a sentence about figures. */}
+                <div class="mt-6 flex flex-wrap items-end justify-between gap-x-4 gap-y-3 border-t border-outline-variant/40 pt-4 sm:mt-auto">
+                  <ul class="flex flex-wrap items-center gap-x-4 gap-y-2 am-text-annotation text-on-surface-variant">
+                    {apt.facts.map((fact) => {
+                      const Icon = factIcons[fact.key];
+                      return (
+                        <li class="flex items-center gap-1.5">
+                          <Icon class="am-home-fact-icon" stroke-width={1.5} aria-hidden="true" />
+                          <span class="sr-only">{fact.label}: </span>
+                          {fact.value}
+                        </li>
+                      );
+                    })}
+                  </ul>
+
+                  {/* `ml-auto` keeps the price at the right edge on a phone,
+                      where three measurements push it onto its own line and
+                      `justify-between` would otherwise leave it at the left. */}
+                  <p class="ml-auto flex items-baseline text-on-surface">
+                    <span class="am-text-annotation mr-1.5 text-on-surface-variant">{apt.priceFrom}</span>
+                    <span class="am-text-price">{apt.priceAmount}</span>
+                    <span class="am-text-annotation text-on-surface-variant">{apt.priceUnit}</span>
+                  </p>
+                </div>
               </div>
             </article>
           ))
@@ -606,30 +634,16 @@ const [leadPlace, ...otherPlaces] = places;
    * without forcing every stay to claim the same number of features.
    */
   /**
-   * The facts read as one line separated by mid-height dots. A stay without a
-   * terrace simply carries one fact fewer, which is honest: a missing
-   * measurement means the thing is absent, unlike a missing feature label.
+   * The glyph sits at the cap height of the figure beside it, not at its own
+   * natural size, so the row reads as measurements rather than as icons.
    */
-  .am-home-card-facts {
-    line-height: 1.5;
-  }
-
-  .am-home-card-facts > li + li::before {
-    content: '·';
-    margin-inline: 0.5em;
-    color: var(--color-outline-variant);
-  }
-
-  @media (min-width: 640px) {
-    /* Two lines: the facts wrap to a second line in the narrower columns. */
-    .am-home-card-facts {
-      min-height: calc(2 * 1.5em);
-    }
-
-    /* Two lines: the view note runs to one line for a stay on the village
-       street and to two for one above the plantations. */
-    .am-home-card-view {
-      min-height: calc(2 * 1.3em);
-    }
+  /* `:global` because the glyph is rendered inside the Lucide component, so it
+     receives the class but not this file's scope attribute. Its own 24px
+     width/height attributes would otherwise win. */
+  :global(.am-home-fact-icon) {
+    width: 1.15em;
+    height: 1.15em;
+    flex-shrink: 0;
+    color: var(--color-outline);
   }
 </style>

@@ -2,7 +2,7 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Navigation from '../../components/Navigation.astro';
 import StaySearchFinder from '../../components/booking/StaySearchFinder.astro';
-import HomeCinematicMain from '../../components/home/HomeCinematicMain.astro';
+import HomeCinematicMain, { type CinematicFact } from '../../components/home/HomeCinematicMain.astro';
 import AmaraPageShell from '../../components/layout/AmaraPageShell.astro';
 import { createAmaraImage } from '../../lib/images/amaraImageProfiles';
 import { resolveOptionalLink } from '../../lib/linkResolver';
@@ -38,7 +38,8 @@ import {
   cinematicPhilosophyAccent,
   cinematicPhilosophyLabel,
   cinematicPhilosophyP1,
-  cinematicFactTerraceLabel,
+  cinematicFactInteriorLabel,
+  cinematicFactOutdoorLabel,
   cinematicFactBedLabel,
   cinematicFactBalconyLabel,
   cinematicPriceFromLabel,
@@ -165,10 +166,10 @@ type RentalEntity = (typeof vacationRentalEntities)[number];
 const hasFlag = (rental: RentalEntity, name: string) =>
   rental.amenityFeatures.some((feature) => feature.name === name && feature.value === true);
 
-function cardFacts(rental: RentalEntity): string[] {
+function cardFacts(rental: RentalEntity): CinematicFact[] {
   /** Playa's outdoor space is a balcony and carries no area in the SSOT. */
-  const outdoor = rental.exteriorAreaSqm
-    ? `${t(cinematicFactTerraceLabel)} ${rental.exteriorAreaSqm} m²`
+  const outdoorValue = rental.exteriorAreaSqm
+    ? `${rental.exteriorAreaSqm} m²`
     : hasFlag(rental, 'balcony')
       ? t(cinematicFactBalconyLabel)
       : null;
@@ -176,10 +177,14 @@ function cardFacts(rental: RentalEntity): string[] {
   const bed = rental.bed[0]?.label.replace(/\s*x\s*/i, ' × ');
 
   return [
-    rental.interiorAreaSqm ? `${rental.interiorAreaSqm} m²` : null,
-    outdoor,
-    bed ? `${t(cinematicFactBedLabel)} ${bed}` : null
-  ].filter((fact): fact is string => Boolean(fact));
+    rental.interiorAreaSqm
+      ? { key: 'interior' as const, value: `${rental.interiorAreaSqm} m²`, label: t(cinematicFactInteriorLabel) }
+      : null,
+    outdoorValue
+      ? { key: 'outdoor' as const, value: outdoorValue, label: t(cinematicFactOutdoorLabel) }
+      : null,
+    bed ? { key: 'bed' as const, value: bed, label: t(cinematicFactBedLabel) } : null
+  ].filter((fact): fact is CinematicFact => Boolean(fact));
 }
 
 /** "Lounis, Zaid und Maha" — the localized list the proof lines name. */
@@ -239,7 +244,6 @@ const cinematicApartmentsProps = (
         subtitle: t(apt.subtitle),
         city: rental.city,
         facts: cardFacts(rental),
-        viewNote: t(rental.viewNote as Record<AmaraLanguage, string>),
         priceFrom: t(cinematicPriceFromLabel),
         priceAmount: formatVacationRentalFromPrice(rental.pricing, currentLang, false)
           .replace(new RegExp(`^${t(cinematicPriceFromLabel)}\\s*`, 'i'), ''),
