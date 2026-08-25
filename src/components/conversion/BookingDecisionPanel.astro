@@ -1,4 +1,6 @@
 ---
+import AmaraActionLink from '../actions/AmaraActionLink.astro';
+
 interface ActionLink {
   href: string;
   label: string;
@@ -37,17 +39,22 @@ const {
   </div>
 
   <div class="am-booking-decision__actions">
-    <a
-      class="am-btn am-btn--primary w-full justify-center sm:w-auto"
+    <AmaraActionLink
+      variant="primary"
+      class="w-full justify-center sm:w-auto"
       href={primary.href}
       data-am-booking-open={primaryInPage ? '' : undefined}
     >
       {primary.label}
-    </a>
+    </AmaraActionLink>
     {secondary && (
-      <a class="am-btn am-btn--secondary w-full justify-center sm:w-auto" href={secondary.href}>
+      <AmaraActionLink
+        variant="secondary"
+        class="w-full justify-center sm:w-auto"
+        href={secondary.href}
+      >
         {secondary.label}
-      </a>
+      </AmaraActionLink>
     )}
   </div>
 
@@ -60,7 +67,7 @@ const {
   {supportLinks.length > 0 && (
     <div class="am-booking-decision__support am-text-caption font-normal">
       {supportLinks.map((link) => (
-        <a class="am-inline-link" href={link.href}>{link.label}</a>
+        <AmaraActionLink variant="inline" href={link.href}>{link.label}</AmaraActionLink>
       ))}
     </div>
   )}

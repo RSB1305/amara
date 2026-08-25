@@ -3,6 +3,8 @@
 // AMARA Living Styleguide — Internes Tool
 // Nur lokal verfügbar · robots: noindex · niemals deployen
 import '../../../styles/global.css';
+import AmaraActionButton from '../../../components/actions/AmaraActionButton.astro';
+import AmaraActionLink from '../../../components/actions/AmaraActionLink.astro';
 ---
 
 <!DOCTYPE html>
@@ -12,18 +14,18 @@ import '../../../styles/global.css';
   <meta name="robots" content="noindex, nofollow" />
   <title>AMARA Styleguide</title>
   <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    *, *::before, *::after { box-sizing: border-box; }
 
     /* Layout shell only — color/type tokens come from global.css @theme */
-    .sg-shell { display: grid; grid-template-columns: 220px 1fr; min-height: 100vh; }
-    .sg-nav { background: var(--color-nav-panel); color: var(--color-inverse-on-surface); padding: 32px 20px; position: sticky; top: 0; height: 100vh; overflow-y: auto; }
+    .sg-shell { min-height: 100vh; }
+    .sg-nav { background: var(--color-nav-panel); color: var(--color-inverse-on-surface); padding: 24px 20px; }
     .sg-nav-logo { font-family: var(--font-headline); font-size: 22px; font-weight: 300; letter-spacing: .08em; color: var(--color-gold); margin-bottom: 8px; }
     .sg-nav-sub { font-size: 10px; letter-spacing: .12em; text-transform: uppercase; color: var(--color-faint); margin-bottom: 32px; }
     .sg-nav-section { font-size: 10px; letter-spacing: .1em; text-transform: uppercase; color: var(--color-faint); margin: 20px 0 8px; }
     .sg-nav a { display: block; font-size: 13px; color: color-mix(in srgb, var(--color-inverse-on-surface) 70%, transparent); text-decoration: none; padding: 5px 0; transition: color .15s; }
     .sg-nav a:hover { color: var(--color-inverse-on-surface); }
 
-    .sg-main { padding: 48px 56px; max-width: 1100px; }
+    .sg-main { width: 100%; max-width: 1100px; padding: 32px 20px; overflow: hidden; }
     .sg-section { margin-bottom: 72px; }
     .sg-section-title { font-family: var(--font-headline); font-size: 32px; font-weight: 300; color: var(--color-on-surface); margin-bottom: 6px; padding-bottom: 16px; border-bottom: 1px solid var(--color-outline-variant); margin-bottom: 32px; }
     .sg-label { font-size: 10px; letter-spacing: .12em; text-transform: uppercase; color: var(--color-muted); margin-bottom: 16px; display: block; }
@@ -53,12 +55,6 @@ import '../../../styles/global.css';
     .sg-component-frame { background: var(--color-surface-white); border: 1px solid var(--color-outline-variant); border-radius: 12px; padding: 32px; margin-bottom: 12px; }
     .sg-component-label { font-size: 10px; letter-spacing: .1em; text-transform: uppercase; color: var(--color-hint); margin-top: 12px; }
 
-    /* Badges */
-    .sg-badge { display: inline-flex; align-items: center; padding: 3px 10px; border-radius: 99px; font-size: 10px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; }
-    .sg-badge--primary { background: var(--color-primary-container); color: var(--color-primary); }
-    .sg-badge--surface { background: var(--color-surface-container-high); color: var(--color-on-surface-variant); }
-    .sg-badge--gold { background: var(--color-gold); color: var(--color-on-primary); }
-
     /* Cards */
     .sg-card { background: var(--color-surface-white); border: 1px solid var(--color-outline-variant); border-radius: 12px; padding: 24px; box-shadow: var(--shadow-editorial-card); }
     .sg-card-label { font-size: 10px; letter-spacing: .12em; text-transform: uppercase; color: var(--color-primary); margin-bottom: 8px; display: block; }
@@ -80,9 +76,23 @@ import '../../../styles/global.css';
 
     /* Dividers */
     .sg-row { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
-    .sg-code { font-family: monospace; font-size: 11px; background: var(--color-surface-container-high); padding: 2px 7px; border-radius: 4px; color: var(--color-primary); }
+    .sg-code { font-family: monospace; font-size: 11px; background: var(--color-surface-container-high); padding: 2px 7px; border-radius: 4px; color: var(--color-primary); overflow-wrap: anywhere; }
 
     .sg-inline-demo { font-family: var(--font-body); font-size: 16px; line-height: 1.75; color: var(--color-on-surface-variant); max-width: 42rem; }
+
+    @media (max-width: 899px) {
+      .sg-nav { position: static; height: auto; }
+      .sg-nav a { display: inline-block; margin-right: 16px; }
+      .sg-nav-section { margin-top: 16px; }
+      .sg-type-specimen { grid-template-columns: 1fr; }
+      .sg-type-meta { text-align: left; }
+    }
+
+    @media (min-width: 900px) {
+      .sg-shell { display: grid; grid-template-columns: 220px minmax(0, 1fr); }
+      .sg-nav { position: sticky; top: 0; height: 100vh; padding: 32px 20px; overflow-y: auto; }
+      .sg-main { padding: 48px 56px; }
+    }
   </style>
 </head>
 <body>
@@ -100,9 +110,8 @@ import '../../../styles/global.css';
     <a href="#structure">Page Structure</a>
     <div class="sg-nav-section">Components</div>
     <a href="#buttons">Buttons</a>
-    <a href="#badges">Badges</a>
     <a href="#cards">Cards</a>
-    <a href="#inline-links">Inline Links</a>
+    <a href="#links">Links</a>
     <div class="sg-nav-section">Utilities</div>
     <a href="#borders">Borders & Dividers</a>
     <a href="#shadows">Shadows</a>
@@ -293,25 +302,18 @@ import '../../../styles/global.css';
     <section class="sg-section" id="buttons">
       <h2 class="sg-section-title">Buttons</h2>
       <div class="sg-component-frame">
+        <span class="sg-label">Echte Buttons — lokale Aktion oder Formular</span>
         <div class="sg-row">
-          <button type="button" class="am-btn am-btn--primary">Explore AMARA Stays</button>
-          <button type="button" class="am-btn am-btn--secondary">Learn More</button>
+          <AmaraActionButton variant="primary">Confirm selection</AmaraActionButton>
+          <AmaraActionButton variant="secondary">Cancel</AmaraActionButton>
+        </div>
+        <span class="sg-label" style="margin-top:28px">Button-Treatment auf Links — Navigation zu einem Ziel</span>
+        <div class="sg-row">
+          <AmaraActionLink href="#links" variant="primary">Explore AMARA stays</AmaraActionLink>
+          <AmaraActionLink href="#links" variant="secondary">Learn more</AmaraActionLink>
         </div>
         <div class="sg-component-label" style="margin-top:20px">
-          <span class="sg-code">.am-btn--primary</span> · Hover: <span class="sg-code">--color-btn-primary-hover-bg</span> + <span class="sg-code">translateY(-1px)</span><br />
-          <span class="sg-code">.am-btn--secondary</span>
-        </div>
-      </div>
-    </section>
-
-    <!-- BADGES -->
-    <section class="sg-section" id="badges">
-      <h2 class="sg-section-title">Badges</h2>
-      <div class="sg-component-frame">
-        <div class="sg-row">
-          <span class="sg-badge sg-badge--primary">Location Authority</span>
-          <span class="sg-badge sg-badge--surface">The Balance</span>
-          <span class="sg-badge sg-badge--gold">AMARA Select</span>
+          Produktionsowner: <span class="sg-code">AmaraActionButton</span> und <span class="sg-code">AmaraActionLink</span> · Varianten: <span class="sg-code">primary</span> / <span class="sg-code">secondary</span>
         </div>
       </div>
     </section>
@@ -333,19 +335,32 @@ import '../../../styles/global.css';
       </div>
     </section>
 
-    <!-- INLINE LINKS -->
-    <section class="sg-section" id="inline-links">
-      <h2 class="sg-section-title">Inline Links</h2>
+    <!-- LINKS -->
+    <section class="sg-section" id="links">
+      <h2 class="sg-section-title">Links</h2>
       <div class="sg-component-frame">
+        <span class="sg-label">Editorial onward action</span>
+        <AmaraActionLink href="#cards" variant="editorial">Continue to related guidance</AmaraActionLink>
+
+        <span class="sg-label" style="margin-top:28px">Inline editorial link</span>
         <p class="sg-inline-demo">
           Frigiliana is not a flat coastal resort. Read the
-          <a class="am-inline-link" href="#inline-links">arrival guide</a>
+          <AmaraActionLink href="#structure" variant="inline">arrival guide</AmaraActionLink>
           before you book, or explore
-          <a class="am-inline-link" href="#spacing">macro spacing</a>
+          <AmaraActionLink href="#spacing" variant="inline">macro spacing</AmaraActionLink>
           for vertical rhythm.
         </p>
+
+        <span class="sg-label" style="margin-top:28px">Related guide link</span>
+        <div style="max-width:28rem">
+          <AmaraActionLink href="#structure" variant="guide">Arrival and parking guide</AmaraActionLink>
+        </div>
+
+        <span class="sg-label" style="margin-top:28px">Text inside a linked card</span>
+        <AmaraActionLink href="#cards" variant="card">Open the complete stay story</AmaraActionLink>
+
         <div class="sg-component-label" style="margin-top:16px">
-          <span class="sg-code">.am-inline-link</span> · underline + offset · <span class="sg-code">text-decoration-color: var(--color-outline-variant)</span> · hover → <span class="sg-code">var(--color-on-surface)</span>
+          Produktionsowner: <span class="sg-code">AmaraActionLink</span> · Varianten: <span class="sg-code">editorial</span>, <span class="sg-code">inline</span>, <span class="sg-code">guide</span>, <span class="sg-code">card</span>
         </div>
       </div>
     </section>

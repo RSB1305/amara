@@ -1,0 +1,49 @@
+---
+import type { HTMLAttributes } from 'astro/types';
+
+export type AmaraActionLinkVariant =
+  | 'primary'
+  | 'secondary'
+  | 'editorial'
+  | 'inline'
+  | 'guide'
+  | 'card';
+
+interface Props extends Omit<HTMLAttributes<'a'>, 'class' | 'class:list' | 'href'> {
+  href: string;
+  variant: AmaraActionLinkVariant;
+  inverse?: boolean;
+  class?: string;
+}
+
+const {
+  href,
+  variant,
+  inverse = false,
+  class: className,
+  ...attributes
+} = Astro.props;
+
+const variantClasses: Record<AmaraActionLinkVariant, string> = {
+  primary: 'am-btn am-btn--primary',
+  secondary: 'am-btn am-btn--secondary',
+  editorial: 'am-cta-link',
+  inline: 'am-inline-link',
+  guide: 'am-guide-link',
+  card: 'am-card-link'
+};
+
+const isButtonTreatment = variant === 'primary' || variant === 'secondary';
+
+if (inverse && !isButtonTreatment) {
+  throw new Error('[AMARA] AmaraActionLink: inverse is only valid for primary or secondary actions.');
+}
+---
+
+<a
+  {...attributes}
+  href={href}
+  class:list={[variantClasses[variant], { 'am-btn--inverse': inverse }, className]}
+>
+  <slot />
+</a>

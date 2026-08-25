@@ -7,6 +7,7 @@
  * guide.
  */
 import AmaraImage from '../AmaraImage.astro';
+import AmaraActionLink from '../actions/AmaraActionLink.astro';
 import {
   experienceCatalog,
   experienceHubContent,
@@ -82,10 +83,10 @@ const hubHref = resolveOptionalLink('frigiliana_experience_hub', lang, {
       {
         hubHref && (
           <p class="mt-5">
-            <a href={hubHref} class="am-inline-link">
+            <AmaraActionLink href={hubHref} variant="inline">
               {navigation.viewAllLabel}
               <span aria-hidden="true"> &rarr;</span>
-            </a>
+            </AmaraActionLink>
           </p>
         )
       }
@@ -96,7 +97,7 @@ const hubHref = resolveOptionalLink('frigiliana_experience_hub', lang, {
     {
       recommendations.map((item, index) => (
         <article class="group" data-am-experience-recommendation>
-          <a href={item.href} class="am-card-link block">
+          <AmaraActionLink href={item.href} variant="card" class="block">
             <span class="block overflow-hidden bg-surface-container-low">
               <AmaraImage
                 src={item.image}
@@ -126,7 +127,7 @@ const hubHref = resolveOptionalLink('frigiliana_experience_hub', lang, {
               {item.shortLabel}
               <span aria-hidden="true">&nbsp;&rarr;</span>
             </span>
-          </a>
+          </AmaraActionLink>
         </article>
       ))
     }

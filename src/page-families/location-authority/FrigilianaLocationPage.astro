@@ -1,5 +1,6 @@
 ---
 import InlineEmphasis from '../../components/text/InlineEmphasis.astro';
+import AmaraActionLink from '../../components/actions/AmaraActionLink.astro';
 import LocationAuthorityLayout from '../../layouts/LocationAuthorityLayout.astro';
 import Navigation from '../../components/Navigation.astro';
 import AmaraImage from '../../components/AmaraImage.astro';
@@ -783,9 +784,9 @@ const renderCtas = (subsection: FrigilianaLocationSubsection) => subsection.ctas
                     }
                     {
                       decisionAvailabilityCta && availabilityHref && (
-                        <a href={availabilityHref} class="am-btn am-btn--primary">
+                        <AmaraActionLink href={availabilityHref} variant="primary">
                           {decisionAvailabilityCta.label}
-                        </a>
+                        </AmaraActionLink>
                       )
                     }
                   </div>

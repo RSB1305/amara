@@ -1,0 +1,33 @@
+---
+import type { HTMLAttributes } from 'astro/types';
+
+export type AmaraActionButtonVariant = 'primary' | 'secondary';
+
+interface Props extends Omit<HTMLAttributes<'button'>, 'class' | 'class:list' | 'type'> {
+  variant: AmaraActionButtonVariant;
+  type?: 'button' | 'submit' | 'reset';
+  inverse?: boolean;
+  class?: string;
+}
+
+const {
+  variant,
+  type = 'button',
+  inverse = false,
+  class: className,
+  ...attributes
+} = Astro.props;
+---
+
+<button
+  {...attributes}
+  type={type}
+  class:list={[
+    'am-btn',
+    `am-btn--${variant}`,
+    { 'am-btn--inverse': inverse },
+    className
+  ]}
+>
+  <slot />
+</button>
