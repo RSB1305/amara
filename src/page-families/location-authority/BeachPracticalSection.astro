@@ -1,6 +1,7 @@
 ---
 import InlineEmphasis from '../../components/text/InlineEmphasis.astro';
 import EditorialCallout from '../../components/content/EditorialCallout.astro';
+import AmaraSectionIntro from '../../components/layout/AmaraSectionIntro.astro';
 
 interface PracticalItem {
   title: string;
@@ -35,12 +36,12 @@ const gridClass = columns === 3
 ---
 
 <section id="practical" class="am-section am-section--plain">
-  <div class="mb-16 max-w-3xl">
-    <h2 class="am-text-title mb-6 italic tracking-tight text-on-surface">{title}</h2>
-    <p class="am-text-body leading-relaxed text-on-surface-variant">
-      {emphasizeText ? <InlineEmphasis text={intro} /> : intro}
-    </p>
-  </div>
+  <AmaraSectionIntro
+    title={title}
+    intro={intro}
+    variant="editorial"
+    emphasizeIntro={emphasizeText}
+  />
 
   <div class:list={['grid', gridClass]}>
     {items.map((item) => (

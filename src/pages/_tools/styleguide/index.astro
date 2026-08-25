@@ -17,6 +17,8 @@ import LocationGuideEvidence from '../../../components/location/LocationGuideEvi
 import LocationGuideHero from '../../../components/location/LocationGuideHero.astro';
 import StayHero from '../../../components/hero/StayHero.astro';
 import TrustHero from '../../../components/hero/TrustHero.astro';
+import AmaraSection from '../../../components/layout/AmaraSection.astro';
+import AmaraSectionIntro from '../../../components/layout/AmaraSectionIntro.astro';
 import GuideLinkCardSection from '../../../page-families/location-authority/GuideLinkCardSection.astro';
 import { BedDouble, UsersRound } from '@lucide/astro';
 
@@ -117,6 +119,7 @@ const styleguideStayFacts = [
     <a href="#structure">Page Structure</a>
     <div class="sg-nav-section">Components</div>
     <a href="#heroes">Hero Families</a>
+    <a href="#sections">Sections & Intros</a>
     <a href="#buttons">Buttons</a>
     <a href="#chips">Chips & Status</a>
     <a href="#cards">Cards & Modules</a>
@@ -325,6 +328,55 @@ const styleguideStayFacts = [
         Die Page Family besitzt den jeweiligen Seiteninhalt<br>
         Kein <span class="sg-code">style=""</span> inline · kein <span class="sg-code">!important</span> außer SSOT-dokumentiert
       </div>
+    </section>
+
+    <!-- SECTIONS AND INTROS -->
+    <section class="sg-section" id="sections">
+      <h2 class="sg-section-title">Sections & Intros</h2>
+      <p class="sg-inline-demo" style="margin-bottom:32px">
+        <span class="sg-code">AmaraSection</span> owns page rhythm, dividers and plain, tint or inverse surfaces. <span class="sg-code">AmaraSectionIntro</span> owns the recurring eyebrow, H2, lead and note hierarchy without forcing every silo into the same composition.
+      </p>
+
+      <span class="sg-label">Family · Trust · centered</span>
+      <div class="sg-hero-preview">
+        <AmaraSection variant="compact" surface="tint" family="trust" divider={false}>
+          <AmaraSectionIntro
+            title="What guests remember"
+            intro="A centered trust introduction gives evidence a calm shared entry point."
+            note="Use notes for source context, not decorative emphasis."
+            variant="centered"
+          />
+        </AmaraSection>
+        <div class="sg-hero-meta">Production consumer: <span class="sg-code">GuestReviewsPage</span> · centered Trust hierarchy</div>
+      </div>
+
+      <span class="sg-label">Family · Stay · standard</span>
+      <div class="sg-component-frame">
+        <AmaraSectionIntro
+          title="Available stays"
+          eyebrow="Choose dates"
+          intro="The standard variant supports a direct booking or selection task without editorial italics."
+          variant="standard"
+          spacing="none"
+        />
+        <div class="sg-component-label">Production consumer: <span class="sg-code">LastMinuteStaysPage</span> · supports controls beside or below the introduction</div>
+      </div>
+
+      <span class="sg-label">Family · Location / Experience · editorial</span>
+      <div class="sg-component-frame">
+        <AmaraSectionIntro
+          title="Plan the place through real movement"
+          eyebrow="Local orientation"
+          intro="The editorial variant preserves the established Location and Experience voice while centralizing width and spacing."
+          variant="editorial"
+          spacing="none"
+        />
+        <div class="sg-component-label">Production consumers: <span class="sg-code">AuthorityFeatureSection</span>, <span class="sg-code">ExperienceHubPage</span> and related guide modules</div>
+      </div>
+
+      <p class="sg-component-label">
+        Shared owner: <span class="sg-code">sectionContract.ts</span> · the older <span class="sg-code">am-section</span> shell remains controlled legacy until its containing renderer is materially revised
+      </p>
     </section>
 
     <!-- HERO FAMILIES -->

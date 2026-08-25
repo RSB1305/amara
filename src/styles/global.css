@@ -818,6 +818,73 @@
     border-bottom: 1px solid var(--color-border-subtle);
   }
 
+  .am-page-section--surface-tint,
+  .am-page-section--surface-inverse {
+    margin-inline: calc(var(--spacing-page-gutter) * -1);
+    padding-inline: var(--spacing-page-gutter);
+  }
+
+  .am-page-section--surface-tint {
+    background: var(--color-surface);
+  }
+
+  .am-page-section--surface-inverse {
+    --color-on-surface: var(--color-inverted-on-surface);
+    --color-on-surface-variant: var(--color-inverted-on-surface-muted);
+    --color-muted: var(--color-inverted-on-surface-muted);
+    --color-outline-variant: color-mix(in srgb, var(--color-inverted-on-surface) 28%, transparent);
+    --color-border-subtle: color-mix(in srgb, var(--color-inverted-on-surface) 22%, transparent);
+    background: var(--color-inverted-surface);
+    color: var(--color-inverted-on-surface);
+  }
+
+  /**
+   * Canonical section introduction. Variants preserve the distinct jobs of
+   * Trust, Stay and editorial Location/Experience pages while keeping width,
+   * hierarchy and vertical rhythm under one production owner.
+   */
+  .am-section-intro {
+    max-width: 48rem;
+  }
+
+  .am-section-intro--centered {
+    max-width: 47.5rem;
+    margin-inline: auto;
+    text-align: center;
+  }
+
+  .am-section-intro--spacing-default {
+    margin-bottom: 4rem;
+  }
+
+  .am-section-intro--spacing-compact {
+    margin-bottom: 3rem;
+  }
+
+  .am-section-intro--centered.am-section-intro--spacing-default {
+    margin-bottom: 3rem;
+  }
+
+  .am-section-intro__eyebrow {
+    margin-bottom: 1.25rem;
+  }
+
+  .am-section-intro--standard .am-section-intro__eyebrow {
+    margin-bottom: 1rem;
+  }
+
+  .am-section-intro__intro {
+    margin-top: 1.5rem;
+  }
+
+  .am-section-intro__note {
+    margin-top: 0.5rem;
+  }
+
+  .am-section-intro__details {
+    margin-top: 1.25rem;
+  }
+
   .am-page-band {
     margin-inline: calc(var(--spacing-page-gutter) * -1);
     padding-inline: var(--spacing-page-gutter);
@@ -826,6 +893,10 @@
   @media (min-width: 48rem) {
     .am-page-shell__frame {
       --spacing-page-gutter: 3rem;
+    }
+
+    .am-section-intro--centered.am-section-intro--spacing-default {
+      margin-bottom: 4rem;
     }
   }
 

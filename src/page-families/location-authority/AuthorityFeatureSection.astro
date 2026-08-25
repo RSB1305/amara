@@ -1,7 +1,7 @@
 ---
 import EditorialFeatureGrid from '../../components/editorial/EditorialFeatureGrid.astro';
 import EditorialCallout from '../../components/content/EditorialCallout.astro';
-import InlineEmphasis from '../../components/text/InlineEmphasis.astro';
+import AmaraSectionIntro from '../../components/layout/AmaraSectionIntro.astro';
 
 interface FeatureItem {
   title: string;
@@ -45,16 +45,15 @@ const hasHeaderDetails = Boolean(intro || eyebrow || reviewed || headerCallout);
 
 <section id={id} class:list={['am-section', sectionClass]}>
   {hasHeaderDetails ? (
-    <div class="mb-16 max-w-3xl">
-      {eyebrow && <p class="am-text-caption mb-5 text-primary">{eyebrow}</p>}
-      <h2 class="am-text-title mb-6 italic tracking-tight text-on-surface">{title}</h2>
-      {intro && (
-        <p class="am-text-body leading-relaxed text-on-surface-variant">
-          {emphasizeText ? <InlineEmphasis text={intro} /> : intro}
-        </p>
-      )}
+    <AmaraSectionIntro
+      title={title}
+      eyebrow={eyebrow}
+      intro={intro}
+      variant="editorial"
+      emphasizeIntro={emphasizeText}
+    >
       {headerCallout && (
-        <EditorialCallout class="mt-8 max-w-3xl" surface={headerCallout.surface}>
+        <EditorialCallout class="mt-3 max-w-3xl" surface={headerCallout.surface}>
           {headerCallout.text}
         </EditorialCallout>
       )}
@@ -63,9 +62,9 @@ const hasHeaderDetails = Boolean(intro || eyebrow || reviewed || headerCallout);
           {reviewed}
         </p>
       )}
-    </div>
+    </AmaraSectionIntro>
   ) : (
-    <h2 class="am-text-title mb-16 italic tracking-tight text-on-surface">{title}</h2>
+    <AmaraSectionIntro title={title} variant="editorial" />
   )}
   <EditorialFeatureGrid cards={items.map((item) => ({ title: item.title, copy: item.text }))} />
   {footerCallout && (

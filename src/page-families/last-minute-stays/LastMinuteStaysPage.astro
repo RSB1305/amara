@@ -3,6 +3,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import Navigation from '../../components/Navigation.astro';
 import AmaraPageShell from '../../components/layout/AmaraPageShell.astro';
 import AmaraSection from '../../components/layout/AmaraSection.astro';
+import AmaraSectionIntro from '../../components/layout/AmaraSectionIntro.astro';
 import ApartmentCard from '../../components/location/ApartmentCard.astro';
 import InlineEmphasis from '../../components/text/InlineEmphasis.astro';
 import {
@@ -82,15 +83,14 @@ const destinationLinks = lastMinuteStaysCopy.destinations.map((destination) => (
         aria-busy="true"
       >
         <div class="grid gap-8 border-b border-border-subtle pb-8 lg:grid-cols-[minmax(0,1fr)_15rem] lg:items-end">
-          <div class="max-w-3xl">
-            <p class="am-text-eyebrow text-primary">{t(lastMinuteStaysCopy.live.eyebrow)}</p>
-            <h2 id="last-minute-live-title" class="am-text-title mt-4 text-on-surface">
-              {t(lastMinuteStaysCopy.live.title)}
-            </h2>
-            <p class="am-text-body mt-5 text-on-surface-variant">
-              {t(lastMinuteStaysCopy.live.intro)}
-            </p>
-          </div>
+          <AmaraSectionIntro
+            title={t(lastMinuteStaysCopy.live.title)}
+            titleId="last-minute-live-title"
+            eyebrow={t(lastMinuteStaysCopy.live.eyebrow)}
+            intro={t(lastMinuteStaysCopy.live.intro)}
+            variant="standard"
+            spacing="none"
+          />
           <label class="block">
             <span class="am-text-label text-on-surface-variant">{t(lastMinuteStaysCopy.live.guests)}</span>
             <select
@@ -169,10 +169,13 @@ const destinationLinks = lastMinuteStaysCopy.destinations.map((destination) => (
     </AmaraSection>
 
     <AmaraSection labelledby="last-minute-destinations-title" dataComponent="last-minute-destinations">
-      <h2 id="last-minute-destinations-title" class="am-text-title max-w-3xl text-on-surface">
-        {t(lastMinuteStaysCopy.destinationsTitle)}
-      </h2>
-      <div class="mt-10 grid gap-10 lg:grid-cols-3 lg:gap-8">
+      <AmaraSectionIntro
+        title={t(lastMinuteStaysCopy.destinationsTitle)}
+        titleId="last-minute-destinations-title"
+        variant="standard"
+        spacing="compact"
+      />
+      <div class="grid gap-10 lg:grid-cols-3 lg:gap-8">
         {destinationLinks.map((destination) => (
           <article class="border-t border-border-subtle pt-6">
             <h3 class="am-text-subtitle text-on-surface">{t(destination.title)}</h3>

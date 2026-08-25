@@ -1,7 +1,7 @@
 ---
 document_id: AMARA-INT-ASTRO-003
 title: AMARA Astro & Design Architecture Contract V4
-version: 4.7.0
+version: 4.8.0
 status: ACTIVE
 authority_class: CONTRACT / GOVERNING INTERIM
 source_type: INTERIM SNAPSHOT FROM APPROVED PDF + APPROVED REPOSITORY AMENDMENT
@@ -9,7 +9,7 @@ source_attachment: "03_AMARA_Astro_Technical_Standard_V4 (1).pdf"
 source_sha256: b3d8a3e780b29b5be42922aec838c7f56f455184cca8336d9a0f3564ba43f9aa
 snapshot_created: 2026-08-14T09:08:00+02:00
 migration_state: PENDING PACKAGE 2/3 NORMALIZATION
-last_modified: 2026-08-25T18:22:10+02:00
+last_modified: 2026-08-25T18:37:51+02:00
 ---
 
 # AMARA Astro & Design Architecture Contract V4 — Interim Markdown Snapshot
@@ -22,7 +22,7 @@ last_modified: 2026-08-25T18:22:10+02:00
 
 AMARA Astro & Design Architecture Contract V4
 Status                                                ACTIVE
-Version                                               4.5.0
+Version                                               4.8.0
 Effective date                                        2026-08-10
 Runtime                                               Astro
 Styling                                               Tailwind CSS + AMARA global tokens + scoped component
@@ -383,6 +383,28 @@ Every canonical primitive or module shown in the living styleguide must include,
 
 The styleguide is therefore an executable view of the system, not a parallel source of design values. A mismatch is resolved in the production owner or in this contract; it is not patched locally in the styleguide.
 
+17.8 Section rhythm and introduction contract
+
+`src/components/layout/sectionContract.ts` is the semantic classification owner for page sections and
+section introductions. `AmaraSection` owns the canonical page-shell rhythm, divider behaviour and the
+approved plain, tint and inverse surfaces. Its default, hero, compact and closing variants describe page
+position and spacing; they are not page-local design knobs.
+
+`AmaraSectionIntro` owns the recurring eyebrow, H2, lead, note and supplemental-detail hierarchy. Its named
+variants preserve distinct jobs rather than flattening the silos:
+
+- `centered` is the Trust family introduction for evidence and proof groups;
+- `standard` is the direct Stay and utility introduction without editorial italics;
+- `editorial` is the shared Location and Experience introduction for place-led guidance.
+
+The variants share semantic markup, width, responsive spacing and discoverable `data-am-section-intro-*`
+attributes. A materially different split or media-led introduction remains a family composition until its
+own cross-silo job is selected; it must not be forced into this component merely because it contains an H2.
+
+The older `am-section` Location shell is controlled legacy. Existing consumers remain stable and may use the
+canonical introduction inside it, but new page-shell work uses `AmaraSection`. Legacy shell migration happens
+with the containing renderer when its composition is materially revised, not as an unbounded class rewrite.
+
 ## Revision history
 
 | Version | Date | Change |
@@ -395,3 +417,4 @@ The styleguide is therefore an executable view of the system, not a parallel sou
 | 4.5.0 | 2026-08-25T17:32:07+02:00 | Closed all 32 typography legacy values through canonical or explicitly named special-purpose roles, reduced the ratchet to zero and replaced the styleguide's parallel typography specimens with production roles. |
 | 4.6.0 | 2026-08-25T17:49:36+02:00 | Activated the semantic hero contract, named the deliberate Trust, Stay, Location, Experience and campaign variants, extracted the Stay decision hero into a production owner and rendered representative production owners in the living styleguide. |
 | 4.7.0 | 2026-08-25T18:22:10+02:00 | Activated semantic classification for card-like and editorial modules, established canonical feature-grid and practical-callout owners, preserved distinct family jobs and replaced the styleguide's simulated cards with production modules. |
+| 4.8.0 | 2026-08-25T18:37:51+02:00 | Activated the shared section rhythm and section-introduction contract, preserved named Trust, Stay and Location/Experience variants, migrated bounded production consumers and classified the older Location shell as controlled legacy. |

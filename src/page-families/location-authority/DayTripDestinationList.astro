@@ -1,6 +1,7 @@
 ---
 import InlineEmphasis from '../../components/text/InlineEmphasis.astro';
 import EditorialCallout from '../../components/content/EditorialCallout.astro';
+import AmaraSectionIntro from '../../components/layout/AmaraSectionIntro.astro';
 
 interface DayTripDestination {
   id: string;
@@ -35,15 +36,13 @@ const { destinations, emphasizeText = false } = Astro.props;
         index % 2 === 0 ? 'am-section--plain' : 'am-section--tint'
       ]}
     >
-      <div class="mb-16 max-w-3xl">
-        <p class="am-text-caption mb-5 text-primary">{destination.kicker}</p>
-        <h2 class="am-text-title mb-6 italic tracking-tight text-on-surface">
-          {destination.title}
-        </h2>
-        <p class="am-text-body leading-relaxed text-on-surface-variant">
-          {emphasizeText ? <InlineEmphasis text={destination.summary} /> : destination.summary}
-        </p>
-      </div>
+      <AmaraSectionIntro
+        title={destination.title}
+        eyebrow={destination.kicker}
+        intro={destination.summary}
+        variant="editorial"
+        emphasizeIntro={emphasizeText}
+      />
 
       <div class="grid grid-cols-1 gap-x-16 gap-y-14 lg:grid-cols-12">
         <article class="border-t border-outline-variant/25 pt-8 lg:col-span-5">

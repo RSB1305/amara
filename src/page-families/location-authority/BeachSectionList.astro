@@ -2,6 +2,7 @@
 import InlineEmphasis from '../../components/text/InlineEmphasis.astro';
 import AmaraMetaChip from '../../components/chips/AmaraMetaChip.astro';
 import EditorialCallout from '../../components/content/EditorialCallout.astro';
+import AmaraSectionIntro from '../../components/layout/AmaraSectionIntro.astro';
 
 interface BeachCard {
   title: string;
@@ -40,12 +41,12 @@ const { sections, labels, emphasizeText = false } = Astro.props;
         index % 2 === 0 ? 'am-section--plain' : 'am-section--tint'
       ]}
     >
-      <div class="mb-16 max-w-3xl">
-        <h2 class="am-text-title mb-6 italic tracking-tight text-on-surface">{section.title}</h2>
-        <p class="am-text-body leading-relaxed text-on-surface-variant">
-          {emphasizeText ? <InlineEmphasis text={section.intro} /> : section.intro}
-        </p>
-      </div>
+      <AmaraSectionIntro
+        title={section.title}
+        intro={section.intro}
+        variant="editorial"
+        emphasizeIntro={emphasizeText}
+      />
 
       <div class="grid grid-cols-1 gap-x-16 gap-y-14 lg:grid-cols-2">
         {section.beaches.map((beach, beachIndex) => {

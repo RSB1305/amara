@@ -1,5 +1,6 @@
 ---
 import { getAmaraContentModuleAttributes } from '../../components/content/moduleContract';
+import AmaraSectionIntro from '../../components/layout/AmaraSectionIntro.astro';
 
 interface GuideLinkCard {
   title: string;
@@ -46,17 +47,15 @@ const moduleAttributes = getAmaraContentModuleAttributes({
 ---
 
 <section {...moduleAttributes} class:list={['am-section', surfaceClass]}>
-  <div class="mb-16 max-w-3xl">
-    <h2 class="am-text-title mb-6 italic tracking-tight text-on-surface">{title}</h2>
-    <p class="am-text-body leading-relaxed text-on-surface-variant">{intro}</p>
+  <AmaraSectionIntro title={title} intro={intro} variant="editorial">
     {headerLinkNote?.href && (
-      <p class="mt-5 am-text-body leading-relaxed text-on-surface-variant">
+      <p class="am-text-body leading-relaxed text-on-surface-variant">
         {headerLinkNote.before}<a href={headerLinkNote.href} class="am-inline-link">
           {headerLinkNote.label}
         </a>{headerLinkNote.after}
       </p>
     )}
-  </div>
+  </AmaraSectionIntro>
 
   <div class:list={['grid', gridClass]}>
     {items.map((item) => (
