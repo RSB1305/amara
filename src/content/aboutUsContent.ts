@@ -91,38 +91,38 @@ interface AboutUsContent {
 
 export const aboutUsContent: AboutUsContent = {
   seo: {
-    version: '2026-03-23-amara-about-us',
+    version: '2026-08-25-amara-brand-about',
     pageType: 'C',
     entityKey: 'amara-brand',
     ogImage: '/images/robert-amara-host.jpg',
     languages: {
       en: {
-        title: 'About Us: Hosting Standards & Quality',
-        description: 'Meet Robert Sebastian Böhmer, host at AMARA, and discover the standards behind six stays in Frigiliana, Nerja, and Tarifa.',
+        title: 'About AMARA: Romantic Hideaways in Andalusia',
+        description: 'Discover AMARA — special places for shared time as a couple, shaped by clear standards and people who take responsibility.',
         robots: 'index, follow',
         canonical: 'auto'
       },
       de: {
-        title: 'Über uns: Gastgeberstandard & Qualität',
-        description: 'Lernt Robert Sebastian Böhmer, Gastgeber bei AMARA, und die Standards hinter sechs Unterkünften in Frigiliana, Nerja und Tarifa kennen.',
+        title: 'Über AMARA: Romantic Hideaways in Andalusien',
+        description: 'Entdeckt AMARA — besondere Orte für gemeinsame Zeit zu zweit, geprägt von klaren Standards und Menschen, die Verantwortung übernehmen.',
         robots: 'index, follow',
         canonical: 'auto'
       },
       es: {
-        title: 'Sobre nosotros: anfitrión, calidad y filosofía',
-        description: 'Conoce a Robert Sebastian Böhmer, anfitrión de AMARA, y los estándares de seis alojamientos en Frigiliana, Nerja y Tarifa.',
+        title: 'Sobre AMARA: refugios románticos en Andalucía',
+        description: 'Descubrid AMARA: lugares especiales para compartir tiempo en pareja, con estándares claros y personas que asumen la responsabilidad.',
         robots: 'index, follow',
         canonical: 'auto'
       },
       nl: {
-        title: 'Over ons: hoststandaard & kwaliteit',
-        description: 'Maak kennis met Robert Sebastian Böhmer, host bij AMARA, en de standaarden achter zes verblijven in Frigiliana, Nerja en Tarifa.',
+        title: 'Over AMARA: Romantic Hideaways in Andalusië',
+        description: 'Ontdek AMARA: bijzondere plekken voor tijd samen, gevormd door duidelijke standaarden en mensen die verantwoordelijkheid nemen.',
         robots: 'index, follow',
         canonical: 'auto'
       },
       sv: {
-        title: 'Om oss: värdskap, kvalitet & filosofi',
-        description: 'Lär känna Robert Sebastian Böhmer, värd på AMARA, och standarderna bakom sex boenden i Frigiliana, Nerja och Tarifa.',
+        title: 'Om AMARA: Romantic Hideaways i Andalusien',
+        description: 'Upptäck AMARA: särskilda platser för gemensam tid som par, formade av tydliga standarder och människor som tar ansvar.',
         robots: 'index, follow',
         canonical: 'auto'
       }
@@ -167,27 +167,27 @@ export const aboutUsContent: AboutUsContent = {
     }
   ],
   hero: {
-    subtitle: { en: 'Six stays. Direct responsibility.', de: 'Sechs Unterkünfte. Klare Verantwortung.', es: 'Seis alojamientos. Responsabilidad directa.', nl: 'Zes verblijven. Duidelijke verantwoordelijkheid.', sv: 'Sex boenden. Tydligt ansvar.' },
+    subtitle: { en: 'Special places for shared time as a couple.', de: 'Besondere Orte für gemeinsame Zeit zu zweit.', es: 'Lugares especiales para compartir tiempo en pareja.', nl: 'Bijzondere plekken voor waardevolle tijd samen.', sv: 'Särskilda platser för gemensam tid som par.' },
     titleHtml: {
-      en: 'The people behind AMARA.',
-      de: 'Die Menschen hinter AMARA.',
-      es: 'Las personas detrás de AMARA.',
-      nl: 'De mensen achter AMARA.',
-      sv: 'Människorna bakom AMARA.'
+      en: 'AMARA — Romantic Hideaways.',
+      de: 'AMARA — Romantic Hideaways.',
+      es: 'AMARA — Romantic Hideaways.',
+      nl: 'AMARA — Romantic Hideaways.',
+      sv: 'AMARA — Romantic Hideaways.'
     },
     lead: {
-      en: 'AMARA is a small, owner-led group of holiday stays. Robert remains directly involved in how each one is prepared, maintained and improved.',
-      de: 'AMARA ist eine kleine, inhabergeführte Gruppe von Ferienunterkünften. Robert ist direkt daran beteiligt, wie jede einzelne vorbereitet, gepflegt und weiterentwickelt wird.',
-      es: 'AMARA es un pequeño grupo de alojamientos gestionado por su propietario. Robert sigue implicado directamente en la preparación, el mantenimiento y las mejoras de cada uno.',
-      nl: 'AMARA is een kleine groep vakantieverblijven onder leiding van de eigenaar. Robert blijft direct betrokken bij de voorbereiding, het onderhoud en de verbetering van elk verblijf.',
-      sv: 'AMARA är en liten, ägarledd grupp semesterboenden. Robert är fortsatt direkt delaktig i hur varje boende förbereds, underhålls och förbättras.'
+      en: 'AMARA brings together six individual stays in Frigiliana, Nerja and Tarifa for couples who want to spend meaningful time together.',
+      de: 'AMARA verbindet sechs individuelle Unterkünfte in Frigiliana, Nerja und Tarifa für Paare, die bewusst gemeinsame Zeit verbringen möchten.',
+      es: 'AMARA reúne seis alojamientos singulares en Frigiliana, Nerja y Tarifa para parejas que quieren disfrutar conscientemente de su tiempo juntas.',
+      nl: 'AMARA brengt zes bijzondere verblijven in Frigiliana, Nerja en Tarifa samen voor stellen die bewust tijd met elkaar willen doorbrengen.',
+      sv: 'AMARA samlar sex personliga boenden i Frigiliana, Nerja och Tarifa för par som medvetet vill tillbringa tid tillsammans.'
     },
     supportText: {
-      en: 'You get clear descriptions before booking, a properly prepared home and a contact who knows the property.',
-      de: 'Vor der Buchung bekommt ihr klare Beschreibungen, bei der Ankunft eine sorgfältig vorbereitete Unterkunft und bei Fragen einen Kontakt, der sie kennt.',
-      es: 'Antes de reservar encontráis descripciones claras; al llegar, un alojamiento bien preparado; y, si surge una duda, un contacto que conoce la propiedad.',
-      nl: 'Voor het boeken krijgen jullie duidelijke informatie, bij aankomst een goed voorbereid verblijf en bij vragen een contactpersoon die de plek kent.',
-      sv: 'Före bokningen får ni tydliga beskrivningar, vid ankomsten ett ordentligt förberett boende och vid frågor en kontakt som känner huset.'
+      en: 'Each place is different. What connects them is a shared standard: honest descriptions, thoughtful preparation and clear responsibility.',
+      de: 'Jeder Ort ist anders. Was sie verbindet, ist ein gemeinsamer Standard: ehrliche Beschreibungen, sorgfältige Vorbereitung und klare Verantwortung.',
+      es: 'Cada lugar es diferente. Los une un mismo estándar: descripciones honestas, una preparación cuidada y responsabilidades claras.',
+      nl: 'Elke plek is anders. Wat ze verbindt, is één gedeelde standaard: eerlijke beschrijvingen, zorgvuldige voorbereiding en duidelijke verantwoordelijkheid.',
+      sv: 'Varje plats är annorlunda. Det som förenar dem är en gemensam standard: ärliga beskrivningar, omsorgsfulla förberedelser och tydligt ansvar.'
     },
     ctaLinks: [
       {
@@ -254,11 +254,11 @@ export const aboutUsContent: AboutUsContent = {
       {
         title: { en: '', de: '', es: '', nl: '', sv: '' },
         copy: {
-          en: '**Love sits at the centre of that on purpose.** People do their best work on what they love. We choose the places because we want to be in them, furnish them the way we would live ourselves, and look after every stay personally.',
-          de: '**Liebe steht dabei bewusst im Zentrum.** Man macht das am besten, was man gern macht. Wir wählen die Orte, weil wir selbst dort sein wollen, richten sie so ein, wie wir selbst wohnen würden, und betreuen jeden Aufenthalt persönlich.',
-          es: '**El amor está en el centro a propósito.** Uno hace mejor aquello que quiere. Elegimos los lugares porque queremos estar en ellos, los amueblamos como viviríamos nosotros y cuidamos cada estancia en persona.',
-          nl: '**Liefde staat daarbij bewust in het midden.** Je doet het beste werk aan wat je graag doet. We kiezen de plekken omdat we er zelf willen zijn, richten ze in zoals we zelf zouden wonen, en verzorgen elk verblijf persoonlijk.',
-          sv: '**Kärleken står medvetet i centrum.** Man gör bäst det man tycker om att göra. Vi väljer platserna för att vi själva vill vara där, inreder dem som vi själva skulle bo, och sköter varje vistelse personligen.'
+          en: '**Love sits at the centre of that on purpose.** People do their best work on what they love. We choose places we want to spend time in ourselves and furnish them as we would live. Robert takes personal responsibility for the AMARA standard; established local partners prepare the stays and look after them on site.',
+          de: '**Liebe steht dabei bewusst im Zentrum.** Man macht das am besten, was man gern macht. Wir wählen Orte, an denen wir selbst Zeit verbringen möchten, und richten sie so ein, wie wir selbst wohnen würden. Robert trägt persönlich die Verantwortung für den AMARA-Standard; feste Partner bereiten die Unterkünfte vor und betreuen sie vor Ort.',
+          es: '**El amor está en el centro a propósito.** Uno hace mejor aquello que quiere. Elegimos lugares en los que nosotros mismos queremos pasar tiempo y los amueblamos como viviríamos. Robert asume personalmente la responsabilidad del estándar AMARA; colaboradores locales fijos preparan y atienden los alojamientos sobre el terreno.',
+          nl: '**Liefde staat daarbij bewust in het midden.** Je doet het beste werk aan wat je graag doet. We kiezen plekken waar we zelf tijd willen doorbrengen en richten ze in zoals we zelf zouden wonen. Robert draagt persoonlijk de verantwoordelijkheid voor de AMARA-standaard; vaste lokale partners bereiden de verblijven voor en verzorgen ze ter plaatse.',
+          sv: '**Kärleken står medvetet i centrum.** Man gör bäst det man tycker om att göra. Vi väljer platser där vi själva vill tillbringa tid och inreder dem som vi själva skulle bo. Robert har det personliga ansvaret för AMARA-standarden; fasta lokala partner förbereder boendena och tar hand om dem på plats.'
         }
       },
       {
@@ -409,7 +409,7 @@ export const aboutUsContent: AboutUsContent = {
     ]
   },
   host: {
-    title: { en: 'Real people. Direct responsibility.', de: 'Echte Menschen. Klare Verantwortung.', es: 'Personas reales. Responsabilidad directa.', nl: 'Echte mensen. Duidelijke verant\u00ADwoordelijkheid.', sv: 'Riktiga människor. Tydligt ansvar.' },
+    title: { en: 'The people who take responsibility', de: 'Die Menschen, die Verantwortung übernehmen', es: 'Las personas que asumen la responsabilidad', nl: 'De mensen die verantwoordelijkheid nemen', sv: 'Människorna som tar ansvar' },
     role: { en: 'Robert Sebastian Böhmer — Host at AMARA', de: 'Robert Sebastian Böhmer — Gastgeber bei AMARA', es: 'Robert Sebastian Böhmer — Anfitrión de AMARA', nl: 'Robert Sebastian Böhmer — Host bij AMARA', sv: 'Robert Sebastian Böhmer — Värd på AMARA' },
     imageAlt: { en: 'Robert, host at AMARA', de: 'Robert, Gastgeber bei AMARA', es: 'Robert, anfitrión de AMARA', nl: 'Robert, host bij AMARA', sv: 'Robert, värd på AMARA' },
     contactLabel: { en: 'Contact Robert directly', de: 'Robert direkt erreichen', es: 'Contactar directamente con Robert', nl: 'Robert rechtstreeks bereiken', sv: 'Kontakta Robert direkt' },
