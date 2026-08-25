@@ -1,5 +1,3 @@
-import { buildCheckoutHandoffUrl } from '../lib/directBooking';
-import type { AmaraLanguage } from '../types/seo';
 
 type RateOption = {
   nightlyRate: number;
@@ -235,7 +233,6 @@ export function enhanceLastMinuteStays() {
     root.dataset.amLastMinuteEnhanced = 'true';
 
     const copy = JSON.parse(root.dataset.amLastMinuteCopy || '{}') as Record<string, string>;
-    const lang = (root.dataset.amLastMinuteLang || 'en') as AmaraLanguage;
     const language = root.dataset.amLastMinuteLanguage || 'en-GB';
     const guestsInput = root.querySelector<HTMLSelectElement>('[data-am-last-minute-guests]');
     const status = root.querySelector<HTMLElement>('[data-am-last-minute-status]');
@@ -379,27 +376,26 @@ export function enhanceLastMinuteStays() {
           style: 'currency',
           currency: offer.currency
         }).format(offer.grossTotal);
+        // The card names an availability window and one example stay inside it.
+        // Sending that example straight into checkout would fix dates the guest
+        // never chose, so every link carries them to the stay page instead,
+        // where the booking module opens on them and they stay changeable.
+        const withDates = (base: string) =>
+          base +
+          (base.includes('?') ? '&' : '?') +
+          new URLSearchParams({
+            arrival: candidate.arrival,
+            departure: candidate.departure,
+            guests: String(guests)
+          }).toString();
         card.querySelectorAll<HTMLAnchorElement>('[data-am-stay-result-link]').forEach((link) => {
-          const base = link.dataset.amStayResultBaseHref || link.getAttribute('href') || '';
-          link.href =
-            base +
-            (base.includes('?') ? '&' : '?') +
-            new URLSearchParams({
-              arrival: candidate.arrival,
-              departure: candidate.departure,
-              guests: String(guests)
-            }).toString();
+          link.href = withDates(link.dataset.amStayResultBaseHref || link.getAttribute('href') || '');
         });
         const bookingLink = card.querySelector<HTMLAnchorElement>('[data-am-stay-booking-link]');
         if (!bookingLink) continue;
-        bookingLink.href = buildCheckoutHandoffUrl({
-          stay: card.dataset.amStayResult || '',
-          lang,
-          arrival: candidate.arrival,
-          departure: candidate.departure,
-          adults: guests,
-          currency: offer.currency
-        });
+        bookingLink.href = withDates(
+          bookingLink.dataset.amStayResultBaseHref || bookingLink.getAttribute('href') || ''
+        );
         card.hidden = false;
         summary.hidden = false;
         priceWrap.hidden = false;

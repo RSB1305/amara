@@ -182,6 +182,9 @@ export function enhanceStayBookingCalendars() {
     if (guestsInput.querySelector('option[value="' + initialGuests + '"]')) {
       guestsInput.value = String(initialGuests);
     }
+    // Dates can arrive from a search result or a last-minute card. They are a
+    // choice the guest already made elsewhere, so the module opens on them.
+    let initialStayApplied = false;
     if (
       initialArrival >= today &&
       initialDeparture > initialArrival &&
@@ -193,6 +196,7 @@ export function enhanceStayBookingCalendars() {
       departureInput.min = addDays(initialArrival, 1);
       selectionMode = 'departure';
       anchorMonth = monthStart(initialArrival);
+      initialStayApplied = true;
     }
 
     const visibleMonthCount = () => (desktopQuery.matches ? 2 : 1);
@@ -693,11 +697,17 @@ export function enhanceStayBookingCalendars() {
       activeTrigger.focus();
     };
 
-    const requestQuote = async () => {
+    /**
+     * `trustInput` is set only for dates that arrived in the URL, where the
+     * calendar's own availability map has not been loaded yet and would reject
+     * a perfectly bookable stay. The gateway remains the authority either way:
+     * an unavailable stay comes back as `quote_unavailable`.
+     */
+    const requestQuote = async (trustInput = false) => {
       const arrival = arrivalInput.value;
       const departure = departureInput.value;
       const guests = Number(guestsInput.value);
-      if (!arrival || !departure || !canSelectDeparture(departure)) {
+      if (!arrival || !departure || (!trustInput && !canSelectDeparture(departure))) {
         showState({ state: 'error', title: copy.invalidDates, body: '', detail: '' });
         return;
       }
@@ -933,5 +943,9 @@ export function enhanceStayBookingCalendars() {
     });
 
     updateTriggerValues();
+
+    // Arriving with a chosen stay, the guest should see its total straight away
+    // and still be able to change the dates in the same place.
+    if (initialStayApplied) void requestQuote(true);
   });
 }

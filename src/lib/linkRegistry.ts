@@ -1,5 +1,4 @@
 import { buildOwnedLocalizedPath } from './routeOwnership';
-import { buildBookingLandingUrl } from './directBooking';
 
 function buildOwnedLinks(slug: string) {
   return {
