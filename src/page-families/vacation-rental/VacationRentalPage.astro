@@ -9,37 +9,24 @@ import RentalPhotoGallery from '../../components/vacation-rental/RentalPhotoGall
 import StayBookingCalendar from '../../components/vacation-rental/StayBookingCalendar.astro';
 import {
   Accessibility,
-  Baby,
   BadgeCheck,
   BadgeEuro,
-  Bath,
   BedDouble,
-  BedSingle,
-  Building2,
   CarFront,
   Check,
   CircleParking,
   Clock3,
-  CookingPot,
-  Droplets,
   Eye,
-  Flame,
-  Footprints,
   KeyRound,
   Languages,
   PawPrint,
-  ShowerHead,
-  ShieldCheck,
-  Snowflake,
-  Sun,
-  Thermometer,
-  Trees,
-  Tv,
-  Users,
-  WashingMachine,
-  Wifi
+  ShieldCheck
 } from '@lucide/astro';
 import type { AstroComponent } from '@lucide/astro';
+import {
+  amenityIcons,
+  rentalAmenityIcons
+} from '../../components/amenities/amenityIcons';
 import {
   buildVacationRentalSeo,
   familySurfConversionContent,
@@ -208,16 +195,16 @@ type FactRow = {
 };
 
 const factRows: FactRow[] = [
-  { label: t(ui.labels.guests as LocalizedText), value: String(rental.occupancy), Icon: Users },
-  { label: t(ui.labels.bedrooms as LocalizedText), value: String(rental.bedrooms), Icon: BedDouble },
-  { label: t(ui.labels.bathrooms as LocalizedText), value: String(rental.bathrooms), Icon: Bath },
+  { label: t(ui.labels.guests as LocalizedText), value: String(rental.occupancy), Icon: amenityIcons.occupancy },
+  { label: t(ui.labels.bedrooms as LocalizedText), value: String(rental.bedrooms), Icon: amenityIcons.bed },
+  { label: t(ui.labels.bathrooms as LocalizedText), value: String(rental.bathrooms), Icon: amenityIcons.bathroom },
   ...(rental.interiorAreaSqm
     ? [{
         label: localizedAreaLabel,
         value: rental.exteriorAreaSqm
           ? `${rental.interiorAreaSqm} m² / ${rental.exteriorAreaSqm} m²`
           : `${rental.interiorAreaSqm} m²`,
-        Icon: Building2
+        Icon: amenityIcons.area
       }]
     : []),
   ...(rental.exteriorAreaSqm
@@ -225,7 +212,7 @@ const factRows: FactRow[] = [
     : [{
         label: t(ui.labels.outdoor as LocalizedText),
         value: t(rental.outdoorNote),
-        Icon: Sun,
+        Icon: amenityIcons.terrace,
         wide: true
       }]),
   {
@@ -278,30 +265,6 @@ const addressNoteSegments = rental.addressNote
   ? t(rental.addressNote).split(/(Calle Chorruelo|Calle Real)/g)
   : [];
 
-const amenityIcons: Record<string, AstroComponent> = {
-  ac: Snowflake,
-  balcony: Trees,
-  beachAccess: Footprints,
-  childFriendly: Baby,
-  doubleRainShower: ShowerHead,
-  elevator: Building2,
-  fireplace: Flame,
-  hammock: BedSingle,
-  kitchen: CookingPot,
-  outdoorGrill: Flame,
-  outdoorShower: ShowerHead,
-  patio: Trees,
-  pelletStove: Flame,
-  pool: Droplets,
-  poolType: Droplets,
-  privatePatio: Trees,
-  privateTerrace: Sun,
-  rainShower: ShowerHead,
-  sunLoungers: Sun,
-  tv: Tv,
-  washingMachine: WashingMachine,
-  wifi: Wifi
-};
 
 type AmenityDisplayItem = {
   key: string;
@@ -312,7 +275,10 @@ type AmenityDisplayItem = {
 const visibleAmenities: AmenityDisplayItem[] = rental.amenityFeatures
   .map((feature) => {
     const label = formatAmenity(feature);
-    return label ? { key: feature.name, label, Icon: amenityIcons[feature.name] ?? BadgeCheck } : null;
+    const icon = rentalAmenityIcons[feature.name];
+    return label
+      ? { key: feature.name, label, Icon: icon ? amenityIcons[icon] : BadgeCheck }
+      : null;
   })
   .filter((item): item is AmenityDisplayItem => Boolean(item));
 
@@ -320,7 +286,7 @@ if (rental.bathroomUnderfloorHeating) {
   visibleAmenities.push({
     key: 'bathroomUnderfloorHeating',
     label: t(bathroomUnderfloorHeating),
-    Icon: Thermometer
+    Icon: amenityIcons.heating
   });
 }
 

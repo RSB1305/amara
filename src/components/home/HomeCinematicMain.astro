@@ -13,20 +13,24 @@
  * blocks: choosing between six stays needs them side by side, and the full
  * storytelling belongs on each rental page.
  */
-import { BedDouble, Building2, Sun } from '@lucide/astro';
+import { amenityIcons } from '../amenities/amenityIcons';
 import InlineEmphasis from '../text/InlineEmphasis.astro';
 
 /**
- * The same glyphs the rental pages use for the same three facts in their key-
- * facts table: `Building2` for floor area, `Sun` for the outdoor space,
- * `BedDouble` for the bed. A stay must not change symbol between the card that
- * offers it and the page that describes it.
+ * Drawn from the one amenity vocabulary, so a stay cannot change symbol between
+ * the card that offers it and the page that describes it.
  *
- * Only these three are imported. The shared `AmenityIconSprite` emits every
- * entry in the amenity vocabulary — around sixty symbols — which is the right
- * trade on the amenities page and the wrong one here.
+ * The components are referenced directly rather than through
+ * `AmenityIconSprite`, which emits every entry in the vocabulary — around sixty
+ * symbols. That is the right trade on the amenities page and the wrong one for
+ * three glyphs on the home.
  */
-const factIcons = { interior: Building2, outdoor: Sun, bed: BedDouble } as const;
+const factIcons = {
+  interior: amenityIcons.area,
+  terrace: amenityIcons.terrace,
+  balcony: amenityIcons.outdoor,
+  bed: amenityIcons.bed
+} as const;
 
 export type CinematicFactKey = keyof typeof factIcons;
 

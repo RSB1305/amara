@@ -167,11 +167,15 @@ const hasFlag = (rental: RentalEntity, name: string) =>
   rental.amenityFeatures.some((feature) => feature.name === name && feature.value === true);
 
 function cardFacts(rental: RentalEntity): CinematicFact[] {
-  /** Playa's outdoor space is a balcony and carries no area in the SSOT. */
-  const outdoorValue = rental.exteriorAreaSqm
-    ? `${rental.exteriorAreaSqm} m²`
+  /**
+   * Playa's outdoor space is a balcony and carries no area in the SSOT. It takes
+   * the balcony glyph rather than the terrace one, because the vocabulary
+   * distinguishes them and a symbol has to mean one thing.
+   */
+  const outdoor = rental.exteriorAreaSqm
+    ? { key: 'terrace' as const, value: `${rental.exteriorAreaSqm} m²` }
     : hasFlag(rental, 'balcony')
-      ? t(cinematicFactBalconyLabel)
+      ? { key: 'balcony' as const, value: t(cinematicFactBalconyLabel) }
       : null;
 
   const bed = rental.bed[0]?.label.replace(/\s*x\s*/i, ' × ');
@@ -180,9 +184,7 @@ function cardFacts(rental: RentalEntity): CinematicFact[] {
     rental.interiorAreaSqm
       ? { key: 'interior' as const, value: `${rental.interiorAreaSqm} m²`, label: t(cinematicFactInteriorLabel) }
       : null,
-    outdoorValue
-      ? { key: 'outdoor' as const, value: outdoorValue, label: t(cinematicFactOutdoorLabel) }
-      : null,
+    outdoor ? { ...outdoor, label: t(cinematicFactOutdoorLabel) } : null,
     bed ? { key: 'bed' as const, value: bed, label: t(cinematicFactBedLabel) } : null
   ].filter((fact): fact is CinematicFact => Boolean(fact));
 }

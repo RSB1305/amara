@@ -1,6 +1,7 @@
 import {
   AlarmSmoke,
   Armchair,
+  ArrowUpDown,
   BadgeEuro,
   Baby,
   Bath,
@@ -8,6 +9,7 @@ import {
   BedSingle,
   Blinds,
   Bubbles,
+  Building2,
   Cable,
   CarFront,
   CircleAlert,
@@ -58,6 +60,10 @@ const Waves = createLucideIcon('waves', [
 
 export type AmenitySpecIcon =
   | 'occupancy'
+  | 'area'
+  | 'terrace'
+  | 'elevator'
+  | 'outdoor-grill'
   | 'bed'
   | 'price'
   | 'access'
@@ -124,6 +130,12 @@ export const amenityIcons = {
   pool: Waves,
   view: Eye,
   outdoor: Trees,
+  /** Floor area. A terrace is `terrace`, a balcony or patio is `outdoor`. */
+  area: Building2,
+  terrace: Sun,
+  /** Lucide has no lift glyph; the vertical arrows are the closest reading. */
+  elevator: ArrowUpDown,
+  'outdoor-grill': Flame,
   'sun-loungers': Sun,
   hammock: BedSingle,
   'outdoor-shower': ShowerHead,
@@ -171,3 +183,40 @@ export const amenityIcons = {
   'drying-rack': Shirt,
   'extra-bedding': BedSingle
 } satisfies Record<AmenitySpecIcon, typeof Armchair>;
+
+/**
+ * The rental SSOT names its amenity features in camelCase (`privateTerrace`,
+ * `doubleRainShower`), while this vocabulary is keyed by the amenity catalog's
+ * kebab-case concepts. The rental page used to bridge that gap with a second
+ * icon map of its own, which drifted: a pool was `Waves` here and `Droplets`
+ * there, and `Building2` meant "floor area" in its key-facts table and "lift"
+ * in its amenity list on the same page.
+ *
+ * This table is the bridge. Several SSOT names deliberately share one concept —
+ * a rain shower and a double rain shower are both showers — because the
+ * vocabulary names what a reader sees, not what the data model distinguishes.
+ */
+export const rentalAmenityIcons: Record<string, AmenitySpecIcon> = {
+  ac: 'air-conditioning',
+  balcony: 'outdoor',
+  beachAccess: 'access',
+  childFriendly: 'crib',
+  doubleRainShower: 'shower',
+  elevator: 'elevator',
+  fireplace: 'fireplace',
+  hammock: 'hammock',
+  kitchen: 'kitchen',
+  outdoorGrill: 'outdoor-grill',
+  outdoorShower: 'outdoor-shower',
+  patio: 'outdoor',
+  pelletStove: 'pellet-stove',
+  pool: 'pool',
+  poolType: 'pool',
+  privatePatio: 'outdoor',
+  privateTerrace: 'terrace',
+  rainShower: 'shower',
+  sunLoungers: 'sun-loungers',
+  tv: 'television',
+  washingMachine: 'washing-machine',
+  wifi: 'wifi'
+};
