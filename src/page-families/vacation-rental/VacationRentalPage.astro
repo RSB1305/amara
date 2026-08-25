@@ -992,15 +992,13 @@ const contextDestination: DestinationId | undefined =
   }
 
   .am-stay-hero__photo {
-    /* Reaching the viewport edge means clearing the frame gutter the hero
-       section re-applies inside its own negative margin, plus the shell inset
-       around the frame. Deriving both from the values that create them keeps
-       the photo exactly viewport-wide without counting in the scrollbar, which
-       a viewport unit would. */
-    --am-stay-hero-inset: calc(var(--spacing-page-gutter) + clamp(0.5rem, 1vw, 0.875rem));
-    width: calc(100% + var(--am-stay-hero-inset) * 2);
+    /* The photo fills the white stay canvas exactly, clearing the gutter the
+       hero section re-applies inside its own negative margin. It stops at the
+       canvas edge rather than at the viewport edge, so the page keeps one
+       unbroken white-to-ground boundary instead of the photo overhanging it. */
+    width: calc(100% + var(--spacing-page-gutter) * 2);
     max-width: none;
-    margin-inline: calc(var(--am-stay-hero-inset) * -1);
+    margin-inline: calc(var(--spacing-page-gutter) * -1);
   }
 
   /**
