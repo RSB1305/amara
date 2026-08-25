@@ -1,0 +1,268 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Navigation from '../../components/Navigation.astro';
+import AmaraPageShell from '../../components/layout/AmaraPageShell.astro';
+import AmaraSection from '../../components/layout/AmaraSection.astro';
+import ApartmentCard from '../../components/location/ApartmentCard.astro';
+import InlineEmphasis from '../../components/text/InlineEmphasis.astro';
+import {
+  lastMinuteLocale,
+  lastMinuteStaysCopy,
+  lastMinuteStaysSeo
+} from '../../content/lastMinuteStaysContent';
+import { vacationRentalEntities } from '../../content/vacationRentalEntities';
+import { resolveLink, resolveOptionalLink, type LabeledLink } from '../../lib/linkResolver';
+import { normalizeLanguage } from '../../lib/seo/resolve-seo-head';
+import type { AmaraLanguage } from '../../types/seo';
+
+interface Props {
+  lang?: string;
+}
+
+const { lang = 'es' } = Astro.props;
+const currentLang = normalizeLanguage(lang as AmaraLanguage);
+const t = (value: Record<AmaraLanguage, string>) => value[currentLang] ?? value.en;
+const liveCopy = Object.fromEntries(
+  Object.entries(lastMinuteStaysCopy.live).map(([key, value]) => [key, t(value)])
+);
+const regularSearchHref = resolveLink('stay_search_results', currentLang);
+const footerHighlights: LabeledLink[] = [
+  { token: 'romantic_hideaways', label: t({ en: 'All AMARA stays', de: 'Alle AMARA Unterkünfte', es: 'Todos los alojamientos AMARA', nl: 'Alle AMARA-verblijven', sv: 'Alla AMARA-boenden' }) },
+  { token: 'direct_booking_benefits', label: t({ en: 'Why book direct', de: 'Warum direkt buchen', es: 'Por qué reservar directamente', nl: 'Waarom direct boeken', sv: 'Varför boka direkt' }) },
+  { token: 'faq_general', label: t({ en: 'Stay FAQ', de: 'Aufenthalts-FAQ', es: 'Preguntas sobre la estancia', nl: 'Veelgestelde vragen', sv: 'Vanliga frågor' }) }
+];
+const firstSentence = (value: string) => {
+  const end = value.indexOf('.');
+  return end === -1 ? value : value.slice(0, end + 1);
+};
+const guestCapacity = (count: number) =>
+  t(count === 1 ? lastMinuteStaysCopy.live.guest : lastMinuteStaysCopy.live.guestsPlural)
+    .replace('{count}', String(count));
+const cards = vacationRentalEntities.flatMap((rental) => {
+  const href = resolveOptionalLink(rental.token, currentLang, { suppressMissing: true });
+  if (!href) return [];
+  return [{ rental, href, destination: rental.city.toLowerCase() }];
+});
+const destinationLinks = lastMinuteStaysCopy.destinations.map((destination) => ({
+  ...destination,
+  href: resolveLink(destination.token, currentLang)
+}));
+---
+
+<BaseLayout
+  seo={lastMinuteStaysSeo}
+  pageLang={currentLang}
+  footerHighlights={footerHighlights}
+  contextBreadcrumbTitle={t(lastMinuteStaysCopy.hero.title)}
+>
+  <Navigation currentLang={currentLang} currentToken="last_minute_stays" languageToken="last_minute_stays" />
+
+  <AmaraPageShell family="last-minute-stays" dataLang={currentLang}>
+    <AmaraSection variant="hero" labelledby="last-minute-title" dataComponent="last-minute-hero">
+      <div class="max-w-4xl">
+        <p class="am-text-eyebrow text-primary">{t(lastMinuteStaysCopy.hero.eyebrow)}</p>
+        <h1 id="last-minute-title" class="am-text-display mt-5 text-on-surface">
+          {t(lastMinuteStaysCopy.hero.title)}
+        </h1>
+        <p class="am-text-subtitle mt-7 max-w-3xl text-on-surface">
+          {t(lastMinuteStaysCopy.hero.lead)}
+        </p>
+        <p class="am-text-body mt-5 max-w-2xl text-on-surface-variant">
+          {t(lastMinuteStaysCopy.hero.support)}
+        </p>
+      </div>
+    </AmaraSection>
+
+    <AmaraSection labelledby="last-minute-live-title" dataComponent="last-minute-live">
+      <div
+        data-am-last-minute-stays
+        data-am-last-minute-language={lastMinuteLocale[currentLang]}
+        data-am-last-minute-copy={JSON.stringify(liveCopy)}
+        aria-busy="true"
+      >
+        <div class="grid gap-8 border-b border-border-subtle pb-8 lg:grid-cols-[minmax(0,1fr)_15rem] lg:items-end">
+          <div class="max-w-3xl">
+            <p class="am-text-eyebrow text-primary">{t(lastMinuteStaysCopy.live.eyebrow)}</p>
+            <h2 id="last-minute-live-title" class="am-text-title mt-4 text-on-surface">
+              {t(lastMinuteStaysCopy.live.title)}
+            </h2>
+            <p class="am-text-body mt-5 text-on-surface-variant">
+              {t(lastMinuteStaysCopy.live.intro)}
+            </p>
+          </div>
+          <label class="block">
+            <span class="am-text-label text-on-surface-variant">{t(lastMinuteStaysCopy.live.guests)}</span>
+            <select
+              class="am-last-minute__control am-text-body mt-2"
+              data-am-last-minute-guests
+            >
+              {[1, 2, 3, 4].map((count) => (
+                <option value={count} selected={count === 2}>
+                  {guestCapacity(count)}
+                </option>
+              ))}
+            </select>
+          </label>
+        </div>
+
+        <p
+          class="am-text-body mt-7 text-on-surface"
+          role="status"
+          aria-live="polite"
+          data-am-last-minute-status
+        >
+          {t(lastMinuteStaysCopy.live.loading)}
+        </p>
+
+        <div class="mt-7 border border-border-subtle bg-surface-container-low p-5" hidden data-am-last-minute-warning>
+          <p class="am-text-body text-on-surface">{t(lastMinuteStaysCopy.live.partialError)}</p>
+        </div>
+
+        <div class="mt-10" hidden data-am-last-minute-results>
+          <div class="am-last-minute-grid">
+            {cards.map(({ rental, href, destination }) => (
+              <ApartmentCard
+                href={href}
+                imageSrc={rental.images[0]}
+                imageAlt={rental.imageAlt[currentLang] ?? rental.imageAlt.en}
+                meta={`${rental.city} · ${guestCapacity(rental.occupancy)}`}
+                title={rental.name}
+                description={firstSentence(rental.lead[currentLang] ?? rental.lead.en)}
+                ctaLabel={t(lastMinuteStaysCopy.live.viewStay)}
+                linkAriaLabel={`${t(lastMinuteStaysCopy.live.viewStay)}: ${rental.name}`}
+                dataStay={rental.bookingKey}
+                dataDestination={destination}
+                dataOccupancy={rental.occupancy}
+                totalPriceLabel={t(lastMinuteStaysCopy.live.totalPrice)}
+                hidden
+              />
+            ))}
+          </div>
+          <p class="am-text-caption mt-8 max-w-3xl text-on-surface-variant">
+            {t(lastMinuteStaysCopy.live.priceNote)}
+          </p>
+        </div>
+
+        <div class="mt-8 max-w-2xl border-t border-border-subtle pt-7" hidden data-am-last-minute-empty>
+          <p class="am-text-body text-on-surface">{t(lastMinuteStaysCopy.live.empty)}</p>
+          <a class="am-btn am-btn--secondary mt-6" href={regularSearchHref}>
+            {t(lastMinuteStaysCopy.live.regularSearch)}
+          </a>
+        </div>
+
+        <div class="mt-8 max-w-2xl border-t border-border-subtle pt-7" hidden data-am-last-minute-error>
+          <p class="am-text-body text-on-surface">{t(lastMinuteStaysCopy.live.error)}</p>
+          <a class="am-btn am-btn--secondary mt-6" href={regularSearchHref}>
+            {t(lastMinuteStaysCopy.live.regularSearch)}
+          </a>
+        </div>
+
+        <noscript>
+          <div class="mt-8 max-w-2xl border-t border-border-subtle pt-7">
+            <p class="am-text-body text-on-surface">{t(lastMinuteStaysCopy.live.noScript)}</p>
+            <a class="am-btn am-btn--secondary mt-6" href={regularSearchHref}>
+              {t(lastMinuteStaysCopy.live.regularSearch)}
+            </a>
+          </div>
+        </noscript>
+      </div>
+    </AmaraSection>
+
+    <AmaraSection labelledby="last-minute-destinations-title" dataComponent="last-minute-destinations">
+      <h2 id="last-minute-destinations-title" class="am-text-title max-w-3xl text-on-surface">
+        {t(lastMinuteStaysCopy.destinationsTitle)}
+      </h2>
+      <div class="mt-10 grid gap-10 lg:grid-cols-3 lg:gap-8">
+        {destinationLinks.map((destination) => (
+          <article class="border-t border-border-subtle pt-6">
+            <h3 class="am-text-subtitle text-on-surface">{t(destination.title)}</h3>
+            <p class="am-text-body mt-4 text-on-surface-variant">
+              <InlineEmphasis text={t(destination.body)} />
+            </p>
+            <a class="am-cta-link mt-6 inline-block" href={destination.href}>
+              {t(destination.linkLabel)}
+            </a>
+          </article>
+        ))}
+      </div>
+    </AmaraSection>
+
+    <AmaraSection variant="closing" labelledby="last-minute-faq-title" dataComponent="last-minute-faq">
+      <div class="grid gap-10 lg:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)] lg:gap-20">
+        <h2 id="last-minute-faq-title" class="am-text-title text-on-surface">
+          {t(lastMinuteStaysCopy.faqTitle)}
+        </h2>
+        <div class="divide-y divide-border-subtle border-y border-border-subtle">
+          {lastMinuteStaysCopy.faq.map((item) => (
+            <details class="group py-6">
+              <summary class="am-accordion__trigger items-center">
+                <span class="am-text-label text-on-surface">{t(item.question)}</span>
+                <span class="am-accordion__indicator" aria-hidden="true">
+                  <span class="group-open:hidden">+</span>
+                  <span class="hidden group-open:inline">−</span>
+                </span>
+              </summary>
+              <p class="am-text-body max-w-2xl pt-5 text-on-surface-variant">
+                {t(item.answer)}
+              </p>
+            </details>
+          ))}
+        </div>
+      </div>
+    </AmaraSection>
+  </AmaraPageShell>
+</BaseLayout>
+
+<style is:global>
+  .am-last-minute__control {
+    min-height: 3rem;
+    width: 100%;
+    border: 1px solid var(--color-outline-variant);
+    border-radius: var(--radius-control);
+    background: var(--color-surface);
+    padding: 0.5rem 0.75rem;
+    color: var(--color-on-surface);
+    outline: none;
+  }
+
+  .am-last-minute__control:focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+  }
+
+  .am-last-minute-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 3rem 2rem;
+  }
+
+  .am-last-minute-grid .am-apartment-card[hidden] {
+    display: none;
+  }
+
+  [data-am-component='last-minute-faq'] summary::-webkit-details-marker {
+    display: none;
+  }
+
+  [data-am-component='last-minute-faq'] summary {
+    list-style: none;
+  }
+
+  @media (min-width: 48rem) {
+    .am-last-minute-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  @media (min-width: 64rem) {
+    .am-last-minute-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+  }
+</style>
+
+<script>
+  import { enhanceLastMinuteStays } from '../../scripts/lastMinuteStays';
+
+  enhanceLastMinuteStays();
+</script>

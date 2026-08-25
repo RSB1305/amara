@@ -6,7 +6,7 @@ import BookingDecisionPanel from '../../components/conversion/BookingDecisionPan
 import AmaraPageShell from '../../components/layout/AmaraPageShell.astro';
 import AmaraSection from '../../components/layout/AmaraSection.astro';
 import RentalPhotoGallery from '../../components/vacation-rental/RentalPhotoGallery.astro';
-import MahaBookingCanary from '../../components/vacation-rental/MahaBookingCanary.astro';
+import StayBookingCalendar from '../../components/vacation-rental/StayBookingCalendar.astro';
 import {
   Accessibility,
   Baby,
@@ -604,9 +604,12 @@ const contextDestination: DestinationId | undefined =
         </div>
       </AmaraSection>
 
-      {rental.token === 'maha' && (
-        <MahaBookingCanary lang={currentLang} occupancy={rental.occupancy} />
-      )}
+      <StayBookingCalendar
+        lang={currentLang}
+        bookingKey={rental.bookingKey}
+        stayName={rental.shortName}
+        occupancy={rental.occupancy}
+      />
 
       <AmaraSection labelledby="rental-facts-title">
         <div class="flex flex-col gap-8">

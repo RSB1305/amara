@@ -25,7 +25,7 @@ function buildGroupEnquiry(subject: string, body: string): string {
  */
 
 export const linkRegistry = {
-  version: '2026-08-24-registry-v4.8',
+  version: '2026-08-24-registry-v4.9',
   updated_at: '2026-08-24',
   base: '/',
   links: {
@@ -48,6 +48,7 @@ export const linkRegistry = {
     instagram_landing: buildOwnedLinks('instagram'),
     romantic_hideaways: buildOwnedLinks('romantic-hideaways'),
     stay_search_results: buildOwnedLinks('find-a-stay'),
+    last_minute_stays: buildOwnedLinks('last-minute-stays'),
     honeymoon: buildOwnedLinks('honeymoon'),
     casa_amara_groups: buildOwnedLinks('casa-amara-4-8-guests'),
     property_sale: buildOwnedLinks('frigiliana-hospitality-property-for-sale'),

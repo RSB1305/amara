@@ -7,6 +7,13 @@ export const AMARA_STAY_KEYS = Object.freeze([
   'tarifa',
 ]);
 
+export const AMARA_SEARCH_DESTINATIONS = Object.freeze([
+  'all',
+  'frigiliana',
+  'nerja',
+  'tarifa',
+]);
+
 const AMARA_STAY_KEY_SET = new Set(AMARA_STAY_KEYS);
 
 // Production uses only provider IDs verified by the sandbox MVP. This module is
@@ -67,6 +74,15 @@ const LODGIFY_DISCOVERY_MAPPINGS = Object.freeze({
   }),
 });
 
+const SEARCH_STAYS = Object.freeze([
+  Object.freeze({ stay: 'farah', destination: 'frigiliana', capacity: 2 }),
+  Object.freeze({ stay: 'lounis', destination: 'frigiliana', capacity: 2 }),
+  Object.freeze({ stay: 'zaid', destination: 'frigiliana', capacity: 2 }),
+  Object.freeze({ stay: 'maha', destination: 'frigiliana', capacity: 2 }),
+  Object.freeze({ stay: 'playa', destination: 'nerja', capacity: 2 }),
+  Object.freeze({ stay: 'tarifa', destination: 'tarifa', capacity: 4 }),
+]);
+
 export function isAmaraStayKey(stay) {
   return AMARA_STAY_KEY_SET.has(stay);
 }
@@ -77,4 +93,20 @@ export function getLodgifyStayMapping(stay) {
 
 export function getLodgifyDiscoveryMapping(stay) {
   return LODGIFY_DISCOVERY_MAPPINGS[stay];
+}
+
+export function isAmaraSearchDestination(destination) {
+  return AMARA_SEARCH_DESTINATIONS.includes(destination);
+}
+
+export function getSearchStayCandidates(destination, guests) {
+  return SEARCH_STAYS
+    .filter((candidate) => (
+      (destination === 'all' || candidate.destination === destination)
+      && candidate.capacity >= guests
+    ))
+    .map((candidate) => ({
+      ...candidate,
+      providerMapping: getLodgifyStayMapping(candidate.stay),
+    }));
 }

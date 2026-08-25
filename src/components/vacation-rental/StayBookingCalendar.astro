@@ -1,16 +1,19 @@
 ---
 import type { AmaraLanguage } from '../../types/seo';
+import type { VacationRentalBookingKey } from '../../content/vacationRentalEntities';
 import BookingDateRangeCalendar from '../booking/BookingDateRangeCalendar.astro';
 import AmaraSection from '../layout/AmaraSection.astro';
 
 interface Props {
   lang: AmaraLanguage;
+  bookingKey: VacationRentalBookingKey;
+  stayName: string;
   occupancy: number;
 }
 
 type LocalizedText = Record<AmaraLanguage, string>;
 
-const { lang, occupancy } = Astro.props;
+const { lang, bookingKey, stayName, occupancy } = Astro.props;
 
 const copy = {
   kicker: {
@@ -21,11 +24,11 @@ const copy = {
     sv: 'Live-tillgänglighet'
   },
   title: {
-    en: 'Check current availability and price for Maha',
-    de: 'Aktuelle Verfügbarkeit und Preis für Maha prüfen',
-    es: 'Consulta la disponibilidad y el precio actual de Maha',
-    nl: 'Controleer de actuele beschikbaarheid en prijs voor Maha',
-    sv: 'Kontrollera aktuell tillgänglighet och pris för Maha'
+    en: 'Check current availability and price for {stay}',
+    de: 'Aktuelle Verfügbarkeit und Preis für {stay} prüfen',
+    es: 'Consulta la disponibilidad y el precio actual de {stay}',
+    nl: 'Controleer de actuele beschikbaarheid en prijs voor {stay}',
+    sv: 'Kontrollera aktuell tillgänglighet och pris för {stay}'
   },
   intro: {
     en: 'Open the calendar to see live availability and indicative nightly prices. We request booking data only when you start choosing dates.',
@@ -98,11 +101,11 @@ const copy = {
     sv: 'Inte tillgängligt'
   },
   unavailableBody: {
-    en: 'Maha is not available for this stay. Please choose different dates.',
-    de: 'Maha ist für diesen Aufenthalt nicht verfügbar. Bitte wählt andere Reisedaten.',
-    es: 'Maha no está disponible para esta estancia. Elegid otras fechas.',
-    nl: 'Maha is niet beschikbaar voor dit verblijf. Kies andere data.',
-    sv: 'Maha är inte tillgängligt för denna vistelse. Välj andra datum.'
+    en: '{stay} is not available for this stay. Please choose different dates.',
+    de: '{stay} ist für diesen Aufenthalt nicht verfügbar. Bitte wählt andere Reisedaten.',
+    es: '{stay} no está disponible para esta estancia. Elegid otras fechas.',
+    nl: '{stay} is niet beschikbaar voor dit verblijf. Kies andere data.',
+    sv: '{stay} är inte tillgängligt för denna vistelse. Välj andra datum.'
   },
   totalPrice: {
     en: 'Total price',
@@ -169,6 +172,20 @@ const copy = {
     nl: 'Kies nu het vertrek. Alleen data waarbij elke nacht beschikbaar is en de verblijfsregels passen, zijn selecteerbaar.',
     sv: 'Välj nu avresa. Endast datum där varje natt är tillgänglig och vistelsereglerna uppfylls kan väljas.'
   },
+  minimumStayHelp: {
+    en: 'Minimum stay from this arrival: {count} nights. Available dates remain visible; choose a valid departure.',
+    de: 'Mindestaufenthalt ab dieser Anreise: {count} Nächte. Verfügbare Tage bleiben sichtbar; wählt eine mögliche Abreise.',
+    es: 'Estancia mínima desde esta llegada: {count} noches. Las fechas disponibles siguen visibles; elegid una salida válida.',
+    nl: 'Minimumverblijf vanaf deze aankomst: {count} nachten. Beschikbare data blijven zichtbaar; kies een geldig vertrek.',
+    sv: 'Minsta vistelse från denna ankomst: {count} nätter. Tillgängliga datum förblir synliga; välj en giltig avresa.'
+  },
+  minimumStayViolation: {
+    en: 'A minimum stay of {count} nights applies for arrival on {arrival}. Please choose a departure on or after {departure}.',
+    de: 'Bei einer Anreise am {arrival} beträgt der Mindestaufenthalt {count} Nächte. Bitte wählt eine Abreise ab dem {departure}.',
+    es: 'Para una llegada el {arrival}, la estancia mínima es de {count} noches. Elegid una salida a partir del {departure}.',
+    nl: 'Bij aankomst op {arrival} geldt een minimumverblijf van {count} nachten. Kies een vertrek vanaf {departure}.',
+    sv: 'Vid ankomst den {arrival} gäller minst {count} nätter. Välj avresa tidigast den {departure}.'
+  },
   loadingCalendar: {
     en: 'Loading live availability and nightly prices…',
     de: 'Live-Verfügbarkeit und Übernachtungspreise werden geladen…',
@@ -208,6 +225,20 @@ const copy = {
     nl: 'niet selecteerbaar als vertrek',
     sv: 'kan inte väljas som avresa'
   },
+  minimumStayDeparture: {
+    en: 'minimum stay not reached; select for details',
+    de: 'Mindestaufenthalt noch nicht erreicht; für Details auswählen',
+    es: 'no se alcanza la estancia mínima; seleccionad para ver los detalles',
+    nl: 'minimumverblijf nog niet bereikt; selecteer voor uitleg',
+    sv: 'minsta vistelse har inte uppnåtts; välj för mer information'
+  },
+  selectedArrival: {
+    en: 'selected arrival',
+    de: 'gewählte Anreise',
+    es: 'llegada seleccionada',
+    nl: 'gekozen aankomst',
+    sv: 'vald ankomst'
+  },
   fromPrice: {
     en: 'from {price}', de: 'ab {price}', es: 'desde {price}', nl: 'vanaf {price}', sv: 'från {price}'
   }
@@ -215,14 +246,16 @@ const copy = {
 
 const t = (value: LocalizedText) => value[lang] ?? value.en;
 const clientCopy = Object.fromEntries(
-  Object.entries(copy).map(([key, value]) => [key, t(value)])
+  Object.entries(copy).map(([key, value]) => [key, t(value).replace('{stay}', stayName)])
 );
 const guestOptions = Array.from({ length: occupancy }, (_, index) => index + 1);
+const titleId = `${bookingKey}-booking-calendar-title`;
 ---
 
-<AmaraSection labelledby="maha-booking-canary-title" dataComponent="maha-booking-canary">
+<AmaraSection labelledby={titleId} dataComponent="stay-booking-calendar">
   <div
-    data-am-booking-canary
+    data-am-stay-booking-calendar
+    data-am-booking-stay={bookingKey}
     data-am-booking-language={lang}
     data-am-booking-copy={JSON.stringify(clientCopy)}
   >
@@ -231,33 +264,33 @@ const guestOptions = Array.from({ length: occupancy }, (_, index) => index + 1);
       <p class="am-text-label text-on-surface-variant">
         {t(copy.kicker)}
       </p>
-      <h2 id="maha-booking-canary-title" class="am-text-title mt-4 text-balance text-on-surface">
-        {t(copy.title)}
+      <h2 id={titleId} class="am-text-title mt-4 text-balance text-on-surface">
+        {t(copy.title).replace('{stay}', stayName)}
       </h2>
       <p class="am-text-body mt-5 leading-relaxed text-on-surface-variant">
         {t(copy.intro)}
       </p>
     </div>
 
-    <div class="am-booking-canary__panel self-start bg-surface-container-low p-5 sm:p-7">
+    <div class="am-stay-booking-calendar__panel self-start bg-surface-container-low p-5 sm:p-7">
       <form method="get" data-am-booking-form>
         <div class="grid gap-5 sm:grid-cols-3">
-          <label class="block am-booking-canary__native-date">
+          <label class="block am-stay-booking-calendar__native-date">
             <span class="am-text-label text-on-surface-variant">
               {t(copy.arrival)}
             </span>
             <input
-              class="am-booking-canary__control am-text-body mt-2"
+              class="am-stay-booking-calendar__control am-text-body mt-2"
               type="date"
               name="arrival"
               required
               data-am-booking-arrival
             />
           </label>
-          <div class="am-booking-canary__date-trigger" hidden data-am-booking-arrival-trigger-wrap>
+          <div class="am-stay-booking-calendar__date-trigger" hidden data-am-booking-arrival-trigger-wrap>
             <span class="am-text-label text-on-surface-variant">{t(copy.arrival)}</span>
             <button
-              class="am-booking-canary__control am-booking-canary__trigger am-text-body mt-2"
+              class="am-stay-booking-calendar__control am-stay-booking-calendar__trigger am-text-body mt-2"
               type="button"
               aria-expanded="false"
               data-am-booking-arrival-trigger
@@ -266,22 +299,22 @@ const guestOptions = Array.from({ length: occupancy }, (_, index) => index + 1);
             </button>
           </div>
 
-          <label class="block am-booking-canary__native-date">
+          <label class="block am-stay-booking-calendar__native-date">
             <span class="am-text-label text-on-surface-variant">
               {t(copy.departure)}
             </span>
             <input
-              class="am-booking-canary__control am-text-body mt-2"
+              class="am-stay-booking-calendar__control am-text-body mt-2"
               type="date"
               name="departure"
               required
               data-am-booking-departure
             />
           </label>
-          <div class="am-booking-canary__date-trigger" hidden data-am-booking-departure-trigger-wrap>
+          <div class="am-stay-booking-calendar__date-trigger" hidden data-am-booking-departure-trigger-wrap>
             <span class="am-text-label text-on-surface-variant">{t(copy.departure)}</span>
             <button
-              class="am-booking-canary__control am-booking-canary__trigger am-text-body mt-2"
+              class="am-stay-booking-calendar__control am-stay-booking-calendar__trigger am-text-body mt-2"
               type="button"
               aria-expanded="false"
               data-am-booking-departure-trigger
@@ -295,7 +328,7 @@ const guestOptions = Array.from({ length: occupancy }, (_, index) => index + 1);
               {t(copy.guests)}
             </span>
             <select
-              class="am-booking-canary__control am-text-body mt-2"
+              class="am-stay-booking-calendar__control am-text-body mt-2"
               name="guests"
               data-am-booking-guests
             >
@@ -327,7 +360,7 @@ const guestOptions = Array.from({ length: occupancy }, (_, index) => index + 1);
       </form>
 
       <div
-        class="am-booking-canary__result mt-6 border border-border-subtle bg-surface p-5"
+        class="am-stay-booking-calendar__result mt-6 border border-border-subtle bg-surface p-5"
         role="status"
         aria-live="polite"
         hidden
@@ -349,16 +382,16 @@ const guestOptions = Array.from({ length: occupancy }, (_, index) => index + 1);
 </AmaraSection>
 
 <style is:global>
-  .am-booking-canary__panel,
-  .am-booking-canary__result {
+  .am-stay-booking-calendar__panel,
+  .am-stay-booking-calendar__result {
     border-radius: var(--radius-editorial);
   }
 
-  .am-booking-canary__panel {
+  .am-stay-booking-calendar__panel {
     box-shadow: var(--shadow-editorial-card);
   }
 
-  .am-booking-canary__control {
+  .am-stay-booking-calendar__control {
     min-height: 3rem;
     width: 100%;
     border: 1px solid var(--color-outline-variant);
@@ -370,22 +403,22 @@ const guestOptions = Array.from({ length: occupancy }, (_, index) => index + 1);
     transition: border-color 180ms ease, box-shadow 180ms ease;
   }
 
-  .am-booking-canary__control:focus-visible {
+  .am-stay-booking-calendar__control:focus-visible {
     outline: 2px solid var(--color-primary);
     outline-offset: 2px;
   }
 
-  [data-am-booking-enhanced='true'] .am-booking-canary__native-date {
+  [data-am-booking-enhanced='true'] .am-stay-booking-calendar__native-date {
     display: none;
   }
 
-  .am-booking-canary__trigger {
+  .am-stay-booking-calendar__trigger {
     display: flex;
     align-items: center;
     text-align: left;
   }
 
-  .am-booking-canary__trigger[aria-expanded='true'] {
+  .am-stay-booking-calendar__trigger[aria-expanded='true'] {
     border-color: var(--color-primary);
     box-shadow: 0 0 0 1px var(--color-primary);
   }
@@ -393,7 +426,7 @@ const guestOptions = Array.from({ length: occupancy }, (_, index) => index + 1);
 </style>
 
 <script>
-  import { enhanceMahaBookingCalendars } from '../../scripts/mahaBookingCalendar';
+  import { enhanceStayBookingCalendars } from '../../scripts/stayBookingCalendar';
 
-  enhanceMahaBookingCalendars();
+  enhanceStayBookingCalendars();
 </script>

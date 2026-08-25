@@ -135,6 +135,27 @@ export const globalNavLabels = {
     sv: 'Atlantvindar, vida horisonter och kitesurfing.'
   },
   allStays: trustLabels.romantic_hideaways,
+  lastMinuteStays: {
+    en: 'Last minute',
+    de: 'Last Minute',
+    es: 'Última hora',
+    nl: 'Last minute',
+    sv: 'Sista minuten'
+  },
+  currentOffers: {
+    en: 'Current offers',
+    de: 'Aktuelle Angebote',
+    es: 'Ofertas actuales',
+    nl: 'Actuele aanbiedingen',
+    sv: 'Aktuella erbjudanden'
+  },
+  currentOffersMeta: {
+    en: 'Current stays bookable during the next 21 days.',
+    de: 'Aktuell buchbare Aufenthalte der nächsten 21 Tage.',
+    es: 'Estancias disponibles durante los próximos 21 días.',
+    nl: 'Actueel boekbare verblijven voor de komende 21 dagen.',
+    sv: 'Boenden som kan bokas under de kommande 21 dagarna.'
+  },
   farahMeta: {
     en: 'Self-contained boutique suite · 2 guests',
     de: 'Abgeschlossene Boutique-Suite · 2 Gäste',
@@ -292,6 +313,13 @@ export function createGlobalNavGroups(currentLang: AmaraLanguage): GlobalNavGrou
           label: 'Family & Surf',
           description: t('familySurfMeta'),
           sectionLabel: t('locationTarifa')
+        },
+        {
+          token: 'last_minute_stays',
+          label: t('currentOffers'),
+          description: t('currentOffersMeta'),
+          sectionLabel: t('lastMinuteStays'),
+          separatedSection: true
         }
       ]
     },

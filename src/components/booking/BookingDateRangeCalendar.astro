@@ -204,6 +204,54 @@ const {
     text-decoration-thickness: 1px;
   }
 
+  .am-booking-calendar__day[data-am-booking-day-state] {
+    cursor: default;
+    color: color-mix(in srgb, var(--color-on-surface-variant) 68%, transparent);
+  }
+
+  .am-booking-calendar__day[data-am-booking-day-state] .am-booking-calendar__day-number {
+    text-decoration: none;
+  }
+
+  .am-booking-calendar__day[data-am-booking-day-state='loading'] {
+    cursor: wait;
+  }
+
+  .am-booking-calendar__day[data-am-booking-day-state='restricted'] {
+    cursor: not-allowed;
+    color: var(--color-on-surface-variant);
+  }
+
+  .am-booking-calendar__day[data-am-booking-restriction='minimum-stay'] {
+    cursor: pointer;
+  }
+
+  .am-booking-calendar__day-loading {
+    display: block;
+    width: 1.8rem;
+    height: 0.3rem;
+    border-radius: var(--radius-control);
+    background: color-mix(in srgb, var(--color-on-surface-variant) 24%, transparent);
+  }
+
+  .am-booking-calendar__day[data-am-booking-day-state='loading']
+    .am-booking-calendar__day-loading {
+    animation: am-booking-calendar-loading 1.2s ease-in-out infinite alternate;
+  }
+
+  @keyframes am-booking-calendar-loading {
+    to {
+      opacity: 0.35;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .am-booking-calendar__day[data-am-booking-day-state='loading']
+      .am-booking-calendar__day-loading {
+      animation: none;
+    }
+  }
+
   .am-booking-calendar__day[data-range='middle'] {
     background: color-mix(in srgb, var(--color-primary) 10%, var(--color-surface));
   }
@@ -223,14 +271,22 @@ const {
   }
 
   .am-booking-calendar__day-price {
+    display: flex;
     max-width: 100%;
+    flex-direction: column;
+    align-items: center;
     color: var(--color-on-surface-variant);
     font-family: var(--font-label);
     font-size: 0.7rem;
     font-weight: 500;
     line-height: 1.2;
     text-align: center;
-    white-space: normal;
+    white-space: nowrap;
+  }
+
+  .am-booking-calendar__day-price-prefix,
+  .am-booking-calendar__day-price-amount {
+    display: block;
   }
 
   .am-booking-calendar__day[data-range='start'] .am-booking-calendar__day-price,

@@ -61,12 +61,13 @@ const nightsBetween = (arrival: string, departure: string) =>
 const element = <T extends Element>(root: ParentNode, selector: string) =>
   root.querySelector<T>(selector);
 
-export function enhanceMahaBookingCalendars() {
-  document.querySelectorAll<HTMLElement>('[data-am-booking-canary]').forEach((container) => {
+export function enhanceStayBookingCalendars() {
+  document.querySelectorAll<HTMLElement>('[data-am-stay-booking-calendar]').forEach((container) => {
     if (container.dataset.amBookingEnhanced === 'true') return;
 
     const copy = JSON.parse(container.dataset.amBookingCopy || '{}') as BookingCopy;
     const language = container.dataset.amBookingLanguage || 'en';
+    const stay = container.dataset.amBookingStay || '';
     const form = element<HTMLFormElement>(container, '[data-am-booking-form]');
     const arrivalInput = element<HTMLInputElement>(container, '[data-am-booking-arrival]');
     const departureInput = element<HTMLInputElement>(container, '[data-am-booking-departure]');
@@ -117,6 +118,7 @@ export function enhanceMahaBookingCalendars() {
     const note = element<HTMLElement>(container, '[data-am-booking-note]');
 
     if (
+      !stay ||
       !form ||
       !arrivalInput ||
       !departureInput ||
@@ -163,6 +165,7 @@ export function enhanceMahaBookingCalendars() {
     let activeTrigger = arrivalTrigger;
     let hoverDate = '';
     let quoteSignature = '';
+    let calendarFeedback = '';
 
     arrivalInput.min = today;
     arrivalInput.max = latest;
@@ -276,7 +279,8 @@ export function enhanceMahaBookingCalendars() {
     const visibleMonths = () =>
       Array.from({ length: visibleMonthCount() }, (_, index) => addMonths(anchorMonth, index));
     const visibleEntries = () => visibleMonths().map((date) => monthCache.get(monthKey(date)));
-    const visibleLoading = () => visibleEntries().some((entry) => entry?.state === 'loading');
+    const visibleLoading = () =>
+      visibleEntries().some((entry) => !entry || entry.state === 'loading');
     const visibleError = () => visibleEntries().some((entry) => entry?.state === 'error');
 
     const monthWindow = (date: Date) => {
@@ -313,7 +317,7 @@ export function enhanceMahaBookingCalendars() {
       const loading: CacheEntry = { state: 'loading' };
       monthCache.set(key, loading);
       renderCalendar();
-      const params = new URLSearchParams({ stay: 'maha', start: window.start, end: window.end });
+      const params = new URLSearchParams({ stay, start: window.start, end: window.end });
       try {
         const [availability, rates] = await Promise.all([
           fetchJson('/api/booking/availability', params),
@@ -330,7 +334,7 @@ export function enhanceMahaBookingCalendars() {
           | Array<{ date?: string; currency?: string; options?: unknown[] }>
           | undefined;
         const availabilityValid =
-          availability.stay === 'maha' &&
+          availability.stay === stay &&
           availability.start === window.start &&
           availability.end === window.end &&
           Array.isArray(availabilityDays) &&
@@ -340,7 +344,7 @@ export function enhanceMahaBookingCalendars() {
               day.date === expectedDates[index] && typeof day.available === 'boolean'
           );
         const ratesValid =
-          rates.stay === 'maha' &&
+          rates.stay === stay &&
           rates.start === window.start &&
           rates.end === window.end &&
           Array.isArray(rateDays) &&
@@ -389,6 +393,33 @@ export function enhanceMahaBookingCalendars() {
       return minimum <= maximum && nights >= minimum && nights <= maximum;
     };
 
+    const minimumStayForArrival = () => {
+      const options = dayData.get(arrivalInput.value)?.options ?? [];
+      if (!options.length) return 1;
+      return Math.min(
+        ...options.map((option) =>
+          Number.isInteger(option.minStay) && Number(option.minStay) > 0
+            ? Number(option.minStay)
+            : 1
+        )
+      );
+    };
+
+    const isMinimumStayViolation = (value: string) => {
+      const arrival = arrivalInput.value;
+      if (!arrival || value <= arrival) return false;
+      const nights = nightsBetween(arrival, value);
+      return nights >= 1 && nights < minimumStayForArrival();
+    };
+
+    const minimumStayFeedback = () => {
+      const minimumStay = minimumStayForArrival();
+      return copy.minimumStayViolation
+        .replace('{arrival}', formatDate(arrivalInput.value))
+        .replace('{count}', String(minimumStay))
+        .replace('{departure}', formatDate(addDays(arrivalInput.value, minimumStay)));
+    };
+
     const canSelectArrival = (value: string) => {
       const day = dayData.get(value);
       return (
@@ -420,16 +451,20 @@ export function enhanceMahaBookingCalendars() {
         Number.POSITIVE_INFINITY
       );
 
-    const priceLabel = (day: CalendarDay | undefined) => {
+    const priceDetails = (day: CalendarDay | undefined) => {
       const amount = lowestNightlyPrice(day);
-      if (!Number.isFinite(amount) || !day?.currency) return '';
+      if (!Number.isFinite(amount) || !day?.currency) return undefined;
       const formatted = new Intl.NumberFormat(language, {
         style: 'currency',
         currency: day.currency,
         minimumFractionDigits: 0,
         maximumFractionDigits: 0
       }).format(Number(amount));
-      return copy.fromPrice.replace('{price}', formatted);
+      return {
+        label: copy.fromPrice.replace('{price}', formatted),
+        prefix: copy.fromPrice.replace('{price}', '').trim(),
+        amount: formatted
+      };
     };
 
     const applyRange = (preview = '') => {
@@ -438,7 +473,12 @@ export function enhanceMahaBookingCalendars() {
       monthsRoot.querySelectorAll<HTMLElement>('[data-am-booking-day]').forEach((button) => {
         const value = button.dataset.amBookingDay || '';
         button.removeAttribute('data-range');
-        if (!arrival || !departure || value < arrival || value > departure) return;
+        if (!arrival) return;
+        if (!departure) {
+          if (value === arrival) button.dataset.range = 'start';
+          return;
+        }
+        if (value < arrival || value > departure) return;
         if (value === arrival) button.dataset.range = 'start';
         else if (value === departure) button.dataset.range = 'end';
         else button.dataset.range = 'middle';
@@ -449,9 +489,17 @@ export function enhanceMahaBookingCalendars() {
       const parts = [formatFullDate(value)];
       if (day?.available === true) {
         parts.push(copy.availableDay);
-        const orientation = priceLabel(day);
-        if (orientation) parts.push(orientation);
-        if (!selectable && selectionMode === 'departure') parts.push(copy.invalidDeparture);
+        const price = priceDetails(day);
+        if (price) parts.push(price.label);
+        if (value === arrivalInput.value && selectionMode === 'departure') {
+          parts.push(copy.selectedArrival);
+        } else if (!selectable && selectionMode === 'departure') {
+          parts.push(
+            isMinimumStayViolation(value)
+              ? copy.minimumStayDeparture
+              : copy.invalidDeparture
+          );
+        }
       } else {
         parts.push(copy.unavailableDay);
       }
@@ -459,6 +507,7 @@ export function enhanceMahaBookingCalendars() {
     };
 
     const renderMonth = (date: Date) => {
+      const monthState = monthCache.get(monthKey(date))?.state;
       const section = document.createElement('section');
       section.className = 'am-booking-calendar__month';
       section.dataset.amBookingMonth = monthKey(date);
@@ -495,15 +544,36 @@ export function enhanceMahaBookingCalendars() {
           new Date(Date.UTC(date.getUTCFullYear(), date.getUTCMonth(), number))
         );
         const day = dayData.get(value);
+        const unresolved = value >= today && value <= latest && monthState !== 'ready';
+        const loading = unresolved && monthState !== 'error';
         const selectable =
-          selectionMode === 'arrival' ? canSelectArrival(value) : canSelectDeparture(value);
+          !unresolved &&
+          (selectionMode === 'arrival' ? canSelectArrival(value) : canSelectDeparture(value));
+        const explainsMinimumStay =
+          !unresolved &&
+          selectionMode === 'departure' &&
+          day?.available === true &&
+          !selectable &&
+          isMinimumStayViolation(value);
         const button = document.createElement('button');
         button.type = 'button';
         button.className = 'am-booking-calendar__day';
         button.dataset.amBookingDay = value;
-        button.disabled = !selectable;
-        button.setAttribute('aria-disabled', String(!selectable));
-        button.setAttribute('aria-label', dayAriaLabel(value, selectable, day));
+        if (unresolved) button.dataset.amBookingDayState = loading ? 'loading' : 'error';
+        else if (selectionMode === 'departure' && day?.available === true && !selectable) {
+          button.dataset.amBookingDayState =
+            value === arrivalInput.value ? 'selected' : 'restricted';
+        }
+        if (explainsMinimumStay) button.dataset.amBookingRestriction = 'minimum-stay';
+        button.disabled = !selectable && !explainsMinimumStay;
+        button.setAttribute('aria-disabled', String(!selectable && !explainsMinimumStay));
+        if (loading) button.setAttribute('aria-busy', 'true');
+        button.setAttribute(
+          'aria-label',
+          unresolved
+            ? [formatFullDate(value), loading ? copy.loadingCalendar : copy.calendarError].join(', ')
+            : dayAriaLabel(value, selectable, day)
+        );
         button.tabIndex =
           selectable &&
           (value === departureInput.value ||
@@ -516,11 +586,22 @@ export function enhanceMahaBookingCalendars() {
         dayNumber.className = 'am-booking-calendar__day-number';
         dayNumber.textContent = String(number);
         button.append(dayNumber);
-        const orientation = day?.available === true ? priceLabel(day) : '';
-        if (orientation) {
+        const price = !unresolved && day?.available === true ? priceDetails(day) : undefined;
+        if (unresolved) {
+          const loadingIndicator = document.createElement('span');
+          loadingIndicator.className = 'am-booking-calendar__day-loading';
+          loadingIndicator.setAttribute('aria-hidden', 'true');
+          button.append(loadingIndicator);
+        } else if (price) {
           const priceText = document.createElement('span');
           priceText.className = 'am-booking-calendar__day-price';
-          priceText.textContent = orientation;
+          const pricePrefix = document.createElement('span');
+          pricePrefix.className = 'am-booking-calendar__day-price-prefix';
+          pricePrefix.textContent = price.prefix;
+          const priceAmount = document.createElement('span');
+          priceAmount.className = 'am-booking-calendar__day-price-amount';
+          priceAmount.textContent = price.amount;
+          priceText.append(pricePrefix, priceAmount);
           button.append(priceText);
         }
         days.append(button);
@@ -542,8 +623,13 @@ export function enhanceMahaBookingCalendars() {
       renderNextButton.disabled = anchorMonth >= maxAnchorMonth() || visibleLoading();
       if (visibleLoading()) renderCalendarStatus.textContent = copy.loadingCalendar;
       else if (visibleError()) renderCalendarStatus.textContent = copy.calendarError;
-      else if (renderArrivalInput.value && !renderDepartureInput.value)
-        renderCalendarStatus.textContent = copy.departureHelp;
+      else if (calendarFeedback) renderCalendarStatus.textContent = calendarFeedback;
+      else if (renderArrivalInput.value && !renderDepartureInput.value) {
+        const minimumStay = minimumStayForArrival();
+        renderCalendarStatus.textContent = minimumStay > 1
+          ? copy.minimumStayHelp.replace('{count}', String(minimumStay))
+          : copy.departureHelp;
+      }
       else renderCalendarStatus.textContent = copy.calendarHelp;
       applyRange(hoverDate);
 
@@ -577,6 +663,7 @@ export function enhanceMahaBookingCalendars() {
       trigger: HTMLButtonElement
     ) => {
       selectionMode = mode === 'departure' && arrivalInput.value ? 'departure' : 'arrival';
+      calendarFeedback = '';
       activeTrigger = trigger;
       const selected =
         selectionMode === 'departure'
@@ -616,7 +703,7 @@ export function enhanceMahaBookingCalendars() {
       showState({ state: 'loading', title: copy.loading, body: '', detail: '' });
       try {
         const params = new URLSearchParams({
-          stay: 'maha',
+          stay,
           arrival,
           departure,
           adults: String(guests),
@@ -628,7 +715,7 @@ export function enhanceMahaBookingCalendars() {
           | { adults?: number; children?: number; pets?: number }
           | undefined;
         if (
-          quote.stay !== 'maha' ||
+          quote.stay !== stay ||
           quote.arrival !== arrival ||
           quote.departure !== departure ||
           quoteGuests?.adults !== guests ||
@@ -689,6 +776,7 @@ export function enhanceMahaBookingCalendars() {
       departureInput.min = addDays(today, 1);
       selectionMode = 'arrival';
       hoverDate = '';
+      calendarFeedback = '';
       quoteSignature = '';
       updateTriggerValues();
       clearResult();
@@ -718,15 +806,23 @@ export function enhanceMahaBookingCalendars() {
         selectionMode = 'departure';
         activeTrigger = departureTrigger;
         hoverDate = '';
+        calendarFeedback = '';
         quoteSignature = '';
         clearResult();
         updateTriggerValues();
         renderCalendar();
         return;
       }
-      if (!canSelectDeparture(value)) return;
+      if (!canSelectDeparture(value)) {
+        if (button.dataset.amBookingRestriction === 'minimum-stay') {
+          calendarFeedback = minimumStayFeedback();
+          calendarStatus.textContent = calendarFeedback;
+        }
+        return;
+      }
       departureInput.value = value;
       hoverDate = '';
+      calendarFeedback = '';
       quoteSignature = '';
       updateTriggerValues();
       renderCalendar();
@@ -738,7 +834,7 @@ export function enhanceMahaBookingCalendars() {
       const target = event.target;
       if (!(target instanceof Element)) return;
       const button = target.closest<HTMLButtonElement>('[data-am-booking-day]');
-      if (!button || button.disabled) return;
+      if (!button || button.disabled || !canSelectDeparture(button.dataset.amBookingDay || '')) return;
       hoverDate = button.dataset.amBookingDay || '';
       applyRange(hoverDate);
     });

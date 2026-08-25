@@ -26,29 +26,29 @@ export const whereToStayOrientationGraphicContent: Record<
 > = {
   frigiliana: {
     en: {
-      place: 'frigiliana', eyebrow: 'Orientation by elevation', title: 'Frigiliana hillside', region: 'Village profile', note: sharedNote.en,
-      ariaLabel: 'Schematic profile of Frigiliana showing the lower village, historic centre, upper Barribarto, Calle Real, Calle Chorruelo, the Church of San Antonio and AMARA opposite the church.',
-      labels: { lower: 'Lower village', transition: 'Transition area', historic: 'Lower historic centre', upper: 'Upper Barribarto', calleReal: 'Calle Real', calleChorruelo: 'Calle Chorruelo', church: 'Church of San Antonio', amara: 'AMARA' }
+      place: 'frigiliana', eyebrow: 'Location in the historic centre', title: 'AMARA in Frigiliana’s old town', region: 'North ↑', note: 'Schematic · approximate elevations',
+      ariaLabel: 'North-oriented schematic map of Frigiliana showing AMARA in the historic centre beside the Church of San Antonio, close to the MA-5105 main road and lower on the hillside than upper Barribarto.',
+      labels: { oldTown: 'Historic centre', laterVillage: 'Later village', barribajo: 'Barribajo · lower old town', barribarto: 'Barribarto · higher and steeper', ma5105: 'MA-5105', mainRoad: 'Two-lane main road', calleReal: 'Calle Real', calleChorruelo: 'Calle Chorruelo', historicAccess: 'Historic route · limited vehicle access', church: 'Church of San Antonio', amara: 'AMARA', amaraPosition: 'Central · lower on the hillside', ingenio: 'El Ingenio · 290 m', castle: 'Castillo de Lízar', villageHeight: 'Village reference · 315–318 m' }
     },
     de: {
-      place: 'frigiliana', eyebrow: 'Orientierung nach Höhenlage', title: 'Frigiliana am Hang', region: 'Ortsprofil', note: sharedNote.de,
-      ariaLabel: 'Schematisches Profil von Frigiliana mit Unterdorf, historischem Ortskern, oberem Barribarto, Calle Real, Calle Chorruelo, der Kirche San Antonio und AMARA schräg gegenüber.',
-      labels: { lower: 'Unterdorf', transition: 'Übergangsbereich', historic: 'Unterer historischer Ortskern', upper: 'Oberes Barribarto', calleReal: 'Calle Real', calleChorruelo: 'Calle Chorruelo', church: 'Kirche San Antonio', amara: 'AMARA' }
+      place: 'frigiliana', eyebrow: 'Lage im historischen Zentrum', title: 'AMARA in Frigilianas Altstadt', region: 'Nord ↑', note: 'Schematisch · Höhenangaben ungefähr',
+      ariaLabel: 'Nordorientierte schematische Karte von Frigiliana mit AMARA im historischen Zentrum neben der Kirche San Antonio, nahe der Hauptstraße MA-5105 und vergleichsweise niedriger am Hang als das obere Barribarto.',
+      labels: { oldTown: 'Historisches Zentrum', laterVillage: 'Neuerer Dorfteil', barribajo: 'Barribajo · untere Altstadt', barribarto: 'Barribarto · höher und steiler', ma5105: 'MA-5105', mainRoad: 'Zweispurige Hauptstraße', calleReal: 'Calle Real', calleChorruelo: 'Calle Chorruelo', historicAccess: 'Historische Achse · zeitweise befahrbar', church: 'Kirche San Antonio', amara: 'AMARA', amaraPosition: 'Zentral · niedriger am Hang', ingenio: 'El Ingenio · 290 m', castle: 'Castillo de Lízar', villageHeight: 'Ortsreferenz · 315–318 m' }
     },
     es: {
-      place: 'frigiliana', eyebrow: 'Orientación por desnivel', title: 'Frigiliana en la ladera', region: 'Perfil del pueblo', note: sharedNote.es,
-      ariaLabel: 'Perfil esquemático de Frigiliana con el pueblo bajo, el casco histórico, Barribarto, Calle Real, Calle Chorruelo, la iglesia de San Antonio y AMARA enfrente en diagonal.',
-      labels: { lower: 'Pueblo bajo', transition: 'Zona de transición', historic: 'Casco histórico bajo', upper: 'Barribarto alto', calleReal: 'Calle Real', calleChorruelo: 'Calle Chorruelo', church: 'Iglesia de San Antonio', amara: 'AMARA' }
+      place: 'frigiliana', eyebrow: 'Ubicación en el casco histórico', title: 'AMARA en el casco antiguo de Frigiliana', region: 'Norte ↑', note: 'Esquema · cotas aproximadas',
+      ariaLabel: 'Mapa esquemático orientado al norte de Frigiliana que muestra AMARA en el casco histórico junto a la iglesia de San Antonio, cerca de la carretera principal MA-5105 y a menor altura que el Barribarto alto.',
+      labels: { oldTown: 'Casco histórico', laterVillage: 'Zona más moderna', barribajo: 'Barribajo · casco bajo', barribarto: 'Barribarto · más alto y empinado', ma5105: 'MA-5105', mainRoad: 'Carretera principal de dos carriles', calleReal: 'Calle Real', calleChorruelo: 'Calle Chorruelo', historicAccess: 'Eje histórico · acceso limitado', church: 'Iglesia de San Antonio', amara: 'AMARA', amaraPosition: 'Céntrico · más bajo en la ladera', ingenio: 'El Ingenio · 290 m', castle: 'Castillo de Lízar', villageHeight: 'Referencia del pueblo · 315–318 m' }
     },
     nl: {
-      place: 'frigiliana', eyebrow: 'Oriëntatie op hoogte', title: 'Frigiliana tegen de helling', region: 'Dorpsprofiel', note: sharedNote.nl,
-      ariaLabel: 'Schematisch profiel van Frigiliana met het benedendorp, de historische kern, hoog Barribarto, Calle Real, Calle Chorruelo, de kerk San Antonio en AMARA schuin tegenover de kerk.',
-      labels: { lower: 'Benedendorp', transition: 'Overgangsgebied', historic: 'Lagere historische kern', upper: 'Hoog Barribarto', calleReal: 'Calle Real', calleChorruelo: 'Calle Chorruelo', church: 'Kerk San Antonio', amara: 'AMARA' }
+      place: 'frigiliana', eyebrow: 'Ligging in de historische kern', title: 'AMARA in de oude kern van Frigiliana', region: 'Noord ↑', note: 'Schematisch · hoogtes bij benadering',
+      ariaLabel: 'Noordgerichte schematische kaart van Frigiliana met AMARA in de historische kern naast de San Antonio-kerk, dicht bij de hoofdweg MA-5105 en lager op de helling dan hoog Barribarto.',
+      labels: { oldTown: 'Historische kern', laterVillage: 'Nieuwer dorpsdeel', barribajo: 'Barribajo · lagere oude kern', barribarto: 'Barribarto · hoger en steiler', ma5105: 'MA-5105', mainRoad: 'Tweebaans hoofdweg', calleReal: 'Calle Real', calleChorruelo: 'Calle Chorruelo', historicAccess: 'Historische as · beperkt toegankelijk', church: 'San Antonio-kerk', amara: 'AMARA', amaraPosition: 'Centraal · lager op de helling', ingenio: 'El Ingenio · 290 m', castle: 'Castillo de Lízar', villageHeight: 'Dorpsreferentie · 315–318 m' }
     },
     sv: {
-      place: 'frigiliana', eyebrow: 'Orientering efter höjdläge', title: 'Frigiliana på sluttningen', region: 'Byprofil', note: sharedNote.sv,
-      ariaLabel: 'Schematisk profil av Frigiliana med den nedre byn, historiska kärnan, övre Barribarto, Calle Real, Calle Chorruelo, San Antonio-kyrkan och AMARA snett mittemot kyrkan.',
-      labels: { lower: 'Nedre byn', transition: 'Övergångsområde', historic: 'Nedre historiska kärnan', upper: 'Övre Barribarto', calleReal: 'Calle Real', calleChorruelo: 'Calle Chorruelo', church: 'San Antonio-kyrkan', amara: 'AMARA' }
+      place: 'frigiliana', eyebrow: 'Läge i den historiska byn', title: 'AMARA i Frigilianas gamla by', region: 'Norr ↑', note: 'Schematisk · ungefärliga höjder',
+      ariaLabel: 'Nordorienterad schematisk karta över Frigiliana med AMARA i den historiska byn intill San Antonio-kyrkan, nära huvudvägen MA-5105 och lägre på sluttningen än övre Barribarto.',
+      labels: { oldTown: 'Historiska byn', laterVillage: 'Nyare bydel', barribajo: 'Barribajo · nedre gamla byn', barribarto: 'Barribarto · högre och brantare', ma5105: 'MA-5105', mainRoad: 'Tvåfilig huvudväg', calleReal: 'Calle Real', calleChorruelo: 'Calle Chorruelo', historicAccess: 'Historisk axel · begränsad trafik', church: 'San Antonio-kyrkan', amara: 'AMARA', amaraPosition: 'Centralt · lägre på sluttningen', ingenio: 'El Ingenio · 290 m', castle: 'Castillo de Lízar', villageHeight: 'Byreferens · 315–318 m' }
     }
   },
   nerja: {
