@@ -11,38 +11,38 @@ const l = (en: string, de: string, es: string, nl: string, sv: string): Localize
 });
 
 export const lastMinuteStaysSeo: AmaraAuthoringSeo = {
-  version: '2026-08-24-last-minute-stays-v1.0-D',
+  version: '2026-08-25-last-minute-stays-v2.0-D',
   pageType: 'D',
   schemaType: 'none',
   entityKey: 'amara-brand',
   languages: {
     en: {
       title: 'Last-minute stays in Frigiliana, Nerja & Tarifa | AMARA',
-      description: 'See currently bookable AMARA stays in Frigiliana, Nerja and Tarifa for the next 21 days, with live availability and current total prices.',
+      description: 'Discover selected AMARA stays that are genuinely bookable at short notice during the next 21 days, with confirmed dates and current total prices.',
       robots: 'index, follow',
       canonical: 'auto'
     },
     de: {
       title: 'Last-Minute-Unterkünfte in Frigiliana, Nerja & Tarifa | AMARA',
-      description: 'Entdeckt aktuell buchbare AMARA Aufenthalte in Frigiliana, Nerja und Tarifa für die kommenden 21 Tage – mit Live-Verfügbarkeit und aktuellem Gesamtpreis.',
+      description: 'Entdeckt ausgewählte AMARA Aufenthalte, die in den kommenden 21 Tagen kurzfristig tatsächlich buchbar sind – mit bestätigten Reisedaten und aktuellem Gesamtpreis.',
       robots: 'index, follow',
       canonical: 'auto'
     },
     es: {
       title: 'Alojamientos de última hora en Frigiliana, Nerja y Tarifa | AMARA',
-      description: 'Descubrid estancias AMARA disponibles en Frigiliana, Nerja y Tarifa durante los próximos 21 días, con disponibilidad y precio total actuales.',
+      description: 'Descubrid una selección de estancias AMARA realmente reservables a corto plazo durante los próximos 21 días, con fechas confirmadas y precio total actual.',
       robots: 'index, follow',
       canonical: 'auto'
     },
     nl: {
       title: 'Last-minute verblijven in Frigiliana, Nerja en Tarifa | AMARA',
-      description: 'Bekijk AMARA-verblijven die de komende 21 dagen te boeken zijn in Frigiliana, Nerja en Tarifa, met live beschikbaarheid en actuele totaalprijs.',
+      description: 'Ontdek geselecteerde AMARA-verblijven die de komende 21 dagen echt op korte termijn te boeken zijn, met bevestigde data en actuele totaalprijs.',
       robots: 'index, follow',
       canonical: 'auto'
     },
     sv: {
       title: 'Sista minuten-boenden i Frigiliana, Nerja och Tarifa | AMARA',
-      description: 'Se AMARA-boenden som kan bokas i Frigiliana, Nerja och Tarifa under de kommande 21 dagarna, med aktuell tillgänglighet och totalpris.',
+      description: 'Upptäck utvalda AMARA-boenden som faktiskt kan bokas med kort varsel under de kommande 21 dagarna, med bekräftade datum och aktuellt totalpris.',
       robots: 'index, follow',
       canonical: 'auto'
     }
@@ -52,48 +52,51 @@ export const lastMinuteStaysSeo: AmaraAuthoringSeo = {
 
 export const lastMinuteStaysCopy = {
   hero: {
-    eyebrow: l('Short-notice escapes', 'Kurzfristig verreisen', 'Escapadas próximas', 'Binnenkort samen weg', 'Res snart'),
-    title: l('Last-minute stays with AMARA', 'Last-Minute-Aufenthalte bei AMARA', 'Estancias de última hora con AMARA', 'Last-minute verblijven bij AMARA', 'Sista minuten-boenden hos AMARA'),
+    eyebrow: l('Short-notice opportunities', 'Kurzfristige Möglichkeiten', 'Oportunidades de última hora', 'Mogelijkheden op korte termijn', 'Möjligheter med kort varsel'),
+    title: l('Sometimes the right stay opens up at just the right moment', 'Manchmal wird genau im richtigen Moment etwas frei', 'A veces, el alojamiento adecuado queda disponible en el momento justo', 'Soms komt het juiste verblijf precies op het juiste moment beschikbaar', 'Ibland blir rätt boende tillgängligt i precis rätt ögonblick'),
     lead: l(
-      'A few free nights can be enough for shared time in a white village, beside the Mediterranean or close to Tarifa’s Atlantic horizon. We check what is genuinely bookable during the next 21 days.',
-      'Schon wenige freie Nächte reichen für gemeinsame Zeit im weißen Dorf, am Mittelmeer oder nahe Tarifas Atlantikhorizont. Wir prüfen, was in den kommenden 21 Tagen tatsächlich buchbar ist.',
-      'Unas noches libres bastan para compartir tiempo en un pueblo blanco, junto al Mediterráneo o cerca del horizonte atlántico de Tarifa. Comprobamos qué estancias pueden reservarse realmente durante los próximos 21 días.',
-      'Een paar vrije nachten zijn genoeg voor tijd samen in een wit dorp, aan de Middellandse Zee of bij de Atlantische horizon van Tarifa. We controleren wat de komende 21 dagen echt te boeken is.',
-      'Några lediga nätter räcker för tid tillsammans i en vit by, vid Medelhavet eller nära Tarifas atlantiska horisont. Vi kontrollerar vad som faktiskt går att boka under de kommande 21 dagarna.'
+      'Travel plans change. That can make selected AMARA dates bookable at short notice — a special opportunity for spontaneous shared time.',
+      'Reisepläne ändern sich. Dadurch können ausgewählte AMARA Zeitfenster auch kurzfristig buchbar werden – eine besondere Gelegenheit für spontane gemeinsame Zeit.',
+      'Los planes de viaje cambian. Por eso, algunas fechas seleccionadas de AMARA pueden quedar disponibles a corto plazo: una ocasión especial para compartir una escapada espontánea.',
+      'Reisplannen veranderen. Daardoor kunnen geselecteerde AMARA-periodes op korte termijn boekbaar worden — een bijzondere kans voor spontane tijd samen.',
+      'Resplaner ändras. Därför kan utvalda AMARA-perioder bli bokningsbara med kort varsel — ett särskilt tillfälle för spontan tid tillsammans.'
     ),
     support: l(
-      'The live search starts when this page opens. Availability and prices can change until a booking is confirmed.',
-      'Die Live-Suche startet beim Öffnen dieser Seite. Verfügbarkeit und Preise können sich bis zur Buchungsbestätigung ändern.',
-      'La búsqueda en directo comienza al abrir esta página. La disponibilidad y los precios pueden cambiar hasta que se confirme la reserva.',
-      'De live zoekopdracht start zodra deze pagina opent. Beschikbaarheid en prijzen kunnen wijzigen totdat de boeking is bevestigd.',
-      'Live-sökningen startar när sidan öppnas. Tillgänglighet och priser kan ändras tills bokningen har bekräftats.'
+      'We check the actual booking opportunity and its current total price live when this page opens. Both can change until a booking is confirmed.',
+      'Wir prüfen die tatsächliche Buchungsmöglichkeit und ihren aktuellen Gesamtpreis live beim Öffnen dieser Seite. Beides kann sich bis zur Buchungsbestätigung ändern.',
+      'Comprobamos en directo la posibilidad real de reserva y su precio total actual al abrir esta página. Ambos pueden cambiar hasta que se confirme la reserva.',
+      'Wanneer deze pagina opent, controleren we live de werkelijke boekingsmogelijkheid en de actuele totaalprijs. Beide kunnen veranderen totdat de boeking is bevestigd.',
+      'När sidan öppnas kontrollerar vi den faktiska bokningsmöjligheten och dess aktuella totalpris live. Båda kan ändras tills bokningen har bekräftats.'
     )
   },
   live: {
-    eyebrow: l('Live direct-booking availability', 'Live-Direktbuchungsverfügbarkeit', 'Disponibilidad directa en vivo', 'Live beschikbaarheid voor direct boeken', 'Aktuell tillgänglighet för direktbokning'),
-    title: l('Currently bookable stays', 'Aktuell buchbare Aufenthalte', 'Estancias disponibles ahora', 'Verblijven die nu te boeken zijn', 'Boenden som kan bokas nu'),
+    eyebrow: l('Live-confirmed direct booking', 'Live bestätigte Direktbuchung', 'Reserva directa confirmada en vivo', 'Live bevestigde directe boeking', 'Live-bekräftad direktbokning'),
+    title: l('Selected stays available at short notice', 'Ausgewählte kurzfristige Möglichkeiten', 'Estancias seleccionadas disponibles a corto plazo', 'Geselecteerde verblijven op korte termijn', 'Utvalda boenden med kort varsel'),
     intro: l(
-      'We look for practical, continuous stays across the next 21 days and request the current total price directly from the AMARA booking system.',
-      'Wir suchen in den kommenden 21 Tagen nach sinnvollen zusammenhängenden Aufenthalten und fragen den aktuellen Gesamtpreis direkt im AMARA Buchungssystem ab.',
-      'Buscamos estancias consecutivas y prácticas durante los próximos 21 días y consultamos el precio total actual directamente en el sistema de reservas de AMARA.',
-      'We zoeken in de komende 21 dagen naar praktische aaneengesloten verblijven en vragen de actuele totaalprijs rechtstreeks op in het AMARA-boekingssysteem.',
-      'Vi söker efter praktiska sammanhängande vistelser under de kommande 21 dagarna och hämtar aktuellt totalpris direkt från AMARAs bokningssystem.'
+      'We identify short-notice windows during the next 21 days and show up to four selected opportunities. Each one includes a stay that the AMARA booking system has confirmed with a current total price.',
+      'Wir ermitteln kurzfristige Zeitfenster der kommenden 21 Tage und zeigen bis zu vier ausgewählte Möglichkeiten. Jede enthält einen Aufenthalt, den das AMARA Buchungssystem mit aktuellem Gesamtpreis bestätigt hat.',
+      'Identificamos periodos disponibles a corto plazo durante los próximos 21 días y mostramos hasta cuatro oportunidades seleccionadas. Cada una incluye una estancia confirmada por el sistema de reservas de AMARA con su precio total actual.',
+      'We bepalen welke periodes de komende 21 dagen op korte termijn beschikbaar zijn en tonen maximaal vier geselecteerde mogelijkheden. Elke mogelijkheid bevat een verblijf dat het AMARA-boekingssysteem met een actuele totaalprijs heeft bevestigd.',
+      'Vi identifierar perioder som är tillgängliga med kort varsel under de kommande 21 dagarna och visar upp till fyra utvalda möjligheter. Varje alternativ innehåller en vistelse som AMARAs bokningssystem har bekräftat med aktuellt totalpris.'
     ),
     guests: l('Guests', 'Gäste', 'Huéspedes', 'Gasten', 'Gäster'),
     guest: l('{count} guest', '{count} Gast', '{count} huésped', '{count} gast', '{count} gäst'),
     guestsPlural: l('{count} guests', '{count} Gäste', '{count} huéspedes', '{count} gasten', '{count} gäster'),
     loading: l('Checking current availability and prices…', 'Aktuelle Verfügbarkeit und Preise werden geprüft…', 'Comprobando disponibilidad y precios actuales…', 'Actuele beschikbaarheid en prijzen worden gecontroleerd…', 'Aktuell tillgänglighet och priser kontrolleras…'),
-    ready: l('Current options for {guests}', 'Aktuelle Möglichkeiten für {guests}', 'Opciones actuales para {guests}', 'Actuele mogelijkheden voor {guests}', 'Aktuella alternativ för {guests}'),
-    empty: l('There is no continuous AMARA stay we can confirm in the next 21 days for this number of guests.', 'Für diese Gästezahl können wir in den kommenden 21 Tagen aktuell keinen zusammenhängenden AMARA Aufenthalt bestätigen.', 'Ahora mismo no podemos confirmar ninguna estancia AMARA consecutiva durante los próximos 21 días para este número de huéspedes.', 'Voor dit aantal gasten kunnen we momenteel geen aaneengesloten AMARA-verblijf in de komende 21 dagen bevestigen.', 'För detta antal gäster kan vi just nu inte bekräfta någon sammanhängande AMARA-vistelse under de kommande 21 dagarna.'),
+    ready: l('Selected opportunities for {guests}', 'Ausgewählte Möglichkeiten für {guests}', 'Oportunidades seleccionadas para {guests}', 'Geselecteerde mogelijkheden voor {guests}', 'Utvalda möjligheter för {guests}'),
+    empty: l('We cannot currently confirm a selected short-notice AMARA opportunity in the next 21 days for this number of guests.', 'Für diese Gästezahl können wir in den kommenden 21 Tagen aktuell keine ausgewählte kurzfristige AMARA Möglichkeit bestätigen.', 'Ahora mismo no podemos confirmar una oportunidad AMARA seleccionada a corto plazo durante los próximos 21 días para este número de huéspedes.', 'Voor dit aantal gasten kunnen we momenteel geen geselecteerde AMARA-mogelijkheid op korte termijn in de komende 21 dagen bevestigen.', 'För detta antal gäster kan vi just nu inte bekräfta någon utvald AMARA-möjlighet med kort varsel under de kommande 21 dagarna.'),
     error: l('Live booking data is temporarily unavailable. This does not mean the stays are occupied. Please try again later or use the regular availability search.', 'Die Live-Buchungsdaten sind vorübergehend nicht verfügbar. Das bedeutet nicht, dass die Unterkünfte belegt sind. Versucht es später erneut oder nutzt die reguläre Verfügbarkeitssuche.', 'Los datos de reserva en directo no están disponibles temporalmente. Esto no significa que los alojamientos estén ocupados. Volved a intentarlo más tarde o utilizad la búsqueda habitual.', 'De live boekingsgegevens zijn tijdelijk niet beschikbaar. Dat betekent niet dat de verblijven bezet zijn. Probeer het later opnieuw of gebruik de gewone beschikbaarheidszoeker.', 'Live-data för bokning är tillfälligt otillgängliga. Det betyder inte att boendena är upptagna. Försök senare eller använd den vanliga tillgänglighetssökningen.'),
-    partialError: l('We could not verify a current price for every stay. Unverified stays have not been treated as occupied.', 'Wir konnten nicht für jede Unterkunft einen aktuellen Preis bestätigen. Nicht verifizierte Unterkünfte wurden nicht als belegt behandelt.', 'No hemos podido confirmar un precio actual para todos los alojamientos. Los alojamientos no verificados no se han tratado como ocupados.', 'We konden niet voor elk verblijf een actuele prijs bevestigen. Niet-geverifieerde verblijven zijn niet als bezet behandeld.', 'Vi kunde inte bekräfta ett aktuellt pris för varje boende. Boenden som inte kunde verifieras har inte behandlats som upptagna.'),
-    totalPrice: l('Current total price', 'Aktueller Gesamtpreis', 'Precio total actual', 'Actuele totaalprijs', 'Aktuellt totalpris'),
-    viewStay: l('View stay and dates', 'Unterkunft und Reisedaten ansehen', 'Ver alojamiento y fechas', 'Bekijk verblijf en data', 'Visa boende och datum'),
+    availableWindow: l('Available', 'Kurzfristig verfügbar', 'Disponible', 'Beschikbaar', 'Tillgängligt'),
+    fromNight: l('bookable from {count} night', 'buchbar ab {count} Nacht', 'reservable desde {count} noche', 'te boeken vanaf {count} nacht', 'kan bokas från {count} natt'),
+    fromNights: l('bookable from {count} nights', 'buchbar ab {count} Nächten', 'reservable desde {count} noches', 'te boeken vanaf {count} nachten', 'kan bokas från {count} nätter'),
+    exampleStay: l('Example', 'Beispiel', 'Ejemplo', 'Voorbeeld', 'Exempel'),
+    totalPrice: l('Confirmed total price', 'Bestätigter Gesamtpreis', 'Precio total confirmado', 'Bevestigde totaalprijs', 'Bekräftat totalpris'),
+    viewStay: l('Book these dates', 'Diese Reisedaten buchen', 'Reservar estas fechas', 'Boek deze data', 'Boka dessa datum'),
     night: l('{count} night', '{count} Nacht', '{count} noche', '{count} nacht', '{count} natt'),
     nights: l('{count} nights', '{count} Nächte', '{count} noches', '{count} nachten', '{count} nätter'),
     priceNote: l('The displayed total is a current quote for the dates and guests shown, not a claimed discount. Final conditions appear before confirmation.', 'Der angezeigte Gesamtpreis ist eine aktuelle Quote für die genannten Reisedaten und Gäste, keine Rabattbehauptung. Die endgültigen Bedingungen werden vor der Bestätigung angezeigt.', 'El total mostrado es una cotización actual para las fechas y huéspedes indicados, no una afirmación de descuento. Las condiciones finales aparecen antes de confirmar.', 'Het getoonde totaal is een actuele prijsopgave voor de vermelde data en gasten, geen kortingsclaim. De definitieve voorwaarden verschijnen vóór bevestiging.', 'Det visade totalpriset är en aktuell offert för angivna datum och gäster, inte ett påstående om rabatt. Slutliga villkor visas före bekräftelse.'),
     noScript: l('JavaScript is required for the live search. You can still use the regular availability search.', 'Für die Live-Suche ist JavaScript erforderlich. Ihr könnt weiterhin die reguläre Verfügbarkeitssuche nutzen.', 'La búsqueda en directo necesita JavaScript. También podéis utilizar la búsqueda habitual de disponibilidad.', 'Voor de live zoekopdracht is JavaScript nodig. Jullie kunnen ook de gewone beschikbaarheidszoeker gebruiken.', 'JavaScript krävs för live-sökningen. Ni kan också använda den vanliga tillgänglighetssökningen.'),
-    regularSearch: l('Choose your own dates', 'Eigene Reisedaten wählen', 'Elegir otras fechas', 'Kies jullie eigen data', 'Välj egna datum')
+    regularSearch: l('Check other dates', 'Andere Reisedaten prüfen', 'Consultar otras fechas', 'Bekijk andere data', 'Kontrollera andra datum')
   },
   destinationsTitle: l('Three ways to leave soon', 'Drei Möglichkeiten, bald aufzubrechen', 'Tres formas de viajar pronto', 'Drie manieren om binnenkort weg te gaan', 'Tre sätt att resa snart'),
   destinations: [
@@ -128,8 +131,8 @@ export const lastMinuteStaysCopy = {
     },
     {
       id: 'selection',
-      question: l('Why do I see only one date range per stay?', 'Warum sehe ich nur einen Zeitraum je Unterkunft?', '¿Por qué solo aparece un periodo por alojamiento?', 'Waarom zie ik maar één periode per verblijf?', 'Varför visas bara en period per boende?'),
-      answer: l('The page selects one practical option from the next 21 days instead of calculating every theoretical combination. Open the stay if you want to keep these dates, or use the regular search to choose different dates.', 'Die Seite wählt eine sinnvolle Möglichkeit aus den kommenden 21 Tagen, statt jede theoretische Kombination zu berechnen. Öffnet die Unterkunft, wenn ihr diese Daten behalten möchtet, oder wählt in der regulären Suche andere Reisedaten.', 'La página selecciona una opción práctica de los próximos 21 días en lugar de calcular todas las combinaciones posibles. Abrid el alojamiento si queréis mantener esas fechas o utilizad la búsqueda habitual para elegir otras.', 'De pagina kiest één praktische mogelijkheid uit de komende 21 dagen in plaats van elke theoretische combinatie te berekenen. Open het verblijf om deze data te behouden of gebruik de gewone zoekfunctie voor andere data.', 'Sidan väljer ett praktiskt alternativ från de kommande 21 dagarna i stället för att beräkna alla tänkbara kombinationer. Öppna boendet om ni vill behålla datumen eller använd den vanliga sökningen för andra datum.')
+      question: l('Why is this not a complete availability calendar?', 'Warum ist das kein vollständiger Verfügbarkeitskalender?', '¿Por qué no aparece un calendario completo de disponibilidad?', 'Waarom is dit geen volledige beschikbaarheidskalender?', 'Varför är detta inte en fullständig tillgänglighetskalender?'),
+      answer: l('This page presents up to four selected short-notice opportunities, with no more than one per stay. Each displayed example has been confirmed with a current total price. Use the regular search if you want to compare every available date.', 'Diese Seite zeigt bis zu vier ausgewählte kurzfristige Möglichkeiten und höchstens eine je Unterkunft. Jedes gezeigte Beispiel wurde mit einem aktuellen Gesamtpreis bestätigt. Nutzt die reguläre Suche, wenn ihr alle verfügbaren Reisedaten vergleichen möchtet.', 'Esta página presenta hasta cuatro oportunidades seleccionadas a corto plazo y como máximo una por alojamiento. Cada ejemplo mostrado se ha confirmado con un precio total actual. Utilizad la búsqueda habitual si queréis comparar todas las fechas disponibles.', 'Deze pagina toont maximaal vier geselecteerde mogelijkheden op korte termijn en hoogstens één per verblijf. Elk getoond voorbeeld is bevestigd met een actuele totaalprijs. Gebruik de gewone zoekfunctie om alle beschikbare data te vergelijken.', 'Sidan visar upp till fyra utvalda möjligheter med kort varsel och högst en per boende. Varje visat exempel har bekräftats med ett aktuellt totalpris. Använd den vanliga sökningen om ni vill jämföra alla tillgängliga datum.')
     },
     {
       id: 'confirmation',

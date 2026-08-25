@@ -114,10 +114,6 @@ const destinationLinks = lastMinuteStaysCopy.destinations.map((destination) => (
           {t(lastMinuteStaysCopy.live.loading)}
         </p>
 
-        <div class="mt-7 border border-border-subtle bg-surface-container-low p-5" hidden data-am-last-minute-warning>
-          <p class="am-text-body text-on-surface">{t(lastMinuteStaysCopy.live.partialError)}</p>
-        </div>
-
         <div class="mt-10" hidden data-am-last-minute-results>
           <div class="am-last-minute-grid">
             {cards.map(({ rental, href, destination }) => (
@@ -141,6 +137,9 @@ const destinationLinks = lastMinuteStaysCopy.destinations.map((destination) => (
           <p class="am-text-caption mt-8 max-w-3xl text-on-surface-variant">
             {t(lastMinuteStaysCopy.live.priceNote)}
           </p>
+          <a class="am-btn am-btn--secondary mt-6" href={regularSearchHref}>
+            {t(lastMinuteStaysCopy.live.regularSearch)}
+          </a>
         </div>
 
         <div class="mt-8 max-w-2xl border-t border-border-subtle pt-7" hidden data-am-last-minute-empty>
