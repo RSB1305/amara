@@ -3,6 +3,15 @@
 // AMARA Internal Tool — AI Studio → Astro Converter
 // Nur lokal verfügbar, niemals deployen (robots: noindex)
 export const prerender = true;
+
+import { designTokenRoot } from '../_designTokens';
+
+/**
+ * Only the tool's own chrome draws on the brand palette. The hex literals that
+ * remain in this file are data, not styling: the `replaceKnownHex` lookup table
+ * and the sample input it demonstrates on both have to stay literal.
+ */
+const rootCss = designTokenRoot('    ');
 ---
 
 <!DOCTYPE html>
@@ -11,12 +20,13 @@ export const prerender = true;
   <meta charset="UTF-8" />
   <meta name="robots" content="noindex, nofollow" />
   <title>AMARA Converter — AI Studio → Astro</title>
+  <style is:inline set:html={rootCss}></style>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     body {
       font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-      background: #F5F2ED;
+      background: var(--color-surface);
       color: #1A1A1A;
       min-height: 100vh;
     }
@@ -75,7 +85,7 @@ export const prerender = true;
       cursor: pointer;
       transition: background .15s;
     }
-    .btn:hover { background: #F5F2ED; }
+    .btn:hover { background: var(--color-surface); }
     .btn-primary { background: #1A1A1A; color: white; border-color: #1A1A1A; }
     .btn-primary:hover { opacity: .85; background: #1A1A1A; }
 
@@ -113,7 +123,7 @@ export const prerender = true;
       background: white;
       cursor: pointer;
     }
-    .btn-sm:hover { background: #F5F2ED; }
+    .btn-sm:hover { background: var(--color-surface); }
 
     textarea {
       width: 100%;

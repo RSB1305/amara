@@ -3,13 +3,7 @@
 // AMARA Component Library — Internes Tool
 // Nur lokal verfügbar · robots: noindex · niemals deployen
 
-/**
- * `?raw` hands the stylesheet over as text without injecting it, and Vite
- * resolves the path at bundle time. Reading it from disk with `import.meta.url`
- * worked in the dev server and broke in a build, where the compiled module no
- * longer sits beside the source.
- */
-import globalCss from '../../../styles/global.css?raw';
+import { designTokenRoot } from '../_designTokens';
 
 /**
  * The same six font files `global.css` imports, rather than the Google Fonts
@@ -25,35 +19,16 @@ import '@fontsource/plus-jakarta-sans/latin-400.css';
 import '@fontsource/plus-jakarta-sans/latin-700.css';
 
 /**
- * The palette is read out of the design system at build time.
- *
- * It used to be hand-copied into this page's `:root`, which is how a component
- * library quietly stops telling the truth: a copy cannot follow `global.css`
- * when a token changes, and this page exists precisely to show what the tokens
- * are. Reading them means the library is wrong only if the system is.
- *
- * The page stays a standalone document on purpose — it does not import
- * `global.css`, because pulling in Tailwind's base layer would restyle the
- * tool's own chrome. Only the custom properties travel.
+ * The palette comes from the design system, not from a copy of it. This page
+ * exists to show what the tokens are, so a hand-written duplicate here is the
+ * one thing it must not contain.
  */
-const themeBlock = /@theme\s*\{([\s\S]*?)\n\}/.exec(globalCss)?.[1] ?? '';
-const designTokens = [...themeBlock.matchAll(/(--(?:color|font)-[a-z0-9-]+):\s*([^;]+);/g)]
-  .map(([, name, value]) => `      ${name}: ${value.trim()};`)
-  .join('\n');
-
-if (!designTokens) {
-  throw new Error(
-    'Component Library: no design tokens found in src/styles/global.css. The @theme block moved or changed shape.'
-  );
-}
-
-/** Tool chrome only. Deliberately outside the design system. */
-const toolTokens = [
-  '      --color-tool-success: #2D7D46;',
-  "      --font-mono: 'SF Mono', 'Fira Code', monospace;"
-].join('\n');
-
-const rootCss = `:root {\n${designTokens}\n\n      /* Nur für die Tool-Oberfläche, bewusst außerhalb des Systems. */\n${toolTokens}\n    }`;
+const rootCss = designTokenRoot('      ', {
+  // Tool chrome only, deliberately outside the design system.
+  '--color-tool-success': '#2D7D46',
+  '--color-tool-danger': '#B91C1C',
+  '--font-mono': "'SF Mono', 'Fira Code', monospace"
+});
 ---
 
 <!DOCTYPE html>
@@ -180,9 +155,9 @@ const rootCss = `:root {\n${designTokens}\n\n      /* Nur für die Tool-Oberflä
     <!-- Stats -->
     <div class="stats">
       <div class="stat"><div class="stat-n" style="color:var(--color-primary)">17</div><div class="stat-l">Total Komponenten</div></div>
-      <div class="stat"><div class="stat-n" style="color:#2D7D46">14</div><div class="stat-l">Active</div></div>
+      <div class="stat"><div class="stat-n" style="color:var(--color-tool-success)">14</div><div class="stat-l">Active</div></div>
       <div class="stat"><div class="stat-n" style="color:var(--color-muted)">3</div><div class="stat-l">Internal only</div></div>
-      <div class="stat"><div class="stat-n" style="color:#B91C1C">0</div><div class="stat-l">Orphans</div></div>
+      <div class="stat"><div class="stat-n" style="color:var(--color-tool-danger)">0</div><div class="stat-l">Orphans</div></div>
       <div class="stat"><div class="stat-n" style="color:var(--color-on-surface)">11</div><div class="stat-l">Page Families</div></div>
     </div>
 

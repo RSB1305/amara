@@ -79,7 +79,10 @@ const {
         <p class="am-apartment-card__stay-summary am-text-caption text-on-surface-variant" hidden data-am-stay-result-summary></p>
         <div class="am-apartment-card__price" hidden data-am-stay-result-price-wrap>
           <span class="am-text-label text-on-surface-variant">{totalPriceLabel}</span>
-          <strong class="am-text-subtitle text-primary" data-am-stay-result-price></strong>
+          {/* The price used to share `am-text-subtitle` with the stay's own
+              title above it, so the two read at the same size and the figure
+              won the card. `am-text-price` is the step below. */}
+          <strong class="am-text-price text-primary" data-am-stay-result-price></strong>
         </div>
       </>
     )}

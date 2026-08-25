@@ -1,8 +1,18 @@
 ---
-import '@fontsource/newsreader/300.css';
-import '@fontsource/newsreader/400.css';
-import '@fontsource/plus-jakarta-sans/400.css';
-import '@fontsource/plus-jakarta-sans/600.css';
+import { designTokenRoot } from '../_designTokens';
+
+/**
+ * The latin subsets, as `global.css` loads them, rather than the full
+ * multi-subset files. Weight 600 stays: this page sets it and the site does not
+ * load it, so dropping it would have the browser synthesise the weight.
+ */
+import '@fontsource/newsreader/latin-300.css';
+import '@fontsource/newsreader/latin-400.css';
+import '@fontsource/plus-jakarta-sans/latin-400.css';
+import '@fontsource/plus-jakarta-sans/latin-600.css';
+
+/** The brand palette comes from the system; only the local names are local. */
+const rootCss = designTokenRoot('      ');
 
 const guestWelcomePages = [
   {
@@ -51,6 +61,7 @@ const guestWelcomePages = [
     <meta name="viewport" content="width=device-width" />
     <meta name="robots" content="noindex, nofollow" />
     <title>Guest Welcome Pages | AMARA Internal</title>
+    <style is:inline set:html={rootCss}></style>
   </head>
   <body>
     <main>
@@ -106,14 +117,22 @@ const guestWelcomePages = [
 </html>
 
 <style>
+  /**
+   * The six names below are local shorthands for this document-shaped tool, but
+   * their values come from the design system. They used to be a near-miss
+   * palette: one of the six matched a brand token exactly and the other five sat
+   * just beside one — #8b6f47 against the gold at #785611, #f4f0e9 against the
+   * surface at #F5F2ED. It looked like AMARA without being AMARA, which is the
+   * hardest kind of drift to notice.
+   */
   :root {
     color-scheme: light;
-    --ink: #1b1c1a;
-    --muted: #71685d;
-    --canvas: #f4f0e9;
-    --paper: #fffdf9;
-    --line: #d8cdbf;
-    --accent: #8b6f47;
+    --ink: var(--color-on-surface);
+    --muted: var(--color-on-surface-variant);
+    --canvas: var(--color-surface);
+    --paper: var(--color-surface-white);
+    --line: var(--color-outline-variant);
+    --accent: var(--color-primary);
   }
 
   * {
