@@ -1,12 +1,12 @@
 ---
 document_id: AMARA-REG-001
 title: AMARA Register
-version: 1.19.0
+version: 1.20.0
 status: ACTIVE
 authority_class: LIVING BINDING REGISTER
 activation_state: ACTIVE
 effective_from: 2026-08-14
-last_modified: 2026-08-25T12:11:40+02:00
+last_modified: 2026-08-25T15:10:52+02:00
 canonical_path: /docs/AMARA_REGISTER.md
 ---
 
@@ -26,7 +26,7 @@ The AMARA Register is the single source for active documents, authority classes,
 | 04 | AMARA URL, Route & Link Contract | PENDING Package 2 | CONTRACT / governing | Interim snapshot: `docs/interim/05_AMARA_URL_and_Route_Infrastructure_V4.md` + Decision Register |
 | 05 | AMARA Governance, Execution & Documentation Lifecycle | 5.5.0 ACTIVE | CONTRACT / governing | `docs/standards/05_AMARA_Governance_Execution_and_Documentation_Lifecycle_V5.md` |
 | 06 | AMARA Performance & Delivery Standard | 2.1.0 ACTIVE INTERIM | PRINCIPLE/CONTRACT / governing | `docs/interim/07_AMARA_Performance_Standard_V2.md` |
-| 07 | AMARA Register | 1.19.0 ACTIVE | LIVING BINDING REGISTER | `docs/AMARA_REGISTER.md` |
+| 07 | AMARA Register | 1.20.0 ACTIVE | LIVING BINDING REGISTER | `docs/AMARA_REGISTER.md` |
 | 08 | AMARA Guest Utility Feature Contract | 2.1.0 ACTIVE INTERIM | FEATURE CONTRACT | `docs/interim/08_AMARA_Guest_Utility_Architecture_V2.md` |
 | 09 | AMARA Content Production & Localization Playbook | 1.5.0 ACTIVE INTERIM | OPERATIONAL PLAYBOOK / non-governing | `docs/interim/10_AMARA_Content_Production_and_Localization_Playbook_V1_2.md` |
 | 10 | AMARA Frigiliana–Nerja SEO Strategy | PENDING Package 2/3 | WORKING STRATEGY / non-governing | Interim snapshot: `docs/interim/09_AMARA_Frigiliana_Nerja_SEO_Strategy_V2_1.md` |
@@ -149,13 +149,13 @@ They do **not** supersede the current implementation. Until a separately aligned
 | DR-MEAS-003 | The booking system is the financial source of truth for bookings, revenue, ADR and cancellations; GA4 is journey/attribution data, not accounting SSOT. | ACTIVE |
 | DR-MEAS-004 | Do not add a second tag/CMP layer to the external booking boundary solely to make a consent-status indicator appear complete without a supported architecture benefit. | ACTIVE CURRENT DECISION |
 | DR-MEAS-005 | Do not scrape checkout DOM or undocumented provider variables to recreate purchase tracking. | ACTIVE GUARDRAIL |
-| DR-MEAS-006 | Astro analytics/consent is a separate Class 3 workstream and must not be bundled with DNS, URL reform or unrelated design/SEO changes. | IMPLEMENTATION PENDING |
+| DR-MEAS-006 | Astro owns one consent-gated GA4 layer using measurement ID `G-KJKE3L1HV3`: no Google Analytics script, request or analytics cookie is permitted before explicit analytics consent; rejection leaves the public site usable; the choice is stored for 180 days in the strictly necessary first-party cookie `amara_cookie_consent` and can be changed through the localized footer. Lodgify keeps its separate provider-owned consent mechanism. | ACTIVE IMPLEMENTED |
 | DR-MEAS-007 | Initial new conversion-intent event is `availability_click`, using stable semantic data attributes rather than button text/URL heuristics. | IMPLEMENTATION PENDING |
 | DR-MEAS-008 | Cross-domain continuity across AMARA -> external booking -> checkout must be tested in the live flow, not assumed. | ACTIVE VALIDATION REQUIREMENT |
 | DR-MEAS-009 | 3 observed GA4 purchases versus 24 completed website bookings is an observation ratio, not a technical tracking-failure rate. | ACTIVE INTERPRETATION RULE |
 | DR-MEAS-010 | GA4 event/user data retention is 14 months. | ACTIVE |
 
-The archived analytics evidence record preserves the investigation that supports these decisions. Archive status of the evidence document does not retire derived decisions.
+The archived analytics evidence record preserves the investigation that supports these decisions. Archive status of the evidence document does not retire derived decisions. The current implementation owners are `src/components/AnalyticsConsent.astro` for the localized interface and `src/scripts/analyticsConsent.ts` for preference storage, GA4 loading and withdrawal behavior; `BaseLayout.astro` and `FooterCore.astro` provide the global public-site integration points.
 
 ### SSOT Decision Inbox
 
@@ -191,6 +191,7 @@ Routine new evidence/ideas may be captured here or in the relevant working evide
 | 2026-08-25T05:36:10+02:00 | Homepage live destination calendar | Added the fourth read-only Booking Gateway route for provider-neutral destination/portfolio availability and stay rules. The static Homepage finder now loads live dates only after calendar interaction and refreshes an open calendar when destination or guest count changes, while the Results quote remains authoritative. Register 1.17.0. | DR-PLATFORM-001, DR-BOOK-001 | this revision |
 | 2026-08-25T11:34:57+02:00 | Homepage calendar orientation prices | Extended the existing destination calendar response with public nightly rates and currency. The Homepage shows the lowest available nightly rate per date as a non-binding “from” price, while same-stay validation and the authoritative Results quote remain unchanged. Register 1.18.0. | DR-BOOK-001 | this revision |
 | 2026-08-25T12:11:40+02:00 | Provider-owned checkout handoff | Added the fifth GET-only Booking Gateway route: after an authoritative quote, AMARA validates stay, locale, dates, guests and currency, resolves the provider mapping server-side and redirects into Lodgify's official Booking Box reservation route without creating or holding a booking. Register 1.19.0. | DR-BOOK-001 | this revision |
+| 2026-08-25T15:10:52+02:00 | Astro consent-gated GA4 | Activated the five-locale Astro consent layer, withheld all GA4 loading until explicit analytics consent, preserved full site use after rejection, added a persistent footer settings entry and kept Lodgify consent separate. Local browser validation proved the pre-consent and rejection paths; deployed GA4 receipt and cross-domain behavior remain live validation work. Register 1.20.0. | DR-MEAS-001, DR-MEAS-004, DR-MEAS-006–008, DR-MEAS-010 | 3458ab9 |
 
 ## 5. Intentional supersessions
 
@@ -205,7 +206,7 @@ The following are active intentional supersessions, not accidental deletions:
 - attachment/PDF activation gate -> canonical repository Markdown + Register activation;
 - universal full-build expectation for small edits -> risk-proportional validation.
 
-The booking exception is limited to the five GET-only Cloudflare Pages Function routes recorded in `DR-BOOK-001`; it does not alter checkout ownership or make normal Astro pages dynamic. No current route output, runtime resolver, URL helper, CSS/token system or analytics runtime is otherwise changed. The URL **policy doctrine** changes only as explicitly recorded above; current implementation remains protected.
+The booking exception is limited to the five GET-only Cloudflare Pages Function routes recorded in `DR-BOOK-001`; it does not alter checkout ownership or make normal Astro pages dynamic. No current route output, runtime resolver, URL helper or CSS/token system is otherwise changed; the analytics runtime changes only through the consent-gated Astro layer recorded in `DR-MEAS-006`. The URL **policy doctrine** changes only as explicitly recorded above; current implementation remains protected.
 
 ## 6. Remaining controlled workstreams
 
@@ -216,8 +217,8 @@ Separate controlled workstreams remain for:
 - generated current-state inventories;
 - Guest Guide type/surface reconciliation;
 - any later locale-path migration after adoption audit;
-- Astro analytics/consent implementation;
-- `PARK-ANALYTICS-LEGAL-001`: verify the reported mismatch between Legal Notice wording and actual Astro analytics/consent runtime before any future analytics implementation or legal-text change;
+- `DR-MEAS-007`: instrument and validate the approved `availability_click` event through stable semantic attributes;
+- deployed GA4 receipt and `DR-MEAS-008` cross-domain continuity validation across AMARA, Lodgify and checkout;
 - later normalization of the active external booking feature contract/runbook into `/docs/features` without changing its implementation by documentation alone.
 
 ## Revision history
@@ -246,3 +247,4 @@ Separate controlled workstreams remain for:
 | 1.17.0 | 2026-08-25T05:36:10+02:00 | Added the provider-neutral Homepage destination calendar after explicit booking interaction. | this revision |
 | 1.18.0 | 2026-08-25T11:34:57+02:00 | Added non-binding nightly orientation prices to the Homepage destination calendar. | this revision |
 | 1.19.0 | 2026-08-25T12:11:40+02:00 | Activated the validated server-side handoff into Lodgify's provider-owned checkout after an authoritative quote. | this revision |
+| 1.20.0 | 2026-08-25T15:10:52+02:00 | Activated the five-locale consent-gated Astro GA4 layer, recorded its code owners and closed the prior Legal Notice/runtime mismatch while retaining event and live cross-domain validation as controlled follow-up work. | this revision |
