@@ -44,6 +44,8 @@ export const linkRegistry = {
     about: buildOwnedLinks('amara-about-us'),
     amenities: buildOwnedLinks('comfort-amenities'),
     arrival_guide: buildOwnedLinks('directions-arrival-guide'),
+    nerja_arrival_guide: buildOwnedLinks('nerja-directions-arrival-guide'),
+    tarifa_arrival_guide: buildOwnedLinks('tarifa-directions-arrival-guide'),
     direct_booking_benefits: buildOwnedLinks('direct-booking-benefits'),
     reviews_hub: buildOwnedLinks('guest-reviews'),
     instagram_landing: buildOwnedLinks('instagram'),

@@ -401,8 +401,15 @@ const locationLinkSpecs: LabeledLink[] = [
           { token: 'nerja_experience_hub', label: t(ui.experiencesGuide as LocalizedText) }
         ]
       : []) satisfies LabeledLink[]),
-  // Moved here from the context navigation: arrival belongs with planning, not with site-wide links.
-  { token: 'arrival_guide', label: t(ui.arrivalGuide as LocalizedText) }
+  // Arrival belongs with property planning and must resolve to the accommodation's own final-mile guide.
+  {
+    token: isFamilySurf
+      ? 'tarifa_arrival_guide'
+      : rental.city === 'Nerja'
+        ? 'nerja_arrival_guide'
+        : 'arrival_guide',
+    label: t(ui.arrivalGuide as LocalizedText)
+  }
 ];
 const locationLinks = locationLinkSpecs.flatMap(({ token, label }) => {
   const href = resolveOptionalLink(token, currentLang, { suppressMissing: true });
