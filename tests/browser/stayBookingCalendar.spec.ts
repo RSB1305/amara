@@ -302,6 +302,7 @@ test('mobile calendar shows one full-width month without horizontal overflow', a
   await page.setViewportSize(MOBILE);
   const requests = await mockGateway(page);
   await page.goto(ORIGIN + '/nl/la-amara-maha', { waitUntil: 'domcontentloaded' });
+  await page.locator('[data-am-consent-choice="necessary"]').click();
 
   await page.getByRole('button', { name: 'Aankomst kiezen' }).click();
   await expect.poll(() => requests.length).toBe(2);

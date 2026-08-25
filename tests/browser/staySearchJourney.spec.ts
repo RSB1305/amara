@@ -228,7 +228,7 @@ test('empty availability and technical failures remain distinct', async ({ page 
   expect(errorRequests).toHaveLength(1);
 });
 
-test('result handoff preserves provider-neutral search state without property-page load requests', async ({ page }) => {
+test('result handoff preserves provider-neutral search state and primes the stay quote', async ({ page }) => {
   const arrival = futureIso(40);
   const departure = futureIso(47);
   const requests = await mockGateway(page);
@@ -237,17 +237,18 @@ test('result handoff preserves provider-neutral search state without property-pa
   await expect(maha).toBeVisible();
   await expect(maha.locator('[data-am-stay-booking-link]')).toHaveAttribute(
     'href',
-    new RegExp('/api/booking/checkout\\?stay=maha&lang=en&arrival=' + arrival + '&departure=' + departure + '&adults=2&currency=EUR')
+    new RegExp('/en/la-amara-maha\\?arrival=' + arrival + '&departure=' + departure + '&guests=2')
   );
   const beforeHandoff = requests.length;
-  await maha.locator('[data-am-stay-result-link]').click();
+  await maha.locator('[data-am-stay-booking-link]').click();
   await expect(page).toHaveURL(new RegExp('/en/la-amara-maha\\?arrival=' + arrival + '&departure=' + departure + '&guests=2'));
-  expect(requests).toHaveLength(beforeHandoff);
+  await expect.poll(() => requests.length).toBe(beforeHandoff + 1);
+  expect(requests[beforeHandoff]?.pathname).toMatch(/\/quote$/);
   await expect(page.locator('[data-am-booking-arrival-value]')).not.toHaveText('Choose arrival');
   await expect(page.locator('[data-am-booking-guests]')).toHaveValue('2');
   await page.locator('[data-am-booking-arrival-trigger]').click();
-  await expect.poll(() => requests.length).toBe(beforeHandoff + 4);
-  expect(requests.slice(beforeHandoff).every((url) =>
+  await expect.poll(() => requests.length).toBe(beforeHandoff + 5);
+  expect(requests.slice(beforeHandoff + 1).every((url) =>
     url.pathname.endsWith('/availability') || url.pathname.endsWith('/rates'))).toBe(true);
 });
 
