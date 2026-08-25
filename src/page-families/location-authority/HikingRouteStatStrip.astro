@@ -1,5 +1,6 @@
 ---
 import { Clock, Mountain, Route } from '@lucide/astro';
+import AmaraMetaChip from '../../components/chips/AmaraMetaChip.astro';
 
 interface Props {
   duration?: string;
@@ -68,12 +69,12 @@ const hasStats = stats.length > 0 || Boolean(difficulty);
         })}
 
         {difficulty && (
-          <span
-            class="rounded-pill border border-outline-variant/30 bg-surface-container-lowest px-3 py-1 am-text-caption normal-case tracking-normal text-primary"
+          <AmaraMetaChip
+            tone="accent"
             aria-label={`${labels.difficulty}: ${difficulty}`}
           >
             {difficulty}
-          </span>
+          </AmaraMetaChip>
         )}
       </div>
     ) : (

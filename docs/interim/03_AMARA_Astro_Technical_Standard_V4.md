@@ -1,7 +1,7 @@
 ---
 document_id: AMARA-INT-ASTRO-003
 title: AMARA Astro & Design Architecture Contract V4
-version: 4.3.0
+version: 4.4.0
 status: ACTIVE
 authority_class: CONTRACT / GOVERNING INTERIM
 source_type: INTERIM SNAPSHOT FROM APPROVED PDF + APPROVED REPOSITORY AMENDMENT
@@ -9,7 +9,7 @@ source_attachment: "03_AMARA_Astro_Technical_Standard_V4 (1).pdf"
 source_sha256: b3d8a3e780b29b5be42922aec838c7f56f455184cca8336d9a0f3564ba43f9aa
 snapshot_created: 2026-08-14T09:08:00+02:00
 migration_state: PENDING PACKAGE 2/3 NORMALIZATION
-last_modified: 2026-08-25T15:51:22+02:00
+last_modified: 2026-08-25T16:33:34+02:00
 ---
 
 # AMARA Astro & Design Architecture Contract V4 — Interim Markdown Snapshot
@@ -22,7 +22,7 @@ last_modified: 2026-08-25T15:51:22+02:00
 
 AMARA Astro & Design Architecture Contract V4
 Status                                                ACTIVE
-Version                                               4.3.0
+Version                                               4.4.0
 Effective date                                        2026-08-10
 Runtime                                               Astro
 Styling                                               Tailwind CSS + AMARA global tokens + scoped component
@@ -307,7 +307,7 @@ The current controlled primitive vocabulary is:
 - related-guide links through `am-guide-link`;
 - textual links inside a larger linked card treatment through `am-card-link`.
 
-The CSS roles above are canonical current treatments. A narrow production-component API for actions and links remains implementation work; until it exists, page families use these roles directly and do not introduce additional visual variants.
+The CSS roles above remain the canonical visual treatments. `AmaraActionLink` owns navigational use of primary, secondary, editorial, inline, guide and card treatments, including inverse, external and non-interactive disabled semantics. `AmaraActionButton` owns local and form actions, including disabled and loading semantics. New consumers use these production components rather than composing the CSS roles directly; bounded direct uses that predate the API remain legacy until their page-family renderer is materially revised.
 
 Chip-like controls and labels must be classified by semantics before canonical implementation:
 
@@ -316,7 +316,7 @@ Chip-like controls and labels must be classified by semantics before canonical i
 - a **status badge** communicates a real state rather than decorative emphasis;
 - an **icon surface** contains an icon and is not described or implemented as a chip merely because it is circular.
 
-The existing amenities filter is a legitimate functional reference but is still locally owned. Repeated passive pill recipes in Location content are a legacy consolidation cluster. Badges that exist only in an internal styleguide are not canonical public components.
+The production owners are `AmaraFilterChip` for toggle filters with accessible selected and disabled state, `AmaraMetaChip` for passive concise information and `AmaraStatusBadge` for a real communicated state. The Amenities filter and the repeated Location recipes are canonical consumers of those owners. The festival date badge qualifies because it communicates confirmation or date variability; decorative emphasis does not. Icon surfaces remain distinct. Badges that exist only in an internal styleguide are not canonical public components.
 
 17.5 Surfaces, cards and elevation
 
@@ -347,3 +347,4 @@ The styleguide is therefore an executable view of the system, not a parallel sou
 | 4.1.0 | 2026-08-20 | Added the approved Evidence & Knowledge boundary and executable repository ownership model. |
 | 4.2.0 | 2026-08-23T13:54:40+02:00 | Activated the canonical mobile-first composition contract and progressive-enhancement boundary for all public page families. |
 | 4.3.0 | 2026-08-25T15:51:22+02:00 | Activated exception-led cross-silo design convergence, explicit design-status classes, executable owner boundaries and the living-styleguide contract without changing public rendering. |
+| 4.4.0 | 2026-08-25T16:33:34+02:00 | Activated the executable action/link and chip/status component owners, migrated bounded cross-silo consumers, and kept icon surfaces and decorative emphasis outside the chip/status vocabulary. |

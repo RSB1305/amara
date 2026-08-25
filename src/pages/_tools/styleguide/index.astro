@@ -5,6 +5,9 @@
 import '../../../styles/global.css';
 import AmaraActionButton from '../../../components/actions/AmaraActionButton.astro';
 import AmaraActionLink from '../../../components/actions/AmaraActionLink.astro';
+import AmaraFilterChip from '../../../components/chips/AmaraFilterChip.astro';
+import AmaraMetaChip from '../../../components/chips/AmaraMetaChip.astro';
+import AmaraStatusBadge from '../../../components/chips/AmaraStatusBadge.astro';
 ---
 
 <!DOCTYPE html>
@@ -110,6 +113,7 @@ import AmaraActionLink from '../../../components/actions/AmaraActionLink.astro';
     <a href="#structure">Page Structure</a>
     <div class="sg-nav-section">Components</div>
     <a href="#buttons">Buttons</a>
+    <a href="#chips">Chips & Status</a>
     <a href="#cards">Cards</a>
     <a href="#links">Links</a>
     <div class="sg-nav-section">Utilities</div>
@@ -325,6 +329,34 @@ import AmaraActionLink from '../../../components/actions/AmaraActionLink.astro';
         </div>
         <div class="sg-component-label" style="margin-top:20px">
           Produktionsowner: <span class="sg-code">AmaraActionButton</span> für Aktionen und Formulare · <span class="sg-code">AmaraActionLink</span> für Navigation · <span class="sg-code">loading</span> gilt nur für echte Buttons · deaktivierte Links werden als nicht-interaktive Labels ausgegeben
+        </div>
+      </div>
+    </section>
+
+    <!-- CHIPS AND STATUS -->
+    <section class="sg-section" id="chips">
+      <h2 class="sg-section-title">Chips & Status</h2>
+      <div class="sg-component-frame">
+        <span class="sg-label">Interactive filter — toggle button with selected state</span>
+        <div class="sg-row">
+          <AmaraFilterChip pressed={false}>All stays</AmaraFilterChip>
+          <AmaraFilterChip pressed={true}>Frigiliana</AmaraFilterChip>
+          <AmaraFilterChip pressed={false} disabled>Unavailable filter</AmaraFilterChip>
+        </div>
+
+        <span class="sg-label" style="margin-top:28px">Passive concise information</span>
+        <div class="sg-row">
+          <AmaraMetaChip>Historic centre</AmaraMetaChip>
+          <AmaraMetaChip tone="accent"><strong>Best for:</strong>&nbsp;quiet evenings</AmaraMetaChip>
+        </div>
+
+        <span class="sg-label" style="margin-top:28px">Real planning status</span>
+        <div class="sg-row">
+          <AmaraStatusBadge>Confirmed for 2026</AmaraStatusBadge>
+        </div>
+
+        <div class="sg-component-label" style="margin-top:20px">
+          Produktionsowner: <span class="sg-code">AmaraFilterChip</span> für Filterzustände · <span class="sg-code">AmaraMetaChip</span> für passive Fakten · <span class="sg-code">AmaraStatusBadge</span> ausschließlich für echte Zustände · runde Icon-Flächen gehören nicht zu diesem Cluster
         </div>
       </div>
     </section>

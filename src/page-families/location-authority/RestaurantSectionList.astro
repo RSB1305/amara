@@ -1,5 +1,6 @@
 ---
 import InlineEmphasis from '../../components/text/InlineEmphasis.astro';
+import AmaraMetaChip from '../../components/chips/AmaraMetaChip.astro';
 
 interface RestaurantCard {
   title: string;
@@ -70,10 +71,10 @@ const { sections, labels, emphasizeText = false } = Astro.props;
               </h3>
 
               <div class="mb-6 flex flex-wrap items-start lg:min-h-[4.25rem]">
-                <span class="rounded-pill border border-outline-variant/30 bg-surface-container-lowest px-3 py-1 am-text-caption normal-case tracking-normal text-primary">
+                <AmaraMetaChip tone="accent">
                   <span class="font-bold">{labels.bestFor}:</span>{' '}
                   {restaurant.bestFor}
-                </span>
+                </AmaraMetaChip>
               </div>
 
               <p

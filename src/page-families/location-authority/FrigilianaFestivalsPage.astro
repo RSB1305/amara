@@ -1,6 +1,8 @@
 ---
 import LocationExperienceHero from '../../components/location/LocationExperienceHero.astro';
 import Navigation from '../../components/Navigation.astro';
+import AmaraMetaChip from '../../components/chips/AmaraMetaChip.astro';
+import AmaraStatusBadge from '../../components/chips/AmaraStatusBadge.astro';
 import GuideClosingSection from './GuideClosingSection.astro';
 import ExperienceContextNav from '../../components/experience/ExperienceContextNav.astro';
 import ExperiencePreFooter from '../../components/experience/ExperiencePreFooter.astro';
@@ -121,18 +123,18 @@ const heroImage = {
                         {event.name}
                       </h4>
                       <dl class="flex flex-wrap gap-x-3 gap-y-2 mb-4">
-                        <div class="rounded-pill border border-outline-variant/30 bg-surface-container-lowest px-3 py-1 am-text-caption normal-case tracking-normal text-on-surface-variant">
+                        <AmaraMetaChip as="div">
                           <dt class="sr-only">{copy.cardLabels.timing}</dt>
                           <dd>{event.timing}</dd>
-                        </div>
-                        <div class="rounded-pill border border-outline-variant/30 bg-surface-container-lowest px-3 py-1 am-text-caption normal-case tracking-normal text-on-surface-variant">
+                        </AmaraMetaChip>
+                        <AmaraMetaChip as="div">
                           <dt class="sr-only">{copy.cardLabels.place}</dt>
                           <dd>{event.place}</dd>
-                        </div>
-                        <div class="rounded-pill border border-primary/20 bg-surface-container-low px-3 py-1 am-text-caption normal-case tracking-normal text-primary">
+                        </AmaraMetaChip>
+                        <AmaraStatusBadge as="div">
                           <dt class="sr-only">{copy.cardLabels.dateStatus}</dt>
                           <dd>{event.dateStatus}</dd>
-                        </div>
+                        </AmaraStatusBadge>
                       </dl>
                       <p class="am-text-body text-on-surface-variant leading-relaxed">
                         {event.summary}
@@ -180,18 +182,18 @@ const heroImage = {
                   {experience.title}
                 </h3>
                 <dl class="flex flex-wrap gap-x-3 gap-y-2 mb-6">
-                  <div class="rounded-pill border border-outline-variant/30 bg-surface-container-lowest px-3 py-1 am-text-caption normal-case tracking-normal text-on-surface-variant">
+                  <AmaraMetaChip as="div">
                     <dt class="sr-only">{copy.cardLabels.timing}</dt>
                     <dd>{experience.timing}</dd>
-                  </div>
-                  <div class="rounded-pill border border-outline-variant/30 bg-surface-container-lowest px-3 py-1 am-text-caption normal-case tracking-normal text-on-surface-variant">
+                  </AmaraMetaChip>
+                  <AmaraMetaChip as="div">
                     <dt class="sr-only">{copy.cardLabels.place}</dt>
                     <dd>{experience.place}</dd>
-                  </div>
-                  <div class="rounded-pill border border-primary/20 bg-surface-container-low px-3 py-1 am-text-caption normal-case tracking-normal text-primary">
+                  </AmaraMetaChip>
+                  <AmaraStatusBadge as="div">
                     <dt class="sr-only">{copy.cardLabels.dateStatus}</dt>
                     <dd>{experience.dateStatus}</dd>
-                  </div>
+                  </AmaraStatusBadge>
                 </dl>
 
                 <p class="am-text-body text-on-surface-variant leading-relaxed">

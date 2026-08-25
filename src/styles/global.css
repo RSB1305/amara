@@ -513,6 +513,89 @@
   }
 
   /**
+   * Interactive chips filter an existing result set. They are toggle buttons,
+   * never passive labels or navigation links.
+   */
+  .am-filter-chip {
+    display: inline-flex;
+    min-height: 2.75rem;
+    max-width: 100%;
+    align-items: center;
+    justify-content: center;
+    padding: 0.5rem 0.75rem;
+    border: 1px solid color-mix(in srgb, var(--color-outline-variant) 50%, transparent);
+    border-radius: var(--radius-control);
+    background: var(--color-surface-white);
+    color: var(--color-on-surface);
+    text-align: center;
+    white-space: normal;
+    transition:
+      border-color 180ms ease,
+      background-color 180ms ease,
+      color 180ms ease;
+  }
+
+  .am-filter-chip:hover:not(:disabled) {
+    border-color: var(--color-primary);
+    color: var(--color-primary);
+  }
+
+  .am-filter-chip:focus-visible {
+    outline: 2px solid color-mix(in srgb, var(--color-primary) 35%, transparent);
+    outline-offset: 2px;
+  }
+
+  .am-filter-chip[aria-pressed="true"] {
+    border-color: var(--color-primary);
+    background-color: var(--color-primary);
+    color: var(--color-on-primary);
+  }
+
+  .am-filter-chip:disabled {
+    opacity: 0.45;
+    cursor: default;
+  }
+
+  /** Passive, concise facts. Tone changes emphasis, never semantics. */
+  .am-meta-chip,
+  .am-status-badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.25rem 0.75rem;
+    border-radius: var(--radius-pill);
+    text-transform: none;
+    letter-spacing: normal;
+  }
+
+  .am-meta-chip {
+    border: 1px solid color-mix(in srgb, var(--color-outline-variant) 30%, transparent);
+    background: var(--color-surface-container-lowest);
+  }
+
+  .am-meta-chip--neutral {
+    color: var(--color-on-surface-variant);
+  }
+
+  .am-meta-chip--accent {
+    color: var(--color-primary);
+  }
+
+  /** A status badge communicates a real state, not decorative emphasis. */
+  .am-status-badge {
+    border: 1px solid color-mix(in srgb, var(--color-primary) 20%, transparent);
+    background: var(--color-surface-container-low);
+    color: var(--color-primary);
+  }
+
+  @media (min-width: 48rem) {
+    .am-filter-chip {
+      flex-shrink: 0;
+      padding-inline: 1rem;
+      white-space: nowrap;
+    }
+  }
+
+  /**
    * Inline editorial links (body copy): offset underline, token ink, hover pulls underline toward text.
    */
   .am-inline-link {

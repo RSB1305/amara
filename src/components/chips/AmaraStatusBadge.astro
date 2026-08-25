@@ -1,0 +1,18 @@
+---
+import type { HTMLAttributes } from 'astro/types';
+
+interface Props extends Omit<HTMLAttributes<'span'>, 'class' | 'class:list'> {
+  as?: 'span' | 'div';
+  class?: string;
+}
+
+const {
+  as: Tag = 'span',
+  class: className,
+  ...attributes
+} = Astro.props;
+---
+
+<Tag {...attributes} class:list={['am-status-badge', 'am-text-caption', className]}>
+  <slot />
+</Tag>
