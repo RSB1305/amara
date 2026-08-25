@@ -278,7 +278,8 @@ export function enhanceStayBookingCalendars() {
     const visibleMonths = () =>
       Array.from({ length: visibleMonthCount() }, (_, index) => addMonths(anchorMonth, index));
     const visibleEntries = () => visibleMonths().map((date) => monthCache.get(monthKey(date)));
-    const visibleLoading = () => visibleEntries().some((entry) => entry?.state === 'loading');
+    const visibleLoading = () =>
+      visibleEntries().some((entry) => !entry || entry.state === 'loading');
     const visibleError = () => visibleEntries().some((entry) => entry?.state === 'error');
 
     const monthWindow = (date: Date) => {
@@ -465,6 +466,7 @@ export function enhanceStayBookingCalendars() {
     };
 
     const renderMonth = (date: Date) => {
+      const monthState = monthCache.get(monthKey(date))?.state;
       const section = document.createElement('section');
       section.className = 'am-booking-calendar__month';
       section.dataset.amBookingMonth = monthKey(date);
@@ -501,15 +503,25 @@ export function enhanceStayBookingCalendars() {
           new Date(Date.UTC(date.getUTCFullYear(), date.getUTCMonth(), number))
         );
         const day = dayData.get(value);
+        const unresolved = value >= today && value <= latest && monthState !== 'ready';
+        const loading = unresolved && monthState !== 'error';
         const selectable =
-          selectionMode === 'arrival' ? canSelectArrival(value) : canSelectDeparture(value);
+          !unresolved &&
+          (selectionMode === 'arrival' ? canSelectArrival(value) : canSelectDeparture(value));
         const button = document.createElement('button');
         button.type = 'button';
         button.className = 'am-booking-calendar__day';
         button.dataset.amBookingDay = value;
+        if (unresolved) button.dataset.amBookingDayState = loading ? 'loading' : 'error';
         button.disabled = !selectable;
         button.setAttribute('aria-disabled', String(!selectable));
-        button.setAttribute('aria-label', dayAriaLabel(value, selectable, day));
+        if (loading) button.setAttribute('aria-busy', 'true');
+        button.setAttribute(
+          'aria-label',
+          unresolved
+            ? [formatFullDate(value), loading ? copy.loadingCalendar : copy.calendarError].join(', ')
+            : dayAriaLabel(value, selectable, day)
+        );
         button.tabIndex =
           selectable &&
           (value === departureInput.value ||
@@ -522,8 +534,13 @@ export function enhanceStayBookingCalendars() {
         dayNumber.className = 'am-booking-calendar__day-number';
         dayNumber.textContent = String(number);
         button.append(dayNumber);
-        const price = day?.available === true ? priceDetails(day) : undefined;
-        if (price) {
+        const price = !unresolved && day?.available === true ? priceDetails(day) : undefined;
+        if (unresolved) {
+          const loadingIndicator = document.createElement('span');
+          loadingIndicator.className = 'am-booking-calendar__day-loading';
+          loadingIndicator.setAttribute('aria-hidden', 'true');
+          button.append(loadingIndicator);
+        } else if (price) {
           const priceText = document.createElement('span');
           priceText.className = 'am-booking-calendar__day-price';
           const pricePrefix = document.createElement('span');
