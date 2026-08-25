@@ -182,6 +182,30 @@ const guestOptions = [1, 2, 3, 4];
     border-color: var(--color-primary);
     box-shadow: 0 0 0 1px var(--color-primary);
   }
+
+  /**
+   * On a phone the calendar is 817px tall. In document flow it grew the finder
+   * from 402px to 1244px and pushed the rest of the home down by more than a
+   * viewport, which is what made a quiet utility feel violent to use. Lifting
+   * it out of flow keeps the page still while a date is chosen.
+   *
+   * Scoped to the finder on purpose: the same calendar is embedded in the
+   * rental pages' booking panel, where it is the point of the section and
+   * belongs in flow.
+   */
+  @media (max-width: 639px) {
+    .am-stay-search .am-booking-calendar {
+      position: fixed;
+      inset-inline: 0;
+      bottom: 0;
+      z-index: 60;
+      margin-top: 0;
+      max-height: 85vh;
+      overflow-y: auto;
+      border-top: 1px solid var(--color-outline-variant);
+      box-shadow: 0 -12px 32px rgb(0 0 0 / 18%);
+    }
+  }
 </style>
 
 <script>

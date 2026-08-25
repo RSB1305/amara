@@ -20,10 +20,13 @@ export interface CinematicApartment {
   name: string;
   subtitle: string;
   city: string;
-  /** Verified hideaway features, derived from the rental SSOT. Never authored. */
-  signals: string[];
+  /** The same three measurements for every stay, derived from the rental SSOT. */
+  facts: string[];
   viewNote: string;
-  price: string;
+  /** Split so the amount reads at body scale and the rest recedes. */
+  priceFrom: string;
+  priceAmount: string;
+  priceUnit: string;
   desc: string;
   imgAlt: string;
   img: string;
@@ -37,7 +40,6 @@ export interface CinematicApartment {
 export interface CinematicPlace {
   id: string;
   city: string;
-  countLabel: string;
   character: string;
   travel: string;
   href: string;
@@ -65,7 +67,7 @@ interface Props {
   philosophyHeadlineAccent: string;
   philosophyLabel: string;
   philosophyP1: string;
-  /** Derived counts that evidence the Romantic Hideaways positioning. */
+  /** Evidences the Romantic Hideaways positioning by naming the stays. */
   positioningLabel: string;
   positioningProofs: string[];
   statReviewsValue: string;
@@ -351,10 +353,10 @@ const [leadPlace, ...otherPlaces] = places;
                 </h3>
                 <p class="mt-1 am-text-caption italic text-primary">{apt.subtitle}</p>
 
-                {/* The positioning claim, evidenced per stay. */}
-                <ul class="am-home-card-signals mt-5 flex flex-col gap-1 am-text-annotation text-on-surface-variant">
-                  {apt.signals.map((signal) => (
-                    <li>{signal}</li>
+                {/* The same three measurements on every card, so the six compare. */}
+                <ul class="am-home-card-facts mt-5 flex flex-wrap am-text-annotation text-on-surface-variant">
+                  {apt.facts.map((fact) => (
+                    <li>{fact}</li>
                   ))}
                 </ul>
 
@@ -367,7 +369,11 @@ const [leadPlace, ...otherPlaces] = places;
                   <InlineEmphasis text={apt.desc} />
                 </p>
 
-                <p class="mt-5 am-text-annotation text-on-surface sm:mt-auto sm:pt-6">{apt.price}</p>
+                <p class="mt-5 flex flex-wrap items-baseline gap-x-1.5 text-on-surface sm:mt-auto sm:pt-6">
+                  <span class="am-text-annotation text-on-surface-variant">{apt.priceFrom}</span>
+                  <span class="am-text-body">{apt.priceAmount}</span>
+                  <span class="am-text-annotation text-on-surface-variant">{apt.priceUnit}</span>
+                </p>
               </div>
             </article>
           ))
@@ -401,10 +407,7 @@ const [leadPlace, ...otherPlaces] = places;
           <div class="grid gap-10 lg:grid-cols-2 lg:gap-12">
             <article class="flex flex-col justify-between gap-6 border-t-2 border-primary pt-6">
               <div>
-                <div class="mb-3 flex flex-wrap items-baseline justify-between gap-x-6 gap-y-1">
-                  <h3 class="am-text-subtitle text-on-surface">{leadPlace.city}</h3>
-                  <span class="am-text-caption uppercase tracking-widest text-primary">{leadPlace.countLabel}</span>
-                </div>
+                <h3 class="mb-3 am-text-subtitle text-on-surface">{leadPlace.city}</h3>
                 <p class="mb-4 am-text-body text-on-surface-variant">{leadPlace.character}</p>
                 <p class="am-text-caption text-on-surface-variant">{leadPlace.travel}</p>
               </div>
@@ -417,10 +420,7 @@ const [leadPlace, ...otherPlaces] = places;
               {otherPlaces.map((place) => (
                 <article class="flex flex-col justify-between gap-4 border-t border-outline-variant/40 pt-6">
                   <div>
-                    <div class="mb-3 flex flex-wrap items-baseline justify-between gap-x-6 gap-y-1">
-                      <h3 class="am-text-subtitle text-on-surface">{place.city}</h3>
-                      <span class="am-text-caption uppercase tracking-widest text-on-surface-variant">{place.countLabel}</span>
-                    </div>
+                    <h3 class="mb-3 am-text-subtitle text-on-surface">{place.city}</h3>
                     <p class="mb-4 am-text-body text-on-surface-variant">{place.character}</p>
                     <p class="am-text-caption text-on-surface-variant">{place.travel}</p>
                   </div>
@@ -462,8 +462,8 @@ const [leadPlace, ...otherPlaces] = places;
     </div>
   </section>
 
-  <section class="relative z-[2] overflow-hidden bg-inverse-surface py-24 text-inverted-on-surface md:py-32">
-    <div class="pointer-events-none absolute left-0 top-0 h-full w-full opacity-10">
+  <section class="relative z-[2] overflow-hidden border-y border-outline-variant/30 bg-surface-container-high py-24 text-on-surface md:py-32">
+    <div class="pointer-events-none absolute left-0 top-0 h-full w-full opacity-20">
       <img
         src={trustBgSrc}
         srcset={trustBgSrcSet}
@@ -481,10 +481,10 @@ const [leadPlace, ...otherPlaces] = places;
       {/* A guest speaks here, so the type stays at quote scale. Set at title
           scale this band read as AMARA shouting a testimonial. */}
       <figure>
-        <blockquote class="mx-auto mb-6 max-w-3xl am-text-subtitle italic text-inverted-on-surface">
+        <blockquote class="mx-auto mb-6 max-w-3xl am-text-subtitle italic text-on-surface">
           <span aria-hidden="true">&ldquo;</span>{trustQuote}<span aria-hidden="true">&rdquo;</span>
         </blockquote>
-        <figcaption class="am-text-caption uppercase tracking-widest text-inverted-on-surface/80">
+        <figcaption class="am-text-caption uppercase tracking-widest text-on-surface-variant">
           {trustQuoteAttribution}{quoteTranslationNote ? ` · ${quoteTranslationNote}` : ''}
         </figcaption>
       </figure>
@@ -492,7 +492,7 @@ const [leadPlace, ...otherPlaces] = places;
       <div class="mb-12 mt-12 flex flex-wrap justify-center gap-4 md:gap-6">
         {
           trustChips.map((feature) => (
-            <span class="rounded-full border border-inverted-on-surface-muted px-6 py-2 am-text-caption normal-case tracking-normal text-inverted-on-surface">
+            <span class="rounded-full border border-outline-variant px-6 py-2 am-text-caption normal-case tracking-normal text-on-surface-variant">
               {feature}
             </span>
           ))
@@ -502,7 +502,7 @@ const [leadPlace, ...otherPlaces] = places;
       <div class="flex flex-wrap justify-center gap-4">
         {
           trustReviewsHref && (
-            <a href={trustReviewsHref} class="am-btn am-btn--secondary am-btn--inverse">
+            <a href={trustReviewsHref} class="am-btn am-btn--secondary">
               {trustCta}
             </a>
           )
@@ -605,14 +605,25 @@ const [leadPlace, ...otherPlaces] = places;
    * other. Reserving the two variable blocks holds the horizontal rhythm
    * without forcing every stay to claim the same number of features.
    */
-  .am-home-card-signals {
+  /**
+   * The facts read as one line separated by mid-height dots. A stay without a
+   * terrace simply carries one fact fewer, which is honest: a missing
+   * measurement means the thing is absent, unlike a missing feature label.
+   */
+  .am-home-card-facts {
     line-height: 1.5;
   }
 
+  .am-home-card-facts > li + li::before {
+    content: '·';
+    margin-inline: 0.5em;
+    color: var(--color-outline-variant);
+  }
+
   @media (min-width: 640px) {
-    /* Three lines plus the two 0.25rem gaps between them. */
-    .am-home-card-signals {
-      min-height: calc(3 * 1.5em + 0.5rem);
+    /* Two lines: the facts wrap to a second line in the narrower columns. */
+    .am-home-card-facts {
+      min-height: calc(2 * 1.5em);
     }
 
     /* Two lines: the view note runs to one line for a stay on the village

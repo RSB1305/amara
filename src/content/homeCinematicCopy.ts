@@ -780,108 +780,67 @@ export const cinematicHostAvatarAlt: CopyRow = {
 };
 
 /* =========================================================
-   HIDEAWAY SIGNALS
-   The positioning is "Romantic Hideaways", so the collection card has to
-   *show* what makes a stay a hideaway rather than restate floor area. Every
-   label below maps to a verified amenity flag in `vacationRentalEntities`;
-   the page derives which ones a stay may claim, so a card can never assert a
-   feature the rental SSOT does not carry.
+   CARD FACTS
+   The card carries the same three dimensions for every stay, so a reader can
+   compare them. An earlier version showed a ranked selection of amenity flags
+   instead, which quietly lied: four stays have an underfloor-heated bathroom,
+   only one had room to say so, and its neighbours read as if they did not.
+   A missing measurement cannot mislead the same way — no terrace figure means
+   no terrace, which is true. The romance is argued on the rental pages, which
+   already carry the hammock, the outdoor shower and the historic well.
 ========================================================= */
 
-export type CinematicSignalKey =
-  | 'privateTerrace'
-  | 'hammock'
-  | 'outdoorShower'
-  | 'doubleRainShower'
-  | 'stove'
-  | 'pool'
-  | 'balcony'
-  | 'wideBed'
-  | 'rainShower'
-  | 'underfloorHeating';
+export const cinematicFactBedLabel: CopyRow = {
+  en: 'Bed',
+  de: 'Bett',
+  es: 'Cama',
+  nl: 'Bed',
+  sv: 'Säng'
+};
 
-export const cinematicSignalLabels: Record<CinematicSignalKey, CopyRow> = {
-  /** `{n}` is replaced with the verified exterior area in square metres. */
-  privateTerrace: {
-    en: 'Private terrace {n} m²',
-    de: 'Private Terrasse {n} m²',
-    es: 'Terraza privada de {n} m²',
-    nl: 'Privéterras {n} m²',
-    sv: 'Privat terrass {n} m²'
-  },
-  hammock: {
-    en: 'Hammock & two loungers',
-    de: 'Hängematte & zwei Liegen',
-    es: 'Hamaca y dos tumbonas',
-    nl: 'Hangmat & twee ligbedden',
-    sv: 'Hängmatta och två solsängar'
-  },
-  outdoorShower: {
-    en: 'Outdoor shower',
-    de: 'Außendusche',
-    es: 'Ducha exterior',
-    nl: 'Buitendouche',
-    sv: 'Utomhusdusch'
-  },
-  doubleRainShower: {
-    en: 'Double rain shower',
-    de: 'Doppel-Regendusche',
-    es: 'Ducha doble de lluvia',
-    nl: 'Dubbele regendouche',
-    sv: 'Dubbel regndusch'
-  },
-  stove: {
-    en: 'Stove for cooler months',
-    de: 'Kaminofen für kühle Monate',
-    es: 'Estufa para los meses fríos',
-    nl: 'Kachel voor koelere maanden',
-    sv: 'Kamin för svalare månader'
-  },
-  pool: {
-    en: 'Shared pool',
-    de: 'Gemeinschaftspool',
-    es: 'Piscina comunitaria',
-    nl: 'Gedeeld zwembad',
-    sv: 'Gemensam pool'
-  },
-  balcony: {
-    en: 'Balcony',
-    de: 'Balkon',
-    es: 'Balcón',
-    nl: 'Balkon',
-    sv: 'Balkong'
-  },
-  /** `{n}` is replaced with the verified bed width in centimetres. */
-  wideBed: {
-    en: 'Bed {n} × 200 cm',
-    de: 'Bett {n} × 200 cm',
-    es: 'Cama de {n} × 200 cm',
-    nl: 'Bed {n} × 200 cm',
-    sv: 'Säng {n} × 200 cm'
-  },
-  rainShower: {
-    en: 'Rain shower',
-    de: 'Regendusche',
-    es: 'Ducha de lluvia',
-    nl: 'Regendouche',
-    sv: 'Regndusch'
-  },
-  underfloorHeating: {
-    en: 'Underfloor-heated bathroom',
-    de: 'Fußbodenheizung im Bad',
-    es: 'Baño con suelo radiante',
-    nl: 'Badkamer met vloerverwarming',
-    sv: 'Golvvärme i badrummet'
-  }
+export const cinematicFactBalconyLabel: CopyRow = {
+  en: 'Balcony',
+  de: 'Balkon',
+  es: 'Balcón',
+  nl: 'Balkon',
+  sv: 'Balkong'
+};
+
+/** Splits the indicative price so the amount reads and the rest recedes. */
+export const cinematicPriceFromLabel: CopyRow = {
+  en: 'from',
+  de: 'ab',
+  es: 'desde',
+  nl: 'vanaf',
+  sv: 'från'
+};
+
+export const cinematicPriceUnitLabel: CopyRow = {
+  en: 'per night',
+  de: 'pro Nacht',
+  es: 'por noche',
+  nl: 'per nacht',
+  sv: 'per natt'
 };
 
 /* =========================================================
    POSITIONING PROOF
    "Romantic Hideaways" was asserted on the home and evidenced nowhere. These
-   three lines carry the claim, and every count in them is derived from the
-   rental inventory at build time rather than authored, so the proof cannot
-   drift away from the product.
+   lines carry the claim. They name the stays rather than counting them: the
+   page already had three "{n} of six" labels in the places band, and stating
+   the proof as three more fractions turned the brand statement into
+   arithmetic. The names are derived from the verified amenity flags, so the
+   proof still cannot drift away from the product.
 ========================================================= */
+
+/** Joins the final two names in a list: "Lounis, Zaid and Maha". */
+export const cinematicListConjunction: CopyRow = {
+  en: 'and',
+  de: 'und',
+  es: 'y',
+  nl: 'en',
+  sv: 'och'
+};
 
 export const cinematicPositioningLabel: CopyRow = {
   en: 'Why hideaways',
@@ -892,25 +851,25 @@ export const cinematicPositioningLabel: CopyRow = {
 };
 
 export const cinematicPositioningTerraces: CopyRow = {
-  en: '{n} of {total} with a private terrace, hammock and outdoor shower',
-  de: '{n} von {total} mit privater Terrasse, Hängematte und Außendusche',
-  es: '{n} de {total} con terraza privada, hamaca y ducha exterior',
-  nl: '{n} van de {total} met privéterras, hangmat en buitendouche',
-  sv: '{n} av {total} med privat terrass, hängmatta och utomhusdusch'
+  en: '{stays}: a private terrace with a hammock, two loungers and an outdoor shower',
+  de: '{stays}: private Terrasse mit Hängematte, zwei Liegen und Außendusche',
+  es: '{stays}: terraza privada con hamaca, dos tumbonas y ducha exterior',
+  nl: '{stays}: een privéterras met hangmat, twee ligbedden en buitendouche',
+  sv: '{stays}: privat terrass med hängmatta, två solsängar och utomhusdusch'
 };
 
 export const cinematicPositioningStoves: CopyRow = {
-  en: '{n} of {total} with a stove for the cooler months',
-  de: '{n} von {total} mit Kaminofen für die kühlen Monate',
-  es: '{n} de {total} con estufa para los meses fríos',
-  nl: '{n} van de {total} met kachel voor de koelere maanden',
-  sv: '{n} av {total} med kamin för de svalare månaderna'
+  en: 'A stove for the cooler months in {stays}',
+  de: 'Kaminofen für die kühlen Monate in {stays}',
+  es: 'Estufa para los meses fríos en {stays}',
+  nl: 'Een kachel voor de koelere maanden in {stays}',
+  sv: 'Kamin för de svalare månaderna i {stays}'
 };
 
 export const cinematicPositioningEntrances: CopyRow = {
-  en: '{n} of {total} with their own entrance and self check-in — no reception, no shared corridor',
-  de: '{n} von {total} mit eigenem Eingang und Self-Check-in – keine Rezeption, kein geteilter Flur',
-  es: '{n} de {total} con entrada propia y check-in autónomo: sin recepción ni pasillos compartidos',
-  nl: '{n} van de {total} met eigen ingang en self-check-in – geen receptie, geen gedeelde gang',
-  sv: '{n} av {total} med egen ingång och self check-in – ingen reception, ingen delad korridor'
+  en: 'Every stay has its own entrance and self check-in — no reception, no shared corridor',
+  de: 'Überall eigener Eingang und Self-Check-in – keine Rezeption, kein geteilter Flur',
+  es: 'En todos, entrada propia y check-in autónomo: sin recepción ni pasillos compartidos',
+  nl: 'Overal een eigen ingang en self-check-in – geen receptie, geen gedeelde gang',
+  sv: 'Överallt egen ingång och self check-in – ingen reception, ingen delad korridor'
 };

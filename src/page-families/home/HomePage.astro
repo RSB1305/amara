@@ -38,8 +38,12 @@ import {
   cinematicPhilosophyAccent,
   cinematicPhilosophyLabel,
   cinematicPhilosophyP1,
-  cinematicSignalLabels,
-  type CinematicSignalKey,
+  cinematicFactTerraceLabel,
+  cinematicFactBedLabel,
+  cinematicFactBalconyLabel,
+  cinematicPriceFromLabel,
+  cinematicPriceUnitLabel,
+  cinematicListConjunction,
   cinematicPositioningLabel,
   cinematicPositioningTerraces,
   cinematicPositioningStoves,
@@ -47,7 +51,6 @@ import {
   cinematicPlaces,
   cinematicPlacesEyebrow,
   cinematicPlacesTitle,
-  cinematicPlacesCountLabel,
   cinematicBridgeEyebrow,
   cinematicBridgeTitle,
   cinematicBridgeBody,
@@ -149,115 +152,71 @@ const seo: AmaraAuthoringSeo = {
 };
 
 /**
- * "Romantic Hideaways" was asserted in the hero and evidenced nowhere: the card
- * carried interior and terrace area, which is a spec sheet, not a reason. These
- * signals are read from the verified amenity flags on each rental, so a card can
- * only claim what the rental SSOT actually records — and the positioning is
- * argued per stay instead of averaged across six.
- *
- * Ranking is by rarity across the inventory, not by an authored order. Three of
- * the stays share the terrace, hammock and outdoor shower, so a fixed order gave
- * them near-identical cards and the grid stopped differentiating — the same
- * failure as printing "Frigiliana" on four cards. Rarest-first makes each card
- * argue what only it can claim, and the shared proof is stated once in the
- * positioning row instead of six times in the grid.
- *
- * The private terrace is pinned first regardless: it is the anchor of the
- * positioning and it carries the area, which differs per stay anyway. Three
- * signals per card keeps the grid scannable; a stay with fewer verified signals
- * shows fewer rather than padding.
+ * The card carries the same three dimensions for every stay so the six can be
+ * compared. The previous version ranked amenity flags and showed the top three,
+ * which quietly lied: four stays have an underfloor-heated bathroom and only
+ * one had room to say so, so its neighbours read as if they did not. A missing
+ * measurement cannot mislead the same way — no terrace figure means no terrace.
+ * The hideaway features are argued on the rental pages, which already carry the
+ * hammock, the outdoor shower and Lounis's historic well.
  */
-const signalOrder: CinematicSignalKey[] = [
-  'privateTerrace',
-  'hammock',
-  'outdoorShower',
-  'doubleRainShower',
-  'stove',
-  'pool',
-  'balcony',
-  'wideBed',
-  'rainShower',
-  'underfloorHeating'
-];
-
-const SIGNALS_PER_CARD = 3;
-
 type RentalEntity = (typeof vacationRentalEntities)[number];
 
 const hasFlag = (rental: RentalEntity, name: string) =>
   rental.amenityFeatures.some((feature) => feature.name === name && feature.value === true);
 
-/** Every signal a stay may honestly claim, keyed for ranking. */
-function availableSignals(rental: RentalEntity): Partial<Record<CinematicSignalKey, string>> {
-  const bedWidth = Number.parseInt(rental.bed[0]?.label ?? '', 10);
-  const label = (key: CinematicSignalKey) => t(cinematicSignalLabels[key]);
+function cardFacts(rental: RentalEntity): string[] {
+  /** Playa's outdoor space is a balcony and carries no area in the SSOT. */
+  const outdoor = rental.exteriorAreaSqm
+    ? `${t(cinematicFactTerraceLabel)} ${rental.exteriorAreaSqm} m²`
+    : hasFlag(rental, 'balcony')
+      ? t(cinematicFactBalconyLabel)
+      : null;
 
-  return {
-    ...(hasFlag(rental, 'privateTerrace') && rental.exteriorAreaSqm
-      ? { privateTerrace: label('privateTerrace').replace('{n}', String(rental.exteriorAreaSqm)) }
-      : {}),
-    ...(hasFlag(rental, 'hammock') ? { hammock: label('hammock') } : {}),
-    ...(hasFlag(rental, 'outdoorShower') ? { outdoorShower: label('outdoorShower') } : {}),
-    ...(hasFlag(rental, 'doubleRainShower') ? { doubleRainShower: label('doubleRainShower') } : {}),
-    ...(hasFlag(rental, 'pelletStove') || hasFlag(rental, 'fireplace') ? { stove: label('stove') } : {}),
-    ...(hasFlag(rental, 'pool') ? { pool: label('pool') } : {}),
-    ...(hasFlag(rental, 'balcony') ? { balcony: label('balcony') } : {}),
-    ...(Number.isFinite(bedWidth) && bedWidth >= 180
-      ? { wideBed: label('wideBed').replace('{n}', String(bedWidth)) }
-      : {}),
-    ...(hasFlag(rental, 'rainShower') ? { rainShower: label('rainShower') } : {}),
-    ...(rental.bathroomUnderfloorHeating ? { underfloorHeating: label('underfloorHeating') } : {})
-  };
+  const bed = rental.bed[0]?.label.replace(/\s*x\s*/i, ' × ');
+
+  return [
+    rental.interiorAreaSqm ? `${rental.interiorAreaSqm} m²` : null,
+    outdoor,
+    bed ? `${t(cinematicFactBedLabel)} ${bed}` : null
+  ].filter((fact): fact is string => Boolean(fact));
 }
 
-/** How many stays carry each signal — the rarity that drives the ranking. */
-const signalFrequency = vacationRentalEntities.reduce<Record<string, number>>((counts, rental) => {
-  for (const key of Object.keys(availableSignals(rental))) {
-    counts[key] = (counts[key] ?? 0) + 1;
-  }
-  return counts;
-}, {});
-
-function hideawaySignals(rental: RentalEntity): string[] {
-  const available = availableSignals(rental);
-
-  return (Object.keys(available) as CinematicSignalKey[])
-    .sort((a, b) => {
-      if (a === 'privateTerrace') return -1;
-      if (b === 'privateTerrace') return 1;
-      const rarity = (signalFrequency[a] ?? 0) - (signalFrequency[b] ?? 0);
-      return rarity !== 0 ? rarity : signalOrder.indexOf(a) - signalOrder.indexOf(b);
-    })
-    .slice(0, SIGNALS_PER_CARD)
-    .map((key) => available[key] as string);
+/** "Lounis, Zaid und Maha" — the localized list the proof lines name. */
+function listStays(rentals: RentalEntity[]): string {
+  const names = rentals.map((rental) => rental.shortName || rental.name);
+  if (names.length <= 1) return names.join('');
+  return `${names.slice(0, -1).join(', ')} ${t(cinematicListConjunction)} ${names[names.length - 1]}`;
 }
 
 /**
- * The proof row under the brand statement. Every count is derived from the
- * inventory, so the positioning claim cannot drift away from the product.
+ * The proof row under the brand statement. Which stays qualify is derived from
+ * the verified amenity flags, so the claim cannot drift away from the product.
+ *
+ * The lines name the stays rather than counting them. Stated as fractions they
+ * joined the three "{n} of six" labels in the places band, and six fractions on
+ * one page turned the brand statement into arithmetic.
  */
-const stayCount = vacationRentalEntities.length;
-
 const terraceHideaways = vacationRentalEntities.filter(
-  (rental) => hasFlag(rental, 'privateTerrace') && hasFlag(rental, 'hammock') && hasFlag(rental, 'outdoorShower')
-).length;
+  (rental) =>
+    hasFlag(rental, 'privateTerrace') && hasFlag(rental, 'hammock') && hasFlag(rental, 'outdoorShower')
+);
 const stoveStays = vacationRentalEntities.filter(
   (rental) => hasFlag(rental, 'pelletStove') || hasFlag(rental, 'fireplace')
-).length;
-const ownEntranceStays = vacationRentalEntities.filter((rental) =>
+);
+const everyStayHasOwnEntrance = vacationRentalEntities.every((rental) =>
   hasFlag(rental, 'selfCheckinCheckout')
-).length;
-
-const proofLine = (row: Record<AmaraLanguage, string>, count: number) =>
-  t(row).replace('{n}', String(count)).replace('{total}', String(stayCount));
+);
 
 const positioningProofs = [
-  [cinematicPositioningTerraces, terraceHideaways] as const,
-  [cinematicPositioningStoves, stoveStays] as const,
-  [cinematicPositioningEntrances, ownEntranceStays] as const
-]
-  .filter(([, count]) => count > 0)
-  .map(([row, count]) => proofLine(row, count));
+  terraceHideaways.length > 0
+    ? t(cinematicPositioningTerraces).replace('{stays}', listStays(terraceHideaways))
+    : null,
+  stoveStays.length > 0
+    ? t(cinematicPositioningStoves).replace('{stays}', listStays(stoveStays))
+    : null,
+  everyStayHasOwnEntrance ? t(cinematicPositioningEntrances) : null
+].filter((proof): proof is string => Boolean(proof));
 
 /**
  * Card facts come from the rental entities so the four Frigiliana stays read as
@@ -279,9 +238,12 @@ const cinematicApartmentsProps = (
         name: apt.name,
         subtitle: t(apt.subtitle),
         city: rental.city,
-        signals: hideawaySignals(rental),
+        facts: cardFacts(rental),
         viewNote: t(rental.viewNote as Record<AmaraLanguage, string>),
-        price: formatVacationRentalFromPrice(rental.pricing, currentLang),
+        priceFrom: t(cinematicPriceFromLabel),
+        priceAmount: formatVacationRentalFromPrice(rental.pricing, currentLang, false)
+          .replace(new RegExp(`^${t(cinematicPriceFromLabel)}\\s*`, 'i'), ''),
+        priceUnit: t(cinematicPriceUnitLabel),
         desc: t(apt.desc),
         imgAlt: t(apt.imageAlt),
         img: optimized.src,
@@ -295,18 +257,20 @@ const cinematicApartmentsProps = (
   )
 ).filter((apt): apt is NonNullable<typeof apt> => Boolean(apt));
 
-/** Stay counts are derived, so the places band cannot drift from the inventory. */
+/**
+ * The "{n} of six hideaways" label is gone: each place's own copy already opens
+ * with the count ("Four of our stays are here"), so the label restated it as a
+ * fraction beside the city name and made the band read like arithmetic.
+ */
 const placesProps = cinematicPlaces
   .map((place) => {
     const href = resolveOptionalLink(place.token, currentLang, { suppressMissing: true });
     if (!href) {
       return null;
     }
-    const stayCount = vacationRentalEntities.filter((entity) => entity.city === place.city).length;
     return {
       id: place.id,
       city: place.city,
-      countLabel: t(cinematicPlacesCountLabel).replace('{n}', String(stayCount)),
       character: t(place.character),
       travel: t(place.travel),
       href,
