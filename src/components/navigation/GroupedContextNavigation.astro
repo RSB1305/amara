@@ -26,7 +26,7 @@ const groupContainsActiveItem = (group: ContextNavigationGroup) =>
   group.items.some((item) => item.id === activeId);
 
 const itemClasses = (item: ContextNavigationItem) => [
-  'am-context-grouped__item flex min-h-10 w-full items-center border-l-2 px-4 py-2 font-label text-[10px] font-normal uppercase tracking-[0.06em] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-primary/25',
+  'am-context-grouped__item am-text-nav-context flex min-h-10 w-full items-center border-l-2 px-4 py-2 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-primary/25',
   item.id === activeId
     ? 'border-primary bg-primary/[0.05] font-bold text-on-surface'
     : 'border-transparent text-on-surface-variant hover:border-primary/45 hover:bg-primary/[0.03] hover:text-on-surface'
@@ -48,7 +48,7 @@ const itemClasses = (item: ContextNavigationItem) => [
             data-am-context-group-active={groupContainsActiveItem(group) ? '' : undefined}
           >
             <summary
-              class="flex min-h-12 cursor-pointer list-none items-center justify-between gap-3 px-2 am-text-nav-context text-on-surface focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-primary/25 [&::-webkit-details-marker]:hidden xl:min-h-9 xl:justify-center xl:px-3 xl:text-[9px] xl:tracking-[0.06em] xl:text-center"
+              class="am-text-nav-context am-text-nav-context--compact-xl flex min-h-12 cursor-pointer list-none items-center justify-between gap-3 px-2 text-on-surface focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-primary/25 [&::-webkit-details-marker]:hidden xl:min-h-9 xl:justify-center xl:px-3 xl:text-center"
             >
               <span>{group.label}</span>
               <ChevronDown

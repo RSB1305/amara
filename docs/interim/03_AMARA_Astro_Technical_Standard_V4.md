@@ -1,7 +1,7 @@
 ---
 document_id: AMARA-INT-ASTRO-003
 title: AMARA Astro & Design Architecture Contract V4
-version: 4.4.0
+version: 4.5.0
 status: ACTIVE
 authority_class: CONTRACT / GOVERNING INTERIM
 source_type: INTERIM SNAPSHOT FROM APPROVED PDF + APPROVED REPOSITORY AMENDMENT
@@ -9,7 +9,7 @@ source_attachment: "03_AMARA_Astro_Technical_Standard_V4 (1).pdf"
 source_sha256: b3d8a3e780b29b5be42922aec838c7f56f455184cca8336d9a0f3564ba43f9aa
 snapshot_created: 2026-08-14T09:08:00+02:00
 migration_state: PENDING PACKAGE 2/3 NORMALIZATION
-last_modified: 2026-08-25T16:33:34+02:00
+last_modified: 2026-08-25T17:32:07+02:00
 ---
 
 # AMARA Astro & Design Architecture Contract V4 — Interim Markdown Snapshot
@@ -22,7 +22,7 @@ last_modified: 2026-08-25T16:33:34+02:00
 
 AMARA Astro & Design Architecture Contract V4
 Status                                                ACTIVE
-Version                                               4.4.0
+Version                                               4.5.0
 Effective date                                        2026-08-10
 Runtime                                               Astro
 Styling                                               Tailwind CSS + AMARA global tokens + scoped component
@@ -300,7 +300,7 @@ Existing public output is not invalid merely because it predates this process. A
 
 The current controlled primitive vocabulary is:
 
-- typography through the `am-text-*` roles; unresolved arbitrary typography values remain legacy, not approved exceptions;
+- typography through the `am-text-*` roles; the legacy ratchet records zero unresolved arbitrary typography values and fails on any reintroduction;
 - action buttons through `am-btn` with `primary`, `secondary` and the inverse-surface modifier;
 - editorial onward actions through `am-cta-link`;
 - body-copy links through `am-inline-link`;
@@ -348,3 +348,4 @@ The styleguide is therefore an executable view of the system, not a parallel sou
 | 4.2.0 | 2026-08-23T13:54:40+02:00 | Activated the canonical mobile-first composition contract and progressive-enhancement boundary for all public page families. |
 | 4.3.0 | 2026-08-25T15:51:22+02:00 | Activated exception-led cross-silo design convergence, explicit design-status classes, executable owner boundaries and the living-styleguide contract without changing public rendering. |
 | 4.4.0 | 2026-08-25T16:33:34+02:00 | Activated the executable action/link and chip/status component owners, migrated bounded cross-silo consumers, and kept icon surfaces and decorative emphasis outside the chip/status vocabulary. |
+| 4.5.0 | 2026-08-25T17:32:07+02:00 | Closed all 32 typography legacy values through canonical or explicitly named special-purpose roles, reduced the ratchet to zero and replaced the styleguide's parallel typography specimens with production roles. |

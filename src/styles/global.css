@@ -135,6 +135,10 @@
     letter-spacing: -0.025em;
   }
 
+  .am-text-display--relaxed {
+    line-height: 1.1;
+  }
+
   .am-text-title {
     font-family: var(--font-headline);
     font-size: clamp(2.5rem, 5vw, 4.25rem);
@@ -211,6 +215,16 @@
     letter-spacing: 0.16em;
   }
 
+  /* The small word below the AMARA wordmark is part of the brand lockup, not
+   * an editorial label. Its deliberately wide tracking is controlled here. */
+  .am-text-brand-strapline {
+    font-family: var(--font-label);
+    font-size: 8px;
+    font-weight: 400;
+    letter-spacing: 0.5em;
+    text-transform: uppercase;
+  }
+
   /* Navigation roles. Navigation had built its own label system by hand across
    * six files: the same four-class recipe repeated per call site, in eight
    * spellings that differed by a weight step or 0.02em of tracking. These two
@@ -234,6 +248,37 @@
     font-weight: 400;
     letter-spacing: 0.06em;
     text-transform: uppercase;
+  }
+
+  .am-text-nav-option {
+    font-family: var(--font-label);
+    font-size: 0.8125rem;
+    font-weight: 400;
+    letter-spacing: normal;
+  }
+
+  .am-text-nav-breadcrumb {
+    font-family: var(--font-label);
+    font-size: 0.625rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+  }
+
+  .am-text-nav-breadcrumb--responsive {
+    font-size: 9px;
+    letter-spacing: 0.08em;
+  }
+
+  @media (min-width: 80rem) {
+    .am-text-nav-breadcrumb--responsive {
+      font-size: 0.625rem;
+      letter-spacing: 0.14em;
+    }
+
+    .am-text-nav-context--compact-xl {
+      font-size: 9px;
+    }
   }
 
   /* Orientation-graphic roles. The two location graphics draw one label system
@@ -261,6 +306,36 @@
   .am-text-graphic-label--sm {
     font-size: 8px;
     letter-spacing: 0.16em;
+  }
+
+  .am-text-graphic-value {
+    font-family: var(--font-body);
+    font-size: 0.8125rem;
+    font-weight: 400;
+    line-height: 1.375;
+    letter-spacing: normal;
+  }
+
+  /* Compact numeric annotations in charts and small data graphics. */
+  .am-text-data-note {
+    font-family: var(--font-label);
+    font-size: 0.6875rem;
+    font-weight: 400;
+    line-height: 1.5;
+    letter-spacing: normal;
+  }
+
+  .am-text-data-note--sm {
+    font-size: 0.625rem;
+  }
+
+  /* Decorative, aria-hidden section mark used by Experience article heroes. */
+  .am-text-hero-mark {
+    font-family: var(--font-headline);
+    font-size: clamp(3.5rem, 8vw, 8.5rem);
+    font-weight: 400;
+    line-height: 0.72;
+    letter-spacing: normal;
   }
 
   /* The decorative section numeral. Two authority page families drew the same

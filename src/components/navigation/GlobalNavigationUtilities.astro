@@ -61,7 +61,7 @@ const { currentLang, languageOptions, cta, showBookingCta, utilityLabels } = Ast
             {languageOptions.map((lang) => (
               <a
                 href={lang.href}
-                class={`font-label text-[13px] transition-colors px-2 py-1.5 rounded-md ${
+                class={`am-text-nav-option transition-colors px-2 py-1.5 rounded-md ${
                   currentLang === lang.code
                     ? 'font-bold text-primary bg-primary/5'
                     : 'text-on-surface/70 hover:text-on-surface hover:bg-surface-container-low'

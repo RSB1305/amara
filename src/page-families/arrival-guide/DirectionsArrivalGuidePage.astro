@@ -337,7 +337,7 @@ const busIntro = c.arrivalByBus.text.split('\n\n')[0];
             <ol class="bg-surface-container-low px-5 sm:px-6">
               {arrivalSteps.map((step, index) => (
                 <li class="grid min-h-[4.5rem] grid-cols-[2.25rem_minmax(0,1fr)] content-center gap-x-4 border-b border-border-subtle py-4 last:border-b-0 md:min-h-[5.25rem] md:py-5">
-                  <span class="flex h-9 w-9 items-center justify-center rounded-full bg-surface font-label text-[11px] font-bold text-primary" aria-hidden="true">
+                  <span class="am-text-label flex h-9 w-9 items-center justify-center rounded-full bg-surface text-primary" aria-hidden="true">
                     {String(index + 1).padStart(2, '0')}
                   </span>
                   <span class="am-text-body self-center leading-relaxed text-on-surface">{step}</span>

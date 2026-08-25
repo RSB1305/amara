@@ -103,10 +103,10 @@ const visibleItems = activeId && !retainActiveItem
         <nav aria-label={breadcrumbAriaLabel}>
           <ol
             class:list={[
-              'flex items-center font-label font-bold uppercase text-on-surface/70',
+              'flex items-center am-text-nav-breadcrumb text-on-surface/70',
               groups.length > 0
-                ? 'min-w-0 flex-nowrap gap-1 text-[9px] tracking-[0.08em] md:gap-2 xl:text-[10px] xl:tracking-[0.14em]'
-                : 'flex-wrap gap-2 text-[10px] tracking-[0.14em]'
+                ? 'am-text-nav-breadcrumb--responsive min-w-0 flex-nowrap gap-1 md:gap-2'
+                : 'flex-wrap gap-2'
             ]}
           >
             {
