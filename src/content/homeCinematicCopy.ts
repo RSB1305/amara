@@ -615,12 +615,16 @@ export const cinematicBridgeEyebrow: CopyRow = {
   sv: 'Nerja eller Frigiliana?'
 };
 
+/**
+ * Ten, not fifteen: the drive between Nerja and Frigiliana is the low end of
+ * the "10–15 minutes" the places band states, and the headline takes it.
+ */
 export const cinematicBridgeTitle: CopyRow = {
-  en: 'Fifteen minutes apart, and two quite different holidays.',
-  de: 'Fünfzehn Minuten auseinander – und zwei ziemlich verschiedene Urlaube.',
-  es: 'A quince minutos el uno del otro, y dos vacaciones bastante distintas.',
-  nl: 'Vijftien minuten uit elkaar, en twee heel verschillende vakanties.',
-  sv: 'Femton minuter isär – och två ganska olika semestrar.'
+  en: 'Ten minutes apart, and two quite different holidays.',
+  de: 'Zehn Minuten auseinander – und zwei ziemlich verschiedene Urlaube.',
+  es: 'A diez minutos el uno del otro, y dos vacaciones bastante distintas.',
+  nl: 'Tien minuten uit elkaar, en twee heel verschillende vakanties.',
+  sv: 'Tio minuter isär – och två ganska olika semestrar.'
 };
 
 export const cinematicBridgeBody: CopyRow = {

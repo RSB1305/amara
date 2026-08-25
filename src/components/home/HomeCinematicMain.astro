@@ -13,15 +13,20 @@
  * blocks: choosing between six stays needs them side by side, and the full
  * storytelling belongs on each rental page.
  */
-import { BedDouble, Scaling, Trees } from '@lucide/astro';
+import { BedDouble, Building2, Sun } from '@lucide/astro';
 import InlineEmphasis from '../text/InlineEmphasis.astro';
 
 /**
- * Only the three glyphs the card needs. The shared `AmenityIconSprite` emits
- * every entry in the amenity vocabulary — around sixty symbols — which is the
- * right trade on the amenities page and the wrong one here.
+ * The same glyphs the rental pages use for the same three facts in their key-
+ * facts table: `Building2` for floor area, `Sun` for the outdoor space,
+ * `BedDouble` for the bed. A stay must not change symbol between the card that
+ * offers it and the page that describes it.
+ *
+ * Only these three are imported. The shared `AmenityIconSprite` emits every
+ * entry in the amenity vocabulary — around sixty symbols — which is the right
+ * trade on the amenities page and the wrong one here.
  */
-const factIcons = { interior: Scaling, outdoor: Trees, bed: BedDouble } as const;
+const factIcons = { interior: Building2, outdoor: Sun, bed: BedDouble } as const;
 
 export type CinematicFactKey = keyof typeof factIcons;
 
@@ -398,7 +403,7 @@ const [leadPlace, ...otherPlaces] = places;
                       `justify-between` would otherwise leave it at the left. */}
                   <p class="ml-auto flex items-baseline text-on-surface">
                     <span class="am-text-annotation mr-1.5 text-on-surface-variant">{apt.priceFrom}</span>
-                    <span class="am-text-price">{apt.priceAmount}</span>
+                    <span class="am-text-price text-primary">{apt.priceAmount}</span>
                     <span class="am-text-annotation text-on-surface-variant">{apt.priceUnit}</span>
                   </p>
                 </div>
