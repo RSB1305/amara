@@ -26,36 +26,41 @@ const instagramHref = 'https://www.instagram.com/amaralodging/';
 
 const copy: Record<
   AmaraLanguage,
-  { region: string; legal: string; bookingTerms: string; instagram: string }
+  { region: string; legal: string; bookingTerms: string; cookieSettings: string; instagram: string }
 > = {
   en: {
     region: 'Málaga · Spain',
     legal: 'Legal Notice & Privacy',
     bookingTerms: 'Booking Terms',
+    cookieSettings: 'Cookie settings',
     instagram: 'AMARA on Instagram'
   },
   de: {
     region: 'Málaga · Spanien',
     legal: 'Impressum & Datenschutz',
     bookingTerms: 'Buchungsbedingungen',
+    cookieSettings: 'Cookie-Einstellungen',
     instagram: 'AMARA auf Instagram'
   },
   es: {
     region: 'Málaga · España',
     legal: 'Aviso legal y privacidad',
     bookingTerms: 'Condiciones de reserva',
+    cookieSettings: 'Configurar cookies',
     instagram: 'AMARA en Instagram'
   },
   nl: {
     region: 'Málaga · Spanje',
     legal: 'Juridische kennisgeving & privacy',
     bookingTerms: 'Boekingsvoorwaarden',
+    cookieSettings: 'Cookie-instellingen',
     instagram: 'AMARA op Instagram'
   },
   sv: {
     region: 'Málaga · Spanien',
     legal: 'Juridisk information & integritet',
     bookingTerms: 'Bokningsvillkor',
+    cookieSettings: 'Cookieinställningar',
     instagram: 'AMARA på Instagram'
   }
 };
@@ -97,6 +102,13 @@ const labels = copy[currentLang] ?? copy.en;
       </div>
 
       <div class="footer-core__right flex flex-wrap items-center gap-x-4 gap-y-2">
+        <a
+          href={resolveLink('legal_notice', currentLang)}
+          class="text-on-surface-variant hover:text-primary am-text-label transition-colors"
+          data-am-consent-settings
+        >
+          {labels.cookieSettings}
+        </a>
         <a href={resolveLink('booking_stay_terms', currentLang)} class="text-on-surface-variant hover:text-primary am-text-label transition-colors">
           {labels.bookingTerms}
         </a>

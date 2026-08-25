@@ -1,0 +1,158 @@
+---
+import { resolveLink } from '../lib/linkResolver';
+import type { AmaraLanguage } from '../types/seo';
+
+interface Props {
+  lang: AmaraLanguage;
+}
+
+const { lang } = Astro.props;
+
+const copy: Record<
+  AmaraLanguage,
+  {
+    title: string;
+    description: string;
+    necessary: string;
+    analytics: string;
+    details: string;
+    ariaLabel: string;
+  }
+> = {
+  en: {
+    title: 'Your privacy choice',
+    description: 'We use optional analytics cookies only with your consent. They help us understand how guests find and use AMARA. The website works without them.',
+    necessary: 'Use necessary only',
+    analytics: 'Allow analytics',
+    details: 'Privacy and cookie details',
+    ariaLabel: 'Cookie and analytics settings'
+  },
+  de: {
+    title: 'Eure Datenschutzwahl',
+    description: 'Optionale Analyse-Cookies verwenden wir nur mit eurer Zustimmung. Sie helfen uns zu verstehen, wie Gäste AMARA finden und nutzen. Die Website funktioniert auch ohne sie.',
+    necessary: 'Nur notwendige verwenden',
+    analytics: 'Analyse erlauben',
+    details: 'Datenschutz- und Cookie-Details',
+    ariaLabel: 'Cookie- und Analyse-Einstellungen'
+  },
+  es: {
+    title: 'Vuestra elección de privacidad',
+    description: 'Solo usamos cookies analíticas opcionales con vuestro consentimiento. Nos ayudan a entender cómo los huéspedes encuentran y utilizan AMARA. La web funciona sin ellas.',
+    necessary: 'Usar solo las necesarias',
+    analytics: 'Permitir analítica',
+    details: 'Detalles de privacidad y cookies',
+    ariaLabel: 'Configuración de cookies y analítica'
+  },
+  nl: {
+    title: 'Jullie privacykeuze',
+    description: 'We gebruiken optionele analytische cookies alleen met jullie toestemming. Ze helpen ons te begrijpen hoe gasten AMARA vinden en gebruiken. De website werkt ook zonder deze cookies.',
+    necessary: 'Alleen noodzakelijke',
+    analytics: 'Analytische cookies toestaan',
+    details: 'Details over privacy en cookies',
+    ariaLabel: 'Cookie- en analyse-instellingen'
+  },
+  sv: {
+    title: 'Ert integritetsval',
+    description: 'Vi använder valfria analyscookies endast med ert samtycke. De hjälper oss att förstå hur gäster hittar och använder AMARA. Webbplatsen fungerar även utan dem.',
+    necessary: 'Använd endast nödvändiga',
+    analytics: 'Tillåt analyscookies',
+    details: 'Information om integritet och cookies',
+    ariaLabel: 'Inställningar för cookies och analys'
+  }
+};
+
+const labels = copy[lang];
+---
+
+<aside
+  class="analytics-consent"
+  data-am-analytics-consent
+  aria-labelledby="am-analytics-consent-title"
+  aria-label={labels.ariaLabel}
+  hidden
+>
+  <div class="analytics-consent__content">
+    <h2 id="am-analytics-consent-title" class="am-text-subtitle text-on-surface">
+      {labels.title}
+    </h2>
+    <p class="am-text-body text-on-surface-variant">
+      {labels.description}
+    </p>
+    <a class="am-inline-link" href={resolveLink('legal_notice', lang)}>
+      {labels.details}
+    </a>
+  </div>
+  <div class="analytics-consent__actions">
+    <button
+      type="button"
+      class="am-btn am-btn--secondary analytics-consent__button"
+      data-am-consent-choice="necessary"
+    >
+      {labels.necessary}
+    </button>
+    <button
+      type="button"
+      class="am-btn am-btn--secondary analytics-consent__button"
+      data-am-consent-choice="analytics"
+    >
+      {labels.analytics}
+    </button>
+  </div>
+</aside>
+
+<script>
+  import { enhanceAnalyticsConsent } from '../scripts/analyticsConsent';
+
+  enhanceAnalyticsConsent();
+</script>
+
+<style>
+  .analytics-consent {
+    position: fixed;
+    z-index: 300;
+    right: 1rem;
+    bottom: 1rem;
+    left: 1rem;
+    display: grid;
+    max-width: 48rem;
+    margin-left: auto;
+    gap: 1.5rem;
+    padding: 1.5rem;
+    border: 1px solid color-mix(in srgb, var(--color-outline-variant) 65%, transparent);
+    border-radius: var(--radius-overlay);
+    background: var(--color-surface-container-lowest);
+    box-shadow: 0 24px 64px rgb(27 28 26 / 0.18);
+  }
+
+  .analytics-consent[hidden] {
+    display: none;
+  }
+
+  .analytics-consent__content {
+    display: grid;
+    gap: 0.75rem;
+  }
+
+  .analytics-consent__actions {
+    display: grid;
+    gap: 0.75rem;
+  }
+
+  .analytics-consent__button {
+    width: 100%;
+    justify-content: center;
+  }
+
+  @media (min-width: 640px) {
+    .analytics-consent {
+      right: 1.5rem;
+      bottom: 1.5rem;
+      left: 1.5rem;
+      padding: 2rem;
+    }
+
+    .analytics-consent__actions {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+</style>
