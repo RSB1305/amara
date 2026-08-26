@@ -35,10 +35,12 @@ import GuideLinkCardSection from '../../../page-families/location-authority/Guid
 import BeachSectionList from '../../../page-families/location-authority/BeachSectionList.astro';
 import DayTripDestinationList from '../../../page-families/location-authority/DayTripDestinationList.astro';
 import RestaurantSectionList from '../../../page-families/location-authority/RestaurantSectionList.astro';
+import AuthorityTextSection from '../../../page-families/location-authority/AuthorityTextSection.astro';
 import { BedDouble, UsersRound } from '@lucide/astro';
 import { AMARA_PAGE_FAMILY_PROFILES, AMARA_PAGE_TYPE_PROFILES, getPageTypeAttributes, type AmaraPageFamilyId, type AmaraPageType } from '../../../components/page-type/pageTypeContract';
 import TrustFamilyClosing from '../../../components/trust/TrustFamilyClosing.astro';
 import { AMARA_TRUST_FAMILY_PROFILES, getTrustFamilyAttributes, type AmaraTrustFamilyId } from '../../../components/trust/trustFamilyContract';
+import { AMARA_AUTHORITY_FAMILY_GROUPS, getAuthorityFamilyAttributes, type AmaraAuthorityFamilyGroup } from '../../../components/authority/authorityFamilyContract';
 
 const styleguideStayFacts = [
   { label: '2 guests', Icon: UsersRound },
@@ -61,6 +63,7 @@ const ownershipLevels = [
   ['Concrete page', 'Localized content, evidence and permitted choices']
 ] as const;
 const trustFamilyIds = Object.keys(AMARA_TRUST_FAMILY_PROFILES) as AmaraTrustFamilyId[];
+const authorityFamilyGroups = Object.keys(AMARA_AUTHORITY_FAMILY_GROUPS) as AmaraAuthorityFamilyGroup[];
 ---
 
 <!DOCTYPE html>
@@ -744,6 +747,53 @@ const trustFamilyIds = Object.keys(AMARA_TRUST_FAMILY_PROFILES) as AmaraTrustFam
           </article>
         );
       })}
+
+      <div class="sg-subsection">
+        <h3 class="am-text-title text-on-surface">Authority family compositions</h3>
+        <p class="sg-inline-demo mt-3">Authority families share a direct, scannable information profile without becoming one template. The executable contract distinguishes practical guidance, destination orientation, question-led authority and formal documentary pages.</p>
+
+        {authorityFamilyGroups.map((group) => {
+          const profile = AMARA_AUTHORITY_FAMILY_GROUPS[group];
+          const specimenFamily = group === 'practical-guidance' ? 'location-arrival'
+            : group === 'destination-orientation' ? 'location-frigiliana-overview'
+              : group === 'faq-authority' ? 'general-faq' : 'booking-stay-terms';
+          return (
+            <article class="mt-10" {...getAuthorityFamilyAttributes(specimenFamily)}>
+              <p class="sg-specimen-note"><strong>Group:</strong> {group} · <strong>Job:</strong> {profile.job} · <strong>Intro:</strong> {profile.intro} · <strong>Information:</strong> {profile.information} · <strong>Media:</strong> {profile.media} · <strong>Close:</strong> {profile.close}. <strong>Boundary:</strong> restrained onward guidance, never a competing conversion funnel.</p>
+              <div class="sg-component-frame">
+                {group === 'practical-guidance' && (
+                  <AuthorityTextSection
+                    section={{ id: 'styleguide-practical-authority', eyebrow: 'Practical guidance', title: 'Answer the immediate planning question first', paragraphs: ['Lead with the action or fact that changes the visit.', 'Keep exceptions and useful next steps scannable.'] }}
+                    index={0}
+                    presentation="guide"
+                    variant="lead"
+                  />
+                )}
+                {group === 'destination-orientation' && (
+                  <div class="mx-auto max-w-xl">
+                    <LocationGuideEvidence eyebrow="Destination orientation" summary="Spatial context, fit and trade-offs support a decision without turning the guide into a Stay conversion page." items={[{ label: 'Media', value: 'Orientation-supporting' }, { label: 'Close', value: 'Restrained next step' }]} />
+                  </div>
+                )}
+                {group === 'faq-authority' && (
+                  <FaqAccordion
+                    arrivalTitle="Direct answers"
+                    steps={[{ num: '01', headline: 'Start with the question', text: 'Keep the answer complete, direct and easy to scan.' }]}
+                    faqTitle="Related questions"
+                    items={[{ question: 'What belongs here?', answer: 'Only follow-up information that helps readers understand or act on the answer.' }]}
+                    pageEndFamily="trust"
+                  />
+                )}
+                {group === 'documentary-authority' && (
+                  <EditorialSplit title="Formal information remains documentary">
+                    <p class="am-text-subtitle text-on-surface">Terms and legal notices keep stable document sections, identities and exceptions.</p>
+                    <p class="am-text-body text-subtle">Functional media and a next action are not required merely to complete a page-type anatomy.</p>
+                  </EditorialSplit>
+                )}
+              </div>
+            </article>
+          );
+        })}
+      </div>
 
       <div class="sg-subsection">
         <h3 class="am-text-title text-on-surface">Explore family compositions</h3>

@@ -1,12 +1,12 @@
 ---
 document_id: AMARA-REG-001
 title: AMARA Register
-version: 1.34.0
+version: 1.35.0
 status: ACTIVE
 authority_class: LIVING BINDING REGISTER
 activation_state: ACTIVE
 effective_from: 2026-08-14
-last_modified: 2026-08-26T16:00:00Z
+last_modified: 2026-08-26T17:00:00Z
 canonical_path: /docs/AMARA_REGISTER.md
 ---
 
@@ -21,12 +21,12 @@ The AMARA Register is the single source for active documents, authority classes,
 | Slot | Document owner | Version/status | Class | Canonical/current source |
 |---|---|---|---|---|
 | 01 | AMARA System Constitution | 5.2.0 ACTIVE | PRINCIPLE / governing | `docs/standards/01_AMARA_System_Constitution_V5.md` |
-| 02 | AMARA Astro & Design Architecture Contract | 4.16.0 ACTIVE INTERIM | CONTRACT / governing | `docs/interim/03_AMARA_Astro_Technical_Standard_V4.md` + current repository implementation |
+| 02 | AMARA Astro & Design Architecture Contract | 4.17.0 ACTIVE INTERIM | CONTRACT / governing | `docs/interim/03_AMARA_Astro_Technical_Standard_V4.md` + current repository implementation |
 | 03 | AMARA Runtime, SEO & Data Contract | PENDING Package 2 | CONTRACT / governing | Interim snapshot: `docs/interim/04_AMARA_Runtime_and_SEO_Standard_V4.md` + current repository implementation |
 | 04 | AMARA URL, Route & Link Contract | PENDING Package 2 | CONTRACT / governing | Interim snapshot: `docs/interim/05_AMARA_URL_and_Route_Infrastructure_V4.md` + Decision Register |
 | 05 | AMARA Governance, Execution & Documentation Lifecycle | 5.5.0 ACTIVE | CONTRACT / governing | `docs/standards/05_AMARA_Governance_Execution_and_Documentation_Lifecycle_V5.md` |
 | 06 | AMARA Performance & Delivery Standard | 2.1.0 ACTIVE INTERIM | PRINCIPLE/CONTRACT / governing | `docs/interim/07_AMARA_Performance_Standard_V2.md` |
-| 07 | AMARA Register | 1.34.0 ACTIVE | LIVING BINDING REGISTER | `docs/AMARA_REGISTER.md` |
+| 07 | AMARA Register | 1.35.0 ACTIVE | LIVING BINDING REGISTER | `docs/AMARA_REGISTER.md` |
 | 08 | AMARA Guest Utility Feature Contract | 2.1.0 ACTIVE INTERIM | FEATURE CONTRACT | `docs/interim/08_AMARA_Guest_Utility_Architecture_V2.md` |
 | 09 | AMARA Content Production & Localization Playbook | 1.5.0 ACTIVE INTERIM | OPERATIONAL PLAYBOOK / non-governing | `docs/interim/10_AMARA_Content_Production_and_Localization_Playbook_V1_2.md` |
 | 10 | AMARA Frigiliana–Nerja SEO Strategy | PENDING Package 2/3 | WORKING STRATEGY / non-governing | Interim snapshot: `docs/interim/09_AMARA_Frigiliana_Nerja_SEO_Strategy_V2_1.md` |
@@ -129,6 +129,7 @@ They do **not** supersede the current implementation. Until a separately aligned
 | DR-DESIGN-013 | Page-type reference anatomies are semantic phases, not a page builder. Conversion intent may be `page-end-owned` or `family-owned`: Direct Booking Benefits uses one terminal conversion close, while Vacation Rental keeps conversion in its calendar, quote, sticky action and protected checkout handoff and may end editorially without a second funnel. Arrival Guide, Experience Hub, About Us and Vacation Rental are the bounded canonical reference families. | ACTIVE |
 | DR-DESIGN-014 | `AMARA_PAGE_FAMILY_PROFILES` is the active owner of approved family-to-page-type mappings and Conversion ownership. Templates select a registered family explicitly; there is no inferred or default classification, and unclassified legacy and Guest Utility families remain outside. Page-type anatomies are canonical reference sequences rather than mandatory phase checklists, so documentary Authority pages require neither Location-guide composition, functional media nor a next action. | ACTIVE |
 | DR-DESIGN-015 | `trustFamilyContract.ts` owns the bounded composition profiles for `trust-content`, `guest-reviews` and `comfort-amenities`. `TrustPageLayout` exposes their semantic job, phases and intro/evidence alignment, and `TrustFamilyClosing` delegates the shared subtle next action to the canonical editorial and page-end owners. Family evidence remains philosophy/people, sourced guest proof or functional comfort detail; the contract is not a page builder and cannot create a second conversion funnel. | ACTIVE |
+| DR-DESIGN-016 | `authorityFamilyContract.ts` owns the bounded composition groups for every registered Authority family and emits their direct-answer, information/evidence, functional-media and restrained-close alignment through `BaseLayout`. Practical, destination, FAQ and documentary jobs remain distinct; the contract neither infers families nor becomes a universal renderer, and documentary Authority requires no media or next action. | ACTIVE |
 
 ### Content/localization
 
@@ -284,3 +285,4 @@ Separate controlled workstreams remain for:
 | 1.32.0 | 2026-08-26T12:00:00Z | Activated the central approved page-family registry and seven attribute-only classifications while preserving visible output and keeping unclassified families outside the contract. | this revision |
 | 1.33.0 | 2026-08-26T15:00:00Z | Closed classification coverage for public family templates with a dominant public job and retained Guest Guide, internal tools and error pages as explicit contract-boundary exceptions. | this revision |
 | 1.34.0 | 2026-08-26T16:00:00Z | Activated the executable Trust-family composition contract, corrected Winter Stays to Authority and clarified Guest Guide as a noindex post-booking utility. | this revision |
+| 1.35.0 | 2026-08-26T17:00:00Z | Activated the executable Authority-family composition contract across practical, destination, FAQ and documentary groups and aligned the active document metadata. | this revision |

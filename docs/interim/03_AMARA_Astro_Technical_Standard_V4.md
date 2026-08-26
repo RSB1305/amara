@@ -1,7 +1,7 @@
 ---
 document_id: AMARA-INT-ASTRO-003
 title: AMARA Astro & Design Architecture Contract V4
-version: 4.16.0
+version: 4.17.0
 status: ACTIVE
 authority_class: CONTRACT / GOVERNING INTERIM
 source_type: INTERIM SNAPSHOT FROM APPROVED PDF + APPROVED REPOSITORY AMENDMENT
@@ -9,7 +9,7 @@ source_attachment: "03_AMARA_Astro_Technical_Standard_V4 (1).pdf"
 source_sha256: b3d8a3e780b29b5be42922aec838c7f56f455184cca8336d9a0f3564ba43f9aa
 snapshot_created: 2026-08-14T09:08:00+02:00
 migration_state: PENDING PACKAGE 2/3 NORMALIZATION
-last_modified: 2026-08-26T16:00:00Z
+last_modified: 2026-08-26T17:00:00Z
 ---
 
 # AMARA Astro & Design Architecture Contract V4 — Interim Markdown Snapshot
@@ -522,6 +522,20 @@ reviews and awards; Comfort & Amenities retains its functional inventory and det
 styles and order remain family-owned, but the close cannot introduce a second conversion owner. Winter Stays is
 the approved `location-winter-stays` Authority family because its dominant job is practical seasonal orientation.
 
+17.15 Executable Authority-family composition
+
+`src/components/authority/authorityFamilyContract.ts` groups every registered Authority family by its real
+composition job: practical guidance, destination orientation, FAQ authority or documentary authority. It owns
+the permitted semantic phases and the shared direct-answer, information/evidence, functional-media and restrained
+close alignments. `BaseLayout` emits the selected profile with the existing page-type and family attributes, so
+Location layouts, FAQ layouts and direct documentary templates consume one contract without becoming one renderer.
+
+Practical guidance remains action- and planning-led; destination orientation retains spatial context, functional
+media and comparison; FAQ pages remain question-led; Booking Stay Terms and Legal Notice remain formal documents
+for which media and next actions are not required. The contract does not reorder content, infer a family, render a
+schema or introduce a universal Authority component. Family-owned heroes, evidence, FAQ, callout, media and closing
+owners remain responsible for their existing jobs and visible output.
+
 ## Revision history
 
 | Version | Date | Change |
@@ -544,3 +558,4 @@ the approved `location-winter-stays` Authority family because its dominant job i
 | 4.14.0 | 2026-08-26T12:00:00Z | Centralized approved family-to-type mappings, registered seven attribute-only families and clarified reference anatomies as optional canonical phases without visible redesign. |
 | 4.15.0 | 2026-08-26T15:00:00Z | Closed public page-family classification coverage at the owning template boundary while preserving Guest Guide, internal tools and error pages as explicit non-public-profile exceptions. |
 | 4.16.0 | 2026-08-26T16:00:00Z | Activated the bounded executable Trust-family composition contract and shared Trust close, corrected Winter Stays to Authority and described Guest Guide accurately as a noindex post-booking utility. |
+| 4.17.0 | 2026-08-26T17:00:00Z | Activated the executable Authority-family composition contract across practical, destination, FAQ and documentary groups without changing public composition or conversion paths. |
