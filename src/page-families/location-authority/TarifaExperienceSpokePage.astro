@@ -12,6 +12,7 @@ import LocationAuthorityLayout from '../../layouts/LocationAuthorityLayout.astro
 import { createRequiredLinkResolver, type LabeledLink } from '../../lib/linkResolver';
 import { normalizeLanguage } from '../../lib/seo/resolve-seo-head';
 import type { AmaraLanguage } from '../../types/seo';
+import { getPageEndAttributes } from '../../components/page-end/pageEndContract';
 import AuthorityTextSection from './AuthorityTextSection.astro';
 
 interface Props {
@@ -50,6 +51,7 @@ const localizedSections = content.sections.map((section) => ({
   pageLang={currentLang}
   showContextNavigation={false}
   footerHighlights={footerHighlights}
+  pageFamily="experience-tarifa-spoke"
 >
   <Navigation
     slot="navigation"
@@ -161,7 +163,7 @@ const localizedSections = content.sections.map((section) => ({
       </div>
     </section>
 
-    <section class="bg-surface px-6 py-24 md:px-12 md:py-32">
+    <section class="bg-surface px-6 py-24 md:px-12 md:py-32" {...getPageEndAttributes('next-action', 'experience')}>
       <div class="mx-auto grid max-w-screen-2xl gap-10 lg:grid-cols-12 lg:items-end lg:gap-20">
         <div class="lg:col-span-7">
           <p class="am-text-eyebrow text-primary">{t(content.closing.eyebrow)}</p>
@@ -170,8 +172,8 @@ const localizedSections = content.sections.map((section) => ({
         <div class="lg:col-span-5">
           <p class="am-text-body leading-relaxed text-on-surface-variant"><InlineEmphasis text={t(content.closing.body)} /></p>
           <div class="mt-8 flex flex-col items-start gap-5 sm:flex-row sm:items-center">
-            <a href={hubHref} class="am-btn am-btn--primary">{t(content.closing.hubLabel)}</a>
-            <a href={propertyHref} class="am-cta-link">{t(content.closing.propertyLabel)}</a>
+            <a href={hubHref} class="am-cta-link">{t(content.closing.hubLabel)}</a>
+            <a href={propertyHref} class="am-inline-link">{t(content.closing.propertyLabel)}</a>
           </div>
         </div>
       </div>

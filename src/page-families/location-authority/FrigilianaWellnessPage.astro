@@ -61,6 +61,7 @@ const providerImages = {
   seo={frigilianaWellnessSeo}
   pageLang={currentLang}
   footerHighlights={footerHighlights}
+  pageFamily="experience-wellness"
 >
   <Navigation
     slot="navigation"
@@ -270,14 +271,16 @@ const providerImages = {
             {
               token: 'romantic_hideaways',
               label: copy.closing.apartmentsCta,
-              style: 'primary'
+              style: 'text'
             },
             {
               token: 'book',
               label: copy.closing.availabilityCta,
-              style: 'secondary'
+              style: 'text'
             }
           ]}
+          role="next-action"
+          family="experience"
       />
     </div>
   </div>

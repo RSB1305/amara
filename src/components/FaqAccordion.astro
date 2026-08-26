@@ -1,6 +1,7 @@
 ---
 // src/components/FaqAccordion.astro
 import AmaraActionLink from './actions/AmaraActionLink.astro';
+import { getPageEndAttributes, type AmaraPageEndFamily } from './page-end/pageEndContract';
 
 interface Props {
   arrivalTitle?: string;
@@ -15,6 +16,7 @@ interface Props {
   arrivalDetailCta?: { href: string; label: string };
   /** Optional onward link below the FAQ accordion list. */
   allFaqsCta?: { href: string; label: string };
+  pageEndFamily?: AmaraPageEndFamily;
 }
 
 const {
@@ -25,11 +27,12 @@ const {
   anchorArrivalId,
   anchorFaqId,
   arrivalDetailCta,
-  allFaqsCta
+  allFaqsCta,
+  pageEndFamily
 } = Astro.props;
 ---
 
-<section class="bg-surface px-6 py-20 md:px-12 md:py-32 border-t border-outline-variant/10">
+<section class="bg-surface px-6 py-20 md:px-12 md:py-32 border-t border-outline-variant/10" {...(pageEndFamily ? getPageEndAttributes('faq', pageEndFamily) : {})}>
   <div class="max-w-screen-2xl mx-auto grid grid-cols-1 gap-x-32 gap-y-16 md:grid-cols-2 md:items-stretch md:gap-y-20">
     <div class="flex flex-col md:h-full min-h-0" {...(anchorArrivalId ? { id: anchorArrivalId } : {})}>
       <h2 class="am-text-title italic text-on-surface mb-10 tracking-tight leading-tight shrink-0 md:mb-20">

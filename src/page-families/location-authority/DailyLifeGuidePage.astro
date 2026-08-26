@@ -56,6 +56,7 @@ const footerHighlights: LabeledLink[] = [
   pageLang={currentLang}
   showContextNavigation={false}
   footerHighlights={footerHighlights}
+  pageFamily="location-daily-life"
 >
   <Navigation slot="navigation" currentLang={currentLang} languageToken={pageConfig.languageToken}>
     {destination === 'frigiliana' && (
@@ -96,6 +97,8 @@ const footerHighlights: LabeledLink[] = [
     primaryCta={{ href: availabilityHref, label: content.closing.availabilityLabel }}
     secondaryCta={{ href: locationHref, label: content.closing.locationLabel }}
     presentation="guide"
+    closingRole="next-action"
+    closingActionMode="restrained"
     guideVisual={{
       eyebrow: content.facts[0].label,
       mark: pageConfig.label,

@@ -6,6 +6,7 @@ import {
   type AmaraImageProfile
 } from '../lib/images/amaraImageProfiles';
 import { resolveAmaraImageSource } from '../lib/images/amaraImageRegistry';
+import type { AmaraMediaRole } from './media/mediaContract';
 
 interface Props {
   src: ImageMetadata | string;
@@ -21,6 +22,8 @@ interface Props {
   quality?: number;
   avifQuality?: number;
   preferAvif?: boolean;
+  mediaRole?: AmaraMediaRole;
+  focalPoint?: string;
 }
 
 const {
@@ -36,7 +39,9 @@ const {
   sizes,
   quality,
   avifQuality,
-  preferAvif = false
+  preferAvif = false,
+  mediaRole,
+  focalPoint
 } = Astro.props;
 
 const image = resolveAmaraImageSource(src);
@@ -71,6 +76,8 @@ const avif = preferAvif
       loading={loading}
       decoding={decoding}
       fetchpriority={fetchpriority}
+      data-am-media-image={mediaRole}
+      style={focalPoint ? `object-position: ${focalPoint}` : undefined}
     />
   </picture>
 ) : (
@@ -86,5 +93,7 @@ const avif = preferAvif
     loading={loading}
     decoding={decoding}
     fetchpriority={fetchpriority}
+    data-am-media-image={mediaRole}
+    style={focalPoint ? `object-position: ${focalPoint}` : undefined}
   />
 )}

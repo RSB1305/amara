@@ -7,6 +7,7 @@ import AuthorityRelatedLinks from './AuthorityRelatedLinks.astro';
 import LocationModule from './LocationModule.astro';
 import type { LocationClimateMonth } from '../../content/locationClimateData';
 import type { WeatherAuthorityContent } from './weatherAuthority';
+import { getPageEndAttributes } from '../../components/page-end/pageEndContract';
 
 interface Props {
   pageId: string;
@@ -200,7 +201,7 @@ const {
 
   <AuthorityRelatedLinks related={content.related} columns="md:grid-cols-3" resolveHref={resolveHref} />
 
-  <LocationModule spacing="closing" divider={false}>
+  <LocationModule spacing="closing" divider={false} {...getPageEndAttributes('next-action', 'location')}>
     <div class="mx-auto grid max-w-screen-2xl gap-10 lg:grid-cols-12 lg:items-end lg:gap-20">
       <div class="lg:col-span-7">
         <p class="am-text-eyebrow text-primary">{content.closing.eyebrow}</p>
@@ -209,8 +210,8 @@ const {
       <div class="lg:col-span-5">
         <p class="am-text-body leading-relaxed text-on-surface-variant"><InlineEmphasis text={content.closing.body} /></p>
         <div class="mt-8 flex flex-col items-start gap-5">
-          <a href={primaryHref} class="am-btn am-btn--primary">{content.closing.primaryLabel}</a>
-          <a href={secondaryHref} class="am-cta-link">{content.closing.secondaryLabel}</a>
+          <a href={primaryHref} class="am-cta-link">{content.closing.primaryLabel}</a>
+          <a href={secondaryHref} class="am-inline-link">{content.closing.secondaryLabel}</a>
         </div>
       </div>
     </div>

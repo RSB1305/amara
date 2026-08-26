@@ -99,6 +99,7 @@ const ingenioImage = {
   seo={frigilianaMarketSeo}
   pageLang={currentLang}
   footerHighlights={footerHighlights}
+  pageFamily="experience-market"
 >
   <Navigation
     slot="navigation"
@@ -312,16 +313,18 @@ const ingenioImage = {
           title={t(copy.closing.title)}
           lead={t(copy.closing.lead)}
           lang={currentLang}
+          role="next-action"
+          family="experience"
           links={[
             {
               token: 'romantic_hideaways',
               label: t(copy.closing.staysCta),
-              style: 'primary'
+              style: 'text'
             },
             {
               token: 'location_frigiliana',
               label: t(copy.closing.guideCta),
-              style: 'secondary'
+              style: 'text'
             }
           ]}
         />

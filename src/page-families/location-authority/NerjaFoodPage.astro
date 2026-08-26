@@ -35,7 +35,7 @@ const footerHighlights: LabeledLink[] = [
 const heroImage = { src: '/images/amara-frigiliana-pueblo/nerja-coast-aerial.jpeg', width: 2000 };
 ---
 
-<LocationAuthorityLayout seo={nerjaFoodSeo} pageLang={currentLang} footerHighlights={footerHighlights}>
+<LocationAuthorityLayout seo={nerjaFoodSeo} pageLang={currentLang} footerHighlights={footerHighlights} pageFamily="experience-nerja-food">
   <Navigation slot="navigation" currentLang={currentLang} languageToken="nerja_food_authority" >
     <ExperienceContextNav slot="context-navigation" currentId="food" destination="nerja" lang={currentLang} />
   </Navigation>
@@ -86,6 +86,6 @@ const heroImage = { src: '/images/amara-frigiliana-pueblo/nerja-coast-aerial.jpe
       resolveHref={requiredLink}
     />
 
-    <GuideClosingSection title={copy.closing.title} lead={copy.closing.lead} lang={currentLang} links={[{ token: 'playa', label: copy.closing.propertyLabel, style: 'primary' }, { token: 'nerja_experience_hub', label: copy.closing.hubLabel, style: 'secondary' }]} />
+    <GuideClosingSection title={copy.closing.title} lead={copy.closing.lead} lang={currentLang} links={[{ token: 'playa', label: copy.closing.propertyLabel, style: 'text' }, { token: 'nerja_experience_hub', label: copy.closing.hubLabel, style: 'text' }]} role="next-action" family="experience" />
   </div>
 </LocationAuthorityLayout>

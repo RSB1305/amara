@@ -40,6 +40,7 @@ const footerHighlights: LabeledLink[] = [
   pageLang={currentLang}
   showContextNavigation={false}
   footerHighlights={footerHighlights}
+  pageFamily="experience-tarifa-hub"
 >
   <Navigation
     slot="navigation"
@@ -137,18 +138,20 @@ const footerHighlights: LabeledLink[] = [
             {
               token: copy.closing.token,
               label: copy.closing.ctaLabel,
-              style: 'primary'
+              style: 'text'
             },
             ...(copy.closing.secondaryToken
               ? [
                   {
                     token: copy.closing.secondaryToken,
                     label: copy.closing.secondaryLabel!,
-                    style: 'secondary' as const
+                    style: 'text' as const
                   }
                 ]
               : [])
           ]}
+          role="next-action"
+          family="experience"
         />
       </div>
     </section>

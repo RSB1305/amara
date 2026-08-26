@@ -1,12 +1,12 @@
 ---
 document_id: AMARA-REG-001
 title: AMARA Register
-version: 1.27.0
+version: 1.32.0
 status: ACTIVE
 authority_class: LIVING BINDING REGISTER
 activation_state: ACTIVE
 effective_from: 2026-08-14
-last_modified: 2026-08-25T19:02:14+02:00
+last_modified: 2026-08-26T12:00:00Z
 canonical_path: /docs/AMARA_REGISTER.md
 ---
 
@@ -21,12 +21,12 @@ The AMARA Register is the single source for active documents, authority classes,
 | Slot | Document owner | Version/status | Class | Canonical/current source |
 |---|---|---|---|---|
 | 01 | AMARA System Constitution | 5.2.0 ACTIVE | PRINCIPLE / governing | `docs/standards/01_AMARA_System_Constitution_V5.md` |
-| 02 | AMARA Astro & Design Architecture Contract | 4.9.0 ACTIVE INTERIM | CONTRACT / governing | `docs/interim/03_AMARA_Astro_Technical_Standard_V4.md` + current repository implementation |
+| 02 | AMARA Astro & Design Architecture Contract | 4.14.0 ACTIVE INTERIM | CONTRACT / governing | `docs/interim/03_AMARA_Astro_Technical_Standard_V4.md` + current repository implementation |
 | 03 | AMARA Runtime, SEO & Data Contract | PENDING Package 2 | CONTRACT / governing | Interim snapshot: `docs/interim/04_AMARA_Runtime_and_SEO_Standard_V4.md` + current repository implementation |
 | 04 | AMARA URL, Route & Link Contract | PENDING Package 2 | CONTRACT / governing | Interim snapshot: `docs/interim/05_AMARA_URL_and_Route_Infrastructure_V4.md` + Decision Register |
 | 05 | AMARA Governance, Execution & Documentation Lifecycle | 5.5.0 ACTIVE | CONTRACT / governing | `docs/standards/05_AMARA_Governance_Execution_and_Documentation_Lifecycle_V5.md` |
 | 06 | AMARA Performance & Delivery Standard | 2.1.0 ACTIVE INTERIM | PRINCIPLE/CONTRACT / governing | `docs/interim/07_AMARA_Performance_Standard_V2.md` |
-| 07 | AMARA Register | 1.27.0 ACTIVE | LIVING BINDING REGISTER | `docs/AMARA_REGISTER.md` |
+| 07 | AMARA Register | 1.32.0 ACTIVE | LIVING BINDING REGISTER | `docs/AMARA_REGISTER.md` |
 | 08 | AMARA Guest Utility Feature Contract | 2.1.0 ACTIVE INTERIM | FEATURE CONTRACT | `docs/interim/08_AMARA_Guest_Utility_Architecture_V2.md` |
 | 09 | AMARA Content Production & Localization Playbook | 1.5.0 ACTIVE INTERIM | OPERATIONAL PLAYBOOK / non-governing | `docs/interim/10_AMARA_Content_Production_and_Localization_Playbook_V1_2.md` |
 | 10 | AMARA Frigiliana–Nerja SEO Strategy | PENDING Package 2/3 | WORKING STRATEGY / non-governing | Interim snapshot: `docs/interim/09_AMARA_Frigiliana_Nerja_SEO_Strategy_V2_1.md` |
@@ -123,6 +123,11 @@ They do **not** supersede the current implementation. Until a separately aligned
 | DR-DESIGN-007 | AMARA has no universal card. `src/components/content/moduleContract.ts` classifies card-like and editorial modules by information job. Editorial feature grids and practical callouts are canonical cross-silo modules; guide navigation, stay selection, evidence, comparison, booking decision and bounded editorial statements remain named family modules with their own production owners. | ACTIVE |
 | DR-DESIGN-008 | `src/components/layout/sectionContract.ts`, `AmaraSection` and `AmaraSectionIntro` own canonical page-section rhythm and recurring section introductions. Trust centered, Stay standard and Location/Experience editorial introductions are deliberate family variants. The older `am-section` Location shell is controlled legacy and is migrated only with a materially revised containing renderer. | ACTIVE |
 | DR-DESIGN-009 | `AmaraFormControl` and the `am-form-control` role own the canonical native select, date-input and button-trigger surface, including focus, expanded, invalid and disabled states. Form meaning, labels, grouping, messages and client behaviour remain with the consuming job; chips, checkboxes, radios, action buttons and free-form editors remain distinct. | ACTIVE |
+| DR-DESIGN-010 | `mediaContract.ts` classifies hero, editorial, split, card, gallery and utility media. `AmaraMediaFrame` owns repeatable framing, while `AmaraImage` owns responsive delivery and focal-point output. Hero family geometry and LCP nomination remain family-owned; card/gallery interaction is opt-in, captions and sources are authored, and silo-specific information jobs remain deliberate variants. | ACTIVE |
+| DR-DESIGN-011 | `pageEndContract.ts` classifies FAQ, related-content, editorial-close, next-action and conversion roles and their canonical mobile order. Existing FAQ, pre-footer, section and action owners render the roles; decisive conversion remains last when present, while booking handoff, recommendation selection and other family conversion logic remain with Trust, Stay, Location and Experience owners. | ACTIVE |
+| DR-DESIGN-012 | AMARA separates the global design system from `authority`, `explore`, `trust` and `conversion` page-type composition profiles. Each classified public page declares one dominant type; type is not family, profiles only orchestrate global owners, and unclassified legacy pages receive no default. The Conversion profile governs calm Search/Stay/Availability/handoff composition but does not alter the external booking and checkout contract. | ACTIVE |
+| DR-DESIGN-013 | Page-type reference anatomies are semantic phases, not a page builder. Conversion intent may be `page-end-owned` or `family-owned`: Direct Booking Benefits uses one terminal conversion close, while Vacation Rental keeps conversion in its calendar, quote, sticky action and protected checkout handoff and may end editorially without a second funnel. Arrival Guide, Experience Hub, About Us and Vacation Rental are the bounded canonical reference families. | ACTIVE |
+| DR-DESIGN-014 | `AMARA_PAGE_FAMILY_PROFILES` is the active owner of approved family-to-page-type mappings and Conversion ownership. Templates select a registered family explicitly; there is no inferred or default classification, and unclassified legacy and Guest Utility families remain outside. Page-type anatomies are canonical reference sequences rather than mandatory phase checklists, so documentary Authority pages require neither Location-guide composition, functional media nor a next action. | ACTIVE |
 
 ### Content/localization
 
@@ -271,3 +276,8 @@ Separate controlled workstreams remain for:
 | 1.26.0 | 2026-08-25T18:37:51+02:00 | Activated the shared section rhythm, approved surfaces and recurring section-introduction variants while retaining the older Location shell as controlled legacy. | this revision |
 | 1.26.1 | 2026-08-25T18:47:39+02:00 | Corrected mobile containment for contextual breadcrumbs and the narrowest five-locale header while preserving the booking path and contained sibling-link scrolling. | this revision |
 | 1.27.0 | 2026-08-25T19:02:14+02:00 | Activated the canonical native form-control owner and migrated all three repeated public field recipes into its shared state contract. | this revision |
+| 1.28.0 | 2026-08-25T20:00:00+02:00 | Activated the semantic media-role contract, shared frame and bounded Location/Experience migration while preserving family-specific image jobs. | this revision |
+| 1.29.0 | 2026-08-25T20:30:00+02:00 | Activated the semantic page-end contract and bounded cross-silo consumers while preserving family-owned conversion logic and mobile order. | this revision |
+| 1.30.0 | 2026-08-25T21:00:00+02:00 | Activated the two-level design-system/page-type architecture, explicit compatibility matrix and bounded Authority, Explore, Trust and Conversion consumers. | this revision |
+| 1.31.0 | 2026-08-26T10:00:00Z | Registered the four reference anatomies and corrected Conversion ownership to support both terminal page-end and family-owned Stay flows without changing checkout architecture. | this revision |
+| 1.32.0 | 2026-08-26T12:00:00Z | Activated the central approved page-family registry and seven attribute-only classifications while preserving visible output and keeping unclassified families outside the contract. | this revision |

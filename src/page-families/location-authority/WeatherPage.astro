@@ -69,7 +69,7 @@ const footerHighlights: LabeledLink[] | undefined = destination === 'tarifa'
   : undefined;
 ---
 
-<LocationAuthorityLayout seo={seo} pageLang={currentLang} showContextNavigation={false} footerHighlights={footerHighlights}>
+<LocationAuthorityLayout seo={seo} pageLang={currentLang} showContextNavigation={false} footerHighlights={footerHighlights} pageFamily="location-weather">
   <Navigation slot="navigation" currentLang={currentLang} languageToken={pageConfig.languageToken} >
     {destination === 'frigiliana' && (
       <LocationContextNav slot="context-navigation" activeId="weather" lang={currentLang} />

@@ -1,7 +1,7 @@
 ---
 document_id: AMARA-INT-ASTRO-003
 title: AMARA Astro & Design Architecture Contract V4
-version: 4.9.0
+version: 4.14.0
 status: ACTIVE
 authority_class: CONTRACT / GOVERNING INTERIM
 source_type: INTERIM SNAPSHOT FROM APPROVED PDF + APPROVED REPOSITORY AMENDMENT
@@ -9,7 +9,7 @@ source_attachment: "03_AMARA_Astro_Technical_Standard_V4 (1).pdf"
 source_sha256: b3d8a3e780b29b5be42922aec838c7f56f455184cca8336d9a0f3564ba43f9aa
 snapshot_created: 2026-08-14T09:08:00+02:00
 migration_state: PENDING PACKAGE 2/3 NORMALIZATION
-last_modified: 2026-08-25T19:02:14+02:00
+last_modified: 2026-08-26T12:00:00Z
 ---
 
 # AMARA Astro & Design Architecture Contract V4 — Interim Markdown Snapshot
@@ -176,6 +176,22 @@ Requirements:
 - lazy loading for non-critical imagery;
 - no decorative image bytes without a clear visual purpose.
 Do not bypass AmaraImage / the approved image pipeline without a concrete reason.
+
+8.1 Media role contract
+
+`src/components/media/mediaContract.ts` classifies media by job as hero, editorial, split, card, gallery or
+utility. `AmaraMediaFrame` owns repeatable framing: shared aspect ratios where the job permits, surface,
+optional soft radius, mobile full bleed, restrained interactive motion, captions and sources. `AmaraImage`
+remains the responsive delivery owner and exposes the declared media role and optional focal point on the
+actual image. Hero geometry and priority remain with the named hero family; a page nominates only its real
+LCP candidate for eager loading and high fetch priority. Non-critical media stays lazy and async.
+
+The roles do not erase page-family differences. Trust evidence may remain text-led, Stay galleries remain
+decision-oriented and interactive, Location media may establish spatial authority, and Experience media may
+carry narrative or provenance context. Captions and sources are authored only when meaningful. Card and
+gallery hover treatment is opt-in and respects reduced motion; documentary and utility media is inert by
+default. Existing direct compositions are controlled legacy and migrate in bounded representative sets or
+when their containing renderer is materially revised.
 
 9. Navigation and shared shell behavior
 Navigation is a high-risk shared component.
@@ -424,6 +440,69 @@ because it accepts input. New Stay and booking controls use the production compo
 field recipe locally. The current canonical consumers are the Stay search finder, property booking calendar and
 last-minute guest filter.
 
+17.10 Page-end contract
+
+`src/components/page-end/pageEndContract.ts` classifies the final content sequence as FAQ, related content,
+editorial close, next action or conversion. The contract exposes semantic role, family, visual weight, surface
+and maximum-width intent. Mobile DOM order is canonical: FAQ and recommendations precede a close, and a
+decisive conversion close is last when present. Roles may be omitted; FAQ is never required merely to fill a
+sequence.
+
+`FaqAccordion`, `ExperiencePreFooter` and `EditorialClosingCta` are the existing productive owners integrated
+with this contract. They retain authored content and action resolution. `AmaraSection`, section-introduction
+roles and action components continue to own rhythm, hierarchy and action treatment. Stay booking widgets and
+provider handoff, Trust evidence logic, Location onward routing and Experience recommendation selection remain
+family-owned; the page-end contract does not become a universal conversion component.
+
+17.11 Global system and page-type composition profiles
+
+AMARA has two distinct design-control levels. The global design system owns foundations, primitives, media,
+section rhythm, responsive behaviour and accessibility. `src/components/page-type/pageTypeContract.ts` owns
+the composition profiles `authority`, `explore`, `trust` and `conversion`: dominant psychological purpose,
+layout character, information density, media weight, whitespace intent, CTA mode and compatible page-end
+roles. The ownership chain is global design system → page-type profile → page-family template → concrete page
+and localized content. A profile orchestrates global production owners; it never creates alternative colors,
+controls or components.
+
+Every classified public page has exactly one dominant type. Page type is not page family: one family template
+may support different explicitly declared profiles. Missing classification has no default, and unclassified
+legacy pages remain unchanged. Authority supports FAQ, related content, editorial close and restrained next
+action; Explore supports related content, editorial close and inspirational next action; Trust supports FAQ,
+editorial close and subtle next action; Conversion supports FAQ plus one terminal conversion close. The
+Conversion profile describes AMARA search, availability, stay-decision and checkout-handoff composition only.
+It does not own booking runtime, create an Astro checkout or change the boundary governed by
+`AMARA-BOOKING-ARCHITECTURE.md` and `src/lib/directBooking.ts`.
+
+17.12 Reference anatomies and conversion ownership
+
+The four page-type profiles record semantic module phases and one canonical reference family without becoming
+a page builder or runtime ordering engine. Arrival Guide is the Authority reference, Experience Hub the Explore
+reference, About Us the Trust reference and Vacation Rental the Conversion reference. The family template owns
+composition for all of its concrete localized pages; destination, stay and locale do not create special layouts.
+
+Conversion intent has two valid owners: `page-end-owned` where one terminal conversion close carries the
+decision, and `family-owned` where the Stay calendar, quote, sticky action and protected checkout handoff carry
+it. A Conversion page may therefore end with a non-competing editorial close and does not require an additional
+conversion page-end module. Direct Booking Benefits is page-end-owned; Vacation Rental is family-owned. In both
+cases there is one coherent primary path. The external booking boundary remains unchanged. Explore closes use
+editorial next actions rather than decisive button treatment; Authority closes remain restrained information
+transitions; Trust closes remain subtle.
+
+17.13 Active page-family classification registry
+
+`AMARA_PAGE_FAMILY_PROFILES` in `src/components/page-type/pageTypeContract.ts` is the sole active mapping of
+approved page-family identifiers to their page type and, for Conversion families, conversion ownership. A
+template selects one registered family explicitly and `getPageFamilyProfile()` fails rather than inventing a
+default. Unclassified legacy and Guest Utility families remain outside the registry. Page type and page family
+are emitted as separate attributes; classification is not inferred from a route, layout or directory.
+
+Reference anatomies remain canonical examples, not required phase checklists. A family may omit phases that do
+not serve its dominant job. In particular, documentary Authority families such as Booking Stay Terms and Legal
+Notice require neither functional media nor a next action and do not adopt Location-guide composition. This
+release registers the five existing reference families plus the approved attribute-only Booking Terms, Legal
+Notice, Nerja Location Hub, Nerja Where-to-Stay, Instagram, Stay Search and Last Minute families without changing
+their visible composition.
+
 ## Revision history
 
 | Version | Date | Change |
@@ -439,3 +518,8 @@ last-minute guest filter.
 | 4.8.0 | 2026-08-25T18:37:51+02:00 | Activated the shared section rhythm and section-introduction contract, preserved named Trust, Stay and Location/Experience variants, migrated bounded production consumers and classified the older Location shell as controlled legacy. |
 | 4.8.1 | 2026-08-25T18:47:39+02:00 | Corrected mobile width containment in the canonical context navigation so localized current-page breadcrumbs truncate within the rail and sibling links retain contained horizontal scrolling without widening the document; added the native compact booking-label tier below 360px so all four header jobs remain visible. |
 | 4.9.0 | 2026-08-25T19:02:14+02:00 | Activated the canonical native form-control owner, centralized select, date-input and calendar-trigger states, migrated all three repeated public recipes and rendered the production API in the living styleguide. |
+| 4.10.0 | 2026-08-25T20:00:00+02:00 | Activated the semantic media-role contract, shared production frame and focal-point hook; migrated bounded Location and Experience split-media consumers and rendered production media roles in the living styleguide. |
+| 4.11.0 | 2026-08-25T20:30:00+02:00 | Activated semantic page-end roles and canonical mobile order across bounded Trust, Stay, Location and Experience consumers while preserving family conversion owners. |
+| 4.12.0 | 2026-08-25T21:00:00+02:00 | Activated the two-level global-system/page-type architecture, four semantic composition profiles and bounded explicit consumers without default-classifying legacy pages or changing booking ownership. |
+| 4.13.0 | 2026-08-26T10:00:00Z | Added canonical reference anatomies, corrected terminal Conversion ownership to page-end-owned or family-owned, and aligned the four bounded reference templates without changing booking runtime. |
+| 4.14.0 | 2026-08-26T12:00:00Z | Centralized approved family-to-type mappings, registered seven attribute-only families and clarified reference anatomies as optional canonical phases without visible redesign. |

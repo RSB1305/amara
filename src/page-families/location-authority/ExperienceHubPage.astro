@@ -75,6 +75,7 @@ const heroImage = {
 ---
 
 <LocationAuthorityLayout
+  pageFamily="experience-hub"
   seo={experienceHubSeo}
   pageLang={currentLang}
   footerHighlights={footerHighlights}
@@ -328,14 +329,16 @@ const heroImage = {
           {
             token: 'romantic_hideaways',
             label: copy.closing.staysCta,
-            style: 'primary'
+            style: 'text'
           },
           {
             token: 'book',
             label: copy.closing.availabilityCta,
-            style: 'secondary'
+            style: 'text'
           }
         ]}
+        role="next-action"
+        family="experience"
       />
     </div>
   </div>

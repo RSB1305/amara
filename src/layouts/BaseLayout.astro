@@ -17,6 +17,7 @@ import '../styles/global.css';
 import headlineFontUrl from '@fontsource/newsreader/files/newsreader-latin-300-normal.woff2?url';
 import bodyFontUrl from '@fontsource/plus-jakarta-sans/files/plus-jakarta-sans-latin-400-normal.woff2?url';
 import labelFontUrl from '@fontsource/plus-jakarta-sans/files/plus-jakarta-sans-latin-700-normal.woff2?url';
+import { getPageFamilyAttributes, type AmaraPageFamilyId } from '../components/page-type/pageTypeContract';
 
 /**
  * Web fonts are declared inside the global stylesheet, so the browser can only
@@ -43,6 +44,7 @@ interface Props {
   showContextNavigation?: boolean;
   /** Page canvas behind content; default matches design token surface. */
   bodyBackgroundClass?: string;
+  pageFamily?: AmaraPageFamilyId;
 }
 
 const {
@@ -52,7 +54,8 @@ const {
   contextBreadcrumbTitle,
   contextDestination,
   showContextNavigation = true,
-  bodyBackgroundClass = 'bg-surface'
+  bodyBackgroundClass = 'bg-surface',
+  pageFamily
 } = Astro.props;
 
 /**
@@ -138,7 +141,7 @@ const ldJson = resolveStructuredData(seo, head.canonicalUrl, currentLang, origin
 
   </head>
 
-  <body class:list={[bodyBackgroundClass, 'text-on-surface font-body selection:bg-primary/10 antialiased']}>
+  <body class:list={[bodyBackgroundClass, 'text-on-surface font-body selection:bg-primary/10 antialiased']} {...(pageFamily ? getPageFamilyAttributes(pageFamily) : {})}>
     <div class="relative z-[10] pt-[104px] lg:pt-[112px]" data-am-interaction-root>
       <a
         href="#am-main-content"

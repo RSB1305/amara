@@ -57,6 +57,7 @@ const heroImage = {
   seo={nerjaNightlifeSeo}
   pageLang={currentLang}
   footerHighlights={footerHighlights}
+  pageFamily="experience-nerja-nightlife"
 >
   <Navigation
     slot="navigation"
@@ -320,14 +321,16 @@ const heroImage = {
             {
               token: 'playa',
               label: copy.closing.apartmentsCta,
-              style: 'primary'
+              style: 'text'
             },
             {
               token: 'book',
               label: copy.closing.availabilityCta,
-              style: 'secondary'
+              style: 'text'
             }
           ]}
+          role="next-action"
+          family="experience"
       />
     </div>
   </div>

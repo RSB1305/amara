@@ -3,15 +3,18 @@ import EditorialClosingCta, {
   type EditorialClosingCtaLink
 } from '../../components/editorial/EditorialClosingCta.astro';
 import type { AmaraLanguage } from '../../types/seo';
+import type { AmaraPageEndFamily, AmaraPageEndRole } from '../../components/page-end/pageEndContract';
 
 interface Props {
   title: string;
   lead: string;
   lang: AmaraLanguage;
   links: EditorialClosingCtaLink[];
+  role?: Extract<AmaraPageEndRole, 'editorial-close' | 'next-action' | 'conversion'>;
+  family?: AmaraPageEndFamily;
 }
 
-const { title, lead, lang, links } = Astro.props;
+const { title, lead, lang, links, role, family } = Astro.props;
 ---
 
 <section class="mx-auto max-w-screen-2xl px-6 pt-24 md:px-12">
@@ -20,5 +23,7 @@ const { title, lead, lang, links } = Astro.props;
     lead={lead}
     lang={lang}
     links={links}
+    role={role}
+    family={family}
   />
 </section>

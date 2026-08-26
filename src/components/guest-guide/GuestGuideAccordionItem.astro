@@ -78,13 +78,13 @@ const mapLabel = `${title} — Google Maps`;
     {cleanedBody.map((paragraph) => <p set:html={paragraph} />)}
     {image && (
       <figure class="am-ios-figure">
-        <AmaraImage src={image.src} alt={image.alt} profile="gallery" />
+        <AmaraImage src={image.src} alt={image.alt} profile="gallery" mediaRole="utility" />
         {image.caption && <figcaption class="am-muted">{image.caption}</figcaption>}
       </figure>
     )}
     {images && images.map((img) => (
       <figure class="am-ios-figure">
-        <AmaraImage src={img.src} alt={img.alt} profile="gallery" />
+        <AmaraImage src={img.src} alt={img.alt} profile="gallery" mediaRole="utility" />
         {img.caption && <figcaption class="am-muted">{img.caption}</figcaption>}
       </figure>
     ))}

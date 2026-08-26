@@ -471,6 +471,7 @@ const contextDestination: DestinationId | undefined =
   footerHighlights={footerHighlights}
   contextBreadcrumbTitle={`${breadcrumbRentalName}, ${rental.city}`}
   contextDestination={contextDestination}
+  pageFamily="vacation-rental"
 >
   <Navigation
     currentLang={currentLang}
@@ -818,7 +819,7 @@ const contextDestination: DestinationId | undefined =
         )}
       </AmaraSection>
 
-      <AmaraSection labelledby="rental-location-title" variant="closing" divider={false}>
+      <AmaraSection labelledby="rental-location-title" variant="closing" divider={false} pageEndRole="editorial-close" pageEndFamily="stay">
         <div class="grid gap-8 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] lg:items-end">
           <div class="max-w-3xl">
             <h2 id="rental-location-title" class="am-text-subtitle text-on-surface">

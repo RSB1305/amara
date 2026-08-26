@@ -16,7 +16,7 @@ import {
   guestReviewsSeo
 } from '../../content/guestReviewsContent';
 import { airbnbReviewEvidence } from '../../content/reviewEvidence';
-import { resolveLink, resolveOptionalLink, type LabeledLink } from '../../lib/linkResolver';
+import { resolveLink, type LabeledLink } from '../../lib/linkResolver';
 import TrustPageLayout from '../../layouts/TrustPageLayout.astro';
 import type { AmaraLanguage } from '../../types/seo';
 
@@ -38,19 +38,10 @@ const footerHighlights: LabeledLink[] = [
   { token: 'faq_general', label: guestReviewsFooterLabels.faq_general[currentLang] },
   { token: 'instagram', label: guestReviewsFooterLabels.instagram[currentLang] }
 ];
-const heroCtaLinks = ([
-  { token: 'book', label: copy.sections.ctaBook[currentLang] },
-  { token: 'direct_booking_benefits', label: copy.hero.ctaBenefits[currentLang] }
-] satisfies LabeledLink[])
-  .map((link) => {
-    const href = resolveOptionalLink(link.token, currentLang, { suppressMissing: true });
-    return href ? { href, label: link.label } : null;
-  })
-  .filter((link): link is { href: string; label: string } => Boolean(link));
 const closingCtaLinks: EditorialClosingCtaLink[] = [
-  { token: 'book', label: copy.sections.ctaBook[currentLang], style: 'primary' as const },
-  { token: 'romantic_hideaways', label: copy.sections.ctaExplore[currentLang], style: 'secondary' as const },
-  { token: 'direct_booking_benefits', label: copy.sections.ctaBenefits[currentLang], style: 'secondary' as const }
+  { token: 'direct_booking_benefits', label: copy.sections.ctaBenefits[currentLang], style: 'secondary' },
+  { token: 'romantic_hideaways', label: copy.sections.ctaExplore[currentLang], style: 'text' },
+  { token: 'book', label: copy.sections.ctaBook[currentLang], style: 'text' }
 ];
 ---
 
@@ -60,14 +51,13 @@ const closingCtaLinks: EditorialClosingCtaLink[] = [
   languageToken="reviews_hub"
   footerHighlights={footerHighlights}
   pageId="guest-reviews"
+  pageFamily="guest-reviews"
   hero={{
     subtitle: copy.hero.subtitle[currentLang],
     title: copy.hero.title[currentLang],
     titleWidth: 'wide',
     lead: copy.hero.lead[currentLang],
-    supportText: copy.hero.supportText[currentLang],
-    ctaLinks: heroCtaLinks,
-    ctaVariant: 'conversion'
+    supportText: copy.hero.supportText[currentLang]
   }}
 >
   <AmaraSection>
@@ -171,6 +161,7 @@ const closingCtaLinks: EditorialClosingCtaLink[] = [
                 src={frigilianaLocationImage}
                 alt=""
                 profile="card"
+                mediaRole="card"
                 class="block h-full w-full object-cover [transition:transform_0.45s_ease] group-hover:scale-[1.025] group-focus-visible:scale-[1.025] motion-reduce:transition-none"
                 sizes="(max-width: 1000px) 90vw, (max-width: 1555px) 29vw, 420px"
               />
@@ -187,6 +178,7 @@ const closingCtaLinks: EditorialClosingCtaLink[] = [
                 src={nerjaLocationImage}
                 alt=""
                 profile="card"
+                mediaRole="card"
                 class="block h-full w-full object-cover [transition:transform_0.45s_ease] group-hover:scale-[1.025] group-focus-visible:scale-[1.025] motion-reduce:transition-none"
                 sizes="(max-width: 1000px) 90vw, (max-width: 1555px) 29vw, 420px"
               />
@@ -203,6 +195,7 @@ const closingCtaLinks: EditorialClosingCtaLink[] = [
                 src={tarifaLocationImage}
                 alt=""
                 profile="card"
+                mediaRole="card"
                 class="block h-full w-full object-cover [transition:transform_0.45s_ease] group-hover:scale-[1.025] group-focus-visible:scale-[1.025] motion-reduce:transition-none"
                 sizes="(max-width: 1000px) 90vw, (max-width: 1555px) 29vw, 420px"
               />
@@ -221,5 +214,7 @@ const closingCtaLinks: EditorialClosingCtaLink[] = [
         links={closingCtaLinks}
         lang={currentLang}
         spacing="page"
+        role="next-action"
+        family="trust"
       />
 </TrustPageLayout>
