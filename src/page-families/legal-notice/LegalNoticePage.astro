@@ -90,7 +90,7 @@ const heroCopy = {
     languageToken="legal_notice"
   />
 
-  <AmaraPageShell family="legal-notice" dataLang={currentLang}>
+  <AmaraPageShell family="legal-notice" dataLang={currentLang} class="am-document-surface">
     <AmaraSection variant="hero" dataComponent="legal-notice-hero">
       <TrustHero
         eyebrow={heroCopy.subtitle}
@@ -100,7 +100,7 @@ const heroCopy = {
       />
     </AmaraSection>
 
-    <div class="legal-notice-formal-headings mx-auto max-w-screen-lg">
+    <div class="am-document-content legal-notice-formal-headings mx-auto">
       {currentLang === 'en' && (
         <div lang="en" aria-label="Legal (EN)">
           <section class={documentSectionClass} data-am-component="legal-notice-section" aria-label="Responsible party">

@@ -57,6 +57,7 @@ const privacyHref = resolveLink('legal_notice', currentLang);
     dataLang={currentLang}
     documentVersion={BOOKING_STAY_TERMS_VERSION}
     publishedAt={BOOKING_STAY_TERMS_PUBLISHED_AT}
+    class="am-document-surface"
   >
     <AmaraSection variant="hero" dataComponent="booking-terms-hero">
       <TrustHero
@@ -67,7 +68,7 @@ const privacyHref = resolveLink('legal_notice', currentLang);
       />
     </AmaraSection>
 
-    <div class="mx-auto max-w-screen-lg">
+    <div class="am-document-content mx-auto">
       {(copy.sections as BookingStayTermSection[]).map((section) => (
         <AmaraSection
           id={section.id}
