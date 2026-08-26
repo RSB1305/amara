@@ -47,22 +47,19 @@ const config = {
     resolverName: 'Frigiliana winter stays',
     languageToken: 'frigiliana_winter_stays',
     locationToken: 'location_frigiliana',
-    propertyToken: 'book',
-    footerTokens: ['weather_frigiliana', 'frigiliana_stairs']
+    propertyToken: 'book'
   },
   nerja: {
     resolverName: 'Nerja winter stays',
     languageToken: 'nerja_winter_stays',
     locationToken: 'location_nerja',
-    propertyToken: 'playa',
-    footerTokens: ['nerja_weather', 'nerja_where_to_stay']
+    propertyToken: 'playa'
   },
   tarifa: {
     resolverName: 'Tarifa winter stays',
     languageToken: 'tarifa_winter_stays',
     locationToken: 'location_tarifa',
-    propertyToken: 'tarifa',
-    footerTokens: ['tarifa_weather', 'tarifa_daily_life']
+    propertyToken: 'tarifa'
   }
 } as const;
 
@@ -70,11 +67,9 @@ const content = resolveLocale(contentByDestination[destination], currentLang);
 const seo = seoByDestination[destination];
 const pageConfig = config[destination];
 const requiredLink = createRequiredLinkResolver(currentLang, pageConfig.resolverName);
-const footerHighlights: LabeledLink[] = [
-  { token: pageConfig.languageToken, label: content.navLabel },
-  { token: pageConfig.footerTokens[0], label: content.related.links[0].label },
-  { token: pageConfig.footerTokens[1], label: content.related.links[1].label }
-];
+const footerHighlights: LabeledLink[] = content.related.links
+  .slice(0, 3)
+  .map(({ token, label }) => ({ token, label }));
 ---
 
 <LocationAuthorityLayout
