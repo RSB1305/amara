@@ -13,6 +13,10 @@ import BookingDecisionPanel from '../../../components/conversion/BookingDecision
 import EditorialFeatureGrid from '../../../components/editorial/EditorialFeatureGrid.astro';
 import ExperienceArticleHero from '../../../components/experience/ExperienceArticleHero.astro';
 import ExperiencePreFooter from '../../../components/experience/ExperiencePreFooter.astro';
+import ExploreCampaignHero from '../../../components/experience/ExploreCampaignHero.astro';
+import ExploreCampaignMediaSplit from '../../../components/experience/ExploreCampaignMediaSplit.astro';
+import ExploreCampaignPlanningGrid from '../../../components/experience/ExploreCampaignPlanningGrid.astro';
+import ExperienceHubTopicGrid from '../../../components/experience/ExperienceHubTopicGrid.astro';
 import EditorialClosingCta from '../../../components/editorial/EditorialClosingCta.astro';
 import FaqAccordion from '../../../components/FaqAccordion.astro';
 import ApartmentCard from '../../../components/location/ApartmentCard.astro';
@@ -26,6 +30,9 @@ import AmaraMediaFrame from '../../../components/media/AmaraMediaFrame.astro';
 import AmaraSection from '../../../components/layout/AmaraSection.astro';
 import AmaraSectionIntro from '../../../components/layout/AmaraSectionIntro.astro';
 import GuideLinkCardSection from '../../../page-families/location-authority/GuideLinkCardSection.astro';
+import BeachSectionList from '../../../page-families/location-authority/BeachSectionList.astro';
+import DayTripDestinationList from '../../../page-families/location-authority/DayTripDestinationList.astro';
+import RestaurantSectionList from '../../../page-families/location-authority/RestaurantSectionList.astro';
 import { BedDouble, UsersRound } from '@lucide/astro';
 import { AMARA_PAGE_FAMILY_PROFILES, AMARA_PAGE_TYPE_PROFILES, getPageTypeAttributes, type AmaraPageFamilyId, type AmaraPageType } from '../../../components/page-type/pageTypeContract';
 
@@ -43,6 +50,12 @@ const classifiedPageFamilies = Object.entries(AMARA_PAGE_FAMILY_PROFILES) as Arr
   AmaraPageFamilyId,
   (typeof AMARA_PAGE_FAMILY_PROFILES)[AmaraPageFamilyId]
 ]>;
+const ownershipLevels = [
+  ['Global system', 'Tokens and canonical UI owners'],
+  ['Page type', 'Intent, density, media weight and CTA character'],
+  ['Page family', 'One repeatable composition and its allowed variants'],
+  ['Concrete page', 'Localized content, evidence and permitted choices']
+] as const;
 ---
 
 <!DOCTYPE html>
@@ -105,6 +118,11 @@ const classifiedPageFamilies = Object.entries(AMARA_PAGE_FAMILY_PROFILES) as Arr
     .sg-code { font-family: monospace; font-size: 11px; background: var(--color-surface-container-high); padding: 2px 7px; border-radius: 4px; color: var(--color-primary); overflow-wrap: anywhere; }
 
     .sg-inline-demo { font-family: var(--font-body); font-size: 16px; line-height: 1.75; color: var(--color-on-surface-variant); max-width: 42rem; }
+    .sg-owner-chain { display: grid; grid-template-columns: 1fr; gap: 10px; margin-top: 24px; }
+    .sg-owner-step { min-width: 0; border-top: 2px solid var(--color-primary); background: var(--color-surface-white); padding: 16px; }
+    .sg-owner-step strong { display: block; color: var(--color-on-surface); margin-bottom: 6px; }
+    .sg-specimen-note { border-left: 3px solid var(--color-primary); background: var(--color-surface-container-low); padding: 14px 16px; margin: 0 0 20px; color: var(--color-on-surface-variant); font-size: 12px; line-height: 1.65; }
+    .sg-family-group { min-width: 0; border: 1px solid var(--color-outline-variant); background: var(--color-surface-white); padding: 20px; }
 
     @media (max-width: 899px) {
       .sg-nav { position: static; height: auto; }
@@ -118,6 +136,7 @@ const classifiedPageFamilies = Object.entries(AMARA_PAGE_FAMILY_PROFILES) as Arr
       .sg-shell { display: grid; grid-template-columns: 220px minmax(0, 1fr); }
       .sg-nav { position: sticky; top: 0; height: 100vh; padding: 32px 20px; overflow-y: auto; }
       .sg-main { padding: 48px 56px; }
+      .sg-owner-chain { grid-template-columns: repeat(4, minmax(0, 1fr)); }
     }
   </style>
 </head>
@@ -140,6 +159,7 @@ const classifiedPageFamilies = Object.entries(AMARA_PAGE_FAMILY_PROFILES) as Arr
     <a href="#page-ends">Page Ends</a>
     <div class="sg-nav-section">Page Types</div>
     <a href="#page-types">Composition Profiles</a>
+    <a href="#page-families">Family Registry</a>
     <a href="#sections">Sections & Intros</a>
     <a href="#buttons">Buttons</a>
     <a href="#forms">Forms & Controls</a>
@@ -672,7 +692,16 @@ const classifiedPageFamilies = Object.entries(AMARA_PAGE_FAMILY_PROFILES) as Arr
 
     <section class="sg-section" id="page-types">
       <h2 class="sg-section-title">Page-Type Composition Profiles</h2>
-      <p class="sg-inline-demo">Global components remain identical. Page types govern dominant intent, orchestration and weight between the global system and a page-family template; they are not alternative visual systems and do not imply one type per family.</p>
+      <p class="sg-inline-demo">Global components remain identical. Page types govern dominant intent, orchestration and weight between the global system and a page-family template; they are not alternative visual systems and do not impose one universal template across their registered families.</p>
+      <div class="sg-owner-chain" aria-label="Design ownership chain">
+        {ownershipLevels.map(([level, job], index) => (
+          <div class="sg-owner-step">
+            <span class="sg-label">Level {index + 1}</span>
+            <strong>{level}</strong>
+            <span class="am-text-caption text-on-surface-variant">{job}</span>
+          </div>
+        ))}
+      </div>
 
       {(['authority', 'explore', 'trust', 'conversion'] as const).map((type) => {
         const profile = AMARA_PAGE_TYPE_PROFILES[type];
@@ -710,6 +739,77 @@ const classifiedPageFamilies = Object.entries(AMARA_PAGE_FAMILY_PROFILES) as Arr
           </article>
         );
       })}
+
+      <div class="sg-subsection">
+        <h3 class="am-text-title text-on-surface">Explore family compositions</h3>
+        <p class="sg-inline-demo mt-3">Campaign, Hub and Spoke share the Explore intent, but each family owns a different composition. The specimens below render production owners rather than imitating their output.</p>
+
+        <h4 class="am-text-subtitle mt-10 text-on-surface">Campaign</h4>
+        <p class="sg-specimen-note"><strong>Owners:</strong> ExploreCampaignHero, ExploreCampaignMediaSplit, ExploreCampaignPlanningGrid, FaqAccordion and EditorialClosingCta. <strong>Allowed:</strong> emotional linear narrative and Stay-oriented onward actions. <strong>Boundary:</strong> not a Destination Hub or Spoke template.</p>
+        <div class="sg-hero-preview">
+          <ExploreCampaignHero
+            imageSrc="/images/hero-frigiliana.jpg"
+            imageAlt="Frigiliana village"
+            kicker="Campaign Explore"
+            title="Shared time shaped by place"
+            lead="A campaign may tell one emotional, linear story while keeping the next action restrained."
+            paragraphs={['The family owner controls the repeated hierarchy; the page supplies localized meaning and evidence.']}
+            action={{ href: '#page-families', label: 'See campaign families' }}
+          />
+        </div>
+        <div class="sg-component-frame">
+          <ExploreCampaignMediaSplit
+            title="A place within the story"
+            paragraphs={['Campaign media supports one narrative phase without becoming a generic split system.']}
+            image="/images/hero-frigiliana.jpg"
+            imageAlt="White village buildings in Frigiliana"
+          />
+        </div>
+        <div class="sg-component-frame">
+          <ExploreCampaignPlanningGrid columns={3} items={[
+            { title: 'Choose the setting', text: 'Connect the occasion to a truthful place consequence.' },
+            { title: 'Plan the rhythm', text: 'Keep useful planning inside the emotional narrative.' },
+            { title: 'Continue calmly', text: 'Offer one relevant Stay-oriented next step.', href: '#page-families', linkLabel: 'View ownership' }
+          ]} />
+        </div>
+
+        <h4 class="am-text-subtitle mt-12 text-on-surface">Destination Experience Hub</h4>
+        <p class="sg-specimen-note"><strong>Owner:</strong> ExperienceHubTopicGrid with LocationExperienceHero, AmaraSectionIntro and GuideClosingSection around it in production. <strong>Allowed:</strong> three or four columns, optional eyebrow and primary or outline accent. <strong>Boundary:</strong> lead stories remain dominant where the family requires them.</p>
+        <div class="sg-component-frame">
+          <AmaraSectionIntro title="Choose a way into the destination" eyebrow="Experience Hub" intro="A hub preserves a dominant entry and then exposes curated paths without flattening every topic into equal editorial weight." variant="editorial" />
+          <ExperienceHubTopicGrid topics={[
+            { eyebrow: 'Village', title: 'Move through the old town', text: 'A story-oriented path into place.', href: '#page-families', linkLabel: 'Open family registry' },
+            { eyebrow: 'Coast', title: 'Find the right shoreline', text: 'A location-led route into the day.' },
+            { eyebrow: 'Movement', title: 'Follow wind and landscape', text: 'A more active destination path.' }
+          ]} />
+        </div>
+
+        <h4 class="am-text-subtitle mt-12 text-on-surface">Destination Experience Spoke</h4>
+        <p class="sg-specimen-note"><strong>Cluster owners:</strong> BeachSectionList, DayTripDestinationList and RestaurantSectionList. <strong>Shared global owners:</strong> AmaraMetaChip, EditorialCallout, AmaraActionLink and GuideClosingSection. <strong>Boundary:</strong> Market and Tarifa retain their distinct practical or editorial family templates.</p>
+        <div class="sg-component-frame">
+          <BeachSectionList
+            sections={[{ id: 'styleguide-beach', title: 'A place-oriented spoke', intro: 'Location, fit and one practical consequence stay together.', beaches: [{ title: 'Sheltered cove', bestFor: 'A slower morning', description: 'The place unit remains useful rather than becoming a generic card.', tip: 'Check access before setting out.', mapHref: '#page-families' }] }]}
+            labels={{ bestFor: 'Best for', tip: 'Practical note', map: 'Open route' }}
+          />
+        </div>
+        <div class="sg-component-frame">
+          <DayTripDestinationList
+            destinations={[{ id: 'styleguide-day-trip', kicker: 'Day trip', title: 'A practical Explore spoke', summary: 'Facts and planning retain more weight than decorative media.', facts: [{ label: 'Travel logic', value: 'Choose the route before the atmosphere.' }], planningTitle: 'Plan the return', callout: 'Keep the useful constraint visible.', details: 'The shared owner preserves a scannable facts-and-planning composition.', officialHref: '#page-families', officialLabel: 'Continue to registry' }]}
+          />
+        </div>
+        <div class="sg-component-frame">
+          <RestaurantSectionList
+            sections={[{ id: 'styleguide-restaurant', title: 'A place and food cluster', intro: 'Selection guidance, practical notes and external actions have distinct owners.', restaurants: [{ title: 'Local table', bestFor: 'An unhurried evening', description: 'The card remains a place decision, not a Stay or Trust card.', tip: 'Reserve when timing matters.', goodToKnow: 'Opening patterns can change.', mapHref: '#page-families', websiteHref: '#page-families' }] }]}
+            labels={{ bestFor: 'Best for', tip: 'Tip', goodToKnow: 'Good to know', map: 'Map', website: 'Website' }}
+          />
+        </div>
+      </div>
+
+    </section>
+
+    <section class="sg-section" id="page-families">
+      <h2 class="sg-section-title">Registered Page-Family Baukästen</h2>
+      <p class="sg-inline-demo">This view is generated directly from <span class="sg-code">AMARA_PAGE_FAMILY_PROFILES</span>. Reference and approved tiers are presentation metadata here—not a second registry. Unregistered legacy and Guest Utility remain intentionally outside the public type matrix.</p>
 
       {(['reference', 'approved'] as const).map((tier) => (
         <div class="sg-subsection">
