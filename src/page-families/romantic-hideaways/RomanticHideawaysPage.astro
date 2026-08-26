@@ -12,6 +12,7 @@ import AmaraSection from '../../components/layout/AmaraSection.astro';
 import ApartmentCard from '../../components/location/ApartmentCard.astro';
 import ApartmentGrid from '../../components/location/ApartmentGrid.astro';
 import GuestReviewsSummary from '../../components/location/GuestReviewsSummary.astro';
+import AmaraActionLink from '../../components/actions/AmaraActionLink.astro';
 import imgFarah from '../../assets/images/home/amara-farah-67-amara-frigiliana.jpg';
 import imgLounisMain from '../../assets/images/home/amara-lounis-15-amara-frigiliana.jpg';
 import imgLounisTerrace from '../../assets/images/home/amara-lounis-17-amara-frigiliana.jpg';
@@ -399,36 +400,42 @@ const footerHighlights: LabeledLink[] = [
   { token: 'honeymoon', label: t({ en: 'Honeymoon in Andalusia', de: 'Flitterwochen in Andalusien', es: 'Luna de miel en Andalucía', nl: 'Huwelijksreis in Andalusië', sv: 'Smekmånad i Andalusien' }) }
 ];
 
-const reviewFeaturesByLang: Record<AmaraLanguage, { label: string; note?: string }[]> = {
+type ReviewFeature = {
+  label: string;
+  note?: string;
+  icon: 'cleanliness' | 'quiet-nights' | 'good-sleep' | 'quick-replies';
+};
+
+const reviewFeaturesByLang: Record<AmaraLanguage, ReviewFeature[]> = {
   en: [
-    { label: 'Cleanliness' },
-    { label: 'Quiet nights' },
-    { label: 'Good sleep' },
-    { label: 'Quick replies' }
+    { label: 'Cleanliness', icon: 'cleanliness' },
+    { label: 'Quiet nights', icon: 'quiet-nights' },
+    { label: 'Good sleep', icon: 'good-sleep' },
+    { label: 'Quick replies', icon: 'quick-replies' }
   ],
   de: [
-    { label: 'Sauberkeit' },
-    { label: 'Ruhige Nächte' },
-    { label: 'Guter Schlaf' },
-    { label: 'Schnelle Antworten' }
+    { label: 'Sauberkeit', icon: 'cleanliness' },
+    { label: 'Ruhige Nächte', icon: 'quiet-nights' },
+    { label: 'Guter Schlaf', icon: 'good-sleep' },
+    { label: 'Schnelle Antworten', icon: 'quick-replies' }
   ],
   es: [
-    { label: 'Limpieza' },
-    { label: 'Noches tranquilas' },
-    { label: 'Buen descanso' },
-    { label: 'Respuestas rápidas' }
+    { label: 'Limpieza', icon: 'cleanliness' },
+    { label: 'Noches tranquilas', icon: 'quiet-nights' },
+    { label: 'Buen descanso', icon: 'good-sleep' },
+    { label: 'Respuestas rápidas', icon: 'quick-replies' }
   ],
   nl: [
-    { label: 'Schoonmaak' },
-    { label: 'Rustige nachten' },
-    { label: 'Goed slapen' },
-    { label: 'Snelle antwoorden' }
+    { label: 'Schoonmaak', icon: 'cleanliness' },
+    { label: 'Rustige nachten', icon: 'quiet-nights' },
+    { label: 'Goed slapen', icon: 'good-sleep' },
+    { label: 'Snelle antwoorden', icon: 'quick-replies' }
   ],
   sv: [
-    { label: 'Renlighet' },
-    { label: 'Lugna nätter' },
-    { label: 'God sömn' },
-    { label: 'Snabba svar' }
+    { label: 'Renlighet', icon: 'cleanliness' },
+    { label: 'Lugna nätter', icon: 'quiet-nights' },
+    { label: 'God sömn', icon: 'good-sleep' },
+    { label: 'Snabba svar', icon: 'quick-replies' }
   ]
 };
 
@@ -606,14 +613,11 @@ function physicalAccessSummary(token: ApartmentToken, rental: VacationRentalEnti
 }
 
 function cardDescription(token: ApartmentToken, rental: VacationRentalEntity): string {
-  const lead = token === 'tarifa'
-    ? firstSentence(rental.lead[currentLang])
-    : rental.lead[currentLang];
   const signals = selectionSignalsByToken[token]
     .map((signal) => selectionSignal(signal, rental))
     .filter((value): value is string => Boolean(value));
 
-  return `${lead} ${signals.join(' · ')}. ${physicalAccessSummary(token, rental)}`;
+  return `**${rental.headline[currentLang]}**. ${signals.join(' · ')}. ${physicalAccessSummary(token, rental)}`;
 }
 
 function cardCtaLabel(rental: VacationRentalEntity): string {
@@ -681,8 +685,8 @@ const apartmentsWithLinks = apartmentRows.filter(
         spacing="section"
         ctaVariant="conversion"
         ctaLinks={[
-          { href: collectionHref, label: t(copy.ctaCollection) },
-          ...(bookHref ? [{ href: bookHref, label: t(copy.ctaBook) }] : [])
+          ...(bookHref ? [{ href: bookHref, label: t(copy.ctaBook), style: 'primary' as const }] : []),
+          { href: collectionHref, label: t(copy.ctaCollection), style: 'secondary' as const }
         ]}
       />
 
@@ -700,9 +704,9 @@ const apartmentsWithLinks = apartmentRows.filter(
         <span>{t(copy.trustAirbnb)}</span>
         {
           directBookingHref ? (
-            <a class="am-inline-link" href={directBookingHref}>{t(copy.trustDirect)}</a>
+            <AmaraActionLink variant="editorial" href={directBookingHref}>{t(copy.trustDirect)}</AmaraActionLink>
           ) : (
-            <span class="am-inline-link am-is-disabled" aria-disabled="true">{t(copy.trustDirect)}</span>
+            <AmaraActionLink variant="editorial" disabled>{t(copy.trustDirect)}</AmaraActionLink>
           )
         }
       </div>
@@ -781,10 +785,10 @@ const apartmentsWithLinks = apartmentRows.filter(
         <p class="am-text-body text-on-surface-variant mt-5 leading-relaxed">
           {t(copy.locationBridgeBody)}
         </p>
-        <div class="flex flex-wrap gap-3 mt-7">
+        <div class="am-cta-group am-cta-group--left mt-7">
           {
             locationBridgeLinks.map((link) => (
-              <a class="am-btn am-btn--secondary" href={link.href}>{link.label}</a>
+              <AmaraActionLink variant="editorial" href={link.href}>{link.label}</AmaraActionLink>
             ))
           }
         </div>

@@ -1,7 +1,11 @@
 ---
 import InlineEmphasis from '../text/InlineEmphasis.astro';
 import AmaraActionLink from '../actions/AmaraActionLink.astro';
-import { getAmaraHeroAttributes, type AmaraHeroAction } from './heroContract';
+import {
+  getAmaraHeroAttributes,
+  type AmaraHeroAction,
+  type AmaraHeroStyledAction
+} from './heroContract';
 
 interface Props {
   title: string;
@@ -10,7 +14,7 @@ interface Props {
   /** Compatibility alias while content models retain the old key. */
   subtitle?: string;
   lead: string;
-  ctaLinks?: AmaraHeroAction[];
+  ctaLinks?: Array<AmaraHeroAction | AmaraHeroStyledAction>;
   ctaVariant?: 'editorial' | 'conversion';
   supportText?: string;
   spacing?: 'standalone' | 'section';
@@ -56,7 +60,7 @@ const heroAttributes = getAmaraHeroAttributes({
       {ctaLinks.map((link, index) => (
         <AmaraActionLink
           href={link.href}
-          variant={index === 0 ? 'primary' : 'secondary'}
+          variant={'style' in link ? link.style : index === 0 ? 'primary' : 'secondary'}
           class="w-full justify-center sm:w-auto"
         >
           {link.label}

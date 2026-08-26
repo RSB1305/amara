@@ -143,6 +143,7 @@ const moduleAttributes = getAmaraContentModuleAttributes({
   .am-apartment-card__body {
     display: flex;
     flex-direction: column;
+    flex: 1;
     gap: 0.5rem;
   }
 
@@ -155,11 +156,13 @@ const moduleAttributes = getAmaraContentModuleAttributes({
   }
 
   .am-apartment-card__description {
+    flex: 1;
     margin: 0;
   }
 
   .am-apartment-card__cta-wrap {
-    margin-top: 0.75rem;
+    margin-top: auto;
+    padding-top: 0.75rem;
   }
 
   .am-apartment-card__stay-summary {
@@ -174,6 +177,12 @@ const moduleAttributes = getAmaraContentModuleAttributes({
     margin-top: 0.75rem;
     border-top: 1px solid var(--color-border-subtle);
     padding-top: 0.75rem;
+  }
+
+  @media (min-width: 768px) {
+    .am-apartment-card__title {
+      min-height: 2.3em;
+    }
   }
 
 </style>

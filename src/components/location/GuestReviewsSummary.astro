@@ -1,5 +1,6 @@
 ---
 import AmaraActionLink from '../actions/AmaraActionLink.astro';
+import { BedDouble, MessageCircle, Moon, Sparkles } from '@lucide/astro';
 
 /**
  * Guest-review summary content rendered inside the shared AMARA section system.
@@ -7,6 +8,7 @@ import AmaraActionLink from '../actions/AmaraActionLink.astro';
 interface Feature {
   label: string;
   note?: string;
+  icon?: 'cleanliness' | 'quiet-nights' | 'good-sleep' | 'quick-replies';
 }
 
 interface Props {
@@ -19,6 +21,12 @@ interface Props {
 }
 
 const { eyebrow, headline, body, reviewsHref, reviewsCtaLabel, features } = Astro.props;
+const featureIcons = {
+  cleanliness: Sparkles,
+  'quiet-nights': Moon,
+  'good-sleep': BedDouble,
+  'quick-replies': MessageCircle
+};
 ---
 
 <div id="am-trust-badge" class="am-guest-reviews-summary">
@@ -37,12 +45,19 @@ const { eyebrow, headline, body, reviewsHref, reviewsCtaLabel, features } = Astr
 
     <ul class="am-guest-reviews-summary__features" aria-label="Highlighted guest features">
       {
-        features.map((feature) => (
-          <li class="am-guest-reviews-summary__feature am-text-body">
-            {feature.label}
-            {feature.note && <span class="am-guest-reviews-summary__feature-note am-text-caption text-muted">{feature.note}</span>}
-          </li>
-        ))
+        features.map((feature) => {
+          const Icon = feature.icon ? featureIcons[feature.icon] : undefined;
+
+          return (
+            <li class="am-guest-reviews-summary__feature am-text-body">
+              {Icon && <Icon class="am-guest-reviews-summary__feature-icon" stroke-width={1.5} aria-hidden="true" />}
+              <span>
+                {feature.label}
+                {feature.note && <span class="am-guest-reviews-summary__feature-note am-text-caption text-muted">{feature.note}</span>}
+              </span>
+            </li>
+          );
+        })
       }
     </ul>
   </div>
@@ -123,6 +138,13 @@ const { eyebrow, headline, body, reviewsHref, reviewsCtaLabel, features } = Astr
     border-bottom: 1px solid var(--color-border-subtle);
     line-height: 1.4;
     color: var(--color-on-surface-variant);
+  }
+
+  .am-guest-reviews-summary__feature-icon {
+    width: 1.25rem;
+    height: 1.25rem;
+    flex: 0 0 auto;
+    color: var(--color-primary);
   }
 
   .am-guest-reviews-summary__feature:nth-child(even) {
