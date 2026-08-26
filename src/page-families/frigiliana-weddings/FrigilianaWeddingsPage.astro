@@ -54,9 +54,9 @@ const planningItems = copy.planning.items.map((item) => ({
   href: requiredLink(item.linkToken)
 }));
 
-const footerHighlights: LabeledLink[] = [
-  { token: 'frigiliana_weddings', label: copy.footerHighlights.weddings },
-  { token: 'location_frigiliana', label: copy.footerHighlights.location },
+const footerHighlights: (LabeledLink & { decoration: 'heart' })[] = [
+  { token: 'frigiliana_weddings', label: copy.footerHighlights.weddings, decoration: 'heart' },
+  { token: 'location_frigiliana', label: copy.footerHighlights.location, decoration: 'heart' },
   {
     token: 'casa_amara_groups',
     label: {
@@ -65,9 +65,10 @@ const footerHighlights: LabeledLink[] = [
       es: 'Casa AMARA para 4–8',
       nl: 'Casa AMARA voor 4–8',
       sv: 'Casa AMARA för 4–8'
-    }[currentLang]
+    }[currentLang],
+    decoration: 'heart'
   },
-  { token: 'romantic_hideaways', label: copy.footerHighlights.stays }
+  { token: 'romantic_hideaways', label: copy.footerHighlights.stays, decoration: 'heart' }
 ];
 
 const parishHref = 'https://diocesismalaga.es/parroquias/145/san-antonio-de-padua-frigiliana';
@@ -92,6 +93,7 @@ const parishHref = 'https://diocesismalaga.es/parroquias/145/san-antonio-de-padu
       imageSrc={churchImage}
       imageAlt={copy.hero.imageAlt}
       kicker={copy.hero.kicker}
+      kickerDecoration="heart"
       title={copy.hero.title}
       lead={copy.hero.lead}
       paragraphs={copy.hero.paragraphs}
@@ -248,7 +250,7 @@ const parishHref = 'https://diocesismalaga.es/parroquias/145/san-antonio-de-padu
       spacing="page"
       role="next-action"
       family="experience"
-      inverse
+      tone="romance"
     />
   </AmaraPageShell>
 </BaseLayout>
