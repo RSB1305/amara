@@ -8,17 +8,21 @@ interface Props {
   imageSrc: ImageMetadata | string;
   imageAlt: string;
   kicker: string;
+  kickerDecoration?: 'heart';
   title: string;
   lead: string;
   paragraphs: string[];
   action: { href: string; label: string };
 }
 
-const { imageSrc, imageAlt, kicker, title, lead, paragraphs, action } = Astro.props;
+const { imageSrc, imageAlt, kicker, kickerDecoration, title, lead, paragraphs, action } = Astro.props;
 ---
 
 <Hero imageSrc={imageSrc} imageAlt={imageAlt}>
-  <span class="am-text-label mb-8 block text-primary">{kicker}</span>
+  <span class="am-text-label mb-8 block text-primary">
+    {kickerDecoration === 'heart' && <span class="mr-2" aria-hidden="true">❤︎</span>}
+    <span>{kicker}</span>
+  </span>
   <h1 class="am-text-display mb-7 break-words text-on-surface md:mb-8">{title}</h1>
   <p class="am-text-subtitle max-w-2xl leading-relaxed text-on-surface">{lead}</p>
   <div class="mt-8 max-w-2xl space-y-5 border-l border-primary/20 pl-6 md:pl-10">

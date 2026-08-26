@@ -65,6 +65,7 @@ const gatewayGridClass = content.gateways?.items.length === 1
 const mobilityGridClass = content.mobility?.items.length === 2
   ? 'lg:grid-cols-2'
   : 'lg:grid-cols-3';
+const isAuthorityReference = destination === 'frigiliana';
 ---
 
 <LocationAuthorityLayout
@@ -125,10 +126,11 @@ const mobilityGridClass = content.mobility?.items.length === 2
     {
       content.gateways && (
         <LocationModule
+          spacing={isAuthorityReference ? 'compact' : 'standard'}
           data-am-arrival-module="gateways"
         >
           <div class="mx-auto max-w-screen-2xl">
-            <header class="mb-12 max-w-4xl md:mb-16">
+            <header class:list={['max-w-4xl', isAuthorityReference ? 'mb-10 md:mb-12' : 'mb-12 md:mb-16']}>
               <p class="am-text-eyebrow text-primary">
                 {content.gateways.eyebrow}
               </p>
@@ -146,7 +148,7 @@ const mobilityGridClass = content.mobility?.items.length === 2
               {content.gateways.items.map((item, index) => (
                 <article
                   class:list={[
-                    'p-7 md:p-10 lg:p-12',
+                    isAuthorityReference ? 'p-6 md:p-8 lg:p-10' : 'p-7 md:p-10 lg:p-12',
                     index > 0 && 'border-t border-border-subtle lg:border-l lg:border-t-0'
                   ]}
                 >
@@ -159,12 +161,12 @@ const mobilityGridClass = content.mobility?.items.length === 2
                   <p class="mt-8 text-primary am-text-label am-text-label--sm am-text-label--wide">
                     {item.eyebrow}
                   </p>
-                  <h3 class="am-text-title mt-4 text-balance text-on-surface">{item.title}</h3>
-                  <p class="am-text-body mt-7 max-w-2xl leading-relaxed text-on-surface-variant">
+                  <h3 class:list={[isAuthorityReference ? 'am-text-subtitle' : 'am-text-title', 'mt-4 text-balance text-on-surface']}>{item.title}</h3>
+                  <p class:list={['am-text-body max-w-2xl leading-relaxed text-on-surface-variant', isAuthorityReference ? 'mt-5' : 'mt-7']}>
                     <InlineEmphasis text={item.summary} />
                   </p>
                   {item.details.map((detail) => (
-                    <p class="am-text-body mt-6 border-t border-border-subtle pt-6 leading-relaxed text-on-surface-variant">
+                    <p class:list={['am-text-body border-t border-border-subtle leading-relaxed text-on-surface-variant', isAuthorityReference ? 'mt-5 pt-5' : 'mt-6 pt-6']}>
                       <InlineEmphasis text={detail} />
                     </p>
                   ))}
@@ -181,7 +183,7 @@ const mobilityGridClass = content.mobility?.items.length === 2
       data-am-arrival-module="options"
     >
       <div class="mx-auto max-w-screen-2xl">
-        <header class="mb-12 grid gap-8 lg:grid-cols-12 lg:items-end md:mb-16">
+        <header class:list={['grid gap-8 lg:grid-cols-12 lg:items-end', isAuthorityReference ? 'mb-10 md:mb-12' : 'mb-12 md:mb-16']}>
           <div class="lg:col-span-7">
             <p class="am-text-eyebrow text-primary">
               {content.options.eyebrow}
@@ -191,63 +193,86 @@ const mobilityGridClass = content.mobility?.items.length === 2
             </h2>
           </div>
           {content.options.intro && (
-            <p class="am-text-body max-w-2xl leading-relaxed text-on-surface-variant lg:col-span-5">
-              <InlineEmphasis text={content.options.intro} />
-            </p>
+            <div class="max-w-2xl lg:col-span-5">
+              <p class="am-text-body leading-relaxed text-on-surface-variant">
+                <InlineEmphasis text={content.options.intro} />
+              </p>
+            </div>
           )}
         </header>
 
-        <div class:list={['grid gap-px overflow-hidden border border-border-subtle bg-border-subtle', optionGridClass]}>
+        <div class:list={[
+          'grid gap-px overflow-hidden bg-border-subtle',
+          isAuthorityReference && 'am-arrival-options-grid',
+          !isAuthorityReference && 'border border-border-subtle',
+          optionGridClass
+        ]}>
           {content.options.items.map((item, index) => (
-            <article class="flex min-w-0 flex-col bg-surface p-7 md:p-10 lg:p-12">
+            <article class:list={[
+              'min-w-0 bg-surface',
+              isAuthorityReference ? 'am-arrival-option-card p-6 md:p-8 lg:p-10' : 'flex flex-col p-7 md:p-10 lg:p-12',
+              isAuthorityReference && index === 0 && 'am-arrival-option-card--recommended'
+            ]}>
               <div class="flex items-center justify-between gap-6">
-                <LocationGuideIcon name={item.icon} class="h-6 w-6" />
-                <span class="am-text-subtitle italic text-primary/65">
+                <LocationGuideIcon name={item.icon} class={isAuthorityReference ? 'h-8 w-8' : 'h-6 w-6'} />
+                {isAuthorityReference && index === 0 && content.options.recommendationLabel && (
+                  <span class="am-arrival-recommendation am-text-label am-text-label--sm">
+                    {content.options.recommendationLabel}
+                  </span>
+                )}
+                <span class="am-text-subtitle ml-auto italic text-primary/65">
                   {String(index + 1).padStart(2, '0')}
                 </span>
               </div>
               <p class="mt-8 text-primary am-text-label am-text-label--sm am-text-label--wide">
                 {item.eyebrow}
               </p>
-              <h3 class="am-text-title mt-4 text-balance text-on-surface">{item.title}</h3>
-              <p class="am-text-body mt-7 leading-relaxed text-on-surface-variant">
-                <InlineEmphasis text={item.summary} />
+              <h3 class:list={[isAuthorityReference ? 'am-text-subtitle' : 'am-text-title', 'mt-4 text-balance text-on-surface']}>{item.title}</h3>
+              <p class:list={['am-text-body leading-relaxed text-on-surface-variant', isAuthorityReference ? 'mt-5' : 'mt-7']}>
+                {isAuthorityReference ? (
+                  <strong class="font-bold text-on-surface"><InlineEmphasis text={item.summary} /></strong>
+                ) : (
+                  <InlineEmphasis text={item.summary} />
+                )}
               </p>
 
               {item.details.map((detail) => (
-                <p class="am-text-body mt-6 border-t border-border-subtle pt-6 leading-relaxed text-on-surface-variant">
+                <p class:list={['am-text-body border-t border-border-subtle leading-relaxed text-on-surface-variant', isAuthorityReference ? 'mt-5 pt-5' : 'mt-6 pt-6']}>
                   <InlineEmphasis text={detail} />
                 </p>
               ))}
 
               {(item.timing || item.bestFor || item.consideration) && (
-                <dl class="mt-8 border-t border-border-subtle">
+                <dl class:list={[
+                  'border-t border-border-subtle',
+                  isAuthorityReference ? 'am-arrival-option-details mt-6' : 'mt-8'
+                ]}>
                   {item.timing && (
-                    <div class="border-b border-border-subtle py-5">
-                      <dt class="text-primary am-text-label am-text-label--sm">
+                    <div class:list={[!isAuthorityReference && 'border-b border-border-subtle py-5', isAuthorityReference && 'am-arrival-option-detail']}>
+                      <dt class:list={['text-primary am-text-label am-text-label--sm', isAuthorityReference && 'am-arrival-option-term']}>
                         {content.options.labels.timing}
                       </dt>
-                      <dd class="am-text-body mt-3 leading-relaxed text-on-surface-variant">
+                      <dd class:list={['am-text-body mt-3 leading-relaxed text-on-surface-variant', isAuthorityReference && 'am-arrival-option-description']}>
                         <InlineEmphasis text={item.timing} />
                       </dd>
                     </div>
                   )}
                   {item.bestFor && (
-                    <div class="border-b border-border-subtle py-5">
-                      <dt class="text-primary am-text-label am-text-label--sm">
+                    <div class:list={[!isAuthorityReference && 'border-b border-border-subtle py-5', isAuthorityReference && 'am-arrival-option-detail']}>
+                      <dt class:list={['text-primary am-text-label am-text-label--sm', isAuthorityReference && 'am-arrival-option-term']}>
                         {content.options.labels.bestFor}
                       </dt>
-                      <dd class="am-text-body mt-3 leading-relaxed text-on-surface-variant">
+                      <dd class:list={['am-text-body mt-3 leading-relaxed text-on-surface-variant', isAuthorityReference && 'am-arrival-option-description']}>
                         <InlineEmphasis text={item.bestFor} />
                       </dd>
                     </div>
                   )}
                   {item.consideration && (
-                    <div class="border-b border-border-subtle py-5">
-                      <dt class="text-primary am-text-label am-text-label--sm">
+                    <div class:list={[!isAuthorityReference && 'border-b border-border-subtle py-5', isAuthorityReference && 'am-arrival-option-detail']}>
+                      <dt class:list={['text-primary am-text-label am-text-label--sm', isAuthorityReference && 'am-arrival-option-term']}>
                         {content.options.labels.consideration}
                       </dt>
-                      <dd class="am-text-body mt-3 leading-relaxed text-on-surface-variant">
+                      <dd class:list={['am-text-body mt-3 leading-relaxed text-on-surface-variant', isAuthorityReference && 'am-arrival-option-description']}>
                         <InlineEmphasis text={item.consideration} />
                       </dd>
                     </div>
@@ -280,7 +305,7 @@ const mobilityGridClass = content.mobility?.items.length === 2
           data-am-arrival-module="mobility"
         >
           <div class="mx-auto max-w-screen-2xl">
-            <header class="mb-12 max-w-4xl md:mb-16">
+            <header class:list={['max-w-4xl', isAuthorityReference ? 'mb-10 md:mb-12' : 'mb-12 md:mb-16']}>
               <p class="am-text-eyebrow text-primary-fixed">
                 {content.mobility.eyebrow}
               </p>
@@ -294,19 +319,23 @@ const mobilityGridClass = content.mobility?.items.length === 2
               )}
             </header>
 
-            <div class:list={['grid gap-px overflow-hidden border border-white/15 bg-white/15', mobilityGridClass]}>
+            <div class:list={[
+              'grid gap-px overflow-hidden bg-white/15',
+              !isAuthorityReference && 'border border-white/15',
+              mobilityGridClass
+            ]}>
               {content.mobility.items.map((item) => (
-                <article class="bg-inverse-surface p-7 md:p-10 lg:p-12">
-                  <LocationGuideIcon name={item.icon} class="h-6 w-6 text-primary-fixed" />
+                <article class:list={['bg-inverse-surface', isAuthorityReference ? 'p-6 md:p-8 lg:p-10' : 'p-7 md:p-10 lg:p-12']}>
+                  <LocationGuideIcon name={item.icon} class:list={['text-primary-fixed', isAuthorityReference ? 'h-8 w-8' : 'h-6 w-6']} />
                   <p class="mt-8 text-primary-fixed am-text-label am-text-label--sm am-text-label--wide">
                     {item.eyebrow}
                   </p>
-                  <h3 class="am-text-title mt-4 text-balance text-inverted-on-surface">{item.title}</h3>
-                  <p class="am-text-body mt-7 leading-relaxed text-inverted-on-surface/75">
+                  <h3 class:list={[isAuthorityReference ? 'am-text-subtitle' : 'am-text-title', 'mt-4 text-balance text-inverted-on-surface']}>{item.title}</h3>
+                  <p class:list={['am-text-body leading-relaxed text-inverted-on-surface/75', isAuthorityReference ? 'mt-5' : 'mt-7']}>
                     <InlineEmphasis text={item.summary} />
                   </p>
                   {item.details.map((detail) => (
-                    <p class="am-text-body mt-6 border-t border-white/15 pt-6 leading-relaxed text-inverted-on-surface/75">
+                    <p class:list={['am-text-body border-t border-white/15 leading-relaxed text-inverted-on-surface/75', isAuthorityReference ? 'mt-5 pt-5' : 'mt-6 pt-6']}>
                       <InlineEmphasis text={detail} />
                     </p>
                   ))}
@@ -322,6 +351,7 @@ const mobilityGridClass = content.mobility?.items.length === 2
       content.parking && (
         <LocationModule
           id={content.parking.id}
+          spacing={isAuthorityReference ? 'compact' : 'standard'}
           data-am-arrival-module="parking"
         >
           <div class="mx-auto grid max-w-screen-2xl gap-10 lg:grid-cols-12 lg:gap-20">
@@ -338,7 +368,10 @@ const mobilityGridClass = content.mobility?.items.length === 2
             </header>
             <div class="border-t border-border-subtle lg:col-span-7">
               {[content.parking.summary, ...content.parking.details].map((paragraph, index) => (
-                <div class="grid grid-cols-[2.5rem_minmax(0,1fr)] gap-5 border-b border-border-subtle py-7 md:grid-cols-[3.5rem_minmax(0,1fr)] md:py-9">
+                <div class:list={[
+                  'grid grid-cols-[2.5rem_minmax(0,1fr)] gap-5 border-b border-border-subtle md:grid-cols-[3.5rem_minmax(0,1fr)]',
+                  isAuthorityReference ? 'py-6 md:py-7' : 'py-7 md:py-9'
+                ]}>
                   <span class="am-text-subtitle italic text-primary/65">
                     {String(index + 1).padStart(2, '0')}
                   </span>
@@ -361,10 +394,15 @@ const mobilityGridClass = content.mobility?.items.length === 2
         >
           <div class:list={[
             'mx-auto max-w-screen-2xl',
-            content.finalMile.image && 'grid overflow-hidden bg-surface lg:grid-cols-2'
+            content.finalMile.image && (isAuthorityReference
+              ? 'grid overflow-hidden bg-surface lg:grid-cols-12'
+              : 'grid overflow-hidden bg-surface lg:grid-cols-2')
           ]}>
             {content.finalMile.image && (
-              <figure class="am-mobile-full-bleed min-h-[320px] bg-surface-container-high lg:min-h-[560px]">
+              <figure class:list={[
+                'am-mobile-full-bleed bg-surface-container-high',
+                isAuthorityReference ? 'min-h-[280px] lg:col-span-5 lg:min-h-[480px]' : 'min-h-[320px] lg:min-h-[560px]'
+              ]}>
                 <AmaraImage
                   src={content.finalMile.image.src}
                   alt={content.finalMile.image.alt}
@@ -378,7 +416,9 @@ const mobilityGridClass = content.mobility?.items.length === 2
             )}
             <div class:list={[
               'flex flex-col justify-center',
-              content.finalMile.image ? 'p-8 md:p-12 lg:p-16' : 'mx-auto max-w-5xl'
+              content.finalMile.image
+                ? (isAuthorityReference ? 'p-7 md:p-10 lg:col-span-7 lg:p-14' : 'p-8 md:p-12 lg:p-16')
+                : 'mx-auto max-w-5xl'
             ]}>
               <p class="am-text-eyebrow text-primary">
                 {content.finalMile.eyebrow}
@@ -432,3 +472,54 @@ const mobilityGridClass = content.mobility?.items.length === 2
     }
   </AuthorityArticle>
 </LocationAuthorityLayout>
+
+<style>
+  .am-arrival-option-card--recommended {
+    background: color-mix(in srgb, var(--color-primary) 5%, var(--color-surface-white));
+    box-shadow: inset 0 4px 0 var(--color-primary);
+  }
+
+  .am-arrival-recommendation {
+    border-radius: 9999px;
+    background: var(--color-primary);
+    color: var(--color-surface-white);
+    padding: 0.45rem 0.65rem;
+  }
+
+  .am-arrival-option-details {
+    border-bottom: 0;
+  }
+
+  .am-arrival-option-detail:last-child {
+    border-bottom: 0;
+  }
+
+  .am-arrival-option-term {
+    border-top: 1px solid var(--color-border-subtle);
+    padding-top: 1.25rem;
+  }
+
+  .am-arrival-option-description {
+    padding-bottom: 1.25rem;
+  }
+
+  @media (min-width: 64rem) {
+    .am-arrival-options-grid {
+      grid-template-rows: repeat(10, auto);
+    }
+
+    .am-arrival-option-card {
+      display: grid;
+      grid-row: span 10;
+      grid-template-rows: subgrid;
+    }
+
+    .am-arrival-option-details {
+      display: contents;
+    }
+
+    .am-arrival-option-detail {
+      display: contents;
+    }
+  }
+</style>

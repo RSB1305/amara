@@ -104,7 +104,7 @@ interface AuthorityPage {
 }
 
 const RESTRAINED_PRIMARY_CLASS = 'am-cta-link';
-const RESTRAINED_SECONDARY_CLASS = 'am-inline-link';
+const RESTRAINED_SECONDARY_CLASS = 'am-cta-link';
 const DECISION_PRIMARY_CLASS = 'am-btn am-btn--primary';
 const DECISION_SECONDARY_CLASS = 'am-cta-link';
 

@@ -8,7 +8,6 @@ const ROOT_SPANISH_PUBLIC_SLUGS = new Set(CANONICAL_PUBLIC_SLUGS);
 
 const DISABLED_PUBLIC_ROUTE_TOKENS = new Set([
   'locations_hub',
-  'weather_frigiliana',
   'journal',
   'contact',
   'archive'

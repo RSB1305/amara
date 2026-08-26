@@ -15,9 +15,10 @@ export interface EditorialFeatureCard {
 
 interface Props {
   cards: EditorialFeatureCard[];
+  titleRole?: 'label' | 'card';
 }
 
-const { cards } = Astro.props;
+const { cards, titleRole = 'label' } = Astro.props;
 const moduleAttributes = getAmaraContentModuleAttributes({
   job: 'editorial-feature-grid',
   status: 'canonical'
@@ -29,10 +30,18 @@ const moduleAttributes = getAmaraContentModuleAttributes({
     cards.map((card) => (
       <div>
         <div class="min-h-[4rem] mb-4 pb-2 border-b border-on-surface/10 flex items-start">
-          <h3 class="am-text-caption uppercase tracking-wider leading-tight text-on-surface m-0">
+          <h3 class:list={[
+            'text-on-surface m-0',
+            titleRole === 'card'
+              ? 'am-text-body font-bold normal-case'
+              : 'am-text-caption uppercase tracking-wider leading-tight'
+          ]}>
             {card.title}
             {card.subline ? (
-              <span class="block text-muted font-normal normal-case tracking-normal mt-1">{card.subline}</span>
+              <span class:list={[
+                'block text-muted font-normal normal-case tracking-normal mt-1',
+                titleRole === 'card' && 'am-text-caption'
+              ]}>{card.subline}</span>
             ) : null}
           </h3>
         </div>

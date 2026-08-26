@@ -27,7 +27,6 @@ const ALL_LINK_TOKENS = Object.keys(linkRegistry.links) as LinkToken[];
 
 const DISABLED_TOKENS: LinkToken[] = [
   'locations_hub',
-  'weather_frigiliana',
   'journal',
   'contact',
   'archive'

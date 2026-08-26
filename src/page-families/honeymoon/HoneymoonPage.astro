@@ -48,11 +48,11 @@ const planningItems = copy.planning.items.map((item) => ({
   href: requiredLink(item.linkToken)
 }));
 
-const footerHighlights: LabeledLink[] = [
-  { token: 'honeymoon', label: copy.footerHighlights.honeymoon },
-  { token: 'romantic_hideaways', label: copy.footerHighlights.stays },
-  { token: 'reviews_hub', label: copy.footerHighlights.reviews },
-  { token: 'direct_booking_benefits', label: copy.footerHighlights.direct }
+const footerHighlights: (LabeledLink & { decoration: 'heart' })[] = [
+  { token: 'honeymoon', label: copy.footerHighlights.honeymoon, decoration: 'heart' },
+  { token: 'romantic_hideaways', label: copy.footerHighlights.stays, decoration: 'heart' },
+  { token: 'reviews_hub', label: copy.footerHighlights.reviews, decoration: 'heart' },
+  { token: 'direct_booking_benefits', label: copy.footerHighlights.direct, decoration: 'heart' }
 ];
 ---
 
@@ -75,6 +75,7 @@ const footerHighlights: LabeledLink[] = [
       imageSrc={heroImage}
       imageAlt={copy.hero.imageAlt}
       kicker={copy.hero.kicker}
+      kickerDecoration="heart"
       title={copy.hero.title}
       lead={copy.hero.lead}
       paragraphs={copy.hero.paragraphs}
@@ -136,7 +137,7 @@ const footerHighlights: LabeledLink[] = [
             {stayItems.map((item) => (
               <article class="flex flex-col border-t border-outline-variant/20 pt-6">
                 <p class="am-text-caption text-primary">{item.eyebrow}</p>
-                <h3 class="am-text-subtitle mt-4 text-on-surface">{item.title}</h3>
+                <h3 class="am-honeymoon-stay-card__title am-text-subtitle mt-4 text-on-surface">{item.title}</h3>
                 <p class="am-text-body mt-4 flex-1 leading-relaxed text-on-surface-variant">
                   {item.text}
                 </p>
@@ -218,7 +219,15 @@ const footerHighlights: LabeledLink[] = [
       spacing="page"
       role="next-action"
       family="experience"
-      inverse
+      tone="romance"
     />
   </AmaraPageShell>
 </BaseLayout>
+
+<style>
+  @media (min-width: 48rem) {
+    .am-honeymoon-stay-card__title {
+      min-block-size: 3lh;
+    }
+  }
+</style>

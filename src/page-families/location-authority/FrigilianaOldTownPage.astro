@@ -1,9 +1,14 @@
 ---
 import LocationExperienceHero from '../../components/location/LocationExperienceHero.astro';
 import Navigation from '../../components/Navigation.astro';
+import AmaraImage from '../../components/AmaraImage.astro';
 import EditorialClosingCta from '../../components/editorial/EditorialClosingCta.astro';
 import EditorialFeatureGrid from '../../components/editorial/EditorialFeatureGrid.astro';
 import ExperienceContextNav from '../../components/experience/ExperienceContextNav.astro';
+import AmaraMediaFrame from '../../components/media/AmaraMediaFrame.astro';
+import blueDoorsImage from '../../assets/images/content/amara-frigiliana-pueblo/frigiliana-blue-doors.jpeg';
+import oldTownStepsImage from '../../assets/images/content/amara-frigiliana-pueblo/frigiliana-old-town-steps.jpeg';
+import heritageDetailImage from '../../assets/images/content/amara-frigiliana-pueblo/JPG_Frigiliana_Pueblo/2000px_72dpi_sRGB/03-frigiliana-pueblo.jpg';
 import {
   frigilianaOldTownCopy,
   frigilianaOldTownExternalLinks,
@@ -77,6 +82,30 @@ const heroImage = {
   src: '/images/amara-frigiliana-pueblo/JPG_Frigiliana_Pueblo/2000px_72dpi_sRGB/04-frigiliana-pueblo.jpg',
   width: 2000
 };
+
+const visualAlts = {
+  sights: {
+    en: 'Stepped lane between white houses in Frigiliana old town',
+    de: 'Treppengasse zwischen weißen Häusern in Frigilianas Altstadt',
+    es: 'Calle escalonada entre casas blancas del casco antiguo de Frigiliana',
+    nl: 'Straat met trappen tussen witte huizen in de oude kern van Frigiliana',
+    sv: 'Trappgränd mellan vita hus i Frigilianas gamla stad'
+  },
+  history: {
+    en: 'Whitewashed homes with blue doors and windows in Frigiliana',
+    de: 'Weiß gekalkte Häuser mit blauen Türen und Fenstern in Frigiliana',
+    es: 'Casas encaladas con puertas y ventanas azules en Frigiliana',
+    nl: 'Witgekalkte huizen met blauwe deuren en ramen in Frigiliana',
+    sv: 'Vitkalkade hus med blå dörrar och fönster i Frigiliana'
+  },
+  heritage: {
+    en: 'Traditional turquoise window behind iron bars on a white wall',
+    de: 'Traditionelles türkisfarbenes Fenster hinter einem Eisengitter an einer weißen Wand',
+    es: 'Ventana tradicional turquesa tras una reja de hierro en una pared blanca',
+    nl: 'Traditioneel turquoise raam achter een ijzeren hek in een witte muur',
+    sv: 'Traditionellt turkost fönster bakom ett järngaller på en vit vägg'
+  }
+} as const satisfies Record<string, LocalizedRow>;
 ---
 
 <LocationAuthorityLayout
@@ -118,22 +147,40 @@ const heroImage = {
           </p>
         </div>
 
-        <div class="grid grid-cols-1 lg:grid-cols-3 gap-x-12 gap-y-16">
-          {
-            sights.map((item) => (
-              <article class="border-t border-outline-variant/25 pt-8">
-                <h3 class="am-text-subtitle text-on-surface mb-3">
-                  {item.title}
-                </h3>
-                <p class="am-text-caption normal-case tracking-normal text-primary mb-4">
-                  {item.subline}
-                </p>
-                <p class="am-text-body text-on-surface-variant leading-relaxed">
-                  {item.text}
-                </p>
-              </article>
-            ))
-          }
+        <div class="grid gap-12 lg:grid-cols-12 lg:gap-16">
+          <AmaraMediaFrame role="gallery" mobileFullBleed class="lg:col-span-7 lg:self-start">
+            <AmaraImage
+              src={oldTownStepsImage}
+              alt={t(visualAlts.sights)}
+              profile="gallery"
+              class="h-full w-full object-cover"
+              mediaRole="gallery"
+              focalPoint="50% 54%"
+            />
+          </AmaraMediaFrame>
+
+          <div class="space-y-10 lg:col-span-5">
+            {
+              sights.map((item, index) => (
+                <article class="grid grid-cols-[2.75rem_minmax(0,1fr)] gap-5 border-t border-outline-variant/30 pt-7">
+                  <span class="am-text-subtitle italic text-primary/55" aria-hidden="true">
+                    {String(index + 1).padStart(2, '0')}
+                  </span>
+                  <div>
+                    <h3 class="am-text-subtitle text-on-surface mb-3">
+                      {item.title}
+                    </h3>
+                    <p class="am-text-caption normal-case tracking-normal text-primary mb-4">
+                      {item.subline}
+                    </p>
+                    <p class="am-text-body text-on-surface-variant leading-relaxed">
+                      {item.text}
+                    </p>
+                  </div>
+                </article>
+              ))
+            }
+          </div>
         </div>
       </section>
 
@@ -147,22 +194,40 @@ const heroImage = {
           </p>
         </div>
 
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-x-16 gap-y-14">
-          {
-            historySteps.map((item) => (
-              <article class="border-t border-outline-variant/25 pt-8">
-                <h3 class="am-text-subtitle text-on-surface mb-3">
-                  {item.title}
-                </h3>
-                <p class="am-text-caption normal-case tracking-normal text-primary mb-4">
-                  {item.subline}
-                </p>
-                <p class="am-text-body text-on-surface-variant leading-relaxed">
-                  {item.text}
-                </p>
-              </article>
-            ))
-          }
+        <div class="grid gap-12 lg:grid-cols-12 lg:gap-16">
+          <AmaraMediaFrame role="gallery" mobileFullBleed class="lg:col-span-5 lg:self-start">
+            <AmaraImage
+              src={blueDoorsImage}
+              alt={t(visualAlts.history)}
+              profile="gallery"
+              class="h-full w-full object-cover"
+              mediaRole="gallery"
+              focalPoint="50% 50%"
+            />
+          </AmaraMediaFrame>
+
+          <div class="space-y-10 lg:col-span-6 lg:col-start-7">
+            {
+              historySteps.map((item, index) => (
+                <article class="grid grid-cols-[2.75rem_minmax(0,1fr)] gap-5 border-t border-outline-variant/30 pt-7">
+                  <span class="am-text-subtitle italic text-primary/55" aria-hidden="true">
+                    {String(index + 1).padStart(2, '0')}
+                  </span>
+                  <div>
+                    <h3 class="am-text-subtitle text-on-surface mb-3">
+                      {item.title}
+                    </h3>
+                    <p class="am-text-caption normal-case tracking-normal text-primary mb-4">
+                      {item.subline}
+                    </p>
+                    <p class="am-text-body text-on-surface-variant leading-relaxed">
+                      {item.text}
+                    </p>
+                  </div>
+                </article>
+              ))
+            }
+          </div>
         </div>
       </section>
 
@@ -179,29 +244,46 @@ const heroImage = {
         <EditorialFeatureGrid cards={preservedCards} />
       </section>
 
-      <section id="living-heritage" class="am-section bg-surface-container-low">
-        <div class="max-w-3xl mb-16">
-          <h2 class="am-text-title italic text-on-surface tracking-tight mb-6">
-            {t(copy.livingHeritage.title)}
-          </h2>
-          <p class="am-text-body text-on-surface-variant leading-relaxed">
-            {t(copy.livingHeritage.intro)}
-          </p>
+      <div class="bg-surface px-6 pb-16 md:px-12 md:pb-24">
+        <div class="mx-auto max-w-screen-2xl">
+          <AmaraMediaFrame role="editorial" mobileFullBleed>
+            <AmaraImage
+              src={heritageDetailImage}
+              alt={t(visualAlts.heritage)}
+              profile="gallery"
+              class="h-full w-full object-cover"
+              mediaRole="editorial"
+              focalPoint="50% 50%"
+            />
+          </AmaraMediaFrame>
         </div>
+      </div>
 
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-x-16 gap-y-14">
-          {
-            heritageItems.map((item) => (
-              <article class="border-t border-outline-variant/25 pt-8">
-                <h3 class="am-text-subtitle text-on-surface mb-5">
-                  {item.title}
-                </h3>
-                <p class="am-text-body text-on-surface-variant leading-relaxed">
-                  {item.text}
-                </p>
-              </article>
-            ))
-          }
+      <section id="living-heritage" class="am-section bg-surface-container-low">
+        <div class="grid gap-12 lg:grid-cols-12 lg:gap-16">
+          <div class="lg:col-span-4">
+            <h2 class="am-text-title italic text-on-surface tracking-tight mb-6">
+              {t(copy.livingHeritage.title)}
+            </h2>
+            <p class="am-text-body text-on-surface-variant leading-relaxed">
+              {t(copy.livingHeritage.intro)}
+            </p>
+          </div>
+
+          <div class="grid gap-x-12 gap-y-12 sm:grid-cols-2 lg:col-span-7 lg:col-start-6">
+            {
+              heritageItems.map((item) => (
+                <article class="border-t border-outline-variant/30 pt-7">
+                  <h3 class="am-text-subtitle text-on-surface mb-5">
+                    {item.title}
+                  </h3>
+                  <p class="am-text-body text-on-surface-variant leading-relaxed">
+                    {item.text}
+                  </p>
+                </article>
+              ))
+            }
+          </div>
         </div>
       </section>
 

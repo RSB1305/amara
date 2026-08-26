@@ -258,6 +258,13 @@ export const gettingToFrigilianaCopy = {
       nl: 'Zelf nemen we altijd een huurauto. Dat kost extra, maar de vrijheid was het ons tot nu toe elke keer waard. Transfer en bus werken ook — vergelijk moeite, kosten en de aansluiting na de landing.',
       sv: 'Själva tar vi alltid hyrbil. Det kostar extra, men friheten har varit värd det varje gång. Transfer och buss fungerar också – jämför besvär, kostnad och anslutningen efter landningen.'
     } satisfies LocalizedText,
+    recommendationLabel: {
+      en: 'Our recommendation',
+      de: 'Unsere Empfehlung',
+      es: 'Nuestra recomendación',
+      nl: 'Onze aanbeveling',
+      sv: 'Vår rekommendation'
+    } satisfies LocalizedText,
     labels: {
       timing: {
         en: 'Journey',
@@ -306,25 +313,25 @@ export const gettingToFrigilianaCopy = {
           sv: 'Den direkta vägen från flygplatsen följer kusten och går sedan uppåt från Nerja mot Frigiliana.'
         },
         timing: {
-          en: 'Roughly one hour in normal traffic.',
-          de: 'Bei normalem Verkehr ungefähr eine Stunde.',
-          es: 'Alrededor de una hora con tráfico normal.',
-          nl: 'Ongeveer een uur bij normaal verkeer.',
-          sv: 'Ungefär en timme i normal trafik.'
+          en: '**Roughly one hour** in normal traffic.',
+          de: 'Bei normalem Verkehr **ungefähr eine Stunde**.',
+          es: '**Alrededor de una hora** con tráfico normal.',
+          nl: '**Ongeveer een uur** bij normaal verkeer.',
+          sv: '**Ungefär en timme** i normal trafik.'
         },
         bestFor: {
-          en: 'Guests planning beaches, day trips, or several stops during the stay.',
-          de: 'Gäste, die Strände, Ausflüge oder mehrere Ziele während des Aufenthalts planen.',
-          es: 'Quienes quieran visitar playas, hacer excursiones o moverse por distintos lugares.',
-          nl: 'Gasten die stranden, dagtochten of meerdere bestemmingen tijdens het verblijf plannen.',
-          sv: 'Gäster som planerar stränder, dagsutflykter eller flera stopp under vistelsen.'
+          en: 'Guests planning **beaches, day trips, or several stops** during the stay.',
+          de: 'Gäste, die **Strände, Ausflüge oder mehrere Ziele** während des Aufenthalts planen.',
+          es: 'Quienes quieran **visitar playas, hacer excursiones o moverse por distintos lugares**.',
+          nl: 'Gasten die **stranden, dagtochten of meerdere bestemmingen** tijdens het verblijf plannen.',
+          sv: 'Gäster som planerar **stränder, dagsutflykter eller flera stopp** under vistelsen.'
         },
         consideration: {
-          en: 'Parking and the final walk matter in Frigiliana; old-town access is not door to door.',
-          de: 'Parkplatz und letzter Fußweg sind in Frigiliana wichtig; die Altstadt ist nicht überall direkt anfahrbar.',
-          es: 'En Frigiliana importan el aparcamiento y el último tramo a pie; no todo el casco antiguo permite llegar hasta la puerta.',
-          nl: 'Parkeren en het laatste stuk lopen zijn belangrijk; in de oude kern rijden jullie niet overal tot aan de deur.',
-          sv: 'Parkering och sista sträckan till fots är viktiga; i gamla stan går det inte alltid att köra ända fram.'
+          en: '**Parking and the final walk matter** in Frigiliana; old-town access is not door to door.',
+          de: '**Parkplatz und letzter Fußweg sind wichtig**; die Altstadt ist nicht überall direkt anfahrbar.',
+          es: 'En Frigiliana importan **el aparcamiento y el último tramo a pie**; no todo el casco antiguo permite llegar hasta la puerta.',
+          nl: '**Parkeren en het laatste stuk lopen zijn belangrijk**; in de oude kern rijden jullie niet overal tot aan de deur.',
+          sv: '**Parkering och sista sträckan till fots är viktiga**; i gamla stan går det inte alltid att köra ända fram.'
         }
       },
       {
@@ -351,25 +358,25 @@ export const gettingToFrigilianaCopy = {
           sv: 'En förbokad förare möter er på flygplatsen och kör direkt mot Frigiliana utan byte i Nerja.'
         },
         timing: {
-          en: 'Similar road time to a rental car; pickup and drop-off should be agreed in advance.',
-          de: 'Ähnliche Fahrtzeit wie mit dem Mietwagen; Abholung und Ausstiegspunkt vorher abstimmen.',
-          es: 'Un tiempo similar al coche de alquiler; conviene acordar antes la recogida y el punto de bajada.',
-          nl: 'Vergelijkbare reistijd als met een huurauto; spreek ophaal- en afzetpunt vooraf af.',
-          sv: 'Ungefär samma restid som med hyrbil; bestäm hämtning och avlämningsplats i förväg.'
+          en: '**Similar road time to a rental car**; pickup and drop-off should be agreed in advance.',
+          de: '**Ähnliche Fahrtzeit wie mit dem Mietwagen**; Abholung und Ausstiegspunkt vorher abstimmen.',
+          es: '**Un tiempo similar al coche de alquiler**; conviene acordar antes la recogida y el punto de bajada.',
+          nl: '**Vergelijkbare reistijd als met een huurauto**; spreek ophaal- en afzetpunt vooraf af.',
+          sv: '**Ungefär samma restid som med hyrbil**; bestäm hämtning och avlämningsplats i förväg.'
         },
         bestFor: {
-          en: 'Late arrivals, families, heavier luggage, or guests who do not need a car during the stay.',
-          de: 'Späte Ankünfte, Familien, viel Gepäck oder Gäste, die vor Ort kein Auto benötigen.',
-          es: 'Llegadas tardías, familias, equipaje pesado o quienes no necesiten coche durante la estancia.',
-          nl: 'Late aankomsten, gezinnen, veel bagage of gasten die tijdens het verblijf geen auto nodig hebben.',
-          sv: 'Sena ankomster, familjer, mycket bagage eller gäster som inte behöver bil under vistelsen.'
+          en: '**Late arrivals, families, or heavier luggage**, and guests who do not need a car during the stay.',
+          de: '**Späte Ankünfte, Familien oder viel Gepäck** sowie Gäste, die vor Ort kein Auto benötigen.',
+          es: '**Llegadas tardías, familias o equipaje pesado**, y quienes no necesiten coche durante la estancia.',
+          nl: '**Late aankomsten, gezinnen of veel bagage**, en gasten die tijdens het verblijf geen auto nodig hebben.',
+          sv: '**Sena ankomster, familjer eller mycket bagage**, och gäster som inte behöver bil under vistelsen.'
         },
         consideration: {
-          en: 'Ask for a fixed quote and confirm luggage, child seats, flight monitoring, and the exact drop-off point.',
-          de: 'Festpreis sowie Gepäck, Kindersitze, Flugüberwachung und genauen Ausstiegspunkt vorher bestätigen lassen.',
-          es: 'Pedid un precio cerrado y confirmad equipaje, sillas infantiles, seguimiento del vuelo y punto exacto de bajada.',
-          nl: 'Vraag een vaste prijs en bevestig bagage, kinderzitjes, vluchtcontrole en het exacte afzetpunt.',
-          sv: 'Be om fast pris och bekräfta bagage, barnstolar, flygbevakning och exakt avlämningsplats.'
+          en: '**Ask for a fixed quote** and confirm luggage, child seats, flight monitoring, and the exact drop-off point.',
+          de: '**Festpreis bestätigen lassen** sowie Gepäck, Kindersitze, Flugüberwachung und genauen Ausstiegspunkt abstimmen.',
+          es: '**Pedid un precio cerrado** y confirmad equipaje, sillas infantiles, seguimiento del vuelo y punto exacto de bajada.',
+          nl: '**Vraag een vaste prijs** en bevestig bagage, kinderzitjes, vluchtcontrole en het exacte afzetpunt.',
+          sv: '**Be om fast pris** och bekräfta bagage, barnstolar, flygbevakning och exakt avlämningsplats.'
         }
       },
       {
@@ -396,25 +403,25 @@ export const gettingToFrigilianaCopy = {
           sv: 'Aena anger en bussförbindelse mellan flygplatsen och Nerja. Från Nerja fortsätter ni med lokalbuss eller taxi.'
         },
         timing: {
-          en: 'Connection times vary. Check both timetables for your travel date and allow a generous buffer in Nerja.',
-          de: 'Die Anschlusszeiten variieren. Prüft beide Fahrpläne für euren Reisetag und plant in Nerja ausreichend Puffer ein.',
-          es: 'Los enlaces varían. Consultad ambos horarios para la fecha del viaje y dejad margen suficiente en Nerja.',
-          nl: 'Aansluittijden verschillen. Controleer beide dienstregelingen voor jullie reisdatum en plan ruim overstaptijd in Nerja.',
-          sv: 'Anslutningstiderna varierar. Kontrollera båda tidtabellerna för resdagen och lägg in god marginal i Nerja.'
+          en: '**Connection times vary.** Check both timetables for your travel date and allow a generous buffer in Nerja.',
+          de: '**Die Anschlusszeiten variieren.** Prüft beide Fahrpläne für euren Reisetag und plant in Nerja ausreichend Puffer ein.',
+          es: '**Los enlaces varían.** Consultad ambos horarios para la fecha del viaje y dejad margen suficiente en Nerja.',
+          nl: '**Aansluittijden verschillen.** Controleer beide dienstregelingen voor jullie reisdatum en plan ruim overstaptijd in Nerja.',
+          sv: '**Anslutningstiderna varierar.** Kontrollera båda tidtabellerna för resdagen och lägg in god marginal i Nerja.'
         },
         bestFor: {
-          en: 'Daytime arrivals, light luggage, and travellers comfortable coordinating two services.',
-          de: 'Ankünfte tagsüber, leichtes Gepäck und Reisende, die zwei Verbindungen gut koordinieren können.',
-          es: 'Llegadas diurnas, equipaje ligero y viajeros cómodos coordinando dos servicios.',
-          nl: 'Aankomst overdag, lichte bagage en reizigers die twee verbindingen prettig vinden.',
-          sv: 'Ankomst dagtid, lätt bagage och resenärer som är bekväma med att samordna två förbindelser.'
+          en: '**Daytime arrivals with light luggage** and travellers comfortable coordinating two services.',
+          de: '**Ankünfte tagsüber mit leichtem Gepäck** und Reisende, die zwei Verbindungen gut koordinieren können.',
+          es: '**Llegadas diurnas con equipaje ligero** y viajeros cómodos coordinando dos servicios.',
+          nl: '**Aankomst overdag met lichte bagage** en reizigers die twee verbindingen prettig vinden.',
+          sv: '**Ankomst dagtid med lätt bagage** och resenärer som är bekväma med att samordna två förbindelser.'
         },
         consideration: {
-          en: 'The local timetable can change, including on Sundays, holidays, and in summer.',
-          de: 'Der lokale Fahrplan kann sich ändern, besonders an Sonn- und Feiertagen sowie im Sommer.',
-          es: 'El horario local puede cambiar, especialmente domingos, festivos y en verano.',
-          nl: 'De lokale dienstregeling kan wijzigen, vooral op zon- en feestdagen en in de zomer.',
-          sv: 'Den lokala tidtabellen kan ändras, särskilt på söndagar, helgdagar och under sommaren.'
+          en: '**The local timetable can change**, including on Sundays, holidays, and in summer.',
+          de: '**Der lokale Fahrplan kann sich ändern**, besonders an Sonn- und Feiertagen sowie im Sommer.',
+          es: '**El horario local puede cambiar**, especialmente domingos, festivos y en verano.',
+          nl: '**De lokale dienstregeling kan wijzigen**, vooral op zon- en feestdagen en in de zomer.',
+          sv: '**Den lokala tidtabellen kan ändras**, särskilt på söndagar, helgdagar och under sommaren.'
         }
       }
     ] satisfies GettingToFrigilianaOption[]

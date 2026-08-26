@@ -11,7 +11,7 @@ import {
   getDestinationBranchNavigation,
   type DestinationId
 } from '../../lib/location/destinationBranchNavigation';
-import { globalCtaLabels } from './globalNavigationContent';
+import { defaultCtaShortLabels, globalCtaLabels } from './globalNavigationContent';
 import { resolveLink } from '../../lib/linkResolver';
 import type { AmaraLanguage } from '../../types/seo';
 
@@ -136,6 +136,8 @@ const isCollection = currentPath === normalizePath(resolveLink('romantic_hideawa
 const isAmenities = currentPath === normalizePath(resolveLink('amenities', lang));
 const isAbout = currentPath === normalizePath(resolveLink('about', lang));
 const isFaq = currentPath === normalizePath(resolveLink('faq_general', lang));
+const isStaySearchResults =
+  currentPath === normalizePath(resolveLink('stay_search_results', lang));
 const isLegalNotice = currentPath === normalizePath(resolveLink('legal_notice', lang));
 const isBookingStayTerms = currentPath === normalizePath(resolveLink('booking_stay_terms', lang));
 const isLegalDocument = isLegalNotice || isBookingStayTerms;
@@ -150,8 +152,9 @@ const isTrustFamilyPage = isPrimaryTrustPage || isLegalDocument;
 /**
  * A breadcrumb should read like the navigation, not like the SEO title. Titles
  * are written for search results — "Komfort & Ausstattung: Lizenzen und Details"
- * — and make a poor trail. Pages that have a label in the nav use that label;
- * the rest still fall back to the page title.
+ * — and make a poor trail. Breadcrumb labels name only the navigation level;
+ * they stay compact and use a separately authored label where the page title
+ * carries additional context. The fallback remains for pages without one.
  */
 const navLabelForPage =
   isDirectBookingBenefits ? trustLabels.direct_booking_benefits[lang]
@@ -159,6 +162,7 @@ const navLabelForPage =
   : isCollection ? copy.allStays
   : isAmenities ? trustLabels.amenities[lang]
   : isFaq ? trustLabels.faq_general[lang]
+  : isStaySearchResults ? defaultCtaShortLabels[lang]
   : isAbout ? trustLabels.about[lang]
   : isLegalNotice ? trustLabels.legal_notice[lang]
   : isBookingStayTerms ? trustLabels.booking_stay_terms[lang]

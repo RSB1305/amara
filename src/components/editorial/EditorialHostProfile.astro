@@ -12,6 +12,11 @@ export interface EditorialHostStat {
   value: string;
 }
 
+export interface EditorialHostLink {
+  href: string;
+  label: string;
+}
+
 interface Props {
   imageSrc: string;
   imageAlt: string;
@@ -22,9 +27,23 @@ interface Props {
   id?: string;
   /** First-person paragraphs, rendered between the role and the stats. */
   intro?: string[];
+  /** Calm contextual continuations after the personal account. */
+  contextLinks?: EditorialHostLink[];
+  /** Keeps the person visually present beside a longer first-person account. */
+  stickyMedia?: boolean;
 }
 
-const { imageSrc, imageAlt, title, role, stats, id, intro = [] } = Astro.props;
+const {
+  imageSrc,
+  imageAlt,
+  title,
+  role,
+  stats,
+  id,
+  intro = [],
+  contextLinks = [],
+  stickyMedia = false
+} = Astro.props;
 ---
 
 <div
@@ -34,7 +53,10 @@ const { imageSrc, imageAlt, title, role, stats, id, intro = [] } = Astro.props;
     { 'scroll-mt-[104px] lg:scroll-mt-[112px]': id }
   ]}
 >
-  <div class="am-mobile-full-bleed am-mobile-full-bleed--fluid w-full max-w-[400px] mx-auto lg:mx-0 lg:max-w-none">
+  <div class:list={[
+    'am-mobile-full-bleed am-mobile-full-bleed--fluid w-full max-w-[400px] mx-auto lg:mx-0 lg:max-w-none',
+    stickyMedia && 'lg:sticky lg:top-28'
+  ]}>
     <div class="aspect-[4/5] bg-surface-container-low overflow-hidden flex items-center justify-center">
       <AmaraImage
         src={imageSrc}
@@ -55,6 +77,15 @@ const { imageSrc, imageAlt, title, role, stats, id, intro = [] } = Astro.props;
         <div class="grid gap-5 mt-8">
           {intro.map((paragraph) => (
             <p class="am-text-body text-subtle leading-relaxed m-0"><InlineEmphasis text={paragraph} /></p>
+          ))}
+        </div>
+      )
+    }
+    {
+      contextLinks.length > 0 && (
+        <div class="mt-10 flex flex-wrap items-center gap-x-6 gap-y-3">
+          {contextLinks.map((link) => (
+            <a class="am-cta-link" href={link.href}>{link.label}</a>
           ))}
         </div>
       )

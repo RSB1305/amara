@@ -8,6 +8,7 @@ import type { AmaraLanguage } from '../types/seo';
 interface FooterLink {
   token: LinkToken;
   label: string;
+  decoration?: 'heart';
 }
 
 interface Props {
@@ -70,12 +71,14 @@ const resolvedLinks = links
       {resolvedLinks.map((link) => (
         <li>
           {link.href ? (
-            <a href={link.href} class="text-on-surface-variant hover:text-primary am-text-label transition-colors">
-              {link.label}
+            <a href={link.href} class="inline-flex items-center gap-2 text-on-surface-variant hover:text-primary am-text-label transition-colors">
+              {link.decoration === 'heart' && <span class="footer-minimal__decoration text-primary" aria-hidden="true">❤︎</span>}
+              <span>{link.label}</span>
             </a>
           ) : (
-            <span class="am-is-disabled text-on-surface-variant transition-colors am-text-label" aria-disabled="true">
-              {link.label}
+            <span class="am-is-disabled inline-flex items-center gap-2 text-on-surface-variant transition-colors am-text-label" aria-disabled="true">
+              {link.decoration === 'heart' && <span class="footer-minimal__decoration text-primary" aria-hidden="true">❤︎</span>}
+              <span>{link.label}</span>
             </span>
           )}
         </li>
