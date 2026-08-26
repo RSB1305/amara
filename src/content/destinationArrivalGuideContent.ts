@@ -101,6 +101,7 @@ export interface ArrivalGuidePageContent {
   factIcons: LocationGuideIconName[];
   gateways: ArrivalGuideSection;
   options: ArrivalGuideSection & {
+    recommendationLabel?: string;
     labels: {
       timing: string;
       bestFor: string;
@@ -447,6 +448,7 @@ function frigilianaGuide(lang: AmaraLanguage): ArrivalGuidePageContent {
       eyebrow: text(copy.options.eyebrow, lang),
       title: text(copy.options.title, lang),
       intro: text(copy.options.intro, lang),
+      recommendationLabel: text(copy.options.recommendationLabel, lang),
       labels: {
         timing: text(copy.options.labels.timing, lang),
         bestFor: text(copy.options.labels.bestFor, lang),
