@@ -502,13 +502,29 @@ export const aboutUsContent: AboutUsContent = {
   },
   closingCta: {
     title: { en: 'For guests who value the things that cannot be staged', de: 'Für Gäste, denen die Dinge wichtig sind, die man nicht inszenieren kann', es: 'Para quienes valoran lo que no siempre se ve en las fotos', nl: 'Voor gasten die waarde hechten aan wat je niet in scène kunt zetten', sv: 'För gäster som värdesätter det som inte går att iscensätta' },
-    lead: {
-      en: 'AMARA is for people who appreciate calm, reliability, thoughtful spaces and honest communication. We are not the right choice for everyone, and that is intentional: our places are not made for party stays, and they are designed around couples rather than larger families. The exception is Tarifa, which also works for two adults with small children. But if you value places that have been considered carefully, prepared properly and looked after by people who take personal responsibility for them, you will probably feel at home here.',
-      de: 'AMARA ist für Menschen, die Ruhe, Verlässlichkeit, durchdachte Räume und ehrliche Kommunikation schätzen. Wir sind bewusst nicht für jeden die richtige Wahl: Für Partyaufenthalte sind unsere Unterkünfte nicht gemacht, und sie sind auf Paare zugeschnitten, nicht auf größere Familien. Die Ausnahme ist Tarifa, das auch für zwei Erwachsene mit kleinen Kindern funktioniert. Aber wenn ihr Wert auf Unterkünfte legt, die sorgfältig geplant, gewissenhaft vorbereitet und von Menschen betreut werden, die persönlich Verantwortung übernehmen, werdet ihr euch bei AMARA wahrscheinlich sehr wohlfühlen.',
-      es: 'AMARA es para personas que valoran la calma, la fiabilidad, los espacios bien pensados y una comunicación honesta. No somos la opción adecuada para todo el mundo, y es algo intencionado: nuestros alojamientos no están pensados para estancias de fiesta y están diseñados para parejas, no para familias grandes. La excepción es Tarifa, que también funciona para dos adultos con niños pequeños. Pero si apreciáis alojamientos cuidados, bien preparados y atendidos por personas que asumen personalmente la responsabilidad, probablemente os sentiréis muy a gusto con AMARA.',
-      nl: 'AMARA is er voor mensen die rust, betrouwbaarheid, doordachte ruimtes en eerlijke communicatie waarderen. We zijn bewust niet voor iedereen de juiste keuze: onze verblijven zijn niet gemaakt voor feestvakanties en zijn afgestemd op stellen, niet op grotere gezinnen. De uitzondering is Tarifa, dat ook werkt voor twee volwassenen met jonge kinderen. Maar als jullie waarde hechten aan plekken die zorgvuldig zijn ingericht, goed worden voorbereid en worden verzorgd door mensen die persoonlijk verantwoordelijkheid nemen, zullen jullie je bij AMARA waarschijnlijk snel thuis voelen.',
-      sv: 'AMARA är för människor som uppskattar lugn, pålitlighet, genomtänkta miljöer och ärlig kommunikation. Vi är medvetet inte rätt val för alla: våra boenden är inte gjorda för festvistelser och är utformade för par snarare än för större familjer. Undantaget är Tarifa, som också fungerar för två vuxna med små barn. Men om ni uppskattar boenden som är noggrant genomtänkta, väl förberedda och omhändertagna av människor som tar personligt ansvar, kommer ni sannolikt att känna er hemma hos AMARA.'
-    },
+    paragraphs: [
+      {
+        en: 'AMARA is for people who appreciate **calm, reliability, thoughtful spaces and honest communication**.',
+        de: 'AMARA ist für Menschen, die **Ruhe, Verlässlichkeit, durchdachte Räume und ehrliche Kommunikation** schätzen.',
+        es: 'AMARA es para personas que valoran **la calma, la fiabilidad, los espacios bien pensados y una comunicación honesta**.',
+        nl: 'AMARA is er voor mensen die **rust, betrouwbaarheid, doordachte ruimtes en eerlijke communicatie** waarderen.',
+        sv: 'AMARA är för människor som uppskattar **lugn, pålitlighet, genomtänkta miljöer och ärlig kommunikation**.'
+      },
+      {
+        en: '**We are not the right choice for everyone, and that is intentional:** our places are not made for party stays, and they are designed around couples rather than larger families. The exception is Tarifa, which also works for two adults with small children.',
+        de: '**Wir sind bewusst nicht für jeden die richtige Wahl:** Für Partyaufenthalte sind unsere Unterkünfte nicht gemacht, und sie sind auf Paare zugeschnitten, nicht auf größere Familien. Die Ausnahme ist Tarifa, das auch für zwei Erwachsene mit kleinen Kindern funktioniert.',
+        es: '**No somos la opción adecuada para todo el mundo, y es algo intencionado:** nuestros alojamientos no están pensados para estancias de fiesta y están diseñados para parejas, no para familias grandes. La excepción es Tarifa, que también funciona para dos adultos con niños pequeños.',
+        nl: '**We zijn bewust niet voor iedereen de juiste keuze:** onze verblijven zijn niet gemaakt voor feestvakanties en zijn afgestemd op stellen, niet op grotere gezinnen. De uitzondering is Tarifa, dat ook werkt voor twee volwassenen met jonge kinderen.',
+        sv: '**Vi är medvetet inte rätt val för alla:** våra boenden är inte gjorda för festvistelser och är utformade för par snarare än för större familjer. Undantaget är Tarifa, som också fungerar för två vuxna med små barn.'
+      },
+      {
+        en: 'But if you value places that have been considered carefully, prepared properly and looked after by people who take personal responsibility for them, **you will probably feel at home here**.',
+        de: 'Aber wenn ihr Wert auf Unterkünfte legt, die sorgfältig geplant, gewissenhaft vorbereitet und von Menschen betreut werden, die persönlich Verantwortung übernehmen, **werdet ihr euch bei AMARA wahrscheinlich sehr wohlfühlen**.',
+        es: 'Pero si apreciáis alojamientos cuidados, bien preparados y atendidos por personas que asumen personalmente la responsabilidad, **probablemente os sentiréis muy a gusto con AMARA**.',
+        nl: 'Maar als jullie waarde hechten aan plekken die zorgvuldig zijn ingericht, goed worden voorbereid en worden verzorgd door mensen die persoonlijk verantwoordelijkheid nemen, **zullen jullie je bij AMARA waarschijnlijk snel thuis voelen**.',
+        sv: 'Men om ni uppskattar boenden som är noggrant genomtänkta, väl förberedda och omhändertagna av människor som tar personligt ansvar, **kommer ni sannolikt att känna er hemma hos AMARA**.'
+      }
+    ],
     note: {
       en: 'A good stay does not need to demand attention. It should simply give you the freedom to enjoy your time.',
       de: 'Ein guter Aufenthalt muss nicht ständig Aufmerksamkeit verlangen. Er sollte euch vor allem die Freiheit geben, eure Zeit zu genießen.',

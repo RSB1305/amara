@@ -68,6 +68,8 @@ const closingCtaLinks = content.closingCta.links.map((link) => ({
   label: link.label[currentLang]
 }));
 
+const closingParagraphs = content.closingCta.paragraphs?.map((paragraph) => paragraph[currentLang]) ?? [];
+
 const heroCtaLinks = page.hero.ctaLinks
   .map((link) => {
     const href = resolveOptionalLink(link.token, currentLang, { suppressMissing: true });
@@ -181,6 +183,7 @@ const heroCtaLinks = page.hero.ctaLinks
         family="trust-content"
         title={content.closingCta.title?.[currentLang] ?? ''}
         lead={content.closingCta.lead?.[currentLang] ?? ''}
+        paragraphs={closingParagraphs}
         note={content.closingCta.note?.[currentLang]}
         links={closingCtaLinks}
         lang={currentLang}

@@ -8,17 +8,19 @@ interface Props {
   family: AmaraTrustFamilyId;
   title: string;
   lead: string;
+  paragraphs?: string[];
   note?: string;
   links: EditorialClosingCtaLink[];
   lang: AmaraLanguage;
 }
 
-const { family, title, lead, note, links, lang } = Astro.props;
+const { family, title, lead, paragraphs, note, links, lang } = Astro.props;
 ---
 
 <EditorialClosingCta
   title={title}
   lead={lead}
+  paragraphs={paragraphs}
   note={note}
   links={links}
   lang={lang}
