@@ -7,6 +7,7 @@ export type AmaraContentModuleJob =
   | 'stay-selection-card'
   | 'evidence-panel'
   | 'editorial-comparison'
+  | 'experience-hub-topic-grid'
   | 'booking-decision'
   | 'editorial-statement';
 

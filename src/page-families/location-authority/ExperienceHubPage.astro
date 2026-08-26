@@ -4,6 +4,7 @@ import LocationExperienceHero from '../../components/location/LocationExperience
 import Navigation from '../../components/Navigation.astro';
 import GuideClosingSection from './GuideClosingSection.astro';
 import ExperienceContextNav from '../../components/experience/ExperienceContextNav.astro';
+import ExperienceHubTopicGrid from '../../components/experience/ExperienceHubTopicGrid.astro';
 import AmaraSectionIntro from '../../components/layout/AmaraSectionIntro.astro';
 import {
   experienceCatalog,
@@ -55,6 +56,14 @@ const [leadId, ...secondaryIds] = copy.editorial.featuredIds;
 const leadStory = getExperience(leadId);
 const secondaryStories = secondaryIds.map(getExperience);
 const allExperiences = copy.catalog.order.map(getExperience);
+const catalogTopics = allExperiences.map((experience) => ({
+  id: `experience-${experience.id}`,
+  eyebrow: experience.editorial.kicker,
+  title: experience.editorial.title,
+  text: experience.editorial.text,
+  href: experience.href ?? undefined,
+  linkLabel: experience.editorial.linkLabel
+}));
 
 const footerHighlights: LabeledLink[] = [
   { token: 'frigiliana_experience_hub', label: copy.footerHighlights.hub },
@@ -278,47 +287,7 @@ const heroImage = {
           variant="editorial"
         />
 
-        <div class="grid grid-cols-1 gap-x-12 gap-y-14 md:grid-cols-2 xl:grid-cols-4">
-          {
-            allExperiences.map((experience, index) => (
-              <article
-                id={`experience-${experience.id}`}
-                class="scroll-mt-36 border-t border-outline-variant/30 pt-6"
-              >
-                <span class="mb-7 block am-text-label am-text-label--sm am-text-label--wide text-primary">
-                  {String(index + 1).padStart(2, '0')}
-                </span>
-                <p class="am-text-caption mb-3 text-primary">
-                  {experience.editorial.kicker}
-                </p>
-                <h3 class="am-text-subtitle mb-5 text-on-surface">
-                  {
-                    experience.href ? (
-                      <a href={experience.href} class="am-magazine-title-link">
-                        {experience.editorial.title}
-                      </a>
-                    ) : (
-                      experience.editorial.title
-                    )
-                  }
-                </h3>
-                <p class="text-sm leading-relaxed text-on-surface-variant">
-                  {experience.editorial.text}
-                </p>
-                {
-                  experience.href && (
-                    <p class="mt-6 text-sm">
-                      <a href={experience.href} class="am-inline-link">
-                        {experience.editorial.linkLabel}
-                        <span aria-hidden="true"> &rarr;</span>
-                      </a>
-                    </p>
-                  )
-                }
-              </article>
-            ))
-          }
-        </div>
+        <ExperienceHubTopicGrid topics={catalogTopics} columns={4} />
       </section>
 
       <GuideClosingSection
