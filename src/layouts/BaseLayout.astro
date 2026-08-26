@@ -19,6 +19,7 @@ import bodyFontUrl from '@fontsource/plus-jakarta-sans/files/plus-jakarta-sans-l
 import labelFontUrl from '@fontsource/plus-jakarta-sans/files/plus-jakarta-sans-latin-700-normal.woff2?url';
 import { getPageFamilyAttributes, type AmaraPageFamilyId } from '../components/page-type/pageTypeContract';
 import { getAuthorityFamilyAttributes, isAmaraAuthorityFamilyId } from '../components/authority/authorityFamilyContract';
+import { getConversionFamilyAttributes, isAmaraConversionFamilyId } from '../components/conversion/conversionFamilyContract';
 
 /**
  * Web fonts are declared inside the global stylesheet, so the browser can only
@@ -86,6 +87,7 @@ const origin = Astro.url.origin;
 const head = resolveSeoHead(seo, origin, pathname, currentLang);
 const ldJson = resolveStructuredData(seo, head.canonicalUrl, currentLang, origin);
 const authorityFamilyAttributes = isAmaraAuthorityFamilyId(pageFamily) ? getAuthorityFamilyAttributes(pageFamily) : {};
+const conversionFamilyAttributes = isAmaraConversionFamilyId(pageFamily) ? getConversionFamilyAttributes(pageFamily) : {};
 ---
 
 <!DOCTYPE html>
@@ -143,7 +145,7 @@ const authorityFamilyAttributes = isAmaraAuthorityFamilyId(pageFamily) ? getAuth
 
   </head>
 
-  <body class:list={[bodyBackgroundClass, 'text-on-surface font-body selection:bg-primary/10 antialiased']} {...(pageFamily ? getPageFamilyAttributes(pageFamily) : {})} {...authorityFamilyAttributes}>
+  <body class:list={[bodyBackgroundClass, 'text-on-surface font-body selection:bg-primary/10 antialiased']} {...(pageFamily ? getPageFamilyAttributes(pageFamily) : {})} {...authorityFamilyAttributes} {...conversionFamilyAttributes}>
     <div class="relative z-[10] pt-[104px] lg:pt-[112px]" data-am-interaction-root>
       <a
         href="#am-main-content"

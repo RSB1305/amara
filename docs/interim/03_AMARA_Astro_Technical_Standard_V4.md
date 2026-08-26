@@ -1,7 +1,7 @@
 ---
 document_id: AMARA-INT-ASTRO-003
 title: AMARA Astro & Design Architecture Contract V4
-version: 4.17.0
+version: 4.18.0
 status: ACTIVE
 authority_class: CONTRACT / GOVERNING INTERIM
 source_type: INTERIM SNAPSHOT FROM APPROVED PDF + APPROVED REPOSITORY AMENDMENT
@@ -9,7 +9,7 @@ source_attachment: "03_AMARA_Astro_Technical_Standard_V4 (1).pdf"
 source_sha256: b3d8a3e780b29b5be42922aec838c7f56f455184cca8336d9a0f3564ba43f9aa
 snapshot_created: 2026-08-14T09:08:00+02:00
 migration_state: PENDING PACKAGE 2/3 NORMALIZATION
-last_modified: 2026-08-26T17:00:00Z
+last_modified: 2026-08-26T18:00:00Z
 ---
 
 # AMARA Astro & Design Architecture Contract V4 — Interim Markdown Snapshot
@@ -536,6 +536,24 @@ for which media and next actions are not required. The contract does not reorder
 schema or introduce a universal Authority component. Family-owned heroes, evidence, FAQ, callout, media and closing
 owners remain responsible for their existing jobs and visible output.
 
+17.16 Executable Conversion-family composition
+
+`src/components/conversion/conversionFamilyContract.ts` owns the smallest confirmed composition grouping for all
+seven registered Conversion families: Stay Discovery for Romantic Hideaways, Stay Search Results and Last Minute
+Stays; Stay Decision for Vacation Rental; Direct Booking for Direct Booking Benefits; and Specialist Enquiry for
+Group Stays and Property Sale. It declares each group's semantic phases, intro, decision, evidence and action
+alignment, permitted close and funnel protection. `BaseLayout` emits the selected profile beside the existing
+page-type attributes and verifies its ownership against `AMARA_PAGE_FAMILY_PROFILES` rather than creating a second
+ownership registry.
+
+Stay Discovery and Stay Decision remain `family-owned`: selection, availability, property facts, calendar, quote,
+sticky action and protected checkout handoff stay with their existing production owners and cannot gain a second
+terminal funnel. Direct Booking and Specialist Enquiry remain `page-end-owned` and retain exactly one clear booking
+or enquiry close. The contract does not infer families, derive routes or content, render or reorder sections, replace
+search/calendar/quote/checkout components, or create a universal Conversion template. It adds semantic data
+attributes only; no public CSS or client-script selector consumes them in this release, so visible composition and
+the external booking provider boundary remain unchanged.
+
 ## Revision history
 
 | Version | Date | Change |
@@ -559,3 +577,4 @@ owners remain responsible for their existing jobs and visible output.
 | 4.15.0 | 2026-08-26T15:00:00Z | Closed public page-family classification coverage at the owning template boundary while preserving Guest Guide, internal tools and error pages as explicit non-public-profile exceptions. |
 | 4.16.0 | 2026-08-26T16:00:00Z | Activated the bounded executable Trust-family composition contract and shared Trust close, corrected Winter Stays to Authority and described Guest Guide accurately as a noindex post-booking utility. |
 | 4.17.0 | 2026-08-26T17:00:00Z | Activated the executable Authority-family composition contract across practical, destination, FAQ and documentary groups without changing public composition or conversion paths. |
+| 4.18.0 | 2026-08-26T18:00:00Z | Activated the executable Conversion-family composition contract across Stay Discovery, Stay Decision, Direct Booking and Specialist Enquiry without changing public conversion or checkout paths. |

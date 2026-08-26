@@ -41,6 +41,7 @@ import { AMARA_PAGE_FAMILY_PROFILES, AMARA_PAGE_TYPE_PROFILES, getPageTypeAttrib
 import TrustFamilyClosing from '../../../components/trust/TrustFamilyClosing.astro';
 import { AMARA_TRUST_FAMILY_PROFILES, getTrustFamilyAttributes, type AmaraTrustFamilyId } from '../../../components/trust/trustFamilyContract';
 import { AMARA_AUTHORITY_FAMILY_GROUPS, getAuthorityFamilyAttributes, type AmaraAuthorityFamilyGroup } from '../../../components/authority/authorityFamilyContract';
+import { AMARA_CONVERSION_FAMILY_ASSIGNMENTS, AMARA_CONVERSION_FAMILY_GROUPS, getConversionFamilyAttributes, type AmaraConversionFamilyGroup } from '../../../components/conversion/conversionFamilyContract';
 
 const styleguideStayFacts = [
   { label: '2 guests', Icon: UsersRound },
@@ -64,6 +65,7 @@ const ownershipLevels = [
 ] as const;
 const trustFamilyIds = Object.keys(AMARA_TRUST_FAMILY_PROFILES) as AmaraTrustFamilyId[];
 const authorityFamilyGroups = Object.keys(AMARA_AUTHORITY_FAMILY_GROUPS) as AmaraAuthorityFamilyGroup[];
+const conversionFamilyGroups = Object.keys(AMARA_CONVERSION_FAMILY_GROUPS) as AmaraConversionFamilyGroup[];
 ---
 
 <!DOCTYPE html>
@@ -167,6 +169,7 @@ const authorityFamilyGroups = Object.keys(AMARA_AUTHORITY_FAMILY_GROUPS) as Amar
     <a href="#page-ends">Page Ends</a>
     <div class="sg-nav-section">Page Types</div>
     <a href="#page-types">Composition Profiles</a>
+    <a href="#conversion-families">Conversion Families</a>
     <a href="#page-families">Family Registry</a>
     <a href="#sections">Sections & Intros</a>
     <a href="#buttons">Buttons</a>
@@ -747,6 +750,38 @@ const authorityFamilyGroups = Object.keys(AMARA_AUTHORITY_FAMILY_GROUPS) as Amar
           </article>
         );
       })}
+
+      <div class="sg-subsection" id="conversion-families">
+        <h3 class="am-text-title text-on-surface">Conversion family compositions</h3>
+        <p class="sg-inline-demo mt-3">The executable contract keeps discovery, stay decision, direct-booking choice and specialist enquiry distinct. It describes semantic alignment only: existing search, calendar, quote, enquiry and protected checkout owners remain unchanged.</p>
+
+        {conversionFamilyGroups.map((group) => {
+          const profile = AMARA_CONVERSION_FAMILY_GROUPS[group];
+          const families = Object.entries(AMARA_CONVERSION_FAMILY_ASSIGNMENTS)
+            .filter(([, assignedGroup]) => assignedGroup === group)
+            .map(([family]) => family);
+          const specimenFamily = families[0] as keyof typeof AMARA_CONVERSION_FAMILY_ASSIGNMENTS;
+          return (
+            <article class="mt-10" {...getConversionFamilyAttributes(specimenFamily)}>
+              <p class="sg-specimen-note"><strong>Group:</strong> {group} · <strong>Families:</strong> {families.join(', ')} · <strong>Ownership:</strong> {profile.ownership} · <strong>Phases:</strong> {profile.phases.join(' → ')} · <strong>Allowed close:</strong> {profile.allowedClose}. <strong>Protection:</strong> {profile.funnelProtection}.</p>
+              <div class="sg-component-frame">
+                {group === 'stay-discovery' && (
+                  <ApartmentCard href="#page-families" imageSrc="/images/hero-frigiliana.jpg" imageAlt="Frigiliana village" meta="Frigiliana · 2 guests" title="A fitting romantic hideaway" description="The production stay-selection owner carries fit and the onward property decision; it does not add a terminal page-end funnel." ctaLabel="View the stay" />
+                )}
+                {group === 'stay-decision' && (
+                  <BookingDecisionPanel priceLabel="Stay total" price="Shown after availability" primary={{ href: '#page-families', label: 'Choose dates' }} primaryInPage priceNote="The production decision owner leads to the existing calendar, quote and protected checkout handoff." />
+                )}
+                {group === 'direct-booking' && (
+                  <EditorialClosingCta title="Choose the direct route" lead="The production page-end owner provides exactly one terminal booking close after benefits and trust evidence." links={[{ href: '#page-families', label: 'Find a stay' }]} lang="en" role="conversion" family="trust" />
+                )}
+                {group === 'specialist-enquiry' && (
+                  <AmaraSectionIntro title="Discuss a specialist stay or property" eyebrow="Specialist enquiry" intro="Scope, suitability and requirements lead to one page-owned enquiry close, never a parallel checkout flow." variant="editorial" />
+                )}
+              </div>
+            </article>
+          );
+        })}
+      </div>
 
       <div class="sg-subsection">
         <h3 class="am-text-title text-on-surface">Authority family compositions</h3>
