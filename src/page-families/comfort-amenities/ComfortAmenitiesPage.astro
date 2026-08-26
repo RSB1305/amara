@@ -1,7 +1,7 @@
 ---
 import TrustPageLayout from '../../layouts/TrustPageLayout.astro';
-import EditorialClosingCta from '../../components/editorial/EditorialClosingCta.astro';
 import type { EditorialClosingCtaLink } from '../../components/editorial/EditorialClosingCta.astro';
+import TrustFamilyClosing from '../../components/trust/TrustFamilyClosing.astro';
 import AmaraSection from '../../components/layout/AmaraSection.astro';
 import AmenitySpecRow, {
   type AmenitySpecIcon
@@ -340,6 +340,7 @@ const closingCtaLinks: EditorialClosingCtaLink[] = [
 ---
 
 <TrustPageLayout
+  pageFamily="comfort-amenities"
   seo={seo}
   currentLang={currentLang}
   languageToken="amenities"
@@ -494,12 +495,12 @@ const closingCtaLinks: EditorialClosingCtaLink[] = [
       </div>
     </AmaraSection>
 
-    <EditorialClosingCta
+    <TrustFamilyClosing
+      family="comfort-amenities"
       title={closing.title}
       lead={closing.lead}
       links={closingCtaLinks}
       lang={currentLang}
-      spacing="page"
     />
   </div>
 </TrustPageLayout>

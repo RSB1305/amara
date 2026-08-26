@@ -12,12 +12,16 @@ interface Props {
   links: EditorialClosingCtaLink[];
   role?: Extract<AmaraPageEndRole, 'editorial-close' | 'next-action' | 'conversion'>;
   family?: AmaraPageEndFamily;
+  eyebrow?: string;
+  surface?: 'plain' | 'tint';
 }
 
-const { title, lead, lang, links, role, family } = Astro.props;
+const { title, lead, lang, links, role, family, eyebrow, surface = 'plain' } = Astro.props;
 ---
 
-<section class="mx-auto max-w-screen-2xl px-6 pt-24 md:px-12">
+<section class:list={['border-t border-outline-variant/15 px-6 pt-24 md:px-12 md:pt-32', surface === 'tint' ? 'bg-surface-container-low' : 'bg-surface']}>
+  <div class="mx-auto max-w-screen-2xl">
+  {eyebrow && <p class="am-text-caption mb-5 text-primary">{eyebrow}</p>}
   <EditorialClosingCta
     title={title}
     lead={lead}
@@ -26,4 +30,5 @@ const { title, lead, lang, links, role, family } = Astro.props;
     role={role}
     family={family}
   />
+  </div>
 </section>

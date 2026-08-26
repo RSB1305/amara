@@ -1,0 +1,18 @@
+---
+import AmaraActionLink from '../actions/AmaraActionLink.astro';
+
+interface Item { eyebrow?: string; title: string; text: string; href?: string; linkLabel?: string; }
+interface Props { items: Item[]; columns?: 3 | 4; }
+const { items, columns = 3 } = Astro.props;
+---
+
+<div class:list={['mt-12 grid gap-10 md:grid-cols-2 md:gap-8', columns === 3 ? 'lg:grid-cols-3' : 'xl:grid-cols-4']}>
+  {items.map((item) => (
+    <article class="flex flex-col border-t border-outline-variant/20 pt-6">
+      {item.eyebrow && <p class="am-text-caption text-primary">{item.eyebrow}</p>}
+      <h3 class:list={['am-text-subtitle text-on-surface', item.eyebrow && 'mt-4']}>{item.title}</h3>
+      <p class="am-text-body mt-4 flex-1 leading-relaxed text-on-surface-variant">{item.text}</p>
+      {item.href && item.linkLabel && <AmaraActionLink href={item.href} variant="inline" class="mt-5 w-fit">{item.linkLabel}<span aria-hidden="true"> →</span></AmaraActionLink>}
+    </article>
+  ))}
+</div>

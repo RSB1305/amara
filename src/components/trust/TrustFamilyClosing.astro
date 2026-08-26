@@ -1,0 +1,30 @@
+---
+import type { AmaraLanguage } from '../../types/seo';
+import EditorialClosingCta from '../editorial/EditorialClosingCta.astro';
+import type { EditorialClosingCtaLink } from '../editorial/EditorialClosingCta.astro';
+import type { AmaraTrustFamilyId } from './trustFamilyContract';
+
+interface Props {
+  family: AmaraTrustFamilyId;
+  title: string;
+  lead: string;
+  note?: string;
+  links: EditorialClosingCtaLink[];
+  lang: AmaraLanguage;
+}
+
+const { family, title, lead, note, links, lang } = Astro.props;
+---
+
+<EditorialClosingCta
+  title={title}
+  lead={lead}
+  note={note}
+  links={links}
+  lang={lang}
+  spacing="page"
+  role="next-action"
+  family="trust"
+  trustFamily={family}
+  dataComponent="trust-family-closing"
+/>

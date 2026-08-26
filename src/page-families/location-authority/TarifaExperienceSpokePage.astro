@@ -14,6 +14,7 @@ import { normalizeLanguage } from '../../lib/seo/resolve-seo-head';
 import type { AmaraLanguage } from '../../types/seo';
 import { getPageEndAttributes } from '../../components/page-end/pageEndContract';
 import AuthorityTextSection from './AuthorityTextSection.astro';
+import AmaraActionLink from '../../components/actions/AmaraActionLink.astro';
 
 interface Props {
   spoke: TarifaExperienceSpokeId;
@@ -123,14 +124,15 @@ const localizedSections = content.sections.map((section) => ({
         <h2 class="am-text-title mt-5 max-w-3xl text-balance text-on-surface">{t(content.related.title)}</h2>
         <div class="mt-12 grid gap-5 lg:grid-cols-3">
           {content.related.links.map((link) => (
-            <a
+            <AmaraActionLink
               href={requiredLink(link.token)}
+              variant="card"
               class="group border-t border-border-subtle bg-surface-container-low px-6 pb-8 pt-7 transition-colors hover:border-primary/45"
             >
               <h3 class="am-text-subtitle text-on-surface transition-colors group-hover:text-primary">{t(link.label)}</h3>
               <span class="am-text-body mt-4 block leading-relaxed text-on-surface-variant">{t(link.text)}</span>
               <span aria-hidden="true" class="mt-6 inline-flex text-primary transition-transform group-hover:translate-x-1">→</span>
-            </a>
+            </AmaraActionLink>
           ))}
         </div>
       </div>
@@ -172,8 +174,8 @@ const localizedSections = content.sections.map((section) => ({
         <div class="lg:col-span-5">
           <p class="am-text-body leading-relaxed text-on-surface-variant"><InlineEmphasis text={t(content.closing.body)} /></p>
           <div class="mt-8 flex flex-col items-start gap-5 sm:flex-row sm:items-center">
-            <a href={hubHref} class="am-cta-link">{t(content.closing.hubLabel)}</a>
-            <a href={propertyHref} class="am-inline-link">{t(content.closing.propertyLabel)}</a>
+            <AmaraActionLink href={hubHref} variant="editorial">{t(content.closing.hubLabel)}</AmaraActionLink>
+            <AmaraActionLink href={propertyHref} variant="inline">{t(content.closing.propertyLabel)}</AmaraActionLink>
           </div>
         </div>
       </div>

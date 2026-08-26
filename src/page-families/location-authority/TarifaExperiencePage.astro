@@ -4,7 +4,8 @@ import { resolveLocale } from '../../types/content';
 import InlineEmphasis from '../../components/text/InlineEmphasis.astro';
 import LocationExperienceHero from '../../components/location/LocationExperienceHero.astro';
 import Navigation from '../../components/Navigation.astro';
-import EditorialClosingCta from '../../components/editorial/EditorialClosingCta.astro';
+import ExperienceHubTopicGrid from '../../components/experience/ExperienceHubTopicGrid.astro';
+import GuideClosingSection from './GuideClosingSection.astro';
 import ExperienceContextNav from '../../components/experience/ExperienceContextNav.astro';
 import {
   TARIFA_EXPERIENCE_TOKEN,
@@ -26,6 +27,12 @@ const { lang = 'es' } = Astro.props;
 const currentLang = normalizeLanguage(lang as AmaraLanguage);
 const copy = resolveLocale(tarifaExperienceContent, currentLang);
 const requiredLink = createRequiredLinkResolver(currentLang, 'Tarifa Experience');
+const dayTopics = copy.dayChooser.days.map((day) => ({
+  title: day.title,
+  text: day.text,
+  href: day.token ? requiredLink(day.token) : undefined,
+  linkLabel: day.linkLabel
+}));
 
 const footerHighlights: LabeledLink[] = [
   { token: 'location_tarifa', label: tarifaGuideContent.overview.navLabel[currentLang] },
@@ -83,24 +90,7 @@ const footerHighlights: LabeledLink[] = [
           )}
         </div>
 
-        <div class="mt-14 grid gap-x-10 gap-y-10 sm:grid-cols-2 lg:grid-cols-3">
-          {copy.dayChooser.days.map((day, index) => (
-            <article class="border-t border-primary/35 pt-6">
-              <p class="text-primary am-text-label am-text-label--sm am-text-label--wide">
-                {String(index + 1).padStart(2, '0')}
-              </p>
-              <h3 class="am-text-subtitle mt-4 text-on-surface">{day.title}</h3>
-              <p class="mt-4 text-sm leading-relaxed text-on-surface-variant">{day.text}</p>
-              {day.token && (
-                <p class="mt-4">
-                  <a href={requiredLink(day.token)} class="am-inline-link text-sm">
-                    {day.linkLabel}<span aria-hidden="true"> →</span>
-                  </a>
-                </p>
-              )}
-            </article>
-          ))}
-        </div>
+        <div class="mt-14"><ExperienceHubTopicGrid topics={dayTopics} accent="primary" /></div>
       </div>
     </section>
 
@@ -128,32 +118,18 @@ const footerHighlights: LabeledLink[] = [
       </>
     ))}
 
-    <section class="bg-surface px-6 pt-24 md:px-12 md:pt-32">
-      <div class="mx-auto max-w-screen-2xl">
-        <EditorialClosingCta
-          title={copy.closing.title}
-          lead={copy.closing.lead}
-          lang={currentLang}
-          links={[
-            {
-              token: copy.closing.token,
-              label: copy.closing.ctaLabel,
-              style: 'text'
-            },
-            ...(copy.closing.secondaryToken
-              ? [
-                  {
-                    token: copy.closing.secondaryToken,
-                    label: copy.closing.secondaryLabel!,
-                    style: 'text' as const
-                  }
-                ]
-              : [])
-          ]}
-          role="next-action"
-          family="experience"
-        />
-      </div>
-    </section>
+    <GuideClosingSection
+      title={copy.closing.title}
+      lead={copy.closing.lead}
+      lang={currentLang}
+      links={[
+        { token: copy.closing.token, label: copy.closing.ctaLabel, style: 'text' },
+        ...(copy.closing.secondaryToken
+          ? [{ token: copy.closing.secondaryToken, label: copy.closing.secondaryLabel!, style: 'text' as const }]
+          : [])
+      ]}
+      role="next-action"
+      family="experience"
+    />
   </article>
 </LocationAuthorityLayout>
