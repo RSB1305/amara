@@ -211,8 +211,7 @@ const {
   honeymoonCtaLabel,
 } = Astro.props;
 
-/** Frigiliana holds four of the six stays and leads the places band. */
-const [leadPlace, ...otherPlaces] = places;
+const hasPlaces = places.length > 0;
 ---
 
 <div class="bg-surface relative min-h-screen selection:bg-primary-fixed-dim selection:text-on-primary-fixed">
@@ -352,10 +351,10 @@ const [leadPlace, ...otherPlaces] = places;
 
       {/* The grid is edge-to-edge below sm so the photograph, not its gutter,
           carries the card on a phone. Card text keeps the page inset. */}
-      <div class="grid gap-x-8 gap-y-14 sm:grid-cols-2 sm:px-6 lg:grid-cols-3 md:px-12">
+      <div class="am-home-stay-grid grid gap-x-8 gap-y-14 sm:grid-cols-2 sm:px-6 lg:grid-cols-3 md:px-12">
         {
           apartments.map((apt) => (
-            <article class="group relative flex flex-col">
+            <article class="am-home-stay-card group relative flex flex-col">
               <div class="overflow-hidden">
                 <img
                   src={apt.img}
@@ -370,26 +369,26 @@ const [leadPlace, ...otherPlaces] = places;
                 />
               </div>
 
-              <div class="mt-6 flex flex-1 flex-col px-6 sm:px-0">
-                <span class="am-text-caption uppercase tracking-widest text-on-surface-variant">{apt.city}</span>
+              <div class="am-home-stay-card__body mt-6 flex flex-1 flex-col px-6 sm:px-0">
+                <span class="am-home-stay-card__city am-text-caption uppercase tracking-widest text-on-surface-variant">{apt.city}</span>
 
-                <h3 class="mt-2 am-text-subtitle text-on-surface">
+                <h3 class="am-home-stay-card__title mt-2 am-text-subtitle text-on-surface">
                   <a class="am-home-card-link" href={apt.exploreHref}>
                     {apt.name}
                   </a>
                 </h3>
-                <p class="mt-1 am-text-caption italic text-primary">{apt.subtitle}</p>
+                <p class="am-home-stay-card__subtitle mt-1 am-text-caption italic text-primary">{apt.subtitle}</p>
 
                 {/* Atmosphere belongs on the rental page on a phone; the grid
                     is for choosing between six stays, not for reading six. */}
-                <p class="mt-4 hidden am-text-body text-on-surface-variant sm:block">
+                <p class="am-home-stay-card__description mt-4 hidden am-text-body text-on-surface-variant sm:block">
                   <InlineEmphasis text={apt.desc} />
                 </p>
 
                 {/* Measurements left, price right, on one baseline at the foot
                     of the card. The glyph replaces the word, so the row reads
                     as figures rather than as a sentence about figures. */}
-                <div class="mt-6 flex flex-wrap items-end justify-between gap-x-4 gap-y-3 border-t border-outline-variant/40 pt-4 sm:mt-auto">
+                <div class="am-home-stay-card__footer mt-6 flex flex-wrap items-end justify-between gap-x-4 gap-y-3 border-t border-outline-variant/40 pt-4 sm:mt-auto">
                   <ul class="flex flex-wrap items-center gap-x-4 gap-y-2 am-text-annotation text-on-surface-variant">
                     {apt.facts.map((fact) => {
                       const Icon = factIcons[fact.key];
@@ -431,7 +430,7 @@ const [leadPlace, ...otherPlaces] = places;
   </section>
 
   {
-    leadPlace && (
+    hasPlaces && (
       <section
         id="places"
         class="relative z-[2] scroll-mt-[104px] bg-surface py-20 md:py-28 lg:scroll-mt-[136px]"
@@ -442,32 +441,30 @@ const [leadPlace, ...otherPlaces] = places;
             <h2 class="am-text-title text-on-surface">{placesTitle}</h2>
           </div>
 
-          <div class="grid gap-10 lg:grid-cols-2 lg:gap-12">
-            <article class="flex flex-col justify-between gap-6 border-t-2 border-primary pt-6">
-              <div>
-                <h3 class="mb-3 am-text-subtitle text-on-surface">{leadPlace.city}</h3>
-                <p class="mb-4 am-text-body text-on-surface-variant">{leadPlace.character}</p>
-                <p class="am-text-caption text-on-surface-variant">{leadPlace.travel}</p>
-              </div>
-              <AmaraActionLink href={leadPlace.href} variant="editorial" class="am-cta-link--accent self-start">
-                {leadPlace.ctaLabel}
-              </AmaraActionLink>
-            </article>
-
-            <div class="grid gap-10 sm:grid-cols-2 lg:grid-cols-1">
-              {otherPlaces.map((place) => (
-                <article class="flex flex-col justify-between gap-4 border-t border-outline-variant/40 pt-6">
+          <div class="grid gap-10 md:grid-cols-3 lg:gap-12">
+            {places.map((place, index) => (
+                <article
+                  class:list={[
+                    'flex flex-col justify-between gap-6 pt-6',
+                    index === 0
+                      ? 'border-t-2 border-primary'
+                      : 'border-t border-outline-variant/40'
+                  ]}
+                >
                   <div>
                     <h3 class="mb-3 am-text-subtitle text-on-surface">{place.city}</h3>
                     <p class="mb-4 am-text-body text-on-surface-variant">{place.character}</p>
                     <p class="am-text-caption text-on-surface-variant">{place.travel}</p>
                   </div>
-                  <AmaraActionLink href={place.href} variant="editorial" class="self-start">
+                  <AmaraActionLink
+                    href={place.href}
+                    variant="editorial"
+                    class={index === 0 ? 'am-cta-link--accent self-start' : 'self-start'}
+                  >
                     {place.ctaLabel}
                   </AmaraActionLink>
                 </article>
               ))}
-            </div>
           </div>
         </div>
       </section>
@@ -635,6 +632,26 @@ const [leadPlace, ...otherPlaces] = places;
   .am-home-card-link:focus-visible::after {
     outline: 2px solid var(--color-primary);
     outline-offset: 4px;
+  }
+
+  @media (min-width: 640px) {
+    /**
+     * The cards stretch to their grid row and reserve two lines for the
+     * variable positioning statement. The description then absorbs the
+     * remaining height, so a missing outdoor-area fact cannot move the shared
+     * facts and price baseline.
+     */
+    .am-home-stay-card {
+      height: 100%;
+    }
+
+    .am-home-stay-card__subtitle {
+      min-height: 2.8em;
+    }
+
+    .am-home-stay-card__description {
+      flex: 1;
+    }
   }
 
   /**
