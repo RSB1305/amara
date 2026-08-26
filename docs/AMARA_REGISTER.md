@@ -21,7 +21,7 @@ The AMARA Register is the single source for active documents, authority classes,
 | Slot | Document owner | Version/status | Class | Canonical/current source |
 |---|---|---|---|---|
 | 01 | AMARA System Constitution | 5.2.0 ACTIVE | PRINCIPLE / governing | `docs/standards/01_AMARA_System_Constitution_V5.md` |
-| 02 | AMARA Astro & Design Architecture Contract | 4.14.0 ACTIVE INTERIM | CONTRACT / governing | `docs/interim/03_AMARA_Astro_Technical_Standard_V4.md` + current repository implementation |
+| 02 | AMARA Astro & Design Architecture Contract | 4.15.0 ACTIVE INTERIM | CONTRACT / governing | `docs/interim/03_AMARA_Astro_Technical_Standard_V4.md` + current repository implementation |
 | 03 | AMARA Runtime, SEO & Data Contract | PENDING Package 2 | CONTRACT / governing | Interim snapshot: `docs/interim/04_AMARA_Runtime_and_SEO_Standard_V4.md` + current repository implementation |
 | 04 | AMARA URL, Route & Link Contract | PENDING Package 2 | CONTRACT / governing | Interim snapshot: `docs/interim/05_AMARA_URL_and_Route_Infrastructure_V4.md` + Decision Register |
 | 05 | AMARA Governance, Execution & Documentation Lifecycle | 5.5.0 ACTIVE | CONTRACT / governing | `docs/standards/05_AMARA_Governance_Execution_and_Documentation_Lifecycle_V5.md` |
@@ -281,3 +281,4 @@ Separate controlled workstreams remain for:
 | 1.30.0 | 2026-08-25T21:00:00+02:00 | Activated the two-level design-system/page-type architecture, explicit compatibility matrix and bounded Authority, Explore, Trust and Conversion consumers. | this revision |
 | 1.31.0 | 2026-08-26T10:00:00Z | Registered the four reference anatomies and corrected Conversion ownership to support both terminal page-end and family-owned Stay flows without changing checkout architecture. | this revision |
 | 1.32.0 | 2026-08-26T12:00:00Z | Activated the central approved page-family registry and seven attribute-only classifications while preserving visible output and keeping unclassified families outside the contract. | this revision |
+| 1.33.0 | 2026-08-26T15:00:00Z | Closed classification coverage for public family templates with a dominant public job and retained Guest Guide, internal tools and error pages as explicit contract-boundary exceptions. | this revision |

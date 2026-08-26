@@ -503,6 +503,11 @@ release registers the five existing reference families plus the approved attribu
 Notice, Nerja Location Hub, Nerja Where-to-Stay, Instagram, Stay Search and Last Minute families without changing
 their visible composition.
 
+The registry now covers every public family template with a dominant public page job. Shared renderers classify
+their localized and destination variants once at the template boundary. Guest Guide remains deliberately outside
+the four public profiles because it is a noindex post-booking utility rather than a public discovery, trust,
+authority or conversion page; internal tools and error pages remain outside for the same contract-boundary reason.
+
 ## Revision history
 
 | Version | Date | Change |
@@ -523,3 +528,4 @@ their visible composition.
 | 4.12.0 | 2026-08-25T21:00:00+02:00 | Activated the two-level global-system/page-type architecture, four semantic composition profiles and bounded explicit consumers without default-classifying legacy pages or changing booking ownership. |
 | 4.13.0 | 2026-08-26T10:00:00Z | Added canonical reference anatomies, corrected terminal Conversion ownership to page-end-owned or family-owned, and aligned the four bounded reference templates without changing booking runtime. |
 | 4.14.0 | 2026-08-26T12:00:00Z | Centralized approved family-to-type mappings, registered seven attribute-only families and clarified reference anatomies as optional canonical phases without visible redesign. |
+| 4.15.0 | 2026-08-26T15:00:00Z | Closed public page-family classification coverage at the owning template boundary while preserving Guest Guide, internal tools and error pages as explicit non-public-profile exceptions. |
