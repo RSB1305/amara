@@ -11,6 +11,8 @@ import AmaraStatusBadge from '../../../components/chips/AmaraStatusBadge.astro';
 import EditorialCallout from '../../../components/content/EditorialCallout.astro';
 import BookingDecisionPanel from '../../../components/conversion/BookingDecisionPanel.astro';
 import EditorialFeatureGrid from '../../../components/editorial/EditorialFeatureGrid.astro';
+import EditorialQuote from '../../../components/editorial/EditorialQuote.astro';
+import EditorialSplit from '../../../components/editorial/EditorialSplit.astro';
 import ExperienceArticleHero from '../../../components/experience/ExperienceArticleHero.astro';
 import ExperiencePreFooter from '../../../components/experience/ExperiencePreFooter.astro';
 import ExploreCampaignHero from '../../../components/experience/ExploreCampaignHero.astro';
@@ -35,6 +37,8 @@ import DayTripDestinationList from '../../../page-families/location-authority/Da
 import RestaurantSectionList from '../../../page-families/location-authority/RestaurantSectionList.astro';
 import { BedDouble, UsersRound } from '@lucide/astro';
 import { AMARA_PAGE_FAMILY_PROFILES, AMARA_PAGE_TYPE_PROFILES, getPageTypeAttributes, type AmaraPageFamilyId, type AmaraPageType } from '../../../components/page-type/pageTypeContract';
+import TrustFamilyClosing from '../../../components/trust/TrustFamilyClosing.astro';
+import { AMARA_TRUST_FAMILY_PROFILES, getTrustFamilyAttributes, type AmaraTrustFamilyId } from '../../../components/trust/trustFamilyContract';
 
 const styleguideStayFacts = [
   { label: '2 guests', Icon: UsersRound },
@@ -56,6 +60,7 @@ const ownershipLevels = [
   ['Page family', 'One repeatable composition and its allowed variants'],
   ['Concrete page', 'Localized content, evidence and permitted choices']
 ] as const;
+const trustFamilyIds = Object.keys(AMARA_TRUST_FAMILY_PROFILES) as AmaraTrustFamilyId[];
 ---
 
 <!DOCTYPE html>
@@ -803,6 +808,54 @@ const ownershipLevels = [
             labels={{ bestFor: 'Best for', tip: 'Tip', goodToKnow: 'Good to know', map: 'Map', website: 'Website' }}
           />
         </div>
+      </div>
+
+      <div class="sg-subsection">
+        <h3 class="am-text-title text-on-surface">Trust family compositions</h3>
+        <p class="sg-inline-demo mt-3">All three families use TrustPageLayout, TrustHero, the executable Trust family contract and TrustFamilyClosing. Their evidence job stays deliberately different: philosophy and people, guest proof, or concrete comfort detail.</p>
+
+        {trustFamilyIds.map((family) => {
+          const profile = AMARA_TRUST_FAMILY_PROFILES[family];
+          return (
+            <article class="mt-10" {...getTrustFamilyAttributes(family)}>
+              <p class="sg-specimen-note"><strong>Family:</strong> {family} · <strong>Job:</strong> {profile.job} · <strong>Intro:</strong> {profile.intro} · <strong>Evidence:</strong> {profile.evidence} · <strong>Phases:</strong> {profile.phases.join(' → ')}. <strong>Boundary:</strong> subtle onward action only; no second conversion funnel.</p>
+              <div class="sg-component-frame">
+                {family === 'trust-content' && (
+                  <EditorialSplit title="Principles become credible through practice">
+                    <p class="am-text-subtitle text-on-surface">The brand family gives philosophy, responsibility and personal host context a calm editorial sequence.</p>
+                    <p class="am-text-body text-subtle">Owner chain: TrustPageLayout → EditorialSplit and EditorialFeatureGrid → TrustFamilyClosing.</p>
+                  </EditorialSplit>
+                )}
+                {family === 'guest-reviews' && (
+                  <>
+                    <EditorialQuote quote="Guest evidence stays attributable, specific and visually quieter than a promotional claim." source="Trust evidence specimen" />
+                    <div class="mt-10">
+                      <AmaraSectionIntro title="Evidence with context" intro="Review excerpts, source context and awards remain separate proof roles inside one evidence-led family." variant="centered" />
+                    </div>
+                  </>
+                )}
+                {family === 'comfort-amenities' && (
+                  <>
+                    <AmaraSectionIntro title="Quality made concrete" intro="Comfort evidence remains functional and scannable rather than becoming a Stay decision card." variant="editorial" />
+                    <EditorialFeatureGrid cards={[
+                      { title: 'Inventory', copy: 'Concrete inclusions stay grouped by the existing amenities renderer.' },
+                      { title: 'Detail', copy: 'Expandable property detail remains useful evidence rather than promotional copy.' }
+                    ]} />
+                  </>
+                )}
+              </div>
+              <div class="sg-component-frame">
+                <TrustFamilyClosing
+                  family={family}
+                  title="Continue with the next useful context"
+                  lead="The shared Trust close keeps the family-owned action treatment and prevents a competing closing funnel."
+                  links={[{ token: 'about', label: 'Read about AMARA', style: 'text' }]}
+                  lang="en"
+                />
+              </div>
+            </article>
+          );
+        })}
       </div>
 
     </section>

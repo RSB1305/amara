@@ -1,7 +1,7 @@
 ---
 import InlineEmphasis from '../../components/text/InlineEmphasis.astro';
-import EditorialClosingCta from '../../components/editorial/EditorialClosingCta.astro';
 import type { EditorialClosingCtaLink } from '../../components/editorial/EditorialClosingCta.astro';
+import TrustFamilyClosing from '../../components/trust/TrustFamilyClosing.astro';
 import EditorialQuote from '../../components/editorial/EditorialQuote.astro';
 import EditorialSplit from '../../components/editorial/EditorialSplit.astro';
 import AmaraSection from '../../components/layout/AmaraSection.astro';
@@ -208,13 +208,11 @@ const closingCtaLinks: EditorialClosingCtaLink[] = [
         </div>
   </AmaraSection>
 
-      <EditorialClosingCta
+      <TrustFamilyClosing
+        family="guest-reviews"
         title={copy.sections.nextTitle[currentLang]}
         lead={copy.sections.nextLead[currentLang]}
         links={closingCtaLinks}
         lang={currentLang}
-        spacing="page"
-        role="next-action"
-        family="trust"
       />
 </TrustPageLayout>

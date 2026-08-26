@@ -1,7 +1,7 @@
 ---
 document_id: AMARA-INT-ASTRO-003
 title: AMARA Astro & Design Architecture Contract V4
-version: 4.14.0
+version: 4.16.0
 status: ACTIVE
 authority_class: CONTRACT / GOVERNING INTERIM
 source_type: INTERIM SNAPSHOT FROM APPROVED PDF + APPROVED REPOSITORY AMENDMENT
@@ -9,7 +9,7 @@ source_attachment: "03_AMARA_Astro_Technical_Standard_V4 (1).pdf"
 source_sha256: b3d8a3e780b29b5be42922aec838c7f56f455184cca8336d9a0f3564ba43f9aa
 snapshot_created: 2026-08-14T09:08:00+02:00
 migration_state: PENDING PACKAGE 2/3 NORMALIZATION
-last_modified: 2026-08-26T12:00:00Z
+last_modified: 2026-08-26T16:00:00Z
 ---
 
 # AMARA Astro & Design Architecture Contract V4 — Interim Markdown Snapshot
@@ -508,6 +508,20 @@ their localized and destination variants once at the template boundary. Guest Gu
 the four public profiles because it is a noindex post-booking utility rather than a public discovery, trust,
 authority or conversion page; internal tools and error pages remain outside for the same contract-boundary reason.
 
+17.14 Executable Trust-family composition
+
+`src/components/trust/trustFamilyContract.ts` owns the bounded composition profiles for `trust-content`,
+`guest-reviews` and `comfort-amenities`. It names each family's semantic job, permitted phases, intro and evidence
+alignment and shared subtle-close rule. `TrustPageLayout` emits that contract for those three consumers, while
+`TrustFamilyClosing` delegates their final next action to `EditorialClosingCta` and the existing Trust page-end
+role. The contract does not classify other users of the layout, render content schemas or create a second card,
+hero, evidence or action system.
+
+About Us retains philosophy, principles, responsibility and personal host context; Guest Reviews retains sourced
+reviews and awards; Comfort & Amenities retains its functional inventory and detail interaction. Authored action
+styles and order remain family-owned, but the close cannot introduce a second conversion owner. Winter Stays is
+the approved `location-winter-stays` Authority family because its dominant job is practical seasonal orientation.
+
 ## Revision history
 
 | Version | Date | Change |
@@ -529,3 +543,4 @@ authority or conversion page; internal tools and error pages remain outside for 
 | 4.13.0 | 2026-08-26T10:00:00Z | Added canonical reference anatomies, corrected terminal Conversion ownership to page-end-owned or family-owned, and aligned the four bounded reference templates without changing booking runtime. |
 | 4.14.0 | 2026-08-26T12:00:00Z | Centralized approved family-to-type mappings, registered seven attribute-only families and clarified reference anatomies as optional canonical phases without visible redesign. |
 | 4.15.0 | 2026-08-26T15:00:00Z | Closed public page-family classification coverage at the owning template boundary while preserving Guest Guide, internal tools and error pages as explicit non-public-profile exceptions. |
+| 4.16.0 | 2026-08-26T16:00:00Z | Activated the bounded executable Trust-family composition contract and shared Trust close, corrected Winter Stays to Authority and described Guest Guide accurately as a noindex post-booking utility. |

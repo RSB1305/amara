@@ -5,7 +5,7 @@ import EditorialDefinitionList from '../../components/editorial/EditorialDefinit
 import EditorialFeatureGrid from '../../components/editorial/EditorialFeatureGrid.astro';
 import SustainabilityBand from '../../components/editorial/SustainabilityBand.astro';
 import EditorialHostProfile from '../../components/editorial/EditorialHostProfile.astro';
-import EditorialClosingCta from '../../components/editorial/EditorialClosingCta.astro';
+import TrustFamilyClosing from '../../components/trust/TrustFamilyClosing.astro';
 import AmaraSection from '../../components/layout/AmaraSection.astro';
 import InlineEmphasis from '../../components/text/InlineEmphasis.astro';
 import { getAboutUsPageData } from '../../content/aboutUsContent';
@@ -167,15 +167,13 @@ const heroCtaLinks = page.hero.ctaLinks
       </EditorialHostProfile>
   </AmaraSection>
 
-      <EditorialClosingCta
+      <TrustFamilyClosing
+        family="trust-content"
         title={content.closingCta.title?.[currentLang] ?? ''}
         lead={content.closingCta.lead?.[currentLang] ?? ''}
         note={content.closingCta.note?.[currentLang]}
         links={closingCtaLinks}
         lang={currentLang}
-        spacing="page"
-        role="next-action"
-        family="trust"
       />
 </TrustPageLayout>
 

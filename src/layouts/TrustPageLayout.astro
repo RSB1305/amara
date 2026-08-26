@@ -7,6 +7,7 @@ import type { LinkToken } from '../lib/linkResolver';
 import type { AmaraAuthoringSeo, AmaraLanguage } from '../types/seo';
 import BaseLayout from './BaseLayout.astro';
 import type { AmaraPageFamilyId } from '../components/page-type/pageTypeContract';
+import { getTrustFamilyAttributes, isAmaraTrustFamilyId } from '../components/trust/trustFamilyContract';
 
 interface HeroLink {
   href: string;
@@ -46,6 +47,7 @@ const {
   pageFamily,
   hero
 } = Astro.props;
+const trustFamilyAttributes = isAmaraTrustFamilyId(pageFamily) ? getTrustFamilyAttributes(pageFamily) : {};
 ---
 
 <BaseLayout seo={seo} pageLang={currentLang} footerHighlights={footerHighlights} pageFamily={pageFamily}>
@@ -69,7 +71,7 @@ const {
       />
     </AmaraSection>
 
-    <div class:list={['am-trust-flow', mainClass]}>
+    <div class:list={['am-trust-flow', mainClass]} {...trustFamilyAttributes}>
       <slot />
     </div>
   </AmaraPageShell>
