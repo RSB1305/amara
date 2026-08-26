@@ -55,6 +55,14 @@ const hostStats =
 
 const hostIntro = content.host.paragraphs?.map((paragraph) => paragraph[currentLang]) ?? [];
 
+const hostLinks =
+  content.host.links
+    ?.map((link) => {
+      const href = resolveOptionalLink(link.token, currentLang, { suppressMissing: true });
+      return href ? { href, label: link.label[currentLang] } : null;
+    })
+    .filter((link): link is { href: string; label: string } => Boolean(link)) ?? [];
+
 const closingCtaLinks = content.closingCta.links.map((link) => ({
   token: link.token,
   label: link.label[currentLang]
@@ -145,6 +153,8 @@ const heroCtaLinks = page.hero.ctaLinks
         title={content.host.title?.[currentLang] ?? ''}
         role={content.host.role[currentLang]}
         intro={hostIntro}
+        contextLinks={hostLinks}
+        stickyMedia
         stats={hostStats}
       >
         <div class="flex flex-wrap items-center gap-x-5 gap-y-2" aria-label={content.host.contactLabel[currentLang]}>
