@@ -36,18 +36,28 @@ interface Props {
   family?: AmaraPageEndFamily;
   followsFaq?: boolean;
   paragraphs?: string[];
+  tone?: 'default' | 'inverse' | 'romance';
+  /** Backwards-compatible alias for tone="inverse". */
   inverse?: boolean;
   trustFamily?: AmaraTrustFamilyId;
 }
 
-const { title, titleId, lead, note, links, lang, spacing = 'legacy', dataComponent, role, family, followsFaq = false, paragraphs, inverse = false, trustFamily } = Astro.props;
+const { title, titleId, lead, note, links, lang, spacing = 'legacy', dataComponent, role, family, followsFaq = false, paragraphs, tone, inverse = false, trustFamily } = Astro.props;
 
 const hasButtonLinks = links.some((link) => link.style === 'primary' || link.style === 'secondary');
+const resolvedTone = tone ?? (inverse ? 'inverse' : 'default');
+const isInverse = resolvedTone === 'inverse';
+const isRomance = resolvedTone === 'romance';
 ---
 
 <section
   class:list={[
-    { 'am-page-section am-page-section--closing': spacing === 'page', 'bg-on-surface text-surface': inverse }
+    'am-editorial-closing',
+    {
+      'am-page-section am-page-section--closing': spacing === 'page',
+      'bg-on-surface text-surface': isInverse,
+      'am-editorial-closing--romance': isRomance
+    }
   ]}
   aria-labelledby={titleId}
   data-am-component={dataComponent}
@@ -55,12 +65,17 @@ const hasButtonLinks = links.some((link) => link.style === 'primary' || link.sty
   {...(role && family ? getPageEndAttributes(role, family, followsFaq) : {})}
 >
   <div class:list={['text-center max-w-[800px] mx-auto', { 'pb-20': spacing === 'legacy' }]}>
-    <h2 id={titleId} class:list={['am-text-title mb-8', inverse ? 'text-surface' : 'text-on-surface']}>
+    {isRomance && (
+      <div class="am-editorial-closing__hearts" aria-hidden="true">
+        <span>❤︎</span><span>❤︎</span><span>❤︎</span>
+      </div>
+    )}
+    <h2 id={titleId} class:list={['am-text-title mb-8', isInverse ? 'text-surface' : 'text-on-surface']}>
       {title}
     </h2>
     {paragraphs ? (
       <div class="mx-auto mb-12 max-w-3xl space-y-5">
-        {paragraphs.map((paragraph) => <p class:list={['am-text-body leading-relaxed', inverse ? 'text-surface/80' : 'text-subtle']}><InlineEmphasis text={paragraph} /></p>)}
+        {paragraphs.map((paragraph) => <p class:list={['am-text-body leading-relaxed', isInverse ? 'text-surface/80' : 'text-subtle']}><InlineEmphasis text={paragraph} /></p>)}
       </div>
     ) : <p class={`am-text-body text-subtle ${note ? 'mb-4' : 'mb-16'}`}><InlineEmphasis text={lead} /></p>}
     {note ? <p class="italic text-muted mb-16"><InlineEmphasis text={note} /></p> : null}
@@ -78,10 +93,10 @@ const hasButtonLinks = links.some((link) => link.style === 'primary' || link.sty
               : link.style === 'inline' ? 'inline' : 'editorial';
           const className = variant === 'primary' || variant === 'secondary'
             ? 'w-full justify-center sm:w-auto'
-            : inverse ? 'text-surface' : undefined;
+            : isInverse ? 'text-surface' : undefined;
           return (
             <>
-              {index > 0 && !hasButtonLinks && !inverse && <span class="hidden sm:inline text-on-surface/60">&middot;</span>}
+              {index > 0 && !hasButtonLinks && !isInverse && <span class="hidden sm:inline text-on-surface/60">&middot;</span>}
               {!href ? (
                 <AmaraActionLink variant="editorial" disabled>{link.label}</AmaraActionLink>
               ) : (
@@ -96,3 +111,52 @@ const hasButtonLinks = links.some((link) => link.style === 'primary' || link.sty
     </div>
   </div>
 </section>
+
+<style>
+  .am-editorial-closing--romance {
+    --am-romance-accent: #a23d50;
+    --am-romance-ink: #702b39;
+    background: color-mix(in srgb, var(--am-romance-accent) 11%, var(--color-surface-white));
+    border-block: 1px solid color-mix(in srgb, var(--am-romance-accent) 18%, transparent);
+  }
+
+  .am-editorial-closing__hearts {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.65rem;
+    margin-block-end: 1.5rem;
+    color: var(--am-romance-accent);
+    line-height: 1;
+  }
+
+  .am-editorial-closing__hearts span:nth-child(1),
+  .am-editorial-closing__hearts span:nth-child(3) {
+    font-size: 1.1rem;
+    opacity: 0.52;
+  }
+
+  .am-editorial-closing__hearts span:nth-child(1) {
+    transform: rotate(-12deg) translateY(0.15rem);
+  }
+
+  .am-editorial-closing__hearts span:nth-child(2) {
+    font-size: 1.65rem;
+    transform: translateY(-0.1rem);
+  }
+
+  .am-editorial-closing__hearts span:nth-child(3) {
+    transform: rotate(12deg) translateY(0.15rem);
+  }
+
+  .am-editorial-closing--romance :global(.am-cta-link),
+  .am-editorial-closing--romance :global(.am-inline-link) {
+    color: var(--am-romance-ink);
+    border-color: color-mix(in srgb, var(--am-romance-accent) 34%, transparent);
+  }
+
+  .am-editorial-closing--romance :global(.am-cta-link:hover),
+  .am-editorial-closing--romance :global(.am-inline-link:hover) {
+    color: var(--am-romance-accent);
+  }
+</style>

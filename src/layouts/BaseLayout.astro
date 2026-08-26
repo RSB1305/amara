@@ -37,7 +37,7 @@ const preloadedFonts = [headlineFontUrl, bodyFontUrl, labelFontUrl];
 interface Props {
   seo: AmaraAuthoringSeo;
   pageLang?: AmaraLanguage;
-  footerHighlights?: { token: LinkToken; label: string }[];
+  footerHighlights?: { token: LinkToken; label: string; decoration?: 'heart' }[];
   /** Optional compact label for the final item in the global breadcrumb. */
   contextBreadcrumbTitle?: string;
   /** Destination context for the reduced Location / Experiences links on stay pages. */
