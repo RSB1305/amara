@@ -634,6 +634,10 @@ const hasPlaces = places.length > 0;
     outline-offset: 4px;
   }
 
+  .am-home-stay-card {
+    container-type: inline-size;
+  }
+
   @media (min-width: 640px) {
     /**
      * The cards stretch to their grid row and reserve two lines for the
@@ -641,16 +645,30 @@ const hasPlaces = places.length > 0;
      * remaining height, so a missing outdoor-area fact cannot move the shared
      * facts and price baseline.
      */
-    .am-home-stay-card {
-      height: 100%;
-    }
-
     .am-home-stay-card__subtitle {
       min-height: 2.8em;
     }
 
     .am-home-stay-card__description {
       flex: 1;
+    }
+  }
+
+  /**
+   * When three measurements and the price no longer fit on one line, every
+   * card uses the same two-row footer. Farah therefore needs no invented or
+   * hidden outdoor-area value: its genuine two facts occupy the shared facts
+   * row and the price occupies the shared price row.
+   */
+  @container (max-width: 23rem) {
+    .am-home-stay-card__footer {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr);
+      align-content: end;
+    }
+
+    .am-home-stay-card__footer > :last-child {
+      justify-self: end;
     }
   }
 
