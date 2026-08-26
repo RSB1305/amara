@@ -59,6 +59,7 @@ const heroImage = {
   seo={frigilianaBeachesSeo}
   pageLang={currentLang}
   footerHighlights={footerHighlights}
+  pageFamily="experience-beaches"
 >
   <Navigation
     slot="navigation"
@@ -127,14 +128,16 @@ const heroImage = {
             {
               token: 'romantic_hideaways',
               label: copy.closing.apartmentsCta,
-              style: 'primary'
+              style: 'text'
             },
             {
               token: 'book',
               label: copy.closing.availabilityCta,
-              style: 'secondary'
+              style: 'text'
             }
           ]}
+          role="next-action"
+          family="experience"
       />
     </div>
   </div>

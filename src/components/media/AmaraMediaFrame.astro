@@ -1,0 +1,59 @@
+---
+import type { AmaraMediaRadius, AmaraMediaRole, AmaraMediaSurface } from './mediaContract';
+
+interface Props {
+  role: AmaraMediaRole;
+  surface?: AmaraMediaSurface;
+  radius?: AmaraMediaRadius;
+  mobileFullBleed?: boolean;
+  interactive?: boolean;
+  caption?: string;
+  source?: string;
+  class?: string;
+}
+
+const {
+  role,
+  surface = 'subtle',
+  radius = 'none',
+  mobileFullBleed = false,
+  interactive = false,
+  caption,
+  source,
+  class: className
+} = Astro.props;
+---
+
+<figure
+  class:list={['am-media', mobileFullBleed && 'am-mobile-full-bleed', className]}
+  data-am-media-role={role}
+  data-am-media-surface={surface}
+  data-am-media-radius={radius}
+  data-am-media-interactive={interactive || undefined}
+>
+  <div class="am-media__viewport"><slot /></div>
+  {(caption || source) && (
+    <figcaption class="am-media__caption am-text-caption text-on-surface-variant">
+      {caption}{caption && source && <span aria-hidden="true"> · </span>}{source && <cite>{source}</cite>}
+    </figcaption>
+  )}
+</figure>
+
+<style>
+  @reference "../../styles/global.css";
+  .am-media { margin: 0; min-width: 0; }
+  .am-media__viewport { height: 100%; overflow: hidden; }
+  .am-media[data-am-media-surface='subtle'] .am-media__viewport { background: var(--color-surface-container-low); }
+  .am-media[data-am-media-radius='soft'] .am-media__viewport { border-radius: .5rem; }
+  .am-media[data-am-media-role='editorial'] .am-media__viewport { aspect-ratio: 3 / 2; }
+  .am-media[data-am-media-role='card'] .am-media__viewport { aspect-ratio: 4 / 3; }
+  .am-media[data-am-media-role='gallery'] .am-media__viewport { aspect-ratio: 4 / 5; }
+  .am-media__viewport :global(img) { display: block; width: 100%; height: 100%; object-fit: cover; }
+  .am-media[data-am-media-interactive] .am-media__viewport :global(img) { transition: transform 500ms ease-out; }
+  .am-media[data-am-media-interactive]:hover .am-media__viewport :global(img),
+  .am-media[data-am-media-interactive]:focus-within .am-media__viewport :global(img) { transform: scale(1.025); }
+  .am-media__caption { margin-top: .75rem; }
+  .am-media__caption cite { font-style: normal; }
+  @media (min-width: 640px) { .am-media[data-am-media-role='gallery'] .am-media__viewport { aspect-ratio: 4 / 3; } }
+  @media (prefers-reduced-motion: reduce) { .am-media[data-am-media-interactive] .am-media__viewport :global(img) { transition: none; } }
+</style>

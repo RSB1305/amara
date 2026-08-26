@@ -12,21 +12,37 @@ import EditorialCallout from '../../../components/content/EditorialCallout.astro
 import BookingDecisionPanel from '../../../components/conversion/BookingDecisionPanel.astro';
 import EditorialFeatureGrid from '../../../components/editorial/EditorialFeatureGrid.astro';
 import ExperienceArticleHero from '../../../components/experience/ExperienceArticleHero.astro';
+import ExperiencePreFooter from '../../../components/experience/ExperiencePreFooter.astro';
+import EditorialClosingCta from '../../../components/editorial/EditorialClosingCta.astro';
+import FaqAccordion from '../../../components/FaqAccordion.astro';
 import ApartmentCard from '../../../components/location/ApartmentCard.astro';
 import LocationGuideEvidence from '../../../components/location/LocationGuideEvidence.astro';
 import LocationGuideHero from '../../../components/location/LocationGuideHero.astro';
 import StayHero from '../../../components/hero/StayHero.astro';
 import TrustHero from '../../../components/hero/TrustHero.astro';
 import AmaraFormControl from '../../../components/forms/AmaraFormControl.astro';
+import AmaraImage from '../../../components/AmaraImage.astro';
+import AmaraMediaFrame from '../../../components/media/AmaraMediaFrame.astro';
 import AmaraSection from '../../../components/layout/AmaraSection.astro';
 import AmaraSectionIntro from '../../../components/layout/AmaraSectionIntro.astro';
 import GuideLinkCardSection from '../../../page-families/location-authority/GuideLinkCardSection.astro';
 import { BedDouble, UsersRound } from '@lucide/astro';
+import { AMARA_PAGE_FAMILY_PROFILES, AMARA_PAGE_TYPE_PROFILES, getPageTypeAttributes, type AmaraPageFamilyId, type AmaraPageType } from '../../../components/page-type/pageTypeContract';
 
 const styleguideStayFacts = [
   { label: '2 guests', Icon: UsersRound },
   { label: '1 bedroom', Icon: BedDouble }
 ];
+const pageTypeLabels: Record<AmaraPageType, string> = {
+  authority: 'Typ A — Authority',
+  explore: 'Typ B — Explore',
+  trust: 'Typ C — Trust',
+  conversion: 'Typ D — Conversion'
+};
+const classifiedPageFamilies = Object.entries(AMARA_PAGE_FAMILY_PROFILES) as Array<[
+  AmaraPageFamilyId,
+  (typeof AMARA_PAGE_FAMILY_PROFILES)[AmaraPageFamilyId]
+]>;
 ---
 
 <!DOCTYPE html>
@@ -113,13 +129,17 @@ const styleguideStayFacts = [
   <nav class="sg-nav">
     <div class="sg-nav-logo">AMARA</div>
     <div class="sg-nav-sub">Living Styleguide</div>
-    <div class="sg-nav-section">Foundations</div>
+    <div class="sg-nav-section">Global Foundations</div>
     <a href="#colors">Colors & Tokens</a>
     <a href="#typography">Typography</a>
     <a href="#spacing">Spacing</a>
     <a href="#structure">Page Structure</a>
-    <div class="sg-nav-section">Components</div>
+    <div class="sg-nav-section">Global Components</div>
     <a href="#heroes">Hero Families</a>
+    <a href="#media">Media Roles</a>
+    <a href="#page-ends">Page Ends</a>
+    <div class="sg-nav-section">Page Types</div>
+    <a href="#page-types">Composition Profiles</a>
     <a href="#sections">Sections & Intros</a>
     <a href="#buttons">Buttons</a>
     <a href="#forms">Forms & Controls</a>
@@ -333,6 +353,39 @@ const styleguideStayFacts = [
     </section>
 
     <!-- SECTIONS AND INTROS -->
+    <section class="sg-section" id="media">
+      <h2 class="sg-section-title">Media Roles</h2>
+      <p class="sg-inline-demo">The production media contract classifies hero, editorial, split, card, gallery and utility media. Family owners retain hero geometry; the shared frame owns repeatable aspect, surface, caption and interaction behaviour.</p>
+      <div class="sg-component-frame">
+        <AmaraMediaFrame
+          role="editorial"
+          radius="soft"
+          caption="Editorial section image with centrally controlled geometry."
+          source="AMARA image library"
+        >
+          <AmaraImage
+            src="/images/nerja/nerja-cave-VR.jpeg"
+            alt="Rock formations inside the Nerja cave"
+            profile="gallery"
+            mediaRole="editorial"
+            sizes="(max-width: 899px) calc(100vw - 6.5rem), 800px"
+          />
+        </AmaraMediaFrame>
+      </div>
+      <div class="sg-component-frame">
+        <AmaraMediaFrame role="card" interactive>
+          <AmaraImage
+            src="/images/nerja/nerja-cave-VR.jpeg"
+            alt="Card-media crop of the Nerja cave"
+            profile="card"
+            mediaRole="card"
+            sizes="(max-width: 899px) calc(100vw - 6.5rem), 520px"
+          />
+        </AmaraMediaFrame>
+        <p class="sg-component-label">Card role · 4:3 · restrained interactive zoom</p>
+      </div>
+    </section>
+
     <section class="sg-section" id="sections">
       <h2 class="sg-section-title">Sections & Intros</h2>
       <p class="sg-inline-demo" style="margin-bottom:32px">
@@ -571,6 +624,109 @@ const styleguideStayFacts = [
     </section>
 
     <!-- CARDS AND CONTENT MODULES -->
+    <section class="sg-section" id="page-ends">
+      <h2 class="sg-section-title">Page Ends</h2>
+      <p class="sg-inline-demo">Production owners retain family conversion logic while the shared contract exposes role, weight, surface, width and canonical mobile order.</p>
+
+      <span class="sg-label">FAQ transition · Location</span>
+      <div class="sg-hero-preview">
+        <FaqAccordion
+          arrivalTitle="Plan the arrival"
+          steps={[{ num: '01', headline: 'Choose your base', text: 'Match the route to the stay before setting out.' }]}
+          faqTitle="Before you continue"
+          items={[{ question: 'Where should we go next?', answer: 'Continue to the destination guide or choose a stay.' }]}
+          pageEndFamily="location"
+        />
+      </div>
+
+      <span class="sg-label">Related content · Experience</span>
+      <div class="sg-hero-preview"><ExperiencePreFooter currentId="market" lang="en" /></div>
+
+      <span class="sg-label">Editorial close / next action</span>
+      <div class="sg-component-frame">
+        <EditorialClosingCta
+          title="Continue when the context is clear"
+          lead="A restrained close can hand readers to the next useful guide without turning every page into a booking pitch."
+          links={[{ token: 'location_frigiliana', label: 'Explore Frigiliana', style: 'text' }]}
+          lang="en"
+          role="next-action"
+          family="location"
+          spacing="page"
+        />
+      </div>
+
+      <span class="sg-label">Conversion close after FAQ</span>
+      <div class="sg-component-frame">
+        <EditorialClosingCta
+          title="Choose your romantic hideaway"
+          lead="The decisive close keeps the primary booking path first and a contextual secondary route available."
+          links={[{ token: 'romantic_hideaways', label: 'View stays', style: 'primary' }, { token: 'faq_general', label: 'Read the FAQ', style: 'secondary' }]}
+          lang="en"
+          role="conversion"
+          family="trust"
+          followsFaq
+          spacing="page"
+        />
+      </div>
+    </section>
+
+    <section class="sg-section" id="page-types">
+      <h2 class="sg-section-title">Page-Type Composition Profiles</h2>
+      <p class="sg-inline-demo">Global components remain identical. Page types govern dominant intent, orchestration and weight between the global system and a page-family template; they are not alternative visual systems and do not imply one type per family.</p>
+
+      {(['authority', 'explore', 'trust', 'conversion'] as const).map((type) => {
+        const profile = AMARA_PAGE_TYPE_PROFILES[type];
+        return (
+          <article class="sg-subsection" {...getPageTypeAttributes(type)}>
+            <h3 class="am-text-title text-on-surface">{pageTypeLabels[type]}</h3>
+            <p class="am-text-body mt-3 text-on-surface-variant">Purpose: {profile.purpose} · Layout: {profile.layout} · Density: {profile.density} · Media: {profile.media} · Whitespace: {profile.whitespace} · CTA: {profile.cta}</p>
+            <p class="am-text-caption mt-3 text-primary">Reference: {profile.reference.family} · /{profile.reference.route}</p>
+            <p class="am-text-caption mt-3 text-primary">Page ends: {profile.pageEndRoles.join(' → ')}</p>
+            {'conversionOwnership' in profile && (
+              <p class="am-text-caption mt-3 text-primary">Conversion ownership: {profile.conversionOwnership.join(' or ')}</p>
+            )}
+            <ol class="am-text-body mt-5 list-decimal space-y-2 pl-5 text-on-surface-variant">
+              {profile.referenceAnatomy.map((phase) => <li>{phase}</li>)}
+            </ol>
+            <p class="mt-5"><a class="am-inline-link" href={`/${profile.reference.route}`}>Open reference page</a></p>
+            <div class="sg-component-frame">
+              {type === 'authority' && (
+                <FaqAccordion
+                  arrivalTitle="A scannable answer sequence"
+                  steps={[{ num: '01', headline: 'Orient first', text: 'Put the direct and actionable answer before onward guidance.' }]}
+                  faqTitle="Focused follow-up"
+                  items={[{ question: 'What remains unclear?', answer: 'Answer only the practical question that affects the next choice.' }]}
+                  pageEndFamily="location"
+                />
+              )}
+              {type === 'explore' && <ExperiencePreFooter currentId="market" lang="en" />}
+              {type === 'trust' && (
+                <TrustHero eyebrow="AMARA — Romantic Hideaways" title="Trust grows from clear principles" lead="A calm composition gives authentic evidence and personal context room to work." spacing="section" />
+              )}
+              {type === 'conversion' && (
+                <BookingDecisionPanel priceLabel="Stay total" price="Shown after availability" primary={{ href: '#page-types', label: 'Check availability' }} primaryInPage priceNote="One calm primary action; checkout remains with the governed external provider." />
+              )}
+            </div>
+          </article>
+        );
+      })}
+
+      {(['reference', 'approved'] as const).map((tier) => (
+        <div class="sg-subsection">
+          <h3 class="am-text-title text-on-surface">{tier === 'reference' ? 'Reference families' : 'Additionally classified families'}</h3>
+          <div class="mt-6 divide-y divide-border-subtle border-y border-border-subtle">
+            {classifiedPageFamilies.filter(([, profile]) => profile.tier === tier).map(([family, profile]) => (
+              <div class="am-text-body grid gap-2 py-4 sm:grid-cols-[minmax(0,1fr)_auto_auto] sm:items-center sm:gap-6">
+                <code>{family}</code>
+                <span>{profile.type}</span>
+                <span class="text-on-surface-variant">{'conversionOwnership' in profile ? profile.conversionOwnership : '—'}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      ))}
+    </section>
+
     <section class="sg-section" id="cards">
       <h2 class="sg-section-title">Cards & Content Modules</h2>
       <p class="sg-inline-demo" style="margin-bottom:32px">

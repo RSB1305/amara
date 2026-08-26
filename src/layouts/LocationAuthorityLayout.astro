@@ -4,6 +4,7 @@ import type { LinkToken } from '../lib/linkResolver';
 import AmaraPageShell from '../components/layout/AmaraPageShell.astro';
 import BaseLayout from './BaseLayout.astro';
 import type { AmaraAuthoringSeo, AmaraLanguage } from '../types/seo';
+import type { AmaraPageFamilyId } from '../components/page-type/pageTypeContract';
 
 interface Props {
   seo: AmaraAuthoringSeo;
@@ -11,6 +12,7 @@ interface Props {
   footerHighlights?: { token: LinkToken; label: string }[];
   showContextNavigation?: boolean;
   bodyBackgroundClass?: string;
+  pageFamily?: AmaraPageFamilyId;
 }
 
 const {
@@ -18,7 +20,8 @@ const {
   pageLang,
   footerHighlights,
   showContextNavigation = false,
-  bodyBackgroundClass
+  bodyBackgroundClass,
+  pageFamily
 } = Astro.props;
 ---
 
@@ -28,6 +31,7 @@ const {
   footerHighlights={footerHighlights}
   showContextNavigation={showContextNavigation}
   bodyBackgroundClass={bodyBackgroundClass}
+  pageFamily={pageFamily}
 >
   <!-- Global navigation stays before the layout-owned page shell to preserve banner semantics across this page family. -->
   <slot name="navigation" />

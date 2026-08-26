@@ -135,6 +135,7 @@ const aboutHref = config.requiredLink('about');
   pageLang={currentLang}
   showContextNavigation={false}
   footerHighlights={config.footerHighlights}
+  pageFamily="location-geography"
 >
   <Navigation
     slot="navigation"
@@ -177,6 +178,8 @@ const aboutHref = config.requiredLink('about');
     primaryCta={config.primaryCta}
     secondaryCta={config.secondaryCta}
     presentation="guide"
+    closingRole="next-action"
+    closingActionMode="restrained"
     guideSummary={{
       eyebrow: content.navLabel,
       body: content.hero.standfirst,

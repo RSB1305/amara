@@ -217,7 +217,7 @@ const footerHighlights: LabeledLink[] = [
 ];
 ---
 
-<LocationAuthorityLayout seo={seo} pageLang={currentLang} footerHighlights={footerHighlights} showContextNavigation={false}>
+<LocationAuthorityLayout seo={seo} pageLang={currentLang} footerHighlights={footerHighlights} showContextNavigation={false} pageFamily="nerja-where-to-stay">
   <Navigation
     slot="navigation"
     currentLang={currentLang}
@@ -255,6 +255,7 @@ const footerHighlights: LabeledLink[] = [
           items={c.faq.items}
           anchorArrivalId="nerja-base-check"
           anchorFaqId="faq"
+          pageEndFamily="location"
         />
       </section>
     </div>

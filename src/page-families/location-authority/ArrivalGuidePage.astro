@@ -72,6 +72,7 @@ const mobilityGridClass = content.mobility?.items.length === 2
   pageLang={currentLang}
   showContextNavigation={false}
   footerHighlights={content.footerHighlights}
+  pageFamily="location-arrival"
 >
   <Navigation
     slot="navigation"
@@ -118,6 +119,8 @@ const mobilityGridClass = content.mobility?.items.length === 2
     secondaryCta={secondaryCta}
     presentation="guide"
     arrivalVisual={content.heroVisual}
+    closingRole="next-action"
+    closingActionMode="restrained"
   >
     {
       content.gateways && (

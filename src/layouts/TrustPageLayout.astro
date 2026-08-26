@@ -6,6 +6,7 @@ import AmaraSection from '../components/layout/AmaraSection.astro';
 import type { LinkToken } from '../lib/linkResolver';
 import type { AmaraAuthoringSeo, AmaraLanguage } from '../types/seo';
 import BaseLayout from './BaseLayout.astro';
+import type { AmaraPageFamilyId } from '../components/page-type/pageTypeContract';
 
 interface HeroLink {
   href: string;
@@ -21,6 +22,7 @@ interface Props {
   footerHighlights?: { token: LinkToken; label: string }[];
   dataLang?: AmaraLanguage;
   mainClass?: string;
+  pageFamily?: AmaraPageFamilyId;
   hero: {
     title: string;
     titleWidth?: 'default' | 'wide';
@@ -41,11 +43,12 @@ const {
   footerHighlights,
   dataLang,
   mainClass,
+  pageFamily,
   hero
 } = Astro.props;
 ---
 
-<BaseLayout seo={seo} pageLang={currentLang} footerHighlights={footerHighlights}>
+<BaseLayout seo={seo} pageLang={currentLang} footerHighlights={footerHighlights} pageFamily={pageFamily}>
   <Navigation
     currentLang={currentLang}
     currentToken={currentToken}

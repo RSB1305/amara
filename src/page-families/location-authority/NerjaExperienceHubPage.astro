@@ -37,6 +37,7 @@ const footerHighlights: LabeledLink[] = [
   pageLang={currentLang}
   showContextNavigation={false}
   footerHighlights={footerHighlights}
+  pageFamily="experience-nerja-hub"
 >
   <Navigation
     slot="navigation"
@@ -106,7 +107,9 @@ const footerHighlights: LabeledLink[] = [
           title={copy.closing.title}
           lead={copy.closing.text}
           lang={currentLang}
-          links={[{ token: 'playa', label: copy.closing.stayLabel, style: 'primary' }]}
+          links={[{ token: 'playa', label: copy.closing.stayLabel, style: 'text' }]}
+          role="next-action"
+          family="experience"
         />
       </div>
     </section>

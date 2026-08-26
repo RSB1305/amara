@@ -8,6 +8,7 @@ import { resolveOptionalLink, type LinkToken } from '../../lib/linkResolver';
 import type { AmaraLanguage } from '../../types/seo';
 import AmaraActionLink from '../actions/AmaraActionLink.astro';
 import InlineEmphasis from '../text/InlineEmphasis.astro';
+import { getPageEndAttributes, type AmaraPageEndFamily, type AmaraPageEndRole } from '../page-end/pageEndContract';
 
 export interface EditorialClosingCtaLink {
   label: string;
@@ -28,9 +29,12 @@ interface Props {
   lang: AmaraLanguage;
   spacing?: 'legacy' | 'page';
   dataComponent?: string;
+  role?: Extract<AmaraPageEndRole, 'editorial-close' | 'next-action' | 'conversion'>;
+  family?: AmaraPageEndFamily;
+  followsFaq?: boolean;
 }
 
-const { title, titleId, lead, note, links, lang, spacing = 'legacy', dataComponent } = Astro.props;
+const { title, titleId, lead, note, links, lang, spacing = 'legacy', dataComponent, role, family, followsFaq = false } = Astro.props;
 
 const hasButtonLinks = links.some((link) => link.style === 'primary' || link.style === 'secondary');
 ---
@@ -41,6 +45,7 @@ const hasButtonLinks = links.some((link) => link.style === 'primary' || link.sty
   ]}
   aria-labelledby={titleId}
   data-am-component={dataComponent}
+  {...(role && family ? getPageEndAttributes(role, family, followsFaq) : {})}
 >
   <div class:list={['text-center max-w-[800px] mx-auto', { 'pb-20': spacing === 'legacy' }]}>
     <h2 id={titleId} class="am-text-title text-on-surface mb-8">

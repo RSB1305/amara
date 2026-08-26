@@ -16,6 +16,7 @@ import {
 } from '../../content/experienceHubContent';
 import { resolveOptionalLink } from '../../lib/linkResolver';
 import type { AmaraLanguage } from '../../types/seo';
+import { getPageEndAttributes } from '../page-end/pageEndContract';
 
 interface Props {
   currentId: ExperienceId;
@@ -66,6 +67,7 @@ const hubHref = resolveOptionalLink('frigiliana_experience_hub', lang, {
 <section
   class="am-experience-prefooter am-section am-section--tint"
   data-am-experience-prefooter
+  {...getPageEndAttributes('related-content', 'experience')}
 >
   <div class="mb-14 grid grid-cols-1 gap-8 border-b border-outline-variant/20 pb-10 lg:grid-cols-12 lg:items-end">
     <div class="lg:col-span-7">

@@ -103,8 +103,10 @@ interface AuthorityPage {
   closingCtas: [ClosingCta, ClosingCta];
 }
 
-const PRIMARY_CTA_CLASS = 'am-btn am-btn--primary';
-const SECONDARY_CTA_CLASS = 'am-cta-link';
+const RESTRAINED_PRIMARY_CLASS = 'am-cta-link';
+const RESTRAINED_SECONDARY_CLASS = 'am-inline-link';
+const DECISION_PRIMARY_CLASS = 'am-btn am-btn--primary';
+const DECISION_SECONDARY_CLASS = 'am-cta-link';
 
 const AUTHORITY_PAGES: AuthorityPage[] = [
   {
@@ -119,8 +121,8 @@ const AUTHORITY_PAGES: AuthorityPage[] = [
     interleaved: [],
     sectionMarkerAttribute: null,
     closingCtas: [
-      { token: 'location_nerja', labelKey: 'locationLabel', className: PRIMARY_CTA_CLASS },
-      { token: 'nerja_where_to_stay', labelKey: 'areasLabel', className: SECONDARY_CTA_CLASS }
+      { token: 'location_nerja', labelKey: 'locationLabel', className: RESTRAINED_PRIMARY_CLASS },
+      { token: 'nerja_where_to_stay', labelKey: 'areasLabel', className: RESTRAINED_SECONDARY_CLASS }
     ]
   },
   {
@@ -135,8 +137,8 @@ const AUTHORITY_PAGES: AuthorityPage[] = [
     interleaved: [],
     sectionMarkerAttribute: null,
     closingCtas: [
-      { token: 'location_tarifa', labelKey: 'locationLabel', className: PRIMARY_CTA_CLASS },
-      { token: 'tarifa_where_to_stay', labelKey: 'areasLabel', className: SECONDARY_CTA_CLASS }
+      { token: 'location_tarifa', labelKey: 'locationLabel', className: RESTRAINED_PRIMARY_CLASS },
+      { token: 'tarifa_where_to_stay', labelKey: 'areasLabel', className: RESTRAINED_SECONDARY_CLASS }
     ]
   },
   {
@@ -151,8 +153,8 @@ const AUTHORITY_PAGES: AuthorityPage[] = [
     interleaved: [],
     sectionMarkerAttribute: 'data-am-parking-section',
     closingCtas: [
-      { token: 'romantic_hideaways', labelKey: 'propertyLabel', className: PRIMARY_CTA_CLASS },
-      { token: 'location_frigiliana', labelKey: 'locationLabel', className: SECONDARY_CTA_CLASS }
+      { token: 'romantic_hideaways', labelKey: 'propertyLabel', className: RESTRAINED_PRIMARY_CLASS },
+      { token: 'location_frigiliana', labelKey: 'locationLabel', className: RESTRAINED_SECONDARY_CLASS }
     ]
   },
   {
@@ -167,8 +169,8 @@ const AUTHORITY_PAGES: AuthorityPage[] = [
     interleaved: [],
     sectionMarkerAttribute: 'data-am-parking-section',
     closingCtas: [
-      { token: 'playa', labelKey: 'propertyLabel', className: PRIMARY_CTA_CLASS },
-      { token: 'location_nerja', labelKey: 'locationLabel', className: SECONDARY_CTA_CLASS }
+      { token: 'playa', labelKey: 'propertyLabel', className: RESTRAINED_PRIMARY_CLASS },
+      { token: 'location_nerja', labelKey: 'locationLabel', className: RESTRAINED_SECONDARY_CLASS }
     ]
   },
   {
@@ -183,8 +185,8 @@ const AUTHORITY_PAGES: AuthorityPage[] = [
     interleaved: [],
     sectionMarkerAttribute: 'data-am-parking-section',
     closingCtas: [
-      { token: 'tarifa', labelKey: 'propertyLabel', className: PRIMARY_CTA_CLASS },
-      { token: 'location_tarifa', labelKey: 'locationLabel', className: SECONDARY_CTA_CLASS }
+      { token: 'tarifa', labelKey: 'propertyLabel', className: RESTRAINED_PRIMARY_CLASS },
+      { token: 'location_tarifa', labelKey: 'locationLabel', className: RESTRAINED_SECONDARY_CLASS }
     ]
   },
   {
@@ -199,8 +201,8 @@ const AUTHORITY_PAGES: AuthorityPage[] = [
     interleaved: [],
     sectionMarkerAttribute: null,
     closingCtas: [
-      { token: 'playa', labelKey: 'propertyLabel', className: PRIMARY_CTA_CLASS },
-      { token: 'location_nerja', labelKey: 'locationLabel', className: SECONDARY_CTA_CLASS }
+      { token: 'playa', labelKey: 'propertyLabel', className: DECISION_PRIMARY_CLASS },
+      { token: 'location_nerja', labelKey: 'locationLabel', className: DECISION_SECONDARY_CLASS }
     ]
   },
   {
@@ -215,8 +217,8 @@ const AUTHORITY_PAGES: AuthorityPage[] = [
     interleaved: [],
     sectionMarkerAttribute: null,
     closingCtas: [
-      { token: 'playa', labelKey: 'propertyLabel', className: PRIMARY_CTA_CLASS },
-      { token: 'location_nerja', labelKey: 'locationLabel', className: SECONDARY_CTA_CLASS }
+      { token: 'playa', labelKey: 'propertyLabel', className: DECISION_PRIMARY_CLASS },
+      { token: 'location_nerja', labelKey: 'locationLabel', className: DECISION_SECONDARY_CLASS }
     ]
   },
   {
@@ -231,8 +233,8 @@ const AUTHORITY_PAGES: AuthorityPage[] = [
     interleaved: [],
     sectionMarkerAttribute: 'data-am-daily-life-section',
     closingCtas: [
-      { token: 'book', labelKey: 'availabilityLabel', className: PRIMARY_CTA_CLASS },
-      { token: 'location_nerja', labelKey: 'locationLabel', className: SECONDARY_CTA_CLASS }
+      { token: 'book', labelKey: 'availabilityLabel', className: RESTRAINED_PRIMARY_CLASS },
+      { token: 'location_nerja', labelKey: 'locationLabel', className: RESTRAINED_SECONDARY_CLASS }
     ]
   },
   {
@@ -248,8 +250,8 @@ const AUTHORITY_PAGES: AuthorityPage[] = [
     sectionMarkerAttribute: null,
     groupSupportingSections: true,
     closingCtas: [
-      { token: 'playa', labelKey: 'propertyLabel', className: PRIMARY_CTA_CLASS },
-      { token: 'location_nerja', labelKey: 'locationLabel', className: SECONDARY_CTA_CLASS }
+      { token: 'playa', labelKey: 'propertyLabel', className: RESTRAINED_PRIMARY_CLASS },
+      { token: 'location_nerja', labelKey: 'locationLabel', className: RESTRAINED_SECONDARY_CLASS }
     ]
   },
   {
@@ -264,8 +266,8 @@ const AUTHORITY_PAGES: AuthorityPage[] = [
     interleaved: [],
     sectionMarkerAttribute: 'data-am-daily-life-section',
     closingCtas: [
-      { token: 'book', labelKey: 'availabilityLabel', className: PRIMARY_CTA_CLASS },
-      { token: 'location_tarifa', labelKey: 'locationLabel', className: SECONDARY_CTA_CLASS }
+      { token: 'book', labelKey: 'availabilityLabel', className: RESTRAINED_PRIMARY_CLASS },
+      { token: 'location_tarifa', labelKey: 'locationLabel', className: RESTRAINED_SECONDARY_CLASS }
     ]
   },
   {
@@ -281,8 +283,8 @@ const AUTHORITY_PAGES: AuthorityPage[] = [
     sectionMarkerAttribute: null,
     groupSupportingSections: true,
     closingCtas: [
-      { token: 'location_tarifa', labelKey: 'locationLabel', className: PRIMARY_CTA_CLASS },
-      { token: 'tarifa_experience_hub', labelKey: 'experienceLabel', className: SECONDARY_CTA_CLASS }
+      { token: 'location_tarifa', labelKey: 'locationLabel', className: RESTRAINED_PRIMARY_CLASS },
+      { token: 'tarifa_experience_hub', labelKey: 'experienceLabel', className: RESTRAINED_SECONDARY_CLASS }
     ]
   },
   {
@@ -297,8 +299,8 @@ const AUTHORITY_PAGES: AuthorityPage[] = [
     interleaved: [],
     sectionMarkerAttribute: 'data-am-winter-stays-section',
     closingCtas: [
-      { token: 'tarifa', labelKey: 'propertyLabel', className: PRIMARY_CTA_CLASS },
-      { token: 'location_tarifa', labelKey: 'locationLabel', className: SECONDARY_CTA_CLASS }
+      { token: 'tarifa', labelKey: 'propertyLabel', className: DECISION_PRIMARY_CLASS },
+      { token: 'location_tarifa', labelKey: 'locationLabel', className: DECISION_SECONDARY_CLASS }
     ]
   }
 ];
@@ -371,7 +373,9 @@ const articleBlocks = (page: Page, pageId: string): Promise<BlockFingerprint[]> 
       if (node.querySelector('figure')) return { kind: 'stay-bridge', marker: null };
       if (node.querySelector('.tabular-nums')) return { kind: 'comparison', marker: null };
       if (node.querySelector('a[target="_blank"]')) return { kind: 'sources', marker: null };
-      if (node.querySelector('a.am-btn--primary')) return { kind: 'closing', marker: null };
+      if (node.hasAttribute('data-am-page-end-role') || node.querySelector('a.am-btn--primary')) {
+        return { kind: 'closing', marker: null };
+      }
       if (node.querySelector('a[href]')) return { kind: 'related', marker: null };
       return { kind: 'unclassified', marker: null };
     })
@@ -538,8 +542,8 @@ for (const entry of AUTHORITY_PAGES) {
       await expect(sourceCopy.nth(1)).toHaveText(source.text);
     }
 
-    // Closing CTAs: order, styling contract and destinations.
-    const closingCtas = article.locator('a.am-btn, a.am-cta-link');
+    // Closing actions: order, intent-specific styling contract and destinations.
+    const closingCtas = article.locator(':scope > section').last().locator('a[href]');
     await expect(closingCtas).toHaveCount(entry.closingCtas.length);
 
     for (const [index, cta] of entry.closingCtas.entries()) {

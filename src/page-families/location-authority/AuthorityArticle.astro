@@ -12,6 +12,7 @@ import LocationGuideHero from '../../components/location/LocationGuideHero.astro
 import LocationWeatherHero from '../../components/location/LocationWeatherHero.astro';
 import InlineEmphasis from '../../components/text/InlineEmphasis.astro';
 import type { AmaraLanguage } from '../../types/seo';
+import { getPageEndAttributes, type AmaraPageEndRole } from '../../components/page-end/pageEndContract';
 
 /**
  * The invariant frame of a destination-authority article.
@@ -92,6 +93,8 @@ interface Props {
     note?: string;
   };
   heroMark?: string;
+  closingRole?: Extract<AmaraPageEndRole, 'editorial-close' | 'next-action' | 'conversion'>;
+  closingActionMode?: 'decision' | 'restrained';
 }
 
 const {
@@ -114,7 +117,9 @@ const {
   guideSummary,
   arrivalVisual,
   weatherVisual,
-  heroMark
+  heroMark,
+  closingRole,
+  closingActionMode = 'decision'
 } = Astro.props;
 
 const byline = authorName && authorHref && hero.updated && hero.note
@@ -262,7 +267,7 @@ if (presentation === 'article' && !byline) {
     </div>
   </section>
 
-  <section class="bg-surface px-6 py-24 md:px-12 md:py-32">
+  <section class="bg-surface px-6 py-24 md:px-12 md:py-32" {...(closingRole ? getPageEndAttributes(closingRole, family) : {})}>
     <div class="mx-auto grid max-w-screen-2xl gap-10 lg:grid-cols-12 lg:items-end lg:gap-20">
       <div class="lg:col-span-7">
         <p class="am-text-eyebrow text-primary">{closing.eyebrow}</p>
@@ -278,8 +283,8 @@ if (presentation === 'article' && !byline) {
       <div class="lg:col-span-5">
         <p class="am-text-body leading-relaxed text-on-surface-variant"><InlineEmphasis text={closing.body} /></p>
         <div class="mt-8 flex flex-col items-start gap-5">
-          <a href={primaryCta.href} class="am-btn am-btn--primary">{primaryCta.label}</a>
-          <a href={secondaryCta.href} class="am-cta-link">{secondaryCta.label}</a>
+          <a href={primaryCta.href} class={closingActionMode === 'restrained' ? 'am-cta-link' : 'am-btn am-btn--primary'}>{primaryCta.label}</a>
+          <a href={secondaryCta.href} class={closingActionMode === 'restrained' ? 'am-inline-link' : 'am-cta-link'}>{secondaryCta.label}</a>
         </div>
       </div>
     </div>

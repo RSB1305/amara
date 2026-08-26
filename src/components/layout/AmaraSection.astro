@@ -6,6 +6,7 @@ import {
   type AmaraSectionSurface,
   type AmaraSectionVariant
 } from './sectionContract';
+import { getPageEndAttributes, type AmaraPageEndFamily, type AmaraPageEndRole } from '../page-end/pageEndContract';
 
 interface Props {
   id?: string;
@@ -17,6 +18,8 @@ interface Props {
   divider?: boolean;
   dataComponent?: string;
   class?: string;
+  pageEndRole?: AmaraPageEndRole;
+  pageEndFamily?: AmaraPageEndFamily;
 }
 
 const {
@@ -28,7 +31,9 @@ const {
   status = 'canonical',
   divider = true,
   dataComponent,
-  class: className
+  class: className,
+  pageEndRole,
+  pageEndFamily
 } = Astro.props;
 const sectionAttributes = getAmaraSectionAttributes({ variant, surface, family, status });
 ---
@@ -45,6 +50,7 @@ const sectionAttributes = getAmaraSectionAttributes({ variant, surface, family, 
   ]}
   aria-labelledby={labelledby}
   data-am-component={dataComponent}
+  {...(pageEndRole && pageEndFamily ? getPageEndAttributes(pageEndRole, pageEndFamily) : {})}
 >
   <slot />
 </section>

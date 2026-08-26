@@ -74,6 +74,7 @@ const parishHref = 'https://diocesismalaga.es/parroquias/145/san-antonio-de-padu
   contextBreadcrumbTitle={copy.hero.title}
   footerHighlights={footerHighlights}
   showContextNavigation={false}
+  pageFamily="campaign-weddings"
 >
   <Navigation
     currentLang={currentLang}
@@ -97,7 +98,7 @@ const parishHref = 'https://diocesismalaga.es/parroquias/145/san-antonio-de-padu
           <p class="am-text-body leading-relaxed text-on-surface-variant"><InlineEmphasis text={paragraph} /></p>
         ))}
       </div>
-      <a class="am-btn am-btn--primary mt-9" href="#wedding-stay">
+      <a class="am-cta-link mt-9" href="#wedding-stay">
         {copy.hero.cta}
       </a>
     </Hero>
@@ -186,12 +187,6 @@ const parishHref = 'https://diocesismalaga.es/parroquias/145/san-antonio-de-padu
           <p class="am-text-body mt-10 max-w-4xl border-l border-primary/20 bg-surface-container-low px-5 py-4 leading-relaxed text-on-surface-variant">
             {copy.stayOptions.note}
           </p>
-          <div class="mt-10 flex flex-wrap gap-3">
-            <a class="am-btn am-btn--primary" href={links.book}>{copy.stayOptions.cta}</a>
-            <a class="am-btn am-btn--secondary" href={links.stays}>
-              {copy.stayOptions.apartmentsCta}
-            </a>
-          </div>
           <div class="mt-8 flex flex-wrap gap-x-6 gap-y-3">
             {apartmentLinks.map((item) => (
               <a class="am-inline-link" href={item.href}>{item.label}</a>
@@ -300,7 +295,7 @@ const parishHref = 'https://diocesismalaga.es/parroquias/145/san-antonio-de-padu
       </div>
     </AmaraSection>
 
-    <AmaraSection variant="closing" divider={false} dataComponent="wedding-closing" class="bg-on-surface text-surface">
+    <AmaraSection variant="closing" divider={false} dataComponent="wedding-closing" class="bg-on-surface text-surface" pageEndRole="next-action" pageEndFamily="experience">
       <div class="mx-auto max-w-4xl text-center">
         <h2 class="am-text-title text-surface">
           {copy.closing.title}
@@ -310,7 +305,10 @@ const parishHref = 'https://diocesismalaga.es/parroquias/145/san-antonio-de-padu
             <p class="am-text-body leading-relaxed text-surface/80"><InlineEmphasis text={paragraph} /></p>
           ))}
         </div>
-        <a class="am-btn am-btn--primary mt-9" href={links.book}>{copy.closing.cta}</a>
+        <div class="mt-9 flex flex-col items-center gap-5 sm:flex-row sm:justify-center">
+          <a class="am-cta-link text-surface" href={links.stays}>{copy.stayOptions.apartmentsCta}</a>
+          <a class="am-inline-link text-surface" href={links.book}>{copy.closing.cta}</a>
+        </div>
       </div>
     </AmaraSection>
   </AmaraPageShell>
