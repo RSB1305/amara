@@ -1,7 +1,7 @@
 ---
 document_id: AMARA-INT-CONTENT-010
 title: AMARA Content Production & Localization Playbook V1.5
-version: 1.5.0
+version: 1.6.0
 status: ACTIVE
 authority_class: OPERATIONAL PLAYBOOK / NON-GOVERNING INTERIM
 source_type: INTERIM SNAPSHOT FROM APPROVED PDF + APPROVED REPOSITORY AMENDMENT
@@ -9,7 +9,7 @@ source_attachment: "10_AMARA_Content_Production_and_Localization_Playbook_V1_2(1
 source_sha256: adab58c901709b270fb264498158f2cb3010006bac7dfea18e6358627a0f10ae
 snapshot_created: 2026-08-14T09:08:00+02:00
 migration_state: PENDING PACKAGE 2/3 NORMALIZATION
-last_modified: 2026-08-23T12:51:40+02:00
+last_modified: 2026-08-26T18:30:00Z
 ---
 
 # AMARA Content Production & Localization Playbook V1.2 — Interim Markdown Snapshot
@@ -760,6 +760,64 @@ Ask:
 6. Does each locale express the same meaning naturally rather than copy the sentence mechanics of another language?
 7. Does the page still fulfil its dominant job without becoming a diary, brochure or operational manual?
 
+## Approved repository amendment — retrievable answer form
+
+This operational amendment implements `TR-CONTENT-006` and `TR-CONTENT-007`. It changes the **form** in which existing, already-required content is delivered. It does not change the page-job, evidence, localization, public/guest-depth, voice or safety contracts above, and it authorizes no claim that `knowledge/` does not already support.
+
+24. Why this is a form rule, not a content rule
+
+Sections 21–23 already require a direct answer and already forbid hiding it behind a scene-setting introduction. That principle was stated qualitatively — "comes first" — without a shape, and a build audit of the 22 indexable English Frigiliana pages found the predictable result: every page opened with a 18–47-word orienting teaser rather than an answer. `frigiliana-weather` introduced the topic in 22 words without naming a single temperature, while 48 verified monthly climate values sat further down the same page. The contract was met; the reader was not served.
+
+The same audit found one `<table>` across those 22 pages. `frigiliana-or-nerja` compared two places across four named attributes entirely in prose.
+
+Both are search and answer-engine problems as well as reader problems. A search engine or answer engine extracts a passage; it does not read a page to the end and summarize charitably. An answer that only emerges from five scattered paragraphs is an answer the retrieval layer cannot lift, cannot attribute and will not cite — while a competitor's weaker but self-contained paragraph is lifted instead. A comparison held in prose is invisible to attribute-value parsing for the same reason: the values exist, but nothing marks which value belongs to which option.
+
+This is therefore the narrow case where a formatting requirement is justified. It does not ask for more research, more precision or more words. It asks that work already done be placed where it can be found.
+
+25. The direct-answer block
+
+On a page whose dominant job answers a clear question, open with one self-contained block of roughly 60–130 words, placed immediately after the H1 and before hero media or any section.
+
+It must:
+
+- answer the page's question on its own, readable with no other part of the page present;
+- carry the decision-relevant values the page already holds — the dates, hours, prices, distances or conditions on which a guest actually decides;
+- take those values from `knowledge/`, with the observation or check date where volatility requires it;
+- respect `TR-CONTENT-005`: the answer may be situational and active, but the answer comes before the scene.
+
+It must not:
+
+- state a value that `knowledge/` does not support. An unsupported value is omitted; it is never estimated, rounded into existence or borrowed from a general expectation;
+- carry false precision. Where a value varies by person, season or vehicle, give the range or the consequence — "rund 40 Stufen, mit Gehhilfe nicht machbar" — not a point value that is wrong for most readers;
+- become a specification sheet. It is written in the collective host voice, not as a data block.
+
+The word range is an authoring target, not a validated threshold. `TR-CONTENT-002` continues to govern: each locale writes the block natively and locales may differ in length where the language requires it. No locale may shorten it past the answer.
+
+Out of scope: utility, legal, system, entry and safety-critical surfaces, and pages whose dominant job is not a question.
+
+26. Comparison output
+
+Where a page compares two or more options, places, routes or objects across the same named attributes, emit the comparison as a table or an identified list — one entry per option, one attribute per column or field — rather than as running prose.
+
+- The rule governs the comparison itself. Surrounding editorial copy stays prose.
+- It creates no obligation to complete a grid. An attribute the evidence does not cover is omitted or marked unknown; it is never estimated so that a row looks finished.
+- Where the compared entries carry a stable identifier, `DR-CONTENT-STRUCT-002` governs their parity across locales.
+- Presentation ownership stays with the page families; this rule states that a comparison is structured, not how it is styled.
+
+27. Retrievable-answer pass
+
+Apply when creating or materially revising a page in scope. A factual micro correction does not trigger it.
+
+Ask:
+
+1. Can the opening block be read alone and still answer the page's question?
+2. Does it carry the values a guest decides on, or only describe that the page will discuss them?
+3. Is every value in it supported by `knowledge/`, with a check date where volatility is medium or high?
+4. Is anything in it precise in a way that is not true for most readers?
+5. Does the page compare options across shared attributes anywhere in prose that should be a table?
+6. Does each locale answer natively, rather than translating the sentence mechanics of another language?
+7. Is the direct answer still first — before the scene, the image and the navigation?
+
 ## Revision history
 
 | Version | Timestamp | Change |
@@ -768,3 +826,4 @@ Ask:
 | 1.3.0 | 2026-08-21T22:14:30+02:00 | Added the collective host perspective, plural guest-address matrix and evidence-to-host-voice workflow. |
 | 1.4.0 | 2026-08-22T07:48:36+02:00 | Added the public-to-booked-guest depth boundary and the native contextual transition-block rule. |
 | 1.5.0 | 2026-08-23T12:51:40+02:00 | Added experiential authority, page-type calibration and the material-revision editorial pass. |
+| 1.6.0 | 2026-08-26T18:30:00Z | Gave the direct-answer principle a binding form, required attribute comparisons to be emitted as tables or identified lists, and added the retrievable-answer pass. Form only; no new claim authority. |

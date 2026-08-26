@@ -1,12 +1,12 @@
 ---
 document_id: AMARA-REG-001
 title: AMARA Register
-version: 1.36.0
+version: 1.37.0
 status: ACTIVE
 authority_class: LIVING BINDING REGISTER
 activation_state: ACTIVE
 effective_from: 2026-08-14
-last_modified: 2026-08-26T18:00:00Z
+last_modified: 2026-08-26T18:30:00Z
 canonical_path: /docs/AMARA_REGISTER.md
 ---
 
@@ -141,6 +141,8 @@ They do **not** supersede the current implementation. Until a separately aligned
 | TR-CONTENT-003 | A/B/C/D applies to strategic public content jobs; utility/legal/entry/system surfaces need not be forced into it. | APPROVED — intentional supersession |
 | TR-CONTENT-004 | Normal public editorial copy speaks from AMARA's collective host perspective and addresses guests in the plural form natural to EN, DE, ES, NL and SV. This is a perspective rule, not a requirement to repeat pronouns unnaturally. Native authoring may transform verified knowledge into useful host guidance, but it must preserve provenance, verification status, claim boundaries and uncertainty; researched or third-party evidence must not be presented as invented first-party observation. | ACTIVE |
 | TR-CONTENT-005 | New and materially revised public editorial copy uses **experiential authority**: it places guests in a concrete, truthful situation and connects the relevant scene or condition to movement, choice, stay consequence and a useful next step. Active verbs and specific verified detail are preferred to distant category language, but the technique is calibrated to the page job and must not weaken direct answers, evidence, caveats, safety, provenance or native-language quality. It does not authorize invented atmosphere, guest behaviour or first-party observation. Utility, legal, system and safety-critical copy prioritizes instruction clarity, and a micro correction does not trigger an adjacent rewrite. | ACTIVE |
+| TR-CONTENT-006 | A public page whose dominant job answers a clear search intent opens with a **self-contained direct answer**: one block of approximately 60–130 words placed immediately after the H1, before hero media and before any section. It must be understandable without the rest of the page and must carry the decision-relevant values the page holds where `knowledge/` evidence supports them; it states no value the evidence does not carry, and an unsupported value is omitted rather than estimated. The word range is an authoring target, not a validated threshold: each locale writes it natively and TR-CONTENT-002 continues to govern meaning depth, so locales may differ in length. Utility, legal, system, entry and safety-critical surfaces are out of scope, as are pages whose dominant job is not a question. | ACTIVE |
+| TR-CONTENT-007 | Where a public page compares two or more options, places, routes or objects across the **same named attributes**, that comparison is emitted as a table or an identified list — one entry per option, one attribute per column or field — rather than as running prose. The rule governs the comparison itself, not the surrounding editorial copy, and it creates no obligation to invent coverage: an attribute the evidence does not support is omitted or marked unknown, never estimated to complete a row. Presentation ownership remains with the page families, and DR-CONTENT-STRUCT-002 governs the identity of the resulting units. | ACTIVE |
 | DR-EVIDENCE-001 | `knowledge/` is AMARA's durable, non-public Evidence & Knowledge owner for research dossiers, atomic facts, sources, claim boundaries, review state and open questions. Public authoring in `src/content/` is a curated projection of that knowledge; presentation remains owned by page families and components. | ACTIVE |
 | DR-EVIDENCE-002 | Redesigning, shortening or removing public copy must not delete its underlying evidence. New research updates knowledge records through explicit verification or supersession; it does not silently overwrite history or publish itself. | ACTIVE |
 | DR-EVIDENCE-003 | Google Drive is AMARA's immutable archive for timestamped raw research inputs; Git `knowledge/` is the canonical versioned evaluation and page-coverage layer. Stable Drive folder IDs are recorded in run/page manifests. Raw uploads never publish directly, and later research uses a new run instead of overwriting an earlier one. | ACTIVE |
@@ -182,6 +184,7 @@ Routine new evidence/ideas may be captured here or in the relevant working evide
 | Timestamp | Scope | Version/change | Decision refs | Commit |
 |---|---|---|---|---|
 | 2026-08-26T18:00:00Z | Conversion-family composition | Activated the executable Conversion-family contract across Stay Discovery, Stay Decision, Direct Booking and Specialist Enquiry while preserving existing family/page-end ownership and the external checkout boundary. Astro Standard 4.18.0, Register 1.36.0. | DR-DESIGN-017 | this revision |
+| 2026-08-26T18:30:00Z | Retrievable answer form | Gave the existing direct-answer principle a binding form — a self-contained 60–130-word block immediately after the H1 — and required attribute comparisons to be emitted as tables or identified lists rather than prose. Both close form gaps found in a build audit: no indexable Frigiliana page carried a standalone direct answer and the 22-page cluster held one table. Neither rule authorizes new claims; unsupported values are omitted, not estimated. Content Playbook 1.6.0, Register 1.37.0. | TR-CONTENT-006–007, TR-CONTENT-002, TR-CONTENT-005, DR-EVIDENCE-001 | this revision |
 | 2026-08-13 | Documentation reform | Constitution 5.0.0, Governance 5.0.0, Register 1.0.0 approved as Package 1 replacement drafts. | DR-DOC-003, DR-EXEC-001 | historical package snapshot |
 | 2026-08-14T08:55:00+02:00 | Reality Reconciliation | Corrected the over-broad interpretation of Astro-only: it governs the website runtime and does not silently remove an independently governed operational boundary. | DR-PLATFORM-001, DR-BOOK-001, DR-GOV-001 | withdrawn candidate; never committed |
 | 2026-08-14T09:08:00+02:00 | SSOT Bootstrap V3 candidate | Added repository Markdown snapshots for all seven interim owner documents and introduced a mandatory read-only Compatibility Gate before activation. Gate result: BLOCKED; candidate withdrawn without commit. | DR-DOC-001, DR-DOC-005, DR-BOOT-001 | withdrawn candidate — never committed |

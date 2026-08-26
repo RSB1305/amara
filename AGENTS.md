@@ -78,6 +78,10 @@ Public editorial copy speaks from AMARA's collective host perspective and addres
 
 New and materially revised public editorial copy uses **experiential authority** (`TR-CONTENT-005`): place guests in a concrete, truthful situation and connect the relevant scene or condition to movement, choice, stay consequence and a useful next step. Prefer active verbs and specific verified detail to distant category language. Do not invent atmosphere or first-party experience, and do not weaken the page job, direct answer, evidence, caveats, safety or provenance. Calibrate the technique to the page type; utility, legal, system and safety-critical copy prioritizes instruction clarity. A micro correction does not trigger an adjacent rewrite.
 
+A public page whose dominant job answers a clear question opens with a **self-contained direct answer** (`TR-CONTENT-006`): roughly 60–130 words immediately after the H1, before hero media and before any section, readable on its own, carrying the values a guest decides on. Take those values from `knowledge/`, with the check date where volatility is medium or high. State no value the evidence does not support — omit it rather than estimate it — and avoid precision that is not true for most readers: where something varies by person or season, give the range or the consequence, not a point value. The word range is an authoring target; each locale writes it natively and may differ in length. Utility, legal, system, entry and safety-critical surfaces are out of scope.
+
+Where a page compares two or more options across the **same named attributes**, emit that comparison as a table or an identified list rather than prose (`TR-CONTENT-007`). An attribute the evidence does not cover is omitted or marked unknown, never estimated to complete a row. Surrounding editorial copy stays prose.
+
 The Navigation booking CTA must have a native localized label in EN, DE, ES, NL and SV.
 
 ## Consolidation slot
