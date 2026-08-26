@@ -163,6 +163,14 @@
     letter-spacing: normal;
   }
 
+  .am-text-form-value {
+    font-family: var(--font-body);
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    letter-spacing: normal;
+  }
+
   /* The indicative price on a stay card. It sits between `am-text-body` and
    * `am-text-subtitle` and exists because neither works: at body scale the
    * amount disappears, and at subtitle scale it reaches 39.6px on a desktop —
@@ -608,6 +616,13 @@
     display: flex;
     align-items: center;
     text-align: left;
+  }
+
+  @media (max-width: 639px) {
+    .am-form-control--trigger {
+      padding-inline: 0.625rem;
+      white-space: nowrap;
+    }
   }
 
   .am-form-control--trigger[aria-expanded='true'] {
