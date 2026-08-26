@@ -1,0 +1,30 @@
+---
+import type { ImageMetadata } from 'astro';
+import Hero from '../Hero.astro';
+import AmaraActionLink from '../actions/AmaraActionLink.astro';
+import InlineEmphasis from '../text/InlineEmphasis.astro';
+
+interface Props {
+  imageSrc: ImageMetadata | string;
+  imageAlt: string;
+  kicker: string;
+  title: string;
+  lead: string;
+  paragraphs: string[];
+  action: { href: string; label: string };
+}
+
+const { imageSrc, imageAlt, kicker, title, lead, paragraphs, action } = Astro.props;
+---
+
+<Hero imageSrc={imageSrc} imageAlt={imageAlt}>
+  <span class="am-text-label mb-8 block text-primary">{kicker}</span>
+  <h1 class="am-text-display mb-7 break-words text-on-surface md:mb-8">{title}</h1>
+  <p class="am-text-subtitle max-w-2xl leading-relaxed text-on-surface">{lead}</p>
+  <div class="mt-8 max-w-2xl space-y-5 border-l border-primary/20 pl-6 md:pl-10">
+    {paragraphs.map((paragraph) => (
+      <p class="am-text-body leading-relaxed text-on-surface-variant"><InlineEmphasis text={paragraph} /></p>
+    ))}
+  </div>
+  <AmaraActionLink href={action.href} variant="editorial" class="mt-9">{action.label}</AmaraActionLink>
+</Hero>
