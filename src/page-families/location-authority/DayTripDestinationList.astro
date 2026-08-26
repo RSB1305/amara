@@ -2,6 +2,7 @@
 import InlineEmphasis from '../../components/text/InlineEmphasis.astro';
 import EditorialCallout from '../../components/content/EditorialCallout.astro';
 import AmaraSectionIntro from '../../components/layout/AmaraSectionIntro.astro';
+import AmaraActionLink from '../../components/actions/AmaraActionLink.astro';
 
 interface DayTripDestination {
   id: string;
@@ -65,15 +66,14 @@ const { destinations, emphasizeText = false } = Astro.props;
             {emphasizeText ? <InlineEmphasis text={destination.details} /> : destination.details}
           </p>
           <p class="mt-7 am-text-body">
-            <a
+            <AmaraActionLink
               href={destination.officialHref}
-              target="_blank"
-              rel="noopener noreferrer"
-              class="am-inline-link"
+              variant="inline"
+              external
             >
               {destination.officialLabel}
               <span aria-hidden="true"> →</span>
-            </a>
+            </AmaraActionLink>
           </p>
         </article>
       </div>

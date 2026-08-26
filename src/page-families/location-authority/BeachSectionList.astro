@@ -3,6 +3,7 @@ import InlineEmphasis from '../../components/text/InlineEmphasis.astro';
 import AmaraMetaChip from '../../components/chips/AmaraMetaChip.astro';
 import EditorialCallout from '../../components/content/EditorialCallout.astro';
 import AmaraSectionIntro from '../../components/layout/AmaraSectionIntro.astro';
+import AmaraActionLink from '../../components/actions/AmaraActionLink.astro';
 
 interface BeachCard {
   title: string;
@@ -78,14 +79,13 @@ const { sections, labels, emphasizeText = false } = Astro.props;
               </EditorialCallout>
 
               <p class="mt-5 am-text-body">
-                <a
+                <AmaraActionLink
                   href={beach.mapHref}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="am-inline-link"
+                  variant="inline"
+                  external
                 >
                   {labels.map}<span aria-hidden="true"> ↗</span>
-                </a>
+                </AmaraActionLink>
               </p>
             </article>
           );

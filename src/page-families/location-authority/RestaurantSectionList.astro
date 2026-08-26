@@ -3,6 +3,7 @@ import InlineEmphasis from '../../components/text/InlineEmphasis.astro';
 import AmaraMetaChip from '../../components/chips/AmaraMetaChip.astro';
 import EditorialCallout from '../../components/content/EditorialCallout.astro';
 import AmaraSectionIntro from '../../components/layout/AmaraSectionIntro.astro';
+import AmaraActionLink from '../../components/actions/AmaraActionLink.astro';
 
 interface RestaurantCard {
   title: string;
@@ -106,22 +107,20 @@ const { sections, labels, emphasizeText = false } = Astro.props;
               </div>
 
               <p class="mt-5 flex flex-wrap gap-x-5 gap-y-2 am-text-body lg:mt-auto">
-                <a
+                <AmaraActionLink
                   href={restaurant.mapHref}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="am-inline-link"
+                  variant="inline"
+                  external
                 >
                   {labels.map}<span aria-hidden="true"> ↗</span>
-                </a>
-                <a
+                </AmaraActionLink>
+                <AmaraActionLink
                   href={restaurant.websiteHref}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="am-inline-link"
+                  variant="inline"
+                  external
                 >
                   {labels.website}<span aria-hidden="true"> ↗</span>
-                </a>
+                </AmaraActionLink>
               </p>
             </article>
           );
