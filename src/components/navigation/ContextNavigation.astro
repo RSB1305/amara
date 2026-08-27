@@ -112,6 +112,13 @@ const visibleItems = activeId && !retainActiveItem
             {
               breadcrumbs.map((breadcrumb, index) => {
                 const isCurrent = index === breadcrumbs.length - 1;
+                const isAmaraHome = index === 0 && breadcrumb.label.trim().toUpperCase() === 'AMARA';
+                const breadcrumbLabel = isAmaraHome ? (
+                  <>
+                    <span aria-hidden="true">&hearts;</span>
+                    <span class="sr-only">AMARA</span>
+                  </>
+                ) : breadcrumb.label;
 
                 return (
                   <>
@@ -140,10 +147,10 @@ const visibleItems = activeId && !retainActiveItem
                           href={breadcrumb.href}
                           class="transition-colors hover:text-primary"
                         >
-                          {breadcrumb.label}
+                          {breadcrumbLabel}
                         </a>
                       ) : (
-                        breadcrumb.label
+                        breadcrumbLabel
                       )}
                     </li>
                   </>
