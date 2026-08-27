@@ -63,8 +63,7 @@ const guideGroups = [
         </nav>
 
         <details class="guide-menu">
-          <summary>
-            <span>FRIGILIANA GUIDE</span>
+          <summary aria-label="Frigiliana Guide öffnen">
             <span class="chevron" aria-hidden="true">⌄</span>
           </summary>
 
@@ -283,16 +282,15 @@ const guideGroups = [
   }
 
   .guide-menu {
-    margin-left: 2rem;
+    margin-left: 0.2rem;
   }
 
   .guide-menu summary {
     display: flex;
-    min-width: 12rem;
+    width: 2.75rem;
     min-height: 3.75rem;
     align-items: center;
-    justify-content: flex-end;
-    gap: 0.75rem;
+    justify-content: center;
     cursor: pointer;
     list-style: none;
   }
@@ -502,17 +500,15 @@ const guideGroups = [
     }
 
     .context-bar {
-      grid-template-columns: 1fr auto;
+      grid-template-columns: 1fr auto auto;
     }
 
     .guide-menu {
-      grid-column: 1 / -1;
       margin: 0;
-      border-top: 1px solid rgba(74, 63, 50, 0.12);
     }
 
     .guide-menu summary {
-      justify-content: space-between;
+      justify-content: center;
     }
 
     .guide-panel {
@@ -549,8 +545,7 @@ const guideGroups = [
       padding: 0 1.25rem;
     }
 
-    .destination,
-    .branches {
+    .destination {
       grid-column: 1 / -1;
     }
 
@@ -559,7 +554,12 @@ const guideGroups = [
     }
 
     .branches {
+      grid-column: 1;
       justify-content: flex-start;
+    }
+
+    .guide-menu {
+      grid-column: 2;
     }
 
     .branches a {
