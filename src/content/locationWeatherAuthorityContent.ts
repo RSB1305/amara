@@ -373,7 +373,7 @@ const profiles: Profiles = {
 };
 
 const relatedTokens: Record<WeatherDestination, [LinkToken, LinkToken, LinkToken]> = {
-  frigiliana: ['frigiliana_geography', 'frigiliana_stairs', 'frigiliana_winter_stays'],
+  frigiliana: ['frigiliana_geography', 'frigiliana_hiking_authority', 'frigiliana_winter_stays'],
   nerja: ['nerja_geography', 'nerja_where_to_stay', 'getting_to_nerja'],
   tarifa: ['tarifa_geography', 'tarifa_where_to_stay', 'tarifa_winter_stays']
 };
@@ -415,6 +415,13 @@ export function getWeatherAuthorityContent(destination: WeatherDestination, lang
     nl: { label: 'Aankomst & mobiliteit', text: 'Verbind luchthavens, bussen en het laatste stuk naar Nerja.' },
     sv: { label: 'Ankomst & mobilitet', text: 'Koppla ihop flygplatser, bussar och sista sträckan till Nerja.' }
   };
+  const frigilianaHikingLabels: Record<AmaraLanguage, { label: string; text: string }> = {
+    en: { label: 'Planning to hike?', text: 'Choose four worthwhile walks and see how their official starts connect from the historic village.' },
+    de: { label: 'Möchtet ihr wandern?', text: 'Wählt zwischen vier lohnenden Touren und seht, wie ihre offiziellen Starts von der Altstadt aus erreichbar sind.' },
+    es: { label: '¿Pensáis salir a caminar?', text: 'Elegid entre cuatro rutas recomendadas y ved cómo se conectan sus inicios oficiales desde el casco histórico.' },
+    nl: { label: 'Willen jullie wandelen?', text: 'Kies vier waardevolle tochten en zie hoe hun officiële startpunten aansluiten op de historische kern.' },
+    sv: { label: 'Planerar ni att vandra?', text: 'Välj mellan fyra givande turer och se hur deras officiella starter nås från den historiska byn.' }
+  };
 
   return {
     navLabel: navLabels[lang],
@@ -435,8 +442,16 @@ export function getWeatherAuthorityContent(destination: WeatherDestination, lang
       title: common.relatedTitle,
       links: relatedTokens[destination].map((token, index) => ({
         token,
-        label: destination === 'nerja' && index === 2 ? nerjaArrivalLabels[lang].label : common.relatedLabels[index],
-        text: destination === 'nerja' && index === 2 ? nerjaArrivalLabels[lang].text : common.relatedTexts[index]
+        label: destination === 'nerja' && index === 2
+          ? nerjaArrivalLabels[lang].label
+          : destination === 'frigiliana' && index === 1
+            ? frigilianaHikingLabels[lang].label
+            : common.relatedLabels[index],
+        text: destination === 'nerja' && index === 2
+          ? nerjaArrivalLabels[lang].text
+          : destination === 'frigiliana' && index === 1
+            ? frigilianaHikingLabels[lang].text
+            : common.relatedTexts[index]
       }))
     },
     closing: { eyebrow: common.closingEyebrow, title: common.closingTitle, body: common.closingBody, primaryLabel: common.primaryLabel, secondaryLabel: common.secondaryLabel }

@@ -1,163 +1,151 @@
 ---
-import type { LabeledLink } from '../../lib/linkResolver';
 import LocationExperienceHero from '../../components/location/LocationExperienceHero.astro';
 import Navigation from '../../components/Navigation.astro';
-import GuideClosingSection from './GuideClosingSection.astro';
 import ExperienceContextNav from '../../components/experience/ExperienceContextNav.astro';
 import ExperiencePreFooter from '../../components/experience/ExperiencePreFooter.astro';
-import HikingRouteStatStrip from './HikingRouteStatStrip.astro';
-import {
-  frigilianaHikingContent,
-  frigilianaHikingSeo
-} from '../../content/frigilianaHikingContent';
+import GuideClosingSection from './GuideClosingSection.astro';
 import LocationAuthorityLayout from '../../layouts/LocationAuthorityLayout.astro';
+import AmaraActionLink from '../../components/actions/AmaraActionLink.astro';
+import EditorialCallout from '../../components/content/EditorialCallout.astro';
+import { createRequiredLinkResolver, type LabeledLink } from '../../lib/linkResolver';
 import { normalizeLanguage } from '../../lib/seo/resolve-seo-head';
 import type { AmaraLanguage } from '../../types/seo';
-import AuthorityFeatureSection from './AuthorityFeatureSection.astro';
+import {
+  frigilianaHikingSeo,
+  getFrigilianaHikingContent,
+  hikingExternalLinks
+} from '../../content/frigilianaHikingContent';
 
-interface Props {
-  lang?: string;
-}
+interface Props { lang?: string; }
 
 const { lang = 'de' } = Astro.props;
 const currentLang = normalizeLanguage(lang as AmaraLanguage);
-const copy = frigilianaHikingContent[currentLang];
-
-if (!copy) {
-  throw new Error(
-    `[AMARA] Frigiliana hiking copy is not published for "${currentLang}".`
-  );
-}
-
+const copy = getFrigilianaHikingContent(currentLang);
+const requiredLink = createRequiredLinkResolver(currentLang, 'Frigiliana hiking');
+const weatherHref = requiredLink('weather_frigiliana');
+const locationHref = requiredLink('location_frigiliana');
 const footerHighlights: LabeledLink[] = [
-  {
-    token: 'frigiliana_hiking_authority',
-    label: copy.footerHighlights.hiking
-  },
-  { token: 'location_frigiliana', label: copy.footerHighlights.guide },
-  { token: 'romantic_hideaways', label: copy.footerHighlights.stays }
+  { token: 'frigiliana_hiking_authority', label: copy.hero.kicker },
+  { token: 'weather_frigiliana', label: copy.weather.label },
+  { token: 'romantic_hideaways', label: copy.closing.stays }
 ];
-
-const heroImage = {
-  src: '/images/hero-frigiliana.jpg',
-  width: 1080
-};
 ---
 
-<LocationAuthorityLayout
-  seo={frigilianaHikingSeo}
-  pageLang={currentLang}
-  footerHighlights={footerHighlights}
-  pageFamily="experience-hiking"
->
-  <Navigation
-    slot="navigation"
-    currentLang={currentLang}
-    languageToken="frigiliana_hiking_authority"
-  >
+<LocationAuthorityLayout seo={frigilianaHikingSeo} pageLang={currentLang} footerHighlights={footerHighlights} pageFamily="experience-hiking">
+  <Navigation slot="navigation" currentLang={currentLang} languageToken="frigiliana_hiking_authority">
     <ExperienceContextNav slot="context-navigation" currentId="hiking" lang={currentLang} />
   </Navigation>
 
-  <div data-am-page="frigiliana-hiking">
-    <div class="w-full">
-      <LocationExperienceHero
-        topic="hiking"
-        eyebrow={copy.hero.kicker}
-        title={copy.hero.title}
-        paragraphs={copy.hero.paragraphs}
-        imageSrc={heroImage.src}
-        imageAlt={copy.hero.imageAlt}
-        imageWidth={heroImage.width}
-      />
+  <main data-am-page="frigiliana-hiking">
+    <LocationExperienceHero eyebrow={copy.hero.kicker} title={copy.hero.title} paragraphs={copy.hero.paragraphs} imageSrc="/images/hero-frigiliana.jpg" imageAlt={copy.hero.imageAlt} imageWidth={1080} topic="hiking" />
 
-      {
-        copy.routeSections.map((section, index) => (
-          <section
-            id={section.id}
-            class:list={[
-              'am-section',
-              index % 2 === 0 ? 'am-section--tint' : 'am-section--plain'
-            ]}
-          >
-            <div class="max-w-3xl mb-16">
-              <h2 class="am-text-title italic text-on-surface tracking-tight mb-6">
-                {section.title}
-              </h2>
-              {section.intro && (
-                <p class="am-text-body text-on-surface-variant leading-relaxed">
-                  {section.intro}
-                </p>
-              )}
-            </div>
+    <section class="am-section am-section--tint" aria-labelledby="choose-hike-title">
+      <div class="max-w-3xl">
+        <p class="am-text-eyebrow text-primary">{copy.overview.kicker}</p>
+        <h2 id="choose-hike-title" class="am-text-title mt-5 text-balance italic text-on-surface">{copy.overview.title}</h2>
+        <p class="am-text-body mt-6 leading-relaxed text-on-surface-variant">{copy.overview.intro}</p>
+      </div>
+      <div class="mt-14 border-y border-outline-variant/20">
+        {copy.routes.map((route, index) => (
+          <a href={`#${route.id}`} class:list={['group grid gap-5 py-7 transition-colors hover:text-primary md:grid-cols-[2rem_minmax(12rem,1.2fr)_repeat(3,minmax(8rem,1fr))]', index > 0 && 'border-t border-outline-variant/20']}>
+            <span class="am-text-label am-text-label--sm text-primary">{String(index + 1).padStart(2, '0')}</span>
+            <span><strong class="am-text-subtitle block text-on-surface group-hover:text-primary">{route.title}</strong><span class="am-text-label mt-2 block text-muted md:hidden">{copy.overview.labels.bestFor}</span><span class="am-text-body mt-1 block text-on-surface-variant">{route.bestFor}</span></span>
+            <span><span class="am-text-label block text-muted">{copy.overview.labels.commitment}</span><span class="am-text-body mt-2 block text-on-surface">{route.commitment}</span></span>
+            <span><span class="am-text-label block text-muted">{copy.overview.labels.difficulty}</span><span class="am-text-body mt-2 block text-on-surface">{route.difficulty}</span></span>
+            <span><span class="am-text-label block text-muted">{copy.overview.labels.condition}</span><span class="am-text-body mt-2 block text-on-surface">{route.condition}</span></span>
+          </a>
+        ))}
+      </div>
+    </section>
 
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-x-16 gap-y-14">
-              {section.routes.map((route) => (
-                <article class="border-t border-outline-variant/25 pt-8">
-                  <h3 class="am-text-subtitle text-on-surface mb-5 lg:min-h-[2.3em]">
-                    {route.title}
-                  </h3>
-                  <HikingRouteStatStrip
-                    duration={route.duration}
-                    elevationGain={route.elevationGain}
-                    distance={route.distance}
-                    difficulty={route.difficulty}
-                    experience={route.experience}
-                    labels={copy.routeCardLabels}
-                  />
-                  <p class="mt-6 am-text-body text-on-surface-variant leading-relaxed">
-                    {route.text}
-                  </p>
-                  {route.statusLink && (
-                    <p class="am-text-body text-on-surface-variant leading-relaxed mt-6">
-                      {route.statusLink.before}<a
-                        href={route.statusLink.href}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        class="am-inline-link"
-                      >{route.statusLink.label}</a>{route.statusLink.after}
-                    </p>
-                  )}
-                </article>
+    <section class="am-section am-section--plain" aria-labelledby="from-amara-title">
+      <div class="grid gap-12 lg:grid-cols-12 lg:gap-20">
+        <div class="lg:col-span-5">
+          <p class="am-text-eyebrow text-primary">{copy.fromAmara.kicker}</p>
+          <h2 id="from-amara-title" class="am-text-title mt-5 text-balance italic text-on-surface">{copy.fromAmara.title}</h2>
+          <p class="am-text-body mt-7 leading-relaxed text-on-surface-variant">{copy.fromAmara.intro}</p>
+          <a href={locationHref} class="am-inline-link mt-7 inline-flex">{copy.fromAmara.locationLabel} <span aria-hidden="true">&nbsp;→</span></a>
+        </div>
+        <ol class="border-y border-outline-variant/20 lg:col-span-7">
+          {copy.fromAmara.steps.map((step, index) => (
+            <li class:list={['grid grid-cols-[3rem_1fr] items-center gap-5 py-6', index > 0 && 'border-t border-outline-variant/20']}>
+              <span class="am-text-label am-text-label--sm text-primary">{String(index + 1).padStart(2, '0')}</span>
+              <strong class="am-text-subtitle text-on-surface">{step}</strong>
+            </li>
+          ))}
+        </ol>
+      </div>
+    </section>
+
+    {copy.routes.map((route, index) => (
+      <section id={route.id} class:list={['am-section scroll-mt-36', index % 2 === 0 ? 'am-section--tint' : 'am-section--plain']} aria-labelledby={`${route.id}-title`}>
+        <article class="grid gap-12 lg:grid-cols-12 lg:gap-20">
+          <header class="lg:col-span-4">
+            <p class="am-text-label am-text-label--wide text-primary">{String(index + 1).padStart(2, '0')}</p>
+            <h2 id={`${route.id}-title`} class="am-text-title mt-5 text-balance italic text-on-surface">{route.title}</h2>
+            <p class="am-text-subtitle mt-6 italic text-primary">{route.bestFor}</p>
+            <dl class="mt-8 border-y border-outline-variant/20">
+              {[[copy.overview.labels.commitment, route.commitment], [copy.overview.labels.difficulty, route.difficulty], [copy.overview.labels.condition, route.condition]].map(([label, value], itemIndex) => (
+                <div class:list={['py-4', itemIndex > 0 && 'border-t border-outline-variant/20']}><dt class="am-text-label text-muted">{label}</dt><dd class="am-text-body mt-1 text-on-surface">{value}</dd></div>
               ))}
+            </dl>
+          </header>
+          <div class="space-y-10 lg:col-span-8">
+            <div><h3 class="am-text-subtitle text-on-surface">{copy.routeLabels.why}</h3><p class="am-text-body mt-4 leading-relaxed text-on-surface-variant">{route.why}</p></div>
+            <div><h3 class="am-text-subtitle text-on-surface">{copy.routeLabels.from}</h3><p class="am-text-body mt-4 leading-relaxed text-on-surface-variant">{route.access}</p></div>
+            <div><h3 class="am-text-subtitle text-on-surface">{copy.routeLabels.hike}</h3><p class="am-text-body mt-4 leading-relaxed text-on-surface-variant">{route.hike}</p></div>
+            <EditorialCallout><strong class="text-primary">{copy.routeLabels.note}:</strong> {route.note}</EditorialCallout>
+            <div><h3 class="am-text-subtitle text-on-surface">{copy.routeLabels.weather}</h3><p class="am-text-body mt-4 leading-relaxed text-on-surface-variant">{route.weather}</p></div>
+            <div>
+              <h3 class="am-text-subtitle text-on-surface">{copy.routeLabels.navigate}</h3>
+              <div class="mt-5 flex flex-wrap gap-x-7 gap-y-4">
+                <AmaraActionLink href={route.officialHref} variant="inline" target="_blank" rel="noopener noreferrer">{route.officialLabel} <span aria-hidden="true">↗</span></AmaraActionLink>
+                {route.secondaryHref && route.secondaryLabel && <AmaraActionLink href={route.secondaryHref} variant="inline" target="_blank" rel="noopener noreferrer">{route.secondaryLabel} <span aria-hidden="true">↗</span></AmaraActionLink>}
+                {route.id === 'el-fuerte' && <AmaraActionLink href={weatherHref} variant="inline">{copy.weather.label} <span aria-hidden="true">→</span></AmaraActionLink>}
+              </div>
             </div>
-          </section>
-        ))
-      }
+          </div>
+        </article>
+      </section>
+    ))}
 
-      <AuthorityFeatureSection
-        id="practical"
-        title={copy.practical.title}
-        items={copy.practical.items}
-      />
+    <section class="am-section am-section--plain" aria-labelledby="chillar-title">
+      <div class="max-w-4xl border-l-2 border-primary/35 pl-7 md:pl-10">
+        <p class="am-text-eyebrow text-primary">{copy.chillar.kicker}</p>
+        <h2 id="chillar-title" class="am-text-title mt-5 italic text-on-surface">{copy.chillar.title}</h2>
+        <p class="am-text-body mt-6 leading-relaxed text-on-surface-variant">{copy.chillar.text}</p>
+        <a href={hikingExternalLinks.chillarStatus} target="_blank" rel="noopener noreferrer" class="am-inline-link mt-7 inline-flex">{copy.chillar.label} <span aria-hidden="true">&nbsp;↗</span></a>
+      </div>
+    </section>
 
-      <AuthorityFeatureSection
-        title={copy.combine.title}
-        intro={copy.combine.intro}
-        items={copy.combine.items}
-        surface="plain"
-      />
+    <section class="am-section am-section--tint" aria-labelledby="hiking-weather-title">
+      <div class="grid gap-10 lg:grid-cols-12 lg:gap-20">
+        <div class="lg:col-span-5"><p class="am-text-eyebrow text-primary">{copy.weather.kicker}</p><h2 id="hiking-weather-title" class="am-text-title mt-5 text-balance italic text-on-surface">{copy.weather.title}</h2></div>
+        <div class="lg:col-span-7"><p class="am-text-body leading-relaxed text-on-surface-variant">{copy.weather.text}</p><a href={weatherHref} class="am-cta-link mt-8 inline-flex">{copy.weather.label}</a></div>
+      </div>
+    </section>
 
-      <ExperiencePreFooter currentId="hiking" lang={currentLang} />
+    <section class="am-section am-section--plain" aria-labelledby="more-hiking-title">
+      <div class="grid gap-10 lg:grid-cols-12 lg:gap-20">
+        <div class="lg:col-span-5"><h2 id="more-hiking-title" class="am-text-title text-balance italic text-on-surface">{copy.more.title}</h2><p class="am-text-body mt-6 leading-relaxed text-on-surface-variant">{copy.more.text}</p></div>
+        <div class="flex flex-col items-start gap-6 border-y border-outline-variant/20 py-8 lg:col-span-7">
+          <a href={hikingExternalLinks.komootDiscovery} target="_blank" rel="noopener noreferrer" class="am-cta-link">{copy.more.komoot} ↗</a>
+          <a href={hikingExternalLinks.officialIndex} target="_blank" rel="noopener noreferrer" class="am-inline-link">{copy.more.official} ↗</a>
+          <a href={hikingExternalLinks.granSendaLibrary} target="_blank" rel="noopener noreferrer" class="am-inline-link">{copy.more.granSenda} ↗</a>
+        </div>
+      </div>
+    </section>
 
-      <GuideClosingSection
-          title={copy.closing.title}
-          lead={copy.closing.lead}
-          lang={currentLang}
-          links={[
-            {
-              token: 'romantic_hideaways',
-              label: copy.closing.apartmentsCta,
-              style: 'text'
-            },
-            {
-              token: 'book',
-              label: copy.closing.availabilityCta,
-              style: 'text'
-            }
-          ]}
-          role="next-action"
-          family="experience"
-      />
-    </div>
-  </div>
+    <section class="am-section am-section--tint" aria-labelledby="after-hike-title">
+      <h2 id="after-hike-title" class="am-text-title italic text-on-surface">{copy.after.title}</h2>
+      <div class="mt-12 grid gap-8 md:grid-cols-3">
+        {copy.after.items.map((item) => (
+          <article class="border-t border-outline-variant/25 pt-7"><h3 class="am-text-subtitle text-on-surface">{item.title}</h3><p class="am-text-body mt-4 leading-relaxed text-on-surface-variant">{item.text}</p><a href={requiredLink(item.token)} class="am-inline-link mt-6 inline-flex">{item.label} <span aria-hidden="true">&nbsp;→</span></a></article>
+        ))}
+      </div>
+    </section>
+
+    <ExperiencePreFooter currentId="hiking" lang={currentLang} />
+    <GuideClosingSection title={copy.closing.title} lead={copy.closing.lead} lang={currentLang} links={[{ token: 'romantic_hideaways', label: copy.closing.stays, style: 'text' }, { token: 'book', label: copy.closing.book, style: 'text' }]} role="next-action" family="experience" />
+  </main>
 </LocationAuthorityLayout>

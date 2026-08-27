@@ -1,1164 +1,197 @@
+import type { LocalizedText } from '../types/content';
+import { resolveLocale } from '../types/content';
 import type { AmaraAuthoringSeo, AmaraLanguage } from '../types/seo';
-import { stayCollectionLabels } from './stayCollectionLabels';
 
-export interface FrigilianaHikingRouteCard {
-  title: string;
-  text: string;
-  duration?: string;
-  elevationGain?: string;
-  distance?: string;
-  difficulty?: string;
-  experience: string;
-  statusLink?: {
-    before: string;
-    label: string;
-    after: string;
-    href: string;
-  };
+const l = (en: string, de: string, es: string, nl: string, sv: string): LocalizedText => ({ en, de, es, nl, sv });
+
+export const hikingExternalLinks = {
+  officialIndex: 'https://www.turismofrigiliana.es/es/rutas-de-senderismo.html',
+  cruzDePinto: 'https://www.turismofrigiliana.es/es/cruz-de-pinto.html',
+  higueron: 'https://www.turismofrigiliana.es/es/cahorros-del-rio-higueron.html',
+  elFuerte: 'https://www.turismofrigiliana.es/es/el-fuerte.html',
+  granSenda: 'https://www.gransendademalaga.es/es/etapas/lis_cd-6608/gran-senda-de-malaga-gr-249-etapa-06-frigiliana-competa',
+  granSendaLibrary: 'https://www.malaga.es/medioambiente/1407/com1_md1_cd-198006/etapas-de-la-gran-senda-de-malaga',
+  chillarStatus: 'https://www.nerja.es/el-acceso-al-rio-chillar-permanece-cerrado/',
+  komootDiscovery: 'https://www.komoot.com/de-de/discover/Frigiliana/@36.7909126,-3.8953919/tours?sport=hike&map=true&regionId=62082&max_distance=6000'
+} as const;
+
+type HikingRouteId = 'cruz-de-pinto' | 'rio-higueron' | 'el-fuerte' | 'gr-249';
+
+export interface HikingRoute {
+  id: HikingRouteId;
+  title: LocalizedText;
+  bestFor: LocalizedText;
+  commitment: LocalizedText;
+  difficulty: LocalizedText;
+  condition: LocalizedText;
+  why: LocalizedText;
+  access: LocalizedText;
+  hike: LocalizedText;
+  note: LocalizedText;
+  weather: LocalizedText;
+  officialHref: string;
+  officialLabel: LocalizedText;
+  secondaryHref?: string;
+  secondaryLabel?: LocalizedText;
 }
 
-export interface FrigilianaHikingRouteSection {
-  id: string;
-  title: string;
-  intro?: string;
-  routes: FrigilianaHikingRouteCard[];
-}
+const routes: HikingRoute[] = [
+  {
+    id: 'cruz-de-pinto',
+    title: l('Cruz de Pinto', 'Cruz de Pinto', 'Cruz de Pinto', 'Cruz de Pinto', 'Cruz de Pinto'),
+    bestFor: l('A characteristic half-day panorama', 'Eine charakteristische Panorama-Halbtagestour', 'Una panorámica muy propia de Frigiliana', 'Een karakteristieke panoramatocht van een halve dag', 'En karakteristisk panoramatur för en halvdag'),
+    commitment: l('Half day', 'Halber Tag', 'Media jornada', 'Halve dag', 'Halvdag'),
+    difficulty: l('Moderate', 'Mittelschwer', 'Moderada', 'Gemiddeld', 'Medelsvår'),
+    condition: l('Open slopes; check heat and rain', 'Offene Hänge; Hitze und Regen prüfen', 'Laderas abiertas; comprobad calor y lluvia', 'Open hellingen; controleer hitte en regen', 'Öppna sluttningar; kontrollera värme och regn'),
+    why: l('Choose Cruz de Pinto when you want a proper walk without committing the whole day. Its open hillsides and coastal outlook give it a clear sense of leaving the village behind.', 'Cruz de Pinto passt, wenn ihr richtig wandern möchtet, ohne den ganzen Tag einzuplanen. An den offenen Hängen mit Küstenblick liegt das Dorf bald deutlich hinter euch.', 'Elegid Cruz de Pinto si queréis una caminata de verdad sin dedicarle el día entero. Las laderas abiertas y las vistas hacia la costa hacen que el pueblo quede pronto atrás.', 'Kies Cruz de Pinto als jullie echt willen wandelen zonder de hele dag vast te leggen. Op de open hellingen met uitzicht naar de kust laten jullie het dorp duidelijk achter je.', 'Välj Cruz de Pinto när ni vill ha en riktig vandring utan att avsätta hela dagen. De öppna sluttningarna och kustvyerna ger snabbt en tydlig känsla av att lämna byn bakom er.'),
+    access: l('Leave Casa AMARA on foot and cross the historic village towards Plaza del Ingenio and the beginning of Cuesta del Apero. That is the official route area; the walk from Calle Chorruelo is access to it, not part of the published hiking route.', 'Von Casa AMARA geht ihr zu Fuß durch die Altstadt zur Plaza del Ingenio und zum Beginn der Cuesta del Apero. Dort liegt der offizielle Routenstart; der Weg ab Calle Chorruelo ist der Zugang dorthin und nicht Teil der veröffentlichten Wanderroute.', 'Desde Casa AMARA camináis por el casco histórico hacia la Plaza del Ingenio y el inicio de la Cuesta del Apero. Allí se sitúa el comienzo oficial; el trayecto desde Calle Chorruelo es el acceso, no parte de la ruta publicada.', 'Vanaf Casa AMARA lopen jullie door de historische kern naar Plaza del Ingenio en het begin van Cuesta del Apero. Daar ligt het officiële startgebied; de wandeling vanaf Calle Chorruelo is de toegang en geen deel van de gepubliceerde route.', 'Från Casa AMARA går ni genom den historiska byn mot Plaza del Ingenio och början av Cuesta del Apero. Där ligger den officiella starten; promenaden från Calle Chorruelo är anslutningen dit och ingår inte i den publicerade vandringsleden.'),
+    hike: l('The official description first descends towards the Río Higuerón, follows the river briefly and then turns onto the ascent towards Cruz de Pinto. Expect natural paths and a sustained climb rather than a village stroll.', 'Die offizielle Beschreibung führt zunächst hinab zum Río Higuerón, kurz am Fluss entlang und dann in den Anstieg zur Cruz de Pinto. Rechnet mit Naturwegen und einem längeren Anstieg statt mit einem Dorfspaziergang.', 'La descripción oficial baja primero hacia el Río Higuerón, sigue brevemente el cauce y toma después la subida a la Cruz de Pinto. Es una ruta de senderos naturales y ascenso sostenido, no un paseo por el pueblo.', 'De officiële beschrijving daalt eerst af naar de Río Higuerón, volgt de rivier kort en buigt dan af naar de klim richting Cruz de Pinto. Reken op natuurpaden en een aanhoudende klim, niet op een dorpswandeling.', 'Den officiella beskrivningen går först ner mot Río Higuerón, följer floden en kort sträcka och viker sedan av upp mot Cruz de Pinto. Räkna med naturstig och en ihållande stigning, inte en bypromenad.'),
+    note: l('This is our balanced choice when views matter but El Fuerte would make the day too demanding.', 'Das ist unsere ausgewogene Wahl, wenn euch Aussicht wichtig ist, El Fuerte für den Tag aber zu anspruchsvoll wäre.', 'Es nuestra opción equilibrada si buscáis vistas pero El Fuerte os exigiría demasiado ese día.', 'Dit is onze evenwichtige keuze als uitzicht belangrijk is maar El Fuerte die dag te zwaar zou zijn.', 'Det här är vårt balanserade val när utsikten är viktig men El Fuerte skulle bli för krävande den dagen.'),
+    weather: l('Much of the route is exposed. On a hot day, move the walk to the cooler hours; after rain, check current trail conditions before leaving.', 'Große Teile liegen offen. Legt die Tour an heißen Tagen in die kühleren Stunden und prüft nach Regen den aktuellen Zustand der Wege.', 'Buena parte del recorrido está expuesta. En días calurosos, salid en las horas más frescas; después de lluvia, comprobad el estado actual del sendero.', 'Een groot deel ligt onbeschut. Wandel op hete dagen in de koelere uren en controleer na regen de actuele toestand van het pad.', 'Stora delar är exponerade. Välj svalare timmar under heta dagar och kontrollera ledens aktuella skick efter regn.'),
+    officialHref: hikingExternalLinks.cruzDePinto,
+    officialLabel: l('Official Cruz de Pinto route', 'Offizielle Route Cruz de Pinto', 'Ruta oficial de la Cruz de Pinto', 'Officiële route Cruz de Pinto', 'Officiell led till Cruz de Pinto')
+  },
+  {
+    id: 'rio-higueron',
+    title: l('Río Higuerón & Cahorros', 'Río Higuerón & Cahorros', 'Río Higuerón y Cahorros', 'Río Higuerón & Cahorros', 'Río Higuerón & Cahorros'),
+    bestFor: l('Riverbed and narrow-gorge landscape', 'Flussbett und schmale Felspassagen', 'Cauce y pasos estrechos entre roca', 'Rivierbedding en smalle rotskloven', 'Flodbädd och smala klippassager'),
+    commitment: l('Flexible half day', 'Flexibler halber Tag', 'Media jornada flexible', 'Flexibele halve dag', 'Flexibel halvdag'),
+    difficulty: l('Moderate; conditions matter', 'Mittelschwer; Bedingungen beachten', 'Moderada; depende de las condiciones', 'Gemiddeld; omstandigheden tellen', 'Medelsvår; förhållandena avgör'),
+    condition: l('Do not enter after heavy rain', 'Nach starkem Regen nicht begehen', 'No entréis después de lluvias fuertes', 'Niet betreden na zware regen', 'Gå inte in efter kraftigt regn'),
+    why: l('The Higuerón offers the most distinct landscape in this selection: the route drops from the village into a river corridor and passes through the narrow cahorros.', 'Der Higuerón bietet die eigenständigste Landschaft dieser Auswahl: Vom Dorf geht es hinab in einen Flusskorridor und durch die engen Cahorros.', 'El Higuerón ofrece el paisaje más distinto de esta selección: se baja desde el pueblo al corredor del río y se atraviesan los estrechos cahorros.', 'De Higuerón biedt het meest afwijkende landschap van deze selectie: vanuit het dorp daalt de route af naar de riviercorridor en loopt door de smalle cahorros.', 'Higuerón ger den tydligast annorlunda miljön i urvalet: leden går ner från byn till flodkorridoren och genom de smala cahorros.'),
+    access: l('Walk from Casa AMARA through the village towards Plaza del Ingenio and Cuesta del Apero, where the official access descends towards the river. The village walk is the connector; river conditions begin to matter once you enter the route itself.', 'Von Casa AMARA geht ihr durch den Ort zur Plaza del Ingenio und zur Cuesta del Apero, wo der offizielle Zugang zum Fluss hinabführt. Der Dorfweg ist die Verbindung; im eigentlichen Routenbereich zählen dann die Bedingungen im Flussbett.', 'Desde Casa AMARA cruzáis el pueblo hacia la Plaza del Ingenio y la Cuesta del Apero, donde el acceso oficial baja al río. El paseo urbano es la conexión; las condiciones del cauce importan al entrar en la ruta.', 'Vanaf Casa AMARA lopen jullie door het dorp naar Plaza del Ingenio en Cuesta del Apero, waar de officiële toegang naar de rivier afdaalt. De dorpswandeling is de verbinding; in de eigenlijke route worden de rivieromstandigheden bepalend.', 'Från Casa AMARA går ni genom byn mot Plaza del Ingenio och Cuesta del Apero, där den officiella anslutningen går ner mot floden. Bypromenaden är länken; inne på själva leden blir flodförhållandena avgörande.'),
+    hike: l('This is natural river terrain, not a maintained waterside promenade. Water levels vary and long sections can be dry; the defining features are the rocky bed and narrow gorge passages.', 'Das ist natürliches Flussgelände und keine ausgebaute Uferpromenade. Der Wasserstand variiert, lange Abschnitte können trocken sein; prägend sind das felsige Bett und die engen Schluchtpassagen.', 'Es terreno fluvial natural, no un paseo acondicionado. El caudal varía y puede haber tramos largos secos; lo característico son el lecho rocoso y los pasos estrechos del desfiladero.', 'Dit is natuurlijk rivierterrein, geen aangelegde oeverwandeling. Het waterpeil wisselt en lange stukken kunnen droog zijn; kenmerkend zijn de rotsige bedding en nauwe kloofpassages.', 'Det här är naturlig flodterräng, inte en anlagd strandpromenad. Vattennivån varierar och långa delar kan vara torra; den steniga bädden och trånga passagerna präglar turen.'),
+    note: l('Choose this for the landscape, not because you expect a continuous walk through water. Turn back if the conditions are unclear.', 'Wählt die Tour wegen der Landschaft, nicht in Erwartung eines durchgehenden Wasserwegs. Kehrt um, wenn die Bedingungen unklar sind.', 'Elegidla por el paisaje, no porque esperéis caminar continuamente por el agua. Dad la vuelta si las condiciones no están claras.', 'Kies deze tocht voor het landschap, niet omdat jullie voortdurend door water verwachten te lopen. Keer om als de omstandigheden onduidelijk zijn.', 'Välj turen för landskapet, inte för att ni räknar med att gå i vatten hela tiden. Vänd om ifall förhållandena är oklara.'),
+    weather: l('Heavy rain can change a gorge quickly. Check the forecast and official local information, and choose another route when rain or runoff makes the river corridor uncertain.', 'Starker Regen kann eine Schlucht rasch verändern. Prüft Vorhersage und amtliche Hinweise und wählt eine andere Route, wenn Regen oder Abfluss den Flusskorridor unsicher machen.', 'La lluvia fuerte puede cambiar un desfiladero rápidamente. Consultad la previsión y la información oficial y elegid otra ruta si la lluvia o la escorrentía generan dudas.', 'Zware regen kan een kloof snel veranderen. Controleer de verwachting en officiële lokale informatie en kies een andere route als regen of afstroming onzekerheid geeft.', 'Kraftigt regn kan snabbt förändra en ravin. Kontrollera prognos och officiell lokal information och välj en annan led om regn eller avrinning gör flodkorridoren osäker.'),
+    officialHref: hikingExternalLinks.higueron,
+    officialLabel: l('Official Río Higuerón route', 'Offizielle Route Río Higuerón', 'Ruta oficial del Río Higuerón', 'Officiële route Río Higuerón', 'Officiell led vid Río Higuerón')
+  },
+  {
+    id: 'el-fuerte',
+    title: l('El Fuerte summit', 'El Fuerte · Gipfel', 'Cumbre de El Fuerte', 'Top van El Fuerte', 'El Fuerte · toppen'),
+    bestFor: l('A proper mountain climb and the widest views', 'Ein richtiger Berganstieg mit weitem Blick', 'Una subida de montaña y las vistas más amplias', 'Een echte bergklim met het ruimste uitzicht', 'En riktig bergsstigning med vid utsikt'),
+    commitment: l('Demanding half day', 'Anspruchsvoller halber Tag', 'Media jornada exigente', 'Zware halve dag', 'Krävande halvdag'),
+    difficulty: l('Challenging', 'Anspruchsvoll', 'Exigente', 'Zwaar', 'Krävande'),
+    condition: l('Steep, rocky and exposed', 'Steil, felsig und offen', 'Empinada, pedregosa y expuesta', 'Steil, rotsachtig en onbeschut', 'Brant, stenig och exponerad'),
+    why: l('This is the route we would choose when the aim is a serious climb rather than a gentle walk. El Fuerte rises directly behind Frigiliana and gives the strongest mountain character in this selection.', 'Diese Route würden wir wählen, wenn ihr einen ernsthaften Anstieg statt eines sanften Spaziergangs sucht. El Fuerte steigt direkt hinter Frigiliana auf und hat in dieser Auswahl den deutlichsten Bergcharakter.', 'Es la ruta que elegiríamos si buscáis una subida seria y no un paseo suave. El Fuerte se eleva justo detrás de Frigiliana y ofrece el carácter más montañero de la selección.', 'Deze route zouden we kiezen als jullie een serieuze klim zoeken in plaats van een rustige wandeling. El Fuerte rijst direct achter Frigiliana op en heeft van deze selectie het sterkste bergkarakter.', 'Det här är leden vi skulle välja när målet är en ordentlig stigning snarare än en lugn promenad. El Fuerte reser sig direkt bakom Frigiliana och har tydligast bergskaraktär i urvalet.'),
+    access: l('The formal route begins at Plaza del Ingenio. From Casa AMARA, walk through the historic village to that official start; the approach then continues towards Pozo de Lízar, where the mountain path is reached.', 'Der formale Routenstart liegt an der Plaza del Ingenio. Von Casa AMARA geht ihr durch die Altstadt dorthin; der Zustieg führt anschließend weiter zum Pozo de Lízar, wo der Bergpfad erreicht wird.', 'La ruta formal comienza en la Plaza del Ingenio. Desde Casa AMARA camináis por el casco histórico hasta ese punto; la aproximación continúa hacia el Pozo de Lízar, donde se alcanza el sendero de montaña.', 'De formele route begint op Plaza del Ingenio. Vanaf Casa AMARA lopen jullie door de historische kern naar die officiële start; de aanloop gaat vervolgens richting Pozo de Lízar, waar het bergpad begint.', 'Den formella leden börjar vid Plaza del Ingenio. Från Casa AMARA går ni genom den historiska byn dit; anslutningen fortsätter sedan mot Pozo de Lízar, där bergsstigen nås.'),
+    hike: l('The route climbs on steep, rocky natural paths to the summit of the Peñón de Frigiliana. Treat it as a mountain hike: secure footwear, water and comfort with sustained ascent matter.', 'Auf steilen, felsigen Naturpfaden geht es zum Gipfel des Peñón de Frigiliana. Behandelt die Tour als Bergwanderung: sichere Schuhe, Wasser und Erfahrung mit längerem Anstieg zählen.', 'La ruta asciende por senderos naturales, empinados y pedregosos hasta la cima del Peñón de Frigiliana. Es una caminata de montaña: importan el calzado firme, el agua y sentirse cómodo con una subida sostenida.', 'De route klimt over steile, rotsachtige natuurpaden naar de top van de Peñón de Frigiliana. Behandel dit als een bergwandeling: stevige schoenen, water en vertrouwdheid met langdurig stijgen zijn belangrijk.', 'Leden stiger på branta, steniga naturstigar till toppen av Peñón de Frigiliana. Se den som en bergsvandring: stadiga skor, vatten och vana vid lång stigning spelar roll.'),
+    note: l('Do not use the summit route as a substitute for the unverified shorter “viewpoints” walk. Choose the summit only when everyone in the group is ready for the full climb.', 'Nutzt die Gipfeltour nicht als Ersatz für die noch ungeprüfte kürzere „Aussichtspunkte“-Variante. Wählt den Gipfel nur, wenn alle in der Gruppe für den vollständigen Anstieg bereit sind.', 'No uséis la ruta de cumbre como sustituto de la variante corta de “miradores”, todavía sin verificar. Elegid la cima solo si todo el grupo está preparado para la subida completa.', 'Gebruik de toproute niet als vervanging voor de nog niet geverifieerde kortere “uitzichtpunten”-wandeling. Kies de top alleen als iedereen klaar is voor de volledige klim.', 'Använd inte toppturen som ersättning för den ännu overifierade kortare varianten till “utsiktsplatserna”. Välj toppen endast när hela gruppen är redo för hela stigningen.'),
+    weather: l('The climb is exposed and offers little protection from strong sun. In warm weather, start in the cooler hours and reconsider the summit when heat, wind or visibility are poor.', 'Der Aufstieg liegt offen und bietet wenig Schutz vor starker Sonne. Startet bei Wärme in den kühleren Stunden und überdenkt den Gipfel bei Hitze, starkem Wind oder schlechter Sicht.', 'La subida está expuesta y ofrece poca protección frente al sol fuerte. Con calor, salid en las horas más frescas y replantead la cima si hay calor intenso, viento o mala visibilidad.', 'De klim ligt onbeschut en biedt weinig bescherming tegen felle zon. Start bij warm weer in de koelere uren en heroverweeg de top bij hitte, wind of slecht zicht.', 'Stigningen är exponerad och ger lite skydd mot stark sol. Börja under svalare timmar och avstå toppen vid kraftig värme, vind eller dålig sikt.'),
+    officialHref: hikingExternalLinks.elFuerte,
+    officialLabel: l('Official El Fuerte route', 'Offizielle Route El Fuerte', 'Ruta oficial de El Fuerte', 'Officiële route El Fuerte', 'Officiell led till El Fuerte')
+  },
+  {
+    id: 'gr-249',
+    title: l('GR 249 Stage 6 · Frigiliana to Cómpeta', 'GR 249 · Etappe 6 von Frigiliana nach Cómpeta', 'GR 249 · etapa 6 de Frigiliana a Cómpeta', 'GR 249 · etappe 6 van Frigiliana naar Cómpeta', 'GR 249 · etapp 6 från Frigiliana till Cómpeta'),
+    bestFor: l('A committed full day on an official long-distance trail', 'Ein voller Tag auf einem offiziellen Fernwanderweg', 'Una jornada completa en un sendero oficial de gran recorrido', 'Een volle dag op een officiële langeafstandswandeling', 'En heldag på en officiell långfärdsled'),
+    commitment: l('Full day; arrange the return', 'Ganzer Tag; Rückfahrt organisieren', 'Día completo; organizad la vuelta', 'Volle dag; regel de terugreis', 'Heldag; ordna återresan'),
+    difficulty: l('Challenging', 'Anspruchsvoll', 'Exigente', 'Zwaar', 'Krävande'),
+    condition: l('Long and point-to-point', 'Lang und ohne Rückweg zum Start', 'Larga y lineal', 'Lang en van punt naar punt', 'Lång och enkelriktad'),
+    why: l('Choose Stage 6 when the walk is the whole day. It is the clearest official long-distance option from Frigiliana and continues across mountain country to Cómpeta.', 'Wählt Etappe 6, wenn die Wanderung den ganzen Tag bestimmen soll. Sie ist Frigilianas klarste offizielle Fernwanderoption und führt durch Bergland nach Cómpeta.', 'Elegid la etapa 6 cuando la caminata sea el plan de todo el día. Es la opción oficial de gran recorrido más clara desde Frigiliana y atraviesa la montaña hasta Cómpeta.', 'Kies etappe 6 als de wandeling de hele dag mag bepalen. Het is de duidelijkste officiële langeafstandsoptie vanuit Frigiliana en loopt door bergland naar Cómpeta.', 'Välj etapp 6 när vandringen får ta hela dagen. Det är det tydligaste officiella långfärdsalternativet från Frigiliana och fortsätter genom bergsterräng till Cómpeta.'),
+    access: l('The official stage starts at Plaza del Ingenio. Walk there from Casa AMARA through the historic village, then follow the GR 249 rather than treating the access from Calle Chorruelo as part of the official stage.', 'Die offizielle Etappe beginnt an der Plaza del Ingenio. Geht von Casa AMARA durch die Altstadt dorthin und folgt dann dem GR 249; der Zugang ab Calle Chorruelo gehört nicht zur offiziellen Etappe.', 'La etapa oficial comienza en la Plaza del Ingenio. Llegad a pie desde Casa AMARA por el casco histórico y seguid desde allí el GR 249; el acceso desde Calle Chorruelo no forma parte de la etapa oficial.', 'De officiële etappe start op Plaza del Ingenio. Loop er vanaf Casa AMARA door de historische kern naartoe en volg daar de GR 249; de toegang vanaf Calle Chorruelo hoort niet bij de officiële etappe.', 'Den officiella etappen börjar vid Plaza del Ingenio. Gå dit från Casa AMARA genom den historiska byn och följ sedan GR 249; anslutningen från Calle Chorruelo ingår inte i den officiella etappen.'),
+    hike: l('This is a long, linear mountain stage, not a loop back to Frigiliana. Use the official stage information and track, carry what the full day requires and decide how you will return from Cómpeta before setting out.', 'Das ist eine lange lineare Bergetappe und keine Runde zurück nach Frigiliana. Nutzt Etappenbeschreibung und Track, nehmt alles für den ganzen Tag mit und klärt vor dem Start die Rückfahrt ab Cómpeta.', 'Es una etapa de montaña larga y lineal, no una ruta circular de regreso a Frigiliana. Usad la ficha y el track oficiales, llevad lo necesario para el día entero y decidid antes cómo volver desde Cómpeta.', 'Dit is een lange, lineaire bergetappe en geen rondwandeling terug naar Frigiliana. Gebruik de officiële etappe-informatie en track, neem mee wat een volle dag vraagt en bepaal vooraf hoe jullie uit Cómpeta terugkomen.', 'Det här är en lång, linjär bergsetapp och ingen rundtur tillbaka till Frigiliana. Använd den officiella etappinformationen och spåret, ta med det en heldag kräver och ordna återresan från Cómpeta före start.'),
+    note: l('The route is worthwhile precisely because it goes somewhere. The return plan is part of choosing it, not an afterthought at the end of the day.', 'Die Stärke der Route ist gerade, dass sie ein Ziel hat. Die Rückfahrt gehört deshalb zur Routenwahl und darf nicht erst am Tagesende geklärt werden.', 'La ruta merece la pena precisamente porque lleva a otro pueblo. La vuelta forma parte de la elección, no es algo que se resuelva al final del día.', 'De route is juist de moeite waard omdat hij ergens naartoe gaat. De terugreis hoort bij de keuze en is geen bijzaak voor het einde van de dag.', 'Leden är värd att välja just för att den leder någonstans. Återresan är en del av valet, inte något att lösa vid dagens slut.'),
+    weather: l('Check temperature, daylight and warnings for the entire day, not only the conditions at breakfast in Frigiliana.', 'Prüft Temperatur, Tageslicht und Warnungen für den gesamten Tag, nicht nur das Wetter beim Frühstück in Frigiliana.', 'Comprobad temperatura, horas de luz y avisos para toda la jornada, no solo el tiempo al desayunar en Frigiliana.', 'Controleer temperatuur, daglicht en waarschuwingen voor de hele dag, niet alleen het weer bij het ontbijt in Frigiliana.', 'Kontrollera temperatur, dagsljus och varningar för hela dagen, inte bara vädret vid frukosten i Frigiliana.'),
+    officialHref: hikingExternalLinks.granSenda,
+    officialLabel: l('Official GR 249 Stage 6', 'Offizielle GR-249-Etappe 6', 'Etapa 6 oficial del GR 249', 'Officiële GR 249-etappe 6', 'Officiell GR 249 etapp 6'),
+    secondaryHref: hikingExternalLinks.granSendaLibrary,
+    secondaryLabel: l('Official documents and GPX library', 'Offizielle Dokumente und GPX-Bibliothek', 'Documentos y biblioteca GPX oficiales', 'Officiële documenten en GPX-bibliotheek', 'Officiella dokument och GPX-bibliotek')
+  }
+];
 
-export interface FrigilianaHikingPageCopy {
-  routeCardLabels: {
-    statsAriaLabel: string;
-    duration: string;
-    elevationGain: string;
-    distance: string;
-    difficulty: string;
-    experience: string;
-  };
-  footerHighlights: {
-    hiking: string;
-    guide: string;
-    stays: string;
-  };
+const ui = {
   hero: {
-    kicker: string;
-    title: string;
-    paragraphs: string[];
-    imageAlt: string;
-  };
-  sectionNav: {
-    panorama: string;
-    gentle: string;
-    rivers: string;
-    summits: string;
-    practical: string;
-  };
-  routeSections: FrigilianaHikingRouteSection[];
-  practical: {
-    title: string;
-    items: {
-      title: string;
-      text: string;
-    }[];
-  };
-  combine: {
-    title: string;
-    intro: string;
-    items: {
-      title: string;
-      text: string;
-    }[];
-  };
+    kicker: l('Hiking from Frigiliana', 'Wandern ab Frigiliana', 'Senderismo desde Frigiliana', 'Wandelen vanuit Frigiliana', 'Vandring från Frigiliana'),
+    title: l('Hiking in Frigiliana — routes to reach from your stay in the village', 'Wandern in Frigiliana – Routen, die ihr vom Dorf aus erreicht', 'Senderismo en Frigiliana — rutas accesibles desde vuestra estancia en el pueblo', 'Wandelen in Frigiliana — routes bereikbaar vanuit jullie verblijf in het dorp', 'Vandring i Frigiliana – leder ni når från ert boende i byn'),
+    paragraphs: l('Frigiliana is a strong base for walking into the Sierra, but a useful guide does not need to list every track. We recommend four clearly different hikes: a panoramic half day, a river gorge, a serious summit and a full-day GR stage. Several can be approached on foot from Casa AMARA through the historic village. We explain that local connection and the choice each route represents; the official sources and GPX tools remain the right place for the live track and navigation.', 'Frigiliana ist ein starker Ausgangspunkt für Touren in die Sierra – ein guter Guide muss dafür aber nicht jeden Track aufzählen. Wir empfehlen vier klar unterschiedliche Wanderungen: eine Panorama-Halbtagestour, eine Flussschlucht, einen anspruchsvollen Gipfel und eine ganztägige GR-Etappe. Mehrere erreicht ihr von Casa AMARA zu Fuß durch die Altstadt. Wir erklären diese örtliche Verbindung und die jeweilige Wahl; für Track und Navigation bleiben die offiziellen Quellen und GPX-Werkzeuge zuständig.', 'Frigiliana es una base excelente para adentrarse a pie en la sierra, pero una guía útil no necesita enumerar todos los tracks. Recomendamos cuatro rutas realmente distintas: una panorámica de media jornada, un desfiladero fluvial, una cumbre exigente y una etapa GR de día completo. A varias se llega caminando desde Casa AMARA por el casco histórico. Nosotros explicamos esa conexión local y qué aporta cada elección; las fuentes oficiales y las herramientas GPX siguen siendo el lugar adecuado para el trazado y la navegación.', 'Frigiliana is een sterke uitvalsbasis om de Sierra in te wandelen, maar een nuttige gids hoeft niet elk spoor op te sommen. Wij bevelen vier duidelijk verschillende tochten aan: een panoramische halve dag, een rivierkloof, een serieuze top en een volledige GR-dagetappe. Verschillende routes zijn te voet bereikbaar vanaf Casa AMARA door de historische kern. Wij leggen die lokale verbinding en de keuze uit; officiële bronnen en GPX-tools blijven de juiste plek voor de track en navigatie.', 'Frigiliana är en stark bas för vandringar in i Sierran, men en användbar guide behöver inte lista varje spår. Vi rekommenderar fyra tydligt olika turer: en panoramisk halvdag, en flodravin, en krävande topp och en GR-etapp för en hel dag. Flera kan nås till fots från Casa AMARA genom den historiska byn. Vi förklarar den lokala anslutningen och vad varje val innebär; officiella källor och GPX-verktyg är fortfarande rätt plats för spår och navigering.'),
+    imageAlt: l('Frigiliana and the foothills of the Sierra Almijara', 'Frigiliana und die Ausläufer der Sierra Almijara', 'Frigiliana y las estribaciones de la Sierra Almijara', 'Frigiliana en de uitlopers van de Sierra Almijara', 'Frigiliana och Sierra Almijaras förberg')
+  },
+  overview: {
+    kicker: l('Four deliberate choices', 'Vier bewusste Empfehlungen', 'Cuatro elecciones deliberadas', 'Vier bewuste keuzes', 'Fyra medvetna val'),
+    title: l('Which hike suits your day?', 'Welche Wanderung passt zu eurem Tag?', '¿Qué ruta encaja con vuestro día?', 'Welke wandeling past bij jullie dag?', 'Vilken vandring passar er dag?'),
+    intro: l('Start with the kind of day you want, then check the official route and current conditions before leaving.', 'Beginnt mit der Art von Tag, die ihr möchtet, und prüft dann vor dem Aufbruch die offizielle Route und die aktuellen Bedingungen.', 'Empezad por el tipo de día que queréis y, antes de salir, comprobad la ruta oficial y las condiciones actuales.', 'Begin met het soort dag dat jullie willen en controleer voor vertrek de officiële route en actuele omstandigheden.', 'Börja med vilken sorts dag ni vill ha och kontrollera sedan den officiella leden och aktuella förhållanden före avfärd.'),
+    labels: {
+      bestFor: l('Best for', 'Am besten für', 'Ideal para', 'Beste voor', 'Bäst för'),
+      commitment: l('Commitment', 'Zeitbedarf', 'Dedicación', 'Tijd', 'Tidsåtgång'),
+      difficulty: l('Difficulty', 'Schwierigkeit', 'Dificultad', 'Moeilijkheid', 'Svårighet'),
+      condition: l('Know before choosing', 'Vor der Wahl beachten', 'Antes de elegir', 'Voor het kiezen', 'Före valet')
+    }
+  },
+  fromAmara: {
+    kicker: l('The AMARA difference', 'Der AMARA-Unterschied', 'La diferencia AMARA', 'Het verschil van AMARA', 'Skillnaden med AMARA'),
+    title: l('Hiking from Casa AMARA', 'Wandern von Casa AMARA', 'Salir a caminar desde Casa AMARA', 'Wandelen vanaf Casa AMARA', 'Vandra från Casa AMARA'),
+    intro: l('Casa AMARA sits in Frigiliana’s historic village. For these routes, leaving the house on foot means walking to the documented start or join point — it does not change where the official hike begins.', 'Casa AMARA liegt in Frigilianas Altstadt. Wenn ihr zu Fuß aufbrecht, geht ihr zunächst zum dokumentierten Start oder Einstieg – der offizielle Beginn der Wanderung ändert sich dadurch nicht.', 'Casa AMARA está en el casco histórico de Frigiliana. Salir andando significa llegar primero al inicio o punto de enlace documentado; no cambia dónde comienza oficialmente la ruta.', 'Casa AMARA ligt in de historische kern van Frigiliana. Te voet vertrekken betekent eerst naar de gedocumenteerde start of aansluiting lopen; het verandert niet waar de officiële wandeling begint.', 'Casa AMARA ligger i Frigilianas historiska by. Att gå hemifrån betyder att ni först går till den dokumenterade starten eller anslutningen – det ändrar inte var den officiella vandringen börjar.'),
+    steps: [l('Casa AMARA · Calle Chorruelo 5', 'Casa AMARA · Calle Chorruelo 5', 'Casa AMARA · Calle Chorruelo 5', 'Casa AMARA · Calle Chorruelo 5', 'Casa AMARA · Calle Chorruelo 5'), l('Access walk through the historic village', 'Zugang zu Fuß durch die Altstadt', 'Acceso a pie por el casco histórico', 'Toegangswandeling door de historische kern', 'Anslutning till fots genom den historiska byn'), l('Official start or route join point', 'Offizieller Start oder Routeneinstieg', 'Inicio oficial o punto de enlace', 'Officiële start of aansluiting', 'Officiell start eller anslutning'), l('The documented hiking route', 'Die dokumentierte Wanderroute', 'La ruta de senderismo documentada', 'De gedocumenteerde wandelroute', 'Den dokumenterade vandringsleden')],
+    locationLabel: l('Understand Frigiliana and its setting', 'Frigilianas Lage verstehen', 'Entender Frigiliana y su entorno', 'Begrijp Frigiliana en de ligging', 'Förstå Frigiliana och dess läge')
+  },
+  routeLabels: {
+    why: l('Why we recommend it', 'Warum wir die Route empfehlen', 'Por qué la recomendamos', 'Waarom we deze aanraden', 'Varför vi rekommenderar den'),
+    from: l('From AMARA', 'Von AMARA', 'Desde AMARA', 'Vanaf AMARA', 'Från AMARA'),
+    hike: l('The hike', 'Die Wanderung', 'La ruta', 'De wandeling', 'Vandringen'),
+    note: l('AMARA note', 'AMARA-Hinweis', 'Nota AMARA', 'AMARA-notitie', 'AMARA-råd'),
+    weather: l('Weather & timing', 'Wetter & Timing', 'Tiempo y horario', 'Weer & timing', 'Väder & tidpunkt'),
+    navigate: l('Navigate', 'Navigation', 'Navegar', 'Navigeren', 'Navigera')
+  },
+  chillar: {
+    kicker: l("A route we don't recommend right now", 'Eine Route, die wir derzeit nicht empfehlen', 'Una ruta que ahora no recomendamos', 'Een route die we nu niet aanraden', 'En led vi inte rekommenderar just nu'),
+    title: l('Río Chíllar — currently closed', 'Río Chíllar – derzeit gesperrt', 'Río Chíllar — actualmente cerrado', 'Río Chíllar — momenteel gesloten', 'Río Chíllar – för närvarande stängd'),
+    text: l('The classic Río Chíllar access remains officially closed as checked on 27 August 2026. Nerja cites fire-prevention and safety reasons, so we would not plan a hiking day around it or provide trailhead and navigation directions while the closure remains in place.', 'Der klassische Zugang zum Río Chíllar ist nach Prüfung am 27. August 2026 weiterhin amtlich gesperrt. Nerja nennt Brandvorsorge und Sicherheit; solange die Sperrung gilt, würden wir keinen Wandertag darum planen und keine Start- oder Navigationshinweise geben.', 'El acceso clásico al Río Chíllar sigue cerrado oficialmente, según la comprobación del 27 de agosto de 2026. Nerja cita prevención de incendios y seguridad; mientras siga cerrado, no organizaríamos un día de senderismo en torno a él ni daríamos indicaciones de acceso o navegación.', 'De klassieke toegang tot de Río Chíllar is volgens de controle van 27 augustus 2026 nog officieel gesloten. Nerja noemt brandpreventie en veiligheid; zolang de sluiting geldt, plannen wij er geen wandeldag omheen en geven we geen route- of navigatieaanwijzingen.', 'Den klassiska tillfarten till Río Chíllar är fortfarande officiellt stängd enligt kontrollen den 27 augusti 2026. Nerja anger brandförebyggande arbete och säkerhet; så länge stängningen gäller rekommenderar vi inte att planera en vandringsdag kring leden och ger inga start- eller navigeringsanvisningar.'),
+    label: l('Check the official Río Chíllar status', 'Amtlichen Status des Río Chíllar prüfen', 'Consultar el estado oficial del Río Chíllar', 'Controleer de officiële status van Río Chíllar', 'Kontrollera officiell status för Río Chíllar')
+  },
+  weather: {
+    kicker: l('Conditions decide the day', 'Die Bedingungen entscheiden', 'Las condiciones deciden el día', 'De omstandigheden bepalen de dag', 'Förhållandena avgör dagen'),
+    title: l('Is today a good day for hiking?', 'Ist heute ein guter Wandertag?', '¿Es hoy un buen día para caminar?', 'Is vandaag een goede wandeldag?', 'Är det en bra dag för vandring?'),
+    text: l('Exposed mountain routes can become very hot, so the cooler hours matter in warm weather. Rain changes the decision differently: a riverbed or narrow gorge can become the wrong choice even when an open route remains possible. Check the forecast, warnings and daylight before choosing the route, not after packing.', 'Offene Bergrouten können sehr heiß werden; bei Wärme zählen deshalb die kühleren Stunden. Regen verändert die Wahl anders: Ein Flussbett oder eine enge Schlucht kann ungeeignet sein, obwohl eine offene Route noch möglich ist. Prüft Vorhersage, Warnungen und Tageslicht vor der Routenwahl, nicht erst nach dem Packen.', 'Las rutas de montaña expuestas pueden calentarse mucho; con calor importan las horas más frescas. La lluvia cambia la decisión de otro modo: un cauce o un desfiladero estrecho puede dejar de ser buena opción aunque un recorrido abierto siga siendo posible. Consultad previsión, avisos y horas de luz antes de elegir.', 'Onbeschutte bergroutes kunnen zeer heet worden, dus bij warm weer zijn de koelere uren belangrijk. Regen verandert de keuze anders: een rivierbedding of nauwe kloof kan ongeschikt worden terwijl een open route nog mogelijk is. Controleer verwachting, waarschuwingen en daglicht voordat jullie kiezen.', 'Exponerade bergsleder kan bli mycket heta, så svalare timmar spelar roll i varmt väder. Regn ändrar valet på ett annat sätt: en flodbädd eller trång ravin kan bli fel val även om en öppen led fortfarande är möjlig. Kontrollera prognos, varningar och dagsljus innan ni väljer.'),
+    label: l('Check Frigiliana weather and seasons', 'Wetter und Jahreszeiten in Frigiliana prüfen', 'Consultar el tiempo y las estaciones en Frigiliana', 'Bekijk weer en seizoenen in Frigiliana', 'Se väder och årstider i Frigiliana')
+  },
+  more: {
+    title: l('Looking for more routes?', 'Sucht ihr weitere Routen?', '¿Buscáis más rutas?', 'Zoeken jullie meer routes?', 'Letar ni efter fler leder?'),
+    text: l('We deliberately keep our list short. For a wider route catalogue and navigation, Komoot is the better tool; for route identity and official notices, use Turismo de Frigiliana and Gran Senda de Málaga.', 'Wir halten unsere Auswahl bewusst kurz. Für einen breiteren Routenkatalog und Navigation ist Komoot das bessere Werkzeug; für Routenidentität und amtliche Hinweise nutzt ihr Turismo de Frigiliana und die Gran Senda de Málaga.', 'Mantenemos nuestra selección corta a propósito. Para un catálogo más amplio y navegación, Komoot es mejor herramienta; para la identidad de las rutas y los avisos oficiales, acudid a Turismo de Frigiliana y la Gran Senda de Málaga.', 'We houden onze selectie bewust kort. Voor een ruimer routeaanbod en navigatie is Komoot de betere tool; voor route-identiteit en officiële berichten gebruiken jullie Turismo de Frigiliana en Gran Senda de Málaga.', 'Vi håller medvetet vårt urval kort. För en bredare ledkatalog och navigering är Komoot ett bättre verktyg; för ledidentitet och officiella besked använder ni Turismo de Frigiliana och Gran Senda de Málaga.'),
+    komoot: l('Explore Frigiliana routes on Komoot', 'Frigiliana-Routen auf Komoot entdecken', 'Explorar rutas de Frigiliana en Komoot', 'Ontdek Frigiliana-routes op Komoot', 'Utforska Frigiliana-leder på Komoot'),
+    official: l('Official Frigiliana hiking routes', 'Offizielle Frigiliana-Wanderrouten', 'Rutas oficiales de senderismo de Frigiliana', 'Officiële wandelroutes van Frigiliana', 'Officiella vandringsleder i Frigiliana'),
+    granSenda: l('Gran Senda official stages and GPX', 'Offizielle Gran-Senda-Etappen und GPX', 'Etapas y GPX oficiales de la Gran Senda', 'Officiële Gran Senda-etappes en GPX', 'Officiella Gran Senda-etapper och GPX')
+  },
+  after: {
+    title: l('After the hike', 'Nach der Wanderung', 'Después de la ruta', 'Na de wandeling', 'Efter vandringen'),
+    items: [
+      { title: l('Hungry?', 'Hungrig?', '¿Tenéis hambre?', 'Honger?', 'Hungriga?'), text: l('Choose a table in the village rather than searching when everyone is tired.', 'Wählt schon im Ort einen passenden Tisch, statt müde weiterzusuchen.', 'Elegid una mesa en el pueblo en lugar de buscar cuando ya estéis cansados.', 'Kies een tafel in het dorp in plaats van moe verder te zoeken.', 'Välj ett bord i byn i stället för att leta när alla redan är trötta.'), label: l('See our Frigiliana restaurants', 'Unsere Restaurants in Frigiliana', 'Ver nuestros restaurantes de Frigiliana', 'Bekijk onze restaurants in Frigiliana', 'Se våra restauranger i Frigiliana'), token: 'frigiliana_food_authority' as const },
+      { title: l("Checking tomorrow's conditions?", 'Bedingungen für morgen prüfen?', '¿Queréis comprobar las condiciones de mañana?', 'Morgens omstandigheden bekijken?', 'Kontrollera morgondagens förhållanden?'), text: l('Use the climate guide for the seasonal pattern and the official forecast for the actual day.', 'Nutzt den Klima-Guide für das Saisonmuster und die amtliche Vorhersage für den konkreten Tag.', 'Usad la guía climática para el patrón estacional y la previsión oficial para el día concreto.', 'Gebruik de klimaatgids voor het seizoenspatroon en de officiële verwachting voor de dag zelf.', 'Använd klimatguiden för säsongsmönstret och den officiella prognosen för den aktuella dagen.'), label: l('Open Frigiliana weather', 'Wetter in Frigiliana öffnen', 'Ver el tiempo en Frigiliana', 'Open het weer voor Frigiliana', 'Öppna vädret för Frigiliana'), token: 'weather_frigiliana' as const },
+      { title: l('Back to AMARA?', 'Zurück zu AMARA?', '¿De vuelta a AMARA?', 'Terug naar AMARA?', 'Tillbaka till AMARA?'), text: l('Finish in the village, come back to the house and let the rest of the day slow down.', 'Beendet die Tour im Dorf, kommt zurück ins Haus und lasst den restlichen Tag ruhiger werden.', 'Terminada la ruta en el pueblo, volved a la casa y dejad que el resto del día baje el ritmo.', 'Eindig in het dorp, kom terug naar het huis en laat de rest van de dag vertragen.', 'Avsluta i byn, kom tillbaka till huset och låt resten av dagen sakta ner.'), label: l('See our stays in Frigiliana', 'Unsere Unterkünfte in Frigiliana', 'Ver nuestros alojamientos en Frigiliana', 'Bekijk onze verblijven in Frigiliana', 'Se våra boenden i Frigiliana'), token: 'romantic_hideaways' as const }
+    ]
+  },
   closing: {
-    title: string;
-    lead: string;
-    availabilityCta: string;
-    apartmentsCta: string;
-  };
-}
+    title: l('Make Frigiliana your walking base', 'Frigiliana als Wanderbasis', 'Convertid Frigiliana en vuestra base para caminar', 'Maak Frigiliana jullie wandelbasis', 'Gör Frigiliana till er vandringsbas'),
+    lead: l('Stay in the historic village, choose the route that fits the day and return to a place where the evening is already within walking reach.', 'Übernachtet in der Altstadt, wählt die Route passend zum Tag und kehrt an einen Ort zurück, an dem der Abend bereits zu Fuß erreichbar ist.', 'Alojaos en el casco histórico, elegid la ruta que encaje con el día y volved a un lugar desde el que la tarde y la cena quedan a pie.', 'Verblijf in de historische kern, kies de route die bij de dag past en keer terug naar een plek waar de avond al te voet bereikbaar is.', 'Bo i den historiska byn, välj leden som passar dagen och återvänd till en plats där kvällen redan finns inom gångavstånd.'),
+    stays: l('See our stays in Frigiliana', 'Unsere Unterkünfte in Frigiliana', 'Ver nuestros alojamientos en Frigiliana', 'Bekijk onze verblijven in Frigiliana', 'Se våra boenden i Frigiliana'),
+    book: l('Check availability', 'Verfügbarkeit prüfen', 'Consultar disponibilidad', 'Beschikbaarheid bekijken', 'Kontrollera tillgänglighet')
+  }
+};
 
 export const frigilianaHikingSeo: AmaraAuthoringSeo = {
-  version: '2026-07-29-frigiliana-hiking-v1.1-B',
-  pageType: 'B',
-  entityKey: 'amara-brand',
-  ogImage: '/images/hero-frigiliana.jpg',
+  version: '2026-08-27-frigiliana-hiking-v2.0-B', pageType: 'B', entityKey: 'amara-brand', ogImage: '/images/hero-frigiliana.jpg',
   languages: {
-    en: {
-      title: 'Hiking in Frigiliana: Trails & Nature Guide',
-      description:
-        'Hike around Frigiliana on panoramic trails, gentle walks, river routes and Sierra Almijara summits, with timings and practical advice.',
-      robots: 'index, follow',
-      canonical: 'auto'
-    },
-    de: {
-      title: 'Wandern in Frigiliana: Routen & Natur-Guide',
-      description:
-        'Wandern rund um Frigiliana: Panorama-Touren, sanfte Wege, Flusswanderungen und Gipfel in der Sierra Almijara – mit Zeiten und praktischen Tipps.',
-      robots: 'index, follow',
-      canonical: 'auto'
-    },
-    es: {
-      title: 'Senderismo en Frigiliana: rutas y naturaleza',
-      description:
-        'Rutas de senderismo alrededor de Frigiliana: panorámicas, paseos suaves, recorridos fluviales y cumbres de la Sierra Almijara, con tiempos y consejos prácticos.',
-      robots: 'index, follow',
-      canonical: 'auto'
-    },
-    nl: {
-      title: 'Wandelen in Frigiliana: routes & natuurgids',
-      description:
-        'Wandelen rond Frigiliana: panoramaroutes, rustige paden, rivierwandelingen en toppen in de Sierra Almijara, met tijden en praktische tips.',
-      robots: 'index, follow',
-      canonical: 'auto'
-    },
-    sv: {
-      title: 'Vandring i Frigiliana: leder & naturguide',
-      description:
-        'Vandra runt Frigiliana på panoramaleder, lugna stigar, flodvandringar och toppar i Sierra Almijara, med tider och praktiska råd.',
-      robots: 'index, follow',
-      canonical: 'auto'
-    }
+    en: { title: 'Hiking in Frigiliana: 4 Routes from the Historic Village', description: 'Choose four worthwhile Frigiliana hikes with official route sources, local access context from Casa AMARA and practical weather guidance.', robots: 'index, follow', canonical: 'auto' },
+    de: { title: 'Wandern in Frigiliana: 4 Routen ab der Altstadt', description: 'Vier lohnende Wanderungen in Frigiliana mit offiziellen Quellen, Zugang von Casa AMARA und praktischen Wetterhinweisen.', robots: 'index, follow', canonical: 'auto' },
+    es: { title: 'Senderismo en Frigiliana: 4 rutas desde el casco histórico', description: 'Cuatro rutas recomendadas en Frigiliana con fuentes oficiales, acceso desde Casa AMARA y consejos prácticos sobre el tiempo.', robots: 'index, follow', canonical: 'auto' },
+    nl: { title: 'Wandelen in Frigiliana: 4 routes vanuit de historische kern', description: 'Kies vier waardevolle wandelingen in Frigiliana met officiële bronnen, toegang vanaf Casa AMARA en praktisch weeradvies.', robots: 'index, follow', canonical: 'auto' },
+    sv: { title: 'Vandring i Frigiliana: 4 leder från historiska byn', description: 'Välj fyra givande vandringar i Frigiliana med officiella källor, anslutning från Casa AMARA och praktiska väderråd.', robots: 'index, follow', canonical: 'auto' }
   }
 };
 
-/**
- * English is the semantic source of truth for this page.
- * Each localized copy preserves the same facts and information depth while
- * using native hospitality and hiking language for its market.
- */
-export const frigilianaHikingContent: Record<
-  AmaraLanguage,
-  FrigilianaHikingPageCopy | null
-> = {
-  en: {
-    routeCardLabels: {
-      statsAriaLabel: 'Route essentials',
-      duration: 'Duration',
-      elevationGain: 'Elevation gain',
-      distance: 'Distance',
-      difficulty: 'Difficulty',
-      experience: 'The experience'
-    },
-    footerHighlights: {
-      hiking: 'Hiking & nature',
-      guide: 'Frigiliana guide',
-      stays: stayCollectionLabels.structuralName.en
-    },
-    hero: {
-      kicker: 'Nature guide',
-      title:
-        'Hiking & nature around Frigiliana — into the Sierra Almijara',
-      paragraphs: [
-        'Above Frigiliana the slopes rise quickly into the Sierra Almijara. Parts of the municipality lie within the Sierras de Tejeda, Almijara y Alhama Natural Park, and the higher routes lead into rocky peaks, pine forest and open slopes above the Mediterranean.',
-        'The selection below is arranged by effort, from a short circuit above the village to the summit of El Fuerte.',
-        'Suitable GPX tracks for these routes are available on Komoot and Wikiloc.'
-      ],
-      imageAlt:
-        'View through Frigiliana’s whitewashed houses towards the foothills of the Sierra Almijara'
-    },
-    sectionNav: {
-      panorama: 'Panoramas',
-      gentle: 'Gentle walks',
-      rivers: 'River walks',
-      summits: 'Summits',
-      practical: 'Good to know'
-    },
-    routeSections: [
-      {
-        id: 'panorama',
-        title: 'Panoramic hikes (3–4 hours, moderate)',
-        intro:
-          'After rain, the higher trails above the valleys dry more quickly and are usually more comfortable than the riverbeds. These are our reliable choices for a moderate half-day hike.',
-        routes: [
-          {
-            title: 'Frigiliana → Cruz de Pinto (circular route)',
-            duration: '3–3.5 hrs',
-            elevationGain: '+480 m',
-            distance: '7–8 km',
-            difficulty: 'moderate',
-            experience:
-              'Open hillsides and wide coastal views just above the village.',
-            text:
-              'A panoramic circuit above Frigiliana, crossing open slopes with far-reaching views towards the coast. It is one of the more dependable options after rain because the ground dries quickly. Tip: start from the upper edge of the village to enjoy the best views right at the beginning.'
-          },
-          {
-            title: 'El Fuerte (as far as the viewpoints)',
-            duration: '2–3 hrs',
-            difficulty: 'moderate',
-            experience:
-              'Wide views well before the summit on a moderate half-day hike.',
-            text:
-              'This is the classic walk behind Frigiliana, without the need to go all the way to the top. The path to the viewpoints already delivers a dramatic outlook. After rain, take care on the rocky sections; shoes with reliable grip make a real difference.'
-          }
-        ]
-      },
-      {
-        id: 'gentle',
-        title: 'Gentle walks & viewpoints',
-        intro:
-          'For a shorter walk or a late-afternoon outing, with no specialist equipment required.',
-        routes: [
-          {
-            title: 'The Lízar & acequia trail',
-            duration: 'approx. 1 hr',
-            elevationGain: 'low',
-            distance: '2–3 km',
-            difficulty: 'flat',
-            experience:
-              'Old irrigation channels, the avocado valley and the sea in the evening light.',
-            text:
-              'Follow the old irrigation channels, or acequias, above the village. This mostly level, levada-style path keeps the avocado valley and the sea in view throughout. Start near the Lízar reservoir or the sparse remains of the Castillo de Lízar, the medieval fortification on the ridge above the old town. It is particularly lovely at sunset.'
-          }
-        ]
-      },
-      {
-        id: 'rivers',
-        title: 'River walks (a summer speciality)',
-        intro:
-          'Andalusia’s famous “wet hikes”, where the riverbed itself becomes the trail.',
-        routes: [
-          {
-            title: 'Río Higuerón (Frigiliana)',
-            duration: '2–3 hrs',
-            elevationGain: 'low',
-            distance: '4–5 km',
-            difficulty: 'moderate',
-            experience:
-              'A quiet riverbed walk through narrow cahorros, starting in Frigiliana.',
-            text:
-              'This is the quieter local option. From the village centre, descend into the riverbed and walk through the cahorros — narrow rock gorges. A candid note: for much of the route, the Higuerón is a dry riverbed. Whether water is flowing, and how much, depends on rainfall and the season; when there is water, it is usually no more than ankle-deep. That is precisely what makes the route pleasant in high summer and noticeably calmer than the Chíllar. Water shoes or sports sandals with good grip are recommended.'
-          },
-          {
-            title: 'Río Chíllar (Nerja)',
-            experience:
-              'Ankle-deep water and narrow marble gorges — once access reopens.',
-            text:
-              'The celebrated classic: walking through ankle-deep water into narrow marble gorges. It is beautiful, but currently closed. Access has been suspended since August 2023 for fire-prevention and safety reasons. A controlled reopening is being prepared, but there is no confirmed date.',
-            statusLink: {
-              before: 'Before visiting, ',
-              label: 'check the official status',
-              after:
-                ' on Nerja Town Council’s website. Once it reopens, choose a weekday in June or September, or set off at 8:00 am — July and August are very busy.',
-              href: 'https://www.nerja.es/el-acceso-al-rio-chillar-permanece-cerrado/'
-            }
-          }
-        ]
-      },
-      {
-        id: 'summits',
-        title: 'Summits & destinations',
-        routes: [
-          {
-            title: 'El Fuerte (summit)',
-            duration: 'approx. 4 hrs',
-            elevationGain: '+700 m',
-            distance: '8–9 km',
-            difficulty: 'challenging',
-            experience:
-              'Frigiliana’s grand panorama — on clear days, as far as the Sierra Nevada and the African coast.',
-            text:
-              'Frigiliana’s signature hike climbs directly behind the village. El Fuerte is a natural rock stronghold rather than a built castle — this is where Morisco families took refuge in 1569 — and the summit opens a wide panorama, reaching the Sierra Nevada and across to the African coast on clear days. Start early for the cool morning air. The path is steep and rocky.'
-          },
-          {
-            title: 'El Acebuchal circuit',
-            duration: 'approx. 4.5 hrs',
-            distance: 'approx. 13 km',
-            difficulty: 'moderate',
-            experience:
-              'Pine forest, a lost village and a rustic lunch stop in one walk.',
-            text:
-              'Walk through pine forest to the “lost village” of El Acebuchal, which belongs to the neighbouring municipality of Cómpeta. It was abandoned after the Civil War and has been lovingly restored. It is an ideal combination of nature and a rustic lunch stop. Reserve a table at the village restaurant in advance and carry some cash.'
-          },
-          {
-            title: 'GR 249 · stage 6 (Frigiliana → Cómpeta)',
-            duration: 'full day',
-            distance: 'approx. 23.8 km',
-            difficulty: 'challenging',
-            experience:
-              'The one long-distance stage that starts in the village itself.',
-            text:
-              'Stage 6 of the Gran Senda de Málaga is the only officially waymarked long-distance route in the municipality. It is a full day of walking to Cómpeta, so plan the return journey before you set off. Start early, carry plenty of water and treat it as a day hike rather than an afternoon walk.'
-          }
-        ]
-      }
-    ],
-    practical: {
-      title: 'Practical notes',
-      items: [
-        {
-          title: 'After rain',
-          text:
-            'Avoid narrow gorges and choose higher trails. Wear shoes with good tread.'
-        },
-        {
-          title: 'Best season',
-          text: 'October to May is best. In summer, walk only early in the day.'
-        },
-        {
-          title: 'Navigation',
-          text:
-            'The trails are natural and not manicured. We recommend a GPX app such as Komoot or Wikiloc.'
-        },
-        {
-          title: 'Waymarking',
-          text:
-            'Apart from stage 6 of the GR 249, the local routes are marked by the town hall rather than homologated as official GR, PR-A or SL-A trails. Signage can be sparse, so do not rely on it alone.'
-        },
-        {
-          title: 'Water',
-          text:
-            'There are no drinking fountains on the trails. Carry at least 1.5 litres per person.'
-        }
-      ]
-    },
-    combine: {
-      title: 'After the walk',
-      intro:
-        'Stay in Frigiliana for dinner, or drive down to the coast for a swim and an early lunch. If you use a nature trail, plan to be back before dark.',
-      items: [
-        {
-          title: 'Beaches & coast',
-          text:
-            'Put your feet up. Head down to the coast for a swim in the Mediterranean.'
-        },
-        {
-          title: 'Food & restaurants',
-          text:
-            'Choose one of the village restaurants or terraces after your walk.'
-        }
-      ]
-    },
-    closing: {
-      title: 'Stay in Frigiliana, walk from the village',
-      lead:
-        'From Frigiliana’s old town you can begin several routes on foot. For a beach day, Nerja sits below the village on the coast.',
-      availabilityCta: 'Check availability',
-      apartmentsCta: 'View apartments'
-    }
-  },
-  de: {
-    routeCardLabels: {
-      statsAriaLabel: 'Eckdaten der Tour',
-      duration: 'Dauer',
-      elevationGain: 'Höhenmeter',
-      distance: 'Distanz',
-      difficulty: 'Schwierigkeit',
-      experience: 'Das Erlebnis'
-    },
-    footerHighlights: {
-      hiking: 'Wandern & Natur',
-      guide: 'Frigiliana-Guide',
-      stays: stayCollectionLabels.structuralName.de
-    },
-    hero: {
-      kicker: 'Natur-Guide',
-      title:
-        'Wandern & Natur rund um Frigiliana — unterwegs in der Sierra Almijara',
-      paragraphs: [
-        'Oberhalb von Frigiliana steigt das Gelände schnell in die Sierra Almijara an. Teile des Gemeindegebiets liegen im Naturpark Sierras de Tejeda, Almijara y Alhama; die höheren Routen führen in schroffe Gipfel, Pinienwald und offene Blicke bis zum Mittelmeer.',
-        'Unten findet ihr unsere Auswahl nach Anstrengung sortiert — von einer kurzen Runde oberhalb des Dorfes bis zum Gipfel des El Fuerte.',
-        'Passende GPX-Spuren zu diesen Wegen findet ihr auf Komoot und Wikiloc.'
-      ],
-      imageAlt:
-        'Blick durch Frigilianas weiße Häuser auf die Ausläufer der Sierra Almijara'
-    },
-    sectionNav: {
-      panorama: 'Panorama',
-      gentle: 'Sanfte Wege',
-      rivers: 'Flusswanderungen',
-      summits: 'Gipfel',
-      practical: 'Gut zu wissen'
-    },
-    routeSections: [
-      {
-        id: 'panorama',
-        title: 'Panorama-Touren (3–4 Stunden, moderat)',
-        intro:
-          'Nach Regen trocknen die höher gelegenen Wege über den Tälern schneller ab und laufen sich angenehmer als die Flussbetten. Das sind unsere Standard-Empfehlungen für eine moderate Halbtagestour.',
-        routes: [
-          {
-            title: 'Frigiliana → Cruz de Pinto (Rundweg)',
-            duration: '3–3,5 Std.',
-            elevationGain: '+480 hm',
-            distance: '7–8 km',
-            difficulty: 'moderat',
-            experience:
-              'Offene Hänge und weite Küstenblicke direkt oberhalb des Dorfes.',
-            text:
-              'Eine Panorama-Runde oberhalb des Dorfes, mit offenen Hängen und weitem Blick auf die Küste. Nach Regen eine der verlässlichsten Touren, weil das Gelände schnell abtrocknet. Startet am oberen Dorfrand; dort beginnt der aussichtsreiche Abschnitt.'
-          },
-          {
-            title: 'El Fuerte (bis zu den Aussichtspunkten)',
-            duration: '2–3 Std.',
-            difficulty: 'moderat',
-            experience:
-              'Dramatische Aussicht schon vor dem Gipfel — ideal für eine moderate Halbtagestour.',
-            text:
-              'Die klassische Wanderung hinter Frigiliana — ihr müsst aber nicht bis ganz oben. Schon der Weg zu den Aussichtspunkten öffnet den Blick weit über Dorf und Küste. Passt nach Regen auf den felsigen Passagen auf; Schuhe mit gutem Profil machen einen großen Unterschied.'
-          }
-        ]
-      },
-      {
-        id: 'gentle',
-        title: 'Sanfte Wege & Aussichtspunkte',
-        intro:
-          'Für eine kürzere Runde oder einen Spaziergang am späten Nachmittag, ohne besondere Ausrüstung.',
-        routes: [
-          {
-            title: 'Der Lizar- & Acequia-Weg',
-            duration: 'ca. 1 Std.',
-            elevationGain: 'gering',
-            distance: '2–3 km',
-            difficulty: 'flach',
-            experience:
-              'Alte Bewässerungskanäle, Avocadotal und Meer im Licht des Sonnenuntergangs.',
-            text:
-              'Folgt den alten Bewässerungskanälen (acequias) oberhalb des Dorfes. Der fast flache Weg führt am Avocadotal entlang und blickt zum Meer. Ihr könnt am Lízar-Stausee oder an den spärlichen Resten des Castillo de Lízar beginnen, der mittelalterlichen Befestigungsanlage auf dem Bergkamm über der Altstadt; am späten Nachmittag liegt die Strecke im weicheren Licht.'
-          }
-        ]
-      },
-      {
-        id: 'rivers',
-        title: 'Flusswanderungen (Sommer-Spezial)',
-        intro:
-          'Andalusiens berühmte „nasse Wanderungen“, bei denen der Weg selbst das Flussbett ist.',
-        routes: [
-          {
-            title: 'Río Higuerón (Frigiliana)',
-            duration: '2–3 Std.',
-            elevationGain: 'gering',
-            distance: '4–5 km',
-            difficulty: 'moderat',
-            experience:
-              'Eine ruhige Flussbettwanderung durch schmale Cahorros direkt ab Frigiliana.',
-            text:
-              'Die ruhige, ortsnahe Variante. Vom Dorfzentrum steigt ihr hinab ins Flussbett und lauft durch die Cahorros — schmale Felsschluchten. Der Higuerón ist über weite Strecken ein trockenes Flussbett. Ob und wie viel Wasser fließt, hängt von Regen und Jahreszeit ab; wenn Wasser da ist, reicht es meist nur bis zu den Knöcheln. Im Hochsommer ist die Route dadurch oft einfacher und deutlich ruhiger als der Chíllar. Nehmt Wasserschuhe oder griffige Sportsandalen mit.'
-          },
-          {
-            title: 'Río Chíllar (Nerja)',
-            experience:
-              'Knöcheltiefes Wasser und enge Marmorschluchten — sobald der Zugang wieder geöffnet ist.',
-            text:
-              'Der berühmte Klassiker: durch knöcheltiefes Wasser in enge Marmorschluchten. Wunderschön, aber aktuell gesperrt. Der Zugang ist seit August 2023 aus Brandschutz- und Sicherheitsgründen geschlossen; eine Wiedereröffnung mit kontrolliertem Zugang ist in Vorbereitung, aber ohne festes Datum.',
-            statusLink: {
-              before: 'Bitte vor dem Besuch den ',
-              label: 'offiziellen Status prüfen',
-              after:
-                ' (Link zur Stadt Nerja). Sobald wieder offen: an Wochentagen im Juni/September gehen oder um 8:00 Uhr starten — im Juli/August ist es sehr voll.',
-              href: 'https://www.nerja.es/el-acceso-al-rio-chillar-permanece-cerrado/'
-            }
-          }
-        ]
-      },
-      {
-        id: 'summits',
-        title: 'Gipfel & Ziele',
-        routes: [
-          {
-            title: 'El Fuerte (Gipfel)',
-            duration: 'ca. 4 Std.',
-            elevationGain: '+700 hm',
-            distance: '8–9 km',
-            difficulty: 'anspruchsvoll',
-            experience:
-              'Frigilianas großer Rundumblick — an klaren Tagen bis zur Sierra Nevada und zur afrikanischen Küste.',
-            text:
-              'Die Signatur-Wanderung, die direkt hinter Frigiliana aufsteigt. El Fuerte ist ein natürlicher Felsrückzugsraum, keine gebaute Burg — hier verschanzten sich 1569 die moriskischen Familien. Vom Gipfel reicht der Blick an klaren Tagen bis zur Sierra Nevada und hinüber zur afrikanischen Küste. Timing: Früh starten (kühle Morgenluft). Der Weg ist steil und felsig.'
-          },
-          {
-            title: 'El Acebuchal-Runde',
-            duration: 'ca. 4,5 Std.',
-            distance: 'ca. 13 km',
-            difficulty: 'moderat',
-            experience:
-              'Pinienwald, verlorenes Dorf und rustikale Mittagspause in einer Tour.',
-            text:
-              'Eine Wanderung durch Pinienwald zum „verlorenen Dorf“ El Acebuchal, das zur Nachbargemeinde Cómpeta gehört — ein nach dem Bürgerkrieg verlassener und restaurierter Weiler. Reserviert im Dorfrestaurant vorab einen Tisch und nehmt Bargeld mit.'
-          },
-          {
-            title: 'GR 249 · Etappe 6 (Frigiliana → Cómpeta)',
-            duration: 'Tagestour',
-            distance: 'ca. 23,8 km',
-            difficulty: 'anspruchsvoll',
-            experience:
-              'Die einzige Fernwanderetappe, die direkt im Dorf beginnt.',
-            text:
-              'Etappe 6 der Gran Senda de Málaga ist der einzige offiziell markierte Fernwanderweg im Gemeindegebiet. Bis Cómpeta ist es ein voller Wandertag — klärt die Rückfahrt, bevor ihr losgeht. Früh starten, ausreichend Wasser mitnehmen und die Etappe als Tagestour planen, nicht als Nachmittagsrunde.'
-          }
-        ]
-      }
-    ],
-    practical: {
-      title: 'Gut zu wissen (Praktisches)',
-      items: [
-        {
-          title: 'Nach Regen',
-          text:
-            'Enge Schluchten meiden, höhere Wege wählen. Schuhe mit Profil.'
-        },
-        {
-          title: 'Jahreszeit',
-          text: 'Am besten Oktober–Mai. Im Sommer nur früh morgens.'
-        },
-        {
-          title: 'Orientierung',
-          text:
-            'Die Wege sind naturbelassen. Wir empfehlen GPX-Apps wie Komoot oder Wikiloc.'
-        },
-        {
-          title: 'Markierung',
-          text:
-            'Außer der Etappe 6 des GR 249 sind die örtlichen Routen von der Gemeinde markiert und nicht als offizielle GR-, PR-A- oder SL-A-Wege homologiert. Die Beschilderung kann dünn sein — verlasst euch nicht allein darauf.'
-        },
-        {
-          title: 'Wasser',
-          text:
-            'Keine Brunnen auf den Wegen. Mindestens 1,5 l pro Person mitnehmen.'
-        }
-      ]
-    },
-    combine: {
-      title: 'Nach der Wanderung',
-      intro:
-        'Bleibt zum Abendessen in Frigiliana oder fahrt für ein Bad und einen frühen Lunch hinunter an die Küste. Plant die Rückkehr vor Einbruch der Dunkelheit, wenn ihr einen Naturweg geht.',
-      items: [
-        {
-          title: 'Strände & Küste',
-          text:
-            'Beine hochlegen. Runter zur Küste für ein Bad im Mittelmeer.'
-        },
-        {
-          title: 'Essen & Restaurants',
-          text:
-            'Wählt nach der Wanderung eines der Restaurants oder eine Terrasse im Dorf.'
-        }
-      ]
-    },
-    closing: {
-      title: 'In Frigiliana wohnen, vom Dorf aus loswandern',
-      lead:
-        'Von Frigilianas Altstadt könnt ihr zu mehreren Wegen direkt zu Fuß starten. Für einen Strandtag liegt Nerja unten an der Küste.',
-      availabilityCta: 'Verfügbarkeit prüfen',
-      apartmentsCta: 'Apartments ansehen'
-    }
-  },
-  es: {
-    routeCardLabels: {
-      statsAriaLabel: 'Datos de la ruta',
-      duration: 'Duración',
-      elevationGain: 'Desnivel',
-      distance: 'Distancia',
-      difficulty: 'Dificultad',
-      experience: 'La experiencia'
-    },
-    footerHighlights: {
-      hiking: 'Senderismo y naturaleza',
-      guide: 'Guía de Frigiliana',
-      stays: stayCollectionLabels.structuralName.es
-    },
-    hero: {
-      kicker: 'Guía de naturaleza',
-      title:
-        'Senderismo y naturaleza alrededor de Frigiliana — caminos de la Sierra Almijara',
-      paragraphs: [
-        'Por encima de Frigiliana el terreno gana altura rápidamente hacia la Sierra Almijara. Parte del término municipal se encuentra dentro del Parque Natural de las Sierras de Tejeda, Almijara y Alhama, y las rutas altas llevan hasta cumbres rocosas, pinares y laderas abiertas sobre el Mediterráneo.',
-        'Hemos ordenado la selección por esfuerzo, desde una ruta corta sobre el pueblo hasta la cumbre de El Fuerte.',
-        'En Komoot y Wikiloc encontraréis tracks GPX adecuados para estas rutas.'
-      ],
-      imageAlt:
-        'Vista entre las casas blancas de Frigiliana hacia las estribaciones de la Sierra Almijara'
-    },
-    sectionNav: {
-      panorama: 'Panorámicas',
-      gentle: 'Paseos suaves',
-      rivers: 'Rutas fluviales',
-      summits: 'Cumbres',
-      practical: 'Información práctica'
-    },
-    routeSections: [
-      {
-        id: 'panorama',
-        title: 'Rutas panorámicas (3–4 horas, dificultad moderada)',
-        intro:
-          'Después de llover, los senderos elevados sobre los valles se secan antes y suelen resultar más agradables que los cauces. Son nuestras recomendaciones habituales para una ruta moderada de media jornada.',
-        routes: [
-          {
-            title: 'Frigiliana → Cruz de Pinto (ruta circular)',
-            duration: '3–3,5 h',
-            elevationGain: '+480 m',
-            distance: '7–8 km',
-            difficulty: 'moderada',
-            experience:
-              'Laderas abiertas y amplias vistas de la costa, justo por encima del pueblo.',
-            text:
-              'Una ruta circular panorámica por encima de Frigiliana, entre laderas abiertas y con vistas despejadas hacia la costa. Después de llover es una de las opciones más fiables, ya que el terreno se seca con rapidez. Consejo: empezad en la parte alta del pueblo para disfrutar de las mejores vistas desde el principio.'
-          },
-          {
-            title: 'El Fuerte (hasta los miradores)',
-            duration: '2–3 h',
-            difficulty: 'moderada',
-            experience:
-              'Vistas espectaculares antes de alcanzar la cumbre — ideal para una ruta moderada de media jornada.',
-            text:
-              'Es la caminata clásica detrás de Frigiliana, pero no hace falta llegar hasta arriba. El recorrido hasta los miradores ya recompensa con una panorámica impresionante. Después de llover, extremad la precaución en los tramos rocosos; un calzado con buen agarre marca una gran diferencia.'
-          }
-        ]
-      },
-      {
-        id: 'gentle',
-        title: 'Paseos suaves y miradores',
-        intro:
-          'Ideales para un día de descanso activo o un paseo a la hora dorada, sin necesidad de equipo especial.',
-        routes: [
-          {
-            title: 'Camino de Lízar y las acequias',
-            duration: 'aprox. 1 h',
-            elevationGain: 'poco',
-            distance: '2–3 km',
-            difficulty: 'llano',
-            experience:
-              'Acequias históricas, el valle de aguacates y el mar a la luz del atardecer.',
-            text:
-              'Seguid las antiguas acequias por encima del pueblo. Es un camino prácticamente llano, al estilo de las levadas, con vistas constantes sobre el valle de aguacates y el mar. Se puede empezar junto al embalse de Lízar o cerca de los escasos restos del Castillo de Lízar, la fortificación medieval del cerro que domina el casco antiguo. Al atardecer resulta especialmente bonito.'
-          }
-        ]
-      },
-      {
-        id: 'rivers',
-        title: 'Rutas por el río (especial de verano)',
-        intro:
-          'Las famosas rutas de agua andaluzas, en las que se camina por el propio cauce.',
-        routes: [
-          {
-            title: 'Río Higuerón (Frigiliana)',
-            duration: '2–3 h',
-            elevationGain: 'poco',
-            distance: '4–5 km',
-            difficulty: 'moderada',
-            experience:
-              'Una ruta tranquila por el cauce y sus estrechos cahorros, directamente desde Frigiliana.',
-            text:
-              'Es la alternativa local y más tranquila. Desde el centro del pueblo se baja al cauce para caminar por los cahorros, estrechas gargantas de roca. Conviene saberlo: durante buena parte del recorrido, el Higuerón es un cauce seco. La presencia y cantidad de agua dependen de la lluvia y de la época del año; cuando hay agua, normalmente no pasa de los tobillos. Precisamente por eso resulta agradable en pleno verano y bastante más tranquilo que el Chíllar. Se recomienda llevar calzado de agua o sandalias deportivas con buena suela.'
-          },
-          {
-            title: 'Río Chíllar (Nerja)',
-            experience:
-              'Agua hasta los tobillos y estrechos cañones de mármol — cuando vuelva a abrir el acceso.',
-            text:
-              'El gran clásico: caminar por agua hasta los tobillos entre estrechos cañones de mármol. Es precioso, pero actualmente permanece cerrado. El acceso está clausurado desde agosto de 2023 por motivos de prevención de incendios y seguridad. Se está preparando una reapertura con acceso controlado, aunque todavía no hay una fecha confirmada.',
-            statusLink: {
-              before: 'Antes de ir, ',
-              label: 'comprobad el estado oficial',
-              after:
-                ' en la web del Ayuntamiento de Nerja. Cuando vuelva a abrir, id entre semana en junio o septiembre, o empezad a las 8:00; en julio y agosto hay mucha afluencia.',
-              href: 'https://www.nerja.es/el-acceso-al-rio-chillar-permanece-cerrado/'
-            }
-          }
-        ]
-      },
-      {
-        id: 'summits',
-        title: 'Cumbres y destinos',
-        routes: [
-          {
-            title: 'El Fuerte (cumbre)',
-            duration: 'aprox. 4 h',
-            elevationGain: '+700 m',
-            distance: '8–9 km',
-            difficulty: 'exigente',
-            experience:
-              'La gran panorámica de Frigiliana — en días despejados, hasta Sierra Nevada y la costa africana.',
-            text:
-              'La ruta emblemática de Frigiliana asciende directamente por detrás del pueblo. El Fuerte es un refugio rocoso natural, no un castillo construido: aquí se hicieron fuertes las familias moriscas en 1569. Desde la cumbre, en días despejados, la panorámica alcanza Sierra Nevada y la costa africana. Empezad temprano para aprovechar el aire fresco de la mañana. El camino es empinado y pedregoso.'
-          },
-          {
-            title: 'Ruta circular de El Acebuchal',
-            duration: 'aprox. 4,5 h',
-            distance: 'aprox. 13 km',
-            difficulty: 'moderada',
-            experience:
-              'Pinar, pueblo perdido y un almuerzo rústico en una misma ruta.',
-            text:
-              'La ruta atraviesa pinares hasta llegar al “pueblo perdido” de El Acebuchal, que pertenece al municipio vecino de Cómpeta. Fue abandonado después de la Guerra Civil y restaurado con mucho cuidado. Combina perfectamente naturaleza y una parada para un almuerzo rústico. Reservad mesa con antelación en el restaurante del pueblo y llevad algo de efectivo.'
-          },
-          {
-            title: 'GR 249 · etapa 6 (Frigiliana → Cómpeta)',
-            duration: 'jornada completa',
-            distance: 'aprox. 23,8 km',
-            difficulty: 'exigente',
-            experience:
-              'La única etapa de gran recorrido que arranca en el propio pueblo.',
-            text:
-              'La etapa 6 de la Gran Senda de Málaga es el único sendero de gran recorrido oficialmente señalizado del término municipal. Hasta Cómpeta es una jornada completa de marcha: organizad la vuelta antes de salir. Empezad temprano, llevad agua suficiente y planteadla como ruta de día entero, no como paseo de tarde.'
-          }
-        ]
-      }
-    ],
-    practical: {
-      title: 'Información práctica',
-      items: [
-        {
-          title: 'Después de llover',
-          text:
-            'Evitad los barrancos estrechos y elegid senderos elevados. Llevad calzado con buena suela.'
-        },
-        {
-          title: 'Época del año',
-          text:
-            'La mejor época es de octubre a mayo. En verano, caminad solo a primera hora.'
-        },
-        {
-          title: 'Orientación',
-          text:
-            'Los senderos se mantienen en estado natural. Recomendamos una aplicación con GPX, como Komoot o Wikiloc.'
-        },
-        {
-          title: 'Señalización',
-          text:
-            'Salvo la etapa 6 del GR 249, las rutas locales están señalizadas por el ayuntamiento y no homologadas como senderos oficiales GR, PR-A o SL-A. La señalización puede ser escasa: no dependáis solo de ella.'
-        },
-        {
-          title: 'Agua',
-          text:
-            'No hay fuentes de agua potable en las rutas. Llevad al menos 1,5 litros por persona.'
-        }
-      ]
-    },
-    combine: {
-      title: 'Después de la ruta',
-      intro:
-        'Podéis quedaros a cenar en Frigiliana o bajar a la costa para bañaros y almorzar temprano. Si vais por un sendero natural, calculad el regreso antes de que anochezca.',
-      items: [
-        {
-          title: 'Playas y costa',
-          text:
-            'Descansad las piernas y bajad a la costa para bañaros en el Mediterráneo.'
-        },
-        {
-          title: 'Gastronomía y restaurantes',
-          text:
-            'Elegid después de la ruta uno de los restaurantes o terrazas del pueblo.'
-        }
-      ]
-    },
-    closing: {
-      title: 'Alojaros en Frigiliana y salir a pie desde el pueblo',
-      lead:
-        'Desde el casco antiguo de Frigiliana podéis empezar varias rutas a pie. Para un día de playa, Nerja queda abajo, junto a la costa.',
-      availabilityCta: 'Comprobar disponibilidad',
-      apartmentsCta: 'Ver apartamentos'
-    }
-  },
-  nl: {
-    routeCardLabels: {
-      statsAriaLabel: 'Routegegevens',
-      duration: 'Duur',
-      elevationGain: 'Hoogtemeters',
-      distance: 'Afstand',
-      difficulty: 'Moeilijkheid',
-      experience: 'De belevenis'
-    },
-    footerHighlights: {
-      hiking: 'Wandelen & natuur',
-      guide: 'Frigiliana-gids',
-      stays: stayCollectionLabels.structuralName.nl
-    },
-    hero: {
-      kicker: 'Natuurgids',
-      title:
-        'Wandelen en natuur rond Frigiliana — de Sierra Almijara in',
-      paragraphs: [
-        'Boven Frigiliana loopt het terrein snel op richting de Sierra Almijara. Delen van de gemeente liggen in natuurpark Sierras de Tejeda, Almijara y Alhama, en de hogere routes voeren naar rotsachtige toppen, dennenbossen en open hellingen boven de Middellandse Zee.',
-        'Hieronder staat de selectie op inspanning gerangschikt, van een korte ronde boven het dorp tot de top van El Fuerte.',
-        'Bij deze routes zijn passende GPX-tracks te vinden op Komoot en Wikiloc.'
-      ],
-      imageAlt:
-        'Uitzicht tussen de witte huizen van Frigiliana naar de uitlopers van de Sierra Almijara'
-    },
-    sectionNav: {
-      panorama: 'Panorama',
-      gentle: 'Rustige paden',
-      rivers: 'Rivierwandelingen',
-      summits: 'Toppen',
-      practical: 'Goed om te weten'
-    },
-    routeSections: [
-      {
-        id: 'panorama',
-        title: 'Panoramawandelingen (3–4 uur, gemiddeld)',
-        intro:
-          'Na regen drogen de hoger gelegen paden boven de dalen sneller op en lopen ze meestal prettiger dan de rivierbeddingen. Dit zijn onze vaste keuzes voor een gematigde wandeling van een halve dag.',
-        routes: [
-          {
-            title: 'Frigiliana → Cruz de Pinto (rondwandeling)',
-            duration: '3–3,5 uur',
-            elevationGain: '+480 hm',
-            distance: '7–8 km',
-            difficulty: 'gemiddeld',
-            experience:
-              'Open hellingen en weids uitzicht op de kust, direct boven het dorp.',
-            text:
-              'Een panoramische rondwandeling boven Frigiliana, over open hellingen met een weids uitzicht richting de kust. Na regen is dit een van de betrouwbaardere routes, omdat de ondergrond snel opdroogt. Tip: begin aan de bovenrand van het dorp; dan krijgen jullie het mooiste uitzicht meteen aan het begin.'
-          },
-          {
-            title: 'El Fuerte (tot aan de uitzichtpunten)',
-            duration: '2–3 uur',
-            difficulty: 'gemiddeld',
-            experience:
-              'Indrukwekkend uitzicht ruim vóór de top — ideaal voor een gematigde wandeling van een halve dag.',
-            text:
-              'Dit is de klassieke wandeling achter Frigiliana, zonder dat jullie helemaal naar de top hoeven. Het pad naar de uitzichtpunten beloont al met een indrukwekkend panorama. Wees na regen voorzichtig op de rotsachtige stukken; schoenen met een goede grip maken echt verschil.'
-          }
-        ]
-      },
-      {
-        id: 'gentle',
-        title: 'Rustige paden & uitzichtpunten',
-        intro:
-          'Ideaal voor een actieve rustdag of een wandeling in het gouden avondlicht, zonder speciale uitrusting.',
-        routes: [
-          {
-            title: 'Het Lízar- en acequiapad',
-            duration: 'ca. 1 uur',
-            elevationGain: 'weinig',
-            distance: '2–3 km',
-            difficulty: 'vlak',
-            experience:
-              'Oude irrigatiekanalen, de avocadovallei en de zee in het avondlicht.',
-            text:
-              'Volg de oude irrigatiekanalen, de acequias, boven het dorp. Dit vrijwel vlakke pad in levadastijl biedt voortdurend uitzicht over de avocadovallei en de zee. Jullie kunnen beginnen bij het Lízar-reservoir of bij de schaarse resten van het Castillo de Lízar, de middeleeuwse vesting op de bergkam boven de oude kern. Vooral bij zonsondergang is het hier prachtig.'
-          }
-        ]
-      },
-      {
-        id: 'rivers',
-        title: 'Rivierwandelingen (zomerspecial)',
-        intro:
-          'De beroemde “natte wandelingen” van Andalusië, waarbij de rivierbedding zelf het pad vormt.',
-        routes: [
-          {
-            title: 'Río Higuerón (Frigiliana)',
-            duration: '2–3 uur',
-            elevationGain: 'weinig',
-            distance: '4–5 km',
-            difficulty: 'gemiddeld',
-            experience:
-              'Een rustige wandeling door de rivierbedding en smalle cahorros, rechtstreeks vanuit Frigiliana.',
-            text:
-              'Dit is de rustigere, lokale variant. Vanuit het dorpscentrum dalen jullie af naar de rivierbedding en lopen jullie door de cahorros, smalle rotskloven. Goed om eerlijk te weten: de Higuerón is over een groot deel van de route een droge rivierbedding. Of er water stroomt en hoeveel, hangt af van de regen en het seizoen; als er water staat, komt het meestal niet hoger dan de enkels. Juist daardoor is de route midden in de zomer aangenaam en duidelijk rustiger dan de Chíllar. Waterschoenen of sportsandalen met een goede grip zijn aan te raden.'
-          },
-          {
-            title: 'Río Chíllar (Nerja)',
-            experience:
-              'Enkeldiep water en smalle marmeren kloven — zodra de toegang weer opengaat.',
-            text:
-              'De beroemde klassieker: door enkeldiep water naar smalle marmeren kloven wandelen. De route is prachtig, maar momenteel gesloten. De toegang is sinds augustus 2023 afgesloten vanwege brandpreventie en veiligheid. Er wordt gewerkt aan heropening met gereguleerde toegang, maar een vaste datum is er nog niet.',
-            statusLink: {
-              before: 'Controleer voor vertrek de ',
-              label: 'officiële status',
-              after:
-                ' op de website van de gemeente Nerja. Zodra de route weer open is, kiezen jullie het best een doordeweekse dag in juni of september, of vertrekken jullie om 8.00 uur — in juli en augustus is het erg druk.',
-              href: 'https://www.nerja.es/el-acceso-al-rio-chillar-permanece-cerrado/'
-            }
-          }
-        ]
-      },
-      {
-        id: 'summits',
-        title: 'Toppen & bestemmingen',
-        routes: [
-          {
-            title: 'El Fuerte (top)',
-            duration: 'ca. 4 uur',
-            elevationGain: '+700 hm',
-            distance: '8–9 km',
-            difficulty: 'uitdagend',
-            experience:
-              'Het grote panorama van Frigiliana — op heldere dagen tot de Sierra Nevada en de Afrikaanse kust.',
-            text:
-              'De kenmerkende wandeling van Frigiliana klimt direct achter het dorp omhoog. El Fuerte is een natuurlijke rotsschuilplaats en geen gebouwd kasteel — hier verschansten zich in 1569 de Moriskse families. Vanaf de top reikt het panorama op heldere dagen tot de Sierra Nevada en de Afrikaanse kust. Vertrek vroeg voor de koele ochtendlucht. Het pad is steil en rotsachtig.'
-          },
-          {
-            title: 'Rondwandeling El Acebuchal',
-            duration: 'ca. 4,5 uur',
-            distance: 'ca. 13 km',
-            difficulty: 'gemiddeld',
-            experience:
-              'Dennenbos, een verloren dorp en een rustieke lunch in één wandeling.',
-            text:
-              'De wandeling loopt door dennenbos naar het “verloren dorp” El Acebuchal, dat tot de buurgemeente Cómpeta behoort. Het werd na de Burgeroorlog verlaten en is liefdevol hersteld. Het is een mooie combinatie van natuur en een rustieke lunchpauze. Reserveer vooraf een tafel in het dorpsrestaurant en neem contant geld mee.'
-          },
-          {
-            title: 'GR 249 · etappe 6 (Frigiliana → Cómpeta)',
-            duration: 'hele dag',
-            distance: 'ca. 23,8 km',
-            difficulty: 'zwaar',
-            experience:
-              'De enige langeafstandsetappe die in het dorp zelf begint.',
-            text:
-              'Etappe 6 van de Gran Senda de Málaga is de enige officieel bewegwijzerde langeafstandsroute in de gemeente. Naar Cómpeta is het een volle wandeldag: regel de terugreis voordat jullie vertrekken. Vertrek vroeg, neem voldoende water mee en plan het als dagtocht, niet als middagwandeling.'
-          }
-        ]
-      }
-    ],
-    practical: {
-      title: 'Praktische informatie',
-      items: [
-        {
-          title: 'Na regen',
-          text:
-            'Vermijd smalle kloven en kies hoger gelegen paden. Draag schoenen met een goed profiel.'
-        },
-        {
-          title: 'Beste seizoen',
-          text:
-            'Oktober tot en met mei is de beste periode. Wandel in de zomer alleen vroeg in de ochtend.'
-        },
-        {
-          title: 'Navigatie',
-          text:
-            'De paden zijn natuurlijk en niet aangelegd. Wij raden een GPX-app zoals Komoot of Wikiloc aan.'
-        },
-        {
-          title: 'Bewegwijzering',
-          text:
-            'Behalve etappe 6 van de GR 249 zijn de lokale routes door de gemeente gemarkeerd en niet gehomologeerd als officiële GR-, PR-A- of SL-A-paden. De bewegwijzering kan schaars zijn: vertrouw er niet alleen op.'
-        },
-        {
-          title: 'Water',
-          text:
-            'Langs de routes zijn geen drinkwaterpunten. Neem minstens 1,5 liter per persoon mee.'
-        }
-      ]
-    },
-    combine: {
-      title: 'Na de wandeling',
-      intro:
-        'Blijf in Frigiliana voor het diner, of rijd naar de kust voor een duik en een vroege lunch. Plan op een natuurpad de terugweg vóór het donker wordt.',
-      items: [
-        {
-          title: 'Stranden & kust',
-          text:
-            'Geef jullie benen rust en ga naar de kust voor een duik in de Middellandse Zee.'
-        },
-        {
-          title: 'Eten & restaurants',
-          text:
-            'Kies na de wandeling een van de restaurants of terrassen in het dorp.'
-        }
-      ]
-    },
-    closing: {
-      title: 'Overnachten in Frigiliana, wandelen vanaf het dorp',
-      lead:
-        'Vanuit de oude kern van Frigiliana kunnen jullie verschillende routes te voet beginnen. Voor een stranddag ligt Nerja beneden aan de kust.',
-      availabilityCta: 'Beschikbaarheid bekijken',
-      apartmentsCta: 'Bekijk appartementen'
-    }
-  },
-  sv: {
-    routeCardLabels: {
-      statsAriaLabel: 'Turinformation',
-      duration: 'Tid',
-      elevationGain: 'Höjdmeter',
-      distance: 'Distans',
-      difficulty: 'Svårighetsgrad',
-      experience: 'Upplevelsen'
-    },
-    footerHighlights: {
-      hiking: 'Vandring & natur',
-      guide: 'Frigiliana-guide',
-      stays: stayCollectionLabels.structuralName.sv
-    },
-    hero: {
-      kicker: 'Naturguide',
-      title:
-        'Vandring och natur runt Frigiliana — ut i Sierra Almijara',
-      paragraphs: [
-        'Ovanför Frigiliana stiger terrängen snabbt upp mot Sierra Almijara. Delar av kommunen ligger i naturparken Sierras de Tejeda, Almijara y Alhama, och de högre lederna leder in bland klippiga toppar, pinjeskog och öppna sluttningar ovanför Medelhavet.',
-        'Förslagen nedan är ordnade efter ansträngningsnivå, från en kort slinga ovanför byn till toppen av El Fuerte.',
-        'Passande GPX-spår för turerna finns på Komoot och Wikiloc.'
-      ],
-      imageAlt:
-        'Utsikt mellan Frigilianas vitkalkade hus mot Sierra Almijaras utlöpare'
-    },
-    sectionNav: {
-      panorama: 'Panorama',
-      gentle: 'Lugna leder',
-      rivers: 'Flodvandringar',
-      summits: 'Toppturer',
-      practical: 'Bra att veta'
-    },
-    routeSections: [
-      {
-        id: 'panorama',
-        title: 'Panoramavandringar (3–4 timmar, medelsvåra)',
-        intro:
-          'Efter regn torkar de högre lederna ovanför dalarna snabbare och är oftast behagligare än flodbäddarna. Det här är våra säkra val för en medelsvår halvdagstur.',
-        routes: [
-          {
-            title: 'Frigiliana → Cruz de Pinto (rundslinga)',
-            duration: '3–3,5 tim.',
-            elevationGain: '+480 höjdmeter',
-            distance: '7–8 km',
-            difficulty: 'medelsvår',
-            experience:
-              'Öppna sluttningar och vida kustvyer direkt ovanför byn.',
-            text:
-              'En panoramaslinga ovanför Frigiliana, över öppna sluttningar med vid utsikt mot kusten. Efter regn är det ett av de mer pålitliga alternativen eftersom marken torkar snabbt. Tips: börja vid den övre delen av byn, så får ni den vackraste utsikten redan i början.'
-          },
-          {
-            title: 'El Fuerte (fram till utsiktsplatserna)',
-            duration: '2–3 tim.',
-            difficulty: 'medelsvår',
-            experience:
-              'Dramatiska vyer långt före toppen — perfekt för en medelsvår halvdagstur.',
-            text:
-              'Det här är den klassiska vandringen bakom Frigiliana, men ni behöver inte gå hela vägen till toppen. Redan leden till utsiktsplatserna bjuder på ett dramatiskt panorama. Var försiktiga på de steniga partierna efter regn; skor med bra grepp gör stor skillnad.'
-          }
-        ]
-      },
-      {
-        id: 'gentle',
-        title: 'Lugna leder & utsiktsplatser',
-        intro:
-          'Passar bra för en aktiv vilodag eller en promenad i kvällens gyllene ljus, utan särskild utrustning.',
-        routes: [
-          {
-            title: 'Lízar- och acequialeden',
-            duration: 'ca 1 tim.',
-            elevationGain: 'liten',
-            distance: '2–3 km',
-            difficulty: 'flack',
-            experience:
-              'Gamla bevattningskanaler, avokadodalen och havet i kvällsljuset.',
-            text:
-              'Följ de gamla bevattningskanalerna, acequias, ovanför byn. Den nästan helt flacka leden påminner om Madeiras levador och ger hela tiden utsikt över avokadodalen och havet. Börja vid Lízar-reservoaren eller vid de sparsamma resterna av Castillo de Lízar, den medeltida befästningen på bergskammen ovanför gamla stan. Särskilt fin vid solnedgången.'
-          }
-        ]
-      },
-      {
-        id: 'rivers',
-        title: 'Flodvandringar (sommarfavoriter)',
-        intro:
-          'Andalusiens berömda “våta vandringar”, där själva flodbädden blir leden.',
-        routes: [
-          {
-            title: 'Río Higuerón (Frigiliana)',
-            duration: '2–3 tim.',
-            elevationGain: 'liten',
-            distance: '4–5 km',
-            difficulty: 'medelsvår',
-            experience:
-              'En lugn vandring genom flodbädden och smala cahorros, direkt från Frigiliana.',
-            text:
-              'Det här är det lugnare, lokala alternativet. Från byns centrum går ni ner i flodbädden och vidare genom cahorros, smala klippklyftor. Bra att känna till: under stora delar av sträckan är Higuerón en torr flodbädd. Om det finns vatten och hur mycket beror på regnet och årstiden; när vatten finns når det oftast bara till anklarna. Just därför är turen behaglig under högsommaren och betydligt lugnare än Chíllar. Vattenskor eller sportsandaler med bra grepp rekommenderas.'
-          },
-          {
-            title: 'Río Chíllar (Nerja)',
-            experience:
-              'Ankeldjupt vatten och smala marmorklyftor — när tillträdet öppnar igen.',
-            text:
-              'Den berömda klassikern: att vandra genom ankeldjupt vatten in i smala marmorklyftor. Det är mycket vackert, men leden är för närvarande stängd. Tillträdet har varit avstängt sedan augusti 2023 av brandförebyggande skäl och säkerhetsskäl. En kontrollerad återöppning förbereds, men något fast datum finns ännu inte.',
-            statusLink: {
-              before: 'Kontrollera före besöket den ',
-              label: 'officiella statusen',
-              after:
-                ' på Nerja kommuns webbplats. När leden öppnar igen är en vardag i juni eller september bäst, alternativt en start klockan 8.00 — i juli och augusti är det mycket folk.',
-              href: 'https://www.nerja.es/el-acceso-al-rio-chillar-permanece-cerrado/'
-            }
-          }
-        ]
-      },
-      {
-        id: 'summits',
-        title: 'Toppar & utflyktsmål',
-        routes: [
-          {
-            title: 'El Fuerte (toppen)',
-            duration: 'ca 4 tim.',
-            elevationGain: '+700 höjdmeter',
-            distance: '8–9 km',
-            difficulty: 'krävande',
-            experience:
-              'Frigilianas stora panorama — klara dagar ända till Sierra Nevada och Afrikas kust.',
-            text:
-              'Frigilianas signaturvandring stiger direkt bakom byn. El Fuerte är en naturlig klippfästning, inte en byggd borg — här förskansade sig de moriskiska familjerna 1569. Från toppen når panoramat klara dagar Sierra Nevada och Afrikas kust. Börja tidigt för att ta vara på den svala morgonluften. Leden är brant och stenig.'
-          },
-          {
-            title: 'Rundslingan till El Acebuchal',
-            duration: 'ca 4,5 tim.',
-            distance: 'ca 13 km',
-            difficulty: 'medelsvår',
-            experience:
-              'Pinjeskog, en förlorad by och en rustik lunchpaus på samma tur.',
-            text:
-              'Vandringen går genom pinjeskog till den “förlorade byn” El Acebuchal, som hör till grannkommunen Cómpeta. Byn övergavs efter inbördeskriget och restaurerades senare med stor omsorg. Det är en fin kombination av natur och en rustik lunchpaus. Boka bord på byrestaurangen i förväg och ta med kontanter.'
-          },
-          {
-            title: 'GR 249 · etapp 6 (Frigiliana → Cómpeta)',
-            duration: 'heldag',
-            distance: 'ca 23,8 km',
-            difficulty: 'krävande',
-            experience:
-              'Den enda långfärdsetappen som startar i själva byn.',
-            text:
-              'Etapp 6 av Gran Senda de Málaga är den enda officiellt markerade långfärdsleden i kommunen. Till Cómpeta är det en hel vandringsdag – ordna hemresan innan ni ger er av. Starta tidigt, ta med gott om vatten och planera den som en heldagstur, inte som en eftermiddagspromenad.'
-          }
-        ]
-      }
-    ],
-    practical: {
-      title: 'Praktiskt att veta',
-      items: [
-        {
-          title: 'Efter regn',
-          text:
-            'Undvik smala raviner och välj högre leder. Använd skor med bra mönster.'
-        },
-        {
-          title: 'Bästa säsong',
-          text:
-            'Oktober till maj är bäst. Under sommaren bör ni bara vandra tidigt på morgonen.'
-        },
-        {
-          title: 'Navigation',
-          text:
-            'Lederna är naturliga och inte tillrättalagda. Vi rekommenderar en GPX-app som Komoot eller Wikiloc.'
-        },
-        {
-          title: 'Markering',
-          text:
-            'Bortsett från etapp 6 av GR 249 är de lokala lederna markerade av kommunen och inte homologerade som officiella GR-, PR-A- eller SL-A-leder. Skyltningen kan vara gles – förlita er inte enbart på den.'
-        },
-        {
-          title: 'Vatten',
-          text:
-            'Det finns inga dricksvattenfontäner längs lederna. Ta med minst 1,5 liter per person.'
-        }
-      ]
-    },
-    combine: {
-      title: 'Efter vandringen',
-      intro:
-        'Stanna i Frigiliana för middag eller åk ner till kusten för ett bad och en tidig lunch. På en naturstig bör ni planera att vara tillbaka före mörkrets inbrott.',
-      items: [
-        {
-          title: 'Stränder & kust',
-          text:
-            'Låt benen vila och åk ner till kusten för ett dopp i Medelhavet.'
-        },
-        {
-          title: 'Mat & restauranger',
-          text:
-            'Välj någon av byns restauranger eller terrasser efter vandringen.'
-        }
-      ]
-    },
-    closing: {
-      title: 'Bo i Frigiliana och börja vandringen i byn',
-      lead:
-        'Från Frigilianas gamla by kan ni börja flera leder till fots. För en stranddag ligger Nerja nere vid kusten.',
-      availabilityCta: 'Kontrollera tillgänglighet',
-      apartmentsCta: 'Se boenden'
-    }
-  }
-};
+const t = (value: LocalizedText, lang: AmaraLanguage) => resolveLocale(value, lang);
+
+export function getFrigilianaHikingContent(lang: AmaraLanguage) {
+  return {
+    hero: { kicker: t(ui.hero.kicker, lang), title: t(ui.hero.title, lang), paragraphs: [t(ui.hero.paragraphs, lang)], imageAlt: t(ui.hero.imageAlt, lang) },
+    overview: { kicker: t(ui.overview.kicker, lang), title: t(ui.overview.title, lang), intro: t(ui.overview.intro, lang), labels: Object.fromEntries(Object.entries(ui.overview.labels).map(([key, value]) => [key, t(value, lang)])) as Record<keyof typeof ui.overview.labels, string> },
+    fromAmara: { kicker: t(ui.fromAmara.kicker, lang), title: t(ui.fromAmara.title, lang), intro: t(ui.fromAmara.intro, lang), steps: ui.fromAmara.steps.map((step) => t(step, lang)), locationLabel: t(ui.fromAmara.locationLabel, lang) },
+    routeLabels: Object.fromEntries(Object.entries(ui.routeLabels).map(([key, value]) => [key, t(value, lang)])) as Record<keyof typeof ui.routeLabels, string>,
+    routes: routes.map((route) => ({ ...route, title: t(route.title, lang), bestFor: t(route.bestFor, lang), commitment: t(route.commitment, lang), difficulty: t(route.difficulty, lang), condition: t(route.condition, lang), why: t(route.why, lang), access: t(route.access, lang), hike: t(route.hike, lang), note: t(route.note, lang), weather: t(route.weather, lang), officialLabel: t(route.officialLabel, lang), secondaryLabel: route.secondaryLabel ? t(route.secondaryLabel, lang) : undefined })),
+    chillar: { kicker: t(ui.chillar.kicker, lang), title: t(ui.chillar.title, lang), text: t(ui.chillar.text, lang), label: t(ui.chillar.label, lang) },
+    weather: { kicker: t(ui.weather.kicker, lang), title: t(ui.weather.title, lang), text: t(ui.weather.text, lang), label: t(ui.weather.label, lang) },
+    more: { title: t(ui.more.title, lang), text: t(ui.more.text, lang), komoot: t(ui.more.komoot, lang), official: t(ui.more.official, lang), granSenda: t(ui.more.granSenda, lang) },
+    after: { title: t(ui.after.title, lang), items: ui.after.items.map((item) => ({ ...item, title: t(item.title, lang), text: t(item.text, lang), label: t(item.label, lang) })) },
+    closing: { title: t(ui.closing.title, lang), lead: t(ui.closing.lead, lang), stays: t(ui.closing.stays, lang), book: t(ui.closing.book, lang) }
+  };
+}
