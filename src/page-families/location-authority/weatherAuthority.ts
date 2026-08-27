@@ -10,6 +10,10 @@ export interface WeatherAuthoritySeason {
 export interface WeatherAuthorityItem {
   title: string;
   text: string;
+  link?: {
+    token: LinkToken;
+    label: string;
+  };
 }
 
 export interface WeatherAuthoritySource {

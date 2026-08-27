@@ -163,13 +163,13 @@ function restaurant(
 }
 
 export const frigilianaRestaurantsSeo: AmaraAuthoringSeo = {
-  version: '2026-07-29-frigiliana-restaurants-v1.0-B',
+  version: '2026-08-27-frigiliana-restaurants-v1.1-B',
   pageType: 'B',
   entityKey: 'amara-brand',
   ogImage: '/images/hero-frigiliana.jpg',
   article: {
     datePublished: '2026-07-01',
-    dateModified: '2026-07-31',
+    dateModified: '2026-08-27',
     authorName: 'Robert Sebastian Böhmer',
     authorType: 'Person',
     authorSlug: 'amara-about-us'
@@ -460,7 +460,7 @@ export const frigilianaRestaurantsContent: Record<
         {
           title: 'Hills, then a village table',
           text:
-            'Finish a walk above Frigiliana with dinner in the village, or make El Acebuchal the reward at the end of a countryside outing.',
+            'Plan a village meal after Cruz de Pinto, the Higuerón or El Fuerte. For the linear GR 249 stage, arrange the return first and check that the restaurant still fits the timing of the day.',
           linkToken: 'frigiliana_hiking_authority',
           linkLabel: 'See the hiking guide'
         }
@@ -712,7 +712,7 @@ export const frigilianaRestaurantsContent: Record<
         {
           title: 'Erst die Hügel, dann ein Dorftisch',
           text:
-            'Eine Wanderung oberhalb Frigilianas mit einem Dinner im Dorf beenden oder El Acebuchal zum Ziel eines Ausflugs in die Landschaft machen.',
+            'Plant nach Cruz de Pinto, dem Higuerón oder El Fuerte ein Essen im Dorf ein. Bei der linearen GR-249-Etappe klärt ihr zuerst die Rückfahrt und prüft, ob das Restaurant noch zum Tagesablauf passt.',
           linkToken: 'frigiliana_hiking_authority',
           linkLabel: 'Zum Wander-Guide'
         }
@@ -964,7 +964,7 @@ export const frigilianaRestaurantsContent: Record<
         {
           title: 'Primero la sierra, después una mesa en el pueblo',
           text:
-            'Termina una ruta sobre Frigiliana con una cena en el pueblo o convierte El Acebuchal en la recompensa de una salida por el campo.',
+            'Planificad una comida en el pueblo después de la Cruz de Pinto, el Higuerón o El Fuerte. Para la etapa lineal del GR 249, organizad primero el regreso y comprobad que el restaurante encaja con el horario del día.',
           linkToken: 'frigiliana_hiking_authority',
           linkLabel: 'Ver la guía de senderismo'
         }
@@ -1216,7 +1216,7 @@ export const frigilianaRestaurantsContent: Record<
         {
           title: 'Eerst de heuvels, dan een tafel in het dorp',
           text:
-            'Sluit een wandeling boven Frigiliana af met een diner in het dorp, of maak El Acebuchal de beloning van een tocht door het landschap.',
+            'Plan een maaltijd in het dorp na Cruz de Pinto, de Higuerón of El Fuerte. Regel voor de lineaire GR 249-etappe eerst de terugreis en controleer of het restaurant nog in de dagplanning past.',
           linkToken: 'frigiliana_hiking_authority',
           linkLabel: 'Bekijk de wandelgids'
         }
@@ -1468,7 +1468,7 @@ export const frigilianaRestaurantsContent: Record<
         {
           title: 'Först bergen, sedan ett bord i byn',
           text:
-            'Avsluta en vandring ovanför Frigiliana med middag i byn, eller gör El Acebuchal till belöningen efter en tur på landsbygden.',
+            'Planera en måltid i byn efter Cruz de Pinto, Higuerón eller El Fuerte. För den linjära GR 249-etappen ordnar ni först hemresan och kontrollerar att restaurangen fortfarande passar dagens tidplan.',
           linkToken: 'frigiliana_hiking_authority',
           linkLabel: 'Se vandringsguiden'
         }

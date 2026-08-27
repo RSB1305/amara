@@ -132,6 +132,14 @@ const {
           <article class:list={['p-7', index > 1 && 'border-t border-inverted-on-surface/20', index % 2 === 1 && 'sm:border-l sm:border-inverted-on-surface/20']}>
             <h3 class="am-text-subtitle text-inverted-on-surface">{item.title}</h3>
             <p class="am-text-body mt-4 leading-relaxed text-inverted-on-surface/70"><InlineEmphasis text={item.text} /></p>
+            {item.link && (
+              <a
+                href={resolveHref(item.link.token)}
+                class="am-cta-link mt-5 inline-flex text-primary-fixed-dim"
+              >
+                {item.link.label}
+              </a>
+            )}
           </article>
         ))}
       </div>

@@ -273,7 +273,7 @@ export const frigilianaHikingContent = {
       {
         id: 'weather',
         title: text('Weather first', 'Wetter zuerst', 'Primero, el tiempo', 'Eerst het weer', 'Vädret först'),
-        text: text('Heat, rain, wind and recent conditions change the sensible choice. Open the weather guide, then check the current AEMET forecast.', 'Hitze, Regen, Wind und die letzten Tage verändern die sinnvolle Wahl. Öffnet den Wetter-Guide und prüft danach die aktuelle AEMET-Vorhersage.', 'El calor, la lluvia, el viento y los días anteriores cambian la elección sensata. Abrid la guía del tiempo y consultad después la previsión actual de AEMET.', 'Hitte, regen, wind en recente omstandigheden veranderen de verstandige keuze. Open de weergids en controleer daarna de actuele AEMET-verwachting.', 'Värme, regn, vind och de senaste dagarnas förhållanden ändrar det kloka valet. Öppna väderguiden och kontrollera sedan den aktuella AEMET-prognosen.')
+        text: text('In July and August, put the exposed climbs of Cruz de Pinto, El Fuerte and the long GR 249 stage into the early hours and keep them away from midday heat. For the Higuerón, rain and the conditions of the previous days matter as well. Use the seasonal pattern first, then AEMET for the actual day.', 'Im Juli und August gehören die offenen Anstiege von Cruz de Pinto, El Fuerte und der langen GR-249-Etappe in die frühen Stunden und nicht in die Mittagshitze. Beim Higuerón zählen zusätzlich Regen und die Bedingungen der vorherigen Tage. Nutzt zuerst das Saisonmuster und danach AEMET für den konkreten Tag.', 'En julio y agosto, situad las subidas expuestas de la Cruz de Pinto, El Fuerte y la larga etapa del GR 249 en las primeras horas y fuera del calor del mediodía. En el Higuerón también importan la lluvia y las condiciones de los días anteriores. Usad primero el patrón estacional y después AEMET para el día concreto.', 'Plan in juli en augustus de open beklimmingen van Cruz de Pinto, El Fuerte en de lange GR 249-etappe in de vroege uren en buiten de middaghitte. Voor de Higuerón tellen ook regen en de omstandigheden van de dagen ervoor. Gebruik eerst het seizoenspatroon en daarna AEMET voor de concrete dag.', 'I juli och augusti lägger ni de öppna stigningarna på Cruz de Pinto, El Fuerte och den långa GR 249-etappen under de tidiga timmarna och utanför middagshettan. För Higuerón spelar även regn och de föregående dagarnas förhållanden roll. Använd först säsongsmönstret och sedan AEMET för den aktuella dagen.')
       },
       {
         id: 'navigation',
@@ -295,7 +295,7 @@ export const frigilianaHikingContent = {
         id: 'weather',
         token: 'weather_frigiliana',
         title: text('Will the day suit this route?', 'Passt der Tag zu dieser Route?', '¿Encaja el día con esta ruta?', 'Past de dag bij deze route?', 'Passar dagen för den här rutten?'),
-        text: text('Use the Frigiliana weather guide for season, exposure and the current-forecast handoff.', 'Nutzt den Frigiliana-Wetter-Guide für Saison, Exposition und den Übergang zur aktuellen Vorhersage.', 'Usad la guía del tiempo de Frigiliana para la estación, la exposición y el paso a la previsión actual.', 'Gebruik de Frigiliana-weergids voor seizoen, blootstelling en de actuele verwachting.', 'Använd Frigilianas väderguide för säsong, exponering och den aktuella prognosen.'),
+        text: text('The weather guide explains why spring and autumn are often more forgiving for longer routes, why exposed summer routes belong in the morning and when the current AEMET forecast must change the plan.', 'Der Wetter-Guide erklärt, warum Frühling und Herbst für längere Routen häufig angenehmer sind, warum offene Sommerrouten in den Morgen gehören und wann die aktuelle AEMET-Vorhersage den Plan verändern muss.', 'La guía del tiempo explica por qué primavera y otoño suelen ser más llevaderos para rutas largas, por qué las rutas expuestas de verano corresponden a la mañana y cuándo la previsión actual de AEMET debe cambiar el plan.', 'De weergids legt uit waarom lente en herfst vaak prettiger zijn voor langere routes, waarom open zomerroutes in de ochtend horen en wanneer de actuele AEMET-verwachting het plan moet veranderen.', 'Väderguiden förklarar varför vår och höst ofta är mer förlåtande för längre turer, varför öppna sommarleder hör till morgonen och när AEMETs aktuella prognos måste ändra planen.'),
         label: text('Open weather guide', 'Wetter-Guide öffnen', 'Abrir la guía del tiempo', 'Open de weergids', 'Öppna väderguiden')
       },
       {
@@ -329,7 +329,7 @@ export function getFrigilianaHikingContent(lang: AmaraLanguage): FrigilianaHikin
 }
 
 export const frigilianaHikingSeo: AmaraAuthoringSeo = {
-  version: '2026-08-27-frigiliana-hiking-v2.0',
+  version: '2026-08-27-frigiliana-hiking-v2.1',
   pageType: 'B',
   entityKey: 'amara-brand',
   ogImage: '/images/hero-frigiliana.jpg',

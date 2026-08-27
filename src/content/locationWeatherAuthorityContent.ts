@@ -373,7 +373,7 @@ const profiles: Profiles = {
 };
 
 const relatedTokens: Record<WeatherDestination, [LinkToken, LinkToken, LinkToken]> = {
-  frigiliana: ['frigiliana_geography', 'frigiliana_hiking_authority', 'frigiliana_winter_stays'],
+  frigiliana: ['frigiliana_geography', 'frigiliana_stairs', 'frigiliana_winter_stays'],
   nerja: ['nerja_geography', 'nerja_where_to_stay', 'getting_to_nerja'],
   tarifa: ['tarifa_geography', 'tarifa_where_to_stay', 'tarifa_winter_stays']
 };
@@ -415,12 +415,12 @@ export function getWeatherAuthorityContent(destination: WeatherDestination, lang
     nl: { label: 'Aankomst & mobiliteit', text: 'Verbind luchthavens, bussen en het laatste stuk naar Nerja.' },
     sv: { label: 'Ankomst & mobilitet', text: 'Koppla ihop flygplatser, bussar och sista sträckan till Nerja.' }
   };
-  const frigilianaHikingLabels: Record<AmaraLanguage, { label: string; text: string }> = {
-    en: { label: 'Hiking around Frigiliana', text: 'Apply season, exposure and the current forecast to four curated routes.' },
-    de: { label: 'Wandern rund um Frigiliana', text: 'Saison, Exposition und aktuelle Vorhersage auf vier kuratierte Routen anwenden.' },
-    es: { label: 'Senderismo en Frigiliana', text: 'Aplicar estación, exposición y previsión actual a cuatro rutas seleccionadas.' },
-    nl: { label: 'Wandelen rond Frigiliana', text: 'Pas seizoen, blootstelling en de actuele verwachting toe op vier gekozen routes.' },
-    sv: { label: 'Vandring runt Frigiliana', text: 'Använd säsong, exponering och aktuell prognos för fyra utvalda turer.' }
+  const frigilianaHikingCtaLabels: Record<AmaraLanguage, string> = {
+    en: 'Compare the four hiking routes',
+    de: 'Die vier Wanderrouten vergleichen',
+    es: 'Comparar las cuatro rutas de senderismo',
+    nl: 'Vergelijk de vier wandelroutes',
+    sv: 'Jämför de fyra vandringsrutterna'
   };
 
   return {
@@ -433,7 +433,23 @@ export function getWeatherAuthorityContent(destination: WeatherDestination, lang
     factors: { eyebrow: lang === 'de' ? 'Lokale Klimafaktoren' : lang === 'es' ? 'Factores climáticos locales' : lang === 'nl' ? 'Lokale klimaatfactoren' : lang === 'sv' ? 'Lokala klimatfaktorer' : 'Local climate drivers', title: profile.factorsTitle, paragraphs: profile.factors, items: profile.factorItems },
     table: common.table,
     seasons: { eyebrow: common.seasonEyebrow, title: common.seasonTitle, intro: common.seasonIntro, planningLabel: common.seasonPlanningLabel, items: common.seasons.map((season, index) => ({ ...season, summary: profile.seasonNotes[index] })) },
-    bestTime: { eyebrow: common.bestEyebrow, title: common.bestTitle, intro: common.bestIntro, items: common.intentTitles.map((title, index) => ({ title, text: profile.intentNotes[index] })) },
+    bestTime: {
+      eyebrow: common.bestEyebrow,
+      title: common.bestTitle,
+      intro: common.bestIntro,
+      items: common.intentTitles.map((title, index) => ({
+        title,
+        text: profile.intentNotes[index],
+        ...(destination === 'frigiliana' && index === 1
+          ? {
+              link: {
+                token: 'frigiliana_hiking_authority' as const,
+                label: frigilianaHikingCtaLabels[lang]
+              }
+            }
+          : {})
+      }))
+    },
     practical: { eyebrow: common.practicalEyebrow, title: common.practicalTitle, paragraphs: [common.practicalIntro, profile.practical], listTitle: common.packTitle, items: common.packItems },
     forecast: { eyebrow: common.forecastEyebrow, title: common.forecastTitle, paragraphs: common.forecastParagraphs, cta: common.forecastCta },
     sources: { eyebrow: common.sourcesEyebrow, title: common.sourcesTitle, intro: common.sourcesIntro, checked: common.sourcesChecked, links },
@@ -444,14 +460,10 @@ export function getWeatherAuthorityContent(destination: WeatherDestination, lang
         token,
         label: destination === 'nerja' && index === 2
           ? nerjaArrivalLabels[lang].label
-          : destination === 'frigiliana' && index === 1
-            ? frigilianaHikingLabels[lang].label
-            : common.relatedLabels[index],
+          : common.relatedLabels[index],
         text: destination === 'nerja' && index === 2
           ? nerjaArrivalLabels[lang].text
-          : destination === 'frigiliana' && index === 1
-            ? frigilianaHikingLabels[lang].text
-            : common.relatedTexts[index]
+          : common.relatedTexts[index]
       }))
     },
     closing: { eyebrow: common.closingEyebrow, title: common.closingTitle, body: common.closingBody, primaryLabel: common.primaryLabel, secondaryLabel: common.secondaryLabel }
@@ -468,11 +480,14 @@ const article = {
 
 export function getWeatherSeo(destination: WeatherDestination): AmaraAuthoringSeo {
   const place = names[destination];
+  const dateModified = destination === 'frigiliana' ? '2026-08-27' : article.dateModified;
   return {
-    version: `2026-08-21-${destination}-weather-v2.0`,
+    version: destination === 'frigiliana'
+      ? '2026-08-27-frigiliana-weather-v2.1'
+      : `2026-08-21-${destination}-weather-v2.0`,
     pageType: 'A',
     entityKey: 'amara-brand',
-    article,
+    article: { ...article, dateModified },
     languages: Object.fromEntries((['en', 'de', 'es', 'nl', 'sv'] as AmaraLanguage[]).map((lang) => [lang, {
       title: shared[lang].seoTitle(place),
       description: profiles[destination][lang].description,
