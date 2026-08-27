@@ -139,7 +139,8 @@ const navigationCopy: Record<AmaraLanguage, FrigilianaNavigationCopy> = {
     topics: {
       'where-to-stay': 'Where to Stay',
       'parking-accessibility': 'Parking & Access',
-      'shopping-markets': 'Daily Life & Shopping'
+      'shopping-markets': 'Daily Life & Shopping',
+      'health-emergency': 'Medical Care'
     }
   },
   de: {
@@ -152,7 +153,8 @@ const navigationCopy: Record<AmaraLanguage, FrigilianaNavigationCopy> = {
     topics: {
       'where-to-stay': 'Wo übernachten',
       'parking-accessibility': 'Parken & Zugang',
-      'shopping-markets': 'Alltag & Einkaufen'
+      'shopping-markets': 'Alltag & Einkaufen',
+      'health-emergency': 'Medizinische Versorgung'
     }
   },
   es: {
@@ -165,7 +167,8 @@ const navigationCopy: Record<AmaraLanguage, FrigilianaNavigationCopy> = {
     topics: {
       'where-to-stay': 'Dónde alojarse',
       'parking-accessibility': 'Aparcamiento y acceso',
-      'shopping-markets': 'Vida diaria y compras'
+      'shopping-markets': 'Vida diaria y compras',
+      'health-emergency': 'Atención médica'
     }
   },
   nl: {
@@ -178,7 +181,8 @@ const navigationCopy: Record<AmaraLanguage, FrigilianaNavigationCopy> = {
     topics: {
       'where-to-stay': 'Waar overnachten',
       'parking-accessibility': 'Parkeren & toegang',
-      'shopping-markets': 'Dagelijks leven & boodschappen'
+      'shopping-markets': 'Dagelijks leven & boodschappen',
+      'health-emergency': 'Medische zorg'
     }
   },
   sv: {
@@ -191,7 +195,8 @@ const navigationCopy: Record<AmaraLanguage, FrigilianaNavigationCopy> = {
     topics: {
       'where-to-stay': 'Var ska man bo',
       'parking-accessibility': 'Parkering & åtkomst',
-      'shopping-markets': 'Vardag & inköp'
+      'shopping-markets': 'Vardag & inköp',
+      'health-emergency': 'Sjukvård'
     }
   }
 };
