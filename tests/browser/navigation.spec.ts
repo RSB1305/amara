@@ -274,27 +274,26 @@ test('the slotted navigation on a location authority page keeps its full contrac
   await expect(triggers.first()).toBeFocused();
 });
 
-test('the grouped guide navigation uses one responsive DOM tree', async ({ page }) => {
+test('the destination disclosures use one responsive DOM tree', async ({ page }) => {
   await page.setViewportSize(MOBILE_VIEWPORT);
   await openPage(page, '/de/frigiliana-location');
 
-  const root = page.locator('[data-am-grouped-context-navigation]');
-  const panel = root.locator('[data-am-context-panel]');
-  const groupGrid = panel.locator('[data-am-context-groups]');
-  const groupDisclosures = groupGrid.locator('[data-am-context-group]');
+  const root = page.locator('[data-am-destination-context-disclosures]');
+  const disclosures = root.locator('[data-am-context-disclosure]');
+  const locationDisclosure = root.locator('[data-am-context-branch="location"]');
+  const panel = locationDisclosure.locator('.am-destination-disclosure__panel');
+  const groupGrid = panel.locator('.grid');
 
   await expect(root).toHaveCount(1);
-  await expect(root.locator('nav')).toHaveCount(1);
-  await expect(root.locator('[data-am-context-sibling]')).toHaveCount(9);
-  await expect(groupDisclosures).toHaveCount(4);
-  await expect(root).toBeHidden();
-  await expect(page.locator('[data-am-context-disclosure]')).toHaveCount(0);
-
-  await page.locator('[data-am-menu-trigger]').click();
   await expect(root).toBeVisible();
+  await expect(disclosures).toHaveCount(2);
+  await expect(root.locator('[data-am-context-sibling]')).toHaveCount(18);
+
+  await locationDisclosure.locator('summary').click();
+  await expect(locationDisclosure).toHaveAttribute('open', '');
   await expect(panel).toBeVisible();
-  await groupDisclosures.first().locator('summary').click();
-  await expect(groupGrid.locator('[data-am-context-group][open]')).toHaveCount(1);
+  await expect(panel.locator('section')).toHaveCount(4);
+  await expect(panel.locator('[data-am-context-sibling]')).toHaveCount(9);
   expect(
     await groupGrid.evaluate(
       (element) => getComputedStyle(element).gridTemplateColumns.split(' ').length
@@ -307,27 +306,39 @@ test('the grouped guide navigation uses one responsive DOM tree', async ({ page 
       (element) => getComputedStyle(element).gridTemplateColumns.split(' ').length
     )
   ).toBe(4);
-  expect(await panel.evaluate((element) => getComputedStyle(element).position)).toBe('static');
+  expect(await panel.evaluate((element) => getComputedStyle(element).position)).toBe('absolute');
 });
 
-test('the context navigation never introduces a second menu trigger', async ({ page }) => {
+test('the destination branch disclosures stay distinct from the global menu', async ({ page }) => {
   await page.setViewportSize(MOBILE_VIEWPORT);
   await openPage(page, '/de/frigiliana-location');
 
   const globalTrigger = page.locator('[data-am-menu-trigger]');
-  const groupedNavigation = page.locator('[data-am-grouped-context-navigation]');
+  const disclosures = page.locator('[data-am-context-disclosure]');
+  const locationDisclosure = page.locator('[data-am-context-branch="location"]');
+  const experienceDisclosure = page.locator('[data-am-context-branch="experience"]');
 
   await expect(globalTrigger).toBeVisible();
-  await expect(page.locator('[data-am-context-disclosure]')).toHaveCount(0);
-  await expect(groupedNavigation).toBeHidden();
+  await expect(disclosures).toHaveCount(2);
+  await expect(disclosures.locator('summary')).toHaveCount(2);
+
+  await locationDisclosure.locator('summary').click();
+  await expect(locationDisclosure).toHaveAttribute('open', '');
+  await experienceDisclosure.locator('summary').click();
+  await expect(locationDisclosure).not.toHaveAttribute('open', '');
+  await expect(experienceDisclosure).toHaveAttribute('open', '');
+
+  await page.keyboard.press('Escape');
+  await expect(experienceDisclosure).not.toHaveAttribute('open', '');
+  await expect(experienceDisclosure.locator('summary')).toBeFocused();
 
   await page.setViewportSize({ width: 1180, height: 900 });
   await expect(globalTrigger).toBeHidden();
-  await expect(groupedNavigation).toBeHidden();
+  await expect(disclosures).toHaveCount(2);
 
   await page.setViewportSize(DESKTOP_VIEWPORT);
   await expect(globalTrigger).toBeHidden();
-  await expect(groupedNavigation).toBeVisible();
+  await expect(page.locator('[data-am-destination-context-disclosures]')).toBeVisible();
 
   await page.evaluate(() => window.scrollTo(0, 200));
   await expect(page.locator('[data-am-navigation]')).toHaveAttribute(
@@ -369,7 +380,7 @@ test('the contextual scroll contract covers location and experience hubs and spo
   }
 });
 
-test('the desktop grouped navigation remains available without JavaScript', async ({ browser }) => {
+test('the desktop destination disclosures remain available without JavaScript', async ({ browser }) => {
   const context = await browser.newContext({
     javaScriptEnabled: false,
     viewport: DESKTOP_VIEWPORT
@@ -379,10 +390,22 @@ test('the desktop grouped navigation remains available without JavaScript', asyn
   try {
     await openPage(page, '/de/frigiliana-location');
 
-    const groupedNavigation = page.locator('[data-am-grouped-context-navigation]');
-    await expect(groupedNavigation).toBeVisible();
-    await expect(groupedNavigation.locator('[data-am-context-group]')).toHaveCount(4);
-    await expect(groupedNavigation.locator('[data-am-context-sibling]')).toHaveCount(9);
+    const root = page.locator('[data-am-destination-context-disclosures]');
+    const locationDisclosure = root.locator('[data-am-context-branch="location"]');
+    const experienceDisclosure = root.locator('[data-am-context-branch="experience"]');
+
+    await expect(root).toBeVisible();
+    await expect(root.locator('[data-am-context-disclosure]')).toHaveCount(2);
+
+    await locationDisclosure.locator('summary').click();
+    await expect(locationDisclosure).toHaveAttribute('open', '');
+    await expect(locationDisclosure.locator('section')).toHaveCount(4);
+    await expect(locationDisclosure.locator('[data-am-context-sibling]')).toHaveCount(9);
+
+    await experienceDisclosure.locator('summary').click();
+    await expect(experienceDisclosure).toHaveAttribute('open', '');
+    await expect(experienceDisclosure.locator('section')).toHaveCount(4);
+    await expect(experienceDisclosure.locator('[data-am-context-sibling]')).toHaveCount(9);
   } finally {
     await context.close();
   }
