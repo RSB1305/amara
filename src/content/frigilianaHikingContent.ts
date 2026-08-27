@@ -47,7 +47,7 @@ interface HikingRouteSection {
 }
 
 interface HikingContextLink {
-  id: 'weather' | 'restaurants' | 'location';
+  id: 'restaurants' | 'location';
   token: LinkToken;
   title: LocalizedText;
   text: LocalizedText;
@@ -268,22 +268,24 @@ export const frigilianaHikingContent = {
     href: 'https://www.nerja.es/el-acceso-al-rio-chillar-permanece-cerrado/'
   },
   practical: {
-    title: text('Decide with the day, not only the route name', 'Entscheidet nach dem Tag, nicht nur nach dem Routennamen', 'Decidid según el día, no solo por el nombre de la ruta', 'Kies op basis van de dag, niet alleen de routenaam', 'Välj efter dagen, inte bara efter ruttnamnet'),
+    title: text('Choose what suits the day', 'Was heute gut passt', 'Elegid lo que encaja con el día', 'Kies wat bij de dag past', 'Välj det som passar dagen'),
     items: [
       {
         id: 'weather',
-        title: text('Weather first', 'Wetter zuerst', 'Primero, el tiempo', 'Eerst het weer', 'Vädret först'),
-        text: text('In July and August, put the exposed climbs of Cruz de Pinto, El Fuerte and the long GR 249 stage into the early hours and keep them away from midday heat. For the Higuerón, rain and the conditions of the previous days matter as well. Use the seasonal pattern first, then AEMET for the actual day.', 'Im Juli und August gehören die offenen Anstiege von Cruz de Pinto, El Fuerte und der langen GR-249-Etappe in die frühen Stunden und nicht in die Mittagshitze. Beim Higuerón zählen zusätzlich Regen und die Bedingungen der vorherigen Tage. Nutzt zuerst das Saisonmuster und danach AEMET für den konkreten Tag.', 'En julio y agosto, situad las subidas expuestas de la Cruz de Pinto, El Fuerte y la larga etapa del GR 249 en las primeras horas y fuera del calor del mediodía. En el Higuerón también importan la lluvia y las condiciones de los días anteriores. Usad primero el patrón estacional y después AEMET para el día concreto.', 'Plan in juli en augustus de open beklimmingen van Cruz de Pinto, El Fuerte en de lange GR 249-etappe in de vroege uren en buiten de middaghitte. Voor de Higuerón tellen ook regen en de omstandigheden van de dagen ervoor. Gebruik eerst het seizoenspatroon en daarna AEMET voor de concrete dag.', 'I juli och augusti lägger ni de öppna stigningarna på Cruz de Pinto, El Fuerte och den långa GR 249-etappen under de tidiga timmarna och utanför middagshettan. För Higuerón spelar även regn och de föregående dagarnas förhållanden roll. Använd först säsongsmönstret och sedan AEMET för den aktuella dagen.')
+        title: text('Start with the weather', 'Startet mit dem Wetter', 'Empezad por el tiempo', 'Begin met het weer', 'Börja med vädret'),
+        text: text('In midsummer, start exposed routes early. After rain, the Higuerón may be a very different walk.', 'Im Hochsommer startet ihr offene Routen am besten früh. Nach Regen kann der Higuerón eine ganz andere Wanderung sein.', 'En pleno verano, empezad temprano las rutas expuestas. Después de la lluvia, el Higuerón puede ser una ruta muy distinta.', 'Start open routes midden in de zomer vroeg. Na regen kan de Higuerón een heel andere wandeling zijn.', 'Under högsommaren startar ni öppna leder tidigt. Efter regn kan Higuerón vara en helt annan vandring.'),
+        token: 'weather_frigiliana',
+        label: text('See Frigiliana weather', 'Wetter in Frigiliana ansehen', 'Ver el tiempo en Frigiliana', 'Bekijk het weer in Frigiliana', 'Se vädret i Frigiliana')
       },
       {
         id: 'navigation',
         title: text('Carry the route', 'Route mitnehmen', 'Llevad la ruta', 'Neem de route mee', 'Ta med rutten'),
-        text: text('Open the official source and save the chosen Komoot track before leaving. Do not rely on sparse signs or mobile coverage alone.', 'Öffnet die offizielle Quelle und speichert den gewählten Komoot-Track vor dem Aufbruch. Verlasst euch nicht allein auf wenige Schilder oder Mobilfunk.', 'Abrid la fuente oficial y guardad el track elegido de Komoot antes de salir. No dependáis solo de una señalización escasa o de la cobertura móvil.', 'Open de officiële bron en sla de gekozen Komoot-track op voor vertrek. Vertrouw niet alleen op beperkte markering of mobiel bereik.', 'Öppna den officiella källan och spara det valda Komoot-spåret före start. Förlita er inte enbart på gles skyltning eller mobiltäckning.')
+        text: text('Save the chosen track before setting out. The route then stays clear even without reliable mobile coverage.', 'Speichert den gewählten Track vor dem Start. So bleibt die Route auch ohne zuverlässigen Mobilfunk klar.', 'Guardad el track elegido antes de salir. Así tendréis clara la ruta incluso sin buena cobertura.', 'Sla de gekozen track voor vertrek op. Zo blijft de route ook zonder betrouwbaar mobiel bereik duidelijk.', 'Spara det valda spåret före start. Då är rutten tydlig även utan pålitlig mobiltäckning.')
       },
       {
         id: 'water-footwear',
         title: text('Water and footwear', 'Wasser und Schuhe', 'Agua y calzado', 'Water en schoenen', 'Vatten och skor'),
-        text: text('Carry enough water for the chosen commitment and wear footwear suited to rock, loose ground or a riverbed. Turn back when conditions do not match the plan.', 'Nehmt ausreichend Wasser für das gewählte Vorhaben mit und tragt Schuhe für Fels, losen Untergrund oder Flussbett. Kehrt um, wenn die Bedingungen nicht zum Plan passen.', 'Llevad agua suficiente para el plan elegido y calzado adecuado para roca, terreno suelto o cauce. Dad la vuelta si las condiciones no encajan con el plan.', 'Neem genoeg water mee voor de gekozen tocht en draag schoenen voor rotsen, losse ondergrond of rivierbedding. Keer om als de omstandigheden niet bij het plan passen.', 'Ta med tillräckligt med vatten för den valda turen och skor för klippor, löst underlag eller flodbädd. Vänd om när förhållandena inte stämmer med planen.')
+        text: text('Take enough water and shoes suited to the ground. Turn back if heat, rain or the terrain no longer fits the plan.', 'Nehmt ausreichend Wasser und passende Schuhe mit. Kehrt um, wenn Hitze, Regen oder Untergrund nicht mehr zum Plan passen.', 'Llevad agua suficiente y calzado adecuado. Dad la vuelta si el calor, la lluvia o el terreno dejan de encajar con el plan.', 'Neem genoeg water en passende schoenen mee. Keer om als hitte, regen of ondergrond niet meer bij het plan passen.', 'Ta med tillräckligt med vatten och lämpliga skor. Vänd om ifall värme, regn eller underlag inte längre passar planen.')
       }
     ]
   },
@@ -291,13 +293,6 @@ export const frigilianaHikingContent = {
     title: text('Connect the hike to the rest of the stay', 'Die Wanderung mit dem restlichen Aufenthalt verbinden', 'Conectad la ruta con el resto de la estancia', 'Verbind de wandeling met de rest van het verblijf', 'Koppla vandringen till resten av vistelsen'),
     intro: text('Once the route choice is clear, these are the next useful questions.', 'Wenn die Route feststeht, sind das die nächsten hilfreichen Fragen.', 'Cuando la ruta esté clara, estas son las siguientes preguntas útiles.', 'Als de routekeuze duidelijk is, zijn dit de volgende nuttige vragen.', 'När rutten är vald är det här de nästa användbara frågorna.'),
     items: [
-      {
-        id: 'weather',
-        token: 'weather_frigiliana',
-        title: text('Will the day suit this route?', 'Passt der Tag zu dieser Route?', '¿Encaja el día con esta ruta?', 'Past de dag bij deze route?', 'Passar dagen för den här rutten?'),
-        text: text('The weather guide explains why spring and autumn are often more forgiving for longer routes, why exposed summer routes belong in the morning and when the current AEMET forecast must change the plan.', 'Der Wetter-Guide erklärt, warum Frühling und Herbst für längere Routen häufig angenehmer sind, warum offene Sommerrouten in den Morgen gehören und wann die aktuelle AEMET-Vorhersage den Plan verändern muss.', 'La guía del tiempo explica por qué primavera y otoño suelen ser más llevaderos para rutas largas, por qué las rutas expuestas de verano corresponden a la mañana y cuándo la previsión actual de AEMET debe cambiar el plan.', 'De weergids legt uit waarom lente en herfst vaak prettiger zijn voor langere routes, waarom open zomerroutes in de ochtend horen en wanneer de actuele AEMET-verwachting het plan moet veranderen.', 'Väderguiden förklarar varför vår och höst ofta är mer förlåtande för längre turer, varför öppna sommarleder hör till morgonen och när AEMETs aktuella prognos måste ändra planen.'),
-        label: text('Open weather guide', 'Wetter-Guide öffnen', 'Abrir la guía del tiempo', 'Open de weergids', 'Öppna väderguiden')
-      },
       {
         id: 'restaurants',
         token: 'frigiliana_food_authority',
@@ -329,7 +324,7 @@ export function getFrigilianaHikingContent(lang: AmaraLanguage): FrigilianaHikin
 }
 
 export const frigilianaHikingSeo: AmaraAuthoringSeo = {
-  version: '2026-08-27-frigiliana-hiking-v2.1',
+  version: '2026-08-27-frigiliana-hiking-v2.2',
   pageType: 'B',
   entityKey: 'amara-brand',
   ogImage: '/images/hero-frigiliana.jpg',

@@ -14,7 +14,9 @@ import LocationAuthorityLayout from '../../layouts/LocationAuthorityLayout.astro
 import { resolveLink } from '../../lib/linkResolver';
 import { normalizeLanguage } from '../../lib/seo/resolve-seo-head';
 import type { AmaraLanguage } from '../../types/seo';
-import AuthorityFeatureSection from './AuthorityFeatureSection.astro';
+import LocationGuideIcon, {
+  type LocationGuideIconName
+} from '../../components/location/LocationGuideIcon.astro';
 
 interface Props {
   lang?: string;
@@ -36,6 +38,24 @@ const footerHighlights: LabeledLink[] = [
 const heroImage = {
   src: '/images/hero-frigiliana.jpg',
   width: 1080
+};
+
+const routeIcons: Record<string, LocationGuideIconName> = {
+  'cruz-de-pinto': 'walkable',
+  'rio-higueron-cahorros': 'walking-surface',
+  'el-fuerte-summit': 'elevation',
+  'gr-249-stage-6': 'distance'
+};
+
+const practicalIcons: Record<string, LocationGuideIconName> = {
+  weather: 'temperature',
+  navigation: 'distance',
+  'water-footwear': 'walking-surface'
+};
+
+const combineIcons: Record<string, LocationGuideIconName> = {
+  restaurants: 'village',
+  location: 'municipality'
 };
 ---
 
@@ -88,9 +108,10 @@ const heroImage = {
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-x-16 gap-y-14">
               {section.routes.map((route) => (
                 <article class="border-t border-outline-variant/25 pt-8">
-                  <h3 class="am-text-subtitle text-on-surface mb-5 lg:min-h-[2.3em]">
-                    {route.title}
-                  </h3>
+                  <div class="mb-5 flex items-start gap-3 lg:min-h-[2.3em]">
+                    <LocationGuideIcon name={routeIcons[route.id]} class="mt-1 h-5 w-5" />
+                    <h3 class="am-text-subtitle text-on-surface">{route.title}</h3>
+                  </div>
                   <HikingRouteStatStrip
                     duration={route.duration}
                     elevationGain={'elevationGain' in route ? route.elevationGain : undefined}
@@ -130,7 +151,10 @@ const heroImage = {
 
       <section class="am-section am-section--plain" aria-labelledby="rio-chillar-closure-title">
         <div class="max-w-3xl border-l-2 border-primary pl-6 sm:pl-8">
-          <p class="am-text-eyebrow text-primary mb-4">{copy.closureNotice.eyebrow}</p>
+          <div class="mb-4 flex items-center gap-3">
+            <LocationGuideIcon name="rainfall" />
+            <p class="am-text-eyebrow text-primary">{copy.closureNotice.eyebrow}</p>
+          </div>
           <h2 id="rio-chillar-closure-title" class="am-text-title italic text-on-surface tracking-tight">
             {copy.closureNotice.title}
           </h2>
@@ -149,11 +173,25 @@ const heroImage = {
         </div>
       </section>
 
-      <AuthorityFeatureSection
-        id="practical"
-        title={copy.practical.title}
-        items={copy.practical.items}
-      />
+      <section id="practical" class="am-section am-section--tint">
+        <div class="max-w-3xl mb-12">
+          <h2 class="am-text-title italic text-on-surface tracking-tight">{copy.practical.title}</h2>
+        </div>
+        <div class="grid grid-cols-1 gap-x-10 gap-y-10 md:grid-cols-3">
+          {copy.practical.items.map((item) => (
+            <article class="border-t border-outline-variant/25 pt-7">
+              <LocationGuideIcon name={practicalIcons[item.id]} class="mb-5 h-6 w-6" />
+              <h3 class="am-text-subtitle text-on-surface">{item.title}</h3>
+              <p class="mt-4 am-text-body text-on-surface-variant leading-relaxed">{item.text}</p>
+              {'token' in item && 'label' in item && (
+                <a href={resolveLink(item.token, currentLang)} class="am-inline-link mt-5 inline-flex">
+                  {item.label}<span aria-hidden="true"> →</span>
+                </a>
+              )}
+            </article>
+          ))}
+        </div>
+      </section>
 
       <section class="am-section am-section--plain" aria-labelledby="hiking-next-questions-title">
         <div class="max-w-3xl mb-12">
@@ -165,6 +203,7 @@ const heroImage = {
         <div class="grid grid-cols-1 md:grid-cols-3 gap-x-10 gap-y-10">
           {copy.combine.items.map((item) => (
             <article class="border-t border-outline-variant/25 pt-7">
+              <LocationGuideIcon name={combineIcons[item.id]} class="mb-5 h-6 w-6" />
               <h3 class="am-text-subtitle text-on-surface">{item.title}</h3>
               <p class="mt-4 am-text-body text-on-surface-variant leading-relaxed">{item.text}</p>
               <a href={resolveLink(item.token, currentLang)} class="am-inline-link mt-5 inline-flex">

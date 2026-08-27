@@ -1,7 +1,9 @@
 ---
-import { Clock, Mountain, Route } from '@lucide/astro';
 import AmaraMetaChip from '../../components/chips/AmaraMetaChip.astro';
 import EditorialCallout from '../../components/content/EditorialCallout.astro';
+import LocationGuideIcon, {
+  type LocationGuideIconName
+} from '../../components/location/LocationGuideIcon.astro';
 
 interface Props {
   duration?: string;
@@ -29,13 +31,13 @@ const {
 } = Astro.props;
 
 const stats = [
-  duration && { label: labels.duration, value: duration, icon: Clock },
+  duration && { label: labels.duration, value: duration, icon: 'journey-time' as LocationGuideIconName },
   elevationGain && {
     label: labels.elevationGain,
     value: elevationGain,
-    icon: Mountain
+    icon: 'elevation' as LocationGuideIconName
   },
-  distance && { label: labels.distance, value: distance, icon: Route }
+  distance && { label: labels.distance, value: distance, icon: 'distance' as LocationGuideIconName }
 ].filter(Boolean);
 
 const hasStats = stats.length > 0 || Boolean(difficulty);
@@ -50,18 +52,12 @@ const hasStats = stats.length > 0 || Boolean(difficulty);
       >
         {stats.map((stat) => {
           if (!stat) return null;
-          const Icon = stat.icon;
-
           return (
             <span
               class="inline-flex items-center gap-2 whitespace-nowrap"
               aria-label={`${stat.label}: ${stat.value}`}
             >
-              <Icon
-                class="h-4 w-4 shrink-0 text-primary"
-                stroke-width={1.5}
-                aria-hidden="true"
-              />
+              <LocationGuideIcon name={stat.icon} class="h-4 w-4" />
               <span class="am-text-caption normal-case tracking-normal text-on-surface">
                 {stat.value}
               </span>
