@@ -265,7 +265,7 @@ const profiles: Profiles = {
       factorsTitle: 'The coast connects air, sea and season — but does not merge them', factors: ['Nerja’s shoreline gives the page a clear maritime focus. Air temperature, sea temperature and sea state are different variables and should be checked separately.', 'The long-term pattern is dry in summer and more changeable in the cooler half. Individual rain events remain impossible to schedule from monthly averages.'],
       factorItems: [{ title: 'Sea influence', text: 'Water changes temperature more slowly than air, so spring warmth does not automatically mean warm swimming water.' }, { title: 'Coastal exposure', text: 'Sun, breeze and shelter can change comfort between a beach, terrace and inland street.' }, { title: 'No Frigiliana shortcut', text: 'The point model returns the same values for coast and hillside, so treat any difference between them as local knowledge rather than data.' }],
       seasonNotes: ['Comfortable walking days can arrive before the sea feels summery.', 'Dry, bright beach weather is common; heat, sun exposure and warm nights still shape the plan.', 'Early autumn may retain useful sea warmth while the town gradually becomes quieter.', 'Milder coastal days alternate with a greater chance of rain and cooler evenings.'],
-      intentNotes: ['Summer prioritises long beach days; check heat, UV and current sea conditions rather than one monthly number.', 'Spring and autumn often support town walks and coastal routes with less intense midday heat.', 'Outside peak summer, streets and beaches can feel calmer while weather becomes less predictable.', 'For several weeks, indoor comfort and flexibility matter more than a promise of winter sun.'],
+      intentNotes: ['Long, bright summer days make it easy to pair a morning swim with a slow lunch and an evening by the sea. Choose the beach after checking heat, UV and current sea conditions.', 'Spring and autumn often bring gentler midday heat for the Balcón, old-town streets and coastal paths, leaving space to explore together without rushing.', 'Outside peak summer, calmer streets and beaches make room for unhurried coffee, a seafront walk and spontaneous plans when the forecast shifts.', 'A longer winter stay lets you settle into Nerja’s everyday rhythm. Home comfort and flexibility matter most, with mild coastal days enjoyed as they arrive.'],
       practical: 'For beach days, check air temperature, wind and sea state separately. Plan exposed promenades outside the strongest summer sun, keep one light layer for the evening and avoid using a seasonal average as a decision about tomorrow’s swim.'
     },
     de: {
@@ -276,7 +276,7 @@ const profiles: Profiles = {
       factorsTitle: 'Die Küste verbindet Luft, Meer und Saison – aber setzt sie nicht gleich', factors: ['Nerjas Küste gibt der Seite ihren maritimen Schwerpunkt. Lufttemperatur, Wassertemperatur und Meereszustand sind verschiedene Variablen und werden getrennt betrachtet.', 'Langfristig ist der Sommer trocken, die kühlere Jahreshälfte wechselhafter. Einzelne Regenereignisse lassen sich aus Monatsmitteln nicht terminieren.'],
       factorItems: [{ title: 'Meereseinfluss', text: 'Wasser ändert seine Temperatur langsamer als Luft; Frühlingswärme bedeutet deshalb nicht automatisch warmes Badewasser.' }, { title: 'Exposition an der Küste', text: 'Sonne, Brise und Schutz können den Komfort zwischen Strand, Terrasse und Straße verändern.' }, { title: 'Keine Frigiliana-Abkürzung', text: 'Das Punktmodell liefert für Küste und Hang dieselben Werte – Unterschiede dazwischen sind Ortskenntnis, keine Messgröße.' }],
       seasonNotes: ['Angenehme Tage für Wege können beginnen, bevor sich das Meer sommerlich anfühlt.', 'Trockenes, helles Strandwetter ist häufig; Hitze, Sonne und warme Nächte prägen dennoch den Plan.', 'Der frühe Herbst kann nutzbare Meereswärme bewahren, während der Ort langsam ruhiger wird.', 'Milde Küstentage wechseln mit höherer Regenchance und kühleren Abenden.'],
-      intentNotes: ['Im Sommer stehen lange Strandtage im Vordergrund; prüft Hitze, UV und Meereslage aktuell.', 'Frühling und Herbst eignen sich oft für Orts- und Küstenwege mit weniger Mittagshitze.', 'Außerhalb des Hochsommers werden Straßen und Strände ruhiger, das Wetter aber variabler.', 'Bei mehreren Wochen zählen Wohnkomfort und Flexibilität mehr als ein Versprechen auf Wintersonne.'],
+      intentNotes: ['Lange, helle Sommertage verbinden ein morgendliches Bad ganz leicht mit einem ruhigen Lunch und einem Abend am Meer. Wählt den Strand nach Hitze, UV-Wert und aktueller Meereslage.', 'Frühling und Herbst bringen oft mildere Mittagsstunden für Balcón, Altstadtgassen und Küstenwege – so bleibt Zeit, Nerja gemeinsam und ohne Eile zu entdecken.', 'Außerhalb des Hochsommers schaffen ruhigere Straßen und Strände Raum für einen Kaffee, einen Spaziergang am Meer und spontane Pläne, wenn die Vorhersage wechselt.', 'Bei einem längeren Winteraufenthalt findet ihr in Nerjas Alltagsrhythmus. Wohnkomfort und Flexibilität zählen, während ihr die milden Küstentage nutzt, sobald sie sich zeigen.'],
       practical: 'Für Strandtage prüft ihr Lufttemperatur, Wind und Meereszustand getrennt. Legt offene Promenaden außerhalb der stärksten Sommersonne, nehmt eine leichte Abendschicht mit und macht aus einem Saisonmittel keine Entscheidung über das Baden morgen.'
     },
     es: {
@@ -287,7 +287,7 @@ const profiles: Profiles = {
       factorsTitle: 'La costa conecta aire, mar y estación, sin confundirlos', factors: ['La costa de Nerja aporta el enfoque marítimo. Temperatura del aire, temperatura del agua y estado del mar son variables diferentes.', 'El verano es seco a largo plazo y la mitad fresca más variable. Las medias mensuales no permiten fechar un episodio de lluvia.'],
       factorItems: [{ title: 'Influencia marina', text: 'El agua cambia más despacio que el aire; el calor primaveral no implica agua cálida.' }, { title: 'Exposición costera', text: 'Sol, brisa y abrigo modifican el confort entre playa, terraza y calle.' }, { title: 'Sin atajos con Frigiliana', text: 'El modelo puntual da los mismos valores para la costa y la ladera: las diferencias entre ambas son conocimiento local, no dato medido.' }],
       seasonNotes: ['Los días cómodos para caminar pueden llegar antes de que el mar parezca veraniego.', 'Tiempo de playa seco y luminoso, con calor, sol y noches templadas en la planificación.', 'El inicio puede conservar calor en el mar mientras el pueblo recupera calma.', 'Días costeros suaves alternan con mayor probabilidad de lluvia y tardes frescas.'],
-      intentNotes: ['El verano favorece la playa; consultad calor, UV y estado del mar en directo.', 'Primavera y otoño suelen facilitar paseos urbanos y costeros sin tanto calor central.', 'Fuera del verano punta, calles y playas se calman y el tiempo resulta menos predecible.', 'En estancias largas, el confort interior importa más que prometer sol invernal.'],
+      intentNotes: ['Los días largos y luminosos del verano permiten unir un baño por la mañana, un almuerzo tranquilo y una tarde junto al mar. Elegid la playa tras consultar calor, UV y estado actual del mar.', 'Primavera y otoño suelen suavizar el mediodía para recorrer el Balcón, las calles del casco antiguo y los caminos costeros juntos y sin prisas.', 'Fuera del verano punta, las calles y playas más tranquilas dejan espacio para un café, un paseo marítimo y planes espontáneos cuando cambia la previsión.', 'Una estancia larga en invierno permite entrar en el ritmo cotidiano de Nerja. El confort de la vivienda y la flexibilidad ayudan a disfrutar los días suaves de costa cuando llegan.'],
       practical: 'Para la playa, comprobad por separado aire, viento y estado del mar. Dejad los paseos expuestos fuera del sol más fuerte, llevad una capa ligera para la tarde y no convirtáis una media estacional en una decisión sobre el baño de mañana.'
     },
     nl: {
@@ -298,7 +298,7 @@ const profiles: Profiles = {
       factorsTitle: 'De kust verbindt lucht, zee en seizoen zonder ze gelijk te stellen', factors: ['Nerja’s kust geeft de pagina haar maritieme focus. Luchttemperatuur, watertemperatuur en toestand van de zee zijn verschillende variabelen.', 'De zomer is op lange termijn droog en het koelere deel wisselvalliger. Maandgemiddelden plannen geen losse regenbui.'],
       factorItems: [{ title: 'Invloed van de zee', text: 'Water verandert langzamer dan lucht; lentewarmte betekent niet automatisch warm zwemwater.' }, { title: 'Blootstelling aan de kust', text: 'Zon, bries en beschutting veranderen het comfort tussen strand, terras en straat.' }, { title: 'Geen Frigiliana-snelkoppeling', text: 'Identieke puntwaarden bewijzen geen gelijk lokaal klimaat aan kust en helling.' }],
       seasonNotes: ['Comfortabele wandeldagen kunnen beginnen voordat de zee zomers aanvoelt.', 'Droog en helder strandweer is gebruikelijk; hitte, zon en warme nachten blijven relevant.', 'Vroege herfst kan zeewarmte vasthouden terwijl het rustiger wordt.', 'Zachte kustdagen wisselen af met meer kans op regen en koelere avonden.'],
-      intentNotes: ['Zomer draait om lange stranddagen; bekijk hitte, UV en zeecondities actueel.', 'Lente en herfst zijn vaak prettiger voor dorp en kust zonder de sterkste middagwarmte.', 'Buiten hoogzomer worden strand en straten rustiger terwijl het weer minder voorspelbaar is.', 'Bij wekenlang verblijf tellen binnencomfort en flexibiliteit meer dan winterzon beloven.'],
+      intentNotes: ['Lange, lichte zomerdagen verbinden een ochtendduik vanzelf met een rustige lunch en een avond aan zee. Kies het strand nadat jullie hitte, UV en actuele zeecondities hebben bekeken.', 'Lente en herfst brengen vaak zachtere middagwarmte voor het Balcón, de oude straten en kustroutes, zodat jullie samen zonder haast op pad kunnen.', 'Buiten hoogzomer geven rustigere straten en stranden ruimte voor koffie, een wandeling langs zee en spontane plannen wanneer de verwachting verandert.', 'Tijdens een langer winterverblijf komen jullie in het dagelijkse ritme van Nerja. Wooncomfort en flexibiliteit tellen, terwijl zachte kustdagen worden benut zodra ze zich aandienen.'],
       practical: 'Controleer voor het strand lucht, wind en toestand van de zee afzonderlijk. Plan open promenades buiten de sterkste zomerzon, neem een lichte avondlaag mee en gebruik een seizoensgemiddelde niet als antwoord op morgen zwemmen.'
     },
     sv: {
@@ -309,7 +309,7 @@ const profiles: Profiles = {
       factorsTitle: 'Kusten förbinder luft, hav och säsong utan att blanda ihop dem', factors: ['Nerjas kust ger sidan dess maritima fokus. Lufttemperatur, vattentemperatur och havstillstånd är olika variabler.', 'Sommaren är långsiktigt torr och den svalare delen mer omväxlande. Månadsmedel kan inte schemalägga en regnskur.'],
       factorItems: [{ title: 'Havspåverkan', text: 'Vatten ändrar temperatur långsammare än luft; vårvärme betyder inte automatiskt varmt badvatten.' }, { title: 'Kustexponering', text: 'Sol, bris och skydd ändrar komforten mellan strand, terrass och gata.' }, { title: 'Ingen genväg via Frigiliana', text: 'Identiska punktvärden bevisar inte samma lokala klimat vid kust och sluttning.' }],
       seasonNotes: ['Behagliga promenaddagar kan komma innan havet känns somrigt.', 'Torrt och ljust strandväder är vanligt; hetta, sol och varma nätter påverkar planen.', 'Tidig höst kan behålla havsvärme samtidigt som orten blir lugnare.', 'Milda kustdagar växlar med större chans för regn och svalare kvällar.'],
-      intentNotes: ['Sommaren prioriterar långa stranddagar; kontrollera hetta, UV och havsläge aktuellt.', 'Vår och höst passar ofta orts- och kustpromenader utan starkaste middagsvärmen.', 'Utanför högsommaren blir stränder och gator lugnare medan vädret varierar mer.', 'Vid flera veckor betyder inomhuskomfort och flexibilitet mer än löften om vintersol.'],
+      intentNotes: ['Långa, ljusa sommardagar gör det enkelt att förena ett morgondopp med en lugn lunch och en kväll vid havet. Välj strand efter aktuell hetta, UV-nivå och havsläge.', 'Vår och höst ger ofta mildare middagsvärme för Balcón, gamla stans gränder och kuststråk, så att ni kan upptäcka Nerja tillsammans utan brådska.', 'Utanför högsommaren ger lugnare gator och stränder utrymme för kaffe, en promenad längs havet och spontana planer när prognosen skiftar.', 'En längre vintervistelse låter er komma in i Nerjas vardagsrytm. Boendekomfort och flexibilitet är viktigast, medan milda kustdagar tas till vara när de kommer.'],
       practical: 'Kontrollera luft, vind och havstillstånd separat inför stranddagen. Lägg öppna promenader utanför starkaste sommarsolen, ta med ett lätt kvällslager och låt inte ett säsongsmedel avgöra morgondagens bad.'
     }
   },
@@ -322,7 +322,7 @@ const profiles: Profiles = {
       factorsTitle: 'The Strait makes wind part of ordinary travel planning', factors: ['Tarifa sits where Atlantic and Mediterranean contexts meet. The Strait helps explain a strongly maritime, exposed setting, but conditions still vary by day and place.', 'Levante is the easterly wind and Poniente the westerly name travellers hear most often. Neither name guarantees a fixed force, temperature or beach experience.'],
       factorItems: [{ title: 'Strait and Atlantic', text: 'Passing systems, marine air and exposure create a more changeable feel than a temperature table alone suggests.' }, { title: 'Levante and Poniente', text: 'Direction matters to comfort, but strength and local shelter must be checked for the day.' }, { title: 'General guide, not spot advice', text: 'Technical watersports and beach-safety decisions belong with current specialist information.' }],
       seasonNotes: ['Longer days and mixed conditions suit flexible combinations of town, coast and landscape.', 'Dry and bright, with sun and wind both central to beach comfort.', 'September may still feel summery before rain and Atlantic variability become more prominent.', 'Mild in coastal terms, but more exposed to rain, fronts and changing wind.'],
-      intentNotes: ['Summer suits dry beach rhythm when the current wind makes the chosen setting comfortable.', 'Spring and autumn support exploring if town, coast and landscape remain interchangeable.', 'Outside peak summer, a quieter Tarifa rewards visitors who can change the plan with the forecast.', 'For a longer winter stay, use the dedicated conversion guide for home comfort and routines.'],
+      intentNotes: ['Summer’s dry, bright rhythm gives you long hours between beach and town. Check the current wind first, then choose the shore whose shelter suits the day.', 'Spring and autumn invite days that move between old town, coast and landscape. Keeping those options interchangeable turns changing wind into a choice rather than a disruption.', 'Outside peak summer, Tarifa’s quieter streets leave room for a slow lunch, a walk by the walls and an evening together; let the forecast decide which comes first.', 'A longer winter stay brings everyday Tarifa into view. The dedicated guide helps you choose home comfort and routines while flexible days follow fronts and clearer intervals.'],
       practical: 'In Tarifa, temperature is only one planning input. Check wind direction and strength before selecting an exposed beach, carry sun protection even when moving air feels cool, and keep a town or inland alternative for days when the coast does not fit the plan.'
     },
     de: {
@@ -333,7 +333,7 @@ const profiles: Profiles = {
       factorsTitle: 'An der Meerenge gehört Wind zur normalen Reiseplanung', factors: ['Tarifa liegt im Übergang von atlantischem und mediterranem Kontext. Die Meerenge erklärt die maritime, exponierte Lage; die Bedingungen unterscheiden sich dennoch nach Tag und Ort.', 'Levante bezeichnet den Ostwind, Poniente den Westwind. Keiner der Namen garantiert feste Stärke, Temperatur oder Strandkomfort.'],
       factorItems: [{ title: 'Meerenge und Atlantik', text: 'Durchziehende Systeme, Meeresluft und Exposition erzeugen mehr Wechsel, als eine Temperaturtabelle zeigt.' }, { title: 'Levante und Poniente', text: 'Die Richtung prägt den Komfort; Stärke und örtlicher Schutz müssen tagesaktuell geprüft werden.' }, { title: 'Allgemeiner Guide, keine Spot-Beratung', text: 'Technische Wassersport- und Sicherheitsentscheidungen gehören zu aktuellen Spezialinformationen.' }],
       seasonNotes: ['Längere Tage und gemischte Bedingungen eignen sich für flexible Kombinationen aus Ort, Küste und Landschaft.', 'Trocken und hell; für den Strandkomfort zählen Sonne und Wind gemeinsam.', 'September kann sommerlich bleiben, bevor Regen und atlantische Wechselhaftigkeit zunehmen.', 'Für Küstenverhältnisse mild, aber stärker von Regen, Fronten und Windwechseln geprägt.'],
-      intentNotes: ['Sommer passt zum trockenen Strandrhythmus, wenn der aktuelle Wind zum gewählten Ort passt.', 'Frühling und Herbst eignen sich zum Erkunden, wenn Küste, Ort und Landschaft austauschbar bleiben.', 'Außerhalb des Hochsommers belohnt das ruhigere Tarifa Gäste, die ihren Plan ändern können.', 'Für längere Winteraufenthalte behandelt der eigene Conversion-Guide Wohnkomfort und Alltag.'],
+      intentNotes: ['Der trockene, helle Sommerrhythmus schenkt euch lange Stunden zwischen Strand und Ort. Prüft zuerst den aktuellen Wind und wählt dann den Küstenabschnitt, dessen Schutz zum Tag passt.', 'Frühling und Herbst laden zu Tagen zwischen Altstadt, Küste und Landschaft ein. Wenn diese Optionen austauschbar bleiben, wird wechselnder Wind zur Wahl statt zur Störung.', 'Außerhalb des Hochsommers lassen Tarifas ruhigere Gassen Raum für einen langen Lunch, einen Weg an der Mauer und einen gemeinsamen Abend; die Vorhersage bestimmt nur die Reihenfolge.', 'Ein längerer Winteraufenthalt zeigt euch Tarifas Alltag. Der eigene Guide hilft bei Wohnkomfort und Routinen, während flexible Tage den Fronten und helleren Phasen folgen.'],
       practical: 'In Tarifa ist Temperatur nur ein Planungswert. Prüft Windrichtung und Stärke vor der Wahl eines offenen Strands, nehmt trotz kühlender Luft Sonnenschutz mit und haltet eine Orts- oder Inlandoption bereit, wenn die Küste nicht zum Tag passt.'
     },
     es: {
@@ -344,7 +344,7 @@ const profiles: Profiles = {
       factorsTitle: 'En el Estrecho, el viento forma parte de la planificación normal', factors: ['Tarifa se sitúa entre contextos atlántico y mediterráneo. El Estrecho explica su exposición marítima, pero las condiciones varían según día y lugar.', 'Levante es el viento del este y Poniente el del oeste. Ningún nombre garantiza fuerza, temperatura o confort fijo.'],
       factorItems: [{ title: 'Estrecho y Atlántico', text: 'Sistemas, aire marino y exposición crean más variación de la que muestra una tabla térmica.' }, { title: 'Levante y Poniente', text: 'La dirección importa, pero fuerza y abrigo local deben comprobarse cada día.' }, { title: 'Guía general, no consejo de spot', text: 'Deporte acuático y seguridad requieren información técnica y actual.' }],
       seasonNotes: ['Días largos y condiciones mixtas para combinar con flexibilidad pueblo, costa y paisaje.', 'Seco y luminoso, con sol y viento juntos en el confort de playa.', 'Septiembre puede seguir veraniego antes de aumentar lluvia y variabilidad atlántica.', 'Suave para la costa, pero más expuesto a lluvia, frentes y cambios de viento.'],
-      intentNotes: ['El verano favorece la playa seca si el viento actual encaja con el lugar elegido.', 'Primavera y otoño funcionan para explorar si costa, pueblo y paisaje son intercambiables.', 'Fuera del verano punta, una Tarifa tranquila premia poder cambiar el plan.', 'Para invierno largo, la guía específica trata confort de vivienda y rutina.'],
+      intentNotes: ['El ritmo seco y luminoso del verano ofrece muchas horas entre playa y pueblo. Consultad primero el viento actual y elegid después la costa cuyo abrigo encaje con el día.', 'Primavera y otoño invitan a pasar del casco antiguo a la costa y al paisaje. Mantener esas opciones intercambiables convierte el cambio de viento en una elección, no en una interrupción.', 'Fuera del verano punta, las calles tranquilas de Tarifa dejan espacio para un almuerzo largo, un paseo junto a la muralla y una tarde juntos; la previsión solo decide el orden.', 'Una estancia larga en invierno descubre la Tarifa cotidiana. La guía específica ayuda con el confort de la vivienda y las rutinas mientras los días flexibles siguen los frentes y los claros.'],
       practical: 'En Tarifa, la temperatura es solo una variable. Consultad dirección y fuerza del viento antes de elegir una playa abierta, mantened la protección solar aunque el aire refresque y guardad una alternativa urbana o interior cuando la costa no encaje.'
     },
     nl: {
@@ -355,7 +355,7 @@ const profiles: Profiles = {
       factorsTitle: 'Aan de Straat hoort wind bij gewone reisplanning', factors: ['Tarifa ligt waar Atlantische en mediterrane context samenkomen. De Straat verklaart de maritieme blootstelling, maar omstandigheden verschillen per dag en plek.', 'Levante is de oostenwind en Poniente de westenwind. Geen van beide namen garandeert vaste kracht, temperatuur of strandcomfort.'],
       factorItems: [{ title: 'Straat en Atlantische Oceaan', text: 'Fronten, zeelucht en blootstelling geven meer variatie dan een temperatuurtabel toont.' }, { title: 'Levante en Poniente', text: 'Richting beïnvloedt comfort; kracht en lokale beschutting moeten actueel worden bekeken.' }, { title: 'Algemene gids, geen spotadvies', text: 'Technische watersport- en veiligheidskeuzes horen bij actuele specialistische informatie.' }],
       seasonNotes: ['Langere dagen en gemengde omstandigheden voor flexibele combinaties van stad, kust en landschap.', 'Droog en helder, met zon en wind samen bepalend voor strandcomfort.', 'September kan zomers blijven voordat regen en Atlantische wisselvalligheid toenemen.', 'Mild voor de kust, maar meer blootgesteld aan regen, fronten en veranderende wind.'],
-      intentNotes: ['Zomer past bij droog strandritme als de actuele wind bij de gekozen plek past.', 'Lente en herfst zijn geschikt om te ontdekken wanneer kust, stad en landschap uitwisselbaar blijven.', 'Buiten hoogzomer beloont rustiger Tarifa bezoekers die hun plan kunnen veranderen.', 'Voor een lange winter behandelt de aparte gids wooncomfort en dagelijks ritme.'],
+      intentNotes: ['Het droge, lichte zomerritme geeft jullie lange uren tussen strand en stad. Bekijk eerst de actuele wind en kies daarna de kust waarvan de beschutting bij de dag past.', 'Lente en herfst nodigen uit tot dagen tussen oude stad, kust en landschap. Als die opties uitwisselbaar blijven, wordt veranderende wind een keuze in plaats van een onderbreking.', 'Buiten hoogzomer laten Tarifas rustigere straten ruimte voor een lange lunch, een wandeling langs de muren en een avond samen; de verwachting bepaalt alleen de volgorde.', 'Een langer winterverblijf brengt het dagelijkse Tarifa in beeld. De aparte gids helpt met wooncomfort en routines, terwijl flexibele dagen fronten en heldere perioden volgen.'],
       practical: 'In Tarifa is temperatuur maar één invoer. Bekijk windrichting en kracht voor een open strand, neem zonbescherming mee ook als de lucht koel voelt en houd een alternatief in stad of binnenland klaar.'
     },
     sv: {
@@ -366,7 +366,7 @@ const profiles: Profiles = {
       factorsTitle: 'Vid sundet ingår vinden i vanlig reseplanering', factors: ['Tarifa ligger där atlantisk och mediterran kontext möts. Sundet förklarar det maritima, exponerade läget men förhållanden varierar mellan dagar och platser.', 'Levante är östvinden och Poniente västvinden. Inget namn garanterar fast styrka, temperatur eller strandkomfort.'],
       factorItems: [{ title: 'Sund och Atlanten', text: 'Fronter, havsluft och exponering ger mer variation än en temperaturtabell visar.' }, { title: 'Levante och Poniente', text: 'Riktningen påverkar komforten; styrka och lokalt skydd måste kontrolleras för dagen.' }, { title: 'Allmän guide, inget spotråd', text: 'Tekniska vattensport- och säkerhetsbeslut hör till aktuell specialistinformation.' }],
       seasonNotes: ['Längre dagar och blandade förhållanden för flexibla kombinationer av stad, kust och landskap.', 'Torrt och ljust, med både sol och vind centrala för strandkomfort.', 'September kan kännas somrig innan regn och atlantisk variation ökar.', 'Milt för kusten, men mer utsatt för regn, fronter och växlande vind.'],
-      intentNotes: ['Sommaren passar torr strandrytm när dagens vind fungerar på den valda platsen.', 'Vår och höst passar upptäckter om kust, stad och landskap kan byta plats i planen.', 'Utanför högsommaren belönar lugnare Tarifa den som kan ändra plan.', 'För en lång vinter behandlar den särskilda guiden boendekomfort och vardag.'],
+      intentNotes: ['Sommarens torra, ljusa rytm ger er långa timmar mellan strand och stad. Kontrollera dagens vind först och välj sedan den kuststräcka vars skydd passar dagen.', 'Vår och höst bjuder in till dagar mellan gamla stan, kusten och landskapet. När alternativen kan byta plats blir växlande vind ett val i stället för ett avbrott.', 'Utanför högsommaren ger Tarifas lugnare gator utrymme för en lång lunch, en promenad längs murarna och en kväll tillsammans; prognosen avgör bara ordningen.', 'En längre vintervistelse visar vardagens Tarifa. Den särskilda guiden hjälper er med boendekomfort och rutiner medan flexibla dagar följer fronter och klarare perioder.'],
       practical: 'I Tarifa är temperaturen bara en planeringsfaktor. Kontrollera vindriktning och styrka före en öppen strand, använd solskydd även när luften känns sval och behåll ett alternativ i staden eller inlandet.'
     }
   }
@@ -374,7 +374,7 @@ const profiles: Profiles = {
 
 const relatedTokens: Record<WeatherDestination, [LinkToken, LinkToken, LinkToken]> = {
   frigiliana: ['frigiliana_geography', 'frigiliana_stairs', 'frigiliana_winter_stays'],
-  nerja: ['nerja_geography', 'nerja_where_to_stay', 'getting_to_nerja'],
+  nerja: ['nerja_geography', 'nerja_where_to_stay', 'nerja_winter_stays'],
   tarifa: ['tarifa_geography', 'tarifa_where_to_stay', 'tarifa_winter_stays']
 };
 
@@ -516,12 +516,25 @@ export function getWeatherAuthorityContent(destination: WeatherDestination, lang
     nl: 'Weer & seizoenen',
     sv: 'Väder & årstider'
   };
-  const nerjaArrivalLabels: Record<AmaraLanguage, { label: string; text: string }> = {
-    en: { label: 'Arrival & mobility', text: 'Connect airports, coaches and the final stretch into Nerja.' },
-    de: { label: 'Anreise & Mobilität', text: 'Flughäfen, Busverbindungen und die letzte Etappe nach Nerja verbinden.' },
-    es: { label: 'Llegada y movilidad', text: 'Conectar aeropuertos, autobuses y el último tramo hasta Nerja.' },
-    nl: { label: 'Aankomst & mobiliteit', text: 'Verbind luchthavens, bussen en het laatste stuk naar Nerja.' },
-    sv: { label: 'Ankomst & mobilitet', text: 'Koppla ihop flygplatser, bussar och sista sträckan till Nerja.' }
+  const siblingRelated: Record<'nerja' | 'tarifa', Record<AmaraLanguage, {
+    eyebrow: string;
+    title: string;
+    items: Array<{ label: string; text: string }>;
+  }>> = {
+    nerja: {
+      en: { eyebrow: 'Your next Nerja question', title: 'Connect the weather to the place you choose', items: [{ label: 'Read Nerja’s coast and hills', text: 'See how shoreline, shelter and the terrain behind town shape each day.' }, { label: 'Choose a base for your rhythm', text: 'Compare Nerja’s areas for beach time, old-town evenings and easy movement.' }, { label: 'Plan a longer winter stay', text: 'Turn cooler-season flexibility into a comfortable everyday routine.' }] },
+      de: { eyebrow: 'Eure nächste Nerja-Frage', title: 'Das Wetter mit der passenden Lage verbinden', items: [{ label: 'Nerjas Küste und Hänge verstehen', text: 'Seht, wie Ufer, Schutz und das Gelände hinter dem Ort den Tag prägen.' }, { label: 'Eine Basis für euren Rhythmus wählen', text: 'Vergleicht Nerjas Lagen für Strandzeit, Altstadtabende und kurze Wege.' }, { label: 'Einen längeren Winteraufenthalt planen', text: 'Macht aus Flexibilität in der kühleren Saison einen angenehmen Alltag.' }] },
+      es: { eyebrow: 'La siguiente pregunta sobre Nerja', title: 'Conectar el tiempo con la zona adecuada', items: [{ label: 'Entender la costa y las laderas', text: 'Ved cómo el litoral, el abrigo y el relieve tras el pueblo cambian cada día.' }, { label: 'Elegir una base para vuestro ritmo', text: 'Comparad las zonas de Nerja para playa, tardes en el casco antiguo y trayectos sencillos.' }, { label: 'Planificar una estancia larga en invierno', text: 'Convertid la flexibilidad de la época fresca en una rutina cómoda.' }] },
+      nl: { eyebrow: 'Jullie volgende vraag over Nerja', title: 'Verbind het weer met de juiste verblijfplaats', items: [{ label: 'Begrijp Nerja’s kust en heuvels', text: 'Bekijk hoe kustlijn, beschutting en het terrein achter de stad elke dag vormen.' }, { label: 'Kies een basis voor jullie ritme', text: 'Vergelijk Nerja’s gebieden voor strandtijd, avonden in de oude stad en makkelijke routes.' }, { label: 'Plan een langer winterverblijf', text: 'Maak van flexibiliteit in het koelere seizoen een comfortabel dagelijks ritme.' }] },
+      sv: { eyebrow: 'Er nästa fråga om Nerja', title: 'Koppla vädret till rätt plats att bo på', items: [{ label: 'Förstå Nerjas kust och höjder', text: 'Se hur strandlinje, skydd och terrängen bakom staden formar dagen.' }, { label: 'Välj en bas för er rytm', text: 'Jämför Nerjas områden för strandtid, kvällar i gamla stan och enkla förflyttningar.' }, { label: 'Planera en längre vintervistelse', text: 'Gör den svalare säsongens flexibilitet till en bekväm vardagsrytm.' }] }
+    },
+    tarifa: {
+      en: { eyebrow: 'Your next Tarifa question', title: 'Choose the setting that works with the wind', items: [{ label: 'Understand the Strait setting', text: 'Read the exposed coast, Atlantic influence and Tarifa’s position at the Strait.' }, { label: 'Choose shelter and daily access', text: 'Compare areas for old-town evenings, beach plans and an easy return home.' }, { label: 'Plan winter comfort in Tarifa', text: 'Build a longer stay around home comfort, routines and forecast-led days.' }] },
+      de: { eyebrow: 'Eure nächste Tarifa-Frage', title: 'Die Lage wählen, die mit dem Wind funktioniert', items: [{ label: 'Die Lage an der Meerenge verstehen', text: 'Ordnet offene Küste, Atlantikeinfluss und Tarifas Position an der Meerenge ein.' }, { label: 'Schutz und kurze Alltagswege wählen', text: 'Vergleicht Lagen für Altstadtabende, Strandpläne und einen einfachen Heimweg.' }, { label: 'Winterkomfort in Tarifa planen', text: 'Baut einen längeren Aufenthalt auf Wohnkomfort, Routinen und Vorhersage auf.' }] },
+      es: { eyebrow: 'La siguiente pregunta sobre Tarifa', title: 'Elegir el entorno que funciona con el viento', items: [{ label: 'Entender el entorno del Estrecho', text: 'Situad la costa expuesta, la influencia atlántica y la posición de Tarifa.' }, { label: 'Elegir abrigo y accesos diarios', text: 'Comparad zonas para tardes en el casco antiguo, playa y una vuelta sencilla a casa.' }, { label: 'Planificar el confort invernal', text: 'Organizad una estancia larga con vivienda cómoda, rutinas y días guiados por la previsión.' }] },
+      nl: { eyebrow: 'Jullie volgende vraag over Tarifa', title: 'Kies de omgeving die met de wind werkt', items: [{ label: 'Begrijp de ligging aan de Straat', text: 'Plaats de open kust, Atlantische invloed en Tarifas positie aan de Straat in context.' }, { label: 'Kies beschutting en dagelijks gemak', text: 'Vergelijk gebieden voor avonden in de oude stad, strandplannen en een makkelijke weg naar huis.' }, { label: 'Plan wintercomfort in Tarifa', text: 'Bouw een langer verblijf rond wooncomfort, routines en dagen volgens de verwachting.' }] },
+      sv: { eyebrow: 'Er nästa fråga om Tarifa', title: 'Välj platsen som fungerar med vinden', items: [{ label: 'Förstå läget vid sundet', text: 'Sätt den öppna kusten, Atlantens inflytande och Tarifas läge vid sundet i sitt sammanhang.' }, { label: 'Välj skydd och enkel vardag', text: 'Jämför områden för kvällar i gamla stan, strandplaner och en smidig väg hem.' }, { label: 'Planera vinterkomfort i Tarifa', text: 'Bygg en längre vistelse kring boendekomfort, rutiner och prognosstyrda dagar.' }] }
+    }
   };
   const frigilianaIntentLinks: Record<AmaraLanguage, Array<{ token: LinkToken; label: string }>> = {
     en: [
@@ -555,6 +568,82 @@ export function getWeatherAuthorityContent(destination: WeatherDestination, lang
       { token: 'frigiliana_winter_stays', label: 'Upptäck vintervistelser i Frigiliana' }
     ]
   };
+  const nerjaIntentLinks: Record<AmaraLanguage, Array<{ token: LinkToken; label: string }>> = {
+    en: [
+      { token: 'nerja_beaches_authority', label: 'Choose a Nerja beach' },
+      { token: 'nerja_experience_hub', label: 'Explore Nerja together' },
+      { token: 'nerja_daily_life', label: 'Discover Nerja’s daily rhythm' },
+      { token: 'nerja_winter_stays', label: 'Explore winter stays in Nerja' }
+    ],
+    de: [
+      { token: 'nerja_beaches_authority', label: 'Einen Strand in Nerja wählen' },
+      { token: 'nerja_experience_hub', label: 'Nerja gemeinsam entdecken' },
+      { token: 'nerja_daily_life', label: 'Nerjas Alltagsrhythmus kennenlernen' },
+      { token: 'nerja_winter_stays', label: 'Winteraufenthalte in Nerja entdecken' }
+    ],
+    es: [
+      { token: 'nerja_beaches_authority', label: 'Elegir una playa de Nerja' },
+      { token: 'nerja_experience_hub', label: 'Descubrir Nerja juntos' },
+      { token: 'nerja_daily_life', label: 'Conocer el ritmo cotidiano de Nerja' },
+      { token: 'nerja_winter_stays', label: 'Descubrir estancias de invierno en Nerja' }
+    ],
+    nl: [
+      { token: 'nerja_beaches_authority', label: 'Kies een strand in Nerja' },
+      { token: 'nerja_experience_hub', label: 'Ontdek Nerja samen' },
+      { token: 'nerja_daily_life', label: 'Ontdek het dagelijkse ritme van Nerja' },
+      { token: 'nerja_winter_stays', label: 'Ontdek winterverblijven in Nerja' }
+    ],
+    sv: [
+      { token: 'nerja_beaches_authority', label: 'Välj en strand i Nerja' },
+      { token: 'nerja_experience_hub', label: 'Upptäck Nerja tillsammans' },
+      { token: 'nerja_daily_life', label: 'Upptäck Nerjas vardagsrytm' },
+      { token: 'nerja_winter_stays', label: 'Upptäck vintervistelser i Nerja' }
+    ]
+  };
+  const tarifaIntentLinks: Record<AmaraLanguage, Array<{ token: LinkToken; label: string }>> = {
+    en: [
+      { token: 'tarifa_beaches_authority', label: 'Choose a Tarifa beach' },
+      { token: 'tarifa_experience_hub', label: 'Explore Tarifa together' },
+      { token: 'tarifa_old_town_history', label: 'Discover Tarifa’s old town' },
+      { token: 'tarifa_winter_stays', label: 'Explore winter stays in Tarifa' }
+    ],
+    de: [
+      { token: 'tarifa_beaches_authority', label: 'Einen Strand in Tarifa wählen' },
+      { token: 'tarifa_experience_hub', label: 'Tarifa gemeinsam entdecken' },
+      { token: 'tarifa_old_town_history', label: 'Tarifas Altstadt entdecken' },
+      { token: 'tarifa_winter_stays', label: 'Winteraufenthalte in Tarifa entdecken' }
+    ],
+    es: [
+      { token: 'tarifa_beaches_authority', label: 'Elegir una playa de Tarifa' },
+      { token: 'tarifa_experience_hub', label: 'Descubrir Tarifa juntos' },
+      { token: 'tarifa_old_town_history', label: 'Descubrir el casco antiguo de Tarifa' },
+      { token: 'tarifa_winter_stays', label: 'Descubrir estancias de invierno en Tarifa' }
+    ],
+    nl: [
+      { token: 'tarifa_beaches_authority', label: 'Kies een strand in Tarifa' },
+      { token: 'tarifa_experience_hub', label: 'Ontdek Tarifa samen' },
+      { token: 'tarifa_old_town_history', label: 'Ontdek de oude stad van Tarifa' },
+      { token: 'tarifa_winter_stays', label: 'Ontdek winterverblijven in Tarifa' }
+    ],
+    sv: [
+      { token: 'tarifa_beaches_authority', label: 'Välj en strand i Tarifa' },
+      { token: 'tarifa_experience_hub', label: 'Upptäck Tarifa tillsammans' },
+      { token: 'tarifa_old_town_history', label: 'Upptäck Tarifas gamla stad' },
+      { token: 'tarifa_winter_stays', label: 'Upptäck vintervistelser i Tarifa' }
+    ]
+  };
+  const intentLinks = destination === 'frigiliana'
+    ? frigilianaIntentLinks[lang]
+    : destination === 'nerja'
+      ? nerjaIntentLinks[lang]
+      : tarifaIntentLinks[lang];
+  const relatedCopy = destination === 'frigiliana'
+    ? {
+        eyebrow: common.relatedEyebrow,
+        title: common.relatedTitle,
+        items: common.relatedLabels.map((label, index) => ({ label, text: common.relatedTexts[index] }))
+      }
+    : siblingRelated[destination][lang];
 
   return {
     navLabel: navLabels[lang],
@@ -571,7 +660,7 @@ export function getWeatherAuthorityContent(destination: WeatherDestination, lang
       title: common.bestTitle,
       intro: common.bestIntro,
       items: common.intentTitles.map((title, index) => {
-        const link = destination === 'frigiliana' ? frigilianaIntentLinks[lang][index] : undefined;
+        const link = intentLinks[index];
         return {
           title,
           text: profile.intentNotes[index],
@@ -585,16 +674,12 @@ export function getWeatherAuthorityContent(destination: WeatherDestination, lang
       : { eyebrow: common.forecastEyebrow, title: common.forecastTitle, paragraphs: common.forecastParagraphs, cta: common.forecastCta },
     sources: { eyebrow: common.sourcesEyebrow, title: common.sourcesTitle, intro: common.sourcesIntro, checked: common.sourcesChecked, links },
     related: {
-      eyebrow: common.relatedEyebrow,
-      title: common.relatedTitle,
+      eyebrow: relatedCopy.eyebrow,
+      title: relatedCopy.title,
       links: relatedTokens[destination].map((token, index) => ({
         token,
-        label: destination === 'nerja' && index === 2
-          ? nerjaArrivalLabels[lang].label
-          : common.relatedLabels[index],
-        text: destination === 'nerja' && index === 2
-          ? nerjaArrivalLabels[lang].text
-          : common.relatedTexts[index]
+        label: relatedCopy.items[index].label,
+        text: relatedCopy.items[index].text
       }))
     },
     closing: { eyebrow: common.closingEyebrow, title: common.closingTitle, body: common.closingBody, primaryLabel: common.primaryLabel, secondaryLabel: common.secondaryLabel }
@@ -603,7 +688,7 @@ export function getWeatherAuthorityContent(destination: WeatherDestination, lang
 
 const article = {
   datePublished: '2026-08-13',
-  dateModified: '2026-08-21',
+  dateModified: '2026-08-27',
   authorName: 'Robert Sebastian Böhmer',
   authorType: 'Person' as const,
   authorSlug: 'amara-about-us'
@@ -611,14 +696,13 @@ const article = {
 
 export function getWeatherSeo(destination: WeatherDestination): AmaraAuthoringSeo {
   const place = names[destination];
-  const dateModified = destination === 'frigiliana' ? '2026-08-27' : article.dateModified;
   return {
     version: destination === 'frigiliana'
       ? '2026-08-27-frigiliana-weather-v2.2'
-      : `2026-08-21-${destination}-weather-v2.0`,
+      : `2026-08-27-${destination}-weather-v2.1`,
     pageType: 'A',
     entityKey: 'amara-brand',
-    article: { ...article, dateModified },
+    article,
     languages: Object.fromEntries((['en', 'de', 'es', 'nl', 'sv'] as AmaraLanguage[]).map((lang) => [lang, {
       title: shared[lang].seoTitle(place),
       description: profiles[destination][lang].description,
