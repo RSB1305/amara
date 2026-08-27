@@ -769,7 +769,7 @@ export const cinematicHoneymoonCtaLabel: CopyRow = {
 
 export const cinematicHostLabel: CopyRow = {
   en: 'Meet your hosts',
-  de: 'Lernt eure Gastgeber kennen',
+  de: 'Über AMARA ❤︎ und euren Gastgeber',
   es: 'Conoced a vuestros anfitriones',
   nl: 'Maak kennis met jullie gastheren',
   sv: 'Lär känna era värdar'
