@@ -62,6 +62,10 @@ const experienceGroups = [
       </header>
 
       <div class="context-bar">
+        <nav class="breadcrumbs" aria-label="Brotkrümelnavigation">
+          <a href="#">AMARA</a><span>/</span><a href="#">FRIGILIANA</a><span>/</span><span>WETTER & JAHRESZEITEN</span>
+        </nav>
+
         <nav class="branches" aria-label="Frigiliana entdecken">
           <details class="branch-guide active" name="frigiliana-branch">
             <summary>
@@ -125,10 +129,6 @@ const experienceGroups = [
       </div>
 
       <main>
-        <nav class="breadcrumbs" aria-label="Brotkrümelnavigation">
-          <a href="#">AMARA</a><span>/</span><a href="#">FRIGILIANA</a><span>/</span><span>WETTER & JAHRESZEITEN</span>
-        </nav>
-
         <section class="hero" aria-labelledby="preview-title">
           <div class="hero-copy">
             <p class="eyebrow">KLIMA & REISEZEIT</p>
@@ -280,7 +280,8 @@ const experienceGroups = [
     display: flex;
     min-height: 3.75rem;
     align-items: stretch;
-    justify-content: flex-end;
+    justify-content: space-between;
+    gap: 2rem;
     padding: 0 clamp(1.5rem, 4vw, 5rem);
     border-bottom: 1px solid rgba(74, 63, 50, 0.12);
     background: #f8f5ef;
@@ -409,7 +410,8 @@ const experienceGroups = [
     display: flex;
     flex-wrap: wrap;
     gap: 0.55rem;
-    margin-bottom: 2rem;
+    min-width: 0;
+    align-items: center;
   }
 
   .hero {
@@ -543,10 +545,18 @@ const experienceGroups = [
     }
 
     .context-bar {
+      flex-wrap: wrap;
+      gap: 0;
       padding: 0 1.25rem;
     }
 
+    .context-bar .breadcrumbs {
+      width: 100%;
+      min-height: 3rem;
+    }
+
     .branches {
+      width: 100%;
       justify-content: flex-start;
     }
 
