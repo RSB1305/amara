@@ -21,6 +21,13 @@ const guideGroups = [
     items: ['Supermärkte & Alltagseinkauf', 'Gesundheit & Notfälle', 'Gut zu wissen']
   }
 ];
+
+const experienceGroups = [
+  { label: 'Draußen unterwegs', items: ['Wandern', 'Strände & Küste'] },
+  { label: 'Essen & Alltag', items: ['Restaurants', 'Wochenmarkt'] },
+  { label: 'Kultur & Ausflüge', items: ['Feste', 'Tagesausflüge'] },
+  { label: 'Ruhe & Erholung', items: ['Wellness'] }
+];
 ---
 
 <!DOCTYPE html>
@@ -58,42 +65,65 @@ const guideGroups = [
         <a class="destination" href="#">FRIGILIANA</a>
 
         <nav class="branches" aria-label="Frigiliana entdecken">
-          <a class="active" href="#" aria-current="page">ORT</a>
-          <a href="#">ERLEBNISSE</a>
+          <details class="branch-guide active" name="frigiliana-branch">
+            <summary>
+              <span>ORT</span>
+              <span class="chevron" aria-hidden="true">⌄</span>
+            </summary>
+
+            <div class="guide-panel">
+              <div class="guide-intro">
+                <p>FRIGILIANA ENTDECKEN</p>
+                <h2>Plant euren Aufenthalt</h2>
+              </div>
+
+              <div class="guide-groups">
+                {
+                  guideGroups.map((group) => (
+                    <section>
+                      <h3>{group.label}</h3>
+                      {group.items.map((item) => (
+                        <a
+                          class:list={[item === group.active && 'current']}
+                          href="#"
+                          aria-current={item === group.active ? 'page' : undefined}
+                        >
+                          <span>{item}</span>
+                          {item === group.active && <small>AKTUELL</small>}
+                        </a>
+                      ))}
+                    </section>
+                  ))
+                }
+              </div>
+            </div>
+          </details>
+
+          <details class="branch-guide" name="frigiliana-branch">
+            <summary>
+              <span>ERLEBNISSE</span>
+              <span class="chevron" aria-hidden="true">⌄</span>
+            </summary>
+
+            <div class="guide-panel">
+              <div class="guide-intro">
+                <p>FRIGILIANA ERLEBEN</p>
+                <h2>Wählt euren Tag</h2>
+              </div>
+
+              <div class="guide-groups">
+                {
+                  experienceGroups.map((group) => (
+                    <section>
+                      <h3>{group.label}</h3>
+                      {group.items.map((item) => <a href="#">{item}</a>)}
+                    </section>
+                  ))
+                }
+              </div>
+            </div>
+          </details>
         </nav>
-
-        <details class="guide-menu">
-          <summary aria-label="Frigiliana Guide öffnen">
-            <span class="chevron" aria-hidden="true">⌄</span>
-          </summary>
-
-          <div class="guide-panel">
-            <div class="guide-intro">
-              <p>FRIGILIANA ENTDECKEN</p>
-              <h2>Plant euren Aufenthalt</h2>
-            </div>
-
-            <div class="guide-groups">
-              {
-                guideGroups.map((group) => (
-                  <section>
-                    <h3>{group.label}</h3>
-                    {group.items.map((item) => (
-                      <a
-                        class:list={[item === group.active && 'current']}
-                        href="#"
-                        aria-current={item === group.active ? 'page' : undefined}
-                      >
-                        <span>{item}</span>
-                        {item === group.active && <small>AKTUELL</small>}
-                      </a>
-                    ))}
-                  </section>
-                ))
-              }
-            </div>
-          </div>
-        </details>
       </div>
 
       <main>
@@ -211,8 +241,7 @@ const guideGroups = [
 
   .primary-nav a,
   .destination,
-  .branches a,
-  .guide-menu summary,
+  .branch-guide summary,
   .availability {
     font-family: var(--font-label);
     font-size: 0.7rem;
@@ -252,7 +281,7 @@ const guideGroups = [
     position: relative;
     z-index: 3;
     display: grid;
-    grid-template-columns: minmax(8rem, 1fr) auto auto;
+    grid-template-columns: minmax(8rem, 1fr) auto;
     min-height: 3.75rem;
     align-items: stretch;
     padding: 0 clamp(1.5rem, 4vw, 5rem);
@@ -267,36 +296,30 @@ const guideGroups = [
     color: #756d63;
   }
 
-  .branches a {
+  .branches {
+    gap: 0.2rem;
+  }
+
+  .branch-guide summary {
     display: inline-flex;
     min-height: 3.75rem;
     align-items: center;
-    margin: 0 0.8rem;
+    gap: 0.35rem;
+    padding: 0 0.7rem;
     border-bottom: 2px solid transparent;
     color: #756d63;
-  }
-
-  .branches a.active {
-    border-bottom-color: #9a6818;
-    color: #29241e;
-  }
-
-  .guide-menu {
-    margin-left: 0.2rem;
-  }
-
-  .guide-menu summary {
-    display: flex;
-    width: 2.75rem;
-    min-height: 3.75rem;
-    align-items: center;
-    justify-content: center;
     cursor: pointer;
     list-style: none;
   }
 
-  .guide-menu summary::-webkit-details-marker {
+  .branch-guide summary::-webkit-details-marker {
     display: none;
+  }
+
+  .branch-guide.active > summary,
+  .branch-guide[open] > summary {
+    border-bottom-color: #9a6818;
+    color: #29241e;
   }
 
   .chevron {
@@ -304,7 +327,7 @@ const guideGroups = [
     transition: transform 160ms ease;
   }
 
-  .guide-menu[open] .chevron {
+  .branch-guide[open] > summary .chevron {
     transform: rotate(180deg);
   }
 
@@ -500,15 +523,7 @@ const guideGroups = [
     }
 
     .context-bar {
-      grid-template-columns: 1fr auto auto;
-    }
-
-    .guide-menu {
-      margin: 0;
-    }
-
-    .guide-menu summary {
-      justify-content: center;
+      grid-template-columns: 1fr auto;
     }
 
     .guide-panel {
@@ -547,24 +562,17 @@ const guideGroups = [
 
     .destination {
       grid-column: 1 / -1;
-    }
-
-    .destination {
       min-height: 3rem;
     }
 
     .branches {
-      grid-column: 1;
+      grid-column: 1 / -1;
       justify-content: flex-start;
     }
 
-    .guide-menu {
-      grid-column: 2;
-    }
-
-    .branches a {
-      margin-right: 1.5rem;
-      margin-left: 0;
+    .branch-guide summary {
+      padding-right: 1.25rem;
+      padding-left: 0;
     }
 
     .guide-panel {
