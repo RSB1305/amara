@@ -1,0 +1,670 @@
+---
+// Standalone internal study: it deliberately does not import the public navigation components.
+import '../../../styles/global.css';
+import LocationGuideIcon, {
+  type LocationGuideIconName
+} from '../../../components/location/LocationGuideIcon.astro';
+
+type PreviewGuideItem = {
+  icon: LocationGuideIconName;
+  label: string;
+};
+
+type PreviewGuideGroup = {
+  active?: string;
+  items: PreviewGuideItem[];
+  label: string;
+};
+
+const guideGroups: PreviewGuideGroup[] = [
+  {
+    label: 'Orientierung & Lagen',
+    items: [
+      { label: 'Geografie & Orientierung', icon: 'municipality' },
+      { label: 'Wo übernachten / Lagen', icon: 'village' }
+    ]
+  },
+  {
+    label: 'Klima & Reisezeit',
+    items: [
+      { label: 'Wetter & Jahreszeiten', icon: 'temperature' },
+      { label: 'Winteraufenthalte', icon: 'sunshine' }
+    ],
+    active: 'Wetter & Jahreszeiten'
+  },
+  {
+    label: 'Anreise & Parken',
+    items: [
+      { label: 'Anreise & Mobilität', icon: 'bus' },
+      { label: 'Parken & Erreichbarkeit', icon: 'rental-car' }
+    ]
+  },
+  {
+    label: 'Alltag & Versorgung',
+    items: [
+      { label: 'Supermärkte & Alltagseinkauf', icon: 'local-shops' },
+      { label: 'Gesundheit & Notfälle', icon: 'pharmacy' },
+      { label: 'Gut zu wissen', icon: 'opening-hours' }
+    ]
+  }
+];
+
+const experienceGroups: PreviewGuideGroup[] = [
+  {
+    label: 'Draußen unterwegs',
+    items: [
+      { label: 'Wandern', icon: 'walking-surface' },
+      { label: 'Strände & Küste', icon: 'coast' }
+    ]
+  },
+  {
+    label: 'Essen & Alltag',
+    items: [
+      { label: 'Restaurants', icon: 'bakery' },
+      { label: 'Wochenmarkt', icon: 'local-shops' }
+    ]
+  },
+  {
+    label: 'Kultur & Ausflüge',
+    items: [
+      { label: 'Feste', icon: 'longer-stay' },
+      { label: 'Tagesausflüge', icon: 'distance' }
+    ]
+  },
+  {
+    label: 'Ruhe & Erholung',
+    items: [{ label: 'Wellness', icon: 'sunshine' }]
+  }
+];
+---
+
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="noindex, nofollow" />
+    <title>AMARA · Vorschau Kontextnavigation</title>
+  </head>
+  <body>
+    <div class="preview-shell">
+      <p class="preview-note">DESIGN LAB · NUR VORSCHAU · KEINE PRODUKTIVE ÄNDERUNG</p>
+
+      <header class="global-header">
+        <a class="brand" href="#" aria-label="AMARA Lodging">
+          <span>AMARA</span>
+          <small>LODGING</small>
+        </a>
+
+        <nav class="primary-nav" aria-label="Hauptnavigation">
+          <a href="#">REISEZIELE</a>
+          <a href="#">UNTERKÜNFTE</a>
+          <a href="#">ÜBER UNS</a>
+        </nav>
+
+        <div class="header-actions">
+          <button class="language" type="button" aria-label="Sprache auswählen">◎</button>
+          <a class="availability" href="#">VERFÜGBARKEIT PRÜFEN</a>
+          <button class="mobile-menu" type="button" aria-label="Menü öffnen">☰</button>
+        </div>
+      </header>
+
+      <div class="context-bar">
+        <nav class="breadcrumbs" aria-label="Brotkrümelnavigation">
+          <a href="#">
+            <span aria-hidden="true">&hearts;</span>
+            <span class="sr-only">AMARA</span>
+          </a><span>/</span><a href="#">FRIGILIANA</a><span>/</span><span>WETTER & JAHRESZEITEN</span>
+        </nav>
+
+        <nav class="branches" aria-label="Frigiliana entdecken">
+          <details class="branch-guide active" name="frigiliana-branch">
+            <summary>
+              <span>ORT</span>
+              <span class="chevron" aria-hidden="true">⌄</span>
+            </summary>
+
+            <div class="guide-panel">
+              <div class="guide-intro">
+                <p>FRIGILIANA ENTDECKEN</p>
+                <h2>Plant euren Aufenthalt</h2>
+              </div>
+
+              <div class="guide-groups">
+                {
+                  guideGroups.map((group) => (
+                    <section>
+                      <h3>{group.label}</h3>
+                      {group.items.map((item) => (
+                        <a
+                          class:list={[item.label === group.active && 'current']}
+                          href="#"
+                          aria-current={item.label === group.active ? 'page' : undefined}
+                        >
+                          <span class="guide-item-label">
+                            <LocationGuideIcon name={item.icon} class="h-4 w-4" />
+                            <span>{item.label}</span>
+                          </span>
+                          {item.label === group.active && <small>AKTUELL</small>}
+                        </a>
+                      ))}
+                    </section>
+                  ))
+                }
+              </div>
+            </div>
+          </details>
+
+          <details class="branch-guide" name="frigiliana-branch">
+            <summary>
+              <span>ERLEBNISSE</span>
+              <span class="chevron" aria-hidden="true">⌄</span>
+            </summary>
+
+            <div class="guide-panel">
+              <div class="guide-intro">
+                <p>FRIGILIANA ERLEBEN</p>
+                <h2>Wählt euren Tag</h2>
+              </div>
+
+              <div class="guide-groups">
+                {
+                  experienceGroups.map((group) => (
+                    <section>
+                      <h3>{group.label}</h3>
+                      {group.items.map((item) => (
+                        <a href="#">
+                          <span class="guide-item-label">
+                            <LocationGuideIcon name={item.icon} class="h-4 w-4" />
+                            <span>{item.label}</span>
+                          </span>
+                        </a>
+                      ))}
+                    </section>
+                  ))
+                }
+              </div>
+            </div>
+          </details>
+        </nav>
+      </div>
+
+      <main>
+        <section class="hero" aria-labelledby="preview-title">
+          <div class="hero-copy">
+            <p class="eyebrow">KLIMA & REISEZEIT</p>
+            <h1 id="preview-title">Wetter & Jahreszeiten in Frigiliana</h1>
+            <p class="direct-answer">
+              Frigiliana hat heiße, trockene Sommer und milde Winter. Welche Reisezeit für euch am besten passt, hängt davon ab, wie ihr eure Tage verbringen möchtet. Frühling und Herbst eignen sich meist gut für Wege durch das Dorf und Ausflüge; im Sommer bestimmen Schatten, Pausen und ein langsamerer Rhythmus den Tag.
+            </p>
+            <a class="section-link" href="#seasons">JAHRESZEITEN ENTDECKEN <span aria-hidden="true">↓</span></a>
+          </div>
+
+          <figure class="hero-media">
+            <img
+              src="/images/amara-frigiliana-pueblo/JPG_Frigiliana_Pueblo/2000px_72dpi_sRGB/04-frigiliana-pueblo.jpg"
+              alt="Frigiliana mit weißen Häusern am Berghang"
+              width="2000"
+              height="1333"
+            />
+          </figure>
+        </section>
+
+        <section id="seasons" class="season-row" aria-label="Jahreszeiten">
+          <div><small>FRÜHLING</small><span>Dorfwege & Ausflüge</span></div>
+          <div><small>SOMMER</small><span>Schatten & langsamer Rhythmus</span></div>
+          <div><small>HERBST</small><span>Warme Tage & ruhigere Gassen</span></div>
+        </section>
+      </main>
+    </div>
+  </body>
+</html>
+
+<style>
+  :global(html) {
+    background: #ebe7df;
+  }
+
+  :global(body) {
+    margin: 0;
+    color: #29241e;
+    background: #ebe7df;
+    font-family: var(--font-body);
+  }
+
+  :global(*) {
+    box-sizing: border-box;
+  }
+
+  :global(a) {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .preview-shell {
+    min-height: 100vh;
+    background: #efebe4;
+  }
+
+  .preview-note {
+    margin: 0;
+    padding: 0.45rem 1rem;
+    color: #fffaf2;
+    background: #7e5718;
+    font-family: var(--font-label);
+    font-size: 0.625rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-align: center;
+  }
+
+  .global-header {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+    min-height: 6rem;
+    padding: 1rem clamp(1.5rem, 4vw, 5rem);
+    border-bottom: 1px solid rgba(74, 63, 50, 0.12);
+    background: #f8f5ef;
+  }
+
+  .brand {
+    display: inline-flex;
+    width: max-content;
+    flex-direction: column;
+    align-items: center;
+    font-family: var(--font-headline);
+    font-size: 1.25rem;
+    font-style: italic;
+    line-height: 1;
+  }
+
+  .brand small {
+    margin-top: 0.35rem;
+    font-family: var(--font-label);
+    font-size: 0.45rem;
+    font-style: normal;
+    letter-spacing: 0.48em;
+  }
+
+  .primary-nav,
+  .header-actions,
+  .branches {
+    display: flex;
+    align-items: center;
+  }
+
+  .primary-nav {
+    gap: clamp(1.75rem, 4vw, 3.5rem);
+  }
+
+  .primary-nav a,
+  .branch-guide summary,
+  .availability {
+    font-family: var(--font-label);
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.13em;
+  }
+
+  .header-actions {
+    justify-self: end;
+    gap: 1rem;
+  }
+
+  .language,
+  .mobile-menu {
+    width: 2.75rem;
+    height: 2.75rem;
+    border: 0;
+    background: transparent;
+    color: #5f584f;
+    cursor: pointer;
+  }
+
+  .availability {
+    display: inline-flex;
+    min-height: 2.75rem;
+    align-items: center;
+    padding: 0 1.5rem;
+    border: 1px solid rgba(74, 63, 50, 0.2);
+    border-radius: 999px;
+  }
+
+  .mobile-menu {
+    display: none;
+  }
+
+  .context-bar {
+    position: relative;
+    z-index: 3;
+    display: flex;
+    min-height: 3.75rem;
+    align-items: stretch;
+    justify-content: space-between;
+    gap: 2rem;
+    padding: 0 clamp(1.5rem, 4vw, 5rem);
+    border-bottom: 1px solid rgba(74, 63, 50, 0.12);
+    background: #f8f5ef;
+  }
+
+  .branches {
+    gap: 0.2rem;
+  }
+
+  .branch-guide summary {
+    display: inline-flex;
+    min-height: 3.75rem;
+    align-items: center;
+    gap: 0.35rem;
+    padding: 0 0.7rem;
+    border-bottom: 2px solid transparent;
+    color: #756d63;
+    cursor: pointer;
+    list-style: none;
+  }
+
+  .branch-guide summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .branch-guide.active > summary,
+  .branch-guide[open] > summary {
+    border-bottom-color: #9a6818;
+    color: #29241e;
+  }
+
+  .chevron {
+    font-size: 1rem;
+    transition: transform 160ms ease;
+  }
+
+  .branch-guide[open] > summary .chevron {
+    transform: rotate(180deg);
+  }
+
+  .guide-panel {
+    position: absolute;
+    top: 100%;
+    right: clamp(1.5rem, 4vw, 5rem);
+    left: clamp(1.5rem, 4vw, 5rem);
+    padding: 2rem 2.25rem 2.5rem;
+    border-top: 1px solid rgba(74, 63, 50, 0.12);
+    background: #fffdf9;
+    box-shadow: 0 1.5rem 3.5rem rgba(47, 39, 30, 0.13);
+  }
+
+  .guide-intro {
+    margin-bottom: 1.75rem;
+  }
+
+  .guide-intro p,
+  .guide-groups h3,
+  .eyebrow,
+  .breadcrumbs,
+  .season-row small,
+  .section-link {
+    font-family: var(--font-label);
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+  }
+
+  .guide-intro p,
+  .guide-groups h3,
+  .breadcrumbs {
+    color: #766e64;
+  }
+
+  .guide-intro p {
+    margin: 0 0 0.4rem;
+  }
+
+  .guide-intro h2 {
+    margin: 0;
+    font-family: var(--font-headline);
+    font-size: 2rem;
+    font-weight: 400;
+  }
+
+  .guide-groups {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 2rem;
+  }
+
+  .guide-groups h3 {
+    min-height: 2rem;
+    margin: 0 0 0.75rem;
+    text-transform: uppercase;
+  }
+
+  .guide-groups a {
+    display: flex;
+    min-height: 2.75rem;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.5rem;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid rgba(74, 63, 50, 0.14);
+    color: #6c655c;
+    font-size: 0.875rem;
+  }
+
+  .guide-groups a.current {
+    border-bottom-color: #9a6818;
+    color: #29241e;
+  }
+
+  .guide-item-label {
+    display: inline-flex;
+    min-width: 0;
+    align-items: center;
+    gap: 0.65rem;
+  }
+
+  .guide-groups small {
+    color: #9a6818;
+    font-family: var(--font-label);
+    font-size: 0.55rem;
+    letter-spacing: 0.1em;
+  }
+
+  main {
+    padding: 2.25rem clamp(1.5rem, 5vw, 6rem) 4rem;
+  }
+
+  .breadcrumbs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.55rem;
+    min-width: 0;
+    align-items: center;
+  }
+
+  .hero {
+    display: grid;
+    grid-template-columns: minmax(0, 0.95fr) minmax(22rem, 1.05fr);
+    background: #fffdf9;
+  }
+
+  .hero-copy {
+    display: flex;
+    min-height: 31rem;
+    padding: clamp(2.5rem, 6vw, 6rem);
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+  }
+
+  .eyebrow {
+    margin: 0 0 1.5rem;
+    color: #9a6818;
+  }
+
+  h1 {
+    max-width: 40rem;
+    margin: 0;
+    font-family: var(--font-headline);
+    font-size: clamp(3rem, 5.5vw, 5.75rem);
+    font-style: italic;
+    font-weight: 400;
+    line-height: 0.98;
+    letter-spacing: -0.035em;
+  }
+
+  .direct-answer {
+    max-width: 38rem;
+    margin: 2rem 0;
+    color: #655f56;
+    font-size: 1rem;
+    line-height: 1.75;
+  }
+
+  .section-link {
+    display: inline-flex;
+    gap: 0.75rem;
+    padding-bottom: 0.45rem;
+    border-bottom: 1px solid #9a6818;
+  }
+
+  .hero-media {
+    min-height: 31rem;
+    margin: 0;
+    overflow: hidden;
+  }
+
+  .hero-media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .season-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    background: #fffdf9;
+    border-top: 1px solid rgba(74, 63, 50, 0.12);
+  }
+
+  .season-row div {
+    display: grid;
+    gap: 0.5rem;
+    padding: 1.75rem clamp(1.25rem, 3vw, 3rem);
+    border-right: 1px solid rgba(74, 63, 50, 0.12);
+  }
+
+  .season-row div:last-child {
+    border-right: 0;
+  }
+
+  .season-row small {
+    color: #9a6818;
+  }
+
+  .season-row span {
+    font-family: var(--font-headline);
+    font-size: 1.125rem;
+  }
+
+  @media (max-width: 1023px) {
+    .global-header {
+      grid-template-columns: 1fr auto;
+      min-height: 5rem;
+    }
+
+    .primary-nav,
+    .language {
+      display: none;
+    }
+
+    .mobile-menu {
+      display: block;
+    }
+
+    .guide-panel {
+      right: 0;
+      left: 0;
+    }
+
+    .guide-groups {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .hero {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media (max-width: 639px) {
+    .preview-note {
+      text-align: left;
+    }
+
+    .availability {
+      min-height: 2.5rem;
+      padding: 0 1rem;
+      font-size: 0;
+    }
+
+    .availability::after {
+      content: 'DATEN';
+      font-size: 0.65rem;
+    }
+
+    .context-bar {
+      flex-wrap: wrap;
+      gap: 0;
+      padding: 0 1.25rem;
+    }
+
+    .context-bar .breadcrumbs {
+      width: 100%;
+      min-height: 3rem;
+    }
+
+    .branches {
+      width: 100%;
+      justify-content: flex-start;
+    }
+
+    .branch-guide summary {
+      padding-right: 1.25rem;
+      padding-left: 0;
+    }
+
+    .guide-panel {
+      padding: 1.75rem 1.25rem 2rem;
+    }
+
+    .guide-groups {
+      grid-template-columns: 1fr;
+    }
+
+    main {
+      padding: 1.5rem 1rem 3rem;
+    }
+
+    .hero-copy {
+      min-height: auto;
+      padding: 3rem 1.75rem;
+    }
+
+    h1 {
+      font-size: 3rem;
+    }
+
+    .hero-media {
+      min-height: 20rem;
+    }
+
+    .season-row {
+      grid-template-columns: 1fr;
+    }
+
+    .season-row div {
+      border-right: 0;
+      border-bottom: 1px solid rgba(74, 63, 50, 0.12);
+    }
+  }
+</style>

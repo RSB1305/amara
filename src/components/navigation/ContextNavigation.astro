@@ -25,12 +25,14 @@ export interface ContextNavigationGroup {
 
 import DestinationBranchSwitcher from './DestinationBranchSwitcher.astro';
 import GroupedContextNavigation from './GroupedContextNavigation.astro';
+import DestinationContextDisclosures from './DestinationContextDisclosures.astro';
 
 interface Props {
   activeId?: string;
   activeBranchId?: string;
   branches?: { id: string; href: string; label: string }[];
   branchSwitcherAriaLabel?: string;
+  branchGroups?: Record<string, ContextNavigationGroup[]>;
   breadcrumbAriaLabel: string;
   breadcrumbs: ContextNavigationBreadcrumb[];
   context: 'experience' | 'location';
@@ -46,6 +48,7 @@ const {
   activeBranchId,
   branches = [],
   branchSwitcherAriaLabel,
+  branchGroups,
   breadcrumbAriaLabel,
   breadcrumbs,
   context,
@@ -74,14 +77,14 @@ const visibleItems = activeId && !retainActiveItem
   <div
     class:list={[
       'mx-auto max-w-screen-2xl px-6 md:px-12',
-      groups.length > 0 ? 'py-1.5 xl:py-1' : 'py-5'
+      groups.length > 0 || branchGroups ? 'py-1.5 xl:py-1' : 'py-5'
     ]}
     data-am-context-inner
   >
     <div
       class:list={[
-        groups.length > 0
-          ? 'grid min-h-10 grid-cols-[minmax(0,1fr)_auto_auto] items-center gap-x-2 md:gap-x-3'
+        groups.length > 0 || branchGroups
+          ? 'grid min-h-10 grid-cols-1 items-center gap-x-3 gap-y-1 md:grid-cols-[minmax(0,1fr)_auto]'
           : 'flex flex-col gap-5 xl:min-h-8',
         groups.length > 0
           ? undefined
@@ -94,7 +97,7 @@ const visibleItems = activeId && !retainActiveItem
       <div
         class:list={[
           'min-w-0',
-          groups.length > 0
+          groups.length > 0 || branchGroups
             ? 'overflow-hidden'
             : 'flex flex-wrap items-center justify-between gap-x-8 gap-y-3'
         ]}
@@ -104,7 +107,9 @@ const visibleItems = activeId && !retainActiveItem
           <ol
             class:list={[
               'flex w-full max-w-full items-center am-text-nav-breadcrumb text-on-surface/70',
-              groups.length > 0
+              branchGroups
+                ? 'min-w-0 flex-wrap gap-1 md:flex-nowrap md:gap-2'
+                : groups.length > 0
                 ? 'am-text-nav-breadcrumb--responsive min-w-0 flex-nowrap gap-1 md:gap-2'
                 : 'min-w-0 flex-nowrap gap-1 overflow-hidden md:gap-2'
             ]}
@@ -126,7 +131,7 @@ const visibleItems = activeId && !retainActiveItem
                       <li
                         aria-hidden="true"
                         class="text-outline-variant/60"
-                        data-am-context-mobile-hidden={index > 1 ? '' : undefined}
+                        data-am-context-mobile-hidden={!branchGroups && index > 1 ? '' : undefined}
                       >
                         /
                       </li>
@@ -134,13 +139,13 @@ const visibleItems = activeId && !retainActiveItem
                     <li
                       aria-current={isCurrent ? 'page' : undefined}
                       class:list={[
-                        'truncate',
+                        !branchGroups && 'truncate',
                         (index === 0 || (index === 1 && !isCurrent)) && 'shrink-0',
                         isCurrent && 'min-w-0',
                         isCurrent && 'text-on-surface'
                       ]}
                       data-am-context-breadcrumb-current={isCurrent ? '' : undefined}
-                      data-am-context-mobile-hidden={index > 1 ? '' : undefined}
+                      data-am-context-mobile-hidden={!branchGroups && index > 1 ? '' : undefined}
                     >
                       {breadcrumb.href && !isCurrent ? (
                         <a
@@ -168,20 +173,28 @@ const visibleItems = activeId && !retainActiveItem
       <div
         class:list={[
           'flex min-w-0 gap-3',
-          groups.length > 0
-            ? 'contents'
+          groups.length > 0 || branchGroups
+            ? 'min-w-0 md:ml-auto'
             : 'flex-col xl:ml-auto xl:items-end'
         ]}
         data-am-context-toolbar={groups.length > 0 ? '' : undefined}
       >
-        {branches.length > 0 && branchSwitcherAriaLabel && (
+        {branches.length > 0 && branchSwitcherAriaLabel && !branchGroups && (
           <DestinationBranchSwitcher
             activeId={activeBranchId}
             ariaLabel={branchSwitcherAriaLabel}
             items={branches}
           />
         )}
-        {groups.length > 0 ? (
+        {branchGroups && branches.length > 0 && branchSwitcherAriaLabel ? (
+          <DestinationContextDisclosures
+            activeBranchId={activeBranchId}
+            activeId={activeId}
+            ariaLabel={branchSwitcherAriaLabel}
+            branches={branches}
+            groups={branchGroups}
+          />
+        ) : groups.length > 0 ? (
           <GroupedContextNavigation
             activeId={activeId}
             context={context}

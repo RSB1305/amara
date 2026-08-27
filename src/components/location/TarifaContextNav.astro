@@ -15,6 +15,7 @@ import {
 } from '../../lib/tarifa/tarifaAuthoritySubnav';
 import { resolveOptionalLink } from '../../lib/linkResolver';
 import { getDestinationContextNavigation } from '../../lib/location/destinationBranchNavigation';
+import { getDestinationContextGroups } from '../../lib/location/destinationContextNavigation';
 import {
   getLocationGuideClusterLabels,
   LOCATION_GUIDE_CLUSTER_IDS,
@@ -158,6 +159,7 @@ const activeTopicId = inferredChildId
   ? allChildren.find((item) => item.id === inferredChildId)?.id
   : undefined;
 const contextNavigation = getDestinationContextNavigation('tarifa', lang);
+const branchGroups = getDestinationContextGroups('tarifa', lang);
 const experienceHref = resolveOptionalLink('tarifa_experience_hub', lang, {
   suppressMissing: true
 });
@@ -199,6 +201,7 @@ if (childLabel) {
   activeId={activeTopicId}
   branches={contextNavigation.branchNavigation.items}
   branchSwitcherAriaLabel={contextNavigation.branchNavigation.ariaLabel}
+  branchGroups={branchGroups}
   breadcrumbAriaLabel={contextNavigation.breadcrumbAriaLabel}
   breadcrumbs={breadcrumbs}
   context="location"

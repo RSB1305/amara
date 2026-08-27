@@ -18,6 +18,7 @@ import {
 } from '../../content/nerjaExperienceHubContent';
 import { resolveOptionalLink, type LinkToken } from '../../lib/linkResolver';
 import { getDestinationBranchNavigation } from '../../lib/location/destinationBranchNavigation';
+import { getDestinationContextGroups } from '../../lib/location/destinationContextNavigation';
 import { getTarifaAuthoritySubnav } from '../../lib/tarifa/tarifaAuthoritySubnav';
 import type { AmaraLanguage } from '../../types/seo';
 
@@ -41,6 +42,7 @@ interface Props {
 
 const { currentId, destination = 'frigiliana', lang } = Astro.props;
 const branchNavigation = getDestinationBranchNavigation(destination, lang);
+const branchGroups = getDestinationContextGroups(destination, lang);
 const sharedNavigation = experienceNavigationContent[lang];
 
 const clusterLabels: Record<
@@ -221,7 +223,7 @@ const frigilianaDestinationLabels: Record<
 > = {
   oldTown: {
     en: 'History & Architecture',
-    de: 'Geschichte & Baukultur',
+    de: 'Geschichte & Sehenswürdigkeiten',
     es: 'Historia y arquitectura',
     nl: 'Geschiedenis & architectuur',
     sv: 'Historia & arkitektur'
@@ -439,6 +441,7 @@ const breadcrumbs: ContextNavigationBreadcrumb[] = [
   activeId={currentId}
   branches={branchNavigation.items}
   branchSwitcherAriaLabel={branchNavigation.ariaLabel}
+  branchGroups={branchGroups}
   breadcrumbAriaLabel={sharedNavigation.breadcrumbAriaLabel}
   breadcrumbs={breadcrumbs}
   context="experience"

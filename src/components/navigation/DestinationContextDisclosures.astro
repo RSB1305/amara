@@ -1,0 +1,120 @@
+---
+import { ChevronDown } from '@lucide/astro';
+import LocationGuideIcon, { type LocationGuideIconName } from '../location/LocationGuideIcon.astro';
+import type { ContextNavigationGroup, ContextNavigationItem } from './ContextNavigation.astro';
+
+interface BranchItem { id: string; href: string; label: string; }
+interface Props {
+  activeBranchId?: string;
+  activeId?: string;
+  ariaLabel: string;
+  branches: BranchItem[];
+  groups: Record<string, ContextNavigationGroup[]>;
+}
+
+const { activeBranchId, activeId, ariaLabel, branches, groups } = Astro.props;
+const locationIcons: Record<string, LocationGuideIconName> = {
+  'geography-orientation': 'municipality', 'where-to-stay': 'village',
+  'weather-seasons': 'sunshine', 'winter-stays': 'temperature',
+  'arrival-mobility': 'airport', 'parking-accessibility': 'rental-car',
+  'shopping-markets': 'supermarket', 'health-emergency': 'pharmacy',
+  'practical-local-rules': 'village-square'
+};
+const experienceIcon = (id: string): LocationGuideIconName => {
+  if (/beach|coast|wind/.test(id)) return 'coast';
+  if (/hik|nature|dayTrip/.test(id)) return 'protected-landscape';
+  if (/restaurant|food|market/.test(id)) return 'local-shops';
+  if (/wellness/.test(id)) return 'sunshine';
+  return 'village-square';
+};
+const iconFor = (branchId: string, item: ContextNavigationItem) =>
+  branchId === 'location' ? locationIcons[item.id] ?? 'village-square' : experienceIcon(item.id);
+const isLive = (item: ContextNavigationItem) => item.status !== 'future' && Boolean(item.href);
+---
+
+<nav aria-label={ariaLabel} class="min-w-0" data-am-destination-context-disclosures>
+  <div class="flex flex-wrap items-center justify-end gap-x-1 gap-y-1">
+    {branches.map((branch) => (
+      <details
+        class="am-destination-disclosure relative"
+        data-am-context-disclosure
+        data-am-context-branch={branch.id}
+        data-am-context-branch-active={branch.id === activeBranchId ? '' : undefined}
+      >
+        <summary
+          class="am-text-nav-context inline-flex min-h-10 cursor-pointer list-none items-center gap-1 border-b-2 border-transparent px-3 text-on-surface-variant transition-colors hover:text-on-surface focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/25 [&::-webkit-details-marker]:hidden"
+        >
+          <span>{branch.label}</span>
+          <ChevronDown aria-hidden="true" class="am-destination-disclosure__chevron size-3.5 shrink-0 transition-transform duration-200" stroke-width={1.5} />
+        </summary>
+        <div class="am-destination-disclosure__panel border border-outline-variant/15 bg-surface-white p-4 shadow-[0_14px_32px_rgba(45,39,31,0.08)]">
+          <a href={branch.href} aria-current={branch.id === activeBranchId && !activeId ? 'page' : undefined} class="am-text-nav-context mb-3 inline-flex min-h-10 items-center border-b border-primary/30 px-2 text-on-surface hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/25">
+            {branch.label}
+          </a>
+          <div class="grid gap-x-8 gap-y-4 md:grid-cols-2 xl:grid-cols-4">
+            {(groups[branch.id] ?? []).map((group) => (
+              <section aria-labelledby={`am-context-${branch.id}-${group.id}`}>
+                <h2 id={`am-context-${branch.id}-${group.id}`} class="am-text-nav-context mb-1 px-2 font-bold text-on-surface">{group.label}</h2>
+                <ul>
+                  {group.items.map((item) => (
+                    <li
+                      data-am-context-sibling
+                      data-am-context-sibling-status={isLive(item) ? 'live' : 'future'}
+                      data-am-experience-sibling={branch.id === 'experience' ? '' : undefined}
+                      data-am-location-sibling={branch.id === 'location' ? '' : undefined}
+                    >
+                      {isLive(item) ? (
+                        <a href={item.href} aria-current={item.id === activeId && branch.id === activeBranchId ? 'page' : undefined} class:list={['am-text-nav-context flex min-h-10 items-center gap-2 border-l-2 px-2 py-2 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-primary/25', item.id === activeId && branch.id === activeBranchId ? 'border-primary bg-primary/[0.05] font-bold text-on-surface' : 'border-transparent text-on-surface-variant hover:border-primary/45 hover:bg-primary/[0.03] hover:text-on-surface']}>
+                          <LocationGuideIcon name={iconFor(branch.id, item)} class="size-4" />
+                          <span>{item.label}</span>
+                        </a>
+                      ) : (
+                        <span aria-disabled="true" class="am-text-nav-context flex min-h-10 items-center gap-2 px-2 py-2 text-muted"><LocationGuideIcon name={iconFor(branch.id, item)} class="size-4" /><span>{item.label}</span></span>
+                      )}
+                    </li>
+                  ))}
+                </ul>
+              </section>
+            ))}
+          </div>
+        </div>
+      </details>
+    ))}
+  </div>
+</nav>
+
+<style>
+  [data-am-context-branch-active] > summary,
+  .am-destination-disclosure[open] > summary { border-color: var(--color-primary); color: var(--color-on-surface); }
+  .am-destination-disclosure[open] .am-destination-disclosure__chevron { transform: rotate(180deg); }
+  .am-destination-disclosure__panel { position: fixed; z-index: 30; left: 1.5rem; right: 1.5rem; top: auto; max-height: min(70vh, 38rem); overflow-y: auto; }
+  @media (min-width: 1280px) {
+    .am-destination-disclosure__panel { position: absolute; top: calc(100% + .25rem); right: 0; left: auto; width: min(72rem, calc(100vw - 6rem)); }
+  }
+  @media (prefers-reduced-motion: reduce) { .am-destination-disclosure__chevron { transition: none; } }
+</style>
+
+<script>
+  document.querySelectorAll<HTMLElement>('[data-am-destination-context-disclosures]').forEach((root) => {
+    const disclosures = Array.from(root.querySelectorAll<HTMLDetailsElement>('[data-am-context-disclosure]'));
+    const syncExpanded = (disclosure: HTMLDetailsElement) => {
+      disclosure.querySelector('summary')?.setAttribute('aria-expanded', String(disclosure.open));
+    };
+    disclosures.forEach(syncExpanded);
+    disclosures.forEach((disclosure) => disclosure.addEventListener('toggle', () => {
+      if (disclosure.open) disclosures.forEach((other) => { if (other !== disclosure) other.open = false; });
+      disclosures.forEach(syncExpanded);
+    }));
+    root.addEventListener('keydown', (event) => {
+      if (event.key !== 'Escape') return;
+      const open = disclosures.find((disclosure) => disclosure.open);
+      if (!open) return;
+      open.open = false;
+      open.querySelector<HTMLElement>('summary')?.focus();
+    });
+    document.addEventListener('pointerdown', (event) => {
+      if (event.target instanceof Node && root.contains(event.target)) return;
+      disclosures.forEach((disclosure) => { disclosure.open = false; });
+    });
+  });
+</script>

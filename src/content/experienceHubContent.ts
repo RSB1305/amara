@@ -249,7 +249,7 @@ export const experienceNavigationContent: Record<
       beaches: 'Strände & Küste',
       restaurants: 'Essen & Restaurants',
       festivals: 'Feste',
-      market: 'Markt',
+      market: 'Wochenmarkt',
       dayTrips: 'Tagesausflüge',
       wellness: 'Wellness',
       nightlife: 'Abendleben'

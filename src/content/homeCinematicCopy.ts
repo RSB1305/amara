@@ -540,7 +540,7 @@ export const cinematicPlaces: CinematicPlaceDef[] = [
     },
     ctaLabel: {
       en: 'Frigiliana as a place to stay',
-      de: 'Frigiliana als Ort zum Wohnen',
+      de: 'Frigiliana',
       es: 'Frigiliana como lugar donde alojarse',
       nl: 'Frigiliana als plek om te verblijven',
       sv: 'Frigiliana som plats att bo på'
@@ -566,7 +566,7 @@ export const cinematicPlaces: CinematicPlaceDef[] = [
     },
     ctaLabel: {
       en: 'Nerja as a place to stay',
-      de: 'Nerja als Ort zum Wohnen',
+      de: 'Nerja',
       es: 'Nerja como lugar donde alojarse',
       nl: 'Nerja als plek om te verblijven',
       sv: 'Nerja som plats att bo på'
@@ -592,7 +592,7 @@ export const cinematicPlaces: CinematicPlaceDef[] = [
     },
     ctaLabel: {
       en: 'Tarifa as a place to stay',
-      de: 'Tarifa als Ort zum Wohnen',
+      de: 'Tarifa',
       es: 'Tarifa como lugar donde alojarse',
       nl: 'Tarifa als plek om te verblijven',
       sv: 'Tarifa som plats att bo på'
@@ -769,7 +769,7 @@ export const cinematicHoneymoonCtaLabel: CopyRow = {
 
 export const cinematicHostLabel: CopyRow = {
   en: 'Meet your hosts',
-  de: 'Lernt eure Gastgeber kennen',
+  de: 'Über AMARA ❤︎ und euren Gastgeber',
   es: 'Conoced a vuestros anfitriones',
   nl: 'Maak kennis met jullie gastheren',
   sv: 'Lär känna era värdar'
