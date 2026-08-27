@@ -1,0 +1,233 @@
+---
+import InlineEmphasis from '../../components/text/InlineEmphasis.astro';
+import AmaraImage from '../../components/AmaraImage.astro';
+import ExploreCampaignHero from '../../components/experience/ExploreCampaignHero.astro';
+import ExploreCampaignMediaSplit from '../../components/experience/ExploreCampaignMediaSplit.astro';
+import ExploreCampaignPlanningGrid from '../../components/experience/ExploreCampaignPlanningGrid.astro';
+import FaqAccordion from '../../components/FaqAccordion.astro';
+import EditorialClosingCta from '../../components/editorial/EditorialClosingCta.astro';
+import EditorialCallout from '../../components/content/EditorialCallout.astro';
+import AmaraPageShell from '../../components/layout/AmaraPageShell.astro';
+import AmaraSection from '../../components/layout/AmaraSection.astro';
+import Navigation from '../../components/Navigation.astro';
+import heroImage from '../../assets/images/home/amara-lounis-15-amara-frigiliana.jpg';
+import settingImage from '../../assets/images/content/hero-frigiliana.jpg';
+import choiceImage from '../../assets/images/home/amara-zaid-terraza-5.jpg';
+import momentsImage from '../../assets/images/home/amara-tarifa-apartment01.webp';
+import { weddingAnniversaryContent, weddingAnniversarySeo } from '../../content/weddingAnniversaryContent';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { createAmaraImage } from '../../lib/images/amaraImageProfiles';
+import { createRequiredLinkResolver, type LabeledLink } from '../../lib/linkResolver';
+import { normalizeLanguage } from '../../lib/seo/resolve-seo-head';
+import { resolveLocale } from '../../types/content';
+import type { AmaraLanguage } from '../../types/seo';
+
+interface Props {
+  lang?: string;
+}
+
+const { lang = 'es' } = Astro.props;
+const currentLang = normalizeLanguage(lang as AmaraLanguage);
+const copy = resolveLocale(weddingAnniversaryContent, currentLang);
+const seoHeroImage = await createAmaraImage(heroImage, 'hero');
+const seo = { ...weddingAnniversarySeo, ogImage: seoHeroImage.src };
+const requiredLink = createRequiredLinkResolver(currentLang, 'Wedding anniversary in Andalusia');
+
+const links = {
+  book: requiredLink('book'),
+  stays: requiredLink('romantic_hideaways')
+};
+
+const stayItems = copy.stayOptions.items.map((item) => ({
+  ...item,
+  href: requiredLink(item.linkToken)
+}));
+
+const planningItems = copy.planning.items.map((item) => ({
+  ...item,
+  href: requiredLink(item.linkToken)
+}));
+
+const footerHighlights: (LabeledLink & { decoration: 'heart' })[] = [
+  { token: 'wedding_anniversary', label: copy.footerHighlights.weddingAnniversary, decoration: 'heart' },
+  { token: 'romantic_hideaways', label: copy.footerHighlights.stays, decoration: 'heart' },
+  { token: 'reviews_hub', label: copy.footerHighlights.reviews, decoration: 'heart' },
+  { token: 'direct_booking_benefits', label: copy.footerHighlights.direct, decoration: 'heart' }
+];
+---
+
+<BaseLayout
+  seo={seo}
+  pageLang={currentLang}
+  contextBreadcrumbTitle={copy.hero.title}
+  footerHighlights={footerHighlights}
+  showContextNavigation={false}
+  pageFamily="campaign-wedding-anniversary"
+>
+  <Navigation
+    currentLang={currentLang}
+    currentToken="wedding_anniversary"
+    languageToken="wedding_anniversary"
+  />
+
+  <AmaraPageShell family="wedding-anniversary" dataLang={currentLang} flush whiteCanvas>
+    <ExploreCampaignHero
+      imageSrc={heroImage}
+      imageAlt={copy.hero.imageAlt}
+      kicker={copy.hero.kicker}
+      kickerDecoration="heart"
+      title={copy.hero.title}
+      lead={copy.hero.lead}
+      paragraphs={copy.hero.paragraphs}
+      action={{ href: '#wedding-anniversary-stay', label: copy.hero.cta }}
+    />
+
+    <AmaraSection dataComponent="wedding-anniversary-setting">
+      <ExploreCampaignMediaSplit title={copy.setting.title} paragraphs={copy.setting.paragraphs} image={settingImage} imageAlt={copy.setting.imageAlt}>
+        {copy.setting.paragraphs.map((paragraph) => <p class="am-text-body leading-relaxed text-on-surface-variant"><InlineEmphasis text={paragraph} /></p>)}
+      </ExploreCampaignMediaSplit>
+    </AmaraSection>
+
+    <AmaraSection
+      id="wedding-anniversary-stay"
+      dataComponent="wedding-anniversary-stay"
+      class="scroll-mt-36"
+    >
+      <div class="mx-auto max-w-screen-2xl px-6 md:px-12">
+        <h2 class="am-text-title max-w-3xl text-on-surface">
+          {copy.stayOptions.title}
+        </h2>
+
+        <div class="mt-14 grid items-center gap-12 lg:grid-cols-12 lg:gap-16">
+          <div class="lg:col-span-6">
+            <AmaraImage
+              src={choiceImage}
+              alt={copy.choice.imageAlt}
+              profile="gallery"
+              class="aspect-[4/3] h-full w-full object-cover"
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
+          <div class="max-w-2xl lg:col-span-5 lg:col-start-8">
+            <h3 class="am-text-subtitle text-on-surface">
+              {copy.choice.title}
+            </h3>
+            <div class="mt-6 space-y-5">
+              {copy.choice.paragraphs.map((paragraph) => (
+                <p class="am-text-body leading-relaxed text-on-surface-variant"><InlineEmphasis text={paragraph} /></p>
+              ))}
+            </div>
+            <div class="mt-8 border-l border-primary/30 pl-6">
+              <p class="am-text-display italic leading-none text-primary">
+                {copy.choice.statistic}
+              </p>
+              <p class="am-text-caption mt-3 normal-case tracking-normal text-on-surface-variant">
+                {copy.choice.statisticLabel}
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-20 border-t border-outline-variant/10 pt-12">
+          <p class="am-text-body max-w-3xl leading-relaxed text-on-surface-variant">
+            {copy.stayOptions.intro}
+          </p>
+          <div class="mt-12 grid gap-10 md:grid-cols-3 md:gap-8">
+            {stayItems.map((item) => (
+              <article class="flex flex-col border-t border-outline-variant/20 pt-6">
+                <p class="am-text-caption text-primary">{item.eyebrow}</p>
+                <h3 class="am-wedding-anniversary-stay-card__title am-text-subtitle mt-4 text-on-surface">{item.title}</h3>
+                <p class="am-text-body mt-4 flex-1 leading-relaxed text-on-surface-variant">
+                  {item.text}
+                </p>
+                <a class="am-inline-link mt-5 w-fit" href={item.href}>
+                  {item.linkLabel}<span aria-hidden="true"> →</span>
+                </a>
+              </article>
+            ))}
+          </div>
+          <EditorialCallout class="mt-10 max-w-4xl">
+            {copy.stayOptions.note}
+          </EditorialCallout>
+        </div>
+      </div>
+    </AmaraSection>
+
+    <AmaraSection dataComponent="wedding-anniversary-moments">
+      <div class="mx-auto grid max-w-screen-2xl items-center gap-12 px-6 md:px-12 lg:grid-cols-12 lg:gap-16">
+        <div class="max-w-2xl lg:col-span-5">
+          <h2 class="am-text-title text-on-surface">
+            {copy.moments.title}
+          </h2>
+          <p class="am-text-body mt-6 leading-relaxed text-on-surface-variant">
+            {copy.moments.intro}
+          </p>
+          <div class="mt-10 space-y-8">
+            {copy.moments.items.map((item) => (
+              <article class="border-l border-primary/20 pl-5">
+                <h3 class="am-text-subtitle text-on-surface">{item.title}</h3>
+                <p class="am-text-body mt-3 leading-relaxed text-on-surface-variant">
+                  {item.text}
+                </p>
+              </article>
+            ))}
+          </div>
+          <p class="am-text-body mt-10 leading-relaxed text-on-surface-variant">
+            {copy.moments.note}
+          </p>
+        </div>
+        <div class="lg:col-span-6 lg:col-start-7">
+          <AmaraImage
+            src={momentsImage}
+            alt={copy.moments.imageAlt}
+            profile="gallery"
+            class="aspect-[4/3] h-full w-full object-cover"
+            loading="lazy"
+            decoding="async"
+          />
+        </div>
+      </div>
+    </AmaraSection>
+
+    <AmaraSection dataComponent="wedding-anniversary-planning">
+      <div class="mx-auto max-w-screen-2xl px-6 md:px-12">
+        <div class="max-w-3xl">
+          <h2 class="am-text-title text-on-surface">
+            {copy.planning.title}
+          </h2>
+          <p class="am-text-body mt-6 leading-relaxed text-on-surface-variant">
+            {copy.planning.intro}
+          </p>
+        </div>
+        <ExploreCampaignPlanningGrid items={planningItems} columns={4} />
+      </div>
+    </AmaraSection>
+
+    <FaqAccordion layout="single" faqTitle={copy.faq.title} items={copy.faq.items} pageEndFamily="experience" dataComponent="wedding-anniversary-faq" />
+
+    <EditorialClosingCta
+      dataComponent="wedding-anniversary-closing"
+      title={copy.closing.title}
+      lead={copy.closing.paragraphs[0]}
+      paragraphs={copy.closing.paragraphs}
+      lang={currentLang}
+      links={[
+        { href: links.stays, label: copy.stayOptions.collectionCta, style: 'text' },
+        { href: links.book, label: copy.closing.cta, style: 'inline' }
+      ]}
+      spacing="page"
+      role="next-action"
+      family="experience"
+      tone="romance"
+    />
+  </AmaraPageShell>
+</BaseLayout>
+
+<style>
+  @media (min-width: 48rem) {
+    .am-wedding-anniversary-stay-card__title {
+      min-block-size: 3lh;
+    }
+  }
+</style>

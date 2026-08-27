@@ -264,11 +264,11 @@ export const aboutUsContent: AboutUsContent = {
       {
         title: { en: '', de: '', es: '', nl: '', sv: '' },
         copy: {
-          en: '**In the end that is what reaches you** — not as a line on a feature list, but as a stay where the small things are right. It is also why AMARA is made for two: a honeymoon, the days around a wedding in Frigiliana, or simply time together worth taking off work for.',
-          de: '**Am Ende kommt genau das bei euch an** – nicht als Zeile in einer Ausstattungsliste, sondern daran, dass die Kleinigkeiten stimmen. Und es ist der Grund, warum AMARA für zwei gemacht ist: Flitterwochen, die Tage rund um eine Hochzeit in Frigiliana oder einfach gemeinsame Zeit, für die es sich lohnt freizunehmen.',
-          es: '**Al final es eso lo que os llega**: no como una línea en una lista de servicios, sino en que los pequeños detalles están bien. Y es la razón por la que AMARA está hecha para dos: una luna de miel, los días alrededor de una boda en Frigiliana o simplemente tiempo juntos por el que merece la pena pedir vacaciones.',
-          nl: '**Uiteindelijk is dat wat bij jullie aankomt** — niet als regel in een voorzieningenlijst, maar doordat de kleine dingen kloppen. En het is de reden dat AMARA voor twee gemaakt is: een huwelijksreis, de dagen rond een bruiloft in Frigiliana, of gewoon tijd samen waarvoor het de moeite waard is vrij te nemen.',
-          sv: '**Till slut är det just det som når fram till er** — inte som en rad i en utrustningslista, utan genom att de små sakerna stämmer. Och det är skälet till att AMARA är gjort för två: en smekmånad, dagarna kring ett bröllop i Frigiliana, eller helt enkelt tid tillsammans som är värd att ta ledigt för.'
+          en: '**In the end that is what reaches you** — not as a line on a feature list, but as a stay where the small things are right. It is also why AMARA is made for two: a honeymoon, a wedding anniversary, the days around a wedding in Frigiliana, or simply time together worth taking off work for.',
+          de: '**Am Ende kommt genau das bei euch an** – nicht als Zeile in einer Ausstattungsliste, sondern daran, dass die Kleinigkeiten stimmen. Und es ist der Grund, warum AMARA für zwei gemacht ist: Flitterwochen, ein Hochzeitstag, die Tage rund um eine Hochzeit in Frigiliana oder einfach gemeinsame Zeit, für die es sich lohnt freizunehmen.',
+          es: '**Al final es eso lo que os llega**: no como una línea en una lista de servicios, sino en que los pequeños detalles están bien. Y es la razón por la que AMARA está hecha para dos: una luna de miel, un aniversario de boda, los días alrededor de una boda en Frigiliana o simplemente tiempo juntos por el que merece la pena pedir vacaciones.',
+          nl: '**Uiteindelijk is dat wat bij jullie aankomt** — niet als regel in een voorzieningenlijst, maar doordat de kleine dingen kloppen. En het is de reden dat AMARA voor twee gemaakt is: een huwelijksreis, een huwelijksverjaardag, de dagen rond een bruiloft in Frigiliana, of gewoon tijd samen waarvoor het de moeite waard is vrij te nemen.',
+          sv: '**Till slut är det just det som når fram till er** — inte som en rad i en utrustningslista, utan genom att de små sakerna stämmer. Och det är skälet till att AMARA är gjort för två: en smekmånad, en bröllopsdag, dagarna kring ett bröllop i Frigiliana, eller helt enkelt tid tillsammans som är värd att ta ledigt för.'
         }
       }
     ],
@@ -281,6 +281,16 @@ export const aboutUsContent: AboutUsContent = {
           es: 'Luna de miel en Andalucía',
           nl: 'Huwelijksreis in Andalusië',
           sv: 'Smekmånad i Andalusien'
+        }
+      },
+      {
+        token: 'wedding_anniversary',
+        label: {
+          en: 'Wedding anniversary in Andalusia',
+          de: 'Hochzeitstag in Andalusien',
+          es: 'Aniversario de boda en Andalucía',
+          nl: 'Huwelijksverjaardag in Andalusië',
+          sv: 'Bröllopsdag i Andalusien'
         }
       },
       {
