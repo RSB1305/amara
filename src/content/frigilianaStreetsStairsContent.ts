@@ -653,21 +653,21 @@ export const frigilianaStreetsStairsCopy = {
       {
         question: { en: 'Can I avoid stairs completely?', de: 'Kann ich Treppen vollständig vermeiden?', es: '¿Puedo evitar por completo las escaleras?', nl: 'Kan ik trappen volledig vermijden?', sv: 'Går det att undvika trappor helt?' } satisfies LocalizedText,
         answer: {
-          en: 'Some routes avoid steps but still run over gradients and cobbles. For our four apartments on Calle Chorruelo we will describe the whole route to the door before you book — just ask us.',
-          de: 'Einige Wege kommen ohne Treppen aus, führen aber weiterhin über Steigungen und Kopfsteinpflaster. Für unsere vier Wohnungen in der Calle Chorruelo beschreiben wir euch den Weg bis zur Tür gern schon vor der Buchung – fragt uns einfach.',
-          es: 'Algunos recorridos evitan los escalones, pero siguen teniendo pendiente y empedrado. Para nuestros cuatro apartamentos de la calle Chorruelo os describimos el camino completo hasta la puerta antes de reservar: solo tenéis que preguntarnos.',
-          nl: 'Sommige routes vermijden trappen, maar lopen nog steeds over hellingen en kasseien. Voor onze vier appartementen aan de Calle Chorruelo beschrijven we de hele route tot aan de deur graag vóór het boeken — vraag het ons gerust.',
-          sv: 'Vissa vägar undviker trappor men går ändå över lutningar och kullersten. För våra fyra lägenheter på Calle Chorruelo beskriver vi gärna hela vägen fram till dörren innan ni bokar – fråga oss bara.'
+          en: 'Some routes avoid steps but still run over gradients and cobbles. For our four accommodations on Calle Chorruelo we will describe the whole route to the door before you book — just ask us.',
+          de: 'Einige Wege kommen ohne Treppen aus, führen aber weiterhin über Steigungen und Kopfsteinpflaster. Für unsere vier Unterkünfte in der Calle Chorruelo beschreiben wir euch den Weg bis zur Tür gern schon vor der Buchung – fragt uns einfach.',
+          es: 'Algunos recorridos evitan los escalones, pero siguen teniendo pendiente y empedrado. Para nuestros cuatro alojamientos de la calle Chorruelo os describimos el camino completo hasta la puerta antes de reservar: solo tenéis que preguntarnos.',
+          nl: 'Sommige routes vermijden trappen, maar lopen nog steeds over hellingen en kasseien. Voor onze vier verblijven aan de Calle Chorruelo beschrijven we de hele route tot aan de deur graag vóór het boeken — vraag het ons gerust.',
+          sv: 'Vissa vägar undviker trappor men går ändå över lutningar och kullersten. För våra fyra boenden på Calle Chorruelo beskriver vi gärna hela vägen fram till dörren innan ni bokar – fråga oss bara.'
         } satisfies LocalizedText
       },
       {
         question: { en: 'Which part is easiest for repeated walking?', de: 'Welche Lage ist für häufige Wege am praktischsten?', es: '¿Qué zona resulta más práctica para caminar varias veces al día?', nl: 'Welk deel is het praktischst voor herhaalde wandelingen?', sv: 'Vilken del är mest praktisk för flera promenader om dagen?' } satisfies LocalizedText,
         answer: {
-          en: 'Lower positions involve less climbing than upper Barribarto. Our own apartments are on Calle Chorruelo beside San Antonio, in the lower part of the old town.',
-          de: 'Weiter unten gelegene Unterkünfte bedeuten weniger Anstieg als im oberen Barribarto. Unsere eigenen Wohnungen liegen in der Calle Chorruelo bei San Antonio, im unteren Teil der Altstadt.',
-          es: 'Las ubicaciones más bajas acumulan menos desnivel que el Barribarto alto. Nuestros apartamentos están en la calle Chorruelo, junto a San Antonio, en la parte baja del casco antiguo.',
-          nl: 'Lagere plekken vragen minder klimwerk dan hoog Barribarto. Onze eigen appartementen liggen aan de Calle Chorruelo bij San Antonio, in het lagere deel van de oude kern.',
-          sv: 'Lägre lägen innebär mindre stigning än övre Barribarto. Våra egna lägenheter ligger på Calle Chorruelo vid San Antonio, i gamla stans nedre del.'
+          en: 'Lower positions involve less climbing than upper Barribarto. Our four accommodations are on Calle Chorruelo beside San Antonio, in the lower part of the old town.',
+          de: 'Weiter unten gelegene Unterkünfte bedeuten weniger Anstieg als im oberen Barribarto. Unsere vier Unterkünfte liegen in der Calle Chorruelo bei San Antonio, im unteren Teil der Altstadt.',
+          es: 'Las ubicaciones más bajas acumulan menos desnivel que el Barribarto alto. Nuestros cuatro alojamientos están en la calle Chorruelo, junto a San Antonio, en la parte baja del casco antiguo.',
+          nl: 'Lagere plekken vragen minder klimwerk dan hoog Barribarto. Onze vier verblijven liggen aan de Calle Chorruelo bij San Antonio, in het lagere deel van de oude kern.',
+          sv: 'Lägre lägen innebär mindre stigning än övre Barribarto. Våra fyra boenden ligger på Calle Chorruelo vid San Antonio, i gamla stans nedre del.'
         } satisfies LocalizedText
       },
       {
