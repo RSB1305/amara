@@ -50,6 +50,7 @@ export interface WeatherAuthorityContent {
       sunHours: string;
       temperature: string;
       rainfall: string;
+      details: string;
     };
     sourceTitle: string;
     sourceText: string;

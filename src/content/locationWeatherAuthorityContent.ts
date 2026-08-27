@@ -68,7 +68,7 @@ const shared: Record<AmaraLanguage, SharedLocale> = {
     table: {
       eyebrow: '12-month climate profile', title: 'Temperature, rain and sun — month by month',
       intro: 'These long-term modelled averages show the broad annual pattern. They are useful for comparing months, but they do not predict a particular day, heatwave, shower or sheltered street.',
-      labels: { month: 'Month', high: 'Avg. maximum', low: 'Avg. minimum', rain: 'Rainfall', sunHours: 'Sun / day', temperature: 'Average maximum / minimum', rainfall: 'Monthly rainfall' },
+      labels: { month: 'Month', high: 'Avg. maximum', low: 'Avg. minimum', rain: 'Rainfall', sunHours: 'Sun / day', temperature: 'Average maximum / minimum', rainfall: 'Monthly rainfall', details: 'Monthly values in detail' },
       sourceTitle: 'How to read the data', sourceText: 'Climate-Data.org point-model values give a transparent planning baseline. The provider currently returns identical values for Nerja and Frigiliana, so read them as one regional picture rather than two separate local climates.'
     },
     seasonEyebrow: 'The year in four parts', seasonTitle: 'Spring, summer, autumn and winter', seasonIntro: 'Each season changes the balance between heat, rain, daylight and the way a day is best organised. The notes describe tendencies, never guarantees.', seasonPlanningLabel: 'Plan for it',
@@ -92,7 +92,7 @@ const shared: Record<AmaraLanguage, SharedLocale> = {
     table: {
       eyebrow: 'Klimaprofil für 12 Monate', title: 'Temperatur, Regen und Sonne – Monat für Monat',
       intro: 'Diese modellierten Langzeitmittel zeigen das große Muster des Jahres. Sie helfen beim Vergleich der Monate, sagen aber keinen konkreten Tag, keine Hitzewelle, keinen Schauer und keine geschützte Gasse voraus.',
-      labels: { month: 'Monat', high: 'Mittl. Maximum', low: 'Mittl. Minimum', rain: 'Niederschlag', sunHours: 'Sonne / Tag', temperature: 'Mittleres Maximum / Minimum', rainfall: 'Monatsniederschlag' },
+      labels: { month: 'Monat', high: 'Mittl. Maximum', low: 'Mittl. Minimum', rain: 'Niederschlag', sunHours: 'Sonne / Tag', temperature: 'Mittleres Maximum / Minimum', rainfall: 'Monatsniederschlag', details: 'Monatswerte im Detail' },
       sourceTitle: 'So lest ihr die Daten', sourceText: 'Die Punktmodellwerte von Climate-Data.org sind eine transparente Planungsbasis. Für Nerja und Frigiliana liefert der Anbieter derzeit identische Werte – lest sie deshalb als ein regionales Bild und nicht als zwei getrennte Lokalklimata.'
     },
     seasonEyebrow: 'Das Jahr in vier Teilen', seasonTitle: 'Frühling, Sommer, Herbst und Winter', seasonIntro: 'Jede Jahreszeit verändert das Verhältnis von Hitze, Regen, Tageslicht und sinnvoller Tagesplanung. Die Hinweise beschreiben Tendenzen, niemals Garantien.', seasonPlanningLabel: 'Darauf einstellen',
@@ -116,7 +116,7 @@ const shared: Record<AmaraLanguage, SharedLocale> = {
     table: {
       eyebrow: 'Perfil climático de 12 meses', title: 'Temperatura, lluvia y sol — mes a mes',
       intro: 'Estas medias modelizadas a largo plazo muestran el patrón general del año. Sirven para comparar meses, pero no predicen un día concreto, una ola de calor, un chubasco ni una calle protegida.',
-      labels: { month: 'Mes', high: 'Máxima media', low: 'Mínima media', rain: 'Lluvia', sunHours: 'Sol / día', temperature: 'Máxima / mínima media', rainfall: 'Lluvia mensual' },
+      labels: { month: 'Mes', high: 'Máxima media', low: 'Mínima media', rain: 'Lluvia', sunHours: 'Sol / día', temperature: 'Máxima / mínima media', rainfall: 'Lluvia mensual', details: 'Valores mensuales en detalle' },
       sourceTitle: 'Cómo leer los datos', sourceText: 'Los valores del modelo puntual de Climate-Data.org sirven como base de planificación transparente. El proveedor da ahora valores idénticos para Nerja y Frigiliana, así que leedlos como una imagen regional y no como dos climas locales distintos.'
     },
     seasonEyebrow: 'El año en cuatro partes', seasonTitle: 'Primavera, verano, otoño e invierno', seasonIntro: 'Cada estación cambia el equilibrio entre calor, lluvia, luz y organización del día. Las notas describen tendencias, nunca garantías.', seasonPlanningLabel: 'Cómo prepararse',
@@ -140,7 +140,7 @@ const shared: Record<AmaraLanguage, SharedLocale> = {
     table: {
       eyebrow: 'Klimaatprofiel van 12 maanden', title: 'Temperatuur, regen en zon — maand voor maand',
       intro: 'Deze gemodelleerde langjarige gemiddelden tonen het grote jaarpatroon. Ze helpen maanden vergelijken, maar voorspellen geen specifieke dag, hittegolf, bui of beschutte straat.',
-      labels: { month: 'Maand', high: 'Gem. maximum', low: 'Gem. minimum', rain: 'Neerslag', sunHours: 'Zon / dag', temperature: 'Gemiddeld maximum / minimum', rainfall: 'Maandneerslag' },
+      labels: { month: 'Maand', high: 'Gem. maximum', low: 'Gem. minimum', rain: 'Neerslag', sunHours: 'Zon / dag', temperature: 'Gemiddeld maximum / minimum', rainfall: 'Maandneerslag', details: 'Maandwaarden in detail' },
       sourceTitle: 'Zo lezen jullie de gegevens', sourceText: 'De puntmodelwaarden van Climate-Data.org vormen een transparante planningsbasis. De aanbieder geeft Nerja en Frigiliana momenteel dezelfde waarden, dus lees ze als één regionaal beeld en niet als twee aparte lokale klimaten.'
     },
     seasonEyebrow: 'Het jaar in vier delen', seasonTitle: 'Lente, zomer, herfst en winter', seasonIntro: 'Elk seizoen verandert de balans tussen warmte, regen, daglicht en een praktische dagindeling. De notities beschrijven tendensen, geen garanties.', seasonPlanningLabel: 'Houd rekening met',
@@ -164,7 +164,7 @@ const shared: Record<AmaraLanguage, SharedLocale> = {
     table: {
       eyebrow: 'Klimatprofil för 12 månader', title: 'Temperatur, regn och sol – månad för månad',
       intro: 'Dessa modellerade långtidsmedel visar årets stora mönster. De hjälper er att jämföra månader men förutsäger inte en viss dag, värmebölja, skur eller skyddad gata.',
-      labels: { month: 'Månad', high: 'Medelmaximum', low: 'Medelminimum', rain: 'Nederbörd', sunHours: 'Sol / dag', temperature: 'Medelmaximum / minimum', rainfall: 'Månadsnederbörd' },
+      labels: { month: 'Månad', high: 'Medelmaximum', low: 'Medelminimum', rain: 'Nederbörd', sunHours: 'Sol / dag', temperature: 'Medelmaximum / minimum', rainfall: 'Månadsnederbörd', details: 'Månadsvärden i detalj' },
       sourceTitle: 'Så läser ni uppgifterna', sourceText: 'Punktmodellvärden från Climate-Data.org är en tydlig planeringsgrund. Leverantören ger just nu samma värden för Nerja och Frigiliana, så läs dem som en regional bild och inte som två skilda lokalklimat.'
     },
     seasonEyebrow: 'Året i fyra delar', seasonTitle: 'Vår, sommar, höst och vinter', seasonIntro: 'Varje årstid ändrar balansen mellan värme, regn, dagsljus och praktisk dagsplanering. Råden beskriver tendenser, aldrig garantier.', seasonPlanningLabel: 'Planera för',
