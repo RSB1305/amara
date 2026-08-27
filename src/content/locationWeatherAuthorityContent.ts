@@ -78,7 +78,7 @@ const shared: Record<AmaraLanguage, SharedLocale> = {
       { period: 'September – November', title: 'Autumn', planning: 'Treat early and late autumn differently and check the near-term forecast as rain becomes more likely.' },
       { period: 'December – February', title: 'Winter', planning: 'Pack for cooler evenings and mixed weather, even when a bright afternoon feels mild.' }
     ],
-    bestEyebrow: 'Best time by intention', bestTitle: 'There is no single best month', bestIntro: 'Choose dates for the kind of stay you want, then use the forecast for the days themselves.', intentTitles: ['Beach & long evenings', 'Walking & exploring', 'Quieter town rhythm', 'Longer winter stay'],
+    bestEyebrow: 'Best time by intention', bestTitle: 'Choose the season that suits your stay', bestIntro: 'Each season brings its own advantages. Choose dates for the days you want to enjoy, then use the forecast to shape the details.', intentTitles: ['Beach & long evenings', 'Walking & exploring', 'Quieter town rhythm', 'Longer winter stay'],
     practicalEyebrow: 'Day planning & packing', practicalTitle: 'Turn the climate pattern into a workable day', practicalIntro: 'A useful plan allows the middle of the day, the evening and a change in conditions to feel different. Climate helps with the suitcase; the forecast decides tomorrow.', packTitle: 'A flexible packing list', packItems: ['Sun protection, water bottle and a hat', 'Light layers for wind, shade or evening', 'Comfortable footwear suited to the local terrain', 'A compact rain layer outside the driest months'],
     forecastEyebrow: 'Current weather', forecastTitle: 'Use AEMET for the actual travel dates', forecastParagraphs: ['This page explains the long-term climate — the pattern you can plan a trip around.', 'For your actual dates, use AEMET’s municipal forecast and warnings. They describe the main settlement, so a beach, a hillside or a sheltered street can still differ.'], forecastCta: 'Open the official AEMET forecast',
     sourcesEyebrow: 'Sources', sourcesTitle: 'Where these figures come from', sourcesIntro: 'Long-term averages come from one source, the daily forecast from another. Both are listed here.', sourcesChecked: 'Sources checked in August 2026', modelSourceText: 'Monthly baseline for temperature, rainfall and sunshine.', forecastSourceText: 'Official municipal forecast and weather-warning reference.',
@@ -102,7 +102,7 @@ const shared: Record<AmaraLanguage, SharedLocale> = {
       { period: 'September – November', title: 'Herbst', planning: 'Frühen und späten Herbst unterscheiden und bei zunehmender Regenchance die nähere Vorhersage nutzen.' },
       { period: 'Dezember – Februar', title: 'Winter', planning: 'Für kühlere Abende und wechselndes Wetter packen, auch wenn sich ein heller Nachmittag mild anfühlt.' }
     ],
-    bestEyebrow: 'Beste Reisezeit nach Absicht', bestTitle: 'Den einen besten Monat gibt es nicht', bestIntro: 'Wählt eure Reisedaten nach dem gewünschten Aufenthalt – und richtet die einzelnen Tage anschließend nach der Vorhersage.', intentTitles: ['Strand & lange Abende', 'Wandern & Erkunden', 'Ruhigerer Ortsrhythmus', 'Längerer Winteraufenthalt'],
+    bestEyebrow: 'Beste Reisezeit nach Absicht', bestTitle: 'Die passende Reisezeit für euren Aufenthalt', bestIntro: 'Jede Jahreszeit bringt ihre eigenen Vorteile. Wählt eure Reisedaten nach den Tagen, die ihr genießen möchtet, und stimmt die Details anschließend auf die Vorhersage ab.', intentTitles: ['Strand & lange Abende', 'Wandern & Erkunden', 'Ruhigerer Ortsrhythmus', 'Längerer Winteraufenthalt'],
     practicalEyebrow: 'Tagesplanung & Gepäck', practicalTitle: 'Aus dem Klimamuster einen guten Tag machen', practicalIntro: 'Ein guter Plan lässt zu, dass sich Mittag, Abend und ein Wetterwechsel unterschiedlich anfühlen. Das Klima hilft beim Koffer; über morgen entscheidet die Vorhersage.', packTitle: 'Flexibel einpacken', packItems: ['Sonnenschutz, Trinkflasche und Kopfbedeckung', 'Leichte Schichten für Wind, Schatten oder Abend', 'Bequeme Schuhe passend zum örtlichen Gelände', 'Außerhalb der trockensten Monate eine kompakte Regenlage'],
     forecastEyebrow: 'Aktuelles Wetter', forecastTitle: 'Für eure Reisedaten zählt AEMET', forecastParagraphs: ['Diese Seite erklärt das langfristige Klima – das Muster, nach dem sich eine Reise planen lässt.', 'Für eure konkreten Reisedaten nutzt ihr die Gemeindeprognose und die Warnungen von AEMET. Sie gelten für den Hauptort; ein Strand, ein Hang oder eine geschützte Gasse kann davon abweichen.'], forecastCta: 'Amtliche AEMET-Vorhersage öffnen',
     sourcesEyebrow: 'Quellen', sourcesTitle: 'Woher diese Zahlen stammen', sourcesIntro: 'Die langfristigen Mittelwerte stammen aus einer Quelle, die Tagesprognose aus einer anderen. Beide sind hier aufgeführt.', sourcesChecked: 'Quellen geprüft im August 2026', modelSourceText: 'Monatliche Basiswerte für Temperatur, Niederschlag und Sonne.', forecastSourceText: 'Amtliche Gemeindeprognose und Referenz für Wetterwarnungen.',
@@ -126,7 +126,7 @@ const shared: Record<AmaraLanguage, SharedLocale> = {
       { period: 'Septiembre – noviembre', title: 'Otoño', planning: 'Distinguid el inicio del final del otoño y consultad la previsión cercana cuando aumente la lluvia.' },
       { period: 'Diciembre – febrero', title: 'Invierno', planning: 'Preparad capas para tardes frescas y tiempo cambiante, aunque el mediodía resulte suave.' }
     ],
-    bestEyebrow: 'Mejor época según el plan', bestTitle: 'No existe un único mes perfecto', bestIntro: 'Elegid las fechas según la estancia que buscáis y utilizad después la previsión para cada día.', intentTitles: ['Playa y tardes largas', 'Caminar y explorar', 'Un ritmo más tranquilo', 'Una estancia larga en invierno'],
+    bestEyebrow: 'Mejor época según el plan', bestTitle: 'La época que mejor encaja con vuestro viaje', bestIntro: 'Cada estación aporta sus propias ventajas. Elegid las fechas según los días que queréis disfrutar y ajustad después los detalles con la previsión.', intentTitles: ['Playa y tardes largas', 'Caminar y explorar', 'Un ritmo más tranquilo', 'Una estancia larga en invierno'],
     practicalEyebrow: 'Plan diario y equipaje', practicalTitle: 'Convertir el patrón climático en un buen día', practicalIntro: 'Un plan útil admite que mediodía, tarde y un cambio de tiempo se sientan distintos. El clima ayuda con la maleta; la previsión decide mañana.', packTitle: 'Equipaje flexible', packItems: ['Protección solar, botella de agua y sombrero', 'Capas ligeras para viento, sombra o tarde', 'Calzado cómodo adaptado al terreno local', 'Una capa compacta para la lluvia fuera de los meses más secos'],
     forecastEyebrow: 'Tiempo actual', forecastTitle: 'Para las fechas reales, consultad AEMET', forecastParagraphs: ['Esta página explica el clima a largo plazo: el patrón con el que se planifica un viaje.', 'Para vuestras fechas concretas, usad la predicción municipal y los avisos de AEMET. Se refieren al núcleo principal, así que una playa, una ladera o una calle protegida pueden variar.'], forecastCta: 'Abrir la previsión oficial de AEMET',
     sourcesEyebrow: 'Fuentes', sourcesTitle: 'De dónde salen estas cifras', sourcesIntro: 'Las medias a largo plazo vienen de una fuente y la previsión diaria de otra. Aquí están las dos.', sourcesChecked: 'Fuentes revisadas en agosto de 2026', modelSourceText: 'Base mensual de temperatura, lluvia y sol.', forecastSourceText: 'Predicción municipal oficial y referencia para avisos meteorológicos.',
@@ -150,7 +150,7 @@ const shared: Record<AmaraLanguage, SharedLocale> = {
       { period: 'September – november', title: 'Herfst', planning: 'Maak onderscheid tussen vroege en late herfst en gebruik de korte verwachting als regen waarschijnlijker wordt.' },
       { period: 'December – februari', title: 'Winter', planning: 'Pak voor koelere avonden en wisselvallig weer, ook wanneer de middag zacht aanvoelt.' }
     ],
-    bestEyebrow: 'Beste reistijd per bedoeling', bestTitle: 'Er is niet één perfecte maand', bestIntro: 'Kies data voor het verblijf dat jullie willen en gebruik daarna de verwachting voor de dagen zelf.', intentTitles: ['Strand en lange avonden', 'Wandelen en ontdekken', 'Een rustiger ritme', 'Een langer winterverblijf'],
+    bestEyebrow: 'Beste reistijd per bedoeling', bestTitle: 'De reistijd die bij jullie verblijf past', bestIntro: 'Elk seizoen heeft zijn eigen voordelen. Kies de data voor de dagen waarvan jullie willen genieten en stem de details daarna af op de verwachting.', intentTitles: ['Strand en lange avonden', 'Wandelen en ontdekken', 'Een rustiger ritme', 'Een langer winterverblijf'],
     practicalEyebrow: 'Dagplanning en bagage', practicalTitle: 'Maak van het klimaatpatroon een werkbare dag', practicalIntro: 'Een goed plan laat toe dat middag, avond en een weersomslag anders aanvoelen. Het klimaat helpt bij de koffer; de verwachting bepaalt morgen.', packTitle: 'Flexibel inpakken', packItems: ['Zonbescherming, waterfles en hoofddeksel', 'Lichte laagjes voor wind, schaduw of avond', 'Comfortabele schoenen passend bij het terrein', 'Buiten de droogste maanden een compacte regenlaag'],
     forecastEyebrow: 'Actueel weer', forecastTitle: 'Gebruik AEMET voor de echte reisdata', forecastParagraphs: ['Deze pagina legt het langjarige klimaat uit — het patroon waarop je een reis plant.', 'Gebruik voor jullie eigen data de gemeentelijke verwachting en waarschuwingen van AEMET. Die gelden voor de hoofdplaats, dus een strand, een helling of een beschutte straat kan afwijken.'], forecastCta: 'Open de officiële AEMET-verwachting',
     sourcesEyebrow: 'Bronnen', sourcesTitle: 'Waar deze cijfers vandaan komen', sourcesIntro: 'De langjarige gemiddelden komen uit de ene bron, de dagverwachting uit de andere. Beide staan hier.', sourcesChecked: 'Bronnen gecontroleerd in augustus 2026', modelSourceText: 'Maandelijkse basis voor temperatuur, neerslag en zon.', forecastSourceText: 'Officiële gemeentelijke verwachting en referentie voor weerwaarschuwingen.',
@@ -174,7 +174,7 @@ const shared: Record<AmaraLanguage, SharedLocale> = {
       { period: 'September – november', title: 'Höst', planning: 'Skilj på tidig och sen höst och följ närprognosen när regn blir mer sannolikt.' },
       { period: 'December – februari', title: 'Vinter', planning: 'Packa för svalare kvällar och skiftande väder även när eftermiddagen känns mild.' }
     ],
-    bestEyebrow: 'Bästa restid efter avsikt', bestTitle: 'Det finns inte en enda perfekt månad', bestIntro: 'Välj datum efter vistelsen ni vill ha och använd sedan prognosen för de verkliga dagarna.', intentTitles: ['Strand och långa kvällar', 'Promenader och upptäckter', 'Lugnare rytm', 'Längre vintervistelse'],
+    bestEyebrow: 'Bästa restid efter avsikt', bestTitle: 'Restiden som passar er vistelse', bestIntro: 'Varje årstid har sina egna fördelar. Välj datum efter dagarna ni vill njuta av och anpassa sedan detaljerna efter prognosen.', intentTitles: ['Strand och långa kvällar', 'Promenader och upptäckter', 'Lugnare rytm', 'Längre vintervistelse'],
     practicalEyebrow: 'Dagsplanering och packning', practicalTitle: 'Gör klimatmönstret till en fungerande dag', practicalIntro: 'En bra plan tillåter att middag, kväll och ett väderomslag känns olika. Klimatet hjälper med väskan; prognosen bestämmer morgondagen.', packTitle: 'Packa flexibelt', packItems: ['Solskydd, vattenflaska och huvudbonad', 'Lätta lager för vind, skugga eller kväll', 'Bekväma skor anpassade till terrängen', 'Ett kompakt regnlager utanför de torraste månaderna'],
     forecastEyebrow: 'Aktuellt väder', forecastTitle: 'Använd AEMET för de verkliga resedatumen', forecastParagraphs: ['Sidan förklarar det långsiktiga klimatet – mönstret man planerar en resa efter.', 'För era egna datum använder ni AEMETs kommunprognos och varningar. De gäller huvudorten, så en strand, en sluttning eller en skyddad gata kan skilja sig.'], forecastCta: 'Öppna AEMETs officiella prognos',
     sourcesEyebrow: 'Källor', sourcesTitle: 'Varifrån siffrorna kommer', sourcesIntro: 'De långsiktiga medelvärdena kommer från en källa, dygnsprognosen från en annan. Båda finns här.', sourcesChecked: 'Källor granskade i augusti 2026', modelSourceText: 'Månatliga basvärden för temperatur, nederbörd och sol.', forecastSourceText: 'Officiell kommunprognos och referens för vädervarningar.',
@@ -208,7 +208,7 @@ const profiles: Profiles = {
       factorsTitle: 'A hillside village changes how the same day feels', factors: ['Frigiliana sits above the coast on sloping terrain. Elevation, exposure and shade provide useful planning context, but they do not prove an exact temperature difference from Nerja.', 'The durable pattern is Mediterranean: the warmest part of the year is markedly drier, while rain is more likely in the cooler half.'],
       factorItems: [{ title: 'Slope and exposure', text: 'An open uphill route can feel very different from a shaded lane at the same hour.' }, { title: 'Day and evening', text: 'Strong sun can dominate the day; after sunset, a light layer may still be useful depending on season and wind.' }, { title: 'Village and coast', text: 'Village and coast feel different in ways no monthly average captures — height, shade and exposure do the rest.' }],
       seasonNotes: ['Greener surroundings, changing weather and increasingly useful daylight for longer routes.', 'Dry, bright and potentially hot; early and late hours matter most on steep or exposed paths.', 'Early autumn can retain summer warmth before rain becomes more likely later in the season.', 'Quieter village days, more variable conditions and cooler evenings that reward flexible plans.'],
-      intentNotes: ['In July and August we plan the day around the shade: the village and the paths in the morning, then a proper siesta, and out again in the evening. Nobody functions all day in that heat — and if you are not a sun person either, this is the rhythm that works.', 'Spring and autumn offer a more forgiving balance for steep streets and longer routes.', 'In January you do not need the siesta. Temperatures stay pleasant right through the day, so you can plan it in one piece — with rain and cooler evenings as part of the deal.', 'For indoor comfort and longer stays, see the separate winter guide.'],
+      intentNotes: ['July and August bring long, bright days. We enjoy the village and its paths in the morning, a proper siesta in the shade at midday, and plenty of time for the beach, a terrace or an evening walk later on.', 'Spring and autumn combine softer temperatures with generous daylight — a lovely balance for exploring the village streets and Frigiliana’s four curated hiking routes.', 'In January, the quieter village rhythm carries through the day. There is time for the old town, cafés and viewpoints at an unhurried pace.', 'A longer winter stay gives you time to settle into Frigiliana, enjoy its everyday rhythm and make the accommodation part of the experience.'],
       practical: 'In summer, separate the exposed walking hours from lunch and rest. Outside summer, combine light layers with a rain option. Footwear matters year-round because the physical effort of the village can matter as much as the air temperature.'
     },
     de: {
@@ -219,7 +219,7 @@ const profiles: Profiles = {
       factorsTitle: 'Am Hang kann sich derselbe Tag unterschiedlich anfühlen', factors: ['Frigiliana liegt oberhalb der Küste in geneigtem Gelände. Höhenlage, Exposition und Schatten sind wichtige Planungshinweise, belegen aber keine exakte Temperaturdifferenz zu Nerja.', 'Das belastbare Grundmuster ist mediterran: Die warme Jahreshälfte ist deutlich trockener, Regen in der kühleren Hälfte wahrscheinlicher.'],
       factorItems: [{ title: 'Steigung und Exposition', text: 'Ein offener Anstieg kann sich zur selben Stunde ganz anders anfühlen als eine schattige Gasse.' }, { title: 'Tag und Abend', text: 'Tagsüber kann starke Sonne dominieren; nach Sonnenuntergang hängt eine zusätzliche Schicht von Saison und Wind ab.' }, { title: 'Dorf und Küste', text: 'Dorf und Küste fühlen sich unterschiedlich an, ohne dass ein Monatsmittel das abbildet – Höhe, Schatten und Exposition machen den Rest.' }],
       seasonNotes: ['Grünere Umgebung, wechselndes Wetter und mehr nutzbares Tageslicht für längere Wege.', 'Trocken, hell und potenziell heiß; auf steilen oder offenen Wegen zählen die frühen und späten Stunden.', 'Der frühe Herbst kann sommerlich bleiben, bevor Regen im weiteren Verlauf wahrscheinlicher wird.', 'Ruhigere Dorftage, wechselhaftere Bedingungen und kühlere Abende verlangen Flexibilität.'],
-      intentNotes: ['Im Juli und August richten wir den Tag nach dem Schatten: Dorf und Wege am Vormittag, dann Siesta, und am Abend noch einmal hinaus. Bei dieser Hitze funktioniert niemand den ganzen Tag durch – und wer wie wir kein ausgesprochener Sonnentyp ist, fährt mit diesem Rhythmus am besten.', 'Frühling und Herbst bieten die angenehmere Balance für steile Gassen und längere Wege.', 'Im Januar braucht ihr die Siesta nicht. Die Temperaturen bleiben den ganzen Tag angenehm, ihr könnt den Tag am Stück planen – Regen und kühlere Abende gehören dazu.', 'Für Wohnkomfort und längere Aufenthalte gibt es den eigenen Winter-Guide.'],
+      intentNotes: ['Juli und August schenken lange, helle Tage. Wir genießen Dorf und Wege am Vormittag, eine ausgiebige Siesta im Schatten und später viel Zeit für Strand, Terrasse oder einen Spaziergang am Abend.', 'Frühling und Herbst verbinden mildere Temperaturen mit viel Tageslicht – eine besonders schöne Balance für Frigilianas Gassen und die vier von uns ausgewählten Wanderrouten.', 'Im Januar trägt der ruhigere Dorfrhythmus durch den ganzen Tag. So bleibt viel Zeit für Altstadt, Cafés und Aussichtspunkte in einem entspannten Tempo.', 'Ein längerer Winteraufenthalt schenkt euch Zeit, in Frigiliana anzukommen, den örtlichen Alltag zu genießen und die Unterkunft zum Teil des Erlebnisses zu machen.'],
       practical: 'Im Sommer trennt ihr offene Gehzeiten von Mittagspause und Erholung. Außerhalb des Sommers gehören leichte Schichten und eine Regenoption zusammen. Gute Schuhe sind ganzjährig wichtig, weil die körperliche Anstrengung im Ort ebenso zählen kann wie die Lufttemperatur.'
     },
     es: {
@@ -230,7 +230,7 @@ const profiles: Profiles = {
       factorsTitle: 'En una ladera, el mismo día puede sentirse distinto', factors: ['Frigiliana está sobre la costa y en terreno inclinado. Altitud, exposición y sombra orientan la planificación, pero no demuestran una diferencia térmica exacta con Nerja.', 'El patrón duradero es mediterráneo: la parte cálida es mucho más seca y la lluvia resulta más probable en la mitad fresca.'],
       factorItems: [{ title: 'Pendiente y exposición', text: 'Una subida al sol puede sentirse muy distinta de una calle con sombra a la misma hora.' }, { title: 'Día y tarde', text: 'El sol puede dominar el día; tras la puesta, una capa ligera depende de la estación y del viento.' }, { title: 'Pueblo y costa', text: 'El pueblo y la costa se sienten distintos de un modo que ninguna media mensual recoge: la altura, la sombra y la exposición hacen el resto.' }],
       seasonNotes: ['Entorno más verde, tiempo cambiante y más luz útil para recorridos largos.', 'Seco, luminoso y potencialmente caluroso; importan las primeras y últimas horas.', 'El inicio puede conservar el verano antes de que la lluvia gane probabilidad.', 'Pueblo más tranquilo, condiciones variables y tardes frescas que exigen flexibilidad.'],
-      intentNotes: ['En julio y agosto organizamos el día alrededor de la sombra: el pueblo y los caminos por la mañana, después siesta, y de nuevo fuera al atardecer. Con ese calor nadie funciona el día entero, y si tampoco sois muy de sol, este es el ritmo que mejor va.', 'Primavera y otoño equilibran mejor las cuestas y las rutas largas.', 'En enero no hace falta siesta. Las temperaturas se mantienen agradables todo el día y podéis planificarlo de una pieza, contando con lluvia y tardes más frescas.', 'Para el confort interior y las estancias largas, usad la guía específica de invierno.'],
+      intentNotes: ['Julio y agosto traen días largos y luminosos. Disfrutamos del pueblo y sus caminos por la mañana, una buena siesta a la sombra al mediodía y después mucho tiempo para la playa, una terraza o un paseo al atardecer.', 'Primavera y otoño combinan temperaturas suaves con muchas horas de luz: un equilibrio estupendo para recorrer las calles del pueblo y las cuatro rutas de senderismo que hemos seleccionado.', 'En enero, el ritmo más tranquilo del pueblo acompaña todo el día. Hay tiempo para disfrutar del casco antiguo, los cafés y los miradores sin prisas.', 'Una estancia larga en invierno permite instalarse con calma en Frigiliana, disfrutar de su vida cotidiana y convertir el alojamiento en parte de la experiencia.'],
       practical: 'En verano separad las caminatas expuestas del mediodía y el descanso. Fuera del verano combinad capas ligeras con una opción para la lluvia. El calzado importa todo el año porque el esfuerzo de las cuestas puede pesar tanto como la temperatura.'
     },
     nl: {
@@ -241,7 +241,7 @@ const profiles: Profiles = {
       factorsTitle: 'Op de helling kan dezelfde dag anders voelen', factors: ['Frigiliana ligt boven de kust op hellend terrein. Hoogte, blootstelling en schaduw helpen bij de planning, maar bewijzen geen exact temperatuurverschil met Nerja.', 'Het blijvende patroon is mediterraan: het warme deel van het jaar is veel droger en regen waarschijnlijker in de koelere helft.'],
       factorItems: [{ title: 'Stijging en blootstelling', text: 'Een open klim kan op hetzelfde uur heel anders voelen dan een steeg in de schaduw.' }, { title: 'Dag en avond', text: 'Sterke zon kan de dag bepalen; na zonsondergang hangt een extra laag af van seizoen en wind.' }, { title: 'Dorp en kust', text: 'Dorp en kust voelen anders dan een maandgemiddelde laat zien — hoogte, schaduw en blootstelling doen de rest.' }],
       seasonNotes: ['Groenere omgeving, wisselend weer en meer bruikbaar daglicht voor langere routes.', 'Droog, helder en mogelijk heet; vroege en late uren tellen op steile of open paden.', 'Vroege herfst kan zomers blijven voordat regen later waarschijnlijker wordt.', 'Rustiger dorpsleven, wisselende omstandigheden en koelere avonden vragen flexibiliteit.'],
-      intentNotes: ['In juli en augustus richten we de dag op de schaduw in: het dorp en de paden in de ochtend, dan siesta, en tegen de avond weer naar buiten. Bij die hitte functioneert niemand de hele dag door — en zijn jullie net als wij geen uitgesproken zonmens, dan werkt dit ritme het beste.', 'Lente en herfst bieden een vriendelijker balans voor steile straten en langere routes.', 'In januari hebben jullie de siesta niet nodig. De temperaturen blijven de hele dag aangenaam, dus de dag laat zich in één stuk plannen — met regen en koelere avonden erbij.', 'Gebruik voor binnencomfort en lange verblijven de aparte wintergids.'],
+      intentNotes: ['Juli en augustus brengen lange, lichte dagen. Wij genieten ’s ochtends van het dorp en de paden, nemen rond de middag een uitgebreide siesta in de schaduw en hebben later alle tijd voor het strand, een terras of een avondwandeling.', 'Lente en herfst combineren mildere temperaturen met veel daglicht — een heerlijke balans voor de dorpsstraten en de vier door ons geselecteerde wandelroutes.', 'In januari draagt het rustigere dorpsritme de hele dag. Er is alle tijd voor de oude stad, cafés en uitzichtpunten in een ontspannen tempo.', 'Een langer winterverblijf geeft jullie tijd om echt in Frigiliana aan te komen, van het dagelijkse ritme te genieten en de accommodatie deel van de ervaring te maken.'],
       practical: 'Scheid in de zomer open wandeluren van lunch en rust. Combineer buiten de zomer lichte lagen met een regenoptie. Goede schoenen zijn het hele jaar belangrijk omdat de inspanning van het dorp even relevant kan zijn als de temperatuur.'
     },
     sv: {
@@ -252,7 +252,7 @@ const profiles: Profiles = {
       factorsTitle: 'I en sluttning kan samma dag kännas olika', factors: ['Frigiliana ligger ovanför kusten i lutande terräng. Höjd, exponering och skugga hjälper planeringen men bevisar ingen exakt temperaturskillnad mot Nerja.', 'Det hållbara mönstret är medelhavsklimat: den varma delen är mycket torrare och regn mer sannolikt under den svalare halvan.'],
       factorItems: [{ title: 'Lutning och exponering', text: 'En öppen uppförsväg kan kännas helt annorlunda än en skuggig gränd samma timme.' }, { title: 'Dag och kväll', text: 'Stark sol kan dominera dagen; efter solnedgång beror ett extra lager på säsong och vind.' }, { title: 'By och kust', text: 'By och kust känns olika på sätt som inget månadsmedel fångar – höjd, skugga och exponering gör resten.' }],
       seasonNotes: ['Grönare omgivning, växlande väder och mer användbart dagsljus för längre stråk.', 'Torrt, ljust och potentiellt hett; tidiga och sena timmar är viktigast på öppna vägar.', 'Tidig höst kan behålla sommarkänslan innan regn blir mer sannolikt.', 'Lugnare bydagar, skiftande förhållanden och svalare kvällar kräver flexibilitet.'],
-      intentNotes: ['I juli och augusti lägger vi upp dagen efter skuggan: byn och stigarna på förmiddagen, sedan siesta, och ut igen på kvällen. I den hettan orkar ingen hela dagen – och är ni som vi inte direkt soldyrkare fungerar den här rytmen bäst.', 'Vår och höst ger en bättre balans för branta gator och längre stråk.', 'I januari behöver ni ingen siesta. Temperaturen håller sig behaglig hela dagen, så dagen går att planera i ett svep – med regn och svalare kvällar som en del av bilden.', 'Använd den särskilda vinterguiden för inomhuskomfort och längre vistelser.'],
+      intentNotes: ['Juli och augusti bjuder på långa, ljusa dagar. Vi njuter av byn och stigarna på förmiddagen, tar en ordentlig siesta i skuggan mitt på dagen och får sedan gott om tid för stranden, en terrass eller en kvällspromenad.', 'Vår och höst förenar mildare temperaturer med mycket dagsljus — en härlig balans för bygatorna och de fyra vandringsleder som vi har valt ut.', 'I januari bär byns lugnare rytm genom hela dagen. Det finns gott om tid för gamla stan, kaféer och utsiktsplatser i ett avslappnat tempo.', 'En längre vintervistelse ger er tid att landa i Frigiliana, njuta av vardagsrytmen och låta boendet bli en del av upplevelsen.'],
       practical: 'Skilj på exponerad gångtid, lunch och vila under sommaren. Kombinera lätta lager med ett regnalternativ utanför sommaren. Bra skor är viktiga året runt eftersom byns fysiska ansträngning kan betyda lika mycket som lufttemperaturen.'
     }
   },
@@ -523,12 +523,37 @@ export function getWeatherAuthorityContent(destination: WeatherDestination, lang
     nl: { label: 'Aankomst & mobiliteit', text: 'Verbind luchthavens, bussen en het laatste stuk naar Nerja.' },
     sv: { label: 'Ankomst & mobilitet', text: 'Koppla ihop flygplatser, bussar och sista sträckan till Nerja.' }
   };
-  const frigilianaHikingCtaLabels: Record<AmaraLanguage, string> = {
-    en: 'Compare the four hiking routes',
-    de: 'Die vier Wanderrouten vergleichen',
-    es: 'Comparar las cuatro rutas de senderismo',
-    nl: 'Vergelijk de vier wandelroutes',
-    sv: 'Jämför de fyra vandringsrutterna'
+  const frigilianaIntentLinks: Record<AmaraLanguage, Array<{ token: LinkToken; label: string }>> = {
+    en: [
+      { token: 'frigiliana_beaches_authority', label: 'Explore beaches near Frigiliana' },
+      { token: 'frigiliana_hiking_authority', label: 'Compare the four hiking routes' },
+      { token: 'frigiliana_old_town', label: 'Discover Frigiliana’s old town' },
+      { token: 'frigiliana_winter_stays', label: 'Explore winter stays in Frigiliana' }
+    ],
+    de: [
+      { token: 'frigiliana_beaches_authority', label: 'Strände rund um Frigiliana entdecken' },
+      { token: 'frigiliana_hiking_authority', label: 'Die vier Wanderrouten vergleichen' },
+      { token: 'frigiliana_old_town', label: 'Frigilianas Altstadt entdecken' },
+      { token: 'frigiliana_winter_stays', label: 'Winteraufenthalte in Frigiliana entdecken' }
+    ],
+    es: [
+      { token: 'frigiliana_beaches_authority', label: 'Descubrir playas cerca de Frigiliana' },
+      { token: 'frigiliana_hiking_authority', label: 'Comparar las cuatro rutas de senderismo' },
+      { token: 'frigiliana_old_town', label: 'Descubrir el casco antiguo de Frigiliana' },
+      { token: 'frigiliana_winter_stays', label: 'Descubrir estancias de invierno en Frigiliana' }
+    ],
+    nl: [
+      { token: 'frigiliana_beaches_authority', label: 'Ontdek stranden bij Frigiliana' },
+      { token: 'frigiliana_hiking_authority', label: 'Vergelijk de vier wandelroutes' },
+      { token: 'frigiliana_old_town', label: 'Ontdek de oude stad van Frigiliana' },
+      { token: 'frigiliana_winter_stays', label: 'Ontdek winterverblijven in Frigiliana' }
+    ],
+    sv: [
+      { token: 'frigiliana_beaches_authority', label: 'Upptäck stränder nära Frigiliana' },
+      { token: 'frigiliana_hiking_authority', label: 'Jämför de fyra vandringslederna' },
+      { token: 'frigiliana_old_town', label: 'Upptäck Frigilianas gamla stad' },
+      { token: 'frigiliana_winter_stays', label: 'Upptäck vintervistelser i Frigiliana' }
+    ]
   };
 
   return {
@@ -545,18 +570,14 @@ export function getWeatherAuthorityContent(destination: WeatherDestination, lang
       eyebrow: common.bestEyebrow,
       title: common.bestTitle,
       intro: common.bestIntro,
-      items: common.intentTitles.map((title, index) => ({
-        title,
-        text: profile.intentNotes[index],
-        ...(destination === 'frigiliana' && index === 1
-          ? {
-              link: {
-                token: 'frigiliana_hiking_authority' as const,
-                label: frigilianaHikingCtaLabels[lang]
-              }
-            }
-          : {})
-      }))
+      items: common.intentTitles.map((title, index) => {
+        const link = destination === 'frigiliana' ? frigilianaIntentLinks[lang][index] : undefined;
+        return {
+          title,
+          text: profile.intentNotes[index],
+          ...(link ? { link } : {})
+        };
+      })
     },
     practical: { eyebrow: common.practicalEyebrow, title: common.practicalTitle, paragraphs: [common.practicalIntro, profile.practical], listTitle: common.packTitle, items: common.packItems },
     forecast: destination === 'frigiliana'
