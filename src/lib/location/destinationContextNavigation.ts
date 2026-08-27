@@ -59,7 +59,7 @@ export function getDestinationExperienceGroups(destination: DestinationId, lang:
         return { id, label: labels[id], href: href ?? undefined, status: href ? 'live' : 'future' };
       });
     const extras = [
-      ['oldTown', 'frigiliana_old_town', { en: 'History & Architecture', de: 'Geschichte & Baukultur', es: 'Historia y arquitectura', nl: 'Geschiedenis & architectuur', sv: 'Historia & arkitektur' }],
+      ['oldTown', 'frigiliana_old_town', { en: 'History & Architecture', de: 'Geschichte & Sehenswürdigkeiten', es: 'Historia y arquitectura', nl: 'Geschiedenis & architectuur', sv: 'Historia & arkitektur' }],
       ['dosTumbas', 'frigiliana_netflix_dos_tumbas', { en: 'Netflix filming locations', de: 'Netflix-Drehorte', es: 'Localizaciones Netflix', nl: 'Netflix-locaties', sv: 'Netflix-platser' }]
     ] as const;
     for (const [id, token, copy] of extras) {
