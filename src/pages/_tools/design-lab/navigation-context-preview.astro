@@ -1,32 +1,80 @@
 ---
 // Standalone internal study: it deliberately does not import the public navigation components.
 import '../../../styles/global.css';
+import LocationGuideIcon, {
+  type LocationGuideIconName
+} from '../../../components/location/LocationGuideIcon.astro';
 
-const guideGroups = [
+type PreviewGuideItem = {
+  icon: LocationGuideIconName;
+  label: string;
+};
+
+type PreviewGuideGroup = {
+  active?: string;
+  items: PreviewGuideItem[];
+  label: string;
+};
+
+const guideGroups: PreviewGuideGroup[] = [
   {
     label: 'Orientierung & Lagen',
-    items: ['Geografie & Orientierung', 'Wo übernachten / Lagen']
+    items: [
+      { label: 'Geografie & Orientierung', icon: 'municipality' },
+      { label: 'Wo übernachten / Lagen', icon: 'village' }
+    ]
   },
   {
     label: 'Klima & Reisezeit',
-    items: ['Wetter & Jahreszeiten', 'Winteraufenthalte'],
+    items: [
+      { label: 'Wetter & Jahreszeiten', icon: 'temperature' },
+      { label: 'Winteraufenthalte', icon: 'sunshine' }
+    ],
     active: 'Wetter & Jahreszeiten'
   },
   {
     label: 'Anreise & Parken',
-    items: ['Anreise & Mobilität', 'Parken & Erreichbarkeit']
+    items: [
+      { label: 'Anreise & Mobilität', icon: 'bus' },
+      { label: 'Parken & Erreichbarkeit', icon: 'rental-car' }
+    ]
   },
   {
     label: 'Alltag & Versorgung',
-    items: ['Supermärkte & Alltagseinkauf', 'Gesundheit & Notfälle', 'Gut zu wissen']
+    items: [
+      { label: 'Supermärkte & Alltagseinkauf', icon: 'local-shops' },
+      { label: 'Gesundheit & Notfälle', icon: 'pharmacy' },
+      { label: 'Gut zu wissen', icon: 'opening-hours' }
+    ]
   }
 ];
 
-const experienceGroups = [
-  { label: 'Draußen unterwegs', items: ['Wandern', 'Strände & Küste'] },
-  { label: 'Essen & Alltag', items: ['Restaurants', 'Wochenmarkt'] },
-  { label: 'Kultur & Ausflüge', items: ['Feste', 'Tagesausflüge'] },
-  { label: 'Ruhe & Erholung', items: ['Wellness'] }
+const experienceGroups: PreviewGuideGroup[] = [
+  {
+    label: 'Draußen unterwegs',
+    items: [
+      { label: 'Wandern', icon: 'walking-surface' },
+      { label: 'Strände & Küste', icon: 'coast' }
+    ]
+  },
+  {
+    label: 'Essen & Alltag',
+    items: [
+      { label: 'Restaurants', icon: 'bakery' },
+      { label: 'Wochenmarkt', icon: 'local-shops' }
+    ]
+  },
+  {
+    label: 'Kultur & Ausflüge',
+    items: [
+      { label: 'Feste', icon: 'longer-stay' },
+      { label: 'Tagesausflüge', icon: 'distance' }
+    ]
+  },
+  {
+    label: 'Ruhe & Erholung',
+    items: [{ label: 'Wellness', icon: 'sunshine' }]
+  }
 ];
 ---
 
@@ -86,12 +134,15 @@ const experienceGroups = [
                       <h3>{group.label}</h3>
                       {group.items.map((item) => (
                         <a
-                          class:list={[item === group.active && 'current']}
+                          class:list={[item.label === group.active && 'current']}
                           href="#"
-                          aria-current={item === group.active ? 'page' : undefined}
+                          aria-current={item.label === group.active ? 'page' : undefined}
                         >
-                          <span>{item}</span>
-                          {item === group.active && <small>AKTUELL</small>}
+                          <span class="guide-item-label">
+                            <LocationGuideIcon name={item.icon} class="h-4 w-4" />
+                            <span>{item.label}</span>
+                          </span>
+                          {item.label === group.active && <small>AKTUELL</small>}
                         </a>
                       ))}
                     </section>
@@ -118,7 +169,14 @@ const experienceGroups = [
                   experienceGroups.map((group) => (
                     <section>
                       <h3>{group.label}</h3>
-                      {group.items.map((item) => <a href="#">{item}</a>)}
+                      {group.items.map((item) => (
+                        <a href="#">
+                          <span class="guide-item-label">
+                            <LocationGuideIcon name={item.icon} class="h-4 w-4" />
+                            <span>{item.label}</span>
+                          </span>
+                        </a>
+                      ))}
                     </section>
                   ))
                 }
@@ -393,6 +451,13 @@ const experienceGroups = [
   .guide-groups a.current {
     border-bottom-color: #9a6818;
     color: #29241e;
+  }
+
+  .guide-item-label {
+    display: inline-flex;
+    min-width: 0;
+    align-items: center;
+    gap: 0.65rem;
   }
 
   .guide-groups small {
