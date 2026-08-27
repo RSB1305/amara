@@ -563,39 +563,39 @@ export const gettingToFrigilianaCopy = {
   },
   reality: {
     eyebrow: {
-      en: 'The final approach',
-      de: 'Die letzte Etappe',
-      es: 'El último tramo',
-      nl: 'Het laatste traject',
-      sv: 'Den sista sträckan'
+      en: 'Arrived in the village',
+      de: 'Im Dorf angekommen',
+      es: 'Ya en el pueblo',
+      nl: 'Aangekomen in het dorp',
+      sv: 'Framme i byn'
     } satisfies LocalizedText,
     title: {
-      en: 'Reaching the village is easy. Moving through it is different.',
-      de: 'Das Dorf ist leicht zu erreichen. Sich darin zu bewegen, ist eine andere Frage.',
-      es: 'Llegar al pueblo es fácil. Moverse por él es otra cuestión.',
-      nl: 'Het dorp bereiken is eenvoudig. Je erdoor verplaatsen is iets anders.',
-      sv: 'Det är enkelt att nå byn. Att ta sig runt i den är något annat.'
+      en: 'From Frigiliana, continue to Casa AMARA',
+      de: 'Von Frigiliana weiter zu Casa AMARA',
+      es: 'Desde Frigiliana, continuad hasta Casa AMARA',
+      nl: 'Van Frigiliana verder naar Casa AMARA',
+      sv: 'Från Frigiliana vidare till Casa AMARA'
     } satisfies LocalizedText,
     body: {
-      en: 'Frigiliana rises steeply above the coast, and only two streets really run through the village: Calle Real and its continuation, Calle Chorruelo. Both are very narrow, and because of the day visitors the local police usually close them from around ten or eleven in the morning until roughly five in the afternoon.',
-      de: 'Frigiliana steigt steil über der Küste an, und durch das Dorf führen praktisch nur zwei Straßen: die Calle Real und ihre Verlängerung, die Calle Chorruelo. Beide sind sehr eng – und weil tagsüber viele Tagesbesucher kommen, sperrt die örtliche Polizei sie meist zwischen zehn und elf Uhr bis etwa 17 Uhr.',
-      es: 'Frigiliana se eleva con fuerte desnivel sobre la costa y por el pueblo solo pasan realmente dos calles: la calle Real y su prolongación, la calle Chorruelo. Ambas son muy estrechas y, por la afluencia de visitantes de día, la policía local suele cerrarlas entre las diez u once de la mañana y las cinco de la tarde aproximadamente.',
-      nl: 'Frigiliana ligt steil boven de kust en door het dorp lopen eigenlijk maar twee straten: Calle Real en het verlengde daarvan, Calle Chorruelo. Beide zijn erg smal, en vanwege de dagbezoekers sluit de lokale politie ze meestal van ongeveer tien of elf uur in de ochtend tot een uur of vijf in de middag.',
-      sv: 'Frigiliana reser sig brant över kusten, och genom byn går egentligen bara två gator: Calle Real och dess förlängning Calle Chorruelo. Båda är mycket smala, och på grund av dagsbesökarna stänger den lokala polisen dem oftast från omkring tio eller elva på förmiddagen till cirka fem på eftermiddagen.'
+      en: 'This guide brings you as far as Frigiliana. Once you reach the village, our Casa AMARA arrival guide takes over and shows you the exact final approach to the house.',
+      de: 'Dieser Guide bringt euch bis nach Frigiliana. Sobald ihr das Dorf erreicht habt, übernimmt unser Ankunftsguide für Casa AMARA und zeigt euch den genauen letzten Weg zum Haus.',
+      es: 'Esta guía os lleva hasta Frigiliana. Cuando lleguéis al pueblo, nuestra guía de llegada a Casa AMARA continúa con el último trayecto exacto hasta la casa.',
+      nl: 'Deze gids brengt jullie tot Frigiliana. Zodra jullie het dorp bereiken, neemt onze aankomstgids voor Casa AMARA het over met de exacte laatste route naar het huis.',
+      sv: 'Den här guiden tar er till Frigiliana. När ni når byn tar vår ankomstguide för Casa AMARA vid och visar den exakta sista vägen till huset.'
     } satisfies LocalizedText,
     access: {
-      en: 'You can drive the lane, but we would not. It is genuinely narrow, and if you are not used to village streets in Spain, a scratched hire car and the paperwork that follows are a poor start to a holiday. Leave the car on the main road below and walk the last stretch — suitcase and all.',
-      de: 'Ihr könnt die Gasse befahren, wir würden es nicht tun. Sie ist wirklich eng, und wer schmale Dorfstraßen in Spanien nicht gewohnt ist, holt sich schnell eine Schramme am Mietwagen – die Abwicklung verdirbt den Start in den Urlaub. Stellt das Auto unten an der Hauptstraße ab und lauft das letzte Stück, auch mit Koffer.',
-      es: 'Se puede subir en coche, pero nosotros no lo haríamos. La calle es realmente estrecha y, si no estáis acostumbrados a las calles de los pueblos españoles, un roce en el coche de alquiler y su papeleo son un mal comienzo de vacaciones. Dejad el coche abajo, en la carretera principal, y haced a pie el último tramo, también con maleta.',
-      nl: 'Jullie kunnen de straat in rijden, maar wij zouden het niet doen. Hij is echt smal, en wie niet gewend is aan dorpsstraatjes in Spanje heeft zo een kras op de huurauto — met de afhandeling als slechte start van de vakantie. Zet de auto beneden aan de hoofdweg en loop het laatste stuk, ook met koffer.',
-      sv: 'Ni kan köra upp gränden, men vi skulle inte göra det. Den är verkligen smal, och är ni ovana vid spanska bygator sitter det snabbt en skråma på hyrbilen – och pappersarbetet blir en dålig start på semestern. Ställ bilen nere vid huvudvägen och gå sista biten, även med resväska.'
+      en: 'It covers arrival by rental car, taxi and bus, including the recommended point to start the short final walk.',
+      de: 'Dort findet ihr die Ankunft mit Mietwagen, Taxi und Bus sowie den empfohlenen Ausgangspunkt für den kurzen letzten Fußweg.',
+      es: 'Incluye la llegada en coche de alquiler, taxi y autobús, además del punto recomendado para comenzar el corto tramo final a pie.',
+      nl: 'Daar vinden jullie de aankomst met huurauto, taxi en bus, plus het aanbevolen beginpunt voor de korte laatste wandeling.',
+      sv: 'Där beskrivs ankomsten med hyrbil, taxi och buss samt den rekommenderade startpunkten för den korta sista promenaden.'
     } satisfies LocalizedText,
     climb: {
-      en: 'From there it is about 150 metres and some 30 metres of ascent to our door — steeply uphill the whole way, over cobbles and around 30 steps. Three to five minutes at your own pace. We walk it several times a day when we are there; it belongs to Frigiliana as much as the white walls and the narrow lanes.',
-      de: 'Von dort sind es rund 150 Meter und etwa 30 Höhenmeter bis zu unserer Tür – durchgehend bergauf, über Kopfsteinpflaster und ungefähr 30 Stufen. Je nach Tempo drei bis fünf Minuten. Wir gehen diesen Weg mehrmals am Tag, wenn wir da sind; er gehört zu Frigiliana wie die weißen Wände und die engen Gassen.',
-      es: 'Desde allí hay unos 150 metros y unos 30 metros de desnivel hasta nuestra puerta: cuesta arriba todo el camino, sobre empedrado y con unos 30 escalones. Entre tres y cinco minutos a vuestro ritmo. Nosotros lo subimos varias veces al día cuando estamos allí; forma parte de Frigiliana tanto como las paredes blancas y las calles estrechas.',
-      nl: 'Vanaf daar is het ongeveer 150 meter en zo veel als 30 meter hoogteverschil tot onze deur — de hele weg stevig omhoog, over kasseien en met ongeveer 30 treden. Drie tot vijf minuten in jullie eigen tempo. Wij lopen het meerdere keren per dag als we er zijn; het hoort bij Frigiliana net als de witte muren en de smalle straatjes.',
-      sv: 'Därifrån är det ungefär 150 meter och cirka 30 höjdmeter upp till vår dörr – brant uppför hela vägen, över kullersten och med omkring 30 trappsteg. Tre till fem minuter i er egen takt. Vi går den flera gånger om dagen när vi är där; den hör till Frigiliana lika mycket som de vita väggarna och de smala gränderna.'
+      en: 'The step-by-step directions and the large photo of our green front door make the handover in the village simple.',
+      de: 'Die Schritt-für-Schritt-Beschreibung und das große Foto unserer grünen Haustür machen die Orientierung im Dorf einfach.',
+      es: 'Las indicaciones paso a paso y la foto grande de nuestra puerta verde facilitan la orientación en el pueblo.',
+      nl: 'De stapsgewijze route en de grote foto van onze groene voordeur maken de oriëntatie in het dorp eenvoudig.',
+      sv: 'Steg-för-steg-beskrivningen och den stora bilden av vår gröna ytterdörr gör det enkelt att hitta i byn.'
     } satisfies LocalizedText,
     parkingCta: {
       en: 'Understand parking in Frigiliana',
@@ -605,11 +605,11 @@ export const gettingToFrigilianaCopy = {
       sv: 'Förstå parkering i Frigiliana'
     } satisfies LocalizedText,
     bookedCta: {
-      en: 'Continue to the La AMARA door',
-      de: 'Weiter bis zur Tür von La AMARA',
-      es: 'Continuar hasta la puerta de La AMARA',
-      nl: 'Verder naar de deur van La AMARA',
-      sv: 'Fortsätt till La AMARAs dörr'
+      en: 'Open the Casa AMARA arrival guide',
+      de: 'Ankunft bei Casa AMARA öffnen',
+      es: 'Abrir la guía de llegada a Casa AMARA',
+      nl: 'Aankomstgids voor Casa AMARA openen',
+      sv: 'Öppna ankomstguiden för Casa AMARA'
     } satisfies LocalizedText,
     imageAlt: {
       en: 'Stepped historic lane in Frigiliana',
