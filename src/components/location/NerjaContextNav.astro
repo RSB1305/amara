@@ -12,6 +12,7 @@ import {
   type NerjaAuthoritySubnavId
 } from '../../lib/nerja/nerjaAuthoritySubnav';
 import { getDestinationContextNavigation } from '../../lib/location/destinationBranchNavigation';
+import { getDestinationContextGroups } from '../../lib/location/destinationContextNavigation';
 import type { AmaraLanguage } from '../../types/seo';
 
 interface Props {
@@ -27,6 +28,7 @@ const navigationItems = getNerjaAuthoritySubnav(lang);
 const navigationGroups = getNerjaAuthoritySubnavGroups(lang);
 
 const contextNavigation = getDestinationContextNavigation('nerja', lang);
+const branchGroups = getDestinationContextGroups('nerja', lang);
 
 const activeTopicLabel = navigationItems.find((topic) => topic.id === activeId)?.label;
 const currentTopicLabel =
@@ -62,6 +64,7 @@ const groups: ContextNavigationGroup[] = navigationGroups;
   activeId={activeId === 'intro' ? undefined : activeId}
   branches={contextNavigation.branchNavigation.items}
   branchSwitcherAriaLabel={contextNavigation.branchNavigation.ariaLabel}
+  branchGroups={branchGroups}
   breadcrumbAriaLabel={contextNavigation.breadcrumbAriaLabel}
   breadcrumbs={breadcrumbs}
   context="location"

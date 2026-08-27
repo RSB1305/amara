@@ -14,6 +14,7 @@ import {
   type FrigilianaAuthoritySubnavItem
 } from '../../lib/frigiliana/frigilianaAuthoritySubnav';
 import { getDestinationContextNavigation } from '../../lib/location/destinationBranchNavigation';
+import { getDestinationContextGroups } from '../../lib/location/destinationContextNavigation';
 import type { AmaraLanguage } from '../../types/seo';
 
 interface Props {
@@ -30,6 +31,7 @@ const currentLabel = getFrigilianaAuthorityCurrentPageLabel(activeId, lang);
 const isOverview = activeId === 'intro';
 
 const contextNavigation = getDestinationContextNavigation('frigiliana', lang);
+const branchGroups = getDestinationContextGroups('frigiliana', lang);
 
 const breadcrumbs: ContextNavigationBreadcrumb[] = [
   {
@@ -52,6 +54,7 @@ if (!isOverview) {
   activeId={activeTopicId}
   branches={contextNavigation.branchNavigation.items}
   branchSwitcherAriaLabel={contextNavigation.branchNavigation.ariaLabel}
+  branchGroups={branchGroups}
   breadcrumbAriaLabel={contextNavigation.breadcrumbAriaLabel}
   breadcrumbs={breadcrumbs}
   context="location"
