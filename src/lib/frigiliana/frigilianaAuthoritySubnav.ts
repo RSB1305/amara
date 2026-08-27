@@ -1,11 +1,13 @@
 import {
   buildAuthoritySubnavGroups,
-  buildAuthoritySubnavItems,
   type AuthoritySubnavGroup,
   type AuthoritySubnavItem,
   type LocationTopicLinks
 } from '../location/authoritySubnav';
-import type { LocationGuideTopicId } from '../location/locationGuideTopics';
+import type {
+  LocationGuideClusterId,
+  LocationGuideTopicId
+} from '../location/locationGuideTopics';
 import type { AmaraLanguage } from '../../types/seo';
 
 export type FrigilianaAuthoritySubnavId =
@@ -43,11 +45,11 @@ const currentPageLabels: Record<
     sv: 'Frigiliana'
   },
   stay: {
-    en: 'Where to Stay / Areas',
-    de: 'Wo übernachten / Lagen',
-    es: 'Dónde alojarse / zonas',
-    nl: 'Waar overnachten / gebieden',
-    sv: 'Var ska man bo / områden'
+    en: 'Where to Stay',
+    de: 'Wo übernachten',
+    es: 'Dónde alojarse',
+    nl: 'Waar overnachten',
+    sv: 'Var ska man bo'
   },
   comparison: {
     en: 'Frigiliana & Nerja',
@@ -71,18 +73,18 @@ const currentPageLabels: Record<
     sv: 'Geografi & orientering'
   },
   dailyLife: {
-    en: 'Daily Life & Services',
-    de: 'Alltag & Versorgung',
-    es: 'Vida diaria y servicios',
-    nl: 'Dagelijks leven & voorzieningen',
-    sv: 'Vardag & service'
+    en: 'Daily Life & Shopping',
+    de: 'Alltag & Einkaufen',
+    es: 'Vida diaria y compras',
+    nl: 'Dagelijks leven & boodschappen',
+    sv: 'Vardag & inköp'
   },
   parking: {
-    en: 'Parking & Accessibility',
-    de: 'Parken & Erreichbarkeit',
+    en: 'Parking & Access',
+    de: 'Parken & Zugang',
     es: 'Aparcamiento y acceso',
-    nl: 'Parkeren & toegankelijkheid',
-    sv: 'Parkering & tillgänglighet'
+    nl: 'Parkeren & toegang',
+    sv: 'Parkering & åtkomst'
   },
   weather: {
     en: 'Weather & Seasons',
@@ -118,6 +120,79 @@ const currentPageLabels: Record<
     es: 'FAQ',
     nl: 'FAQ',
     sv: 'FAQ'
+  }
+};
+
+type FrigilianaNavigationCopy = {
+  clusters: Record<LocationGuideClusterId, string>;
+  topics: Partial<Record<LocationGuideTopicId, string>>;
+};
+
+const navigationCopy: Record<AmaraLanguage, FrigilianaNavigationCopy> = {
+  en: {
+    clusters: {
+      'orientation-areas': 'Hill-Village Areas',
+      'climate-seasons': 'Climate & Travel Timing',
+      'arrival-parking': 'Getting Here',
+      'daily-life-essentials': 'In the Village'
+    },
+    topics: {
+      'where-to-stay': 'Where to Stay',
+      'parking-accessibility': 'Parking & Access',
+      'shopping-markets': 'Daily Life & Shopping'
+    }
+  },
+  de: {
+    clusters: {
+      'orientation-areas': 'Lagen im Bergdorf',
+      'climate-seasons': 'Klima & Reisezeit',
+      'arrival-parking': 'Ankommen',
+      'daily-life-essentials': 'Vor Ort'
+    },
+    topics: {
+      'where-to-stay': 'Wo übernachten',
+      'parking-accessibility': 'Parken & Zugang',
+      'shopping-markets': 'Alltag & Einkaufen'
+    }
+  },
+  es: {
+    clusters: {
+      'orientation-areas': 'Zonas del pueblo',
+      'climate-seasons': 'Clima y época de viaje',
+      'arrival-parking': 'Cómo llegar',
+      'daily-life-essentials': 'En el pueblo'
+    },
+    topics: {
+      'where-to-stay': 'Dónde alojarse',
+      'parking-accessibility': 'Aparcamiento y acceso',
+      'shopping-markets': 'Vida diaria y compras'
+    }
+  },
+  nl: {
+    clusters: {
+      'orientation-areas': 'Liggingen in het bergdorp',
+      'climate-seasons': 'Klimaat & reistijd',
+      'arrival-parking': 'Aankomst',
+      'daily-life-essentials': 'In het dorp'
+    },
+    topics: {
+      'where-to-stay': 'Waar overnachten',
+      'parking-accessibility': 'Parkeren & toegang',
+      'shopping-markets': 'Dagelijks leven & boodschappen'
+    }
+  },
+  sv: {
+    clusters: {
+      'orientation-areas': 'Lägen i bergsbyn',
+      'climate-seasons': 'Klimat & restid',
+      'arrival-parking': 'Ankomst',
+      'daily-life-essentials': 'I byn'
+    },
+    topics: {
+      'where-to-stay': 'Var ska man bo',
+      'parking-accessibility': 'Parkering & åtkomst',
+      'shopping-markets': 'Vardag & inköp'
+    }
   }
 };
 /**
@@ -160,13 +235,22 @@ export function getFrigilianaAuthorityActiveTopic(
 export function getFrigilianaAuthoritySubnavGroups(
   currentLang: AmaraLanguage
 ): FrigilianaAuthoritySubnavGroup[] {
-  return buildAuthoritySubnavGroups(topicLinks, currentLang);
+  const copy = navigationCopy[currentLang];
+
+  return buildAuthoritySubnavGroups(topicLinks, currentLang).map((group) => ({
+    ...group,
+    label: copy.clusters[group.id],
+    items: group.items.map((item) => ({
+      ...item,
+      label: copy.topics[item.id] ?? item.label
+    }))
+  }));
 }
 
 export function getFrigilianaAuthoritySubnav(
   currentLang: AmaraLanguage
 ): FrigilianaAuthoritySubnavItem[] {
-  return buildAuthoritySubnavItems(topicLinks, currentLang);
+  return getFrigilianaAuthoritySubnavGroups(currentLang).flatMap((group) => group.items);
 }
 
 export function getFrigilianaAuthorityCurrentPageLabel(
