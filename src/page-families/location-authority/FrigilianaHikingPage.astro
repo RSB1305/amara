@@ -7,13 +7,16 @@ import ExperienceContextNav from '../../components/experience/ExperienceContextN
 import ExperiencePreFooter from '../../components/experience/ExperiencePreFooter.astro';
 import HikingRouteStatStrip from './HikingRouteStatStrip.astro';
 import {
-  frigilianaHikingContent,
-  frigilianaHikingSeo
+  frigilianaHikingSeo,
+  getFrigilianaHikingContent
 } from '../../content/frigilianaHikingContent';
 import LocationAuthorityLayout from '../../layouts/LocationAuthorityLayout.astro';
+import { resolveLink } from '../../lib/linkResolver';
 import { normalizeLanguage } from '../../lib/seo/resolve-seo-head';
 import type { AmaraLanguage } from '../../types/seo';
-import AuthorityFeatureSection from './AuthorityFeatureSection.astro';
+import LocationGuideIcon, {
+  type LocationGuideIconName
+} from '../../components/location/LocationGuideIcon.astro';
 
 interface Props {
   lang?: string;
@@ -21,13 +24,7 @@ interface Props {
 
 const { lang = 'de' } = Astro.props;
 const currentLang = normalizeLanguage(lang as AmaraLanguage);
-const copy = frigilianaHikingContent[currentLang];
-
-if (!copy) {
-  throw new Error(
-    `[AMARA] Frigiliana hiking copy is not published for "${currentLang}".`
-  );
-}
+const copy = getFrigilianaHikingContent(currentLang);
 
 const footerHighlights: LabeledLink[] = [
   {
@@ -41,6 +38,24 @@ const footerHighlights: LabeledLink[] = [
 const heroImage = {
   src: '/images/hero-frigiliana.jpg',
   width: 1080
+};
+
+const routeIcons: Record<string, LocationGuideIconName> = {
+  'cruz-de-pinto': 'walkable',
+  'rio-higueron-cahorros': 'walking-surface',
+  'el-fuerte-summit': 'elevation',
+  'gr-249-stage-6': 'distance'
+};
+
+const practicalIcons: Record<string, LocationGuideIconName> = {
+  weather: 'temperature',
+  navigation: 'distance',
+  'water-footwear': 'walking-surface'
+};
+
+const combineIcons: Record<string, LocationGuideIconName> = {
+  restaurants: 'village',
+  location: 'municipality'
 };
 ---
 
@@ -93,30 +108,40 @@ const heroImage = {
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-x-16 gap-y-14">
               {section.routes.map((route) => (
                 <article class="border-t border-outline-variant/25 pt-8">
-                  <h3 class="am-text-subtitle text-on-surface mb-5 lg:min-h-[2.3em]">
-                    {route.title}
-                  </h3>
+                  <div class="mb-5 flex items-start gap-3 lg:min-h-[2.3em]">
+                    <LocationGuideIcon name={routeIcons[route.id]} class="mt-1 h-5 w-5" />
+                    <h3 class="am-text-subtitle text-on-surface">{route.title}</h3>
+                  </div>
                   <HikingRouteStatStrip
                     duration={route.duration}
-                    elevationGain={route.elevationGain}
+                    elevationGain={'elevationGain' in route ? route.elevationGain : undefined}
                     distance={route.distance}
                     difficulty={route.difficulty}
                     experience={route.experience}
                     labels={copy.routeCardLabels}
                   />
-                  <p class="mt-6 am-text-body text-on-surface-variant leading-relaxed">
-                    {route.text}
-                  </p>
-                  {route.statusLink && (
-                    <p class="am-text-body text-on-surface-variant leading-relaxed mt-6">
-                      {route.statusLink.before}<a
-                        href={route.statusLink.href}
+                  <div class="mt-6 space-y-4">
+                    {route.paragraphs.map((paragraph) => (
+                      <p class="am-text-body text-on-surface-variant leading-relaxed">
+                        {paragraph}
+                      </p>
+                    ))}
+                  </div>
+                  <ul class="mt-7 space-y-4" aria-label={copy.routeCardLabels.statsAriaLabel}>
+                    {route.links.map((link) => (
+                      <li>
+                        <a
+                        href={link.href}
                         target="_blank"
                         rel="noopener noreferrer"
                         class="am-inline-link"
-                      >{route.statusLink.label}</a>{route.statusLink.after}
-                    </p>
-                  )}
+                        >{link.label}</a>
+                        <p class="mt-1 am-text-meta text-on-surface-variant">
+                          {link.context}
+                        </p>
+                      </li>
+                    ))}
+                  </ul>
                 </article>
               ))}
             </div>
@@ -124,18 +149,70 @@ const heroImage = {
         ))
       }
 
-      <AuthorityFeatureSection
-        id="practical"
-        title={copy.practical.title}
-        items={copy.practical.items}
-      />
+      <section class="am-section am-section--plain" aria-labelledby="rio-chillar-closure-title">
+        <div class="max-w-3xl border-l-2 border-primary pl-6 sm:pl-8">
+          <div class="mb-4 flex items-center gap-3">
+            <LocationGuideIcon name="rainfall" />
+            <p class="am-text-eyebrow text-primary">{copy.closureNotice.eyebrow}</p>
+          </div>
+          <h2 id="rio-chillar-closure-title" class="am-text-title italic text-on-surface tracking-tight">
+            {copy.closureNotice.title}
+          </h2>
+          <div class="mt-6 space-y-4">
+            {copy.closureNotice.paragraphs.map((paragraph) => (
+              <p class="am-text-body text-on-surface-variant leading-relaxed">{paragraph}</p>
+            ))}
+          </div>
+          <p class="mt-5 am-text-meta text-on-surface-variant">{copy.closureNotice.checked}</p>
+          <a
+            href={copy.closureNotice.href}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="am-inline-link mt-5 inline-flex"
+          >{copy.closureNotice.linkLabel}</a>
+        </div>
+      </section>
 
-      <AuthorityFeatureSection
-        title={copy.combine.title}
-        intro={copy.combine.intro}
-        items={copy.combine.items}
-        surface="plain"
-      />
+      <section id="practical" class="am-section am-section--tint">
+        <div class="max-w-3xl mb-12">
+          <h2 class="am-text-title italic text-on-surface tracking-tight">{copy.practical.title}</h2>
+        </div>
+        <div class="grid grid-cols-1 gap-x-10 gap-y-10 md:grid-cols-3">
+          {copy.practical.items.map((item) => (
+            <article class="border-t border-outline-variant/25 pt-7">
+              <LocationGuideIcon name={practicalIcons[item.id]} class="mb-5 h-6 w-6" />
+              <h3 class="am-text-subtitle text-on-surface">{item.title}</h3>
+              <p class="mt-4 am-text-body text-on-surface-variant leading-relaxed">{item.text}</p>
+              {'token' in item && 'label' in item && (
+                <a href={resolveLink(item.token, currentLang)} class="am-inline-link mt-5 inline-flex">
+                  {item.label}<span aria-hidden="true"> →</span>
+                </a>
+              )}
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section class="am-section am-section--plain" aria-labelledby="hiking-next-questions-title">
+        <div class="max-w-3xl mb-12">
+          <h2 id="hiking-next-questions-title" class="am-text-title italic text-on-surface tracking-tight mb-6">
+            {copy.combine.title}
+          </h2>
+          <p class="am-text-body text-on-surface-variant leading-relaxed">{copy.combine.intro}</p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-x-10 gap-y-10">
+          {copy.combine.items.map((item) => (
+            <article class="border-t border-outline-variant/25 pt-7">
+              <LocationGuideIcon name={combineIcons[item.id]} class="mb-5 h-6 w-6" />
+              <h3 class="am-text-subtitle text-on-surface">{item.title}</h3>
+              <p class="mt-4 am-text-body text-on-surface-variant leading-relaxed">{item.text}</p>
+              <a href={resolveLink(item.token, currentLang)} class="am-inline-link mt-5 inline-flex">
+                {item.label}
+              </a>
+            </article>
+          ))}
+        </div>
+      </section>
 
       <ExperiencePreFooter currentId="hiking" lang={currentLang} />
 
@@ -146,7 +223,7 @@ const heroImage = {
           links={[
             {
               token: 'romantic_hideaways',
-              label: copy.closing.apartmentsCta,
+              label: copy.closing.staysCta,
               style: 'text'
             },
             {

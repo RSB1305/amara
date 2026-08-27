@@ -519,7 +519,6 @@ function frigilianaGuide(lang: AmaraLanguage): ArrivalGuidePageContent {
         alt: text(copy.reality.imageAlt, lang)
       },
       links: [
-        { token: 'frigiliana_parking', label: text(copy.reality.parkingCta, lang) },
         { token: 'arrival_guide', label: text(copy.reality.bookedCta, lang) }
       ]
     },

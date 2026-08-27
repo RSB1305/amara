@@ -121,12 +121,12 @@ export interface FrigilianaLocationPageCopy {
 }
 
 export const frigilianaLocationSeo: AmaraAuthoringSeo = {
-  version: '2026-08-18-frigiliana-location-v2.1',
+  version: '2026-08-27-frigiliana-location-v2.2',
   pageType: 'A',
   entityKey: 'amara-brand',
   article: {
     datePublished: '2026-08-18',
-    dateModified: '2026-08-22',
+    dateModified: '2026-08-27',
     authorName: 'Robert Sebastian Böhmer',
     authorType: 'Person' as const,
     authorSlug: 'amara-about-us'
@@ -171,7 +171,7 @@ export const frigilianaLocationNav = {
   links: [
     { token: 'location_frigiliana', label: { en: 'Frigiliana', de: 'Frigiliana', es: 'Frigiliana', nl: 'Frigiliana', sv: 'Frigiliana' } },
     { token: 'frigiliana_parking', label: { en: 'Parking', de: 'Parken', es: 'Aparcamiento', nl: 'Parkeren', sv: 'Parkering' } },
-    { token: 'arrival_guide', label: { en: 'Arrival', de: 'Anreise', es: 'Llegada', nl: 'Aankomst', sv: 'Ankomst' } }
+    { token: 'arrival_guide', label: { en: 'Arrival at AMARA', de: 'Ankunft bei AMARA', es: 'Llegada a AMARA', nl: 'Aankomst bij AMARA', sv: 'Ankomst till AMARA' } }
   ]
 } as const;
 

@@ -102,6 +102,16 @@ Before creating a new public page, route or guide, run a targeted repository-wid
 
 After a multilingual change intended for all five locales, check only the changed scope for required entries, sections and links across EN, DE, ES, NL and SV. Natural sentence and paragraph differences are allowed. Do not inspect all multilingual repository content or browser-test all five locales by default.
 
+## Parallel traffic check
+
+When parallel agent work is explicitly active, apply `DR-EXEC-010` before a new implementation task and before integrating or pushing work: spend about 30 seconds maximum on a read-only check of active local worktrees, visible active remote branches or pull requests where available, and scopes declared by the operator or Traffic Controller.
+
+- Stop and report only when another active worker owns the same files or the same shared owner/contract.
+- If scopes are separate, proceed immediately.
+- Do not turn the check into builds, tests, broad audits, architecture review, lengthy preflight or a new coordination system.
+
+Normal work remains: **30-second traffic check -> implement -> targeted validation -> local commit**. Push stays centralized and batched at an intentional release point. The Governance owner contains the full normative rule.
+
 ## External booking boundary
 
 Astro is the sole AMARA website runtime. The active external booking/availability/checkout boundary remains separately governed by `AMARA-BOOKING-ARCHITECTURE.md` and `src/lib/directBooking.ts`. Do not hardcode booking hosts elsewhere, point booking CTAs at an OTA or let operational data overwrite authored AMARA content outside the approved boundary.

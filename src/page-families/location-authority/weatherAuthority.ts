@@ -10,6 +10,10 @@ export interface WeatherAuthoritySeason {
 export interface WeatherAuthorityItem {
   title: string;
   text: string;
+  link?: {
+    token: LinkToken;
+    label: string;
+  };
 }
 
 export interface WeatherAuthoritySource {
@@ -46,6 +50,7 @@ export interface WeatherAuthorityContent {
       sunHours: string;
       temperature: string;
       rainfall: string;
+      details: string;
     };
     sourceTitle: string;
     sourceText: string;
@@ -75,6 +80,18 @@ export interface WeatherAuthorityContent {
     title: string;
     paragraphs: string[];
     cta: string;
+    live?: {
+      loading: string;
+      today: string;
+      tomorrow: string;
+      high: string;
+      low: string;
+      rain: string;
+      issued: string;
+      unavailable: string;
+      unavailableText: string;
+      source: string;
+    };
   };
   sources: {
     eyebrow: string;

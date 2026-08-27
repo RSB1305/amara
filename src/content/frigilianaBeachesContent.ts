@@ -84,7 +84,7 @@ export interface FrigilianaBeachesPageCopy {
     items: {
       title: string;
       text: string;
-      linkToken: 'frigiliana_hiking_authority' | 'location_nerja';
+      linkToken: 'frigiliana_hiking_authority' | 'weather_frigiliana' | 'location_nerja';
       linkLabel: string;
     }[];
   };
@@ -114,7 +114,7 @@ const cantarrijanAccessInfo =
   'https://www.juntadeandalucia.es/medioambiente/portal/web/ventanadelvisitante/detalle-buscador-mapa/-/asset_publisher/Jlbxh2qB3NwR/content/acantilados-de-maro-cerro-gordo-2/255035';
 
 export const frigilianaBeachesSeo: AmaraAuthoringSeo = {
-  version: '2026-07-29-frigiliana-beaches-v1.0-B',
+  version: '2026-08-27-frigiliana-beaches-v1.1-B',
   pageType: 'B',
   entityKey: 'amara-brand',
   ogImage: '/images/amara-playa/apartment/chaparril-22.webp',
@@ -379,6 +379,13 @@ export const frigilianaBeachesContent: Record<
           linkLabel: 'See the hiking guide'
         },
         {
+          title: 'Let the weather choose the order',
+          text:
+            'In hot summer weather, swim early and keep exposed walking away from midday. In spring and autumn, a longer route can lead the plan and the coast can remain the flexible part of the day.',
+          linkToken: 'weather_frigiliana',
+          linkLabel: 'Compare weather and seasons'
+        },
+        {
           title: 'Nerja after the swim',
           text:
             'Calahonda and Burriana are easy to combine with the Balcón de Europa, the old centre, tapas and an evening by the coast.',
@@ -606,6 +613,13 @@ export const frigilianaBeachesContent: Record<
             'Verbindet ein frühes Bad mit einem Spaziergang oberhalb Frigilianas — oder hebt euch die längeren Routen in der Sierra Almijara für einen kühleren Tag auf.',
           linkToken: 'frigiliana_hiking_authority',
           linkLabel: 'Zum Wander-Guide'
+        },
+        {
+          title: 'Lasst das Wetter über die Reihenfolge entscheiden',
+          text:
+            'Bei heißem Sommerwetter gehört das Bad in die frühen Stunden und ein offener Weg nicht in die Mittagshitze. Im Frühling und Herbst kann die längere Route den Tag bestimmen und die Küste der flexible Teil bleiben.',
+          linkToken: 'weather_frigiliana',
+          linkLabel: 'Wetter und Jahreszeiten vergleichen'
         },
         {
           title: 'Nerja nach dem Schwimmen',
@@ -837,6 +851,13 @@ export const frigilianaBeachesContent: Record<
           linkLabel: 'Ver la guía de senderismo'
         },
         {
+          title: 'Dejad que el tiempo decida el orden',
+          text:
+            'Con calor de verano, bañarse temprano y evitar el mediodía en rutas expuestas funciona mejor. En primavera y otoño, la ruta larga puede marcar el día y la costa quedar como la parte flexible.',
+          linkToken: 'weather_frigiliana',
+          linkLabel: 'Comparar tiempo y estaciones'
+        },
+        {
           title: 'Nerja después del baño',
           text:
             'Calahonda y Burriana se combinan fácilmente con el Balcón de Europa, el casco antiguo, unas tapas y una tarde junto al mar.',
@@ -1066,6 +1087,13 @@ export const frigilianaBeachesContent: Record<
           linkLabel: 'Bekijk de wandelgids'
         },
         {
+          title: 'Laat het weer de volgorde bepalen',
+          text:
+            'Zwem bij heet zomerweer vroeg en houd open wandelroutes buiten de middaghitte. In lente en herfst kan de langere route de dag bepalen en blijft de kust het flexibele onderdeel.',
+          linkToken: 'weather_frigiliana',
+          linkLabel: 'Vergelijk weer en seizoenen'
+        },
+        {
           title: 'Nerja na het zwemmen',
           text:
             'Calahonda en Burriana zijn eenvoudig te combineren met het Balcón de Europa, de oude stad, tapas en een avond aan de kust.',
@@ -1293,6 +1321,13 @@ export const frigilianaBeachesContent: Record<
             'Kombinera ett tidigt dopp med en promenad ovanför Frigiliana, eller spara de längre lederna i Sierra Almijara till en svalare dag.',
           linkToken: 'frigiliana_hiking_authority',
           linkLabel: 'Se vandringsguiden'
+        },
+        {
+          title: 'Låt vädret bestämma ordningen',
+          text:
+            'Vid hett sommarväder passar ett tidigt dopp och öppna vandringar bör hållas borta från middagshettan. På vår och höst kan den längre turen styra dagen och kusten vara den flexibla delen.',
+          linkToken: 'weather_frigiliana',
+          linkLabel: 'Jämför väder och årstider'
         },
         {
           title: 'Nerja efter badet',

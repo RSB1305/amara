@@ -1,11 +1,11 @@
 ---
 document_id: AMARA-GOV-005
 title: AMARA Governance, Execution & Documentation Lifecycle
-version: 5.5.0
+version: 5.6.0
 status: ACTIVE
 authority_class: GOVERNING CONTRACT
 effective_from: 2026-08-14
-last_modified: 2026-08-14T12:59:47+02:00
+last_modified: 2026-08-27T13:11:27+02:00
 canonical_path: /docs/standards/05_AMARA_Governance_Execution_and_Documentation_Lifecycle_V5.md
 supersedes:
   - AMARA Governance & Execution Standard V4.2
@@ -25,6 +25,7 @@ decision_refs:
   - DR-EXEC-005
   - DR-EXEC-004
   - DR-EXEC-003
+  - DR-EXEC-010
   - DR-BOOT-001
 ---
 
@@ -198,6 +199,26 @@ Both checks are deterministic, cheap and performed by the implementing agent. Ne
 **New-page duplication check.** Before creating a new public page, route or guide, run a targeted repository-wide search for an existing page with the same or substantially overlapping topic/search intent. Repository-wide describes search reach, not work scope. Normally use no more than about three targeted searches or 60 seconds, covering likely topic/intent, route/content and registry ownership. On probable duplication or ownership overlap, stop and report; otherwise continue implementation. Never create a full inventory for this preflight.
 
 **Five-locale completeness check.** After a multilingual change intended for all supported languages, check only the multilingual scope changed by the task. Verify required entries, sections and links across EN, DE, ES, NL and SV. Natural paragraph and sentence differences between languages are allowed. Do not inspect all multilingual repository content or browser-test all five locales by default.
+
+### Parallel Traffic Check
+
+When the operator or Traffic Controller declares that parallel agent work is active, the implementing agent performs a read-only traffic check of about 30 seconds maximum before starting a new implementation task and again before integrating or pushing work.
+
+The check is limited to:
+
+- active local worktrees;
+- visible active remote branches or pull requests where available; and
+- active scopes explicitly declared by the operator or Traffic Controller.
+
+If another active worker owns the same files or the same shared owner or contract, stop and report the overlap. If scopes are separate, proceed immediately.
+
+The traffic check must not run builds, tests, broad repository audits, architecture reviews or lengthy preflights. It does not create a new coordination framework, manifest, database or process system.
+
+The normal parallel-work sequence is:
+
+**30-second traffic check -> implement -> targeted validation -> local commit**
+
+Push remains centralized and batched at an intentional release point.
 
 ### Completion rule
 
@@ -375,3 +396,4 @@ Project attachments/PDFs are not activation gates.
 | 5.3.0 | 2026-08-14T11:41:00+02:00 | **ACTIVE FAST-first revision.** Made minimum-safe FAST execution the default for Class 0/1 and bounded Class 2 work; removed ritual post-fix re-review/full-build defaults; added operator-time proportionality, push batching and SSOT intake/sync. | DR-EXEC-003, DR-EXEC-004, DR-EXEC-005, DR-EXEC-006, DR-EXEC-007, DR-EXEC-008 | 5c59674 |
 | 5.4.0 | 2026-08-14T12:30:00+02:00 | Added two deterministic FAST preflight checks to the validation ladder: repository-wide new-page duplication check before creating a public page/route/guide, and a five-locale structural completeness check before committing multilingual changes. Both are performed by the implementing agent; neither introduces a mandatory second agent. | DR-EXEC-003, DR-EXEC-004 | 0e2b26a |
 | 5.5.0 | 2026-08-14T12:59:47+02:00 | Made `AGENTS.md` sufficient for daily Class 0–2 work; limited owner reads to architecture/SSOT, protected-contract and concrete-conflict triggers; bounded FAST preflights; prohibited incidental validation tooling, documentation and inventories; established result-first turn completion. | DR-EXEC-001–008, DR-AGENT-001 | this revision |
+| 5.6.0 | 2026-08-27T13:11:27+02:00 | Added the bounded read-only Parallel Traffic Check for declared parallel-agent work, with an overlap stop only for the same files or shared owner/contract and no expansion into builds, audits or new coordination infrastructure. | DR-EXEC-010, DR-EXEC-007 | this revision |

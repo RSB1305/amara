@@ -106,12 +106,19 @@ const visibleItems = activeId && !retainActiveItem
               'flex w-full max-w-full items-center am-text-nav-breadcrumb text-on-surface/70',
               groups.length > 0
                 ? 'am-text-nav-breadcrumb--responsive min-w-0 flex-nowrap gap-1 md:gap-2'
-                : 'flex-wrap gap-2'
+                : 'min-w-0 flex-nowrap gap-1 overflow-hidden md:gap-2'
             ]}
           >
             {
               breadcrumbs.map((breadcrumb, index) => {
                 const isCurrent = index === breadcrumbs.length - 1;
+                const isAmaraHome = index === 0 && breadcrumb.label.trim().toUpperCase() === 'AMARA';
+                const breadcrumbLabel = isAmaraHome ? (
+                  <>
+                    <span aria-hidden="true">&hearts;</span>
+                    <span class="sr-only">AMARA</span>
+                  </>
+                ) : breadcrumb.label;
 
                 return (
                   <>
@@ -132,6 +139,7 @@ const visibleItems = activeId && !retainActiveItem
                         isCurrent && 'min-w-0',
                         isCurrent && 'text-on-surface'
                       ]}
+                      data-am-context-breadcrumb-current={isCurrent ? '' : undefined}
                       data-am-context-mobile-hidden={index > 1 ? '' : undefined}
                     >
                       {breadcrumb.href && !isCurrent ? (
@@ -139,10 +147,10 @@ const visibleItems = activeId && !retainActiveItem
                           href={breadcrumb.href}
                           class="transition-colors hover:text-primary"
                         >
-                          {breadcrumb.label}
+                          {breadcrumbLabel}
                         </a>
                       ) : (
-                        breadcrumb.label
+                        breadcrumbLabel
                       )}
                     </li>
                   </>

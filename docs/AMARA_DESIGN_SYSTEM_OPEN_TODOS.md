@@ -1,6 +1,6 @@
 # AMARA Design System — offene Arbeiten
 
-**Stand:** 2026-08-25
+**Stand:** 2026-08-27
 
 **Gesamtstatus:** IN ARBEIT
 
@@ -18,6 +18,7 @@ Diese Datei ist eine operative Statusliste und kein neuer Architekturvertrag. Di
 | DS-04 | **OFFEN** | Verbleibende Sonderlösungen der Location-Seiten | Die großen individuellen Location-Renderer sind auf tatsächlich wiederkehrende Inhalts- und Präsentationsmuster geprüft. Nur echte Wiederholungen werden konsolidiert; unterschiedliche Seitenaufgaben und Inhalte bleiben erhalten. |
 | DS-05 | **OFFEN** | Lodgify-Übergang und Checkout-Gestaltung | Die technischen Möglichkeiten und die Empfehlung von Lodgify zur Einbindung, insbesondere iFrame versus externer Checkout, sind geklärt. Danach sind Buchungsarchitektur, Datenschutz, mobile Bedienung und der visuelle Übergang verbindlich entschieden und umgesetzt. |
 | DS-06 | **IN ARBEIT** | Cross-Silo-Ausnahmen und Baukasten | Gleiche UI-Aufgaben in Trust, Stay, Location und Experience sind als Cluster klassifiziert. Jedes Cluster ist `canonical`, bewusste `family`-Variante, `experimental`, `legacy` oder `retired`; neue lokale Varianten entstehen nicht neben einem bereits identifizierten gemeinsamen Job. |
+| DS-07 | **OFFEN** | Mobile Header: Sprachsymbol und Wortmarke | Bei 360 px kollidiert das Weltkugel-/Sprachsymbol sichtbar mit der AMARA-Lodging-Wortmarke. Erledigt, wenn Logo, Sprachwahl, Verfügbarkeits-CTA und Menü im kanonischen Mobile Header getrennte, kollisionsfreie Flächen besitzen. |
 
 ## Aktive Ausnahmebasis
 

@@ -3,11 +3,14 @@ import InlineEmphasis from '../../components/text/InlineEmphasis.astro';
 import LocationClimateTable from '../../components/location/LocationClimateTable.astro';
 import SeasonalPillar from '../../components/location/SeasonalPillar.astro';
 import LocationWeatherHero from '../../components/location/LocationWeatherHero.astro';
+import AemetForecastPanel from '../../components/location/AemetForecastPanel.astro';
+import AmaraActionLink from '../../components/actions/AmaraActionLink.astro';
 import AuthorityRelatedLinks from './AuthorityRelatedLinks.astro';
 import LocationModule from './LocationModule.astro';
 import type { LocationClimateMonth } from '../../content/locationClimateData';
 import type { WeatherAuthorityContent } from './weatherAuthority';
 import { getPageEndAttributes } from '../../components/page-end/pageEndContract';
+import type { AmaraLanguage } from '../../types/seo';
 
 interface Props {
   pageId: string;
@@ -15,6 +18,11 @@ interface Props {
   months: Array<LocationClimateMonth & { month: string }>;
   climateSource: { label: string; href: string };
   forecastHref: string;
+  liveForecast?: {
+    endpoint: string;
+    lang: AmaraLanguage;
+    labels: NonNullable<WeatherAuthorityContent['forecast']['live']>;
+  };
   resolveHref: (token: WeatherAuthorityContent['related']['links'][number]['token']) => string;
   primaryHref: string;
   secondaryHref: string;
@@ -26,6 +34,7 @@ const {
   months,
   climateSource,
   forecastHref,
+  liveForecast,
   resolveHref,
   primaryHref,
   secondaryHref
@@ -86,7 +95,8 @@ const {
         high: content.table.labels.high,
         low: content.table.labels.low,
         rain: content.table.labels.rain,
-        sunHours: content.table.labels.sunHours
+        sunHours: content.table.labels.sunHours,
+        details: content.table.labels.details
       }}
       chartLabels={{
         temperature: content.table.labels.temperature,
@@ -132,6 +142,14 @@ const {
           <article class:list={['p-7', index > 1 && 'border-t border-inverted-on-surface/20', index % 2 === 1 && 'sm:border-l sm:border-inverted-on-surface/20']}>
             <h3 class="am-text-subtitle text-inverted-on-surface">{item.title}</h3>
             <p class="am-text-body mt-4 leading-relaxed text-inverted-on-surface/70"><InlineEmphasis text={item.text} /></p>
+            {item.link && (
+              <a
+                href={resolveHref(item.link.token)}
+                class="am-cta-link mt-5 inline-flex text-primary-fixed-dim"
+              >
+                {item.link.label}
+              </a>
+            )}
           </article>
         ))}
       </div>
@@ -172,7 +190,19 @@ const {
             <p class="am-text-body leading-relaxed text-on-surface-variant"><InlineEmphasis text={paragraph} /></p>
           ))}
         </div>
-        <a href={forecastHref} target="_blank" rel="noopener noreferrer" class="am-cta-link mt-8 inline-flex">{content.forecast.cta}</a>
+        {liveForecast ? (
+          <AemetForecastPanel
+            endpoint={liveForecast.endpoint}
+            lang={liveForecast.lang}
+            labels={liveForecast.labels}
+            sourceHref={forecastHref}
+            fallbackLabel={content.forecast.cta}
+          />
+        ) : (
+          <AmaraActionLink href={forecastHref} variant="editorial" external class="mt-8 inline-flex">
+            {content.forecast.cta}
+          </AmaraActionLink>
+        )}
       </div>
     </div>
   </LocationModule>

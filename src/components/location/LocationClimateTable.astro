@@ -23,6 +23,7 @@ interface Props {
     low: string;
     rain: string;
     sunHours: string;
+    details: string;
   };
   chartLabels: {
     temperature: string;
@@ -93,30 +94,41 @@ const maxRain = Math.max(...months.map((month) => month.rain));
       </div>
     </div>
 
-    <div class="mt-10 overflow-x-auto">
-      <table class="w-full min-w-[760px] border-collapse text-left">
-        <thead>
-          <tr class="border-b border-outline-variant/25 text-muted am-text-label am-text-label--sm">
-            <th class="py-4 pr-5">{labels.month}</th>
-            <th class="px-5 py-4 text-right">{labels.high}</th>
-            <th class="px-5 py-4 text-right">{labels.low}</th>
-            <th class="px-5 py-4 text-right">{labels.rain}</th>
-            <th class="py-4 pl-5 text-right">{labels.sunHours}</th>
-          </tr>
-        </thead>
-        <tbody>
-          {months.map((month) => (
-            <tr class="border-b border-outline-variant/15 am-text-body text-on-surface-variant">
-              <th class="py-4 pr-5 font-normal text-on-surface">{month.month}</th>
-              <td class="px-5 py-4 text-right tabular-nums">{month.high} °C</td>
-              <td class="px-5 py-4 text-right tabular-nums">{month.low} °C</td>
-              <td class="px-5 py-4 text-right tabular-nums">{month.rain} mm</td>
-              <td class="py-4 pl-5 text-right tabular-nums">{month.sunHours} h</td>
+    <details class="group mt-10 border-y border-outline-variant/20">
+      <summary class="am-accordion__trigger min-h-14 items-center py-5">
+        <span class="am-text-subtitle text-on-surface transition-colors group-hover:text-primary">
+          {labels.details}
+        </span>
+        <span class="am-accordion__indicator" aria-hidden="true">
+          <span class="group-open:hidden">+</span>
+          <span class="hidden group-open:inline">−</span>
+        </span>
+      </summary>
+      <div class="overflow-x-auto border-t border-outline-variant/20">
+        <table class="w-full min-w-[760px] border-collapse text-left">
+          <thead>
+            <tr class="border-b border-outline-variant/25 text-muted am-text-label am-text-label--sm">
+              <th class="py-4 pr-5">{labels.month}</th>
+              <th class="px-5 py-4 text-right">{labels.high}</th>
+              <th class="px-5 py-4 text-right">{labels.low}</th>
+              <th class="px-5 py-4 text-right">{labels.rain}</th>
+              <th class="py-4 pl-5 text-right">{labels.sunHours}</th>
             </tr>
-          ))}
-        </tbody>
-      </table>
-    </div>
+          </thead>
+          <tbody>
+            {months.map((month) => (
+              <tr class="border-b border-outline-variant/15 am-text-body text-on-surface-variant">
+                <th class="py-4 pr-5 font-normal text-on-surface">{month.month}</th>
+                <td class="px-5 py-4 text-right tabular-nums">{month.high} °C</td>
+                <td class="px-5 py-4 text-right tabular-nums">{month.low} °C</td>
+                <td class="px-5 py-4 text-right tabular-nums">{month.rain} mm</td>
+                <td class="py-4 pl-5 text-right tabular-nums">{month.sunHours} h</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </details>
 
     <footer class="mt-10 grid gap-4 border-l border-primary/35 pl-6 lg:grid-cols-[auto_1fr] lg:gap-8">
       <p class="text-primary am-text-label am-text-label--sm am-text-label--wide">{sourceTitle}</p>
@@ -133,3 +145,9 @@ const maxRain = Math.max(...months.map((month) => month.rain));
     </footer>
   </div>
 </section>
+
+<style>
+  summary::-webkit-details-marker {
+    display: none;
+  }
+</style>

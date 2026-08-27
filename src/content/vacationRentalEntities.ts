@@ -402,11 +402,11 @@ export const vacationRentalEntities: VacationRentalEntity[] = [
       'https://www.airbnb.com/rooms/632415709742535474'
     ],
     seoTitle: {
-      en: 'Lounis: Frigiliana apartment, step-free to town | AMARA',
-      de: 'Lounis: Ferienwohnung Frigiliana, stufenlos ins Dorf | AMARA',
-      es: 'Lounis: apartamento en Frigiliana, centro sin escalones | AMARA',
-      nl: 'Lounis: appartement Frigiliana, trapvrij naar het dorp | AMARA',
-      sv: 'Lounis: lägenhet i Frigiliana, trappfritt till byn | AMARA'
+      en: 'Lounis: historic terrace apartment in Frigiliana | AMARA',
+      de: 'Lounis: historisches Terrassenapartment in Frigiliana | AMARA',
+      es: 'Lounis: apartamento histórico con terraza en Frigiliana | AMARA',
+      nl: 'Lounis: historisch terrasappartement in Frigiliana | AMARA',
+      sv: 'Lounis: historisk lägenhet med terrass i Frigiliana | AMARA'
     },
     seoDescription: {
       en: 'Lounis, the house’s largest apartment for 2: private terrace with an eight-metre historic well, Moorish walls and original floor tiles.',
@@ -430,11 +430,11 @@ export const vacationRentalEntities: VacationRentalEntity[] = [
       sv: 'En historisk tillflyktsort för två'
     },
     lead: {
-      en: 'The largest of the house’s four apartments, deliberately kept for two. Lounis’s walls belong to the oldest fabric of the house: Moorish masonry, rediscovered original floor tiles and a private terrace with an eight-metre historic well.',
-      de: 'Die größte der vier Wohnungen im Haus – und bewusst nur für zwei. Die Mauern von Lounis gehören zur ältesten Bausubstanz des Hauses: maurisches Mauerwerk, wiederentdeckte Originalfliesen und eine private Terrasse mit einem acht Meter tiefen historischen Brunnen.',
-      es: 'El más grande de los cuatro apartamentos de la casa, pensado deliberadamente solo para dos. Los muros de Lounis forman parte de la estructura más antigua del edificio: mampostería andalusí, baldosas originales redescubiertas y una terraza privada con un pozo histórico de ocho metros de profundidad.',
-      nl: 'Het grootste van de vier appartementen in het huis, bewust alleen voor twee. De muren van Lounis behoren tot het oudste deel van het gebouw: Moors metselwerk, teruggevonden originele vloertegels en een privéterras met een acht meter diepe historische put.',
-      sv: 'Den största av husets fyra lägenheter, medvetet bara för två. Lounis murar hör till husets äldsta byggnadsdelar: moriskt murverk, återfunna ursprungliga golvplattor och en privat terrass med en åtta meter djup historisk brunn.'
+      en: 'The largest of Casa AMARA’s three apartments, deliberately kept for two. Lounis’s walls belong to the oldest fabric of the house: Moorish masonry, rediscovered original floor tiles and a private terrace with an eight-metre historic well.',
+      de: 'Das größte der drei Apartments in Casa AMARA – und bewusst nur für zwei. Die Mauern von Lounis gehören zur ältesten Bausubstanz des Hauses: maurisches Mauerwerk, wiederentdeckte Originalfliesen und eine private Terrasse mit einem acht Meter tiefen historischen Brunnen.',
+      es: 'El más grande de los tres apartamentos de Casa AMARA, pensado deliberadamente solo para dos. Los muros de Lounis forman parte de la estructura más antigua del edificio: mampostería andalusí, baldosas originales redescubiertas y una terraza privada con un pozo histórico de ocho metros de profundidad.',
+      nl: 'Het grootste van de drie appartementen in Casa AMARA, bewust alleen voor twee. De muren van Lounis behoren tot het oudste deel van het gebouw: Moors metselwerk, teruggevonden originele vloertegels en een privéterras met een acht meter diepe historische put.',
+      sv: 'Den största av Casa AMARAs tre lägenheter, medvetet bara för två. Lounis murar hör till husets äldsta byggnadsdelar: moriskt murverk, återfunna ursprungliga golvplattor och en privat terrass med en åtta meter djup historisk brunn.'
     },
     description: {
       en: 'From the **private terrace**, the view stretches across the mango and avocado groves of Frigiliana Campo to the sea. It is pleasantly shaded in the morning, then catches the sun from around midday into the evening.\n\nAt its heart is an **exceptionally well-preserved eight-metre historic well**, exclusive to Lounis. It still holds water, is secured by a sturdy grate and is not used for domestic or drinking water. Behind it are the Moroccan-style outdoor shower and our sheltered “cave” — once said to have housed chickens, now a quiet retreat.\n\nThe 2020–2022 restoration revealed **Moorish masonry and the apartment’s original historic floor tiles**, both carefully preserved.\n\nA fully equipped kitchen and a light-filled bathroom with a large window and double shower complete the apartment. Outside, a hammock and two loungers await: birds in the morning, sun from midday, silence at night.',
@@ -444,11 +444,11 @@ export const vacationRentalEntities: VacationRentalEntity[] = [
       sv: 'Från den **privata terrassen** sträcker sig utsikten över mango- och avokadoodlingarna i Frigiliana Campo ända till havet. På morgonen ligger terrassen behagligt i skugga; från omkring middagstid har den sol till kvällen.\n\nTerrassens mest särpräglade inslag är den **ovanligt välbevarade historiska brunnen, åtta meter djup**, som är exklusiv för Lounis. Brunnen innehåller fortfarande vatten, är säkrad med ett stabilt galler och används varken som hushålls- eller dricksvatten. Bakom den finns den marockanskt utformade uteduschen och vår skyddade “grotta” — förr sägs höns ha hållits här, i dag är det en stilla plats för avkoppling.\n\nVid restaureringen 2020–2022 kom **moriskt murverk och lägenhetens ursprungliga historiska golvplattor** fram. Båda bevarades varsamt och präglar i dag Lounis speciella karaktär.\n\nEtt fullt utrustat kök och ett ljust badrum med stort fönster och dubbeldusch fullbordar lägenheten. Utomhus väntar en hängmatta och två solstolar: fåglar på morgonen, sol från middagstid och tystnad om natten.'
     },
     highlights: {
-      en: ['Eight-metre private well and sheltered “cave” nook', 'Moorish walls and rediscovered original floor tiles', 'Sun from midday, step-free to the cafés'],
-      de: ['Acht Meter tiefer Privatbrunnen und geschützte „Höhle“', 'Maurische Mauern und wiederentdeckte Originalfliesen', 'Sonne ab Mittag, stufenlos zu den Cafés'],
-      es: ['Pozo privado de ocho metros y rincón resguardado que llamamos «cueva»', 'Muros andalusíes y baldosas originales redescubiertas', 'Sol desde el mediodía y sin escalones hasta los cafés'],
-      nl: ['Acht meter diepe privéput en beschutte “grot”', 'Moorse muren en teruggevonden originele vloertegels', 'Zon vanaf de middag, zonder trap naar de cafés'],
-      sv: ['Åtta meter djup privat brunn och skyddad “grotta”', 'Moriska murar och återfunna ursprungliga golvplattor', 'Sol från middagstid, trappfritt till kaféerna']
+      en: ['Eight-metre private well and sheltered “cave” nook', 'Moorish walls and rediscovered original floor tiles', 'Sun from midday, cafés close by along Calle Real'],
+      de: ['Acht Meter tiefer Privatbrunnen und geschützte „Höhle“', 'Maurische Mauern und wiederentdeckte Originalfliesen', 'Sonne ab Mittag, Cafés direkt an der Calle Real'],
+      es: ['Pozo privado de ocho metros y rincón resguardado que llamamos «cueva»', 'Muros andalusíes y baldosas originales redescubiertas', 'Sol desde el mediodía y cafés muy cerca en la calle Real'],
+      nl: ['Acht meter diepe privéput en beschutte “grot”', 'Moorse muren en teruggevonden originele vloertegels', 'Zon vanaf de middag, cafés vlakbij aan Calle Real'],
+      sv: ['Åtta meter djup privat brunn och skyddad “grotta”', 'Moriska murar och återfunna ursprungliga golvplattor', 'Sol från middagstid, kaféer nära längs Calle Real']
     },
     accessFacts: {
       outsideStepsBeforeEntrance: 0,
