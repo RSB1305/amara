@@ -744,6 +744,11 @@ html.am-nav-lock {
     height: 81px;
   }
 
+  [data-am-navigation]:has([data-am-destination-context-disclosures])
+    + .am-nav-context-spacer {
+    height: 53px;
+  }
+
   [data-am-navigation]
     .am-nav-mobile--contextual
     [data-am-grouped-context-navigation] {
