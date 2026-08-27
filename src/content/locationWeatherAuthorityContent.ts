@@ -378,6 +378,114 @@ const relatedTokens: Record<WeatherDestination, [LinkToken, LinkToken, LinkToken
   tarifa: ['tarifa_geography', 'tarifa_where_to_stay', 'tarifa_winter_stays']
 };
 
+const frigilianaLiveForecast: Record<AmaraLanguage, WeatherAuthorityContent['forecast']> = {
+  en: {
+    eyebrow: 'Short-term forecast',
+    title: 'Is your trip getting close?',
+    paragraphs: [
+      'Then the climate pattern becomes a plan for the next few days. Here is AEMET’s official municipal forecast for Frigiliana.',
+      'Sun, shade and open paths can still feel different, so use it as clear guidance rather than a promise for every street.'
+    ],
+    cta: 'Open the forecast on AEMET',
+    live: {
+      loading: 'Loading the official forecast…',
+      today: 'Today',
+      tomorrow: 'Tomorrow',
+      high: 'High',
+      low: 'Low',
+      rain: 'Rain up to',
+      issued: 'Updated by AEMET',
+      unavailable: 'The forecast is currently unavailable.',
+      unavailableText: 'Try again later. The climate information on this page still helps you plan the trip.',
+      source: 'Official source: AEMET'
+    }
+  },
+  de: {
+    eyebrow: 'Kurzfristige Vorhersage',
+    title: 'Euer Urlaub steht kurz bevor?',
+    paragraphs: [
+      'Dann wird aus dem Klimamuster ein Plan für die nächsten Tage. Hier seht ihr die amtliche AEMET-Gemeindeprognose für Frigiliana.',
+      'Sonne, Schatten und offene Wege können sich trotzdem etwas anders anfühlen – nutzt sie als klare Orientierung, nicht als Versprechen für jede Gasse.'
+    ],
+    cta: 'Vorhersage direkt bei AEMET öffnen',
+    live: {
+      loading: 'Amtliche Vorhersage wird geladen …',
+      today: 'Heute',
+      tomorrow: 'Morgen',
+      high: 'Höchstwert',
+      low: 'Tiefstwert',
+      rain: 'Regen bis zu',
+      issued: 'Aktualisiert von AEMET',
+      unavailable: 'Die Vorhersage ist gerade nicht verfügbar.',
+      unavailableText: 'Versucht es später noch einmal. Die Klimainformationen auf dieser Seite helfen euch weiterhin bei der Reiseplanung.',
+      source: 'Amtliche Quelle: AEMET'
+    }
+  },
+  es: {
+    eyebrow: 'Previsión a corto plazo',
+    title: '¿Se acerca vuestro viaje?',
+    paragraphs: [
+      'Entonces el patrón climático se convierte en un plan para los próximos días. Aquí tenéis la predicción municipal oficial de AEMET para Frigiliana.',
+      'El sol, la sombra y los caminos abiertos pueden sentirse distintos, así que usadla como orientación clara, no como promesa para cada calle.'
+    ],
+    cta: 'Abrir la previsión en AEMET',
+    live: {
+      loading: 'Cargando la previsión oficial…',
+      today: 'Hoy',
+      tomorrow: 'Mañana',
+      high: 'Máxima',
+      low: 'Mínima',
+      rain: 'Lluvia hasta',
+      issued: 'Actualizado por AEMET',
+      unavailable: 'La previsión no está disponible ahora.',
+      unavailableText: 'Volved a intentarlo más tarde. La información climática de esta página sigue ayudando a planificar el viaje.',
+      source: 'Fuente oficial: AEMET'
+    }
+  },
+  nl: {
+    eyebrow: 'Verwachting voor de komende dagen',
+    title: 'Komt jullie reis dichterbij?',
+    paragraphs: [
+      'Dan wordt het klimaatpatroon een plan voor de komende dagen. Hier zien jullie de officiële gemeenteverwachting van AEMET voor Frigiliana.',
+      'Zon, schaduw en open paden kunnen toch anders aanvoelen. Gebruik de verwachting daarom als duidelijke leidraad, niet als belofte voor elke straat.'
+    ],
+    cta: 'Open de verwachting bij AEMET',
+    live: {
+      loading: 'Officiële verwachting wordt geladen…',
+      today: 'Vandaag',
+      tomorrow: 'Morgen',
+      high: 'Maximum',
+      low: 'Minimum',
+      rain: 'Regen tot',
+      issued: 'Bijgewerkt door AEMET',
+      unavailable: 'De verwachting is nu niet beschikbaar.',
+      unavailableText: 'Probeer het later nog eens. De klimaatinformatie op deze pagina helpt nog steeds bij het plannen van jullie reis.',
+      source: 'Officiële bron: AEMET'
+    }
+  },
+  sv: {
+    eyebrow: 'Prognos för de närmaste dagarna',
+    title: 'Närmar sig er resa?',
+    paragraphs: [
+      'Då blir klimatmönstret en plan för de närmaste dagarna. Här ser ni AEMET:s officiella kommunprognos för Frigiliana.',
+      'Sol, skugga och öppna leder kan ändå kännas olika, så använd prognosen som tydlig vägledning – inte som ett löfte för varje gata.'
+    ],
+    cta: 'Öppna prognosen hos AEMET',
+    live: {
+      loading: 'Den officiella prognosen hämtas…',
+      today: 'I dag',
+      tomorrow: 'I morgon',
+      high: 'Högsta',
+      low: 'Lägsta',
+      rain: 'Regn upp till',
+      issued: 'Uppdaterat av AEMET',
+      unavailable: 'Prognosen är inte tillgänglig just nu.',
+      unavailableText: 'Försök igen senare. Klimatinformationen på sidan hjälper fortfarande när ni planerar resan.',
+      source: 'Officiell källa: AEMET'
+    }
+  }
+};
+
 export function getWeatherAuthorityContent(destination: WeatherDestination, lang: AmaraLanguage): WeatherAuthorityContent {
   const common = shared[lang];
   const profile = profiles[destination][lang];
@@ -451,7 +559,9 @@ export function getWeatherAuthorityContent(destination: WeatherDestination, lang
       }))
     },
     practical: { eyebrow: common.practicalEyebrow, title: common.practicalTitle, paragraphs: [common.practicalIntro, profile.practical], listTitle: common.packTitle, items: common.packItems },
-    forecast: { eyebrow: common.forecastEyebrow, title: common.forecastTitle, paragraphs: common.forecastParagraphs, cta: common.forecastCta },
+    forecast: destination === 'frigiliana'
+      ? frigilianaLiveForecast[lang]
+      : { eyebrow: common.forecastEyebrow, title: common.forecastTitle, paragraphs: common.forecastParagraphs, cta: common.forecastCta },
     sources: { eyebrow: common.sourcesEyebrow, title: common.sourcesTitle, intro: common.sourcesIntro, checked: common.sourcesChecked, links },
     related: {
       eyebrow: common.relatedEyebrow,
@@ -483,7 +593,7 @@ export function getWeatherSeo(destination: WeatherDestination): AmaraAuthoringSe
   const dateModified = destination === 'frigiliana' ? '2026-08-27' : article.dateModified;
   return {
     version: destination === 'frigiliana'
-      ? '2026-08-27-frigiliana-weather-v2.1'
+      ? '2026-08-27-frigiliana-weather-v2.2'
       : `2026-08-21-${destination}-weather-v2.0`,
     pageType: 'A',
     entityKey: 'amara-brand',

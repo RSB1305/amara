@@ -79,6 +79,18 @@ export interface WeatherAuthorityContent {
     title: string;
     paragraphs: string[];
     cta: string;
+    live?: {
+      loading: string;
+      today: string;
+      tomorrow: string;
+      high: string;
+      low: string;
+      rain: string;
+      issued: string;
+      unavailable: string;
+      unavailableText: string;
+      source: string;
+    };
   };
   sources: {
     eyebrow: string;

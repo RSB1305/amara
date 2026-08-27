@@ -1,0 +1,162 @@
+---
+import AmaraActionLink from '../actions/AmaraActionLink.astro';
+import LocationGuideIcon from './LocationGuideIcon.astro';
+import type { AmaraLanguage } from '../../types/seo';
+
+interface Labels {
+  loading: string;
+  today: string;
+  tomorrow: string;
+  high: string;
+  low: string;
+  rain: string;
+  issued: string;
+  unavailable: string;
+  unavailableText: string;
+  source: string;
+}
+
+interface Props {
+  endpoint: string;
+  lang: AmaraLanguage;
+  labels: Labels;
+  sourceHref: string;
+  fallbackLabel: string;
+}
+
+const { endpoint, lang, labels, sourceHref, fallbackLabel } = Astro.props;
+const widgetId = 'am-aemet-forecast';
+---
+
+<div id={widgetId} class="mt-8" aria-live="polite" aria-busy="true">
+  <div data-forecast-loading class="flex items-center gap-3 border-y border-border-subtle py-6">
+    <LocationGuideIcon name="temperature" class="h-6 w-6" />
+    <p class="am-text-body text-on-surface-variant">{labels.loading}</p>
+  </div>
+
+  <div data-forecast-grid class="hidden grid-cols-1 gap-5 sm:grid-cols-3">
+    {[0, 1, 2].map((index) => (
+      <article data-forecast-card={index} class="border-t border-border-subtle pt-6">
+        <div class="flex items-start justify-between gap-4">
+          <h3 data-forecast-day class="am-text-subtitle text-on-surface">—</h3>
+          <LocationGuideIcon name="sunshine" class="h-5 w-5" />
+        </div>
+        <div class="mt-6 flex items-end gap-3">
+          <span data-forecast-high class="am-text-title text-on-surface">—°</span>
+          <span data-forecast-low class="am-text-body pb-1 text-on-surface-variant">—°</span>
+        </div>
+        <p class="am-text-caption mt-2 normal-case tracking-normal text-muted">
+          <span>{labels.high}</span> · <span>{labels.low}</span>
+        </p>
+        <div class="mt-5 flex items-center gap-2 border-t border-border-subtle pt-4">
+          <LocationGuideIcon name="rainfall" class="h-4 w-4" />
+          <p class="am-text-caption normal-case tracking-normal text-on-surface-variant">
+            {labels.rain} <span data-forecast-rain>—</span>
+          </p>
+        </div>
+      </article>
+    ))}
+  </div>
+
+  <div data-forecast-fallback class="hidden border-y border-border-subtle py-6">
+    <p class="am-text-subtitle text-on-surface">{labels.unavailable}</p>
+    <p class="am-text-body mt-3 max-w-xl leading-relaxed text-on-surface-variant">{labels.unavailableText}</p>
+    <AmaraActionLink href={sourceHref} variant="editorial" external class="mt-6 inline-flex">
+      {fallbackLabel}
+    </AmaraActionLink>
+  </div>
+
+  <div data-forecast-meta class="mt-5 hidden flex-wrap items-center justify-between gap-4">
+    <p data-forecast-issued class="am-text-caption hidden normal-case tracking-normal text-muted"></p>
+    <AmaraActionLink href={sourceHref} variant="inline" external>{labels.source}</AmaraActionLink>
+  </div>
+
+  <noscript>
+    <p class="am-text-body mt-5 text-on-surface-variant">{labels.unavailableText}</p>
+  </noscript>
+</div>
+
+<script is:inline define:vars={{ endpoint, lang, labels, widgetId }}>
+  (function () {
+    const root = document.getElementById(widgetId);
+    if (!root) return;
+
+    const loading = root.querySelector('[data-forecast-loading]');
+    const grid = root.querySelector('[data-forecast-grid]');
+    const fallback = root.querySelector('[data-forecast-fallback]');
+    const meta = root.querySelector('[data-forecast-meta]');
+    const issued = root.querySelector('[data-forecast-issued]');
+    const cards = Array.from(root.querySelectorAll('[data-forecast-card]'));
+
+    function finish() {
+      root.setAttribute('aria-busy', 'false');
+      if (loading) loading.classList.add('hidden');
+    }
+
+    function showFallback() {
+      finish();
+      if (fallback) fallback.classList.remove('hidden');
+    }
+
+    function formatDay(date, index) {
+      if (index === 0) return labels.today;
+      if (index === 1) return labels.tomorrow;
+      return new Intl.DateTimeFormat(lang, {
+        weekday: 'short',
+        day: 'numeric',
+        month: 'short',
+        timeZone: 'Europe/Madrid'
+      }).format(new Date(date + 'T12:00:00+02:00'));
+    }
+
+    (async function () {
+      try {
+        const response = await fetch(endpoint, {
+          method: 'GET',
+          headers: { Accept: 'application/json' }
+        });
+        if (!response.ok) throw new Error('forecast unavailable');
+        const forecast = await response.json();
+        if (!forecast || !Array.isArray(forecast.days) || forecast.days.length === 0) {
+          throw new Error('forecast malformed');
+        }
+
+        cards.forEach((card, index) => {
+          const day = forecast.days[index];
+          if (!day) {
+            card.classList.add('hidden');
+            return;
+          }
+          card.querySelector('[data-forecast-day]').textContent = formatDay(day.date, index);
+          card.querySelector('[data-forecast-high]').textContent = day.temperatureMax + '°';
+          card.querySelector('[data-forecast-low]').textContent = day.temperatureMin + '°';
+          card.querySelector('[data-forecast-rain]').textContent = day.precipitationProbability === null
+            ? '—'
+            : day.precipitationProbability + '%';
+        });
+
+        if (forecast.source?.issuedAt && issued) {
+          const issuedDay = String(forecast.source.issuedAt).slice(0, 10);
+          issued.textContent = labels.issued + ' · ' + new Intl.DateTimeFormat(lang, {
+            day: 'numeric',
+            month: 'short',
+            timeZone: 'Europe/Madrid'
+          }).format(new Date(issuedDay + 'T12:00:00+02:00'));
+          issued.classList.remove('hidden');
+        }
+
+        finish();
+        if (grid) {
+          grid.classList.remove('hidden');
+          grid.classList.add('grid');
+        }
+        if (meta) {
+          meta.classList.remove('hidden');
+          meta.classList.add('flex');
+        }
+      } catch {
+        showFallback();
+      }
+    })();
+  })();
+</script>

@@ -67,6 +67,13 @@ const footerHighlights: LabeledLink[] | undefined = destination === 'tarifa'
       { token: 'tarifa_where_to_stay', label: content.related.links[1].label }
     ]
   : undefined;
+const liveForecast = destination === 'frigiliana' && content.forecast.live
+  ? {
+      endpoint: '/api/weather/frigiliana',
+      lang: currentLang,
+      labels: content.forecast.live
+    }
+  : undefined;
 ---
 
 <LocationAuthorityLayout seo={seo} pageLang={currentLang} showContextNavigation={false} footerHighlights={footerHighlights} pageFamily="location-weather">
@@ -87,6 +94,7 @@ const footerHighlights: LabeledLink[] | undefined = destination === 'tarifa'
     months={months}
     climateSource={{ label: content.sources.links[0].label, href: climateDataSourceUrls[destination] }}
     forecastHref={weatherForecastUrls[destination]}
+    liveForecast={liveForecast}
     resolveHref={requiredLink}
     primaryHref={requiredLink(pageConfig.primaryToken)}
     secondaryHref={requiredLink(pageConfig.secondaryToken)}

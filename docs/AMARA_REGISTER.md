@@ -1,12 +1,12 @@
 ---
 document_id: AMARA-REG-001
 title: AMARA Register
-version: 1.38.0
+version: 1.39.0
 status: ACTIVE
 authority_class: LIVING BINDING REGISTER
 activation_state: ACTIVE
 effective_from: 2026-08-14
-last_modified: 2026-08-27T13:11:27+02:00
+last_modified: 2026-08-27T14:18:49+02:00
 canonical_path: /docs/AMARA_REGISTER.md
 ---
 
@@ -22,11 +22,11 @@ The AMARA Register is the single source for active documents, authority classes,
 |---|---|---|---|---|
 | 01 | AMARA System Constitution | 5.2.0 ACTIVE | PRINCIPLE / governing | `docs/standards/01_AMARA_System_Constitution_V5.md` |
 | 02 | AMARA Astro & Design Architecture Contract | 4.18.0 ACTIVE INTERIM | CONTRACT / governing | `docs/interim/03_AMARA_Astro_Technical_Standard_V4.md` + current repository implementation |
-| 03 | AMARA Runtime, SEO & Data Contract | PENDING Package 2 | CONTRACT / governing | Interim snapshot: `docs/interim/04_AMARA_Runtime_and_SEO_Standard_V4.md` + current repository implementation |
+| 03 | AMARA Runtime, SEO & Data Contract | 4.1.0 ACTIVE INTERIM | CONTRACT / governing | `docs/interim/04_AMARA_Runtime_and_SEO_Standard_V4.md` + current repository implementation |
 | 04 | AMARA URL, Route & Link Contract | PENDING Package 2 | CONTRACT / governing | Interim snapshot: `docs/interim/05_AMARA_URL_and_Route_Infrastructure_V4.md` + Decision Register |
 | 05 | AMARA Governance, Execution & Documentation Lifecycle | 5.6.0 ACTIVE | CONTRACT / governing | `docs/standards/05_AMARA_Governance_Execution_and_Documentation_Lifecycle_V5.md` |
 | 06 | AMARA Performance & Delivery Standard | 2.1.0 ACTIVE INTERIM | PRINCIPLE/CONTRACT / governing | `docs/interim/07_AMARA_Performance_Standard_V2.md` |
-| 07 | AMARA Register | 1.38.0 ACTIVE | LIVING BINDING REGISTER | `docs/AMARA_REGISTER.md` |
+| 07 | AMARA Register | 1.39.0 ACTIVE | LIVING BINDING REGISTER | `docs/AMARA_REGISTER.md` |
 | 08 | AMARA Guest Utility Feature Contract | 2.1.0 ACTIVE INTERIM | FEATURE CONTRACT | `docs/interim/08_AMARA_Guest_Utility_Architecture_V2.md` |
 | 09 | AMARA Content Production & Localization Playbook | 1.5.0 ACTIVE INTERIM | OPERATIONAL PLAYBOOK / non-governing | `docs/interim/10_AMARA_Content_Production_and_Localization_Playbook_V1_2.md` |
 | 10 | AMARA Frigiliana–Nerja SEO Strategy | PENDING Package 2/3 | WORKING STRATEGY / non-governing | Interim snapshot: `docs/interim/09_AMARA_Frigiliana_Nerja_SEO_Strategy_V2_1.md` |
@@ -40,6 +40,7 @@ Current operational feature owner during transition:
 | Feature | Status | Current owner | Repository reality |
 |---|---|---|---|
 | External booking / availability / checkout boundary | ACTIVE INTERIM CONTRACT | `AMARA-BOOKING-ARCHITECTURE.md` | Checkout URLs remain centralized through `src/lib/directBooking.ts`; static Astro is extended only by the narrow Cloudflare Pages GET-only Booking Gateway, including live availability, rates, quotes and the validated provider-owned checkout handoff. |
+| Official Frigiliana short-term forecast | ACTIVE INTERIM CONTRACT | `docs/interim/04_AMARA_Runtime_and_SEO_Standard_V4.md` | The static Weather page progressively consumes one fixed same-origin GET route; AEMET credentials, provider URLs, normalization and caching remain server-side. |
 
 ## 3. Decision Register
 
@@ -79,6 +80,7 @@ Current operational feature owner during transition:
 |---|---|---|
 | DR-PLATFORM-001 | AMARA's website runtime is Astro-native and Astro-only. Explicitly governed external operational services may remain active behind narrow boundaries and do not become a second website runtime. | APPROVED |
 | DR-BOOK-001 | The external booking / availability / checkout boundary remains ACTIVE under `AMARA-BOOKING-ARCHITECTURE.md`. Checkout URL construction stays centralized in `src/lib/directBooking.ts`; normal Astro pages stay static, while fixed GET-only Cloudflare Pages routes may expose provider-neutral availability, stay rules, rates and authoritative quotes after an explicit booking interaction, plus a validated no-store redirect into the provider-owned checkout. Provider credentials and mappings remain server-side; a provider ID may appear only in the final external checkout `Location`, and all booking/payment writes remain outside the contract. | ACTIVE CURRENT IMPLEMENTATION |
+| DR-WEATHER-001 | The statically generated Frigiliana Weather page may progressively consume the fixed GET-only `/api/weather/frigiliana` Cloudflare Pages Function. The function alone owns the server-side AEMET key, fixed municipality ID, provider fetch, temporary-host validation, normalization and caching; the public response contains only the forecast values and attribution needed by the visible three-day component. Failure preserves the static climate page and falls back to the official source. This decision grants no runtime scope to another page or destination by implication. | ACTIVE CURRENT IMPLEMENTATION |
 | DR-RUNTIME-001 | BaseLayout plus the central SEO head resolver remain the sole normal public head owner. | ACTIVE CURRENT IMPLEMENTATION |
 | DR-RUNTIME-002 | `resolveStructuredData()` remains the normal sole JSON-LD owner. | ACTIVE CURRENT IMPLEMENTATION |
 | DR-LINK-001 | Registry token + resolver remain the authored semantic internal-link contract. | ACTIVE CURRENT IMPLEMENTATION |
@@ -187,6 +189,7 @@ Routine new evidence/ideas may be captured here or in the relevant working evide
 | 2026-08-26T18:00:00Z | Conversion-family composition | Activated the executable Conversion-family contract across Stay Discovery, Stay Decision, Direct Booking and Specialist Enquiry while preserving existing family/page-end ownership and the external checkout boundary. Astro Standard 4.18.0, Register 1.36.0. | DR-DESIGN-017 | this revision |
 | 2026-08-26T18:30:00Z | Retrievable answer form | Gave the existing direct-answer principle a binding form — a self-contained 60–130-word block immediately after the H1 — and required attribute comparisons to be emitted as tables or identified lists rather than prose. Both close form gaps found in a build audit: no indexable Frigiliana page carried a standalone direct answer and the 22-page cluster held one table. Neither rule authorizes new claims; unsupported values are omitted, not estimated. Content Playbook 1.6.0, Register 1.37.0. | TR-CONTENT-006–007, TR-CONTENT-002, TR-CONTENT-005, DR-EVIDENCE-001 | this revision |
 | 2026-08-27T13:11:27+02:00 | Parallel Traffic Check | Activated a bounded 30-second read-only overlap check for explicitly parallel agent work, with immediate continuation for separate scopes, a stop for same-file or same-owner/contract overlap, and no new coordination infrastructure. Governance 5.6.0, Register 1.38.0. | DR-EXEC-010, DR-EXEC-007 | this revision |
+| 2026-08-27T14:18:49+02:00 | Official Frigiliana short-term forecast | Added a fixed, cached server-side AEMET gateway and progressive three-day forecast to the otherwise static Frigiliana Weather page. Runtime Standard 4.1.0, Register 1.39.0. | DR-PLATFORM-001, DR-WEATHER-001 | this revision |
 | 2026-08-13 | Documentation reform | Constitution 5.0.0, Governance 5.0.0, Register 1.0.0 approved as Package 1 replacement drafts. | DR-DOC-003, DR-EXEC-001 | historical package snapshot |
 | 2026-08-14T08:55:00+02:00 | Reality Reconciliation | Corrected the over-broad interpretation of Astro-only: it governs the website runtime and does not silently remove an independently governed operational boundary. | DR-PLATFORM-001, DR-BOOK-001, DR-GOV-001 | withdrawn candidate; never committed |
 | 2026-08-14T09:08:00+02:00 | SSOT Bootstrap V3 candidate | Added repository Markdown snapshots for all seven interim owner documents and introduced a mandatory read-only Compatibility Gate before activation. Gate result: BLOCKED; candidate withdrawn without commit. | DR-DOC-001, DR-DOC-005, DR-BOOT-001 | withdrawn candidate — never committed |
@@ -234,7 +237,7 @@ The following are active intentional supersessions, not accidental deletions:
 - attachment/PDF activation gate -> canonical repository Markdown + Register activation;
 - universal full-build expectation for small edits -> risk-proportional validation.
 
-The booking exception is limited to the five GET-only Cloudflare Pages Function routes recorded in `DR-BOOK-001`; it does not alter checkout ownership or make normal Astro pages dynamic. No current route output, runtime resolver, URL helper or CSS/token system is otherwise changed; the analytics runtime changes only through the consent-gated Astro layer recorded in `DR-MEAS-006`. The URL **policy doctrine** changes only as explicitly recorded above; current implementation remains protected.
+The active operational exceptions are limited to the five GET-only booking routes recorded in `DR-BOOK-001` and the fixed Frigiliana forecast route recorded in `DR-WEATHER-001`; neither makes normal Astro pages dynamic. No current route output, runtime resolver, URL helper or CSS/token system is otherwise changed; the analytics runtime changes only through the consent-gated Astro layer recorded in `DR-MEAS-006`. The URL **policy doctrine** changes only as explicitly recorded above; current implementation remains protected.
 
 ## 6. Remaining controlled workstreams
 
@@ -296,3 +299,4 @@ Separate controlled workstreams remain for:
 | 1.36.0 | 2026-08-26T18:00:00Z | Activated the executable Conversion-family composition contract across Stay Discovery, Stay Decision, Direct Booking and Specialist Enquiry without changing public conversion paths or checkout ownership. | this revision |
 | 1.37.0 | 2026-08-26T18:30:00Z | Activated the self-contained direct-answer form and structured comparison rule for retrievable public content. | this revision |
 | 1.38.0 | 2026-08-27T13:11:27+02:00 | Registered Governance 5.6.0 and activated the bounded Parallel Traffic Check for declared parallel-agent work. | this revision |
+| 1.39.0 | 2026-08-27T14:18:49+02:00 | Activated the fixed server-side AEMET forecast boundary for the static Frigiliana Weather page and registered Runtime Standard 4.1.0. | this revision |
