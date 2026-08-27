@@ -373,7 +373,7 @@ const profiles: Profiles = {
 };
 
 const relatedTokens: Record<WeatherDestination, [LinkToken, LinkToken, LinkToken]> = {
-  frigiliana: ['frigiliana_geography', 'frigiliana_stairs', 'frigiliana_winter_stays'],
+  frigiliana: ['frigiliana_geography', 'frigiliana_hiking_authority', 'frigiliana_winter_stays'],
   nerja: ['nerja_geography', 'nerja_where_to_stay', 'getting_to_nerja'],
   tarifa: ['tarifa_geography', 'tarifa_where_to_stay', 'tarifa_winter_stays']
 };
@@ -415,6 +415,13 @@ export function getWeatherAuthorityContent(destination: WeatherDestination, lang
     nl: { label: 'Aankomst & mobiliteit', text: 'Verbind luchthavens, bussen en het laatste stuk naar Nerja.' },
     sv: { label: 'Ankomst & mobilitet', text: 'Koppla ihop flygplatser, bussar och sista sträckan till Nerja.' }
   };
+  const frigilianaHikingLabels: Record<AmaraLanguage, { label: string; text: string }> = {
+    en: { label: 'Hiking around Frigiliana', text: 'Apply season, exposure and the current forecast to four curated routes.' },
+    de: { label: 'Wandern rund um Frigiliana', text: 'Saison, Exposition und aktuelle Vorhersage auf vier kuratierte Routen anwenden.' },
+    es: { label: 'Senderismo en Frigiliana', text: 'Aplicar estación, exposición y previsión actual a cuatro rutas seleccionadas.' },
+    nl: { label: 'Wandelen rond Frigiliana', text: 'Pas seizoen, blootstelling en de actuele verwachting toe op vier gekozen routes.' },
+    sv: { label: 'Vandring runt Frigiliana', text: 'Använd säsong, exponering och aktuell prognos för fyra utvalda turer.' }
+  };
 
   return {
     navLabel: navLabels[lang],
@@ -435,8 +442,16 @@ export function getWeatherAuthorityContent(destination: WeatherDestination, lang
       title: common.relatedTitle,
       links: relatedTokens[destination].map((token, index) => ({
         token,
-        label: destination === 'nerja' && index === 2 ? nerjaArrivalLabels[lang].label : common.relatedLabels[index],
-        text: destination === 'nerja' && index === 2 ? nerjaArrivalLabels[lang].text : common.relatedTexts[index]
+        label: destination === 'nerja' && index === 2
+          ? nerjaArrivalLabels[lang].label
+          : destination === 'frigiliana' && index === 1
+            ? frigilianaHikingLabels[lang].label
+            : common.relatedLabels[index],
+        text: destination === 'nerja' && index === 2
+          ? nerjaArrivalLabels[lang].text
+          : destination === 'frigiliana' && index === 1
+            ? frigilianaHikingLabels[lang].text
+            : common.relatedTexts[index]
       }))
     },
     closing: { eyebrow: common.closingEyebrow, title: common.closingTitle, body: common.closingBody, primaryLabel: common.primaryLabel, secondaryLabel: common.secondaryLabel }

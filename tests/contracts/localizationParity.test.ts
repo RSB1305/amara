@@ -68,7 +68,7 @@ const KNOWN_CONTENT_GAPS: Record<string, string> = {};
  * number is held instead: it may fall as modules migrate or gain identifiers,
  * and a new one cannot be introduced unnoticed.
  */
-const IDENTIFIER_LESS_UNIT_LISTS = 83;
+const IDENTIFIER_LESS_UNIT_LISTS = 77;
 
 const LANGS = SUPPORTED_LANGUAGES;
 

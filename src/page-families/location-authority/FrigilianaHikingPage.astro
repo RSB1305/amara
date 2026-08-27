@@ -7,10 +7,11 @@ import ExperienceContextNav from '../../components/experience/ExperienceContextN
 import ExperiencePreFooter from '../../components/experience/ExperiencePreFooter.astro';
 import HikingRouteStatStrip from './HikingRouteStatStrip.astro';
 import {
-  frigilianaHikingContent,
-  frigilianaHikingSeo
+  frigilianaHikingSeo,
+  getFrigilianaHikingContent
 } from '../../content/frigilianaHikingContent';
 import LocationAuthorityLayout from '../../layouts/LocationAuthorityLayout.astro';
+import { resolveLink } from '../../lib/linkResolver';
 import { normalizeLanguage } from '../../lib/seo/resolve-seo-head';
 import type { AmaraLanguage } from '../../types/seo';
 import AuthorityFeatureSection from './AuthorityFeatureSection.astro';
@@ -21,13 +22,7 @@ interface Props {
 
 const { lang = 'de' } = Astro.props;
 const currentLang = normalizeLanguage(lang as AmaraLanguage);
-const copy = frigilianaHikingContent[currentLang];
-
-if (!copy) {
-  throw new Error(
-    `[AMARA] Frigiliana hiking copy is not published for "${currentLang}".`
-  );
-}
+const copy = getFrigilianaHikingContent(currentLang);
 
 const footerHighlights: LabeledLink[] = [
   {
@@ -98,25 +93,34 @@ const heroImage = {
                   </h3>
                   <HikingRouteStatStrip
                     duration={route.duration}
-                    elevationGain={route.elevationGain}
+                    elevationGain={'elevationGain' in route ? route.elevationGain : undefined}
                     distance={route.distance}
                     difficulty={route.difficulty}
                     experience={route.experience}
                     labels={copy.routeCardLabels}
                   />
-                  <p class="mt-6 am-text-body text-on-surface-variant leading-relaxed">
-                    {route.text}
-                  </p>
-                  {route.statusLink && (
-                    <p class="am-text-body text-on-surface-variant leading-relaxed mt-6">
-                      {route.statusLink.before}<a
-                        href={route.statusLink.href}
+                  <div class="mt-6 space-y-4">
+                    {route.paragraphs.map((paragraph) => (
+                      <p class="am-text-body text-on-surface-variant leading-relaxed">
+                        {paragraph}
+                      </p>
+                    ))}
+                  </div>
+                  <ul class="mt-7 space-y-4" aria-label={copy.routeCardLabels.statsAriaLabel}>
+                    {route.links.map((link) => (
+                      <li>
+                        <a
+                        href={link.href}
                         target="_blank"
                         rel="noopener noreferrer"
                         class="am-inline-link"
-                      >{route.statusLink.label}</a>{route.statusLink.after}
-                    </p>
-                  )}
+                        >{link.label}</a>
+                        <p class="mt-1 am-text-meta text-on-surface-variant">
+                          {link.context}
+                        </p>
+                      </li>
+                    ))}
+                  </ul>
                 </article>
               ))}
             </div>
@@ -124,18 +128,52 @@ const heroImage = {
         ))
       }
 
+      <section class="am-section am-section--plain" aria-labelledby="rio-chillar-closure-title">
+        <div class="max-w-3xl border-l-2 border-primary pl-6 sm:pl-8">
+          <p class="am-text-eyebrow text-primary mb-4">{copy.closureNotice.eyebrow}</p>
+          <h2 id="rio-chillar-closure-title" class="am-text-title italic text-on-surface tracking-tight">
+            {copy.closureNotice.title}
+          </h2>
+          <div class="mt-6 space-y-4">
+            {copy.closureNotice.paragraphs.map((paragraph) => (
+              <p class="am-text-body text-on-surface-variant leading-relaxed">{paragraph}</p>
+            ))}
+          </div>
+          <p class="mt-5 am-text-meta text-on-surface-variant">{copy.closureNotice.checked}</p>
+          <a
+            href={copy.closureNotice.href}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="am-inline-link mt-5 inline-flex"
+          >{copy.closureNotice.linkLabel}</a>
+        </div>
+      </section>
+
       <AuthorityFeatureSection
         id="practical"
         title={copy.practical.title}
         items={copy.practical.items}
       />
 
-      <AuthorityFeatureSection
-        title={copy.combine.title}
-        intro={copy.combine.intro}
-        items={copy.combine.items}
-        surface="plain"
-      />
+      <section class="am-section am-section--plain" aria-labelledby="hiking-next-questions-title">
+        <div class="max-w-3xl mb-12">
+          <h2 id="hiking-next-questions-title" class="am-text-title italic text-on-surface tracking-tight mb-6">
+            {copy.combine.title}
+          </h2>
+          <p class="am-text-body text-on-surface-variant leading-relaxed">{copy.combine.intro}</p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-x-10 gap-y-10">
+          {copy.combine.items.map((item) => (
+            <article class="border-t border-outline-variant/25 pt-7">
+              <h3 class="am-text-subtitle text-on-surface">{item.title}</h3>
+              <p class="mt-4 am-text-body text-on-surface-variant leading-relaxed">{item.text}</p>
+              <a href={resolveLink(item.token, currentLang)} class="am-inline-link mt-5 inline-flex">
+                {item.label}
+              </a>
+            </article>
+          ))}
+        </div>
+      </section>
 
       <ExperiencePreFooter currentId="hiking" lang={currentLang} />
 
@@ -146,7 +184,7 @@ const heroImage = {
           links={[
             {
               token: 'romantic_hideaways',
-              label: copy.closing.apartmentsCta,
+              label: copy.closing.staysCta,
               style: 'text'
             },
             {
