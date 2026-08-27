@@ -5,8 +5,9 @@
  * Architectural intent:
  * The footer carries the identity and contact facts that must be reachable from
  * every page: postal address, the contact channels AMARA actually operates, the
- * public Instagram profile and the two legal routes. AMARA deliberately
- * publishes no telephone number; WhatsApp and email are the contact channels.
+ * public Instagram profile, the legal information and consent settings. AMARA
+ * deliberately publishes no telephone number; WhatsApp and email are the
+ * contact channels.
  */
 import { MessageCircle } from '@lucide/astro';
 import { resolveLink } from '../lib/linkResolver';
@@ -26,41 +27,53 @@ const instagramHref = 'https://www.instagram.com/amaralodging/';
 
 const copy: Record<
   AmaraLanguage,
-  { region: string; legal: string; bookingTerms: string; cookieSettings: string; instagram: string }
+  {
+    region: string;
+    legal: string;
+    legalAriaLabel: string;
+    cookies: string;
+    cookiesAriaLabel: string;
+    instagram: string;
+  }
 > = {
   en: {
     region: 'Málaga · Spain',
-    legal: 'Legal Notice & Privacy',
-    bookingTerms: 'Booking Terms',
-    cookieSettings: 'Cookie settings',
+    legal: 'Legal',
+    legalAriaLabel: 'Legal Notice & Privacy',
+    cookies: 'Cookies',
+    cookiesAriaLabel: 'Cookies — Cookie settings',
     instagram: 'AMARA on Instagram'
   },
   de: {
     region: 'Málaga · Spanien',
-    legal: 'Impressum & Datenschutz',
-    bookingTerms: 'Buchungsbedingungen',
-    cookieSettings: 'Cookie-Einstellungen',
+    legal: 'Rechtliches',
+    legalAriaLabel: 'Rechtliches — Impressum & Datenschutz',
+    cookies: 'Cookies',
+    cookiesAriaLabel: 'Cookies — Cookie-Einstellungen',
     instagram: 'AMARA auf Instagram'
   },
   es: {
     region: 'Málaga · España',
-    legal: 'Aviso legal y privacidad',
-    bookingTerms: 'Condiciones de reserva',
-    cookieSettings: 'Configurar cookies',
+    legal: 'Legal',
+    legalAriaLabel: 'Aviso legal y privacidad',
+    cookies: 'Cookies',
+    cookiesAriaLabel: 'Cookies — configurar cookies',
     instagram: 'AMARA en Instagram'
   },
   nl: {
     region: 'Málaga · Spanje',
-    legal: 'Juridische kennisgeving & privacy',
-    bookingTerms: 'Boekingsvoorwaarden',
-    cookieSettings: 'Cookie-instellingen',
+    legal: 'Juridisch',
+    legalAriaLabel: 'Juridische kennisgeving & privacy',
+    cookies: 'Cookies',
+    cookiesAriaLabel: 'Cookies — cookie-instellingen',
     instagram: 'AMARA op Instagram'
   },
   sv: {
     region: 'Málaga · Spanien',
-    legal: 'Juridisk information & integritet',
-    bookingTerms: 'Bokningsvillkor',
-    cookieSettings: 'Cookieinställningar',
+    legal: 'Juridiskt',
+    legalAriaLabel: 'Juridisk information & integritet',
+    cookies: 'Cookies',
+    cookiesAriaLabel: 'Cookies — cookieinställningar',
     instagram: 'AMARA på Instagram'
   }
 };
@@ -101,19 +114,22 @@ const labels = copy[currentLang] ?? copy.en;
         </a>
       </div>
 
-      <div class="footer-core__right flex flex-wrap items-center gap-x-4 gap-y-2">
+      <div class="footer-core__right inline-flex items-center gap-2 whitespace-nowrap">
         <a
           href={resolveLink('legal_notice', currentLang)}
+          aria-label={labels.legalAriaLabel}
+          class="text-on-surface-variant hover:text-primary am-text-label transition-colors"
+        >
+          {labels.legal}
+        </a>
+        <span class="flex items-center justify-center leading-none text-outline-variant/60" aria-hidden="true">·</span>
+        <a
+          href={resolveLink('legal_notice', currentLang)}
+          aria-label={labels.cookiesAriaLabel}
           class="text-on-surface-variant hover:text-primary am-text-label transition-colors"
           data-am-consent-settings
         >
-          {labels.cookieSettings}
-        </a>
-        <a href={resolveLink('booking_stay_terms', currentLang)} class="text-on-surface-variant hover:text-primary am-text-label transition-colors">
-          {labels.bookingTerms}
-        </a>
-        <a href={resolveLink('legal_notice', currentLang)} class="text-on-surface-variant hover:text-primary am-text-label transition-colors">
-          {labels.legal}
+          {labels.cookies}
         </a>
       </div>
     </div>
