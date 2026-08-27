@@ -62,8 +62,6 @@ const experienceGroups = [
       </header>
 
       <div class="context-bar">
-        <a class="destination" href="#">FRIGILIANA</a>
-
         <nav class="branches" aria-label="Frigiliana entdecken">
           <details class="branch-guide active" name="frigiliana-branch">
             <summary>
@@ -240,7 +238,6 @@ const experienceGroups = [
   }
 
   .primary-nav a,
-  .destination,
   .branch-guide summary,
   .availability {
     font-family: var(--font-label);
@@ -280,20 +277,13 @@ const experienceGroups = [
   .context-bar {
     position: relative;
     z-index: 3;
-    display: grid;
-    grid-template-columns: minmax(8rem, 1fr) auto;
+    display: flex;
     min-height: 3.75rem;
     align-items: stretch;
+    justify-content: flex-end;
     padding: 0 clamp(1.5rem, 4vw, 5rem);
     border-bottom: 1px solid rgba(74, 63, 50, 0.12);
     background: #f8f5ef;
-  }
-
-  .destination {
-    display: inline-flex;
-    width: max-content;
-    align-items: center;
-    color: #756d63;
   }
 
   .branches {
@@ -522,10 +512,6 @@ const experienceGroups = [
       display: block;
     }
 
-    .context-bar {
-      grid-template-columns: 1fr auto;
-    }
-
     .guide-panel {
       right: 0;
       left: 0;
@@ -560,13 +546,7 @@ const experienceGroups = [
       padding: 0 1.25rem;
     }
 
-    .destination {
-      grid-column: 1 / -1;
-      min-height: 3rem;
-    }
-
     .branches {
-      grid-column: 1 / -1;
       justify-content: flex-start;
     }
 
