@@ -74,13 +74,17 @@ export interface CinematicPlace {
   ctaLabel: string;
 }
 
+export interface CinematicHeroImage {
+  id: string;
+  src: string;
+  srcSet?: string;
+  sizes?: string;
+  width: number;
+  height: number;
+}
+
 interface Props {
-  heroImageSrc: string;
-  heroImageSrcSet?: string;
-  heroImageSizes?: string;
-  heroImageWidth: number;
-  heroImageHeight: number;
-  heroImageAlt: string;
+  heroImages: CinematicHeroImage[];
   heroKicker: string;
   heroLead: string;
   heroProof: string[];
@@ -142,12 +146,7 @@ interface Props {
 }
 
 const {
-  heroImageSrc,
-  heroImageSrcSet,
-  heroImageSizes,
-  heroImageWidth,
-  heroImageHeight,
-  heroImageAlt,
+  heroImages,
   heroKicker,
   heroLead,
   heroProof,
@@ -213,19 +212,25 @@ const hasPlaces = places.length > 0;
   <section
     class="relative z-[2] h-screen min-h-[28rem] w-full overflow-hidden bg-inverse-surface supports-[height:100svh]:h-[100svh]"
   >
-    <div class="absolute inset-0 h-full w-full">
-      <img
-        src={heroImageSrc}
-        srcset={heroImageSrcSet}
-        sizes={heroImageSizes}
-        alt={heroImageAlt}
-        class="h-full w-full object-cover"
-        width={heroImageWidth}
-        height={heroImageHeight}
-        loading="eager"
-        fetchpriority="high"
-        decoding="async"
-      />
+    <div class="absolute inset-0 h-full w-full" data-am-home-hero-rotator>
+      {
+        heroImages.map((image, index) => (
+          <img
+            src={image.src}
+            srcset={image.srcSet}
+            sizes={image.sizes}
+            alt=""
+            class="am-home-hero-slide absolute inset-0 h-full w-full object-cover"
+            width={image.width}
+            height={image.height}
+            loading={index < 2 ? 'eager' : 'lazy'}
+            fetchpriority={index === 0 ? 'high' : 'low'}
+            decoding="async"
+            data-am-home-hero-slide={image.id}
+            style={`--am-home-hero-slide-index: ${index}; --am-home-hero-slide-count: ${heroImages.length};`}
+          />
+        ))
+      }
       <div class="absolute inset-0 bg-gradient-to-b from-inverse-surface/25 via-transparent to-inverse-surface/80"></div>
       <div class="absolute left-1/2 top-1/2 h-[58%] w-[min(92%,52rem)] -translate-x-1/2 -translate-y-1/2 rounded-full bg-inverse-surface/45 blur-3xl"></div>
     </div>
@@ -593,6 +598,38 @@ const hasPlaces = places.length > 0;
 </div>
 
 <style>
+  .am-home-hero-slide {
+    opacity: 0;
+    animation: am-home-hero-cycle 24s linear infinite;
+    animation-delay: calc((var(--am-home-hero-slide-count) - var(--am-home-hero-slide-index)) * -6s);
+  }
+
+  @keyframes am-home-hero-cycle {
+    0%,
+    20.833% {
+      opacity: 1;
+    }
+
+    25%,
+    95.833% {
+      opacity: 0;
+    }
+
+    100% {
+      opacity: 1;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .am-home-hero-slide {
+      animation: none;
+    }
+
+    .am-home-hero-slide:first-child {
+      opacity: 1;
+    }
+  }
+
   .am-home-honeymoon-title :global(strong) {
     font-weight: 700;
   }

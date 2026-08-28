@@ -27,7 +27,6 @@ import {
   type CinematicAptToken,
   cinematicHeroKicker,
   cinematicHeroLead,
-  cinematicHeroImageAlt,
   cinematicHeroProofRating,
   cinematicHeroDirectBenefitsLabel,
   cinematicHostLabel,
@@ -89,16 +88,30 @@ const homeImageByToken: Record<CinematicAptToken, typeof imgHeroLounis> = {
   tarifa: imgTarifa
 };
 
-const heroImage = await createAmaraImage(imgHeroLounis, 'hero', { quality: 50 });
+const homeHeroSizes = '100vw';
+const heroTokens = ['lounis', 'maha', 'playa', 'tarifa'] as const;
+const heroImages = await Promise.all(
+  heroTokens.map(async (token) => {
+    const optimized = await createAmaraImage(homeImageByToken[token], 'hero', { quality: 50 });
+    return {
+      id: token,
+      src: optimized.src,
+      srcSet: optimized.srcSet.attribute,
+      sizes: homeHeroSizes,
+      width: optimized.attributes.width as number,
+      height: optimized.attributes.height as number
+    };
+  })
+);
+const heroImage = heroImages[0];
 const trustImage = await createAmaraImage(imgZaid, 'background', { quality: 55 });
 const hostAvatar = await createAmaraImage(imgHost, 'card', { quality: 60 });
-const homeHeroSizes = '100vw';
 
 interface Props {
   lang?: string;
 }
 
-const { lang = 'es' } = Astro.props;
+const { lang = 'es' } = Astro.props as Props;
 const currentLang = normalizeLanguage(lang as AmaraLanguage);
 
 const t = <T extends Record<AmaraLanguage, string>>(row: T) => row[currentLang] ?? row.en;
@@ -335,12 +348,7 @@ const quoteTranslationNote = currentLang === 'de' ? null : t(cinematicQuoteTrans
   >
     <div class="w-full pb-20">
       <HomeCinematicMain
-        heroImageSrc={heroImage.src}
-        heroImageSrcSet={heroImage.srcSet.attribute}
-        heroImageSizes={homeHeroSizes}
-        heroImageWidth={heroImage.attributes.width as number}
-        heroImageHeight={heroImage.attributes.height as number}
-        heroImageAlt={t(cinematicHeroImageAlt)}
+        heroImages={heroImages}
         heroKicker={t(cinematicHeroKicker)}
         heroLead={t(cinematicHeroLead)}
         heroProof={heroProof}
