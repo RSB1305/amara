@@ -12,7 +12,7 @@ public: false
 
 ## Result
 
-The Drive report is preserved unchanged. Three facts were adopted from the opened AEMET normals page. They establish a transparent regional coastal proxy and its seasonal pattern, not a local Frigiliana monthly series.
+The Drive report is preserved unchanged. Three facts were adopted from the opened AEMET normals page. A focused method follow-up adds ERA5-Land as the official gridded comparison candidate for Frigiliana and Nerja. This establishes a transparent regional proxy, its seasonal pattern and a reproducible next method—not a local Frigiliana monthly series.
 
 The AEMET municipal reference altitude already belongs to the Geography owner and was not duplicated. Climate, forecast, warning and property comfort remain separate responsibilities.
 
@@ -25,6 +25,14 @@ The AEMET municipal reference altitude already belongs to the Geography owner an
 | Does the proxy show a strong seasonal contrast? | Yes: hottest means in July/August, very low June–September precipitation and highest monthly precipitation in November/December. |
 | Is a precise Frigiliana–Nerja temperature difference verified? | No. |
 | Is property comfort established by climate? | No. Heating, cooling, sun, shade, wind and indoor comfort require property evidence. |
+
+## Focused local-method check — 2026-08-28
+
+- Copernicus ERA5-Land monthly means cover 1950 to the present and provide land variables on a common global grid.
+- The Climate Data Store product is regridded to 0.1° latitude–longitude from a native resolution of about 9 km.
+- This makes ERA5-Land a defensible candidate for a same-method Frigiliana–Nerja comparison, but not a measurement at either property or a direct representation of every elevation, shaded street or coastal exposure.
+- Before any monthly values are adopted, the extraction must declare the chosen coordinates or cells, reference period, variables, units, precipitation conversion and aggregation, and must be preserved with its raw output.
+- A suitable AEMET station comparison remains necessary as a reasonableness check; it must not be used to silently correct the raster with a generic lapse rate.
 
 ## Connection readiness
 
@@ -47,7 +55,7 @@ These dependencies authorize no public link by themselves. Weather remains the o
 
 ## HUMAN INPUT REQUIRED
 
-1. Choose and document a Frigiliana raster cell or another defensible local monthly method.
+1. Run and preserve the declared ERA5-Land extraction for comparable Frigiliana and Nerja cells, then validate the result against suitable AEMET stations.
 2. Measure seasonal sun/shade, wind exposure and indoor comfort per Casa AMARA unit.
 
 ## Quality scorecard

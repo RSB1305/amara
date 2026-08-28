@@ -22,6 +22,12 @@ const facts = [
     status: 'verified', sourceIds: ['aemet-malaga-airport-normals-1981-2010'], checkedAt: '2026-08-28', reviewAfter: '2028-08-28', volatility: 'low',
     claimBoundary: 'This supports a broad regional season structure only; it does not establish Frigiliana monthly values, daily conditions or a universal best travel month.',
   },
+  {
+    id: 'frigiliana.climate.local-method.era5-land-candidate', subject: 'frigiliana', topic: 'climate-seasons',
+    statement: 'Copernicus ERA5-Land provides monthly land reanalysis from 1950 onward on a CDS 0.1° latitude–longitude grid, regridded from a native resolution of about 9 km, and can support a common extraction method for declared Frigiliana and Nerja cells.',
+    status: 'verified', sourceIds: ['copernicus-era5-land-monthly-means-2026'], checkedAt: '2026-08-28', reviewAfter: '2028-08-28', volatility: 'low',
+    claimBoundary: 'This verifies the dataset as a comparison candidate only. No local monthly values or Frigiliana–Nerja difference may be published until coordinates or cells, variables, units, reference period, aggregation and uncertainty are fixed and the extraction is reproduced.',
+  },
 ] as const satisfies readonly FactInput[];
 
 export const frigilianaClimateSeasonFacts = defineKnowledgeFacts(facts);
