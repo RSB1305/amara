@@ -79,13 +79,6 @@ export const ui = {
     nl: 'Data kiezen',
     sv: 'Välj datum'
   },
-  bookingPageFallback: {
-    en: 'Open the booking page',
-    de: 'Buchungsseite öffnen',
-    es: 'Abrir la página de reservas',
-    nl: 'Boekingspagina openen',
-    sv: 'Öppna bokningssidan'
-  },
   indicativePriceNote: {
     en: 'Indicative and season-dependent. The exact total for your dates comes from the live calendar below.',
     de: 'Richtwert, saisonabhängig. Den genauen Gesamtpreis für eure Reisedaten zeigt der Live-Kalender unten.',

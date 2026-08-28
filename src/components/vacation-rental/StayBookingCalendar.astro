@@ -2,7 +2,6 @@
 import type { AmaraLanguage } from '../../types/seo';
 import type { VacationRentalBookingKey } from '../../content/vacationRentalEntities';
 import BookingDateRangeCalendar from '../booking/BookingDateRangeCalendar.astro';
-import AmaraActionLink from '../actions/AmaraActionLink.astro';
 import AmaraSection from '../layout/AmaraSection.astro';
 import AmaraFormControl from '../forms/AmaraFormControl.astro';
 
@@ -13,12 +12,6 @@ interface Props {
   bookingKey: VacationRentalBookingKey;
   stayName: string;
   occupancy: number;
-  /**
-   * Resilience fallback only. When the gateway cannot answer, a guest must still
-   * reach a booking surface; this link is never the equal of the online module.
-   */
-  fallbackHref?: string;
-  fallbackLabel?: string;
 }
 
 type LocalizedText = Record<AmaraLanguage, string>;
@@ -29,9 +22,7 @@ const {
   lang,
   bookingKey,
   stayName,
-  occupancy,
-  fallbackHref,
-  fallbackLabel
+  occupancy
 } = Astro.props;
 
 const copy = {
@@ -411,12 +402,6 @@ const titleId = `${bookingKey}-booking-calendar-title`;
           {t(copy.bookNow)}
         </a>
       </div>
-
-      {fallbackHref && fallbackLabel && (
-        <p class="am-text-caption mt-5 font-normal text-on-surface-variant" data-am-booking-fallback>
-          <AmaraActionLink variant="inline" href={fallbackHref}>{fallbackLabel}</AmaraActionLink>
-        </p>
-      )}
     </div>
   </div>
 

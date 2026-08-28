@@ -363,6 +363,7 @@ test('a failed quote exposes only the localized generic error and is not retried
   await expect(page.locator('[data-am-booking-result]')).toContainText(
     'Current booking data is unavailable'
   );
+  await expect(page.getByRole('link', { name: 'Open the booking page' })).toHaveCount(0);
   expect(requests.filter((request) => request.pathname.endsWith('/quote'))).toHaveLength(1);
 });
 
