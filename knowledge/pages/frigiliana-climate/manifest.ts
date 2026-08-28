@@ -16,6 +16,7 @@ export const frigilianaClimateKnowledge = defineKnowledgePageManifest({
   researchRunIds: [
     '2026-08-21__142423__climate-seasons__research-001',
     '2026-08-28__092355__frigiliana-climate-seasons-decisions__research-001',
+    '2026-08-28__114110__frigiliana-nerja-era5-land-extraction__research-001',
   ],
   coverage: [
     { authoringArea: 'climate-at-a-glance', purpose: 'State the long-term pattern and climate-versus-weather boundary.', factIds: ['frigiliana.climate.regional-proxy.malaga-airport-method', 'frigiliana.climate.regional-proxy.seasonal-contrast'], status: 'partial', notes: 'Official regional proxy available; genuinely local Frigiliana series remains open.' },

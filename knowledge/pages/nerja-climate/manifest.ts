@@ -13,7 +13,10 @@ export const nerjaClimateKnowledge = defineKnowledgePageManifest({
     path: 'AMARA – Research Vault/10_LOCATIONS/nerja/nerja-climate',
   },
   publicContentPath: 'src/page-families/location-authority/NerjaWeatherPage.astro',
-  researchRunIds: ['2026-08-21__142423__climate-seasons__research-001'],
+  researchRunIds: [
+    '2026-08-21__142423__climate-seasons__research-001',
+    '2026-08-28__114110__frigiliana-nerja-era5-land-extraction__research-001',
+  ],
   coverage: [
     { authoringArea: 'climate-at-a-glance', purpose: 'State the coastal long-term pattern and climate-versus-weather boundary.', factIds: [], status: 'baseline-unmapped' },
     { authoringArea: 'monthly-data', purpose: 'Use defined, representative and methodologically transparent monthly variables.', factIds: [], status: 'gap', notes: 'Current monthly values are identical to Frigiliana and require method review.' },
