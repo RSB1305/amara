@@ -84,6 +84,17 @@ export function enhanceStaySearchFinders() {
     arrival.required = false;
     departure.required = false;
 
+    const compactGuestLabels = window.matchMedia('(max-width: 639px)');
+    const renderGuestLabels = () => {
+      guests.querySelectorAll<HTMLOptionElement>('option').forEach((option) => {
+        option.textContent = compactGuestLabels.matches
+          ? option.dataset.amGuestLabelCompact || option.dataset.amGuestLabel || option.textContent
+          : option.dataset.amGuestLabel || option.textContent;
+      });
+    };
+    renderGuestLabels();
+    compactGuestLabels.addEventListener('change', renderGuestLabels);
+
     const today = isoDay(new Date());
     const latest = addDays(today, MAX_ADVANCE_DAYS);
     const firstMonth = monthStart(today);
@@ -110,7 +121,7 @@ export function enhanceStaySearchFinders() {
     if (destination.querySelector('option[value="' + initialDestination + '"]')) {
       destination.value = initialDestination || 'all';
     }
-    if (Number.isInteger(initialGuests) && initialGuests >= 1 && initialGuests <= 4) {
+    if (Number.isInteger(initialGuests) && initialGuests >= 1 && initialGuests <= 2) {
       guests.value = String(initialGuests);
     }
     if (initialArrival >= today && initialDeparture > initialArrival &&

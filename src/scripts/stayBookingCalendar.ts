@@ -156,6 +156,17 @@ export function enhanceStayBookingCalendars() {
     arrivalInput.required = false;
     departureInput.required = false;
 
+    const compactGuestLabels = window.matchMedia('(max-width: 639px)');
+    const renderGuestLabels = () => {
+      guestsInput.querySelectorAll<HTMLOptionElement>('option').forEach((option) => {
+        option.textContent = compactGuestLabels.matches
+          ? option.dataset.amGuestLabelCompact || option.dataset.amGuestLabel || option.textContent
+          : option.dataset.amGuestLabel || option.textContent;
+      });
+    };
+    renderGuestLabels();
+    compactGuestLabels.addEventListener('change', renderGuestLabels);
+
     const today = isoDay(new Date());
     const latest = addDays(today, MAX_ADVANCE_DAYS);
     const firstMonth = monthStart(today);

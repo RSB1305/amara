@@ -16,7 +16,7 @@ const t = (value: Record<AmaraLanguage, string>) => value[lang] ?? value.en;
 const copy = Object.fromEntries(
   Object.entries(staySearchCopy).map(([key, value]) => [key, t(value)])
 );
-const guestOptions = [1, 2, 3, 4];
+const guestOptions = [1, 2];
 ---
 
 <section
@@ -46,11 +46,11 @@ const guestOptions = [1, 2, 3, 4];
         hero. */}
     <div
       class:list={[
-        'grid grid-cols-2 lg:grid-cols-[1.1fr_1fr_1fr_0.75fr_auto] lg:items-end',
+        'grid grid-cols-4 sm:grid-cols-2 lg:grid-cols-[1.1fr_1fr_1fr_0.75fr_auto] lg:items-end',
         variant === 'home' ? 'gap-3' : 'gap-4'
       ]}
     >
-      <label class="col-span-2 block lg:col-span-1">
+      <label class="order-1 col-span-3 block min-w-0 sm:col-span-2 lg:col-span-1">
         <span class="am-text-label text-on-surface-variant">{t(staySearchCopy.destination)}</span>
         <AmaraFormControl
           as="select"
@@ -63,7 +63,7 @@ const guestOptions = [1, 2, 3, 4];
         </AmaraFormControl>
       </label>
 
-      <label class="block am-stay-search__native-date">
+      <label class="order-3 col-span-2 block am-stay-search__native-date sm:order-2 sm:col-span-1">
         <span class="am-text-label text-on-surface-variant">{t(staySearchCopy.arrival)}</span>
         <AmaraFormControl
           as="input"
@@ -72,7 +72,7 @@ const guestOptions = [1, 2, 3, 4];
           data={{ 'data-am-stay-search-arrival': '' }}
         />
       </label>
-      <div class="am-stay-search__date-trigger" hidden data-am-stay-search-arrival-trigger-wrap>
+      <div class="order-3 col-span-2 am-stay-search__date-trigger sm:order-2 sm:col-span-1" hidden data-am-stay-search-arrival-trigger-wrap>
         <span class="am-text-label text-on-surface-variant">{t(staySearchCopy.arrival)}</span>
         <AmaraFormControl
           as="button"
@@ -84,7 +84,7 @@ const guestOptions = [1, 2, 3, 4];
         </AmaraFormControl>
       </div>
 
-      <label class="block am-stay-search__native-date">
+      <label class="order-4 col-span-2 block am-stay-search__native-date sm:order-3 sm:col-span-1">
         <span class="am-text-label text-on-surface-variant">{t(staySearchCopy.departure)}</span>
         <AmaraFormControl
           as="input"
@@ -93,7 +93,7 @@ const guestOptions = [1, 2, 3, 4];
           data={{ 'data-am-stay-search-departure': '' }}
         />
       </label>
-      <div class="am-stay-search__date-trigger" hidden data-am-stay-search-departure-trigger-wrap>
+      <div class="order-4 col-span-2 am-stay-search__date-trigger sm:order-3 sm:col-span-1" hidden data-am-stay-search-departure-trigger-wrap>
         <span class="am-text-label text-on-surface-variant">{t(staySearchCopy.departure)}</span>
         <AmaraFormControl
           as="button"
@@ -105,7 +105,7 @@ const guestOptions = [1, 2, 3, 4];
         </AmaraFormControl>
       </div>
 
-      <label class="col-span-2 block lg:col-span-1">
+      <label class="order-2 col-span-1 block min-w-0 sm:order-4 sm:col-span-2 lg:col-span-1">
         <span class="am-text-label text-on-surface-variant">{t(staySearchCopy.guests)}</span>
         <AmaraFormControl
           as="select"
@@ -113,14 +113,19 @@ const guestOptions = [1, 2, 3, 4];
           data={{ 'data-am-stay-search-guests': '' }}
         >
           {guestOptions.map((count) => (
-            <option value={count} selected={count === 2}>
+            <option
+              value={count}
+              selected={count === 2}
+              data-am-guest-label={t(count === 1 ? staySearchCopy.guest : staySearchCopy.guestsPlural).replace('{count}', String(count))}
+              data-am-guest-label-compact={t(staySearchCopy.guestsCompact).replace('{count}', String(count))}
+            >
               {t(count === 1 ? staySearchCopy.guest : staySearchCopy.guestsPlural).replace('{count}', String(count))}
             </option>
           ))}
         </AmaraFormControl>
       </label>
 
-      <AmaraActionButton variant="primary" class="col-span-2 min-h-12 w-full justify-center lg:col-span-1 lg:w-auto" type="submit">
+      <AmaraActionButton variant="primary" class="order-5 col-span-4 min-h-12 w-full justify-center sm:col-span-2 lg:col-span-1 lg:w-auto" type="submit">
         {t(staySearchCopy.submit)}
       </AmaraActionButton>
     </div>
@@ -161,29 +166,6 @@ const guestOptions = [1, 2, 3, 4];
     display: none;
   }
 
-  /**
-   * On a phone the calendar is 817px tall. In document flow it grew the finder
-   * from 402px to 1244px and pushed the rest of the home down by more than a
-   * viewport, which is what made a quiet utility feel violent to use. Lifting
-   * it out of flow keeps the page still while a date is chosen.
-   *
-   * Scoped to the finder on purpose: the same calendar is embedded in the
-   * rental pages' booking panel, where it is the point of the section and
-   * belongs in flow.
-   */
-  @media (max-width: 639px) {
-    .am-stay-search .am-booking-calendar {
-      position: fixed;
-      inset-inline: 0;
-      bottom: 0;
-      z-index: 60;
-      margin-top: 0;
-      max-height: 85vh;
-      overflow-y: auto;
-      border-top: 1px solid var(--color-outline-variant);
-      box-shadow: 0 -12px 32px rgb(0 0 0 / 18%);
-    }
-  }
 </style>
 
 <script>

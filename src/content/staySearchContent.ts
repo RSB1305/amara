@@ -32,6 +32,7 @@ export const staySearchCopy = {
   submit: localized({ en: 'Check availability', de: 'Verfügbarkeit prüfen', es: 'Consultar disponibilidad', nl: 'Beschikbaarheid bekijken', sv: 'Se tillgänglighet' }),
   guest: localized({ en: '{count} guest', de: '{count} Gast', es: '{count} huésped', nl: '{count} gast', sv: '{count} gäst' }),
   guestsPlural: localized({ en: '{count} guests', de: '{count} Gäste', es: '{count} huéspedes', nl: '{count} gasten', sv: '{count} gäster' }),
+  guestsCompact: localized({ en: '{count} P.', de: '{count} P.', es: '{count} P.', nl: '{count} P.', sv: '{count} P.' }),
   calendarTitle: localized({ en: 'Choose your stay', de: 'Aufenthalt wählen', es: 'Elegid vuestra estancia', nl: 'Kies jullie verblijf', sv: 'Välj er vistelse' }),
   calendarHelp: localized({ en: 'Choose arrival and departure. Stays can be up to 45 nights.', de: 'Wählt Anreise und Abreise. Aufenthalte sind bis zu 45 Nächte möglich.', es: 'Elegid llegada y salida. La estancia puede ser de hasta 45 noches.', nl: 'Kies aankomst en vertrek. Een verblijf kan maximaal 45 nachten duren.', sv: 'Välj ankomst och avresa. En vistelse kan vara högst 45 nätter.' }),
   loadingCalendar: localized({ en: 'Loading live availability for your destination…', de: 'Live-Verfügbarkeit für euer Reiseziel wird geladen…', es: 'Cargando la disponibilidad actual para vuestro destino…', nl: 'Live beschikbaarheid voor jullie bestemming wordt geladen…', sv: 'Aktuell tillgänglighet för ert resmål hämtas…' }),

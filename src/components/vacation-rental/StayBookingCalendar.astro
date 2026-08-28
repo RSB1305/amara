@@ -95,6 +95,13 @@ const copy = {
     nl: '{count} gasten',
     sv: '{count} gäster'
   },
+  guestOptionCompact: {
+    en: '{count} P.',
+    de: '{count} P.',
+    es: '{count} P.',
+    nl: '{count} P.',
+    sv: '{count} P.'
+  },
   loading: {
     en: 'Checking the current total price…',
     de: 'Aktueller Gesamtpreis wird geprüft…',
@@ -298,7 +305,7 @@ const titleId = `${bookingKey}-booking-calendar-title`;
       </h2>
     </div>
 
-    <div class="am-stay-booking-calendar__panel self-start bg-surface-container-low p-5 sm:p-7">
+    <div class="am-stay-booking-calendar__panel self-start bg-surface p-5 sm:p-7">
       <form method="get" data-am-booking-form>
         <div class="grid gap-5 sm:grid-cols-3">
           <label class="block am-stay-booking-calendar__native-date">
@@ -360,23 +367,18 @@ const titleId = `${bookingKey}-booking-calendar-title`;
               data={{ 'data-am-booking-guests': '' }}
             >
               {guestOptions.map((count) => (
-                <option value={count} selected={count === Math.min(2, occupancy)}>
+                <option
+                  value={count}
+                  selected={count === Math.min(2, occupancy)}
+                  data-am-guest-label={t(count === 1 ? copy.guestOption : copy.guestOptionPlural).replace('{count}', String(count))}
+                  data-am-guest-label-compact={t(copy.guestOptionCompact).replace('{count}', String(count))}
+                >
                   {t(count === 1 ? copy.guestOption : copy.guestOptionPlural).replace('{count}', String(count))}
                 </option>
               ))}
             </AmaraFormControl>
           </label>
         </div>
-
-        <BookingDateRangeCalendar
-          title={t(copy.calendarTitle)}
-          help={t(copy.calendarHelp)}
-          closeLabel={t(copy.closeCalendar)}
-          previousMonthLabel={t(copy.previousMonth)}
-          nextMonthLabel={t(copy.nextMonth)}
-          clearLabel={t(copy.clearDates)}
-        />
-
       </form>
 
       <p class="am-text-caption mt-5 font-normal leading-relaxed text-on-surface-variant">
@@ -415,6 +417,15 @@ const titleId = `${bookingKey}-booking-calendar-title`;
       )}
     </div>
   </div>
+
+    <BookingDateRangeCalendar
+      title={t(copy.calendarTitle)}
+      help={t(copy.calendarHelp)}
+      closeLabel={t(copy.closeCalendar)}
+      previousMonthLabel={t(copy.previousMonth)}
+      nextMonthLabel={t(copy.nextMonth)}
+      clearLabel={t(copy.clearDates)}
+    />
   </div>
 </AmaraSection>
 
@@ -437,7 +448,7 @@ const titleId = `${bookingKey}-booking-calendar-title`;
   }
 
   .am-stay-booking-calendar__panel {
-    box-shadow: var(--shadow-editorial-card);
+    border: 1px solid var(--color-outline-variant);
   }
 
   [data-am-booking-enhanced='true'] .am-stay-booking-calendar__native-date {
