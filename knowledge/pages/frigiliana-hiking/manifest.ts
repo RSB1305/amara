@@ -5,7 +5,7 @@ export const frigilianaHikingKnowledge = defineKnowledgePageManifest({
   destination: 'frigiliana',
   topic: 'hiking-weather-return',
   createdAt: '2026-08-28T16:30:00+02:00',
-  updatedAt: '2026-08-28T16:30:00+02:00',
+  updatedAt: '2026-08-28T17:00:00+02:00',
   status: 'needs-review',
   driveFolder: {
     id: '1VyecWPTXEgcAwxY5ZRQModN7evS19LmK',
@@ -22,6 +22,7 @@ export const frigilianaHikingKnowledge = defineKnowledgePageManifest({
         'frigiliana.hiking.cruz-pinto.route-profile',
         'frigiliana.hiking.cahorros.route-profile-and-riverbed',
         'frigiliana.hiking.el-fuerte.route-profile',
+        'frigiliana.hiking.el-fuerte.official-start-and-lizar-access',
         'frigiliana.hiking.gr249-stage6.route-profile',
       ],
       status: 'partial',
@@ -44,9 +45,12 @@ export const frigilianaHikingKnowledge = defineKnowledgePageManifest({
     {
       authoringArea: 'el-fuerte',
       purpose: 'Describe the complete summit route with only the official profile values that survive normalization.',
-      factIds: ['frigiliana.hiking.el-fuerte.route-profile'],
+      factIds: [
+        'frigiliana.hiking.el-fuerte.route-profile',
+        'frigiliana.hiking.el-fuerte.official-start-and-lizar-access',
+      ],
       status: 'partial',
-      notes: 'Distance, duration, official difficulty and 963-metre summit elevation are supported. The current public 631–633-metre elevation-gain value is not authorized by the normalized fact.',
+      notes: 'Distance, duration, official difficulty, summit elevation and the Plaza-to-Pozo de Lízar approach are supported. The current public 631–633-metre elevation-gain value and any shortened viewpoint variant are not authorized by the normalized facts.',
     },
     {
       authoringArea: 'gr249-stage-6',
@@ -58,9 +62,13 @@ export const frigilianaHikingKnowledge = defineKnowledgePageManifest({
     {
       authoringArea: 'rio-chillar-closure',
       purpose: 'Keep a dated restriction separate from the four recommended route cards.',
-      factIds: ['nerja.hiking.rio-chillar.official-closure-2025'],
-      status: 'gap',
-      notes: 'The 2025 notice cannot support the current public wording that access “remains closed” in 2026. A current authority check is required before publication.',
+      factIds: [
+        'nerja.hiking.rio-chillar.official-closure-2025',
+        'nerja.hiking.rio-chillar.current-closure-check-2026-08-28',
+        'nerja.hiking.rio-chillar.controlled-access-procedure-2026',
+      ],
+      status: 'partial',
+      notes: 'Closure wording is supported for the dated 28 August 2026 check. Because status is highly volatile, the official page must be rechecked immediately before publication; the BOJA procedure is not evidence of reopening.',
     },
     {
       authoringArea: 'weather-and-live-conditions',
@@ -89,6 +97,16 @@ export const frigilianaHikingKnowledge = defineKnowledgePageManifest({
       factIds: ['casa-amara.location.calle-chorruelo-calle-real'],
       status: 'gap',
       notes: 'The property location is verified, but no exact route, duration, steps, gradient or recovery sequence is supported.',
+    },
+    {
+      authoringArea: 'candidate-route-identities',
+      purpose: 'Prevent unverified short variants or loops from entering the public route selection as if they were official routes.',
+      factIds: [
+        'frigiliana.hiking.el-fuerte.official-start-and-lizar-access',
+        'frigiliana.hiking.acebuchal.official-route-profile',
+      ],
+      status: 'gap',
+      notes: 'The official sources do not establish the proposed short El Fuerte viewpoint route, a three-kilometre Lízar/Acequia loop or a twelve-kilometre Acebuchal loop. These need first-party GPX verification before authoring.',
     },
     {
       authoringArea: 'post-route-food',

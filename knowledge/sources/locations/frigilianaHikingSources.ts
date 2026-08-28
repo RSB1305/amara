@@ -26,6 +26,12 @@ export const frigilianaHikingSources = defineKnowledgeSources([
     limitations: 'The page and catalogue do not establish current access, surface, shade, total ascent or day-specific safety.', reuse: 'link-and-cite',
   },
   {
+    id: 'frigiliana-tourism-acebuchal-route-2026', title: 'El Acebuchal', publisher: 'Turismo de Frigiliana', sourceType: 'official',
+    url: 'https://www.turismofrigiliana.es/es/el-acebuchal.html', accessedAt: '2026-08-28', language: 'es',
+    scope: 'Municipal route description, published distance and duration, official start and return form for Frigiliana–El Acebuchal.',
+    limitations: 'The page does not establish a loop, current access, surface condition, water availability or day-specific safety.', reuse: 'link-and-cite',
+  },
+  {
     id: 'diputacion-malaga-gr249-topoguide-2021', title: 'Topoguía GR 249 Gran Senda de Málaga — edición noviembre 2021', publisher: 'Diputación de Málaga', sourceType: 'official',
     url: 'https://static.malaga.es/malaga/subidas/descargas/archivos/7/1/370917/topoguia-gr-249-gran-senda-de-malaga-%28edicion-noviembre-2021%29.pdf', accessedAt: '2026-08-28', language: 'es',
     scope: 'Official stage identity, mountain character, route sequence and published planning data for Stage 6 Frigiliana–Cómpeta.',
@@ -36,6 +42,18 @@ export const frigilianaHikingSources = defineKnowledgeSources([
     url: 'https://www.nerja.es/el-acceso-al-rio-chillar-permanece-cerrado/', accessedAt: '2026-08-28', language: 'es',
     scope: 'Dated 5 August 2025 municipal statement that recreational access remained closed as a precaution against forest-fire risk.',
     limitations: 'Historical closure evidence does not establish the live status on a later date; current authority confirmation remains mandatory.', reuse: 'link-and-cite',
+  },
+  {
+    id: 'junta-cultura-rio-chillar-current-closure-2026', title: 'Río Chillar', publisher: 'Junta de Andalucía — Agenda Cultural de Andalucía', sourceType: 'official',
+    url: 'https://www.juntadeandalucia.es/cultura/agendaculturaldeandalucia/espacios/rio-chillar', accessedAt: '2026-08-28', language: 'es',
+    scope: 'Current official public-information page displaying that Río Chíllar is closed to the public at the time of access.',
+    limitations: 'The page does not show an effective date, legal instrument, detailed scope or reopening conditions; it must be checked again immediately before publication or guest use.', reuse: 'link-and-cite',
+  },
+  {
+    id: 'boja-rio-chillar-controlled-access-procedure-2026', title: 'Acuerdo de 27 de enero de 2026 — expediente 2026AUT000043MA', publisher: 'Boletín Oficial de la Junta de Andalucía', sourceType: 'official',
+    url: 'https://www.juntadeandalucia.es/boja/2026/22/20', accessedAt: '2026-08-28', language: 'es',
+    scope: 'Official opening of a project-competition stage within an authorization procedure for possible controlled tourist access to the Río Chíllar channel.',
+    limitations: 'A procedural notice is not an authorization, operating scheme, opening notice or evidence that public access has resumed.', reuse: 'link-and-cite',
   },
 ] as const);
 

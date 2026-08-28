@@ -12,9 +12,9 @@ public: false
 
 ## Result
 
-The Drive report remains the immutable discovery artifact. Four stable route records were adopted from Turismo de Frigiliana and the official GR 249 topoguide. The report’s same-day GO/NO-GO judgement, water quantities and late-August schedule were not normalized.
+The two Drive reports remain the immutable discovery artifacts. Four stable route records were adopted from Turismo de Frigiliana and the official GR 249 topoguide. The supplemental GPT report added route-start and route-identity checks; its unsupported short variants, same-day GO/NO-GO judgement, water quantities and late-August schedule were not normalized.
 
-Río Chíllar has one strictly dated closure fact from the municipality for 5 August 2025. Its live status remains open.
+Río Chíllar now has the dated municipal closure statement from 5 August 2025 and a separate official-page check from 28 August 2026 stating that it is currently closed. The February 2026 BOJA record concerns an authorization procedure for possible controlled access and is not evidence of reopening. Because this status is highly volatile, it still requires an immediate pre-publication check.
 
 ## Route owner summary
 
@@ -24,6 +24,14 @@ Río Chíllar has one strictly dated closure fact from the municipality for 5 Au
 | Cahorros del Río Higuerón | 4.6 km, about 2.5 h, municipal “easy”; riverbed and narrow cahorros circuit | Rain, upstream conditions, water and surface are live safety inputs |
 | El Fuerte | 7.4 km, about 4 h, municipal “medium”; published summit 963 m | Heat, wind, shade, access and fitness are not encoded by “medium” |
 | GR 249 Stage 6 | Linear Frigiliana–Cómpeta mountain stage, 24.7 km, about 8 h 15 | Current route state, water and return transport must be planned |
+
+## Supplemental route-identity result
+
+| Candidate | Normalized conclusion | Boundary |
+| --- | --- | --- |
+| El Fuerte official approach | Plaza del Ingenio to Pozo de Lízar is published as 750 m via Calle Real, Hernando el Darra, Amargura and Chorrera | Not a Casa AMARA measurement; no official short viewpoint endpoint was established |
+| Frigiliana–El Acebuchal | Official route is 13 km, about 4 h 20, starting at Plaza del Ingenio and returning over the outward line | Do not publish it as a verified 12 km loop |
+| Lízar/Acequia short loop | No independent official three-kilometre loop was established by the checked source set | Requires a first-party GPX walkthrough and route-authority reconciliation |
 
 ## Connection readiness
 
@@ -53,6 +61,7 @@ Río Chíllar has one strictly dated closure fact from the municipality for 5 Au
 1. Complete one dated AMARA walkthrough for each official start and return.
 2. Confirm post-route food combinations actually used by the hosts.
 3. Establish a current authority/live-check routine and GR 249 return transport.
+4. Record GPX evidence before adopting any short El Fuerte, Lízar/Acequia or Acebuchal loop variant.
 
 ## Quality scorecard
 
