@@ -74,6 +74,7 @@ const heroAttributes = getAmaraHeroAttributes({
   variant: 'stay-decision',
   role: 'conversion'
 });
+const hasBookingModule = Astro.slots.has('booking-module');
 ---
 
 <AmaraSection variant="hero" class="am-stay-hero">
@@ -160,7 +161,7 @@ const heroAttributes = getAmaraHeroAttributes({
       <BookingDecisionPanel
         priceLabel={booking.priceLabel}
         price={booking.price}
-        primary={booking.primary}
+        primary={hasBookingModule ? undefined : booking.primary}
         primaryInPage
         priceNote={booking.priceNote}
         supportLinks={booking.supportLinks}
