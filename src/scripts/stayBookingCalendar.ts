@@ -463,7 +463,6 @@ export function enhanceStayBookingCalendars() {
       if (!arrival || value <= arrival || value > latest) return false;
       const nights = nightsBetween(arrival, value);
       if (!Number.isInteger(nights) || nights < 1 || nights > MAX_NIGHTS) return false;
-      if (dayData.get(value)?.available !== true) return false;
       for (let index = 0; index < nights; index += 1) {
         const night = dayData.get(addDays(arrival, index));
         if (!night || night.available !== true) return false;
@@ -515,9 +514,10 @@ export function enhanceStayBookingCalendars() {
 
     const dayAriaLabel = (value: string, selectable: boolean, day: CalendarDay | undefined) => {
       const parts = [formatFullDate(value)];
-      if (day?.available === true) {
+      const availableAsDeparture = selectionMode === 'departure' && selectable;
+      if (day?.available === true || availableAsDeparture) {
         parts.push(copy.availableDay);
-        const price = priceDetails(day);
+        const price = day?.available === true ? priceDetails(day) : undefined;
         if (price) parts.push(price.label);
         if (value === arrivalInput.value && selectionMode === 'departure') {
           parts.push(copy.selectedArrival);

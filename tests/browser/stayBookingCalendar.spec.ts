@@ -239,9 +239,11 @@ test('desktop calendar loads only on open, enforces stay rules and quotes a vali
   ).toHaveCSS('text-decoration-line', 'none');
   await expect(dayButton(page, futureIso(6))).toBeEnabled();
   await expect(dayButton(page, futureIso(11))).toBeDisabled();
+  await expect(dayButton(page, blocked)).toBeEnabled();
+  await expect(dayButton(page, blocked)).toHaveAttribute('aria-label', /available/);
   await expect(
     dayButton(page, blocked).locator('.am-booking-calendar__day-number')
-  ).toHaveCSS('text-decoration-line', 'line-through');
+  ).toHaveCSS('text-decoration-line', 'none');
 
   await dayButton(page, futureIso(4)).click();
   await expect(page.locator('[data-am-booking-calendar-status]')).toContainText(

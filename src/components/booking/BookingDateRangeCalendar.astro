@@ -1,11 +1,14 @@
 ---
+import AmaraActionButton from '../actions/AmaraActionButton.astro';
+
 interface Props {
   title: string;
   help: string;
   closeLabel: string;
   previousMonthLabel: string;
   nextMonthLabel: string;
-  clearLabel: string;
+  clearLabel?: string;
+  submitLabel?: string;
 }
 
 const {
@@ -14,7 +17,8 @@ const {
   closeLabel,
   previousMonthLabel,
   nextMonthLabel,
-  clearLabel
+  clearLabel,
+  submitLabel
 } = Astro.props;
 ---
 
@@ -61,15 +65,30 @@ const {
 
   <div class="am-booking-calendar__months" data-am-booking-calendar-months></div>
 
-  <div class="am-booking-calendar__footer">
-    <button
-      class="am-booking-calendar__text-action am-text-label"
-      type="button"
-      data-am-booking-calendar-clear
-    >
-      {clearLabel}
-    </button>
-  </div>
+  {(clearLabel || submitLabel) && (
+    <div class="am-booking-calendar__footer">
+      {clearLabel && (
+        <button
+          class="am-booking-calendar__text-action am-text-label"
+          type="button"
+          data-am-booking-calendar-clear
+        >
+          {clearLabel}
+        </button>
+      )}
+      {submitLabel && (
+        <AmaraActionButton
+          variant="primary"
+          class="min-h-12 w-full justify-center sm:w-auto"
+          type="submit"
+          disabled
+          data-am-booking-calendar-submit
+        >
+          {submitLabel}
+        </AmaraActionButton>
+      )}
+    </div>
+  )}
 </div>
 
 <style is:global>
@@ -114,6 +133,7 @@ const {
 
   .am-booking-calendar__footer {
     justify-content: flex-end;
+    align-items: center;
     border-top: 1px solid var(--color-outline-variant);
     margin-top: 1rem;
     padding: 1rem 0.25rem 0;

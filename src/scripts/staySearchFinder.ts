@@ -71,12 +71,12 @@ export function enhanceStaySearchFinders() {
     const previous = element<HTMLButtonElement>(container, '[data-am-booking-calendar-prev]');
     const next = element<HTMLButtonElement>(container, '[data-am-booking-calendar-next]');
     const close = element<HTMLButtonElement>(container, '[data-am-booking-calendar-close]');
-    const clear = element<HTMLButtonElement>(container, '[data-am-booking-calendar-clear]');
+    const submit = element<HTMLButtonElement>(container, '[data-am-booking-calendar-submit]');
     const error = element<HTMLElement>(container, '[data-am-stay-search-error]');
     if (!form || !destination || !arrival || !departure || !guests || !arrivalWrap ||
       !departureWrap || !arrivalTrigger || !departureTrigger || !arrivalValue ||
       !departureValue || !calendar || !status || !monthsRoot || !previous || !next ||
-      !close || !clear || !error) return;
+      !close || !submit || !error) return;
 
     container.dataset.amStaySearchEnhanced = 'true';
     arrivalWrap.hidden = false;
@@ -100,7 +100,7 @@ export function enhanceStaySearchFinders() {
     const firstMonth = monthStart(today);
     const lastMonth = monthStart(latest);
     let anchorMonth = firstMonth;
-    let selectionMode: 'arrival' | 'departure' = 'arrival';
+    let selectionMode: 'arrival' | 'departure' | 'complete' = 'arrival';
     let activeTrigger = arrivalTrigger;
     let hoverDate = '';
     let calendarFeedback = '';
@@ -129,7 +129,7 @@ export function enhanceStaySearchFinders() {
       arrival.value = initialArrival;
       departure.value = initialDeparture;
       departure.min = addDays(initialArrival, 1);
-      selectionMode = 'departure';
+      selectionMode = 'complete';
       anchorMonth = monthStart(initialArrival);
     }
 
@@ -238,10 +238,8 @@ export function enhanceStaySearchFinders() {
     };
     const canChooseDepartureForStay = (
       days: Map<string, SearchCalendarDay>,
-      value: string,
       nights: number
     ) => {
-      if (days.get(value)?.available !== true) return false;
       for (let index = 0; index < nights; index += 1) {
         if (days.get(addDays(arrival.value, index))?.available !== true) return false;
       }
@@ -251,11 +249,11 @@ export function enhanceStaySearchFinders() {
       if (!arrival.value || value <= arrival.value || value > latest) return false;
       const nights = nightsBetween(arrival.value, value);
       return nights >= 1 && nights <= MAX_NIGHTS &&
-        [...stayDays.values()].some((days) => canChooseDepartureForStay(days, value, nights));
+        [...stayDays.values()].some((days) => canChooseDepartureForStay(days, nights));
     };
-    const selectable = (value: string) => selectionMode === 'arrival'
-      ? canChooseArrival(value)
-      : canChooseDeparture(value);
+    const selectable = (value: string) => selectionMode === 'departure'
+      ? canChooseDeparture(value)
+      : canChooseArrival(value);
     const applyRange = (preview = '') => {
       const end = departure.value || preview;
       monthsRoot.querySelectorAll<HTMLElement>('[data-am-booking-day]').forEach((button) => {
@@ -420,21 +418,25 @@ export function enhanceStaySearchFinders() {
         const unresolved = value >= today && value <= latest && monthState !== 'ready';
         const loading = unresolved && monthState !== 'error';
         const isSelectable = !unresolved && selectable(value);
+        const isSelectedArrival = selectionMode === 'departure' && value === arrival.value;
+        const availableForMode = selectionMode === 'departure'
+          ? isSelectedArrival || isSelectable
+          : hasAvailableDay(value);
         const explainsMinimumStay = !unresolved && selectionMode === 'departure' &&
           hasAvailableDay(value) && !isSelectable && isMinimumStayViolation(value);
         button.type = 'button';
         button.className = 'am-booking-calendar__day';
         button.dataset.amBookingDay = value;
         if (unresolved) button.dataset.amBookingDayState = loading ? 'loading' : 'error';
-        else if (selectionMode === 'departure' && hasAvailableDay(value) && !isSelectable) {
+        else if (selectionMode === 'departure' && (hasAvailableDay(value) || isSelectedArrival) && !isSelectable) {
           button.dataset.amBookingDayState = value === arrival.value ? 'selected' : 'restricted';
         }
         if (explainsMinimumStay) button.dataset.amBookingRestriction = 'minimum-stay';
         button.disabled = !isSelectable && !explainsMinimumStay;
         button.setAttribute('aria-disabled', String(!isSelectable && !explainsMinimumStay));
         if (loading) button.setAttribute('aria-busy', 'true');
-        const availabilityLabel = hasAvailableDay(value)
-          ? value === arrival.value && selectionMode === 'departure'
+        const availabilityLabel = availableForMode
+          ? isSelectedArrival
             ? [copy.availableDay, copy.selectedArrival].join(', ')
             : !isSelectable && selectionMode === 'departure'
               ? [
@@ -443,7 +445,9 @@ export function enhanceStaySearchFinders() {
                 ].join(', ')
               : copy.availableDay
           : copy.unavailableDay;
-        const price = !unresolved && hasAvailableDay(value) ? priceDetails(value) : undefined;
+        const price = !unresolved && selectionMode !== 'departure' && hasAvailableDay(value)
+          ? priceDetails(value)
+          : undefined;
         button.setAttribute('aria-label', [
           formatFullDate(value),
           unresolved
@@ -498,7 +502,9 @@ export function enhanceStaySearchFinders() {
             .replace('{departure}', formatDate(addDays(arrival.value, minimumStay)))
           : copy.chooseDepartureHelp;
         if (minimumStay > 1) status.dataset.amBookingCalendarStatusState = 'minimum-stay';
-      } else status.textContent = copy.calendarHelp;
+      } else if (selectionMode === 'complete') status.textContent = copy.selectionCompleteHelp;
+      else status.textContent = copy.calendarHelp;
+      submit.disabled = !(arrival.value && departure.value);
       applyRange(hoverDate);
       const focusable = monthsRoot.querySelector<HTMLButtonElement>('[data-am-booking-day]:not(:disabled)');
       if (focusable && !monthsRoot.querySelector('[tabindex="0"]')) focusable.tabIndex = 0;
@@ -528,17 +534,6 @@ export function enhanceStaySearchFinders() {
     arrivalTrigger.addEventListener('click', () => void openCalendar('arrival', arrivalTrigger));
     departureTrigger.addEventListener('click', () => void openCalendar('departure', departureTrigger));
     close.addEventListener('click', closeCalendar);
-    clear.addEventListener('click', () => {
-      arrival.value = '';
-      departure.value = '';
-      departure.min = addDays(today, 1);
-      selectionMode = 'arrival';
-      hoverDate = '';
-      calendarFeedback = '';
-      error.hidden = true;
-      updateTriggers();
-      render();
-    });
     previous.addEventListener('click', async () => {
       if (visibleLoading() || anchorMonth <= firstMonth) return;
       anchorMonth = addMonths(anchorMonth, -1);
@@ -555,7 +550,7 @@ export function enhanceStaySearchFinders() {
       const button = target.closest<HTMLButtonElement>('[data-am-booking-day]');
       if (!button || button.disabled) return;
       const value = button.dataset.amBookingDay || '';
-      if (selectionMode === 'arrival') {
+      if (selectionMode === 'arrival' || selectionMode === 'complete') {
         arrival.value = value;
         departure.value = '';
         departure.min = addDays(value, 1);
@@ -575,6 +570,7 @@ export function enhanceStaySearchFinders() {
         return;
       }
       departure.value = value;
+      selectionMode = 'complete';
       hoverDate = '';
       calendarFeedback = '';
       error.hidden = true;

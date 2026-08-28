@@ -50,6 +50,7 @@ const enumerateDays = (start: string, end: string) => {
 
 type GatewayOptions = {
   unavailable?: Set<string>;
+  unavailableDates?: Set<string>;
   technicalError?: Set<string>;
   quoteError?: Set<string>;
 };
@@ -82,7 +83,9 @@ async function mockGateway(page: Page, options: GatewayOptions = {}) {
             stay: candidate.stay,
             days: enumerateDays(start, end).map((date) => ({
               date,
-              available: !options.unavailable?.has(candidate.stay),
+              available:
+                !options.unavailable?.has(candidate.stay) &&
+                !options.unavailableDates?.has(date),
               currency: 'EUR',
               options: [{ nightlyRate: candidate.nightlyRate, minStay: 3, maxStay: 45 }]
             }))
@@ -160,14 +163,19 @@ const searchUrl = (destination: string, arrival: string, departure: string, gues
 test('homepage finder refreshes live dates for destination changes and returns quoted stays', async ({ page }) => {
   test.setTimeout(45_000);
   await page.setViewportSize(DESKTOP);
-  const requests = await mockGateway(page);
   const arrival = futureIso(3);
   const departure = futureIso(10);
+  const requests = await mockGateway(page, { unavailableDates: new Set([departure]) });
   await page.goto(ORIGIN + '/en', { waitUntil: 'domcontentloaded' });
   expect(requests).toHaveLength(0);
+  await expect(page.getByRole('button', { name: 'Check availability' })).toHaveCount(0);
   await page.locator('[data-am-stay-search-destination]').selectOption('nerja');
   expect(requests).toHaveLength(0);
   await page.getByRole('button', { name: 'Choose arrival' }).click();
+  const submit = page.getByRole('button', { name: 'Check availability' });
+  await expect(submit).toBeVisible();
+  await expect(submit).toBeDisabled();
+  await expect(page.getByRole('button', { name: 'Clear dates' })).toHaveCount(0);
   await expect.poll(() => requests.filter((url) => url.pathname.endsWith('/search-calendar')).length).toBe(2);
   await expect(page.locator('.am-booking-calendar__month')).toHaveCount(2);
   await expect(page.locator('[data-am-booking-day="' + arrival + '"] .am-booking-calendar__day-price')).toContainText('from');
@@ -178,13 +186,25 @@ test('homepage finder refreshes live dates for destination changes and returns q
   expect(requests.filter((url) => url.pathname.endsWith('/search-calendar')).map((url) =>
     url.searchParams.get('destination'))).toEqual(['nerja', 'nerja', 'frigiliana', 'frigiliana']);
   await page.locator('[data-am-booking-day="' + arrival + '"]').click();
+  await expect(page.locator('.am-booking-calendar__day-price')).toHaveCount(0);
   await expect(page.locator('[data-am-booking-calendar-status]')).toContainText('Minimum stay');
   await expect(page.locator('[data-am-booking-calendar-status]')).toHaveAttribute(
     'data-am-booking-calendar-status-state',
     'minimum-stay'
   );
-  await page.locator('[data-am-booking-day="' + departure + '"]').click();
-  await page.getByRole('button', { name: 'Check availability' }).click();
+  const departureButton = page.locator('[data-am-booking-day="' + departure + '"]');
+  await expect(departureButton).toBeEnabled();
+  await departureButton.click();
+  await expect(submit).toBeEnabled();
+  await expect(page.locator('[data-am-booking-calendar-status]')).toContainText(
+    'Your dates are selected'
+  );
+  await page.locator('[data-am-booking-day="' + arrival + '"]').click();
+  await expect(page.locator('[data-am-stay-search-departure]')).toHaveValue('');
+  await expect(submit).toBeDisabled();
+  await expect(departureButton).toBeEnabled();
+  await departureButton.click();
+  await submit.click();
   await expect(page).toHaveURL(searchUrl('frigiliana', arrival, departure));
   await expect(page.locator('[data-am-stay-result]:visible')).toHaveCount(4);
   expect(requests).toHaveLength(12);

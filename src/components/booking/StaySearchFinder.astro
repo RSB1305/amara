@@ -46,7 +46,7 @@ const guestOptions = [1, 2];
         hero. */}
     <div
       class:list={[
-        'grid grid-cols-4 sm:grid-cols-2 lg:grid-cols-[1.1fr_1fr_1fr_0.75fr_auto] lg:items-end',
+        'grid grid-cols-4 sm:grid-cols-2 lg:grid-cols-[1.1fr_1fr_1fr_0.75fr] lg:items-end',
         variant === 'home' ? 'gap-3' : 'gap-4'
       ]}
     >
@@ -124,10 +124,6 @@ const guestOptions = [1, 2];
           ))}
         </AmaraFormControl>
       </label>
-
-      <AmaraActionButton variant="primary" class="order-5 col-span-4 min-h-12 w-full justify-center sm:col-span-2 lg:col-span-1 lg:w-auto" type="submit">
-        {t(staySearchCopy.submit)}
-      </AmaraActionButton>
     </div>
 
     <BookingDateRangeCalendar
@@ -136,8 +132,14 @@ const guestOptions = [1, 2];
       closeLabel={t(staySearchCopy.closeCalendar)}
       previousMonthLabel={t(staySearchCopy.previousMonth)}
       nextMonthLabel={t(staySearchCopy.nextMonth)}
-      clearLabel={t(staySearchCopy.clearDates)}
+      submitLabel={t(staySearchCopy.submit)}
     />
+
+    <noscript>
+      <AmaraActionButton variant="primary" class="mt-4 min-h-12 w-full justify-center sm:w-auto" type="submit">
+        {t(staySearchCopy.submit)}
+      </AmaraActionButton>
+    </noscript>
 
     <p
       class="am-text-caption mt-4 font-normal text-error"
