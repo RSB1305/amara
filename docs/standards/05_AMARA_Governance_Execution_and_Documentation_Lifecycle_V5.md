@@ -1,11 +1,11 @@
 ---
 document_id: AMARA-GOV-005
 title: AMARA Governance, Execution & Documentation Lifecycle
-version: 5.6.0
+version: 5.7.0
 status: ACTIVE
 authority_class: GOVERNING CONTRACT
 effective_from: 2026-08-14
-last_modified: 2026-08-27T13:11:27+02:00
+last_modified: 2026-08-28T07:08:21+02:00
 canonical_path: /docs/standards/05_AMARA_Governance_Execution_and_Documentation_Lifecycle_V5.md
 supersedes:
   - AMARA Governance & Execution Standard V4.2
@@ -26,6 +26,7 @@ decision_refs:
   - DR-EXEC-004
   - DR-EXEC-003
   - DR-EXEC-010
+  - DR-EXEC-011
   - DR-BOOT-001
 ---
 
@@ -220,6 +221,36 @@ The normal parallel-work sequence is:
 
 Push remains centralized and batched at an intentional release point.
 
+### Isolated Worktrees and Central Release Integration
+
+When Codex, Claude, Codex Cloud or another implementation worker may operate in parallel, each active implementation task owns one dedicated Git branch and one dedicated Git worktree. Agents must not share a working directory. The primary `main` worktree is reserved for traffic control, integration and release work for the duration of parallel execution.
+
+Before editing, every task has a bounded scope and a provenance-bearing branch name such as `codex/<task>`, `claude/<task>` or `codex/cloud-<task>`. Branch provenance does not imply release readiness. The Parallel Traffic Check remains the overlap guard: same-file or same-owner/contract ownership stops; separate scopes proceed.
+
+Local workers hand off a clean committed branch and commit SHA. Codex Cloud or another remote worker is part of the same release inventory only after it exposes a remote branch, pull request, commit SHA or operator-provided patch to the release controller. Remote workers do not merge directly to `main` unless the operator explicitly assigns that worker the release-controller role.
+
+One release controller owns integration and push. Immediately before any release push, that controller inventories:
+
+- active registered local worktrees;
+- unmerged local branches;
+- visible unmerged remote branches;
+- open pull requests; and
+- operator-declared or Traffic-Controller workstreams.
+
+Every discovered workstream is classified as **included**, **waiting** or **intentionally excluded**, with its branch or commit identity. An unknown or unclassified workstream stops the push. This inventory is a bounded release gate, not a persistent coordination database or repository-wide audit.
+
+All included, committed and validated work is integrated from current `origin/main` into one temporary release branch. Conflicts are resolved and the release validation runs there once. The release then uses one intentional branch push, one pull request and one merge. `git push --all` is never an integration mechanism: it publishes refs but neither combines their contents nor establishes readiness. Uncommitted, dirty or unfinished work is never silently absorbed.
+
+After merge, completed task worktrees are removed and merged task branches are deleted locally and remotely. Persistent implementation branches require a concrete continuing purpose. Cloudflare and CI branch controls should exclude ordinary worker branches and reserve automatic preview deployment for the intentional release branch where the connected platform permits it.
+
+The normal parallel sequence is:
+
+**traffic check -> dedicated task branch/worktree -> implement -> targeted validation -> local commit -> READY handoff**
+
+The centralized release sequence is:
+
+**inventory -> classify every workstream -> integrate included commits -> release validation -> one push/PR/merge -> cleanup**
+
 ### Completion rule
 
 For a normal FAST task, one successful targeted validation after implementation is sufficient to close the task. Do not require a separate post-fix review unless the fix changed scope, failed once, or introduced a new concrete uncertainty.
@@ -397,3 +428,4 @@ Project attachments/PDFs are not activation gates.
 | 5.4.0 | 2026-08-14T12:30:00+02:00 | Added two deterministic FAST preflight checks to the validation ladder: repository-wide new-page duplication check before creating a public page/route/guide, and a five-locale structural completeness check before committing multilingual changes. Both are performed by the implementing agent; neither introduces a mandatory second agent. | DR-EXEC-003, DR-EXEC-004 | 0e2b26a |
 | 5.5.0 | 2026-08-14T12:59:47+02:00 | Made `AGENTS.md` sufficient for daily Class 0–2 work; limited owner reads to architecture/SSOT, protected-contract and concrete-conflict triggers; bounded FAST preflights; prohibited incidental validation tooling, documentation and inventories; established result-first turn completion. | DR-EXEC-001–008, DR-AGENT-001 | this revision |
 | 5.6.0 | 2026-08-27T13:11:27+02:00 | Added the bounded read-only Parallel Traffic Check for declared parallel-agent work, with an overlap stop only for the same files or shared owner/contract and no expansion into builds, audits or new coordination infrastructure. | DR-EXEC-010, DR-EXEC-007 | this revision |
+| 5.7.0 | 2026-08-28T07:08:21+02:00 | Required one dedicated branch and worktree per parallel implementation task, reserved the primary `main` worktree for control/integration, added remote Codex Cloud handoff requirements and established a centralized release inventory that classifies every visible workstream before one integrated push/PR/merge. | DR-EXEC-011, DR-EXEC-010, DR-EXEC-007 | this revision |

@@ -1,12 +1,12 @@
 ---
 document_id: AMARA-REG-001
 title: AMARA Register
-version: 1.40.0
+version: 1.41.0
 status: ACTIVE
 authority_class: LIVING BINDING REGISTER
 activation_state: ACTIVE
 effective_from: 2026-08-14
-last_modified: 2026-08-28T06:28:44+02:00
+last_modified: 2026-08-28T07:08:21+02:00
 canonical_path: /docs/AMARA_REGISTER.md
 ---
 
@@ -24,9 +24,9 @@ The AMARA Register is the single source for active documents, authority classes,
 | 02 | AMARA Astro & Design Architecture Contract | 4.18.0 ACTIVE INTERIM | CONTRACT / governing | `docs/interim/03_AMARA_Astro_Technical_Standard_V4.md` + current repository implementation |
 | 03 | AMARA Runtime, SEO & Data Contract | 4.2.0 ACTIVE INTERIM | CONTRACT / governing | `docs/interim/04_AMARA_Runtime_and_SEO_Standard_V4.md` + current repository implementation |
 | 04 | AMARA URL, Route & Link Contract | PENDING Package 2 | CONTRACT / governing | Interim snapshot: `docs/interim/05_AMARA_URL_and_Route_Infrastructure_V4.md` + Decision Register |
-| 05 | AMARA Governance, Execution & Documentation Lifecycle | 5.6.0 ACTIVE | CONTRACT / governing | `docs/standards/05_AMARA_Governance_Execution_and_Documentation_Lifecycle_V5.md` |
+| 05 | AMARA Governance, Execution & Documentation Lifecycle | 5.7.0 ACTIVE | CONTRACT / governing | `docs/standards/05_AMARA_Governance_Execution_and_Documentation_Lifecycle_V5.md` |
 | 06 | AMARA Performance & Delivery Standard | 2.1.0 ACTIVE INTERIM | PRINCIPLE/CONTRACT / governing | `docs/interim/07_AMARA_Performance_Standard_V2.md` |
-| 07 | AMARA Register | 1.40.0 ACTIVE | LIVING BINDING REGISTER | `docs/AMARA_REGISTER.md` |
+| 07 | AMARA Register | 1.41.0 ACTIVE | LIVING BINDING REGISTER | `docs/AMARA_REGISTER.md` |
 | 08 | AMARA Guest Utility Feature Contract | 2.1.0 ACTIVE INTERIM | FEATURE CONTRACT | `docs/interim/08_AMARA_Guest_Utility_Architecture_V2.md` |
 | 09 | AMARA Content Production & Localization Playbook | 1.5.0 ACTIVE INTERIM | OPERATIONAL PLAYBOOK / non-governing | `docs/interim/10_AMARA_Content_Production_and_Localization_Playbook_V1_2.md` |
 | 10 | AMARA Frigiliana–Nerja SEO Strategy | PENDING Package 2/3 | WORKING STRATEGY / non-governing | Interim snapshot: `docs/interim/09_AMARA_Frigiliana_Nerja_SEO_Strategy_V2_1.md` |
@@ -66,6 +66,7 @@ Current operational feature owner during transition:
 | DR-EXEC-008 | Routine new SSOT information may enter an intake queue and be consolidated at `AMARA SSOT SYNC`; do not version multiple owner documents several times per day without a real urgent contract need. | APPROVED |
 | DR-EXEC-009 | After a material release batch, the area that batch actually changed may be reviewed for repeated content, renderer and presentation patterns and consolidated behaviour-preservingly, including the shared owners inside that area. The slot is bounded by the changed area; it is not an opening for repository-wide refactoring, redesign or new features, and it does not lower the Class 3 alignment requirement for contracts outside that area. | ACTIVE |
 | DR-EXEC-010 | When parallel agent work is explicitly active, a read-only traffic check of about 30 seconds maximum precedes a new implementation task and integration/push. It checks only active local worktrees, visible active remote branches/pull requests where available and operator/Traffic-Controller scopes. Same-file or same-owner/contract overlap stops the task; separate scopes proceed immediately. The check runs no builds, tests, broad audits, architecture reviews or new coordination infrastructure. | ACTIVE |
+| DR-EXEC-011 | During explicitly parallel Codex, Claude or Codex Cloud implementation, each active task owns one dedicated branch and Git worktree while the primary `main` worktree remains control/integration space. One release controller inventories local worktrees, unmerged local and visible remote branches, open pull requests and declared workstreams before push; every item is classified as included, waiting or intentionally excluded. Included committed work is integrated into one release branch from current `origin/main`, validated once and released through one push/PR/merge; unknown, dirty or unfinished work is never silently absorbed. Remote Cloud work participates only through a visible branch, PR, commit SHA or operator-provided patch. | ACTIVE |
 | DR-GOV-001 | Conversational shorthand or a new isolated statement cannot silently supersede an ACTIVE contract; apparent conflicts trigger Reality Reconciliation and explicit contract-level confirmation. | APPROVED |
 
 ### Brand
@@ -191,6 +192,7 @@ Routine new evidence/ideas may be captured here or in the relevant working evide
 | 2026-08-27T13:11:27+02:00 | Parallel Traffic Check | Activated a bounded 30-second read-only overlap check for explicitly parallel agent work, with immediate continuation for separate scopes, a stop for same-file or same-owner/contract overlap, and no new coordination infrastructure. Governance 5.6.0, Register 1.38.0. | DR-EXEC-010, DR-EXEC-007 | this revision |
 | 2026-08-27T14:18:49+02:00 | Official Frigiliana short-term forecast | Added a fixed, cached server-side AEMET gateway and progressive three-day forecast to the otherwise static Frigiliana Weather page. Runtime Standard 4.1.0, Register 1.39.0. | DR-PLATFORM-001, DR-WEATHER-001 | this revision |
 | 2026-08-28T06:28:44+02:00 | Official destination short-term forecasts | Corrected the Cloudflare function route boundary and extended the fixed, cached AEMET gateway and progressive three-day forecast to Frigiliana, Nerja and Tarifa. Runtime Standard 4.2.0, Register 1.40.0. | DR-PLATFORM-001, DR-WEATHER-001 | this revision |
+| 2026-08-28T07:08:21+02:00 | Parallel worktree and release integration | Required one branch/worktree per active parallel implementation task, reserved the primary `main` worktree for integration, included visible Codex Cloud handoffs in a mandatory pre-push inventory and established one centralized integrated release. Governance 5.7.0, Register 1.41.0. | DR-EXEC-011, DR-EXEC-010, DR-EXEC-007 | this revision |
 | 2026-08-13 | Documentation reform | Constitution 5.0.0, Governance 5.0.0, Register 1.0.0 approved as Package 1 replacement drafts. | DR-DOC-003, DR-EXEC-001 | historical package snapshot |
 | 2026-08-14T08:55:00+02:00 | Reality Reconciliation | Corrected the over-broad interpretation of Astro-only: it governs the website runtime and does not silently remove an independently governed operational boundary. | DR-PLATFORM-001, DR-BOOK-001, DR-GOV-001 | withdrawn candidate; never committed |
 | 2026-08-14T09:08:00+02:00 | SSOT Bootstrap V3 candidate | Added repository Markdown snapshots for all seven interim owner documents and introduced a mandatory read-only Compatibility Gate before activation. Gate result: BLOCKED; candidate withdrawn without commit. | DR-DOC-001, DR-DOC-005, DR-BOOT-001 | withdrawn candidate — never committed |
