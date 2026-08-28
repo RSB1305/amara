@@ -87,7 +87,11 @@ const cards = vacationRentalEntities.flatMap((rental) => {
         </div>
 
         <div class="mt-10" hidden data-am-stay-search-available>
-          <h2 id="stay-results-heading" class="am-text-subtitle text-on-surface">
+          <h2
+            id="stay-results-heading"
+            class="am-text-subtitle text-on-surface"
+            data-am-stay-search-results-heading
+          >
             {t(staySearchCopy.resultsTitle)}
           </h2>
           <div class="am-stay-results-grid mt-8" data-am-stay-search-grid>

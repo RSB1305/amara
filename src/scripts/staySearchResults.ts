@@ -6,6 +6,7 @@ type SearchInput = {
   departure: string;
   guests: number;
 };
+type SearchDestination = SearchInput['destination'];
 type RequestFailure = Error & { status?: number; code?: string };
 
 const DAY_MS = 86_400_000;
@@ -23,18 +24,22 @@ const addDays = (value: string, amount: number) => {
   date.setUTCDate(date.getUTCDate() + amount);
   return date.toISOString().slice(0, 10);
 };
+const parseDestination = (value: string | null): SearchDestination | undefined =>
+  ['all', 'frigiliana', 'nerja', 'tarifa'].includes(value || '')
+    ? value as SearchDestination
+    : undefined;
 
 function parseSearch(): SearchInput | undefined {
   const params = new URLSearchParams(window.location.search);
-  const destination = params.get('destination');
+  const destination = parseDestination(params.get('destination'));
   const arrival = validIsoDay(params.get('arrival'));
   const departure = validIsoDay(params.get('departure'));
   const guests = Number(params.get('guests'));
   const nights = nightsBetween(arrival, departure);
-  if (!['all', 'frigiliana', 'nerja', 'tarifa'].includes(destination || '') ||
+  if (!destination ||
     !arrival || !departure || departure <= arrival || nights < 1 || nights > MAX_NIGHTS ||
     !Number.isInteger(guests) || guests < 1 || guests > 4) return undefined;
-  return { destination: destination as SearchInput['destination'], arrival, departure, guests };
+  return { destination, arrival, departure, guests };
 }
 
 async function fetchJson(pathname: string, params: URLSearchParams) {
@@ -75,13 +80,30 @@ export function enhanceStaySearchResults() {
     const state = root.querySelector<HTMLElement>('[data-am-stay-search-state]');
     const warning = root.querySelector<HTMLElement>('[data-am-stay-search-warning]');
     const available = root.querySelector<HTMLElement>('[data-am-stay-search-available]');
+    const resultsHeading = root.querySelector<HTMLElement>('[data-am-stay-search-results-heading]');
     const empty = root.querySelector<HTMLElement>('[data-am-stay-search-empty]');
     const emptyCopy = root.querySelector<HTMLElement>('[data-am-stay-search-empty-copy]');
     const allLink = root.querySelector<HTMLAnchorElement>('[data-am-stay-search-all-link]');
     const cards = [...root.querySelectorAll<HTMLElement>('[data-am-stay-result]')];
-    if (!summary || !state || !warning || !available || !empty || !emptyCopy || !allLink) return;
+    if (!summary || !state || !warning || !available || !resultsHeading || !empty || !emptyCopy || !allLink) return;
+    const destinationLabel = (destination: SearchDestination) =>
+      document.querySelector<HTMLOptionElement>(
+        `[data-am-stay-search-destination] option[value="${destination}"]`
+      )?.textContent || destination.charAt(0).toUpperCase() + destination.slice(1);
     const input = parseSearch();
-    if (!input) return;
+    if (!input) {
+      const previewDestination = parseDestination(new URLSearchParams(window.location.search).get('destination'));
+      if (!previewDestination || previewDestination === 'all') return;
+      const label = destinationLabel(previewDestination);
+      resultsHeading.textContent = copy.destinationStaysTitle.replace('{destination}', label);
+      summary.textContent = '';
+      state.textContent = copy.destinationStaysPrompt;
+      cards.forEach((card) => {
+        card.hidden = card.dataset.amStayDestination !== previewDestination;
+      });
+      available.hidden = false;
+      return;
+    }
 
     const formatDate = (value: string) => new Intl.DateTimeFormat(language, {
       day: 'numeric', month: 'long', year: 'numeric', timeZone: 'UTC'
@@ -89,11 +111,9 @@ export function enhanceStaySearchResults() {
     const countLabel = (key: 'night' | 'nights' | 'guest' | 'guestsPlural', count: number) =>
       copy[key].replace('{count}', String(count));
     const nights = nightsBetween(input.arrival, input.departure);
-    const destinationLabel = input.destination === 'all'
-      ? document.querySelector<HTMLOptionElement>('[data-am-stay-search-destination] option[value="all"]')?.textContent || ''
-      : input.destination.charAt(0).toUpperCase() + input.destination.slice(1);
+    const selectedDestinationLabel = destinationLabel(input.destination);
     summary.textContent = [
-      destinationLabel,
+      selectedDestinationLabel,
       formatDate(input.arrival) + ' – ' + formatDate(input.departure),
       countLabel(input.guests === 1 ? 'guest' : 'guestsPlural', input.guests)
     ].join(' · ');
@@ -182,7 +202,7 @@ export function enhanceStaySearchResults() {
       if (technical.length > 0) {
         emptyCopy.textContent = copy.searchError;
       } else {
-        emptyCopy.textContent = copy.empty.replace('{destination}', destinationLabel);
+        emptyCopy.textContent = copy.empty.replace('{destination}', selectedDestinationLabel);
       }
       if (input.destination !== 'all') {
         const allParams = new URLSearchParams(searchParams);
