@@ -5642,13 +5642,6 @@ const nerjaPlayaAccommodation: GuestGuideEntry = {
               nl: 'Tijdens jullie verblijf is er snelle Wi-Fi beschikbaar.<br><br><strong>Netwerknaam:</strong><br>HUAWEI-2.4G-aB3Y<br><br>Voor het actuele wifiwachtwoord gebruiken jullie het communicatiekanaal van jullie boeking of nemen jullie contact op met AMARA-support.',
               sv: 'Under er vistelse har ni tillgång till snabbt Wi-Fi.<br><br><strong>Nätverksnamn:</strong><br>HUAWEI-2.4G-aB3Y<br><br>För det aktuella Wi-Fi-lösenordet använder ni kommunikationskanalen för er bokning eller kontaktar AMARA-supporten.'
             },
-            {
-              en: '<em>Please note:</em> Passwords are case-sensitive.',
-              de: '<em>Bitte beachten:</em> Passwörter unterscheiden zwischen Groß- und Kleinschreibung.',
-              es: '<em>A tener en cuenta:</em> Las contraseñas distinguen entre mayúsculas y minúsculas.',
-              nl: '<em>Let op:</em> Wachtwoorden zijn hoofdlettergevoelig.',
-              sv: '<em>Observera:</em> Lösenord är känsliga för stora och små bokstäver.'
-            }
           ]
         },
         sharedAmaraCoolingHeatingItem
