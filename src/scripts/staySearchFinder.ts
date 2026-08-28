@@ -70,13 +70,12 @@ export function enhanceStaySearchFinders() {
     const monthsRoot = element<HTMLElement>(container, '[data-am-booking-calendar-months]');
     const previous = element<HTMLButtonElement>(container, '[data-am-booking-calendar-prev]');
     const next = element<HTMLButtonElement>(container, '[data-am-booking-calendar-next]');
-    const close = element<HTMLButtonElement>(container, '[data-am-booking-calendar-close]');
     const submit = element<HTMLButtonElement>(container, '[data-am-booking-calendar-submit]');
     const error = element<HTMLElement>(container, '[data-am-stay-search-error]');
     if (!form || !destination || !arrival || !departure || !guests || !arrivalWrap ||
       !departureWrap || !arrivalTrigger || !departureTrigger || !arrivalValue ||
       !departureValue || !calendar || !status || !monthsRoot || !previous || !next ||
-      !close || !submit || !error) return;
+      !submit || !error) return;
 
     container.dataset.amStaySearchEnhanced = 'true';
     arrivalWrap.hidden = false;
@@ -524,16 +523,15 @@ export function enhanceStaySearchFinders() {
       departureTrigger.setAttribute('aria-expanded', String(trigger === departureTrigger));
       await ensureVisibleMonths();
     };
-    const closeCalendar = () => {
+    const closeCalendar = (restoreFocus = true) => {
       calendar.hidden = true;
       arrivalTrigger.setAttribute('aria-expanded', 'false');
       departureTrigger.setAttribute('aria-expanded', 'false');
-      activeTrigger.focus();
+      if (restoreFocus) activeTrigger.focus();
     };
 
     arrivalTrigger.addEventListener('click', () => void openCalendar('arrival', arrivalTrigger));
     departureTrigger.addEventListener('click', () => void openCalendar('departure', departureTrigger));
-    close.addEventListener('click', closeCalendar);
     previous.addEventListener('click', async () => {
       if (visibleLoading() || anchorMonth <= firstMonth) return;
       anchorMonth = addMonths(anchorMonth, -1);
@@ -616,6 +614,17 @@ export function enhanceStaySearchFinders() {
     });
     calendar.addEventListener('keydown', (event) => {
       if (event.key === 'Escape') { event.preventDefault(); closeCalendar(); }
+    });
+    document.addEventListener('pointerdown', (event) => {
+      const target = event.target;
+      if (
+        calendar.hidden ||
+        !(target instanceof Node) ||
+        calendar.contains(target) ||
+        arrivalTrigger.contains(target) ||
+        departureTrigger.contains(target)
+      ) return;
+      closeCalendar(false);
     });
     const resetLiveCalendar = (openAfterReset = false) => {
       arrival.value = '';

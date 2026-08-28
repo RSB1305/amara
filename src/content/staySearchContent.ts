@@ -53,7 +53,6 @@ export const staySearchCopy = {
     nl: 'Bij aankomst op {arrival} geldt een minimumverblijf van {count} nachten. Kies een vertrek vanaf {departure}.',
     sv: 'Vid ankomst den {arrival} gäller minst {count} nätter. Välj avresa tidigast den {departure}.'
   }),
-  closeCalendar: localized({ en: 'Close calendar', de: 'Kalender schließen', es: 'Cerrar calendario', nl: 'Kalender sluiten', sv: 'Stäng kalendern' }),
   previousMonth: localized({ en: 'Previous month', de: 'Vorheriger Monat', es: 'Mes anterior', nl: 'Vorige maand', sv: 'Föregående månad' }),
   nextMonth: localized({ en: 'Next month', de: 'Nächster Monat', es: 'Mes siguiente', nl: 'Volgende maand', sv: 'Nästa månad' }),
   unavailableDay: localized({ en: 'Unavailable', de: 'Nicht wählbar', es: 'No disponible', nl: 'Niet beschikbaar', sv: 'Inte tillgänglig' }),

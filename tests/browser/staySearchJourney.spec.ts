@@ -173,6 +173,7 @@ test('homepage finder refreshes live dates for destination changes and returns q
   const submit = page.getByRole('button', { name: 'Check availability' });
   await expect(submit).toBeVisible();
   await expect(submit).toBeDisabled();
+  await expect(page.getByRole('button', { name: 'Close calendar' })).toHaveCount(0);
   await expect(page.getByRole('button', { name: 'Clear dates' })).toHaveCount(0);
   await expect.poll(() => requests.filter((url) => url.pathname.endsWith('/search-calendar')).length).toBe(2);
   await expect(page.locator('.am-booking-calendar__month')).toHaveCount(2);

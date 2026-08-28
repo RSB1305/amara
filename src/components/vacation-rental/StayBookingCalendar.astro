@@ -227,12 +227,6 @@ const copy = {
   nextMonth: {
     en: 'Next month', de: 'Nächster Monat', es: 'Mes siguiente', nl: 'Volgende maand', sv: 'Nästa månad'
   },
-  closeCalendar: {
-    en: 'Close calendar', de: 'Kalender schließen', es: 'Cerrar calendario', nl: 'Kalender sluiten', sv: 'Stäng kalendern'
-  },
-  clearDates: {
-    en: 'Clear dates', de: 'Daten löschen', es: 'Borrar fechas', nl: 'Data wissen', sv: 'Rensa datum'
-  },
   availableDay: {
     en: 'available', de: 'verfügbar', es: 'disponible', nl: 'beschikbaar', sv: 'tillgängligt'
   },
@@ -408,10 +402,8 @@ const titleId = `${bookingKey}-booking-calendar-title`;
     <BookingDateRangeCalendar
       title={t(copy.calendarTitle)}
       help={t(copy.calendarHelp)}
-      closeLabel={t(copy.closeCalendar)}
       previousMonthLabel={t(copy.previousMonth)}
       nextMonthLabel={t(copy.nextMonth)}
-      clearLabel={t(copy.clearDates)}
     />
   </div>
 </AmaraSection>

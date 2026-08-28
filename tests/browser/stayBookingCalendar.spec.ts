@@ -195,10 +195,16 @@ test('desktop calendar loads only on open, enforces stay rules and quotes a vali
 
   await page.getByRole('button', { name: 'Choose arrival' }).click();
   await expect(page.locator('[data-am-booking-calendar]')).toBeVisible();
+  await expect(page.getByRole('button', { name: 'Close calendar' })).toHaveCount(0);
+  await expect(page.getByRole('button', { name: 'Clear dates' })).toHaveCount(0);
   await expect(page.locator('[data-am-booking-month]')).toHaveCount(2);
   await expect.poll(() => requests.length).toBe(4);
   expect(requests.filter((request) => request.pathname.endsWith('/availability'))).toHaveLength(2);
   expect(requests.filter((request) => request.pathname.endsWith('/rates'))).toHaveLength(2);
+  await page.mouse.click(10, 10);
+  await expect(page.locator('[data-am-booking-calendar]')).toBeHidden();
+  await page.getByRole('button', { name: 'Choose arrival' }).click();
+  expect(requests).toHaveLength(4);
 
   const blockedButton = dayButton(page, blocked);
   await expect(blockedButton).toBeDisabled();
@@ -272,6 +278,10 @@ test('desktop calendar loads only on open, enforces stay rules and quotes a vali
   );
   await expect(dayButton(page, arrival)).toHaveAttribute('data-range', 'start');
   await expect(dayButton(page, futureIso(6))).toHaveAttribute('data-range', 'end');
+  await dayButton(page, futureIso(7)).click();
+  await expect(page.locator('[data-am-booking-arrival]')).toHaveValue(futureIso(7));
+  await expect(page.locator('[data-am-booking-departure]')).toHaveValue('');
+  await expect(page.locator('[data-am-booking-result]')).toBeHidden();
 
   const publicMarkup = await page.content();
   expect(publicMarkup).not.toContain('408325');
@@ -344,7 +354,8 @@ test('calendar and quote failures stay generic and never retry automatically', a
     'inte tillgänglig'
   );
   expect(calendarRequests).toHaveLength(2);
-  await page.getByRole('button', { name: 'Stäng kalendern' }).click();
+  await page.mouse.click(5, 5);
+  await expect(page.locator('[data-am-booking-calendar]')).toBeHidden();
   await page.getByRole('button', { name: 'Välj ankomst' }).click();
   expect(calendarRequests).toHaveLength(2);
 });

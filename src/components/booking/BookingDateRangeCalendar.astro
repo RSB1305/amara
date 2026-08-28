@@ -4,20 +4,16 @@ import AmaraActionButton from '../actions/AmaraActionButton.astro';
 interface Props {
   title: string;
   help: string;
-  closeLabel: string;
   previousMonthLabel: string;
   nextMonthLabel: string;
-  clearLabel?: string;
   submitLabel?: string;
 }
 
 const {
   title,
   help,
-  closeLabel,
   previousMonthLabel,
   nextMonthLabel,
-  clearLabel,
   submitLabel
 } = Astro.props;
 ---
@@ -39,13 +35,6 @@ const {
         {help}
       </p>
     </div>
-    <button
-      class="am-booking-calendar__text-action am-text-label"
-      type="button"
-      data-am-booking-calendar-close
-    >
-      {closeLabel}
-    </button>
   </div>
 
   <div class="am-booking-calendar__navigation">
@@ -65,28 +54,17 @@ const {
 
   <div class="am-booking-calendar__months" data-am-booking-calendar-months></div>
 
-  {(clearLabel || submitLabel) && (
+  {submitLabel && (
     <div class="am-booking-calendar__footer">
-      {clearLabel && (
-        <button
-          class="am-booking-calendar__text-action am-text-label"
-          type="button"
-          data-am-booking-calendar-clear
-        >
-          {clearLabel}
-        </button>
-      )}
-      {submitLabel && (
-        <AmaraActionButton
-          variant="primary"
-          class="min-h-12 w-full justify-center sm:w-auto"
-          type="submit"
-          disabled
-          data-am-booking-calendar-submit
-        >
-          {submitLabel}
-        </AmaraActionButton>
-      )}
+      <AmaraActionButton
+        variant="primary"
+        class="min-h-12 w-full justify-center sm:w-auto"
+        type="submit"
+        disabled
+        data-am-booking-calendar-submit
+      >
+        {submitLabel}
+      </AmaraActionButton>
     </div>
   )}
 </div>
@@ -137,12 +115,6 @@ const {
     border-top: 1px solid var(--color-outline-variant);
     margin-top: 1rem;
     padding: 1rem 0.25rem 0;
-  }
-
-  .am-booking-calendar__text-action {
-    flex: 0 0 auto;
-    border-bottom: 1px solid var(--color-border-subtle);
-    color: var(--color-on-surface);
   }
 
   .am-booking-calendar__nav-button {
