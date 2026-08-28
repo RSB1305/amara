@@ -97,10 +97,6 @@ interface Props {
   /** Evidences the Romantic Hideaways positioning by naming the stays. */
   positioningLabel: string;
   positioningProofs: string[];
-  statReviewsValue: string;
-  statRatingValue: string;
-  statReviewsLabel: string;
-  statRatingLabel: string;
   placesEyebrow: string;
   placesTitle: string;
   places: CinematicPlace[];
@@ -166,10 +162,6 @@ const {
   philosophyP1,
   positioningLabel,
   positioningProofs,
-  statReviewsValue,
-  statRatingValue,
-  statReviewsLabel,
-  statRatingLabel,
   placesEyebrow,
   placesTitle,
   places,
@@ -318,18 +310,6 @@ const hasPlaces = places.length > 0;
               </li>
             ))}
           </ul>
-        </div>
-        <div>
-          <div class="flex gap-8 border-t border-outline-variant/30 pt-8">
-            <div>
-              <span class="mb-1 block am-text-subtitle text-on-surface">{statReviewsValue}</span>
-              <span class="am-text-caption uppercase tracking-wider text-on-surface-variant">{statReviewsLabel}</span>
-            </div>
-            <div>
-              <span class="mb-1 block am-text-subtitle text-on-surface">{statRatingValue}</span>
-              <span class="am-text-caption uppercase tracking-wider text-on-surface-variant">{statRatingLabel}</span>
-            </div>
-          </div>
         </div>
       </div>
     </div>

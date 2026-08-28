@@ -29,9 +29,16 @@ export const directBookingTrustSignals = {
     es: 'Contacto directo con el anfitrión',
     nl: 'Direct contact met de host',
     sv: 'Direktkontakt med värden'
+  },
+  openingProof: {
+    en: 'Book direct with AMARA · lowest available price & practical extras',
+    de: 'Direkt bei AMARA buchen · niedrigster verfügbarer Preis & praktische Extras',
+    es: 'Reservad directamente con AMARA · precio más bajo disponible y ventajas prácticas',
+    nl: 'Boek direct bij AMARA · laagste beschikbare prijs en praktische extra’s',
+    sv: 'Boka direkt med AMARA · lägsta tillgängliga pris och praktiska fördelar'
   }
 } satisfies Record<
-  'directWithAmara' | 'lowestAvailablePrice' | 'midStayCleaning' | 'directHostContact',
+  'directWithAmara' | 'lowestAvailablePrice' | 'midStayCleaning' | 'directHostContact' | 'openingProof',
   Record<AmaraLanguage, string>
 >;
 

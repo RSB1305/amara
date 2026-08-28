@@ -137,25 +137,6 @@ export const cinematicTrustCtaPrimary: CopyRow = {
   sv: 'Se tillgänglighet'
 };
 
-export const cinematicStatReviewsValue = String(airbnbReviewEvidence.reviewCountLabel);
-export const cinematicStatRatingValue: CopyRow = airbnbRatingLabel;
-
-export const cinematicStatReviewsLabel: CopyRow = {
-  en: 'Verified Reviews',
-  de: 'Verifizierte Bewertungen',
-  es: 'Reseñas verificadas',
-  nl: 'Geverifieerde reviews',
-  sv: 'Verifierade recensioner'
-};
-
-export const cinematicStatRatingLabel: CopyRow = {
-  en: 'Average Rating',
-  de: 'Durchschnittsnote',
-  es: 'Valoración media',
-  nl: 'Gemiddelde score',
-  sv: 'Genomsnittligt betyg'
-};
-
 export const cinematicGuideEyebrow: CopyRow = {
   en: 'Choose the right location',
   de: 'Die richtige Lage',
@@ -466,7 +447,8 @@ export const cinematicApartments: CinematicAptDef[] = [
 ];
 /* =========================================================
    HERO PROOF STRIP
-   Two signals only — the hero stays calm by design.
+   Opening trust and booking signals. Detailed evidence and conditions stay in
+   their later sections instead of repeating these summaries verbatim.
 ========================================================= */
 
 export const cinematicHeroProofRating: CopyRow = {

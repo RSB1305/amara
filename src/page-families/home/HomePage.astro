@@ -66,10 +66,6 @@ import {
   cinematicTrustQuoteAttribution,
   cinematicTrustCta,
   cinematicTrustCtaPrimary,
-  cinematicStatReviewsValue,
-  cinematicStatRatingValue,
-  cinematicStatReviewsLabel,
-  cinematicStatRatingLabel,
   cinematicDirectEyebrow,
   cinematicDirectTitle,
   cinematicDirectCtaLabel,
@@ -294,15 +290,24 @@ const directHref = resolveOptionalLink('direct_booking_benefits', currentLang, {
 const honeymoonHref = resolveOptionalLink('honeymoon', currentLang, { suppressMissing: true });
 const hostAboutHref = resolveOptionalLink('about', currentLang, { suppressMissing: true });
 
-/** The hero carries two signals only; the trust band holds the rest. */
-const heroProof = [t(superhostLabel), t(cinematicHeroProofRating)];
+/**
+ * The opening viewport answers three trust questions at once: Airbnb proof,
+ * Booking.com recognition and why the header's direct path is worthwhile.
+ * Later sections substantiate these summaries without repeating them verbatim.
+ */
+const heroProof = [
+  t(superhostLabel),
+  t(cinematicHeroProofRating),
+  t(travellerReviewAwardLabel),
+  t(directBookingTrustSignals.openingProof)
+];
 
 /**
- * Evidence only. The two authored chips that used to follow — "concrete
- * property details" and "personal contact" — were claims rather than proof,
- * and the direct-booking band directly below already makes the second one.
+ * The Booking.com recognition now belongs to the opening proof strip. The
+ * later testimonial band keeps only the separate stay-volume signal, so it
+ * adds depth instead of restating the Hero.
  */
-const trustChips = [t(travellerReviewAwardLabel), t(completedStaysLabel)];
+const trustChips = [t(completedStaysLabel)];
 
 const directBenefits = [
   t(directBookingTrustSignals.lowestAvailablePrice),
@@ -355,10 +360,6 @@ const quoteTranslationNote = currentLang === 'de' ? null : t(cinematicQuoteTrans
         philosophyP1={t(cinematicPhilosophyP1)}
         positioningLabel={t(cinematicPositioningLabel)}
         positioningProofs={positioningProofs}
-        statReviewsValue={cinematicStatReviewsValue}
-        statRatingValue={t(cinematicStatRatingValue)}
-        statReviewsLabel={t(cinematicStatReviewsLabel)}
-        statRatingLabel={t(cinematicStatRatingLabel)}
         placesEyebrow={t(cinematicPlacesEyebrow)}
         placesTitle={t(cinematicPlacesTitle)}
         places={placesProps}
