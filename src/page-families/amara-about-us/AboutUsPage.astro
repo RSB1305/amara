@@ -1,6 +1,5 @@
 ---
 import TrustPageLayout from '../../layouts/TrustPageLayout.astro';
-import EditorialSplit from '../../components/editorial/EditorialSplit.astro';
 import EditorialDefinitionList from '../../components/editorial/EditorialDefinitionList.astro';
 import EditorialFeatureGrid from '../../components/editorial/EditorialFeatureGrid.astro';
 import SustainabilityBand from '../../components/editorial/SustainabilityBand.astro';
@@ -9,15 +8,18 @@ import TrustFamilyClosing from '../../components/trust/TrustFamilyClosing.astro'
 import AmaraSection from '../../components/layout/AmaraSection.astro';
 import InlineEmphasis from '../../components/text/InlineEmphasis.astro';
 import { getAboutUsPageData } from '../../content/aboutUsContent';
+import { createAmaraImage } from '../../lib/images/amaraImageProfiles';
 import { resolveOptionalLink } from '../../lib/linkResolver';
 import { normalizeLanguage } from '../../lib/seo/resolve-seo-head';
 import type { AmaraLanguage } from '../../types/seo';
+import imgAmaraHearts from '../../assets/images/content/amara-hearts-painting.png';
 import '@fontsource/newsreader/latin-700.css';
 
 const { lang = 'es' } = Astro.props;
 const currentLang = normalizeLanguage(lang as AmaraLanguage);
 const page = getAboutUsPageData(currentLang);
 const content = page.content;
+const philosophyImage = await createAmaraImage(imgAmaraHearts, 'card', { quality: 75 });
 
 const principlesDefinitionItems = (content.principles.items ?? [])
   .map((item) => ({
@@ -94,32 +96,48 @@ const heroCtaLinks = page.hero.ctaLinks
   }}
 >
   <AmaraSection>
-        <EditorialSplit title={content.philosophy.title?.[currentLang] ?? ''}>
-          <p class="am-text-subtitle text-on-surface mb-8">
-            {content.philosophy.lead?.[currentLang]}
-          </p>
-          {content.philosophy.paragraphs
-            ?.filter((paragraph) => paragraph[currentLang].trim() !== '')
-            .map((paragraph) => (
-              <p class="am-text-body text-subtle">{paragraph[currentLang]}</p>
+    <div class="grid grid-cols-1 gap-[clamp(3rem,8vw,8rem)] md:grid-cols-[1.2fr_1.8fr]">
+      <div class="relative self-start md:sticky md:top-8">
+        <h2 class="am-text-title text-on-surface">{content.philosophy.title?.[currentLang] ?? ''}</h2>
+        <img
+          src={philosophyImage.src}
+          srcset={philosophyImage.srcSet.attribute}
+          sizes="(max-width: 767px) calc(100vw - 3rem), 20rem"
+          alt={content.philosophy.imageAlt?.[currentLang] ?? ''}
+          class="mt-10 h-auto w-full max-w-xs"
+          width={philosophyImage.attributes.width}
+          height={philosophyImage.attributes.height}
+          loading="lazy"
+          decoding="async"
+        />
+      </div>
+      <div class="flex max-w-[65ch] flex-col gap-6">
+        <p class="am-text-subtitle text-on-surface mb-8">
+          {content.philosophy.lead?.[currentLang]}
+        </p>
+        {content.philosophy.paragraphs
+          ?.filter((paragraph) => paragraph[currentLang].trim() !== '')
+          .map((paragraph) => (
+            <p class="am-text-body text-subtle">{paragraph[currentLang]}</p>
+          ))}
+        <h3 class="am-text-subtitle mt-6 font-normal text-on-surface mb-4">{content.philosophy.subtitle?.[currentLang]}<span aria-hidden="true"> ❤︎</span></h3>
+        {content.philosophy.items
+          ?.filter((item) => item.copy[currentLang].trim() !== '')
+          .map((item) => (
+            <p class="am-text-body text-subtle"><InlineEmphasis text={item.copy[currentLang]} /></p>
+          ))}
+        {philosophyLinks.length > 0 && (
+          <div class="mt-8 flex flex-wrap items-center gap-x-6 gap-y-3">
+            {philosophyLinks.map((link, index) => (
+              <>
+                {index > 0 && <span class="hidden sm:inline text-on-surface/60">&middot;</span>}
+                <a href={link.href} class="am-cta-link">{link.label}</a>
+              </>
             ))}
-          <h3 class="am-text-subtitle mt-6 font-normal text-on-surface mb-4">{content.philosophy.subtitle?.[currentLang]}<span aria-hidden="true"> ❤︎</span></h3>
-          {content.philosophy.items
-            ?.filter((item) => item.copy[currentLang].trim() !== '')
-            .map((item) => (
-              <p class="am-text-body text-subtle"><InlineEmphasis text={item.copy[currentLang]} /></p>
-            ))}
-          {philosophyLinks.length > 0 && (
-            <div class="mt-8 flex flex-wrap items-center gap-x-6 gap-y-3">
-              {philosophyLinks.map((link, index) => (
-                <>
-                  {index > 0 && <span class="hidden sm:inline text-on-surface/60">&middot;</span>}
-                  <a href={link.href} class="am-cta-link">{link.label}</a>
-                </>
-              ))}
-            </div>
-          )}
-        </EditorialSplit>
+          </div>
+        )}
+      </div>
+    </div>
   </AmaraSection>
 
   <AmaraSection>
