@@ -17,6 +17,8 @@ Status: Briefing, noch keine Freigabe für öffentliche Copy oder Code-Links
 
 ## Brief 1 — Location Hub ↔ Experience Hub
 
+Der Abgleich der bestehenden Abschnitte mit diesem Brief steht in [`2026-08-28__brief-1-content-gap-map-de.md`](./2026-08-28__brief-1-content-gap-map-de.md).
+
 **Öffentliche Owner:** `src/content/frigilianaLocationContent.ts` und `src/content/experienceHubContent.ts`
 
 **Gastfrage Location:** Was verändert sich, wenn wir Frigiliana mehrere Nächte als Basis wählen statt den Ort nur kurz zu besuchen?
