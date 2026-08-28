@@ -331,31 +331,31 @@ const tarifaFamilySurfApartment: GuestGuideEntry = {
             en: [
               `<strong>AMARA Tarifa – Penthouse 433</strong>`,
               `The apartment is located at <a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Mar+Adriatico+29+11380+Tarifa" target="_blank" rel="noopener">Mar Adriatico 29, 11380 Tarifa</a>.`,
-              `The residence is called <strong>Las Terrazas de la Marina</strong>. Your apartment number is <strong>433</strong> (Ático / Penthouse), and the doorbell is labeled <strong>433</strong>.`,
+              `The residence is called <strong>Las Terrazas de la Marina</strong>. Your apartment number is <strong>433</strong> (Ático / Penthouse).`,
               `If arriving by taxi, mentioning the building name often makes the drop-off easier.`
             ],
             de: [
               `<strong>AMARA Tarifa – Penthouse 433</strong>`,
               `Das Apartment befindet sich in der <a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Mar+Adriatico+29+11380+Tarifa" target="_blank" rel="noopener">Mar Adriatico 29, 11380 Tarifa</a>.`,
-              `Die Anlage heißt <strong>Las Terrazas de la Marina</strong>. Eure Apartmentnummer ist die <strong>433</strong> (Ático / Penthouse) und die Klingel ist mit <strong>433</strong> beschriftet.`,
+              `Die Anlage heißt <strong>Las Terrazas de la Marina</strong>. Eure Apartmentnummer ist die <strong>433</strong> (Ático / Penthouse).`,
               `Bei Anreise mit dem Taxi hilft es oft, den Namen der Anlage zu nennen, um den Ausstieg zu erleichtern.`
             ],
             es: [
               `<strong>AMARA Tarifa – Ático 433</strong>`,
               `El apartamento está situado en <a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Mar+Adriatico+29+11380+Tarifa" target="_blank" rel="noopener">Mar Adriático 29, 11380 Tarifa</a>.`,
-              `El residencial se llama <strong>Las Terrazas de la Marina</strong>. El número de vuestro apartamento es el <strong>433</strong> (Ático / Penthouse), y el timbre está etiquetado como <strong>433</strong>.`,
+              `El residencial se llama <strong>Las Terrazas de la Marina</strong>. El número de vuestro apartamento es el <strong>433</strong> (Ático / Penthouse).`,
               `Si llegáis en taxi, mencionar el nombre del edificio suele facilitar la llegada.`
             ],
             nl: [
               `<strong>AMARA Tarifa – Penthouse 433</strong>`,
               `Het appartement bevindt zich aan de <a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Mar+Adriatico+29+11380+Tarifa" target="_blank" rel="noopener">Mar Adriatico 29, 11380 Tarifa</a>.`,
-              `De residentie heet <strong>Las Terrazas de la Marina</strong>. Jullie appartementsnummer is <strong>433</strong> (Ático / Penthouse) en de deurbel is voorzien van het nummer <strong>433</strong>.`,
+              `De residentie heet <strong>Las Terrazas de la Marina</strong>. Jullie appartementsnummer is <strong>433</strong> (Ático / Penthouse).`,
               `Als jullie met de taxi aankomen, is het vaak makkelijker om de naam van het gebouw te vermelden.`
             ],
             sv: [
               `<strong>AMARA Tarifa – Takvåning 433</strong>`,
               `Lägenheten ligger på <a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Mar+Adriatico+29+11380+Tarifa" target="_blank" rel="noopener">Mar Adriatico 29, 11380 Tarifa</a>.`,
-              `Boendet heter <strong>Las Terrazas de la Marina</strong>. Ert lägenhetsnummer är <strong>433</strong> (Ático / Penthouse), och dörrklockan är märkt <strong>433</strong>.`,
+              `Boendet heter <strong>Las Terrazas de la Marina</strong>. Ert lägenhetsnummer är <strong>433</strong> (Ático / Penthouse).`,
               `Om ni anländer med taxi brukar det underlätta att nämna byggnadens namn.`
             ]
           })
@@ -413,27 +413,27 @@ const tarifaFamilySurfApartment: GuestGuideEntry = {
           body: tarifaParagraphs({
             en: [
               `Stay connected with our high-speed fiber connection.`,
-              `Network name: <strong>AMARATarifa</strong><br>Password: <strong>AMARA11380</strong>`,
+              `Network name: <strong>AMARATarifa</strong><br>For the current Wi-Fi password, please use the communication channel connected to your booking or contact AMARA support.`,
               `If you prefer a wired connection, a USB-C to LAN adapter is available at the desk, offering speeds of up to 1 Gbps.`
             ],
             de: [
               `Bleibt in Verbindung mit unserem Highspeed-Glasfaseranschluss.`,
-              `Netzwerkname: <strong>AMARATarifa</strong><br>Passwort: <strong>AMARA11380</strong>`,
+              `Netzwerkname: <strong>AMARATarifa</strong><br>Das aktuelle WLAN-Passwort erhaltet ihr über den mit eurer Buchung verbundenen Kommunikationskanal oder beim AMARA-Support.`,
               `Wenn ihr eine Kabelverbindung bevorzugt, liegt am Schreibtisch ein USB-C-auf-LAN-Adapter bereit, der Geschwindigkeiten von bis zu 1 Gbit/s bietet.`
             ],
             es: [
               `Manteneos conectados con nuestra conexión de fibra de alta velocidad.`,
-              `Nombre de red: <strong>AMARATarifa</strong><br>Contraseña: <strong>AMARA11380</strong>`,
+              `Nombre de red: <strong>AMARATarifa</strong><br>Para obtener la contraseña actual del Wi-Fi, utilizad el canal de comunicación asociado a vuestra reserva o contactad con el soporte de AMARA.`,
               `Si preferís una conexión por cable, hay disponible un adaptador de USB-C a LAN en el escritorio, con velocidades de hasta 1 Gbps.`
             ],
             nl: [
               `Blijf verbonden met onze snelle glasvezelverbinding.`,
-              `Netwerknaam: <strong>AMARATarifa</strong><br>Wachtwoord: <strong>AMARA11380</strong>`,
+              `Netwerknaam: <strong>AMARATarifa</strong><br>Voor het actuele wifiwachtwoord gebruiken jullie het communicatiekanaal van jullie boeking of nemen jullie contact op met AMARA-support.`,
               `Als jullie de voorkeur geven aan een bekabelde verbinding, is er een USB-C-naar-LAN-adapter beschikbaar op het bureau, met snelheden tot 1 Gbps.`
             ],
             sv: [
               `Håll er uppkopplade med vår snabba fiberanslutning.`,
-              `Nätverksnamn: <strong>AMARATarifa</strong><br>Lösenord: <strong>AMARA11380</strong>`,
+              `Nätverksnamn: <strong>AMARATarifa</strong><br>För det aktuella Wi-Fi-lösenordet använder ni kommunikationskanalen för er bokning eller kontaktar AMARA-supporten.`,
               `Om ni föredrar en trådbunden anslutning finns en USB-C till LAN-adapter vid skrivbordet, med hastigheter upp till 1 Gbps.`
             ]
           })
@@ -1090,35 +1090,35 @@ const tarifaFamilySurfApartment: GuestGuideEntry = {
               `Before you leave, please make sure to log out of any private TV or streaming accounts.`,
               `<strong>We would also kindly ask you to take one last look around the apartment before departing.</strong>`,
               `Please check carefully that you have taken all your personal belongings with you. Items that are often forgotten include phone chargers, curling irons, jackets, EarPods or AirPods, jewellery, clothing and charging cables.`,
-              `When departing, please leave one set of keys inside the apartment, lock the door, and return the remaining key to the key box.`
+              `When departing, lock the door and follow the key-return instructions in the communication channel connected to your booking.`
             ],
             de: [
               `Check-out ist um <strong>11:00 Uhr</strong>.`,
               `Bitte denkt vor eurer Abreise daran, euch aus allen privaten TV- oder Streaming-Konten auszuloggen.`,
               `<strong>Wir würden euch außerdem bitten, vor der Abreise noch einmal einen letzten ruhigen Blick durch das Apartment zu werfen.</strong>`,
               `Bitte prüft dabei sorgfältig, ob ihr wirklich alle persönlichen Gegenstände wieder mitgenommen habt. Typische Dinge, die immer wieder vergessen werden, sind Handy-Ladegeräte, Lockenstäbe, Jacken, EarPods oder AirPods, Schmuck, Kleidung und Ladekabel.`,
-              `Lasst beim Verlassen bitte ein Schlüsselset im Apartment liegen, schließt die Tür ab und legt den anderen Schlüssel zurück in die Schlüsselbox.`
+              `Schließt bei der Abreise die Tür ab und folgt den Hinweisen zur Schlüsselrückgabe im Kommunikationskanal eurer Buchung.`
             ],
             es: [
               `La hora de check-out es a las <strong>11:00</strong>.`,
               `Antes de salir, aseguraos de cerrar la sesión de cualquier cuenta privada de televisión o streaming.`,
               `<strong>También os pediríamos amablemente que, antes de marcharos, echéis un último vistazo tranquilo al apartamento.</strong>`,
               `Comprobad con cuidado que os lleváis todas vuestras pertenencias personales. Entre las cosas que más se olvidan están cargadores de móvil, rizadores, chaquetas, EarPods o AirPods, joyas, ropa y cables de carga.`,
-              `Al marcharos, dejad por favor un juego de llaves dentro del apartamento, cerrad la puerta con llave y devolved la otra llave a la caja de seguridad.`
+              `Al salir, cerrad la puerta y seguid las instrucciones para devolver las llaves en el canal de comunicación asociado a vuestra reserva.`
             ],
             nl: [
               `De check-out tijd is <strong>11:00 uur</strong>.`,
               `Vergeet voor vertrek niet om uit te loggen uit jullie privé tv- of streamingaccounts.`,
               `<strong>We willen jullie ook vriendelijk vragen om voor vertrek nog één laatste rustige blik door het appartement te werpen.</strong>`,
               `Controleer daarbij goed of jullie echt al jullie persoonlijke spullen weer hebben meegenomen. Dingen die vaak blijven liggen zijn telefoonopladers, krultangen, jassen, EarPods of AirPods, sieraden, kleding en oplaadkabels.`,
-              `Laat bij vertrek één sleutelset in het appartement achter, doe de deur op slot en leg de andere sleutel terug in het sleutelkastje.`
+              `Sluit bij vertrek de deur af en volg de instructies voor het terugbrengen van de sleutels in het communicatiekanaal van jullie boeking.`
             ],
             sv: [
               `Utcheckning är kl. <strong>11:00</strong>.`,
               `Innan ni åker, vänligen se till att logga ut från alla privata tv- eller streamingkonton.`,
               `<strong>Vi vill också vänligen be er att ta en sista lugn titt runt i lägenheten innan ni åker.</strong>`,
               `Kontrollera noggrant att ni verkligen fått med er alla personliga tillhörigheter. Saker som ofta glöms kvar är mobilladdare, locktänger, jackor, EarPods eller AirPods, smycken, kläder och laddkablar.`,
-              `Vid avfärd, vänligen lämna ett set med nycklar inne i lägenheten, lås dörren och lägg tillbaka den andra nyckeln i nyckelboxen.`
+              `Lås dörren vid avresan och följ instruktionerna för nyckelåterlämning i kommunikationskanalen för er bokning.`
             ]
           })
         }

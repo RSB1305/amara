@@ -1,7 +1,7 @@
 ---
 document_id: AMARA-INT-UTILITY-008
-title: AMARA Guest Utility Architecture V2.1
-version: 2.1.0
+title: AMARA Guest Utility Architecture V2.2
+version: 2.2.0
 status: ACTIVE
 authority_class: FEATURE CONTRACT / INTERIM
 source_type: INTERIM SNAPSHOT FROM APPROVED PDF + APPROVED REPOSITORY AMENDMENT
@@ -9,7 +9,7 @@ source_attachment: "08_AMARA_Guest_Utility_Architecture_V2(1).pdf"
 source_sha256: 873664ad2c175cb8a5fcb2b219c5b89ff605a8986445862cf59b10a7480db032
 snapshot_created: 2026-08-14T09:08:00+02:00
 migration_state: PENDING PACKAGE 2/3 NORMALIZATION
-last_modified: 2026-08-22T07:48:36+02:00
+last_modified: 2026-08-28T18:00:00Z
 ---
 
 # AMARA Guest Utility Architecture V2 — Interim Markdown Snapshot
@@ -143,9 +143,24 @@ Public pages should normally give the durable context, meaningful alternatives a
 
 The transition block must be native in EN, DE, ES, NL and SV, use the collective host perspective and plural guest address, and point to the approved booking or availability path rather than exposing private Guest Guide routes. Its booking CTA follows the active centralized booking contract; the preferred intent is availability or accommodation selection rather than a claim that safety-critical information is available only after payment.
 
+12. Anonymous-link access and public-delivery boundary
+
+Guest Guides are static utility pages that are anonymously reachable by their link, remain `noindex` and stay outside public sitemaps. `noindex` controls search-engine indexing; it is not authentication or access control.
+
+Publicly delivered Guest Guide content may include Wi-Fi network names, apartment and parking-space numbers, general arrival guidance, house and device instructions, emergency/contact guidance and other non-sensitive operational information. It must not include:
+
+- Wi-Fi passwords or router-administration credentials;
+- doorbell numbers;
+- real door, building-access, lockbox, key-box or alarm codes;
+- exact physical-key locations or locations of other means that directly enable building access;
+- personal booking or guest data.
+
+When a guest needs protected current access information, the page directs them to AMARA support or the communication channel connected to their booking.
+
 ## Revision history
 
 | Version | Timestamp | Change |
 |---|---|---|
 | 2.0 | 2026-08-10 | Approved source architecture preserved as the interim Markdown snapshot. |
 | 2.1.0 | 2026-08-22T07:48:36+02:00 | Added the public-usefulness, booked-guest operational-depth and contextual transition-block boundary. |
+| 2.2.0 | 2026-08-28T18:00:00Z | Defined anonymous-link delivery and prohibited credentials, access secrets and personal booking data in public Guest Guide output. |

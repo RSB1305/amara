@@ -148,11 +148,11 @@ const sharedAmaraWifiItem: GuestGuideAccordionItem = {
   title: { en: 'Wi-Fi', de: 'WLAN', es: 'Wi-Fi', nl: 'Wifi', sv: 'Wi-Fi' },
   body: [
     {
-      en: 'Stay connected with high-speed Wi-Fi.<br>Network name: <strong>AMARA</strong><br>Password: <strong>AMARA29788</strong>',
-      de: 'Bleibt mit Highspeed-WLAN verbunden.<br>Netzwerkname: <strong>AMARA</strong><br>Passwort: <strong>AMARA29788</strong>',
-      es: 'Manteneos conectados con Wi-Fi de alta velocidad.<br>Nombre de la red: <strong>AMARA</strong><br>Contraseña: <strong>AMARA29788</strong>',
-      nl: 'Blijf verbonden met snelle wifi.<br>Netwerknaam: <strong>AMARA</strong><br>Wachtwoord: <strong>AMARA29788</strong>',
-      sv: 'Håll er uppkopplade med snabbt Wi-Fi.<br>Nätverksnamn: <strong>AMARA</strong><br>Lösenord: <strong>AMARA29788</strong>'
+      en: 'Stay connected with high-speed Wi-Fi.<br>Network name: <strong>AMARA</strong><br><br>For the current Wi-Fi password, please use the communication channel connected to your booking or contact AMARA support.',
+      de: 'Bleibt mit Highspeed-WLAN verbunden.<br>Netzwerkname: <strong>AMARA</strong><br><br>Das aktuelle WLAN-Passwort erhaltet ihr über den mit eurer Buchung verbundenen Kommunikationskanal oder beim AMARA-Support.',
+      es: 'Manteneos conectados con Wi-Fi de alta velocidad.<br>Nombre de la red: <strong>AMARA</strong><br><br>Para obtener la contraseña actual del Wi-Fi, utilizad el canal de comunicación asociado a vuestra reserva o contactad con el soporte de AMARA.',
+      nl: 'Blijf verbonden met snelle wifi.<br>Netwerknaam: <strong>AMARA</strong><br><br>Voor het actuele wifiwachtwoord gebruiken jullie het communicatiekanaal van jullie boeking of nemen jullie contact op met AMARA-support.',
+      sv: 'Håll er uppkopplade med snabbt Wi-Fi.<br>Nätverksnamn: <strong>AMARA</strong><br><br>För det aktuella Wi-Fi-lösenordet använder ni kommunikationskanalen för er bokning eller kontaktar AMARA-supporten.'
     }
   ]
 };
@@ -459,11 +459,11 @@ const sharedAmaraQuietHoursItem: GuestGuideAccordionItem = {
       sv: '<strong>Från kl. 23.00 gäller nattro i huset.</strong> Använd därefter er vanliga nyckel till huvudentrén på gatunivå i stället för det elektroniska dörrlåset, som stängs av nattetid — ta därför alltid med nyckeln om ni återvänder sent.'
     },
     {
-      en: 'During the day the electronic lock is there for your convenience — handy if you would rather leave your key safely in the key box while you visit the beach.',
-      de: 'Tagsüber könnt ihr das elektronische Türschloss gerne nutzen – praktisch, wenn ihr euren Schlüssel während eines Strandbesuchs sicher in der Schlüsselbox lassen möchtet.',
-      es: 'Durante el día podéis usar cómodamente la cerradura electrónica, por ejemplo si preferís dejar la llave a buen recaudo en la caja de llaves mientras vais a la playa.',
-      nl: 'Overdag kunnen jullie het elektronische deurslot gerust gebruiken — handig als jullie de sleutel tijdens een strandbezoek liever veilig in het sleutelkluisje laten.',
-      sv: 'Under dagen kan ni gärna använda det elektroniska dörrlåset — praktiskt om ni vill lämna nyckeln säkert i nyckelboxen medan ni är på stranden.'
+      en: 'During the day you can use the electronic lock. For current key and access instructions, please use the communication channel connected to your booking or contact AMARA support.',
+      de: 'Tagsüber könnt ihr das elektronische Schloss nutzen. Aktuelle Schlüssel- und Zugangshinweise erhaltet ihr über den Kommunikationskanal eurer Buchung oder beim AMARA-Support.',
+      es: 'Durante el día podéis usar la cerradura electrónica. Para consultar las instrucciones actuales sobre llaves y acceso, utilizad el canal de comunicación asociado a vuestra reserva o contactad con el soporte de AMARA.',
+      nl: 'Overdag kunnen jullie het elektronische slot gebruiken. Voor actuele sleutel- en toegangsinstructies gebruiken jullie het communicatiekanaal van jullie boeking of nemen jullie contact op met AMARA-support.',
+      sv: 'Under dagen kan ni använda det elektroniska låset. För aktuella nyckel- och åtkomstinstruktioner använder ni kommunikationskanalen för er bokning eller kontaktar AMARA-supporten.'
     },
     {
       en: 'Out of consideration for other guests, please also keep voices and noise low in the shared entrance and corridor after 11:00 PM. Thank you for your understanding.',
@@ -561,11 +561,11 @@ const sharedAmaraDepartureInfoItem: GuestGuideAccordionItem = {
       sv: 'Kontrollera noggrant att ni fått med er alla personliga tillhörigheter. Det som glöms oftast är mobilladdare, locktänger, jackor, EarPods eller AirPods, smycken, kläder och laddkablar.'
     },
     {
-      en: 'When you leave, please leave one set of keys inside the apartment, lock the door, and return the other key to the key box. Before heading out, please take your rubbish to the containers down on Avenida Carlos Cano, where you most likely also parked. Thank you very much for your help.',
-      de: 'Lasst beim Verlassen bitte ein Schlüsselset im Apartment liegen, schließt die Tür ab und legt den anderen Schlüssel zurück in die Schlüsselbox. Nehmt euren Müll bitte mit zu den Containern unten an der Avenida Carlos Cano, wo ihr vermutlich auch euer Auto geparkt habt. Vielen Dank für eure Hilfe.',
-      es: 'Al marcharos, dejad un juego de llaves dentro del apartamento, cerrad la puerta y devolved la otra llave a la caja de seguridad. Antes de salir, llevad la basura a los contenedores de abajo, en la Avenida Carlos Cano, donde probablemente también aparcasteis. Muchas gracias por vuestra ayuda.',
-      nl: 'Laat bij vertrek één sleutelset in het appartement achter, doe de deur op slot en leg de andere sleutel terug in het sleutelkastje. Breng het afval voor vertrek naar de containers beneden aan de Avenida Carlos Cano, waar jullie waarschijnlijk ook de auto hebben geparkeerd. Hartelijk dank voor jullie hulp.',
-      sv: 'Vid avfärd, lämna ett set nycklar inne i lägenheten, lås dörren och lägg tillbaka den andra nyckeln i nyckelboxen. Ta med soporna till containrarna nere på Avenida Carlos Cano, där ni troligen också parkerade, innan ni åker. Tack så mycket för hjälpen.'
+      en: 'When leaving, lock the door and follow the key-return instructions in the communication channel connected to your booking. Before heading out, please take your rubbish to the designated containers. Thank you very much for your help.',
+      de: 'Schließt beim Verlassen die Tür ab und folgt den Hinweisen zur Schlüsselrückgabe im Kommunikationskanal eurer Buchung. Bitte bringt vor der Abreise den Müll zu den vorgesehenen Containern. Vielen Dank für eure Hilfe.',
+      es: 'Al salir, cerrad la puerta y seguid las instrucciones para devolver las llaves en el canal de comunicación asociado a vuestra reserva. Antes de marcharos, llevad la basura a los contenedores indicados. Muchas gracias por vuestra ayuda.',
+      nl: 'Sluit bij vertrek de deur af en volg de instructies voor het terugbrengen van de sleutels in het communicatiekanaal van jullie boeking. Breng voor vertrek het afval naar de daarvoor bestemde containers. Hartelijk dank voor jullie hulp.',
+      sv: 'Lås dörren när ni lämnar boendet och följ instruktionerna för nyckelåterlämning i kommunikationskanalen för er bokning. Ta med soporna till de avsedda behållarna före avresan. Tack så mycket för hjälpen.'
     }
   ]
 };
@@ -5636,11 +5636,11 @@ const nerjaPlayaAccommodation: GuestGuideEntry = {
           title: { en: 'Wi-Fi', de: 'WLAN', es: 'Wi-Fi', nl: 'Wifi', sv: 'Wi-Fi' },
           body: [
             {
-              en: 'Stay connected with high-speed Wi-Fi during your stay.<br><br><strong>Network name:</strong><br>HUAWEI-2.4G-aB3Y<br><br><strong>Password:</strong><br>k46n9jF6',
-              de: 'Während eures Aufenthalts steht euch schnelles WLAN zur Verfügung.<br><br><strong>Netzwerkname:</strong><br>HUAWEI-2.4G-aB3Y<br><br><strong>Passwort:</strong><br>k46n9jF6',
-              es: 'Durante vuestra estancia tenéis acceso a Wi-Fi de alta velocidad.<br><br><strong>Nombre de la red:</strong><br>HUAWEI-2.4G-aB3Y<br><br><strong>Contraseña:</strong><br>k46n9jF6',
-              nl: 'Tijdens jullie verblijf is er snelle Wi-Fi beschikbaar.<br><br><strong>Netwerknaam:</strong><br>HUAWEI-2.4G-aB3Y<br><br><strong>Wachtwoord:</strong><br>k46n9jF6',
-              sv: 'Under er vistelse har ni tillgång till snabbt Wi-Fi.<br><br><strong>Nätverksnamn:</strong><br>HUAWEI-2.4G-aB3Y<br><br><strong>Lösenord:</strong><br>k46n9jF6'
+              en: 'Stay connected with high-speed Wi-Fi during your stay.<br><br><strong>Network name:</strong><br>HUAWEI-2.4G-aB3Y<br><br>For the current Wi-Fi password, please use the communication channel connected to your booking or contact AMARA support.',
+              de: 'Während eures Aufenthalts steht euch schnelles WLAN zur Verfügung.<br><br><strong>Netzwerkname:</strong><br>HUAWEI-2.4G-aB3Y<br><br>Das aktuelle WLAN-Passwort erhaltet ihr über den mit eurer Buchung verbundenen Kommunikationskanal oder beim AMARA-Support.',
+              es: 'Durante vuestra estancia tenéis acceso a Wi-Fi de alta velocidad.<br><br><strong>Nombre de la red:</strong><br>HUAWEI-2.4G-aB3Y<br><br>Para obtener la contraseña actual del Wi-Fi, utilizad el canal de comunicación asociado a vuestra reserva o contactad con el soporte de AMARA.',
+              nl: 'Tijdens jullie verblijf is er snelle Wi-Fi beschikbaar.<br><br><strong>Netwerknaam:</strong><br>HUAWEI-2.4G-aB3Y<br><br>Voor het actuele wifiwachtwoord gebruiken jullie het communicatiekanaal van jullie boeking of nemen jullie contact op met AMARA-support.',
+              sv: 'Under er vistelse har ni tillgång till snabbt Wi-Fi.<br><br><strong>Nätverksnamn:</strong><br>HUAWEI-2.4G-aB3Y<br><br>För det aktuella Wi-Fi-lösenordet använder ni kommunikationskanalen för er bokning eller kontaktar AMARA-supporten.'
             },
             {
               en: '<em>Please note:</em> Passwords are case-sensitive.',
@@ -5854,11 +5854,11 @@ const nerjaPlayaAccommodation: GuestGuideEntry = {
             sharedAmaraDepartureInfoItem.body[0],
             sharedAmaraDepartureInfoItem.body[1],
             {
-              en: 'When departing, please leave one set of keys inside the apartment, lock the door, and return the remaining key to the key box.',
-              de: 'Lasst beim Verlassen bitte ein Schlüsselset im Apartment liegen, schließt die Tür ab und legt den anderen Schlüssel zurück in die Schlüsselbox.',
-              es: 'Al marcharos, dejad por favor un juego de llaves dentro del apartamento, cerrad la puerta con llave y devolved la otra llave a la caja de seguridad.',
-              nl: 'Laat bij vertrek alstublieft één sleutelset in het appartement achter, doe de deur op slot en leg de andere sleutel terug in het sleutelkastje.',
-              sv: 'Vid avfärd, vänligen lämna ett set med nycklar inne i lägenheten, lås dörren och lägg tillbaka den andra nyckeln i nyckelboxen.'
+              en: 'When leaving, lock the door and follow the key-return instructions in the communication channel connected to your booking. Before heading out, please take your rubbish to the designated containers. Thank you very much for your help.',
+              de: 'Schließt beim Verlassen die Tür ab und folgt den Hinweisen zur Schlüsselrückgabe im Kommunikationskanal eurer Buchung. Bitte bringt vor der Abreise den Müll zu den vorgesehenen Containern. Vielen Dank für eure Hilfe.',
+              es: 'Al salir, cerrad la puerta y seguid las instrucciones para devolver las llaves en el canal de comunicación asociado a vuestra reserva. Antes de marcharos, llevad la basura a los contenedores indicados. Muchas gracias por vuestra ayuda.',
+              nl: 'Sluit bij vertrek de deur af en volg de instructies voor het terugbrengen van de sleutels in het communicatiekanaal van jullie boeking. Breng voor vertrek het afval naar de daarvoor bestemde containers. Hartelijk dank voor jullie hulp.',
+              sv: 'Lås dörren när ni lämnar boendet och följ instruktionerna för nyckelåterlämning i kommunikationskanalen för er bokning. Ta med soporna till de avsedda behållarna före avresan. Tack så mycket för hjälpen.'
             }
           ]
         },
