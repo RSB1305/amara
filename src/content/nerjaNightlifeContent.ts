@@ -130,7 +130,7 @@ const maps = {
   tuttiFrutti:
     'https://www.google.com/maps/search/?api=1&query=Plaza+Tutti+Frutti+Nerja',
   balcon:
-    'https://www.google.com/maps/search/?api=1&query=Balcon+de+Europa+Nerja',
+    'https://maps.app.goo.gl/cSVGuSWBMMRCs5m77',
   burriana:
     'https://www.google.com/maps/search/?api=1&query=Playa+Burriana+Nerja',
   flamenco:
@@ -269,10 +269,10 @@ export const nerjaNightlifeContent: Record<
         },
         {
           title:
-            '2. Balcón de Europa & old town — sunset, cocktails and scenery',
+            '2. Balcón de Europa & old town — our Cochran’s sundowner',
           paragraphs: [
             'This is Nerja’s most attractive evening zone. The Balcón is the landmark, but the real strength lies in the surrounding old-town streets, terraces and side lanes, where sunset becomes drinks and drinks become dinner.',
-            'Start here for sea views, terraces and restaurants within an easy walk. It is better for dinner and drinks than for a very late finish.'
+            'Our tested version is specific: in summer 2025 we left the car by AMARA Playa on Calle Castilla Pérez, walked into the centre and watched the sunset from Cochran’s Terrace over a Cuba Libre and a Mai Tai. We remember the walk as roughly 450 metres rather than a measured route. Check that the venue and terrace are operating before setting out.'
           ],
           bestFor:
             'Couples, date nights, sunset drinks, wine bars, terraces and calmer cocktails.',
@@ -578,10 +578,10 @@ export const nerjaNightlifeContent: Record<
         },
         {
           title:
-            '2. Balcón de Europa & Altstadt — Sonnenuntergang und Cocktails',
+            '2. Balcón de Europa & Altstadt — unser Sundowner bei Cochran’s',
           paragraphs: [
             'Dies ist Nerjas schönste Abendzone. Der Balcón ist das Wahrzeichen, doch die eigentliche Stärke liegt in den umliegenden Altstadtgassen, Terrassen und kleinen Seitenstraßen, in denen aus dem Sonnenuntergang Drinks und aus Drinks ein Abendessen werden.',
-            'Beginnt hier für Meerblick, Terrassen und Restaurants in kurzer Laufdistanz. Die Gegend eignet sich besser für Abendessen und Drinks als für einen sehr späten Abschluss.'
+            'Unsere selbst erprobte Variante ist konkret: Im Sommer 2025 ließen wir das Auto bei AMARA Playa an der Calle Castilla Pérez stehen, liefen ins Zentrum und sahen bei Cochran’s Terrace mit Cuba Libre und Mai Tai den Sonnenuntergang. Den Weg erinnern wir mit ungefähr 450 Metern; exakt vermessen ist er nicht. Prüft vor dem Aufbruch, ob Lokal und Terrasse aktuell geöffnet sind.'
           ],
           bestFor:
             'Paare, Dates, Drinks zum Sonnenuntergang, Weinbars, Terrassen und ruhigere Cocktails.',
@@ -887,10 +887,10 @@ export const nerjaNightlifeContent: Record<
         },
         {
           title:
-            '2. Balcón de Europa y casco antiguo — atardecer y cócteles',
+            '2. Balcón de Europa y casco antiguo — nuestro atardecer en Cochran’s',
           paragraphs: [
             'Es la zona más bonita para empezar la noche. El Balcón es el símbolo, pero la verdadera fuerza está en las calles, terrazas y rincones del casco antiguo, donde el atardecer se convierte en copas y las copas en cena.',
-            'Quienes valoran el ambiente, las vistas al mar, caminar y un tono algo más cuidado suelen empezar aquí. No se trata tanto de mantener la energía hasta muy tarde como de que toda la velada resulte especial desde el principio.'
+            'Nuestra versión está probada personalmente: en verano de 2025 dejamos el coche junto a AMARA Playa, en la calle Castilla Pérez, caminamos al centro y vimos la puesta de sol desde Cochran’s Terrace con un Cuba Libre y un Mai Tai. Recordamos unos 450 metros, no una ruta medida. Comprobad antes de salir que el local y la terraza estén abiertos.'
           ],
           bestFor:
             'Parejas, citas, copas al atardecer, bares de vinos, terrazas y cócteles tranquilos.',
@@ -1196,10 +1196,10 @@ export const nerjaNightlifeContent: Record<
         },
         {
           title:
-            '2. Balcón de Europa & oude stad — zonsondergang en cocktails',
+            '2. Balcón de Europa & oude stad — onze sundowner bij Cochran’s',
           paragraphs: [
             'Dit is Nerja’s mooiste avondzone. Het Balcón is het herkenningspunt, maar de echte kracht ligt in de omliggende straatjes, terrassen en zijlanen, waar de zonsondergang overgaat in drankjes en drankjes in diner.',
-            'Reizigers die sfeer, zeezicht, een beloopbare avond en een verzorgdere toon waarderen, beginnen meestal hier. Het gaat minder om energie tot diep in de nacht dan om de hele avond vanaf het begin bijzonder te laten voelen.'
+            'Onze zelf beproefde versie is concreet: in de zomer van 2025 lieten we de auto bij AMARA Playa aan Calle Castilla Pérez staan, liepen naar het centrum en zagen vanaf Cochran’s Terrace de zon ondergaan met een Cuba Libre en een Mai Tai. We herinneren de afstand als ongeveer 450 meter; de route is niet exact gemeten. Controleer vóór vertrek of de zaak en het terras open zijn.'
           ],
           bestFor:
             'Stellen, dates, drankjes bij zonsondergang, wijnbars, terrassen en rustige cocktails.',
@@ -1505,10 +1505,10 @@ export const nerjaNightlifeContent: Record<
         },
         {
           title:
-            '2. Balcón de Europa & gamla stan — solnedgång och cocktails',
+            '2. Balcón de Europa & gamla stan — vår sundowner på Cochran’s',
           paragraphs: [
             'Det här är Nerjas vackraste kvällsområde. Balcón är landmärket, men den verkliga styrkan ligger i gamla stans gator, terrasser och gränder där solnedgång blir drinkar och drinkar blir middag.',
-            'Resenärer som uppskattar atmosfär, havsutsikt, promenadavstånd och en mer genomtänkt ton börjar oftast här. Det handlar mindre om sent tempo och mer om att hela kvällen känns speciell från början.'
+            'Vår egen prövade version är konkret: sommaren 2025 lämnade vi bilen vid AMARA Playa på Calle Castilla Pérez, promenerade in till centrum och såg solnedgången från Cochran’s Terrace med en Cuba Libre och en Mai Tai. Vi minns sträckan som ungefär 450 meter; den är inte exakt uppmätt. Kontrollera före avfärd att stället och terrassen är öppna.'
           ],
           bestFor:
             'Par, dejter, drinkar i solnedgången, vinbarer, terrasser och lugna cocktails.',

@@ -78,5 +78,11 @@ export const frigilianaGeographyKnowledge = defineKnowledgePageManifest({
       ],
       status: 'covered',
     },
+    {
+      authoringArea: 'amara-location-projection',
+      purpose: 'Place Casa AMARA on the Calle Real mental map before handing detailed daily access to Streets & Stairs.',
+      factIds: ['casa-amara.location.calle-chorruelo-calle-real'],
+      status: 'covered',
+    },
   ],
 });

@@ -5,7 +5,6 @@ import LocationAuthorityLayout from '../../layouts/LocationAuthorityLayout.astro
 import Navigation from '../../components/Navigation.astro';
 import AmaraImage from '../../components/AmaraImage.astro';
 import FaqAccordion from '../../components/FaqAccordion.astro';
-import EditorialGuideLinkSection from '../../components/editorial/EditorialGuideLinkSection.astro';
 import FrigilianaOrientationMap from '../../components/location/FrigilianaOrientationMap.astro';
 import LocationContextNav from '../../components/location/LocationContextNav.astro';
 import LocationGuideIcon, {
@@ -20,9 +19,7 @@ import {
   type FrigilianaLocationCtaToken,
   type FrigilianaLocationSubsection
 } from '../../content/frigilianaLocationContent';
-import { comfortAmenitiesLinkLabel } from '../../content/comfortAmenitiesLinkLabel';
 import { stayCollectionLabels } from '../../content/stayCollectionLabels';
-import { trustLabels } from '../../content/trustLabels';
 import { resolveOptionalLink, type LinkToken, type LabeledLink } from '../../lib/linkResolver';
 import { getFrigilianaLocationSectionOrder } from '../../lib/frigiliana/frigilianaLocationSectionOrder';
 import { buildOwnedLocalizedPath } from '../../lib/routeOwnership';
@@ -56,49 +53,16 @@ const geographyHref = buildOwnedLocalizedPath('frigiliana-geography', currentLan
 const airportRouteHref =
   'https://www.google.com/maps/dir/?api=1&origin=M%C3%A1laga-Costa+del+Sol+Airport&destination=La+AMARA%2C+Calle+Chorruelo+5%2C+29788+Frigiliana&travelmode=driving';
 const aboutHref = optionalLink('about');
-const stairsHref = optionalLink('frigiliana_stairs');
-const dailyLifeHref = optionalLink('frigiliana_daily_life');
 const comparisonHref = optionalLink('nerja_vs_frigiliana');
-const reviewsHref = optionalLink('reviews_hub');
-const amenitiesHref = optionalLink('amenities');
 const availabilityHref = optionalLink('book');
 const exploreHubHref = optionalLink('frigiliana_experience_hub');
-const dayTripsHref = optionalLink('frigiliana_daytrips_authority');
-const journeyBridge = 'journeyBridge' in c ? c.journeyBridge : undefined;
 const orientationFactIcons: LocationGuideIconName[] = [
   'distance',
   'airport',
   'elevation'
 ];
 
-const frigilianaStayLinks = [
-  { label: 'Farah', href: optionalLink('farah') },
-  { label: 'Lounis', href: optionalLink('lounis') },
-  { label: 'Zaid', href: optionalLink('zaid') },
-  { label: 'Maha', href: optionalLink('maha') }
-].filter((item): item is { label: string; href: string } => Boolean(item.href));
 
-const planningLinks = [
-  { href: gettingThereHref, ...c.planning.gettingThere },
-  { href: parkingHref, ...c.planning.parking },
-  { href: stairsHref, ...c.planning.stairs },
-  { href: dailyLifeHref, ...c.planning.dailyLife },
-  { href: comparisonHref, ...c.planning.comparison },
-  { href: weatherHref, ...c.planning.weather },
-  { href: optionalLink('frigiliana_faq'), ...c.planning.faq },
-  { href: optionalLink('frigiliana_old_town'), ...c.planning.oldTown },
-  { href: optionalLink('frigiliana_netflix_dos_tumbas'), ...c.planning.filmLocations },
-  {
-    href: reviewsHref,
-    label: trustLabels.reviews_hub[currentLang],
-    text: c.planning.reviews.text
-  },
-  {
-    href: amenitiesHref,
-    label: comfortAmenitiesLinkLabel[currentLang],
-    text: c.planning.amenities.text
-  }
-].filter((item): item is { href: string; label: string; text: string } => Boolean(item.href));
 
 const ctaHrefByToken: Record<FrigilianaLocationCtaToken, string | null> = {
   PARKING: parkingHref,
@@ -224,8 +188,6 @@ const villageParking = c.villageLife.subsections[1];
 const coastMobility = c.coast.subsections[0];
 const coastBeachTown = c.coast.subsections[1];
 const decisionStay = c.decision.subsections[0];
-const decisionStaysCta = decisionStay.ctas.find((cta) => cta.token === 'FRIGILIANA_STAYS');
-const decisionComparisonCta = decisionStay.ctas.find((cta) => cta.token === 'COMPARISON');
 const decisionAvailabilityCta = decisionStay.ctas.find((cta) => cta.token === 'AVAILABILITY');
 
 const sectionOrder = getFrigilianaLocationSectionOrder(currentLang);
@@ -645,43 +607,6 @@ const renderCtas = (subsection: FrigilianaLocationSubsection) => subsection.ctas
             </div>
           </section>
 
-          <EditorialGuideLinkSection
-            id="plan-the-stay"
-            eyebrow={c.planning.eyebrow}
-            title={c.planning.title}
-            intro={c.planning.intro}
-            links={planningLinks}
-          />
-
-          {
-            journeyBridge && dayTripsHref && (
-              <section
-                id="andalusia-journey"
-                data-am-component="frigiliana-journey-bridge"
-                class="am-section am-section--plain py-16 md:py-20"
-              >
-                <div class="mx-auto max-w-6xl border-l-2 border-primary/40 bg-surface-container-low px-6 py-10 md:px-10 md:py-12">
-                  <span class="am-text-section-caption mb-5 text-primary">
-                    {journeyBridge.eyebrow}
-                  </span>
-                  <div class="grid grid-cols-1 gap-6 lg:grid-cols-12 lg:gap-12">
-                    <h2 class="am-text-subtitle tracking-tight text-on-surface lg:col-span-5">
-                      {journeyBridge.title}
-                    </h2>
-                    <div class="lg:col-span-7">
-                      <p class="am-text-body leading-relaxed text-on-surface-variant">
-                        {journeyBridge.text}
-                      </p>
-                      <a href={dayTripsHref} class="am-cta-link mt-8 inline-flex">
-                        {journeyBridge.ctaLabel}
-                      </a>
-                    </div>
-                  </div>
-                </div>
-              </section>
-            )
-          }
-
           <section
             id="explore-frigiliana"
             data-am-component="frigiliana-explore-bridge"
@@ -704,7 +629,7 @@ const renderCtas = (subsection: FrigilianaLocationSubsection) => subsection.ctas
                   {
                     exploreHubHref && (
                       <a
-                        href={exploreHubHref}
+                        href={`${exploreHubHref}#experiences`}
                         class="am-btn am-btn--secondary mt-10 w-full justify-center sm:w-auto"
                       >
                         {c.exploreBridge.ctaLabel}
@@ -764,34 +689,15 @@ const renderCtas = (subsection: FrigilianaLocationSubsection) => subsection.ctas
                   </div>
                 </div>
 
-                <div class="mt-16 grid grid-cols-1 gap-10 border-t border-outline-variant/15 pt-12 lg:grid-cols-12 lg:gap-16">
-                  {
-                    decisionStaysCta && (
-                      <div class="lg:col-span-6">
-                        <p class="am-text-body font-bold text-on-surface mb-6"><InlineEmphasis text={decisionStaysCta.label} /></p>
-                        <div class="flex flex-wrap items-center gap-x-7 gap-y-4">
-                          {frigilianaStayLinks.map((stay) => (
-                            <a href={stay.href} class="am-cta-link">{stay.label}</a>
-                          ))}
-                        </div>
-                      </div>
-                    )
-                  }
-                  <div class="flex flex-col items-start gap-7 lg:col-span-5 lg:col-start-8">
-                    {
-                      decisionComparisonCta && comparisonHref && (
-                        <a href={comparisonHref} class="am-cta-link">{decisionComparisonCta.label}</a>
-                      )
-                    }
-                    {
-                      decisionAvailabilityCta && availabilityHref && (
-                        <AmaraActionLink href={availabilityHref} variant="primary">
-                          {decisionAvailabilityCta.label}
-                        </AmaraActionLink>
-                      )
-                    }
-                  </div>
-                </div>
+                {
+                  decisionAvailabilityCta && availabilityHref && (
+                    <div class="mt-16 border-t border-outline-variant/15 pt-12">
+                      <AmaraActionLink href={availabilityHref} variant="primary">
+                        {decisionAvailabilityCta.label}
+                      </AmaraActionLink>
+                    </div>
+                  )
+                }
               </div>
             </div>
           </section>

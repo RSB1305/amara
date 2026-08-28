@@ -21,7 +21,7 @@ export const frigilianaAgricultureSources = defineKnowledgeSources([
     publisher: 'Ayuntamiento de Frigiliana',
     sourceType: 'official',
     url: 'https://frigiliana.es/places/ingenio-nuestra-senora-del-carmen/',
-    accessedAt: '2026-08-24',
+    accessedAt: '2026-08-28',
     language: 'es',
     scope: 'Municipal description of El Ingenio and its present-day place identity.',
     limitations:
@@ -48,7 +48,7 @@ export const frigilianaAgricultureSources = defineKnowledgeSources([
     publisher: 'Miel de la Torre',
     sourceType: 'secondary',
     url: 'https://mieldelatorre.com/',
-    accessedAt: '2026-08-24',
+    accessedAt: '2026-08-28',
     language: 'es',
     scope: 'Producer’s own account of its cane-honey product, place of production and claimed tradition since 1725.',
     limitations:

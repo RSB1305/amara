@@ -84,7 +84,12 @@ export interface FrigilianaBeachesPageCopy {
     items: {
       title: string;
       text: string;
-      linkToken: 'frigiliana_hiking_authority' | 'weather_frigiliana' | 'location_nerja';
+      linkToken:
+        | 'frigiliana_hiking_authority'
+        | 'weather_frigiliana'
+        | 'location_nerja'
+        | 'frigiliana_food_authority'
+        | 'nerja_nightlife_authority';
       linkLabel: string;
     }[];
   };
@@ -293,11 +298,11 @@ export const frigilianaBeachesContent: Record<
           },
           {
             title: 'Burriana Beach',
-            bestFor: 'A comfortable full day with everything nearby',
+            bestFor: 'An urban beach day with services and lunch nearby',
             description:
-              'Wide, lively and well equipped, Burriana works when you want showers, sunbeds, water activities and restaurants without moving the car again.',
+              'Official visitor information describes Burriana as a broad urban beach with a promenade, bus and parking access, plus listed beach and food services.',
             tip:
-              'It makes an easy date day: swim in the morning, take a long lunch — perhaps paella at Chiringuito AYO — then finish with a walk along the beach.',
+              'AYO is at Paseo Burriana 15 and works as a daytime option beside the beach. Check current operation before building the day around it.',
             mapHref: beachMaps.burriana
           }
         ]
@@ -379,18 +384,25 @@ export const frigilianaBeachesContent: Record<
           linkLabel: 'See the hiking guide'
         },
         {
-          title: 'Let the weather choose the order',
+          title: 'Choose the season first, then check the beach day',
           text:
-            'In hot summer weather, swim early and keep exposed walking away from midday. In spring and autumn, a longer route can lead the plan and the coast can remain the flexible part of the day.',
+            'The climate pattern helps you choose travel dates; it does not decide today’s swim. Check current heat, wind and sea conditions separately before choosing a beach, and use the weather guide for the seasonal context and AEMET forecast.',
           linkToken: 'weather_frigiliana',
           linkLabel: 'Compare weather and seasons'
         },
         {
-          title: 'Nerja after the swim',
+          title: 'Combine Burriana with a daytime restaurant',
           text:
-            'Calahonda and Burriana are easy to combine with the Balcón de Europa, the old centre, tapas and an evening by the coast.',
-          linkToken: 'location_nerja',
-          linkLabel: 'Explore Nerja'
+            'Burriana’s service profile keeps the beach and lunch in one place. AYO is directly on Paseo Burriana as a daytime option; check current operation before planning the beach day around it.',
+          linkToken: 'frigiliana_food_authority',
+          linkLabel: 'See the restaurant guide'
+        },
+        {
+          title: 'Let a central Nerja beach afternoon become a sundowner',
+          text:
+            'If your coast day ends near Nerja’s old town, continue on foot to Cochran’s Terrace rather than treating sunset as a separate excursion. We watched it there ourselves in summer 2025; check current opening and terrace access before relying on the plan.',
+          linkToken: 'nerja_nightlife_authority',
+          linkLabel: 'See our Nerja sundowner'
         }
       ]
     },
@@ -529,11 +541,11 @@ export const frigilianaBeachesContent: Record<
           },
           {
             title: 'Playa Burriana',
-            bestFor: 'Komfortabler Ganztag mit allem in der Nähe',
+            bestFor: 'Urbaner Strandtag mit Services und Mittagessen vor Ort',
             description:
-              'Breit, lebendig und gut ausgestattet: Burriana passt, wenn Duschen, Liegen, Wassersport und Restaurants erreichbar sein sollen, ohne das Auto noch einmal zu bewegen.',
+              'Die offizielle Besucherinformation beschreibt Burriana als breiten Stadtstrand mit Promenade, Bus- und Parkanbindung sowie ausgewiesenen Strand- und Gastronomieservices.',
             tip:
-              'Daraus wird leicht ein schöner Tag zu zweit: morgens schwimmen, lange zu Mittag essen — vielleicht Paella im Chiringuito AYO — und anschließend am Strand entlanglaufen.',
+              'AYO liegt am Paseo Burriana 15 und ist eine Tagesoption direkt am Strand. Prüft den aktuellen Betrieb, bevor ihr den Tag darauf ausrichtet.',
             mapHref: beachMaps.burriana
           }
         ]
@@ -615,18 +627,25 @@ export const frigilianaBeachesContent: Record<
           linkLabel: 'Zum Wander-Guide'
         },
         {
-          title: 'Lasst das Wetter über die Reihenfolge entscheiden',
+          title: 'Erst die Jahreszeit wählen, dann den Strandtag prüfen',
           text:
-            'Bei heißem Sommerwetter gehört das Bad in die frühen Stunden und ein offener Weg nicht in die Mittagshitze. Im Frühling und Herbst kann die längere Route den Tag bestimmen und die Küste der flexible Teil bleiben.',
+            'Das Klimamuster hilft bei der Wahl der Reisedaten; über das Baden heute entscheidet es nicht. Prüft aktuelle Hitze, Wind und Meereszustand getrennt, bevor ihr einen Strand wählt, und nutzt den Wetter-Guide für Saisonkontext und AEMET-Vorhersage.',
           linkToken: 'weather_frigiliana',
           linkLabel: 'Wetter und Jahreszeiten vergleichen'
         },
         {
-          title: 'Nerja nach dem Schwimmen',
+          title: 'Burriana mit einem Tagesrestaurant verbinden',
           text:
-            'Calahonda und Burriana lassen sich leicht mit dem Balcón de Europa, der Altstadt, Tapas und einem Abend an der Küste kombinieren.',
-          linkToken: 'location_nerja',
-          linkLabel: 'Nerja entdecken'
+            'Burrianas Serviceprofil hält Strand und Mittagessen an einem Ort. AYO liegt direkt am Paseo Burriana und ist eine Option für den Tag; prüft die aktuelle Öffnung, bevor ihr den Strandtag darauf ausrichtet.',
+          linkToken: 'frigiliana_food_authority',
+          linkLabel: 'Zum Restaurant-Guide'
+        },
+        {
+          title: 'Aus einem Strandnachmittag im Zentrum einen Sundowner machen',
+          text:
+            'Wenn euer Küstentag nahe Nerjas Altstadt endet, geht zu Fuß weiter zu Cochran’s Terrace, statt den Sonnenuntergang als neuen Ausflug zu planen. Wir haben ihn dort im Sommer 2025 selbst gesehen; prüft aktuelle Öffnung und Terrassenzugang, bevor ihr euch darauf verlasst.',
+          linkToken: 'nerja_nightlife_authority',
+          linkLabel: 'Zu unserem Nerja-Sundowner'
         }
       ]
     },
@@ -765,11 +784,11 @@ export const frigilianaBeachesContent: Record<
           },
           {
             title: 'Playa de Burriana',
-            bestFor: 'Un día completo y cómodo con todo cerca',
+            bestFor: 'Un día de playa urbana con servicios y comida cerca',
             description:
-              'Amplia, animada y bien equipada, Burriana funciona cuando queréis duchas, hamacas, actividades acuáticas y restaurantes sin tener que volver a mover el coche.',
+              'La información oficial para visitantes describe Burriana como una playa urbana amplia, con paseo marítimo, acceso en autobús y aparcamiento, además de servicios de playa y restauración.',
             tip:
-              'Es un plan de pareja muy fácil: baño por la mañana, sobremesa larga — quizá con una paella en el Chiringuito AYO — y paseo junto al mar para terminar.',
+              'AYO está en Paseo Burriana 15 y funciona como opción diurna junto a la playa. Comprobad la actividad actual antes de organizar el día en torno al local.',
             mapHref: beachMaps.burriana
           }
         ]
@@ -851,18 +870,25 @@ export const frigilianaBeachesContent: Record<
           linkLabel: 'Ver la guía de senderismo'
         },
         {
-          title: 'Dejad que el tiempo decida el orden',
+          title: 'Elegid primero la época y comprobad después el día de playa',
           text:
-            'Con calor de verano, bañarse temprano y evitar el mediodía en rutas expuestas funciona mejor. En primavera y otoño, la ruta larga puede marcar el día y la costa quedar como la parte flexible.',
+            'El patrón climático ayuda a elegir las fechas, pero no decide el baño de hoy. Comprobad por separado el calor, el viento y el estado actual del mar antes de elegir playa, y usad la guía del tiempo para el contexto estacional y la previsión de AEMET.',
           linkToken: 'weather_frigiliana',
           linkLabel: 'Comparar tiempo y estaciones'
         },
         {
-          title: 'Nerja después del baño',
+          title: 'Combinar Burriana con un restaurante de día',
           text:
-            'Calahonda y Burriana se combinan fácilmente con el Balcón de Europa, el casco antiguo, unas tapas y una tarde junto al mar.',
-          linkToken: 'location_nerja',
-          linkLabel: 'Descubrir Nerja'
+            'El perfil de servicios de Burriana permite mantener playa y comida en un mismo lugar. AYO está directamente en Paseo Burriana como opción diurna; comprobad su actividad actual antes de planificar el día en torno al local.',
+          linkToken: 'frigiliana_food_authority',
+          linkLabel: 'Ver la guía de restaurantes'
+        },
+        {
+          title: 'Convertir una tarde de playa en el centro en un atardecer',
+          text:
+            'Si el día de costa termina cerca del casco antiguo de Nerja, seguid a pie hasta Cochran’s Terrace en lugar de plantear la puesta de sol como otra excursión. La vimos allí personalmente en verano de 2025; comprobad la apertura y el acceso actual a la terraza.',
+          linkToken: 'nerja_nightlife_authority',
+          linkLabel: 'Ver nuestro atardecer en Nerja'
         }
       ]
     },
@@ -1001,11 +1027,11 @@ export const frigilianaBeachesContent: Record<
           },
           {
             title: 'Playa Burriana',
-            bestFor: 'Een comfortabele hele dag met alles dichtbij',
+            bestFor: 'Een stedelijke stranddag met voorzieningen en lunch dichtbij',
             description:
-              'Burriana is breed, levendig en goed uitgerust. Het werkt wanneer jullie douches, ligbedden, watersport en restaurants willen zonder de auto opnieuw te verplaatsen.',
+              'De officiële bezoekersinformatie beschrijft Burriana als een breed stadsstrand met boulevard, bus- en parkeertoegang en vermelde strand- en horecavoorzieningen.',
             tip:
-              'Dit wordt moeiteloos een fijne dag samen: ’s ochtends zwemmen, lang lunchen — bijvoorbeeld met paella bij Chiringuito AYO — en afsluiten met een strandwandeling.',
+              'AYO ligt aan Paseo Burriana 15 en is een optie voor overdag direct aan het strand. Controleer de actuele werking voordat jullie de dag eromheen plannen.',
             mapHref: beachMaps.burriana
           }
         ]
@@ -1087,18 +1113,25 @@ export const frigilianaBeachesContent: Record<
           linkLabel: 'Bekijk de wandelgids'
         },
         {
-          title: 'Laat het weer de volgorde bepalen',
+          title: 'Kies eerst het seizoen en controleer dan de stranddag',
           text:
-            'Zwem bij heet zomerweer vroeg en houd open wandelroutes buiten de middaghitte. In lente en herfst kan de langere route de dag bepalen en blijft de kust het flexibele onderdeel.',
+            'Het klimaatpatroon helpt bij het kiezen van reisdata, maar beslist niet over vandaag zwemmen. Controleer actuele hitte, wind en zeecondities afzonderlijk voordat jullie een strand kiezen en gebruik de weergids voor seizoenscontext en de AEMET-verwachting.',
           linkToken: 'weather_frigiliana',
           linkLabel: 'Vergelijk weer en seizoenen'
         },
         {
-          title: 'Nerja na het zwemmen',
+          title: 'Combineer Burriana met een restaurant voor overdag',
           text:
-            'Calahonda en Burriana zijn eenvoudig te combineren met het Balcón de Europa, de oude stad, tapas en een avond aan de kust.',
-          linkToken: 'location_nerja',
-          linkLabel: 'Ontdek Nerja'
+            'Burriana’s voorzieningenprofiel houdt strand en lunch op één plek. AYO ligt direct aan Paseo Burriana als optie voor overdag; controleer de actuele werking voordat jullie de stranddag eromheen plannen.',
+          linkToken: 'frigiliana_food_authority',
+          linkLabel: 'Bekijk de restaurantgids'
+        },
+        {
+          title: 'Laat een strandmiddag in centraal Nerja overgaan in een sundowner',
+          text:
+            'Eindigt jullie kustdag bij de oude stad van Nerja, loop dan door naar Cochran’s Terrace in plaats van van de zonsondergang een nieuwe uitstap te maken. Wij zagen hem daar zelf in de zomer van 2025; controleer vooraf de actuele opening en toegang tot het terras.',
+          linkToken: 'nerja_nightlife_authority',
+          linkLabel: 'Bekijk onze sundowner in Nerja'
         }
       ]
     },
@@ -1237,11 +1270,11 @@ export const frigilianaBeachesContent: Record<
           },
           {
             title: 'Playa Burriana',
-            bestFor: 'En bekväm heldag med allt nära',
+            bestFor: 'En stadsstranddag med service och lunch nära',
             description:
-              'Burriana är bred, livlig och välutrustad. Den passar när ni vill ha duschar, solstolar, vattenaktiviteter och restauranger utan att behöva flytta bilen igen.',
+              'Den officiella besöksinformationen beskriver Burriana som en bred stadsstrand med strandpromenad, buss- och parkeringsmöjligheter samt angiven strand- och restaurangservice.',
             tip:
-              'Det blir lätt en fin dag tillsammans: morgondopp, lång lunch — kanske paella på Chiringuito AYO — och en promenad längs stranden som avslutning.',
+              'AYO ligger på Paseo Burriana 15 och är ett alternativ dagtid direkt vid stranden. Kontrollera aktuell verksamhet innan ni planerar dagen kring restaurangen.',
             mapHref: beachMaps.burriana
           }
         ]
@@ -1323,18 +1356,25 @@ export const frigilianaBeachesContent: Record<
           linkLabel: 'Se vandringsguiden'
         },
         {
-          title: 'Låt vädret bestämma ordningen',
+          title: 'Välj först årstid och kontrollera sedan stranddagen',
           text:
-            'Vid hett sommarväder passar ett tidigt dopp och öppna vandringar bör hållas borta från middagshettan. På vår och höst kan den längre turen styra dagen och kusten vara den flexibla delen.',
+            'Klimatmönstret hjälper er att välja resdatum men avgör inte dagens bad. Kontrollera aktuell hetta, vind och havsläge var för sig innan ni väljer strand och använd väderguiden för säsongssammanhang och AEMET-prognos.',
           linkToken: 'weather_frigiliana',
           linkLabel: 'Jämför väder och årstider'
         },
         {
-          title: 'Nerja efter badet',
+          title: 'Kombinera Burriana med en restaurang dagtid',
           text:
-            'Calahonda och Burriana är lätta att kombinera med Balcón de Europa, gamla stan, tapas och en kväll vid kusten.',
-          linkToken: 'location_nerja',
-          linkLabel: 'Upptäck Nerja'
+            'Burrianas serviceprofil håller stranden och lunchen på samma plats. AYO ligger direkt på Paseo Burriana som ett alternativ dagtid; kontrollera aktuell verksamhet innan ni planerar stranddagen kring restaurangen.',
+          linkToken: 'frigiliana_food_authority',
+          linkLabel: 'Se restaurangguiden'
+        },
+        {
+          title: 'Låt en strandeftermiddag i centrala Nerja bli en sundowner',
+          text:
+            'Om kustdagen slutar nära Nerjas gamla stad kan ni promenera vidare till Cochran’s Terrace i stället för att göra solnedgången till en ny utflykt. Vi såg den där själva sommaren 2025; kontrollera aktuell öppning och tillträde till terrassen innan ni bygger planen kring den.',
+          linkToken: 'nerja_nightlife_authority',
+          linkLabel: 'Se vår sundowner i Nerja'
         }
       ]
     },

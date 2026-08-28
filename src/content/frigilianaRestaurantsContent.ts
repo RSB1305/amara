@@ -86,7 +86,8 @@ export interface FrigilianaRestaurantsPageCopy {
       text: string;
       linkToken:
         | 'frigiliana_beaches_authority'
-        | 'frigiliana_hiking_authority';
+        | 'frigiliana_hiking_authority'
+        | 'nerja_nightlife_authority';
       linkLabel: string;
     }[];
   };
@@ -237,10 +238,10 @@ export const frigilianaRestaurantsContent: Record<
     },
     hero: {
       kicker: 'Local dining guide',
-      title: 'Restaurants in Frigiliana & Nerja — where we send our guests',
+      title: 'Restaurants in Frigiliana & Nerja — choose by place and occasion',
       paragraphs: [
         'Dinner here can mean a terrace above Frigiliana, creative plates in Nerja or fresh fish in a busy local bar. Those are different evenings, with different travel and booking needs.',
-        'This is not a ranking or a directory. It is a concise selection we use for our own guests, with the trade-offs that matter before you reserve.',
+        'This is not a ranking or a directory. It is a concise editorial selection for guests, with the trade-offs that matter before you reserve.',
         'Opening days and menus change with the season. Use the guide to choose, then confirm the latest details directly with the restaurant.'
       ],
       imageAlt:
@@ -263,7 +264,7 @@ export const frigilianaRestaurantsContent: Record<
         {
           title: 'Stay in Frigiliana',
           text:
-            'Choose the village when a beautiful walk home, whitewashed streets and a slower evening matter more than a large menu of options.'
+            'Choose the village when you want dinner to remain in Frigiliana. The exact route between a restaurant and Casa AMARA still has to be checked venue by venue.'
         },
         {
           title: 'Make it an occasion',
@@ -285,19 +286,19 @@ export const frigilianaRestaurantsContent: Record<
     restaurantSections: [
       {
         id: 'frigiliana',
-        title: 'Frigiliana evenings — atmosphere without the drive home',
+        title: 'Frigiliana evenings — choose by village setting',
         intro:
-          'These three work for different village moods: a sunset terrace, a lively plaza or a small, intimate table.',
+          'These three addresses occupy different village settings and restaurant formats: Barribarto with a terrace, Plaza de las Tres Culturas and Avenida Carlos Cano.',
         restaurants: [
           restaurant('theGarden', {
             title: 'The Garden Restaurant',
-            bestFor: 'Sunset, views and a romantic village dinner',
+            bestFor: 'A terrace dinner in Barribarto',
             description:
-              'High in Barribarto, The Garden combines a terrace over the village and coast with a seasonal, internationally minded menu.',
+              'The operator and municipality place The Garden on Calle del Santo Cristo in Barribarto and describe a terrace with an international, Mediterranean-influenced cuisine format.',
             tip:
-              'Request an outdoor table when booking and arrive before sunset. The changing light, followed by the walk down through the old quarter, is part of the evening.',
+              'If the terrace matters, ask the restaurant to confirm current terrace operation and table availability when booking.',
             goodToKnow:
-              'The terrace is limited and the approach includes Frigiliana’s stepped streets. Reserve ahead and wear comfortable shoes.'
+              'A documented terrace does not establish sunset orientation, a particular view or the route back. Those details need a current confirmation or a first-hand AMARA note.'
           }),
           restaurant('gloriaBendita', {
             title: 'Gloria Bendita',
@@ -387,13 +388,13 @@ export const frigilianaRestaurantsContent: Record<
           }),
           restaurant('ayo', {
             title: 'Chiringuito AYO',
-            bestFor: 'A relaxed beach lunch and wood-fired paella',
+            bestFor: 'A daytime beach lunch at Burriana',
             description:
-              'A Burriana institution since 1969, AYO is built around daytime beach eating, paella cooked over wood and straightforward fish and skewers.',
+              'AYO is at Paseo Burriana 15, directly on Playa Burriana, and publishes daytime service. It belongs to a beach-and-lunch plan rather than an evening dinner plan.',
             tip:
-              'Combine it with a morning swim and arrive ready for a casual, sociable lunch. The setting makes more sense as part of a beach day than as a formal dinner.',
+              'Choose Burriana first if its urban beach and service profile fit your day, then check AYO’s current opening and kitchen service.',
             goodToKnow:
-              'Think daytime chiringuito, not quiet evening restaurant. Confirm seasonal opening information before travelling only for the meal.'
+              'Opening and menu details can change. Treat the venue as a current option, not a guaranteed part of the beach day.'
           })
         ]
       },
@@ -434,7 +435,7 @@ export const frigilianaRestaurantsContent: Record<
         {
           title: 'Decide who is driving',
           text:
-            'Frigiliana dinners can end with a walk home. For Nerja, arrange a taxi or a sober driver before the first glass of wine.'
+            'If alcohol is part of the evening, decide the return before you reserve. Do not infer a walk-home route or taxi availability from the destination name alone.'
         },
         {
           title: 'Expect dinner to start later',
@@ -451,25 +452,32 @@ export const frigilianaRestaurantsContent: Record<
         'The most memorable meals often work because the rest of the day leads naturally towards them.',
       items: [
         {
-          title: 'Beach morning, long lunch',
+          title: 'Burriana and lunch as one beach day',
           text:
-            'Swim at Burriana before AYO, or use central Nerja’s beaches before an early seafood lunch at La Puntilla or El Pulguilla.',
+            'If Burriana’s urban service profile suits you, AYO is directly on the beach as a daytime option. Check current operation and use the beach guide for access and beach choice.',
           linkToken: 'frigiliana_beaches_authority',
           linkLabel: 'See the beach guide'
         },
         {
           title: 'Hills, then a village table',
           text:
-            'Plan a village meal after Cruz de Pinto, the Higuerón or El Fuerte. For the linear GR 249 stage, arrange the return first and check that the restaurant still fits the timing of the day.',
+            'A longer or more demanding route changes how much time remains for dinner. Use the hiking guide for the route commitment, then check a restaurant’s current operation separately; no route-to-table pairing is verified yet.',
           linkToken: 'frigiliana_hiking_authority',
           linkLabel: 'See the hiking guide'
+        },
+        {
+          title: 'After a central Nerja dinner: a tested sunset drink',
+          text:
+            'If dinner leaves you near the Balcón or old town, Cochran’s Terrace is our personally tested next step. We watched the sunset there in summer 2025 over a Cuba Libre and a Mai Tai. The exact restaurant we paired it with is no longer certain, so choose dinner separately and check Cochran’s current opening before you go.',
+          linkToken: 'nerja_nightlife_authority',
+          linkLabel: 'See our Nerja evening'
         }
       ]
     },
     closing: {
-      title: 'Eat in the village and walk home',
+      title: 'Choose dinner and the return together',
       lead:
-        'From Casa AMARA you can walk to Frigiliana’s restaurants. For an evening in Nerja, arrange a taxi or driver before the first drink.',
+        'Casa AMARA is on Calle Chorruelo. A restaurant address alone does not establish the exact route back; confirm the venue and return before making alcohol part of the evening.',
       availabilityCta: 'Check availability',
       apartmentsCta: 'View apartments'
     }
@@ -489,10 +497,10 @@ export const frigilianaRestaurantsContent: Record<
     },
     hero: {
       kicker: 'Restaurant-Guide aus der Region',
-      title: 'Restaurants in Frigiliana & Nerja — unsere Empfehlungen für Gäste',
+      title: 'Restaurants in Frigiliana & Nerja — nach Lage und Anlass wählen',
       paragraphs: [
         'Ein besonderer Abend kann hier vieles sein: ein Tisch über den Dächern Frigilianas, kreative Küche in Nerja oder fangfrischer Fisch in einer lebhaften Bar. Das sind ganz unterschiedliche Erlebnisse – entscheidend ist, wonach euch gerade ist.',
-        'Diese Seite ist weder Rangliste noch vollständiges Verzeichnis. Sie versammelt eine überschaubare Auswahl, die wir auch unseren Gästen empfehlen, einschließlich der Details, die vor der Reservierung wirklich zählen.',
+        'Diese Seite ist weder Rangliste noch vollständiges Verzeichnis. Sie versammelt eine überschaubare redaktionelle Auswahl für Gäste, einschließlich der Details, die vor der Reservierung wirklich zählen.',
         'Ruhetage und Speisekarten ändern sich je nach Saison. Nutzt den Guide für die Auswahl und bestätigt die aktuellen Angaben anschließend direkt beim Restaurant.'
       ],
       imageAlt:
@@ -515,7 +523,7 @@ export const frigilianaRestaurantsContent: Record<
         {
           title: 'In Frigiliana bleiben',
           text:
-            'Wählt das Dorf, wenn euch weiße Gassen, ein schöner Heimweg zu Fuß und ein ruhiger Abend wichtiger sind als eine möglichst große Auswahl.'
+            'Wählt das Dorf, wenn das Abendessen in Frigiliana bleiben soll. Den genauen Weg zwischen Restaurant und Casa AMARA müssen wir trotzdem für jede Adresse einzeln prüfen.'
         },
         {
           title: 'Einen besonderen Abend planen',
@@ -537,19 +545,19 @@ export const frigilianaRestaurantsContent: Record<
     restaurantSections: [
       {
         id: 'frigiliana',
-        title: 'Abende in Frigiliana — Atmosphäre ohne Heimfahrt',
+        title: 'Abende in Frigiliana — nach Ortslage wählen',
         intro:
-          'Diese drei Adressen stehen für unterschiedliche Dorfabende: Sonnenuntergang auf der Terrasse, lebhafter Platz oder ein kleiner, intimer Gastraum.',
+          'Diese drei Adressen stehen für unterschiedliche Ortslagen und Restaurantformate: Barribarto mit Terrasse, Plaza de las Tres Culturas und Avenida Carlos Cano.',
         restaurants: [
           restaurant('theGarden', {
             title: 'The Garden Restaurant',
-            bestFor: 'Sonnenuntergang, Aussicht und ein romantisches Dinner',
+            bestFor: 'Ein Terrassenessen im Barribarto',
             description:
-              'Hoch im Barribarto verbindet The Garden eine Terrasse mit Blick über Dorf und Küste mit einer saisonalen, international geprägten Küche.',
+              'Betreiber und Gemeinde verorten The Garden an der Calle del Santo Cristo im Barribarto und beschreiben eine Terrasse sowie eine international und mediterran geprägte Küche.',
             tip:
-              'Bittet bei der Reservierung um einen Außentisch und kommt vor Sonnenuntergang. Das wechselnde Licht und der spätere Weg durch die Altstadt gehören zum Abend dazu.',
+              'Wenn euch die Terrasse wichtig ist, lasst euch bei der Reservierung den aktuellen Terrassenbetrieb und die Tischverfügbarkeit bestätigen.',
             goodToKnow:
-              'Die Terrasse ist klein, der Weg führt über Frigilianas Treppengassen. Früh reservieren und bequeme Schuhe tragen.'
+              'Eine belegte Terrasse beweist weder Sonnenuntergangsrichtung noch eine bestimmte Aussicht oder den Rückweg. Dafür brauchen wir eine aktuelle Bestätigung oder eine eigene AMARA-Notiz.',
           }),
           restaurant('gloriaBendita', {
             title: 'Gloria Bendita',
@@ -639,13 +647,13 @@ export const frigilianaRestaurantsContent: Record<
           }),
           restaurant('ayo', {
             title: 'Chiringuito AYO',
-            bestFor: 'Einen lockeren Strandlunch und Paella vom Holzfeuer',
+            bestFor: 'Ein Mittagessen am Burriana-Strand',
             description:
-              'AYO gehört seit 1969 zum Burriana-Strand und steht für Essen am Tag, Paella vom Holzfeuer sowie unkomplizierten Fisch und Spieße.',
+              'AYO liegt am Paseo Burriana 15 direkt an der Playa Burriana und veröffentlicht einen Tagesbetrieb. Der Ort gehört damit zu einem Strand-und-Mittagessen-Plan, nicht zu einem Abendessen.',
             tip:
-              'Mit einem Bad am Vormittag verbinden und auf einen geselligen, zwanglosen Lunch einstellen. Als Teil des Strandtags funktioniert AYO besser denn als formelles Dinner.',
+              'Entscheidet zuerst, ob Burrianas urbanes Strand- und Serviceprofil zu eurem Tag passt, und prüft danach AYOs aktuelle Öffnung und Küchenzeiten.',
             goodToKnow:
-              'Denkt an Chiringuito am Tag, nicht an ein stilles Abendrestaurant. Prüft die saisonale Öffnung, bevor ihr nur für das Essen hinfahrt.'
+              'Öffnung und Angebot können sich ändern. Behandelt AYO als aktuelle Option, nicht als garantierten Bestandteil des Strandtags.'
           })
         ]
       },
@@ -686,7 +694,7 @@ export const frigilianaRestaurantsContent: Record<
         {
           title: 'Vorher klären, wer fährt',
           text:
-            'In Frigiliana endet das Dinner mit einem Spaziergang nach Hause. Für Nerja Taxi oder nüchternen Fahrer vor dem ersten Glas Wein organisieren.'
+            'Wenn Alkohol zum Abend gehört, klärt die Rückfahrt vor der Reservierung. Aus dem Ortsnamen allein lassen sich weder ein sicherer Heimweg zu Fuß noch Taxiverfügbarkeit ableiten.'
         },
         {
           title: 'Mit einem späteren Rhythmus rechnen',
@@ -703,25 +711,32 @@ export const frigilianaRestaurantsContent: Record<
         'Oft bleiben Mahlzeiten besonders in Erinnerung, weil der restliche Tag ganz natürlich auf sie hinführt.',
       items: [
         {
-          title: 'Vormittags Strand, danach langer Lunch',
+          title: 'Burriana und Mittagessen als ein Strandtag',
           text:
-            'Vor AYO am Burriana-Strand baden oder einen zentralen Nerja-Strand mit einem frühen Fischessen bei La Puntilla oder El Pulguilla verbinden.',
+            'Wenn Burrianas urbanes Serviceprofil zu euch passt, liegt AYO direkt am Strand als Tagesoption. Prüft die aktuelle Öffnung und nutzt den Strand-Guide für Zugang und Strandwahl.',
           linkToken: 'frigiliana_beaches_authority',
           linkLabel: 'Zum Strand-Guide'
         },
         {
           title: 'Erst die Hügel, dann ein Dorftisch',
           text:
-            'Plant nach Cruz de Pinto, dem Higuerón oder El Fuerte ein Essen im Dorf ein. Bei der linearen GR-249-Etappe klärt ihr zuerst die Rückfahrt und prüft, ob das Restaurant noch zum Tagesablauf passt.',
+            'Eine längere oder anspruchsvollere Route verändert, wie viel Zeit danach für ein Essen bleibt. Nutzt den Wander-Guide für den Routenumfang und prüft den aktuellen Restaurantbetrieb getrennt; eine konkrete Route-zu-Tisch-Kombination ist noch nicht verifiziert.',
           linkToken: 'frigiliana_hiking_authority',
           linkLabel: 'Zum Wander-Guide'
+        },
+        {
+          title: 'Nach dem Essen im Zentrum: ein erprobter Sundowner',
+          text:
+            'Wenn euer Restaurant beim Balcón oder in der Altstadt liegt, ist Cochran’s Terrace unser persönlich erprobter nächster Schritt. Im Sommer 2025 sahen wir dort bei Cuba Libre und Mai Tai den Sonnenuntergang. Welches Restaurant wir davor besucht hatten, wissen wir nicht mehr sicher; wählt das Essen deshalb getrennt und prüft Cochran’s aktuelle Öffnung.',
+          linkToken: 'nerja_nightlife_authority',
+          linkLabel: 'Zu unserem Nerja-Abend'
         }
       ]
     },
     closing: {
-      title: 'Im Dorf essen und zu Fuß zurückkehren',
+      title: 'Abendessen und Rückweg gemeinsam wählen',
       lead:
-        'Von Casa AMARA erreicht ihr die Restaurants in Frigiliana zu Fuß. Für einen Abend in Nerja organisiert ihr Taxi oder Fahrer am besten vor dem ersten Getränk.',
+        'Casa AMARA liegt an der Calle Chorruelo. Eine Restaurantadresse belegt noch keinen konkreten Rückweg; bestätigt Adresse und Rückfahrt, bevor Alkohol Teil des Abends wird.',
       availabilityCta: 'Verfügbarkeit prüfen',
       apartmentsCta: 'Apartments ansehen'
     }
@@ -741,10 +756,10 @@ export const frigilianaRestaurantsContent: Record<
     },
     hero: {
       kicker: 'Guía gastronómica local',
-      title: 'Restaurantes en Frigiliana y Nerja — los que recomendamos a nuestros huéspedes',
+      title: 'Restaurantes en Frigiliana y Nerja — elegid por zona y ocasión',
       paragraphs: [
         'Una cena memorable puede ser una mesa sobre los tejados de Frigiliana, platos creativos en Nerja o pescado fresco al ritmo de un bar local lleno de vida. Son planes distintos, y la elección depende del ambiente que apetezca.',
-        'Esto no es un ranking ni un directorio. Es una selección breve que utilizamos con nuestros propios huéspedes, con los matices que de verdad conviene conocer antes de reservar.',
+        'Esto no es un ranking ni un directorio. Es una selección editorial breve para huéspedes, con los matices que de verdad conviene conocer antes de reservar.',
         'Los días de apertura y las cartas cambian con la temporada. Usa la guía para elegir y confirma después la información más reciente directamente con el restaurante.'
       ],
       imageAlt:
@@ -767,7 +782,7 @@ export const frigilianaRestaurantsContent: Record<
         {
           title: 'Quedarse en Frigiliana',
           text:
-            'Elige el pueblo si valoras volver andando entre calles blancas y disfrutar de una noche tranquila más que tener una lista interminable de opciones.'
+            'Elegid el pueblo si queréis que la cena se mantenga en Frigiliana. Aun así, la ruta exacta entre cada restaurante y Casa AMARA debe comprobarse por separado.'
         },
         {
           title: 'Celebrar una ocasión',
@@ -789,19 +804,19 @@ export const frigilianaRestaurantsContent: Record<
     restaurantSections: [
       {
         id: 'frigiliana',
-        title: 'Noches en Frigiliana — ambiente sin tener que conducir',
+        title: 'Noches en Frigiliana — elegid según la zona del pueblo',
         intro:
-          'Tres maneras distintas de cenar en el pueblo: una terraza al atardecer, una plaza animada o una mesa pequeña e íntima.',
+          'Estas tres direcciones representan zonas y formatos distintos: Barribarto con terraza, Plaza de las Tres Culturas y Avenida Carlos Cano.',
         restaurants: [
           restaurant('theGarden', {
             title: 'The Garden Restaurant',
-            bestFor: 'Atardecer, vistas y una cena romántica',
+            bestFor: 'Una cena en terraza en Barribarto',
             description:
-              'En la parte alta del Barribarto, The Garden une una terraza sobre el pueblo y la costa con una cocina de temporada de inspiración internacional.',
+              'El operador y el ayuntamiento sitúan The Garden en la calle del Santo Cristo, en Barribarto, y describen una terraza y una cocina de influencias internacionales y mediterráneas.',
             tip:
-              'Pide mesa exterior al reservar y llega antes del atardecer. La luz cambiante y el paseo de vuelta por el casco antiguo forman parte de la experiencia.',
+              'Si la terraza es importante, pedid al restaurante que confirme su funcionamiento actual y la disponibilidad de mesas al reservar.',
             goodToKnow:
-              'La terraza tiene pocas mesas y se llega por las calles escalonadas de Frigiliana. Reserva con tiempo y lleva calzado cómodo.'
+              'Una terraza documentada no demuestra la orientación del atardecer, una vista concreta ni la ruta de regreso. Esos detalles requieren confirmación actual o una nota propia de AMARA.',
           }),
           restaurant('gloriaBendita', {
             title: 'Gloria Bendita',
@@ -891,13 +906,13 @@ export const frigilianaRestaurantsContent: Record<
           }),
           restaurant('ayo', {
             title: 'Chiringuito AYO',
-            bestFor: 'Un almuerzo informal de playa y paella a la leña',
+            bestFor: 'Un almuerzo de playa en Burriana',
             description:
-              'Presente en Burriana desde 1969, AYO gira en torno a la comida diurna, la paella a la leña y el pescado y los espetos sin complicaciones.',
+              'AYO está en Paseo Burriana 15, directamente en Playa Burriana, y publica servicio diurno. Forma parte de un plan de playa y almuerzo, no de una cena.',
             tip:
-              'Combínalo con un baño por la mañana y ve con ganas de un almuerzo informal y animado. Tiene más sentido dentro de un día de playa que como cena formal.',
+              'Decidid primero si el perfil urbano y de servicios de Burriana encaja con vuestro día y comprobad después la apertura y el servicio de cocina actuales de AYO.',
             goodToKnow:
-              'Piensa en chiringuito de día, no en restaurante tranquilo de noche. Confirma la apertura estacional antes de desplazarte solo para comer.'
+              'La apertura y la oferta pueden cambiar. Tratad AYO como una opción actual, no como una parte garantizada del día de playa.'
           })
         ]
       },
@@ -938,7 +953,7 @@ export const frigilianaRestaurantsContent: Record<
         {
           title: 'Decide quién conduce',
           text:
-            'En Frigiliana puedes volver andando después de cenar. Para Nerja, organiza taxi o conductor antes de la primera copa de vino.'
+            'Si el alcohol forma parte de la noche, decidid el regreso antes de reservar. El nombre del destino no demuestra una ruta peatonal segura ni disponibilidad de taxi.'
         },
         {
           title: 'Cuenta con un ritmo más tardío',
@@ -955,25 +970,32 @@ export const frigilianaRestaurantsContent: Record<
         'Las comidas más memorables suelen funcionar porque el resto del día lleva hasta ellas de manera natural.',
       items: [
         {
-          title: 'Playa por la mañana, sobremesa larga',
+          title: 'Burriana y almuerzo como un solo día de playa',
           text:
-            'Báñate en Burriana antes de AYO o combina las playas del centro de Nerja con un almuerzo temprano de pescado en La Puntilla o El Pulguilla.',
+            'Si el perfil urbano y de servicios de Burriana os encaja, AYO está directamente en la playa como opción diurna. Comprobad su actividad actual y usad la guía de playas para el acceso y la elección.',
           linkToken: 'frigiliana_beaches_authority',
           linkLabel: 'Ver la guía de playas'
         },
         {
           title: 'Primero la sierra, después una mesa en el pueblo',
           text:
-            'Planificad una comida en el pueblo después de la Cruz de Pinto, el Higuerón o El Fuerte. Para la etapa lineal del GR 249, organizad primero el regreso y comprobad que el restaurante encaja con el horario del día.',
+            'Una ruta más larga o exigente cambia el tiempo disponible para cenar. Usad la guía de senderismo para valorar el compromiso de la ruta y comprobad aparte el funcionamiento actual del restaurante; aún no hay una combinación ruta-mesa verificada.',
           linkToken: 'frigiliana_hiking_authority',
           linkLabel: 'Ver la guía de senderismo'
+        },
+        {
+          title: 'Después de cenar en el centro: un atardecer probado',
+          text:
+            'Si cenáis cerca del Balcón o del casco antiguo, Cochran’s Terrace es nuestro siguiente paso probado personalmente. Allí vimos la puesta de sol en verano de 2025 con un Cuba Libre y un Mai Tai. Ya no recordamos con seguridad el restaurante anterior; elegid la cena por separado y comprobad la apertura actual de Cochran’s.',
+          linkToken: 'nerja_nightlife_authority',
+          linkLabel: 'Ver nuestra noche en Nerja'
         }
       ]
     },
     closing: {
-      title: 'Cenad en el pueblo y volved a pie',
+      title: 'Elegid juntos la cena y el regreso',
       lead:
-        'Desde Casa AMARA podéis ir andando a los restaurantes de Frigiliana. Para una noche en Nerja, organizad taxi o conductor antes de la primera copa.',
+        'Casa AMARA está en la calle Chorruelo. La dirección de un restaurante no demuestra la ruta exacta de vuelta; confirmad el local y el regreso antes de incluir alcohol en la noche.',
       availabilityCta: 'Consultar disponibilidad',
       apartmentsCta: 'Ver apartamentos'
     }
@@ -993,10 +1015,10 @@ export const frigilianaRestaurantsContent: Record<
     },
     hero: {
       kicker: 'Lokale restaurantgids',
-      title: 'Restaurants in Frigiliana & Nerja — onze adressen voor gasten',
+      title: 'Restaurants in Frigiliana & Nerja — kies op locatie en gelegenheid',
       paragraphs: [
         'Een bijzondere avond kan hier een terras boven Frigiliana zijn, creatieve gerechten in Nerja of verse vis in het tempo van een levendige lokale bar. Dat zijn verschillende ervaringen; de juiste keuze hangt af van je stemming.',
-        'Dit is geen ranglijst en ook geen compleet overzicht. Het is een compacte selectie die we met onze eigen gasten delen, inclusief de afwegingen die ertoe doen voordat je reserveert.',
+        'Dit is geen ranglijst en ook geen compleet overzicht. Het is een compacte redactionele selectie voor gasten, inclusief de afwegingen die ertoe doen voordat je reserveert.',
         'Openingsdagen en menu’s veranderen per seizoen. Gebruik de gids om te kiezen en controleer de meest recente informatie daarna rechtstreeks bij het restaurant.'
       ],
       imageAlt:
@@ -1019,7 +1041,7 @@ export const frigilianaRestaurantsContent: Record<
         {
           title: 'Blijf in Frigiliana',
           text:
-            'Kies het dorp als witte straatjes, een mooie wandeling naar huis en een rustige avond belangrijker zijn dan een eindeloze hoeveelheid opties.'
+            'Kies het dorp wanneer het diner in Frigiliana moet blijven. De precieze route tussen elk restaurant en Casa AMARA moet nog steeds per adres worden gecontroleerd.'
         },
         {
           title: 'Maak er een gelegenheid van',
@@ -1041,19 +1063,19 @@ export const frigilianaRestaurantsContent: Record<
     restaurantSections: [
       {
         id: 'frigiliana',
-        title: 'Avonden in Frigiliana — sfeer zonder terugrit',
+        title: 'Avonden in Frigiliana — kies op ligging in het dorp',
         intro:
-          'Drie verschillende dorpsavonden: een terras bij zonsondergang, een levendig plein of een kleine, intieme tafel.',
+          'Deze drie adressen vertegenwoordigen verschillende dorpslocaties en restaurantvormen: Barribarto met terras, Plaza de las Tres Culturas en Avenida Carlos Cano.',
         restaurants: [
           restaurant('theGarden', {
             title: 'The Garden Restaurant',
-            bestFor: 'Zonsondergang, uitzicht en een romantisch diner',
+            bestFor: 'Een terrasdiner in Barribarto',
             description:
-              'Hoog in Barribarto combineert The Garden een terras over het dorp en de kust met een seizoenskeuken met internationale invloeden.',
+              'De exploitant en de gemeente plaatsen The Garden aan Calle del Santo Cristo in Barribarto en beschrijven een terras en een internationaal-mediterraan keukenconcept.',
             tip:
-              'Vraag bij het reserveren om een buitentafel en kom vóór zonsondergang. Het veranderende licht en de wandeling terug door de oude wijk horen bij de avond.',
+              'Als het terras belangrijk is, laat het restaurant bij de reservering de actuele terraswerking en tafelbeschikbaarheid bevestigen.',
             goodToKnow:
-              'Het terras is klein en de route loopt via de trappenstraten van Frigiliana. Reserveer op tijd en draag comfortabele schoenen.'
+              'Een gedocumenteerd terras bewijst geen zonsondergangsrichting, specifiek uitzicht of terugroute. Die details vragen een actuele bevestiging of een eigen AMARA-notitie.',
           }),
           restaurant('gloriaBendita', {
             title: 'Gloria Bendita',
@@ -1143,13 +1165,13 @@ export const frigilianaRestaurantsContent: Record<
           }),
           restaurant('ayo', {
             title: 'Chiringuito AYO',
-            bestFor: 'Een ontspannen strandlunch en paella op houtvuur',
+            bestFor: 'Een lunch aan het Burriana-strand',
             description:
-              'AYO hoort sinds 1969 bij Burriana en draait om eten overdag, paella boven houtvuur en ongecompliceerde vis en espetos.',
+              'AYO ligt aan Paseo Burriana 15, direct aan Playa Burriana, en publiceert dagservice. Het hoort bij een strand-en-lunchplan, niet bij een avonddiner.',
             tip:
-              'Combineer het met een ochtendduik en reken op een informele, gezellige lunch. Als onderdeel van een stranddag klopt de plek beter dan als formeel diner.',
+              'Bepaal eerst of Burriana’s stedelijke strand- en voorzieningenprofiel bij jullie dag past en controleer daarna de actuele opening en keukenservice van AYO.',
             goodToKnow:
-              'Denk aan een chiringuito overdag, niet aan een rustig avondrestaurant. Controleer de seizoensopening voordat je alleen voor de maaltijd afreist.'
+              'Opening en aanbod kunnen veranderen. Zie AYO als een actuele optie, niet als een gegarandeerd onderdeel van de stranddag.'
           })
         ]
       },
@@ -1190,7 +1212,7 @@ export const frigilianaRestaurantsContent: Record<
         {
           title: 'Bepaal vooraf wie rijdt',
           text:
-            'Na een diner in Frigiliana kun je naar huis wandelen. Regel voor Nerja vóór het eerste glas wijn een taxi of nuchtere chauffeur.'
+            'Als alcohol bij de avond hoort, beslis dan vóór het reserveren over de terugreis. Uit alleen de plaatsnaam volgen geen veilige looproute of beschikbare taxi.'
         },
         {
           title: 'Reken op een later ritme',
@@ -1207,25 +1229,32 @@ export const frigilianaRestaurantsContent: Record<
         'De meest memorabele maaltijden werken vaak juist omdat de rest van de dag er vanzelf naartoe leidt.',
       items: [
         {
-          title: 'Strand in de ochtend, lange lunch',
+          title: 'Burriana en lunch als één stranddag',
           text:
-            'Zwem bij Burriana vóór AYO, of combineer de centrale stranden van Nerja met een vroege vislunch bij La Puntilla of El Pulguilla.',
+            'Als Burriana’s stedelijke voorzieningenprofiel bij jullie past, ligt AYO direct aan het strand als optie voor overdag. Controleer de actuele werking en gebruik de strandgids voor toegang en strandkeuze.',
           linkToken: 'frigiliana_beaches_authority',
           linkLabel: 'Bekijk de strandgids'
         },
         {
           title: 'Eerst de heuvels, dan een tafel in het dorp',
           text:
-            'Plan een maaltijd in het dorp na Cruz de Pinto, de Higuerón of El Fuerte. Regel voor de lineaire GR 249-etappe eerst de terugreis en controleer of het restaurant nog in de dagplanning past.',
+            'Een langere of zwaardere route verandert hoeveel tijd er voor het diner overblijft. Gebruik de wandelgids voor de omvang van de route en controleer de actuele restaurantwerking apart; er is nog geen route-naar-tafelcombinatie geverifieerd.',
           linkToken: 'frigiliana_hiking_authority',
           linkLabel: 'Bekijk de wandelgids'
+        },
+        {
+          title: 'Na een diner in het centrum: een beproefde sundowner',
+          text:
+            'Eten jullie bij het Balcón of in de oude stad, dan is Cochran’s Terrace onze persoonlijk beproefde volgende stap. In de zomer van 2025 zagen we daar met een Cuba Libre en een Mai Tai de zon ondergaan. Welk restaurant eraan voorafging weten we niet meer zeker; kies het diner dus apart en controleer de actuele opening van Cochran’s.',
+          linkToken: 'nerja_nightlife_authority',
+          linkLabel: 'Bekijk onze avond in Nerja'
         }
       ]
     },
     closing: {
-      title: 'Eet in het dorp en wandel terug',
+      title: 'Kies diner en terugreis samen',
       lead:
-        'Vanuit Casa AMARA lopen jullie naar de restaurants van Frigiliana. Regel voor een avond in Nerja vóór het eerste drankje een taxi of chauffeur.',
+        'Casa AMARA ligt aan Calle Chorruelo. Een restaurantadres bewijst nog geen precieze terugroute; bevestig locatie en terugreis voordat alcohol deel van de avond wordt.',
       availabilityCta: 'Beschikbaarheid bekijken',
       apartmentsCta: 'Appartementen bekijken'
     }
@@ -1245,10 +1274,10 @@ export const frigilianaRestaurantsContent: Record<
     },
     hero: {
       kicker: 'Lokal restaurangguide',
-      title: 'Restauranger i Frigiliana & Nerja — våra tips till gäster',
+      title: 'Restauranger i Frigiliana & Nerja — välj efter plats och tillfälle',
       paragraphs: [
         'En minnesvärd middag kan vara en terrass ovanför Frigiliana, kreativa rätter i Nerja eller färsk fisk i tempot på en livlig lokal bar. Det är olika kvällar, och rätt val beror på vilket humör du är på.',
-        'Det här är varken en rankning eller en fullständig katalog. Det är ett kort urval som vi delar med våra egna gäster, tillsammans med de avvägningar som är viktiga före bokningen.',
+        'Det här är varken en rankning eller en fullständig katalog. Det är ett kort redaktionellt urval för gäster, tillsammans med de avvägningar som är viktiga före bokningen.',
         'Öppningsdagar och menyer ändras med säsongen. Använd guiden för att välja och bekräfta sedan aktuell information direkt med restaurangen.'
       ],
       imageAlt:
@@ -1271,7 +1300,7 @@ export const frigilianaRestaurantsContent: Record<
         {
           title: 'Stanna i Frigiliana',
           text:
-            'Välj byn när vita gränder, en vacker promenad hem och en lugn kväll betyder mer än ett mycket stort restaurangutbud.'
+            'Välj byn när middagen ska stanna i Frigiliana. Den exakta vägen mellan varje restaurang och Casa AMARA måste ändå kontrolleras separat.'
         },
         {
           title: 'Gör kvällen speciell',
@@ -1293,19 +1322,19 @@ export const frigilianaRestaurantsContent: Record<
     restaurantSections: [
       {
         id: 'frigiliana',
-        title: 'Kvällar i Frigiliana — stämning utan bilresan hem',
+        title: 'Kvällar i Frigiliana — välj efter läget i byn',
         intro:
-          'Tre olika bykvällar: en terrass i solnedgången, ett livligt torg eller ett litet och intimt bord.',
+          'De tre adresserna representerar olika lägen och restaurangformat: Barribarto med terrass, Plaza de las Tres Culturas och Avenida Carlos Cano.',
         restaurants: [
           restaurant('theGarden', {
             title: 'The Garden Restaurant',
-            bestFor: 'Solnedgång, utsikt och en romantisk middag',
+            bestFor: 'En terrassmiddag i Barribarto',
             description:
-              'Högt uppe i Barribarto förenar The Garden en terrass över byn och kusten med en säsongsbetonad meny med internationella influenser.',
+              'Operatören och kommunen placerar The Garden på Calle del Santo Cristo i Barribarto och beskriver en terrass samt ett internationellt och medelhavsinspirerat köksformat.',
             tip:
-              'Be om ett utebord när du bokar och kom före solnedgången. Det skiftande ljuset och promenaden ner genom gamla stan är en del av kvällen.',
+              'Om terrassen är viktig, be restaurangen bekräfta aktuell terrassdrift och bordstillgång vid bokningen.',
             goodToKnow:
-              'Terrassen är liten och vägen dit går via Frigilianas trappgränder. Boka i god tid och använd bekväma skor.'
+              'En dokumenterad terrass bevisar inte solnedgångsriktning, en viss utsikt eller vägen tillbaka. Det kräver aktuell bekräftelse eller en egen AMARA-notering.',
           }),
           restaurant('gloriaBendita', {
             title: 'Gloria Bendita',
@@ -1395,13 +1424,13 @@ export const frigilianaRestaurantsContent: Record<
           }),
           restaurant('ayo', {
             title: 'Chiringuito AYO',
-            bestFor: 'En avslappnad strandlunch och vedeldad paella',
+            bestFor: 'En strandlunch vid Burriana',
             description:
-              'AYO har hört till Burriana sedan 1969 och kretsar kring lunch vid stranden, vedeldad paella samt enkel fisk och spett.',
+              'AYO ligger på Paseo Burriana 15, direkt vid Playa Burriana, och publicerar dagservering. Restaurangen hör till en strand-och-lunchplan, inte till en kvällsmiddag.',
             tip:
-              'Kombinera med ett morgondopp och kom inställd på en ledig, social lunch. Som del av en stranddag fungerar AYO bättre än som formell middag.',
+              'Avgör först om Burrianas stadsstrand och serviceprofil passar er dag och kontrollera därefter AYOs aktuella öppettider och köksservering.',
             goodToKnow:
-              'Tänk chiringuito på dagen, inte en stilla kvällsrestaurang. Kontrollera säsongsöppningen innan du åker dit enbart för maten.'
+              'Öppettider och utbud kan ändras. Se AYO som ett aktuellt alternativ, inte som en garanterad del av stranddagen.'
           })
         ]
       },
@@ -1442,7 +1471,7 @@ export const frigilianaRestaurantsContent: Record<
         {
           title: 'Bestäm vem som kör',
           text:
-            'Efter middag i Frigiliana kan du promenera hem. Ordna taxi eller nykter förare till Nerja före kvällens första glas vin.'
+            'Om alkohol ingår i kvällen, bestäm hemresan före bokningen. Ortsnamnet i sig bevisar varken en säker promenadväg hem eller tillgång till taxi.'
         },
         {
           title: 'Räkna med en senare rytm',
@@ -1459,25 +1488,32 @@ export const frigilianaRestaurantsContent: Record<
         'De mest minnesvärda måltiderna fungerar ofta för att resten av dagen leder naturligt fram till dem.',
       items: [
         {
-          title: 'Strand på morgonen, lång lunch',
+          title: 'Burriana och lunch som en stranddag',
           text:
-            'Bada vid Burriana före AYO, eller kombinera Nerjas centrala stränder med en tidig fisklunch på La Puntilla eller El Pulguilla.',
+            'Om Burrianas stadsstrand och serviceprofil passar er ligger AYO direkt vid stranden som ett alternativ dagtid. Kontrollera aktuell verksamhet och använd strandguiden för tillträde och strandval.',
           linkToken: 'frigiliana_beaches_authority',
           linkLabel: 'Se strandguiden'
         },
         {
           title: 'Först bergen, sedan ett bord i byn',
           text:
-            'Planera en måltid i byn efter Cruz de Pinto, Higuerón eller El Fuerte. För den linjära GR 249-etappen ordnar ni först hemresan och kontrollerar att restaurangen fortfarande passar dagens tidplan.',
+            'En längre eller mer krävande led ändrar hur mycket tid som återstår för middag. Använd vandringsguiden för ledens omfattning och kontrollera restaurangens aktuella drift separat; ingen led-till-bord-kombination är ännu verifierad.',
           linkToken: 'frigiliana_hiking_authority',
           linkLabel: 'Se vandringsguiden'
+        },
+        {
+          title: 'Efter middag i centrum: en prövad sundowner',
+          text:
+            'Om middagen ligger nära Balcón eller gamla stan är Cochran’s Terrace vårt personligen prövade nästa steg. Sommaren 2025 såg vi solnedgången där med en Cuba Libre och en Mai Tai. Vi minns inte längre säkert vilken restaurang vi åt på före besöket; välj därför middagen separat och kontrollera Cochran’s aktuella öppettider.',
+          linkToken: 'nerja_nightlife_authority',
+          linkLabel: 'Se vår kväll i Nerja'
         }
       ]
     },
     closing: {
-      title: 'Ät i byn och promenera hem',
+      title: 'Välj middag och hemresa tillsammans',
       lead:
-        'Från Casa AMARA kan ni promenera till restaurangerna i Frigiliana. För en kväll i Nerja bör ni ordna taxi eller förare före den första drinken.',
+        'Casa AMARA ligger på Calle Chorruelo. En restaurangadress bevisar inte den exakta vägen tillbaka; bekräfta plats och hemresa innan alkohol blir en del av kvällen.',
       availabilityCta: 'Kontrollera tillgänglighet',
       apartmentsCta: 'Se lägenheter'
     }

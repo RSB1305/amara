@@ -20,6 +20,16 @@ export const frigilianaWhereToStayKnowledge = defineKnowledgePageManifest({
     { authoringArea: 'tradeoffs', purpose: 'Keep the access and atmosphere trade-off visible for every setting.', factIds: ['frigiliana.stay.historic-mobility', 'frigiliana.stay.historic-vehicle-access'], status: 'covered' },
     { authoringArea: 'mobility', purpose: 'Separate stable morphology from current vehicle rules.', factIds: ['frigiliana.stay.historic-mobility', 'frigiliana.stay.historic-vehicle-access'], status: 'covered' },
     { authoringArea: 'fit', purpose: 'Translate location evidence into conditional stay profiles.', factIds: ['frigiliana.stay.historic-mobility', 'frigiliana.stay.southern-expansion'], status: 'covered' },
-    { authoringArea: 'amara', purpose: 'Keep Casa AMARA claims property-specific and avoid an unmeasured distance.', factIds: ['frigiliana.stay.amara-san-antonio-distance'], status: 'covered' },
+    {
+      authoringArea: 'amara',
+      purpose: 'Use Casa AMARA as a property-specific example of how street position, the shared entrance and the route after the door affect a stay.',
+      factIds: [
+        'casa-amara.location.calle-chorruelo-calle-real',
+        'casa-amara.access.shared-entrance-and-internal-steps',
+        'casa-amara.access.village-core-route-after-door',
+      ],
+      status: 'covered',
+      notes: 'No parking-to-door distance, comparative elevation or exact internal step count is authorized.',
+    },
   ],
 });
