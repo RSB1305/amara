@@ -477,6 +477,9 @@ const contextDestination: DestinationId | undefined =
       <StayHero
         imageSrc={heroImage}
         imageAlt={imageAlts[0] ?? t(rental.imageAlt)}
+        secondaryImageSrc={visibleImages[1]}
+        secondaryImageAlt={imageAlts[1] ?? t(rental.imageAlt)}
+        secondaryImageIndex={1}
         imageCount={rental.images.length}
         galleryLabel={`${t(ui.galleryTitle as LocalizedText)}: ${rental.name}`}
         eyebrow={t(rental.eyebrow)}
