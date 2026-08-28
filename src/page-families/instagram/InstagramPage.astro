@@ -1,6 +1,5 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import Navigation from '../../components/Navigation.astro';
 import AmaraImage from '../../components/AmaraImage.astro';
 import AmaraPageShell from '../../components/layout/AmaraPageShell.astro';
 import AmaraSection from '../../components/layout/AmaraSection.astro';
@@ -102,12 +101,7 @@ const instagramUrl = resolveOptionalLink('instagram', currentLang, { suppressMis
 const apartmentsHref = resolveOptionalLink('romantic_hideaways', currentLang, { suppressMissing: true });
 ---
 
-<BaseLayout seo={seo} pageLang={currentLang} pageFamily="instagram">
-  <Navigation
-    currentLang={currentLang}
-    currentToken="instagram_landing"
-  />
-
+<BaseLayout seo={seo} pageLang={currentLang} pageFamily="instagram" navigationCurrentToken="instagram_landing">
   <AmaraPageShell family="instagram" dataLang={currentLang} whiteCanvas>
     <AmaraSection variant="hero" divider={false} dataComponent="instagram-landing">
       <div class="grid grid-cols-1 gap-16 lg:grid-cols-12 lg:items-end lg:gap-12">

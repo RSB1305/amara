@@ -66,40 +66,33 @@ const visibleItems = activeId && !retainActiveItem
   : items;
 ---
 
-<div data-am-context-navigation-shell={groups.length > 0 ? '' : undefined}>
+<div data-am-context-navigation-shell={groups.length > 0 || branchGroups ? '' : undefined}>
   <div
     class="border-b border-outline-variant/10 bg-surface"
     data-am-context-navigation
-    data-am-context-navigation-grouped={groups.length > 0 ? '' : undefined}
+    data-am-context-navigation-grouped={groups.length > 0 || branchGroups ? '' : undefined}
     data-am-experience-context={context === 'experience' ? '' : undefined}
     data-am-location-context={context === 'location' ? '' : undefined}
   >
   <div
     class:list={[
       'mx-auto max-w-screen-2xl px-6 md:px-12',
-      groups.length > 0 || branchGroups ? 'py-1.5 xl:py-1' : 'py-5'
+      'py-1.5 xl:py-1'
     ]}
     data-am-context-inner
   >
     <div
       class:list={[
-        groups.length > 0 || branchGroups
-          ? 'grid min-h-10 grid-cols-1 items-center gap-x-3 gap-y-1 md:grid-cols-[minmax(0,1fr)_auto]'
-          : 'flex flex-col gap-5 xl:min-h-8',
-        groups.length > 0
-          ? undefined
-          : 'xl:flex-row xl:items-start xl:justify-between'
+        'grid min-h-10 grid-cols-[max-content_minmax(0,1fr)] items-center gap-x-3'
       ]}
-      data-am-context-layout={groups.length > 0 ? '' : undefined}
+      data-am-context-layout={groups.length > 0 || branchGroups ? '' : undefined}
     >
       {
         breadcrumbs.length > 0 && (
       <div
         class:list={[
           'min-w-0',
-          groups.length > 0 || branchGroups
-            ? 'overflow-hidden'
-            : 'flex flex-wrap items-center justify-between gap-x-8 gap-y-3'
+          'overflow-hidden'
         ]}
         data-am-context-breadcrumb-row
       >
@@ -107,11 +100,7 @@ const visibleItems = activeId && !retainActiveItem
           <ol
             class:list={[
               'flex w-full max-w-full items-center am-text-nav-breadcrumb text-on-surface/70',
-              branchGroups
-                ? 'min-w-0 flex-wrap gap-1 md:flex-nowrap md:gap-2'
-                : groups.length > 0
-                ? 'am-text-nav-breadcrumb--responsive min-w-0 flex-nowrap gap-1 md:gap-2'
-                : 'min-w-0 flex-nowrap gap-1 overflow-hidden md:gap-2'
+              'am-text-nav-breadcrumb--responsive min-w-0 flex-nowrap gap-1 overflow-hidden md:gap-2'
             ]}
           >
             {
@@ -131,7 +120,7 @@ const visibleItems = activeId && !retainActiveItem
                       <li
                         aria-hidden="true"
                         class="text-outline-variant/60"
-                        data-am-context-mobile-hidden={!branchGroups && index > 1 ? '' : undefined}
+                        data-am-context-mobile-hidden={index > 1 ? '' : undefined}
                       >
                         /
                       </li>
@@ -139,13 +128,13 @@ const visibleItems = activeId && !retainActiveItem
                     <li
                       aria-current={isCurrent ? 'page' : undefined}
                       class:list={[
-                        !branchGroups && 'truncate',
+                        'truncate',
                         (index === 0 || (index === 1 && !isCurrent)) && 'shrink-0',
                         isCurrent && 'min-w-0',
                         isCurrent && 'text-on-surface'
                       ]}
                       data-am-context-breadcrumb-current={isCurrent ? '' : undefined}
-                      data-am-context-mobile-hidden={!branchGroups && index > 1 ? '' : undefined}
+                      data-am-context-mobile-hidden={index > 1 ? '' : undefined}
                     >
                       {breadcrumb.href && !isCurrent ? (
                         <a
@@ -172,12 +161,9 @@ const visibleItems = activeId && !retainActiveItem
       {(branches.length > 0 || groups.length > 0 || visibleItems.length > 0) && (
       <div
         class:list={[
-          'flex min-w-0 gap-3',
-          groups.length > 0 || branchGroups
-            ? 'min-w-0 md:ml-auto'
-            : 'flex-col xl:ml-auto xl:items-end'
+          'ml-auto flex min-w-0 max-w-full gap-3 overflow-hidden'
         ]}
-        data-am-context-toolbar={groups.length > 0 ? '' : undefined}
+        data-am-context-toolbar={groups.length > 0 || branchGroups ? '' : undefined}
       >
         {branches.length > 0 && branchSwitcherAriaLabel && !branchGroups && (
           <DestinationBranchSwitcher
@@ -202,8 +188,9 @@ const visibleItems = activeId && !retainActiveItem
             navigationAriaLabel={switcherAriaLabel}
           />
         ) : visibleItems.length > 0 && (
-      <nav aria-label={switcherAriaLabel} class="min-w-0">
+      <nav aria-label={switcherAriaLabel} class="min-w-0 max-w-full">
         <ul
+          data-am-context-scroll-rail
           class:list={[
             'flex items-center gap-x-0.5 gap-y-1',
             wrapItems
@@ -265,8 +252,7 @@ const visibleItems = activeId && !retainActiveItem
       min-height: 53px;
     }
 
-    [data-am-context-navigation][data-am-context-navigation-grouped]
-      [data-am-context-mobile-hidden] {
+    [data-am-context-navigation] [data-am-context-mobile-hidden] {
       display: none;
     }
   }
@@ -275,14 +261,14 @@ const visibleItems = activeId && !retainActiveItem
     [data-am-context-layout] {
       display: grid;
       grid-template-columns: minmax(0, 1fr) minmax(0, 52rem);
-      align-items: start;
+      align-items: center;
       column-gap: 2rem;
     }
 
     [data-am-context-breadcrumb-row] {
       grid-column: 1;
       grid-row: 1;
-      padding-top: 0.5rem;
+      align-self: center;
     }
 
     [data-am-context-toolbar] {

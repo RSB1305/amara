@@ -6,6 +6,7 @@ import { trustLabels } from './trustLabels';
 
 interface AboutUsSection {
   title?: LocalizedText;
+  imageAlt?: LocalizedText;
   subtitle?: LocalizedText;
   lead?: LocalizedText;
   note?: LocalizedText;
@@ -202,6 +203,13 @@ export const aboutUsContent: AboutUsContent = {
   },
   philosophy: {
     title: { en: 'What guests can expect from us', de: 'Was ihr von uns erwarten könnt', es: 'Qué podéis esperar de nosotros', nl: 'Wat jullie van ons kunnen verwachten', sv: 'Vad ni kan förvänta er av oss' },
+    imageAlt: {
+      en: 'Colourful AMARA artwork with two painted hearts',
+      de: 'Farbenfrohes AMARA-Gemälde mit zwei gemalten Herzen',
+      es: 'Cuadro colorido de AMARA con dos corazones pintados',
+      nl: 'Kleurrijk AMARA-schilderij met twee geschilderde harten',
+      sv: 'Färgstark AMARA-målning med två målade hjärtan'
+    },
     lead: {
       en: 'Everything at AMARA starts with one question:',
       de: 'Bei AMARA beginnt alles mit einer einfachen Frage:',

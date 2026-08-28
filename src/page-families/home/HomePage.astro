@@ -1,6 +1,5 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import Navigation from '../../components/Navigation.astro';
 import StaySearchFinder from '../../components/booking/StaySearchFinder.astro';
 import HomeCinematicMain, { type CinematicFact } from '../../components/home/HomeCinematicMain.astro';
 import AmaraPageShell from '../../components/layout/AmaraPageShell.astro';
@@ -14,8 +13,6 @@ import {
   vacationRentalEntitiesByToken
 } from '../../content/vacationRentalEntities';
 import {
-  airbnbRatingLabel,
-  superhostLabel,
   travellerReviewAwardLabel,
   completedStaysLabel
 } from '../../content/reviewEvidence';
@@ -29,8 +26,8 @@ import {
   type CinematicAptToken,
   cinematicHeroKicker,
   cinematicHeroLead,
-  cinematicHeroImageAlt,
   cinematicHeroProofRating,
+  cinematicHeroDirectBenefitsLabel,
   cinematicHostLabel,
   cinematicHostAvatarAlt,
   cinematicWelcome,
@@ -66,10 +63,6 @@ import {
   cinematicTrustQuoteAttribution,
   cinematicTrustCta,
   cinematicTrustCtaPrimary,
-  cinematicStatReviewsValue,
-  cinematicStatRatingValue,
-  cinematicStatReviewsLabel,
-  cinematicStatRatingLabel,
   cinematicDirectEyebrow,
   cinematicDirectTitle,
   cinematicDirectCtaLabel,
@@ -94,16 +87,30 @@ const homeImageByToken: Record<CinematicAptToken, typeof imgHeroLounis> = {
   tarifa: imgTarifa
 };
 
-const heroImage = await createAmaraImage(imgHeroLounis, 'hero', { quality: 50 });
+const homeHeroSizes = '100vw';
+const heroTokens = ['lounis', 'maha', 'playa', 'tarifa'] as const;
+const heroImages = await Promise.all(
+  heroTokens.map(async (token) => {
+    const optimized = await createAmaraImage(homeImageByToken[token], 'hero', { quality: 50 });
+    return {
+      id: token,
+      src: optimized.src,
+      srcSet: optimized.srcSet.attribute,
+      sizes: homeHeroSizes,
+      width: optimized.attributes.width as number,
+      height: optimized.attributes.height as number
+    };
+  })
+);
+const heroImage = heroImages[0];
 const trustImage = await createAmaraImage(imgZaid, 'background', { quality: 55 });
 const hostAvatar = await createAmaraImage(imgHost, 'card', { quality: 60 });
-const homeHeroSizes = '100vw';
 
 interface Props {
   lang?: string;
 }
 
-const { lang = 'es' } = Astro.props;
+const { lang = 'es' } = Astro.props as Props;
 const currentLang = normalizeLanguage(lang as AmaraLanguage);
 
 const t = <T extends Record<AmaraLanguage, string>>(row: T) => row[currentLang] ?? row.en;
@@ -294,15 +301,22 @@ const directHref = resolveOptionalLink('direct_booking_benefits', currentLang, {
 const honeymoonHref = resolveOptionalLink('honeymoon', currentLang, { suppressMissing: true });
 const hostAboutHref = resolveOptionalLink('about', currentLang, { suppressMissing: true });
 
-/** The hero carries two signals only; the trust band holds the rest. */
-const heroProof = [t(superhostLabel), t(cinematicHeroProofRating)];
+/**
+ * The opening viewport answers three trust questions at once: Airbnb proof,
+ * Booking.com recognition and why the header's direct path is worthwhile.
+ * Later sections substantiate these summaries without repeating them verbatim.
+ */
+const heroProof = [
+  t(travellerReviewAwardLabel),
+  t(cinematicHeroProofRating)
+];
 
 /**
- * Evidence only. The two authored chips that used to follow — "concrete
- * property details" and "personal contact" — were claims rather than proof,
- * and the direct-booking band directly below already makes the second one.
+ * The Booking.com recognition now belongs to the opening proof strip. The
+ * later testimonial band keeps only the separate stay-volume signal, so it
+ * adds depth instead of restating the Hero.
  */
-const trustChips = [t(travellerReviewAwardLabel), t(completedStaysLabel)];
+const trustChips = [t(completedStaysLabel)];
 
 const directBenefits = [
   t(directBookingTrustSignals.lowestAvailablePrice),
@@ -317,12 +331,13 @@ const directBenefits = [
 const quoteTranslationNote = currentLang === 'de' ? null : t(cinematicQuoteTranslationNote);
 ---
 
-<BaseLayout seo={seo} pageLang={currentLang} pageFamily="home">
-  <Navigation
-    currentLang={currentLang}
-    languageToken="home"
-    appearance="overlay"
-  />
+<BaseLayout
+  seo={seo}
+  pageLang={currentLang}
+  pageFamily="home"
+  navigationLanguageToken="home"
+  navigationAppearance="overlay"
+>
   <AmaraPageShell
     family="home"
     dataLang={currentLang}
@@ -333,15 +348,11 @@ const quoteTranslationNote = currentLang === 'de' ? null : t(cinematicQuoteTrans
   >
     <div class="w-full pb-20">
       <HomeCinematicMain
-        heroImageSrc={heroImage.src}
-        heroImageSrcSet={heroImage.srcSet.attribute}
-        heroImageSizes={homeHeroSizes}
-        heroImageWidth={heroImage.attributes.width as number}
-        heroImageHeight={heroImage.attributes.height as number}
-        heroImageAlt={t(cinematicHeroImageAlt)}
+        heroImages={heroImages}
         heroKicker={t(cinematicHeroKicker)}
         heroLead={t(cinematicHeroLead)}
         heroProof={heroProof}
+        heroDirectBenefitsLabel={t(cinematicHeroDirectBenefitsLabel)}
         welcomeMessage={cinematicWelcome}
         hostAvatarSrc={hostAvatar.src}
         hostAvatarSrcSet={hostAvatar.srcSet.attribute}
@@ -355,10 +366,6 @@ const quoteTranslationNote = currentLang === 'de' ? null : t(cinematicQuoteTrans
         philosophyP1={t(cinematicPhilosophyP1)}
         positioningLabel={t(cinematicPositioningLabel)}
         positioningProofs={positioningProofs}
-        statReviewsValue={cinematicStatReviewsValue}
-        statRatingValue={t(cinematicStatRatingValue)}
-        statReviewsLabel={t(cinematicStatReviewsLabel)}
-        statRatingLabel={t(cinematicStatRatingLabel)}
         placesEyebrow={t(cinematicPlacesEyebrow)}
         placesTitle={t(cinematicPlacesTitle)}
         places={placesProps}

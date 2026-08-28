@@ -1,6 +1,5 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import Navigation from '../../components/Navigation.astro';
 import AmaraPageShell from '../../components/layout/AmaraPageShell.astro';
 import AmaraSection from '../../components/layout/AmaraSection.astro';
 import AmaraSectionIntro from '../../components/layout/AmaraSectionIntro.astro';
@@ -57,9 +56,9 @@ const destinationLinks = lastMinuteStaysCopy.destinations.map((destination) => (
   footerHighlights={footerHighlights}
   contextBreadcrumbTitle={t(lastMinuteStaysCopy.hero.title)}
   pageFamily="last-minute-stays"
+  navigationCurrentToken="last_minute_stays"
+  navigationLanguageToken="last_minute_stays"
 >
-  <Navigation currentLang={currentLang} currentToken="last_minute_stays" languageToken="last_minute_stays" />
-
   <AmaraPageShell family="last-minute-stays" dataLang={currentLang}>
     <AmaraSection variant="hero" labelledby="last-minute-title" dataComponent="last-minute-hero">
       <div class="max-w-4xl">

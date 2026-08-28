@@ -5,7 +5,6 @@
  */
 import type { ImageMetadata } from 'astro';
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import Navigation from '../../components/Navigation.astro';
 import TrustHero from '../../components/hero/TrustHero.astro';
 import AmaraPageShell from '../../components/layout/AmaraPageShell.astro';
 import AmaraSection from '../../components/layout/AmaraSection.astro';
@@ -671,12 +670,7 @@ const apartmentsWithLinks = apartmentRows.filter(
 );
 ---
 
-<BaseLayout seo={seo} pageLang={currentLang} footerHighlights={footerHighlights} pageFamily="romantic-hideaways">
-  <Navigation
-    currentLang={currentLang}
-    languageToken="romantic_hideaways"
-  />
-
+<BaseLayout seo={seo} pageLang={currentLang} footerHighlights={footerHighlights} pageFamily="romantic-hideaways" navigationLanguageToken="romantic_hideaways">
   <AmaraPageShell family="romantic-hideaways" dataLang={currentLang}>
     <AmaraSection variant="hero" dataComponent="stay-collection-hero">
       <TrustHero

@@ -11,6 +11,7 @@ import {
   getDestinationBranchNavigation,
   type DestinationId
 } from '../../lib/location/destinationBranchNavigation';
+import { getDestinationContextGroups } from '../../lib/location/destinationContextNavigation';
 import { defaultCtaShortLabels, globalCtaLabels } from './globalNavigationContent';
 import { resolveLink } from '../../lib/linkResolver';
 import type { AmaraLanguage } from '../../types/seo';
@@ -217,6 +218,9 @@ const items = isStay || isLegalDocument
 const branchNavigation = isStay && destination
   ? getDestinationBranchNavigation(destination, lang)
   : undefined;
+const branchGroups = isStay && destination
+  ? getDestinationContextGroups(destination, lang)
+  : undefined;
 const activeId = items.find(
   (item) => item.href !== undefined && normalizePath(item.href) === currentPath
 )?.id;
@@ -235,6 +239,7 @@ const breadcrumbs = isHome ? [] : [
   breadcrumbs={breadcrumbs}
   branches={branchNavigation?.items}
   branchSwitcherAriaLabel={branchNavigation?.ariaLabel}
+  branchGroups={branchGroups}
   context="experience"
   items={items}
   switcherAriaLabel={copy.switcher}
