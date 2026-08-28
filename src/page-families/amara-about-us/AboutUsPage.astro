@@ -99,17 +99,21 @@ const heroCtaLinks = page.hero.ctaLinks
     <div class="grid grid-cols-1 gap-[clamp(3rem,8vw,8rem)] md:grid-cols-[1.2fr_1.8fr]">
       <div class="relative self-start md:sticky md:top-8">
         <h2 class="am-text-title text-on-surface">{content.philosophy.title?.[currentLang] ?? ''}</h2>
-        <img
-          src={philosophyImage.src}
-          srcset={philosophyImage.srcSet.attribute}
-          sizes="(max-width: 767px) calc(100vw - 3rem), 20rem"
-          alt={content.philosophy.imageAlt?.[currentLang] ?? ''}
-          class="mt-10 h-auto w-full max-w-xs"
-          width={philosophyImage.attributes.width}
-          height={philosophyImage.attributes.height}
-          loading="lazy"
-          decoding="async"
-        />
+        <div class="am-mobile-full-bleed am-mobile-full-bleed--fluid mt-10 w-full max-w-[400px] mx-auto lg:mx-0 lg:max-w-none">
+          <div class="aspect-[4/5] w-full overflow-hidden bg-surface-container-low">
+            <img
+              src={philosophyImage.src}
+              srcset={philosophyImage.srcSet.attribute}
+              sizes="(max-width: 639px) 90vw, 40vw"
+              alt={content.philosophy.imageAlt?.[currentLang] ?? ''}
+              class="h-full w-full object-cover object-bottom"
+              width={philosophyImage.attributes.width}
+              height={philosophyImage.attributes.height}
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
+        </div>
       </div>
       <div class="flex max-w-[65ch] flex-col gap-6">
         <p class="am-text-subtitle text-on-surface mb-8">
