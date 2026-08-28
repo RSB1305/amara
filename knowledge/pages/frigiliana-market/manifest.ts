@@ -22,16 +22,24 @@ export const frigilianaMarketKnowledge = defineKnowledgePageManifest({
     {
       authoringArea: 'direct-answer-and-outing-job',
       purpose: 'Answer whether the weekly market is worth making part of a Thursday morning and what must be checked before relying on it.',
-      factIds: ['frigiliana.shopping.mercadillo.thursday-reference'],
+      factIds: [
+        'frigiliana.shopping.mercadillo.thursday-reference',
+        'frigiliana.shopping.mercadillo.municipal-stall-forms',
+        'frigiliana.shopping.mercadillo.current-listing-conflict',
+      ],
       status: 'gap',
-      notes: 'Thursday is only partially supported. The current page’s morning schedule, location, stall mix, scale and reliability are not yet authorized.',
+      notes: 'Thursday and a municipal stall-application route are supported, but current directories conflict on location. The current page’s morning schedule, location, stall mix, scale and reliability are not yet authorized.',
     },
     {
       authoringArea: 'day-time-location-and-cancellation',
       purpose: 'Publish the operating basics only from a current market authority and preserve holiday, weather and event-change logic.',
-      factIds: ['frigiliana.shopping.mercadillo.thursday-reference'],
+      factIds: [
+        'frigiliana.shopping.mercadillo.thursday-reference',
+        'frigiliana.shopping.mercadillo.municipal-stall-forms',
+        'frigiliana.shopping.mercadillo.current-listing-conflict',
+      ],
       status: 'gap',
-      notes: 'The current 08:00–14:00 time, Plaza de las Tres Culturas location, lower-village position, regular weekly operation and cancellation conditions remain unverified.',
+      notes: 'The current 08:00–14:00 time, Plaza de las Tres Culturas location, lower-village position, regular weekly operation and cancellation conditions remain unverified. Current non-official listings instead agree on 09:00–14:00 but disagree between Avenida Carlos Cano and Plaza de las Tres Culturas.',
     },
     {
       authoringArea: 'market-format-and-stall-mix',
@@ -114,9 +122,13 @@ export const frigilianaMarketKnowledge = defineKnowledgePageManifest({
     {
       authoringArea: 'live-information-and-faq',
       purpose: 'Tell guests which details must be checked live and name the authority that governs them.',
-      factIds: ['frigiliana.shopping.mercadillo.thursday-reference'],
+      factIds: [
+        'frigiliana.shopping.mercadillo.thursday-reference',
+        'frigiliana.shopping.mercadillo.municipal-stall-forms',
+        'frigiliana.shopping.mercadillo.current-listing-conflict',
+      ],
       status: 'gap',
-      notes: 'A current market authority, exact update channel and cancellation source are still missing; generic “check locally” wording does not close the evidence gap.',
+      notes: 'The Ayuntamiento is now identified as the administrative route and publishes a contact path, but no current market notice or cancellation source was found. Generic “check locally” wording does not close the evidence gap.',
     },
     {
       authoringArea: 'closing-and-next-step',

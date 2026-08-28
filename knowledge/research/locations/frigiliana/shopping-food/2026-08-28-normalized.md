@@ -12,15 +12,15 @@ public: false
 
 ## Result
 
-The Drive report remains the immutable discovery artifact. Five shopping facts and two food facts were adopted after original-source checks. They establish a bounded starting network in Frigiliana and protect the distinction between everyday shopping, the weekly market, regional provenance, recipes and property-specific cooking reality.
+The Drive report remains the immutable discovery artifact. Seven shopping facts and two food facts were adopted after original-source checks and a focused live-authority follow-up. They establish a bounded starting network in Frigiliana and protect the distinction between everyday shopping, the weekly market, regional provenance, recipes and property-specific cooking reality.
 
 The run did not verify enough to publish opening hours, a Nerja arrival-shopping route, a current market profile, seasonal stock, an AMARA recipe or a claim that every apartment supports the same preparation.
 
 ## Canonical knowledge added
 
-- `facts/locations/frigiliana/supermarkets.ts`: five shopping and market-boundary facts.
+- `facts/locations/frigiliana/supermarkets.ts`: seven shopping and market-boundary facts.
 - `facts/locations/frigiliana/agriculture-food.ts`: two food facts added to the existing food owner.
-- `sources/locations/frigilianaShoppingSources.ts`: eight source records.
+- `sources/locations/frigilianaShoppingSources.ts`: eleven source records.
 - `open-questions/locations/frigiliana/supermarkets.ts`: four focused gaps added.
 - `pages/frigiliana-supermarkets/manifest.ts`: the verified shopping set is now partially available to the Location page; host and arrival guidance remain gaps.
 
@@ -32,11 +32,19 @@ The run did not verify enough to publish opening hours, a Nerja arrival-shopping
 | Supermarket Silvia | Municipal address and described grocery role | Current operation and stock need direct or field confirmation |
 | García Berroa | Municipal address and described grocery/local-product role | Current operation, stock and product provenance remain open |
 | El Lagar | Municipal address and examples of regional products | Current stock and opening remain open; local sale is not local origin |
-| Thursday market | Thursday is partially supported by current municipal text | Authority, location, hours, cancellations and vendor mix are unresolved |
+| Thursday market | Thursday is partially supported by current municipal text; the Ayuntamiento currently publishes two stall-application forms | The forms do not establish current operation; location, hours, cancellations and vendor mix remain unresolved |
 | Traditional food | Municipal tourism associates choto, potajes, migas and miel de caña uses with Frigiliana | No current restaurant, recipe or AMARA-kitchen claim follows automatically |
 | El Ingenio / miel de caña | Municipal and producer sources identify current production at El Ingenio | Raw-cane origin, public access, volume and continuous operation are not verified |
 
 The 2019 municipal market permits show that mixed non-food stalls existed historically. They are retained as source context only and are not promoted into a current market fact.
+
+## Focused market authority check — 2026-08-28
+
+- The current Ayuntamiento forms page provides a market-stall application and responsible declaration under `Comercio ambulante`. This establishes a municipal administrative route, not a current visitor schedule.
+- A current municipal business entry independently refers to Thursday as market day. It still does not state the market location, hours, cancellation logic or current offer.
+- Two current non-official directories both state Thursday 09:00–14:00, but one places the market on Avenida Carlos Cano while the other places it at Plaza de las Tres Culturas and labels its own record unverified.
+- Neither directory is promoted into a public fact. The existing public claim of 08:00–14:00 at Plaza de las Tres Culturas also remains unauthorized by the current official evidence set.
+- The remaining operational gap is now narrow: obtain dated written confirmation from the Ayuntamiento or responsible market authority, then perform a dated field check for the guest-facing route, scale and offer.
 
 ## Connection readiness
 
@@ -68,7 +76,7 @@ The supermarket page may introduce why private cooking matters, but it must not 
 ## HUMAN INPUT REQUIRED
 
 1. Record the actual shopping route from Casa AMARA with and without a car.
-2. Confirm market operation and the shops through a dated field check.
+2. Obtain dated written market-operation confirmation from the Ayuntamiento or responsible authority, then verify it through a dated field check.
 3. Complete a four-apartment kitchen capability matrix and test any proposed simple preparation.
 4. Identify which combinations Robert can truthfully describe as a personal host recommendation.
 
@@ -80,7 +88,7 @@ The supermarket page may introduce why private cooking matters, but it must not 
 | Atomicity | 5 | Shop identity, market timing, provenance and kitchen claims remain separate. |
 | Claim boundaries | 5 | Hours, stock, origin and property applicability are explicitly bounded. |
 | Freshness | 4 | Access date is current, but the market and smaller-shop operation need field checks. |
-| Conflict handling | 5 | Historical mixed-market evidence is not misused as current proof. |
+| Conflict handling | 5 | Historical evidence and conflicting current directories are not misused as current proof. |
 | Guest utility | 3 | A starting network exists; route and arrival scenarios remain missing. |
 | Connection readiness | 3 | The content logic is clear, but recipes and property evidence are incomplete. |
 | First-party integrity | 5 | No researched recipe or experience is presented as AMARA’s own. |

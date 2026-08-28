@@ -74,6 +74,34 @@ const facts = [
     claimBoundary:
       'The incidental reference does not verify current hours, exact location, cancellations, authority or vendor mix and does not support calling it a farmers’ market.',
   },
+  {
+    id: 'frigiliana.shopping.mercadillo.municipal-stall-forms',
+    subject: 'frigiliana',
+    topic: 'supermarkets-everyday-shopping',
+    statement:
+      'The current Ayuntamiento download page provides an application form and a responsible-declaration form for a market stall under ambulant commerce.',
+    status: 'verified',
+    sourceIds: ['frigiliana-municipality-market-stall-forms-2026'],
+    checkedAt: '2026-08-28',
+    reviewAfter: '2026-11-28',
+    volatility: 'high',
+    claimBoundary:
+      'The forms identify a municipal administrative route only. They do not prove that a particular Thursday market will take place or establish its current location, hours, cancellations or vendor mix.',
+  },
+  {
+    id: 'frigiliana.shopping.mercadillo.current-listing-conflict',
+    subject: 'frigiliana',
+    topic: 'supermarkets-everyday-shopping',
+    statement:
+      'Two current non-official market listings agree on Thursday and 09:00–14:00 but disagree on the location: one names Avenida Carlos Cano and the other Plaza de las Tres Culturas; the latter labels its record unverified.',
+    status: 'disputed',
+    sourceIds: ['mercadillos-net-frigiliana-listing-2026', 'appmercat-frigiliana-listing-2026'],
+    checkedAt: '2026-08-28',
+    reviewAfter: '2026-09-28',
+    volatility: 'high',
+    claimBoundary:
+      'This conflict is internal evidence against publishing either listing as fact. Exact current location, hours, frequency and operation require dated confirmation from the Ayuntamiento or the responsible market authority.',
+  },
 ] as const satisfies readonly FactInput[];
 
 export const frigilianaSupermarketFacts = defineKnowledgeFacts(facts);
