@@ -8,6 +8,7 @@ import AmaraFormControl from '../forms/AmaraFormControl.astro';
 
 interface Props {
   id?: string;
+  embedded?: boolean;
   lang: AmaraLanguage;
   bookingKey: VacationRentalBookingKey;
   stayName: string;
@@ -24,6 +25,7 @@ type LocalizedText = Record<AmaraLanguage, string>;
 
 const {
   id,
+  embedded = false,
   lang,
   bookingKey,
   stayName,
@@ -273,7 +275,13 @@ const guestOptions = Array.from({ length: occupancy }, (_, index) => index + 1);
 const titleId = `${bookingKey}-booking-calendar-title`;
 ---
 
-<AmaraSection id={id} labelledby={titleId} dataComponent="stay-booking-calendar">
+<AmaraSection
+  id={id}
+  labelledby={titleId}
+  dataComponent="stay-booking-calendar"
+  divider={!embedded}
+  class={embedded ? 'am-stay-booking-calendar--embedded' : undefined}
+>
   <div
     data-am-stay-booking-calendar
     data-am-booking-stay={bookingKey}
@@ -413,6 +421,11 @@ const titleId = `${bookingKey}-booking-calendar-title`;
   [data-am-component='stay-booking-calendar'],
   [data-am-stay-booking-calendar] {
     scroll-margin-top: 7rem;
+  }
+
+  .am-stay-booking-calendar--embedded {
+    padding-top: var(--spacing-page-section-compact);
+    padding-bottom: 0;
   }
 
   .am-stay-booking-calendar__panel,
