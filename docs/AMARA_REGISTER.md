@@ -1,12 +1,12 @@
 ---
 document_id: AMARA-REG-001
 title: AMARA Register
-version: 1.41.0
+version: 1.42.0
 status: ACTIVE
 authority_class: LIVING BINDING REGISTER
 activation_state: ACTIVE
 effective_from: 2026-08-14
-last_modified: 2026-08-28T07:08:21+02:00
+last_modified: 2026-08-28T18:00:00Z
 canonical_path: /docs/AMARA_REGISTER.md
 ---
 
@@ -22,12 +22,12 @@ The AMARA Register is the single source for active documents, authority classes,
 |---|---|---|---|---|
 | 01 | AMARA System Constitution | 5.2.0 ACTIVE | PRINCIPLE / governing | `docs/standards/01_AMARA_System_Constitution_V5.md` |
 | 02 | AMARA Astro & Design Architecture Contract | 4.18.0 ACTIVE INTERIM | CONTRACT / governing | `docs/interim/03_AMARA_Astro_Technical_Standard_V4.md` + current repository implementation |
-| 03 | AMARA Runtime, SEO & Data Contract | 4.2.0 ACTIVE INTERIM | CONTRACT / governing | `docs/interim/04_AMARA_Runtime_and_SEO_Standard_V4.md` + current repository implementation |
+| 03 | AMARA Runtime, SEO & Data Contract | 4.3.0 ACTIVE INTERIM | CONTRACT / governing | `docs/interim/04_AMARA_Runtime_and_SEO_Standard_V4.md` + current repository implementation |
 | 04 | AMARA URL, Route & Link Contract | PENDING Package 2 | CONTRACT / governing | Interim snapshot: `docs/interim/05_AMARA_URL_and_Route_Infrastructure_V4.md` + Decision Register |
 | 05 | AMARA Governance, Execution & Documentation Lifecycle | 5.7.0 ACTIVE | CONTRACT / governing | `docs/standards/05_AMARA_Governance_Execution_and_Documentation_Lifecycle_V5.md` |
 | 06 | AMARA Performance & Delivery Standard | 2.1.0 ACTIVE INTERIM | PRINCIPLE/CONTRACT / governing | `docs/interim/07_AMARA_Performance_Standard_V2.md` |
 | 07 | AMARA Register | 1.41.0 ACTIVE | LIVING BINDING REGISTER | `docs/AMARA_REGISTER.md` |
-| 08 | AMARA Guest Utility Feature Contract | 2.1.0 ACTIVE INTERIM | FEATURE CONTRACT | `docs/interim/08_AMARA_Guest_Utility_Architecture_V2.md` |
+| 08 | AMARA Guest Utility Feature Contract | 2.2.0 ACTIVE INTERIM | FEATURE CONTRACT | `docs/interim/08_AMARA_Guest_Utility_Architecture_V2.md` |
 | 09 | AMARA Content Production & Localization Playbook | 1.5.0 ACTIVE INTERIM | OPERATIONAL PLAYBOOK / non-governing | `docs/interim/10_AMARA_Content_Production_and_Localization_Playbook_V1_2.md` |
 | 10 | AMARA Frigiliana–Nerja SEO Strategy | PENDING Package 2/3 | WORKING STRATEGY / non-governing | Interim snapshot: `docs/interim/09_AMARA_Frigiliana_Nerja_SEO_Strategy_V2_1.md` |
 
@@ -84,6 +84,7 @@ Current operational feature owner during transition:
 | DR-WEATHER-001 | The statically generated Frigiliana, Nerja and Tarifa Weather pages may progressively consume only their fixed GET-only Cloudflare Pages Functions at `/api/weather/frigiliana`, `/api/weather/nerja` and `/api/weather/tarifa`. The functions alone own the server-side AEMET key, fixed municipality mapping, provider fetch, temporary-host validation, normalization and per-destination caching; the public response contains only the forecast values and attribution needed by the visible three-day component. Failure preserves each static climate page and falls back to its official source. This decision grants no runtime scope to another page or destination by implication. | ACTIVE CURRENT IMPLEMENTATION |
 | DR-RUNTIME-001 | BaseLayout plus the central SEO head resolver remain the sole normal public head owner. | ACTIVE CURRENT IMPLEMENTATION |
 | DR-RUNTIME-002 | `resolveStructuredData()` remains the normal sole JSON-LD owner. | ACTIVE CURRENT IMPLEMENTATION |
+| DR-SEC-001 | Cloudflare Pages applies the active standard security headers to normal public, Guest Utility, legal and booking-entry documents. The resource-origin inventory is introduced only as `Content-Security-Policy-Report-Only`; CSP enforcement remains a separate explicit decision after representative compatibility validation. | ACTIVE CURRENT IMPLEMENTATION |
 | DR-LINK-001 | Registry token + resolver remain the authored semantic internal-link contract. | ACTIVE CURRENT IMPLEMENTATION |
 | DR-SCHEMA-001 | Collection/ItemList schema is not mandatory; any implementation must reflect visible real items and stay in the central resolver. | ACTIVE CURRENT DECISION |
 | DR-UTILITY-001 | Guest Guide remains a separate noindex utility shell and is not a Type D conversion surface by principle. | APPROVED; code reconciliation pending |
@@ -159,6 +160,7 @@ They do **not** supersede the current implementation. Until a separately aligned
 | DR-IA-004 | Experience uses the shared AMARA design family but keeps a destination-specific editorial taxonomy and page inventory. A full narrative has one canonical public owner for its primary intent, while verified facts may be projected into more than one page without duplicating the knowledge record. | ACTIVE |
 | DR-IA-005 | Within **Daily Life & Essentials**, **Supermarkets & Everyday Shopping** is a Location planning topic; a weekly market or market visit as an outing remains an Experience topic. Location may include only the bounded market facts that materially affect everyday shopping or access. The three Daily Life topic families may share one Mobile-First semantic template across destinations, with topic- and destination-specific optional modules. Existing Daily Life routes remain overview hubs; each standalone topic route still requires the evidence and durable-job test in DR-IA-003. | ACTIVE |
 | DR-GUEST-001 | Public destination pages must satisfy their durable search, trust and pre-booking planning job from direct entry. The Digital Guest Guide is the deeper operational layer for booked guests, including property-specific routes, current contacts and checks, concrete host recommendations and stay instructions. Public pages may use one native contextual transition block after their useful core to explain that deeper guidance follows after booking and to offer the approved booking/availability path. Essential safety information and material booking limitations must not be withheld behind Guest Guide access. | ACTIVE |
+| DR-GUEST-002 | Guest Guides remain static, anonymously link-reachable, `noindex` and outside public sitemaps. Because noindex is not access control, public Guest output may retain non-sensitive operational information but must not contain Wi-Fi or router credentials, doorbell numbers, real building-access/key-box/alarm codes, exact physical-key locations or personal booking/guest data. | ACTIVE CURRENT IMPLEMENTATION |
 
 ### Analytics/measurement
 
@@ -304,3 +306,4 @@ Separate controlled workstreams remain for:
 | 1.38.0 | 2026-08-27T13:11:27+02:00 | Registered Governance 5.6.0 and activated the bounded Parallel Traffic Check for declared parallel-agent work. | this revision |
 | 1.39.0 | 2026-08-27T14:18:49+02:00 | Activated the fixed server-side AEMET forecast boundary for the static Frigiliana Weather page and registered Runtime Standard 4.1.0. | this revision |
 | 1.40.0 | 2026-08-28T06:28:44+02:00 | Extended the fixed server-side AEMET forecast boundary to the Frigiliana, Nerja and Tarifa Weather pages and registered Runtime Standard 4.2.0. | this revision |
+| 1.42.0 | 2026-08-28T18:00:00Z | Activated the anonymous-link Guest Utility content boundary and the standard Cloudflare Pages security headers, with CSP remaining report-only. Guest Utility 2.2.0 and Runtime Standard 4.3.0. | this revision |
