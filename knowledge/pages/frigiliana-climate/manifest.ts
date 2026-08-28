@@ -5,7 +5,7 @@ export const frigilianaClimateKnowledge = defineKnowledgePageManifest({
   destination: 'frigiliana',
   topic: 'climate-seasons',
   createdAt: '2026-08-21T14:24:23+02:00',
-  updatedAt: '2026-08-28T16:00:00+02:00',
+  updatedAt: '2026-08-28T22:00:00+02:00',
   status: 'needs-review',
   driveFolder: {
     id: '1EQa8NwKyKEG9HuzNwLBwe2D6VjItYT3v',
@@ -20,11 +20,11 @@ export const frigilianaClimateKnowledge = defineKnowledgePageManifest({
   ],
   coverage: [
     { authoringArea: 'climate-at-a-glance', purpose: 'State the long-term pattern and climate-versus-weather boundary.', factIds: ['frigiliana.climate.regional-proxy.malaga-airport-method', 'frigiliana.climate.regional-proxy.seasonal-contrast'], status: 'partial', notes: 'Official regional proxy available; genuinely local Frigiliana series remains open.' },
-    { authoringArea: 'monthly-data', purpose: 'Use defined, representative and methodologically transparent monthly variables.', factIds: ['frigiliana.climate.regional-proxy.malaga-airport-method', 'frigiliana.climate.regional-proxy.malaga-airport-annual-normal', 'frigiliana.climate.local-method.era5-land-candidate'], status: 'gap', notes: 'The ERA5-Land run returned a reproducible method and script, but no authenticated raw download or calculated values. The regional proxy cannot validate the current identical Frigiliana/Nerja monthly values.' },
+    { authoringArea: 'monthly-data', purpose: 'Use only defined, representative and methodologically transparent monthly variables when the page job actually requires them.', factIds: ['frigiliana.climate.regional-proxy.malaga-airport-method', 'frigiliana.climate.regional-proxy.malaga-airport-annual-normal', 'frigiliana.climate.local-method.era5-land-candidate'], status: 'partial', notes: 'The regional proxy supports bounded seasonal context but cannot validate the current identical Frigiliana/Nerja monthly values. Exact local monthly climatology is not required for the first connected-authoring batch; the unexecuted ERA5-Land method remains archived rather than an active blocker.' },
     { authoringArea: 'four-seasons', purpose: 'Describe spring, summer, autumn and winter without forecast or guarantee language.', factIds: ['frigiliana.climate.regional-proxy.seasonal-contrast'], status: 'partial' },
-    { authoringArea: 'local-difference', purpose: 'Bound hillside, elevation, exposure and shade claims to suitable evidence.', factIds: ['frigiliana.climate.local-method.era5-land-candidate'], status: 'gap', notes: 'The 0.1° gridded method can compare declared cells but cannot resolve property microclimate, individual streets or every terrain exposure.' },
+    { authoringArea: 'local-difference', purpose: 'Prevent hillside, elevation, exposure and shade from being presented as measured property microclimate.', factIds: ['frigiliana.climate.local-method.era5-land-candidate'], status: 'excluded', notes: 'The 0.1° gridded method cannot resolve property microclimate, individual streets or every terrain exposure. No such precision is required for the current page job.' },
     { authoringArea: 'travel-fit', purpose: 'Translate verified patterns into conditional date and day-planning guidance.', factIds: ['frigiliana.climate.regional-proxy.seasonal-contrast'], status: 'partial', notes: 'Only conditional regional implications are supported; route and beach owners retain current-condition decisions.' },
     { authoringArea: 'amara-by-season', purpose: 'Keep Casa AMARA comfort claims separate from destination climate evidence.', factIds: [], status: 'gap' },
-    { authoringArea: 'sources-method-forecast', purpose: 'Expose datasets, definitions, limitations and the official current forecast.', factIds: ['frigiliana.climate.regional-proxy.malaga-airport-method', 'frigiliana.climate.local-method.era5-land-candidate'], status: 'partial', notes: 'The regional proxy, destination reference points and extraction method are explicit. CDS authentication, raw-data execution, returned-grid verification and AEMET validation remain unresolved.' },
+    { authoringArea: 'sources-method-forecast', purpose: 'Expose datasets, definitions, limitations and the official current forecast.', factIds: ['frigiliana.climate.regional-proxy.malaga-airport-method', 'frigiliana.climate.local-method.era5-land-candidate'], status: 'partial', notes: 'The regional proxy and its limitations are explicit. The ERA5-Land method is archived and not an active publication dependency. The official current forecast and warnings must still be checked at publication or use time.' },
   ],
 });

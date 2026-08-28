@@ -38,7 +38,7 @@ The reason is no longer a lack of pages. The remaining work is ownership and evi
 2. Climate, parking, winter stays, supermarkets, health and practical rules have manifests, but remain partial or contain explicit evidence gaps.
 3. Beaches, hiking and restaurants now have normalized facts, open questions and page manifests. Their stable baselines are mapped; live conditions, first-party combinations and route/return evidence remain partial.
 4. The public Daily Life page contains precise shop, route, opening and AMARA recommendation claims that are ahead of the normalized Frigiliana shopping evidence.
-5. The Market, Festivals, Day Trips, Wellness, Weddings and Dos Tumbas pages still have no corresponding page-coverage manifests in `knowledge/pages/`.
+5. Old Town and Market now have page-coverage manifests. Festivals, Day Trips, Wellness, Weddings and Dos Tumbas still have no corresponding manifests in `knowledge/pages/`.
 6. The current Experience Hub repeats selection through `editorial`, `moods`, `catalog` and story units, contains a Nerja-nightlife narrative without a Frigiliana knowledge owner, and carries a village-versus-coast stay decision that belongs to Location.
 7. Casa AMARA has seven evaluated first-party facts. They support truthful, bounded projections about location, access and three private terraces. They do not yet support exact trailhead, parking-to-door, shopping-route, winter-sun or restaurant-combination stories.
 
@@ -103,6 +103,8 @@ Excluded from this pilot map: `/frigiliana-hospitality-property-for-sale`. It is
 
 These are content dependencies, not instructions to add links now. Each row requires both the source statement and the target answer before a contextual link is useful.
 
+The operational subset for the first pilot is maintained in [`2026-08-28__frigiliana-connection-map.md`](./2026-08-28__frigiliana-connection-map.md). It is the compact working map for authoring order; the broader table below preserves the ownership rationale.
+
 | Source owner | Required source statement | Next guest question | Target owner and required target content | Concrete guest consequence | Reciprocal projection |
 |---|---|---|---|---|---|
 | Weather | Seasonal pattern changes which hours and activities are comfortable; today’s forecast remains separate | What does that mean for a specific walk? | Hiking: route exposure, duration, start-time logic and live-condition check | Choose a route and time instead of treating a season as a safety guarantee | Hiking returns to Weather for forecast/warnings, not climate duplication |
@@ -158,12 +160,14 @@ The FAQ should receive a projection-only manifest after these owners are stable.
 
 ### C. High-priority external verification
 
-1. A genuinely local Frigiliana monthly climate method and comparable Nerja method.
-2. Live route/closure authority for all four hikes.
+1. Live route/closure authority for all four hikes.
+2. Current sea-state/wind authority for beach-day decisions.
 3. Current market location, hours, cancellation logic and vendor mix.
 4. Current restaurant operation and reservation constraints.
 5. Current parking rules, garage terms and accessible route.
 6. Current shop operation, opening logic and larger-arrival-shopping set.
+
+A genuinely local monthly climate series is no longer a first-pilot blocker. The evaluated regional seasonal pattern can support bounded planning guidance, while current decisions remain with the official forecast and the relevant activity owner. ERA5 extraction and property-level microclimate precision are out of scope unless a later approved page claim specifically requires them.
 
 ## 7. Repository consistency after the first coverage repair
 
@@ -187,7 +191,7 @@ Only three material decisions remain before the first authoring package:
 ## 9. Recommended execution order after review
 
 1. Collect the small operator evidence packs that unblock the first high-value connections: AMARA route logs, restaurant/evening combinations, shopping route and per-unit kitchen/winter facts.
-2. Run only targeted external gap research for local climate method, live route authority, market operation and volatile venue/shop facts.
+2. Run only targeted external checks for live route and sea conditions, market operation and volatile venue/shop facts. Do not reopen broad local-climate extraction without a specific approved claim that needs it.
 3. Produce one German authoring brief per approved page owner, with exact fact IDs, claim boundaries, required transitions and prohibited duplication.
 4. Revise public content owner by owner; implement contextual links only inside the same approved authoring package.
 5. Validate five-language semantic parity, rendered page structure and local preview before integration.
