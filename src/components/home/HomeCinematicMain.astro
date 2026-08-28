@@ -581,7 +581,7 @@ const hasPlaces = places.length > 0;
         <div class="mx-auto flex max-w-screen-xl flex-col items-start gap-6 px-6 md:flex-row md:items-center md:justify-between md:px-12">
           <div>
             <span class="mb-3 block am-text-caption uppercase tracking-widest text-primary">{honeymoonEyebrow}</span>
-            <h2 class="max-w-xl am-text-subtitle text-on-surface">{honeymoonTitle}</h2>
+            <h2 class="am-home-honeymoon-title max-w-xl am-text-subtitle text-on-surface"><InlineEmphasis text={honeymoonTitle} /></h2>
           </div>
           <AmaraActionLink href={honeymoonHref} variant="editorial" class="am-cta-link--accent shrink-0">
             {honeymoonCtaLabel}
@@ -593,6 +593,10 @@ const hasPlaces = places.length > 0;
 </div>
 
 <style>
+  .am-home-honeymoon-title :global(strong) {
+    font-weight: 700;
+  }
+
   .am-home-hero-direct-link {
     --color-on-surface: var(--color-inverted-on-surface);
     --color-border-subtle: color-mix(in srgb, var(--color-inverted-on-surface) 45%, transparent);

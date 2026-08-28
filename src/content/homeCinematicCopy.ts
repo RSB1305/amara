@@ -736,7 +736,7 @@ export const cinematicHoneymoonEyebrow: CopyRow = {
 };
 
 export const cinematicHoneymoonTitle: CopyRow = {
-  en: 'Planning the first trip as a married couple?',
+  en: 'Planning the first trip as a **just\u00a0married**\u00a0❤︎ couple?',
   de: 'Plant ihr die erste Reise als Ehepaar?',
   es: '¿Estáis planeando el primer viaje como pareja casada?',
   nl: 'Plannen jullie de eerste reis als getrouwd stel?',
