@@ -35,7 +35,7 @@ Renderer: `src/page-families/location-authority/FrigilianaLocationPage.astro`
 | `seasons` | **Auf eine begrenzte Planungseinordnung reduzieren** | Nur regional belegte Saisonunterschiede und Übergang zu Weather. Keine lokalen Monatswerte und keine vollständigen Heizungs-/Pelletofenbehauptungen im Location Owner. |
 | `planning` | **Als Linkverzeichnis entfernen oder stark reduzieren** | Die derzeit elf Ziele wirken als generische Related-Liste. Fachlinks gehören an die Stelle, an der die nächste Gastfrage entsteht. Kein Ersatz durch eine neue N×N-Linkfläche. |
 | `journeyBridge` | **Vorläufig entfernen** | Day Trips ist noch nicht authoring-ready; Málaga, Granada, Ronda, Caminito und Reisezeiten gehören nicht in diesen ersten Piloten. |
-| `exploreBridge` | **Behalten und zum Hauptübergang machen** | Erst Location-Fazit, dann Frage nach der gewünschten Tagesform, anschließend genau ein Übergang zum Experience Hub. Keine Aufzählung sämtlicher Guides. |
+| `exploreBridge` | **Behalten und zum Hauptübergang machen** | Erst Location-Fazit, dann der narrative Wechsel „Der Ort steht fest – wie soll sich euer Tag anfühlen?“. Der CTA verwendet den bestehenden Experience-Link und ergänzt lokal den Anker der einzigen Auswahlfläche; keine Link-Registry-Änderung und keine Aufzählung sämtlicher Guides. |
 | `decision` und Conversion | **Behalten und verkürzen** | Bedingte Eignung von Frigiliana als Basis, danach eine AMARA-Auswahl. Keine Wiederholung von Nerja-Vergleich, Property-Inventar oder mehreren konkurrierenden CTAs. |
 
 ## Experience Hub — Abschnittsentscheidungen
@@ -48,9 +48,9 @@ Aktuell rendert die Page Family nacheinander Hero, eine redaktionelle Dreierausw
 | Bestehender Bereich | Entscheidung | Konkrete Grenze |
 |---|---|---|
 | SEO und Hero | **Behalten und auf die Gastfrage ausrichten** | Direkte Antwort: gemeinsame Urlaubstage aus einer variablen Auswahl gestalten. Keine unvollständig belegte Gesamtliste aus Wandern, Restaurants, Festen, Markt, Wellness und Ausflügen. |
-| `editorial` | **In die einzige Auswahlfläche integrieren** | Die priorisierte Auswahl darf redaktionelle Gewichtung liefern, aber nicht zusätzlich zur Hauptauswahl gerendert werden. |
-| `moods` | **Prinzip bewahren, Darstellung integrieren** | Die vorhandene sprachindividuelle Kuratierung (`MARKET_CURATED`) bleibt technisch erhalten. Sie darf Reihenfolge und Ansprache pro Sprache bestimmen, erzeugt jedoch keine zweite Linkfläche. |
-| `catalog` | **Zur einzigen kuratierten Auswahlfläche machen** | Jede freigegebene Tagesform erscheint genau einmal. Im ersten Authoring-Paket: Wandern, Strände, Essen/Abend und Old Town. |
+| `editorial` | **Als einzige visuelle Auswahlfläche behalten** | Die vorhandene Magazinfläche bewahrt Bilder und längere redaktionelle Teaser. Sie wird nicht mehr durch Mood- und Grid-Auswahl wiederholt und bezieht ihre sichtbare Reihenfolge aus `catalog.order` statt aus einem zweiten `featuredIds`-Owner. |
+| `moods` | **Logik übernehmen, eigene Fläche entfernen** | Die sprachindividuelle Kuratierung (`MARKET_CURATED`) bleibt als redaktionelle Anforderung erhalten. Reihenfolge und Ansprache dürfen pro Sprache variieren, erzeugen aber keine zweite Navigation oder neue `draft`-/`hidden`-Logik. |
+| `catalog` | **Zum kanonischen Auswahl- und Reihenfolge-Owner machen** | `catalog.order` darf TypeScript-seitig einzelne `ExperienceId`-Werte auslassen. Die vollständigen Definitionen können zunächst dormant bestehen bleiben; nur Werte in `catalog.order` werden gerendert und von der Destination Context Navigation konsumiert. Im ersten Authoring-Paket sichtbar: Wandern, Strände, Essen/Abend und Old Town. |
 | `stories.hiking` | **Behalten und begrenzen** | Wahl nach Einsatz und Bedingungen; vollständige Route und Sicherheit bleiben bei Hiking. |
 | `stories.beaches` | **Behalten und begrenzen** | Küstentag nach Zugang, Setting und Rhythmus; Meerzustand, Parken und vollständige Strandwahl bleiben bei Beaches. |
 | `stories.restaurants` | **Behalten und bereinigen** | Wahl nach Ort und Anlass. Entfernen: pauschale Gehfähigkeit ab Casa AMARA, Taxi-/Fahrerlogik und persönliche Empfehlung ohne Betreiberbeleg. |
@@ -58,7 +58,7 @@ Aktuell rendert die Page Family nacheinander Hero, eine redaktionelle Dreierausw
 | Markt | **Vorläufig nicht anbieten** | Donnerstag allein reicht nicht. Erst nach Ort, Uhrzeit, Ausfalllogik und verifiziertem Morgenablauf. |
 | Festivals, Day Trips und Wellness | **Vorläufig nicht anbieten** | Die erforderlichen Owner-/Coverage-Pakete fehlen oder sind nicht authoring-ready. Bestehende Seiten bleiben unangetastet, sind aber keine freigegebene Hauptauswahl. |
 | `stories.nightlife` | **Aus dem Frigiliana-Hub entfernen** | Kein freigegebener Frigiliana Owner; die Nerja-Erzählung gehört nicht in diesen Seitenjob. |
-| `places` | **Aus dem Experience-Content entfernen** | Wird aktuell nicht gerendert und besitzt die Basisentscheidung nicht. Frigiliana-/Nerja-Aufenthaltswahl bleibt Location. |
+| `places` | **Aus dem Experience-Content entfernen** | Wird aktuell nicht gerendert und besitzt die Basisentscheidung nicht. Frigiliana-/Nerja-Aufenthaltswahl bleibt Location. Hero-Kicker, H1 und Intro müssen den Frigiliana-Kontext für direkte externe Einstiege weiterhin eindeutig nennen. |
 | Romantic-Hideaway-Rückkehr | **Einmal als redaktionellen Abschluss integrieren** | Nur Lounis, Zaid und Maha dürfen mit der verifizierten Terrassen-/Außenduschen-/Hängemattenfolge erscheinen. Keine automatische Wiederholung hinter jeder Tagesform. |
 | `closing` | **Umschreiben und vereinfachen** | Erst Kuratierung abschließen, dann eine Frage zur passenden Unterkunft und ein Übergang zu Romantic Hideaways. Keine Anweisung, zuerst die Unterkunft und erst danach die Tage zu planen. |
 
@@ -70,10 +70,15 @@ Der erste Implementierungsauftrag darf ausschließlich folgende Owner verändern
 - `src/page-families/location-authority/FrigilianaLocationPage.astro`
 - `src/content/experienceHubContent.ts`
 - `src/page-families/location-authority/ExperienceHubPage.astro`
-- nur falls durch entfernte Location-Slots zwingend nötig: `src/lib/frigiliana/frigilianaLocationSectionOrder.ts` und `src/page-families/location-authority/OrderedFrigilianaLocationSections.astro`
 - nur direkt betroffene bestehende Tests
 
 `src/lib/location/destinationContextNavigation.ts` konsumiert `experienceHubContent[lang].catalog.order`. Die Datei bleibt unverändert, ihr resultierendes Menü muss aber in der Validierung geprüft werden.
+
+`planning` und `journeyBridge` liegen innerhalb des bestehenden `seasons`-Slots. Sie sind keine Werte von `FrigilianaLocationSectionId`. Deshalb bleiben `src/lib/frigiliana/frigilianaLocationSectionOrder.ts` und `src/page-families/location-authority/OrderedFrigilianaLocationSections.astro` unverändert im ausgeschlossenen Scope.
+
+`ExperienceHubTopicGrid.astro` unterstützt Eyebrow, Titel, Text und Link, aber kein Bild. Da die erste Auswahl visuell bleiben soll, wird die vorhandene redaktionelle Magazinfläche in `ExperienceHubPage.astro` zur einzigen Auswahlfläche und aus `catalog.order` gespeist. Die Grid-Komponente selbst wird nicht verändert.
+
+Für die sprachindividuelle Auswahl wandert der vorhandene Marker `curation: MARKET_CURATED` innerhalb desselben lokalen Content-Owners von `moods` zu `catalog`. Old Town darf als einziger neuer lokaler `ExperienceId` mit dem bereits vorhandenen Link-Token `frigiliana_old_town` ergänzt werden. Das schafft weder eine neue Route noch einen neuen globalen Vertrag; die fünf Sprachobjekte müssen dabei strukturell vollständig bleiben.
 
 Nicht im Auftrag: Link Registry, SEO Resolver, Structured-Data Resolver, globale Navigation, neue Content Collections, Zod-Schema, Property Entities, andere Destinationen oder öffentliche Spokes.
 
