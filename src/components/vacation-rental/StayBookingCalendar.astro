@@ -312,11 +312,12 @@ const titleId = `${bookingKey}-booking-calendar-title`;
               data={{ 'data-am-booking-arrival': '' }}
             />
           </label>
-          <div class="am-stay-booking-calendar__date-trigger" hidden data-am-booking-arrival-trigger-wrap>
+          <div class="am-stay-booking-calendar__date-trigger flex flex-col" hidden data-am-booking-arrival-trigger-wrap>
             <span class="am-text-label text-on-surface-variant">{t(copy.arrival)}</span>
             <AmaraFormControl
               as="button"
               trigger
+              class="flex-1"
               ariaExpanded={false}
               data={{ 'data-am-booking-arrival-trigger': '' }}
             >
@@ -335,11 +336,12 @@ const titleId = `${bookingKey}-booking-calendar-title`;
               data={{ 'data-am-booking-departure': '' }}
             />
           </label>
-          <div class="am-stay-booking-calendar__date-trigger" hidden data-am-booking-departure-trigger-wrap>
+          <div class="am-stay-booking-calendar__date-trigger flex flex-col" hidden data-am-booking-departure-trigger-wrap>
             <span class="am-text-label text-on-surface-variant">{t(copy.departure)}</span>
             <AmaraFormControl
               as="button"
               trigger
+              class="flex-1"
               ariaExpanded={false}
               data={{ 'data-am-booking-departure-trigger': '' }}
             >
@@ -347,13 +349,14 @@ const titleId = `${bookingKey}-booking-calendar-title`;
             </AmaraFormControl>
           </div>
 
-          <label class="block">
+          <label class="flex flex-col">
             <span class="am-text-label text-on-surface-variant">
               {t(copy.guests)}
             </span>
             <AmaraFormControl
               as="select"
               name="guests"
+              class="flex-1"
               data={{ 'data-am-booking-guests': '' }}
             >
               {guestOptions.map((count) => (
