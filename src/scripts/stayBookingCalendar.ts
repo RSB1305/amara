@@ -119,6 +119,7 @@ export function enhanceStayBookingCalendars() {
     const price = element<HTMLElement>(container, '[data-am-booking-price]');
     const note = element<HTMLElement>(container, '[data-am-booking-note]');
     const checkout = element<HTMLAnchorElement>(container, '[data-am-booking-checkout]');
+    const fallback = element<HTMLElement>(container, '[data-am-booking-fallback]');
 
     if (
       !stay ||
@@ -155,6 +156,7 @@ export function enhanceStayBookingCalendars() {
     departureTriggerWrap.hidden = false;
     arrivalInput.required = false;
     departureInput.required = false;
+    if (fallback) fallback.hidden = true;
 
     const compactGuestLabels = window.matchMedia('(max-width: 639px)');
     const renderGuestLabels = () => {
@@ -251,13 +253,15 @@ export function enhanceStayBookingCalendars() {
       title,
       body,
       priceText,
-      detail
+      detail,
+      showFallback = false
     }: {
       state: string;
       title: string;
       body: string;
       priceText?: string;
       detail: string;
+      showFallback?: boolean;
     }) => {
       checkout.hidden = true;
       checkout.removeAttribute('href');
@@ -268,6 +272,7 @@ export function enhanceStayBookingCalendars() {
       priceWrap.hidden = !priceText;
       price.textContent = priceText || '';
       note.textContent = detail;
+      if (fallback) fallback.hidden = !showFallback;
     };
 
     const clearResult = () => {
@@ -275,6 +280,7 @@ export function enhanceStayBookingCalendars() {
       result.removeAttribute('data-state');
       checkout.hidden = true;
       checkout.removeAttribute('href');
+      if (fallback) fallback.hidden = true;
     };
 
     const fetchJson = async (path: string, searchParams: URLSearchParams) => {
@@ -653,6 +659,7 @@ export function enhanceStayBookingCalendars() {
           : copy.departureHelp;
       }
       else renderCalendarStatus.textContent = copy.calendarHelp;
+      if (fallback) fallback.hidden = !visibleError();
       applyRange(hoverDate);
 
       const enabledDays = Array.from(
@@ -791,7 +798,13 @@ export function enhanceStayBookingCalendars() {
             detail: formatDate(arrival) + ' – ' + formatDate(departure)
           });
         } else {
-          showState({ state: 'error', title: copy.error, body: '', detail: '' });
+          showState({
+            state: 'error',
+            title: copy.error,
+            body: '',
+            detail: '',
+            showFallback: true
+          });
         }
       } finally {
         form.removeAttribute('aria-busy');

@@ -218,6 +218,10 @@
     letter-spacing: normal;
   }
 
+  .am-text-form-value--compact {
+    font-size: 0.8125rem;
+  }
+
   /* The indicative price on a stay card. It sits between `am-text-body` and
    * `am-text-subtitle` and exists because neither works: at body scale the
    * amount disappears, and at subtitle scale it reaches 39.6px on a desktop —

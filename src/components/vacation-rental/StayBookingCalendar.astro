@@ -15,7 +15,7 @@ interface Props {
   occupancy: number;
   /**
    * Resilience fallback only. When the gateway cannot answer, a guest must still
-   * reach a booking surface; this link is never the equal of the live module.
+   * reach a booking surface; this link is never the equal of the online module.
    */
   fallbackHref?: string;
   fallbackLabel?: string;
@@ -36,11 +36,11 @@ const {
 
 const copy = {
   kicker: {
-    en: 'Live availability',
-    de: 'Live-Verfügbarkeit',
-    es: 'Disponibilidad en directo',
-    nl: 'Live beschikbaarheid',
-    sv: 'Live-tillgänglighet'
+    en: 'Online availability',
+    de: 'Online-Verfügbarkeit',
+    es: 'Disponibilidad online',
+    nl: 'Online beschikbaarheid',
+    sv: 'Tillgänglighet online'
   },
   // A statement, not a second instruction: the button already asks for dates,
   // and repeating the verb here made the page read as three nested commands.
@@ -54,11 +54,11 @@ const copy = {
   // Replaces the former explanatory paragraph: the guest needs the promise, not
   // a description of the mechanism they are about to use.
   assurance: {
-    en: 'Live availability · exact total price · no reservation yet',
-    de: 'Live-Verfügbarkeit · exakter Gesamtpreis · noch keine Reservierung',
-    es: 'Disponibilidad en directo · precio total exacto · sin reserva todavía',
-    nl: 'Live beschikbaarheid · exacte totaalprijs · nog geen reservering',
-    sv: 'Live-tillgänglighet · exakt totalpris · ingen bokning ännu'
+    en: 'Online availability · exact price · no reservation yet',
+    de: 'Online-Verfügbarkeit · exakter Preis · noch keine Reservierung',
+    es: 'Disponibilidad online · precio exacto · todavía sin reserva',
+    nl: 'Online beschikbaarheid · exacte prijs · nog geen reservering',
+    sv: 'Tillgänglighet online · exakt pris · ingen bokning ännu'
   },
   arrival: {
     en: 'Arrival',
@@ -166,11 +166,11 @@ const copy = {
     sv: 'Välj en giltig vistelse på högst 45 nätter.'
   },
   error: {
-    en: 'Live booking data is currently unavailable. Please try again shortly.',
-    de: 'Die Live-Buchungsdaten sind derzeit nicht verfügbar. Bitte versucht es in Kürze erneut.',
-    es: 'Los datos de reserva en directo no están disponibles ahora. Volved a intentarlo en breve.',
-    nl: 'De live boekingsgegevens zijn nu niet beschikbaar. Probeer het zo opnieuw.',
-    sv: 'Livebokningsdata är inte tillgängliga just nu. Försök igen om en liten stund.'
+    en: 'Current booking data is unavailable. Please try again shortly.',
+    de: 'Die aktuellen Buchungsdaten sind derzeit nicht verfügbar. Bitte versucht es in Kürze erneut.',
+    es: 'Los datos de reserva actuales no están disponibles. Volved a intentarlo en breve.',
+    nl: 'De actuele boekingsgegevens zijn niet beschikbaar. Probeer het zo opnieuw.',
+    sv: 'Aktuella bokningsuppgifter är inte tillgängliga just nu. Försök igen om en liten stund.'
   },
   chooseArrival: {
     en: 'Choose arrival', de: 'Anreise wählen', es: 'Elegir llegada', nl: 'Aankomst kiezen', sv: 'Välj ankomst'
@@ -217,18 +217,18 @@ const copy = {
     sv: 'Vid ankomst den {arrival} gäller minst {count} nätter. Välj avresa tidigast den {departure}.'
   },
   loadingCalendar: {
-    en: 'Loading live availability and nightly prices…',
-    de: 'Live-Verfügbarkeit und Übernachtungspreise werden geladen…',
-    es: 'Cargando disponibilidad y precios por noche…',
-    nl: 'Live beschikbaarheid en nachtprijzen worden geladen…',
-    sv: 'Läser in live-tillgänglighet och nattpriser…'
+    en: 'Loading current availability and nightly prices…',
+    de: 'Aktuelle Verfügbarkeit und Übernachtungspreise werden geladen…',
+    es: 'Cargando disponibilidad y precios por noche actuales…',
+    nl: 'Actuele beschikbaarheid en nachtprijzen worden geladen…',
+    sv: 'Läser in aktuell tillgänglighet och nattpriser…'
   },
   calendarError: {
-    en: 'The live calendar is currently unavailable. No reservation has been created or held.',
-    de: 'Der Live-Kalender ist derzeit nicht verfügbar. Es wurde keine Reservierung erstellt oder blockiert.',
-    es: 'El calendario en directo no está disponible ahora. No se ha creado ni bloqueado ninguna reserva.',
-    nl: 'De live kalender is nu niet beschikbaar. Er is geen reservering gemaakt of geblokkeerd.',
-    sv: 'Livekalendern är inte tillgänglig just nu. Ingen bokning har skapats eller blockerats.'
+    en: 'The online calendar is currently unavailable. No reservation has been created or held.',
+    de: 'Der Online-Kalender ist derzeit nicht verfügbar. Es wurde keine Reservierung erstellt oder blockiert.',
+    es: 'El calendario online no está disponible ahora. No se ha creado ni bloqueado ninguna reserva.',
+    nl: 'De online kalender is nu niet beschikbaar. Er is geen reservering gemaakt of geblokkeerd.',
+    sv: 'Onlinekalendern är inte tillgänglig just nu. Ingen bokning har skapats eller blockerats.'
   },
   previousMonth: {
     en: 'Previous month', de: 'Vorheriger Monat', es: 'Mes anterior', nl: 'Vorige maand', sv: 'Föregående månad'
@@ -295,7 +295,7 @@ const titleId = `${bookingKey}-booking-calendar-title`;
     data-am-booking-language={lang}
     data-am-booking-copy={JSON.stringify(clientCopy)}
   >
-    <div class="grid gap-6 lg:grid-cols-[minmax(0,0.65fr)_minmax(0,1.35fr)] lg:gap-14">
+    <div class="grid gap-6 lg:grid-cols-[minmax(0,0.75fr)_minmax(0,1.25fr)] lg:gap-14">
     <div class="max-w-xl">
       <p class="am-text-label text-on-surface-variant">
         {t(copy.kicker)}
@@ -315,6 +315,7 @@ const titleId = `${bookingKey}-booking-calendar-title`;
             <AmaraFormControl
               as="input"
               name="arrival"
+              class="am-text-form-value--compact"
               required
               data={{ 'data-am-booking-arrival': '' }}
             />
@@ -324,7 +325,7 @@ const titleId = `${bookingKey}-booking-calendar-title`;
             <AmaraFormControl
               as="button"
               trigger
-              class="flex-1"
+              class="am-text-form-value--compact flex-1"
               ariaExpanded={false}
               data={{ 'data-am-booking-arrival-trigger': '' }}
             >
@@ -339,6 +340,7 @@ const titleId = `${bookingKey}-booking-calendar-title`;
             <AmaraFormControl
               as="input"
               name="departure"
+              class="am-text-form-value--compact"
               required
               data={{ 'data-am-booking-departure': '' }}
             />
@@ -348,7 +350,7 @@ const titleId = `${bookingKey}-booking-calendar-title`;
             <AmaraFormControl
               as="button"
               trigger
-              class="flex-1"
+              class="am-text-form-value--compact flex-1"
               ariaExpanded={false}
               data={{ 'data-am-booking-departure-trigger': '' }}
             >
@@ -363,7 +365,7 @@ const titleId = `${bookingKey}-booking-calendar-title`;
             <AmaraFormControl
               as="select"
               name="guests"
-              class="flex-1"
+              class="am-text-form-value--compact flex-1"
               data={{ 'data-am-booking-guests': '' }}
             >
               {guestOptions.map((count) => (
@@ -453,11 +455,6 @@ const titleId = `${bookingKey}-booking-calendar-title`;
 
   [data-am-booking-enhanced='true'] .am-stay-booking-calendar__native-date {
     display: none;
-  }
-
-  .am-stay-booking-calendar__date-trigger .am-form-control {
-    padding-inline: 0.625rem;
-    white-space: nowrap;
   }
 
 </style>
