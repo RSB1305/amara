@@ -12,7 +12,7 @@ export const frigilianaClimateKnowledge = defineKnowledgePageManifest({
     url: 'https://drive.google.com/drive/folders/1EQa8NwKyKEG9HuzNwLBwe2D6VjItYT3v',
     path: 'AMARA – Research Vault/10_LOCATIONS/frigiliana/frigiliana-climate',
   },
-  publicContentPath: 'src/page-families/location-authority/FrigilianaWeatherPage.astro',
+  publicContentPath: 'src/content/locationWeatherAuthorityContent.ts',
   researchRunIds: [
     '2026-08-21__142423__climate-seasons__research-001',
     '2026-08-28__092355__frigiliana-climate-seasons-decisions__research-001',

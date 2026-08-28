@@ -1,0 +1,121 @@
+import { defineKnowledgePageManifest } from '../../schema';
+
+export const frigilianaRestaurantsKnowledge = defineKnowledgePageManifest({
+  id: 'page-frigiliana-restaurants',
+  destination: 'frigiliana',
+  topic: 'restaurants-evenings',
+  createdAt: '2026-08-28T16:30:00+02:00',
+  updatedAt: '2026-08-28T16:30:00+02:00',
+  status: 'needs-review',
+  driveFolder: {
+    id: '1On8Jb0x-_pbWZ4fnl5sA7Wn5SsGbBYMn',
+    url: 'https://drive.google.com/drive/folders/1On8Jb0x-_pbWZ4fnl5sA7Wn5SsGbBYMn',
+    path: 'AMARA – Research Vault/00_INBOX/2026-08-28__092358__frigiliana-nerja-restaurants-evenings__research-001',
+  },
+  publicContentPath: 'src/content/frigilianaRestaurantsContent.ts',
+  researchRunIds: ['2026-08-28__092358__frigiliana-nerja-restaurants-evenings__research-001'],
+  coverage: [
+    {
+      authoringArea: 'hero-and-evening-choice',
+      purpose: 'Choose a table by location, occasion and desired evening without presenting a ranking or invented personal recommendation.',
+      factIds: [
+        'frigiliana.restaurants.the-garden.position-and-format',
+        'frigiliana.restaurants.la-taperia.position-and-cuisine',
+        'frigiliana.restaurants.gloria-bendita.position-and-concept',
+        'nerja.restaurants.oliva.position-terrace-and-service-2026',
+        'nerja.restaurants.restaurant34.sea-terrace-and-service-2026',
+        'nerja.restaurants.ayo.burriana-daytime-service-2026',
+        'nerja.restaurants.el-pulguilla.old-town-fish-format',
+      ],
+      status: 'partial',
+      notes: 'Seven current cards have a bounded venue baseline. Three current cards and the collective “where we send our guests” recommendation are not supported by normalized evidence.',
+    },
+    {
+      authoringArea: 'frigiliana-evenings',
+      purpose: 'Compare verified Frigiliana positions and formats while keeping personal table, dish and atmosphere advice separate.',
+      factIds: [
+        'frigiliana.restaurants.the-garden.position-and-format',
+        'frigiliana.restaurants.la-taperia.position-and-cuisine',
+        'frigiliana.restaurants.gloria-bendita.position-and-concept',
+      ],
+      status: 'partial',
+      notes: 'Identity, location and bounded format are supported. Sunset, view, favourite-table, walk-home, occasion and dish recommendations require dated first-party evidence or direct confirmation.',
+    },
+    {
+      authoringArea: 'special-nerja-evenings',
+      purpose: 'Offer a bounded Nerja special-evening alternative from a Frigiliana base.',
+      factIds: [
+        'nerja.restaurants.oliva.position-terrace-and-service-2026',
+        'nerja.restaurants.restaurant34.sea-terrace-and-service-2026',
+      ],
+      status: 'partial',
+      notes: 'Oliva and Restaurant 34 have current operator baselines. Mo Gastrotapas has no normalized fact owner, and neither supported venue is a first-party AMARA recommendation yet.',
+    },
+    {
+      authoringArea: 'nerja-tapas-and-seafood',
+      purpose: 'Distinguish a central old-town fish/tapas format from a daytime beach-lunch format.',
+      factIds: [
+        'nerja.restaurants.el-pulguilla.old-town-fish-format',
+        'nerja.restaurants.ayo.burriana-daytime-service-2026',
+      ],
+      status: 'partial',
+      notes: 'El Pulguilla and AYO have bounded operator evidence. La Puntilla has no normalized fact owner, and crowd, quality and AMARA tip language remain unsupported.',
+    },
+    {
+      authoringArea: 'el-acebuchal-destination-lunch',
+      purpose: 'Treat the rural meal and journey as one experience only after route and operator evidence are verified.',
+      factIds: [],
+      status: 'gap',
+      notes: 'The current El Acebuchal restaurant, route, natural-park and host-recommendation claims have no normalized fact coverage in this run.',
+    },
+    {
+      authoringArea: 'current-operation-and-reservation',
+      purpose: 'Tell guests what must be checked live without freezing hours, closing days, menu or capacity.',
+      factIds: [
+        'frigiliana.restaurants.the-garden.position-and-format',
+        'frigiliana.restaurants.la-taperia.position-and-cuisine',
+        'frigiliana.restaurants.gloria-bendita.position-and-concept',
+        'nerja.restaurants.oliva.position-terrace-and-service-2026',
+        'nerja.restaurants.restaurant34.sea-terrace-and-service-2026',
+        'nerja.restaurants.ayo.burriana-daytime-service-2026',
+        'nerja.restaurants.el-pulguilla.old-town-fish-format',
+      ],
+      status: 'partial',
+      notes: 'Volatility boundaries are covered; the current same-week operation and reservation constraints remain a live check.',
+    },
+    {
+      authoringArea: 'beach-and-meal-connections',
+      purpose: 'Connect a beach to a meal only when location and daypart form a usable same-day sequence.',
+      factIds: [
+        'nerja.beaches.burriana.profile-and-listed-services',
+        'nerja.restaurants.ayo.burriana-daytime-service-2026',
+      ],
+      status: 'partial',
+      notes: 'Burriana/AYO is supported as a dated daytime pairing. La Puntilla, central-beach pairings and onward-evening recommendations remain unmapped.',
+    },
+    {
+      authoringArea: 'hiking-and-meal-connections',
+      purpose: 'Match a restaurant to a route finish only after the route timing and current restaurant operation are jointly verified.',
+      factIds: [],
+      status: 'gap',
+      notes: 'Requires a dated AMARA route-and-meal note and current operation evidence for the chosen venue.',
+    },
+    {
+      authoringArea: 'amara-walk-home-and-evening-return',
+      purpose: 'Use Casa AMARA’s location only where the exact restaurant route and return consequence are verified.',
+      factIds: ['casa-amara.location.calle-chorruelo-calle-real'],
+      status: 'partial',
+      notes: 'Casa AMARA’s central location is verified. The current walkability, taxi, sober-driver and after-dinner sequence claims require venue-specific route and first-party evidence.',
+    },
+    {
+      authoringArea: 'verified-but-not-selected-venues',
+      purpose: 'Preserve evaluated venue facts that the current public selection does not use.',
+      factIds: [
+        'frigiliana.restaurants.el-adarve.position-terrace-and-dishes',
+        'nerja.restaurants.sollun.position-and-concept',
+      ],
+      status: 'excluded',
+      notes: 'Exclusion is an editorial selection state, not deletion or rejection of the knowledge facts.',
+    },
+  ],
+});
