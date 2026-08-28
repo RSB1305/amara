@@ -95,7 +95,7 @@ export const ui = {
   },
   readReviews: {
     en: 'Read guest reviews',
-    de: 'Gästebewertungen lesen',
+    de: 'Gästebewertung',
     es: 'Leer reseñas',
     nl: 'Gastbeoordelingen lezen',
     sv: 'Läs recensioner'
