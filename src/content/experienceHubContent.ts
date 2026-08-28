@@ -443,7 +443,14 @@ export const experienceHubContent: Record<
       intro:
         'Browse seven guides shaped around a stay in Frigiliana, from walking out of the village to planning a market morning or a nearby beach day.',
       curation: MARKET_CURATED,
-      order: ['hiking', 'beaches', 'restaurants'
+      order: [
+        'beaches',
+        'restaurants',
+        'dayTrips',
+        'festivals',
+        'market',
+        'wellness',
+        'hiking'
       ],
       destinationLabels: {
         frigiliana: 'Frigiliana',
@@ -601,11 +608,18 @@ export const experienceHubContent: Record<
     },
     catalog: {
       kicker: 'Eure Tage planen',
-      title: 'Wandern, Küste oder ein gemeinsamer Abend',
+      title: 'Alle lokalen AMARA-Guides',
       intro:
-        'Diese drei Möglichkeiten bilden das deutsche Vorschaupaket. Für einen aufmerksamen Weg durch das historische Dorf führt der bestehende Altstadt-Link anschließend weiter.',
+        'Sieben Guides beantworten unterschiedliche Fragen rund um euren Aufenthalt in Frigiliana – vom Wanderweg bis zum Marktbesuch oder einem nahen Strandtag.',
       curation: MARKET_CURATED,
-      order: ['hiking', 'beaches', 'restaurants'
+      order: [
+        'beaches',
+        'restaurants',
+        'hiking',
+        'dayTrips',
+        'festivals',
+        'market',
+        'wellness'
       ],
       destinationLabels: {
         frigiliana: 'Frigiliana',
@@ -766,7 +780,14 @@ export const experienceHubContent: Record<
       intro:
         'Siete guías responden a preguntas distintas sobre una estancia en Frigiliana, desde los senderos y el mercado hasta una playa cercana.',
       curation: MARKET_CURATED,
-      order: ['hiking', 'beaches', 'restaurants'
+      order: [
+        'restaurants',
+        'beaches',
+        'festivals',
+        'market',
+        'wellness',
+        'dayTrips',
+        'hiking'
       ],
       destinationLabels: {
         frigiliana: 'Frigiliana',
@@ -927,7 +948,14 @@ export const experienceHubContent: Record<
       intro:
         'Zeven gidsen beantwoorden verschillende vragen rond een verblijf in Frigiliana, van wandelen en de markt tot een stranddag in de buurt.',
       curation: MARKET_CURATED,
-      order: ['hiking', 'beaches', 'restaurants'
+      order: [
+        'beaches',
+        'restaurants',
+        'hiking',
+        'dayTrips',
+        'market',
+        'festivals',
+        'wellness'
       ],
       destinationLabels: {
         frigiliana: 'Frigiliana',
@@ -1088,7 +1116,14 @@ export const experienceHubContent: Record<
       intro:
         'Sju guider svarar på olika frågor om en vistelse i Frigiliana, från vandring och marknad till en stranddag i närheten.',
       curation: MARKET_CURATED,
-      order: ['hiking', 'beaches', 'restaurants'
+      order: [
+        'beaches',
+        'restaurants',
+        'wellness',
+        'dayTrips',
+        'market',
+        'festivals',
+        'hiking'
       ],
       destinationLabels: {
         frigiliana: 'Frigiliana',
