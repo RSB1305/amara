@@ -258,12 +258,14 @@ const translations = weatherTranslations[lang];
         const maximumTemperature = finiteNumber(data.daily.temperature_2m_max?.[0], -80, 60);
         const minimumTemperature = finiteNumber(data.daily.temperature_2m_min?.[0], -80, 60);
         const currentUv = finiteNumber(data.current.uv_index ?? 0, 0, 30);
+        const currentTimeRaw = isoLocalTime(data.current.time);
         if (
           currentCode === null ||
           currentTemperature === null ||
           maximumTemperature === null ||
           minimumTemperature === null ||
-          currentUv === null
+          currentUv === null ||
+          currentTimeRaw === null
         ) return;
 
         const currentTemp = Math.round(currentTemperature);
@@ -307,8 +309,6 @@ const translations = weatherTranslations[lang];
         if (hourlyEl) {
           hourlyEl.replaceChildren();
           const hourlyTimes = Array.isArray(data.hourly.time) ? data.hourly.time : [];
-          const currentTimeRaw = isoLocalTime(data.current.time);
-          if (!currentTimeRaw) return;
           let startIndex = hourlyTimes.indexOf(currentTimeRaw);
           if (startIndex === -1) {
             const nowTs = new Date(currentTimeRaw).getTime();
@@ -331,7 +331,11 @@ const translations = weatherTranslations[lang];
             appendTextElement(hourEl, 'am-weather-hour-time', time);
             appendTextElement(hourEl, 'am-weather-hour-icon', icons[code] || '☀️');
             appendTextElement(hourEl, 'am-weather-hour-temp', `${temp}°`);
-            if (showWind) appendTextElement(hourEl, 'am-weather-hour-wind', `${windKmh} km/h\n${windKnots} kn`);
+            if (showWind) {
+              const windEl = appendTextElement(hourEl, 'am-weather-hour-wind', `${windKmh} km/h`);
+              windEl.appendChild(document.createElement('br'));
+              windEl.append(`${windKnots} kn`);
+            }
             hourlyEl.appendChild(hourEl);
           }
         }
