@@ -758,11 +758,6 @@ html.am-nav-lock {
 
 @media (min-width: 1280px) {
   .am-nav-context-spacer {
-    height: 81px;
-  }
-
-  [data-am-navigation]:has([data-am-destination-context-disclosures])
-    + .am-nav-context-spacer {
     height: 53px;
   }
 
