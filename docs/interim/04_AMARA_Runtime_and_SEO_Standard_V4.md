@@ -1,7 +1,7 @@
 ---
 document_id: AMARA-INT-RUNTIME-004
 title: AMARA Runtime & SEO Standard V4
-version: 4.1.0
+version: 4.2.0
 status: ACTIVE
 authority_class: CONTRACT / GOVERNING INTERIM
 source_type: INTERIM SNAPSHOT FROM APPROVED PDF
@@ -9,18 +9,18 @@ source_attachment: "04_AMARA_Runtime_and_SEO_Standard_V4(1).pdf"
 source_sha256: 65e3a3312c1c56a3c096800d3a267dc85e57c6e60f16b81eecc3cbce089eb621
 snapshot_created: 2026-08-14T09:08:00+02:00
 migration_state: PENDING PACKAGE 2/3 NORMALIZATION
-last_modified: 2026-08-27T14:18:49+02:00
+last_modified: 2026-08-28T06:28:44+02:00
 ---
 
 # AMARA Runtime & SEO Standard V4 — Interim Markdown Snapshot
 
 > **INTERIM SNAPSHOT.** This file preserves the wording of the currently approved source document while AMARA migrates active documentation into the repository. Formatting was normalized for Markdown; no substantive rule change is intended by this conversion. Where the System Constitution, Governance or Decision Register explicitly records an intentional supersession, the higher owner governs.
 
-## Active repository amendment — official Frigiliana forecast
+## Active repository amendment — official destination forecasts
 
-The public Frigiliana Weather page remains statically generated Astro. It may progressively request the fixed same-origin GET route `/api/weather/frigiliana` to display the official short-term AEMET municipality forecast.
+The public Weather pages for Frigiliana, Nerja and Tarifa remain statically generated Astro. Each may progressively request its fixed same-origin GET route under `/api/weather/{destination}` to display the official short-term AEMET municipality forecast. The only approved destination routes are `/api/weather/frigiliana`, `/api/weather/nerja` and `/api/weather/tarifa`.
 
-The Cloudflare Pages Function owns the server-only `AEMET_API_KEY`, the fixed Frigiliana municipality ID, the provider's two-step request, temporary-host validation, response normalization and edge caching. The browser receives only the small provider-neutral forecast projection required by the visible component. It never receives the key, provider request URL or raw provider payload.
+The Cloudflare Pages Functions own the server-only `AEMET_API_KEY`, the fixed municipality mapping for those three destinations, the provider's two-step request, temporary-host validation, response normalization and per-destination edge caching. The browser receives only the small provider-neutral forecast projection required by the visible component. It never receives the key, provider request URL or raw provider payload.
 
 Failure of the external forecast must not remove or rewrite the static climate content. The component fails safely to a short unavailable state and the official AEMET source link. This amendment grants no dynamic-runtime scope to another public page or destination by implication.
 
@@ -149,9 +149,9 @@ Lodgify may provide:
 Lodgify must not overwrite AMARA-authored destination copy, trust copy, schema architecture, page layout,
 or routing.
 
-### Official Frigiliana forecast
+### Official destination forecasts
 
-The Frigiliana Weather page may use the narrow same-origin AEMET boundary defined in the active repository amendment above. The page itself stays static, the enhancement uses no client framework and AEMET remains the attributed source of the volatile forecast values.
+The Frigiliana, Nerja and Tarifa Weather pages may use the narrow same-origin AEMET boundary defined in the active repository amendment above. The pages themselves stay static, the enhancement uses no client framework and AEMET remains the attributed source of the volatile forecast values.
 
 11. Robots and noindex systems
 Guest Guide and other intentionally private/internal utility surfaces remain noindex and outside normal public
@@ -201,3 +201,4 @@ AMARA Runtime & SEO Standard V4 is binding.
 |---|---|---|
 | 4.0 | 2026-08-10 | Approved source snapshot. |
 | 4.1.0 | 2026-08-27T14:18:49+02:00 | Added the narrow server-side AEMET forecast boundary for the static Frigiliana Weather page. |
+| 4.2.0 | 2026-08-28T06:28:44+02:00 | Extended the fixed server-side AEMET forecast boundary to the static Weather pages for Frigiliana, Nerja and Tarifa. |

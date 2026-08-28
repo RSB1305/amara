@@ -378,7 +378,7 @@ const relatedTokens: Record<WeatherDestination, [LinkToken, LinkToken, LinkToken
   tarifa: ['tarifa_geography', 'tarifa_where_to_stay', 'tarifa_winter_stays']
 };
 
-const frigilianaLiveForecast: Record<AmaraLanguage, WeatherAuthorityContent['forecast']> = {
+const destinationLiveForecast: Record<AmaraLanguage, WeatherAuthorityContent['forecast']> = {
   en: {
     eyebrow: 'Short-term forecast',
     title: 'Is your trip getting close?',
@@ -485,6 +485,23 @@ const frigilianaLiveForecast: Record<AmaraLanguage, WeatherAuthorityContent['for
     }
   }
 };
+
+function getDestinationLiveForecast(
+  destination: WeatherDestination,
+  lang: AmaraLanguage,
+  common: SharedLocale
+): WeatherAuthorityContent['forecast'] {
+  const forecast = destinationLiveForecast[lang];
+  if (destination === 'frigiliana') return forecast;
+
+  return {
+    eyebrow: common.forecastEyebrow,
+    title: common.forecastTitle,
+    paragraphs: common.forecastParagraphs,
+    cta: common.forecastCta,
+    live: forecast.live
+  };
+}
 
 export function getWeatherAuthorityContent(destination: WeatherDestination, lang: AmaraLanguage): WeatherAuthorityContent {
   const common = shared[lang];
@@ -669,9 +686,7 @@ export function getWeatherAuthorityContent(destination: WeatherDestination, lang
       })
     },
     practical: { eyebrow: common.practicalEyebrow, title: common.practicalTitle, paragraphs: [common.practicalIntro, profile.practical], listTitle: common.packTitle, items: common.packItems },
-    forecast: destination === 'frigiliana'
-      ? frigilianaLiveForecast[lang]
-      : { eyebrow: common.forecastEyebrow, title: common.forecastTitle, paragraphs: common.forecastParagraphs, cta: common.forecastCta },
+    forecast: getDestinationLiveForecast(destination, lang, common),
     sources: { eyebrow: common.sourcesEyebrow, title: common.sourcesTitle, intro: common.sourcesIntro, checked: common.sourcesChecked, links },
     related: {
       eyebrow: relatedCopy.eyebrow,
@@ -697,9 +712,7 @@ const article = {
 export function getWeatherSeo(destination: WeatherDestination): AmaraAuthoringSeo {
   const place = names[destination];
   return {
-    version: destination === 'frigiliana'
-      ? '2026-08-27-frigiliana-weather-v2.2'
-      : `2026-08-27-${destination}-weather-v2.1`,
+    version: `2026-08-28-${destination}-weather-v2.3`,
     pageType: 'A',
     entityKey: 'amara-brand',
     article,

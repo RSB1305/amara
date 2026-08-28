@@ -53,6 +53,7 @@ export const linkRegistry = {
     stay_search_results: buildOwnedLinks('find-a-stay'),
     last_minute_stays: buildOwnedLinks('last-minute-stays'),
     honeymoon: buildOwnedLinks('honeymoon'),
+    wedding_anniversary: buildOwnedLinks('wedding-anniversary'),
     casa_amara_groups: buildOwnedLinks('casa-amara-4-8-guests'),
     property_sale: buildOwnedLinks('frigiliana-hospitality-property-for-sale'),
     instagram: 'https://www.instagram.com/amaralodging/',

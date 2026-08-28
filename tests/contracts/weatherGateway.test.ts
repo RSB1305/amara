@@ -1,10 +1,21 @@
 import { expect, test } from '@playwright/test';
+import { readFileSync } from 'node:fs';
 import {
   createAemetForecastRoute,
   fetchAemetDailyForecast
 } from '../../weather-gateway/aemet-forecast.mjs';
 
 const SECRET = 'unit-test-aemet-key-must-not-leak';
+const destinations = [
+  { destination: 'frigiliana', locationName: 'Frigiliana', municipalityId: '29053' },
+  { destination: 'nerja', locationName: 'Nerja', municipalityId: '29075' },
+  { destination: 'tarifa', locationName: 'Tarifa', municipalityId: '11035' }
+] as const;
+
+test('Cloudflare Pages dispatches booking and weather function routes', () => {
+  const routes = JSON.parse(readFileSync(new URL('../../public/_routes.json', import.meta.url), 'utf8'));
+  expect(routes.include).toEqual(['/api/booking/*', '/api/weather/*']);
+});
 
 function jsonResponse(payload: unknown, status = 200): Response {
   return new Response(JSON.stringify(payload), {
@@ -50,37 +61,40 @@ const forecastPayload = [{
   }
 }];
 
-test('normalizes the two-step AEMET municipality forecast', async () => {
-  const sequence = fetchSequence(
-    jsonResponse({
-      descripcion: 'exito',
-      estado: 200,
-      datos: 'https://opendata.aemet.es/opendata/sh/temporary-data'
-    }),
-    jsonResponse(forecastPayload)
-  );
+for (const config of destinations) {
+  test(`normalizes the two-step AEMET municipality forecast for ${config.locationName}`, async () => {
+    const sequence = fetchSequence(
+      jsonResponse({
+        descripcion: 'exito',
+        estado: 200,
+        datos: 'https://opendata.aemet.es/opendata/sh/temporary-data'
+      }),
+      jsonResponse(forecastPayload)
+    );
 
-  await expect(fetchAemetDailyForecast({
-    apiKey: SECRET,
-    fetchImpl: sequence.fetchImpl
-  })).resolves.toEqual({
-    destination: 'frigiliana',
-    locationName: 'Frigiliana',
-    source: { provider: 'AEMET', issuedAt: '2026-08-27T11:20:00' },
-    days: [
-      { date: '2026-08-27', temperatureMax: 31, temperatureMin: 21, precipitationProbability: 15 },
-      { date: '2026-08-28', temperatureMax: 29, temperatureMin: 20, precipitationProbability: 20 },
-      { date: '2026-08-29', temperatureMax: 28, temperatureMin: 19, precipitationProbability: null }
-    ]
+    await expect(fetchAemetDailyForecast({
+      apiKey: SECRET,
+      destination: config.destination,
+      fetchImpl: sequence.fetchImpl
+    })).resolves.toEqual({
+      destination: config.destination,
+      locationName: config.locationName,
+      source: { provider: 'AEMET', issuedAt: '2026-08-27T11:20:00' },
+      days: [
+        { date: '2026-08-27', temperatureMax: 31, temperatureMin: 21, precipitationProbability: 15 },
+        { date: '2026-08-28', temperatureMax: 29, temperatureMin: 20, precipitationProbability: 20 },
+        { date: '2026-08-29', temperatureMax: 28, temperatureMin: 19, precipitationProbability: null }
+      ]
+    });
+
+    expect(sequence.urls).toHaveLength(2);
+    expect(new URL(sequence.urls[0]).pathname).toBe(
+      `/opendata/api/prediccion/especifica/municipio/diaria/${config.municipalityId}`
+    );
+    expect(new URL(sequence.urls[0]).searchParams.get('api_key')).toBe(SECRET);
+    expect(sequence.urls[1]).toBe('https://opendata.aemet.es/opendata/sh/temporary-data');
   });
-
-  expect(sequence.urls).toHaveLength(2);
-  expect(new URL(sequence.urls[0]).pathname).toBe(
-    '/opendata/api/prediccion/especifica/municipio/diaria/29053'
-  );
-  expect(new URL(sequence.urls[0]).searchParams.get('api_key')).toBe(SECRET);
-  expect(sequence.urls[1]).toBe('https://opendata.aemet.es/opendata/sh/temporary-data');
-});
+}
 
 test('keeps the AEMET key and provider details out of public failures', async () => {
   const sequence = fetchSequence(jsonResponse({ descripcion: 'Unauthorized', estado: 401 }, 401));

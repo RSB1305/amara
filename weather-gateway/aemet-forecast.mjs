@@ -1,7 +1,18 @@
 const AEMET_API_ROOT = 'https://opendata.aemet.es/opendata/api';
 const AEMET_DATA_HOST = 'opendata.aemet.es';
-const FRIGILIANA_MUNICIPALITY_ID = '29053';
 const PUBLIC_CACHE_CONTROL = 'public, max-age=900, s-maxage=3600, stale-while-revalidate=21600';
+
+export const AEMET_DESTINATIONS = Object.freeze({
+  frigiliana: Object.freeze({ municipalityId: '29053', locationName: 'Frigiliana' }),
+  nerja: Object.freeze({ municipalityId: '29075', locationName: 'Nerja' }),
+  tarifa: Object.freeze({ municipalityId: '11035', locationName: 'Tarifa' })
+});
+
+function destinationConfig(destination) {
+  const config = AEMET_DESTINATIONS[destination];
+  if (!config) throw new TypeError(`Unsupported AEMET destination: ${destination}`);
+  return config;
+}
 
 class AemetGatewayError extends Error {
   constructor(providerStep, category, providerHttpStatus) {
@@ -54,7 +65,8 @@ function validateDataUrl(value) {
   return url;
 }
 
-export function normalizeAemetDailyForecast(payload) {
+export function normalizeAemetDailyForecast(payload, destination = 'frigiliana') {
+  const config = destinationConfig(destination);
   const municipality = Array.isArray(payload) ? payload[0] : null;
   const rawDays = municipality?.prediccion?.dia;
 
@@ -79,8 +91,8 @@ export function normalizeAemetDailyForecast(payload) {
   });
 
   return {
-    destination: 'frigiliana',
-    locationName: 'Frigiliana',
+    destination,
+    locationName: config.locationName,
     source: {
       provider: 'AEMET',
       issuedAt: municipality?.elaborado ?? municipality?.elaborada ?? null
@@ -89,9 +101,10 @@ export function normalizeAemetDailyForecast(payload) {
   };
 }
 
-export async function fetchAemetDailyForecast({ apiKey, fetchImpl = fetch }) {
+export async function fetchAemetDailyForecast({ apiKey, destination = 'frigiliana', fetchImpl = fetch }) {
+  const config = destinationConfig(destination);
   const initialUrl = new URL(
-    `${AEMET_API_ROOT}/prediccion/especifica/municipio/diaria/${FRIGILIANA_MUNICIPALITY_ID}`
+    `${AEMET_API_ROOT}/prediccion/especifica/municipio/diaria/${config.municipalityId}`
   );
   initialUrl.searchParams.set('api_key', apiKey);
 
@@ -121,7 +134,7 @@ export async function fetchAemetDailyForecast({ apiKey, fetchImpl = fetch }) {
     throw new AemetGatewayError('forecast', 'network');
   }
 
-  return normalizeAemetDailyForecast(await readJson(dataResponse, 'forecast'));
+  return normalizeAemetDailyForecast(await readJson(dataResponse, 'forecast'), destination);
 }
 
 function jsonResponse(payload, status, cacheControl) {
@@ -144,13 +157,14 @@ function publicFailure() {
   }, 503, 'no-store');
 }
 
-export function createAemetForecastRoute({ fetchImpl = fetch, cache } = {}) {
+export function createAemetForecastRoute({ destination = 'frigiliana', fetchImpl = fetch, cache } = {}) {
+  destinationConfig(destination);
   return async function handleAemetForecast({ request, env, waitUntil = undefined }) {
     const apiKey = env?.AEMET_API_KEY?.trim();
     if (!apiKey) return publicFailure();
 
     const edgeCache = cache ?? globalThis.caches?.default;
-    const cacheKey = new Request(new URL('/api/weather/frigiliana', request.url), {
+    const cacheKey = new Request(new URL(`/api/weather/${destination}`, request.url), {
       method: 'GET'
     });
 
@@ -160,7 +174,7 @@ export function createAemetForecastRoute({ fetchImpl = fetch, cache } = {}) {
     }
 
     try {
-      const forecast = await fetchAemetDailyForecast({ apiKey, fetchImpl });
+      const forecast = await fetchAemetDailyForecast({ apiKey, destination, fetchImpl });
       const response = jsonResponse(forecast, 200, PUBLIC_CACHE_CONTROL);
 
       if (edgeCache) {

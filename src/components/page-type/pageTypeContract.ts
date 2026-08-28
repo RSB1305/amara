@@ -91,6 +91,7 @@ export const AMARA_PAGE_FAMILY_PROFILES = {
   'experience-wellness': { type: 'explore', tier: 'approved' },
   'experience-market': { type: 'explore', tier: 'approved' },
   'campaign-honeymoon': { type: 'explore', tier: 'approved' },
+  'campaign-wedding-anniversary': { type: 'explore', tier: 'approved' },
   'campaign-weddings': { type: 'explore', tier: 'approved' },
   'experience-nerja-hub': { type: 'explore', tier: 'approved' },
   'experience-tarifa-hub': { type: 'explore', tier: 'approved' },

@@ -1,3 +1,3 @@
 import { createAemetForecastRoute } from '../../../weather-gateway/aemet-forecast.mjs';
 
-export const onRequestGet = createAemetForecastRoute({ destination: 'frigiliana' });
+export const onRequestGet = createAemetForecastRoute({ destination: 'tarifa' });
