@@ -4,6 +4,10 @@ import AmaraImage from '../../components/AmaraImage.astro';
 import StayHero from '../../components/hero/StayHero.astro';
 import AmaraPageShell from '../../components/layout/AmaraPageShell.astro';
 import AmaraSection from '../../components/layout/AmaraSection.astro';
+import AmaraActionLink from '../../components/actions/AmaraActionLink.astro';
+import LocationGuideIcon, {
+  type LocationGuideIconName
+} from '../../components/location/LocationGuideIcon.astro';
 import RentalPhotoGallery from '../../components/vacation-rental/RentalPhotoGallery.astro';
 import StayBookingCalendar from '../../components/vacation-rental/StayBookingCalendar.astro';
 import StayStickyBookingBar from '../../components/vacation-rental/StayStickyBookingBar.astro';
@@ -18,6 +22,7 @@ import {
   Eye,
   KeyRound,
   Languages,
+  MessageCircle,
   PawPrint
 } from '@lucide/astro';
 import type { AstroComponent } from '@lucide/astro';
@@ -72,6 +77,8 @@ interface Props {
 }
 
 type ExternalReviewPlatform = 'airbnb' | 'booking';
+type StayPlanningIcon = LocationGuideIconName | 'reviews';
+type StayPlanningLinkSpec = LabeledLink & { icon: StayPlanningIcon };
 
 const { rental: rentalProp, lang = 'es' } = Astro.props;
 const rental = vacationRentalEntitiesByKey[rentalProp.key] ?? rentalProp;
@@ -368,25 +375,53 @@ const externalReviewProfiles = rental.sameAs.flatMap((href) => {
       }]
     : [];
 });
-const locationLinkSpecs: LabeledLink[] = [
+const locationLinkSpecs: StayPlanningLinkSpec[] = [
   ...((rental.city === 'Frigiliana'
     ? [
-        { token: 'location_frigiliana', label: t(ui.frigilianaLocationGuide as LocalizedText) },
-        { token: 'frigiliana_experience_hub', label: t(ui.experiencesGuide as LocalizedText) }
+        {
+          token: 'location_frigiliana',
+          label: t(ui.frigilianaLocationGuide as LocalizedText),
+          icon: 'village'
+        },
+        {
+          token: 'frigiliana_experience_hub',
+          label: t(ui.experiencesGuide as LocalizedText),
+          icon: 'village-square'
+        }
       ]
     : isFamilySurf
       ? [
-          { token: 'location_tarifa', label: t(ui.tarifaLocationGuide as LocalizedText) },
-          { token: 'tarifa_experience_hub', label: t(ui.experiencesGuide as LocalizedText) },
-          { token: 'tarifa_beaches_authority', label: t(ui.tarifaBeachesGuide as LocalizedText) },
-          { token: 'tarifa_wind_kitesurfing_authority', label: t(ui.tarifaWindGuide as LocalizedText) }
+          {
+            token: 'location_tarifa',
+            label: t(ui.tarifaLocationGuide as LocalizedText),
+            icon: 'village'
+          },
+          {
+            token: 'tarifa_experience_hub',
+            label: t(ui.experiencesGuide as LocalizedText),
+            icon: 'village-square'
+          },
+          {
+            token: 'tarifa_beaches_authority',
+            label: t(ui.tarifaBeachesGuide as LocalizedText),
+            icon: 'coast'
+          },
+          {
+            token: 'tarifa_wind_kitesurfing_authority',
+            label: t(ui.tarifaWindGuide as LocalizedText),
+            icon: 'sunshine'
+          }
         ]
     : rental.city === 'Nerja'
       ? [
-          { token: 'location_nerja', label: 'Nerja' },
-          { token: 'nerja_experience_hub', label: t(ui.experiencesGuide as LocalizedText) }
+          { token: 'location_nerja', label: 'Nerja', icon: 'village' },
+          {
+            token: 'nerja_experience_hub',
+            label: t(ui.experiencesGuide as LocalizedText),
+            icon: 'village-square'
+          }
         ]
-      : []) satisfies LabeledLink[]),
+      : []) satisfies StayPlanningLinkSpec[]),
   // Arrival belongs with property planning and must resolve to the accommodation's own final-mile guide.
   {
     token: isFamilySurf
@@ -394,13 +429,24 @@ const locationLinkSpecs: LabeledLink[] = [
       : rental.city === 'Nerja'
         ? 'nerja_arrival_guide'
         : 'arrival_guide',
-    label: t(ui.arrivalGuide as LocalizedText)
+    label: t(ui.arrivalGuide as LocalizedText),
+    icon: 'airport'
   }
 ];
-const locationLinks = locationLinkSpecs.flatMap(({ token, label }) => {
+const locationLinks = locationLinkSpecs.flatMap(({ token, label, icon }) => {
   const href = resolveOptionalLink(token, currentLang, { suppressMissing: true });
-  return href ? [{ href, label }] : [];
+  return href ? [{ href, label, icon }] : [];
 });
+const stayPlanningLinks = [
+  ...locationLinks,
+  ...(reviewsHref
+    ? [{
+        href: reviewsHref,
+        label: t(ui.readReviews as LocalizedText),
+        icon: 'reviews' as const
+      }]
+    : [])
+];
 const locationBody = locationLinks.length > 0
   ? t(ui.locationBodyWithGuides as LocalizedText)
   : t(ui.locationBodyWithoutGuides as LocalizedText);
@@ -837,16 +883,36 @@ const contextDestination: DestinationId | undefined =
             </dl>
           </div>
           <div class="grid gap-4 lg:justify-items-end">
-            <div class="am-text-body flex flex-wrap gap-x-5 gap-y-2 lg:justify-end">
-              {locationLinks.map((link) => (
-                <a class="am-inline-link" href={link.href}>{link.label}</a>
+            <nav
+              aria-label={t(ui.locationTitle as LocalizedText)}
+              class="grid w-full gap-x-4 gap-y-1 sm:grid-cols-2 2xl:grid-cols-4"
+              data-am-component="stay-planning-links"
+            >
+              {stayPlanningLinks.map((link) => (
+                <AmaraActionLink
+                  variant="guide"
+                  href={link.href}
+                  class="group min-w-0"
+                  data-am-stay-planning-link={link.icon}
+                >
+                  <span class="am-text-body flex items-center gap-2">
+                    {link.icon === 'reviews' ? (
+                      <MessageCircle
+                        class="size-4 shrink-0 text-primary"
+                        stroke-width={1.5}
+                        aria-hidden="true"
+                        data-am-stay-planning-icon="reviews"
+                      />
+                    ) : (
+                      <LocationGuideIcon name={link.icon} class="size-4" />
+                    )}
+                    <span class="min-w-0">
+                      {link.label}
+                    </span>
+                  </span>
+                </AmaraActionLink>
               ))}
-              {reviewsHref && (
-                <a class="am-inline-link" href={reviewsHref}>
-                  {t(ui.readReviews as LocalizedText)}
-                </a>
-              )}
-            </div>
+            </nav>
             {externalReviewProfiles.length > 0 && (
               <aside
                 class="am-text-annotation flex flex-wrap items-baseline gap-x-3 gap-y-1 leading-relaxed text-on-surface-variant lg:justify-end"
