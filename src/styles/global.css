@@ -477,6 +477,8 @@
     --am-cta-underline: var(--color-border-subtle);
     position: relative;
     display: inline-flex;
+    width: fit-content;
+    max-width: 100%;
     align-items: center;
     font-family: var(--font-body);
     font-size: 0.875rem;
@@ -948,6 +950,11 @@
     height: 1px;
     background: var(--color-border-subtle);
     pointer-events: none;
+  }
+
+  .am-page-section--divided.am-page-section--closing::after,
+  .am-page-shell__frame > .am-page-section--divided:last-child::after {
+    content: none;
   }
 
   .am-page-section--surface-tint,
