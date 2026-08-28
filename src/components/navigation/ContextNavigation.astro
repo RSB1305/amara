@@ -30,7 +30,13 @@ import DestinationContextDisclosures from './DestinationContextDisclosures.astro
 interface Props {
   activeId?: string;
   activeBranchId?: string;
-  branches?: { id: string; href: string; label: string }[];
+  branches?: {
+    id: string;
+    href: string;
+    label: string;
+    title?: string;
+    description?: string;
+  }[];
   branchSwitcherAriaLabel?: string;
   branchGroups?: Record<string, ContextNavigationGroup[]>;
   breadcrumbAriaLabel: string;

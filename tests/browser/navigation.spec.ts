@@ -282,7 +282,7 @@ test('the destination disclosures use one responsive DOM tree', async ({ page })
   const disclosures = root.locator('[data-am-context-disclosure]');
   const locationDisclosure = root.locator('[data-am-context-branch="location"]');
   const panel = locationDisclosure.locator('.am-destination-disclosure__panel');
-  const groupGrid = panel.locator('.grid');
+  const groupGrid = panel.locator('[data-am-context-panel-groups]');
 
   await expect(root).toHaveCount(1);
   await expect(root).toBeVisible();
@@ -292,6 +292,10 @@ test('the destination disclosures use one responsive DOM tree', async ({ page })
   await locationDisclosure.locator('summary').click();
   await expect(locationDisclosure).toHaveAttribute('open', '');
   await expect(panel).toBeVisible();
+  await expect(panel.locator('[data-am-context-panel-title]')).toHaveText('Frigiliana');
+  await expect(panel.locator('[data-am-context-panel-description]')).toHaveText(
+    'Was ihr über Frigiliana wissen solltet.'
+  );
   await expect(panel.locator('section')).toHaveCount(4);
   await expect(panel.locator('[data-am-context-sibling]')).toHaveCount(9);
   expect(
@@ -307,6 +311,14 @@ test('the destination disclosures use one responsive DOM tree', async ({ page })
     )
   ).toBe(4);
   expect(await panel.evaluate((element) => getComputedStyle(element).position)).toBe('absolute');
+  const [titleBox, descriptionBox] = await Promise.all([
+    panel.locator('[data-am-context-panel-title]').boundingBox(),
+    panel.locator('[data-am-context-panel-description]').boundingBox()
+  ]);
+  expect(descriptionBox?.x).toBeGreaterThan(titleBox?.x ?? 0);
+  const titleCenterY = (titleBox?.y ?? 0) + (titleBox?.height ?? 0) / 2;
+  const descriptionCenterY = (descriptionBox?.y ?? 0) + (descriptionBox?.height ?? 0) / 2;
+  expect(Math.abs(descriptionCenterY - titleCenterY)).toBeLessThan(2);
 });
 
 test('the destination branch disclosures stay distinct from the global menu', async ({ page }) => {
@@ -327,6 +339,12 @@ test('the destination branch disclosures stay distinct from the global menu', as
   await experienceDisclosure.locator('summary').click();
   await expect(locationDisclosure).not.toHaveAttribute('open', '');
   await expect(experienceDisclosure).toHaveAttribute('open', '');
+  await expect(experienceDisclosure.locator('[data-am-context-panel-title]')).toHaveText(
+    'Frigiliana & Region'
+  );
+  await expect(experienceDisclosure.locator('[data-am-context-panel-description]')).toHaveText(
+    'Was ihr in Frigiliana und der Region erleben könnt.'
+  );
 
   await page.keyboard.press('Escape');
   await expect(experienceDisclosure).not.toHaveAttribute('open', '');

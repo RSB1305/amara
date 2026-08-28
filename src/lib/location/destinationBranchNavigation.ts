@@ -59,6 +59,46 @@ const destinationNames: Record<DestinationId, string> = {
   tarifa: 'Tarifa'
 };
 
+const branchIntroCopy: Record<
+  AmaraLanguage,
+  {
+    locationDescription: (destination: string) => string;
+    experienceTitle: (destination: string) => string;
+    experienceDescription: (destination: string) => string;
+  }
+> = {
+  en: {
+    locationDescription: (destination) => `What you should know about ${destination}.`,
+    experienceTitle: (destination) => `${destination} & surroundings`,
+    experienceDescription: (destination) =>
+      `What you can experience in ${destination} and the surrounding region.`
+  },
+  de: {
+    locationDescription: (destination) => `Was ihr über ${destination} wissen solltet.`,
+    experienceTitle: (destination) => `${destination} & Region`,
+    experienceDescription: (destination) =>
+      `Was ihr in ${destination} und der Region erleben könnt.`
+  },
+  es: {
+    locationDescription: (destination) => `Lo que debéis saber sobre ${destination}.`,
+    experienceTitle: (destination) => `${destination} y la región`,
+    experienceDescription: (destination) =>
+      `Lo que podéis vivir en ${destination} y sus alrededores.`
+  },
+  nl: {
+    locationDescription: (destination) => `Wat jullie over ${destination} moeten weten.`,
+    experienceTitle: (destination) => `${destination} & omgeving`,
+    experienceDescription: (destination) =>
+      `Wat jullie in ${destination} en de omgeving kunnen beleven.`
+  },
+  sv: {
+    locationDescription: (destination) => `Det ni behöver veta om ${destination}.`,
+    experienceTitle: (destination) => `${destination} med omnejd`,
+    experienceDescription: (destination) =>
+      `Det ni kan uppleva i ${destination} med omnejd.`
+  }
+};
+
 const contextLabels: Record<
   AmaraLanguage,
   {
@@ -93,7 +133,9 @@ export function getDestinationBranchNavigation(
   lang: AmaraLanguage
 ) {
   const copy = labels[lang];
+  const intro = branchIntroCopy[lang];
   const destinationTokens = tokens[destination];
+  const destinationName = destinationNames[destination];
 
   return {
     ariaLabel: copy.switcher,
@@ -101,11 +143,15 @@ export function getDestinationBranchNavigation(
       {
         id: 'location' as const,
         label: copy.location,
+        title: destinationName,
+        description: intro.locationDescription(destinationName),
         href: resolveLink(destinationTokens.location, lang)
       },
       {
         id: 'experience' as const,
         label: copy.experience,
+        title: intro.experienceTitle(destinationName),
+        description: intro.experienceDescription(destinationName),
         href: resolveLink(destinationTokens.experience, lang)
       }
     ]
