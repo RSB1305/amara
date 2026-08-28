@@ -42,7 +42,7 @@ const ldJson = resolveStructuredData(seo, head.canonicalUrl, currentLang, origin
     <meta name="description" content={head.current.description} />
     <meta name="robots" content={head.current.robots} />
     <link rel="canonical" href={head.canonicalUrl} />
-    {ldJson && <script type="application/ld+json" set:html={ldJson} />}
+    {ldJson && <script is:inline type="application/ld+json" set:html={ldJson} />}
   </head>
 
   <body class="am-guide-root bg-surface text-on-surface font-body antialiased" data-guide-slug={currentSlug}>
