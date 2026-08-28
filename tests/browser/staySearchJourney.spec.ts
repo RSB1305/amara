@@ -170,8 +170,6 @@ test('homepage finder refreshes live dates for destination changes and returns q
   expect(requests).toHaveLength(0);
   await expect(page.getByRole('button', { name: 'Check availability' })).toHaveCount(0);
   await page.locator('[data-am-stay-search-destination]').selectOption('nerja');
-  expect(requests).toHaveLength(0);
-  await page.getByRole('button', { name: 'Choose arrival' }).click();
   const submit = page.getByRole('button', { name: 'Check availability' });
   await expect(submit).toBeVisible();
   await expect(submit).toBeDisabled();

@@ -617,7 +617,7 @@ export function enhanceStaySearchFinders() {
     calendar.addEventListener('keydown', (event) => {
       if (event.key === 'Escape') { event.preventDefault(); closeCalendar(); }
     });
-    const resetLiveCalendar = () => {
+    const resetLiveCalendar = (openAfterReset = false) => {
       arrival.value = '';
       departure.value = '';
       departure.min = addDays(today, 1);
@@ -629,10 +629,13 @@ export function enhanceStaySearchFinders() {
       monthCache.clear();
       stayDays.clear();
       updateTriggers();
-      if (!calendar.hidden) void ensureVisibleMonths();
+      if (openAfterReset) void openCalendar('arrival', arrivalTrigger);
+      else if (!calendar.hidden) void ensureVisibleMonths();
     };
-    destination.addEventListener('change', resetLiveCalendar);
-    guests.addEventListener('change', resetLiveCalendar);
+    destination.addEventListener('change', () => {
+      resetLiveCalendar(container.dataset.amStaySearchVariant === 'home');
+    });
+    guests.addEventListener('change', () => resetLiveCalendar());
     desktopQuery.addEventListener('change', () => {
       if (!calendar.hidden) void ensureVisibleMonths();
     });
