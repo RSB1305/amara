@@ -2,7 +2,7 @@
 
 Date: 2026-08-28  
 Scope: Frigiliana Location, Experience and Casa AMARA projections  
-Status: working map before public authoring
+Status: working map; first German authoring briefs prepared
 
 ## 1. Working rule
 
@@ -58,4 +58,4 @@ Personal host language may use only real AMARA observations. External research c
 
 ## 6. Next controlled step
 
-Use sections 2 and 3 to create owner-specific **German authoring briefs**. Each brief must name the permitted Fact IDs, the source statement, target answer, AMARA projection, prohibited duplication and reciprocal boundary. Public copy and contextual links are revised together only after the brief is approved.
+The first owner-specific German briefs are maintained in [`2026-08-28__first-authoring-briefs-de.md`](./2026-08-28__first-authoring-briefs-de.md). They name the permitted Fact IDs, source statement, target answer, AMARA projection, prohibited duplication and reciprocal boundary. Public copy and contextual links are revised together only after the relevant brief is approved.
