@@ -14,8 +14,6 @@ import {
   vacationRentalEntitiesByToken
 } from '../../content/vacationRentalEntities';
 import {
-  airbnbRatingLabel,
-  superhostLabel,
   travellerReviewAwardLabel,
   completedStaysLabel
 } from '../../content/reviewEvidence';
@@ -31,6 +29,7 @@ import {
   cinematicHeroLead,
   cinematicHeroImageAlt,
   cinematicHeroProofRating,
+  cinematicHeroDirectBenefitsLabel,
   cinematicHostLabel,
   cinematicHostAvatarAlt,
   cinematicWelcome,
@@ -296,10 +295,8 @@ const hostAboutHref = resolveOptionalLink('about', currentLang, { suppressMissin
  * Later sections substantiate these summaries without repeating them verbatim.
  */
 const heroProof = [
-  t(superhostLabel),
-  t(cinematicHeroProofRating),
   t(travellerReviewAwardLabel),
-  t(directBookingTrustSignals.openingProof)
+  t(cinematicHeroProofRating)
 ];
 
 /**
@@ -347,6 +344,7 @@ const quoteTranslationNote = currentLang === 'de' ? null : t(cinematicQuoteTrans
         heroKicker={t(cinematicHeroKicker)}
         heroLead={t(cinematicHeroLead)}
         heroProof={heroProof}
+        heroDirectBenefitsLabel={t(cinematicHeroDirectBenefitsLabel)}
         welcomeMessage={cinematicWelcome}
         hostAvatarSrc={hostAvatar.src}
         hostAvatarSrcSet={hostAvatar.srcSet.attribute}

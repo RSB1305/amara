@@ -459,6 +459,14 @@ export const cinematicHeroProofRating: CopyRow = {
   sv: `${airbnbRatingLabel.sv} från ${airbnbReviewEvidence.reviewCountLabel} Airbnb-omdömen`
 };
 
+export const cinematicHeroDirectBenefitsLabel: CopyRow = {
+  en: 'Direct booking benefits',
+  de: 'Vorteile der Direktbuchung',
+  es: 'Ventajas de la reserva directa',
+  nl: 'Voordelen van direct boeken',
+  sv: 'Fördelar med direktbokning'
+};
+
 /* =========================================================
    THREE PLACES
    The home weights the locations deliberately: four of the six stays

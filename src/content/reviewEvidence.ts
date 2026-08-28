@@ -61,13 +61,13 @@ export const superhostLabel: Record<AmaraLanguage, string> = {
   sv: `Airbnb Superhost sedan ${hostTrustEvidence.superhostSince}`
 };
 
-/** Booking.com award line for the trust band. */
+/** Compact Booking.com award proof for the opening trust treatment. */
 export const travellerReviewAwardLabel: Record<AmaraLanguage, string> = {
-  en: `${hostTrustEvidence.travellerReviewAwards.count} Booking.com Traveller Review Awards ${hostTrustEvidence.travellerReviewAwards.year}`,
-  de: `${hostTrustEvidence.travellerReviewAwards.count} Booking.com Traveller Review Awards ${hostTrustEvidence.travellerReviewAwards.year}`,
-  es: `${hostTrustEvidence.travellerReviewAwards.count} Traveller Review Awards de Booking.com ${hostTrustEvidence.travellerReviewAwards.year}`,
-  nl: `${hostTrustEvidence.travellerReviewAwards.count} Booking.com Traveller Review Awards ${hostTrustEvidence.travellerReviewAwards.year}`,
-  sv: `${hostTrustEvidence.travellerReviewAwards.count} Booking.com Traveller Review Awards ${hostTrustEvidence.travellerReviewAwards.year}`
+  en: `${hostTrustEvidence.travellerReviewAwards.count}× Booking.com Traveller Review Awards ${hostTrustEvidence.travellerReviewAwards.year}`,
+  de: `${hostTrustEvidence.travellerReviewAwards.count}× Booking.com Traveller Review Awards ${hostTrustEvidence.travellerReviewAwards.year}`,
+  es: `${hostTrustEvidence.travellerReviewAwards.count}× Traveller Review Awards de Booking.com ${hostTrustEvidence.travellerReviewAwards.year}`,
+  nl: `${hostTrustEvidence.travellerReviewAwards.count}× Booking.com Traveller Review Awards ${hostTrustEvidence.travellerReviewAwards.year}`,
+  sv: `${hostTrustEvidence.travellerReviewAwards.count}× Booking.com Traveller Review Awards ${hostTrustEvidence.travellerReviewAwards.year}`
 };
 
 /** Completed-stays line for the trust band. */
