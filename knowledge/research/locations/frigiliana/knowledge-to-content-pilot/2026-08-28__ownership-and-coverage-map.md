@@ -1,10 +1,11 @@
 ---
 document_id: AMARA-KNOWLEDGE-FRIGILIANA-OWNERSHIP-001
 title: Frigiliana Knowledge-to-Content Ownership and Coverage Map
-status: READY FOR OPERATOR REVIEW
+status: ACTIVE WORKING MAP
 created_at: 2026-08-28
+updated_at: 2026-08-28
 scope: Frigiliana public Location, Experience and bounded Casa AMARA projections
-basis_commit: 34da295f46cff0cfbe38ee71d1967ef039df6b20
+basis_commit: 26e4e37
 ---
 
 # Frigiliana Knowledge-to-Content Ownership and Coverage Map
@@ -34,10 +35,10 @@ Frigiliana already has a broad public page inventory and a substantial evaluated
 The reason is no longer a lack of pages. The remaining work is ownership and evidence alignment:
 
 1. Geography is the strongest completed Location pilot: its page manifest is `ready` and most authoring areas are covered.
-2. Climate, parking, winter stays, supermarkets, health and practical rules have manifests, but remain partial, unmapped or awaiting research.
-3. Beaches, hiking and restaurants now have normalized facts and open questions, but no page manifests that authorize the current public authoring areas.
+2. Climate, parking, winter stays, supermarkets, health and practical rules have manifests, but remain partial or contain explicit evidence gaps.
+3. Beaches, hiking and restaurants now have normalized facts, open questions and page manifests. Their stable baselines are mapped; live conditions, first-party combinations and route/return evidence remain partial.
 4. The public Daily Life page contains precise shop, route, opening and AMARA recommendation claims that are ahead of the normalized Frigiliana shopping evidence.
-5. The Market, Festivals, Day Trips, Wellness, Weddings and Dos Tumbas pages have no corresponding page-coverage manifests in `knowledge/pages/`.
+5. The Market, Festivals, Day Trips, Wellness, Weddings and Dos Tumbas pages still have no corresponding page-coverage manifests in `knowledge/pages/`.
 6. The current Experience Hub repeats selection through `editorial`, `moods`, `catalog` and story units, contains a Nerja-nightlife narrative without a Frigiliana knowledge owner, and carries a village-versus-coast stay decision that belongs to Location.
 7. Casa AMARA has seven evaluated first-party facts. They support truthful, bounded projections about location, access and three private terraces. They do not yet support exact trailhead, parking-to-door, shopping-route, winter-sun or restaurant-combination stories.
 
@@ -66,9 +67,9 @@ Readiness meanings:
 | `/frigiliana-winter-stays` | Location / A planning spoke with conversion boundary | Is Frigiliana a good fit for our winter rhythm and which AMARA stay supports it? | Winter stay decision across climate, terrain, village rhythm and indoor comfort | Property-specific winter features only; conversion follows after the decision | General climate detail, hiking route ownership and unsupported village-wide opening claims | **Partial:** manifest exists; climate bridge, property evidence pack, openings and first-party winter day remain open |
 | `/frigiliana-faq` | Location / A retrieval surface | What are the short answers to common Frigiliana planning questions? | Concise answers and routing to canonical owners | Only the minimum verified AMARA consequence required by an answer | No independent long narrative and no new facts that lack a specialist owner | **Unmapped:** should project existing manifests, not become a parallel knowledge owner |
 | `/frigiliana-old-town` | Experience / B spoke | What should we notice on an old-town walk, and what history explains it? | Walkable old-town narrative combining protected streetscape, history and visible objects | Casa AMARA may frame the starting/return context only when the route is first-party verified | General geography, area choice, invented Three Cultures coexistence and unverified panel claims | **Unmapped but evidence-rich:** history/heritage facts exist; ceramic-panel provenance is a material gap |
-| `/frigiliana-hiking` | Experience / B spoke | Which of four routes fits our time, terrain tolerance and current conditions? | Comparable route profiles, navigation boundary, live-condition checks and return planning | Exact Casa AMARA start/return and recovery only after a dated host walk; terrace recovery may use verified amenities | Climate normals, restaurant catalogue and any claim that Casa AMARA is an official trailhead | **Partial/unmapped:** four route facts normalized; manifest, live authority, AMARA route and return-food evidence missing |
-| `/frigiliana-beaches` | Experience / B spoke | Which coast day fits guests staying in Frigiliana, by access, setting and desired day rhythm? | Selection of Nerja/Maro/coast options from a Frigiliana-base decision | Return to Casa AMARA or alternative AMARA Playa only where a property fact changes the choice | Full Nerja location narrative, invented quietness, weather forecast and generic restaurant catalogue | **Partial/unmapped:** nine Nerja/coast facts normalized; no page manifest; six current public choices must be reconciled to evidence |
-| `/frigiliana-restaurants` | Experience / B spoke | Which table fits our location, occasion and desired evening from Frigiliana? | Frigiliana-first choice plus bounded Nerja/special-occasion alternatives | Personally tested combinations only after an operator note; walkability only when route evidence exists | Beach guide, hiking guide, unsupported dish memories, current hours without same-day source | **Partial/unmapped:** nine venue facts normalized; current ten-place narrative and El Acebuchal section need coverage review |
+| `/frigiliana-hiking` | Experience / B spoke | Which of four routes fits our time, terrain tolerance and current conditions? | Comparable route profiles, navigation boundary, live-condition checks and return planning | Exact Casa AMARA start/return and recovery only after a dated host walk; terrace recovery may use verified amenities | Climate normals, restaurant catalogue and any claim that Casa AMARA is an official trailhead | **Partial/mapped:** the manifest covers the four route profiles, El Fuerte access and dated Chíllar status; AMARA route logs, live checks, route variants and return-food evidence remain open |
+| `/frigiliana-beaches` | Experience / B spoke | Which coast day fits guests staying in Frigiliana, by access, setting and desired day rhythm? | Selection of Nerja/Maro/coast options from a Frigiliana-base decision | Return to Casa AMARA or alternative AMARA Playa only where a property fact changes the choice | Full Nerja location narrative, invented quietness, weather forecast and generic restaurant catalogue | **Partial/mapped:** five beach baselines and bounded access facts are mapped; Carabeillo, live sea state and property-return evidence remain gaps |
+| `/frigiliana-restaurants` | Experience / B spoke | Which table fits our location, occasion and desired evening from Frigiliana? | Frigiliana-first choice plus bounded Nerja/special-occasion alternatives | Personally tested combinations only after an operator note; walkability only when route evidence exists | Beach guide, hiking guide, unsupported dish memories, current hours without same-day source | **Partial/mapped:** venue baselines and authoring areas are mapped; personal combinations, current operation and several situation-specific claims remain open |
 | `/frigiliana-market` | Experience / B spoke | Is the weekly market worth making part of our Thursday morning, and how do we combine it with the village? | The market as an outing, including only verified current time/place/vendor logic | A first-party morning sequence only after a dated visit | Normal grocery planning, supermarket substitute claims and recipes | **Gap/unmapped:** only a Thursday reference is partially supported; current hours, location and stall mix are not authorized |
 | `/frigiliana-festivals` | Experience / B spoke | Which event changes the village experience on our dates, and what must we plan? | Seasonal event choice plus date-specific crowd/access consequence | A verified stay consequence for Casa AMARA when an event affects its immediate context | General parking owner, unsupported “what streets feel like”, stale dates | **Partial/unmapped:** Three Cultures history exists; full calendar and 2026 operational facts need a volatile manifest |
 | `/frigiliana-day-trips` | Experience / B spoke | Which single regional excursion is realistic from Frigiliana for the day we want? | Comparable destination-day trade-offs, travel/ticket boundary and return rhythm | Frigiliana as the place to return to; property detail only if relevant and verified | Generic Andalusia catalogue, invented drive times and individual destination encyclopedias | **Gap/unmapped:** no Frigiliana page manifest or evaluated day-trip fact set |
@@ -120,19 +121,33 @@ These are content dependencies, not instructions to add links now. Each row requ
 | Location Hub | The village is the overnight base; coast and experiences are selectable day forms | How do we want to shape our days? | Experience Hub: one curated menu with destination-specific spokes | Move naturally from “where we stay” to “what we choose” | Experience Hub returns to Location only when the base decision becomes relevant |
 | Experience Hub | A day form ends in private shared time | Which AMARA hideaway supports that rhythm? | Romantic Hideaways/property pages: verified selection differences | Convert after useful inspiration, through a real product consequence | Conversion pages can project one bounded destination benefit |
 
+### First connection batch: current authorization state
+
+This smaller batch is the first practical Connection Map. “Partial” means the source premise exists, but public authoring must wait for the named target evidence. It is not permission to add a bare link.
+
+| Connection | Existing shared premise | Missing target-side proof | Current state |
+|---|---|---|---|
+| Weather ↔ Hiking | `frigiliana.climate.regional-proxy.seasonal-contrast`; the four canonical route profiles | Route-specific live-status method and exact start-time/condition decision wording | **Partial — structurally ready, live layer missing** |
+| Weather ↔ Beaches | `frigiliana.climate.regional-proxy.seasonal-contrast`; bounded Burriana, Playazo, Maro, Calahonda and Cantarriján profiles | Current sea-state method and beach-specific exposure/condition translation | **Partial — structurally ready, live layer missing** |
+| Weather ↔ Winter Stays | Regional seasonal contrast plus the existing winter-stay owner | Per-unit heating, indoor comfort, winter sun/shade and a dated first-party winter day | **Blocked by first-party property evidence** |
+| Hiking ↔ Restaurants | Canonical route profiles plus normalized venue identities | One tested route-finish/venue pairing with date, realistic timing and current operation | **Blocked by operator combination note** |
+| Hiking ↔ Casa AMARA | Official route starts plus `casa-amara.location.calle-chorruelo-calle-real` and verified terrace amenities | Door-to-start/return GPX walk and unit-specific recovery sequence | **Blocked by operator route log** |
+| Beaches ↔ Restaurants | Burriana’s official service profile plus `nerja.restaurants.ayo.burriana-daytime-service-2026` | Additional named beach/daypart pairings and current operation | **One bounded pairing ready; broader connection remains partial** |
+| Beaches ↔ Casa AMARA / AMARA Playa | Stable beach/access profiles | Dated property-to-beach journey, mode, terrain, parking and return evidence | **Blocked by operator route log** |
+| Restaurants ↔ Evening/Sundowner | Normalized venue identities | Personally tested continuation, timing, route/parking and an identified target owner | **Blocked by operator combination note** |
+| Supermarkets ↔ Cooking at AMARA | Verified shop baselines and local-food background | First-arrival shopping route, per-unit kitchen matrix and provenance-qualified recipe ingredients | **Blocked by operator shopping and property evidence** |
+| Location Hub ↔ Experience Hub | Stable page jobs and broad destination knowledge | Final hub manifests and removal/transfer decisions for repeated Experience sections | **Ready for hub coverage work, not public authoring** |
+
 ## 6. Blocking coverage gaps before connected authoring
 
 ### A. Required page manifests
 
-Create or complete page-level manifests before rewriting these public owners:
+Hiking, Beaches and Restaurants now have page-level manifests. Create or complete manifests for the remaining first-pilot owners before rewriting them:
 
-1. `frigiliana-hiking`
-2. `frigiliana-beaches`
-3. `frigiliana-restaurants`
-4. `frigiliana-old-town`
-5. `frigiliana-market`
-6. `frigiliana-experience`
-7. `frigiliana-location` as the hub-level projection map
+1. `frigiliana-old-town`
+2. `frigiliana-market`
+3. `frigiliana-experience`
+4. `frigiliana-location` as the hub-level projection map
 
 The FAQ should receive a projection-only manifest after these owners are stable. Day Trips, Wellness, Festivals, Dos Tumbas and Weddings remain separate later research/coverage packages.
 
@@ -155,13 +170,12 @@ The FAQ should receive a projection-only manifest after these owners are stable.
 5. Current parking rules, garage terms and accessible route.
 6. Current shop operation, opening logic and larger-arrival-shopping set.
 
-## 7. Repository inconsistencies to repair with the coverage work
+## 7. Repository consistency after the first coverage repair
 
 These are existing-state observations, not architecture proposals:
 
-- `knowledge/pages/frigiliana-climate/manifest.ts` points to `src/page-families/location-authority/FrigilianaWeatherPage.astro`, while the current route uses `WeatherPage.astro` and `src/content/locationWeatherAuthorityContent.ts`.
-- `knowledge/pages/frigiliana-supermarkets/manifest.ts` points to `src/content/frigilianaSupermarketsContent.ts`, which does not exist. The current public projection is inside `src/content/dailyLifeGuideContent.ts`.
-- `knowledge/pages/frigiliana-practical-local-rules/manifest.ts` points to `src/content/frigilianaPracticalLocalRulesContent.ts`, which does not exist. The current public `good-to-know` projection is inside `src/content/dailyLifeGuideContent.ts`.
+- The three stale public-content paths for Frigiliana Climate, Supermarkets and Practical Local Rules were corrected in commit `ca1ed8c`; no public output changed.
+- Hiking, Beaches and Restaurants received page manifests in the same coverage commit.
 - Existing Experience page families reside under `location-authority/`; this folder name does not change their registered Type B page job and is not, by itself, authority to invent a second family.
 - The current authored link tokens already connect Weather, Hiking, Beaches and Restaurants. Those links do not count as completed connections until the source statement, target answer and shared Fact-ID coverage are mapped.
 
@@ -175,10 +189,10 @@ Only three material decisions remain before the first authoring package:
 
 ## 9. Recommended execution order after review
 
-1. Correct the three stale manifest content paths without changing public output.
-2. Add manifests for Hiking, Beaches and Restaurants from the normalized fact sets.
-3. Collect only the high-priority operator evidence needed for the first connections.
-4. Add hub manifests for Location and Experience and resolve the three operator decisions above.
+1. Add hub manifests for Location and Experience and reconcile their current sections to the approved page jobs.
+2. Create only the Old Town and Market spoke manifests needed by the first hub menu; leave later specialist pages outside the batch.
+3. Collect the small operator evidence packs that unblock the first high-value connections: AMARA route logs, restaurant/evening combinations, shopping route and per-unit kitchen/winter facts.
+4. Run only targeted external gap research for local climate method, live route authority, market operation and volatile venue/shop facts.
 5. Produce one German authoring brief per approved page owner, with exact fact IDs, claim boundaries, required transitions and prohibited duplication.
 6. Revise public content owner by owner; implement contextual links only inside the same approved authoring package.
 7. Validate five-language semantic parity, rendered page structure and local preview before integration.
