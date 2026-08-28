@@ -768,11 +768,11 @@ export const cinematicHoneymoonCtaLabel: CopyRow = {
 ========================================================= */
 
 export const cinematicHostLabel: CopyRow = {
-  en: 'Meet your hosts',
+  en: 'About AMARA ❤︎ and your host',
   de: 'Über AMARA ❤︎ und euren Gastgeber',
-  es: 'Conoced a vuestros anfitriones',
-  nl: 'Maak kennis met jullie gastheren',
-  sv: 'Lär känna era värdar'
+  es: 'Sobre AMARA ❤︎ y vuestro anfitrión',
+  nl: 'Over AMARA ❤︎ en jullie gastheer',
+  sv: 'Om AMARA ❤︎ och er värd'
 };
 
 export const cinematicHostAvatarAlt: CopyRow = {
