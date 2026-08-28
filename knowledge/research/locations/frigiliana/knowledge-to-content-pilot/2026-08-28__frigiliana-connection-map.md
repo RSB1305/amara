@@ -1,7 +1,7 @@
 # Frigiliana Connection Map — compact pilot
 
-Date: 2026-08-28  
-Scope: Frigiliana Location, Experience and Casa AMARA projections  
+Date: 2026-08-28
+Scope: Frigiliana Location, Experience and Casa AMARA projections
 Status: working map; first German authoring briefs prepared
 
 ## 1. Working rule

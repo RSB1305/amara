@@ -1,7 +1,7 @@
 # Erste Authoring-Briefs — Frigiliana
 
-Stand: 2026-08-28  
-Geltung: deutsche Masterfassung vor Übersetzung  
+Stand: 2026-08-28
+Geltung: deutsche Masterfassung vor Übersetzung
 Status: Briefing, noch keine Freigabe für öffentliche Copy oder Code-Links
 
 ## Gemeinsame Regeln
@@ -78,7 +78,7 @@ Der Abgleich der bestehenden Abschnitte mit diesem Brief steht in [`2026-08-28__
 
 ## Brief 3 — Experience Hub ↔ Romantic Hideaways
 
-**Ausgangs-Owner:** `src/content/experienceHubContent.ts`  
+**Ausgangs-Owner:** `src/content/experienceHubContent.ts`
 **Ziel-Owner:** Romantic Hideaways und die jeweiligen Unterkunftsseiten
 
 **Nächste Gastfrage:** Welche Unterkunft unterstützt die Art gemeinsamer Zeit, die wir uns für diese Tage wünschen?

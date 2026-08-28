@@ -1,7 +1,7 @@
 # Brief 1 — Abgleich bestehender Location- und Experience-Inhalte
 
-Stand: 2026-08-28  
-Status: Änderungsmatrix vor Authoring  
+Stand: 2026-08-28
+Status: Änderungsmatrix vor Authoring
 Öffentliche Copy geändert: nein
 
 ## Ergebnis
@@ -18,7 +18,7 @@ Die Hauptprobleme sind:
 
 ## Location Hub — Abschnittsentscheidungen
 
-Owner: `src/content/frigilianaLocationContent.ts`  
+Owner: `src/content/frigilianaLocationContent.ts`
 Renderer: `src/page-families/location-authority/FrigilianaLocationPage.astro`
 
 | Bestehender Bereich | Entscheidung | Konkrete Grenze |
@@ -40,7 +40,7 @@ Renderer: `src/page-families/location-authority/FrigilianaLocationPage.astro`
 
 ## Experience Hub — Abschnittsentscheidungen
 
-Owner: `src/content/experienceHubContent.ts`  
+Owner: `src/content/experienceHubContent.ts`
 Renderer: `src/page-families/location-authority/ExperienceHubPage.astro`
 
 Aktuell rendert die Page Family nacheinander Hero, eine redaktionelle Dreierauswahl, eine Mood-Auswahl, den vollständigen Katalog und den Abschluss. Das ist die festgestellte Dreifachwiederholung.
