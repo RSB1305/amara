@@ -2,11 +2,13 @@ import { defineKnowledgeFacts } from '../../../schema';
 import type { FrigilianaGeographySourceId } from '../../../sources/locations/frigilianaGeographySources';
 import type { FrigilianaAgricultureSourceId } from '../../../sources/locations/frigilianaAgricultureSources';
 import type { FrigilianaAtmosphereSourceId } from '../../../sources/locations/frigilianaAtmosphereSources';
+import type { FrigilianaShoppingSourceId } from '../../../sources/locations/frigilianaShoppingSources';
 
 type AgricultureFoodSourceId =
   | FrigilianaGeographySourceId
   | FrigilianaAgricultureSourceId
-  | FrigilianaAtmosphereSourceId;
+  | FrigilianaAtmosphereSourceId
+  | FrigilianaShoppingSourceId;
 
 type AgricultureFoodFactInput = Parameters<typeof defineKnowledgeFacts>[0][number] & {
   sourceIds: readonly AgricultureFoodSourceId[];
@@ -151,6 +153,38 @@ const facts = [
     volatility: 'medium',
     claimBoundary:
       'This is a route-unspecified observation, not a municipal land-use measurement, permission to enter farmland or evidence that every visible subtropical plot lies inside the municipality.',
+  },
+  {
+    id: 'frigiliana.food.traditional-dishes.municipal-tourism-set',
+    subject: 'frigiliana',
+    topic: 'agriculture-food',
+    statement:
+      'Frigiliana’s official tourism information presents choto, potajes and migas among the locality’s traditional dishes and also describes culinary uses of miel de caña.',
+    status: 'verified',
+    sourceIds: ['frigiliana-tourism-general-food-2026', 'frigiliana-tourism-gastronomy-2026'],
+    checkedAt: '2026-08-28',
+    reviewAfter: '2028-08-28',
+    volatility: 'low',
+    claimBoundary:
+      'A traditional-dish association does not establish current restaurant availability, a single canonical recipe or suitability for every AMARA kitchen.',
+  },
+  {
+    id: 'frigiliana.food.ingenio.current-cane-honey-production-claim',
+    subject: 'frigiliana',
+    topic: 'agriculture-food',
+    statement:
+      'Frigiliana’s tourism authority and the Miel de la Torre producer both identify El Ingenio as the current place of concentrated sugar-cane-juice production associated with miel de caña.',
+    status: 'partially-verified',
+    sourceIds: [
+      'frigiliana-tourism-general-food-2026',
+      'frigiliana-municipality-ingenio-2026',
+      'miel-de-la-torre-producer-2026',
+    ],
+    checkedAt: '2026-08-28',
+    reviewAfter: '2027-08-28',
+    volatility: 'medium',
+    claimBoundary:
+      'The sources do not independently verify raw-cane origin, production volume, health claims, public factory access or continuous production on a guest’s visit date.',
   },
 ] as const satisfies readonly AgricultureFoodFactInput[];
 
