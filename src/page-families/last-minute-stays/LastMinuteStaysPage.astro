@@ -54,7 +54,7 @@ const destinationLinks = lastMinuteStaysCopy.destinations.map((destination) => (
   seo={lastMinuteStaysSeo}
   pageLang={currentLang}
   footerHighlights={footerHighlights}
-  contextBreadcrumbTitle={t(lastMinuteStaysCopy.hero.title)}
+  contextBreadcrumbTitle={t(lastMinuteStaysCopy.hero.breadcrumb)}
   pageFamily="last-minute-stays"
   navigationCurrentToken="last_minute_stays"
   navigationLanguageToken="last_minute_stays"
@@ -144,14 +144,14 @@ const destinationLinks = lastMinuteStaysCopy.destinations.map((destination) => (
           </a>
         </div>
 
-        <div class="mt-8 max-w-2xl border-t border-border-subtle pt-7" hidden data-am-last-minute-empty>
+        <div class="mt-8 max-w-2xl pt-7" hidden data-am-last-minute-empty>
           <p class="am-text-body text-on-surface">{t(lastMinuteStaysCopy.live.empty)}</p>
           <a class="am-btn am-btn--secondary mt-6" href={regularSearchHref}>
             {t(lastMinuteStaysCopy.live.regularSearch)}
           </a>
         </div>
 
-        <div class="mt-8 max-w-2xl border-t border-border-subtle pt-7" hidden data-am-last-minute-error>
+        <div class="mt-8 max-w-2xl pt-7" hidden data-am-last-minute-error>
           <p class="am-text-body text-on-surface">{t(lastMinuteStaysCopy.live.error)}</p>
           <a class="am-btn am-btn--secondary mt-6" href={regularSearchHref}>
             {t(lastMinuteStaysCopy.live.regularSearch)}
@@ -159,7 +159,7 @@ const destinationLinks = lastMinuteStaysCopy.destinations.map((destination) => (
         </div>
 
         <noscript>
-          <div class="mt-8 max-w-2xl border-t border-border-subtle pt-7">
+          <div class="mt-8 max-w-2xl pt-7">
             <p class="am-text-body text-on-surface">{t(lastMinuteStaysCopy.live.noScript)}</p>
             <a class="am-btn am-btn--secondary mt-6" href={regularSearchHref}>
               {t(lastMinuteStaysCopy.live.regularSearch)}

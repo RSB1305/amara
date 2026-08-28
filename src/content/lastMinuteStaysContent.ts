@@ -52,6 +52,7 @@ export const lastMinuteStaysSeo: AmaraAuthoringSeo = {
 
 export const lastMinuteStaysCopy = {
   hero: {
+    breadcrumb: l('Last Minute', 'Last Minute', 'Última hora', 'Last minute', 'Sista minuten'),
     eyebrow: l('Short-notice opportunities', 'Kurzfristige Möglichkeiten', 'Oportunidades de última hora', 'Mogelijkheden op korte termijn', 'Möjligheter med kort varsel'),
     title: l('Sometimes the right stay opens up at just the right moment', 'Manchmal wird genau im richtigen Moment etwas frei', 'A veces, el alojamiento adecuado queda disponible en el momento justo', 'Soms komt het juiste verblijf precies op het juiste moment beschikbaar', 'Ibland blir rätt boende tillgängligt i precis rätt ögonblick'),
     lead: l(
