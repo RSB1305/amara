@@ -295,7 +295,7 @@ const titleId = `${bookingKey}-booking-calendar-title`;
     data-am-booking-language={lang}
     data-am-booking-copy={JSON.stringify(clientCopy)}
   >
-    <div class="grid gap-6 lg:grid-cols-[minmax(0,0.75fr)_minmax(0,1.25fr)] lg:gap-14">
+    <div class="grid gap-6 lg:grid-cols-[minmax(0,0.65fr)_minmax(0,1.35fr)] lg:gap-14">
     <div class="max-w-xl">
       <p class="am-text-label text-on-surface-variant">
         {t(copy.kicker)}
@@ -453,6 +453,11 @@ const titleId = `${bookingKey}-booking-calendar-title`;
 
   [data-am-booking-enhanced='true'] .am-stay-booking-calendar__native-date {
     display: none;
+  }
+
+  .am-stay-booking-calendar__date-trigger .am-form-control {
+    padding-inline: 0.625rem;
+    white-space: nowrap;
   }
 
 </style>
