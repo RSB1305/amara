@@ -5,6 +5,7 @@ import LocationAuthorityLayout from '../../layouts/LocationAuthorityLayout.astro
 import Navigation from '../../components/Navigation.astro';
 import AmaraImage from '../../components/AmaraImage.astro';
 import FaqAccordion from '../../components/FaqAccordion.astro';
+import EditorialGuideLinkSection from '../../components/editorial/EditorialGuideLinkSection.astro';
 import FrigilianaOrientationMap from '../../components/location/FrigilianaOrientationMap.astro';
 import LocationContextNav from '../../components/location/LocationContextNav.astro';
 import LocationGuideIcon, {
@@ -53,6 +54,8 @@ const geographyHref = buildOwnedLocalizedPath('frigiliana-geography', currentLan
 const airportRouteHref =
   'https://www.google.com/maps/dir/?api=1&origin=M%C3%A1laga-Costa+del+Sol+Airport&destination=La+AMARA%2C+Calle+Chorruelo+5%2C+29788+Frigiliana&travelmode=driving';
 const aboutHref = optionalLink('about');
+const stairsHref = optionalLink('frigiliana_stairs');
+const dailyLifeHref = optionalLink('frigiliana_daily_life');
 const comparisonHref = optionalLink('nerja_vs_frigiliana');
 const availabilityHref = optionalLink('book');
 const exploreHubHref = optionalLink('frigiliana_experience_hub');
@@ -62,8 +65,13 @@ const orientationFactIcons: LocationGuideIconName[] = [
   'elevation'
 ];
 
-
-
+const planningLinks = [
+  { href: gettingThereHref, ...c.planning.gettingThere },
+  { href: parkingHref, ...c.planning.parking },
+  { href: stairsHref, ...c.planning.stairs },
+  { href: weatherHref, ...c.planning.weather },
+  { href: dailyLifeHref, ...c.planning.dailyLife }
+].filter((item): item is { href: string; label: string; text: string } => Boolean(item.href));
 const ctaHrefByToken: Record<FrigilianaLocationCtaToken, string | null> = {
   PARKING: parkingHref,
   COMPARISON: comparisonHref,
@@ -606,6 +614,14 @@ const renderCtas = (subsection: FrigilianaLocationSubsection) => subsection.ctas
               </div>
             </div>
           </section>
+
+          <EditorialGuideLinkSection
+            id="plan-the-stay"
+            eyebrow={c.planning.eyebrow}
+            title={c.planning.title}
+            intro={c.planning.intro}
+            links={planningLinks}
+          />
 
           <section
             id="explore-frigiliana"
