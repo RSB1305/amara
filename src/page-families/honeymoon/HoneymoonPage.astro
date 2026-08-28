@@ -9,7 +9,6 @@ import EditorialClosingCta from '../../components/editorial/EditorialClosingCta.
 import EditorialCallout from '../../components/content/EditorialCallout.astro';
 import AmaraPageShell from '../../components/layout/AmaraPageShell.astro';
 import AmaraSection from '../../components/layout/AmaraSection.astro';
-import Navigation from '../../components/Navigation.astro';
 import heroImage from '../../assets/images/home/amara-lounis-15-amara-frigiliana.jpg';
 import settingImage from '../../assets/images/content/hero-frigiliana.jpg';
 import choiceImage from '../../assets/images/home/amara-zaid-terraza-5.jpg';
@@ -63,13 +62,9 @@ const footerHighlights: (LabeledLink & { decoration: 'heart' })[] = [
   footerHighlights={footerHighlights}
   showContextNavigation={false}
   pageFamily="campaign-honeymoon"
+  navigationCurrentToken="honeymoon"
+  navigationLanguageToken="honeymoon"
 >
-  <Navigation
-    currentLang={currentLang}
-    currentToken="honeymoon"
-    languageToken="honeymoon"
-  />
-
   <AmaraPageShell family="honeymoon" dataLang={currentLang} flush whiteCanvas>
     <ExploreCampaignHero
       imageSrc={heroImage}

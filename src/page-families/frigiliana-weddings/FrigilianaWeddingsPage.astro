@@ -9,7 +9,6 @@ import EditorialClosingCta from '../../components/editorial/EditorialClosingCta.
 import EditorialCallout from '../../components/content/EditorialCallout.astro';
 import AmaraPageShell from '../../components/layout/AmaraPageShell.astro';
 import AmaraSection from '../../components/layout/AmaraSection.astro';
-import Navigation from '../../components/Navigation.astro';
 import churchImage from '../../assets/images/content/amara-frigiliana-pueblo/JPG_Frigiliana_Pueblo/2000px_72dpi_sRGB/01-frigiliana-pueblo.jpg';
 import villageImage from '../../assets/images/content/hero-frigiliana.jpg';
 import houseImage from '../../assets/images/content/amara-entrada/casa-amara-frigiliana-fuerra.jpg';
@@ -81,13 +80,9 @@ const parishHref = 'https://diocesismalaga.es/parroquias/145/san-antonio-de-padu
   footerHighlights={footerHighlights}
   showContextNavigation={false}
   pageFamily="campaign-weddings"
+  navigationCurrentToken="frigiliana_weddings"
+  navigationLanguageToken="frigiliana_weddings"
 >
-  <Navigation
-    currentLang={currentLang}
-    currentToken="frigiliana_weddings"
-    languageToken="frigiliana_weddings"
-  />
-
   <AmaraPageShell family="frigiliana-weddings" dataLang={currentLang} flush whiteCanvas>
     <ExploreCampaignHero
       imageSrc={churchImage}

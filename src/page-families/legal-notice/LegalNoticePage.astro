@@ -1,6 +1,5 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import Navigation from '../../components/Navigation.astro';
 import TrustHero from '../../components/hero/TrustHero.astro';
 import AmaraPageShell from '../../components/layout/AmaraPageShell.astro';
 import AmaraSection from '../../components/layout/AmaraSection.astro';
@@ -84,12 +83,7 @@ const heroCopy = {
 }[currentLang];
 ---
 
-<BaseLayout seo={seo} pageLang={currentLang} pageFamily="legal-notice">
-  <Navigation
-    currentLang={currentLang}
-    languageToken="legal_notice"
-  />
-
+<BaseLayout seo={seo} pageLang={currentLang} pageFamily="legal-notice" navigationLanguageToken="legal_notice">
   <AmaraPageShell family="legal-notice" dataLang={currentLang} class="am-document-surface">
     <AmaraSection variant="hero" dataComponent="legal-notice-hero">
       <TrustHero

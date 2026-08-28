@@ -1,6 +1,5 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import Navigation from '../../components/Navigation.astro';
 import AmaraImage from '../../components/AmaraImage.astro';
 import StayHero from '../../components/hero/StayHero.astro';
 import AmaraPageShell from '../../components/layout/AmaraPageShell.astro';
@@ -472,12 +471,8 @@ const contextDestination: DestinationId | undefined =
   contextBreadcrumbTitle={`${breadcrumbRentalName}, ${rental.city}`}
   contextDestination={contextDestination}
   pageFamily="vacation-rental"
+  navigationLanguageToken={rental.token}
 >
-  <Navigation
-    currentLang={currentLang}
-    languageToken={rental.token}
-  />
-
   <AmaraPageShell family="vacation-rental">
       <StayHero
         imageSrc={heroImage}

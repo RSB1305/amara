@@ -1,6 +1,5 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import Navigation from '../../components/Navigation.astro';
 import StaySearchFinder from '../../components/booking/StaySearchFinder.astro';
 import HomeCinematicMain, { type CinematicFact } from '../../components/home/HomeCinematicMain.astro';
 import AmaraPageShell from '../../components/layout/AmaraPageShell.astro';
@@ -332,12 +331,13 @@ const directBenefits = [
 const quoteTranslationNote = currentLang === 'de' ? null : t(cinematicQuoteTranslationNote);
 ---
 
-<BaseLayout seo={seo} pageLang={currentLang} pageFamily="home">
-  <Navigation
-    currentLang={currentLang}
-    languageToken="home"
-    appearance="overlay"
-  />
+<BaseLayout
+  seo={seo}
+  pageLang={currentLang}
+  pageFamily="home"
+  navigationLanguageToken="home"
+  navigationAppearance="overlay"
+>
   <AmaraPageShell
     family="home"
     dataLang={currentLang}

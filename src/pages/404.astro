@@ -1,6 +1,5 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import Navigation from '../components/Navigation.astro';
 import AmaraPageShell from '../components/layout/AmaraPageShell.astro';
 import AmaraSection from '../components/layout/AmaraSection.astro';
 import { resolveLink } from '../lib/linkResolver';
@@ -49,8 +48,6 @@ const homeHref = resolveLink('home', currentLang);
 ---
 
 <BaseLayout seo={seo} pageLang={currentLang} showContextNavigation={false}>
-  <Navigation currentLang={currentLang} />
-
   <AmaraPageShell family="not-found" dataLang={currentLang} whiteCanvas>
     <AmaraSection variant="hero" divider={false} dataComponent="not-found" class="flex min-h-[62vh] items-center">
       <div class="max-w-3xl border-t border-outline-variant/30 pt-10 md:pt-14">

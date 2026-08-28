@@ -1,5 +1,4 @@
 ---
-import Navigation from '../components/Navigation.astro';
 import TrustHero from '../components/hero/TrustHero.astro';
 import AmaraPageShell from '../components/layout/AmaraPageShell.astro';
 import AmaraSection from '../components/layout/AmaraSection.astro';
@@ -50,12 +49,14 @@ const {
 const trustFamilyAttributes = isAmaraTrustFamilyId(pageFamily) ? getTrustFamilyAttributes(pageFamily) : {};
 ---
 
-<BaseLayout seo={seo} pageLang={currentLang} footerHighlights={footerHighlights} pageFamily={pageFamily}>
-  <Navigation
-    currentLang={currentLang}
-    currentToken={currentToken}
-    languageToken={languageToken}
-  />
+<BaseLayout
+  seo={seo}
+  pageLang={currentLang}
+  footerHighlights={footerHighlights}
+  pageFamily={pageFamily}
+  navigationCurrentToken={currentToken}
+  navigationLanguageToken={languageToken}
+>
 
   <AmaraPageShell family={pageId} dataLang={dataLang}>
     <AmaraSection variant="hero" dataComponent="trust-hero" class="am-trust-page__hero">

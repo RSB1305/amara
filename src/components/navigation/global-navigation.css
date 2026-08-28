@@ -429,6 +429,14 @@
   background: var(--color-surface);
 }
 
+[data-am-navigation] [data-am-context-scroll-rail] {
+  scrollbar-width: none;
+}
+
+[data-am-navigation] [data-am-context-scroll-rail]::-webkit-scrollbar {
+  display: none;
+}
+
 [data-am-navigation] .am-nav-mobile__groups {
   border-top: 1px solid color-mix(in srgb, var(--color-outline-variant) 28%, transparent);
 }

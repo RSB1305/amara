@@ -3,7 +3,6 @@ import { resolveLocale } from '../../types/content';
 import type { BookingStayTermSection } from '../../content/bookingStayTermsContent';
 import InlineEmphasis from '../../components/text/InlineEmphasis.astro';
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import Navigation from '../../components/Navigation.astro';
 import TrustHero from '../../components/hero/TrustHero.astro';
 import AmaraPageShell from '../../components/layout/AmaraPageShell.astro';
 import AmaraSection from '../../components/layout/AmaraSection.astro';
@@ -49,9 +48,8 @@ const privacyHref = resolveLink('legal_notice', currentLang);
   pageLang={currentLang}
   pageFamily="booking-stay-terms"
   contextBreadcrumbTitle={copy.hero.title.replaceAll('&shy;', '')}
+  navigationLanguageToken="booking_stay_terms"
 >
-  <Navigation currentLang={currentLang} languageToken="booking_stay_terms" />
-
   <AmaraPageShell
     family="booking-stay-terms"
     dataLang={currentLang}
