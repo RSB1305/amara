@@ -94,11 +94,11 @@ export const ui = {
     sv: 'Nyckelfakta i korthet'
   },
   readReviews: {
-    en: 'Read guest reviews',
+    en: 'Guest reviews',
     de: 'Gästebewertung',
-    es: 'Leer reseñas',
-    nl: 'Gastbeoordelingen lezen',
-    sv: 'Läs recensioner'
+    es: 'Reseñas de huéspedes',
+    nl: 'Gastbeoordelingen',
+    sv: 'Gästrecensioner'
   },
   hostProfile: {
     en: 'Your host',
