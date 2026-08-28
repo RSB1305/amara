@@ -101,6 +101,20 @@ export const frigilianaRestaurantsKnowledge = defineKnowledgePageManifest({
       notes: 'Requires a dated AMARA route-and-meal note and current operation evidence for the chosen venue.',
     },
     {
+      authoringArea: 'restaurant-to-sundowner',
+      purpose: 'Connect dinner to a specific sunset drink or onward evening only when orientation, current operation, public access and the return are jointly verified.',
+      factIds: [
+        'frigiliana.restaurants.the-garden.position-and-format',
+        'nerja.restaurants.oliva.position-terrace-and-service-2026',
+        'nerja.restaurants.restaurant34.sea-terrace-and-service-2026',
+        'nerja.evenings.cochrans.amara-sunset-visit-2025',
+        'nerja.evenings.cochrans.amara-playa-walk-2025',
+        'nerja.evenings.cochrans.municipal-activity-record-2026',
+      ],
+      status: 'partial',
+      notes: 'Cochran’s is now supported as a dated AMARA sundowner and walked AMARA Playa evening. The operator no longer remembers the exact restaurant used beforehand, so the page may connect a central-Nerja dinner context to Cochran’s but must not name a personally tested restaurant-to-venue pair.',
+    },
+    {
       authoringArea: 'amara-walk-home-and-evening-return',
       purpose: 'Use Casa AMARA’s location only where the exact restaurant route and return consequence are verified.',
       factIds: ['casa-amara.location.calle-chorruelo-calle-real'],

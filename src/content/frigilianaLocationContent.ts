@@ -189,148 +189,20 @@ export const frigilianaLocationCopy = {
     "heroKicker": "FRIGILIANA · ANDALUSIEN",
     "h1": "Urlaub in Frigiliana: im weißen Dorf wohnen, statt es zu besuchen",
     "heroUpdated": "Geprüft im August 2026",
-    "heroNote": "Ein Gastgeber-Guide für Übernachtungsgäste – geschrieben aus unserem Alltag in der Calle Chorruelo.",
+    "heroNote": "Ein Guide für Paare, die Frigiliana als mehrtägige Basis kennenlernen möchten.",
     "intro": [
-      "Herzlich willkommen in Frigiliana. Der Ort gilt als eines der schönsten weißen Dörfer Spaniens; viele kommen für ein paar Stunden wegen der weißen Häuser, verwinkelten Gassen, farbigen Türen und Ausblicke bis zum Mittelmeer.",
-      "Wer bleibt, erlebt mehr: Wenn die Tagesbesucher gehen, werden die Gassen ruhiger; am nächsten Morgen seid ihr schon da, bevor der Ort wieder voller wird.",
-      "Über mehrere Tage wird das Dorf zum Ausgangspunkt eures Urlaubs – für Frühstück und Abendessen zu Fuß, Ausflüge ans Meer und die Rückkehr in die Altstadt."
+      "Frigiliana eignet sich als Basis, wenn ihr eure Urlaubstage im historischen Hangdorf beginnen und beenden möchtet. Der alte Ortskern folgt dem Gelände: Calle Real bildet eine wichtige Achse, während gestufte Gassen die Ebenen verbinden. Das beeinflusst tägliche Wege stärker als eine Entfernung auf der Karte.",
+      "Mehrere Nächte geben dem Ort einen anderen Rhythmus als ein kurzer Besuch. Nach dem Tagesbetrieb bleibt Zeit für den Abend im Dorf; am nächsten Morgen startet ihr bereits vor Ort. Nerja und die Küste ergänzen diese Basis für einzelne Tage."
     ],
     "introPullLine": "Ein paar Tage in Frigiliana beginnen morgens im alten Dorf und enden abends wieder in seinen Gassen.",
-    "orientation": {
-      "eyebrow": "LAGE UND ORIENTIERUNG",
-      "title": "Wo liegt Frigiliana?",
-      "paragraphs": [
-        "Frigiliana liegt in der Axarquía im Osten der Provinz Málaga am Südhang der Sierra de Almijara. Die historische Altstadt erhebt sich über dem Mittelmeer, etwa 6 Kilometer von Nerja entfernt.",
-        "Casa AMARA liegt in der Calle Chorruelo bei der Kirche San Antonio. Vom Flughafen Málaga-Costa del Sol solltet ihr bei normalem Verkehr ungefähr 50 bis 60 Minuten mit dem Auto einplanen."
-      ],
-      "facts": [
-        { "value": "6 km", "label": "bis Nerja" },
-        { "value": "50–60 Min.", "label": "vom Flughafen Málaga" },
-        { "value": "Sierra Almijara", "label": "Hanglage über dem Mittelmeer" }
-      ],
-      "mapLabel": "Schematische Orientierung von Málaga über Nerja nach Frigiliana und Casa AMARA",
-      "mapNote": "Orientierungskarte · nicht maßstabsgetreu",
-      "geographyLabel": "Geografie und Orientierung",
-      "arrivalLabel": "Anreise planen",
-      "routeLabel": "Route ab Flughafen öffnen"
-    },
-    "evening": {
-      "title": "Frigiliana am Abend – wenn das Dorf wieder ruhiger wird",
-      "paragraphs": [
-        "Am Abend werden die Gassen stiller. Vor den weißen Fassaden leuchten die farbigen Türen, kleine Bars und Restaurants liegen hinter Hausecken oder ein paar Stufen weiter oben, und warmes Licht fällt auf die Altstadt. Dazwischen öffnet sich immer wieder der Blick bis zum Mittelmeer. Jetzt bleibt Zeit, die Details des Dorfes wahrzunehmen.",
-        "Mit der Ruhe des Abends bleibt das Dorfleben spürbar: Bewohner sind unterwegs, in den kleinen Lokalen wird gegessen, getrunken und gesprochen. Gerade diese Mischung macht den Abend besonders."
-      ],
-      "subsections": [],
-      "ctas": []
-    },
-    "history": {
-      "title": "In einem Dorf wohnen, dessen Geschichte noch in den Häusern steckt",
-      "paragraphs": [
-        "Frigilianas enger, unregelmäßiger Ortskern ist über Jahrhunderte entstanden. Seine Ebenen und Häuser folgen keinem modernen Raster. Casa AMARA steht rund 15 Meter von der Kirche San Antonio entfernt, mitten in dieser historischen Struktur.",
-        "Teile der Bausubstanz sind vermutlich mehrere Jahrhunderte alt; einzelne Mauern könnten ungefähr 800 Jahre zurückreichen. Ihr genaues Alter lässt sich heute nicht mehr bestimmen.",
-        "In schiefen Wandverläufen, Räumen, die dem alten Haus folgen, und dem eigenen historischen Brunnen auf dem Grundstück wird diese Geschichte beim Wohnen greifbar."
-      ],
-      "subsections": [
-        {
-          "title": "Historische Substanz, behutsam für heute restauriert",
-          "paragraphs": [
-            "Von 2020 bis 2022 haben wir Casa AMARA sorgfältig restauriert. Alte Oberflächen, unregelmäßige Räume und die über Generationen gewachsene Struktur blieben dabei sichtbar und prägen das Haus bis heute.",
-            "Zwischen den alten Mauern gehören heute schnelles WLAN, Klimaanlage und Heizung zum Aufenthalt. Großzügige Badezimmer und große Duschen – in mehreren Apartments Doppelduschen – bringen den Komfort, der im Urlaub zählt.",
-            "So wird Casa AMARA für einige Tage zu eurem Zuhause mitten in Frigilianas Geschichte."
-          ],
-          "ctas": []
-        }
-      ],
-      "ctas": []
-    },
-    "villageLife": {
-      "title": "Mitten im historischen Dorf – in vergleichsweise niedriger Lage bei San Antonio",
-      "paragraphs": [
-        "Frigiliana zieht sich den Hang hinauf. Gassen verschwinden hinter Hausecken, Treppen führen auf die nächste Ebene, und weiter oben öffnen sich neue Blicke über Dächer und Meer. Diese Topografie macht einen großen Teil der Schönheit des Dorfes aus.",
-        "Für einen Spaziergang gehört dieses Auf und Ab dazu; bei einem mehrtägigen Aufenthalt zählt jedoch die genaue Lage. Häuser im oberen Barribarto sind reizvoll, doch Treppen und Steigungen werden dort Teil jedes Heimwegs.",
-        "Unsere vier Unterkünfte liegen in der Calle Chorruelo bei San Antonio – mitten in der Altstadt und darin vergleichsweise weit unten. Frigiliana bleibt auch hier ein Hangdorf; durch die niedrigere Lage umfasst der tägliche Rückweg weniger Höhenmeter als zu Unterkünften hoch im Barribarto. Für den Alltag eines längeren Aufenthalts ist das ein spürbarer Unterschied.",
-      "Von der Hauptstraße unten sind es zu unserer Tür rund 150 Meter und etwa 30 Höhenmeter – durchgehend bergauf, über Kopfsteinpflaster und ungefähr 30 Stufen. Je nach Tempo drei bis fünf Minuten. Wir gehen diesen Weg mehrmals am Tag, wenn wir da sind; er gehört zu Frigiliana wie die weißen Wände und die engen Gassen."
-      ],
-      "subsections": [
-        {
-          "title": "Ein Urlaub, der direkt vor der Haustür beginnt",
-          "paragraphs": [
-            "Rund um den Kirchplatz, die Calle Real und die angrenzenden Gassen liegen Bars, Restaurants und das tägliche Dorfleben. Ihr geht zum Abendessen oder zu einem Spaziergang zu Fuß los und kehrt später durch die historischen Gassen nach Hause zurück.",
-            "Ihr öffnet die Tür und seid mitten im historischen Dorf. So wird aus einer Sehenswürdigkeit der Ort, an dem euer Urlaubstag beginnt und endet."
-          ],
-          "ctas": []
-        },
-        {
-          "title": "Und was ist mit dem Parken?",
-          "paragraphs": [
-            "Viele Online-Hinweise zum Parken in Frigiliana orientieren sich an Tagesbesuchern, die vormittags ankommen und möglichst nah an der Altstadt stehen möchten. Wer im Dorf übernachtet, hat einen anderen Rhythmus: Ihr seid morgens bereits hier und kehrt nach Strand oder Ausflug oft erst später zurück. Nach unserer langjährigen Erfahrung ist die Situation am späten Nachmittag oder Abend häufig entspannter als während des stärksten Tagesandrangs. Im Sommer, an Wochenenden und bei Veranstaltungen kann es trotzdem voll sein. Die konkreten Möglichkeiten erklären wir im Parkguide."
-          ],
-          "ctas": [
-            { "token": "PARKING", "label": "Parken in Frigiliana" }
-          ]
-        }
-      ],
-      "ctas": []
-    },
-    "coast": {
-      "title": "Im weißen Dorf wohnen – und das Mittelmeer trotzdem ganz nah",
-      "paragraphs": [
-        "Die Altstadt ist der Ort, an dem ihr morgens aufwacht und abends zurückkehrt. Dazwischen erreicht ihr Nerja, die Küste und Maro für Strandtage oder Ausflüge. So verbindet derselbe Urlaubstag zwei unterschiedliche Stimmungen."
-      ],
-      "subsections": [
-        {
-          "title": "Braucht ihr dafür ein Auto?",
-          "paragraphs": [
-            "Ein Mietwagen bietet die größte Freiheit für verschiedene Strände, Maro und Ausflüge in der Region, ist für einen Aufenthalt in Frigiliana aber nicht zwingend.",
-            "Für einen unkomplizierten Tag in Nerja oder am Strand funktioniert auch der Bus; Taxis sind eine weitere Möglichkeit. Wer überwiegend im Dorf bleibt und einzelne Küstentage plant, kommt daher auch ohne Mietwagen aus. Entscheidend ist, wie weit ihr die Umgebung erkunden möchtet."
-          ],
-          "ctas": []
-        },
-        {
-          "title": "Und wenn ihr lieber direkt am Meer wohnen möchtet?",
-          "paragraphs": [
-            "Wenn Strandnähe und ein Küstenort den Tagesrhythmus bestimmen sollen, passt Nerja besser. Wenn ihr Dorfleben, ruhigere Morgen und Abende und die Altstadt als Basis sucht, ist Frigiliana die bewusst andere Wahl."
-          ],
-          "ctas": [
-            { "token": "COMPARISON", "label": "Frigiliana oder Nerja vergleichen" }
-          ]
-        }
-      ],
-      "ctas": []
-    },
-    "arrival": {
-      "title": "Die Ankunft",
-      "steps": [
-        { "num": "01", "headline": "Ab Málaga", "text": "Der Flughafen Málaga ist der übliche Ausgangspunkt. Weiter geht es per Mietwagen, Privattransfer oder mit öffentlichen Verkehrsmitteln über Nerja." },
-        { "num": "02", "headline": "Verkehrsmittel wählen", "text": "Ein Mietwagen bietet die meiste Flexibilität. Bus und Taxi funktionieren ebenfalls – je nachdem, wie viel von der Region ihr erkunden möchtet." },
-        { "num": "03", "headline": "Der letzte Fußweg", "text": "Von der Hauptstraße unten sind es zu unserer Tür rund 150 Meter bergauf, mit etwa 30 Stufen. Den ganzen Weg beschreibt der Anreise-Guide." }
-      ],
-      "detailLabel": "Ausführlicher Anreise-Guide"
-    },
-    "faq": {
-      "title": "Praktische Fragen",
-      "items": [
-        { "id": "car", "question": "Braucht ihr in Frigiliana ein Auto?", "answer": "Im Dorf selbst nicht. Bäckerei, Läden, Bars und Restaurants liegen im Ortskern und sind zu Fuß erreichbar." },
-        { "id": "parking", "question": "Wie funktioniert das Parken, wenn ihr in Frigiliana übernachtet?", "answer": "Als Übernachtungsgäste kommt ihr außerhalb des Tagesandrangs an, und nach unserer Erfahrung ist die Lage am späten Nachmittag und Abend häufig entspannter. Im Sommer, an Wochenenden und bei Veranstaltungen kann es trotzdem voll sein." },
-        { "id": "steepness", "question": "Ist Frigiliana sehr steil?", "answer": "Frigiliana liegt am Hang, und Steigungen sowie Treppen gehören zum historischen Dorf. Entscheidend ist deshalb nicht nur, wie weit eure Unterkunft auf der Karte vom Zentrum entfernt liegt, sondern wie hoch sie liegt und welchen Weg ihr mehrmals täglich zurücklegt. Zwischen dem vergleichsweise niedrigeren historischen Zentrum und den höheren Gassen des Barribarto kann das im Urlaub einen spürbaren Unterschied machen." },
-        { "id": "nerja-without-car", "question": "Kommt ihr ohne Auto nach Nerja und zum Strand?", "answer": "Ja, mit dem Bus. Wollt ihr an einem Tag mehrere Strände, Maro oder weitere Orte der Region verbinden, ist ein Mietwagen deutlich bequemer." },
-        { "id": "luggage", "question": "Was solltet ihr bei der Anreise mit Gepäck beachten?", "answer": "Frigiliana ist ein historisches Bergdorf mit schmalen Gassen und Steigungen; zu vielen Unterkünften gehört ein letztes Stück zu Fuß. Packt deshalb am besten so, dass ihr euer Gepäck selbst tragen könnt. Zu unserer Tür sind es von der Hauptstraße unten rund 150 Meter bergauf mit etwa 30 Stufen." },
-        { "id": "overnight", "question": "Lohnt sich in Frigiliana eine Übernachtung, oder reicht ein Tagesausflug?", "answer": "Bei einem Tagesausflug seht ihr die Hauptgassen, die Aussichtspunkte und die weiß getünchte Altstadt. Eine Übernachtung verändert das Erlebnis: Das Dorf wird ruhiger, sobald viele Tagesgäste abgereist sind, ihr könnt essen gehen und durch die alten Gassen nach Hause laufen, und der nächste Morgen beginnt, bevor der Tagesbetrieb zurückkehrt. Wenn Frigiliana eine Station auf einer größeren Andalusien-Reise ist, bekommt die Reise mit einer oder mehreren Nächten außerdem ein langsameres Dorfkapitel zwischen den großen Zielen." }
-      ]
-    },
-    "seasons": {
-      "title": "Wie sich ein Aufenthalt im Laufe des Jahres anfühlt",
-      "paragraphs": [
-        "Frigiliana ist ganzjährig ein Dorf, doch Licht, Tagesrhythmus und die Rolle der Küste verändern sich mit den Jahreszeiten."
-      ],
-      "subsections": [
-        { "title": "Frühling – draußen leben und beides verbinden", "paragraphs": ["Der Frühling passt zu Spaziergängen, Terrassen und Ausflügen: morgens durchs Dorf, später ans Meer oder in die Landschaft und abends zurück nach Frigiliana. Dorf und Küste lassen sich dann besonders selbstverständlich verbinden."], "ctas": [] },
-        { "title": "Sommer – früh los, ans Meer und abends zurück", "paragraphs": ["Im Sommer liegen Dorfspaziergänge am besten am Morgen und Abend; die heißeren Stunden passen eher zur Küste. In den Apartments sorgt die Klimaanlage bei der Rückkehr für Komfort und einen ruhigen Abschluss des Tages."], "ctas": [] },
-        { "title": "Herbst – mehr Raum für Dorf und Region", "paragraphs": ["Im Herbst lässt sich der Tag oft freier zwischen Altstadt, Küste und regionalen Ausflügen planen, ohne dass die größte Hitze den Rhythmus so stark vorgibt. Das passt gut zu Gästen, die mehr von der Umgebung sehen möchten."], "ctas": [] },
-        { "title": "Winter – kein Sommer, aber ein anderes Andalusien", "paragraphs": ["Winter ist kein falsches Sommerversprechen: Abende können kühl sein, deshalb zählt Komfort drinnen. Alle Apartments haben Heizung; Lounis, Zaid und Maha zusätzlich einen Pelletofen. So bleibt das historische Haus auch außerhalb der warmen Monate ein angenehmer Rückzugsort."], "ctas": [ { "token": "WEATHER", "label": "Wetter und Jahreszeiten im Detail" } ] }
-      ],
-      "ctas": []
-    },
+    "orientation": { "eyebrow": "LAGE UND ORIENTIERUNG", "title": "Wo liegt Frigiliana?", "paragraphs": ["Frigiliana liegt in der Axarquía im Osten der Provinz Málaga am Südhang der Sierra de Almijara. Der historische Kern steigt mit dem Gelände an; El Ingenio markiert einen Übergang zwischen der Calle-Real-Achse und höher gelegenen Gassen.", "Casa AMARA liegt an der Calle Chorruelo, der Fortsetzung der Calle Real. Für Anreisezeiten und den konkreten letzten Weg nutzt ihr den Anreise-Guide statt pauschaler Entfernungsangaben."], "facts": [{ "value": "Axarquía", "label": "östliche Provinz Málaga" }, { "value": "Historischer Kern", "label": "vom Gelände geprägte Gassen" }, { "value": "Sierra", "label": "geschützte Berglandschaft oberhalb des Dorfes" }], "mapLabel": "Schematische Orientierung von Málaga über Nerja nach Frigiliana und Casa AMARA", "mapNote": "Orientierungskarte · nicht maßstabsgetreu", "geographyLabel": "Geografie und Orientierung", "arrivalLabel": "Anreise planen", "routeLabel": "Route ab Flughafen öffnen" },
+    "evening": { "title": "Frigiliana am Abend – ein anderer Rhythmus als beim Tagesbesuch", "paragraphs": ["Nach dem stärkeren Tagesbetrieb hat unser Gastgeberteam wiederholt ruhigere Abende im Dorf beobachtet. Das ist eine begrenzte Beobachtung, keine Garantie für Stille an jedem Datum.", "Für einen mehrtägigen Aufenthalt ist dieser Wechsel praktisch: Ihr müsst nach dem Abend nicht weiterreisen, sondern beginnt auch den nächsten Morgen bereits in Frigiliana."], "subsections": [], "ctas": [] },
+    "history": { "title": "Historischer Kontext gehört in den Rundgang", "paragraphs": ["Der historische Kern ist im Straßenverlauf und in seiner Baukultur sichtbar. Für Geschichte, einzelne Bauwerke und einen aufmerksamen Weg durch die Altstadt führt der Old-Town-Guide weiter."], "subsections": [{ "title": "Altstadtwissen gezielt vertiefen", "paragraphs": ["Der Location Hub bereitet die Orientierung vor; die vollständige historische Erzählung bleibt beim Old-Town-Guide."], "ctas": [] }], "ctas": [] },
+    "villageLife": { "title": "Das Gelände bestimmt euren täglichen Weg", "paragraphs": ["Frigiliana zieht sich den Hang hinauf. Gestufte Querverbindungen und ansteigende Gassen gehören zur Struktur des historischen Kerns. Bei mehreren Nächten zählt deshalb der tatsächliche Weg zur Unterkunft, nicht nur ihre Lage auf einer Karte.", "Casa AMARA liegt an der Calle Chorruelo als Fortsetzung der Calle Real. Ab der gemeinsamen Haustür verläuft der Weg in Richtung Cafés, Restaurants, Bars und Dorfkern ohne weitere Stufen; der Weg vom Parkplatz bis zur Tür gehört in die spezialisierten Zugangs- und Parkinformationen."], "subsections": [{ "title": "Ein Urlaub, der im Dorf beginnt", "paragraphs": ["Von der Calle-Real-Achse erreicht ihr Cafés, Restaurants, Bars und den Dorfkern; konkrete Wege ordnet der Spezialguide ein."], "ctas": [] }, { "title": "Übernachten folgt einem anderen Rhythmus als ein Tagesbesuch", "paragraphs": ["Als Übernachtungsgäste seid ihr morgens bereits im Dorf und kehrt nach einem Tag außerhalb zu eurer Basis zurück. Parkplätze sind dabei nicht garantiert; aktuelle Möglichkeiten erklärt der Parkguide."], "ctas": [{ "token": "PARKING", "label": "Parken in Frigiliana" }] }], "ctas": [] },
+    "coast": { "title": "Frigiliana als Basis, Nerja und Küste als Ergänzung", "paragraphs": ["Frigiliana gibt euren Tagen den Dorfrahmen; Nerja und unterschiedliche Küstenabschnitte erweitern die Auswahl. Welche Strandform passt, entscheidet ihr im Strandguide anhand von Zugang, Setting und gewünschtem Rhythmus."], "subsections": [{ "title": "Verbindungen passend zum Tag prüfen", "paragraphs": ["Ob ihr die Küste mit öffentlichen Verbindungen oder einem Fahrzeug einplant, hängt von eurem konkreten Ziel und den aktuellen Bedingungen ab."], "ctas": [] }, { "title": "Die Basisentscheidung bleibt bei Frigiliana", "paragraphs": ["Ihr wählt Frigiliana für den Dorfrhythmus und ergänzt Nerja oder die Küste, wenn diese Tagesform zu euch passt."], "ctas": [{ "token": "COMPARISON", "label": "Frigiliana und Nerja einordnen" }] }], "ctas": [] },
+    "arrival": { "title": "Die Ankunft", "steps": [{ "num": "01", "headline": "Anreise festlegen", "text": "Wählt das Verkehrsmittel nach eurer gesamten Reise, nicht nach einer pauschalen Zeitangabe." }, { "num": "02", "headline": "Gelände mitdenken", "text": "Im historischen Hangdorf können Steigungen, Pflaster und Stufen zum letzten Weg gehören." }, { "num": "03", "headline": "Details vorab prüfen", "text": "Der Anreise-Guide bündelt den aktuellen Ablauf; Parken und Unterkunftszugang bleiben bei ihren spezialisierten Seiten." }], "detailLabel": "Ausführlicher Anreise-Guide" },
+    "faq": { "title": "Praktische Fragen", "items": [{ "id": "car", "question": "Braucht ihr in Frigiliana ein Auto?", "answer": "Die Wahl hängt davon ab, welche Tage ihr außerhalb des Dorfes plant. Aktuelle Verbindungen und Fahrzeugwahl erklärt der Anreise-Guide." }, { "id": "parking", "question": "Wie funktioniert das Parken bei einer Übernachtung?", "answer": "Übernachtungsgäste folgen einem anderen Tagesrhythmus als Kurzbesucher, doch ein Stellplatz ist nicht garantiert. Prüft die aktuellen Möglichkeiten im Parkguide." }, { "id": "steepness", "question": "Was bedeutet die Hanglage im Alltag?", "answer": "Steigungen und Stufen verbinden die Ebenen des historischen Kerns. Prüft deshalb den tatsächlichen täglichen Weg und die konkrete Zugangssituation." }, { "id": "nerja-without-car", "question": "Wie plant ihr Nerja und die Küste?", "answer": "Behandelt Nerja und die Küste als ergänzende Tagesoptionen. Aktuelle Verbindungen gehören in die Anreiseplanung; die Strandwahl in den Strandguide." }, { "id": "luggage", "question": "Was solltet ihr bei der Anreise mit Gepäck beachten?", "answer": "Im historischen Hangdorf können Pflaster, Steigungen und Stufen Teil des letzten Weges sein. Prüft vorab den Anreise- und Zugangs-Guide." }, { "id": "overnight", "question": "Warum mehrere Nächte statt eines Tagesbesuchs?", "answer": "Mit mehreren Nächten wird Frigiliana zur Basis: Ihr erlebt den Rhythmus nach dem Tagesbetrieb, beginnt morgens bereits im Dorf und könnt Küste oder Landschaft als einzelne Tagesformen ergänzen." }] },
+    "seasons": { "title": "Jahreszeit und Tagesform zusammen denken", "paragraphs": ["Regionale Klimadaten zeigen deutliche saisonale Unterschiede. Das verändert, wann Gelände, Dorf und Küste angenehm in euren Tag passen; lokale Monatswerte oder aktuelle Bedingungen prüft ihr im Wetterguide."], "subsections": [{ "title": "Frühling", "paragraphs": ["Prüft Wetter und Bedingungen, bevor ihr Gelände und Küste verbindet."], "ctas": [] }, { "title": "Sommer", "paragraphs": ["Hitze verändert die sinnvolle Tageszeit für Wege im Hangdorf und aktive Vorhaben."], "ctas": [] }, { "title": "Herbst", "paragraphs": ["Plant aktive Tage weiterhin nach den konkreten Bedingungen statt nach einer allgemeinen Saisonannahme."], "ctas": [] }, { "title": "Winter", "paragraphs": ["Kühlere und wechselhafte Bedingungen verändern die Auswahl; aktuelle Details stehen im Wetterguide."], "ctas": [{ "token": "WEATHER", "label": "Wetter und Jahreszeiten im Detail" }] }], "ctas": [] },
     "planning": {
       "eyebrow": "AUFENTHALT PLANEN",
       "title": "Nächste sinnvolle Schritte für Frigiliana",
@@ -353,34 +225,8 @@ export const frigilianaLocationCopy = {
       "text": "Málaga, Granada, Ronda und der Caminito del Rey gehören für viele zu einer größeren Andalusien-Reise. Wenn ihr in Frigiliana wohnt, wird das Dorf zu dem Ort, an dem sich zwischen den großen Tagen das Tempo ändert – mit alten Gassen, ruhigen Abenden und der Mittelmeerküste ringsum.",
       "ctaLabel": "Tagesausflüge ab Frigiliana planen"
     },
-    "exploreBridge": {
-      "eyebrow": "ENTDECKEN",
-      "title": "Frigiliana entdecken",
-      "text": "Wenn Frigiliana als Basis für euch passt, könnt ihr von hier aus eure Tage weiterplanen: Restaurants, Strände, Wanderungen, Märkte und besondere Orte im Dorf und an der Küste.",
-      "ctaLabel": "Frigiliana entdecken"
-    },
-    "decision": {
-      "title": "Für wen Frigiliana die richtige Wahl ist",
-      "paragraphs": [
-        "Frigiliana ist nicht die strandnahe Variante von Nerja. Es ist die Wahl für alle, die in einem weißen andalusischen Dorf wohnen, ruhigere Morgen und Abende erleben und Bars, Gassen und gelegentliche Mittelmeerblicke direkt vor der Tür haben möchten.",
-        "Wenn das Dorf selbst Teil des Urlaubs sein soll – und die Küste ein leicht erreichbarer Tagesausflug –, ist Frigiliana eine starke Basis. Ihr entscheidet euch damit nicht gegen das Meer, sondern für einen anderen Ort zum Heimkommen."
-      ],
-      "subsections": [
-        {
-          "title": "Wenn ihr mittendrin wohnen möchtet",
-          "paragraphs": [
-"Frigiliana lässt sich nicht neu bauen.",
-            "Wir können euch nur einen Platz mittendrin anbieten."
-          ],
-          "ctas": [
-            { "token": "FRIGILIANA_STAYS", "label": "Unsere Unterkünfte in Frigiliana ansehen" },
-            { "token": "COMPARISON", "label": "Frigiliana oder Nerja – was passt besser?" },
-            { "token": "AVAILABILITY", "label": "Verfügbarkeit in Frigiliana prüfen" }
-          ]
-        }
-      ],
-      "ctas": []
-    }
+    "exploreBridge": { "eyebrow": "EURE TAGE VON HIER AUS", "title": "Der Ort steht fest – wie soll sich euer Tag anfühlen?", "text": "Wenn Frigiliana eure Basis ist, wählt ihr als Nächstes nicht eine feste Route, sondern die passende Tagesform: Bewegung in der Landschaft, Zeit an der Küste oder Essen und Abend nach eurem Anlass.", "ctaLabel": "Tagesform auswählen" },
+    "decision": { "title": "Frigiliana passt, wenn das Dorf eure Basis sein soll", "paragraphs": ["Die Wahl passt zu euch, wenn ihr Gelände und historische Gassen als Teil des Aufenthalts annehmt, mehrere Nächte im Dorfrhythmus verbringen und Nerja oder die Küste ergänzend einplanen möchtet."], "subsections": [{ "title": "Casa AMARA als konkrete Basis in der Calle Chorruelo", "paragraphs": ["Vier Unterkünfte liegen hinter einer gemeinsamen Haustür; drei davon sind Apartments, Farah ist eine kompakte Suite. Vollständige Unterschiede und Zugangsinformationen prüft ihr bei den Unterkünften."], "ctas": [{ "token": "FRIGILIANA_STAYS", "label": "Unterkünfte in Frigiliana ansehen" }, { "token": "COMPARISON", "label": "Frigiliana und Nerja einordnen" }, { "token": "AVAILABILITY", "label": "Verfügbarkeit in Frigiliana prüfen" }] }], "ctas": [] }
   },
   "en": {
     "heroKicker": "FRIGILIANA · ANDALUSIA",

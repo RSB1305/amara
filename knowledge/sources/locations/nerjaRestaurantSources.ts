@@ -31,6 +31,31 @@ export const nerjaRestaurantSources = defineKnowledgeSources([
     scope: 'Operator identity, Calle Pintada address and cocina de autor positioning.',
     limitations: 'The operator site publishes conflicting evening closing times on different pages; no single closing time is normalized.', reuse: 'link-and-cite',
   },
+  {
+    id: 'cochrans-amara-operator-visit-2025',
+    title: 'AMARA visit to Cochran’s Terrace',
+    publisher: 'AMARA operator',
+    sourceType: 'first-party-observation',
+    url: 'https://maps.app.goo.gl/cSVGuSWBMMRCs5m77',
+    locator: 'Google Drive: 2026-08-28__092358__frigiliana-nerja-restaurants-evenings__research-001/05_OPERATOR_NOTES/AMARA Operator Note — Cochran’s Terrace sundowner (file 1n3TXYc_U_kL67D6_jv2Jxk_U-rX1sumzB2Ry-e1KnP4).',
+    observedAt: 'summer 2025',
+    language: 'de',
+    scope: 'Personal visit, observed sunset, drinks ordered and the walked approach from AMARA Playa on Calle Castilla Pérez.',
+    limitations: 'One remembered summer visit. It does not establish current opening hours, permanent menu items, sunset visibility from every table or an exact measured walking distance.',
+    reuse: 'internal-only',
+  },
+  {
+    id: 'nerja-municipality-cochrans-activity-2026',
+    title: 'Calificación ambiental favorable para Cochrans',
+    publisher: 'Ayuntamiento de Nerja',
+    sourceType: 'official',
+    url: 'https://transparencia.nerja.es/normativa-municipal-vigente/calificaciones-ambientales/',
+    accessedAt: '2026-08-28',
+    language: 'es',
+    scope: 'Municipal transparency entry published on 2026-01-29 for a hospitality-with-music activity named Cochrans at Bajada Salón.',
+    limitations: 'The administrative record supports identity, location context and recent authorization; it does not prove that the venue is open on a particular day or confirm its current hours, menu or terrace availability.',
+    reuse: 'link-and-cite',
+  },
 ] as const);
 
 export type NerjaRestaurantSourceId = (typeof nerjaRestaurantSources)[number]['id'];

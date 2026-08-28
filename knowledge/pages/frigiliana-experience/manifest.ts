@@ -83,9 +83,11 @@ export const frigilianaExperienceKnowledge = defineKnowledgePageManifest({
         'frigiliana.restaurants.gloria-bendita.position-and-concept',
         'nerja.restaurants.oliva.position-terrace-and-service-2026',
         'nerja.restaurants.restaurant34.sea-terrace-and-service-2026',
+        'nerja.evenings.cochrans.amara-sunset-visit-2025',
+        'nerja.evenings.cochrans.amara-playa-walk-2025',
       ],
       status: 'partial',
-      notes: 'Venue identities and formats are available. Personal favourites, exact tables, dishes, walk-home claims and sundowner continuations require operator evidence.',
+      notes: 'Cochran’s supplies one genuine AMARA sundowner continuation from central Nerja and a bounded AMARA Playa walk. Exact restaurant pairings, tables and dishes remain unverified.',
     },
     {
       authoringArea: 'old-town-day-form',
@@ -160,11 +162,14 @@ export const frigilianaExperienceKnowledge = defineKnowledgePageManifest({
       purpose: 'Create the next guest question inside the relevant day form before routing to Weather, Hiking, Beaches, Restaurants, Old Town or a property owner.',
       factIds: [
         'frigiliana.climate.regional-proxy.seasonal-contrast',
+        'frigiliana.heritage.historic-ensemble.bic',
         'nerja.restaurants.ayo.burriana-daytime-service-2026',
+        'nerja.evenings.cochrans.amara-sunset-visit-2025',
+        'nerja.evenings.cochrans.amara-playa-walk-2025',
         'casa-amara.terraces.shared-amenities',
       ],
       status: 'partial',
-      notes: 'Weather-to-activity and Burriana-to-AYO have bounded premises. Hiking-to-food, beach-to-sundowner and all property-return routes remain blocked by target-side evidence.',
+      notes: 'Weather-to-activity, Burriana-to-AYO and a central-Nerja-to-Cochran’s sundowner from AMARA Playa now have bounded premises. Hiking-to-food and a named restaurant-to-sundowner pair remain open.',
     },
     {
       authoringArea: 'closing-and-conversion',

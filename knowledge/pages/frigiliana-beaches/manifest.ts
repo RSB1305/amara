@@ -126,9 +126,13 @@ export const frigilianaBeachesKnowledge = defineKnowledgePageManifest({
     {
       authoringArea: 'weather-hiking-and-nerja-transitions',
       purpose: 'Create only the bounded next guest question that the target owner can answer.',
-      factIds: ['frigiliana.climate.regional-proxy.seasonal-contrast'],
+      factIds: [
+        'frigiliana.climate.regional-proxy.seasonal-contrast',
+        'nerja.evenings.cochrans.amara-sunset-visit-2025',
+        'nerja.evenings.cochrans.amara-playa-walk-2025',
+      ],
       status: 'partial',
-      notes: 'Seasonal climate can frame the choice; current beach conditions, same-day hike pairing and Nerja evening continuation require additional evidence.',
+      notes: 'Seasonal climate may frame travel dates and hand back to Weather. A central Nerja beach or old-town afternoon may now continue to the personally tested Cochran’s sundowner; it is not authorized as a pairing from every named beach. Same-day hike pairing still requires evidence.',
     },
   ],
 });

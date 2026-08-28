@@ -34,6 +34,24 @@ const facts = [
     status: 'verified', sourceIds: ['sollun-operator-2026'], checkedAt: '2026-08-28', reviewAfter: '2026-11-28', volatility: 'medium',
     claimBoundary: 'Conflicting operator-page closing times are not normalized; menu, service window and suitability for an occasion require a live check.',
   },
+  {
+    id: 'nerja.evenings.cochrans.amara-sunset-visit-2025', subject: 'cochrans-terrace', topic: 'restaurants-evenings',
+    statement: 'The AMARA operator visited Cochran’s Terrace in summer 2025, personally watched the sunset there and drank a Cuba Libre and a Mai Tai.',
+    status: 'first-party-observation', sourceIds: ['cochrans-amara-operator-visit-2025'], checkedAt: '2026-08-28', volatility: 'low',
+    claimBoundary: 'This supports a truthful AMARA host recommendation based on one summer visit. It does not guarantee sunset visibility from every seat or confirm that either drink remains on the current menu.',
+  },
+  {
+    id: 'nerja.evenings.cochrans.amara-playa-walk-2025', subject: 'cochrans-terrace', topic: 'restaurants-evenings',
+    statement: 'For that visit, the AMARA operator left the car by the accommodation on Calle Castilla Pérez and walked from the AMARA Playa area into central Nerja, recalling the distance as approximately 450 metres.',
+    status: 'first-party-observation', sourceIds: ['cochrans-amara-operator-visit-2025'], checkedAt: '2026-08-28', volatility: 'medium',
+    claimBoundary: 'The distance is an operator recollection, not a surveyed route. It is not an accessibility assessment, a parking guarantee or a claim that every guest will find the walk equally easy.',
+  },
+  {
+    id: 'nerja.evenings.cochrans.municipal-activity-record-2026', subject: 'cochrans-terrace', topic: 'restaurants-evenings',
+    statement: 'Nerja’s municipal transparency portal published a favourable environmental classification on 29 January 2026 for a hospitality-with-music activity named Cochrans at Bajada Salón.',
+    status: 'verified', sourceIds: ['nerja-municipality-cochrans-activity-2026'], checkedAt: '2026-08-28', reviewAfter: '2026-11-28', volatility: 'high',
+    claimBoundary: 'The municipal record does not establish same-day opening, service hours, menu, public terrace access or sunset conditions; guests must check current operation before setting out.',
+  },
 ] as const satisfies readonly FactInput[];
 
 export const nerjaRestaurantFacts = defineKnowledgeFacts(facts);
