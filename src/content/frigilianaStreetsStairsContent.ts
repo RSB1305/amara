@@ -256,11 +256,11 @@ export const frigilianaStreetsStairsCopy = {
           sv: 'Nedre historiska bykärnan'
         } satisfies LocalizedText,
         summary: {
-          en: 'Around Calle Real, Calle Chorruelo and San Antonio, you stay inside the historic village while remaining comparatively low within it.',
-          de: 'Rund um Calle Real, Calle Chorruelo und San Antonio wohnt ihr mitten im historischen Dorf und zugleich vergleichsweise weit unten.',
-          es: 'En torno a la calle Real, la calle Chorruelo y San Antonio estáis dentro del pueblo histórico, pero en una cota relativamente baja.',
-          nl: 'Rond Calle Real, Calle Chorruelo en San Antonio verblijven jullie midden in het historische dorp, maar relatief laag.',
-          sv: 'Kring Calle Real, Calle Chorruelo och San Antonio bor ni mitt i den historiska byn men jämförelsevis långt ner.'
+          en: 'Around Calle Real and its continuation, Calle Chorruelo, you stay inside the historic village. The exact doorway and route matter more than a broad area label.',
+          de: 'Rund um die Calle Real und ihre Fortsetzung, die Calle Chorruelo, wohnt ihr mitten im historischen Dorf. Für den Alltag zählen die konkrete Haustür und der tatsächliche Weg mehr als eine grobe Viertelbezeichnung.',
+          es: 'Alrededor de la calle Real y su continuación, la calle Chorruelo, os alojáis dentro del pueblo histórico. Para el día a día importan más la puerta concreta y el recorrido real que una etiqueta general de zona.',
+          nl: 'Rond Calle Real en het vervolg daarvan, Calle Chorruelo, verblijf je midden in de historische kern. Voor elke dag tellen de precieze voordeur en de echte route zwaarder dan een brede gebiedsnaam.',
+          sv: 'Kring Calle Real och dess fortsättning, Calle Chorruelo, bor ni inne i den historiska byn. Den exakta porten och den verkliga vägen betyder mer i vardagen än ett allmänt områdesnamn.'
         } satisfies LocalizedText,
         fit: {
           en: 'You want old-village life, restaurants and evening walks close to the door without choosing the highest daily position.',
@@ -455,18 +455,18 @@ export const frigilianaStreetsStairsCopy = {
     } satisfies LocalizedText,
     paragraphs: [
       {
-        en: 'Casa AMARA is near San Antonio church, inside the historic centre and comparatively low within it. From the main road below it is about 150 metres uphill to the door, with around 30 steps — so you never climb to the highest Barribarto lanes on your way home.',
-        de: 'Casa AMARA liegt nahe der Kirche San Antonio, mitten im historischen Zentrum und darin vergleichsweise weit unten. Von der Hauptstraße unten sind es rund 150 Meter bergauf bis zur Tür, mit etwa 30 Stufen – ihr müsst also auf keinem Heimweg bis in die höchsten Gassen des Barribarto hinauf.',
-        es: 'Casa AMARA está cerca de la iglesia de San Antonio, dentro del casco histórico y en una cota relativamente baja. Desde la carretera principal hay unos 150 metros cuesta arriba hasta la puerta, con unos 30 escalones: así que nunca subiréis hasta las calles más altas del Barribarto al volver a casa.',
-        nl: 'Casa AMARA ligt vlak bij de kerk van San Antonio, midden in de historische kern en daarbinnen relatief laag. Vanaf de hoofdweg beneden is het ongeveer 150 meter omhoog tot de deur, met zo ongeveer 30 treden — jullie hoeven op de terugweg dus nooit naar de hoogste straatjes van Barribarto.',
-        sv: 'Casa AMARA ligger nära San Antonio-kyrkan, inne i den historiska bykärnan och jämförelsevis långt ner. Från huvudvägen nedanför är det ungefär 150 meter uppför till dörren, med omkring 30 trappsteg – ni behöver alltså aldrig gå upp till Barribartos högsta gränder på väg hem.'
+        en: 'Casa AMARA is at Calle Chorruelo 5, directly on the continuation of Calle Real. All four stays share one front door with one entrance step. Farah has no further steps; Lounis, Zaid and Maha have additional steps inside the building or on the route to the accommodation.',
+        de: 'Casa AMARA liegt in der Calle Chorruelo 5, direkt an der Fortsetzung der Calle Real. Alle vier Unterkünfte liegen hinter einer gemeinsamen Haustür mit einer Eingangsstufe. Farah hat danach keine weiteren Stufen; zu Lounis, Zaid und Maha gehören zusätzliche Stufen im Gebäude oder auf dem Weg zur Unterkunft.',
+        es: 'Casa AMARA está en la calle Chorruelo 5, directamente en la continuación de la calle Real. Los cuatro alojamientos comparten una puerta de entrada con un escalón. Farah no tiene más escalones; Lounis, Zaid y Maha tienen escalones adicionales dentro del edificio o en el recorrido hasta el alojamiento.',
+        nl: 'Casa AMARA ligt aan Calle Chorruelo 5, direct aan het vervolg van Calle Real. De vier verblijven delen één voordeur met één opstap. Farah heeft daarna geen treden meer; naar Lounis, Zaid en Maha zijn er extra treden in het gebouw of op de route naar het verblijf.',
+        sv: 'Casa AMARA ligger på Calle Chorruelo 5, direkt på fortsättningen av Calle Real. De fyra boendena delar en ytterdörr med ett entrésteg. Farah har inga fler trappsteg; Lounis, Zaid och Maha har ytterligare steg inne i byggnaden eller på vägen till boendet.'
       } satisfies LocalizedText,
       {
-        en: 'Two stays inside the same historic village can still mean very different daily walks — which is exactly why the address matters more here than the map suggests.',
-        de: 'Zwei Unterkünfte in derselben Altstadt können trotzdem sehr unterschiedliche Alltagswege bedeuten – genau deshalb zählt die Adresse hier mehr, als die Karte vermuten lässt.',
-        es: 'Dos alojamientos dentro del mismo casco histórico pueden suponer recorridos diarios muy distintos: por eso aquí la dirección importa más de lo que sugiere el mapa.',
-        nl: 'Twee verblijven in dezelfde historische kern kunnen toch heel andere dagelijkse routes betekenen — precies daarom telt het adres hier zwaarder dan de kaart doet vermoeden.',
-        sv: 'Två boenden i samma historiska by kan ändå innebära mycket olika vardagsvägar – just därför betyder adressen mer här än kartan antyder.'
+        en: 'From the shared front door, the route along Calle Chorruelo and Calle Real towards cafés, restaurants, bars and the village core has no further steps. That describes the route after the door; it is not a claim that arrival or every accommodation is step-free.',
+        de: 'Ab der gemeinsamen Haustür führt der Weg über Calle Chorruelo und Calle Real in Richtung Cafés, Restaurants, Bars und Dorfkern ohne weitere Stufen. Das beschreibt den Weg nach der Tür – nicht eine stufenfreie Anreise oder eine generell stufenfreie Unterkunft.',
+        es: 'Desde la puerta compartida, el recorrido por la calle Chorruelo y la calle Real hacia cafeterías, restaurantes, bares y el centro no tiene más escalones. Esto describe el camino después de la puerta; no significa que la llegada o todos los alojamientos sean accesibles sin escalones.',
+        nl: 'Vanaf de gezamenlijke voordeur loopt de route via Calle Chorruelo en Calle Real naar cafés, restaurants, bars en de dorpskern zonder verdere treden. Dat beschrijft de route na de deur; het betekent niet dat de aankomst of elk verblijf volledig trapvrij is.',
+        sv: 'Från den gemensamma ytterdörren går vägen längs Calle Chorruelo och Calle Real mot kaféer, restauranger, barer och bykärnan utan fler trappsteg. Det beskriver vägen efter dörren, inte en helt trappfri ankomst eller alla boenden.'
       } satisfies LocalizedText
     ],
     imageAlt: {
@@ -653,21 +653,21 @@ export const frigilianaStreetsStairsCopy = {
       {
         question: { en: 'Can I avoid stairs completely?', de: 'Kann ich Treppen vollständig vermeiden?', es: '¿Puedo evitar por completo las escaleras?', nl: 'Kan ik trappen volledig vermijden?', sv: 'Går det att undvika trappor helt?' } satisfies LocalizedText,
         answer: {
-          en: 'Some routes avoid steps but still run over gradients and cobbles. For our four accommodations on Calle Chorruelo we will describe the whole route to the door before you book — just ask us.',
-          de: 'Einige Wege kommen ohne Treppen aus, führen aber weiterhin über Steigungen und Kopfsteinpflaster. Für unsere vier Unterkünfte in der Calle Chorruelo beschreiben wir euch den Weg bis zur Tür gern schon vor der Buchung – fragt uns einfach.',
-          es: 'Algunos recorridos evitan los escalones, pero siguen teniendo pendiente y empedrado. Para nuestros cuatro alojamientos de la calle Chorruelo os describimos el camino completo hasta la puerta antes de reservar: solo tenéis que preguntarnos.',
-          nl: 'Sommige routes vermijden trappen, maar lopen nog steeds over hellingen en kasseien. Voor onze vier verblijven aan de Calle Chorruelo beschrijven we de hele route tot aan de deur graag vóór het boeken — vraag het ons gerust.',
-          sv: 'Vissa vägar undviker trappor men går ändå över lutningar och kullersten. För våra fyra boenden på Calle Chorruelo beskriver vi gärna hela vägen fram till dörren innan ni bokar – fråga oss bara.'
+          en: 'Not as a blanket claim. At Casa AMARA the shared front door has one entrance step. Farah has no further steps; Lounis, Zaid and Maha do. From the front door towards the village core, the route has no further steps but still follows historic paving and gradients.',
+          de: 'Nicht pauschal. Bei Casa AMARA hat die gemeinsame Haustür eine Eingangsstufe. Farah hat danach keine weiteren Stufen; bei Lounis, Zaid und Maha kommen zusätzliche hinzu. Von der Haustür in Richtung Dorfkern folgen keine weiteren Stufen, wohl aber historisches Pflaster und Steigungen.',
+          es: 'No como afirmación general. En Casa AMARA, la puerta principal compartida tiene un escalón de entrada. Farah no tiene más escalones; Lounis, Zaid y Maha sí. Desde la puerta hacia el centro del pueblo no hay más escalones, aunque el recorrido conserva pavimento histórico y pendientes.',
+          nl: 'Niet als algemene belofte. Bij Casa AMARA heeft de gedeelde voordeur één opstap. Farah heeft daarna geen verdere trappen; Lounis, Zaid en Maha wel. Vanaf de voordeur richting dorpskern volgen geen extra trappen, maar wel historische bestrating en hellingen.',
+          sv: 'Inte som ett generellt löfte. Vid Casa AMARA har den gemensamma ytterdörren ett entrésteg. Farah har inga fler trappsteg; Lounis, Zaid och Maha har det. Från ytterdörren mot bykärnan följer inga fler trappsteg, men vägen har historisk stenläggning och lutningar.'
         } satisfies LocalizedText
       },
       {
         question: { en: 'Which part is easiest for repeated walking?', de: 'Welche Lage ist für häufige Wege am praktischsten?', es: '¿Qué zona resulta más práctica para caminar varias veces al día?', nl: 'Welk deel is het praktischst voor herhaalde wandelingen?', sv: 'Vilken del är mest praktisk för flera promenader om dagen?' } satisfies LocalizedText,
         answer: {
-          en: 'Lower positions involve less climbing than upper Barribarto. Our four accommodations are on Calle Chorruelo beside San Antonio, in the lower part of the old town.',
-          de: 'Weiter unten gelegene Unterkünfte bedeuten weniger Anstieg als im oberen Barribarto. Unsere vier Unterkünfte liegen in der Calle Chorruelo bei San Antonio, im unteren Teil der Altstadt.',
-          es: 'Las ubicaciones más bajas acumulan menos desnivel que el Barribarto alto. Nuestros cuatro alojamientos están en la calle Chorruelo, junto a San Antonio, en la parte baja del casco antiguo.',
-          nl: 'Lagere plekken vragen minder klimwerk dan hoog Barribarto. Onze vier verblijven liggen aan de Calle Chorruelo bij San Antonio, in het lagere deel van de oude kern.',
-          sv: 'Lägre lägen innebär mindre stigning än övre Barribarto. Våra fyra boenden ligger på Calle Chorruelo vid San Antonio, i gamla stans nedre del.'
+          en: 'That cannot be judged reliably from an area name alone; the exact doorway and repeated route matter. Casa AMARA is on Calle Chorruelo, the continuation of Calle Real, so the concrete route can be assessed instead of inferred from the label “old town”.',
+          de: 'Das lässt sich nicht zuverlässig aus einer Viertelbezeichnung ableiten; entscheidend sind Haustür und wiederholter Weg. Casa AMARA liegt an der Calle Chorruelo, der Fortsetzung der Calle Real – dadurch lässt sich die konkrete Route beurteilen, statt sie aus dem Begriff „Altstadt“ abzuleiten.',
+          es: 'No puede deducirse de forma fiable solo por el nombre de una zona; importan la puerta exacta y el recorrido repetido. Casa AMARA está en la calle Chorruelo, continuación de la calle Real, de modo que puede valorarse la ruta concreta en vez de inferirla por la etiqueta “casco antiguo”.',
+          nl: 'Dat is niet betrouwbaar af te leiden uit alleen een wijknaam; de precieze voordeur en terugkerende route zijn bepalend. Casa AMARA ligt aan Calle Chorruelo, het vervolg van Calle Real, zodat de concrete route kan worden beoordeeld in plaats van afgeleid uit het label “oude centrum”.',
+          sv: 'Det går inte att bedöma tillförlitligt enbart utifrån ett områdesnamn; den exakta ytterdörren och den återkommande vägen är avgörande. Casa AMARA ligger på Calle Chorruelo, fortsättningen av Calle Real, så den konkreta vägen kan bedömas i stället för att antas utifrån beteckningen “gamla stan”.'
         } satisfies LocalizedText
       },
       {

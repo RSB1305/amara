@@ -4,10 +4,9 @@ import LocationExperienceHero from '../../components/location/LocationExperience
 import Navigation from '../../components/Navigation.astro';
 import GuideClosingSection from './GuideClosingSection.astro';
 import ExperienceContextNav from '../../components/experience/ExperienceContextNav.astro';
-import ExperienceHubTopicGrid from '../../components/experience/ExperienceHubTopicGrid.astro';
-import AmaraSectionIntro from '../../components/layout/AmaraSectionIntro.astro';
 import {
   experienceCatalog,
+  experienceHubConnections,
   experienceHubContent,
   experienceHubSeo,
   experienceNavigationContent,
@@ -17,6 +16,7 @@ import LocationAuthorityLayout from '../../layouts/LocationAuthorityLayout.astro
 import { resolveOptionalLink, type LabeledLink } from '../../lib/linkResolver';
 import { normalizeLanguage } from '../../lib/seo/resolve-seo-head';
 import type { AmaraLanguage } from '../../types/seo';
+import GuideLinkCardSection from './GuideLinkCardSection.astro';
 
 interface Props {
   lang?: string;
@@ -25,20 +25,8 @@ interface Props {
 const { lang = 'es' } = Astro.props;
 const currentLang = normalizeLanguage(lang as AmaraLanguage);
 const copy = experienceHubContent[currentLang];
+const connectionsCopy = experienceHubConnections[currentLang];
 const navigation = experienceNavigationContent[currentLang];
-
-const moodAnchorLinks = copy.moods.items.map((item) => ({
-  label: item.label,
-  href: `#experience-${item.id}`
-}));
-const moodDiscoveryLinks = copy.moods.discoveryLinks.flatMap((item) => {
-  const href = resolveOptionalLink(item.token, currentLang, {
-    suppressMissing: true
-  });
-
-  return href ? [{ label: item.label, href }] : [];
-});
-const moodLinks = [...moodAnchorLinks, ...moodDiscoveryLinks];
 
 const getExperience = (id: ExperienceId) => {
   const definition = experienceCatalog[id];
@@ -52,18 +40,23 @@ const getExperience = (id: ExperienceId) => {
   };
 };
 
-const [leadId, ...secondaryIds] = copy.editorial.featuredIds;
+const [leadId, ...secondaryIds] = copy.catalog.order;
 const leadStory = getExperience(leadId);
 const secondaryStories = secondaryIds.map(getExperience);
-const allExperiences = copy.catalog.order.map(getExperience);
-const catalogTopics = allExperiences.map((experience) => ({
-  id: `experience-${experience.id}`,
-  eyebrow: experience.editorial.kicker,
-  title: experience.editorial.title,
-  text: experience.editorial.text,
-  href: experience.href ?? undefined,
-  linkLabel: experience.editorial.linkLabel
+const oldTownDiscovery = copy.moods.discoveryLinks.find(
+  (item) => item.token === 'frigiliana_old_town'
+);
+const oldTownHref = oldTownDiscovery
+  ? resolveOptionalLink(oldTownDiscovery.token, currentLang, { suppressMissing: true })
+  : null;
+
+const connectionItems = connectionsCopy.items.map((item) => ({
+  ...item,
+  href: resolveOptionalLink(item.linkToken, currentLang, {
+    suppressMissing: true
+  })
 }));
+
 
 const footerHighlights: LabeledLink[] = [
   { token: 'frigiliana_experience_hub', label: copy.footerHighlights.hub },
@@ -110,12 +103,12 @@ const heroImage = {
         imageAlt={copy.hero.imageAlt}
         imageWidth={heroImage.width}
         actions={[
-          { href: '#moods', label: copy.hero.exploreCta, style: 'primary' }
+          { href: '#experiences', label: copy.hero.exploreCta, style: 'primary' }
         ]}
       />
 
       <section
-        id="editorial"
+        id="experiences"
         class="am-section am-section--plain overflow-hidden pt-24 md:pt-32 lg:pt-40"
       >
         <div class="grid grid-cols-1 gap-8 border-b border-outline-variant/20 pb-12 md:pb-16 lg:grid-cols-12 lg:items-end lg:gap-12">
@@ -237,58 +230,25 @@ const heroImage = {
             }
           </div>
         </div>
-      </section>
 
-      <section
-        id="moods"
-        class="am-section am-section--tint py-28 md:py-36 lg:py-40"
-      >
-        <div class="grid grid-cols-1 gap-12 lg:grid-cols-12 lg:items-center lg:gap-16">
-          <div class="lg:col-span-5">
-            <h2 class="am-text-title mb-5 italic tracking-tight text-on-surface">
-              {copy.moods.title}
-            </h2>
-            <p class="am-text-body leading-relaxed text-on-surface-variant">
-              {copy.moods.intro}
+        {
+          oldTownDiscovery && oldTownHref && (
+            <p class="mt-14 border-t border-outline-variant/25 pt-8 md:mt-20">
+              <a href={oldTownHref} class="am-inline-link">
+                {oldTownDiscovery.label}
+                <span aria-hidden="true"> &rarr;</span>
+              </a>
             </p>
-          </div>
-          <nav class="lg:col-span-7" aria-label={copy.moods.title}>
-            <ul class="grid grid-cols-1 border-t border-outline-variant/25 sm:grid-cols-2">
-              {
-                moodLinks.map((item) => (
-                  <li class="border-b border-outline-variant/25 sm:odd:border-r">
-                    <a
-                      href={item.href}
-                      class="group flex min-h-24 items-center justify-between gap-5 px-4 py-6 text-on-surface transition-colors hover:bg-surface-container-lowest sm:px-6"
-                    >
-                      <span class="font-headline text-xl italic">
-                        {item.label}
-                      </span>
-                      <span
-                        class="text-primary transition-transform group-hover:translate-x-1"
-                        aria-hidden="true"
-                      >
-                        &rarr;
-                      </span>
-                    </a>
-                  </li>
-                ))
-              }
-            </ul>
-          </nav>
-        </div>
+          )
+        }
       </section>
 
-      <section id="all" class="am-section am-section--plain py-28 md:py-36 lg:py-40">
-        <AmaraSectionIntro
-          title={copy.catalog.title}
-          eyebrow={copy.catalog.kicker}
-          intro={copy.catalog.intro}
-          variant="editorial"
-        />
-
-        <ExperienceHubTopicGrid topics={catalogTopics} columns={4} />
-      </section>
+      <GuideLinkCardSection
+        title={connectionsCopy.title}
+        intro={connectionsCopy.intro}
+        items={connectionItems}
+        surface="tint"
+      />
 
       <GuideClosingSection
         title={copy.closing.title}
@@ -298,11 +258,6 @@ const heroImage = {
           {
             token: 'romantic_hideaways',
             label: copy.closing.staysCta,
-            style: 'text'
-          },
-          {
-            token: 'book',
-            label: copy.closing.availabilityCta,
             style: 'text'
           }
         ]}
