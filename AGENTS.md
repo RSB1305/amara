@@ -110,7 +110,18 @@ When parallel agent work is explicitly active, apply `DR-EXEC-010` before a new 
 - If scopes are separate, proceed immediately.
 - Do not turn the check into builds, tests, broad audits, architecture review, lengthy preflight or a new coordination system.
 
-Normal work remains: **30-second traffic check -> implement -> targeted validation -> local commit**. Push stays centralized and batched at an intentional release point. The Governance owner contains the full normative rule.
+For explicitly parallel Codex, Claude or Codex Cloud work, apply `DR-EXEC-011` as well:
+
+- One active implementation task owns one dedicated branch and one dedicated Git worktree. Do not share a working directory between agents.
+- The primary `main` worktree is control/integration space during parallel work; implementation happens in the task worktrees.
+- Name branches by worker and bounded task, for example `codex/<task>`, `claude/<task>` or `codex/cloud-<task>`. A branch identifies provenance, not automatic release readiness.
+- Every task records its scope before editing. Same-file or same-owner overlap stops; separate scopes proceed.
+- Codex Cloud work is includable only after a remote branch, pull request, commit SHA or operator-provided patch makes it visible to the release controller. Cloud agents do not merge directly to `main` unless the operator explicitly assigns them the release-controller role.
+- Only one release controller integrates and pushes a release batch. Before push it inventories active worktrees, unmerged local branches, visible unmerged remote branches and open pull requests. Every discovered item must be classified as **included**, **waiting** or **intentionally excluded**; unknown work stops the push.
+- Integrate all **included** committed work into one release branch from current `origin/main`, resolve conflicts there, run the release validation once, then use one intentional push, pull request and merge. Never use `git push --all` as integration and never absorb uncommitted or unfinished work.
+- After merge, remove completed task worktrees and delete merged task branches. Persistent branches are the exception.
+
+Normal parallel work is: **traffic check -> dedicated task worktree -> implement -> targeted validation -> local commit -> READY handoff**. Release is: **inventory -> classify every workstream -> integrate READY commits -> release validation -> one push/PR/merge -> cleanup**. The Governance owner contains the full normative rule.
 
 ## External booking boundary
 

@@ -1,7 +1,6 @@
 ---
 import { resolveLocale } from '../../types/content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import Navigation from '../../components/Navigation.astro';
 import AmaraImage from '../../components/AmaraImage.astro';
 import AmaraPageShell from '../../components/layout/AmaraPageShell.astro';
 import AmaraSection from '../../components/layout/AmaraSection.astro';
@@ -42,13 +41,9 @@ const enquiryHref = resolveOptionalLink('property_sale_enquiry', currentLang, {
   footerHighlights={[]}
   contextBreadcrumbTitle={propertySaleBrandLabels[currentLang]}
   showContextNavigation={false}
+  navigationLanguageToken="property_sale"
+  navigationShowBookingCta={false}
 >
-  <Navigation
-    currentLang={currentLang}
-    languageToken="property_sale"
-    showBookingCta={false}
-  />
-
   <AmaraPageShell family="property-sale" dataLang={currentLang} whiteCanvas>
     <div data-property="casa-amara">
       <AmaraSection

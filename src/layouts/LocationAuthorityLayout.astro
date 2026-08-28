@@ -33,8 +33,8 @@ const {
   bodyBackgroundClass={bodyBackgroundClass}
   pageFamily={pageFamily}
 >
-  <!-- Global navigation stays before the layout-owned page shell to preserve banner semantics across this page family. -->
-  <slot name="navigation" />
+  <!-- BaseLayout owns the canonical navigation position; this family only supplies its context-aware instance. -->
+  <slot name="navigation" slot="navigation" />
 
   <AmaraPageShell family="location-authority" dataLang={pageLang} flush whiteCanvas>
     <slot />

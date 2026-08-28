@@ -137,25 +137,6 @@ export const cinematicTrustCtaPrimary: CopyRow = {
   sv: 'Se tillgänglighet'
 };
 
-export const cinematicStatReviewsValue = String(airbnbReviewEvidence.reviewCountLabel);
-export const cinematicStatRatingValue: CopyRow = airbnbRatingLabel;
-
-export const cinematicStatReviewsLabel: CopyRow = {
-  en: 'Verified Reviews',
-  de: 'Verifizierte Bewertungen',
-  es: 'Reseñas verificadas',
-  nl: 'Geverifieerde reviews',
-  sv: 'Verifierade recensioner'
-};
-
-export const cinematicStatRatingLabel: CopyRow = {
-  en: 'Average Rating',
-  de: 'Durchschnittsnote',
-  es: 'Valoración media',
-  nl: 'Gemiddelde score',
-  sv: 'Genomsnittligt betyg'
-};
-
 export const cinematicGuideEyebrow: CopyRow = {
   en: 'Choose the right location',
   de: 'Die richtige Lage',
@@ -466,7 +447,8 @@ export const cinematicApartments: CinematicAptDef[] = [
 ];
 /* =========================================================
    HERO PROOF STRIP
-   Two signals only — the hero stays calm by design.
+   Opening trust and booking signals. Detailed evidence and conditions stay in
+   their later sections instead of repeating these summaries verbatim.
 ========================================================= */
 
 export const cinematicHeroProofRating: CopyRow = {
@@ -475,6 +457,14 @@ export const cinematicHeroProofRating: CopyRow = {
   es: `${airbnbRatingLabel.es} de ${airbnbReviewEvidence.reviewCountLabel} reseñas en Airbnb`,
   nl: `${airbnbRatingLabel.nl} uit ${airbnbReviewEvidence.reviewCountLabel} Airbnb-beoordelingen`,
   sv: `${airbnbRatingLabel.sv} från ${airbnbReviewEvidence.reviewCountLabel} Airbnb-omdömen`
+};
+
+export const cinematicHeroDirectBenefitsLabel: CopyRow = {
+  en: 'Direct booking benefits',
+  de: 'Vorteile der Direktbuchung',
+  es: 'Ventajas de la reserva directa',
+  nl: 'Voordelen van direct boeken',
+  sv: 'Fördelar med direktbokning'
 };
 
 /* =========================================================
@@ -746,7 +736,7 @@ export const cinematicHoneymoonEyebrow: CopyRow = {
 };
 
 export const cinematicHoneymoonTitle: CopyRow = {
-  en: 'Planning the first trip as a married couple?',
+  en: 'Planning the first trip as a **just\u00a0married**\u00a0❤︎ couple?',
   de: 'Plant ihr die erste Reise als Ehepaar?',
   es: '¿Estáis planeando el primer viaje como pareja casada?',
   nl: 'Plannen jullie de eerste reis als getrouwd stel?',
@@ -768,11 +758,11 @@ export const cinematicHoneymoonCtaLabel: CopyRow = {
 ========================================================= */
 
 export const cinematicHostLabel: CopyRow = {
-  en: 'Meet your hosts',
+  en: 'About AMARA ❤︎ and your host',
   de: 'Über AMARA ❤︎ und euren Gastgeber',
-  es: 'Conoced a vuestros anfitriones',
-  nl: 'Maak kennis met jullie gastheren',
-  sv: 'Lär känna era värdar'
+  es: 'Sobre AMARA ❤︎ y vuestro anfitrión',
+  nl: 'Over AMARA ❤︎ en jullie gastheer',
+  sv: 'Om AMARA ❤︎ och er värd'
 };
 
 export const cinematicHostAvatarAlt: CopyRow = {

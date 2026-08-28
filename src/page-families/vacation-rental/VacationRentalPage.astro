@@ -1,6 +1,5 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import Navigation from '../../components/Navigation.astro';
 import AmaraImage from '../../components/AmaraImage.astro';
 import StayHero from '../../components/hero/StayHero.astro';
 import AmaraPageShell from '../../components/layout/AmaraPageShell.astro';
@@ -191,7 +190,6 @@ type FactRow = {
   label: string;
   value: string;
   Icon: AstroComponent;
-  wide?: boolean;
 };
 
 const factRows: FactRow[] = [
@@ -207,14 +205,6 @@ const factRows: FactRow[] = [
         Icon: amenityIcons.area
       }]
     : []),
-  ...(rental.exteriorAreaSqm
-    ? []
-    : [{
-        label: t(ui.labels.outdoor as LocalizedText),
-        value: t(rental.outdoorNote),
-        Icon: amenityIcons.terrace,
-        wide: true
-      }]),
   {
     label: t(ui.labels.pricePerNight as LocalizedText),
     value: indicativePriceRange,
@@ -472,16 +462,15 @@ const contextDestination: DestinationId | undefined =
   contextBreadcrumbTitle={`${breadcrumbRentalName}, ${rental.city}`}
   contextDestination={contextDestination}
   pageFamily="vacation-rental"
+  navigationLanguageToken={rental.token}
 >
-  <Navigation
-    currentLang={currentLang}
-    languageToken={rental.token}
-  />
-
   <AmaraPageShell family="vacation-rental">
       <StayHero
         imageSrc={heroImage}
         imageAlt={imageAlts[0] ?? t(rental.imageAlt)}
+        secondaryImageSrc={visibleImages[1]}
+        secondaryImageAlt={imageAlts[1] ?? t(rental.imageAlt)}
+        secondaryImageIndex={1}
         imageCount={rental.images.length}
         galleryLabel={`${t(ui.galleryTitle as LocalizedText)}: ${rental.name}`}
         eyebrow={t(rental.eyebrow)}
@@ -511,17 +500,19 @@ const contextDestination: DestinationId | undefined =
           signals: bookingTrustSignals,
           links: bookingTrustLinks
         }}
-      />
-
-      <StayBookingCalendar
-        id={bookingSectionId}
-        lang={currentLang}
-        bookingKey={rental.bookingKey}
-        stayName={rental.shortName}
-        occupancy={rental.occupancy}
-        fallbackHref={bookingHref}
-        fallbackLabel={t(ui.bookingPageFallback as LocalizedText)}
-      />
+      >
+        <StayBookingCalendar
+          slot="booking-module"
+          id={bookingSectionId}
+          embedded
+          lang={currentLang}
+          bookingKey={rental.bookingKey}
+          stayName={rental.shortName}
+          occupancy={rental.occupancy}
+          fallbackHref={bookingHref}
+          fallbackLabel={t(ui.bookingPageFallback as LocalizedText)}
+        />
+      </StayHero>
 
       <AmaraSection labelledby="rental-facts-title">
         <div class="flex flex-col gap-8">
@@ -530,12 +521,9 @@ const contextDestination: DestinationId | undefined =
           </h2>
           <div>
             <dl class="grid grid-cols-2 gap-x-5 gap-y-7 sm:gap-x-10 sm:gap-y-8 lg:grid-cols-3">
-              {factRows.map(({ label, value, Icon, wide }) => (
+              {factRows.map(({ label, value, Icon }) => (
                 <div
-                  class:list={[
-                    'grid grid-cols-[2rem_minmax(0,1fr)] items-start gap-x-2.5 sm:grid-cols-[2.5rem_minmax(0,1fr)] sm:gap-x-4',
-                    { 'col-span-2 sm:col-span-1': wide }
-                  ]}
+                  class="grid grid-cols-[2rem_minmax(0,1fr)] items-start gap-x-2.5 sm:grid-cols-[2.5rem_minmax(0,1fr)] sm:gap-x-4"
                 >
                   <dt class="col-span-2 grid grid-cols-[2rem_minmax(0,1fr)] items-start gap-x-2.5 sm:grid-cols-[2.5rem_minmax(0,1fr)] sm:gap-x-4">
                     <span class="flex h-8 w-8 items-center justify-center rounded-full bg-surface-container-low text-primary sm:h-10 sm:w-10" aria-hidden="true">
@@ -545,7 +533,7 @@ const contextDestination: DestinationId | undefined =
                       {label}
                     </span>
                   </dt>
-                  <dd class:list={['col-start-2 mt-1 text-on-surface', wide ? 'am-text-body leading-relaxed' : 'am-text-subtitle']}>
+                  <dd class="am-text-subtitle col-start-2 mt-1 text-on-surface">
                     {value}
                   </dd>
                 </div>

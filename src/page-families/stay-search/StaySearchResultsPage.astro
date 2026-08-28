@@ -1,6 +1,5 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import Navigation from '../../components/Navigation.astro';
 import StaySearchFinder from '../../components/booking/StaySearchFinder.astro';
 import AmaraPageShell from '../../components/layout/AmaraPageShell.astro';
 import AmaraSection from '../../components/layout/AmaraSection.astro';
@@ -54,9 +53,7 @@ const cards = vacationRentalEntities.flatMap((rental) => {
 });
 ---
 
-<BaseLayout seo={seo} pageLang={currentLang} pageFamily="stay-search-results">
-  <Navigation currentLang={currentLang} languageToken="stay_search_results" />
-
+<BaseLayout seo={seo} pageLang={currentLang} pageFamily="stay-search-results" navigationLanguageToken="stay_search_results">
   <AmaraPageShell family="stay-search-results" dataLang={currentLang}>
     <AmaraSection variant="hero" labelledby="stay-search-title">
       <div class="max-w-3xl">

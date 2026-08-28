@@ -4,6 +4,7 @@ import type { AmaraAuthoringSeo, AmaraLanguage } from '../types/seo';
 import BackToTop from '../components/BackToTop.astro';
 import AnalyticsConsent from '../components/AnalyticsConsent.astro';
 import Footer from '../components/Footer.astro';
+import Navigation from '../components/Navigation.astro';
 import GlobalContextNavigation from '../components/navigation/GlobalContextNavigation.astro';
 import type { DestinationId } from '../lib/location/destinationBranchNavigation';
 import { resolveLink, type LinkToken } from '../lib/linkResolver';
@@ -40,10 +41,15 @@ interface Props {
   footerHighlights?: { token: LinkToken; label: string; decoration?: 'heart' }[];
   /** Optional compact label for the final item in the global breadcrumb. */
   contextBreadcrumbTitle?: string;
-  /** Destination context for the reduced Location / Experiences links on stay pages. */
+  /** Destination context for the Location / Experiences menus on stay pages. */
   contextDestination?: DestinationId;
   /** Disable only when a page family supplies its own location-specific context navigation. */
   showContextNavigation?: boolean;
+  /** Shared navigation model inputs; the document shell owns the rendered header position. */
+  navigationCurrentToken?: LinkToken;
+  navigationLanguageToken?: LinkToken;
+  navigationShowBookingCta?: boolean;
+  navigationAppearance?: 'default' | 'overlay';
   /** Page canvas behind content; default matches design token surface. */
   bodyBackgroundClass?: string;
   pageFamily?: AmaraPageFamilyId;
@@ -56,6 +62,10 @@ const {
   contextBreadcrumbTitle,
   contextDestination,
   showContextNavigation = true,
+  navigationCurrentToken,
+  navigationLanguageToken,
+  navigationShowBookingCta = true,
+  navigationAppearance = 'default',
   bodyBackgroundClass = 'bg-surface',
   pageFamily
 } = Astro.props;
@@ -81,6 +91,8 @@ const isHomePage =
   normalizePath(pathname) === normalizePath(resolveLink('home', currentLang));
 const shouldShowContextNavigation =
   showContextNavigation && !isHomePage && !pathname.startsWith('/tools/');
+const hasProvidedNavigation = Astro.slots.has('navigation');
+const hasProvidedContextNavigation = Astro.slots.has('context-navigation');
 
 const origin = Astro.url.origin;
 
@@ -154,18 +166,35 @@ const conversionFamilyAttributes = isAmaraConversionFamilyId(pageFamily) ? getCo
       >
         {skipLinkLabels[currentLang]}
       </a>
-      {shouldShowContextNavigation && (
-        <GlobalContextNavigation
-      lang={currentLang}
-      pageTitle={seo.languages[currentLang].title}
-      breadcrumbTitle={contextBreadcrumbTitle}
-      destination={contextDestination}
-      pathname={pathname}
-      isStay={
-        Boolean(seo.entityKey && seo.entityKey !== 'amara-brand') ||
-        pathname.includes('romantic-hideaways')
-      }
-    />
+      {hasProvidedNavigation ? (
+        <slot name="navigation" />
+      ) : (
+        <Navigation
+          currentLang={currentLang}
+          currentToken={navigationCurrentToken}
+          languageToken={navigationLanguageToken}
+          showBookingCta={navigationShowBookingCta}
+          appearance={navigationAppearance}
+        >
+          {hasProvidedContextNavigation ? (
+            <Fragment slot="context-navigation">
+              <slot name="context-navigation" />
+            </Fragment>
+          ) : shouldShowContextNavigation ? (
+            <GlobalContextNavigation
+              slot="context-navigation"
+              lang={currentLang}
+              pageTitle={seo.languages[currentLang].title}
+              breadcrumbTitle={contextBreadcrumbTitle}
+              destination={contextDestination}
+              pathname={pathname}
+              isStay={
+                Boolean(seo.entityKey && seo.entityKey !== 'amara-brand') ||
+                pathname.includes('romantic-hideaways')
+              }
+            />
+          ) : null}
+        </Navigation>
       )}
       <slot />
       <BackToTop lang={currentLang} />

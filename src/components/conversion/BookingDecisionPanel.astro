@@ -10,7 +10,8 @@ interface ActionLink {
 interface Props {
   priceLabel: string;
   price: string;
-  primary: ActionLink;
+  /** Omit when the interactive booking module follows directly in the flow. */
+  primary?: ActionLink;
   /**
    * Set when the primary action stays on the page and hands over to an in-page
    * booking module. The module resolves the exact total itself, so the link
@@ -44,25 +45,29 @@ const moduleAttributes = getAmaraContentModuleAttributes({
     <p class="am-text-subtitle mt-1 text-on-surface">{price}</p>
   </div>
 
-  <div class="am-booking-decision__actions">
-    <AmaraActionLink
-      variant="primary"
-      class="w-full justify-center sm:w-auto"
-      href={primary.href}
-      data-am-booking-open={primaryInPage ? '' : undefined}
-    >
-      {primary.label}
-    </AmaraActionLink>
-    {secondary && (
-      <AmaraActionLink
-        variant="secondary"
-        class="w-full justify-center sm:w-auto"
-        href={secondary.href}
-      >
-        {secondary.label}
-      </AmaraActionLink>
-    )}
-  </div>
+  {(primary || secondary) && (
+    <div class="am-booking-decision__actions">
+      {primary && (
+        <AmaraActionLink
+          variant="primary"
+          class="w-full justify-center sm:w-auto"
+          href={primary.href}
+          data-am-booking-open={primaryInPage ? '' : undefined}
+        >
+          {primary.label}
+        </AmaraActionLink>
+      )}
+      {secondary && (
+        <AmaraActionLink
+          variant="secondary"
+          class="w-full justify-center sm:w-auto"
+          href={secondary.href}
+        >
+          {secondary.label}
+        </AmaraActionLink>
+      )}
+    </div>
+  )}
 
   {priceNote && (
     <p class="am-booking-decision__note am-text-caption font-normal leading-relaxed">

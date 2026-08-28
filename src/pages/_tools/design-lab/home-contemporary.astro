@@ -20,10 +20,6 @@ import {
   cinematicPhilosophyP2,
   cinematicPhilosophyPart1,
   cinematicScrollHint,
-  cinematicStatRatingLabel,
-  cinematicStatRatingValue,
-  cinematicStatReviewsLabel,
-  cinematicStatReviewsValue,
   cinematicTrustChips,
   cinematicTrustCta,
   cinematicTrustCtaPrimary,
@@ -33,6 +29,7 @@ import {
   navReviews,
   type CopyRow
 } from '../../../content/homeCinematicCopy';
+import { airbnbRatingLabel, airbnbReviewEvidence } from '../../../content/reviewEvidence';
 import imgLounis from '../../../assets/images/home/amara-lounis-15-amara-frigiliana.jpg';
 import imgFarah from '../../../assets/images/home/amara-farah-67-amara-frigiliana.jpg';
 import imgZaid from '../../../assets/images/home/amara-zaid-terraza-5.jpg';
@@ -41,6 +38,10 @@ import imgPlaya from '../../../assets/images/home/amara-playa-chaparril-13.webp'
 import imgTarifa from '../../../assets/images/home/amara-tarifa-apartment01.webp';
 
 const english = (copy: CopyRow) => copy.en;
+const studyStatReviewsLabel = 'Airbnb reviews';
+const studyStatReviewsValue = airbnbReviewEvidence.reviewCountLabel;
+const studyStatRatingLabel = 'Airbnb rating';
+const studyStatRatingValue = `${airbnbRatingLabel.en}/5`;
 
 const imageByApartment: Record<CinematicAptToken, typeof imgLounis> = {
   farah: imgFarah,
@@ -143,12 +144,12 @@ const apartmentStudies = await Promise.all(
 
           <dl class="philosophy__stats">
             <div>
-              <dt>{english(cinematicStatReviewsLabel)}</dt>
-              <dd>{cinematicStatReviewsValue}</dd>
+              <dt>{studyStatReviewsLabel}</dt>
+              <dd>{studyStatReviewsValue}</dd>
             </div>
             <div>
-              <dt>{english(cinematicStatRatingLabel)}</dt>
-              <dd>{english(cinematicStatRatingValue)}</dd>
+              <dt>{studyStatRatingLabel}</dt>
+              <dd>{studyStatRatingValue}</dd>
             </div>
           </dl>
         </section>
@@ -224,17 +225,17 @@ const apartmentStudies = await Promise.all(
         <section class="trust" aria-labelledby="trust-title">
           <div class="section-marker">
             <span>05</span>
-            <span>{english(cinematicStatReviewsLabel)}</span>
+            <span>{studyStatReviewsLabel}</span>
           </div>
 
-          <div class="trust__score" aria-label={`${english(cinematicStatRatingValue)} ${english(cinematicStatRatingLabel)}`}>
-            <span>{english(cinematicStatRatingValue)}</span>
-            <p>{english(cinematicStatRatingLabel)}</p>
+          <div class="trust__score" aria-label={`${studyStatRatingValue} ${studyStatRatingLabel}`}>
+            <span>{studyStatRatingValue}</span>
+            <p>{studyStatRatingLabel}</p>
           </div>
 
           <div class="trust__quote">
             <h2 id="trust-title">{english(cinematicTrustQuote)}</h2>
-            <p>{cinematicStatReviewsValue} {english(cinematicStatReviewsLabel)}</p>
+            <p>{studyStatReviewsValue} {studyStatReviewsLabel}</p>
           </div>
 
           <ul class="trust__proof" aria-label="Stay highlights">

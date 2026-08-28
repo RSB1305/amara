@@ -6,7 +6,6 @@ import AmaraImage from '../../components/AmaraImage.astro';
 import Hero from '../../components/Hero.astro';
 import AmaraPageShell from '../../components/layout/AmaraPageShell.astro';
 import AmaraSection from '../../components/layout/AmaraSection.astro';
-import Navigation from '../../components/Navigation.astro';
 import farahImage from '../../assets/images/content/amara-farah/67-amara-frigiliana.jpg';
 import lounisImage from '../../assets/images/content/amara-lounis/15-amara-frigiliana.jpg';
 import zaidImage from '../../assets/images/content/amara-zaid/cara-rural-frigiliana-amara-said-terraza.jpg';
@@ -78,13 +77,9 @@ const footerHighlights: LabeledLink[] = [
   contextBreadcrumbTitle={copy.hero.title}
   footerHighlights={footerHighlights}
   showContextNavigation={false}
+  navigationCurrentToken="casa_amara_groups"
+  navigationLanguageToken="casa_amara_groups"
 >
-  <Navigation
-    currentLang={currentLang}
-    currentToken="casa_amara_groups"
-    languageToken="casa_amara_groups"
-  />
-
   <AmaraPageShell family="casa-amara-groups" dataLang={currentLang} flush whiteCanvas>
     <Hero imageSrc={mahaImage} imageAlt={copy.hero.imageAlt}>
       <span class="am-text-label mb-8 block text-primary">{copy.hero.kicker}</span>

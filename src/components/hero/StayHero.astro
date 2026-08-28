@@ -30,6 +30,9 @@ interface DirectTrust {
 interface Props {
   imageSrc: ImageMetadata | string;
   imageAlt: string;
+  secondaryImageSrc?: ImageMetadata | string;
+  secondaryImageAlt?: string;
+  secondaryImageIndex?: number;
   imageCount: number;
   galleryLabel: string;
   eyebrow: string;
@@ -48,6 +51,9 @@ interface Props {
 const {
   imageSrc,
   imageAlt,
+  secondaryImageSrc,
+  secondaryImageAlt = '',
+  secondaryImageIndex = 1,
   imageCount,
   galleryLabel,
   eyebrow,
@@ -68,14 +74,18 @@ const heroAttributes = getAmaraHeroAttributes({
   variant: 'stay-decision',
   role: 'conversion'
 });
+const hasBookingModule = Astro.slots.has('booking-module');
 ---
 
 <AmaraSection variant="hero" class="am-stay-hero">
   <div {...heroAttributes}>
-    <figure class="am-stay-hero__photo relative aspect-[5/4] max-h-[min(720px,62vh)] overflow-hidden bg-surface-container-low md:aspect-[3/2] xl:aspect-[16/9]">
+    <figure
+      class="am-stay-hero__photo relative aspect-[5/4] max-h-[min(720px,62vh)] overflow-hidden bg-surface-container-low md:aspect-[3/2] xl:aspect-[16/9]"
+      data-am-stay-hero-pair={secondaryImageSrc ? '' : undefined}
+    >
       <button
         type="button"
-        class="group block h-full w-full cursor-zoom-in focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[-2px] focus-visible:outline-primary"
+        class="am-stay-hero__photo-primary group block h-full w-full cursor-zoom-in overflow-hidden focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[-2px] focus-visible:outline-primary"
         data-am-rental-photo-open
         data-am-photo-index="0"
         aria-haspopup="dialog"
@@ -85,17 +95,43 @@ const heroAttributes = getAmaraHeroAttributes({
           src={imageSrc}
           alt={imageAlt}
           profile="hero"
-          sizes="(max-width: 639px) 100vw, (max-width: 767px) calc(100vw - 3rem), (max-width: 1535px) calc(100vw - 6rem), 1440px"
+          sizes={secondaryImageSrc
+            ? '(min-width: 1200px) and (max-height: 992px) min(50vw, 768px), (max-width: 639px) 100vw, (max-width: 767px) calc(100vw - 3rem), (max-width: 1535px) calc(100vw - 6rem), 1440px'
+            : '(max-width: 639px) 100vw, (max-width: 767px) calc(100vw - 3rem), (max-width: 1535px) calc(100vw - 6rem), 1440px'}
           class="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.01] motion-reduce:transition-none motion-reduce:group-hover:scale-100"
           loading="eager"
           fetchpriority="high"
           decoding="async"
           mediaRole="hero"
         />
-        <span class="am-hero-photo-count am-text-label" aria-hidden="true">
-          1 / {imageCount}
-        </span>
       </button>
+
+      {secondaryImageSrc && (
+        <button
+          type="button"
+          class="am-stay-hero__photo-secondary group h-full w-full cursor-zoom-in overflow-hidden focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[-2px] focus-visible:outline-primary"
+          data-am-rental-photo-open
+          data-am-photo-index={secondaryImageIndex}
+          aria-haspopup="dialog"
+          aria-label={`${galleryLabel}: ${secondaryImageAlt}`}
+        >
+          <AmaraImage
+            src={secondaryImageSrc}
+            alt={secondaryImageAlt}
+            profile="hero"
+            sizes="(min-width: 1200px) and (max-height: 992px) min(50vw, 768px), 1px"
+            class="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.01] motion-reduce:transition-none motion-reduce:group-hover:scale-100"
+            loading="lazy"
+            fetchpriority="low"
+            decoding="async"
+            mediaRole="hero"
+          />
+        </button>
+      )}
+
+      <span class="am-hero-photo-count am-text-label" aria-hidden="true">
+        1 / {imageCount}
+      </span>
     </figure>
 
     <div class="mt-6 max-w-4xl md:mt-10">
@@ -125,11 +161,13 @@ const heroAttributes = getAmaraHeroAttributes({
       <BookingDecisionPanel
         priceLabel={booking.priceLabel}
         price={booking.price}
-        primary={booking.primary}
+        primary={hasBookingModule ? undefined : booking.primary}
         primaryInPage
         priceNote={booking.priceNote}
         supportLinks={booking.supportLinks}
       />
+
+      <slot name="booking-module" />
 
       <p
         class:list={[
@@ -193,6 +231,22 @@ const heroAttributes = getAmaraHeroAttributes({
     width: calc(100% + var(--spacing-page-gutter) * 2);
     max-width: none;
     margin-inline: calc(var(--spacing-page-gutter) * -1);
+  }
+
+  .am-stay-hero__photo-secondary {
+    display: none;
+  }
+
+  @media (min-width: 75rem) and (max-height: 62rem) {
+    .am-stay-hero__photo[data-am-stay-hero-pair] {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.25rem;
+    }
+
+    .am-stay-hero__photo[data-am-stay-hero-pair] .am-stay-hero__photo-secondary {
+      display: block;
+    }
   }
 
   .am-hero-photo-count {

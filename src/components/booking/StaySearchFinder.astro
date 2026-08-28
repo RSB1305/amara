@@ -24,7 +24,7 @@ const guestOptions = [1, 2, 3, 4];
   class:list={[
     'am-stay-search relative z-[3]',
     variant === 'home'
-      ? 'mx-auto w-[min(100%-3rem,80rem)] -mt-8 bg-surface p-5 md:-mt-10 md:p-7'
+      ? 'mx-auto w-[min(100%-3rem,70rem)] -mt-8 bg-surface p-4 md:-mt-8 md:p-5'
       : 'bg-surface-container-low p-5 md:p-7'
   ]}
   aria-label={t(staySearchCopy.eyebrow)}
@@ -37,14 +37,19 @@ const guestOptions = [1, 2, 3, 4];
       eyebrow is redundant chrome: it wrapped to two lines and was the loudest
       element in a widget that should read as a quiet utility. */}
   {variant === 'home' && (
-    <p class="am-text-eyebrow mb-5 hidden text-primary sm:block">{t(staySearchCopy.eyebrow)}</p>
+    <p class="am-text-eyebrow mb-4 hidden text-primary sm:block">{t(staySearchCopy.eyebrow)}</p>
   )}
 
   <form action={action} method="get" data-am-stay-search-form>
     {/* Arrival and departure share a row below sm; the form was five stacked
         controls tall, which filled most of a phone viewport directly under the
         hero. */}
-    <div class="grid grid-cols-2 gap-4 lg:grid-cols-[1.1fr_1fr_1fr_0.75fr_auto] lg:items-end">
+    <div
+      class:list={[
+        'grid grid-cols-2 lg:grid-cols-[1.1fr_1fr_1fr_0.75fr_auto] lg:items-end',
+        variant === 'home' ? 'gap-3' : 'gap-4'
+      ]}
+    >
       <label class="col-span-2 block lg:col-span-1">
         <span class="am-text-label text-on-surface-variant">{t(staySearchCopy.destination)}</span>
         <AmaraFormControl
