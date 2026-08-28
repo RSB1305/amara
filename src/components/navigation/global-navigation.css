@@ -64,6 +64,23 @@
   background: var(--color-inverted-on-surface);
 }
 
+/*
+ * The overlay header crosses uncontrolled hero imagery, so an outlined action
+ * can lose both its label and its boundary. Keep the canonical secondary
+ * treatment after scroll, but give the opening-state booking action the solid
+ * inverse treatment it needs to remain legible over every crop.
+ */
+[data-am-navigation][data-am-navigation-appearance="overlay"]:not([data-am-overlay-scrolled="true"]) .am-nav__slot--cta .am-btn {
+  background-color: var(--color-inverted-on-surface);
+  border-color: var(--color-inverted-on-surface);
+  color: var(--color-inverted-surface);
+}
+
+[data-am-navigation][data-am-navigation-appearance="overlay"]:not([data-am-overlay-scrolled="true"]) .am-nav__slot--cta .am-btn:hover {
+  background-color: color-mix(in srgb, var(--color-inverted-on-surface) 88%, var(--color-inverted-surface));
+  border-color: color-mix(in srgb, var(--color-inverted-on-surface) 88%, var(--color-inverted-surface));
+}
+
 [data-am-navigation] .am-nav-mobile--contextual {
   transition: top 180ms ease;
 }
