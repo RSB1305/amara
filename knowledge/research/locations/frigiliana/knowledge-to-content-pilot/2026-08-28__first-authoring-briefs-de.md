@@ -124,3 +124,11 @@ Status: Briefing, noch keine Freigabe für öffentliche Copy oder Code-Links
 3. Brief 3 nur an den passenden Experience-Tagesformen einsetzen, nicht als wiederholten CTA.
 4. Brief 4 als ersten vollständigen Spoke-zu-Spoke-Pilot verwenden.
 5. Deutsche Copy gemeinsam mit den kontextuellen Übergängen reviewen; erst danach fünfsprachig übertragen und lokal rendern.
+
+## Technische Leitplanken für die spätere Umsetzung
+
+| Thema | Bestehende Repository-Realität | Verbindliche Umsetzung | Nicht freigegeben |
+|---|---|---|---|
+| Farah und die Terrassen-Szene | Die Unterkunftsdaten in `src/content/vacationRentalEntities.ts` unterscheiden Farah bereits ausdrücklich von Lounis, Zaid und Maha; Farah hat dort keinen privaten Außenbereich. Der Knowledge-Fakt `casa-amara.terraces.shared-amenities` gilt ebenfalls nur für Lounis, Zaid und Maha. | Die Projektion nennt oder übergibt die drei berechtigten Einheiten ausdrücklich. Ein generischer Render über alle vier Unterkünfte ist unzulässig. Falls die vorhandene Komponente keine explizite Auswahl erlaubt, wird vor einer technischen Änderung gestoppt. | Kein neues Zod-Schema und kein neuer Collection-Vertrag allein für diese Ausnahme. Eine solche Architekturänderung benötigt separate Freigabe. |
+| AYO und volatile Verfügbarkeit | Es gibt derzeit keinen kanonischen `offline`-Status und keinen Live-Verfügbarkeitsresolver für Restaurants. Der öffentliche Ziel-Owner ist die Restaurantseite, nicht eine eigenständige AYO-Route. | Vor Veröffentlichung wird der volatile Betreiberfakt aktuell geprüft. Der Beach-Übergang führt zur weiterhin sinnvollen Restaurantseite und darf nicht als garantierter AYO-CTA formuliert werden. Bei dauerhafter Schließung wird die konkrete Verbindung redaktionell entfernt oder neu belegt. | Kein neuer Offline-Resolver, keine simulierte Live-Verfügbarkeit und kein Fallback-System ohne eigenen Architekturentscheid. |
+| SEO-Isolation | `BaseLayout.astro` erzeugt zentral genau einen `data-amara="seo"`-Block. Die Content-Owner besitzen bereits getrennte `AmaraAuthoringSeo`-Objekte mit `en`, `de`, `es`, `nl`, `sv` und `canonical: 'auto'`. | Die bestehenden SEO-Exporte jeder Seite bleiben getrennt und vollständig. Inhaltliche Übergänge verändern weder Zielseiten-Metadaten noch Canonical-Zuordnung. | Keine zusätzlichen SEO-Blöcke pro Übergang und keine neue Resolver-Logik. |
