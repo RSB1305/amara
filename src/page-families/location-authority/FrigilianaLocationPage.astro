@@ -57,7 +57,10 @@ const aboutHref = optionalLink('about');
 const stairsHref = optionalLink('frigiliana_stairs');
 const dailyLifeHref = optionalLink('frigiliana_daily_life');
 const comparisonHref = optionalLink('nerja_vs_frigiliana');
-const availabilityHref = optionalLink('book');
+const availabilityBaseHref = optionalLink('book');
+const availabilityHref = availabilityBaseHref
+  ? `${availabilityBaseHref}?destination=frigiliana`
+  : null;
 const exploreHubHref = optionalLink('frigiliana_experience_hub');
 const orientationFactIcons: LocationGuideIconName[] = [
   'distance',
