@@ -677,6 +677,14 @@ html.am-nav-lock {
     min-height: 2rem;
     align-items: center;
     align-self: start;
+    pointer-events: none;
+  }
+
+  [data-am-navigation]
+    .am-nav-mobile--contextual:not([data-am-contextual-closed])
+    [data-am-context-breadcrumb-row]
+    a {
+    pointer-events: auto;
   }
 
   [data-am-navigation]

@@ -161,7 +161,8 @@ const visibleItems = activeId && !retainActiveItem
       {(branches.length > 0 || groups.length > 0 || visibleItems.length > 0) && (
       <div
         class:list={[
-          'ml-auto flex min-w-0 max-w-full gap-3 overflow-hidden'
+          'ml-auto flex min-w-0 max-w-full gap-3',
+          branchGroups || groups.length > 0 ? 'overflow-visible' : 'overflow-hidden'
         ]}
         data-am-context-toolbar={groups.length > 0 || branchGroups ? '' : undefined}
       >
