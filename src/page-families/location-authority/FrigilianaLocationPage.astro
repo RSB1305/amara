@@ -13,7 +13,7 @@ import LocationGuideIcon, {
 import LocationHubHero from '../../components/location/LocationHubHero.astro';
 import OrderedFrigilianaLocationSections from './OrderedFrigilianaLocationSections.astro';
 import {
-  frigilianaLocationCopy,
+  getFrigilianaLocationCopy,
   frigilianaLocationHeroImageAlt,
   frigilianaLocationSeo,
   type FrigilianaLocationCtaToken,
@@ -41,7 +41,7 @@ type EditorialImageAlt = {
 
 const { lang = 'es' } = Astro.props;
 const currentLang = normalizeLanguage(lang as AmaraLanguage);
-const c = frigilianaLocationCopy[currentLang];
+const c = getFrigilianaLocationCopy(currentLang);
 const optionalLink = (token: LinkToken) =>
   resolveOptionalLink(token, currentLang, { suppressMissing: true });
 
