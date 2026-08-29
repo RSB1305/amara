@@ -1,13 +1,10 @@
 import type { LinkToken } from '../lib/linkResolver';
-import type { LocalizedText, LocalizedTextList } from '../types/content';
+import type { LocalizedText } from '../types/content';
 import type { AmaraAuthoringSeo } from '../types/seo';
 import { vacationRentalEntitiesByKey } from './vacationRentalEntities';
 
 /** One authored string in the five AMARA locales, in EN, DE, ES, NL, SV order. */
 const l = (en: string, de: string, es: string, nl: string, sv: string): LocalizedText => ({ en, de, es, nl, sv });
-
-/** One authored sequence in the five AMARA locales. The locales may segment it differently. */
-const ll = (en: string[], de: string[], es: string[], nl: string[], sv: string[]): LocalizedTextList => ({ en, de, es, nl, sv });
 
 const winterRentalKeys = ['amara-farah', 'amara-lounis', 'amara-zaid', 'amara-maha'] as const;
 const pelletStoveKeys = ['amara-lounis', 'amara-zaid', 'amara-maha'] as const;
@@ -26,28 +23,27 @@ if (
 
 const article = {
   datePublished: '2026-08-11',
-  dateModified: '2026-08-21',
+  dateModified: '2026-08-29',
   authorName: 'Robert Sebastian Böhmer',
   authorType: 'Person' as const,
   authorSlug: 'amara-about-us'
 };
 
 export const frigilianaWinterStaysSeo: AmaraAuthoringSeo = {
-  version: '2026-08-21-frigiliana-winter-stays-v2.0',
+  version: '2026-08-29-frigiliana-winter-stays-v3.0',
   pageType: 'A',
   entityKey: 'amara-brand',
   article,
   languages: {
-    en: { title: 'Frigiliana in Winter: Winter Sun & Longer Stays', description: 'Discover winter in Frigiliana: quieter village days, hill walks, realistic weather planning and heated AMARA stays for a few nights to three weeks.', robots: 'index, follow', canonical: 'auto' },
-    de: { title: 'Frigiliana im Winter: Wintersonne & längere Aufenthalte', description: 'Entdeckt Frigiliana im Winter: ruhigere Dorftage, Wanderungen, ehrliche Wetterplanung und beheizte AMARA-Unterkünfte für einige Nächte bis drei Wochen.', robots: 'index, follow', canonical: 'auto' },
-    es: { title: 'Frigiliana en invierno: sol y estancias más largas', description: 'Descubrid Frigiliana en invierno: días tranquilos, rutas, planificación realista y alojamientos AMARA con calefacción para unas noches o hasta tres semanas.', robots: 'index, follow', canonical: 'auto' },
-    nl: { title: 'Frigiliana in de winter: winterzon & langer verblijf', description: 'Ontdek Frigiliana in de winter: rustige dorpsdagen, wandelingen, eerlijke weersplanning en verwarmde AMARA-verblijven voor enkele nachten tot drie weken.', robots: 'index, follow', canonical: 'auto' },
-    sv: { title: 'Frigiliana på vintern: vintersol & längre vistelser', description: 'Upptäck Frigiliana på vintern: lugnare dagar, vandring, realistisk väderplanering och uppvärmda AMARA-boenden för några nätter till tre veckor.', robots: 'index, follow', canonical: 'auto' }
+    en: { title: 'Frigiliana in Winter: What It Is Really Like', description: 'Winter in Frigiliana: quieter lanes, walking instead of swimming, steep steps after dark, and four heated AMARA stays with pellet stoves in three of them.', robots: 'index, follow', canonical: 'auto' },
+    de: { title: 'Frigiliana im Winter: Wie es wirklich ist', description: 'Winter in Frigiliana: ruhigere Gassen, Wandern statt Baden, steile Stufen im Dunkeln und vier beheizte AMARA-Unterkünfte, drei davon mit Pelletofen.', robots: 'index, follow', canonical: 'auto' },
+    es: { title: 'Frigiliana en invierno: cómo es de verdad', description: 'Invierno en Frigiliana: calles tranquilas, caminar en vez de bañarse, escalones al anochecer y cuatro alojamientos AMARA con calefacción, tres con estufa de pellets.', robots: 'index, follow', canonical: 'auto' },
+    nl: { title: 'Frigiliana in de winter: hoe het echt is', description: 'Winter in Frigiliana: rustigere straatjes, wandelen in plaats van zwemmen, steile trappen in het donker en vier verwarmde AMARA-verblijven, drie met pelletkachel.', robots: 'index, follow', canonical: 'auto' },
+    sv: { title: 'Frigiliana på vintern: hur det verkligen är', description: 'Vinter i Frigiliana: lugnare gränder, vandring i stället för bad, branta trappsteg i mörkret och fyra uppvärmda AMARA-boenden, tre med pelletskamin.', robots: 'index, follow', canonical: 'auto' }
   }
 };
 
 const sourceHrefs = {
-  travelIntent: 'https://etc-corporate.org/reports/monitoring-sentiment-for-intra-european-travel-autumn-25-winter-2026/',
   streets: 'https://turismofrigiliana.es/es/las-calles.html',
   elFuerte: 'https://www.turismofrigiliana.es/es/el-fuerte.html'
 } as const;
@@ -56,169 +52,270 @@ export const frigilianaWinterStaysContent = {
   navLabel: l("Winter Stays", "Winteraufenthalte", "Estancias de invierno", "Winterverblijven", "Vintervistelser"),
   hero: {
     eyebrow: l("Winter stays · Frigiliana", "Winteraufenthalte · Frigiliana", "Estancias de invierno · Frigiliana", "Winterverblijven · Frigiliana", "Vintervistelser · Frigiliana"),
-    title: l("A winter that makes room for the village", "Ein Winter mit mehr Raum für das Dorf", "Un invierno con más espacio para el pueblo", "Een winter met meer ruimte voor het dorp", "En vinter med mer plats för byn"),
-    standfirst: l("Winter in Frigiliana exchanges northern darkness and summer intensity for brighter days, quieter lanes and time outdoors whenever conditions allow. The historic village remains steep, evenings can feel cool and some plans stay weather-dependent. That is precisely why the right home matters: a comfortable base for slow mornings, hill walks, coast days and evenings indoors.", "Der Winter in Frigiliana tauscht nordeuropäische Dunkelheit und sommerliche Intensität gegen hellere Tage, ruhigere Gassen und Zeit draußen, wann immer das Wetter mitspielt. Das historische Dorf bleibt steil, Abende können kühl wirken und manche Pläne bleiben wetterabhängig. Genau deshalb zählt das richtige Zuhause: als komfortable Basis für langsame Morgen, Wanderungen, Küstentage und Abende drinnen.", "El invierno en Frigiliana cambia la oscuridad del norte y la intensidad del verano por días más luminosos, calles tranquilas y tiempo al aire libre siempre que acompañen las condiciones. El casco histórico sigue siendo empinado, las tardes pueden sentirse frescas y algunos planes dependen del tiempo. Por eso importa la casa adecuada: una base cómoda para mañanas lentas, rutas, días de costa y tardes en el interior.", "De winter in Frigiliana verruilt noordelijke duisternis en zomerse drukte voor lichtere dagen, rustige straatjes en tijd buiten wanneer het weer meewerkt. Het historische dorp blijft steil, avonden kunnen fris aanvoelen en plannen blijven deels weersafhankelijk. Juist daarom telt het juiste huis: een comfortabele basis voor trage ochtenden, wandelingen, kustdagen en avonden binnen.", "Vintern i Frigiliana byter nordligt mörker och sommarens intensitet mot ljusare dagar, lugnare gränder och tid utomhus när vädret tillåter. Den historiska byn är fortfarande brant, kvällarna kan kännas svala och vissa planer förblir väderberoende. Därför betyder rätt hem mycket: en bekväm bas för långsamma morgnar, vandring, kustdagar och kvällar inomhus."),
-    note: l("Destination facts are source-based. Home details come from AMARA’s current property records and should be checked again when booking.", "Ortsfakten sind quellenbasiert. Angaben zu den Unterkünften stammen aus den aktuellen AMARA-Objektdaten und sollten bei der Buchung bestätigt werden.", "Los datos del destino proceden de fuentes. La información de las casas procede de los registros actuales de AMARA y debe confirmarse al reservar.", "Bestemmingsfeiten zijn brongebaseerd. Huisdetails komen uit de actuele AMARA-objectgegevens en moeten bij boeking worden bevestigd.", "Fakta om platsen bygger på källor. Hemdetaljer kommer från AMARAs aktuella objektdata och bör bekräftas vid bokning."),
-    updated: l("Research and property records reviewed August 2026", "Recherche und Objektdaten geprüft im August 2026", "Investigación y datos de las casas revisados en agosto de 2026", "Onderzoek en objectgegevens gecontroleerd in augustus 2026", "Research och objektdata granskade i augusti 2026"),
+    title: l(
+      "Winter in Frigiliana: bright days out, warm evenings in",
+      "Winter in Frigiliana: helle Tage draußen, warme Abende drinnen",
+      "Invierno en Frigiliana: días luminosos fuera, tardes cálidas dentro",
+      "Winter in Frigiliana: heldere dagen buiten, warme avonden binnen",
+      "Vinter i Frigiliana: ljusa dagar ute, varma kvällar inne"
+    ),
+    standfirst: l(
+      "Frigiliana is quieter in winter than in summer, and the days outdoors are often better than people expect. Swimming is not the point; walking is. The village stays steep — narrow, winding lanes and steps, including on the way home after dark. What you get in the evening is a warm house: all four stays have heating and underfloor heating in the bathroom, and Lounis, Zaid and Maha have a pellet stove. We rent from a few nights up to three weeks. Some restaurants and shops keep shorter hours in winter, so send us your dates and we will tell you what is running that week.",
+      "Frigiliana ist im Winter ruhiger als im Sommer, und die Tage draußen sind oft besser, als man denkt. Baden ist kein Thema, Wandern schon. Steil bleibt das Dorf trotzdem: enge, verwinkelte Gassen und Stufen, auch auf dem Rückweg im Dunkeln. Abends habt ihr dafür ein warmes Haus. Alle vier Unterkünfte haben Heizung und Fußbodenheizung im Bad, in Lounis, Zaid und Maha steht ein Pelletofen. Wir vermieten von ein paar Nächten bis zu drei Wochen. Manche Restaurants und Läden haben im Winter kürzere Zeiten — schickt uns eure Reisedaten, dann sagen wir euch, was in der Woche läuft.",
+      "En invierno Frigiliana está más tranquila que en verano, y los días al aire libre suelen ser mejores de lo que se espera. Bañarse no es el plan; caminar sí. El pueblo sigue siendo empinado: calles estrechas, sinuosas y con escalones, también al volver de noche. A cambio, por la tarde tenéis una casa caliente. Los cuatro alojamientos tienen calefacción y suelo radiante en el baño, y Lounis, Zaid y Maha tienen estufa de pellets. Alquilamos desde unas noches hasta tres semanas. Algunos restaurantes y tiendas reducen horarios en invierno: escribidnos vuestras fechas y os decimos qué está abierto esa semana.",
+      "Frigiliana is in de winter rustiger dan in de zomer, en de dagen buiten vallen vaak mee. Zwemmen is niet het idee, wandelen wel. Het dorp blijft steil: smalle, kronkelende straatjes en trappen, ook op de weg naar huis in het donker. 's Avonds hebben jullie een warm huis. Alle vier de verblijven hebben verwarming en vloerverwarming in de badkamer, en in Lounis, Zaid en Maha staat een pelletkachel. We verhuren van een paar nachten tot drie weken. Sommige restaurants en winkels hebben in de winter kortere openingstijden — stuur ons jullie data, dan zeggen we wat er die week draait.",
+      "Frigiliana är lugnare på vintern än på sommaren, och dagarna ute är ofta bättre än man tror. Bad är inte poängen, vandring är det. Byn är fortfarande brant: smala, slingrande gränder och trappsteg, även på vägen hem i mörkret. På kvällen har ni ett varmt hus. Alla fyra boenden har värme och golvvärme i badrummet, och i Lounis, Zaid och Maha finns en pelletskamin. Vi hyr ut från några nätter upp till tre veckor. Vissa restauranger och butiker har kortare öppettider på vintern — skicka era datum, så berättar vi vad som är igång den veckan."
+    ),
+    note: l(
+      "If one detail decides it for you, ask us before you book. We know every stay.",
+      "Wenn ein Detail für euch den Ausschlag gibt, fragt uns vor der Buchung. Wir kennen jede Wohnung.",
+      "Si hay un detalle que os decide, preguntadnos antes de reservar. Conocemos cada alojamiento.",
+      "Als één detail de doorslag geeft, vraag het ons vóór het boeken. We kennen elk verblijf.",
+      "Om en detalj avgör för er, fråga oss innan ni bokar. Vi känner varje boende."
+    ),
+    updated: l(
+      "Last checked in August 2026",
+      "Zuletzt im August 2026 nachgesehen",
+      "Revisado por última vez en agosto de 2026",
+      "Voor het laatst nagekeken in augustus 2026",
+      "Senast kontrollerat i augusti 2026"
+    ),
     mark: l("WINTER", "WINTER", "INVIERNO", "WINTER", "VINTER")
   },
   facts: [
     {
-      label: l("The appeal", "Der Reiz", "El atractivo", "De aantrekkingskracht", "Lockelsen"),
-      value: l("Village rhythm instead of peak-season intensity", "Dorfleben statt Hochsaison-Intensität", "Ritmo de pueblo frente a la intensidad estival", "Dorpsritme in plaats van hoogseizoendrukte", "Byrytm i stället för högsäsongens intensitet")
+      label: l("In the evening", "Abends", "Por la tarde", "'s Avonds", "På kvällen"),
+      value: l("Heating everywhere, pellet stove in three of four", "Heizung überall, Pelletofen in drei von vier", "Calefacción en todas, estufa de pellets en tres de cuatro", "Overal verwarming, pelletkachel in drie van vier", "Värme överallt, pelletskamin i tre av fyra")
     },
     {
       label: l("Underfoot", "Unterwegs", "El terreno", "Onderweg", "Under fötterna"),
-      value: l("Narrow, winding and steep historic streets", "Enge, verwinkelte und steile Altstadtgassen", "Calles estrechas, sinuosas y empinadas", "Smalle, kronkelende en steile straten", "Smala, slingrande och branta gator")
+      value: l("Narrow, steep lanes with steps", "Enge, steile Gassen mit Stufen", "Calles estrechas y empinadas con escalones", "Smalle, steile straatjes met trappen", "Smala, branta gränder med trappsteg")
     },
     {
-      label: l("Plan for", "Einplanen", "Conviene prever", "Reken op", "Planera för"),
-      value: l("Flexible days and cooler evenings", "Flexible Tage und kühlere Abende", "Días flexibles y tardes más frescas", "Flexibele dagen en frisse avonden", "Flexibla dagar och svalare kvällar")
+      label: l("Length of stay", "Aufenthalt", "Duración", "Verblijfsduur", "Vistelsens längd"),
+      value: l("From a few nights to three weeks", "Von ein paar Nächten bis drei Wochen", "De unas noches a tres semanas", "Van een paar nachten tot drie weken", "Från några nätter till tre veckor")
     },
     {
-      label: l("At AMARA", "Bei AMARA", "En AMARA", "Bij AMARA", "Hos AMARA"),
-      value: l("Heating · warm bathroom floors · three pellet stoves", "Heizung · warme Badböden · drei Pelletöfen", "Calefacción · suelo radiante · tres estufas de pellets", "Verwarming · warme badkamervloeren · drie pelletkachels", "Värme · varma badrumsgolv · tre pelletskaminer")
+      label: l("Not on offer", "Nicht dabei", "Lo que no hay", "Wat er niet is", "Det som inte ingår"),
+      value: l("Beach days like in summer", "Strandtage wie im Sommer", "Días de playa como en verano", "Stranddagen zoals in de zomer", "Stranddagar som på sommaren")
     }
   ],
   sections: [
     {
-      id: "when-summer-leaves",
-      eyebrow: l("01 · Why winter", "01 · Warum Winter", "01 · Por qué invierno", "01 · Waarom winter", "01 · Varför vinter"),
-      title: l("Why leave northern winter for Frigiliana?", "Warum dem nordeuropäischen Winter nach Frigiliana entkommen?", "¿Por qué cambiar el invierno del norte por Frigiliana?", "Waarom de Noord-Europese winter inruilen voor Frigiliana?", "Varför lämna den nordiska vintern för Frigiliana?"),
+      id: "quieter-village",
+      eyebrow: l("The village", "Das Dorf", "El pueblo", "Het dorp", "Byn"),
+      title: l(
+        "Fewer day visitors, the same steep lanes",
+        "Weniger Tagesgäste, dieselben steilen Gassen",
+        "Menos visitantes de día, las mismas cuestas",
+        "Minder dagbezoekers, dezelfde steile straatjes",
+        "Färre dagsbesökare, samma branta gränder"
+      ),
       paragraphs: [
-        l("The attraction is the combination of daylight, outdoor possibilities and a different pace. European travel research also points to fewer crowds, lower costs and avoiding extreme heat as important reasons for shifting trips away from peak months.", "Der Reiz ist die Verbindung aus Tageslicht, Möglichkeiten draußen und einem anderen Tempo. Europäische Reiseforschung nennt außerdem weniger Andrang, geringere Kosten und das Vermeiden extremer Hitze als wichtige Motive für Reisen außerhalb der Spitzenmonate.", "El atractivo es la combinación de luz, posibilidades al aire libre y otro ritmo. La investigación europea también señala menos aglomeraciones, ahorro y evitar el calor extremo como motivos para viajar fuera de los meses punta.", "De aantrekkingskracht is daglicht, buitenmogelijkheden en een ander tempo. Europees onderzoek noemt ook minder drukte, lagere kosten en het vermijden van extreme hitte als motieven voor reizen buiten de piekmaanden.", "Lockelsen är dagsljus, möjligheter utomhus och ett annat tempo. Europeisk forskning nämner också färre folkmassor, lägre kostnader och att undvika extrem värme som skäl att resa utanför toppmånaderna."),
-        l("Frigiliana gives that choice a strong sense of place: white houses, a real hillside village and the Mediterranean landscape close by. Winter works best for guests who want to experience the destination rather than reproduce a summer beach holiday.", "Frigiliana gibt dieser Entscheidung einen unverwechselbaren Ort: weiße Häuser, ein echtes Hangdorf und die Mittelmeerlandschaft in der Nähe. Der Winter passt am besten, wenn ihr das Reiseziel erleben und keinen Sommer-Strandurlaub nachstellen möchtet.", "Frigiliana aporta un lugar con identidad: casas blancas, un pueblo real en la ladera y el paisaje mediterráneo cerca. Funciona mejor para quien quiere vivir el destino y no reproducir unas vacaciones de playa en verano.", "Frigiliana geeft die keuze karakter: witte huizen, een echt heuveldorp en het mediterrane landschap dichtbij. De winter past bij wie de bestemming wil beleven en geen zomerse strandvakantie wil nabootsen.", "Frigiliana ger valet en tydlig plats: vita hus, en riktig by på sluttningen och medelhavslandskapet nära. Vintern passar den som vill uppleva destinationen och inte återskapa en sommarsemester.")
+        l(
+          "In winter far fewer day visitors come up to Frigiliana. Early in the morning and after dark you often have the lanes almost to yourselves.",
+          "Im Winter kommen deutlich weniger Tagesgäste nach Frigiliana. Früh am Morgen und nach Einbruch der Dunkelheit habt ihr die Gassen oft fast für euch.",
+          "En invierno suben muchos menos visitantes de día a Frigiliana. Temprano por la mañana y al caer la noche las calles suelen ser casi vuestras.",
+          "In de winter komen er veel minder dagbezoekers naar Frigiliana. Vroeg in de ochtend en na zonsondergang hebben jullie de straatjes vaak bijna voor jezelf.",
+          "På vintern kommer betydligt färre dagsbesökare upp till Frigiliana. Tidigt på morgonen och efter mörkrets inbrott har ni ofta gränderna nästan för er själva."
+        ),
+        l(
+          "Steep is steep in every season. The old town's lanes are narrow, winding and full of steps, and that includes the walk home in the dark. Inside Casa AMARA there are differences: **Farah is the only one of the four with everything on a single level**.",
+          "Steil bleibt steil, in jeder Jahreszeit. Die Altstadtgassen sind eng, verwinkelt und voller Stufen, auch auf dem Heimweg im Dunkeln. Innerhalb von Casa AMARA gibt es Unterschiede: **Farah liegt als einzige der vier komplett auf einer Ebene**.",
+          "Lo empinado no cambia con la estación. Las calles del casco antiguo son estrechas, sinuosas y llenas de escalones, también al volver de noche. Dentro de Casa AMARA hay diferencias: **Farah es la única de las cuatro completamente en una sola planta**.",
+          "Steil blijft steil, in elk seizoen. De straatjes in de oude kern zijn smal, kronkelend en vol trappen, ook op de weg naar huis in het donker. Binnen Casa AMARA zijn er verschillen: **Farah ligt als enige van de vier volledig op één niveau**.",
+          "Brant är brant i alla årstider. Gamla stans gränder är smala, slingrande och fulla av trappsteg, även på vägen hem i mörkret. Inne i Casa AMARA finns skillnader: **Farah är den enda av de fyra som ligger helt i ett plan**."
+        )
       ]
     },
     {
-      id: "northern-winter",
-      eyebrow: l("02 · Local winter", "02 · Lokaler Winter", "02 · Invierno local", "02 · Lokale winter", "02 · Lokal vinter"),
-      title: l("The village after the day visitors thin out", "Das Dorf, wenn weniger Tagesgäste unterwegs sind", "El pueblo cuando disminuyen las visitas del día", "Het dorp wanneer er minder dagbezoekers zijn", "Byn när färre dagsbesökare är på plats"),
+      id: "outdoors-in-winter",
+      eyebrow: l("Outdoors", "Draußen", "Al aire libre", "Buiten", "Utomhus"),
+      title: l(
+        "Walking works. Swimming does not.",
+        "Wandern geht. Baden nicht.",
+        "Caminar sí. Bañarse no.",
+        "Wandelen gaat. Zwemmen niet.",
+        "Vandring fungerar. Bad gör det inte."
+      ),
       paragraphs: [
-        l("The historic centre does not become flat or effortless in winter. Its narrow, winding and steep lanes remain part of everyday life, while quieter periods can make it easier to notice the architecture and landscape around them.", "Die Altstadt wird im Winter weder flach noch mühelos. Enge, verwinkelte und steile Gassen bleiben Teil des Alltags; in ruhigeren Phasen fallen Architektur und Landschaft dafür stärker auf.", "El casco histórico no deja de ser empinado en invierno. Las calles estrechas y sinuosas siguen formando parte de la vida cotidiana, aunque con menos afluencia se perciben mejor la arquitectura y el paisaje.", "De oude kern wordt in de winter niet vlak of moeiteloos. Smalle, kronkelende en steile straten blijven deel van het dagelijks leven; in rustigere periodes vallen architectuur en landschap sterker op.", "Gamla stan blir inte platt eller enkel på vintern. Smala, slingrande och branta gator förblir del av vardagen, men i lugnare perioder framträder arkitekturen och landskapet tydligare."),
-        l("Do not plan around the assumption that every restaurant or service keeps summer hours. Check what matters for your dates and treat the village’s slower rhythm as part of the stay, not as a promise that everything will be open.", "Plant nicht mit der Annahme, dass jedes Restaurant oder jeder Service die Sommerzeiten behält. Prüft, was für eure Reisedaten wichtig ist, und versteht den langsameren Rhythmus als Teil des Aufenthalts – nicht als Versprechen, dass alles geöffnet bleibt.", "No deis por hecho que todos los negocios mantienen el horario de verano. Comprobad lo importante para vuestras fechas y entended el ritmo pausado como parte de la estancia, no como promesa de que todo estará abierto.", "Ga er niet van uit dat elke zaak zomeruren houdt. Controleer wat voor jullie data belangrijk is en zie het tragere ritme als onderdeel van het verblijf.", "Räkna inte med att alla verksamheter håller sommartider. Kontrollera det som är viktigt för era datum och se det långsammare tempot som en del av vistelsen.")
+        l(
+          "The El Fuerte route starts inside Frigiliana and leaves the old town by steps. Without the summer heat it is often a better walk than in August.",
+          "Die Route auf den El Fuerte beginnt mitten in Frigiliana und verlässt die Altstadt über Stufen. Ohne die Sommerhitze wandert es sich dort oft besser als im August.",
+          "La ruta de El Fuerte arranca dentro de Frigiliana y sale del casco antiguo por escalones. Sin el calor del verano suele caminarse mejor que en agosto.",
+          "De route naar El Fuerte begint midden in Frigiliana en verlaat de oude kern via trappen. Zonder de zomerhitte loopt het er vaak beter dan in augustus.",
+          "Rutten upp till El Fuerte börjar inne i Frigiliana och lämnar gamla stan via trappsteg. Utan sommarvärmen går den ofta bättre än i augusti."
+        ),
+        l(
+          "After rain the ground and the route change. **Ask us in the morning how it looks** — we live here, and it costs you one message.",
+          "Nach Regen ändern sich Untergrund und Wegverhältnisse. **Fragt uns morgens kurz, wie es aussieht** — wir wohnen hier, euch kostet es eine Nachricht.",
+          "Después de la lluvia cambian el terreno y el estado del camino. **Preguntadnos por la mañana cómo está** — vivimos aquí y a vosotros os cuesta un mensaje.",
+          "Na regen veranderen de ondergrond en de staat van het pad. **Vraag ons 's ochtends even hoe het erbij ligt** — wij wonen hier, jullie kost het één bericht.",
+          "Efter regn förändras underlaget och ledens skick. **Fråga oss på morgonen hur det ser ut** — vi bor här, och det kostar er ett meddelande."
+        )
       ]
     },
     {
-      id: "winter-light",
-      eyebrow: l("03 · A realistic day", "03 · Ein realistischer Tag", "03 · Un día realista", "03 · Een realistische dag", "03 · En realistisk dag"),
-      title: l("Build the day around what the weather gives you", "Nutzt, was der jeweilige Tag möglich macht", "Construid el día con lo que permita el tiempo", "Bouw de dag rond wat het weer toelaat", "Bygg dagen kring vad vädret tillåter"),
+      id: "warm-at-home",
+      eyebrow: l("In the evening", "Abends", "Por la tarde", "'s Avonds", "På kvällen"),
+      title: l(
+        "What is warm in your apartment",
+        "Was in eurer Wohnung warm ist",
+        "Qué calienta vuestro alojamiento",
+        "Wat er in jullie appartement warm is",
+        "Vad som är varmt i er lägenhet"
+      ),
       paragraphs: [
-        l("A good winter day might begin slowly in the village, use the clearer middle hours for the streets or a walk, and leave Nerja or the coast as an option rather than an obligation. The El Fuerte route starts in Frigiliana, but its steps and exposed terrain require a current conditions check.", "Ein guter Wintertag kann langsam im Dorf beginnen, die klareren Stunden für die Gassen oder eine Wanderung nutzen und Nerja oder die Küste als Möglichkeit offenlassen. Die Route El Fuerte beginnt in Frigiliana; Stufen und exponiertes Gelände verlangen jedoch eine aktuelle Prüfung der Bedingungen.", "Un buen día puede empezar despacio en el pueblo, aprovechar las horas más claras para pasear o caminar y dejar Nerja o la costa como opción. La ruta de El Fuerte parte de Frigiliana, pero sus escalones y terreno expuesto exigen comprobar las condiciones.", "Begin rustig in het dorp, gebruik heldere uren voor de straatjes of een wandeling en houd Nerja of de kust als optie. De route El Fuerte begint in Frigiliana, maar trappen en blootgesteld terrein vragen een actuele controle.", "Börja långsamt i byn, använd klara timmar till gränder eller vandring och låt Nerja eller kusten vara ett alternativ. El Fuerte börjar i Frigiliana men trappor och exponerad terräng kräver aktuell kontroll."),
-        l("If rain or wind changes the plan, the day is not lost. A long lunch, time at home or a cultural stop towards Nerja belongs in a realistic winter itinerary. Flexibility is more useful than a rigid checklist.", "Wenn Regen oder Wind den Plan ändert, ist der Tag nicht verloren. Ein langes Mittagessen, Zeit zuhause oder ein kultureller Abstecher Richtung Nerja gehören zu einem realistischen Winterprogramm. Flexibilität ist wertvoller als eine starre Liste.", "Si la lluvia o el viento cambian el plan, el día no está perdido. Una comida larga, tiempo en casa o una visita cultural hacia Nerja también forman parte de un invierno realista.", "Verandert regen of wind het plan, dan is de dag niet verloren. Een lange lunch, tijd thuis of cultuur richting Nerja hoort bij een realistische winter.", "Om regn eller vind ändrar planen är dagen inte förlorad. En lång lunch, tid hemma eller kultur mot Nerja hör till en realistisk vinter.")
+        l(
+          "All four stays in Casa AMARA have heating and underfloor heating in the bathroom. Lounis, Zaid and Maha also have a pellet stove, and you notice it on a cool evening.",
+          "Alle vier Unterkünfte in Casa AMARA haben Heizung und Fußbodenheizung im Bad. In Lounis, Zaid und Maha steht zusätzlich ein Pelletofen — den merkt ihr an einem kühlen Abend.",
+          "Los cuatro alojamientos de Casa AMARA tienen calefacción y suelo radiante en el baño. Lounis, Zaid y Maha suman una estufa de pellets, y se nota en una tarde fresca.",
+          "Alle vier de verblijven in Casa AMARA hebben verwarming en vloerverwarming in de badkamer. In Lounis, Zaid en Maha staat daarnaast een pelletkachel, en dat merk je op een frisse avond.",
+          "Alla fyra boenden i Casa AMARA har värme och golvvärme i badrummet. Lounis, Zaid och Maha har dessutom en pelletskamin, och det märks en sval kväll."
+        ),
+        l(
+          "**Lounis** has the most room for a longer stay, with 70 m² inside and a 39 m² terrace. **Zaid** is more compact at 33 m² but has the widest bed; six steps lead up to it. **Maha** sits at the top of the house, 35 m² inside and a 64 m² terrace.",
+          "**Lounis** hat mit 70 m² innen und 39 m² Terrasse am meisten Platz, wenn ihr länger bleibt. **Zaid** ist mit 33 m² kompakter, hat aber das breiteste Bett; sechs Stufen führen hinauf. **Maha** liegt ganz oben im Haus, 35 m² innen und 64 m² Terrasse.",
+          "**Lounis** es el más amplio para estancias largas: 70 m² dentro y 39 m² de terraza. **Zaid** es más compacto con 33 m², pero tiene la cama más ancha; se sube por seis escalones. **Maha** está en lo alto de la casa, 35 m² dentro y 64 m² de terraza.",
+          "**Lounis** heeft met 70 m² binnen en 39 m² terras de meeste ruimte voor een langer verblijf. **Zaid** is met 33 m² compacter, maar heeft het breedste bed; er gaan zes treden naar boven. **Maha** ligt bovenin het huis, 35 m² binnen en 64 m² terras.",
+          "**Lounis** har mest plats för en längre vistelse, 70 m² inne och 39 m² terrass. **Zaid** är mer kompakt med 33 m² men har den bredaste sängen; sex trappsteg leder upp. **Maha** ligger högst upp i huset, 35 m² inne och 64 m² terrass."
+        ),
+        l(
+          "**Farah has no pellet stove and no terrace.** In return there is one step at the entrance and nothing after that — the easiest of the four if steps are a concern.",
+          "**Farah hat keinen Pelletofen und keine Terrasse.** Dafür gibt es eine Stufe am Eingang und danach keine mehr — die einfachste der vier, wenn Stufen für euch ein Thema sind.",
+          "**Farah no tiene estufa de pellets ni terraza.** A cambio hay un escalón en la entrada y ninguno más — el más fácil de los cuatro si los escalones os preocupan.",
+          "**Farah heeft geen pelletkachel en geen terras.** Daar staat tegenover: één trede bij de ingang en daarna geen meer — de makkelijkste van de vier als trappen een punt zijn.",
+          "**Farah har varken pelletskamin eller terrass.** I gengäld finns ett trappsteg vid entrén och inga fler — den enklaste av de fyra om trappsteg är ett bekymmer."
+        )
       ]
     },
     {
-      id: "changing-days",
-      eyebrow: l("04 · Weather boundary", "04 · Wettergrenze", "04 · Límite meteorológico", "04 · Weersgrens", "04 · Vädergräns"),
-      title: l("Seasonal guidance is not your forecast", "Saisonale Orientierung ist keine Vorhersage", "La orientación estacional no es una previsión", "Seizoensinformatie is geen voorspelling", "Säsongsvägledning är inte en prognos"),
-      paragraphs: ll(
-        ["The climate guide explains long-term patterns, rainfall and the differences between the village and coast. For a winter stay, the practical message is simpler: bring layers, expect variation and check the official forecast before walks or longer outdoor plans."],
-        ["Der Klima-Guide erklärt langfristige Muster, Niederschlag und die Unterschiede zwischen Dorf und Küste. Für euren Winteraufenthalt zählt vor allem: Kleidung in Schichten, wechselnde Bedingungen und die offizielle Vorhersage vor Wanderungen oder längeren Outdoor-Plänen."],
-        ["La guía climática explica patrones, lluvia y diferencias entre pueblo y costa. Para la estancia importan las capas de ropa, aceptar variación y consultar la previsión oficial antes de rutas largas.", "No trasladamos a Frigiliana la antigua afirmación climática de Torrox ni prometemos temperaturas concretas. La página debe ayudar a decidir, no convertir medias en garantías."],
-        ["De klimaatgids beschrijft patronen en verschillen tussen dorp en kust. Neem laagjes mee, verwacht variatie en controleer de officiële verwachting voor langere buitenplannen."],
-        ["Klimatguiden förklarar mönster och skillnader mellan by och kust. Ta lager, vänta variation och kontrollera den officiella prognosen före längre utomhusplaner."]
-      )
-    },
-    {
-      id: "quieter-tarifa",
-      eyebrow: l("05 · Stay longer", "05 · Länger bleiben", "05 · Quedarse más", "05 · Langer blijven", "05 · Stanna längre"),
-      title: l("From a short reset to three unhurried weeks", "Vom kurzen Tapetenwechsel bis zu drei ruhigen Wochen", "De una pausa breve a tres semanas tranquilas", "Van een korte pauze tot drie rustige weken", "Från en kort paus till tre lugna veckor"),
+      id: "how-long",
+      eyebrow: l("How long", "Wie lange", "Cuánto tiempo", "Hoe lang", "Hur länge"),
+      title: l(
+        "A few nights, or three unhurried weeks",
+        "Ein paar Nächte oder drei ruhige Wochen",
+        "Unas noches o tres semanas sin prisa",
+        "Een paar nachten of drie rustige weken",
+        "Några nätter eller tre lugna veckor"
+      ),
       paragraphs: [
-        l("A few nights can provide a change of scene; one to three weeks allow routines to develop. You can alternate village days, coast days and time at home instead of trying to fit every highlight into one forecast window.", "Ein paar Nächte schaffen Abstand; in ein bis drei Wochen entstehen Routinen. Dorf-, Küsten- und Zuhause-Tage lassen sich abwechseln, statt alle Höhepunkte in ein einziges Wetterfenster zu pressen.", "Unas noches cambian el escenario; entre una y tres semanas permiten crear rutinas y alternar pueblo, costa y casa según el tiempo.", "Enkele nachten geven afstand; één tot drie weken laten routines ontstaan en geven ruimte om dorp, kust en thuisdagen af te wisselen.", "Några nätter ger miljöombyte; en till tre veckor låter rutiner växa och ger utrymme för by-, kust- och hemmadagar."),
-        l("AMARA’s current Frigiliana offer is for holiday stays of a few nights up to three weeks. It is not presented as residential overwintering or an open-ended monthly rental. Current availability and conditions apply.", "Das aktuelle Frigiliana-Angebot von AMARA umfasst Ferienaufenthalte von einigen Nächten bis zu drei Wochen. Es wird nicht als dauerhaftes Überwintern oder offene Monatsmiete angeboten. Es gelten die aktuellen Konditionen und Verfügbarkeiten.", "La oferta actual de AMARA en Frigiliana comprende estancias vacacionales de unas noches hasta tres semanas. No se presenta como alquiler residencial o mensual abierto; rigen disponibilidad y condiciones actuales.", "AMARA biedt in Frigiliana momenteel vakanties van enkele nachten tot drie weken, niet een open residentiële of maandelijkse huur. Actuele voorwaarden gelden.", "AMARAs aktuella erbjudande i Frigiliana är semestervistelser från några nätter till tre veckor, inte öppen bostads- eller månadshyra. Aktuella villkor gäller.")
+        l(
+          "In winter we rent from a few nights up to three weeks. Longer than that we do not offer — this is a holiday stay, not a monthly let.",
+          "Wir vermieten im Winter von ein paar Nächten bis zu drei Wochen. Länger geht bei uns nicht — das ist Ferienvermietung, keine Monatsmiete.",
+          "En invierno alquilamos desde unas noches hasta tres semanas. Más tiempo no lo ofrecemos: es una estancia vacacional, no un alquiler mensual.",
+          "In de winter verhuren we van een paar nachten tot drie weken. Langer bieden we niet aan — dit is een vakantieverblijf, geen maandhuur.",
+          "På vintern hyr vi ut från några nätter upp till tre veckor. Längre än så erbjuder vi inte — det här är en semestervistelse, inte månadsuthyrning."
+        ),
+        l(
+          "From eight nights a direct booking includes one cleaning around the middle of the stay. **For two or three weeks, Lounis is usually the calmest choice** — 70 m² simply carries a long stay better.",
+          "Ab acht Nächten ist bei Direktbuchung eine Reinigung zur Mitte des Aufenthalts dabei. **Für zwei oder drei Wochen ist Lounis meist die entspannteste Wahl** — 70 m² tragen einen langen Aufenthalt einfach besser.",
+          "A partir de ocho noches, la reserva directa incluye una limpieza a mitad de estancia. **Para dos o tres semanas, Lounis suele ser la opción más cómoda**: 70 m² sostienen mejor una estancia larga.",
+          "Vanaf acht nachten hoort bij een directe boeking één schoonmaak halverwege het verblijf. **Voor twee of drie weken is Lounis meestal de rustigste keuze** — 70 m² draagt een lang verblijf nu eenmaal beter.",
+          "Från åtta nätter ingår en städning mitt i vistelsen vid direktbokning. **För två eller tre veckor är Lounis oftast det lugnaste valet** — 70 m² bär helt enkelt en lång vistelse bättre."
+        )
       ]
     },
     {
-      id: "winter-day",
-      eyebrow: l("06 · Home comfort", "06 · Wohnkomfort", "06 · Confort en casa", "06 · Comfort thuis", "06 · Komfort hemma"),
-      title: l("In winter, the house becomes part of the destination", "Im Winter wird das Zuhause Teil des Reiseziels", "En invierno, la casa forma parte del destino", "In de winter wordt het huis onderdeel van de bestemming", "På vintern blir hemmet en del av destinationen"),
+      id: "what-is-open",
+      eyebrow: l("In the village", "Vor Ort", "En el pueblo", "In het dorp", "På plats"),
+      title: l(
+        "Not everything is open in winter",
+        "Im Winter hat nicht alles offen",
+        "En invierno no está todo abierto",
+        "In de winter is niet alles open",
+        "På vintern har inte allt öppet"
+      ),
       paragraphs: [
-        l("All four AMARA stays in Frigiliana have heating and bathroom underfloor heating in the current property records. Lounis, Zaid and Maha also have pellet stoves. Those are practical differences when the evening is spent at home.", "Alle vier AMARA-Unterkünfte in Frigiliana verfügen laut aktuellen Objektdaten über Heizung und Fußbodenheizung im Bad. Lounis, Zaid und Maha haben zusätzlich einen Pelletofen. Diese praktischen Unterschiede zählen, wenn der Abend zuhause stattfindet.", "Los cuatro alojamientos AMARA en Frigiliana tienen calefacción y suelo radiante en el baño según los registros actuales. Lounis, Zaid y Maha cuentan además con estufa de pellets.", "Alle vier AMARA-verblijven hebben volgens de actuele objectgegevens verwarming en vloerverwarming in de badkamer. Lounis, Zaid en Maha hebben ook een pelletkachel.", "Alla fyra AMARA-boenden har enligt aktuell objektdata värme och golvvärme i badrummet. Lounis, Zaid och Maha har också pelletskamin."),
-        l("Historic character does not remove the need for ordinary comfort. Choose by the space, terrace and equipment that fit your stay, and confirm any feature that is decisive for you before booking.", "Historischer Charakter ersetzt keinen Alltagskomfort. Wählt nach Raum, Terrasse und Ausstattung, die zu eurem Aufenthalt passen, und bestätigt vor der Buchung jedes Merkmal, das für euch entscheidend ist.", "El carácter histórico no sustituye la comodidad diaria. Elegid según espacio, terraza y equipamiento, y confirmad antes de reservar cualquier detalle decisivo.", "Kies op ruimte, terras en uitrusting en bevestig vóór boeking ieder detail dat doorslaggevend is.", "Välj efter yta, terrass och utrustning och bekräfta före bokning varje detalj som är avgörande för er.")
-      ]
-    },
-    {
-      id: "home-matters",
-      eyebrow: l("07 · Fit and non-fit", "07 · Passt – oder passt nicht", "07 · Encaja o no encaja", "07 · Past wel of niet", "07 · Passar eller inte"),
-      title: l("Who will enjoy Frigiliana in winter — and who may not", "Wer Frigiliana im Winter genießen wird", "Quién disfrutará Frigiliana en invierno", "Wie Frigiliana in de winter zal waarderen", "Vem uppskattar Frigiliana på vintern?"),
-      paragraphs: [
-        l("It can suit couples, walkers, slow travellers and guests who value village atmosphere more than constant entertainment. It also works well when the coast is an option but does not need to be outside the door.", "Die Jahreszeit kann zu Paaren, Wandernden, Slow Travellern und Gästen passen, denen Dorfatmosphäre wichtiger ist als ständige Unterhaltung. Sie funktioniert auch gut, wenn die Küste eine Option sein darf, aber nicht vor der Haustür liegen muss.", "Puede encajar con parejas, senderistas y viajeros lentos que valoran el ambiente del pueblo más que el entretenimiento continuo, y con quienes quieren la costa como opción.", "Het past bij stellen, wandelaars en langzame reizigers die dorpssfeer belangrijker vinden dan continu vermaak en de kust als optie zien.", "Det kan passa par, vandrare och långsamma resenärer som värderar byatmosfär mer än ständig underhållning och ser kusten som ett alternativ."),
-        l("It may be a poor fit if steep streets are a serious barrier, if guaranteed beach weather is essential or if you expect every summer business and service to operate unchanged. Honest fit is more useful than a universal recommendation.", "Weniger passend ist sie, wenn steile Wege ein großes Hindernis sind, garantiertes Strandwetter unverzichtbar ist oder alle Sommerangebote unverändert verfügbar sein sollen. Ehrliche Passung hilft mehr als eine pauschale Empfehlung.", "Encaja menos si las cuestas son un obstáculo serio, necesitáis tiempo de playa garantizado o esperáis que toda la oferta de verano funcione igual.", "Het past minder bij wie steile straten moeilijk vindt, gegarandeerd strandweer nodig heeft of verwacht dat alles als in de zomer werkt.", "Det passar mindre om branta gator är ett stort hinder, garanterat strandväder krävs eller allt förväntas fungera som på sommaren.")
-      ]
-    },
-    {
-      id: "who-enjoys-winter",
-      eyebrow: l("08 · Plan with local context", "08 · Mit Ortskenntnis planen", "08 · Planificar con contexto", "08 · Plannen met context", "08 · Planera med sammanhang"),
-      title: l("Separate stable knowledge from today’s conditions", "Trennt stabiles Wissen von den Bedingungen heute", "Separad el conocimiento estable de las condiciones actuales", "Scheid vaste kennis van de omstandigheden van vandaag", "Skilj stabil kunskap från dagens villkor"),
-      paragraphs: [
-        l("Use the Weather & Seasons guide for climate context and the Where to Stay guide for slopes, stairs and daily routes. Then check the forecast, current opening hours and transport for your actual dates.", "Nutzt „Wetter & Jahreszeiten“ für den Klimakontext und „Wo übernachten“ für Steigungen, Treppen und tägliche Wege. Prüft anschließend Vorhersage, Öffnungszeiten und Verkehr für eure konkreten Reisedaten.", "Usad Clima y estaciones para el contexto y Dónde alojarse para cuestas, escaleras y recorridos. Después comprobad previsión, horarios y transporte para vuestras fechas.", "Gebruik Weer & seizoenen voor klimaat en Waar verblijven voor hellingen, trappen en routes. Controleer daarna verwachting, openingstijden en vervoer voor jullie data.", "Använd Väder & årstider för klimat och Var ska man bo för backar, trappor och vägar. Kontrollera sedan prognos, öppettider och transport för era datum."),
-        l("AMARA’s role is to explain the village and the homes clearly. Personal winter routines and business recommendations will be added only when they can be dated and distinguished from general destination facts.", "AMARA erklärt Dorf und Unterkünfte so klar wie möglich. Persönliche Winterroutinen und Empfehlungen zu Betrieben ergänzen wir nur, wenn sie datiert und sauber von allgemeinen Ortsfakten getrennt werden können.", "AMARA explica pueblo y casas con claridad. Las rutinas personales y recomendaciones de negocios solo se añadirán cuando puedan fecharse y distinguirse de los hechos generales.", "Persoonlijke routines en bedrijfstips voegen we alleen toe wanneer ze gedateerd en duidelijk als ervaring te herkennen zijn.", "Personliga rutiner och företagstips läggs bara till när de kan dateras och tydligt märkas som erfarenhet.")
-      ]
-    },
-    {
-      id: "amara-la-marina",
-      eyebrow: l("09 · Your winter base", "09 · Eure Winterbasis", "09 · Vuestra base", "09 · Jullie winterbasis", "09 · Er vinterbas"),
-      title: l("Choose the Frigiliana stay that fits your winter", "Wählt die Unterkunft, die zu eurem Winter passt", "Elegid la casa que encaje con vuestro invierno", "Kies het verblijf dat bij jullie winter past", "Välj boendet som passar er vinter"),
-      paragraphs: [
-        l("Farah is the more compact option, while Lounis, Zaid and Maha add pellet stoves and different private outdoor spaces. The right choice depends on how long you stay, how much time you expect to spend at home and which features matter most.", "Farah ist die kompaktere Option; Lounis, Zaid und Maha ergänzen einen Pelletofen und unterschiedliche private Außenbereiche. Welche Unterkunft passt, hängt von Aufenthaltsdauer, Zeit zuhause und euren wichtigsten Ausstattungswünschen ab.", "Farah es la opción más compacta; Lounis, Zaid y Maha añaden estufa de pellets y distintos espacios exteriores privados. La elección depende de duración, tiempo en casa y prioridades.", "Farah is compacter; Lounis, Zaid en Maha voegen pelletkachels en verschillende buitenruimtes toe. De keuze hangt af van duur, tijd thuis en prioriteiten.", "Farah är kompaktare; Lounis, Zaid och Maha erbjuder pelletskaminer och olika privata uteplatser. Valet beror på längd, tid hemma och prioriteringar."),
-        l("Start with the winter proposition, compare the individual homes and then check live availability. The page does not need a climate superlative: the real offer is a memorable village and a comfortable place to return to.", "Beginnt mit dem Wintergefühl, vergleicht dann die einzelnen Unterkünfte und prüft die Live-Verfügbarkeit. Die Seite braucht keinen Klima-Superlativ: Das echte Angebot ist ein besonderes Dorf und ein komfortabler Rückzugsort.", "Comparad los alojamientos y consultad la disponibilidad real. La propuesta no necesita un superlativo climático: consiste en un pueblo singular y una casa cómoda a la que volver.", "Vergelijk de huizen en controleer live beschikbaarheid. Het echte aanbod is een bijzonder dorp en een comfortabele plek om naar terug te keren.", "Jämför hemmen och kontrollera live-tillgänglighet. Det verkliga erbjudandet är en minnesvärd by och ett bekvämt hem att återvända till.")
+        l(
+          "Some restaurants and shops shorten their hours in winter or close for a few weeks. How much is running varies from one year to the next.",
+          "Manche Restaurants und Geschäfte verkürzen im Winter ihre Zeiten oder schließen für ein paar Wochen. Wie viel läuft, ist von Jahr zu Jahr verschieden.",
+          "Algunos restaurantes y tiendas reducen su horario en invierno o cierran unas semanas. Cuánto está abierto cambia de un año a otro.",
+          "Sommige restaurants en winkels verkorten in de winter hun openingstijden of sluiten een paar weken. Hoeveel er draait, verschilt per jaar.",
+          "Vissa restauranger och butiker kortar sina öppettider på vintern eller stänger några veckor. Hur mycket som är igång varierar från år till år."
+        ),
+        l(
+          "We would rather not hand you a list that is already wrong by the time you read it. **Send us your dates and we will tell you what is open that week.**",
+          "Eine Liste, die beim Lesen schon nicht mehr stimmt, wollen wir euch nicht hinstellen. **Schickt uns eure Reisedaten, dann sagen wir euch, was in der Woche offen hat.**",
+          "Preferimos no daros una lista que ya esté desfasada cuando la leáis. **Escribidnos vuestras fechas y os decimos qué abre esa semana.**",
+          "We geven jullie liever geen lijst die al niet meer klopt zodra je hem leest. **Stuur ons jullie data, dan zeggen we wat er die week open is.**",
+          "Vi vill helst inte ge er en lista som redan är fel när ni läser den. **Skicka era datum, så berättar vi vad som har öppet den veckan.**"
+        )
       ]
     }
   ],
   related: {
-    eyebrow: l("Continue planning", "Weiter planen", "Seguir planificando", "Verder plannen", "Planera vidare"),
-    title: l("Put climate, terrain and location together", "Klima, Wege und Lage zusammendenken", "Unid clima, terreno y ubicación", "Combineer klimaat, terrein en ligging", "Kombinera klimat, terräng och läge"),
+    eyebrow: l("Keep reading", "Weiterlesen", "Seguir leyendo", "Verder lezen", "Läs vidare"),
+    title: l(
+      "Climate, terrain and where in the village you sleep",
+      "Klima, Wege und wo im Dorf ihr schlaft",
+      "Clima, terreno y dónde dormís en el pueblo",
+      "Klimaat, terrein en waar in het dorp je slaapt",
+      "Klimat, terräng och var i byn ni sover"
+    ),
     links: [
       {
         token: "weather_frigiliana" as LinkToken,
         label: l("Weather & Seasons", "Wetter & Jahreszeiten", "Clima y estaciones", "Weer & seizoenen", "Väder & årstider"),
-        text: l("Climate patterns, seasons and the official forecast boundary.", "Klimamuster, Jahreszeiten und die Grenze zur aktuellen Vorhersage.", "Patrones climáticos, estaciones y previsión actual.", "Klimaatpatronen, seizoenen en actuele verwachting.", "Klimatmönster, årstider och aktuell prognos.")
+        text: l("What the year looks like here, and where the forecast takes over.", "Wie das Jahr hier aussieht — und ab wann die Vorhersage zählt.", "Cómo es el año aquí y dónde empieza la previsión.", "Hoe het jaar er hier uitziet en waar de verwachting het overneemt.", "Hur året ser ut här och var prognosen tar vid.")
       },
       {
         token: "frigiliana_stairs" as LinkToken,
         label: l("Where to Stay", "Wo übernachten", "Dónde alojarse", "Waar verblijven", "Var ska man bo"),
-        text: l("Slopes, stairs and how different parts of the village affect daily life.", "Steigungen, Treppen und die Unterschiede im Alltag der verschiedenen Lagen.", "Cuestas, escaleras y diferencias prácticas entre zonas.", "Hellingen, trappen en dagelijkse verschillen per zone.", "Backar, trappor och vardagliga skillnader mellan områden.")
+        text: l("Slopes, stairs and what the daily walk is like in each part of the village.", "Steigungen, Treppen und wie sich der tägliche Weg in den einzelnen Ortsteilen anfühlt.", "Cuestas, escaleras y cómo es el camino diario en cada zona.", "Hellingen, trappen en hoe de dagelijkse wandeling per wijk aanvoelt.", "Backar, trappor och hur den dagliga promenaden känns i olika delar av byn.")
       },
       {
         token: "frigiliana_geography" as LinkToken,
         label: l("Geography & Orientation", "Geografie & Orientierung", "Geografía y orientación", "Geografie & oriëntatie", "Geografi & orientering"),
-        text: l("Understand the hillside village, the coast and the wider landscape.", "Das Hangdorf, die Küste und die größere Landschaft verstehen.", "El pueblo en ladera, la costa y el paisaje.", "Het heuveldorp, de kust en het landschap.", "Sluttningsbyn, kusten och landskapet.")
+        text: l("Where the village sits above Nerja and how the coast fits in.", "Wo das Dorf über Nerja liegt und wie die Küste dazugehört.", "Dónde queda el pueblo sobre Nerja y cómo encaja la costa.", "Waar het dorp boven Nerja ligt en hoe de kust erbij hoort.", "Var byn ligger ovanför Nerja och hur kusten hänger ihop med den.")
       },
       {
         token: "nerja_vs_frigiliana" as LinkToken,
         label: l("Frigiliana or Nerja?", "Frigiliana oder Nerja?", "¿Frigiliana o Nerja?", "Frigiliana of Nerja?", "Frigiliana eller Nerja?"),
-        text: l("Compare village life with staying directly on the coast.", "Dorfleben mit einem Aufenthalt direkt an der Küste vergleichen.", "Comparad el pueblo con una estancia junto al mar.", "Vergelijk het dorp met direct verblijf aan de kust.", "Jämför byliv med boende direkt vid kusten.")
+        text: l("If the steps are the sticking point, the coast is the other option.", "Wenn die Stufen der Knackpunkt sind, ist die Küste die Alternative.", "Si los escalones son el problema, la costa es la alternativa.", "Als de trappen het knelpunt zijn, is de kust het alternatief.", "Om trappstegen är knuten är kusten alternativet.")
       }
     ]
   },
   sources: {
     eyebrow: l("Sources", "Quellen", "Fuentes", "Bronnen", "Källor"),
-    title: l("Where these facts come from", "Woher diese Angaben stammen", "De dónde salen estos datos", "Waar deze gegevens vandaan komen", "Varifrån uppgifterna kommer"),
-    intro: l("Terrain and route context come from official destination sources, the travel motives from European research, and the comfort details from our own current property records.", "Gelände und Routenkontext stammen aus offiziellen Ortsquellen, die Reisemotive aus europäischer Reiseforschung und die Komfortangaben aus unseren eigenen aktuellen Objektdaten.", "El terreno y las rutas proceden de fuentes oficiales, los motivos de viaje de la investigación europea y los detalles de confort de nuestros propios registros actuales.", "Terrein en route komen uit officiële bronnen, de reismotieven uit Europees onderzoek en de comfortdetails uit onze eigen actuele objectgegevens.", "Terräng och rutt kommer från officiella källor, resmotiven från europeisk forskning och komfortuppgifterna från våra egna aktuella objektdata."),
-    checked: l("Sources reviewed 21 August 2026", "Quellen geprüft am 21. August 2026", "Fuentes revisadas el 21 de agosto de 2026", "Bronnen gecontroleerd op 21 augustus 2026", "Källor granskade 21 augusti 2026"),
+    title: l("Where these details come from", "Woher diese Angaben kommen", "De dónde salen estos datos", "Waar deze gegevens vandaan komen", "Varifrån uppgifterna kommer"),
+    intro: l(
+      "The terrain and the El Fuerte route description come from Frigiliana's official tourism information. Everything about our four apartments comes from us.",
+      "Gelände und die Beschreibung der El-Fuerte-Route stammen von der offiziellen Tourismusinformation Frigilianas. Alles zu unseren vier Wohnungen kommt von uns.",
+      "El terreno y la descripción de la ruta de El Fuerte proceden de la información turística oficial de Frigiliana. Todo lo relativo a nuestros cuatro alojamientos viene de nosotros.",
+      "Het terrein en de beschrijving van de El Fuerte-route komen van de officiële toeristische informatie van Frigiliana. Alles over onze vier appartementen komt van ons.",
+      "Terrängen och beskrivningen av El Fuerte-rutten kommer från Frigilianas officiella turistinformation. Allt om våra fyra lägenheter kommer från oss."
+    ),
+    checked: l("Last checked in August 2026", "Zuletzt im August 2026 nachgesehen", "Revisado por última vez en agosto de 2026", "Voor het laatst nagekeken in augustus 2026", "Senast kontrollerat i augusti 2026"),
     links: [
       {
-        label: l("European Travel Commission · winter travel sentiment", "European Travel Commission · Reisestimmung im Winter", "European Travel Commission · viajes de invierno", "European Travel Commission · winterreizen", "European Travel Commission · vinterresor"),
-        text: l("European travel intent and the boundary between stated plans and actual bookings.", "Europäische Reiseabsichten und die Grenze zwischen Planung und tatsächlicher Buchung.", "Intención europea y diferencia entre planes y reservas.", "Europese intentie en het verschil tussen plannen en boekingen.", "Europeisk resavsikt och skillnaden mellan planer och bokningar."),
-        href: sourceHrefs.travelIntent
-      },
-      {
-        label: l("Turismo de Frigiliana · historic streets", "Turismo de Frigiliana · historische Gassen", "Turismo de Frigiliana · calles históricas", "Turismo de Frigiliana · historische straten", "Turismo de Frigiliana · historiska gator"),
-        text: l("Official description of the old quarter’s narrow, winding and steep lanes.", "Offizielle Beschreibung der engen, verwinkelten und steilen Altstadtwege.", "Descripción oficial de las calles estrechas, sinuosas y empinadas.", "Officiële beschrijving van smalle, kronkelende en steile straten.", "Officiell beskrivning av smala, slingrande och branta gator."),
+        label: l("Turismo de Frigiliana · the streets", "Turismo de Frigiliana · die Gassen", "Turismo de Frigiliana · las calles", "Turismo de Frigiliana · de straten", "Turismo de Frigiliana · gatorna"),
+        text: l("The official description of the old town's narrow, winding and steep lanes.", "Die offizielle Beschreibung der engen, verwinkelten und steilen Altstadtgassen.", "La descripción oficial de las calles estrechas, sinuosas y empinadas.", "De officiële beschrijving van de smalle, kronkelende en steile straatjes.", "Den officiella beskrivningen av gamla stans smala, slingrande och branta gränder."),
         href: sourceHrefs.streets
       },
       {
         label: l("Turismo de Frigiliana · El Fuerte", "Turismo de Frigiliana · El Fuerte", "Turismo de Frigiliana · El Fuerte", "Turismo de Frigiliana · El Fuerte", "Turismo de Frigiliana · El Fuerte"),
-        text: l("Official route context beginning in the village.", "Offizieller Routenkontext mit Start im Dorf.", "Contexto oficial de la ruta que comienza en el pueblo.", "Officiële routecontext vanuit het dorp.", "Officiell ruttkontext från byn."),
+        text: l("The official route, which starts in the village and leaves it by steps.", "Die offizielle Route, die im Dorf beginnt und es über Stufen verlässt.", "La ruta oficial, que empieza en el pueblo y sale por escalones.", "De officiële route, die in het dorp begint en het via trappen verlaat.", "Den officiella rutten, som börjar i byn och lämnar den via trappsteg."),
         href: sourceHrefs.elFuerte
       }
     ]
   },
   closing: {
-    eyebrow: l("Winter, without the sales fiction", "Winter ohne Verkaufsfiktion", "Invierno sin ficción comercial", "Winter zonder verkoopfictie", "Vinter utan säljfiktion"),
-    title: l("Stay for the village — choose the home for the evening", "Kommt wegen des Dorfes – wählt das Zuhause für den Abend", "Venid por el pueblo; elegid la casa para la tarde", "Kom voor het dorp; kies het huis voor de avond", "Kom för byn; välj hemmet för kvällen"),
-    body: l("Frigiliana in winter rewards guests who want atmosphere, landscape and time rather than guaranteed summer conditions. Compare the AMARA homes, decide which winter comforts matter and check current availability for your dates.", "Frigiliana im Winter passt zu Gästen, die Atmosphäre, Landschaft und Zeit wichtiger finden als garantierte Sommerbedingungen. Vergleicht die AMARA-Unterkünfte, entscheidet über euren Winterkomfort und prüft die aktuelle Verfügbarkeit.", "Frigiliana en invierno recompensa a quien busca ambiente, paisaje y tiempo, no condiciones estivales garantizadas. Comparad las casas AMARA y consultad la disponibilidad actual.", "Frigiliana in de winter past bij gasten die sfeer, landschap en tijd waarderen boven gegarandeerde zomercondities. Vergelijk de AMARA-huizen en bekijk de actuele beschikbaarheid.", "Frigiliana på vintern passar gäster som värderar atmosfär, landskap och tid mer än garanterade sommarvillkor. Jämför AMARA-hemmen och se aktuell tillgänglighet."),
+    eyebrow: l("Winter at AMARA", "Winter bei AMARA", "Invierno en AMARA", "Winter bij AMARA", "Vinter hos AMARA"),
+    title: l(
+      "Tell us when you want to come",
+      "Sagt uns, wann ihr kommen möchtet",
+      "Contadnos cuándo queréis venir",
+      "Vertel ons wanneer jullie willen komen",
+      "Berätta när ni vill komma"
+    ),
+    body: l(
+      "If a quiet village, walks and long evenings indoors sound right, winter here works. Send us your dates and the one thing that matters most, and we will tell you which of the four fits.",
+      "Wenn ruhiges Dorf, Wanderungen und lange Abende drinnen für euch passen, funktioniert der Winter hier. Schickt uns eure Reisedaten und die eine Sache, die euch am wichtigsten ist — wir sagen euch, welche der vier passt.",
+      "Si os encajan un pueblo tranquilo, caminatas y tardes largas dentro de casa, el invierno aquí funciona. Enviadnos vuestras fechas y lo que más os importa, y os decimos cuál de los cuatro encaja.",
+      "Als een rustig dorp, wandelingen en lange avonden binnen goed klinken, werkt de winter hier. Stuur ons jullie data en het ene dat het belangrijkst is, dan zeggen we welke van de vier past.",
+      "Om en lugn by, vandringar och långa kvällar inomhus låter rätt fungerar vintern här. Skicka era datum och den sak som betyder mest, så säger vi vilket av de fyra som passar."
+    ),
     locationLabel: l("Explore Frigiliana", "Frigiliana entdecken", "Descubrir Frigiliana", "Ontdek Frigiliana", "Upptäck Frigiliana"),
     propertyLabel: l("Check winter availability", "Winterverfügbarkeit prüfen", "Consultar disponibilidad", "Bekijk winterbeschikbaarheid", "Kontrollera vintertillgänglighet")
   }
