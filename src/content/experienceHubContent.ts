@@ -391,7 +391,7 @@ export const experienceHubContent: Record<
       kicker: 'Your days in Frigiliana',
       title: 'Morning in the village, later the hills or the sea.',
       paragraphs: [
-        'At Casa AMARA, the day begins in the middle of Frigiliana. Pick up bread, wander through the old lanes, walk into the hills or head down to Nerja for the beach. In the evening, you can eat in the village and simply walk home. There is no programme to complete — choose what feels right that day.'
+        'At Casa AMARA, the day begins in the middle of Frigiliana. Pick up bread, wander through the old lanes, walk into the hills or head down to Nerja for the beach. In the evening, you can eat in the village and simply walk home. There is no programme to complete — every day can be different.'
       ],
       imageAlt:
         'A whitewashed street in Frigiliana opening towards the surrounding hills',
@@ -462,7 +462,7 @@ export const experienceHubContent: Record<
         kicker: 'A day with more movement',
         title: 'Walk from the white village into the hills',
         text:
-          'The landscape begins just above the old town. Choose a short walk or a longer route, then check heat, weather and the exact track before leaving.',
+          'The landscape begins just above the old town, with short walks as well as longer routes. Check the heat, weather and exact track before leaving.',
         linkLabel: 'Open the hiking guide',
         imageAlt:
           'Frigiliana street with a view towards the mountain landscape'
@@ -545,7 +545,7 @@ export const experienceHubContent: Record<
     closing: {
       title: 'And in the evening, walk home through the old village.',
       lead:
-        'Lounis, Zaid and Maha have private terraces; Farah is our compact suite without one. Choose the stay that fits the way you want to spend your time.',
+        'Lounis, Zaid and Maha have private terraces; Farah is our compact suite without one. We are happy to tell you honestly which stay has the details that matter to you.',
       availabilityCta: 'Check availability',
       staysCta: 'View all stays'
     }
@@ -630,7 +630,7 @@ export const experienceHubContent: Record<
         kicker: 'Ein Tag mit mehr Bewegung',
         title: 'Von den weißen Gassen hinaus in die Berge',
         text:
-          'Oberhalb der Altstadt beginnt direkt die Landschaft. Wählt einen kurzen Spaziergang oder eine längere Route und prüft vor dem Start Hitze, Wetter und den genauen Weg.',
+          'Oberhalb der Altstadt beginnt direkt die Landschaft – mit kurzen Spaziergängen ebenso wie mit längeren Routen. Prüft vor dem Start Hitze, Wetter und den genauen Weg.',
         linkLabel: 'Zum Wanderguide',
         imageAlt: 'Frigilianas Altstadt mit Blick in die Berglandschaft'
       },
@@ -712,7 +712,7 @@ export const experienceHubContent: Record<
     closing: {
       title: 'Und am Ende wieder nach Hause durch die Altstadt.',
       lead:
-        'Lounis, Zaid und Maha haben jeweils eine private Terrasse mit Außendusche, Hängematte und zwei Liegen. Farah ist unsere kompakte Suite ohne private Terrasse. So könnt ihr die Unterkunft wählen, die wirklich zu euren Tagen passt.',
+        'Lounis, Zaid und Maha haben jeweils eine private Terrasse mit Außendusche, Hängematte und zwei Liegen. Farah ist unsere kompakte Suite ohne private Terrasse. Wir sagen euch gern ehrlich, welche Unterkunft die Details hat, die euch wichtig sind.',
       availabilityCta: 'Verfügbarkeit prüfen',
       staysCta: 'Romantic Hideaways entdecken'
     }
@@ -726,7 +726,7 @@ export const experienceHubContent: Record<
       kicker: 'Vuestros días en Frigiliana',
       title: 'Por la mañana el pueblo; después, la montaña o el mar.',
       paragraphs: [
-        'En Casa AMARA el día empieza en pleno Frigiliana. Podéis comprar pan, pasear por las calles antiguas, salir a la montaña o bajar a Nerja para pasar el día en la playa. Por la noche cenáis en el pueblo y volvéis a casa andando. No hay ningún programa que completar: haced lo que os apetezca ese día.'
+        'En Casa AMARA el día empieza en pleno Frigiliana. Podéis comprar pan, pasear por las calles antiguas, salir a la montaña o bajar a Nerja para pasar el día en la playa. Por la noche cenáis en el pueblo y volvéis a casa andando. No hay ningún programa que completar: cada día puede ser distinto.'
       ],
       imageAlt:
         'Calle blanca de Frigiliana abierta hacia las montañas cercanas',
@@ -797,7 +797,7 @@ export const experienceHubContent: Record<
         kicker: 'Un día con más movimiento',
         title: 'Salir de las calles blancas hacia la montaña',
         text:
-          'El paisaje empieza justo por encima del casco antiguo. Elegid un paseo corto o una ruta más larga y comprobad antes el calor, el tiempo y el recorrido exacto.',
+          'El paisaje empieza justo por encima del casco antiguo, con paseos cortos y rutas más largas. Comprobad antes el calor, el tiempo y el recorrido exacto.',
         linkLabel: 'Ver la guía de senderismo',
         imageAlt: 'Frigiliana con las montañas al fondo'
       },
@@ -879,7 +879,7 @@ export const experienceHubContent: Record<
     closing: {
       title: 'Y por la noche, volvéis a casa por el casco antiguo.',
       lead:
-        'Lounis, Zaid y Maha tienen terraza privada; Farah es nuestra suite compacta sin terraza. Elegid el alojamiento que encaje con la forma en que queréis pasar el tiempo.',
+        'Lounis, Zaid y Maha tienen terraza privada; Farah es nuestra suite compacta sin terraza. Os diremos con sinceridad qué alojamiento tiene los detalles que más os importan.',
       availabilityCta: 'Consultar disponibilidad',
       staysCta: 'Ver todos los alojamientos'
     }
@@ -893,7 +893,7 @@ export const experienceHubContent: Record<
       kicker: 'Jullie dagen in Frigiliana',
       title: 'In de ochtend het dorp, daarna de bergen of de zee.',
       paragraphs: [
-        'Bij Casa AMARA begint de dag midden in Frigiliana. Haal brood, wandel door de oude straatjes, trek de heuvels in of ga naar Nerja voor een stranddag. ’s Avonds eten jullie in het dorp en lopen daarna gewoon naar huis. Er is geen programma om af te werken: kies wat die dag goed voelt.'
+        'Bij Casa AMARA begint de dag midden in Frigiliana. Haal brood, wandel door de oude straatjes, trek de heuvels in of ga naar Nerja voor een stranddag. ’s Avonds eten jullie in het dorp en lopen daarna gewoon naar huis. Er is geen programma om af te werken: elke dag mag anders zijn.'
       ],
       imageAlt:
         'Witte straat in Frigiliana met uitzicht richting de bergen',
@@ -964,7 +964,7 @@ export const experienceHubContent: Record<
         kicker: 'Een dag met meer beweging',
         title: 'Loop vanuit de witte straatjes de heuvels in',
         text:
-          'Het landschap begint direct boven de oude kern. Kies een korte wandeling of een langere route en controleer vooraf hitte, weer en het precieze traject.',
+          'Het landschap begint direct boven de oude kern, met korte wandelingen en langere routes. Controleer vooraf de hitte, het weer en het precieze traject.',
         linkLabel: 'Open de wandelgids',
         imageAlt: 'Frigiliana met uitzicht op het berglandschap'
       },
@@ -1046,7 +1046,7 @@ export const experienceHubContent: Record<
     closing: {
       title: 'En ’s avonds lopen jullie door de oude kern naar huis.',
       lead:
-        'Lounis, Zaid en Maha hebben een privéterras; Farah is onze compacte suite zonder terras. Kies het verblijf dat past bij de manier waarop jullie de tijd willen doorbrengen.',
+        'Lounis, Zaid en Maha hebben een privéterras; Farah is onze compacte suite zonder terras. We vertellen jullie graag eerlijk welk verblijf de details heeft die belangrijk voor jullie zijn.',
       availabilityCta: 'Beschikbaarheid checken',
       staysCta: 'Bekijk alle verblijven'
     }
@@ -1060,7 +1060,7 @@ export const experienceHubContent: Record<
       kicker: 'Era dagar i Frigiliana',
       title: 'Byn på morgonen, sedan bergen eller havet.',
       paragraphs: [
-        'På Casa AMARA börjar dagen mitt i Frigiliana. Hämta bröd, promenera genom de gamla gränderna, ge er ut i bergen eller åk till Nerja för en stranddag. På kvällen äter ni i byn och går sedan bara hem. Det finns inget program att hinna med – välj det som känns rätt den dagen.'
+        'På Casa AMARA börjar dagen mitt i Frigiliana. Hämta bröd, promenera genom de gamla gränderna, ge er ut i bergen eller åk till Nerja för en stranddag. På kvällen äter ni i byn och går sedan bara hem. Det finns inget program att hinna med – varje dag får se olika ut.'
       ],
       imageAlt:
         'Vitkalkad gata i Frigiliana med utsikt mot bergen',
@@ -1131,7 +1131,7 @@ export const experienceHubContent: Record<
         kicker: 'En dag med mer rörelse',
         title: 'Gå från de vita gränderna ut i bergen',
         text:
-          'Landskapet börjar strax ovanför gamla byn. Välj en kort promenad eller en längre tur och kontrollera värme, väder och den exakta rutten före start.',
+          'Landskapet börjar strax ovanför gamla byn, med både korta promenader och längre turer. Kontrollera värme, väder och den exakta rutten före start.',
         linkLabel: 'Öppna vandringsguiden',
         imageAlt: 'Frigiliana med utsikt mot bergslandskapet'
       },
@@ -1213,7 +1213,7 @@ export const experienceHubContent: Record<
     closing: {
       title: 'Och på kvällen går ni hem genom gamla byn.',
       lead:
-        'Lounis, Zaid och Maha har privata terrasser; Farah är vår kompakta svit utan terrass. Välj boendet som passar hur ni vill tillbringa tiden.',
+        'Lounis, Zaid och Maha har privata terrasser; Farah är vår kompakta svit utan terrass. Vi berättar gärna ärligt vilket boende som har detaljerna som betyder mest för er.',
       availabilityCta: 'Se tillgänglighet',
       staysCta: 'Se alla boenden'
     }

@@ -324,7 +324,7 @@ export const cinematicApartments: CinematicAptDef[] = [
       sv: 'Terrasslägenhet med vid utsikt'
     },
     desc: {
-      en: 'Choose Zaid if the terrace and view matter most: it overlooks the plantations towards the sea and has **Casa AMARA’s widest bed**.',
+      en: 'Zaid overlooks the plantations towards the sea and has **Casa AMARA’s widest bed** — a good combination when terrace and view matter most.',
       de: 'Wenn euch Terrasse und Aussicht am wichtigsten sind: Zaid blickt über die Plantagen bis zum Meer und hat **das breiteste Bett in Casa AMARA**.',
       es: 'Si lo más importante para vosotros son la terraza y las vistas, Zaid ofrece vistas sobre los cultivos hasta el mar y tiene **la cama más ancha de Casa AMARA**.',
       nl: 'Als terras en uitzicht het belangrijkst zijn: Zaid kijkt over de plantages naar zee en heeft **het breedste bed van Casa AMARA**.',

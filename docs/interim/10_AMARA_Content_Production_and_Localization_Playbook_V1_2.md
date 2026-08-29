@@ -1,7 +1,7 @@
 ---
 document_id: AMARA-INT-CONTENT-010
-title: AMARA Content Production & Localization Playbook V1.7
-version: 1.7.0
+title: AMARA Content Production & Localization Playbook V1.7.1
+version: 1.7.1
 status: ACTIVE
 authority_class: OPERATIONAL PLAYBOOK / NON-GOVERNING INTERIM
 source_type: INTERIM SNAPSHOT FROM APPROVED PDF + APPROVED REPOSITORY AMENDMENT
@@ -9,7 +9,7 @@ source_attachment: "10_AMARA_Content_Production_and_Localization_Playbook_V1_2(1
 source_sha256: adab58c901709b270fb264498158f2cb3010006bac7dfea18e6358627a0f10ae
 snapshot_created: 2026-08-14T09:08:00+02:00
 migration_state: PENDING PACKAGE 2/3 NORMALIZATION
-last_modified: 2026-08-29T08:47:07+02:00
+last_modified: 2026-08-29T13:59:51+02:00
 ---
 
 # AMARA Content Production & Localization Playbook V1.2 — Interim Markdown Snapshot
@@ -829,6 +829,7 @@ Public copy should sound like a relaxed, knowledgeable host speaking to guests. 
 Fail the draft when it:
 
 - repeatedly tells guests to choose, plan, compare, start with or think several topics together;
+- makes every accommodation, card or locale begin with the same translated instruction or contrast formula merely to keep a series symmetrical;
 - explains that a guide, hub, page or content branch owns a topic;
 - uses internal abstractions such as fit, decision, base, rhythm, journey or framework where an ordinary verb or concrete noun would say more;
 - turns a simple fact into a slogan, a contrast formula or several restatements;
@@ -861,6 +862,7 @@ For every new or materially revised public page, read the rendered copy aloud in
 5. Does any sentence describe the guide, hub, taxonomy or page instead of the place or stay?
 6. Is the accommodation or host perspective concrete early enough for the page job, without turning an authority page into a sales page?
 7. Does the rendered page give visual weight in proportion to the importance of the idea?
+8. Do repeated cards and accommodation summaries sound like natural individual descriptions rather than one translated sentence template with the name replaced?
 
 Rewrite or delete every failed sentence or stage. Do not repair an unnatural sentence by adding more explanation.
 
@@ -874,3 +876,4 @@ Rewrite or delete every failed sentence or stage. Do not repair an unnatural sen
 | 1.5.0 | 2026-08-23T12:51:40+02:00 | Added experiential authority, page-type calibration and the material-revision editorial pass. |
 | 1.6.0 | 2026-08-26T18:30:00Z | Gave the direct-answer principle a binding form, required attribute comparisons to be emitted as tables or identified lists, and added the retrievable-answer pass. Form only; no new claim authority. |
 | 1.7.0 | 2026-08-29T08:47:07+02:00 | Added the people-first host-language gate, deletion test, imperative boundary and proportional rendered-page density check. |
+| 1.7.1 | 2026-08-29T13:59:51+02:00 | Clarified that repeated cards and accommodation summaries must not be forced into one translated instruction or contrast template. |
