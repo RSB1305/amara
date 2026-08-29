@@ -6,6 +6,7 @@ import GuideClosingSection from './GuideClosingSection.astro';
 import ExperienceContextNav from '../../components/experience/ExperienceContextNav.astro';
 import {
   experienceCatalog,
+  experienceHubConnections,
   experienceHubContent,
   experienceHubSeo,
   experienceNavigationContent,
@@ -15,6 +16,7 @@ import LocationAuthorityLayout from '../../layouts/LocationAuthorityLayout.astro
 import { resolveOptionalLink, type LabeledLink } from '../../lib/linkResolver';
 import { normalizeLanguage } from '../../lib/seo/resolve-seo-head';
 import type { AmaraLanguage } from '../../types/seo';
+import GuideLinkCardSection from './GuideLinkCardSection.astro';
 
 interface Props {
   lang?: string;
@@ -23,6 +25,7 @@ interface Props {
 const { lang = 'es' } = Astro.props;
 const currentLang = normalizeLanguage(lang as AmaraLanguage);
 const copy = experienceHubContent[currentLang];
+const connectionsCopy = experienceHubConnections[currentLang];
 const navigation = experienceNavigationContent[currentLang];
 
 const getExperience = (id: ExperienceId) => {
@@ -37,7 +40,7 @@ const getExperience = (id: ExperienceId) => {
   };
 };
 
-const [leadId, ...secondaryIds] = copy.catalog.order.slice(0, 4);
+const [leadId, ...secondaryIds] = copy.catalog.order;
 const leadStory = getExperience(leadId);
 const secondaryStories = secondaryIds.map(getExperience);
 const oldTownDiscovery = copy.moods.discoveryLinks.find(
@@ -46,6 +49,13 @@ const oldTownDiscovery = copy.moods.discoveryLinks.find(
 const oldTownHref = oldTownDiscovery
   ? resolveOptionalLink(oldTownDiscovery.token, currentLang, { suppressMissing: true })
   : null;
+
+const connectionItems = connectionsCopy.items.map((item) => ({
+  ...item,
+  href: resolveOptionalLink(item.linkToken, currentLang, {
+    suppressMissing: true
+  })
+}));
 
 const footerHighlights: LabeledLink[] = [
   { token: 'frigiliana_experience_hub', label: copy.footerHighlights.hub },
@@ -231,6 +241,13 @@ const heroImage = {
           )
         }
       </section>
+
+      <GuideLinkCardSection
+        title={connectionsCopy.title}
+        intro={connectionsCopy.intro}
+        items={connectionItems}
+        surface="tint"
+      />
 
       <GuideClosingSection
         title={copy.closing.title}
