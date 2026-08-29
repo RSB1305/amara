@@ -22,7 +22,7 @@ const { lang = 'es' } = Astro.props;
 const currentLang = normalizeLanguage(lang as AmaraLanguage);
 const copy = resolveLocale(nerjaExperienceHubContent, currentLang);
 
-const themes = copy.themes.map((theme) => ({
+const themes = copy.themes.slice(0, 4).map((theme) => ({
   ...theme,
   href: resolveOptionalLink(theme.token, currentLang, { suppressMissing: true })
 }));

@@ -351,7 +351,7 @@ test('calendar and quote failures stay generic and never retry automatically', a
   await page.goto(ORIGIN + '/sv/la-amara-maha', { waitUntil: 'domcontentloaded' });
   await page.getByRole('button', { name: 'Välj ankomst' }).click();
   await expect(page.locator('[data-am-booking-calendar-status]')).toContainText(
-    'inte tillgänglig'
+    'Vi kan inte läsa in kalendern just nu'
   );
   expect(calendarRequests).toHaveLength(2);
   await page.mouse.click(5, 5);
@@ -372,7 +372,7 @@ test('a failed quote exposes only the localized generic error and is not retried
 
   await expect(page.locator('[data-am-booking-result]')).toHaveAttribute('data-state', 'error');
   await expect(page.locator('[data-am-booking-result]')).toContainText(
-    'Current booking data is unavailable'
+    'We cannot load availability and the total price right now'
   );
   await expect(page.getByRole('link', { name: 'Open the booking page' })).toHaveCount(0);
   expect(requests.filter((request) => request.pathname.endsWith('/quote'))).toHaveLength(1);

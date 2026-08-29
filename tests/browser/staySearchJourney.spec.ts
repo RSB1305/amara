@@ -196,7 +196,7 @@ test('homepage finder refreshes live dates for destination changes and returns q
   await departureButton.click();
   await expect(submit).toBeEnabled();
   await expect(page.locator('[data-am-booking-calendar-status]')).toContainText(
-    'Your dates are selected'
+    'Your dates are set'
   );
   await page.locator('[data-am-booking-day="' + arrival + '"]').click();
   await expect(page.locator('[data-am-stay-search-departure]')).toHaveValue('');
@@ -235,15 +235,16 @@ test('empty availability and technical failures remain distinct', async ({ page 
   const unavailableRequests = await mockGateway(page, { unavailable: new Set(['farah', 'lounis', 'zaid', 'maha']) });
   await page.goto(searchUrl('frigiliana', arrival, departure));
   await expect(page.locator('[data-am-stay-search-empty]')).toBeVisible();
-  await expect(page.locator('[data-am-stay-search-empty-copy]')).toContainText('No AMARA hideaway');
+  await expect(page.locator('[data-am-stay-search-empty-copy]')).toContainText('none of our stays');
   await expect(page.locator('[data-am-stay-search-warning]')).toBeHidden();
   expect(unavailableRequests).toHaveLength(4);
 
   await page.unroute('**/api/booking/**');
   const errorRequests = await mockGateway(page, { technicalError: new Set(['playa']) });
   await page.goto(searchUrl('nerja', arrival, departure));
-  await expect(page.locator('[data-am-stay-search-warning]')).toBeVisible();
-  await expect(page.locator('[data-am-stay-search-empty-copy]')).toContainText('could not complete');
+  await expect(page.locator('[data-am-stay-search-warning]')).toBeHidden();
+  await expect(page.locator('[data-am-stay-search-empty]')).toBeVisible();
+  await expect(page.locator('[data-am-stay-search-empty-copy]')).toContainText('cannot load availability and prices');
   expect(errorRequests).toHaveLength(1);
 });
 
