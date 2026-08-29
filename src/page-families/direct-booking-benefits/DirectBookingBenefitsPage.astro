@@ -1,6 +1,5 @@
 ---
 import TrustPageLayout from '../../layouts/TrustPageLayout.astro';
-import EditorialQuote from '../../components/editorial/EditorialQuote.astro';
 import EditorialDefinitionList from '../../components/editorial/EditorialDefinitionList.astro';
 import EditorialSplit from '../../components/editorial/EditorialSplit.astro';
 import EditorialClosingCta from '../../components/editorial/EditorialClosingCta.astro';
@@ -32,7 +31,6 @@ const directBookingDefinitionItems = copy.benefits.map((benefit) => ({
 }));
 const closingCtaLinks: EditorialClosingCtaLink[] = [
   { label: copy.sections.ctaAvailability[currentLang], token: 'book', style: 'primary' as const },
-  { label: copy.sections.inlineAbout[currentLang], token: 'about', style: 'secondary' as const },
   { label: copy.sections.ctaExplore[currentLang], token: 'romantic_hideaways', style: 'secondary' as const }
 ];
 const heroCtaLinks = ([
@@ -45,8 +43,8 @@ const heroCtaLinks = ([
   })
   .filter((link): link is { href: string; label: string } => Boolean(link));
 const inlineLinks = ([
-  { token: 'reviews_hub', label: copy.sections.inlineReviews[currentLang] },
-  { token: 'about', label: copy.sections.inlineAbout[currentLang] }
+  { token: 'contact', label: copy.sections.inlineContact[currentLang] },
+  { token: 'reviews_hub', label: copy.sections.inlineReviews[currentLang] }
 ] satisfies LabeledLink[])
   .map((link) => {
     const href = resolveOptionalLink(link.token, currentLang, { suppressMissing: true });
@@ -92,24 +90,6 @@ const inlineLinks = ([
     </EditorialSplit>
   </AmaraSection>
 
-  <AmaraSection variant="compact" dataComponent="direct-booking-quote">
-    <EditorialQuote quote={copy.sections.quote[currentLang]} />
-  </AmaraSection>
-
-  <AmaraSection labelledby="direct-booking-why-title" dataComponent="direct-booking-rationale">
-    <EditorialSplit
-      title={copy.sections.whyTitle[currentLang]}
-      titleId="direct-booking-why-title"
-    >
-      <p class="am-text-subtitle text-on-surface mb-8">
-        {copy.sections.whyLead[currentLang]}
-      </p>
-      <p class="am-text-body text-subtle">
-        <InlineEmphasis text={copy.sections.whyBody[currentLang]} />
-      </p>
-    </EditorialSplit>
-  </AmaraSection>
-
   <AmaraSection labelledby="direct-booking-promise-title" dataComponent="direct-booking-promise">
     <div class="grid gap-10 lg:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)] lg:gap-20">
       <h2 id="direct-booking-promise-title" class="am-text-title text-on-surface">
@@ -118,9 +98,6 @@ const inlineLinks = ([
       <div class="flex max-w-[65ch] flex-col gap-5 border-t border-border-subtle pt-6">
         <p class="am-text-body text-subtle">
           <InlineEmphasis text={copy.sections.promiseP1[currentLang]} />
-        </p>
-        <p class="am-text-body text-subtle">
-          <InlineEmphasis text={copy.sections.promiseP2[currentLang]} />
         </p>
         <p class="am-text-body text-muted italic mt-3">
           <InlineEmphasis text={copy.sections.promiseNote[currentLang]} />

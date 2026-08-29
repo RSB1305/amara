@@ -16,7 +16,7 @@ const t = (value: Record<AmaraLanguage, string>) => value[lang] ?? value.en;
 const copy = Object.fromEntries(
   Object.entries(staySearchCopy).map(([key, value]) => [key, t(value)])
 );
-const guestOptions = [1, 2];
+const guestOptions = [1, 2, 3, 4];
 ---
 
 <section

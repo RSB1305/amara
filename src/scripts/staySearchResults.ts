@@ -195,7 +195,9 @@ export function enhanceStaySearchResults() {
 
     void runWithConcurrency(candidates, checkCandidate).then(() => {
       state.textContent = '';
-      warning.hidden = technical.length === 0;
+      // The warning is useful only beside valid results. When every request
+      // fails, the single error below is clearer than two technical messages.
+      warning.hidden = technical.length === 0 || success.length === 0;
       available.hidden = success.length === 0;
       if (success.length > 0) return;
       empty.hidden = false;
